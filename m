@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD8ADC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 05:44:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5357CC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 05:45:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IlX8nA7Xk9H5c98D5iYmnhzWmAB9L4MDv6xIzYdT0mI=; b=Exx3aMPeRJJLAoavo0Ro+CmecO
-	WtezM0AeEubC5i6niDxItokWGRAfdDZ4+fRninevQlsMWCbrYv4qGAtcJWmtB/MPCfncKqLLQtVUJ
-	VGACKlMkT4RrAjOdkXtmldFBdlqYK7mJpBfmFLAu4EtcuRevSr91YSlZrz/r2kV90QgOOIOQyMHe/
-	KTsOsvjGNu/GF7j2EN4a/eLDG6sQszvQe+Mp9JAGiQzxsbrKA0F/YWNZt8VZDuzl1VH21Qq3omQkD
-	+eb7+K0j6CEe1bTKW01bK3BTZ/ZmhPWHjSy/UouGBcHXbDHV/svjmsk/mo1ZtEQG1knMmcmU1bZDw
-	URpfwsxA==;
+	bh=HQ8M8ey1Gl2HMhesfO/gX2yR3JwZ2sRCN/VQXFdpiJQ=; b=ZxiEZhr8AxK02B8uLDizmpEqHc
+	JBr22dFZmfrjpJrhsd7naggggAN35Kx/jhxcdONkN8k4LQK/3YhVhvMwLg0SYkmCRA9WyHbr0/1Da
+	g4tgtDYjH9bjLslr/zFFJ1KLd2haZ3WpVG9CkCv42Doa3mUSrtnrt3QWFph1qMresCzm0jfd+CoFd
+	6+50JGyDXR5JATmGgbFqImtQ/JtnOX2Zks2GgyaZ8uTFrchuIHdgpXoebFjk613E6OgzQSiKciO70
+	ee5mcQ2GYKRxGygKcxb/0DGqRJHDthcvJ7DyR4fUtvMu9zS0ympqbsL3JiqGn4QKlDmZD1vb8XC9I
+	TjzMrUYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u37BF-0000000CaCl-3a7N;
-	Fri, 11 Apr 2025 05:43:57 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1u37D3-0000000Cayj-3x3O;
+	Fri, 11 Apr 2025 05:45:49 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u375q-0000000CYJP-0mV0
+	id 1u375s-0000000CYM3-3apC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 05:38:24 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-227e2faab6dso14293595ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Apr 2025 22:38:21 -0700 (PDT)
+	Fri, 11 Apr 2025 05:38:26 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2ff8a2c7912so1357465a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Apr 2025 22:38:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1744349901; x=1744954701; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1744349903; x=1744954703; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=IlX8nA7Xk9H5c98D5iYmnhzWmAB9L4MDv6xIzYdT0mI=;
-        b=DQbgOsM4bokriX481fQHecG9TMeGkqUB8P4xvCo93d6Usngw4lvKi5QINvWmSLBmSe
-         ANZ7qw1scMoTygok2quH0wSjue4pveFJ8MJwcICSjZTxxudmjrCLB3mkqQGzPkKHP5K8
-         WSsDR2ENzFjb9pd+u66Ps/9wVYqZY5qgStYePAQ7ZXbLkaORRQylrG8g4GGheJJXFukG
-         5wznsoTwTz3rsjg5OwzRPiyRZJJbDZv2uNaQZAk/iV7wR6vZM9TWF7nZPlW041BVtCCV
-         EmWvqLy+eY0fepolNKA8YGy2F1676LQfuSCcCRa9lTl0TZ08HujBy9HZ/Htqos6iKTBX
-         b4/Q==
+        bh=HQ8M8ey1Gl2HMhesfO/gX2yR3JwZ2sRCN/VQXFdpiJQ=;
+        b=Z5ID56RnsOcrSZmpD0BjHKDyfUhEknE60AyTG8QF271TO5SzGMnSj9397iSEUXeH0k
+         Ult7LGm2/j3AvgSXNsCQK9x9qUuG+tUk4fuTk4PlUc0drs2HMadV8NOoFc8V4D9k/hlJ
+         CIqBvRrrtpqEWERfMRdgu0cgMRft425koh5fpZvAYlC3YuGdSrqmwbHmHMS25fWU9Y6Y
+         ekN5j/HaR5pvXz1P4miomGSSeIyO4q68yWS1py9AE9bCV3OmaqgLxE107Oa6yw4sTjIv
+         6Vsk40fRk0VRKNj8LdWxnr7DuvYvdCjpsF8nw5M0ibpxejEud53Zo/XN+AQn2HucYPMJ
+         L0jQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744349901; x=1744954701;
+        d=1e100.net; s=20230601; t=1744349903; x=1744954703;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=IlX8nA7Xk9H5c98D5iYmnhzWmAB9L4MDv6xIzYdT0mI=;
-        b=Hx8mmNW5/BT3DARUfJ1EWzmkD3oklQsS4Lqnt9CIc7JkctdeDeDcercgxnYhG9xZs+
-         a83Z/nVXWVpYifLLWaOYHcZciXzW1uvvNxoQZ7m+GqOE0rHLR4yS18hKMGFHO9IuJlRR
-         hwriwL0zNAhL7D4hkXCSGmDq4WRoMysgy23VCNYU/qIBJe4MNOUoWs5U+ZEUUmA7dA/Y
-         5J/9n0z9Cl8ktq4Sx9vUN4wWOt6e28fGk6Tiz5JfbFqN8Yk9LOqHgLm4nAaumJQ+bNFE
-         DONNMrCAmA2V73oeTZ4Y2cATVZnN6A69hZF4nkB+LvPzDSkv6Q7dsls+OdeJx3MvU9op
-         h3gg==
-X-Forwarded-Encrypted: i=1; AJvYcCXZmZ0kvqqm6ziWQEQ1KamKHKb0EY7Fy3UftWH2uVoSp24nilLhbQY8kyqoIjt8fUE2g5/NuG9i+cm+4BjOU9lS@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxy9zAmmXXIKQRKlujH3w/g6P1KR6d39TdYIaZNx80H+2/AyH5z
-	7vrReeUuDRD8/V8wPxkg4XhmbAX3JvDHeA6Ahl4DiFBupCS2Np/b032WLfoIXusu89qzm4NiG6Y
-	JsU8x1Myip9/pT5zt4A==
-X-Google-Smtp-Source: AGHT+IGmLdsivViTeSGIGhIMJrpZ+eiCfZe7b18ElxHjAINDV7KJLIeK9aAKlBDGOH8e7R2YQZlTLbj0XmtsWn8h
-X-Received: from plfu7.prod.google.com ([2002:a17:902:e5c7:b0:220:ddee:5ee])
+        bh=HQ8M8ey1Gl2HMhesfO/gX2yR3JwZ2sRCN/VQXFdpiJQ=;
+        b=jfyOT/lGvoSGBLx1byezEb6hZJhIDtcmI3OKhyj3T8HmFeRRJiCl40kfCSgsNYkFA1
+         c24cQ9udsJ7XVh9q1KNq4QOEdvzFvhQFEJfdyvyizn27Q2caW5DBlD2aa9W70ViZamsQ
+         Zah8XOMu00UBrs/YXau2/xqI3n1Xq6URq9vE95XAXo0CUxikB+yw6yuKPGKQ51yP05p+
+         ZOtm8si/2bglObktdy7CEhxHBNbLjtVcmlF3Fqm3AFY3KdrBHLzui/6Y1+kkEEoitone
+         61hdWdjCZA9sSex4BQ5fS+q4iKN6iUBhBUEBpqPTyZZUO/QsGpkLUw/was5rBjpU3RN/
+         ScDA==
+X-Forwarded-Encrypted: i=1; AJvYcCWx9AkCtaDN+gnOlWm9sRRxP01gm5KwvTI9m9lJqztEfNsQGXnztYOlbiZ79r5/e7VJPQ5/zbUGXqDs80+gFD84@lists.infradead.org
+X-Gm-Message-State: AOJu0YxdEf+07mwN3hpa5b9kLMBOWOqC7xZO58lEzOB8iG54RdXVSRQ4
+	RQ1UoEBPdV1I0eKfA+VY3aeeIE/oamLv0m9DKv7nupdgrOg4LAUurI98DLqi0YxE7CGhgPZtkyy
+	XrExbxqTjl8GS+zG+MA==
+X-Google-Smtp-Source: AGHT+IEQLxxV+9EOL9iBdjttC+lt0gaa754ZypvrGgSETMYeFa4LebcqyNIPVN8012BWASehCUTqTktaMea5N6/C
+X-Received: from pjbsg2.prod.google.com ([2002:a17:90b:5202:b0:2ee:3128:390f])
  (user=changyuanl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:902:c951:b0:21f:68ae:56e3 with SMTP id d9443c01a7336-22bea4f009amr23225795ad.39.1744349900801;
- Thu, 10 Apr 2025 22:38:20 -0700 (PDT)
-Date: Thu, 10 Apr 2025 22:37:33 -0700
+ 2002:a17:90b:58cf:b0:2fc:aaf:74d3 with SMTP id 98e67ed59e1d1-307730fecb0mr7763347a91.4.1744349903054;
+ Thu, 10 Apr 2025 22:38:23 -0700 (PDT)
+Date: Thu, 10 Apr 2025 22:37:34 -0700
 In-Reply-To: <20250411053745.1817356-1-changyuanl@google.com>
 Mime-Version: 1.0
 References: <20250411053745.1817356-1-changyuanl@google.com>
 X-Mailer: git-send-email 2.49.0.604.gff1f9ca942-goog
-Message-ID: <20250411053745.1817356-3-changyuanl@google.com>
-Subject: [PATCH v6 02/14] memblock: Add support for scratch memory
+Message-ID: <20250411053745.1817356-4-changyuanl@google.com>
+Subject: [PATCH v6 03/14] memblock: introduce memmap_init_kho_scratch()
 From: Changyuan Lyu <changyuanl@google.com>
 To: linux-kernel@vger.kernel.org
 Cc: akpm@linux-foundation.org, anthony.yznaga@oracle.com, arnd@arndb.de, 
@@ -83,8 +83,8 @@ Cc: akpm@linux-foundation.org, anthony.yznaga@oracle.com, arnd@arndb.de,
 	will@kernel.org, x86@kernel.org, Changyuan Lyu <changyuanl@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_223822_233212_D983DDF9 
-X-CRM114-Status: GOOD (  27.09  )
+X-CRM114-CacheID: sfid-20250410_223824_936226_A1CE2CF4 
+X-CRM114-Status: GOOD (  14.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,224 +99,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alexander Graf <graf@amazon.com>
+From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 
-With KHO (Kexec HandOver), we need a way to ensure that the new kernel
-does not allocate memory on top of any memory regions that the previous
-kernel was handing over. But to know where those are, we need to include
-them in the memblock.reserved array which may not be big enough to hold
-all ranges that need to be persisted across kexec. To resize the array,
-we need to allocate memory. That brings us into a catch 22 situation.
+With deferred initialization of struct page it will be necessary to
+initialize memory map for KHO scratch regions early.
 
-The solution to that is limit memblock allocations to the scratch regions:
-safe regions to operate in the case when there is memory that should remain
-intact across kexec.
+Add memmap_init_kho_scratch() method that will allow such initialization
+in upcoming patches.
 
-KHO provides several "scratch regions" as part of its metadata. These
-scratch regions are contiguous memory blocks that known not to contain any
-memory that should be persisted across kexec. These regions should be large
-enough to accommodate all memblock allocations done by the kexeced kernel.
-
-We introduce a new memblock_set_scratch_only() function that allows KHO to
-indicate that any memblock allocation must happen from the scratch regions.
-
-Later, we may want to perform another KHO kexec. For that, we reuse the
-same scratch regions. To ensure that no eventually handed over data gets
-allocated inside a scratch region, we flip the semantics of the scratch
-region with memblock_clear_scratch_only(): After that call, no allocations
-may happen from scratch memblock regions. We will lift that restriction
-in the next patch.
-
-Signed-off-by: Alexander Graf <graf@amazon.com>
-Co-developed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 Signed-off-by: Changyuan Lyu <changyuanl@google.com>
 ---
- include/linux/memblock.h | 20 +++++++++++++
- mm/Kconfig               |  4 +++
- mm/memblock.c            | 61 ++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 85 insertions(+)
+ include/linux/memblock.h |  2 ++
+ mm/internal.h            |  2 ++
+ mm/memblock.c            | 22 ++++++++++++++++++++++
+ mm/mm_init.c             | 11 ++++++++---
+ 4 files changed, 34 insertions(+), 3 deletions(-)
 
 diff --git a/include/linux/memblock.h b/include/linux/memblock.h
-index 6c00fbc085132..993937a6b9620 100644
+index 993937a6b9620..bb19a25342246 100644
 --- a/include/linux/memblock.h
 +++ b/include/linux/memblock.h
-@@ -45,6 +45,11 @@ extern unsigned long long max_possible_pfn;
-  * @MEMBLOCK_RSRV_KERN: memory region that is reserved for kernel use,
-  * either explictitly with memblock_reserve_kern() or via memblock
-  * allocation APIs. All memblock allocations set this flag.
-+ * @MEMBLOCK_KHO_SCRATCH: memory region that kexec can pass to the next
-+ * kernel in handover mode. During early boot, we do not know about all
-+ * memory reservations yet, so we get scratch memory from the previous
-+ * kernel that we know is good to use. It is the only memory that
-+ * allocations may happen from in this phase.
-  */
- enum memblock_flags {
- 	MEMBLOCK_NONE		= 0x0,	/* No special request */
-@@ -54,6 +59,7 @@ enum memblock_flags {
- 	MEMBLOCK_DRIVER_MANAGED = 0x8,	/* always detected via a driver */
- 	MEMBLOCK_RSRV_NOINIT	= 0x10,	/* don't initialize struct pages */
- 	MEMBLOCK_RSRV_KERN	= 0x20,	/* memory reserved for kernel use */
-+	MEMBLOCK_KHO_SCRATCH	= 0x40,	/* scratch memory for kexec handover */
- };
- 
- /**
-@@ -148,6 +154,8 @@ int memblock_mark_mirror(phys_addr_t base, phys_addr_t size);
- int memblock_mark_nomap(phys_addr_t base, phys_addr_t size);
- int memblock_clear_nomap(phys_addr_t base, phys_addr_t size);
- int memblock_reserved_mark_noinit(phys_addr_t base, phys_addr_t size);
-+int memblock_mark_kho_scratch(phys_addr_t base, phys_addr_t size);
-+int memblock_clear_kho_scratch(phys_addr_t base, phys_addr_t size);
- 
- void memblock_free(void *ptr, size_t size);
- void reset_all_zones_managed_pages(void);
-@@ -291,6 +299,11 @@ static inline bool memblock_is_driver_managed(struct memblock_region *m)
- 	return m->flags & MEMBLOCK_DRIVER_MANAGED;
- }
- 
-+static inline bool memblock_is_kho_scratch(struct memblock_region *m)
-+{
-+	return m->flags & MEMBLOCK_KHO_SCRATCH;
-+}
-+
- int memblock_search_pfn_nid(unsigned long pfn, unsigned long *start_pfn,
- 			    unsigned long  *end_pfn);
- void __next_mem_pfn_range(int *idx, int nid, unsigned long *out_start_pfn,
-@@ -619,5 +632,12 @@ static inline void early_memtest(phys_addr_t start, phys_addr_t end) { }
- static inline void memtest_report_meminfo(struct seq_file *m) { }
+@@ -635,9 +635,11 @@ static inline void memtest_report_meminfo(struct seq_file *m) { }
+ #ifdef CONFIG_MEMBLOCK_KHO_SCRATCH
+ void memblock_set_kho_scratch_only(void);
+ void memblock_clear_kho_scratch_only(void);
++void memmap_init_kho_scratch_pages(void);
+ #else
+ static inline void memblock_set_kho_scratch_only(void) { }
+ static inline void memblock_clear_kho_scratch_only(void) { }
++static inline void memmap_init_kho_scratch_pages(void) {}
  #endif
- 
-+#ifdef CONFIG_MEMBLOCK_KHO_SCRATCH
-+void memblock_set_kho_scratch_only(void);
-+void memblock_clear_kho_scratch_only(void);
-+#else
-+static inline void memblock_set_kho_scratch_only(void) { }
-+static inline void memblock_clear_kho_scratch_only(void) { }
-+#endif
  
  #endif /* _LINUX_MEMBLOCK_H */
-diff --git a/mm/Kconfig b/mm/Kconfig
-index e113f713b4938..60ea9eba48140 100644
---- a/mm/Kconfig
-+++ b/mm/Kconfig
-@@ -469,6 +469,10 @@ config HAVE_GUP_FAST
- 	depends on MMU
- 	bool
+diff --git a/mm/internal.h b/mm/internal.h
+index 50c2f590b2d04..a47e5539321b4 100644
+--- a/mm/internal.h
++++ b/mm/internal.h
+@@ -1121,6 +1121,8 @@ DECLARE_STATIC_KEY_TRUE(deferred_pages);
+ bool __init deferred_grow_zone(struct zone *zone, unsigned int order);
+ #endif /* CONFIG_DEFERRED_STRUCT_PAGE_INIT */
  
-+# Enable memblock support for scratch memory which is needed for kexec handover
-+config MEMBLOCK_KHO_SCRATCH
-+	bool
++void init_deferred_page(unsigned long pfn, int nid);
 +
- # Don't discard allocated memory used to track "memory" and "reserved" memblocks
- # after early boot, so it can still be used to test for validity of memory.
- # Also, memblocks are updated with memory hot(un)plug.
+ enum mminit_level {
+ 	MMINIT_WARNING,
+ 	MMINIT_VERIFY,
 diff --git a/mm/memblock.c b/mm/memblock.c
-index 2dc95ecdee5ce..3a213e2a485bc 100644
+index 3a213e2a485bc..c2633003ed8ea 100644
 --- a/mm/memblock.c
 +++ b/mm/memblock.c
-@@ -107,6 +107,13 @@ unsigned long min_low_pfn;
- unsigned long max_pfn;
- unsigned long long max_possible_pfn;
- 
-+#ifdef CONFIG_MEMBLOCK_KHO_SCRATCH
-+/* When set to true, only allocate from MEMBLOCK_KHO_SCRATCH ranges */
-+static bool kho_scratch_only;
-+#else
-+#define kho_scratch_only false
-+#endif
-+
- static struct memblock_region memblock_memory_init_regions[INIT_MEMBLOCK_MEMORY_REGIONS] __initdata_memblock;
- static struct memblock_region memblock_reserved_init_regions[INIT_MEMBLOCK_RESERVED_REGIONS] __initdata_memblock;
- #ifdef CONFIG_HAVE_MEMBLOCK_PHYS_MAP
-@@ -166,6 +173,10 @@ bool __init_memblock memblock_has_mirror(void)
- 
- static enum memblock_flags __init_memblock choose_memblock_flags(void)
+@@ -946,6 +946,28 @@ __init_memblock void memblock_clear_kho_scratch_only(void)
  {
-+	/* skip non-scratch memory for kho early boot allocations */
-+	if (kho_scratch_only)
-+		return MEMBLOCK_KHO_SCRATCH;
+ 	kho_scratch_only = false;
+ }
 +
- 	return system_has_some_mirror ? MEMBLOCK_MIRROR : MEMBLOCK_NONE;
- }
- 
-@@ -925,6 +936,18 @@ int __init_memblock memblock_physmem_add(phys_addr_t base, phys_addr_t size)
- }
++void __init_memblock memmap_init_kho_scratch_pages(void)
++{
++	phys_addr_t start, end;
++	unsigned long pfn;
++	int nid;
++	u64 i;
++
++	if (!IS_ENABLED(CONFIG_DEFERRED_STRUCT_PAGE_INIT))
++		return;
++
++	/*
++	 * Initialize struct pages for free scratch memory.
++	 * The struct pages for reserved scratch memory will be set up in
++	 * reserve_bootmem_region()
++	 */
++	__for_each_mem_range(i, &memblock.memory, NULL, NUMA_NO_NODE,
++			     MEMBLOCK_KHO_SCRATCH, &start, &end, &nid) {
++		for (pfn = PFN_UP(start); pfn < PFN_DOWN(end); pfn++)
++			init_deferred_page(pfn, nid);
++	}
++}
  #endif
  
-+#ifdef CONFIG_MEMBLOCK_KHO_SCRATCH
-+__init_memblock void memblock_set_kho_scratch_only(void)
-+{
-+	kho_scratch_only = true;
-+}
-+
-+__init_memblock void memblock_clear_kho_scratch_only(void)
-+{
-+	kho_scratch_only = false;
-+}
-+#endif
-+
  /**
-  * memblock_setclr_flag - set or clear flag for a memory region
-  * @type: memblock type to set/clear flag for
-@@ -1050,6 +1073,36 @@ int __init_memblock memblock_reserved_mark_noinit(phys_addr_t base, phys_addr_t
- 				    MEMBLOCK_RSRV_NOINIT);
- }
- 
-+/**
-+ * memblock_mark_kho_scratch - Mark a memory region as MEMBLOCK_KHO_SCRATCH.
-+ * @base: the base phys addr of the region
-+ * @size: the size of the region
-+ *
-+ * Only memory regions marked with %MEMBLOCK_KHO_SCRATCH will be considered
-+ * for allocations during early boot with kexec handover.
-+ *
-+ * Return: 0 on success, -errno on failure.
-+ */
-+int __init_memblock memblock_mark_kho_scratch(phys_addr_t base, phys_addr_t size)
-+{
-+	return memblock_setclr_flag(&memblock.memory, base, size, 1,
-+				    MEMBLOCK_KHO_SCRATCH);
-+}
-+
-+/**
-+ * memblock_clear_kho_scratch - Clear MEMBLOCK_KHO_SCRATCH flag for a
-+ * specified region.
-+ * @base: the base phys addr of the region
-+ * @size: the size of the region
-+ *
-+ * Return: 0 on success, -errno on failure.
-+ */
-+int __init_memblock memblock_clear_kho_scratch(phys_addr_t base, phys_addr_t size)
-+{
-+	return memblock_setclr_flag(&memblock.memory, base, size, 0,
-+				    MEMBLOCK_KHO_SCRATCH);
-+}
-+
- static bool should_skip_region(struct memblock_type *type,
- 			       struct memblock_region *m,
- 			       int nid, int flags)
-@@ -1081,6 +1134,13 @@ static bool should_skip_region(struct memblock_type *type,
- 	if (!(flags & MEMBLOCK_DRIVER_MANAGED) && memblock_is_driver_managed(m))
- 		return true;
- 
-+	/*
-+	 * In early alloc during kexec handover, we can only consider
-+	 * MEMBLOCK_KHO_SCRATCH regions for the allocations
-+	 */
-+	if ((flags & MEMBLOCK_KHO_SCRATCH) && !memblock_is_kho_scratch(m))
-+		return true;
-+
+diff --git a/mm/mm_init.c b/mm/mm_init.c
+index 84f14fa12d0dd..1451cb250fd3f 100644
+--- a/mm/mm_init.c
++++ b/mm/mm_init.c
+@@ -743,7 +743,7 @@ defer_init(int nid, unsigned long pfn, unsigned long end_pfn)
  	return false;
  }
  
-@@ -2465,6 +2525,7 @@ static const char * const flagname[] = {
- 	[ilog2(MEMBLOCK_DRIVER_MANAGED)] = "DRV_MNG",
- 	[ilog2(MEMBLOCK_RSRV_NOINIT)] = "RSV_NIT",
- 	[ilog2(MEMBLOCK_RSRV_KERN)] = "RSV_KERN",
-+	[ilog2(MEMBLOCK_KHO_SCRATCH)] = "KHO_SCRATCH",
- };
+-static void __meminit init_deferred_page(unsigned long pfn, int nid)
++static void __meminit __init_deferred_page(unsigned long pfn, int nid)
+ {
+ 	if (early_page_initialised(pfn, nid))
+ 		return;
+@@ -763,11 +763,16 @@ static inline bool defer_init(int nid, unsigned long pfn, unsigned long end_pfn)
+ 	return false;
+ }
  
- static int memblock_debug_show(struct seq_file *m, void *private)
+-static inline void init_deferred_page(unsigned long pfn, int nid)
++static inline void __init_deferred_page(unsigned long pfn, int nid)
+ {
+ }
+ #endif /* CONFIG_DEFERRED_STRUCT_PAGE_INIT */
+ 
++void __meminit init_deferred_page(unsigned long pfn, int nid)
++{
++	__init_deferred_page(pfn, nid);
++}
++
+ /*
+  * Initialised pages do not have PageReserved set. This function is
+  * called for each range allocated by the bootmem allocator and
+@@ -784,7 +789,7 @@ void __meminit reserve_bootmem_region(phys_addr_t start,
+ 		if (pfn_valid(start_pfn)) {
+ 			struct page *page = pfn_to_page(start_pfn);
+ 
+-			init_deferred_page(start_pfn, nid);
++			__init_deferred_page(start_pfn, nid);
+ 
+ 			/*
+ 			 * no need for atomic set_bit because the struct
 -- 
 2.49.0.604.gff1f9ca942-goog
 
