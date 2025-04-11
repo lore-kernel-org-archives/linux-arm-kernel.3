@@ -4,159 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 062ACC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 07:19:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7661FC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 07:21:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=concBdNiyvs4c5xn8sAxndmrEeIA0PFYQNUF9Eo4uCM=; b=KiUWbYI7KC2UBb88awsetTiHGs
-	ci+rdOcij+aev+knCB0EmKJ3+U+YwX2J88nfvUapCiXoWi66X0i54mXM0vEc/khUEe6BVdiSxNkpl
-	F6gZXWAFWKVTa8Pn5EaKMhTRyu6Wxzj25y9BepTr7wcupNiMifKd0PPO3D3zMWCJktELsIFAfbiAq
-	SdJaBcLjuNOS9W1RA7TeqVOc2P9DpnjaLayQnCToZ3npbUaw4kvEg7y71TfX/WIhpCTSpnYauOKel
-	lgRO3JT+PQMw9+BDNGgtu8tU+0G6T8eeds6wG6C4SXfi3rDlUM4xWrhk0zWNe2FR2rnlVQxOkEmt7
-	Bw4qHwxw==;
+	bh=10Ziy3jcJKOprR/fU+6CyZGW0L6ZCnb3h3abs6jVrMg=; b=fFgfj1XuMqTC3aRmJOQ68xDXTE
+	kcGH+rqJmgyc1uFXmz7g4+zzjEPduEKX5P6f7umypGibPWytq+bg5I6fv+tQ/2Xrxqfyyy6dd0u2x
+	2qShrPe/D+DvzA/vscjq5DwfQDZF6suDqsVEIRO3PnJogBmsHU1KqMxndyus0gpNAsccI/70w2gTP
+	5KhDgL1SV8Cf70xKekDZWf+cjyj1W9CpVAQeb80QLWoy4BRRjiBiUhv4PHCs3BjzPF1cj09+EezyN
+	fogEU1opJdCvGQDOtv91NS3Zw8ap8c0SvW4W/CF0406g0B0PSNiPvFW93VcVshAaAqugVVwPP+zxH
+	nZGCulvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u38fX-0000000CqMO-2EMm;
-	Fri, 11 Apr 2025 07:19:19 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u38hJ-0000000CqT0-14b5;
+	Fri, 11 Apr 2025 07:21:09 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u382T-0000000CkRl-0lbI
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 11 Apr 2025 06:38:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=concBdNiyvs4c5xn8sAxndmrEeIA0PFYQNUF9Eo4uCM=; b=HC4M2ofzaklDES0l2xF/itjy/X
-	/ROOuOQessDSJKkgM7vEhFauKcY3wKBbyl0yQu3DoeXrkEGsx+eg+mcFJ44kIwM/6/cuLAlp2yRek
-	j5xw/wY9TXtIfb1w8e4nLN93G+qYk3VJUKhE4VjkLyPrQolWmcVSb2hquH0WEE5WNQbDmh7AP67lJ
-	vS4dXSdcZVEQrnVVLuIBgswELbem92kHeAUfAJUuO0NS+/LOJMP11MkZHEMO/bXdsCNMgB3hMoqSD
-	QDFeHvXRVAb9YlZiqoWu28rEn5Vj/A9H8MJr6mEsoL4rSdFcVlJ4Ueeg3DvEkMrxZmOVvO0oIjtLe
-	4az/a1EA==;
-Received: from mail-bn8nam12on20611.outbound.protection.outlook.com ([2a01:111:f403:2418::611] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u382Q-00000008wfB-0gn7
+	id 1u389G-0000000Cm5C-0w5S
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 06:38:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cWKe5M0t6v1veGHZttwh7safgskQIl3Hlasi0iJXP2yLa7PByhOGZJCMpwjz5xrsDD7lYQjRPjdJ2XuEGcDUpMJxVD8e5tUvCwPwPoi0I80axMQ9mGgB4mmyJi8id23TmaxwEo33R8Nig/o4VRQTEcGl3IrAf1u9WyDu3By/DzkBiK5OiOOP/nBKfQ5rBthejtbyujo3f1t21xAimGO52xmEiNH1h6Wun4gxPb3t57MOyOX5ORvRwan3QamaIM4NVqc95/hi54CvKeXbbfEzvtFXFtJMNrliWRvVDESc2bFKdBifYDI8uhTmTqRzB0szqghNjQPMTRFS4KwL6Mkbmg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=concBdNiyvs4c5xn8sAxndmrEeIA0PFYQNUF9Eo4uCM=;
- b=EVb6dJ8vgNtixQ4qQhaSYbJie9UWDnrAbxLiwA1R+9Q6uH+guvAuokdhXYRB5Hux5NJPlN+39IpMlNPOhb0GSLJF7tS4Jj0745x3O7ZTP2pmK4VsIjFti2suuJ/fGw9a0VoSwW3thUqhmXl8ljJTiMh6DtXq4WJUv1Bw+jKWKn4HhZtipmn4KfK6rzDaDglGv/XO/2WEbUL1fT+xN/8NhaTJoHNB9RmEDjZJiL7xoBWzJCBjSyKoV6shpUZ9LW6G/Wdn90yDHDUyssAoNXmev9CarckEmFq80A9FtaEs1fw+gyGrfTn6UY8/8IfQfgMS8Cje7Uem9iWZru829/iy/g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=concBdNiyvs4c5xn8sAxndmrEeIA0PFYQNUF9Eo4uCM=;
- b=Mr7I7bIqquRIx50oXg71KjkAk/7tksBH+p0hYUtksgkj6ZpAl2eNjWFzKeOCidbLHxG7YVASaovYFU+ip6oRilDEC+fCHLUQulvD66iVtitOpO6py/UtlV8l9LnNR7UnXNsi7CiVP29dKdcdbCgHaebeEmccYFzXofAkQPEbBLUzLbnlgDeFxwfz0KEpY8xRPUPgQDWiXrN6Rv+Iz2yeoTIeUsqAfLnxcbld+SzIsIukBDoldAFnUj7iqiQqhwhhL8FtpIx1FWB96k7TsWNjegGSaj1mfFhxScQAv6YDJzg2KizKUcOKc7DyGNLs3U+vGGjByJsYh9cgAhg/ME0qyw==
-Received: from DM6PR08CA0051.namprd08.prod.outlook.com (2603:10b6:5:1e0::25)
- by DM4PR12MB6494.namprd12.prod.outlook.com (2603:10b6:8:ba::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.22; Fri, 11 Apr
- 2025 06:38:44 +0000
-Received: from CY4PEPF0000E9D5.namprd05.prod.outlook.com
- (2603:10b6:5:1e0:cafe::dc) by DM6PR08CA0051.outlook.office365.com
- (2603:10b6:5:1e0::25) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8632.26 via Frontend Transport; Fri,
- 11 Apr 2025 06:38:44 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- CY4PEPF0000E9D5.mail.protection.outlook.com (10.167.241.68) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8655.12 via Frontend Transport; Fri, 11 Apr 2025 06:38:43 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Thu, 10 Apr
- 2025 23:38:26 -0700
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Thu, 10 Apr
- 2025 23:38:26 -0700
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.9) by mail.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server id 15.2.1544.14 via Frontend
- Transport; Thu, 10 Apr 2025 23:38:24 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <jgg@nvidia.com>, <kevin.tian@intel.com>, <corbet@lwn.net>,
-	<will@kernel.org>
-CC: <robin.murphy@arm.com>, <joro@8bytes.org>, <thierry.reding@gmail.com>,
-	<vdumpa@nvidia.com>, <jonathanh@nvidia.com>, <shuah@kernel.org>,
-	<praan@google.com>, <nathan@kernel.org>, <peterz@infradead.org>,
-	<yi.l.liu@intel.com>, <jsnitsel@redhat.com>, <mshavit@google.com>,
-	<zhangzekun11@huawei.com>, <iommu@lists.linux.dev>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>
-Subject: [PATCH v1 11/16] iommufd/selftest: Add coverage for the new mmap interface
-Date: Thu, 10 Apr 2025 23:37:50 -0700
-Message-ID: <7a1f10281adcbc4c59d2b3f1c3e3f7c9ca5477c6.1744353300.git.nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1744353300.git.nicolinc@nvidia.com>
-References: <cover.1744353300.git.nicolinc@nvidia.com>
+	Fri, 11 Apr 2025 06:46:00 +0000
+Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c68:389d:1fcb:c0f8:ff7c:208d])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 9EC03667;
+	Fri, 11 Apr 2025 08:43:55 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1744353836;
+	bh=10Ziy3jcJKOprR/fU+6CyZGW0L6ZCnb3h3abs6jVrMg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=sc7ZlrFVKbOa/P3OwvaHd4QXPZ+dbPoAzOJzNEf9oCSxro9+V4nhjyVXfULJWg93D
+	 36RBmOrl3nTiiejffOXDW45+uZtX9Ncp1GxlUNW3RrOCOiTEUEgAjNFt499KdG8to8
+	 6x1Xtxzjf5wPRN1dqhIWCxDbBMdJoZp2G2WN4Cfo=
+Date: Fri, 11 Apr 2025 12:15:50 +0530
+From: Jai Luthra <jai.luthra@ideasonboard.com>
+To: Andrew Davis <afd@ti.com>
+Cc: Devarsh Thakkar <devarsht@ti.com>, Judith Mendez <jm@ti.com>, 
+	Nishanth Menon <nm@ti.com>, Hari Nagalla <hnagalla@ti.com>, Tero Kristo <kristo@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Beleswar Padhi <b-padhi@ti.com>, 
+	Vignesh Raghavendra <vigneshr@ti.com>, Markus Schneider-Pargmann <msp@baylibre.com>, praneeth@ti.com, 
+	"Khasim, Syed Mohammed" <khasim@ti.com>, tomi.valkeinen@ideasonboard.com, v-krishnamoorthy@ti.com, 
+	s-tripathy@ti.com, s-tripathi1@ti.com, c-shilwant@ti.com, r-ravikumar@ti.com
+Subject: Re: [PATCH v6 06/11] arm64: dts: ti: k3-am62a7-sk: Enable IPC with
+ remote processors
+Message-ID: <tp4v4kbe7j2opr4ba2kpujmzjtsesnq3by2lbi6ympe2lh6owg@tjchqh2bqkjg>
+References: <20250405001518.1315273-1-jm@ti.com>
+ <20250405001518.1315273-7-jm@ti.com>
+ <6868f593-0728-4e92-a57b-87db6a0037f6@ti>
+ <f42607f5-e39d-48a1-89c0-11d4982a2426@ti.com>
+ <e131298f-3713-482a-a740-ff89709270b4@ti.com>
+ <091c0869-525b-4b40-b5fe-a5c1907ec606@ti.com>
+ <czmir7yvss3oreveesyrjqfdcawyn2axtstomsj3yx5sntqwo2@r3udnsyrxvkp>
+ <5969e1e8-0bb7-4334-a0c5-b4c396b8b6af@ti.com>
+ <dccef5d7-46c6-4e08-98f3-ba0e8168aaff@ti.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000E9D5:EE_|DM4PR12MB6494:EE_
-X-MS-Office365-Filtering-Correlation-Id: 615cabd5-1bda-4a23-80a4-08dd78c38155
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|82310400026|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?D/JQmeYoKizuE/NwXv4+BMdkKucr8l8767eJg+Hc8RHAP7LnR70LI59cZYFh?=
- =?us-ascii?Q?IAtlQc4NtT30MEbqo+D/Kmr2Y7HncY4X6KqizJFDiRjH97dHyHIZuCP20fNp?=
- =?us-ascii?Q?b6bpRApjzKSwqOAK1n/Oh5j/B2DweIrboolXcRrM4mkoTvI95EkyvB6rlWcB?=
- =?us-ascii?Q?5PtP+6lackkOee1cCdW7A8gQOk+zhgJjHp6x9v/vX0dZYjSAy5eo+Dm9HWA3?=
- =?us-ascii?Q?1dDnprIZK2n2sisUOBfUqHNVh6LyfZz6YWg4vCZ5w9+40tjw7gzg9ST9bIYb?=
- =?us-ascii?Q?f6T1ck2tBp4DS27Ht1XsubKPFY3+YIwag1eliBxYek9BRTyUGqSkgLs7+R0k?=
- =?us-ascii?Q?/jX+dqtc4PxrLxvxeFpHzZXOqGhaZXXInMN6tpKAJ10wbIIGvfIi1pA+Xe3y?=
- =?us-ascii?Q?7AZAZ2ElSRQI5Psu9vGJ9MGMwmQHJvuYvDhO1j2LKlX+9ule9JYqw3mv0+at?=
- =?us-ascii?Q?uQZvMW2xrc2zYoy5U0pGz0PKQ22uR6lkk9babIF3pRvqvzEKDL3V3DQEDzQI?=
- =?us-ascii?Q?wNHpvO9IbRuzzvjtnNwhlImPYbPX7IEPrZIwzJIxGPY6+we7c83Kgo8WlOnS?=
- =?us-ascii?Q?xV3hNuYEfuTKx9s00EL+N27QUwVXefp8c5FDXju44kHrefP6WmN6CUPO2+gb?=
- =?us-ascii?Q?NqLip+0nil2lsqkZ/OkcjTD4isesI/R4G+hvBfz+CFlX9+4TsHJr4iCocIEi?=
- =?us-ascii?Q?WoJLVR5T3YUetgikba5dzBkR4Mnv/TkHN7uxQtxuRMz2FyZTJVlRQyH/i5KP?=
- =?us-ascii?Q?NzUqBUuj2b0jcs0py+JRVCxXAXH1XVo82t1nk2P02GjJ0og+NEHMr/91KPCn?=
- =?us-ascii?Q?QoD+9jpA722NBrGtZbIG2M4Xeelomz5AH3rQ5AbtFohqyUaA+o3iwyrIAaIH?=
- =?us-ascii?Q?WPesiLNb6fLkh8+2JgmBEL/hICFnDJ2mAFy/g/pEUNYJeH754StonDjDAMKJ?=
- =?us-ascii?Q?dV9SuORTBUzQHFhS1UBDr6HLBr5w0aQI/BVfA0fbPE9mysr2TLBdJQTB+bul?=
- =?us-ascii?Q?Wr2+qK+R0x9DYaNDrkZU+QAuED0vr3Wz43ZSs6+Fuq/iKxA4PRPykoD6mw4j?=
- =?us-ascii?Q?d04+/8k4qNqYHWpdd6fohn5/BEFQ5Vjy/UYB+Ph2K6ed5nkVJPKk/VVKuzwP?=
- =?us-ascii?Q?uAbHL7apUCj33HRIeuEOqFvr5PYVmB596bdCEKnjM01VXlTfmMeXtRZolZSK?=
- =?us-ascii?Q?Qr1LcVmtypyszOLJTLfUu0QjuoLDMYABMdiHrQERrK0c5RJV90PRRvj6f1nw?=
- =?us-ascii?Q?WFdu47hu5e433B+7g3en8GdFqlXKB/WU6HbvDnffD7RaLWXkr1iW237d9n7w?=
- =?us-ascii?Q?oDXlsKYWbaJ8iCXffTUPgCFglKNxNFhWqKUgFxY69OAh+gzT1++3aW78rkLz?=
- =?us-ascii?Q?R+TVtal9cOjLGauXSLB5JYotGPIph+RpRRPn2VVFO83iyHDYUFiSBT9jUCHO?=
- =?us-ascii?Q?rI9TgKA9eMG0ekkp2okkCmiiztEL6DrwNvwRAbtrnM+LJF5frqorldExBjyc?=
- =?us-ascii?Q?uGQ5GQZh447PtBjfN8B46z97ScvP9Vr7pxJ5?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(82310400026)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Apr 2025 06:38:43.8892
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 615cabd5-1bda-4a23-80a4-08dd78c38155
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000E9D5.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6494
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="5qa2kcidthusc3og"
+Content-Disposition: inline
+In-Reply-To: <dccef5d7-46c6-4e08-98f3-ba0e8168aaff@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_073854_412662_C6C9F791 
-X-CRM114-Status: GOOD (  15.93  )
+X-CRM114-CacheID: sfid-20250410_234558_584091_63671741 
+X-CRM114-Status: GOOD (  47.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,146 +82,312 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extend the loopback test to a new mmap page.
 
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
----
- drivers/iommu/iommufd/iommufd_test.h    |  4 +++
- drivers/iommu/iommufd/selftest.c        | 47 ++++++++++++++++++++-----
- tools/testing/selftests/iommu/iommufd.c |  5 +++
- 3 files changed, 48 insertions(+), 8 deletions(-)
+--5qa2kcidthusc3og
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v6 06/11] arm64: dts: ti: k3-am62a7-sk: Enable IPC with
+ remote processors
+MIME-Version: 1.0
 
-diff --git a/drivers/iommu/iommufd/iommufd_test.h b/drivers/iommu/iommufd/iommufd_test.h
-index fbf9ecb35a13..4e4be0b73391 100644
---- a/drivers/iommu/iommufd/iommufd_test.h
-+++ b/drivers/iommu/iommufd/iommufd_test.h
-@@ -232,12 +232,16 @@ struct iommu_hwpt_invalidate_selftest {
-  *                                (IOMMU_VIOMMU_TYPE_SELFTEST)
-  * @in_data: Input random data from user space
-  * @out_data: Output data (matching @in_data) to user space
-+ * @out_mmap_pgoff: The offset argument for mmap syscall
-+ * @out_mmap_pgsz: Maximum page size for mmap syscall
-  *
-  * Simply set @out_data=@in_data for a loopback test
-  */
- struct iommu_viommu_selftest {
- 	__u32 in_data;
- 	__u32 out_data;
-+	__aligned_u64 out_mmap_pgoff;
-+	__aligned_u64 out_mmap_pgsz;
- };
- 
- /* Should not be equal to any defined value in enum iommu_viommu_invalidate_data_type */
-diff --git a/drivers/iommu/iommufd/selftest.c b/drivers/iommu/iommufd/selftest.c
-index b04bd2fbc53d..4e6374f4fad2 100644
---- a/drivers/iommu/iommufd/selftest.c
-+++ b/drivers/iommu/iommufd/selftest.c
-@@ -148,6 +148,9 @@ to_mock_nested(struct iommu_domain *domain)
- struct mock_viommu {
- 	struct iommufd_viommu core;
- 	struct mock_iommu_domain *s2_parent;
-+
-+	unsigned long mmap_pgoff;
-+	u32 *page; /* Mmap page to test u32 type of in_data */
- };
- 
- static inline struct mock_viommu *to_mock_viommu(struct iommufd_viommu *viommu)
-@@ -632,9 +635,12 @@ static void mock_viommu_destroy(struct iommufd_viommu *viommu)
- {
- 	struct mock_iommu_device *mock_iommu = container_of(
- 		viommu->iommu_dev, struct mock_iommu_device, iommu_dev);
-+	struct mock_viommu *mock_viommu = to_mock_viommu(viommu);
- 
- 	if (refcount_dec_and_test(&mock_iommu->users))
- 		complete(&mock_iommu->complete);
-+	iommufd_ctx_free_mmap(viommu->ictx, mock_viommu->mmap_pgoff);
-+	free_page((unsigned long)mock_viommu->page);
- 
- 	/* iommufd core frees mock_viommu and viommu */
- }
-@@ -748,8 +754,9 @@ mock_viommu_alloc(struct device *dev, struct iommu_domain *domain,
- 		return ERR_PTR(-EOPNOTSUPP);
- 
- 	if (user_data) {
--		rc = iommu_copy_struct_from_user(
--			&data, user_data, IOMMU_VIOMMU_TYPE_SELFTEST, out_data);
-+		rc = iommu_copy_struct_from_user(&data, user_data,
-+						 IOMMU_VIOMMU_TYPE_SELFTEST,
-+						 out_mmap_pgsz);
- 		if (rc)
- 			return ERR_PTR(rc);
- 	}
-@@ -760,17 +767,41 @@ mock_viommu_alloc(struct device *dev, struct iommu_domain *domain,
- 		return ERR_CAST(mock_viommu);
- 
- 	if (user_data) {
--		data.out_data = data.in_data;
--		rc = iommu_copy_struct_to_user(
--			user_data, &data, IOMMU_VIOMMU_TYPE_SELFTEST, out_data);
--		if (rc) {
--			iommufd_struct_destroy(ictx, mock_viommu, core);
--			return ERR_PTR(rc);
-+		mock_viommu->page =
-+			(u32 *)__get_free_page(GFP_KERNEL | __GFP_ZERO);
-+		if (!mock_viommu->page) {
-+			rc = -ENOMEM;
-+			goto err_destroy_struct;
- 		}
-+
-+		rc = iommufd_ctx_alloc_mmap(ictx, __pa(mock_viommu->page),
-+					    PAGE_SIZE, false,
-+					    &mock_viommu->mmap_pgoff);
-+		if (rc)
-+			goto err_free_page;
-+
-+		/* For loopback tests on both the page and out_data */
-+		*mock_viommu->page = data.in_data;
-+		data.out_data = data.in_data;
-+		data.out_mmap_pgsz = PAGE_SIZE;
-+		data.out_mmap_pgoff = mock_viommu->mmap_pgoff;
-+		rc = iommu_copy_struct_to_user(user_data, &data,
-+					       IOMMU_VIOMMU_TYPE_SELFTEST,
-+					       out_mmap_pgsz);
-+		if (rc)
-+			goto err_free_mmap;
- 	}
- 
- 	refcount_inc(&mock_iommu->users);
- 	return &mock_viommu->core;
-+
-+err_free_mmap:
-+	iommufd_ctx_free_mmap(ictx, mock_viommu->mmap_pgoff);
-+err_free_page:
-+	free_page((unsigned long)mock_viommu->page);
-+err_destroy_struct:
-+	iommufd_struct_destroy(ictx, mock_viommu, core);
-+	return ERR_PTR(rc);
- }
- 
- static const struct iommu_ops mock_ops = {
-diff --git a/tools/testing/selftests/iommu/iommufd.c b/tools/testing/selftests/iommu/iommufd.c
-index 8ebbb7fda02d..4aa6411e9a76 100644
---- a/tools/testing/selftests/iommu/iommufd.c
-+++ b/tools/testing/selftests/iommu/iommufd.c
-@@ -2799,12 +2799,17 @@ TEST_F(iommufd_viommu, viommu_alloc_with_data)
- 	struct iommu_viommu_selftest data = {
- 		.in_data = 0xbeef,
- 	};
-+	uint32_t *test;
- 
- 	if (self->device_id) {
- 		test_cmd_viommu_alloc(self->device_id, self->hwpt_id,
- 				      IOMMU_VIOMMU_TYPE_SELFTEST, &data,
- 				      sizeof(data), &self->viommu_id);
- 		assert(data.out_data == data.in_data);
-+		test = mmap(NULL, data.out_mmap_pgsz, PROT_READ | PROT_WRITE,
-+			    MAP_SHARED, self->fd, data.out_mmap_pgoff);
-+		assert(test && *test == data.in_data);
-+		munmap(test, data.out_mmap_pgsz);
- 	}
- }
- 
--- 
-2.43.0
+On Apr 10, 2025 at 13:22:29 -0500, Andrew Davis wrote:
+> On 4/10/25 6:38 AM, Devarsh Thakkar wrote:
+> > Hi Jai,
+> >=20
+> > On 10/04/25 15:48, Jai Luthra wrote:
+> > > Hi Devarsh,
+> > >=20
+> > > Thanks for the cc here.
+> >=20
+> > Thanks for the quick comments.
+> >=20
+> > >=20
+> > <snip>
+> >=20
+> > > On the basic camera + ISP usecase, afaiu the downstream edgeAI SDK us=
+es
+> > > custom gstreamer elements that make calls to the aforementioned R5 co=
+re
+> > > that controls the ISP. On top of that there are additional gstreamer
+> > > patches that are not yet posted upstream for review from the communit=
+y,
+> > > so the userspace design isn't really set in stone, or upstream-friend=
+ly
+> > > yet.
+> > >=20
+> >=20
+> > I don't see much relation of carve-outs with Gstreamer or it's pending =
+downstream patches. The memory is mainly managed from firmwares (mainly ope=
+nvx layer being used underneath) and there are even non-gstreamer pure open=
+vx based use-cases/tests which use these carveouts. At the end of the day, =
+the firmwares from the only SDK which is released publicly for AM62A uses a=
+ll these carveouts.
+> >=20
+>=20
+> These are programmable cores, you can run whatever you want on them. You =
+can
+> make your own firmware if you like, we have support for them in our MCU+(=
+FreeRTOS)
+> offering today[0](look at all these firmware you can build/run!).
+>=20
+> In a week or so I'll start pushing support for these cores into Zephyr,
+> bringing in even more firmware options for these cores.
+>=20
+> I simply do not see why one firmware, shipped with one of our SDKs*, doing
+> things wrong should force us to hack up our DT here in upstream Linux.
+>=20
 
+I see, if the not-yet-upstream firmware can be updated, then I don't see=20
+any reason to hardcode carveouts here.
+
+For this patch as is,
+Reviewed-by: Jai Luthra <jai.luthra@ideasonboard.com>
+
+> *Speaking of the "only" SDK's firmware, if you take our Yocto meta-ti lay=
+er and
+> build an SDK yourself, you get firmware by default that *doesn't need ext=
+ra
+> carveouts*! [1][2]
+>=20
+> Andrew
+>=20
+> [0] https://github.com/TexasInstruments/mcupsdk-core-k3/blob/k3_main/make=
+file.am62ax
+> [1] https://git.yoctoproject.org/meta-ti/tree/meta-ti-bsp/recipes-bsp/ti-=
+rtos-fw/ti-rtos-echo-test-fw.bb
+> [2] https://git.ti.com/cgit/processor-firmware/ti-linux-firmware/tree/ti-=
+ipc/am62axx?h=3Dti-linux-firmware
+>=20
+> >=20
+> > > IMO if that architecture is still under discussion, it might be better
+> > > to keep the edgeAI specific carveouts out of the upstream DTs.. just =
+in
+> > > case the carevouts have to go away, or change significantly.
+> > >=20
+> > > If you are sure that the regions and firmware architecture is set in
+> > > stone and won't be updated even if there is a complete redesign of the
+> > > userspace/application level stack for accessing the ISP (let's say u
+> > sing> libcamera), only then it makes sense to add the carveouts right n=
+ow.
+> >=20
+> >=20
+> > Yes as I said if whole firmware arch is getting updated then better to =
+wait. I think probably the firmware team marked in cc can comment on that. =
+Moreover I don't see any point of adding only half the regions as that woul=
+d anyway not work with SDK supplied firmwares, for e.g. RTOS-to-RTOS ipc te=
+st run by firmwares on bootup would fail, along with other camera+ISP and A=
+I use-cases.
+> >=20
+
+PS: Devarsh your mail client has format=3Dflowed enabled, which causes=20
+line length overflows when replying to it.
+
+Please disable it, as advised here:
+https://www.kernel.org/doc/html/latest/process/email-clients.html#thunderbi=
+rd-gui
+
+> > Regards
+> > Devarsh
+> >=20
+> > > > > >=20
+> > > > > > I understand your point, currently with this patch remoteproc l=
+oading
+> > > > > > will not work for some cores. However, the goal here is to stan=
+dardize
+> > > > > > as much as possible the memory carveout sizes, push the "demo f=
+irmware"
+> > > > > > to request resources the correct way from resource table, and m=
+ove away
+> > > > > > from this dependency and limitations that we have with our firm=
+ware.
+> > > >=20
+> > > > I understand this, but my view is that w.r.t firmware only goal sho=
+uld not
+> > > > just be tp demonstrate correct way of requesting resources from
+> > > > resource-tables, optimize the carve-outs etc but also to demonstrat=
+e the
+> > > > primary use-cases (camera+ISP+edgeAI) which the device is capable o=
+f.
+> > > >=20
+> > > > > > should soon be able to generate our own firmware using Zephyr,=
+=C2=A0 which
+> > > > > > Andrew is pioneering, so with this firmware we should move to t=
+he
+> > > > > > correct direction upstream. Downstream we are still using the m=
+emory
+> > > > > > carveout sizes that the firmware folk want so desperately to ke=
+ep, for
+> > > > > > now..
+> > > > > >=20
+> > > > >=20
+> > > > > +1
+> > > > >=20
+> > > > > I have this Zephyr based firmware for AM62A working and it uses t=
+he
+> > > > > standard IPC regions as specified in this patch. I'll be posting =
+the PR
+> > > > > for it in Zephyr upstream by the end of week.
+> > > > >=20
+> > > >=20
+> > > > I understand this, but will this zephyr based firmware support visi=
+on +
+> > > > edgeAI analytics ? Does it demonstrate all the unique capabilities =
+of AM62A
+> > > > SoC ? If not, then what would be utility of such firmware on AM62A =
+where
+> > > > these are the primary use-cases w.r.t AM62A ?
+> > > >=20
+> > > > Why should upstream device-tree use carve-outs which match to this =
+demo
+> > > > zephyr based firmware (which apparently not many are using and is n=
+ot going
+> > > > into any official SDK release) instead of official firmwares going =
+into SDK
+> > > > ? SDK released firmwares are being used by so many customers and SDK
+> > > > documentation maps to it, but zephyr firmware that is being pitched=
+ here,
+> > > > who would be the potential users and what would be it's utility ?
+> > > >=20
+> > > > [1]: https://www.ti.com/tool/PROCESSOR-SDK-J721E
+> > > >=20
+> > > > Regards
+> > > > Devarsh
+> > > >=20
+> > > > > For this patch as it is:
+> > > > >=20
+> > > > > Acked-by: Andrew Davis <afd@ti.com>
+> > > > >=20
+> > > >=20
+> > > >=20
+> > > > > Andrew
+> > > > >=20
+> > > > > [0] https://lore.kernel.org/lkml/20241011123922.23135-1-richard@n=
+od.at/
+> > > > > [1] https://git.ti.com/cgit/edgeai/meta-edgeai/tree/recipes-kerne=
+l/
+> > > > > linux/linux-ti-staging/j721e-evm/0001-arm64-dts-ti-Add-DTB-overla=
+ys-for-
+> > > > > vision-apps-and-ed.patch?h=3Dkirkstone
+> > > > >=20
+> > > > > > ~ Judith
+> > > > > >=20
+> > > > > > >=20
+> > > > > > > [1]:
+> > > > > > > https://git.ti.com/cgit/ti-linux-kernel/ti-linux-kernel/tree/
+> > > > > > > arch/arm64/boot/dts/ti/k3-am62a7-sk.dts?h=3Dti-linux-6.6.y-ci=
+cd#n103
+> > > > > > > [2]: https://www.ti.com/tool/PROCESSOR-SDK-AM62A
+> > > > > > >=20
+> > > > > > > Regards
+> > > > > > > Devarsh
+> > > > > > >=20
+> > > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 opp-table {
+> > > > > > > > @@ -741,3 +771,57 @@ dpi1_out: endpoint {
+> > > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 };
+> > > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
+> > > > > > > > =C2=A0=C2=A0 };
+> > > > > > > > +
+> > > > > > > > +&mailbox0_cluster0 {
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 status =3D "okay";
+> > > > > > > > +
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 mbox_r5_0: mbox-r5-0 {
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ti,mbox-rx =3D =
+<0 0 0>;
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ti,mbox-tx =3D =
+<1 0 0>;
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 };
+> > > > > > > > +};
+> > > > > > > > +
+> > > > > > > > +&mailbox0_cluster1 {
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 status =3D "okay";
+> > > > > > > > +
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 mbox_c7x_0: mbox-c7x-0 {
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ti,mbox-rx =3D =
+<0 0 0>;
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ti,mbox-tx =3D =
+<1 0 0>;
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 };
+> > > > > > > > +};
+> > > > > > > > +
+> > > > > > > > +&mailbox0_cluster2 {
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 status =3D "okay";
+> > > > > > > > +
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 mbox_mcu_r5_0: mbox-mcu-r5-0 {
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ti,mbox-rx =3D =
+<0 0 0>;
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ti,mbox-tx =3D =
+<1 0 0>;
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 };
+> > > > > > > > +};
+> > > > > > > > +
+> > > > > > > > +&wkup_r5fss0 {
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 status =3D "okay";
+> > > > > > > > +};
+> > > > > > > > +
+> > > > > > > > +&wkup_r5fss0_core0 {
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 mboxes =3D <&mailbox0_cluster0>, <&mbox=
+_r5_0>;
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 memory-region =3D <&wkup_r5fss0_core0_d=
+ma_memory_region>,
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 <&wkup_r5fss0_core0_memory_region>;
+> > > > > > > > +};
+> > > > > > > > +
+> > > > > > > > +&mcu_r5fss0 {
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 status =3D "okay";
+> > > > > > > > +};
+> > > > > > > > +
+> > > > > > > > +&mcu_r5fss0_core0 {
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 mboxes =3D <&mailbox0_cluster2>, <&mbox=
+_mcu_r5_0>;
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 memory-region =3D <&mcu_r5fss0_core0_dm=
+a_memory_region>,
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 <&mcu_r5fss0_core0_memory_region>;
+> > > > > > > > +};
+> > > > > > > > +
+> > > > > > > > +&c7x_0 {
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 mboxes =3D <&mailbox0_cluster1>, <&mbox=
+_c7x_0>;
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 memory-region =3D <&c7x_0_dma_memory_re=
+gion>,
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 <&c7x_0_memory_region>;
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 status =3D "okay";
+> > > > > > > > +};
+> > > > > > >=20
+> > > > > >=20
+> > > > >=20
+> > > >=20
+> > > >=20
+> > >=20
+> >=20
+
+--=20
+Thanks,
+Jai
+
+--5qa2kcidthusc3og
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCAAdFiEETeDYGOXVdejUWq/FQ96R+SSacUUFAmf4up4ACgkQQ96R+SSa
+cUWHnBAAsnTCPfRwfgVpFb0AOE+j+oPJRLwuQVa+QsvI3Oq7mTmVvPPyzhQkzROI
+77st6GKuoOhDOO3xR8wubgWmIsDxvsdbIbZTWfC9Wjn/wg9wpEQw9tJwEk/SCFOL
+m+1htpMQts7DDsK2IMhy7d0GeRt/Vv55uFITgW4YyFQYfT22dvmEGAoENBShik+Y
+b3Y+OhVGKAyl+wuJdkb9QrV1np19Ty2KEvg0xyFyxgL/SrdOpQWa5sLk//BOt3Hq
+pn2I0hQ9AN4Gjee0iH+fdcr/1I3JGrIg0kztYCSk14net/xj8Ja0XrVE6NvogBfq
+gHImn8DHSeUyPamJrqtTpp6PAq7H/OBlCK28dBF7Up6aJ0pwirqfh11arpo/5K76
+dVSawQD3X2CvLyl2sylVivTQBJy8CrcTlF+arwC05R1fK3QGAQWyM4DI45cWf/a7
+MiN+rQvnFpBqJNOVrORYxsUecIe8uP+fV4uxqyLpXB1oEjwpCJiJuweouCBIWg6g
+60SyERhRJA+PLmtd2LwPxaJUV1rJuuPNeLb/QLUvm96ORN2zrpBUnrwzQIrLzxyH
+yoMDRayjh7p97VuvKd7sRKkuNi71ohBqr7EEF4UwsTHhefjYuoIuMt4WqPNAeG1E
+BFSp/+FnSQLb6thmSsqXwVc5R/kxQCIO5oLzHjCDDanJ+0iHesI=
+=HZyO
+-----END PGP SIGNATURE-----
+
+--5qa2kcidthusc3og--
 
