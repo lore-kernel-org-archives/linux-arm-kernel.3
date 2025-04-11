@@ -4,80 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40C83C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 15:54:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69991C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 16:00:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VEBB3+nk9eRMLAfQSWyx+3KioB6f3dgvNv/THggbzWE=; b=sTB1n75b1Db9dqO7DcZ3oofd3L
-	ybEwTR7yVfKY++tb2RNrMsRsKXz5qs4ffUeD8W36HUABRyou0ZGZ91mSfnY9uiYS72GTD3uETResS
-	4SGvPVfshtURfoYg+uEfIYIh82Y+ntxpSl7JRpgigegPnLzIgcZdNhC6Aa7/TTe4eGTyRatGGPavY
-	ext50pTL8MEuCKmwhEqnM9cTtoYnpNSDeyzs/fCUsmjwnMXppQU8pYsgkQQFzokLots71UdKLp4mE
-	NB4/3EZsosVYv/g3DSlB+lYYq/XqX9otoWDb/gwpx2zncHjHX+JfxwxhsZyZPqgKgd6oVjOfd/Adq
-	pXmnswZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BfE+yRCAhHjU4vmJ5my98/I0X/s7bBdzPoRwXo0930I=; b=MqallPvR7NnQh/P45DcyxwAhyX
+	beJyxH5LdWk+USOqXHidnYxruK+sMiuxZGFfArhV1mk3QAQvseq2O9ujvsjI4NwA/ojPQFH2jSt+R
+	OvEXoh2nN7qO688T9SyVkNmld5iEuXrHBHkIoucN/UYv7EjkLO4NW6obDJbcvSLGMyZHTsD3v/By3
+	zOK68lvb+xac9/+BAMk8lMnME8VmsOBHFfUAtP8KUd7ljfwS8WKD1bSIFBQfGQNwrf5n0b4bBlODN
+	pajbOye6t3lX/MvHEkrgdbGw3BRdXYgS7Hmx7Eqa/EQgTMEibLTfp9wXIiZwdJL6Mo9FNHFi+pXHs
+	dZ3WIZSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3Ghh-0000000EIQt-0gll;
-	Fri, 11 Apr 2025 15:54:05 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1u3GnX-0000000EJ90-3fo2;
+	Fri, 11 Apr 2025 16:00:07 +0000
+Received: from mail-mw2nam10on20615.outbound.protection.outlook.com ([2a01:111:f403:2412::615] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3Gfq-0000000EIBu-1JzD
+	id 1u3Gli-0000000EIv0-4ASt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 15:52:13 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53BFq57r1486028
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 11 Apr 2025 10:52:05 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744386725;
-	bh=VEBB3+nk9eRMLAfQSWyx+3KioB6f3dgvNv/THggbzWE=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=T4zt6GBZzgqzkard/K33ATb/J8UEtV1ATL2CoVX6zoLf3NqE+q+B632UQ+o3WNjdQ
-	 fjCFyGf7+NwZ+fTX6DTSFxTkz+4bOVH6V1X9Wcn7XhaRRPkU2TQS1KiElgDpB9DIfk
-	 mb8Q4etS63M/MZirOyG+nGK8UOMoGI/KpWTI3Wt0=
-Received: from DLEE103.ent.ti.com (dlee103.ent.ti.com [157.170.170.33])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53BFq52E035194
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 11 Apr 2025 10:52:05 -0500
-Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE103.ent.ti.com
- (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 11
- Apr 2025 10:52:05 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 11 Apr 2025 10:52:05 -0500
-Received: from [10.249.141.75] ([10.249.141.75])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53BFq1dm026503;
-	Fri, 11 Apr 2025 10:52:01 -0500
-Message-ID: <28f1e0b7-9947-43f3-9a47-f3c6ecd69b91@ti.com>
-Date: Fri, 11 Apr 2025 21:22:00 +0530
+	Fri, 11 Apr 2025 15:58:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BNBFNyHKVvh9U06g3LrI5E4XabOV0b4ZycwLuNjB3NuTQPdR4PACdJwETuDAqi2o4MhNHeu4uffGJ/H/7pMMcgD89iQ/zoQgSQrHd1hrg7XWH9xHx2ZAZlQauwH6vDN7NuJMb09VIh20CH3Wx+R72RG+glQMyc7tatS8wbT4i4o9dXa9DdDhzM0Xxcgi7EM1cmU3Kh5VT92hYI0ZHtqdxSizGNUnCT4/EV88OFpV04YJO4kNfv6GALiJ4FA4vri9bG+dxyM+h2hADR4cIOGWqTGZ+2oqKC1ttKXNP2whF37IykBhHe6cKLcy8WzRbGDc7oLiT9crp4ALLvAOzIPToA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BfE+yRCAhHjU4vmJ5my98/I0X/s7bBdzPoRwXo0930I=;
+ b=TM5aEdgybcotE/46OZJQjmBPrnEdOlxKrN4yc5Eq1VcBIFSF2iYTp0Td0tLeWYhjMIT66f+unPaFuH1WJZia68el35p9NEZDFdh1UVgZLdsJPyp94OM+VeH+z2tIcJ1tEhh25em9QFlg3p1UDXCPmnHw2b63zIN6zRTWyenZPV7I73SPEXvltNiGViC9Amyx82AimjMAru5Ae6sn9kkIlaWlec6dtkm+LpGHegox+Es49pOmavleLsZNuhYeck5XNDaNqF/ZpJ7zw2sndNJCTyQ0YjZ+z/1M0QFdVYcF9WK/dvvlNBi2IxDBZ0O0AWbTBDWDF7aSlgd+BnVjdvBBog==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BfE+yRCAhHjU4vmJ5my98/I0X/s7bBdzPoRwXo0930I=;
+ b=rOMQ+nA0vcMCu63UpclKTz2bikO18pstrDS6F+YX1gW9jg0BjyXqIqmoBUMEBWi3RxFdTf5GvAlXGbQUbyg6/KQRTLVets6qyTLz7ELgDCEKqdLFR4kOR4doEkyDUjhbOhm3n2BHdP8VGJqzGCZANHjsgzHcvMfUky7stXR0IpKunky2lVyR+zY1KHOY6Jdil6oCIdJCP2gpjccuwNYhoXv6+TdcjYPEsyQ+YaoDUrrdyQqIsifAAa1Usc2MXcYPYtIL0BAPCmgEiKCk+qZgZtRcHAC6iJQJuVyl1DaaOdrU/M+ZHc/XK+ol47avn5/3KiltX8PYTTYhKo5hQEfZYA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by PH0PR12MB8175.namprd12.prod.outlook.com (2603:10b6:510:291::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.31; Fri, 11 Apr
+ 2025 15:58:04 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8606.028; Fri, 11 Apr 2025
+ 15:58:03 +0000
+Date: Fri, 11 Apr 2025 12:58:01 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Pranjal Shrivastava <praan@google.com>
+Cc: Robin Murphy <robin.murphy@arm.com>, joro@8bytes.org, will@kernel.org,
+	iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	nicolinc@nvidia.com
+Subject: Re: [PATCH] iommu/arm-smmu-v3: Fail aliasing StreamIDs more
+ gracefully
+Message-ID: <20250411155801.GA252886@nvidia.com>
+References: <39d54e49c8476efc4653e352150d44b185d6d50f.1744380554.git.robin.murphy@arm.com>
+ <20250411152122.GF8423@nvidia.com>
+ <Z_k6MqMcVO068Mq8@google.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z_k6MqMcVO068Mq8@google.com>
+X-ClientProxiedBy: BN0PR04CA0052.namprd04.prod.outlook.com
+ (2603:10b6:408:e8::27) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] arm64: dts: ti: k3-j722s-main: Disable
- "serdes_wiz0" and "serdes_wiz1"
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-CC: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <rogerq@kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <stable@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <srk@ti.com>, <u-kumar1@ti.com>
-References: <20250408103606.3679505-1-s-vadapalli@ti.com>
- <20250408103606.3679505-3-s-vadapalli@ti.com>
- <7b2f69ad-48aa-4aa9-be0e-f0edae272bdb@ti.com>
- <475a1ac1-abb1-4c6e-b5b2-3f1a3399d5c4@ti.com>
-Content-Language: en-US
-From: "Kumar, Udit" <u-kumar1@ti.com>
-In-Reply-To: <475a1ac1-abb1-4c6e-b5b2-3f1a3399d5c4@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|PH0PR12MB8175:EE_
+X-MS-Office365-Filtering-Correlation-Id: 80ceda2a-fb34-4745-214c-08dd7911a3b9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?qvChacWSS+Z+SwAKEotOnj7GTxoZRlt4bC+Ky4O8KqB06llnUSsupIz1EI9F?=
+ =?us-ascii?Q?7nnv0fI+fpsjx3Mwts7yzYU5aFeTfE92rmHmOzidv+EVU8k5s3e8yTd+dCcY?=
+ =?us-ascii?Q?XxO6vv4eO0iDcfLKQ6dsrZwPv7lB1p4iXf+Myb/QTJQiYBwqVIs6oBAw1r6/?=
+ =?us-ascii?Q?2c3Qi17xWj0iEzuSmldmSFv7GNP/75MOMpjec+s4RK5Q+EtY7lxxrI1OzEZd?=
+ =?us-ascii?Q?cEQeTe4v12ilBNAupkf1yQvNly4WuekPYegFBkhJE/IXRuwEOSQoV8+9AN1O?=
+ =?us-ascii?Q?RkvqPhfpKaVQHuexWAFtS0GCBJAuJ9dZY6yIGHqbuP04HvPG49mPBdcyrACX?=
+ =?us-ascii?Q?r7M9XhSODBhkydvWZM5v5a2oxY1htkJ0cu6Y3leLM3/kT3YfifIFoCUDzRVQ?=
+ =?us-ascii?Q?JDsTgFSOlE/MGAmimq24moqyudFDyv6BwxX4MEad5jH2FTe6PkYkG0/sihwl?=
+ =?us-ascii?Q?k0xlQcSEg+NStbhgS94yxFLxg0rqbL2ElKGtYdNQfyn422+6rYEJ828EZdyg?=
+ =?us-ascii?Q?8lvclkbSZAbuYIKDLVUL18CMjA9ooSdmpqUiguSvmfzvqOKt55NF4/s6usZp?=
+ =?us-ascii?Q?R9luTdi2ADa/L6g5NwTa/6OdTsmDKoIhMf2sN7hzWkW+vk5swW/88FWH5XO5?=
+ =?us-ascii?Q?UY08iw7jnUzQh3BZ/qGCSu2XNDl4+9ZQG5enjjbjsleQjtlF3CnYXQRtmc05?=
+ =?us-ascii?Q?bJY0GaaYbZt5I0kQA+7QJQ9cCNEXphcZlxNmYq44WYZNo6Of4cuczgPHQmCq?=
+ =?us-ascii?Q?r7IYzDgAaEn+xjhGIl+iBoIuAdByZGZYrHZfkhnf9Fvi+ZVmWrdp9O7WTkmS?=
+ =?us-ascii?Q?F+55t1Gmmxv+MLRlDt3gYMWoWhgAqaXCkzN6/hPENfR+9yzFb4oCAZvfZ6x4?=
+ =?us-ascii?Q?Lejg5D41vP56QbLOkNFziHNgrfzf1aDwSJUd7qU/3ZeJH//mu69q/iCVLk34?=
+ =?us-ascii?Q?TxXOZdaEZHRhK1biBY4IYuuttcBLwRrmrIwwO108UfUbZKzcFSUCLA4sdKtM?=
+ =?us-ascii?Q?R23YchXp3q6210chgeSN8lf65MAC9B6wS/M9EqK9hluFb6/LsdDUOzM/lMvc?=
+ =?us-ascii?Q?P8OkIl/na6nis318Fx38TZKihRrSWy04FhOfAoY33U4sup8px6rqXL2dYxaE?=
+ =?us-ascii?Q?KA1Eu+NaJ0SxZmBX6/nuavQGj7u3JytDuEEBIQ21zBCZkloOOOC94RAgQ4ji?=
+ =?us-ascii?Q?G1yQTm3FQDN9Z5IpbgYtTevQ3/VKPN5qxw+vbHejlMw2A1rAD+TbyaKOGQoP?=
+ =?us-ascii?Q?BO2y+VVP8F9sVAoxLvNnr+3+U87kkB6Ru3MIdwTgK0JHqh6FtVZiK5XqeN2q?=
+ =?us-ascii?Q?8oY5SJxQCDj0A1jwBUWSmSNNg7CBXD5RqFLw/ebKt93ZfoDKtZUwSy5xweaz?=
+ =?us-ascii?Q?l5fGCeyNEK9hSJl1hQc02hbQvUzJewEYMCmic6oEqG4ZUTYOiXpf3odURL/t?=
+ =?us-ascii?Q?Xr4TOf1HlpY=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MOopT25X0vMpdXaV8nJ/V2xNAGcaVNweraosoOLrBv61mGkdPd2kXSkcm332?=
+ =?us-ascii?Q?Zs//ZJpK5khsVMGcYJ/osIx6+0tY4+E1Efa/gYNx+saZhZ3fPGO8n6UYBNFm?=
+ =?us-ascii?Q?Txax/QvZwg+rCl4sdTc7lR7p2yg5ly2jqrzK9+3cFLTXOIyCEg5Y6RO2hENm?=
+ =?us-ascii?Q?UhfLz2ixg7gcKqBBDgU+7LyG6GHnaHGiBUi3plnZ9fJCKqplJot5g0c1ozWl?=
+ =?us-ascii?Q?/cqUrqPWmwO16xNSydbd9ep59XXPaEMcPEmWh7VqkJ1CYzZ1my6UdYSZ0pHw?=
+ =?us-ascii?Q?X/1fL2Sl2t8LsGHij/0G26hgT9Fyl8wLd2UUgC0l0wR1eyhMS5nAGhXtwD4l?=
+ =?us-ascii?Q?26ZMutf+MJGiFHDIwLUeQt10qKlWtZkVw38KCqvLZiSqjWrCeIUhVcZBdP+C?=
+ =?us-ascii?Q?H+obQ/+q/Fxmfps/rsnNBA3Ofec934hZ2AfRu2/9AYPZu8nM5uirpvdN8SS8?=
+ =?us-ascii?Q?RWoncD1kaNcV8Grb/PHxNGtl2Bg/V8Hp+5Ewj65u9OfpeHRem7AI+mZX3NOc?=
+ =?us-ascii?Q?gnOk6GFdhbiXact9xR3JmaF2flB7fCwDLghqUUdQtHrzdryhpu2iUs2TKKQO?=
+ =?us-ascii?Q?pc0Zaf+RkhwkfE78pj+V/QVOV/IEF1/xjfOCIENx37gZuxgZ0zr9PRYG22Uj?=
+ =?us-ascii?Q?YRNM49tiVyVcnt1yrt4/xcZJAU3+Qwa0gXOWF64D0G+N6a5DXTZuu4VAsAcZ?=
+ =?us-ascii?Q?z9Ggdg3T+O0Wak2OnSPVihXyHb4e8O/7SbDSKBjR03q1Iubg5/8Hvdjcph0L?=
+ =?us-ascii?Q?PLPLNhHwhvRAIpHbBzMZxWL9ZN7tnrKRJaV7N5HEXn6nof1TPdz3uostQ5n/?=
+ =?us-ascii?Q?X9zXOjhwvkp82OzblDTEPddYydFftHhEyU7vjWiP5jHTWcVthvH39eVSFhJr?=
+ =?us-ascii?Q?XwpqJLJShw2u4ZELWzQr+uLnqz0dqx45ZYUf54iHUQoBwHBBOVvusZ4n1CXP?=
+ =?us-ascii?Q?ZUu9UzrPa0l1SWV1IjhxPg3gkUF9kDnZzHa55d270wMX2h7hw/0flqvVuaXe?=
+ =?us-ascii?Q?fvNxRDYUtOtgGQpU149ZzI/bMlOkIqfm0wb37VaOt2rw1REqZPvmrpc8tMlb?=
+ =?us-ascii?Q?HdxXjsldz2F3OaAlkHQwNls25vJUE8/CNdLtFArlK4KO2HZGX1G3BsRE1Dxc?=
+ =?us-ascii?Q?eUC7iin4whH8bHR88YTgxV3pm3RrDZVITyHDYXN9yVOeSzVAHZfzJXZUukvp?=
+ =?us-ascii?Q?eew+vyNEjSgQStFW9kAhw9m6OJZMa6t8/QnGOzL5/pGe5RKThPQ3r3Us31dv?=
+ =?us-ascii?Q?N1QD1bj9Rc5wQmfFAfV1ugTjQEPx/9v8uXs6XgltaVgoxv/auNdQmfqgUvH2?=
+ =?us-ascii?Q?Wu4rvVGG38asd2RPbSBiT/FiwscsBh6sK6rAuTqumy/wnNIaQaddnFPN9vSi?=
+ =?us-ascii?Q?4KhaTvKRS+pkzocMKvB5c4FHsbMnmEogL2BLVVvAfGP2mZ/TXh3vNUlLjSs+?=
+ =?us-ascii?Q?T0PsAsaKbwokeV3kg4xo1a73YsQUn722GzX/ipks6j6o6zEB2dDEj9Xl0YlX?=
+ =?us-ascii?Q?2Tjk3kek9iERS9bnTXn7OHe2us/V8VveizoQDd+NlL4dygAupG4u0Yrk1ugZ?=
+ =?us-ascii?Q?+8cCiYpqVlPDbzElVXShfzT7wkyC1swzYMzJBAp2?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 80ceda2a-fb34-4745-214c-08dd7911a3b9
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Apr 2025 15:58:02.7226
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: KE+B2W82PNgYkgFWoskFg6T8TGNLKP0YYoVVj41Lz2s+qw+fxEQoowjheuNn1CSC
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB8175
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_085210_449788_5CB34C5B 
-X-CRM114-Status: GOOD (  22.32  )
+X-CRM114-CacheID: sfid-20250411_085815_032219_FD3B6246 
+X-CRM114-Status: GOOD (  21.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,84 +160,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+On Fri, Apr 11, 2025 at 03:50:10PM +0000, Pranjal Shrivastava wrote:
 
-On 4/11/2025 7:47 PM, Siddharth Vadapalli wrote:
-> On Fri, Apr 11, 2025 at 07:31:52PM +0530, Kumar, Udit wrote:
->
-> Hello Udit,
->
->> On 4/8/2025 4:06 PM, Siddharth Vadapalli wrote:
->>> Since "serdes0" and "serdes1" which are the sub-nodes of "serdes_wiz0"
->>> and "serdes_wiz1" respectively, have been disabled in the SoC file already,
->>> and, given that these sub-nodes will only be enabled in a board file if the
->>> board utilizes any of the SERDES instances and the peripherals bound to
->>> them, we end up in a situation where the board file doesn't explicitly
->>> disable "serdes_wiz0" and "serdes_wiz1". As a consequence of this, the
->>> following errors show up when booting Linux:
->>>
->>>     wiz bus@f0000:phy@f000000: probe with driver wiz failed with error -12
->>>     ...
->>>     wiz bus@f0000:phy@f010000: probe with driver wiz failed with error -12
->>>
->>> To not only fix the above, but also, in order to follow the convention of
->>> disabling device-tree nodes in the SoC file and enabling them in the board
->>> files for those boards which require them, disable "serdes_wiz0" and
->>> "serdes_wiz1" device-tree nodes.
->>>
->>> Fixes: 628e0a0118e6 ("arm64: dts: ti: k3-j722s-main: Add SERDES and PCIe support")
->>> Cc: stable@vger.kernel.org
->>> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
->>> ---
->>>
->>> v1 of this patch is at:
->>> https://lore.kernel.org/r/20250408060636.3413856-3-s-vadapalli@ti.com/
->>> Changes since v1:
->>> - Added "Fixes" tag and updated commit message accordingly.
->>>
->>> Regards,
->>> Siddharth.
->>>
->>>    arch/arm64/boot/dts/ti/k3-j722s-main.dtsi | 4 ++++
->>>    1 file changed, 4 insertions(+)
->>>
->>> diff --git a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
->>> index 6850f50530f1..beda9e40e931 100644
->>> --- a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
->>> +++ b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
->>> @@ -32,6 +32,8 @@ serdes_wiz0: phy@f000000 {
->>>    		assigned-clocks = <&k3_clks 279 1>;
->>>    		assigned-clock-parents = <&k3_clks 279 5>;
->>> +		status = "disabled";
->>> +
->> Since you are disabling parent node.
->>
->> Do you still want to carry status = "disabled" in child nodes serdes0 and
->> serdes1.
-> I could drop it, but then the patches will look something like:
-> 1) Patch 1: Same as the first patch in this series
-> 2) Patch 2: Current patch + Remove status = "disabled" within serdes0/1
-> 3) Patch 3: Removed redundant status = "okay" within serdes0/1 in
->              k3-j722s-evm.dts
->
-> Updated Patch 2 and the new Patch 3 mentioned above aren't necessarily a
-> complete "Fix" and have other changes in addition to the "Fix". For that
-> reason, the changes associated with the updated patch 2 and the new patch 3
-> could be a separate series, unless you believe that they should go
-> together in the current series. Please let me know.
+> > I can't think of a reason why we'd want any per-device failure to also
+> > abort the whole iommu registration??
+> 
+> I don't think this change would abort the iommu registration?
 
-I don't see any use case where serdes_wiz0 is enabled and serdes0 is 
-disabled.
+Right, this patch causes iommu registration to succeed because the
+only the ENODEV is ignored.
 
-So your comment 3) is valid. you can take this clean up in other series
+> The probe_iommu_group would simply ignore the -ENODEV. Or are you
+> talking about a case where we don't return -ENODEV?
 
+Yes, I mean the current situation the probe returns -EINVAL because
+the SMMUv3 driver knows it controls the translation but cannot startup
+the device due to the SID conflict.
 
-For now
+> > It would be nice if the dev->iommu would record that the struct device
+> > is inoperable and then we can fail
+> > iommu_device_use_default_domain()/etc in a contained way.
+> 
+> Ohh okay.. you mean the dev->iommu_group == NULL may give an illusion to
+> <bus>_dma_configure that DMA is allowed? 
 
-Reviewed-by: Udit Kumar <u-kumar1@ti.com>
+Right, IMHO it is the different between ENODEV and Exxx. ENODEV
+(ideally) means the iommu instance doesn't translate that device so it
+has no information to add. EINVAL means the iommu instance does
+translate and then we can be pretty sure DMA won't work since the
+default STE is abort.
 
+Thus, IMHO, the core code should ignore ENODEV and assume if no iommu
+claims the device that it is identity. This is what we do today.
 
+However EINVAL should disable future device drivers probing on the
+broken struct device because most likely the DMA API won't work at
+all.
 
-> Regards,
-> Siddharth.
+> Even in that case the iommu would block the DMA right? And upon
+> inspection of dmesg it would be clear that something went wrong with
+> the probe?
+
+Yes and yes. A better chance of the system booting if the iommu is
+left registered and running with only some devices broken/disabled,
+which is what was going on in v6.14
+
+Jason
 
