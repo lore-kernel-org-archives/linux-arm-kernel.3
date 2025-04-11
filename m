@@ -4,62 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EE77C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 08:24:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71BB2C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 08:27:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eku5ycW01SB1Bip77Yrqf5L2fvTCHkyIrDvdKL8Djik=; b=4IafLOdpKu20I2SAm6OefxNYBC
-	GCIH7lTdMUVaS3FNmAgkDFDBmrtVU4kizsDXJL5OMnIFO84KkrboL6EOZY1xOtF9cSSOOXH2vBTib
-	XBfSjFh2Xgti9NkWaAAv3qQLMHLAbq9J1mxxjD/+OJxs9SG5IZsM0WmKEcwQqL87yv4MRfeW9qLso
-	wsUHay/Ln5lg6o89/MpJMGWz+NYmrWwn9+gL0fFIUjyJMbkr9u2QDUypo04R6ktc38cJdC/jv+LCe
-	E1uGydW+Zgc3a9MBU/nvbsqaWNPzJVkDY0vb68gB7zgmJW4iy7XUZo5tRivsqQlkgDrm4TUb4Mvpq
-	VNKZE7qw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qboQr3r/nQtvVSm79VX5bAgKc7Ak0gm9BFcmTAIN2cs=; b=IZBurm5qnpW1RrvbA4+n6RxARb
+	4ec2tmaDEjMDDFobemVu1ujyFK3w3ZHpy3VSgCdpr9Dtp86OUovROMzF8jOXf1JPTE8SEw36w3mG+
+	yf+qhQAZ6O3TeZlIf2knivtzmNiwJ5kUBNhKn3vHFgiGqXW5bk2sCRDdCqVqXMgY+14fE9r56sIxz
+	7igmHgx+hTh9++p84TckY+tTES0p/pO0Ihf8nvEvoWD7p+7ryxTxSfmrJ0phLU46MmKI5T4lX2UZ1
+	MvbXeE+es6uDhr5e6JBqM5F/ygDxqmYf0REMhX0Qt5TOmad5tpabHoSblyJDLsaMSSzKhCEkIMtu6
+	LoJ8ykeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u39fw-0000000D08v-42qP;
-	Fri, 11 Apr 2025 08:23:48 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1u39jW-0000000D0nk-3Vvn;
+	Fri, 11 Apr 2025 08:27:30 +0000
+Received: from mail-eastasiaazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c400::3] helo=HK3PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u39e7-0000000CzzW-3xHc
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 08:21:57 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1u39dm-0007rF-5N; Fri, 11 Apr 2025 10:21:34 +0200
-Message-ID: <f11dd5bc-1753-4685-8385-397ab9c28475@pengutronix.de>
-Date: Fri, 11 Apr 2025 10:21:34 +0200
-MIME-Version: 1.0
+	id 1u39g0-0000000D08i-28FO;
+	Fri, 11 Apr 2025 08:23:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CWcOmWs7Xc6RpaM6UFZMbWUzApxOq8zakb7LORvLZ33/KltLlIyJhRen55vxnc1jluFe6evKr+Y/R4Pua88l1s1NW0P1zs6fTnaNNERLraQlU5g5vECK1hgzwKJaMIDa3Chpdx5jemZ1xDfA/OrR3zWPIVpMU+jkUqP9W8rVQGyeqhQ5TaM+MpCyWpefUM7PZUtFi2Xlq/b5qDiqlNMpw39VwrLWi7zvKZOvXJSxv0gvMKZD5u6/AZ1BCSZ8JH07xZ9nK/+krtOZ7jWwJ3o1fxJsfVZXglVSkdXDTOTGzgjakwuazxZ0On8ARg+RzlH+VdIPKBSaObQ+nDbv1KNruQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qboQr3r/nQtvVSm79VX5bAgKc7Ak0gm9BFcmTAIN2cs=;
+ b=Sa0zUw+GVrLNevt7BC2kIi0LBiQl63C/SNbpDbphXKKuWqU/Zz8K0ISx0niSl2RWmrHP5wPSqljANtMkq8JJURc4ee5xjFtgpvp56s+nnGz7L+IPHTzEeYUhV2TwQmapsD2TT6SzaWe43thhgGZxOW0GSuai09NbSXLNQrJXq4LlqJcefSMf+VKG9kM2NLR/8flNVYPa3rKiurTcQMDmeCj+BJbrbkt2ASwTNMIX9sogNsQH52MDayF0RPIa8d6zgeWJoVB1LUTJ05AOVegjC3cUR+QGUAgpWs++uWRHcHxVeGYLSLMfPXFGns0MUI+Tw6evdzlWrW/HHRGDInkC0A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qboQr3r/nQtvVSm79VX5bAgKc7Ak0gm9BFcmTAIN2cs=;
+ b=CkHWfevFrEa0Im9Xr4iSKZlTdiOHAg08cVDCUQUyLosNjDgLlCCdol03dhjgIXNffJAd2hbh1fyKsmS1hjCQdy2EhjA7YSw8h+zJr7oz5Oi+bpwmcTlvpIfhG80t9Al/MbS+m7cf3CdafpLorvfLASyduOeKSq2T0yAqKAx2fOrYDD7qCdsWI1BEiLh8DCwvDmxZgO4blSeWv1WFth4vluLnQra5WngzDFj2ItdWWXoM3GaMhdg0SGT9tnL8Ge6JlhDYSqvRCOlmGodKYfRW76V+cOQQHGRFpb4Ke0qSnBDdtHW7jADl5EM/3iRasmiOrXaIuhIlm5Mg/EW1Bbe6wg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from TYSPR03MB7387.apcprd03.prod.outlook.com (2603:1096:400:414::10)
+ by JH0PR03MB7655.apcprd03.prod.outlook.com (2603:1096:990:d::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.27; Fri, 11 Apr
+ 2025 08:23:42 +0000
+Received: from TYSPR03MB7387.apcprd03.prod.outlook.com
+ ([fe80::74f0:55c7:2ffa:a57f]) by TYSPR03MB7387.apcprd03.prod.outlook.com
+ ([fe80::74f0:55c7:2ffa:a57f%4]) with mapi id 15.20.8606.029; Fri, 11 Apr 2025
+ 08:23:42 +0000
+Message-ID: <8a0f383f-e100-4928-a040-91ec0aa9aa6f@amlogic.com>
+Date: Fri, 11 Apr 2025 16:23:37 +0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 11/13] arm64: dts: freescale: imx93-phyboard-segin: Add
- USB support
-To: Frank Li <Frank.li@nxp.com>, Primoz Fiser <primoz.fiser@norik.com>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- devicetree@vger.kernel.org, Fabio Estevam <festevam@gmail.com>,
- Sascha Hauer <s.hauer@pengutronix.de>, upstream@lists.phytec.de,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- linux-arm-kernel@lists.infradead.org
-References: <20250410090251.1103979-1-primoz.fiser@norik.com>
- <20250410090251.1103979-12-primoz.fiser@norik.com>
- <Z/fi2W9UdFkwKpSa@lizhi-Precision-Tower-5810>
+Subject: Re: [PATCH v5 2/3] arm64: dts: amlogic: Add A4 Reset Controller
+To: <neil.armstrong@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>, "Rob
+ Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>, "Jerome
+ Brunet" <jbrunet@baylibre.com>, Martin Blumenstingl
+	<martin.blumenstingl@googlemail.com>
+CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-amlogic@lists.infradead.org>, <linux-kernel@vger.kernel.org>, "Zelong
+ Dong" <zelong.dong@amlogic.com>
+References: <20250320-a4-a5-reset-v5-0-296f83bf733d@amlogic.com>
+ <20250320-a4-a5-reset-v5-2-296f83bf733d@amlogic.com>
+ <e01d48c6-287b-476a-b5ca-de670375561d@linaro.org>
+From: Kelvin Zhang <kelvin.zhang@amlogic.com>
 Content-Language: en-US
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-In-Reply-To: <Z/fi2W9UdFkwKpSa@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+In-Reply-To: <e01d48c6-287b-476a-b5ca-de670375561d@linaro.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-ClientProxiedBy: SI1PR02CA0035.apcprd02.prod.outlook.com
+ (2603:1096:4:1f6::8) To TYSPR03MB7387.apcprd03.prod.outlook.com
+ (2603:1096:400:414::10)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TYSPR03MB7387:EE_|JH0PR03MB7655:EE_
+X-MS-Office365-Filtering-Correlation-Id: f1c4206b-862d-4063-236f-08dd78d22b69
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Z05id2RCTUFsZjBRMGxXc3F6bWxsb1JmYVFPWFp6RmJvc0NQd3o5QlhkTXkw?=
+ =?utf-8?B?RkpoSzIwbFhmN0xMTXNBR3IvNkxBWThzNUVuc2VQbnZQek9VM3VJbUZYMHZ6?=
+ =?utf-8?B?SVRhQWkvODFiaWlFak5NVzQ0Q2czN3lKdis0dVBQaVhHTXIwQXdoL2JYdXdD?=
+ =?utf-8?B?dGV4SEFIY3NmenZBbmdwOFFNRllUekJXZ2dVZEZCVXB0cWtuK2c4cjhrUXBH?=
+ =?utf-8?B?eHNRbjNOb1VPRTB2ZmdxOHVrTXFYMHNxamJLdkp1MkxiWnhCYncvTGUzVXQx?=
+ =?utf-8?B?N2VHY3ZPTHZoY2Z3a20zZGxkUm9TeENUQlk2K1ZRZGIwTkgwbURQNFErSnpp?=
+ =?utf-8?B?dVhEYk9TRWt2RitxTnNicVJIVEVKTnB6TnlnLzF5M0hrOE9hMjVLMjJ6OFdM?=
+ =?utf-8?B?bGZvTHBYYXlSdjNHK0sraDhYMWkvQXJKVG93RWlvNDVFSTdFekxZUDJwNkRK?=
+ =?utf-8?B?T0tGYTU0N2hoVFdGdGVuK1l4Y2wzanJnNkZWRUxBWkZaOC9YTEM5bWxWbEEv?=
+ =?utf-8?B?eG1McGdPQlYwblhQM2F5UEVoMXdjTnE2YTUwaExzb2FLM2hKUi9FSXRtVUlk?=
+ =?utf-8?B?SVBOay8zVktQYlZJV2hxbzhTUzZvNEVWTFhIdHlISHR4Zms3SG9ZVktNdENM?=
+ =?utf-8?B?eDMrSU1KaStWT1AxZEVYOThaeUNyRUx6dzVqQlYzSUUzbXRYdzg1djNKMUJ3?=
+ =?utf-8?B?SmFRUWJVSXNFREpiL3FMWDR4N2I3SFZnMkZRTks5UGRnMElvSGNTVW8rR1lo?=
+ =?utf-8?B?cTVWVWdHWXI1bVFPRVlpRGUxcldTYXJrU3kraHc2ZkluRXNaajdPUVZHSERy?=
+ =?utf-8?B?akk4Tko0YVlDYThXbDNzNXE1SWNkYzQyODZnZ2k5cWVkMXpNRFBwbTVCVy95?=
+ =?utf-8?B?c2hEeUJYT2dXd0V5SHBMNWo1Nnlkd1oxcEpzQlFLL3hrN1JQNkFEcjNVbFJn?=
+ =?utf-8?B?clhoUUlHK3EyWlBoc0tVY2tmeEFqQ3hKRUxOTFI2Qk5OQXhXODQ5WHdFN3ZQ?=
+ =?utf-8?B?K0d0RURIb2ZkWGdZYjg2STRvMW1odGZhT01pdVdYb1U1TCtWSTNWbERGK2oy?=
+ =?utf-8?B?ZThwci9CaHJvT1llckptcjRaSzNUZUFkV2gxV2o4K05RTHJYbEVmUlYxZ3Ju?=
+ =?utf-8?B?L042K1NBdllRR2VHcnNPaWhnRUdSMVZPbDAvS1Z0SkFxdll3N0JlbGxxOXVB?=
+ =?utf-8?B?SElsMWNCRjF3b2IzRDByYWdlS1duck1PWXJoTGdpaG9yUTZiV05ZTzM4U1NT?=
+ =?utf-8?B?QlpBZkt5bDNPcW0rYVJmeXNjWHlZbzAwU2syQUkrcGJOTE9PQUhaeUdrSmxx?=
+ =?utf-8?B?cnRNa2JXOHhwSHRINTk4VFliS05hUFJ1OE1EWXZTdXFXUjJSSm5PQmI1Kzd0?=
+ =?utf-8?B?V1liTFBlaEgzOWdDUnJtQVdpR3JXc3kvd3oyVlR4SllqeS9iWXRzSm1CYUlo?=
+ =?utf-8?B?TXRwT094U0l4SGpUV0xEUU5KU244dTg0WDNIYmt1c0FWUlJtMlFtcUlLRnIr?=
+ =?utf-8?B?cVpGb0FlQmttY2doM2grZ21mZkMxblpDa1VNekF5UFhOV0VrM1BXVTk4T2NR?=
+ =?utf-8?B?M2RYalBSWjhuZ1RTQkxpd2NValJwNmZnMlFydE4wWm9GdEd0NWlPTW9GVnlx?=
+ =?utf-8?B?T24xVmpyU3lGY3FweTQ0WE1Qc3hsaVo1YVFldFZMMTlCWjdramlONE9oUlIw?=
+ =?utf-8?B?UFJ2NmJrTmVad3UzMUV5NWZCZUwrM0w1eGpvUjIzMm00ejJCMEJGV3BOYW50?=
+ =?utf-8?B?RGNFYUEvcmJQWi9CQmJPVkFwb1YzNCtkSVdnWXRqVmtPb0xNOXhrMkhtcUhn?=
+ =?utf-8?B?WHVEYW9wbXU2TFZ4WHNUU2M5Y1hjYXVDRjhFMG5HaGQ0OFgvQlgvdWZuUUht?=
+ =?utf-8?B?VksrNnRoWnhKdlRlUVlXMnEyVGNaOXkrU08zWEVnYS9lakowZXQxRE5uSFdw?=
+ =?utf-8?Q?6nN0STv/Gco=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYSPR03MB7387.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OW1OZElabkQ0MFBpb2lMb1QwSHdmOTdSRGxLQUhsbXdBQ0llVThmSEF4T1Rr?=
+ =?utf-8?B?N3kzVDRUOFpabGlMVGlQakl4dkZSVmRCelBJWElqMS9PY3dmS3J0ZkNvSFJU?=
+ =?utf-8?B?NXAvS0x4RnhQUWNyUmwvZmU0V2RCeEtVVlpnUWJUYnpxZndzakhBelp3M0Zw?=
+ =?utf-8?B?VjNYTDVjbFpQUW1oUExBalI4d00rdnZCeVA4akZNci9ORVJrV2FQSXRwKzYz?=
+ =?utf-8?B?MkxuTlBvODhEMURTMXdkK2pkcllDTmp5QnFqK2psUCs0MUNUYnAwZG5tY0tk?=
+ =?utf-8?B?anZxdWxlQ3RaK2NIZlg4VURwMW05UXgzWGNXZVpmWWhaaTJraW9xYUMybmhq?=
+ =?utf-8?B?OTVrVmVBSEdmcXgyV3FUUkFzTE96Rm5ySjNoMXU1N3phd2s1WDdPazV3RWx5?=
+ =?utf-8?B?SnJtcmRycTBwVXlkUkRSUmVoMm1OQ2xPeG80Q2ZFWG9MeTRHbXd2Mld3OU5X?=
+ =?utf-8?B?blQ5dDRFbGlaUkFxR2Vrdzh5MS9XTmFLWUJZc2hRQnc1azQzSFJoYzM1VEll?=
+ =?utf-8?B?aW1tNWNFNk5DbzFGUy9wZ0dGc0U0QTYzNjYzakdkNEFKTStFck1hN1B0S2NZ?=
+ =?utf-8?B?aDNFN3B2NFJCWVUrOVUxS0trdjljN2NOOHZuSGE5RVVycEM3YWhJOG5SM1J2?=
+ =?utf-8?B?MGlWUE9jK3M2YUhVZmpuYVMrdFpHTUMyWUNuNkY0Z1plQVpKY2YzeURwdGcw?=
+ =?utf-8?B?N2M1bEttd2wzZ3c3SVd1bjVwUFNHK0x2cW5rc3VQeXprbkJsL0FJRzcycDgv?=
+ =?utf-8?B?Qi9QRmdWbVo3WkNwd1N2VEk3ejZIR0lWenF2THJmL1ZyRnBCVHM0OE9MSkUy?=
+ =?utf-8?B?MlJaNDQwVkpQeXE5WENYT1F5aWxzcUZVR0d3VW1Pc05jT1FhV3lzSVdBVGdq?=
+ =?utf-8?B?QjRhaVlpcFlsM1VicTJ0RVpXdzg3TWN1UXN2ZXJFeVFEK0dBUXhOVWN2TTZk?=
+ =?utf-8?B?Zm1uNUJvcUEzK2dOdiszTUlLcCtyTkcyempJeVpQZEdRRUpHSmVoRzRkdnRK?=
+ =?utf-8?B?Z0kzYmdnV0JHeWRLM2R1YXJGZnpjaEoxMVNQSDVVa3dBcHdDQjJQOE1BNjVV?=
+ =?utf-8?B?dUJQYlBTcExyck5aczQ3bnE3TndCNnczRDM5UzZGTmxXNWw5T2phZmlnQmtT?=
+ =?utf-8?B?U3BraS9mNzRsbkJaNnlyNkJ6cHRiYWlkdkdaYUtEQWVZTXJvY0EvU1g0djVk?=
+ =?utf-8?B?Zk13L0RsS1AvQ1ArUXc2VEY4Tk9zMTVySUpZWktrc2tldFhKYTByZ3l6SlFX?=
+ =?utf-8?B?RWUwUS9VeTlHeVRFcnEybDVYMURaYW9mZkVMMi9UZy9QS2RDSkkwb0N5My9s?=
+ =?utf-8?B?blZiMUdVcktpR0FNNWtuY3RtWlBpWThTRG1SazZUbUp0UmJyVmNDbmZ1TVJL?=
+ =?utf-8?B?OXZBdnZ3RVRnWFJQemhqYld4V05MYWxhYjVJdzNHamxuY0F1SmZUVW5tUzFF?=
+ =?utf-8?B?YUJDTHp4dUtNdDE5NU5JTjk0cUJsYkJYc1h1SnVZYzlnbWNFNnpscFJmVlFX?=
+ =?utf-8?B?VWNvMXhIWUIxNCt1MWZ1emVVLzdnQUozU3V2TmsxMUtqM203MWdSNktreU5r?=
+ =?utf-8?B?eWJvVjZ5L0pYUy9iSks1SWN3eGR6c2hmODFZcTMwcWxOTjZXMzdhak4vUE1V?=
+ =?utf-8?B?NllLREVyY2UxZmxKRXcwNjVwcnlRTWErcWZIakgzRTIyWTNRYUtKVFg4N3Q0?=
+ =?utf-8?B?YXN3RlhCZW9iR3VOT1preE9saUUrSGNSdnBTdm00dWtrOXNUSWN1aXAxVFo3?=
+ =?utf-8?B?VHJYNC9VSitDVERXWTBJZGpYVjU0MTFIL1VNQ3h5QjFrWEFIOWVJbElQYXhD?=
+ =?utf-8?B?NHRzaVErdThmRHpJaGtOdEpyUlNaR0JUbFp4RWd4WmhSQldYYkNsZ2ExSldP?=
+ =?utf-8?B?MTVkSExWNllPckdHV3B3ejZBZjhZQUdqeDB3VzIwckZZNXVXRDVCWnZTaEJl?=
+ =?utf-8?B?YmcwOWxLQ1VPZXJkUWZzajdTOTRwWVZYUUdGbkFsWUpjejRtaGx6azRlWm5i?=
+ =?utf-8?B?eWdablpad05HWHRCZXRIV21TemJJYzVJdlYvOEQrdkk5bmVDTmVBbUZtZXN2?=
+ =?utf-8?B?dHE4Ymg5YlloQ25TTmZqV3BvUnpMOVBXVXJvd0EwZTJSU2RMckdlZmx6TmdX?=
+ =?utf-8?B?amduQjlTM0x1Mytzb3dDamVVNkFJTjdrN0RxcVB6TVdnY1lsK1lheG9sTUdj?=
+ =?utf-8?B?WEE9PQ==?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f1c4206b-862d-4063-236f-08dd78d22b69
+X-MS-Exchange-CrossTenant-AuthSource: TYSPR03MB7387.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Apr 2025 08:23:42.4902
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: HU1OU++OqTb/h+O1eb21DQ8jo85WCGMvvJDIORIEdKYHxOoGRytFAdgHL+T9SXdJZNx8kVXpia2TEd3ZKWS9Tku8jKxrm8kpghh+LrwzvJk=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: JH0PR03MB7655
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_012155_981428_5751CD0E 
-X-CRM114-Status: GOOD (  17.63  )
+X-CRM114-CacheID: sfid-20250411_012352_730081_3A8DCB72 
+X-CRM114-Status: UNSURE (   8.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,62 +183,337 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10.04.25 17:25, Frank Li wrote:
-> On Thu, Apr 10, 2025 at 11:02:49AM +0200, Primoz Fiser wrote:
->> Add support for both USB controllers. Set first controller in OTG mode
->> (USB micro-AB connector X8) and the second one in host mode (USB type A
->> connector X7) by default. Note, the second controller is not OTG capable
->> due to HW design choice.
-> 
-> I think note is reduntant. USB type A connector means host only.
+Hi Neil,
 
-It's not uncommon for flashing to happen via a USB-A to USB-A cable, even
-if it's against the spec. I'd say the note is useful.
+There=E2=80=99s a conflict in amlogic-a4-common.dtsi due to recent merges.
+Should I rebase onto the latest code and send a v6?
 
-Thanks,
-Ahmad
-
-> Frank
+On 2025/3/24 15:06, Neil Armstrong wrote:
+>=20
+> On 20/03/2025 10:42, Kelvin Zhang via B4 Relay wrote:
+>> From: Zelong Dong <zelong.dong@amlogic.com>
 >>
->> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+>> Add the device node and related header file for Amlogic
+>> A4 reset controller.
+>>
+>> Signed-off-by: Zelong Dong <zelong.dong@amlogic.com>
+>> Link: https://lore.kernel.org/r/20240918074211.8067-3-=20
+>> zelong.dong@amlogic.com
+>> Signed-off-by: Kelvin Zhang <kelvin.zhang@amlogic.com>
 >> ---
->>  .../boot/dts/freescale/imx93-phyboard-segin.dts     | 13 +++++++++++++
->>  1 file changed, 13 insertions(+)
+>> =C2=A0 arch/arm64/boot/dts/amlogic/amlogic-a4-reset.h | 93 +++++++++++++=
++++=20
+>> ++++++++++
+>> =C2=A0 arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi=C2=A0=C2=A0=C2=A0 |=
+=C2=A0 8 +++
+>> =C2=A0 2 files changed, 101 insertions(+)
 >>
->> diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
->> index 027a34dbaf04..faad3c3e627c 100644
->> --- a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
->> +++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
->> @@ -82,6 +82,19 @@ &lpuart1 {
->>  	status = "okay";
->>  };
->>
->> +/* USB  */
->> +&usbotg1 {
->> +	disable-over-current;
->> +	dr_mode = "otg";
->> +	status = "okay";
->> +};
+>> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a4-reset.h b/arch/=20
+>> arm64/boot/dts/amlogic/amlogic-a4-reset.h
+>> new file mode 100644
+>> index=20
+>> 0000000000000000000000000000000000000000..f6a4c90bab3cf7cfaa3c98c522bed5=
+e455b73bd3
+>> --- /dev/null
+>> +++ b/arch/arm64/boot/dts/amlogic/amlogic-a4-reset.h
+>> @@ -0,0 +1,93 @@
+>> +/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
+>> +/*
+>> + * Copyright (c) 2024 Amlogic, Inc. All rights reserved.
+>> + */
 >> +
->> +&usbotg2 {
->> +	disable-over-current;
->> +	dr_mode = "host";
->> +	status = "okay";
->> +};
+>> +#ifndef __DTS_AMLOGIC_A4_RESET_H
+>> +#define __DTS_AMLOGIC_A4_RESET_H
 >> +
->>  /* SD-Card */
->>  &usdhc2 {
->>  	pinctrl-names = "default", "state_100mhz", "state_200mhz";
->> --
->> 2.34.1
+>> +/* RESET0 */
+>> +/*=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0-3 */
+>> +#define RESET_USB=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 4
+>> +/*=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 5-6*/
+>> +#define RESET_U2PHY22=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 7
+>> +#define RESET_USBPHY20=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 8
+>> +#define RESET_U2PHY21=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 9
+>> +#define RESET_USB2DRD=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 10
+>> +#define RESET_U2H=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 11
+>> +#define RESET_LED_CTRL=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 12
+>> +/*=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 13-31 */
+>> +
+>> +/* RESET1 */
+>> +#define RESET_AUDIO=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0 32
+>> +#define RESET_AUDIO_VAD=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 33
+>> +/*=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 34*/
+>> +#define RESET_DDR_APB=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 35
+>> +#define RESET_DDR=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 36
+>> +#define RESET_VOUT_VENC=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 37
+>> +#define RESET_VOUT=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 38
+>> +/*=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 39-47 */
+>> +#define RESET_ETHERNET=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 48
+>> +/*=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 49-63 */
+>> +
+>> +/* RESET2 */
+>> +#define RESET_DEVICE_MMC_ARB=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 64
+>> +#define RESET_IRCTRL=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 65
+>> +/*=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 66*/
+>> +#define RESET_TS_PLL=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 67
+>> +/*=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 68-72*/
+>> +#define RESET_SPICC_0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 73
+>> +#define RESET_SPICC_1=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 74
+>> +/*=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 75-79*/
+>> +#define RESET_MSR_CLK=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 80
+>> +/*=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 81*/
+>> +#define RESET_SAR_ADC=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 82
+>> +/*=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 83-87*/
+>> +#define RESET_ACODEC=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 88
+>> +/*=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 89-90*/
+>> +#define RESET_WATCHDOG=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 91
+>> +/*=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 92-95*/
+>> +
+>> +/* RESET3 */
+>> +/*=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 96-127 */
+>> +
+>> +/* RESET4 */
+>> +/*=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 128-131 */
+>> +#define RESET_PWM_AB=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 132
+>> +#define RESET_PWM_CD=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 133
+>> +#define RESET_PWM_EF=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 134
+>> +#define RESET_PWM_GH=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 135
+>> +/*=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 136-137*/
+>> +#define RESET_UART_A=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 138
+>> +#define RESET_UART_B=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 139
+>> +/*=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 140*/
+>> +#define RESET_UART_D=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 141
+>> +#define RESET_UART_E=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 142
+>> +/*=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 143-144*/
+>> +#define RESET_I2C_M_A=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 145
+>> +#define RESET_I2C_M_B=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 146
+>> +#define RESET_I2C_M_C=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 147
+>> +#define RESET_I2C_M_D=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 148
+>> +/*=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 149-151*/
+>> +#define RESET_SDEMMC_A=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 152
+>> +/*=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 153*/
+>> +#define RESET_SDEMMC_C=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 154
+>> +/*=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 155-159*/
+>> +
+>> +/* RESET5 */
+>> +/*=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 160-175*/
+>> +#define RESET_BRG_AO_NIC_SYS=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 176
+>> +/*=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 177*/
+>> +#define RESET_BRG_AO_NIC_MAIN=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0 178
+>> +#define RESET_BRG_AO_NIC_AUDIO=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 179
+>> +/*=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 180-183*/
+>> +#define RESET_BRG_AO_NIC_ALL=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 184
+>> +/*=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 185*/
+>> +#define RESET_BRG_NIC_SDIO=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 186
+>> +#define RESET_BRG_NIC_EMMC=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 187
+>> +#define RESET_BRG_NIC_DSU=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 188
+>> +#define RESET_BRG_NIC_CLK81=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 189
+>> +#define RESET_BRG_NIC_MAIN=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 190
+>> +#define RESET_BRG_NIC_ALL=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 191
+>> +
+>> +#endif
+>> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi b/arch/arm64/=20
+>> boot/dts/amlogic/amlogic-a4.dtsi
+>> index=20
+>> fa80fa365f13c4a93f5577f78bf2b3369cb91cb8..6537153b3026af1bf9d1df0a196619=
+b716553cde 100644
+>> --- a/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
+>> +++ b/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
+>> @@ -4,6 +4,7 @@
+>> =C2=A0=C2=A0 */
 >>
-> 
-> 
+>> =C2=A0 #include "amlogic-a4-common.dtsi"
+>> +#include "amlogic-a4-reset.h"
+>> =C2=A0 #include <dt-bindings/power/amlogic,a4-pwrc.h>
+>> =C2=A0 #include <dt-bindings/pinctrl/amlogic,pinctrl.h>
+>> =C2=A0 / {
+>> @@ -51,6 +52,13 @@ pwrc: power-controller {
+>> =C2=A0 };
+>>
+>> =C2=A0 &apb {
+>> +=C2=A0=C2=A0=C2=A0=C2=A0 reset: reset-controller@2000 {
+>> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 compatible =3D "amlogic,a4-reset",
+>> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "amlogic,meson-s4-reset";
+>> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 reg =3D <0x0 0x2000 0x0 0x98>;
+>> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 #reset-cells =3D <1>;
+>> +=C2=A0=C2=A0=C2=A0=C2=A0 };
+>> +
+>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 gpio_intc: interrupt-controller@4080 {
+>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 compatible =3D "amlogic,a4-gpio-intc",
+>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 "amlogic,meson-gpio-intc";
+>>
+>=20
+> Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
+--=20
+Best regards,
 
--- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+Kelvin Zhang
+
 
