@@ -4,153 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4410C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 13:47:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 919CCC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 13:49:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z7ifqa6N+2VsPbK0TdvsdwoEvR7+fGFe43iGVaC3mdc=; b=CXpLoqt5LWmP9JonDDBa4D0AY2
-	wxrMvU74c5tVVToWoMEckyxZf980Tv0tgb5nFs4rdlz/CJprSS1pOm9QHdU0TsSxmh77CabSMkgDK
-	kR/o4/PDa5Qj3bmnfyipjmOihr0qyor/QU3mZBJm7mO93KcM4hf+shQzJH06HlW5dEU8OV14rajg7
-	tjHPdMdnBwNRhbuUMGM790AJGYwjczEthHi3lJpxnveZiCNz0UxVGx953h/d1MEJDP2uXDk8zvrcg
-	zmkannFAIZTsfkSr5lJ3QkiFgfG7+3+akUt5i/N3Gll0PZVMvc1wUK5X7u13A1wVWp/Lz0ITKvezQ
-	wyUDyP/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vq5qWpYQwtAn+8K0fBlNkwMKc2ZES2aYbbqGIKGkRWw=; b=k6CfSiwbQoz7l7jQ8VWVTHLZ8v
+	BsZn8hYKBgnaGL0eFTYulBasIaWPqmr2f6TPx7W1ncBWM4b/Icf6jIxJdFKZEe75etRbS2/VJpDpK
+	q14poHgFWL+c6HMw8Ol7A3Vn/u2VmO1DDcblFgAEp7+JPffGJpAzik7Oerd3SoEVOx4SRC+CPoy2Q
+	oTkYJTzFcHdd3U7V7xWTV+riH9juzWQ9+JWdcqDlpNaNHFGYeKNV0RjfLtpf8Wm4Mlafj+Sjs3p2p
+	i+k0VFcqJBi9AODX80tdPFRs2JxG6Uhkx/2weFid7zx6JkrQhxNTFHiyNKlGDkPI6kkHss4EeRXso
+	55Swh1mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3Ej3-0000000Dykv-3iMv;
-	Fri, 11 Apr 2025 13:47:21 +0000
-Received: from mail-vi1eur05on20608.outbound.protection.outlook.com ([2a01:111:f403:2613::608] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1u3Ekq-0000000Dz7H-2VOj;
+	Fri, 11 Apr 2025 13:49:12 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3EMD-0000000DtsY-0V0V
+	id 1u3EXI-0000000Dwsv-41Y2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 13:23:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vaXbEfdO3+RPr8UT+pQGEM9de1/BEdVaIjyo9ZTREntGDEWgP7TkpZeJXkcNeuPB18ibanklPH6IWQf+KU9HQ1mqnEVk2LYrvDcB0Ak1n7agKPn5Xez/O0jxTNqAGkg0fCMgSWn5DAdiCmuDqGB6c5Cs7sFVWL6mREjUFFW+4r6GnoU7orVkDa9IB2LU+u4zD4yLwr+ndk0Ye02MtNrht6z2kv2npzbif2YynaivJQDenPALdsESkmMix/Eh7vIpqSFAqDLQ7iD08HFKjU7V0AegcB4j1PLkSSuO9nl2TWIKbbRcGiKPj0GqkCt2yhirzGjvLtQ57lM60/s2k35Frg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Z7ifqa6N+2VsPbK0TdvsdwoEvR7+fGFe43iGVaC3mdc=;
- b=iH/Z7pGUdp4h6poTvQ0T89xCpew+UcEnOac5FAIoYx+kiSsdwQxyI6ZK5i/jIPfFLWBt/xmDsJS12FX2I3VOsbaHYxh6/85/99qIL2C+e2DMUPsDxvvTrC63Fhx3aInggLAU9kAxxTl9aIf+thPhWErtPQgLPI+kwynjtHs5H/4rH6Ego7UevIQFyZ6Ar4OFFBMS6Qov6iaLSmte8Dfl+CFRWu7apoLBVqVoefZuKHOuWgpu9CD/lTRBkHiiXQusdr+wg2saCQmL+6L2njfYZcEQ9AIWaTMJ5yp2pM8Os4JvDT7f9tqoKxA9StNwj5IpIoh1RbxdDSETIbZLq64Wuw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Z7ifqa6N+2VsPbK0TdvsdwoEvR7+fGFe43iGVaC3mdc=;
- b=J7iadoiEsLs3KXyGUMhb2Y++cEg7UqcAQpIAHQJc4xDt4f/iMpnnWC21WAr61y6m1CFDcyFgqOhxFvkraC57ZwMs6CbsW4frl1DazFDwfONEeftXAOvisxG7GK8KICwrsr/wmxp7ypJIXQfqPFSyMy9AO6vJotUQzDaSag2rIBkH3I+6Gpooe1TvhAFBmD9Ht/yFcazDXWdy04SNaCihxl1alUNguY1L8Jllb3EiMGIjyGVlBqm7N9mtWa6BAr8udXFYqgbrqqSfum6Bcm3ddNb30IQnH1JAmYVmaoYGgm+UI7EBd+OgmllfQdPJJJrFnx5cGPr8zsv01sYzzigfiQ==
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by DB8PR04MB6811.eurprd04.prod.outlook.com (2603:10a6:10:fa::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.34; Fri, 11 Apr
- 2025 13:23:35 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8632.025; Fri, 11 Apr 2025
- 13:23:32 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Hiago De Franco <hiagofranco@gmail.com>, "linux-pm@vger.kernel.org"
-	<linux-pm@vger.kernel.org>
-CC: Ulf Hansson <ulf.hansson@linaro.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "regressions@lists.linux.dev"
-	<regressions@lists.linux.dev>, Hiago De Franco <hiago.franco@toradex.com>
-Subject: RE: [REGRESSION] Kernel reboots unexpectdely on i.MX8X when Cortex-M4
- is running and it was started by U-Boot bootaux
-Thread-Topic: [REGRESSION] Kernel reboots unexpectdely on i.MX8X when
- Cortex-M4 is running and it was started by U-Boot bootaux
-Thread-Index: AQHbpWxIyVwHrK1A2UqE7zPASmzQ0LOedbwAgAAHyXA=
-Date: Fri, 11 Apr 2025 13:23:32 +0000
-Message-ID: <PAXPR04MB8459ED6CE869173D4051257088B62@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20250404141713.ac2ntcsjsf7epdfa@hiago-nb>
- <20250411125024.i2pib4hyeq4g6ffw@hiago-nb>
-In-Reply-To: <20250411125024.i2pib4hyeq4g6ffw@hiago-nb>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|DB8PR04MB6811:EE_
-x-ms-office365-filtering-correlation-id: c75b544f-b651-4a50-06ed-08dd78fc0e41
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?kGXjnapULFRiTBCrdwigZI1HWIupZrY++PUBn+a/WjWRdSJfzKOQ5xTse0fc?=
- =?us-ascii?Q?1hT9gRC0ldy3MhTbav463+cgCvBvWW63kDzmVuG+ERmHiLgs7NMMWjKB7Zl7?=
- =?us-ascii?Q?+jAcOse7lXQ7ZsBZzowxaYKb/cLv+MaFd1WO+0CLa9uJYbZfaGMcDVNFxnWC?=
- =?us-ascii?Q?dIYFUH7+Xv/eX3VFAzuzK3kpsVzLJvFkliLsAzgzlcJwHXh1xmIm9vI+WqQG?=
- =?us-ascii?Q?chcL7g28LBCxcVmevqvvz+k+uAWNIWqm4vPJvYN1UJnD0Ka3eJWy9Lj/leZo?=
- =?us-ascii?Q?pEM89yfnZpDvwIAFoxjGv765ER0lrbLS8Z8gAYs3StPL5RNEWRaYS0cUMqFl?=
- =?us-ascii?Q?h7EHgH9o4UriQG7SpgxMXFguBIq4Z0+EXC/fDvdYzB0WEkXY3qnHoCup/isp?=
- =?us-ascii?Q?Cf7HBneRgEdgMJjtygLYj/c7IGUapsXgD+ptcu3q1rgQjN2q4uC5/wGBQmdj?=
- =?us-ascii?Q?aEXmkILI2BwYLVR0qNlYZYEyy+aXU57dDvx6ZJoBAFArYni3SpC0JTo3VFlN?=
- =?us-ascii?Q?HxAE5+ziZs0WK6xfLqCiOdeS1TjpCfBC1SrTM5qNmMo25xqdaKzg+RlmLwRY?=
- =?us-ascii?Q?K/BnyvG0kpf9TJPbVeeVyT5z1rOA6zECVx/NUuGSVPB7WDxZbGKZe27h2ZO3?=
- =?us-ascii?Q?dSbUKc7JE9SfQlfpKEl7aaURGoLMOoaQmysDrFMCaNmgYJfu0HwOUXnVOzsS?=
- =?us-ascii?Q?OYpGn+hCnUaMx3b0bdlEajnmCplIPuRLVQFl/kRTWKtUuo7+N1g2chIFTsGg?=
- =?us-ascii?Q?1bWcaQAdg8YgVRAXFiLXnvXNNdu7xc6ISddxtwRXw6eI5a4u9R5mP/wD8c+y?=
- =?us-ascii?Q?PEsVDVcAihP0b159HaOLLcgARGlVOYqWLTOSOqq/4QJqDF/oK60ksKr1FcJU?=
- =?us-ascii?Q?KJy9iyReZQ3v43eBTIbqvdFkAD9Qiza/yVlh/UMI2zTXOTfrpDytAnjEnKJu?=
- =?us-ascii?Q?GrQvO3Sjkf0W7bVHqtQQstwDjXC1vXvV4ntFhT9fHOZfKZl5PhvzEkLaW7q/?=
- =?us-ascii?Q?2Q74Fxj9NjmxMmSx+LxSeJDirmqgqr8OqUsh562DBcQyVWHMTpcJjutra8z/?=
- =?us-ascii?Q?nXUv7Ux9z/c/zGIjs9Z555PKTUP14MjagT1+zdlqOi95ibYvQsXlV3HSfzZ7?=
- =?us-ascii?Q?0T51trXogBJrvnNnGZhNsb2ERt7N5vBAuql22hq3g8XYWbbFqmJFKN6MA8YR?=
- =?us-ascii?Q?jemH64DTkIbUszKldOG1pn6sKL0CKxx9WLay8DfdWetPtNnByNXvub0nWcP4?=
- =?us-ascii?Q?THCrGsEYA6Dn3rbDeZDrkJtXtuZrCx6tAyMqnt7LbD/FOgz+9TlJCBDgedKs?=
- =?us-ascii?Q?rRrJDO416/hbAkQovnKbn0z+ebpDwm1a6+Hfui/HgqHj2TmzIrIDQ4t1PCiy?=
- =?us-ascii?Q?Owg6OZlBPSskohQA2la2q/pQ5trNPrJgLFStGDRIRA8qBDGtBAjCN+Rq4Tr0?=
- =?us-ascii?Q?0au/fIeEB91ZQcEiPh47LnFvOXFlvW18UmMFOsF8+Pn5tNgoNCJ0zQ=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?ORhBxP5OFDlryCHVIZF4GjZftOelB9A01HrtoQL5QvPer/Z7rdqSTY5+rlHz?=
- =?us-ascii?Q?idh7EK23/YX3R2n/pfd6ddgcNmhzLwQEcNxZ0Vnw0fxwmSz+eJNg1OoGlJ9C?=
- =?us-ascii?Q?cnqcO9RNM4b2NByCIMMSOi6eyTFGbBFdhG29lXRgldErYJ5uWP+9+6Wa/c6Y?=
- =?us-ascii?Q?Ux1rTMFUrVYreYz/zuEpi6Epq+bUVagwQMuzs228Fs5ZDkKNmQu8VwuBOn3Q?=
- =?us-ascii?Q?PRnvmol3S0vNFv3nxg8M1O/Dt0sMqBPsxaWiUfZNqXSGT/Hz9/0lbPZWheif?=
- =?us-ascii?Q?J41fpE7nienpv0SFebArjn7sVtAhEFx9vHXeAgaMMghgXlXndjFlJTQcmiGr?=
- =?us-ascii?Q?DJK+XzSNAMAmh6NWv4q23FDsWwIm5HL+0SS3NjyI293nGMab8l1Gm7L/8394?=
- =?us-ascii?Q?oqcD9UqWBjxNvuJ1+orbLGQ/JBW/jZ2RxQFLZAa4K6g+V5EVVi9PWpyx+Qk8?=
- =?us-ascii?Q?gneMaYQR8YNpZTmZT8s3pcQw3NRsoe3zeCstJbtJlxN1QlqBoXNVQtNnOUIH?=
- =?us-ascii?Q?UT+jn746gGQvA6YQxkQ29/I8JiMsF6S87W5uChIEGv65f63UByVveSmk7g3l?=
- =?us-ascii?Q?l7u2O4LivMFOOZ45kHlGMLjKVyziKbHnwbTBYjqsXOUiZqExA6b9dh59KcVC?=
- =?us-ascii?Q?xr0HoyXeLekfuPI9Ek5vv9Lem+EpKgplO4fmhKXCtLp5qqH2yRC4tU7AkCd3?=
- =?us-ascii?Q?GPe5fYywneDd6rCR89uvt0La56F4Xiu4+DOPXu/Ar32HLa8yQkrJ/7rVJdkf?=
- =?us-ascii?Q?vlgk+gwALGYiEUeSkO4q1Jxy/X2DdFDGPkHCo45WqrRdFiXHtGShvKYVYwFG?=
- =?us-ascii?Q?R8MXtIAnSvGeYNfGnai6puvS0keCO2pTTPu4ijyXdA/9pbOq821xLdpKhBq6?=
- =?us-ascii?Q?k6FWnRQU+2mf05WCJ5OKgLYsEOoD7GXgIoktAMX+63PkWzVql1YwGUmbT2dW?=
- =?us-ascii?Q?2RaaHw3cPXSxIkWDP/wROj0ppneim67DP1cBZF7pPie/PKY5aKT95V1NlOmh?=
- =?us-ascii?Q?m43tm6C9s9tzjNjhdU+tVTxvUZR9oMT5GdCJ9cjcFVRVxQE+kKXpTdkra9FT?=
- =?us-ascii?Q?9SKKnLkOSngsoTDji2siMcvH194LnAvHnIrokxPnLBP4nYyJIBSsW8oKBw7S?=
- =?us-ascii?Q?bffzsyl8x43TNkNS4rgQcDakGrirOQ5GbukMij9XtmsSL4CwyBeZLBg7X3Kv?=
- =?us-ascii?Q?r/ehWiq5InTk5GQiSI7g6grTo8JzSSLEvWJ6tDylFwxqiYKX5yqnTMWUvzY4?=
- =?us-ascii?Q?+HFdPoIIQ2Bw0KIrJFRu6SOdcFAKtdI4MCrtpJ+b6CqsiL6q+sQy3zgOuI9M?=
- =?us-ascii?Q?CNbsN1DfXoJLQOKN7OLPiX1a2eyjKN1I/KvPP1FSKnsjkQf5MY6Rjxfeia0b?=
- =?us-ascii?Q?nMGjROM+RnSCyp/DcN/d9Ja6ynzW3X0Lvv/KdV80Ji38XCNm0sjNPJBVJ6nY?=
- =?us-ascii?Q?do/UtO68wxRiYn95I9p0sjgk38Ch57eLGxPE4w/Lh62HBfeUnP+JaHEL63Sg?=
- =?us-ascii?Q?Jb9tbcyPuxv3xVzF9EdOw3cb2eaqDEZk0uII6lb+rj7dZqSI1/q3DAtsYXHn?=
- =?us-ascii?Q?ZD12DuObfZhWgfYws14=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 11 Apr 2025 13:35:14 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53BDYgPT2086377
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 11 Apr 2025 08:34:42 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1744378482;
+	bh=vq5qWpYQwtAn+8K0fBlNkwMKc2ZES2aYbbqGIKGkRWw=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=LM0H+poPMU7hM+cfUkNMeLijFODEYYO0coGabaLfjrtAZ4NLl45vnP/M3Z7tghlzj
+	 yKrGfqAnaQKVs0zMEWWDFVF0mEtR1RxFsjH3mVY4aRYLVrGfn3KbWdlybreA174xUP
+	 a/Lzd8N/0j09AsZFmQuBLZSO6WKIBIf0GqDNdBe4=
+Received: from DFLE100.ent.ti.com (dfle100.ent.ti.com [10.64.6.21])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53BDYgMw047723
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 11 Apr 2025 08:34:42 -0500
+Received: from DFLE101.ent.ti.com (10.64.6.22) by DFLE100.ent.ti.com
+ (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 11
+ Apr 2025 08:34:41 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE101.ent.ti.com
+ (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 11 Apr 2025 08:34:42 -0500
+Received: from [10.249.141.75] ([10.249.141.75])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53BDYbPA110090;
+	Fri, 11 Apr 2025 08:34:38 -0500
+Message-ID: <44c3ec3d-2fa3-4a61-8c93-5ef4791fcf8a@ti.com>
+Date: Fri, 11 Apr 2025 19:04:36 +0530
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c75b544f-b651-4a50-06ed-08dd78fc0e41
-X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Apr 2025 13:23:32.2090
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: qOrFtEwNzGeIY4kmLq5VNo7af2nocDGa7r0ey7S5NG29vI/004O/e0iETpYOW3hMxQg8e76OKGkBBJ3A2lwRfw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6811
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/7] arm64: dts: ti: j721e-sk: Add DT nodes for power
+ regulators
+To: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>, <nm@ti.com>,
+        <vigneshr@ti.com>
+CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <vaishnav.a@ti.com>, <jai.luthra@linux.dev>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <imx@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+        <stable@vger.kernel.org>, <u-kumar1@ti.com>
+References: <20250409134128.2098195-1-y-abhilashchandra@ti.com>
+ <20250409134128.2098195-2-y-abhilashchandra@ti.com>
+Content-Language: en-US
+From: "Kumar, Udit" <u-kumar1@ti.com>
+In-Reply-To: <20250409134128.2098195-2-y-abhilashchandra@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_062345_160818_E713C036 
-X-CRM114-Status: GOOD (  30.40  )
+X-CRM114-CacheID: sfid-20250411_063513_101198_B7112AC2 
+X-CRM114-Status: GOOD (  15.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,104 +91,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-Sorry for late.
-> Subject: Re: [REGRESSION] Kernel reboots unexpectdely on i.MX8X
-> when Cortex-M4 is running and it was started by U-Boot bootaux
->=20
-> On Fri, Apr 04, 2025 at 11:17:13AM -0300, Hiago De Franco wrote:
-> > #regzbot introduced: 4f6c983261
-> >
-> > Hi Peng and all,
-> >
-> > Commit 4f6c9832613b ("genpd: imx: scu-pd: initialize is_off
-> according
-> > to HW state") introduced a regression where the Kernel reboots
-> > unexpectedly (without any warnings, crashes or errors) when the
-> > Cortex-M4 was loaded and running by U-Boot, using the bootaux
-> command:
-> >
-> > # load mmc 0:2 ${loadaddr} /home/root/hello_world.bin # bootaux
-> > ${loadaddr} 0 # boot
-> >
-> > This is a simple hello world binary that prints a message into the
-> > M40.UART0 pin (demo from NXP MCUXpresso).
+On 4/9/2025 7:11 PM, Yemike Abhilash Chandra wrote:
+> Add device tree nodes for two power regulators on the J721E SK board.
+> vsys_5v0: A fixed regulator representing the 5V supply output from the
+> LM61460 and vdd_sd_dv: A GPIO-controlled TLV71033 regulator.
+>
+> J721E-SK schematics: https://www.ti.com/lit/zip/sprr438
+> Fixes: 1bfda92a3a36 ("arm64: dts: ti: Add support for J721E SK")
 
-Which release is this image from?
+For me does not looks like a fix, you can adding missing nodes
 
-> >
-> > Before this commit, everything worked as expected, Linux boots fine
-> > and the HMP core keeps running and printing messages to the UART.
-> > After the commit, the kernel reboots at the beggining of the boot
-> > process. The only relevant message is printed by U-Boot after reset:
-> >
-> > "Reset cause: SCFW fault reset"
-> >
-> > This commit was bisectabled, the same device tree, u-boot version,
-> and
-> > SCFW versions were used. Reverting this commit fixes the issues.
-> >
-> > For testing purposes, I created the following patch which also fixes
-> > the
-> > issue:
-> >
-> > diff --git a/drivers/pmdomain/imx/scu-pd.c
-> > b/drivers/pmdomain/imx/scu-pd.c index
-> 38f3cdd21042..0477b3fb4991
-> > 100644
-> > --- a/drivers/pmdomain/imx/scu-pd.c
-> > +++ b/drivers/pmdomain/imx/scu-pd.c
-> > @@ -539,6 +539,9 @@ imx_scu_add_pm_domain(struct device
-> *dev, int idx,
-> >                 return NULL;
-> >         }
-> >
-> > +       if (strstr("cm40", sc_pd->name) !=3D NULL)
-> > +               is_off =3D true;
-> > +
-> >         ret =3D pm_genpd_init(&sc_pd->pd, NULL, is_off);
-> >         if (ret) {
-> >                 dev_warn(dev, "failed to init pd %s rsrc id %d",
-> >
-> >
-> > Test Environment:
-> > - Hardware: Colibri iMX8DX 1GB with Colbiri Evaluation Board.
-> > - U-Boot Version: 2024.04
-> > - U-Boot Build info:
-> > 	SCFW 83624b99, SECO-FW c9de51c0, IMX-MKIMAGE
-> 4622115c, ATF 7c64d4e
-> >
-> > The issue is not present on: v6.5
-> >
-> > The real root cause is still unclear to me. Anybody has any ideas? I
-> > am happy to share more details if needed.
 
-Have you tried pd_ignore_unused?=20
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+> ---
+>   arch/arm64/boot/dts/ti/k3-j721e-sk.dts | 31 ++++++++++++++++++++++++++
+>   1 file changed, 31 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-sk.dts b/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
+> index 440ef57be294..4965957e6545 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
+> @@ -184,6 +184,17 @@ vsys_3v3: fixedregulator-vsys3v3 {
+>   		regulator-boot-on;
+>   	};
+>   
+> +	vsys_5v0: fixedregulator-vsys5v0 {
+> +		/* Output of LM61460 */
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vsys_5v0";
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-max-microvolt = <5000000>;
+> +		vin-supply = <&vusb_main>;
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +	};
+> +
+>   	vdd_mmc1: fixedregulator-sd {
+>   		compatible = "regulator-fixed";
+>   		pinctrl-names = "default";
+> @@ -211,6 +222,20 @@ vdd_sd_dv_alt: gpio-regulator-tps659411 {
+>   			 <3300000 0x1>;
+>   	};
+>   
+> +	vdd_sd_dv: gpio-regulator-TLV71033 {
+> +		compatible = "regulator-gpio";
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&vdd_sd_dv_pins_default>;
+> +		regulator-name = "tlv71033";
+> +		regulator-min-microvolt = <1800000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		regulator-boot-on;
+> +		vin-supply = <&vsys_5v0>;
+> +		gpios = <&main_gpio0 118 GPIO_ACTIVE_HIGH>;
+> +		states = <1800000 0x0>,
+> +			 <3300000 0x1>;
+> +	};
+> +
+>   	transceiver1: can-phy1 {
+>   		compatible = "ti,tcan1042";
+>   		#phy-cells = <0>;
+> @@ -613,6 +638,12 @@ J721E_WKUP_IOPAD(0xd4, PIN_OUTPUT, 7) /* (G26) WKUP_GPIO0_9 */
+>   		>;
+>   	};
+>   
+> +	vdd_sd_dv_pins_default: vdd-sd-dv-default-pins {
+> +		pinctrl-single,pins = <
+> +			J721E_IOPAD(0x1dc, PIN_INPUT, 7) /* (Y1) SPI1_CLK.GPIO0_118 */
 
-I think it is linux power down M4 which M4 is running, then SCFW
-reports error. So please give a try pd_ignore_unused.
+Shouldn't be this pin be output to control regulator ?
 
-If this is the case, may I know do you have m4 nodes in dts and
-with power domain included?
 
-Anyway, I will give a try on i.MX8QM EVK.
-
->=20
-> Hello everyone, as this introduced a regression, should I send a revert
-> for 4f6c983261?=20
-
-Please wait a while, I think we need find root cause.
-
-Thanks,
-Peng.
-
-Or any ideas that might help fix this issue?
->=20
-> >
-> > Cheers,
-> > Hiago.
->=20
-> Cheers,
-> Hiago.
+> +		>;
+> +	};
+> +
+>   	wkup_uart0_pins_default: wkup-uart0-default-pins {
+>   		pinctrl-single,pins = <
+>   			J721E_WKUP_IOPAD(0xa0, PIN_INPUT, 0) /* (J29) WKUP_UART0_RXD */
 
