@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F975C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 23:46:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49AF4C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 23:48:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BHytUezJynTQ+6e7U8h51jkHJsvAC8T0dkhDZrOrwiY=; b=Dod0g7rNHxVRXZiK8HZ4WKTn8C
-	vjNuLKdQlGW6DvBQWU5yACHhfY0YbZ3hw5KLSo/FZuU6xokc0lqUCYJqiNrKZfMeanUdRiTXXsRr2
-	QBPYZmHQTkeIrl4WxXbiO1/c96vMy6g5XVdES47efOJOkGWV03S5aVIIGJvfbUgUOCQELP9+ryFzc
-	R3gUoMJhpUimyweTQNzMKy5poGCBe3b5yNe1u65zkZjc8HnZM+rX0EqImKlMTVTRHtoDMkFR7Q34w
-	0oWxpE2AVx27WZ51RXfoLjnDybf2gBZwprJNSReDLqGZJ+qO9SosKPneEBGDkpdN5MAPygbX4j9V7
-	9l6X+aow==;
+	bh=vwibh2h2bB1yjw6hFTbyUB8lLKDahh9+8Z7RroZm4MI=; b=ky0A8zPltF059mWshUYXP9uWBu
+	Z3N8oihXMA3Wzo9bHyOmcU7lDSVx8GAzwcjRyzKEcxrNUhcJmQuwu/uEhv9nvr8fdpx74QZqIbiPI
+	we1ZpFiM529H3wBYxZXOy3JdeUbKJJY1qT7PunOUbTqHDgjgVhP8L1ZrzUdPkbeM4fI0k3sGJiHpm
+	284SC3Hwk/NWgfGydog3idGGvYQl6NfQ7drSe/+2e/3rf63RAki4QNGi0IDhXx9z2cUKH8L+dRHAO
+	lS8CvIP75+cs+7LdqQsWyYiyrvinp+Bs1PKflBFZDb3RyOYSGpQSFDNqVmYjVNKceCT6hpe12Dina
+	ERquRwjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3O59-0000000F7X6-3zhL;
-	Fri, 11 Apr 2025 23:46:47 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.144.207])
+	id 1u3O6w-0000000F7mR-2tq8;
+	Fri, 11 Apr 2025 23:48:38 +0000
+Received: from relay.smtp-ext.broadcom.com ([192.19.166.231])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3O0t-0000000F6tw-28yO
+	id 1u3O0y-0000000F6uL-0YA0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 23:42:25 +0000
+	Fri, 11 Apr 2025 23:42:29 +0000
 Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id B433FC0019E0;
-	Fri, 11 Apr 2025 16:42:22 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com B433FC0019E0
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 3468DC0000E7;
+	Fri, 11 Apr 2025 16:42:27 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 3468DC0000E7
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1744414942;
-	bh=o4Ze9aTAXad9MHK9fp4kWPnEdNcQSCRFnECzWnzg2LE=;
+	s=dkimrelay; t=1744414947;
+	bh=KE7xx5fV3DHlKulz2UWAtTlLl8KAKyE2y/a01nvcr8s=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fUzyMCjQ1Oeavs6aWcQpeo+M/RmEhKeSRfrnKIaK7U0Es4MTKniSOgZ+gEiVL/kvp
-	 cDQx8aPWWBmbuzrO1b//NP64Lpl1v669uW54eQsMP+US8id9UzmVyoJCuk+BeI/i53
-	 MS+vXzwGgW4RCSP/ry4CD+8eGWVrmk4zADbwExIU=
+	b=TxGl8ei7TG0FMdq8oJTJ1FLRjiUokkxHXRTnAveVbeoc1GT7VVIdqoKVrwCzOApwp
+	 Btsja+ZySFOReaIPBkbIPngIiCOnAusNTp+ZB2oR86suP2Wpf1jBIfjA64U9RqYkhw
+	 mBv86qa+/9Bf0qh5gjF+r/XNEQMZ5NYb+sT1U6RY=
 Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 3DA2418000530;
-	Fri, 11 Apr 2025 16:42:22 -0700 (PDT)
+	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id EC41D18000530;
+	Fri, 11 Apr 2025 16:42:26 -0700 (PDT)
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 To: bcm-kernel-feedback-list@broadcom.com,
 	Linus Walleij <linus.walleij@linaro.org>,
@@ -61,19 +61,18 @@ To: bcm-kernel-feedback-list@broadcom.com,
 Cc: Florian Fainelli <f.fainelli@gmail.com>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-crypto@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v2 02/12] dt-bindings: rng: r200: Add interrupt property
-Date: Fri, 11 Apr 2025 16:42:21 -0700
-Message-ID: <20250411234221.1022325-1-florian.fainelli@broadcom.com>
+	linux-crypto@vger.kernel.org
+Subject: Re: [PATCH v2 03/12] ARM: dts: bcm6846: Add interrupt to RNG
+Date: Fri, 11 Apr 2025 16:42:26 -0700
+Message-ID: <20250411234226.1022410-1-florian.fainelli@broadcom.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250406-bcmbca-peripherals-arm-v2-2-22130836c2ed@linaro.org>
-References: <20250406-bcmbca-peripherals-arm-v2-0-22130836c2ed@linaro.org> <20250406-bcmbca-peripherals-arm-v2-2-22130836c2ed@linaro.org>
+In-Reply-To: <20250406-bcmbca-peripherals-arm-v2-3-22130836c2ed@linaro.org>
+References: <20250406-bcmbca-peripherals-arm-v2-0-22130836c2ed@linaro.org> <20250406-bcmbca-peripherals-arm-v2-3-22130836c2ed@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_164223_614528_34E85199 
-X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-CacheID: sfid-20250411_164228_188837_6F3CADDC 
+X-CRM114-Status: UNSURE (   9.54  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,11 +90,9 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Florian Fainelli <f.fainelli@gmail.com>
 
-On Sun, 06 Apr 2025 17:32:42 +0200, Linus Walleij <linus.walleij@linaro.org> wrote:
-> This IP block has an interrupt. Add it and add it to the
-> example as well.
+On Sun, 06 Apr 2025 17:32:43 +0200, Linus Walleij <linus.walleij@linaro.org> wrote:
+> The r200 RNG has an interrupt so let's add it.
 > 
-> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 > Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 > ---
 
