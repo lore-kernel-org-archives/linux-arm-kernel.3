@@ -4,68 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76BE7C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 13:24:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EB82C369A8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 13:26:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hAJSv9h5wRcXrptqovOOWtspStxTbyq+MpU6paZIMew=; b=MWOTc0ik55kluc8dLwonZqPjRD
-	pEaqI5Gt8PcNByETgxSs3ejpfLi3EPjV5PHXpcCGt2CWTdDU8mQK3tbQ7SQ4lh5xrxoRPlZs24zwR
-	kw3lJmEsa7mtqqGmWC4MxLuePCXXigjO3rmzajLY0zcBO34hQpuacVg1v0NatKOSBPGXgmltuAzjt
-	BDU9TkpLwlW0FBFbvD5G/r5g+m1lFLcSn07LloOd5FZ1huOdqiX2EhFb6bCx94igrdKHY5L2/mdpv
-	A4U6U6aHFLouS24FKQMUAkK0cwWAEpSFlmqsPYa0U2DMXBcAdSYZw2NvFNfHQW+K1VKe5OW4Mn7Di
-	nCuaQDnA==;
+	bh=t3AGtIGWH8NHFWzOxWB2hmsXtv9v9i7UtYdrDysKbtE=; b=0DxpLjhfIF27uFfRNRVf+0IqRh
+	CRw6gR8TIEZONA4v0/T08CO26tI572oiwCpXNBdEYtqFx/xAnEcGyYMuuCSASYVOAx45GKhSK2ixz
+	JtmCsVyPCLNjB+hms1J63qwn6E8sjpJXvUjUYRn5qekjzV1cb9COcXt6KZbsC7uhZpD2oCwgQv0D1
+	ry4qJbnL402PqrBGSiodTHVglMDkp0TrI6XMA6Vphk8J0Kmqj7akJslCtJ6EUXaKtdc2GxteFvfjE
+	tErjvZYaz69jbl4LKMWEi9GBBFuzH36REaZEc/qVuoY3O/dtBFIzkbf9X5B5E3LEo0HwQbyvK78i4
+	yxpj+RcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3EMo-0000000Du1p-2EXE;
-	Fri, 11 Apr 2025 13:24:22 +0000
-Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
+	id 1u3EOb-0000000DuTn-2I64;
+	Fri, 11 Apr 2025 13:26:13 +0000
+Received: from mail-bn8nam04on2060f.outbound.protection.outlook.com ([2a01:111:f403:2408::60f] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3Du5-0000000DooF-2brJ
+	id 1u3E1F-0000000Dq85-1Rdf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 12:54:42 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B916C102E4621;
-	Fri, 11 Apr 2025 14:54:32 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1744376076; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=hAJSv9h5wRcXrptqovOOWtspStxTbyq+MpU6paZIMew=;
-	b=ORXkI7Tys/+aHAwaPzH3zrM4L5cGkNhSVzUbIDX0YfMWN2nmpnVIdNGWdw1/8legxzCPD1
-	wtxw+ELgb18/QG6eSReH1fXjuApQuStP+GTgStG2YHP2bngukJjBylJWSNlGZnVTHVDxUC
-	RrGPy0ilcuVPtmar0YlqFU1otWHJv3I8NLc3CN8bq8J+9JV1x3q6S+yGHvI9GjcISdlgwT
-	SoA3YKJFln0pH9iS36F/46RRRzRKIxuzOrXxN7x1xISn4EM4ZRQ8cCSysEFxMeHI1TFoN5
-	o5Sno3HBfomj0RLS+u1bhaQIAtaxERGudlso5SFwuuZq/u59w/0Jbe/vftu0vw==
-Date: Fri, 11 Apr 2025 14:54:30 +0200
-From: Lukasz Majewski <lukma@denx.de>
-To: Simon Horman <horms@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
- <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
- <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
- <wahrenst@gmx.net>
-Subject: Re: [net-next v4 4/5] net: mtip: The L2 switch driver for imx287
-Message-ID: <20250411145430.3001f1db@wsk>
-In-Reply-To: <20250409162854.069abe88@wsk>
-References: <20250407145157.3626463-1-lukma@denx.de>
-	<20250407145157.3626463-5-lukma@denx.de>
-	<20250408151447.GX395307@horms.kernel.org>
-	<20250409162854.069abe88@wsk>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Fri, 11 Apr 2025 13:02:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OsW9Kc/8oIaOrOraglQU2nnx2ILxYzeqJf0JFY870Bcf5ShY0lyC+8rantxaDoXxGMAutgG5cuzm5O9czqxvJgTIpzsssWm0i4ramwuxGiZH/lie1YhsOBB0ge5YAwMEHzq7zxViNqXP/joPF18tIkZCLC9kic0Hx1aKN4lEKdVN36RDzUhsGC7XaxkVaAkIgtZfGhiuzXwmWZ3de4PeZWHdjupyxUYdOOCgnzQ/C2w89r9n7jYE4EDN/pS669FAPVVBweSKhtG9AxceTw5hdTf+805PR918IPxGk5cihoNuFeU11voqaSl6Ikz6pStJly+QkNHqslcibKSrRi/DDA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=t3AGtIGWH8NHFWzOxWB2hmsXtv9v9i7UtYdrDysKbtE=;
+ b=c3nKh4Pv+UM7gfOwb+ksEhhYdNCNKIcs690oDhKVaNE4FMgkuzUcG6MLIAvMAJLrbjVWiFQ+OGvdSG9SAWeL27qZbgLqwou0VjSESk560t0c6iDDOk5wNCDBk0VzCqfCJ85zu9ghLwLpyk8yZD4eN/uUehgydyvFa6hc2nDZwSc7rs8A8dkf5AvOaNRXRd3FGETb+FsiSM5dJT1sCWzI4Q9fXvptyuYXY8mmQMTgUPAx23vGUJfbDzuz02FEXWykBPczxhTydveQOOcL/RGWZJxezJRNJeIeOgzItz9q4NDyCXNwaKxqdm0Pu93BPQDEi8YS33ybD7lbmmWr2abATA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=t3AGtIGWH8NHFWzOxWB2hmsXtv9v9i7UtYdrDysKbtE=;
+ b=Y7+L7LJJLOnqGn5ilr71S6G8nlsMbuNISKSAUTSSMpWL9UcaWJhvPmtTNMH5cgnVsePCyHnAv0d2E6IWUz4cvKzOUrMsQaGv4sfOlBWyzL5nI0Yj6YSZq1s4XryOLT/y/nOf7RLJMzTG2QHeXJSmE5dOm0HQ0ED/QQHIYbWKI+qdooP3qIAISmaXpaUQmib0GYddlLJHcwMf9KC9lgZfnt2uvn6zNJ/Uw2oUnLRRAk9jLnf8Kpwsea8A/QJXBhXu/V6OBUpxxdLF8A5ubUvFAsamIzfccg0ON4ImHuko5bBA1Z3z7HwNWK3JJMK5x+KNXHj1rb8M4lYVljOazV3YRA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by MN0PR12MB5929.namprd12.prod.outlook.com (2603:10b6:208:37c::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.27; Fri, 11 Apr
+ 2025 13:01:57 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8606.028; Fri, 11 Apr 2025
+ 13:01:56 +0000
+Date: Fri, 11 Apr 2025 10:01:55 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org, joro@8bytes.org,
+	jsnitsel@redhat.com, praan@google.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] iommu/arm-smmu-v3: Allow stream table to have nodes with
+ the same ID
+Message-ID: <20250411130155.GD8423@nvidia.com>
+References: <20250411044706.356395-1-nicolinc@nvidia.com>
+ <b62f5ea3-99cd-4e9e-a2a8-cb325308ed34@arm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <b62f5ea3-99cd-4e9e-a2a8-cb325308ed34@arm.com>
+X-ClientProxiedBy: MN2PR02CA0002.namprd02.prod.outlook.com
+ (2603:10b6:208:fc::15) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/EDd9PYuJ_JPMOcH6VsFq/w0";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Last-TLS-Session-Version: TLSv1.3
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|MN0PR12MB5929:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5bc0f0a9-f621-49e6-e093-08dd78f909b6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?2VjIEkWTsjz4uk4inXaa7SGxO4mn1w5xKn07vnx1XF7VygBZ6ykJfv4TkfN/?=
+ =?us-ascii?Q?et5wi0xHHQJu9OzWr8AiYBL1zPktfXKTOwMI2xdUV1pFCd5BjR4uLv5SBNqu?=
+ =?us-ascii?Q?PXnCIiSjVQVNrDvKrhtYYNjRmKRja0fgFB3QkEx7wxoJA6ae8cujwpVp5pPy?=
+ =?us-ascii?Q?2NzkhKiluS3JfL5m0816fXrVm4CdvTdZSkB7kp8CspScYS/6x+KtkhMQH0cZ?=
+ =?us-ascii?Q?Fq0IpE0Qry7dDsF2h9BCShQ9raPsNGGfAdfaA2pkUQN9k5IcpA20VoTM5t2c?=
+ =?us-ascii?Q?9J1lWtUpJXFYLVNiu35zkEL0uc1oJePRWSf5EbLMPRFZjWi3hWBJq50G9Kri?=
+ =?us-ascii?Q?aJaduhJRpzFiu35KIXMZuVGb74581tjLQQSTDx/ZAql1lFZDv46qKoDHCoNp?=
+ =?us-ascii?Q?+fqq9xPVf3KQ0H+5/ZlnLBQpnpIPUVKabUyqmr3xqYSm/aVRxcdGQw9oO+6M?=
+ =?us-ascii?Q?Zi+FhymKVvnu7ZJyPwNQzUnSWh8AEL4tqirLr7ZrxrSvJ3NNkqwswHRSimFv?=
+ =?us-ascii?Q?znTC7/kJ93w4KRKlL8EZpIfSuQLtb7a1OUPNPAtuLIp4bUQvbSU3KYrbZdOS?=
+ =?us-ascii?Q?U7mobSr1A8TPNQgZTFwQ1TuP/AskXm2pjKCnmwTgISNZSwL5qhJe9jpiaCgd?=
+ =?us-ascii?Q?Ayn98ddoxhJCUVbl4mec2JgS1D775pqdLeIezC/tjI6TS3D0GxbNDKN0XGVp?=
+ =?us-ascii?Q?jk93nKotqwteFPa/qeIkMiEpI5fBcX3AHjOhxNzDxBRbXhuBR+9Y/3GR+99C?=
+ =?us-ascii?Q?NqgRaiObS8T5lXABe2tuOAELn5YOja+tzOuMrNiRicjg4XT+C185qTCtS2Ao?=
+ =?us-ascii?Q?D/tI+JQ2vF0go7CBg1ne4R9hQXgXjZu8p36EDncw3aDexs/EyT9TveCcrLtd?=
+ =?us-ascii?Q?NZI4Dkr32pDfA6QrayUBaQat24fvfZjLq9VmeMr4RT5DGiSZSpYwgtNT6VTN?=
+ =?us-ascii?Q?FJhH7JUtaAFp+WLVwZIB5ZhEr4BE7duegZ6HVDexXWIJy8U6q/AfhWEMZYAq?=
+ =?us-ascii?Q?WCWJxself76RMa5vjz+9dxfBPmSC5tTN2luhvX72G+p6Nh/11A96s54ZfJ5a?=
+ =?us-ascii?Q?wSKM3cx6QY2n2OicSOAvJXOz2J3qTisDVbO7JrDfOEBAMg1ZYWueCiTL5c1x?=
+ =?us-ascii?Q?vuJ4x9Xatg+qtrpNPHdiewhaxZBBTu6si3MqwuwNlBF0e5IY6GXD1Yzwjwru?=
+ =?us-ascii?Q?xZi0ylFO+yHTFebdEp3KNcmxAFJEubjWk/VpoHo1pgNTJDUQQcYDxTVJHX/g?=
+ =?us-ascii?Q?RjJpB0roqL6sgnhLivvIvIhY67pF9uiKKajsP8DRCRKEhjoJQhUw1fWPz1Sk?=
+ =?us-ascii?Q?aCe6b8y9kWFD92h/QbP0do4rjNGPDx5HO1/yYNzHb1rHlaJ3znhPOVPN1RFq?=
+ =?us-ascii?Q?GciQTFxz+UJLySXX76Cvia7RDarmIy0IdsP0UkaVAM1djt8wnhcNMHXL6V+g?=
+ =?us-ascii?Q?n+lipEsR22M=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4Q/pCBSKeKhh0ojPURW7mlQsjxpK+pBAuv+8bzh8bZOI3bpQo8XVFwAY4klC?=
+ =?us-ascii?Q?QsR6OSW+5g7QSr+JarlOmdFAEtDL26VFhPlArm8+HMo8RccSFo7rUlLW7crD?=
+ =?us-ascii?Q?JTHQajkzhptg64fW+gNHesDPCLTODG4+Nfk2NA6E3VI93ozm0bivKHWn971K?=
+ =?us-ascii?Q?JAa9OeqNejjamMATnSA5qoSrV8kYNqmKripEJUo3PfEgPedAGBsPHI0yB0zQ?=
+ =?us-ascii?Q?H4LD4mPow0PNMOonx4aytovBv4/OzBNPeieDLOckRgHrXfgaeTzVHRfpXWim?=
+ =?us-ascii?Q?kLkhzWVfyeegehUbJldLMICXdyN8LEfsoqG47SkkE48KosTio3WkheIoxOLh?=
+ =?us-ascii?Q?N1JfpqWlEprv+a6RepxFafplPgjmEQCjiK8JpVfRLcMqHO06HtB6PEAE0mpm?=
+ =?us-ascii?Q?iAX1LbwK3QwTaAjQL8joQJMnHk11zNKsKgPwvYQbAHCU66Kv9h6lUz4ov0Ui?=
+ =?us-ascii?Q?4M7pAb6PcHChBIi4LpG/6Tk1XH2fNHAFdhx9aLb1JXpy5VNv/CDII5WeY/S/?=
+ =?us-ascii?Q?YsRPHvcKaIPSvx8UnyiozgmDap/tyrX4wblq/JKSPTDrfFzNJ/DxkLOMrm35?=
+ =?us-ascii?Q?mMccCbjfCGKUDrniQI8qsMBaPlx/U2Aj93LSzZQhKcB6aWdBgKwf9CTmQjS3?=
+ =?us-ascii?Q?2mkdJmXS2JMzrHhOQ40nBS3iFY3iBmpyco5Gdzuzz+qtJKEdZ0mpSqjHXaq6?=
+ =?us-ascii?Q?rRIY+Sablm3iL5eLjX1JQAUdgg2u67lxqZ5NAMY9o9EO7SFPlQC5gvtE0jcn?=
+ =?us-ascii?Q?78H69bOoW8mzmAWE8Cmx3z1340c5AL4HHSC8Q0S7wZhmC8F7vATFpyyD0LVf?=
+ =?us-ascii?Q?qZiekkvM8/doggDMkvWl3E5cE8ArTQsyjzQwq5In9N2NYDdIWaWukcKBm2WM?=
+ =?us-ascii?Q?FrlgkToP1tL5cTkOzzyzRzsY9h7eRbsdgheIUTAy6t0yI57u9O5aubLQNBRm?=
+ =?us-ascii?Q?qvahahNkXq9B89rE+jQVQ8KJmYVBMwBFueH1E9XUzi/wEr/1Ni1fbLqpw82g?=
+ =?us-ascii?Q?qxpd0qM6x6+tha5czPwN/lajEN0Kgcq1xLV6OnBC5W4raaTYldICFk4j1XK3?=
+ =?us-ascii?Q?tHRQ5/6b7dBZM9ARwzNwyUmBeKn/6k2zgVtNeLt0Mdf3pKN1Bonteq7IPTzl?=
+ =?us-ascii?Q?LKVCTozZk3DUR4tVZjCpZ9dzACxI2o2jOiIamjR51b7oU91p0qPrPnXal2FX?=
+ =?us-ascii?Q?wUqYaeUWgXxdQq1ES8xWOaaMJX47xpj+UdrUktGib5JGuVnIV6t3yMnWEy1j?=
+ =?us-ascii?Q?naZR+9q+xyzT3e9m01aPEeRht70CI9RO7YKu52aypyCI19LvmF4ILFNSSoRt?=
+ =?us-ascii?Q?QYAmJoy2Vm/tNMqZ616XKVOhRSDb8TGgbFJhdSeWBKR+o6IOy2L7j/Ttf3Vl?=
+ =?us-ascii?Q?7OolgmSlVkP6aKH2l7lMSTz6NK/6sAhO+ZG0atEdp6widI6f5mG7ISmNmM2J?=
+ =?us-ascii?Q?bw5mTccOZRSBLN16zqyseZOtjuyjtWE9p9+tY0yycSq046j1hDykzGMHBe9J?=
+ =?us-ascii?Q?nqEobpTVqR1J+y/KMvLC5b3UtXmSEmz2y2/7q3Kr5nWbG0Sss3Fby2V0r2ai?=
+ =?us-ascii?Q?pxxSQstW0b+Y7+11euVmJwxkCRoisQWUE/JjTaIi?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5bc0f0a9-f621-49e6-e093-08dd78f909b6
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Apr 2025 13:01:56.4606
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 5ZkutvnLJEXT5ZLMPnB9L3lB84IZNQ7zpx2UwPRB4akqPseaIjFioC5TATyRDrH3
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB5929
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_055441_821330_C1B3F100 
-X-CRM114-Status: GOOD (  25.55  )
+X-CRM114-CacheID: sfid-20250411_060205_398478_8FA2B42E 
+X-CRM114-Status: GOOD (  31.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,101 +160,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/EDd9PYuJ_JPMOcH6VsFq/w0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+On Fri, Apr 11, 2025 at 01:10:29PM +0100, Robin Murphy wrote:
 
-Hi Simon,
+> This is adding support for StreamID aliasing between devices, and as such it
+> is incomplete. It's not OK to just allow devices to arbitrarily rewrite each
+> other's STEs,
 
-> > It is unclear why hwentry, which is a pointer, is being cast to an
-> > integer and then back to a pointer. I see pointer arithmetic, but
-> > that can operate on pointers just as well as integers, without
-> > making assumptions about how wide pointers are with respect to
-> > longs.
-> >=20
-> > And in any case, can't the types be used to directly access the
-> > offsets needed like this?
-> >=20
-> > 	atable =3D fep->hwentry.mtip_table64b_entry;
-> >=20
-> > 	*read_lo =3D readl(&atable[index].lo);
-> > 	*read_hi =3D readl(&atable[index].hi);
-> >  =20
->=20
-> The code as is seems to be OK.
->=20
-> The (atable) memory structure is as follows:
->=20
-> 1. You can store 2048 MAC addresses (2x32 bit each).
->=20
-> 2. Memory from point 1 is addressed as follows:
-> 	2.1 -> from MAC address the CRC8 is calculated (0x00 - 0xFF).
-> 	This is the 'index' in the original code.
-> 	2.2 -> as it may happen that for two different MAC address the
-> 	same CRC8 is calculated (i.e. 'index' is the same), each
-> 	'index' can store 8 entries for MAC addresses (and it is
-> 	searched in a linear way if needed).
->=20
-> IMHO, the index above shall be multiplied by 8.
+Okay, yes, we should be checking the iommu_group before permitting two
+devices to share the STE. That is an easy fix, see below
 
-I've double check it and it turned out that you were right :-)
+> Aliases can only be permitted within a group, which means
+> arm_smmu_device_group() also has to check and account for them in the first
+> place - note that that applies to PCI devices as well, because as
+> soon as we
 
-The following code:
+On this system the alias come from the PCI DMA alias support and
+pci_device_group() is already correctly grouping things.
 
-struct addr_table64b_entry *atable_base =3D
-fep->hwentry->mtip_table64b_entry;
+Aliases from other places, like the IORT, never did work..
 
-*read_lo =3D readl(&atable_base[index].lo);
-*read_hi =3D readl(&atable_base[index].hi);
+> allow StreamID aliasing at all then we're inherently allowing RID->SID
+> mappings to alias outside the PCI hierarchy in ways that pci_device_group()
+> can't know about. It should work out basically the same as SMMUv2, just with
+> the streams tree in place of the S2CR array.
 
-Is more readable than the current code.
+You mean the logic in v2's arm_smmu_device_group() to consult the
+stream map to select the group if the IORT is creating aliases? Yes it
+could be done..
 
-The same would be used for atable_write()
+However, this is a significant regression fix and I think we can be
+confident there are no IORT tables in the wild that have aliases or
+they would already be broken.
 
-I will change it for v5.
+How about we add the missing validation that the group is the same,
+that is easy to do and should be there anyhow:
 
->=20
-> > Also, and perhaps more importantly, readl expects to be passed
-> > a pointer to __iomem. But the appropriate annotations seem
-> > to be missing (forcing them with a cast is not advisable here IMHO).
-> >  =20
->=20
-> I think that the code below:
-> unsigned long atable_base =3D (unsigned long)fep->hwentry;
->=20
-> could be replaced with
-> void __iomem *atable_base =3D fep->hwentry;
->=20
-> and the (index << 3) with (index * ATABLE_ENTRY_PER_SLOT)
+static int arm_smmu_streams_cmp_node(struct rb_node *lhs,
+				     const struct rb_node *rhs)
+{
+	struct arm_smmu_stream *stream_lhs =
+		&rb_entry(lhs, struct arm_smmu_stream, node);
+	struct arm_smmu_stream *stream_rhs =
+		rb_entry(rhs, struct arm_smmu_stream, node);
 
+	if (stream_lhs->id < stream_rhs->id)
+		return -1;
+	if (stream_lhs->id > stream_rhs->id)
+		return 1;
 
+	/*
+	 * The stream table can have multiple nodes with the same ID if there
+	 * are DMA aliases. If multiple masters share the same iommu group then
+	 * they can use the overlapping STEs within the group.
+	 */
+	if (stream_lhs->master->dev->iommu_group ==
+	    stream_rhs->master->dev->iommu_group) {
+		if (stream_lhs < stream_rhs)
+			return -1;
+		if (stream_lhs > stream_rhs)
+			return 1;
+	}
+	return 0;
+}
 
+That change will narrow this patch to only enable PCI DMA aliases that
+already generate the correct iommu groupings. Other sources of alising
+that don't generate the right groupings will continue to fail as they
+do today.
 
-Best regards,
+Then I propose continuing to wait for a user before adding support for
+more alias scenarios to arm_smmu_device_group()?
 
-Lukasz Majewski
+> > +	/*
+> > +	 * If there are DMA alises then there are multiple devices with the same
+> > +	 * stream ID and we cannot reliably convert from SID to master.
+> > +	 */
+> > +	if (node->rb_left &&
+> > +	    rb_entry(node->rb_left, struct arm_smmu_stream, node)->id == sid)
+> > +		return NULL;
+> > +	if (node->rb_right &&
+> > +	    rb_entry(node->rb_right, struct arm_smmu_stream, node)->id == sid)
+> > +		return NULL;
+> 
+> This doesn't really work - the whole mechanism needs to fundamentally change
+> to mapping StreamIDs to groups rather than to devices. Then it's really up
+> to individual callers what they want to do if the group has more than one
+> device.
 
---
+There are only two callers. One is using it to print the log message,
+in this case it will fall back to the unknown stream ID path and still
+print a log message. This could perhaps print the group ID # instead
+of the raw stream ID but I wouldn't do that in a regression fix rc
+patch.
 
-DENX Software Engineering GmbH,      Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
+The other is doing stall/future PRI, and I don't think we should be
+doing iommu_group based fault reporting at all. Returning NULL
+effectively disables it.
 
---Sig_/EDd9PYuJ_JPMOcH6VsFq/w0
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmf5EQYACgkQAR8vZIA0
-zr3A6Qf9GXE29Y/XpPCVSfPKZ01QAhFm6OWDn29Hd19Xc5zaiBO3NFgCJzxJpCM/
-hv949OWXQbxs2glV9RSPxw1OJAIUL+Kub2pt23XEMkkobCV0XzuAW/VqPfjjv8in
-Za9ur5L7E840u1z8uu24NbWBDdoRJBCxLy7Z9YSSxPA9UDMytwLWDwelSQADb1lj
-FhdpA0swhuzHJsTUfu0NL9NZcbQbVapyKUsNZ+OzZJV682VIOSw7DGrwazG9NWYX
-KpHcwfAMp2iiEbVVjjjl5n0VXMXO/Lth4LuGGJaAUd+4ZyZk7n8qoTRldy/PjdJZ
-WPYNyrpUjZEEzphLwmzo6N/RRxxp3Q==
-=QEuc
------END PGP SIGNATURE-----
-
---Sig_/EDd9PYuJ_JPMOcH6VsFq/w0--
+Jason
 
