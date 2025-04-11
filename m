@@ -4,76 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E317C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 10:12:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B788C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 10:13:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9OUXsKYr4L8cuuHUPZZv3opOZe1U/R9+5ovmxBvfKK0=; b=f0ZTpu0Qv7/hx4azbxLByu+bG5
-	W8kER1Ef5FVeZsFohTAwQou7fBu8C8KqoeIkKleKkEVlgn2uHgOijODh3Jqr4+bUGczIOk84o6joi
-	xDetvIUwVwmBL/zVE+sBwliJmCQs6pgACfJcS2aLtQI5bxGb1UytU1yilc6L+ZOD0Xs+KCkl5RL6j
-	nS7JSzYMSo2+uSxxoDLOqWAefHcogqH8o2S384ErhPdZgngP7MG+tjxADVTD5xDzQbTNbczQJ/Ko+
-	TXdLg8cEt6WcMIy3Spg+5aKrB4u3iKqkel0yAgWAgWixaqA7igNMDzXgpx0qW1VFmhsdCg00W89P4
-	HNatZlGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o+MuQaQb1kIjk/T1YlTlQfZIFM6u/aesoucWAPpvU0Q=; b=bettMdGacyO8QMrln5Awx0MOvj
+	pJ6WxNdhcnxEnd3tptTpBosMUucWU515MzXTfR50vOyM04wicJO5Ulx4SKJP5/PhxREpouZSe2FNF
+	0Phy8lZtkmV6Xg7AIJlNQ+fyD0BuZWinYSuE6zKq+jrO767y50fkji9HlyEsHn7J7ajsmX7ztz0oe
+	Ojz2zjSC++AggLEHX3Q0MIDzFhbS0fHEThKtqzEy4IC7VKGc8WyxrkcQypqik+itjbgEaPMO2HhyA
+	X9djIv+IMtJTEsiKhisOLa/ItlWDW8EdyLr8l8yeIonXf0yWqQcpQFDRb/tY7BzsnNA+sMOfmXsIk
+	ogNmdJHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3BN2-0000000DKjx-2H7F;
-	Fri, 11 Apr 2025 10:12:24 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1u3BNp-0000000DKw0-1JRj;
+	Fri, 11 Apr 2025 10:13:13 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3B2I-0000000DFe8-3oXr
+	id 1u3ADg-0000000D6sc-03YH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 09:51:00 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53B9ojbZ1538872
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 11 Apr 2025 04:50:45 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744365045;
-	bh=9OUXsKYr4L8cuuHUPZZv3opOZe1U/R9+5ovmxBvfKK0=;
-	h=From:To:CC:Subject:Date;
-	b=rNvdBvhtHct0DEJBrhbtzrrcRyvGfUPNa3Q7m4AZ1q1I+B3WqtBNN4CYrFznkmhkT
-	 0CdkIuuJMCOHHTUnvvQQWYR6hNT2z49vt3y8OrClasGNqdmJK58d4+DRkFzlJt4iL9
-	 6Y4Yz63IW6GmdajvVFPjvyWxvbrN0aeQ7ytT3uwg=
-Received: from DFLE106.ent.ti.com (dfle106.ent.ti.com [10.64.6.27])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53B9oj0C036392
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 11 Apr 2025 04:50:45 -0500
-Received: from DFLE106.ent.ti.com (10.64.6.27) by DFLE106.ent.ti.com
- (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 11
- Apr 2025 04:50:45 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE106.ent.ti.com
- (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 11 Apr 2025 04:50:45 -0500
-Received: from localhost (jayesh-hp-z2-tower-g5-workstation.dhcp.ti.com [10.24.72.182])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53B9oiQX104055;
-	Fri, 11 Apr 2025 04:50:44 -0500
-From: Jayesh Choudhary <j-choudhary@ti.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <nm@ti.com>,
-        <linux-kernel@vger.kernel.org>
-CC: <bjorn.andersson@oss.qualcomm.com>, <krzysztof.kozlowski@linaro.org>,
-        <geert+renesas@glider.be>, <lumag@kernel.org>,
-        <nfraprado@collabora.com>, <quic_tdas@quicinc.com>,
-        <elinor.montmasson@savoirfairelinux.com>, <ebiggers@google.com>,
-        <ross.burton@arm.com>, <linux-arm-kernel@lists.infradead.org>,
-        <j-choudhary@ti.com>
-Subject: [PATCH] arm64: defconfig: Add CDNS_DSI and CDNS_PHY config
-Date: Fri, 11 Apr 2025 15:20:43 +0530
-Message-ID: <20250411095043.272488-1-j-choudhary@ti.com>
-X-Mailer: git-send-email 2.34.1
+	Fri, 11 Apr 2025 08:58:41 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53B4tQLP018607;
+	Fri, 11 Apr 2025 08:58:31 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	o+MuQaQb1kIjk/T1YlTlQfZIFM6u/aesoucWAPpvU0Q=; b=I5ZuB4E0O3PVpH7B
+	nYSWdHrS/tZxOydxXxG5w7f5rBfejawNzywzjMpcKEJm9J7YKOCQY4VMLFrsLj+n
+	LQSizYKnzph8N6v0sqTQ3tPf3ys4CGDYnGMwczP373BS8jnCTA5tIOUlh3NmhunL
+	flT7gc64EOtnISZ9+TBei/DeLHNxNS9wRbEZxEFTR/2HteDHupy5OTShwYMuv1IE
+	fD+VqRkzKbXxhxtrBun9Xtvh4FPeRPfHE9PcNJ3PJ316puZbN/yi4UzGXPd3oMrQ
+	XxBVWynSi+XhK3EmhIUJhBorW4DyGhZpAJf2On/KiqoNrkmZRPPa0/R4HLhRezYL
+	ggxItQ==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45twdgt0kg-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 11 Apr 2025 08:58:31 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53B8wUiM005917
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 11 Apr 2025 08:58:30 GMT
+Received: from yuanfang4-gv.ap.qualcomm.com (10.80.80.8) by
+ nalasex01b.na.qualcomm.com (10.47.209.197) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Fri, 11 Apr 2025 01:58:26 -0700
+From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Date: Fri, 11 Apr 2025 16:57:53 +0800
+Subject: [PATCH v3 2/2] coresight: add coresight Trace Network On Chip
+ driver
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250411-trace-noc-v3-2-1f19ddf7699b@quicinc.com>
+References: <20250411-trace-noc-v3-0-1f19ddf7699b@quicinc.com>
+In-Reply-To: <20250411-trace-noc-v3-0-1f19ddf7699b@quicinc.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>
+CC: <kernel@oss.qualcomm.com>, <linux-arm-msm@vger.kernel.org>,
+        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        Yuanfang Zhang
+	<quic_yuanfang@quicinc.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1744361899; l=11341;
+ i=quic_yuanfang@quicinc.com; s=20241209; h=from:subject:message-id;
+ bh=UNjRYCXQ8qKR6bSuUCvh/gTpL3SzBm2P2PDNpLUQaf0=;
+ b=pv83AHYoGNUtdsyid24M9nbRFxoLOo1L1J8mgmAOQbFz5/sQ80A7Z7is2tgaEJ1LS1g3vd+RM
+ QinYuhPFtBYBS3DzUQpOdxRxoegz+nZsI8+q9BO/hYDJ5oa3A+xDKKL
+X-Developer-Key: i=quic_yuanfang@quicinc.com; a=ed25519;
+ pk=ZrIjRVq9LN8/zCQGbDEwrZK/sfnVjwQ2elyEZAOaV1Q=
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Authority-Analysis: v=2.4 cv=PJgP+eqC c=1 sm=1 tr=0 ts=67f8d9b7 cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=kfjrt-ETKUMyBX4eaP0A:9 a=QEXdDO2ut3YA:10
+ a=RVmHIydaz68A:10 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-ORIG-GUID: 8OpCGyOo_H4zS5miOpKbVJdhB7REALwi
+X-Proofpoint-GUID: 8OpCGyOo_H4zS5miOpKbVJdhB7REALwi
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-11_03,2025-04-10_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0
+ lowpriorityscore=0 clxscore=1015 adultscore=0 malwarescore=0 spamscore=0
+ impostorscore=0 suspectscore=0 mlxlogscore=999 bulkscore=0 mlxscore=0
+ priorityscore=1501 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2504110049
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_025058_998019_40A18EF8 
-X-CRM114-Status: UNSURE (   8.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250411_015840_193243_7AA50B5F 
+X-CRM114-Status: GOOD (  24.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,34 +120,326 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable configs for cdns-dsi and cdns-dphy. (dsi wrapper for
-j721e is enabled by default if cdns-dsi config is enabled)
+Add a driver to support Coresight device Trace Network On Chip (TNOC),
+which is an integration hierarchy integrating functionalities of TPDA
+and funnels. It aggregates the trace and transports to coresight trace
+bus.
 
-Signed-off-by: Jayesh Choudhary <j-choudhary@ti.com>
+Compared to current configuration, it has the following advantages:
+1. Reduce wires between subsystems.
+2. Continue cleaning the infrastructure.
+3. Reduce Data overhead by transporting raw data from source to target.
+
+  +------------------------+                +-------------------------+
+  | Video Subsystem        |                |Video Subsystem          |
+  |       +-------------+  |                |       +------------+    |
+  |       | Video TPDM  |  |                |       | Video TPDM |    |
+  |       +-------------+  |                |       +------------+    |
+  |            |           |                |              |          |
+  |            v           |                |              v          |
+  |   +---------------+    |                |        +-----------+    |
+  |   | Video funnel  |    |                |        |Video TNOC |    |
+  |   +---------------+    |                |        +-----------+    |
+  +------------|-----------+                +------------|------------+
+               |                                         |
+               v-----+                                   |
++--------------------|---------+                         |
+|  Multimedia        v         |                         |
+|  Subsystem   +--------+      |                         |
+|              |  TPDA  |      |                         v
+|              +----|---+      |              +---------------------+
+|                   |          |              |   Aggoregator TNOC  |
+|                   |          |              +----------|----------+
+|                   +--        |                         |
+|                     |        |                         |
+|                     |        |                         |
+|              +------v-----+  |                         |
+|              |  Funnel    |  |                         |
+|              +------------+  |                         |
++----------------|-------------+                         |
+                 |                                       |
+                 v                                       v
+      +--------------------+                    +------------------+
+      |   Coresight Sink   |                    |  Coresight Sink  |
+      +--------------------+                    +------------------+
+
+       Current Configuration                            TNOC
+
+Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
 ---
- arch/arm64/configs/defconfig | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/hwtracing/coresight/Kconfig          |  13 ++
+ drivers/hwtracing/coresight/Makefile         |   1 +
+ drivers/hwtracing/coresight/coresight-tnoc.c | 186 +++++++++++++++++++++++++++
+ drivers/hwtracing/coresight/coresight-tnoc.h |  34 +++++
+ 4 files changed, 234 insertions(+)
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 5c85e5da152f..4c0eb2711bbe 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -938,6 +938,7 @@ CONFIG_DRM_TI_SN65DSI86=m
- CONFIG_DRM_ANALOGIX_ANX7625=m
- CONFIG_DRM_I2C_ADV7511=m
- CONFIG_DRM_I2C_ADV7511_AUDIO=y
-+CONFIG_DRM_CDNS_DSI=m
- CONFIG_DRM_CDNS_MHDP8546=m
- CONFIG_DRM_IMX8MP_DW_HDMI_BRIDGE=m
- CONFIG_DRM_DW_HDMI_AHB_AUDIO=m
-@@ -1579,6 +1580,7 @@ CONFIG_PHY_CAN_TRANSCEIVER=m
- CONFIG_PHY_NXP_PTN3222=m
- CONFIG_PHY_SUN4I_USB=y
- CONFIG_PHY_CADENCE_TORRENT=m
-+CONFIG_PHY_CADENCE_DPHY=m
- CONFIG_PHY_CADENCE_DPHY_RX=m
- CONFIG_PHY_CADENCE_SIERRA=m
- CONFIG_PHY_CADENCE_SALVO=m
+diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/hwtracing/coresight/Kconfig
+index ecd7086a5b83e86b6bc8ea039d6d26a628334ed3..f20600d58f38568f8178f69d3f678c2df2cbca7e 100644
+--- a/drivers/hwtracing/coresight/Kconfig
++++ b/drivers/hwtracing/coresight/Kconfig
+@@ -259,4 +259,17 @@ config CORESIGHT_DUMMY
+ 
+ 	  To compile this driver as a module, choose M here: the module will be
+ 	  called coresight-dummy.
++
++config CORESIGHT_TNOC
++	tristate "Coresight Trace Network On Chip driver"
++	help
++	  This driver provides support for Trace Network On Chip (TNOC) component.
++	  TNOC is an interconnect used to collect traces from various subsystems
++	  and transport to a coresight trace sink. It sits in the different
++	  tiles of SOC and aggregates the trace local to the tile and transports
++	  it another tile or to coresight trace sink eventually.
++
++	  To compile this driver as a module, choose M here: the module will be
++	  called coresight-tnoc.
++
+ endif
+diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/coresight/Makefile
+index 8e62c3150aebd1e82b445fafc97a0a9b44397b0e..880e9ed6bfe9c711492c6a2cd972751f56dd8010 100644
+--- a/drivers/hwtracing/coresight/Makefile
++++ b/drivers/hwtracing/coresight/Makefile
+@@ -34,6 +34,7 @@ obj-$(CONFIG_CORESIGHT_SINK_TPIU) += coresight-tpiu.o
+ obj-$(CONFIG_CORESIGHT_SINK_ETBV10) += coresight-etb10.o
+ obj-$(CONFIG_CORESIGHT_LINKS_AND_SINKS) += coresight-funnel.o \
+ 					   coresight-replicator.o
++obj-$(CONFIG_CORESIGHT_TNOC) += coresight-tnoc.o
+ obj-$(CONFIG_CORESIGHT_SOURCE_ETM3X) += coresight-etm3x.o
+ coresight-etm3x-y := coresight-etm3x-core.o coresight-etm-cp14.o \
+ 		     coresight-etm3x-sysfs.o
+diff --git a/drivers/hwtracing/coresight/coresight-tnoc.c b/drivers/hwtracing/coresight/coresight-tnoc.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..2ec4ead892f0166a3e84f777679c0f73f5da0e83
+--- /dev/null
++++ b/drivers/hwtracing/coresight/coresight-tnoc.c
+@@ -0,0 +1,186 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (c) 2025 Qualcomm Innovation Center, Inc. All rights reserved.
++ */
++
++ #include <linux/amba/bus.h>
++ #include <linux/coresight.h>
++ #include <linux/device.h>
++ #include <linux/io.h>
++ #include <linux/kernel.h>
++ #include <linux/module.h>
++ #include <linux/of.h>
++ #include <linux/platform_device.h>
++
++#include "coresight-priv.h"
++#include "coresight-tnoc.h"
++#include "coresight-trace-id.h"
++
++DEFINE_CORESIGHT_DEVLIST(trace_noc_devs, "traceNoc");
++
++static void trace_noc_enable_hw(struct trace_noc_drvdata *drvdata)
++{
++	u32 val;
++
++	/* Set ATID */
++	writel_relaxed(drvdata->atid, drvdata->base + TRACE_NOC_XLD);
++
++	/* Config sync CR */
++	writel_relaxed(TRACE_NOC_SYN_VAL, drvdata->base + TRACE_NOC_SYNCR);
++
++	/* Set Ctrl register */
++	val = readl_relaxed(drvdata->base + TRACE_NOC_CTRL);
++
++	val = val & ~TRACE_NOC_CTRL_FLAGTYPE;
++	val = val | TRACE_NOC_CTRL_FREQTYPE;
++	val = val | TRACE_NOC_CTRL_PORTEN;
++
++	writel(val, drvdata->base + TRACE_NOC_CTRL);
++}
++
++static int trace_noc_enable(struct coresight_device *csdev, struct coresight_connection *inport,
++			    struct coresight_connection *outport)
++{
++	struct trace_noc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
++
++	spin_lock(&drvdata->spinlock);
++	if (csdev->refcnt == 0)
++		trace_noc_enable_hw(drvdata);
++
++	csdev->refcnt++;
++	spin_unlock(&drvdata->spinlock);
++
++	dev_dbg(drvdata->dev, "Trace NOC is enabled\n");
++	return 0;
++}
++
++static void trace_noc_disable_hw(struct trace_noc_drvdata *drvdata)
++{
++	writel(0x0, drvdata->base + TRACE_NOC_CTRL);
++}
++
++static void trace_noc_disable(struct coresight_device *csdev, struct coresight_connection *inport,
++			      struct coresight_connection *outport)
++{
++	struct trace_noc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
++
++	spin_lock(&drvdata->spinlock);
++	if (--csdev->refcnt == 0)
++		trace_noc_disable_hw(drvdata);
++
++	spin_unlock(&drvdata->spinlock);
++	dev_dbg(drvdata->dev, "Trace NOC is disabled\n");
++}
++
++static int trace_noc_id(struct coresight_device *csdev, __maybe_unused enum cs_mode mode,
++			__maybe_unused struct coresight_device *sink)
++{
++	struct trace_noc_drvdata *drvdata;
++
++	drvdata = dev_get_drvdata(csdev->dev.parent);
++
++	return drvdata->atid;
++}
++
++static const struct coresight_ops_link trace_noc_link_ops = {
++	.enable		= trace_noc_enable,
++	.disable	= trace_noc_disable,
++};
++
++static const struct coresight_ops trace_noc_cs_ops = {
++	.trace_id	= trace_noc_id,
++	.link_ops	= &trace_noc_link_ops,
++};
++
++static int trace_noc_init_default_data(struct trace_noc_drvdata *drvdata)
++{
++	int atid;
++
++	atid = coresight_trace_id_get_system_id();
++	if (atid < 0)
++		return atid;
++
++	drvdata->atid = atid;
++
++	return 0;
++}
++
++static int trace_noc_probe(struct amba_device *adev, const struct amba_id *id)
++{
++	struct device *dev = &adev->dev;
++	struct coresight_platform_data *pdata;
++	struct trace_noc_drvdata *drvdata;
++	struct coresight_desc desc = { 0 };
++	int ret;
++
++	desc.name = coresight_alloc_device_name(&trace_noc_devs, dev);
++	if (!desc.name)
++		return -ENOMEM;
++	pdata = coresight_get_platform_data(dev);
++	if (IS_ERR(pdata))
++		return PTR_ERR(pdata);
++	adev->dev.platform_data = pdata;
++
++	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
++	if (!drvdata)
++		return -ENOMEM;
++
++	drvdata->dev = &adev->dev;
++	dev_set_drvdata(dev, drvdata);
++
++	drvdata->base = devm_ioremap_resource(dev, &adev->res);
++	if (!drvdata->base)
++		return -ENOMEM;
++
++	spin_lock_init(&drvdata->spinlock);
++
++	ret = trace_noc_init_default_data(drvdata);
++	if (ret)
++		return ret;
++
++	desc.ops = &trace_noc_cs_ops;
++	desc.type = CORESIGHT_DEV_TYPE_LINK;
++	desc.subtype.link_subtype = CORESIGHT_DEV_SUBTYPE_LINK_MERG;
++	desc.pdata = adev->dev.platform_data;
++	desc.dev = &adev->dev;
++	desc.access = CSDEV_ACCESS_IOMEM(drvdata->base);
++	drvdata->csdev = coresight_register(&desc);
++	if (IS_ERR(drvdata->csdev))
++		return PTR_ERR(drvdata->csdev);
++
++	pm_runtime_put(&adev->dev);
++
++	return 0;
++}
++
++static void trace_noc_remove(struct amba_device *adev)
++{
++	struct trace_noc_drvdata *drvdata = dev_get_drvdata(&adev->dev);
++
++	coresight_trace_id_put_system_id(drvdata->atid);
++	coresight_unregister(drvdata->csdev);
++}
++
++static struct amba_id trace_noc_ids[] = {
++	{
++		.id     = 0x000f0c00,
++		.mask   = 0x000fff00,
++	},
++	{},
++};
++MODULE_DEVICE_TABLE(amba, trace_noc_ids);
++
++static struct amba_driver trace_noc_driver = {
++	.drv = {
++		.name   = "coresight-trace-noc",
++		.suppress_bind_attrs = true,
++	},
++	.probe          = trace_noc_probe,
++	.remove		= trace_noc_remove,
++	.id_table	= trace_noc_ids,
++};
++
++module_amba_driver(trace_noc_driver);
++
++MODULE_LICENSE("GPL");
++MODULE_DESCRIPTION("Trace NOC driver");
+diff --git a/drivers/hwtracing/coresight/coresight-tnoc.h b/drivers/hwtracing/coresight/coresight-tnoc.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..1291a153412c1c92be530cffe25fb56c2fca0395
+--- /dev/null
++++ b/drivers/hwtracing/coresight/coresight-tnoc.h
+@@ -0,0 +1,34 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (c) 2025 Qualcomm Innovation Center, Inc. All rights reserved.
++ */
++
++#define TRACE_NOC_CTRL      0x008
++#define TRACE_NOC_XLD       0x010
++#define TRACE_NOC_FREQVAL   0x018
++#define TRACE_NOC_SYNCR     0x020
++
++/* Enable generation of output ATB traffic.*/
++#define TRACE_NOC_CTRL_PORTEN   BIT(0)
++/* Sets the type of issued ATB FLAG packets.*/
++#define TRACE_NOC_CTRL_FLAGTYPE BIT(7)
++/* Sets the type of issued ATB FREQ packet*/
++#define TRACE_NOC_CTRL_FREQTYPE BIT(8)
++
++#define TRACE_NOC_SYN_VAL	0xFFFF
++
++/*
++ * struct trace_noc_drvdata - specifics associated to a trace noc component
++ * @base:	memory mapped base address for this component.
++ * @dev:	device node for trace_noc_drvdata.
++ * @csdev:	component vitals needed by the framework.
++ * @spinlock:	only one at a time pls.
++ * @atid:	id for the trace packet.
++ */
++struct trace_noc_drvdata {
++	void __iomem		*base;
++	struct device		*dev;
++	struct coresight_device	*csdev;
++	spinlock_t		spinlock; /* lock for the drvdata. */
++	u32			atid;
++};
+
 -- 
 2.34.1
 
