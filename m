@@ -4,84 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA5EAC369A8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 10:19:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D33E2C369A9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 10:20:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=y4NFHcz6/icfilFQPF/X0+AmPSvyXrgoLTnp631W+9M=; b=U6xH84beNsH2+ApbiGaCd4cr4i
-	Dk1Uf17ppsaXMt+yfsG8bBBxGtv50aFcArnHgXaqQzclHmokgKKdpeXz9b52vKVMezO1eHopNpitq
-	I1eSaj1F4KN3luU8nOe803T3YliQYKctMYU3XaL9Pvgd/1/5bAYJUZ6n9jCP8TO6PHEgVRuV1t8C5
-	oZYjRRyDWSN8L0inQUmYw9BcFZLbM+lkMOCXsnyQ4EjRxxkF+R24TfhxhCp3L7noPDyZ6ofMYwLf+
-	5ZgOvIlwMYiSvkefF0jebwaldUuCbphJZEOrZkEqhRgExL0OZN5Bq+jrIWUYd6zU4VGN0UIcsm/Za
-	cq9fL+aw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IFilB1CWtJRNPPBhabQDjIrMR//U86n9XWn9p+phq6s=; b=tdtNzIkAQ+1OyRPU809AdYnTQM
+	6yUx6X32PgohzSzvNa6evctOnBnktx53YroE65qnbmnC5vVmzNC4ILM/0VcZxPaMcIjA7M1t4JDYw
+	bF4jNbdVd84vjCxHlemlALl1JSkc+5NwbdD8jUtIZb6HhYC2Xv2hav2z/xW/DkOoqm5zvyf8wJzOz
+	hzYUzmb31P+TeJteUM/ot24e9OiRvQhravB1vsjK2mxtzp9p6LrDk0DmyiKMmkOsaChOOWRhmAfGe
+	kTGFT3LNLcQOgBD4Rv1/+9tDnt4e/sbAFXMcuh6o2fAVJ2USjmvR6N0ST2uURdi2zScdzELzeCZUA
+	9ZIWnUvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3BU8-0000000DMFw-21ta;
-	Fri, 11 Apr 2025 10:19:44 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u3BUI-0000000DMW7-2mUY;
+	Fri, 11 Apr 2025 10:19:54 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3AEl-0000000D7EX-18lW
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 11 Apr 2025 08:59:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=y4NFHcz6/icfilFQPF/X0+AmPSvyXrgoLTnp631W+9M=; b=c+4F+Oa0Sbi3MzPWU6nltp2+3W
-	QtIWH20wE3Nz1lpln7fElaIZMV/atu1E14Ngc7zvaw4mLozai0sIc4E1lOdjwZnQef37dke73R+8c
-	Uq9lLnBvuA6uwwRKKaEkXqxkElBa79QyjmbHDWNSY116V7sOoqki9TBTH6ZHeAejagxkrGRv4kqmR
-	8wvY+Yqgz16xPofzmW0ZE+Y1I93vuICDXgUJTh0o0GeSE/6dEJYFsYSthXccxaCbiBaPeRI06XrLH
-	2ttAq+KTB7DQtGoZLHeGVUkQnjmuEhojnwDt54Y8DmvjigVssNm5gP9JcOuuiqApyqubpLNIggM4F
-	zWzf7Z2Q==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u3AEi-00000008zKy-0bIG
+	id 1u3B6c-0000000DGOt-1REN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 08:59:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B72634A3CC;
-	Fri, 11 Apr 2025 08:59:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B51E7C4CEE2;
-	Fri, 11 Apr 2025 08:59:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744361977;
-	bh=cd0NVpO1gJZi41yHFbMFBbhS+knn/ExfpHkC+hrSSiU=;
-	h=From:To:Cc:Subject:Date:From;
-	b=gG/2GKGyLnlMkAHUOSNiVc922ou4J+xfkBsa1vjwXh22TNaw4Y+Oi2dDEC4SGJwpO
-	 5hzUWcMpyXqoRdFGTcqIQ/fCCrrNgBvf0YgWeTSEorxsOXLBuWu8lyqXIPLH2i+QNh
-	 DEctEZs06tCvb4bQdSQryLDDRSKRb3gvwIHOIcRDMiuyc3u9WQ8pH5pulppxro5O69
-	 HBhfbKHYQOwrJOfYXo2Pvkib5bdQgfRaGwB4KtENOShTdXifJ78dbddIqeRwinVapV
-	 zdGEOphgI1Lt835bnO/nWdkVLbG4JEG2U8Xlt1/zBnJ7XL/hFVIjx8DCS6TgIRu9HB
-	 C6DKD9vtdVrRg==
-From: Arnd Bergmann <arnd@kernel.org>
-To: Haibo Chen <haibo.chen@nxp.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Luke Wang <ziniu.wang_1@nxp.com>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Josua Mayer <josua@solid-run.com>,
-	imx@lists.linux.dev,
-	linux-mmc@vger.kernel.org,
-	s32@nxp.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] [v2] mmc: esdhc-imx: convert to modern PM_OPS
-Date: Fri, 11 Apr 2025 10:59:04 +0200
-Message-Id: <20250411085932.1902662-1-arnd@kernel.org>
-X-Mailer: git-send-email 2.39.5
+	Fri, 11 Apr 2025 09:55:27 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1744365322;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=IFilB1CWtJRNPPBhabQDjIrMR//U86n9XWn9p+phq6s=;
+	b=lldZTB8aa3KylyrLGpWT3q3PIdaWlu4BkIKbhmi0Vwqtf5DpEsfRYbG0LTyUr8+UgMqsaH
+	92IE8hVzpaQ7jIFVvXotuqddCs4ueHRNSSA6AyTt0QCzL+hZ/Jl7FpwyGA+0lqMHB8FnYk
+	2ZgN331Fp2lWsN9GaB9sn4KSR857ErFolh8FNe/CPpOuIk2Kq27+9vbRagUYNHAISi/T01
+	yrAl0oBah/SlbViI/yxNkYS8aAk92ZxuyTKzMPaQvoBmkzLGp6OkGZXXKLUcNVgRR2NyBD
+	0xM+1NGeJGFLPwrVbbp1P73nRYoDlcdaYxT1hchYih7EoHKH316WSu9KeA1L4A==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1744365322;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=IFilB1CWtJRNPPBhabQDjIrMR//U86n9XWn9p+phq6s=;
+	b=K/Gh8U4CXj+l1NLqONuUhEP+NCa3T+gi/I84He2UrtbFNxqfACmP8QJbhrqX8/KZ7DBdSC
+	bhnQPg63Dk/LunCA==
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>, Marc Zyngier
+ <maz@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: Sascha Bischoff <sascha.bischoff@arm.com>, Timothy Hayes
+ <timothy.hayes@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ Liam.Howlett@oracle.com, ast@kernel.org
+Subject: Re: [PATCH 20/24] irqchip/gic-v5: Add GICv5 LPI/IPI support
+In-Reply-To: <Z/jgL52ZVdcxTEkP@lpieralisi>
+References: <20250408-gicv5-host-v1-0-1f26db465f8d@kernel.org>
+ <20250408-gicv5-host-v1-20-1f26db465f8d@kernel.org>
+ <Z/jgL52ZVdcxTEkP@lpieralisi>
+Date: Fri, 11 Apr 2025 11:55:22 +0200
+Message-ID: <87plhjrpit.ffs@tglx>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_095944_629803_75C276F8 
-X-CRM114-Status: GOOD (  13.92  )
+X-CRM114-CacheID: sfid-20250411_025526_528064_5DDF29F6 
+X-CRM114-Status: GOOD (  16.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,77 +81,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+On Fri, Apr 11 2025 at 11:26, Lorenzo Pieralisi wrote:
+> On Tue, Apr 08, 2025 at 12:50:19PM +0200, Lorenzo Pieralisi wrote:
+>> Maple tree entries are not used by the driver, only the range tracking
+>> is required - therefore the driver first finds an empty area large
+>> enough to contain the required number of LPIs then checks the
+>> adjacent (and possibly occupied) LPI ranges and try to merge them
+>> together, reducing maple tree slots usage.
+>
+> The maple tree usage for this purpose is an RFC at this stage.
+>
+> Added Alexei because I know BPF arena used the maple tree in
+> a similar way in the past and moved to a range tree because
+> the BPF arena requires a special purpose mem allocator.
+>
+> As Thomas already pointed out a plain bitmap could do even though
+> it requires preallocating memory up to 2MB (or we can grow it
+> dynamically).
+>
+> We could allocate IDs using an IDA as well, though that's 1 by 1,
+> we allocate LPI INTIDs 1 by 1 - mostly, upon MSI allocation, so
+> using an IDA could do (AFAIU it works for 0..INT_MAX we need
+> 0..2^24 worst case).
 
-Two newly added functions are unused in configurations without
-power management support:
+The point is that you really only need a 1-bit storage per entry,
+i.e. used/unused. You won't use any of the storage functions of maple
+tree, idr or whatever.
 
-drivers/mmc/host/sdhci-esdhc-imx.c:1586:13: error: unused function 'sdhc_esdhc_tuning_save' [-Werror,-Wunused-function]
- 1586 | static void sdhc_esdhc_tuning_save(struct sdhci_host *host)
-      |             ^~~~~~~~~~~~~~~~~~~~~~
-drivers/mmc/host/sdhci-esdhc-imx.c:1608:13: error: unused function 'sdhc_esdhc_tuning_restore' [-Werror,-Wunused-function]
- 1608 | static void sdhc_esdhc_tuning_restore(struct sdhci_host *host)
-      |             ^~~~~~~~~~~~~~~~~~~~~~~~~
+So the obvious choice is a bitmap and as you said, it's trivial to start
+with a reasonably sized one and reallocate during runtime if the need
+arises.
 
-Remove the #ifdef checks and instead use the better macros that
-silently drop the unused functions when PM is disabled. This also
-requires using pm_ptr() to eliminate both the runtime and pm_sleep
-operations.
+The reallocation happens in domain::ops::alloc() which is fully
+preemptible context, i.e. no restrictions vs. allocations.
 
-Fixes: 3d1eea493894 ("mmc: sdhci-esdhc-imx: Save tuning value when card stays powered in suspend")
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
-v2: add pm_ptr()
----
- drivers/mmc/host/sdhci-esdhc-imx.c | 10 +++-------
- 1 file changed, 3 insertions(+), 7 deletions(-)
+For the top-most domain, the callers hold domain::mutex, which excludes
+concurrency vs. ops::alloc/free(). If the bitmap is in a domain further
+down the hierarchy then you need your own mutex there.
 
-diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
-index 7e8addaed697..3c2e50d0260d 100644
---- a/drivers/mmc/host/sdhci-esdhc-imx.c
-+++ b/drivers/mmc/host/sdhci-esdhc-imx.c
-@@ -1942,7 +1942,6 @@ static void sdhci_esdhc_imx_remove(struct platform_device *pdev)
- 	sdhci_pltfm_free(pdev);
- }
- 
--#ifdef CONFIG_PM_SLEEP
- static int sdhci_esdhc_suspend(struct device *dev)
- {
- 	struct sdhci_host *host = dev_get_drvdata(dev);
-@@ -2021,9 +2020,7 @@ static int sdhci_esdhc_resume(struct device *dev)
- 
- 	return ret;
- }
--#endif
- 
--#ifdef CONFIG_PM
- static int sdhci_esdhc_runtime_suspend(struct device *dev)
- {
- 	struct sdhci_host *host = dev_get_drvdata(dev);
-@@ -2103,11 +2100,10 @@ static int sdhci_esdhc_runtime_resume(struct device *dev)
- 		cpu_latency_qos_remove_request(&imx_data->pm_qos_req);
- 	return err;
- }
--#endif
- 
- static const struct dev_pm_ops sdhci_esdhc_pmops = {
--	SET_SYSTEM_SLEEP_PM_OPS(sdhci_esdhc_suspend, sdhci_esdhc_resume)
--	SET_RUNTIME_PM_OPS(sdhci_esdhc_runtime_suspend,
-+	SYSTEM_SLEEP_PM_OPS(sdhci_esdhc_suspend, sdhci_esdhc_resume)
-+	RUNTIME_PM_OPS(sdhci_esdhc_runtime_suspend,
- 				sdhci_esdhc_runtime_resume, NULL)
- };
- 
-@@ -2116,7 +2112,7 @@ static struct platform_driver sdhci_esdhc_imx_driver = {
- 		.name	= "sdhci-esdhc-imx",
- 		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
- 		.of_match_table = imx_esdhc_dt_ids,
--		.pm	= &sdhci_esdhc_pmops,
-+		.pm	= pm_ptr(&sdhci_esdhc_pmops),
- 	},
- 	.probe		= sdhci_esdhc_imx_probe,
- 	.remove		= sdhci_esdhc_imx_remove,
--- 
-2.39.5
+Thanks,
+
+       tglx
+
+
+
+
 
 
