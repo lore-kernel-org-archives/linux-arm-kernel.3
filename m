@@ -4,81 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45A4AC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 18:28:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 766BAC369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 18:49:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C46R7wiLtD1J4h2JTuv22/R+I86Xr7Q5T8wzzEPduhk=; b=tvCRJp7DMpYuiDoNRDHJI8xHto
-	zN4HhwDbo53MmhC09jJjqB3XHo0jtfdZ3jorqoZGe0ryifQVAuv8AT27XUWSbBExaXf+0CMPNGUG9
-	N+9SzORXgYduXdDYLnFlAOcnjbscNOR42OpfsL7m2D736QpxSpM4XQC69lGpWa0q8/okdlWaSR3F2
-	7t1YmS1oJKNKvwnivhTZDODhoBON+knxXR5uVxXEp1jyXh4Vn/O2lrfmWWq07zSUa505/KjICUwf0
-	rMRv72rBn+4SKxpZDXhrp2Roj488s4ygfSDQWuItuGU3TN3BFNakH3civ2bu61P0HtvTRu25sWL6M
-	1O91jOFg==;
+	bh=WyFOsqTfrqmcyJEFdEpAVnLD1e7XYG5YJrJeZngeXCk=; b=y7/7xznNaKcUaNJENWurNHPhJK
+	W7/n738L2f20eZWD1H94SYGgUJODvjIT3grXYF95AXF7YlOhD4xK9PiTXKPf9efZdohrfa8B47BWJ
+	bUZw4ycl8gHo1j8mtCkbhndCAB1Si9wa9tAg/YPHmPRv8oqP6RdUqmKd8hBmtOAJVYGhkPqkhNEkE
+	Io310Y6d/58opBU5x1GuEwrIL5UWiQxUCeUSUnzdtKT5rwRmzMdwb8UmhFV5ln28lbIjaQyHLXSw/
+	ahJxKF8VjeaWIFA1eitK55gRD2Nj6OfxcgjrX4rUVoQY8Fif8kFGwRa1gsC6UFhVlxqD78vJhs+PW
+	dpKXhNBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3J6m-0000000EdHa-38gG;
-	Fri, 11 Apr 2025 18:28:08 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1u3JQr-0000000EfTG-0B37;
+	Fri, 11 Apr 2025 18:48:53 +0000
+Received: from mail-bn7nam10on20601.outbound.protection.outlook.com ([2a01:111:f403:2009::601] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3J4x-0000000EcyG-0yyV
+	id 1u3JP1-0000000EfID-38Vt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 18:26:16 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53BIQ9fw1515137
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 11 Apr 2025 13:26:09 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744395969;
-	bh=C46R7wiLtD1J4h2JTuv22/R+I86Xr7Q5T8wzzEPduhk=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=hr+/lquyXFaFGqs6cUup/7redD+LZLggyqb4qC4KGUycnL0ANPNBtV2Rfv0HimcRw
-	 hnSfDRo1qYGCH6afFulkSlLuWp3tzCHev8gaG/XDmdUrR442hyo8rT9Nls+cBhG8o4
-	 87RpV9zewz3fOH5z74LcXt+ggaEsgmruhcatStqw=
-Received: from DLEE104.ent.ti.com (dlee104.ent.ti.com [157.170.170.34])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53BIQ9RR108037
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 11 Apr 2025 13:26:09 -0500
-Received: from DLEE113.ent.ti.com (157.170.170.24) by DLEE104.ent.ti.com
- (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 11
- Apr 2025 13:26:08 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 11 Apr 2025 13:26:08 -0500
-Received: from localhost (bb.dhcp.ti.com [128.247.81.12])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53BIQ8Wt086091;
-	Fri, 11 Apr 2025 13:26:08 -0500
-Date: Fri, 11 Apr 2025 13:26:08 -0500
-From: Bryan Brattlof <bb@ti.com>
-To: <krzk@kernel.org>
-CC: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Tero
- Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v4 2/3] arm64: dts: ti: k3-am62l: add initial
- infrastructure
-Message-ID: <20250411182608.cpxr357humjq6ln7@bryanbrattlof.com>
-X-PGP-Fingerprint: D3D1 77E4 0A38 DF4D 1853 FEEF 41B9 0D5D 71D5 6CE0
-References: <20250407-am62lx-v4-0-ce97749b9eae@ti.com>
- <20250407-am62lx-v4-2-ce97749b9eae@ti.com>
- <20250409-calculating-hungry-mosquito-f8cfeb@shite>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+	Fri, 11 Apr 2025 18:47:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BVlwxUZ0/mdnYWggw6zzgE9KIu6JK+Vzmi5qPeOQ/eELBWqVIEwUCv/XXXxmI8Ma+6Z4Pm/efjbJ0z4Ot+3bXDtT+jwjx/Pho2S+K0qAauIE9oadx+BEj83bUER7g6ScUdWG6TQckdd4RGQdTZCbpltuFUzUsvxsLqoA+QTyrbTc1aLN2Te0KcYc6ZzgjwFazW7qBUHJiQMWt/PoM4r6+owWmA6VY9bPFQj5jAuFhQqaZNHUWRqnoPfXWtn1vCg7D4KUGEAFQj1AnmyKQDYltm5RrbbkIJ9SNLiP0GYw5hxXzBIU6eU4oiVBHOy0+lup6BAtn+iWeh71+RwtHVMD+g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WyFOsqTfrqmcyJEFdEpAVnLD1e7XYG5YJrJeZngeXCk=;
+ b=cjiI2AtcfB1Kz9UNwR2CxPLOjT9zV+AzSb0kT2BGgzGKWYbOoSeGE3LuI7N/WkHcd3bzSyxjML7sbvma/mOo74/9p0hmebujO2g+AOWVdR5SIVrmkwA2ZMnVJKLTMPN2UGLKZfN24QmQasSrSWK6UWLwPWAsFG55JRU7b/haPCyc/HJB4xbHXDtTzZV1zWwxsg2prkKGpR/6xMoUwOWYn9qEhc1nJUJeB356r00bCLX4CmRHpQ5R+WcKUQO1UQW/tOGaer3KI4zHQIur7S6mNgX67NeyaDJLvCTbE0L304lYm4Mmcje5M1vwkap6TcjB0Kq99OyejDU7SlbxRqFiSw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WyFOsqTfrqmcyJEFdEpAVnLD1e7XYG5YJrJeZngeXCk=;
+ b=M+BsKLRtmStWcSJ/+JmMilXherUwcNhbO7ORSEshPgk1PnIFfL4krNWdqUB2JRGxpCcp9KYdsukgDnKthtuHlm0wSUN1KnXnYUM8lltgD/mHKM1p8MSbDE1qPC6Mfz3qu7M+brJdD6eiIrLD0U24TUzn/NOCm61K0ygOkuqJoQOFYkl6I3A81tCha33ECQBliSjlQd2F0L9gH4WhG2i46CtchZY7zmP03H77v0snSQXW3pZG+x73IBcBmB3ypAuPIOClItzVyzo+I31b+WqLhjJJneo8T06t3QPC7KftcTYi3HAsugEwHB5T4xUjMX09lklFg92H+nie/KG59fFLSA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by DS7PR12MB9041.namprd12.prod.outlook.com (2603:10b6:8:ea::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.28; Fri, 11 Apr
+ 2025 18:46:47 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8606.028; Fri, 11 Apr 2025
+ 18:46:47 +0000
+Date: Fri, 11 Apr 2025 15:46:46 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: joro@8bytes.org, will@kernel.org, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, nicolinc@nvidia.com
+Subject: Re: [PATCH] iommu/arm-smmu-v3: Fail aliasing StreamIDs more
+ gracefully
+Message-ID: <20250411184646.GB252886@nvidia.com>
+References: <39d54e49c8476efc4653e352150d44b185d6d50f.1744380554.git.robin.murphy@arm.com>
+ <20250411152122.GF8423@nvidia.com>
+ <9ed7aba6-4d0d-4cfb-a85b-ca943c7e031a@arm.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250409-calculating-hungry-mosquito-f8cfeb@shite>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+In-Reply-To: <9ed7aba6-4d0d-4cfb-a85b-ca943c7e031a@arm.com>
+X-ClientProxiedBy: BN0PR03CA0023.namprd03.prod.outlook.com
+ (2603:10b6:408:e6::28) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|DS7PR12MB9041:EE_
+X-MS-Office365-Filtering-Correlation-Id: 925a57d4-d4e8-46d6-935d-08dd7929368b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?FK18VeJQph/nS81FPWVnTcD7ITeb6Xq9XcTsbsyn4LcNTMrqRFbkhtLgD7Fa?=
+ =?us-ascii?Q?s9hFfE25UJDwcfrIe6Ud0AtqUB51qhOuufLCW7ICuq9Wc0oXWzlB8tKZv1e6?=
+ =?us-ascii?Q?j+tBayGRBjcYfvgF16frMtf0NzrskgX8slHgzo2wlXtpWzQeoAV3QIrMB1Ao?=
+ =?us-ascii?Q?th/s+7e890nLwF2tY1/NC2u9c9aqIxWBPdNGGiqxjm+ldiQShO4KzThnazXc?=
+ =?us-ascii?Q?GAz6acJDwtXtx+9fdc9+944CiwCG5aI3WE8IHwo3xgOkYX3UCUhrKqJD7qHB?=
+ =?us-ascii?Q?/qYoZBlAIf2ykLAGRiMmy3/hAWlrm0wYt1s5QW6eAl2LlpNufJgFCur3cHgZ?=
+ =?us-ascii?Q?sN5Ic+YNGfPeIgHEwv60Cs9xlnbYFv4qTujuyCaHswCPQjPBq5P/lU/kKNZf?=
+ =?us-ascii?Q?e1pKZ9OfoV3GFMTFxTc5dq65b+sOSUh7PD9nSQwfEwXF9PeIxUA+yzkFS8fO?=
+ =?us-ascii?Q?5sQfamuiI+O0j2UqRKZQSIBnWc18H/LQzfH7ujRzJVFAct/jg8eU3w7NOm2t?=
+ =?us-ascii?Q?XjpizdjlGGbAO9iz5OIikVoh+EwP/GR4sXKBFMoJqQkXo0FiolpGJQ+SboHs?=
+ =?us-ascii?Q?Q2hxOFf74CX+uJZ/F7mf0XH8j0SK7dQ3Ix97TKhd5Trz+fs7w8Iaq7T7c3jo?=
+ =?us-ascii?Q?CEYsGP7P8r9uvreUWoZ0IvEKsW9UlBgATmZV5PliBvRNezYItAM1rKL7gM+n?=
+ =?us-ascii?Q?4BlzUXE/KslIARx78Rvb+0azQnxa3e/FlFU+DoGrWXLsM6Z9e1cW7mFyK0K2?=
+ =?us-ascii?Q?1iywiqxYfNFRBXd5rXNTQDpCQKBpjnwhHDWRuDMEJtiMbb8Xwnwe+etFVhGk?=
+ =?us-ascii?Q?44EW0Fkkpj7uUMgIUZFaEYrLsRSpfJkM0Ok3JDugAZR3uaP2IX1yUY7iXr7U?=
+ =?us-ascii?Q?K/DWspg2KZHbXcllq9dn3n5sLq5vU6EjTwQOEbTLBdLtifLJc4tBurx2xfL5?=
+ =?us-ascii?Q?Xlze5HIEtRor81/twQkIzaO4A1ZFyYw6IuMYmPIqG/dBofC1oVh4vzsYz9dJ?=
+ =?us-ascii?Q?WlSgq6wRev4cqRzlnmH2EEy/ToXtieal3bxGnAHwNwEEzR04cspbtHmWyPTa?=
+ =?us-ascii?Q?IpYI30R/TKtjpsMC9XJxWJwjuK59TwI8Vn9tjaSgIFp37WxKFLQwUkCiSeDI?=
+ =?us-ascii?Q?AaW9aS/Vzo4471kA+EVXKfRfGv/uHjP3bzq+/zRhujavjWUxXH7d1oO6L3q/?=
+ =?us-ascii?Q?EB/K5OMw6I/m8Qv5Dn/hamwcTsbuNKSXcqp9Gjnr7nfy9XBzKdzGJeDZx6ho?=
+ =?us-ascii?Q?j4JmzcT7bM9LeN/pEKETnjgcn4x35P8XnDJRXGIzrixl/bClasbz9wYQR4yQ?=
+ =?us-ascii?Q?gm2OZGKkgtsN86x8bh9VtUEFxMuu5Sua33TQKYWHhTOzzxIGnmVjHX/Ms9n2?=
+ =?us-ascii?Q?Li5JGIi0j/kpQqql8xKiM0qC95xNn8qwzq/2lOy2nPKByrdlLTkQcqSTRn1u?=
+ =?us-ascii?Q?pHFcVph480I=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hvRvc3t/h72/231EHXgQSq1BEcFPq4X3yJpRaEVDa88XJmeSx/Re81voMR8O?=
+ =?us-ascii?Q?BBGBO8GI5JknmCUiCH2icqum1s1XRRgbiV9ZPRG53K8geuD2hL+MZy85nr/t?=
+ =?us-ascii?Q?9eDkAnX3EnMIJKNhcSME8bIs04x2K/zaTbpaaA/DSyuyfAxGg9LOmn/fEDaF?=
+ =?us-ascii?Q?K1nPLDAQ6tc97h7er/oFzka1Q6W24DzOCestOAVr5s0XFNKegj1ECqg5w2Hc?=
+ =?us-ascii?Q?dXaHjpF3AO2VtP73y8OLc/cpDsr7Q8sOLUAKVRUuDpF1rJQptIj79t9y0jJK?=
+ =?us-ascii?Q?rEHa53icS+WhRZT5eo06lFZSAWjbYf8KHCeB8ilWtOu1bDaQUW3NTDPs2cyN?=
+ =?us-ascii?Q?rmyTL/A2Lbrx9uRZHVu9rvE/URw8KYMPWsdFDzSrB/FzJAFrzXHDWog/iGTX?=
+ =?us-ascii?Q?kGp9RJIwDJ8ePjNtAzW9+P3rqesaMcH8wWSaZAtiNl3gBonsL56c4XSxNbU3?=
+ =?us-ascii?Q?3rb27QL/7zy+k5V7A1LmsygJM83QUSUgE6WzR3ADRj1rXxPW8XRl/Un/Ck95?=
+ =?us-ascii?Q?6IBE3Cec2z0ATzMjciItGF7IqRL51xLULtO5pWfCi7Yohbi4yMOYoNIlNb3D?=
+ =?us-ascii?Q?EeCrBtUyypp6h2b8vumUMNwJA6wg+NaVEt9Q1qL9V/t576hsCiw3EYV2Gg0A?=
+ =?us-ascii?Q?8tf0RyuYuM9974LUyMvxNan2SaZHwj9pCSfJeG4La5vWZnFCfnW62ai6QaxJ?=
+ =?us-ascii?Q?UYiBw/bpYz5vuxqPy/d2xM5xaSCCwFoKvXO487ectxbqRNlFPE81xHx9JXMy?=
+ =?us-ascii?Q?Mf1ERDrggBgPLkQqevCOVyWtR+gF822JHHuZLOkvJnqje1A1ZpdU/ocMtWR8?=
+ =?us-ascii?Q?BRrKyO/LypkJbHS9azj411+m+Skyt1zSOxLDYFIX6zH18bNo3xuSWLvcSQnd?=
+ =?us-ascii?Q?DtyUA6s3Ss61m52AC/UGIiHsKPck18b61Ur9qKmcX2C3MpczA/KbGFR1/Jru?=
+ =?us-ascii?Q?IdANhGZhjHCVjxaJ+19idWOOyu0oQzd5HnQjR9ACiu47qOQdXIz9vr86L4iS?=
+ =?us-ascii?Q?6OyR4EV7JBpEn/2YP4tBj7oIDakWN+mNfvZKzzqv1nXWJBqiurytVp7xoeuM?=
+ =?us-ascii?Q?/rrm6Rfo269Ar5zPRrY8E1EaciWAPQA3Q3Nios3RofKlxBKloybluUKdSiDo?=
+ =?us-ascii?Q?KuObZITGjZ/dDxMRXVzPelZAuuo5vfXmDlmbm4jPSZ9EHPr4TbPFzpcMQQKU?=
+ =?us-ascii?Q?96u10Tvw/UbxGpy+VjfT2F4Z+Eo18XtnE+KxkhLBTRvk1C8TQUW6C5jDgwq2?=
+ =?us-ascii?Q?yqDHu9R9hOFbQ69BTbx7/figzSac24wsDRzwlEUgxdG8DzJIgLhhabP5Ds5h?=
+ =?us-ascii?Q?AuTgXdiPc+gjBjLfVSvSMllLk6ruDACbVR40nHKgghxX16dadYR4v5QbvbsJ?=
+ =?us-ascii?Q?znuBTMx1fMmCegMea0aekOCepuBIcsS5MWBB1W3BEXx8iW5kPxCs0uqlEJGt?=
+ =?us-ascii?Q?JzSa/rnRM2Sa1ecudJpheJ3qm8/Xl4m5cPhebiDFEcHRtHvfR0jm1ykyuMUA?=
+ =?us-ascii?Q?wXbAxhDbZhOL0sCg46ot8rDVmnBhRMnfLhdwJzDAd0upkNdnoRWkzFiNhLPm?=
+ =?us-ascii?Q?Ms7PyRXGrlQJSiClucmzrDP1Scv//ixLOUKM1iSr?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 925a57d4-d4e8-46d6-935d-08dd7929368b
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Apr 2025 18:46:47.3950
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: bUQO6/Kp7q2qg/m8dohK/xuSVhLVayOgKA4wr+nghZKdkxHOMc+ey9kFySRbkcmH
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB9041
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_112615_362516_F69B3FAB 
-X-CRM114-Status: GOOD (  28.87  )
+X-CRM114-CacheID: sfid-20250411_114659_805186_A6072497 
+X-CRM114-Status: GOOD (  36.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,199 +159,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On April  9, 2025 thus sayeth krzk@kernel.org:
-> On Mon, Apr 07, 2025 at 10:34:39AM GMT, Bryan Brattlof wrote:
-> > From: Vignesh Raghavendra <vigneshr@ti.com>
-> > 
-> > Add the initial infrastructure needed for the AM62L. ALl of which can be
-> > found in the Technical Reference Manual (TRM) located here:
-> > 
-> >     https://www.ti.com/lit/pdf/sprujb4
-> > 
-> > Signed-off-by: Vignesh Raghavendra <vigneshr@ti.com>
-> > Signed-off-by: Bryan Brattlof <bb@ti.com>
-> > ---
-> > Changes in v3:
-> >  - Added more nodes now that the SCMI interface is ready
-> > 
-> > Changes in v1:
-> >  - switched to non-direct links to TRM updates are automatic
-> >  - fixed white space indent issues with a few nodes
-> >  - separated out device tree bindings
-> > ---
-> >  arch/arm64/boot/dts/ti/Makefile              |   3 +
-> >  arch/arm64/boot/dts/ti/k3-am62l-main.dtsi    | 672 +++++++++++++++++++++++++++
-> >  arch/arm64/boot/dts/ti/k3-am62l-thermal.dtsi |  19 +
-> >  arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi  | 144 ++++++
-> >  arch/arm64/boot/dts/ti/k3-am62l.dtsi         | 121 +++++
-> >  arch/arm64/boot/dts/ti/k3-am62l3.dtsi        |  67 +++
-> >  arch/arm64/boot/dts/ti/k3-pinctrl.h          |   2 +
-> >  7 files changed, 1028 insertions(+)
-> > 
-> > diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-> > index 03d4cecfc001c..93df47282add3 100644
-> > --- a/arch/arm64/boot/dts/ti/Makefile
-> > +++ b/arch/arm64/boot/dts/ti/Makefile
-> > @@ -32,6 +32,9 @@ dtb-$(CONFIG_ARCH_K3) += k3-am62-lp-sk-nand.dtbo
-> >  dtb-$(CONFIG_ARCH_K3) += k3-am62a7-sk.dtb
-> >  dtb-$(CONFIG_ARCH_K3) += k3-am62a7-phyboard-lyra-rdk.dtb
-> >  
-> > +# Boards with AM62Lx SoCs
-> > +dtb-$(CONFIG_ARCH_K3) += k3-am62l3-evm.dtb
-> > +
-> >  # Boards with AM62Px SoC
-> >  dtb-$(CONFIG_ARCH_K3) += k3-am62p5-sk.dtb
-> >  
-> > diff --git a/arch/arm64/boot/dts/ti/k3-am62l-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62l-main.dtsi
-> > new file mode 100644
-> > index 0000000000000..697181c2e7f51
-> > --- /dev/null
-> > +++ b/arch/arm64/boot/dts/ti/k3-am62l-main.dtsi
-> > @@ -0,0 +1,672 @@
-> > +// SPDX-License-Identifier: GPL-2.0-only or MIT
-> > +/*
-> > + * Device Tree file for the AM62L main domain peripherals
-> > + * Copyright (C) 2024 Texas Instruments Incorporated - https://www.ti.com/
-> > + *
-> > + * Technical Reference Manual: https://www.ti.com/lit/pdf/sprujb4
-> > + */
-> > +
-> > +&cbass_main {
-> > +	gic500: interrupt-controller@1800000 {
-> > +		compatible = "arm,gic-v3";
-> > +		reg = <0x00 0x01800000 0x00 0x10000>,	/* GICD */
-> > +		      <0x00 0x01840000 0x00 0xc0000>,	/* GICR */
-> > +		      <0x01 0x00000000 0x00 0x2000>,    /* GICC */
-> > +		      <0x01 0x00010000 0x00 0x1000>,    /* GICH */
-> > +		      <0x01 0x00020000 0x00 0x2000>;    /* GICV */
-> > +		ranges;
-> > +		#address-cells = <2>;
-> > +		#size-cells = <2>;
-> > +		#interrupt-cells = <3>;
-> > +		interrupt-controller;
-> > +		/*
-> > +		 * vcpumntirq:
-> > +		 * virtual CPU interface maintenance interrupt
-> > +		 */
-> > +		interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
-> > +
-> > +		gic_its: msi-controller@1820000 {
-> > +			compatible = "arm,gic-v3-its";
-> > +			reg = <0x00 0x01820000 0x00 0x10000>;
-> > +			socionext,synquacer-pre-its = <0x1000000 0x400000>;
-> > +			msi-controller;
-> > +			#msi-cells = <1>;
-> > +		};
-> > +	};
-> > +
-> > +	gpio0: gpio@600000 {
-> > +		compatible = "ti,am64-gpio", "ti,keystone-gpio";
-> > +		reg = <0x00 0x00600000 0x00 0x100>;
-> > +		gpio-controller;
-> > +		#gpio-cells = <2>;
-> > +		interrupt-parent = <&gic500>;
-> > +		interrupts = <GIC_SPI 260 IRQ_TYPE_EDGE_RISING>,
-> > +			     <GIC_SPI 261 IRQ_TYPE_EDGE_RISING>,
-> > +			     <GIC_SPI 262 IRQ_TYPE_EDGE_RISING>,
-> > +			     <GIC_SPI 263 IRQ_TYPE_EDGE_RISING>,
-> > +			     <GIC_SPI 264 IRQ_TYPE_EDGE_RISING>,
-> > +			     <GIC_SPI 265 IRQ_TYPE_EDGE_RISING>,
-> > +			     <GIC_SPI 266 IRQ_TYPE_EDGE_RISING>,
-> > +			     <GIC_SPI 267 IRQ_TYPE_EDGE_RISING>;
-> > +		interrupt-controller;
-> > +		#interrupt-cells = <2>;
-> > +		power-domains = <&scmi_pds 34>;
-> > +		clocks = <&scmi_clk 140>;
-> > +		clock-names = "gpio";
-> > +		ti,ngpio = <126>;
-> > +		ti,davinci-gpio-unbanked = <0>;
-> > +		status = "disabled";
-> > +	};
-> > +
-> > +	gpio2: gpio@610000 {
-> > +		compatible = "ti,am64-gpio", "ti,keystone-gpio";
+On Fri, Apr 11, 2025 at 07:16:57PM +0100, Robin Murphy wrote:
+> > That is different from the iommu instance owning the device but being
+> > unable to probe it for some reason. The failure recovery in the core
+> > code should be different.
 > 
-> 64 or 62?
-> > +		reg = <0x00 0x00610000 0x00 0x100>;
-> > +		gpio-controller;
-> > +		#gpio-cells = <2>;
-> > +		interrupt-parent = <&gic500>;
-> > +		interrupts = <GIC_SPI 280 IRQ_TYPE_EDGE_RISING>,
-> > +			     <GIC_SPI 281 IRQ_TYPE_EDGE_RISING>,
-> > +			     <GIC_SPI 282 IRQ_TYPE_EDGE_RISING>,
-> > +			     <GIC_SPI 283 IRQ_TYPE_EDGE_RISING>,
-> > +			     <GIC_SPI 284 IRQ_TYPE_EDGE_RISING>,
-> > +			     <GIC_SPI 285 IRQ_TYPE_EDGE_RISING>,
-> > +			     <GIC_SPI 286 IRQ_TYPE_EDGE_RISING>,
-> > +			     <GIC_SPI 287 IRQ_TYPE_EDGE_RISING>;
-> > +		interrupt-controller;
-> > +		#interrupt-cells = <2>;
-> > +		power-domains = <&scmi_pds 35>;
-> > +		clocks = <&scmi_clk 141>;
-> > +		clock-names = "gpio";
-> > +		ti,ngpio = <79>;
-> > +		ti,davinci-gpio-unbanked = <0>;
-> > +		status = "disabled";
-> > +	};
-> > +
-> > +	timer0: timer@2400000 {
-> > +		compatible = "ti,am654-timer";
-> 
-> 64? 654? 62? You need to use proper compatibles matching the hardware
-> (see writing bindings).
+> Perhaps, but right now this is a trivial, obvious fix using the mechanisms
+> that we already have and that other drivers are already using similarly,
+> that can effectively restore the exact same overall behaviour as 6.14 with
+> zero risk.
 
-So most of the K3 generation of TI's SoCs will reuse the IP as long as 
-they can. My understanding was to pick the compatible of the platform 
-that introduced the driver for that particular IP. Are we suggesting we 
-add a compatible for the 62L?
+Yes, but so would ignoring the error within bus_iommu_probe, which is
+close to what used to be happening. I'm a little worried this will
+turn into a wack a mole..
 
-> 
-> > +		reg = <0x00 0x2400000 0x00 0x400>;
-> > +		interrupts = <GIC_SPI 170 IRQ_TYPE_LEVEL_HIGH>;
-> > +		clocks = <&scmi_clk 47>;
-> > +		clock-names = "fck";
-> > +		power-domains = <&scmi_pds 15>;
-> > +		ti,timer-pwm;
-> > +	};
-> > +
-> 
-> ...
-> 
-> > +		chipid: chipid@14 {
-> > +			compatible = "ti,am654-chipid";
-> > +			reg = <0x14 0x4>;
-> > +			bootph-all;
-> > +		};
-> > +
-> > +		usb0_phy_ctrl: syscon@45000 {
-> > +			compatible = "ti,am62-usb-phy-ctrl", "syscon";
-> > +			reg = <0x45000 0x4>;
-> > +			bootph-all;
-> > +		};
-> > +
-> > +		usb1_phy_ctrl: syscon@45004 {
-> > +			compatible = "ti,am62-usb-phy-ctrl", "syscon";
-> > +			reg = <0x45004 0x4>;
-> 
-> No, you do not get syscon per register. The entire point of syscon is to
-> collect ALL registers. Your device is the syscon, not a register.
-> 
+If we keep it this way it further muddies what the driver is supposed
+to be doing with it's error codes. How should a driver author decide
+which one to use?
 
-My understanding from [0] was that we would need to break this up into 
-smaller syscon nodes because the alternative would be to mark the entire 
-region as a syscon and every other node using it would need to use it's 
-base + offset which was kinda undesirable especially for the small 
-number of drivers that need data from this region.
+> Nothing in this two-line patch precludes coming back and doing more later.
 
-    a-device {
-        clocks = <&epwm_tbclk 0>;
-    };
+Yes
 
-~Bryan
+> triggering those failures? :) Annoyingly I chose to kick the can down the
+> road because I know I'm deliberately using a quirky unsupported hardware
+> setup...
 
-[0] https://lore.kernel.org/lkml/20250122-topic-am62-dt-syscon-v6-13-v1-2-515d56edc35e@baylibre.com/
+Oh interesting, I'm actually quite surprised that very new chips are
+still pretending to be PCI bridges. :\
 
-> Best regards,
-> Krzysztof
+> Errors which occur during .probe_device clearly don't have to be specific to
+> the device - e.g. OOM - but even device-adjacent conditions may be
+> sufficiently catastrophic to indicate that it's probably not worth
+> continuing - for instance if the arm_smmu_sid_in_range() check were to fail
+> then it's clear firmware is giving us bad data, at which point we can't
+> necessarily trust *anything* it's said about the SMMU at all.
+
+Maybe, but also, maybe not. The more optimistic view is that the FW is
+generally correct and tested by someone and mistakes are narrow to a
+single device. That is my general experiance with server FW at least..
+
+Plug in some weird thing, the FW freaks out and does something wrong,
+for that thing, but everything else remains fine.
+
+> > It would be nice if the dev->iommu would record that the struct device
+> > is inoperable and then we can fail
+> > iommu_device_use_default_domain()/etc in a contained way.
 > 
+> Maybe, but what would the nature of that containment be? 
+
+Just block the end driver from binding so we don't compound the
+problems. Not much you can do on the iommu side. For PCI devices
+without a driver bind they won't enable bus master so they should be
+contained at that point.
+
+> other than leave the user to pick up the pieces, and often the best chance
+> for that *is* going to be to give up entirely, fail and disable the IOMMU,
+> because otherwise blocking I/O might prevent the user seeing anything at
+> all.
+
+Maybe, or the untested unregister iommu driver path will crash :)
+
+Or the fault is localized to the device and we will get a better
+outcome by just not loading that driver.
+
+In the end we are guessing, I'm just looking at this from the POV that
+for a long time we ignored errors per-device and now we are failing
+the whole iommu startup. That is a big change in v6.15, and it doesn't
+seem really necessary.
+
+> And for any remaining niche cases of "expected" errors like this one where
+> the driver could in principle support the thing but doesn't due to its own
+> limitation, honestly don't spend effort on gold-plating that limitation in
+> core code, just spend it on making the driver support the thing instead.
+
+Yes, Nicolin will try a v2
+
+So, go ahead with this if you think it is best, but I do prefer
+ignoring all errors. If we get a 2nd similar issue lets agree to
+change bus_iommu_probe()/etc to ignore probe error codes rather than
+wack-a-mole ENODEV across many drivers.
+
+Jason
 
