@@ -4,153 +4,211 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B693C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 11:19:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FF1BC369A8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 11:19:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XBGOPA0rSgsOkUxC0jabv7gIHO1nS92cUrArFFC77vc=; b=luOB1PlVcu3Bv4R1Z8fBznj35r
-	Hxjmq7dTwQG/J/VSvq5GtKYTcWtmPLW35wgLMHkcrb99wK825TV0D6XV5cQ5NgiaHVI8wic1Dy0ga
-	SWz6uQFOGilQHtHun+3Ejqi6KcaYzMI1rYG5GlQ4i6wilbK2VqXmaiD8F4CMqy3uP/UprGkso9sUu
-	BAj84IOnjKZ1vUdwwwAtVeAPgfNDUQYAIIUW/7Mtc2gJT+8mvKwHYalCKlA0UprqRcKjUVD4n07Yt
-	OiWFw5VrVBzd+pRkHHPcQaXRIr2ryv/W8Pk5LuydDlQvufmMa/M5tBA1X5rYOt24hO6RzATSmR9VI
-	inX4bxQg==;
+	bh=/Pp6Zcg8Oi2b9kdeAp4Q2dl4oZArJmbsOraFv+YktGg=; b=3xNFHTd1WUikg/j4aGOj2ktkK7
+	bxGrJa9mrZLhcVRWdS9udOe3hS4Y8dm4//yjwSGhSot+W1vgOjLZT4ABg4nuZHCDtPDe8grnam6b/
+	Zblgxxi6Fyi95JvS5tRLQdo3l9icwCufSMHostGkwgnp5yl7xwA92rc3PCEv3wpE57BL94WOxg0o7
+	m1Ryxvt2jRGLcnpnW/vLlI1G8z0ox4UjI/TEF/zbq9C0u41J8x0kZ9WohjKQOqaGEpFnxQKM/LNAQ
+	vmmt28zVHas48VhhizQWRqgnrchJhCQxpbe2ZuChh7GlCmTIXQfi1PRUV/wMSx0qeFENOYbE20lJW
+	uEdhzw+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3CQ6-0000000DViX-2dEV;
-	Fri, 11 Apr 2025 11:19:38 +0000
-Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
+	id 1u3CQ8-0000000DVm8-1dXZ;
+	Fri, 11 Apr 2025 11:19:40 +0000
+Received: from mail-dbaeur03on2061f.outbound.protection.outlook.com ([2a01:111:f403:260d::61f] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3CA5-0000000DSYD-0KoD
+	id 1u3CFN-0000000DTJK-2VK6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 11:03:06 +0000
+	Fri, 11 Apr 2025 11:08:35 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=GKpKTkTHzbtG4HK6k3GGQ8XGyQ3krUbRfsyfhqakjFbD6T7GwGRiqUS0hxH0kNYyyITTah5gHcOVeeHbRrcuRDGRevt5DlRPtzbXoFokD0w97YqVZTx8dvNVNI94SAMjQDdBW96lPcT0u9wz9G9tIRAizumC38/bjGguWA0BKqQ9onRmZTCln7PASM9c3MvGjyNn1GLXsOABw/9zdAWQn+0EX9UhDNy6pNBeDknnQAYcdS8vGdd4Pfon+v/Jj3cpg4imHVPAanb73xrQc3W5GPXj9cXFOyaA4ZHWDUxM7t3VPF2NgP4dP/cSsOXZWRdU+67bonVNZfOFw7iXZEKKWg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/Pp6Zcg8Oi2b9kdeAp4Q2dl4oZArJmbsOraFv+YktGg=;
+ b=bT49xfjQvYSAQiu4AWDe2PcQmG/238xGuEX5v0GIERffHswRBnHnseTF5HJ1kgoOBTG+iBfxZHq+zNJxcVfyI32qUwCr5ftnXrLsI82zC+6waxuaVk0hGtgZ+v/tHMzQmTQbziqwo+S9+BpuXNeHSh1oNzzG3HgNaS21iEbT0yRjMvIhpeu47E1DdqfvjevnEWkbE1cwXu+2NgJO4WLIweKb6X9vSRu9z5SVqxjuuf+XZgpz8QC1IwBTIh+UVOQXFk9rBIlNkX8HrI0OZV69O18lxhL5FZDjWJ5GjNMxb4OXDFT7oJ2H/InAL9fK6h5qdIXt09FRZOdRmc0kTOIhqA==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/Pp6Zcg8Oi2b9kdeAp4Q2dl4oZArJmbsOraFv+YktGg=;
+ b=FwyyZ3W/n7VHSZvKnYG6sRWkOR2IxiPfj4Le9uO63LVSH/bk2E2SjPNkGbkmX/G9odz+XislCXC0Irq0suz0cxWFPoYIw1a7RClIe2yYVRX4TE3cam+mbLadrHTA5QsRW2TWvE8Tm4/Hey60jbe8oICxBohSCvAaTj+j8cBJzXU=
+Received: from DB9PR01CA0001.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:1d8::6) by GVXPR08MB10449.eurprd08.prod.outlook.com
+ (2603:10a6:150:157::17) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.22; Fri, 11 Apr
+ 2025 11:08:24 +0000
+Received: from DB1PEPF000509E8.eurprd03.prod.outlook.com
+ (2603:10a6:10:1d8:cafe::b3) by DB9PR01CA0001.outlook.office365.com
+ (2603:10a6:10:1d8::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8632.26 via Frontend Transport; Fri,
+ 11 Apr 2025 11:08:19 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DB1PEPF000509E8.mail.protection.outlook.com (10.167.242.58) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.12
+ via Frontend Transport; Fri, 11 Apr 2025 11:08:24 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=x5gAAO4owUdtAHKXRU8tkPvgD3qlZX4XCoDtLtAYpmfdNUpO2D5kJ7Xyf9UkrcwHLb1dXtUUthqvXnWQlg74VWluFIex5kWrkXp1DR3OZI1F9oWDRB1bHE6kNm3Ay7Txc5uHntUPPkySqgBV8DjJBNGNW8R/4H+4E8hxYeIvsXYkyvNLVkR0uCaWIf7hpMr8aT09UJwURMR0A3FzPSwD02m3VQfaEXhuNr6RqCu5oeulPzJiXfvYc4nR5//FBiDrQ1uu3EBpMshbGiZgZTdSH+yf7mtjXgN7NTW59caW6/TL4XLOBJckInrqBK9jzGD/+0D024GhRTOdkJQuusMIvg==
+ b=AcH/dGzvaHhY3yt/gq8PAjwosBmJduaBNnGcm0Xn4K3qu9uyxemo5avq5MoVde0I/y7K697GSxeEdWDcTQDuJ6vYiPQJKxL5WstMtUYNZcmHI9EZbS85pFfi31JNkY+giCDUwV3+vFYqvWKazAcr0FW+sPVGHhEX+bcV0HaBCcHBxDwCbdkcungIkDyRfG7A5V2Nm9ZV0d7UzL1uFf8gqdI1Qa0EI+cLx7NIjg5Ipz5s6Pq07EjZajtrwFRU/1dW/KMnjjdHDvOO+dO8NQ1M8wVWASxfOs0d81/DPiIwPeF1dYdmtXuoa57tTyFB9i4lRukwE9/+mXRgHJEtqCcOMQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XBGOPA0rSgsOkUxC0jabv7gIHO1nS92cUrArFFC77vc=;
- b=NTviZOouuevOZj1tGe1+0dQez6fR7V3i+T7loJoE0J9kmsV00+3i2lRa3gOGbWVnueNntkI5fwvGrsUPeI0EZZzupS/Je5VHcu4ORgU6HItq/dcxiWWmS1xwjwgWb/qT7DB/hxAhVPDKHrhVPcuY6jtqxPAfmqPblEtg4Nrt7Sa80gAF+Q5P1pqz1iIJJEWq8o7Fcc5ia82jl69CiJcajAJzlm7xv9/mb0Cb1PtzMJsW/MzPsqV+wdCip6V9LGYOowaNGdpBG9nlKSKPHOne0gZY1G7IPk5k9xbrmoKZOdfHhkrtVLMDjoyST/fFK8zuRcztYLmeS5KOG9RWs+EMFw==
+ bh=/Pp6Zcg8Oi2b9kdeAp4Q2dl4oZArJmbsOraFv+YktGg=;
+ b=V7xKLdtJsYPnT8kv1L2kz6Iyr6KC562iaVoVlVWlDIiRnf7x3GMd0TBIIvmuTHhSIPlfR5mWe6UTyqLPf96cRLSdT+MOahBwq3wSSJIbxIMfaklVl0b1p7wVQd9lcSOtzM9P7IWr8yo6S4Jf5Y/P4KZJZdIDr6iUIvrIZ5T9XYTmRyv3xXkywc2b2Cq1XYmj6gF2aFHDUAmQxQfTbtB1bNQXnoh6bPoTXFLMNusoZViMxO8WSZY5S1RqbIYRXv2dbSGiNqJErlwJHpujzYDWgGiXlaXh+MoEo00rDTPXn3tuUzdhywm3MBiLDKAEZ6RpZAy/7vmwuJVPbYoSXdtOIg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XBGOPA0rSgsOkUxC0jabv7gIHO1nS92cUrArFFC77vc=;
- b=Pp2eq2NeWWs/JU+3T1nGHhKzbpgnzeHJruo1zqLkAZ+9RbPHshClzMdCkXeLBxYrm5SrxbAwnd/FlDNy3ziyaQjhP+8rFZuE4sLs2oqJTQsCFSidLslgHaiViTn+rUz5XOOqfY0zmauGyxdR7ObFNRIetmttzN8i5vWdSSHlgPf38uDf62MQDjuKfSbGyfJSAkGx6iAoPYlYsxHb/yHslId/BQDwzSG9636DprEK4pQ3/MKS9XbuJmFchN5PilXvukDDXLACaiSNpn8CUZdhxFkDobYohUEX4MT+egebTx7zXChIILlIT1OU88PMjsim1Ud65DFOo9J1EgVglmXHPg==
-Received: from DU2PR04MB8567.eurprd04.prod.outlook.com (2603:10a6:10:2d6::21)
- by AS8PR04MB8705.eurprd04.prod.outlook.com (2603:10a6:20b:428::24) with
+ bh=/Pp6Zcg8Oi2b9kdeAp4Q2dl4oZArJmbsOraFv+YktGg=;
+ b=FwyyZ3W/n7VHSZvKnYG6sRWkOR2IxiPfj4Le9uO63LVSH/bk2E2SjPNkGbkmX/G9odz+XislCXC0Irq0suz0cxWFPoYIw1a7RClIe2yYVRX4TE3cam+mbLadrHTA5QsRW2TWvE8Tm4/Hey60jbe8oICxBohSCvAaTj+j8cBJzXU=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from DB9PR08MB7584.eurprd08.prod.outlook.com (2603:10a6:10:308::6)
+ by PAVPR08MB9332.eurprd08.prod.outlook.com (2603:10a6:102:302::12) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.27; Fri, 11 Apr
- 2025 11:02:52 +0000
-Received: from DU2PR04MB8567.eurprd04.prod.outlook.com
- ([fe80::4db:3dc0:c292:493a]) by DU2PR04MB8567.eurprd04.prod.outlook.com
- ([fe80::4db:3dc0:c292:493a%5]) with mapi id 15.20.8606.033; Fri, 11 Apr 2025
- 11:02:52 +0000
-From: Luke Wang <ziniu.wang_1@nxp.com>
-To: Arnd Bergmann <arnd@kernel.org>, Bough Chen <haibo.chen@nxp.com>, Adrian
- Hunter <adrian.hunter@intel.com>, Ulf Hansson <ulf.hansson@linaro.org>, Shawn
- Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>
-CC: Arnd Bergmann <arnd@arndb.de>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Josua Mayer
-	<josua@solid-run.com>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-mmc@vger.kernel.org" <linux-mmc@vger.kernel.org>, dl-S32
-	<S32@nxp.com>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [EXT] [PATCH] [v2] mmc: esdhc-imx: convert to modern PM_OPS
-Thread-Topic: [EXT] [PATCH] [v2] mmc: esdhc-imx: convert to modern PM_OPS
-Thread-Index: AQHbqsAQEeWYoKBe402OH8kq6kt3qrOeTE4w
-Date: Fri, 11 Apr 2025 11:02:52 +0000
-Message-ID: <DU2PR04MB8567B7E1DF735B19F54A987FEDB62@DU2PR04MB8567.eurprd04.prod.outlook.com>
-References: <20250411085932.1902662-1-arnd@kernel.org>
-In-Reply-To: <20250411085932.1902662-1-arnd@kernel.org>
-Accept-Language: en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DU2PR04MB8567:EE_|AS8PR04MB8705:EE_
-x-ms-office365-filtering-correlation-id: 98d6c957-855c-4ce4-272e-08dd78e867a0
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?nFsPSbuK8W8uAraQhSUWwCYs1oqXFHoJde47S6WqlZR/vtMUKGRIrqtxsP04?=
- =?us-ascii?Q?z4hTHiEOGLMaA6BRJodUYHyd0UpTWTMvdEqSSEJwionVu6i9Ad30hf65/Gdg?=
- =?us-ascii?Q?jaezMV7Zwb52AgbVzf349txj4UWWUAK4E/7e+H7ujc5cJ6AgjABYvghH3BJw?=
- =?us-ascii?Q?PZGEYyAWgi2Q3GhKJywTPLPuvlabdGpK0wu1+sNAoLDBcoN47Y0d3MJmq96w?=
- =?us-ascii?Q?UBHKGbNaPFkVa5YBHG+4c6JzjCDiP9xD3pBOl4lvdPx9v05/erqD2GwgyMJ6?=
- =?us-ascii?Q?RveZpw4GFJYGhnEKoiVU6hlCQY5C4Fltp148bNm5pJUJqf/Hr7b0vGbdZjGf?=
- =?us-ascii?Q?Wg6qHsrx8pF0L+Hl6dfuXCEPhFB8OiuiFc5m539C54CPIjlFj7gPC3VmV8wP?=
- =?us-ascii?Q?/pHb4ej6eS7j+JqA5Y29SqZMXENdtSEIKco6Yv6m93qiL33Q4uOztn5Co0xZ?=
- =?us-ascii?Q?BDPSCFmTnKzgC3yH+t4HC9qSLB7UoeKGCdEBx4WQlXaUyD4PPznzfO6ndONk?=
- =?us-ascii?Q?zI21Xl4cHMZK/hrJhrmoY881ldb6ruqJuX+xMoA1sLwMpT4dEhmz9eskhsyn?=
- =?us-ascii?Q?ungumtCXHkHO0+0FIBl0dmKkuL8+Vm+Oi82RV6Gw/O2QDNNwtIp6Gvg+rf3N?=
- =?us-ascii?Q?GbO4ne3vk5WRu/39HJMT7cWWBWCuOf4RfteoeUKeOWuFkekx8Mgz0CyOp3JV?=
- =?us-ascii?Q?yELP6Wa5FcHwNUIDpPdfaPlxlB+eAPuJ4wxTBfR1GtAxkwE9OOvR8YT8MdOh?=
- =?us-ascii?Q?LTC9K+qG3yYgA5KtWN2Z4hr6QRzmkzrBo8lJXiJWTCVitqyx1VVkOrNEBaqZ?=
- =?us-ascii?Q?wJ9Kv4tG6ReQoHiUnIaXuPGbbvsLDp4G4jVvZq1pi0RDcFda8e8rJSUk+JJ2?=
- =?us-ascii?Q?HKeZcRFsNnzJPfjst2Aqh6WTNOaVqmAhUXwwjn7srdBKPDydcIJD5yRHgv5w?=
- =?us-ascii?Q?bKJqRZ1zIsaw1iNA4i9OYQoXIGaMDnnz1X45H3b9rVzQoEcwCUf+ZV8tsLMK?=
- =?us-ascii?Q?Hbqh6z/QZCCeD9/a08PWeeIfzvb/bjfW3tDxRsN998HIvmUXLej/NJb+O1zc?=
- =?us-ascii?Q?ouqlMDAehP138E8TWmORsu+ydv2LczgD41dyNQu8UK3159kdmPGZZtifzUFB?=
- =?us-ascii?Q?SGf2cC5BvfNE3TuG6PLUcejxN5BXgj0oLBlIF1fvkQURphqfcGvcX978MvWH?=
- =?us-ascii?Q?SD1oPedxE4hcxGEQcfvKQaPb9edAqvoxyH0gJ4v4P/P1t3+Q2cfDCOdLYTT0?=
- =?us-ascii?Q?QdphcUnwhpir1FMuc6CsRNvhzyVdCedzfSAJ2X98NbcqLrSB8KJ3Dn1J0Crn?=
- =?us-ascii?Q?K0MM50033Ag4Uk3gU/016xXBbP/DVkhMceIZTsYX48F1kQNteHJqb4C3xhvM?=
- =?us-ascii?Q?QTJ59/gQ/6HJQoaqbhoLPnyovaiSPbM0L4jqGQ9psOy0BDGQuzuGd6MZShWb?=
- =?us-ascii?Q?fTwBzjajC3cPZndeRQ2pO7oPZjKcMbxXmSm7dvO5s7hog84D6JSytg=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8567.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?qNpUwJnvC0Xr7cPUVfU60PH6syOb0f24a+aBUGawQ0uX2mTFPHybVCQz11fW?=
- =?us-ascii?Q?CzRhVtPJzKtVpfRjRdIw3QFYqXp4XKAm+WKwTZpFnbElR8J9KYxf5pfp9/C0?=
- =?us-ascii?Q?QWFr4v0jbksTLQZhq+8ZGdNJKbh+Jm5vGqrl4MHvtDgZHuMepaM35Jkmxy6/?=
- =?us-ascii?Q?JBf9BMyBbd6Lc0QbIY9QJGVIg7DtuKzavEtLgIAT0rHPm6SLon5Fog5mJ6dj?=
- =?us-ascii?Q?l4GgbQakSK56Mmdf5PJNcZr1kRJPtcDSTOb9LBRvncwL7CamNmElNG06NocT?=
- =?us-ascii?Q?jOik8+8HfzRvgBgr3Zd2tayZ3CRuKNq5vLgC0sPqNJFR3rQgdpvWIIw9OhXI?=
- =?us-ascii?Q?03QXH4iGL4CQRx8ZXkzbb1r5HnGKPzJ4W1Kvum6uLe7ZS9cVBFGJQSJskeGv?=
- =?us-ascii?Q?lKgeQghxls6b6COfvxiUEoZr4z48iHMCWV2qm0i/XZnUFwBoVzuNp8nFua5w?=
- =?us-ascii?Q?hYdrDnlqZ+4TyQRTM7aciLQBNJtAQR7H5b2EXg0VrfiL+DEtY6eaCLNhCXxE?=
- =?us-ascii?Q?wEEq5IiDvRUEXmieu9MW0uYzIdSRmDWdupDJD+11pgatQnQYkAsmpTB+AWyF?=
- =?us-ascii?Q?AFEP3MUfyOXkpNSlHEIK/41irDdSiUahg2HsE9cSP204ZJNlLxt7TPiMCQNE?=
- =?us-ascii?Q?zgfXA2CaXFblACxdGljK4a5pZFYt46VZxj3CUdNoMCo8rE6UtKDRaq233rV7?=
- =?us-ascii?Q?FR81jCQh8WFjryzoF5ED9WRJtaJU967y+e2P8Cbc+f/3+ufCqdSRFEKA8tI5?=
- =?us-ascii?Q?aJOOkxDCHjmF0uqiCJCLHdL5DMRMlMuN4+FXsQSkafotCUzA5gn/OjGu4x1j?=
- =?us-ascii?Q?wsT6gzJZHj45kpmvdxMJt7M4JImOOXc1r/cMd01/SQDaxjXegtPQaQDApbZz?=
- =?us-ascii?Q?WYVhspWVfA7LBRzsPJnKbHECqfwY2MlfpgRN+Cm6Qn1ixi53AAstBOAnFbM0?=
- =?us-ascii?Q?SnYtnh0AbcSUi/JUyFs0e2U/AMzqhbnFtcw4rgeNTINz6POJN8PUfLTP9wso?=
- =?us-ascii?Q?8mp2So+EL0wlOJEwpmbw0adlHiNs/5atwsaw/Va39xmnaFa65ydqZTNM7JS9?=
- =?us-ascii?Q?EENTs+5BG3fKpU+kGTLwBqXh8DCR1acBBlPVtqltmODj7WeHLbpgo1wAYp6R?=
- =?us-ascii?Q?ptXRbZg02ZmyZTOuZQTRw21C9ppwne62a+qQW7BpnXQH/9Ta/1Cu1eukIDNZ?=
- =?us-ascii?Q?EViepyfaMWoFPX92N6XZ+Gvw56YfowkxzA9/1dDrD/bZTMpbxwzECgpKs6Bi?=
- =?us-ascii?Q?QC4Yp5OEYzQuQ9jTD+95KLTsKT5FY51kko7Y3An+Ul2JGVG/npqfQ5+Xy/1c?=
- =?us-ascii?Q?NPc7jnrWqBNXVG44f5BgLVXxwfw0UFTBWXX1Mn5424DslSdslDWEpxriIV5E?=
- =?us-ascii?Q?UAusr9gwl9iIJJXkXXEl+ltYlmwII/GytMFaHOsy6g0f2OOIZqte1l08aKX/?=
- =?us-ascii?Q?VyROG88Fe3NhMjnvPC80froK+1VRDT57rkf0XZDkOzQxh/eWiwQwxGgmK5Ab?=
- =?us-ascii?Q?wH218SQT436Rg6ZwCi/1vJ0egl51kQWDQYEOWL5bnqEVAHAvhnsMMEoFR383?=
- =?us-ascii?Q?Q3IBFzwFQ15svWjv4ZBrd7qpLMy1v7DtjaB5CS5p?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.33; Fri, 11 Apr
+ 2025 11:07:50 +0000
+Received: from DB9PR08MB7584.eurprd08.prod.outlook.com
+ ([fe80::5144:343:7017:bacb]) by DB9PR08MB7584.eurprd08.prod.outlook.com
+ ([fe80::5144:343:7017:bacb%7]) with mapi id 15.20.8632.021; Fri, 11 Apr 2025
+ 11:07:50 +0000
+Message-ID: <2fa741d8-13c7-49c0-a6c5-540a7c2cf3a7@arm.com>
+Date: Fri, 11 Apr 2025 12:07:47 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/5] A mechanism for efficient support for per-function
+ metrics
+To: Ingo Molnar <mingo@kernel.org>
+Cc: peterz@infradead.org, mingo@redhat.com, acme@kernel.org,
+ namhyung@kernel.org, irogers@google.com, ben.gainey@arm.com,
+ deepak.surti@arm.com, ak@linux.intel.com, will@kernel.org,
+ james.clark@arm.com, mark.rutland@arm.com,
+ alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+ adrian.hunter@intel.com, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20250408171530.140858-1-mark.barnett@arm.com>
+ <Z_ZcRiHTGljxEEdN@gmail.com>
+Content-Language: en-US
+From: Mark Barnett <mark.barnett@arm.com>
+In-Reply-To: <Z_ZcRiHTGljxEEdN@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: LO4P123CA0294.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:196::11) To DB9PR08MB7584.eurprd08.prod.outlook.com
+ (2603:10a6:10:308::6)
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8567.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 98d6c957-855c-4ce4-272e-08dd78e867a0
-X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Apr 2025 11:02:52.2517
+X-MS-TrafficTypeDiagnostic: DB9PR08MB7584:EE_|PAVPR08MB9332:EE_|DB1PEPF000509E8:EE_|GVXPR08MB10449:EE_
+X-MS-Office365-Filtering-Correlation-Id: 78dc237f-ffc5-45ed-f6ef-08dd78e92d7f
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?VlB2UDJZZkFOT1N0M3ZGcStiWGk3RDlrQnFSRXFXamxhUjhQd2RhSkoxN21x?=
+ =?utf-8?B?WmNERVhtYUtUVHJDbUlaQjNEQlljOWhOUzR1cGVUakhNY3JBZlc0MG00clJs?=
+ =?utf-8?B?THVrWk0zWDhIQWY4cSt0dlJmR1YvUW4zQTBrSXdiM29PTzRhWHFkVUQ1eU9p?=
+ =?utf-8?B?ekFBTkRVYStDeE1acXVidytMemNLTXlxaHZ5YzZHb1NIUEVyZit5cUVwMmJa?=
+ =?utf-8?B?dk9UajdDNjZGbWlJaTA1ajh2SVUzUVI0cTh2VWNTWWpRTXhodlE2OWpmS2F2?=
+ =?utf-8?B?RjBIZDBwblJxZmxCV3NjUjBTNW5paUFUNnhRSHdWcXVwNnMrdFpsZnVsWEdK?=
+ =?utf-8?B?Wm8zYU82bnkyK2Q3Vy92QURQMVlpQTBTdGlJdThyZEhxL1VRemhWSUZWS0Zs?=
+ =?utf-8?B?SUNMa0kycFp6enZ2WWQ4bUw3OVlGdzNtM3ZnQmJZSS9QUEtZR0VRQ29oK1RE?=
+ =?utf-8?B?S0JwbS9SNDdlUWdSS1VuZUpDS2UvOGZqWkp0SWJ2SFJ2ckI3TUxSSGdmcDF2?=
+ =?utf-8?B?SVdyNmxXVlQxNTcydmtlMUgrL0REdWdvSkhQMzczQ0ppSUxoVWJTZWl4eGZN?=
+ =?utf-8?B?QjFuTXU3bVhodU1Ja01tSDlEN3Mrb3FVTDRJMElIS0lqN3A2Zk51dzlvdWpt?=
+ =?utf-8?B?Rkt6UlpRZjlUKzlqMXM5THA5RXdkSExoN2FCUTl2R010RmRCNkM5RnZPc3Nx?=
+ =?utf-8?B?UXNVQmpqOC91dmM0VTJaenhpR1RkOWNCelpleXM5cXBwTXJ5bTBQWm9tZXRz?=
+ =?utf-8?B?ZzFWdk9TMm03Z3lJSEIzM0R1OTdoQ042dFVtcUlmUmtIUXUzRTZ5Uy90c2VL?=
+ =?utf-8?B?aVBCNXEycEVsSFlKMXZneVd6UGZVOFdUL0dFUnhNR0gzbTNrRW9NY3M4Kzdu?=
+ =?utf-8?B?NWpyWVVxcEJTUlEvTWx2V3BabGh2VkN3T255UTE1T3U3aWZwZ29GeWg1MXpO?=
+ =?utf-8?B?Zm1zODhQYWc4b1ZRZ1VzSGxmMlpSRU91elJydjZOTGsvQTh3VVpmSVZ6WGw4?=
+ =?utf-8?B?RlNnS1NvU2VOSkRZUjQ0dmpDdnpJYmd1NnVkK3RpbVdxdmdNMml2a0xIMGth?=
+ =?utf-8?B?YlpEYk9jcE1HcVRrcXVHYVhrOTFkRUFQUGF2WjdzeWFveHVCa2RHVTZueHdM?=
+ =?utf-8?B?SHNBM2k3YWFmbVpaczVpR0N4ZjRkVFdUcDhCMitseWZqTW1QeHhOV2gwNmp1?=
+ =?utf-8?B?R2VnYjB5anpNYWFiMHR0YWdoZnN3WWVQZldWbFZGMy9aSFhZaDk2ZWFoQzZw?=
+ =?utf-8?B?WVhXaCtCbjIwOWxxWDNkcVZ3TkRGbmZkOFJYaG4xQ2NYVkxyMUs4eTJCZ1Jq?=
+ =?utf-8?B?endkdXpqdWhNZi9NRklrb0VKbUlPbjZEL1dOMlpNU3AyUVVwT2JFTEEvemQv?=
+ =?utf-8?B?SUVRcm9IWktjRWdUTStSbHpBT2pHQlZvR0kvRFFtOVlIaER0SVhJbHUzbVdV?=
+ =?utf-8?B?UmZZcXkyQXJHRGo4WkZha05XL0J3OTBTdXh2SExndDMvalhZaEk0aU9qV00v?=
+ =?utf-8?B?TVhUUmpBSThOZU9xbHYxL3kvZk9wNDdiaUcxM0JoRS9lSmxTa3RaUTViM1Nm?=
+ =?utf-8?B?MVNWNGJIZVY3UWVTbitGS2Jnckp6bTUyUUk3UU9tcTNPZE9MMm5SNVR6cVE3?=
+ =?utf-8?B?SVpYcmRlYW5aTEN3Zy85ZVZnTUErRTk1blBSZHlUN2s5UjR3ejJ4ZUNZT01Q?=
+ =?utf-8?B?Q3dtUU1oMTVyUFlMRW9FR2Q4SFpzd2g5MytLMXpsbzlDUGpicDErbWpxU09M?=
+ =?utf-8?B?NVd6Ym1NRjI0dFF2V3YzTVE0ZFRYNGlYemlKRkwrblhtcmFheFRjNkZzQmVt?=
+ =?utf-8?B?TFdyTERDTlVwMEFvUjRFOTdUa2M2andkaksxanBjY3FtdFg2aUgzM2R1RzhU?=
+ =?utf-8?B?YVFjbUMyRmRoN2tjTG9VNi9uN0tQSmFtU3pycUFsNHV0cUhlVmVzN2ZVcHhx?=
+ =?utf-8?Q?c5t60OoXU+4=3D?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR08MB7584.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAVPR08MB9332
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB1PEPF000509E8.eurprd03.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: ddbae298-04a3-449f-92d2-08dd78e9192c
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|36860700013|35042699022|82310400026|14060799003;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?SEZuc1lEbityQWJmMmN6VHY3WHprdklGTnVGQ1FURjFVc09JOUZJdFJoY3JR?=
+ =?utf-8?B?dElPcDNzcGxNZU5sZVNxVlBsYTZWeUF5RG44Zkc2MDlBdVpoSDNlUXgwTFBM?=
+ =?utf-8?B?aEdSVW9UMG55V04ycktPb0g0ak54RlRpemZVcjBleG5kYVNpSmVqa3VUYjU5?=
+ =?utf-8?B?Vit6SDEwUng1cGMvdzVnRDV5UFpHcnBxUDlTUHpyTk9yYXVqYisxRTRncG15?=
+ =?utf-8?B?MSs3VGFiRkphUEhlekxXN1BUL2d4MmFTbHpNV1lncG1zc1U0NG85TTlxNWZ6?=
+ =?utf-8?B?dksvUzlNbFkyMzZ2bmxxODJUcG1RWUIyZldUbUpLbkFFMnQ3TFpmbGgwWnps?=
+ =?utf-8?B?SGllcDdlcEl5S3NPaS9nVXkydXFTNzJ3dEdYRC9meUN1anlXN1duUUp5MWh4?=
+ =?utf-8?B?UmNPK1E5YnBwbDN2RXNLSzRXZS8yY2cyLzdGWjRzRnRGUlFOVGdmajA4T2s5?=
+ =?utf-8?B?MjZNc0JWREdlR0FSNXp6cGhyRU9JekIzMHBKbExUTjB1eDZxYURsYkhMYzh3?=
+ =?utf-8?B?UENVSVV6QmVUZXJNcW1zbU01dk5SNlB4RFF2T0ZDT1l0NFpxbE9ja2RFUm9o?=
+ =?utf-8?B?K1pNQWV2ZkEreEpwUC9iRzNIWWJsNFl3KzZCdXlVcnBWOHhPRVdwSFRBNm1t?=
+ =?utf-8?B?bTNPQkxaRUx2K1BsblZuU0VvNzF2T1ZRTXp1M25LU3hsOXFUTlYzdDl2WWQz?=
+ =?utf-8?B?VitRT1ZjOFA0M3E2QmQ3OWpET0s5bk5Rd0YrNHAvVHZvVnJ0alc0OWJvbE5K?=
+ =?utf-8?B?dWFkS2c1bi9YWG04TU1jYlR5c0VLZmtIbCt0TkNtdmpoRzZoank0UFZDY3cr?=
+ =?utf-8?B?TDVTL3NOeEtQbXE4UVA4Sld5dDQwaEFWQ05NNXJhN3dmL2xSN01VRjNaSzdG?=
+ =?utf-8?B?S0ZHYVM2T2NJYUVwTFc5WlJVTzRMelhVSGlPZHdZQ1NGVWxhU3NleEk0OVY3?=
+ =?utf-8?B?ZVNzTFFjTjA5dFNIUW1BU3Q1SU8zY0RrMk8wRm5lcGd3blIyWDdsL2liSlVt?=
+ =?utf-8?B?NnhVZVB0Qk5JS3RvYkNMNitRT0ZnRmdNUnI4YkRqbFdQSXEweFdLV25YUnZ3?=
+ =?utf-8?B?QmxMc1Z1MERtejNDQ2tnRWdJZVkzYkoxcnJadksxbkk1NVZNMThubWRWampU?=
+ =?utf-8?B?aTRZUDJKSHN2SnRLdzh4V1hDTEYzNXBxc21yUXhiNkM2MkZJVTg5TEJadFly?=
+ =?utf-8?B?aDhyanJmVWhadXZqZUZZRnFaYjRXV29QUVRxUmRob05oV1VjcG9SN3c3NHFO?=
+ =?utf-8?B?TkxjZjhLTXVDR3dvOGFpT2x5aThKcVBjL1ZZZlN4bHZyOUxPbUs3MStlbTJC?=
+ =?utf-8?B?elQzVThyQktZbktaYUd4NkFPVndDL3h5Z1poODhTNUxYdk5lRVhxZWQzOXJp?=
+ =?utf-8?B?ZXZkMisxYmJDNXkzUldVUzBKTTlGK1NZMHc1NHJNdlFLQ3NhMVRueWpCc3ly?=
+ =?utf-8?B?QVpNMVp3cUNFcEtQMmxLbzQ2eXVnRG5OWXlsNWdCWVpjaHV0amdxaGlZVjlp?=
+ =?utf-8?B?QVphZEE0THFEZFU4VU1Bd2QySlYyTjZHMFI3eUFTaDdrVjVJTXdkRG0vbHVZ?=
+ =?utf-8?B?UjNWVXcvakhCaldubHArWnJyVnk2ZFQ3L2xUY3l6OUMwaFFEMEYyUXptemND?=
+ =?utf-8?B?QnNsdUQvYW9CdVZZRGZtNjhGZmt3aGZSQjZwK3BnWXVEclJXWTY0cHdiMGpE?=
+ =?utf-8?B?eEVwSEQwWVpPTDJNSjB2c0ppcDd3ZlkxT0VhTmd5QVM1cjZCSlFKdURvNTE4?=
+ =?utf-8?B?bC9CaDcxMlhtWldqeE11QU1keVAzeTRiVXl1WHQ0VVYzKzZ3aTRVeWhDbEsz?=
+ =?utf-8?B?Wk9oRHhYL3lVSUdXdUpmMnh3aDdjczdVaUI0bmVsOGNsREJaeXNMMGpFU1pJ?=
+ =?utf-8?B?K2QzcFd4ME1UM3BMRjVOTkJwSjYxRk1WOEdSdnpyKzR2THl5SXFqeWJ5dXFL?=
+ =?utf-8?B?T00rR2sxZTFRcUZvSFRRUHhpbVF0bE1MUzRSVDh6S0VjNjJxMkUvSzRRYzlj?=
+ =?utf-8?B?OXlhT3MvV2FrdG8yVnJ2d29YbGl0eGc3a25ReXd3YTJyM25TN2dWZWszd3pE?=
+ =?utf-8?B?a3dGUkxpYjd2U2w1QUJVN0FSeVZKalozZ3FkZz09?=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(36860700013)(35042699022)(82310400026)(14060799003);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Apr 2025 11:08:24.1458
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 4BE9UJ/SP8y1PQDF17vQwvity71h0jq1Q5DHPhQsGeOuff55arbFeMf7Hv/t4FO7iWQYR6WXeunBWPBjh6Slhw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8705
+X-MS-Exchange-CrossTenant-Network-Message-Id: 78dc237f-ffc5-45ed-f6ef-08dd78e92d7f
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509E8.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR08MB10449
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_040305_118550_3E9F8FEF 
-X-CRM114-Status: GOOD (  25.06  )
+X-CRM114-CacheID: sfid-20250411_040833_790542_B5BF9425 
+X-CRM114-Status: GOOD (  14.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,107 +223,234 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Tested-by: Luke Wang <ziniu.wang_1@nxp.com>
+On 4/9/25 12:38, Ingo Molnar wrote:
+> 
+> * mark.barnett@arm.com <mark.barnett@arm.com> wrote:
+> 
+>> From: Mark Barnett <mark.barnett@arm.com>
+>>
+>> This patch introduces the concept of an alternating sample rate to perf
+>> core and provides the necessary basic changes in the tools to activate
+>> that option.
+>>
+>> The primary use case for this change is to be able to enable collecting
+>> per-function performance metrics using the Arm PMU, as per the following
+>> approach:
+>>
+>>   * Starting with a simple periodic sampling (hotspot) profile,
+>>     augment each sample with PMU counters accumulated over a short window
+>>     up to the point the sample was taken.
+>>   * For each sample, perform some filtering to improve attribution of
+>>     the accumulated PMU counters (ensure they are attributed to a single
+>>     function)
+>>   * For each function accumulate a total for each PMU counter so that
+>>     metrics may be derived.
+>>
+>> Without modification, and sampling at a typical rate associated
+>> with hotspot profiling (~1mS) leads to poor results. Such an
+>> approach gives you a reasonable estimation of where the profiled
+>> application is spending time for relatively low overhead, but the
+>> PMU counters cannot easily be attributed to a single function as the
+>> window over which they are collected is too large. A modern CPU may
+>> execute many millions of instructions over many thousands of functions
+>> within 1mS window. With this approach, the per-function metrics tend
+>> to trend to some average value across the top N functions in the
+>> profile.
+>>
+>> In order to ensure a reasonable likelihood that the counters are
+>> attributed to a single function, the sampling window must be rather
+>> short; typically something in the order of a few hundred cycles proves
+>> well as tested on a range of aarch64 Cortex and Neoverse cores.
+>>
+>> As it stands, it is possible to achieve this with perf using a very high
+>> sampling rate (e.g ~300cy), but there are at least three major concerns
+>> with this approach:
+>>
+>>   * For speculatively executing, out of order cores, can the results be
+>>     accurately attributed to a give function or the given sample window?
+>>   * A short sample window is not guaranteed to cover a single function.
+>>   * The overhead of sampling every few hundred cycles is very high and
+>>     is highly likely to cause throttling which is undesirable as it leads
+>>     to patchy results; i.e. the profile alternates between periods of
+>>     high frequency samples followed by longer periods of no samples.
+>>
+>> This patch does not address the first two points directly. Some means
+>> to address those are discussed on the RFC v2 cover letter. The patch
+>> focuses on addressing the final point, though happily this approach
+>> gives us a way to perform basic filtering on the second point.
+>>
+>> The alternating sample period allows us to do two things:
+>>
+>>   * We can control the risk of throttling and reduce overhead by
+>>     alternating between a long and short period. This allows us to
+>>     decouple the "periodic" sampling rate (as might be used for hotspot
+>>     profiling) from the short sampling window needed for collecting
+>>     the PMU counters.
+>>   * The sample taken at the end of the long period can be otherwise
+>>     discarded (as the PMU data is not useful), but the
+>>     PERF_RECORD_CALLCHAIN information can be used to identify the current
+>>     function at the start of the short sample window. This is useful
+>>     for filtering samples where the PMU counter data cannot be attributed
+>>     to a single function.
+>>
+>> There are several reasons why it is desirable to reduce the overhead and
+>> risk of throttling:
+>>
+>>    * PMU counter overflow typically causes an interrupt into the kernel;
+>>      this affects program runtime, and can affect things like branch
+>>      prediction, cache locality and so on which can skew the metrics.
+>>    * The very high sample rate produces significant amounts of data.
+>>      Depending on the configuration of the profiling session and machine,
+>>      it is easily possible to produce many orders of magnitude more data
+>>      which is costly for tools to post-process and increases the chance
+>>      of data loss. This is especially relevant on larger core count
+>>      systems where it is very easy to produce massive recordings.
+>>      Whilst the kernel will throttle such a configuration,
+>>      which helps to mitigate a large portion of the bandwidth and capture
+>>      overhead, it is not something that can be controlled for on a per
+>>      event basis, or for non-root users, and because throttling is
+>>      controlled as a percentage of time its affects vary from machine to
+>>      machine. AIUI throttling may also produce an uneven temporal
+>>      distribution of samples. Finally, whilst throttling does a good job
+>>      at reducing the overall amount of data produced, it still leads to
+>>      much larger captures than with this method; typically we have
+>>      observed 1-2 orders of magnitude larger captures.
+>>
+>> This patch set modifies perf core to support alternating between two
+>> sample_period values, providing a simple and inexpensive way for tools
+>> to separate out the sample window (time over which events are
+>> counted) from the sample period (time between interesting samples).
+> 
+> Upstreaming path:
+> =================
+> 
+> So, while this looks interesting and it might work, a big problem as I
+> see it is to get tools to use it: the usual kernel feature catch-22.
+> 
+> So I think a hard precondition for an upstream merge would be for the
+> usage of this new ABI to be built into 'perf top/record' and used by
+> default, so the kernel side code gets tested and verified - and our
+> default profiling output would improve rather substantially as well.
+> 
+> ABI details:
+> ============
+> 
+> I'd propose a couple of common-sense extensions to the ABI:
+> 
+> 1)
+> 
+> I think a better approach would be to also batch the short periods,
+> i.e. instead of interleaved long-short periods:
+> 
+>     L S L S L
+> 
+> we'd support batches of short periods:
+> 
+>     L SSSS L SSSS L SSSS L SSSS
+> 
+> As long as the long periods are 'long enough', throttling wouldn't
+> (or, at least, shouldn't) trigger. (If throttling triggers, it's the
+> throttling code that needs to be fixed.)
+> 
+> This means that your proposed ABI would also require an additional
+> parameter: [long,short,batch-count]. Your current proposal is basically
+> [long,short,1].
+> 
+> Advantages of batching the short periods (let's coin it
+> 'burst-profiling'?) would be:
+> 
+>   - Performance: the caching of the profiling machinery, which would
+>     reduce the per-short-sample overhead rather substantially I believe.
+>     With your current approach we bring all that code into CPU caches
+>     and use it 1-2 times for a single data record, which is kind of a
+>     waste.
+> 
+>   - Data quality: batching increases the effective data rate of
+>     'relevant' short samples, with very little overall performance
+>     impact. By tuning the long-period and the batch length the overall
+>     tradeoff between profiling overhead and amount of data extracted can
+>     be finetuned pretty well IMHO. (Tools might even opt to discard the
+>     first 'short' sample to decouple it from the first cache-cold
+>     execution of the perf machinery.)
+> 
+> 2)
+> 
+> I agree with the random-jitter approach as well, to remove short-period
+> sampling artifacts that may arise out of the period length resonating
+> with the execution time of key code sequences, especially in the 2-3
+> digits long integers sampling period spectrum, but maybe it should be
+> expressed in terms of a generic period length, not as a random 4-bit
+> parameter overlaid on another parameter.
+> 
+> Ie. the ABI would be something like:
+> 
+>    [period_long, period_short, period_jitter, batch_count]
+> 
+> I see no reason why the random jitter has to be necessarily 4 bits
+> short, and it could apply to the 'long' periods as well. Obviously this
+> all complicates the math on the tooling side a bit. ;-)
+> 
+> If data size is a concern: there's no real need to save space all that
+> much on the perf_attr ABI side: it's a setup/configuration structure,
+> not a per sample field where every bit counts.
+> 
+> Implementation:
+> ===============
+> 
+> Instead of making it an entirely different mode, we could allow
+> period_long to be zero, and map regular periodic events to
+> [0,period_short,0,1], or so? But only if that simplifies/unifies the
+> code.
+> 
+> Summary:
+> ========
+> 
+> Anyway, would something like this work for you? I think the most
+> important aspect is to demonstrate working tooling side. Good thing
+> we have tools/perf/ in-tree for exactly such purposes. ;-)
+> 
+> Thanks,
+> 
+> 	Ingo
 
-> -----Original Message-----
-> From: Arnd Bergmann <arnd@kernel.org>
-> Sent: Friday, April 11, 2025 4:59 PM
-> To: Bough Chen <haibo.chen@nxp.com>; Adrian Hunter
-> <adrian.hunter@intel.com>; Ulf Hansson <ulf.hansson@linaro.org>; Shawn
-> Guo <shawnguo@kernel.org>; Sascha Hauer <s.hauer@pengutronix.de>;
-> Luke Wang <ziniu.wang_1@nxp.com>
-> Cc: Arnd Bergmann <arnd@arndb.de>; Pengutronix Kernel Team
-> <kernel@pengutronix.de>; Fabio Estevam <festevam@gmail.com>; Josua
-> Mayer <josua@solid-run.com>; imx@lists.linux.dev; linux-
-> mmc@vger.kernel.org; dl-S32 <S32@nxp.com>; linux-arm-
-> kernel@lists.infradead.org; linux-kernel@vger.kernel.org
-> Subject: [EXT] [PATCH] [v2] mmc: esdhc-imx: convert to modern PM_OPS
->=20
-> Caution: This is an external email. Please take care when clicking links =
-or
-> opening attachments. When in doubt, report the message using the 'Report
-> this email' button
->=20
->=20
-> From: Arnd Bergmann <arnd@arndb.de>
->=20
-> Two newly added functions are unused in configurations without
-> power management support:
->=20
-> drivers/mmc/host/sdhci-esdhc-imx.c:1586:13: error: unused function
-> 'sdhc_esdhc_tuning_save' [-Werror,-Wunused-function]
->  1586 | static void sdhc_esdhc_tuning_save(struct sdhci_host *host)
->       |             ^~~~~~~~~~~~~~~~~~~~~~
-> drivers/mmc/host/sdhci-esdhc-imx.c:1608:13: error: unused function
-> 'sdhc_esdhc_tuning_restore' [-Werror,-Wunused-function]
->  1608 | static void sdhc_esdhc_tuning_restore(struct sdhci_host *host)
->       |             ^~~~~~~~~~~~~~~~~~~~~~~~~
->=20
-> Remove the #ifdef checks and instead use the better macros that
-> silently drop the unused functions when PM is disabled. This also
-> requires using pm_ptr() to eliminate both the runtime and pm_sleep
-> operations.
->=20
-> Fixes: 3d1eea493894 ("mmc: sdhci-esdhc-imx: Save tuning value when card
-> stays powered in suspend")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
-> v2: add pm_ptr()
-> ---
->  drivers/mmc/host/sdhci-esdhc-imx.c | 10 +++-------
->  1 file changed, 3 insertions(+), 7 deletions(-)
->=20
-> diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-
-> esdhc-imx.c
-> index 7e8addaed697..3c2e50d0260d 100644
-> --- a/drivers/mmc/host/sdhci-esdhc-imx.c
-> +++ b/drivers/mmc/host/sdhci-esdhc-imx.c
-> @@ -1942,7 +1942,6 @@ static void sdhci_esdhc_imx_remove(struct
-> platform_device *pdev)
->         sdhci_pltfm_free(pdev);
->  }
->=20
-> -#ifdef CONFIG_PM_SLEEP
->  static int sdhci_esdhc_suspend(struct device *dev)
->  {
->         struct sdhci_host *host =3D dev_get_drvdata(dev);
-> @@ -2021,9 +2020,7 @@ static int sdhci_esdhc_resume(struct device *dev)
->=20
->         return ret;
->  }
-> -#endif
->=20
-> -#ifdef CONFIG_PM
->  static int sdhci_esdhc_runtime_suspend(struct device *dev)
->  {
->         struct sdhci_host *host =3D dev_get_drvdata(dev);
-> @@ -2103,11 +2100,10 @@ static int sdhci_esdhc_runtime_resume(struct
-> device *dev)
->                 cpu_latency_qos_remove_request(&imx_data->pm_qos_req);
->         return err;
->  }
-> -#endif
->=20
->  static const struct dev_pm_ops sdhci_esdhc_pmops =3D {
-> -       SET_SYSTEM_SLEEP_PM_OPS(sdhci_esdhc_suspend,
-> sdhci_esdhc_resume)
-> -       SET_RUNTIME_PM_OPS(sdhci_esdhc_runtime_suspend,
-> +       SYSTEM_SLEEP_PM_OPS(sdhci_esdhc_suspend, sdhci_esdhc_resume)
-> +       RUNTIME_PM_OPS(sdhci_esdhc_runtime_suspend,
->                                 sdhci_esdhc_runtime_resume, NULL)
->  };
->=20
-> @@ -2116,7 +2112,7 @@ static struct platform_driver
-> sdhci_esdhc_imx_driver =3D {
->                 .name   =3D "sdhci-esdhc-imx",
->                 .probe_type =3D PROBE_PREFER_ASYNCHRONOUS,
->                 .of_match_table =3D imx_esdhc_dt_ids,
-> -               .pm     =3D &sdhci_esdhc_pmops,
-> +               .pm     =3D pm_ptr(&sdhci_esdhc_pmops),
->         },
->         .probe          =3D sdhci_esdhc_imx_probe,
->         .remove         =3D sdhci_esdhc_imx_remove,
-> --
-> 2.39.5
+Thanks, Ingo, for the detailed notes. Your feedback is very much 
+appreciated.
 
+Tool Integration
+==================
+
+We've been using a python script to process the data into a report. We 
+can look at implementing this directly in perf report, if that is 
+required. However, I'm nervous about making the new feature the default 
+behaviour for the tool.
+
+This feature has been integrated into our tools [1] for the last 12 
+months, and has received a lot of testing on Arm Neoverse hardware. 
+Other platforms have received less rigorous testing. In my opinion, more 
+work would be needed to validate the PMU hardware & software 
+characteristics of other architectures before this can be made the default.
+
+Burst Sampling
+================
+
+I like the burst sampling idea. Increased I-Cache pressure is an 
+inherent weakness of this sampling method, and this would help to 
+alleviate that somewhat. I'll add this in the next spin.
+
+Period Jitter
+===============
+
+Yes, we can apply this to both periods. I will make that change.
+
+I'm not sure I've fully understood your suggestion here. In its current 
+state, the 4-bit jitter field acts as a base-2 exponent. This gives us a 
+random jitter value of up to 2**15. Is the suggestion to change this to 
+a fixed, absolute value that can be applied to both long & short periods?
+
+
+Thanks,
+Mark
+
+[1] 
+https://developer.arm.com/documentation/109847/9-3/Overview-of-Streamline-CLI-Tools
 
