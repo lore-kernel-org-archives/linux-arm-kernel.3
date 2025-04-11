@@ -4,79 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2C1EC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 13:43:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA230C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 13:45:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gboexee6mD0L1jweFt2EEXBwApJzHNO1ztWVUzHiKoM=; b=VZoQO8ILgrMXsEyUkaQdADtJMx
-	1ZouiYiFfp4/5oJfdXhhLf7QjdX1pNsOs+LPpQAR7NamwXzK7VW/SOQTG1fwLZvJO9fAX4ZS90K9D
-	CZW+n3VREcSD8k5bx2GNgPqZLT+CNKV8eJxpVHIUeqRiox4s7K6Sq0mlnoV2m412Ukq9nQARN75UN
-	uqH0InQzvkeF/3D3adRGneLXRWVawDw8Y2txRLS8tF5hNrpABCtto+s/uEMDBMRnKihlqZFJ42oNU
-	yU5lpYxl/neY/6AHzimCPTA1Y5+UY95TUghnVwEYxOx6M35r35Yit5zReaRm1h4wBLSFb8I3CRr7a
-	onrIQoqQ==;
+	bh=sah0SVBmFLpz4h/jlec344lM1AesPXbeFTOSULVxmM4=; b=X0LrQfKcSrYETi68RJ98nLn8ci
+	UmRXqNyioCQwKdaj1jLTkkT6r/XFEc2RCjndwPyA99DqQ6g2Lxh9XN9r//tvFnr0aTRzvaCKYTGTI
+	FdWQIBDGjVYNHkh+TSly19COvLr1P8zEpcRkuSwFf5WdkIwDad0FU9MtyEAtVysTUArQp3lXcHeMQ
+	0KN6liR3SftH3wEeNY4XRiiceID/awTJIO+pe6e1URPwQonNMtCjzqPQgqejcdaSsPFO2hFgT39jG
+	IhL+3J56aQxrY7mg/wht2XAWXvfNYEGiP/kMCBTcvdAxhQQ6YwaoJu+wR+20uYG1qdZmWG04ZtDuu
+	y5Z6YncQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3EfT-0000000DyCN-0imw;
-	Fri, 11 Apr 2025 13:43:39 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1u3EhG-0000000DyST-3bKs;
+	Fri, 11 Apr 2025 13:45:30 +0000
+Received: from mail-lf1-x142.google.com ([2a00:1450:4864:20::142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3EUy-0000000DwOP-3h5D
+	id 1u3EKr-0000000DtZ4-12JZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 13:32:50 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53BDWWYb2086133
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 11 Apr 2025 08:32:32 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744378352;
-	bh=Gboexee6mD0L1jweFt2EEXBwApJzHNO1ztWVUzHiKoM=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=ubbbPPRoTePNDMPdfLtMBZpmJTGOITP771vSjv2qNk/m54WJmWZEd6mPuKrciEIaC
-	 DeNzEG0VetxaLfgDHEtM/94Js/4z87J1JVfg1lt0fE71nLWA6oCsnCd9p+GslJqQHC
-	 9uLnFeAhmC/jK+P1OqRzsORAQ94R1tTyhlg3Q4D4=
-Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53BDWW1p021039
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 11 Apr 2025 08:32:32 -0500
-Received: from DLEE104.ent.ti.com (157.170.170.34) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 11
- Apr 2025 08:32:31 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE104.ent.ti.com
- (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 11 Apr 2025 08:32:31 -0500
-Received: from [10.249.136.157] ([10.249.136.157])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53BDWQDe107922;
-	Fri, 11 Apr 2025 08:32:27 -0500
-Message-ID: <9d0f7fc5-070d-4475-8569-d3e0e9421313@ti.com>
-Date: Fri, 11 Apr 2025 19:02:26 +0530
+	Fri, 11 Apr 2025 13:22:23 +0000
+Received: by mail-lf1-x142.google.com with SMTP id 2adb3069b0e04-54991d85f99so3185142e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Apr 2025 06:22:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744377739; x=1744982539; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=sah0SVBmFLpz4h/jlec344lM1AesPXbeFTOSULVxmM4=;
+        b=ksNsz5vBDLBtJXCEe11W4tjNhIb0tCYfkana3zA8smDWYZEWJyB+0x4mpQOgUlFGOx
+         YsHgLjoLEabXcqstCklQd4CC7aG+qPtBwTwBZbr8WD7vGxGORXx61Jdwxe3NNZWR8eEW
+         HiGT85uNmGkLxBvYGTB1VR5uv2BFzlAsuhybXZyx7ys5kcCtgRNOzq4lf5VnOy3KIbDF
+         hCRG8AXJQEkotoI+Pmkjk30uW9qGjary1daYrCrA7UOHzm8C5Rtk0vOoqDUVjs44pl0I
+         obncetTGElDLjFdved7qn/vtFFeNXtFy23M+fzyLs+Hmhke6IXlXsd1Dv95b0SYHGqKm
+         ZwGw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744377739; x=1744982539;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=sah0SVBmFLpz4h/jlec344lM1AesPXbeFTOSULVxmM4=;
+        b=qxR2e9ib0nn91KUZynCk01qoQptqVV4CipH7CtQlysNoSd1oaR4cFUmE6VVAfCSDQY
+         ZCjmeF0zigqC4qSrk9kzF6rYCu8JNnVp9yCzMRz8EOpnEY39xx9vujmekPq37TLLNarb
+         kuMFsqaJEH+ZsmiDVZy7ncwyWohv4A/ej06xbEjwHnf2jrP9q9CMdTs9BqPTXmuJqZce
+         koy3cCT5JxbdA1Uw6+jyCTM9yB9mfZzKDiyqa6MObPG6k7uaEJbXir55MAv0Ze6T2uE4
+         1QQzKq687smCqr02KSXpnXevP/mi0XCT06G1pP+jUCyuGPM71+Fhh+s/YG34PyDGVqvr
+         lofw==
+X-Forwarded-Encrypted: i=1; AJvYcCU2WHD4oYkN7F4JPpAhUrFwPG/3V2KimlbtMcug5Khp+lnKd4Vz2Mcv5BaH5trh+eCDGyNVvSOkToS7qw++36VV@lists.infradead.org
+X-Gm-Message-State: AOJu0YxIYALWjdQxbx190XWVUwEnLNiZyzuzivLOqbzxCZ+DiQDcJXQ7
+	1U6eIk2eAB99DCdXLGI2BtXVQ4lPoenAilsVUNSOVpV4yFSVAdu8WIPqVXkaREOZ4m48TT91+OW
+	y/J1U41Gvzy3qAZA3l6Gjb9/pVy8=
+X-Gm-Gg: ASbGncvgP3xkstYZfhqYsKuDLIVcB0pLiHLCCvbDOmpk8nAjVm2rHP3g4RV04zd3f6M
+	t8gJQit29caIjsNyhzNH9NB4DgBwyuQpRz2K5CdFnCx+IWDbfY9mcTLXKoPv7VToda8gJ/2949H
+	JINQfG6Z5+LlzpQG9wCOwagQ==
+X-Google-Smtp-Source: AGHT+IHw+lifGU70y9Vd72DyBga7i8AjGwQnPrs/Ioo3jLXofjG+CAq6Y1GhP4WwWrG6KrV6FXm0JU1muYB3vRAji0U=
+X-Received: by 2002:a05:651c:312a:b0:30d:c4c3:eafa with SMTP id
+ 38308e7fff4ca-31048972d82mr10675451fa.7.1744377738559; Fri, 11 Apr 2025
+ 06:22:18 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/7] arm64: dts: ti: j721e-sk: Add DT nodes for power
- regulators
-To: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>, <nm@ti.com>,
-        <vigneshr@ti.com>
-CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <vaishnav.a@ti.com>, <jai.luthra@linux.dev>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <imx@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-        <u-kumar1@ti.com>, <stable@vger.kernel.org>
-References: <20250409134128.2098195-1-y-abhilashchandra@ti.com>
- <20250409134128.2098195-2-y-abhilashchandra@ti.com>
-Content-Language: en-US
-From: "Francis, Neha" <n-francis@ti.com>
-In-Reply-To: <20250409134128.2098195-2-y-abhilashchandra@ti.com>
+References: <20250405113020.80387-1-bsdhenrymartin@gmail.com> <2025041119-debit-cosmic-f41c@gregkh>
+In-Reply-To: <2025041119-debit-cosmic-f41c@gregkh>
+From: henry martin <bsdhenrymartin@gmail.com>
+Date: Fri, 11 Apr 2025 21:22:07 +0800
+X-Gm-Features: ATxdqUGEZYsaCXX5XdyoJ9leRiLY8Ans_fSIobpjEITgHPNCVrlUjQY0Xk24xqI
+Message-ID: <CAEnQdOoikipXfvBUcfmFUp8As4+K58Bb=oeFKmEH8x_nqkTX_g@mail.gmail.com>
+Subject: Re: [PATCH v2] usb/gadget: Add NULL check in ast_vhub_init_dev()
+To: Greg KH <gregkh@linuxfoundation.org>
+Cc: joel@jms.id.au, andrew@codeconstruct.com.au, linux-usb@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_063249_058446_1295795A 
-X-CRM114-Status: GOOD (  14.85  )
+X-CRM114-CacheID: sfid-20250411_062221_282631_70774853 
+X-CRM114-Status: GOOD (  18.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,82 +95,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Abhilash
+Hi Greg,
 
-On 4/9/2025 7:11 PM, Yemike Abhilash Chandra wrote:
-> Add device tree nodes for two power regulators on the J721E SK board.
-> vsys_5v0: A fixed regulator representing the 5V supply output from the
-> LM61460 and vdd_sd_dv: A GPIO-controlled TLV71033 regulator.
-> 
-> J721E-SK schematics: https://www.ti.com/lit/zip/sprr438
-> Fixes: 1bfda92a3a36 ("arm64: dts: ti: Add support for J721E SK")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
-> ---
->  arch/arm64/boot/dts/ti/k3-j721e-sk.dts | 31 ++++++++++++++++++++++++++
->  1 file changed, 31 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-sk.dts b/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
-> index 440ef57be294..4965957e6545 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
-> @@ -184,6 +184,17 @@ vsys_3v3: fixedregulator-vsys3v3 {
->  		regulator-boot-on;
->  	};
->  
-> +	vsys_5v0: fixedregulator-vsys5v0 {
-> +		/* Output of LM61460 */
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vsys_5v0";
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-max-microvolt = <5000000>;
-> +		vin-supply = <&vusb_main>;
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +	};
-> +
->  	vdd_mmc1: fixedregulator-sd {
->  		compatible = "regulator-fixed";
->  		pinctrl-names = "default";
-> @@ -211,6 +222,20 @@ vdd_sd_dv_alt: gpio-regulator-tps659411 {
->  			 <3300000 0x1>;
->  	};
->  
-> +	vdd_sd_dv: gpio-regulator-TLV71033 {
-> +		compatible = "regulator-gpio";
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&vdd_sd_dv_pins_default>;
-> +		regulator-name = "tlv71033";
-> +		regulator-min-microvolt = <1800000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		regulator-boot-on;
-> +		vin-supply = <&vsys_5v0>;
-> +		gpios = <&main_gpio0 118 GPIO_ACTIVE_HIGH>;
-> +		states = <1800000 0x0>,
-> +			 <3300000 0x1>;
-> +	};
-> +
->  	transceiver1: can-phy1 {
->  		compatible = "ti,tcan1042";
->  		#phy-cells = <0>;
-> @@ -613,6 +638,12 @@ J721E_WKUP_IOPAD(0xd4, PIN_OUTPUT, 7) /* (G26) WKUP_GPIO0_9 */
->  		>;
->  	};
->  
-> +	vdd_sd_dv_pins_default: vdd-sd-dv-default-pins {
-> +		pinctrl-single,pins = <
-> +			J721E_IOPAD(0x1dc, PIN_INPUT, 7) /* (Y1) SPI1_CLK.GPIO0_118 */
-> +		>;
-> +	};
-> +
->  	wkup_uart0_pins_default: wkup-uart0-default-pins {
->  		pinctrl-single,pins = <
->  			J721E_WKUP_IOPAD(0xa0, PIN_INPUT, 0) /* (J29) WKUP_UART0_RXD */
+Thanks for the review.
 
-Reviewed-by: Neha Malcom Francis <n-francis@ti.com>
+This patch was made against v6.14. I=E2=80=99ll rebase it onto v6.15-rc1 an=
+d send a v3
+shortly.
 
--- 
-Thanking You
-Neha Malcom Francis
+Best regards,
+Henry
 
+Greg KH <gregkh@linuxfoundation.org> =E4=BA=8E2025=E5=B9=B44=E6=9C=8811=E6=
+=97=A5=E5=91=A8=E4=BA=94 21:06=E5=86=99=E9=81=93=EF=BC=9A
+>
+> On Sat, Apr 05, 2025 at 07:30:20PM +0800, Henry Martin wrote:
+> > devm_kasprintf() returns NULL when memory allocation fails. Currently,
+> > ast_vhub_init_dev() does not check for this case, which results in a
+> > NULL pointer dereference.
+> >
+> > Add NULL check after devm_kasprintf() to prevent this issue.
+> >
+> > Cc: stable@vger.kernel.org    # v4.18
+> > Fixes: 7ecca2a4080c ("usb/gadget: Add driver for Aspeed SoC virtual hub=
+")
+> > Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
+> > ---
+> > V1 -> V2: Add Cc: stable label and correct commit message.
+> >
+> >  drivers/usb/gadget/udc/aspeed-vhub/dev.c | 2 ++
+> >  1 file changed, 2 insertions(+)
+> >
+> > diff --git a/drivers/usb/gadget/udc/aspeed-vhub/dev.c b/drivers/usb/gad=
+get/udc/aspeed-vhub/dev.c
+> > index 573109ca5b79..5b7d41a990d7 100644
+> > --- a/drivers/usb/gadget/udc/aspeed-vhub/dev.c
+> > +++ b/drivers/usb/gadget/udc/aspeed-vhub/dev.c
+> > @@ -548,6 +548,8 @@ int ast_vhub_init_dev(struct ast_vhub *vhub, unsign=
+ed int idx)
+> >       d->vhub =3D vhub;
+> >       d->index =3D idx;
+> >       d->name =3D devm_kasprintf(parent, GFP_KERNEL, "port%d", idx+1);
+> > +     if (!d->name)
+> > +             return -ENOMEM;
+> >       d->regs =3D vhub->regs + 0x100 + 0x10 * idx;
+> >
+> >       ast_vhub_init_ep0(vhub, &d->ep0, d);
+> > --
+> > 2.34.1
+> >
+>
+> What kernel version did you make this against?  It does not apply to
+> 6.15-rc1 for me :(
+>
+> thanks,
+>
+> greg k-h
 
