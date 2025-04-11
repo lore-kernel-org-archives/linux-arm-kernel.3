@@ -4,87 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4974DC369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 06:06:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCBF6C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 06:08:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J3pOG049tN04I3gAeVWk6hcyObwRwUDj/yys8nKxPg8=; b=s5nhSHj5PFtP2AldMKR/RKzAh2
-	zqntRnEVNHwlKg7ne1cHB6ncdJkl7qBTJ8zkIm4xD6UDF0FiAyx/LpXPXaU/VApDpPxJpZV4/BIu7
-	NKt76ua7M9yqDiw3g1B8wjc+VZNgJsntyNzPqUai4kvlzyhMYNo2nEpk1vdiQIuRSCcX/QsKcQXLA
-	xx7ANNk/E1ConYim6DHT2GgNOBhfhS+jgTny02Z1jLbH0aA5IIShY/uDJtnmUIok/x4SGHPkd3uyF
-	F3mIdTWN7QSigbteXqrQpw9+uM4gAN6NDYdDo13DjA39arKW5WU8GEl744ZByVtfSE/XcotS+Hdyt
-	ITu3uzrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=B5tqHLMKf7g8Wxc9Q71D/XsmV0B59emr8eOs+ci5NQI=; b=4Z4qBOyEgFvTkGE3ghfzbVHVMC
+	36paPcdDfC1ZljzmB3vMeZ7DlkIgAjzrSVlBWPztVrq9id3dKenElLQjwkqHm8uWF31s+9ub/42vD
+	LjWQUkhVvXmDq2QcDC360g0iMNlcGk0zhBTSRghUb1oE/yrtku9dmpMLMdGt995lmQsUH9kAsREq8
+	chwZmATYKUU3a/uOVaAG0pBirKd8trk3uFlfKmKNJA+i9xf95eTsSmlzopdBtsOQpw5P33yHI1n3F
+	hV8EgFX03VVrsZqmitRUknUTtKaDITkAN8IwAlqjpDnGnweGj20lmCfxDo5b0m+CkKkKF+BwZCd82
+	2hjTnXmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u37Wj-0000000CfLY-2Xe0;
-	Fri, 11 Apr 2025 06:06:09 +0000
-Received: from mail-oa1-x4a.google.com ([2001:4860:4864:20::4a])
+	id 1u37YW-0000000Cfbh-2X9S;
+	Fri, 11 Apr 2025 06:08:00 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u376F-0000000CYjj-490w
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 05:38:49 +0000
-Received: by mail-oa1-x4a.google.com with SMTP id 586e51a60fabf-2c76babdcedso480127fac.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Apr 2025 22:38:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1744349927; x=1744954727; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=J3pOG049tN04I3gAeVWk6hcyObwRwUDj/yys8nKxPg8=;
-        b=Fojmz5RL021zvdMsAlj+UG9x+2pXfhLeAvP+w8M4PtdRm8yWgjeRvAz+x5QShX80LG
-         ytiC8yH9Gvnq4G/MoKYaNSFO1/xnQrULd3U2nx4E2DL8k5n8V30k8SS4nRA1LzXZUqnF
-         vNC02SkgOgC3BuABltJ36YFnzomiqJCgnxPqz28/nYi/23WTR2iJ5sVLz2l6NdawSiMv
-         O1tJCo8F/RmhfSBMxHdhKF+wcX0T9vkabwSDwdRaxqNWIG1ZnhXqmcCH5VrbMz86QDTk
-         vc9A3tq9g1u+Cv2RT1/N5dUWzSYM5YkrNzYniPqZFWWd9+R9jZTDxn8U2o9kgzXnD94W
-         o+fQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744349927; x=1744954727;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=J3pOG049tN04I3gAeVWk6hcyObwRwUDj/yys8nKxPg8=;
-        b=jjcufLy+wwOWFdS0ZMZHb7aFNF3ZeCfah+xBNVfCTU3xTST+gwYH2BCyaeXsRXZCVG
-         pDwMZ1PSGO8nmMRfEfFbCj7uGm0HDWanDCDIyjLyUQouWKM6Zuvn9trgVZVZ44E7Og4A
-         PrJR2MCNjWut5q9TgmihNJamY/th8h28ya6/TUpEmtNGAlEFSnBvn56a5aXT+2vgvHwJ
-         k2TtL5m4eyBdF19dzVNlFnz/Zi6ZPohL1P6fln5+Wr29kEMuv2jWvt0/7rxWZ8qT+PWr
-         DWLNzzO+MOS38jgF8fj9v9j6jIxSfJTCEphpFEcY7ZQ4CGORHcwAZqzdjT3bf6NwwuNk
-         vsGQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVEBjbWMhoyCaQfk/Ie+IeK/7LsDiSYjhgep7gPldTTatQwwDIFIB0SRWiNXw2FaK1aele09LMeu9vT7XtylSc6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/xB5O6F+sueN9PHmrdpNHSYcSV6MrfZ0zgCYUB4D5MPeBf/8V
-	0+zKXHZdpSYXjkch6+51LND2arzUBHRMv1g5Uyej7BVv2WzvMiVHTh9k03f9/zeO0AITUPA1Qhn
-	34buMT5YP2NklvzEdSg==
-X-Google-Smtp-Source: AGHT+IEJNpRI4+8yaXJk8414f64tfdUZ+FcyahilW3BlIEGi90JnnJd1CB5TgY9EhsFB2ykTGHq1Hj397rCuMwxE
-X-Received: from oabvp10.prod.google.com ([2002:a05:6871:a00a:b0:2c1:5f7a:eba8])
- (user=changyuanl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6871:4006:b0:29e:671b:6003 with SMTP id 586e51a60fabf-2d0d5f55d6emr854516fac.32.1744349926748;
- Thu, 10 Apr 2025 22:38:46 -0700 (PDT)
-Date: Thu, 10 Apr 2025 22:37:45 -0700
-In-Reply-To: <20250411053745.1817356-1-changyuanl@google.com>
-Mime-Version: 1.0
-References: <20250411053745.1817356-1-changyuanl@google.com>
-X-Mailer: git-send-email 2.49.0.604.gff1f9ca942-goog
-Message-ID: <20250411053745.1817356-15-changyuanl@google.com>
-Subject: [PATCH v6 14/14] Documentation: KHO: Add memblock bindings
-From: Changyuan Lyu <changyuanl@google.com>
-To: linux-kernel@vger.kernel.org
-Cc: akpm@linux-foundation.org, anthony.yznaga@oracle.com, arnd@arndb.de, 
-	ashish.kalra@amd.com, benh@kernel.crashing.org, bp@alien8.de, 
-	catalin.marinas@arm.com, corbet@lwn.net, dave.hansen@linux.intel.com, 
-	devicetree@vger.kernel.org, dwmw2@infradead.org, ebiederm@xmission.com, 
-	graf@amazon.com, hpa@zytor.com, jgowans@amazon.com, kexec@lists.infradead.org, 
-	krzk@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, luto@kernel.org, 
-	mark.rutland@arm.com, mingo@redhat.com, pasha.tatashin@soleen.com, 
-	pbonzini@redhat.com, peterz@infradead.org, ptyadav@amazon.de, robh@kernel.org, 
-	rostedt@goodmis.org, rppt@kernel.org, saravanak@google.com, 
-	skinsburskii@linux.microsoft.com, tglx@linutronix.de, thomas.lendacky@amd.com, 
-	will@kernel.org, x86@kernel.org, Changyuan Lyu <changyuanl@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	id 1u3797-0000000CZWP-2Iic;
+	Fri, 11 Apr 2025 05:41:47 +0000
+X-UUID: a4fad3f6169711f0a1e849db4cc18d44-20250410
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=B5tqHLMKf7g8Wxc9Q71D/XsmV0B59emr8eOs+ci5NQI=;
+	b=ZGSORI51ENGs8HTKctwhcJLU9SjYQXPhMCKsU0P5/Dp9cS32kGG1T0AKhZNeskanlGGicOVSESf9z9DJViPw3ROYboFuRqEYJ6qvWUxkGCImhqVR8WJG6d+6YBxW3fxPu7ixwrXQ1JCk3kX8HQ1ux5YmSgVmFbmfxrzzweaaVWY=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.1,REQID:24edb5f2-bb47-4614-8789-180b6418674e,IP:0,UR
+	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-25
+X-CID-META: VersionHash:0ef645f,CLOUDID:a00b1f8b-0afe-4897-949e-8174746b1932,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
+	l,URL:1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
+	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_ULS,TF_CID_SPAM_SNR
+X-UUID: a4fad3f6169711f0a1e849db4cc18d44-20250410
+Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
+	(envelope-from <axe.yang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1899495937; Thu, 10 Apr 2025 22:41:41 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Fri, 11 Apr 2025 13:41:38 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Fri, 11 Apr 2025 13:41:37 +0800
+From: Axe Yang <axe.yang@mediatek.com>
+To: Chaotian Jing <chaotian.jing@mediatek.com>, Ulf Hansson
+	<ulf.hansson@linaro.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	<yong.mao@mediatek.com>, <qingliang.li@mediatek.com>,
+	<andy-ld.lu@mediatek.com>, Wenbin Mei <wenbin.mei@mediatek.com>
+CC: <linux-mmc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	Axe Yang <axe.yang@mediatek.com>
+Subject: [RESEND v2] mmc: mtk-sd: Add condition to enable 'single' burst type
+Date: Fri, 11 Apr 2025 13:40:25 +0800
+Message-ID: <20250411054134.31822-1-axe.yang@mediatek.com>
+X-Mailer: git-send-email 2.46.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_223848_052795_F001AB92 
-X-CRM114-Status: GOOD (  18.68  )
+X-CRM114-CacheID: sfid-20250410_224145_603361_83340699 
+X-CRM114-Status: GOOD (  13.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,140 +87,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+This change add a condition for 'single' burst type selection.
 
-We introduced KHO into Linux: A framework that allows Linux to pass
-metadata and memory across kexec from Linux to Linux. KHO reuses fdt
-as file format and shares a lot of the same properties of firmware-to-
-Linux boot formats: It needs a stable, documented ABI that allows for
-forward and backward compatibility as well as versioning.
+Read AXI_LEN field from EMMC50_CFG2(AHB2AXI wrapper) register, if the
+value is not 0, it means the HWIP is using AXI as AMBA bus, which do
+not support 'single' burst type.
 
-As first user of KHO, we introduced memblock which can now preserve
-memory ranges reserved with reserve_mem command line options contents
-across kexec, so you can use the post-kexec kernel to read traces from
-the pre-kexec kernel.
-
-This patch adds memblock schemas similar to "device" device tree ones to
-a new kho bindings directory. This allows us to force contributors to
-document the data that moves across KHO kexecs and catch breaking change
-during review.
-
-Co-developed-by: Alexander Graf <graf@amazon.com>
-Signed-off-by: Alexander Graf <graf@amazon.com>
-Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-Signed-off-by: Changyuan Lyu <changyuanl@google.com>
+Suggested-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Axe Yang <axe.yang@mediatek.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- .../kho/bindings/memblock/memblock.yaml       | 39 ++++++++++++++++++
- .../kho/bindings/memblock/reserve-mem.yaml    | 40 +++++++++++++++++++
- MAINTAINERS                                   |  1 +
- 3 files changed, 80 insertions(+)
- create mode 100644 Documentation/core-api/kho/bindings/memblock/memblock.yaml
- create mode 100644 Documentation/core-api/kho/bindings/memblock/reserve-mem.yaml
+This change dependents on 'mmc: mtk-sd: Cleanups for register R/W':
 
-diff --git a/Documentation/core-api/kho/bindings/memblock/memblock.yaml b/Documentation/core-api/kho/bindings/memblock/memblock.yaml
-new file mode 100644
-index 0000000000000..d388c28eb91d1
---- /dev/null
-+++ b/Documentation/core-api/kho/bindings/memblock/memblock.yaml
-@@ -0,0 +1,39 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+title: Memblock reserved memory
+https://patchwork.kernel.org/project/linux-mediatek/cover/20250325110701.52623-1-angelogioacchino.delregno@collabora.com/
+---
+ drivers/mmc/host/mtk-sd.c | 16 ++++++++++++----
+ 1 file changed, 12 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/mmc/host/mtk-sd.c b/drivers/mmc/host/mtk-sd.c
+index ceeae1aeac94..2e4bd5166c17 100644
+--- a/drivers/mmc/host/mtk-sd.c
++++ b/drivers/mmc/host/mtk-sd.c
+@@ -84,6 +84,7 @@
+ #define EMMC51_CFG0	 0x204
+ #define EMMC50_CFG0      0x208
+ #define EMMC50_CFG1      0x20c
++#define EMMC50_CFG2      0x21c
+ #define EMMC50_CFG3      0x220
+ #define SDC_FIFO_CFG     0x228
+ #define CQHCI_SETTING	 0x7fc
+@@ -306,7 +307,10 @@
+ /* EMMC50_CFG1 mask */
+ #define EMMC50_CFG1_DS_CFG        BIT(28)  /* RW */
+ 
+-#define EMMC50_CFG3_OUTS_WR       GENMASK(4, 0)  /* RW */
++/* EMMC50_CFG2 mask */
++#define EMMC50_CFG2_AXI_SET_LEN   GENMASK(27, 24) /* RW */
 +
-+maintainers:
-+  - Mike Rapoport <rppt@kernel.org>
++#define EMMC50_CFG3_OUTS_WR       GENMASK(4, 0)   /* RW */
+ 
+ #define SDC_FIFO_CFG_WRVALIDSEL   BIT(24)  /* RW */
+ #define SDC_FIFO_CFG_RDVALIDSEL   BIT(25)  /* RW */
+@@ -1917,9 +1921,13 @@ static void msdc_init_hw(struct msdc_host *host)
+ 	pb1_val |= FIELD_PREP(MSDC_PATCH_BIT1_CMDTA, 1);
+ 	pb1_val |= MSDC_PB1_DDR_CMD_FIX_SEL;
+ 
+-	/* Set single burst mode, auto sync state clear, block gap stop clk */
+-	pb1_val |= MSDC_PB1_SINGLE_BURST | MSDC_PB1_RSVD20 |
+-		   MSDC_PB1_AUTO_SYNCST_CLR | MSDC_PB1_MARK_POP_WATER;
++	/* Support 'single' burst type only when AXI_LEN is 0 */
++	sdr_get_field(host->base + EMMC50_CFG2, EMMC50_CFG2_AXI_SET_LEN, &val);
++	if (!val)
++		pb1_val |= MSDC_PB1_SINGLE_BURST;
 +
-+description: |
-+  Memblock can serialize its current memory reservations created with
-+  reserve_mem command line option across kexec through KHO.
-+  The post-KHO kernel can then consume these reservations and they are
-+  guaranteed to have the same physical address.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - reserve-mem-v1
-+
-+patternProperties:
-+  "$[0-9a-f_]+^":
-+    $ref: reserve-mem.yaml#
-+    description: reserved memory regions
-+
-+required:
-+  - compatible
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    memblock {
-+      compatible = "memblock-v1";
-+      n1 {
-+        compatible = "reserve-mem-v1";
-+        start = <0xc06b 0x4000000>;
-+        size = <0x04 0x00>;
-+      };
-+    };
-diff --git a/Documentation/core-api/kho/bindings/memblock/reserve-mem.yaml b/Documentation/core-api/kho/bindings/memblock/reserve-mem.yaml
-new file mode 100644
-index 0000000000000..10282d3d1bcdc
---- /dev/null
-+++ b/Documentation/core-api/kho/bindings/memblock/reserve-mem.yaml
-@@ -0,0 +1,40 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+title: Memblock reserved memory regions
-+
-+maintainers:
-+  - Mike Rapoport <rppt@kernel.org>
-+
-+description: |
-+  Memblock can serialize its current memory reservations created with
-+  reserve_mem command line option across kexec through KHO.
-+  This object describes each such region.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - reserve-mem-v1
-+
-+  start:
-+    description: |
-+      physical address (u64) of the reserved memory region.
-+
-+  size:
-+    description: |
-+      size (u64) of the reserved memory region.
-+
-+required:
-+  - compatible
-+  - start
-+  - size
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    n1 {
-+      compatible = "reserve-mem-v1";
-+      start = <0xc06b 0x4000000>;
-+      size = <0x04 0x00>;
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index b3be800e5ea46..60e4093042e1b 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -15425,6 +15425,7 @@ M:	Mike Rapoport <rppt@kernel.org>
- L:	linux-mm@kvack.org
- S:	Maintained
- F:	Documentation/core-api/boot-time-mm.rst
-+F:	Documentation/core-api/kho/bindings/memblock/*
- F:	include/linux/memblock.h
- F:	mm/memblock.c
- F:	mm/mm_init.c
++	/* Set auto sync state clear, block gap stop clk */
++	pb1_val |= MSDC_PB1_RSVD20 | MSDC_PB1_AUTO_SYNCST_CLR | MSDC_PB1_MARK_POP_WATER;
+ 
+ 	/* Set low power DCM, use HCLK for GDMA, use MSDC CLK for everything else */
+ 	pb1_val |= MSDC_PB1_LP_DCM_EN | MSDC_PB1_RSVD3 |
 -- 
-2.49.0.604.gff1f9ca942-goog
+2.46.0
 
 
