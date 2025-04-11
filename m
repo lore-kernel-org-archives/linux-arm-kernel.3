@@ -4,75 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23750C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 09:56:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12363C369A9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 09:58:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LvMNmUJw5YHbXOAt8Uq/tq9yqI5eyvYGL9Ei7Fvb7sQ=; b=jtLAGiU7p+HcI9eKa37lflbmfq
-	lg/j65A+xLrhCQuFfXxdQ8isO/ZnR7Q3mB+wFAdOUE7JgCs22S5d7DIBaLV5A+gp9ENMXPvw/FX8+
-	9AyotuqXw93ihTNhCd8KdGr4WT1bcqDQ1CWtP7pnBby5WHsf1EH0oFO7ylVe4RO35+/L4zWxypI0J
-	p8B6I8yO7t7ctwqXFYeEW8jvqcbtr4q9PMTfxFlHrBETMvRx6T/ho+3iS2OTyeGPAHIQVK72hiO/B
-	j4IICida776PRbBzK9q38HO+R7oGY3QCsWJUIyjcMkF7Edz2G2AJwLesBACFgVXW5TqlYP/zMlavf
-	06fbbO6A==;
+	bh=RtU+pOoZbsLOnPjUI7YZ5FGGjZ40GzcCM59B/7LbYr4=; b=fihs8HMNQLZ031w9gAjjzwGR9i
+	YNLVglhZxNlb4KXcEBTjNw6u6v0nhvtGvq5KrCDpfTSjqgHSQzTX+7+aKLGF30/EbY1KlbFT0Yncz
+	FvsYP7HjI0NJYAv5I6zXew5SXo4BvTsBEfp6hFECsEg0ZJTylOeyFrlhIl5PQqdUH7saeUbFfkH5/
+	SV2AR1IGib5rPLpkJ82uL9ZmZlSyvwbWGakOFG9EIWmWLhNu9nwI7lqSX0UVYCiBX+fb4+Vn6Czf9
+	o5rljBvdMf3m0U++XeUceP1moR5qkupNZ5A7lCrPgK5L8RcBr2ge8Foom120PojVpHenR8qS1vdbv
+	SKBqwwzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3B7t-0000000DGj1-03RZ;
-	Fri, 11 Apr 2025 09:56:45 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3AWZ-0000000DAr9-119F
+	id 1u3B9J-0000000DH4C-2n5T;
+	Fri, 11 Apr 2025 09:58:13 +0000
+Received: from mail-yb1-xb34.google.com ([2607:f8b0:4864:20::b34])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u39u9-0000000D39H-2UOO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 09:18:13 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A04EC1596;
-	Fri, 11 Apr 2025 02:18:10 -0700 (PDT)
-Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1A69D3F6A8;
-	Fri, 11 Apr 2025 02:18:06 -0700 (PDT)
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-To: linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Mark Brown <broonie@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Hildenbrand <david@redhat.com>,
-	Ira Weiny <ira.weiny@intel.com>,
-	Jann Horn <jannh@google.com>,
-	Jeff Xu <jeffxu@chromium.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Kees Cook <kees@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Pierre Langlois <pierre.langlois@arm.com>,
-	Quentin Perret <qperret@google.com>,
-	Rick Edgecombe <rick.p.edgecombe@intel.com>,
-	"Mike Rapoport (IBM)" <rppt@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Will Deacon <will@kernel.org>,
-	Matthew Wilcox <willy@infradead.org>,
-	Qi Zheng <zhengqi.arch@bytedance.com>,
-	linux-arm-kernel@lists.infradead.org,
-	x86@kernel.org
-Subject: [RFC PATCH v4 18/18] arm64: mm: Batch kpkeys level switches
-Date: Fri, 11 Apr 2025 10:16:31 +0100
-Message-ID: <20250411091631.954228-19-kevin.brodsky@arm.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250411091631.954228-1-kevin.brodsky@arm.com>
-References: <20250411091631.954228-1-kevin.brodsky@arm.com>
+	Fri, 11 Apr 2025 08:38:32 +0000
+Received: by mail-yb1-xb34.google.com with SMTP id 3f1490d57ef6-e6e2a303569so1341819276.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Apr 2025 01:38:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1744360708; x=1744965508; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RtU+pOoZbsLOnPjUI7YZ5FGGjZ40GzcCM59B/7LbYr4=;
+        b=Z5O4UPlHUsB1G50hHjz7gr66xYgF4h7daqSwfnWrMcCAJG8fWI3SpgGP3evJPpbmfQ
+         /Km0PlaQqHbBzdUy/aGdqTP3W8nJMNyEgobhkY4WrevkLpFKKw60Hmu9wf3HibweCpnh
+         FaRUYaRHBYEeiKudfNRXglaF/KynWOdwKaVOI=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744360708; x=1744965508;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=RtU+pOoZbsLOnPjUI7YZ5FGGjZ40GzcCM59B/7LbYr4=;
+        b=Xbqxzuyf1RNodpUebNReEsP53Fie3iMW43HFjItUFgr3a5UV2FXnoxcLsx4nD3TvZS
+         17kfYw5zIdG58//3as/FZPdu0WmOiD439AStx2li9izQ6XLqipbs2/VFQ8n9mVfDJTrG
+         mNDr3glr5ivLQTYAIjrnTtpKw2mGZK1ZfT/K6h69Z//CZmg3MVSva4XNg0KO59EOeupV
+         11Q5zPpw4AdLyT4I2A8VJEAKtEjik3diey6JqiwZUvpesT6DVK2ybYvpQvemLd6Yn9XX
+         lqaZmnP4gdQua+6vcsdxm6vnz44wWWPgvrIEWqbMmCJLTArbWPP4dTBKXQG7eG+y6iLB
+         RVfw==
+X-Forwarded-Encrypted: i=1; AJvYcCUYb0wQdyJYPIqSvLEKiBa5llRaA3de5Rg5Y7DqS07FRa+lSHcRghF5kA6IurUI3q8Ujj6VByfVQ8ynWqc23H3Y@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9+r56idBcUDUVXrGBfxTpHv8CeZHbvA/AX8huYDlnO05ettWn
+	8qkKJawCqS6hL2iQuM8n7GEIpoy4zFUVERKFozpYKrGDJ2luKGdIndC4waildyBKpFRWVPDiOu0
+	3kBa31P13mflE5K4ORKmFzF2wTUDyBrQOO2EZ+w==
+X-Gm-Gg: ASbGncv/ODqDOdZyLDlEhprV/UsOHpLC57UxP+Z26FFv9B7N2IcHmyBzMe+QGRiPuIS
+	XlHBzsgKtHsUfgNG5alEkIzhD9EDQr1KS0WCHScL1NyXqltrr7BGkxt+X7DfDRaLT56erDMSmr1
+	Oeln3l6cC6Ajg/vKPiTTo=
+X-Google-Smtp-Source: AGHT+IHCodNLsYqxPgYy8KacCIFQ8uMbF8eAgpfHHABuPW/r+cXCzHR5Dy1G6JiUbudEZgEzb8V1wt8pBrFYRs9UU4s=
+X-Received: by 2002:a05:6902:2012:b0:e6d:dfea:8f09 with SMTP id
+ 3f1490d57ef6-e704decd54bmr3276455276.26.1744360708185; Fri, 11 Apr 2025
+ 01:38:28 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250306112959.242131-1-dario.binacchi@amarulasolutions.com> <20250314093503.GD12210@nxa18884-linux>
+In-Reply-To: <20250314093503.GD12210@nxa18884-linux>
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Date: Fri, 11 Apr 2025 10:38:17 +0200
+X-Gm-Features: ATxdqUF7idGp2hnH8dEoppZJLC3ZC9jhgwG1uStDtkKfsGzYjzpE_DfoJqtsu9k
+Message-ID: <CABGWkvq2X9L6P39K5OeQW4+c2OmSYGHN03mUW-96U5okO1CK5A@mail.gmail.com>
+Subject: Re: [PATCH v10 00/18] Support spread spectrum clocking for i.MX8M PLLs
+To: Peng Fan <peng.fan@oss.nxp.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Abel Vesa <abelvesa@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>, 
+	linux-amarula@amarulasolutions.com, Conor Dooley <conor+dt@kernel.org>, 
+	Dan Carpenter <dan.carpenter@linaro.org>, Fabio Estevam <festevam@gmail.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-clk@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_021811_372264_D5A3B7FA 
-X-CRM114-Status: GOOD (  21.29  )
+X-CRM114-CacheID: sfid-20250411_013829_652430_53F626A8 
+X-CRM114-Status: GOOD (  20.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,134 +98,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The kpkeys_hardened_pgtables feature currently switches kpkeys level
-in every helper that writes to page tables, such as set_pte(). With
-kpkeys implemented using POE, this entails a pair of ISBs whenever
-such helper is called.
+On Fri, Mar 14, 2025 at 9:27=E2=80=AFAM Peng Fan <peng.fan@oss.nxp.com> wro=
+te:
+>
+> On Thu, Mar 06, 2025 at 12:27:49PM +0100, Dario Binacchi wrote:
+> >This version keeps the version v9 patches that can be merged and
+> >removes the patches that will need to be modified in case Peng's
+> >PR https://github.com/devicetree-org/dt-schema/pull/154 is accepted.
+> >The idea is to speed up the merging of the patches in the series
+> >that have already been reviewed and are not dependent on the
+> >introduction of the assigned-clocks-sscs property, and postpone
+> >the patches for spread spectrum to a future series once it becomes
+> >clear what needs to be done.
+> >
+> Although I give R-b, there is an idea just come out in my mind that this
+> might break OS distribution that use firmware(e.g. U-Boot) to publish
+> device tree for Linux Kernel, such as ARM System-Ready complaint OS.
+> I overlooked this point in previous patchset reviewing.
+>
+> Since this patchset is to move anatop stuff to a new driver to reflect
+> the HW truth.  And requires new entries in CCM node, so old bootloader
+> with new kernel will not boot for OS distribution, such as Fedora/openSus=
+e.
+>
+> Not sure how to keep backwards support as before. Leave to maintainers
+> to say if they are ok with this.
 
-A simple way to reduce this overhead is to make use of the lazy_mmu
-mode, which has recently been adopted on arm64 to batch barriers
-(DSB/ISB) when updating kernel pgtables [1]. Reusing the
-TIF_LAZY_MMU flag introduced by this series, we amend the
-kpkeys_hardened_pgtables guard so that no level switch (i.e. POR_EL1
-update) is issued while that flag is set. Instead, we switch to
-KPKEYS_LVL_PGTABLES when entering lazy_mmu mode, and restore the
-previous level when exiting it.
+Many thanks to Peng for the review, and a gentle ping to the maintainers.
+This series has been ongoing for a few months and has reached version 10,
+thanks to the reviews from Krzysztof and Peng.
+I kindly ask you to consider it as well.
 
-Restoring the previous kpkeys level requires storing the original
-value of POR_EL1 somewhere. This is a full 64-bit value so we cannot
-simply use a TIF flag, but since lazy_mmu sections cannot nest, some
-sort of thread-local variable would do the trick. There is no
-straightforward way to reuse current->thread.por_el1 for that
-purpose - this is where the current value of POR_EL1 is stored on a
-context switch, i.e. the value corresponding to KPKEYS_LVL_PGTABLES
-inside a lazy_mmu section. Instead, we add a new member to
-thread_struct to hold that value temporarily. This isn't optimal as
-that member is unused outside of lazy_mmu sections, but it is the
-simplest option.
+Thanks and regards,
+Dario
 
-A further optimisation this patch makes is to merge the ISBs when
-exiting lazy_mmu mode. That is, if an ISB is going to be issued by
-emit_pte_barriers() because kernel pgtables were modified in the
-lazy_mmu section, we skip the ISB after restoring POR_EL1. This is
-done by checking TIF_LAZY_MMU_PENDING and ensuring that POR_EL1 is
-restored before emit_pte_barriers() is called.
+>
+> Regards,
+> Peng
 
-Checking TIF_LAZY_MMU flag in all pgtable writers is currently
-overkill, as lazy_mmu sections are only used at the lowest level of
-page tables. In other words, set_pgd() (for instance) will never be
-called with TIF_LAZY_MMU set. However, such higher-level helpers are
-called relatively infrequently and the overhead of checking a TIF
-flag is low. The flag is therefore checked in all cases for
-simplicity's sake, just like in [1].
 
-[1] https://lore.kernel.org/linux-mm/20250304150444.3788920-1-ryan.roberts@arm.com/
 
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
----
- arch/arm64/include/asm/pgtable.h   | 37 +++++++++++++++++++++++++++++-
- arch/arm64/include/asm/processor.h |  1 +
- 2 files changed, 37 insertions(+), 1 deletion(-)
+--=20
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 7929b79cd6b1..61dee76be515 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -43,11 +43,40 @@
- 
- #ifdef CONFIG_KPKEYS_HARDENED_PGTABLES
- KPKEYS_GUARD_COND(kpkeys_hardened_pgtables, KPKEYS_LVL_PGTABLES,
--		  kpkeys_hardened_pgtables_enabled())
-+		  kpkeys_hardened_pgtables_enabled() &&
-+		  !test_thread_flag(TIF_LAZY_MMU))
- #else
- KPKEYS_GUARD_NOOP(kpkeys_hardened_pgtables)
- #endif
- 
-+static void kpkeys_lazy_mmu_enter(void)
-+{
-+	if (!kpkeys_hardened_pgtables_enabled())
-+		return;
-+
-+	current->thread.por_el1_lazy_mmu = kpkeys_set_level(KPKEYS_LVL_PGTABLES);
-+}
-+
-+static void kpkeys_lazy_mmu_exit(void)
-+{
-+	u64 saved_por_el1;
-+
-+	if (!kpkeys_hardened_pgtables_enabled())
-+		return;
-+
-+	saved_por_el1 = current->thread.por_el1_lazy_mmu;
-+
-+	/*
-+	 * We skip any barrier if TIF_LAZY_MMU_PENDING is set:
-+	 * emit_pte_barriers() will issue an ISB just after this function
-+	 * returns.
-+	 */
-+	if (test_thread_flag(TIF_LAZY_MMU_PENDING))
-+		__kpkeys_set_pkey_reg_nosync(saved_por_el1);
-+	else
-+		arch_kpkeys_restore_pkey_reg(saved_por_el1);
-+}
-+
- static inline void emit_pte_barriers(void)
- {
- 	/*
-@@ -83,6 +112,7 @@ static inline void arch_enter_lazy_mmu_mode(void)
- 	VM_WARN_ON(test_thread_flag(TIF_LAZY_MMU));
- 
- 	set_thread_flag(TIF_LAZY_MMU);
-+	kpkeys_lazy_mmu_enter();
- }
- 
- static inline void arch_flush_lazy_mmu_mode(void)
-@@ -93,6 +123,11 @@ static inline void arch_flush_lazy_mmu_mode(void)
- 
- static inline void arch_leave_lazy_mmu_mode(void)
- {
-+	/*
-+	 * The ordering should be preserved to allow kpkeys_lazy_mmu_exit()
-+	 * to skip any barrier when TIF_LAZY_MMU_PENDING is set.
-+	 */
-+	kpkeys_lazy_mmu_exit();
- 	arch_flush_lazy_mmu_mode();
- 	clear_thread_flag(TIF_LAZY_MMU);
- }
-diff --git a/arch/arm64/include/asm/processor.h b/arch/arm64/include/asm/processor.h
-index 0afaf96ca699..14a4b483098d 100644
---- a/arch/arm64/include/asm/processor.h
-+++ b/arch/arm64/include/asm/processor.h
-@@ -186,6 +186,7 @@ struct thread_struct {
- 	u64			tpidr2_el0;
- 	u64			por_el0;
- 	u64			por_el1;
-+	u64			por_el1_lazy_mmu;
- #ifdef CONFIG_ARM64_GCS
- 	unsigned int		gcs_el0_mode;
- 	unsigned int		gcs_el0_locked;
--- 
-2.47.0
+Dario Binacchi
 
+Senior Embedded Linux Developer
+
+dario.binacchi@amarulasolutions.com
+
+__________________________________
+
+
+Amarula Solutions SRL
+
+Via Le Canevare 30, 31100 Treviso, Veneto, IT
+
+T. +39 042 243 5310
+info@amarulasolutions.com
+
+www.amarulasolutions.com
 
