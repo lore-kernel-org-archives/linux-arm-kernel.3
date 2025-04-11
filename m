@@ -4,81 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 777C4C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 15:13:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F8F7C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 15:15:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4+lhjfPz71eCEuGxN89X4itySV64JY5cuombe2gZzeM=; b=AYiOOnHp+17P04gVQk6sqorzH+
-	XkRCllxdIr67432mq43rdbYfiOPublbRyifBcyOEehZFSQyArggf35CWWnO74HJU4vEDxQf3OjJLM
-	3LIdRwr9HYL/OrWupLpmKcjo3ZlAQU7Hi9MSMyLE8SnDBlLTZPyp3tE+5BlTkNS6tqIcCSZmwrbIr
-	30Zx246YrH4Ik2PEKLdTB9DuvjGKAj0ODxiwLGM2YRI3hvnFA4F9xwJ2IhCPwyU3+pTvrRZ7zXEK0
-	M2o0YY1DtSzehU6vramWcVvopWZJVQiOeGw6H4GgGPMuFsb8RS2nD/DnHTaMsiUhW4069wVjD/Rfj
-	sZm0jGzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=827VYb4LoObpB/wqKRmGyUHG03Ii8ZNejSUuKLfjwq8=; b=aJTts9f//3Tlq3DR77ch1ZABOR
+	KOzsQMM5aS9A1+xHDoM8GPjYZWIJAtU/aVKCq3Pgi7kCrflmF9vuHe8GRazIqBM/owaZ/tTGlx6jm
+	TGRemksefd2g+7sOsmHnKuGROMT/OsAux7zv/RxDVglWZPOWksg+euHoQ+xHXUm5zSG6W/pWw/U7R
+	3gJknGEwaHtlOT/0Cxa33oU8XlFEiy5PiTewpchFIpgi3KeVIPmlZKcikTNvSlbgJfFB+SUYqqaPK
+	/Oy4Kzxl2qjFaMhbnpODOTI3f2Y9Yf9D2dhu8yOkKJUggWfX4335+nrtfEfwETc1Y3kYrBN6JGQrm
+	gdVBR43w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3G48-0000000ED32-1sev;
-	Fri, 11 Apr 2025 15:13:12 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3G1B-0000000ECXH-3EZ8;
-	Fri, 11 Apr 2025 15:10:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 072F25C631D;
-	Fri, 11 Apr 2025 15:07:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66AB4C4CEE2;
-	Fri, 11 Apr 2025 15:10:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744384208;
-	bh=nV7QUsY7pocrTLl7+krZ9Vjz4uByyHrtuPWZ3jHggtc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=k8+ON3jDxuMhAktXI7jzW1oXlfLzIB/wn/r3nc+Dk4EvAvRM4zw0hS5E8lQgzb5sO
-	 dhhX27snOzoNVidZH4vEhTERLUI8mcDyGIswXt3IY5A4Zw1paxXHqD4ZKwwSnTM9c4
-	 pnn/+PZ74C+6gb9TOSa17oOdk+fH6s7xH11L1YSKqr5rdjIF0yLwVEFc62ezEK0Aaz
-	 Gi1cff+pQIe0pNxrSCsMlycjFDmTkxKYfIMd2VQH5BJcNZH4AnnHsPKG07vnGDRRgg
-	 KMlyNp9vrDGh9IKpm+XYkSpLQu2lTXW6xEBwT809wncke0+Mm10Xwut9NJbuDlVCGj
-	 cljYUFggYDwSA==
-Date: Fri, 11 Apr 2025 10:10:07 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Lee Jones <lee@kernel.org>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
-	Simon Horman <horms@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	devicetree@vger.kernel.org, Vladimir Oltean <olteanv@gmail.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>, upstream@airoha.com,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-kernel@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	DENG Qingfang <dqfext@gmail.com>,
-	Eric Dumazet <edumazet@google.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	Jakub Kicinski <kuba@kernel.org>,
-	Daniel Golle <daniel@makrotopia.org>
-Subject: Re: [net-next PATCH v14 05/16] dt-bindings: mfd: Document support
- for Airoha AN8855 Switch SoC
-Message-ID: <174438420580.3258271.14505351039830543579.robh@kernel.org>
-References: <20250408095139.51659-1-ansuelsmth@gmail.com>
- <20250408095139.51659-6-ansuelsmth@gmail.com>
+	id 1u3G5v-0000000EDL0-1uzz;
+	Fri, 11 Apr 2025 15:15:03 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u3G40-0000000ED1i-1HIo
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 11 Apr 2025 15:13:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 402171007;
+	Fri, 11 Apr 2025 08:13:03 -0700 (PDT)
+Received: from [10.1.196.40] (e121345-lin.cambridge.arm.com [10.1.196.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 813323F59E;
+	Fri, 11 Apr 2025 08:13:02 -0700 (PDT)
+Message-ID: <5c8d16f9-246e-45d0-aaac-45b7712cefb5@arm.com>
+Date: Fri, 11 Apr 2025 16:13:01 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250408095139.51659-6-ansuelsmth@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] iommu/arm-smmu-v3: Allow stream table to have nodes with
+ the same ID
+To: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org
+Cc: joro@8bytes.org, jgg@nvidia.com, jsnitsel@redhat.com, praan@google.com,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20250411044706.356395-1-nicolinc@nvidia.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20250411044706.356395-1-nicolinc@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_081009_865851_3639C411 
-X-CRM114-Status: GOOD (  11.07  )
+X-CRM114-CacheID: sfid-20250411_081304_445961_F0D8CC67 
+X-CRM114-Status: GOOD (  13.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,21 +66,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Tue, 08 Apr 2025 11:51:12 +0200, Christian Marangi wrote:
-> Document support for Airoha AN8855 Switch SoC. This SoC expose various
-> peripherals like an Ethernet Switch, a NVMEM provider and Ethernet PHYs.
+On 11/04/2025 5:47 am, Nicolin Chen wrote:
+> From: Jason Gunthorpe <jgg@nvidia.com>
 > 
-> It does also support i2c and timers but those are not currently
-> supported/used.
+> ASPEED VGA card has two built-in devices:
+>   0008:06:00.0 PCI bridge: ASPEED Technology, Inc. AST1150 PCI-to-PCI Bridge (rev 06)
+>   0008:07:00.0 VGA compatible controller: ASPEED Technology, Inc. ASPEED Graphics Family (rev 52)
 > 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> ---
->  .../bindings/mfd/airoha,an8855.yaml           | 175 ++++++++++++++++++
->  1 file changed, 175 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/mfd/airoha,an8855.yaml
+> Its toplogy looks like this:
+>   +-[0008:00]---00.0-[01-09]--+-00.0-[02-09]--+-00.0-[03]----00.0  Sandisk Corp Device 5017
+>                               |               +-01.0-[04]--
+>                               |               +-02.0-[05]----00.0  NVIDIA Corporation Device
+>                               |               +-03.0-[06-07]----00.0-[07]----00.0  ASPEED Technology, Inc. ASPEED Graphics Family
+>                               |               +-04.0-[08]----00.0  Renesas Technology Corp. uPD720201 USB 3.0 Host Controller
+>                               |               \-05.0-[09]----00.0  Realtek Semiconductor Co., Ltd. RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller
+>                               \-00.1  PMC-Sierra Inc. Device 4028
 > 
+> Being a legacy PCI device that does not have RID on the wire, the system
+> does not preserve a RID for that PCI bridge (0008:06), so the IORT code
+> has to dma alias for iort_pci_iommu_init() via pci_for_each_dma_alias(),
+> resulting in both of them getting the same Stream ID.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Hmm, actually, this doesn't even make a whole heap of sense, and it's
+not what's happening here at all.
 
+The bridge *does* claim its own RID, and per the aliasing rules the
+devices behind it claim both their own RID and the alias to function
+00.0 on the bridge's secondary bus, like so in action:
+
+[    1.040905] pci 0000:04:00.0: arm_smmu_insert_master: SID 0x400
+[    1.046988] pci 0000:04:00.0: Adding to iommu group 0
+[    1.046995] pci 0000:05:04.0: arm_smmu_insert_master: SID 0x520
+[    1.053750] pci 0000:05:04.0: arm_smmu_insert_master: SID 0x500
+[    1.053759] pci 0000:05:04.0: Adding to iommu group 0
+[    1.053765] pci 0000:05:05.0: arm_smmu_insert_master: SID 0x528
+[    1.053767] pci 0000:05:05.0: arm_smmu_insert_master: SID 0x500
+[    1.053768] pci 0000:05:05.0: Aliasing StreamID 0x500 unsupported, 
+expect DMA to be broken
+
+Which is a snippet from this topology:
+
+-+-[0001:00]---00.0-[01]----00.0  Samsung Electronics Co Ltd NVMe SSD 
+Controller SM981/PM981/PM983
+  \-[0000:00]---00.0-[01-09]--+-00.0-[02-09]--+-08.0-[03]----00.0  VIA 
+Technologies, Inc. VL805/806 xHCI USB 3.0 Controller
+                              | 
++-10.0-[04-05]----00.0-[05]--+-04.0  Intel Corporation 82557/8/9/0/1 
+Ethernet Pro 100
+                              |               | 
+   \-05.0  Broadcom Inc. and subsidiaries BCM4306 802.11b/g Wireless LAN 
+Controller
+                              |               +-11.0-[06]--
+                              |               +-12.0-[07]----00.0 
+Marvell Technology Group Ltd. Device 9170
+
+(yes, I have a physical PCIe-to-PCI bridge board with random ancient
+cards plugged into it specifically for griefing the SMMU drivers :D)
+
+> On a kernel prior to v6.15-rc1, there has been an overlooked warning:
+>    pci 0008:07:00.0: vgaarb: setting as boot VGA device
+>    pci 0008:07:00.0: vgaarb: bridge control possible
+>    pci 0008:07:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
+>    pcieport 0008:06:00.0: Adding to iommu group 14
+>    ast 0008:07:00.0: stream 67328 already in tree   <===== WARNING
+
+However in the ASpeed VGA case, we get a single device aliasing with
+*itself*, because the physical RID is already function 00.0 - this is
+more obvious on our CI's Ampere Altra system where the SID mappings have
+no additional upper bits:
+
+[   22.953940] pci 0004:01:00.0: PCI bridge to [bus 02]
+...
+[   23.037980] pci 0004:02:00.0: [1a03:2000] type 00 class 0x030000 
+conventional PCI endpoint
+...
+[   27.383602] pci 0004:01:00.0: Adding to iommu group 28
+[   27.394562] pci 0004:02:00.0: stream 512 already in tree
+
+512 == 0x200 == 02:00.0
+
+
+Now that's supposed to have been supported since forever ago with
+563b5cbe334e ("iommu/arm-smmu-v3: Cope with duplicated Stream IDs"),
+however from a quick look I'm guessing cdf315f907d4 ("iommu/arm-smmu-v3:
+Maintain a SID->device structure") might have broken it...
+
+Thanks,
+Robin.
 
