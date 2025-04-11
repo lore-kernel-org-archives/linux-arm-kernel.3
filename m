@@ -4,68 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 910FFC369A8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 12:58:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85FBEC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 13:00:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EOH8CIdz65AlaprFUzkJc8PL6lMT1kHFZ8SCjFlHZ9c=; b=ifbIcXKDOg+63cKTwIhgQbkjpT
-	35vCGLyELzcheNmJ7YJXKrzBraEPRablDjWswvNLXarAeKlFdJhe4TxRxZzBdpIHTRni0Cc6P6wfh
-	xmoIs8P/x3DNXGQzkrc4wwXjoxstTUCcVVnEM90Vq0klqxm0bx/obzXGLT3kr/n+ikWZOLg8RcFM1
-	uOO00J29U7u2xLRd2hz9FG8i/lI/KIAEFDVqog434ubRawZdrTl3NALYxwyJkH9nHso9Yy48T3C2J
-	lCjvTkddoYh16Cuk420sQ5lbmSD+lt3BiltGr/b3UGnz3DlKqq3lGF4gwFzaKdL2JpF6oI60keDU6
-	1QGrlVIA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GUXGaGjLdVE7Xox0qIwv65+0sEkDPMOlblTSbGgE5/c=; b=kXixzTqJBamBCjU+RNw3g3+7eA
+	4D35MWIgpNgZQ5hkf723cEp2+A2OOxnqlNNhm5DsWBpmWGIaBqbtOBF8dI/Lfz7JBqbF5d0b6VpXb
+	4HnOW0tYUGHMqhESBM+2X07TGxxbJBJbQDXci8OmVdnj10yYsJJM6LCeBLmVsaMi67bfaVQ2oaX5U
+	Xybt2UY/jQtN3Rb7ZIbzmXM35vrx3c5+xL9GIei9gXjQDey8oroyaiGGRH4AxFetW16ZzoBWkvAwE
+	D0kIZ+YJTODwlNjA6+LeOPguAKMMGWjfMsNYyiDcXva6nMiDsYC3/mJfClgDYvol3lF2y8SVtAnAb
+	qNaFSwGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3Dxo-0000000DpX3-2itE;
-	Fri, 11 Apr 2025 12:58:32 +0000
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	id 1u3Dzc-0000000Dpte-1Jaf;
+	Fri, 11 Apr 2025 13:00:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3DhQ-0000000DmEf-1ky1
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 12:41:37 +0000
-Received: from francesco-nb (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id 2D7CA1FEC1;
-	Fri, 11 Apr 2025 14:41:34 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1744375294;
-	bh=EOH8CIdz65AlaprFUzkJc8PL6lMT1kHFZ8SCjFlHZ9c=; h=From:To:Subject;
-	b=E3btRzlir8gNK+aXDl3vPeVu4yeZ/AEtyTxwgKCsw8IULkGr+8Wid5/IKqHV6MMhs
-	 coudJUidzaoGjnYB/rZMq/WPqLgms0I7TMW2KyPmoLu2RIvwbQssuA8exOmAGPGCq1
-	 zTbZfp708FVTHIDztLVGSehqjJHi2fRFWoKhJ+tVPh/7wAhAfPIaMxlbUUg5URzSNv
-	 4+1SZhkjzFgr0hLM8bIbZL3R1TMtnpC4XHpegMk/T9rVWg2IrZhGSCdneamI2OvcER
-	 tNLxDjAF1Z8xMtxEKdaed9CxUIIL21V1OVYaWCODqs49g8HwRU8xQ4/AA6JkoUJn7n
-	 qklDoVJJhmGnw==
-Date: Fri, 11 Apr 2025 14:41:29 +0200
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Carlos Song <carlos.song@nxp.com>
-Cc: Francesco Dolcini <francesco@dolcini.it>,
-	Aisheng Dong <aisheng.dong@nxp.com>,
-	Andi Shyti <andi.shyti@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
-	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>
-Subject: Re: [PATCH v1] i2c: lpi2c: implement master_xfer_atomic callback
-Message-ID: <20250411124129.GA48732@francesco-nb>
-References: <20250319145114.50771-1-francesco@dolcini.it>
- <20250411114738.GA43965@francesco-nb>
- <FRWPR04MB11150B555044300A70102DAF5E8B62@FRWPR04MB11150.eurprd04.prod.outlook.com>
+	id 1u3Dih-0000000DmYL-3ozH;
+	Fri, 11 Apr 2025 12:42:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1115A68463;
+	Fri, 11 Apr 2025 12:42:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 9E405C4CEEA;
+	Fri, 11 Apr 2025 12:42:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744375374;
+	bh=7uMNt1krg1bqV29C3TK9qHsnV2Y5y0mXablLbhELmf4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=fd6/KRVS1TsaHEbnpAnf2soFDA4rUrqM0Q0vmotIVDvTB4KjZ63xavZ8TxtPzIXaD
+	 pLOVISMd4vD/uk8+MGGoJn5v3/fo9cI5zVh6eZrJ1w0j42vw4AhvML69eSITqcE+hj
+	 azHSd3GN5rQu46YHxrBSMsza8nxOE53KOxyjazmyzFo6b+MFJsMk4m6CudeYgWVFxK
+	 ojAZUlaR5GMARpJ+bWnXOCdB3UfgZpq8D+svNL64uLJED8T3SxzT7o8eYQfSTKkNBw
+	 HOUkPDniEFYWK0pLgRsDAxwH1BT2pVAxBxmK3YMWDzYL5p3xqVHsBYB7pKu9NAFm6Z
+	 xOT1KQ7fgIrdQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8D3E0C369AC;
+	Fri, 11 Apr 2025 12:42:54 +0000 (UTC)
+From: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
+Date: Fri, 11 Apr 2025 20:42:44 +0800
+Subject: [PATCH 2/7] dt-bindings: soc: amlogic: C3 supports clk-measure
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <FRWPR04MB11150B555044300A70102DAF5E8B62@FRWPR04MB11150.eurprd04.prod.outlook.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_054136_615933_CA929171 
-X-CRM114-Status: GOOD (  16.34  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250411-clk-measure-v1-2-cb46a78d019a@amlogic.com>
+References: <20250411-clk-measure-v1-0-cb46a78d019a@amlogic.com>
+In-Reply-To: <20250411-clk-measure-v1-0-cb46a78d019a@amlogic.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ Chuan Liu <chuan.liu@amlogic.com>
+X-Mailer: b4 0.14.1
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1744375372; l=828;
+ i=chuan.liu@amlogic.com; s=20240902; h=from:subject:message-id;
+ bh=R+VgfvEaPoAKSQB5hn3wQA0opSipq/Yo223lp8X4HAc=;
+ b=7xdBRMtyfW2OTwf09OOs3HozL9VTvwFUEDptXFUHha3noZ/r6nUSO8mWRz+q8JXRYnEpxc1Bx
+ IHf08TbR3j7Buz5fiFIKwY5dqELdrl7Ap98uMszISFjBMdF9fsaIloU
+X-Developer-Key: i=chuan.liu@amlogic.com; a=ed25519;
+ pk=fnKDB+81SoWGKW2GJNFkKy/ULvsDmJZRGBE7pR5Xcpo=
+X-Endpoint-Received: by B4 Relay for chuan.liu@amlogic.com/20240902 with
+ auth_id=203
+X-Original-From: Chuan Liu <chuan.liu@amlogic.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,37 +83,34 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: chuan.liu@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+From: Chuan Liu <chuan.liu@amlogic.com>
 
-On Fri, Apr 11, 2025 at 11:55:31AM +0000, Carlos Song wrote:
-> > On Wed, Mar 19, 2025 at 03:51:14PM +0100, Francesco Dolcini wrote:
-> > > From: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
-> > >
-> > > Rework the read and write code paths in the driver to support
-> > > operation in atomic contexts. To achieve this, the driver must not
-> > > rely on IRQs or perform any scheduling, e.g., via a sleep or schedule
-> > > routine. Even jiffies do not advance in atomic contexts, so timeouts
-> > > based on them are substituted with delays.
-> > >
-> > > Implement atomic, sleep-free, and IRQ-less operation. This increases
-> > > complexity but is necessary for atomic I2C transfers required by some
-> > > hardware configurations, e.g., to trigger reboots on an external PMIC chip.
-> > >
-> > > Signed-off-by: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
-> > > Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
-> > 
-> > Any comment on this?
-> Looks good. Thank you for your work!
-> Do you test it at some board? How can we test simply?
+C3 adds support for clk-measure.
 
-It was tested on Toradex SMARC iMX95, there to power-off/reset the board
-we have some I2C communication required [1].
+Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
+---
+ .../devicetree/bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml    | 1 +
+ 1 file changed, 1 insertion(+)
 
-[1] https://lore.kernel.org/all/20250407114947.41421-3-francesco@dolcini.it/
+diff --git a/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml b/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml
+index 77c281153010..275afe7fe374 100644
+--- a/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml
++++ b/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml
+@@ -22,6 +22,7 @@ properties:
+       - amlogic,meson-axg-clk-measure
+       - amlogic,meson-g12a-clk-measure
+       - amlogic,meson-sm1-clk-measure
++      - amlogic,c3-clk-measure
+ 
+   reg:
+     maxItems: 1
 
-Francesco
+-- 
+2.42.0
+
 
 
