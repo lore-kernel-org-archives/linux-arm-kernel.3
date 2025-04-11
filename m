@@ -4,75 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12CCDC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 16:38:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28EFAC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 16:47:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LJZTQ2SY6vcVQkibydt8riYRRhAOudyW7VtRh27AZQo=; b=QrWH8HYAT9mAiAmp49D79gNMHp
-	KQCCoQrmgOa9cw3u6ALhugt3SGykqPUW5dybo9J0gfMgkZW8kqySiB5pPJXhdKqx4X14t9wKy0qoF
-	0HA4VTcptwKRi79mCRWt9AS/UGQ/xTGIeSfVOzMECujFMWOV9N+NoZcCgFKpWiP3WusBMlCR/LA6B
-	065dLzW4+H4rLSoNWv5cz6ARbzPERt/h5ifRVrtYa3pYGBrHVmf5saiaUbHPtZJQ2sdvBTd29/LXU
-	jxmjEXXKbIyi6EQfc2YP+ASY3SCn0cDg4U9GMl8OlhK3zMYtYsBxve/k+85m5DDSPON1oBK96Q1/c
-	/J2j093A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=7Hy/o3nG5Q0jilQ4tUZ6ieJrgo2oTBAgj+bIBIKbyKE=; b=RvaSP5FCwh+/Am
+	HszgfRlPgFgcHHrh2V8bo4D2LkmiCJh++tjZNXZ61c+YTAPY8wxLwxUWkFh5hKpm8dj7AyWQtveYH
+	eoxQAxp6272Q/A17OjheMfDgT1J4dc465vj+f5e2P8JmvSItvjEziTo0oplRlwnXpGsOphNh+NAYT
+	Q/dwrrZZ1KbS0woIjk/Mhcpf4/Rd2wNedLM5xDWkw8DgaHokWoKi4+ZGv4S/t6dLe7iC3FHe+a2QB
+	TCsaREam7WaYOb4xJQsD3i7m8Yih2upLs4L4zC6JJ96qjCFjdglS66GmxZYXloKS/FseBO9zHMJHv
+	6wb56bM7KI9xMIcRSH3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3HOE-0000000EOEh-2VjU;
-	Fri, 11 Apr 2025 16:38:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u3HXd-0000000EPcA-0au3;
+	Fri, 11 Apr 2025 16:47:45 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3HMP-0000000ENxR-0jS4
+	id 1u3HVm-0000000EPEb-24WS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 16:36:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AC6BF44040;
-	Fri, 11 Apr 2025 16:36:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7ABFAC4CEE2;
-	Fri, 11 Apr 2025 16:36:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744389368;
-	bh=57EeinT2kFyZ3eosPEp0yhJlIy364+wh69p+Prj2EKc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FDmjxAYm5b0bmRinJ1+KmL15n0Aam/EUskqODzz2KdMFYiIuv0uVDY5Mu2t9noqE9
-	 Oz/0e5o4SdRpqsDjyGz0uZ9ncVaF5qQQ0PcZkVGvnVO/UFtVJTdfGTe6+pNof/ALH1
-	 vFA1+tNU+0Okw+44X1B/4ZEkpQnhJ/w2s68uW0ilKH/wcuXO5Zzoq6zxhkDzVddFSm
-	 MFLNuKGgYkIk3WzvYTVq+pfdW7GTW383TmwrMFG82Lty99Durco3wZsF2W42lT2K4+
-	 y46BsEwtef8lwu3gCyXR9+MWwa4UNMZWYZpXazsDBp1z97rGGSWgKaTPji/uk3/ag9
-	 x3+U+4W3giOhQ==
-Date: Fri, 11 Apr 2025 17:36:02 +0100
-From: Simon Horman <horms@kernel.org>
-To: Boon Khai Ng <boon.khai.ng@altera.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	bpf@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Matthew Gerlach <matthew.gerlach@altera.com>,
-	Tien Sung Ang <tien.sung.ang@altera.com>,
-	Mun Yew Tham <mun.yew.tham@altera.com>,
-	G Thomas Rohan <rohan.g.thomas@altera.com>
-Subject: Re: [PATCH net-next v3 1/2] net: stmmac: Refactor VLAN implementation
-Message-ID: <20250411163602.GM395307@horms.kernel.org>
-References: <20250408081354.25881-1-boon.khai.ng@altera.com>
- <20250408081354.25881-2-boon.khai.ng@altera.com>
+	Fri, 11 Apr 2025 16:45:52 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id A35B225F49;
+	Fri, 11 Apr 2025 18:45:42 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id xvqhbX4tnDXa; Fri, 11 Apr 2025 18:45:41 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1744389941; bh=V3sxT0qWZ/R8AKqPO0IIuyuOMKHgyM1WtuhpqaQCYEA=;
+	h=From:Subject:Date:To:Cc;
+	b=NAwYElFpo0iol0/zFsohXnhlAPzzFBZEmTZFfToU4i8W9UuCH1YYwHefvLtT5tJ+s
+	 evjy7lZKmaCmbVZdKoo1xAU3X76MfsjOlqbDVQEnJPwNnObgnCGEnbkyFaZwdmCu06
+	 QrhLlup+jYxNF3UkVMAZB2hSU30Gk0QufLcoTNAHCs/XskkWvVbQoMXl+QYkRgno3P
+	 AoJ+22M3sPYjZMTt++IiKE5awT8aYSxnGytdkSBhyF/pMlWhSJ1yRKgKSE7fp4U5nq
+	 26DxdrbTuNP41QR5uVoxjGdT3UPoyUQn+JmkE0JQPDNQVR7SB53HaSNMFRHaz5b/3u
+	 PxwIVUJ82PHsw==
+From: Kaustabh Chakraborty <kauschluss@disroot.org>
+Subject: [PATCH v5 0/5] Add support for the Exynos7870 SoC, along with
+ three devices
+Date: Fri, 11 Apr 2025 22:15:26 +0530
+Message-Id: <20250411-exynos7870-v5-0-6b319ae36c36@disroot.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250408081354.25881-2-boon.khai.ng@altera.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIACZH+WcC/2XPTQ7CIBCG4asY1mIGhp/WlfcwLtoyKJtioCEa0
+ 7tLTYxtXH4kz5vhxTKlQJkddy+WqIQc4liH3u/YcOvGK/Hg6mYSpAYJgtPjOcZsGwscVKsbS6q
+ 3zrMK7ol8eHxi50vdt5CnmJ6fdhHL6zeD60wRHLjsjfPKmg49nFzIKcbpENOVLaEi11htsKxYG
+ xQojCYPwz/GFRbtBmPFhI3yvREwdO4fqx/G7e+LWs5updZofdvLbovneX4D4tN85l0BAAA=
+X-Change-ID: 20250201-exynos7870-049587e4b7df
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
+ "Guilherme G. Piccoli" <gpiccoli@igalia.com>
+Cc: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
+ Kaustabh Chakraborty <kauschluss@disroot.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1744389935; l=4583;
+ i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
+ bh=V3sxT0qWZ/R8AKqPO0IIuyuOMKHgyM1WtuhpqaQCYEA=;
+ b=o+VuDB2WheNDUMCGnoZ2gElnKolyJ2/lIWMiqlill+FlNKlquXCo55nvISPflRj0cTOuGaQkb
+ c+ACMSG7PlLAZxrzpH4NDni4P4AsuXOIt2NAR9H+t6oK98rKddwnjCY
+X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
+ pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_093609_248607_7B5AC8E1 
-X-CRM114-Status: GOOD (  14.94  )
+X-CRM114-CacheID: sfid-20250411_094551_082886_5ADB2D0D 
+X-CRM114-Status: GOOD (  10.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,58 +89,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 08, 2025 at 04:13:53PM +0800, Boon Khai Ng wrote:
-> Refactor VLAN implementation by moving common code for DWMAC4 and
-> DWXGMAC IPs into a separate VLAN module. VLAN implementation for
-> DWMAC4 and DWXGMAC differs only for CSR base address, the descriptor
-> for the VLAN ID and VLAN VALID bit field.
-> 
-> Signed-off-by: Boon Khai Ng <boon.khai.ng@altera.com>
-> Reviewed-by: Matthew Gerlach <matthew.gerlach@altera.com>
+Samsung Exynos 7870 (codename: Joshua) is an ARM-v8 system-on-chip that was
+announced in 2016. The chipset was found in several popular mid-range to
+low-end Samsung phones, released within 2016 to 2019.
 
-...
+This patch series aims to add support for Exynos 7870, starting with the
+most basic yet essential components such as CPU, GPU, clock controllers,
+PMIC, pin controllers, etc.
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
+Moreover, the series also adds support for three Exynos 7870 devices via
+devicetree. The devices are:
+ * Samsung Galaxy J7 Prime	- released 2016, codename on7xelte
+ * Samsung Galaxy J6		- released 2018, codename j6lte
+ * Samsung Galaxy A2 Core	- released 2019, codename a2corelte
 
-...
+Additional features implemented in this series include:
+ * I2C	- touchscreen, IIO sensors, etc.
+ * UART	- bluetooth and serial debugging
+ * MMC	- eMMC, Wi-Fi SDIO, SDCard
+ * USB	- micro-USB 2.0 interface
 
-> @@ -965,45 +807,6 @@ static void dwmac4_set_mac_loopback(void __iomem *ioaddr, bool enable)
->  	writel(value, ioaddr + GMAC_CONFIG);
->  }
->  
-> -static void dwmac4_update_vlan_hash(struct mac_device_info *hw, u32 hash,
-> -				    u16 perfect_match, bool is_double)
+Build dependencies are in these sub-series:
+ * pmu-clocks		A https://lore.kernel.org/all/20250301-exynos7870-pmu-clocks-v5-0-715b646d5206@disroot.org/
 
-...
+Other related sub-series:
+ * gpu			A https://lore.kernel.org/all/20250318-exynos7870-gpu-v1-1-084863f28b5c@disroot.org/
+ * i2c	      		A https://lore.kernel.org/all/20250204-exynos7870-i2c-v1-0-63d67871ab7e@disroot.org/
+ * mmc			A https://lore.kernel.org/all/20250219-exynos7870-mmc-v2-0-b4255a3e39ed@disroot.org/
+ * pinctrl	  	A https://lore.kernel.org/all/20250301-exynos7870-pinctrl-v3-0-ba1da9d3cd2f@disroot.org/
+ * pmic-regulators	A https://lore.kernel.org/all/20250301-exynos7870-pmic-regulators-v3-0-808d0b47a564@disroot.org/
+ * uart			A https://lore.kernel.org/all/20250318-exynos7870-uart-v2-1-b9dcf145ae87@disroot.org/
+ * usb			A https://lore.kernel.org/all/20250301-exynos7870-usb-v3-0-f01697165d19@disroot.org/
+ * usbphy		A https://lore.kernel.org/all/20250410-exynos7870-usbphy-v2-0-2eb005987455@disroot.org/
+(Legend: [R]eviewed, [A]pplied)
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
-> index a6d395c6bacd..d9f41c047e5e 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
-> @@ -614,76 +614,6 @@ static int dwxgmac2_rss_configure(struct mac_device_info *hw,
->  	return 0;
->  }
->  
-> -static void dwxgmac2_update_vlan_hash(struct mac_device_info *hw, u32 hash,
-> -				      u16 perfect_match, bool is_double)
+Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+---
+Changes in v5:
+- Drop the exynos7870-bootmode patchset for now.
+- Add card-detect-delay and cd-broken properties in sd-mmc nodes.
+- Drop the following applied patches:
+  [v4 1/7] dt-bindings: soc: samsung: exynos-pmu: add exynos7870-pmu compatible
+  [v4 3/7] soc: samsung: exynos-chipid: add support for exynos7870
+- Link to v4: https://lore.kernel.org/r/20250301-exynos7870-v4-0-2925537f9b2a@disroot.org
 
-...
+Changes in v4:
+- Drop merged [PATCH v3 1/7].
+- Explicitly mention sub-series having build dependencies.
+- Include the following patch from the pmu-clocks series:
+  - dt-bindings: soc: samsung: exynos-pmu: add exynos7870-pmu compatible
+- Adjust clock header file name to match changes in pmu-clocks.
+- Change regulator node names to match changes in pmic-regulators.
+- Remove non-removable flag for the SDCard's mmc node.
+- Link to v3: https://lore.kernel.org/r/20250219-exynos7870-v3-0-e384fb610cad@disroot.org
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
+Changes in v3:
+- Added patches from https://lore.kernel.org/all/20250204-exynos7870-chipid-v1-0-0bf2db08e621@disroot.org/
+- Fix devicetree formatting according to the devicetree style guide.
+- Take over ownership of patches by the co-author, upon their request.
+- Link to v2: https://lore.kernel.org/r/20250204-exynos7870-v2-0-56313165ef0c@disroot.org
 
-...
+Changes in v2:
+- Redo a few commit descriptions.
+- Split patchsets into multiple sub-series, subsystem-wise.
+- Link to v1: https://lore.kernel.org/r/20250203-exynos7870-v1-0-2b6df476a3f0@disroot.org
 
-> +static void vlan_update_hash(struct mac_device_info *hw, u32 hash,
-> +			     __le16 perfect_match, bool is_double)
+---
+Kaustabh Chakraborty (5):
+      dt-bindings: arm: samsung: add compatibles for exynos7870 devices
+      arm64: dts: exynos: add initial devicetree support for exynos7870
+      arm64: dts: exynos: add initial support for Samsung Galaxy J7 Prime
+      arm64: dts: exynos: add initial support for Samsung Galaxy A2 Core
+      arm64: dts: exynos: add initial support for Samsung Galaxy J6
 
-...
+ .../bindings/arm/samsung/samsung-boards.yaml       |    8 +
+ arch/arm64/boot/dts/exynos/Makefile                |    3 +
+ .../arm64/boot/dts/exynos/exynos7870-a2corelte.dts |  630 ++++++++++++
+ arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts    |  618 ++++++++++++
+ arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dts |  666 +++++++++++++
+ arch/arm64/boot/dts/exynos/exynos7870-pinctrl.dtsi | 1022 ++++++++++++++++++++
+ arch/arm64/boot/dts/exynos/exynos7870.dtsi         |  713 ++++++++++++++
+ 7 files changed, 3660 insertions(+)
+---
+base-commit: 29e7bf01ed8033c9a14ed0dc990dfe2736dbcd18
+change-id: 20250201-exynos7870-049587e4b7df
 
-Hi,
+Best regards,
+-- 
+Kaustabh Chakraborty <kauschluss@disroot.org>
 
-The signature of this new function does not appear to match that of the
-functions it replaces. And it appears to regress the endian annotation of
-perfect_match which was corrected in commit e9dbebae2e3c ("net: stmmac:
-Correct byte order of perfect_match")
-
-Flagged by Sparse.
 
