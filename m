@@ -4,160 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F502C369A8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 09:21:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3831CC369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 09:23:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ufhmds+kkSlO2rSMDq46DFe1lGxthqem6KM44BdOhnI=; b=4rylNLtLlzmBPwVna9OcDrj4M5
-	Vyts/Z4BCxxfbICQ6sohy1WgApjbA0Ai0XXCm1EkjfSBBQfj+fvdD0M1R6W5o+3eeYSQ6OlAejhtj
-	M5gahPNyKS7eCO818giZxP88LpovzKEnCBzTBhkq70tdxFB1HyYm6618Xi+5t2wp2LuK0Tsf2ruqh
-	631f+Q5kNXJkvrClx1L33it9QSaoLXNLIJsrm2MnHSneeC3bBxA6POyJCdYvRLtQXxLM12azPDv/e
-	oPBBpkQvwgjyyLbQ6zF4Y5qCN6b7NoNL/iWy+4iNM+yVpYpAs+PLch/RrX1RIR4x3nQCO0Rg7hXmy
-	6gGel8DQ==;
+	bh=0TInbeeHsJ1w6rsCRtJk/Jeb1cP06TeabMr1jT8HfEs=; b=J2oMe4svO8Xq00nSoO5h8Hha/3
+	L6GsN8JX0DG+1NEoRwsq63FjKf6i0dfikHGWn+xSw7WpxDAec07mF4bjYA6kb9GHlanhw4SJlXoMD
+	uFcjHqEEDmLCbS3I4vK1Vm4l5zxtg9lhLTi/9tX49HxMMYzj+exQXO6N8rPqRQ8li8et6npXzsOZY
+	osO3m8gfFUHEb1x0X7Zkd59/PJ4QlJoqgRiGZ0m48Q3CYHruSrzE8HKB37xt8dhA1aak9kIXHV8cG
+	xSsRUuWE4bfUoBdam9p5k7Yj5EK6ym/t2FlEFmnAqXCF9IgGiFvTDuI69RIrGv18qBloOcwreikIS
+	Km1c00gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3AZx-0000000DBlw-1pbx;
-	Fri, 11 Apr 2025 09:21:41 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3AVA-0000000DAIU-06kV
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 11 Apr 2025 09:16:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=ufhmds+kkSlO2rSMDq46DFe1lGxthqem6KM44BdOhnI=; b=Rxq2Gu9g0XAbwdefD2QV5cOYlE
-	hf3F2xvwxUMU3b+hAvCUJu6kk8FTcvFLMB83KBrHk2pcDjH2+J8nDl5pWmPI4yX3inIJSHnaf1C0D
-	gPG43wBsZtBZXOWzn3SwVesqyRO7CqF70hS8V2AxcRrTcHT20V8zLWunCyd6MlGHY44wd4MeuP66M
-	BkrNZYWpA9a/U/PMBJJwIf+N4WugK6aB9I1gbghy3PvXzKACvToiy2FP5Bmf7XaVdcI6PO1RHzWvN
-	+V8V0b9W6ic6SHpQI72f5vXWGBBDyKKXaPhZYSbzG0yvLecHBRO9lVXczR2zn0y5bGUHKMwY+jIhh
-	2X3RXQjQ==;
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u3AV6-00000008zh3-2k4k
+	id 1u3Abk-0000000DC7b-159O;
+	Fri, 11 Apr 2025 09:23:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u3AVR-0000000DALL-34xg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 09:16:42 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53B5MB6c019001
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Apr 2025 09:16:38 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	ufhmds+kkSlO2rSMDq46DFe1lGxthqem6KM44BdOhnI=; b=MfRWrUpWHKOXgxYd
-	tlO/p2GZIa8GpGmxViFMmae42WC/Sm1LQQSfsr1NCsUoMXDIaJcLbGKAHmC/vmO9
-	mGCfteziXR1g/s5n4OXVCfBnlE+djitVvKKVaO0PNb1yjIvOk4sXsZyteZl/MXRU
-	0u74+JzCVDzaGwOwQK7IzLVuZqj2WT82Y6ZZdVDBWMoTUSpTGWgMQ5JlvvhiEuf2
-	Dn04zgeuEvj9ASmeFiha/ItVQzLRwcsdtbbXHHOkdsh+X6zRW5qmMas5wY2VLWDj
-	jMR8zbMd2spdPqvT3hrO77tyq2fJSup339513IQbyZBJVJJou3eIdlBUHZjZCLEV
-	8A6aGg==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45twdgt2db-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Apr 2025 09:16:38 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-7c54be4b03aso42620585a.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Apr 2025 02:16:38 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744362997; x=1744967797;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ufhmds+kkSlO2rSMDq46DFe1lGxthqem6KM44BdOhnI=;
-        b=YSc0drA7GFoWzs9+a93Z43OlgV/JsNaln+tPHR+Crw61bXcONsrtOmKMzjSzAA1i2M
-         oobmRfCU9BTqh1OpwUjhkl1ghXbihAAyDY3A8llXhyLqEprxupkjOoJJA/hI8kdQpn2+
-         1RRVeWtSfXz4BNvJw296RsIdoW6dRqRByXU0ATOE+i4+89Vj6GDEYDZDqP8vzoyDuNog
-         BjW3pS2JJPYkqHfbFEuDkQeHD0UhdjpTgsyTgjt1X3SrC3iSZ5KkkPdACjBDZGkJE+uL
-         BZTKL0r+Jr/+OtntGiuaiKwcDCOZ8huXJFiXb9XATYohTBrpiebqU3rIK6nvnH+R0IS0
-         QFzQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWjBzAjRIkoVXzse50evh0BZWT0Oe7bywyQIMSslQmCTUx3QGVKaRuIR6dfCEKHT8WDx13Sy+m+HPBMMC29jKy+@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQ5klBVQLwUtdWTGCisM6zpYbV1JsCes6uh7yb6FmkXCZqnRYa
-	LjQbcNFttz0t7b3ong6tYPn3qJLUaZDtZybYA8xzrheUzhXAppjOF+D14Ev0VomPa832MAefXqz
-	EWKNMoQcj+jNyy7GBcckYZlBaYW89Sb8By2DHdaw9hQptiF2qQPYGydKOh9VvP+WKU3FBTzV0aQ
-	==
-X-Gm-Gg: ASbGncsuLWy1o5AUW/Kn6cj4hOUUzyV64rq+q/gRBu92TfXccHu2KT75KejLDfHA+42
-	AgHrsLXAUZFnCuVXH5q1XIerKcxWBYmZpG8DsbOOX7BRKZN3YnW5tE1Zywu7yQEmw/WSJs13dzw
-	aHkgLQi7TGKRsxVXOqzB8ATmnXUM5wT0R+Gx4iQ81rHO0l6bxIDRM9Hk2zEeKKgSb/mIbf5WEIw
-	npA5888hwQlacJBhXOCWFLEVO+cO/oROaaAZT9rieKG3Exz3ECUCsDeq65Os3V7AmRRa5yfcrHv
-	UxOLksjyRk+kqF9GGeTqY6m7Sj4AmwdwcPV+rfrS1xE4RIgF0vTCUHchswak1un3GA==
-X-Received: by 2002:a05:620a:24d3:b0:7c3:c340:70bf with SMTP id af79cd13be357-7c7b1af7826mr48639685a.14.1744362997412;
-        Fri, 11 Apr 2025 02:16:37 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFk9dXYbzUf6tHquMMviOk/dVPcbI1gX6P3/o7uHdR9WHzJEGAa5g8BLBffgulwxemVb9V1bw==
-X-Received: by 2002:a05:620a:24d3:b0:7c3:c340:70bf with SMTP id af79cd13be357-7c7b1af7826mr48635885a.14.1744362997070;
-        Fri, 11 Apr 2025 02:16:37 -0700 (PDT)
-Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-acaa1be9632sm424190666b.66.2025.04.11.02.16.32
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 11 Apr 2025 02:16:36 -0700 (PDT)
-Message-ID: <d4f29833-a9c3-4942-a333-8ca4e7a8bd97@oss.qualcomm.com>
-Date: Fri, 11 Apr 2025 11:16:31 +0200
+	Fri, 11 Apr 2025 09:17:02 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 081411596;
+	Fri, 11 Apr 2025 02:17:01 -0700 (PDT)
+Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 763A83F6A8;
+	Fri, 11 Apr 2025 02:16:57 -0700 (PDT)
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+To: linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Mark Brown <broonie@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Hildenbrand <david@redhat.com>,
+	Ira Weiny <ira.weiny@intel.com>,
+	Jann Horn <jannh@google.com>,
+	Jeff Xu <jeffxu@chromium.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Kees Cook <kees@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Pierre Langlois <pierre.langlois@arm.com>,
+	Quentin Perret <qperret@google.com>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	"Mike Rapoport (IBM)" <rppt@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Will Deacon <will@kernel.org>,
+	Matthew Wilcox <willy@infradead.org>,
+	Qi Zheng <zhengqi.arch@bytedance.com>,
+	linux-arm-kernel@lists.infradead.org,
+	x86@kernel.org
+Subject: [RFC PATCH v4 01/18] mm: Introduce kpkeys
+Date: Fri, 11 Apr 2025 10:16:14 +0100
+Message-ID: <20250411091631.954228-2-kevin.brodsky@arm.com>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20250411091631.954228-1-kevin.brodsky@arm.com>
+References: <20250411091631.954228-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 07/17] arm: dts: qcom: sdx55/sdx65: Fix CPU
- power-domain-names
-To: "Rob Herring (Arm)" <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Samuel Holland <samuel@sholland.org>, Conor Dooley <conor@kernel.org>,
-        Nicolas Ferre <nicolas.ferre@microchip.com>,
-        Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-        Steen Hegelund <Steen.Hegelund@microchip.com>,
-        Daniel Machon <daniel.machon@microchip.com>,
-        UNGLinuxDriver@microchip.com, Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>, Heiko Stuebner <heiko@sntech.de>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Kevin Hilman <khilman@baylibre.com>,
-        Jerome Brunet <jbrunet@baylibre.com>,
-        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-        Geert Uytterhoeven <geert+renesas@glider.be>,
-        Magnus Damm <magnus.damm@gmail.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Andy Gross <agross@kernel.org>,
-        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-        Viresh Kumar <vireshk@kernel.org>, Nishanth Menon <nm@ti.com>,
-        Stephen Boyd <sboyd@kernel.org>, zhouyanjie@wanyeetech.com,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Stephan Gerhold <stephan.gerhold@linaro.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, imx@lists.linux.dev,
-        linux-rockchip@lists.infradead.org, linux-amlogic@lists.infradead.org,
-        linux-renesas-soc@vger.kernel.org, linux-mips@vger.kernel.org,
-        linux-pm@vger.kernel.org, linux-mediatek@lists.infradead.org
-References: <20250410-dt-cpu-schema-v2-0-63d7dc9ddd0a@kernel.org>
- <20250410-dt-cpu-schema-v2-7-63d7dc9ddd0a@kernel.org>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20250410-dt-cpu-schema-v2-7-63d7dc9ddd0a@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=PJgP+eqC c=1 sm=1 tr=0 ts=67f8ddf6 cx=c_pps a=HLyN3IcIa5EE8TELMZ618Q==:117 a=FpWmc02/iXfjRdCD7H54yg==:17 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=yZJRhKYQK8xzFtgzSFMA:9 a=QEXdDO2ut3YA:10
- a=bTQJ7kPSJx9SKPbeHEYW:22
-X-Proofpoint-ORIG-GUID: hRj942gpAVzhVwoW78tzSKS25i-qRMXi
-X-Proofpoint-GUID: hRj942gpAVzhVwoW78tzSKS25i-qRMXi
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-11_03,2025-04-10_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0
- lowpriorityscore=0 clxscore=1015 adultscore=0 malwarescore=0 spamscore=0
- impostorscore=0 suspectscore=0 mlxlogscore=955 bulkscore=0 mlxscore=0
- priorityscore=1501 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2504110057
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_101641_281839_D078D52E 
-X-CRM114-Status: GOOD (  11.80  )
+X-CRM114-CacheID: sfid-20250411_021701_858464_61C2CBF6 
+X-CRM114-Status: GOOD (  25.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,14 +87,196 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/10/25 5:47 PM, Rob Herring (Arm) wrote:
-> "rpmhpd" is not documented nor used anywhere. The power-domain is used
-> for performance scaling (cpufreq), so "perf" is the correct name to use.
-> 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
+kpkeys is a simple framework to enable the use of protection keys
+(pkeys) to harden the kernel itself. This patch introduces the basic
+API in <linux/kpkeys.h>: a couple of functions to set and restore
+the pkey register and macros to define guard objects.
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+kpkeys introduces a new concept on top of pkeys: the kpkeys level.
+Each level is associated to a set of permissions for the pkeys
+managed by the kpkeys framework. kpkeys_set_level(lvl) sets those
+permissions according to lvl, and returns the original pkey
+register, to be later restored by kpkeys_restore_pkey_reg(). To
+start with, only KPKEYS_LVL_DEFAULT is available, which is meant
+to grant RW access to KPKEYS_PKEY_DEFAULT (i.e. all memory since
+this is the only available pkey for now).
 
-Konrad
+Because each architecture implementing pkeys uses a different
+representation for the pkey register, and may reserve certain pkeys
+for specific uses, support for kpkeys must be explicitly indicated
+by selecting ARCH_HAS_KPKEYS and defining the following functions in
+<asm/kpkeys.h>, in addition to the macros provided in
+<asm-generic/kpkeys.h>:
+
+- arch_kpkeys_set_level()
+- arch_kpkeys_restore_pkey_reg()
+- arch_kpkeys_enabled()
+
+Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+---
+ include/asm-generic/kpkeys.h |  17 ++++++
+ include/linux/kpkeys.h       | 113 +++++++++++++++++++++++++++++++++++
+ mm/Kconfig                   |   2 +
+ 3 files changed, 132 insertions(+)
+ create mode 100644 include/asm-generic/kpkeys.h
+ create mode 100644 include/linux/kpkeys.h
+
+diff --git a/include/asm-generic/kpkeys.h b/include/asm-generic/kpkeys.h
+new file mode 100644
+index 000000000000..ab819f157d6a
+--- /dev/null
++++ b/include/asm-generic/kpkeys.h
+@@ -0,0 +1,17 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef __ASM_GENERIC_KPKEYS_H
++#define __ASM_GENERIC_KPKEYS_H
++
++#ifndef KPKEYS_PKEY_DEFAULT
++#define KPKEYS_PKEY_DEFAULT	0
++#endif
++
++/*
++ * Represents a pkey register value that cannot be used, typically disabling
++ * access to all keys.
++ */
++#ifndef KPKEYS_PKEY_REG_INVAL
++#define KPKEYS_PKEY_REG_INVAL	0
++#endif
++
++#endif	/* __ASM_GENERIC_KPKEYS_H */
+diff --git a/include/linux/kpkeys.h b/include/linux/kpkeys.h
+new file mode 100644
+index 000000000000..faa6e2615798
+--- /dev/null
++++ b/include/linux/kpkeys.h
+@@ -0,0 +1,113 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef _LINUX_KPKEYS_H
++#define _LINUX_KPKEYS_H
++
++#include <linux/bug.h>
++#include <linux/cleanup.h>
++
++#define KPKEYS_LVL_DEFAULT	0
++
++#define KPKEYS_LVL_MIN		KPKEYS_LVL_DEFAULT
++#define KPKEYS_LVL_MAX		KPKEYS_LVL_DEFAULT
++
++#define __KPKEYS_GUARD(name, set_level, restore_pkey_reg, set_arg, ...)	\
++	__DEFINE_CLASS_IS_CONDITIONAL(name, false);			\
++	DEFINE_CLASS(name, u64,						\
++		     restore_pkey_reg, set_level, set_arg);		\
++	static inline void *class_##name##_lock_ptr(u64 *_T)		\
++	{ return _T; }
++
++/**
++ * KPKEYS_GUARD_NOOP() - define a guard type that does nothing
++ * @name: the name of the guard type
++ * @cond_arg: an argument specification (optional)
++ *
++ * Define a guard type that does nothing, useful to match a real guard type
++ * that is defined under an #ifdef. @cond_arg may optionally be passed to match
++ * a guard defined using KPKEYS_GUARD_COND().
++ */
++#define KPKEYS_GUARD_NOOP(name, ...)					\
++	__KPKEYS_GUARD(name, 0, (void)_T, ##__VA_ARGS__, void)
++
++#ifdef CONFIG_ARCH_HAS_KPKEYS
++
++#include <asm/kpkeys.h>
++
++/**
++ * KPKEYS_GUARD_COND() - define a guard type that conditionally switches to
++ *                       a given kpkeys level
++ * @name: the name of the guard type
++ * @level: the kpkeys level to switch to
++ * @cond: an expression that is evaluated as condition
++ * @cond_arg: an argument specification for the condition (optional)
++ *
++ * Define a guard type that switches to @level if @cond evaluates to true, and
++ * does nothing otherwise. @cond_arg may be specified to give access to a
++ * caller-defined argument to @cond.
++ */
++#define KPKEYS_GUARD_COND(name, level, cond, ...)			\
++	__KPKEYS_GUARD(name,						\
++		       cond ? kpkeys_set_level(level)			\
++			    : KPKEYS_PKEY_REG_INVAL,			\
++		       kpkeys_restore_pkey_reg(_T),			\
++		       ##__VA_ARGS__, void)
++
++/**
++ * KPKEYS_GUARD() - define a guard type that switches to a given kpkeys level
++ *                  if kpkeys are enabled
++ * @name: the name of the guard type
++ * @level: the kpkeys level to switch to
++ *
++ * Define a guard type that switches to @level if the system supports kpkeys.
++ */
++#define KPKEYS_GUARD(name, level)					\
++	KPKEYS_GUARD_COND(name, level, arch_kpkeys_enabled())
++
++/**
++ * kpkeys_set_level() - switch kpkeys level
++ * @level: the level to switch to
++ *
++ * Switches the kpkeys level to the specified value. @level must be a
++ * compile-time constant. The arch-specific pkey register will be updated
++ * accordingly, and the original value returned.
++ *
++ * Return: the original pkey register value if the register was written to, or
++ *         KPKEYS_PKEY_REG_INVAL otherwise (no write to the register was
++ *         required).
++ */
++static __always_inline u64 kpkeys_set_level(int level)
++{
++	BUILD_BUG_ON_MSG(!__builtin_constant_p(level),
++			 "kpkeys_set_level() only takes constant levels");
++	BUILD_BUG_ON_MSG(level < KPKEYS_LVL_MIN || level > KPKEYS_LVL_MAX,
++			 "Invalid level passed to kpkeys_set_level()");
++
++	return arch_kpkeys_set_level(level);
++}
++
++/**
++ * kpkeys_restore_pkey_reg() - restores a pkey register value
++ * @pkey_reg: the pkey register value to restore
++ *
++ * This function is meant to be passed the value returned by kpkeys_set_level(),
++ * in order to restore the pkey register to its original value (thus restoring
++ * the original kpkeys level).
++ */
++static __always_inline void kpkeys_restore_pkey_reg(u64 pkey_reg)
++{
++	if (pkey_reg != KPKEYS_PKEY_REG_INVAL)
++		arch_kpkeys_restore_pkey_reg(pkey_reg);
++}
++
++#else /* CONFIG_ARCH_HAS_KPKEYS */
++
++#include <asm-generic/kpkeys.h>
++
++static inline bool arch_kpkeys_enabled(void)
++{
++	return false;
++}
++
++#endif /* CONFIG_ARCH_HAS_KPKEYS */
++
++#endif /* _LINUX_KPKEYS_H */
+diff --git a/mm/Kconfig b/mm/Kconfig
+index e113f713b493..819ef5b70695 100644
+--- a/mm/Kconfig
++++ b/mm/Kconfig
+@@ -1131,6 +1131,8 @@ config ARCH_USES_HIGH_VMA_FLAGS
+ 	bool
+ config ARCH_HAS_PKEYS
+ 	bool
++config ARCH_HAS_KPKEYS
++	bool
+ 
+ config ARCH_USES_PG_ARCH_2
+ 	bool
+-- 
+2.47.0
+
 
