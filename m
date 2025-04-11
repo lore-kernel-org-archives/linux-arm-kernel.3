@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62318C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 01:20:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6454AC3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 01:22:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5d2qecfXxLFsaK8953Ze2wHaQJoHjLdmHiRZ/zMT2W4=; b=n6oiDH2m2PFdXGzy1OerUPON7+
-	x3yIjKtibbu6ba6J+OXdH4MS/6XcBrqCTz1gpsHheGs9npvib8ezJyZFX2/TJn4pxMQwr5nNGQtBL
-	OORlAR4HUIzwZ4dZg1gfrWMdyx99KXNVgysB8m+2/CLoLvwmRE3YLpdsNVK3MvK2QBi882e2C1Q6x
-	tkJUJm3xC+J2KbGohmAcV2yF0dbXRLP/M6FL9ONV9iBjKB/khNpaH6g5TOZwrOlpm3bCOOQ89t5FF
-	1ljfWaTuksI6Mf0MswzGokSg7zv6PqWi9+Ic+5A5UAT7k7MjyrbYxV2QsX5so3R40zFotTUxgbDaI
-	cyvc7fAw==;
+	bh=gIkAaCaSRxoDKHS10fE7AU9S0jyaF+J3B0+u4ydPtBo=; b=UdmAGlxwZNhVXfLr1pQMpUWiEo
+	QFeLbIoH2YugDlCUIYpUwwb8PV8MqSBkSivPX4gIWXpdmYOQDsLNjKS7VQClBbUjbRXdhxxFMhBuz
+	JTYdgIKOtE7zEuEAsvsFbn38gmT2GO2gXQuL0QkWm7ZIydqU+EbM3ASxfvh712ifj8puw2dVNrF4E
+	YAnOrQQNcebmATk0ItDpTlhVh5EloTK8yvnv8Ks1f8FjZgfsssmyngZ4Dz5j73ZqcGokg6RjPaW3F
+	BfxgVEeyLUFjdotA4nbQsehiF02/Aw64TEt4yc8D+wcF+rIhKBVnXDC5njCfFCgOlHeoB66uepyqQ
+	il7afgRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u334E-0000000CEEi-0a9H;
-	Fri, 11 Apr 2025 01:20:26 +0000
+	id 1u3360-0000000CERw-3xzp;
+	Fri, 11 Apr 2025 01:22:16 +0000
 Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u32tU-0000000CCTw-0LX3
+	id 1u32tU-0000000CCU5-1QIQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 01:09:21 +0000
+	Fri, 11 Apr 2025 01:09:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1744333751;
-	bh=5d2qecfXxLFsaK8953Ze2wHaQJoHjLdmHiRZ/zMT2W4=;
+	d=codeconstruct.com.au; s=2022a; t=1744333752;
+	bh=gIkAaCaSRxoDKHS10fE7AU9S0jyaF+J3B0+u4ydPtBo=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=RxRK3urbtqHCux2yvKr3Gday1m7MxlHZfjP51M0pU7PtXXAT6nSXsvkkTYg3uMMzL
-	 /gkibMwHZ0RtmYUM63NDsXRhzokmXqknjY4/NNbs/0/6cA6SNZ+9icNt9jF1oNGGcj
-	 3fACPSlg+D8I4YoBhHbIoSs0d+4bEEoSEiUdQXcfdxBdLLJsLJToHz7kpZAaO5rmYF
-	 WGbYEV5lG01NjsKuKcrqj9K/RjQcBwDTllRIi65WReUgZleU2ZY9p55O2U+bffwH/o
-	 /SGlyOXaBms/TwX/EibCD6hT3lMLAhPl0C4p2fU6Z5zZzaR+T3sWPtIxbiK5XEdI4g
-	 0CvxqQkgLB8Rg==
+	b=Q8c6qqoe+aZNDwwnV4L7OyUawRWb9tkB2mDBA6g0V4v6FjJVBOgcuXKiF4TcHubPT
+	 J+WwIuvytl9UydDMC7o2yZC6P7/4m0F1zzHaUlNygBrGOlVe+UPeaKMdKmwJRHIdx2
+	 RiKE5z3xdHKX+QOcCfG7/ZDSRlZf4AwFu1L8t4rKRI6YLeRrUAhU66eAQCFTn/LCrK
+	 JKvQDNQPBBpgAfBggNqRMaqgsPruKNGtDWZXl0B1qYxcnkyq0G2+pLPLi+8SZCdWUL
+	 ltXjZ+6fo62eSYxrPS39qZPcB+LfR5sDyCiEqOLe7J00pbIgkUo/tKhS4LvEo/60Nt
+	 2M2m3Zo1T3IwQ==
 Received: from [127.0.1.1] (unknown [180.150.112.225])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id A59267D715;
-	Fri, 11 Apr 2025 09:09:10 +0800 (AWST)
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 09C097D717;
+	Fri, 11 Apr 2025 09:09:11 +0800 (AWST)
 From: Andrew Jeffery <andrew@codeconstruct.com.au>
-Date: Fri, 11 Apr 2025 10:38:35 +0930
-Subject: [PATCH 5/7] soc: aspeed: lpc-snoop: Rename 'channel' to 'index' in
- channel paths
+Date: Fri, 11 Apr 2025 10:38:37 +0930
+Subject: [PATCH 7/7] soc: aspeed: lpc-snoop: Lift channel config to const
+ structs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250411-aspeed-lpc-snoop-fixes-v1-5-64f522e3ad6f@codeconstruct.com.au>
+Message-Id: <20250411-aspeed-lpc-snoop-fixes-v1-7-64f522e3ad6f@codeconstruct.com.au>
 References: <20250411-aspeed-lpc-snoop-fixes-v1-0-64f522e3ad6f@codeconstruct.com.au>
 In-Reply-To: <20250411-aspeed-lpc-snoop-fixes-v1-0-64f522e3ad6f@codeconstruct.com.au>
 To: linux-aspeed@lists.ozlabs.org
@@ -60,8 +60,8 @@ Cc: Joel Stanley <joel@jms.id.au>, Henry Martin <bsdhenrymartin@gmail.com>,
  linux-kernel@vger.kernel.org, Andrew Jeffery <andrew@codeconstruct.com.au>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_180920_344193_6256E0EF 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20250410_180920_619175_94388212 
+X-CRM114-Status: GOOD (  15.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,122 +76,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We'll introduce another 'channel' variable shortly
+The shifts and masks for each channel are defined by hardware and
+are not something that changes at runtime. Accordingly, describe the
+information in an array of const structs and associate elements with
+each channel instance, removing the need for the switch and handling of
+its default case.
 
 Signed-off-by: Andrew Jeffery <andrew@codeconstruct.com.au>
 ---
- drivers/soc/aspeed/aspeed-lpc-snoop.c | 47 ++++++++++++++++++-----------------
- 1 file changed, 24 insertions(+), 23 deletions(-)
+ drivers/soc/aspeed/aspeed-lpc-snoop.c | 82 +++++++++++++++++------------------
+ 1 file changed, 41 insertions(+), 41 deletions(-)
 
 diff --git a/drivers/soc/aspeed/aspeed-lpc-snoop.c b/drivers/soc/aspeed/aspeed-lpc-snoop.c
-index 6ab362aeb180c8ad356422d8257717f41a232b3c..f6952f71eda52c95aea5ad1084edd218b88f1234 100644
+index 0b2044fd79b1be08dfa33bfcaf249b020c909bb9..b54d8fbf7b83ebadd4fe1b16cbddf07a0bfac868 100644
 --- a/drivers/soc/aspeed/aspeed-lpc-snoop.c
 +++ b/drivers/soc/aspeed/aspeed-lpc-snoop.c
-@@ -185,40 +185,40 @@ static int aspeed_lpc_snoop_config_irq(struct aspeed_lpc_snoop *lpc_snoop,
- __attribute__((nonnull))
- static int aspeed_lpc_enable_snoop(struct aspeed_lpc_snoop *lpc_snoop,
- 				   struct device *dev,
--				   int channel, u16 lpc_port)
-+				   int index, u16 lpc_port)
+@@ -10,6 +10,7 @@
+  * 0x80 writes made by the BIOS during the boot process.
+  */
+ 
++#include "linux/ratelimit.h"
+ #include <linux/bitops.h>
+ #include <linux/clk.h>
+ #include <linux/interrupt.h>
+@@ -57,7 +58,15 @@ struct aspeed_lpc_snoop_model_data {
+ 	unsigned int has_hicrb_ensnp;
+ };
+ 
++struct aspeed_lpc_snoop_channel_cfg {
++	u32 hicr5_en;
++	u32 snpwadr_mask;
++	u32 snpwadr_shift;
++	u32 hicrb_en;
++};
++
+ struct aspeed_lpc_snoop_channel {
++	const struct aspeed_lpc_snoop_channel_cfg *cfg;
+ 	bool enabled;
+ 	struct kfifo		fifo;
+ 	wait_queue_head_t	wq;
+@@ -188,7 +197,6 @@ static int aspeed_lpc_enable_snoop(struct aspeed_lpc_snoop *lpc_snoop,
+ 				   int index, u16 lpc_port)
  {
  	const struct aspeed_lpc_snoop_model_data *model_data;
- 	u32 hicr5_en, snpwadr_mask, snpwadr_shift, hicrb_en;
+-	u32 hicr5_en, snpwadr_mask, snpwadr_shift, hicrb_en;
+ 	struct aspeed_lpc_snoop_channel *channel;
  	int rc = 0;
  
--	if (channel < 0 || channel >= ARRAY_SIZE(lpc_snoop->chan))
-+	if (index < 0 || index >= ARRAY_SIZE(lpc_snoop->chan))
- 		return -EINVAL;
- 
--	if (lpc_snoop->chan[channel].enabled)
-+	if (lpc_snoop->chan[index].enabled)
+@@ -200,6 +208,9 @@ static int aspeed_lpc_enable_snoop(struct aspeed_lpc_snoop *lpc_snoop,
+ 	if (channel->enabled)
  		return -EBUSY;
  
--	init_waitqueue_head(&lpc_snoop->chan[channel].wq);
-+	init_waitqueue_head(&lpc_snoop->chan[index].wq);
- 	/* Create FIFO datastructure */
--	rc = kfifo_alloc(&lpc_snoop->chan[channel].fifo,
-+	rc = kfifo_alloc(&lpc_snoop->chan[index].fifo,
- 			 SNOOP_FIFO_SIZE, GFP_KERNEL);
- 	if (rc)
- 		return rc;
++	if (WARN_ONCE(!channel->cfg, "snoop channel %d lacks required config", index))
++		return -EINVAL;
++
+ 	init_waitqueue_head(&channel->wq);
  
--	lpc_snoop->chan[channel].miscdev.minor = MISC_DYNAMIC_MINOR;
--	lpc_snoop->chan[channel].miscdev.name =
--		devm_kasprintf(dev, GFP_KERNEL, "%s%d", DEVICE_NAME, channel);
--	if (!lpc_snoop->chan[channel].miscdev.name) {
-+	lpc_snoop->chan[index].miscdev.minor = MISC_DYNAMIC_MINOR;
-+	lpc_snoop->chan[index].miscdev.name =
-+		devm_kasprintf(dev, GFP_KERNEL, "%s%d", DEVICE_NAME, index);
-+	if (!lpc_snoop->chan[index].miscdev.name) {
- 		rc = -ENOMEM;
- 		goto err_free_fifo;
- 	}
--	lpc_snoop->chan[channel].miscdev.fops = &snoop_fops;
--	lpc_snoop->chan[channel].miscdev.parent = dev;
--	rc = misc_register(&lpc_snoop->chan[channel].miscdev);
-+	lpc_snoop->chan[index].miscdev.fops = &snoop_fops;
-+	lpc_snoop->chan[index].miscdev.parent = dev;
-+	rc = misc_register(&lpc_snoop->chan[index].miscdev);
- 	if (rc)
+ 	channel->miscdev.minor = MISC_DYNAMIC_MINOR;
+@@ -220,39 +231,20 @@ static int aspeed_lpc_enable_snoop(struct aspeed_lpc_snoop *lpc_snoop,
  		goto err_free_fifo;
  
  	/* Enable LPC snoop channel at requested port */
--	switch (channel) {
-+	switch (index) {
- 	case 0:
- 		hicr5_en = HICR5_EN_SNP0W | HICR5_ENINT_SNP0W;
- 		snpwadr_mask = SNPWADR_CH0_MASK;
-@@ -244,28 +244,29 @@ static int aspeed_lpc_enable_snoop(struct aspeed_lpc_snoop *lpc_snoop,
- 	if (model_data && model_data->has_hicrb_ensnp)
- 		regmap_update_bits(lpc_snoop->regmap, HICRB, hicrb_en, hicrb_en);
+-	switch (index) {
+-	case 0:
+-		hicr5_en = HICR5_EN_SNP0W | HICR5_ENINT_SNP0W;
+-		snpwadr_mask = SNPWADR_CH0_MASK;
+-		snpwadr_shift = SNPWADR_CH0_SHIFT;
+-		hicrb_en = HICRB_ENSNP0D;
+-		break;
+-	case 1:
+-		hicr5_en = HICR5_EN_SNP1W | HICR5_ENINT_SNP1W;
+-		snpwadr_mask = SNPWADR_CH1_MASK;
+-		snpwadr_shift = SNPWADR_CH1_SHIFT;
+-		hicrb_en = HICRB_ENSNP1D;
+-		break;
+-	default:
+-		rc = -EINVAL;
+-		goto err_misc_deregister;
+-	}
+-
+-	/* Enable LPC snoop channel at requested port */
+-	regmap_update_bits(lpc_snoop->regmap, HICR5, hicr5_en, hicr5_en);
+-	regmap_update_bits(lpc_snoop->regmap, SNPWADR, snpwadr_mask,
+-			   lpc_port << snpwadr_shift);
++	regmap_update_bits(lpc_snoop->regmap, HICR5, channel->cfg->hicr5_en,
++		channel->cfg->hicr5_en);
++	regmap_update_bits(lpc_snoop->regmap, SNPWADR, channel->cfg->snpwadr_mask,
++		lpc_port << channel->cfg->snpwadr_shift);
  
--	lpc_snoop->chan[channel].enabled = true;
-+	lpc_snoop->chan[index].enabled = true;
+ 	model_data = of_device_get_match_data(dev);
+ 	if (model_data && model_data->has_hicrb_ensnp)
+-		regmap_update_bits(lpc_snoop->regmap, HICRB, hicrb_en, hicrb_en);
++		regmap_update_bits(lpc_snoop->regmap, HICRB, channel->cfg->hicrb_en,
++			channel->cfg->hicrb_en);
+ 
+ 	channel->enabled = true;
  
  	return 0;
  
- err_misc_deregister:
--	misc_deregister(&lpc_snoop->chan[channel].miscdev);
-+	misc_deregister(&lpc_snoop->chan[index].miscdev);
+-err_misc_deregister:
+-	misc_deregister(&lpc_snoop->chan[index].miscdev);
  err_free_fifo:
--	kfifo_free(&lpc_snoop->chan[channel].fifo);
-+	kfifo_free(&lpc_snoop->chan[index].fifo);
+ 	kfifo_free(&lpc_snoop->chan[index].fifo);
  	return rc;
- }
- 
- __attribute__((nonnull))
- static void aspeed_lpc_disable_snoop(struct aspeed_lpc_snoop *lpc_snoop,
--				     int channel)
-+				     int index)
- {
--	if (channel < 0 || channel >= ARRAY_SIZE(lpc_snoop->chan))
-+	if (index < 0 || index >= ARRAY_SIZE(lpc_snoop->chan))
+@@ -272,21 +264,7 @@ static void aspeed_lpc_disable_snoop(struct aspeed_lpc_snoop *lpc_snoop,
+ 	if (!channel->enabled)
  		return;
  
--	if (!lpc_snoop->chan[channel].enabled)
-+	if (!lpc_snoop->chan[index].enabled)
- 		return;
+-	/* Disable interrupts along with the device */
+-	switch (index) {
+-	case 0:
+-		regmap_update_bits(lpc_snoop->regmap, HICR5,
+-				   HICR5_EN_SNP0W | HICR5_ENINT_SNP0W,
+-				   0);
+-		break;
+-	case 1:
+-		regmap_update_bits(lpc_snoop->regmap, HICR5,
+-				   HICR5_EN_SNP1W | HICR5_ENINT_SNP1W,
+-				   0);
+-		break;
+-	default:
+-		return;
+-	}
++	regmap_update_bits(lpc_snoop->regmap, HICR5, channel->cfg->hicr5_en, 0);
  
--	switch (channel) {
-+	/* Disable interrupts along with the device */
-+	switch (index) {
- 	case 0:
- 		regmap_update_bits(lpc_snoop->regmap, HICR5,
- 				   HICR5_EN_SNP0W | HICR5_ENINT_SNP0W,
-@@ -280,10 +281,10 @@ static void aspeed_lpc_disable_snoop(struct aspeed_lpc_snoop *lpc_snoop,
- 		return;
- 	}
- 
--	lpc_snoop->chan[channel].enabled = false;
-+	lpc_snoop->chan[index].enabled = false;
+ 	channel->enabled = false;
  	/* Consider improving safety wrt concurrent reader(s) */
--	misc_deregister(&lpc_snoop->chan[channel].miscdev);
--	kfifo_free(&lpc_snoop->chan[channel].fifo);
-+	misc_deregister(&lpc_snoop->chan[index].miscdev);
-+	kfifo_free(&lpc_snoop->chan[index].fifo);
+@@ -294,6 +272,21 @@ static void aspeed_lpc_disable_snoop(struct aspeed_lpc_snoop *lpc_snoop,
+ 	kfifo_free(&channel->fifo);
  }
  
++static const struct aspeed_lpc_snoop_channel_cfg channel_cfgs[] = {
++	{
++		.hicr5_en = HICR5_EN_SNP0W | HICR5_ENINT_SNP0W,
++		.snpwadr_mask = SNPWADR_CH0_MASK,
++		.snpwadr_shift = SNPWADR_CH0_SHIFT,
++		.hicrb_en = HICRB_ENSNP0D,
++	},
++	{
++		.hicr5_en = HICR5_EN_SNP1W | HICR5_ENINT_SNP1W,
++		.snpwadr_mask = SNPWADR_CH1_MASK,
++		.snpwadr_shift = SNPWADR_CH1_SHIFT,
++		.hicrb_en = HICRB_ENSNP1D,
++	},
++};
++
  static int aspeed_lpc_snoop_probe(struct platform_device *pdev)
+ {
+ 	struct aspeed_lpc_snoop *lpc_snoop;
+@@ -308,6 +301,13 @@ static int aspeed_lpc_snoop_probe(struct platform_device *pdev)
+ 	if (!lpc_snoop)
+ 		return -ENOMEM;
+ 
++	static_assert(ARRAY_SIZE(channel_cfgs) == ARRAY_SIZE(lpc_snoop->chan),
++		"Broken implementation assumption regarding cfg count");
++	static_assert(ARRAY_SIZE(lpc_snoop->chan) == 2,
++		"Broken implementation assumption regarding channel count");
++	lpc_snoop->chan[0].cfg = &channel_cfgs[0];
++	lpc_snoop->chan[1].cfg = &channel_cfgs[1];
++
+ 	np = pdev->dev.parent->of_node;
+ 	if (!of_device_is_compatible(np, "aspeed,ast2400-lpc-v2") &&
+ 	    !of_device_is_compatible(np, "aspeed,ast2500-lpc-v2") &&
 
 -- 
 2.39.5
