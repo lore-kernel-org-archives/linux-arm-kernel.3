@@ -4,155 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5769FC369AA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 11:19:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 354D7C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 11:19:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bbGbelVGIDrNnjV2eRO7q/HwO7+XyPyDxKBfklRgjWM=; b=hHyj1m4jqsBjraqMCLCwPqUrDP
-	Sl8ZHLUasHBJ6iMnzSj83iXJzNsJbXU3z872ieo0P4iZajxgSpi901U2+72oTN7qyFEapniCTrumE
-	AyEGdA2xuTG1dbaXFaPPDyRn9psg6aIK7QOycgTBSlyIDQJwF3s+2AQj0rbExhDZnYuMl8QAuzC//
-	xuTR4YKIBj0OJlJIUnaWRaj4SifSvaa8HGyULjyBl0x0Yi4nnJqO2LyNxenKnIRp0d9IYvk55kcFb
-	XFyubSOSYSFhI9s/6Ok7csRmILRL4p8d51VX+b/zbPWzfKOEQ0WE2SCVrPgSGKhq6Jp6aLPHLWnYp
-	OtZ/GjBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=clvvleoLHP626PSlzlzVO7YGDPkEhF6mXc6EuaQnEb4=; b=i4F8J42miKK3mRlZuo4QJ8QChD
+	9d4tMNFIZKqKQh4LaO+DC8piIT7cJxIT08iyAEjtNiOQn2jdhBlEL2WCDGioddwAbI0AiQzkF7QaJ
+	PVS5yqb9HWbxHH6EyJtuSRCOKOdJPGW3sJU6GbIfD9wYyJQMvS1Q+a3/RujDrx5rQyMHJMp1OXUbW
+	xe8h1uRvdk7efCLA5qea3N+FajlxZ1duY6+SzjegG1KTDaCjsofXsCKbnCvuGkwSxgxeriFBH0XEt
+	3nQKOYB85PNcjxff7/DjqjGpSvkaGiWR2f067o/rJCYfdV4NJ0vxiRDTEzhj4QJ+ZQPWF/AIPrYBz
+	5Ck/Uy4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3CPa-0000000DUwn-3zDs;
-	Fri, 11 Apr 2025 11:19:06 +0000
-Received: from mail-vi1eur05on2061f.outbound.protection.outlook.com ([2a01:111:f403:2613::61f] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1u3CQ0-0000000DVYG-3nfj;
+	Fri, 11 Apr 2025 11:19:32 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3BS9-0000000DLgz-13C5
+	id 1u3Bzb-0000000DQy6-3Nep
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 10:17:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=P6smAabrF1IlpT9v5HFW6euP4a7IHTLAGEuKkjIKZeGS2z/d8McDITf79NcSKQgzrVDnv/d1YJ4KeqYhWBA4gquXzulmQSYyBgXo/baBMn4Qjwoz34YLxTjPiZ4Zv4I3XuaN7Ilmvj5o4JIxPxHTukqWD46K652ro8mkgVyVgDiWHBpWKDBOSiDfwY1SnItLdUHd/BF0X+6+It3cziyvmdvgwT05HspC4Ztvhjjf3QOp8xASiqHN+I4l7J4iQyo4ta3KKt9VrDuiYd95DLDOo3UmmGfN3NxbD5sP2oIchHoDmg6+lilT/ADiK8I9+FF9IBhKXsc7Bp3x6CPfn55HKQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bbGbelVGIDrNnjV2eRO7q/HwO7+XyPyDxKBfklRgjWM=;
- b=CVLoW+zj2gP2+tW4gFT/s7uftzn7HayUX2Ala6GLZePHIKrxRtxI69Sc//ZNhDlw1n1t6/C+cxNywuekVnvIARooMVVgX3nP95K4xnUlXpc/8aYpxPNaI+x+qcx8F1u5x9GkIDXwbz0ieLzTQBWFskBwNagENgELUJ6WMXnH+2nLRjwy6rHDM7zDPMF3DQqQXgh+CWCINfXMhkcjSLOV8NOJKpn9gUBeNHvj8WcxK7bU5bGPNKbVzmq8P1vwCmweHOYdlYtdBDV5YnpecaZcvc/g3T+6L7yjSrTwNZxka5bi8gfXO5egTtnKS9NQ7d3U/vfm9s9Y4CZq9D5F7Df/Lw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bbGbelVGIDrNnjV2eRO7q/HwO7+XyPyDxKBfklRgjWM=;
- b=GiYsG6PuAlw2YAGftNKBqldVl8ydFLwJaWDl3qr3iHzbAAw6hUF6sGWDCsYjazOsSUimrR+Q/TrgSArWuINJI8EJ7PTCE8v35Xg621p1d3YM2ez218/cDCNUknD/EP1zkKBnrAslf4DY4prw59AGcxJtOtgJ7wjcrYNt0WcyOIsqj29FzPRPcyi5HLqDFdt9lxojSTdRZZUO6dcY9+ZfLEoSRsn2jAarWpPbznwdXBQnb1LBUoMfcGf2zppa+bZMElkpZHIDaSI+G/zSv43QICfpNRQI0YfyFz+rSg8SGueH8O3qJaKLcBfHz/nWRW2yJOlYJJ23iu/Jxq37iZ4hMQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM9PR04MB8505.eurprd04.prod.outlook.com (2603:10a6:20b:40a::14)
- by AS8PR04MB8900.eurprd04.prod.outlook.com (2603:10a6:20b:42f::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.27; Fri, 11 Apr
- 2025 10:17:37 +0000
-Received: from AM9PR04MB8505.eurprd04.prod.outlook.com
- ([fe80::bb21:d7c8:f7f7:7868]) by AM9PR04MB8505.eurprd04.prod.outlook.com
- ([fe80::bb21:d7c8:f7f7:7868%3]) with mapi id 15.20.8606.028; Fri, 11 Apr 2025
- 10:17:37 +0000
-From: Wei Fang <wei.fang@nxp.com>
-To: claudiu.manoil@nxp.com,
-	vladimir.oltean@nxp.com,
-	xiaoning.wang@nxp.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com
-Cc: christophe.leroy@csgroup.eu,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v5 net-next 08/14] net: enetc: add RSS support for i.MX95 ENETC PF
-Date: Fri, 11 Apr 2025 17:57:46 +0800
-Message-Id: <20250411095752.3072696-9-wei.fang@nxp.com>
+	Fri, 11 Apr 2025 10:52:17 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53BAq7pq1419992
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 11 Apr 2025 05:52:07 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1744368727;
+	bh=clvvleoLHP626PSlzlzVO7YGDPkEhF6mXc6EuaQnEb4=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=usak/lfNqi0nVeSpD7wosn8T5MuA+tP36Zjs2KunS0ND4Yj3EJG6AH26V9dmHlFfL
+	 qjpby0OO1M49uquQbBTFioWAwPRpwOhEawk2QEgGqE3h/MXJLRqWLE7pNzh1txX4bC
+	 sWey83b2fuVKRnvTENuPikcLRTEoIKStkcmINuOw=
+Received: from DFLE110.ent.ti.com (dfle110.ent.ti.com [10.64.6.31])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53BAq7VA010728
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 11 Apr 2025 05:52:07 -0500
+Received: from DFLE100.ent.ti.com (10.64.6.21) by DFLE110.ent.ti.com
+ (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 11
+ Apr 2025 05:52:07 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE100.ent.ti.com
+ (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 11 Apr 2025 05:52:06 -0500
+Received: from localhost (jayesh-hp-z2-tower-g5-workstation.dhcp.ti.com [10.24.72.182])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53BAq54D030155;
+	Fri, 11 Apr 2025 05:52:06 -0500
+From: Jayesh Choudhary <j-choudhary@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <u-kumar1@ti.com>, <devarsht@ti.com>,
+        <linux-kernel@vger.kernel.org>
+CC: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <kristo@kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <j-choudhary@ti.com>
+Subject: [PATCH 5/7] arm64: dts: ti: k3-j721s2-som-p0: add DSI to eDP
+Date: Fri, 11 Apr 2025 16:21:53 +0530
+Message-ID: <20250411105155.303657-6-j-choudhary@ti.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250411095752.3072696-1-wei.fang@nxp.com>
-References: <20250411095752.3072696-1-wei.fang@nxp.com>
+In-Reply-To: <20250411105155.303657-1-j-choudhary@ti.com>
+References: <20250411105155.303657-1-j-choudhary@ti.com>
+MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: SI2PR01CA0021.apcprd01.prod.exchangelabs.com
- (2603:1096:4:192::19) To AM9PR04MB8505.eurprd04.prod.outlook.com
- (2603:10a6:20b:40a::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8505:EE_|AS8PR04MB8900:EE_
-X-MS-Office365-Filtering-Correlation-Id: c97d4ccf-10e1-4bca-2dea-08dd78e214ff
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?SCp10yWgkwDkiOUl+W6nprNBDnd4EVQCMKxdfqw/8Q6svjgODeMpnuBkEGVJ?=
- =?us-ascii?Q?abqeHWYUrgf785XOHhuNJ0n2VaZ7y1BX7RDtvslB/X/WINLVQSmX0VdHvJdJ?=
- =?us-ascii?Q?OpYQPXSSaLquxHSJCQaXqyUR7YMMdSYWW8xLpYjscW8z/NvR/GAQZJpfTo6n?=
- =?us-ascii?Q?ryw985TgYlK3786iWunBbwKDXd1RF4nPNbf/LOYiaz3saahprs4QIZSPjoFD?=
- =?us-ascii?Q?212AvHzwpieHS/lWpOXRAtrv99nv8Y+HQnT+rmVY/M0H+sKIFMCs9pYOExCv?=
- =?us-ascii?Q?jIvFeFjZRX8t2TAE5OCQNYluD1l+RQF3QB582u9gzTBFUnQ+C9lUj2UZjBXH?=
- =?us-ascii?Q?0e3fxvZAzWv+MRBbDqwQB8ZKjQpTVh6CsnJaqVTBDWNTjjShsc4ZHoHOIETY?=
- =?us-ascii?Q?/1R/DYXHnK7CpSWCaao338QF60nE3EvOmahZ3RIGjoo0ND+8mREmBpXodXBx?=
- =?us-ascii?Q?ASZ2gkbPcTAKPeNTIlrVaTJIJNNnbdnwmctUaJxBbq6n02ZTQBh3ZUqOQu+A?=
- =?us-ascii?Q?auy+RzQBNF+0z31aCWpxlXe4b9BkInEPvjP9+UIwzdxouM1M2jUSCA5VBWI7?=
- =?us-ascii?Q?y2ynxBk45AdTUeVLoqTBYZ7s/dse6Yu9lEMJ8sXS8FDPRh9UOcKUZXobCgdD?=
- =?us-ascii?Q?CYSOEs/ibP9T6wUPe8d+sY3P6E+38n2JTakLKXcx1PPjEx6d6UNYY5fLIAc3?=
- =?us-ascii?Q?V/4RcQ5pK87Nzz6jLn6+9hn9igm3liwtMB0JN478W/Mpiw5XnxeLlcDtEc7c?=
- =?us-ascii?Q?4kRJ5Pn4tvPezPMXHQ9t4xV57qLJymEH58ELaX6H5dlhSVUHmyPO38Gh+t3m?=
- =?us-ascii?Q?TazqXBIPNATta2r5udwn7iQipuXgt41E4qU3fR9QkJvrN6d441jgtLt7o/17?=
- =?us-ascii?Q?3RqWOcAcdxOBGeXM8ZJP42EwLM4dDhGmcOhiC7sYXYEws8vrqnFJNYu14FgQ?=
- =?us-ascii?Q?8C5V1TParu7UPHo/B49TMWd4jLjzFRgBbvD/Ye3SzU/BwCBGTfTMt//1vMiz?=
- =?us-ascii?Q?4Oj7my0cwhup/Whmvzr+2G7nlTzepK6B2tjJ+RSswaYYgbW+EJjp30wRlELI?=
- =?us-ascii?Q?Fg0uU81wq4zu2hmp6Tj62W/vMS3yh6nKnroFUpruYbeqyviZF27aFevoOJ84?=
- =?us-ascii?Q?yRfe6EbGRkjX7wHZ5W/XgeF4Mc3myygQbMIq7GCVuwwi0WMNIgoCC+ujorOY?=
- =?us-ascii?Q?LI9/uqeRfJ2xh822SdorxUzRygyj+BNtpVWs39UJQ3S5QYjhruuDlEs7Ayp2?=
- =?us-ascii?Q?kp1bFVx2uDHzSEeBkgBz81piWe5E2UrLNy+B38Q+k1Bhofceri49+rLeY4yL?=
- =?us-ascii?Q?FzepIPAceMqUImRRYA6odZRIgVFidt2TD+/08m5h/OUNFqoJMH/w/dYGiB/8?=
- =?us-ascii?Q?2Vms55WgTqeyujz5D43+gQwHTF46FJPB5vRdLjzh/Qu0hzz83mpvZ59+1ojb?=
- =?us-ascii?Q?10H0U8V327f0G0JeS6KkYPRCCpA/C03s27aZOJQXRsenP5EDBFVTaA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8505.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZR+oayJ60txnhAs0oemqv0XqXMBtC7SdG9xBDpH1uNAzx9rWLcTEawCaxUCd?=
- =?us-ascii?Q?N3FvJxSWCAxDP0YpPWhUjcnHjzBPBal3AQ5GwYBnEli5ClkSMHaBfw2tT8XC?=
- =?us-ascii?Q?IBtHj+rdDE3sfY3iQg6XWeLEUHV756BJmeJ+FiWoL2eUupY1LBmJYpXij/PC?=
- =?us-ascii?Q?6qgYtVY7kADUbysCwiLAe4KT5yTg4eFL7IPJGxH4LMDiN/ZcWGUNiha8Bz3V?=
- =?us-ascii?Q?YsE7DR++qzvQcjSG1ulBkPuNoQkjux0QJ2tEN870tiNSsA6kcp+32RR/21Y0?=
- =?us-ascii?Q?onlD2iDMruPqF6KoH+OLMVS1e23JMmkizGPdOiXTG87DfKZpxzrAW+r/dO8E?=
- =?us-ascii?Q?v+NFT/EtBrw4Z5GLVQdyJWsAeNNg2byyAzNbLOf72EJX5RcNK668czWQArnt?=
- =?us-ascii?Q?9cxgPgleWO0K5DEWCqOuApgNes7qnOx3ydcbBoIb81KNLhX5Lq7QoLBhh9KF?=
- =?us-ascii?Q?b4ZD1TTEwRGxD7IXLsnGQNvU75xUTCgkYl+Kd6Q9nQr8BmrQj1S69cn4i0iQ?=
- =?us-ascii?Q?28wG+Knxi6L+G7YFp4H6GeOvFslM1OGs1WFUFKKNBUpUzKOvbD6NfvkVYJX2?=
- =?us-ascii?Q?emTeKqEhECOj8jeCLMwXxCf8RMMRThb4lKVHpF/kCj4HqkvzbPHUZn8mhg29?=
- =?us-ascii?Q?+tuwczxkg1XxpeLkRpCCj9/2mDQHKqZoy5zNywqybNOnRJpbMzZuFBCZwLcB?=
- =?us-ascii?Q?UlmrQMA2ehmbWm/yhbnlmWtvBZkWRD2rkP6GvLG3HXhFms2vtcGTYwTh9RG+?=
- =?us-ascii?Q?YMV/XjjpvX/Hk5g8R6vd15mJT5Yku9nkyLN/hYqQHJe2O2agS754zs9gfY3Q?=
- =?us-ascii?Q?aOkmdIyeed/GjTM1osCoca83gsGVDmoSpmEDH9GKNKTZqyj0DZicTUd6WpbP?=
- =?us-ascii?Q?sscNbvdAzBB62/moVSNBjisPoVqcbsO9qY6pm2fSZMWP7r9L2qQknYlVKy/c?=
- =?us-ascii?Q?o9WTkoQDPxuWlDpo7T4QMr4r2qs/ig65WBYTTX98OHQjF6XFjZTo7LiF3sZX?=
- =?us-ascii?Q?5BEWVAOV6+PMjr5W6Fmyyn84PBrUV83qLygWPmOlso2h8BvUtBB45fO85jAc?=
- =?us-ascii?Q?bsaIRxAJ6FXwMfbc3cfrBRJXjMir5sgVHpUpKq9MJxRY9Aa1JMBoqMn0cLKi?=
- =?us-ascii?Q?mjb4mbaOyOFO3xi2sSAegACmHqzsuPBXVPVEXCvcKaCL2iWF6lfnburgW//0?=
- =?us-ascii?Q?SJK+ybPhTnMR+HxIBZkHnzbUU1oK4jfPJyWXJwJxVlnVrIZJrf0MnSGodiZH?=
- =?us-ascii?Q?L0+N9JCFxx8JA/AexEILVN5w8H0OZtrkbLdRcQxUALfTtwPIFb2iL8ZQdm2B?=
- =?us-ascii?Q?44A6/byO6XqxpIVbDZVo1hWNPSeqUz63TKOPfz3kpiTb9sFATI/wXdwIQjMA?=
- =?us-ascii?Q?+/lEVnGnJYlsChP2c6BLxljmdFTI7Bq2VFB8S/ssRdyTLmuJ4MXiHTJDzp7G?=
- =?us-ascii?Q?eoYal5kkSIZ820houZ7bdVouCsTzDl8VM4FPUrePip9VQZFRhIETB5OXE1sm?=
- =?us-ascii?Q?s5l4ZnGxktuW0qSJoyioDQkvk1dUIr8iVdJ8hZesDKlN4oz14UMG7KueQHDj?=
- =?us-ascii?Q?yBe8eTJqMZc2x4JmUCp3S4tqhSnRUJQw5rETSH1k?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c97d4ccf-10e1-4bca-2dea-08dd78e214ff
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8505.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Apr 2025 10:17:36.9888
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: cm0jHVvXZQUDtW4NFb+F/ShsQWnc5KSgSy9+MQQ65ht7XHjvwerWEkQ/hLxkLff5XE6VNqVv5Fk1fMW/ozsnbw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8900
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_031741_466651_636BC384 
-X-CRM114-Status: GOOD (  20.69  )
+X-CRM114-CacheID: sfid-20250411_035215_940120_85435FE0 
+X-CRM114-Status: UNSURE (   9.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,227 +87,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Compared with LS1028A, there are two main differences: first, i.MX95
-ENETC uses NTMP 2.0 to manage the RSS table, and second, the offset
-of the RSS Key registers is different. Some modifications have been
-made in the previous patches based on these differences to ensure that
-the relevant interfaces are compatible with i.MX95. So it's time to
-add RSS support to i.MX95 ENETC PF.
+From: Rahul T R <r-ravikumar@ti.com>
 
-Signed-off-by: Wei Fang <wei.fang@nxp.com>
----
-1. Add comments for enetc4_get_rxnfc()
-2. Modify enetc4_set_rss_table() and enetc4_get_rss_table()
----
- drivers/net/ethernet/freescale/enetc/enetc.c  |  5 +-
- drivers/net/ethernet/freescale/enetc/enetc.h  |  2 +
- .../net/ethernet/freescale/enetc/enetc4_pf.c  | 15 ++++++
- .../net/ethernet/freescale/enetc/enetc_cbdr.c | 12 +++++
- .../ethernet/freescale/enetc/enetc_ethtool.c  | 47 ++++++++++++++++---
- .../freescale/enetc/enetc_pf_common.c         |  6 +--
- 6 files changed, 74 insertions(+), 13 deletions(-)
+Add DT nodes for DSI to eDP bridge. The DSI to eDP
+bridge is SN65DSI86 on SOM.
 
-diff --git a/drivers/net/ethernet/freescale/enetc/enetc.c b/drivers/net/ethernet/freescale/enetc/enetc.c
-index 2a8fa455e96b..5b5e65ac8fab 100644
---- a/drivers/net/ethernet/freescale/enetc/enetc.c
-+++ b/drivers/net/ethernet/freescale/enetc/enetc.c
-@@ -2436,10 +2436,7 @@ int enetc_configure_si(struct enetc_ndev_priv *priv)
- 	if (si->hw_features & ENETC_SI_F_LSO)
- 		enetc_set_lso_flags_mask(hw);
- 
--	/* TODO: RSS support for i.MX95 will be supported later, and the
--	 * is_enetc_rev1() condition will be removed
--	 */
--	if (si->num_rss && is_enetc_rev1(si)) {
-+	if (si->num_rss) {
- 		err = enetc_setup_default_rss_table(si, priv->num_rx_rings);
- 		if (err)
- 			return err;
-diff --git a/drivers/net/ethernet/freescale/enetc/enetc.h b/drivers/net/ethernet/freescale/enetc/enetc.h
-index e49c1626e7e5..7b24f1a5969a 100644
---- a/drivers/net/ethernet/freescale/enetc/enetc.h
-+++ b/drivers/net/ethernet/freescale/enetc/enetc.h
-@@ -541,6 +541,8 @@ void enetc_set_rss_key(struct enetc_si *si, const u8 *bytes);
- int enetc_get_rss_table(struct enetc_si *si, u32 *table, int count);
- int enetc_set_rss_table(struct enetc_si *si, const u32 *table, int count);
- int enetc_send_cmd(struct enetc_si *si, struct enetc_cbd *cbd);
-+int enetc4_get_rss_table(struct enetc_si *si, u32 *table, int count);
-+int enetc4_set_rss_table(struct enetc_si *si, const u32 *table, int count);
- 
- static inline void *enetc_cbd_alloc_data_mem(struct enetc_si *si,
- 					     struct enetc_cbd *cbd,
-diff --git a/drivers/net/ethernet/freescale/enetc/enetc4_pf.c b/drivers/net/ethernet/freescale/enetc/enetc4_pf.c
-index b72a365625d2..e164e1a3f44b 100644
---- a/drivers/net/ethernet/freescale/enetc/enetc4_pf.c
-+++ b/drivers/net/ethernet/freescale/enetc/enetc4_pf.c
-@@ -514,6 +514,14 @@ static void enetc4_pf_set_rx_mode(struct net_device *ndev)
- 	queue_work(si->workqueue, &si->rx_mode_task);
- }
- 
-+static int enetc4_pf_set_features(struct net_device *ndev,
-+				  netdev_features_t features)
-+{
-+	enetc_set_features(ndev, features);
+Signed-off-by: Rahul T R <r-ravikumar@ti.com>
+Signed-off-by: Jayesh Choudhary <j-choudhary@ti.com>
+---
+ arch/arm64/boot/dts/ti/k3-j721s2-som-p0.dtsi | 52 ++++++++++++++++++++
+ 1 file changed, 52 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-som-p0.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-som-p0.dtsi
+index 6adb2bbe4066..421c1468ba90 100644
+--- a/arch/arm64/boot/dts/ti/k3-j721s2-som-p0.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j721s2-som-p0.dtsi
+@@ -160,6 +160,30 @@ transceiver0: can-phy0 {
+ 		#phy-cells = <0>;
+ 		max-bitrate = <5000000>;
+ 	};
 +
-+	return 0;
-+}
++	vsys_io_1v8: regulator-vsys-io-1v8 {
++		compatible = "regulator-fixed";
++		regulator-name = "vsys_io_1v8";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++		regulator-always-on;
++		regulator-boot-on;
++	};
 +
- static const struct net_device_ops enetc4_ndev_ops = {
- 	.ndo_open		= enetc_open,
- 	.ndo_stop		= enetc_close,
-@@ -521,6 +529,7 @@ static const struct net_device_ops enetc4_ndev_ops = {
- 	.ndo_get_stats		= enetc_get_stats,
- 	.ndo_set_mac_address	= enetc_pf_set_mac_addr,
- 	.ndo_set_rx_mode	= enetc4_pf_set_rx_mode,
-+	.ndo_set_features	= enetc4_pf_set_features,
++	vsys_io_1v2: regulator-vsys-io-1v2 {
++		compatible = "regulator-fixed";
++		regulator-name = "vsys_io_1v2";
++		regulator-min-microvolt = <1200000>;
++		regulator-max-microvolt = <1200000>;
++		regulator-always-on;
++		regulator-boot-on;
++	};
++
++	edp1_refclk: clock-edp1-refclk {
++		#clock-cells = <0>;
++		compatible = "fixed-clock";
++		clock-frequency = <19200000>;
++	};
  };
  
- static struct phylink_pcs *
-@@ -926,6 +935,11 @@ static void enetc4_pf_netdev_destroy(struct enetc_si *si)
- 	free_netdev(ndev);
- }
- 
-+static const struct enetc_si_ops enetc4_psi_ops = {
-+	.get_rss_table = enetc4_get_rss_table,
-+	.set_rss_table = enetc4_set_rss_table,
+ &wkup_pmx0 {
+@@ -638,3 +662,31 @@ &c71_1 {
+ 	memory-region = <&c71_1_dma_memory_region>,
+ 			<&c71_1_memory_region>;
+ };
++
++&main_i2c4 {
++	dsi_edp_bridge: dsi-edp-bridge@2c {
++		compatible = "ti,sn65dsi86";
++		reg = <0x2c>;
++
++		clock-names = "refclk";
++		clocks = <&edp1_refclk>;
++
++		enable-gpios = <&exp_som 5 0>;
++
++		vpll-supply = <&vsys_io_1v8>;
++		vccio-supply = <&vsys_io_1v8>;
++		vcca-supply = <&vsys_io_1v2>;
++		vcc-supply = <&vsys_io_1v2>;
++
++		dsi_edp_bridge_ports: ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			port@0 {
++				reg = <0>;
++			};
++			port@1 {
++				reg = <1>;
++			};
++		};
++	};
 +};
-+
- static int enetc4_psi_wq_task_init(struct enetc_si *si)
- {
- 	char wq_name[24];
-@@ -963,6 +977,7 @@ static int enetc4_pf_probe(struct pci_dev *pdev,
- 				     "Couldn't map PF only space\n");
- 
- 	si->revision = enetc_get_ip_revision(&si->hw);
-+	si->ops = &enetc4_psi_ops;
- 	err = enetc_get_driver_data(si);
- 	if (err)
- 		return dev_err_probe(dev, err,
-diff --git a/drivers/net/ethernet/freescale/enetc/enetc_cbdr.c b/drivers/net/ethernet/freescale/enetc/enetc_cbdr.c
-index ecb571e5ea50..fcfff908f7c1 100644
---- a/drivers/net/ethernet/freescale/enetc/enetc_cbdr.c
-+++ b/drivers/net/ethernet/freescale/enetc/enetc_cbdr.c
-@@ -295,3 +295,15 @@ int enetc_set_rss_table(struct enetc_si *si, const u32 *table, int count)
- 	return enetc_cmd_rss_table(si, (u32 *)table, count, false);
- }
- EXPORT_SYMBOL_GPL(enetc_set_rss_table);
-+
-+int enetc4_get_rss_table(struct enetc_si *si, u32 *table, int count)
-+{
-+	return ntmp_rsst_query_entry(&si->ntmp_user, table, count);
-+}
-+EXPORT_SYMBOL_GPL(enetc4_get_rss_table);
-+
-+int enetc4_set_rss_table(struct enetc_si *si, const u32 *table, int count)
-+{
-+	return ntmp_rsst_update_entry(&si->ntmp_user, table, count);
-+}
-+EXPORT_SYMBOL_GPL(enetc4_set_rss_table);
-diff --git a/drivers/net/ethernet/freescale/enetc/enetc_ethtool.c b/drivers/net/ethernet/freescale/enetc/enetc_ethtool.c
-index 1a8fae3c406b..e22124363184 100644
---- a/drivers/net/ethernet/freescale/enetc/enetc_ethtool.c
-+++ b/drivers/net/ethernet/freescale/enetc/enetc_ethtool.c
-@@ -625,6 +625,29 @@ static int enetc_get_rxnfc(struct net_device *ndev, struct ethtool_rxnfc *rxnfc,
- 	return 0;
- }
- 
-+/* i.MX95 ENETC does not support RFS table, but we can use ingress port
-+ * filter table to implement Wake-on-LAN filter or drop the matched flow,
-+ * so the implementation will be different from enetc_get_rxnfc() and
-+ * enetc_set_rxnfc(). Therefore, add enetc4_get_rxnfc() for ENETC v4 PF.
-+ */
-+static int enetc4_get_rxnfc(struct net_device *ndev, struct ethtool_rxnfc *rxnfc,
-+			    u32 *rule_locs)
-+{
-+	struct enetc_ndev_priv *priv = netdev_priv(ndev);
-+
-+	switch (rxnfc->cmd) {
-+	case ETHTOOL_GRXRINGS:
-+		rxnfc->data = priv->num_rx_rings;
-+		break;
-+	case ETHTOOL_GRXFH:
-+		return enetc_get_rsshash(rxnfc);
-+	default:
-+		return -EOPNOTSUPP;
-+	}
-+
-+	return 0;
-+}
-+
- static int enetc_set_rxnfc(struct net_device *ndev, struct ethtool_rxnfc *rxnfc)
- {
- 	struct enetc_ndev_priv *priv = netdev_priv(ndev);
-@@ -685,22 +708,29 @@ static int enetc_get_rss_key_base(struct enetc_si *si)
- 	return ENETC4_PRSSKR(0);
- }
- 
-+static void enetc_get_rss_key(struct enetc_si *si, const u8 *key)
-+{
-+	int base = enetc_get_rss_key_base(si);
-+	struct enetc_hw *hw = &si->hw;
-+	int i;
-+
-+	for (i = 0; i < ENETC_RSSHASH_KEY_SIZE / 4; i++)
-+		((u32 *)key)[i] = enetc_port_rd(hw, base + i * 4);
-+}
-+
- static int enetc_get_rxfh(struct net_device *ndev,
- 			  struct ethtool_rxfh_param *rxfh)
- {
- 	struct enetc_ndev_priv *priv = netdev_priv(ndev);
- 	struct enetc_si *si = priv->si;
--	struct enetc_hw *hw = &si->hw;
--	int err = 0, i;
-+	int err = 0;
- 
- 	/* return hash function */
- 	rxfh->hfunc = ETH_RSS_HASH_TOP;
- 
- 	/* return hash key */
--	if (rxfh->key && hw->port)
--		for (i = 0; i < ENETC_RSSHASH_KEY_SIZE / 4; i++)
--			((u32 *)rxfh->key)[i] = enetc_port_rd(hw,
--							      ENETC_PRSSK(i));
-+	if (rxfh->key && enetc_si_is_pf(si))
-+		enetc_get_rss_key(si, rxfh->key);
- 
- 	/* return RSS table */
- 	if (rxfh->indir)
-@@ -1249,6 +1279,11 @@ const struct ethtool_ops enetc4_pf_ethtool_ops = {
- 	.set_wol = enetc_set_wol,
- 	.get_pauseparam = enetc_get_pauseparam,
- 	.set_pauseparam = enetc_set_pauseparam,
-+	.get_rxnfc = enetc4_get_rxnfc,
-+	.get_rxfh_key_size = enetc_get_rxfh_key_size,
-+	.get_rxfh_indir_size = enetc_get_rxfh_indir_size,
-+	.get_rxfh = enetc_get_rxfh,
-+	.set_rxfh = enetc_set_rxfh,
- };
- 
- void enetc_set_ethtool_ops(struct net_device *ndev)
-diff --git a/drivers/net/ethernet/freescale/enetc/enetc_pf_common.c b/drivers/net/ethernet/freescale/enetc/enetc_pf_common.c
-index 0a95f2ac781a..a302477c4de4 100644
---- a/drivers/net/ethernet/freescale/enetc/enetc_pf_common.c
-+++ b/drivers/net/ethernet/freescale/enetc/enetc_pf_common.c
-@@ -128,15 +128,15 @@ void enetc_pf_netdev_setup(struct enetc_si *si, struct net_device *ndev,
- 	if (si->hw_features & ENETC_SI_F_LSO)
- 		priv->active_offloads |= ENETC_F_LSO;
- 
-+	if (si->num_rss)
-+		ndev->hw_features |= NETIF_F_RXHASH;
-+
- 	/* TODO: currently, i.MX95 ENETC driver does not support advanced features */
- 	if (!is_enetc_rev1(si)) {
- 		ndev->hw_features &= ~(NETIF_F_HW_VLAN_CTAG_FILTER | NETIF_F_LOOPBACK);
- 		goto end;
- 	}
- 
--	if (si->num_rss)
--		ndev->hw_features |= NETIF_F_RXHASH;
--
- 	ndev->xdp_features = NETDEV_XDP_ACT_BASIC | NETDEV_XDP_ACT_REDIRECT |
- 			     NETDEV_XDP_ACT_NDO_XMIT | NETDEV_XDP_ACT_RX_SG |
- 			     NETDEV_XDP_ACT_NDO_XMIT_SG;
 -- 
 2.34.1
 
