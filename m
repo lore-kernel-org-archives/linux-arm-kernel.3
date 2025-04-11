@@ -4,152 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CF06C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 14:41:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA21DC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 14:43:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xqS5RWltBb+chmuENNPZoiu9jz1Tbx3yucFbBwWInOw=; b=NxxOJwSeA4eAdpCTRdaSHFcpcF
-	nmbmNaiyuXGDSmGM1rSWW1n9pSizWoa2hMjnUiAHzBkukR4J7EvDWRoJxvv1TFdHmpqnEvl4sVtSI
-	btgswiSl87JA/RTk3c8/SeeKwkC/tCKxWe1YT+3TjG0gFi66tvW/ujpfl0xa5AaijKgGGlGwipql8
-	2UHovzTaKpN9Y5oLtZDDPH/VYeRlyfmHyxhB0lnY4Gu+xuZdx2f6XM7laaMKfDrIM/ZWcaFT1LWZc
-	dTidZM/0QnMjw7eKagYHqIPwViBxplecJXm+ZgaP5xAOCOhXx5lAujrOEWmb12Xqk2ArM5msHIIG6
-	mD5s3g+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ycoLQD9jfqJEzFVkDVUgdOPCxS45bX18gNlDKBK7d6s=; b=st2+pEFZsI6Fgrm1rRDCOEHGYS
+	GfKqgLqkKpALVM2j1tL7zNvABGCuTDBKNcrQ8EEKWfpFpJOFkO3ThMPb/LsSCebQQafWSeJbNs7qF
+	5ABuiyQMe5H3Yi7AoPmEVaeeRDpVUg1m1B4Hbu05sU1RKm1rp66HoLQvcVKu1IMjO9yQdYes5i2DU
+	JZ0MOuA53DE0Rv9Pcb4VLF8nLiDKFqYC7G5pSElM7NEYZzqmtAOpdy9YfzmmSork5zCOkpxil9zf6
+	XUDx/CJa3DyMvrgKVVBdTq358PrP8Xl2gXloGRMC7wt1z5/c4xofAhsNnmYdnpOd7ROwhDMAr3cR8
+	z1cfUnFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3FYx-0000000E7v3-2BoK;
-	Fri, 11 Apr 2025 14:40:59 +0000
-Received: from mail-am0eur02on20610.outbound.protection.outlook.com ([2a01:111:f403:2606::610] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
+	id 1u3Fal-0000000E8Fa-19Pw;
+	Fri, 11 Apr 2025 14:42:51 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3FOv-0000000E635-3znf
+	id 1u3FP3-0000000E64P-2sIW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 14:30:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qOewWT5XoOX834B4hGd1p5j/hVgCLsz9YaCy13uH6FAjST1miqx1ze9JGqKFnmTUKYlrW0l69tzF/iTa9p53764aJ3NYii9JRJ4DRIRIdtKOVnAbGiHZ9/cMy/7d0G8tUctRUkRr/bwIZintLcFzwDcv9nAyfErNmAuJ7mwg82wDHw/q54US6ZzwFaaz9hBLDUkq9Idsi2edPdHLpiaP+LRGXwicPbvfUyH8YcUDo9GaLt6Z3icfF4rpcWyT/okuE0T1PKc1HIIKCck1fPLn26JRWLMAIicqMqWXmWlgLUvqMU5oRc7+GFFRm2G1TCNOGQE+LfHrr3qXrWjBzxD2Qw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xqS5RWltBb+chmuENNPZoiu9jz1Tbx3yucFbBwWInOw=;
- b=X6pBqQtvDym/YFNAu0hXP/Kr5n/sl5sK8RlfwOO6lNdlx8ullg0oWzk+D3wKbhO1G7crdajoUUkz3PO2CkGNaat61Q2ElgHH1dQH4CLiU+chUvTcaMyor2g3CujUxTX8GWkCFJeBjQ4uiesdOu4yDzdDWxE6gqcb6GxUHsb8mSUsAgN2eeQTGoH40awGXK/vKEBorD8/A4+DN05KqOJg69g627PvZ3DAhCA4ZzwGaFWNinRNQYS4KeBeKo9t989Tv64xnCyGcTwcwk+SHAhgPRaGy1G3XczWultVUJx7KQ9EpyxdPG++ahe3kZRh8qbP0e0+jur2B0DFK0ut6G0uyA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xqS5RWltBb+chmuENNPZoiu9jz1Tbx3yucFbBwWInOw=;
- b=NfaumqYYGLUVQ9rP2c90G3POTNvNglWeVX1bWlU8IxMyjX6stDqramxvsfPQgvjG/G7gPADiJ4reDAS+2sn157qla0otlcnd3L9AEZrScIOiQ+Z79iGu3DgG+id0pTFifxvk/VC/pzZwzBYADhQNwWtzMRmhWk544Gn5K1uTw5QUKVsEpP0N1h+0yEx9OxPyfTU4q2MhuRaNA8Khne7cgtWm6VD9GULA0ESVABZp5Uk/HggmY/QwdYRtVNRQ78qAdOwJEUjiX57dfJ53mLZX1irojkAk8Sfk/9h4ONEfkbq3UAvDgTygbbZuNy/9hm+fhRq0l/qqLs4MxxVu4Qye5A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by PA4PR04MB9294.eurprd04.prod.outlook.com (2603:10a6:102:2a5::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.36; Fri, 11 Apr
- 2025 14:30:29 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d%4]) with mapi id 15.20.8606.033; Fri, 11 Apr 2025
- 14:30:29 +0000
-Date: Fri, 11 Apr 2025 10:30:18 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Primoz Fiser <primoz.fiser@norik.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, upstream@lists.phytec.de
-Subject: Re: [PATCH 10/13] arm64: dts: freescale: imx93-phyboard-segin: Add
- CAN support
-Message-ID: <Z/knehHQeTTUXgr3@lizhi-Precision-Tower-5810>
-References: <20250410090251.1103979-1-primoz.fiser@norik.com>
- <20250410090251.1103979-11-primoz.fiser@norik.com>
- <Z/fifUQ4M2doQbHx@lizhi-Precision-Tower-5810>
- <ef74e49d-c413-4719-a174-42df91384469@norik.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ef74e49d-c413-4719-a174-42df91384469@norik.com>
-X-ClientProxiedBy: SJ0PR13CA0080.namprd13.prod.outlook.com
- (2603:10b6:a03:2c4::25) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
+	Fri, 11 Apr 2025 14:30:46 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43ed8d32a95so18028945e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Apr 2025 07:30:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1744381844; x=1744986644; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ycoLQD9jfqJEzFVkDVUgdOPCxS45bX18gNlDKBK7d6s=;
+        b=atdGjuMp013+vXEaAgD28EuYc5te5NkyCRo8k6KgLIHf41IqeP50IaWN3/cTkBkts3
+         LLhaKyYs0bawfbquq7ZKbV8uGt/rLAh69YCSpVQtjgIKBfvFwjLsGUd9PolrHIRgMMko
+         eslSZqM0dyW3vCsfFPI1yyHoj1ndrxug3HWld84cVKb09fG5yP0tej5+wM5KRwRSkstG
+         4+xqYppNCMvzWiXSuzP6AvM6pf2GN4bW/cgNkECFnVBpg/3tCE+eNzGtITqbh6ZmCwJ4
+         lvhrY1DJyOBUuRQdpl8OkYnviX+Xm5h7EM3VHQ9MHdrtrcsDvT2dreWDVxuAi4PRie5w
+         ceGA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744381844; x=1744986644;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ycoLQD9jfqJEzFVkDVUgdOPCxS45bX18gNlDKBK7d6s=;
+        b=fuc/ngwg9cMFyqjpfHkVXT2hKu5k/rNUJNV0kVtZbv5ToMJ+TAXN9GoddLELOZvALb
+         oELS+f0eP8uQW8xrgfildpyYpqRkwBSBa0p7IdwTIb6nQy1xWO4g/rJDVRhssW7apiOK
+         dJgCnizAMZde8fC0e9xyfVFDJ1vhyJH7s15lnRiPmQEgzOralOPtmewyCbHT8uFCO4Pz
+         Tncv/rRxTImxRcdgczAaUXLqWDSNfncPTKY2acCXymOijH3ynO9wrwi3anpekJbhHrNy
+         EYgFllpRphiLwkLtVrxrpLcH67MDzkUU1AgCRUDCzJaaEBpmc4JmMXfFL0FpClN688B9
+         OrVA==
+X-Forwarded-Encrypted: i=1; AJvYcCU0pfjARbr5DoVlgDvGwWUuMEOvXY0ofG9C7ZumiSN1tvCXGrLlwS/57bmjtxkOho/4LDZLiSbPHn4WUFnQ5UIA@lists.infradead.org
+X-Gm-Message-State: AOJu0YzKOL9QRI3YAsWNBnNOAxTYRhDghJOn2Lv6aWVGLS0xzXSd1y25
+	tnOyJsHLY1tJBViQtX261TLxXsz7h8LxppYHwj5O0Q3sNc/kBHmd6h/K4sH8lNs=
+X-Gm-Gg: ASbGncs0DAU+60wCFNfUqQx7cuOo9mR3ceiGX8iD4+d0/NX5+nMTai9fWLTruEYu97w
+	1WWhy/4xNWextn+AU90lHySCniij8rnFbS2PhJ2f0iBxHx05nL7re6VPGwTaR6owyZDBvOGcUqT
+	jt74shtxTCHry2kSy/0ywH/X5uwZwLWmI63CW4kKPU1rt0N4L6sZJvykzGM5gf2IRvVQc7JjNcd
+	Z/LIVB0h5NMaOfMk3q6iJ1Yl2fNpPq613wR+bl6PFP1KheDAMxZ3ULiCBTpbg9YEDbw9RO2d4Yz
+	bnhA1yrzRZ/UMZUvb4bZsRznrZ5OHtN7IhEGfBk+CPNgqLJn
+X-Google-Smtp-Source: AGHT+IG9KQqbQeJI3TgkREXxzGXE7lhS6pak+H/rKFHdsabVkH8R63JSXWChvAVJyUcLu4rOG+zckw==
+X-Received: by 2002:a05:600c:5107:b0:43c:f4b3:b094 with SMTP id 5b1f17b1804b1-43f3a92552dmr24937985e9.6.1744381843883;
+        Fri, 11 Apr 2025 07:30:43 -0700 (PDT)
+Received: from [192.168.50.4] ([82.78.167.57])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43f233c81f6sm84049845e9.20.2025.04.11.07.30.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 11 Apr 2025 07:30:43 -0700 (PDT)
+Message-ID: <6e52883b-2811-4ac2-9763-5974ca463274@tuxon.dev>
+Date: Fri, 11 Apr 2025 17:30:42 +0300
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|PA4PR04MB9294:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5cd860aa-43f4-4680-6c9b-08dd7905689a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|1800799024|366016|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?0JTc039iNEa1bI48hrhWWcrGJUl7HmUQAqnjWgzlaDnvPv+9R3WlWU8cgZnN?=
- =?us-ascii?Q?geCGToUS0MjqlYh36WVK5AXrYzHAz7fHrczd0d8WF1fXkBP0BXvdlKSWO00/?=
- =?us-ascii?Q?ojBfon7Pscgh1rF6n9XhFBq93U8mk9y3UaFxdWEL0wOKJ9/GrkeN9iHfGw2U?=
- =?us-ascii?Q?7ic9lkb9jfPyYRIgpCbwialZmwHzLcrFpmEHZTr2R9lQIfGz3rBVfnN+IUe6?=
- =?us-ascii?Q?War4xgFHC8fIAsIBx7ChMKuJH4lnzuresp4LzssuSAVk5ymAD9TJMag+GVp0?=
- =?us-ascii?Q?V7c3BVizDXbKtp2w543vNUQZUCuZWVFUxoHp6+WjwRWolzZlLs7jpQ3Ei7Ja?=
- =?us-ascii?Q?On8e7fH5tG0FU6cZ4mGza5FZluyiYgfGx2RmsCcvQQjifkSR/8zoaIxMGR+Y?=
- =?us-ascii?Q?ec7zOE4o/y17MeVN9bBBGgAPHhgz3+5dA8ZDgflES3+7oHAChdEko7T1tYQb?=
- =?us-ascii?Q?ik5DYoW3+EpsXXEXA+Xp6naDLB7CtYiEtE/w5/v5UcBjcTXWVZwo/m1z/Ue7?=
- =?us-ascii?Q?uqW3q6qRNXJVZ33ZXaOcD50GLH2fXDJZi2CtpaDsjR7DKdCMPMHbXFsfjMd8?=
- =?us-ascii?Q?3hbdCJvtjgr/yvkEVzzHZhMr/0IHJKqXpCNa+sGGXYwcExJY9BSaM/0xOkSa?=
- =?us-ascii?Q?5qu9tS82PCi6i34uec+Wa3QqDDZdkHRk7LK2L9lAJmxOAsx7kE3611Lix7Th?=
- =?us-ascii?Q?t6XduZ+MWZYyYnKpcwCBfyEtql02m7vQlh3VwvPMiYNuqxm2mf89dW3K49x0?=
- =?us-ascii?Q?pANB62/gLoQjR1rSRZd9vWRLxlDQcrkAA6WCv376RsEEZ7FW1fMToGzZ4iYQ?=
- =?us-ascii?Q?n8rJYdByYBoa/mAojQ87lBxQnDMOnxxD54amgdgJiMKB7qi4zbsugDZfxtPW?=
- =?us-ascii?Q?f9qwObnxo1yogU4cK4cmSs/V+VNKWOYBBTVCsKaPMVyVoWhopvG5jluPi2Lh?=
- =?us-ascii?Q?U6YK2nRnQtX3dPgwXOpkR+1JO8zR8UnYRRxqzxJ6rsNYDW+SgnWstJ9OayHw?=
- =?us-ascii?Q?Fb4h59CKMFUu5waEJnGbf7WT17rzdqyzs/anyxwfW+/v+/8Y84wNVFBdjE/B?=
- =?us-ascii?Q?AuqUAMb9Dgb3hDPpo1Vf55PIO6tnjM4bxrntYl3iO4h5CXXftTGEYRP2kQNt?=
- =?us-ascii?Q?cQH18WrKzUgmtTHsQg2k2djYtAHaPJmL/8ElJ51Sczp1uzZod87LxDVGTnsJ?=
- =?us-ascii?Q?v8ro2d0l/1KPC2Y/+t3P/Een8iEA9FwIEpqjf9SzjVX3BOeQ+Qoj75byllbR?=
- =?us-ascii?Q?F1MPF1VUNb+1LgaDfm/luQhl40zbwd9mEBvYGV9ui8Zb409sPr8XbzYu4jt3?=
- =?us-ascii?Q?CPIU4YWM7Xwu0YF3ru/VPTd1expnZTyT5Csinf7RkSTXhD0H60fjORhRSa+q?=
- =?us-ascii?Q?xUvLS8NMnt5bLub2L41I9PYXjK0IHidTnk/96k7lXrgYK5jzYMKB6vOxEHAd?=
- =?us-ascii?Q?mNF7Id2Zt7KnsI5chNS8kxqP6kYDLGwGrPzqMpdcvBBA26hp9GnW/Q=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(1800799024)(366016)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ylNhNfwd+feqGaJ3iMewegoOiPEFPrWQkZJH66XpXu6XNx3FwZQcW+GCK8Q3?=
- =?us-ascii?Q?VMs39nq0VodMyOUc6/yaWx94Yee7p3KlSpwHkjvS3I499RzxwNqzJxZZrAUI?=
- =?us-ascii?Q?BphbkovjF50SMBbCSmZMR9tI6ajmjCY0afE/8Y7RoSYuQhlI+92c7DFkP01v?=
- =?us-ascii?Q?1rDJmGfIF3Gv/Hdb+yttJBfHJPk6ZnDZK1+rxGt779k+fvcGO5xNSx5Mf3BI?=
- =?us-ascii?Q?5eavG63SECYej0S9+hm2sWK7HS05vKUQjSirbX2sEgjfm5N9n4l6d3fm1Ztu?=
- =?us-ascii?Q?ROXWUxsdMGsb9lZkgRZCI56CuEgng6LiaptrUAB77a7vOsdXGzGBpijHyFt9?=
- =?us-ascii?Q?WIXs3kmyplk0hL3xFcj6zJGikjUlejeNXzV3rqQpjfOL4GjFX9XfMwBNf8JP?=
- =?us-ascii?Q?0U6o4xstvbCXNgrODQ0KAD5Z5K0G2afgZnae1q22CeV+MymhZMmszUdbIdAR?=
- =?us-ascii?Q?8vk3HzH34Wx53c3br4CiMx4wY7VUpoThQABZ9UeJfpkgheF0QygZVq4dIJul?=
- =?us-ascii?Q?Cq4Ev4xygFBYFeze1auNxqyElS4oDc+zxsXJom0lTmqEjlWh0fO3kXJu1cJo?=
- =?us-ascii?Q?XgIlDcVl9kjHQAJZmhHu7URgJc5Aczi+lEXJECXKuDCLHRBtaHqeVKKgxzkl?=
- =?us-ascii?Q?GmyoXJsE4K0Z28nXi3TXUHg7JY6tmCR62Ai1p1H/V/JxwagKt9X0wGbQP963?=
- =?us-ascii?Q?NglMMV8xQhlIExoEZRysNZsAqmoHpG1Gwwkc2xzUS4OcqE3GsLeIQFNYQxe6?=
- =?us-ascii?Q?4onQ+xIv93ianOjAq2Ab+iiDihw7vdpZiB6u/dcVNX/khMnfE+Ws38Jic17q?=
- =?us-ascii?Q?W7gf8QqLHM/N6rLMvMabH0LYnUTyo0e2izmjQU75pb06aZ/WXqSGBbSBchpC?=
- =?us-ascii?Q?X7AkkmGJ4isQ8IvEuQxEf69/gFroNlxofGNi91Va01WXOk/pFctr4qd3S8mG?=
- =?us-ascii?Q?jdChyW1o+oN+JPvUBZxKkVCMa8sFWbDNLBemgQUe+99+O58pA7MTacNDNidz?=
- =?us-ascii?Q?6QBlv44AnG3hG7+OdFlYeoHJ4mrBuPZBvtiXARXSzQrlYKZj/AA6WnJ/uUZS?=
- =?us-ascii?Q?IzTmy3txgcLALtKUMvL5aMSMb7R59NCAEnGme+gfd5WMWY0vjdkFDL6qGvk/?=
- =?us-ascii?Q?VUWHyTbrCo3JrM5GSL57oe5JNeco6oSQCABg56Zu6q9+dJguOHkjdW/fnS2y?=
- =?us-ascii?Q?0KLO+575VUpOM/PKQM8RSHYu8C0fS1amCoBs/OpskCXMhdk7aOBKIsbwuzJl?=
- =?us-ascii?Q?smd4CrxgVeINx4GrhKU8hBQ+eXE24URnBtNkuOHF0RsM+s8yazDNtijqZYr8?=
- =?us-ascii?Q?SldF2BD8Pc9zrDwpmUT7ZBDJaTNhp9UD/X2x0o07CBeUw/ZEPUwDE2Q9jLu1?=
- =?us-ascii?Q?l3fu8sDKQiUnNRuDmKcGi7l56aDfGVP+CFvTE04Ke/AsXrbR8wByL5Hb/jy1?=
- =?us-ascii?Q?GXeGJIlBk1e5uYq0JR3yEKY1At5J4hYyDaTgYMixEC3c/hGLf6j4oR3fo4fv?=
- =?us-ascii?Q?BAxtVqgkTgovEduH/JQlnYywfSYcAx7XbY4FiRbi4cWcxDGWsuYLDsBAZL21?=
- =?us-ascii?Q?BQ9vzzjkgHGYF+pOJGnKOeq72eFIB1Yr0J9fS9vb?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5cd860aa-43f4-4680-6c9b-08dd7905689a
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Apr 2025 14:30:29.6398
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: PHWuPdEvAFELYu+kDM80bw601ID9Ij2NkkDq6oD1W9vuOp1MN60fbI1OOCrIoOrOwVZ2LIPIrtd25w8Ese8CWg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9294
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/6] ARM: dts: microchip: sama7d65: Add MCP16502 to
+ sama7d65 curiosity
+To: Ryan.Wanner@microchip.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
+ krzk+dt@kernel.org, onor+dt@kernel.org, alexandre.belloni@bootlin.com
+Cc: nicolas.ferre@microchip.com, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <cover.1743523114.git.Ryan.Wanner@microchip.com>
+ <60f6b7764227bb42c74404e8ca1388477183b7b5.1743523114.git.Ryan.Wanner@microchip.com>
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Content-Language: en-US
+In-Reply-To: <60f6b7764227bb42c74404e8ca1388477183b7b5.1743523114.git.Ryan.Wanner@microchip.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_073037_997196_578B071B 
-X-CRM114-Status: GOOD (  21.30  )
+X-CRM114-CacheID: sfid-20250411_073045_751008_F12A23A5 
+X-CRM114-Status: GOOD (  14.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,113 +104,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 11, 2025 at 10:08:21AM +0200, Primoz Fiser wrote:
-> Hi Frank,
->
-> On 10. 04. 25 17:23, Frank Li wrote:
-> > On Thu, Apr 10, 2025 at 11:02:48AM +0200, Primoz Fiser wrote:
-> >> Add support for CAN networking on phyBOARD-Segin-i.MX93 via the flexcan1
-> >> interface. The CAN1_EN regulator enables the SN65HVD234 CAN transceiver
-> >> chip.
-> >
-> > Can you use drivers/phy/phy-can-transceiver.c to enable CAN phy instead
-> > of use hacked regulator-flexcan1-en.
->
-> Sorry can't do.
->
-> This doesn't align with other i.MX PHYTEC products using flexcan such as
-> imx8mp-phyboard-pollux-rdk.dts.
->
-> Even the i.MX93 EVK uses the same mechanism.
+Hi, Ryan,
 
-I think previous method is NOT good enough. Suggest involve CAN and PHY
-maintainer to discuss these.
+On 01.04.2025 19:13, Ryan.Wanner@microchip.com wrote:
+> From: Ryan Wanner <Ryan.Wanner@microchip.com>
+> 
+> Add MCP16502 to the sama7d65_curiosity board to control voltages in the
+> MPU. The device is connected to twi 10 interface
+> 
+> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+> ---
+>  .../dts/microchip/at91-sama7d65_curiosity.dts | 135 ++++++++++++++++++
+>  1 file changed, 135 insertions(+)
+> 
+> diff --git a/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts b/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
+> index 441370dbb4c2..81abc387112d 100644
+> --- a/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
+> +++ b/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
+> @@ -30,6 +30,15 @@ memory@60000000 {
+>  		device_type = "memory";
+>  		reg = <0x60000000 0x40000000>;
+>  	};
+> +
+> +	reg_5v: regulator-5v {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "5V_MAIN";
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-max-microvolt = <5000000>;
+> +		regulator-always-on;
+> +	};
+> +
+>  };
+>  
+>  &dma0 {
+> @@ -99,6 +108,132 @@ channel@4 {
+>  			label = "VDDCPU";
+>  		};
+>  	};
+> +
+> +	pmic@5b {
+> +		compatible = "microchip,mcp16502";
+> +		reg = <0x5b>;
+> +		lvin-supply = <&reg_5v>;
+> +		pvin1-supply = <&reg_5v>;
+> +		pvin2-supply = <&reg_5v>;
+> +		pvin3-supply = <&reg_5v>;
+> +		pvin4-supply = <&reg_5v>;
+> +		status = "okay";
+> +
+> +		regulators {
+> +			vdd_3v3: VDD_IO {
+> +				regulator-name = "VDD_IO";
+> +				regulator-min-microvolt = <3300000>;
+> +				regulator-max-microvolt = <3300000>;
+> +				regulator-initial-mode = <2>;
+> +				regulator-allowed-modes = <2>, <4>;
+> +				regulator-always-on;
+> +
+> +				regulator-state-standby {
+> +					regulator-on-in-suspend;
+> +					regulator-suspend-microvolt = <3300000>;
+> +					regulator-mode = <4>;
+> +				};
+> +
+> +				regulator-state-mem {
+> +					regulator-off-in-suspend;
+> +					regulator-mode = <4>;
+> +				};
+> +			};
+> +
+> +			vddioddr: VDD_DDR {
+> +				regulator-name = "VDD_DDR";
+> +				regulator-min-microvolt = <1350000>;
+> +				regulator-max-microvolt = <1350000>;
+> +				regulator-initial-mode = <2>;
+> +				regulator-allowed-modes = <2>, <4>;
+> +				regulator-always-on;
+> +
+> +				regulator-state-standby {
+> +					regulator-on-in-suspend;
+> +					regulator-suspend-microvolt = <1350000>;
+> +					regulator-mode = <4>;
+> +				};
+> +
+> +				regulator-state-mem {
+> +					regulator-on-in-suspend;
+> +					regulator-suspend-microvolt = <1350000>;
+> +					regulator-mode = <4>;
+> +				};
+> +			};
+> +
+> +			vddcore: VDD_CORE {
+> +				regulator-name = "VDD_CORE";
+> +				regulator-min-microvolt = <1050000>;
+> +				regulator-max-microvolt = <1050000>;
+> +				regulator-initial-mode = <2>;
+> +				regulator-allowed-modes = <2>, <4>;
+> +				regulator-always-on;
+> +
+> +				regulator-state-standby {
+> +					regulator-on-in-suspend;
+> +					regulator-suspend-microvolt = <1050000>;
+> +					regulator-mode = <4>;
+> +				};
+> +
+> +				regulator-state-mem {
+> +					regulator-off-in-suspend;
+> +					regulator-mode = <4>;
+> +				};
+> +			};
+> +
+> +			vddcpu: VDD_OTHER {
+> +				regulator-name = "VDD_OTHER";
+> +				regulator-min-microvolt = <1050000>;
+> +				regulator-max-microvolt = <1250000>;
+> +				regulator-initial-mode = <2>;
+> +				regulator-allowed-modes = <2>, <4>;
+> +				regulator-ramp-delay = <3125>;
+> +				regulator-always-on;
+> +
+> +				regulator-state-standby {
+> +					regulator-on-in-suspend;
+> +					regulator-suspend-microvolt = <1050000>;
+> +					regulator-mode = <4>;
+> +				};
+> +
+> +				regulator-state-mem {
+> +					regulator-off-in-suspend;
+> +					regulator-mode = <4>;
+> +				};
+> +			};
+> +
+> +			vldo1: LDO1 {
+> +				regulator-name = "LDO1";
+> +				regulator-min-microvolt = <1800000>;
+> +				regulator-max-microvolt = <1800000>;
+> +				regulator-always-on;
+> +
+> +				regulator-state-standby {
+> +					regulator-suspend-microvolt = <1800000>;
+> +					regulator-on-in-suspend;
+> +				};
+> +
+> +				regulator-state-mem {
+> +					regulator-off-in-suspend;
+> +				};
+> +			};
+> +
+> +			vldo2: LDO2 {
+> +				regulator-name = "LDO2";
+> +				regulator-min-microvolt = <1200000>;
+> +				regulator-max-microvolt = <3700000>;
+> +
+> +				regulator-state-standby {
+> +					regulator-suspend-microvolt = <1800000>;
 
-Frank
+I can't find the schematics for this board. Is there a reason for keeping
+this @1.8V in suspend?
 
->
-> BR,
-> Primoz
->
->
-> >
-> > Frank
-> >
-> >>
-> >> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
-> >> ---
-> >>  .../dts/freescale/imx93-phyboard-segin.dts    | 32 +++++++++++++++++++
-> >>  1 file changed, 32 insertions(+)
-> >>
-> >> diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-> >> index 38b89398e646..027a34dbaf04 100644
-> >> --- a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-> >> +++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-> >> @@ -26,6 +26,17 @@ chosen {
-> >>  		stdout-path = &lpuart1;
-> >>  	};
-> >>
-> >> +	reg_flexcan1_en: regulator-flexcan1-en {
-> >> +		compatible = "regulator-fixed";
-> >> +		enable-active-high;
-> >> +		gpio = <&gpio4 16 GPIO_ACTIVE_HIGH>;
-> >> +		pinctrl-names = "default";
-> >> +		pinctrl-0 = <&pinctrl_reg_flexcan1_en>;
-> >> +		regulator-max-microvolt = <3300000>;
-> >> +		regulator-min-microvolt = <3300000>;
-> >> +		regulator-name = "CAN1_EN";
-> >> +	};
-> >> +
-> >>  	reg_usdhc2_vmmc: regulator-usdhc2 {
-> >>  		compatible = "regulator-fixed";
-> >>  		enable-active-high;
-> >> @@ -38,6 +49,14 @@ reg_usdhc2_vmmc: regulator-usdhc2 {
-> >>  	};
-> >>  };
-> >>
-> >> +/* CAN */
-> >> +&flexcan1 {
-> >> +	pinctrl-names = "default";
-> >> +	pinctrl-0 = <&pinctrl_flexcan1>;
-> >> +	xceiver-supply = <&reg_flexcan1_en>;
-> >> +	status = "okay";
-> >> +};
-> >> +
-> >>  /* I2C2 */
-> >>  &lpi2c2 {
-> >>  	clock-frequency = <400000>;
-> >> @@ -79,6 +98,19 @@ &usdhc2 {
-> >>  };
-> >>
-> >>  &iomuxc {
-> >> +	pinctrl_flexcan1: flexcan1grp {
-> >> +		fsl,pins = <
-> >> +			MX93_PAD_PDM_BIT_STREAM0__CAN1_RX	0x139e
-> >> +			MX93_PAD_PDM_CLK__CAN1_TX		0x139e
-> >> +		>;
-> >> +	};
-> >> +
-> >> +	pinctrl_reg_flexcan1_en: regflexcan1engrp {
-> >> +		fsl,pins = <
-> >> +			MX93_PAD_ENET2_TD3__GPIO4_IO16		0x31e
-> >> +		>;
-> >> +	};
-> >> +
-> >>  	pinctrl_lpi2c2: lpi2c2grp {
-> >>  		fsl,pins = <
-> >>  			MX93_PAD_I2C2_SCL__LPI2C2_SCL		0x40000b9e
-> >> --
-> >> 2.34.1
-> >>
->
-> --
-> Primoz Fiser
-> phone: +386-41-390-545
-> email: primoz.fiser@norik.com
-> --
-> Norik systems d.o.o.
-> Your embedded software partner
-> Slovenia, EU
-> phone: +386-41-540-545
-> email: info@norik.com
+Thank you,
+Claudiu
+
+> +					regulator-on-in-suspend;
+> +				};
+> +
+> +				regulator-state-mem {
+> +					regulator-off-in-suspend;
+> +				};
+> +			};
+> +		};
+> +	};
+>  };
+>  
+>  &main_xtal {
+
 
