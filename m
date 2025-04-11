@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65043C369A8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77321C369AF
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 11:19:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,46 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g2sl1D2ogjKReP0a7bEBu7OPeVSX/joOCaVl4YbJy18=; b=KfAbmmQs1rACyUpArb1v0+xd6M
-	Kno3UcvGuoxQpBkxM2xwJ3hpPTNQ7x/z/9l1c9xxQKeToZ9QObWowQ0Op368duYSRort7+irCaXoi
-	qlAA0ueAP+Fi5Na8JWCopJJyh8p6uT/wkMUAZtPfN3/lE/+B9nBGJfd4JMYOTopvPjiMxONDmzQD5
-	jv1VAX9btXvRUQ+FszJaQELtPwUX3cutpjy17bBGc5vu4+9aND7oxaiL+rxDbJDbb8g40SOc+sr0G
-	D4djHFLeSUKHj/1ejW1SfwCJbFduLGx/k0K9pumm+6NxqRfkt4THn7pHEBemnIIMYj+/srb+g9CWC
-	fJoVq2OA==;
+	bh=zJF5G7BRX4DppOMIFpgMVEnbQjRAG+ZKNENXrgtLZMw=; b=NAxQKSgWqnmvsh2SRL6yh+SoCV
+	YopEV//jLhsKyD5BZiLf4q3fQJGiYcWhItxF6KQhLPLxe+G8xZQoeCTVEQweYCpGqgfDVumBkFEnM
+	TNFaUtA6jZEA1T8NgeslBzSAj4BQw8oh/gEowZXxu/5qnoY7sao9M35HyPh9bPIs8/Yh35/SHub7I
+	cKL7scakRAhSX0XtarUBa8dT4nWOyzXpe/5BNbiV3PFPKraYgiUL/VWG5j4Rs2FUoDFR9TjZ94urC
+	Ula5QcLTMvah2aeoBWrjl2bSPBOiis6fYskB8NNq0qilnaOp2fkiVknQR+4grYBTasIl2+qNA7+Wa
+	yijnB5cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3CPc-0000000DUy4-0qyq;
-	Fri, 11 Apr 2025 11:19:08 +0000
-Received: from mail-am6eur05on2062e.outbound.protection.outlook.com ([2a01:111:f403:2612::62e] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1u3CPe-0000000DUzB-08hk;
+	Fri, 11 Apr 2025 11:19:10 +0000
+Received: from mail-am6eur05on2061d.outbound.protection.outlook.com ([2a01:111:f403:2612::61d] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3BSN-0000000DLkW-22Xk
+	id 1u3BSX-0000000DLoZ-1ANW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 10:17:56 +0000
+	Fri, 11 Apr 2025 10:18:06 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LB0K/gZ3st0G0Pvg8TcsziN3Pds++8F/8bFziYJ3cDeFrZYzRJwfBfwaLmM4q6kn8UAX9+ZVNr11AmQg4oeQRf5VydsrTJmx4dEmAFQjIBpFyDYA4dXphTsosTqMqOR0SFFChAg2EEGFZjr6pbpNxRd9FUec1ZKzbk0EQo84lWnBnXLAup45at8OQe+FIsnxfYlvgmBXUyb+K9sYuUhlaEMaxQhXcD5skw0olanX0mBP+p6N072h1V4wKqbS9f642fhBHqH3m4wKl1z3gunUSiAfyQpNcIiOSG3kZnpU9MZKyBL8GJ71pbKF/whokjGgtACX7f7Lmt52251P2iAZ8g==
+ b=T9pehxgodBDoaas46cU79d5+t43UIGfiH4fQTI9MSx3w/W2y4bq3t+MB7TKx4oqQvt6c6izDnlbv2ZeiSTZqORKfym6bYvrdpfQQexyheLwdtYb/6X4ngxrs43fZP2w21VS3BTwcJvv761s40RqMvCKgDzq1sTrzh8/cPmqX3wHGZl5mV4AxMYpOQVJx2EXwyoxjJfjsvJHre5VsByUpsPBTeSfAzjbW5OoMCgXmWx8lR1HUoqLlDn7dH5zfn1gJDqkZYS2D1lURlO8CYlUX1qAFxrVnDzUDRjoS9iGMHuB+zoLXnVDlME/7CkfjRvsB6J0HoGNacGCZ6y5OhO9ULA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=g2sl1D2ogjKReP0a7bEBu7OPeVSX/joOCaVl4YbJy18=;
- b=lecQ0eMMKdAKiJxGLet2mFz5TpeVnlWNLiy5sedSxKQMyGzJJy/ElBSGU4UByB15ruHqr8OVpDmkA0LF7pDr6mm/I0zgpo0wyXFVf4hkA50hjzzq4lra8yU55fgxav1pO12clP4IDoF5/i7ErPWDCdzt/F0nZkUsgDFfnrv91O/4a7fS9r667L14D2vuoXwbSY437hXnnkhL1Ri4izZ0HxTd4yxbB1i5fDdYwy2kkmk4spCCmPQtR01NrwRy7ESLQnfdRbCKrPXMpRzy9sNI5SO/ytP3+N7gtmk6NSQ+w21D3s+tU/GKrRWNKYRZdsq0yOWJ2n4SM34bBIaBuAz3bg==
+ bh=zJF5G7BRX4DppOMIFpgMVEnbQjRAG+ZKNENXrgtLZMw=;
+ b=qbzOMo0+qfKfbzz1E9m4GJyAFFWXPjVFOZmlIndN9kLCPlbpkv9mUF+UHaP8SHK3ERYhv0coK1ETml9UA8+sJnbUbjJLc0GA5++X4wnGSITLDMXctCG7WppmlbYMrYK7jODaWY+5vCoDrSLeD2061fUtB5TIMrqdISWK/+LBsWax6g40+qXU0NdpGBoj7bP2i+T8o5WcQUP9SFOXZSd92lHfbyHli/8vsTDN1I9C7XlzZBQAEdHC++DVwJVW4ZrOOGfDQWoKiU4C2Ei6oD5TSMlAjmdmqzNGNUlVOKdGGN4Dith1XJBDv5neQTb5eD7/M75sxJunPPTDGfuCzq/+yA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=g2sl1D2ogjKReP0a7bEBu7OPeVSX/joOCaVl4YbJy18=;
- b=gM/BKUHNmpCf8Ws2WSTYQZw+QPTzvQh84hUHplbT/ahPCX18uhfMNwxclgBjtQaEBUuVXCPMu3PlyZQ540YZRod6gYBdzuwoL+o0rNdZz59diLWivnfnfBj9wqHCj6Vhob0LncEG4WxS6c1pUwqVPpnURm4kxVfi4+2blu81A13uGhXP7yrd4L+bNzTyH5HHx6VeotEn0veMvi+QO24ZKi8AgTFrfZqesdz30bcqrvhkTvY0XryVKKn1wgpW3mYxX0bu2IkFQswjRAwuZHAj1n5DV8JUfdJsh3A3uhxfWJg1l9u4X+lKWFmExKvd/RLA090rNDugcH6VDsS4pa9lIQ==
+ bh=zJF5G7BRX4DppOMIFpgMVEnbQjRAG+ZKNENXrgtLZMw=;
+ b=fABZ7C98/pgSSfZFYgfXOaRWsQbZ6sAU6Bnq754R6bHFfkLO6Lb3xQpbiO6AcVlC0iqJBApjcTR6RjnWq9md8hhfo5M6QSaomrAJBY72HwyvTipm6Kq1CKr1swHZFIn9GSsD0+t1buT8fiSOKTy/h7ciFrxq7xmuZsCiWIc7yTibOeDByYV0+P9BIoXeCL64YPGFaZIj7Jzc7N+gxTm0iBcODlglts6Sst8KX9vreAuaKfQw0IPGcOrv0fk8YEDpmtMLCj1VI6WMTRG+/vveXLBoB7TvzmR4CEIzWdtxSCFA8GSrFnrrBNI49HKwjtLCd/4y4K/LdXkhNO995Rbi0A==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from AM9PR04MB8505.eurprd04.prod.outlook.com (2603:10a6:20b:40a::14)
  by AS8PR04MB8900.eurprd04.prod.outlook.com (2603:10a6:20b:42f::9) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.27; Fri, 11 Apr
- 2025 10:17:50 +0000
+ 2025 10:18:02 +0000
 Received: from AM9PR04MB8505.eurprd04.prod.outlook.com
  ([fe80::bb21:d7c8:f7f7:7868]) by AM9PR04MB8505.eurprd04.prod.outlook.com
  ([fe80::bb21:d7c8:f7f7:7868%3]) with mapi id 15.20.8606.028; Fri, 11 Apr 2025
- 10:17:50 +0000
+ 10:18:02 +0000
 From: Wei Fang <wei.fang@nxp.com>
 To: claudiu.manoil@nxp.com,
 	vladimir.oltean@nxp.com,
@@ -67,9 +67,9 @@ Cc: christophe.leroy@csgroup.eu,
 	imx@lists.linux.dev,
 	linuxppc-dev@lists.ozlabs.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v5 net-next 10/14] net: enetc: enable RSS feature by default
-Date: Fri, 11 Apr 2025 17:57:48 +0800
-Message-Id: <20250411095752.3072696-11-wei.fang@nxp.com>
+Subject: [PATCH v5 net-next 13/14] net: enetc: add VLAN filtering support for i.MX95 ENETC PF
+Date: Fri, 11 Apr 2025 17:57:51 +0800
+Message-Id: <20250411095752.3072696-14-wei.fang@nxp.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250411095752.3072696-1-wei.fang@nxp.com>
 References: <20250411095752.3072696-1-wei.fang@nxp.com>
@@ -81,78 +81,78 @@ X-ClientProxiedBy: SI2PR01CA0021.apcprd01.prod.exchangelabs.com
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: AM9PR04MB8505:EE_|AS8PR04MB8900:EE_
-X-MS-Office365-Filtering-Correlation-Id: 391f1660-43cb-43d6-ec9f-08dd78e21b3b
+X-MS-Office365-Filtering-Correlation-Id: 576713d7-aa69-4ab2-0458-08dd78e22431
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?liGpxH53sRHIZ3P+mCd0Rg7oxzwyDsM+iUKN06YQjeqZBPvnwNU4af7Wkwjr?=
- =?us-ascii?Q?HB8b+FmO+4SczmdYOp2zZV2T20yRddzjac48aVdLhPK+4lBsFYFsrztIssjG?=
- =?us-ascii?Q?EKl9burK0wTEd96vW9ttgssTbWbRg2zMgDrVhWeSutbfrHNLbzLidod10Qez?=
- =?us-ascii?Q?J08vc+qR0zr3m30p0MOxBI+efD8CitE39S9jaIcBRSm9T9XGxX6VF/8Mpwkk?=
- =?us-ascii?Q?EQ8cTryXI0cUPEL8t9xT8Ho1IV8MuqAVFSMnil4M8Xo9IIPte63iJyB520T1?=
- =?us-ascii?Q?HtZbvLi0YFb38m5Cewvd0hOJ9nEj9Tpih8dpwemAV3ztRFx2gXVgMiq6HNPT?=
- =?us-ascii?Q?BdvNuFifUiaLZDDBP/hSh2ptNetOukChrqoGQPv5NHhyfwqxq0Bs8YHC6u4E?=
- =?us-ascii?Q?bxnTu8L6bml2HjohVTDgViipij55bRVUp1xhCl6Dc2kFMvWVHFIv0jfoEqJ2?=
- =?us-ascii?Q?TrK2JoHiNjdfLRAqyM0CjNXJs+BwA1eANq6gREjIjNus+ud5xwIy2ryDHptb?=
- =?us-ascii?Q?nTjUzRefhbwnJWjv2drWFus90CdmSoIq8wR4+2zmTmUvqYkGcQtFcQCtbOoD?=
- =?us-ascii?Q?aGAzMLwSflH16PMu4W/CzRiF9Ed3CU/8N6CCR3KsEl67n3RtArB5nWySpr9X?=
- =?us-ascii?Q?/xsWTUF0xyYjnvPq7kIA6xSNw7/P2O3tE5zigzfdAygA57tTTr100loPkKz5?=
- =?us-ascii?Q?BdsdVkmUVLbZMeUaudeBC2RPbnQfvg4nFrD/39DKFsGY8QEgEiUrxBbo6jJW?=
- =?us-ascii?Q?biZFEEH5e7TShhQOsG0FEkhI6tKvPm7SkCrQeTG7pnydqK6SaeR64G++0Gk/?=
- =?us-ascii?Q?lw/ukDDhDA/IBT9YOr7uQi1eqn0BXPvFwo6JnbYw02q85oZNlYEHms+TCdwI?=
- =?us-ascii?Q?hkJ5OzLCKnvHEMCNI1q2XSRN/M+pPycS3yk1oUViTqgDUwk4TFX43S62J9I8?=
- =?us-ascii?Q?O5Cro9xDkXPW2gP787KqLryW+rJA+fGfystlZlYvNxiFj+6UyToajfmTJuIq?=
- =?us-ascii?Q?lmxR5iVqR7dTnAtwozLhy6Nq74UhB1dcRcDPbB0FqFn0f+vDPxwfkadTDwpl?=
- =?us-ascii?Q?vON5Ya6g55fs+zhDYNiejUEk7GIyaFJcZpu0+SvPAGhqoSQsyxgNby7V81zw?=
- =?us-ascii?Q?EfAvMli6bcfT0ahJg9NXzn7O6VQyyv+TV0aJ1StizIi1oqoHWP2Sno5eonG9?=
- =?us-ascii?Q?olk3w3CKKXQvvJQKnVHrzAKuni60s5r/O9jTyrgRE2Ch0ibxv3WgxRQGEtAp?=
- =?us-ascii?Q?YLXIi2Sf9XMncxpHmuN0RIrVL2yP5WHbwIGBNphhvxlsp/7U2VXOaZAWrILJ?=
- =?us-ascii?Q?WY8q5y74kAypxOnUP/Nfm5NJJs+M0eA3XlWV5adzt/PS31loi+n0ALjJZwPq?=
- =?us-ascii?Q?AXsN140IAThLLRJOya7O8Y7NmCICXCX3pNN+YD+IyZsdkGjAh/lrJTb8+bAC?=
- =?us-ascii?Q?N2jmfEsUbYxe+ckuu80FsGA3dg7cSQ7D1+FcPpbtfW2/V1CgOt26kg=3D=3D?=
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?iSMk+0dKchvPxcWPbXPcqMCDJ5TaDZuvCFtbK5uYy4vL7FHYaFSBryKZmxAb?=
+ =?us-ascii?Q?0X+6Cj3CM+IBFAUevrXtpSD2801DSdmvwDY9Yj7ksqBq2IZ45eLMYypAJr8r?=
+ =?us-ascii?Q?jNU5+bIbKkt7jrDvw2smQNVffgxlxAsKaEjN+/IUKbOZaqA9girm2ji0iizK?=
+ =?us-ascii?Q?mr3U0aDwfUY7g1I75/5s0MVokhUnlIZNsP0UIdGbIwYknuHuto2zVgR8ZvfM?=
+ =?us-ascii?Q?Prgv0B9PkGvrv4feTvVMfmxIXfuXIY/dd7tqbABVAIS3EIBwAAOkGDLStp2M?=
+ =?us-ascii?Q?nLrHQ0F1p7Fr6koTSx4+kNeWwrfwVIo5OVZ+q6qM6nddwENldAMDntXdgCzj?=
+ =?us-ascii?Q?K92w3qYHSSOcFdezYO/gKLeadE7Kh5ccu9J3TgDWSk2sg2XYbyHNHPlbVjS8?=
+ =?us-ascii?Q?/jwfjrRPnzZmuSxHV8oZxK0rjCVU2RfZKyn4uZrfLa+I7e+0wfqcDpxcitgN?=
+ =?us-ascii?Q?wC4riUm6JqfRLlKuRvtG6juOWQNrC+zqYDMAr5J9ER/XgCF7p76oVf1M5yfC?=
+ =?us-ascii?Q?D+GOdFVkl72O5kdsUaPA8L9y//so67Dfq32AiyhOrXzgAHF2WF8urqttW7Uk?=
+ =?us-ascii?Q?0iNK5FcWuYjTSqcvmGbLawC+D9kKZ+t6VZokoey64TGo3hL4KVgdRW/AxkyX?=
+ =?us-ascii?Q?QnO68Llfj2ohSbcQb5mS/leZtsAfp3JNVaf8tyDmsq8FcfD/R85COv/xJaeA?=
+ =?us-ascii?Q?tkmGq6MfmsAthbgyXRgCTLzhhoIo6XA5flqxhkH1Ia6GpaShr74mkiCLc2oq?=
+ =?us-ascii?Q?JCoth+iFaaBMwS1zYEtjbim9w2EHJHIGHPm+mOXzeqtWodBTySz+yuKh0Zic?=
+ =?us-ascii?Q?YnjOjVZxqAL8zWwtDQH4n4Hn3jDoqbN/0vxPdfXds51ajctgdCXtRVfRGi43?=
+ =?us-ascii?Q?+rPSeIXUg5vZJCLHC1aqeZSHXKGEko0tiJK88vx9CrMs6WV/naqhiQLN+z29?=
+ =?us-ascii?Q?MGKVgi3s/h0TjHvn+J6WXSle2oz/0R445mndaQrpUlnEifCpINBLzs2gcVkp?=
+ =?us-ascii?Q?5zm7DR2WdyUaKIG2yaJGJEB4rFQ6zv9IwWHOQVTse1tyfKw9jxbSC+RHPNsn?=
+ =?us-ascii?Q?umtZxdpbTHqE6CxkzpTm/SgdY76p/hJubU59MfEmlO6oQMMYtOKQBNHasrX+?=
+ =?us-ascii?Q?asqbVmbVwe2ek2d6XgzIqFCVpkqf3BIkhUEX/nLmBDScaH61pI4mytivJGHV?=
+ =?us-ascii?Q?1tAwi4Zz4TqZbgLPEGLRey0NYTwme0yL6JdUVnmGVYLIoXT8DgyF+T9a6lPh?=
+ =?us-ascii?Q?mxZ84cqPCdYkfPVgL2mHwKwLbJe/fT0G6VAnrsLzUd8e8f04/SpfopuysNe0?=
+ =?us-ascii?Q?KxdldxkDVkYoDKHUhij2TDUywbojNRZ4xzUrprJpKO5lxfa/w1xiYoNBFC3u?=
+ =?us-ascii?Q?fTgAjAgzWLvyoheDbCfxCvWZPgA+RjXmIUOttIbMbboTUv85luNHX9ao9OVr?=
+ =?us-ascii?Q?H2XtiLYFM6XeXJgasKzkKB80CJ5OO6k2PeT75WGPf/VUI0TVCMfMBg=3D=3D?=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8505.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?iO0PPqp91PMbMeTLtMaA2q4yUEOqKhmvymh5R5KLf4Kb50Wc+F5QfEacrkLu?=
- =?us-ascii?Q?CmLQJn86XdlnrIlC6u4hM/W1E3piYIz/FC89/cEgf8SdLqVGPNbrpu+blLZy?=
- =?us-ascii?Q?fJeasQgmbhSLPAp4QeXspLfsmqSPHTKa3TyI4A6irA+U0cMnBqkqFUotv9aj?=
- =?us-ascii?Q?eLUTy7c10z3f21N2+04h5Fpk/rdEFsIUPyC4MK2avKMNWNTtKsGRIOWye6fJ?=
- =?us-ascii?Q?tq5Xgz9GbST7wiKtRL7YHP/rPFwNnrBjSMPZGlQOMFdho39RpMimAtvYYGGe?=
- =?us-ascii?Q?G+IEaS5Skznq+lTIEtmzq7Zej2ASxuomA0wTLA0+3xHhhslFezoITArGnUcV?=
- =?us-ascii?Q?vh+j73HMAnsluRzKAMDx7r0pabMGPH2DLbApL2KliZoYheY+E1ahCnrz42QT?=
- =?us-ascii?Q?zYDR4Hz5dqJWbxF2Tb7jf3Ygp92grhgnC0YTywztlAyKxCEaYpnI6K1TUVR6?=
- =?us-ascii?Q?vrELtZpnwLomF9EtHxPjwW4/HNvgs29sX2pZYtfpKQRMHGu+V5vUQmWVJDzj?=
- =?us-ascii?Q?w492ALVd9iAusokrZ4R4DrMNl3MQYmSv9vw6Ow0pxOBkYSsYvw/h24zdgNuw?=
- =?us-ascii?Q?y8hRCWB3tRecUCLQoS31F2DVV7AKHa3i4gWCqFLHoAPt0K3QiglIF+e8KtN2?=
- =?us-ascii?Q?3YpqpuUQBnDOWAQZw4g4gmekQavjIyRb8ibfhSGamJa3783OWCeeTwMbd+iJ?=
- =?us-ascii?Q?w5XDtWEBixUxCqrP3myBxhRkqfyDaWBDA0KmyiS+9CxbOi2wqxw/iGG2eECb?=
- =?us-ascii?Q?K0W9AkE95qPhdHIX99c8t2JMKVbljiX/1GnKYKbptEQ/oGEPv7nAayXV3jLq?=
- =?us-ascii?Q?swqKWEJreitgbm8MhcWjmLXWgbP6bvH0e8YYeLWQaLoCBoQiC9pot7+XXvB8?=
- =?us-ascii?Q?4ebBg2sCAYcVvQ2g1m/sVs+ynKgAv6jPTkoroQmZQvQFqPRLZ8GdgE/uhSgZ?=
- =?us-ascii?Q?JQLrsK8LQ0KJ8PTBiSPECT/5QPm+J1tTSHE8HZmSfX8ClaWlLzcuSZW+00oC?=
- =?us-ascii?Q?23Fvm54loFUiGnTBTF88qv+fKjBuf5F5JHCUNaq0X+AySTsaWyC0NrgpnJcg?=
- =?us-ascii?Q?GRAtcwj2KrmQWyrpJX4LzSLcIUuSLBsxndP+KNs+eji+9P2/UFEhH7kqC1X7?=
- =?us-ascii?Q?O36etn8WR1JOT6yNktW7RMb2GeX1Ck7nILCfIQ1zertD8/MoDrj+U4jXroQb?=
- =?us-ascii?Q?H+/UIc6/w1s6QltfzMvmL7+jzKKbT/X1TIFe53LQs50RVrFlPnhXe5cMw3jW?=
- =?us-ascii?Q?FKZvpi8j9hevav5CZN3i+XodgzGxVg8GqU+9pIoziJdK4dZH8n6zjpAkK1Zn?=
- =?us-ascii?Q?67+zWnEPc8BNJPprAZ7HOypirV73Co8sc1Op1ILRL7a8Ka3kVrygUPnWDB/w?=
- =?us-ascii?Q?l8LLgqtTUOuEk/OGabo9OVTrIHx8aML/wlexXilUSXhO0Vv1nQfotDcINN8b?=
- =?us-ascii?Q?SF5MvJek5aZKOFDPDIMyn+XWTRtvokGyX38UhmBZYc3+qhWRPuChBUAha4Je?=
- =?us-ascii?Q?vTUTx1OFZCYaO7ysQ5sa25CdHPwTKIm/5nVp7hgkqf7xXj68pKVA0eCJJyEh?=
- =?us-ascii?Q?iRFy4IqgxWdXPCQr9qsdzjEgFZ1bKt2a3mUm2Vm2?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?BdrlWYjuERC/2s+LxYO22w+q8TtZys/nNjo+sRPdO9iMa6uxGSB2q2GHiXsc?=
+ =?us-ascii?Q?g3g/UeBV6qByectvG/YZRhL/LM/GG++8cJm8H+HOFI+1JtlYoi83nhST59K4?=
+ =?us-ascii?Q?qrURsgYJ90TaAt7QnyHiSrhL/45QbDDT0SclY5HU0rDJ8pz15WYwzJrJbsQb?=
+ =?us-ascii?Q?Y7hJ8b7EMLX/aG4K247wXG8T59Um+7vCDR2dKFgOF1Hf0OPnl30p+AeOofXc?=
+ =?us-ascii?Q?A3gIFRAymV2UYhk20VH9AvWzV/6+KxLI6ieijx8chcfYv+7IUUeFkQQCF6eS?=
+ =?us-ascii?Q?Ea175iFV5PCrz1H2Sf2CSKzyAcuy6cbOtJ2qVA9qDdMyBU6TqyBdHqmPDaBv?=
+ =?us-ascii?Q?07/6S6oR5WD8FDdb6N210otjj3W0Qb2tID/4LBe5L7eIpeMGEiOwfBhXMnIK?=
+ =?us-ascii?Q?YNdrd0s7NuvBsa0wElt5idkMm/4xIB+v7fcb8hKbk38qgQ21i51izCUNlY1U?=
+ =?us-ascii?Q?IQ/T7pS67+j4DEwvZEtuKGaXEd7DymFtBI9l4TomR3Q4Nj1goIq7ruXa/LUU?=
+ =?us-ascii?Q?5StA3kxANHkuPVCDwpOBA/ELTa6b39q/0UD6f5a9vdW77vnxNk7QyRBagy/2?=
+ =?us-ascii?Q?XZ/uMksqDBMiRf4SVm5w3p5xhQR6wB1PE2Ix7Qdrz+NtDzhzb93hOgko4tJI?=
+ =?us-ascii?Q?RyE30lH9lWSBhaQZvksj/jKrNXn7BI6lzkcIV+9D2ibxH8CVg2DkyTH+zyl9?=
+ =?us-ascii?Q?irxKB9i33z+T4t7AtjZtw+mrCNjV19KzxFKOQ/yipXJZR+m7HBFIuToAfgUw?=
+ =?us-ascii?Q?EqgtfOHKi9AfYCHMFEfKbCXiQVpFK/OHnbfy5BQtLu9OE6rYA1mR1omMdamT?=
+ =?us-ascii?Q?2PggYz1n6Eeq3COoVWgSYHC2l5JlLtqtadQDKaf5F/lxFDLUJQkWgUVVHDt0?=
+ =?us-ascii?Q?y4nI5RZXQgiKlWd6g8gQEmIrcUnK2XtVx4Rbbu3VBkGXpAAvTcT+RiNj6BAz?=
+ =?us-ascii?Q?GalXC/UdMMV/6agjBhBhJmS2pVOCprIJZJVGPE+ui1eh3eV/5U9zOgpasbM9?=
+ =?us-ascii?Q?VB+RxfYjlDneA7+nZ0LfNFMWfyfmUYHA/0PJ5XM1GlYNWIFjqxieUvfduNcb?=
+ =?us-ascii?Q?4KhCaDjJruTAVWXPMH029Ryy0OhQXDkgnsV8jTAQJ6otOm1FApHZBoFwnxfl?=
+ =?us-ascii?Q?ZcjiOeiE1Es/tv1GwXG/vhZFTiPnXvSTl2MOzc4m56XI3lPTMBabdcRGJ40q?=
+ =?us-ascii?Q?i8yPRJ7b19IdX12So4dJ0+Bg66fHa+v6ARZ4+LSLM0SVWP1ZUjW2zp1AZLoy?=
+ =?us-ascii?Q?ixEPmSiv0z2He8/1bt0C5pJnmgzVc7R33J5fO/XWkvmWAHa8HTJV2rFZhx8V?=
+ =?us-ascii?Q?pjd4vNS9Uuo9w+YmP9yPkH2QBPJXxHcn2WW5O71k6wB7M3e5oSzBUEQlfNKZ?=
+ =?us-ascii?Q?swEuMtnl0B6/gK1z+0bPElfuiuLb/lgAQSWJhkqrzswLXwE2Y/+uz4nPHch7?=
+ =?us-ascii?Q?mG1+NJ5iSgW45EB3vArFOP3VbjRgoikKf91suFI5+2QG4ctBT+tWu1j5zpPZ?=
+ =?us-ascii?Q?CJN0Nk0iAAZH+NXWDb/DRmz8agALbhlyOrD5Y+NxWkwLPq66lfgctZ5MZ9m9?=
+ =?us-ascii?Q?4y0nIVjfGS/BLgirYNi0cQCT3BisICnBCbqNutkC?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 391f1660-43cb-43d6-ec9f-08dd78e21b3b
+X-MS-Exchange-CrossTenant-Network-Message-Id: 576713d7-aa69-4ab2-0458-08dd78e22431
 X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8505.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Apr 2025 10:17:47.4230
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Apr 2025 10:18:02.6563
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: shU29D6vNDphJ3aiEjPocDP+jDfSVEvhPCoK2qyXWvIpPVLU3J/4hp6kfO431Acia6LgHSUGMQBBdVn32HfF3A==
+X-MS-Exchange-CrossTenant-UserPrincipalName: VUY4p/6xBTq/h3J7jmC+dLABTgjB56rFti9MfWSst2HZqL4HSepi9VB3PW41rvWd9e4Fkj25phWV08D6zQQRaA==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8900
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_031755_525512_BE366D02 
-X-CRM114-Status: GOOD (  14.02  )
+X-CRM114-CacheID: sfid-20250411_031805_324876_F8C15C57 
+X-CRM114-Status: GOOD (  16.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,110 +167,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Receive side scaling (RSS) is a network driver technology that enables
-the efficient distribution of network receive processing across multiple
-CPUs in multiprocessor systems. Therefore, it is better to enable RSS by
-default so that the CPU load can be balanced and network performance can
-be improved when then network is enabled.
+Since the offsets of the VLAN hash filter registers of ENETC v4 are
+different from ENETC v1. Therefore, enetc_set_si_vlan_ht_filter() is
+added to set the correct VLAN hash filter based on the SI ID and ENETC
+revision, so that ENETC v4 PF driver can reuse enetc_vlan_rx_add_vid()
+and enetc_vlan_rx_del_vid(). In addition, the VLAN promiscuous mode will
+be enabled if VLAN filtering is disabled, which means that PF qualifies
+for reception of all VLAN tags.
 
 Signed-off-by: Wei Fang <wei.fang@nxp.com>
 ---
-v5 changes:
-Just rebase it based on patch 9.
+v5 changes
+1. Remove set_si_vlan_hash_filter() hook
+2. Refator enetc_set_vlan_ht_filter() and rename it to
+enetc_set_si_vlan_ht_filter()
 ---
- drivers/net/ethernet/freescale/enetc/enetc.c  | 31 ++++++++++---------
- .../freescale/enetc/enetc_pf_common.c         |  4 ++-
- .../net/ethernet/freescale/enetc/enetc_vf.c   |  4 ++-
- 3 files changed, 23 insertions(+), 16 deletions(-)
+ .../net/ethernet/freescale/enetc/enetc4_hw.h  |  4 +++
+ .../net/ethernet/freescale/enetc/enetc4_pf.c  | 12 +++++++++
+ .../freescale/enetc/enetc_pf_common.c         | 25 +++++++++++++------
+ 3 files changed, 34 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/net/ethernet/freescale/enetc/enetc.c b/drivers/net/ethernet/freescale/enetc/enetc.c
-index a389d5089734..d686baeb1aa8 100644
---- a/drivers/net/ethernet/freescale/enetc/enetc.c
-+++ b/drivers/net/ethernet/freescale/enetc/enetc.c
-@@ -2420,6 +2420,20 @@ static void enetc_set_lso_flags_mask(struct enetc_hw *hw)
- 	enetc_wr(hw, ENETC4_SILSOSFMR1, 0);
- }
+diff --git a/drivers/net/ethernet/freescale/enetc/enetc4_hw.h b/drivers/net/ethernet/freescale/enetc/enetc4_hw.h
+index 826359004850..aa25b445d301 100644
+--- a/drivers/net/ethernet/freescale/enetc/enetc4_hw.h
++++ b/drivers/net/ethernet/freescale/enetc/enetc4_hw.h
+@@ -107,6 +107,10 @@
+ #define ENETC4_PSIMMHFR0(a)		((a) * 0x80 + 0x2058)
+ #define ENETC4_PSIMMHFR1(a)		((a) * 0x80 + 0x205c)
  
-+static void enetc_set_rss(struct net_device *ndev, int en)
-+{
++/* Port station interface a VLAN hash filter register 0/1 */
++#define ENETC4_PSIVHFR0(a)		((a) * 0x80 + 0x2060)
++#define ENETC4_PSIVHFR1(a)		((a) * 0x80 + 0x2064)
++
+ #define ENETC4_PMCAPR			0x4004
+ #define  PMCAPR_HD			BIT(8)
+ #define  PMCAPR_FP			GENMASK(10, 9)
+diff --git a/drivers/net/ethernet/freescale/enetc/enetc4_pf.c b/drivers/net/ethernet/freescale/enetc/enetc4_pf.c
+index e164e1a3f44b..421378212a73 100644
+--- a/drivers/net/ethernet/freescale/enetc/enetc4_pf.c
++++ b/drivers/net/ethernet/freescale/enetc/enetc4_pf.c
+@@ -517,6 +517,16 @@ static void enetc4_pf_set_rx_mode(struct net_device *ndev)
+ static int enetc4_pf_set_features(struct net_device *ndev,
+ 				  netdev_features_t features)
+ {
++	netdev_features_t changed = ndev->features ^ features;
 +	struct enetc_ndev_priv *priv = netdev_priv(ndev);
 +	struct enetc_hw *hw = &priv->si->hw;
-+	u32 reg;
 +
-+	enetc_wr(hw, ENETC_SIRBGCR, priv->num_rx_rings);
++	if (changed & NETIF_F_HW_VLAN_CTAG_FILTER) {
++		bool promisc_en = !(features & NETIF_F_HW_VLAN_CTAG_FILTER);
 +
-+	reg = enetc_rd(hw, ENETC_SIMR);
-+	reg &= ~ENETC_SIMR_RSSE;
-+	reg |= (en) ? ENETC_SIMR_RSSE : 0;
-+	enetc_wr(hw, ENETC_SIMR, reg);
-+}
++		enetc4_pf_set_si_vlan_promisc(hw, 0, promisc_en);
++	}
 +
- int enetc_configure_si(struct enetc_ndev_priv *priv)
- {
- 	struct enetc_si *si = priv->si;
-@@ -2440,6 +2454,9 @@ int enetc_configure_si(struct enetc_ndev_priv *priv)
- 		err = enetc_setup_default_rss_table(si, priv->num_rx_rings);
- 		if (err)
- 			return err;
-+
-+		if (priv->ndev->features & NETIF_F_RXHASH)
-+			enetc_set_rss(priv->ndev, true);
- 	}
+ 	enetc_set_features(ndev, features);
  
  	return 0;
-@@ -3232,20 +3249,6 @@ struct net_device_stats *enetc_get_stats(struct net_device *ndev)
- }
- EXPORT_SYMBOL_GPL(enetc_get_stats);
+@@ -530,6 +540,8 @@ static const struct net_device_ops enetc4_ndev_ops = {
+ 	.ndo_set_mac_address	= enetc_pf_set_mac_addr,
+ 	.ndo_set_rx_mode	= enetc4_pf_set_rx_mode,
+ 	.ndo_set_features	= enetc4_pf_set_features,
++	.ndo_vlan_rx_add_vid	= enetc_vlan_rx_add_vid,
++	.ndo_vlan_rx_kill_vid	= enetc_vlan_rx_del_vid,
+ };
  
--static void enetc_set_rss(struct net_device *ndev, int en)
--{
--	struct enetc_ndev_priv *priv = netdev_priv(ndev);
--	struct enetc_hw *hw = &priv->si->hw;
--	u32 reg;
--
--	enetc_wr(hw, ENETC_SIRBGCR, priv->num_rx_rings);
--
--	reg = enetc_rd(hw, ENETC_SIMR);
--	reg &= ~ENETC_SIMR_RSSE;
--	reg |= (en) ? ENETC_SIMR_RSSE : 0;
--	enetc_wr(hw, ENETC_SIMR, reg);
--}
--
- static void enetc_enable_rxvlan(struct net_device *ndev, bool en)
- {
- 	struct enetc_ndev_priv *priv = netdev_priv(ndev);
+ static struct phylink_pcs *
 diff --git a/drivers/net/ethernet/freescale/enetc/enetc_pf_common.c b/drivers/net/ethernet/freescale/enetc/enetc_pf_common.c
-index a302477c4de4..a751862a70b1 100644
+index ed8afd174c9e..8c563e552021 100644
 --- a/drivers/net/ethernet/freescale/enetc/enetc_pf_common.c
 +++ b/drivers/net/ethernet/freescale/enetc/enetc_pf_common.c
-@@ -128,8 +128,10 @@ void enetc_pf_netdev_setup(struct enetc_si *si, struct net_device *ndev,
- 	if (si->hw_features & ENETC_SI_F_LSO)
- 		priv->active_offloads |= ENETC_F_LSO;
- 
--	if (si->num_rss)
-+	if (si->num_rss) {
- 		ndev->hw_features |= NETIF_F_RXHASH;
-+		ndev->features |= NETIF_F_RXHASH;
-+	}
+@@ -135,7 +135,7 @@ void enetc_pf_netdev_setup(struct enetc_si *si, struct net_device *ndev,
  
  	/* TODO: currently, i.MX95 ENETC driver does not support advanced features */
  	if (!is_enetc_rev1(si)) {
-diff --git a/drivers/net/ethernet/freescale/enetc/enetc_vf.c b/drivers/net/ethernet/freescale/enetc/enetc_vf.c
-index 4fafe4e18a37..f6aed0a1ad1e 100644
---- a/drivers/net/ethernet/freescale/enetc/enetc_vf.c
-+++ b/drivers/net/ethernet/freescale/enetc/enetc_vf.c
-@@ -155,8 +155,10 @@ static void enetc_vf_netdev_setup(struct enetc_si *si, struct net_device *ndev,
- 	ndev->vlan_features = NETIF_F_SG | NETIF_F_HW_CSUM |
- 			      NETIF_F_TSO | NETIF_F_TSO6;
+-		ndev->hw_features &= ~(NETIF_F_HW_VLAN_CTAG_FILTER | NETIF_F_LOOPBACK);
++		ndev->hw_features &= ~NETIF_F_LOOPBACK;
+ 		goto end;
+ 	}
  
--	if (si->num_rss)
-+	if (si->num_rss) {
- 		ndev->hw_features |= NETIF_F_RXHASH;
-+		ndev->features |= NETIF_F_RXHASH;
+@@ -376,11 +376,22 @@ static void enetc_refresh_vlan_ht_filter(struct enetc_pf *pf)
+ 	}
+ }
+ 
+-static void enetc_set_vlan_ht_filter(struct enetc_hw *hw, int si_idx,
+-				     unsigned long hash)
++static void enetc_set_si_vlan_ht_filter(struct enetc_si *si,
++					int si_id, u64 hash)
+ {
+-	enetc_port_wr(hw, ENETC_PSIVHFR0(si_idx), lower_32_bits(hash));
+-	enetc_port_wr(hw, ENETC_PSIVHFR1(si_idx), upper_32_bits(hash));
++	struct enetc_hw *hw = &si->hw;
++	int high_reg_off, low_reg_off;
++
++	if (is_enetc_rev1(si)) {
++		low_reg_off = ENETC_PSIVHFR0(si_id);
++		high_reg_off = ENETC_PSIVHFR1(si_id);
++	} else {
++		low_reg_off = ENETC4_PSIVHFR0(si_id);
++		high_reg_off = ENETC4_PSIVHFR1(si_id);
 +	}
++
++	enetc_port_wr(hw, low_reg_off, lower_32_bits(hash));
++	enetc_port_wr(hw, high_reg_off, upper_32_bits(hash));
+ }
  
- 	/* pick up primary MAC address from SI */
- 	enetc_load_primary_mac_addr(&si->hw, ndev);
+ int enetc_vlan_rx_add_vid(struct net_device *ndev, __be16 prot, u16 vid)
+@@ -393,7 +404,7 @@ int enetc_vlan_rx_add_vid(struct net_device *ndev, __be16 prot, u16 vid)
+ 
+ 	idx = enetc_vid_hash_idx(vid);
+ 	if (!__test_and_set_bit(idx, pf->vlan_ht_filter))
+-		enetc_set_vlan_ht_filter(&pf->si->hw, 0, *pf->vlan_ht_filter);
++		enetc_set_si_vlan_ht_filter(pf->si, 0, *pf->vlan_ht_filter);
+ 
+ 	return 0;
+ }
+@@ -406,7 +417,7 @@ int enetc_vlan_rx_del_vid(struct net_device *ndev, __be16 prot, u16 vid)
+ 
+ 	if (__test_and_clear_bit(vid, pf->active_vlans)) {
+ 		enetc_refresh_vlan_ht_filter(pf);
+-		enetc_set_vlan_ht_filter(&pf->si->hw, 0, *pf->vlan_ht_filter);
++		enetc_set_si_vlan_ht_filter(pf->si, 0, *pf->vlan_ht_filter);
+ 	}
+ 
+ 	return 0;
 -- 
 2.34.1
 
