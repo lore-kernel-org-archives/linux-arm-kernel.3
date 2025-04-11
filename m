@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 989A6C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 04:14:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E85A0C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 04:38:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8XC15NhKFd0PY+4Z1N+K5fXmaFufMv7nE++wOrKWixg=; b=KiKHLRnUgEh0u1foJnbJza5a6v
-	Rg9QNtwWjI11ZsIHai+m4xhqQGz4xt3gYBIOKuXk8soAUQ76ho/UePZpJCR35KaYN80xY5cw2m909
-	OqDf4SHOCtQJxtyrWA1qzZgcdaN7CFVAEKm2HK8jOfEZdXRRhZFi1gkEGUKs31DLOAauzISg5W42G
-	O9YKXphGs0+Hx1PsD5quXwKALMT3Kb8H2ezF6J3t8s/cnhrvDPab0PliQfuZT3uemxNlTu+Jmxo8y
-	78V/ToyCIpSfwe29aHR97tePrthb3Y3O76M0P2unZhabB/I2Cf5227n3tVfRj0wQsGOf1XBr3o7jU
-	R+/MjPxw==;
+	bh=Ql1eWTW4uBCU2FKgu49U0o8nShopMqxONOi70oLH7rs=; b=lzud8uO3O48D0zdK6hOlQx8ukd
+	RQDgSu/6gK/Wm9qb5bkOfzfiKaBnvA8Ik9B9WRrx7DQbfoI1YwjOd6oax3Xs1cuBCaD00pGxMPdoU
+	Dx0BnD1tUKXzGIcqSpPC5DF+l2x9tk37QB3D96qWCkL5cRGPyE1TUofReRx/exYip5fprIPBlixRa
+	hwlb/PvDv/DmDyFuagQ5JqPPWc0AZnHP6LKTdxZ1GJPYM8YzSpi+nN8X32E7WfawqYvsLNYwXOGf4
+	Gnvs/59APZ7aLgCmoBjSQLIcBCvZYwWq1r12ihT84gZDcb40uJc14f3wHGnAbI3YY9uR6FOP5LPUf
+	rxWDxs8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u35mV-0000000CSIK-1GRr;
-	Fri, 11 Apr 2025 04:14:19 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1u36A3-0000000CU8A-43mQ;
+	Fri, 11 Apr 2025 04:38:39 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u35kg-0000000CSAD-0q0Z
+	id 1u368F-0000000CTyy-1DNF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 04:12:28 +0000
+	Fri, 11 Apr 2025 04:36:48 +0000
 Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53B4CE3b1473638
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53B4afq81968862
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 10 Apr 2025 23:12:14 -0500
+	Thu, 10 Apr 2025 23:36:42 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744344734;
-	bh=8XC15NhKFd0PY+4Z1N+K5fXmaFufMv7nE++wOrKWixg=;
+	s=ti-com-17Q1; t=1744346202;
+	bh=Ql1eWTW4uBCU2FKgu49U0o8nShopMqxONOi70oLH7rs=;
 	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=FW62hLXSq91mU6OGMd3X4DNS6b8tOBLV2Ej0PjEUI4JNcmnPg7v7oMT9LIW3VGzlp
-	 BlysRAJWkSR33YVTOfv6PAsCDBUIm9cEE31V2YoC0YH3Dv0cSh6L9/zfX6XQI+HpLK
-	 xOiLCKjwbYokjiHWtqj1gU2V75jZ5dUhKVZf0Wpk=
-Received: from DFLE108.ent.ti.com (dfle108.ent.ti.com [10.64.6.29])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53B4CES5068987
+	b=xlD9JGhPOh/F+TZYDqT83i3lT/uW+I74u+p/6J0hi6VLYQIXDstY3Qn4kl+l2qTC3
+	 kaBjyQZ5NErPgvVSHsRsR8lzkQr3iuCQSieQCPRCnrH0nXP7/cWFk2XoG3icdeGBBg
+	 RYrI1y31x5v1Ts9EReuuiPGLiVXyqcDTIbA1unDI=
+Received: from DLEE103.ent.ti.com (dlee103.ent.ti.com [157.170.170.33])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53B4afXr084447
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 10 Apr 2025 23:12:14 -0500
-Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE108.ent.ti.com
- (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
+	Thu, 10 Apr 2025 23:36:41 -0500
+Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE103.ent.ti.com
+ (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 10
- Apr 2025 23:12:14 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE113.ent.ti.com
- (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ Apr 2025 23:36:41 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 10 Apr 2025 23:12:13 -0500
+ Frontend Transport; Thu, 10 Apr 2025 23:36:41 -0500
 Received: from [172.24.227.151] (uda0510294.dhcp.ti.com [172.24.227.151])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53B4C9am074277;
-	Thu, 10 Apr 2025 23:12:10 -0500
-Message-ID: <7629a496-4495-4333-9a90-829e53e9ea84@ti.com>
-Date: Fri, 11 Apr 2025 09:42:09 +0530
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53B4aaOK100453;
+	Thu, 10 Apr 2025 23:36:37 -0500
+Message-ID: <911949c6-b025-4546-9296-681c82e6a84a@ti.com>
+Date: Fri, 11 Apr 2025 10:06:36 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v6 06/11] arm64: dts: ti: k3-am62a7-sk: Enable IPC with
  remote processors
-To: Andrew Davis <afd@ti.com>, Judith Mendez <jm@ti.com>,
+To: Judith Mendez <jm@ti.com>,
         Devarsh Thakkar
 	<devarsht@lewv0571a.ent.ti.com>,
-        Nishanth Menon <nm@ti.com>, Hari Nagalla
-	<hnagalla@ti.com>
+        Nishanth Menon <nm@ti.com>, Andrew Davis
+	<afd@ti.com>,
+        Hari Nagalla <hnagalla@ti.com>
 CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
         Krzysztof
  Kozlowski <krzk+dt@kernel.org>,
@@ -79,16 +80,16 @@ References: <20250405001518.1315273-1-jm@ti.com>
  <f8f1d877-3d13-4ba7-90e1-455923458c11@ti.com>
  <fe735242-4643-432a-adaf-27e29719948a@ti.com>
  <bffd8489-1556-425d-b3f9-8fde8a7d34a7@ti.com>
- <b97c1eaa-f34c-4731-8e9e-b51faa4619c4@ti.com>
+ <45e2c2bf-68af-4c78-8f85-e25f4e7ea3fd@ti.com>
 Content-Language: en-US
 From: Beleswar Prasad Padhi <b-padhi@ti.com>
-In-Reply-To: <b97c1eaa-f34c-4731-8e9e-b51faa4619c4@ti.com>
+In-Reply-To: <45e2c2bf-68af-4c78-8f85-e25f4e7ea3fd@ti.com>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_211226_337740_25CF85A1 
-X-CRM114-Status: GOOD (  40.13  )
+X-CRM114-CacheID: sfid-20250410_213647_463678_BC8E01EE 
+X-CRM114-Status: GOOD (  34.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,9 +104,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+Hi Judith,
 
-On 10/04/25 23:20, Andrew Davis wrote:
+On 10/04/25 23:14, Judith Mendez wrote:
+> Hi Beleswar,
+>
 > On 4/10/25 3:55 AM, Beleswar Prasad Padhi wrote:
 >> Hi Judith,
 >>
@@ -255,58 +258,40 @@ On 10/04/25 23:20, Andrew Davis wrote:
 >> Memory carveouts can be announced through Resource Table, but there 
 >> is no guarantee we will be able to allocate it (it could be mapped by 
 >> the Kernel for some other alloc), unless its pre-reserved in DT.
+>>
 >
-> That's the neat thing about the RSC_CARVEOUT item in the resource table,
-> it works both ways. The firmware can request a static address, or it can
-> use FW_RSC_ADDR_ANY for the address and Linux will go and dynamically
-> allocate it a region. Then it passes this info back to the firmware by
-> updating the resource table in memory. Firmware can then simply read this
-> carveout address from its resource table and start using it.
+> Since we do not have an IOMMU for remote cores in K3, we cannot get rid
+> of the static reserved memory carveouts, is my understanding. The linux
+> driver would have programmed the IOMMU virtual and physical addresses
+> and it would have been able to do the virtual to physical address
+> translation on its own with only the requirement size from the FW
+> resource table. 
 
 
-Ah yes, I forgot about that. We already use FW_RSC_ADDR_ANY for VRING
-allocations. We can scale it to memory carveouts in the similar way. Thanks.
-
->
-> The only time we need a static addresses would be for code sections as
-> they are not relocatable (yet). And that is the reason we have the
-> minimal carveouts we are adding in this patch. Code goes here. And
-> these carveouts are 15MB! No firmware I know of has 15MB of *code*
-> section.
->
-> As we found in the offline discussion, even our largest firmware
-> doesn't use near that much space. What that firmware is doing is picking
-> some spots in DRAM for its heap and buffer areas, and without 
-> coordinating
-> with Linux, just starts using that memory. We have to then go into DT and
-> carveout all these ranges to avoid stepping on the firmware heaps from
-> Linux.
-
-
-Yeah I have found this as well. All of those heap/buffer areas should be 
-moved
-to the resource table now.
-
->
-> With these firmware heap/buffer memory static carveouts we have to 
-> account
-> for the worst case and statically carve out enough memory for the largest
-> possible amount of memory a firmware could ever use. In some firmware
-> we ship today this is +2GB! So why should every user of this board lose
-> all this memory when they might happen to be using a more sane firmware
-> that doesn't use so much (like my Zephyr firmware), or if their firmware
-> doesn't need any heap at all (like some other firmware we have).
-
-
-Agreed on your point.
+We can still do that for K3 remote cores with just requesting carveout size.
+The remoteproc core framework will assign the dynamically allocated
+Physical Address (PA) as Device Address (DA) for the rproc[0]. Incase the PA
+collides with some existing DA for the rproc, we can configure the rproc's
+RAT (Region Address Translation Unit) to map the PA to some other DA from
+rproc's view. As Andrew pointed, we can use FW_RSC_ADDR_ANY for all of
+these carveouts.
 
 Thanks,
 Beleswar
 
+[0]: 
+https://github.com/torvalds/linux/blob/master/drivers/remoteproc/remoteproc_core.c#L768
+
+> Since we do not have this flexibility provided with
+> IOMMU, we must have static reserved carveouts so that Linux will not
+> touch these memory regions. The firmware virtual address to physical
+> adress is atm a one to one mapping. So in summary, we must have these
+> static reserved memory carveouts, but we should fix the default FW
+> to use the "standardized" sizes and request SRAM via resource table.
 >
-> Andrew
+> ~ Judith
 >
->>
+>
 >> Thanks,
 >> Beleswar
 >>
@@ -404,4 +389,5 @@ Beleswar
 >>>>>>
 >>>>>
 >>>
+>
 
