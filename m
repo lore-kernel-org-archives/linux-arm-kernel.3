@@ -4,123 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DABB3C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 08:41:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE7D2C369A8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 08:43:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:To:Subject:From
-	:MIME-Version:Date:Message-ID:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IbVkeLK39LFwQz4RDz6whx6Ldo7wvDT7KsOAIVNVIN0=; b=XVhygfNn3lVM6xk6oVCoOEOHgS
-	znXjhbweqpGqIcI3KidoWNPIn1R0O9fYTbrQfiIPWLFFfyC6UH3cOFvfoJxoXbJYrM+tQu+WKmGYd
-	bj8hITB1By6PFRLkZyWlN3WNSBilgA/D6G3xwsMdF2Tzmur7aQeVeEDhMdr/oZDRHLDeBjwzRi4lK
-	GTu3YJMViljrtU4EkGzmbTAIQNZlB1aDC1A2d9YaX96lm0T+HAcNgrE2Dc8sDG4PTBHjmpLMBDMw1
-	cP7QvHUF9vwSkwMdBYM2pVp8qIJMNW7KcPFJgabv8ZZi9jRSULq+IOn069ObzgBdIghVlSoqBYxYU
-	0ysS94pg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2r2Xn9Oh7pnBWDirUE0pyEjDwsfdPFlcNad3ZBGW7dY=; b=gUls8PnbQAWJS9lkNIUM4/DSzK
+	77uK5Bdgs98yZVdC6lcR7OaejHf/5WvBuBVR8rd2iu8pX9erbAUS3eNQF2j4bG8H9QxaVArdqJpDO
+	m5kzOGANm7jYBYZhel2hZmV1RKkwFMOH07skxG247dESlCe2x99xWuV6TgqN3Xfu0McNsEoy4fVUF
+	d9qk7Bg1nwwOPRPOzGK2zjw3bpHTkxtylOIHtWrneQsmRyOG9s9/Ud1829pxpGtgL2NxcJ6MfoZld
+	//5XxrGgd6is/YrBmDHPZ343MMWrQ/jGY2OVR3ZX3NlPvkHUfJVWb+YCRo1NYGNBaZIGGfTK8jEPu
+	6Gp+9Qow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u39xL-0000000D3kM-1Gv4;
-	Fri, 11 Apr 2025 08:41:47 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1u39yj-0000000D3wP-0730;
+	Fri, 11 Apr 2025 08:43:13 +0000
+Received: from fout-a7-smtp.messagingengine.com ([103.168.172.150])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u39oh-0000000D1rh-0AAD
+	id 1u37DD-0000000Cb4x-00j4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 08:32:52 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-43cfb6e9031so15094215e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Apr 2025 01:32:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744360369; x=1744965169; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=IbVkeLK39LFwQz4RDz6whx6Ldo7wvDT7KsOAIVNVIN0=;
-        b=fUEpTuAdi4COWi1gNC3CGR6rXvOE55ZEa7DNRLK5hXpHBnaf69C//h276H0QLHYeFY
-         yIBVgg7OnA6I08kcyizvkOmJ/XmwVN+bPlVlMnq5f3pxQ2Mrc6luFlFZY7/SEjGmbCKG
-         YzaksFEr/xSBmyrcVF+YFqdM6mOZRCdkdwSTkjSXv5z9LPu7SJLj6vPZrSbTDI4n4Rqu
-         TPni0ub2N+epMQSaZcbEV6TN12V7LRZaMrYCe8XFOw0OxAwWXID2eTzWkD+Tj6UzSt6U
-         o9QD8WNKeB8WdzRZSqqi7ZJ2JJ/WBfbbnjFe7jEKHnH4dbEKIxlhFousRpKYgYgGHpeq
-         8Irg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744360369; x=1744965169;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=IbVkeLK39LFwQz4RDz6whx6Ldo7wvDT7KsOAIVNVIN0=;
-        b=dlngD1kxc0gYWwW4gUKQCFiYxsD/Dvd2OMdYWiiZeq73SyU58zxfdp0/iPAcMFQeh7
-         YSV0DqDyG9ume1WhiE1a38ElBTJP3ZkG4ppdR2o+dKnlr4++2+8NtOfzKMb+re5EzTwQ
-         EDdEVIXfQbJcUzQtapFu/ZwSgwsyCbnWSAcVAFZQKt1zqsWPaJK3M0B8zhf0Y4wp8Rf+
-         m/ZX0GT/yiZUCUUlJUlMEokpPt+RLhepJLPngKHgG9fFOTD8iCPMi7pqLLakYJbroDRM
-         OOK9nSQG3APCd5xlg5wpJj2tYknFSeK0Qry5CSnXP0EmcBUwni6xFKSat7/LXYPX/RM7
-         Inmg==
-X-Forwarded-Encrypted: i=1; AJvYcCUnEhbCWW0DxcGvDKqqDRtt6idOj3xsJRrGwUvBDn7pcwbpTZUcjnR+3NsyV6IXr1dEBZI8qtmgG3/Dp97pPFsh@lists.infradead.org
-X-Gm-Message-State: AOJu0YxYByhlBHw8TtCXc3tK09LjZ8vXYxtoM2kpGzAzn8Iq0n8u+7zH
-	IaiV3v/UG9u2UN4dx7caBwog1MkdySYfUzO5zS5PdlpOLD6pvQ5BLsCeZ8ONuiQ=
-X-Gm-Gg: ASbGncs5BiJuzdZor9CafCWdqxPyzJAE705LfjXhE/3Kcl6DDxbAqXBLFgYte6047hy
-	UiB8VFZbOGeM0MvdYxWf7jIvMieWDCxavJHYjvTtiEWwnSCFQCAqTwlVPrdtK/wSum9Hbw/slnB
-	inip/60CM/7LBFezOxB2ExmeJa7RnnpYCuw6ZyEHy05n6j0/+tE/omg8y089yTQcAPl6xlp+jyu
-	yjN7OafJnOJbccmWkbUcXwYN4HJernphlXjp0+44ljEFt8Z/NnBG7Shft2ELtL+61Z6AsGD4Bf6
-	SpvS2fRr25FMuH92BNkdYWEiBEY5cP3NmKVYSqXg5QM73ilRwYKa1aqBgNhpjYaXBYDvOfV1OX2
-	9yfznJs+pXMz2lfQoxg==
-X-Google-Smtp-Source: AGHT+IGH2fzidsFm+EDJBudyWzrKTJzkhwFaqOYPlAnwX3LCJSEq7mJu+xZyf3CKma7vYDj28bKAxQ==
-X-Received: by 2002:a05:600c:5008:b0:43c:fc00:f94f with SMTP id 5b1f17b1804b1-43f3a9aa623mr13734005e9.23.1744360369350;
-        Fri, 11 Apr 2025 01:32:49 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:3d9:2080:f77b:949e:1d61:69a8? ([2a01:e0a:3d9:2080:f77b:949e:1d61:69a8])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43f207c914csm78489115e9.39.2025.04.11.01.32.48
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 11 Apr 2025 01:32:49 -0700 (PDT)
-Message-ID: <fc00e007-3248-4b4b-a6e0-2f362b0ae996@linaro.org>
-Date: Fri, 11 Apr 2025 10:32:48 +0200
+	Fri, 11 Apr 2025 05:46:00 +0000
+Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
+	by mailfout.phl.internal (Postfix) with ESMTP id 55F281380264;
+	Fri, 11 Apr 2025 01:45:58 -0400 (EDT)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-05.internal (MEProxy); Fri, 11 Apr 2025 01:45:58 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1744350358;
+	 x=1744436758; bh=2r2Xn9Oh7pnBWDirUE0pyEjDwsfdPFlcNad3ZBGW7dY=; b=
+	Eb0uxLN+O72VQ+q7KFJ3YlgWIdkWmATJpMozu2JDxUE7FtJaRKB351qHfpXSFkr8
+	nVd/XM+D9+Anxp1C+LScXKMX8WL5RY/R38tf21Ma+RU0sdM4XHu3HUNSXHA5y9sy
+	F+i5xIK6wk73+NKsAesaHmewB0pDVQT11V8t+03Y3iK61wD+dzT+CTAO4a1tV+6J
+	BJVd6qOtbzVtIA3bOe3jHpDzkIn9D6hZBsH8N8yrX4MmL7I1V6MMybtazUGly8zn
+	sJyJ2LkTi63cia+nPXE8nqzULX+nFD+n1yPTvYeQTVcC6BaS5Scrvl3KRQwkj5TC
+	TOFS4Ou08SdZXWV96P3q3A==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1744350358; x=
+	1744436758; bh=2r2Xn9Oh7pnBWDirUE0pyEjDwsfdPFlcNad3ZBGW7dY=; b=i
+	zazvTElxv8CI8vOmns6RjFlqtcmY2/93bgV8Nsmkg8CEIBw0D20onSN5Y0pVsPaB
+	kbOsm8c6/t7Dmx1AmAE4RysQGbuwBWhMs0Nr2ocA6hxgcF7GlFNyzE7BXGeUA7Pt
+	QjYBDYHPvk9/HWscq97fIKP+xrKZ0FMF/aWND9XNgOGG+pSsO2QR7yXqM8QAl65X
+	/4/VSpmzkTTKqo8PkJgnHpKcnikjbIMvvtKnUx0izzLGVYizGdoQPSRFXYy5lH1o
+	no94/F3S5w3Ll16qcsFCNhUyTBa0cDRHrW7kuGxNL3P4y3PszMxVztz0Xg3lL2E4
+	Ok3bDdE155/M8bxYH396A==
+X-ME-Sender: <xms:laz4ZyE-WfziFgzEyIzFgM6Xz73tdB0Cchr7CG82eMKKAtKnTbQZPw>
+    <xme:laz4ZzU2M8zmAq88YWf9g6Cj9eG4z54rMpmC_0HD-m4uF4Kr0ipf_vWmXGrYFtMUe
+    VmMAGtqBv6eSgjrRNE>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvuddutdduucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
+    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
+    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
+    tddtnecuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnug
+    gsrdguvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeet
+    fefggfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrg
+    hmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohep
+    udeipdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehfvghsthgvvhgrmhesghhmrg
+    hilhdrtghomhdprhgtphhtthhopegrughrihgrnhdrhhhunhhtvghrsehinhhtvghlrdgt
+    ohhmpdhrtghpthhtoheprghrnhgusehkvghrnhgvlhdrohhrghdprhgtphhtthhopehshh
+    grfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepuhhlfhdrhhgrnhhsshho
+    nheslhhinhgrrhhordhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvg
+    hlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepihhmgieslhhi
+    shhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehsfedvsehngihprdgtohhmpdhrtg
+    hpthhtohephhgrihgsohdrtghhvghnsehngihprdgtohhm
+X-ME-Proxy: <xmx:laz4Z8IKvtoJqP56ctv3tQyAKSd7BtieQ4tgLLVIy6ByyFoPpgyhLg>
+    <xmx:laz4Z8FMUExgb0xf-CacLLzo4AEApBXcGmKJe8X8TsUhI4ltZrXxOQ>
+    <xmx:laz4Z4XYVf-VFMExVq50OsEBUVVkTPtr92r2gO4wrxJDvP5PUb7TXQ>
+    <xmx:laz4Z_NKl0ld5HPAIfhWc_Fa218TVCWTr-81H6Ld-os7JUziAEO1KA>
+    <xmx:lqz4Zx8I5GdkKpQsOWsXl2aMlcHCLE_dZPMN1vZ11m1-Zw3x16RxVP9r>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id B19172220073; Fri, 11 Apr 2025 01:45:57 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH v1 4/6] phy: amlogic: phy-meson-axg-mipi-dphy: Simplify
- error handling with dev_err_probe()
-To: Anand Moon <linux.amoon@gmail.com>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- "open list:GENERIC PHY FRAMEWORK" <linux-phy@lists.infradead.org>,
- "moderated list:ARM/Amlogic Meson SoC support"
- <linux-arm-kernel@lists.infradead.org>,
- "open list:ARM/Amlogic Meson SoC support"
- <linux-amlogic@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>
-References: <20250410133332.294556-1-linux.amoon@gmail.com>
- <20250410133332.294556-5-linux.amoon@gmail.com>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20250410133332.294556-5-linux.amoon@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+X-ThreadId: Taf7f561cc211b9f6
+Date: Fri, 11 Apr 2025 07:45:27 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Haibo Chen" <haibo.chen@nxp.com>, "Arnd Bergmann" <arnd@kernel.org>,
+ "Adrian Hunter" <adrian.hunter@intel.com>,
+ "Ulf Hansson" <ulf.hansson@linaro.org>, "Shawn Guo" <shawnguo@kernel.org>,
+ "Sascha Hauer" <s.hauer@pengutronix.de>, "Luke Wang" <ziniu.wang_1@nxp.com>
+Cc: "Pengutronix Kernel Team" <kernel@pengutronix.de>,
+ "Fabio Estevam" <festevam@gmail.com>,
+ "Ciprian Costea" <ciprianmarian.costea@oss.nxp.com>,
+ "Josua Mayer" <josua@solid-run.com>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-mmc @ vger . kernel . org" <linux-mmc@vger.kernel.org>,
+ "NXP S32 Linux Team" <S32@nxp.com>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Message-Id: <cda876c9-7dbf-4af1-9fc1-cbd9f379252d@app.fastmail.com>
+In-Reply-To: <DU0PR04MB9496EAB4A567BDA8948D434690B62@DU0PR04MB9496.eurprd04.prod.outlook.com>
+References: <20250410140921.849213-1-arnd@kernel.org>
+ <DU0PR04MB9496EAB4A567BDA8948D434690B62@DU0PR04MB9496.eurprd04.prod.outlook.com>
+Subject: Re: [PATCH] mmc: esdhc-imx: convert to modern PM_OPS
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_013251_071582_8BEB1859 
-X-CRM114-Status: GOOD (  14.48  )
+X-CRM114-CacheID: sfid-20250410_224559_119184_C1444743 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,40 +122,48 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/04/2025 15:33, Anand Moon wrote:
-> Use dev_err_probe() for phy resources to indicate the deferral
-> reason when waiting for the resource to come up.
-> 
-> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
-> ---
->   drivers/phy/amlogic/phy-meson-axg-mipi-dphy.c | 10 +++-------
->   1 file changed, 3 insertions(+), 7 deletions(-)
-> 
-> diff --git a/drivers/phy/amlogic/phy-meson-axg-mipi-dphy.c b/drivers/phy/amlogic/phy-meson-axg-mipi-dphy.c
-> index 08a86962d9492..c4a56b9d32897 100644
-> --- a/drivers/phy/amlogic/phy-meson-axg-mipi-dphy.c
-> +++ b/drivers/phy/amlogic/phy-meson-axg-mipi-dphy.c
-> @@ -377,13 +377,9 @@ static int phy_meson_axg_mipi_dphy_probe(struct platform_device *pdev)
->   		return ret;
->   
->   	phy = devm_phy_create(dev, NULL, &phy_meson_axg_mipi_dphy_ops);
-> -	if (IS_ERR(phy)) {
-> -		ret = PTR_ERR(phy);
-> -		if (ret != -EPROBE_DEFER)
-> -			dev_err(dev, "failed to create PHY\n");
-> -
-> -		return ret;
-> -	}
-> +	if (IS_ERR(phy))
-> +		return dev_err_probe(dev, PTR_ERR(phy),
-> +				     "failed to create PHY\n");
->   
->   	phy_set_drvdata(phy, priv);
->   
+On Fri, Apr 11, 2025, at 04:45, Bough Chen wrote:
+>> From: Arnd Bergmann <arnd@kernel.org>
+>> drivers/mmc/host/sdhci-esdhc-imx.c:1586:13: error: unused function
+>> 'sdhc_esdhc_tuning_save' [-Werror,-Wunused-function]
+>>  1586 | static void sdhc_esdhc_tuning_save(struct sdhci_host *host)
+>>       |             ^~~~~~~~~~~~~~~~~~~~~~
+>> drivers/mmc/host/sdhci-esdhc-imx.c:1608:13: error: unused function
+>> 'sdhc_esdhc_tuning_restore' [-Werror,-Wunused-function]
+>>  1608 | static void sdhc_esdhc_tuning_restore(struct sdhci_host *host)
+>>       |             ^~~~~~~~~~~~~~~~~~~~~~~~~
+>> 
+>> Remove the #ifdef checks and instead use the better macros that silently drop
+>> the unused functions when PM is disabled.
+>
+> Thanks for this catching.
+>
+> How about add __maybe_unused to define this tuning_save/retore function?
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+That sounds counterproductive.
+
+The new macros were introduced to allow removing all the pointless
+__maybe_unused annotations, I see no reason to stick with the
+legacy helpers here.
+
+I did make a small mistake and ran into another warning later,
+but this fixup should address that:
+
+--- a/drivers/mmc/host/sdhci-esdhc-imx.c
++++ b/drivers/mmc/host/sdhci-esdhc-imx.c
+@@ -2112,7 +2112,7 @@ static struct platform_driver sdhci_esdhc_imx_driver = {
+                .name   = "sdhci-esdhc-imx",
+                .probe_type = PROBE_PREFER_ASYNCHRONOUS,
+                .of_match_table = imx_esdhc_dt_ids,
+-               .pm     = &sdhci_esdhc_pmops,
++               .pm     = pm_ptr(&sdhci_esdhc_pmops),
+        },
+        .probe          = sdhci_esdhc_imx_probe,
+        .remove         = sdhci_esdhc_imx_remove,
+
+
+     Arnd
 
