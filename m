@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 610D8C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 17:11:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0C75C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 17:25:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=maMpR2yKg4UX8cMT1gH2rykRcqDvyHWnhhIvhxKcdZA=; b=mhHHrNWcnTCa67hp0k9CSdKFpJ
-	9tGnXUhO1wDJizvkGec1M6GUzGAiMHCJXPfCBahPfxSQCxg67o4b3g1rolcpJUC62Ca1vKCmJ0ozo
-	4vpZgxpk7LmfgOcaOES2BW6od4OHqvtYdhykUObpvZTulOnV0XLGez4ol9+GBw25kbydcOWZpFBhc
-	FwpogqMc6plT/H3QCXn8UPgUaNtWOCtIuXsBj93meKZGrV02WSPeqewQDkrHp7hWKa2thjH5lPPnv
-	ofLq9VmLrUy5Pvwmgn45QcQM5Kv4xy09spp805NRF303NJeuH1BPgEdJ3lqeYlrkKawMBmYSFvh6e
-	OEdIrrYA==;
+	bh=4lF4YfTr9AIhBpLsWbyDM2hi4bruchpR0yRH8rzJirI=; b=VWgtqsVGbRksIefXMl1wFqTJEt
+	10xu8MnhNDulqPxp09NZFhK4cxHqAwFWHzFlavRqdiQ4Vx/QgpeUaj1umMfMuK1i96u8c+opdh9TD
+	47bekYLyH9XrpU2euEdno9Fy4zt9X8tt2BXi11Z4o6NzvjKQPXGExjJuylH03KGW+xuMqcPRwINm1
+	nCWl/Y3K1SzKFqjkNHSMFLFShz3aykRZxA2Uka1oEVrK444eeGhze4eVhtV21WPuJvJHgJVpPMaA9
+	cfNKQtFVJ41rofAueqYi/SeV4IH0LQ9nGcXuDgmufZCLglu7ZxeagMOsgVMX8+y9ZwO4u0yAEDyG1
+	zcf0m7vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3Huo-0000000ETdA-2Cgp;
-	Fri, 11 Apr 2025 17:11:42 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u3I7n-0000000EVq9-2T6I;
+	Fri, 11 Apr 2025 17:25:07 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3Hsy-0000000ETNu-2MXz
+	id 1u3I5y-0000000EVgI-1ooY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 17:09:49 +0000
+	Fri, 11 Apr 2025 17:23:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4C44043BB9;
-	Fri, 11 Apr 2025 17:09:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8125C4CEE2;
-	Fri, 11 Apr 2025 17:09:46 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id E285A5C67FF;
+	Fri, 11 Apr 2025 17:20:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DA98C4CEE2;
+	Fri, 11 Apr 2025 17:23:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744391387;
-	bh=CYf2lwADdkdY+jMx3e4q4vSSDlVFa9/AluyS7+Ilp+E=;
+	s=k20201202; t=1744392193;
+	bh=ERyjsQ1M3EAxug/PGHbTwXHaDvmCVIXQyTsmFurqmpA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HHD9ESS+Wwm07AxSNelkTJuvoioLtFD/zyYbdBJegPnHeWQW4ILRIfX810X/SF2Th
-	 mqBsyyHWBxewvFX8KzEphYORGbHG8XRsaZAQMKrSBUEEN/5EgNVLezQpNsIafBYo5Q
-	 M+96DadKU1NiZGtkOJLqQb7P8yyJ5CRFKnn70nzMl1NgXaOA0gJVydU9O0TEHelxbo
-	 OMBMgc/Oi7LMLXoNouhMUfIT614+1KptJAbBPCHzdRoZzlldf6xdYdZefJoYZ0a6bh
-	 ZAHfjBt/oj67vxnb22tW/XP1245yi7vOlGDIfSQ1M2nWeXkcyRg0iRJLbNyMY2u6cr
-	 mYLK13XvZDIJA==
-Date: Fri, 11 Apr 2025 12:09:45 -0500
+	b=cf3mNQtN08zoE7uYbz6GM/u+v7lAUYuMaNs+cjAnWU2xMJLFv6MUJb8oIFdf0wyBe
+	 7JcXyavUkEtAoD3o+CVqkz+0F800vaaLV/opXa0wZ+80G6lWL+XOMd0pxAuV3gMWPJ
+	 Rl3ZvPftQ8o9kOLb8ENLeJQNsTgP1LOFvk/uyMCkAMIx1a9tUhvH37hYIzrCKSc0mT
+	 XXyP9dzq62FdZpbHKN4Vy4PkS3nVPjHgLhx/b9dNUV5NSedDK8HcoFHli1gejLZ/g8
+	 HnydNNNWHynNIrQ5dSj59byLnjaNYqeyvMBS4ckBL/NGl/eShzqXsDalHjfnNDol2r
+	 29Ke4xFNO6GKQ==
+Date: Fri, 11 Apr 2025 12:23:12 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Patrice Chotard <patrice.chotard@foss.st.com>
-Cc: linux-stm32@st-md-mailman.stormreply.com,
-	christophe.kerello@foss.st.com, linux-kernel@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Will Deacon <will@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: imx@lists.linux.dev, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	devicetree@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+	Sascha Hauer <s.hauer@pengutronix.de>, linux@ew.tq-group.com,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org
-Subject: Re: [PATCH v9 1/3] dt-bindings: memory-controllers: Add STM32 Octo
- Memory Manager controller
-Message-ID: <174439138531.3430719.4031301893879549125.robh@kernel.org>
-References: <20250410-upstream_ospi_v6-v9-0-cf119508848a@foss.st.com>
- <20250410-upstream_ospi_v6-v9-1-cf119508848a@foss.st.com>
+	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/2] dt: bindings: arm: add bindings for TQMa95xxSA
+Message-ID: <174439219157.3544865.14100579453477378929.robh@kernel.org>
+References: <20250410113107.2057426-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250410-upstream_ospi_v6-v9-1-cf119508848a@foss.st.com>
+In-Reply-To: <20250410113107.2057426-1-alexander.stein@ew.tq-group.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_100948_620347_12B40897 
-X-CRM114-Status: GOOD (  12.05  )
+X-CRM114-CacheID: sfid-20250411_102314_512763_02F1BB36 
+X-CRM114-Status: UNSURE (   9.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,28 +81,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 10 Apr 2025 11:27:42 +0200, Patrice Chotard wrote:
-> Add bindings for STM32 Octo Memory Manager (OMM) controller.
+On Thu, 10 Apr 2025 13:31:02 +0200, Alexander Stein wrote:
+> TQMa95xxSA is a SOM using NXP i.MX95 CPU. MB-SMARC-2 is a carrier
+> reference design.
 > 
-> OMM manages:
->   - the muxing between 2 OSPI busses and 2 output ports.
->     There are 4 possible muxing configurations:
->       - direct mode (no multiplexing): OSPI1 output is on port 1 and OSPI2
->         output is on port 2
->       - OSPI1 and OSPI2 are multiplexed over the same output port 1
->       - swapped mode (no multiplexing), OSPI1 output is on port 2,
->         OSPI2 output is on port 1
->       - OSPI1 and OSPI2 are multiplexed over the same output port 2
->   - the split of the memory area shared between the 2 OSPI instances.
->   - chip select selection override.
->   - the time between 2 transactions in multiplexed mode.
+> [1] https://www.tq-group.com/en/products/tq-embedded/arm-architecture/tqma95xxsa/
 > 
-> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 > ---
->  .../memory-controllers/st,stm32mp25-omm.yaml       | 226 +++++++++++++++++++++
->  1 file changed, 226 insertions(+)
+>  Documentation/devicetree/bindings/arm/fsl.yaml | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
 > 
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
