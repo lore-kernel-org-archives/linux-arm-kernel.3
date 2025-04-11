@@ -4,135 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBBF7C369B2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA7DCC369B1
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 14:43:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ys2zmQKpfW4P35WF6lXbQzSiSIW2EulzVdbiG/PaLWA=; b=fGs9m93sFdaasr+QonXl3kiYQQ
-	GwRGpbEdTTa5AHPQBKw8tTE/49yR1OrzDF2rWpOON8iuOWrw86dj79kZJ5UCw9x/JJv7WelUQ3cmC
-	cQHfnU9AOFA+lfbqHk0cotCzhpg01sumQsoWP7PadWL22J92wuvTHMfiQu8MIBdbHxbqQ+B8mJB3M
-	6xeeeomXQGhaB4RYO2V1xeNJ5wn7hkoQM0BQuXF0fCCynia9u23cw3i1fEkKPif3HX/Zs2aG6LsKp
-	ElDqvoKRi3c5FtAGeVihrJLDK4+BXrpVn2BgC8hqvLTiGbL4Ejy5/SE6Yc/PiU3OG3m3BKSz3aXpm
-	Ra7m3aag==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tbaNocLjhfci7COa0du/8a3Z6zhu4sS9nBTlQidcANU=; b=IXkLvmiUfPQdkVlu7QX52ALaNU
+	iSEx+ufwdZQruDs8gny1bYL4BsBjyEi6HcXSFrEqs1kKwvpKggLZQHGQcpFb9K6zHc1prqVZ6OWWI
+	r2KruSDeHaiOQykZhSH5KAZjRN1Ur6ykS3TUsnZCOYncpIRrfl9yRPkSSfMzo6FQDeOVe0+vuemWn
+	irDKEldNKVptANK/PNi8n+PxUUPKmKc5fh/0alrG16VKltcof9bbILb12IZomhz8U8Qq0zDKwusaE
+	BktvzrbKkvDfaXCWUv/1uOVdRCjP/6NzhC8KJb61rqfUqGhGrt4hLdn8BP67M1nnzVLaSreChsopR
+	zgrjVZuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3FbA-0000000E8Mm-03P8;
-	Fri, 11 Apr 2025 14:43:16 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u3Fb9-0000000E8MJ-1iYm;
+	Fri, 11 Apr 2025 14:43:15 +0000
+Received: from mout.gmx.net ([212.227.17.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3ETr-0000000DwDD-1ZlW
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 11 Apr 2025 13:31:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:References:Cc:To:Subject:Reply-To:From:MIME-Version:Date:
-	Message-ID:Sender:Content-ID:Content-Description;
-	bh=Ys2zmQKpfW4P35WF6lXbQzSiSIW2EulzVdbiG/PaLWA=; b=NcwHbg4lCqKgM5cQWdOAequwV8
-	wlN90N2WjMTSBW67vqyLdQ+bLC4BTMQcj9/y9Bn7Fpqq5gTCgIaLA/hEdU8NVP9CueC+xIE9gVOGX
-	rQEVOBjBmqP/J3wBg7Dj/YBiRORt9wwCowbAZEWOdwwqV0E0fwQg2/3dHqHnXaWMGAcFBSFjlun+q
-	BCjIW+k1etX0DBM5VXoimNo2TS0P/yrPHkNCrEYS+GwVzQ0ZsKUHEe3l1qqf3AC5SCZPhsWPk9XLu
-	Q5QRgPP+vkBQ068PCsT/VlsRMnBEXTMBZRlqyVAx8LTSALXc0RLvt4C942WshsmirxVdm7nfo/D3Y
-	fEGmDU8Q==;
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u3ETn-000000091YG-1SmK
+	id 1u3ERf-0000000Dv8K-2HqL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 13:31:38 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-43ce71582e9so16404615e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Apr 2025 06:31:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744378292; x=1744983092; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Ys2zmQKpfW4P35WF6lXbQzSiSIW2EulzVdbiG/PaLWA=;
-        b=HdhGLwF+T/AisK7y7ogBGswJidzWT9NcPfKIKlr159QN+Ch+oe/X4Ae95F8xtDdwXE
-         oa1VjWCq07tGWA/TMaw9x5KhvKpf4oql0zPuCAg80biOzt25DBQEV0xtqEcN6licCMdN
-         ChEBahsHZYv7Ki35763Ii+81HPrvl8Cm7WCKIrQdzQyjG6T33Fp/5LHpUjL0MMYlBHDk
-         2EgHQWEfc/xv9sXVb26jH4do+NMIEb0ZOBUoU1oAQfaSYP7G5rUZYG8kXycneo+255jI
-         fUdBhEdcInf2RvKcruuPxlrItkOXSFD9k2nqhM+y81TwRiNAOxTd15arPyvDvOX4AOAP
-         aR/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744378292; x=1744983092;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=Ys2zmQKpfW4P35WF6lXbQzSiSIW2EulzVdbiG/PaLWA=;
-        b=ANgUJSLr7fGAKTXoPJ0m2cJUJQsuJnsHwpPN9SHxJPQOIHsB1qq0pwIpmfsgyJDTzf
-         YK4PomIKecY8uxP77dkzJE9tmgnMDqEjyu797O9eEH7qp8FxAAzyPBpNc8/8GCuyIgc0
-         COk6JiNKkKw0W+/OtL5QQeTsby9Ts5gbwq2HIzkN4l8iP6g4ezfosYkniumP/GArasHj
-         BtGLo9+IV5AFQ8n9Jy+l0qoKgSm6GbmbFThmmdLBM4oBGvgHs5tDSpdBNHCrIan1aXt+
-         p71dQmyeG9TgwOYowvtsfWuRn7NnXkwO52KnuZ4lEYVbNM9FVD3tIsq8CPN5mKIQRWsF
-         zWAg==
-X-Gm-Message-State: AOJu0YwjxDmpyYEcpCrRPKBT0+xBZJqefLDmm+3O8/3YRvX4tMQFVZi2
-	A3yNLE1goVhtbRYVIiaoCOiWX5QC7Z+OEIS85qAyWfUlaoFPdPW2WToEa/63O4w=
-X-Gm-Gg: ASbGnctMybhXYUnIYRGcz+qhfTbQFPuNuQD7LUiqhAAU1SNBSWU54+K/osfF66eb3ll
-	DBF/G38glOB9HEYaM6lcXEBFUiYYozC5jH01wiWy1SMi6xJiZtbEgMAJsQu4nDIJqZVsH0thZ+8
-	xX8xU9Rfzn9Xrd98MHqxLNuiRGV2TGirgIYRhgMXppTSg2ctM93K3nGayzNrAfnv039mknYLGZY
-	SJAtooPIx/v0UwF0mA9Af/F2FtYswpy5/Tdxhb4IZbuG4adVQEQjaUXgSA7zjdSbmRWP3nVD3W/
-	SxAuZNihTnctjJaP8biAyPAV5+9BHXUG9pbuUk5RLKhkNVjcs7a+U9d5ILcJlAmTDE6vFEn5Pjf
-	sqdn+/5yoWv+dran2tw==
-X-Google-Smtp-Source: AGHT+IHyOrozgsuOzZWZs7ZYmaWQ0usXxB6oIaUXRPRoUskrmrPfCCEyNNzxS9EE/RunI0ffXUHN1Q==
-X-Received: by 2002:a05:600c:4fc1:b0:43c:fd72:f028 with SMTP id 5b1f17b1804b1-43f3a9b015amr19324255e9.29.1744378292326;
-        Fri, 11 Apr 2025 06:31:32 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:3d9:2080:f77b:949e:1d61:69a8? ([2a01:e0a:3d9:2080:f77b:949e:1d61:69a8])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43f2338d6ebsm87521365e9.2.2025.04.11.06.31.31
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 11 Apr 2025 06:31:32 -0700 (PDT)
-Message-ID: <9f10bc53-10c8-4312-b7f7-2935990fb193@linaro.org>
-Date: Fri, 11 Apr 2025 15:31:31 +0200
+	Fri, 11 Apr 2025 13:29:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1744378151; x=1744982951; i=wahrenst@gmx.net;
+	bh=tbaNocLjhfci7COa0du/8a3Z6zhu4sS9nBTlQidcANU=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=iFu2QJV3km17DWUv1RMovghE+MUXlVP2wDTztP1KCNnOgcuR7MNHH/YysoPWLUzP
+	 u62y5hgUY30zxV182JpL8rwXxFwMIurCNebKxgJPo5M1aQSPfYO8f1GvEnF8T7wXq
+	 Z+8t8bxMUdGbbFgYS6jZiGdQYve5fC/Qo+CjgtEFVEe6fyAZLa/ZMlc9TBZq5h8eg
+	 ME+V8LwiuwBSw+zA7MWJDujjCUTlsD0ZrbI2IhaqU93gOXSDPK0G8CSBdcfaVAo/z
+	 pDilZIsyK3rJCL5XqRaXPhhJX6oncXnuBpUO+Si706hQDPEm5u92pzFyBiZ/Eb4kD
+	 9nwKjjMeiDn6WLfCUQ==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.107] ([37.4.251.153]) by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MacOQ-1tSW330iOA-00c0LM; Fri, 11
+ Apr 2025 15:29:11 +0200
+Message-ID: <90c19e6e-235e-465d-9e1e-1ebef49156a0@gmx.net>
+Date: Fri, 11 Apr 2025 15:29:08 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH 1/7] soc: amlogic: clk-measure: Define MSR_CLK's register
- offset separately
-To: chuan.liu@amlogic.com, Kevin Hilman <khilman@baylibre.com>,
- Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-References: <20250411-clk-measure-v1-0-cb46a78d019a@amlogic.com>
- <20250411-clk-measure-v1-1-cb46a78d019a@amlogic.com>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20250411-clk-measure-v1-1-cb46a78d019a@amlogic.com>
+Subject: Re: [net-next v4 4/5] net: mtip: The L2 switch driver for imx287
+To: Lukasz Majewski <lukma@denx.de>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+References: <20250407145157.3626463-1-lukma@denx.de>
+ <20250407145157.3626463-5-lukma@denx.de>
+ <8ceea7c4-6333-43b9-b3c2-a0dceeb62a0c@gmx.net> <20250410153744.17e6ee5b@wsk>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <20250410153744.17e6ee5b@wsk>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:KHhCgaw4fSaOA6B4jcV4pU7jzCZaybUsmlgiWW2wG4QnG9Azonv
+ iNYgQD9Ps2oUF/5hzg1CJ1c4r7478xqJ6QvsLUKrf1A9z/NW6eqWB4TKxqUTEvayfdLaLSb
+ 9k2uUG/UEzxn/h7sYW7xeXuy2ftVsYsg6ijOH+e2lmpyxKoqaxak2FlSiPm+KkWDw4m/x1S
+ UNlJuZe2XLDSzQt9R9Iuw==
+UI-OutboundReport: notjunk:1;M01:P0:x+lmbmyxDaQ=;xgH65VonI71YkZ7aaL5ob3Ra4UX
+ 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
+ bWPWXfM2/K64TN10oE8gIQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_143135_513766_2F0C898F 
-X-CRM114-Status: GOOD (  23.34  )
+X-CRM114-CacheID: sfid-20250411_062923_971483_2579DDD3 
+X-CRM114-Status: GOOD (  36.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,219 +141,375 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 11/04/2025 14:42, Chuan Liu via B4 Relay wrote:
-> From: Chuan Liu <chuan.liu@amlogic.com>
-> 
-> Since the MSR_CLK register offset differs between chip variants, we
-> replace the macro-based definition with chip-specific assignments.
-> 
-> Change the max_register in regmap_config to be retrieved from DTS.
-> 
-> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
-> ---
->   drivers/soc/amlogic/meson-clk-measure.c | 70 ++++++++++++++++++++++++++-------
->   1 file changed, 55 insertions(+), 15 deletions(-)
-> 
-> diff --git a/drivers/soc/amlogic/meson-clk-measure.c b/drivers/soc/amlogic/meson-clk-measure.c
-> index 39638d6a593c..30387d26307c 100644
-> --- a/drivers/soc/amlogic/meson-clk-measure.c
-> +++ b/drivers/soc/amlogic/meson-clk-measure.c
-> @@ -14,11 +14,6 @@
->   
->   static DEFINE_MUTEX(measure_lock);
->   
-> -#define MSR_CLK_DUTY		0x0
-> -#define MSR_CLK_REG0		0x4
-> -#define MSR_CLK_REG1		0x8
-> -#define MSR_CLK_REG2		0xc
-> -
->   #define MSR_DURATION		GENMASK(15, 0)
->   #define MSR_ENABLE		BIT(16)
->   #define MSR_CONT		BIT(17) /* continuous measurement */
-> @@ -39,9 +34,20 @@ struct meson_msr_id {
->   	const char *name;
->   };
->   
-> +struct msr_reg_offset {
-> +	unsigned int duty;
-> +	unsigned int reg0;
-> +	unsigned int reg1;
-> +	unsigned int reg2;
-> +	unsigned int reg3;
-> +	unsigned int reg4;
-> +	unsigned int reg5;
-> +};
-
-I don't object, but:
-1) could you help actually put a real name on those registers ?
-2) why adding regs 3, 4 & 5 if you don't use them ?
-
+Am 10.04.25 um 15:37 schrieb Lukasz Majewski:
+> Hi Stefan,
+>
+>> Hi Lukasz,
+>>
+>> thanks for sending this to linux-arm-kernel
+>>
+>> Am 07.04.25 um 16:51 schrieb Lukasz Majewski:
+>>> This patch series provides support for More Than IP L2 switch
+>>> embedded in the imx287 SoC.
+>>>
+>>> This is a two port switch (placed between uDMA[01] and MAC-NET[01]),
+>>> which can be used for offloading the network traffic.
+>>>
+>>> It can be used interchangeably with current FEC driver - to be more
+>>> specific: one can use either of it, depending on the requirements.
+>>>
+>>> The biggest difference is the usage of DMA - when FEC is used,
+>>> separate DMAs are available for each ENET-MAC block.
+>>> However, with switch enabled - only the DMA0 is used to
+>>> send/receive data to/form switch (and then switch sends them to
+>>> respecitive ports).
+>>>
+>>> Signed-off-by: Lukasz Majewski<lukma@denx.de>
+>>> ---
+>>> Changes for v2:
+>>>
+>>> - Remove not needed comments
+>>> - Restore udelay(10) for switch reset (such delay is explicitly
+>>> specifed in the documentation
+>>> - Add COMPILE_TEST
+>>> - replace pr_* with dev_*
+>>> - Use for_each_available_child_of_node_scoped()
+>>> - Use devm_* function for memory allocation
+>>> - Remove printing information about the HW and SW revision of the
+>>> driver
+>>> - Use devm_regulator_get_optional()
+>>> - Change compatible prefix from 'fsl' to more up to date 'nxp'
+>>> - Remove .owner =3D THIS_MODULE
+>>> - Use devm_platform_ioremap_resource(pdev, 0);
+>>> - Use devm_request_irq()
+>>> - Use devm_regulator_get_enable_optional()
+>>> - Replace clk_prepare_enable() and devm_clk_get() with single
+>>>     call to devm_clk_get_optional_enabled()
+>>> - Cleanup error patch when function calls in probe fail
+>>> - Refactor the mtip_reset_phy() to serve as mdio bus reset callback
+>>> - Add myself as the MTIP L2 switch maintainer (squashed the
+>>> separated commit)
+>>> - More descriptive help paragraphs (> 4 lines)
+>>>
+>>> Changes for v3:
+>>> - Remove 'bridge_offloading' module parameter (to bridge ports just
+>>> after probe)
+>>> - Remove forward references
+>>> - Fix reverse christmas tree formatting in functions
+>>> - Convert eligible comments to kernel doc format
+>>> - Remove extra MAC address validation check at esw_mac_addr_static()
+>>> - Remove mtip_print_link_status() and replace it with
+>>> phy_print_status()
+>>> - Avoid changing phy device state in the driver (instead use
+>>> functions exported by the phy API)
+>>> - Do not print extra information regarding PHY (which is printed by
+>>> phylib) - e.g. net lan0: lan0: MTIP eth L2 switch 1e:ce:a5:0b:4c:12
+>>> - Remove VERSION from the driver - now we rely on the SHA1 in Linux
+>>>     mainline tree
+>>> - Remove zeroing of the net device private area (shall be already
+>>> done during allocation)
+>>> - Refactor the code to remove mtip_ndev_setup()
+>>> - Use -ENOMEM instead of -1 return code when allocation fails
+>>> - Replace dev_info() with dev_dbg() to reduce number of information
+>>> print on normal operation
+>>> - Return ret instead of 0 from mtip_ndev_init()
+>>> - Remove fep->mii_timeout flag from the driver
+>>> - Remove not used stop_gpr_* fields in mtip_devinfo struct
+>>> - Remove platform_device_id description for mtipl2sw driver
+>>> - Add MODULE_DEVICE_TABLE() for mtip_of_match
+>>> - Remove MODULE_ALIAS()
+>>>
+>>> Changes for v4:
+>>> - Rename imx287 with imx28 (as the former is not used in kernel
+>>> anymore)
+>>> - Reorder the place where ENET interface is initialized - without
+>>> this change the enet_out clock has default (25 MHz) value, which
+>>> causes issues during reset (RMII's 50 MHz is required for proper
+>>> PHY reset).
+>>> - Use PAUR instead of PAUR register to program MAC address
+>>> - Replace eth_mac_addr() with eth_hw_addr_set()
+>>> - Write to HW the randomly generated MAC address (if required)
+>>> - Adjust the reset code
+>>> - s/read_atable/mtip_read_atable/g and
+>>> s/write_atable/mtip_write_atable/g
+>>> - Add clk_disable() and netif_napi_del() when errors occur during
+>>>     mtip_open() - refactor the error handling path.
+>>> - Refactor the mtip_set_multicast_list() to write (now) correct
+>>> values to ENET-FEC registers.
+>>> - Replace dev_warn() with dev_err()
+>>> - Use GPIO_ACTIVE_LOW to indicate polarity in DTS
+>>> - Refactor code to check if network device is the switch device
+>>> - Remove mtip_port_dev_check()
+>>> - Refactor mtip_ndev_port_link() avoid starting HW offloading for
+>>> bridge when MTIP ports are parts of two distinct bridges
+>>> - Replace del_timer() with timer_delete_sync()
+>>> ---
+>>>    MAINTAINERS                                   |    7 +
+>>>    drivers/net/ethernet/freescale/Kconfig        |    1 +
+>>>    drivers/net/ethernet/freescale/Makefile       |    1 +
+>>>    drivers/net/ethernet/freescale/mtipsw/Kconfig |   13 +
+>>>    .../net/ethernet/freescale/mtipsw/Makefile    |    3 +
+>>>    .../net/ethernet/freescale/mtipsw/mtipl2sw.c  | 1970
+>>> +++++++++++++++++ .../net/ethernet/freescale/mtipsw/mtipl2sw.h  |
+>>> 782 +++++++ .../ethernet/freescale/mtipsw/mtipl2sw_br.c   |  122 +
+>>>    .../ethernet/freescale/mtipsw/mtipl2sw_mgnt.c |  449 ++++
+>>>    9 files changed, 3348 insertions(+)
+>>>    create mode 100644 drivers/net/ethernet/freescale/mtipsw/Kconfig
+>>>    create mode 100644 drivers/net/ethernet/freescale/mtipsw/Makefile
+>>>    create mode 100644
+>>> drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c create mode 100644
+>>> drivers/net/ethernet/freescale/mtipsw/mtipl2sw.h create mode 100644
+>>> drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.c create mode
+>>> 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw_mgnt.c
+>>>
+>>> diff --git a/MAINTAINERS b/MAINTAINERS
+>>> index 4c5c2e2c1278..9c5626c2b3b7 100644
+>>> --- a/MAINTAINERS
+>>> +++ b/MAINTAINERS
+>>> @@ -9455,6 +9455,13 @@ S:	Maintained
+>>>    F:	Documentation/devicetree/bindings/i2c/i2c-mpc.yaml
+>>>    F:	drivers/i2c/busses/i2c-mpc.c
+>>>
+>>> +FREESCALE MTIP ETHERNET SWITCH DRIVER
+>>> +M:	Lukasz Majewski<lukma@denx.de>
+>>> +L:	netdev@vger.kernel.org
+>>> +S:	Maintained
+>>> +F:
+>>> Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
+>>> +F:	drivers/net/ethernet/freescale/mtipsw/* +
+>>>    FREESCALE QORIQ DPAA ETHERNET DRIVER
+>>>    M:	Madalin Bucur<madalin.bucur@nxp.com>
+>>>    L:	netdev@vger.kernel.org
+>>> diff --git a/drivers/net/ethernet/freescale/Kconfig
+>>> b/drivers/net/ethernet/freescale/Kconfig index
+>>> a2d7300925a8..056a11c3a74e 100644 ---
+>>> a/drivers/net/ethernet/freescale/Kconfig +++
+>>> b/drivers/net/ethernet/freescale/Kconfig @@ -60,6 +60,7 @@ config
+>>> FEC_MPC52xx_MDIO
+>>>
+>>>    source "drivers/net/ethernet/freescale/fs_enet/Kconfig"
+>>>    source "drivers/net/ethernet/freescale/fman/Kconfig"
+>>> +source "drivers/net/ethernet/freescale/mtipsw/Kconfig"
+>>>
+>>>    config FSL_PQ_MDIO
+>>>    	tristate "Freescale PQ MDIO" diff --git
+>>> a/drivers/net/ethernet/freescale/Makefile
+>>> b/drivers/net/ethernet/freescale/Makefile index
+>>> de7b31842233..0e6cacb0948a 100644 ---
+>>> a/drivers/net/ethernet/freescale/Makefile +++
+>>> b/drivers/net/ethernet/freescale/Makefile @@ -25,3 +25,4 @@
+>>> obj-$(CONFIG_FSL_DPAA_ETH) +=3D dpaa/ obj-$(CONFIG_FSL_DPAA2_ETH) +=3D
+>>> dpaa2/ obj-y +=3D enetc/ +obj-y +=3D mtipsw/ diff --git
+>>> a/drivers/net/ethernet/freescale/mtipsw/Kconfig
+>>> b/drivers/net/ethernet/freescale/mtipsw/Kconfig new file mode
+>>> 100644 index 000000000000..450ff734a321 --- /dev/null +++
+>>> b/drivers/net/ethernet/freescale/mtipsw/Kconfig @@ -0,0 +1,13 @@ +#
+>>> SPDX-License-Identifier: GPL-2.0-only +config FEC_MTIP_L2SW +
+>>> tristate "MoreThanIP L2 switch support to FEC driver"
+>>> +	depends on OF
+>>> +	depends on NET_SWITCHDEV
+>>> +	depends on BRIDGE
+>>> +	depends on ARCH_MXS || ARCH_MXC || COMPILE_TEST
+>>> +	help
+>>> +	  This enables support for the MoreThan IP L2 switch on
+>>> i.MX
+>>> +	  SoCs (e.g. iMX28, vf610). It offloads bridging to this
+>>> IP block's
+>> This is confusing. The Kconfig and most of the code looks prepared for
+>> other platforms than i.MX28, but there is only a i.MX28 OF
+>> compatible.
+> I've took the approach to upstream the driver in several steps.
+> The first step is this patch set - add the code for a single platform
+> (imx28).
+>
+> And Yes, I also have on my desk another board with soc having this IP
+> block (vf610).
+>
+> However, I will not start any other upstream work until patches from
+> this "step" are not pulled.
+>
+> (To follow "one things at a time" principle)
+>
+>> I don't like that Kconfig pretent something, which is not
+>> true.
+> If you prefer I can remove 'depends on ARCH_MXC' and the vf610 SoC...
+> (only to add it afterwards).
+In case you want to do "one thing at a time", please remove this.
+>>> +
+>>> +static void mtip_config_switch(struct switch_enet_private *fep)
+>>> +{
+>>> +	struct switch_t *fecp =3D fep->hwp;
+>>> +
+>>> +	esw_mac_addr_static(fep);
+>>> +
+>>> +	writel(0, &fecp->ESW_BKLR);
+>>> +
+>>> +	/* Do NOT disable learning */
+>>> +	mtip_port_learning_config(fep, 0, 0, 0);
+>>> +	mtip_port_learning_config(fep, 1, 0, 0);
+>>> +	mtip_port_learning_config(fep, 2, 0, 0);
+>> Looks like the last 2 parameter are always 0?
+> Those functions are defined in mtipl2sw_mgnt.c file.
+>
+> I've followed the way legacy (i.e. vendor) driver has defined them. In
+> this particular case the last '0' is to not enable interrupt for
+> learning.
+This wasn't my concern. The question was "why do we need a parameter if
+it's always the same?". But you answered this further below, so i'm fine.
+>>> +
+>>> +static irqreturn_t mtip_interrupt(int irq, void *ptr_fep)
+>>> +{
+>>> +	struct switch_enet_private *fep =3D ptr_fep;
+>>> +	struct switch_t *fecp =3D fep->hwp;
+>>> +	irqreturn_t ret =3D IRQ_NONE;
+>>> +	u32 int_events, int_imask;
+>>> +
+>>> +	/* Get the interrupt events that caused us to be here */
+>>> +	do {
+>>> +		int_events =3D readl(&fecp->ESW_ISR);
+>>> +		writel(int_events, &fecp->ESW_ISR);
+>>> +
+>>> +		if (int_events & (MCF_ESW_ISR_RXF |
+>>> MCF_ESW_ISR_TXF)) {
+>>> +			ret =3D IRQ_HANDLED;
+>>> +			/* Disable the RX interrupt */
+>>> +			if (napi_schedule_prep(&fep->napi)) {
+>>> +				int_imask =3D readl(&fecp->ESW_IMR);
+>>> +				int_imask &=3D ~MCF_ESW_IMR_RXF;
+>>> +				writel(int_imask, &fecp->ESW_IMR);
+>>> +				__napi_schedule(&fep->napi);
+>>> +			}
+>>> +		}
+>>> +	} while (int_events);
+>> This looks bad, in case of bad hardware / timing behavior this
+>> interrupt handler will loop forever.
+> The 'writel(int_events, &fecp->ESW_ISR);'
+>
+> clears the interrupts, so after reading them and clearing (by writing
+> the same value), the int_events shall be 0.
+>
+> Also, during probe the IRQ mask for switch IRQ is written, so only
+> expected (and served) interrupts are delivered.
+This was not my point. A possible endless loop especially in a interrupt
+handler should be avoided. The kernel shouldn't trust the hardware and
+the driver should be fair to all the other interrupts which might have
+occurred.
 > +
->   struct meson_msr_data {
->   	struct meson_msr_id *msr_table;
->   	unsigned int msr_count;
-> +	struct msr_reg_offset reg;
->   };
->   
->   struct meson_msr {
-> @@ -495,6 +501,7 @@ static int meson_measure_id(struct meson_msr_id *clk_msr_id,
->   			    unsigned int duration)
->   {
->   	struct meson_msr *priv = clk_msr_id->priv;
-> +	struct msr_reg_offset *reg = &priv->data.reg;
->   	unsigned int val;
->   	int ret;
->   
-> @@ -502,22 +509,22 @@ static int meson_measure_id(struct meson_msr_id *clk_msr_id,
->   	if (ret)
->   		return ret;
->   
-> -	regmap_write(priv->regmap, MSR_CLK_REG0, 0);
-> +	regmap_write(priv->regmap, reg->reg0, 0);
->   
->   	/* Set measurement duration */
-> -	regmap_update_bits(priv->regmap, MSR_CLK_REG0, MSR_DURATION,
-> +	regmap_update_bits(priv->regmap, reg->reg0, MSR_DURATION,
->   			   FIELD_PREP(MSR_DURATION, duration - 1));
->   
->   	/* Set ID */
-> -	regmap_update_bits(priv->regmap, MSR_CLK_REG0, MSR_CLK_SRC,
-> +	regmap_update_bits(priv->regmap, reg->reg0, MSR_CLK_SRC,
->   			   FIELD_PREP(MSR_CLK_SRC, clk_msr_id->id));
->   
->   	/* Enable & Start */
-> -	regmap_update_bits(priv->regmap, MSR_CLK_REG0,
-> +	regmap_update_bits(priv->regmap, reg->reg0,
->   			   MSR_RUN | MSR_ENABLE,
->   			   MSR_RUN | MSR_ENABLE);
->   
-> -	ret = regmap_read_poll_timeout(priv->regmap, MSR_CLK_REG0,
-> +	ret = regmap_read_poll_timeout(priv->regmap, reg->reg0,
->   				       val, !(val & MSR_BUSY), 10, 10000);
->   	if (ret) {
->   		mutex_unlock(&measure_lock);
-> @@ -525,10 +532,10 @@ static int meson_measure_id(struct meson_msr_id *clk_msr_id,
->   	}
->   
->   	/* Disable */
-> -	regmap_update_bits(priv->regmap, MSR_CLK_REG0, MSR_ENABLE, 0);
-> +	regmap_update_bits(priv->regmap, reg->reg0, MSR_ENABLE, 0);
->   
->   	/* Get the value in multiple of gate time counts */
-> -	regmap_read(priv->regmap, MSR_CLK_REG2, &val);
-> +	regmap_read(priv->regmap, reg->reg2, &val);
->   
->   	mutex_unlock(&measure_lock);
->   
-> @@ -599,11 +606,10 @@ static int clk_msr_summary_show(struct seq_file *s, void *data)
->   }
->   DEFINE_SHOW_ATTRIBUTE(clk_msr_summary);
->   
-> -static const struct regmap_config meson_clk_msr_regmap_config = {
-> +static struct regmap_config meson_clk_msr_regmap_config = {
->   	.reg_bits = 32,
->   	.val_bits = 32,
->   	.reg_stride = 4,
-> -	.max_register = MSR_CLK_REG2,
->   };
->   
->   static int meson_msr_probe(struct platform_device *pdev)
-> @@ -611,6 +617,7 @@ static int meson_msr_probe(struct platform_device *pdev)
->   	const struct meson_msr_data *match_data;
->   	struct meson_msr *priv;
->   	struct dentry *root, *clks;
-> +	struct resource *res;
->   	void __iomem *base;
->   	int i;
->   
-> @@ -636,15 +643,18 @@ static int meson_msr_probe(struct platform_device *pdev)
->   	       match_data->msr_count * sizeof(struct meson_msr_id));
->   	priv->data.msr_count = match_data->msr_count;
->   
-> -	base = devm_platform_ioremap_resource(pdev, 0);
-> +	base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
->   	if (IS_ERR(base))
->   		return PTR_ERR(base);
->   
-> +	meson_clk_msr_regmap_config.max_register = resource_size(res) - 4;
->   	priv->regmap = devm_regmap_init_mmio(&pdev->dev, base,
->   					     &meson_clk_msr_regmap_config);
->   	if (IS_ERR(priv->regmap))
->   		return PTR_ERR(priv->regmap);
->   
-> +	memcpy(&priv->data.reg, &match_data->reg, sizeof(struct msr_reg_offset));
+> +static int mtip_rx_napi(struct napi_struct *napi, int budget)
+> +{
+> +	struct mtip_ndev_priv *priv =3D netdev_priv(napi->dev);
+> +	struct switch_enet_private *fep =3D priv->fep;
+> +	struct switch_t *fecp =3D fep->hwp;
+> +	int pkts, port;
 > +
->   	root = debugfs_create_dir("meson-clk-msr", NULL);
->   	clks = debugfs_create_dir("clks", root);
->   
-> @@ -667,26 +677,56 @@ static int meson_msr_probe(struct platform_device *pdev)
->   static const struct meson_msr_data clk_msr_gx_data = {
->   	.msr_table = (void *)clk_msr_gx,
->   	.msr_count = ARRAY_SIZE(clk_msr_gx),
-> +	.reg = {
-> +		.duty = 0x0,
-> +		.reg0 = 0x4,
-> +		.reg1 = 0x8,
-> +		.reg2 = 0xc,
-> +	},
+> +	pkts =3D mtip_switch_rx(napi->dev, budget, &port);
+> +	if (!fep->br_offload &&
+> +	    (port =3D=3D 1 || port =3D=3D 2) && fep->ndev[port - 1])
+>> (port > 0) && fep->ndev[port - 1])
+> This needs to be kept as is - only when port is set to 1 or 2 (after
+> reading the switch internal register) this shall be executed.
+Oops, missed that
+> (port also can be 0xFF or 0x3 -> then we shall send frame to both
+> egress ports).
+Maybe we should use defines for such special values
+> This code is responsible for port separation when bridge HW offloading
+> is disabled.
+>
+>
+>>> +		of_get_mac_address(port, &fep->mac[port_num -
+>>> 1][0]);
+>> This can fail
+> I will add:
+>
+> ret =3D of_get_mac_address(port, &fep->mac[port_num - 1][0]);
+> if (ret)
+> 	dev_warn(dev, "of_get_mac_address(%pOF) failed\n", port);
+>
+> as it is also valid to not have the mac address defined in DTS (then
+> some random based value is generated).
+AFAIK this is a little bit more complex. It's possible that the MAC is
+stored within a NVMEM and the driver isn't ready (EPROBE_DEFER).
 
-Would be great to not duplicate this struct.
+Are you sure about the randomize fallback behavior of of_get_mac_address()=
+ ?
 
->   };
->   
->   static const struct meson_msr_data clk_msr_m8_data = {
->   	.msr_table = (void *)clk_msr_m8,
->   	.msr_count = ARRAY_SIZE(clk_msr_m8),
-> +	.reg = {
-> +		.duty = 0x0,
-> +		.reg0 = 0x4,
-> +		.reg1 = 0x8,
-> +		.reg2 = 0xc,
-> +	},
->   };
->   
->   static const struct meson_msr_data clk_msr_axg_data = {
->   	.msr_table = (void *)clk_msr_axg,
->   	.msr_count = ARRAY_SIZE(clk_msr_axg),
-> +	.reg = {
-> +		.duty = 0x0,
-> +		.reg0 = 0x4,
-> +		.reg1 = 0x8,
-> +		.reg2 = 0xc,
-> +	},
->   };
->   
->   static const struct meson_msr_data clk_msr_g12a_data = {
->   	.msr_table = (void *)clk_msr_g12a,
->   	.msr_count = ARRAY_SIZE(clk_msr_g12a),
-> +	.reg = {
-> +		.duty = 0x0,
-> +		.reg0 = 0x4,
-> +		.reg1 = 0x8,
-> +		.reg2 = 0xc,
-> +	},
->   };
->   
->   static const struct meson_msr_data clk_msr_sm1_data = {
->   	.msr_table = (void *)clk_msr_sm1,
->   	.msr_count = ARRAY_SIZE(clk_msr_sm1),
-> +	.reg = {
-> +		.duty = 0x0,
-> +		.reg0 = 0x4,
-> +		.reg1 = 0x8,
-> +		.reg2 = 0xc,
-> +	},
->   };
->   
->   static const struct of_device_id meson_msr_match_table[] = {
-> 
+I tought you still need to call eth_random_addr().
 
-Thanks,
-Neil
+
+>>> +
+>>> +int mtip_set_vlan_verification(struct switch_enet_private *fep,
+>>> int port,
+>>> +			       int vlan_domain_verify_en,
+>>> +			       int vlan_discard_unknown_en)
+>>> +{
+>>> +	struct switch_t *fecp =3D fep->hwp;
+>>> +
+>>> +	if (port < 0 || port > 2) {
+>>> +		dev_err(&fep->pdev->dev, "%s: Port (%d) not
+>>> supported!\n",
+>>> +			__func__, port);
+>>> +		return -EINVAL;
+>>> +	}
+>>> +
+>>> +	if (vlan_domain_verify_en =3D=3D 1) {
+>>> +		if (port =3D=3D 0)
+>>> +			writel(readl(&fecp->ESW_VLANV) |
+>>> MCF_ESW_VLANV_VV0,
+>>> +			       &fecp->ESW_VLANV);
+>>> +		else if (port =3D=3D 1)
+>>> +			writel(readl(&fecp->ESW_VLANV) |
+>>> MCF_ESW_VLANV_VV1,
+>>> +			       &fecp->ESW_VLANV);
+>>> +		else if (port =3D=3D 2)
+>>> +			writel(readl(&fecp->ESW_VLANV) |
+>>> MCF_ESW_VLANV_VV2,
+>>> +			       &fecp->ESW_VLANV);
+>>> +	} else if (vlan_domain_verify_en =3D=3D 0) {
+>>> +		if (port =3D=3D 0)
+>>> +			writel(readl(&fecp->ESW_VLANV) &
+>>> ~MCF_ESW_VLANV_VV0,
+>>> +			       &fecp->ESW_VLANV);
+>>> +		else if (port =3D=3D 1)
+>>> +			writel(readl(&fecp->ESW_VLANV) &
+>>> ~MCF_ESW_VLANV_VV1,
+>>> +			       &fecp->ESW_VLANV);
+>>> +		else if (port =3D=3D 2)
+>>> +			writel(readl(&fecp->ESW_VLANV) &
+>>> ~MCF_ESW_VLANV_VV2,
+>>> +			       &fecp->ESW_VLANV);
+>>> +	}
+>>> +
+>>> +	if (vlan_discard_unknown_en =3D=3D 1) {
+>>> +		if (port =3D=3D 0)
+>>> +			writel(readl(&fecp->ESW_VLANV) |
+>>> MCF_ESW_VLANV_DU0,
+>>> +			       &fecp->ESW_VLANV);
+>>> +		else if (port =3D=3D 1)
+>>> +			writel(readl(&fecp->ESW_VLANV) |
+>>> MCF_ESW_VLANV_DU1,
+>>> +			       &fecp->ESW_VLANV);
+>>> +		else if (port =3D=3D 2)
+>>> +			writel(readl(&fecp->ESW_VLANV) |
+>>> MCF_ESW_VLANV_DU2,
+>>> +			       &fecp->ESW_VLANV);
+>>> +	} else if (vlan_discard_unknown_en =3D=3D 0) {
+>>> +		if (port =3D=3D 0)
+>>> +			writel(readl(&fecp->ESW_VLANV) &
+>>> ~MCF_ESW_VLANV_DU0,
+>>> +			       &fecp->ESW_VLANV);
+>>> +		else if (port =3D=3D 1)
+>>> +			writel(readl(&fecp->ESW_VLANV) &
+>>> ~MCF_ESW_VLANV_DU1,
+>>> +			       &fecp->ESW_VLANV);
+>>> +		else if (port =3D=3D 2)
+>>> +			writel(readl(&fecp->ESW_VLANV) &
+>>> ~MCF_ESW_VLANV_DU2,
+>>> +			       &fecp->ESW_VLANV);
+>>> +	}
+>> This looks like a lot of copy & paste
+> IMHO, the readability of the code is OK.
+Actually the concern was about maintenance.
 
