@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D565AC369A8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 13:09:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E98ABC369A9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 13:11:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+smrjCIJQVFEvkCEtsmxnPiFFIcYhcGKrrfGzYS04Ng=; b=z8D684rJYavpbigj6YCQXwcOsx
-	Jxtz0rEUeVsfsD+TPsJuToYGitHJzA/v3OpiBkz+2V52Xxi82mAnoQisOukP0JOh9RA4PaOiCK+z6
-	BPADqDEy0xvXdGD9BHUaA03MbGJAdHO/T4wnh9j31oBrbjcG/YxRKRRcmVefOpAummmizQU1TyEs3
-	k6os+CZFT8yZIhCFJACNuWS+dEm5nOr2Au9IuVMTm3X8HjVMhgcYCnR132VIUIoSfY5XNCYDbadbH
-	bFShwK+55gYBKlOoCk+EpDfVfq9SCzMqsaGP5Z7uBlOx/Gp4XhIwvYVm2TfwMgoeJnlXi+AIIF6LZ
-	3tEe3d/w==;
+	bh=PEgZZxScHIMw9bh1r50TVrE8mKCke5KJ3t9Xky8pSrg=; b=zUNt4KWgGL/BDeZbxbqAwrpxWo
+	ja2qNvY0oWtLwXHhPJkSKtmsTH75dNMEbwQkcnUPUV41DYwLUZ1jBymnWKABxTd6yTTWAQHLPHjGj
+	rDq4ahaEwBf6QQTt5oMhWcYcYJxxiTIGius7UacS/uOj9liILGfgfV1MHp4UwjzUzgFD2Yb4HqmJJ
+	eTnODIdTb5t4RrdFasqaKok7hO6jS3eC28OHIGLhJMNyElQ26SVuvaxdGyTj0N6itQfYiYB2uurmX
+	03UdvppIVsGR/ubSNSL8vFNMFwwOZqF2GTDWdxHLwzyoImhs0zPfaVxnZtT0rrcoA68oCHWAvoN6q
+	9L/m5iVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3E8X-0000000DrJx-0ZTV;
-	Fri, 11 Apr 2025 13:09:37 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u3EAK-0000000Drhy-0cTp;
+	Fri, 11 Apr 2025 13:11:28 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3Dih-0000000DmXy-40Xe;
-	Fri, 11 Apr 2025 12:42:57 +0000
+	id 1u3Dii-0000000DmYO-17l0;
+	Fri, 11 Apr 2025 12:42:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E84B15C69A8;
-	Fri, 11 Apr 2025 12:40:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 8F8E8C4CEE7;
-	Fri, 11 Apr 2025 12:42:54 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 04620A4AB10;
+	Fri, 11 Apr 2025 12:37:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 316AEC4CEF7;
+	Fri, 11 Apr 2025 12:42:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744375374;
-	bh=eHEa9Kqvkam4+sJtbQR3MVChbyGpCP+iVaXdlRJkmB0=;
+	s=k20201202; t=1744375375;
+	bh=HLUNHReE0cNLO6CqkVo6sXtk4KZJ2890NAAWXXyNoFk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=YUNFG7rg0bS1eJJeG9TFzmjoHKETvnFU4kLikdxmVe1+a4IR5IrgBO+LuNWdP94Rk
-	 u3OZNF1NzxilLF+aVeI3i30s0c3m1Mw25Brg9uw7qe4+kbtddehSBl1YE6Iiy6l88w
-	 DHJEGscmuQ2PnP5DPHXBKvfD4YIRy2H65Or0Jfr1vLIwZmDlLcMr9kcYn6HC2jpFFZ
-	 4+meyA1aBIzlrym4eGflcZvgVBZSuCc3TP8//zbJ9zY18emrgolHMBsyA6f2vY91V0
-	 YWlpTHuWHgcZJENOOqaYD7qR6J/JC5hu7PGbhrXjy9Yy+PLmo9+R3g5xWygYKOPwV3
-	 seQMPIaaxHk1g==
+	b=jGk+NyoWzuBHZPmQPPUNW+Duw3aCsOpaGF8vy8VkfiP5nE5iDiDNUoX5B7BkqRRXs
+	 fK8ZCmshrQnClvb+0Daow2f4KVhuojCHmcCPYuQYjzSnSSAx7OZNgWxmvoJzP+Q2+K
+	 GkJCQpXnSj/Mq8ZBS6ZpbR8CBz+S6A/Y3D228e+d4b6Wt7JAqxjZ7L08/zgezrF5ie
+	 XEvhotfgHhmbKvmrpW1i5VGdUdXkCKPd3nqnqFq/KdLZ+IPcZ0BrmcpyRToXQ/BUPO
+	 CBaDokiU8iP2Z4V80PXAM2f0MzzWGbdTTXH5NyaI/uAXIoFGLF17h7tDGn8FEsliKv
+	 jILBuyyQQOhBw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7B1CCC369A8;
-	Fri, 11 Apr 2025 12:42:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 28423C369A8;
+	Fri, 11 Apr 2025 12:42:55 +0000 (UTC)
 From: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
-Date: Fri, 11 Apr 2025 20:42:43 +0800
-Subject: [PATCH 1/7] soc: amlogic: clk-measure: Define MSR_CLK's register
- offset separately
+Date: Fri, 11 Apr 2025 20:42:49 +0800
+Subject: [PATCH 7/7] arm64: dts: amlogic: S4: Add clk-measure controller
+ node
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250411-clk-measure-v1-1-cb46a78d019a@amlogic.com>
+Message-Id: <20250411-clk-measure-v1-7-cb46a78d019a@amlogic.com>
 References: <20250411-clk-measure-v1-0-cb46a78d019a@amlogic.com>
 In-Reply-To: <20250411-clk-measure-v1-0-cb46a78d019a@amlogic.com>
 To: Neil Armstrong <neil.armstrong@linaro.org>, 
@@ -63,19 +63,20 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
  Chuan Liu <chuan.liu@amlogic.com>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1744375372; l=5785;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1744375372; l=767;
  i=chuan.liu@amlogic.com; s=20240902; h=from:subject:message-id;
- bh=o37HsmS/LhKiY/hPb95VmdLfnQkmXFWILQkMmhIbObk=;
- b=HAK7O7iFxegmwupeR2l/Z15cossX+6nAb+rCqWQ4RHW1JUspGURGfCZMjP61rjI4k0XG9jqUJ
- ZjRE4AoySr8DvoWujhHDvOsogKGfzGnRmGaPm1t6iSWIkDDloaiaGhp
+ bh=itRtutR2PIVs/kAFr6Titwp0GUUTkodKKnworvlokhM=;
+ b=HkLHQwUO4HrZDuTx82Q4lLAZGwoF6OGZJQla3YnGfIsydsSWucE6PSmhvIS/JMYVod6KlvVBN
+ spDHf+yEF9WAKvCoQ0EuQvZixoBqSExl9cfQuYZsHWI78avK2kycxxb
 X-Developer-Key: i=chuan.liu@amlogic.com; a=ed25519;
  pk=fnKDB+81SoWGKW2GJNFkKy/ULvsDmJZRGBE7pR5Xcpo=
 X-Endpoint-Received: by B4 Relay for chuan.liu@amlogic.com/20240902 with
  auth_id=203
 X-Original-From: Chuan Liu <chuan.liu@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_054256_145759_C49F282E 
-X-CRM114-Status: GOOD (  14.58  )
+X-CRM114-CacheID: sfid-20250411_054256_405997_8367D3E0 
+X-CRM114-Status: UNSURE (   7.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,200 +94,29 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chuan Liu <chuan.liu@amlogic.com>
 
-Since the MSR_CLK register offset differs between chip variants, we
-replace the macro-based definition with chip-specific assignments.
-
-Change the max_register in regmap_config to be retrieved from DTS.
+Add the clk-measure controller node for S4 SoC family.
 
 Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
 ---
- drivers/soc/amlogic/meson-clk-measure.c | 70 ++++++++++++++++++++++++++-------
- 1 file changed, 55 insertions(+), 15 deletions(-)
+ arch/arm64/boot/dts/amlogic/meson-s4.dtsi | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/drivers/soc/amlogic/meson-clk-measure.c b/drivers/soc/amlogic/meson-clk-measure.c
-index 39638d6a593c..30387d26307c 100644
---- a/drivers/soc/amlogic/meson-clk-measure.c
-+++ b/drivers/soc/amlogic/meson-clk-measure.c
-@@ -14,11 +14,6 @@
+diff --git a/arch/arm64/boot/dts/amlogic/meson-s4.dtsi b/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
+index 957577d986c0..9d99ed2994df 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
++++ b/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
+@@ -629,6 +629,11 @@ internal_ephy: ethernet-phy@8 {
+ 				};
+ 			};
  
- static DEFINE_MUTEX(measure_lock);
- 
--#define MSR_CLK_DUTY		0x0
--#define MSR_CLK_REG0		0x4
--#define MSR_CLK_REG1		0x8
--#define MSR_CLK_REG2		0xc
--
- #define MSR_DURATION		GENMASK(15, 0)
- #define MSR_ENABLE		BIT(16)
- #define MSR_CONT		BIT(17) /* continuous measurement */
-@@ -39,9 +34,20 @@ struct meson_msr_id {
- 	const char *name;
- };
- 
-+struct msr_reg_offset {
-+	unsigned int duty;
-+	unsigned int reg0;
-+	unsigned int reg1;
-+	unsigned int reg2;
-+	unsigned int reg3;
-+	unsigned int reg4;
-+	unsigned int reg5;
-+};
++			clk_msr: clock-measure@48000 {
++				compatible = "amlogic,s4-clk-measure";
++				reg = <0x0 0x48000 0x0 0x1c>;
++			};
 +
- struct meson_msr_data {
- 	struct meson_msr_id *msr_table;
- 	unsigned int msr_count;
-+	struct msr_reg_offset reg;
- };
- 
- struct meson_msr {
-@@ -495,6 +501,7 @@ static int meson_measure_id(struct meson_msr_id *clk_msr_id,
- 			    unsigned int duration)
- {
- 	struct meson_msr *priv = clk_msr_id->priv;
-+	struct msr_reg_offset *reg = &priv->data.reg;
- 	unsigned int val;
- 	int ret;
- 
-@@ -502,22 +509,22 @@ static int meson_measure_id(struct meson_msr_id *clk_msr_id,
- 	if (ret)
- 		return ret;
- 
--	regmap_write(priv->regmap, MSR_CLK_REG0, 0);
-+	regmap_write(priv->regmap, reg->reg0, 0);
- 
- 	/* Set measurement duration */
--	regmap_update_bits(priv->regmap, MSR_CLK_REG0, MSR_DURATION,
-+	regmap_update_bits(priv->regmap, reg->reg0, MSR_DURATION,
- 			   FIELD_PREP(MSR_DURATION, duration - 1));
- 
- 	/* Set ID */
--	regmap_update_bits(priv->regmap, MSR_CLK_REG0, MSR_CLK_SRC,
-+	regmap_update_bits(priv->regmap, reg->reg0, MSR_CLK_SRC,
- 			   FIELD_PREP(MSR_CLK_SRC, clk_msr_id->id));
- 
- 	/* Enable & Start */
--	regmap_update_bits(priv->regmap, MSR_CLK_REG0,
-+	regmap_update_bits(priv->regmap, reg->reg0,
- 			   MSR_RUN | MSR_ENABLE,
- 			   MSR_RUN | MSR_ENABLE);
- 
--	ret = regmap_read_poll_timeout(priv->regmap, MSR_CLK_REG0,
-+	ret = regmap_read_poll_timeout(priv->regmap, reg->reg0,
- 				       val, !(val & MSR_BUSY), 10, 10000);
- 	if (ret) {
- 		mutex_unlock(&measure_lock);
-@@ -525,10 +532,10 @@ static int meson_measure_id(struct meson_msr_id *clk_msr_id,
- 	}
- 
- 	/* Disable */
--	regmap_update_bits(priv->regmap, MSR_CLK_REG0, MSR_ENABLE, 0);
-+	regmap_update_bits(priv->regmap, reg->reg0, MSR_ENABLE, 0);
- 
- 	/* Get the value in multiple of gate time counts */
--	regmap_read(priv->regmap, MSR_CLK_REG2, &val);
-+	regmap_read(priv->regmap, reg->reg2, &val);
- 
- 	mutex_unlock(&measure_lock);
- 
-@@ -599,11 +606,10 @@ static int clk_msr_summary_show(struct seq_file *s, void *data)
- }
- DEFINE_SHOW_ATTRIBUTE(clk_msr_summary);
- 
--static const struct regmap_config meson_clk_msr_regmap_config = {
-+static struct regmap_config meson_clk_msr_regmap_config = {
- 	.reg_bits = 32,
- 	.val_bits = 32,
- 	.reg_stride = 4,
--	.max_register = MSR_CLK_REG2,
- };
- 
- static int meson_msr_probe(struct platform_device *pdev)
-@@ -611,6 +617,7 @@ static int meson_msr_probe(struct platform_device *pdev)
- 	const struct meson_msr_data *match_data;
- 	struct meson_msr *priv;
- 	struct dentry *root, *clks;
-+	struct resource *res;
- 	void __iomem *base;
- 	int i;
- 
-@@ -636,15 +643,18 @@ static int meson_msr_probe(struct platform_device *pdev)
- 	       match_data->msr_count * sizeof(struct meson_msr_id));
- 	priv->data.msr_count = match_data->msr_count;
- 
--	base = devm_platform_ioremap_resource(pdev, 0);
-+	base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
- 	if (IS_ERR(base))
- 		return PTR_ERR(base);
- 
-+	meson_clk_msr_regmap_config.max_register = resource_size(res) - 4;
- 	priv->regmap = devm_regmap_init_mmio(&pdev->dev, base,
- 					     &meson_clk_msr_regmap_config);
- 	if (IS_ERR(priv->regmap))
- 		return PTR_ERR(priv->regmap);
- 
-+	memcpy(&priv->data.reg, &match_data->reg, sizeof(struct msr_reg_offset));
-+
- 	root = debugfs_create_dir("meson-clk-msr", NULL);
- 	clks = debugfs_create_dir("clks", root);
- 
-@@ -667,26 +677,56 @@ static int meson_msr_probe(struct platform_device *pdev)
- static const struct meson_msr_data clk_msr_gx_data = {
- 	.msr_table = (void *)clk_msr_gx,
- 	.msr_count = ARRAY_SIZE(clk_msr_gx),
-+	.reg = {
-+		.duty = 0x0,
-+		.reg0 = 0x4,
-+		.reg1 = 0x8,
-+		.reg2 = 0xc,
-+	},
- };
- 
- static const struct meson_msr_data clk_msr_m8_data = {
- 	.msr_table = (void *)clk_msr_m8,
- 	.msr_count = ARRAY_SIZE(clk_msr_m8),
-+	.reg = {
-+		.duty = 0x0,
-+		.reg0 = 0x4,
-+		.reg1 = 0x8,
-+		.reg2 = 0xc,
-+	},
- };
- 
- static const struct meson_msr_data clk_msr_axg_data = {
- 	.msr_table = (void *)clk_msr_axg,
- 	.msr_count = ARRAY_SIZE(clk_msr_axg),
-+	.reg = {
-+		.duty = 0x0,
-+		.reg0 = 0x4,
-+		.reg1 = 0x8,
-+		.reg2 = 0xc,
-+	},
- };
- 
- static const struct meson_msr_data clk_msr_g12a_data = {
- 	.msr_table = (void *)clk_msr_g12a,
- 	.msr_count = ARRAY_SIZE(clk_msr_g12a),
-+	.reg = {
-+		.duty = 0x0,
-+		.reg0 = 0x4,
-+		.reg1 = 0x8,
-+		.reg2 = 0xc,
-+	},
- };
- 
- static const struct meson_msr_data clk_msr_sm1_data = {
- 	.msr_table = (void *)clk_msr_sm1,
- 	.msr_count = ARRAY_SIZE(clk_msr_sm1),
-+	.reg = {
-+		.duty = 0x0,
-+		.reg0 = 0x4,
-+		.reg1 = 0x8,
-+		.reg2 = 0xc,
-+	},
- };
- 
- static const struct of_device_id meson_msr_match_table[] = {
+ 			spicc0: spi@50000 {
+ 				compatible = "amlogic,meson-g12a-spicc";
+ 				reg = <0x0 0x50000 0x0 0x44>;
 
 -- 
 2.42.0
