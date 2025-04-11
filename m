@@ -4,217 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32FD1C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 00:05:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69DDAC3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 00:23:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H3fe0YI9AZX1bi9KEJ9IwQy/FZ2PaDvqO77eqw9TFl8=; b=sY54RqtyYdEw3YqYdKP7vyjYd4
-	tWWwnJRhIuHaV9jV0JK2pRmzpErU9TKEBtRye8U7v/7ttENt+ZivhCJ9lcefutNFsw9DeFVxkTwKJ
-	UbRX/UxhRBtC5iVEsD40GgjN6i9XyeKtlTOHxSSE+ANcD2AJvHcAcO1aKFusKEDgXJwJPp9rWYCn1
-	cvopZhaSAaCfuTIBsBft8nbf/EHIqwPGrJNwD7jNcou5zm+jdM//1TSIxRVCCMGNzVKHA66AXLphj
-	NUOo/Q6uzCbGqTOMaxunUBpXWXvKO/YDQom52+2lCvweu69DaLFRy6haLt31WgUTQ/t+Zh+d1tFsr
-	JmOtut3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qgU+Ush40s4PS9AAo5HPcGo6+xYTnCMn0S69tYBKtys=; b=aA0pI858w2CMuODG5j33k1H9Pi
+	Z4k8Yw0wHAfaKZhOtLqTNXqtb5x/kyTmIJH2iBysGkxOeoMVMxvOm++SvyginE14ec3Iu6EbWz+6M
+	At+xEVlrz8xdls1ai3Zd37OBUSmRManmU9B4nZQVDKGBsgC/W3fBeYNFSRNXQWY/LHO3sgetHv311
+	nQSwhpj4aoF8MOgcJp2XugzVsv38Vr8t8Ljbo61HAkssHRbyWos9RavKwdqPS5fBRb9MYE8LiW/sy
+	Q4TyZ8mTbdOcEVz7wAFtMWAn/DV6i3p3zTr22OM7872V1+i0pJiaU9du5ObXPm+h5PvSmu83sVuyq
+	Xkd4VSMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u31tv-0000000C6cg-3BwP;
-	Fri, 11 Apr 2025 00:05:43 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1u32BR-0000000C7ee-2Vku;
+	Fri, 11 Apr 2025 00:23:49 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u31s5-0000000C6Sw-31Fz
+	id 1u329e-0000000C7Y7-0yJn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 00:03:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1744329829; x=1775865829;
-  h=date:from:to:cc:subject:message-id:references:
-   in-reply-to:mime-version;
-  bh=mnNoftkda5PsUVmvp6S7DrQqt0zELHdyizjnlx1T/bM=;
-  b=BQuNGZSSzKkzogsf58pIfwmqSO+7db27aOkLiGFyf3kPbjauVGtT7dpp
-   XUx8qkD8Yb/EV3rjjwyg+G8g2x1s99WDM0qwfBKizYj3mSbcmBABWdP5L
-   kelDEv33hJdykEiu/obk/BEHUD8QIvI9OBSPG9zTC0x+ZPiOaDFNQybx5
-   iBHy26669pE70CnAZvZu/MWBEMaCAa+0a5zEbv1+Kdf5sJu7CaoFFO+dj
-   PuWUd3banpwxpWwdTBcPCeLxKf+V2p3JVZYVLLSXXnIgYQGdfhTl2bbS5
-   9qKO8WniuZIi7557jt9H0Bosh/f8k/fyhYjmuOEBcNno791Gh7gjA+azc
-   Q==;
-X-CSE-ConnectionGUID: NSaftB5BTTyfT1hH/vZO4Q==
-X-CSE-MsgGUID: KHQoSWrMQw+PHlp2Ik5T+A==
-X-IronPort-AV: E=McAfee;i="6700,10204,11400"; a="45112642"
-X-IronPort-AV: E=Sophos;i="6.15,203,1739865600"; 
-   d="scan'208";a="45112642"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Apr 2025 17:03:47 -0700
-X-CSE-ConnectionGUID: csAJn/haQ4+B7AprE/eBhw==
-X-CSE-MsgGUID: yNqNv+JiQyqwYUjLyN9ZYA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,203,1739865600"; 
-   d="scan'208";a="133906674"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by orviesa003.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Apr 2025 17:03:47 -0700
-Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Thu, 10 Apr 2025 17:03:46 -0700
-Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14 via Frontend Transport; Thu, 10 Apr 2025 17:03:46 -0700
-Received: from NAM10-MW2-obe.outbound.protection.outlook.com (104.47.55.45) by
- edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.44; Thu, 10 Apr 2025 17:03:45 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HpPW4ZoLTQYH7Qfo4m9zPOfY1d74KLmYHWZEcohDM8Qpy/eMYMEg2oNd/Hh1uQiJk5QTeo5jffmNtZf/UmDJOtl20ZFgqg3Kef/CQgcW8NgNnerx+j0KKwXoy33rvdJ6NKRxU68qFFGcxu/LneR1VG/riih3Ms5nPQDuuymJwUO1SKzt6xUixtWAqPqwyTcFP0VK2A3cmx0CA41gSTd18wu56kowMSZLnfDYdfaEG6OoZzLHqc35sf+bwwOOkrHO63agJVe9RzJ9W/cSoN47BciUEZTwr4wW9O6LFeXpCeQqsqoEyl+M7MHoTt+lSKtinLmz6swCNS+gtlrx5qnOgg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=H3fe0YI9AZX1bi9KEJ9IwQy/FZ2PaDvqO77eqw9TFl8=;
- b=UV/f0ziPoOGKBMygrDIPgb+4mKWQe59A4+KWkUFWZ+G2YSqX07bIc33sYlL9zb4D5Pnx8duqQoN3AGU7zuikm91pPseSl5/OezQLFUPbGGgGlRK+Z3TSJaeQyUQ8GOY1ACCrMp36/a0HMzj9Dn0rBGK98+PSMkYUH51CM42zvgLLM6xbIa2bhooiVFfapIUWOnspfFxNSYKVxbmnAy/kdRmFDtqNtRb0lT73M0u6q7WfjF5pQK4lEEaGeg4rdKiLLMIIDZPCCC1Cvxovx8tlmzjni4x1XJMd7PuDR/xik5K4pJSPdWrMIB09zyfAJUR7vr5Cv2ncEP662lP2GCNmKA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from PH8PR11MB8107.namprd11.prod.outlook.com (2603:10b6:510:256::6)
- by SN7PR11MB6996.namprd11.prod.outlook.com (2603:10b6:806:2af::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.34; Fri, 11 Apr
- 2025 00:03:37 +0000
-Received: from PH8PR11MB8107.namprd11.prod.outlook.com
- ([fe80::6b05:74cf:a304:ecd8]) by PH8PR11MB8107.namprd11.prod.outlook.com
- ([fe80::6b05:74cf:a304:ecd8%3]) with mapi id 15.20.8606.033; Fri, 11 Apr 2025
- 00:03:37 +0000
-Date: Thu, 10 Apr 2025 17:03:31 -0700
-From: Dan Williams <dan.j.williams@intel.com>
-To: Michael Kelley <mhklinux@outlook.com>, Dan Williams
-	<dan.j.williams@intel.com>, Roman Kisel <romank@linux.microsoft.com>, "Robin
- Murphy" <robin.murphy@arm.com>, "aleksander.lobakin@intel.com"
-	<aleksander.lobakin@intel.com>, "andriy.shevchenko@linux.intel.com"
-	<andriy.shevchenko@linux.intel.com>, "arnd@arndb.de" <arnd@arndb.de>,
-	"bp@alien8.de" <bp@alien8.de>, "catalin.marinas@arm.com"
-	<catalin.marinas@arm.com>, "corbet@lwn.net" <corbet@lwn.net>,
-	"dakr@kernel.org" <dakr@kernel.org>, "dave.hansen@linux.intel.com"
-	<dave.hansen@linux.intel.com>, "decui@microsoft.com" <decui@microsoft.com>,
-	"gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
-	"haiyangz@microsoft.com" <haiyangz@microsoft.com>, "hch@lst.de" <hch@lst.de>,
-	"hpa@zytor.com" <hpa@zytor.com>, "James.Bottomley@hansenpartnership.com"
-	<James.Bottomley@hansenpartnership.com>, "Jonathan.Cameron@huawei.com"
-	<Jonathan.Cameron@huawei.com>, "kys@microsoft.com" <kys@microsoft.com>,
-	"leon@kernel.org" <leon@kernel.org>, "lukas@wunner.de" <lukas@wunner.de>,
-	"luto@kernel.org" <luto@kernel.org>, "m.szyprowski@samsung.com"
-	<m.szyprowski@samsung.com>, "martin.petersen@oracle.com"
-	<martin.petersen@oracle.com>, "mingo@redhat.com" <mingo@redhat.com>,
-	"peterz@infradead.org" <peterz@infradead.org>, "quic_zijuhu@quicinc.com"
-	<quic_zijuhu@quicinc.com>, "tglx@linutronix.de" <tglx@linutronix.de>,
-	"wei.liu@kernel.org" <wei.liu@kernel.org>, "will@kernel.org"
-	<will@kernel.org>, "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
-	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, "linux-hyperv@vger.kernel.org"
-	<linux-hyperv@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-scsi@vger.kernel.org"
-	<linux-scsi@vger.kernel.org>, "x86@kernel.org" <x86@kernel.org>
-CC: "apais@microsoft.com" <apais@microsoft.com>, "benhill@microsoft.com"
-	<benhill@microsoft.com>, "bperkins@microsoft.com" <bperkins@microsoft.com>,
-	"sunilmut@microsoft.com" <sunilmut@microsoft.com>, Suzuki K Poulose
-	<suzuki.poulose@arm.com>, "linux-coco@lists.linux.dev"
-	<linux-coco@lists.linux.dev>
-Subject: RE: [PATCH hyperv-next 5/6] arch, drivers: Add device struct
- bitfield to not bounce-buffer
-Message-ID: <67f85c5349acf_71fe294ac@dwillia2-xfh.jf.intel.com.notmuch>
-References: <20250409000835.285105-1-romank@linux.microsoft.com>
- <20250409000835.285105-6-romank@linux.microsoft.com>
- <0eb87302-fae8-4708-aaf8-d16e836e727f@arm.com>
- <0ab2849a-5c03-4a8c-891e-3cb89b20b0e4@linux.microsoft.com>
- <67f703099f124_71fe2949e@dwillia2-xfh.jf.intel.com.notmuch>
- <SN6PR02MB4157328CAB1EBD021093DD3FD4B72@SN6PR02MB4157.namprd02.prod.outlook.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <SN6PR02MB4157328CAB1EBD021093DD3FD4B72@SN6PR02MB4157.namprd02.prod.outlook.com>
-X-ClientProxiedBy: MW4P221CA0015.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:303:8b::20) To PH8PR11MB8107.namprd11.prod.outlook.com
- (2603:10b6:510:256::6)
+	Fri, 11 Apr 2025 00:21:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id AA95EA40DDB;
+	Fri, 11 Apr 2025 00:16:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00707C4CEDD;
+	Fri, 11 Apr 2025 00:21:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744330916;
+	bh=xbce/LIafrkgsAwqwYafme3DNQiuM8+sIryv9oj7aj8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=KX5fRREFpGXczmVZ8OzVc0AIahz4FVzSSkMU0suQvvN45aCmItNWu5ZparPs11O89
+	 qXhnuXXvyD8r8tVyZXwxeHSQWeBhHQapcy5gBTgU5c1sXwg+7xN64EkrXzN7AoZaHL
+	 Y1uNkz4BWufU9hzKYqpkvgsNCZ/2eXD6PDGEo4/WzyniCKRbpfUeLWWi+i9KXTaERK
+	 VOq7v2FHaWFKAB0RQu6xai+Z2QEtv/pnAX1jciLDyHuBPk67B4oeKZnMNV3+eJlGGn
+	 fEFSNQIfcoNy1nthc4MGowfg3kYkLQnXlQrNWIqJMzQEB6wtSOhHv5PyAbvx1vuze3
+	 k3gNWOfq+ebCQ==
+Date: Thu, 10 Apr 2025 17:21:55 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>, Eric Dumazet
+ <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Heiner Kallweit
+ <hkallweit1@gmail.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
+ linux-arm-kernel@lists.infradead.org, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
+ Florian Fainelli <f.fainelli@gmail.com>, Russell King
+ <linux@armlinux.org.uk>, Vladimir Oltean <vladimir.oltean@nxp.com>,
+ =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>, Oleksij Rempel
+ <o.rempel@pengutronix.de>, Simon Horman <horms@kernel.org>, Romain Gantois
+ <romain.gantois@bootlin.com>, Piergiorgio Beruto
+ <piergiorgio.beruto@gmail.com>
+Subject: Re: [PATCH net-next v5 1/4] net: ethtool: Introduce per-PHY DUMP
+ operations
+Message-ID: <20250410172155.3cd854d8@kernel.org>
+In-Reply-To: <20250410123350.174105-2-maxime.chevallier@bootlin.com>
+References: <20250410123350.174105-1-maxime.chevallier@bootlin.com>
+	<20250410123350.174105-2-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH8PR11MB8107:EE_|SN7PR11MB6996:EE_
-X-MS-Office365-Filtering-Correlation-Id: 25d889e4-b760-4cd8-4b29-08dd788c4eb4
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?7LRGjYv6OBWBDJh4L7gCIGWSapIMx65/dO7o3pS7OlSsj9Jdijz64gSJ9Huk?=
- =?us-ascii?Q?/qdJJ9Zu6MGTPy3fgWP4mBymyKob0Pg/XAZTclSkocOsk+tvKKRxs3D5jjLG?=
- =?us-ascii?Q?o4+HO+lfHHrITKPVLOSDNuMqCD2I1Bwg9tMsLIPg8O8N5n401T20Ch9Vx6p6?=
- =?us-ascii?Q?JWSckjxftL5exGB9Jv379ZiAMLDk3wHFo2hMqoENzjcntoOn7cqXHj72mJ5U?=
- =?us-ascii?Q?XF9Aauqyi3f3J81kHFsyeGO16d/DCPi+6vL7SyCvc9lxRLObSHCiaeOY8ryF?=
- =?us-ascii?Q?TPNzM2XNl4XosEavgO61heye2lm55j4rCxsfZy+fHVosg/eIGQEswl0XxlvB?=
- =?us-ascii?Q?aBEVCDpZ8IM2Ep50fvlgcp4tJM8sYJPAzCWOR/UzUPX4VcIrEsvQxlkCTES2?=
- =?us-ascii?Q?sxpq1H/Vy/WP1ADJE4Mwou6TZ1dGNbGpDvgVwbvCmEB7B15oqbc7WN285kCW?=
- =?us-ascii?Q?12lLWf6lSSZuirHw8+jqRLgMJ79n4Nrzz+FAwYGwP3u1T72wT+jYDNwqlZw+?=
- =?us-ascii?Q?q5hl6fr06LS3IBMuroxIyaeuxbsJ09Pdw466UBsYUs8PTaSQm3tTtoDUQQes?=
- =?us-ascii?Q?0zvIpQrn+I44e9Sfdt0n3UwdIqP5NhajIV/81aUSiOHjG2yIq4Up535NPzyj?=
- =?us-ascii?Q?2VMDSwg3sguOdwJwD3EJ6zGPv3ZJA5YWRxPONEgBcQCLjxtyTU5Gb32KDZ8D?=
- =?us-ascii?Q?V5cOg3rKNPjuj3VWV4cq/LFVQ36+wEUXaFrt3aXg27viiYXVHV/uhAbQx86n?=
- =?us-ascii?Q?xXYn89FYN3SWCPyU++YiqEVmQr1CNRAQzuPpAC5cMkxN3PspJxHyIEn9ShYY?=
- =?us-ascii?Q?UX/EbIAyvqt5N5pXiwqZGVz8Wk8FCRmMt0yqnx9ZbMTBiAU3ZYYP4W6Stp0A?=
- =?us-ascii?Q?JNeVCs98pjA5ZeLO4ksIf2g2+Mjx2jb9k57++whGzGEmSazjSXHdypU10XJn?=
- =?us-ascii?Q?5AZ3boww8ZAWETS9rp/dkgC8S73lcUD13+RTk0SZ2beIFZKRFJinYzweCovl?=
- =?us-ascii?Q?Vdc+KenpFNRQ68w/Eqdq7QRYpebB1KV09uUEoFXbsZbYf2vPkGkA4wcKci5x?=
- =?us-ascii?Q?4h0XgW8yabhs53tueCnAuKH+5RwMJ6SPjvJ6K4FVZTa6IJaKt1rqOMvh9u4s?=
- =?us-ascii?Q?UeueEFozDhabILJyoEEmo8vHHTBLnGn91NiRoJJdrQU7BqrVAj2/kbvqEenS?=
- =?us-ascii?Q?HhbafoAVVPfWywn2W2VXB75qPoS3GpJen3a338YAlaSE/qyQcnYTkMY9Pi68?=
- =?us-ascii?Q?G140ysnt76T48nd70q7swon/nGpTpBaeEs+3Unc2+ftfIVOHQ092woEyPAgb?=
- =?us-ascii?Q?+c1g3PLNpE7L2kK11pZsYjnbPsnyBbHNYGMML73MuW9r7IQS9mO/fgqFvOFf?=
- =?us-ascii?Q?rjQ//WVWgxRtkgOnBXBSwxPvY1BnX3vrj9nEX+NK8e87vr1+yptOztRLJONk?=
- =?us-ascii?Q?3NVXuFFtzMi9jkhvAmBNsLVPH3SqcD8asgHQIgUu+0A64oGKtIThyg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH8PR11MB8107.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?S4ISyuL7xOYNB+c7vsjGBEet7NpP63WLQWnSw10Ejlc0YVLBdGN7CD6nDl0L?=
- =?us-ascii?Q?lSGoKHkLrEH9X46llXFkCEqGPjyqXk2Nfl6FRAO9+wQhQAAZ3p0FqylTqK8M?=
- =?us-ascii?Q?SGQsDDmaZOGTd8bQoqXsFHm6qtqGGfC6VgtxOcJ8ZEfIx5QsoOXMe/Ka4BcV?=
- =?us-ascii?Q?gh5zhu3BDzEqBtunPF3617/kIc8vCo7prQyXDAI3lpClmBsVSG9uwpp1niTT?=
- =?us-ascii?Q?nzhwkkrsKkxVZ+c81fOlUUwmpf5gAzzapcHwgQ9eYOoLriFO4ScdBrNzmS79?=
- =?us-ascii?Q?gXVno//KIioNga09s2IrGFFMrFNlbB6t2NMoNIb7IUctp+3vzxIE+2vFa1bv?=
- =?us-ascii?Q?ofxVgoA9iPw8js+0S/MFQ6XMGntgVCZd+x0rw/Hp5XmLf1coJrBB/ruTKJg8?=
- =?us-ascii?Q?YhE9yPVLlaSCYD34/SLx4dEfA0yTXcM1cUI6uAEfrB3SsPYa4YWSOM/lxISK?=
- =?us-ascii?Q?qNuI3M1hVTqdDxXEJtjja+OA4mdBIpHSnWsbiQdUUZ3y23S5cQ9NB1xPzhqX?=
- =?us-ascii?Q?g+Fr5h17W9MDzrcjfd7mG43Ndx2xHKKYmL3mKBPpNS+RVP+51oMHpctYDBvE?=
- =?us-ascii?Q?X+SeU51cv1w/+eylWaDGgptwJC2GjyjzYrFmXfSBBzeb/V1D3nA7FxhYjsFX?=
- =?us-ascii?Q?HxirCr7TzuepJ2gEmIhAYU14gmxmi7unFT4PoZwuufOSMSERiejjxhWS/TCX?=
- =?us-ascii?Q?FmfGDdSu9ErSnvqf0XgLalEsXbxSJsSTz9/cx5tHsA8lOlFLSeA6D+/MG9+U?=
- =?us-ascii?Q?DKjI5g5BEOVDFNFu+L4Nzm7eCDmOp/eDJ2aCjaMYxcIl3wQBi2bJAdtiikD0?=
- =?us-ascii?Q?X7P3n/cD59EBvYqC4GNegFDiHFHIOVukPM6Q3PhtXNCwJm3ZGaYF7Fv1UYv0?=
- =?us-ascii?Q?j4eIBxExRzIwA9Khcnv7pRME21L11GYpQtI7jfh2JRGMXWyLa03m6xkCZtk6?=
- =?us-ascii?Q?WHE0eJQZ2rjUa2o7q7jkp3XUIwDj26UejHp+uKKwNE2tL/jUAtaHFpN7ad7A?=
- =?us-ascii?Q?uGH6SUoBztvOjV7W2vnxCa2Cbg1SQ8inYJmtRucPNpLAfxtQgGBP/Gt72xS6?=
- =?us-ascii?Q?jW0qaV0gOIR9R8+AIf7xKqfsevAQyPBUq67QYjgNhRWtXAFzsZY1OaouhLvs?=
- =?us-ascii?Q?UZIVDq9cug65Kavk2+FCxhNeCMQZK5jaRYW3UL3bQ0trrToqSlIroApgClMN?=
- =?us-ascii?Q?I+m3EKmNJzRvBfk28CwmOCEfReqfs32jj7Ae/M6RfCZkP36b24SBImFrB5jw?=
- =?us-ascii?Q?GnNlcW25BV3s6yJv5liGCkU8bbpM/Sm6H/eX/CmTiGY03ZYDWSSgSvugb1U7?=
- =?us-ascii?Q?wMgJ+ev+lPcKj5diGJn5Kx7KxTAp/2inTgXl+y1hk+XhFtV5gI8TtaNqssjk?=
- =?us-ascii?Q?KDaojLYDk6B+EHSDp8n+QKbu+KJ2St9sy6mAy8VXuTZ79d/+/rDlLiOIg8W5?=
- =?us-ascii?Q?tbTrFDGLMJ/q2X9Ac3nNUvx4ChBexz7k5lIJFiQQr9SUucFl78Ui6CtiZNdF?=
- =?us-ascii?Q?l1IGFDqp5BkgKkeMwFZG7jK46oHImVZKXGyYVsLWm++FhZjYtVb/aaodB7XT?=
- =?us-ascii?Q?ileLvtThsOE1AryMYcPB9FFi+Z11WPBWBnBfHDYEPUZdgZd963IrVjr1z0u0?=
- =?us-ascii?Q?nQ=3D=3D?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 25d889e4-b760-4cd8-4b29-08dd788c4eb4
-X-MS-Exchange-CrossTenant-AuthSource: PH8PR11MB8107.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Apr 2025 00:03:36.9668
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: bBGp51c+yqkP+3LGtXsNO/yQi8x0KKNrAA3agJpkJ8JwOxLTaf/YV4ThH0fZ61M4xwDk+k2BF3ivnTIeyx09JWxJmlzr6OOv45+Izu0Du14=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR11MB6996
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_170349_803630_476A34C9 
-X-CRM114-Status: GOOD (  18.36  )
+X-CRM114-CacheID: sfid-20250410_172158_339726_F62B23CB 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -229,35 +83,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Michael Kelley wrote:
-> From: Dan Williams <dan.j.williams@intel.com> Sent: Wednesday, April 9, 2025 4:30 PM
-[..]
-> > Like PCIe TDISP the capability of this device to access private memory
-> > is a property of the bus and the iommu. However, acceptance of the
-> > device into private operation is a willful policy action. It needs to
-> > validate not only the device provenance and state, but also the Linux
-> > DMA layer requirements of not holding shared or swiotlb mappings over
-> > the "entry into private mode operation" event.
+On Thu, 10 Apr 2025 14:33:46 +0200 Maxime Chevallier wrote:
+> ethnl commands that target a phy_device need a DUMP implementation that
+> will fill the reply for every PHY behind a netdev. We therefore need to
+> iterate over the dev->topo to list them.
 > 
-> To flesh this out the swiotlb aspect a bit, once a TDISP device has
-> gone private, how does it prevent the DMA layer from ever doing
-> bounce buffering through the swiotlb? My understanding is that
-> the DMA layer doesn't make any promises to not do bounce buffering.
-> Given the vagaries of memory alignment, perhaps add in a virtual
-> IOMMU, etc., it seems like a device driver can't necessarily predict
-> what DMA operations might result in bounce buffering. Does TDISP
-> anticipate needing a formal way to tell the DMA layer "don't bounce
-> buffer"? (and return an error instead?) Or would there be a separate
-> swiotlb memory pool that is private memory so that bounce buffer
-> could be done when necessary and still maintain confidentiality?
+> When multiple PHYs are behind the same netdev, it's also useful to
+> perform DUMP with a filter on a given netdev, to get the capability of
+> every PHY.
+> 
+> Implement dedicated genl ->start(), ->dumpit() and ->done() operations
+> for PHY-targetting command, allowing filtered dumps and using a dump
+> context that keep track of the PHY iteration for multi-message dump.
 
-I expect step 1 is just add some rude errors / safety for attempting to
-convert the mode of a device while it has any DMA mappings established,
-and explicit failures for attempts to fallback to swiotlb for
-'private_accepted' devices.
-
-The easiest way to enforce that a device does not cross the
-shared/private boundary while DMA mappings are live is to simply not
-allow that transition while a driver is bound (i.e. "dev->driver" is
-non-NULL).
+Transient warnings here that the new functions are not used :(
+Would it work to squash the 3rd and 4th patches in?
+Not ideal but better than having a warning.
+-- 
+pw-bot: cr
 
