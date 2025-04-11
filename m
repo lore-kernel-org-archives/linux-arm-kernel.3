@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53FD0C369A9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 09:47:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25C9BC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 09:49:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dt/XoONL9y6fQB1g9UJTjYyCBLEHEeGxmo0qFMBni9E=; b=WBdlVze8q9H+rBu3DS4DqtqFZf
-	wJUuFMjYfJGqH06E8S4SXW/7Pd0B4k+zb7+gjeipzDN3wfLzG+hedMw50A6owcNYCyE7XeW9m65GS
-	3kD7BM8ngMUXWRZRHmZrLtj3ojoQrlQnKepv+pwosDTjOE/ta+qrvr1dsDNu4zc3v216bhM8YoGgI
-	/f4sKofFhAp4iZyfgPEhT9zIi1sginwyXgX25XwIi4DXZSNRHka/9+Y2S/u65PIYfU5A7YRpCcapL
-	MEU0m9d7A0B+pkzFUUkpEaK0CfKAaSFzJ//B/rus5IOfCmL6zV3PrM6VW5ar6c4Uz7oqNSMagD+iI
-	kcdKSRWw==;
+	bh=Cd8SVz56UFDTvkQjpDWLbjdDftI6n7YlnUbxT3vQe+A=; b=Q1XklHJoOkp8rhluktUfgy8Qtx
+	Re0EMrS0hj1046HKvOguUH1fkO5zNK1dDPIIAVokIX/zbgOgmI60QMn6xaAAdu21t3U5cvKSxQZhs
+	gEG8KUTSLrqxSrFWIgYRzsKHl+dI76BW1dutmvX/XUl01j4XiOTNjrfTJsg+u4UW6X5zsD7KVCgTa
+	M9ZL0YaKsoHBv0EdpeH/aaBdruLzzgmEJd6Ha74rXyz5S4StD8vkrhA8SotZ0l8AKTj3E1I0lL7y4
+	apxzxjDvLeaeqUefFk8wctWkF9hHxjONa+s1CFb8XxNpGZ1383yqd8GlsRCiOcrxnL522QTziJHyo
+	2RcTFJzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3Ayy-0000000DFKJ-1aa2;
-	Fri, 11 Apr 2025 09:47:32 +0000
+	id 1u3B0l-0000000DFVr-0MVD;
+	Fri, 11 Apr 2025 09:49:23 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3AWF-0000000DAg8-0diD
+	id 1u3AWI-0000000DAhO-3hnz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 09:17:52 +0000
+	Fri, 11 Apr 2025 09:17:56 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 44125106F;
-	Fri, 11 Apr 2025 02:17:50 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5604C1692;
+	Fri, 11 Apr 2025 02:17:54 -0700 (PDT)
 Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B0DF23F6A8;
-	Fri, 11 Apr 2025 02:17:46 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C41DE3F6A8;
+	Fri, 11 Apr 2025 02:17:50 -0700 (PDT)
 From: Kevin Brodsky <kevin.brodsky@arm.com>
 To: linux-mm@kvack.org
 Cc: linux-kernel@vger.kernel.org,
@@ -62,17 +62,17 @@ Cc: linux-kernel@vger.kernel.org,
 	Qi Zheng <zhengqi.arch@bytedance.com>,
 	linux-arm-kernel@lists.infradead.org,
 	x86@kernel.org
-Subject: [RFC PATCH v4 13/18] mm: Map page tables with privileged pkey
-Date: Fri, 11 Apr 2025 10:16:26 +0100
-Message-ID: <20250411091631.954228-14-kevin.brodsky@arm.com>
+Subject: [RFC PATCH v4 14/18] arm64: kpkeys: Support KPKEYS_LVL_PGTABLES
+Date: Fri, 11 Apr 2025 10:16:27 +0100
+Message-ID: <20250411091631.954228-15-kevin.brodsky@arm.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20250411091631.954228-1-kevin.brodsky@arm.com>
 References: <20250411091631.954228-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_021751_230375_3129A47B 
-X-CRM114-Status: GOOD (  11.02  )
+X-CRM114-CacheID: sfid-20250411_021754_962985_A40D3558 
+X-CRM114-Status: GOOD (  12.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,47 +87,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If CONFIG_KPKEYS_HARDENED_PGTABLES is enabled, map allocated page
-table pages using a privileged pkey (KPKEYS_PKEY_PGTABLES), so that
-page tables can only be written under guard(kpkeys_hardened_pgtables).
-
-This patch is a no-op if CONFIG_KPKEYS_HARDENED_PGTABLES is disabled
-(default).
+Enable RW access to KPKEYS_PKEY_PGTABLES (used to map page table
+pages) if switching to KPKEYS_LVL_PGTABLES, otherwise only grant RO
+access.
 
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
- include/linux/mm.h | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/arm64/include/asm/kpkeys.h | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 43e35d41b850..411707dabe65 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -33,6 +33,7 @@
- #include <linux/slab.h>
- #include <linux/cacheinfo.h>
- #include <linux/rcuwait.h>
-+#include <linux/kpkeys.h>
+diff --git a/arch/arm64/include/asm/kpkeys.h b/arch/arm64/include/asm/kpkeys.h
+index 79ae33388088..64d6e22740ec 100644
+--- a/arch/arm64/include/asm/kpkeys.h
++++ b/arch/arm64/include/asm/kpkeys.h
+@@ -12,7 +12,8 @@
+  * Equivalent to por_set_kpkeys_level(0, KPKEYS_LVL_DEFAULT), but can also be
+  * used in assembly.
+  */
+-#define POR_EL1_INIT	POR_ELx_PERM_PREP(KPKEYS_PKEY_DEFAULT, POE_RWX)
++#define POR_EL1_INIT	(POR_ELx_PERM_PREP(KPKEYS_PKEY_DEFAULT, POE_RWX) | \
++			 POR_ELx_PERM_PREP(KPKEYS_PKEY_PGTABLES, POE_R))
  
- struct mempolicy;
- struct anon_vma;
-@@ -3083,6 +3084,8 @@ static inline bool __pagetable_ctor(struct ptdesc *ptdesc)
+ #ifndef __ASSEMBLY__
  
- 	__folio_set_pgtable(folio);
- 	lruvec_stat_add_folio(folio, NR_PAGETABLE);
-+	if (kpkeys_protect_pgtable_memory(folio))
-+		return false;
- 	return true;
+@@ -26,6 +27,8 @@ static inline bool arch_kpkeys_enabled(void)
+ static inline u64 por_set_kpkeys_level(u64 por, int level)
+ {
+ 	por = por_elx_set_pkey_perms(por, KPKEYS_PKEY_DEFAULT, POE_RWX);
++	por = por_elx_set_pkey_perms(por, KPKEYS_PKEY_PGTABLES,
++				     level == KPKEYS_LVL_PGTABLES ? POE_RW : POE_R);
+ 
+ 	return por;
  }
- 
-@@ -3093,6 +3096,7 @@ static inline void pagetable_dtor(struct ptdesc *ptdesc)
- 	ptlock_free(ptdesc);
- 	__folio_clear_pgtable(folio);
- 	lruvec_stat_sub_folio(folio, NR_PAGETABLE);
-+	kpkeys_unprotect_pgtable_memory(folio);
- }
- 
- static inline void pagetable_dtor_free(struct ptdesc *ptdesc)
 -- 
 2.47.0
 
