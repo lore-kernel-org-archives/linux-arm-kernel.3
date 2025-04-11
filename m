@@ -4,85 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90B89C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 13:19:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EC80C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 13:20:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f9ssr1sIFT0/yy99wQbn3SekrD91xN1Xl5jyop03qFk=; b=d/yi6sHgFuVxoEEswsKLpY4KA1
-	8EBJZe9r0gsM0J+0atCiWxvnQEVjdBm95bjqXL3fvXRIttkBADASPjVZYbEuyzkA98NxxjNfLTeIY
-	EFY97yW8ODf3xYH6eKGSUWTcjv8dtv1EM/YvUQO/HnFAJFeiRzSySK9E7RU0NvmA4AuFld2Vc4PIN
-	HPy/WZcWmUw7r3embJMPk/nuNVyQDVkCRE0P7ZCg1NESbllLPLJNWM32oDsRXx5qKVKieZz0sISpd
-	HFRdpnN7JCrB/ESV79/Jk/YAvgFVKon4w1l2bX7UyQlN3uCP1QHynu+0hfhsXbvNGingU8Z921wUY
-	HuDFcucA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mXx2FL46B7WkOgjg7fh0W46JD/pfi8vbcwWhjWRwOFo=; b=OqaRQMEbFvbSORGOwsBb1wYKkD
+	GDY6riCxgOKPHHPypST9a2CPA73vhlaZdLycGc4PtXBq7qLD8AqFuab+8jCyCae0FiDDoSG13HkTS
+	8Czk0PI32BfIfr2dDhxVyzGf72rgJ89Xji9p7sMKd0uFn9QgfX0zx7AB/MsyPRBBaq5FbbZp6IFGL
+	dF7Jv6LxkLohukpKu88pViNK1AW7bP249wXVVU2LPaRwDoipj1acWlkCWZp3mgDxPBL9QmVocs2qk
+	Nhdzp8Q+mnjgboDhCbEm54q5yzYkp157O+3BiWfcVyTwVS/hDR5dHfuGDa/So4h6iL2W3NeqjlLT0
+	dITHXoeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3EHT-0000000Dt2g-1Upf;
-	Fri, 11 Apr 2025 13:18:51 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1u3EJG-0000000DtJW-0b4l;
+	Fri, 11 Apr 2025 13:20:42 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3DkC-0000000DmlW-0aAx
+	id 1u3Dq3-0000000Do4G-0qd4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 12:44:29 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53B9hCOH001911;
-	Fri, 11 Apr 2025 14:43:52 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	f9ssr1sIFT0/yy99wQbn3SekrD91xN1Xl5jyop03qFk=; b=ylW+4u6yodi3J3bf
-	y4h/jTBAgNeNgADFMk3x76TMxNcNT0p985nrubnJXPq9XQXLM4Ob1Klv6lDEL/Vw
-	r59CbXTSot4w0fCEcPYWWewAD+ZK6xkHGWkPheO//qB1WelWGnkZSfqoatU3CASt
-	wRdjhoGZslaCa/2PGk73C9NkgGS7fkFt10NesnzJJx1ddJX9/1asHduU+Qc2SP/z
-	gr/CpHjhnFilXBKBPaAaL0bxHnadwXG2cSkee3h2ZMg29Qoh2xVfOCGd8wT+3aBW
-	T3yDgnhE5RCi+d5Z49QZDvzPsbvmKgkA88eYpe7wzNvbKM4bRyweoDIcbrQJbO07
-	zcJfrA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45tw8pwnbx-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 11 Apr 2025 14:43:52 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 138EA40046;
-	Fri, 11 Apr 2025 14:42:59 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id CAA0A9EC297;
-	Fri, 11 Apr 2025 14:41:13 +0200 (CEST)
-Received: from localhost (10.252.25.37) by SHFDAG1NODE1.st.com (10.75.129.69)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 11 Apr
- 2025 14:41:13 +0200
-From: Patrice Chotard <patrice.chotard@foss.st.com>
-Date: Fri, 11 Apr 2025 14:41:11 +0200
-Subject: [PATCH v2 2/2] spi: stm32-ospi: Make usage of
- reset_control_acquire/release() API
+	Fri, 11 Apr 2025 12:50:32 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-7370a2d1981so1493788b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Apr 2025 05:50:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744375830; x=1744980630; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=mXx2FL46B7WkOgjg7fh0W46JD/pfi8vbcwWhjWRwOFo=;
+        b=Aj9uCMNZc/m8EUiYfqOGueMNKw73/bZeOwB9mIUC9DBmaHjIPGB0rpPFQq0KVLh4B4
+         BWvvGUgIHWADF7FV693dK1TtQ4ifSuaP4/Gjj9UFfXrlsMRfIC4181Uv2ELIJPmBYbZp
+         HKCMQEWGf28mRQlD6kUvgJEeQipmlrE689pps+IEyNpkFtbQnC7KXKyMU0AQBxWpa0Kg
+         xjHzNHab24XwDGubbMdD6EaVuDHs9TYz8ZcqnbeLGjqIGS9RRm6WXvjVbiQ8OAfBQK2D
+         gu/9ZSPa6jXt0KjR1kLyaXzLv/MlX/OXbeo14KRQidnAvf+vo8ULQWNWDCAAMy41V3N5
+         X4Xw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744375830; x=1744980630;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mXx2FL46B7WkOgjg7fh0W46JD/pfi8vbcwWhjWRwOFo=;
+        b=naCMkXeVnNY2/RJcRbrWaLu6Q8OwwfK8aABWry2kwWp7Ee0wdtXzAVQKmmRnLoP1bX
+         bJS5tiov8ZH1SppyU4hqTjdPuMwO+FS/9nSrni+E8MqxX2g3SOYrJSkhJEAVnNyxaMi2
+         91Q2CfmYuIIJgFTb/oldzfHlmrDfWVccehzmJMxNefO6II3L3h5cPZC8ciQy8FbKLsqn
+         77opBmxlX2EYBDuB72adQJ+RHTYvov/0Ew7h+ld62cG8Ts4DXPNpCmSqxZC/VdtlgA86
+         GE+Jaa0i1+GbkXQH9aqjOZ54d12ShI9/ITuE4ilzuhE0u5cja1G8H1bwVOm6016Yvdcx
+         Hzlw==
+X-Forwarded-Encrypted: i=1; AJvYcCVmWEuanHBThAW1OxokCYmiWb9uHLd1VbgggzZXd6xR9aK8mRffXZKa5S3z84oiX76KHYiSRekNvEs1O+mHai+E@lists.infradead.org
+X-Gm-Message-State: AOJu0YyiuuG9CQmIGmh5KqHWMEF22pv8ADChjrwHH6YkfTkbGE/6FgxU
+	8oz6rtfQEgoalItzdgIdHDwfyO6y3m7dgerP76dNLZLZxLAAyaDL
+X-Gm-Gg: ASbGncvYGVW6GDAZEpzSe9gfsg6cyIumpoAhCXferEQYHvLZC0bZPKifZg6dTNGd33Z
+	nvnIz6ogKLkyMXDX6XMY1rxvExBNACmXO3ucIsjyVEIoy/rBew2LpyZaMqLeqCQQdlUMlU354tJ
+	o/4cRYrmfB79N5XvOVgj8L0wSLJoTMFBOdpBOkgt2W+Ft3GUkFY5LILIJnRPiFjK0vXlnnC0VqZ
+	T/zx/vBfhapTUmc+GYIHRfwq73qZOJiCwA1NS8tG0vgtlL2hvuHV2Ak5HUPw59sv95QySvxGY4k
+	SdSYUnJzcgeoXN8PBsPiluCKszmweUPBNcAmFDY=
+X-Google-Smtp-Source: AGHT+IHDBvV0qQ07NHfk55qvtex+sgwOy6tRhqXVO4CM20TuwI5QvWlbhrJx+JWvNB7ZbVYZ7Pqf4Q==
+X-Received: by 2002:a05:6a00:4644:b0:736:5753:12fd with SMTP id d2e1a72fcca58-73bd1194273mr3931962b3a.4.1744375830033;
+        Fri, 11 Apr 2025 05:50:30 -0700 (PDT)
+Received: from hiago-nb ([2804:1b3:a7c3:a964:9277:4e8:b712:66e2])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73bd230dd71sm1374107b3a.128.2025.04.11.05.50.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 11 Apr 2025 05:50:29 -0700 (PDT)
+Date: Fri, 11 Apr 2025 09:50:24 -0300
+From: Hiago De Franco <hiagofranco@gmail.com>
+To: linux-pm@vger.kernel.org
+Cc: Peng Fan <peng.fan@nxp.com>, Ulf Hansson <ulf.hansson@linaro.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	regressions@lists.linux.dev,
+	Hiago De Franco <hiago.franco@toradex.com>
+Subject: Re: [REGRESSION] Kernel reboots unexpectdely on i.MX8X when
+ Cortex-M4 is running and it was started by U-Boot bootaux
+Message-ID: <20250411125024.i2pib4hyeq4g6ffw@hiago-nb>
+References: <20250404141713.ac2ntcsjsf7epdfa@hiago-nb>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250411-b4-upstream_ospi_reset_update-v2-2-4de7f5dd2a91@foss.st.com>
-References: <20250411-b4-upstream_ospi_reset_update-v2-0-4de7f5dd2a91@foss.st.com>
-In-Reply-To: <20250411-b4-upstream_ospi_reset_update-v2-0-4de7f5dd2a91@foss.st.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>, Mark Brown <broonie@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-spi@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Patrice Chotard
-	<patrice.chotard@foss.st.com>
-X-Mailer: b4 0.14.2
-X-Originating-IP: [10.252.25.37]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-11_04,2025-04-10_01,2024-11-22_01
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250404141713.ac2ntcsjsf7epdfa@hiago-nb>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_054428_483119_F1ADC3C6 
-X-CRM114-Status: GOOD (  11.61  )
+X-CRM114-CacheID: sfid-20250411_055031_242933_D5CF4312 
+X-CRM114-Status: GOOD (  23.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,53 +101,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As ospi reset is consumed by both OMM and OSPI drivers, use the reset
-acquire/release mechanism which ensure exclusive reset usage.
+On Fri, Apr 04, 2025 at 11:17:13AM -0300, Hiago De Franco wrote:
+> #regzbot introduced: 4f6c983261
+> 
+> Hi Peng and all,
+> 
+> Commit 4f6c9832613b ("genpd: imx: scu-pd: initialize is_off according to
+> HW state") introduced a regression where the Kernel reboots unexpectedly
+> (without any warnings, crashes or errors) when the Cortex-M4 was loaded
+> and running by U-Boot, using the bootaux command:
+> 
+> # load mmc 0:2 ${loadaddr} /home/root/hello_world.bin
+> # bootaux ${loadaddr} 0
+> # boot
+> 
+> This is a simple hello world binary that prints a message into the
+> M40.UART0 pin (demo from NXP MCUXpresso).
+> 
+> Before this commit, everything worked as expected, Linux boots fine and
+> the HMP core keeps running and printing messages to the UART. After the
+> commit, the kernel reboots at the beggining of the boot process. The
+> only relevant message is printed by U-Boot after reset:
+> 
+> "Reset cause: SCFW fault reset"
+> 
+> This commit was bisectabled, the same device tree, u-boot version, and
+> SCFW versions were used. Reverting this commit fixes the issues.
+> 
+> For testing purposes, I created the following patch which also fixes the
+> issue:
+> 
+> diff --git a/drivers/pmdomain/imx/scu-pd.c b/drivers/pmdomain/imx/scu-pd.c
+> index 38f3cdd21042..0477b3fb4991 100644
+> --- a/drivers/pmdomain/imx/scu-pd.c
+> +++ b/drivers/pmdomain/imx/scu-pd.c
+> @@ -539,6 +539,9 @@ imx_scu_add_pm_domain(struct device *dev, int idx,
+>                 return NULL;
+>         }
+> 
+> +       if (strstr("cm40", sc_pd->name) != NULL)
+> +               is_off = true;
+> +
+>         ret = pm_genpd_init(&sc_pd->pd, NULL, is_off);
+>         if (ret) {
+>                 dev_warn(dev, "failed to init pd %s rsrc id %d",
+> 
+> 
+> Test Environment:
+> - Hardware: Colibri iMX8DX 1GB with Colbiri Evaluation Board.
+> - U-Boot Version: 2024.04
+> - U-Boot Build info:
+> 	SCFW 83624b99, SECO-FW c9de51c0, IMX-MKIMAGE 4622115c, ATF 7c64d4e
+> 
+> The issue is not present on: v6.5
+> 
+> The real root cause is still unclear to me. Anybody has any ideas? I am
+> happy to share more details if needed.
 
-This avoid to call reset_control_get/put() in OMM driver each time
-we need to reset OSPI children and guarantee the reset line stays
-deasserted.
+Hello everyone, as this introduced a regression, should I send a revert
+for 4f6c983261? Or any ideas that might help fix this issue?
 
-Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
----
- drivers/spi/spi-stm32-ospi.c | 15 +++++++++------
- 1 file changed, 9 insertions(+), 6 deletions(-)
+> 
+> Cheers,
+> Hiago.
 
-diff --git a/drivers/spi/spi-stm32-ospi.c b/drivers/spi/spi-stm32-ospi.c
-index d002b9c16714684e4e4623f9255a7f2660c46fd1..ef840f377459891b559be6d6c0435408fb58a1e9 100644
---- a/drivers/spi/spi-stm32-ospi.c
-+++ b/drivers/spi/spi-stm32-ospi.c
-@@ -804,7 +804,7 @@ static int stm32_ospi_get_resources(struct platform_device *pdev)
- 		return ret;
- 	}
- 
--	ospi->rstc = devm_reset_control_array_get_exclusive(dev);
-+	ospi->rstc = devm_reset_control_array_get_exclusive_released(dev);
- 	if (IS_ERR(ospi->rstc))
- 		return dev_err_probe(dev, PTR_ERR(ospi->rstc),
- 				     "Can't get reset\n");
-@@ -936,11 +936,14 @@ static int stm32_ospi_probe(struct platform_device *pdev)
- 	if (ret < 0)
- 		goto err_pm_enable;
- 
--	if (ospi->rstc) {
--		reset_control_assert(ospi->rstc);
--		udelay(2);
--		reset_control_deassert(ospi->rstc);
--	}
-+	ret = reset_control_acquire(ospi->rstc);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Can not acquire reset %d\n", ret);
-+
-+	reset_control_assert(ospi->rstc);
-+	udelay(2);
-+	reset_control_deassert(ospi->rstc);
-+	reset_control_release(ospi->rstc);
- 
- 	ret = spi_register_controller(ctrl);
- 	if (ret) {
-
--- 
-2.25.1
-
+Cheers,
+Hiago.
 
