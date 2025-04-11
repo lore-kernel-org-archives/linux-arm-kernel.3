@@ -4,92 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E85A0C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 04:38:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF144C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 04:49:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ql1eWTW4uBCU2FKgu49U0o8nShopMqxONOi70oLH7rs=; b=lzud8uO3O48D0zdK6hOlQx8ukd
-	RQDgSu/6gK/Wm9qb5bkOfzfiKaBnvA8Ik9B9WRrx7DQbfoI1YwjOd6oax3Xs1cuBCaD00pGxMPdoU
-	Dx0BnD1tUKXzGIcqSpPC5DF+l2x9tk37QB3D96qWCkL5cRGPyE1TUofReRx/exYip5fprIPBlixRa
-	hwlb/PvDv/DmDyFuagQ5JqPPWc0AZnHP6LKTdxZ1GJPYM8YzSpi+nN8X32E7WfawqYvsLNYwXOGf4
-	Gnvs/59APZ7aLgCmoBjSQLIcBCvZYwWq1r12ihT84gZDcb40uJc14f3wHGnAbI3YY9uR6FOP5LPUf
-	rxWDxs8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OfkjrbYlMuifLR0ij9JE1tD+4mnpwymrnA4950GEcYQ=; b=jfGcyWV9oZDLGfkqsfwlYoojnp
+	ccpEmBH0kaeSdNZsH4Ko2/6R1AWgEeDqD5+WGD+89ZIpVDTRn/FlYAxNOuggFxv068XgpF3E6tYLE
+	GFUdZc4Vx3dAcO9UskUASA4zfnXS9ckD2umKpTVzRDiGfX4GwaikxfX6JhJmNDLUlHnDcThVFNDun
+	jIRfmErQcezQAOyG+ckhE1UIRHrLI6rq5rVlTamnzlaGorcsNCYJXqtIKgyc7vgFUq254+qI/XB/Z
+	tYkIoQb9IyU4MtIjHAC58LlTh+GDFw8YGokWvTzlZJbxl8JggfBk34thwGHap9lKO7/OtSg6h5OKb
+	Zihmi1CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u36A3-0000000CU8A-43mQ;
-	Fri, 11 Apr 2025 04:38:39 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1u36KT-0000000CUqg-1Fji;
+	Fri, 11 Apr 2025 04:49:25 +0000
+Received: from mail-bn8nam11on2061b.outbound.protection.outlook.com ([2a01:111:f403:2414::61b] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u368F-0000000CTyy-1DNF
+	id 1u36If-0000000CUkI-0b6A
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 04:36:48 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53B4afq81968862
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 10 Apr 2025 23:36:42 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744346202;
-	bh=Ql1eWTW4uBCU2FKgu49U0o8nShopMqxONOi70oLH7rs=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=xlD9JGhPOh/F+TZYDqT83i3lT/uW+I74u+p/6J0hi6VLYQIXDstY3Qn4kl+l2qTC3
-	 kaBjyQZ5NErPgvVSHsRsR8lzkQr3iuCQSieQCPRCnrH0nXP7/cWFk2XoG3icdeGBBg
-	 RYrI1y31x5v1Ts9EReuuiPGLiVXyqcDTIbA1unDI=
-Received: from DLEE103.ent.ti.com (dlee103.ent.ti.com [157.170.170.33])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53B4afXr084447
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 10 Apr 2025 23:36:41 -0500
-Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE103.ent.ti.com
- (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 10
- Apr 2025 23:36:41 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 10 Apr 2025 23:36:41 -0500
-Received: from [172.24.227.151] (uda0510294.dhcp.ti.com [172.24.227.151])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53B4aaOK100453;
-	Thu, 10 Apr 2025 23:36:37 -0500
-Message-ID: <911949c6-b025-4546-9296-681c82e6a84a@ti.com>
-Date: Fri, 11 Apr 2025 10:06:36 +0530
+	Fri, 11 Apr 2025 04:47:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bZr2+wZpV1KvYdye5e40nv2zgGTZ5cyVJagLCU2gXzVMr4DYjUrFg49FjK8sftgtD3pa40VgWpqqyEcApCUjItK/OQJgeKkwHhHLYt/uSp5Nx8ANWuX6JDf3KzbUvlQXDiyonJrpgfXVfSlEZfuoWUexnnzk3JfFY4qCEpjaKWtjEkOahHUhDih24IzaDF0j1ASRa3rkcvAD4L34M5ZXP1oecQzwaFNPkPM0wn47RfGp37WQfg0FwL7MAU6ahsRlPoV8ATS7Dw8FUEH9GPiaLS2+Gl/FjKvcgPyz84gtPGN9phduNZFfm/KuJLn63NDtKfSTnmU/87iMITzKeuuTzw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OfkjrbYlMuifLR0ij9JE1tD+4mnpwymrnA4950GEcYQ=;
+ b=V2JVmRRa+RgXKUTiKZ3iwRsfPHbYoDEcfrDbNmtREi+oBZaFevn8tAb8IZshvlURZemRwII3kcZAw4KZMvZGIDJMRxM2M14nsdrlfU/pOoh7SU+ZkpWjtprlhYgSezpviCjbr/C6mRvAvYa2HxEY2Y6FAP3ayCLfU4YLhBpt3FQX0XitBbg+kgdHMPBOk/0pz+sKd0ZPL8YpKDGQXlEcwLYjl0BpsJ9sTKFZHjfBC12kzUpiHdoqyVjTN2AAt24TzMBCwEb/Jxe3V5xDJkCNniQOR3oRdBHIjQX1hbMTAu2gAQ350s0M2x2cSLhOlilWhKTKY2TsQtJVAsoQqxXqBg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=OfkjrbYlMuifLR0ij9JE1tD+4mnpwymrnA4950GEcYQ=;
+ b=rSj5x62UChW/9mNAZ1XTYJOd1oN39Zahf8DlNg/johV7P5R8yLcizqCykyapJcNeoqxxZCrJEAmnf+Vkl4s6rwML4+GdhxE9zNLeCg3fUksh/y/49D71NvGRcF/RHmmqgGHcLIazxBK+AMVk0+3QQNcb3uZDgBuHJhF7RZJM+acq90+oChXzW7KUT2IiT32ngnemjY40oYlxHmxlPgZOJrtQ86Bj+wg1aBGAm3JLlUUnrUsAd/xlpBlzEwID8W9O6BOL0UxirSfMV/JSzp67FEJ+ajA/nTZSSQy2uICthPfn1zSaRXP4Fwlsq2McS1MGs1uv5fsC4XbbCbfyYJLVhg==
+Received: from MW4PR04CA0326.namprd04.prod.outlook.com (2603:10b6:303:82::31)
+ by IA0PR12MB9048.namprd12.prod.outlook.com (2603:10b6:208:408::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.22; Fri, 11 Apr
+ 2025 04:47:19 +0000
+Received: from SJ1PEPF000023D8.namprd21.prod.outlook.com
+ (2603:10b6:303:82:cafe::4b) by MW4PR04CA0326.outlook.office365.com
+ (2603:10b6:303:82::31) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8632.23 via Frontend Transport; Fri,
+ 11 Apr 2025 04:47:19 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ SJ1PEPF000023D8.mail.protection.outlook.com (10.167.244.73) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8655.0 via Frontend Transport; Fri, 11 Apr 2025 04:47:19 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Thu, 10 Apr
+ 2025 21:47:08 -0700
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Thu, 10 Apr
+ 2025 21:47:08 -0700
+Received: from Asurada-Nvidia.nvidia.com (10.127.8.9) by mail.nvidia.com
+ (10.129.68.6) with Microsoft SMTP Server id 15.2.1544.14 via Frontend
+ Transport; Thu, 10 Apr 2025 21:47:07 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: <will@kernel.org>, <robin.murphy@arm.com>
+CC: <joro@8bytes.org>, <jgg@nvidia.com>, <jsnitsel@redhat.com>,
+	<praan@google.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH] iommu/arm-smmu-v3: Allow stream table to have nodes with the same ID
+Date: Thu, 10 Apr 2025 21:47:06 -0700
+Message-ID: <20250411044706.356395-1-nicolinc@nvidia.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 06/11] arm64: dts: ti: k3-am62a7-sk: Enable IPC with
- remote processors
-To: Judith Mendez <jm@ti.com>,
-        Devarsh Thakkar
-	<devarsht@lewv0571a.ent.ti.com>,
-        Nishanth Menon <nm@ti.com>, Andrew Davis
-	<afd@ti.com>,
-        Hari Nagalla <hnagalla@ti.com>
-CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Markus
- Schneider-Pargmann <msp@baylibre.com>
-References: <20250405001518.1315273-1-jm@ti.com>
- <20250405001518.1315273-7-jm@ti.com>
- <6868f593-0728-4e92-a57b-87db6a0037f6@ti>
- <f42607f5-e39d-48a1-89c0-11d4982a2426@ti.com>
- <f8f1d877-3d13-4ba7-90e1-455923458c11@ti.com>
- <fe735242-4643-432a-adaf-27e29719948a@ti.com>
- <bffd8489-1556-425d-b3f9-8fde8a7d34a7@ti.com>
- <45e2c2bf-68af-4c78-8f85-e25f4e7ea3fd@ti.com>
-Content-Language: en-US
-From: Beleswar Prasad Padhi <b-padhi@ti.com>
-In-Reply-To: <45e2c2bf-68af-4c78-8f85-e25f4e7ea3fd@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D8:EE_|IA0PR12MB9048:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8411f44c-26d1-430b-6977-08dd78b3f0d0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|82310400026|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Efo8pirebECpalDpA2SaaFh/ajzGv5za3LwbCYBgmA9XoNYecPzL+cGVHrzb?=
+ =?us-ascii?Q?7cLAVbdREjG/C294zuh1l+ngsgyL1ektYUS7eA9Muiv7s7fN3T1uvMmKJzt3?=
+ =?us-ascii?Q?bl2D97BFbCF4Uu+YOc0yY1t/VgANMbUC7YoAtJchYxtlh968xM75RvR6GY2y?=
+ =?us-ascii?Q?Xb9rfXocrium5i9W02StinxzqOtKXlFWGx7hKyL3qjvplDRYsUoYvytSqqu9?=
+ =?us-ascii?Q?e8dC0f1N/RWGWhkL9hFDiVwKh+iYd36YG6nky48ENoi+mDf4DpSjmB35iFke?=
+ =?us-ascii?Q?+sk4ia5YxXnE5QL2KrQHRFzV0GDECKltz4hx9ZDl/K8u0pHVY4Ldc4in+Ek2?=
+ =?us-ascii?Q?77whUBaVch+pEsseHasWseK0LmugXmhB8ejPuYaETp8G790h8LXaCKs2bfJV?=
+ =?us-ascii?Q?HuubGZvdxdr3MBkS8cGREYed3fltdTIyTNkVxUbIYWgi1DKgK/fwystGczf5?=
+ =?us-ascii?Q?DOc096qI/chOpvZLg7HE6qsdQSuOVsLDn2AQ97mrwWNB6asMWUmPNV0tPDbY?=
+ =?us-ascii?Q?cIeeKlA+qjaPT8FZfbLJmnHP+oyex0T1Lq6Inandxpuh2cfIEq3i4u+85tAL?=
+ =?us-ascii?Q?OzHc+3p7m3tePEeDSgeiEpiyMCqqleydfH40v5zda7rUz1vqdV8efrIG05TR?=
+ =?us-ascii?Q?daXJRCaV/pM1WNAd5gzdgclaRZRamI2+O2QCq6octolLFzbhdz+JKhf2u78W?=
+ =?us-ascii?Q?Cecvia8a3ctc+Q83/dFToyjfi/LOBO1ev42vdxZfWJy/kvpNHnqOEereEbBx?=
+ =?us-ascii?Q?6Sk+ZUMyAjAPxcnnj3U+E9TEUoKRYhaHEL/g3Crh+iRPMNIWlHOIGC1falHP?=
+ =?us-ascii?Q?XaXKzxnblY5lrYaZgDDwEOB23y9ie7Yo9f5J46kUci3OcI18yPWoOd/ayv6I?=
+ =?us-ascii?Q?XqFSu2tyRApvBGJG8iexz0U+VpI2bpQbwzaxZdzXBFrg114RF8EZJiWqpuTD?=
+ =?us-ascii?Q?n9XPY+uy/IdxOhFPAlwOvZRUwcv86pfW6GR1hBT8TllAhEHAND7qBAJhTo+Q?=
+ =?us-ascii?Q?IppD7qSDcJY6Ku3CGeTYKwccerZFeMNxElsvMV1oGImt3C18ENVIYlTVemmm?=
+ =?us-ascii?Q?2qyakCVl14BnPhgTq9pE64lpIU5xyJF5Tf5SDjX+WGXN5Sho5Ccy+kK2sZxX?=
+ =?us-ascii?Q?u4tWVthsYM8Q39NY0BXQi+qmVblZeAo7JyCAZO0U4f5PXOvMHOuw2f/IkKiG?=
+ =?us-ascii?Q?0zvZf+kKsMYv0Fa/0xw0XOMOSCoQyjfJtizCeoGIpvdF0usnbSAIG3GsB9vU?=
+ =?us-ascii?Q?Q6i0VkbaKSY3EhIzunIT6qpgMITjGEblIRsfBloTqeWm8GGPgWQOHmlH97Q7?=
+ =?us-ascii?Q?J9ERLwH13Eb1fMmvDbLxq9bZqYXwge9IySP2FNk8J6KCT3/L53OiCWcHUOpU?=
+ =?us-ascii?Q?RMstNlUz7yqh8FsiGjVbk0Ql480233ZZsS+d0mgkE0hEEet7cGIy0FWgj60I?=
+ =?us-ascii?Q?uwa9GPApOhKiXpJzaNEqAn4qJNc3B8+Fdd6ayoMdTZhSdl/qvh9aYtywQfT3?=
+ =?us-ascii?Q?omFPnZIscNZVvJzD2gAy/1KhovcKvE0YFvvD?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(376014)(82310400026)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Apr 2025 04:47:19.0816
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8411f44c-26d1-430b-6977-08dd78b3f0d0
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023D8.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB9048
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_213647_463678_BC8E01EE 
-X-CRM114-Status: GOOD (  34.23  )
+X-CRM114-CacheID: sfid-20250410_214733_176678_AD9B539D 
+X-CRM114-Status: GOOD (  21.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,290 +148,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Judith,
+From: Jason Gunthorpe <jgg@nvidia.com>
 
-On 10/04/25 23:14, Judith Mendez wrote:
-> Hi Beleswar,
->
-> On 4/10/25 3:55 AM, Beleswar Prasad Padhi wrote:
->> Hi Judith,
->>
->> On 10/04/25 04:02, Judith Mendez wrote:
->>> Hi Beleswar,
->>>
->>> On 4/7/25 11:00 PM, Beleswar Prasad Padhi wrote:
->>>> Hi Judith, Andrew,
->>>>
->>>> On 07/04/25 19:43, Judith Mendez wrote:
->>>>> Hi Devarsh,
->>>>>
->>>>> On 4/7/25 8:54 AM, Devarsh Thakkar wrote:
->>>>>> Hi Judith,
->>>>>>
->>>>>> On 05/04/25 05:45, Judith Mendez wrote:
->>>>>>  > From: Devarsh Thakkar <devarsht@ti.com>
->>>>>>>
->>>>>>
->>>>>> Thanks for the patch.
->>>>>>
->>>>>>> For each remote proc, reserve memory for IPC and bind the mailbox
->>>>>>> assignments. Two memory regions are reserved for each remote 
->>>>>>> processor.
->>>>>>> The first region of 1MB of memory is used for Vring shared buffers
->>>>>>> and the second region is used as external memory to the remote 
->>>>>>> processor
->>>>>>> for the resource table and for tracebuffer allocations.
->>>>>>>
->>>>>>> Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
->>>>>>> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
->>>>>>> Signed-off-by: Judith Mendez <jm@ti.com>
->>>>>>> ---
->>>>>>>   arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 96 
->>>>>>> +++++++++++++++++++++++--
->>>>>>>   1 file changed, 90 insertions(+), 6 deletions(-)
->>>>>>>
->>>>>>> diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts 
->>>>>>> b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
->>>>>>> index 1c9d95696c839..7d817b447c1d0 100644
->>>>>>> --- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
->>>>>>> +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
->>>>>>> @@ -52,6 +52,42 @@ linux,cma {
->>>>>>>               linux,cma-default;
->>>>>>>           };
->>>>>>> +        c7x_0_dma_memory_region: c7x-dma-memory@99800000 {
->>>>>>> +            compatible = "shared-dma-pool";
->>>>>>> +            reg = <0x00 0x99800000 0x00 0x100000>;
->>>>>>> +            no-map;
->>>>>>> +        };
->>>>>>> +
->>>>>>> +        c7x_0_memory_region: c7x-memory@99900000 {
->>>>>>> +            compatible = "shared-dma-pool";
->>>>>>> +            reg = <0x00 0x99900000 0x00 0xf00000>;
->>>>>>> +            no-map;
->>>>>>> +        };
->>>>>>> +
->>>>>>> +        mcu_r5fss0_core0_dma_memory_region: 
->>>>>>> r5f-dma-memory@9b800000 {
->>>>>>> +            compatible = "shared-dma-pool";
->>>>>>> +            reg = <0x00 0x9b800000 0x00 0x100000>;
->>>>>>> +            no-map;
->>>>>>> +        };
->>>>>>> +
->>>>>>> +        mcu_r5fss0_core0_memory_region: r5f-dma-memory@9b900000 {
->>>>>>> +            compatible = "shared-dma-pool";
->>>>>>> +            reg = <0x00 0x9b900000 0x00 0xf00000>;
->>>>>>> +            no-map;
->>>>>>> +        };
->>>>>>> +
->>>>>>> +        wkup_r5fss0_core0_dma_memory_region: 
->>>>>>> r5f-dma-memory@9c800000 {
->>>>>>> +            compatible = "shared-dma-pool";
->>>>>>> +            reg = <0x00 0x9c800000 0x00 0x100000>;
->>>>>>> +            no-map;
->>>>>>> +        };
->>>>>>> +
->>>>>>> +        wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
->>>>>>> +            compatible = "shared-dma-pool";
->>>>>>> +            reg = <0x00 0x9c900000 0x00 0xf00000>;
->>>>>>> +            no-map;
->>>>>>> +        };
->>>>>>> +
->>>>>>>           secure_tfa_ddr: tfa@9e780000 {
->>>>>>>               reg = <0x00 0x9e780000 0x00 0x80000>;
->>>>>>>               alignment = <0x1000>;
->>>>>>> @@ -63,12 +99,6 @@ secure_ddr: optee@9e800000 {
->>>>>>>               alignment = <0x1000>;
->>>>>>>               no-map;
->>>>>>>           };
->>>>>>> -
->>>>>>> -        wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
->>>>>>> -            compatible = "shared-dma-pool";
->>>>>>> -            reg = <0x00 0x9c900000 0x00 0x01e00000>;
->>>>>>> -            no-map;
->>>>>>> -        };
->>>>>>>       };
->>>>>>
->>>>>> This is missing the edgeAI specific remote-core carveouts and 
->>>>>> RTOS-to-RTOS IPC memory regions [1] being used by edgeAI 
->>>>>> firmwares which come as pre-packaged in the official SDK release 
->>>>>> for AM62A.
->>>>>>
->>>>>> There is only one official SDK release for AM62A (which is edgeAI 
->>>>>> based) [2] which packages these edgeAI remoteproc firmwares and 
->>>>>> in my view it is a fair expectation that remote core careveouts 
->>>>>> in device-tree should align with firmwares released in SDK.
->>>>>>
->>>>>> This is because most developers (including me) and vendors 
->>>>>> download this official SDK release and use it with latest 
->>>>>> upstream kernel and modules (right now we are applying required 
->>>>>> patches locally) and this patch won't suffice for this, in-fact 
->>>>>> it won't work since the remoteproc firmwares are already using 
->>>>>> regions beyond the reserved-regions from this patch.
->>>>>
->>>>> I understand your point, currently with this patch remoteproc loading
->>>>> will not work for some cores. However, the goal here is to 
->>>>> standardize
->>>>> as much as possible the memory carveout sizes, push the "demo 
->>>>> firmware"
->>>>> to request resources the correct way from resource table, 
->>>>
->>>>
->>>> It is indeed more suitable if the memory carveouts are called out 
->>>> in the resource table of the firmware. But you will still need to 
->>>> reserve that memory sections in the Device Tree so that Kernel does 
->>>> not map that memory for anything else. So I am thinking how moving 
->>>> to resource table will help solve this problem?
->>>
->>> The point is that our default FW is doing things incorrectly. We 
->>> want to
->>> push the existing FW to
->>> 1. Request resources via resource table.
->>> 2. Fix their memory requirements (recent offline discussion proved that
->>> FW is requesting more than it needs)
->>> 3. FW should adapt to Linux not Linux adapt to FW
->>
->>
->> Thanks. I also agree with you on all of the above points for a 
->> standard firmware.
->>
->> However, I was referring to this problem:
->> Can we get rid of static reserved memory carveouts in DT?
->> People using a custom firmware will have to patch the Device Tree to 
->> reserve larger/different memory regions. Is there some way where the 
->> firmware can dictate the "reserved" memory carveouts at runtime? 
->> Memory carveouts can be announced through Resource Table, but there 
->> is no guarantee we will be able to allocate it (it could be mapped by 
->> the Kernel for some other alloc), unless its pre-reserved in DT.
->>
->
-> Since we do not have an IOMMU for remote cores in K3, we cannot get rid
-> of the static reserved memory carveouts, is my understanding. The linux
-> driver would have programmed the IOMMU virtual and physical addresses
-> and it would have been able to do the virtual to physical address
-> translation on its own with only the requirement size from the FW
-> resource table. 
+ASPEED VGA card has two built-in devices:
+ 0008:06:00.0 PCI bridge: ASPEED Technology, Inc. AST1150 PCI-to-PCI Bridge (rev 06)
+ 0008:07:00.0 VGA compatible controller: ASPEED Technology, Inc. ASPEED Graphics Family (rev 52)
 
+Its toplogy looks like this:
+ +-[0008:00]---00.0-[01-09]--+-00.0-[02-09]--+-00.0-[03]----00.0  Sandisk Corp Device 5017
+                             |               +-01.0-[04]--
+                             |               +-02.0-[05]----00.0  NVIDIA Corporation Device
+                             |               +-03.0-[06-07]----00.0-[07]----00.0  ASPEED Technology, Inc. ASPEED Graphics Family
+                             |               +-04.0-[08]----00.0  Renesas Technology Corp. uPD720201 USB 3.0 Host Controller
+                             |               \-05.0-[09]----00.0  Realtek Semiconductor Co., Ltd. RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller
+                             \-00.1  PMC-Sierra Inc. Device 4028
 
-We can still do that for K3 remote cores with just requesting carveout size.
-The remoteproc core framework will assign the dynamically allocated
-Physical Address (PA) as Device Address (DA) for the rproc[0]. Incase the PA
-collides with some existing DA for the rproc, we can configure the rproc's
-RAT (Region Address Translation Unit) to map the PA to some other DA from
-rproc's view. As Andrew pointed, we can use FW_RSC_ADDR_ANY for all of
-these carveouts.
+Being a legacy PCI device that does not have RID on the wire, the system
+does not preserve a RID for that PCI bridge (0008:06), so the IORT code
+has to dma alias for iort_pci_iommu_init() via pci_for_each_dma_alias(),
+resulting in both of them getting the same Stream ID.
 
-Thanks,
-Beleswar
+On a kernel prior to v6.15-rc1, there has been an overlooked warning:
+  pci 0008:07:00.0: vgaarb: setting as boot VGA device
+  pci 0008:07:00.0: vgaarb: bridge control possible
+  pci 0008:07:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
+  pcieport 0008:06:00.0: Adding to iommu group 14
+  ast 0008:07:00.0: stream 67328 already in tree   <===== WARNING
+  ast 0008:07:00.0: enabling device (0002 -> 0003)
+  ast 0008:07:00.0: Using default configuration
+  ast 0008:07:00.0: AST 2600 detected
+  ast 0008:07:00.0: [drm] Using analog VGA
+  ast 0008:07:00.0: [drm] dram MCLK=396 Mhz type=1 bus_width=16
+  [drm] Initialized ast 0.1.0 for 0008:07:00.0 on minor 0
+  ast 0008:07:00.0: [drm] fb0: astdrmfb frame buffer device
 
-[0]: 
-https://github.com/torvalds/linux/blob/master/drivers/remoteproc/remoteproc_core.c#L768
+As such a legacy system might not use DMA at all, an iommu_probe_device()
+failure didn't actually break it, except that warning that does not block
+the system boot flow.
 
-> Since we do not have this flexibility provided with
-> IOMMU, we must have static reserved carveouts so that Linux will not
-> touch these memory regions. The firmware virtual address to physical
-> adress is atm a one to one mapping. So in summary, we must have these
-> static reserved memory carveouts, but we should fix the default FW
-> to use the "standardized" sizes and request SRAM via resource table.
->
-> ~ Judith
->
->
->> Thanks,
->> Beleswar
->>
->>>
->>> If not, then then we should try to move to Zephyr firmware or other/
->>> better options.
->>>
->>> Hope I am able to explain myself better this time around.
->>>
->>> ~ Judith
->>>
->>>>
->>>> Thanks,
->>>> Beleswar
->>>>
->>>>> and move away
->>>>> from this dependency and limitations that we have with our 
->>>>> firmware. We
->>>>> should soon be able to generate our own firmware using Zephyr, which
->>>>> Andrew is pioneering, so with this firmware we should move to the
->>>>> correct direction upstream. Downstream we are still using the memory
->>>>> carveout sizes that the firmware folk want so desperately to keep, 
->>>>> for
->>>>> now..
->>>>>
->>>>> ~ Judith
->>>>>
->>>>>>
->>>>>> [1]: 
->>>>>> https://git.ti.com/cgit/ti-linux-kernel/ti-linux-kernel/tree/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts?h=ti-linux-6.6.y-cicd#n103
->>>>>> [2]: https://www.ti.com/tool/PROCESSOR-SDK-AM62A
->>>>>>
->>>>>> Regards
->>>>>> Devarsh
->>>>>>
->>>>>>>       opp-table {
->>>>>>> @@ -741,3 +771,57 @@ dpi1_out: endpoint {
->>>>>>>           };
->>>>>>>       };
->>>>>>>   };
->>>>>>> +
->>>>>>> +&mailbox0_cluster0 {
->>>>>>> +    status = "okay";
->>>>>>> +
->>>>>>> +    mbox_r5_0: mbox-r5-0 {
->>>>>>> +        ti,mbox-rx = <0 0 0>;
->>>>>>> +        ti,mbox-tx = <1 0 0>;
->>>>>>> +    };
->>>>>>> +};
->>>>>>> +
->>>>>>> +&mailbox0_cluster1 {
->>>>>>> +    status = "okay";
->>>>>>> +
->>>>>>> +    mbox_c7x_0: mbox-c7x-0 {
->>>>>>> +        ti,mbox-rx = <0 0 0>;
->>>>>>> +        ti,mbox-tx = <1 0 0>;
->>>>>>> +    };
->>>>>>> +};
->>>>>>> +
->>>>>>> +&mailbox0_cluster2 {
->>>>>>> +    status = "okay";
->>>>>>> +
->>>>>>> +    mbox_mcu_r5_0: mbox-mcu-r5-0 {
->>>>>>> +        ti,mbox-rx = <0 0 0>;
->>>>>>> +        ti,mbox-tx = <1 0 0>;
->>>>>>> +    };
->>>>>>> +};
->>>>>>> +
->>>>>>> +&wkup_r5fss0 {
->>>>>>> +    status = "okay";
->>>>>>> +};
->>>>>>> +
->>>>>>> +&wkup_r5fss0_core0 {
->>>>>>> +    mboxes = <&mailbox0_cluster0>, <&mbox_r5_0>;
->>>>>>> +    memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
->>>>>>> + <&wkup_r5fss0_core0_memory_region>;
->>>>>>> +};
->>>>>>> +
->>>>>>> +&mcu_r5fss0 {
->>>>>>> +    status = "okay";
->>>>>>> +};
->>>>>>> +
->>>>>>> +&mcu_r5fss0_core0 {
->>>>>>> +    mboxes = <&mailbox0_cluster2>, <&mbox_mcu_r5_0>;
->>>>>>> +    memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
->>>>>>> + <&mcu_r5fss0_core0_memory_region>;
->>>>>>> +};
->>>>>>> +
->>>>>>> +&c7x_0 {
->>>>>>> +    mboxes = <&mailbox0_cluster1>, <&mbox_c7x_0>;
->>>>>>> +    memory-region = <&c7x_0_dma_memory_region>,
->>>>>>> +            <&c7x_0_memory_region>;
->>>>>>> +    status = "okay";
->>>>>>> +};
->>>>>>
->>>>>
->>>
->
+With v6.15-rc, since the commit bcb81ac6ae3c ("iommu: Get DT/ACPI parsing
+into the proper probe path"), the error returned with the warning is moved
+to the IOMMU device probe flow, e.g. call trace with SMMUv3:
+  arm_smmu_probe_device+0x15c/0x4c0
+  __iommu_probe_device+0x150/0x4f8
+  probe_iommu_group+0x44/0x80
+  bus_for_each_dev+0x7c/0x100
+  bus_iommu_probe+0x48/0x1a8
+  iommu_device_register+0xb8/0x178
+  arm_smmu_device_probe+0x1350/0x1db0
+
+This then fails the entire SMMU driver probe:
+  arm-smmu-v3 arm-smmu-v3.9.auto: found companion CMDQV device: NVDA200C:04
+  arm-smmu-v3 arm-smmu-v3.9.auto: option mask 0x10
+  arm-smmu-v3 arm-smmu-v3.9.auto: ias 48-bit, oas 48-bit (features 0x001e1fbf)
+  arm-smmu-v3 arm-smmu-v3.9.auto: allocated 524288 entries for cmdq
+  arm-smmu-v3 arm-smmu-v3.9.auto: allocated 524288 entries for evtq
+  arm-smmu-v3 arm-smmu-v3.9.auto: allocated 524288 entries for priq
+  arm-smmu-v3 arm-smmu-v3.9.auto: allocated 524288 entries for vcmdq0
+  arm-smmu-v3 arm-smmu-v3.9.auto: allocated 524288 entries for vcmdq1
+  arm-smmu-v3 arm-smmu-v3.9.auto: msi_domain absent - falling back to wired irqs
+  arm-smmu-v3 arm-smmu-v3.9.auto: no priq irq - PRI will be broken
+  pci 0008:00:00.0: Adding to iommu group 10
+  pci 0008:01:00.0: Adding to iommu group 11
+  pci 0008:01:00.1: Adding to iommu group 12
+  pci 0008:02:00.0: Adding to iommu group 13
+  pci 0008:02:01.0: Adding to iommu group 14
+  pci 0008:02:02.0: Adding to iommu group 15
+  pci 0008:02:03.0: Adding to iommu group 16
+  pci 0008:02:04.0: Adding to iommu group 17
+  pci 0008:02:05.0: Adding to iommu group 18
+  pci 0008:03:00.0: Adding to iommu group 19
+  pci 0008:05:00.0: Adding to iommu group 20
+  pci 0008:06:00.0: Adding to iommu group 21
+  pci 0008:07:00.0: stream 67328 already in tree
+  arm-smmu-v3 arm-smmu-v3.9.auto: Failed to register iommu
+  arm-smmu-v3 arm-smmu-v3.9.auto: probe with driver arm-smmu-v3 failed with error -22
+
+Given that a device bundled with a legacy PCI bridge could have duplicated
+Stream IDs, the concept of a stream_id tree with unique node in the SMMUv3
+driver doesn't work any more.
+
+Change the arm_smmu_streams_cmp_node() to allow the stream table to hold
+multiple nodes with the same Stream ID. Meanwhile, the reverse lookup from
+the Stream ID to a device pointer will have to be broken, i.e. the eventq
+handler will no longer find the device with a Stream ID in such cases.
+
+Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+Tested-by: Nicolin Chen <nicolinc@nvidia.com>
+Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 31 +++++++++++++++++++--
+ 1 file changed, 29 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index b4c21aaed126..5ce64dc78e12 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -1762,8 +1762,25 @@ static int arm_smmu_streams_cmp_key(const void *lhs, const struct rb_node *rhs)
+ static int arm_smmu_streams_cmp_node(struct rb_node *lhs,
+ 				     const struct rb_node *rhs)
+ {
+-	return arm_smmu_streams_cmp_key(
+-		&rb_entry(lhs, struct arm_smmu_stream, node)->id, rhs);
++	struct arm_smmu_stream *stream_lhs =
++		rb_entry(lhs, struct arm_smmu_stream, node);
++	struct arm_smmu_stream *stream_rhs =
++		rb_entry(rhs, struct arm_smmu_stream, node);
++
++	if (stream_lhs->id < stream_rhs->id)
++		return -1;
++	if (stream_lhs->id > stream_rhs->id)
++		return 1;
++
++	/*
++	 * The stream table can have multiple nodes with the same ID if there
++	 * are DMA aliases.
++	 */
++	if (stream_lhs < stream_rhs)
++		return -1;
++	if (stream_lhs > stream_rhs)
++		return 1;
++	return 0;
+ }
+ 
+ static struct arm_smmu_master *
+@@ -1776,6 +1793,16 @@ arm_smmu_find_master(struct arm_smmu_device *smmu, u32 sid)
+ 	node = rb_find(&sid, &smmu->streams, arm_smmu_streams_cmp_key);
+ 	if (!node)
+ 		return NULL;
++	/*
++	 * If there are DMA alises then there are multiple devices with the same
++	 * stream ID and we cannot reliably convert from SID to master.
++	 */
++	if (node->rb_left &&
++	    rb_entry(node->rb_left, struct arm_smmu_stream, node)->id == sid)
++		return NULL;
++	if (node->rb_right &&
++	    rb_entry(node->rb_right, struct arm_smmu_stream, node)->id == sid)
++		return NULL;
+ 	return rb_entry(node, struct arm_smmu_stream, node)->master;
+ }
+ 
+-- 
+2.43.0
+
 
