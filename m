@@ -4,140 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9822EC369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 23:36:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 165D6C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 23:43:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wZyRFEuj48Hf8Eod/Y+ZGv/wDfS+ooqZHDwn6qoOhNc=; b=1WHpSBbRWNfMjUkzrGNgrKRcSk
-	QX0CZv+1wt+R7XkdE7CPEljG2/KXtxSoAXqm8h6Nxj0d1wfzA7pfD1m64mqjqFi4ljdvMPsV1SDTK
-	bK2ySIxGo2DHO23NNs4ZYYVlNKVho1oJ2YoJ/5MTfeTJbc0mg6DLi+SljHnJIvqWUSCUKHMChyPdV
-	JW3UP9eh00n8sV1Ev0bNeTy2ctprTrvuEDEI7oCZsqKGj16loiIKpKypDrxk0kKbC5lYBddBm1vWn
-	7+Jtw98Bo8Rk7PiQqoNOVTYEvyB+8hOWIsS5jZ4eD5iOsbVRZaoSXKDiXdnooI6+xP6HQ2Bc/hQVi
-	1OU8Kefw==;
+	bh=w3q8NkCAFLhwuH+PrJyQ6/aUCrCXkw20ILW5ni23XHc=; b=t0AT5vze8v+ZYmZ4Nfda7SscTH
+	8oofec3caAqgKKECNtvuiqg3SQnFmUFKa8Fd04jsBuWmP4XklNEe8x7u1LWljeK9p2k6hRkM7J3+D
+	ctPuIkUE9leBQLCLDvfbDawnwW9uAuqknp2rlfAcx0tF1GqQ0Tcs9Er6drsuZa2JOyqKhENjc/1Ox
+	M+kd3payyqRIphsq5BDMCRbKB3nzQy+Yib65Yb1abRWnOB74ogZCeC0y1NoU8TGstXQTnCXqXQoRg
+	DRPO69lmxdl+PEyEygTxX9QewLtY1rr7rUBD6/KORwklZG0i4IoWH/7Ycs0+Y9X/JStsvDaxR/RFj
+	JM0C0FyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3NuZ-0000000F677-3wgF;
-	Fri, 11 Apr 2025 23:35:51 +0000
-Received: from mail-mw2nam12on20609.outbound.protection.outlook.com ([2a01:111:f403:200a::609] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1u3O1Z-0000000F6xY-2MiD;
+	Fri, 11 Apr 2025 23:43:05 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3Nsj-0000000F5sS-2Ls1
+	id 1u3Nzi-0000000F6oz-2En0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 23:33:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=R/OfdYMaUQOf+5bbDvj9ijhtIY80znQL53IU88/BypVGVjvTwk0oF6UdK+bJf6ZNI+JZ5Hjy41XHxLfZmno5RtpnT+2HvHrUTaZoXmOCRqSYz7YXcW+4wT8ncDgmM/zWjT0zbjJ50sWFjQ5XVAMDfTt2U3WaujIi/CKLtresbEky40FteQW83IooG8Cr+zaQEV/+Lq8V5VSlCDfxRObpHunoR0hmUYL7E2brEg4Reb0TpjojPYa+i+RGh3Ow6IFgx6ieQ7sQ4lq8/dMavvV6nbHD3UDNY2oT1xYawrhpUMY51pPCj8UsUYe/6d985CsxQImGVZrhOEmPxMlnwtikRg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wZyRFEuj48Hf8Eod/Y+ZGv/wDfS+ooqZHDwn6qoOhNc=;
- b=CGA9Nfo8yVpberjtz/tbY6PwWwpQaOF1HNsJPP81+TqRRB3IN6yateAYBnl9pzQni7vA5ul+RlrFqkPxW0gSI9Zx8EFSKSXy3yad6EDY4aWSH5v3CzOBGyS+om/TvU3Ei40RinHY5QFmLxGm0cPxBod49zORHglTa9+PowwgkcQBsGmqGci54aMggMUPkBkGGqOskzyj/JKS0N9L82J0fkhG2YtDmBWvrkADepiyC6jsmUS5vfE/WiLy5PYY51VWNqiJTEG99GF0NzBgi9E1yiLcM+km+ReXg4OVmm7RSCmLC3wS0SoCL4hrTXAsVfIIpj7J/JOmq+uD8j1vUVfvGQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=temperror (sender ip
- is 216.228.118.232) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
- dmarc=temperror action=none header.from=nvidia.com; dkim=none (message not
- signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wZyRFEuj48Hf8Eod/Y+ZGv/wDfS+ooqZHDwn6qoOhNc=;
- b=rJZCprbepluso5uD1tp4YgYrj5JBJPv9P5ypoWeVMJvYAVzcNm2y23vUFsrDHxXhKnvUiZ2pZLYFXgIUtN7zJI+rxb8OoOHt0MKv4fiXcQ3MlyDUdI0c4F6juVy+cxyjWxkvv8gl3ju45ezi6GQdUgac88Qw4HHHl3iFmZJfmEUBj7QX/cN667cpxxx0KMa0O0Z248dQ5xAE1oJ8lnrMUgbRjsEW8C3AZiQHZjaHlI055PwNRd4FtkSW8UHDbll/of1d6iAeII9PFTm/ukc4WpihLRjiqdrWZn66xFtep/gWpzxDa1NQwZInYlAwF2Ud6c4xwqa7+FpWNN01/mtvYQ==
-Received: from BN9PR03CA0749.namprd03.prod.outlook.com (2603:10b6:408:110::34)
- by CY8PR12MB7196.namprd12.prod.outlook.com (2603:10b6:930:58::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.28; Fri, 11 Apr
- 2025 23:33:49 +0000
-Received: from BL6PEPF0001AB4A.namprd04.prod.outlook.com
- (2603:10b6:408:110:cafe::f1) by BN9PR03CA0749.outlook.office365.com
- (2603:10b6:408:110::34) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8632.26 via Frontend Transport; Fri,
- 11 Apr 2025 23:33:49 +0000
-X-MS-Exchange-Authentication-Results: spf=temperror (sender IP is
- 216.228.118.232) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=temperror action=none header.from=nvidia.com;
-Received-SPF: TempError (protection.outlook.com: error in processing during
- lookup of nvidia.com: DNS Timeout)
-Received: from mail.nvidia.com (216.228.118.232) by
- BL6PEPF0001AB4A.mail.protection.outlook.com (10.167.242.68) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8655.12 via Frontend Transport; Fri, 11 Apr 2025 23:33:47 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Fri, 11 Apr
- 2025 16:33:47 -0700
-Received: from drhqmail201.nvidia.com (10.126.190.180) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Fri, 11 Apr 2025 16:33:46 -0700
-Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com
- (10.126.190.180) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Fri, 11 Apr 2025 16:33:46 -0700
-Date: Fri, 11 Apr 2025 16:33:44 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Robin Murphy <robin.murphy@arm.com>
-CC: <will@kernel.org>, <joro@8bytes.org>, <jgg@nvidia.com>,
-	<jsnitsel@redhat.com>, <praan@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Allow stream table to have nodes with
- the same ID
-Message-ID: <Z/mm2EQAQtOqpVCy@Asurada-Nvidia>
-References: <20250411044706.356395-1-nicolinc@nvidia.com>
- <5c8d16f9-246e-45d0-aaac-45b7712cefb5@arm.com>
+	Fri, 11 Apr 2025 23:41:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1744414871; x=1775950871;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=DWUjtR2ftgxqvFrIhCE165hC8BZaXWmvSsovH5UcaMs=;
+  b=eoeRzMbY2GdP4vZCy3AYdn9SMfOEZBBEwkCFIGuToS0TUq6nZrD41EcY
+   bttVDdt0HL6leOxnUQsAceHZrAlaRQ+3ib8a1T7Zr0rxtRVI99d1WSxPR
+   uwwEhpUJejt2j0zMsFHw2N/7Q1uhvIumFc+tzNheBiY5lDqRkwFMdAGIu
+   Fy1p9BRSSQvEKuhCL/qkRQrIBfU+UiC24cwKypOIL0ZUvWLrVk/3CsZ7o
+   BBxnSCIqMJCgepbDjQmeVxyMqe2qYBmQmkkB78x+mA6EFHd8CAbgVZ7sR
+   iXtvkbS6sZjXd7Pm13uSGGbyH7lIVfX6jnqJGOq0cRHMKDKZWVchFa4mo
+   w==;
+X-CSE-ConnectionGUID: zUBDqGiRR1if6J+D92YfFQ==
+X-CSE-MsgGUID: iIRm9ZwXRxWITVjBPQ2xyQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11401"; a="45214918"
+X-IronPort-AV: E=Sophos;i="6.15,206,1739865600"; 
+   d="scan'208";a="45214918"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Apr 2025 16:41:10 -0700
+X-CSE-ConnectionGUID: 0qt2RC1dQ6qs2p+GCM63Mg==
+X-CSE-MsgGUID: SBo1nEdNTBSc5C0oAKKNdA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,206,1739865600"; 
+   d="scan'208";a="129876944"
+Received: from lkp-server01.sh.intel.com (HELO b207828170a5) ([10.239.97.150])
+  by orviesa007.jf.intel.com with ESMTP; 11 Apr 2025 16:41:07 -0700
+Received: from kbuild by b207828170a5 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1u3Nzc-000BRS-1A;
+	Fri, 11 Apr 2025 23:41:04 +0000
+Date: Sat, 12 Apr 2025 07:40:10 +0800
+From: kernel test robot <lkp@intel.com>
+To: Shyam Saini <shyamsaini@linux.microsoft.com>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	virtualization@lists.linux.dev
+Cc: oe-kbuild-all@lists.linux.dev, jgg@ziepe.ca, will@kernel.org,
+	jacob.pan@linux.microsoft.com, eric.auger@redhat.com,
+	code@tyhicks.com, eahariha@linux.microsoft.com,
+	vijayb@linux.microsoft.com
+Subject: Re: [PATCH v2 3/3] arm-smmu: select suitable MSI IOVA
+Message-ID: <202504120727.1ZmvnvO2-lkp@intel.com>
+References: <20250410225030.2528385-4-shyamsaini@linux.microsoft.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <5c8d16f9-246e-45d0-aaac-45b7712cefb5@arm.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB4A:EE_|CY8PR12MB7196:EE_
-X-MS-Office365-Filtering-Correlation-Id: e862acf1-dcce-4877-550e-08dd79514f05
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|376014|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?/njed4UD6T0tK31Gn9cYA128booAxSNlX2u3u3FSaE2U5ddqXplUKUxKvORO?=
- =?us-ascii?Q?XEL+6CVHs2LOf/noOaGD3ne7cGsmdvfx9pE32740x0L4hFE27O9igRSsqHW4?=
- =?us-ascii?Q?7apd4o+XwlaDvgUbL2vYzIlGa/FdMPjYK9FHrYD9OvzpdAAzq6Ay2fsf7fVt?=
- =?us-ascii?Q?OHvT3okgLT88UXyNSIv0RrdjymOAt5th6JbKYiXwiTWbXwlr0gkfaX0Rp4vO?=
- =?us-ascii?Q?sKgooDGlS/vLViQ8LDNAEyU5RtXXTKAMEcHX1EZFaPzf/HAgIi5iWvxcPJRC?=
- =?us-ascii?Q?fDI9kokE4MGc1XnrjEqHo/5L4Qx7SEHtRF22bgziyZuIkf68RTurz7KFreEW?=
- =?us-ascii?Q?RTldRXZ+UbxdTEy81YUilsZ9eULYVI7WRE5uimgn3YMEztqrQ0erToy9nGlK?=
- =?us-ascii?Q?kdBXlCTcIr761c6F+LAFPPzqKu3o1Dqemmf4UYUsdZ8M5HEunbucHCg+ixkw?=
- =?us-ascii?Q?nI+lx/QrJnABfcvaUKSfQSVkH6LapqxpVJVNTi5aEqiskcb92McbVO1LNogh?=
- =?us-ascii?Q?P/dmeEwOsm1wPoTYVz8wMypJAmzHIvY368HVHV0UvMi33LcBDzhd9FO1rzpC?=
- =?us-ascii?Q?WxeI9pElCxRRpVp4w/Xfc6FGMyK8vwo5p4NIXNIrPPSe8vfp+gwkVkBz9tt5?=
- =?us-ascii?Q?fpm/OhDzTosmalHkP9dF8N209RbD6rg8Kto+Uw6LqpMH/XAHFTx221oYqwnn?=
- =?us-ascii?Q?K6reBMuz7oqNpAULmNXBXdpZoVPZyuUAZ3nuNPUTuPJaplCsdVAChylHnsZX?=
- =?us-ascii?Q?5PoMQUGrjPKKOWr8wIRCv8tGVylc4fxVl34fGW5RRrpp6l4zM/femKmx28qm?=
- =?us-ascii?Q?dJQoZAFafGtLtaZ8H9dTHSc2dMTTtYuL2ARnXfeHR69gmsqJww6xv1seOVk7?=
- =?us-ascii?Q?kIYGmpQSnGme6mxcmjLzh6k9aN6hEA805k4Eux5A7HK5RNyZ+GWcOcfytnvn?=
- =?us-ascii?Q?oVK+HmG2j7ZjK05KTcEOraqZxIIO/jFJLWP3OzBdOCH47+GSy2smqJakD2U3?=
- =?us-ascii?Q?DAfta2O1JX6L9Kp7Q+YKYgV6kl1Tg/FQqIagzO0U0tGimzJzzTPsevZ+gorh?=
- =?us-ascii?Q?JM/qUYoI8dE6tMBlSjihL+VIeTuIdgAXCtqi76YjUqIr6DMYpepzLWeaLugX?=
- =?us-ascii?Q?fSnjom20JY8REIkNwNWdpvCoy+keo7lyBNJEu5qrvyCtVjnxOENagBb0I7RB?=
- =?us-ascii?Q?zv9nqXVAeHXT1OCsDe5J4mX39SwcPxQNHu7WM9RgwA1OGik5LOXZyZV7IQnN?=
- =?us-ascii?Q?OhPYVCAfBArkHXPhxvsWfaqeTa7wqE1TN46A92GW94Qpg4ASSmnrrzD3aYn8?=
- =?us-ascii?Q?PPjQrv2EUbQAGnj82grdwrex9OIQfD7e8yfSwbjwj7uUkdruic+1/P926ITL?=
- =?us-ascii?Q?pjEluEwlFTKwlwIm8vNrADb/kWUc+k9bbllpjEcukhS4sw2y0YrWdOScyInp?=
- =?us-ascii?Q?eFCluLWArOXsMMt5nNcQwSTMopJ9raH1w09OK7puIDcgRN8z7mV0t83JSZrh?=
- =?us-ascii?Q?W+NfgCK+ofKrVShQPjqyDxNvVqMvjiT4jxNB?=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(376014)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Apr 2025 23:33:47.9821
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e862acf1-dcce-4877-550e-08dd79514f05
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB4A.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7196
+In-Reply-To: <20250410225030.2528385-4-shyamsaini@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_163357_612499_C9455F6C 
-X-CRM114-Status: GOOD (  14.80  )
+X-CRM114-CacheID: sfid-20250411_164110_616683_4777804E 
+X-CRM114-Status: GOOD (  11.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,48 +91,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 11, 2025 at 04:13:01PM +0100, Robin Murphy wrote:
-> On 11/04/2025 5:47 am, Nicolin Chen wrote:
-> > From: Jason Gunthorpe <jgg@nvidia.com>
-> > 
-> > ASPEED VGA card has two built-in devices:
-> >   0008:06:00.0 PCI bridge: ASPEED Technology, Inc. AST1150 PCI-to-PCI Bridge (rev 06)
-> >   0008:07:00.0 VGA compatible controller: ASPEED Technology, Inc. ASPEED Graphics Family (rev 52)
-> > 
-> > Its toplogy looks like this:
-> >   +-[0008:00]---00.0-[01-09]--+-00.0-[02-09]--+-00.0-[03]----00.0  Sandisk Corp Device 5017
-> >                               |               +-01.0-[04]--
-> >                               |               +-02.0-[05]----00.0  NVIDIA Corporation Device
-> >                               |               +-03.0-[06-07]----00.0-[07]----00.0  ASPEED Technology, Inc. ASPEED Graphics Family
-> >                               |               +-04.0-[08]----00.0  Renesas Technology Corp. uPD720201 USB 3.0 Host Controller
-> >                               |               \-05.0-[09]----00.0  Realtek Semiconductor Co., Ltd. RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller
-> >                               \-00.1  PMC-Sierra Inc. Device 4028
-> > 
-> > Being a legacy PCI device that does not have RID on the wire, the system
-> > does not preserve a RID for that PCI bridge (0008:06), so the IORT code
-> > has to dma alias for iort_pci_iommu_init() via pci_for_each_dma_alias(),
-> > resulting in both of them getting the same Stream ID.
-> 
-> Hmm, actually, this doesn't even make a whole heap of sense, and it's
-> not what's happening here at all.
-> 
-> The bridge *does* claim its own RID, and per the aliasing rules the
-> devices behind it claim both their own RID and the alias to function
-> 00.0 on the bridge's secondary bus, like so in action:
+Hi Shyam,
 
-Yea, I just found out that the bridge does have a different SID.
-It was actually the VGA controller itself having two fwspec->ids
-populated by the IORT code. Then, the SMMU driver allocated two
-separate streams with the same set of device pointer and SID:
-  pci 0008:06:00.0: arm_smmu_insert_master: fwspec index=0, sid=0x10600
-  pci 0008:06:00.0: Adding to iommu group 21
-  pci 0008:07:00.0: arm_smmu_insert_master: fwspec index=0, sid=0x10700
-  pci 0008:07:00.0: arm_smmu_insert_master: fwspec index=1, sid=0x10700
-  pci 0008:07:00.0: Adding to iommu group 21
+kernel test robot noticed the following build warnings:
 
-Perhaps the duplicated fwspec->id should be avoided in the IORT
-code at the first place v.s. bypassing the fwspec->ids[1]?
+[auto build test WARNING on robh/for-next]
+[also build test WARNING on linus/master v6.15-rc1 next-20250411]
+[cannot apply to soc/for-next]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Thanks
-Nicolin
+url:    https://github.com/intel-lab-lkp/linux/commits/Shyam-Saini/arm-smmu-move-MSI_IOVA-macro-definitions/20250411-070014
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
+patch link:    https://lore.kernel.org/r/20250410225030.2528385-4-shyamsaini%40linux.microsoft.com
+patch subject: [PATCH v2 3/3] arm-smmu: select suitable MSI IOVA
+config: arm-randconfig-002-20250412 (https://download.01.org/0day-ci/archive/20250412/202504120727.1ZmvnvO2-lkp@intel.com/config)
+compiler: arm-linux-gnueabi-gcc (GCC) 7.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250412/202504120727.1ZmvnvO2-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202504120727.1ZmvnvO2-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   In file included from kernel/fork.c:103:0:
+   include/linux/iommu.h: In function 'select_msi_iova_base':
+>> include/linux/iommu.h:1573:1: warning: no return statement in function returning non-void [-Wreturn-type]
+    }
+    ^
+
+
+vim +1573 include/linux/iommu.h
+
+  1570	
+  1571	static inline u32 select_msi_iova_base(u32 erratic_iova_addr)
+  1572	{
+> 1573	}
+  1574	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
