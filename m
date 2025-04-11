@@ -4,101 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8368C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 07:26:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01314C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 07:28:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wEO0P/4McgPJ7BP0yxbjT3/h2+Tl9EqmI0luXhkXNF0=; b=ALrFgh9Gs5x9zIv1B2GbJOzGYX
-	yikrdJN7pnFRKEv3xCTVwrlO19LEnWYSBTKbDhh8e7Kk5JkAOgo7RJAezBmhFCCb+0YogKmuRHnFi
-	yyaOf1+T1IFYx+wXGiLmnDdqQ5g/SiZRlMLsmqHY5lQMkT0SDEQKisi9n2vC4QmaH5D8q4E6OZf0g
-	PLGUVbnq0iEZ/Z35KsK2rJxBakla9lNzS4GpSMi3Itz531VIE1zV0eClzQcfi0dRmACXy4SZsiedN
-	7RnALo664sfi5ew+8H3/h2ASyhI7NPcoRDIoz+sqxyyZBW142UDVtw2bpzliOLyXE8qxHKAsclal1
-	fMtMLajw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+vCBsUp1g45K/G1aBxr+KjlYGybPsrUjQF9COL1Qm5M=; b=B4fZg+oQDtnVfoYfv7nT4SRTd3
+	xj5qvy0h4JfGpbvJtJ5pPbERseSHkcz+rLD9qSYqqfNJzrF5AoVp8Cl6xSbYhtonOFISSCsBC0NHM
+	x+mvB/KSGTgIQqQPJn/1vzGDO2q9tQpOEjaoOA2PNT71IDnxuyG/72GNV0s4bSnwAzNXZuH99oyLQ
+	/OY/VSTHksmmmd2ucD1OAPwapIFb2mhyN3WixNpRnDMqBUhc355j5UMY1JDfgX3IiEDhhzSoz84vU
+	58nlyqQCeq+MBJM/XPnU1oPtu54cP3E35rFSDeHnXu2lLXrrSb3jY7yulP5K/TdFLoZvxTpOCnxqs
+	QVt2r3Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u38me-0000000Cr0Q-1f6Q;
-	Fri, 11 Apr 2025 07:26:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u38o8-0000000CrPV-0Jvi;
+	Fri, 11 Apr 2025 07:28:12 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u37vV-0000000CjV6-0cOp
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 11 Apr 2025 06:31:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=wEO0P/4McgPJ7BP0yxbjT3/h2+Tl9EqmI0luXhkXNF0=; b=f1TcjYv24BEqSXK0gu5RYHx93F
-	gcWtYF7OrbiYuCpVPLYt+FVJJCmXy950uXFoS9hNv7J0d6XEz7GNrbDXiGXXxs6rTYHamWKeax8JC
-	3ln50nlBGSCum5x9kVgm+sfJaPP79eNjpnidiZxhYIF4qplS3fEjgoXbEVLYuU/bUZ4vOMWGGSiu+
-	XZxcRwP3kZyXHJUGvEVwqSkXqGsX9BIIrm1CNNuB9+kReOb1krvKr6GxY5Gf3r2SoYCPV7W8/jgCu
-	3i9qF502jsrSrodXiw17xt+MIEUvg9yfLbJwilfXfaQjfy2SZcUI1QU28DOg8id5m0ZajJ80614dQ
-	tjvk5vqw==;
-Received: from mail-vk1-f178.google.com ([209.85.221.178])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u37vS-00000008wJQ-0Uz7
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 06:31:44 +0000
-Received: by mail-vk1-f178.google.com with SMTP id 71dfb90a1353d-5259327a93bso719787e0c.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Apr 2025 23:31:40 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744353098; x=1744957898;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=wEO0P/4McgPJ7BP0yxbjT3/h2+Tl9EqmI0luXhkXNF0=;
-        b=r2Unsy53n+Hk6xqwHmQbcHbqwIsECniFedEa9RIkaasGhgGS3iffKAWULmKUROaDKD
-         iStgkDdn/q3dpYO7wdNmV6c1T1P5fb8HpvqnGeLntZWRfsxQMbhu3h1Ikbm6/xZXVFoQ
-         779fk4rPt9j3BuH4FSXaw0y2lez4c38bq/eWlqvT+F3vJPdNsXqbT/V6qiA0/JKRnhnK
-         B0b/t0KDWLr85S9ciNp25bV92UTJ6DcTRHFc++o8nPdlmBHWKjb96aOlqiduxy2BW6uz
-         uswXLRdqSgDmqrCSX+QUG1YAoJGrz695549BdEiOGFNr6IWeNjIWAWMQvwlf32ZA5AGZ
-         K8pA==
-X-Forwarded-Encrypted: i=1; AJvYcCXM5vNIVXGck30HeffBc+o4ICp7VeQ6AFWdYYGyGJpVmVNXIA0KyXGCEPyqi4XfFiyDy4GgIGA3UTlvbt3CvhCP@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+SKfYNgRPhxX/yeqOerZk3dZgg3uZv+XtTP6Zzm2XptAeoYZK
-	TXa42fIz2abDfU8E3yFjgnPxn9bSFtqAQ64dZPoRch4I4rYPUIXwp907XrE6xy8=
-X-Gm-Gg: ASbGnctboihNhIS8s3MqgSjvRvmrdlaYDyWBmoAFaHIfR4HUEVJJJDos6juPKJC6Lg1
-	Ub/eV2ckmd5ty5nj7LWgT+EWPHtiBxRJN6i7WKxBaEBTuRL6L9XRwUcyflotAB1jY150sWbPJfH
-	Ta6d+UGLzuK7JLbYeTDjpvY8W92k3PlkoSQVULdk88X6jGHzuh1jTD4dfRgSMz5OvUTkQGbJvue
-	z0LBhS6UlxylgFBsEdxK3/D5YZZ4bCCBzGZox+pJEzvP9BGVJn9QDCgnPGNHxNncuK+CGMpFW4R
-	dG1caN82b9ujwqQiZOCRY7OAHP96WllgK+njpkCCsfjLBg+ApltySnyRVsWjWBj/1Rzi2tuY/Vq
-	R8BM=
-X-Google-Smtp-Source: AGHT+IEjmb2gNq+Ma/yusH+65gS/oQEvxzAlrnsQK03suc9wKZbfSM+5XgbrYoiRbfIqrptO+nzepA==
-X-Received: by 2002:a05:6122:d95:b0:520:51a4:b81c with SMTP id 71dfb90a1353d-527c3596f31mr781730e0c.6.1744353098372;
-        Thu, 10 Apr 2025 23:31:38 -0700 (PDT)
-Received: from mail-ua1-f44.google.com (mail-ua1-f44.google.com. [209.85.222.44])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-875572b2b96sm944274241.28.2025.04.10.23.31.38
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 10 Apr 2025 23:31:38 -0700 (PDT)
-Received: by mail-ua1-f44.google.com with SMTP id a1e0cc1a2514c-86d75f4e9a1so648444241.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Apr 2025 23:31:38 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWN2eLNd1Pm53O+h9OrNdCtsn5K4c7A5fFM+CTeGePu+GK5YoTVlgiMaFoN/6fQrn1Lyy1qfY0cEQ/Yo09QBFcA@lists.infradead.org
-X-Received: by 2002:a05:6102:b02:b0:4bb:e8c5:b164 with SMTP id
- ada2fe7eead31-4c9e4ee720bmr793116137.7.1744353097831; Thu, 10 Apr 2025
- 23:31:37 -0700 (PDT)
+	id 1u37BX-0000000CaM3-40hh;
+	Fri, 11 Apr 2025 05:44:19 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53AKaCcl016316;
+	Fri, 11 Apr 2025 05:44:04 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=+vCBsUp1g45K/G1aB
+	xr+KjlYGybPsrUjQF9COL1Qm5M=; b=FSe0ra7p4lwy1wmug9UMochD8ex2XYqCs
+	t9uWTge40+JYN0FV93CtQk8T/k6cXnZYhFbUlInVzqDQVSxM/8OpImngvWVjZtvm
+	db0Iko5zeQrfbmwN85yKCJmO083u8jWMgfSQa93Rru3Zs+GkoJuItUVsQHmsbRbF
+	nV9hdc36GYnovs72snB4nMHXr5gohx1zGzdQtV+ywXI4zbKi3sinNo/Mk3o99r02
+	p6P6A1rtQEQeAJoOxVejacUtGJIGv3Fb3u6xMmkS/lNtIfge/6nYpTySKuSTgBgq
+	WY9cd5OwYjvr+F8iKCEbpjemW21IYJ54GpK/MmZA8kEXO6uJFyqIg==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 45xn5qhqc0-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 11 Apr 2025 05:44:04 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 53B1Ss7u017457;
+	Fri, 11 Apr 2025 05:44:03 GMT
+Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 45uh2m1cvf-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 11 Apr 2025 05:44:03 +0000
+Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
+	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 53B5i1F041156932
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 11 Apr 2025 05:44:01 GMT
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 96B5D2004B;
+	Fri, 11 Apr 2025 05:44:01 +0000 (GMT)
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id BCAFB20040;
+	Fri, 11 Apr 2025 05:44:00 +0000 (GMT)
+Received: from ozlabs.au.ibm.com (unknown [9.63.197.14])
+	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 11 Apr 2025 05:44:00 +0000 (GMT)
+Received: from jarvis.ozlabs.ibm.com (haven.au.ibm.com [9.63.198.114])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ozlabs.au.ibm.com (Postfix) with ESMTPSA id 3D645603C2;
+	Fri, 11 Apr 2025 15:43:57 +1000 (AEST)
+From: Andrew Donnellan <ajd@linux.ibm.com>
+To: linuxppc-dev@lists.ozlabs.org
+Cc: x86@kernel.org, linux-mm@kvack.org, linux-riscv@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        pasha.tatashin@soleen.com, sweettea-kernel@dorminy.me,
+        christophe.leroy@csgroup.eu
+Subject: [PATCH v14 02/11] mm/page_table_check: Reinstate address parameter in [__]page_table_check_pmd_set()
+Date: Fri, 11 Apr 2025 15:43:45 +1000
+Message-ID: <20250411054354.511145-3-ajd@linux.ibm.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250411054354.511145-1-ajd@linux.ibm.com>
+References: <20250411054354.511145-1-ajd@linux.ibm.com>
 MIME-Version: 1.0
-References: <20250410200606.20318-1-dylanbhatch@google.com> <20250410200606.20318-3-dylanbhatch@google.com>
-In-Reply-To: <20250410200606.20318-3-dylanbhatch@google.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 11 Apr 2025 08:31:25 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdU-1f3_ufKzHxg7KP-oQOTUR=P3e36W9X=+nkA4SH1F_Q@mail.gmail.com>
-X-Gm-Features: ATxdqUG8wphQEVB9r3YF2jmxCQ7GDshhzzkv5uNWZN8ycvFadPAv3ateJjFVJyg
-Message-ID: <CAMuHMdU-1f3_ufKzHxg7KP-oQOTUR=P3e36W9X=+nkA4SH1F_Q@mail.gmail.com>
-Subject: Re: [PATCH 2/2] arm64/module: Use text-poke API for late relocations.
-To: Dylan Hatch <dylanbhatch@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	"Mike Rapoport (Microsoft)" <rppt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Luis Chamberlain <mcgrof@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Song Liu <song@kernel.org>, 
-	Ard Biesheuvel <ardb@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Roman Gushchin <kfree@google.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: o0Q-5ZCisK4m76KtLVN_t4Z56ZHA6GOI
+X-Proofpoint-GUID: o0Q-5ZCisK4m76KtLVN_t4Z56ZHA6GOI
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-11_01,2025-04-10_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 bulkscore=0
+ malwarescore=0 clxscore=1015 priorityscore=1501 mlxscore=0 mlxlogscore=870
+ spamscore=0 suspectscore=0 lowpriorityscore=0 phishscore=0 adultscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2504110038
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_073142_288844_036F1992 
-X-CRM114-Status: GOOD (  26.49  )
+X-CRM114-CacheID: sfid-20250410_224416_156267_FB18A3C4 
+X-CRM114-Status: GOOD (  17.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,70 +109,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dylan,
+From: Rohan McLure <rmclure@linux.ibm.com>
 
-Thanks for your patch!
+This reverts commit a3b837130b58 ("mm/page_table_check: remove unused
+parameter in [__]page_table_check_pmd_set").
 
-On Thu, 10 Apr 2025 at 22:06, Dylan Hatch <dylanbhatch@google.com> wrote:
-> To enable late module patching, livepatch modules need to be able to
-> apply some of their relocations well after being loaded. In this
-> scenario, use the text-poking API to allow this, even with
-> STRICT_MODULE_RWX.
+Reinstate previously unused parameters for the purpose of supporting
+powerpc platforms, as many do not encode user/kernel ownership of the
+page in the pte, but instead in the address of the access.
 
-Wouldn't using the text-poking API involve calling text_poke()?
+Signed-off-by: Rohan McLure <rmclure@linux.ibm.com>
+Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com>
+[ajd: rebase on riscv and mm/page_table_check.c changes, remove riscv
+commit message comment]
+Signed-off-by: Andrew Donnellan <ajd@linux.ibm.com>
+---
+v13: remove inaccurate comment on riscv in the commit message
+---
+ arch/arm64/include/asm/pgtable.h |  4 ++--
+ arch/riscv/include/asm/pgtable.h |  4 ++--
+ arch/x86/include/asm/pgtable.h   |  4 ++--
+ include/linux/page_table_check.h | 11 +++++++----
+ mm/page_table_check.c            |  3 ++-
+ 5 files changed, 15 insertions(+), 11 deletions(-)
 
-> This patch is largely based off commit 88fc078a7a8f6 ("x86/module: Use
-> text_poke() for late relocations").
->
-> Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
-
-> --- a/arch/arm64/kernel/module.c
-> +++ b/arch/arm64/kernel/module.c
-
-> @@ -431,6 +444,30 @@ int apply_relocate_add(Elf64_Shdr *sechdrs,
->         return -ENOEXEC;
->  }
->
-> +int apply_relocate_add(Elf64_Shdr *sechdrs,
-> +                      const char *strtab,
-> +                      unsigned int symindex,
-> +                      unsigned int relsec,
-> +                      struct module *me)
-> +{
-> +       int ret;
-> +       bool early = me->state == MODULE_STATE_UNFORMED;
-> +       void *(*write)(void *, const void *, size_t) = memcpy;
-> +
-> +       if (!early) {
-> +               write = aarch64_insn_copy;
-
-Perhaps aarch64_insn_copy() should be renamed to text_poke(),  as it
-is a wrapper around __text_poke(), just like the x86 implementation?
-
-> +               mutex_lock(&text_mutex);
-> +       }
-> +
-> +       ret = __apply_relocate_add(sechdrs, strtab, symindex, relsec, me,
-> +                                  write);
-> +
-> +       if (!early)
-> +               mutex_unlock(&text_mutex);
-> +
-> +       return ret;
-> +}
-> +
->  static inline void __init_plt(struct plt_entry *plt, unsigned long addr)
->  {
->         *plt = get_plt_entry(addr, plt);
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index 805aec562d07..54801131ba21 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -661,7 +661,7 @@ static inline void __set_pte_at(struct mm_struct *mm,
+ static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
+ 			      pmd_t *pmdp, pmd_t pmd)
+ {
+-	page_table_check_pmd_set(mm, pmdp, pmd);
++	page_table_check_pmd_set(mm, addr, pmdp, pmd);
+ 	return __set_pte_at(mm, addr, (pte_t *)pmdp, pmd_pte(pmd),
+ 						PMD_SIZE >> PAGE_SHIFT);
+ }
+@@ -1440,7 +1440,7 @@ static inline void pmdp_set_wrprotect(struct mm_struct *mm,
+ static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
+ 		unsigned long address, pmd_t *pmdp, pmd_t pmd)
+ {
+-	page_table_check_pmd_set(vma->vm_mm, pmdp, pmd);
++	page_table_check_pmd_set(vma->vm_mm, address, pmdp, pmd);
+ 	return __pmd(xchg_relaxed(&pmd_val(*pmdp), pmd_val(pmd)));
+ }
+ #endif
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 56e6ad5179c9..32d172e8cdde 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -824,7 +824,7 @@ static inline pud_t pud_mkspecial(pud_t pud)
+ static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
+ 				pmd_t *pmdp, pmd_t pmd)
+ {
+-	page_table_check_pmd_set(mm, pmdp, pmd);
++	page_table_check_pmd_set(mm, addr, pmdp, pmd);
+ 	return __set_pte_at(mm, (pte_t *)pmdp, pmd_pte(pmd));
+ }
+ 
+@@ -895,7 +895,7 @@ static inline void pmdp_set_wrprotect(struct mm_struct *mm,
+ static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
+ 				unsigned long address, pmd_t *pmdp, pmd_t pmd)
+ {
+-	page_table_check_pmd_set(vma->vm_mm, pmdp, pmd);
++	page_table_check_pmd_set(vma->vm_mm, address, pmdp, pmd);
+ 	return __pmd(atomic_long_xchg((atomic_long_t *)pmdp, pmd_val(pmd)));
+ }
+ 
+diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
+index d1ed35779948..466836ead08d 100644
+--- a/arch/x86/include/asm/pgtable.h
++++ b/arch/x86/include/asm/pgtable.h
+@@ -1280,7 +1280,7 @@ static inline pud_t native_local_pudp_get_and_clear(pud_t *pudp)
+ static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
+ 			      pmd_t *pmdp, pmd_t pmd)
+ {
+-	page_table_check_pmd_set(mm, pmdp, pmd);
++	page_table_check_pmd_set(mm, addr, pmdp, pmd);
+ 	set_pmd(pmdp, pmd);
+ }
+ 
+@@ -1425,7 +1425,7 @@ static inline void pmdp_set_wrprotect(struct mm_struct *mm,
+ static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
+ 		unsigned long address, pmd_t *pmdp, pmd_t pmd)
+ {
+-	page_table_check_pmd_set(vma->vm_mm, pmdp, pmd);
++	page_table_check_pmd_set(vma->vm_mm, address, pmdp, pmd);
+ 	if (IS_ENABLED(CONFIG_SMP)) {
+ 		return xchg(pmdp, pmd);
+ 	} else {
+diff --git a/include/linux/page_table_check.h b/include/linux/page_table_check.h
+index d188428512f5..5855d690c48a 100644
+--- a/include/linux/page_table_check.h
++++ b/include/linux/page_table_check.h
+@@ -19,7 +19,8 @@ void __page_table_check_pmd_clear(struct mm_struct *mm, pmd_t pmd);
+ void __page_table_check_pud_clear(struct mm_struct *mm, pud_t pud);
+ void __page_table_check_ptes_set(struct mm_struct *mm, pte_t *ptep, pte_t pte,
+ 		unsigned int nr);
+-void __page_table_check_pmd_set(struct mm_struct *mm, pmd_t *pmdp, pmd_t pmd);
++void __page_table_check_pmd_set(struct mm_struct *mm, unsigned long addr,
++				pmd_t *pmdp, pmd_t pmd);
+ void __page_table_check_pud_set(struct mm_struct *mm, unsigned long addr,
+ 				pud_t *pudp, pud_t pud);
+ void __page_table_check_pte_clear_range(struct mm_struct *mm,
+@@ -75,13 +76,14 @@ static inline void page_table_check_ptes_set(struct mm_struct *mm,
+ 	__page_table_check_ptes_set(mm, ptep, pte, nr);
+ }
+ 
+-static inline void page_table_check_pmd_set(struct mm_struct *mm, pmd_t *pmdp,
++static inline void page_table_check_pmd_set(struct mm_struct *mm,
++					    unsigned long addr, pmd_t *pmdp,
+ 					    pmd_t pmd)
+ {
+ 	if (static_branch_likely(&page_table_check_disabled))
+ 		return;
+ 
+-	__page_table_check_pmd_set(mm, pmdp, pmd);
++	__page_table_check_pmd_set(mm, addr, pmdp, pmd);
+ }
+ 
+ static inline void page_table_check_pud_set(struct mm_struct *mm,
+@@ -131,7 +133,8 @@ static inline void page_table_check_ptes_set(struct mm_struct *mm,
+ {
+ }
+ 
+-static inline void page_table_check_pmd_set(struct mm_struct *mm, pmd_t *pmdp,
++static inline void page_table_check_pmd_set(struct mm_struct *mm,
++					    unsigned long addr, pmd_t *pmdp,
+ 					    pmd_t pmd)
+ {
+ }
+diff --git a/mm/page_table_check.c b/mm/page_table_check.c
+index 893555860d91..5c2349ab718e 100644
+--- a/mm/page_table_check.c
++++ b/mm/page_table_check.c
+@@ -218,7 +218,8 @@ static inline void page_table_check_pmd_flags(pmd_t pmd)
+ 		WARN_ON_ONCE(swap_cached_writable(pmd_to_swp_entry(pmd)));
+ }
+ 
+-void __page_table_check_pmd_set(struct mm_struct *mm, pmd_t *pmdp, pmd_t pmd)
++void __page_table_check_pmd_set(struct mm_struct *mm, unsigned long addr,
++				pmd_t *pmdp, pmd_t pmd)
+ {
+ 	if (&init_mm == mm)
+ 		return;
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+2.49.0
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
