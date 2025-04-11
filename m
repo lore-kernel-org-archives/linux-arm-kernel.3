@@ -4,75 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09040C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 12:31:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8003CC369A8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 12:36:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rQt1LKmj/+qjMj0wrgFFc+//+1h0SOGHI/boMynvsHQ=; b=lQEuoy+91QppkECfWsV4jZhNn4
-	46QHsAS+H6mix6cz2An3lBy4mLXXxI0jp91LHved+nrfXSUYlWNSq8Ex6fCm2n/rUvQaxZeJ8KXEL
-	zhgzGOEk4YPpkldty2EOR+ST1Lv6u27WGW6knVjALvWOpEfTj1LzD+TQDVfTgD37sFdoqykyac3Xj
-	+TQUCRSqrHKuz/27N6H6qU0ZIGILkxp4Aqpm9fUpzSv9yg/gW1DGC9+aGsccAa0xIjpaVI+uP+lA4
-	YIq2vjEnfDPn1vhuo5YLBbkeGZMG4uSa7zuaDkyqMRNsrEwMlM5iTorig0Xl3/bzHdQ0/pRDHswEZ
-	IZWFPTrw==;
+	bh=bzczYYuZcL7JZL80mwvPXP+/D/Quzt4oc+nptJFLHjA=; b=e5m9VkDchTHaG+/hwwaXNBh1MA
+	G7M07KNBYoMJ6e9TzcnThJgzGN8iNbA3hzn0ukyg42aDpr5+hEYSEgAwMTd/9BNJb5OEaMsGYncjh
+	6r2OZVIJF+haZ/bEHupdQJYwTfcp06aHJ5QvN9jhISBfmSa3cJ3lzRBV7mptt5OUbSfy65BLPC5El
+	5g2Fz6BpLNKdIyT0I/2mon1QoQWQJyrOten17oUQ0Dpq2ZmIKvsGlmBmCJuk7k+uZtrfimZoRZPiD
+	MbvYZY3w6oQGaNDaA6AAFdZrRQ2fDgOCSx2+mCIJ5TPJALMuRplGpLKeqCdZPNG1M08EUD3WlI602
+	yaVpsCtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3DXn-0000000Dkfl-1OAR;
-	Fri, 11 Apr 2025 12:31:39 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1u3DcO-0000000DlCJ-1DHx;
+	Fri, 11 Apr 2025 12:36:24 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3DVy-0000000DkPN-1wrG
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 12:29:48 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53BCTgBg1562585
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 11 Apr 2025 07:29:42 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744374582;
-	bh=rQt1LKmj/+qjMj0wrgFFc+//+1h0SOGHI/boMynvsHQ=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=rB7B1R3i3tIqzJqqnUlAGxkjDL0V2iq4DIQvl6uPh4yjHSTMQOpij0p0+yfCSYqtC
-	 0gjg91tcuYXY/YJ9FMcK7Mnd9sRgutdupL7H+luKGcXweg/Vryye2WthNhHFf/HUsj
-	 J5YTRjtlWr67xudcDg5ZpZJH+Q6AiJuij96+cuL8=
-Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53BCTgBO002481
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 11 Apr 2025 07:29:42 -0500
-Received: from DLEE106.ent.ti.com (157.170.170.36) by DLEE114.ent.ti.com
- (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 11
- Apr 2025 07:29:42 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE106.ent.ti.com
- (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 11 Apr 2025 07:29:41 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53BCTgSG012041;
-	Fri, 11 Apr 2025 07:29:42 -0500
-Date: Fri, 11 Apr 2025 07:29:42 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Dominik Haller <d.haller@phytec.de>
-CC: <robh@kernel.org>, <kristo@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <vigneshr@ti.com>, <m-chawdhry@ti.com>,
-        <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <upstream@lists.phytec.de>
-Subject: Re: [PATCH 2/2] arm64: dts: ti: Add basic support for
- phyBOARD-Izar-AM68x
-Message-ID: <20250411122942.3gh2prc6cqrynfva@darkish>
-References: <20250411101004.13276-1-d.haller@phytec.de>
- <20250411101004.13276-2-d.haller@phytec.de>
+	id 1u3DaZ-0000000Dl00-1cZI;
+	Fri, 11 Apr 2025 12:34:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1744374853; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=J12NbyA007YxzZNPY2TSEROLBTteBHzZKrib0FiKJ+sAN3PegqHrru9IZwDEUFjLz/Ue9v/U6ht0GoC78IAVlqDN5Pid0huBXItrgIzgcWLoUjBBC3vPd5upnYo1emCXhzzqHdEvpqf4cXJlH1Ix5mC1vR3HTUi6dCsCFSfa1So=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1744374853; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=bzczYYuZcL7JZL80mwvPXP+/D/Quzt4oc+nptJFLHjA=; 
+	b=F46fsv5k1hSnhCSTwpj/f5vukORYVK64vgFeNlnEB3ODiPbkuQRbtkBFGNUon+O7AeirdBStM6+/oC/HmcF5pLaJKCCLEn++e80cnXw2efLoNUmnihI2ImeiC2uD0Be1mfecJzr1C8onkRHnPvVLSqYXF4UdZdcfpQyO7CRcONI=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1744374853;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=bzczYYuZcL7JZL80mwvPXP+/D/Quzt4oc+nptJFLHjA=;
+	b=VRhWPrxEYf/sPBQZvQ/8wIN9Ns/rvZ3q7x8o0z+nD1vMmU0uG+7i4BkwbyzYrslW
+	ilPkjF+P+GswFM6AIqNQy5W62oCg3IT1J8rv/DmNKr2Wpe/vHjbpyTsnhgzmygvXziO
+	TCRjvFwtWaU//XpFd0wzUJfOMSHfSf8H+1/rOq24=
+Received: by mx.zohomail.com with SMTPS id 174437484240762.90746457848559;
+	Fri, 11 Apr 2025 05:34:02 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id AD25C1801EB; Fri, 11 Apr 2025 14:33:56 +0200 (CEST)
+Date: Fri, 11 Apr 2025 14:33:56 +0200
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: quentin.schulz@cherry.de, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	dse@thaumatec.com, Heiko Stuebner <heiko.stuebner@cherry.de>
+Subject: Re: [PATCH v3 1/3] arm64: dts: rockchip: add mipi dcphy nodes to
+ rk3588
+Message-ID: <lvn74g6bcw2bxd3ciizso6pfvhp3ulxhmqrxm67zjcdx674fnv@3sxsqwsv5bin>
+References: <20250226140942.3825223-1-heiko@sntech.de>
+ <20250226140942.3825223-2-heiko@sntech.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="fjxkfmf5zvl4ht2g"
 Content-Disposition: inline
-In-Reply-To: <20250411101004.13276-2-d.haller@phytec.de>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+In-Reply-To: <20250226140942.3825223-2-heiko@sntech.de>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-1.4.2/244.237.79
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_052946_597468_518DFDF2 
-X-CRM114-Status: GOOD (  16.30  )
+X-CRM114-CacheID: sfid-20250411_053431_492305_AC1D8426 
+X-CRM114-Status: GOOD (  17.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,137 +84,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quick look comments below.
 
-On 12:10-20250411, Dominik Haller wrote:
-> The phyCORE-AM68x/TDA4x [1] is a SoM (System on Module) featuring TI's
-> AM68x/TDA4x SoC. It can be used in combination with different carrier
-> boards. This module can come with different sizes and models for DDR,
-> eMMC, SPI NOR Flash and various SoCs from the AM68x/TDA4x (J721S2) family.
-> 
-> A reference carrier board design, called phyBOARD-Izar is used for the
-> phyCORE-AM68x/TDA4x development kit [2].
-> 
->     Supported features:
->       * Debug UART
->       * 2x SPI NOR Flash
->       * eMMC
->       * 2x Ethernet
->       * Micro SD card
->       * I2C EEPROM
->       * I2C RTC
->       * 2x I2C GPIO Expander
->       * LEDs
->       * USB 5 Gbit/s
->       * PCIe
+--fjxkfmf5zvl4ht2g
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 1/3] arm64: dts: rockchip: add mipi dcphy nodes to
+ rk3588
+MIME-Version: 1.0
 
-Can we drop the whitespace prefix?
+Hi,
 
-> 
-> For more details see the product pages for the SoM and the
-> development kit:
-> 
-> [1] https://www.phytec.eu/en/produkte/system-on-modules/phycore-am68x-tda4x/
-> [2] https://www.phytec.eu/en/produkte/development-kits/phyboard-izar/
-> 
-> Signed-off-by: Dominik Haller <d.haller@phytec.de>
+On Wed, Feb 26, 2025 at 03:09:40PM +0100, Heiko Stuebner wrote:
+> From: Heiko Stuebner <heiko.stuebner@cherry.de>
+>=20
+> Add the two MIPI-DC-phy nodes to the RK3588, that will be used by the
+> DSI2 controllers and hopefully in some future also for camera input.
+>=20
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
 > ---
 
-Could you share the bootlog in the diffstat along with output of
-deferred_devices Using the default defconfig -> I want to make sure
-there are no defconfig updates needed.
+Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+Tested-by: Sebastian Reichel <sebastian.reichel@collabora.com> # RK3588 EVB1
 
->  arch/arm64/boot/dts/ti/Makefile               |   1 +
->  .../boot/dts/ti/k3-am68-phyboard-izar.dts     | 576 +++++++++++++++++
->  .../boot/dts/ti/k3-am68-phycore-som.dtsi      | 594 ++++++++++++++++++
->  3 files changed, 1171 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/ti/k3-am68-phyboard-izar.dts
->  create mode 100644 arch/arm64/boot/dts/ti/k3-am68-phycore-som.dtsi
-> 
+-- Sebastian
 
-[...]
-
-> +
-> +#include "k3-serdes.h"
-> +
-> +/ {
-> +	compatible = "phytec,am68-phyboard-izar", "ti,j721s2";
-> +	model = "PHYTEC phyBOARD-Izar-AM68x";
-> +
-> +	aliases {
-> +		ethernet0 = &cpsw_port1;
-> +		mmc1 = &main_sdhci1;
-> +		serial0 = &wkup_uart0;
-> +		serial1 = &mcu_uart0;
-> +		serial2 = &main_uart8;
-> +		serial3 = &main_uart1;
-> +		serial4 = &main_uart2;
-
-
-Could you order this slightly differently:
-serial
-mmc
-ethernet
-
+>  arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 42 +++++++++++++++++++
+>  1 file changed, 42 insertions(+)
+>=20
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/b=
+oot/dts/rockchip/rk3588-base.dtsi
+> index 8b497eb5da16..5535d5d905f6 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+> @@ -574,6 +574,16 @@ sys_grf: syscon@fd58c000 {
+>  		reg =3D <0x0 0xfd58c000 0x0 0x1000>;
+>  	};
+> =20
+> +	mipidcphy0_grf: syscon@fd5e8000 {
+> +		compatible =3D "rockchip,rk3588-dcphy-grf", "syscon";
+> +		reg =3D <0x0 0xfd5e8000 0x0 0x4000>;
 > +	};
 > +
-> +	chosen {
-> +		stdout-path = "serial2:115200n8";
-
-= &main_uart8
-
+> +	mipidcphy1_grf: syscon@fd5ec000 {
+> +		compatible =3D "rockchip,rk3588-dcphy-grf", "syscon";
+> +		reg =3D <0x0 0xfd5ec000 0x0 0x4000>;
 > +	};
 > +
-> +	transceiver1: can-phy1 {
-> +		compatible = "ti,tcan1043";
-> +		#phy-cells = <0>;
-> +		max-bitrate = <8000000>;
+>  	vop_grf: syscon@fd5a4000 {
+>  		compatible =3D "rockchip,rk3588-vop-grf", "syscon";
+>  		reg =3D <0x0 0xfd5a4000 0x0 0x2000>;
+> @@ -2915,6 +2925,38 @@ usbdp_phy0: phy@fed80000 {
+>  		status =3D "disabled";
+>  	};
+> =20
+> +	mipidcphy0: phy@feda0000 {
+> +		compatible =3D "rockchip,rk3588-mipi-dcphy";
+> +		reg =3D <0x0 0xfeda0000 0x0 0x10000>;
+> +		rockchip,grf =3D <&mipidcphy0_grf>;
+> +		clocks =3D <&cru PCLK_MIPI_DCPHY0>,
+> +			 <&cru CLK_USBDPPHY_MIPIDCPPHY_REF>;
+> +		clock-names =3D "pclk", "ref";
+> +		resets =3D <&cru SRST_M_MIPI_DCPHY0>,
+> +			 <&cru SRST_P_MIPI_DCPHY0>,
+> +			 <&cru SRST_P_MIPI_DCPHY0_GRF>,
+> +			 <&cru SRST_S_MIPI_DCPHY0>;
+> +		reset-names =3D "m_phy", "apb", "grf", "s_phy";
+> +		#phy-cells =3D <1>;
+> +		status =3D "disabled";
 > +	};
 > +
-
-[...]
-
-> +
-> +&serdes_refclk {
-> +	clock-frequency = <100000000>;
-> +};
-> +
-> +&serdes0 {
-> +	status = "okay";
-
-Documentation/devicetree/bindings/dts-coding-style.rst
-	Add an EoL
-
-> +	serdes0_pcie_link: phy@0 {
-> +		reg = <0>;
-> +		cdns,num-lanes = <1>;
-> +		#phy-cells = <0>;
-> +		cdns,phy-type = <PHY_TYPE_PCIE>;
-vendor specific properties come last
-
-
-
-> +		resets = <&serdes_wiz0 1>;
+> +	mipidcphy1: phy@fedb0000 {
+> +		compatible =3D "rockchip,rk3588-mipi-dcphy";
+> +		reg =3D <0x0 0xfedb0000 0x0 0x10000>;
+> +		rockchip,grf =3D <&mipidcphy1_grf>;
+> +		clocks =3D <&cru PCLK_MIPI_DCPHY1>,
+> +			 <&cru CLK_USBDPPHY_MIPIDCPPHY_REF>;
+> +		clock-names =3D "pclk", "ref";
+> +		resets =3D <&cru SRST_M_MIPI_DCPHY1>,
+> +			 <&cru SRST_P_MIPI_DCPHY1>,
+> +			 <&cru SRST_P_MIPI_DCPHY1_GRF>,
+> +			 <&cru SRST_S_MIPI_DCPHY1>;
+> +		reset-names =3D "m_phy", "apb", "grf", "s_phy";
+> +		#phy-cells =3D <1>;
+> +		status =3D "disabled";
 > +	};
-Add an EoL
-
-> +	serdes0_usb_link: phy@1 {
-> +		reg = <1>;
-> +		cdns,num-lanes = <1>;
-> +		#phy-cells = <0>;
-> +		cdns,phy-type = <PHY_TYPE_USB3>;
-
-Same.
-
-> +		resets = <&serdes_wiz0 2>;
-> +	};
-> +};
 > +
+>  	combphy0_ps: phy@fee00000 {
+>  		compatible =3D "rockchip,rk3588-naneng-combphy";
+>  		reg =3D <0x0 0xfee00000 0x0 0x100>;
+> --=20
+> 2.47.2
+>=20
+>=20
 
-[...]
+--fjxkfmf5zvl4ht2g
+Content-Type: application/pgp-signature; name="signature.asc"
 
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmf5DC0ACgkQ2O7X88g7
++prdKg/8D+e/PQmWiaPq92NTiX3x04IaNL3q23gGelMcchdHm/Cc52ZmqdQsq/PB
+oZqOK0fOxforJ/MWJy4bFr9HevB1RhTXQoWbiE7UcoFJZlnqMEckH3VT0r8f1DcF
+kKAZQ2fYjZx6JeKbTJOOYU0uhiUAEvzkMeBm34DnTxN9NL5uBRrJGGfxKP6s9uTx
+uWWTPHqC1SV+8huJJwTv2vEZ+COqGzE+oqZ7s7GuUZB3HpjWeWr5FnRrI9dYfSVW
+8YEaZM7h9tTlifNBvy1ice13Fn2xccgoEgbsVwsbLAmnzffwq+Aofyb2nB3FLZ6g
+GRnhtsci0N+NNgwH2b8Mf56U1nJIsWaVmiSrQsBAMiRYxmXbq3J4heUcjOO3RVOM
+dRThE7H04NH5suras3f30pAxLjV3gJZ+V4Pip2b3CHcmQWmXG+6AHMKuEjSWvvw+
+KlgyFEs+IJZeJs1RcV3AHD0EiFu5YwOOoC+Z3MLYMIT06fWw/6jiChgCCk3hREmz
+Jgx5vdaOGn6siQW1mmJEoNEr7GJVWH1hfr06s4SI9prShXocUMjcQHW4VM+1liPe
+x05epWEG9+gag+dtkbiC+KvBzhcjuVeUQ89aR9fh5jqe/zmSs/ZQ/fT66CUzgCjj
+3ZPdXgf9lzSJLMB0kfpMdfuXk2spNB0/IIS2FYguINZNnybWY6Q=
+=pywf
+-----END PGP SIGNATURE-----
+
+--fjxkfmf5zvl4ht2g--
 
