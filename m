@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0C75C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 17:25:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD453C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 17:27:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4lF4YfTr9AIhBpLsWbyDM2hi4bruchpR0yRH8rzJirI=; b=VWgtqsVGbRksIefXMl1wFqTJEt
-	10xu8MnhNDulqPxp09NZFhK4cxHqAwFWHzFlavRqdiQ4Vx/QgpeUaj1umMfMuK1i96u8c+opdh9TD
-	47bekYLyH9XrpU2euEdno9Fy4zt9X8tt2BXi11Z4o6NzvjKQPXGExjJuylH03KGW+xuMqcPRwINm1
-	nCWl/Y3K1SzKFqjkNHSMFLFShz3aykRZxA2Uka1oEVrK444eeGhze4eVhtV21WPuJvJHgJVpPMaA9
-	cfNKQtFVJ41rofAueqYi/SeV4IH0LQ9nGcXuDgmufZCLglu7ZxeagMOsgVMX8+y9ZwO4u0yAEDyG1
-	zcf0m7vA==;
+	bh=WZlzTaUTWuHW5xBT0sVI85B5bgiEOliqUztFBmHrmSE=; b=rINs+mkOBYVBKDEbzpGxofvve6
+	BsnU3IqRBVp/xTWKDLkxrpp1qq+YErhs2QNtnuXk8xXyk9pvDie1sqexM7QzpBxQABb5MmzHqh6v1
+	hKv8F/4RAfxuezb8g7MjE9KE1/YdfKpGC/B+nW0UnKfEFGs6kKt8d9b4w09cFEsvESZ29Bfr+NBl9
+	RjFI1qa3wInoHIxewNUIu6YK2DuMSMb6CimcsCUnsAOflcvzZf34Q+corf9WKgI1cUh2eJGoNF2dh
+	wKx3O8AqWHexLsNhW5GW/pbYGqRFLRKCj3y1ZXFBJ27ekbrBuAZdjqtdm/CBSPf/MQ5weINwqQHKk
+	0yLVsOdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3I7n-0000000EVq9-2T6I;
-	Fri, 11 Apr 2025 17:25:07 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1u3I9l-0000000EWGJ-1LEI;
+	Fri, 11 Apr 2025 17:27:09 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3I5y-0000000EVgI-1ooY
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 17:23:15 +0000
+	id 1u3I7w-0000000EVrS-0Urt;
+	Fri, 11 Apr 2025 17:25:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E285A5C67FF;
-	Fri, 11 Apr 2025 17:20:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DA98C4CEE2;
-	Fri, 11 Apr 2025 17:23:13 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id A71B8A4ACAB;
+	Fri, 11 Apr 2025 17:19:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3B2DC4CEE7;
+	Fri, 11 Apr 2025 17:25:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744392193;
-	bh=ERyjsQ1M3EAxug/PGHbTwXHaDvmCVIXQyTsmFurqmpA=;
+	s=k20201202; t=1744392314;
+	bh=wKL6klck+zBAXPJH7vpcgxZNxZBcOAkRLudiLM2Ns3Y=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cf3mNQtN08zoE7uYbz6GM/u+v7lAUYuMaNs+cjAnWU2xMJLFv6MUJb8oIFdf0wyBe
-	 7JcXyavUkEtAoD3o+CVqkz+0F800vaaLV/opXa0wZ+80G6lWL+XOMd0pxAuV3gMWPJ
-	 Rl3ZvPftQ8o9kOLb8ENLeJQNsTgP1LOFvk/uyMCkAMIx1a9tUhvH37hYIzrCKSc0mT
-	 XXyP9dzq62FdZpbHKN4Vy4PkS3nVPjHgLhx/b9dNUV5NSedDK8HcoFHli1gejLZ/g8
-	 HnydNNNWHynNIrQ5dSj59byLnjaNYqeyvMBS4ckBL/NGl/eShzqXsDalHjfnNDol2r
-	 29Ke4xFNO6GKQ==
-Date: Fri, 11 Apr 2025 12:23:12 -0500
+	b=up/PWyhT0eLoiCHQaOrBL9cHonTnfSQPtDomBOSEM813K7ZiLq985bQklbdSym773
+	 O33EAI4T2+Njvk+qfa0JE0ZeejoEy/Cj3TNZBSC93t72tKBK2oJlx3vOOBicD+54QZ
+	 HL+PXJj9CO5w9qIBL1UZ9eooKlKRBkM8b8H08rCP2hOeB+EBdHusZ1mY5i2LYIQKHu
+	 QxcbmgnCsbkTILHGHUBtrIdZTvXdVR1Nn8ukV5CaFUIzNAWMTC9rgxnULBvDwgfd66
+	 HhSrBtfoe+HiEa4iLQrQYRJ8gjwbhbwEM1m9YNGcBVGRM8Fd5dmKFev/Chf+Or0bYy
+	 9B3MK0o/cyIgA==
+Date: Fri, 11 Apr 2025 12:25:13 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: imx@lists.linux.dev, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	devicetree@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
-	Sascha Hauer <s.hauer@pengutronix.de>, linux@ew.tq-group.com,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/2] dt: bindings: arm: add bindings for TQMa95xxSA
-Message-ID: <174439219157.3544865.14100579453477378929.robh@kernel.org>
-References: <20250410113107.2057426-1-alexander.stein@ew.tq-group.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: lihongbo22@huawei.com, mbrugger@suse.com, linux-kernel@vger.kernel.org,
+	y.oudjana@protonmail.com, devicetree@vger.kernel.org,
+	fshao@chromium.org, conor+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, mandyjh.liu@mediatek.com,
+	ulf.hansson@linaro.org, kernel@collabora.com, krzk+dt@kernel.org,
+	linux-pm@vger.kernel.org, matthias.bgg@gmail.com,
+	wenst@chromium.org
+Subject: Re: [PATCH v1 1/3] dt-bindings: power: mediatek: Support Dimensity
+ 1200 MT6893 MTCMOS
+Message-ID: <174439231282.3566165.14821715325780672996.robh@kernel.org>
+References: <20250410143944.475773-1-angelogioacchino.delregno@collabora.com>
+ <20250410143944.475773-2-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250410113107.2057426-1-alexander.stein@ew.tq-group.com>
+In-Reply-To: <20250410143944.475773-2-angelogioacchino.delregno@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_102314_512763_02F1BB36 
-X-CRM114-Status: UNSURE (   9.19  )
+X-CRM114-CacheID: sfid-20250411_102516_217909_3847B498 
+X-CRM114-Status: UNSURE (   7.79  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,16 +80,16 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 10 Apr 2025 13:31:02 +0200, Alexander Stein wrote:
-> TQMa95xxSA is a SOM using NXP i.MX95 CPU. MB-SMARC-2 is a carrier
-> reference design.
+On Thu, 10 Apr 2025 16:39:42 +0200, AngeloGioacchino Del Regno wrote:
+> Add support for the Power Domains (MTCMOS) integrated into the
+> MediaTek Dimensity 1200 (MT6893) SoC.
 > 
-> [1] https://www.tq-group.com/en/products/tq-embedded/arm-architecture/tqma95xxsa/
-> 
-> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 > ---
->  Documentation/devicetree/bindings/arm/fsl.yaml | 10 ++++++++++
->  1 file changed, 10 insertions(+)
+>  .../power/mediatek,power-controller.yaml      |  2 ++
+>  .../dt-bindings/power/mediatek,mt6893-power.h | 35 +++++++++++++++++++
+>  2 files changed, 37 insertions(+)
+>  create mode 100644 include/dt-bindings/power/mediatek,mt6893-power.h
 > 
 
 Acked-by: Rob Herring (Arm) <robh@kernel.org>
