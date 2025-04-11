@@ -4,160 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A01B5C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 07:50:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1C77C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 08:04:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EbBELgs77b7lIUpwOS421z6ZzsJBpZxVQvu+YxmPQvE=; b=rB69A7R5JOeldrhqcOr942jzzv
-	/7Bu+x11WgElnLeFkUgPpF/d/mGcBmFDbBagUYbOfa9kzbGYCcffzRoPTmd3u4Kbrfkak/vXO+JD+
-	1pkuz0o1v/rw4Av6mNI7+bMkytDZIXzxC++4NBrpdieRRTiy/b0GZgMunXHiRzjB4TYs/HeYGhyEH
-	GCpk+NMzpMIkHh0aYpbzF4bQERuY/53bHO53NrqRoglGlRQzaFaqrQJZskh7igKejqAjdj/f6ZIlG
-	/GeF+x7flVdtxBJvAwEypSwMRaiUd93kYIcDJ+NEK+e3mk70lV/bC2HbZMxss5BxFX1ZsQyB8/lZq
-	XVSEqKXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VPQS0Yrd3ZJe9P4rtVjnWdTsU0wOrmOCC0W9L1VrhDo=; b=V6pMgrqw9OTZhKlaptwAyTMdML
+	CKssYEYN7Uhsn83TXlMm6wlkpvN1DyVA3P9/PQv6Ywt9acRb/jwHjUCCLxg2wfWwQZ9eXMJY4+oKZ
+	+W52g0Fsmq0YPOxa4TxcTviulb/wPAm2hNetSs9FVIq909Wb6H/ZIz5DyvsYJPZqz23cSce3eJ+NQ
+	Syr+XqkvbNRXOrTICIrpQd3EmsQjqXcanDsDSkhvuEMUaN36lVukUwXdGT5eXK5Be85jw9I4FcwLc
+	LtVbsdK60Awaxpv+dtkCVJ6oyVTwIgDMc+0zZsa4rIm9WN/6hHTs8eVJgvRCh9Zx+B9MmBCm4W9DC
+	8MJH8LWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u399G-0000000CweS-1y2L;
-	Fri, 11 Apr 2025 07:50:02 +0000
-Received: from mail-northeuropeazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1u39My-0000000Cxtw-2UuK;
+	Fri, 11 Apr 2025 08:04:12 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3941-0000000CviG-2P2Y
+	id 1u39LA-0000000Cxkt-31gg
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 11 Apr 2025 08:02:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=VPQS0Yrd3ZJe9P4rtVjnWdTsU0wOrmOCC0W9L1VrhDo=; b=NnwYHq0vXgT80SRF94Qks5uPV4
+	enY9GAm25eK5FKimeF9VENYOvqj6jWCXbs101PezqcuFm+MXS1u/hzxIZFYTcnJsCAgMMQuYDjOwX
+	zrMYRB+nJnPMEOtD7t2/HrVy9pEOrPiMeSiSabMQu6epeFf99vO1/KZXoS0Q7xzS7UaVc4j5RhU16
+	eWi95rk9HVLIBVMI49tX4JAXu1XiE0CwnrY7GA9pODISftsacBu4f7xV+FXLZoia9uffeZT7AYhIG
+	btboNq8sXXvEio8XhFzHGgzSQyjlrCxUWhWqbtEH//EyPymQOlU33NYU1NjjRuypFZ43CHlF8Ys+i
+	6rmGGILA==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u39L7-00000008ySb-31H6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 07:44:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uUUnaq47J/T3Tc8ouD/vDhn5ggmK5o7MAyuBGceo0q2VyF3YbYiIIQTRuZfrr2KCIHPU5Sji+TB2AGSsjym4KDD+O6AkH7zTp7pUZFwfr3t5vzZiuQ53+xjRD9f3heVNXToekpxd19rphG1S4jALf2z4A6utvQM0XvW62eBRyHOpGTgdjegCW6h2OaBGTEXjDY1uL7yqKv3Q5//KYuI68AFEYYvfJ+NWQow6Cu7MmK3atz2vfvTJroj/zQ33Fgtx4USUJnu30ikGkSeWGSiYO0Nr9qb40uwf7+R3KplGCgH13KNPydzdF75yEyZfG8Yc0Ehn5+OzCYR6IuhXYT4KIg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EbBELgs77b7lIUpwOS421z6ZzsJBpZxVQvu+YxmPQvE=;
- b=wySRgQqxGVW9ayuY82uq5f8G6DaKMbjragQPtvHf3M6YFvPKu1tKJRGOnusWPP5tNLH5kWPTu25lKWVIiYFpjnynaOw9tAfxMknd2F7Xi3rQw8jEGLg8mNjhfT5Nv6t9p3FZlkjGApn/R13u84XroWeCQ8+du2op5wc6LU/R7w10u1E0dTUI8js/7a0ukL3l9vkNcL5t5oQ2V185JYp8fSgdBB/J6pA018WthPnnURHaXxKaS2mFtXC6wc0r7LB3SUdEaJ0fwg34v9mE+GbhYuBQ/P1Th8lcpKUxlx+ALBdpLXf3XY7Uh/tcysv7lC6+kF1PC9PM44WmeQz9xnFdoQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EbBELgs77b7lIUpwOS421z6ZzsJBpZxVQvu+YxmPQvE=;
- b=x0etFOZtwI7Y0YtcXb4spo9XiZjdfNqjl/l6tNEdg26Qe5GqK58khSq+1133QprMo9MrFNyqGtXZgX31m/413tTxmCCc3YAJ79t8l7Nt1dyWoNZKyNiWFhPahfayq+vy+9LCRHzAVk24jvfOoYXDzZhK6Fzi/FljZpbgOR/lcq2XFDgP8XhaRgAk1qIeDfBLsJMxJGK1EL7AdCjuawpKFNCjQucCoXmJen2AvmHF98YGs6RJXsHEJbQeXQz4WE2ReLo68CcnwGf54gx6xzdsdvqGoHfO8rlIpr6d9dUg+MPmFC3t/PZtgqIaxgj19vq7Q/Tm7LAGxTzNsPLnNSSKGQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
- by DBBPR04MB8028.eurprd04.prod.outlook.com (2603:10a6:10:1e0::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.34; Fri, 11 Apr
- 2025 07:44:33 +0000
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87%4]) with mapi id 15.20.8632.025; Fri, 11 Apr 2025
- 07:44:32 +0000
-From: ming.qian@oss.nxp.com
-To: mchehab@kernel.org,
-	hverkuil-cisco@xs4all.nl,
-	mirela.rabulea@oss.nxp.com
-Cc: shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	xiahong.bao@nxp.com,
-	eagle.zhou@nxp.com,
-	linux-imx@nxp.com,
-	imx@lists.linux.dev,
-	linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v4 2/4] media: imx-jpeg: Cleanup after an allocation error
-Date: Fri, 11 Apr 2025 15:43:41 +0800
-Message-ID: <20250411074347.809-3-ming.qian@oss.nxp.com>
-X-Mailer: git-send-email 2.48.1.windows.1
-In-Reply-To: <20250411074347.809-1-ming.qian@oss.nxp.com>
-References: <20250411074347.809-1-ming.qian@oss.nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR02CA0016.apcprd02.prod.outlook.com
- (2603:1096:4:194::9) To PAXPR04MB8254.eurprd04.prod.outlook.com
- (2603:10a6:102:1cd::24)
+	Fri, 11 Apr 2025 08:02:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 244E7A4A84D;
+	Fri, 11 Apr 2025 07:56:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A32CC4CEE7;
+	Fri, 11 Apr 2025 08:02:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744358533;
+	bh=VPv4id2m4TY8Fmb1lSfEPtllue99RBkAXzud15Ip3W0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XDCsGvAQ8EQmSpGiAiVKosUQ9uBt3exxAWyP481bbStxDVQwS4eJ79B8S4NGkCmCT
+	 nJ5CsOaHvC/o1FzuDVp1mcnO9Sh9tR70w7Zh6DI9flpFudcf2lWZ6QQNTJQbYhf0Pa
+	 FF30ur8SeO40b8O7f+YboIUQ1J1JKUgjcj5vLaUMbfS+HjTXgAN1vxefw1PBlltTvU
+	 /FpU8Ohu4m7d5U1Llu9alh0gIOjzReL/k1v01DtP5+IhDrT8dYnPWdSNoBAsGJEZoH
+	 PrjkEkNXQin43eFG5My76D+QovQly6n/PzrK0bFhYhnzhKvEcCtcRIXEa0yylqi+mH
+	 i+8MUxrk0BvyQ==
+Received: from johan by xi.lan with local (Exim 4.97.1)
+	(envelope-from <johan@kernel.org>)
+	id 1u39L6-000000004FW-2zsh;
+	Fri, 11 Apr 2025 10:02:16 +0200
+Date: Fri, 11 Apr 2025 10:02:16 +0200
+From: Johan Hovold <johan@kernel.org>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Russell King <linux@armlinux.org.uk>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Stuart Yoder <stuyoder@gmail.com>,
+	Laurentiu Tudor <laurentiu.tudor@nxp.com>,
+	Nipun Gupta <nipun.gupta@amd.com>,
+	Nikhil Agarwal <nikhil.agarwal@amd.com>,
+	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Bjorn Helgaas <bhelgaas@google.com>, linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	Charan Teja Kalla <quic_charante@quicinc.com>
+Subject: Re: [PATCH v2 4/4] iommu: Get DT/ACPI parsing into the proper probe
+ path
+Message-ID: <Z_jMiC1uj_MJpKVj@hovoldconsulting.com>
+References: <cover.1740753261.git.robin.murphy@arm.com>
+ <e3b191e6fd6ca9a1e84c5e5e40044faf97abb874.1740753261.git.robin.murphy@arm.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|DBBPR04MB8028:EE_
-X-MS-Office365-Filtering-Correlation-Id: b5c364c5-819f-4e5f-4637-08dd78ccb287
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7416014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?7ncsjvC12aAUtRzxPnFT8qn64gJLvsCY0EKX3FIOT/ctL3BvFZi2I95eBCXG?=
- =?us-ascii?Q?A/wHdy2VegB+XgKf5Vi2eEWIaxv8bKd5sijBdamgzplg+w/6+rrtaaQ2e9ef?=
- =?us-ascii?Q?uYzrAy35IbZLfAgjAvlEG4Bs+i3ZNvOVndJuNz1w6mWEutbW/pY8KlH5IiRu?=
- =?us-ascii?Q?UyEJVmAlUYPr2G5GZtubmRvOwRj9R1lie4egM/SpSB+zJ1eveTWV7iR42xIH?=
- =?us-ascii?Q?U0/7NQv0MlS13ZyIuwFfc86Qv0eahZg28brTNvB0mpEZCSabAGVNXDm13FtY?=
- =?us-ascii?Q?AJ1hUqR7h66uWUFZmnagqTmHr+1Q3fBc+TPOw3P7osNS/bFFUEjOaS2hFOCk?=
- =?us-ascii?Q?gErqeP192e326ccxFt0Kn8P/4v9vIAsknWmqYWvuNmnVBl7nky8R5tjpcW+4?=
- =?us-ascii?Q?zN1btBeMFFcDMDPZA7yuVBb4rLpu3669ORaX/CnMkhcdUtHP5TLEA30cAvZO?=
- =?us-ascii?Q?FEz9bYeeMkb+XbZHDA4EGWtNgyeB9L4/7Ov01mGbjib7OaJVs6j7+quX1PfR?=
- =?us-ascii?Q?OCOOndpooBdfqwRHF+hNm4DZ8F5fPVSQ67Je1g6KAk3KCE0R6MlxQgXW7HnF?=
- =?us-ascii?Q?j5AWn89lNQJ12VcWSE7nglrLjG29GVjYlr8P1n32nl6baVyN5G4026AkVtzI?=
- =?us-ascii?Q?b/BEX1Z+FKrtoFSyQOvIgmjQTSuKqtvtHKXmifYL/JG/ld4aG2NC3n6mtCSa?=
- =?us-ascii?Q?iemOhcFM8SKLX6fDEPY7U8yVk3Xq0BWlRL5TymG6JADhJfTh/u1XSKHhA2Yn?=
- =?us-ascii?Q?VEvkrZ6TXDQEsK1QUe6hk4M76Rf7o7lFyjYRo/d5MqWGJLQf8vgOMESYYXa+?=
- =?us-ascii?Q?HXxHR2ztS5/RS7fWEPI+P7JIUU/P16E4BfgBbnHhubhPN6529Vx6Qma8GfUB?=
- =?us-ascii?Q?x4WKABjzHFxZOAgOoSnY4BDtkmyFbAnZBo7ePqmX4MQ07r8pnlNFUinndmmt?=
- =?us-ascii?Q?+r8mHt49aAQXf9p63v56L3dqyaFE57RsRAHOYkEYWLBJUAN6BIwM5b9zPZDC?=
- =?us-ascii?Q?Ik6OoARq20npuJmuTqWlFUVPaw1JbpahrcBn5Hn5Gr/aXK7g7Nd+XQqR1ocZ?=
- =?us-ascii?Q?nTpjzTNJb5CFdP2lxhE8P+HEJ1nMgLLc9mUwihxXs8OEo5VP5d5s1zEi/EDL?=
- =?us-ascii?Q?xATNvkp9VsHqcJKgxgAk5UJ7dXxYHqYTiS3nuQzm4FXYB9F3naksnMg/EW37?=
- =?us-ascii?Q?iFuiI7/A+ktcBjaFKHnHmn4gAMmxFJrT3/wJGLyuxERthPKq2nVaZnS2fx9i?=
- =?us-ascii?Q?Yx0lzrEBgE9lCJIeNC/GfWlEP/HLoEOFsAG1r2841GH9fLoDrnOFe9vUQwYP?=
- =?us-ascii?Q?fETs4zmfUOJvd8/bma0O4FJj0l033mrkrsY0vVSxaq4tCD44DnzCtOVRCOBQ?=
- =?us-ascii?Q?JWSJ2M38DffV0Ed9kiYhjn71/HG+0D699GoOzx6Ybek43Q9WS8TuaD4+D1W3?=
- =?us-ascii?Q?zuGzlHR5Tc4HAphqtvacnsOHrtax5ng3gsCPO9LG7lVjROdOMy8mRTNGX8ei?=
- =?us-ascii?Q?LO1OpFRAXyJoSyQ=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2fnlbW9mRyS1fDuhLogFYJc2dStdAy0gInTzAQ4ayM4ZKaGnz9NBaRVu+e4Y?=
- =?us-ascii?Q?MmuYiiVDA+8PL4RMBR16Kj2XmD6BEU/ESCsODwvP3Bl5PQChg7KT5mvpoEtI?=
- =?us-ascii?Q?e/l93w186MMgIz6gGopF/HWcevNTA/cDujUztR8Tb3QNC9d2wXL3esfgeS4w?=
- =?us-ascii?Q?YBQv3lT+SBRn4iYOF7UOzNaVnLwkgTj1F8BwsUPH9MiXvN4I43D6KCxIZVvN?=
- =?us-ascii?Q?/GbvOFx3oYuPta18piT6gMqEELmmkVo/9PRd9E0p/l2WuPnoGRybNx7oZfkC?=
- =?us-ascii?Q?7Mg1dcE7h6ZJkLTEmKBFm/w6H93rGJOlZG2sR6kpIrXu2ZdWIAeIgcVVlywP?=
- =?us-ascii?Q?6yFBmqyUAD65SKqo5Yfu/HDEZbYGBEtB1ENC0VFXiX+qMs3KU6hc7LKRGu6H?=
- =?us-ascii?Q?IjCf6SUoXzM/vHPi1LYf69bQbpfL7ib7/uyHNG6gZlDiNxciEi8yBt/pIHuN?=
- =?us-ascii?Q?K5FM/XSPQiBZe8HoSywQW7YxjDqMCv1EBXp6LsB2gymqa4a9HB6daKcDm6uU?=
- =?us-ascii?Q?Ey6U/SxzvzxOXVBjmVmo6bWNe9UQp2PKY4fLqcldECWfb1xNGbYA4K2ZYPXF?=
- =?us-ascii?Q?BP8sg1CnWrkXsnEaGCDcZkz0FwDbO8AFChVyxUzM4JNWnWaF0Q09I9rYW8ur?=
- =?us-ascii?Q?c0Lv5DDskbF9eIAUNfJiVrzwf2Zh12lxGDcWRCQV/CIrYuyIGWo31IyhvAwl?=
- =?us-ascii?Q?3/1PjR4a63yhC2aw+VVTREHnkIhCAyXhnM2P0P+eG4MwN/EWOeR2bbzo7D8Z?=
- =?us-ascii?Q?TVitHHqCg1LK0REYIooibgC34OEBO2qRqSMuS9fc2dJiDGBqIXp8H5RbXIBA?=
- =?us-ascii?Q?0TeJD6Qx5xq3hiDMgQNxlOVKfXXi07slDQU1TFFqs8djLKCKMOFGl7kOSCVf?=
- =?us-ascii?Q?8BfeDm1R1qru9DwGhYII5DBvWvPQr/z6h9FFRfhe2ThJllY2YcYxb9+1/Mly?=
- =?us-ascii?Q?4Y+5r17keqK5WXBKlXRkU3bom76b5H/j9LvsZ1+HM08AOjtRXcd4TVdMYtKy?=
- =?us-ascii?Q?R1JynejZ3irALqaBXiOCeqbL5K1izER2d8uBL7Kln9N/RnzbRU7DCJuEu2LT?=
- =?us-ascii?Q?lkIiRIpz9+h9IcF6wi5s17JyDTcuYEjL0EJq1eY0giY0dUnSckaKGvs5v8Oe?=
- =?us-ascii?Q?b4lzwIykzy/MFLC38WVoYDzyCWC9wa2X4/Ygs3Rscig7Xl11tH3I+blXOiRK?=
- =?us-ascii?Q?zPZ//5uANq864KTlDtlbwTsRmLJCe8WkzSI3F/d3V5+VVG94Jt6GKy3ehrgz?=
- =?us-ascii?Q?Xp9ZMllS2u0PqkmeeIt4leFdHQ34Z61pv/pcqmngvtxvCPwciNF/m5EpM5VI?=
- =?us-ascii?Q?AKWbfKVYm2dJMNATBifXNleb2SB3iyeSoh6B5p66+woT7qTNkVEC5FVSqZDa?=
- =?us-ascii?Q?1vslSmT6NWFS54KSqNfvqkZ5z6xOqlKHjd27B3JB5mDbwpaTn0XoSBWjLXVf?=
- =?us-ascii?Q?ilay0UylVaL6P+JqLI2w3oLyJIk3e/8zExmrwAhhUt8Jz1xVsnsucGakB0LQ?=
- =?us-ascii?Q?kxthn6FtVRBxI65vEXU4P9+2yO9H0aYMF8ik9c3hUxozCXByDj8rXHLx2Oo/?=
- =?us-ascii?Q?nwY3EZNp+x+pEHXjDuajT2Y/Vi3H2GyIDy4OrZvq?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b5c364c5-819f-4e5f-4637-08dd78ccb287
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Apr 2025 07:44:32.5426
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: nXOONw2APEw4jHpyW1MEiTS7TIYbJ8XIvrVjla/jVX71RsfF93dhZCf/xxv8sKkMNrcQYDONddv+AQzQArMXHw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB8028
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <e3b191e6fd6ca9a1e84c5e5e40044faf97abb874.1740753261.git.robin.murphy@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_004437_613743_8E47BF5B 
-X-CRM114-Status: UNSURE (   7.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250411_090218_068625_70B7ED0F 
+X-CRM114-Status: GOOD (  26.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,33 +109,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ming Qian <ming.qian@oss.nxp.com>
+Hi Robin,
 
-When allocation failures are not cleaned up by the driver, further
-allocation errors will be false-positives, which will cause buffers to
-remain uninitialized and cause NULL pointer dereferences.
-Ensure proper cleanup of failed allocations to prevent these issues.
+On Fri, Feb 28, 2025 at 03:46:33PM +0000, Robin Murphy wrote:
+> In hindsight, there were some crucial subtleties overlooked when moving
+> {of,acpi}_dma_configure() to driver probe time to allow waiting for
+> IOMMU drivers with -EPROBE_DEFER, and these have become an
+> ever-increasing source of problems. The IOMMU API has some fundamental
+> assumptions that iommu_probe_device() is called for every device added
+> to the system, in the order in which they are added. Calling it in a
+> random order or not at all dependent on driver binding leads to
+> malformed groups, a potential lack of isolation for devices with no
+> driver, and all manner of unexpected concurrency and race conditions.
+> We've attempted to mitigate the latter with point-fix bodges like
+> iommu_probe_device_lock, but it's a losing battle and the time has come
+> to bite the bullet and address the true source of the problem instead.
 
-Fixes: 2db16c6ed72c ("media: imx-jpeg: Add V4L2 driver for i.MX8 JPEG Encoder/Decoder")
-Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
- drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c | 1 +
- 1 file changed, 1 insertion(+)
+> @@ -426,6 +438,12 @@ static int iommu_init_device(struct device *dev)
+>  		ret = -ENODEV;
+>  		goto err_free;
+>  	}
+> +	/*
+> +	 * And if we do now see any replay calls, they would indicate someone
+> +	 * misusing the dma_configure path outside bus code.
+> +	 */
+> +	if (dev->driver)
+> +		dev_WARN(dev, "late IOMMU probe at driver bind, something fishy here!\n");
+>  
+>  	if (!try_module_get(ops->owner)) {
+>  		ret = -EINVAL;
+> diff --git a/drivers/iommu/of_iommu.c b/drivers/iommu/of_iommu.c
+> index e10a68b5ffde..6b989a62def2 100644
+> --- a/drivers/iommu/of_iommu.c
+> +++ b/drivers/iommu/of_iommu.c
+> @@ -155,7 +155,12 @@ int of_iommu_configure(struct device *dev, struct device_node *master_np,
+>  		dev_iommu_free(dev);
+>  	mutex_unlock(&iommu_probe_device_lock);
+>  
+> -	if (!err && dev->bus)
+> +	/*
+> +	 * If we're not on the iommu_probe_device() path (as indicated by the
+> +	 * initial dev->iommu) then try to simulate it. This should no longer
+> +	 * happen unless of_dma_configure() is being misused outside bus code.
+> +	 */
 
-diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-index b2f7e9ad1885..12661c177f5a 100644
---- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-+++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-@@ -820,6 +820,7 @@ static bool mxc_jpeg_alloc_slot_data(struct mxc_jpeg_dev *jpeg)
- 	return true;
- err:
- 	dev_err(jpeg->dev, "Could not allocate descriptors for slot %d", jpeg->slot_data.slot);
-+	mxc_jpeg_free_slot_data(jpeg);
- 
- 	return false;
- }
--- 
-2.43.0-rc1
+This assumption does not hold as there is nothing preventing iommu
+driver probe from racing with a client driver probe.
 
+> +	if (!err && dev->bus && !dev_iommu_present)
+>  		err = iommu_probe_device(dev);
+>  
+>  	if (err && err != -EPROBE_DEFER)
+
+I hit the (now moved) dev_WARN() on the ThinkPad T14s where the GPU SMMU
+is probed late due to a clock dependency and can end up probing in
+parallel with the GPU driver.
+
+[    3.805282] arm-smmu 3da0000.iommu: probing hardware configuration...
+[    3.806007] arm-smmu 3da0000.iommu: SMMUv2 with:
+[    3.806843] arm-smmu 3da0000.iommu:  stage 1 translation
+[    3.807562] arm-smmu 3da0000.iommu:  coherent table walk
+[    3.808253] arm-smmu 3da0000.iommu:  stream matching with 24 register groups
+[    3.808957] arm-smmu 3da0000.iommu:  22 context banks (0 stage-2 only)
+[    3.809651] arm-smmu 3da0000.iommu:  Supported page sizes: 0x61311000
+[    3.810339] arm-smmu 3da0000.iommu:  Stage-1: 48-bit VA -> 40-bit IPA
+[    3.811130] arm-smmu 3da0000.iommu:  preserved 0 boot mappings
+
+[    3.829042] platform 3d6a000.gmu: Adding to iommu group 8
+
+[    3.992050] ------------[ cut here ]------------
+[    3.993045] adreno 3d00000.gpu: late IOMMU probe at driver bind, something fishy here!
+[    3.994058] WARNING: CPU: 9 PID: 343 at drivers/iommu/iommu.c:579 __iommu_probe_device+0x2b0/0x4ac
+
+[    4.003272] CPU: 9 UID: 0 PID: 343 Comm: kworker/u50:2 Not tainted 6.15.0-rc1 #109 PREEMPT 
+[    4.003276] Hardware name: LENOVO 21N2ZC5PUS/21N2ZC5PUS, BIOS N42ET83W (2.13 ) 10/04/2024
+
+[    4.025943] Call trace:
+[    4.025945]  __iommu_probe_device+0x2b0/0x4ac (P)
+[    4.030453]  iommu_probe_device+0x38/0x7c
+[    4.030455]  of_iommu_configure+0x188/0x26c
+[    4.030457]  of_dma_configure_id+0xcc/0x300
+[    4.030460]  platform_dma_configure+0x74/0xac
+[    4.030462]  really_probe+0x74/0x38c
+[    4.030464]  __driver_probe_device+0x7c/0x160
+[    4.030465]  driver_probe_device+0x40/0x110
+[    4.030467]  __device_attach_driver+0xbc/0x158
+[    4.030468]  bus_for_each_drv+0x84/0xe0
+[    4.030470]  __device_attach+0xa8/0x1d4
+[    4.030472]  device_initial_probe+0x14/0x20
+[    4.030473]  bus_probe_device+0xb0/0xb4
+[    4.030476]  deferred_probe_work_func+0xa0/0xf4
+
+[    4.030501] ---[ end trace 0000000000000000 ]---
+[    4.031269] adreno 3d00000.gpu: Adding to iommu group 9
+
+Johan
 
