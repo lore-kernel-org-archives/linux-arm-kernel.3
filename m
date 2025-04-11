@@ -4,93 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AC61C369AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 14:22:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 755CEC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 14:24:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Genc+foR3TLZU1XFpVYp4UeiPJ0ZTyJwWiJkAOrjZJU=; b=J9kKu356XF6HN7zP8mCCitwAWP
-	+1/Kdfx1ubxPL5L1t2QkAqljMYmol1p7j04ihIn09QnZP4jXjVQLzKqblUm4Ju0Y9LiGgmd/3lrXL
-	dvZ7rH/rbp0WasPUtgpS1GtvEQQerMs0eor8xWpO0sTaQ8DRYfXju9rRVZp+p87Jo+LQ9ysr5hRbc
-	IpXDilVVXIuH811SR5HdTG+d4UXsluYqGtEnPBYrJvryb39h3mwEKc+F04yl45s+LnfWIAjd9DFno
-	+LybrGOCSG5FKEBjfhQOzjWoXmpDIeLFhCvKYfVY5/V9zVMP5/89atC9qj5wID6McFLxnnur8xrqf
-	9oYrr03Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iWl/qqJnW4YKy7fD9Y1Bq2qyKwnzAfjOsHSpc/KwuOE=; b=WfFoTtMsUgEt2+hfkHdlid8iLd
+	P+RBfzAI0QRu52VgHOP1F8zzeqP+TmtE7zCDCCnxg/pblsk5oydlwdTh2vHzYY6rtNipHDhbcKq6M
+	lugl5cbOEnG1CZwjexeKZ3fbERBzlmlb4j9Vwl3UURbib7mNjSv4HzYwSzA734a/VYjEMzyr/7Oth
+	6foNOX3KKSLmXH8qZaWZdKCsxOnHPly+NWZYNwdpQ5XgIk3bsbXbisPZ/gbLHxjaOqbszsLbDvDwn
+	Z7Mct7LUWolZqXl61JKGrXrQ5J3rJCoSUHJLp+tLHdaBItX63leWQ5VQRKl97gd2nY5+Pz6jGQN3G
+	ByN9sMZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3FH4-0000000E4YX-1gSq;
-	Fri, 11 Apr 2025 14:22:30 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u3FIq-0000000E4xL-3zBS;
+	Fri, 11 Apr 2025 14:24:20 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3ExN-0000000E11L-2Qdv
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 11 Apr 2025 14:02:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Genc+foR3TLZU1XFpVYp4UeiPJ0ZTyJwWiJkAOrjZJU=; b=O5Xm2wuw/tabnxbWCHNHVPFon1
-	/eOkwjNcsk1kBAIBCGgpSxiiPYG1p1TZ4M92/49NlZMGi0EJpEBlKR9u65vZW6MyfLejAl41MYr5A
-	DPgK5SUwnjSk5VarZ7z16bp/3rNW8KpF5n2+n4gFJD/2Mqv/a9KN75is0tt1aox0g07MZwDTCiXuL
-	2VfIhQZkJ9A4GGEFjtO+SZWN2o7bHyg6QmwGJsw+Dovc9/Vo3hZz6bY9RCKE7Lm5fEFAUtFFPGvJJ
-	jnDOThOLKepxIWCY5MI1b+jDVZBb6UwCtwBU+29sHypNuDrd3BEDu9kHWVrY/7ZFMPi46bIZFJEZh
-	HJDgn8rA==;
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u3ExK-000000092J2-0JMR
+	id 1u3F1v-0000000E1r4-0XFt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 14:02:08 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53BE1w511458980
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 11 Apr 2025 09:01:58 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744380118;
-	bh=Genc+foR3TLZU1XFpVYp4UeiPJ0ZTyJwWiJkAOrjZJU=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=OTJw5ugNRiRefNzTa0I1IZ9RO1Er+xZPNrg9Pa++8XsYAQAyQi+BBXx2h+iNtuOAb
-	 Wy9lOthCxRPOV33NzxIfs4r48KLgpcbwDXoAfQ+QviEhS4mxsOYZnc86kckG0zOShG
-	 0NNndGpv1a9zPejSxb/wk+SPJ0PTK9rVkBGM86mk=
-Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53BE1wtx097818
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 11 Apr 2025 09:01:58 -0500
-Received: from DLEE113.ent.ti.com (157.170.170.24) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 11
- Apr 2025 09:01:58 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 11 Apr 2025 09:01:57 -0500
-Received: from [10.249.141.75] ([10.249.141.75])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53BE1rOJ020355;
-	Fri, 11 Apr 2025 09:01:53 -0500
-Message-ID: <7b2f69ad-48aa-4aa9-be0e-f0edae272bdb@ti.com>
-Date: Fri, 11 Apr 2025 19:31:52 +0530
+	Fri, 11 Apr 2025 14:06:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1744380409;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=iWl/qqJnW4YKy7fD9Y1Bq2qyKwnzAfjOsHSpc/KwuOE=;
+	b=CTcRpXW4vhweJEESb62akEFsV/r2uZgUE2bbV+Dup9lDcAI2MQr8lmV//N/DSrt4Orer5+
+	FuRTHXNPYHOriHcADDWYxmgmaddG1LLwhS//Jucs0CHSltP4et7zEo/8Z/aFbLmsd0D0Zu
+	7kOdYNhpXVjkGLJDRnqyHksXGPRcnQg=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-411-Ov1DihxHMLSVa6UZohL51w-1; Fri,
+ 11 Apr 2025 10:06:46 -0400
+X-MC-Unique: Ov1DihxHMLSVa6UZohL51w-1
+X-Mimecast-MFC-AGG-ID: Ov1DihxHMLSVa6UZohL51w_1744380404
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D80F3195608D;
+	Fri, 11 Apr 2025 14:06:43 +0000 (UTC)
+Received: from dhcp-27-174.brq.redhat.com (unknown [10.45.224.222])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id C4DCA180175D;
+	Fri, 11 Apr 2025 14:06:38 +0000 (UTC)
+Received: by dhcp-27-174.brq.redhat.com (nbSMTP-1.00) for uid 1000
+	oleg@redhat.com; Fri, 11 Apr 2025 16:06:08 +0200 (CEST)
+Date: Fri, 11 Apr 2025 16:06:02 +0200
+From: Oleg Nesterov <oleg@redhat.com>
+To: Tze-nan Wu <Tze-nan.Wu@mediatek.com>
+Cc: Christian Brauner <brauner@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	wsd_upstream@mediatek.com, bobule.chang@mediatek.com,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	chenqiwu <chenqiwu@xiaomi.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Breno Leitao <leitao@debian.org>, Mateusz Guzik <mjguzik@gmail.com>
+Subject: Re: [RFC PATCH] exit: Skip panic in do_exit() during poweroff
+Message-ID: <20250411140601.GG5322@redhat.com>
+References: <20250410143937.1829272-1-Tze-nan.Wu@mediatek.com>
+ <20250410210507.GD15280@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] arm64: dts: ti: k3-j722s-main: Disable
- "serdes_wiz0" and "serdes_wiz1"
-To: Siddharth Vadapalli <s-vadapalli@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
-        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <rogerq@kernel.org>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <stable@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <srk@ti.com>, <u-kumar1@ti.com>
-References: <20250408103606.3679505-1-s-vadapalli@ti.com>
- <20250408103606.3679505-3-s-vadapalli@ti.com>
-Content-Language: en-US
-From: "Kumar, Udit" <u-kumar1@ti.com>
-In-Reply-To: <20250408103606.3679505-3-s-vadapalli@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250410210507.GD15280@redhat.com>
+User-Agent: Mutt/1.5.24 (2015-08-30)
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_150206_471622_19D77E66 
-X-CRM114-Status: GOOD (  20.87  )
+X-CRM114-CacheID: sfid-20250411_070651_255734_5B6D507C 
+X-CRM114-Status: GOOD (  43.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,68 +93,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add cc'es.
 
-On 4/8/2025 4:06 PM, Siddharth Vadapalli wrote:
-> Since "serdes0" and "serdes1" which are the sub-nodes of "serdes_wiz0"
-> and "serdes_wiz1" respectively, have been disabled in the SoC file already,
-> and, given that these sub-nodes will only be enabled in a board file if the
-> board utilizes any of the SERDES instances and the peripherals bound to
-> them, we end up in a situation where the board file doesn't explicitly
-> disable "serdes_wiz0" and "serdes_wiz1". As a consequence of this, the
-> following errors show up when booting Linux:
->
->    wiz bus@f0000:phy@f000000: probe with driver wiz failed with error -12
->    ...
->    wiz bus@f0000:phy@f010000: probe with driver wiz failed with error -12
->
-> To not only fix the above, but also, in order to follow the convention of
-> disabling device-tree nodes in the SoC file and enabling them in the board
-> files for those boards which require them, disable "serdes_wiz0" and
-> "serdes_wiz1" device-tree nodes.
->
-> Fixes: 628e0a0118e6 ("arm64: dts: ti: k3-j722s-main: Add SERDES and PCIe support")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> ---
->
-> v1 of this patch is at:
-> https://lore.kernel.org/r/20250408060636.3413856-3-s-vadapalli@ti.com/
-> Changes since v1:
-> - Added "Fixes" tag and updated commit message accordingly.
->
-> Regards,
-> Siddharth.
->
->   arch/arm64/boot/dts/ti/k3-j722s-main.dtsi | 4 ++++
->   1 file changed, 4 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
-> index 6850f50530f1..beda9e40e931 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
-> @@ -32,6 +32,8 @@ serdes_wiz0: phy@f000000 {
->   		assigned-clocks = <&k3_clks 279 1>;
->   		assigned-clock-parents = <&k3_clks 279 5>;
->   
-> +		status = "disabled";
-> +
+A similar problem was recently reported,
+https://lore.kernel.org/all/20250403-exit-v1-1-8e9266bfc4b7@debian.org/
+and I didn't realize this is another thread.
 
-Since you are disabling parent node.
+On 04/10, Oleg Nesterov wrote:
+>
+> Well...
+>
+> Let me repeat. I don't understand the kernel/reboot.c paths, you can
+> safely ignore me.
+>
+> But I still think that you target the wrong goal. Quite possibly I am
+> wrong.
+>
+> On 04/10, Tze-nan Wu wrote:
+> >
+> > If PID 1 exits due to the unreliable userspace after kernel_power_off()
+> > invoked,
+>
+> Why. Why the global init does do_exit()? It should not, that is all.
+> It doesn't matter if it is single threaded or not.
+>
+> As for sys_reboot(), I think that kernel_power_off() must be __noreturn,
+> and sys_reboot() should use BUG() after LINUX_REBOOT_CMD_POWER_OFF/_HALT
+> instead of do_exit().
+>
+> If nothing else. do_exit() also does debug_check_no_locks_held() and
+> sys_reboot() calls do_exit() with system_transition_mutex held.
+>
+> IOW. IMO, it is not that do_exit() needs some changes. The very fact
+> that the global init does do_exit() is wrong, this should be fixed.
+>
+> But again, again, I can't really comment.
+>
+> Oleg.
+>
+> > the panic follow by the last thread of global init exited in
+> > do_exit() will stop the kernel_power_off() procedure, turn a shutdown
+> > behavior into panic flow(reboot).
+> >
+> > Add a condition check to ensure that the panic triggered by the last
+> > thread of the global init exiting, only occurs while:
+> > ( system_state != SYSTEM_POWER_OFF and system_state != SYSTEM_RESTART).
+> > Otherwise, WARN() instead.
+> >
+> > [On Android 16 with arm64 arch]
+> > Here's a scenario where the global init exits during kernel_power_off:
+> > If PID 1 encounters a page fault after kernel_power_off() has been
+> > invoked, the kernel will fail to handle the page fault because the
+> > disk(UFS) has already shut down.
+> > Consequently, the kernel will send a SIGBUS to PID 1 to indicate the
+> > page fault failure, and ultimately, the panic will occur after PID 1
+> > exits due to receiving the SIGBUS.
+> >
+> >             cpu1                           cpu2
+> >           ----------                     ----------
+> >     kernel_power_off() start
+> >         UFS shutdown
+> >             ...                	       PID 1 page fault
+> >             ...                    page fault handle failure
+> >             ...			             PID 1 received SIGBUS
+> >             ...                             panic
+> >    kernel_power_off() not done
+> >
+> > Backtrace while PID 1 received signal 7:
+> >    init-1 [007] d..1 41239.922385: \
+> >       signal_generate: sig=7 errno=0 code=2 comm=init pid=1 grp=0 res=0
+> >    init-1 [007] d..1 41239.922389: kernel_stack: <stack trace>
+> >    => __send_signal_locked
+> >    => send_signal_locked
+> >    => force_sig_info_to_task
+> >    => force_sig_fault
+> >    => arm64_force_sig_fault
+> >    => do_page_fault
+> >    => do_translation_fault
+> >    => do_mem_abort
+> >    => el0_ia
+> >    => el0t_64_sync_handler
+> >
+> > Simplified kernel log:
+> > kernel_power_off() invoked by pt_notify_thread.
+> > [41239.526109] pt_notify_threa: reboot set flag, old value 0x********,
+> > *.
+> > [41239.526114] pt_notify_threa: reboot set flag new value 0x********.
+> > UFS reject I/O after kerenl_power_off.
+> > [41239.686411]  scsi +scsi******** apexd: sd* ******** rejecting I/O to
+> > offline device.
+> > Lots of I/O error & erofs error happened after kernel_power_off().
+> > [41239.690312] apexd: I/O error, dev sdc, sector ******* op ***:(READ)
+> > flags 0x**** phys_seg ** prio class 0.
+> > [41239.690465] apexd: I/O error, dev sdc, sector ******* op ***:(READ)
+> > flags 0x**** phys_seg ** prio class 0.
+> > ...
+> > ...
+> > [41239.922265] init: erofs: (device ****): z_erofs_read_folio: read
+> > error * @ *** of nid ********.
+> > [41239.922341] init: erofs: (device ****): z_erofs_read_folio: read
+> > error * @ *** of nid ********.
+> > Finally device panic due to PID 1 received SIGBUS.
+> > [41239.923789] init: Kernel panic - not syncing: Attempted to kill init!
+> > exitcode=0x00000007
+> >
+> > Fixes: 43cf75d96409 ("exit: panic before exit_mm() on global init exit")
+> > Link: https://lore.kernel.org/all/20191219104223.xvk6ppfogoxrgmw6@wittgenstein/
+> > Signed-off-by: Tze-nan Wu <Tze-nan.Wu@mediatek.com>
+> > ---
+> >
+> > I am also wondering if this patch is reasonable?
+> >
+> > From my perspective, there are two reasons not to trigger such panic
+> > during kernel_power_off() or kernel_restart():
+> >   1. It is not worthwhile to interrupt kernel_power_off() by a panic
+> >      resulted from userspace instability.
+> >   2. The panic in do_exit() was originally designed to ensure a usable
+> >      coredump if the last thread of the global init process exited.
+> > 	 However, capture a coredump triggered by userspace crash after
+> >      kernel_power_off() seems not particularly useful, in my opinion.
+> >
+> > In certain scenarios, a kernel module may need to directly power off
+> > from kernel space to protect hardware (e.g., thermal protection).
+> > In my opinion, rather than causing a panic during kernel_power_off(),
+> > it sounds better to allow the device to complete its power-off process.
+> >
+> > Appreciate for any comment on this, if there's any better way to
+> > handle this panic, please point me out.
+> >
+> > ---
+> >  kernel/exit.c | 14 ++++++++++----
+> >  1 file changed, 10 insertions(+), 4 deletions(-)
+> >
+> > diff --git a/kernel/exit.c b/kernel/exit.c
+> > index 1dcddfe537ee..23cb6b42a1f1 100644
+> > --- a/kernel/exit.c
+> > +++ b/kernel/exit.c
+> > @@ -901,11 +901,17 @@ void __noreturn do_exit(long code)
+> >  	if (group_dead) {
+> >  		/*
+> >  		 * If the last thread of global init has exited, panic
+> > -		 * immediately to get a useable coredump.
+> > +		 * immediately to get a usable coredump, except when the
+> > +		 * device is currently powering off or restarting.
+> >  		 */
+> > -		if (unlikely(is_global_init(tsk)))
+> > -			panic("Attempted to kill init! exitcode=0x%08x\n",
+> > -				tsk->signal->group_exit_code ?: (int)code);
+> > +		if (unlikely(is_global_init(tsk))) {
+> > +			if (system_state != SYSTEM_POWER_OFF &&
+> > +			    system_state != SYSTEM_RESTART)
+> > +				panic("Attempted to kill init! exitcode=0x%08x\n",
+> > +				      tsk->signal->group_exit_code ?: (int)code);
+> > +			WARN(1, "Attempted to kill init! exitcode=0x%08x\n",
+> > +			     tsk->signal->group_exit_code ?: (int)code);
+> > +		}
+> >
+> >  #ifdef CONFIG_POSIX_TIMERS
+> >  		hrtimer_cancel(&tsk->signal->real_timer);
+> > --
+> > 2.45.2
+> >
 
-Do you still want to carry status = "disabled" in child nodes serdes0 
-and serdes1.
-
-
->   		serdes0: serdes@f000000 {
->   			compatible = "ti,j721e-serdes-10g";
->   			reg = <0x0f000000 0x00010000>;
-> @@ -70,6 +72,8 @@ serdes_wiz1: phy@f010000 {
->   		assigned-clocks = <&k3_clks 280 1>;
->   		assigned-clock-parents = <&k3_clks 280 5>;
->   
-> +		status = "disabled";
-> +
->   		serdes1: serdes@f010000 {
->   			compatible = "ti,j721e-serdes-10g";
->   			reg = <0x0f010000 0x00010000>;
 
