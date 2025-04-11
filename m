@@ -4,82 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 759C9C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 11:39:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0040BC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 11:41:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3cNPhfn56hhnyntPjEfHke2lx/LZF8+QUZgYQm+CWUo=; b=g/Y3/7WmismGVLvr17wJfiCzfL
-	/nkFnUK3NFQQuvijpMIoJNph5L/axIABNL+U+xNyD/LLTEn6mbYyQXF1qmoLAIX/m9pWOVkWeeVs5
-	n9Fo6b/2RlgDndX2M/oRSg6aJfR8+8U+zUtQZv3h9+qHVy9BDv6Bzfk3Tlpynv9B+cqqxpGZUJdwc
-	JmLf7+LIzBChBJrA6sW/GkXVzNOGbXZh9OFmtahzhydAIeOmdPhJ5C950P+UwDrCdc1z10Epa4SKe
-	ET+6exEl+oehXsTHCgdiFa/PI5R4ZyF43KRymwAyDFTWNQ1ANfol1224/IIhyfyrd/dLjS4iCGtxT
-	tTMGrzOA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oIJGwsqQ7lKoOCx6Fi+tAv4SNYqzbkt+9cXJq4ouMUA=; b=Zoi8jhbqQcRN6VmJ/V3RshX/Kq
+	SmuzE8F3PNfUdOhD7jyGOhDwpOKPGJmJrgjqNgXQxRsnSSwMiAyg/9Fzq2HfKlFl6zY1M81+A1wEE
+	1Qzi9QyMYQRxRjmmy0fyw4s5IWf/Cdu8P+WADMpFT6PoojvJ78xhOL9sc8N9i5HdOuUxGRiH0xuy2
+	DQCfXaW8Zz3928IHyzRjcAaKoqApYU3ZxxaA8LLu1wlRoOazFU/x1MLcgoSIrp3jCfYGpSL0C83yK
+	R6HBFm84cA2TgaaFKLifiua6I6GQ7p3w7s1zyEsboZEGQxUvLx9M756q1DUKm+vRGRuWtUVjXmxHS
+	2gIT4zcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3Ciw-0000000DbNS-3fst;
-	Fri, 11 Apr 2025 11:39:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u3Ckk-0000000Dbk4-2clD;
+	Fri, 11 Apr 2025 11:40:58 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3CY6-0000000DYfr-0uOz;
-	Fri, 11 Apr 2025 11:27:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4E50C441EB;
-	Fri, 11 Apr 2025 11:27:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 03C5CC4CEE8;
-	Fri, 11 Apr 2025 11:27:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744370873;
-	bh=rcZ4hUqkPHAzf/+Hghm6DmFVxWHcdR3LRlMwrsk358A=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=syq/wXVG5CbFPhhBNhUbwm2JySYBWVgjng3tzSv3mJE/YTJjzhi+V+cY4vqvlIOj4
-	 +TAq1n0OF7cih74k7yqMqyAe6J9kg50cKTYXJkBlsk+A+vTuE9xxHUQSzaWe4mffQI
-	 jxCaAw+L2+/UjSvRGiaYhtY4fCxjwoCL20IEl3hmnZtPYLF4Ex4tdA3MuH/mgsX3vh
-	 6AiGQTki78zQTLv6trMbwZsJ9coWwI1MwQI2PcCqPkbmavp4q2NWvGefV8NLDPQXpQ
-	 OqTAeqYpfeShfPUh4fBl3QYH95UWyNnsb7uVvZOSTKY7amgHo3a1KxvsoyC3S1M44l
-	 8m8E1kGyZDkUA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E3D6EC369A9;
-	Fri, 11 Apr 2025 11:27:52 +0000 (UTC)
-From: Kelvin Zhang via B4 Relay <devnull+kelvin.zhang.amlogic.com@kernel.org>
-Date: Fri, 11 Apr 2025 19:27:50 +0800
-Subject: [PATCH v5 1/3] dt-bindings: reset: Add compatible for Amlogic
- A4/A5 Reset Controller
+	id 1u3CYS-0000000DYmu-2Js4
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 11 Apr 2025 11:28:17 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53BBS3hL1427549
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 11 Apr 2025 06:28:03 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1744370883;
+	bh=oIJGwsqQ7lKoOCx6Fi+tAv4SNYqzbkt+9cXJq4ouMUA=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=Dwh7szJSiDDq6DuiAu2Mx43easmoFoh34tGCPC+kUYCpRe9kZsX1yqKKCrjnksGFa
+	 CN8Qu5rMCGbsp3fT7Pwhwn3v5013UYn5Wvk6w+CgmtwwYnNM9s6+2vnEPnNXjGKXGt
+	 Xccb9err9Cgvag2AAzxg2tffaj0jHWlCthWVagBk=
+Received: from DLEE103.ent.ti.com (dlee103.ent.ti.com [157.170.170.33])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53BBS3Pw096576
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 11 Apr 2025 06:28:03 -0500
+Received: from DLEE110.ent.ti.com (157.170.170.21) by DLEE103.ent.ti.com
+ (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 11
+ Apr 2025 06:28:02 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE110.ent.ti.com
+ (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 11 Apr 2025 06:28:02 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53BBS28a073227;
+	Fri, 11 Apr 2025 06:28:02 -0500
+Date: Fri, 11 Apr 2025 06:28:02 -0500
+From: Nishanth Menon <nm@ti.com>
+To: Jayesh Choudhary <j-choudhary@ti.com>
+CC: <catalin.marinas@arm.com>, <will@kernel.org>,
+        <linux-kernel@vger.kernel.org>, <bjorn.andersson@oss.qualcomm.com>,
+        <krzysztof.kozlowski@linaro.org>, <geert+renesas@glider.be>,
+        <lumag@kernel.org>, <nfraprado@collabora.com>, <quic_tdas@quicinc.com>,
+        <elinor.montmasson@savoirfairelinux.com>, <ebiggers@google.com>,
+        <ross.burton@arm.com>, <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH] arm64: defconfig: Add CDNS_DSI and CDNS_PHY config
+Message-ID: <20250411112802.x2q4f7cq4hwilxoe@blasphemy>
+References: <20250411095043.272488-1-j-choudhary@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250411-a4-a5-reset-v5-1-24812538dce6@amlogic.com>
-References: <20250411-a4-a5-reset-v5-0-24812538dce6@amlogic.com>
-In-Reply-To: <20250411-a4-a5-reset-v5-0-24812538dce6@amlogic.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Zelong Dong <zelong.dong@amlogic.com>, 
- Conor Dooley <conor.dooley@microchip.com>, 
- Kelvin Zhang <kelvin.zhang@amlogic.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1744370870; l=2254;
- i=kelvin.zhang@amlogic.com; s=20240329; h=from:subject:message-id;
- bh=RBPG6lp45fxsEDVQ6Y1mIySEYTUUWfsM6OujOhVw3vA=;
- b=LPHNSyFpPJezQI1/+B2FqsCdLsR8F9dZ+NkI6lmgql6PdBtksSFpw0Q4+EpaggFA2DeE3mfa0
- 9B1+wx8qMb1DPmzDwKznC0QyZ4c4t4PNvztoGiv58QBwmf4JIq4OLq/
-X-Developer-Key: i=kelvin.zhang@amlogic.com; a=ed25519;
- pk=pgnle7HTNvnNTcOoGejvtTC7BJT30HUNXfMHRRXSylI=
-X-Endpoint-Received: by B4 Relay for kelvin.zhang@amlogic.com/20240329 with
- auth_id=148
-X-Original-From: Kelvin Zhang <kelvin.zhang@amlogic.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250411095043.272488-1-j-choudhary@ti.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_042754_300638_CFF1B7B4 
-X-CRM114-Status: UNSURE (   7.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250411_042816_681515_D6A83EF0 
+X-CRM114-Status: GOOD (  13.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,60 +84,48 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: kelvin.zhang@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Zelong Dong <zelong.dong@amlogic.com>
+On 15:20-20250411, Jayesh Choudhary wrote:
+> Enable configs for cdns-dsi and cdns-dphy. (dsi wrapper for
+> j721e is enabled by default if cdns-dsi config is enabled)
 
-Add compatibles for Amlogic A4 and A5 reset controllers,
-which fall back to 'amlogic,meson-s4-reset'.
+What upstream supported boards need this change? Add that to the commit
+message. Beagley-AI64? or others - please enumerate.
 
-Signed-off-by: Zelong Dong <zelong.dong@amlogic.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-Acked-by: Philipp Zabel <p.zabel@pengutronix.de>
-Link: https://lore.kernel.org/r/20240918074211.8067-2-zelong.dong@amlogic.com
-Signed-off-by: Kelvin Zhang <kelvin.zhang@amlogic.com>
----
- .../bindings/reset/amlogic,meson-reset.yaml        | 22 ++++++++++++++--------
- 1 file changed, 14 insertions(+), 8 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/reset/amlogic,meson-reset.yaml b/Documentation/devicetree/bindings/reset/amlogic,meson-reset.yaml
-index 695ef38a7bb346c92b4cf428e7615d45682c940a..150e95c0d9bed74c7045942610a311114a257889 100644
---- a/Documentation/devicetree/bindings/reset/amlogic,meson-reset.yaml
-+++ b/Documentation/devicetree/bindings/reset/amlogic,meson-reset.yaml
-@@ -12,14 +12,20 @@ maintainers:
- 
- properties:
-   compatible:
--    enum:
--      - amlogic,meson8b-reset # Reset Controller on Meson8b and compatible SoCs
--      - amlogic,meson-gxbb-reset # Reset Controller on GXBB and compatible SoCs
--      - amlogic,meson-axg-reset # Reset Controller on AXG and compatible SoCs
--      - amlogic,meson-a1-reset # Reset Controller on A1 and compatible SoCs
--      - amlogic,meson-s4-reset # Reset Controller on S4 and compatible SoCs
--      - amlogic,c3-reset # Reset Controller on C3 and compatible SoCs
--      - amlogic,t7-reset
-+    oneOf:
-+      - enum:
-+          - amlogic,meson8b-reset # Reset Controller on Meson8b and compatible SoCs
-+          - amlogic,meson-gxbb-reset # Reset Controller on GXBB and compatible SoCs
-+          - amlogic,meson-axg-reset # Reset Controller on AXG and compatible SoCs
-+          - amlogic,meson-a1-reset # Reset Controller on A1 and compatible SoCs
-+          - amlogic,meson-s4-reset # Reset Controller on S4 and compatible SoCs
-+          - amlogic,c3-reset # Reset Controller on C3 and compatible SoCs
-+          - amlogic,t7-reset
-+      - items:
-+          - enum:
-+              - amlogic,a4-reset
-+              - amlogic,a5-reset
-+          - const: amlogic,meson-s4-reset
- 
-   reg:
-     maxItems: 1
+> 
+> Signed-off-by: Jayesh Choudhary <j-choudhary@ti.com>
+> ---
+>  arch/arm64/configs/defconfig | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+> index 5c85e5da152f..4c0eb2711bbe 100644
+> --- a/arch/arm64/configs/defconfig
+> +++ b/arch/arm64/configs/defconfig
+> @@ -938,6 +938,7 @@ CONFIG_DRM_TI_SN65DSI86=m
+>  CONFIG_DRM_ANALOGIX_ANX7625=m
+>  CONFIG_DRM_I2C_ADV7511=m
+>  CONFIG_DRM_I2C_ADV7511_AUDIO=y
+> +CONFIG_DRM_CDNS_DSI=m
+>  CONFIG_DRM_CDNS_MHDP8546=m
+>  CONFIG_DRM_IMX8MP_DW_HDMI_BRIDGE=m
+>  CONFIG_DRM_DW_HDMI_AHB_AUDIO=m
+> @@ -1579,6 +1580,7 @@ CONFIG_PHY_CAN_TRANSCEIVER=m
+>  CONFIG_PHY_NXP_PTN3222=m
+>  CONFIG_PHY_SUN4I_USB=y
+>  CONFIG_PHY_CADENCE_TORRENT=m
+> +CONFIG_PHY_CADENCE_DPHY=m
+>  CONFIG_PHY_CADENCE_DPHY_RX=m
+>  CONFIG_PHY_CADENCE_SIERRA=m
+>  CONFIG_PHY_CADENCE_SALVO=m
+> -- 
+> 2.34.1
+> 
 
 -- 
-2.37.1
-
-
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
 
