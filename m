@@ -4,90 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF8DCC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 12:05:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3BE7C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 12:12:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2XUXdxG/BhkCfZVlPJvHGNM3P7ArX2Kcz52iyJMQG+U=; b=Z2CrmLvkbo6biUYOtTvlV17ZSA
-	DH9Gsz5uQggk86rThjqO1x/GMHxqGdvsAv8CO//QPCVbSz1FqEXvlqwxM8XRpbt33wOZY1krEx1fQ
-	Jjs41P4m/jIY8vVaVLVT3Octx2hq1wfvLCdOVFZFp+1r3JELpLJAjqQL4yMYeCwUrtZE+WiF/B2gT
-	QlIi2a3g+obW5Zi+pyrkAMzZ35Qz9EZnUWizUiDD2IfFEfZR3nz4OwEGhOFrX5ksoEBQeCjsCFtHZ
-	O6VIpAv1UahkSYnUQSF/LG6u1H5vi2U4LE7jniJ73EIYe/dxb2CByCVnfK2LoewY+N+dj2gEXrmXN
-	1gwn8dIw==;
+	bh=XH7tdY2grOvvliTnIyQIcLAzgG8749kABJxgXBHtMQU=; b=vlpTuWP5pEg7uXrBEURJcaCj22
+	td8VIpKXER7wiAjEn5CsmgZjIqeV0C0uA6pCe/OpZ3QugRqWezuMNWWbqeTb/fKsyJxdMw/2DXxyC
+	7+ViiyGymf/Z+QCBw4eeWd2t0oXNVsIDazRYWI8r24UVTV91s8NQTZtMzkaABfTlqUQvnLkz/EUuq
+	ECk0HLO4o8FSiI4Y2BDXf6w4HQgwxOw4wO3Ct7JCiLsBib/y8i1UhT5Pt2ivTF1N6p1w5hDONsPuY
+	CKhomn9F6TM8si56l8ydPwSQofY327Q1e58KHsDqSil/rqIcUkmtI2R97elDQyB2Mm1FvqR/+DxLf
+	kOqMD//Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3D8C-0000000DfpU-2BGL;
-	Fri, 11 Apr 2025 12:05:12 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1u3DF8-0000000Dgv6-1cpO;
+	Fri, 11 Apr 2025 12:12:22 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3D6M-0000000DfYX-2yOn
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 12:03:20 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-39141ffa9fcso2248561f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Apr 2025 05:03:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744372996; x=1744977796; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2XUXdxG/BhkCfZVlPJvHGNM3P7ArX2Kcz52iyJMQG+U=;
-        b=AOA0a67xELA9tzdCReX3lL61fxqGj2udp5FFFZRAmmwZcF+SyMUzWK52BdpC2hqhI+
-         7qcH4O3HbA83INrrCKQZzJtX39seFj00EQWiIId4lKC3Ul/hlM+rGA8Q0yGsv1pY0YYX
-         +pIoVTVicyvk5yYb7BiQ5uUDKb203Xt8L5/F87VbUjWmrzHQtZvOFGTcLJHNwht3isR5
-         2CgM7vAEZlJzdK+5GniCZqAt7E0vu6SydBFXbApan1bGmr/si3z7ef/ehrNIYk/7tv/Y
-         nzIiPStTutDMpo3ObSAjVGWhlAAPFwWk/odWOEgYpoqh90MmbKY5Oh3lxWkNjlTUre5N
-         vPBw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744372996; x=1744977796;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=2XUXdxG/BhkCfZVlPJvHGNM3P7ArX2Kcz52iyJMQG+U=;
-        b=iJYk1CKpL5/DCUXi8ZyCPAtFcqnfVerLrQEwHEt2ikYdcpAlCqEOMacGe5/n3bqz14
-         auqihaVtQkgdpFvAS7bgUyV01imB0HXVwLrRBpv/fUyl4BJsy8YdUW1S8nW0e2kQMu0k
-         VH//gZ3kEvRI7TvRmiu4w+jBpYwVCYT7GV6Bs5ax5HJ3ppsqg7+Ya2hs1SpkX5hDHsqk
-         pzrd5vszIecFjzUOaX3aPrASrlSvNCbXLNcKARYE9ruia5IgwvG5weD5nBMcFdP3hgxP
-         9XImA6NSsu/O0QraD9OJg6aE6Vdf40XJA6uh0xswP/+xWHgtBCB1Bn7YIXdxJSkk9Kn3
-         n0xA==
-X-Forwarded-Encrypted: i=1; AJvYcCXVkrC+l0sPeUl0eXIyzn4R5ormhT+jfcV2rmBVRHuWaRwPCz/bVtTZV8YmoqhAJc+ExHalIY3gQl1we7X0qSyx@lists.infradead.org
-X-Gm-Message-State: AOJu0YyHLx+jyOIkH0ZRbsc8/4bdS/YxDkCxqmIbPgn+YwzaAmd/CBXP
-	S5jbbTsW+KFkihSOwsG78UEe9G9addYOxp/GudBxoXN9QpczpqPt
-X-Gm-Gg: ASbGncuwlkLXrQ6jVVHR5S9Gc8DZmCYVXbhP+6DXEP7osOxZODyGr1QhwhmlexgUuqf
-	8YjRVlgWcwiyS2gXFTZBaqm7knQl5a97rw+Q0zXwQqxhu4RSug5x9Ypar4g0IPWB28pmr7Nw7QK
-	616o3pD1Tuo+7x1G/pm740rNKLZk8FWoZYclhsn7ThghrcsKWykwE4vmjPoh2d3bidzZ5Ms/xHd
-	VgG8xHmlIQU1HfzzC9fmgN4eI4CS57IR6hdLAIeEsnl1CvsBuGQpyxEzMnUsk1gt4WAhkkrCg8b
-	vtxHWL6m+DNtfEy5K8RL4Xv02Na2fEXDSXJAjyzThOkXBTog+3zGSn34oo6vWIuSqYovsBo2FGU
-	Yq2Bwq37SAIkbgQ==
-X-Google-Smtp-Source: AGHT+IFjJLiz90Y/fxzwTEEZjSN23htjHcLr+F0TlWnjvsqsniNtlVdnHF/+XW9GHr3Jqk8W2SymPg==
-X-Received: by 2002:a5d:584b:0:b0:39d:724f:a8f0 with SMTP id ffacd0b85a97d-39eaaebb54fmr1676129f8f.42.1744372996097;
-        Fri, 11 Apr 2025 05:03:16 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39eae97b249sm1834556f8f.58.2025.04.11.05.03.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Apr 2025 05:03:15 -0700 (PDT)
-Date: Fri, 11 Apr 2025 13:03:09 +0100
-From: David Laight <david.laight.linux@gmail.com>
-To: Barry Song <21cnbao@gmail.com>
-Cc: Xavier <xavier_qy@163.com>, catalin.marinas@arm.com, will@kernel.org,
- akpm@linux-foundation.org, ryan.roberts@arm.com, ioworker0@gmail.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] mm/contpte: Optimize loop to reduce redundant
- operations
-Message-ID: <20250411130309.7894f204@pumpkin>
-In-Reply-To: <CAGsJ_4wsW+urp6gbp+yDG40fZw9Bszny2iJVsV_AzzGqgQy+4g@mail.gmail.com>
-References: <20250407092243.2207837-1-xavier_qy@163.com>
-	<CAGsJ_4wsW+urp6gbp+yDG40fZw9Bszny2iJVsV_AzzGqgQy+4g@mail.gmail.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	id 1u3DDI-0000000DgUi-2cM8;
+	Fri, 11 Apr 2025 12:10:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 225645C691E;
+	Fri, 11 Apr 2025 12:08:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44787C4CEE7;
+	Fri, 11 Apr 2025 12:10:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744373428;
+	bh=ma8HZgD9JZlh64w2TGnecb0nKKh08kqyZOYZMMtYpZc=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=ae+o/cyx/enaKuzdD4bQBh/9s+5M5131Dr+2RiZwwfY5LAiT3IEoCPvAOXERoleSi
+	 sRq8Y2YFvVkDjW34zP9dk++8HSs4Rw+ZXUCXkvYr9/PMc2XX6gJNGDx4vW0Q0TBTlq
+	 7YSIJK7i2sY7X3tv5aZUeHzJSRSxOnoGIaMBfoQZrCEaMcyYdEv0r+xpOqSvQg2yTg
+	 tDJUYRJIFVbAySqmhQouOka/cTTn5x4ufHEdAw5xQ+B4L0rQ06qEcr/uMJS7nUc620
+	 a4q1SZgvu/oVfyFaMygtVr2g6dR1MzQ8IWDtv6V7LB2eNRMEKB3lbrRfQ2Hi9f5enF
+	 6l7yMKHi8ZQxw==
+From: Vinod Koul <vkoul@kernel.org>
+To: Heiko Stuebner <heiko.stuebner@cherry.de>, 
+ Dan Carpenter <dan.carpenter@linaro.org>
+Cc: Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ kernel-janitors@vger.kernel.org
+In-Reply-To: <e64265a4-9543-4728-a49f-ea910fccef7c@stanley.mountain>
+References: <e64265a4-9543-4728-a49f-ea910fccef7c@stanley.mountain>
+Subject: Re: [PATCH next] phy: rockchip-samsung-dcphy: Add missing
+ assignment
+Message-Id: <174437342490.673813.7534992392289400859.b4-ty@kernel.org>
+Date: Fri, 11 Apr 2025 17:40:24 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_050318_743970_DEA020ED 
-X-CRM114-Status: GOOD (  24.40  )
+X-CRM114-CacheID: sfid-20250411_051028_709585_5329CF7E 
+X-CRM114-Status: UNSURE (   4.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,78 +78,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 11 Apr 2025 09:25:39 +1200
-Barry Song <21cnbao@gmail.com> wrote:
 
-> On Mon, Apr 7, 2025 at 9:23=E2=80=AFPM Xavier <xavier_qy@163.com> wrote:
-> >
-> > This commit optimizes the contpte_ptep_get function by adding early
-> >  termination logic. It checks if the dirty and young bits of orig_pte
-> >  are already set and skips redundant bit-setting operations during
-> >  the loop. This reduces unnecessary iterations and improves performance.
-> >
-> > Signed-off-by: Xavier <xavier_qy@163.com>
-> > ---
-> >  arch/arm64/mm/contpte.c | 13 +++++++++++--
-> >  1 file changed, 11 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
-> > index bcac4f55f9c1..ca15d8f52d14 100644
-> > --- a/arch/arm64/mm/contpte.c
-> > +++ b/arch/arm64/mm/contpte.c
-> > @@ -163,17 +163,26 @@ pte_t contpte_ptep_get(pte_t *ptep, pte_t orig_pt=
-e)
-> >
-> >         pte_t pte;
-> >         int i;
-> > +       bool dirty =3D false;
-> > +       bool young =3D false;
-> >
-> >         ptep =3D contpte_align_down(ptep);
-> >
-> >         for (i =3D 0; i < CONT_PTES; i++, ptep++) {
-> >                 pte =3D __ptep_get(ptep);
-> >
-> > -               if (pte_dirty(pte))
-> > +               if (!dirty && pte_dirty(pte)) {
-> > +                       dirty =3D true;
-> >                         orig_pte =3D pte_mkdirty(orig_pte);
-> > +               }
-> >
-> > -               if (pte_young(pte))
-> > +               if (!young && pte_young(pte)) {
-> > +                       young =3D true;
-> >                         orig_pte =3D pte_mkyoung(orig_pte);
-> > +               }
-> > +
-> > +               if (dirty && young)
-> > +                       break; =20
->=20
-> This kind of optimization is always tricky. Dev previously tried a similar
-> approach to reduce the loop count, but it ended up causing performance
-> degradation:
-> https://lore.kernel.org/linux-mm/20240913091902.1160520-1-dev.jain@arm.co=
-m/
->=20
-> So we may need actual data to validate this idea.
+On Fri, 21 Mar 2025 17:36:14 +0300, Dan Carpenter wrote:
+> The "ret = " was accidentally dropped so the error handling doesn't work.
+> 
+> 
 
-You might win with 3 loops.
-The first looks for both 'dirty' and 'young'.
-If it finds only one it jumps to a different loop that continues
-the search but only looks for the other flag.
+Applied, thanks!
 
-	David
+[1/1] phy: rockchip-samsung-dcphy: Add missing assignment
+      commit: 9cf118aafd6682793c40dde31b5f24d271da3996
 
->=20
-> >         }
-> >
-> >         return orig_pte;
-> > --
-> > 2.34.1
-> > =20
->=20
-> Thanks
-> Barry
->=20
+Best regards,
+-- 
+~Vinod
+
 
 
