@@ -4,75 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0040BC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 11:41:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52E69C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 11:43:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oIJGwsqQ7lKoOCx6Fi+tAv4SNYqzbkt+9cXJq4ouMUA=; b=Zoi8jhbqQcRN6VmJ/V3RshX/Kq
-	SmuzE8F3PNfUdOhD7jyGOhDwpOKPGJmJrgjqNgXQxRsnSSwMiAyg/9Fzq2HfKlFl6zY1M81+A1wEE
-	1Qzi9QyMYQRxRjmmy0fyw4s5IWf/Cdu8P+WADMpFT6PoojvJ78xhOL9sc8N9i5HdOuUxGRiH0xuy2
-	DQCfXaW8Zz3928IHyzRjcAaKoqApYU3ZxxaA8LLu1wlRoOazFU/x1MLcgoSIrp3jCfYGpSL0C83yK
-	R6HBFm84cA2TgaaFKLifiua6I6GQ7p3w7s1zyEsboZEGQxUvLx9M756q1DUKm+vRGRuWtUVjXmxHS
-	2gIT4zcA==;
+	bh=C3xyKlQp2AfWxRuw6wYAPh30sfOwFjmP5LqczqL1hoc=; b=1Y4EgkRzDe7s7cEo2KTOE+f6Aj
+	TqVlLA2M098hPovVL/IkUyNiyufzuHZHVjvkBNzl5CoZTciRARNA28/mI1xxvyIEehBxLPmfmqZF5
+	uMdhhKh3QKJXwqVv3H+TrCJvM1HPbomt5LzZ9ZtBcPlZ4EjsPx1vvRVFX3XddmbK4+2j5uBN2IUGS
+	mMyMew0Eh7IQpEpyS0FNrFCWm71X/F40kWTc9VJ9TJxNtEeKhUDWbZXbTqsgVdjMMue088xiW3/Ds
+	hivg9KxWj7Ltam96tnJMUWJYCBC2lboMFyfWdYy1b3k0gaiwzBfwjTPl6whw0SmSLNZfqqB7zhXB2
+	tL/fNhTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3Ckk-0000000Dbk4-2clD;
-	Fri, 11 Apr 2025 11:40:58 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1u3CmY-0000000DcAQ-1M3V;
+	Fri, 11 Apr 2025 11:42:50 +0000
+Received: from mail-psaapc01on20720.outbound.protection.outlook.com ([2a01:111:f403:200e::720] helo=APC01-PSA-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3CYS-0000000DYmu-2Js4
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 11:28:17 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53BBS3hL1427549
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 11 Apr 2025 06:28:03 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744370883;
-	bh=oIJGwsqQ7lKoOCx6Fi+tAv4SNYqzbkt+9cXJq4ouMUA=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=Dwh7szJSiDDq6DuiAu2Mx43easmoFoh34tGCPC+kUYCpRe9kZsX1yqKKCrjnksGFa
-	 CN8Qu5rMCGbsp3fT7Pwhwn3v5013UYn5Wvk6w+CgmtwwYnNM9s6+2vnEPnNXjGKXGt
-	 Xccb9err9Cgvag2AAzxg2tffaj0jHWlCthWVagBk=
-Received: from DLEE103.ent.ti.com (dlee103.ent.ti.com [157.170.170.33])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53BBS3Pw096576
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 11 Apr 2025 06:28:03 -0500
-Received: from DLEE110.ent.ti.com (157.170.170.21) by DLEE103.ent.ti.com
- (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 11
- Apr 2025 06:28:02 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE110.ent.ti.com
- (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 11 Apr 2025 06:28:02 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53BBS28a073227;
-	Fri, 11 Apr 2025 06:28:02 -0500
-Date: Fri, 11 Apr 2025 06:28:02 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Jayesh Choudhary <j-choudhary@ti.com>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>,
-        <linux-kernel@vger.kernel.org>, <bjorn.andersson@oss.qualcomm.com>,
-        <krzysztof.kozlowski@linaro.org>, <geert+renesas@glider.be>,
-        <lumag@kernel.org>, <nfraprado@collabora.com>, <quic_tdas@quicinc.com>,
-        <elinor.montmasson@savoirfairelinux.com>, <ebiggers@google.com>,
-        <ross.burton@arm.com>, <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH] arm64: defconfig: Add CDNS_DSI and CDNS_PHY config
-Message-ID: <20250411112802.x2q4f7cq4hwilxoe@blasphemy>
-References: <20250411095043.272488-1-j-choudhary@ti.com>
+	id 1u3CcS-0000000DZpW-1kEQ;
+	Fri, 11 Apr 2025 11:32:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BYw4BVIP9fd4S4OlPstEKBze6x5Yc2ftYftDPWfGkmEnHrZj2XLfansxw5XiZSPaGClPIojta1qyxMmfSHSZU73loLfyTw3t3Th6qFRu9J6sZG8pbpjU7ExjUmxggUE/Sr31qHb4BV3N+4fl9b9KdLTW3Fwd2rSBPlRczOgdMqDyveboXmfNuOHmHlLTtWKXj6m5gtRZDmu8+EQgs5P/gsNCpzDMuiezJN3L6GZUPHTVbQTxoI9U9ycdG9Qn9qFawNUHPr8/30jF0qcZPzTYfi3euHdvAIXai/eZ5P4Zvdavm7E72VI+62XHyDisqBM9NnWTP+IKkZuv9WT+HOk0fA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=C3xyKlQp2AfWxRuw6wYAPh30sfOwFjmP5LqczqL1hoc=;
+ b=XP3y9pUkB+g0bOXZ9ZVgAeBBDBdJoT/I2c4indbmeG2W+nRsUrXLoBfcBxMIooWktCrDR/U2HTdV1pXRx68Pwz8LIFkuChbMuIV1rDzuUSYHArOQ3OVaGf2GpqN3S06mVYchCuWxII6mYKybVhL6z0Eib5uEuOaqGF7jZf06icqy2bAHRGZtCyDvhjsw2nJPXJiWJnuiBJMkCtG145tC23oL94uppnFuboAkyr54pCnEBKcxMsmlBKUjYREJdxYbHkcHai2o2/T1Rr3ANusCI7O83Izt4ERz0X0jY/ODO02q9j3Fq02vOJtfy/15mHaS2UWIcidVbUFYTYywHtKMPw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=C3xyKlQp2AfWxRuw6wYAPh30sfOwFjmP5LqczqL1hoc=;
+ b=u4oIyz/9oqbS9WF2ZGA8HfuKtnSgNmbE6l77/4pPJwNIIiWRgMxqMdnHy4d13MSnaRdVAkK+Vra+peI64CZL7V8DvFNTZdDVSyEhKJ2jSUzxlnA2P1ydVrpoSnAr7dFs7LcAiEbaggHfp0mnsuk32X3+f7lrOfre79PPFFEqqfZDqF1BKktcT75BRRv/BKFurt1GtW4b+A8pJ24x/vYlkwaeq/KL0SKfpSi5jYTOAGTHtWgHryAI5chXx55C7Jq1lhef46UFGjYQBYsbMEcGRWOwqIMyGrvkEqHh84P8+smNNkuCTpnmF9sSizu5hTPgEYHTFpyym2xfXcpaF6rzpg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from JH0PR03MB7384.apcprd03.prod.outlook.com (2603:1096:990:11::8)
+ by SI2PR03MB6806.apcprd03.prod.outlook.com (2603:1096:4:1ed::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.33; Fri, 11 Apr
+ 2025 11:32:16 +0000
+Received: from JH0PR03MB7384.apcprd03.prod.outlook.com
+ ([fe80::1ff4:d29:cc2e:7732]) by JH0PR03MB7384.apcprd03.prod.outlook.com
+ ([fe80::1ff4:d29:cc2e:7732%4]) with mapi id 15.20.8632.025; Fri, 11 Apr 2025
+ 11:32:14 +0000
+Message-ID: <4c0683eb-794c-49e8-a313-267e32146f40@amlogic.com>
+Date: Fri, 11 Apr 2025 19:32:11 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 0/3] Add support for Amlogic A4/A5 Reset
+To: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman
+	<khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, "Martin
+ Blumenstingl" <martin.blumenstingl@googlemail.com>
+CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-amlogic@lists.infradead.org>, <linux-kernel@vger.kernel.org>, "Zelong
+ Dong" <zelong.dong@amlogic.com>, Conor Dooley <conor.dooley@microchip.com>
+References: <20250411-a4-a5-reset-v5-0-24812538dce6@amlogic.com>
+From: Kelvin Zhang <kelvin.zhang@amlogic.com>
+Content-Language: en-US
+In-Reply-To: <20250411-a4-a5-reset-v5-0-24812538dce6@amlogic.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SGXP274CA0003.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b8::15)
+ To JH0PR03MB7384.apcprd03.prod.outlook.com (2603:1096:990:11::8)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250411095043.272488-1-j-choudhary@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: JH0PR03MB7384:EE_|SI2PR03MB6806:EE_
+X-MS-Office365-Filtering-Correlation-Id: a49603fd-6334-4e0e-3673-08dd78ec81f0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?dExueUhYUlBLaDk1YlNFTDQxVzMzQytLWjFtM0xBaW9scEZVbHVGMVFKajJy?=
+ =?utf-8?B?WEczSHBWM016UEV3MzJnYUtBbzhaYzluNENteVI3VmIyRHhucWd3dFlwM0U4?=
+ =?utf-8?B?M2xXbkxmYU5TdVlaUldiTXJyUzZyY1UxUU16VzAxZEh0eitFeEF2VmlGOTBS?=
+ =?utf-8?B?Qnc1azRXL2QwUmRDQVpMMm5uMnNkUHQ0ejFnYmF4MGtkc0tXQ1p4SVI3MVVV?=
+ =?utf-8?B?RmtoeWtyKzVVdnhoTGJQdDRmV0x0Y3g4UUxPRFNIMG1NMFc5WXN2Mk5ITjM4?=
+ =?utf-8?B?dlFERUJiOWRvQXY3SWlUOVRMRCt0eHladlJCd1YwbldtVmExbDZyaUlDeHp0?=
+ =?utf-8?B?MkNhTTRyUmdGb21qaHZQMUs4M2RKRWl2d0tueVNyTUhtUmJsTEhGTyt4c3dz?=
+ =?utf-8?B?bjhFYjJZdUZXMnlZQ3VRSlZJOUZQcGVJMHI2ZzFLTVQzcDBhUmF2aGdRT2Vz?=
+ =?utf-8?B?dUJmSmZqWWJhU24rNERPalZVY1ZyaGRUOVNKVy9JOEJ6RXhCcStaTUtxa0dy?=
+ =?utf-8?B?WW8vbUM4Z3Y1ejFRTlZJbVk5OE8yWXJyRyt5SVVjaWNTeExNUlZzTWxJdjlD?=
+ =?utf-8?B?TWVUd1ZMWE5TTGFLK0ZlbWl2dTJXWWJ2b1QxdFhsRmFHNzV0c1NpZFZ0L0w1?=
+ =?utf-8?B?enJtNWVjVUJYZFhQTFE2TUI3R1F1UzRTYkVMSy9zTzBaVExuckpmZFVwcVR0?=
+ =?utf-8?B?RUV6MHJMSlRWOXhzZ0psbWkvbWJIQUhqOVZkbDU0ajdhY3VMSC90OFpMQjc4?=
+ =?utf-8?B?NEhwcHdYR0FYUmRIOUJINVRGdWQ5a2hiaFF1UllCcWExSGVwZEZtUDFHb0U3?=
+ =?utf-8?B?M2NjLzVVRm53VGdmR3ljWGUrYzl0UU1kQVNrOEUycVZiL0l4M1ZjNm40TUR5?=
+ =?utf-8?B?WmEzTk56eHJBV1F1UTlnYU92ekY3YkN2TU1TeEEvWGVOOGVubDh6RnI4K01H?=
+ =?utf-8?B?b2tDRndaVjhDVDJtVHZGUkNVR3lGQk5EQVI1SDNndTdHUFFJc0s2dEN3N0Ur?=
+ =?utf-8?B?SGVNelNsdEd5SzNRakM5Q3oxejAxRW8wa0pibG01d0M5WjVYWExZdjZZQmp6?=
+ =?utf-8?B?RHJDOCtsWTQwWFR2MDNvZnpZa3RZSnhsRmw0TnBqdHNVSjRqV0hjSHM5ZFVG?=
+ =?utf-8?B?cTlMcVpWdjE1RXI1YVQxR1RyNjhnTVNFUkVRRElsVVloRFVMcDdnZmNmU3Ey?=
+ =?utf-8?B?Wnpjck01andNOVp2bFhVZGcvRjZRVUpMZWxPVWFmdmlEMDVMQ1NFcndKYURU?=
+ =?utf-8?B?UFh3dDA1WEx3SW1DcmhRcTU1VGJlZG84YjI5U1kySEo4VEZDU0YzVlB2QkNo?=
+ =?utf-8?B?TEdSaW93TExWR3lnb1VtekFRdXBqT1g3MCtrYUtscTBGY3RKdDBycVd1UGVU?=
+ =?utf-8?B?RFBvd3JhSVVDYjNMWlBoNzhOSHlQUVFsdi9BWmhqWFJZOHFJbEpRNm5KenpF?=
+ =?utf-8?B?V2RSSE9aRHBBMVlRQitEUEE4bEt4STVHcXM2dGFRQVExRlZzMU5UckpCRHlp?=
+ =?utf-8?B?ZWdyOW5DRTlIeldIVGY5WlBMbUtkbkh1L2dwbVl5T2Nsa1k1ZFg2a1EzS0N5?=
+ =?utf-8?B?UWw3bHlIeEp6bFZIVm1xT2lONmpDeGZEcUpkZXRQUWlibWkwYVVsb05JRGky?=
+ =?utf-8?B?MzdDREl4QUJKOGlKeVIzVEo1Y0ZrdFhwUEo3dHB4MXFpTE82bVhwVVp0V2xN?=
+ =?utf-8?B?b3FsNG9ZVDZ2dEZhMXlXbjdFUXNMN2d5azhVTjJtR0VmSkp5aEhadFVJTFFI?=
+ =?utf-8?B?emdLaWlUVTV1NFo4QzRGRmNUQ1krUXZoSkJGQjVsTDNjRHgyYUJLM3hwWUIz?=
+ =?utf-8?B?VXM4NVg2M1A5cWR5TmdNZVluby9vUkt4ejEyVk9vNjNmblZHVXlGNEpwVE14?=
+ =?utf-8?Q?oKIb4CLOnWm45?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:JH0PR03MB7384.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NEVFU3VFakxxNzA1VnN2VW03ZVI0MlZEYnNQUGJoOHc3QTJRWW9UZTl0QkYw?=
+ =?utf-8?B?b25MeTVwWnZnZVhLRVlJd2ZyMUtjNExQaS9GOXcwMnA2UldpRFM0MUl6akIz?=
+ =?utf-8?B?Z1pWK2dMYm9tR21lbWNNUW5hWHhPbmRid1F6ZEdYZ2xBcHZ4dXpaSjFsUWxK?=
+ =?utf-8?B?QURhN3RTeDVBanpuM3JpeGM4cVZDWG9WKytSaW41RDZCTjgzNVNLWlFGclFz?=
+ =?utf-8?B?clNGM3pwUUpCeTlDUS9YY2pBRHBQdjhsQ0Y1WWpMNzI0T01BY2VSd1cvZ29S?=
+ =?utf-8?B?QVJkM0hqTG9PbFhzRjVJenBMMFNCaTR6MnB2SFRGQkhQNHVzdFpWNEpCUUZB?=
+ =?utf-8?B?ejBoWFRQZk1wSTZGdUIxUXZTeWlMQ1cxVGdwalZOYUlYWm9TeEN5YnZwZzlK?=
+ =?utf-8?B?ZE1rWXNoaHlMTVRHaHdmeEhGYmlOUWZpQVF1WmdBS0p3Y0R4UkpBdVQ4bWh4?=
+ =?utf-8?B?VE1neWNmL3lTTVJHVFI0ZWs3UzNyN1AzK1phdHhaNDNiY21YNHpKUVl0RXd0?=
+ =?utf-8?B?cElVRmovV00vQ2dLNDVRdEdreUhKemVyUmdKOXh4UVU3dnlNWUN6aFJ3VGxL?=
+ =?utf-8?B?YXd5YjlZNDIvYlFzMVBGenZieW52Z2s2VHlXdnA0VlZmdEtaZlA3RWViMkh5?=
+ =?utf-8?B?Wmd1RHZpeTBubkh4UDJTQVJwWGl3RG5hdVZ6OUZiaE9jeE1JWWJrSFI3M0Jp?=
+ =?utf-8?B?TDg3YndjRFNXSWVUaHlTSjVIYjZ0MmxXWmhGLzJYUktRblkxbUdKQ2dZbTdC?=
+ =?utf-8?B?RFZtclFXOGdNNnBhczNDRE03a2pnbmJnR09CNndJRVRjMkdzRTlHV3hJMmdW?=
+ =?utf-8?B?a2lMd0N2YW0wUlZuSGVaTXp0YnBUMkkrRkdCdlFlUkY2TFNrMTZoaVhWYk9v?=
+ =?utf-8?B?NCtTejZOZ3drb2RET1NROUFldWExOHgvblV0ZWRiZzI1SHVXTGFDdDNsS2lU?=
+ =?utf-8?B?Snh5RGY0UklyMEZvUlJFNDRNUnR6ZndadmU3NS8wRHdvaDJyd2gyeGxwem9v?=
+ =?utf-8?B?elVBYS9yVldmeG1WZlFtOXRseTU5bWdOSmZRQWVacm5OZGtrSUFkU2h1UVY2?=
+ =?utf-8?B?L3hLaGJoRTc0M2YrQlhZVjJveDlqQnR4alhLa2FIU0lPVkI1RFc2dE0zSHp4?=
+ =?utf-8?B?NlFjUlFnTkZJTlRIMXlBUGZBU0x4THBtekVlaHZjWWNjdDlEZ2FIU3ZOSkZO?=
+ =?utf-8?B?YVVwNzRYVmZzUDZKRXpRTjBLb0EvM0xNdFRmb1RGQmtvN0Q3eUFMMXUrQzJy?=
+ =?utf-8?B?Q0NGMVVXdzZQWC9DNG1EUTFPdkJNYXNzcDBSZGRLQXlvZEJnY0VwMWw1QUhH?=
+ =?utf-8?B?alAyQTRCVlNjWU9ldW1ZYzdEcVo2a2k4aVFaTm0vN09KYzN5N2lzaW15V1Bl?=
+ =?utf-8?B?WWpnanMwcXRHVHk5YlZ2N2J2Rm5LQ2xPV0lBS2lnd1hPQ1JwUHVoTVlzOTBv?=
+ =?utf-8?B?M0JMM25iTlFUQXFjbGxPSHJqTlUwSjl6Wko3UUpqU0tsTGpoMjYyMzhwR25h?=
+ =?utf-8?B?Q3djRnZjbzJONnozT1ljclpCMjJkckEzS0ROelZMZlFzNzBrTmJtL0pWVFBN?=
+ =?utf-8?B?SW0zZ2pGZ01JeHpGb0RxdGRYQlBWRmdjdEh2Tk0wdFpZVFNER2h2UGw2b2Jl?=
+ =?utf-8?B?ZXBBVUFhZ2FJR0o1L1k3cEZjdGhTWGd0QUxmYzJCSHNGQjhhbndIZHhETENG?=
+ =?utf-8?B?dFErV3Z1SUJDUHFubFVLVUdlWVZrUkFxUHhwUUlEUnNNRS9WWEhsNUl4OFM5?=
+ =?utf-8?B?MTU5aWVVNmZtVGR6Tlh5dVdYUFlZUDVseU9wbGhaOTJPZWlVczRnU2JxNVV3?=
+ =?utf-8?B?QkIyaEJrUEh2VWtSMDcwTEtJOHBocW0vZloxVlgraWZLSURWNE0rSUZvWWI1?=
+ =?utf-8?B?Vk1VRWZLYlJqTmtORjlUT2p2NHFrZTJGRmQ0Z0pyV051YzlFR3puMlRFbG96?=
+ =?utf-8?B?Nzgrc0VJUVdwOHpYYW5XRkM5aTA3bktTcmVZKy9XRTNSbk9nQzltRHhXRFFJ?=
+ =?utf-8?B?Rlp6dFVXS1NMc21OV09FNWRtL1g2VUZFZ0ozNVNkZUFrb0RYVnZmSWNLN0xW?=
+ =?utf-8?B?cmF4VU9neU1tQTFDNEIwek5sTkExQk1Sd2RSeVFtYTgyU045VVVtcXlTRHg1?=
+ =?utf-8?B?dkZ2QXFiTklYd1ZmT3REZG0rb1BPZEFmRGxqUVBvZWZRZzNaaWN2Rmh4bWJR?=
+ =?utf-8?B?d3c9PQ==?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a49603fd-6334-4e0e-3673-08dd78ec81f0
+X-MS-Exchange-CrossTenant-AuthSource: JH0PR03MB7384.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Apr 2025 11:32:14.5311
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 2aomylD8QHcEQ26/3Jr+o/csVEeuowgNc+xu8wXQxDBD0l8Bd/7ugpllDjiiLrEiL2A9mvp2cZgGPp9icWTwXBfOjI5+UfGuKKRlKRkfWiQ=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SI2PR03MB6806
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_042816_681515_D6A83EF0 
-X-CRM114-Status: GOOD (  13.56  )
+X-CRM114-CacheID: sfid-20250411_043224_480011_529CCBD3 
+X-CRM114-Status: GOOD (  14.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,45 +178,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15:20-20250411, Jayesh Choudhary wrote:
-> Enable configs for cdns-dsi and cdns-dphy. (dsi wrapper for
-> j721e is enabled by default if cdns-dsi config is enabled)
+Hi Neil,
 
-What upstream supported boards need this change? Add that to the commit
-message. Beagley-AI64? or others - please enumerate.
+Sorry for the wrong version.
+Please ignore this patchset.
+v6 will be sent shortly.
 
+On 2025/4/11 19:27, Kelvin Zhang via B4 Relay wrote:
 > 
-> Signed-off-by: Jayesh Choudhary <j-choudhary@ti.com>
+> Add dt-binding compatibles and device nodes for Amlogic A4/A5 reset.
+> 
+> Imported from f20240918074211.8067-1-zelong.dong@amlogic.com
+> 
+> Changes in v6:
+> - Rebased onto the latest v6.16/arm64-dt.
+> - Link to v5: https://lore.kernel.org/r/20250320-a4-a5-reset-v5-0-296f83bf733d@amlogic.com
+> 
+> Changes in v5:
+> - Rebasing on top of the latest upstream changes.
+> - Link to v4: https://lore.kernel.org/r/20250313-a4-a5-reset-v4-0-8076f684d6cf@amlogic.com
+> 
+> Changes in v4:
+> - Remove the superfluous 'items' in the dt-binding.
+> - Rebasing due to recent upstream changes.
+> - Link to v3: https://lore.kernel.org/all/20240918074211.8067-1-zelong.dong@amlogic.com/
+> 
+> Changes in v3:
+> - rebase on 'amlogic,t7-reset' patchset
+> - Link to v2: https://lore.kernel.org/all/20240715051217.5286-1-zelong.dong@amlogic.com/
+> 
+> Changes in v2:
+> - remove 'amlogic,t7-reset'
+> - move 'amlogic,c3-reset' to the other enum list
+> - move reset node from amlogic-a4-common.dtsi to
+>    amlogic-a4.dtsi/amlogic-a5.dtsi
+> - Link to v1: https://lore.kernel.org/all/20240703061610.37217-1-zelong.dong@amlogic.com/
+> 
 > ---
->  arch/arm64/configs/defconfig | 2 ++
->  1 file changed, 2 insertions(+)
+> Zelong Dong (3):
+>        dt-bindings: reset: Add compatible for Amlogic A4/A5 Reset Controller
+>        arm64: dts: amlogic: Add A4 Reset Controller
+>        arm64: dts: amlogic: Add A5 Reset Controller
 > 
-> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-> index 5c85e5da152f..4c0eb2711bbe 100644
-> --- a/arch/arm64/configs/defconfig
-> +++ b/arch/arm64/configs/defconfig
-> @@ -938,6 +938,7 @@ CONFIG_DRM_TI_SN65DSI86=m
->  CONFIG_DRM_ANALOGIX_ANX7625=m
->  CONFIG_DRM_I2C_ADV7511=m
->  CONFIG_DRM_I2C_ADV7511_AUDIO=y
-> +CONFIG_DRM_CDNS_DSI=m
->  CONFIG_DRM_CDNS_MHDP8546=m
->  CONFIG_DRM_IMX8MP_DW_HDMI_BRIDGE=m
->  CONFIG_DRM_DW_HDMI_AHB_AUDIO=m
-> @@ -1579,6 +1580,7 @@ CONFIG_PHY_CAN_TRANSCEIVER=m
->  CONFIG_PHY_NXP_PTN3222=m
->  CONFIG_PHY_SUN4I_USB=y
->  CONFIG_PHY_CADENCE_TORRENT=m
-> +CONFIG_PHY_CADENCE_DPHY=m
->  CONFIG_PHY_CADENCE_DPHY_RX=m
->  CONFIG_PHY_CADENCE_SIERRA=m
->  CONFIG_PHY_CADENCE_SALVO=m
-> -- 
-> 2.34.1
+>   .../bindings/reset/amlogic,meson-reset.yaml        | 22 +++--
+>   arch/arm64/boot/dts/amlogic/amlogic-a4-reset.h     | 93 +++++++++++++++++++++
+>   arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi        |  8 ++
+>   arch/arm64/boot/dts/amlogic/amlogic-a5-reset.h     | 95 ++++++++++++++++++++++
+>   arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi        |  8 ++
+>   5 files changed, 218 insertions(+), 8 deletions(-)
+> ---
+> base-commit: 4bc28af2da876531e5183d25ae807e608c816d18
+> change-id: 20250313-a4-a5-reset-6696e5b18e10
+> 
+> Best regards,
+> --
+> Kelvin Zhang <kelvin.zhang@amlogic.com>
+> 
 > 
 
 -- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+Best regards,
+
+Kelvin Zhang
+
 
