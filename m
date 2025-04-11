@@ -4,54 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F024EC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 12:23:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D49CBC369A8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 12:25:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ewPqe0ENTvABefSiT7U08Qo7bk9mQG6n0EAixrnzi54=; b=25iC8veLKsfNItzh0TesDWa9nL
-	6FNfsPShNbo/jgZkPN47lKLZBLql7qhEWquysoIhQHxJrDo3H1mV0HPF2OWhcqZC5ZRBQOjEgJBaT
-	6hrGiXk6ftIGdvzflFczOzuHpFNA+1Y04P1Y3d9RTep3BbyJBI9bPYqAbmAv+OmwOCImfD4BxrwgH
-	AQHAWXSIR8uQxAF6VtprC85IAA4JcvHDiHdQQ22r1dewdGN+DKIdYfnmLcUwaHZxU21YohJHGfS17
-	sACUR5p0YgpCyFyx3vZ1UCMxwNwiD7Y+90MNZFpIeOCbRy58YVGAMz69KpoPWrtFL9HvGRI3wydbN
-	WzXQ5zSA==;
+	bh=jaClsTO2lfONRXtl31ldVRO6E5Z4LL4DqzPB/eVnS7M=; b=E/cW9vgmpTIs4/ybwzNXbG87LW
+	INCzR3+PFkCgwWwxNQgdg5Ryn19pQjtmusZl9LtOfTE/zfqLg5zliu39ZGvGfILPFDH3lyOGxJZVe
+	LEwWdqqEVnnVs+7GvI1Io90B4Jwp1z+ituSB6pnD3XHokHpNy0TkDiUTvJh9kKZEibeNGuEgekqwe
+	SAur3DA5r5hN+tVG6bZJRBz9rAOx6ZHCarXjqjsUYtuBE4c/mYenEOZfM3eair8tEthHiEZzdXFJ8
+	iKirGPJbLCyZEtASGjCr0raFfazK8nkZIYk4XLxt1X/Mi9xSrf3kaye2ErTQFaSe+ap4L9Y2REe1v
+	8RqBqnVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3DPr-0000000Dj0z-0gVW;
-	Fri, 11 Apr 2025 12:23:27 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3DE5-0000000Dggd-1COQ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 12:11:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D0550106F;
-	Fri, 11 Apr 2025 05:11:13 -0700 (PDT)
-Received: from [10.57.71.210] (unknown [10.57.71.210])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8D9EC3F694;
-	Fri, 11 Apr 2025 05:11:12 -0700 (PDT)
-Message-ID: <b62f5ea3-99cd-4e9e-a2a8-cb325308ed34@arm.com>
-Date: Fri, 11 Apr 2025 13:10:29 +0100
+	id 1u3DRe-0000000DjPy-3bev;
+	Fri, 11 Apr 2025 12:25:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u3DE8-0000000DgiG-1HuH;
+	Fri, 11 Apr 2025 12:11:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8B36068459;
+	Fri, 11 Apr 2025 12:11:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12A5DC4CEEC;
+	Fri, 11 Apr 2025 12:11:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744373479;
+	bh=12U8A9tqFraTkbX8UucQrHYVXY0lsm8Dl+Z4zRDU7+M=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=K3dSX4tRj7rJ9O1JP0isV71y1pRkYOkWhdxA4/IoSEK64MYcwp+4fRUgs4XuosURC
+	 FJ+eVvLwRBH/Xmz4HsgLa4bMNianpOCI+1O66a+ekF5/AkNzXrzzt5h1nxS0ASDF54
+	 X6pa08EMqcgJvIZJQp0EJZPkQLX8YvbtdvAKHlUQ2ZE2VBdtUCCDew4Bk6M+g5HXbX
+	 X9+QYoUY94VJuma7WoS7l7Vv3fOsbLjPmaLHgkE3M71MsTcvmAsm8z6duGH46ePTIh
+	 ukJZUFxvECbyl6MxIm/kK0tV1+SKSPH5KhZQRoxIj4Ey+hkEoxQtPq2VkBQD9c3dW6
+	 yJUZQmyGxClgw==
+From: Vinod Koul <vkoul@kernel.org>
+To: Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, 
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Algea Cao <algea.cao@rock-chips.com>, Sandor Yu <Sandor.yu@nxp.com>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Maxime Ripard <mripard@kernel.org>, kernel@collabora.com, 
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ Dmitry Baryshkov <lumag@kernel.org>
+In-Reply-To: <20250318-phy-sam-hdptx-bpc-v6-0-8cb1678e7663@collabora.com>
+References: <20250318-phy-sam-hdptx-bpc-v6-0-8cb1678e7663@collabora.com>
+Subject: Re: [PATCH v6 00/14] phy: rockchip: samsung-hdptx: Support high
+ color depth management
+Message-Id: <174437347571.673939.550787962753296084.b4-ty@kernel.org>
+Date: Fri, 11 Apr 2025 17:41:15 +0530
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Allow stream table to have nodes with
- the same ID
-To: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org
-Cc: joro@8bytes.org, jgg@nvidia.com, jsnitsel@redhat.com, praan@google.com,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20250411044706.356395-1-nicolinc@nvidia.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20250411044706.356395-1-nicolinc@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_051117_427935_4244F932 
-X-CRM114-Status: GOOD (  37.90  )
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,171 +75,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-04-11 5:47 am, Nicolin Chen wrote:
-> From: Jason Gunthorpe <jgg@nvidia.com>
-> 
-> ASPEED VGA card has two built-in devices:
->   0008:06:00.0 PCI bridge: ASPEED Technology, Inc. AST1150 PCI-to-PCI Bridge (rev 06)
->   0008:07:00.0 VGA compatible controller: ASPEED Technology, Inc. ASPEED Graphics Family (rev 52)
-> 
-> Its toplogy looks like this:
->   +-[0008:00]---00.0-[01-09]--+-00.0-[02-09]--+-00.0-[03]----00.0  Sandisk Corp Device 5017
->                               |               +-01.0-[04]--
->                               |               +-02.0-[05]----00.0  NVIDIA Corporation Device
->                               |               +-03.0-[06-07]----00.0-[07]----00.0  ASPEED Technology, Inc. ASPEED Graphics Family
->                               |               +-04.0-[08]----00.0  Renesas Technology Corp. uPD720201 USB 3.0 Host Controller
->                               |               \-05.0-[09]----00.0  Realtek Semiconductor Co., Ltd. RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller
->                               \-00.1  PMC-Sierra Inc. Device 4028
-> 
-> Being a legacy PCI device that does not have RID on the wire, the system
-> does not preserve a RID for that PCI bridge (0008:06), so the IORT code
-> has to dma alias for iort_pci_iommu_init() via pci_for_each_dma_alias(),
-> resulting in both of them getting the same Stream ID.
-> 
-> On a kernel prior to v6.15-rc1, there has been an overlooked warning:
->    pci 0008:07:00.0: vgaarb: setting as boot VGA device
->    pci 0008:07:00.0: vgaarb: bridge control possible
->    pci 0008:07:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
->    pcieport 0008:06:00.0: Adding to iommu group 14
->    ast 0008:07:00.0: stream 67328 already in tree   <===== WARNING
->    ast 0008:07:00.0: enabling device (0002 -> 0003)
->    ast 0008:07:00.0: Using default configuration
->    ast 0008:07:00.0: AST 2600 detected
->    ast 0008:07:00.0: [drm] Using analog VGA
->    ast 0008:07:00.0: [drm] dram MCLK=396 Mhz type=1 bus_width=16
->    [drm] Initialized ast 0.1.0 for 0008:07:00.0 on minor 0
->    ast 0008:07:00.0: [drm] fb0: astdrmfb frame buffer device
-> 
-> As such a legacy system might not use DMA at all, an iommu_probe_device()
-> failure didn't actually break it, except that warning that does not block
-> the system boot flow.
-> 
-> With v6.15-rc, since the commit bcb81ac6ae3c ("iommu: Get DT/ACPI parsing
-> into the proper probe path"), the error returned with the warning is moved
-> to the IOMMU device probe flow, e.g. call trace with SMMUv3:
->    arm_smmu_probe_device+0x15c/0x4c0
->    __iommu_probe_device+0x150/0x4f8
->    probe_iommu_group+0x44/0x80
->    bus_for_each_dev+0x7c/0x100
->    bus_iommu_probe+0x48/0x1a8
->    iommu_device_register+0xb8/0x178
->    arm_smmu_device_probe+0x1350/0x1db0
-> 
-> This then fails the entire SMMU driver probe:
->    arm-smmu-v3 arm-smmu-v3.9.auto: found companion CMDQV device: NVDA200C:04
->    arm-smmu-v3 arm-smmu-v3.9.auto: option mask 0x10
->    arm-smmu-v3 arm-smmu-v3.9.auto: ias 48-bit, oas 48-bit (features 0x001e1fbf)
->    arm-smmu-v3 arm-smmu-v3.9.auto: allocated 524288 entries for cmdq
->    arm-smmu-v3 arm-smmu-v3.9.auto: allocated 524288 entries for evtq
->    arm-smmu-v3 arm-smmu-v3.9.auto: allocated 524288 entries for priq
->    arm-smmu-v3 arm-smmu-v3.9.auto: allocated 524288 entries for vcmdq0
->    arm-smmu-v3 arm-smmu-v3.9.auto: allocated 524288 entries for vcmdq1
->    arm-smmu-v3 arm-smmu-v3.9.auto: msi_domain absent - falling back to wired irqs
->    arm-smmu-v3 arm-smmu-v3.9.auto: no priq irq - PRI will be broken
->    pci 0008:00:00.0: Adding to iommu group 10
->    pci 0008:01:00.0: Adding to iommu group 11
->    pci 0008:01:00.1: Adding to iommu group 12
->    pci 0008:02:00.0: Adding to iommu group 13
->    pci 0008:02:01.0: Adding to iommu group 14
->    pci 0008:02:02.0: Adding to iommu group 15
->    pci 0008:02:03.0: Adding to iommu group 16
->    pci 0008:02:04.0: Adding to iommu group 17
->    pci 0008:02:05.0: Adding to iommu group 18
->    pci 0008:03:00.0: Adding to iommu group 19
->    pci 0008:05:00.0: Adding to iommu group 20
->    pci 0008:06:00.0: Adding to iommu group 21
->    pci 0008:07:00.0: stream 67328 already in tree
->    arm-smmu-v3 arm-smmu-v3.9.auto: Failed to register iommu
->    arm-smmu-v3 arm-smmu-v3.9.auto: probe with driver arm-smmu-v3 failed with error -22
-> 
-> Given that a device bundled with a legacy PCI bridge could have duplicated
-> Stream IDs, the concept of a stream_id tree with unique node in the SMMUv3
-> driver doesn't work any more.
-> 
-> Change the arm_smmu_streams_cmp_node() to allow the stream table to hold
-> multiple nodes with the same Stream ID. Meanwhile, the reverse lookup from
-> the Stream ID to a device pointer will have to be broken, i.e. the eventq
-> handler will no longer find the device with a Stream ID in such cases.
 
-Heh, I was about to start looking at this one myself once I finished 
-making sense of the Juno issue...
-
-This is adding support for StreamID aliasing between devices, and as 
-such it is incomplete. It's not OK to just allow devices to arbitrarily 
-rewrite each other's STEs, that's the whole reason this uniqueness check 
-exists in the first place! Aliases can only be permitted within a group, 
-which means arm_smmu_device_group() also has to check and account for 
-them in the first place - note that that applies to PCI devices as well, 
-because as soon as we allow StreamID aliasing at all then we're 
-inherently allowing RID->SID mappings to alias outside the PCI hierarchy 
-in ways that pci_device_group() can't know about. It should work out 
-basically the same as SMMUv2, just with the streams tree in place of the 
-S2CR array.
-
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-> Tested-by: Nicolin Chen <nicolinc@nvidia.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 31 +++++++++++++++++++--
->   1 file changed, 29 insertions(+), 2 deletions(-)
+On Tue, 18 Mar 2025 14:35:34 +0200, Cristian Ciocaltea wrote:
+> This series relies on the new HDMI PHY configuration options [1] (patch
+> included here for convenience) to provide high color depth management
+> for rockchip-samsung-hdptx, and to introduce a proper solution to setup
+> the TMDS character rate on this PHY.
 > 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index b4c21aaed126..5ce64dc78e12 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -1762,8 +1762,25 @@ static int arm_smmu_streams_cmp_key(const void *lhs, const struct rb_node *rhs)
->   static int arm_smmu_streams_cmp_node(struct rb_node *lhs,
->   				     const struct rb_node *rhs)
->   {
-> -	return arm_smmu_streams_cmp_key(
-> -		&rb_entry(lhs, struct arm_smmu_stream, node)->id, rhs);
-> +	struct arm_smmu_stream *stream_lhs =
-> +		rb_entry(lhs, struct arm_smmu_stream, node);
-> +	struct arm_smmu_stream *stream_rhs =
-> +		rb_entry(rhs, struct arm_smmu_stream, node);
-> +
-> +	if (stream_lhs->id < stream_rhs->id)
-> +		return -1;
-> +	if (stream_lhs->id > stream_rhs->id)
-> +		return 1;
-> +
-> +	/*
-> +	 * The stream table can have multiple nodes with the same ID if there
-> +	 * are DMA aliases.
-> +	 */
-> +	if (stream_lhs < stream_rhs)
-> +		return -1;
-> +	if (stream_lhs > stream_rhs)
-> +		return 1;
-> +	return 0;
->   }
->   
->   static struct arm_smmu_master *
-> @@ -1776,6 +1793,16 @@ arm_smmu_find_master(struct arm_smmu_device *smmu, u32 sid)
->   	node = rb_find(&sid, &smmu->streams, arm_smmu_streams_cmp_key);
->   	if (!node)
->   		return NULL;
-> +	/*
-> +	 * If there are DMA alises then there are multiple devices with the same
-> +	 * stream ID and we cannot reliably convert from SID to master.
-> +	 */
-> +	if (node->rb_left &&
-> +	    rb_entry(node->rb_left, struct arm_smmu_stream, node)->id == sid)
-> +		return NULL;
-> +	if (node->rb_right &&
-> +	    rb_entry(node->rb_right, struct arm_smmu_stream, node)->id == sid)
-> +		return NULL;
+> [1] https://lore.kernel.org/lkml/d1cff6c03ec3732d2244022029245ab2d954d997.1734340233.git.Sandor.yu@nxp.com/
+> 
+> [...]
 
-This doesn't really work - the whole mechanism needs to fundamentally 
-change to mapping StreamIDs to groups rather than to devices. Then it's 
-really up to individual callers what they want to do if the group has 
-more than one device.
+Applied, thanks!
 
-Thanks,
-Robin.
+[01/14] phy: Add HDMI configuration options
+        commit: 10ed34d6eaaf86e301a8f2dd190d26dfbc9799bd
+[02/14] phy: hdmi: Add color depth configuration
+        commit: 3bb9286f4ece6acbc1fbaa9f192a82645d30efbf
+[03/14] phy: rockchip: samsung-hdptx: Fix clock ratio setup
+        commit: 0422253ac1919fea8292381c85f11a9decff1bb1
+[04/14] phy: rockchip: samsung-hdptx: Do no set rk_hdptx_phy->rate in case of errors
+        commit: 1f4d382769e3b38dfc498c806811dae856e40f31
+[05/14] phy: rockchip: samsung-hdptx: Drop unused struct lcpll_config
+        commit: 6218c3fd6702a5bc4ab323fed25714cde127684c
+[06/14] phy: rockchip: samsung-hdptx: Drop unused phy_cfg driver data
+        commit: bcd61d182618c6a77d0841fcdc3333e125725360
+[07/14] phy: rockchip: samsung-hdptx: Drop superfluous cfgs driver data
+        commit: bacf2fe750dab6bc7ed50556aaadd3ab107fc643
+[08/14] phy: rockchip: samsung-hdptx: Avoid Hz<->hHz unit conversion overhead
+        commit: 0edf9d2bb9b4ba7566dfdc7605883e04575129d9
+[09/14] phy: rockchip: samsung-hdptx: Setup TMDS char rate via phy_configure_opts_hdmi
+        commit: c871a311edf0ebb1b934946a84a6c532cac0c035
+[10/14] phy: rockchip: samsung-hdptx: Provide config params validation support
+        commit: 2392050a2cb94ff3397949e109e4b9f0285ee085
+[11/14] phy: rockchip: samsung-hdptx: Restrict altering TMDS char rate via CCF
+        commit: 6efbd0f46dd8ae1d2b91b41d98c2800c60ab1f5e
+[12/14] phy: rockchip: samsung-hdptx: Rename ambiguous rk_hdptx_phy->rate
+        commit: 37f335dbfd028c008d0a7940ca5a270d1e2f6b81
+[13/14] phy: rockchip: samsung-hdptx: Optimize internal rate handling
+        commit: 45b14bdcf4acfd483d9890396197c35c23821124
+[14/14] phy: rockchip: samsung-hdptx: Add high color depth management
+        commit: 9d0ec51d7c227c3ae837e22832eaed219e25f126
 
->   	return rb_entry(node, struct arm_smmu_stream, node)->master;
->   }
->   
+Best regards,
+-- 
+~Vinod
+
 
 
