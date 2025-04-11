@@ -4,96 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD408C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 07:43:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCA7EC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 07:46:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RBmDrhu0Y2boD5jF26ggcoAtTCTRqgDeFKAQWZPdoF8=; b=KrHr7dlGvQx7uzXcq7KJ4Wuwdf
-	61iihcgM78lRZBr2A9Mnf++tEAIm1H2YGjSpGrAcoH+7LqSPtLZ4ZT2zPAHNqV7uhbMJNc++EdJIu
-	+ZMKi18ELtkpx/Yo3C6puWAZnvXBihVWkZNlby4tA+u3FOecv0qHUaZg1Se7JlbMfsVyaPdxFHq20
-	MypAs/6cRNV+exOYQuyut84g+eKioLDl9a/TgBKlAFkv3ZpzKenGjo1xgS+FTDbqAw4Jv6HAPPekU
-	hjk2UJVQORgqM54SzhONjjJfJuMGh1rdH8xaAcsYbYDW8CgcoQ7QMwtXBHU7fhtc8zBJ1B4vzcONB
-	15zLsJSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=E08vKhOf2WuIC9zih/brsm2bNqPGo7Fbm/Mk1ai+ErE=; b=taOyZJ2//VvnaMo4naqLpXu1jV
+	E01BGh6OEooBlMNuFOJiKc7hIwisGm1U/EmofvAVc4DrXwn2IGQtgeb9fwdJEiTkhOKeNHV9nZJBG
+	2oYb8qp4Ufonc6q3LVaWAdHAguwhQCHiZBcYeI6vEQ5SZeYRHKnED5ucL8ftldGWCsvjTpWEMiC1D
+	JRGZ7BJHWyzhrCWPwgx8G6iStODxUum2zcCAWaMiKk8XgH+YoBE4SgVey/IZCmGVkjhO3LhIku9i+
+	xLIpKjkcFuAEKP4nbiQC0FwNKF3fkkHXYoirU2DvmWhdIwVtEnj9dfIyPEzx3r/YquA+DoGzWKTD3
+	ABbTTzGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3939-0000000Cv1l-3aNd;
-	Fri, 11 Apr 2025 07:43:43 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u395h-0000000Cw43-00Gf;
+	Fri, 11 Apr 2025 07:46:21 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u38xv-0000000CtzU-1Cnh;
-	Fri, 11 Apr 2025 07:38:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=RBmDrhu0Y2boD5jF26ggcoAtTCTRqgDeFKAQWZPdoF8=; b=SRy9eViUX0f7BdhoDYCATlzKdx
-	J9t4bIEKYOZJc3TZ892wCC7XIe1nV/1VvB94XYD7CV3lSd8c2jS2mFeDaUSWnSWraymIwxhYRGdOb
-	HXSIYrz5SvX36Wv2Hd7TfvF2UtyCVtu4hgb4RJxvno5RqVoALSzaH16dy0bVRvd5lXPiG013K4RwD
-	Wx421wgRBCJNRVEW0uIhpI5AfOifyT1qF6Vtx2ctkAhExXHMFRb2A01jegP1Rp/OHKGDagguYu7sD
-	uXAwjcGlFeghrIpFzERVCIvbNkhURw5IUjIpS0evtOdlIBWZoBvNKkOj+XIvVhxlvJdGrABCF8voy
-	cJ6ccLhA==;
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u38xs-00000008xvu-1E0e;
-	Fri, 11 Apr 2025 07:38:18 +0000
-From: Nam Cao <namcao@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1744357093;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=RBmDrhu0Y2boD5jF26ggcoAtTCTRqgDeFKAQWZPdoF8=;
-	b=b5qttIrpDkpQwlivCD+hVWgAfFUwB2Gw2Ji6eC1nGW1frRf7lrpPulX7Ta/qotxELABNax
-	cJmLzn7Y7xtVgnlsv6+3SYQUmeydQYPSyajeJFwBp9eGBZxOULseYDd5gE8XdPu3Gyi1Ip
-	r+DEtnTtHvtKiTCX1iUUmCrEpG8vahyobdd36/yFnHG2gLXlS2Kes0NeJ2haf8p+Ih7G49
-	Mtcxwa8PqtVLa7nHuyJrPeE6Q7H6zwJJRefRfnPS1XqY6r9FlUlbd6kzbXuoWDxUyUOghR
-	AlaJeWr0ZemjgOJrqsTJFAAnZyuam93VFvkdlhPCyH6Y84hg4ZMYzay6MK/+eQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1744357093;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=RBmDrhu0Y2boD5jF26ggcoAtTCTRqgDeFKAQWZPdoF8=;
-	b=1Q1+UFco+iXSwfZiKaZv1A/TWlXNwzatkGQwlapQSNGthsLfDmgU3qmIZtezT05bLF5BvP
-	5hrip2WfW9EKPoBw==
-To: Steven Rostedt <rostedt@goodmis.org>,
-	Gabriele Monaco <gmonaco@redhat.com>,
-	linux-trace-kernel@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: john.ogness@linutronix.de,
-	Nam Cao <namcao@linutronix.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v2 19/22] rv: Add rtapp_pagefault monitor
-Date: Fri, 11 Apr 2025 09:37:35 +0200
-Message-Id: <f57547af5e8c836f5c548f624e61f3e0002ce0b4.1744355018.git.namcao@linutronix.de>
-In-Reply-To: <cover.1744355018.git.namcao@linutronix.de>
-References: <cover.1744355018.git.namcao@linutronix.de>
+	id 1u393s-0000000Cvd0-2WbX
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 11 Apr 2025 07:44:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dS4tDKfiELb/fWcrQauSpyWHX77EdsND4nsU4UPsFMo5E+e8RZje4n6Q63kkUF7HVBAY640mCvQycTw5BCSdcZ1Uwt3/Dc6DgZJNcUUVQc+CleOyWCir6sgccKgYzQ8ghuq9yxj4VILCFv9XP9soPp8VdzIfVqWULM5baqmy60T6oxsHEd2H5VhgGBwCgJBq0YHWF/CwVBQFp0CMXQz0qqm8lQZYzfZA4prnVnXmzxqycRDxaWtR6N/g17FNz9VQi9q0TZ+LX6sdbCSttqFSf6T13P6Ds0S7KDOW7/zYddrbCXUOqSgYt+zMqoSwByCIPmbg2sEOsUabIEu0rl5N7A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=E08vKhOf2WuIC9zih/brsm2bNqPGo7Fbm/Mk1ai+ErE=;
+ b=dY15KwpX//ObuMhCmxu2OueP4lD8q/WCmRcpCtxC2490nHS17hhY5LtiH1xkVoDmBR/HzPcVZQZ6x8MS6sZzsuJpuAkEMAgFwg9GU6sGXRnn3L/bMu+0/N+IibOweCBQEcUuPiNJ+ZJMrniJHShRvj8R5tdK48/ZsKPrOap1TRzO47JkmWLhMWvik9RfqkK92lQTYln60q2WU8Quhz8SAetznsief0OaLBD6AR4aR8GyteG0Z6kwPAQdUWmwxJ1rzG0+iAEFlmXi95adk9L9hv4k4grJK5TFg+CGbnxJyh/c0y6s5+qEpoDHDc9lCQtJT2SVoLrZHDlU6WHOG/BLVw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=E08vKhOf2WuIC9zih/brsm2bNqPGo7Fbm/Mk1ai+ErE=;
+ b=bI9FHnKySEiFDuRplVj21QSrIBYW+GMkhQICbXmWCF5n7JKrHEbpIZ8ZFotIAStUyICQrEq1B2D6e3x5WXS+SOgQwU5R+27vsVE6MvewE3WwrdMZPBfrDmRS8BnHVIE2zkDZByraZNarUlIF+TzI5AZS7u5wTTzRnzgeyK4YQp/OWTZjIVpp6xma7qRHBRiZZ+h8+G1aLR/IVLcVI2Z8Q5edEomuuqif97Zza/R/Uc5SmqBBXTWZiClYW78cgCTIuUPBRPo8s2NngDW/IqBDdz8SXpn/RK8kkX0eb6z1sMbBh7EbYUr8SM3mQI3xvQvOI4Wb2387CEE/0+Bco3GWJQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
+ by DBBPR04MB7737.eurprd04.prod.outlook.com (2603:10a6:10:1e5::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.34; Fri, 11 Apr
+ 2025 07:44:21 +0000
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::2755:55ac:5d6f:4f87%4]) with mapi id 15.20.8632.025; Fri, 11 Apr 2025
+ 07:44:20 +0000
+From: ming.qian@oss.nxp.com
+To: mchehab@kernel.org,
+	hverkuil-cisco@xs4all.nl,
+	mirela.rabulea@oss.nxp.com
+Cc: shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	xiahong.bao@nxp.com,
+	eagle.zhou@nxp.com,
+	linux-imx@nxp.com,
+	imx@lists.linux.dev,
+	linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v4 0/4] media: imx-jpeg: Fix some motion-jpeg decoding
+Date: Fri, 11 Apr 2025 15:43:39 +0800
+Message-ID: <20250411074347.809-1-ming.qian@oss.nxp.com>
+X-Mailer: git-send-email 2.48.1.windows.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR02CA0016.apcprd02.prod.outlook.com
+ (2603:1096:4:194::9) To PAXPR04MB8254.eurprd04.prod.outlook.com
+ (2603:10a6:102:1cd::24)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|DBBPR04MB7737:EE_
+X-MS-Office365-Filtering-Correlation-Id: 27329c9c-08d7-427f-0291-08dd78ccab6b
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|1800799024|376014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?6/4+c4PhqdKq90MSA4+NXY2V9JBHcFcV8lOAuHqQHGFKpHmNx6WXwOqWvkFy?=
+ =?us-ascii?Q?KJPD50Sn+wUi6jYFQ5xKAkDFY8IqFbLnxB04zxmewUwFScIpLtdJ1i1C3d5S?=
+ =?us-ascii?Q?PlVJq8Z7h1QfBr9R6xB9UyOeQB0waTdicBy88/J+L1WWgjYtTRgbaC1PJye3?=
+ =?us-ascii?Q?atmhzS49TCdDNDDJRPlSAeCslW+dUl3+obpaY5XDr2y29778QwcEkrTtUmu8?=
+ =?us-ascii?Q?l2j6oF7/9USCwBc4mxvBfhIVDWlGBjF1DbkYUGFpqNmx+cRdiGB0VSnq/Z0v?=
+ =?us-ascii?Q?HXXk26y8QnJ6SaNqQB/W4NG4h0sj14IBJCAVKwJzSo6ttwjv7m2ipNZln3Ih?=
+ =?us-ascii?Q?01x74YOS9MQdLQnvrhAMVZqcW8tGWUrLk9KlmBfOQqUd+XeJGZjyuiT3dhpl?=
+ =?us-ascii?Q?jtOLYlQ91tCHMzWb8JPRNC5Ydn7f3et+uFD97YXi2cQQ87M4NTzo4CokWAj1?=
+ =?us-ascii?Q?sgf7uuQRl2tdtdUNgJAfbijWDf68oUoHJcfrbd3bLkHw/GCa8D5PVzRCDM+a?=
+ =?us-ascii?Q?nHrMTkYBvC070e1jYoc8OdWizpkAgxQoReDpswmy1O4Iin+M404389NrO7wC?=
+ =?us-ascii?Q?5iUCA1LCOzP7xHD1wvBOHDUHptn5hsUcBvjCmv+A6gOuFPlHzrb6kJ4wICci?=
+ =?us-ascii?Q?R55ZQlWiKm7WsivAZ8dPl52E5VcOuu6/6V0Rq6DXoS8SUfA0WcUyfgOfU9o7?=
+ =?us-ascii?Q?9PMs5WIxM0kVvIH2GFeXYle1dTQjsjo/DAhy9g3TunBuOce5Wabqon+AOH6b?=
+ =?us-ascii?Q?bScUu+0XK1mWb7AFGHhEgHzIrksQyiOknOQD2wN0cZFNYZeG5zyizB79Dtbw?=
+ =?us-ascii?Q?yeuCGlqll2ualD5C9uPIg4par6TTiZLANzG3VbZ8mZl3rgxlo3AMowg1RZFG?=
+ =?us-ascii?Q?iKLT6kYz9v/Nnt61r3HRhQ7tPl4BJYjYpgR9RlKYgdXmRpji5Be6/d3Vl88Z?=
+ =?us-ascii?Q?4OgGM+TeH6vyBhH4ETeMmMnuK7i6TfQDUExOT7ChnTMi0i1ykJcl4tylN9eT?=
+ =?us-ascii?Q?9aP8k8DA3N4g7R4sM94bsGQkrmBIv/6cA18vNpmyeKJxcxtmiNgtsrikah+P?=
+ =?us-ascii?Q?3m9vuQY8RIhNBBsnA1xjHc3pBBEBOJSDmUexCx9NBJXc2Y/eLZDGV44RbCTZ?=
+ =?us-ascii?Q?j4aL+zq3xRt0e6UNsUtxl+E9dMtBZ4MdHV+O7fxIdwpjByZU73U3rWP7aetR?=
+ =?us-ascii?Q?vcHzpw84aafniTcU7ShuChZw7KaVBq/j8DU39mbQ5wpFwSESnJTS/v4ap5mt?=
+ =?us-ascii?Q?BO8zsfJ8kRJH08xFbbYiXElSwN07t17OC828GVrESFf64aEosP1uI8VqxVoY?=
+ =?us-ascii?Q?+11WMGp0eyS7Z7stmDgVFov+EeLvMXON7IM7f///6IEtFa22SX56nKjbdPMY?=
+ =?us-ascii?Q?RE6GuHQv78KNTfzbtZKtTXz20en085JBK8jtoan8fGsg9BY1emDukPyartgd?=
+ =?us-ascii?Q?g97Jea24ECsbd8BjwvxD89VzdHGZKjXyTc7QEgo2f4LmIIngX1Y8ZBnWb4cC?=
+ =?us-ascii?Q?kxwxibBkgsBP8II=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(1800799024)(376014)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LDP4yCPes2xpd21ApkbCOuNKVDVMycODhPEWVWXjxGFTjG2mEmnf7nueZc3i?=
+ =?us-ascii?Q?Qxj6tNCT+RCEbYdDBLr8uD5juDj8k98yy+qwUbMpRPCgCgvTP21xG19Mzx9+?=
+ =?us-ascii?Q?iDnxaxb+sPK16iypv7DhP23mMO2KEBnPi6UxxpGJqFNtJEj08QFu4m0wgzLd?=
+ =?us-ascii?Q?Rv1VK6iEIAPTdIWey4/RlswcQZPb8qzZYKdQCsUs/oYbYGEK4nZbVgawwliO?=
+ =?us-ascii?Q?JhpbKkMgrQ3A3TPbi0nkkIYLBZyjIhS1qW0aX7WWlmuNw5mr4w5v8A1JLQvm?=
+ =?us-ascii?Q?OPgCbieX9lViyh8eLnkpcN6PqmGa+n/nI5hXHFOC+XRkI5JnePTu6tFw6nc/?=
+ =?us-ascii?Q?vG2XC76pXHWRDJwl7r91b9A03k0CMfhv75xGC4500L/zZsA0fTJkXCX/bvUI?=
+ =?us-ascii?Q?6YguMC4/nEO9tL+hR3P1R/FpTFy2DPEiV2jHGzjU+GjdadIGbxB+FF8ryuS/?=
+ =?us-ascii?Q?Ianl9+FKFzvO9vUbWQ9GFf5/l+VPIOWu67C+6iSGd+xV6DMMzIM+PCzzOl2/?=
+ =?us-ascii?Q?4e5I7YlTS0b4q+GQ6ttarCTNtDeyorGa0tko1iR9cNb63CEuf/kDsQyEN6tV?=
+ =?us-ascii?Q?r6YiA5zjkYJyPGqgrAmLDOwKXQHVFZYFXIS3GC1HalrXOQ+cVgiKpCiVqibb?=
+ =?us-ascii?Q?hi/HhdwuHr3y/GsYpnEyB9U/oxXNeNdA1425flcFC7JSTeTgzNz5yZ1WTP6Q?=
+ =?us-ascii?Q?rwtePn+nkKD3VS8nnAyM0YrhBk/6a9jsQz297tPrmOG39j6NTCXaxyQbzhGj?=
+ =?us-ascii?Q?iPBZ44nqaeUY6E1q3nPXjZHyTbUkX3yf9NkdGWdWxvk17TgJD2LsLlvrZciz?=
+ =?us-ascii?Q?beWHv80z8+gx1iQz76NQdSVhkoYTYOJUZin2koWFStWIMSy/hr+4OU/LUE8u?=
+ =?us-ascii?Q?3zs6Rg+pPJZ9vobKtnQUyzQYx2jAHZySxIUTH52Yq8SdYmU5DP9iLTnTbIxm?=
+ =?us-ascii?Q?E9y+xLDbQ+2rkOoY1REVE9ndqFfwoK7ybH5JsdzLRW9blWpJEYNBvAtf2Hy/?=
+ =?us-ascii?Q?icOXrKslNQ+Q2KRzHRxKPtWXUom8rl75jT3Gq98QBEC9LEMhAfBDnUfN8nI2?=
+ =?us-ascii?Q?tQDPbia/CIrA/zDa/SClrNMA0ghdzuDb/sA0NJOZZRzhrCAKr7XETZ6EPmIG?=
+ =?us-ascii?Q?1s7atZEGmE9UD8/2u86/8g0UWYWe++Cyl1PKcir8xBwIaUDjA61DPSx2MTIE?=
+ =?us-ascii?Q?YWO6On+5cpvLzUz27GVir4xSJlhZU4tFHrlXZ41s+fKVaPZ8otq3981PEXWO?=
+ =?us-ascii?Q?vkBxqFye+ZEj+EXvs1PTMEDqhVjkFovAnffH9gTT/n/QK6UM5g+nZtP2l++U?=
+ =?us-ascii?Q?yTwx6Rs8rm4WmHjCFWJyyXPBmFMMPfTtgCpwjfViEhHeP4Bqg1Njy8u2uN22?=
+ =?us-ascii?Q?I+r/iaQ9UhB+QO8Ki60GKMfew9TEwtDY3Hjaf10N1DGoZzckejD+aufNDjNN?=
+ =?us-ascii?Q?nKqDhymS+ZKjIlqwDF8SaphQSyqVYQoJFxQ27dHcrhKITokuqvtZKTZ6rUX7?=
+ =?us-ascii?Q?Q62/hoKrLctqzowlkdcR8iyFjA7tI6AzYvExfuAQtAFFSbxQlEROiiGppVB4?=
+ =?us-ascii?Q?1Nq6zei8yyl/xVroyqPUMan+KifXxrK82zNf+kB0?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 27329c9c-08d7-427f-0291-08dd78ccab6b
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Apr 2025 07:44:20.7996
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: a9IHHjNITj0uLjP0uaWni4sqEYIBLsIsPKUTaU57Yd1EDPODIXPCwsb9drW06qAU+8PWXws46EtAXpR2zzSbZA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7737
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_083816_580162_AB348104 
-X-CRM114-Status: GOOD (  18.78  )
+X-CRM114-CacheID: sfid-20250411_004428_657985_21D8B9EE 
+X-CRM114-Status: UNSURE (   8.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,291 +170,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Userspace real-time applications may have design flaws that they raise
-page faults in real-time threads, and thus have unexpected latencies.
+From: Ming Qian <ming.qian@oss.nxp.com>
 
-Add an linear temporal logic monitor to detect this scenario.
+To support decoding motion-jpeg without DHT, driver will try to decode a
+pattern jpeg before actual jpeg frame by use of linked descriptors
+(This is called "repeat mode"), then the DHT in the pattern jpeg can be
+used for decoding the motion-jpeg.
 
-Signed-off-by: Nam Cao <namcao@linutronix.de>
----
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: Ingo Molnar <mingo@redhat.com>
-Cc: Borislav Petkov <bp@alien8.de>
-Cc: Dave Hansen <dave.hansen@linux.intel.com>
-Cc: x86@kernel.org
-Cc: H. Peter Anvin <hpa@zytor.com>
-Cc: Andy Lutomirski <luto@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-riscv@lists.infradead.org
----
- kernel/trace/rv/Kconfig                       |  1 +
- kernel/trace/rv/Makefile                      |  1 +
- kernel/trace/rv/monitors/pagefault/Kconfig    | 11 +++
- .../trace/rv/monitors/pagefault/pagefault.c   | 83 +++++++++++++++++++
- .../trace/rv/monitors/pagefault/pagefault.h   | 57 +++++++++++++
- .../rv/monitors/pagefault/pagefault_trace.h   | 14 ++++
- kernel/trace/rv/rv_trace.h                    |  1 +
- tools/verification/models/rtapp/pagefault.ltl |  1 +
- 8 files changed, 169 insertions(+)
- create mode 100644 kernel/trace/rv/monitors/pagefault/Kconfig
- create mode 100644 kernel/trace/rv/monitors/pagefault/pagefault.c
- create mode 100644 kernel/trace/rv/monitors/pagefault/pagefault.h
- create mode 100644 kernel/trace/rv/monitors/pagefault/pagefault_trace.h
- create mode 100644 tools/verification/models/rtapp/pagefault.ltl
+But there is some hardware limitation in the repeat mode, that may cause
+corruption or decoding timeout.
 
-diff --git a/kernel/trace/rv/Kconfig b/kernel/trace/rv/Kconfig
-index 5c407d291661..6f86d8501e87 100644
---- a/kernel/trace/rv/Kconfig
-+++ b/kernel/trace/rv/Kconfig
-@@ -42,6 +42,7 @@ source "kernel/trace/rv/monitors/scpd/Kconfig"
- source "kernel/trace/rv/monitors/snep/Kconfig"
- source "kernel/trace/rv/monitors/sncid/Kconfig"
- source "kernel/trace/rv/monitors/rtapp/Kconfig"
-+source "kernel/trace/rv/monitors/pagefault/Kconfig"
- # Add new monitors here
-=20
- config RV_REACTORS
-diff --git a/kernel/trace/rv/Makefile b/kernel/trace/rv/Makefile
-index 9b28c2419995..353ecf939d0e 100644
---- a/kernel/trace/rv/Makefile
-+++ b/kernel/trace/rv/Makefile
-@@ -13,6 +13,7 @@ obj-$(CONFIG_RV_MON_SCPD) +=3D monitors/scpd/scpd.o
- obj-$(CONFIG_RV_MON_SNEP) +=3D monitors/snep/snep.o
- obj-$(CONFIG_RV_MON_SNCID) +=3D monitors/sncid/sncid.o
- obj-$(CONFIG_RV_MON_RTAPP) +=3D monitors/rtapp/rtapp.o
-+obj-$(CONFIG_RV_MON_PAGEFAULT) +=3D monitors/pagefault/pagefault.o
- # Add new monitors here
- obj-$(CONFIG_RV_REACTORS) +=3D rv_reactors.o
- obj-$(CONFIG_RV_REACT_PRINTK) +=3D reactor_printk.o
-diff --git a/kernel/trace/rv/monitors/pagefault/Kconfig b/kernel/trace/rv/m=
-onitors/pagefault/Kconfig
-new file mode 100644
-index 000000000000..b31dee208459
---- /dev/null
-+++ b/kernel/trace/rv/monitors/pagefault/Kconfig
-@@ -0,0 +1,11 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+#
-+config RV_MON_PAGEFAULT
-+	depends on RV
-+	select RV_LTL_MONITOR
-+	depends on RV_MON_RTAPP
-+	default y
-+	select LTL_MON_EVENTS_ID
-+	bool "pagefault monitor"
-+	help
-+	  Monitor that real-time tasks do not raise page faults
-diff --git a/kernel/trace/rv/monitors/pagefault/pagefault.c b/kernel/trace/=
-rv/monitors/pagefault/pagefault.c
-new file mode 100644
-index 000000000000..9f7a4cba39a1
---- /dev/null
-+++ b/kernel/trace/rv/monitors/pagefault/pagefault.c
-@@ -0,0 +1,83 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include <linux/ftrace.h>
-+#include <linux/tracepoint.h>
-+#include <linux/kernel.h>
-+#include <linux/module.h>
-+#include <linux/init.h>
-+#include <linux/rv.h>
-+#include <rv/instrumentation.h>
-+
-+#define MODULE_NAME "pagefault"
-+
-+#include <rv_trace.h>
-+#include <trace/events/exceptions.h>
-+#include <monitors/rtapp/rtapp.h>
-+
-+#include "pagefault.h"
-+#include <rv/ltl_monitor.h>
-+
-+static void ltl_atoms_fetch(struct task_struct *task, struct ltl_monitor *=
-mon)
-+{
-+	ltl_atom_set(mon, LTL_RT, rt_task(task));
-+}
-+
-+static void ltl_atoms_init(struct task_struct *task, struct ltl_monitor *m=
-on, bool task_creation)
-+{
-+	if (task_creation)
-+		ltl_atom_set(mon, LTL_PAGEFAULT, false);
-+}
-+
-+static void handle_page_fault(void *data, unsigned long address, struct pt=
-_regs *regs,
-+			      unsigned long error_code)
-+{
-+	ltl_atom_pulse(current, LTL_PAGEFAULT, true);
-+}
-+
-+static int enable_pagefault(void)
-+{
-+	int retval;
-+
-+	retval =3D ltl_monitor_init();
-+	if (retval)
-+		return retval;
-+
-+	rv_attach_trace_probe("pagefault", page_fault_kernel, handle_page_fault);
-+	rv_attach_trace_probe("pagefault", page_fault_user, handle_page_fault);
-+
-+	return 0;
-+}
-+
-+static void disable_pagefault(void)
-+{
-+	rv_pagefault.enabled =3D 0;
-+
-+	rv_detach_trace_probe("rtapp_pagefault", page_fault_kernel, handle_page_f=
-ault);
-+	rv_detach_trace_probe("rtapp_pagefault", page_fault_user, handle_page_fau=
-lt);
-+
-+	ltl_monitor_destroy();
-+}
-+
-+static struct rv_monitor rv_pagefault =3D {
-+	.name =3D "pagefault",
-+	.description =3D "Monitor that RT tasks do not raise page faults",
-+	.enable =3D enable_pagefault,
-+	.disable =3D disable_pagefault,
-+};
-+
-+static int __init register_pagefault(void)
-+{
-+	rv_register_monitor(&rv_pagefault, &rv_rtapp);
-+	return 0;
-+}
-+
-+static void __exit unregister_pagefault(void)
-+{
-+	rv_unregister_monitor(&rv_pagefault);
-+}
-+
-+module_init(register_pagefault);
-+module_exit(unregister_pagefault);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_AUTHOR("Nam Cao <namcao@linutronix.de>");
-+MODULE_DESCRIPTION("pagefault: Monitor that RT tasks do not raise page fau=
-lts");
-diff --git a/kernel/trace/rv/monitors/pagefault/pagefault.h b/kernel/trace/=
-rv/monitors/pagefault/pagefault.h
-new file mode 100644
-index 000000000000..f4535c83f7d1
---- /dev/null
-+++ b/kernel/trace/rv/monitors/pagefault/pagefault.h
-@@ -0,0 +1,57 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+
-+#include <linux/rv.h>
-+
-+#define MONITOR_NAME pagefault
-+
-+enum ltl_atom {
-+	LTL_PAGEFAULT,
-+	LTL_RT,
-+	LTL_NUM_ATOM
-+};
-+static_assert(LTL_NUM_ATOM <=3D RV_MAX_LTL_ATOM);
-+
-+static const char *ltl_atom_str(enum ltl_atom atom)
-+{
-+	static const char *const names[] =3D {
-+		"p",
-+		"r",
-+	};
-+
-+	return names[atom];
-+}
-+
-+enum ltl_buchi_state {
-+	S0,
-+	RV_NUM_BA_STATES
-+};
-+static_assert(RV_NUM_BA_STATES <=3D RV_MAX_BA_STATES);
-+
-+static void ltl_start(struct task_struct *task, struct ltl_monitor *mon)
-+{
-+	bool pagefault =3D test_bit(LTL_PAGEFAULT, mon->atoms);
-+	bool val3 =3D !pagefault;
-+	bool rt =3D test_bit(LTL_RT, mon->atoms);
-+	bool val1 =3D !rt;
-+	bool val4 =3D val1 || val3;
-+
-+	if (val4)
-+		__set_bit(S0, mon->states);
-+}
-+
-+static void
-+ltl_possible_next_states(struct ltl_monitor *mon, unsigned int state, unsi=
-gned long *next)
-+{
-+	bool pagefault =3D test_bit(LTL_PAGEFAULT, mon->atoms);
-+	bool val3 =3D !pagefault;
-+	bool rt =3D test_bit(LTL_RT, mon->atoms);
-+	bool val1 =3D !rt;
-+	bool val4 =3D val1 || val3;
-+
-+	switch (state) {
-+	case S0:
-+		if (val4)
-+			__set_bit(S0, next);
-+		break;
-+	}
-+}
-diff --git a/kernel/trace/rv/monitors/pagefault/pagefault_trace.h b/kernel/=
-trace/rv/monitors/pagefault/pagefault_trace.h
-new file mode 100644
-index 000000000000..fe1f82597b1a
---- /dev/null
-+++ b/kernel/trace/rv/monitors/pagefault/pagefault_trace.h
-@@ -0,0 +1,14 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+
-+/*
-+ * Snippet to be included in rv_trace.h
-+ */
-+
-+#ifdef CONFIG_RV_MON_PAGEFAULT
-+DEFINE_EVENT(event_ltl_monitor_id, event_pagefault,
-+	     TP_PROTO(struct task_struct *task, char *states, char *atoms, char *=
-next),
-+	     TP_ARGS(task, states, atoms, next));
-+DEFINE_EVENT(error_ltl_monitor_id, error_pagefault,
-+	     TP_PROTO(struct task_struct *task),
-+	     TP_ARGS(task));
-+#endif /* CONFIG_RV_MON_PAGEFAULT */
-diff --git a/kernel/trace/rv/rv_trace.h b/kernel/trace/rv/rv_trace.h
-index f9fb848bae91..02c906c9745b 100644
---- a/kernel/trace/rv/rv_trace.h
-+++ b/kernel/trace/rv/rv_trace.h
-@@ -172,6 +172,7 @@ TRACE_EVENT(error_ltl_monitor_id,
-=20
- 	TP_printk("%s[%d]: violation detected", __get_str(comm), __entry->pid)
- );
-+#include <monitors/pagefault/pagefault_trace.h>
- // Add new monitors based on CONFIG_LTL_MON_EVENTS_ID here
- #endif /* CONFIG_LTL_MON_EVENTS_ID */
- #endif /* _TRACE_RV_H */
-diff --git a/tools/verification/models/rtapp/pagefault.ltl b/tools/verifica=
-tion/models/rtapp/pagefault.ltl
-new file mode 100644
-index 000000000000..d7ce62102733
---- /dev/null
-+++ b/tools/verification/models/rtapp/pagefault.ltl
-@@ -0,0 +1 @@
-+RULE =3D always (RT imply not PAGEFAULT)
---=20
-2.39.5
+Try to make workaround for these limitation in this patchset.
+
+Ming Qian (4):
+  media: imx-jpeg: Move mxc_jpeg_free_slot_data() ahead
+  media: imx-jpeg: Cleanup after an allocation error
+  media: imx-jpeg: Change the pattern size to 128x64
+  media: imx-jpeg: Check decoding is ongoing for motion-jpeg
+
+ .../media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h |   1 +
+ .../media/platform/nxp/imx-jpeg/mxc-jpeg.c    | 120 +++++++++++++-----
+ .../media/platform/nxp/imx-jpeg/mxc-jpeg.h    |   5 +
+ 3 files changed, 97 insertions(+), 29 deletions(-)
+
+-- 
+2.43.0-rc1
 
 
