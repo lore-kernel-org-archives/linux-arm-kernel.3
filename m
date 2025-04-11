@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DE30C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 06:37:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 425FDC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 06:39:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Q59HgdDBxXW3RUEMQuXbm4IX7T1E0mDEkoYnlFm6hPY=; b=QnxGAdmvrV8BvsCSwEJPuL3r0G
-	QMfK+/0LyQqoM75woGmDOO1jNaj25ivLbTl5R+jP969h0/hYR6t4k2w+mVeW3S+jrFjN3aGYH1d50
-	d17uaFmsKNdwS8LoXxabFJWQgszxWFc/ojCWZmEBaRDmulgXty07JOR+H7qAGcdRX6F8sdhHFE9Wl
-	5Jf2x0TNECyNr2r4vyZWXiJH5cl3UVuJGwmlaFYk6TZ2u6ySQV/cAXEA+5rLpP0QvlyULn+Sp3mDA
-	cBpgHcfn8xzEwBU2MjZtRRH3LUsrV7LYSquvbOIlW6LEfXHtUNezPnqwmKT07CvMuX12egUy/11/3
-	aNZp33DQ==;
+	bh=p6L9ox8QbZEfucXdJkpzXmXO81CguHbCQdxOp/2KlFk=; b=l3bOTB5J+Omyc32fDqBCtSYbP9
+	AuPHcqdCiYlqjYklv4bp6bdRFjlrDRcZ1w7uLTOOhWGLlUXw8UTv4VHkI99z6lLCbq3fFzKFg7t+O
+	IizUgT1XqtXOuyfHVTenSdYkNBvygdPbOuU73DPpNZ83gPfb3LCBU4XKF/YELD3DU6iXFG3Lwy4Mk
+	u2QNbcso5jcXxIke9xVEbBUOXsT/DuAo9BEt7i2vnRxzq3lEou+5pLp1i5Or7dD4rfNEktD/lnWm5
+	omriUz2rAItGJf2sZ5ZuHZJc645+PVkTPu2lKF716Cu2DTCguOzE0cc2XFj6a9QinRjAkER1TuMsZ
+	Re0l7r/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u381A-0000000Ck7C-1woa;
-	Fri, 11 Apr 2025 06:37:36 +0000
+	id 1u382x-0000000CkWV-3h92;
+	Fri, 11 Apr 2025 06:39:27 +0000
 Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u37Oj-0000000Cdqo-1WuH;
-	Fri, 11 Apr 2025 05:58:02 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53B5vmqo2020329
+	id 1u37Zx-0000000Cg0z-1tbH
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 11 Apr 2025 06:09:31 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53B69NGE2027079
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 11 Apr 2025 00:57:48 -0500
+	Fri, 11 Apr 2025 01:09:23 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744351068;
-	bh=Q59HgdDBxXW3RUEMQuXbm4IX7T1E0mDEkoYnlFm6hPY=;
+	s=ti-com-17Q1; t=1744351763;
+	bh=p6L9ox8QbZEfucXdJkpzXmXO81CguHbCQdxOp/2KlFk=;
 	h=From:To:CC:Subject:Date;
-	b=c/pdu57IciznWH55f1JIfsADzOf0w6WvOn3QV1U9b1eLKe5BmAqFfZ/nouFrbXoSS
-	 Zr5CuDwaDWkxtsHGaTe7rHxApdwzjKnZtVOmUy2BwMTog3jHuJ+tCgivD6Trz/kQ5p
-	 woTtlXxZ3GZoPhc+9/DZKu1hrdNZT+wXEl5rzpF8=
-Received: from DLEE111.ent.ti.com (dlee111.ent.ti.com [157.170.170.22])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53B5vmZi023840
+	b=Rzfjm3gK/5E1dv7/TMK2yt4uSnlJ5SSq+1nIrJ7HSl1eY6LEuzYT2mJc5aGdCxfp1
+	 2j3VW5FVNWpasODqmkC+KhynaPcOxrVqum48vXjg17d0GvJ0rofOMG6LQd/V1+CW93
+	 +P57LGVlIAUk1bFicEBd2CMGx8xyDTDGsUMHv/NM=
+Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53B69NXZ049796
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 11 Apr 2025 00:57:48 -0500
-Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE111.ent.ti.com
- (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
+	Fri, 11 Apr 2025 01:09:23 -0500
+Received: from DLEE101.ent.ti.com (157.170.170.31) by DLEE105.ent.ti.com
+ (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 11
- Apr 2025 00:57:48 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+ Apr 2025 01:09:22 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE101.ent.ti.com
+ (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 11 Apr 2025 00:57:48 -0500
+ Frontend Transport; Fri, 11 Apr 2025 01:09:22 -0500
 Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.72.113])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53B5vhgr048099;
-	Fri, 11 Apr 2025 00:57:44 -0500
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53B69I9x065579;
+	Fri, 11 Apr 2025 01:09:18 -0500
 From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: <vkoul@kernel.org>, <kishon@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <sjakhade@cadence.com>,
-        <yamonkar@cadence.com>
-CC: <linux-phy@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+To: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
+        <kuba@kernel.org>, <pabeni@redhat.com>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <rogerq@kernel.org>
+CC: <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
         <srk@ti.com>, <s-vadapalli@ti.com>
-Subject: [PATCH] dt-bindings: phy: cadence-torrent: enable PHY_TYPE_USXGMII
-Date: Fri, 11 Apr 2025 11:27:43 +0530
-Message-ID: <20250411055743.623135-1-s-vadapalli@ti.com>
+Subject: [PATCH net-next 0/2] CPSW Bindings for 5000M Fixed-Link
+Date: Fri, 11 Apr 2025 11:39:15 +0530
+Message-ID: <20250411060917.633769-1-s-vadapalli@ti.com>
 X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_225754_214921_9BD8D1B6 
-X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-CacheID: sfid-20250410_230929_535081_909A1EEF 
+X-CRM114-Status: UNSURE (   8.59  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,38 +86,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Cadence Torrent SERDES supports USXGMII protocol. Hence, update the
-bindings to allow PHY_TYPE_USXGMII. Since PHY_TYPE_USXGMII has the value
-of "12" while the existing maximum allowed PHY TYPE is "9", switch back to
-using "enum" property in the bindings to account for this discontinuity.
-
-Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
----
-
 Hello,
 
-This patch is based on linux-next tagged next-20250411.
+This series adds 5000M as a valid speed for fixed-link mode of operation
+and also updates the CPSW bindings to evaluate fixed-link property. This
+series is in the context of the following device-tree overlay which
+enables USXGMII 5000M Fixed-link mode of operation with CPSW on TI's
+J784S4 SoC:
+https://github.com/torvalds/linux/blob/v6.15-rc1/arch/arm64/boot/dts/ti/k3-j784s4-evm-usxgmii-exp1-exp2.dtso
+
+Series is based on commit
+0c49baf099ba r8169: add helper rtl8125_phy_param
+of the main branch of net-next tree.
 
 Regards,
 Siddharth.
 
- Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+Siddharth Vadapalli (2):
+  dt-bindings: net: ethernet-controller: add 5000M speed to fixed-link
+  dt-bindings: net: ti: k3-am654-cpsw-nuss: evaluate fixed-link property
 
-diff --git a/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml b/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml
-index 15dc8efe6ffe..9af39b33646a 100644
---- a/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml
-+++ b/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml
-@@ -99,8 +99,7 @@ patternProperties:
-           Specifies the type of PHY for which the group of PHY lanes is used.
-           Refer include/dt-bindings/phy/phy.h. Constants from the header should be used.
-         $ref: /schemas/types.yaml#/definitions/uint32
--        minimum: 1
--        maximum: 9
-+        enum: [1, 2, 3, 4, 5, 6, 7, 8, 9, 12]
- 
-       cdns,num-lanes:
-         description:
+ Documentation/devicetree/bindings/net/ethernet-controller.yaml  | 2 +-
+ .../devicetree/bindings/net/ti,k3-am654-cpsw-nuss.yaml          | 2 ++
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
 -- 
 2.34.1
 
