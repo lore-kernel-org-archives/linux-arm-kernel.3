@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C78C0C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 14:18:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D327BC369AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 14:20:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qQDSFd0KgWBYuvyGNC6FIuW3TAEXHe3afLsrb7vpjYk=; b=gnWh8O+g/mV/hiVkiSWMilIMxU
-	DRCbx1dSdZodS3ipOpz4oYE7pXDc8ROPFORQYg0d9AR/qLJmkfJp7QPNIrOzFHXQHVWy1IYas+UwE
-	GGB0LQgmqe7aaSn9TvrMYGeGMEVVugGlWZA+qy0N4jxNxaqNHMkhyv0jwsJ7OjbzKMiwE93LDPFQb
-	Ja4egIQSAjIGSHDMIuegAux9uFdkwsbdtWSCau2U+b02VXw/oP9cbu9NHxqNKLqLqm6XodCva5Iuk
-	pPZOl0PaXPN7Yk03RyD+l/qgaWsiIZ6x6RES7SXTNDPr06Le7jwlAf93cns4CEjcgi2WShQbxOQ/m
-	KeJQi/dg==;
+	bh=dh6bE3XEbiTa0mmTq1+LWP9AAzh6deTQmR8XrrWXPSI=; b=nOEkJKOvNyYrI5ChAzMH3mlibh
+	85meygvzDitMYDCi2+3Z+LARGdQ5mfvsNOK49XszL6zVrS1pPRtLBsJrrZ/JNpGgZIdhTA7lKCVxz
+	Dy6UIswLCDvxCxNhvx9g80kolMtkkOnL1G6YTtAWpwAg7BfVpmEZz7nPKImxu2o4o0e9mkes1eQqE
+	vbMHwknO3TZNLME4ESmH8IxkuxxVJC05bPwg++VCmCUg/WK/G/nkf4PodUFJlgEWrcQvc4p85iZOw
+	xXmYgTrdZx4u4haQXRZxol9AyCJ3rva8/xSM1shRy/l3LWzF95KnsoPOnAVNLik8ffabr6cP1CHLQ
+	KwkeZEGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3FDT-0000000E3rW-1WTe;
-	Fri, 11 Apr 2025 14:18:47 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1u3FFG-0000000E4IE-34YD;
+	Fri, 11 Apr 2025 14:20:38 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3Em3-0000000DzK5-1frP
+	id 1u3Es8-0000000E0Iz-0wdS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 13:50:28 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53BDoJUS2141356
+	Fri, 11 Apr 2025 13:56:45 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53BDuebR1457292
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 11 Apr 2025 08:50:19 -0500
+	Fri, 11 Apr 2025 08:56:40 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744379419;
-	bh=qQDSFd0KgWBYuvyGNC6FIuW3TAEXHe3afLsrb7vpjYk=;
+	s=ti-com-17Q1; t=1744379800;
+	bh=dh6bE3XEbiTa0mmTq1+LWP9AAzh6deTQmR8XrrWXPSI=;
 	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=SR5jd+omWQxFX6UsqjsPKJ90ihXVqD9unyjxmpgtOwxUWqzaiAGqu+/+jjisWUfZk
-	 +WE12+qo/scn+FIl4BsRZoTY1FrVvLWk7j5+i8bflzxwUroKQX+ExD41QTVPhB2l8L
-	 qlrxRuy3vo36UxIaEBzPUACKcMxqdba+I8Hu2sRw=
-Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53BDoJCD031578
+	b=FP/LHciKb+kFVsE/9VAjEQwtM1lOXleR/rP4eUPFWF51epfLWamq+9ykFFT523ZtA
+	 rrdUBHyQ6519dkEZLCnjar0aUUpys03i7kAr9ZzzSh4yQYBxdnVRAsHoamx4PKwiAz
+	 Lf5a3XC3xbaF0FLbuOxOJesxtKfyi2rIKhz/28j4=
+Received: from DFLE100.ent.ti.com (dfle100.ent.ti.com [10.64.6.21])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53BDuedm093360
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 11 Apr 2025 08:50:19 -0500
-Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+	Fri, 11 Apr 2025 08:56:40 -0500
+Received: from DFLE102.ent.ti.com (10.64.6.23) by DFLE100.ent.ti.com
+ (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 11
- Apr 2025 08:50:19 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ Apr 2025 08:56:40 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE102.ent.ti.com
+ (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 11 Apr 2025 08:50:18 -0500
-Received: from [10.249.136.157] ([10.249.136.157])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53BDoDJO001396;
-	Fri, 11 Apr 2025 08:50:14 -0500
-Message-ID: <293dfbda-841b-4a5a-85ac-6a6c2df5df09@ti.com>
-Date: Fri, 11 Apr 2025 19:20:12 +0530
+ Frontend Transport; Fri, 11 Apr 2025 08:56:40 -0500
+Received: from [10.249.141.75] ([10.249.141.75])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53BDuZCB124896;
+	Fri, 11 Apr 2025 08:56:36 -0500
+Message-ID: <b6cae091-caa8-41fa-97b1-fb243386b0b5@ti.com>
+Date: Fri, 11 Apr 2025 19:26:35 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/7] arm64: dts: ti: am68-sk: Fix regulator hierarchy
-To: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>, <nm@ti.com>,
-        <vigneshr@ti.com>
-CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <vaishnav.a@ti.com>, <jai.luthra@linux.dev>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <imx@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-        <u-kumar1@ti.com>, <stable@vger.kernel.org>
-References: <20250409134128.2098195-1-y-abhilashchandra@ti.com>
- <20250409134128.2098195-3-y-abhilashchandra@ti.com>
+Subject: Re: [PATCH v2 1/2] arm64: dts: ti: k3-j722s-evm: Enable "serdes_wiz0"
+ and "serdes_wiz1"
+To: Siddharth Vadapalli <s-vadapalli@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
+        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <rogerq@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <stable@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <srk@ti.com>, <u-kumar1@ti.com>
+References: <20250408103606.3679505-1-s-vadapalli@ti.com>
+ <20250408103606.3679505-2-s-vadapalli@ti.com>
 Content-Language: en-US
-From: "Francis, Neha" <n-francis@ti.com>
-In-Reply-To: <20250409134128.2098195-3-y-abhilashchandra@ti.com>
-Content-Type: text/plain; charset="UTF-8"
+From: "Kumar, Udit" <u-kumar1@ti.com>
+In-Reply-To: <20250408103606.3679505-2-s-vadapalli@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_065027_532052_A102AB07 
-X-CRM114-Status: GOOD (  15.29  )
+X-CRM114-CacheID: sfid-20250411_065644_367105_1B98547C 
+X-CRM114-Status: GOOD (  16.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,55 +90,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/9/2025 7:11 PM, Yemike Abhilash Chandra wrote:
-> Update the vin-supply of the TLV71033 regulator from LM5141 (vsys_3v3) to
-> LM61460 (vsys_5v0) to match the schematics. Add a fixed regulator node for
-> the LM61460 5V supply to support this change.
-> 
-> AM68-SK schematics: https://www.ti.com/lit/zip/sprr463
-> Fixes: a266c180b398 ("arm64: dts: ti: k3-am68-sk: Add support for AM68 SK base board")
+
+On 4/8/2025 4:06 PM, Siddharth Vadapalli wrote:
+> In preparation for disabling "serdes_wiz0" and "serdes_wiz1" device-tree
+> nodes in the SoC file, enable them in the board file. The motivation for
+> this change is that of following the existing convention of disabling
+> nodes in the SoC file and only enabling the required ones in the board
+> file.
+>
+> Fixes: 485705df5d5f ("arm64: dts: ti: k3-j722s: Enable PCIe and USB support on J722S-EVM")
 > Cc: stable@vger.kernel.org
-> Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
 > ---
->  arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts | 13 ++++++++++++-
->  1 file changed, 12 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts b/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
-> index 11522b36e0ce..5fa70a874d7b 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
-> @@ -44,6 +44,17 @@ vusb_main: regulator-vusb-main5v0 {
->  		regulator-boot-on;
->  	};
->  
-> +	vsys_5v0: regulator-vsys5v0 {
-> +		/* Output of LM61460 */
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vsys_5v0";
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-max-microvolt = <5000000>;
-> +		vin-supply = <&vusb_main>;
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +	};
+>
+> v1 of this patch is at:
+> https://lore.kernel.org/r/20250408060636.3413856-2-s-vadapalli@ti.com/
+> Changes since v1:
+> - Added "Fixes" tag and updated commit message accordingly.
+>
+> Regards,
+> Siddharth.
+>
+>   arch/arm64/boot/dts/ti/k3-j722s-evm.dts | 8 ++++++++
+>   1 file changed, 8 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+> index 2127316f36a3..0bf2e1821662 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+> @@ -843,6 +843,10 @@ &serdes_ln_ctrl {
+>   		      <J722S_SERDES1_LANE0_PCIE0_LANE0>;
+>   };
+>   
+> +&serdes_wiz0 {
+> +	status = "okay";
+> +};
 > +
->  	vsys_3v3: regulator-vsys3v3 {
->  		/* Output of LM5141 */
->  		compatible = "regulator-fixed";
-> @@ -76,7 +87,7 @@ vdd_sd_dv: regulator-tlv71033 {
->  		regulator-min-microvolt = <1800000>;
->  		regulator-max-microvolt = <3300000>;
->  		regulator-boot-on;
-> -		vin-supply = <&vsys_3v3>;
-> +		vin-supply = <&vsys_5v0>;
->  		gpios = <&main_gpio0 49 GPIO_ACTIVE_HIGH>;
->  		states = <1800000 0x0>,
->  			 <3300000 0x1>;
+>   &serdes0 {
+>   	status = "okay";
+>   	serdes0_usb_link: phy@0 {
+> @@ -854,6 +858,10 @@ serdes0_usb_link: phy@0 {
+>   	};
+>   };
+>   
+> +&serdes_wiz1 {
+> +	status = "okay";
+> +};
+> +
 
-Reviewed-by: Neha Malcom Francis <n-francis@ti.com>
+Reviewed-by: Udit Kumar <u-kumar1@ti.com>
 
--- 
-Thanking You
-Neha Malcom Francis
 
+>   &serdes1 {
+>   	status = "okay";
+>   	serdes1_pcie_link: phy@0 {
 
