@@ -4,73 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D23A1C369A8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 09:28:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66112C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 09:29:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JyGC3dPYEiUfSysrm0g5+YwaFdCwK0NuaEpU2PLk9kU=; b=0FXsyFjSYqPC6Uy/QWj4FPH27g
-	+obP82ES34vFpPCXKu1n0utbsCLh1PQDa5XpeOqiPnPrFMwSOXZnVu2eN91Zi+/i9LAOF20ZoGi4O
-	j1RHNrh4iDBX+6C1JdSECwbNMW4D5Ek6PsyODsdkhKaj28epoJ/LbfFZRLpzEHpNVBQGfkksgQZ8c
-	bXOaD0gqft4nJdvWhJfTLEKJSroOCyB4FBnM5netHAdaa8sV5qWPd61mJM7JIvdZzMd8Ne0nQ/gly
-	PuKrbDaTBvn+IBampPkw8JmjYwgsOlTIhwavz6fuaTPRhcmklBdqU91KaUagWf8ovwF0YvnC9EaTi
-	EgKfjqhQ==;
+	bh=4bn2iTHRxV4Y+JziL3tQkHFaUTnfOTGLKiy637DrfqM=; b=YvzSkhMW3XAfVc29qlO+ZkxxE3
+	l5IHWSeJqjHi4PzfdviL1K4T0RmbwAF3Dju9Zd6kNBJ2640REMSFORiXy4tcnRGLnRBKtY+yMC0jK
+	yy3CNuuXxfy4/eSYXhAPp261ia50Imj5+wWfegfzC8Bec9jG6iHnUUkiR6K15wFBbdpt+tawFIFza
+	XXw4OZ0P8qzV1ZhJkYNzbCGZ7b3XG900JQ1Sq7JJGhsWe4kD+zGFjRCz9rU6NxnV8SJmyDJiWpHqz
+	dSzsFC9Y42tZJ9zGVg7l44bvcaWnymz4aEz0azMoTMk9L/yi+54RPd6sYha1j4+JgSxRok/psrL79
+	cVLK3+Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3AgH-0000000DD0n-2X6t;
-	Fri, 11 Apr 2025 09:28:13 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u39fs-0000000D07S-1LTb
+	id 1u3Ah7-0000000DDAy-1Hz1;
+	Fri, 11 Apr 2025 09:29:05 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u3AVZ-0000000DAO9-39Za
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 08:23:46 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4ZYqNb4lsqz6M4Yq;
-	Fri, 11 Apr 2025 16:19:43 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 23733140275;
-	Fri, 11 Apr 2025 16:23:35 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 11 Apr
- 2025 10:23:34 +0200
-Date: Fri, 11 Apr 2025 09:23:32 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: "Koichi Okuno (Fujitsu)" <fj2767dz@fujitsu.com>
-CC: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, Catalin Marinas <catalin.marinas@arm.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, Bjorn Andersson
-	<quic_bjorande@quicinc.com>, Geert Uytterhoeven <geert+renesas@glider.be>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Dmitry Baryshkov
-	<dmitry.baryshkov@linaro.org>, Konrad Dybcio <konradybcio@kernel.org>, "Neil
- Armstrong" <neil.armstrong@linaro.org>, Arnd Bergmann <arnd@arndb.de>, "
- =?ISO-8859-1?Q?N=EDcolas?= \"\"F. R. A. Prado\"\"" <nfraprado@collabora.com>,
-	Thomas Gleixner <tglx@linutronix.de>, "Peter Zijlstra"
-	<peterz@infradead.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v4 1/2] perf: Fujitsu: Add the Uncore MAC PMU driver
-Message-ID: <20250411092332.00004b73@huawei.com>
-In-Reply-To: <TYYPR01MB67157AE764B00DEAC97D4EAAC1B62@TYYPR01MB6715.jpnprd01.prod.outlook.com>
-References: <20250116045911.3382537-1-fj5100bi@fujitsu.com>
-	<20250116045911.3382537-2-fj5100bi@fujitsu.com>
-	<20250130170422.00004c6f@huawei.com>
-	<OS3PR01MB6903DC3738709A4536A62613D4F52@OS3PR01MB6903.jpnprd01.prod.outlook.com>
-	<TYYPR01MB67157AE764B00DEAC97D4EAAC1B62@TYYPR01MB6715.jpnprd01.prod.outlook.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Fri, 11 Apr 2025 09:17:11 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2C2C7106F;
+	Fri, 11 Apr 2025 02:17:09 -0700 (PDT)
+Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9A1553F6A8;
+	Fri, 11 Apr 2025 02:17:05 -0700 (PDT)
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+To: linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Mark Brown <broonie@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Hildenbrand <david@redhat.com>,
+	Ira Weiny <ira.weiny@intel.com>,
+	Jann Horn <jannh@google.com>,
+	Jeff Xu <jeffxu@chromium.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Kees Cook <kees@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Pierre Langlois <pierre.langlois@arm.com>,
+	Quentin Perret <qperret@google.com>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	"Mike Rapoport (IBM)" <rppt@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Will Deacon <will@kernel.org>,
+	Matthew Wilcox <willy@infradead.org>,
+	Qi Zheng <zhengqi.arch@bytedance.com>,
+	linux-arm-kernel@lists.infradead.org,
+	x86@kernel.org
+Subject: [RFC PATCH v4 03/18] arm64: mm: Enable overlays for all EL1 indirect permissions
+Date: Fri, 11 Apr 2025 10:16:16 +0100
+Message-ID: <20250411091631.954228-4-kevin.brodsky@arm.com>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20250411091631.954228-1-kevin.brodsky@arm.com>
+References: <20250411091631.954228-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml500002.china.huawei.com (7.191.160.78) To
- frapeml500008.china.huawei.com (7.182.85.71)
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_012344_504627_D86F18A3 
-X-CRM114-Status: GOOD (  17.32  )
+X-CRM114-CacheID: sfid-20250411_021709_831908_25C72FA8 
+X-CRM114-Status: GOOD (  11.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,42 +87,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 11 Apr 2025 02:56:59 +0000
-"Koichi Okuno (Fujitsu)" <fj2767dz@fujitsu.com> wrote:
+In preparation of using POE inside the kernel, enable "Overlay
+applied" for all stage 1 base permissions in PIR_EL1. This ensures
+that the permissions set in POR_EL1 affect all kernel mappings.
 
-> Hi, Jonathan
-> 
-> Sorry for the late reply.
-> Also, the person in charge here has changed from Furudera to Okuno.
-> 
-Hi,
+Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+---
+ arch/arm64/include/asm/pgtable-prot.h | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
 
-
-> > > Text identical to memory-pwrite-count
-> > > which suggest two things.
-> > > a) naming inconsistent.  Why is mac mentioned here and not in the name  
-> > earlier.  
-> > > b) This comment is perhaps wrong as I assume has something more tod owtih  
-> > with  
-> > >    energy estimation?  
-> > 
-> > We are currently checking and will reply later.  
-> 
-> After checking with the hardware team,
-> the 'ea' events are measured at different points and may therefore 
-> return different values.
-> Since memory-pwrite-count and ea-memory-mac-pwrite currently return 
-> the same value, they share the same description.
-> However, we have defined distinct event names to accommodate potential 
-> future enhancements.
-
-As any future enhancement to make these different will also need a change
-to the documentation to reflect that difference (and hence a kernel patch)
-maybe it is better to not provide the second event for now?
-
-Or is there some other subtle effect to do with groups that can be enabled
-at the same time? I've forgotten how the driver works!
-
-Jonathan
+diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
+index 7830d031742e..c863d8e51281 100644
+--- a/arch/arm64/include/asm/pgtable-prot.h
++++ b/arch/arm64/include/asm/pgtable-prot.h
+@@ -181,13 +181,13 @@ static inline bool __pure lpa2_is_enabled(void)
+ 	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_GCS),           PIE_NONE_O) | \
+ 	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_GCS_RO),        PIE_NONE_O) | \
+ 	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_EXECONLY),      PIE_NONE_O) | \
+-	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_READONLY_EXEC), PIE_R)      | \
+-	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_SHARED_EXEC),   PIE_RW)     | \
+-	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_READONLY),      PIE_R)      | \
+-	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_SHARED),        PIE_RW)     | \
+-	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_KERNEL_ROX),    PIE_RX)     | \
+-	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_KERNEL_EXEC),   PIE_RWX)    | \
+-	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_KERNEL_RO),     PIE_R)      | \
+-	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_KERNEL),        PIE_RW))
++	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_READONLY_EXEC), PIE_R_O)      | \
++	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_SHARED_EXEC),   PIE_RW_O)     | \
++	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_READONLY),      PIE_R_O)      | \
++	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_SHARED),        PIE_RW_O)     | \
++	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_KERNEL_ROX),    PIE_RX_O)     | \
++	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_KERNEL_EXEC),   PIE_RWX_O)    | \
++	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_KERNEL_RO),     PIE_R_O)      | \
++	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_KERNEL),        PIE_RW_O))
+ 
+ #endif /* __ASM_PGTABLE_PROT_H */
+-- 
+2.47.0
 
 
