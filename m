@@ -4,81 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 755CEC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 14:24:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7242C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 14:26:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iWl/qqJnW4YKy7fD9Y1Bq2qyKwnzAfjOsHSpc/KwuOE=; b=WfFoTtMsUgEt2+hfkHdlid8iLd
-	P+RBfzAI0QRu52VgHOP1F8zzeqP+TmtE7zCDCCnxg/pblsk5oydlwdTh2vHzYY6rtNipHDhbcKq6M
-	lugl5cbOEnG1CZwjexeKZ3fbERBzlmlb4j9Vwl3UURbib7mNjSv4HzYwSzA734a/VYjEMzyr/7Oth
-	6foNOX3KKSLmXH8qZaWZdKCsxOnHPly+NWZYNwdpQ5XgIk3bsbXbisPZ/gbLHxjaOqbszsLbDvDwn
-	Z7Mct7LUWolZqXl61JKGrXrQ5J3rJCoSUHJLp+tLHdaBItX63leWQ5VQRKl97gd2nY5+Pz6jGQN3G
-	ByN9sMZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NOvfAcC4nSHwovxfMmc7lJ6Xohxm7kKLQxmp9yLUv58=; b=kFWUNJ+pwyAdYXPo3RlF8rRRLu
+	resRV9j5fhTDk/8a/Jk8pBNbAay/SGDzUV3uWeSONsHUomUri7tzIrJ3SMO3qt7R2dUYDhYbMqlHI
+	1djhrfKSNML39wQzJAtelImKrFzFgWgEC/4ZF82cYMH1tjl33UMnOGh+/xx/2fuSxv55Fkjmy7/S2
+	C4Fx7gpAtaVZMTbfNrA1ROElfO71Lwpj433Z1vSVvjsQDpWCjdoodcSz3NuMDUiloYpaKHze32ckm
+	p/UoUVmHQ6GNZ0/ujkeZrvhLoqwwfLwsIv0GYgxZWT1wvFRO4MW1+wPQ9gjUZvl5zcI3S6Y9jOARb
+	QCzhX01Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3FIq-0000000E4xL-3zBS;
-	Fri, 11 Apr 2025 14:24:20 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1u3FKd-0000000E5Gj-2wb1;
+	Fri, 11 Apr 2025 14:26:11 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3F1v-0000000E1r4-0XFt
+	id 1u3F21-0000000E1tk-2kWh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 14:06:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1744380409;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=iWl/qqJnW4YKy7fD9Y1Bq2qyKwnzAfjOsHSpc/KwuOE=;
-	b=CTcRpXW4vhweJEESb62akEFsV/r2uZgUE2bbV+Dup9lDcAI2MQr8lmV//N/DSrt4Orer5+
-	FuRTHXNPYHOriHcADDWYxmgmaddG1LLwhS//Jucs0CHSltP4et7zEo/8Z/aFbLmsd0D0Zu
-	7kOdYNhpXVjkGLJDRnqyHksXGPRcnQg=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-411-Ov1DihxHMLSVa6UZohL51w-1; Fri,
- 11 Apr 2025 10:06:46 -0400
-X-MC-Unique: Ov1DihxHMLSVa6UZohL51w-1
-X-Mimecast-MFC-AGG-ID: Ov1DihxHMLSVa6UZohL51w_1744380404
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D80F3195608D;
-	Fri, 11 Apr 2025 14:06:43 +0000 (UTC)
-Received: from dhcp-27-174.brq.redhat.com (unknown [10.45.224.222])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id C4DCA180175D;
-	Fri, 11 Apr 2025 14:06:38 +0000 (UTC)
-Received: by dhcp-27-174.brq.redhat.com (nbSMTP-1.00) for uid 1000
-	oleg@redhat.com; Fri, 11 Apr 2025 16:06:08 +0200 (CEST)
-Date: Fri, 11 Apr 2025 16:06:02 +0200
-From: Oleg Nesterov <oleg@redhat.com>
-To: Tze-nan Wu <Tze-nan.Wu@mediatek.com>
-Cc: Christian Brauner <brauner@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	wsd_upstream@mediatek.com, bobule.chang@mediatek.com,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	chenqiwu <chenqiwu@xiaomi.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Breno Leitao <leitao@debian.org>, Mateusz Guzik <mjguzik@gmail.com>
-Subject: Re: [RFC PATCH] exit: Skip panic in do_exit() during poweroff
-Message-ID: <20250411140601.GG5322@redhat.com>
-References: <20250410143937.1829272-1-Tze-nan.Wu@mediatek.com>
- <20250410210507.GD15280@redhat.com>
+	Fri, 11 Apr 2025 14:06:58 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5e6167d0536so3668842a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Apr 2025 07:06:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744380415; x=1744985215; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=NOvfAcC4nSHwovxfMmc7lJ6Xohxm7kKLQxmp9yLUv58=;
+        b=dkSsc35oGn5Dh/e4IRdho5euPRfdkhuirqu7D9GqTbPiQ4gW6ziwFVdWqMt3VjrC5b
+         gIGWFgWVD0591xBHAcYcRS5kN3xPOmXTak51tFFfzIgp80KbIozGslCu1B1rV0arPUdW
+         aKEWoubIgemJbsyXPgoGQovt4IcG3W8LlLeUo1TXOAN1KA/FhxFPKacs6kQxhweBe/Qi
+         wl0cSiZL60klYnFJ6pYXIxJtR2KKjFAosBWvAq4k5CcwMztYNJFhY8A8qifxOIVPyNZY
+         4Zjpj0Djr8Krc542tmr+0j8OMaPJOcX2Y+Gd0e+82xdcDkkNbdHNdJQTDeWPAKKZrSj6
+         agqg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744380415; x=1744985215;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=NOvfAcC4nSHwovxfMmc7lJ6Xohxm7kKLQxmp9yLUv58=;
+        b=T/jRPf9sZqaYEEjcT8Q3A/jNO/o0Elk7WT99tUNiT+L+zlGoxVlsu/5Q3H+/MjvLpv
+         bL7WjFu2EA7LpkNF5PS0Sfhs1joH0EzSRlKT8jHK+SvSsBogV/apk3DTuMt+blYDudul
+         MZonT+fmIj5hbeWIaUK6Nyszge5BeFe1OEIzf47NuQvZ6a2mWkkBke5u/UdruL/Zfj29
+         /fKhp7DQg1tYME2dZ3XM+Wo1OMH91FVSPpAOEf8jRiYQflH09n2y2hkNbjgJbbN0Pxla
+         P7ueihlNUMxO0CoMozIQ2MpYkEOxS5yvAgUmM8X9VLm9P90GZtQh/OPLZ6E5plHSHD1s
+         bcKg==
+X-Forwarded-Encrypted: i=1; AJvYcCUreZWFowcO9DgP1VZ1CoPtLHT2OEHTqJ8V7wpUc3rb+eCEkHynVJNvNwCVSfxGUG1fBWNrrNfPUUA0vHN2vWl2@lists.infradead.org
+X-Gm-Message-State: AOJu0Yycjvq2IVHEjMQrqO72PutdDBbP19VhMCEjwWLeCz/DV2NsXXPb
+	nVpBzzOO5CnxWl9LjNqGaOZ5ORqhxXz86ss/kgkk8o4uITHMMxOb
+X-Gm-Gg: ASbGncvc5UT6fym2MH9/aKRNx7vOchmKPgsc2UF8m1QKk7k5kyEZSGhpY7vD54wW64N
+	Gq6hDrL9GziTGIuGszOzecJ7MEA23hWo2tIecKI1k1rv+ypaa3wBwQ6g/LXWr4WIIDH5r4W6EwH
+	BQQJTL/gujpk356u3XZ8Sbs6UUYOuGTVp4OKA03RfB0n9tuyjtxD0vI2PX3EfDy+qlhkAFw1Kvq
+	RxMx5Nnm8cuOnOfx15ehXXBipP3+QPG7YTIXUwKAjEcpwsiF3WzFnO8X8BLZ5ZhWGhHCAGpU3SL
+	nJIvrxpHYEG3nemxi/CEj7VE6uPzkE6nF7/P4537atJXJNPZkppRdiFE1DXo/715FnCp8JFr2r8
+	VeVnLIGS+9g0mI5gHtA==
+X-Google-Smtp-Source: AGHT+IE1yOeDj9VvnJ4cJ143MdQvjsuVm7s+alTj6cIAtIkzd0ZDaU4JF1U6ysR5rjPt1629SVONMQ==
+X-Received: by 2002:a05:6402:1ecc:b0:5ec:9352:7b20 with SMTP id 4fb4d7f45d1cf-5f36ee45999mr2263715a12.0.1744380415128;
+        Fri, 11 Apr 2025 07:06:55 -0700 (PDT)
+Received: from ?IPV6:2001:b07:aac:705d:8db5:5583:1b6d:7bba? ([2001:b07:aac:705d:8db5:5583:1b6d:7bba])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5f36ee54fa9sm1005741a12.1.2025.04.11.07.06.54
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 11 Apr 2025 07:06:54 -0700 (PDT)
+Message-ID: <2af51b9c-cde6-4347-b062-daa87bddd8ff@gmail.com>
+Date: Fri, 11 Apr 2025 16:06:53 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250410210507.GD15280@redhat.com>
-User-Agent: Mutt/1.5.24 (2015-08-30)
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1] i2c: lpi2c: implement master_xfer_atomic callback
+To: Carlos Song <carlos.song@nxp.com>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
+ "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Francesco Dolcini <francesco.dolcini@toradex.com>,
+ Francesco Dolcini <francesco@dolcini.it>, Aisheng Dong
+ <aisheng.dong@nxp.com>, Andi Shyti <andi.shyti@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>
+References: <20250319145114.50771-1-francesco@dolcini.it>
+ <20250411114738.GA43965@francesco-nb>
+ <FRWPR04MB11150B555044300A70102DAF5E8B62@FRWPR04MB11150.eurprd04.prod.outlook.com>
+Content-Language: en-US
+From: Emanuele Ghidoli <ghidoliemanuele@gmail.com>
+In-Reply-To: <FRWPR04MB11150B555044300A70102DAF5E8B62@FRWPR04MB11150.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_070651_255734_5B6D507C 
-X-CRM114-Status: GOOD (  43.63  )
+X-CRM114-CacheID: sfid-20250411_070657_698076_83179E7E 
+X-CRM114-Status: GOOD (  12.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,166 +112,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add cc'es.
+On 11/04/2025 13:55, Carlos Song wrote:
+>> On Wed, Mar 19, 2025 at 03:51:14PM +0100, Francesco Dolcini wrote:
+>>> From: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
+>>>
+>>> Rework the read and write code paths in the driver to support
+>>> operation in atomic contexts. To achieve this, the driver must not
+>>> rely on IRQs or perform any scheduling, e.g., via a sleep or schedule
+>>> routine. Even jiffies do not advance in atomic contexts, so timeouts
+>>> based on them are substituted with delays.
+>>>
+>>> Implement atomic, sleep-free, and IRQ-less operation. This increases
+>>> complexity but is necessary for atomic I2C transfers required by some
+>>> hardware configurations, e.g., to trigger reboots on an external PMIC chip.
+>>>
+>>> Signed-off-by: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
+>>> Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+>>
+>> Any comment on this?
+> Looks good. Thank you for your work!
+> Do you test it at some board? How can we test simply?
 
-A similar problem was recently reported,
-https://lore.kernel.org/all/20250403-exit-v1-1-8e9266bfc4b7@debian.org/
-and I didn't realize this is another thread.
+We tested it also by using the xfer_atomic for "normal" transfers
+(.master_xfer = lpi2c_imx_xfer_atomic).
+The driver is used to drive multiple buses with different devices.
 
-On 04/10, Oleg Nesterov wrote:
->
-> Well...
->
-> Let me repeat. I don't understand the kernel/reboot.c paths, you can
-> safely ignore me.
->
-> But I still think that you target the wrong goal. Quite possibly I am
-> wrong.
->
-> On 04/10, Tze-nan Wu wrote:
-> >
-> > If PID 1 exits due to the unreliable userspace after kernel_power_off()
-> > invoked,
->
-> Why. Why the global init does do_exit()? It should not, that is all.
-> It doesn't matter if it is single threaded or not.
->
-> As for sys_reboot(), I think that kernel_power_off() must be __noreturn,
-> and sys_reboot() should use BUG() after LINUX_REBOOT_CMD_POWER_OFF/_HALT
-> instead of do_exit().
->
-> If nothing else. do_exit() also does debug_check_no_locks_held() and
-> sys_reboot() calls do_exit() with system_transition_mutex held.
->
-> IOW. IMO, it is not that do_exit() needs some changes. The very fact
-> that the global init does do_exit() is wrong, this should be fixed.
->
-> But again, again, I can't really comment.
->
-> Oleg.
->
-> > the panic follow by the last thread of global init exited in
-> > do_exit() will stop the kernel_power_off() procedure, turn a shutdown
-> > behavior into panic flow(reboot).
-> >
-> > Add a condition check to ensure that the panic triggered by the last
-> > thread of the global init exiting, only occurs while:
-> > ( system_state != SYSTEM_POWER_OFF and system_state != SYSTEM_RESTART).
-> > Otherwise, WARN() instead.
-> >
-> > [On Android 16 with arm64 arch]
-> > Here's a scenario where the global init exits during kernel_power_off:
-> > If PID 1 encounters a page fault after kernel_power_off() has been
-> > invoked, the kernel will fail to handle the page fault because the
-> > disk(UFS) has already shut down.
-> > Consequently, the kernel will send a SIGBUS to PID 1 to indicate the
-> > page fault failure, and ultimately, the panic will occur after PID 1
-> > exits due to receiving the SIGBUS.
-> >
-> >             cpu1                           cpu2
-> >           ----------                     ----------
-> >     kernel_power_off() start
-> >         UFS shutdown
-> >             ...                	       PID 1 page fault
-> >             ...                    page fault handle failure
-> >             ...			             PID 1 received SIGBUS
-> >             ...                             panic
-> >    kernel_power_off() not done
-> >
-> > Backtrace while PID 1 received signal 7:
-> >    init-1 [007] d..1 41239.922385: \
-> >       signal_generate: sig=7 errno=0 code=2 comm=init pid=1 grp=0 res=0
-> >    init-1 [007] d..1 41239.922389: kernel_stack: <stack trace>
-> >    => __send_signal_locked
-> >    => send_signal_locked
-> >    => force_sig_info_to_task
-> >    => force_sig_fault
-> >    => arm64_force_sig_fault
-> >    => do_page_fault
-> >    => do_translation_fault
-> >    => do_mem_abort
-> >    => el0_ia
-> >    => el0t_64_sync_handler
-> >
-> > Simplified kernel log:
-> > kernel_power_off() invoked by pt_notify_thread.
-> > [41239.526109] pt_notify_threa: reboot set flag, old value 0x********,
-> > *.
-> > [41239.526114] pt_notify_threa: reboot set flag new value 0x********.
-> > UFS reject I/O after kerenl_power_off.
-> > [41239.686411]  scsi +scsi******** apexd: sd* ******** rejecting I/O to
-> > offline device.
-> > Lots of I/O error & erofs error happened after kernel_power_off().
-> > [41239.690312] apexd: I/O error, dev sdc, sector ******* op ***:(READ)
-> > flags 0x**** phys_seg ** prio class 0.
-> > [41239.690465] apexd: I/O error, dev sdc, sector ******* op ***:(READ)
-> > flags 0x**** phys_seg ** prio class 0.
-> > ...
-> > ...
-> > [41239.922265] init: erofs: (device ****): z_erofs_read_folio: read
-> > error * @ *** of nid ********.
-> > [41239.922341] init: erofs: (device ****): z_erofs_read_folio: read
-> > error * @ *** of nid ********.
-> > Finally device panic due to PID 1 received SIGBUS.
-> > [41239.923789] init: Kernel panic - not syncing: Attempted to kill init!
-> > exitcode=0x00000007
-> >
-> > Fixes: 43cf75d96409 ("exit: panic before exit_mm() on global init exit")
-> > Link: https://lore.kernel.org/all/20191219104223.xvk6ppfogoxrgmw6@wittgenstein/
-> > Signed-off-by: Tze-nan Wu <Tze-nan.Wu@mediatek.com>
-> > ---
-> >
-> > I am also wondering if this patch is reasonable?
-> >
-> > From my perspective, there are two reasons not to trigger such panic
-> > during kernel_power_off() or kernel_restart():
-> >   1. It is not worthwhile to interrupt kernel_power_off() by a panic
-> >      resulted from userspace instability.
-> >   2. The panic in do_exit() was originally designed to ensure a usable
-> >      coredump if the last thread of the global init process exited.
-> > 	 However, capture a coredump triggered by userspace crash after
-> >      kernel_power_off() seems not particularly useful, in my opinion.
-> >
-> > In certain scenarios, a kernel module may need to directly power off
-> > from kernel space to protect hardware (e.g., thermal protection).
-> > In my opinion, rather than causing a panic during kernel_power_off(),
-> > it sounds better to allow the device to complete its power-off process.
-> >
-> > Appreciate for any comment on this, if there's any better way to
-> > handle this panic, please point me out.
-> >
-> > ---
-> >  kernel/exit.c | 14 ++++++++++----
-> >  1 file changed, 10 insertions(+), 4 deletions(-)
-> >
-> > diff --git a/kernel/exit.c b/kernel/exit.c
-> > index 1dcddfe537ee..23cb6b42a1f1 100644
-> > --- a/kernel/exit.c
-> > +++ b/kernel/exit.c
-> > @@ -901,11 +901,17 @@ void __noreturn do_exit(long code)
-> >  	if (group_dead) {
-> >  		/*
-> >  		 * If the last thread of global init has exited, panic
-> > -		 * immediately to get a useable coredump.
-> > +		 * immediately to get a usable coredump, except when the
-> > +		 * device is currently powering off or restarting.
-> >  		 */
-> > -		if (unlikely(is_global_init(tsk)))
-> > -			panic("Attempted to kill init! exitcode=0x%08x\n",
-> > -				tsk->signal->group_exit_code ?: (int)code);
-> > +		if (unlikely(is_global_init(tsk))) {
-> > +			if (system_state != SYSTEM_POWER_OFF &&
-> > +			    system_state != SYSTEM_RESTART)
-> > +				panic("Attempted to kill init! exitcode=0x%08x\n",
-> > +				      tsk->signal->group_exit_code ?: (int)code);
-> > +			WARN(1, "Attempted to kill init! exitcode=0x%08x\n",
-> > +			     tsk->signal->group_exit_code ?: (int)code);
-> > +		}
-> >
-> >  #ifdef CONFIG_POSIX_TIMERS
-> >  		hrtimer_cancel(&tsk->signal->real_timer);
-> > --
-> > 2.45.2
-> >
+Emanuele
 
 
