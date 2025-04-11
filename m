@@ -4,94 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12C9CC369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 17:49:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74440C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 17:51:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s2fznhoTGlfhy6bwDHoklI2QzmN6aCONWUMAdXUv1oM=; b=bZwEFxvl8p58jcIvTCz3ls6on/
-	1qzzknNmXo7+BcxNahkQfG9zcik/xXw1DSu4uhiocEGp4GZSFRUcavfkc0AFjmA9KRwDxUNxdvTty
-	gToxd3ChjAxZHe9ueBQColynqcuvKBuL0lJIP7jF7qjxfXX0ijYxT7kotG6CBlZ3yt2eHysZI4+AF
-	8t1jnEvZVekg9QVCUvNR/b9ig16DyPJDTclDqDgzojGb76JT79+bYRgiqNSJxRd8fbLcmjGloUcPN
-	fazyOWWm5Vry1gsLmquOcYsA4P3xwDck4Tblprm0w3Ao9bKiGfXylDgq/GiBub9VpHab9joRxdakn
-	zQQGIhkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Is0Tv5Qzwt4A9uWjI0HGYq4sHB+E6BSjr5ZDy2SLn80=; b=K8yBgarFD7+ekPCxtMJ0e58rsR
+	eUjEYZJYMC2FfYxLJgTTN/PLoF/tvNhpMO5wXHvbv72O/XK5zFvfyvduvuI+z3HZwor12ghePq3v4
+	zCaxegWvT/9P1563UIHhdQrwFJAH4WJtOX6IuW/nhOp8qhtSFeuHv05Zf3U466QiHErTxb/spkIci
+	DJdf958Zw6XZ/U0SBbgbK5ZGLU+Uce5b1bAJIGUok61GFtOJvGkbZMPDWLzQsTCxEhqpXajBIyCwu
+	SWUw2fXr0fJOR1PLDZ4JwuQ6ebOPibW9Nr3AFyLJcSzBkuGV2RZCfoz8fvsO62Gcr59t4Ce8q5YQl
+	oEriCJDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3IVD-0000000EZdy-2Yzk;
-	Fri, 11 Apr 2025 17:49:19 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1u3IWz-0000000EZrt-17DM;
+	Fri, 11 Apr 2025 17:51:09 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3ITP-0000000EZS8-0aEa
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 17:47:28 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-43d07ca6a80so11359755e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Apr 2025 10:47:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744393645; x=1744998445; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=s2fznhoTGlfhy6bwDHoklI2QzmN6aCONWUMAdXUv1oM=;
-        b=N6Zwdex7/4Q3DI8awBoNd7VlFWFU1JG5XhEqOfF7JfLYxqfBfQ5KldzGuX/PLYt3Mz
-         w/rkIzblJanuP8wX7rH6MgMxHOE5NEYdO9PmTXxp2N+v696cyGMZfvNMcLcFifipnIGL
-         daabjtjJyke7Z0p3PXHqTYiatxmbLhfv8TO9K0TebLF8MLjlxIRRInA1KFRFCA7j5EjG
-         7Bybo7OLzxuEjUtL6ji1DvxatyMtbLcDkxjobzvLxzU3UW9h5vLDM4PIrkgmiJEYUQf7
-         SXrLW6+qOXyOki2VF5CSm5Q6dJhBmcwUJRIMA1ELsXR/VyzThMrAsQPZsrE4e4D0ic55
-         IqYg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744393645; x=1744998445;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=s2fznhoTGlfhy6bwDHoklI2QzmN6aCONWUMAdXUv1oM=;
-        b=omZiZbaX78MpH4v3NeUD23bLd6ViZmHdGUbWq1RR9E6HeUnkJxZkVhCrECkuWhxRJa
-         VypAP7sSwZ6JsRPPAfcGhb5D2ysDHSBWJmyDtM4OM8eEtt6Ed21CpzOiL44+bPjHeMOR
-         xqXqHc3XG87V9v2Fx3V4ZAlaErQMxgByx6uBKofZA2B7+FKB3LBTs2LgDPjeFl+P4isi
-         6Zrwi6plUBbXU3clLC4vrFMAJsJQ3jJW66TCMk/WmIhTLEaIWgE36ERtdI2bxumliEaG
-         VWLoEb6aNRTzJ6vd1HXDzMSVY77iRGzeITauf/TfgeBstmX3jV2PwzG21gt9z2XbmDCO
-         R04A==
-X-Forwarded-Encrypted: i=1; AJvYcCXjYF1WuEWpQr7aLFHal2xPH9k0+iN1lubqbnwtfXCdhFAmvKB+JqaspDzsEYd9gcSk0ln43acWJBLQ/I2HU27b@lists.infradead.org
-X-Gm-Message-State: AOJu0YzL4dDmO9Ok2fpp9Yi7DMyZyPiEUkKmpguSOOdIXH5ggIugZkTd
-	3HzrE/CWI9D8uH9ObXV4gJfIkZyKDBL9rLAIE7Ms3pcT+LbbZX5eZBmelA==
-X-Gm-Gg: ASbGncsmqqfYVb4lCpnS4ncWp4bNJdoaYCkITgOlbObUe7d2Zl6lFUfZnnJdIkTdfgE
-	it7dkoxfONy5oW64KeBkuQcaLxfWxrAJA1NeqGzK16yKvRnv5HEf/Vlut1fvZFb+ZqCPPDLs3f+
-	eXknCDtyYNQtUw8Mb7S9W05j76ZIxjZntnKLegmyyybmmWFPFqYKICGOJVDy/mNKpAUJjmNQS8I
-	JbC+S7DU5JtrryDaOhMCyJEIqhLxd3ZHzfnRbxMCtGIvKTHsRXFO8BIOLpDCNX40RLH2W8M9Cl1
-	/Wx8B+H5WzynRve3tRrLvUtw9a2FvReAZQ34CKTogxiCpHIvo3s68s3kqizr/Qx5m5XjN/DzuPJ
-	5KjbVu0BDM7svYZp/X0M=
-X-Google-Smtp-Source: AGHT+IHKgxGk7ctx/4csBqrnqZpUz6mKKVmeIDv4j+S1OVFBpZaUYqHi1No3wJ+Lyfqa9wjViAwAPQ==
-X-Received: by 2002:a05:6000:22c7:b0:39a:c9ac:cd3a with SMTP id ffacd0b85a97d-39eaaecbdefmr3169374f8f.51.1744393644804;
-        Fri, 11 Apr 2025 10:47:24 -0700 (PDT)
-Received: from [192.168.1.105] (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39eaf445713sm2624289f8f.85.2025.04.11.10.47.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 11 Apr 2025 10:47:24 -0700 (PDT)
-Message-ID: <7b5ef003-7a3f-4ffd-b563-b4b7f77ab011@gmail.com>
-Date: Fri, 11 Apr 2025 20:47:23 +0300
+	id 1u3IUI-0000000EZXW-43t8;
+	Fri, 11 Apr 2025 17:48:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6BF2443E9A;
+	Fri, 11 Apr 2025 17:48:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E94F4C4CEE2;
+	Fri, 11 Apr 2025 17:48:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744393702;
+	bh=lfoVd2WdvvKEWN86eDOm1mDwX18E8UkAi+d0laS83N4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YbBL8KzLUS8f0W9icJQycy88I9hs0MoLv4zCFYgjJbtjewOghzGPPZyG6f8nJ4xDn
+	 yweLKfStxNC94+fOu7dpl/UoNWBkB+G12mOwykSjo05N6vGBG+bsDxEI/UYEDDLvjJ
+	 fvdxVoTPS+qOmLXeWWbRWwoftBL7+ymGRVUMUok4RsZZL6EfTLfnRTK41IGNS7nGNE
+	 eEgjfVwThhmuA8g6w0F4jJtgyO4I1FiiIjogT2jb6YgUo0MnN0wVChnNuHqeAHucbb
+	 5LyUPnZ1m3K0PVqJ/jngk2vNuddqthTjdejCTfa5FcauTgFGhBo/P/jXG9C/J3847t
+	 FAIF6xiMJ13Aw==
+Date: Fri, 11 Apr 2025 12:48:20 -0500
+From: Rob Herring <robh@kernel.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, matthias.bgg@gmail.com,
+	y.oudjana@protonmail.com, lukas.bulwahn@redhat.com,
+	u.kleine-koenig@baylibre.com, geert+renesas@glider.be,
+	amergnat@baylibre.com, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, kernel@collabora.com
+Subject: Re: [PATCH v1 1/3] dt-bindings: clock: mediatek: Describe MT6893
+ Clock Controllers
+Message-ID: <20250411174820.GA3602673-robh@kernel.org>
+References: <20250410144110.476197-1-angelogioacchino.delregno@collabora.com>
+ <20250410144110.476197-2-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] dt-bindings: usb: samsung,exynos-dwc3: add
- exynos2200 compatible
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>, devicetree@vger.kernel.org,
- linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
-References: <20250321144804.1435502-1-ivo.ivanov.ivanov1@gmail.com>
- <20250321144804.1435502-2-ivo.ivanov.ivanov1@gmail.com>
- <2025041157-stilt-sculptor-c978@gregkh>
-Content-Language: en-US
-From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-In-Reply-To: <2025041157-stilt-sculptor-c978@gregkh>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250410144110.476197-2-angelogioacchino.delregno@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_104727_180000_92A77C50 
-X-CRM114-Status: GOOD (  12.64  )
+X-CRM114-CacheID: sfid-20250411_104823_048403_2E9A59DA 
+X-CRM114-Status: GOOD (  12.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,28 +78,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Apr 10, 2025 at 04:41:08PM +0200, AngeloGioacchino Del Regno wrote:
+> Add bindings to describe both the System Clock Controllers,
+> providing PLLs and main clocks, and the functional clock
+> controllers, providing peripheral clocks (i2c, multimedia, etc),
+> as found in the MediaTek Dimensity 1200 (MT6893) SoC.
+> 
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> ---
+>  .../bindings/clock/mediatek,mt6893-clock.yaml |  56 +++
+>  .../clock/mediatek,mt6893-sys-clock.yaml      |  68 +++
 
-On 4/11/25 16:42, Greg Kroah-Hartman wrote:
-> On Fri, Mar 21, 2025 at 04:48:02PM +0200, Ivaylo Ivanov wrote:
->> The Exynos2200 SoC has a DWC3 compatible USB controller and can reuse
->> the existing Exynos glue. Update the dt schema to include the
->> samsung,exynos2200-dwusb3 compatible for it.
->>
->> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
->> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->> ---
->>  .../bindings/usb/samsung,exynos-dwc3.yaml          | 14 ++++++++++++++
->>  1 file changed, 14 insertions(+)
-> This doesn't apply to my tree, can you rebase it and resend the series?
+These just duplicate the same schema as the mt8365 bindings. Just add 
+compatibles there.
 
-Yes, I will rebase this tomorrow because I'm a bit sick right now.
+Or I'm open to other options. The only variation among all of these 
+seems to be whether or not they have 'syscon' compatible or 
+'#reset-cells'. And for mt8188 it seems we have that wrong (see below)
 
-Best regards,
-Ivaylo
 
->
-> thanks,
->
-> greg k-h
+In general, it would be nice to see more clean-ups of the existing 
+Mediatek stuff before a new SoC. It makes me sad when I appear to be the 
+only one that cares.
 
+For reference, here's the top warnings for Mediatek on arm64 (999 total, 
+182 unique (stripping the dtb name), 27 undocumented compatibles). This 
+information is available daily from my CI job
+(https://gitlab.com/robherring/linux-dt/-/jobs).
+
+Mediatek has the most warnings with 182. 
+
+arch/arm64/boot/dts/mediatek:999:182
+     29  syscon@13000000 (mediatek,mt8183-mfgcfg): 'power-domains' does not match any of the regexes: 'pinctrl-[0-9]+'
+     27  pinctrl@10005000 (mediatek,mt8183-pinctrl): panel-pins-default: 'panel-reset' does not match any of the regexes: '^pins', 'pinctrl-[0-9]+'
+     27  pinctrl@10005000 (mediatek,mt8183-pinctrl): mmc1-pins-uhs:pins-cmd-dat:mediatek,pull-up-adv: 10 is not one of [0, 1, 2, 3]
+     27  pinctrl@10005000 (mediatek,mt8183-pinctrl): mmc1-pins-uhs:pins-clk:mediatek,pull-down-adv: 10 is not one of [0, 1, 2, 3]
+     27  pinctrl@10005000 (mediatek,mt8183-pinctrl): mmc1-pins-default:pins-cmd-dat:mediatek,pull-up-adv: 10 is not one of [0, 1, 2, 3]
+     27  pinctrl@10005000 (mediatek,mt8183-pinctrl): mmc1-pins-default:pins-clk:mediatek,pull-down-adv: 10 is not one of [0, 1, 2, 3]
+     27  pinctrl@10005000 (mediatek,mt8183-pinctrl): mmc0-pins-uhs:pins-ds:mediatek,pull-down-adv: 10 is not one of [0, 1, 2, 3]
+     27  pinctrl@10005000 (mediatek,mt8183-pinctrl): mmc0-pins-uhs:pins-clk:mediatek,pull-down-adv: 10 is not one of [0, 1, 2, 3]
+     27  pinctrl@10005000 (mediatek,mt8183-pinctrl): mmc0-pins-default:pins-clk:mediatek,pull-down-adv: 10 is not one of [0, 1, 2, 3]
+     27  dsi@14014000 (mediatek,mt8183-dsi): ports: 'port@1' is a required property
+     27  dsi@14014000 (mediatek,mt8183-dsi): ports: 'port@0' is a required property
+     27  dsi@14014000 (mediatek,mt8183-dsi): Unevaluated properties are not allowed ('ports' was unexpected)
+     27  bt-sco (linux,bt-sco): '#sound-dai-cells' is a required property
+     22  pmic (mediatek,mt6359): regulators: 'compatible' is a required property
+     22  pmic (mediatek,mt6359): '#sound-dai-cells', 'mt6359rtc' do not match any of the regexes: 'pinctrl-[0-9]+'
+     17  pinctrl@10005000 (mediatek,mt8183-pinctrl): volume-button-pins: 'voldn-btn-odl', 'volup-btn-odl' do not match any of the regexes: '^pins', 'pinctrl-[0-9]+'
+     17  pinctrl@10005000 (mediatek,mt8183-pinctrl): trackpad-pins: 'trackpad-int' does not match any of the regexes: '^pins', 'pinctrl-[0-9]+'
+     17  pinctrl@10005000 (mediatek,mt8183-pinctrl): touchscreen-pins: 'touch-int-odl', 'touch-rst-l' do not match any of the regexes: '^pins', 'pinctrl-[0-9]+'
+     17  pinctrl@10005000 (mediatek,mt8183-pinctrl): pp3300-panel-pins: 'panel-3v3-enable' does not match any of the regexes: '^pins', 'pinctrl-[0-9]+'
+     12  sound (mediatek,mt8186-mt6366-rt1019-rt5682s-sound): 'model' is a required property
+     11  pinctrl@10005000 (mediatek,mt8183-pinctrl): 'audiopins', 'audiotdmoutoff', 'audiotdmouton', 'ec-ap-int-odl', 'gpio-line-names', 'h1-int-od-l', 'i2c0', 'i2c1', 'i2c2', 'i2c3', 'i2c4', 'i2c5', 'i2c6', 'pp1000-mipibrdg-en', 'pp1800-mipibrdg-en', 'pp3300-mipibrdg-en', 'ppvarn-lcd-en', 'ppvarp-lcd-en', 'pwm0-pin-default', 'scp', 'spi0', 'spi1', 'spi2', 'spi3', 'spi4', 'spi5', 'ts3a227e_pins' do not match any of the regexes: '-pins(-[a-z]+)?$', 'pinctrl-[0-9]+'
+     11  mailbox@10330000 (mediatek,mt8188-gce): 'clock-names' is a required property
+     11  mailbox@10320000 (mediatek,mt8188-gce): 'clock-names' is a required property
+     11  clock-controller@160af000 (mediatek,mt8188-camsys-yuvb): '#reset-cells' is a required property
+     11  clock-controller@1608f000 (mediatek,mt8188-camsys-rawb): '#reset-cells' is a required property
+     11  clock-controller@1606f000 (mediatek,mt8188-camsys-yuva): '#reset-cells' is a required property
+     11  clock-controller@1604f000 (mediatek,mt8188-camsys-rawa): '#reset-cells' is a required property
+     11  clock-controller@15620000 (mediatek,mt8188-imgsys-wpe3): '#reset-cells' is a required property
+     11  clock-controller@15520000 (mediatek,mt8188-imgsys-wpe2): '#reset-cells' is a required property
+     11  clock-controller@15330000 (mediatek,mt8188-ipesys): '#reset-cells' is a required property
+
+arch/arm64/boot/dts/mediatek:27
+['dlg,da9211']
+['marvell,sd8897-bt']
+['mediatek,mt2712-pcie']
+['mediatek,mt2712-scpsys', 'syscon']
+['mediatek,mt6331-regulator']
+['mediatek,mt6380-regulator']
+['mediatek,mt6779-audio', 'syscon']
+['mediatek,mt6795-timer', 'mediatek,mt6577-timer']
+['mediatek,mt6797-scpsys']
+['mediatek,mt7622-pcie']
+['mediatek,mt7622-scpsys', 'syscon']
+['mediatek,mt8173-afe-pcm']
+['mediatek,mt8173-mdp-rdma', 'mediatek,mt8173-mdp']
+['mediatek,mt8173-mdp-rdma']
+['mediatek,mt8173-mdp-rsz']
+['mediatek,mt8173-mdp-wdma']
+['mediatek,mt8173-mdp-wrot']
+['mediatek,mt8173-rt5650']
+['mediatek,mt8173-vpu']
+['mediatek,mt8183-audio']
+['mediatek,mt8183-audiosys', 'syscon']
+['mediatek,mt8183_da7219_max98357']
+['mediatek,mt8183_da7219_rt1015p']
+['mediatek,mt8183_mt6358_ts3a227_max98357']
+['mediatek,mt8183_mt6358_ts3a227_rt1015p']
+['melfas,mip4_ts']
+['winbond,w25q64jwm', 'jedec,spi-nor']
 
