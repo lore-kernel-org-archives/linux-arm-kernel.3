@@ -4,98 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B981BC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 04:52:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D70BC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 05:40:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EhPbf5qDTYI4Rkb9QPmEziHECCtQigOHNhmMQ53dyy0=; b=NxwswBSEmEUKMiLH9JxClPCXNS
-	JBcS0e3tZnkD0Qku62Hsb0Itfrfj8ir9PRvk0uh4zGvr+U4YaLLogvDXEexvhwJbRgG7ZKu4SeSRu
-	6uFP5Ksf7TvcakwkIvdRSgi2A180AHN5/P+6MPuHNdLV7i/aOaLImYzXikuyYLtRIPr3iZhXUZvCi
-	6FnxcVjknUx3uW4OlWIciV2Jx2Ew1hvNwAt+OXLauUslvBZx9QXZ3ESkH6Uq/5fq57GDPLcfhyhNa
-	8QCDWtJ8vXmuJHRUSUBQqMwA4CNg0RDbXLCxlQJwaGPn5QD+UCRm7P+wdF6E8cqR8Bih6DFKi67F4
-	qqTkCJnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z/qZgzMmxZEsawIy31A7dWlG2yn5UQrX3y3KTJwsEo8=; b=OQRu09TZbU24PdC1RENhrCphIf
+	QQEwKUTUy3PZZTT9ySUqZVnNbYMLp++eQoh0HKcWf/Gnu+Px3pfGRIQNEP2nJy0/V4vVlEFrSJPLs
+	u1pOKoRhoM6kaDaIZ/k7K/YLfaGm0TIFDrD/0+lwYko4DBjgH4KavHrq8xlZmfK46fJCNkhBIQpKp
+	sO3xEBKY+0qqBqz2TCQQ9h8R7e3Xymc+4uChonwPaqWN3AS850Oir2iT4VjSgS7w4fCt0BXq1wf9A
+	Y1dMhGkfrI/asaARDeN/QIZis47tSTzA4HvZttsR5Xx2eLRMBi8vYTXCT3jdYk+phA84Pl3LuIyCF
+	xlIWGFLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u36NX-0000000CV4W-0Mxl;
-	Fri, 11 Apr 2025 04:52:35 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1u377g-0000000CZ7S-0tSB;
+	Fri, 11 Apr 2025 05:40:16 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u36Lj-0000000CUxT-1U7l
+	id 1u375n-0000000CYHb-3P5T
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 04:50:44 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53B4oY2J1343515
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 10 Apr 2025 23:50:34 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744347034;
-	bh=EhPbf5qDTYI4Rkb9QPmEziHECCtQigOHNhmMQ53dyy0=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=xRXuiQ7h1kSO1ts3PT79Sdn6gQKHQ0vQH0UrNkS4YUO7uOGgY8rkOXW2/Xq7oe50i
-	 c0agGDxIwbbQxgvGMIwreSmFn+QN4BMcGrc2JJMEuShwa+ZY9iQSW2rCgc5w0J8tN9
-	 ljIZwNibqdpIZ9UpYFk1lKk1iz+jpMxkGpf5qErk=
-Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53B4oYIe091892
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 10 Apr 2025 23:50:34 -0500
-Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 10
- Apr 2025 23:50:33 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 10 Apr 2025 23:50:33 -0500
-Received: from [172.24.227.151] (uda0510294.dhcp.ti.com [172.24.227.151])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53B4oQJY113805;
-	Thu, 10 Apr 2025 23:50:27 -0500
-Message-ID: <ad637368-5fa7-45fa-8bb3-3a2cc754ed9b@ti.com>
-Date: Fri, 11 Apr 2025 10:20:26 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 06/11] arm64: dts: ti: k3-am62a7-sk: Enable IPC with
- remote processors
-To: Andrew Davis <afd@ti.com>, Devarsh Thakkar <devarsht@ti.com>,
-        Jai Luthra
-	<jai.luthra@ideasonboard.com>
-CC: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
-        Hari Nagalla
-	<hnagalla@ti.com>, Tero Kristo <kristo@kernel.org>,
-        Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Vignesh
- Raghavendra <vigneshr@ti.com>,
-        Markus Schneider-Pargmann <msp@baylibre.com>, <praneeth@ti.com>,
-        "Khasim, Syed Mohammed" <khasim@ti.com>,
-        <tomi.valkeinen@ideasonboard.com>, <v-krishnamoorthy@ti.com>,
-        <s-tripathy@ti.com>, <s-tripathi1@ti.com>, <c-shilwant@ti.com>,
-        <r-ravikumar@ti.com>
-References: <20250405001518.1315273-1-jm@ti.com>
- <20250405001518.1315273-7-jm@ti.com>
- <6868f593-0728-4e92-a57b-87db6a0037f6@ti>
- <f42607f5-e39d-48a1-89c0-11d4982a2426@ti.com>
- <e131298f-3713-482a-a740-ff89709270b4@ti.com>
- <091c0869-525b-4b40-b5fe-a5c1907ec606@ti.com>
- <czmir7yvss3oreveesyrjqfdcawyn2axtstomsj3yx5sntqwo2@r3udnsyrxvkp>
- <5969e1e8-0bb7-4334-a0c5-b4c396b8b6af@ti.com>
- <dccef5d7-46c6-4e08-98f3-ba0e8168aaff@ti.com>
-Content-Language: en-US
-From: Beleswar Prasad Padhi <b-padhi@ti.com>
-In-Reply-To: <dccef5d7-46c6-4e08-98f3-ba0e8168aaff@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+	Fri, 11 Apr 2025 05:38:22 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-22651aca434so13176265ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Apr 2025 22:38:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1744349899; x=1744954699; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=z/qZgzMmxZEsawIy31A7dWlG2yn5UQrX3y3KTJwsEo8=;
+        b=sevEBVYWc04wjHUK7MP4Ap5SZ3RFNLEaPPw79bKfxJuDg0pYoqBbbb655HN8z3btVl
+         SgO3BD5Rf/hs/ao6LRIFc9SdY726pj6zk9AqI98uILccafPTFObFUWULp0JylpjKSV87
+         K5Zf29acgEJLnAW7kY/4FRf7sk8vkTxu3hHeS/mX9UEliaaxKib4NEl8j8ndnivV3FCx
+         3Ji0c+QZCuZeH1ecqtqWB34zBOo/WliLPWKUrAG6R79xQRXRBZX9XHT4ILgyti/h5iHj
+         zW/DsKSQ/1ILhkFnZJWeuAR3vsRJDxxgZU9dZuOaQcQYsjhcUnh4/tKd/I0taUfRfwcA
+         ahPA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744349899; x=1744954699;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=z/qZgzMmxZEsawIy31A7dWlG2yn5UQrX3y3KTJwsEo8=;
+        b=ZGVFL/Vo4OeuGH3GBXYSaNUN8D0U8a9vc/1vxkZwoLRIa/8rQylEjtcbwCK3tgRKzI
+         CzvnLZGyXIfF9JJz9yit7Pnegb6JMsxt72v1KpZhcpag0jDl/bn7mWmwThD/ykizYzLy
+         pbD/CMflZ77G8DnL6ByvYhHGGRVbaj3JTAVrurloE5k/anCgTHlXefToxruoOIJf4Vvz
+         RPuZvrrvdmhuxrRBUOtRLKesGVuVG/KiFhYxX3q3grJRyxJ1cySb/DWdNrin8GWlfNlE
+         H4bj8QLm8aO9x6AFWzF4hJ64xfJwqT8VWjtJy+yAAIJ8mXP1o7bOddo54ovkAY5WkTJY
+         nU1Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUMxWxP8PanoE/Cgi/t6Q1o1xlTLlvqwuZbYaYy2WPv5F/YhsJAnF8RyDvoG+zyzvS9rABiME3XMdZ2xBVWAV2n@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9UmTx6gNgZ6OMR6f+h47vTP3UxiUkcaRKR8jIogrcdFHZWgjn
+	NeKaqrM8Dn384pOTviVBLTDJH0dng+gdPi60n4quwglNJUH+kr/9UFzNEs495bOcIcqCmMYEQQ1
+	uJYdi7mvq9kXcrOutBQ==
+X-Google-Smtp-Source: AGHT+IG99LUNNyI0F5UCDR00CoDYpDqXcEmBQa4iTq8cZs6Lne71ZulPB0DnHumN1g4tR4PErtiR85Wp6/nGpAgv
+X-Received: from plgw6.prod.google.com ([2002:a17:902:e886:b0:227:967c:4f38])
+ (user=changyuanl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:903:2385:b0:227:e74a:a066 with SMTP id d9443c01a7336-22bea4c755cmr27075215ad.28.1744349898687;
+ Thu, 10 Apr 2025 22:38:18 -0700 (PDT)
+Date: Thu, 10 Apr 2025 22:37:32 -0700
+In-Reply-To: <20250411053745.1817356-1-changyuanl@google.com>
+Mime-Version: 1.0
+References: <20250411053745.1817356-1-changyuanl@google.com>
+X-Mailer: git-send-email 2.49.0.604.gff1f9ca942-goog
+Message-ID: <20250411053745.1817356-2-changyuanl@google.com>
+Subject: [PATCH v6 01/14] memblock: add MEMBLOCK_RSRV_KERN flag
+From: Changyuan Lyu <changyuanl@google.com>
+To: linux-kernel@vger.kernel.org
+Cc: akpm@linux-foundation.org, anthony.yznaga@oracle.com, arnd@arndb.de, 
+	ashish.kalra@amd.com, benh@kernel.crashing.org, bp@alien8.de, 
+	catalin.marinas@arm.com, corbet@lwn.net, dave.hansen@linux.intel.com, 
+	devicetree@vger.kernel.org, dwmw2@infradead.org, ebiederm@xmission.com, 
+	graf@amazon.com, hpa@zytor.com, jgowans@amazon.com, kexec@lists.infradead.org, 
+	krzk@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-doc@vger.kernel.org, linux-mm@kvack.org, luto@kernel.org, 
+	mark.rutland@arm.com, mingo@redhat.com, pasha.tatashin@soleen.com, 
+	pbonzini@redhat.com, peterz@infradead.org, ptyadav@amazon.de, robh@kernel.org, 
+	rostedt@goodmis.org, rppt@kernel.org, saravanak@google.com, 
+	skinsburskii@linux.microsoft.com, tglx@linutronix.de, thomas.lendacky@amd.com, 
+	will@kernel.org, x86@kernel.org, Changyuan Lyu <changyuanl@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_215043_491378_22A8BFC8 
-X-CRM114-Status: GOOD (  31.34  )
+X-CRM114-CacheID: sfid-20250410_223819_861923_355BD092 
+X-CRM114-Status: GOOD (  17.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,248 +99,340 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 
-On 10/04/25 23:52, Andrew Davis wrote:
-> On 4/10/25 6:38 AM, Devarsh Thakkar wrote:
->> Hi Jai,
->>
->> On 10/04/25 15:48, Jai Luthra wrote:
->>> Hi Devarsh,
->>>
->>> Thanks for the cc here.
->>
->> Thanks for the quick comments.
->>
->>>
->> <snip>
->>
->>> On the basic camera + ISP usecase, afaiu the downstream edgeAI SDK uses
->>> custom gstreamer elements that make calls to the aforementioned R5 core
->>> that controls the ISP. On top of that there are additional gstreamer
->>> patches that are not yet posted upstream for review from the community,
->>> so the userspace design isn't really set in stone, or upstream-friendly
->>> yet.
->>>
->>
->> I don't see much relation of carve-outs with Gstreamer or it's 
->> pending downstream patches. The memory is mainly managed from 
->> firmwares (mainly openvx layer being used underneath) and there are 
->> even non-gstreamer pure openvx based use-cases/tests which use these 
->> carveouts. At the end of the day, the firmwares from the only SDK 
->> which is released publicly for AM62A uses all these carveouts.
->>
->
-> These are programmable cores, you can run whatever you want on them. 
-> You can
-> make your own firmware if you like, we have support for them in our 
-> MCU+(FreeRTOS)
-> offering today[0](look at all these firmware you can build/run!).
->
-> In a week or so I'll start pushing support for these cores into Zephyr,
-> bringing in even more firmware options for these cores.
->
-> I simply do not see why one firmware, shipped with one of our SDKs*, 
-> doing
-> things wrong should force us to hack up our DT here in upstream Linux.
+to denote areas that were reserved for kernel use either directly with
+memblock_reserve_kern() or via memblock allocations.
 
+Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Co-developed-by: Changyuan Lyu <changyuanl@google.com>
+Signed-off-by: Changyuan Lyu <changyuanl@google.com>
+---
+ include/linux/memblock.h                      | 19 ++++++++-
+ mm/memblock.c                                 | 40 +++++++++++++++----
+ tools/testing/memblock/tests/alloc_api.c      | 22 +++++-----
+ .../memblock/tests/alloc_helpers_api.c        |  4 +-
+ tools/testing/memblock/tests/alloc_nid_api.c  | 20 +++++-----
+ 5 files changed, 73 insertions(+), 32 deletions(-)
 
-Agreed. I don't see why we should incline towards supporting one of the 
-SDKs.
+diff --git a/include/linux/memblock.h b/include/linux/memblock.h
+index ef5a1ecc6e595..6c00fbc085132 100644
+--- a/include/linux/memblock.h
++++ b/include/linux/memblock.h
+@@ -42,6 +42,9 @@ extern unsigned long long max_possible_pfn;
+  * kernel resource tree.
+  * @MEMBLOCK_RSRV_NOINIT: memory region for which struct pages are
+  * not initialized (only for reserved regions).
++ * @MEMBLOCK_RSRV_KERN: memory region that is reserved for kernel use,
++ * either explictitly with memblock_reserve_kern() or via memblock
++ * allocation APIs. All memblock allocations set this flag.
+  */
+ enum memblock_flags {
+ 	MEMBLOCK_NONE		= 0x0,	/* No special request */
+@@ -50,6 +53,7 @@ enum memblock_flags {
+ 	MEMBLOCK_NOMAP		= 0x4,	/* don't add to kernel direct mapping */
+ 	MEMBLOCK_DRIVER_MANAGED = 0x8,	/* always detected via a driver */
+ 	MEMBLOCK_RSRV_NOINIT	= 0x10,	/* don't initialize struct pages */
++	MEMBLOCK_RSRV_KERN	= 0x20,	/* memory reserved for kernel use */
+ };
+ 
+ /**
+@@ -116,7 +120,19 @@ int memblock_add_node(phys_addr_t base, phys_addr_t size, int nid,
+ int memblock_add(phys_addr_t base, phys_addr_t size);
+ int memblock_remove(phys_addr_t base, phys_addr_t size);
+ int memblock_phys_free(phys_addr_t base, phys_addr_t size);
+-int memblock_reserve(phys_addr_t base, phys_addr_t size);
++int __memblock_reserve(phys_addr_t base, phys_addr_t size, int nid,
++		       enum memblock_flags flags);
++
++static __always_inline int memblock_reserve(phys_addr_t base, phys_addr_t size)
++{
++	return __memblock_reserve(base, size, NUMA_NO_NODE, 0);
++}
++
++static __always_inline int memblock_reserve_kern(phys_addr_t base, phys_addr_t size)
++{
++	return __memblock_reserve(base, size, NUMA_NO_NODE, MEMBLOCK_RSRV_KERN);
++}
++
+ #ifdef CONFIG_HAVE_MEMBLOCK_PHYS_MAP
+ int memblock_physmem_add(phys_addr_t base, phys_addr_t size);
+ #endif
+@@ -476,6 +492,7 @@ static inline __init_memblock bool memblock_bottom_up(void)
+ 
+ phys_addr_t memblock_phys_mem_size(void);
+ phys_addr_t memblock_reserved_size(void);
++phys_addr_t memblock_reserved_kern_size(phys_addr_t limit, int nid);
+ unsigned long memblock_estimated_nr_free_pages(void);
+ phys_addr_t memblock_start_of_DRAM(void);
+ phys_addr_t memblock_end_of_DRAM(void);
+diff --git a/mm/memblock.c b/mm/memblock.c
+index 0a53db4d9f7be..2dc95ecdee5ce 100644
+--- a/mm/memblock.c
++++ b/mm/memblock.c
+@@ -492,7 +492,7 @@ static int __init_memblock memblock_double_array(struct memblock_type *type,
+ 	 * needn't do it
+ 	 */
+ 	if (!use_slab)
+-		BUG_ON(memblock_reserve(addr, new_alloc_size));
++		BUG_ON(memblock_reserve_kern(addr, new_alloc_size));
+ 
+ 	/* Update slab flag */
+ 	*in_slab = use_slab;
+@@ -642,7 +642,7 @@ static int __init_memblock memblock_add_range(struct memblock_type *type,
+ #ifdef CONFIG_NUMA
+ 			WARN_ON(nid != memblock_get_region_node(rgn));
+ #endif
+-			WARN_ON(flags != rgn->flags);
++			WARN_ON(flags != MEMBLOCK_NONE && flags != rgn->flags);
+ 			nr_new++;
+ 			if (insert) {
+ 				if (start_rgn == -1)
+@@ -902,14 +902,15 @@ int __init_memblock memblock_phys_free(phys_addr_t base, phys_addr_t size)
+ 	return memblock_remove_range(&memblock.reserved, base, size);
+ }
+ 
+-int __init_memblock memblock_reserve(phys_addr_t base, phys_addr_t size)
++int __init_memblock __memblock_reserve(phys_addr_t base, phys_addr_t size,
++				       int nid, enum memblock_flags flags)
+ {
+ 	phys_addr_t end = base + size - 1;
+ 
+-	memblock_dbg("%s: [%pa-%pa] %pS\n", __func__,
+-		     &base, &end, (void *)_RET_IP_);
++	memblock_dbg("%s: [%pa-%pa] nid=%d flags=%x %pS\n", __func__,
++		     &base, &end, nid, flags, (void *)_RET_IP_);
+ 
+-	return memblock_add_range(&memblock.reserved, base, size, MAX_NUMNODES, 0);
++	return memblock_add_range(&memblock.reserved, base, size, nid, flags);
+ }
+ 
+ #ifdef CONFIG_HAVE_MEMBLOCK_PHYS_MAP
+@@ -1460,14 +1461,14 @@ phys_addr_t __init memblock_alloc_range_nid(phys_addr_t size,
+ again:
+ 	found = memblock_find_in_range_node(size, align, start, end, nid,
+ 					    flags);
+-	if (found && !memblock_reserve(found, size))
++	if (found && !__memblock_reserve(found, size, nid, MEMBLOCK_RSRV_KERN))
+ 		goto done;
+ 
+ 	if (numa_valid_node(nid) && !exact_nid) {
+ 		found = memblock_find_in_range_node(size, align, start,
+ 						    end, NUMA_NO_NODE,
+ 						    flags);
+-		if (found && !memblock_reserve(found, size))
++		if (found && !memblock_reserve_kern(found, size))
+ 			goto done;
+ 	}
+ 
+@@ -1752,6 +1753,28 @@ phys_addr_t __init_memblock memblock_reserved_size(void)
+ 	return memblock.reserved.total_size;
+ }
+ 
++phys_addr_t __init_memblock memblock_reserved_kern_size(phys_addr_t limit, int nid)
++{
++	struct memblock_region *r;
++	phys_addr_t total = 0;
++
++	for_each_reserved_mem_region(r) {
++		phys_addr_t size = r->size;
++
++		if (r->base > limit)
++			break;
++
++		if (r->base + r->size > limit)
++			size = limit - r->base;
++
++		if (nid == memblock_get_region_node(r) || !numa_valid_node(nid))
++			if (r->flags & MEMBLOCK_RSRV_KERN)
++				total += size;
++	}
++
++	return total;
++}
++
+ /**
+  * memblock_estimated_nr_free_pages - return estimated number of free pages
+  * from memblock point of view
+@@ -2441,6 +2464,7 @@ static const char * const flagname[] = {
+ 	[ilog2(MEMBLOCK_NOMAP)] = "NOMAP",
+ 	[ilog2(MEMBLOCK_DRIVER_MANAGED)] = "DRV_MNG",
+ 	[ilog2(MEMBLOCK_RSRV_NOINIT)] = "RSV_NIT",
++	[ilog2(MEMBLOCK_RSRV_KERN)] = "RSV_KERN",
+ };
+ 
+ static int memblock_debug_show(struct seq_file *m, void *private)
+diff --git a/tools/testing/memblock/tests/alloc_api.c b/tools/testing/memblock/tests/alloc_api.c
+index 68f1a75cd72c4..c55f67dd367d0 100644
+--- a/tools/testing/memblock/tests/alloc_api.c
++++ b/tools/testing/memblock/tests/alloc_api.c
+@@ -134,7 +134,7 @@ static int alloc_top_down_before_check(void)
+ 	PREFIX_PUSH();
+ 	setup_memblock();
+ 
+-	memblock_reserve(memblock_end_of_DRAM() - total_size, r1_size);
++	memblock_reserve_kern(memblock_end_of_DRAM() - total_size, r1_size);
+ 
+ 	allocated_ptr = run_memblock_alloc(r2_size, SMP_CACHE_BYTES);
+ 
+@@ -182,7 +182,7 @@ static int alloc_top_down_after_check(void)
+ 
+ 	total_size = r1.size + r2_size;
+ 
+-	memblock_reserve(r1.base, r1.size);
++	memblock_reserve_kern(r1.base, r1.size);
+ 
+ 	allocated_ptr = run_memblock_alloc(r2_size, SMP_CACHE_BYTES);
+ 
+@@ -231,8 +231,8 @@ static int alloc_top_down_second_fit_check(void)
+ 
+ 	total_size = r1.size + r2.size + r3_size;
+ 
+-	memblock_reserve(r1.base, r1.size);
+-	memblock_reserve(r2.base, r2.size);
++	memblock_reserve_kern(r1.base, r1.size);
++	memblock_reserve_kern(r2.base, r2.size);
+ 
+ 	allocated_ptr = run_memblock_alloc(r3_size, SMP_CACHE_BYTES);
+ 
+@@ -285,8 +285,8 @@ static int alloc_in_between_generic_check(void)
+ 
+ 	total_size = r1.size + r2.size + r3_size;
+ 
+-	memblock_reserve(r1.base, r1.size);
+-	memblock_reserve(r2.base, r2.size);
++	memblock_reserve_kern(r1.base, r1.size);
++	memblock_reserve_kern(r2.base, r2.size);
+ 
+ 	allocated_ptr = run_memblock_alloc(r3_size, SMP_CACHE_BYTES);
+ 
+@@ -422,7 +422,7 @@ static int alloc_limited_space_generic_check(void)
+ 	setup_memblock();
+ 
+ 	/* Simulate almost-full memory */
+-	memblock_reserve(memblock_start_of_DRAM(), reserved_size);
++	memblock_reserve_kern(memblock_start_of_DRAM(), reserved_size);
+ 
+ 	allocated_ptr = run_memblock_alloc(available_size, SMP_CACHE_BYTES);
+ 
+@@ -608,7 +608,7 @@ static int alloc_bottom_up_before_check(void)
+ 	PREFIX_PUSH();
+ 	setup_memblock();
+ 
+-	memblock_reserve(memblock_start_of_DRAM() + r1_size, r2_size);
++	memblock_reserve_kern(memblock_start_of_DRAM() + r1_size, r2_size);
+ 
+ 	allocated_ptr = run_memblock_alloc(r1_size, SMP_CACHE_BYTES);
+ 
+@@ -655,7 +655,7 @@ static int alloc_bottom_up_after_check(void)
+ 
+ 	total_size = r1.size + r2_size;
+ 
+-	memblock_reserve(r1.base, r1.size);
++	memblock_reserve_kern(r1.base, r1.size);
+ 
+ 	allocated_ptr = run_memblock_alloc(r2_size, SMP_CACHE_BYTES);
+ 
+@@ -705,8 +705,8 @@ static int alloc_bottom_up_second_fit_check(void)
+ 
+ 	total_size = r1.size + r2.size + r3_size;
+ 
+-	memblock_reserve(r1.base, r1.size);
+-	memblock_reserve(r2.base, r2.size);
++	memblock_reserve_kern(r1.base, r1.size);
++	memblock_reserve_kern(r2.base, r2.size);
+ 
+ 	allocated_ptr = run_memblock_alloc(r3_size, SMP_CACHE_BYTES);
+ 
+diff --git a/tools/testing/memblock/tests/alloc_helpers_api.c b/tools/testing/memblock/tests/alloc_helpers_api.c
+index 3ef9486da8a09..e5362cfd2ff30 100644
+--- a/tools/testing/memblock/tests/alloc_helpers_api.c
++++ b/tools/testing/memblock/tests/alloc_helpers_api.c
+@@ -163,7 +163,7 @@ static int alloc_from_top_down_no_space_above_check(void)
+ 	min_addr = memblock_end_of_DRAM() - SMP_CACHE_BYTES * 2;
+ 
+ 	/* No space above this address */
+-	memblock_reserve(min_addr, r2_size);
++	memblock_reserve_kern(min_addr, r2_size);
+ 
+ 	allocated_ptr = memblock_alloc_from(r1_size, SMP_CACHE_BYTES, min_addr);
+ 
+@@ -199,7 +199,7 @@ static int alloc_from_top_down_min_addr_cap_check(void)
+ 	start_addr = (phys_addr_t)memblock_start_of_DRAM();
+ 	min_addr = start_addr - SMP_CACHE_BYTES * 3;
+ 
+-	memblock_reserve(start_addr + r1_size, MEM_SIZE - r1_size);
++	memblock_reserve_kern(start_addr + r1_size, MEM_SIZE - r1_size);
+ 
+ 	allocated_ptr = memblock_alloc_from(r1_size, SMP_CACHE_BYTES, min_addr);
+ 
+diff --git a/tools/testing/memblock/tests/alloc_nid_api.c b/tools/testing/memblock/tests/alloc_nid_api.c
+index 49bb416d34ffc..562e4701b0e02 100644
+--- a/tools/testing/memblock/tests/alloc_nid_api.c
++++ b/tools/testing/memblock/tests/alloc_nid_api.c
+@@ -324,7 +324,7 @@ static int alloc_nid_min_reserved_generic_check(void)
+ 	min_addr = max_addr - r2_size;
+ 	reserved_base = min_addr - r1_size;
+ 
+-	memblock_reserve(reserved_base, r1_size);
++	memblock_reserve_kern(reserved_base, r1_size);
+ 
+ 	allocated_ptr = run_memblock_alloc_nid(r2_size, SMP_CACHE_BYTES,
+ 					       min_addr, max_addr,
+@@ -374,7 +374,7 @@ static int alloc_nid_max_reserved_generic_check(void)
+ 	max_addr = memblock_end_of_DRAM() - r1_size;
+ 	min_addr = max_addr - r2_size;
+ 
+-	memblock_reserve(max_addr, r1_size);
++	memblock_reserve_kern(max_addr, r1_size);
+ 
+ 	allocated_ptr = run_memblock_alloc_nid(r2_size, SMP_CACHE_BYTES,
+ 					       min_addr, max_addr,
+@@ -436,8 +436,8 @@ static int alloc_nid_top_down_reserved_with_space_check(void)
+ 	min_addr = r2.base + r2.size;
+ 	max_addr = r1.base;
+ 
+-	memblock_reserve(r1.base, r1.size);
+-	memblock_reserve(r2.base, r2.size);
++	memblock_reserve_kern(r1.base, r1.size);
++	memblock_reserve_kern(r2.base, r2.size);
+ 
+ 	allocated_ptr = run_memblock_alloc_nid(r3_size, SMP_CACHE_BYTES,
+ 					       min_addr, max_addr,
+@@ -499,8 +499,8 @@ static int alloc_nid_reserved_full_merge_generic_check(void)
+ 	min_addr = r2.base + r2.size;
+ 	max_addr = r1.base;
+ 
+-	memblock_reserve(r1.base, r1.size);
+-	memblock_reserve(r2.base, r2.size);
++	memblock_reserve_kern(r1.base, r1.size);
++	memblock_reserve_kern(r2.base, r2.size);
+ 
+ 	allocated_ptr = run_memblock_alloc_nid(r3_size, SMP_CACHE_BYTES,
+ 					       min_addr, max_addr,
+@@ -563,8 +563,8 @@ static int alloc_nid_top_down_reserved_no_space_check(void)
+ 	min_addr = r2.base + r2.size;
+ 	max_addr = r1.base;
+ 
+-	memblock_reserve(r1.base, r1.size);
+-	memblock_reserve(r2.base, r2.size);
++	memblock_reserve_kern(r1.base, r1.size);
++	memblock_reserve_kern(r2.base, r2.size);
+ 
+ 	allocated_ptr = run_memblock_alloc_nid(r3_size, SMP_CACHE_BYTES,
+ 					       min_addr, max_addr,
+@@ -909,8 +909,8 @@ static int alloc_nid_bottom_up_reserved_with_space_check(void)
+ 	min_addr = r2.base + r2.size;
+ 	max_addr = r1.base;
+ 
+-	memblock_reserve(r1.base, r1.size);
+-	memblock_reserve(r2.base, r2.size);
++	memblock_reserve_kern(r1.base, r1.size);
++	memblock_reserve_kern(r2.base, r2.size);
+ 
+ 	allocated_ptr = run_memblock_alloc_nid(r3_size, SMP_CACHE_BYTES,
+ 					       min_addr, max_addr,
+-- 
+2.49.0.604.gff1f9ca942-goog
 
-For this patch as it as,
-
-Reviewed-by: Beleswar Padhi <b-padhi@ti.com>
-
-Thanks,
-Beleswar
-
->
-> *Speaking of the "only" SDK's firmware, if you take our Yocto meta-ti 
-> layer and
-> build an SDK yourself, you get firmware by default that *doesn't need 
-> extra
-> carveouts*! [1][2]
->
-> Andrew
->
-> [0] 
-> https://github.com/TexasInstruments/mcupsdk-core-k3/blob/k3_main/makefile.am62ax
-> [1] 
-> https://git.yoctoproject.org/meta-ti/tree/meta-ti-bsp/recipes-bsp/ti-rtos-fw/ti-rtos-echo-test-fw.bb
-> [2] 
-> https://git.ti.com/cgit/processor-firmware/ti-linux-firmware/tree/ti-ipc/am62axx?h=ti-linux-firmware
->
->>
->>> IMO if that architecture is still under discussion, it might be better
->>> to keep the edgeAI specific carveouts out of the upstream DTs.. just in
->>> case the carevouts have to go away, or change significantly.
->>>
->>> If you are sure that the regions and firmware architecture is set in
->>> stone and won't be updated even if there is a complete redesign of the
->>> userspace/application level stack for accessing the ISP (let's say u
->> sing> libcamera), only then it makes sense to add the carveouts right 
->> now.
->>
->>
->> Yes as I said if whole firmware arch is getting updated then better 
->> to wait. I think probably the firmware team marked in cc can comment 
->> on that. Moreover I don't see any point of adding only half the 
->> regions as that would anyway not work with SDK supplied firmwares, 
->> for e.g. RTOS-to-RTOS ipc test run by firmwares on bootup would fail, 
->> along with other camera+ISP and AI use-cases.
->>
->> Regards
->> Devarsh
->>
->>>>>>
->>>>>> I understand your point, currently with this patch remoteproc 
->>>>>> loading
->>>>>> will not work for some cores. However, the goal here is to 
->>>>>> standardize
->>>>>> as much as possible the memory carveout sizes, push the "demo 
->>>>>> firmware"
->>>>>> to request resources the correct way from resource table, and 
->>>>>> move away
->>>>>> from this dependency and limitations that we have with our firmware.
->>>>
->>>> I understand this, but my view is that w.r.t firmware only goal 
->>>> should not
->>>> just be tp demonstrate correct way of requesting resources from
->>>> resource-tables, optimize the carve-outs etc but also to 
->>>> demonstrate the
->>>> primary use-cases (camera+ISP+edgeAI) which the device is capable of.
->>>>
->>>>>> should soon be able to generate our own firmware using Zephyr,  
->>>>>> which
->>>>>> Andrew is pioneering, so with this firmware we should move to the
->>>>>> correct direction upstream. Downstream we are still using the memory
->>>>>> carveout sizes that the firmware folk want so desperately to 
->>>>>> keep, for
->>>>>> now..
->>>>>>
->>>>>
->>>>> +1
->>>>>
->>>>> I have this Zephyr based firmware for AM62A working and it uses the
->>>>> standard IPC regions as specified in this patch. I'll be posting 
->>>>> the PR
->>>>> for it in Zephyr upstream by the end of week.
->>>>>
->>>>
->>>> I understand this, but will this zephyr based firmware support 
->>>> vision +
->>>> edgeAI analytics ? Does it demonstrate all the unique capabilities 
->>>> of AM62A
->>>> SoC ? If not, then what would be utility of such firmware on AM62A 
->>>> where
->>>> these are the primary use-cases w.r.t AM62A ?
->>>>
->>>> Why should upstream device-tree use carve-outs which match to this 
->>>> demo
->>>> zephyr based firmware (which apparently not many are using and is 
->>>> not going
->>>> into any official SDK release) instead of official firmwares going 
->>>> into SDK
->>>> ? SDK released firmwares are being used by so many customers and SDK
->>>> documentation maps to it, but zephyr firmware that is being pitched 
->>>> here,
->>>> who would be the potential users and what would be it's utility ?
->>>>
->>>> [1]: https://www.ti.com/tool/PROCESSOR-SDK-J721E
->>>>
->>>> Regards
->>>> Devarsh
->>>>
->>>>> For this patch as it is:
->>>>>
->>>>> Acked-by: Andrew Davis <afd@ti.com>
->>>>>
->>>>
->>>>
->>>>> Andrew
->>>>>
->>>>> [0] 
->>>>> https://lore.kernel.org/lkml/20241011123922.23135-1-richard@nod.at/
->>>>> [1] https://git.ti.com/cgit/edgeai/meta-edgeai/tree/recipes-kernel/
->>>>> linux/linux-ti-staging/j721e-evm/0001-arm64-dts-ti-Add-DTB-overlays-for- 
->>>>>
->>>>> vision-apps-and-ed.patch?h=kirkstone
->>>>>
->>>>>> ~ Judith
->>>>>>
->>>>>>>
->>>>>>> [1]:
->>>>>>> https://git.ti.com/cgit/ti-linux-kernel/ti-linux-kernel/tree/
->>>>>>> arch/arm64/boot/dts/ti/k3-am62a7-sk.dts?h=ti-linux-6.6.y-cicd#n103
->>>>>>> [2]: https://www.ti.com/tool/PROCESSOR-SDK-AM62A
->>>>>>>
->>>>>>> Regards
->>>>>>> Devarsh
->>>>>>>
->>>>>>>>        opp-table {
->>>>>>>> @@ -741,3 +771,57 @@ dpi1_out: endpoint {
->>>>>>>>            };
->>>>>>>>        };
->>>>>>>>    };
->>>>>>>> +
->>>>>>>> +&mailbox0_cluster0 {
->>>>>>>> +    status = "okay";
->>>>>>>> +
->>>>>>>> +    mbox_r5_0: mbox-r5-0 {
->>>>>>>> +        ti,mbox-rx = <0 0 0>;
->>>>>>>> +        ti,mbox-tx = <1 0 0>;
->>>>>>>> +    };
->>>>>>>> +};
->>>>>>>> +
->>>>>>>> +&mailbox0_cluster1 {
->>>>>>>> +    status = "okay";
->>>>>>>> +
->>>>>>>> +    mbox_c7x_0: mbox-c7x-0 {
->>>>>>>> +        ti,mbox-rx = <0 0 0>;
->>>>>>>> +        ti,mbox-tx = <1 0 0>;
->>>>>>>> +    };
->>>>>>>> +};
->>>>>>>> +
->>>>>>>> +&mailbox0_cluster2 {
->>>>>>>> +    status = "okay";
->>>>>>>> +
->>>>>>>> +    mbox_mcu_r5_0: mbox-mcu-r5-0 {
->>>>>>>> +        ti,mbox-rx = <0 0 0>;
->>>>>>>> +        ti,mbox-tx = <1 0 0>;
->>>>>>>> +    };
->>>>>>>> +};
->>>>>>>> +
->>>>>>>> +&wkup_r5fss0 {
->>>>>>>> +    status = "okay";
->>>>>>>> +};
->>>>>>>> +
->>>>>>>> +&wkup_r5fss0_core0 {
->>>>>>>> +    mboxes = <&mailbox0_cluster0>, <&mbox_r5_0>;
->>>>>>>> +    memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
->>>>>>>> + <&wkup_r5fss0_core0_memory_region>;
->>>>>>>> +};
->>>>>>>> +
->>>>>>>> +&mcu_r5fss0 {
->>>>>>>> +    status = "okay";
->>>>>>>> +};
->>>>>>>> +
->>>>>>>> +&mcu_r5fss0_core0 {
->>>>>>>> +    mboxes = <&mailbox0_cluster2>, <&mbox_mcu_r5_0>;
->>>>>>>> +    memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
->>>>>>>> + <&mcu_r5fss0_core0_memory_region>;
->>>>>>>> +};
->>>>>>>> +
->>>>>>>> +&c7x_0 {
->>>>>>>> +    mboxes = <&mailbox0_cluster1>, <&mbox_c7x_0>;
->>>>>>>> +    memory-region = <&c7x_0_dma_memory_region>,
->>>>>>>> +            <&c7x_0_memory_region>;
->>>>>>>> +    status = "okay";
->>>>>>>> +};
->>>>>>>
->>>>>>
->>>>>
->>>>
->>>>
->>>
->>
 
