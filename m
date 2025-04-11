@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A0D2C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 09:00:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AADEC369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 09:02:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=QMGKGJwnUU/BmYAEVJZo865KM3L5x0YXjOOHMWjz33U=; b=4nhGIdwQrhbGL9
-	7PTfzyA+b8l/m+0cpR8I8fb9/eMwTk0qmgzM7N7s5cfnAm0+6eh895+fvXByKelhx4izviOfu9UJV
-	c3xm/n3rDgEUZau5nX52gLBATHP0hfxxRBsC1azuPrfjtjUQUSt6xsPDpJ4fhm3c2XbshnY2r9HLu
-	6dPi50ZgWj+Pslh6J6jo/Eil04oAeAx77l0ohmDjxtrkXuHQBaCzawLq1YUCuX1oqmgbJE5/DtQCe
-	XQJ8AlNW/gIRNtTf9pH4BHOEoD/2K7TigBP8UspQjqFoONcdrAARm0NSF6C18lpG4WChDVLVzab6f
-	ekfnmcN3QjcHiBpDdPXQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CiOdcSKU7ev491XmKn1oBuMJ2qwpdqCe608RmZ/nfj8=; b=rjn51umIwp1tDeuNp9CGl+aFVT
+	gLIv3iA9fpOANNnKDoOI67kQcjEO3ywrkx951HUsS1kti3sTzGZqviY/tIDZLImI2eaOh8P4bGESK
+	KvvROV/WBSu/9CywPfqAzUsyVh2uez7Y2oWrdL0UIgFmhFWGaUPzjI3RuHhS5R7+LsV7qXNQx3ZTE
+	BOnB1EhtBWfPS+0d1UE8DgXsXqOwpWP6PmW9wv+BAtGawD6W/JJJxgBqsuoShwNLjVqV8H1MR8sHG
+	xWMogIpTb4ruD4eqw00dX82MkslRD7yPZINUzMM6Evxy10Ep//V9CcADd8F0ogK5nBmNs1YAcQ0iQ
+	IHCAvaTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3AFe-0000000D7LQ-3jiI;
-	Fri, 11 Apr 2025 09:00:42 +0000
+	id 1u3AHS-0000000D7hZ-2Qwv;
+	Fri, 11 Apr 2025 09:02:34 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3ADY-0000000D6mP-0Z7O
+	id 1u3ADb-0000000D6pP-17B1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 08:58:33 +0000
+	Fri, 11 Apr 2025 08:58:36 +0000
 Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53B5cqW1030704;
-	Fri, 11 Apr 2025 08:58:24 GMT
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53B5m4gu030686;
+	Fri, 11 Apr 2025 08:58:28 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=QMGKGJwnUU/BmYAEVJZo86
-	5KM3L5x0YXjOOHMWjz33U=; b=OncjWFiWiubIEU+8GkUHXOc/KAYThqHVCF+9mD
-	HGLBkGZVvx7vO0IikgivCZ2uKekgulKgcbg/h8ImIc0XB4bhMSNmJB0cb9n8/ywZ
-	ZuX8Dw8YzQs6vDameB29gXgh4C6VkZ3W0smUZ0g+XCN4RjBL//VzHHhM32xxtI75
-	oqaZZ9QwwxGZdND+UaJnfGDcLE4Am6CI7tLOO0BPMXGa3Hp66SEhuzIBNxWwAzOD
-	r2CLQ5ez4rcRjjtQ4KQ8y5H7VGLyQRMYBYBHHxtLsmOBluyou/OAbHUoYTN9AvIH
-	iowWdKum0Vjdn343se9dhh883zgO14rZ8gEm/cwZsfV6gO2g==
-Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45twftskpj-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	CiOdcSKU7ev491XmKn1oBuMJ2qwpdqCe608RmZ/nfj8=; b=ZcsktZ40fLbRsabq
+	wFIAguAzYHaX3oixLg25GP0dGPOTviObTAX/JlKBvaZDcUS1Sgpm3H7975O9M0b8
+	RDYZN2EPtg6bbd9RzHDu2rSLdSYyKupomRJ1IN232icwdr9i1QCLNBF8zCANbTBj
+	2KVBxrlTaUJlJ3F20RO3HhRWUqUJgDpaLcHBIpJCTYeFlBMD5M4YLdZDO6W5LRG1
+	JmmoB1hI+YcZY0VPZ3piVFaxuOWtNvsq3b6DPWCH4LJlo9/Y1VVPKus7X72QmKXV
+	eBxgvEgRsHGIu7WpCmx0znntD9ueOiMS7ufFVQCciihu6wqvohGjOWtdScixPDzC
+	ugvkYQ==
+Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45twftskpq-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 11 Apr 2025 08:58:23 +0000 (GMT)
+	Fri, 11 Apr 2025 08:58:27 +0000 (GMT)
 Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53B8wNkg016304
+	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53B8wQpa031869
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 11 Apr 2025 08:58:23 GMT
+	Fri, 11 Apr 2025 08:58:26 GMT
 Received: from yuanfang4-gv.ap.qualcomm.com (10.80.80.8) by
  nalasex01b.na.qualcomm.com (10.47.209.197) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Fri, 11 Apr 2025 01:58:19 -0700
+ 15.2.1544.9; Fri, 11 Apr 2025 01:58:23 -0700
 From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-Subject: [PATCH v3 0/2] coresight: Add Coresight Trace Network On Chip
- driver
-Date: Fri, 11 Apr 2025 16:57:51 +0800
-Message-ID: <20250411-trace-noc-v3-0-1f19ddf7699b@quicinc.com>
+Date: Fri, 11 Apr 2025 16:57:52 +0800
+Subject: [PATCH v3 1/2] dt-bindings: arm: Add device Trace Network On Chip
+ definition
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAI/Z+GcC/3XOQW7DIBAF0KtErEuFYYBxV71HlQUMTMOidotTK
- 1XkuxdbXbiysvyjeV//LqZcS57Ey+kuap7LVMahBfN0EnQJw3uWJbUstNJWgTLyWgNlOYwkGTW
- 6aNoVs2j/nzVzuW1db+eWL2W6jvVnq5679SrAOTAKexkRk4Q+kYxZWekjqxh1xwj+9eu7UBnom
- cYPsfbMZrN/C/xuwWykkhZiz0mHFLg/WnhoodkeHQQmAz7i0dqH1jZrPHvTEUOO+Wjd3uLeunW
- zduS6oJVn998uy/ILwAg4qZQBAAA=
-X-Change-ID: 20250403-trace-noc-f8286b30408e
+Message-ID: <20250411-trace-noc-v3-1-1f19ddf7699b@quicinc.com>
+References: <20250411-trace-noc-v3-0-1f19ddf7699b@quicinc.com>
+In-Reply-To: <20250411-trace-noc-v3-0-1f19ddf7699b@quicinc.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>,
         Mike Leach
 	<mike.leach@linaro.org>,
@@ -81,11 +78,11 @@ CC: <kernel@oss.qualcomm.com>, <linux-arm-msm@vger.kernel.org>,
         Yuanfang Zhang
 	<quic_yuanfang@quicinc.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1744361899; l=1455;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1744361899; l=3564;
  i=quic_yuanfang@quicinc.com; s=20241209; h=from:subject:message-id;
- bh=8tyCaTWug517PKAYLddHpfQRQdW6eTM6uBSoFYSVyTg=;
- b=Ugfqgzz58f49RGI4dYnAu4OU83/PzhqWVbGbCSLwq49PT1Sw3NlnkJYYH/dY0y0+CWWe+RF37
- 2AAG57SfehJBn6enizDVj5fxvyk5IjDkXTFc1U/6lna9txQwXo3j45g
+ bh=6qMYRCFrPX+O3YZwJLLENDqu8ca05sYgdSW1lfOEXD0=;
+ b=ZSoa+CsO3hBbSrMpxaFz1nD+tS/yP1w6gtpWmB6If2Sth+00W3xLxNu/EYPDGRT0GZWnTrLot
+ NE3A2+TpQ8ODEpggZDmcl1YwguEophoQTqGWsGdfrIrXOCqzBOZq98L
 X-Developer-Key: i=quic_yuanfang@quicinc.com; a=ed25519;
  pk=ZrIjRVq9LN8/zCQGbDEwrZK/sfnVjwQ2elyEZAOaV1Q=
 X-Originating-IP: [10.80.80.8]
@@ -93,10 +90,10 @@ X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
  nalasex01b.na.qualcomm.com (10.47.209.197)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=B5+50PtM c=1 sm=1 tr=0 ts=67f8d9b0 cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=VwQbUJbxAAAA:8 a=COk6AnOGAAAA:8 a=wQFbxXTkjMarF-hqfQ4A:9
- a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: cudZtBDQHd0apwwr1n8jfbI_NXhgY2CN
-X-Proofpoint-ORIG-GUID: cudZtBDQHd0apwwr1n8jfbI_NXhgY2CN
+X-Authority-Analysis: v=2.4 cv=B5+50PtM c=1 sm=1 tr=0 ts=67f8d9b3 cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=gEfo2CItAAAA:8 a=COk6AnOGAAAA:8 a=APcPAnuBUoPLjZ3N-PUA:9
+ a=QEXdDO2ut3YA:10 a=sptkURWiP4Gy88Gu7hUp:22 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-GUID: yO7hwjWto6CTfe4Wh5KBLFgO6hYnUc5B
+X-Proofpoint-ORIG-GUID: yO7hwjWto6CTfe4Wh5KBLFgO6hYnUc5B
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-04-11_03,2025-04-10_01,2024-11-22_01
@@ -107,9 +104,8 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogs
  route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
  definitions=main-2504110049
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_015832_195786_BAE4C183 
-X-CRM114-Status: UNSURE (   9.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250411_015835_338222_130EA8A7 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,42 +120,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Trace Network On Chip (TNOC) is an integration hierarchy which is a
-hardware component that integrates the functionalities of TPDA and
-funnels. It collects trace form subsystems and transfers to coresight
-sink.
+Add a new coresight-tnoc.yaml file to describe the bindings required to
+define Trace Network On Chip (TNOC) in device trees. TNOC is an
+integration hierarchy which is a hardware component that integrates the
+functionalities of TPDA and funnels. It collects trace form subsystems
+and transfers to coresight sink.
 
 Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
 ---
-Changes in v3:
-- Remove unnecessary sysfs nodes.
-- update commit messages.
-- Use 'writel' instead of 'write_relaxed' when writing to the register for the last time.
-- Add trace_id ops.
-- Link to v2: https://lore.kernel.org/r/20250226-trace-noc-driver-v2-0-8afc6584afc5@quicinc.com
+ .../bindings/arm/qcom,coresight-tnoc.yaml          | 111 +++++++++++++++++++++
+ 1 file changed, 111 insertions(+)
 
-Changes in v2:
-- Modified the format of DT binging file.
-- Fix compile warnings.
-- Link to v1: https://lore.kernel.org/r/46643089-b88d-49dc-be05-7bf0bb21f847@quicinc.com
+diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-tnoc.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-tnoc.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..709c1bc63db48c29bb2b33e7a795a5999768c5e7
+--- /dev/null
++++ b/Documentation/devicetree/bindings/arm/qcom,coresight-tnoc.yaml
+@@ -0,0 +1,111 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/arm/qcom,coresight-tnoc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Qualcomm Trace Network On Chip - TNOC
++
++maintainers:
++  - Yuanfang Zhang <quic_yuanfang@quicinc.com>
++
++description:
++  The Trace Network On Chip (TNOC) is an integration hierarchy hardware
++  component that integrates the functionalities of TPDA and funnels.
++
++  It sits in the different subsystem of SOC and aggregates the trace and
++  transports it to Aggregation TNOC or to coresight trace sink eventually.
++  TNOC embeds bridges for all the interfaces APB, ATB, TPDA and NTS (Narrow
++  Time Stamp).
++
++  TNOC can take inputs from different trace sources i.e. ATB, TPDM.
++
++# Need a custom select here or 'arm,primecell' will match on lots of nodes
++select:
++  properties:
++    compatible:
++      contains:
++        enum:
++          - qcom,coresight-tnoc
++  required:
++    - compatible
++
++properties:
++  $nodename:
++    pattern: "^tn(@[0-9a-f]+)$"
++
++  compatible:
++    items:
++      - const: qcom,coresight-tnoc
++      - const: arm,primecell
++
++  reg:
++    maxItems: 1
++
++  clock-names:
++    items:
++      - const: apb_pclk
++
++  clocks:
++    items:
++      - description: APB register access clock
++
++  in-ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++
++    patternProperties:
++      '^port(@[0-9a-f]{1,2})?$':
++        description: Input connections from CoreSight Trace Bus
++        $ref: /schemas/graph.yaml#/properties/port
++
++  out-ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++    additionalProperties: false
++
++    properties:
++      port:
++        description:
++          Output connection to CoreSight Trace Bus
++        $ref: /schemas/graph.yaml#/properties/port
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - in-ports
++  - out-ports
++
++additionalProperties: false
++
++examples:
++  - |
++    tn@109ab000  {
++      compatible = "qcom,coresight-tnoc", "arm,primecell";
++      reg = <0x0 0x109ab000 0x0 0x4200>;
++
++      clocks = <&aoss_qmp>;
++      clock-names = "apb_pclk";
++
++      in-ports {
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        port@0 {
++          reg = <0>;
++
++          tn_ag_in_tpdm_gcc: endpoint {
++            remote-endpoint = <&tpdm_gcc_out_tn_ag>;
++          };
++        };
++      };
++
++      out-ports {
++        port {
++          tn_ag_out_funnel_in1: endpoint {
++            remote-endpoint = <&funnel_in1_in_tn_ag>;
++          };
++        };
++      };
++    };
++...
 
----
-Yuanfang Zhang (2):
-      dt-bindings: arm: Add device Trace Network On Chip definition
-      coresight: add coresight Trace Network On Chip driver
-
- .../bindings/arm/qcom,coresight-tnoc.yaml          | 111 ++++++++++++
- drivers/hwtracing/coresight/Kconfig                |  13 ++
- drivers/hwtracing/coresight/Makefile               |   1 +
- drivers/hwtracing/coresight/coresight-tnoc.c       | 186 +++++++++++++++++++++
- drivers/hwtracing/coresight/coresight-tnoc.h       |  34 ++++
- 5 files changed, 345 insertions(+)
----
-base-commit: a2cc6ff5ec8f91bc463fd3b0c26b61166a07eb11
-change-id: 20250403-trace-noc-f8286b30408e
-
-Best regards,
 -- 
-Yuanfang Zhang <quic_yuanfang@quicinc.com>
+2.34.1
 
 
