@@ -4,91 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D23EC369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 21:32:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E632CC369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 21:38:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jdhyv9hjm6QUrsT/wcxw2zTNKs20yDomAVmT1aUQSfE=; b=b/ktpRE9R/cE7qTZGzLxB/AfCV
-	TQTLW2HvSlPd7vvXqA0aacoKo0AkL2ArOJ/6yFyEeUgOXqBb21BYPkp18OCaJhubByPZBivJg00Fu
-	Acsj1HMArV3euxZeUF5n0jhL8B8MhuaOwCPiZIJCpnuPifYzXF6XwNH5QvEBOWB0ZS+Zmg7MhQ+Ll
-	GtcY0/AckqE6H0dieQwb8HOxijKJrJsHxkocdJUgBb8FM1RXmQDiVlFDm0UBxs7hamvvDGFZfSsp7
-	l53GVE99U1dvwjn7bNTQVPjzn0Z7ewTl460bBKVT/qkMOjDjOhRgQWrn25gLJEdnc3DPYWeK5NyCq
-	BOqL8jZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UhvEVlID57PMz15q3na8AUJj5YQAgwuVDNrsB621/Z8=; b=MDfKEBiXZZms0oSdFiJny90VLt
+	F84FqyxjsHDTn0TsjmFBuTjokqr1OEhxrVxpT+YDOClJE1qE7pz5pv9nGoQ3NrqIrKSXQN5+2Uv5p
+	0mhrpdzn/wB291b68idF11gB33sTqM3GnLKcLPeRpzbb3a/k1TnDb0Fivp61XSiER1FGR4Dnka+sn
+	JLzp6DNmmiMeqX+10n6fv5IecxKp2jEBu8wTC7IJxqO/0PK6Ek7SWiPLQy/+7QZhdgGQBvvIplH9S
+	IkSmgttVc3hB2dlMZbpP+JzqLG6CDzhkT4L9ei3kAQfW8S3DEY979EK9OIOzBYZ/Mq2gIZepzDPy4
+	IjN0b6rQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3Lz1-0000000EwDJ-0bdB;
-	Fri, 11 Apr 2025 21:32:19 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1u3M4m-0000000EwhD-2I4a;
+	Fri, 11 Apr 2025 21:38:16 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3LxB-0000000Evx0-2vK1
+	id 1u3M2y-0000000Ewc7-06cc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 21:30:27 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53BEhWbf019687;
-	Fri, 11 Apr 2025 21:30:16 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=jdhyv9hjm6QUrsT/wcxw2z
-	TNKs20yDomAVmT1aUQSfE=; b=pwRp0W5ryybSH390VH0XdIRdKMmb/GsOq/cSGW
-	Mwfj3t+XhIJVxZzgEGJ1J29qJMMpveZzDXcoM/wpceeDqYJFAc3GvwMPXDpUbmaF
-	FgBbJylk1CkStlv8pWHixPBRpnQGyUg5klGw5EP5oW9ZZ0Aq6ISZNPsPe3WSdLTQ
-	1U7fed5lKBCwbwLKtHiWvUyBYYYLTLZsEuRfocgcHcRBAH07CAylj+Oj3Gn/bqX4
-	VMn+AWU3uMv8PuDTnumEv9CWRNW+haGUl1x/kjbCMnz5JnFpCTm5QZtwUDtaAka9
-	EaUKFlpjm+TEU68t27UO6HZz8x6mbPheml/XQvKLwagulZ1Q==
-Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45twcrutbk-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 11 Apr 2025 21:30:15 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53BLUEIE001413
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 11 Apr 2025 21:30:14 GMT
-Received: from hu-mdtipton-lv.qualcomm.com (10.49.16.6) by
- nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Fri, 11 Apr 2025 14:30:14 -0700
-From: Mike Tipton <quic_mdtipton@quicinc.com>
-To: Sudeep Holla <sudeep.holla@arm.com>,
-        Cristian Marussi
-	<cristian.marussi@arm.com>,
-        "Rafael J . Wysocki" <rafael@kernel.org>,
-        "Viresh
- Kumar" <viresh.kumar@linaro.org>
-CC: <arm-scmi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-pm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        Mike Tipton
-	<quic_mdtipton@quicinc.com>
-Subject: [PATCH] cpufreq: scmi: Skip SCMI devices that aren't used by the CPUs
-Date: Fri, 11 Apr 2025 14:29:41 -0700
-Message-ID: <20250411212941.1275572-1-quic_mdtipton@quicinc.com>
+	Fri, 11 Apr 2025 21:36:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=naIAvLSDTdtNCis9uIq2MbmxDhJF0dgMaHayOd0+AsLu2Y74EF2qXe1cszLVb3ZFLvOenhV3sSp5KLijD62viPCCTo2SFQuG5q9Xfwr98SvgjBXeTFXh11iHQP9Xaic/L0EgHNvUlI0pmmUlLXP97CmJ4+hAaG9ZC7DvO5wLTfdaxkkgmIDS6CjpLC2dace/+Vggq8njIR/wuir5RPmjDZK1YRvlesqXku+UBQUmR+2ECR8dJvlCFtxwuRbaWOTA04pNkm5rw9sN5UZuafoauhjS56c83/YNUB3Qqiyi3FTADWWwqWgYnbVzVAFyiiCqUDuPBEv15kwwdFWpFV5fVw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=UhvEVlID57PMz15q3na8AUJj5YQAgwuVDNrsB621/Z8=;
+ b=JpJFkzJwTDcAeLRWJqFbrf/ZNRRoAlBiy3H9NAQ7E3Tn4/0+lzGnh7MELKOGB2zmkcyvR+LNEwZgoWARqcU0E87suaoiDgBCrD8h3P5JslZVGUBMReSm13K0LteMxzQPVbEqE4GjFNJJFNTEtcw6+9zKTL56U5/ravRd/ki1zVv3YYVaRT2BPOaJueWqhXmwZ8xkBylUnkmkuyUMD67aBUF41CTquMtJuMJQ11qa6N68n2/WqdtMG3gicw77DqmID93hYVtE08d1GFNNapnJxogEhaAk6B+e9SeGH2T4z5xK25o7LjEybFwF4BdnIvYOGtDKA208f5kriqlINeXNiQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=UhvEVlID57PMz15q3na8AUJj5YQAgwuVDNrsB621/Z8=;
+ b=RwSGvrxeOM8b/Cle3K+YoFFwLZGLGC59EyZZwqXVLQcEULTCuCr5WklN0PgNqI8dRdnbtIfb4yp5WQky8f7Ur1B9hC3wEcj5bLN5s2a4P8Fjabma6oX2px2WA8Pk7NmhdYFxzvWnXRJ8eNm0S7mUzGww2nD1RKpWjwtvYyJHykjpklQYDcS2+XQl2OoLKTKyak4AQ9Pc2DxdRsjKoLG0kYyxh35UzbubwGK5nC7f5bm+UrFh3FSUds+4VkUiOo2f0Rx78Yo8vqawrRcGX+MaeAI5uLI2gAPe9vDO0EFP56adbad+qv78koO0buL4VqAjlBLRREXUMJBlIcYp9AkALg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by PAXPR04MB9490.eurprd04.prod.outlook.com (2603:10a6:102:2c2::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.33; Fri, 11 Apr
+ 2025 21:36:17 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8632.025; Fri, 11 Apr 2025
+ 21:36:17 +0000
+From: Frank Li <Frank.Li@nxp.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-media@vger.kernel.org (open list:MEDIA INPUT INFRASTRUCTURE (V4L/DVB)),
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Cc: imx@lists.linux.dev
+Subject: [PATCH 1/1] dt-bindings: media: convert fsl-vdoa.txt to yaml format
+Date: Fri, 11 Apr 2025 17:36:00 -0400
+Message-Id: <20250411213601.3273670-1-Frank.Li@nxp.com>
 X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-Originating-IP: [10.49.16.6]
-X-ClientProxiedBy: nalasex01b.na.qualcomm.com (10.47.209.197) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: 2wjL0GughldwcNUypIhw6NcJCtHR9kIA
-X-Authority-Analysis: v=2.4 cv=QuVe3Uyd c=1 sm=1 tr=0 ts=67f989e7 cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=3H110R4YSZwA:10 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=RUjNBLSMCPId_BJTEh8A:9 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: 2wjL0GughldwcNUypIhw6NcJCtHR9kIA
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-11_08,2025-04-10_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 adultscore=0
- spamscore=0 malwarescore=0 mlxlogscore=999 bulkscore=0 priorityscore=1501
- clxscore=1011 phishscore=0 impostorscore=0 suspectscore=0
- lowpriorityscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2504110138
+X-ClientProxiedBy: BY3PR05CA0019.namprd05.prod.outlook.com
+ (2603:10b6:a03:254::24) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PAXPR04MB9490:EE_
+X-MS-Office365-Filtering-Correlation-Id: 391698fd-38c0-4034-ac76-08dd7940e43a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|52116014|7416014|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?6QgLXieShhppWXq76xWEqZsTUDs8uB7Lf0p9JUs7O4moc2zKaszFUq2fHXJz?=
+ =?us-ascii?Q?2rUnKphMVgzUAkJJcX9ef91rx1Jp2scGABHmqn2G0lEtFoXX4Sgqn8TpWuJq?=
+ =?us-ascii?Q?YNYanVr/iv25TUwkJOpZW8x0rFey5kupzuW+sxlqiL4zD4i4430JjG3LlYMz?=
+ =?us-ascii?Q?TCLF+IV5E9O1fexhfz9jnFMHeaKxU55Uy5IFbTSuA5ezijhp7CkgTPyFsGuV?=
+ =?us-ascii?Q?b6TLJuUqezdi1ZS8X797zfLlIG81fgqunEbT7KnJEkGUptUUySLITAnB9abw?=
+ =?us-ascii?Q?ChNgQpLoq3z0/aXnk4lmN8GtnZ0d/+2AtwdKGhxCtUlzBe9A38tPLurpBhVf?=
+ =?us-ascii?Q?rZMWgm32qVOtKw1Yk9aaDvwIXmCWNjIzsRf4O3EMb7b9/Y0tCjAH8VbnV4i/?=
+ =?us-ascii?Q?7ukP9LXjygGuUa+6vOVJUnln7Hz6xCMvzxea9AVi/ulZPsHqfGlE8pabSEO8?=
+ =?us-ascii?Q?OyMJOrzkarA1kZKiYmnLZlRYH2wZXLSiHftTU4OMhhp0qNNKCr3SKJyAKWuu?=
+ =?us-ascii?Q?uIFbLoSgfoxToyn0OB93MtKOE0PCDp9wmPRGUCAcH98NaFODUpZaM949wUDW?=
+ =?us-ascii?Q?B9nwA8CSSbnxDopuXkZDdaZJuw2c8GrIFv2LVaq2liwILh9ugYyP4oVTJmCp?=
+ =?us-ascii?Q?kjQ7PwhkVKqyfZfxExZTK5q80FfvVCkB+9NxEWwdApzlNHMx6SVoAAU6fM6f?=
+ =?us-ascii?Q?exHwye0XL2j8IKX7D1/BBWyEtP3wUvMAYTq2BQieCxl+SRpBewpL3+S72/re?=
+ =?us-ascii?Q?I204dgul+S2wlgxysaun1y8knjJ/OYnyLc4C9jh1d2noy6tZqYJpTdj+8Rah?=
+ =?us-ascii?Q?oaQkE/GXuXhKemQMFWoIQZEQ9PrZk0cXh8gXUJMHommTQ3EWjf0gH708ly93?=
+ =?us-ascii?Q?j2EaTDwIDF2EJjEyhuLForneS5dBGG8N0lJ6a2TaF8yhDhkb5g+k9qily8cQ?=
+ =?us-ascii?Q?QjHrLHpAP8JUqN6OzrFWpZxVxUMokVWWF1S4pEYACR6KiVtvWNZxQY6jLMxu?=
+ =?us-ascii?Q?XF4BGWn4pR3cK0alCgTdXodu3doZXa15+d3JO7VLsJnJIpymMEZAVtKAUbas?=
+ =?us-ascii?Q?Ye2to9dtb9SbjgCY8ViBnTvVP/wzXkZLJ5fSYTs1OoBCBXuwuPWmk7HypZr4?=
+ =?us-ascii?Q?+26y/oy85UoTkn7V1WKVLt8PLj7+j2AIUQq5pQ2KGzTjG6j4BNcLXgnEu4GE?=
+ =?us-ascii?Q?WiOpH1aWvCJb8FiXrgmd328YAtFsaPjZG507oTdZakKm+AjPjvIcmX+9EYZH?=
+ =?us-ascii?Q?CPvgRAGR0HyvPwocvP/CiBK9tJ2/+AgVRL3GtdzBT6jFgZ6WXA9DgfTiO1A5?=
+ =?us-ascii?Q?6nYo3cZL4RdRftvFKW86U7/IfmQ1ugV9qAwM/q+ENkUBUToh89Dq4eB5OEM7?=
+ =?us-ascii?Q?Nncpxk4plxbk3qCYpTD4jiNdw3bqPoJadlqq5hwzchob2MyvvbTxUOR3pdgc?=
+ =?us-ascii?Q?5DP+nzl+TjYUnudJ+tWIWAi/hrKkg4kc?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(52116014)(7416014)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?EPn9ZVTbdD5i8+gIgAImh1NLH7BGEv5QNmJtE3CmvAuO5L0uGrps0iGPjplk?=
+ =?us-ascii?Q?ArqAtHtmwglIFxhI6Kid8nsow9S4+03VfDmmZImYMUfzteFQsrFoJWyo5Tz9?=
+ =?us-ascii?Q?JmHJE8mHQqpbEpqNVjfuWL6E4fWGKDLdU3KApVpaOUMlQ2aTsvt4Im5xXwAe?=
+ =?us-ascii?Q?nzDk+yY8vh4BkOYC0r9VPzz5HTZC+MBiVABPPRw1GbVd3CTHpiRaH+H7R6V/?=
+ =?us-ascii?Q?iaH9n3WfEiImODj1q4uizPheoNKDwDmuQ1k+ngJi4RzrzvkSvgQvwBnvML3O?=
+ =?us-ascii?Q?5MzL2PVbHzGgGOTLHK1MYvMsKfA0fqd2Cp6S3/J2mYS4NxfJP3N4lwka9jKP?=
+ =?us-ascii?Q?66m55Dp6Uab1UrHhls7FQCmqH5tNb+GKXZm5jaHA++43SCZaJxu440qw/P/3?=
+ =?us-ascii?Q?bsNCM3wIBYaMhl5MVa3Wxit+e8yaM/1SUhAccvX21HNNPPSzRqXWNWrxLWaE?=
+ =?us-ascii?Q?O4FzblZ7cr2r8QJcxbRE/gaBLMRZJNqsBoOuSrsQ3qN17MWffXGbKGR82PQs?=
+ =?us-ascii?Q?sSeKlDGY/jCmr0IDMpXdMqgd71Jd1w7Kz+7b+CKewajb9SkaVqfX3PeDhbzE?=
+ =?us-ascii?Q?oxFVcuqF9fFmL6KO3V//l6IstfjURIDhkxuzV6ucXpVkldTw6p9A5mW0pKAY?=
+ =?us-ascii?Q?3JXV+25aEEvw904iKDBsCJbuZFHSHXXHlxntKbWKzLsv1LxWC8ptxr7SY9Ia?=
+ =?us-ascii?Q?hu7SZN4MGndvkZWM7iQfdyUthkCNCHc0SwgEezrAD3X0V+tJs00XKtnHo7nf?=
+ =?us-ascii?Q?eTS48vGilveBgVCruINmgtf3RVS/0ykqu/JK+lmnZHW8rTJ/KV+zzYBoq2Sv?=
+ =?us-ascii?Q?G1ud1UktR7UiRj0fVPztvgZorml6DS7zV/bf0e7yDeunBHoSJSg38TYc7kjs?=
+ =?us-ascii?Q?pcmb/s3fjbBIr2lrJNSb2BPiDxo6mECBtjK822CxJ6Qpm3kxbRS4/z5rDmbB?=
+ =?us-ascii?Q?FQRCvC8OzJWSjdg+oX8oh2ur/Uyi5SxQUglI9Lt8xelYJ4p3XmSEcouUffs2?=
+ =?us-ascii?Q?QplRunt2l3sIqV+xO2+CCyf0bl69bgZz9mPfyKZ8pX94pAm03ib0X0VhEFqp?=
+ =?us-ascii?Q?XAEUEBj5AgThPByWlTA7WUTVJJi8btNRJi8hnAPRViPfiaLc3yl3xeQJ261R?=
+ =?us-ascii?Q?TsHPSfjDkXMCYIx8j+Pv2caq21Qy5y89sL5riVpeGkKw1l0Xm8hEhMvyWlBT?=
+ =?us-ascii?Q?ykKWNEn48W4P0A24iNYwxgIFPS3LkgnWP9TEvw1iy7s5fdFqkkM+olwaT8XS?=
+ =?us-ascii?Q?BcTZk4dxfyeizGBrPeCpxx1a3vfwAR7jN5ddvKck8F0TY52w6jjFBaMYmceD?=
+ =?us-ascii?Q?YWpu6QVFECEOWvaX6UvVGAnd6AD/IfnnmjruEDgp3FzC5h5rC8CdrZQpLrBM?=
+ =?us-ascii?Q?+BqmJ55EkChYboL2MVegWvdZ76FEce0SpGjtJL71WmEyASaRFDspHLSsNWSy?=
+ =?us-ascii?Q?uX9pRRSL9isl+Eryzw70dotEOl3ZRM4dJ8EQovCk21+QHIGVRNxfCQ1CZpzg?=
+ =?us-ascii?Q?UQa4Jv+XhtxPK0SYwWeaDFhpp3HvAgjRlDH0bfbNbBZ+40pN3S9lTtF0FH/7?=
+ =?us-ascii?Q?/R/+RjzrvNlhRFPrcjzVdKwdkAu5nzEOAbF188Xl?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 391698fd-38c0-4034-ac76-08dd7940e43a
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Apr 2025 21:36:17.2498
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ojpXmX5yY+oabpCjQHFG1/+looTxBogzEvW7dGxi7IhaU8bA4qgFfvp/G8sC/iSGjInMMUeicj6oVOxhr7i42g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9490
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_143025_865465_4F6749C0 
-X-CRM114-Status: GOOD (  15.55  )
+X-CRM114-CacheID: sfid-20250411_143624_059007_A6280429 
+X-CRM114-Status: GOOD (  14.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,70 +165,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, all SCMI devices with performance domains attempt to register
-a cpufreq driver, even if their performance domains aren't used to
-control the CPUs. The cpufreq framework only supports registering a
-single driver, so only the first device will succeed. And if that device
-isn't used for the CPUs, then cpufreq will scale the wrong domains.
+Convert fsl-vdoa.txt to yaml format.
 
-To avoid this, return early from scmi_cpufreq_probe() if the probing
-SCMI device isn't referenced by the CPU device phandles.
+Additional changes:
+- Add irq.h and imx6qdl-clock.h in example.
 
-This keeps the existing assumption that all CPUs are controlled by a
-single SCMI device.
-
-Signed-off-by: Mike Tipton <quic_mdtipton@quicinc.com>
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
- drivers/cpufreq/scmi-cpufreq.c | 29 +++++++++++++++++++++++++++++
- 1 file changed, 29 insertions(+)
+ .../bindings/media/fsl,imx6q-vdoa.yaml        | 42 +++++++++++++++++++
+ .../devicetree/bindings/media/fsl-vdoa.txt    | 21 ----------
+ 2 files changed, 42 insertions(+), 21 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/media/fsl,imx6q-vdoa.yaml
+ delete mode 100644 Documentation/devicetree/bindings/media/fsl-vdoa.txt
 
-diff --git a/drivers/cpufreq/scmi-cpufreq.c b/drivers/cpufreq/scmi-cpufreq.c
-index 944e899eb1be..7981a879974b 100644
---- a/drivers/cpufreq/scmi-cpufreq.c
-+++ b/drivers/cpufreq/scmi-cpufreq.c
-@@ -393,6 +393,32 @@ static struct cpufreq_driver scmi_cpufreq_driver = {
- 	.set_boost	= cpufreq_boost_set_sw,
- };
- 
-+static bool scmi_dev_used_by_cpus(struct device *scmi_dev)
-+{
-+	struct device_node *scmi_np = scmi_dev->of_node;
-+	struct device_node *np;
-+	struct device *cpu_dev;
-+	int cpu, idx;
+diff --git a/Documentation/devicetree/bindings/media/fsl,imx6q-vdoa.yaml b/Documentation/devicetree/bindings/media/fsl,imx6q-vdoa.yaml
+new file mode 100644
+index 0000000000000..511ac0d67a7f2
+--- /dev/null
++++ b/Documentation/devicetree/bindings/media/fsl,imx6q-vdoa.yaml
+@@ -0,0 +1,42 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/media/fsl,imx6q-vdoa.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+	for_each_possible_cpu(cpu) {
-+		cpu_dev = get_cpu_device(cpu);
-+		if (!cpu_dev)
-+			continue;
++title: Freescale Video Data Order Adapter
 +
-+		np = cpu_dev->of_node;
++description:
++  The Video Data Order Adapter (VDOA) is present on the i.MX6q. Its sole purpose
++  is to reorder video data from the macroblock tiled order produced by the CODA
++  960 VPU to the conventional raster-scan order for scanout.
 +
-+		if (of_parse_phandle(np, "clocks", 0) == scmi_np)
-+			return true;
++maintainers:
++  - Frank Li <Frank.Li@nxp.com>
 +
-+		idx = of_property_match_string(np, "power-domain-names", "perf");
++properties:
++  compatible:
++    const: "fsl,imx6q-vdoa"
 +
-+		if (of_parse_phandle(np, "power-domains", idx) == scmi_np)
-+			return true;
-+	}
++  reg:
++    maxItems: 1
 +
-+	return false;
-+}
++  interrupts:
++    maxItems: 1
 +
- static int scmi_cpufreq_probe(struct scmi_device *sdev)
- {
- 	int ret;
-@@ -404,6 +430,9 @@ static int scmi_cpufreq_probe(struct scmi_device *sdev)
- 	if (!handle)
- 		return -ENODEV;
- 
-+	if (!scmi_dev_used_by_cpus(dev))
-+		return 0;
++  clocks:
++    maxItems: 1
 +
- 	scmi_cpufreq_driver.driver_data = sdev;
- 
- 	perf_ops = handle->devm_protocol_get(sdev, SCMI_PROTOCOL_PERF, &ph);
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++    #include <dt-bindings/clock/imx6qdl-clock.h>
++
++    vdoa@21e4000 {
++        compatible = "fsl,imx6q-vdoa";
++        reg = <0x021e4000 0x4000>;
++        interrupts = <0 18 IRQ_TYPE_LEVEL_HIGH>;
++        clocks = <&clks IMX6QDL_CLK_VDOA>;
++    };
+diff --git a/Documentation/devicetree/bindings/media/fsl-vdoa.txt b/Documentation/devicetree/bindings/media/fsl-vdoa.txt
+deleted file mode 100644
+index 6c5628530bb7b..0000000000000
+--- a/Documentation/devicetree/bindings/media/fsl-vdoa.txt
++++ /dev/null
+@@ -1,21 +0,0 @@
+-Freescale Video Data Order Adapter
+-==================================
+-
+-The Video Data Order Adapter (VDOA) is present on the i.MX6q. Its sole purpose
+-is to reorder video data from the macroblock tiled order produced by the CODA
+-960 VPU to the conventional raster-scan order for scanout.
+-
+-Required properties:
+-- compatible: must be "fsl,imx6q-vdoa"
+-- reg: the register base and size for the device registers
+-- interrupts: the VDOA interrupt
+-- clocks: the vdoa clock
+-
+-Example:
+-
+-vdoa@21e4000 {
+-        compatible = "fsl,imx6q-vdoa";
+-        reg = <0x021e4000 0x4000>;
+-        interrupts = <0 18 IRQ_TYPE_LEVEL_HIGH>;
+-        clocks = <&clks IMX6QDL_CLK_VDOA>;
+-};
 -- 
 2.34.1
 
