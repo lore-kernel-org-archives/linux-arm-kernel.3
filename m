@@ -4,147 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 766BAC369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 18:49:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80FC4C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 18:50:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WyFOsqTfrqmcyJEFdEpAVnLD1e7XYG5YJrJeZngeXCk=; b=y7/7xznNaKcUaNJENWurNHPhJK
-	W7/n738L2f20eZWD1H94SYGgUJODvjIT3grXYF95AXF7YlOhD4xK9PiTXKPf9efZdohrfa8B47BWJ
-	bUZw4ycl8gHo1j8mtCkbhndCAB1Si9wa9tAg/YPHmPRv8oqP6RdUqmKd8hBmtOAJVYGhkPqkhNEkE
-	Io310Y6d/58opBU5x1GuEwrIL5UWiQxUCeUSUnzdtKT5rwRmzMdwb8UmhFV5ln28lbIjaQyHLXSw/
-	ahJxKF8VjeaWIFA1eitK55gRD2Nj6OfxcgjrX4rUVoQY8Fif8kFGwRa1gsC6UFhVlxqD78vJhs+PW
-	dpKXhNBw==;
+	bh=WsKwnpTHjMkgeZIljAagk5lvn0NCV/Em7Uj95pOpDGI=; b=TFEoiUxeIOP2gPSIPQh9dfjBFu
+	C3JKPaBWkxRc86m/af6+8v13Vggr/KDXfnwB0o9egCj9lFz7xH/o1s7hW3cv4mJ6816g58f48H2gz
+	YHsD5+R1SO1mycTt17hW7Uz5VwaPaXF5SWrF2Ji/9qHa1DUzvtPRerfRCIKeCOHtWx+1JIaeu5OZ7
+	fr3ziFAhQKehMTkL221eN3dGslRI+4X3B1UGuUhWYySki1xe4okr3ySiLQMgPyaKq7N6O89T3MwhA
+	5zP0TNDLxrsZiapX86Zf91MfLbT18FQ1ha1gRoYqNKa6V72/ODGzkvoJn46ItLSIQpIzAw+Q9oqN8
+	2Y+C2hsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3JQr-0000000EfTG-0B37;
-	Fri, 11 Apr 2025 18:48:53 +0000
-Received: from mail-bn7nam10on20601.outbound.protection.outlook.com ([2a01:111:f403:2009::601] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	id 1u3JSe-0000000Efgz-3A3W;
+	Fri, 11 Apr 2025 18:50:44 +0000
+Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3JP1-0000000EfID-38Vt
+	id 1u3JPo-0000000EfNj-2fJH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 18:47:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BVlwxUZ0/mdnYWggw6zzgE9KIu6JK+Vzmi5qPeOQ/eELBWqVIEwUCv/XXXxmI8Ma+6Z4Pm/efjbJ0z4Ot+3bXDtT+jwjx/Pho2S+K0qAauIE9oadx+BEj83bUER7g6ScUdWG6TQckdd4RGQdTZCbpltuFUzUsvxsLqoA+QTyrbTc1aLN2Te0KcYc6ZzgjwFazW7qBUHJiQMWt/PoM4r6+owWmA6VY9bPFQj5jAuFhQqaZNHUWRqnoPfXWtn1vCg7D4KUGEAFQj1AnmyKQDYltm5RrbbkIJ9SNLiP0GYw5hxXzBIU6eU4oiVBHOy0+lup6BAtn+iWeh71+RwtHVMD+g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WyFOsqTfrqmcyJEFdEpAVnLD1e7XYG5YJrJeZngeXCk=;
- b=cjiI2AtcfB1Kz9UNwR2CxPLOjT9zV+AzSb0kT2BGgzGKWYbOoSeGE3LuI7N/WkHcd3bzSyxjML7sbvma/mOo74/9p0hmebujO2g+AOWVdR5SIVrmkwA2ZMnVJKLTMPN2UGLKZfN24QmQasSrSWK6UWLwPWAsFG55JRU7b/haPCyc/HJB4xbHXDtTzZV1zWwxsg2prkKGpR/6xMoUwOWYn9qEhc1nJUJeB356r00bCLX4CmRHpQ5R+WcKUQO1UQW/tOGaer3KI4zHQIur7S6mNgX67NeyaDJLvCTbE0L304lYm4Mmcje5M1vwkap6TcjB0Kq99OyejDU7SlbxRqFiSw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WyFOsqTfrqmcyJEFdEpAVnLD1e7XYG5YJrJeZngeXCk=;
- b=M+BsKLRtmStWcSJ/+JmMilXherUwcNhbO7ORSEshPgk1PnIFfL4krNWdqUB2JRGxpCcp9KYdsukgDnKthtuHlm0wSUN1KnXnYUM8lltgD/mHKM1p8MSbDE1qPC6Mfz3qu7M+brJdD6eiIrLD0U24TUzn/NOCm61K0ygOkuqJoQOFYkl6I3A81tCha33ECQBliSjlQd2F0L9gH4WhG2i46CtchZY7zmP03H77v0snSQXW3pZG+x73IBcBmB3ypAuPIOClItzVyzo+I31b+WqLhjJJneo8T06t3QPC7KftcTYi3HAsugEwHB5T4xUjMX09lklFg92H+nie/KG59fFLSA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by DS7PR12MB9041.namprd12.prod.outlook.com (2603:10b6:8:ea::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.28; Fri, 11 Apr
- 2025 18:46:47 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8606.028; Fri, 11 Apr 2025
- 18:46:47 +0000
-Date: Fri, 11 Apr 2025 15:46:46 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: joro@8bytes.org, will@kernel.org, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, nicolinc@nvidia.com
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Fail aliasing StreamIDs more
- gracefully
-Message-ID: <20250411184646.GB252886@nvidia.com>
-References: <39d54e49c8476efc4653e352150d44b185d6d50f.1744380554.git.robin.murphy@arm.com>
- <20250411152122.GF8423@nvidia.com>
- <9ed7aba6-4d0d-4cfb-a85b-ca943c7e031a@arm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <9ed7aba6-4d0d-4cfb-a85b-ca943c7e031a@arm.com>
-X-ClientProxiedBy: BN0PR03CA0023.namprd03.prod.outlook.com
- (2603:10b6:408:e6::28) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	Fri, 11 Apr 2025 18:47:50 +0000
+Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-7c5b2472969so237197785a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Apr 2025 11:47:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1744397267; x=1745002067; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=WsKwnpTHjMkgeZIljAagk5lvn0NCV/Em7Uj95pOpDGI=;
+        b=TvxSdG0DRAhQj+dirzIZZvIahosL2weANunZ1bA1tXnrJhLx+f9mNW7gGbyACgL7Cw
+         CzXEVKxIM0qJ1AtFQVmij0UBxeACW2nCeG5Qud0WUp/qRU72DYW7TE3rDqwBYLCSaxCK
+         YN9h29clRMBQqzxbGlpugGLUsAUVFP3QADIe/ung/5+jTeRD1TO5JvCkxX0ehcBsaLpe
+         cCpQlhhU00DHCzPY1PikqZ6FewJY6x0I1cL8z8teAvZKgVSjD51hh/hVReDAUwSbOzH1
+         KjbIS3KbhkB/+wlwQUgSYzTey1oQ9I6ZF+uPefuEl7v1Sw0riqFxl/KMyFzIVQJqY1+O
+         CLtQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744397267; x=1745002067;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=WsKwnpTHjMkgeZIljAagk5lvn0NCV/Em7Uj95pOpDGI=;
+        b=mS/omn63c5qDIZSuZHTLGhsRWGUZYnv0L/uw3y1bGeNb7sEVaOatibX14pXy3MUSkd
+         zTpshZjmUg8QcCOpiD4cHYofTFnDay4R2YYkR+YPw7OjKcGtFzj4ZWlKrwMSMcmOGsG7
+         KqqclALhagXcRd4m6fmgvWRTFoXnJtVbc+Do++YYavebe+V0b3J2WvkEZCYEDsDuZrsy
+         0wQ7hGXgGAE2pftvho+dNUb85E0TyzzBtstlEXstJMSdTgJfMimzQaTCzTDwJJ/CwxtJ
+         y/sSIUIGxRBvjAt/78BIDNJDg8Bu6WZoydSqma8hphCi1iVA7kvqNHUpy/uBB/MTRFU/
+         CQKQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXO0p0h+K99YF/v/h2oknFqkkUDNpGX/uhotMvq6nRpj4gLeHq8/inBLK+1/ZKttyfHjBOvloIHhzL3t2WVN5cH@lists.infradead.org
+X-Gm-Message-State: AOJu0YyddK75WWLZnbzd+S9K1SiS2KHxIjdQgNge7NsfRaLmEhBA2BqA
+	mflPs3PYuT9sbWknURly3lJjgM3FcfUIHgRWlF1sbWFBaY078lLQX9uIZO89i1o=
+X-Gm-Gg: ASbGncsUAjBF7u8fDFSQSGaLHx+qq3A3QCY36AWfG1XDp3x15ACLPydTf/IGZWL4KmC
+	c/YF7YRbEmJe2XzxiXgrnMBTATAiJja0vG4k7k6uvFV6OjQZVNRSud2kDBU1fNd3NrSZfBzEser
+	zVazH89y6YOEM2GxAnTGXTNL+HV1xArqRRSq8E5X2Sus0PB7yKCsYUEYEkGJAAcaJKKMy9t6C+e
+	jz2Fg5UlO8XUouG55pauACrVm1sHflyXq8QozP9CQ5Z240dJDRLtrBwaeekwb17GA/KdaRS/eBa
+	Q9jNTnq5SsHPLGosW4As5jQVINxk981wGTn+4UpicxdDNQ==
+X-Google-Smtp-Source: AGHT+IFtKnV9+w0FwXGSzvq+4jUfFCuVoEptoZcv67KhNBh18LEdtioKg5wo6qZbIxlKb9n37yn5ZQ==
+X-Received: by 2002:a05:620a:17a9:b0:7c5:57d6:ce3c with SMTP id af79cd13be357-7c7af1328a8mr627352285a.22.1744397266859;
+        Fri, 11 Apr 2025 11:47:46 -0700 (PDT)
+Received: from ?IPv6:2606:6d00:11:e976::5ac? ([2606:6d00:11:e976::5ac])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c7a8951969sm298592885a.45.2025.04.11.11.47.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 11 Apr 2025 11:47:46 -0700 (PDT)
+Message-ID: <588eb09a61dea0c07e02c8b474972c6ca9b3b3e8.camel@ndufresne.ca>
+Subject: Re: [PATCH v4 1/4] media: imx-jpeg: Move mxc_jpeg_free_slot_data()
+ ahead
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Frank Li <Frank.li@nxp.com>, ming.qian@oss.nxp.com
+Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl,
+ mirela.rabulea@oss.nxp.com, 	shawnguo@kernel.org, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, 	festevam@gmail.com, xiahong.bao@nxp.com,
+ eagle.zhou@nxp.com, linux-imx@nxp.com, 	imx@lists.linux.dev,
+ linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Date: Fri, 11 Apr 2025 14:47:44 -0400
+In-Reply-To: <Z/kpBXvJe/n2YHg7@lizhi-Precision-Tower-5810>
+References: <20250411074347.809-1-ming.qian@oss.nxp.com>
+	 <20250411074347.809-2-ming.qian@oss.nxp.com>
+	 <Z/kpBXvJe/n2YHg7@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.0 (3.56.0-1.fc42) 
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|DS7PR12MB9041:EE_
-X-MS-Office365-Filtering-Correlation-Id: 925a57d4-d4e8-46d6-935d-08dd7929368b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?FK18VeJQph/nS81FPWVnTcD7ITeb6Xq9XcTsbsyn4LcNTMrqRFbkhtLgD7Fa?=
- =?us-ascii?Q?s9hFfE25UJDwcfrIe6Ud0AtqUB51qhOuufLCW7ICuq9Wc0oXWzlB8tKZv1e6?=
- =?us-ascii?Q?j+tBayGRBjcYfvgF16frMtf0NzrskgX8slHgzo2wlXtpWzQeoAV3QIrMB1Ao?=
- =?us-ascii?Q?th/s+7e890nLwF2tY1/NC2u9c9aqIxWBPdNGGiqxjm+ldiQShO4KzThnazXc?=
- =?us-ascii?Q?GAz6acJDwtXtx+9fdc9+944CiwCG5aI3WE8IHwo3xgOkYX3UCUhrKqJD7qHB?=
- =?us-ascii?Q?/qYoZBlAIf2ykLAGRiMmy3/hAWlrm0wYt1s5QW6eAl2LlpNufJgFCur3cHgZ?=
- =?us-ascii?Q?sN5Ic+YNGfPeIgHEwv60Cs9xlnbYFv4qTujuyCaHswCPQjPBq5P/lU/kKNZf?=
- =?us-ascii?Q?e1pKZ9OfoV3GFMTFxTc5dq65b+sOSUh7PD9nSQwfEwXF9PeIxUA+yzkFS8fO?=
- =?us-ascii?Q?5sQfamuiI+O0j2UqRKZQSIBnWc18H/LQzfH7ujRzJVFAct/jg8eU3w7NOm2t?=
- =?us-ascii?Q?XjpizdjlGGbAO9iz5OIikVoh+EwP/GR4sXKBFMoJqQkXo0FiolpGJQ+SboHs?=
- =?us-ascii?Q?Q2hxOFf74CX+uJZ/F7mf0XH8j0SK7dQ3Ix97TKhd5Trz+fs7w8Iaq7T7c3jo?=
- =?us-ascii?Q?CEYsGP7P8r9uvreUWoZ0IvEKsW9UlBgATmZV5PliBvRNezYItAM1rKL7gM+n?=
- =?us-ascii?Q?4BlzUXE/KslIARx78Rvb+0azQnxa3e/FlFU+DoGrWXLsM6Z9e1cW7mFyK0K2?=
- =?us-ascii?Q?1iywiqxYfNFRBXd5rXNTQDpCQKBpjnwhHDWRuDMEJtiMbb8Xwnwe+etFVhGk?=
- =?us-ascii?Q?44EW0Fkkpj7uUMgIUZFaEYrLsRSpfJkM0Ok3JDugAZR3uaP2IX1yUY7iXr7U?=
- =?us-ascii?Q?K/DWspg2KZHbXcllq9dn3n5sLq5vU6EjTwQOEbTLBdLtifLJc4tBurx2xfL5?=
- =?us-ascii?Q?Xlze5HIEtRor81/twQkIzaO4A1ZFyYw6IuMYmPIqG/dBofC1oVh4vzsYz9dJ?=
- =?us-ascii?Q?WlSgq6wRev4cqRzlnmH2EEy/ToXtieal3bxGnAHwNwEEzR04cspbtHmWyPTa?=
- =?us-ascii?Q?IpYI30R/TKtjpsMC9XJxWJwjuK59TwI8Vn9tjaSgIFp37WxKFLQwUkCiSeDI?=
- =?us-ascii?Q?AaW9aS/Vzo4471kA+EVXKfRfGv/uHjP3bzq+/zRhujavjWUxXH7d1oO6L3q/?=
- =?us-ascii?Q?EB/K5OMw6I/m8Qv5Dn/hamwcTsbuNKSXcqp9Gjnr7nfy9XBzKdzGJeDZx6ho?=
- =?us-ascii?Q?j4JmzcT7bM9LeN/pEKETnjgcn4x35P8XnDJRXGIzrixl/bClasbz9wYQR4yQ?=
- =?us-ascii?Q?gm2OZGKkgtsN86x8bh9VtUEFxMuu5Sua33TQKYWHhTOzzxIGnmVjHX/Ms9n2?=
- =?us-ascii?Q?Li5JGIi0j/kpQqql8xKiM0qC95xNn8qwzq/2lOy2nPKByrdlLTkQcqSTRn1u?=
- =?us-ascii?Q?pHFcVph480I=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hvRvc3t/h72/231EHXgQSq1BEcFPq4X3yJpRaEVDa88XJmeSx/Re81voMR8O?=
- =?us-ascii?Q?BBGBO8GI5JknmCUiCH2icqum1s1XRRgbiV9ZPRG53K8geuD2hL+MZy85nr/t?=
- =?us-ascii?Q?9eDkAnX3EnMIJKNhcSME8bIs04x2K/zaTbpaaA/DSyuyfAxGg9LOmn/fEDaF?=
- =?us-ascii?Q?K1nPLDAQ6tc97h7er/oFzka1Q6W24DzOCestOAVr5s0XFNKegj1ECqg5w2Hc?=
- =?us-ascii?Q?dXaHjpF3AO2VtP73y8OLc/cpDsr7Q8sOLUAKVRUuDpF1rJQptIj79t9y0jJK?=
- =?us-ascii?Q?rEHa53icS+WhRZT5eo06lFZSAWjbYf8KHCeB8ilWtOu1bDaQUW3NTDPs2cyN?=
- =?us-ascii?Q?rmyTL/A2Lbrx9uRZHVu9rvE/URw8KYMPWsdFDzSrB/FzJAFrzXHDWog/iGTX?=
- =?us-ascii?Q?kGp9RJIwDJ8ePjNtAzW9+P3rqesaMcH8wWSaZAtiNl3gBonsL56c4XSxNbU3?=
- =?us-ascii?Q?3rb27QL/7zy+k5V7A1LmsygJM83QUSUgE6WzR3ADRj1rXxPW8XRl/Un/Ck95?=
- =?us-ascii?Q?6IBE3Cec2z0ATzMjciItGF7IqRL51xLULtO5pWfCi7Yohbi4yMOYoNIlNb3D?=
- =?us-ascii?Q?EeCrBtUyypp6h2b8vumUMNwJA6wg+NaVEt9Q1qL9V/t576hsCiw3EYV2Gg0A?=
- =?us-ascii?Q?8tf0RyuYuM9974LUyMvxNan2SaZHwj9pCSfJeG4La5vWZnFCfnW62ai6QaxJ?=
- =?us-ascii?Q?UYiBw/bpYz5vuxqPy/d2xM5xaSCCwFoKvXO487ectxbqRNlFPE81xHx9JXMy?=
- =?us-ascii?Q?Mf1ERDrggBgPLkQqevCOVyWtR+gF822JHHuZLOkvJnqje1A1ZpdU/ocMtWR8?=
- =?us-ascii?Q?BRrKyO/LypkJbHS9azj411+m+Skyt1zSOxLDYFIX6zH18bNo3xuSWLvcSQnd?=
- =?us-ascii?Q?DtyUA6s3Ss61m52AC/UGIiHsKPck18b61Ur9qKmcX2C3MpczA/KbGFR1/Jru?=
- =?us-ascii?Q?IdANhGZhjHCVjxaJ+19idWOOyu0oQzd5HnQjR9ACiu47qOQdXIz9vr86L4iS?=
- =?us-ascii?Q?6OyR4EV7JBpEn/2YP4tBj7oIDakWN+mNfvZKzzqv1nXWJBqiurytVp7xoeuM?=
- =?us-ascii?Q?/rrm6Rfo269Ar5zPRrY8E1EaciWAPQA3Q3Nios3RofKlxBKloybluUKdSiDo?=
- =?us-ascii?Q?KuObZITGjZ/dDxMRXVzPelZAuuo5vfXmDlmbm4jPSZ9EHPr4TbPFzpcMQQKU?=
- =?us-ascii?Q?96u10Tvw/UbxGpy+VjfT2F4Z+Eo18XtnE+KxkhLBTRvk1C8TQUW6C5jDgwq2?=
- =?us-ascii?Q?yqDHu9R9hOFbQ69BTbx7/figzSac24wsDRzwlEUgxdG8DzJIgLhhabP5Ds5h?=
- =?us-ascii?Q?AuTgXdiPc+gjBjLfVSvSMllLk6ruDACbVR40nHKgghxX16dadYR4v5QbvbsJ?=
- =?us-ascii?Q?znuBTMx1fMmCegMea0aekOCepuBIcsS5MWBB1W3BEXx8iW5kPxCs0uqlEJGt?=
- =?us-ascii?Q?JzSa/rnRM2Sa1ecudJpheJ3qm8/Xl4m5cPhebiDFEcHRtHvfR0jm1ykyuMUA?=
- =?us-ascii?Q?wXbAxhDbZhOL0sCg46ot8rDVmnBhRMnfLhdwJzDAd0upkNdnoRWkzFiNhLPm?=
- =?us-ascii?Q?Ms7PyRXGrlQJSiClucmzrDP1Scv//ixLOUKM1iSr?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 925a57d4-d4e8-46d6-935d-08dd7929368b
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Apr 2025 18:46:47.3950
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: bUQO6/Kp7q2qg/m8dohK/xuSVhLVayOgKA4wr+nghZKdkxHOMc+ey9kFySRbkcmH
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB9041
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_114659_805186_A6072497 
-X-CRM114-Status: GOOD (  36.56  )
+X-CRM114-CacheID: sfid-20250411_114748_674225_45E53BFD 
+X-CRM114-Status: GOOD (  18.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,86 +105,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 11, 2025 at 07:16:57PM +0100, Robin Murphy wrote:
-> > That is different from the iommu instance owning the device but being
-> > unable to probe it for some reason. The failure recovery in the core
-> > code should be different.
-> 
-> Perhaps, but right now this is a trivial, obvious fix using the mechanisms
-> that we already have and that other drivers are already using similarly,
-> that can effectively restore the exact same overall behaviour as 6.14 with
-> zero risk.
+Le vendredi 11 avril 2025 =C3=A0 10:36 -0400, Frank Li a =C3=A9crit=C2=A0:
+> On Fri, Apr 11, 2025 at 03:43:40PM +0800, ming.qian@oss.nxp.com=C2=A0wrot=
+e:
+> > From: Ming Qian <ming.qian@oss.nxp.com>
+> >=20
+> > Move function mxc_jpeg_free_slot_data() above mxc_jpeg_alloc_slot_data(=
+)
+> > allowing to call that function during allocation failures.
+> > No functional changes are made.
+> >=20
+> > Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+> > Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> > ---
+> > =C2=A0.../media/platform/nxp/imx-jpeg/mxc-jpeg.c=C2=A0=C2=A0=C2=A0 | 46=
+ +++++++++++--------
+> > =C2=A01 file changed, 26 insertions(+), 20 deletions(-)
+> >=20
+> > diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/m=
+edia/platform/nxp/imx-jpeg/mxc-jpeg.c
+> > index 0e6ee997284b..b2f7e9ad1885 100644
+> > --- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+> > +++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+> > @@ -752,6 +752,32 @@ static int mxc_get_free_slot(struct mxc_jpeg_slot_=
+data *slot_data)
+> > =C2=A0	return -1;
+> > =C2=A0}
+> >=20
+> > +static void mxc_jpeg_free_slot_data(struct mxc_jpeg_dev *jpeg)
+> > +{
+> > +	/* free descriptor for decoding/encoding phase */
+> > +	dma_free_coherent(jpeg->dev, sizeof(struct mxc_jpeg_desc),
+> > +			=C2=A0 jpeg->slot_data.desc,
+> > +			=C2=A0 jpeg->slot_data.desc_handle);
+> > +	jpeg->slot_data.desc =3D NULL;
+> > +	jpeg->slot_data.desc_handle =3D 0;
+>=20
+> You add above two lines, it is not simple move function. Move above two
+> line change to next patch.
 
-Yes, but so would ignoring the error within bus_iommu_probe, which is
-close to what used to be happening. I'm a little worried this will
-turn into a wack a mole..
+What about just making this its own commit, give you the chance to
+write down that your making that function safe to be called multiple
+times ?
 
-If we keep it this way it further muddies what the driver is supposed
-to be doing with it's error codes. How should a driver author decide
-which one to use?
+Nicolas
 
-> Nothing in this two-line patch precludes coming back and doing more later.
-
-Yes
-
-> triggering those failures? :) Annoyingly I chose to kick the can down the
-> road because I know I'm deliberately using a quirky unsupported hardware
-> setup...
-
-Oh interesting, I'm actually quite surprised that very new chips are
-still pretending to be PCI bridges. :\
-
-> Errors which occur during .probe_device clearly don't have to be specific to
-> the device - e.g. OOM - but even device-adjacent conditions may be
-> sufficiently catastrophic to indicate that it's probably not worth
-> continuing - for instance if the arm_smmu_sid_in_range() check were to fail
-> then it's clear firmware is giving us bad data, at which point we can't
-> necessarily trust *anything* it's said about the SMMU at all.
-
-Maybe, but also, maybe not. The more optimistic view is that the FW is
-generally correct and tested by someone and mistakes are narrow to a
-single device. That is my general experiance with server FW at least..
-
-Plug in some weird thing, the FW freaks out and does something wrong,
-for that thing, but everything else remains fine.
-
-> > It would be nice if the dev->iommu would record that the struct device
-> > is inoperable and then we can fail
-> > iommu_device_use_default_domain()/etc in a contained way.
-> 
-> Maybe, but what would the nature of that containment be? 
-
-Just block the end driver from binding so we don't compound the
-problems. Not much you can do on the iommu side. For PCI devices
-without a driver bind they won't enable bus master so they should be
-contained at that point.
-
-> other than leave the user to pick up the pieces, and often the best chance
-> for that *is* going to be to give up entirely, fail and disable the IOMMU,
-> because otherwise blocking I/O might prevent the user seeing anything at
-> all.
-
-Maybe, or the untested unregister iommu driver path will crash :)
-
-Or the fault is localized to the device and we will get a better
-outcome by just not loading that driver.
-
-In the end we are guessing, I'm just looking at this from the POV that
-for a long time we ignored errors per-device and now we are failing
-the whole iommu startup. That is a big change in v6.15, and it doesn't
-seem really necessary.
-
-> And for any remaining niche cases of "expected" errors like this one where
-> the driver could in principle support the thing but doesn't due to its own
-> limitation, honestly don't spend effort on gold-plating that limitation in
-> core code, just spend it on making the driver support the thing instead.
-
-Yes, Nicolin will try a v2
-
-So, go ahead with this if you think it is best, but I do prefer
-ignoring all errors. If we get a 2nd similar issue lets agree to
-change bus_iommu_probe()/etc to ignore probe error codes rather than
-wack-a-mole ENODEV across many drivers.
-
-Jason
+>=20
+> Frank
+>=20
+> > +
+> > +	/* free descriptor for encoder configuration phase / decoder DHT */
+> > +	dma_free_coherent(jpeg->dev, sizeof(struct mxc_jpeg_desc),
+> > +			=C2=A0 jpeg->slot_data.cfg_desc,
+> > +			=C2=A0 jpeg->slot_data.cfg_desc_handle);
+> > +	jpeg->slot_data.cfg_desc_handle =3D 0;
+> > +	jpeg->slot_data.cfg_desc =3D NULL;
+>=20
+> The same here.
+>=20
+> > +
+> > +	/* free configuration stream */
+> > +	dma_free_coherent(jpeg->dev, MXC_JPEG_MAX_CFG_STREAM,
+> > +			=C2=A0 jpeg->slot_data.cfg_stream_vaddr,
+> > +			=C2=A0 jpeg->slot_data.cfg_stream_handle);
+> > +	jpeg->slot_data.cfg_stream_vaddr =3D NULL;
+> > +	jpeg->slot_data.cfg_stream_handle =3D 0;
+>=20
+> The same here.
+>=20
+> > +
+> > +	jpeg->slot_data.used =3D false;
+> > +}
+> > +
+> > =C2=A0static bool mxc_jpeg_alloc_slot_data(struct mxc_jpeg_dev *jpeg)
+> > =C2=A0{
+> > =C2=A0	struct mxc_jpeg_desc *desc;
+> > @@ -798,26 +824,6 @@ static bool mxc_jpeg_alloc_slot_data(struct mxc_jp=
+eg_dev *jpeg)
+> > =C2=A0	return false;
+> > =C2=A0}
+> >=20
+> > -static void mxc_jpeg_free_slot_data(struct mxc_jpeg_dev *jpeg)
+> > -{
+> > -	/* free descriptor for decoding/encoding phase */
+> > -	dma_free_coherent(jpeg->dev, sizeof(struct mxc_jpeg_desc),
+> > -			=C2=A0 jpeg->slot_data.desc,
+> > -			=C2=A0 jpeg->slot_data.desc_handle);
+> > -
+> > -	/* free descriptor for encoder configuration phase / decoder DHT */
+> > -	dma_free_coherent(jpeg->dev, sizeof(struct mxc_jpeg_desc),
+> > -			=C2=A0 jpeg->slot_data.cfg_desc,
+> > -			=C2=A0 jpeg->slot_data.cfg_desc_handle);
+> > -
+> > -	/* free configuration stream */
+> > -	dma_free_coherent(jpeg->dev, MXC_JPEG_MAX_CFG_STREAM,
+> > -			=C2=A0 jpeg->slot_data.cfg_stream_vaddr,
+> > -			=C2=A0 jpeg->slot_data.cfg_stream_handle);
+> > -
+> > -	jpeg->slot_data.used =3D false;
+> > -}
+> > -
+> > =C2=A0static void mxc_jpeg_check_and_set_last_buffer(struct mxc_jpeg_ct=
+x *ctx,
+> > =C2=A0					=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct vb2_v4l2_buffer =
+*src_buf,
+> > =C2=A0					=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct vb2_v4l2_buffer =
+*dst_buf)
+> > --
+> > 2.43.0-rc1
+> >=20
 
