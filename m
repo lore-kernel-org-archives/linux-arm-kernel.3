@@ -4,194 +4,218 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 436C4C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 08:12:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77F62C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 08:21:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V9URa2F0JWMe/eQZrPCqCQr4l3P0C7Jl2AZkDDah0JY=; b=bB57AkjGx+eSDNhjejWQfZEoLI
-	AHwIHS/fnZkDI82WdK0hFEJ2ufz6erctoJXCgHnEtc2yQR/LLueyPb4ZMLkf+4nUlzRcaaAOWgPQ0
-	3qOwJba16RzjkEa7ZannJIb2Egcgwr2BB+lexkav32HDxVSPSM3SenhWfLBENmpk79aLonNisJaMD
-	6XokMIQ5mOMCTDndO5lac54OQxEOLBpup+UYvGcoJaLJEFQBIH2K6YZRqBqE5WnFdNp14Y2MdO0gQ
-	3MOa0d6FBlJizYAWpF4Nbvv8KtNHToUCps7/+Ho2FEVV6ek205vb5xm1dp0KX/CgdOx2Mbe0NGrcV
-	/GrMx/vQ==;
+	bh=IHJHfbD2FEl4ZAenKYKKrXb5gQZw5nLYT3+yoH1fXF0=; b=c8E5osi3ddE3Ji2ys8G+36kmGf
+	r066TL04TKtvJUAS9kiB3w88+DC04R0vVTN+k3uYN6y8GFIFx/Mzfvf7hzo6w/IUp31SM8RRQdFMR
+	3yXS+zPr3+tUrUp6KVpMcEKkfGEvmTSdQEEXDinoCVbhojzVUCrozVrL8hMbpFwYcd8Nx4D+yhwWy
+	pG4BgMc46++7pZosaQBcMY8lqE0q85e1nmHeePQaYDL0rygWKivjDSzpDzQD4PED8vwoRtEUHKYPt
+	GWFj4NWj6BXtEmdM9LKp4qfZkVvwnyQbT+Xb4+x/dm9MiZtYHDxQN7id/KO8yK6BupmSL+Ae/SUjq
+	ku70tDOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u39V5-0000000Cz5l-0Q7w;
-	Fri, 11 Apr 2025 08:12:35 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u39dE-0000000Czso-2V3x;
+	Fri, 11 Apr 2025 08:21:00 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u39SD-0000000Cyia-2vcZ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 11 Apr 2025 08:09:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:References:Cc:To:From:Subject:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=V9URa2F0JWMe/eQZrPCqCQr4l3P0C7Jl2AZkDDah0JY=; b=gN9KBAGxAyPkFuAtO90cHQ2ipD
-	6phvyhTuAa6QZoyiBf59GpnbAGvEpg5Keg5EyBRxdqpETsjeAXs7iUpP8HsFH4LItxKkTk3txZSZQ
-	baR7MQ4AX8BAQl1lsDl7DdTcpvYqEqMolKUEWLyfwFz4kAEXPS+OUMjFFhbcWXLM43vSZCSDbqEMX
-	71Kag6P1HQ8IQupRapllBa3VI4JZITyIvMq2TRpuVMsxOxxjBWxKDiQKg50VvMEaSfUimchkhnMJq
-	fEU671Wb3evGhFgp3BTE85evSGeC26UmAIl9n4R/pnsFl4fA7H/DxuVP/VDRIbsqCkFoL1wnLNbgo
-	hD6/DZXg==;
-Received: from mail-vi1eur05on20620.outbound.protection.outlook.com ([2a01:111:f403:2613::620] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u39SA-00000008yf5-1aiE
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 08:09:36 +0000
+	id 1u39bP-0000000Czjo-38JA;
+	Fri, 11 Apr 2025 08:19:09 +0000
+X-UUID: a0cd127416ad11f0a1e849db4cc18d44-20250411
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=IHJHfbD2FEl4ZAenKYKKrXb5gQZw5nLYT3+yoH1fXF0=;
+	b=PgqQRikH3jYpHMaiPqwqEw5iWb8GohlIJPHA0kCIX3i9ATDaLLde354TE7nVNNuDQJGt2cuLiY6eY8OduCwuJLRimuj1KLtyELHysQFV7rrfsf9uPBjiRMMfQHdLZypid35h983RSqe36Sn4wDYlDQttzP18FZNSLBYbuYR3ZR4=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.1,REQID:182626f3-2a25-481c-9d36-226f8783942d,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:0ef645f,CLOUDID:4b75f5a5-c619-47e3-a41b-90eedbf5b947,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111,TC:nil,Conte
+	nt:0|50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,
+	OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: a0cd127416ad11f0a1e849db4cc18d44-20250411
+Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw02.mediatek.com
+	(envelope-from <ck.hu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 836795068; Fri, 11 Apr 2025 01:19:03 -0700
+Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Fri, 11 Apr 2025 16:19:00 +0800
+Received: from APC01-TYZ-obe.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Fri, 11 Apr 2025 16:19:00 +0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=d09M6zyIrKcvd9tiDLnkSvMEz9GUiTSEnq1OlomnMPcfCYNQmDCK6HcoTqrKQwFSDorWEacgDpF87BzqF8XyPkBSEiKSd+9XJunNSWDJtV3lq4vW50Z1l7RrkP7gZWFKD/9q5HLFl8b3Vw7dU92sM04o0Fg0VYML2k//e2j0/emSTuRL1ei0YpBkRjFyVDzLORRnoLKSUzOMJlGd2XIO7PQ5E8sFxlYfuuqg5v8brqJKkGGqikdsF2bEpaNNubv5GGOqupkQQdhiK4ZZBEDW4YwwkiqPEQ5pZrmDuw2DSNPwnXV0pZeLpkqsCANOue2XSNuikWGBlILnnPgSAm0V5A==
+ b=D3tEpkCzSqjWsF8fYsaIMc1TzCn7JcZ8GbjkfbWSzDWbGwrwl3xbAxBygSn2zq/lceKixFzx6b6afH5RDWET7j+5IezTkUj1jJa9hqBgFw2IFnS/d1fCKEI2bC8P0cJ1QCVV+S0BowWeGjWPNtKSgHI3E482D0iocQMHBgmB7o+UlCawh01+FQO+lswsERPDInCAU6IfEq2wTOMeZB15vu4s0+BwuTpMpb27/iiB4Hw1LuGsjBybGFijRyD/1JF4ySomAyyNSXgOAP4d/SFFqZNgG9IegJ6/RQ4J9JtIOOaboIC5/Y+HPTGnXLwifIIKKNt8mtwBvi3Hi6TOFG9m0Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=V9URa2F0JWMe/eQZrPCqCQr4l3P0C7Jl2AZkDDah0JY=;
- b=gdozPQDFE7gm4GW0dQwTOw4TtQaNg8dfjqdJkJZSRfRkK4L+l9Y4CZjJXvTrFXh9rnLt6vkkuRGzEXQNYqVP8zE+lQZd0W2phaymTa0j0Qz7ZU0m2EVOkGHgw1tUKNlFsvmBoPK1ZeUK3PTs5m67duPnAgOPFt9O9mNCd6rffB0pg1ZdVEjKSZaBOgfnDrCFUfgsXm4QaHZo9NZ0Gwbsw9Disdo96ngB3UfNSumU9yaRqU3KAqoUzL38xMyN0lBp8PCwBmRumzG3S3r80PsUTp+6gfK4UZbx/ZJW7o8wvnhbUU3lY4jOGk4QX77hlDBQ1O5vZRDWcSVmdr9eV9VxpQ==
+ bh=IHJHfbD2FEl4ZAenKYKKrXb5gQZw5nLYT3+yoH1fXF0=;
+ b=DwQdJn6b+m38M6Af68JC/M/L5YaOGp0ee5aMr8725uI0IRhyueJjV191ASzJCFajiRw7CIjqB5+WHsrKg3BSQoXPYNfWct1LZhdODC1j55X75VxDMytAo01zWwA/OGNuv6KZUta6zG1jfUTe6mQ56L+AhBAiOKpXE+kGP8putYCwzYo+CxT01Jmo1MljK7WZSuNJ0xnlj7hvZ8Fj61Vl0bwTG3IFgP5ax1Pn7kGJ2DvmTugEi5ENrkXt/MkwJQh2uZwwupB+ah2mCD/n/WbAr7ABW1VFWxV4sJwzqmGG4yPZuP6pB9TDwJ01rrk1B9tiSGyfnr274ofWzw7ukKk+SA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=V9URa2F0JWMe/eQZrPCqCQr4l3P0C7Jl2AZkDDah0JY=;
- b=tZYTpqyVOVBWp7hEIjUlZd4c8Bjmygzz+4tumfNeu2GYzTFmWWu88+k3bn0IsYWBVOzLFhRzD4ZxhJQeIFYE5MB2DgPswT8thAKp5oO18uw/LKpLfiipdQrmndyRgl1WCY5UrbRDH0hPy6vUhE9ENvXMjIVHxyMeHujvAfV3axf82U97aDHK9RIxW4g51KnyqQex6HZrFmSI8yYw5NqFf3yZ5vYOH/xz+m5RPUUzYGLrWD4+Lh4krPD5wBj5BjzZcDy7KlYLUemLkXpXZ0401GV0TQ6/klAX5TW4S18WpUks97mdGRnewraln2M6WADVMinJEkYt0yTjV5RTNjFaHg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DU0PR04MB9251.eurprd04.prod.outlook.com (2603:10a6:10:352::15)
- by GVXPR04MB10136.eurprd04.prod.outlook.com (2603:10a6:150:1bc::9) with
+ bh=IHJHfbD2FEl4ZAenKYKKrXb5gQZw5nLYT3+yoH1fXF0=;
+ b=NQFIPB/i5COebrT0YbeqKZQ78mB+JlsYJ2e4aK9Rcm9moejIzhqp8NcOJRBf1kucXwfM2kutm0W4Fc6CVYJTlWVdZ2M1qYS17POZl7fnPK62kJ96+x0E7ZP2irCWDTTRK4fYXmbwpHFgYp0Tp98KXqvQ1E5E10EGT6DSeb5E2zE=
+Received: from SEYPR03MB6626.apcprd03.prod.outlook.com (2603:1096:101:83::7)
+ by SEYPR03MB7142.apcprd03.prod.outlook.com (2603:1096:101:d7::9) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.27; Fri, 11 Apr
- 2025 08:09:27 +0000
-Received: from DU0PR04MB9251.eurprd04.prod.outlook.com
- ([fe80::708f:69ee:15df:6ebd]) by DU0PR04MB9251.eurprd04.prod.outlook.com
- ([fe80::708f:69ee:15df:6ebd%4]) with mapi id 15.20.8606.033; Fri, 11 Apr 2025
- 08:09:27 +0000
-Message-ID: <689511b2-c4a4-4047-a932-ff9ebfcedf22@oss.nxp.com>
-Date: Fri, 11 Apr 2025 11:09:16 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 2/4] rtc: s32g: add NXP S32G2/S32G3 SoC support
-From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- linux-rtc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- NXP S32 Linux <s32@nxp.com>, imx@lists.linux.dev,
- Christophe Lizzi <clizzi@redhat.com>, Alberto Ruiz <aruizrui@redhat.com>,
- Eric Chanudet <echanude@redhat.com>, Bogdan Hamciuc
- <bogdan.hamciuc@nxp.com>, Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>,
- Frank Li <Frank.Li@nxp.com>, Enric Balletbo <eballetb@redhat.com>
-References: <20250403103346.3064895-1-ciprianmarian.costea@oss.nxp.com>
- <20250403103346.3064895-3-ciprianmarian.costea@oss.nxp.com>
- <CALE0LRs3VA9kLy4QSEOBCixZbptW4B4DVjZqbN=GDoONHq2oeA@mail.gmail.com>
- <9f982548-c5e3-45ed-963a-afb5256acf31@oss.nxp.com>
- <CALE0LRvUXck_FSP0jCZ1Ene-LCEa8MDFQWVCHGpOzd_yGk+v4g@mail.gmail.com>
- <64843c72-37e3-4080-880f-a020e372b521@oss.nxp.com>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.23; Fri, 11 Apr
+ 2025 08:18:56 +0000
+Received: from SEYPR03MB6626.apcprd03.prod.outlook.com
+ ([fe80::9fa0:ee98:d5ed:beba]) by SEYPR03MB6626.apcprd03.prod.outlook.com
+ ([fe80::9fa0:ee98:d5ed:beba%3]) with mapi id 15.20.8632.017; Fri, 11 Apr 2025
+ 08:18:56 +0000
+From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
+CC: "robh@kernel.org" <robh@kernel.org>, "jie.qiu@mediatek.com"
+	<jie.qiu@mediatek.com>, "tzimmermann@suse.de" <tzimmermann@suse.de>,
+	"simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
+	<mripard@kernel.org>, =?utf-8?B?Sml0YW8gU2hpICjnn7PorrDmtpsp?=
+	<jitao.shi@mediatek.com>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, "dri-devel@lists.freedesktop.org"
+	<dri-devel@lists.freedesktop.org>, "maarten.lankhorst@linux.intel.com"
+	<maarten.lankhorst@linux.intel.com>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "kernel@collabora.com" <kernel@collabora.com>,
+	"dmitry.baryshkov@linaro.org" <dmitry.baryshkov@linaro.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	=?utf-8?B?TGV3aXMgTGlhbyAo5buW5p+P6YieKQ==?= <Lewis.Liao@mediatek.com>,
+	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>, "conor+dt@kernel.org"
+	<conor+dt@kernel.org>, =?utf-8?B?VG9tbXlZTCBDaGVuICjpmbPlvaXoia8p?=
+	<TommyYL.Chen@mediatek.com>, =?utf-8?B?SXZlcyBDaGVuamggKOmZs+S/iuW8mCk=?=
+	<Ives.Chenjh@mediatek.com>, "airlied@gmail.com" <airlied@gmail.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
+	<matthias.bgg@gmail.com>, =?utf-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?=
+	<Jason-JH.Lin@mediatek.com>, "junzhi.zhao@mediatek.com"
+	<junzhi.zhao@mediatek.com>
+Subject: Re: [PATCH v8 16/23] drm/mediatek: mtk_hdmi: Split driver and add
+ common probe function
+Thread-Topic: [PATCH v8 16/23] drm/mediatek: mtk_hdmi: Split driver and add
+ common probe function
+Thread-Index: AQHbqVGAOVAUn7or+Ui6ODgXt7tC9bOeIhcA
+Date: Fri, 11 Apr 2025 08:18:55 +0000
+Message-ID: <b9eafca53149fec817433da3d10bf06a6c96f959.camel@mediatek.com>
+References: <20250409131318.108690-1-angelogioacchino.delregno@collabora.com>
+	 <20250409131318.108690-17-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20250409131318.108690-17-angelogioacchino.delregno@collabora.com>
+Accept-Language: en-US
 Content-Language: en-US
-In-Reply-To: <64843c72-37e3-4080-880f-a020e372b521@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AS4P190CA0041.EURP190.PROD.OUTLOOK.COM
- (2603:10a6:20b:5d1::15) To DU0PR04MB9251.eurprd04.prod.outlook.com
- (2603:10a6:10:352::15)
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Evolution 3.52.3-0ubuntu1 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SEYPR03MB6626:EE_|SEYPR03MB7142:EE_
+x-ms-office365-filtering-correlation-id: 066b1c6d-a24c-4fd3-3d73-08dd78d180ce
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|366016|7416014|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?eC9NNG9OU3J2azRTUDJlTzRqNG5QWis1RFNUemZuZWFuN3p2YjVHMy9MTnRy?=
+ =?utf-8?B?QjlJWmVQaVRQY2RYQVFXNllBS0grSDVKQjFvRmNQRmlNTko2VkJYQTBUV0N0?=
+ =?utf-8?B?Q2w2dHpPUVRQTG4yQU5WMUxyUVcyeUVTNThqVG4zQm9qZ1d0bkU3YVd4UE5C?=
+ =?utf-8?B?ZENrWGJWZ1MwcXlSZ0ZXeXdVTXl2WlVHQm5UbGpTeDBSM0U0bWdNZUdjWG9D?=
+ =?utf-8?B?Z0hzQ0tRSWtyN2V1WFQzbjZERDRZV2R1ajRQMGJtNjlVOU9OWStBcW1sa0V2?=
+ =?utf-8?B?ZFVXOGF1VkZuN0JqbFlac1VFQ2FvL0l4UzVJbk5oeU03VHpBRUVBRGpzeW0x?=
+ =?utf-8?B?NXlhbERSbVp0QjVOc2VzNXdEV3Q0TzZMQVFSdTlwaXkxb1R3Qll0YVFCczJX?=
+ =?utf-8?B?SXVnZkJPbjMyUHBteUFQTlUvVU9yWVFlOUZOTysxK2JuTmhIU1UxTVFLMmlS?=
+ =?utf-8?B?K2tLenN1L3g2VG4zalZYWVBUWTZsenFuSjhoMGFobk96N3RQMGNaUmFtb1Nh?=
+ =?utf-8?B?QUtVOTEzVHAxNktsY3A3R0FZLzJTVGVtMC8zc2I0dW5pR1lqTTYrbzBGTUMw?=
+ =?utf-8?B?RGF4QWdiMzRmaElPTzBSM0VicE5vWDBhdGM2V1hkbHZjZW9SWDhIWXg5Mlgx?=
+ =?utf-8?B?Z3pPZ2hLdHI0ckhTaS8yLzQ2M1kySjJWNCtVeDdtYWYwOFFoUENvK2ZoQ29a?=
+ =?utf-8?B?T3R4aHBCLzZJLy84UEtsL2g1RnA4WkJ0VUtobEZTT2ZxMEU5QmxmVmduVTdw?=
+ =?utf-8?B?L2h1eXVTVEFWc2FoRHdJTEg2dWJDcTVIRllZNS9lbTZCVEdVb2xXKzNEK3Y4?=
+ =?utf-8?B?S3JraGs0MVBHaVgrRzVZZkQvSnNYRE1SakhrL2wyUU5BS2dMZFU3Slp0cWJz?=
+ =?utf-8?B?VFVBNFlTeHRvL1NMTjZpUlZZMGlvck8wWkhybkRHWUpqbzhTNjR0a0VmUUxz?=
+ =?utf-8?B?amdtRUhSUXNSTnQzcVlNa1IrVnNJaUR2aVlFeEZ3djMxeWxVblYzbURtZ2pj?=
+ =?utf-8?B?YXVLQ2tMNUExaTVrRGcyYVo2WHErUDUvZGFNQWc2TC9weFBkSkdnS2RzQWZr?=
+ =?utf-8?B?ZEhQOURLM3h0NmVnZU9MQnZsc2ltaDIvQk5qaG9QSUt2MnRoVUM0c25sTEhY?=
+ =?utf-8?B?K21uQWRGQTRRSzR1elFjRDJobm5vdVFZRmVoS1QrUzRXOGpBeEx3dHZvTXdP?=
+ =?utf-8?B?SGJ3WEhUV1hRK3dIeWR2V04vVENoWi9vdTVjN0I1ME1saEx6V0tBbG5RZFE3?=
+ =?utf-8?B?aDdJMlA5bFhKcXZZdW5qc3VPM0F1UUx5U2lJVFB0Q0pSTVl1VHlsUXZHcWVV?=
+ =?utf-8?B?a2E1S0xqejBBdTdacTFLMnFualQ4V1JsZGpLT2c2N29YTGdIVHRMeU8rcmpZ?=
+ =?utf-8?B?YnppeTNFMUtOZTVMNzBWQ1U4bjJUNVdYdlpzZEJHQjlWUzc5QWZNQlJ2OHlp?=
+ =?utf-8?B?Y1AxVEdKNEIxTi83RmZrVWE4VTRBRjVBdTM1ekdwSFFybUN5encyVmpQeCth?=
+ =?utf-8?B?R2VML2VIRTFLSGRpaUVvaGdkOE1wcVpmdDBIRmVtREViOTYrTTM4bTBQaHZv?=
+ =?utf-8?B?OXBJNk9EeUNvZTdzN3lRNFQxU1BFVGJITkZiUUIvc3U2Ui9lN1BkYTFjMWFD?=
+ =?utf-8?B?eXpjTjRpa01IRnJIUzEySEdvMi9lTGNReW5MdkZZc2dnWlN1TnRuUllXcnJu?=
+ =?utf-8?B?WWNEd2FoeXNUY3NaTmNLQVlLc01odFQvQ3cxUlJ2b200QTJvcnlwZ1pIbzhw?=
+ =?utf-8?B?T2k1dWkzMFAzU2xlOHVKYldLZUFRVGdwb1dJYmJ3RExlMExlN0xXWUZKNWFM?=
+ =?utf-8?B?eFlad1BtTHZ6VlRKY0ZIS05hNlZzYkdqYnZISVJNc3RuRVBSNHdVK2t5cTQ5?=
+ =?utf-8?B?N25GY3MzWmZteng0NkdQN1ZBWTdqSnJYQzJOeWlJdU93VDFpcENSVFNYaUI0?=
+ =?utf-8?B?YnVCcHVIL2wwSUZMVW5pYUlVOS9YczFsU2YxQUFZUUU4SzNVdDlvYitXaG5R?=
+ =?utf-8?Q?z3NvQDT/130s4vP/XM62eCPQKqbPuE=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR03MB6626.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(1800799024)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?Wm1jREdvZk54M1JJN0UwSEd2WlhjcFRlMGs5MWU0MHBTWVl6OXZrMTNJYTZY?=
+ =?utf-8?B?cTVHbGxnQVlGRkVsMmo2Sk1TVk1lVk1uRHBMeWJSanpuTk5wQ3dPTzFBb20r?=
+ =?utf-8?B?Z0puUWt2ZkFiaWx2S0tDbFBDRHBJQ2ZpTElSRmN0RDBrWkplTlJ3dkJ5OFRm?=
+ =?utf-8?B?OGllQUdORXR2cmpxSnJvYVpub1JKZkxUc25FVVY2Vm5SWUZHYXBwK1Y5Tk53?=
+ =?utf-8?B?ZGNvUGt1U3RqaGM5RUhGanI0cVBzTXpGbVNXR2d4QUh3UjBZNzV4LzhBSXhG?=
+ =?utf-8?B?RC8xbHV2bU93eTZpQTRJTVVXZzNHeXpHcWQvMEhxczB0WTJLMDFuYUQ5YzRM?=
+ =?utf-8?B?RTJ4VnNKYnUzQUQyL2dYSGxhNVViRFRBT3hLSlJMdVR5aWVkeEJXK3h3Vnln?=
+ =?utf-8?B?bkVGYkIrMy9QTUhGaEJEaVdqZXdORHFENTd2ZGhmYk9RYVNZYXdNdEl5eDQy?=
+ =?utf-8?B?NjRmVzZqUG5LOS9HTVNlcEZpUitIMWJVMHM4RTcvdHdLa1lMZ1ArS0lIZXBM?=
+ =?utf-8?B?Z3RoMkMrcWo1VjV1bU9wYlVPOEduOVlmdnIwUEp5VnVzOFFmbDhucGNibHZY?=
+ =?utf-8?B?ZERoMXNpRVk4WG1MbGc5MVVDWG5IS2lhWjhEaTczNFBUbXMzaDhyMHY1Vm1s?=
+ =?utf-8?B?WTIydXdGVUZObGtOVzJ0SW9rT0NmNDZmMFprZTdSMWtoem5hcW9MWndzdzVF?=
+ =?utf-8?B?cC9ZVFYrejNwaVBDVDhiS2I5NmZXemZwalhVUm5DdjM4Y3Q5cHNzQ0N4ZSt6?=
+ =?utf-8?B?eTRPbVYrYVJJQmUwcXZSMnVkVWZSVkdZSXVDaVYwWGlvblZiODdGVkMxSEY1?=
+ =?utf-8?B?Ui9yVWQwSER2OHhHemhaQkhKWHQxUENWZFMvek5QWDNsSkRHQnlTWWg4cTNh?=
+ =?utf-8?B?SHhrNHFMbURFNm8rMHk0Zy9VYUFMRDB6WU9Bc0ZpWUtkREdHeGF3aDlyV1ZJ?=
+ =?utf-8?B?amZJa3Fnay9LSG9LWUJ1czJMWElFS29XeFdKZ2xTbmZ3Z3djUytSK1NkRnZk?=
+ =?utf-8?B?eUpWTm9mcUNGZ0gxTS9rZ21HME83Q0dLNm9vUHVJTmlXWW5YaDBrWU83amxP?=
+ =?utf-8?B?MGI5MjMwSUI1VVE2bG9wa1p0aFhWU2k5MjBYSmZoU3h2VGFoU3RJeUpvTGFI?=
+ =?utf-8?B?TzFtNGY1ZU9NVjNWc0pnSWdVWmI4VWVqNWNzNktNVlE5UUl5ZWR6RTg2Yi9x?=
+ =?utf-8?B?YXllQ3lBUHJnS2ZTNzZ6SzgvZloxdHRIZUpISmM1YzVXWkxGQXB1dkdHVXRh?=
+ =?utf-8?B?VjdaUGQyWGlaeitIWis1TFlVa0NQcGNMSE5qcHUvZFlITHdBS3JaWVpuOUs1?=
+ =?utf-8?B?ck56aFVvM3ZXaGh5OUszbDd3Rkt4MGFRdTcvUWExWTVMQ0FqLzhNR2syVEl1?=
+ =?utf-8?B?RjhsalBCWFY5OE5xeGtNTURCUkpTWWsyZ1dPVUQzbEJoWURLSlVRcFB4WHo5?=
+ =?utf-8?B?cjZXZExNMm5HMXY5TTZBdTNSV2FFRzZwd1J3b0ZNMXVsV0hYOW15OHNmZy9i?=
+ =?utf-8?B?M1pMSDlXdDdqTDZVMjE0aTFyQ0pjWnBYbEZncituSEdPTEcrbUdsVFZ1c3BX?=
+ =?utf-8?B?SnJucDRRK1cxNXUrSTJjcytSMnJsTUlGb1h4OXR3UmF3ay9RcCt1L3c0b2RT?=
+ =?utf-8?B?eS8yY1ovalh1TGNNZVJrTlhxZUJPSTN3SFhyZG93MnhZVFBJaGQ0OFM5aGJS?=
+ =?utf-8?B?c0FhemdRSExWeFRNb1VLMC9IaEp1OHBhaW9VWVo4NTVWQzRpK2JsYmpLV0tC?=
+ =?utf-8?B?UTBJS1RpWFdFWGJlZ29EYWpNcUN2dk1QQVRFNGRSQy9tR0d6cDhvdzNxblRu?=
+ =?utf-8?B?blpxRnVUZkN5Q1N2MHludm9UdTc5dWF0ZHhDK2M3SVJjKzVFUkJkQjJSdTR2?=
+ =?utf-8?B?L3RLaTJabHJvekcrUHFUMEhDSGl1NlArOCtUaVl0ck0yREFGYThTcUprbjVq?=
+ =?utf-8?B?NzBTMVV2ZExzSVR2YXo3cUNTYjQyazNyakdoaDZtT0Q5Y0cwMkh1cFRLdXdR?=
+ =?utf-8?B?TzV1Yjc2T0o0YW5tM2FaWGZ6b3R4YmNRLyt5MGZJYytqbldPM3hlWldFY2Jn?=
+ =?utf-8?B?L1duMytzbzJzK2E0SGhFVzYxdXRQbDZVRnZHRXl3VkN6YUJtNVlWNFFNMEVj?=
+ =?utf-8?B?TFVoR1o0UXFHbWJDV2wrc3pxRFJNSXFFbkFNNHA4bUIzY1g4bElaWndCRk5v?=
+ =?utf-8?B?NGc9PQ==?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <8CC8138AA91F894299EC5213E323DDBD@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU0PR04MB9251:EE_|GVXPR04MB10136:EE_
-X-MS-Office365-Filtering-Correlation-Id: 67cfb4cc-1b28-43c5-5dbe-08dd78d02d7f
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Ulk5VXpFTk9LWmgzZjRFS2lEWXhuWloydnUxcEYrYUFaWkJkMWZZR09wdjll?=
- =?utf-8?B?MnVQVlF2S0grNjRCYUszVUFCTHNveUc1R2l1TTJnVVVRdWpmVE5PNmh4b1Iz?=
- =?utf-8?B?RERNZ0ZWZnlmOTJWcUNNNXF4bDVKSmNRdEhIK2l3ZEZvemFFbnNkdmpwTUoz?=
- =?utf-8?B?ZUQ2VnZRR0pQdUY3d3FzTW5kMVBsdEJib1hzSGVpbVRYenZXc0pqbHAzR00w?=
- =?utf-8?B?amN2ckdiU1ZJL3JrL0JJVkZGMUNIM05ZTDJTdG5NQytuaWFUdVZkbWNDd3Mv?=
- =?utf-8?B?aTQvdHBOTkRYZzFLdld1N2RiRVZMeU5PYzN6T2hkZjhlNzQyZW9aam1DYm0v?=
- =?utf-8?B?SC9na2dyZkxzMmxuWGF2ckYxeVlraWxlWko4THlmcDlKV3UrVkpzMGdMK2N6?=
- =?utf-8?B?RHVGcmlwM2ltMnZOOG5FVzFoeG40RHJ2dWhSczROdUdRWmt3WHVGaG9aSFZQ?=
- =?utf-8?B?N21nN1lzTzF4MTZVK2VxUGxNUytjeTdSQkZZWURNeThmQUF2b0czRVNSMmFn?=
- =?utf-8?B?dUJMSnFQdHRDR0tTS1FGR0w5VDNjNEhTWVoyZEZuOFZ4SUtta2hpYWxVRHVC?=
- =?utf-8?B?UUoyZkdoaWk5U3YxYXp2Q2xXVnpKS3pxUUhpWDRLVXppZXJMczV3d0NIZ3hF?=
- =?utf-8?B?cnhNNWZ3QStWekExWDZTaDVwTmM3cnhsUDFJdzdxbzJUUGZiell0TTQwd1Fn?=
- =?utf-8?B?a3hHQ0YvOHpHNW9yRzRNSDRnSEllRWFCL0FpWC90TzFIV0VmY251Y1NvWlE3?=
- =?utf-8?B?WmI0K2hWTnM2YllIMXd1cDJGYlFRamNic1ZienBoWE1ZcFdlb3lyQU8vK2FM?=
- =?utf-8?B?T2dkTGkwcHBuL0dhbmpJSC9pSm1pVEtYUmxGUWZoRmFWeFl4Yk5lQjFVTXlq?=
- =?utf-8?B?ZE1WTW0wbDlXaC9aNlN3K1lzMncra0JGMUswNHZCdExQZzdOOTNrY21CMFV4?=
- =?utf-8?B?emZIWEdpb0ljVE8vUklmQ2RoTGNYa0JyREV0NWpuZDhEcjlyTTdwM2ZRK1h1?=
- =?utf-8?B?eTNIMXk1aEgrZU52S2lUOFNOVDR3YXRpWmZYLzF0MGg3KzQzWmJRd08zMlRP?=
- =?utf-8?B?UUU0ZzZ4YmJ0eWNaQWh6bFJWQjRLc2ZvK3hZVFJBSVJxa1p4bFU5MEtCQyty?=
- =?utf-8?B?MUF5UDdJTlpoU0hWa3o2aGp4SFMvazdTbXA4Rk5HN3lGUDZJOHp0dGZFZ09Q?=
- =?utf-8?B?alY2cld6dGw3Y2NtdFp1dFpuaXZ0Uzl6RjRoNE5LS1ZSQWxjTW1XYVRtVGZZ?=
- =?utf-8?B?bTNPdG03a2ZMWUtpVk93LzlGSXQveG5zR3dJTHE0d3l0eUV4OHRMU0lBNjdm?=
- =?utf-8?B?UWlLMzg3SmJ4cUdvc0pYTGF2NWllL0JEVmNWeGpHRm5Gd0srOW9EcmtWUFQ5?=
- =?utf-8?B?NXA0OEpTRTdJMUJIWVBML05tQmRtL0tSUkZKbTlweTJycHlaS2tVSFNwS1JN?=
- =?utf-8?B?c2ZjenprN3BiR0tvYTJHREp2dTRGeFEvanRLRmV3ckprcHNXQVhDMHlvcERD?=
- =?utf-8?B?eWlUcTFyUXNabThQUlNXT254ZjF3T2xDN1g0eXpXMktqczNzNGJiY0hkYlVs?=
- =?utf-8?B?eUMzcmlybkJBd1piQXU2M0hoaEw4YTJ2MEtBT2xJU2F4WDFtL01Md1d5OHlr?=
- =?utf-8?B?R1lqZ0VrbEY2STNxYkovUUtJRnZOQ1hYL29uMnpiMnZ1dVo4NHNMMDY2bStj?=
- =?utf-8?B?ck1IZklsQTEycHI4djVkMnU3QXdKSm1BeE4zREczb2IxZzBQd2V4TjhyOTNQ?=
- =?utf-8?B?REd5em4xVDdaM2hUcVlzTmpCUFM1MGZ0NzVNblA1TW5WaDI1a1lBVUdpZEJt?=
- =?utf-8?B?L0w0RDdqTks5SFdIakYrT3hrS293dGlXRlR2b2l6ZElvV3lqQkp1TW94V05a?=
- =?utf-8?B?Q2V4czh5Z1B1VGdhUGJBTS9jYnE1YnBPTCt3TnoydWVZSlRMMDE0Nk9zV2NC?=
- =?utf-8?Q?C5Coi7+gRDY=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9251.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Snd0L1BkLzNUUHk3ZlZITDl5YTNlVk5kdXlJT2FrWE45NTNzalRBN0x3cEZ1?=
- =?utf-8?B?dEdOdWFaL1hLQVZDVDgwa0FCV2c2LzZqczNtWWEycGwwUFNzRmsxRkVWUks0?=
- =?utf-8?B?R1VWWVJZMXRCRVI5VC9aWk80NTVJL29zV0k5UnVodUhjaUlBRTl0K0RwRDg4?=
- =?utf-8?B?UXcya3dZUWpXb3ZIZWdITGY2V3M5enpjNjhDdTl4czFGSEtqUlNVVVVYdGFS?=
- =?utf-8?B?ZUtWeVA2WTRuYWpwRGlxR2NzdGhGbTZZQjBhb0kwcmlVMksvcER6Ym9iOWF0?=
- =?utf-8?B?c0F4ZU9hQUN1Unc5MnRBNEF1S2hqSWhGRHdLQ01HOXZvYm83YWk4cjF6YjBr?=
- =?utf-8?B?TXliUnUwY0xGNm1hcUE4bjdFY1N1Z1VxVGZSNStjMXd2OTY1eCsvNjJrbFFp?=
- =?utf-8?B?bGRVL0ZZaU1QU2dsTHMyTUFRbS9hRlNsOTRmbjlHdVZ2b2hrQ3h0U2RNUEk4?=
- =?utf-8?B?em00d29RMmRXUjh5SExRZU9EVmZMdm40SmMzaTlDMmVnbGU1UTZKeG5ka3Qy?=
- =?utf-8?B?ZEUrQURyUDRzRzRqNkpMTFFpcVZ4Vyt4VWxtMG5qbXJGMzhsdWtLeng0NEVZ?=
- =?utf-8?B?MTFHaUtMN1F1RUV4Vk9OSDhDUTNtRjNwUTlHaDEwQ1p0M2YrRkxSRllhejBE?=
- =?utf-8?B?RXZpY2VqdXFvYm13VktSY2NYdjlSU0RCb1V6eEswbmE1azFRaFcyeFFmbE9T?=
- =?utf-8?B?MlE3aithMmU5akhuZ1hwVjZra1NXTmNnSEdmSW9wZTJwTzdzV1dwQ0g4OFRj?=
- =?utf-8?B?N2VFVXlqVUZvQXFvK3hHV21uS1d2cndVUmJOOXd3bGErS3VTTW01eklyUUh4?=
- =?utf-8?B?V1BJN0d6a3ZiQjI2eDVjNlFPZnpzeGx0Rlh4bUtZcjgyRnlOYWpWbXFkM1Az?=
- =?utf-8?B?cm41dm52QzNxSWplVnYwQkRmRmRoc2VxcHFMZkt6OWk1YUZMSjkrUTBxU2RH?=
- =?utf-8?B?UHNyWUkydDkzNTNxcU1VODljMEc1MDEvdncvdityTHVXNVlWckY2eUloRDdo?=
- =?utf-8?B?dC9VV1ZjZHVYK1MrUGg1K0R1NUYzKzFQTCt3NkZwUkhOWHJKcnhvUjlyazVF?=
- =?utf-8?B?NFZ4Wm4zdTI2WXVUUk8wVEZGcUUrRUNra2dsT29PaWdIYms5Q0pCMmRXM0tx?=
- =?utf-8?B?eUx4aW1ZMk1WMGVMTnJEWXRJdlJLWWRyT3RGd1ZxSWRnZXdpY1REQ0wweUgv?=
- =?utf-8?B?SGNWOGxucFlEMDFHWUZTNjBPSFlab0NaaEE5ZUYrMHhNTDduRlZ1Slo5cXp2?=
- =?utf-8?B?WXZYbmI0UDJRNFRUNnRFWFZ1RFJpbno2K29QQk9YeTRuYjJjc0FaOTRSOUJo?=
- =?utf-8?B?bXNyYllVd0dhT0IvQ3hjWTBzZ2hKZnM4K0xXbkE5UEJkTE9JSEdaYm1JUmRn?=
- =?utf-8?B?aDd4a3hKd2hwcnY2MVE2Nkc4WENrQ0xwUnBza1RxMmxZcWdGaXFnRjJScHpj?=
- =?utf-8?B?eDBMbmtMN2FMVTdVWm92dzB2eTQvUDI5a0hOTXRVTDNnV0EwRVNjRUVYQkhG?=
- =?utf-8?B?d1dnM1MybFl2Y0NuaE5GL1c5TU9aZ3BYSjlnNzhiVHB5SXBlVUlrWnJNcFp6?=
- =?utf-8?B?czlnTE1pWHZrbVJNRzF0UHFvWUJkbWptNkEwSFpuZm9raVpWeU1PWXRIdU9B?=
- =?utf-8?B?ZUwyTnIwRXhtc3ByNlFWQy8xMVR0N0Q1dkdPYk1aN3ZpVEQzVWVHbjhYSXYy?=
- =?utf-8?B?T2tXWitqQmpsNG1qVVRJUEZvSFR5c0k2M3l2K0Ivd3RmNjA1bC93RnNHOEVI?=
- =?utf-8?B?cXBJWENRMmNlOEZLTGJiZ1FSd21xdEoxcmcrSk1iZjRYSDBGR2kzZncvMG81?=
- =?utf-8?B?MW80RWxmTE01MVFTS045elArNWV1dG9uZXBqMTd1aHUzb2l1RzZCbVVlUmtT?=
- =?utf-8?B?WmtneTEySzdSUHJUVm1MVzhVa1ZvbThjKzZXTWI0SDhFWjBqcng5S2ZRSTNt?=
- =?utf-8?B?T1A2Z2lySm90Rjl2d2oxNVlWTzVkUGEzelU4STZsYWEyZzE1TFV0ZTFyRzNC?=
- =?utf-8?B?R20yNXNPVmd3eldkcmc2RmFyaE9UZjQ2YXdNY3VMbys5SXg1V3NJb2lNdVk0?=
- =?utf-8?B?ZDRvOXkrZjJxOVBWRngrdDc0NndLMGNLa2ZodXgxa2ZPNDZhTk9GMEt3TkF5?=
- =?utf-8?B?OHZzYmtXVENsKzVrZGYzcFA0QUNvWVFFL1dFcS9ZK0tUVFovQlZVK1FXKzc0?=
- =?utf-8?Q?uh9b7psap6fjtdKqo7+YNxo=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 67cfb4cc-1b28-43c5-5dbe-08dd78d02d7f
-X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9251.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Apr 2025 08:09:27.2378
+X-MS-Exchange-CrossTenant-AuthSource: SEYPR03MB6626.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 066b1c6d-a24c-4fd3-3d73-08dd78d180ce
+X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Apr 2025 08:18:56.0526
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: rr20/jfMlF/Oh/xQ8laVIKcjsUo2VVYIh470r+7SlvBrKUxmJHzLebuLJUVhS241pqhs9HbcoV9N4FaFWkyMYtvdK6YIu9G8ujBWUdg23DM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10136
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: i6jH2vlKE4KpcB4Yl+qJNehzy3GiJBsVZSLT+sH+rvS8jC/rox0HxhJ8wP/SQh3LfWYuYC4XjHIiapFUtyuKMw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR03MB7142
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_090934_677266_D37C5583 
-X-CRM114-Status: GOOD (  18.42  )
+X-CRM114-CacheID: sfid-20250411_011907_810513_95611FFD 
+X-CRM114-Status: GOOD (  17.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -206,651 +230,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/9/2025 5:58 PM, Ciprian Marian Costea wrote:
-> On 4/9/2025 5:42 PM, Enric Balletbo i Serra wrote:
->> Hi Ciprian,
->>
->>
->> On Wed, Apr 9, 2025 at 4:26 PM Ciprian Marian Costea
->> <ciprianmarian.costea@oss.nxp.com> wrote:
->>>
->>> On 4/9/2025 5:14 PM, Enric Balletbo i Serra wrote:
->>>> Hi Ciprian,
->>>>
->>>> Many thanks for your patch.
->>>>
->>>> On Thu, Apr 3, 2025 at 12:34 PM Ciprian Costea
->>>> <ciprianmarian.costea@oss.nxp.com> wrote:
->>>>>
->>>>> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
->>>>>
->>>>> Add a RTC driver for NXP S32G2/S32G3 SoCs.
->>>>>
->>>>> RTC tracks clock time during system suspend. It can be a wakeup source
->>>>> for the S32G2/S32G3 SoC based boards.
->>>>>
->>>>> The RTC module from S32G2/S32G3 is not battery-powered and it is 
->>>>> not kept
->>>>> alive during system reset.
->>>>>
->>>>> Co-developed-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
->>>>> Signed-off-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
->>>>> Co-developed-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
->>>>> Signed-off-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
->>>>> Signed-off-by: Ciprian Marian Costea 
->>>>> <ciprianmarian.costea@oss.nxp.com>
->>>>> Reviewed-by: Frank Li <Frank.Li@nxp.com>
->>>>
->>>> I went through the code and it looks good to me, so:
->>>>
->>>> However, I did a basic rtctest selftest in my S32G-VNP-RDB3 board,
->>>> and some tests failed (it shows a small deviation), any idea what
->>>> could be wrong?
->>>>
->>>> This is the output of the test:
->>>>
->>>> # ./rtctest
->>>> TAP version 13
->>>> 1..8
->>>> # Starting 8 tests from 1 test cases.
->>>> #  RUN           rtc.date_read ...
->>>> # rtctest.c:59:date_read:Current RTC date/time is 28/01/2025 00:17:49.
->>>> #            OK  rtc.date_read
->>>> ok 1 rtc.date_read
->>>> #  RUN           rtc.date_read_loop ...
->>>> # rtctest.c:124:date_read_loop:Continuously reading RTC time for 30s
->>>> (with 11ms breaks after every read).
->>>> # rtctest.c:151:date_read_loop:Performed 2638 RTC time reads.
->>>> #            OK  rtc.date_read_loop
->>>> ok 2 rtc.date_read_loop
->>>> #  RUN           rtc.uie_read ...
->>>> #            OK  rtc.uie_read
->>>> ok 3 rtc.uie_read
->>>> #  RUN           rtc.uie_select ...
->>>> #            OK  rtc.uie_select
->>>> ok 4 rtc.uie_select
->>>> #  RUN           rtc.alarm_alm_set ...
->>>> # rtctest.c:262:alarm_alm_set:Alarm time now set to 00:18:31.
->>>> # rtctest.c:282:alarm_alm_set:data: 1a0
->>>> #            OK  rtc.alarm_alm_set
->>>> ok 5 rtc.alarm_alm_set
->>>> #  RUN           rtc.alarm_wkalm_set ...
->>>> # rtctest.c:334:alarm_wkalm_set:Alarm time now set to 28/01/2025 
->>>> 00:18:34.
->>>> # rtctest.c:353:alarm_wkalm_set:Expected new (1738023515) == secs 
->>>> (1738023514)
->>>> # alarm_wkalm_set: Test terminated by assertion
->>>> #          FAIL  rtc.alarm_wkalm_set
->>>> not ok 6 rtc.alarm_wkalm_set
->>>> #  RUN           rtc.alarm_alm_set_minute ...
->>>> # rtctest.c:394:alarm_alm_set_minute:Alarm time now set to 00:19:00.
->>>> # rtctest.c:414:alarm_alm_set_minute:data: 1a0
->>>> # rtctest.c:420:alarm_alm_set_minute:Expected new (1738023541) == secs
->>>> (1738023540)
->>>> # alarm_alm_set_minute: Test terminated by assertion
->>>> #          FAIL  rtc.alarm_alm_set_minute
->>>> not ok 7 rtc.alarm_alm_set_minute
->>>> #  RUN           rtc.alarm_wkalm_set_minute ...
->>>> # rtctest.c:464:alarm_wkalm_set_minute:Alarm time now set to
->>>> 28/01/2025 00:20:00.
->>>> # rtctest.c:483:alarm_wkalm_set_minute:Expected new (1738023601) ==
->>>> secs (1738023600)
->>>> # alarm_wkalm_set_minute: Test terminated by assertion
->>>> #          FAIL  rtc.alarm_wkalm_set_minute
->>>> not ok 8 rtc.alarm_wkalm_set_minute
->>>> # FAILED: 5 / 8 tests passed.
->>>> # Totals: pass:5 fail:3 xfail:0 xpass:0 skip:0 error:0
->>>>
->>>> Best regards,
->>>>     Enric
->>>>
->>>
->>> Hello Enric,
->>>
->>> In order to obtain a better resolution/precision you could try to only
->>> use DIV512 hardware divisor instead of both DIV32 and DIV512.
->>>
->>
->> That makes the tests pass, so I'm wondering if by default you should
->> set DIV512 in platform data instead. With that change you can add my
->>
->> Tested-by: Enric Balletbo i Serra <eballetbo@kernel.org>
->>
-> 
-> This change would decrease the RTC rollover time. Initially indeed only 
-> DIV512 was enabled, but during review [1] I've agreed enabling both 
-> hardware divisors to increase the RTC rollover time. Personally, I am ok 
-> with the current 1 second resolution capability.
-> 
-> Alexandre Belloni, are you ok with the current version of this driver ? 
-> Or should I send a V10 patch in which I enable back only the DIV512 
-> divisor in order to increase the RTC precision at the downside of losing 
-> rollover time.
-> 
-> [1] 
-> https://lore.kernel.org/all/9f4fc9d8-ec7f-43b4-8bdd-01a4ba4855c5@oss.nxp.com/
-> 
-> Regards,
-> Ciprian
-> 
-
-Hello Alexandre,
-
-I just want to make sure this email reaches you with my above question, 
-since you were just in CC previously.
-Sorry for the inconvenience, I just do not want all the effort invested 
-in this driver (development + review) to get lost.
-
-
-Regards,
-Ciprian
-
->> # ./rtctest
->> TAP version 13
->> 1..8
->> # Starting 8 tests from 1 test cases.
->> #  RUN           rtc.date_read ...
->> # rtctest.c:59:date_read:Current RTC date/time is 28/01/2025 00:00:34.
->> #            OK  rtc.date_read
->> ok 1 rtc.date_read
->> #  RUN           rtc.date_read_loop ...
->> # rtctest.c:124:date_read_loop:Continuously reading RTC time for 30s
->> (with 11ms breaks after every read).
->> # rtctest.c:151:date_read_loop:Performed 2656 RTC time reads.
->> #            OK  rtc.date_read_loop
->> ok 2 rtc.date_read_loop
->> #  RUN           rtc.uie_read ...
->> #            OK  rtc.uie_read
->> ok 3 rtc.uie_read
->> #  RUN           rtc.uie_select ...
->> #            OK  rtc.uie_select
->> ok 4 rtc.uie_select
->> #  RUN           rtc.alarm_alm_set ...
->> # rtctest.c:262:alarm_alm_set:Alarm time now set to 00:01:14.
->> # rtctest.c:282:alarm_alm_set:data: 1a0
->> #            OK  rtc.alarm_alm_set
->> ok 5 rtc.alarm_alm_set
->> #  RUN           rtc.alarm_wkalm_set ...
->> # rtctest.c:334:alarm_wkalm_set:Alarm time now set to 28/01/2025 
->> 00:01:17.
->> #            OK  rtc.alarm_wkalm_set
->> ok 6 rtc.alarm_wkalm_set
->> #  RUN           rtc.alarm_alm_set_minute ...
->> # rtctest.c:394:alarm_alm_set_minute:Alarm time now set to 00:02:00.
->> # rtctest.c:414:alarm_alm_set_minute:data: 1a0
->> #            OK  rtc.alarm_alm_set_minute
->> ok 7 rtc.alarm_alm_set_minute
->> #  RUN           rtc.alarm_wkalm_set_minute ...
->> # rtctest.c:464:alarm_wkalm_set_minute:Alarm time now set to
->> 28/01/2025 00:03:00.
->> #            OK  rtc.alarm_wkalm_set_minute
->> ok 8 rtc.alarm_wkalm_set_minute
->> # PASSED: 8 / 8 tests passed.
->> # Totals: pass:8 fail:0 xfail:0 xpass:0 skip:0 error:0
->>
->>
->> Thanks,
->>   Enric
->>
->>> Regards,
->>> Ciprian
->>>
->>>>> ---
->>>>>    drivers/rtc/Kconfig    |  11 ++
->>>>>    drivers/rtc/Makefile   |   1 +
->>>>>    drivers/rtc/rtc-s32g.c | 385 
->>>>> +++++++++++++++++++++++++++++++++++++++++
->>>>>    3 files changed, 397 insertions(+)
->>>>>    create mode 100644 drivers/rtc/rtc-s32g.c
->>>>>
->>>>> diff --git a/drivers/rtc/Kconfig b/drivers/rtc/Kconfig
->>>>> index 0bbbf778ecfa..510dc2db745d 100644
->>>>> --- a/drivers/rtc/Kconfig
->>>>> +++ b/drivers/rtc/Kconfig
->>>>> @@ -2103,4 +2103,15 @@ config RTC_DRV_AMLOGIC_A4
->>>>>             This driver can also be built as a module. If so, the 
->>>>> module
->>>>>             will be called "rtc-amlogic-a4".
->>>>>
->>>>> +config RTC_DRV_S32G
->>>>> +       tristate "RTC driver for S32G2/S32G3 SoCs"
->>>>> +       depends on ARCH_S32 || COMPILE_TEST
->>>>> +       depends on COMMON_CLK
->>>>> +       help
->>>>> +         Say yes to enable RTC driver for platforms based on the
->>>>> +         S32G2/S32G3 SoC family.
->>>>> +
->>>>> +         This RTC module can be used as a wakeup source.
->>>>> +         Please note that it is not battery-powered.
->>>>> +
->>>>>    endif # RTC_CLASS
->>>>> diff --git a/drivers/rtc/Makefile b/drivers/rtc/Makefile
->>>>> index 489b4ab07068..e4b616ecd5ce 100644
->>>>> --- a/drivers/rtc/Makefile
->>>>> +++ b/drivers/rtc/Makefile
->>>>> @@ -161,6 +161,7 @@ obj-$(CONFIG_RTC_DRV_RX8111)        += 
->>>>> rtc-rx8111.o
->>>>>    obj-$(CONFIG_RTC_DRV_RX8581)   += rtc-rx8581.o
->>>>>    obj-$(CONFIG_RTC_DRV_RZN1)     += rtc-rzn1.o
->>>>>    obj-$(CONFIG_RTC_DRV_RENESAS_RTCA3)    += rtc-renesas-rtca3.o
->>>>> +obj-$(CONFIG_RTC_DRV_S32G)     += rtc-s32g.o
->>>>>    obj-$(CONFIG_RTC_DRV_S35390A)  += rtc-s35390a.o
->>>>>    obj-$(CONFIG_RTC_DRV_S3C)      += rtc-s3c.o
->>>>>    obj-$(CONFIG_RTC_DRV_S5M)      += rtc-s5m.o
->>>>> diff --git a/drivers/rtc/rtc-s32g.c b/drivers/rtc/rtc-s32g.c
->>>>> new file mode 100644
->>>>> index 000000000000..3a0818e972eb
->>>>> --- /dev/null
->>>>> +++ b/drivers/rtc/rtc-s32g.c
->>>>> @@ -0,0 +1,385 @@
->>>>> +// SPDX-License-Identifier: GPL-2.0-or-later
->>>>> +/*
->>>>> + * Copyright 2025 NXP
->>>>> + */
->>>>> +
->>>>> +#include <linux/bitfield.h>
->>>>> +#include <linux/clk.h>
->>>>> +#include <linux/iopoll.h>
->>>>> +#include <linux/of_irq.h>
->>>>> +#include <linux/platform_device.h>
->>>>> +#include <linux/rtc.h>
->>>>> +
->>>>> +#define RTCC_OFFSET    0x4ul
->>>>> +#define RTCS_OFFSET    0x8ul
->>>>> +#define APIVAL_OFFSET  0x10ul
->>>>> +
->>>>> +/* RTCC fields */
->>>>> +#define RTCC_CNTEN                             BIT(31)
->>>>> +#define RTCC_APIEN                             BIT(15)
->>>>> +#define RTCC_APIIE                             BIT(14)
->>>>> +#define RTCC_CLKSEL_MASK               GENMASK(13, 12)
->>>>> +#define RTCC_DIV512EN                  BIT(11)
->>>>> +#define RTCC_DIV32EN                   BIT(10)
->>>>> +
->>>>> +/* RTCS fields */
->>>>> +#define RTCS_INV_API   BIT(17)
->>>>> +#define RTCS_APIF              BIT(13)
->>>>> +
->>>>> +#define APIVAL_MAX_VAL         GENMASK(31, 0)
->>>>> +#define RTC_SYNCH_TIMEOUT      (100 * USEC_PER_MSEC)
->>>>> +
->>>>> +/*
->>>>> + * S32G2 and S32G3 SoCs have RTC clock source1 reserved and
->>>>> + * should not be used.
->>>>> + */
->>>>> +#define RTC_CLK_SRC1_RESERVED          BIT(1)
->>>>> +
->>>>> +/*
->>>>> + * S32G RTC module has a 512 value and a 32 value hardware frequency
->>>>> + * divisors (DIV512 and DIV32) which could be used to achieve higher
->>>>> + * counter ranges by lowering the RTC frequency.
->>>>> + */
->>>>> +enum {
->>>>> +       DIV1 = 1,
->>>>> +       DIV32 = 32,
->>>>> +       DIV512 = 512,
->>>>> +       DIV512_32 = 16384
->>>>> +};
->>>>> +
->>>>> +static const char *const rtc_clk_src[] = {
->>>>> +       "source0",
->>>>> +       "source1",
->>>>> +       "source2",
->>>>> +       "source3"
->>>>> +};
->>>>> +
->>>>> +struct rtc_priv {
->>>>> +       struct rtc_device *rdev;
->>>>> +       void __iomem *rtc_base;
->>>>> +       struct clk *ipg;
->>>>> +       struct clk *clk_src;
->>>>> +       const struct rtc_soc_data *rtc_data;
->>>>> +       u64 rtc_hz;
->>>>> +       time64_t sleep_sec;
->>>>> +       int irq;
->>>>> +       u32 clk_src_idx;
->>>>> +};
->>>>> +
->>>>> +struct rtc_soc_data {
->>>>> +       u32 clk_div;
->>>>> +       u32 reserved_clk_mask;
->>>>> +};
->>>>> +
->>>>> +static const struct rtc_soc_data rtc_s32g2_data = {
->>>>> +       .clk_div = DIV512_32,
->>>>> +       .reserved_clk_mask = RTC_CLK_SRC1_RESERVED,
->>>>> +};
->>>>> +
->>>>> +static irqreturn_t s32g_rtc_handler(int irq, void *dev)
->>>>> +{
->>>>> +       struct rtc_priv *priv = platform_get_drvdata(dev);
->>>>> +       u32 status;
->>>>> +
->>>>> +       status = readl(priv->rtc_base + RTCS_OFFSET);
->>>>> +
->>>>> +       if (status & RTCS_APIF) {
->>>>> +               writel(0x0, priv->rtc_base + APIVAL_OFFSET);
->>>>> +               writel(status | RTCS_APIF, priv->rtc_base + 
->>>>> RTCS_OFFSET);
->>>>> +       }
->>>>> +
->>>>> +       rtc_update_irq(priv->rdev, 1, RTC_IRQF | RTC_AF);
->>>>> +
->>>>> +       return IRQ_HANDLED;
->>>>> +}
->>>>> +
->>>>> +/*
->>>>> + * The function is not really getting time from the RTC since the 
->>>>> S32G RTC
->>>>> + * has several limitations. Thus, to setup alarm use system time.
->>>>> + */
->>>>> +static int s32g_rtc_read_time(struct device *dev,
->>>>> +                             struct rtc_time *tm)
->>>>> +{
->>>>> +       struct rtc_priv *priv = dev_get_drvdata(dev);
->>>>> +       time64_t sec;
->>>>> +
->>>>> +       if (check_add_overflow(ktime_get_real_seconds(),
->>>>> +                              priv->sleep_sec, &sec))
->>>>> +               return -ERANGE;
->>>>> +
->>>>> +       rtc_time64_to_tm(sec, tm);
->>>>> +
->>>>> +       return 0;
->>>>> +}
->>>>> +
->>>>> +static int s32g_rtc_read_alarm(struct device *dev, struct 
->>>>> rtc_wkalrm *alrm)
->>>>> +{
->>>>> +       struct rtc_priv *priv = dev_get_drvdata(dev);
->>>>> +       u32 rtcc, rtcs;
->>>>> +
->>>>> +       rtcc = readl(priv->rtc_base + RTCC_OFFSET);
->>>>> +       rtcs = readl(priv->rtc_base + RTCS_OFFSET);
->>>>> +
->>>>> +       alrm->enabled = rtcc & RTCC_APIIE;
->>>>> +       if (alrm->enabled)
->>>>> +               alrm->pending = !(rtcs & RTCS_APIF);
->>>>> +
->>>>> +       return 0;
->>>>> +}
->>>>> +
->>>>> +static int s32g_rtc_alarm_irq_enable(struct device *dev, unsigned 
->>>>> int enabled)
->>>>> +{
->>>>> +       struct rtc_priv *priv = dev_get_drvdata(dev);
->>>>> +       u32 rtcc;
->>>>> +
->>>>> +       /* RTC API functionality is used both for triggering 
->>>>> interrupts
->>>>> +        * and as a wakeup event. Hence it should always be enabled.
->>>>> +        */
->>>>> +       rtcc = readl(priv->rtc_base + RTCC_OFFSET);
->>>>> +       rtcc |= RTCC_APIEN | RTCC_APIIE;
->>>>> +       writel(rtcc, priv->rtc_base + RTCC_OFFSET);
->>>>> +
->>>>> +       return 0;
->>>>> +}
->>>>> +
->>>>> +static int s32g_rtc_set_alarm(struct device *dev, struct 
->>>>> rtc_wkalrm *alrm)
->>>>> +{
->>>>> +       struct rtc_priv *priv = dev_get_drvdata(dev);
->>>>> +       unsigned long long cycles;
->>>>> +       long long t_offset;
->>>>> +       time64_t alrm_time;
->>>>> +       u32 rtcs;
->>>>> +       int ret;
->>>>> +
->>>>> +       alrm_time = rtc_tm_to_time64(&alrm->time);
->>>>> +       t_offset = alrm_time - ktime_get_real_seconds() - 
->>>>> priv->sleep_sec;
->>>>> +       if (t_offset < 0)
->>>>> +               return -ERANGE;
->>>>> +
->>>>> +       cycles = t_offset * priv->rtc_hz;
->>>>> +       if (cycles > APIVAL_MAX_VAL)
->>>>> +               return -ERANGE;
->>>>> +
->>>>> +       /* APIVAL could have been reset from the IRQ handler.
->>>>> +        * Hence, we wait in case there is a synchronization process.
->>>>> +        */
->>>>> +       ret = read_poll_timeout(readl, rtcs, !(rtcs & RTCS_INV_API),
->>>>> +                               0, RTC_SYNCH_TIMEOUT, false, 
->>>>> priv->rtc_base + RTCS_OFFSET);
->>>>> +       if (ret)
->>>>> +               return ret;
->>>>> +
->>>>> +       writel(cycles, priv->rtc_base + APIVAL_OFFSET);
->>>>> +
->>>>> +       return read_poll_timeout(readl, rtcs, !(rtcs & RTCS_INV_API),
->>>>> +                               0, RTC_SYNCH_TIMEOUT, false, 
->>>>> priv->rtc_base + RTCS_OFFSET);
->>>>> +}
->>>>> +
->>>>> +/*
->>>>> + * Disable the 32-bit free running counter.
->>>>> + * This allows Clock Source and Divisors selection
->>>>> + * to be performed without causing synchronization issues.
->>>>> + */
->>>>> +static void s32g_rtc_disable(struct rtc_priv *priv)
->>>>> +{
->>>>> +       u32 rtcc = readl(priv->rtc_base + RTCC_OFFSET);
->>>>> +
->>>>> +       rtcc &= ~RTCC_CNTEN;
->>>>> +       writel(rtcc, priv->rtc_base + RTCC_OFFSET);
->>>>> +}
->>>>> +
->>>>> +static void s32g_rtc_enable(struct rtc_priv *priv)
->>>>> +{
->>>>> +       u32 rtcc = readl(priv->rtc_base + RTCC_OFFSET);
->>>>> +
->>>>> +       rtcc |= RTCC_CNTEN;
->>>>> +       writel(rtcc, priv->rtc_base + RTCC_OFFSET);
->>>>> +}
->>>>> +
->>>>> +static int rtc_clk_src_setup(struct rtc_priv *priv)
->>>>> +{
->>>>> +       u32 rtcc;
->>>>> +
->>>>> +       rtcc = FIELD_PREP(RTCC_CLKSEL_MASK, priv->clk_src_idx);
->>>>> +
->>>>> +       switch (priv->rtc_data->clk_div) {
->>>>> +       case DIV512_32:
->>>>> +               rtcc |= RTCC_DIV512EN;
->>>>> +               rtcc |= RTCC_DIV32EN;
->>>>> +               break;
->>>>> +       case DIV512:
->>>>> +               rtcc |= RTCC_DIV512EN;
->>>>> +               break;
->>>>> +       case DIV32:
->>>>> +               rtcc |= RTCC_DIV32EN;
->>>>> +               break;
->>>>> +       case DIV1:
->>>>> +               break;
->>>>> +       default:
->>>>> +               return -EINVAL;
->>>>> +       }
->>>>> +
->>>>> +       rtcc |= RTCC_APIEN | RTCC_APIIE;
->>>>> +       /*
->>>>> +        * Make sure the CNTEN is 0 before we configure
->>>>> +        * the clock source and dividers.
->>>>> +        */
->>>>> +       s32g_rtc_disable(priv);
->>>>> +       writel(rtcc, priv->rtc_base + RTCC_OFFSET);
->>>>> +       s32g_rtc_enable(priv);
->>>>> +
->>>>> +       return 0;
->>>>> +}
->>>>> +
->>>>> +static const struct rtc_class_ops rtc_ops = {
->>>>> +       .read_time = s32g_rtc_read_time,
->>>>> +       .read_alarm = s32g_rtc_read_alarm,
->>>>> +       .set_alarm = s32g_rtc_set_alarm,
->>>>> +       .alarm_irq_enable = s32g_rtc_alarm_irq_enable,
->>>>> +};
->>>>> +
->>>>> +static int rtc_clk_dts_setup(struct rtc_priv *priv,
->>>>> +                            struct device *dev)
->>>>> +{
->>>>> +       u32 i;
->>>>> +
->>>>> +       priv->ipg = devm_clk_get_enabled(dev, "ipg");
->>>>> +       if (IS_ERR(priv->ipg))
->>>>> +               return dev_err_probe(dev, PTR_ERR(priv->ipg),
->>>>> +                               "Failed to get 'ipg' clock\n");
->>>>> +
->>>>> +       for (i = 0; i < ARRAY_SIZE(rtc_clk_src); i++) {
->>>>> +               if (priv->rtc_data->reserved_clk_mask & BIT(i))
->>>>> +                       return -EOPNOTSUPP;
->>>>> +
->>>>> +               priv->clk_src = devm_clk_get_enabled(dev, 
->>>>> rtc_clk_src[i]);
->>>>> +               if (!IS_ERR(priv->clk_src)) {
->>>>> +                       priv->clk_src_idx = i;
->>>>> +                       break;
->>>>> +               }
->>>>> +       }
->>>>> +
->>>>> +       if (IS_ERR(priv->clk_src))
->>>>> +               return dev_err_probe(dev, PTR_ERR(priv->clk_src),
->>>>> +                               "Failed to get rtc module clock 
->>>>> source\n");
->>>>> +
->>>>> +       return 0;
->>>>> +}
->>>>> +
->>>>> +static int s32g_rtc_probe(struct platform_device *pdev)
->>>>> +{
->>>>> +       struct device *dev = &pdev->dev;
->>>>> +       struct rtc_priv *priv;
->>>>> +       unsigned long rtc_hz;
->>>>> +       int ret;
->>>>> +
->>>>> +       priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
->>>>> +       if (!priv)
->>>>> +               return -ENOMEM;
->>>>> +
->>>>> +       priv->rtc_data = of_device_get_match_data(dev);
->>>>> +       if (!priv->rtc_data)
->>>>> +               return -ENODEV;
->>>>> +
->>>>> +       priv->rtc_base = devm_platform_ioremap_resource(pdev, 0);
->>>>> +       if (IS_ERR(priv->rtc_base))
->>>>> +               return PTR_ERR(priv->rtc_base);
->>>>> +
->>>>> +       device_init_wakeup(dev, true);
->>>>> +
->>>>> +       ret = rtc_clk_dts_setup(priv, dev);
->>>>> +       if (ret)
->>>>> +               return ret;
->>>>> +
->>>>> +       priv->rdev = devm_rtc_allocate_device(dev);
->>>>> +       if (IS_ERR(priv->rdev))
->>>>> +               return PTR_ERR(priv->rdev);
->>>>> +
->>>>> +       ret = rtc_clk_src_setup(priv);
->>>>> +       if (ret)
->>>>> +               return ret;
->>>>> +
->>>>> +       priv->irq = platform_get_irq(pdev, 0);
->>>>> +       if (priv->irq < 0) {
->>>>> +               ret = priv->irq;
->>>>> +               goto disable_rtc;
->>>>> +       }
->>>>> +
->>>>> +       rtc_hz = clk_get_rate(priv->clk_src);
->>>>> +       if (!rtc_hz) {
->>>>> +               dev_err(dev, "Failed to get RTC frequency\n");
->>>>> +               ret = -EINVAL;
->>>>> +               goto disable_rtc;
->>>>> +       }
->>>>> +
->>>>> +       priv->rtc_hz = DIV_ROUND_UP(rtc_hz, priv->rtc_data->clk_div);
->>>>> +
->>>>> +       platform_set_drvdata(pdev, priv);
->>>>> +       priv->rdev->ops = &rtc_ops;
->>>>> +
->>>>> +       ret = devm_request_irq(dev, priv->irq,
->>>>> +                              s32g_rtc_handler, 0, dev_name(dev), 
->>>>> pdev);
->>>>> +       if (ret) {
->>>>> +               dev_err(dev, "Request interrupt %d failed, error: 
->>>>> %d\n",
->>>>> +                       priv->irq, ret);
->>>>> +               goto disable_rtc;
->>>>> +       }
->>>>> +
->>>>> +       ret = devm_rtc_register_device(priv->rdev);
->>>>> +       if (ret)
->>>>> +               goto disable_rtc;
->>>>> +
->>>>> +       return 0;
->>>>> +
->>>>> +disable_rtc:
->>>>> +       s32g_rtc_disable(priv);
->>>>> +       return ret;
->>>>> +}
->>>>> +
->>>>> +static int s32g_rtc_suspend(struct device *dev)
->>>>> +{
->>>>> +       struct rtc_priv *priv = dev_get_drvdata(dev);
->>>>> +       u32 apival = readl(priv->rtc_base + APIVAL_OFFSET);
->>>>> +
->>>>> +       if (check_add_overflow(priv->sleep_sec, div64_u64(apival, 
->>>>> priv->rtc_hz),
->>>>> +                              &priv->sleep_sec)) {
->>>>> +               dev_warn(dev, "Overflow on sleep cycles occurred. 
->>>>> Resetting to 0.\n");
->>>>> +               priv->sleep_sec = 0;
->>>>> +       }
->>>>> +
->>>>> +       return 0;
->>>>> +}
->>>>> +
->>>>> +static int s32g_rtc_resume(struct device *dev)
->>>>> +{
->>>>> +       struct rtc_priv *priv = dev_get_drvdata(dev);
->>>>> +
->>>>> +       /* The transition from resume to run is a reset event.
->>>>> +        * This leads to the RTC registers being reset after resume 
->>>>> from
->>>>> +        * suspend. It is uncommon, but this behaviour has been 
->>>>> observed
->>>>> +        * on S32G RTC after issuing a Suspend to RAM operation.
->>>>> +        * Thus, reconfigure RTC registers on the resume path.
->>>>> +        */
->>>>> +       return rtc_clk_src_setup(priv);
->>>>> +}
->>>>> +
->>>>> +static const struct of_device_id rtc_dt_ids[] = {
->>>>> +       { .compatible = "nxp,s32g2-rtc", .data = &rtc_s32g2_data },
->>>>> +       { /* sentinel */ },
->>>>> +};
->>>>> +
->>>>> +static DEFINE_SIMPLE_DEV_PM_OPS(s32g_rtc_pm_ops,
->>>>> +                        s32g_rtc_suspend, s32g_rtc_resume);
->>>>> +
->>>>> +static struct platform_driver s32g_rtc_driver = {
->>>>> +       .driver = {
->>>>> +               .name = "s32g-rtc",
->>>>> +               .pm = pm_sleep_ptr(&s32g_rtc_pm_ops),
->>>>> +               .of_match_table = rtc_dt_ids,
->>>>> +       },
->>>>> +       .probe = s32g_rtc_probe,
->>>>> +};
->>>>> +module_platform_driver(s32g_rtc_driver);
->>>>> +
->>>>> +MODULE_AUTHOR("NXP");
->>>>> +MODULE_DESCRIPTION("NXP RTC driver for S32G2/S32G3");
->>>>> +MODULE_LICENSE("GPL");
->>>>> -- 
->>>>> 2.45.2
->>>>>
->>>>
->>>
->>
-> 
-
+T24gV2VkLCAyMDI1LTA0LTA5IGF0IDE1OjEzICswMjAwLCBBbmdlbG9HaW9hY2NoaW5vIERlbCBS
+ZWdubyB3cm90ZToNCj4gRXh0ZXJuYWwgZW1haWwgOiBQbGVhc2UgZG8gbm90IGNsaWNrIGxpbmtz
+IG9yIG9wZW4gYXR0YWNobWVudHMgdW50aWwgeW91IGhhdmUgdmVyaWZpZWQgdGhlIHNlbmRlciBv
+ciB0aGUgY29udGVudC4NCj4gDQo+IA0KPiBJbiBwcmVwYXJhdGlvbiBmb3IgYWRkaW5nIGEgbmV3
+IGRyaXZlciBmb3IgdGhlIEhETUkgVFggdjIgSVAsDQo+IHNwbGl0IG91dCB0aGUgZnVuY3Rpb25z
+IHRoYXQgd2lsbCBiZSBjb21tb24gYmV0d2VlbiB0aGUgYWxyZWFkeQ0KPiBwcmVzZW50IG10a19o
+ZG1pICh2MSkgZHJpdmVyIGFuZCB0aGUgbmV3IG9uZS4NCj4gDQo+IFNpbmNlIHRoZSBwcm9iZSBm
+bG93IGZvciBib3RoIGRyaXZlcnMgaXMgOTAlIHNpbWlsYXIsIGFkZCBhIGNvbW1vbg0KPiBwcm9i
+ZSBmdW5jdGlvbiB0aGF0IHdpbGwgYmUgY2FsbGVkIGZyb20gZWFjaCBkcml2ZXIncyAucHJvYmUo
+KQ0KPiBjYWxsYmFjaywgYXZvaWRpbmcgbG90cyBvZiBjb2RlIGR1cGxpY2F0aW9uLg0KPiANCj4g
+U2lnbmVkLW9mZi1ieTogQW5nZWxvR2lvYWNjaGlubyBEZWwgUmVnbm8gPGFuZ2Vsb2dpb2FjY2hp
+bm8uZGVscmVnbm9AY29sbGFib3JhLmNvbT4NCj4gLS0tDQo+ICBkcml2ZXJzL2dwdS9kcm0vbWVk
+aWF0ZWsvS2NvbmZpZyAgICAgICAgICAgfCAgMTEgKy0NCj4gIGRyaXZlcnMvZ3B1L2RybS9tZWRp
+YXRlay9NYWtlZmlsZSAgICAgICAgICB8ICAgMSArDQo+ICBkcml2ZXJzL2dwdS9kcm0vbWVkaWF0
+ZWsvbXRrX2hkbWkuYyAgICAgICAgfCA1NDIgKy0tLS0tLS0tLS0tLS0tLS0tLS0tDQo+ICBkcml2
+ZXJzL2dwdS9kcm0vbWVkaWF0ZWsvbXRrX2hkbWlfY29tbW9uLmMgfCA0MjYgKysrKysrKysrKysr
+KysrKw0KPiAgZHJpdmVycy9ncHUvZHJtL21lZGlhdGVrL210a19oZG1pX2NvbW1vbi5oIHwgMTg4
+ICsrKysrKysNCj4gIDUgZmlsZXMgY2hhbmdlZCwgNjMzIGluc2VydGlvbnMoKyksIDUzNSBkZWxl
+dGlvbnMoLSkNCj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBkcml2ZXJzL2dwdS9kcm0vbWVkaWF0ZWsv
+bXRrX2hkbWlfY29tbW9uLmMNCj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBkcml2ZXJzL2dwdS9kcm0v
+bWVkaWF0ZWsvbXRrX2hkbWlfY29tbW9uLmgNCj4gDQo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2dw
+dS9kcm0vbWVkaWF0ZWsvS2NvbmZpZyBiL2RyaXZlcnMvZ3B1L2RybS9tZWRpYXRlay9LY29uZmln
+DQo+IGluZGV4IGU0N2RlYmQ2MDYxOS4uOTk0YjQ4YjgyZDQ0IDEwMDY0NA0KPiAtLS0gYS9kcml2
+ZXJzL2dwdS9kcm0vbWVkaWF0ZWsvS2NvbmZpZw0KPiArKysgYi9kcml2ZXJzL2dwdS9kcm0vbWVk
+aWF0ZWsvS2NvbmZpZw0KPiBAQCAtMzAsOSArMzAsMTggQEAgY29uZmlnIERSTV9NRURJQVRFS19E
+UA0KPiAgICAgICAgIGhlbHANCj4gICAgICAgICAgIERSTS9LTVMgRGlzcGxheSBQb3J0IGRyaXZl
+ciBmb3IgTWVkaWFUZWsgU29Dcy4NCj4gDQo+ICtjb25maWcgRFJNX01FRElBVEVLX0hETUlfQ09N
+TU9ODQo+ICsgICAgICAgdHJpc3RhdGUNCj4gKyAgICAgICBkZXBlbmRzIG9uIERSTV9NRURJQVRF
+Sw0KPiArICAgICAgIHNlbGVjdCBEUk1fRElTUExBWV9IRE1JX0hFTFBFUg0KPiArICAgICAgIHNl
+bGVjdCBEUk1fRElTUExBWV9IRUxQRVINCj4gKyAgICAgICBzZWxlY3QgU05EX1NPQ19IRE1JX0NP
+REVDIGlmIFNORF9TT0MNCj4gKyAgICAgICBoZWxwDQo+ICsgICAgICAgICBNZWRpYVRlayBTb0Mg
+SERNSSBjb21tb24gbGlicmFyeQ0KPiArDQo+ICBjb25maWcgRFJNX01FRElBVEVLX0hETUkNCj4g
+ICAgICAgICB0cmlzdGF0ZSAiRFJNIEhETUkgU3VwcG9ydCBmb3IgTWVkaWF0ZWsgU29DcyINCj4g
+ICAgICAgICBkZXBlbmRzIG9uIERSTV9NRURJQVRFSw0KPiAtICAgICAgIHNlbGVjdCBTTkRfU09D
+X0hETUlfQ09ERUMgaWYgU05EX1NPQw0KPiArICAgICAgIHNlbGVjdCBEUk1fTUVESUFURUtfSERN
+SV9DT01NT04NCj4gICAgICAgICBoZWxwDQo+ICAgICAgICAgICBEUk0vS01TIEhETUkgZHJpdmVy
+IGZvciBNZWRpYXRlayBTb0NzDQo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2dwdS9kcm0vbWVkaWF0
+ZWsvTWFrZWZpbGUgYi9kcml2ZXJzL2dwdS9kcm0vbWVkaWF0ZWsvTWFrZWZpbGUNCj4gaW5kZXgg
+NDNhZmQwYTI2ZDE0Li43OGNmMmQ0ZmM4NWYgMTAwNjQ0DQo+IC0tLSBhL2RyaXZlcnMvZ3B1L2Ry
+bS9tZWRpYXRlay9NYWtlZmlsZQ0KPiArKysgYi9kcml2ZXJzL2dwdS9kcm0vbWVkaWF0ZWsvTWFr
+ZWZpbGUNCj4gQEAgLTIxLDYgKzIxLDcgQEAgbWVkaWF0ZWstZHJtLXkgOj0gbXRrX2NydGMubyBc
+DQo+IA0KPiAgb2JqLSQoQ09ORklHX0RSTV9NRURJQVRFSykgKz0gbWVkaWF0ZWstZHJtLm8NCj4g
+DQo+ICtvYmotJChDT05GSUdfRFJNX01FRElBVEVLX0hETUlfQ09NTU9OKSArPSBtdGtfaGRtaV9j
+b21tb24ubw0KDQpUaGUgd2hvbGUgcGF0Y2ggbG9va3MgZ29vZCB0byBtZS4NCkJ1dCBtYWtlIGNv
+bW1vbiBwYXJ0IHRvIGEgbW9kdWxlIGxvb2tzIGEgbGl0dGxlIGJpdCBtb3JlIG1vZHVsYXJpemVk
+Lg0KTGV0IHRoaW5ncyB0byBiZSBzaW1wbGUsIEkgd291bGQgbGlrZSB0aGUgd2hvbGUgTWVkaWFU
+ZWsgaGRtaSBkcml2ZXIgYmUgYSBzaW5nbGUgbW9kdWxlLg0KRm9yIE1lZGlhVGVrIGRybSBkcml2
+ZXIsIGl0IGlzIGFscmVhZHkgYnJva2VuIHRvIG1lZGlhdGVrLWRybSwgaGRtaSwgZHAgbW9kdWxl
+cy4NCk1heWJlIHNvbWVkYXkgZHNpIG9yIGRwaSB3b3VsZCBiZSBicm9rZW4gdG8gbW9kdWxlcy4N
+ClNvIEkgd291bGQgbGlrZSBoZG1pIHRvIGJlIGEgc2luZ2xlIG1vZHVsZSB3aGljaCBpbmNsdWRl
+IHYxLCB2MiBhbmQgY29tbW9uIHBhcnQuDQpJZiBzb21lZGF5IHdlIG5lZWQgdG8gb3B0aW1pemUg
+Y29kZSBzaXplLCB0aGVuIHNlbmQgcGF0Y2ggdG8gYnJlYWsgaGRtaSBtb2R1bGUuDQoNClJlZ2Fy
+ZHMsDQpDSw0KDQo+ICBvYmotJChDT05GSUdfRFJNX01FRElBVEVLX0hETUkpICs9IG10a19jZWMu
+bw0KPiAgb2JqLSQoQ09ORklHX0RSTV9NRURJQVRFS19IRE1JKSArPSBtdGtfaGRtaS5vDQo+ICBv
+YmotJChDT05GSUdfRFJNX01FRElBVEVLX0hETUkpICs9IG10a19oZG1pX2RkYy5vDQo+IGRpZmYg
+LS1naXQgYS9kcml2ZXJzL2dwdS9kcm0vbWVkaWF0ZWsvbXRrX2hkbWkuYyBiL2RyaXZlcnMvZ3B1
+L2RybS9tZWRpYXRlay9tdGtfaGRtaS5jDQoNCg==
 
