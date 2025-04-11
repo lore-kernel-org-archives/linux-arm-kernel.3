@@ -4,68 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FDB3C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 14:17:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C78C0C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 14:18:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ujn6uukOfmWxjUuyxbOBbDqXNzdSvhIj9XOqk3dgCKc=; b=qubfhaFe8EoDFQFKV/6PAhUkiS
-	iVH0/Y3FCzW2FBpaP9jXRquWO/zAmdEmvQIfxO62CrSwCbjkxEGkEkfHVoB21P6jtR3NduoMHbwJ6
-	bjEgppb6ifqjPcZId7eRIA7vrJoeo0p2hDyxt0T/B2H8+D5sdqZNppXHVXSh4nnIasVDDVYdTn2fq
-	Stw7T+r0lw/JrS6wjFXIjzCHAmqckR8DehXs41xXFbIX5ZXSzKo0mzwHD6cYFrIk1RZEmv8yd4KnU
-	tOi0PI/shp45Zm//wiji5PGs96pVgfSKVz9G4+HUgJm1VoogImBue6O1eeryP7VgStGm0qNj/EqiN
-	jhuSl5yw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qQDSFd0KgWBYuvyGNC6FIuW3TAEXHe3afLsrb7vpjYk=; b=gnWh8O+g/mV/hiVkiSWMilIMxU
+	DRCbx1dSdZodS3ipOpz4oYE7pXDc8ROPFORQYg0d9AR/qLJmkfJp7QPNIrOzFHXQHVWy1IYas+UwE
+	GGB0LQgmqe7aaSn9TvrMYGeGMEVVugGlWZA+qy0N4jxNxaqNHMkhyv0jwsJ7OjbzKMiwE93LDPFQb
+	Ja4egIQSAjIGSHDMIuegAux9uFdkwsbdtWSCau2U+b02VXw/oP9cbu9NHxqNKLqLqm6XodCva5Iuk
+	pPZOl0PaXPN7Yk03RyD+l/qgaWsiIZ6x6RES7SXTNDPr06Le7jwlAf93cns4CEjcgi2WShQbxOQ/m
+	KeJQi/dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3FBg-0000000E3Xb-141Q;
-	Fri, 11 Apr 2025 14:16:56 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u3FDT-0000000E3rW-1WTe;
+	Fri, 11 Apr 2025 14:18:47 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3EiV-0000000DyhL-0DPy
+	id 1u3Em3-0000000DzK5-1frP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 13:46:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BA038A4AB95;
-	Fri, 11 Apr 2025 13:41:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7652C4CEE2;
-	Fri, 11 Apr 2025 13:46:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744379206;
-	bh=lfpofwq7AhcRnEO56wgTDW+zKFWju8+OfJKpaNYI9T0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YGSplrp1HwBSG2RE7WPdi2jjo9tolZLXEJo86WNr+DMYcwi1SyAIrJDuTS/gq47jZ
-	 XAlVqJ1iCaF0+veS3PPAWdoLzBrusy2ioGIuVy3wc12EfuawG0NBDhnhQmEgIT0nFm
-	 NKVuho1JDHwdzex0lormI5ZE9w0Y4Kj1db2hijdEqFDKomv7/Rq6l5u5VVYNwif/uB
-	 fztfpBWH6c/2SaCvIoQeQqRYYrPBYua8U8A4zsk5kL6bQ38N8qNl2XOJdD0mJz+Enj
-	 8e+pLoF2VRY+O7gv2n0On3XlC6KeM2WhPl3wclFi923af+yTBKyybraqVIVLDVjgiJ
-	 CvBv3tPswefvg==
-Date: Fri, 11 Apr 2025 08:46:44 -0500
-From: Rob Herring <robh@kernel.org>
-To: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	kernel@oss.qualcomm.com, linux-arm-msm@vger.kernel.org,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/2] dt-bindings: arm: Add device Trace Network On
- Chip definition
-Message-ID: <20250411134644.GA3059343-robh@kernel.org>
-References: <20250411-trace-noc-v3-0-1f19ddf7699b@quicinc.com>
- <20250411-trace-noc-v3-1-1f19ddf7699b@quicinc.com>
+	Fri, 11 Apr 2025 13:50:28 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53BDoJUS2141356
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 11 Apr 2025 08:50:19 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1744379419;
+	bh=qQDSFd0KgWBYuvyGNC6FIuW3TAEXHe3afLsrb7vpjYk=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=SR5jd+omWQxFX6UsqjsPKJ90ihXVqD9unyjxmpgtOwxUWqzaiAGqu+/+jjisWUfZk
+	 +WE12+qo/scn+FIl4BsRZoTY1FrVvLWk7j5+i8bflzxwUroKQX+ExD41QTVPhB2l8L
+	 qlrxRuy3vo36UxIaEBzPUACKcMxqdba+I8Hu2sRw=
+Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53BDoJCD031578
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 11 Apr 2025 08:50:19 -0500
+Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 11
+ Apr 2025 08:50:19 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 11 Apr 2025 08:50:18 -0500
+Received: from [10.249.136.157] ([10.249.136.157])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53BDoDJO001396;
+	Fri, 11 Apr 2025 08:50:14 -0500
+Message-ID: <293dfbda-841b-4a5a-85ac-6a6c2df5df09@ti.com>
+Date: Fri, 11 Apr 2025 19:20:12 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250411-trace-noc-v3-1-1f19ddf7699b@quicinc.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/7] arm64: dts: ti: am68-sk: Fix regulator hierarchy
+To: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>, <nm@ti.com>,
+        <vigneshr@ti.com>
+CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <vaishnav.a@ti.com>, <jai.luthra@linux.dev>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <imx@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+        <u-kumar1@ti.com>, <stable@vger.kernel.org>
+References: <20250409134128.2098195-1-y-abhilashchandra@ti.com>
+ <20250409134128.2098195-3-y-abhilashchandra@ti.com>
+Content-Language: en-US
+From: "Francis, Neha" <n-francis@ti.com>
+In-Reply-To: <20250409134128.2098195-3-y-abhilashchandra@ti.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_064647_218260_45F2F831 
-X-CRM114-Status: GOOD (  20.29  )
+X-CRM114-CacheID: sfid-20250411_065027_532052_A102AB07 
+X-CRM114-Status: GOOD (  15.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,140 +90,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 11, 2025 at 04:57:52PM +0800, Yuanfang Zhang wrote:
-> Add a new coresight-tnoc.yaml file to describe the bindings required to
-> define Trace Network On Chip (TNOC) in device trees. TNOC is an
-> integration hierarchy which is a hardware component that integrates the
-> functionalities of TPDA and funnels. It collects trace form subsystems
-> and transfers to coresight sink.
+On 4/9/2025 7:11 PM, Yemike Abhilash Chandra wrote:
+> Update the vin-supply of the TLV71033 regulator from LM5141 (vsys_3v3) to
+> LM61460 (vsys_5v0) to match the schematics. Add a fixed regulator node for
+> the LM61460 5V supply to support this change.
 > 
-> Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+> AM68-SK schematics: https://www.ti.com/lit/zip/sprr463
+> Fixes: a266c180b398 ("arm64: dts: ti: k3-am68-sk: Add support for AM68 SK base board")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
 > ---
->  .../bindings/arm/qcom,coresight-tnoc.yaml          | 111 +++++++++++++++++++++
->  1 file changed, 111 insertions(+)
+>  arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts | 13 ++++++++++++-
+>  1 file changed, 12 insertions(+), 1 deletion(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-tnoc.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-tnoc.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..709c1bc63db48c29bb2b33e7a795a5999768c5e7
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/arm/qcom,coresight-tnoc.yaml
-> @@ -0,0 +1,111 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/arm/qcom,coresight-tnoc.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> diff --git a/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts b/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
+> index 11522b36e0ce..5fa70a874d7b 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
+> @@ -44,6 +44,17 @@ vusb_main: regulator-vusb-main5v0 {
+>  		regulator-boot-on;
+>  	};
+>  
+> +	vsys_5v0: regulator-vsys5v0 {
+> +		/* Output of LM61460 */
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vsys_5v0";
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-max-microvolt = <5000000>;
+> +		vin-supply = <&vusb_main>;
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +	};
 > +
-> +title: Qualcomm Trace Network On Chip - TNOC
-> +
-> +maintainers:
-> +  - Yuanfang Zhang <quic_yuanfang@quicinc.com>
-> +
-> +description:
+>  	vsys_3v3: regulator-vsys3v3 {
+>  		/* Output of LM5141 */
+>  		compatible = "regulator-fixed";
+> @@ -76,7 +87,7 @@ vdd_sd_dv: regulator-tlv71033 {
+>  		regulator-min-microvolt = <1800000>;
+>  		regulator-max-microvolt = <3300000>;
+>  		regulator-boot-on;
+> -		vin-supply = <&vsys_3v3>;
+> +		vin-supply = <&vsys_5v0>;
+>  		gpios = <&main_gpio0 49 GPIO_ACTIVE_HIGH>;
+>  		states = <1800000 0x0>,
+>  			 <3300000 0x1>;
 
-'>' is needed for paragraphs.
+Reviewed-by: Neha Malcom Francis <n-francis@ti.com>
 
-> +  The Trace Network On Chip (TNOC) is an integration hierarchy hardware
-> +  component that integrates the functionalities of TPDA and funnels.
-> +
-> +  It sits in the different subsystem of SOC and aggregates the trace and
-> +  transports it to Aggregation TNOC or to coresight trace sink eventually.
-> +  TNOC embeds bridges for all the interfaces APB, ATB, TPDA and NTS (Narrow
-> +  Time Stamp).
-> +
-> +  TNOC can take inputs from different trace sources i.e. ATB, TPDM.
-> +
-> +# Need a custom select here or 'arm,primecell' will match on lots of nodes
-> +select:
-> +  properties:
-> +    compatible:
-> +      contains:
-> +        enum:
-> +          - qcom,coresight-tnoc
-> +  required:
-> +    - compatible
-> +
-> +properties:
-> +  $nodename:
-> +    pattern: "^tn(@[0-9a-f]+)$"
-> +
-> +  compatible:
-> +    items:
-> +      - const: qcom,coresight-tnoc
-> +      - const: arm,primecell
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clock-names:
-> +    items:
-> +      - const: apb_pclk
-> +
-> +  clocks:
-> +    items:
-> +      - description: APB register access clock
-> +
-> +  in-ports:
-> +    $ref: /schemas/graph.yaml#/properties/ports
-> +
-> +    patternProperties:
-> +      '^port(@[0-9a-f]{1,2})?$':
-> +        description: Input connections from CoreSight Trace Bus
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +
-> +  out-ports:
-> +    $ref: /schemas/graph.yaml#/properties/ports
-> +    additionalProperties: false
-> +
-> +    properties:
-> +      port:
-> +        description:
-> +          Output connection to CoreSight Trace Bus
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +  - in-ports
-> +  - out-ports
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    tn@109ab000  {
-> +      compatible = "qcom,coresight-tnoc", "arm,primecell";
-> +      reg = <0x0 0x109ab000 0x0 0x4200>;
-> +
-> +      clocks = <&aoss_qmp>;
-> +      clock-names = "apb_pclk";
-> +
-> +      in-ports {
-> +        #address-cells = <1>;
-> +        #size-cells = <0>;
-> +
-> +        port@0 {
-> +          reg = <0>;
-> +
-> +          tn_ag_in_tpdm_gcc: endpoint {
-> +            remote-endpoint = <&tpdm_gcc_out_tn_ag>;
-> +          };
-> +        };
-> +      };
-> +
-> +      out-ports {
-> +        port {
-> +          tn_ag_out_funnel_in1: endpoint {
-> +            remote-endpoint = <&funnel_in1_in_tn_ag>;
-> +          };
-> +        };
-> +      };
-> +    };
-> +...
-> 
-> -- 
-> 2.34.1
-> 
+-- 
+Thanking You
+Neha Malcom Francis
+
 
