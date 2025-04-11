@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D58A1C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 07:35:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ED35C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 07:42:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ErTbfgk4++UzzfQU2Tcn5izzwnAui7RchY5ANmXLCgY=; b=nwzdFBuMZet9MzdD5PIOq06wVU
-	Bb0462jIj5fIRl+ujohmTfZrVCE4n1k4UpOecSwJ34LZBkDhX9VjL97K5t+qtAQc0oZjRrJ4mGyJH
-	vDBtCRsYdYDzlwjwDXDodbUOyX/UPDr060bWfojWPJzJM7JGK0yuOOZlbsmb07dEc64hixScdO4dd
-	edGcbksF2cYG4SbI96w9zrQs9AlJt7eE0oXVlc7G48JMVsxU2CnrxCmVxBBHGOOCQndKJK2Q667Jf
-	P54yTaotiAk64GXyqEstFXk9r9hiXzLz/bbu2ol88dGaghSj9347sXhQJ1hqqQW/FqKUcHhHcCMmB
-	FXSM1AOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X+UQEszhhyx5orvv0upRMEVuQLmNZT576sheEcGpELI=; b=SbCBygDKO4q727W5TS+RqbGdDX
+	hDB33wXSgkC0zmhxMI7u2PCXCLR/5ozeZqeitZQuEkFZC44Q1+ZXTQ+Y9RGxQ7CryvbLBsdc4DZ6S
+	l+0r5DFTsPt1alBZB/V6buZE8Ij4dKWfSa9Ht5ph+Y13Ug2I7ozUCEy/zjKt03DphHkK/9M9pTfPn
+	BHUMcskEVOp1+sIX7+oaT1viSZ9EtJwAoGuXkuTgPgv432/UJ+mDaFfn+HSUu5TJTc6T9Yb6v4BwT
+	D9IwyvFxvISrEmzLEIR4fsqmvlCLM7xMSH6fy5JpY7Ejxei+DbLuDtCzruWiFcnVzl3W6AIKeuP8I
+	rDk5Czcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u38uY-0000000CtSY-39ol;
-	Fri, 11 Apr 2025 07:34:50 +0000
-Received: from mail.8bytes.org ([85.214.250.239])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u38mt-0000000Cr53-0SLW;
-	Fri, 11 Apr 2025 07:26:56 +0000
-Received: from 8bytes.org (p4ffe03ae.dip0.t-ipconnect.de [79.254.3.174])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.8bytes.org (Postfix) with ESMTPSA id 4304E4685C;
-	Fri, 11 Apr 2025 09:26:50 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=8bytes.org;
-	s=default; t=1744356410;
-	bh=oHJGD3DokWMMFOM+gMK6+SM9h2XRccCtdD4g4aHqNRc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Dhz9SsFMPKWl5jEsp+m2UYPQM3kNyhFqbKE3vrWSUFMsNQlrSrLZ4mp2uaIPH4mF6
-	 8wSoxJNJJoCmYIpkWcf+OkpIqMfVhKNdpEBR3aiJ2tgiel02mjj5D8RWGxvEl4DB/q
-	 IDhJZG0qV+LKbRgSWh9PISbRbvQdBoVlZ8VXKsATnqd1mDaLTGDSfIZzd05snhbDOo
-	 e7AXrhm0mdRuAE4cmm0zE+psiqEYWTgy29v/UTl3VQo/yk2CTpuUCQC0rgfkNP05Mg
-	 d7cK2J8VPIup+M9B1jTn35pRM8o9or9ookpMLlbKnVP/7ZCYPHmdpmNYjsF8mWLsFV
-	 46iSyf7xOfe1g==
-Date: Fri, 11 Apr 2025 09:26:49 +0200
-From: Joerg Roedel <joro@8bytes.org>
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Cc: Yong Wu <yong.wu@mediatek.com>, Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	"Rob Herring (Arm)" <robh@kernel.org>, kernel@collabora.com,
-	Joerg Roedel <jroedel@suse.de>, Jason Gunthorpe <jgg@ziepe.ca>,
-	iommu@lists.linux.dev, linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] iommu/mediatek: Fix NULL pointer deference in
- mtk_iommu_device_group
-Message-ID: <Z_jEOVDofe1P9f9d@8bytes.org>
-References: <20250327-fix-mtk-iommu-error-v1-1-df969158e752@collabora.com>
+	id 1u391M-0000000CuYV-3YLD;
+	Fri, 11 Apr 2025 07:41:52 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u38xp-0000000CtxK-3mYG
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 11 Apr 2025 07:38:15 +0000
+From: Nam Cao <namcao@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1744357092;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=X+UQEszhhyx5orvv0upRMEVuQLmNZT576sheEcGpELI=;
+	b=f4DJbwmzrkW7mPK9AHeAMNkaHKQb6i9D8wE+SjlI+6clttDzOXS+BH/xxNfaZnijDwvdOt
+	o7eAVGZ+a1CE4f/4FkFqOxnwC9JVHPkMXqvimm41ko07kwtSwv6CcXwyYcRUMcuWrB4yO1
+	WDpXcU36HnTCzuCfTd19Z/x6xdlaWhad04mswouMPSJHfhCHiPJBAOTNMdJvQdlgXiAIKC
+	lgNEG17P4M9QKvyTvrBr2oMMyWGHeolQyB66jng4iaN2IzNfFpgjNA7k07Awn5B9rL9559
+	klyZS1lhgO3nlRb0g9jCzNmW9t2xoCiDwbTYl1vzuq9M8geXllHaL7D+J0CMjg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1744357092;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=X+UQEszhhyx5orvv0upRMEVuQLmNZT576sheEcGpELI=;
+	b=q7ZNzw7KLTD8TrmZLui1q3zZXO8wwN74y0sMcI8jWDUU/BiH5Q1vArAYZTTz/JIp9gH6Ok
+	sOiFNeZHbpm2KzDg==
+To: Steven Rostedt <rostedt@goodmis.org>,
+	Gabriele Monaco <gmonaco@redhat.com>,
+	linux-trace-kernel@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: john.ogness@linutronix.de,
+	Nam Cao <namcao@linutronix.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2 17/22] arm64: mm: Add page fault trace points
+Date: Fri, 11 Apr 2025 09:37:33 +0200
+Message-Id: <952afa13306026813a5731703d6a86fb48f4ccf8.1744355018.git.namcao@linutronix.de>
+In-Reply-To: <cover.1744355018.git.namcao@linutronix.de>
+References: <cover.1744355018.git.namcao@linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250327-fix-mtk-iommu-error-v1-1-df969158e752@collabora.com>
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_002655_289721_18CD4A1D 
-X-CRM114-Status: UNSURE (   7.32  )
+X-CRM114-CacheID: sfid-20250411_003814_080844_9A7D92B7 
+X-CRM114-Status: UNSURE (   9.99  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,9 +83,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 27, 2025 at 11:46:31AM +0100, Louis-Alexis Eyraud wrote:
->  drivers/iommu/mtk_iommu.c | 25 +++++++++++++------------
->  1 file changed, 13 insertions(+), 12 deletions(-)
+Add page fault trace points, which are useful to implement RV monitor which
+watches page faults.
 
-Applied, thanks.
+Signed-off-by: Nam Cao <namcao@linutronix.de>
+---
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+---
+ arch/arm64/mm/fault.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+index ef63651099a9..e3f096b0dffd 100644
+--- a/arch/arm64/mm/fault.c
++++ b/arch/arm64/mm/fault.c
+@@ -44,6 +44,9 @@
+ #include <asm/tlbflush.h>
+ #include <asm/traps.h>
+=20
++#define CREATE_TRACE_POINTS
++#include <trace/events/exceptions.h>
++
+ struct fault_info {
+ 	int	(*fn)(unsigned long far, unsigned long esr,
+ 		      struct pt_regs *regs);
+@@ -559,6 +562,11 @@ static int __kprobes do_page_fault(unsigned long far, =
+unsigned long esr,
+ 	if (kprobe_page_fault(regs, esr))
+ 		return 0;
+=20
++	if (user_mode(regs))
++		trace_page_fault_user(addr, regs, esr);
++	else
++		trace_page_fault_kernel(addr, regs, esr);
++
+ 	/*
+ 	 * If we're in an interrupt or have no user context, we must not take
+ 	 * the fault.
+--=20
+2.39.5
+
 
