@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CF35C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 12:56:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 910FFC369A8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 12:58:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tQdjS8wEVI0RSkbTJN7+BoJg6JW5UQYaGPhCYbApfk0=; b=mJqeBxLXUsqgb3lQZxkmAmSoEM
-	a06qec8usy2o7w63qjXcHFKXm6xotYkejL5L2gLXA1V4fkvCeah930OLvo7vp0CRY2gEkD4lE1IXt
-	3ygAl9M1OVQbsa6UJ6o7xrvyFkJbakoHdl22cGP6rqhVV2nKs+MSSjgbJwHnsRER6/xdDiTws8FpW
-	IMP0CFZJXg+NR4gY4bikw9nyI8Op7kNjUxB2ziLLkRNmf41l0ct8RVN9wLiiDvsTSHjhulV6WhXf8
-	jyhTvgJAQlDYm2psxoTNGhqvFxPlBa+UGen2lD9Oqoka+4s0xvpUbz1pUCyCvafg+5WSE41LlUTZb
-	rBO5BABg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EOH8CIdz65AlaprFUzkJc8PL6lMT1kHFZ8SCjFlHZ9c=; b=ifbIcXKDOg+63cKTwIhgQbkjpT
+	35vCGLyELzcheNmJ7YJXKrzBraEPRablDjWswvNLXarAeKlFdJhe4TxRxZzBdpIHTRni0Cc6P6wfh
+	xmoIs8P/x3DNXGQzkrc4wwXjoxstTUCcVVnEM90Vq0klqxm0bx/obzXGLT3kr/n+ikWZOLg8RcFM1
+	uOO00J29U7u2xLRd2hz9FG8i/lI/KIAEFDVqog434ubRawZdrTl3NALYxwyJkH9nHso9Yy48T3C2J
+	lCjvTkddoYh16Cuk420sQ5lbmSD+lt3BiltGr/b3UGnz3DlKqq3lGF4gwFzaKdL2JpF6oI60keDU6
+	1QGrlVIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3Dw1-0000000DpBp-3QW1;
-	Fri, 11 Apr 2025 12:56:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3Dda-0000000DlWv-07bd
+	id 1u3Dxo-0000000DpX3-2itE;
+	Fri, 11 Apr 2025 12:58:32 +0000
+Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u3DhQ-0000000DmEf-1ky1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 12:37:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 12E3F106F;
-	Fri, 11 Apr 2025 05:37:37 -0700 (PDT)
-Received: from [10.57.72.36] (unknown [10.57.72.36])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 81F003F694;
-	Fri, 11 Apr 2025 05:37:31 -0700 (PDT)
-Message-ID: <5bad616f-8a62-46f4-9c0c-929f4ab1dde0@arm.com>
-Date: Fri, 11 Apr 2025 14:37:28 +0200
+	Fri, 11 Apr 2025 12:41:37 +0000
+Received: from francesco-nb (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id 2D7CA1FEC1;
+	Fri, 11 Apr 2025 14:41:34 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1744375294;
+	bh=EOH8CIdz65AlaprFUzkJc8PL6lMT1kHFZ8SCjFlHZ9c=; h=From:To:Subject;
+	b=E3btRzlir8gNK+aXDl3vPeVu4yeZ/AEtyTxwgKCsw8IULkGr+8Wid5/IKqHV6MMhs
+	 coudJUidzaoGjnYB/rZMq/WPqLgms0I7TMW2KyPmoLu2RIvwbQssuA8exOmAGPGCq1
+	 zTbZfp708FVTHIDztLVGSehqjJHi2fRFWoKhJ+tVPh/7wAhAfPIaMxlbUUg5URzSNv
+	 4+1SZhkjzFgr0hLM8bIbZL3R1TMtnpC4XHpegMk/T9rVWg2IrZhGSCdneamI2OvcER
+	 tNLxDjAF1Z8xMtxEKdaed9CxUIIL21V1OVYaWCODqs49g8HwRU8xQ4/AA6JkoUJn7n
+	 qklDoVJJhmGnw==
+Date: Fri, 11 Apr 2025 14:41:29 +0200
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Carlos Song <carlos.song@nxp.com>
+Cc: Francesco Dolcini <francesco@dolcini.it>,
+	Aisheng Dong <aisheng.dong@nxp.com>,
+	Andi Shyti <andi.shyti@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
+	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>
+Subject: Re: [PATCH v1] i2c: lpi2c: implement master_xfer_atomic callback
+Message-ID: <20250411124129.GA48732@francesco-nb>
+References: <20250319145114.50771-1-francesco@dolcini.it>
+ <20250411114738.GA43965@francesco-nb>
+ <FRWPR04MB11150B555044300A70102DAF5E8B62@FRWPR04MB11150.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v4 00/18] pkeys-based page table hardening
-To: Ingo Molnar <mingo@kernel.org>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- Andrew Morton <akpm@linux-foundation.org>, Mark Brown <broonie@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- David Hildenbrand <david@redhat.com>, Ira Weiny <ira.weiny@intel.com>,
- Jann Horn <jannh@google.com>, Jeff Xu <jeffxu@chromium.org>,
- Joey Gouly <joey.gouly@arm.com>, Kees Cook <kees@kernel.org>,
- Linus Walleij <linus.walleij@linaro.org>, Andy Lutomirski <luto@kernel.org>,
- Marc Zyngier <maz@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Pierre Langlois <pierre.langlois@arm.com>,
- Quentin Perret <qperret@google.com>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>,
- "Mike Rapoport (IBM)" <rppt@kernel.org>, Ryan Roberts
- <ryan.roberts@arm.com>, Thomas Gleixner <tglx@linutronix.de>,
- Will Deacon <will@kernel.org>, Matthew Wilcox <willy@infradead.org>,
- Qi Zheng <zhengqi.arch@bytedance.com>, linux-arm-kernel@lists.infradead.org,
- x86@kernel.org
-References: <20250411091631.954228-1-kevin.brodsky@arm.com>
- <Z_jfGlOEb4Bjl3vO@gmail.com>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <Z_jfGlOEb4Bjl3vO@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <FRWPR04MB11150B555044300A70102DAF5E8B62@FRWPR04MB11150.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_053738_180435_CD863CCB 
-X-CRM114-Status: GOOD (  13.92  )
+X-CRM114-CacheID: sfid-20250411_054136_615933_CA929171 
+X-CRM114-Status: GOOD (  16.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,55 +80,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/04/2025 11:21, Ingo Molnar wrote:
-> * Kevin Brodsky <kevin.brodsky@arm.com> wrote:
->
->> Performance
->> ===========
->>
->> Caveat: these numbers should be seen as a lower bound for the overhead
->> of a real POE-based protection. The hardware checks added by POE are
->> however not expected to incur significant extra overhead.
->>
->> +-------------------+----------------------------------+------------------+---------------+
->> | Benchmark         | Result Class                     | Without batching | With batching |
->> +===================+==================================+==================+===============+
->> | mmtests/kernbench | elsp-64                          |            0.20% |         0.20% |
->> |                   | syst-64                          |            1.62% |         0.63% |
->> |                   | user-64                          |           -0.04% |         0.05% |
->> +-------------------+----------------------------------+------------------+---------------+
->> | micromm/fork      | fork: p:1                        |      (R) 225.56% |        -0.07% |
->> |                   | fork: p:512                      |      (R) 254.32% |         0.73% |
->> +-------------------+----------------------------------+------------------+---------------+
->> | micromm/munmap    | munmap: p:1                      |       (R) 24.49% |         4.29% |
->> |                   | munmap: p:512                    |      (R) 161.47% |     (R) 6.06% |
->> +-------------------+----------------------------------+------------------+---------------+
->> | micromm/vmalloc   | fix_size_alloc_test: p:1, h:0    |       (R) 14.80% |    (R) 11.85% |
->> |                   | fix_size_alloc_test: p:4, h:0    |       (R) 38.42% |    (R) 10.47% |
->> |                   | fix_size_alloc_test: p:16, h:0   |       (R) 64.74% |     (R) 6.41% |
->> |                   | fix_size_alloc_test: p:64, h:0   |       (R) 79.98% |     (R) 3.24% |
->> |                   | fix_size_alloc_test: p:256, h:0  |       (R) 85.46% |     (R) 2.77% |
->> |                   | fix_size_alloc_test: p:16, h:1   |       (R) 47.89% |         3.10% |
->> |                   | fix_size_alloc_test: p:64, h:1   |       (R) 62.43% |         3.36% |
->> |                   | fix_size_alloc_test: p:256, h:1  |       (R) 64.30% |     (R) 2.68% |
->> |                   | random_size_alloc_test: p:1, h:0 |       (R) 74.94% |     (R) 3.13% |
->> |                   | vm_map_ram_test: p:1, h:0        |       (R) 30.53% |    (R) 26.20% |
->> +-------------------+----------------------------------+------------------+---------------+
-> So I had to look 3 times to figure out what the numbers mean: they are 
-> the extra overhead from this hardening feature, measured in system time 
-> percentage, right?
+Hello,
 
-These are relative increases compared to the baseline for this series
-(described earlier on: 6.15-rc1 + 2 additional series). Real time is
-measured, except for kernbench where all 3 measurements are provided.
+On Fri, Apr 11, 2025 at 11:55:31AM +0000, Carlos Song wrote:
+> > On Wed, Mar 19, 2025 at 03:51:14PM +0100, Francesco Dolcini wrote:
+> > > From: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
+> > >
+> > > Rework the read and write code paths in the driver to support
+> > > operation in atomic contexts. To achieve this, the driver must not
+> > > rely on IRQs or perform any scheduling, e.g., via a sleep or schedule
+> > > routine. Even jiffies do not advance in atomic contexts, so timeouts
+> > > based on them are substituted with delays.
+> > >
+> > > Implement atomic, sleep-free, and IRQ-less operation. This increases
+> > > complexity but is necessary for atomic I2C transfers required by some
+> > > hardware configurations, e.g., to trigger reboots on an external PMIC chip.
+> > >
+> > > Signed-off-by: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
+> > > Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+> > 
+> > Any comment on this?
+> Looks good. Thank you for your work!
+> Do you test it at some board? How can we test simply?
 
-> So "4.29%" means there's a 4.29% slowdown on that particular workload 
-> when the feature is enabled. Maybe add an explanation to the next iteration? :-)
+It was tested on Toradex SMARC iMX95, there to power-off/reset the board
+we have some I2C communication required [1].
 
-Yes that's right. I thought it was clear from the description above but
-evidently I was wrong :) I'll add a "plain text" reading like this one
-in the next version. I should also have mentioned which config was used,
-namely: defconfig + CONFIG_KPKEYS_HARDENED_PGTABLES=y
+[1] https://lore.kernel.org/all/20250407114947.41421-3-francesco@dolcini.it/
 
-- Kevin
+Francesco
+
 
