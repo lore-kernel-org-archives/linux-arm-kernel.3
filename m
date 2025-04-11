@@ -4,89 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66DDAC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 13:41:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2C1EC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 13:43:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3HdsNeALPBRl7TJQey6t9d/l1PV0RD8jB7VsA4lZuNc=; b=AcoOXXQNmKVuyVT9E1pmx/Te2g
-	l2/mUiZ60aSLxUjyyVfc9lV52zfXVe5zj4V8caZ0ig1bYq1+zqyyipOhXIaRiYIOP+BPMY/gmzRcT
-	l6Ao7GyfTYev3s6PIv+T4U0v4ZHtOe+pn5H2ZTfG81QkyoGGcy+6PngEKa38xq0C//zpnyx0Zif+H
-	cjb5opfEt25iVHkZnR+27LGrOAJppBnqM4iUtQwUSNyYDGCyauKhOgYL6zWuqGuobsb8PQnBfknwb
-	0WvWx/HxVCCU1V9y40jA5GvoX7+uVARAqZEl2Iy0ikp8X2TCOF8lqDnpDexj5wo4iDNXeVZHnCE22
-	cOf2IV8w==;
+	bh=Gboexee6mD0L1jweFt2EEXBwApJzHNO1ztWVUzHiKoM=; b=VZoQO8ILgrMXsEyUkaQdADtJMx
+	1ZouiYiFfp4/5oJfdXhhLf7QjdX1pNsOs+LPpQAR7NamwXzK7VW/SOQTG1fwLZvJO9fAX4ZS90K9D
+	CZW+n3VREcSD8k5bx2GNgPqZLT+CNKV8eJxpVHIUeqRiox4s7K6Sq0mlnoV2m412Ukq9nQARN75UN
+	uqH0InQzvkeF/3D3adRGneLXRWVawDw8Y2txRLS8tF5hNrpABCtto+s/uEMDBMRnKihlqZFJ42oNU
+	yU5lpYxl/neY/6AHzimCPTA1Y5+UY95TUghnVwEYxOx6M35r35Yit5zReaRm1h4wBLSFb8I3CRr7a
+	onrIQoqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3Edg-0000000Dxqh-02Tq;
-	Fri, 11 Apr 2025 13:41:48 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1u3EfT-0000000DyCN-0imw;
+	Fri, 11 Apr 2025 13:43:39 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3EUv-0000000DwN1-316B
+	id 1u3EUy-0000000DwOP-3h5D
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 13:32:47 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-54d42884842so1670567e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Apr 2025 06:32:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744378363; x=1744983163; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3HdsNeALPBRl7TJQey6t9d/l1PV0RD8jB7VsA4lZuNc=;
-        b=JS2lYyci9yebaubgDioSE9SOWXxYQYbLQCn+9LcL/S33aIFYfamT0pTkhc2Y9K5S/E
-         y2Bl9Gfkt5YCEHdNGxRj04n8tvucRQpNPAWzaUrd8iFj3j8PjfYRqMx5RoQaA5J7VQPZ
-         RCsijILingZJtgzmhrsX2gfT1EuWai6qIpPKheQ6QSsmq6EWQgPuFxS76AgFVJJnLBen
-         OeiVZ+sTSCiBYXfN4iPn2QcXl9bOfMVQFVDaQ1IZhhJTzpKez7wNdyG/JpJLzbDIM81n
-         5sWGl/2BaRZv2l9UA3CLm6BRUlWacJokfZ2xjlzWvIjD8FpMeIdEAM+Hcve4+K4VVhJP
-         LCjQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744378363; x=1744983163;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=3HdsNeALPBRl7TJQey6t9d/l1PV0RD8jB7VsA4lZuNc=;
-        b=cSOHh+OXsbA9F+OnXytEoliH9YdAhBxpRqMCt4SQLiy13Tw9BYmRg0XR6UWNmRqzmX
-         xZg2QXM9gxeCW+GsgcAm/DStxqe/29ef9wBICWCRgUH28WYZ46vB3mnuoIxTYd5PCvMx
-         +0qHCSNCQNBs/Stt3v4izeQb/JnxE7zhptXpcdJj0CbCNsQfwSeoHuLkNL9KNvLbHk+z
-         Fl1iKoMp7Z9JydmgQUa/D/G+DcB43wkCNHg/XAZyttLZWdv9s2AMWfSjJuExikdVcrvH
-         95cLlHg8Cc/pNjFZj0ernLFIgYV98QzjfmHLRPHDlCJ1KT30PlDDnPAGcJYiE9soAKz7
-         LxZQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWFF31xIR96ZCwSn64iJKofxAH0f71V6IOSape2I69IsIa2v8z7GNT0AS2MVv/nI6YZt0IaKQD7zmppV9oiTT/Q@lists.infradead.org
-X-Gm-Message-State: AOJu0YxSRMqRZd7nzWjyEeqXR2JGpQH6TgmDKimO7Nhy+EMhztSFKKSD
-	iv0g6+4vFBl05oEpRqedEDMtksPnhMR7+it/aP5kmjP5iwHH5MZw/CpF+GVh95wUwYDuTUEiyzH
-	imF5+DamtKSMjoyedy1MAnk4vdNc=
-X-Gm-Gg: ASbGnct9IX4VJzHZJyWynayGOCtl7gajeHcRf+oxBx3MC1FsL7y0Dhp/+YJb7nEIdLt
-	cIXwfLY6jfd5eiwV3LwNpPs2nknTlNpShwFudzqgsCcuHbkZBExAJVdeXwp55VgMjDjvme9VSuZ
-	f4jvwBUIiHKZxDlcVov0dXuP3Fdh2TeaPbI2BZPE9ecOG51wNXTjv+uA==
-X-Google-Smtp-Source: AGHT+IE33NDJqid6qPgYC+c0Q5rSljAhPbuipqNwWv+AwO2kvaeyl/9m5RUa6zx/o/+6PMIcz7x+vDzf+xQLmDGeeMs=
-X-Received: by 2002:a05:6512:1095:b0:545:aaf:13fd with SMTP id
- 2adb3069b0e04-54d452e33e4mr939323e87.51.1744378362995; Fri, 11 Apr 2025
- 06:32:42 -0700 (PDT)
+	Fri, 11 Apr 2025 13:32:50 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53BDWWYb2086133
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 11 Apr 2025 08:32:32 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1744378352;
+	bh=Gboexee6mD0L1jweFt2EEXBwApJzHNO1ztWVUzHiKoM=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=ubbbPPRoTePNDMPdfLtMBZpmJTGOITP771vSjv2qNk/m54WJmWZEd6mPuKrciEIaC
+	 DeNzEG0VetxaLfgDHEtM/94Js/4z87J1JVfg1lt0fE71nLWA6oCsnCd9p+GslJqQHC
+	 9uLnFeAhmC/jK+P1OqRzsORAQ94R1tTyhlg3Q4D4=
+Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53BDWW1p021039
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 11 Apr 2025 08:32:32 -0500
+Received: from DLEE104.ent.ti.com (157.170.170.34) by DLEE105.ent.ti.com
+ (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 11
+ Apr 2025 08:32:31 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE104.ent.ti.com
+ (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 11 Apr 2025 08:32:31 -0500
+Received: from [10.249.136.157] ([10.249.136.157])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53BDWQDe107922;
+	Fri, 11 Apr 2025 08:32:27 -0500
+Message-ID: <9d0f7fc5-070d-4475-8569-d3e0e9421313@ti.com>
+Date: Fri, 11 Apr 2025 19:02:26 +0530
 MIME-Version: 1.0
-References: <20250407145157.3626463-1-lukma@denx.de> <20250407145157.3626463-4-lukma@denx.de>
-In-Reply-To: <20250407145157.3626463-4-lukma@denx.de>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Fri, 11 Apr 2025 10:32:31 -0300
-X-Gm-Features: ATxdqUHrNbX-n4olVG1x03xQyfka5HcmTFZKe3_PzzPGFy-GrmPZgKlTzpzOW2Q
-Message-ID: <CAOMZO5B6q06nvk3+hzbioGpcW8_JXPZGEebApTU5JZbKvMLzxA@mail.gmail.com>
-Subject: Re: [net-next v4 3/5] ARM: dts: nxp: mxs: Adjust XEA board's DTS to
- support L2 switch
-To: Lukasz Majewski <lukma@denx.de>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, Stefan Wahren <wahrenst@gmx.net>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/7] arm64: dts: ti: j721e-sk: Add DT nodes for power
+ regulators
+To: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>, <nm@ti.com>,
+        <vigneshr@ti.com>
+CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <vaishnav.a@ti.com>, <jai.luthra@linux.dev>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <imx@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+        <u-kumar1@ti.com>, <stable@vger.kernel.org>
+References: <20250409134128.2098195-1-y-abhilashchandra@ti.com>
+ <20250409134128.2098195-2-y-abhilashchandra@ti.com>
+Content-Language: en-US
+From: "Francis, Neha" <n-francis@ti.com>
+In-Reply-To: <20250409134128.2098195-2-y-abhilashchandra@ti.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_063245_754344_7C1D053F 
-X-CRM114-Status: UNSURE (   8.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250411_063249_058446_1295795A 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,18 +91,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lukasz,
+Hi Abhilash
 
-On Mon, Apr 7, 2025 at 11:52=E2=80=AFAM Lukasz Majewski <lukma@denx.de> wro=
-te:
+On 4/9/2025 7:11 PM, Yemike Abhilash Chandra wrote:
+> Add device tree nodes for two power regulators on the J721E SK board.
+> vsys_5v0: A fixed regulator representing the 5V supply output from the
+> LM61460 and vdd_sd_dv: A GPIO-controlled TLV71033 regulator.
+> 
+> J721E-SK schematics: https://www.ti.com/lit/zip/sprr438
+> Fixes: 1bfda92a3a36 ("arm64: dts: ti: Add support for J721E SK")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+> ---
+>  arch/arm64/boot/dts/ti/k3-j721e-sk.dts | 31 ++++++++++++++++++++++++++
+>  1 file changed, 31 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-sk.dts b/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
+> index 440ef57be294..4965957e6545 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
+> @@ -184,6 +184,17 @@ vsys_3v3: fixedregulator-vsys3v3 {
+>  		regulator-boot-on;
+>  	};
+>  
+> +	vsys_5v0: fixedregulator-vsys5v0 {
+> +		/* Output of LM61460 */
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vsys_5v0";
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-max-microvolt = <5000000>;
+> +		vin-supply = <&vusb_main>;
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +	};
+> +
+>  	vdd_mmc1: fixedregulator-sd {
+>  		compatible = "regulator-fixed";
+>  		pinctrl-names = "default";
+> @@ -211,6 +222,20 @@ vdd_sd_dv_alt: gpio-regulator-tps659411 {
+>  			 <3300000 0x1>;
+>  	};
+>  
+> +	vdd_sd_dv: gpio-regulator-TLV71033 {
+> +		compatible = "regulator-gpio";
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&vdd_sd_dv_pins_default>;
+> +		regulator-name = "tlv71033";
+> +		regulator-min-microvolt = <1800000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		regulator-boot-on;
+> +		vin-supply = <&vsys_5v0>;
+> +		gpios = <&main_gpio0 118 GPIO_ACTIVE_HIGH>;
+> +		states = <1800000 0x0>,
+> +			 <3300000 0x1>;
+> +	};
+> +
+>  	transceiver1: can-phy1 {
+>  		compatible = "ti,tcan1042";
+>  		#phy-cells = <0>;
+> @@ -613,6 +638,12 @@ J721E_WKUP_IOPAD(0xd4, PIN_OUTPUT, 7) /* (G26) WKUP_GPIO0_9 */
+>  		>;
+>  	};
+>  
+> +	vdd_sd_dv_pins_default: vdd-sd-dv-default-pins {
+> +		pinctrl-single,pins = <
+> +			J721E_IOPAD(0x1dc, PIN_INPUT, 7) /* (Y1) SPI1_CLK.GPIO0_118 */
+> +		>;
+> +	};
+> +
+>  	wkup_uart0_pins_default: wkup-uart0-default-pins {
+>  		pinctrl-single,pins = <
+>  			J721E_WKUP_IOPAD(0xa0, PIN_INPUT, 0) /* (J29) WKUP_UART0_RXD */
 
-> +               ethphy0: ethernet-phy@0 {
-> +                       reg =3D <0>;
-> +                       smsc,disable-energy-detect;
-> +                       /* Both PHYs (i.e. 0,1) have the same, single GPI=
-O, */
-> +                       /* line to handle both, their interrupts (OR'ed) =
-*/
+Reviewed-by: Neha Malcom Francis <n-francis@ti.com>
 
-Please fix the multi-line comment style.
+-- 
+Thanking You
+Neha Malcom Francis
+
 
