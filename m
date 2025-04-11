@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A1FDC369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 17:34:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24947C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 17:36:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7PisXZx8Xm0HiPcHJWMpCOtSYpEXoHPpQf705JcExTk=; b=28h5PwzQYC1YMpy+aQMyrxuiJU
-	LBmLi8//k2p/CRCH6f1YIn37saqj8f5ojPKqzSMvO6YJMzLSe8rAeM8TGJCK5qZBb+RGCdJEqrE0R
-	GdrFh9hLe71dino1cEzTLojTwoqlAnvYTwGd++eMLlglWC2SxeP4BksmiZ+Xk80hT1I3wTiVEAYeQ
-	JcNJq/geIKpS2+yk4hNt/ROEMlJge8whFwg2IGvBG+H5+AR5WSvR6dOihcNYhrefsu6CnsrcmXmgQ
-	MfeeqooEkMv+Rz8LOhoZ00fJWsTm81HKcNmusBd/IYWw8nrVVjFBL/R8Qf7mhK15Q7bJvaWk2nC0U
-	2dEoe+zg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WoxQc7fzJrKUrTxldrOBJXnShQqyA7cSsU6H1m8i5cg=; b=xnEN17t7f476kWa5yCSXZFBJ/B
+	HjuoARQCZfTjhOa987GDbO06bdmF+Hwe3tQd7FUKadyyu6yIzF6Zsksf3LhKwzBwr3MTiQlsfXQa9
+	F4o4auvmI8UvqHsnWDj9fCd4+/yyRxYS/S0HMZGx7+py2R/7IJV+xpLLZ0jU3ggImnULpiVdFS7TQ
+	xeO2xUMHwXXUvNxdEWIB4j/YtGX9otlNlkG4xTaBksAqAcVwoeZ7NAK4miaQsaUPQPCK5H7kGARrj
+	O2eCKj5Hw57OpSkYCbTEKmvvNMqtLKL+vwi+m4KW7cXztazBjTYxfKvtMjg5khD1tlaKUeaaebjv2
+	LWbh6vSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3IGx-0000000EXkj-24Gy;
-	Fri, 11 Apr 2025 17:34:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u3IIk-0000000EY0D-0k3y;
+	Fri, 11 Apr 2025 17:36:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3IAm-0000000EWTl-2FRD
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 17:28:12 +0000
+	id 1u3IAx-0000000EWWh-2mZ6;
+	Fri, 11 Apr 2025 17:28:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4699A68471;
-	Fri, 11 Apr 2025 17:28:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AB82C4CEE2;
-	Fri, 11 Apr 2025 17:28:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 28FF1439D1;
+	Fri, 11 Apr 2025 17:28:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF5CAC4CEE2;
+	Fri, 11 Apr 2025 17:28:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744392491;
-	bh=WC3u1ImMrIwQcuUwS71L4kjKo8LAJfFX0pYiJWHDjs0=;
-	h=From:To:Cc:Subject:Date:From;
-	b=MymUixhS6j31bXwFvi6mFMde2JMsbqVN+cM5XbJ2n0Fw/uSA4PPjbKbuOl03Ljm65
-	 c1+UhbEjQan/xoAt0c9NIRR65zLecEmEUJF3NyMD8/ejDRa/Iz2ZsBE1iTpENqhIEh
-	 00Q1T95PWm9ASE3S+nTEm0EsKYpVUZ+dzRrCeswWM17+kYaykbNZ6y4Jk9j4RyONDx
-	 PRqI4GNN8WIB62+cER8is5rrKbYsvr+yCpfBLHLU935pl+Q+ogeLrdmontI6Z8IjM4
-	 WUh4/SyHAdwJKiNNgXyLGRr9hKTCDLc/M0r4VONW5ZFiceGjNAin/RD/b2MBZ2AJPq
-	 wRe0JosummXAg==
-From: Will Deacon <will@kernel.org>
-To: stable@vger.kernel.org
-Cc: gregkh@linuxfoundation.org,
-	Piotr Jaroszynski <pjaroszynski@nvidia.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Alistair Popple <apopple@nvidia.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	SeongJae Park <sj@kernel.org>,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	John Hubbard <jhubbard@nvidia.com>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org
-Subject: [BACKPORT PATCH 6.6.y] Fix mmu notifiers for range-based invalidates
-Date: Fri, 11 Apr 2025 18:28:04 +0100
-Message-Id: <20250411172804.6014-1-will@kernel.org>
-X-Mailer: git-send-email 2.20.1
+	s=k20201202; t=1744392502;
+	bh=Zgeijt2L3xmMVOj41zXB5W/Ov2bbKub6fLsjPUsMN/w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=o5Obqq35/zWhTa5AFgJOeB9pKQWOMMdtyWUJFFbyyhjwHWnqbwSh8qbgfa35tWzil
+	 JhaKLuYyFp8Bp2/sOJLTC7mBIO5DzmlbnPXp32LrvEvEATfxtNFhnkgvUynw2IaYRc
+	 bWD/fhNC/QXPblXhZTu8vIpUpXlKa6x5qQCXjhUN64LcJXfg77t1K/HR2Bvf5JPkQo
+	 Jj9x3xdAM5jm8LhBtTnUEOO9+tzRHRUdEW7SUwrvtRr4Qzl6cQ2nc7yNI+3GJohY8L
+	 LTAkz1KcnikoWMVz9PKIBx8vt2ho1qv6umMapE1aaHb/6rmyJTXbJ30n11aRxfaVel
+	 O2xcTSliYrbSA==
+Date: Fri, 11 Apr 2025 12:28:21 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: conor+dt@kernel.org, linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	broonie@kernel.org, kernel@collabora.com,
+	linux-arm-kernel@lists.infradead.org, henryc.chen@mediatek.com,
+	krzk+dt@kernel.org, lgirdwood@gmail.com, matthias.bgg@gmail.com
+Subject: Re: [PATCH v1 2/5] dt-bindings: regulator: mediatek-dvfsrc: Add
+ MT6893 support
+Message-ID: <174439250122.3591052.15241487083361117894.robh@kernel.org>
+References: <20250410144019.475930-1-angelogioacchino.delregno@collabora.com>
+ <20250410144019.475930-3-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250410144019.475930-3-angelogioacchino.delregno@collabora.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250411_102823_717872_A2D2B173 
+X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,100 +76,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Piotr Jaroszynski <pjaroszynski@nvidia.com>
 
-[ Upstream commit f7edb07ad7c66eab3dce57384f33b9799d579133 ]
+On Thu, 10 Apr 2025 16:40:16 +0200, AngeloGioacchino Del Regno wrote:
+> Add a compatible for the MediaTek Dimensity 1200 (MT6893) SoC's
+> regulators over DVFSRC.
+> This SoC uses different values for the vsel, hence it is not
+> compatible with the currently supported ones.
+> 
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> ---
+>  .../bindings/regulator/mediatek,mt6873-dvfsrc-regulator.yaml     | 1 +
+>  1 file changed, 1 insertion(+)
+> 
 
-Update the __flush_tlb_range_op macro not to modify its parameters as
-these are unexepcted semantics. In practice, this fixes the call to
-mmu_notifier_arch_invalidate_secondary_tlbs() in
-__flush_tlb_range_nosync() to use the correct range instead of an empty
-range with start=end. The empty range was (un)lucky as it results in
-taking the invalidate-all path that doesn't cause correctness issues,
-but can certainly result in suboptimal perf.
-
-This has been broken since commit 6bbd42e2df8f ("mmu_notifiers: call
-invalidate_range() when invalidating TLBs") when the call to the
-notifiers was added to __flush_tlb_range(). It predates the addition of
-the __flush_tlb_range_op() macro from commit 360839027a6e ("arm64: tlb:
-Refactor the core flush algorithm of __flush_tlb_range") that made the
-bug hard to spot.
-
-Fixes: 6bbd42e2df8f ("mmu_notifiers: call invalidate_range() when invalidating TLBs")
-
-Signed-off-by: Piotr Jaroszynski <pjaroszynski@nvidia.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Robin Murphy <robin.murphy@arm.com>
-Cc: Alistair Popple <apopple@nvidia.com>
-Cc: Raghavendra Rao Ananta <rananta@google.com>
-Cc: SeongJae Park <sj@kernel.org>
-Cc: Jason Gunthorpe <jgg@nvidia.com>
-Cc: John Hubbard <jhubbard@nvidia.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: iommu@lists.linux.dev
-Cc: linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org # Backport for 6.6.y only
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-Reviewed-by: Alistair Popple <apopple@nvidia.com>
-Link: https://lore.kernel.org/r/20250304085127.2238030-1-pjaroszynski@nvidia.com
-[will: Resolve conflicts due to lack of LPA2 support]
-Signed-off-by: Will Deacon <will@kernel.org>
----
- arch/arm64/include/asm/tlbflush.h | 22 ++++++++++++----------
- 1 file changed, 12 insertions(+), 10 deletions(-)
-
-diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-index b73baaf8ae47..d37db2f7a54c 100644
---- a/arch/arm64/include/asm/tlbflush.h
-+++ b/arch/arm64/include/asm/tlbflush.h
-@@ -369,31 +369,33 @@ static inline void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
- #define __flush_tlb_range_op(op, start, pages, stride,			\
- 				asid, tlb_level, tlbi_user)		\
- do {									\
-+	typeof(start) __flush_start = start;				\
-+	typeof(pages) __flush_pages = pages;				\
- 	int num = 0;							\
- 	int scale = 3;							\
- 	unsigned long addr;						\
- 									\
--	while (pages > 0) {						\
-+	while (__flush_pages > 0) {					\
- 		if (!system_supports_tlb_range() ||			\
--		    pages == 1) {					\
--			addr = __TLBI_VADDR(start, asid);		\
-+		    __flush_pages == 1) {				\
-+			addr = __TLBI_VADDR(__flush_start, asid);	\
- 			__tlbi_level(op, addr, tlb_level);		\
- 			if (tlbi_user)					\
- 				__tlbi_user_level(op, addr, tlb_level);	\
--			start += stride;				\
--			pages -= stride >> PAGE_SHIFT;			\
-+			__flush_start += stride;			\
-+			__flush_pages -= stride >> PAGE_SHIFT;		\
- 			continue;					\
- 		}							\
- 									\
--		num = __TLBI_RANGE_NUM(pages, scale);			\
-+		num = __TLBI_RANGE_NUM(__flush_pages, scale);		\
- 		if (num >= 0) {						\
--			addr = __TLBI_VADDR_RANGE(start, asid, scale,	\
--						  num, tlb_level);	\
-+			addr = __TLBI_VADDR_RANGE(__flush_start, asid,	\
-+						scale, num, tlb_level);	\
- 			__tlbi(r##op, addr);				\
- 			if (tlbi_user)					\
- 				__tlbi_user(r##op, addr);		\
--			start += __TLBI_RANGE_PAGES(num, scale) << PAGE_SHIFT; \
--			pages -= __TLBI_RANGE_PAGES(num, scale);	\
-+			__flush_start += __TLBI_RANGE_PAGES(num, scale) << PAGE_SHIFT; \
-+			__flush_pages -= __TLBI_RANGE_PAGES(num, scale);\
- 		}							\
- 		scale--;						\
- 	}								\
--- 
-2.49.0.604.gff1f9ca942-goog
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
