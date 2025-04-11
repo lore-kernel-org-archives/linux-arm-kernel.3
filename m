@@ -4,86 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12363C369A9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 09:58:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F64CC369A8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 09:58:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RtU+pOoZbsLOnPjUI7YZ5FGGjZ40GzcCM59B/7LbYr4=; b=fihs8HMNQLZ031w9gAjjzwGR9i
-	YNLVglhZxNlb4KXcEBTjNw6u6v0nhvtGvq5KrCDpfTSjqgHSQzTX+7+aKLGF30/EbY1KlbFT0Yncz
-	FvsYP7HjI0NJYAv5I6zXew5SXo4BvTsBEfp6hFECsEg0ZJTylOeyFrlhIl5PQqdUH7saeUbFfkH5/
-	SV2AR1IGib5rPLpkJ82uL9ZmZlSyvwbWGakOFG9EIWmWLhNu9nwI7lqSX0UVYCiBX+fb4+Vn6Czf9
-	o5rljBvdMf3m0U++XeUceP1moR5qkupNZ5A7lCrPgK5L8RcBr2ge8Foom120PojVpHenR8qS1vdbv
-	SKBqwwzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=opGgYOxHkmo46xSWQ2t820m/8IndJ3ND/kGiEZemXDA=; b=ELEICql9Hgd+CQCPdwEL30+f1A
+	CMOWCX9sdpM+0391sGas7Tqkus2IOnxCh1id43iIvkdRk1LogWbah4jK8dOtZFoFnGwnwNYsQuPp8
+	764Zq/ZqI9g5mIiaAg+S1MjChVbSQUdgFVIQWrfe+tHvweKdyzyM2uyp3aLX++pWFkoeWULXBUNlt
+	7jvlVY6WpHkXVThvm7cVGU5Ql5omuOMfJ447URcvLcClzs3eDq+y2JWICKEV/jz3gtkzRTc5sfBqi
+	pbu9H36TqmfOOHDeO6+YqxCh5d01vVKklHmkDBwn4h3xnmRYGGeG7V7J4EwUek/GdUR6PCNR31LH9
+	LBOJwuwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3B9J-0000000DH4C-2n5T;
-	Fri, 11 Apr 2025 09:58:13 +0000
-Received: from mail-yb1-xb34.google.com ([2607:f8b0:4864:20::b34])
+	id 1u3B9K-0000000DH56-3iji;
+	Fri, 11 Apr 2025 09:58:15 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u39u9-0000000D39H-2UOO
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 08:38:32 +0000
-Received: by mail-yb1-xb34.google.com with SMTP id 3f1490d57ef6-e6e2a303569so1341819276.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Apr 2025 01:38:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1744360708; x=1744965508; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RtU+pOoZbsLOnPjUI7YZ5FGGjZ40GzcCM59B/7LbYr4=;
-        b=Z5O4UPlHUsB1G50hHjz7gr66xYgF4h7daqSwfnWrMcCAJG8fWI3SpgGP3evJPpbmfQ
-         /Km0PlaQqHbBzdUy/aGdqTP3W8nJMNyEgobhkY4WrevkLpFKKw60Hmu9wf3HibweCpnh
-         FaRUYaRHBYEeiKudfNRXglaF/KynWOdwKaVOI=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744360708; x=1744965508;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=RtU+pOoZbsLOnPjUI7YZ5FGGjZ40GzcCM59B/7LbYr4=;
-        b=Xbqxzuyf1RNodpUebNReEsP53Fie3iMW43HFjItUFgr3a5UV2FXnoxcLsx4nD3TvZS
-         17kfYw5zIdG58//3as/FZPdu0WmOiD439AStx2li9izQ6XLqipbs2/VFQ8n9mVfDJTrG
-         mNDr3glr5ivLQTYAIjrnTtpKw2mGZK1ZfT/K6h69Z//CZmg3MVSva4XNg0KO59EOeupV
-         11Q5zPpw4AdLyT4I2A8VJEAKtEjik3diey6JqiwZUvpesT6DVK2ybYvpQvemLd6Yn9XX
-         lqaZmnP4gdQua+6vcsdxm6vnz44wWWPgvrIEWqbMmCJLTArbWPP4dTBKXQG7eG+y6iLB
-         RVfw==
-X-Forwarded-Encrypted: i=1; AJvYcCUYb0wQdyJYPIqSvLEKiBa5llRaA3de5Rg5Y7DqS07FRa+lSHcRghF5kA6IurUI3q8Ujj6VByfVQ8ynWqc23H3Y@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx9+r56idBcUDUVXrGBfxTpHv8CeZHbvA/AX8huYDlnO05ettWn
-	8qkKJawCqS6hL2iQuM8n7GEIpoy4zFUVERKFozpYKrGDJ2luKGdIndC4waildyBKpFRWVPDiOu0
-	3kBa31P13mflE5K4ORKmFzF2wTUDyBrQOO2EZ+w==
-X-Gm-Gg: ASbGncv/ODqDOdZyLDlEhprV/UsOHpLC57UxP+Z26FFv9B7N2IcHmyBzMe+QGRiPuIS
-	XlHBzsgKtHsUfgNG5alEkIzhD9EDQr1KS0WCHScL1NyXqltrr7BGkxt+X7DfDRaLT56erDMSmr1
-	Oeln3l6cC6Ajg/vKPiTTo=
-X-Google-Smtp-Source: AGHT+IHCodNLsYqxPgYy8KacCIFQ8uMbF8eAgpfHHABuPW/r+cXCzHR5Dy1G6JiUbudEZgEzb8V1wt8pBrFYRs9UU4s=
-X-Received: by 2002:a05:6902:2012:b0:e6d:dfea:8f09 with SMTP id
- 3f1490d57ef6-e704decd54bmr3276455276.26.1744360708185; Fri, 11 Apr 2025
- 01:38:28 -0700 (PDT)
+	id 1u39xm-0000000D3oO-3Jhn;
+	Fri, 11 Apr 2025 08:42:16 +0000
+X-UUID: d94ceebe16b011f083f2a1c9db70dae0-20250411
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=opGgYOxHkmo46xSWQ2t820m/8IndJ3ND/kGiEZemXDA=;
+	b=IKw1GhFa9DXoFWGWj3mweRA9f1G9joHOSOHwWeuyY+ICjLxfolw2p6uf+ddf/sgAS8PoCpZKJV1W4HnhYxsTx87L7V7FYHV/k0vuJdTvI1HV2cH6xk6QaoQFnqaeWTlWZ7RJrp0V9hp9NLlwcJqHqG4yi+oBMI8Hxr2RAJ0GJFw=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.1,REQID:59d277c0-74aa-4ef7-933c-37ff5db4c015,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:0ef645f,CLOUDID:615b218b-0afe-4897-949e-8174746b1932,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
+	l,URL:1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
+	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_ULS,TF_CID_SPAM_SNR
+X-UUID: d94ceebe16b011f083f2a1c9db70dae0-20250411
+Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw01.mediatek.com
+	(envelope-from <ot_chhao.chang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1298596559; Fri, 11 Apr 2025 01:42:06 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Fri, 11 Apr 2025 16:42:03 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Fri, 11 Apr 2025 16:42:03 +0800
+From: Hao Chang <ot_chhao.chang@mediatek.com>
+To: Sean Wang <sean.wang@kernel.org>, Linus Walleij
+	<linus.walleij@linaro.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+CC: Wenbin Mei <wenbin.mei@mediatek.com>, Axe Yang <axe.yang@mediatek.com>,
+	Qingliang Li <qingliang.li@mediatek.com>, Hanks Chen
+	<hanks.chen@mediatek.com>, Chunhui Li <chunhui.li@mediatek.com>,
+	<linux-mediatek@lists.infradead.org>, <linux-gpio@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, Hao
+ Chang <ot_chhao.chang@mediatek.com>
+Subject: [PATCH] pinctrl: mediatek: pinctrl: mediatek: add mt8196 eint pin
+Date: Fri, 11 Apr 2025 16:41:57 +0800
+Message-ID: <20250411084159.3307-1-ot_chhao.chang@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-References: <20250306112959.242131-1-dario.binacchi@amarulasolutions.com> <20250314093503.GD12210@nxa18884-linux>
-In-Reply-To: <20250314093503.GD12210@nxa18884-linux>
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Date: Fri, 11 Apr 2025 10:38:17 +0200
-X-Gm-Features: ATxdqUF7idGp2hnH8dEoppZJLC3ZC9jhgwG1uStDtkKfsGzYjzpE_DfoJqtsu9k
-Message-ID: <CABGWkvq2X9L6P39K5OeQW4+c2OmSYGHN03mUW-96U5okO1CK5A@mail.gmail.com>
-Subject: Re: [PATCH v10 00/18] Support spread spectrum clocking for i.MX8M PLLs
-To: Peng Fan <peng.fan@oss.nxp.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Abel Vesa <abelvesa@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>, 
-	linux-amarula@amarulasolutions.com, Conor Dooley <conor+dt@kernel.org>, 
-	Dan Carpenter <dan.carpenter@linaro.org>, Fabio Estevam <festevam@gmail.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-clk@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_013829_652430_53F626A8 
-X-CRM114-Status: GOOD (  20.45  )
+X-CRM114-CacheID: sfid-20250411_014214_852050_C0C3DE46 
+X-CRM114-Status: GOOD (  10.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,63 +87,350 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 14, 2025 at 9:27=E2=80=AFAM Peng Fan <peng.fan@oss.nxp.com> wro=
-te:
->
-> On Thu, Mar 06, 2025 at 12:27:49PM +0100, Dario Binacchi wrote:
-> >This version keeps the version v9 patches that can be merged and
-> >removes the patches that will need to be modified in case Peng's
-> >PR https://github.com/devicetree-org/dt-schema/pull/154 is accepted.
-> >The idea is to speed up the merging of the patches in the series
-> >that have already been reviewed and are not dependent on the
-> >introduction of the assigned-clocks-sscs property, and postpone
-> >the patches for spread spectrum to a future series once it becomes
-> >clear what needs to be done.
-> >
-> Although I give R-b, there is an idea just come out in my mind that this
-> might break OS distribution that use firmware(e.g. U-Boot) to publish
-> device tree for Linux Kernel, such as ARM System-Ready complaint OS.
-> I overlooked this point in previous patchset reviewing.
->
-> Since this patchset is to move anatop stuff to a new driver to reflect
-> the HW truth.  And requires new entries in CCM node, so old bootloader
-> with new kernel will not boot for OS distribution, such as Fedora/openSus=
-e.
->
-> Not sure how to keep backwards support as before. Leave to maintainers
-> to say if they are ok with this.
+Add eint pin support for MediaTek mt8196 SoC.
 
-Many thanks to Peng for the review, and a gentle ping to the maintainers.
-This series has been ongoing for a few months and has reached version 10,
-thanks to the reviews from Krzysztof and Peng.
-I kindly ask you to consider it as well.
+---
+This patch depends on
+[v3,2/2] pinctrl: mediatek: add mt8196 driver
+[v3,1/2] dt-bindings: pinctrl: mediatek: add support for mt8196
 
-Thanks and regards,
-Dario
+Please also accept this patch together with [1]
+to avoid build and dt binding check error.
+[1]https://patchwork.kernel.org/project/linux-mediatek/list/?series=&submitter=215008&state=&q=v3&archive=&delegate=
+---
 
->
-> Regards,
-> Peng
+Signed-off-by: Hao Chang <ot_chhao.chang@mediatek.com>
+Signed-off-by: Qingliang Li <qingliang.li@mediatek.com>
+---
+ drivers/pinctrl/mediatek/pinctrl-mt8196.c     |   1 +
+ drivers/pinctrl/mediatek/pinctrl-mtk-mt8196.h | 296 ++++++++++++++++++
+ 2 files changed, 297 insertions(+)
 
+diff --git a/drivers/pinctrl/mediatek/pinctrl-mt8196.c b/drivers/pinctrl/mediatek/pinctrl-mt8196.c
+index 822ceb8dc268..89be051e6c91 100644
+--- a/drivers/pinctrl/mediatek/pinctrl-mt8196.c
++++ b/drivers/pinctrl/mediatek/pinctrl-mt8196.c
+@@ -1728,6 +1728,7 @@ static const struct mtk_pin_soc mt8196_data = {
+ 	.npins = ARRAY_SIZE(mtk_pins_mt8196),
+ 	.ngrps = ARRAY_SIZE(mtk_pins_mt8196),
+ 	.eint_hw = &mt8196_eint_hw,
++	.eint_pin = eint_pins_mt8196,
+ 	.nfuncs = 8,
+ 	.gpio_m = 0,
+ 	.base_names = mt8196_pinctrl_register_base_names,
+diff --git a/drivers/pinctrl/mediatek/pinctrl-mtk-mt8196.h b/drivers/pinctrl/mediatek/pinctrl-mtk-mt8196.h
+index d342d091672c..1d26242d392b 100644
+--- a/drivers/pinctrl/mediatek/pinctrl-mtk-mt8196.h
++++ b/drivers/pinctrl/mediatek/pinctrl-mtk-mt8196.h
+@@ -8,6 +8,7 @@
+ #define __PINCTRL_MTK_MT8196_H
+ 
+ #include "pinctrl-paris.h"
++#define EINT_INVALID_BASE 0xff
+ 
+ static const struct mtk_pin_desc mtk_pins_mt8196[] = {
+ 	MTK_PIN(
+@@ -2786,4 +2787,299 @@ static const struct mtk_pin_desc mtk_pins_mt8196[] = {
+ 	)
+ };
+ 
++static struct mtk_eint_pin eint_pins_mt8196[] = {
++	MTK_EINT_PIN(0, 2, 0, 1),
++	MTK_EINT_PIN(1, 2, 1, 1),
++	MTK_EINT_PIN(2, 2, 16, 0),
++	MTK_EINT_PIN(3, 2, 17, 0),
++	MTK_EINT_PIN(4, 2, 2, 1),
++	MTK_EINT_PIN(5, 2, 3, 1),
++	MTK_EINT_PIN(6, 2, 4, 1),
++	MTK_EINT_PIN(7, 2, 5, 1),
++	MTK_EINT_PIN(8, 2, 6, 1),
++	MTK_EINT_PIN(9, 2, 18, 0),
++	MTK_EINT_PIN(10, 2, 7, 1),
++	MTK_EINT_PIN(11, 2, 8, 1),
++	MTK_EINT_PIN(12, 2, 9, 1),
++	MTK_EINT_PIN(13, 1, 4, 0),
++	MTK_EINT_PIN(14, 0, 0, 1),
++	MTK_EINT_PIN(15, 1, 5, 0),
++	MTK_EINT_PIN(16, 1, 6, 0),
++	MTK_EINT_PIN(17, 1, 7, 0),
++	MTK_EINT_PIN(18, 1, 8, 0),
++	MTK_EINT_PIN(19, 1, 9, 0),
++	MTK_EINT_PIN(20, 0, 1, 1),
++	MTK_EINT_PIN(21, 0, 10, 0),
++	MTK_EINT_PIN(22, 0, 11, 0),
++	MTK_EINT_PIN(23, 0, 12, 0),
++	MTK_EINT_PIN(24, 0, 13, 0),
++	MTK_EINT_PIN(25, 0, 14, 0),
++	MTK_EINT_PIN(26, 0, 15, 0),
++	MTK_EINT_PIN(27, 0, 2, 1),
++	MTK_EINT_PIN(28, 0, 16, 0),
++	MTK_EINT_PIN(29, 0, 17, 0),
++	MTK_EINT_PIN(30, 0, 18, 0),
++	MTK_EINT_PIN(31, 0, 3, 1),
++	MTK_EINT_PIN(32, 0, 19, 0),
++	MTK_EINT_PIN(33, 0, 20, 0),
++	MTK_EINT_PIN(34, 0, 21, 0),
++	MTK_EINT_PIN(35, 0, 22, 0),
++	MTK_EINT_PIN(36, 0, 23, 0),
++	MTK_EINT_PIN(37, 0, 24, 0),
++	MTK_EINT_PIN(38, 0, 25, 0),
++	MTK_EINT_PIN(39, 2, 10, 1),
++	MTK_EINT_PIN(40, 2, 11, 1),
++	MTK_EINT_PIN(41, 2, 12, 1),
++	MTK_EINT_PIN(42, 2, 13, 1),
++	MTK_EINT_PIN(43, 2, 14, 1),
++	MTK_EINT_PIN(44, 2, 19, 0),
++	MTK_EINT_PIN(45, 2, 20, 0),
++	MTK_EINT_PIN(46, 2, 21, 0),
++	MTK_EINT_PIN(47, 2, 22, 0),
++	MTK_EINT_PIN(48, 2, 23, 0),
++	MTK_EINT_PIN(49, 2, 24, 0),
++	MTK_EINT_PIN(50, 2, 25, 0),
++	MTK_EINT_PIN(51, 2, 26, 0),
++	MTK_EINT_PIN(52, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(53, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(54, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(55, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(56, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(57, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(58, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(59, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(60, 2, 27, 0),
++	MTK_EINT_PIN(61, 2, 28, 0),
++	MTK_EINT_PIN(62, 2, 29, 0),
++	MTK_EINT_PIN(63, 2, 30, 0),
++	MTK_EINT_PIN(64, 2, 31, 0),
++	MTK_EINT_PIN(65, 2, 32, 0),
++	MTK_EINT_PIN(66, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(67, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(68, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(69, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(70, 2, 33, 0),
++	MTK_EINT_PIN(71, 2, 34, 0),
++	MTK_EINT_PIN(72, 2, 35, 0),
++	MTK_EINT_PIN(73, 2, 36, 0),
++	MTK_EINT_PIN(74, 2, 37, 0),
++	MTK_EINT_PIN(75, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(76, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(77, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(78, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(79, 2, 38, 0),
++	MTK_EINT_PIN(80, 2, 39, 0),
++	MTK_EINT_PIN(81, 2, 40, 0),
++	MTK_EINT_PIN(82, 2, 41, 0),
++	MTK_EINT_PIN(83, 2, 42, 0),
++	MTK_EINT_PIN(84, 2, 43, 0),
++	MTK_EINT_PIN(85, 2, 44, 0),
++	MTK_EINT_PIN(86, 2, 45, 0),
++	MTK_EINT_PIN(87, 2, 46, 0),
++	MTK_EINT_PIN(88, 2, 47, 0),
++	MTK_EINT_PIN(89, 2, 48, 0),
++	MTK_EINT_PIN(90, 2, 49, 0),
++	MTK_EINT_PIN(91, 2, 50, 0),
++	MTK_EINT_PIN(92, 2, 15, 1),
++	MTK_EINT_PIN(93, 2, 51, 0),
++	MTK_EINT_PIN(94, 2, 52, 0),
++	MTK_EINT_PIN(95, 2, 53, 0),
++	MTK_EINT_PIN(96, 2, 54, 0),
++	MTK_EINT_PIN(97, 2, 55, 0),
++	MTK_EINT_PIN(98, 2, 56, 0),
++	MTK_EINT_PIN(99, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(100, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(101, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(102, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(103, 2, 57, 0),
++	MTK_EINT_PIN(104, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(105, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(106, 1, 10, 0),
++	MTK_EINT_PIN(107, 1, 11, 0),
++	MTK_EINT_PIN(108, 1, 12, 0),
++	MTK_EINT_PIN(109, 1, 13, 0),
++	MTK_EINT_PIN(110, 1, 0, 1),
++	MTK_EINT_PIN(111, 1, 1, 1),
++	MTK_EINT_PIN(112, 1, 2, 1),
++	MTK_EINT_PIN(113, 1, 3, 1),
++	MTK_EINT_PIN(114, 1, 14, 0),
++	MTK_EINT_PIN(115, 1, 15, 0),
++	MTK_EINT_PIN(116, 1, 16, 0),
++	MTK_EINT_PIN(117, 1, 17, 0),
++	MTK_EINT_PIN(118, 1, 18, 0),
++	MTK_EINT_PIN(119, 1, 19, 0),
++	MTK_EINT_PIN(120, 1, 20, 0),
++	MTK_EINT_PIN(121, 1, 21, 0),
++	MTK_EINT_PIN(122, 1, 22, 0),
++	MTK_EINT_PIN(123, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(124, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(125, 1, 23, 0),
++	MTK_EINT_PIN(126, 1, 24, 0),
++	MTK_EINT_PIN(127, 1, 25, 0),
++	MTK_EINT_PIN(128, 1, 26, 0),
++	MTK_EINT_PIN(129, 1, 27, 0),
++	MTK_EINT_PIN(130, 1, 28, 0),
++	MTK_EINT_PIN(131, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(132, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(133, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(134, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(135, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(136, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(137, 0, 26, 0),
++	MTK_EINT_PIN(138, 0, 27, 0),
++	MTK_EINT_PIN(139, 0, 28, 0),
++	MTK_EINT_PIN(140, 0, 29, 0),
++	MTK_EINT_PIN(141, 0, 30, 0),
++	MTK_EINT_PIN(142, 0, 31, 0),
++	MTK_EINT_PIN(143, 0, 32, 0),
++	MTK_EINT_PIN(144, 0, 33, 0),
++	MTK_EINT_PIN(145, 0, 34, 0),
++	MTK_EINT_PIN(146, 0, 35, 0),
++	MTK_EINT_PIN(147, 0, 36, 0),
++	MTK_EINT_PIN(148, 0, 4, 1),
++	MTK_EINT_PIN(149, 0, 37, 0),
++	MTK_EINT_PIN(150, 0, 5, 1),
++	MTK_EINT_PIN(151, 0, 38, 0),
++	MTK_EINT_PIN(152, 0, 39, 0),
++	MTK_EINT_PIN(153, 0, 40, 0),
++	MTK_EINT_PIN(154, 0, 41, 0),
++	MTK_EINT_PIN(155, 0, 42, 0),
++	MTK_EINT_PIN(156, 0, 43, 0),
++	MTK_EINT_PIN(157, 0, 44, 0),
++	MTK_EINT_PIN(158, 0, 45, 0),
++	MTK_EINT_PIN(159, 0, 46, 0),
++	MTK_EINT_PIN(160, 0, 47, 0),
++	MTK_EINT_PIN(161, 0, 48, 0),
++	MTK_EINT_PIN(162, 0, 49, 0),
++	MTK_EINT_PIN(163, 0, 50, 0),
++	MTK_EINT_PIN(164, 0, 51, 0),
++	MTK_EINT_PIN(165, 0, 52, 0),
++	MTK_EINT_PIN(166, 0, 53, 0),
++	MTK_EINT_PIN(167, 0, 54, 0),
++	MTK_EINT_PIN(168, 0, 55, 0),
++	MTK_EINT_PIN(169, 0, 56, 0),
++	MTK_EINT_PIN(170, 0, 57, 0),
++	MTK_EINT_PIN(171, 0, 58, 0),
++	MTK_EINT_PIN(172, 0, 6, 1),
++	MTK_EINT_PIN(173, 0, 7, 1),
++	MTK_EINT_PIN(174, 0, 8, 1),
++	MTK_EINT_PIN(175, 0, 9, 1),
++	MTK_EINT_PIN(176, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(177, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(178, 0, 59, 0),
++	MTK_EINT_PIN(179, 0, 60, 0),
++	MTK_EINT_PIN(180, 0, 61, 0),
++	MTK_EINT_PIN(181, 0, 62, 0),
++	MTK_EINT_PIN(182, 0, 63, 0),
++	MTK_EINT_PIN(183, 0, 64, 0),
++	MTK_EINT_PIN(184, 0, 65, 0),
++	MTK_EINT_PIN(185, 0, 66, 0),
++	MTK_EINT_PIN(186, 3, 6, 0),
++	MTK_EINT_PIN(187, 3, 7, 0),
++	MTK_EINT_PIN(188, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(189, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(190, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(191, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(192, 3, 8, 0),
++	MTK_EINT_PIN(193, 3, 9, 0),
++	MTK_EINT_PIN(194, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(195, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(196, 3, 10, 0),
++	MTK_EINT_PIN(197, 3, 11, 0),
++	MTK_EINT_PIN(198, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(199, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(200, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(201, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(202, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(203, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(204, 3, 12, 0),
++	MTK_EINT_PIN(205, 3, 13, 0),
++	MTK_EINT_PIN(206, 3, 14, 0),
++	MTK_EINT_PIN(207, 3, 0, 1),
++	MTK_EINT_PIN(208, 3, 1, 1),
++	MTK_EINT_PIN(209, 3, 2, 1),
++	MTK_EINT_PIN(210, 3, 15, 0),
++	MTK_EINT_PIN(211, 3, 3, 1),
++	MTK_EINT_PIN(212, 3, 4, 1),
++	MTK_EINT_PIN(213, 3, 5, 1),
++	MTK_EINT_PIN(214, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(215, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(216, 3, 16, 0),
++	MTK_EINT_PIN(217, 3, 17, 0),
++	MTK_EINT_PIN(218, 3, 18, 0),
++	MTK_EINT_PIN(219, 3, 19, 0),
++	MTK_EINT_PIN(220, 3, 20, 0),
++	MTK_EINT_PIN(221, 3, 21, 0),
++	MTK_EINT_PIN(222, 3, 22, 0),
++	MTK_EINT_PIN(223, 3, 23, 0),
++	MTK_EINT_PIN(224, 3, 24, 0),
++	MTK_EINT_PIN(225, 3, 25, 0),
++	MTK_EINT_PIN(226, 3, 26, 0),
++	MTK_EINT_PIN(227, 3, 27, 0),
++	MTK_EINT_PIN(228, 3, 28, 0),
++	MTK_EINT_PIN(229, 3, 29, 0),
++	MTK_EINT_PIN(230, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(231, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(232, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(233, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(234, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(235, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(236, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(237, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(238, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(239, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(240, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(241, 3, 30, 0),
++	MTK_EINT_PIN(242, 3, 31, 0),
++	MTK_EINT_PIN(243, 3, 32, 0),
++	MTK_EINT_PIN(244, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(245, 3, 45, 0),
++	MTK_EINT_PIN(246, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(247, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(248, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(249, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(250, EINT_INVALID_BASE, 0, 0),
++	MTK_EINT_PIN(251, 0, 67, 0),
++	MTK_EINT_PIN(252, 0, 68, 0),
++	MTK_EINT_PIN(253, 0, 69, 0),
++	MTK_EINT_PIN(254, 0, 70, 0),
++	MTK_EINT_PIN(255, 0, 71, 0),
++	MTK_EINT_PIN(256, 0, 72, 0),
++	MTK_EINT_PIN(257, 0, 73, 0),
++	MTK_EINT_PIN(258, 0, 74, 0),
++	MTK_EINT_PIN(259, 3, 33, 0),
++	MTK_EINT_PIN(260, 3, 34, 0),
++	MTK_EINT_PIN(261, 3, 35, 0),
++	MTK_EINT_PIN(262, 3, 36, 0),
++	MTK_EINT_PIN(263, 3, 37, 0),
++	MTK_EINT_PIN(264, 3, 38, 0),
++	MTK_EINT_PIN(265, 3, 39, 0),
++	MTK_EINT_PIN(266, 3, 40, 0),
++	MTK_EINT_PIN(267, 3, 41, 0),
++	MTK_EINT_PIN(268, 3, 42, 0),
++	MTK_EINT_PIN(269, 3, 43, 0),
++	MTK_EINT_PIN(270, 3, 44, 0),
++	MTK_EINT_PIN(271, 4, 0, 0),
++	MTK_EINT_PIN(272, 4, 1, 0),
++	MTK_EINT_PIN(273, 4, 2, 0),
++	MTK_EINT_PIN(274, 4, 3, 0),
++	MTK_EINT_PIN(275, 4, 4, 0),
++	MTK_EINT_PIN(276, 4, 5, 0),
++	MTK_EINT_PIN(277, 4, 6, 0),
++	MTK_EINT_PIN(278, 4, 7, 0),
++	MTK_EINT_PIN(279, 4, 8, 0),
++	MTK_EINT_PIN(280, 4, 9, 0),
++	MTK_EINT_PIN(281, 4, 10, 0),
++	MTK_EINT_PIN(282, 4, 11, 0),
++	MTK_EINT_PIN(283, 4, 12, 0),
++	MTK_EINT_PIN(284, 4, 13, 0),
++	MTK_EINT_PIN(285, 4, 14, 0),
++	MTK_EINT_PIN(286, 4, 15, 0),
++	MTK_EINT_PIN(287, 4, 16, 0),
++	MTK_EINT_PIN(288, 4, 17, 0),
++	MTK_EINT_PIN(289, 4, 18, 0),
++	MTK_EINT_PIN(290, 4, 19, 0),
++	MTK_EINT_PIN(291, 4, 20, 0),
++	MTK_EINT_PIN(292, 4, 21, 0),
++};
+ #endif /* __PINCTRL_MTK_MT8196_H */
+-- 
+2.46.0
 
-
---=20
-
-Dario Binacchi
-
-Senior Embedded Linux Developer
-
-dario.binacchi@amarulasolutions.com
-
-__________________________________
-
-
-Amarula Solutions SRL
-
-Via Le Canevare 30, 31100 Treviso, Veneto, IT
-
-T. +39 042 243 5310
-info@amarulasolutions.com
-
-www.amarulasolutions.com
 
