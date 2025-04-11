@@ -4,62 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80BA1C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 03:35:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE723C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 03:50:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6qUyEujLX22GdEnd5CUDnJ4Pz1LPAiyWrj7/y+BbMoE=; b=xehJSde+hhpxEqrFlz3pZ98xpa
-	xm5zlL+3TpUjCsz1koyvVOwgdfZukmr3N/KHUhpsas5z8WWCYqzOvmpe2TvVjzP0kZka7OJc58iZb
-	qYoLxGxASASzO9A4lQTL/9hHBgWYHUc69tdc/gf1783QHtvIL7Jn2Z1BSPeMrTI92r4w6NUo71O5t
-	yySn7Xl6GELEO8B6ZylGvuCh35fmqHTEdiiuMCdKaVSxIzT97z8AEYW2tSxdZepYaTO+UrPzOT5Z7
-	ZjDXKUSpAs3gt8VplGhjEjIVUrfAtXm04EJsoEm4TOoc2w+lK6FSS2Gn2PvAR+KYzrQbFTTPED8br
-	y9f3e9cw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7dlryhVy6NeWg3O2Okngw+V+H7NewUDTwovui9xGS0o=; b=R+zN3KPOW3VH1BKxf1sLR9dtK/
+	ZUNFg00xqvCveAepLWkSDEBUglfIoPRYI44vfKE5Nuy8+mcwVeuA2F+BHaZz7ds5itxgRq7G6RNDl
+	gnCo9ih84OW6AP7RhUamoSFVqC0APUV9PYT/4scn5efSTItMCV0ulAVjZSV6jYATWzCN4MUVMbmV9
+	2h2RscUkzk3qAYBNA//QcoSYAAp66SdDruYyb0CDVtGdCykSXt/Ytvx+x2htehJGOh53qerKj3qwY
+	dNdfcVd6GJeCK6/xJ3H/OOVNaP5OzWN85KNiGNb4B5ARFdpyh1fZ+S0pvSPOpKfpN1GvO8092SVJZ
+	N22kYftA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u35AG-0000000COwq-3yqf;
-	Fri, 11 Apr 2025 03:34:48 +0000
-Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
+	id 1u35Ox-0000000CQ19-3sfk;
+	Fri, 11 Apr 2025 03:49:59 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u358R-0000000COno-1zXF
+	id 1u35N9-0000000CPpd-3x7U
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 03:32:57 +0000
+	Fri, 11 Apr 2025 03:48:09 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-224347aef79so20264845ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Apr 2025 20:48:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1744342371; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=6qUyEujLX22GdEnd5CUDnJ4Pz1LPAiyWrj7/y+BbMoE=;
-	b=Fxs1oatWg4nc7bj+L6vz8tqThAV9UpAYF/PO1TCNnDlMhUbO7UUl6qvf2Xm3vektGh1q0HGNTRBVVpcwV5M36Vtf+COTll0qEF8pNQez80BYQnSJLCyS8yE+W0fBZyWridgYnNTQOkZueKWtwe8RzGOt5BJf031MRZ73isDJaZU=
-Received: from 30.246.160.68(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WWRkGtA_1744342365 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Fri, 11 Apr 2025 11:32:47 +0800
-Message-ID: <18875bd7-bf01-4ba8-b38a-4c0767e3130e@linux.alibaba.com>
-Date: Fri, 11 Apr 2025 11:32:45 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 10/11] arm64: idle: export arch_cpu_idle()
-To: Ankur Arora <ankur.a.arora@oracle.com>, linux-pm@vger.kernel.org,
- kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org
-Cc: catalin.marinas@arm.com, will@kernel.org, x86@kernel.org,
- pbonzini@redhat.com, vkuznets@redhat.com, rafael@kernel.org,
- daniel.lezcano@linaro.org, peterz@infradead.org, arnd@arndb.de,
- lenb@kernel.org, mark.rutland@arm.com, harisokn@amazon.com,
- mtosatti@redhat.com, sudeep.holla@arm.com, cl@gentwo.org, maz@kernel.org,
- misono.tomohiro@fujitsu.com, maobibo@loongson.cn, zhenglifeng1@huawei.com,
- joao.m.martins@oracle.com, boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
-References: <20250218213337.377987-1-ankur.a.arora@oracle.com>
- <20250218213337.377987-11-ankur.a.arora@oracle.com>
-From: Shuai Xue <xueshuai@linux.alibaba.com>
-In-Reply-To: <20250218213337.377987-11-ankur.a.arora@oracle.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+        d=google.com; s=20230601; t=1744343286; x=1744948086; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=7dlryhVy6NeWg3O2Okngw+V+H7NewUDTwovui9xGS0o=;
+        b=yEaQ/BNwjYedlBFGYGE77swhbiGSf4hFLAnLFY4kYTbpSgqWll74Ae6a7/kMr0KjNO
+         hcwbMNNH5LV4f7uxf9S34oaR8d5eoYXCtBH8JHwnUA92GHdt0giFrUce3OIwjZ7/b1ju
+         k2eYWoX2ZbdcVF1hi1qS8DGuAiaFSFc5emr6u8uHO2nwU2f8+MkUJMz1FCEFPInkb8k3
+         q41weoJT1nVHhwP7ekcrofuWGTXQkOhIfQ1wzlfiJMnHWj36KYvw9s6Bd36oPb/O5gj4
+         8sSvMQ5kTQGaOxOF2Kc9SNZBdNu+LlBcOGs1mTY+G7bAHjbKYfLxh3NZ/rxpMC2dFCBf
+         HHoA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744343286; x=1744948086;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=7dlryhVy6NeWg3O2Okngw+V+H7NewUDTwovui9xGS0o=;
+        b=A+VOWw6FTzZHljy5DE3UYM5P42xrOGyJz3jTI9epwx+gSYSO7yVAIpvRKgmlAV5/Nt
+         GXUsupfLe9dVBjtIj0iZR1F7wv86DZnEAMjQH/4g/OO+L8hjsx2aYzrzZakYUx+PVkPQ
+         6Iz08alf7cUl/T3imNJD1kIfPXcfY3SekFDbEOEiYwLtsSYMo6DCrL43kFZEfgLfQTnC
+         BZ4qOaZFA7Ms+8s129xv3EtD3+SKFqwkvgd7YaOxX5WFKRRBbqnnHVBdtErBrovjH1N0
+         YLmaFvJZfnkKygV9kyfUapO6i7lNqQe5xpraSfEZbjWK84S4te94Q0QymC5UoMu4r0eN
+         eAag==
+X-Forwarded-Encrypted: i=1; AJvYcCVoeU9cb7zSDPdUTSm/8qDjftaT01vOMwFSstfp6KbQ5KIDwoi8az+9ETbcx2/dtw69TGTfRD2UiNZoVsg8bnzW@lists.infradead.org
+X-Gm-Message-State: AOJu0YwAR06Z5uQF71cZFHACY92RH80KA5YJxb1vqIKpZnRGZpvsk9NH
+	wAIR/Oe0AYCjLQoGvhW3p77xA0MFC1XGdRZ2Xvpqj4ls/FVCM6n+BhW8c/3XfLz0g/xfoeOGWW7
+	V8T6IRVFsAN7mrDkHFA==
+X-Google-Smtp-Source: AGHT+IEOZPbbuwHUT+vSKb7YqC/0TcONKVVdEEEvZeXr5rZzrszLtokHPfZVQrxjUuNtcfTum+JkVNbqScaVm0pW
+X-Received: from plks14.prod.google.com ([2002:a17:903:2ce:b0:226:4240:2027])
+ (user=changyuanl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:902:e5cf:b0:215:94eb:adb6 with SMTP id d9443c01a7336-22bea4efe58mr23857515ad.40.1744343286238;
+ Thu, 10 Apr 2025 20:48:06 -0700 (PDT)
+Date: Thu, 10 Apr 2025 20:47:48 -0700
+In-Reply-To: <20250320015551.2157511-13-changyuanl@google.com>
+Mime-Version: 1.0
+References: <20250320015551.2157511-13-changyuanl@google.com>
+X-Mailer: git-send-email 2.49.0.604.gff1f9ca942-goog
+Message-ID: <20250411034748.1781232-1-changyuanl@google.com>
+Subject: Re: [PATCH v5 12/16] arm64: add KHO support
+From: Changyuan Lyu <changyuanl@google.com>
+To: changyuanl@google.com
+Cc: akpm@linux-foundation.org, anthony.yznaga@oracle.com, arnd@arndb.de, 
+	ashish.kalra@amd.com, benh@kernel.crashing.org, bp@alien8.de, 
+	catalin.marinas@arm.com, corbet@lwn.net, dave.hansen@linux.intel.com, 
+	devicetree@vger.kernel.org, dwmw2@infradead.org, ebiederm@xmission.com, 
+	graf@amazon.com, hpa@zytor.com, jgowans@amazon.com, kexec@lists.infradead.org, 
+	krzk@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
+	luto@kernel.org, mark.rutland@arm.com, mingo@redhat.com, 
+	pasha.tatashin@soleen.com, pbonzini@redhat.com, peterz@infradead.org, 
+	ptyadav@amazon.de, robh+dt@kernel.org, robh@kernel.org, rostedt@goodmis.org, 
+	rppt@kernel.org, saravanak@google.com, skinsburskii@linux.microsoft.com, 
+	tglx@linutronix.de, thomas.lendacky@amd.com, will@kernel.org, x86@kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_203256_175698_4E91DAE8 
-X-CRM114-Status: UNSURE (   8.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250410_204807_976940_92A4E9D7 
+X-CRM114-Status: GOOD (  16.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,40 +99,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Mar 19, 2025 at 18:55:47 -0700, Changyuan Lyu <changyuanl@google.com> wrote:
+> From: Alexander Graf <graf@amazon.com>
+> [...]
+> +/**
+> + * early_init_dt_check_kho - Decode info required for kexec handover from DT
+> + */
+> +static void __init early_init_dt_check_kho(void)
+> +{
+> +	unsigned long node = chosen_node_offset;
+> +	u64 kho_start, scratch_start, scratch_size;
+> +	const __be32 *p;
+> +	int l;
+> +
+> +	if (!IS_ENABLED(CONFIG_KEXEC_HANDOVER) || (long)node < 0)
+> +		return;
+> +
+> +	p = of_get_flat_dt_prop(node, "linux,kho-fdt", &l);
+> +	if (l != (dt_root_addr_cells + dt_root_size_cells) * sizeof(__be32))
+> +		return;
+> +
+> +	kho_start = dt_mem_next_cell(dt_root_addr_cells, &p);
+> +
+> +	p = of_get_flat_dt_prop(node, "linux,kho-scratch", &l);
+> +	if (l != (dt_root_addr_cells + dt_root_size_cells) * sizeof(__be32))
+> +		return;
+> +
+> +	scratch_start = dt_mem_next_cell(dt_root_addr_cells, &p);
+> +	scratch_size = dt_mem_next_cell(dt_root_addr_cells, &p);
+> +
+> +	kho_populate(kho_start, scratch_start, scratch_size);
+> +}
+> [...]
+> +static int kho_add_chosen(const struct kimage *image, void *fdt, int chosen_node)
+> +{
+> +	int ret = 0;
+> +#ifdef CONFIG_KEXEC_HANDOVER
+> +	phys_addr_t dt_mem = 0;
+> +	phys_addr_t dt_len = 0;
+> +	phys_addr_t scratch_mem = 0;
+> +	phys_addr_t scratch_len = 0;
+> +
+> +	if (!image->kho.fdt || !image->kho.scratch)
+> +		return 0;
+> +
+> +	dt_mem = image->kho.fdt->mem;
+> +	dt_len = image->kho.fdt->memsz;
+> +
+> +	scratch_mem = image->kho.scratch->mem;
+> +	scratch_len = image->kho.scratch->bufsz;
+> +
+> +	pr_debug("Adding kho metadata to DT");
+> +
+> +	ret = fdt_appendprop_addrrange(fdt, 0, chosen_node, "linux,kho-fdt",
+> +				       dt_mem, dt_len);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = fdt_appendprop_addrrange(fdt, 0, chosen_node, "linux,kho-scratch",
+> +				       scratch_mem, scratch_len);
 
+While testing on ARM64 today, I realized that calling "fdt_appendprop_addrrange"
+here intercedes a bug that prevents consecutive KHO-enabled kexecs.
 
-在 2025/2/19 05:33, Ankur Arora 写道:
-> Needed for cpuidle-haltpoll.
-> 
-> Acked-by: Will Deacon <will@kernel.org>
-> Signed-off-by: Ankur Arora <ankur.a.arora@oracle.com>
-> ---
->   arch/arm64/kernel/idle.c | 1 +
->   1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/arm64/kernel/idle.c b/arch/arm64/kernel/idle.c
-> index 05cfb347ec26..b85ba0df9b02 100644
-> --- a/arch/arm64/kernel/idle.c
-> +++ b/arch/arm64/kernel/idle.c
-> @@ -43,3 +43,4 @@ void __cpuidle arch_cpu_idle(void)
->   	 */
->   	cpu_do_idle();
+Suppose we do KHO kexec from kernel 1 to kernel 2 and then from kernel 2 to
+kernel 3. The firmware DT got by kernel 2 from kernel 1 already has
+"linux,kho-fdt" and "linux,kho-scratch" in the "chosen" node. And when KHO
+kexec-ing to kernel 3 from kernel 2, kernel 2 will __append__ the its KHO
+FDT address to the "linux,kho-fdt". Thus the "linux,kho-fdt" received by
+kernel 3 contains 2 address ranges. Kernel 3 would fail at
+early_init_dt_check_kho() above.
 
-Hi, Ankur,
+I will fix this bug in v6.
 
-With haltpoll_driver registered, arch_cpu_idle() on x86 can select
-mwait_idle() in idle threads.
+> +
+> +#endif /* CONFIG_KEXEC_HANDOVER */
+> +	return ret;
+> +}
+> [...]
 
-It use MONITOR sets up an effective address range that is monitored
-for write-to-memory activities; MWAIT places the processor in
-an optimized state (this may vary between different implementations)
-until a write to the monitored address range occurs.
-
-Should arch_cpu_idle() on arm64 also use the LDXR/WFE
-to avoid wakeup IPI like x86 monitor/mwait?
-
-Thanks.
-Shuai
-
-
+Best,
+Changyuan
 
