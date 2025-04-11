@@ -4,155 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B1B7C369A8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8FC7C369A9
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 11:19:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G4Is1uHO71URAcb+jjRjF9aZM/vERo/yK/4x/3VkHvY=; b=2YzTSkoNuJpS0GdaqS4vmfWyp3
-	OBvNWsQTkixL2xb37Z0iSYCJC6o/sXKeTyF0us9xg6kmD1fGyJfdnL5hg6sxU4yQiQXLJTZNUhQmg
-	gpGmGaDSe4TRxDDknIE7ap/Qlh+zQi2tY0Q+zfLFOm5SFg/M1L+8e/rnuAafmPFcQB0huO0mOoTc9
-	oocng6PZxb4ga4i2mX787s8JhHhTRGT9g1XIE+zxmrLgHiaWugLpET9fAlucdui/uu0IQBqCUV74u
-	3SRvsbLUAPs3U6B//I2oRAeBaayKMlt876MxhjH065jScduJyBBOOZAeubBJo0wg9HGywGPEKhzAX
-	CwbxnuOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=El+yBbYFfa3m33PcQZ+/sv5AA9CYKsrtHMnxQf73yYk=; b=PeZfZ9paQCNm3G+EGqH5whnVUF
+	sL627bg3J9LUJZNmRNZXL9tvhs2rn+4gAVtLOxdb/l1moM8nTi4oQlnAR9GqHcC35Yh7zxRAK4caG
+	r2KzNY3MuVmSBAhooe1bPUPZL6Schfd9J5jdeew/rpP88+NN2xSxi+LCpk48KxdczT57RV93cCz1N
+	Jia1MEF7hAfbLlKWFz085lxHFmU4s96exnSPArgpfTwlVp3uAUAHiO3HiYamtZO/2AfWMfKm/D1RK
+	JQWiMwkNvPb9Dk2avRq3TzenbduloA0cT8V47WiO1pelKt56tak7+tgdyrBriXoijiA3xpJFqZBX1
+	bfBaSNhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3CPb-0000000DUxg-2Oh4;
-	Fri, 11 Apr 2025 11:19:07 +0000
-Received: from mail-am6eur05on2062e.outbound.protection.outlook.com ([2a01:111:f403:2612::62e] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1u3CPY-0000000DUvr-0AwA;
+	Fri, 11 Apr 2025 11:19:04 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3BSL-0000000DLkW-21RP
+	id 1u3BRJ-0000000DLW2-2nnk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 10:17:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cHg7ZICMZuNNwUK/AhxyYgqfLoyyBH4ZQa7N2QKt+JTvEVbjvv6jXFR9j+8Bh5QpDuxtZ2H/2TtSo1M3s5rZhdOI0KYiazjqbn5X0dqMtuwXVvsJgqwWyubShbjJt7DjGZuzNenLKP/nqiveURB/4fkSxd4y5TfW0L5PHHLCfV/ORhJQE4G0kFb2Mvdk3gAgoDEyH89DlFdemWF8Ndd0ZHnZv8iNKINVPxuHmBsMTgh7Jp0u62T6HgZewOpwQDB6ZfhaIJwReIk44ko319GUZEjtP/0GkG0ck8RL6YPr34yJvg7I/vYmDW8RPzmka4utlFxsNSJhpkomKCYN3ZmgKA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=G4Is1uHO71URAcb+jjRjF9aZM/vERo/yK/4x/3VkHvY=;
- b=ftMgbuGv0Brn3Qgq1FqwQHTLsyB1qZCqTjMW2wFQrrwwLIJkdTxuUzv4amm6HSVu/aJNjEgnfH2sgby0glzNaRdZn5aM8LaxdclaSDbj4dxZVG3lTLnK3EEAOADDbvG+OhcDIZOQCRbuQhTjDvjq5oiHeULec5Xm1j259V9I0lFBDVQWaSTwEF4Gv7/+dYAyEDX2kMdzHE9JGOoXMx3JSKfDh6ZfmwoVPFiNYtZocXmHv9wJdHjMzmdROO/Zi94Z1tv7IxDK0f4JTsOLjL0/Slwm4EfTb8wOmWfNrQcI+Y9pPKwM2RUl1kqbglvnqTHMRJaHHTPBixdkGD4dPlZKIA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=G4Is1uHO71URAcb+jjRjF9aZM/vERo/yK/4x/3VkHvY=;
- b=MXum856jSMqedf/6EMYGxxphSMlDNyBtBxJsXOw94jAXmarQfexpiLHb8q/o1kVFf3TxNIf27H9ORk/2CJDmD9BHrOf+Ttgzf/J8hqvyxuSzRgzAqq9BSj9f+K+yJC4N9ItdqCBI83Rov5K3I75Sof9Q32mCJrIjBVqk7RAGu0ZK7OP0WcBmDehHgkXozaumxc9Z3Vm3bebe00qo5QLnKyOF2znkBfI+I0VHhS4EphiuBhUG4wm9XZX1ZSKWP5/kdOspoMd81dq9VH0M0e5gPdqkS/yk078NG9lxB+iyyw8bmBUSXv+injtdXdNMTUAepdhqEreqi/MTwcEo9hByfA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM9PR04MB8505.eurprd04.prod.outlook.com (2603:10a6:20b:40a::14)
- by AS8PR04MB8900.eurprd04.prod.outlook.com (2603:10a6:20b:42f::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.27; Fri, 11 Apr
- 2025 10:17:42 +0000
-Received: from AM9PR04MB8505.eurprd04.prod.outlook.com
- ([fe80::bb21:d7c8:f7f7:7868]) by AM9PR04MB8505.eurprd04.prod.outlook.com
- ([fe80::bb21:d7c8:f7f7:7868%3]) with mapi id 15.20.8606.028; Fri, 11 Apr 2025
- 10:17:42 +0000
-From: Wei Fang <wei.fang@nxp.com>
-To: claudiu.manoil@nxp.com,
-	vladimir.oltean@nxp.com,
-	xiaoning.wang@nxp.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com
-Cc: christophe.leroy@csgroup.eu,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v5 net-next 09/14] net: enetc: change enetc_set_rss() to void type
-Date: Fri, 11 Apr 2025 17:57:47 +0800
-Message-Id: <20250411095752.3072696-10-wei.fang@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250411095752.3072696-1-wei.fang@nxp.com>
-References: <20250411095752.3072696-1-wei.fang@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR01CA0021.apcprd01.prod.exchangelabs.com
- (2603:1096:4:192::19) To AM9PR04MB8505.eurprd04.prod.outlook.com
- (2603:10a6:20b:40a::14)
+	Fri, 11 Apr 2025 10:16:51 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-22438c356c8so20483205ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Apr 2025 03:16:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1744366609; x=1744971409; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=El+yBbYFfa3m33PcQZ+/sv5AA9CYKsrtHMnxQf73yYk=;
+        b=xFAYeGN3jTEmObvTJQXisYI3Q86Kga10I1imwqO3Kgy+ywr8OHPi8nojQ6lgCp0IRa
+         5/gjC6A0qKMZMXu4NnnMB86rTa5WYWwpQI8FdPIyik4FbzZN84ftecppl+B/JqVaJLHg
+         +TLRfzSBvVU9S4m50dmc2Vi3MFlrYvZX3Qh2IH1MmD5T1DmZGTfD0RQXAKyUUBLVzH8o
+         wP4mJv9nxAbXLiadaJzpozC+mFtVp/gVS33bEalKSuP1E+yiJVXOk9JVQAIZwZapshYm
+         y4tYz/JhGh3cIcyjBtaoC7tHAm4KPmyjeW+5Z8ctyX9zERgkXf3SBrkF1Jed4MorSkpY
+         Q9KA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744366609; x=1744971409;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=El+yBbYFfa3m33PcQZ+/sv5AA9CYKsrtHMnxQf73yYk=;
+        b=TIB9VibrZUlt/8QYZbxyykemsleCgxNHI2NhRDD0uM5q0BETtJno2i5Hpi8Ba2dVgN
+         i9GUnzz4egiva0ySnbucc97juwt2/ILQYw4VPjBF6GG/aM3S28f6vYYnPkyGcHRnoOvC
+         gsSP7IBUSdifd/uXr8JWhNZPgTltPsVS0x3xSgOTLkFPlhT9cfr/YFAJLBOxsDFT6Q4Y
+         YcXcQ6xsSvA8n3fi2lFJ0KivjsqR8RxawAJL+pjCJxYMrhewrEflQy96pr4Kg2rp9Kcy
+         2edtZiBSwxRlwRvJHTlyShDg+3XScl/8whjcaOS8n99+1MaBuW/IC4Dh1bnhFZ2d39c0
+         l7cw==
+X-Forwarded-Encrypted: i=1; AJvYcCVAndFLL8HnpYDk2rr8Psj5c8W+Vmz63mkoBI81Jd2MKwEhbKgSmDWD9QHSmSykqPvTpNk+cLdPCG4qtx76zbWO@lists.infradead.org
+X-Gm-Message-State: AOJu0YzeXKV7IJqOw9VcaxNBbx+8HeFHqd0Ywg8HpcCxVek/tmZuKCur
+	U9lX4eqWG0NAOfHKlxhKZ5kRUxwYxigXfS8lPOWxeSOpiSnqPbuBQ9QUEBO8uqLdjctROE5/9JX
+	aJNR3Kh5VnoObaiJXPjq8SobQJCaNILbcIV3N0w==
+X-Gm-Gg: ASbGncvdPYOuwRvWJv8HI7OnmDKeYGuMcnbtiBLKNQBxnZbFTaYmdGVNSGX2LraA23C
+	FmBFGFrIch3RI9WLjuqUwDY+G9hE3ib8VjYfyEY+B8hjZGNE2qT04e1RCGZ6i6vgMt6QklUe835
+	dUKq8EFeD53tXYNaK+NHUn8Co=
+X-Google-Smtp-Source: AGHT+IFS/a80yyyuZi5urEnORY3xQw5mQjSwHZr0ekHuMVLTC+K2x+MxrDzUzO/bjiGCm5Susl2ueRJyb258GnM4w9s=
+X-Received: by 2002:a17:902:f705:b0:227:ac2a:1dd6 with SMTP id
+ d9443c01a7336-22bea4c6e17mr42758175ad.24.1744366608577; Fri, 11 Apr 2025
+ 03:16:48 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8505:EE_|AS8PR04MB8900:EE_
-X-MS-Office365-Filtering-Correlation-Id: eb627ce8-585e-4eaf-2f8f-08dd78e21837
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?tWtlcpJYcgWEpr3g5iGMhkHmJp4RGjYTg6+nhNj7bCaUHg1zmgtlwrbFJwVC?=
- =?us-ascii?Q?hYhNVckQQv6GFIJQGfHkJZRqrnA/Grj+PAxfpfwe1Rww3nSOuftPAHJ7VGz+?=
- =?us-ascii?Q?S9Z3AIZkxeMcTGeVakAE+y9nNhu92H3UeM54PRQCiVKfH9RXH+l4RZWmyb96?=
- =?us-ascii?Q?JngLKaBOjGICDwSEfbHwjTTtLQrOEyLoHmciRcqvzS1GcRJtJQtG1MD+PwRk?=
- =?us-ascii?Q?WPUMI3r+DbGPfdG3XF0iS8tBedw3wu2f9CullSC7BzEr46/2JAHstErOYWfq?=
- =?us-ascii?Q?Lu1NlaigMnIzwQ9CY0fz+hqpcIrC3nHeialLAKEIrvLcTVuFq+jMf1sIJ6bB?=
- =?us-ascii?Q?HcgQo/zlHHpnuw6tMzJ2Jg9Cgs5hcqlgXQFugVb2YjmzBir1R50ubTi4FyxX?=
- =?us-ascii?Q?Udv4dk2u6zvgO9Vyg5ksR0Yr9lH28SW6rOyqh8TADqTLh1Tim439FWm8nRKd?=
- =?us-ascii?Q?6Hq2VRCoHYWyRLktQP0OXiNKbQbNFiSMyYmC5xh5WeKwn9iJwhQIdlDxqtAF?=
- =?us-ascii?Q?IszKWfI2W1v6P5nYINqDFw2JKPnhYuHL/eHzMDPQw4ZKCgQYkAiXt4DDhszN?=
- =?us-ascii?Q?MnCel1PG3i0Ud16F2kiuVv+waZMmMBUTX/DYsgSJXV7zQ2UKFUDc/gtF0n4T?=
- =?us-ascii?Q?LM1iwMVDNNk5EB0XSyOK6uK+uxYoDQPfyHvlaXX7A6qO0Wmwey5rV98sqDc5?=
- =?us-ascii?Q?7dAmDDSdNUGl99yAiiya179GUhww0s3YFpNy8eIpi9X5wYnIuzLTJA/7M5m6?=
- =?us-ascii?Q?EqypK0IjCQpF/LRdLQY1ojso8mgMpgijjefDv99IoihOzsE3FOt/eViWPcSw?=
- =?us-ascii?Q?xOWKwO6lZwSeBy8SpwGht1cBxSvrnBYybXEEXKTNaFSJbeUkafyFnFEm+0Ow?=
- =?us-ascii?Q?3+MP6gPonERSJ9l9rBgyBPViBclGwltIkW75GI+xunGAs/JPETib3yb/6RyH?=
- =?us-ascii?Q?bTKihd+roDx/sZaN2K0ihA5Day8LZec/9LYBcGMK4/2IyyQmjwVJp49jNNcd?=
- =?us-ascii?Q?OoCWXmHy9QECBYr7HHkrGRegVbkyqAZucUAYPDMJjl4nHg0JHNGooo18qkgz?=
- =?us-ascii?Q?uwsjMsFgrmkyUMCeCce82ZwAd59LdJcNw3Y3ytLovqwk37O9shSxF+46sop5?=
- =?us-ascii?Q?nqdXVxKETqfvUHrloh0izp/gATEO0O0i9i+/bwI76V3EbxdNG6mO38I5Tiix?=
- =?us-ascii?Q?zSBDVtOmKCfRlx9dr2ZmEc4a4xto6u+9mRDyRi0X0oN8JWalXTDs5RycvUuh?=
- =?us-ascii?Q?XSuxv/xZTwBhRDyyplmSmDtjI2TF/6gpw018YS+bnD+fHSBMNp+WqGow3t0J?=
- =?us-ascii?Q?xSQBKK1WJTCo/M0STxRkV5OoLb9Z9c7Az3B4j/9/gA1DDrXSD8yBZetCnBwJ?=
- =?us-ascii?Q?9/rzvv9B7BxUfizOsMTK/z6S8ZUA8DaMkouGmhtWn1sbvPgYCcKp9Zn8DlDE?=
- =?us-ascii?Q?bHLNzkwDzX9d7LUNDaxOYTrAqG4dA75kBXgaDNMzpYOoA1V+N68W+g=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8505.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?rjyG/Yc+SJZzLYMHmrOWf1jDwytqPERSROAhiNXSRrXVEjuje0JC7YGBDmTP?=
- =?us-ascii?Q?2/lIOgwc4vrdGbXgJNq5L5utWEgrlJc0pwJxlQEIp66AQGXRGUhb7cMFYXtZ?=
- =?us-ascii?Q?Mnwic9YbPtO/zXJXUS9x/Lw/Jaieqvi2ZMT9oqYd7O3rtWg1aWVPoRK3S/ew?=
- =?us-ascii?Q?rtEfEDXSDf4uMIpiAUjhIhUXRTi4cPHApHLBnJ94+xQg9yY8XsK2vLuzv6hL?=
- =?us-ascii?Q?nhxqp5xjtzabBzx4btvp/wbPRcpsGOA1jF1dcSx/1NRajEsJJyBwXTVYXd5V?=
- =?us-ascii?Q?w2s+D7LoeZPMELbpkNM7CTQKSO7BOLokmBiboj95TKieJbwL5krbjPas00wo?=
- =?us-ascii?Q?lmqH25dRzWV99Mw0Avuf2KdrUWjdY0/tVFLFt94S0YgA36RHO8WdjxCUz4oT?=
- =?us-ascii?Q?G6K6PwkH8zO4Z3+ojXIkpBqLEWjlMJF6CTDr+LfNN3vxzycPr85dQ69ymqmq?=
- =?us-ascii?Q?/aJtO9jKKY6uEJgnGMwashNLpANtQS3F1UdodvS/v96kz3McfabQoRKU4p/c?=
- =?us-ascii?Q?JqzVcWaR1QuuoD1aE5wTEEhh2oh1KTe+zby2coqEiL481dSfI4hx+3c2clo5?=
- =?us-ascii?Q?4nmyoxCV4jY0FuCUxe+1OTb3K7gnVxN2MDOrJIghCUsKQq3o4QkoqaBvDhLs?=
- =?us-ascii?Q?uyYkRO2PC0fHjrPlplRugkj7z3NR3O2XVhYZ7lSF2HrF7oqHIv10SZ03lxph?=
- =?us-ascii?Q?rU9+Wmp4J14AOryfRtt+zgKaCgKub2/XCNn2SZUh7TmFUFlyrzyPfE/aqItL?=
- =?us-ascii?Q?KETiIQ7kcpdiaVFyrqLIgTtkqTVRmEDEB/hY6UIdLx7SX5aiX/lEeRMBZKUB?=
- =?us-ascii?Q?wTiF7+lQ1IfBKHkNHb2fnb2fTSLxPajXRexnsyk1Wnp3SSiP64MgW4F/RLfQ?=
- =?us-ascii?Q?nnVuJtfVhQuSM4raaKm/oGtqAUO5LPoW1M98Dmt8WaIj047CE9/ONIH9Rqnz?=
- =?us-ascii?Q?S1HEdvE3cjgbR/OvBzbRjLXZRbFu48OTSBD53n8BDJp+2prjuHneCQwuXdsw?=
- =?us-ascii?Q?I7kqRigL/5q1/A6hGAokYlr2aJQYwGIr5eIN5J8vjNAWrAXf+Com814dVX75?=
- =?us-ascii?Q?ZzIlS8qkrnkCeYw5mmnGcPHxqf1eGAdzCDXEUXsxMhlfqfG2O7/3khvf5Dp4?=
- =?us-ascii?Q?P1/CGNfs7N5u2mygo9wS7oK+MkppH0IDe+t+oUYJJbx+P7si/Gx0Hd7DpgHX?=
- =?us-ascii?Q?S2rlwbIbwCNgzIIuxXc42QoaekJouiApfi298mgJZs1PFc5Gi/RSrs33cX7k?=
- =?us-ascii?Q?UrYWBDXxwyWCy4ecUQpG2vCaZVD9LKF3A2Ix+4spaY0352E+IfOgQbRoW8xq?=
- =?us-ascii?Q?71fBfr3s7CGNZhzoNnPEL66s2Tj2ZB8ZdchIKlpFp7uRs7kDfUa7Q650pkNJ?=
- =?us-ascii?Q?4/TP9ChnshINNjK6EX/KXHTSXxJmvKt4pWZAos88l/QNQhZoWfWchet6gFs6?=
- =?us-ascii?Q?GgHahK9cMOrTe3OVFxKi/g29uOmbOgFYVyytWJDgeeXD71HH2rs77qzglZLL?=
- =?us-ascii?Q?h8mpm8rm44wunQZlA6aEGh2qOtGPQU/ZGz7JjGNEeBxJww468GIM/8U7kCKV?=
- =?us-ascii?Q?At2ACIpWrssnamG5iArP1KNSto04fX84SVux4AKc?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: eb627ce8-585e-4eaf-2f8f-08dd78e21837
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8505.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Apr 2025 10:17:42.5033
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hv0gve+I717zcXZiHJ7Z8amgFri3uL9nEx9ijsJvCnf8XDOoHRyNnvOrgYZjipD5Czv9K2f2NVbpO5phLrNoxw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8900
+References: <20250410013330.3609482-1-jie.gan@oss.qualcomm.com>
+In-Reply-To: <20250410013330.3609482-1-jie.gan@oss.qualcomm.com>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Fri, 11 Apr 2025 11:16:37 +0100
+X-Gm-Features: ATxdqUEraod8yrwnTn49b9tk1NYUizm-a1oIyjVCeHuX2V2MVcCKfTUobsggqZA
+Message-ID: <CAJ9a7VjzxnOGNbAM974ybRAD4eXxWhr8d+UC1rEG=yMtug2XRQ@mail.gmail.com>
+Subject: Re: [PATCH v2 0/5] coresight: ctcu: Enable byte-cntr function for TMC ETR
+To: Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Tingwei Zhang <quic_tingweiz@quicinc.com>, Jinlong Mao <quic_jinlmao@quicinc.com>, 
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_031753_522604_7BAF1838 
-X-CRM114-Status: GOOD (  11.20  )
+X-CRM114-CacheID: sfid-20250411_031649_723544_C06AF622 
+X-CRM114-Status: GOOD (  37.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,41 +99,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Actually enetc_set_rss() does not need a return value, so change its
-type to void.
+Hi,
 
-Signed-off-by: Wei Fang <wei.fang@nxp.com>
-Acked-by: Vladimir Oltean <vladimir.oltean@nxp.com>
----
-v5 changes:
-New patch, suggested by Vladimir
----
- drivers/net/ethernet/freescale/enetc/enetc.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+I can see that this patchset has fixed some of the issues raised from
+v1 - using the existing file handle for read, and stopping the ETR to
+read the RWP.
 
-diff --git a/drivers/net/ethernet/freescale/enetc/enetc.c b/drivers/net/ethernet/freescale/enetc/enetc.c
-index 5b5e65ac8fab..a389d5089734 100644
---- a/drivers/net/ethernet/freescale/enetc/enetc.c
-+++ b/drivers/net/ethernet/freescale/enetc/enetc.c
-@@ -3232,7 +3232,7 @@ struct net_device_stats *enetc_get_stats(struct net_device *ndev)
- }
- EXPORT_SYMBOL_GPL(enetc_get_stats);
- 
--static int enetc_set_rss(struct net_device *ndev, int en)
-+static void enetc_set_rss(struct net_device *ndev, int en)
- {
- 	struct enetc_ndev_priv *priv = netdev_priv(ndev);
- 	struct enetc_hw *hw = &priv->si->hw;
-@@ -3244,8 +3244,6 @@ static int enetc_set_rss(struct net_device *ndev, int en)
- 	reg &= ~ENETC_SIMR_RSSE;
- 	reg |= (en) ? ENETC_SIMR_RSSE : 0;
- 	enetc_wr(hw, ENETC_SIMR, reg);
--
--	return 0;
- }
- 
- static void enetc_enable_rxvlan(struct net_device *ndev, bool en)
+However the fundamental problem that it is still attempting to read
+memory without stopping the ETR has not been addressed.
+
+As mentioned in mine and Suzuki's comments for v1, this means:-
+
+1) you cannot guarantee that the buffer has not wrapped when reading
+data back, which will corrupt the trace decode process.
+2) The DMA buffers are not being synchronized, so the PE could be
+reading stale data rather than the new data written by the ETR.
+
+
+Regards
+
+Mike
+
+On Thu, 10 Apr 2025 at 02:33, Jie Gan <jie.gan@oss.qualcomm.com> wrote:
+>
+> The byte-cntr function provided by the CTCU device is used to transfer data
+> from the ETR buffer to the userspace. An interrupt is tiggered if the data
+> size exceeds the threshold set in the BYTECNTRVAL register. The interrupt
+> handler counts the number of triggered interruptions and the read function
+> will read the data from the ETR buffer if the IRQ count is greater than 0.
+> The read work will be conducted ASAP after the byte-cntr is started.
+> Each successful read process will decrement the IRQ count by 1.
+>
+> The byte cntr function will start when the device node is opened for reading,
+> and the IRQ count will reset when the byte cntr function has stopped. When
+> the file node is opened, the w_offset of the ETR buffer will be read and
+> stored in byte_cntr_data, serving as the original r_offset (indicating
+> where reading starts) for the byte counter function.
+>
+> The work queue for the read operation will wake up once when ETR is stopped,
+> ensuring that the remaining data in the ETR buffer has been flushed based on
+> the w_offset read at the time of stopping.
+>
+> The byte-cntr read work has integrated with the file node tmc_etr, e.g.
+> /dev/tmc_etr0
+> /dev/tmc_etr1
+>
+> There are two scenarios for the ETR file nodes with byte-cntr function:
+> 1. BYTECNTRVAL register has configured -> byte-cntr read
+> 2. BYTECNTRVAL register is disabled -> original behavior, flush the etr_buf
+>
+> We still can flush the etr buffer once after the byte-cntr function has
+> triggered.
+> 1. Enable byte-cntr
+> 2. Byte-cntr read
+> 3. Disable byte-cntr
+> 4. Flush etr buffer
+>
+> Since the ETR operates in circular buffer mode, we cannot fully guarantee
+> that no overwrites occur when the byte-cntr read function reads the data.
+> The read function will read the data ASAP when the interrupt is
+> triggered and we should not configure a threshold greater than the
+> buffer size of the ETR buffer.
+>
+> The following shell commands write threshold to BYTECNTRVAL registers.
+>
+> Only enable byte-cntr for ETR0:
+> echo 0x10000 > /sys/devices/platform/soc@0/4001000.ctcu/ctcu0/byte_cntr_val
+>
+> Enable byte-cntr for both ETR0 and ETR1(support both hex and decimal values):
+> echo 0x10000 4096 > /sys/devices/platform/soc@0/4001000.ctcu/ctcu0/byte_cntr_val
+>
+> Setting the BYTECNTRVAL registers to 0 disables the byte-cntr function.
+> Disable byte-cntr for ETR0:
+> echo 0 > /sys/devices/platform/soc@0/4001000.ctcu/ctcu0/byte_cntr_val
+>
+> Disable byte-cntr for both ETR0 and ETR1:
+> echo 0 0 > /sys/devices/platform/soc@0/4001000.ctcu/ctcu0/byte_cntr_val
+>
+> There is a minimum threshold to prevent generating too many interrupts.
+> The minimum threshold is 4096 bytes. The write process will fail if user try
+> to set the BYTECNTRVAL registers to a value less than 4096 bytes(except
+> for 0).
+>
+> Way to enable and start byte-cntr for ETR0:
+> echo 0x10000 > /sys/devices/platform/soc@0/4001000.ctcu/ctcu0/byte_cntr_val
+> echo 1 > /sys/bus/coresight/devices/tmc_etr0/enable_sink
+> echo 1 > /sys/bus/coresight/devices/etm0/enable_source
+> cat /dev/tmc_etr0
+>
+> Testing case has conducted for the byte-cntr read work:
+> 1. Setting the buffer_size of the ETR as large as possile, here is for ETR0
+>    echo 0x1000000 > /sys/bus/coresight/devices/tmc_etr0/buffer_size
+> 2. Setting the threshold for the ETR0 to 0x10000
+>    echo 0x10000 > /sys/bus/coresight/devices/ctcu0/byte_cntr_val
+> 3. Enable ETR0
+>    echo 1 > /sys/bus/coresight/devices/tmc_etr0/enable_sink
+> 4. Enable ETM0 as source and enable byte-cntr to read data
+>    echo 1 > /sys/bus/coresight/devices/etm0/enable_source;
+>    cat /dev/tmc_etr0 > /tmp/file_byte_cntr.bin &
+> 5. Disable ETM0
+>    echo 0 > /sys/bus/coresight/devices/etm0/enable_source
+> 6. Disable byte-cntr and flush the etr buffer
+>    echo 0 > /sys/bus/coresight/devices/ctcu0/byte_cntr_val;
+>    cat /dev/tmc_etr0 > /tmp/file_etr0.bin
+>    ls -l /tmp
+>
+> -rw-r--r--    1 root     root      12628960 Apr 28 17:44 file_byte_cntr.bin
+> -rw-r--r--    1 root     root      12669296 Apr 28 17:45 file_etr0.bin
+>
+> 7. Deal with the file_etr0.bin with following command:
+>    dd if=/tmp/file_etr0.bin of=/tmp/file_etr0_aligned.bin bs=1
+> count=12628960 skip=40336
+>    ls -l /tmp
+>
+> -rw-r--r--    1 root     root      12628960 Apr 28 17:44 file_byte_cntr.bin
+> -rw-r--r--    1 root     root      12669296 Apr 28 17:45 file_etr0.bin
+> -rw-r--r--    1 root     root      12628960 Apr 28 17:49 file_etr0_aligned.bin
+>
+> 8. Compared file_byte_cntr.bin with file_etr0_aligned.bin and identified
+> they are competely same.
+>    diff file_byte_cntr.bin file_etr0_aligned.bin
+>
+> =======================
+> Changes in V2:
+> 1. Removed the independent file node /dev/byte_cntr.
+> 2. Integrated the byte-cntr's file operations with current ETR file
+>    node.
+> 3. Optimized the driver code of the CTCU that associated with byte-cntr.
+> 4. Add kernel document for the export API tmc_etr_get_rwp_offset.
+> 5. Optimized the way to read the rwp_offset according to Mike's
+>    suggestion.
+> 6. Removed the dependency of the dts patch.
+> Link to V1 - https://lore.kernel.org/all/20250310090407.2069489-1-quic_jiegan@quicinc.com/
+>
+> Jie Gan (5):
+>   coresight: tmc: Introduce new APIs to get the RWP offset of ETR buffer
+>   dt-bindings: arm: Add an interrupt property for Coresight CTCU
+>   coresight: ctcu: Enable byte-cntr for TMC ETR devices
+>   coresight: tmc: add functions for byte-cntr operation
+>   arm64: dts: qcom: sa8775p: Add interrupts to CTCU device
+>
+>  .../bindings/arm/qcom,coresight-ctcu.yaml     |  17 ++
+>  arch/arm64/boot/dts/qcom/sa8775p.dtsi         |   5 +
+>  drivers/hwtracing/coresight/Makefile          |   2 +-
+>  .../coresight/coresight-ctcu-byte-cntr.c      | 119 ++++++++++++
+>  .../hwtracing/coresight/coresight-ctcu-core.c |  88 ++++++++-
+>  drivers/hwtracing/coresight/coresight-ctcu.h  |  49 ++++-
+>  .../hwtracing/coresight/coresight-tmc-core.c  |  29 ++-
+>  .../hwtracing/coresight/coresight-tmc-etr.c   | 175 ++++++++++++++++++
+>  drivers/hwtracing/coresight/coresight-tmc.h   |  10 +-
+>  9 files changed, 483 insertions(+), 11 deletions(-)
+>  create mode 100644 drivers/hwtracing/coresight/coresight-ctcu-byte-cntr.c
+>
+> --
+> 2.34.1
+>
+
+
 -- 
-2.34.1
-
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
