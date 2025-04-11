@@ -4,60 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3F6DC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 14:07:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93866C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 14:09:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QPq5/MpVX9YXrflNMV2WLcK25TVLBV9sIea7y0JuAsw=; b=UmCshW69LU4nb0UzkfFtIUk4ud
-	PsyV/F9Nhs2UlM1CytEHG296444fbSJG06qSmVR1A5ohlsKisaFNUycUOFPchxcisOLH/MnPMFRu6
-	Is/sSk//ydID180svt+5qLuXO7jxE2twCKhAfjAFoT38D9++NkhlTjOI2p4miPYEJtuiv9lDwoGtd
-	yLReFds6m6V+nfcdJ4rM+Q62evlN1IgQw+UBKQKVS8ldWnjXVXTQRVgLUygY5FfhpPhgc+DWRkPec
-	AM6PA2npAe52AFTgRetr1eK5vGd3DpAWSHVBsF5+DB3ZxtJnxHpqzFWZDny0gFwYXysTBdiH+6m70
-	ThyuCqUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v4UJPNnOWudFJocURSS5csRTh7we/bdm3q/LWnIuJSU=; b=ehU0U+m6iNtS97+cDg1DuWI67Y
+	HVW66ytD+ABCgBGxY7Lu+TJq013kxLvt9OyDovgA5s/++Jssw0u82qHyJm0t0QlLmDpg7eQ/5ur9a
+	LjUqyCQc6alPs42eL6HZdoTILCdIYKH2Bhgpw+N8dd6X46afYJZIyGz1UFrQUF6u6glR5oJzyh1nG
+	FVL3/XzLN1qJWUfue6TSa/I+Ff4/c3KtLpg89vh+Y12xgAvFrFSb69GXbIUoeisIvNQ8DU1TnXjw1
+	8DI0Dc5tHI9l61HfS0/l469tUkIMSBggBKNyMdCM8vh4iaycnGqGSSSlSzCTGCWTvgGrIJEfJQCaM
+	8QqlEG0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3F2h-0000000E21Z-2hnW;
-	Fri, 11 Apr 2025 14:07:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u3F4U-0000000E2KS-1pm8;
+	Fri, 11 Apr 2025 14:09:30 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3Ee9-0000000DxzB-1O78
+	id 1u3EeE-0000000Dy08-1HO4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 13:42:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D2CF96845A;
-	Fri, 11 Apr 2025 13:42:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A547C4CEE2;
-	Fri, 11 Apr 2025 13:42:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1744378935;
-	bh=nS4mtmxGRp+CcFT9tVDGPOWxYtnM+243zUP7ZIU9t4U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=wveHEQwU8QrxS6q3qjGn/QYQwFp5Wu9bwvhXBzF5ePMzmcNztJHnud0AdX+yOVylA
-	 YOyQBQ2tHfE8TjwG7Z8IGtk1XrzHRw8sgDKX205WpOQVcsaAwlNiWTZVHubUn1k+99
-	 GrJBgVvG4AdvJ+p86Lx61F/sN+3BAoPBSpnoLy/4=
-Date: Fri, 11 Apr 2025 15:42:12 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	devicetree@vger.kernel.org, linux-usb@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH v3 1/2] dt-bindings: usb: samsung,exynos-dwc3: add
- exynos2200 compatible
-Message-ID: <2025041157-stilt-sculptor-c978@gregkh>
-References: <20250321144804.1435502-1-ivo.ivanov.ivanov1@gmail.com>
- <20250321144804.1435502-2-ivo.ivanov.ivanov1@gmail.com>
+	Fri, 11 Apr 2025 13:42:23 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53BDg8aD2137750
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 11 Apr 2025 08:42:08 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1744378928;
+	bh=v4UJPNnOWudFJocURSS5csRTh7we/bdm3q/LWnIuJSU=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=wIVUIrACHs8GQ8ru01wDzPMjGBKWgr/XbgniA/LgxGKt9bW6bBICgE9F3Emah8+Ts
+	 0Ytj1Wvyhn7Gscpc3ShFHFxQ7uMVe7KLC0vy2DsP69U32x2hPh3WcXHCgfmAVwQcEE
+	 CeoGtWJTRXJlzboIbewbyHISvvPL7AyiPufy5q0U=
+Received: from DFLE110.ent.ti.com (dfle110.ent.ti.com [10.64.6.31])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53BDg8J8026772
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 11 Apr 2025 08:42:08 -0500
+Received: from DFLE114.ent.ti.com (10.64.6.35) by DFLE110.ent.ti.com
+ (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 11
+ Apr 2025 08:42:08 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 11 Apr 2025 08:42:08 -0500
+Received: from [10.249.136.157] ([10.249.136.157])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53BDg2Nx119834;
+	Fri, 11 Apr 2025 08:42:03 -0500
+Message-ID: <a05e2a39-b000-4c9c-9c74-49a9941b4801@ti.com>
+Date: Fri, 11 Apr 2025 19:12:02 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250321144804.1435502-2-ivo.ivanov.ivanov1@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 7/7] arm64: dts: ti: k3-am62x: Rename I2C switch to I2C
+ mux in OV5640 overlay
+To: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>, <nm@ti.com>,
+        <vigneshr@ti.com>
+CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <vaishnav.a@ti.com>, <jai.luthra@linux.dev>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <imx@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+        <u-kumar1@ti.com>, <stable@vger.kernel.org>
+References: <20250409134128.2098195-1-y-abhilashchandra@ti.com>
+ <20250409134128.2098195-8-y-abhilashchandra@ti.com>
+Content-Language: en-US
+From: "Francis, Neha" <n-francis@ti.com>
+In-Reply-To: <20250409134128.2098195-8-y-abhilashchandra@ti.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250411_064222_441066_B0D722DB 
+X-CRM114-Status: GOOD (  13.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,20 +91,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 21, 2025 at 04:48:02PM +0200, Ivaylo Ivanov wrote:
-> The Exynos2200 SoC has a DWC3 compatible USB controller and can reuse
-> the existing Exynos glue. Update the dt schema to include the
-> samsung,exynos2200-dwusb3 compatible for it.
+On 4/9/2025 7:11 PM, Yemike Abhilash Chandra wrote:
+> The OV5640 device tree overlay incorrectly defined an I2C switch instead
+> of an I2C mux. According to the DT bindings, the correct terminology and
+> node definition should use "i2c-mux" instead of "i2c-switch". Hence,
+> update the same to avoid dtbs_check warnings.
 > 
-> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Fixes: 635ed9715194 ("arm64: dts: ti: k3-am62x: Add overlays for OV5640")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
 > ---
->  .../bindings/usb/samsung,exynos-dwc3.yaml          | 14 ++++++++++++++
->  1 file changed, 14 insertions(+)
+>  arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-ov5640.dtso      | 2 +-
+>  arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso | 2 +-
+>  2 files changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-ov5640.dtso b/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-ov5640.dtso
+> index ccc7f5e43184..7fc7c95f5cd5 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-ov5640.dtso
+> +++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-ov5640.dtso
+> @@ -22,7 +22,7 @@ &main_i2c2 {
+>  	#size-cells = <0>;
+>  	status = "okay";
+>  
+> -	i2c-switch@71 {
+> +	i2c-mux@71 {
+>  		compatible = "nxp,pca9543";
+>  		#address-cells = <1>;
+>  		#size-cells = <0>;
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso b/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso
+> index 4eaf9d757dd0..b6bfdfbbdd98 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso
+> +++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso
+> @@ -22,7 +22,7 @@ &main_i2c2 {
+>  	#size-cells = <0>;
+>  	status = "okay";
+>  
+> -	i2c-switch@71 {
+> +	i2c-mux@71 {
+>  		compatible = "nxp,pca9543";
+>  		#address-cells = <1>;
+>  		#size-cells = <0>;
 
-This doesn't apply to my tree, can you rebase it and resend the series?
+Reviewed-by: Neha Malcom Francis <n-francis@ti.com>
 
-thanks,
+-- 
+Thanking You
+Neha Malcom Francis
 
-greg k-h
 
