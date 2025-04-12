@@ -4,89 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89A8EC369AE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Apr 2025 16:59:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCFCBC369AE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Apr 2025 17:06:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3OAUNtzrYtxLdmxfVBvMY5Gk3k0kx42SFNBtSsQElR4=; b=ctFmp90Rjgz6Lq0jO3sDcJM/TX
-	QhVrint0BNNmh8ed8KZb3k0kTWmtgQRlo2OUjABFLw9FHeHVEPhI5cNywG8AbG/0+Tvx2ydJyBt+m
-	2QRpk+vOQ1BmlgBPKpRyPsqXJMa88J/G10l79CfiJZhnMJhzxmrJEQl8i9PSZOQw6THM5mNj2Edz9
-	IrTTd2+9DMQzowsGWaGm+PfRZkT1AZUmYcC4NxUSrjY8GL98PgPz9BRq6d5znBb2J5yJ/+765RQM5
-	pna97G/CDI+rg7XhC8h+4oqYRngQy5QYwlis9k0w8Jh/ipRFvNPOdnr6lCLqM+NO5bLM0RFmIxIo7
-	PLK4P6xg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zQrCr4jFqBJqbwyEsfHeJYH83hNE6HlbuFqIe21u7NM=; b=t/3PG+1ONB4ioGZ3FZrJGm+T+Z
+	c5nAAt0J3crz5N03T+/ghX3h3WHlrvjprENTMKZ5fCIyLRdTHqzrkuLJL3J/ZOy+lnSe9rNcNb1T2
+	g0/jLZpvChAS0lxpSGiV2OarGFpHe6FG3ZiAEY3L6l8icRU5Y3t11bEqqFYqUokcdqrJlRT80V3DJ
+	I02yrkLT3gPoBdqa2pAVsDxslN3iNLL6XKQdLJ4xjH0fGLFMC/Bg91fcILZEIxKdVKv0OGDBvRjIi
+	QJ+//esuf1KUldRqaEdOvlwsShqGZWQMXDM7ycu8Vt268wOu/GTJUwaxnEsUPtrL0UH7SXg0oEbQT
+	oJCU+0Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3eC1-0000000GAeT-2HxM;
-	Sat, 12 Apr 2025 16:58:57 +0000
-Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
+	id 1u3eIp-0000000GB5Y-2f7B;
+	Sat, 12 Apr 2025 17:05:59 +0000
+Received: from mail-bn8nam11on20620.outbound.protection.outlook.com ([2a01:111:f403:2414::620] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3eAC-0000000GAYP-2m3L
+	id 1u3eH0-0000000GAuz-2bkL
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Apr 2025 16:57:05 +0000
-Received: by mail-qk1-x730.google.com with SMTP id af79cd13be357-7c5f20d512fso55384585a.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Apr 2025 09:57:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744477023; x=1745081823; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=3OAUNtzrYtxLdmxfVBvMY5Gk3k0kx42SFNBtSsQElR4=;
-        b=bICusiEqJ81Ba6O4d00ejNL1Qdq6q3rdoxNhwkwoJOeYPwpnztYtwfG+NfeMkEhU6n
-         LAbtB98qvJ+pouZF6l81bgE0ubpL2+DPFQ869tpZi4J+TKMukSuEDLo95rNRu642LjTw
-         /TCu+XXuvBviF67WbaUiXa+E67fB8XwQRFHn4v6rxCkz7JfDvRyAxzw73+lulP1Pv6yX
-         PV8HJ8/+GDo0ze+NRRX0+Hhh3VU8KqtLw8wWQhUXCz3Kcria5beEVWP3DYbLljs46/dz
-         TI1mD3oKou6GNsBZ9KiDirFu46vosAjxwyyKKGOyeuWcp2rSOYrBJ8N3c8ZIJn/Nm+c1
-         DCAg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744477023; x=1745081823;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=3OAUNtzrYtxLdmxfVBvMY5Gk3k0kx42SFNBtSsQElR4=;
-        b=XQnKzP7bnj8RZ3q6I6964voiNz4wp6NZUBlE516+cmp93edlKW9lCpezNAmyMHfihR
-         hCX1P2D+KpMD4q9JEgq3QtqWKB/ftc7JgZLz4PuH6NpQCvgO23U4zQcR1ptx0zY+B3Fl
-         kSFfVFC7cBonpUd8Sei0na1H8/4AV4UzbUkhhieLQOFbQICTTBXiwnJZ0R3usRt/zGxA
-         nEGz/ELpLReGb2CEVB3sAnVFeoqq6eXr2HghdNCCq8izHfQTkmta2w/KFNpW9WghG5c+
-         zG6uZlUPBY/k+DVBL2z+6fp/m3KT4N8rqb1E0o8X7kBlyvNnqsOLilaZEaUyntbQ/YKA
-         3KUQ==
-X-Gm-Message-State: AOJu0YwyClg2BxcxRa4hhJiEFq3Br6QhefNNtCC6dzKKTvFyUElidbua
-	GGj/FnfnmzJ4Vs2fxVC0AAy2FBroCCp7MQ+CX5lX5uLeeXqfFHQ=
-X-Gm-Gg: ASbGncszY57RnEPw8G4rIRQnkPHCpRzf+mcqmLmY8NzZON+PaJbbidDOHIMK3Xx/1qF
-	cowjYpGSjuh4CPg52ZCaCGkYHo3jn0+gMG4UW0CViCFjn1a+BAnFUS9KheYoZdlFhvKlBEYvCec
-	feQwKyXU3NtdZ0PsV3xOZjq3Q+8u7LV1bIJ3wQJC80qzNy98yaO85AVx06FggOPBukItnkV4ZIB
-	8GBA5Jd8WCeQNTvaFtrRzt8uo6q6/AgFZf0phoTeoznCtoO1bNkj2R207ytS2Uu+ve1lsVRwUiw
-	8qZMsFu1ygi84+2rDpNKjY72M0djfCSrylI06YtOoF0tKV9r
-X-Google-Smtp-Source: AGHT+IH8bGQWXcYiS6oP92AvgrToxoeCNlaJKrS6pTKqr+tWtGd4xgrw6ujWrk7k9KKOoduS3EC6pQ==
-X-Received: by 2002:a05:6214:1ccc:b0:6e4:449c:ab1d with SMTP id 6a1803df08f44-6f230cb46cfmr37544306d6.2.1744477023136;
-        Sat, 12 Apr 2025 09:57:03 -0700 (PDT)
-Received: from ise-alpha.. ([2620:0:e00:550a:642:1aff:fee8:511b])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6f0dea106a2sm52300916d6.115.2025.04.12.09.57.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 12 Apr 2025 09:57:02 -0700 (PDT)
-From: Chenyuan Yang <chenyuan0y@gmail.com>
-To: wens@csie.org,
-	jernej.skrabec@gmail.com,
-	samuel@sholland.org,
-	arnd@arndb.de,
-	hdegoede@redhat.com,
-	mripard@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Chenyuan Yang <chenyuan0y@gmail.com>
-Subject: [PATCH] drivers: soc: sunxi: Fix possible null pointer dereference
-Date: Sat, 12 Apr 2025 11:57:00 -0500
-Message-Id: <20250412165700.2298733-1-chenyuan0y@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Sat, 12 Apr 2025 17:04:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Tv0ohIEGIFjgMSPgdyNuoeDQr65r3yWFRs5Hqc8gtOH+5MR7y4b/VQrc7wy7EBZAx1tPDcg+HhsFgJ1fBAEII7odlcUFMFkFUevEwlBcyyddnRdZQs3pr/pIseDhhkgSIJuynR1vFi472VfuNsA84dh13d94h9Aup/aGmQKXDY4A2lMibLj8W0bGSIxg36khhOSluMHhQ1ZNJDLO/wSo1M0gOhngkpwxIYoM6/XmZYB+ZClcvSqliVR06xdIgRxs5fE9Yr0yrN9FtyWTYUe6OBowO64FEfgstOCHZecP0uwj38w/jIyKktI0F+Ujh+/oGl3jk3i0mDaVz41WIeoSOg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zQrCr4jFqBJqbwyEsfHeJYH83hNE6HlbuFqIe21u7NM=;
+ b=j6EhUq8onFPDRYzdYkHdTJigfZPEW0qLW1CuAEcFqQ+9G+rB0mya//LwXVSQc55NuxfDwnYEpOhw852HgN9781Cy76cx1oMn+8zI146kDKB9H4LA0WPmBnucsTtzwZDOmPxyifzKa1PfLDHRLASlCewOQ9ECTp4BifTiD99crsK9jRh1n0FdsMFEZf0BLUt9PrQT0kw9pvRnfEM9zmUJDmy4YCYkJU07pmHTVXjhxsEyMnhPJ0U2uqr3pX909a8gLUwKzyYm/Y5bNEotDUf5kThCzhHtwnDIpqr4Os32HkVQ/RBLArlXI38tgniAcPMLhnvqQRdxSSvjxQz9cWa4qg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zQrCr4jFqBJqbwyEsfHeJYH83hNE6HlbuFqIe21u7NM=;
+ b=gcm5TOHwgXse0u988ihkg8X3w1ShWs/ydzkc2sEgq185lddiTFvqRzzCmElrjCFdm+0KOtp6ToLasJ1jiVt/B87TVw+kPpA1Xoq9QrsSovKITE8/Nf4z1rNirmQ7oPaAC1MkiIIg4wwkDGHbb4c/vUAGrrJxu0D7ahyT/5rLvNr6DxKKMy/Tvh4Xa9gRrl6cdBDhPOt2RwyjFktBjxAy/O8nHnKfyOeH9yfsqED0Tnqa8D5q65mzurF1jO8egUzh+tK6mdYj8kFNdVK1Po7qd0c9Q7dMXj9BOX6p0fAbGSFywOQE+pAcFdNcRNz4W0bpZYCzARQEuJmZy6LBLHtFgg==
+Received: from BY3PR04CA0007.namprd04.prod.outlook.com (2603:10b6:a03:217::12)
+ by CH3PR12MB8353.namprd12.prod.outlook.com (2603:10b6:610:12c::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.32; Sat, 12 Apr
+ 2025 17:03:56 +0000
+Received: from SJ1PEPF000026CA.namprd04.prod.outlook.com
+ (2603:10b6:a03:217:cafe::7e) by BY3PR04CA0007.outlook.office365.com
+ (2603:10b6:a03:217::12) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8632.27 via Frontend Transport; Sat,
+ 12 Apr 2025 17:03:56 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ SJ1PEPF000026CA.mail.protection.outlook.com (10.167.244.107) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8655.12 via Frontend Transport; Sat, 12 Apr 2025 17:03:56 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Sat, 12 Apr
+ 2025 10:03:45 -0700
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Sat, 12 Apr
+ 2025 10:03:44 -0700
+Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com (10.129.68.7)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Sat, 12 Apr 2025 10:03:44 -0700
+Date: Sat, 12 Apr 2025 10:03:42 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: Robin Murphy <robin.murphy@arm.com>, <will@kernel.org>, <joro@8bytes.org>,
+	<jsnitsel@redhat.com>, <praan@google.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] iommu/arm-smmu-v3: Allow stream table to have nodes with
+ the same ID
+Message-ID: <Z/qc7vdko9bU3otR@Asurada-Nvidia>
+References: <20250411044706.356395-1-nicolinc@nvidia.com>
+ <5c8d16f9-246e-45d0-aaac-45b7712cefb5@arm.com>
+ <Z/mm2EQAQtOqpVCy@Asurada-Nvidia>
+ <20250411234419.GC252886@nvidia.com>
+ <Z/mupP6m0gRbeYtg@Asurada-Nvidia>
+ <Z/ngeFHmygxnPn6f@Asurada-Nvidia>
+ <20250412135514.GA329420@nvidia.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250412135514.GA329420@nvidia.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000026CA:EE_|CH3PR12MB8353:EE_
+X-MS-Office365-Filtering-Correlation-Id: 04f5e161-9ddc-49ad-23e1-08dd79e402ab
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?l/eAAurym+xdZCPmnZEUCCuPrJ0SV1ubGfZR42fyrMyrCtZ+cZExf14qfnf8?=
+ =?us-ascii?Q?1T10ZqZ48UzNnSogdInVPnipQJSfTJGsRFS1fNzuwb7xr9Sp+khtComqeVXF?=
+ =?us-ascii?Q?R3gQ8tJuzLIiE7UsNH7yj7T7TJbphc8ydIOQCLTvrR28Vt08lTouJwS4Q4Q3?=
+ =?us-ascii?Q?poQwGITFcPNwonV6Ky6uZ1NP/pWmxZvtkepnxOQdT6kvQk23BK7YdMuoVed6?=
+ =?us-ascii?Q?O9HzYf4P7975bYLOk4A+MD97gWo+RMwLlxoxYYTE7UbEMvUDHa+0D9RFTy8v?=
+ =?us-ascii?Q?Tjgc/gtIyoCAnbMWpj+6LxQ6bihac9TFZcMYDqE16YL7fwxREE40e37Z5vuM?=
+ =?us-ascii?Q?n0wBOoL+Ir6Vu9fSChKeeOar0bVzmQk79w7V7yAEOnIXV2q+qEIoOiLZgoqL?=
+ =?us-ascii?Q?CjN4IfJNz8k/QVps1kCjXSswY3zbs3WmlLECFI7h/8OMmL+9RYi7l78sB0En?=
+ =?us-ascii?Q?3ojb1VSb8rvQ8ZOBjuctRMrb7Q0wDsHpHH+jN4ElzBG8C9ZQd2n6SwV7pkxd?=
+ =?us-ascii?Q?AQFPfRuB1yRvTycfK70BcQWdyYlOtdEhVAihNgBBnCMYLYsraCys8XNRFfLy?=
+ =?us-ascii?Q?hq3RdcAUz7QySOy/e1P5ZgUulmDyJ+auv7raciiPrRvOi/f/PeKWMB2yvrb7?=
+ =?us-ascii?Q?0cXTmUBMVUgTqJ0eh4nDB/YQO7WZAEjgeYJhH/pAuEE2mYmTZVLCf6x2r7ky?=
+ =?us-ascii?Q?eyADK9AJnWV3aXMIF2JOHJYbwEG7mzP3GaxBhPl2od/UDblU3eJXf38n3LZB?=
+ =?us-ascii?Q?FyivvwddEug3XjrDs3b64JFzWnEv+TjQ2Kadjz3ikYsFL9ve4qmt1ouNpaSP?=
+ =?us-ascii?Q?Qaicb8anAV2kIg0gHISHwwPfyoHyWtvS8xZZqPF+BWiL3zVt+k75K8YgsEnt?=
+ =?us-ascii?Q?/Dmg4r131/JgAhT0pVzFYZNQkLACcl/Uib6k/MItEfwCYXX1ipRjNHGTmA1U?=
+ =?us-ascii?Q?hDWc4U4KVZ/YnONVW6A/HekxdbOu5r6Kid2ALYhfOkYdWZzER1JA9mGvqRX+?=
+ =?us-ascii?Q?sxU6tPffwIlXUviaUysy4B3R7f9vGy3KZXfnMy5mr+MA/XS2MxxHJrW9v3iJ?=
+ =?us-ascii?Q?GhvjlNfWrLevg+B89xOxVfknMwYWNZSDWTU3oxjobqau2U85KpPW9OmWOpy1?=
+ =?us-ascii?Q?4c11oi3OgBbU6tx0oqp2QIAi0gRsnYjJ+irubWVbg617mlBTApFlyxpLh8J6?=
+ =?us-ascii?Q?I4P3aXRrgGOgZS4+VPPQNHMyI4BaBXN47Ou+Nek6rZ7wvPzqcyPpiqIlVPxa?=
+ =?us-ascii?Q?vaGncexCNyIXydQuROvRSWgCXjxlHCmYsE/mK2zQcZJ3dCKN571Apek8rvaD?=
+ =?us-ascii?Q?YTPxI489OiGP2mQYVrves/70nUsJUDeS9wXnqzUq4BM860tAbhO2e/C9h0rA?=
+ =?us-ascii?Q?XIHRE2FjlTp+DAThR2itlIUqNOF/M3Ar0igc4uZVr+BgY6/1tSRa+AfqnXIU?=
+ =?us-ascii?Q?uOKBLEd7AxJTNhhMigKISLW4yS/BkzbsSSomSJdNE8XyxmTWLDqWSwRsr7t4?=
+ =?us-ascii?Q?rp5uufQxuOHGid0BNuZrfrBrklr7bILG3maT?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Apr 2025 17:03:56.0440
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 04f5e161-9ddc-49ad-23e1-08dd79e402ab
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000026CA.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8353
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250412_095704_699981_4BF05DCC 
-X-CRM114-Status: UNSURE (   9.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250412_100406_662850_345D1F77 
+X-CRM114-Status: GOOD (  17.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,41 +158,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-of_get_address() may return NULL which is later dereferenced.
-Fix this bug by adding NULL check
+On Sat, Apr 12, 2025 at 10:55:14AM -0300, Jason Gunthorpe wrote:
+> On Fri, Apr 11, 2025 at 08:39:36PM -0700, Nicolin Chen wrote:
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index b4c21aaed1266a..97b9f8d7fb3340 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -3389,6 +3389,7 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
+>  	for (i = 0; i < fwspec->num_ids; i++) {
+>  		struct arm_smmu_stream *new_stream = &master->streams[i];
+>  		u32 sid = fwspec->ids[i];
+> +		struct rb_node *existing;
+>  
+>  		new_stream->id = sid;
+>  		new_stream->master = master;
+> @@ -3398,10 +3399,20 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
+>  			break;
+>  
+>  		/* Insert into SID tree */
+> -		if (rb_find_add(&new_stream->node, &smmu->streams,
+> -				arm_smmu_streams_cmp_node)) {
+> -			dev_warn(master->dev, "stream %u already in tree\n",
+> -				 sid);
+> +		existing = rb_find_add(&new_stream->node, &smmu->streams,
+> +				       arm_smmu_streams_cmp_node);
 
-This is similar to the commit c534b63bede6
-("drm: vc4: Fix possible null pointer dereference").
+Oh right, it does find() already.
 
-Signed-off-by: Chenyuan Yang <chenyuan0y@gmail.com>
-Fixes: 4af34b572a85 ("drivers: soc: sunxi: Introduce SoC driver to map SRAMs")
----
- drivers/soc/sunxi/sunxi_sram.c | 4 ++++
- 1 file changed, 4 insertions(+)
+> +		if (existing) {
+> +			struct arm_smmu_master *existing_master =
+> +				rb_entry(existing, struct arm_smmu_stream, node)
+> +					->master;
+> +
+> +			/* Bridged PCI devices may end up with duplicated IDs */
+> +			if (existing_master == master)
+> +				continue;
+> +
+> +			dev_warn(master->dev,
+> +				 "stream %u already in tree from dev %s\n", sid,
+> +				 dev_name(existing_master->dev));
+>  			ret = -EINVAL;
+>  			break;
+>  		}
+> 
+> It seems like a reasonable rc fix, and if nobody has cared about DMA
+> Alias support since it was broken in 2021 maybe we just leave it.
 
-diff --git a/drivers/soc/sunxi/sunxi_sram.c b/drivers/soc/sunxi/sunxi_sram.c
-index 2781a091a6a6..1853dcc806ea 100644
---- a/drivers/soc/sunxi/sunxi_sram.c
-+++ b/drivers/soc/sunxi/sunxi_sram.c
-@@ -122,6 +122,8 @@ static int sunxi_sram_show(struct seq_file *s, void *data)
- 			continue;
- 
- 		sram_addr_p = of_get_address(sram_node, 0, NULL, NULL);
-+		if (!sram_addr_p)
-+			continue;
- 
- 		seq_printf(s, "sram@%08x\n",
- 			   be32_to_cpu(*sram_addr_p));
-@@ -134,6 +136,8 @@ static int sunxi_sram_show(struct seq_file *s, void *data)
- 
- 			section_addr_p = of_get_address(section_node, 0,
- 							NULL, NULL);
-+			if (!section_addr_p)
-+				continue;
- 
- 			seq_printf(s, "\tsection@%04x\t(%s)\n",
- 				   be32_to_cpu(*section_addr_p),
--- 
-2.34.1
+I will wrap it up and make a note with that.
 
+Thanks!
+Nicolin
 
