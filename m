@@ -4,146 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCFCBC369AE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Apr 2025 17:06:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFC3BC369AE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Apr 2025 17:53:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zQrCr4jFqBJqbwyEsfHeJYH83hNE6HlbuFqIe21u7NM=; b=t/3PG+1ONB4ioGZ3FZrJGm+T+Z
-	c5nAAt0J3crz5N03T+/ghX3h3WHlrvjprENTMKZ5fCIyLRdTHqzrkuLJL3J/ZOy+lnSe9rNcNb1T2
-	g0/jLZpvChAS0lxpSGiV2OarGFpHe6FG3ZiAEY3L6l8icRU5Y3t11bEqqFYqUokcdqrJlRT80V3DJ
-	I02yrkLT3gPoBdqa2pAVsDxslN3iNLL6XKQdLJ4xjH0fGLFMC/Bg91fcILZEIxKdVKv0OGDBvRjIi
-	QJ+//esuf1KUldRqaEdOvlwsShqGZWQMXDM7ycu8Vt268wOu/GTJUwaxnEsUPtrL0UH7SXg0oEbQT
-	oJCU+0Jg==;
+	bh=U3ak1weIkjwsGP+6aKJsEJ7KLep/2m8Vc2uDJeMB+Ig=; b=46pDlpIoNxtS0seqNlXH5vddLW
+	OB/n3c2RV2VxDAQDQFZGIXezwL/VghPLNMnX9HBJzFIGeV1ulPqwxHKtn6KbJX9X2K4u22SgCkADW
+	hZBF8B7spqAuKQY4pwqPcF9OWEcLDQqFjYFXDd89vdkyS2yDkvlhigWUe5+lP5s3FWNhbh5bBEeeD
+	gD+Sfp7hEbXO4aDz23lO/bLc/WHySoFadHUIgRrTjLBA0jArt0tWB/F6xvKoiDeSzik3xo9zzIobQ
+	/0iD87XjoTJmLOtmEALvk3nHvCPTMJqdKP8PMZc3NKoK6d2C9/SVbJfuTiC3G8ERgaG2AddFnmhvo
+	TknvKXmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3eIp-0000000GB5Y-2f7B;
-	Sat, 12 Apr 2025 17:05:59 +0000
-Received: from mail-bn8nam11on20620.outbound.protection.outlook.com ([2a01:111:f403:2414::620] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+	id 1u3f2K-0000000GE77-33ND;
+	Sat, 12 Apr 2025 17:53:00 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3eH0-0000000GAuz-2bkL
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Apr 2025 17:04:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Tv0ohIEGIFjgMSPgdyNuoeDQr65r3yWFRs5Hqc8gtOH+5MR7y4b/VQrc7wy7EBZAx1tPDcg+HhsFgJ1fBAEII7odlcUFMFkFUevEwlBcyyddnRdZQs3pr/pIseDhhkgSIJuynR1vFi472VfuNsA84dh13d94h9Aup/aGmQKXDY4A2lMibLj8W0bGSIxg36khhOSluMHhQ1ZNJDLO/wSo1M0gOhngkpwxIYoM6/XmZYB+ZClcvSqliVR06xdIgRxs5fE9Yr0yrN9FtyWTYUe6OBowO64FEfgstOCHZecP0uwj38w/jIyKktI0F+Ujh+/oGl3jk3i0mDaVz41WIeoSOg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zQrCr4jFqBJqbwyEsfHeJYH83hNE6HlbuFqIe21u7NM=;
- b=j6EhUq8onFPDRYzdYkHdTJigfZPEW0qLW1CuAEcFqQ+9G+rB0mya//LwXVSQc55NuxfDwnYEpOhw852HgN9781Cy76cx1oMn+8zI146kDKB9H4LA0WPmBnucsTtzwZDOmPxyifzKa1PfLDHRLASlCewOQ9ECTp4BifTiD99crsK9jRh1n0FdsMFEZf0BLUt9PrQT0kw9pvRnfEM9zmUJDmy4YCYkJU07pmHTVXjhxsEyMnhPJ0U2uqr3pX909a8gLUwKzyYm/Y5bNEotDUf5kThCzhHtwnDIpqr4Os32HkVQ/RBLArlXI38tgniAcPMLhnvqQRdxSSvjxQz9cWa4qg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zQrCr4jFqBJqbwyEsfHeJYH83hNE6HlbuFqIe21u7NM=;
- b=gcm5TOHwgXse0u988ihkg8X3w1ShWs/ydzkc2sEgq185lddiTFvqRzzCmElrjCFdm+0KOtp6ToLasJ1jiVt/B87TVw+kPpA1Xoq9QrsSovKITE8/Nf4z1rNirmQ7oPaAC1MkiIIg4wwkDGHbb4c/vUAGrrJxu0D7ahyT/5rLvNr6DxKKMy/Tvh4Xa9gRrl6cdBDhPOt2RwyjFktBjxAy/O8nHnKfyOeH9yfsqED0Tnqa8D5q65mzurF1jO8egUzh+tK6mdYj8kFNdVK1Po7qd0c9Q7dMXj9BOX6p0fAbGSFywOQE+pAcFdNcRNz4W0bpZYCzARQEuJmZy6LBLHtFgg==
-Received: from BY3PR04CA0007.namprd04.prod.outlook.com (2603:10b6:a03:217::12)
- by CH3PR12MB8353.namprd12.prod.outlook.com (2603:10b6:610:12c::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.32; Sat, 12 Apr
- 2025 17:03:56 +0000
-Received: from SJ1PEPF000026CA.namprd04.prod.outlook.com
- (2603:10b6:a03:217:cafe::7e) by BY3PR04CA0007.outlook.office365.com
- (2603:10b6:a03:217::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8632.27 via Frontend Transport; Sat,
- 12 Apr 2025 17:03:56 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- SJ1PEPF000026CA.mail.protection.outlook.com (10.167.244.107) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8655.12 via Frontend Transport; Sat, 12 Apr 2025 17:03:56 +0000
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Sat, 12 Apr
- 2025 10:03:45 -0700
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail205.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Sat, 12 Apr
- 2025 10:03:44 -0700
-Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com (10.129.68.7)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Sat, 12 Apr 2025 10:03:44 -0700
-Date: Sat, 12 Apr 2025 10:03:42 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Robin Murphy <robin.murphy@arm.com>, <will@kernel.org>, <joro@8bytes.org>,
-	<jsnitsel@redhat.com>, <praan@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Allow stream table to have nodes with
- the same ID
-Message-ID: <Z/qc7vdko9bU3otR@Asurada-Nvidia>
-References: <20250411044706.356395-1-nicolinc@nvidia.com>
- <5c8d16f9-246e-45d0-aaac-45b7712cefb5@arm.com>
- <Z/mm2EQAQtOqpVCy@Asurada-Nvidia>
- <20250411234419.GC252886@nvidia.com>
- <Z/mupP6m0gRbeYtg@Asurada-Nvidia>
- <Z/ngeFHmygxnPn6f@Asurada-Nvidia>
- <20250412135514.GA329420@nvidia.com>
+	id 1u3f0U-0000000GDx6-3RWy;
+	Sat, 12 Apr 2025 17:51:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0701E5C3E56;
+	Sat, 12 Apr 2025 17:48:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E8CEC4CEE3;
+	Sat, 12 Apr 2025 17:51:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744480264;
+	bh=TagZ0zYvwJ13raGmBK79thcRSiS9AqEKrO4KwU9hXwI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=iTqhljt3uPGXOeeokGvoiePR+ULT/F/3X/m+FFA8bnGCvHHgn1lA86i5BCPVlTue9
+	 Lg8uCC4kUbFvrXYIyu+4OVIeTLuR58HAIuTLiLcr39nOf8n8/SmfLUi2y6ZowcVpUI
+	 MC45dp6RnmgWOe36zHHuNMUhhpftX+9ShMiOJKEYOirhtwQm3i8AJ/0c8UuG9zVRPQ
+	 +Gxz6jQka4/gc4k+c17o2pILuWGPlyIvlqFvUVO61/wbGE4Dr8bqMGk42DVUr/Txe3
+	 CnFR5sXe+eG9zSNkjbun7sQ2JGWSbNSJ51i9Sb13getv+rIldGbjcJQBklc5Nfq+Vg
+	 mRsKOkC/lr8BQ==
+Date: Sat, 12 Apr 2025 12:51:03 -0500
+From: Rob Herring <robh@kernel.org>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Frank Wang <frank.wang@rock-chips.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	kernel@collabora.com, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/4] dt-bindings: phy: rockchip,inno-usb2phy: add port
+ property
+Message-ID: <20250412175103.GA1366427-robh@kernel.org>
+References: <20250407-rk3576-sige5-usb-v1-0-67eec166f82f@collabora.com>
+ <20250407-rk3576-sige5-usb-v1-1-67eec166f82f@collabora.com>
+ <20250410211123.GA1071510-robh@kernel.org>
+ <6743970.MhkbZ0Pkbq@workhorse>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250412135514.GA329420@nvidia.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000026CA:EE_|CH3PR12MB8353:EE_
-X-MS-Office365-Filtering-Correlation-Id: 04f5e161-9ddc-49ad-23e1-08dd79e402ab
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?l/eAAurym+xdZCPmnZEUCCuPrJ0SV1ubGfZR42fyrMyrCtZ+cZExf14qfnf8?=
- =?us-ascii?Q?1T10ZqZ48UzNnSogdInVPnipQJSfTJGsRFS1fNzuwb7xr9Sp+khtComqeVXF?=
- =?us-ascii?Q?R3gQ8tJuzLIiE7UsNH7yj7T7TJbphc8ydIOQCLTvrR28Vt08lTouJwS4Q4Q3?=
- =?us-ascii?Q?poQwGITFcPNwonV6Ky6uZ1NP/pWmxZvtkepnxOQdT6kvQk23BK7YdMuoVed6?=
- =?us-ascii?Q?O9HzYf4P7975bYLOk4A+MD97gWo+RMwLlxoxYYTE7UbEMvUDHa+0D9RFTy8v?=
- =?us-ascii?Q?Tjgc/gtIyoCAnbMWpj+6LxQ6bihac9TFZcMYDqE16YL7fwxREE40e37Z5vuM?=
- =?us-ascii?Q?n0wBOoL+Ir6Vu9fSChKeeOar0bVzmQk79w7V7yAEOnIXV2q+qEIoOiLZgoqL?=
- =?us-ascii?Q?CjN4IfJNz8k/QVps1kCjXSswY3zbs3WmlLECFI7h/8OMmL+9RYi7l78sB0En?=
- =?us-ascii?Q?3ojb1VSb8rvQ8ZOBjuctRMrb7Q0wDsHpHH+jN4ElzBG8C9ZQd2n6SwV7pkxd?=
- =?us-ascii?Q?AQFPfRuB1yRvTycfK70BcQWdyYlOtdEhVAihNgBBnCMYLYsraCys8XNRFfLy?=
- =?us-ascii?Q?hq3RdcAUz7QySOy/e1P5ZgUulmDyJ+auv7raciiPrRvOi/f/PeKWMB2yvrb7?=
- =?us-ascii?Q?0cXTmUBMVUgTqJ0eh4nDB/YQO7WZAEjgeYJhH/pAuEE2mYmTZVLCf6x2r7ky?=
- =?us-ascii?Q?eyADK9AJnWV3aXMIF2JOHJYbwEG7mzP3GaxBhPl2od/UDblU3eJXf38n3LZB?=
- =?us-ascii?Q?FyivvwddEug3XjrDs3b64JFzWnEv+TjQ2Kadjz3ikYsFL9ve4qmt1ouNpaSP?=
- =?us-ascii?Q?Qaicb8anAV2kIg0gHISHwwPfyoHyWtvS8xZZqPF+BWiL3zVt+k75K8YgsEnt?=
- =?us-ascii?Q?/Dmg4r131/JgAhT0pVzFYZNQkLACcl/Uib6k/MItEfwCYXX1ipRjNHGTmA1U?=
- =?us-ascii?Q?hDWc4U4KVZ/YnONVW6A/HekxdbOu5r6Kid2ALYhfOkYdWZzER1JA9mGvqRX+?=
- =?us-ascii?Q?sxU6tPffwIlXUviaUysy4B3R7f9vGy3KZXfnMy5mr+MA/XS2MxxHJrW9v3iJ?=
- =?us-ascii?Q?GhvjlNfWrLevg+B89xOxVfknMwYWNZSDWTU3oxjobqau2U85KpPW9OmWOpy1?=
- =?us-ascii?Q?4c11oi3OgBbU6tx0oqp2QIAi0gRsnYjJ+irubWVbg617mlBTApFlyxpLh8J6?=
- =?us-ascii?Q?I4P3aXRrgGOgZS4+VPPQNHMyI4BaBXN47Ou+Nek6rZ7wvPzqcyPpiqIlVPxa?=
- =?us-ascii?Q?vaGncexCNyIXydQuROvRSWgCXjxlHCmYsE/mK2zQcZJ3dCKN571Apek8rvaD?=
- =?us-ascii?Q?YTPxI489OiGP2mQYVrves/70nUsJUDeS9wXnqzUq4BM860tAbhO2e/C9h0rA?=
- =?us-ascii?Q?XIHRE2FjlTp+DAThR2itlIUqNOF/M3Ar0igc4uZVr+BgY6/1tSRa+AfqnXIU?=
- =?us-ascii?Q?uOKBLEd7AxJTNhhMigKISLW4yS/BkzbsSSomSJdNE8XyxmTWLDqWSwRsr7t4?=
- =?us-ascii?Q?rp5uufQxuOHGid0BNuZrfrBrklr7bILG3maT?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Apr 2025 17:03:56.0440
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 04f5e161-9ddc-49ad-23e1-08dd79e402ab
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000026CA.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8353
+In-Reply-To: <6743970.MhkbZ0Pkbq@workhorse>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250412_100406_662850_345D1F77 
-X-CRM114-Status: GOOD (  17.60  )
+X-CRM114-CacheID: sfid-20250412_105106_977754_2AD17ACB 
+X-CRM114-Status: GOOD (  40.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,54 +83,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Apr 12, 2025 at 10:55:14AM -0300, Jason Gunthorpe wrote:
-> On Fri, Apr 11, 2025 at 08:39:36PM -0700, Nicolin Chen wrote:
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index b4c21aaed1266a..97b9f8d7fb3340 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -3389,6 +3389,7 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
->  	for (i = 0; i < fwspec->num_ids; i++) {
->  		struct arm_smmu_stream *new_stream = &master->streams[i];
->  		u32 sid = fwspec->ids[i];
-> +		struct rb_node *existing;
->  
->  		new_stream->id = sid;
->  		new_stream->master = master;
-> @@ -3398,10 +3399,20 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
->  			break;
->  
->  		/* Insert into SID tree */
-> -		if (rb_find_add(&new_stream->node, &smmu->streams,
-> -				arm_smmu_streams_cmp_node)) {
-> -			dev_warn(master->dev, "stream %u already in tree\n",
-> -				 sid);
-> +		existing = rb_find_add(&new_stream->node, &smmu->streams,
-> +				       arm_smmu_streams_cmp_node);
-
-Oh right, it does find() already.
-
-> +		if (existing) {
-> +			struct arm_smmu_master *existing_master =
-> +				rb_entry(existing, struct arm_smmu_stream, node)
-> +					->master;
-> +
-> +			/* Bridged PCI devices may end up with duplicated IDs */
-> +			if (existing_master == master)
-> +				continue;
-> +
-> +			dev_warn(master->dev,
-> +				 "stream %u already in tree from dev %s\n", sid,
-> +				 dev_name(existing_master->dev));
->  			ret = -EINVAL;
->  			break;
->  		}
+On Fri, Apr 11, 2025 at 04:31:38PM +0200, Nicolas Frattaroli wrote:
+> On Thursday, 10 April 2025 23:11:23 Central European Summer Time Rob Herring wrote:
+> > On Mon, Apr 07, 2025 at 08:09:14PM +0200, Nicolas Frattaroli wrote:
+> > > USB connectors like to have OF graph connections to high-speed related
+> > > nodes to do various things. In the case of the RK3576, we can make use
+> > > of a port in the usb2 PHY to detect whether the OTG controller is
+> > > connected to a type C port and apply some special behaviour accordingly.
+> > > 
+> > > The usefulness of having different bits of a fully functioning USB stack
+> > > point to each other is more general though, and not constrained to
+> > > RK3576 at all, even for this use-case.
+> > > 
+> > > Add a port property to the binding.
+> > > 
+> > > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > > ---
+> > >  Documentation/devicetree/bindings/phy/rockchip,inno-usb2phy.yaml | 5 +++++
+> > >  1 file changed, 5 insertions(+)
+> > > 
+> > > diff --git a/Documentation/devicetree/bindings/phy/rockchip,inno-usb2phy.yaml b/Documentation/devicetree/bindings/phy/rockchip,inno-usb2phy.yaml
+> > > index 6a7ef556414cebad63c10de754778f84fd4486ee..3a662bfc353250a8ad9386ebb5575d1e84c1b5ba 100644
+> > > --- a/Documentation/devicetree/bindings/phy/rockchip,inno-usb2phy.yaml
+> > > +++ b/Documentation/devicetree/bindings/phy/rockchip,inno-usb2phy.yaml
+> > > @@ -78,6 +78,11 @@ properties:
+> > >        When set the driver will request its phandle as one companion-grf
+> > >        for some special SoCs (e.g rv1108).
+> > >  
+> > > +  port:
+> > > +    $ref: /schemas/graph.yaml#/properties/port
+> > > +    description:
+> > > +      A port node to link the PHY to a USB connector's "high-speed" port.
+> > 
+> > I don't think this is correct. The HS port of the connector goes to the 
+> > controller. The controller has the link to the phy.
+> > 
+> > If the PHY is also what handles USB-C muxing or orientation switching, 
+> > then it might have ports, but then it needs input and output ports.
+> > 
+> > Rob
+> > 
 > 
-> It seems like a reasonable rc fix, and if nobody has cared about DMA
-> Alias support since it was broken in 2021 maybe we just leave it.
+> Hi Rob,
+> 
+> thank you for the quick response.
+> 
+> I've feared this would be the case, but chose to go ahead with this solution
+> anyway because I'm not super stoked about the alternatives I can think of. The
+> problem is that I need to go from the USB PHY node to the USB connector somehow,
+> but there's no way I can see to get from the PHY node to the USB2 controller
+> it's connected to, unless I'm missing something obvious.
+> 
+> So I see two alternatives:
+> 1. Extend the usb connector binding to add additional ports for PHYs that handle
+>    vbus detection or something, then extend either the inno2 binding or a more
+>    general usb PHY binding to add that port definition.
+> 2. Revert to what the downstream vendor kernel does and simply add a boolean
+>    flag property to the inno usb2phy binding that tells it whether it's
+>    connected to a USB-C port and should therefore expect vbusdet to remain high.
+> 
+> Let me know if there's any better alternatives I missed. If there's some OF
+> driver function to enumerate all controllers a PHY is referenced by, then that
+> would probably work as well, allowing me to just point the HS port to the
+> controller instead as intended.
 
-I will wrap it up and make a note with that.
+The building blocks are there. You can iterate over nodes with 'phys' 
+with for_each_node_with_property(), then on each entry in 'phys' check 
+if it matches your node. Then you need to iterate over the ports to 
+check for connection to usb-c-connector. 
+of_graph_get_remote_port_parent() will help you there. Not terribly 
+efficient, but you're only doing it once.
 
-Thanks!
-Nicolin
+Another option is extend phy modes to distinguish USB-C or not. Then you 
+can set the mode either with the 'phy-mode' property or in phy cells. 
+Though if you have to add a cell, that's an ABI change (not sure if the 
+existing kernel would accept another cell).
+
+I rather see the kernel use the information that's already there rather 
+than have 2 sources of information.
+
+Rob
 
