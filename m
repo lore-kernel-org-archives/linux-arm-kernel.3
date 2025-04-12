@@ -4,87 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 244F6C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Apr 2025 18:11:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DDE5C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Apr 2025 18:13:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4dTqsGRTGY0t5K+LIOjuDzlZh6c2Mj0q/pqOoIFtsZM=; b=hr61BM0sJc9HPvYb0ydKXGANLd
-	PnqqhJfDuWGkFgx+czSx0/RWKtG/NXARkVnQOV7kFIv0meQV++xUTrhvvGrOjp/lsg3w7jo5qcTpo
-	wFvBUMYWwIg/dgemgibPEVj7xki9OVGc6UKNGGQ7tiBeN0U3mCouxDlmdxJiEmkQYXztq48C7heMA
-	8N0zyQQEXou8B4mTJK2Uknw5z8QOJk4UtdMl8PLh9qUsq3bEcw1MHjgL63DKSFoZFNcMtTI6loM64
-	flL8Sw6gN5Ub6GR67nC94sfu2/IV+AbxEire2ja0cSh5RnOWMfmpNY5B8Giwtt6RyOviXeVbBUljp
-	iXn62IJw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8WYvbjpcGb7KJNUByfcTCd3jRL1lDvJbZkLr6wZ/FRg=; b=R31BfFBnajZFIYI+Emzc72ryar
+	bIvtXgUN/JbYPD8Ku1iwyKVUqUB3Nd91svETEH30Nl/0sM26LZflnH35Q1qPwmz5iCvykK+6O0Mp9
+	FdCrYDKQchbVKldB4rF8P0T46/YM89NplIM3t6aW3RWg0TtPvClMMyI12opYjk4PxJsg6ATmrdp9w
+	rxZunsz00G+++VvnvSNj7BC6gEepBNmCpSj1NV8q3LECVtS75i6RrgMg+ArmTDy8rug8Cwea4vnwe
+	MlFv6mgjRXeSN4swN0wrBXuh/LFk4/eoVJzzmw8w0xTQSGXkEnRKwt4rbG9Oxbev4p3NwO6XYD5mO
+	tiaOO3lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3fJw-0000000GFXu-1RTK;
-	Sat, 12 Apr 2025 18:11:12 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1u3fLj-0000000GFmx-04Ql;
+	Sat, 12 Apr 2025 18:13:03 +0000
+Received: from mail-qv1-xf2b.google.com ([2607:f8b0:4864:20::f2b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3fH9-0000000GFJV-2NOg
+	id 1u3fHW-0000000GFM3-3HmG
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Apr 2025 18:08:20 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-ac289147833so594131066b.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Apr 2025 11:08:18 -0700 (PDT)
+	Sat, 12 Apr 2025 18:08:43 +0000
+Received: by mail-qv1-xf2b.google.com with SMTP id 6a1803df08f44-6f0eb824f51so571816d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Apr 2025 11:08:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744481297; x=1745086097; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4dTqsGRTGY0t5K+LIOjuDzlZh6c2Mj0q/pqOoIFtsZM=;
-        b=kzSTMLAI/LQOm74juNrjLbH2JpJMVXGgQTJQXU5peJoxXq8CuNPlgKmsI00E+XfOjW
-         cMku5Lz77nSVFcFQQ13rnYBAQzIsaqkt9z6N69cqfySAJUwNFTb/GcCs4MUOgSNQloDm
-         6XZ/L5dwnN28Sen1p/SuX4O/ycEAb2cUUou8OdiKL8YBN/KYRdCxKcREr5fbvz7lSCjH
-         HT9F/b576WGgPtrQA58+nKhK2H4vwJSb5bW/wyfTJ9B1ytcGGd9VsxC0zfZOr3deKEMh
-         TcITLD7lEm6nLSHMwaGjBq8yb6wM+MFKkuyj7yg3C1sAIKUjrV8yo57xWMbZoxGI39QN
-         Z8Zg==
+        d=gmail.com; s=20230601; t=1744481321; x=1745086121; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=8WYvbjpcGb7KJNUByfcTCd3jRL1lDvJbZkLr6wZ/FRg=;
+        b=bQuW9wk/rGTz4HcJf+pByy3hnNsW0rzvFKJG7BQwsw9TXRnc9U9Jhaew7wLHdODJ4m
+         VUrf+W9O/ni1ljDavCI4fDz3O4Y/RwEPnbmBU8RckA8RVqjPtNR76XPb7dNP+9/JfSx7
+         0TrTkTIqr7z/lp3RHE8OAPchvREXmMN2ibB3swXmEEGWLdXUzxq+cWQCLMqDCDEgJvCo
+         jhhMF4bnHyA5dG5RLfk2PXdWSwWsz5e0T7v7xby8lmleG1jq/AQHbFgi3ACNMGT/w/p1
+         NUrwGCQjy/ABxLyPnWjzlHxHByWbmLs863hl87Ca/KRhwvJ/hSLh4AZX8PRgDpQUfxX1
+         /hCA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744481297; x=1745086097;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=4dTqsGRTGY0t5K+LIOjuDzlZh6c2Mj0q/pqOoIFtsZM=;
-        b=D+woBIritJbpUd3Ds1Z4YRlP66pKRoqttEnLBcPeiFDqMQekKTydqNnA0ukhtFtk3e
-         hQspJhIGMPX6Ve+0K4hQgWIGKittVws6ehh/QXJDyiqpvlASSiGTzNGZjn62OfgE5u0h
-         TsDT0k2GJugtdCj0/3qDWfcOLFYnM0uzBsM3FXODNZ3lzMAklV22oApS1eJ0jHFF9O7S
-         9eR8j9DNmRI+N/kPeYtsNgBWpaguCW0O0eEAV4tcaAghtt+ukQFYq/B5nrY9LsKF/iUp
-         aQ01+SZocW1Hxsh3vqtZPbgslkNG2xJEsh5+V3anHLoiv/lZkwuP2sLRh/gIGGbw0Ia+
-         weNQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVRGLXr4xAR0jWOoY5HO90Q39/aqsn5eqcCUQfPQqUqca99JNSp6qTrY4DaIMhxLejxEwJPo71oGEQN5Nz0Vn7i@lists.infradead.org
-X-Gm-Message-State: AOJu0YwsPnVmUFBjkNJFXVDs5Al9YgzgZDSLpi6elteADGzOXoBQpY2A
-	JEfr59POGHfnzZWXXLb5Usf2SkxpHykZpCUFeY7EO2e7G5LA27aV14GqwjlP6KZHqSWPKn6Z2hq
-	XU5g+cj2Kr/DD2kq1vIrPN1GGuHw=
-X-Gm-Gg: ASbGncsqrVTycrkDQ06pe5FnxCssPvEiMefyO0VVfW45UT9MK/H/Z/nB8x97QsqAAn3
-	voYqW1i1bECCUTAUvyQsRJXRqlO3y5UK5XmmNV/Iaj+J4kU7g/DTpmOUKP2eQGtpH8hOyFj1pEC
-	E7unM/z8NHnEaEuPZnmJBTdw==
-X-Google-Smtp-Source: AGHT+IHwlMauSDYb3F4+xs9iOl49uDgO0Bqw97Xx22A+KavQlXG+0XcEY/aOXY8qAnhH/8FJz/p3UexMTPyWevIHvSk=
-X-Received: by 2002:a17:907:8694:b0:aca:cc2c:862a with SMTP id
- a640c23a62f3a-acad3456e74mr687348866b.5.1744481297320; Sat, 12 Apr 2025
- 11:08:17 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1744481321; x=1745086121;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=8WYvbjpcGb7KJNUByfcTCd3jRL1lDvJbZkLr6wZ/FRg=;
+        b=wYJSDv4BScdEj6F4lHCZWIAy1ZZeQj+IwDIHvPEB6GFjLdxUeYTAFe2JPadPQ4bWtV
+         yAaufDzdUkN0qYx+s+W1N5jUzBKyPH2NtKQTpvsP/NjJKPigItbDSMCHpVWGPNtqaIg+
+         KRIeCa5g33RUnjjfiqlcsL/0hrN16/UB5qiszt/13+cTsmO/HcVlwVcOtn5TsbTU2gHQ
+         tsN17Vg1NCKqKg9IZE2r3913WULmM4vrx5SFFRoLaGD6X0lHiF5jiU/eByh2zAmsK9Rp
+         O223u59vIVBeTByApyKG5ybbWy88SoLwo6CV8+0Kg8S3+JqsRBCFtnz/rLVyZSKvlRaZ
+         1AvQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXHBZsFL1C6Z5dlOdwYb6f//oBaH1txPM6RtZgVo5GC/qE5BvR/vWSApCsOqx9bt0nZroj+s1xp+JdfanUGzG+o@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzap2jX1W7R7Z7TGxGoAdUTXELyuBRLVSCubQRjdia3ua3S6B5Q
+	Ex/DCY++5JCjH0zTMBOsLhHTzT7v6NPcbPu0zlY2l7wOBZRlPdlZmHk8Lmw=
+X-Gm-Gg: ASbGncsVCY8L+sNFnJukbzj324GBr2qVejSxtdedAtmINbSab6QgFJSDslr99xt2q2i
+	PbNVe9s6SecyZsrnTvEAh7bxs8kJ85bQzyatwnpU5AybSlfJ6bSnNXm6neD8ynt9/RrBS9Xind1
+	kRnOpYqsvEM5v3lE4jQ6RFdJ8Ws/HIvR5rID0x47a9U1cs6thsyqBT30i6xBxWUuR4i8B2nBXdL
+	gUhRZH8lDQ4U0B7BlIO5YyMaL7jdpjml+YrgGrJI8UjGKc4fBCOZgac/Tv3J+rgO/rxJvzthSRF
+	DpoeMbL4fyW/0XCjShmt1jWJXkIxjtKet2gfwQ==
+X-Google-Smtp-Source: AGHT+IGuWwiwV2pI1FQDLCaq7IMqD3KTq9cCIX3peuLBaw7mxQTWHmOu3rz0clb0aOslnkPCVExtNg==
+X-Received: by 2002:a05:6214:19e5:b0:6e8:fcd2:360e with SMTP id 6a1803df08f44-6f23f15d812mr34251246d6.8.1744481321507;
+        Sat, 12 Apr 2025 11:08:41 -0700 (PDT)
+Received: from ise-alpha.. ([2620:0:e00:550a:642:1aff:fee8:511b])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6f0de95f801sm54141916d6.5.2025.04.12.11.08.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 12 Apr 2025 11:08:41 -0700 (PDT)
+From: Chenyuan Yang <chenyuan0y@gmail.com>
+To: sudeep.holla@arm.com,
+	cristian.marussi@arm.com,
+	rafael@kernel.org,
+	viresh.kumar@linaro.org
+Cc: arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Chenyuan Yang <chenyuan0y@gmail.com>
+Subject: [PATCH] cpufreq: scmi: Fix possible null pointer dereference
+Date: Sat, 12 Apr 2025 13:08:31 -0500
+Message-Id: <20250412180831.3252963-1-chenyuan0y@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20250410135836.2091238-1-olivier.moysan@foss.st.com> <20250412142606.66673634@jic23-huawei>
-In-Reply-To: <20250412142606.66673634@jic23-huawei>
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Sat, 12 Apr 2025 21:07:41 +0300
-X-Gm-Features: ATxdqUHG8l2dJ0PpOTJX-K4td1_yt9Tsr0rZ-bQ6xLHZ1IHBrZe_mC4b0mFcaRk
-Message-ID: <CAHp75VfUkStzq4zrKkaQ67REuuTSGhoD9o1LXU-YohUULBnd=w@mail.gmail.com>
-Subject: Re: [PATCH v4] iio: adc: stm32: add oversampling support
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: Olivier Moysan <olivier.moysan@foss.st.com>, David Lechner <dlechner@baylibre.com>, 
-	=?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
-	Andy Shevchenko <andy@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Fabrice Gasnier <fabrice.gasnier@foss.st.com>, linux-iio@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250412_110819_605338_05FF4782 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20250412_110842_820421_149B4AE8 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,28 +100,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Apr 12, 2025 at 4:26=E2=80=AFPM Jonathan Cameron <jic23@kernel.org>=
- wrote:
-> On Thu, 10 Apr 2025 15:58:35 +0200
-> Olivier Moysan <olivier.moysan@foss.st.com> wrote:
+Check if policy is NULL before dereferencing it.
 
-...
+This is similar to the commit cf7de25878a1
+("cppc_cpufreq: Fix possible null pointer dereference").
 
-> > The current support of the oversampling feature aims at increasing
-> > the data SNR, without changing the data resolution.
-> > As the oversampling by itself increases data resolution,
-> > a right shift is applied to keep initial resolution.
-> > Only the oversampling ratio corresponding to a power of two are
-> > supported here, to get a direct link between right shift and
-> > oversampling ratio. (2exp(n) ratio <=3D> n right shift)
+This is found by our static analysis tool KNighter.
 
-I have just noticed the interesting (and perhaps misleading) symbols
-in formulas here and in the comment in the code.
+Signed-off-by: Chenyuan Yang <chenyuan0y@gmail.com>
+Fixes: 99d6bdf33877 ("cpufreq: add support for CPU DVFS based on SCMI message protocol")
+---
+ drivers/cpufreq/scmi-cpufreq.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-I would expect to see the above as 2^n. Because exp makes me think
-about e (natural logarithm base) rather than about power.
+diff --git a/drivers/cpufreq/scmi-cpufreq.c b/drivers/cpufreq/scmi-cpufreq.c
+index c310aeebc8f3..ee916ce9b897 100644
+--- a/drivers/cpufreq/scmi-cpufreq.c
++++ b/drivers/cpufreq/scmi-cpufreq.c
+@@ -38,10 +38,14 @@ static struct cpufreq_driver scmi_cpufreq_driver;
+ static unsigned int scmi_cpufreq_get_rate(unsigned int cpu)
+ {
+ 	struct cpufreq_policy *policy = cpufreq_cpu_get_raw(cpu);
+-	struct scmi_data *priv = policy->driver_data;
++	struct scmi_data *priv;
+ 	unsigned long rate;
+ 	int ret;
+ 
++	if (!policy)
++		return 0;
++	priv = policy->driver_data;
++
+ 	ret = perf_ops->freq_get(ph, priv->domain_id, &rate, false);
+ 	if (ret)
+ 		return 0;
+-- 
+2.34.1
 
---=20
-With Best Regards,
-Andy Shevchenko
 
