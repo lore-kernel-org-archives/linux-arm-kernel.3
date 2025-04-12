@@ -4,107 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83D58C369AE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Apr 2025 16:25:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89A8EC369AE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Apr 2025 16:59:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Pz1KeHSutEHo6ZeIRclN0+VHj4FuPcwU7j5yxRlr/o=; b=MZHXxqhC2jWaki+Jxb8Cfa4pCQ
-	8IEy9jJJaL8w+guB5g1PwP/5k9wK6HmCuiUSY2s3EcNqlPY+L66FYkA8TR4UJuH63o0HI51D4fah9
-	X+t9NQSLyemG5n5YTuZYXHnmM/Dbl5c72EHC5P08NX8OyNzbNXot6PWjfpPLZJMb6tNDo+e0kPhnY
-	FwRxnSVQS2uUMZpZBHjhSH38bKfAS4kp8RofW1a6LqIBaLphQUYuZ1YZbpgKc+s5xYKZVyHQ5q3Du
-	lqVw5yUsjzCTZbRQId4D9jdD6c74MNa3XoIvwDpABHGPpFdcP9mrsttX7bEI1VhdvU/YXFTqIcg1v
-	+A2Er89Q==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3OAUNtzrYtxLdmxfVBvMY5Gk3k0kx42SFNBtSsQElR4=; b=ctFmp90Rjgz6Lq0jO3sDcJM/TX
+	QhVrint0BNNmh8ed8KZb3k0kTWmtgQRlo2OUjABFLw9FHeHVEPhI5cNywG8AbG/0+Tvx2ydJyBt+m
+	2QRpk+vOQ1BmlgBPKpRyPsqXJMa88J/G10l79CfiJZhnMJhzxmrJEQl8i9PSZOQw6THM5mNj2Edz9
+	IrTTd2+9DMQzowsGWaGm+PfRZkT1AZUmYcC4NxUSrjY8GL98PgPz9BRq6d5znBb2J5yJ/+765RQM5
+	pna97G/CDI+rg7XhC8h+4oqYRngQy5QYwlis9k0w8Jh/ipRFvNPOdnr6lCLqM+NO5bLM0RFmIxIo7
+	PLK4P6xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3dfZ-0000000G8kT-3B0W;
-	Sat, 12 Apr 2025 16:25:25 +0000
-Received: from mout.gmx.net ([212.227.15.18])
+	id 1u3eC1-0000000GAeT-2HxM;
+	Sat, 12 Apr 2025 16:58:57 +0000
+Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3ddj-0000000G8dp-37nf
+	id 1u3eAC-0000000GAYP-2m3L
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Apr 2025 16:23:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1744475003; x=1745079803; i=wahrenst@gmx.net;
-	bh=5Pz1KeHSutEHo6ZeIRclN0+VHj4FuPcwU7j5yxRlr/o=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=AlQNiOjH0jrUAjAgnxpnQYFY+lyutrptPsAUZQsD6oeZ/qnv+kPxPHBNDtwjli/X
-	 H8BBbMm0sP1bwHdcHqdMUyBR/Y+yi6QYxpwNCikiIIlwvSc5lE1cRR9SMeNATfA7A
-	 uG88A2S9doiB5xBVKiwRdXEEGTHJVqq7RLTQw5XV9ouxVGAeIoWIIirEMxEiiwukS
-	 s0NpWtXZhXbwzWJy3GQijmsqQqMaHjUaa4dv4K16TSYosEYMvNYRzD/3BaUo/5sX3
-	 2pfBSRSRiQkXpaBd7TmAhk/wDCRwNeSojMVEsG8O12D7ePMHBnsx+Gt7O5Oh43cLj
-	 h4N57QAxtUkjkyjoSQ==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.107] ([37.4.251.153]) by mail.gmx.net (mrgmx005
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MbzuH-1tSwEu24Mx-00iqvQ; Sat, 12
- Apr 2025 18:23:23 +0200
-Message-ID: <254efe04-09c6-4225-a869-126026642091@gmx.net>
-Date: Sat, 12 Apr 2025 18:23:22 +0200
+	Sat, 12 Apr 2025 16:57:05 +0000
+Received: by mail-qk1-x730.google.com with SMTP id af79cd13be357-7c5f20d512fso55384585a.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Apr 2025 09:57:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744477023; x=1745081823; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=3OAUNtzrYtxLdmxfVBvMY5Gk3k0kx42SFNBtSsQElR4=;
+        b=bICusiEqJ81Ba6O4d00ejNL1Qdq6q3rdoxNhwkwoJOeYPwpnztYtwfG+NfeMkEhU6n
+         LAbtB98qvJ+pouZF6l81bgE0ubpL2+DPFQ869tpZi4J+TKMukSuEDLo95rNRu642LjTw
+         /TCu+XXuvBviF67WbaUiXa+E67fB8XwQRFHn4v6rxCkz7JfDvRyAxzw73+lulP1Pv6yX
+         PV8HJ8/+GDo0ze+NRRX0+Hhh3VU8KqtLw8wWQhUXCz3Kcria5beEVWP3DYbLljs46/dz
+         TI1mD3oKou6GNsBZ9KiDirFu46vosAjxwyyKKGOyeuWcp2rSOYrBJ8N3c8ZIJn/Nm+c1
+         DCAg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744477023; x=1745081823;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=3OAUNtzrYtxLdmxfVBvMY5Gk3k0kx42SFNBtSsQElR4=;
+        b=XQnKzP7bnj8RZ3q6I6964voiNz4wp6NZUBlE516+cmp93edlKW9lCpezNAmyMHfihR
+         hCX1P2D+KpMD4q9JEgq3QtqWKB/ftc7JgZLz4PuH6NpQCvgO23U4zQcR1ptx0zY+B3Fl
+         kSFfVFC7cBonpUd8Sei0na1H8/4AV4UzbUkhhieLQOFbQICTTBXiwnJZ0R3usRt/zGxA
+         nEGz/ELpLReGb2CEVB3sAnVFeoqq6eXr2HghdNCCq8izHfQTkmta2w/KFNpW9WghG5c+
+         zG6uZlUPBY/k+DVBL2z+6fp/m3KT4N8rqb1E0o8X7kBlyvNnqsOLilaZEaUyntbQ/YKA
+         3KUQ==
+X-Gm-Message-State: AOJu0YwyClg2BxcxRa4hhJiEFq3Br6QhefNNtCC6dzKKTvFyUElidbua
+	GGj/FnfnmzJ4Vs2fxVC0AAy2FBroCCp7MQ+CX5lX5uLeeXqfFHQ=
+X-Gm-Gg: ASbGncszY57RnEPw8G4rIRQnkPHCpRzf+mcqmLmY8NzZON+PaJbbidDOHIMK3Xx/1qF
+	cowjYpGSjuh4CPg52ZCaCGkYHo3jn0+gMG4UW0CViCFjn1a+BAnFUS9KheYoZdlFhvKlBEYvCec
+	feQwKyXU3NtdZ0PsV3xOZjq3Q+8u7LV1bIJ3wQJC80qzNy98yaO85AVx06FggOPBukItnkV4ZIB
+	8GBA5Jd8WCeQNTvaFtrRzt8uo6q6/AgFZf0phoTeoznCtoO1bNkj2R207ytS2Uu+ve1lsVRwUiw
+	8qZMsFu1ygi84+2rDpNKjY72M0djfCSrylI06YtOoF0tKV9r
+X-Google-Smtp-Source: AGHT+IH8bGQWXcYiS6oP92AvgrToxoeCNlaJKrS6pTKqr+tWtGd4xgrw6ujWrk7k9KKOoduS3EC6pQ==
+X-Received: by 2002:a05:6214:1ccc:b0:6e4:449c:ab1d with SMTP id 6a1803df08f44-6f230cb46cfmr37544306d6.2.1744477023136;
+        Sat, 12 Apr 2025 09:57:03 -0700 (PDT)
+Received: from ise-alpha.. ([2620:0:e00:550a:642:1aff:fee8:511b])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6f0dea106a2sm52300916d6.115.2025.04.12.09.57.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 12 Apr 2025 09:57:02 -0700 (PDT)
+From: Chenyuan Yang <chenyuan0y@gmail.com>
+To: wens@csie.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org,
+	arnd@arndb.de,
+	hdegoede@redhat.com,
+	mripard@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Chenyuan Yang <chenyuan0y@gmail.com>
+Subject: [PATCH] drivers: soc: sunxi: Fix possible null pointer dereference
+Date: Sat, 12 Apr 2025 11:57:00 -0500
+Message-Id: <20250412165700.2298733-1-chenyuan0y@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 06/13] arm64: dts: freescale: imx93-phyboard-segin: Drop
- eMMC no-1-8-v flag
-To: Primoz Fiser <primoz.fiser@norik.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- upstream@lists.phytec.de
-References: <20250410090251.1103979-1-primoz.fiser@norik.com>
- <20250410090251.1103979-7-primoz.fiser@norik.com>
-Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <20250410090251.1103979-7-primoz.fiser@norik.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:60Fc69wF0pl4ADtd5hbuaSXONJ6EtEVuk/I2husPfDJp1ZWkvmq
- FVhQnzb/8PSyq498sWSzfKzHgjmbtzvwkECNMeqG2Lp0e+0E7qGWVmA7S1DlZBhT+0ikjsL
- 1EvdLKBQIHdbx9J5mup25S3q6QSnfC23usLjOlCihy1qZSbUaSFN/ZTpec6YWgnLgZakpDR
- XIhoDjYC6uXDs/6nJNDBQ==
-UI-OutboundReport: notjunk:1;M01:P0:Y1Kwbl/C9bI=;WqRPJ7SgX478p///iWuzZ2LbRFG
- uYMvgmID6RWhDbk2ha/WRaOCcv2Yoeq6LLKFOekgWcrN2ESB2Myv8WJhN7X2Nw47eYTDfA1RT
- 9NgEyDHGju9BqhmNiIZhdjBbS7uIJCIC2sy6ZqQcMzYgwJVQNmkAA4UTcH30JJf1uydhE3EMI
- 06E/LKh7XUOCAnvCNMCHe90PgJVoHClLqOaSUs6JIkJCRXjLSNILHQAzkCsJD2Ozdr7RV+f5J
- oTqwR89EYDUcmmLDKnhuW8DKZQW3A8H7CwRPdH/izsgo4wmQOBE/dvWk15vt+Dqznv2njqvsc
- +rOLSv1HDNcVs9Xi4htyPC0u90m0R2ELwkJD973f3p3TckpO7ifGG8Vu5u9w/02153m0xFiWx
- 8hNzl7Q7xi1HUFin7IjGPI8methbbITcvR9rMCYseDiADC/prqCSmg8q+hnWmxQsBHy82h7Pw
- jRoeGXtlOKPDP/CaCvymrsGsnimjJXoVCvuAGzMSQg1kjigxE4WGAvqI3ri7EeFCkkpyUJaur
- EcW07fk+PaaDzqXB9Ln7azr81FlO1P8/eWJ76O+Nc4ZbxUyRRcfAXMUmz5d2rJemeUmoiHtFd
- ++MUWCKDMKMFY3yo1HAZkQFR8EFerQ6L7CXm5KF3GgfKcy9erpXvQ6A/vfMh9GWE2Me/8SDYw
- Kne4dm+BI4xWPVEzRRYZOzbekxIffXdmcgvLzMt95MPTFJ37m+6KxMU+P9zRdHNrXuTJlcyda
- FEPTLI7Omh7PiNnfc3JV6gXwjr9b2Qwp1GlRExWLcZvePRjtNpqUkfiljZqAxFqpq6ft7o0BY
- s3yQEQWuS0RJzMiqJuGBVuKYkfGwymUFw9DQC5lNJT5mvmriwEPyh2qXBKXp8UUlMzKWB1s+/
- McLzDEqlr+MG/+Qf/f+ph3BTAQfCWpGt30Djrx06KggN/AmQ6yn0Ek0KvDhLOGGZL5Z4XcgMN
- MeatLS65jDX/R3mglPRwHOUUOrzzpnf57gGHZDRudCO85HeL2Hki1M/y2c8Jy0AqSAdZ7F0tq
- h1jjrsUtmNDeSqWiJPnDyvtcQ7FLhCXrEdLrKl6zQDQHvqlpKnuW7u1zV+kQkezWqs028OWcZ
- Gb2CCFU/H7CzKxcVNrv6fe/Z6iFMpVfLo9ioIkSutl9yGqIjZPx6iDQpWORISegW6hs2F77jX
- 6k7YYJGsazOAEwo+sKiIwJp/TKiUaHHb+VlfBnPXz0BFKwPXlFHp7Ubk2ayXN+A62ptBVNwZs
- 003eQOq3JdRXEKyrYDjt+B2bwi9bwsezZ8KAQ6yx+P1TX//+A7Nla9s2CC7zLcxhsnbL9wOUf
- wASf5vZNHmX3mOVurK2mcqvY5uom/c6Fe2ThAX+2lGIlCs7SM54eg4cj+jtYHXlMY4dE2prjl
- eYJWmPsM8z/hJt5+XglZugzp0na5aD4BCLVzdc65H15ZFKuY9zhExT40/tmzVAhqLv8VCkBZF
- DXUYP1mXu46wabf6+LQyqwzBUGSE=
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250412_092332_169172_C30425C5 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20250412_095704_699981_4BF05DCC 
+X-CRM114-Status: UNSURE (   9.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,36 +101,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Primoz,
+of_get_address() may return NULL which is later dereferenced.
+Fix this bug by adding NULL check
 
-Am 10.04.25 um 11:02 schrieb Primoz Fiser:
-> Drop redundant 'no-1-8-v' flag from usdhc1 (eMMC) node. Flag is now set
-> by default in the SOM include file (imx93-phycore-som.dtsi).
->
-> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
-i think, Patch 5 and this one should be squashed together.
+This is similar to the commit c534b63bede6
+("drm: vc4: Fix possible null pointer dereference").
 
-Regards
-> ---
->   arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts | 5 -----
->   1 file changed, 5 deletions(-)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts b/ar=
-ch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-> index 85fb188b057f..902b523fc92c 100644
-> --- a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-> @@ -40,11 +40,6 @@ &lpuart1 {
->   	status =3D "okay";
->   };
->
-> -/* eMMC */
-> -&usdhc1 {
-> -	no-1-8-v;
-> -};
-> -
->   /* SD-Card */
->   &usdhc2 {
->   	pinctrl-names =3D "default", "state_100mhz", "state_200mhz";
+Signed-off-by: Chenyuan Yang <chenyuan0y@gmail.com>
+Fixes: 4af34b572a85 ("drivers: soc: sunxi: Introduce SoC driver to map SRAMs")
+---
+ drivers/soc/sunxi/sunxi_sram.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/drivers/soc/sunxi/sunxi_sram.c b/drivers/soc/sunxi/sunxi_sram.c
+index 2781a091a6a6..1853dcc806ea 100644
+--- a/drivers/soc/sunxi/sunxi_sram.c
++++ b/drivers/soc/sunxi/sunxi_sram.c
+@@ -122,6 +122,8 @@ static int sunxi_sram_show(struct seq_file *s, void *data)
+ 			continue;
+ 
+ 		sram_addr_p = of_get_address(sram_node, 0, NULL, NULL);
++		if (!sram_addr_p)
++			continue;
+ 
+ 		seq_printf(s, "sram@%08x\n",
+ 			   be32_to_cpu(*sram_addr_p));
+@@ -134,6 +136,8 @@ static int sunxi_sram_show(struct seq_file *s, void *data)
+ 
+ 			section_addr_p = of_get_address(section_node, 0,
+ 							NULL, NULL);
++			if (!section_addr_p)
++				continue;
+ 
+ 			seq_printf(s, "\tsection@%04x\t(%s)\n",
+ 				   be32_to_cpu(*section_addr_p),
+-- 
+2.34.1
 
 
