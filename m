@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 953CCC369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Apr 2025 01:47:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF997C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Apr 2025 01:54:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sAOByrONyFXE8RLmAxCRdBlUWUhuicRHMMqe6Btlsis=; b=vxJT9x/nWKyRSjPo9Jnn+IqpvA
-	Y95jgmztrJ1u7uKWkbUzBT1zivMpt0QT30K1I0B8BwnXm6Kt3B81K3qBB8yz3h0btB1yFgkhwsa4h
-	ojIaB27wDJjqW8r843PtV+US9mzj4ccrPAf51+4KiOW2cKE7BjoayZBC3cBmLD7SkyPPRrUgxXUPI
-	jWVRFkY+ytzA+UrYeM5hgHLNsanNVaOGjqYusriyXXWPeVZYnPZM3MJ+9L9/EHIVrFZtJepTVnzpz
-	edKhkCjVhpCadZDzUmbHeOHMOFHT4lGtC7MpKlBrimCIFMVKVMkkZ2+pbOSZ6vfcujFo/f6dhyN9r
-	3vdhkXAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ku5Akarjli+xuPW4RW8MtHS1hZOaclGkQ3HVUes51ds=; b=DYzJOp7JbAwITT1dCL8hy7cOSg
+	5B8Htj4ejR5/a3MejQU6xk39+KMng1AVYvYl2EyCQDA2nZLP/69yaoooH56/frMUjChotkmfEv555
+	eqnpkN62YwNSo/6Jd1xASBGqaeoMByUYFiW76Eyc2cmp//5XF0p0ErgqSnlHIiQrSxvnoqEnyM6ol
+	YS6sklTKKrTltfSC03P3fHKiDQuGigFDzy2hhujs8852Wlu7YjjarkLVbXJcpd9vlrPiYKmrrb5RX
+	c21m0zvsQRnka6rnTQtf6CuwXEPZQVuM7ScG+L6Pjl4c2aYZUQG4Q2rjerdd2bXjMqpP6FTM9iWRI
+	Bg7zuBhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3Pxn-0000000FG5k-09uy;
-	Sat, 12 Apr 2025 01:47:19 +0000
+	id 1u3Q4p-0000000FGnV-0YrE;
+	Sat, 12 Apr 2025 01:54:35 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3Pvy-0000000FG0G-3OB6
+	id 1u3Q2z-0000000FGfA-2pkF
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Apr 2025 01:45:28 +0000
+	Sat, 12 Apr 2025 01:52:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 77F27436DC;
-	Sat, 12 Apr 2025 01:45:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E420EC4CEE2;
-	Sat, 12 Apr 2025 01:45:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8A5254356F;
+	Sat, 12 Apr 2025 01:52:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97E88C4CEE2;
+	Sat, 12 Apr 2025 01:52:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744422324;
-	bh=InI5YIvfIbmAEiSsiYv9SXaP67nBUB72BNS5xoI3aAk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aH+8Ve3afihmbx2mG3X6H3vD1yYcxfvJMEbeZy3r6GNURDIawp3cGTwMPoLAOMuTg
-	 1YT/qJ5wBUGByYhU3Oq2i6i5mv0T5+dKl5WLcOUJWHirosE4yxpJNi7r1Pc+4SGUOs
-	 EtX3OnwWfkzlPA2IexZvxSPgrp5xmiZWOOK+fsPFraHP/TsHwfHkgqla/XXpBSeDHh
-	 d96HwnBB//WT0ut72I5mXESz76FZmw/PayPGVWaCoGWz3Vm9xUalZisllvVixG6bNX
-	 RMh5o5t1sbvg+WgE4+sSWcjgz4KMPFFj80RDBd8BL9+uUbjju+zyz/c0e5VpKb4fRJ
-	 3uUQJsWi7bNSg==
-Date: Fri, 11 Apr 2025 20:45:19 -0500
-From: Nathan Chancellor <nathan@kernel.org>
-To: Naresh Kamboju <naresh.kamboju@linaro.org>
-Cc: open list <linux-kernel@vger.kernel.org>,
-	Linux ARM <linux-arm-kernel@lists.infradead.org>,
-	lkft-triage@lists.linaro.org,
-	Linux Regressions <regressions@lists.linux.dev>,
-	clang-built-linux <llvm@lists.linux.dev>,
-	Arnd Bergmann <arnd@arndb.de>, Ard Biesheuvel <ardb@kernel.org>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Anders Roxell <anders.roxell@linaro.org>,
-	Kees Cook <keescook@chromium.org>
-Subject: Re: v6.14-12245-g91e5bfe317d8: Boot regression: rk3399-rock-pi-4b
- dragonboard-410c dragonboard-845c no console output
-Message-ID: <20250412014519.GA1905363@ax162>
-References: <CA+G9fYve7+nXJNoV48TksXoMeVjgJuP8Gs=+1br+Qur1DPWV4A@mail.gmail.com>
- <20250403011849.GA3138383@ax162>
- <CA+G9fYtrsLHvMH=ofmdS3MMsMTEj3k0PD7=qsRsA4WkSqLkCzQ@mail.gmail.com>
- <20250405002757.GA836042@ax162>
- <CA+G9fYv=jUunRgUs=ROptP4p5DNxUuUHxYsnWaxUUXbiwdszsA@mail.gmail.com>
+	s=k20201202; t=1744422760;
+	bh=CRE+SY7bJNk+uYBL0kKrvVkutDrMpSNs63eSfb8DWaY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=FTsKhQKfNS53TwGA68TBYkM3vurdB5bj1Ko9Gpc+0gpB+MqPUB1bN/seKZlpIgRPD
+	 9LkD7Qjws5wnZ3Oj3cWaac/ZmZu0cJlhWsjdkyUR6wy/UdsZzypX7kvgZ4CSUjnIf+
+	 dC/fpN2qL+xSQO4WnuFw6LjyjjIAAngtQrA/Ts95FvXciOX6S891KPXyv0P/ucO5im
+	 FqC5btjsNAk6Y6TKgWswQ8HaJE70xXrLwNKaYtE1+tTxVM1jraUcDkoO3s803+O7ao
+	 CRxI24QIIdzLSCKoMQ9luXAJJ6vjgaMVPmbC1zOsmiCx9851lxC4f0datcZbI/qBxr
+	 8pwL5B7ENu0tw==
+Date: Fri, 11 Apr 2025 18:52:38 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>, Eric Dumazet
+ <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Heiner Kallweit
+ <hkallweit1@gmail.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
+ linux-arm-kernel@lists.infradead.org, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
+ Florian Fainelli <f.fainelli@gmail.com>, Russell King
+ <linux@armlinux.org.uk>, Vladimir Oltean <vladimir.oltean@nxp.com>,
+ =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>, Oleksij Rempel
+ <o.rempel@pengutronix.de>, Simon Horman <horms@kernel.org>, Romain Gantois
+ <romain.gantois@bootlin.com>, Piergiorgio Beruto
+ <piergiorgio.beruto@gmail.com>
+Subject: Re: [PATCH net-next v5 1/4] net: ethtool: Introduce per-PHY DUMP
+ operations
+Message-ID: <20250411185238.77372b15@kernel.org>
+In-Reply-To: <20250411092619.722b7411@fedora.home>
+References: <20250410123350.174105-1-maxime.chevallier@bootlin.com>
+	<20250410123350.174105-2-maxime.chevallier@bootlin.com>
+	<20250410172155.3cd854d8@kernel.org>
+	<20250411092619.722b7411@fedora.home>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CA+G9fYv=jUunRgUs=ROptP4p5DNxUuUHxYsnWaxUUXbiwdszsA@mail.gmail.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_184526_867031_DF2680AF 
-X-CRM114-Status: UNSURE (   8.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250411_185241_736677_5EA272C2 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,32 +85,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Naresh,
-
-On Fri, Apr 11, 2025 at 12:49:17AM +0530, Naresh Kamboju wrote:
-> clang-nightly boot failed with stable-rc 6.12, 6.13 and 6.14 and
-> mainline and next on following devices and virtual platforms.
-> - dragonboard-410c
-> - dragonboard-845c
-> - rk3399-rock-pi-4b
-> - Juno-r2
-> - e850-96
-> - FVP (Fast Models Fixed Virtual Platforms)
+On Fri, 11 Apr 2025 09:26:19 +0200 Maxime Chevallier wrote:
+> > Transient warnings here that the new functions are not used :(
+> > Would it work to squash the 3rd and 4th patches in?
+> > Not ideal but better than having a warning.  
 > 
-> Boot Test links,
-> - https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.12.y/build/v6.12.23-2-g8e0839d16957/testrun/28076019/suite/boot/test/clang-nightly-lkftconfig-kselftest/history/
-> - https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.12.y/build/v6.12.23-2-g8e0839d16957/testrun/28076006/suite/boot/test/clang-nightly-lkftconfig-lto-thing/history/
-> -  https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.12.y/build/v6.12.23-2-g8e0839d16957/testrun/28076009/suite/boot/test/clang-nightly-lkftconfig-hardening/history/
+> ah damn yes indeed... meh sorry about that, I'll squash the other
+> patches in (except for the net/ethtool/phy.c patch). That said are you
+> more comfortable with this approach ? I was unsure this was what you
+> were expecting from the previous iteration.
 
-Thanks again for confirming. As this is reproducible with the FVP, I was
-able to cobble together how to boot it locally with tuxrun and your
-configuration (which felt rather convoluted to get from the website
-above) and use that to bisect LLVM:
-
-https://github.com/ClangBuiltLinux/linux/issues/2082
-
-I will continue to look into this next week.
-
-Cheers,
-Nathan
+I'm not sure if I did expect anything in particular after the idea I had
+proved to not be feasible :) This looks good at a quick look.
 
