@@ -4,64 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D508C369AE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Apr 2025 03:22:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E96E2C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Apr 2025 03:32:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FxnRq6VQEcB4oiRE+uRPdtP/rIou7ihBxyJX3duKtV4=; b=deq1vowkkdi0D2RoqKjJucT89U
-	05ZbMkQ0BDN2xqP2dEhtOnSHInzXT6Iz9CixjEcVYuqgGtKeAqnST07LU/K4dDQKOpja3Pjmo/kvw
-	99TxnpwkZkGuPhvP2FizpHfoMG/cCXSzFlKdSqt1zf7wjn6BOFhq1DOg3guwL9jT1nGjVReUaf6rb
-	TcSrQhUFbg2r6y+tVGtZ1MhtQwkDynDPxBuarlXdIFFRn+Wm3jWDeUdJ7lR73W04/deSfbdhV7Z0R
-	3BrNFQLurqkLXKqhPxLFjkzvz9ebnA3BbT2EeL+7RM4c26wzYPM1uY/fgH4vJxfD//0/UHTqEx9EH
-	J7ipg8ug==;
+	bh=3DegDWlFrzAgX1Nd4dR8ZRoXvEwOJGhbIJpumAQtNQ0=; b=uthTbkmYpGhHNVWDnDXXy4fq+p
+	/TnlLaU83FyRYmE0VWxEA7t4nVoPJ9SZktsn575kikBklB8YfdzClD41ddFeLy2jD+WKvfnpIQozC
+	NFkIkaTUzwMS9lcYIOd8oogVXWtk/65pnmzbPrGaVdhnSaLm0Ch7nTbXqHzF3m6fM1IRkiYi9thUp
+	R7Leb/1REZ8FIQCmYjKBlnJ9/t/SpT/I+e0ZLbK6tZcZMmWkliZkWzeViglMCwdp6qelBmaKKDNcz
+	CSBhvFIhD1h9Zr8IE0yTpBu0ywRdYFHladiM7wW1nweMPk51gm4nn5FS/O/WmUrmGmwC86OjcUb07
+	Cgbz39Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3RRe-0000000FLIf-3fof;
-	Sat, 12 Apr 2025 03:22:14 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u3Rb0-0000000FM6X-1mHk;
+	Sat, 12 Apr 2025 03:31:54 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3RPh-0000000FL9y-06ju;
-	Sat, 12 Apr 2025 03:20:14 +0000
+	id 1u3RZD-0000000FLwg-1q8o;
+	Sat, 12 Apr 2025 03:30:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D9B11A41171;
-	Sat, 12 Apr 2025 03:14:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11FA5C4CEE2;
-	Sat, 12 Apr 2025 03:20:11 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8A75B5C663C;
+	Sat, 12 Apr 2025 03:27:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26978C4CEE2;
+	Sat, 12 Apr 2025 03:30:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744428011;
-	bh=P3eMMMTOhVSL/2Y5KGfLC91c7e0DuqVcE96h8ZWmHXU=;
+	s=k20201202; t=1744428601;
+	bh=iTao/PD4wBGBtQXKQE7u/ERT3gg5FuPO+Oacyr84mXQ=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=qUBK7eIinygyDSEvh3NpnYPLwHiF/j/LT0mloVxEiaBVKqwKQz9pYkzOvLtvrl3g/
-	 Vwv3BLtKuM5pMwNGRTBQaTwZwdb4aUAbdkdRPx57x/HdvuWX6SDwrRFzfC2/Jg0Sje
-	 rDECheOpooP9UeWHrcgWaWnWxCd21XYmCQyJvuhdZpJ0B//tSgfOY/AltCBWoDxlAr
-	 yr3aQhFmRA9ebBJnvh5EzZQ9KqTwMhYJ1Yd9UMN3MT5VqoQn735ASvlBL9EcH7Hja8
-	 Ry1Zdv00O3R+WjIbXGIrqdos7NX5WLO30pyobpgdCdZENIV6iawAtgNcJJ60L60byN
-	 sjyXGfFjD0t6g==
+	b=kFHwJu4IUwdbRkhKVEo44qRC0GXdUmi3QC7g810KAghAEq44AVxoz90arTMBkkr1d
+	 1iEUAiwKFkTUq8W7CeP0l0HnNUfHP+xfy2wmzE/zKYeAMdBpCsaDFXOW9VfRB4mY9T
+	 oqRagmHrB6ZSZXKcLqnxU7DKeUPD6YGe8hH09rlv4dmbTHYkSD99Vco16kM8NbQcKP
+	 YAe8zja4ZWvFiou9YVPrimdwxNviIyWZO8J2UR9xYF2ihxIlg+H7WgaiFuLUfPbvBX
+	 0d4JDl6wP4L1FrsVJbscPD4T1J7ksaVFLD3qsWPIIYiaRsgU7cR6Z/yN9ZRb8ImL3x
+	 BS3yBQA5976BA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAE1F38111DD;
-	Sat, 12 Apr 2025 03:20:49 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id AEBBF38111DD;
+	Sat, 12 Apr 2025 03:30:39 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v2 0/2] Add L2 hw acceleration for airoha_eth
- driver
+Subject: Re: [net-next PATCH v2 1/2] net: phy: mediatek: permit to compile test GE
+ SOC PHY driver
 From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <174442804876.562152.332810337107180556.git-patchwork-notify@kernel.org>
-Date: Sat, 12 Apr 2025 03:20:48 +0000
-References: <20250409-airoha-flowtable-l2b-v2-0-4a1e3935ea92@kernel.org>
-In-Reply-To: <20250409-airoha-flowtable-l2b-v2-0-4a1e3935ea92@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
- michal.kubiak@intel.com
+Message-Id: <174442863837.564205.525702135577856818.git-patchwork-notify@kernel.org>
+Date: Sat, 12 Apr 2025 03:30:38 +0000
+References: <20250410100410.348-1-ansuelsmth@gmail.com>
+In-Reply-To: <20250410100410.348-1-ansuelsmth@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ daniel@makrotopia.org, dqfext@gmail.com, SkyLake.Huang@mediatek.com,
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+ rdunlap@infradead.org, horms@kernel.org, arnd@arndb.de,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_202013_132325_89B629E0 
-X-CRM114-Status: UNSURE (   8.37  )
+X-CRM114-CacheID: sfid-20250411_203003_520568_A9D53AFB 
+X-CRM114-Status: UNSURE (   9.25  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,21 +85,21 @@ Hello:
 This series was applied to netdev/net-next.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Wed, 09 Apr 2025 11:47:13 +0200 you wrote:
-> Introduce the capability to offload L2 traffic defining flower rules in
-> the PSE/PPE engine available on EN7581 SoC.
-> Since the hw always reports L2/L3/L4 flower rules, link all L2 rules
-> sharing the same L2 info (with different L3/L4 info) in the L2 subflows
-> list of a given L2 PPE entry.
-> 
+On Thu, 10 Apr 2025 12:04:03 +0200 you wrote:
+> When commit 462a3daad679 ("net: phy: mediatek: fix compile-test
+> dependencies") fixed the dependency, it should have also introduced
+> an or on COMPILE_TEST to permit this driver to be compile-tested even if
+> NVMEM_MTK_EFUSE wasn't selected. The driver makes use of NVMEM API that
+> are always compiled (return error) so the driver can actually be
+> compiled even without that config.
 > 
 > [...]
 
 Here is the summary with links:
-  - [net-next,v2,1/2] net: airoha: Add l2_flows rhashtable
-    https://git.kernel.org/netdev/net-next/c/b4916f67902e
-  - [net-next,v2,2/2] net: airoha: Add L2 hw acceleration support
-    https://git.kernel.org/netdev/net-next/c/cd53f622611f
+  - [net-next,v2,1/2] net: phy: mediatek: permit to compile test GE SOC PHY driver
+    https://git.kernel.org/netdev/net-next/c/e5566162af8b
+  - [net-next,v2,2/2] net: phy: mediatek: add Airoha PHY ID to SoC driver
+    https://git.kernel.org/netdev/net-next/c/6a325aed130b
 
 You are awesome, thank you!
 -- 
