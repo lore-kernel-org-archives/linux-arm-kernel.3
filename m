@@ -4,76 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43D3CC369AE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Apr 2025 13:43:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 186A5C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Apr 2025 13:57:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jf8oucjaK1PUq9ygRMGbT8F3uX6pkwlA/IWYUxxq5uo=; b=YoppnY3Eylt/U0lMw9JrOJKQNQ
-	VoN5mKbmH4G1Yqi5OkFOORdLZvD29iogcdyIM9l4pWH3jRb4vPU2LhFx+v7VqM9NOWEsZh0HWtnKr
-	oIYbLOr98sy+yAUWvXJoebe2rkV0Rryk6PFAeEPbb/jhMwzhR/xEeigL2hWiBvKo8WV7TZhX/92Lk
-	KBUMLjS7gzh9ndsZ8fbR8nndh82CIhRtRilPvDqxEvmDsJnqixhGgY7qbaqoDzysygXjVt5Ozn9g4
-	mVrAnAKfGTXN1OvguqhS72Tamfx2208q5HTu1qrCBqqZocKegferjr3y+obEeFqSygdr3tR8I11Ny
-	WBVeM7/A==;
+	bh=Plouo65+x3yPm9ZvGPQ7J0eE2kfUyJwhNdEUBteeXTw=; b=auEDDiGiSVT9UY1VrPJetXNH9I
+	BZWRB+z3vWQkZCVdRSAAUVol32+ULSNE07XzreP6BSHbRaZOcuyFax5/Jm+3F24s45ox1uIXT6fDi
+	n/mhVg48iyCe/+0PfWpKK32xbS2NOb8e1aTgjNFkUjMEnokoX3mFwWujHERjvCyp6+O9ArQuioYHt
+	GcDQffz7jlWwCbzywguMyFobOKs6Ll0mposH9OdjHwT5tuCLpbi2EBQSpHynH4scDuCJSRcNktngs
+	nwaPlOGMImyrg9IaKPtMC+yLl9fLU8dxuy6r4UtV0OhF3SbUh181K7zqxki6X7CefSHnhL39xlOUx
+	G6t9lMBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3b8x-0000000FxEg-1qdo;
-	Sat, 12 Apr 2025 13:43:35 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1u3bMB-0000000FyCD-1K0v;
+	Sat, 12 Apr 2025 13:57:15 +0000
+Received: from mail-mw2nam12on20619.outbound.protection.outlook.com ([2a01:111:f403:200a::619] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3b78-0000000Fx5G-0Jmt
+	id 1u3bKL-0000000Fxye-2EnZ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Apr 2025 13:41:44 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1u3b6o-0001Jb-4t; Sat, 12 Apr 2025 15:41:22 +0200
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1u3b6k-004b7M-3B;
-	Sat, 12 Apr 2025 15:41:19 +0200
-Received: from pengutronix.de (p5b1645f7.dip0.t-ipconnect.de [91.22.69.247])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 7F9563F66F8;
-	Sat, 12 Apr 2025 13:41:18 +0000 (UTC)
-Date: Sat, 12 Apr 2025 15:41:17 +0200
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Primoz Fiser <primoz.fiser@norik.com>, Rob Herring <robh@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, Fabio Estevam <festevam@gmail.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, upstream@lists.phytec.de, linux-kernel@vger.kernel.org, 
-	imx@lists.linux.dev, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 10/13] arm64: dts: freescale: imx93-phyboard-segin: Add
- CAN support
-Message-ID: <20250412-tentacled-rugged-bee-fd7e9c-mkl@pengutronix.de>
-References: <20250410090251.1103979-1-primoz.fiser@norik.com>
- <20250410090251.1103979-11-primoz.fiser@norik.com>
- <Z/fifUQ4M2doQbHx@lizhi-Precision-Tower-5810>
- <ef74e49d-c413-4719-a174-42df91384469@norik.com>
- <Z/knehHQeTTUXgr3@lizhi-Precision-Tower-5810>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="gxqnwwxty7chqrbx"
+	Sat, 12 Apr 2025 13:55:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HK10nbVHmv++hnSTpTm+j1iC1vD0pUlNbfSUQMO+UCOw9deHdEvSs8vf7eQr0PZUN/bh6Lis3m1bLIyyf6oyz53xRKJDo65fhzZdGhk8T8DBcLBqT0WVN+89T3z1B91ko7crTEF/QsQ4WRhGznTAuBvyZfELGSjtfcIY3ovZX+6Tz8o0nXWguMZsQJG/oXtUNoiwb48l1vDorMlcZc+zhhHVjrW7HY153ySIHSXgiRilwxqI3tBWyJFK3A3VB++Ru/CdcGd7ZpwenhBi0xgAcqrhijEbl6/s+LDUu2rPTeqq00XXy//msmoYlFXjNgnqkKqeRgMvC4u2ww6vkeA7iQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Plouo65+x3yPm9ZvGPQ7J0eE2kfUyJwhNdEUBteeXTw=;
+ b=gz5HZNocVlRKWTVNi1Q2slvMQFKslcdSLt4brK4hI0XwVhp9Rvw0St8rhe6kS7MeGtXclAzeP8Ncl90Huppad1e5/3FJTsR8BnoTvptVkZTwpKWi3WrD/ZTqENB5iTY1UvsGA7dKHIeXqjYqeVpDwXE5hDDCZGDy3G2NYuyUaCvcvUjSpcUDkn9rEw0TwN0YF9ZkaPGCc5efrpRnF/nbj/LnIi1v7Ipw1WM21fX/r81UfH6pmL+ClnDQ5P29j7at+DLf9G/HuZLbdu3E5/X+pXkf/WmKjvJL754Et0MVF2wWLVGqyd7ZRzGE5ArfsoI8lkq2VT8wCUYfZX1w76coCg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Plouo65+x3yPm9ZvGPQ7J0eE2kfUyJwhNdEUBteeXTw=;
+ b=s/+O/altpb8B27Y/Yn3XLlETqdK1lv0I0kEB3PCex2kOoifIxttMVnpikfM57JF2wPQf5gHcT3AE4PrpOlKsX+0X1KaxKl+xX4K0kwwD0BBw7Xn7sWJLxHTydDv+NsTlL0kEUVP1tM2bLnIBJQBjYKArfeIE3j/u9CsfIpRClV/icys1/VNMyUYpA9x2O1bSp8s7XzHQbQVcZBqZWBSGA+x2UK2CxnAXkcIIbikRP2Dpo30zBQe8vNOXVb3kYdyWwqgGeXisR/ZC1IUuMneK+Xg+6CGwinP58ks7IhshyX5COcWHZfMOIkMmtkHBLwO0ig/wMoy2QmZ6nXEjCWfLow==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by PH0PR12MB8824.namprd12.prod.outlook.com (2603:10b6:510:26f::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.29; Sat, 12 Apr
+ 2025 13:55:16 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8632.030; Sat, 12 Apr 2025
+ 13:55:15 +0000
+Date: Sat, 12 Apr 2025 10:55:14 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: Robin Murphy <robin.murphy@arm.com>, will@kernel.org, joro@8bytes.org,
+	jsnitsel@redhat.com, praan@google.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] iommu/arm-smmu-v3: Allow stream table to have nodes with
+ the same ID
+Message-ID: <20250412135514.GA329420@nvidia.com>
+References: <20250411044706.356395-1-nicolinc@nvidia.com>
+ <5c8d16f9-246e-45d0-aaac-45b7712cefb5@arm.com>
+ <Z/mm2EQAQtOqpVCy@Asurada-Nvidia>
+ <20250411234419.GC252886@nvidia.com>
+ <Z/mupP6m0gRbeYtg@Asurada-Nvidia>
+ <Z/ngeFHmygxnPn6f@Asurada-Nvidia>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z/knehHQeTTUXgr3@lizhi-Precision-Tower-5810>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+In-Reply-To: <Z/ngeFHmygxnPn6f@Asurada-Nvidia>
+X-ClientProxiedBy: BN9P222CA0023.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:408:10c::28) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|PH0PR12MB8824:EE_
+X-MS-Office365-Filtering-Correlation-Id: 840c7353-cc39-4f47-31b1-08dd79c9a6d8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?OfgpKoMMXWu/OlXoV6OrSRZmqtA310iqdHS6CIytzAkUDJvSVhFBK4/r8w8C?=
+ =?us-ascii?Q?9mYtvuka3PohyTynZFvpgAYD3pA/lQgoWzBM7/k9++ydAHAi9S1H1cV5pHA1?=
+ =?us-ascii?Q?qoxth8NtVG5PyAbpNGR9w0BRwQCSBMSbM1/ggqLUGtbrrTCkU67aUowmwNOX?=
+ =?us-ascii?Q?3WsAxVLGzFgvMaVeKqPlYz6/UK4GcWtCU/MSv/kSIbLCC6IvljsikjTM9XJt?=
+ =?us-ascii?Q?a/4w6EPiNyoZ9jkfAIgaPgYBW8FUiKnsBXthoxkrZsyXvqLGueSvfGzfVKTH?=
+ =?us-ascii?Q?U7R8/mTmvw5RiHXul5Ac9mpfxO+nGpptq2F1FSCqHZ97BorHONcpdHsZBtm3?=
+ =?us-ascii?Q?ClkZc02vxAgbqUK4jWkc6h8hEuvcyW6UykPSay5pzW0Nn0o/1rZB1jzkTAhc?=
+ =?us-ascii?Q?5RG4HHA4f9f82B0uZvC+3S9pZ8jEVmXVsMcoViK5mqL853vXvIUqY3aYHvEF?=
+ =?us-ascii?Q?8FYhYqkZubz25w5NpjNp4rmmUYvBVVU7A7jwM+205PqXJJh9JWz/JoG3jLty?=
+ =?us-ascii?Q?FhqYPti6Bm0c+D/OoFvhX3cgMZRLyLTHpKLQrod/eCqs1MWVXHoB7ufk9ECX?=
+ =?us-ascii?Q?md67wa2kUSSWXivfzWhsS2t+aWi4Z9siNEJ7SLSR7FDrsNgzRzgjxbR5L4VU?=
+ =?us-ascii?Q?RuJRxBHMO3m4hW1la5wLHqD9f1RtroYvUok0bKy5cy9YI4FKYmz1hH6Ufh0G?=
+ =?us-ascii?Q?VI5sILQITASLHtpl9mtRNx3TQudeAQ7wM3WZr5iszolAx5Y4M8NtjG2x1dye?=
+ =?us-ascii?Q?dZ2OXbeXQ9eZ/xcHCcwgAkARuYDHNSZyv45a89RlkpHlKzSwsYGseOC2AfCU?=
+ =?us-ascii?Q?Avfq7UZFGQL98BmTIXPPfsCIZumUqzYEZPq9yzRPZeMvUAYl0+9JPGzwjFPA?=
+ =?us-ascii?Q?beRlD0nlOqUAzCtW4fPpysw+ofKn0cLMzpojMWn8ZZkzZOUkD9HeyG0FI21H?=
+ =?us-ascii?Q?dB0XXRaUiBqIrkSV+engkDgeYak8tiNXu9XWpeGEzgWj2a46iN75EPtoM3jN?=
+ =?us-ascii?Q?DKmEG38D5ZsYhoNlIWgzJFoPCx8ulqtcBI1E4R055LTgcqZk0cWXcXIexNxn?=
+ =?us-ascii?Q?4y/yuJbg12gDMB3w+DgSPLNnz3RL0yFuX0xmsdrwyPyVCk1RhNxmfydwFYXO?=
+ =?us-ascii?Q?YrRXzDVjnxXryJHA0cwJnbQC8KUOH5kKx9+jGUL0AZ9qkq75a5Q1Rj4Iqwsb?=
+ =?us-ascii?Q?qLgF8GGxhc4E5VJBdVk+kyP0xbxnCP0J8EpygyA8nkTDpwpCZsXys/Y8mEM7?=
+ =?us-ascii?Q?TMXAwKLfZGKUh/5GJwkSW0GncXqRJq8MjJcxkxFAwPntpgfEehoLH6XNfDSe?=
+ =?us-ascii?Q?f9cRWD17f3hzKx692U3q0FplU9RpVODLSxOoHYTYe7sAp6UxmXKqp2Xrx6mb?=
+ =?us-ascii?Q?rZA+aDAbfoZ/ESbR7aIett35M/zD7c95Y4uJKFAczsWcCMhjhneEygiUQKLU?=
+ =?us-ascii?Q?LfBAt3OPv8I=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?v9L3I6FKgdjOhp0ihnGkH1tniIZY4Lr9PPjRNaa1NukYAARJDAsVNMgWJaG3?=
+ =?us-ascii?Q?C9+LceqB2f3IsoLeM64QhAy42VaGwr4gtb4cjep9C5yULHBt4ry2s9JwcOk6?=
+ =?us-ascii?Q?ayxTz1RGcIxj0Yg6UrET1W1q6jMH8yFhHktzv7TCmpZvwUMLBMl7Ggbcy3uL?=
+ =?us-ascii?Q?n6jTTw5IUPz3Vnj0RzJkY0fS+Bf+PM40xKLd3ftLEKB/36AVn0+U2xQpWnOH?=
+ =?us-ascii?Q?8y+mscpJD4qtm8N0xOvsF0fEzTwlG8EnWw4SPHjAPnr46049z2IIwQ3AbGoD?=
+ =?us-ascii?Q?8jGKv83oYNmKE82wNsFVeu5Gjjr5NmSF151NurUR7lrDeBWT3PeTS/FJjnqy?=
+ =?us-ascii?Q?gqU2PAjgngdYz/rW+twxt4fXpLwLFIQeDOTyA/cGAhFhwDfFgGsI12CvSrhR?=
+ =?us-ascii?Q?LbrzJWbRjGqL4rzIFSZNqn6sAi4L54qiUhf57z0SDWfrzLrZFkbDAvIc1oc3?=
+ =?us-ascii?Q?ngxhFx6yvlnrsS/mg2gAg30IwIJgawjsdK+cJO1r87V2LALvyve/GGYSQkrz?=
+ =?us-ascii?Q?/QeR+2xd5bYRRZvQg5sPuVSI9ogEPaOJDdTPHUxQ6YrSJ1ECHUpUCJyiR7tK?=
+ =?us-ascii?Q?6uzcNB1rWkFEuRLMRruF/U5/BMV9PiI0MKUUjgbXsbXAAKgoRL4w+VgHVphR?=
+ =?us-ascii?Q?YvV4ONy+pc5xz/2lA/HIbm1hwaikZk+QvXkgckE5Jy2M9hgCleFup7pwL2k6?=
+ =?us-ascii?Q?Q2OSyq/CK8WN6XLfztjqhY5oMdUwVbRjcySHLUHI7ZFIZa+Ey87boSJeaxVk?=
+ =?us-ascii?Q?mnU0kiq/GamhiA4d4uueVoIiXrQYSexeiM4cAbpZ1DI3G6unqoekh2Rbc0QP?=
+ =?us-ascii?Q?8lGzhekxo36W50qN0A4GCcfJzgkDJMoWvczEgD5T5AepcYA2qIf5IpkZy3Le?=
+ =?us-ascii?Q?zphjL2VcAOxER5aWb+CazIAUoPad4C2a/QiwdmtsY0TNtkWwz/UWDAKo2sjN?=
+ =?us-ascii?Q?Txr1VEpk8p6MbOnJXSAodCqRKwoTLFnuv48Xpnm78ueFOp3CZc5bJUWSIEJw?=
+ =?us-ascii?Q?OEaXdNYvHUs42OT7RDtdaPg8WNSPoFZOrubWrwEYsmPHI97AjptSXy3GKPUU?=
+ =?us-ascii?Q?3qja49QXlwz800dUpo14VHfFj5k+143RCZDCP/Un4vUmlLNbH9wULXeWbNgb?=
+ =?us-ascii?Q?90w/LG+4ZFzuQbhrHh5rAhSE4dB3zN/ofCib2ZuixTDJgSdoNKikVFrIz1K6?=
+ =?us-ascii?Q?PWHWVf/flFb3dwdj3C2Ej6XF5XZx6AWmKmnJta0CBlXkTqkH4pun3FNmIQSI?=
+ =?us-ascii?Q?9A2hlb98njwwcSe4mxDCju52Akx3IK2RkoyMwmuGYbMjh291p2DWlvUCiKNy?=
+ =?us-ascii?Q?plDdvMUSoUHggyLfgl+T+1PHsozA+JT1/wQblsEkYrNFoIJ1Vx09B5W2h7Ci?=
+ =?us-ascii?Q?V0Lv/yycz+9aoqhlLA9s36ySrdZ3SvPhDrFvKOTF76dmP9vLxqE4ELDaYK7t?=
+ =?us-ascii?Q?5ZmTDJ6f86XVnLsYIMOSgecUWPDhbsFI5u7eYS16F+WdJZX0Ifus05VDc7FC?=
+ =?us-ascii?Q?LsuqN610MWL9GBnduP84MJ67P0KM9BSx2/6a3+buYYtjwBpp7JFKjPeI5dlP?=
+ =?us-ascii?Q?gS883i8ugIwuZcy1lnC3Hnho8TB4gbfIeRL1fQin?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 840c7353-cc39-4f47-31b1-08dd79c9a6d8
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Apr 2025 13:55:15.5014
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ncOqAkgS/WJbQ47eE4SyTvjPAavKOoLeFBb70rSWQTk44FlsqRgciGKeCpqX0u8p
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB8824
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250412_064142_120500_D27E2845 
-X-CRM114-Status: GOOD (  20.50  )
+X-CRM114-CacheID: sfid-20250412_065521_592320_57CE2EAA 
+X-CRM114-Status: GOOD (  19.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,69 +164,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Apr 11, 2025 at 08:39:36PM -0700, Nicolin Chen wrote:
+> 
+> I figured that we could do something smaller too in SMMUv3 driver,
+> somewhat similar to what Robin did for STE in commit 563b5cbe334e
+> ("iommu/arm-smmu-v3: Cope with duplicated Stream IDs"):
+> ----------------------------------------------
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index b4c21aaed1266..4b66e8ebef539 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -3393,6 +3393,10 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
+>                 new_stream->id = sid;
+>                 new_stream->master = master;
+> 
+> +               /* Bridged PCI devices may end up with duplicated IDs */
+> +               if (master == arm_smmu_find_master(smmu, sid))
+> +                       continue;
+> +
+>                 ret = arm_smmu_init_sid_strtab(smmu, sid);
+>                 if (ret)
+>                         break;
+> ----------------------------------------------
 
---gxqnwwxty7chqrbx
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 10/13] arm64: dts: freescale: imx93-phyboard-segin: Add
- CAN support
-MIME-Version: 1.0
+I'd write the above like this though:
 
-On 11.04.2025 10:30:18, Frank Li wrote:
-> On Fri, Apr 11, 2025 at 10:08:21AM +0200, Primoz Fiser wrote:
-> > Hi Frank,
-> >
-> > On 10. 04. 25 17:23, Frank Li wrote:
-> > > On Thu, Apr 10, 2025 at 11:02:48AM +0200, Primoz Fiser wrote:
-> > >> Add support for CAN networking on phyBOARD-Segin-i.MX93 via the flex=
-can1
-> > >> interface. The CAN1_EN regulator enables the SN65HVD234 CAN transcei=
-ver
-> > >> chip.
-> > >
-> > > Can you use drivers/phy/phy-can-transceiver.c to enable CAN phy inste=
-ad
-> > > of use hacked regulator-flexcan1-en.
-> >
-> > Sorry can't do.
-> >
-> > This doesn't align with other i.MX PHYTEC products using flexcan such as
-> > imx8mp-phyboard-pollux-rdk.dts.
-> >
-> > Even the i.MX93 EVK uses the same mechanism.
->=20
-> I think previous method is NOT good enough. Suggest involve CAN and PHY
-> maintainer to discuss these.
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index b4c21aaed1266a..97b9f8d7fb3340 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -3389,6 +3389,7 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
+ 	for (i = 0; i < fwspec->num_ids; i++) {
+ 		struct arm_smmu_stream *new_stream = &master->streams[i];
+ 		u32 sid = fwspec->ids[i];
++		struct rb_node *existing;
+ 
+ 		new_stream->id = sid;
+ 		new_stream->master = master;
+@@ -3398,10 +3399,20 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
+ 			break;
+ 
+ 		/* Insert into SID tree */
+-		if (rb_find_add(&new_stream->node, &smmu->streams,
+-				arm_smmu_streams_cmp_node)) {
+-			dev_warn(master->dev, "stream %u already in tree\n",
+-				 sid);
++		existing = rb_find_add(&new_stream->node, &smmu->streams,
++				       arm_smmu_streams_cmp_node);
++		if (existing) {
++			struct arm_smmu_master *existing_master =
++				rb_entry(existing, struct arm_smmu_stream, node)
++					->master;
++
++			/* Bridged PCI devices may end up with duplicated IDs */
++			if (existing_master == master)
++				continue;
++
++			dev_warn(master->dev,
++				 "stream %u already in tree from dev %s\n", sid,
++				 dev_name(existing_master->dev));
+ 			ret = -EINVAL;
+ 			break;
+ 		}
 
-Since d80bfde3c57a ("can: flexcan: add transceiver capabilities"), which
-git mainline with v6.15-rc1 there is proper PHY support in the flexcan
-driver. So from my point of view, there's no need to stick to regulator
-hack.
+It seems like a reasonable rc fix, and if nobody has cared about DMA
+Alias support since it was broken in 2021 maybe we just leave it.
 
-regards,
-Marc
-
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---gxqnwwxty7chqrbx
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmf6bXoACgkQDHRl3/mQ
-kZwtKQf/UtcudIKJDifikEV0AghboYKzi7fNrlv6P2KToZkTzAEVzcIRd+nmtol3
-I1/xj7uJeFMIXZcjIFT/jvdLx7xot2SkQS0p1y3C96NMbeh6aAj9rtA0VYFN7y0C
-PIQXb1K5YC4a4bZjcJO+JaJ2yE3PlZbwOKLP668zJyc+QCrg0bkLVsoYR4/x6liQ
-nKQ2+qV40GzfUf00Z6qX4fCjZbRo7g49HWktiizh4pkbryBu7A1+f2Nrl3AN2ZCM
-C7wafDh0zsN0DedbscwTJTVR1tQ1yP3YDwmQ2bYw2qs4wXqfnGTawgu7G38C4JO9
-UM3PFskg4VWWndjcTNIKkc6L6VryyA==
-=mCyB
------END PGP SIGNATURE-----
-
---gxqnwwxty7chqrbx--
+Jason
 
