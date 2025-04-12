@@ -4,60 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD823C369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Apr 2025 10:06:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CF79C369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Apr 2025 10:13:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jh28/iNVBurNrjZnPctPMBfdMqGmXxszSTRgpcuwlzo=; b=ghtm+i2AaGpOnOuzhekRHDKG56
-	u+Jq3GZaVyiUc5ONvUf596hVfaIpCz6IHNNs5v+V4nuK0DB9BMBA5nDqmSXZqXWIKhXviNM7VQ8s5
-	HRSDe1smEXkmwVMiFC64ybEz//oxZ+c3KVc8uGaM3BeOYVenD2qFMR6cWRLB/2viJNu+0kJJT0uRI
-	5ZgUeRzM3evPeIvN8LWZnNC7NEFV84vpc0Lzzg5NUaZoT5bL1u70hMjDctnfcFeyDsxIudqzWy9Bt
-	ekQUHraCzwIv0m8T50nY7mnfRw8MI1kaO0VyIDc/1tHzqhxYElN0XxT7M759S45/0AhxZcMc2hPVl
-	S9kUv3zg==;
+	bh=jdXf1KZv66vp0hJI9UwYXP6DWIX7f7qV8lmVihe7/0g=; b=jc25iB4J3xEBkxcgVhaJZkhZpg
+	vTUmKEa9tmpBb1N3PN9DzH3I6oa5oXHELGzw2H4F07ydK4m90FKxtCtb6sOEcwD0HauqmTrHAJWXg
+	CdgZ3JkTHrOJHlgl873wMLJWzifXUjXzbq9O+Y2aBlt8XuY1GbF4HmhjIPogls9eKSXynmzYtdWZV
+	ONQ5X3uWBOVX+kMULiiaX9yHXjje0kd4Zoa2QZTLXEstZUE/uQRa11IOfn8iPEEdgNg8vxcLPjbP5
+	UG/G0kOIdFpJm+cgBYZ1So7gVtDjrXx1cJ8JkA32bFcc5cwnFtRyvDyrPZU/dZe3aUmlHbLB6MnVc
+	XmdkX3AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3Xkw-0000000FkPL-1s3O;
-	Sat, 12 Apr 2025 10:06:34 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u3XrQ-0000000Fkrv-3KhJ;
+	Sat, 12 Apr 2025 10:13:16 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3Xj7-0000000FkEN-0mlR
+	id 1u3Xpb-0000000FkjU-2PSg
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Apr 2025 10:04:42 +0000
+	Sat, 12 Apr 2025 10:11:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4C761A4A50A;
-	Sat, 12 Apr 2025 09:59:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B5DBC4CEE3;
-	Sat, 12 Apr 2025 10:04:36 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B21075C5663;
+	Sat, 12 Apr 2025 10:09:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 983D2C4CEE3;
+	Sat, 12 Apr 2025 10:11:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744452279;
-	bh=2lo3tH8bxtbasyCHIvu2dU4b+0ohfe5cOcqF6bKusYI=;
+	s=k20201202; t=1744452682;
+	bh=RNflmceC0PXkskPu8wmVlsRy34v1ud7Y93OVVupX/Vk=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=sLsGqeoXq2eGVCEabMHDb9nymqhjuewH2Xcixc/l77lFCuink9OlixxIU81X3qiwe
-	 oyn0xlP24P/6ezuJrWm/bYBEyarUJRCFJNOjokmv85v0n8ihiSyUbG0jiBgmdMVZxD
-	 1pCvtYfufuFCEgvKLX8peVfMPMczn0j8HY4ZuuayX+df3RgOzC7v9fmfJGkMnP/O5V
-	 zsMEwnC5WT1fXu/bSt8eGPId/csMeerf/u+gMKq+zyp5y6FZ758p32gno46OUVct2r
-	 22gw8kGroXr7Bh02c2uJ4wZuSs372gKq1/gsR3PEBCJCRr94opMKo6ZiHixoMlJhyO
-	 jdPLiMfgJFzWQ==
-Message-ID: <859a4fc2-45f5-4d72-9727-7979e4c15bd5@kernel.org>
-Date: Sat, 12 Apr 2025 12:04:33 +0200
+	b=S91cKhCF3WenA0c8+gv8j+s5O7CFNwdzbVaieyIuBXfkFVs15UH8oDyCMJFYqdT9L
+	 8oScioMe+9JLVQZiJlK/ozFTcAdKelwxHWSuJR0U/x33nx4CkNTvK2FD7n+DQrUzA0
+	 9SOGGDAoZltouDjaYL3CEVjeDMFaFaPbV1+DO/+iyfSQPSp3MXpfV3L30aBIpNdlN1
+	 JyAvFIed7WpLqMiNvuSwa0VwbD9zC+eRZfVp1+GZzYTgiuAySdV7Cd9qb28eZQZcuA
+	 YSfnC50bsyJ/XS3idOTPeeezyQX5LNaQ2N6uK8NtJjy/yBOWAXOQ706oTUMGzmbTOy
+	 qKAPG+iVTaKnA==
+Message-ID: <a52969f2-8ea2-41e5-b4c8-8a03220cbf51@kernel.org>
+Date: Sat, 12 Apr 2025 12:11:17 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/3] arm64: dts: ti: k3-am62l: add initial
- infrastructure
-To: Bryan Brattlof <bb@ti.com>
-Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
- Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250407-am62lx-v4-0-ce97749b9eae@ti.com>
- <20250407-am62lx-v4-2-ce97749b9eae@ti.com>
- <20250409-calculating-hungry-mosquito-f8cfeb@shite>
- <20250411182608.cpxr357humjq6ln7@bryanbrattlof.com>
+Subject: Re: [PATCH v2] arm64: dts: exynos: Add DT node for all UART ports
+To: Faraz Ata <faraz.ata@samsung.com>, alim.akhtar@samsung.com,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ rosa.pila@samsung.com, dev.tailor@samsung.com, suyash.bitti@samsung.com
+References: <CGME20250318074801epcas5p3de68627a3e64ebc2a95ed33a3f485e80@epcas5p3.samsung.com>
+ <20250318075635.3372599-1-faraz.ata@samsung.com>
+ <befe7d30-1727-4540-9072-f21ef96ea504@kernel.org>
+ <03e501dbaab0$65bb47a0$3131d6e0$@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,12 +101,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250411182608.cpxr357humjq6ln7@bryanbrattlof.com>
+In-Reply-To: <03e501dbaab0$65bb47a0$3131d6e0$@samsung.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250412_030441_369839_84E6CC5F 
-X-CRM114-Status: GOOD (  11.02  )
+X-CRM114-CacheID: sfid-20250412_031123_731326_129EAF46 
+X-CRM114-Status: GOOD (  12.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,38 +121,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/04/2025 20:26, Bryan Brattlof wrote:
->>> +
->>> +		usb0_phy_ctrl: syscon@45000 {
->>> +			compatible = "ti,am62-usb-phy-ctrl", "syscon";
->>> +			reg = <0x45000 0x4>;
->>> +			bootph-all;
->>> +		};
->>> +
->>> +		usb1_phy_ctrl: syscon@45004 {
->>> +			compatible = "ti,am62-usb-phy-ctrl", "syscon";
->>> +			reg = <0x45004 0x4>;
->>
->> No, you do not get syscon per register. The entire point of syscon is to
->> collect ALL registers. Your device is the syscon, not a register.
->>
+On 11/04/2025 09:07, Faraz Ata wrote:
+> Hello Krzysztof
 > 
-> My understanding from [0] was that we would need to break this up into 
-> smaller syscon nodes because the alternative would be to mark the entire 
-> region as a syscon and every other node using it would need to use it's 
-> base + offset which was kinda undesirable especially for the small 
-> number of drivers that need data from this region.
-> 
->     a-device {
->         clocks = <&epwm_tbclk 0>;
+>> Subject: Re: [PATCH v2] arm64: dts: exynos: Add DT node for all UART ports
+>>
+>> On 18/03/2025 08:56, Faraz Ata wrote:
+>>> +
+>>> +		usi_17: usi@10d800c0 {
+>>
+>> Messed order. Keep nodes sorted by unit address (see DTS coding style).
+>>
+>>
+> Thanks for your review
+> Based on the DTS coding style, it is acceptable to group nodes
+> of the same type together, even if it breaks the unit address ordering.
 
+That's accepted alternative because some subsystems do that way. I don't
+think we ever applied such rule to Samsung? Do you have any prior
+reference about this? I accepted mess in the past, but that does not
+mean that mess is the rule.
 
-Hm? That's how you use the syscon, so how it can be undesirable?
+> https://docs.kernel.org/6.12/devicetree/bindings/dts-coding-style.html
+> Please let me know your opinion on this.
+> Do you mean I should move all the USI_ node after pwm node?
 
-Anyway, one register is not a device, so no device node per register.
+Please it according to sorting by unit address.
 
-In the link you provided I was repeating the same, so you got same
-review in multiple places.
 
 Best regards,
 Krzysztof
