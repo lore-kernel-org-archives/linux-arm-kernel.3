@@ -4,92 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 343F1C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Apr 2025 00:19:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29553C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Apr 2025 01:12:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fn8WiLTGM4hv5wednDE0sx/2wVCfhxDKPT1BSvqhfGk=; b=2T8TRr3VuBc42RzliYOyfCiSTw
-	5Fsimso6YG1dkDC/hliaw/6OSuwxPEM04QsOKu/nwtsVDn7vh4e2TDzsuBPf4s9Sad6D+tDLjUCTg
-	JovKZylsvNOCMe+pvl2zVHGvTY6mJgBCFsIHua11uvEp79dJrOLNikg+fc+EeGWPLJknXbDNt2pY8
-	cITUXEbiQVgJ1Z3gNyggu4/mRrvmJQeLay2KFv9vmAPI0Xz3jisWSuc8gAW0R2kniyodJSxcFrbCm
-	tVffDSGMLU4Tjp5ma65JJNM6FCOZB/ymUDu4ebOu/A4fA14e1st8gVlnJn+c6BhDHJfqDxRQKLQdM
-	7LlB33bw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vuYeE7vh3UMCu+MTHlQBRo2PiTav7f60VIzBYttr9w0=; b=Phvh8fGwtbLAu729H9i92IuUBv
+	1zceSNaGT4dkLuJumKVZjB7CiMHA6FkauYALI1XC1kMJc6r+MrOaW2aTHzeD7mbGJmHrNcRIxycfc
+	wlqxzdwieq779lQdxZy6e8SRI/pMH3s21Al8i/fEU3014sMXJmEwJqwE4JsmL5Be9U07VQraWoK7H
+	S85ReCokXFOSinjIeGC4vD23YSJ2DkhOVf3VtUYhBfMylumST6RWB8qvVTHSsulvB9v2qwIUhI3bV
+	eJwaSxCvox7DlLuVpX3Pb2DyAgaokE2MPCUN0HdueF8miEHgIQ9LU0+6trxmPV4XDIJgSqy3a++gB
+	/fUVFu5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3OaL-0000000F9wn-05VP;
-	Sat, 12 Apr 2025 00:19:01 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1u3PPc-0000000FE1B-2M4T;
+	Sat, 12 Apr 2025 01:12:00 +0000
+Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3OYW-0000000F9r1-2ptS
+	id 1u3PNn-0000000FDpZ-2cIH
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Apr 2025 00:17:10 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-43ceeb85ab2so2560085e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Apr 2025 17:17:07 -0700 (PDT)
+	Sat, 12 Apr 2025 01:10:08 +0000
+Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-af8a4410816so2116023a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Apr 2025 18:10:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744417027; x=1745021827; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Fn8WiLTGM4hv5wednDE0sx/2wVCfhxDKPT1BSvqhfGk=;
-        b=UqLPLKukT7Dwe9PKTXA/qAPHMdFo1DKmkgUYgTTJibKk0edTBOG7pH6iPxNHnqmqLN
-         nniFZfaaWtNpkxSJrp3Rb23fbCoQFaCnJ+WYlE8QVCQYmYJYWEZTvHnWcUtifsn8+Mwu
-         tU2ZUqDUlPtd0aT5eG5BB8cbtMAjeK7byf0rDZFL5Gb5/0aVn1VhWplraSpsIJ3s95i8
-         ARJns7ax5/HB4Pni1kdXeEfgonIusA1K2jjqRyABYIv8aBeXtBuaLh8/edqxoPpcBgWm
-         K5jbaZ81QvV9IX8C38XtTdLXO1pifyLYNl2GgdqewS7IfvMYtOiuBu1JkYYBykwVqZS1
-         pojA==
+        d=google.com; s=20230601; t=1744420206; x=1745025006; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=vuYeE7vh3UMCu+MTHlQBRo2PiTav7f60VIzBYttr9w0=;
+        b=C30lYVPZd/+rTtykauVMuz/K9I9VTosVukoPOKUT9ngmwVDbqwGQSeUvEIJdeZ1nkK
+         4t0ps1YCHmiDxFiXsg/3oDOEMEIKGqrR+PMfTSFbwDc5Ap3Xdk6EM4HuIlqZFXo9opF8
+         HySTWaMk4rcIRTo9kMqc9g1v2DLDeKOagsyAcQkDqeZ5hnMEHyjmLnCpYVbhW+XBH9Fy
+         RuZEQknYceK5k5frQC6v4veAVDoyoWKKnjIG79GiTMLledmrbNG9tQF972tbHUUXnP0Q
+         V8F24JgCYmlaXpNqE3mOmIUf35JDJcQBnFXgiaaITV57sAurYggzcAUpFmYzdHue6VeB
+         A9ug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744417027; x=1745021827;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Fn8WiLTGM4hv5wednDE0sx/2wVCfhxDKPT1BSvqhfGk=;
-        b=T7s5JjdKPgAUaF+D9n4uhzwI3E5JvLq8pe9cL25iALD4MDc8EAcuAWXbxsZWfJiZL2
-         tJ7YeFru7WGIs/g+5241vBTMLMmD06Q2oPQGFaJZskUtkiqAokmtS4MPI/AbATd67oum
-         1+CdNkdvaM+jvh2O608dexs9jT8zuUMXSHTb0Jaywz8udkGkhSy1X3ZCOuqYohU9epyq
-         /q4aEKo6bed+qqjCzq82OmIUn7Qkntol8Y3DoYAkkHCebGw3Y1PGV7DtkjD6niC3jTz+
-         W+0UOoTue77CmPRBHQ12NcqoFcIKreWNNVBqxXaZXYnPZUpG6HNPe0baEwYPvsjNmZfh
-         hFHg==
-X-Forwarded-Encrypted: i=1; AJvYcCUU/7O15lf7I7UaVVSjtxIpuQLjvQU1zK8PxUyRD/X1u1397fsLGeqeLnzLZvHfAFfjKzOf6I4TL71ps6wZFbZU@lists.infradead.org
-X-Gm-Message-State: AOJu0YxIyjBlHl90XTI6shQoTMPmNQ8wE45nC4wD1yCEiJ/uYp8VhBf2
-	ta6lu75LtSNDPyICr4/YtQhlGyZhgzzltQYSlIgbtTPE3FGkLnp5
-X-Gm-Gg: ASbGncuPtbmFu3N9EgH39Bv9MOs89hb/uTzsiDeJFI2yVbg8BeVYHaRMKRL/4WMUH9+
-	fJxlCRTyCyPtkudyUUmBIJkKMLdFNX8a3BamGUahewovkK4AXwa4wBaST6P0NAsIrt+vaSVOIhv
-	qzrcKk2vOev/inIitWnA7TrVoJ0JJngxWSZtX3gSmBp4eKz7uAHBSIBJznc020r7TGW3Q4qtHkJ
-	KLhf9I4Qr0NuQXovOwdVaAGdTJ6x2irbE8JPC3nLl33bkNVSbyaXk7qACXlI6Zs+sqRo10x4RRE
-	+TUeq2SigGlJutTJIabSA2e57+08
-X-Google-Smtp-Source: AGHT+IFP5/uE1wxprdlHP/U5fFij1m37vhPv0nTX4r0GYg7cFdYJWHZCIpl23H+UvVaoTzpcrqlDDQ==
-X-Received: by 2002:a05:600c:1e09:b0:43d:2318:ed7f with SMTP id 5b1f17b1804b1-43f3a7d35a0mr17143235e9.0.1744417026275;
-        Fri, 11 Apr 2025 17:17:06 -0700 (PDT)
-Received: from skbuf ([188.25.50.178])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43f23572c43sm102425355e9.25.2025.04.11.17.17.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Apr 2025 17:17:05 -0700 (PDT)
-Date: Sat, 12 Apr 2025 03:17:03 +0300
-From: Vladimir Oltean <olteanv@gmail.com>
-To: "Rob Herring (Arm)" <robh@kernel.org>,
-	Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>
-Cc: Andrew Lunn <andrew@lunn.ch>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/3] arm64: dts: marvell: Use preferred node names for
- "simple-bus"
-Message-ID: <20250412001703.qbbfhtb6koofvner@skbuf>
-References: <20250226214751.3751865-1-robh@kernel.org>
- <20250226214751.3751865-3-robh@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250226214751.3751865-3-robh@kernel.org>
+        d=1e100.net; s=20230601; t=1744420206; x=1745025006;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=vuYeE7vh3UMCu+MTHlQBRo2PiTav7f60VIzBYttr9w0=;
+        b=exlWKvZJGePjIvE7FA4l6FX3vfFm8q5r0RV/CBB8HHk+aLDNLztM7FH2QeMmkeCO0X
+         v6woSwvraUh6U+rSl7jQXupa6ojzalqlhgJe29a+Jy1/Xy71y5qxp1b8JRji4Mp2NyDq
+         AKgadvwbdMPllYW7V4i73GlL3AQ7XC6JNjVMLuXT4+n3ZtV6X/8M7aHhPk6qUz8x6OKP
+         xjxjMZrHHXm4Z7K9n8t4eBugtOmmCXbeazKwnSIfLuFNwtrE4bGUW3YqBbYbcWDX7fbB
+         ewqw/+dkr+7UbdNhSv2veviRpRweA6na5kGxlOnOC0M7xSkuuKa2G/9T5e3n0CFziMz4
+         dSsA==
+X-Gm-Message-State: AOJu0YwZY1O+af+g8cPKM0ud8Z8UOP175BwBQ5rqecCM0T6OEun6H9Y+
+	JTNQ3lf0OC0Cu+pyVMNdsRaEvk4Ew8zktIVmyAKm0UrNnOdDT+M4SyCbP6YXbPjpF97G8AVs6Zl
+	0oBsl75K/UhzC40zcqkhlZA==
+X-Google-Smtp-Source: AGHT+IHmybOBIwMVUHalKCMt11/fiZVTPLdyyMCAY62wKgSwsLPSM/VaRP6Diq3+UC83cC2e+Wnl9kvoKav//2b1MQ==
+X-Received: from pfbgj26.prod.google.com ([2002:a05:6a00:841a:b0:736:3d80:7076])
+ (user=dylanbhatch job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:902:ea0b:b0:220:f795:5f14 with SMTP id d9443c01a7336-22bea4bcf70mr71598855ad.27.1744420205676;
+ Fri, 11 Apr 2025 18:10:05 -0700 (PDT)
+Date: Sat, 12 Apr 2025 01:09:37 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.49.0.604.gff1f9ca942-goog
+Message-ID: <20250412010940.1686376-1-dylanbhatch@google.com>
+Subject: [PATCH v2 0/2] arm64/module: Enable late module relocations.
+From: Dylan Hatch <dylanbhatch@google.com>
+To: Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
+	Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, 
+	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
+	Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
+	Xu Kuohai <xukuohai@huaweicloud.com>, 
+	"=?UTF-8?q?Philippe=20Mathieu-Daud=C3=A9?=" <philmd@linaro.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, "Mike Rapoport (Microsoft)" <rppt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Luis Chamberlain <mcgrof@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Song Liu <song@kernel.org>, 
+	Ard Biesheuvel <ardb@kernel.org>, Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Dylan Hatch <dylanbhatch@google.com>, Roman Gushchin <roman.gushchin@linux.dev>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_171708_718140_0E06C7F9 
-X-CRM114-Status: GOOD (  21.44  )
+X-CRM114-CacheID: sfid-20250411_181007_663824_465138D2 
+X-CRM114-Status: UNSURE (   9.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,68 +97,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Late relocations (after the module is initially loaded) are needed when
+livepatches change module code. This is supported by x86, ppc, and s390.
+This series borrows the x86 methodology to reach the same level of
+suuport on arm64.
 
-On Wed, Feb 26, 2025 at 03:47:49PM -0600, Rob Herring (Arm) wrote:
-> The "simple-bus" binding has preferred node names such as "bus",
-> ".*-bus", or "soc". Rename the Marvell platforms to use these names.
-> 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
->  arch/arm64/boot/dts/marvell/ac5-98dx25xx.dtsi     | 2 +-
->  arch/arm64/boot/dts/marvell/armada-37xx.dtsi      | 2 +-
->  arch/arm64/boot/dts/marvell/armada-ap806.dtsi     | 1 -
->  arch/arm64/boot/dts/marvell/armada-ap807.dtsi     | 1 -
->  arch/arm64/boot/dts/marvell/armada-ap80x.dtsi     | 4 ++--
->  arch/arm64/boot/dts/marvell/armada-ap810-ap0.dtsi | 4 ++--
->  arch/arm64/boot/dts/marvell/armada-cp11x.dtsi     | 4 ++--
->  7 files changed, 8 insertions(+), 10 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/marvell/armada-37xx.dtsi b/arch/arm64/boot/dts/marvell/armada-37xx.dtsi
-> index 9603223dd761..6ec22eaaf816 100644
-> --- a/arch/arm64/boot/dts/marvell/armada-37xx.dtsi
-> +++ b/arch/arm64/boot/dts/marvell/armada-37xx.dtsi
-> @@ -78,7 +78,7 @@ soc {
->  		#size-cells = <2>;
->  		ranges;
->  
-> -		internal-regs@d0000000 {
-> +		bus@d0000000 {
->  			#address-cells = <1>;
->  			#size-cells = <1>;
->  			compatible = "simple-bus";
+Dylan Hatch (2):
+  arm64: patching: Rename aarch64_insn_copy to text_poke.
+  arm64/module: Use text-poke API for late relocations.
 
-Thank you for your patch, which is now commit
-ed9c2b28ebef3333f25cefdc2ef37ee1f05cad95.
+ arch/arm64/include/asm/text-patching.h |   2 +-
+ arch/arm64/kernel/module.c             | 129 ++++++++++++++++---------
+ arch/arm64/kernel/patching.c           |  12 +--
+ arch/arm64/net/bpf_jit_comp.c          |   2 +-
+ 4 files changed, 91 insertions(+), 54 deletions(-)
 
-I have an off-the-shelf Turris MOX board, which was shipped with a
-U-Boot older than the commit linked below (does not contain it):
-https://github.com/u-boot/u-boot/commit/bcf6971d536793eb99e12ff857cc018963d7cd46
+-- 
+2.49.0.604.gff1f9ca942-goog
 
-and as such, is incapable of loading current mainline device trees,
-which contain your change, because it is hardcoded to perform FDT fixups
-based on paths such as:
-#define ETH1_PATH	"/soc/internal-regs@d0000000/ethernet@40000"
-#define MDIO_PATH	"/soc/internal-regs@d0000000/mdio@32004"
-#define SFP_GPIO_PATH	"/soc/internal-regs@d0000000/spi@10600/moxtet@1/gpio@0"
-
-which no longer exist.
-
-Relevant portion of boot log:
-
-## Flattened Device Tree blob at 04f00000
-   Booting using the fdt blob at 0x4f00000
-   Loading Device Tree to 000000003bf16000, end 000000003bf1e11e ... OK
-ERROR: board-specific fdt fixup failed: FDT_ERR_NOTFOUND
- - must RESET the board to recover.
-
-FDT creation failed! hanging...### ERROR ### Please RESET the board ###
-
-Note that the hint about what is wrong is only visible with a serial
-console which I happen to have. The board does not rely on it for normal
-operation, which could pose a problem to typical users.
-
-Just bringing this to everyone's attention. In the meantime, I'm going
-off to figure out how to build and flash a new U-Boot using the steps at
-https://github.com/turris-cz/mox-boot-builder.
 
