@@ -4,84 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EA0FC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Apr 2025 18:35:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3850DC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Apr 2025 19:34:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T3Qc1STNEB1yk7+zuWvJIvGi5r/g6z5PQsnptk7pOCk=; b=iEbZ1nDYCLz+6I12oSX0cWJ+V7
-	3ABpHcO7LygnwJUfXZJaagbxXAc9TE1O2wNYFOnXsdVlgPqfXbehHDSIyWWBIPiDG3cJXlskV2Y+F
-	XRde1sDitXXTNUxp2vWhb0oc7AH82RrlS0oAMeFw5LQgT5ZStMNbEGRyTVvU3I2rVlcTRfCWx9TIW
-	kKochUXaYNz+kG8inbcRTj7Al4fEWmJsYvWNd1oYQ/M1RlG1L5iIr9qFQMrnA2a946QP2BuNa13XR
-	t55802g4sXvaKpVoF0WIK66g3bq3FEY9t/CfC3pRY/sHbJLeSPpws5dgpfTgOR48cSKdjq6BFjZLG
-	H2yr/bcA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vGbdQ7HwZ6HfRq5afBeoyIwhWt20XJHmLncrgBwuDwU=; b=KW3HfTBR5V/6/dQd1oRmihgzTr
+	PWMcpmak1B6hzA5fwFtPh0y4anKaAQO6+GXF7bNks3ISmT1NHa9TDZJnCdtnlrtGtgX4S+VFKLj6m
+	bWNsd4OY5n0EVH1UoGpEiWasvovfs8kalSQl6A9ulTu9UyC2IG8TVKvVtgQybSVYw+6+OfU+VAgvW
+	0n8eDZvXAHnn7NlIqi8o6pLbVhfduCF3EHQaLniW4kgcbp+fyQtakOLI/EzLdVvBJOLT/j1oSx5qy
+	K9VPsGfTjbV7mu9BUL1WXrPEFTx+pXJAHj3FKaoZJseVR/8RFV28XU7tnn7nm53vOWg/kFj4UcGbZ
+	vG6gSZPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3fgt-0000000GHLo-231z;
-	Sat, 12 Apr 2025 18:34:55 +0000
-Received: from mail-vk1-xa2d.google.com ([2607:f8b0:4864:20::a2d])
+	id 1u3gbu-0000000GLZF-29iv;
+	Sat, 12 Apr 2025 19:33:50 +0000
+Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3feR-0000000GH9S-35ZF
+	id 1u3ga5-0000000GLUc-0DGm
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Apr 2025 18:32:24 +0000
-Received: by mail-vk1-xa2d.google.com with SMTP id 71dfb90a1353d-523f6c14ce4so61447e0c.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Apr 2025 11:32:23 -0700 (PDT)
+	Sat, 12 Apr 2025 19:31:58 +0000
+Received: by mail-qk1-x729.google.com with SMTP id af79cd13be357-7c5f619cc01so52909585a.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Apr 2025 12:31:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744482741; x=1745087541; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=T3Qc1STNEB1yk7+zuWvJIvGi5r/g6z5PQsnptk7pOCk=;
-        b=SnW3nG3TItFmiNljM7XxvIKum2vpRoQ2BSBD4s4DB0ojV96uL7JRvaT47QmtLQVFGE
-         llAHN9GD0px7/lNSGvP7upzFfbysSQ1FZRCmdcF3wwiSLf45ziBlDu+3hohyya5fhufk
-         n+MOBC3NKst7qkKNs7mQBJAvdZWHAHcv6yo3C74fMcYccAQWHyTBlCSjHn/nLyoly4qY
-         v5LP6NFWQl+T2Kdc1H0oaGa1ofdnUHNAHa1B9er5wL9i7Vp6AUvRf4X/aWE7RYEOuAVB
-         eHB6AqE9ir0M/uB+fAJfK2evdvkzGlhKSvNEWdXHRtQG66ODumnm9TRxqjk7KxBBFctK
-         wZVg==
+        d=gmail.com; s=20230601; t=1744486316; x=1745091116; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=vGbdQ7HwZ6HfRq5afBeoyIwhWt20XJHmLncrgBwuDwU=;
+        b=L89ENcp76EdbhipdKgyI8qk/Bi6nVZKj/q2A69aMnw2xrmIARPwDESaJk4HJvoxppO
+         d4cAstUofVycTIh6KQg3g/oyqC3yBua/4egaRA7ETVRNyYs1bSq7j+FG0ruBjiiXS681
+         6D37rvsdzmGEyHKhSEoMU0r3GcPexDfC/z/otqJnFXcEDY4RgBzgTs9N3nbDRvtSU8Yb
+         UzuX9JYMy17JkcBAguR46cq1rwqTIdarNR1c8hW7KTVSfzvxKerqwVeVfgzRLztlB+4h
+         rroqVtfwm/PA3pqTb8mUgOPuaPrpndI9lHCiaKwAKxWdonQ+DdNGWZeYBBYz3Q/aKLgQ
+         Venw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744482741; x=1745087541;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=T3Qc1STNEB1yk7+zuWvJIvGi5r/g6z5PQsnptk7pOCk=;
-        b=Ewe5jHObaYDRHfDS7A9m/RGhpzH/3zZ2aj0SLTpIBYRzP34z57qbdcOYQhiK6KumT1
-         kS69zP/596GRy/ORRFcjuAULbWtb2rJ9wKCG7+GJaTMai2dLYz7jUCMBAiM9r2hDcp3G
-         pkjMsaw8GCvBxeXPRhuzS9NdtBUwAHsKH2nMMoVUKJXiT14gjScvICscnIQD5JheyuZU
-         9AX8uZ3afB9IQw6Rc1ArZQTnTq/y/YF0/BdDA6GMkydRNB/n0jluim3M1U99J14i6hJM
-         BTBFURJ3SZulS8Fvg1HQppQ8XyHrT7ehtQPnuuZ6w7YrXvNezU4NH8phq7zfol5ZIyiJ
-         W/jQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV+4+NRWDcYtoMccAYGRJTF4TYWOlujX/+NfsIEFUB2r9NW85Y1xgBXf+OyYcBnR0Zl5EaIh2TubcHOat4tn2/7@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHV0bjTziMm2ftD5M2+LeMtNTBd0imuOZwOxgmjajSrP9ytMBL
-	adRgOOe6oopZkU2EXfjL3CifLHWItamachj77WN33HTyne4dhCqDaPvMcFwihbDoLWm/jbVs4dC
-	EJwSnwxLv+rTONEW6VeDLqyfMyg==
-X-Gm-Gg: ASbGnctaj24P2roKf3pVbH0QB73p5CIpegv4u7NC0HXeBNAw3GywduOP1qWzb8i5EK1
-	eHyniDAjgOt9kjJkT1AF9nFtDDVCTn2sgsaiyqyN6enoTgCqGMHppTPKe45gowNK4lYGDvKXeFW
-	Y0Wf/sgBPvuPk14+1rF6LmRTc=
-X-Google-Smtp-Source: AGHT+IFCaLFGAxkVT2lKsAkCtftPnKhBh6OillpidkjEeNtDizhqaCJZ4mRNIO8IrtKoYG9vlpMmuPDQ1K3J4xbTIcg=
-X-Received: by 2002:a05:6102:15a3:b0:4c4:e3d2:25c2 with SMTP id
- ada2fe7eead31-4c9e7836f75mr1550793137.6.1744482741062; Sat, 12 Apr 2025
- 11:32:21 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250412180831.3252963-1-chenyuan0y@gmail.com> <0081fcd8-da99-47b2-b136-3ea04232046a@stanley.mountain>
-In-Reply-To: <0081fcd8-da99-47b2-b136-3ea04232046a@stanley.mountain>
+        d=1e100.net; s=20230601; t=1744486316; x=1745091116;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vGbdQ7HwZ6HfRq5afBeoyIwhWt20XJHmLncrgBwuDwU=;
+        b=kkKMXf5kXv2zhj3rBi+RdcYti73SxeMHjUpbEKNwLcd0X4SdTXttM0XVe6Vb9fDs/s
+         gHg6IhHraQtExy/rCoZyRPJpVw6pMwkWja1Ii3ZRBRcQxM7IlHa8bdSuVsyVu2QO4y8a
+         PL9Cuz50hAZBbwTyesdWsH7n7PaUJgTPsvO7BB5QWY1RSMwCxbrvLEhi6ZnTHeu6Lqxs
+         BOYuz2mzc1x53pXgANU7fMk+/c17iX89tMcab8Ztl4+zceHCMlid8FDODeCoRbpGdOFu
+         pYxQp0ccv3H3Ob/cYiCtBbRt3HG8qcOTtJ5lZUO2EtEoyF3fVEqGO5i+4EHbRsdrtDY7
+         L76w==
+X-Gm-Message-State: AOJu0Yxim2LdByqZsk7ae2D8Y6DSKoF+/hJAfE3hDwGzcCbNF62FDNd9
+	WKouiC15iswRirkKInI3gFRArANSS+1YDdYqdNaocRFfABuVxgg=
+X-Gm-Gg: ASbGncvFXoHJOctgPxRPRxk/C/45hRzAsw/w1BWD4djk74E3M7reSGsoHOOKp+6AVJ3
+	VXgLNkVuqzjQpeFHprSQDblOR583BuDbAvJrd3tAFIcJhkSkmj2jOevply+u2J3ORaekMNuoQeF
+	2pTJkVSAx6Fo3LunSfz+Dss3Tf7IcLbhivOxaFrqRLELHWF4EVMB2O8Bda5p3Lm2zeKl7+MNn9y
+	rQDe49d2LrXZ0o77pJzGcjj6i0RdmK7cMrfKR5azY3Xcp4XkTtC1P5huhAynBeCDrBgznUQxofJ
+	wGvpvwZ6GqtZQkKnvsQPMgOFmMKFva1FBOqx6A==
+X-Google-Smtp-Source: AGHT+IFwgsYs5JKfro8N+GKqLf/zqrbnDwJzJZWtKxHFomrdJnX8s4fGcuPU5JBg+lXyqUl2hEGWJw==
+X-Received: by 2002:a05:620a:29c3:b0:7c3:c9d4:95e3 with SMTP id af79cd13be357-7c7af1cc7aemr400679385a.10.1744486315743;
+        Sat, 12 Apr 2025 12:31:55 -0700 (PDT)
+Received: from ise-alpha.. ([2620:0:e00:550a:642:1aff:fee8:511b])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c7a8a0dc9fsm443192485a.96.2025.04.12.12.31.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 12 Apr 2025 12:31:55 -0700 (PDT)
 From: Chenyuan Yang <chenyuan0y@gmail.com>
-Date: Sat, 12 Apr 2025 13:32:10 -0500
-X-Gm-Features: ATxdqUFVNadBq9M9pZcwFONeYCEW6qDbC52ykl-YedCykxT8ppzW_PXwHA1Fxys
-Message-ID: <CALGdzurRtHLOokUH7GOhmkDkzBioDFt1iJ19eSbrjyeWW7p4KA@mail.gmail.com>
-Subject: Re: [PATCH] cpufreq: scmi: Fix possible null pointer dereference
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: sudeep.holla@arm.com, cristian.marussi@arm.com, rafael@kernel.org, 
-	viresh.kumar@linaro.org, arm-scmi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+To: linus.walleij@linaro.org,
+	brgl@bgdev.pl,
+	theo.lebrun@bootlin.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Chenyuan Yang <chenyuan0y@gmail.com>
+Subject: [PATCH] gpio: nomadik: Add check for clk_enable()
+Date: Sat, 12 Apr 2025 14:31:53 -0500
+Message-Id: <20250412193153.49138-1-chenyuan0y@gmail.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250412_113223_774535_5F083017 
-X-CRM114-Status: GOOD (  12.60  )
+X-CRM114-CacheID: sfid-20250412_123157_107737_1BDDD276 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,29 +97,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Apr 12, 2025 at 1:31=E2=80=AFPM Dan Carpenter <dan.carpenter@linaro=
-.org> wrote:
->
-> On Sat, Apr 12, 2025 at 01:08:31PM -0500, Chenyuan Yang wrote:
-> > Check if policy is NULL before dereferencing it.
-> >
-> > This is similar to the commit cf7de25878a1
-> > ("cppc_cpufreq: Fix possible null pointer dereference").
-> >
-> > This is found by our static analysis tool KNighter.
-> >
-> > Signed-off-by: Chenyuan Yang <chenyuan0y@gmail.com>
-> > Fixes: 99d6bdf33877 ("cpufreq: add support for CPU DVFS based on SCMI m=
-essage protocol")
->
-> Henry Martin already fixed this in commit 484d3f15cc6c ("cpufreq: scmi:
-> Fix null-ptr-deref in scmi_cpufreq_get_rate()").
+Add check for the return value of clk_enable() to catch
+the potential error.
 
-Thanks so much for pointing this out!
-It is good to hear that there is already a fix.
+This is similar to the commit 8332e6670997
+("spi: zynq-qspi: Add check for clk_enable()").
 
-> regards,
-> dan carpenter
+Signed-off-by: Chenyuan Yang <chenyuan0y@gmail.com>
+Fixes: 966942ae4936 ("gpio: nomadik: extract GPIO platform driver from drivers/pinctrl/nomadik/")
+---
+ drivers/gpio/gpio-nomadik.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
--Chenyuan
+diff --git a/drivers/gpio/gpio-nomadik.c b/drivers/gpio/gpio-nomadik.c
+index fa19a44943fd..dbc4cdddf4df 100644
+--- a/drivers/gpio/gpio-nomadik.c
++++ b/drivers/gpio/gpio-nomadik.c
+@@ -262,8 +262,11 @@ static unsigned int nmk_gpio_irq_startup(struct irq_data *d)
+ {
+ 	struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
+ 	struct nmk_gpio_chip *nmk_chip = gpiochip_get_data(gc);
++	int ret;
+ 
+-	clk_enable(nmk_chip->clk);
++	ret = clk_enable(nmk_chip->clk);
++	if (ret)
++		return ret;
+ 	nmk_gpio_irq_unmask(d);
+ 	return 0;
+ }
+-- 
+2.34.1
+
 
