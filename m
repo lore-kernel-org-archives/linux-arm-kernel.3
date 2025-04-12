@@ -4,92 +4,189 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF2BBC369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Apr 2025 10:42:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 825FFC369AE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Apr 2025 13:04:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Content-Transfer-Encoding:Mime-Version:Subject:Cc:To:From:Message-Id:Date:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yAFzW0ymkaPRNBJhUxqHJQFObzo6YSO+XlIk9KglnZc=; b=Qs8Yxsg5rPCuD1LAUMXR2vR6Az
-	19SIvV9c2iqNnzoMHWuTnHDMi3PNSxPvuzQCW9lTjWt/+kLj8Z3W9nSiYwAcooG2DVH6wBYuZbFhS
-	h/0SQg8S83v3mQhyNCzHTCv73n4NKymzBEK2Nl4W6jIMuY1FMe44dol3PrsvYMqpwqkdgLIe3t4fh
-	cDPUZZQGBiFFyzVduPzMvozbe9D3H0PjHGb3TxsLEMPhroTJBq5Usw7etBaD1Wumdb0Pel70p+L/k
-	qYVKroOeZA/zKsSkVsJ4l6UkuO/bDPGAjkjMHr/bBqhSjZNRAKrmDhg9+k0RV4Gd0gnBZM7KcVDf/
-	RTOsWWkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MBW4P5CgReyc2hag2DkoxSNtfMsj8sNqTlQvpe1qHzY=; b=dkFJ2SjpB9aH0eJDCa3cI/i1Lk
+	4TNvOXCdU+97bBJrthv4QWNdr9/Ik384edzn/Ez1dohUn1QkTFlm3mxXa4LFgLQJVPVF4dUBj6Eyr
+	sD/xSOjWVXXDd6SsDjRG9rijMihOPkQk5kjq7W/AsAh12JMF2mZIdVm9wlcM6Ih4eVKg8P9xXH02b
+	DOpxrpT4I99oGEgElyD93KJRiZzRQfg1YyhkHbrbnUOHlzHadZ+HpVLbGg39hSk8n5PDzPapa+q/J
+	BByxWIhrigVT1ln+vP5jt6GkvXa+L/IK1XtOXZIIskpiviB3kfxkop5EJzdysufcg/35t9Yo/hvNQ
+	LkTIj2Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3YJ1-0000000FnIM-3piU;
-	Sat, 12 Apr 2025 10:41:47 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1u3aWU-0000000FuGV-2vIQ;
+	Sat, 12 Apr 2025 13:03:50 +0000
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3YHC-0000000Fn5l-0T9Q
+	id 1u3aUf-0000000Fu6R-14hs
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Apr 2025 10:39:55 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-54c0fa6d455so3196715e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Apr 2025 03:39:53 -0700 (PDT)
+	Sat, 12 Apr 2025 13:01:58 +0000
+Received: from pps.filterd (m0333521.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53CCs3WL011766;
+	Sat, 12 Apr 2025 13:01:41 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=corp-2023-11-20; bh=MBW4P5CgReyc2hag2D
+	koxSNtfMsj8sNqTlQvpe1qHzY=; b=Xws0G/7pLpmp4TtQ5CdQZXJCZhPL1oTzDK
+	APWhYpfAIKVKyaw3Uxai4UeuZNJeClRxEThuukF3Edd0uSlHQv0NxBNWOeIs3sQl
+	RvSnexKqX7aR4QEM03gzPdcfUQXM5SM2zvAY9mhyFAkVxXYWAZbnIeFHL/fMtR5B
+	p1MR7En4+quNew/dmrvZGkUO2jR199jlXnartkBJ3k4ukcsYmGqWVz3lTsvKWxTe
+	xIw5W2u5STh45Qo/qe03p1CU0aHktJLrSaX6r/00/MaISmPTIUhoqgpQGNdAd8h3
+	4cU7tQAU+bEpTuecsgyOKLOAetXjB3yyvEcf4qjAAUe1pWJuFqwg==
+Received: from phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta03.appoci.oracle.com [138.1.37.129])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 45yrj7004x-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Sat, 12 Apr 2025 13:01:40 +0000 (GMT)
+Received: from pps.filterd (phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 53CB4lHa019912;
+	Sat, 12 Apr 2025 13:01:40 GMT
+Received: from cy4pr05cu001.outbound.protection.outlook.com (mail-westcentralusazlp17010000.outbound.protection.outlook.com [40.93.6.0])
+	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 45yem6bvbs-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Sat, 12 Apr 2025 13:01:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZZotp6rhgDTSeqMN8xCEiUpaOl2goSXMJMzeBO4MQqyzyLz54j+Bm1phS0/OSxbkmmiD2hwjiOUxkODnLje2NGfUgdorV0X69tdMYxoCiePF3RCrPPH3PUIDg6FEsm1FuqmYUIVJbM9jvd4zSBLSf22FbZEIOAhFn2CkOcE7J7h+A7tcxT38bmcmsTD9a6EVRHZqmZkAnRUGlnq2tgqkQe4I4beDsh1y1arrBiTLw+FogeSW1IKHaKtpFXzFkHqRBhcd3PfxIdt52ltJjHa8qzO6yvJPiijpxbAawHtMzYVsiyUenZqZ8NcQIVFTlC76z8MPH3Zj2Gvkf4hGRPtjQA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MBW4P5CgReyc2hag2DkoxSNtfMsj8sNqTlQvpe1qHzY=;
+ b=lF9xfIDU+4nk25YmSdVqtySyqVfQUYqljF9D4b0+STUI7Vxl2tWTYlcmeIfHZPCdH+P8xxvHwGuy3TyjM0jxcoZnqt5qTrpCyrpWOxmcbvtEOfWMY25aiOfLKU16yY6+VFWdCp73WRcPwz36Wd/uWrO5QERWKpfOfhynqBBNnSKkigyZRQ914brZiwFR0bGFkWc1drkNZFIyuATliGvNZhi312rnsPHHkKfZ0W4SDlE4w/jpo+Rc6tsIyswvcnoHwZOfynxt7lxK2ln4SukrBzbS8zdJbT6PgTGYyPhqUBZ/6hCnozz57HZi4U7dJqNnpqWBAsKn3mCFXZA25tOPDQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744454391; x=1745059191; darn=lists.infradead.org;
-        h=in-reply-to:references:user-agent:content-transfer-encoding
-         :mime-version:subject:cc:to:from:message-id:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=yAFzW0ymkaPRNBJhUxqHJQFObzo6YSO+XlIk9KglnZc=;
-        b=dR5B/NF6koDfujIyWSwbDq3hFkXf58I6YRlk4Mc/tZ5nrhso1tmKfeSZMdee2Skuo1
-         A/Q6uswidRwaNejTcb859D57z+gmZqJ+/BQp7CrRMZiTCbvNBsiO8/e4b0ikWDpIGpWO
-         vfhCURkx8SK/vSJBLbslQJWjE6NNZ4JrP/MKkol+ReKG2Vj0+Tm6MFxpSFfLl/HVn66I
-         6RxmzsOYy7frmXPc0KRQUw2yUWKUQJD3ECHiX2sA3Ozkv6ZBoRjjURy9IU3ifOlh5OYv
-         88QDrd9i3Tah8Jqz+3mCfXKYHmWtLxsFMW8jjj/QwuIIZ2PkJBm3bMYHbIUG/ibEmdKi
-         +ADQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744454391; x=1745059191;
-        h=in-reply-to:references:user-agent:content-transfer-encoding
-         :mime-version:subject:cc:to:from:message-id:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=yAFzW0ymkaPRNBJhUxqHJQFObzo6YSO+XlIk9KglnZc=;
-        b=iSvkB7Hal2XoEB5YVsqLVX5YxaNxj2Lmzg1f9L3evVanUeRL5zMaVXQOzSHiBLfuHK
-         iES8w09Lg3uwU0bUQDG5HPgy5FYvLir7aGjLIf+H9EzTs4H3XRwF5yHczCoa3EQ3XcBc
-         F+Ze7Et1n121OtNJT4PJssubsW9ZkVfzudwO7OrwhXgmfyUmnjXFwZTVKcDPnXsdrCCQ
-         kJVEbcW6+8pQTz+5WFEMcllbinL99Sn5tvda3/ThAAq0ByEKAtq1CEWv3won1idLzTcd
-         AKHFTwhCFsmRCADTMC0C6UKlGngSkaCsqcfipjcFd1jgz6rk4Z8m7QdBmnQ4yd/1rnGE
-         v7og==
-X-Forwarded-Encrypted: i=1; AJvYcCV6IPAF4iDq1nzCtHm14ULKCSvZmwR2taT4FsdKxrasw+MVRbh/SRpCgR7OPgCKcFg6oSuft+GLJflxuv94deGS@lists.infradead.org
-X-Gm-Message-State: AOJu0YyblOFAyAlVbX2szYbApuHTStRzjl9A9gBUK2ULFzGJ/+vfc5Ut
-	tBBqws6OUchnbnNJ8gq+CcL68f+YThPsD1XnEWwA70sOOiauiqQp
-X-Gm-Gg: ASbGncs8hmvbSwhsuL4EbSefUWh9KINRviuDzm/taUviRbyLsdouizjSJc87DpGIOy1
-	LFoxE3JHMZoA2lQR3zJOyYfLEvlyxabw4FcJgB6+DyPXX/U9TjZWIIxHCrFbm4s5Rmw5le6gRM+
-	THv2/kT6qzKISWqhM88GFkjTyMS5wyxCMV7TwMxyrYv5Cgyls1c9mzCoNVyIU4ARPlsZVZ1YsXq
-	/JsUesFv/0u5rizWx43HKZFBNwwEz0flDb8TKwDK0bbiXbPhQmWxRi1N5kib6tJN+qRlUfbuV7a
-	Va5x37KN+errz+ZdRR2exkoX+ehzWLj1LBs=
-X-Google-Smtp-Source: AGHT+IFYfq5iTVEjCE3996E/WIGRHlIRpig53diaZf8XS7XcDoOf7GYaOf5VLRd+nDqBV62DgJ8OOg==
-X-Received: by 2002:a05:6512:308d:b0:54b:e70:3647 with SMTP id 2adb3069b0e04-54d45289b2amr1794412e87.7.1744454391263;
-        Sat, 12 Apr 2025 03:39:51 -0700 (PDT)
-Received: from localhost ([5.18.181.127])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54d3d503d08sm607672e87.135.2025.04.12.03.39.50
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 12 Apr 2025 03:39:50 -0700 (PDT)
-Content-Type: text/plain; charset=UTF-8
-Date: Sat, 12 Apr 2025 13:39:45 +0300
-Message-Id: <D94LGXDHGVBD.1GB1GHOWORHMU@gmail.com>
-From: "Matthew Bystrin" <dev.mbstr@gmail.com>
-To: "Sudeep Holla" <sudeep.holla@arm.com>
-Cc: "Cristian Marussi" <cristian.marussi@arm.com>,
- <arm-scmi@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, "Philipp Zabel"
- <p.zabel@pengutronix.de>, "Peng Fan" <peng.fan@nxp.com>
-Subject: Re: [PATCH] firmware: arm_scmi: add timeout in
- do_xfer_with_response()
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-User-Agent: aerc/0.18.2
-References: <20250402104254.149998-1-dev.mbstr@gmail.com>
- <20250402-hidden-unyielding-carp-7ee32d@sudeepholla> <Z-1gY8mQLznSg5Na@pluto>
- <D8X9JJGPGDNL.1OTKIJODRFKNN@gmail.com>
- <20250409-fierce-astonishing-bug-dd2adb@sudeepholla>
-In-Reply-To: <20250409-fierce-astonishing-bug-dd2adb@sudeepholla>
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MBW4P5CgReyc2hag2DkoxSNtfMsj8sNqTlQvpe1qHzY=;
+ b=Mw39DyegW0WDwhcp2zmYmBlisqXPfbK65wC3se3B81ebKRpDwrR7UZwppvZCQpr/4Y1Apr6Ch9Z/Gh/stTurxhjrYpg//Ic5XV2Zo4cJHek/rBZrqFzNVoMgyHkliNoY42qtYYhNL+7CmPHp4txvccU8HwuKAuDHI5DZqToa7MU=
+Received: from MW5PR10MB5764.namprd10.prod.outlook.com (2603:10b6:303:190::15)
+ by PH7PR10MB7105.namprd10.prod.outlook.com (2603:10b6:510:27f::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.27; Sat, 12 Apr
+ 2025 13:01:37 +0000
+Received: from MW5PR10MB5764.namprd10.prod.outlook.com
+ ([fe80::8d9b:9200:a7f5:19a9]) by MW5PR10MB5764.namprd10.prod.outlook.com
+ ([fe80::8d9b:9200:a7f5:19a9%6]) with mapi id 15.20.8606.033; Sat, 12 Apr 2025
+ 13:01:36 +0000
+Date: Sat, 12 Apr 2025 09:01:18 -0400
+From: "Liam R. Howlett" <Liam.Howlett@oracle.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Sascha Bischoff <sascha.bischoff@arm.com>,
+        Timothy Hayes <timothy.hayes@arm.com>,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        devicetree@vger.kernel.org, ast@kernel.org
+Subject: Re: [PATCH 20/24] irqchip/gic-v5: Add GICv5 LPI/IPI support
+Message-ID: <mcyioyevok6tixna2xwk5q3d6x5b5spyucc4fiiy3h4v5jwxbj@bw6ewonqm2ks>
+References: <20250408-gicv5-host-v1-0-1f26db465f8d@kernel.org>
+ <20250408-gicv5-host-v1-20-1f26db465f8d@kernel.org>
+ <Z/jgL52ZVdcxTEkP@lpieralisi>
+ <87plhjrpit.ffs@tglx>
+ <Z/kM/+uBsD9DAGjF@lpieralisi>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z/kM/+uBsD9DAGjF@lpieralisi>
+User-Agent: NeoMutt/20240425
+X-ClientProxiedBy: YT4PR01CA0140.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:d5::11) To MW5PR10MB5764.namprd10.prod.outlook.com
+ (2603:10b6:303:190::15)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MW5PR10MB5764:EE_|PH7PR10MB7105:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6baf3773-68b8-466b-c5d9-08dd79c22868
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?r0Z97WhKbyM19aX/OC7LcmRyiLr9RZJL9x78kwPP6ZGvIFkeqsAFOoyJ1Eu5?=
+ =?us-ascii?Q?VzQ0B5s9y7QR0Dykkg70/7m8Jp5S5ebugkfHGhJYkbjyrWCKEIxbh9oJcG0r?=
+ =?us-ascii?Q?UGLEziGW8leEdjPLo7ycaEmiMGMRwiScQY/IiZSNy5+8G40DtKg3JS7Ok65W?=
+ =?us-ascii?Q?tLzIjlzQxH6LMEePlNGTvpeeWpOpGDHdGAZDsr6N+8RA7MOBOhKDdbXGAL4g?=
+ =?us-ascii?Q?5vh+aVUaV7O6a2h+L0D0Ph0SD/+Q0ZwB7WkLKqbACsb/NCJeiPU/TUJA2HGg?=
+ =?us-ascii?Q?elLBMLmdwMQPixsc86lmQaEfcMaRHM+SEk7pjg+8w9H/3OQ9cj4198mXUhsb?=
+ =?us-ascii?Q?JkGmHobZ3uuNekC2hkdSRSIWtrSwACYDq1tlOPTrmPzhHTmZaj1LFlBqw0fc?=
+ =?us-ascii?Q?36KFJqxMjlDU5qiNMLCEDNkUM7tS8lIaU4ZkdbL8zUNgCD9aiYiWC6+JfVCU?=
+ =?us-ascii?Q?Qbr0LefvRrEZ+hj49GOg6VRwNBTkg/bSJRpTwSLiz8knsbRrp5YBwyfRLQ3M?=
+ =?us-ascii?Q?IpgKb2v11ZeXbX7AhsXOxHkGvaPejj4g3vyBr+h9hQCIYYxsUizyG97fo5x8?=
+ =?us-ascii?Q?45BAqhyuy9yBmcx7rpwNC2xWij0e514rIO2b46yE7EhhqOk5lzJNQXjYbQ2O?=
+ =?us-ascii?Q?SUx4Onq2kAkLu4d/c1zFM2fF6Tf549O/rjvKX43Oy3WevTcgS74Vcvh1z4nE?=
+ =?us-ascii?Q?/3m8W9F60F4CNeCnx3fex2ED2oAMIy8vBxs/RdwoU3gg+sA6m3i0w330w04n?=
+ =?us-ascii?Q?Jh8hlsUURpeMpBcez+LzzreVMVHNCmjAURXqUgfsh8LZOWCiEfabp5r1mL/m?=
+ =?us-ascii?Q?zwKhNedKhuWukbj1Y3pIk15db8KRbZ3rgnlkBHVTX1bcYLyHLNXYtZlaunfB?=
+ =?us-ascii?Q?7gv6AhwH91oRYnxUoO7mU3bWyS4iNRX7gjgeRLN289LhXSn9/BGg9Fk1tEkK?=
+ =?us-ascii?Q?721XiiD/HLTbAHKLLxQ50mK8w6VRdkFY/cUo7FeN8WInEA3ta/mdOJkgvIKu?=
+ =?us-ascii?Q?W6QUZ/vUbU9rpK1KensVZjJ2uV/fh3myOBXBIVFmIPKPgjcGMf9+KuvYl+3E?=
+ =?us-ascii?Q?60sk9vnyUNV1p6Ppu97AOAZYB03v1d4ML859ZM1piMOwSzhMHC2MUtgKs85f?=
+ =?us-ascii?Q?zISPwXPvVriA6LhRfo/dQPOECgg55cI8ZsrrHWYNE7gk6bTP14Lo/zq0IlJ7?=
+ =?us-ascii?Q?xmnHhT9przgInCoGlCxmN7c46So5BlRo+45kSXmaF4SycgI01W3Xyukb9zTV?=
+ =?us-ascii?Q?vXO+592MWEt76NX8uhfpEQwCAgWFRqmW4bUI6JidW3zSwJ91cT7itBCgtzNF?=
+ =?us-ascii?Q?hIwoKvghP1x68szzZproQH2TDDnohePLQEY5gMi4YoARlFO8mYwi9zCbcHcD?=
+ =?us-ascii?Q?K5/vwiSsgAgdYuOEqwAqfQCVjUQrC6j9OTNnIYOGswHXo1iFIxqCZJFz4mgR?=
+ =?us-ascii?Q?QYkRk8IZH+0=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW5PR10MB5764.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?uFZdBt3geuqHD4B3QkxeZpzNeO0efLHP3zB0fSCz4TJZS6IcPbBxwD0EgQSW?=
+ =?us-ascii?Q?rrjOS0mOefSAdY77di/I6lTKCDLFNweD0x747CrXU8JTtcS1hCBBgQtAh+Dr?=
+ =?us-ascii?Q?coQPm3DE4QDHMeixHs2/emW80qM4hnwVZO5Rqidhy4hE65GHYnbaKi9nDaw8?=
+ =?us-ascii?Q?8Y3YK7ELTCCkRcEiTi59BNI4zMngH8j4vCtret3x5tbxbuEXpTuTwDNtVZ+O?=
+ =?us-ascii?Q?zM9ZIlUOdnR6GtYwTfR9pDcAo8oG92SiPIO5hp+TbJyRNIEDzNJHS6jlOZ6q?=
+ =?us-ascii?Q?JTToCcPZ63Wy4dpNEvH0XTeqw/lz2dDHEAELccHbdl4YO8xltV5d9jTR7pnq?=
+ =?us-ascii?Q?xGz+y9g6DgfDRyQre0Twkpgchwc5TTSp3oYjX4TG8b+gal9hojzJzo+i7S3S?=
+ =?us-ascii?Q?Wz+QIRWPoncNc0vVCYlViEfpMAUSHmNSd1mOHfJVg30k1cXc/Qmz4NicIuiB?=
+ =?us-ascii?Q?j8rKkAqluJkeRTX8MW/uafeFtMezoe3GQuPrsjwCattF04+Rn1i+Tkk1d0nq?=
+ =?us-ascii?Q?PL9N8SxJaSYA+zDyks25DFfKJkK6dv8OYqtHb3n7sbJeljMISEBoN+N3KMd+?=
+ =?us-ascii?Q?6k4fdupO2vODGZpUXtF7IfSjojOWAbDgxgoUXnF2eyQOwYzOdON6lv5W/vaz?=
+ =?us-ascii?Q?y/tpZoJh5eTJTYrzPYCkY1lKoeaHFklY56KwKqkL1Ma9DCwbVUic0xDkP75H?=
+ =?us-ascii?Q?TKNJWzGSZu98a91zMwQySockJcdgSb60afnggu0I4EgcFPfKBldG/4yoQbNA?=
+ =?us-ascii?Q?elESX9fFdERfAIDD5hsDQD0HghnjgjVmR8Cnu8Q92wVO00+Bpy3d0tUxqGPV?=
+ =?us-ascii?Q?pnvd3yCDZgkgm9b12Ctv0Jmy+yAqE57cYmTi2BVcienvspprHWndhLniGJcq?=
+ =?us-ascii?Q?80EMEuWr/36a/sarJ1T+yGicrPHmNhIYf+NkPeWoQgrGl/wq6iXaO9S4DcAg?=
+ =?us-ascii?Q?hio2mTt4xKMpd9Gd5+/VFSlY2Q52ctZCJuNaW2sr13UYmXzmT7eD0Do8Xfu1?=
+ =?us-ascii?Q?6UxTWkjGQEDjBTZe/DK6uY2VelRMLY9fkauvtsEABYtGvcDV2rTpa1+qHcaR?=
+ =?us-ascii?Q?8cOMW+PBQFzNx6WtIYckbc3tXigI4d0UX/MvCO0S7+om5Cmxkej5YtjW0Iw1?=
+ =?us-ascii?Q?QNmvbx76Bbn36ZNZxIZrCKqnuZY17bPzm8g9087pXG/XDO+YhmmeXKNQ6Zaf?=
+ =?us-ascii?Q?BNSMBJaAsoCx7n0YWGof14rJIS9a7CiG//CrDPwLI6OHaRN9oYe1FZBQQk3n?=
+ =?us-ascii?Q?h6cGCPx5G9Ke3cJnGW6KBy7ZEtQF9uwKwP6nXzzWPVaM/RkSEIxlW6CgnqYy?=
+ =?us-ascii?Q?mWBzncEwBjWrIiMCsvNUjez/EVFa7zUeluXpDSBKZJdRZQMgY5mrEsQyJH43?=
+ =?us-ascii?Q?ElqMW/tWrBk093wKQMcgHPMI2CEdoGLKNM84vrlAMx+c3DMAyvCqjRrCQuEC?=
+ =?us-ascii?Q?HErPON3bfV9qdKmrbH+RkmXMA9szwORlTVHfOGYrLQFEKf4WlZz84pu+StHe?=
+ =?us-ascii?Q?GnZ2yGEQUXib3zC3FFavG92o13RIjr02xdbNT0BXqGr6t5f9lbSJwJDANXoI?=
+ =?us-ascii?Q?+tRlkONz9WwkVQWmlumRO3WqJW/BUQwmXr+Hg07g?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: N9aYXQED1IRHyRE2IVFo7YXaByv1wIrdJ1aepybpYR7JQYU9jcxt+1wwvxiucrpvixTPB9uW6HEWKJF3xpzA9hcE2hjLHs3jruKvJ5aXSMUAaHTRzoGgchTdDYwWI9e5BoMG6bdYDm8KhF69li/Swj4NctbgRSauYDqusdA1/4krip01KECGLNKPLG1BPmCwDgXvToBN9Xsug9Of4rcBc6jaofWWWK350cVfEJZB0M8HbmdSRD45Q65SPxRwTxGdT5V+IERGO3XPSSqTN+LVo8BGEI5thDbXYxEbKelgzoqGRvosOtJWFPeHx+52JHWr4eHbyGnequJ4vmDN6FoyWzE8gEixZS3v79sA2KIjuI8nCv0H1IE/4Bb9Frny6/nMQZhtTG13HFThj1bubwNARDlU5M892jqfU37577sSYY2ig6frvjoLEQKMOPbhN58aLdAfMW3++sYK/y357g+nClOd37ojt21RcOkw9M4KjsFyY+4uit5apMeH07NMbgD+4+vOeDqHZoKSdHo/ewVtEkyYW4j6T6DpQe4fkNvJ1YLzeorDpZW+eyvoWwalYn/75N6PxsoJVv3rVzjfQOp1VerCTUWp0xrkRLhHF5k1ecA=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6baf3773-68b8-466b-c5d9-08dd79c22868
+X-MS-Exchange-CrossTenant-AuthSource: MW5PR10MB5764.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Apr 2025 13:01:36.7310
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: TNPWRpUiUTHxLo4LLPCbFs5jpRwAuWntE31+ZG8SID6NYQmVf9/rFRxBdyzo88SCKblNAAIx9hl0YCVjxHOoEA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR10MB7105
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-12_05,2025-04-10_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxscore=0 spamscore=0 mlxlogscore=999
+ suspectscore=0 phishscore=0 adultscore=0 malwarescore=0 bulkscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2502280000
+ definitions=main-2504120097
+X-Proofpoint-ORIG-GUID: toG7sWtpK9rJXGxv-NW7E3dxT4w1TJCc
+X-Proofpoint-GUID: toG7sWtpK9rJXGxv-NW7E3dxT4w1TJCc
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250412_033954_151797_8A3639E2 
-X-CRM114-Status: GOOD (  14.71  )
+X-CRM114-CacheID: sfid-20250412_060157_413315_939237B8 
+X-CRM114-Status: GOOD (  36.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,70 +201,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sudeep,
+* Lorenzo Pieralisi <lpieralisi@kernel.org> [250411 08:37]:
 
-Thanks for taking your time.
+Thanks for the Cc.
 
-Sudeep Holla, Apr 09, 2025 at 14:12:
-> The start update should retain as soon as Platform uC acks the request.
-> And 2 notifications can be sent out for update procedure started and
-> completed. I don't see any issue there. What is the semantics you are
-> talking about ?
+> On Fri, Apr 11, 2025 at 11:55:22AM +0200, Thomas Gleixner wrote:
+> > On Fri, Apr 11 2025 at 11:26, Lorenzo Pieralisi wrote:
+> > > On Tue, Apr 08, 2025 at 12:50:19PM +0200, Lorenzo Pieralisi wrote:
+> > >> Maple tree entries are not used by the driver, only the range tracking
+> > >> is required - therefore the driver first finds an empty area large
+> > >> enough to contain the required number of LPIs then checks the
+> > >> adjacent (and possibly occupied) LPI ranges and try to merge them
+> > >> together, reducing maple tree slots usage.
+> > >
+> > > The maple tree usage for this purpose is an RFC at this stage.
+> > >
+> > > Added Alexei because I know BPF arena used the maple tree in
+> > > a similar way in the past and moved to a range tree because
+> > > the BPF arena requires a special purpose mem allocator.
+> > >
+> > > As Thomas already pointed out a plain bitmap could do even though
+> > > it requires preallocating memory up to 2MB (or we can grow it
+> > > dynamically).
+> > >
+> > > We could allocate IDs using an IDA as well, though that's 1 by 1,
+> > > we allocate LPI INTIDs 1 by 1 - mostly, upon MSI allocation, so
+> > > using an IDA could do (AFAIU it works for 0..INT_MAX we need
+> > > 0..2^24 worst case).
+> > 
+> > The point is that you really only need a 1-bit storage per entry,
+> > i.e. used/unused. You won't use any of the storage functions of maple
+> > tree, idr or whatever.
+> 
+> IDA does use the XArray entries (i.e. the pointers) to store bitmaps,
+> the only drawback I see is that it allocates IDs one by one (but that's
+> not really a problem).
+> 
+> I wonder if it is used in the kernel for IDs larger than 16 bits, it
+> should work for 0..INT_MAX.
+> 
+> > So the obvious choice is a bitmap and as you said, it's trivial to start
+> > with a reasonably sized one and reallocate during runtime if the need
+> > arises.
 
-I'm going to refer to section 4.1.1 from the spec, where stated following a=
-bout
-delayed responses,
+I think the IDA or the bitmap for space saving would be better - the
+xarray does do something under the hood for IDA space savings.
 
-"Messages sent to indicate completion of the work that is associated with a=
-n
-asynchronous command"=20
+If you want to compare, I can suggest some changes to your maple tree
+code (mas_{next/prev}_range might help).
 
-Compared to notifications,
+> 
+> Yes I can do that too but to avoid fiddling with alloc/free ranges crossing
+> bitmap chunks we need a single bitmap, AFAICS that may require realloc+copy,
+> if the need arises.
 
-"These messages provide notifications of events taking place in the platfor=
-m.
-Events might include changes in power state, performance state, or other
-platform status"
+That is the advantage of the IDA or maple tree, the expansion is handled
+for you. I'd be inclined to suggest using the IDA, but I'm not sure how
+important storing an entire range is for your usecase?
 
-So before I implemented mentioned driver I had red this two and had chosen
-delayed responses, because it had seemed more appropriate. Details below.
+Are there other reasons you want to use the maple tree besides the range
+support?
 
-> Even delayed response as some timeout so I would rather prefer to use
-> notifications
-
-Hmm, I see.
-
-> in your usecase as it is completely async.
-
-Just to emphasize, according to the spec I don't think that delayed respons=
-es
-and events have different degree of asynchrony. The difference is in the
-initiator of 'messaging'. Events are sent by platform to indicate its' stat=
-e and
-delayed responses are sent to indicate status of previously requested opera=
-tion.
-
-I used the latter, because firmware update can't happen spontaneously. That=
- what
-I meant when used term 'semantics'.
-
-> Yes neither per-transport nor per-protocol timeout will suffice in your c=
-ase.
-> This 10s timeout is specific to the update operation and hence use
-> notification. All other solution is just workarounds not generic solution=
-.
->
-> --=20
-> Regards,
-> Sudeep
-
-I see your point of view. However, taking into account given arguments, did=
- I
-convince you that delayed responses handling should be implemented in sligh=
-tly
-different way?
-
---=20
-Best regards,
-Matthew
+Thanks,
+Liam
 
