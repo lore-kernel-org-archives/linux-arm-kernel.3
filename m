@@ -4,143 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B70CC369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Apr 2025 01:13:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A5C1C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Apr 2025 01:14:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IWyxd8gfpz0AV9PMS9YG/QYmu3jTOva7itur88xgFZc=; b=OEvCWCYfQA1ZOe0ghqrEPVAvNc
-	m1sjRkZswZa/sULP6Mn61MN3Db4RuFdfQWrXRuYZ5vUgPTdASykzsyOZNT9EkYOkcOw6kFLYxygIi
-	QKYVvC/y1pyjFObQVBsFiLBIxh0kY/pqFuOtocD1M57s6EBUtdYSRYnggkr+bMet9K7hb8JE3rbHU
-	52rvkI6o/ReIy3L3fkAgODOqBqoKcrIacCA0qoGpjLo7zid73Oz1TBQrv/2ak21g2VdZsi8fVmbsn
-	ScS7fj1oXnlUX09afugSMZrLD4K9ro4yUqd4WFkD4R0lMpRu1R5QnSBk6NGsbJpuhw3i70SwNmcWu
-	zXyJyY0Q==;
+	bh=bWDHpUBhtTe2FgO8fryMDFRusp4rjFHy5/tTaSl+b7o=; b=x/4VMEEfIAKIHLkHdfT/5p2iuV
+	GpCftWD3XlV1IaeR3lqlWG/IhwEEr4IP2y+/GbBup61A2BWjUQ+grHJUWbtDALg0dr9Og8AfV1UtP
+	XTt+XW/ijsvzyjxBgu7SylgyV8Rxvz/O+dLiEvyQOAiej7ALk/3BVURAEMAQ8eJ5isHp4Oeiav8hG
+	mAO4SQAEd/VVfl4fMTGbl/7cCx+m0AU8bY8aS6va+iRwmlUOvwEkO6ptTikFKucrcmlxZbpp6//J3
+	cJVRyqhg6v7uwOV09t6S2RTm6fq5eSUzIJ7Wd+yp60azfGYaE+sMvDAM7mREz9czjxYxW3ElDLWpb
+	juQ7VfKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3PQs-0000000FE6L-0usT;
-	Sat, 12 Apr 2025 01:13:18 +0000
-Received: from mail-sn1nam02on2062e.outbound.protection.outlook.com ([2a01:111:f403:2406::62e] helo=NAM02-SN1-obe.outbound.protection.outlook.com)
+	id 1u3PRP-0000000FEAE-3awU;
+	Sat, 12 Apr 2025 01:13:51 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3OP4-0000000F9NO-37MR
+	id 1u3PNx-0000000FDqj-1J7f
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Apr 2025 00:07:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jhRp85pOW1Blo6wfFT7kwBME/sCAdhrsaOd1P6Ek1ES5jDdh2DDPLLQ2uelQxSnBn5Xw5oc0KynbIbpUir/EtoOVk9GlINqA3USaxkDc5apnSUbikVfpWZuwTx/aJoqnoskBacCKeZU3k0LM9edyA6Facc1HILDMOQXVrUt5+tP0jwa10/Qig4NWCA/YZ6wqARQ39OvyarwHAKYxKEL3MDwWhsyf85ulQE1aPJ63tvpxgSukbTgPA7wiI86uXGvObzKF4mIphiGHChwIHzmm3OJS+Pv9w3OBofAZXckL6DSGhY2PWT79EyK1rbxpNtAoZ5fRXwPbO83nGSjT6Zontw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IWyxd8gfpz0AV9PMS9YG/QYmu3jTOva7itur88xgFZc=;
- b=gVi8wsXPmmtcFChBr0sd7E+E4xzKYOaOTeMRV3LfNZZVEyOMijAtkk2CEH4WZ73pLhIwFOo5R6gPXTNARu2rqGI4mElHg36rmHAe+qSNt8VLHvOCxTVnIiFMa8jCzJg7FFpTYILfyYLJPUnLKH2gi49d7Zyoix0Vop/bQdshDO+vWIk5RxVGrqlmptJjiz2yExKixGB9sCcMZZOL89Rd2zmpUMa5jzeQMC4sgVT1LjvSOiazRNjpSB/FhAyFWYY0WU5P0k56a59+W5wmsrJNgOLGODvFHLP4eg5MgNrXR24BnrQpXjgcwaQ2TZtVe3Mrv+q6xy2RL1AVa/xm91k4Ew==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IWyxd8gfpz0AV9PMS9YG/QYmu3jTOva7itur88xgFZc=;
- b=IC13N/l6+ej3fxWwrHKSTkgKZood8L4SFTfkn4YTMJlJMR7nKJIzQwiLfzaOT1ezAis64NHmnvhBJoOF6IU+cJXDiRGZWHjcPdSxB5DSM3iVr3WR+EhfJ+MV/CBQwD+sL583mru79nPas8JgWwXNsHA9m1Dx/i8Xw+RdZFlWtlvB9DvRyYH1UD7tOXHidV0Fgur2Kii8FnZlrKB3tGMVommIf3MB4H1MWBV52+DfT2twHHpHR/EDY+8qn077DxMpqYZI6V98qPNWn8MgMkYu8HqGwFk2smwhTuB8rCguXoA76Rf5W2gtDunX1ZUijxQSfVW8C/b4+xHu00WLVdzwdw==
-Received: from BY1P220CA0003.NAMP220.PROD.OUTLOOK.COM (2603:10b6:a03:59d::10)
- by SJ2PR12MB9192.namprd12.prod.outlook.com (2603:10b6:a03:55d::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.22; Sat, 12 Apr
- 2025 00:07:13 +0000
-Received: from SA2PEPF000015C8.namprd03.prod.outlook.com
- (2603:10b6:a03:59d:cafe::2c) by BY1P220CA0003.outlook.office365.com
- (2603:10b6:a03:59d::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8632.30 via Frontend Transport; Sat,
- 12 Apr 2025 00:07:13 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- SA2PEPF000015C8.mail.protection.outlook.com (10.167.241.198) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8655.12 via Frontend Transport; Sat, 12 Apr 2025 00:07:12 +0000
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Fri, 11 Apr
- 2025 17:07:03 -0700
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail203.nvidia.com
- (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Fri, 11 Apr
- 2025 17:07:03 -0700
-Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com (10.129.68.6)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Fri, 11 Apr 2025 17:07:02 -0700
-Date: Fri, 11 Apr 2025 17:07:00 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Robin Murphy <robin.murphy@arm.com>, <will@kernel.org>, <joro@8bytes.org>,
-	<jsnitsel@redhat.com>, <praan@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Allow stream table to have nodes with
- the same ID
-Message-ID: <Z/mupP6m0gRbeYtg@Asurada-Nvidia>
-References: <20250411044706.356395-1-nicolinc@nvidia.com>
- <5c8d16f9-246e-45d0-aaac-45b7712cefb5@arm.com>
- <Z/mm2EQAQtOqpVCy@Asurada-Nvidia>
- <20250411234419.GC252886@nvidia.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250411234419.GC252886@nvidia.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF000015C8:EE_|SJ2PR12MB9192:EE_
-X-MS-Office365-Filtering-Correlation-Id: e1545979-8db3-43f0-0c5a-08dd7955f9c3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?/6aggSSesGO1KQ2hUABeppOJ80BBr8H+pwxqQQIhQPKR1Bwx8J1j5to9+jvX?=
- =?us-ascii?Q?NlGwYnvBir+hm1JevJI8saFZCmjJs/BrCXk7WRbSpCiq5ldZvHi2MAjJAhWC?=
- =?us-ascii?Q?CklzHq1y4RprDpPp5kIQsvetuPK0qQdMSpny6h0rylpE9GPwaeeYDCwKhizY?=
- =?us-ascii?Q?G2M1I7fmyXf5sjemfOJrIfuNKRyO+h6mlJriyZlVw8RnE8n65drlwewJhkhJ?=
- =?us-ascii?Q?uC59jNxq1YjWm090iq1TdRcloojzpBLGlVNiP1Zon5fXa1hjmnXEZzTrtmM0?=
- =?us-ascii?Q?n7s5cYYfBf5+wja6Mcwu3QluNbgopuf7luur81EvSDLWIxw9szAqnC0loa29?=
- =?us-ascii?Q?i1puBpGnSSIfof/mi5DFPBCZAd52BXZ82qqy7cbdEY33dfUB842NIvrrf/zo?=
- =?us-ascii?Q?InRz34KVhjPPRposJIVa31tWQ+umOsD1dfAJFWC9FAmxuwFgHbFdtiU01gVH?=
- =?us-ascii?Q?OLT2FZJS9b9KLtY3DxRjs5NYvLRcM8BvVF1BoM/lfbJlpssZyGeKLcPEYSjs?=
- =?us-ascii?Q?/FzXVi6xM54gQKgMI3hh7JGaYBYta4END2gW0f6A08JTkj5WTxtaFiDNx4jM?=
- =?us-ascii?Q?oYnzbst/8ds9cs0k9y4xVQHiodb7c9JKRNTSDjpa5qnl2aZMaWl3azFASyrO?=
- =?us-ascii?Q?dyqY64zCa+1DiUDFrIIWBoQU+maCh8Ptp3o7bNapEvbfsDSdOQdwQVCgO54d?=
- =?us-ascii?Q?SKCxo03moP0NUg6XKwbRsPgBZ/b2lMOsC0f8iObbwcus2/jx5zAjVmo8REaY?=
- =?us-ascii?Q?oGn0Alrz/pdgqHqlOxlhfKuaN4hwgaa72P4r4+Yfp4rWFjox764t7lLrEv/G?=
- =?us-ascii?Q?5MQKX/We5ts+seMuKKUhcFic/YsuCRba8nuUgMuuritwVmy2kwLzhojD4yg8?=
- =?us-ascii?Q?WLb9j4LGIFTS9HyC12ZRJIUHlFwkAQApJIDjC95nw2EQ2oCfU/FTi6KEdLmh?=
- =?us-ascii?Q?8XU0PEBosMHCo4mGXM9G06pgFA5hslGaz2QHT6CkzWaocgFcktdjGet40YHL?=
- =?us-ascii?Q?Li5Txbxv7bNRvFMBMtBAxBMhxBhmbmfU62RYOzI8i2WYuDeIcOl7eGsBQlo4?=
- =?us-ascii?Q?EC8LnpP3p0NPuhYKeLI6EqZwfMMN7Zuv8/ODTAF6zQF9jL0QrDvUvQoFbOwn?=
- =?us-ascii?Q?1wqHhclB4C+uTXq9EcwC1k1YQRhaQS1l3BC2mGMv/wjL4VrTc6pPHPQWLsM7?=
- =?us-ascii?Q?uLW+2WzwTQZ9cNac2gbwp4IFbdH0b6ZpP0gUcIRqWiE2Vqm1QK1rcjvIpAq1?=
- =?us-ascii?Q?o2opNOmY6OPfL54hVcd8YmzW6N8JkN1ghXxbP08H9TEFYSuvJrs7Ney1knaT?=
- =?us-ascii?Q?l+XuEzarDsbo9YXWOkv8o5UUrml8LjEjq4b9wf+Bvw7ugGaz2QeZPlzrefoU?=
- =?us-ascii?Q?zwIJ6Ext0lizvJT5O5+sQ/U8cq+jZtdm6kPj/jX19eSxqfStgGC5raS3Ypah?=
- =?us-ascii?Q?PuPk0WsxpMHbv3J7D5effPHR5/0VvTu0uby1ddjTBwyTWGPmQ/KpCgZViwq0?=
- =?us-ascii?Q?Ja3Of/APJXJ+ydlqMi0bhVVYfL29LWsSGg/y?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Apr 2025 00:07:12.4406
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e1545979-8db3-43f0-0c5a-08dd7955f9c3
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF000015C8.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB9192
+	Sat, 12 Apr 2025 01:10:18 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-224191d9228so30707725ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Apr 2025 18:10:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1744420216; x=1745025016; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=bWDHpUBhtTe2FgO8fryMDFRusp4rjFHy5/tTaSl+b7o=;
+        b=I2bSrzekmgOsakRc02JlSD32kAF0Kx6nYHgKg2e++F2FQVAAecJKdPmXu9DMGe3dO9
+         bcVy+Mm38H0ASzSHRGuXoq36n0Wl1UN68XWBmNxqDpd8rV+fegJH2eLP4oOP4i/h/dBw
+         wK2HkuFpIwMmfZ9ioxd/G0fJ8/61AgDe7whLq9d0RQ6BxMGeuQgWshTvj1WSuxt6tEjB
+         G2TORCkTMXRmhDrBieCVWeqqLCb2iQu4/n1AQIl5JDXVNbaBOW3diDocqEYoqmXRTRM0
+         eOA25DeHBpJknhShVH0H6QMUy/qgnt6EDrl6IOOW5ML0E6IYIt7cNPhosHiX02vvesJt
+         s+SA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744420216; x=1745025016;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=bWDHpUBhtTe2FgO8fryMDFRusp4rjFHy5/tTaSl+b7o=;
+        b=TOs0lw7Fvf3wN7lySUa0eiX0hE4SUh+9ceA4L3s34EWF7rg2HcYgzQ1DW3Syam5JUv
+         9VdBQVsTVivrUIcAXj7H1ELC3DBKTh8RhUNaVURXPUBWkJdxibE1BbPDYsa1xWk6Vgu9
+         aFLew5a6HLkldzT03yzGDsehMb5vzfXTocCncbAbIWyYyUzdjXM7xQmuPBAWd6cx25Wr
+         /OL/LPpugXQOmlZvV5sAQlsVoKY/SKu0x5j/XJNxHz2MizVhRNjKIrfFTe+79lKezMDR
+         o75XUAuFCkZ06Tce+CslDl+AMbrZSg9qEoIuoCb4I+P9b0kQYJP0QOBM9woVdfaScEfz
+         7Dzw==
+X-Gm-Message-State: AOJu0YxfeUXotc4b4mpnc3Nf1YSYuvf5pdiCktDSGp7cxwwle0tgQBO4
+	VV9K3THJoopyXI+AsFKUwZOVwIeM6llqOxGwQ757Kc7txfFvboIIgSwmgpxJikQOuRK6izVEsnz
+	J9MDc11+dn7SSnnZnXal5Xg==
+X-Google-Smtp-Source: AGHT+IHVLYuzqpZRTCktPu5rFIJT1KD3DgXm1NNnlt3I7puZQhJBEjVGAwIu34AVxzFmVqO3ENhw/4jf261UUYOPSg==
+X-Received: from pltf12.prod.google.com ([2002:a17:902:74cc:b0:224:2ae9:b271])
+ (user=dylanbhatch job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:903:1aa5:b0:223:377f:9795 with SMTP id d9443c01a7336-22bea3de1a8mr72996465ad.0.1744420216287;
+ Fri, 11 Apr 2025 18:10:16 -0700 (PDT)
+Date: Sat, 12 Apr 2025 01:09:38 +0000
+In-Reply-To: <20250412010940.1686376-1-dylanbhatch@google.com>
+Mime-Version: 1.0
+References: <20250412010940.1686376-1-dylanbhatch@google.com>
+X-Mailer: git-send-email 2.49.0.604.gff1f9ca942-goog
+Message-ID: <20250412010940.1686376-2-dylanbhatch@google.com>
+Subject: [PATCH v2 1/2] arm64: patching: Rename aarch64_insn_copy to text_poke.
+From: Dylan Hatch <dylanbhatch@google.com>
+To: Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
+	Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, 
+	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
+	Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
+	Xu Kuohai <xukuohai@huaweicloud.com>, 
+	"=?UTF-8?q?Philippe=20Mathieu-Daud=C3=A9?=" <philmd@linaro.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, "Mike Rapoport (Microsoft)" <rppt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Luis Chamberlain <mcgrof@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Song Liu <song@kernel.org>, 
+	Ard Biesheuvel <ardb@kernel.org>, Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Dylan Hatch <dylanbhatch@google.com>, Roman Gushchin <roman.gushchin@linux.dev>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_170722_791434_A53EC82D 
-X-CRM114-Status: GOOD (  18.41  )
+X-CRM114-CacheID: sfid-20250411_181017_352025_BEE24563 
+X-CRM114-Status: GOOD (  14.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,47 +98,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 11, 2025 at 08:44:19PM -0300, Jason Gunthorpe wrote:
-> On Fri, Apr 11, 2025 at 04:33:44PM -0700, Nicolin Chen wrote:
-> 
-> > > The bridge *does* claim its own RID, and per the aliasing rules the
-> > > devices behind it claim both their own RID and the alias to function
-> > > 00.0 on the bridge's secondary bus, like so in action:
-> > 
-> > Yea, I just found out that the bridge does have a different SID.
-> > It was actually the VGA controller itself having two fwspec->ids
-> > populated by the IORT code. Then, the SMMU driver allocated two
-> > separate streams with the same set of device pointer and SID:
-> >   pci 0008:06:00.0: arm_smmu_insert_master: fwspec index=0, sid=0x10600
-> >   pci 0008:06:00.0: Adding to iommu group 21
-> >   pci 0008:07:00.0: arm_smmu_insert_master: fwspec index=0, sid=0x10700
-> >   pci 0008:07:00.0: arm_smmu_insert_master: fwspec index=1, sid=0x10700
-> >   pci 0008:07:00.0: Adding to iommu group 21
-> > 
-> > Perhaps the duplicated fwspec->id should be avoided in the IORT
-> > code at the first place v.s. bypassing the fwspec->ids[1]?
-> 
-> It is a much easier fix if all you have to do is ignore hits in the RB
-> tree that match to the same master, just don't fail on duplicates and
-> don't add the duplicate rb node at all?
->
-> Seem strange though. Where did the duplicate come from?
+Match the name and signature of the equivalent in the x86 text-poke API.
+Making the src pointer const also allows this function to be
+interchangeable with memcpy().
 
-iort_iommu_configure_id
- |=> pci_for_each_dma_alias
-      |=> iort_pci_iommu_init
-      |    |=> iort_iommu_xlate
-      |         |=> acpi_iommu_fwspec_init
-      |              |=> iommu_fwspec_add_id(sid=0x10700) //index=0
-      |=> iort_pci_iommu_init
-           |=> iort_iommu_xlate
-                |=> acpi_iommu_fwspec_init
-                     |=> iommu_fwspec_add_id(sid=0x10700) //index=1
+Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
+---
+ arch/arm64/include/asm/text-patching.h |  2 +-
+ arch/arm64/kernel/patching.c           | 12 ++++++------
+ arch/arm64/net/bpf_jit_comp.c          |  2 +-
+ 3 files changed, 8 insertions(+), 8 deletions(-)
 
-We could add a piece of code in iommu_fwspec_add_ids() rejecting
-a duplicated ID, which would be smaller than we do in SMMU driver
-that requires a device_group change too?
+diff --git a/arch/arm64/include/asm/text-patching.h b/arch/arm64/include/asm/text-patching.h
+index 587bdb91ab7a6..450d806d11109 100644
+--- a/arch/arm64/include/asm/text-patching.h
++++ b/arch/arm64/include/asm/text-patching.h
+@@ -9,7 +9,7 @@ int aarch64_insn_write(void *addr, u32 insn);
+ 
+ int aarch64_insn_write_literal_u64(void *addr, u64 val);
+ void *aarch64_insn_set(void *dst, u32 insn, size_t len);
+-void *aarch64_insn_copy(void *dst, void *src, size_t len);
++void *text_poke(void *dst, const void *src, size_t len);
+ 
+ int aarch64_insn_patch_text_nosync(void *addr, u32 insn);
+ int aarch64_insn_patch_text(void *addrs[], u32 insns[], int cnt);
+diff --git a/arch/arm64/kernel/patching.c b/arch/arm64/kernel/patching.c
+index 1041bc67a3eee..e07dc32620053 100644
+--- a/arch/arm64/kernel/patching.c
++++ b/arch/arm64/kernel/patching.c
+@@ -102,9 +102,9 @@ noinstr int aarch64_insn_write_literal_u64(void *addr, u64 val)
+ 	return ret;
+ }
+ 
+-typedef void text_poke_f(void *dst, void *src, size_t patched, size_t len);
++typedef void text_poke_f(void *dst, const void *src, size_t patched, size_t len);
+ 
+-static void *__text_poke(text_poke_f func, void *addr, void *src, size_t len)
++static void *__text_poke(text_poke_f func, void *addr, const void *src, size_t len)
+ {
+ 	unsigned long flags;
+ 	size_t patched = 0;
+@@ -132,12 +132,12 @@ static void *__text_poke(text_poke_f func, void *addr, void *src, size_t len)
+ 	return addr;
+ }
+ 
+-static void text_poke_memcpy(void *dst, void *src, size_t patched, size_t len)
++static void text_poke_memcpy(void *dst, const void *src, size_t patched, size_t len)
+ {
+ 	copy_to_kernel_nofault(dst, src + patched, len);
+ }
+ 
+-static void text_poke_memset(void *dst, void *src, size_t patched, size_t len)
++static void text_poke_memset(void *dst, const void *src, size_t patched, size_t len)
+ {
+ 	u32 c = *(u32 *)src;
+ 
+@@ -145,14 +145,14 @@ static void text_poke_memset(void *dst, void *src, size_t patched, size_t len)
+ }
+ 
+ /**
+- * aarch64_insn_copy - Copy instructions into (an unused part of) RX memory
++ * text_poke - Copy instructions into (an unused part of) RX memory
+  * @dst: address to modify
+  * @src: source of the copy
+  * @len: length to copy
+  *
+  * Useful for JITs to dump new code blocks into unused regions of RX memory.
+  */
+-noinstr void *aarch64_insn_copy(void *dst, void *src, size_t len)
++noinstr void *text_poke(void *dst, const void *src, size_t len)
+ {
+ 	/* A64 instructions must be word aligned */
+ 	if ((uintptr_t)dst & 0x3)
+diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
+index 70d7c89d3ac90..b5be90edff410 100644
+--- a/arch/arm64/net/bpf_jit_comp.c
++++ b/arch/arm64/net/bpf_jit_comp.c
+@@ -2047,7 +2047,7 @@ bool bpf_jit_supports_kfunc_call(void)
+ 
+ void *bpf_arch_text_copy(void *dst, void *src, size_t len)
+ {
+-	if (!aarch64_insn_copy(dst, src, len))
++	if (!text_poke(dst, src, len))
+ 		return ERR_PTR(-EINVAL);
+ 	return dst;
+ }
+-- 
+2.49.0.604.gff1f9ca942-goog
 
-Thanks
-Nicolin
 
