@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3AF6C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Apr 2025 17:18:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDA3EC3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Apr 2025 17:20:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F4okzS3ojN6lnY5RLqGdFM+gAcZSW3E4D3okjWrQCtE=; b=dNLfCLYAb0OkeX8CW2z8hMr1FV
-	YBRp5B4uw+jzp+KlsQwBuhHtw4sr8dK+zqiJZLctA6QRPd0dC2JGbQxnWkoIRjBPnrrzeazkPTwSO
-	+PIoNVhu64OaqNWVU8a3WWJtjJMV+nB4xYghIlybACSP04vWj36Y7wdSc6fXzFHz9fl0jqoD4mEed
-	f8jg0r1sVhgHU7mLCuIsBr1OoDJe5kqN47rYZzRrz0NSJ95IZlCFjNLO7Snv1u8xc9dDefMoKluoJ
-	s1My7nJR4rAyKcH42AX/ArJnTEB0CckegReHMIOFRxuyJ0mwMfw5URhqrk+JOo/lWzPeBBAxvjAkY
-	TAzNjwUw==;
+	bh=fvXB1Wjux2MAoUVYX6W6dWHZg8CiYEv8//Po5T1hVMY=; b=EsBvYDL8oYRoC5/MXHbKBOJG+A
+	iqaqsazCk0Irt1ZunwOJ243IpFTLAr9WALnayx0AbYK38NPGrtoRc0N4W1RJ7jFtx2yVjvhc2JK0X
+	qh3zI5k4f9j5HAo7agsZmzp6SQtmxqIbMyHV8tUCKRVy++IbAhNC4+lQRSDRKNZfyu6pRipKpNY4w
+	67YOS9obqvWuZpefDA1Y8AS6/KXvsuslvf9C4ogCYH1W+JTdFN8Ke7K4cKrgd7bh17QXO//C30fFq
+	DVoJKwAgAy0mRQ1Zqy8DxxEwwAG10UKpfZ4vJIQBIXWRE8KwRhbJARwqnTQ+yq2bolAwteEMP4/4E
+	38ClKong==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u40y5-0000000HQwo-1ZDi;
-	Sun, 13 Apr 2025 17:18:05 +0000
-Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
+	id 1u40zu-0000000HR6D-0YEu;
+	Sun, 13 Apr 2025 17:19:58 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u40wC-0000000HQk9-3Sap
+	id 1u40xE-0000000HQqC-02na
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Apr 2025 17:16:10 +0000
-Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-af9a6b3da82so2316566a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Apr 2025 10:16:08 -0700 (PDT)
+	Sun, 13 Apr 2025 17:17:13 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-225477548e1so33278055ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Apr 2025 10:17:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744564568; x=1745169368; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1744564631; x=1745169431; darn=lists.infradead.org;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=F4okzS3ojN6lnY5RLqGdFM+gAcZSW3E4D3okjWrQCtE=;
-        b=mqJRQ6DJN3nshMeYvIe5xn4THocOLcnG5M04TobKP2LdqsMT0WwbGBN2jR43epIbSS
-         Yvw2cO6Xh6jwHgv7naXKcDZCOCU6OjE8KWKE5FJAca15GhXcJk+TE0r+LDHQcSqe0mRj
-         GJvyoPDC8cVkDGvXIV0Zx3mURqmQl/bw7aZG1WGhWVu8ULDngEyDPmBUh3H0lQif3SsL
-         hDdayN8HBLq/UviI4ojGCBylS5l14ny9iy+s1S6hrZJJjyNk9xEBXp2NDvrs66ovybIs
-         ++lxMpPbpepaasf4sjC5JxZoDWPb4m3MSZIR9JOdWC0FcK07eAW2HoKf4cYzuVmgyakE
-         107g==
+        bh=fvXB1Wjux2MAoUVYX6W6dWHZg8CiYEv8//Po5T1hVMY=;
+        b=NdBIuRMZ0JpOFwIaKbDhEPmBsPrkx1K8eBEqncdIQQthoFncDzVtdQHGQpnjWFLMn8
+         zwQDXtmEfxo0lsTTWmKJs7doGu60HpQScqEKpVeEvpfOQoAzcRoaHpt4PQ29TFv77LkP
+         9QNEv9kAiTEKApmBtkX4honYSYJKR4a8wO8yAhgRJTwsREeIcVgtrTJP3vaCHxNcVplu
+         h3tXeR9zppieciw1hontSUPjVMvD4j8aEtnQtWSDV2p0pPm8eUQGrXf4UNhLtpUpl4bq
+         LJfN3wzVWlunbO+4J1McHkHN0+nY3mc8vBIphatsTvRbvLG85PWTJrZnsuUn528jTxbN
+         Il6w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744564568; x=1745169368;
+        d=1e100.net; s=20230601; t=1744564631; x=1745169431;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=F4okzS3ojN6lnY5RLqGdFM+gAcZSW3E4D3okjWrQCtE=;
-        b=Qoz6ZP82cqwdg0LoAR4A+wpQYG58wNRb7FrroMA7vsq/SA2ZKv258iEjBDtEGdIgwz
-         VnNSOqUzk/6IOy9sWr00/6+ISjyvJReS8QyT5AKBKyyP90TnBUbHOCooBaCGcHs7Ypou
-         Fs3NdXcxLHPd7KeSULU8bbEPo7EQHBg/65u+Xfy6X625/BtV2PSickOHAgS8yQyhpYF3
-         aKkkX6X/fxPc2GCbhc3cz0kM+7sP03+OBS1dQkK2AcESeLvyYNYR2OvWsAGjXEPgBY90
-         n/jf4A84O3WDiBN1pS1pNAhAlMSgdv44bkbwyuw5n89ljbdp3oxqroScYs1/cwuWfY12
-         A2ng==
-X-Gm-Message-State: AOJu0YyksgRfnnRpdQY919puav8X272awmrzAzwUzuw+QeXhNGnCTI2Q
-	hFkKu/RlUhasWUbir8Vf7KKCin6z+RsXaa7lFdvW0OpAkQGQUGw1QRM2icASxg==
-X-Gm-Gg: ASbGnctRXlV8CYPmwmI38TcArRgBEiMgkd88A9b2prLfB4dj7ppRJbXKBsUKJ9S76ps
-	nY7Dg0DQyVRHCmwcuC0xlCECwgZ+4nMTU1lE9oJbnR4g3rrvo7KbYS9EH89nI9YWWjVZBi3CbIz
-	xZVitwyKLtgRdJY4m/T4kMblye+ydZ1pXpEHP532AcPgihgxfrROJhkk6shvBg+wclocQXJNK0h
-	bhUDSfNJc+lq2EeOTeTbIUBwCm3iseut7hq0/JGV6T/h7awrgEue1LdJKxB4olvjv97SqsXX2fG
-	ayL4PCu3epT6o41/BBgBha5erwA472kUAaZcfEIiXX0DBJAn1/DyHMrN08MLCDw=
-X-Google-Smtp-Source: AGHT+IF3vhmu+FLpO8zsp8cPRlhnO7CmvXQvRW7kWOQy1JPST9WHz5upmUYj9aLgD93hoRV5zqzCaQ==
-X-Received: by 2002:a17:90b:2b44:b0:2ff:6e72:b8e2 with SMTP id 98e67ed59e1d1-308237f2b39mr14281049a91.31.1744564567714;
-        Sun, 13 Apr 2025 10:16:07 -0700 (PDT)
+        bh=fvXB1Wjux2MAoUVYX6W6dWHZg8CiYEv8//Po5T1hVMY=;
+        b=iJmC/XGi/KdY9wUSlGWYet5/E0hl5aC30PlVpOhM+UbDI+7+QXWTWdJUsFLdG/GyCA
+         MzWxDqPjb7VvgqyYxJHg+F5GwscMVi1Fz5M4TE2UAKXv4nXdighiEsM3/E/n89Kr91E+
+         vYQLYupgNGciu5hrRjQW9nRlSQY3W05E/8TSVOr5PkbWBe+Ijh9zk3HlP37nw12MnrrQ
+         1cQfLcfmMVei5xVvjjB4bWtUt37InPTA07FRxdajayPP9dPbhCY3qZz5gOLObRMAjeEO
+         6FDs76iIIirIHXf4VpEdRZSgNnXfNLGTunjFVORfnwW4XWlqHerfv0Hd3xjaW4aWTU+w
+         KNkQ==
+X-Gm-Message-State: AOJu0YxFU4XSN7M6qW89at1Nn6PcYj7dAHcWf96n7x1WtGAB8CGw+rmC
+	A1NXtozTVJkYez16XMqZOaiVUQSDlnlpiT0Fxr6iW9Wofi3+0HbM221NAllYEA==
+X-Gm-Gg: ASbGncsGSDzpciXMl982R23DmjWkBkrjPylZJv5J/08qxYH0U8zLZrJ9OWpWeY0ahAk
+	r0E0WVU2Sf2hIzNQCeRPuZDJsyfLZVx8zAeRe83PSj6gpDW0GPSvzI5YKGuxiM3S6wiWp6ZfSGC
+	rGZGpLX0KvmWC7hDIu3Fx2o17F8aJIVNXS1zQjBGOEFiyhlPwaKsYXYmr8G2b2AdjCVDZ1iVLvD
+	4gaUVrz+gyzATKBcviJHeMaBYTwPi9MZV0Mk7Ml1u/2YvGEuPDQr86dtNlyPeLNcuXmOMw5aIdJ
+	8m4JQFVFGbFZt823ec6CVS6d5Yaqda5Uw8n75zFAtzkp/8d8D+a/
+X-Google-Smtp-Source: AGHT+IEtOLc2J65A5BztfZy5lJCUWgfZuua8Ed0F/wWmVQ49XJn2NKHTr6y3ixbdHzeiNIvZR7HI/w==
+X-Received: by 2002:a17:902:e5c9:b0:21f:1549:a563 with SMTP id d9443c01a7336-22bea4954bfmr127432855ad.2.1744564630883;
+        Sun, 13 Apr 2025 10:17:10 -0700 (PDT)
 Received: from thinkpad ([120.60.137.231])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-306dd18580esm9724031a91.46.2025.04.13.10.16.03
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22ac7c97228sm84677405ad.128.2025.04.13.10.17.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 13 Apr 2025 10:16:07 -0700 (PDT)
-Date: Sun, 13 Apr 2025 22:46:01 +0530
+        Sun, 13 Apr 2025 10:17:10 -0700 (PDT)
+Date: Sun, 13 Apr 2025 22:47:03 +0530
 From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 To: Marc Zyngier <maz@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
@@ -77,19 +77,19 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, 
 	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
 	Mark Kettenis <mark.kettenis@xs4all.nl>
-Subject: Re: [PATCH v3 09/13] PCI: apple: Move port PHY registers to their
- own reg items
-Message-ID: <fvjlxc2gwhhs2sv5mbag7m43s5cbmuyygjvlynpkq2jd43bqlm@pcgwo3usbdyf>
+Subject: Re: [PATCH v3 10/13] PCI: apple: Drop poll for
+ CORE_RC_PHYIF_STAT_REFCLK
+Message-ID: <rzrouiqucgtdpapcqwf6pbdrbsrxeii6khx3h2q26etu3772tb@qxxdjuv5uias>
 References: <20250401091713.2765724-1-maz@kernel.org>
- <20250401091713.2765724-10-maz@kernel.org>
+ <20250401091713.2765724-11-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250401091713.2765724-10-maz@kernel.org>
+In-Reply-To: <20250401091713.2765724-11-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250413_101608_872510_5A15D00C 
-X-CRM114-Status: GOOD (  23.34  )
+X-CRM114-CacheID: sfid-20250413_101712_049944_4A5D649E 
+X-CRM114-Status: GOOD (  18.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,24 +104,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 01, 2025 at 10:17:09AM +0100, Marc Zyngier wrote:
+On Tue, Apr 01, 2025 at 10:17:10AM +0100, Marc Zyngier wrote:
 > From: Hector Martin <marcan@marcan.st>
 > 
-> T602x PCIe cores move these registers around. Instead of hardcoding in
-> another offset, let's move them into their own reg entries. This matches
-> what Apple does on macOS device trees too.
+> This is checking a core refclk in per-port setup which doesn't make a
+> lot of sense, and the bootloader needs to have gone through this anyway.
 > 
-> Maintains backwards compatibility with old DTs by using the old offsets.
-> 
-> Note that we open code devm_platform_ioremap_resource_byname() to avoid
-> error messages on older platforms with missing resources in the pcie
-> node. ("pcie-apple 590000000.pcie: invalid resource (null)" on probe)
+> It doesn't work on T602x, so just drop it across the board.
 > 
 > Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 > Acked-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
 > Tested-by: Janne Grunau <j@jannau.net>
-> Co-developed-by: Janne Grunau <j@jannau.net>
-> Signed-off-by: Janne Grunau <j@jannau.net>
 > Signed-off-by: Hector Martin <marcan@marcan.st>
 > Signed-off-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
 > Signed-off-by: Marc Zyngier <maz@kernel.org>
@@ -131,117 +124,26 @@ Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 - Mani
 
 > ---
->  drivers/pci/controller/pcie-apple.c | 55 +++++++++++++++++++----------
->  1 file changed, 37 insertions(+), 18 deletions(-)
+>  drivers/pci/controller/pcie-apple.c | 6 ------
+>  1 file changed, 6 deletions(-)
 > 
 > diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
-> index 23d9f62bd2ad4..94c49611b74df 100644
+> index 94c49611b74df..c00ec0781fabc 100644
 > --- a/drivers/pci/controller/pcie-apple.c
 > +++ b/drivers/pci/controller/pcie-apple.c
-> @@ -39,14 +39,18 @@
->  #define   CORE_RC_STAT_READY		BIT(0)
->  #define CORE_FABRIC_STAT		0x04000
->  #define   CORE_FABRIC_STAT_MASK		0x001F001F
-> -#define CORE_LANE_CFG(port)		(0x84000 + 0x4000 * (port))
-> -#define   CORE_LANE_CFG_REFCLK0REQ	BIT(0)
-> -#define   CORE_LANE_CFG_REFCLK1REQ	BIT(1)
-> -#define   CORE_LANE_CFG_REFCLK0ACK	BIT(2)
-> -#define   CORE_LANE_CFG_REFCLK1ACK	BIT(3)
-> -#define   CORE_LANE_CFG_REFCLKEN	(BIT(9) | BIT(10))
-> -#define CORE_LANE_CTL(port)		(0x84004 + 0x4000 * (port))
-> -#define   CORE_LANE_CTL_CFGACC		BIT(15)
-> +
-> +#define CORE_PHY_DEFAULT_BASE(port)	(0x84000 + 0x4000 * (port))
-> +
-> +#define PHY_LANE_CFG			0x00000
-> +#define   PHY_LANE_CFG_REFCLK0REQ	BIT(0)
-> +#define   PHY_LANE_CFG_REFCLK1REQ	BIT(1)
-> +#define   PHY_LANE_CFG_REFCLK0ACK	BIT(2)
-> +#define   PHY_LANE_CFG_REFCLK1ACK	BIT(3)
-> +#define   PHY_LANE_CFG_REFCLKEN		(BIT(9) | BIT(10))
-> +#define   PHY_LANE_CFG_REFCLKCGEN	(BIT(30) | BIT(31))
-> +#define PHY_LANE_CTL			0x00004
-> +#define   PHY_LANE_CTL_CFGACC		BIT(15)
+> @@ -475,12 +475,6 @@ static int apple_pcie_setup_refclk(struct apple_pcie *pcie,
+>  	u32 stat;
+>  	int res;
 >  
->  #define PORT_LTSSMCTL			0x00080
->  #define   PORT_LTSSMCTL_START		BIT(0)
-> @@ -146,6 +150,7 @@ struct apple_pcie_port {
->  	struct apple_pcie	*pcie;
->  	struct device_node	*np;
->  	void __iomem		*base;
-> +	void __iomem		*phy;
->  	struct irq_domain	*domain;
->  	struct list_head	entry;
->  	unsigned long		*sid_map;
-> @@ -476,26 +481,26 @@ static int apple_pcie_setup_refclk(struct apple_pcie *pcie,
->  	if (res < 0)
->  		return res;
+> -	res = readl_relaxed_poll_timeout(pcie->base + CORE_RC_PHYIF_STAT, stat,
+> -					 stat & CORE_RC_PHYIF_STAT_REFCLK,
+> -					 100, 50000);
+> -	if (res < 0)
+> -		return res;
+> -
+>  	rmw_set(PHY_LANE_CTL_CFGACC, port->phy + PHY_LANE_CTL);
+>  	rmw_set(PHY_LANE_CFG_REFCLK0REQ, port->phy + PHY_LANE_CFG);
 >  
-> -	rmw_set(CORE_LANE_CTL_CFGACC, pcie->base + CORE_LANE_CTL(port->idx));
-> -	rmw_set(CORE_LANE_CFG_REFCLK0REQ, pcie->base + CORE_LANE_CFG(port->idx));
-> +	rmw_set(PHY_LANE_CTL_CFGACC, port->phy + PHY_LANE_CTL);
-> +	rmw_set(PHY_LANE_CFG_REFCLK0REQ, port->phy + PHY_LANE_CFG);
->  
-> -	res = readl_relaxed_poll_timeout(pcie->base + CORE_LANE_CFG(port->idx),
-> -					 stat, stat & CORE_LANE_CFG_REFCLK0ACK,
-> +	res = readl_relaxed_poll_timeout(port->phy + PHY_LANE_CFG,
-> +					 stat, stat & PHY_LANE_CFG_REFCLK0ACK,
->  					 100, 50000);
->  	if (res < 0)
->  		return res;
->  
-> -	rmw_set(CORE_LANE_CFG_REFCLK1REQ, pcie->base + CORE_LANE_CFG(port->idx));
-> -	res = readl_relaxed_poll_timeout(pcie->base + CORE_LANE_CFG(port->idx),
-> -					 stat, stat & CORE_LANE_CFG_REFCLK1ACK,
-> +	rmw_set(PHY_LANE_CFG_REFCLK1REQ, port->phy + PHY_LANE_CFG);
-> +	res = readl_relaxed_poll_timeout(port->phy + PHY_LANE_CFG,
-> +					 stat, stat & PHY_LANE_CFG_REFCLK1ACK,
->  					 100, 50000);
->  
->  	if (res < 0)
->  		return res;
->  
-> -	rmw_clear(CORE_LANE_CTL_CFGACC, pcie->base + CORE_LANE_CTL(port->idx));
-> +	rmw_clear(PHY_LANE_CTL_CFGACC, port->phy + PHY_LANE_CTL);
->  
-> -	rmw_set(CORE_LANE_CFG_REFCLKEN, pcie->base + CORE_LANE_CFG(port->idx));
-> +	rmw_set(PHY_LANE_CFG_REFCLKEN, port->phy + PHY_LANE_CFG);
->  	rmw_set(PORT_REFCLK_EN, port->base + PORT_REFCLK);
->  
->  	return 0;
-> @@ -515,6 +520,8 @@ static int apple_pcie_setup_port(struct apple_pcie *pcie,
->  	struct platform_device *platform = to_platform_device(pcie->dev);
->  	struct apple_pcie_port *port;
->  	struct gpio_desc *reset;
-> +	struct resource *res;
-> +	char name[16];
->  	u32 stat, idx;
->  	int ret, i;
->  
-> @@ -542,10 +549,22 @@ static int apple_pcie_setup_port(struct apple_pcie *pcie,
->  
->  	raw_spin_lock_init(&port->lock);
->  
-> -	port->base = devm_platform_ioremap_resource(platform, port->idx + 2);
-> +	snprintf(name, sizeof(name), "port%d", port->idx);
-> +	res = platform_get_resource_byname(platform, IORESOURCE_MEM, name);
-> +	if (!res)
-> +		res = platform_get_resource(platform, IORESOURCE_MEM, port->idx + 2);
-> +
-> +	port->base = devm_ioremap_resource(&platform->dev, res);
->  	if (IS_ERR(port->base))
->  		return PTR_ERR(port->base);
->  
-> +	snprintf(name, sizeof(name), "phy%d", port->idx);
-> +	res = platform_get_resource_byname(platform, IORESOURCE_MEM, name);
-> +	if (res)
-> +		port->phy = devm_ioremap_resource(&platform->dev, res);
-> +	else
-> +		port->phy = pcie->base + CORE_PHY_DEFAULT_BASE(port->idx);
-> +
->  	rmw_set(PORT_APPCLK_EN, port->base + PORT_APPCLK);
->  
->  	/* Assert PERST# before setting up the clock */
 > -- 
 > 2.39.2
 > 
