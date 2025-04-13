@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B99ADC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Apr 2025 17:01:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BFB4C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Apr 2025 17:05:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=noK0IP3zHzbpqWrnS3yDqlfS/Gp7WWrDNNCpSJyHX2w=; b=Au9j5lFD8jWpGWHC/qtReFnu0v
-	Dv42if1hLBCfRsqcfBxaObyLD8BY64en1x6gd44hNO+EWJzbAqLvNF+UIXtuV85mBpLZ0NrkiFzmA
-	6RFgMiuzUTkys5pABPLLqApCoEYJQdSmGCBgYV8LrSBmrk1nmRfOyXO7StNiMf3s/seggmuFizU3c
-	38YHe5isO/9LYnOApnujA0DRPnsf+AN3ldMgtnRBJPLEHFPc5j6Sl0DSin3CFnGVxoK0yf4/gxSHO
-	HONoKo9RaiMFFFMus1EQv/WwrkoU9ZKqH5CRYziOXZyVMFTo91KgAzC1lEhPvCSOXOjtfUZucbKic
-	SKNUtZyg==;
+	bh=8KYqWXMPG9QT4+d9/EIsutHTMWrOQHXovJYmJ2amFCQ=; b=UO+PlaoLyDu5g3+/fFLHTIqvQy
+	n3PDxWvLyiI7v4OhlxL6S6gghO6W8DC/d3M6+3Hs5ME9umg8V1DgojoxZ0xrivyk5eqO6IwYKpQcd
+	RxKPlGhDGPaZvI19tCIIk/kzf6mTMc7pS7+9eZnULXvbx+OZkHeAmFtWhbmH4QdZ6SizeyrFDPTaa
+	0WR5ULSeSTXLHn2CaHzHUPh/nYoRnN07oR4/voLcH4pSLO8/yqv2L4/93c+YsXGVoVoVbWbSZa2As
+	CE9E5aPuHJGFhHBB7YVwXwMNA8FcMb5aLcRNVt6ijw252JZmXrV7LRHrbwDgNlJ3eDJr6KaI07wnq
+	RUPhXyww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u40i4-0000000HP9S-0AqD;
-	Sun, 13 Apr 2025 17:01:32 +0000
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+	id 1u40ld-0000000HPWk-3zAj;
+	Sun, 13 Apr 2025 17:05:13 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u40fq-0000000HOwC-2T8U
+	id 1u40jn-0000000HPIz-1FfS
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Apr 2025 16:59:16 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-aee79a0f192so2323960a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Apr 2025 09:59:14 -0700 (PDT)
+	Sun, 13 Apr 2025 17:03:20 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-7399838db7fso3346301b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Apr 2025 10:03:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744563553; x=1745168353; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1744563798; x=1745168598; darn=lists.infradead.org;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=noK0IP3zHzbpqWrnS3yDqlfS/Gp7WWrDNNCpSJyHX2w=;
-        b=D5tqmSbNa1ieWE+99bZo/F8E4q8+8a3m5h4SbWrUb/Pv9p7BxkRr8IGzg01PPc3Qji
-         +546G/ebO3F3aC/9Xm0u196MvRaW+AaHBZKUoMMQiYC8++GOXH2cSMh+iiDu/feTRIiB
-         wE0JjD89pl5JQYzolauPHs3gO+cLEqwx91b/VlX4nn9VZch0X5X0mhD2JNKoJvwDB7JR
-         TgwJSTxuz2F+HwDACJnFQbqusTQl9RXrvy3jpQEZE7e+Uj9rb070ellQw9vDqCGOHC9C
-         zOqrMwfajkEsE3jYlt5tkMlnyU5cXiiTQthxULAJKkl/0KzAg/uoUJQHb4tXjDNRi/PX
-         OVdA==
+        bh=8KYqWXMPG9QT4+d9/EIsutHTMWrOQHXovJYmJ2amFCQ=;
+        b=xTERPvGKBW2WIW9lVDQfjbDCTLtrj8omw7eRqeYqgPo1f8P2//enSP0dYh8IAS3PEY
+         aS2ppmjrGXbtTXvV/ls9zoEeDgftjDqIpO/yPZNjTfK8cjaeMJgqQR+K2Gl9iF8uRgo+
+         RycTXev36BjEYj/BmkXBxZKoKPu3i73P+b5h5gFCOC7hFvUggFi0N5ypa97hnGpbCXVD
+         Tepb0JiKyKf5hVHCD7AHBc38Gzmj46i7UwKLnLd2J5kJLUXiLlUakPLHUFFZG0Kf35Ea
+         Gkr/F4SOR18PYzLr5MVuJpqZVp9C7Vxg7aKihhh9Z161qlIXGHCf6dfhIbPAjlbyNsSC
+         Ieuw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744563553; x=1745168353;
+        d=1e100.net; s=20230601; t=1744563798; x=1745168598;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=noK0IP3zHzbpqWrnS3yDqlfS/Gp7WWrDNNCpSJyHX2w=;
-        b=oMCWeYyISsrWhsxpTdoS9tTWwQzU+jXW/I8WwrILuDKsDuKCmrA51uti2vsonraccd
-         UiQiQHuXPaL3bWd1n3kILAZEwYMpekJSGFoIH5PLhmOGpfEUoLJ1TyMQ7ocLm0uM3yNY
-         D+10d7KF/HoEU6HdNNKdpNROx9DzTIxlyKTfqgHzGxWtLrVvuZPvrsylYmm1DfKWxPA6
-         snwVPKYnzgsjwrWhwsvYvZ6YN8c6FnrVwwvQ+ynD6ARgccY0rAQhtfw2ucJL9oMrCijw
-         LCNNV5nSGge8XnIBhzNdT40NhRpDt7UiYeX4+bTzWkwgJXU344jePoSOdevc7jst3pwP
-         nZaQ==
-X-Gm-Message-State: AOJu0YzTqgbUOvETDEnj3RSZJPBHoqDBQ8hNuPCBvUACh6CiNmyOm+WP
-	MVO86ttPrjE4n8KDACZ2P7azDIXU/h8yfy6Fu8eyu8Z+fRPa+g5g+Dqr1kAwNw==
-X-Gm-Gg: ASbGncvAM7u45TU0AalIH2yejvg7ojKsWyR2/EIHvWqmtzWvufnYA2mhd0OyX8OGUgS
-	lPEWqU4fQX4+4bZR3KjlFQcGHXHSuHNzdLtmRoUuwSD66xXSRWIOLUMKK51PbMbMY0azQVeGcsU
-	a/xpafybwcno3dsA9EJ/tavnlcnxW2BtV487101vgBtUJbENBdLouTGTLvqFZWN2c3ptq7wcT6L
-	hsmSn8l/ZeZRXn51LntozWHEHAbuCKg2CMgWfwMFSebwLVqDvI/40SWrC0KhhB/8zPwt94M17EZ
-	aywupiDFTbg7JrvrQKv3yuIvHjkh39fnoBd3n4CLHx07uW8tqAgX
-X-Google-Smtp-Source: AGHT+IEuuztzcfI3tZMtG2ip7jalzWCYkQqUAle89wyt0wS3flTIjrnot513jepB3231SBdBpBbheQ==
-X-Received: by 2002:a17:903:19ed:b0:224:1eaa:5de1 with SMTP id d9443c01a7336-22bea4ade1fmr126350445ad.18.1744563553536;
-        Sun, 13 Apr 2025 09:59:13 -0700 (PDT)
+        bh=8KYqWXMPG9QT4+d9/EIsutHTMWrOQHXovJYmJ2amFCQ=;
+        b=DFJmEqxkWooTuucRs5dOLWVvOPK/OaF7MWESpfza31KPsALULghC9Nh8uxetApmzvG
+         Aoj98Nqwppf5i5QyWna/X1ZvCsHB7UfsbVK8QGixxYtgefw0AETzxkhGJfFAYf3BtmAg
+         CgvnLru1AzqZq89V5t7ZlqRWAwNBDAWckkMONjYWyg9IT0Korcb7OVTpJiPJxWRGegEz
+         nz7+oc4Nmkzn/il55OgGRGzqzSpZqbqsBqSe/H/rmyefA3Gxoh51REe/J2RjiyUHqyiJ
+         uTbOOEqWWM9RTJZzFJHD7DHa6+QxggDQrpnIfrso945IklQOIcbq4rvrse/By6xgu+6r
+         Nmug==
+X-Gm-Message-State: AOJu0YwRNkn+PeHM+F1baWHUbYa1UqA4pSwIbEExar28rcDWepTsySFH
+	1EvsDyrhR/+n1xoFFjV8t5LMJuSZwrXoOibfSwzoHhGWtaozVZkw+UYblvY6Cg==
+X-Gm-Gg: ASbGnctmpUTrBrsjLSMemk5Yy90Ot5UNv/9URnKnQ/DLZyHL5hB6m1i3wy6PpZNTxnA
+	RyKaOW77rELqCT/52g0x1d6XUDdCORIZi3SvFkFxIAX7T5bspSl4GcK0JmGSoKENXZgmn+Z3/qz
+	BGj4wNOb6a7GjDKlP6puJuLGuFsTOv2YIEaubbgJiOZfJbyt56javeUR17oWoASVf1ELuWh4SxW
+	S0KiMOjxXXTxSL2LdB7SUqChEXVlrBFClqus9DUShzuAHPVNwL8Vb5y56jhCNldAVli0YAoguKx
+	l73QtvLcdJ1varwC9NbnXVvvhvkW/WUm6Bimf5AvKv2oy2nVd0iM
+X-Google-Smtp-Source: AGHT+IHJl9qy9zlA671Ghf76u4hAfg8o0WkGbqOTRDuANRuFVtoUszAvnmcGPP3MsPAP/4ftUIljgw==
+X-Received: by 2002:a05:6a20:c995:b0:1f0:e2b9:d163 with SMTP id adf61e73a8af0-2016a1cfeacmr20268545637.12.1744563798241;
+        Sun, 13 Apr 2025 10:03:18 -0700 (PDT)
 Received: from thinkpad ([120.60.137.231])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22ac7b8aff9sm84440595ad.79.2025.04.13.09.59.09
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b02a08180e2sm8053734a12.14.2025.04.13.10.03.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 13 Apr 2025 09:59:13 -0700 (PDT)
-Date: Sun, 13 Apr 2025 22:29:06 +0530
+        Sun, 13 Apr 2025 10:03:17 -0700 (PDT)
+Date: Sun, 13 Apr 2025 22:33:11 +0530
 From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 To: Marc Zyngier <maz@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
@@ -77,19 +77,19 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, 
 	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
 	Mark Kettenis <mark.kettenis@xs4all.nl>
-Subject: Re: [PATCH v3 02/13] dt-bindings: pci: apple,pcie: Add t6020
- compatible string
-Message-ID: <754d74knq32vrefkukv4ec7id33d6rvhuf5boccynljfgmn6hz@bzxc7uiqdbos>
+Subject: Re: [PATCH v3 03/13] PCI: host-generic: Extract an ecam bridge
+ creation helper from pci_host_common_probe()
+Message-ID: <bgawumksxn3dbiwu6oeifte4wxcwqed63x5kkvgyeg4emtfqmz@biaouwkqsag5>
 References: <20250401091713.2765724-1-maz@kernel.org>
- <20250401091713.2765724-3-maz@kernel.org>
+ <20250401091713.2765724-4-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250401091713.2765724-3-maz@kernel.org>
+In-Reply-To: <20250401091713.2765724-4-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250413_095914_718141_98F1A560 
-X-CRM114-Status: GOOD (  20.61  )
+X-CRM114-CacheID: sfid-20250413_100319_343054_06FC6DB6 
+X-CRM114-Status: GOOD (  31.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,100 +104,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 01, 2025 at 10:17:02AM +0100, Marc Zyngier wrote:
-> From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+On Tue, Apr 01, 2025 at 10:17:03AM +0100, Marc Zyngier wrote:
+> pci_host_common_probe() is an extremely userful helper, as it
+> abstracts away most of the gunk that a "mostly-ECAM-compliant"
+> device driver needs.
 > 
-> t6020 adds some register ranges compared to t8103, so requires
-> a new compatible as well as the new PHY registers.
+> However, it is structured as a probe function, meaning that a lot
+> of the driver-specific setup has to happen in a .init() callback,
+> after the bridge and config space have been instantiated.
 > 
-> Thanks to Mark and Rob for their helpful suggestions in updating
-> the binding.
+> This is a bit awkward, and results in a number of convolutions
+> that could be avoided if the host-common code was more like
+> a library.
 > 
-> Suggested-by: Mark Kettenis <mark.kettenis@xs4all.nl>
-> Suggested-by: Rob Herring <robh@kernel.org>
+> Introduce a pci_host_common_init() helper that does exactly that,
+> taking the platform device and a struct pci_ecam_op as parameters.
+> 
+> This can then be called from the probe routine, and a lot of the
+> code that isn't relevant to PCI setup moved away from the .init()
+> callback. This also removes the dependency on the device match
+> data, which is an oddity.
+> 
 > Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 > Acked-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
 > Tested-by: Janne Grunau <j@jannau.net>
-> Signed-off-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-> [maz: added PHY registers, constraints]
 > Signed-off-by: Marc Zyngier <maz@kernel.org>
 
-Acked-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 
 - Mani
 
 > ---
->  .../devicetree/bindings/pci/apple,pcie.yaml   | 33 +++++++++++++++----
->  1 file changed, 26 insertions(+), 7 deletions(-)
+>  drivers/pci/controller/pci-host-common.c | 24 ++++++++++++++++--------
+>  include/linux/pci-ecam.h                 |  2 ++
+>  2 files changed, 18 insertions(+), 8 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/pci/apple,pcie.yaml b/Documentation/devicetree/bindings/pci/apple,pcie.yaml
-> index c8775f9cb0713..c0852be04f6de 100644
-> --- a/Documentation/devicetree/bindings/pci/apple,pcie.yaml
-> +++ b/Documentation/devicetree/bindings/pci/apple,pcie.yaml
-> @@ -17,6 +17,10 @@ description: |
->    implements its root ports.  But the ATU found on most DesignWare
->    PCIe host bridges is absent.
+> diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
+> index f441bfd6f96a8..466a1e6a7ffcd 100644
+> --- a/drivers/pci/controller/pci-host-common.c
+> +++ b/drivers/pci/controller/pci-host-common.c
+> @@ -49,23 +49,17 @@ static struct pci_config_window *gen_pci_init(struct device *dev,
+>  	return cfg;
+>  }
 >  
-> +  On systems derived from T602x, the PHY registers are in a region
-> +  separate from the port registers. In that case, there is one PHY
-> +  register range per port register range.
+> -int pci_host_common_probe(struct platform_device *pdev)
+> +int pci_host_common_init(struct platform_device *pdev,
+> +			 const struct pci_ecam_ops *ops)
+>  {
+>  	struct device *dev = &pdev->dev;
+>  	struct pci_host_bridge *bridge;
+>  	struct pci_config_window *cfg;
+> -	const struct pci_ecam_ops *ops;
+> -
+> -	ops = of_device_get_match_data(&pdev->dev);
+> -	if (!ops)
+> -		return -ENODEV;
+>  
+>  	bridge = devm_pci_alloc_host_bridge(dev, 0);
+>  	if (!bridge)
+>  		return -ENOMEM;
+>  
+> -	platform_set_drvdata(pdev, bridge);
+> -
+>  	of_pci_check_probe_only();
+>  
+>  	/* Parse and map our Configuration Space windows */
+> @@ -73,6 +67,8 @@ int pci_host_common_probe(struct platform_device *pdev)
+>  	if (IS_ERR(cfg))
+>  		return PTR_ERR(cfg);
+>  
+> +	platform_set_drvdata(pdev, bridge);
 > +
->    All root ports share a single ECAM space, but separate GPIOs are
->    used to take the PCI devices on those ports out of reset.  Therefore
->    the standard "reset-gpios" and "max-link-speed" properties appear on
-> @@ -30,16 +34,18 @@ description: |
+>  	bridge->sysdata = cfg;
+>  	bridge->ops = (struct pci_ops *)&ops->pci_ops;
+>  	bridge->enable_device = ops->enable_device;
+> @@ -81,6 +77,18 @@ int pci_host_common_probe(struct platform_device *pdev)
 >  
->  properties:
->    compatible:
-> -    items:
-> -      - enum:
-> -          - apple,t8103-pcie
-> -          - apple,t8112-pcie
-> -          - apple,t6000-pcie
-> -      - const: apple,pcie
-> +    oneOf:
-> +      - items:
-> +          - enum:
-> +              - apple,t8103-pcie
-> +              - apple,t8112-pcie
-> +              - apple,t6000-pcie
-> +          - const: apple,pcie
-> +      - const: apple,t6020-pcie
+>  	return pci_host_probe(bridge);
+>  }
+> +EXPORT_SYMBOL_GPL(pci_host_common_init);
+> +
+> +int pci_host_common_probe(struct platform_device *pdev)
+> +{
+> +	const struct pci_ecam_ops *ops;
+> +
+> +	ops = of_device_get_match_data(&pdev->dev);
+> +	if (!ops)
+> +		return -ENODEV;
+> +
+> +	return pci_host_common_init(pdev, ops);
+> +}
+>  EXPORT_SYMBOL_GPL(pci_host_common_probe);
 >  
->    reg:
->      minItems: 3
-> -    maxItems: 6
-> +    maxItems: 10
->  
->    reg-names:
->      minItems: 3
-> @@ -50,6 +56,10 @@ properties:
->        - const: port1
->        - const: port2
->        - const: port3
-> +      - const: phy0
-> +      - const: phy1
-> +      - const: phy2
-> +      - const: phy3
->  
->    ranges:
->      minItems: 2
-> @@ -98,6 +108,15 @@ allOf:
->            maxItems: 5
->          interrupts:
->            maxItems: 3
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: apple,t6020-pcie
-> +    then:
-> +      properties:
-> +        reg-names:
-> +          minItems: 10
->  
->  examples:
->    - |
+>  void pci_host_common_remove(struct platform_device *pdev)
+> diff --git a/include/linux/pci-ecam.h b/include/linux/pci-ecam.h
+> index 3a10f8cfc3ad5..bc2ca2c72ee23 100644
+> --- a/include/linux/pci-ecam.h
+> +++ b/include/linux/pci-ecam.h
+> @@ -97,6 +97,8 @@ extern const struct pci_ecam_ops loongson_pci_ecam_ops; /* Loongson PCIe */
+>  #if IS_ENABLED(CONFIG_PCI_HOST_COMMON)
+>  /* for DT-based PCI controllers that support ECAM */
+>  int pci_host_common_probe(struct platform_device *pdev);
+> +int pci_host_common_init(struct platform_device *pdev,
+> +			 const struct pci_ecam_ops *ops);
+>  void pci_host_common_remove(struct platform_device *pdev);
+>  #endif
+>  #endif
 > -- 
 > 2.39.2
 > 
