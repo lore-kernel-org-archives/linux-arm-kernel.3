@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 613D0C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Apr 2025 17:11:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61F76C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Apr 2025 17:12:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+nVktb2oUewrSNZef7Xp2RVx4/SYPTQmZKEvKujre58=; b=vaDfW4x2O3xf0qFJ61004BhXGh
-	NQVIQ+OV87VEXCiTSvX4WDs9B9DYcIt5/IT3zrSamm/vdv0GxrVDWaqp0vgPCcskDATO5BmGAk07U
-	a/rMr6ibDPf5JAUd/7ROrRkcQCoVy7VkiBTpgiqYqvrTrAyBZudMKOGGZwQjY25OyrI0j8AgziBSV
-	k+QLRg+s4jfXlGbxL1VFT9/xC/I/5Izp5ISdbXZvSjrI+SzddYWxyIlBh1A5GfzV1zcMWfvjQJGQp
-	t+49SP6vkJOa+KXtsMxooXfugKG784eA81ENeLf/PCcOQwZJCaXNHllkQCyNp+YeHKCSkuQxbFfVv
-	Jt1uxVHw==;
+	bh=VbsBH030YmmrPLiGCvxSobJgevOjlBmu917XLPcMgfY=; b=LXbZko6HpkcWIdMOtJ9gpitGyD
+	PFm1rC6T9qsvWo+ng/tu3zYziHRP0BI/VOPMTfaKEkYhKV5HFkHuAh0y5JeFtc0LehpspSA8KMwFY
+	PDPpw+BWZezeIEXByP0l+9oeXAHa05HgRDoR1FGmQc4UgjLWQoCKgOYR/RWO6nSvznGPgdadqFl+J
+	4013zyv68Rfq4wEIPZKovM+EGyUgeZ9WIFLj/gJCuieRwzOlOiARXCRC/RYv1An6ystkivqkdvNm3
+	Eh4udkbQsu4vf6j94bmcIWcer9IfyfHFOgtLM4EDsCUdhzEXt2kICB+SVpU0i49kl5tBtL61xCecQ
+	pjDzkXHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u40r6-0000000HQ6K-0RSI;
-	Sun, 13 Apr 2025 17:10:52 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1u40su-0000000HQMG-3MrC;
+	Sun, 13 Apr 2025 17:12:44 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u40o8-0000000HPnI-0the
+	id 1u40qF-0000000HQ0A-1Sh9
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Apr 2025 17:07:49 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-223f4c06e9fso33010505ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Apr 2025 10:07:47 -0700 (PDT)
+	Sun, 13 Apr 2025 17:10:00 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2260c91576aso28997855ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Apr 2025 10:09:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744564067; x=1745168867; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1744564198; x=1745168998; darn=lists.infradead.org;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=+nVktb2oUewrSNZef7Xp2RVx4/SYPTQmZKEvKujre58=;
-        b=JdmKsE67/Aibgke5cUIMYM8O7D8Wq/NEw54PysydUjwXPhYXjkm55uOTMwVJd0ZhCw
-         lbYc5KfOeQlZtRaOw6aYbPyqOxHSctVlOalpQcgELeZfIwEcpKhU8YU1X4dOArEA59Ep
-         BGxpmMxyTCr828PBIxP9dnduCMnaYhFho899hawjEth7B7TnkqQp4wrFwjS3wj34XNZq
-         gtRxZYAB3o/qDtwnIRsx19UxnsJvs56wMFrHWmeXeb8ZRIb+i7qNwZPJQjhgb+NAYfUW
-         PNSMj7GMOhRRT7KUpx86m6mxSuEh2eyglhgSkFDuCKLeQzV3Dfm3kgO3Bo5y56CqS/35
-         pvTg==
+        bh=VbsBH030YmmrPLiGCvxSobJgevOjlBmu917XLPcMgfY=;
+        b=sJbs7+hrMhtlBiw7/oV1lAg0GS2fib2oWfCry3KvqBjCfx8qWItarVOHdJlKJQLeW9
+         q2y+vQmQbfdaSJEeZ58HdzF5G4/mXbhvTZQULVPKR/mGDajakojNZ4kasBIstpG4nTTh
+         /iGpiZrYhrJLx66bfEKqQvtqtiCr16OGonjnjFUBjOtX+0hWh5CLySTSINDTjKjB+vEL
+         9jxwKYJcdKNdqVwCDZvla/TMB9FKeI5Kk0sQT+XsebodQ2/FH+B/UoWrw0xSAy+zFkbS
+         8h+6LdsKqtpg/WifQuJcUzhTqEnuB4RFebueI0wkGrVdHaT2HhgdX+ui9PnsTjd4p+2N
+         QvJg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744564067; x=1745168867;
+        d=1e100.net; s=20230601; t=1744564198; x=1745168998;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+nVktb2oUewrSNZef7Xp2RVx4/SYPTQmZKEvKujre58=;
-        b=RGe+v0peTL1MEYsAfNtuwDkibuJNtfdXYXmBkqzEcU6F9Fh+CCc4XMunS/mQWeq1B8
-         tr3sbZqMfouYpzW8HDWCbbFnnnFj9dq680kmtoxhNYh6kKPvNN8YhVozC9Y/nK/1rD2A
-         EB+MnSzLshA591BTMUnHxiVPPYqOcYCjkQkk4MT959Hz/2OfT0pML/9xjQ7/JlROel4W
-         ZQFqVVPWFjv+YsShYQhlzmMv2Xe0hblcTrK0ptm/LGRVMnpKIrs70cK87Q12G1f8aa1L
-         7llnyp4ttPeNC4bWqWKC6NRlQ3AwzI3st9NrVz8dd7jasiVB+AwkKfFnTZr8YKKmE89Y
-         N+Yw==
-X-Gm-Message-State: AOJu0YyrFGS/lteOujZkUAYiAyucjNt7dg/PQWdsSBuzrmYtbkaDQLcS
-	g/dXvx4CPQ3vxENdpcJxoHx2Xj3YK6bGcjLzrlkemVurrQu8DpKEpCcd6XrASxKh6UPAoWzztRo
-	=
-X-Gm-Gg: ASbGnctYZ0DUSYxTSeACHkxC9faL3H4T9ihJ/35zhAKunJvBSQXJulJB+PNYdQ8tzt+
-	NRelPglCdVt5FcwwVekGbmDxWIpnDUkjd/I9qlzKOb4Jo/xpY+vnjx0rKbDzn6J8Dz/T6eAq5KA
-	9vrDXwMvTDKkTqDhgnC6mjHgum86uJAn+E464/1e4DB4ehjNnJVuWL/mJMrDbBveCnYEeqQ+SKE
-	NqQlhScDqE2xC0BgpBElmFyoEnnw7zSC6gaJ7kZnnK5+XOHLfe+2NiDn+fSHYZpHdPPmkIOT4/Z
-	Ska85iy75ZfyOTHdASeCxBizw1CWSL5/iqwJsPIKknhEARjXpdCj
-X-Google-Smtp-Source: AGHT+IE+gbJeUC8MORyPLq+yv1/hRBnQsVunUtWyIkSWfGWZQvtHnS9GTR0o+MdzAbYHUke6iYn5sA==
-X-Received: by 2002:a17:903:1c9:b0:21f:5063:d3ca with SMTP id d9443c01a7336-22b7eaa3209mr205867575ad.16.1744564066784;
-        Sun, 13 Apr 2025 10:07:46 -0700 (PDT)
+        bh=VbsBH030YmmrPLiGCvxSobJgevOjlBmu917XLPcMgfY=;
+        b=NpeAa54V3W6MGo4+18J9fh1kyqvw/5iOGT5mKTEYu0QvDmCPQBiUSfer6E71+ICi5N
+         GDNQbR87O9CB3NoLdLKAketv9Ffykqf/C5+EKbgyPz1UHR7tp2SkREBUpzobrqJckMyG
+         I2a4oOUo1O6rTOlyyeaYtpa23Ig2Ds/liYHW2sff4Qqg64DXF2AIPl6BdxxjuE3mdQBf
+         /H62gAIHnJZmVlnpq6KaTg/numoc+jVUn9hUCKS3eUBpZdPe73spHrGDaW3qoqZav7Cm
+         5Syx/qSaK+rSrODGQAnwuxO66teVgNuHRyHq5/D86/RV//vOTFBmVjk99c7zKUzN3oPc
+         xVDg==
+X-Gm-Message-State: AOJu0YxAyeMHb73uz6MGAE7bcaBAv+1vWoIa8rGv37NrT5vZBS4z1uH7
+	iA+Fj2TzDhOLy6zXCms7Lu6jqTDYKXeYDyM4aFShi6sdU0LLdahDH572vSPOPw==
+X-Gm-Gg: ASbGncv7DSF/l11ksefMGpQBEHPSv/n6HDsgsQNVPaqmraQc9pXthYoFSmvuG7Wm6B8
+	yuW/C+S7DjI6Gi47b5FY2XAvElYjYFNpZNZb0+/zC0pJQasAjIGYfxYBIFU8K7ONMBmjZ0PBveC
+	7oE7aII2pMifIogxicvMCqYiMnvbPnSWcxe9yrJ4mZmQEoOMr26jGNg8WyBwZi3c4i4beVOusSL
+	hjrvqxoTaglvIcg3TetUOvFXo9okoLVbdiAeRznpGM68RXEMmYKMSQvd6FdFpTCCkE9HOAOCCos
+	f8ToOWrXqTUyq7H5RU8JIECV32VPH10u61pWI/g2tsn4NqA4y6ka
+X-Google-Smtp-Source: AGHT+IEM5JXPlHa/46KPcgwjfAGRbntfwPEeRwa0pOWka95ljamo2KjNfPBab6Whg2HZjCAf5af8bg==
+X-Received: by 2002:a17:902:f650:b0:223:37ec:63d3 with SMTP id d9443c01a7336-22bea4adeecmr130822495ad.18.1744564198505;
+        Sun, 13 Apr 2025 10:09:58 -0700 (PDT)
 Received: from thinkpad ([120.60.137.231])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22ac7c95cbasm84608565ad.133.2025.04.13.10.07.41
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22ac7c95c40sm84845325ad.127.2025.04.13.10.09.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 13 Apr 2025 10:07:46 -0700 (PDT)
-Date: Sun, 13 Apr 2025 22:37:39 +0530
+        Sun, 13 Apr 2025 10:09:58 -0700 (PDT)
+Date: Sun, 13 Apr 2025 22:39:52 +0530
 From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 To: Marc Zyngier <maz@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
@@ -78,19 +77,19 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, 
 	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
 	Mark Kettenis <mark.kettenis@xs4all.nl>
-Subject: Re: [PATCH v3 06/13] PCI: apple: Dynamically allocate RID-to_SID
- bitmap
-Message-ID: <vcoczq6foe3mikun3o5oqhawbu6ixfjfljnare32olmwxw63xj@zznl6iefhhxu>
+Subject: Re: [PATCH v3 07/13] PCI: apple: Move away from INTMSK{SET,CLR} for
+ INTx and private interrupts
+Message-ID: <sbudn32sbw6d3z7n2yomlzdsbtumckw4o576zfe5nlvwpt22j4@hf2zpld7tvcb>
 References: <20250401091713.2765724-1-maz@kernel.org>
- <20250401091713.2765724-7-maz@kernel.org>
+ <20250401091713.2765724-8-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250401091713.2765724-7-maz@kernel.org>
+In-Reply-To: <20250401091713.2765724-8-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250413_100748_253409_5B572411 
-X-CRM114-Status: GOOD (  20.23  )
+X-CRM114-CacheID: sfid-20250413_100959_401161_24F05809 
+X-CRM114-Status: GOOD (  20.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,11 +104,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 01, 2025 at 10:17:06AM +0100, Marc Zyngier wrote:
-> As we move towards supporting SoCs with varying RID-to-SID mapping
-> capabilities, turn the static SID tracking bitmap into a dynamically
-> allocated one. The current allocation size is still the same, but
-> that's about to change.
+On Tue, Apr 01, 2025 at 10:17:07AM +0100, Marc Zyngier wrote:
+> T602x seems to have dropped the rather useful SET/CLR accessors
+> to the masking register.
+> 
+> Instead, let's use the mask register directly, and wrap it with
+> a brand new spinlock. No, this isn't moving in the right direction.
 > 
 > Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 > Acked-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
@@ -121,33 +121,58 @@ Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 - Mani
 
 > ---
->  drivers/pci/controller/pcie-apple.c | 6 +++++-
->  1 file changed, 5 insertions(+), 1 deletion(-)
+>  drivers/pci/controller/pcie-apple.c | 11 ++++++++---
+>  1 file changed, 8 insertions(+), 3 deletions(-)
 > 
 > diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
-> index d07e488051290..6d3aa186d9c5f 100644
+> index 6d3aa186d9c5f..6b04bf0b41dcc 100644
 > --- a/drivers/pci/controller/pcie-apple.c
 > +++ b/drivers/pci/controller/pcie-apple.c
-> @@ -147,7 +147,7 @@ struct apple_pcie_port {
->  	void __iomem		*base;
->  	struct irq_domain	*domain;
->  	struct list_head	entry;
-> -	DECLARE_BITMAP(sid_map, MAX_RID2SID);
-> +	unsigned long		*sid_map;
->  	int			sid_map_sz;
->  	int			idx;
+> @@ -142,6 +142,7 @@ struct apple_pcie {
 >  };
-> @@ -524,6 +524,10 @@ static int apple_pcie_setup_port(struct apple_pcie *pcie,
->  	if (!port)
+>  
+>  struct apple_pcie_port {
+> +	raw_spinlock_t		lock;
+>  	struct apple_pcie	*pcie;
+>  	struct device_node	*np;
+>  	void __iomem		*base;
+> @@ -261,14 +262,16 @@ static void apple_port_irq_mask(struct irq_data *data)
+>  {
+>  	struct apple_pcie_port *port = irq_data_get_irq_chip_data(data);
+>  
+> -	writel_relaxed(BIT(data->hwirq), port->base + PORT_INTMSKSET);
+> +	guard(raw_spinlock_irqsave)(&port->lock);
+> +	rmw_set(BIT(data->hwirq), port->base + PORT_INTMSK);
+>  }
+>  
+>  static void apple_port_irq_unmask(struct irq_data *data)
+>  {
+>  	struct apple_pcie_port *port = irq_data_get_irq_chip_data(data);
+>  
+> -	writel_relaxed(BIT(data->hwirq), port->base + PORT_INTMSKCLR);
+> +	guard(raw_spinlock_irqsave)(&port->lock);
+> +	rmw_clear(BIT(data->hwirq), port->base + PORT_INTMSK);
+>  }
+>  
+>  static bool hwirq_is_intx(unsigned int hwirq)
+> @@ -387,7 +390,7 @@ static int apple_pcie_port_setup_irq(struct apple_pcie_port *port)
 >  		return -ENOMEM;
 >  
-> +	port->sid_map = devm_bitmap_zalloc(pcie->dev, MAX_RID2SID, GFP_KERNEL);
-> +	if (!port->sid_map)
-> +		return -ENOMEM;
+>  	/* Disable all interrupts */
+> -	writel_relaxed(~0, port->base + PORT_INTMSKSET);
+> +	writel_relaxed(~0, port->base + PORT_INTMSK);
+>  	writel_relaxed(~0, port->base + PORT_INTSTAT);
+>  
+>  	irq_set_chained_handler_and_data(irq, apple_port_irq_handler, port);
+> @@ -537,6 +540,8 @@ static int apple_pcie_setup_port(struct apple_pcie *pcie,
+>  	port->pcie = pcie;
+>  	port->np = np;
+>  
+> +	raw_spin_lock_init(&port->lock);
 > +
->  	ret = of_property_read_u32_index(np, "reg", 0, &idx);
->  	if (ret)
->  		return ret;
+>  	port->base = devm_platform_ioremap_resource(platform, port->idx + 2);
+>  	if (IS_ERR(port->base))
+>  		return PTR_ERR(port->base);
 > -- 
 > 2.39.2
 > 
