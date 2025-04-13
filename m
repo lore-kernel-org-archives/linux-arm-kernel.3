@@ -4,91 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C454C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Apr 2025 20:02:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB12DC3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Apr 2025 20:04:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9Yy/848/baLEzkw8qa5zoxS7nq5QkNFAJau0dpZhAiE=; b=026Dd5Poyzi3OMwuv97PCqiOhW
-	Flb9G056iGqRtwRAr+MvPzRBVVz3RRaRZwHajKQpnrckWYgY4E6+/phNdqw7mLjwuwTT0vtOhsdKD
-	fatmE7GEKtkt14XPbco9k4E2ZtVpIXktmQvdGIkJaoK+Yyt8NPu5GzWWGRB42bHL4OxYLYl2X64uH
-	s3v649Y+ntJM/IrgptvPBOqvSDSZJpAOgRPJ/B2y3CorAk6lPS9bPp/flB23u/t1Uv7moThpl42XS
-	h5Ahiv0oobBKSl33LLWfumnd7bd0hubaxP8uahlr/Q17uR/LufvsmJT3bEoe4TJLC4AZ5tM3bbmwf
-	zL1uJjhA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xlS7E6p7Ytas9vZrt7ZYXwDtW9ob9dINKkIh4Z/X1ik=; b=AUItgYGJt68goRMQ0ViWlKrj+8
+	5PGDH3HfvajaXc7jbI+2C+CbL33zxKa8/6WNqt7khgbwdDDeUzMI8yRsMRAAtRsE8P+mYJmDVTNNw
+	6qd7vtuyKc+kH8puodDSfP11PuNkL423tgLjmliQSwBEATntXvtcjz/ArYc9TIPHsj3psmRisjzUD
+	yGL7ZZ4UogVO5pnh/9x+xKD2LPuz0JpCnn8mgQz2tGeYVpd9U1houzXAXruO5EGWLFXTTk+Q8ciy6
+	EbdxtFNiAUviQJFLZgZ6NZQvTrphLgY6wIq/Kr/j+z9AWdugxlmYl8LewzASKQqdF3VlXZy40YHKO
+	BEFsf4qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u43Wy-000000004XI-2p2G;
-	Sun, 13 Apr 2025 20:02:16 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1u43Yp-000000004l0-1a8m;
+	Sun, 13 Apr 2025 20:04:11 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u43V7-000000004DB-2TgQ
+	id 1u43V8-000000004DN-1mWz
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 13 Apr 2025 20:00:23 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43ce70f9afbso39323685e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Apr 2025 13:00:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1744574419; x=1745179219; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9Yy/848/baLEzkw8qa5zoxS7nq5QkNFAJau0dpZhAiE=;
-        b=pvcu3R3HGS2v/PR/QeL0vFqw/lb0UHaTn7mE0EioNdlxQj0kR4JMSDOiDPIRbOefkV
-         irCdYSFwPMNBU1dPFb3YOgr0AOwTu28mb++TnZGhMOF7UObt6EWgNZe44hca0GsvUCvS
-         ni27q9BRMA5WEXO4TXtQtQf02IhlPoDSKX8iY24oYxZpiVKRjp6nxp9FfesgEJdQBevM
-         Ca3n4tpQRW1ot7qzgSRWHE+HFq1VXEZmQ/+eoTBwTUjZR4qmaRO7sh6MJp+3LS27Vz0F
-         GLq3dhpuw+oZ7tQAMVLqvVZvcUXhyW3N40ITK2COsbMu3i/uUcb48bsZW6CujqS4vucJ
-         3Iow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744574419; x=1745179219;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=9Yy/848/baLEzkw8qa5zoxS7nq5QkNFAJau0dpZhAiE=;
-        b=KtN4yUgeOQweZpV47g9JOFm1tE94Q+BqjtrV/L9zXSwflBgQOeP3IDPFAgwuPtXxVw
-         p0jEqAafK/bH68kpuzRtXxUmh/cWAqPkjUn5FzWs5XYmWIikzWSXX55AMxpBdccqxlbS
-         9czpHc78OKomV8s//f87i6wtqTum6kPpmzCLaaFOj+5Wmx9Oib6KFvuKrDz7GlTFvupc
-         cdNvpT1HZoA955wHL8nR/TSJGi5d3ZXvE18oJEnI9Wb21NC9t7oGNvpaR42eZeQJCwx0
-         Y47TvFCQdQUpd80HifxrInnrFPRaDRdbVbZehjVFArgJUsLxIQmbHY3tuqNaJouTeQK9
-         MPhQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVOcV9WDZ0igDNybzU6arxJlwaA3VGL+XPJ+l44ybxPCUt/EbU43la3zjz3oxNV35qI+sHQ9xc86i8d5b6Tig4e@lists.infradead.org
-X-Gm-Message-State: AOJu0YwCl+zbQ2Pv5qFAU+BsI50ggKBEDcJjh2M41l3rUhDWJMHNtKLK
-	D6x7yIeVD3q8bDM0xxyycnCf1ZyXmz5nFmjaBaZRhJIvHviiez+KwIQ7Q14jhKk=
-X-Gm-Gg: ASbGncsYSBL8UBXFc2i/LROtXPgLOZa8+fSFqiFWQhanhVeHGzinmpNXqZa5s47RzwI
-	KV44ppE/PnrGi7pKLEFYu+ChANraNhFXykPdY8u9EpFcGg4+6CQ7RrHMzS7bcwHk21bMYwV7xo3
-	Cfe92S22ykfQNTReoNBFCaD9YBf8dAg+nuRL02YkxP1kQV4uMdzFxijBMwAxOGEfzQlmfWKrEBm
-	GV007AmpRzjxCVCPFXpgdMqZGz1qdThk6k4f5gqgf+1BE3ehmzSJQfguMXXqCwA+Yd+2rG7RKA0
-	TZfYe/NwWNuch24EMfZXNOG2/MPRjAjnzU2j
-X-Google-Smtp-Source: AGHT+IHkeeRojU6nphRcBzcpFgA1HGJWrqUBo0zw7NF6Zq4RRkjDJ2KrUAA7MSqPk38slZirAV8Kmg==
-X-Received: by 2002:a05:600c:3c82:b0:43c:ebc4:36a5 with SMTP id 5b1f17b1804b1-43f3a933b99mr83516875e9.7.1744574418483;
-        Sun, 13 Apr 2025 13:00:18 -0700 (PDT)
-Received: from brgl-pocket.. ([2a01:e0a:81f:5e10:e852:1f2c:a4b2:8e89])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39eaf43ce0asm8810540f8f.70.2025.04.13.13.00.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 13 Apr 2025 13:00:17 -0700 (PDT)
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-To: linus.walleij@linaro.org,
-	theo.lebrun@bootlin.com,
-	Chenyuan Yang <chenyuan0y@gmail.com>
-Cc: Bartosz Golaszewski <brgl@bgdev.pl>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] gpio: nomadik: Add check for clk_enable()
-Date: Sun, 13 Apr 2025 22:00:13 +0200
-Message-ID: <174457440296.11196.17152391053685137943.b4-ty@bgdev.pl>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20250412193153.49138-1-chenyuan0y@gmail.com>
-References: <20250412193153.49138-1-chenyuan0y@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 811855C352B;
+	Sun, 13 Apr 2025 19:58:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18373C4CEE7;
+	Sun, 13 Apr 2025 20:00:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744574421;
+	bh=+Fq0MhmsH1itLSjdDC0e0AQDvHDYfYtdZa0fZk4m4G8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=I7etbMb4XdA3KK4rodjXK+gs7WJKkTNURpYg1Dm3lmMi0djrpCanbW0EMa1nU7NgG
+	 2m9IMgPYgfqHVSx3hNRxMTiGSv596a7uN8rGHOVN4C2Y6+5refmXtRlnnNYx1t68WI
+	 ThOA3/zPpfS2ql5xJy7ecnRSV9lHnVMRbDbJW7qX/GlkALVy1Xyl8JfuN9V1NAZ7Fp
+	 VFjpzfocCRa1cc4gVTkn9hclofT6PEcML1iQJb1X4y4mGvpGdXlGssK20oAL4hI2py
+	 vFuYL+IiJOje9CSjjDInkdrDbO15+Giymo5Njey3/KkhpB48k0zKHvb2tTdb+uodP4
+	 0+q2UgFBlyqSg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1u43V4-0051hr-Fo;
+	Sun, 13 Apr 2025 21:00:18 +0100
+Date: Sun, 13 Apr 2025 21:00:23 +0100
+Message-ID: <87v7r7ygq0.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org,	linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org,	linux-kernel@vger.kernel.org,
+	asahi@lists.linux.dev,	Alyssa Rosenzweig <alyssa@rosenzweig.io>,	Janne
+ Grunau <j@jannau.net>,	Hector Martin <marcan@marcan.st>,	Sven Peter
+ <sven@svenpeter.dev>,	Bjorn Helgaas <bhelgaas@google.com>,	Lorenzo
+ Pieralisi <lpieralisi@kernel.org>,	Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?=
+ <kw@linux.com>,	Rob Herring <robh@kernel.org>,	Krzysztof Kozlowski
+ <krzk+dt@kernel.org>,	Mark Kettenis <mark.kettenis@xs4all.nl>
+Subject: Re: [PATCH v3 01/13] PCI: apple: Set only available ports up
+In-Reply-To: <k3wj3wkk3cymyacboalkhe2fa7jvkpuehq4knpsouoyhvoavpl@bafg4oakp4lr>
+References: <20250401091713.2765724-1-maz@kernel.org>
+	<20250401091713.2765724-2-maz@kernel.org>
+	<k3wj3wkk3cymyacboalkhe2fa7jvkpuehq4knpsouoyhvoavpl@bafg4oakp4lr>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: manivannan.sadhasivam@linaro.org, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, asahi@lists.linux.dev, alyssa@rosenzweig.io, j@jannau.net, marcan@marcan.st, sven@svenpeter.dev, bhelgaas@google.com, lpieralisi@kernel.org, kw@linux.com, robh@kernel.org, krzk+dt@kernel.org, mark.kettenis@xs4all.nl
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250413_130021_890271_A40A751D 
-X-CRM114-Status: UNSURE (   9.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250413_130022_518021_C7ADE56F 
+X-CRM114-Status: GOOD (  15.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,23 +91,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Sat, 12 Apr 2025 14:31:53 -0500, Chenyuan Yang wrote:
-> Add check for the return value of clk_enable() to catch
-> the potential error.
+On Sun, 13 Apr 2025 17:57:35 +0100,
+Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org> wrote:
 > 
-> This is similar to the commit 8332e6670997
-> ("spi: zynq-qspi: Add check for clk_enable()").
+> On Tue, Apr 01, 2025 at 10:17:01AM +0100, Marc Zyngier wrote:
+> > From: Janne Grunau <j@jannau.net>
+> > 
+> > Iterating over disabled ports results in of_irq_parse_raw() parsing
+> > the wrong "interrupt-map" entries, as it takes the status of the node
 > 
+> 'as it doesn't take account'?
 > 
-> [...]
+> > into account.
 
-Applied, thanks!
+No, I really mean it in the positive form. of_irq_parse_raw() checks
+of_device_is_available(), and gets really confused if walking from a
+disabled port. You end up with the interrupt for the next *available*
+port, and everything goes pear shaped from then onwards.
 
-[1/1] gpio: nomadik: Add check for clk_enable()
-      https://git.kernel.org/brgl/linux/c/4521e0884c261fd286c02da942e9e8596bf2e7cf
+So IMO "as it takes into account" describes pretty accurately the
+situation.
 
-Best regards,
+	M.
+
 -- 
-Bartosz Golaszewski <brgl@bgdev.pl>
+Jazz isn't dead. It just smells funny.
 
