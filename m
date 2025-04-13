@@ -4,59 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6740C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Apr 2025 19:05:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D15DCC3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Apr 2025 19:07:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=NVmvX58QCtgc+69Xz885TlM/jJrpMkZrF+5msIMEMFQ=; b=DEPksvoeUc9laN
-	Ivfl8kq5SpxURPoLHG5Wns9bAlqMKWm2Rko5x2uzJ0ONfccBA7jODcyvz8UEWJocsQkI16CiBS/6Y
-	OzEOHXFv3SAeHYHiQBD92bGDKC4vf59IwmB7a0tJX3Qwkb67w1m/VkyNkSsWZLQOd2vsVwKNBKDlX
-	VBM0v2gF6vRTQucZqxV2Tflha2OnAi9GC4xgb7kDTykf2Q30JkcV/DmBoor/9DAN9curf5CCXjYDf
-	qx6itN/lbWSWKfd17H0UbHeB+JGAHy7vSXPcgwvfmwtViPQ/suGUNW1574j9hRZbfQQ+ccBKnoqds
-	3KvarRRcSi9pXzUZDjyw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xl3Wlwws4nbpi8bZcac9NEa0RYavopGy5CCK28W52iY=; b=ThvxIc5aLHg4ZU030axx+9jGEB
+	bfkR648hEKkOBQQ2ZRykIWtKjzAhAUGSdUyE8WGiHpYYzoPcVy+1DuwG74NgsnwZOcEgeGvKkrUZU
+	1Y1Lw94ZUdBLDHXYkPP8TL8GbYzMFjTTQFzeZdp98niEPMp+sgJs8XwT7nxO9vIsv/QhxgxeqVgkV
+	/TZBCSDhdwRlr7eXGDg6tl9VmQ11yKEM11AlkDhoSYV9BVXaDamRtZZrLeGl1GlFJxcfvutsDvmrt
+	ak3Ftmfw+3NRhdRNClqDy+vJuCjSMMK06bm4zpiRCh5iInSHabLPjf5mdCUVlbL9RPtpAM8Gwt5ts
+	AQS15SQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u42db-000000000Ha-1jM0;
-	Sun, 13 Apr 2025 19:05:03 +0000
+	id 1u42fP-000000000WP-1thB;
+	Sun, 13 Apr 2025 19:06:55 +0000
 Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u42YB-0000000Ha56-09cr
+	id 1u42YD-0000000Ha7I-42fg
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Apr 2025 18:59:28 +0000
+	Sun, 13 Apr 2025 18:59:31 +0000
 Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 0AF0825FA0;
-	Sun, 13 Apr 2025 20:59:16 +0200 (CEST)
+	by disroot.org (Postfix) with ESMTP id 72F112609B;
+	Sun, 13 Apr 2025 20:59:26 +0200 (CEST)
 X-Virus-Scanned: SPAM Filter at disroot.org
 Received: from layka.disroot.org ([127.0.0.1])
  by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id 6_DBFs_r6gXb; Sun, 13 Apr 2025 20:59:14 +0200 (CEST)
+ id GXVaFGHpyQMI; Sun, 13 Apr 2025 20:59:25 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1744570754; bh=1ZsSYHzcT6LpZjAKJqJ4rjXJkEP7wCJp41hedkkblMI=;
-	h=From:Subject:Date:To:Cc;
-	b=KpCn4gPHsCchiqQk/3yRBlkLzeUJqEZBzL4B+xOXXMRjaWzilMly5BaMQXUxNWjel
-	 ZSR9FskLUPOOrNNUgAd6J8DuPCiAFXjPVvzTUQ+kcUg72s3YYAoekruPZVxJDBx6L+
-	 MEAPFXUqC8J3R0BTkmy1oQTlUGge4I2JUVP7V2popOGPMwIhb7I6e2gjpK7CQFOywV
-	 MIMDG01dTZzxWkv8NUkl4mnX9lLk6p3WJX9skYzHeJTTzCSYaexbUAtg7SdDaVlQFO
-	 CiDfmK4q8X3nCnf/2ibx0gkpnCfrhTQeR0cvxsckBCYrh5IXRlzctArYjKqET1EWSu
-	 yyI8f5dMKfzjg==
+	t=1744570765; bh=Wj+rmqykZTVAjGfxha4I0Fa+EJcnonsAOWhCiXUEcl4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=fi7Utk5GPQbAJHARy/ZGa8zWYGK72UOGu31PIhiFyLj1IY/I82kpd+qLpE5VfOe93
+	 wUDJtPKD+eAi+eAjPklFwBc6y+3ezkX4qjDKnqrKxkTMaigmXAbvGXX6IJTiJesUmN
+	 UOzSqfEfQGgnAjQrAQ3+c00TN+K6Krc7dcgKJHtay0Z7u+xeijA/++Gt1oYQQJIrxk
+	 tXfiuO+ZYEHbnNjrK9hU2H1ZmYtSjxKhSLeJLdqHDDR3Ii53Q1JnVv+3nlcAGj3cai
+	 CghZcN+DtRQjsx4+F9hvAldLOz3VBqkQX9caHO+xv4AJHMu8KbUjNwoEIxmIJrFJSY
+	 UWV7TAFAuEkJQ==
 From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Subject: [PATCH v6 0/5] Add support for the Exynos7870 SoC, along with
- three devices
-Date: Mon, 14 Apr 2025 00:28:41 +0530
-Message-Id: <20250414-exynos7870-v6-0-039bd5385411@disroot.org>
+Date: Mon, 14 Apr 2025 00:28:44 +0530
+Subject: [PATCH v6 3/5] arm64: dts: exynos: add initial support for Samsung
+ Galaxy J7 Prime
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAGEJ/GcC/2XPzWoDIRSG4VsJrmtRjz9jVr2P0oWOx8TNWDRIQ
- ph7rxMoGZnlJzwvxyepWBJWcj49ScGWaspLH/rjROarWy5IU+ibCCYUE4xTvD+WXM1kGGXSqsm
- g9CZE0sFvwZjur9j3T9/XVG+5PF7txrfX/wzsM41TRoXXIUqjHUT2FVItOd8+c7mQLdTEHssBi
- 46VBg5cK4xsPmLYYW4HDB0jTDJ6zdnswhHLN4bx901uZ1uhFJhovXBHrN5Y8hGrjrUHbh2CnkG
- PeF3XP19kOXOaAQAA
-X-Change-ID: 20250201-exynos7870-049587e4b7df
+Message-Id: <20250414-exynos7870-v6-3-039bd5385411@disroot.org>
+References: <20250414-exynos7870-v6-0-039bd5385411@disroot.org>
+In-Reply-To: <20250414-exynos7870-v6-0-039bd5385411@disroot.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
  Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
@@ -66,16 +62,16 @@ Cc: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
  linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
  linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
  Kaustabh Chakraborty <kauschluss@disroot.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1744570750; l=4855;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1744570750; l=17471;
  i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
- bh=1ZsSYHzcT6LpZjAKJqJ4rjXJkEP7wCJp41hedkkblMI=;
- b=oapeo+zXnxGmk2NN4/B/fUuPs05vEG1EbDs2EYFZItA5aLFXiQg4/5DKtaV9qSxlx+e5hxr1r
- JAUzfOTDf8LA2sFKF/dkYghRUBqXx/ekNM9UvGSJBwmDXYuAzMj+PJZ
+ bh=Wj+rmqykZTVAjGfxha4I0Fa+EJcnonsAOWhCiXUEcl4=;
+ b=tqTvtAA7DqiLl7OLltGKYGjv0+wADnsXyz8o75xt+3USRV7dh6PL2caI6AJ1+4+F2Ly2tkPrW
+ G2VdYybkTCZAElQGQKY4GZWIz+eHMkXleY5kUjwxTea6DQkLVdCsF2A
 X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
  pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250413_115927_346108_E14DB0C1 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20250413_115930_279366_BAD1FDAD 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,99 +86,701 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Samsung Exynos 7870 (codename: Joshua) is an ARM-v8 system-on-chip that was
-announced in 2016. The chipset was found in several popular mid-range to
-low-end Samsung phones, released within 2016 to 2019.
-
-This patch series aims to add support for Exynos 7870, starting with the
-most basic yet essential components such as CPU, GPU, clock controllers,
-PMIC, pin controllers, etc.
-
-Moreover, the series also adds support for three Exynos 7870 devices via
-devicetree. The devices are:
- * Samsung Galaxy J7 Prime	- released 2016, codename on7xelte
- * Samsung Galaxy J6		- released 2018, codename j6lte
- * Samsung Galaxy A2 Core	- released 2019, codename a2corelte
-
-Additional features implemented in this series include:
- * I2C	- touchscreen, IIO sensors, etc.
- * UART	- bluetooth and serial debugging
- * MMC	- eMMC, Wi-Fi SDIO, SDCard
- * USB	- micro-USB 2.0 interface
-
-Build dependencies are in these sub-series:
- * pmu-clocks		A https://lore.kernel.org/all/20250301-exynos7870-pmu-clocks-v5-0-715b646d5206@disroot.org/
-
-Other related sub-series:
- * gpu			A https://lore.kernel.org/all/20250318-exynos7870-gpu-v1-1-084863f28b5c@disroot.org/
- * i2c	      		A https://lore.kernel.org/all/20250204-exynos7870-i2c-v1-0-63d67871ab7e@disroot.org/
- * mmc			A https://lore.kernel.org/all/20250219-exynos7870-mmc-v2-0-b4255a3e39ed@disroot.org/
- * pinctrl	  	A https://lore.kernel.org/all/20250301-exynos7870-pinctrl-v3-0-ba1da9d3cd2f@disroot.org/
- * pmic-regulators	A https://lore.kernel.org/all/20250301-exynos7870-pmic-regulators-v3-0-808d0b47a564@disroot.org/
- * uart			A https://lore.kernel.org/all/20250318-exynos7870-uart-v2-1-b9dcf145ae87@disroot.org/
- * usb			A https://lore.kernel.org/all/20250301-exynos7870-usb-v3-0-f01697165d19@disroot.org/
- * usbphy		A https://lore.kernel.org/all/20250410-exynos7870-usbphy-v2-0-2eb005987455@disroot.org/
-(Legend: [R]eviewed, [A]pplied)
+Add initial devicetree support for Samsung Galaxy J7 Prime
+(codename: on7xelte), an Exynos7870 device.
 
 Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
 ---
-Changes in v6:
-- Append the following trailers:
-  [v5 1/5] dt-bindings: arm: samsung: add compatibles for exynos7870 devices
-    Acked-by: Rob Herring (Arm) <robh@kernel.org>
-- Link to v5: https://lore.kernel.org/r/20250411-exynos7870-v5-0-6b319ae36c36@disroot.org
+ arch/arm64/boot/dts/exynos/Makefile                |   1 +
+ arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dts | 666 +++++++++++++++++++++
+ 2 files changed, 667 insertions(+)
 
-Changes in v5:
-- Drop the exynos7870-bootmode patchset for now.
-- Add card-detect-delay and cd-broken properties in sd-mmc nodes.
-- Drop the following applied patches:
-  [v4 1/7] dt-bindings: soc: samsung: exynos-pmu: add exynos7870-pmu compatible
-  [v4 3/7] soc: samsung: exynos-chipid: add support for exynos7870
-- Link to v4: https://lore.kernel.org/r/20250301-exynos7870-v4-0-2925537f9b2a@disroot.org
+diff --git a/arch/arm64/boot/dts/exynos/Makefile b/arch/arm64/boot/dts/exynos/Makefile
+index f6f4bc650a94db0bc6bc017432e2e3dbba90e8c3..a8d78d2add05ecf688ffa3a32aa5b8d1a48faf81 100644
+--- a/arch/arm64/boot/dts/exynos/Makefile
++++ b/arch/arm64/boot/dts/exynos/Makefile
+@@ -5,6 +5,7 @@ dtb-$(CONFIG_ARCH_EXYNOS) += \
+ 	exynos5433-tm2.dtb		\
+ 	exynos5433-tm2e.dtb		\
+ 	exynos7-espresso.dtb		\
++	exynos7870-on7xelte.dtb		\
+ 	exynos7885-jackpotlte.dtb	\
+ 	exynos850-e850-96.dtb		\
+ 	exynos8895-dreamlte.dtb		\
+diff --git a/arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dts b/arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dts
+new file mode 100644
+index 0000000000000000000000000000000000000000..9579e662cf9301b63e1e7dd1b2b14d053ff0e0d8
+--- /dev/null
++++ b/arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dts
+@@ -0,0 +1,666 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Samsung Galaxy J7 Prime (on7xelte) device tree source
++ *
++ * Copyright (c) 2015 Samsung Electronics Co., Ltd.
++ * Copyright (c) 2025 Kaustabh Chakraborty <kauschluss@disroot.org>
++ */
++
++/dts-v1/;
++#include "exynos7870.dtsi"
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/input/input.h>
++#include <dt-bindings/interrupt-controller/irq.h>
++
++/ {
++	model = "Samsung Galaxy J7 Prime";
++	compatible = "samsung,on7xelte", "samsung,exynos7870";
++	chassis-type = "handset";
++
++	aliases {
++		mmc0 = &mmc0;
++		mmc1 = &mmc1;
++		mmc2 = &mmc2;
++		serial0 = &serial0;
++		serial1 = &serial1;
++		serial2 = &serial2;
++	};
++
++	chosen {
++		#address-cells = <2>;
++		#size-cells = <1>;
++		ranges;
++
++		stdout-path = &serial2;
++
++		framebuffer@67000000 {
++			compatible = "simple-framebuffer";
++			reg = <0x0 0x67000000 (1080 * 1920 * 4)>;
++			width = <1080>;
++			height = <1920>;
++			stride = <(1080 * 4)>;
++			format = "a8r8g8b8";
++		};
++	};
++
++	gpio-keys {
++		compatible = "gpio-keys";
++		label = "GPIO Keys";
++
++		pinctrl-names = "default";
++		pinctrl-0 = <&key_home &key_power &key_voldown &key_volup>;
++
++		key-home {
++			label = "Home Key";
++			gpios = <&gpa1 7 GPIO_ACTIVE_LOW>;
++			linux,code = <KEY_HOMEPAGE>;
++		};
++
++		key-power {
++			label = "Power Key";
++			gpios = <&gpa0 0 GPIO_ACTIVE_LOW>;
++			linux,code = <KEY_POWER>;
++		};
++
++		key-voldown {
++			label = "Volume Down Key";
++			gpios = <&gpa2 1 GPIO_ACTIVE_LOW>;
++			linux,code = <KEY_VOLUMEDOWN>;
++		};
++
++		key-volup {
++			label = "Volume Up Key";
++			gpios = <&gpa2 0 GPIO_ACTIVE_LOW>;
++			linux,code = <KEY_VOLUMEUP>;
++		};
++	};
++
++	memory@40000000 {
++		device_type = "memory";
++		reg = <0x0 0x40000000 0x3e400000>;
++	};
++
++	memory@80000000 {
++		device_type = "memory";
++		reg = <0x0 0x80000000 0x80000000>;
++	};
++
++	pwrseq_mmc1: pwrseq-mmc1 {
++		compatible = "mmc-pwrseq-simple";
++		reset-gpios = <&gpd3 6 GPIO_ACTIVE_LOW>;
++	};
++
++	/* mmc2: vmmc */
++	vdd_fixed_mmc2: regulator-fixed-mmc2 {
++		compatible = "regulator-fixed";
++		regulator-name = "vdd_fixed_mmc2";
++		regulator-max-microvolt = <2800000>;
++		regulator-min-microvolt = <2800000>;
++		gpio = <&gpc0 0 GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++	};
++
++	reserved-memory {
++		#address-cells = <2>;
++		#size-cells = <1>;
++		ranges;
++
++		ramoops@46e00000 {
++			compatible = "ramoops";
++			reg = <0x0 0x46e00000 0x8000>;
++			console-size = <0x4000>;
++			pmsg-size = <0x4000>;
++		};
++
++		framebuffer@67000000 {
++			reg = <0x0 0x67000000 (1080 * 1920 * 4)>;
++			no-map;
++		};
++	};
++
++	vibrator {
++		compatible = "regulator-haptic";
++		haptic-supply = <&vdd_ldo32>;
++		min-microvolt = <3300000>;
++		max-microvolt = <3300000>;
++	};
++};
++
++&gpu {
++	status = "okay";
++};
++
++&hsi2c0 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	status = "okay";
++
++	pmic@66 {
++		compatible = "samsung,s2mpu05-pmic";
++		reg = <0x66>;
++
++		interrupt-parent = <&gpa0>;
++		interrupts = <2 IRQ_TYPE_LEVEL_LOW>;
++
++		pinctrl-names = "default";
++		pinctrl-0 = <&pmic_irq>;
++
++		regulators {
++			vdd_buck1: buck1 {
++				regulator-name = "vdd_buck1";
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <1300000>;
++				regulator-ramp-delay = <12000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			vdd_buck2: buck2 {
++				regulator-name = "vdd_buck2";
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <1300000>;
++				regulator-ramp-delay = <12000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			vdd_buck3: buck3 {
++				regulator-name = "vdd_buck3";
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <1300000>;
++				regulator-ramp-delay = <12000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			vdd_buck4: buck4 {
++				regulator-name = "vdd_buck4";
++				regulator-min-microvolt = <1200000>;
++				regulator-max-microvolt = <1500000>;
++				regulator-ramp-delay = <12000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			vdd_buck5: buck5 {
++				regulator-name = "vdd_buck5";
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <2100000>;
++				regulator-ramp-delay = <12000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			vdd_ldo1: ldo1 {
++				regulator-name = "vdd_ldo1";
++				regulator-min-microvolt = <650000>;
++				regulator-max-microvolt = <1350000>;
++				regulator-ramp-delay = <12000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			/* mmc2: vqmmc */
++			vdd_ldo2: ldo2 {
++				regulator-name = "vdd_ldo2";
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <2800000>;
++				regulator-ramp-delay = <12000>;
++			};
++
++			vdd_ldo3: ldo3 {
++				regulator-name = "vdd_ldo3";
++				regulator-min-microvolt = <800000>;
++				regulator-max-microvolt = <2375000>;
++				regulator-ramp-delay = <12000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			vdd_ldo4: ldo4 {
++				regulator-name = "vdd_ldo4";
++				regulator-min-microvolt = <800000>;
++				regulator-max-microvolt = <1350000>;
++				regulator-ramp-delay = <12000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			vdd_ldo5: ldo5 {
++				regulator-name = "vdd_ldo5";
++				regulator-min-microvolt = <800000>;
++				regulator-max-microvolt = <1350000>;
++				regulator-ramp-delay = <12000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			vdd_ldo6: ldo6 {
++				regulator-name = "vdd_ldo6";
++				regulator-min-microvolt = <800000>;
++				regulator-max-microvolt = <1350000>;
++				regulator-ramp-delay = <12000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			vdd_ldo7: ldo7 {
++				regulator-name = "vdd_ldo7";
++				regulator-min-microvolt = <800000>;
++				regulator-max-microvolt = <2375000>;
++				regulator-ramp-delay = <12000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			/* usbdrd: vdd33 */
++			vdd_ldo8: ldo8 {
++				regulator-name = "vdd_ldo8";
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <3375000>;
++				regulator-ramp-delay = <12000>;
++			};
++
++			vdd_ldo9: ldo9 {
++				regulator-name = "vdd_ldo9";
++				regulator-min-microvolt = <650000>;
++				regulator-max-microvolt = <1350000>;
++				regulator-ramp-delay = <12000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			vdd_ldo10: ldo10 {
++				regulator-name = "vdd_ldo10";
++				regulator-min-microvolt = <650000>;
++				regulator-max-microvolt = <1350000>;
++				regulator-ramp-delay = <12000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			vdd_ldo25: ldo25 {
++				regulator-name = "vdd_ldo25";
++				regulator-min-microvolt = <800000>;
++				regulator-max-microvolt = <2375000>;
++				regulator-ramp-delay = <12000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			/* mmc0: vmmc */
++			vdd_ldo26: ldo26 {
++				regulator-name = "vdd_ldo26";
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <3375000>;
++				regulator-ramp-delay = <12000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			/* mmc0: vqmmc */
++			vdd_ldo27: ldo27 {
++				regulator-name = "vdd_ldo27";
++				regulator-min-microvolt = <800000>;
++				regulator-max-microvolt = <2375000>;
++				regulator-ramp-delay = <12000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			vdd_ldo29: ldo29 {
++				regulator-name = "vdd_ldo29";
++				regulator-min-microvolt = <2800000>;
++				regulator-max-microvolt = <2800000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			vdd_ldo30: ldo30 {
++				regulator-name = "vdd_ldo30";
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
++				regulator-ramp-delay = <12000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			vdd_ldo31: ldo31 {
++				regulator-name = "vdd_ldo31";
++				regulator-min-microvolt = <2800000>;
++				regulator-max-microvolt = <2800000>;
++				regulator-ramp-delay = <12000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			/* vibrator: haptic */
++			vdd_ldo32: ldo32 {
++				regulator-name = "vdd_ldo32";
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-ramp-delay = <12000>;
++			};
++
++			vdd_ldo33: ldo33 {
++				regulator-name = "vdd_ldo33";
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-ramp-delay = <12000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			vdd_ldo34: ldo34 {
++				regulator-name = "vdd_ldo34";
++				regulator-min-microvolt = <3000000>;
++				regulator-max-microvolt = <3000000>;
++				regulator-ramp-delay = <12000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			vdd_ldo35: ldo35 {
++				regulator-name = "vdd_ldo35";
++				regulator-min-microvolt = <2800000>;
++				regulator-max-microvolt = <2800000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++		};
++	};
++};
++
++&i2c1 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	samsung,i2c-sda-delay = <100>;
++	samsung,i2c-max-bus-freq = <400000>;
++
++	status = "okay";
++
++	touchscreen@70 {
++		compatible = "syna,rmi4-i2c";
++		reg = <0x70>;
++		interrupt-parent = <&gpc3>;
++		interrupts = <2 IRQ_TYPE_LEVEL_LOW>;
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		pinctrl-names = "default";
++		pinctrl-0 = <&touch_irq>;
++
++		syna,reset-delay-ms = <200>;
++		syna,startup-delay-ms = <200>;
++
++		rmi4-f01@1 {
++			reg = <0x01>;
++			syna,nosleep-mode = <1>;
++		};
++
++		rmi4-f12@12 {
++			reg = <0x12>;
++			syna,sensor-type = <1>;
++			syna,rezero-wait-ms = <200>;
++			syna,clip-x-high = <1079>;
++			syna,clip-y-high = <1919>;
++			touchscreen-x-mm = <68>;
++			touchscreen-y-mm = <121>;
++		};
++	};
++};
++
++&i2c7 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	samsung,i2c-sda-delay = <100>;
++	samsung,i2c-max-bus-freq = <400000>;
++
++	status = "okay";
++
++	accelerometer@1d {
++		compatible = "st,lis2hh12";
++		reg = <0x1d>;
++		interrupt-parent = <&gpa2>;
++		interrupts = <3 IRQ_TYPE_EDGE_RISING>;
++
++		pinctrl-names = "default";
++		pinctrl-0 = <&accel_irq>;
++
++		mount-matrix = "1",  "0",  "0",
++			       "0", "-1",  "0",
++			       "0",  "0", "-1";
++
++		st,drdy-int-pin = <1>;
++	};
++};
++
++&i2c8 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	samsung,i2c-sda-delay = <100>;
++	samsung,i2c-max-bus-freq = <400000>;
++
++	status = "okay";
++
++	proximity@48 {
++		compatible = "sensortek,stk3013", "sensortek,stk3310";
++		reg = <0x48>;
++		interrupt-parent = <&gpa0>;
++		interrupts = <5 IRQ_TYPE_EDGE_BOTH>;
++
++		pinctrl-names = "default";
++		pinctrl-0 = <&proxm_irq>;
++
++		proximity-near-level = <25>;
++	};
++};
++
++&mmc0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&sd0_clk &sd0_cmd &sd0_rdqs &sd0_bus1 &sd0_bus4 &sd0_bus8>;
++
++	vmmc-supply = <&vdd_ldo26>;
++	vqmmc-supply = <&vdd_ldo27>;
++
++	fifo-depth = <64>;
++	samsung,dw-mshc-ciu-div = <3>;
++	samsung,dw-mshc-sdr-timing = <0 4>;
++	samsung,dw-mshc-ddr-timing = <2 4>;
++	non-removable;
++
++	status = "okay";
++};
++
++&mmc1 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	pinctrl-names = "default";
++	pinctrl-0 = <&sd1_clk &sd1_cmd &sd1_bus1 &sd1_bus4>;
++
++	mmc-pwrseq = <&pwrseq_mmc1>;
++
++	bus-width = <4>;
++	fifo-depth = <64>;
++	samsung,dw-mshc-ciu-div = <3>;
++	samsung,dw-mshc-sdr-timing = <0 3>;
++	samsung,dw-mshc-ddr-timing = <1 2>;
++	non-removable;
++	cap-sd-highspeed;
++	cap-sdio-irq;
++
++	status = "okay";
++
++	wifi@1 {
++		compatible = "brcm,bcm43430a1-fmac", "brcm,bcm4329-fmac";
++		reg = <0x1>;
++		interrupt-names = "host-wake";
++		interrupt-parent = <&gpa2>;
++		interrupts = <2 IRQ_TYPE_LEVEL_LOW>;
++
++		reset-gpios = <&gpd3 6 GPIO_ACTIVE_LOW>;
++	};
++};
++
++&mmc2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&sd2_clk &sd2_cmd &sd2_bus1 &sd2_bus4 &dwmmc2_irq>;
++
++	vmmc-supply = <&vdd_fixed_mmc2>;
++	vqmmc-supply = <&vdd_ldo2>;
++
++	bus-width = <4>;
++	card-detect-delay = <200>;
++	fifo-depth = <64>;
++	samsung,dw-mshc-ciu-div = <3>;
++	samsung,dw-mshc-sdr-timing = <0 3>;
++	samsung,dw-mshc-ddr-timing = <1 2>;
++	sd-uhs-sdr50;
++	sd-uhs-sdr104;
++	broken-cd;
++	disable-wp;
++
++	status = "okay";
++};
++
++&oscclk {
++	clock-frequency = <26000000>;
++};
++
++&pinctrl_alive {
++	accel_irq: accel-irq-pins {
++		samsung,pins = "gpa2-3";
++		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
++		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
++		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
++	};
++
++	dwmmc2_irq: dwmmc2-irq-pins {
++		samsung,pins = "gpa0-1";
++		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
++		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
++		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
++	};
++
++	fuel_irq: fuel-irq-pins {
++		samsung,pins = "gpa0-3";
++		samsung,pin-function = <EXYNOS_PIN_FUNC_INPUT>;
++		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
++		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
++	};
++
++	key_home: key-home-pins {
++		samsung,pins = "gpa1-7";
++		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
++		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
++		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
++	};
++
++	key_power: key-power-pins {
++		samsung,pins = "gpa0-0";
++		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
++		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
++		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
++	};
++
++	key_voldown: key-voldown-pins {
++		samsung,pins = "gpa2-1";
++		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
++		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
++		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
++	};
++
++	key_volup: key-volup-pins {
++		samsung,pins = "gpa2-0";
++		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
++		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
++		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
++	};
++
++	pmic_irq: pmic-irq-pins {
++		samsung,pins = "gpa0-2";
++		samsung,pin-pud = <EXYNOS_PIN_PULL_UP>;
++		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR4>;
++	};
++
++	proxm_irq: proxm-irq-pins {
++		samsung,pins = "gpa0-5";
++		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
++		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
++		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
++	};
++
++	tkey_irq: tkey-irq-pins {
++		samsung,pins = "gpa1-4";
++		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
++		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
++		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
++	};
++
++	wlan_hostwake: wlan-hostwake-pins {
++		samsung,pins = "gpa2-2";
++		samsung,pin-function = <EXYNOS_PIN_FUNC_OUTPUT>;
++		samsung,pin-pud = <EXYNOS_PIN_PULL_UP>;
++	};
++};
++
++&pinctrl_top {
++	bt_enable: bt-enable-pins {
++		samsung,pins = "gpd4-1";
++		samsung,pin-function = <EXYNOS_PIN_FUNC_OUTPUT>;
++		samsung,pin-con-pdn = <EXYNOS_PIN_PDN_PREV>;
++		samsung,pin-pud-pdn = <EXYNOS_PIN_PULL_NONE>;
++		samsung,pin-pud = <EXYNOS_PIN_PULL_DOWN>;
++	};
++
++	wlan_enable: wlan-enable-pins {
++		samsung,pins = "gpd3-6";
++		samsung,pin-function = <EXYNOS_PIN_FUNC_OUTPUT>;
++		samsung,pin-con-pdn = <EXYNOS_PIN_PDN_PREV>;
++		samsung,pin-pud-pdn = <EXYNOS_PIN_PULL_NONE>;
++		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
++		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR4>;
++		samsung,pin-val = <0>;
++	};
++};
++
++&pinctrl_touch {
++	touch_irq: touch-irq-pins {
++		samsung,pins = "gpc3-2";
++		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
++		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
++		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
++	};
++};
++
++&serial1 {
++	status = "okay";
++
++	bluetooth {
++		compatible = "brcm,bcm43430a1-bt";
++
++		pinctrl-names = "default";
++		pinctrl-0 = <&bt_btwake &bt_hostwake &bt_enable>;
++
++		device-wakeup-gpios = <&gpa1 2 GPIO_ACTIVE_HIGH>;
++		host-wakeup-gpios = <&gpa1 6 GPIO_ACTIVE_HIGH>;
++		shutdown-gpios = <&gpd4 1 GPIO_ACTIVE_HIGH>;
++
++		max-speed = <3000000>;
++	};
++};
++
++&serial2 {
++	status = "okay";
++};
++
++&usbdrd {
++	vdd33-supply = <&vdd_ldo8>;
++
++	status = "okay";
++};
 
-Changes in v4:
-- Drop merged [PATCH v3 1/7].
-- Explicitly mention sub-series having build dependencies.
-- Include the following patch from the pmu-clocks series:
-  - dt-bindings: soc: samsung: exynos-pmu: add exynos7870-pmu compatible
-- Adjust clock header file name to match changes in pmu-clocks.
-- Change regulator node names to match changes in pmic-regulators.
-- Remove non-removable flag for the SDCard's mmc node.
-- Link to v3: https://lore.kernel.org/r/20250219-exynos7870-v3-0-e384fb610cad@disroot.org
-
-Changes in v3:
-- Added patches from https://lore.kernel.org/all/20250204-exynos7870-chipid-v1-0-0bf2db08e621@disroot.org/
-- Fix devicetree formatting according to the devicetree style guide.
-- Take over ownership of patches by the co-author, upon their request.
-- Link to v2: https://lore.kernel.org/r/20250204-exynos7870-v2-0-56313165ef0c@disroot.org
-
-Changes in v2:
-- Redo a few commit descriptions.
-- Split patchsets into multiple sub-series, subsystem-wise.
-- Link to v1: https://lore.kernel.org/r/20250203-exynos7870-v1-0-2b6df476a3f0@disroot.org
-
----
-Kaustabh Chakraborty (5):
-      dt-bindings: arm: samsung: add compatibles for exynos7870 devices
-      arm64: dts: exynos: add initial devicetree support for exynos7870
-      arm64: dts: exynos: add initial support for Samsung Galaxy J7 Prime
-      arm64: dts: exynos: add initial support for Samsung Galaxy A2 Core
-      arm64: dts: exynos: add initial support for Samsung Galaxy J6
-
- .../bindings/arm/samsung/samsung-boards.yaml       |    8 +
- arch/arm64/boot/dts/exynos/Makefile                |    3 +
- .../arm64/boot/dts/exynos/exynos7870-a2corelte.dts |  630 ++++++++++++
- arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts    |  618 ++++++++++++
- arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dts |  666 +++++++++++++
- arch/arm64/boot/dts/exynos/exynos7870-pinctrl.dtsi | 1022 ++++++++++++++++++++
- arch/arm64/boot/dts/exynos/exynos7870.dtsi         |  713 ++++++++++++++
- 7 files changed, 3660 insertions(+)
----
-base-commit: 29e7bf01ed8033c9a14ed0dc990dfe2736dbcd18
-change-id: 20250201-exynos7870-049587e4b7df
-
-Best regards,
 -- 
-Kaustabh Chakraborty <kauschluss@disroot.org>
+2.49.0
 
 
