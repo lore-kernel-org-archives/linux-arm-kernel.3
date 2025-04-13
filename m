@@ -4,70 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3D4AC369AE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Apr 2025 10:44:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EE64C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Apr 2025 13:45:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7dAFqdSK5Fh/+XJiVn6+9uE6z7eGK80bJ70RvSacXA0=; b=Cwh2MRxbr971os+fCHiT38OC4P
-	NwpdXFPLwbQJ6k0XKoBoroW84V/6h90ckb6CMXbn3YFp1F52e94h+RsAn1F/yQ8nXHZ9z9py2Oa5O
-	DuH3oamE4z3t6AZHx6FuvEWZtjAoIk/hPHulQGCqCzQ5FVn+Eqz0n1G8PUdGd2gHbgFmIbVwFpuv2
-	v8HOZAA/3qu3qx4qZSwxhT5wypcd5IkNGIJeTAUFk4x3CqB97nsli1If2z/30XNHK9MVbQi1O1Yya
-	s3l6BFl5GaSOLFY/m4lAu5olLd5JTpIJaZngTz0rEfO7FisbdYfMAAn1IQYnMyqvKYG3uFVLVo390
-	K2x0OMlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hXQZ9yojQV6stSDTDo/eH4vyNLxCP0mp6bCX3lmKvKI=; b=iHkb1CI3WJa1AuHB2dw1WTvFyR
+	TPnyGnJZspYFRl9tKEkarBv36cMzwovG3+d0+beRy3ncXScvdoN4RKrOlZU+ZrdhbXi/I21M4QYN0
+	Gh86wpz/s+vt0sDBEU0lCVq5VwHusEwPcUyay5VlfnqE4N19QVjmvGGkXk6Kt0ZJ6M8I8eZ/D491i
+	QvUY9JKm/F8woCJ6E9/MRuVgFx1SxbVyOb85x/rCV43K1JUHljm7V6ckc1iMIv25xMR+t0oNk5oir
+	ZyZhUbelxSks1qvbIbb7CD7e1+y7j8sXvm0DWy6xuWNXifCb83rCYkeOkeT8egG9c3Q3b8rHaXcwL
+	N82+KPtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3up0-0000000H627-2zD5;
-	Sun, 13 Apr 2025 10:44:18 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u3xeO-0000000HDo1-0uae;
+	Sun, 13 Apr 2025 13:45:32 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3un9-0000000H5t6-1TMd;
-	Sun, 13 Apr 2025 10:42:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 3C520A41717;
-	Sun, 13 Apr 2025 10:36:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B2CFC4CEDD;
-	Sun, 13 Apr 2025 10:42:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744540942;
-	bh=+rVcpgNtIzq+wNAjUzyP7ADEcJbJHlPGwgRaSM2PZYs=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=JwiUZdXNvgCm5rC9KB0QbwTvs1csueUgHMAU+OTSyb3HbnXDC/yBC2ZrTgu614nBc
-	 Fg5EGg65YnsSq8WQFz3lxh/duqGl9vpR/wCTIdXunTVgKum8GvlgGCMMjhjXB07t+/
-	 FkyKwFwCnoguoWCT1Rn1bTDs9aGkV1zCoMXGh72qvoxCgx/hgqwcZBRDSUQuENCoO7
-	 6VQXyWp1wuXRbGyrkW8H3dwmCwmFt2n2e0ofmT8xS5/CnoU9HhVdH01ozAe0nsXKhq
-	 gGW42B/OcYDVhbbEp9ACCARXTDumXS4ssYApO/ffmI7rYZsZ0C767tkNnPhy4UPzRr
-	 EIakemrI9smIQ==
-Date: Sun, 13 Apr 2025 05:42:20 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1u3xcY-0000000HDaD-032R
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 13 Apr 2025 13:43:39 +0000
+Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-ac29fd22163so538268466b.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Apr 2025 06:43:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744551816; x=1745156616; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=hXQZ9yojQV6stSDTDo/eH4vyNLxCP0mp6bCX3lmKvKI=;
+        b=GP5OQIEb9znBbcz/cU1XqA470RQCQ/opYJyoLU7VetFA9TW0YwzrT7rRBD47stS57O
+         9nZDARnGA0xEN//Hw209T1vrl7D1zWlIVBaIFijE7LKt3H2WusSwlueWq7SzGOPjlPmK
+         SuZjtP5e9fbbuE9zU9xnBXeLrbBT6VYAbW1edOawh181w4ZDqUFSk6EXehbmRaVTTsbC
+         V3fO2CTVERewmO6NHb7RiN3F8xzUT6+Fc41DqhxomiUPLCTU4UepyJ1Z05KHCZDcTkHJ
+         /jpzFFwPLnZ+AXqe90Ub2+3gZDqvSAslMBG9kNbuQJSDOn2sqKO1DNe/ZbKTudz2ODTD
+         CuAw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744551816; x=1745156616;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hXQZ9yojQV6stSDTDo/eH4vyNLxCP0mp6bCX3lmKvKI=;
+        b=wAbaTe3bnLCP+JiTHKquqHto1pilvmctA1SikYMMA/P57fsrZMzOqGAVnZRqmf47jt
+         tWrN1+SLxyY2pVnCT9BwUM64z1KKAm8xi3ZqD6PO2pKbcoJbtBHz0cb91j9/YvTkwE67
+         huuTd17Dzvl/fQFHrmPm40/tKu7t23f8Jl82hiU/IGj1fhjDm3KUz23A+bHB2PKwPUB7
+         WeV38IiB27n4B+2YbpUdK+nYkIu9LIf4YE9gbj9DgbV+zCk4WlDwpmbjZjBiskxvjmyX
+         lWSs+Pj2jOfRxE9axxVrAuRvpzo0BjgshxYdzZKCYwR1WL4YwebK4zIslo/PQM5pnowF
+         N1XA==
+X-Forwarded-Encrypted: i=1; AJvYcCWZbHQN62vm2rSnVtcMPt61HFewz/ltNF4YeIKCnAAcxcHJYYZw1ir9XVh0vcfxZ/fll69u8CPWZc6p7/SPFPX2@lists.infradead.org
+X-Gm-Message-State: AOJu0YygXC12o9ND2zswGrNkGN/HKwHUe9DarkJTo8NgdtiCVIrqaoV/
+	XWwUJ/dlZ/u+6KSsZ/ZDfT7q1kIglyo+ptXQ+W9kdFEE7vlQvt2f
+X-Gm-Gg: ASbGnctcBt+pEHnEg5qmC4yAUAk6yihxW36NllMYX04+idXaGql9NBz6HY53Q2aQ1nN
+	mwFxnR1vCS0vpHamBIvvEzBlxuhjxb6ZDOUGS0cAorMGAPK3MkRTQEM+U/o9RHXvUXe7NAGcK5Z
+	hsPprkWwkZIadIUUIaQJIMTTRzhQuEsax8O3Oz0bdQhcKoNpvZohb8cuxcBsHrBCa9pRIyERUCW
+	R0MuwSpsJkMFgM9i+cBx8KpWnCArEYaEcsBUupvM/T6ZgHJbV8ihi+y962Dk3wGuq/kQIWFZf3n
+	/rCQJeUEEUwQxilWeEpy+gBAt8J9A/QJndn27z/6TYR06gQVldyoY8K4Ewk=
+X-Google-Smtp-Source: AGHT+IEOIJ1i4Kh+VcM9sFRP+cgJp2vQQUT+Pqo4qfUY0eHTw4Probs6u1rivZcSvRWydAIs1ARTVQ==
+X-Received: by 2002:a17:907:3c95:b0:ac6:ffb0:a2be with SMTP id a640c23a62f3a-acad36a0809mr750895066b.47.1744551815575;
+        Sun, 13 Apr 2025 06:43:35 -0700 (PDT)
+Received: from localhost.localdomain ([37.248.246.92])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-acaa1be95d0sm749422666b.55.2025.04.13.06.43.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 13 Apr 2025 06:43:35 -0700 (PDT)
+From: Jernej Skrabec <jernej.skrabec@gmail.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: wens@csie.org,
+	samuel@sholland.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Jernej Skrabec <jernej.skrabec@gmail.com>
+Subject: [PATCH 0/2] arm64: dts: allwinner: Support Orange Pi 3 LTS board
+Date: Sun, 13 Apr 2025 15:42:55 +0200
+Message-ID: <20250413134318.66681-1-jernej.skrabec@gmail.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
- Daniel Golle <daniel@makrotopia.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, linux-phy@lists.infradead.org, 
- Chunfeng Yun <chunfeng.yun@mediatek.com>, devicetree@vger.kernel.org, 
- linux-mediatek@lists.infradead.org, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- MandyJH Liu <mandyjh.liu@mediatek.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Kishon Vijay Abraham I <kishon@kernel.org>, 
- Frank Wunderlich <frank-w@public-files.de>, 
- Sam Shih <sam.shih@mediatek.com>
-To: Frank Wunderlich <linux@fw-web.de>
-In-Reply-To: <20250413085806.8544-4-linux@fw-web.de>
-References: <20250413085806.8544-1-linux@fw-web.de>
- <20250413085806.8544-4-linux@fw-web.de>
-Message-Id: <174454094043.2074029.12190125666379219189.robh@kernel.org>
-Subject: Re: [RFC 3/5] dt-bindings: power: Add binding for MediaTek MT7988
- topmisc power controller
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250413_034223_452640_5176D1E0 
-X-CRM114-Status: GOOD (  10.12  )
+X-CRM114-CacheID: sfid-20250413_064338_064727_8982F818 
+X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,44 +102,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Orange Pi 3 LTS has similar functionality to Orange Pi 3 with slightly
+different hardware. 
 
-On Sun, 13 Apr 2025 10:58:03 +0200, Frank Wunderlich wrote:
-> From: Frank Wunderlich <frank-w@public-files.de>
-> 
-> Topmisc is a systemcontroller used for xs-phy and ethernet on  mt7988.
-> Add binding for it.
-> 
-> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
-> ---
->  .../power/mediatek,power-controller.yaml      | 35 +++++++++++++------
->  1 file changed, 24 insertions(+), 11 deletions(-)
-> 
+OrangePi 3 LTS has following features:
+- Allwinner H6 quad-core 64-bit ARM Cortex-A53
+- GPU Mali-T720
+- 2 GB LPDDR3 RAM
+- AXP805 PMIC
+- AW859A Wifi/BT 5.0
+- 2x USB 2.0 host port (A)
+- USB 3.0 Host
+- Gigabit Ethernet (Motorcomm YT8531C phy)
+- HDMI 2.0 port
+- soldered 8 GB eMMC
+- 2x LED
+- microphone
+- audio jack
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Best regards,
+Jernej
 
-yamllint warnings/errors:
-./Documentation/devicetree/bindings/power/mediatek,power-controller.yaml:27:9: [warning] wrong indentation: expected 10 but found 8 (indentation)
-./Documentation/devicetree/bindings/power/mediatek,power-controller.yaml:28:11: [warning] wrong indentation: expected 12 but found 10 (indentation)
-./Documentation/devicetree/bindings/power/mediatek,power-controller.yaml:39:9: [warning] wrong indentation: expected 10 but found 8 (indentation)
-./Documentation/devicetree/bindings/power/mediatek,power-controller.yaml:40:11: [warning] wrong indentation: expected 12 but found 10 (indentation)
+Jernej Skrabec (2):
+  dt-bindings: arm: sunxi: Add Orange Pi 3 LTS board
+  arm64: dts: allwinner: h6: Add OrangePi 3 LTS DTS
 
-dtschema/dtc warnings/errors:
+ .../devicetree/bindings/arm/sunxi.yaml        |   5 +
+ arch/arm64/boot/dts/allwinner/Makefile        |   1 +
+ .../allwinner/sun50i-h6-orangepi-3-lts.dts    | 351 ++++++++++++++++++
+ 3 files changed, 357 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/allwinner/sun50i-h6-orangepi-3-lts.dts
 
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250413085806.8544-4-linux@fw-web.de
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+-- 
+2.49.0
 
 
