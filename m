@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FFDDC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Apr 2025 09:04:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38122C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Apr 2025 09:06:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W28WfcAJpST8Dtovpq8Ep5E0UnnAP29jza5E8k0zwUc=; b=4YxB77dASSRX5mna++0mcYTp0F
-	NAxcXTg+9xi0ufFItqee/53orOe6YpUNTWrW/uDzLmDy4S+6BlLpu/XXUPuS5jF8M4iUNoQNZlC23
-	u7oBSVk0wx+hL1fpbhL0EKDiajpY9ReRNfr0ZbTuMavZeTH4ECcUJEgRjoCgcFcHxi6Tw+9X2H5bP
-	mZpjda7xx/Jyz4CkQIP4Vq4GuN6LuvIMEFbUEAjJyYzpMuE2u0hV+1+j4blnWFSciVPkFcXoFK0RM
-	BsrVwsQUC0dKDpLxk+Tq99W4kJWPxBpGRazYoz3jfwZSj7f8TVfE03/8TtFVmA5nFNLBlkIvPXCL0
-	2xonsDeA==;
+	bh=0bfhYzFpGn1B5RnzNyN51+I0POHsgnSqYypq5zUupqA=; b=Wg+qMXjYSbVOsJk+H2AHPcBMZp
+	zOFGTjA+U+7WtUVId7bPDF8uonYcDjV11NEcUp4vmybXohlA9kKwZ/cW3WroYpGMW1K06d6eJGYQ/
+	l0tLtK3M/OhdkdXYwBv+25FjswZo94QjVQUbzos/LVyNbhA1v6TWsWdKK3GLB4dwPkUy+cWC2A7DO
+	3wMfr8JX/P6TLt2FyTukckq1EikZHTYQDRlIR5tV4nDs+pQhQzdeQ0cpgHnid/Y1NGIVKsMpguTGy
+	PK3CQZZ3tX1wvuHfNMNEPtcSL+RHMhrpFuPO1XHMCdmOh+7F/2Puk+2T1DJbvQY5ZRapV/2hUxDHT
+	Ljiv2EAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3tFw-0000000GzGq-2A5C;
-	Sun, 13 Apr 2025 09:04:00 +0000
-Received: from mxout4.routing.net ([2a03:2900:1:a::9])
+	id 1u3tHl-0000000GzTl-3YRc;
+	Sun, 13 Apr 2025 09:05:53 +0000
+Received: from mxout3.routing.net ([2a03:2900:1:a::8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3tAN-0000000GylC-3c46;
-	Sun, 13 Apr 2025 08:58:17 +0000
+	id 1u3tAP-0000000Gylh-09Wh;
+	Sun, 13 Apr 2025 08:58:18 +0000
 Received: from mxbox1.masterlogin.de (unknown [192.168.10.88])
-	by mxout4.routing.net (Postfix) with ESMTP id 9D2E11000DE;
-	Sun, 13 Apr 2025 08:58:13 +0000 (UTC)
+	by mxout3.routing.net (Postfix) with ESMTP id 7FD6460533;
+	Sun, 13 Apr 2025 08:58:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1744534693;
+	s=20200217; t=1744534694;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=W28WfcAJpST8Dtovpq8Ep5E0UnnAP29jza5E8k0zwUc=;
-	b=g8PR66PEcKXygMIAAD/6t9416lGPgK0YiQiT1lftZJct9EmT40dbwrcbJxVpa0O2wSvmYx
-	rjtkJpbfqdLE2Qz+VbwWR6E34ycKsz4stgR3uWXnA3fTRgn4pjQFokikcQWx3QaxtAPUa1
-	u6iefurH9/HxO56PMPeGvkyT/R8lcbE=
+	bh=0bfhYzFpGn1B5RnzNyN51+I0POHsgnSqYypq5zUupqA=;
+	b=pCzmcJ1BcwSaDmCCw1UdgyY2Tn8jvDcYynkIZRXOv3KEw2hvW1Jvz42jNDdlX/zuTTcI8F
+	6LEXt/pxULn95Qzr2TZpIN9xnRsb6wYmOY/6Bcu1H14wO/bOSM4B4fT53vF5PTpPmWWZOC
+	T87WS5vWaPzwJRijvKHymcZtqUMkaWc=
 Received: from frank-u24.. (fttx-pool-194.15.86.153.bambit.de [194.15.86.153])
-	by mxbox1.masterlogin.de (Postfix) with ESMTPSA id B7EE84006C;
-	Sun, 13 Apr 2025 08:58:12 +0000 (UTC)
+	by mxbox1.masterlogin.de (Postfix) with ESMTPSA id 7FE4E40089;
+	Sun, 13 Apr 2025 08:58:13 +0000 (UTC)
 From: Frank Wunderlich <linux@fw-web.de>
 To: Chunfeng Yun <chunfeng.yun@mediatek.com>,
 	Vinod Koul <vkoul@kernel.org>,
@@ -60,18 +60,18 @@ Cc: Frank Wunderlich <frank-w@public-files.de>,
 	linux-phy@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [RFC 2/5] dt-bindings: phy: mtk-xs-phy: support type switch by pericfg
-Date: Sun, 13 Apr 2025 10:58:02 +0200
-Message-ID: <20250413085806.8544-3-linux@fw-web.de>
+Subject: [RFC 3/5] dt-bindings: power: Add binding for MediaTek MT7988 topmisc power controller
+Date: Sun, 13 Apr 2025 10:58:03 +0200
+Message-ID: <20250413085806.8544-4-linux@fw-web.de>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250413085806.8544-1-linux@fw-web.de>
 References: <20250413085806.8544-1-linux@fw-web.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Mail-ID: 79785311-ffeb-47ff-b83e-a442f86500dc
+X-Mail-ID: 9abf532c-77b9-424f-a697-dc702d13d513
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250413_015816_043136_269746F8 
-X-CRM114-Status: UNSURE (   7.39  )
+X-CRM114-CacheID: sfid-20250413_015817_229940_C311A0E5 
+X-CRM114-Status: UNSURE (   7.42  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,40 +89,67 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frank Wunderlich <frank-w@public-files.de>
 
-Add support for type switch by pericfg register between USB3, PCIe, ...
+Topmisc is a systemcontroller used for xs-phy and ethernet on  mt7988.
+Add binding for it.
 
 Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 ---
- .../devicetree/bindings/phy/mediatek,xsphy.yaml  | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ .../power/mediatek,power-controller.yaml      | 35 +++++++++++++------
+ 1 file changed, 24 insertions(+), 11 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/phy/mediatek,xsphy.yaml b/Documentation/devicetree/bindings/phy/mediatek,xsphy.yaml
-index 3b5253659e6f..5033d77c1239 100644
---- a/Documentation/devicetree/bindings/phy/mediatek,xsphy.yaml
-+++ b/Documentation/devicetree/bindings/phy/mediatek,xsphy.yaml
-@@ -151,6 +151,22 @@ patternProperties:
-         minimum: 1
-         maximum: 31
+diff --git a/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml b/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
+index 591a080ca3ff..60d2fc7963e5 100644
+--- a/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
++++ b/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
+@@ -22,17 +22,27 @@ properties:
+     pattern: '^power-controller(@[0-9a-f]+)?$'
  
-+      mediatek,syscon-type:
-+        $ref: /schemas/types.yaml#/definitions/phandle-array
-+        maxItems: 1
-+        description:
-+          A phandle to syscon used to access the register of type switch,
-+          the field should always be 3 cells long.
-+        items:
-+          items:
-+            - description:
-+                The first cell represents a phandle to syscon
-+            - description:
-+                The second cell represents the register offset
-+            - description:
-+                The third cell represents the index of config segment
-+              enum: [0, 1, 2, 3]
+   compatible:
+-    enum:
+-      - mediatek,mt6735-power-controller
+-      - mediatek,mt6795-power-controller
+-      - mediatek,mt8167-power-controller
+-      - mediatek,mt8173-power-controller
+-      - mediatek,mt8183-power-controller
+-      - mediatek,mt8186-power-controller
+-      - mediatek,mt8188-power-controller
+-      - mediatek,mt8192-power-controller
+-      - mediatek,mt8195-power-controller
+-      - mediatek,mt8365-power-controller
++    oneOf:
++      - items:
++        - enum:
++          - mediatek,mt6735-power-controller
++          - mediatek,mt6795-power-controller
++          - mediatek,mt8167-power-controller
++          - mediatek,mt8173-power-controller
++          - mediatek,mt8183-power-controller
++          - mediatek,mt8186-power-controller
++          - mediatek,mt8188-power-controller
++          - mediatek,mt8192-power-controller
++          - mediatek,mt8195-power-controller
++          - mediatek,mt8365-power-controller
++      - items:
++        - enum:
++          - mediatek,mt7988-topmisc
++        - const: syscon
++        - const: mediatek,mt7988-power-controller
 +
-     required:
-       - reg
-       - clocks
++  reg:
++    maxItems: 1
+ 
+   '#power-domain-cells':
+     const: 1
+@@ -43,6 +53,9 @@ properties:
+   '#size-cells':
+     const: 0
+ 
++  '#clock-cells':
++    const: 1
++
+ patternProperties:
+   "^power-domain@[0-9a-f]+$":
+     $ref: "#/$defs/power-domain-node"
 -- 
 2.43.0
 
