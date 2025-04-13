@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EE64C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Apr 2025 13:45:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FEA2C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Apr 2025 13:47:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hXQZ9yojQV6stSDTDo/eH4vyNLxCP0mp6bCX3lmKvKI=; b=iHkb1CI3WJa1AuHB2dw1WTvFyR
-	TPnyGnJZspYFRl9tKEkarBv36cMzwovG3+d0+beRy3ncXScvdoN4RKrOlZU+ZrdhbXi/I21M4QYN0
-	Gh86wpz/s+vt0sDBEU0lCVq5VwHusEwPcUyay5VlfnqE4N19QVjmvGGkXk6Kt0ZJ6M8I8eZ/D491i
-	QvUY9JKm/F8woCJ6E9/MRuVgFx1SxbVyOb85x/rCV43K1JUHljm7V6ckc1iMIv25xMR+t0oNk5oir
-	ZyZhUbelxSks1qvbIbb7CD7e1+y7j8sXvm0DWy6xuWNXifCb83rCYkeOkeT8egG9c3Q3b8rHaXcwL
-	N82+KPtw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xSogYBlrl731ThFJF3RuKmPw2V8Xexi9sOixYh0Nyzs=; b=oscuGa0iwSQ9Jb9BAW3r2Ibdbr
+	exbJxqCU+dbcHwqFgns2DqDSrQ+m5GzJQAxP9vywEIN3s+BLiOUT0Ea1Q1bhBVQ7mN4S/iHtSrdwO
+	jsUtbuX8raRPbNAgf5HRpk3IvZY/5CUQ93W0Qc7wJYjRopKlMaoVIRjFFplAJkC58bhjCxIAe3LXn
+	EUVuEM2B3ti8vzcQtn/NurG+aRBQxr3syRpJCzh4+iunKLSrt9qfOoX+wAzM0s2BXh01IXvqhCkru
+	ne6BWzq95EEyXO4tq/L0iAx3orFeBz7ZBleJEpuwgzM/WGEfLpk+uwYgBfoQAmFKv9hpQo1jGL00h
+	3H35bwow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3xeO-0000000HDo1-0uae;
-	Sun, 13 Apr 2025 13:45:32 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1u3xgC-0000000HDvW-42jm;
+	Sun, 13 Apr 2025 13:47:24 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3xcY-0000000HDaD-032R
+	id 1u3xcb-0000000HDae-37Ru
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Apr 2025 13:43:39 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-ac29fd22163so538268466b.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Apr 2025 06:43:37 -0700 (PDT)
+	Sun, 13 Apr 2025 13:43:42 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-ac3fcf5ab0dso590772466b.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Apr 2025 06:43:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744551816; x=1745156616; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=hXQZ9yojQV6stSDTDo/eH4vyNLxCP0mp6bCX3lmKvKI=;
-        b=GP5OQIEb9znBbcz/cU1XqA470RQCQ/opYJyoLU7VetFA9TW0YwzrT7rRBD47stS57O
-         9nZDARnGA0xEN//Hw209T1vrl7D1zWlIVBaIFijE7LKt3H2WusSwlueWq7SzGOPjlPmK
-         SuZjtP5e9fbbuE9zU9xnBXeLrbBT6VYAbW1edOawh181w4ZDqUFSk6EXehbmRaVTTsbC
-         V3fO2CTVERewmO6NHb7RiN3F8xzUT6+Fc41DqhxomiUPLCTU4UepyJ1Z05KHCZDcTkHJ
-         /jpzFFwPLnZ+AXqe90Ub2+3gZDqvSAslMBG9kNbuQJSDOn2sqKO1DNe/ZbKTudz2ODTD
-         CuAw==
+        d=gmail.com; s=20230601; t=1744551820; x=1745156620; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xSogYBlrl731ThFJF3RuKmPw2V8Xexi9sOixYh0Nyzs=;
+        b=YU5Grx10h7LRIWKGbysqEvAeOd7SAEB5k3s6ola2SlPjSvqLQBhyAfIWcuCrhEcbl0
+         DiV8R2y8jnSWdZ8bo/HH50gTWtpRu/N+ztzPy0sWhdXWl36xUOVY/E3q1hDuk/dH+3Rx
+         eNsQ42bIU1U3KiMetB1NXdAVSG7GoYCmgY1rDq8kUQTv3yAqIOzH/snDjoAWOuyEqUZX
+         mtgGoAJD2oN8gLlJWRnIpDlRSLKEtI1XTMxdmMLDt347xMdSnEE4PO85mZvbwcpXPLEw
+         ocI0pr05riQ7AbK5FAV6JZKGKGK+wgQfgi8wcur1v79to8ZqYoAYvSDoh0Mw32sC27ky
+         mSIw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744551816; x=1745156616;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hXQZ9yojQV6stSDTDo/eH4vyNLxCP0mp6bCX3lmKvKI=;
-        b=wAbaTe3bnLCP+JiTHKquqHto1pilvmctA1SikYMMA/P57fsrZMzOqGAVnZRqmf47jt
-         tWrN1+SLxyY2pVnCT9BwUM64z1KKAm8xi3ZqD6PO2pKbcoJbtBHz0cb91j9/YvTkwE67
-         huuTd17Dzvl/fQFHrmPm40/tKu7t23f8Jl82hiU/IGj1fhjDm3KUz23A+bHB2PKwPUB7
-         WeV38IiB27n4B+2YbpUdK+nYkIu9LIf4YE9gbj9DgbV+zCk4WlDwpmbjZjBiskxvjmyX
-         lWSs+Pj2jOfRxE9axxVrAuRvpzo0BjgshxYdzZKCYwR1WL4YwebK4zIslo/PQM5pnowF
-         N1XA==
-X-Forwarded-Encrypted: i=1; AJvYcCWZbHQN62vm2rSnVtcMPt61HFewz/ltNF4YeIKCnAAcxcHJYYZw1ir9XVh0vcfxZ/fll69u8CPWZc6p7/SPFPX2@lists.infradead.org
-X-Gm-Message-State: AOJu0YygXC12o9ND2zswGrNkGN/HKwHUe9DarkJTo8NgdtiCVIrqaoV/
-	XWwUJ/dlZ/u+6KSsZ/ZDfT7q1kIglyo+ptXQ+W9kdFEE7vlQvt2f
-X-Gm-Gg: ASbGnctcBt+pEHnEg5qmC4yAUAk6yihxW36NllMYX04+idXaGql9NBz6HY53Q2aQ1nN
-	mwFxnR1vCS0vpHamBIvvEzBlxuhjxb6ZDOUGS0cAorMGAPK3MkRTQEM+U/o9RHXvUXe7NAGcK5Z
-	hsPprkWwkZIadIUUIaQJIMTTRzhQuEsax8O3Oz0bdQhcKoNpvZohb8cuxcBsHrBCa9pRIyERUCW
-	R0MuwSpsJkMFgM9i+cBx8KpWnCArEYaEcsBUupvM/T6ZgHJbV8ihi+y962Dk3wGuq/kQIWFZf3n
-	/rCQJeUEEUwQxilWeEpy+gBAt8J9A/QJndn27z/6TYR06gQVldyoY8K4Ewk=
-X-Google-Smtp-Source: AGHT+IEOIJ1i4Kh+VcM9sFRP+cgJp2vQQUT+Pqo4qfUY0eHTw4Probs6u1rivZcSvRWydAIs1ARTVQ==
-X-Received: by 2002:a17:907:3c95:b0:ac6:ffb0:a2be with SMTP id a640c23a62f3a-acad36a0809mr750895066b.47.1744551815575;
-        Sun, 13 Apr 2025 06:43:35 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1744551820; x=1745156620;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=xSogYBlrl731ThFJF3RuKmPw2V8Xexi9sOixYh0Nyzs=;
+        b=T0pSUKWrWi/9yT4tBlWNJar5/u8ak+SwqvHsRW8M2QGgjtr1+qvIYrwDVonhdb7LcX
+         i8Q42lUIInyQJbRlp4oTbY/p2a5vJCIFOhhZc/oTNBPrg+O97jxhD5IrxocSpKicK9+W
+         1UIl3GdCJCJbm1CD2Qd/eyVsmvMrJFxl1b4Ig7A+2SZj3VIYxi1T5hPT9k12GY3dZo1Q
+         ndxPzdtQ0LPact3BrFU4l3SRp1nR+OkRcSMs9cUYBVIgA6Jflez1+rVsnsQFGRuak9au
+         5ICScJp67rTDY6HwxuiMGhqIHmCk6n1SaGrNRIyV87FYWblkQx0rp0MF1rgVtX1DXqzn
+         8+UA==
+X-Forwarded-Encrypted: i=1; AJvYcCUm0mwDVva97ujF/CvHQK4vEvlbePxwXkBtxSZgn+bGns2rP3U+B6wLk1yiHp7sCLtl6v5CemdunP1qYV1YLIrU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw28ZcXhe97XdXHKIqJcQ+2M0kj0KdukNinJGUqJqZtyvi+/LoV
+	spMxFafyrEDwMwhinNVv4P0HTZTwmY9Frynm1aNnEVAonE1x/gXQ
+X-Gm-Gg: ASbGncvHDJuZMysH8NSVgCewuBF8tII/fIal5DgNwoXCLNKO0TUiam/mpU2WhTxc+Gm
+	2sLUZ88NlEfzBWlWnzmf7MI7EQD6sWS17r+ZML1mn+roPqVrjKfxbp7y4Qpnbd+cVsbsGYO8qfs
+	WxJMkgzSUvQkcZ/uS9fnGXUMXDGD90g54TGW4GfN/ktj82yz69/n4wXdpUJm1kC0GRRyK4BDynn
+	x0e+l0uFLowIvFHGthP4IMrtE9MNmR74etZOJ/MPJie4+oSvLP03fcGQ9DJ3rvKFkSgg+UQfA2P
+	+6wQbN/6dPUco3hb3Ce1Wo3YB8wOZr+08UCQPh4xBSJbxjJijAm4nYIQBlk=
+X-Google-Smtp-Source: AGHT+IG6IIvTcbFlePkAwHT/05Hid/xlS3qf9C/W84/Ywcx7O1L5k60TXgJeL0SSV6porQsrQjvvUw==
+X-Received: by 2002:a17:907:9728:b0:aca:cc55:fd35 with SMTP id a640c23a62f3a-acad36d901fmr776146866b.56.1744551819626;
+        Sun, 13 Apr 2025 06:43:39 -0700 (PDT)
 Received: from localhost.localdomain ([37.248.246.92])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-acaa1be95d0sm749422666b.55.2025.04.13.06.43.31
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-acaa1be95d0sm749422666b.55.2025.04.13.06.43.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 13 Apr 2025 06:43:35 -0700 (PDT)
+        Sun, 13 Apr 2025 06:43:39 -0700 (PDT)
 From: Jernej Skrabec <jernej.skrabec@gmail.com>
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -78,16 +79,17 @@ Cc: wens@csie.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Jernej Skrabec <jernej.skrabec@gmail.com>
-Subject: [PATCH 0/2] arm64: dts: allwinner: Support Orange Pi 3 LTS board
-Date: Sun, 13 Apr 2025 15:42:55 +0200
-Message-ID: <20250413134318.66681-1-jernej.skrabec@gmail.com>
+Subject: [PATCH 1/2] dt-bindings: arm: sunxi: Add Orange Pi 3 LTS board
+Date: Sun, 13 Apr 2025 15:42:56 +0200
+Message-ID: <20250413134318.66681-2-jernej.skrabec@gmail.com>
 X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250413134318.66681-1-jernej.skrabec@gmail.com>
+References: <20250413134318.66681-1-jernej.skrabec@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250413_064338_064727_8982F818 
-X-CRM114-Status: UNSURE (   9.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250413_064341_780336_66A87210 
+X-CRM114-Status: GOOD (  10.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,37 +104,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Orange Pi 3 LTS has similar functionality to Orange Pi 3 with slightly
-different hardware. 
+Orange Pi 3 LTS board is similar to Orange Pi 3, with slightly different
+hardware but mostly same functionality. It has less options than
+original variant. eMMC was optional before, now it's always included.
+2 GB RAM is now standard, previous variant also has 1 GB RAM version.
 
-OrangePi 3 LTS has following features:
-- Allwinner H6 quad-core 64-bit ARM Cortex-A53
-- GPU Mali-T720
-- 2 GB LPDDR3 RAM
-- AXP805 PMIC
-- AW859A Wifi/BT 5.0
-- 2x USB 2.0 host port (A)
-- USB 3.0 Host
-- Gigabit Ethernet (Motorcomm YT8531C phy)
-- HDMI 2.0 port
-- soldered 8 GB eMMC
-- 2x LED
-- microphone
-- audio jack
+Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+---
+ Documentation/devicetree/bindings/arm/sunxi.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-Best regards,
-Jernej
-
-Jernej Skrabec (2):
-  dt-bindings: arm: sunxi: Add Orange Pi 3 LTS board
-  arm64: dts: allwinner: h6: Add OrangePi 3 LTS DTS
-
- .../devicetree/bindings/arm/sunxi.yaml        |   5 +
- arch/arm64/boot/dts/allwinner/Makefile        |   1 +
- .../allwinner/sun50i-h6-orangepi-3-lts.dts    | 351 ++++++++++++++++++
- 3 files changed, 357 insertions(+)
- create mode 100644 arch/arm64/boot/dts/allwinner/sun50i-h6-orangepi-3-lts.dts
-
+diff --git a/Documentation/devicetree/bindings/arm/sunxi.yaml b/Documentation/devicetree/bindings/arm/sunxi.yaml
+index f536cdd2c1a6..f417745c799e 100644
+--- a/Documentation/devicetree/bindings/arm/sunxi.yaml
++++ b/Documentation/devicetree/bindings/arm/sunxi.yaml
+@@ -981,6 +981,11 @@ properties:
+           - const: xunlong,orangepi-3
+           - const: allwinner,sun50i-h6
+ 
++      - description: Xunlong OrangePi 3 LTS
++        items:
++          - const: xunlong,orangepi-3-lts
++          - const: allwinner,sun50i-h6
++
+       - description: Xunlong OrangePi Lite
+         items:
+           - const: xunlong,orangepi-lite
 -- 
 2.49.0
 
