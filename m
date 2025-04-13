@@ -4,59 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 538F8C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Apr 2025 22:17:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 504F3C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Apr 2025 22:43:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8AmqSYOxZ/Gz3faSrpjU3mtHcQAqTD8Ixyo/dOVw2R8=; b=ASlnelpma8SXbzyMwNeTxImcqL
-	zHNeZW3B9nH/pkRIzNlOhKtxbiTg+Kgxr9LEb9rB8dRqZNGPh2hlqo7+B6NIvKcEUIhWxmRffkXGa
-	om0jSDyo2pMMkQdKk+Uql+L1wQ0Vb+xELgZMGlTU8XIojtqBhIkbtuRpDiqT/ozyxvpW32A7Kl08m
-	W9VJJkNPK+j6IQrwE/qWKoa+u9WpdxVOU+q/dW2K02Im9T45G1cPVS80mWYHizsEsrNDY189FRzBF
-	1I9FftJwOMg2wTZsmaKiRJfVAm1p5FUu5vxKcSkUCdYeAapBxhOor3t8rTlEirFqwdld2RMK6mYo2
-	JWCQAXBQ==;
+	bh=yZKPPgLOnaA6LtXNLTqGU/0863A2eFjmUO8YRdkWJA4=; b=XV4/EtnC5BJxTLgr8dKrfHRvby
+	zFLFysEwzg9dQP0nDzGTbDaD8ANNTXqdvM4qhXRxoBt0RJc7pSfx5894IvpuNQe3MFlafDBPju8St
+	GRGcFYya4DYZ1rbjjQzylZoeVHwC1vHyMRFge+718XCBgR5T3vTQZagFHp5khOObZZHi1PMWTNxTV
+	tEbYhDpOYD+kHM1GWAkZnrdT7I7yzCWluFRdysRcSGbu9qzcXuiEgWe0V2pyuzVfO4l0O4wPWYCYw
+	T/cMhsXLhUlTecxtvEAOennhpIRUeEVGQtLfzg+6VCvRPCpgkTEAvt0wTIwzRjCiJA6UGBaJkhFCY
+	v/R690fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u45dq-00000000Ee2-1Evi;
-	Sun, 13 Apr 2025 22:17:30 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1u462L-00000000HTI-30w9;
+	Sun, 13 Apr 2025 22:42:49 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u45c0-00000000EY2-0ufZ
+	id 1u460U-00000000HMZ-2sHm
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Apr 2025 22:15:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 038AC5C4DAE;
-	Sun, 13 Apr 2025 22:13:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97F55C4CEDD;
-	Sun, 13 Apr 2025 22:15:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744582533;
-	bh=JoJ6FwrMtTQecT32IcduAeWImMav6us8t8dtC+zaacA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jqZUGnUtyqI+w2LEhI8JPXPaCRsjcIjrdDEnr8Ce4Y0mDp3/4WB7vxmVHsEn83DRT
-	 Gp1pB8XvG1nTGz9Py3aAijt0BEAe1Dw22pyTORAIp0sdhSHwGDd0kNqvUe4vmqNAb/
-	 MmaJBoDMq55LWDButr3Dx2h6dtVHo8d9YZ8+rHI4XYloqSWPnZibpeAk1eC7QnYYro
-	 tJ/Ir6GUtq0xGK6e9Qlw93jo0PFFawSiD6xiGQIeaTAX3zdUfqXR6cloIFnmh9RdMV
-	 ZTgs29kjrhfucHQI1D5v0jQ5dmUIoyqupCub4f2P1vzhj72jYfPIS79pUDvlogt1ui
-	 b79PGBS6da25g==
-Date: Mon, 14 Apr 2025 00:15:28 +0200
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Chenyuan Yang <chenyuan0y@gmail.com>
-Cc: vz@mleia.com, wsa@kernel.org, manabian@gmail.com, 
-	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] i2c: lpc2k: Add check for clk_enable()
-Message-ID: <l4e6yznusqnkc4czvwywcrxbqxqjld32udulb23rcempj7f6dc@grj6y5hbv7y4>
-References: <20250412193713.105838-1-chenyuan0y@gmail.com>
+	Sun, 13 Apr 2025 22:40:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=yZKPPgLOnaA6LtXNLTqGU/0863A2eFjmUO8YRdkWJA4=; b=MIKCdwdTxzfm3nfeLK8y3tQrPx
+	GMWv72wuecKr72/MAFovpO4qbGD8I8Cg87KO745HF+Dl2ZGdoRMUpfuvoSf6yXBRRTe2iQkYFgt5N
+	gTgOojG7ShUf0rqNK0xgzGqV98HMv0Wt5sUzlFYynzlhBnuxaPq71cYgyT1uzoplz+w3uIh01v9l4
+	Hf2qzDPOtxo34Of4kFQtbMgRdoq3O3qk5twXCMkm/hToxF3aPri/nuuO9fb0Jj1t/0F2VYhb9hTVd
+	Hb/QX10GHmk4NCgEVTuuwwgMFo4aVF5HPtRgGMvY1wZFwnOZFqbArFnPzIXNymN4kx2OdP1MDtbnB
+	RlZiSjtA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:42456)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1u460K-0005hA-0X;
+	Sun, 13 Apr 2025 23:40:44 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1u460G-00072n-0w;
+	Sun, 13 Apr 2025 23:40:40 +0100
+Date: Sun, 13 Apr 2025 23:40:40 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 4/4] net: stmmac: anarion: use
+ devm_stmmac_pltfr_probe()
+Message-ID: <Z_w9aE62dqOdr4w9@shell.armlinux.org.uk>
+References: <Z_p16taXJ1sOo4Ws@shell.armlinux.org.uk>
+ <E1u3bfU-000Em3-Mh@rmk-PC.armlinux.org.uk>
+ <acd537c9-51f2-4d5c-a07d-032ea628d241@lunn.ch>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250412193713.105838-1-chenyuan0y@gmail.com>
+In-Reply-To: <acd537c9-51f2-4d5c-a07d-032ea628d241@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250413_151536_304023_708CC32D 
-X-CRM114-Status: GOOD (  10.99  )
+X-CRM114-CacheID: sfid-20250413_154054_853724_B1DEA7C9 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,22 +89,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Chenyuan,
-
-On Sat, Apr 12, 2025 at 02:37:13PM -0500, Chenyuan Yang wrote:
-> Add check for the return value of clk_enable() to catch
-> the potential error.
+On Sun, Apr 13, 2025 at 11:10:24PM +0200, Andrew Lunn wrote:
+> On Sat, Apr 12, 2025 at 03:17:12PM +0100, Russell King (Oracle) wrote:
+> > Convert anarion to use devm_stmmac_pltfr_probe() which allows the
+> > removal of an explicit call to stmmac_pltfr_remove().
+> > 
+> > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 > 
-> This is similar to the commit 8332e6670997
-> ("spi: zynq-qspi: Add check for clk_enable()").
-> 
-> Signed-off-by: Chenyuan Yang <chenyuan0y@gmail.com>
-> Fixes: 3f9c37a0c9a5 ("i2c: lpc2k: add driver")
+> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-I removed the Fixes tag, I think it's a bit of an overkill.
+Thanks - but nipa found an error in the patch - s/&pdev->dev/pdev/
+with the new call. Ditto for "net: stmmac: anarion: use
+stmmac_pltfr_probe()" so I'll be sending a v2 for both. Do you
+want me to keep your r-b with that change for both patches?
 
-Merged into i2c/i2c-host.
-
-Thanks,
-Andi
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
