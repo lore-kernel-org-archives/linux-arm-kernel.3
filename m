@@ -4,59 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0435EC369B1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Apr 2025 15:19:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A61DC3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Apr 2025 15:21:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ett+VizRhadybfgCz9Z9BwiUIHEbMf+I7ZtCJycORfI=; b=SaMRdP3cmEcMeUEbhcupz8PgUm
-	1wzkmfZ7kAh2z2n0Ibh08SYq/AD4arpBST6xEXSpoOYlAQnjzLfrbVDIXoTcCYthOCIyn+Qe4rhaV
-	OL97rGkJgl4eIVsYcIHxell52quxM5GA690qRRvoxEVZsC74weA59X5INzpQ0jmRlWOZJDpphtlyh
-	ZWrprvnAy8IOgH6jQQgI1gXpT/9XcuHoO8G0tcV3+YKq7uYt/04qkETjWNymh6DjOOevbZXVGByVr
-	H5LKZ2JuzB6GB6GCSSbwCjKm3YfRGR0pRz6/11H7l1Bx+2AhT9WH/2QbwpCUCIeDm1wFHfyXTS1be
-	W6klYfSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t5SxyZdFhsBdqIFHmGXVTKr/6RFpFPtSv5Kv+4B1G54=; b=NuR6Gnz9FSLuRO058JZ+rUsnHq
+	jhkME7HFblbV/khtIBAXwZZYQkfYxmaJsfhJIcbWNqS/UhHqvHSYV6+jJTmhEcsJtQsRwGcSA3KFQ
+	aefc+IJvujBi/3B1Xl5BEGOwIYWT5aFMyU0Zc7k6b1pM97CdkXdf64d+jMpFMcNlNI64Dwt/dGPJ2
+	GcSQ/VDyTN/o+DxvraLYNo7XT+fXE49em2bjHQj8UXrmWTnRQkJZxfJRfJoEdINnR8x3l1obvaT6I
+	I6GByzhVcgm/csz/gcJSPkHlVjQgRp8LdeLCK6I9jjpNU5jzKIYriVPBVktY/eRdG1L6uWT0iVPFn
+	wbV55m8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3z7b-0000000HJls-2zlZ;
-	Sun, 13 Apr 2025 15:19:47 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u3z9Q-0000000HJvG-211Q;
+	Sun, 13 Apr 2025 15:21:40 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3z5l-0000000HJf0-0LJh
+	id 1u3z6Q-0000000HJhR-3DY3
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Apr 2025 15:17:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2AF51A4020F;
-	Sun, 13 Apr 2025 15:12:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 232A3C4CEDD;
-	Sun, 13 Apr 2025 15:17:51 +0000 (UTC)
-Received: from wens.tw (localhost [127.0.0.1])
-	by wens.tw (Postfix) with ESMTP id 0DCE75F939;
-	Sun, 13 Apr 2025 23:17:48 +0800 (CST)
-From: Chen-Yu Tsai <wens@csie.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Ryan Walklin <ryan@testtoast.com>
-Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org, 
- Chris Morgan <macromorgan@hotmail.com>, Rob Herring <robh@kernel.org>, 
- Philippe Simons <simons.philippe@gmail.com>
-In-Reply-To: <20250214220247.10810-1-ryan@testtoast.com>
-References: <20250214220247.10810-1-ryan@testtoast.com>
-Subject: Re: (subset) [PATCH v3 0/5] ASoC: sun4i-codec: add headphone
- dectection for Anbernic RG35XX devices
-Message-Id: <174455746802.3439512.6704778087672497474.b4-ty@csie.org>
-Date: Sun, 13 Apr 2025 23:17:48 +0800
+	Sun, 13 Apr 2025 15:18:35 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-22409077c06so46607315ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Apr 2025 08:18:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1744557514; x=1745162314; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=t5SxyZdFhsBdqIFHmGXVTKr/6RFpFPtSv5Kv+4B1G54=;
+        b=oPDzsV3RvDaYpWKZsoCwXt9bmTuhrSx94wwPzJ9jRVq7+9IZMZvZR83bCq5YtM6xCk
+         6IicjviSQJKELh8JL6limSZFIM4MiOGlJ2vq66XV+K7jn+kgP92lGgxPgFdMfrrkh02B
+         mnC+mG/8CJDC5z/ZtECsbdhxgJn5XcuTaT9ZhrSHIMUSEs4Ap38zpH3Csqlkw0NGmaqE
+         kfwg4LmczcNxnepD2khDavUtR381V5sAJm9OU4RBiCLdk3tDHWgsNukrLfGSrgwIRM/p
+         VCMEW2IfxSg3ktUgJxwl9AArlgh3f3FNkMcya9UEzNS8qeeNxBUUAemQexL/VEArlcyc
+         k72Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744557514; x=1745162314;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=t5SxyZdFhsBdqIFHmGXVTKr/6RFpFPtSv5Kv+4B1G54=;
+        b=Co8IsyqQ3hM4/Eb9RrzECOlt+NbHOIxvmnNwDjgipCByMV4qNj+YAz9LhZiCCPuQCD
+         0jwBU0EPE44mV6rXN2S76uuuOQimcaZ9F8eFQ4N2HH/ErNFnFTsTTM2jd50mTp5LAwrp
+         OmJeb1v3KpiBEEqZw83UY7ZhaSPFrJkwRimKcGSOct/gtp2Hhi8sL7aJh5SCCC/H6/p/
+         byxMqF8tmn5pRDtTl649qigBFsO9Uu9cdisOp0d1vtRD9KAI5t8bv1P+YtM0nN9Zw/y6
+         4HlTaIGHpjx1yFP7i5iyROmJXp4fnX+pujg+qYbBFh+7XkcxHSe86wDQ/Y99WzJ0an0t
+         fltw==
+X-Forwarded-Encrypted: i=1; AJvYcCVGt02W9H0SnevxeErfAgioRao57475xqqhqU+R1gejy6cVZb3bdQHCKyxzxhdCE6VrFZip6KiBgSbf6iTprPrr@lists.infradead.org
+X-Gm-Message-State: AOJu0YwB5iPqz+w24jfhKWO6cgml5QRlBOGRfJynStI55Mcqx6xeghGF
+	xsrbeooagyoIZgu8xbJZ0K+sgdmJjZVv8Z2yFnMUbsjsKjx2+8mStLiRY1RPDQ==
+X-Gm-Gg: ASbGncsOSPAohfcX5iu2wPcJtE5900a6tEeLXPKCYOX6KGI3j8S4CNO0ppymboeOvK7
+	dbLKtBML4pxME5QFfxG9lbaRjNKtBzH6fxW8caZllGVdWSe1NQtntJopLxUk4cB47rWVE7Dv7hr
+	IgXSNUCwFwYIwvIwtLr8XjGFBnjo27I5j/oRPnS4rWdUoytXM2CeZjuJdnql3gu6+JB5R7z4bS8
+	bBGn/ljnIVf5S9BgYMg7SklOrF9Hm6tGVbRig8LaT0gxqs2Z4NVNkudUEvJ6ozwGGZXSMVD8QsU
+	ghpRyXP6mb15IcQ3Tz7WhAJEj3VS143Fi2IjG3YwE+RLag+DCLH1
+X-Google-Smtp-Source: AGHT+IHDZ8f7JVDhbxKzAwHoGnI3IfIzM3yHwUjNE3PyS9q8zuAZM5A71PAC0QwIseLe1+9XzUcjmQ==
+X-Received: by 2002:a17:903:2309:b0:220:c813:dfcc with SMTP id d9443c01a7336-22bea4f1ab1mr152530195ad.40.1744557513757;
+        Sun, 13 Apr 2025 08:18:33 -0700 (PDT)
+Received: from thinkpad ([120.60.137.231])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22ac7cb59a6sm83980095ad.203.2025.04.13.08.18.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 13 Apr 2025 08:18:33 -0700 (PDT)
+Date: Sun, 13 Apr 2025 20:48:25 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org, 
+	kw@linux.com, robh@kernel.org, bhelgaas@google.com, shawnguo@kernel.org, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 3/7] PCI: imx6: Toggle the cold reset for i.MX95 PCIe
+Message-ID: <pnc2kgveacnox4kbdamggp6p7pjmuyan6lwucdgzyqg3u75uo7@bb6bnsy75e4x>
+References: <20250408025930.1863551-1-hongxing.zhu@nxp.com>
+ <20250408025930.1863551-4-hongxing.zhu@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250408025930.1863551-4-hongxing.zhu@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250413_081753_186943_B4F3C403 
-X-CRM114-Status: GOOD (  10.35  )
+X-CRM114-CacheID: sfid-20250413_081834_810579_BE081D4F 
+X-CRM114-Status: GOOD (  22.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,24 +102,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 15 Feb 2025 11:02:22 +1300, Ryan Walklin wrote:
-> V3 of this patch adding headphone jack detection support to the Anbernic RGnnXX series of handhelds. V3 corrects my misunderstanding of derivation of ALSA UCM file paths, and adds recieved Reviewed-by and Tested-by tags. Thanks to those that have reviewed and fed back on previous versions.
-> 
-> Original message below:
-> 
-> This series adds the required device tree bindings to describe GPIOs for jack detection in the sun4i-codec driver, adds support for jack detection to the codec machine driver, and describes the hardware configuration in the RG35XX DTS. The existing speaker amplifier GPIO pin can then be used in concert with jack detection to enable userspace sound servers (via an ALSA UCM configuration) to disable the speaker route when headphones are connected.
-> 
-> Thanks to Chris Morgan for his assistance putting this series together.
-> 
-> [...]
+On Tue, Apr 08, 2025 at 10:59:26AM +0800, Richard Zhu wrote:
+> Add the cold reset toggle for i.MX95 PCIe to align PHY's power up sequency.
 
-Applied to dt-for-6.16 in git@github.com:linux-sunxi/linux-sunxi.git, thanks!
+Please avoid spelling mistakes in the commit messages.
 
-[4/5] arm64: dts: allwinner: h700: Add hp-det-gpios for Anbernic RG35XX
-      commit: 69714722df19a7d9e81b7e8f208ca8f325af4502
+> 
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
 
-Best regards,
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+
+- Mani
+
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c | 42 +++++++++++++++++++++++++++
+>  1 file changed, 42 insertions(+)
+> 
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index c5871c3d4194..7c60b712480a 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -71,6 +71,9 @@
+>  #define IMX95_SID_MASK				GENMASK(5, 0)
+>  #define IMX95_MAX_LUT				32
+>  
+> +#define IMX95_PCIE_RST_CTRL			0x3010
+> +#define IMX95_PCIE_COLD_RST			BIT(0)
+> +
+>  #define to_imx_pcie(x)	dev_get_drvdata((x)->dev)
+>  
+>  enum imx_pcie_variants {
+> @@ -773,6 +776,43 @@ static int imx7d_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
+>  	return 0;
+>  }
+>  
+> +static int imx95_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
+> +{
+> +	u32 val;
+> +
+> +	if (assert) {
+> +		/*
+> +		 * From i.MX95 PCIe PHY perspective, the COLD reset toggle
+> +		 * should be complete after power-up by the following sequence.
+> +		 *                 > 10us(at power-up)
+> +		 *                 > 10ns(warm reset)
+> +		 *               |<------------>|
+> +		 *                ______________
+> +		 * phy_reset ____/              \________________
+> +		 *                                   ____________
+> +		 * ref_clk_en_______________________/
+> +		 * Toggle COLD reset aligned with this sequence for i.MX95 PCIe.
+> +		 */
+> +		regmap_set_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_RST_CTRL,
+> +				IMX95_PCIE_COLD_RST);
+> +		/*
+> +		 * Make sure the write to IMX95_PCIE_RST_CTRL is flushed to the
+> +		 * hardware by doing a read. Otherwise, there is no guarantee
+> +		 * that the write has reached the hardware before udelay().
+> +		 */
+> +		regmap_read_bypassed(imx_pcie->iomuxc_gpr, IMX95_PCIE_RST_CTRL,
+> +				     &val);
+> +		udelay(15);
+> +		regmap_clear_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_RST_CTRL,
+> +				  IMX95_PCIE_COLD_RST);
+> +		regmap_read_bypassed(imx_pcie->iomuxc_gpr, IMX95_PCIE_RST_CTRL,
+> +				     &val);
+> +		udelay(10);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  static void imx_pcie_assert_core_reset(struct imx_pcie *imx_pcie)
+>  {
+>  	reset_control_assert(imx_pcie->pciephy_reset);
+> @@ -1739,6 +1779,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+>  		.ltssm_mask = IMX95_PCIE_LTSSM_EN,
+>  		.mode_off[0]  = IMX95_PE0_GEN_CTRL_1,
+>  		.mode_mask[0] = IMX95_PCIE_DEVICE_TYPE,
+> +		.core_reset = imx95_pcie_core_reset,
+>  		.init_phy = imx95_pcie_init_phy,
+>  	},
+>  	[IMX8MQ_EP] = {
+> @@ -1792,6 +1833,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+>  		.mode_off[0]  = IMX95_PE0_GEN_CTRL_1,
+>  		.mode_mask[0] = IMX95_PCIE_DEVICE_TYPE,
+>  		.init_phy = imx95_pcie_init_phy,
+> +		.core_reset = imx95_pcie_core_reset,
+>  		.epc_features = &imx95_pcie_epc_features,
+>  		.mode = DW_PCIE_EP_TYPE,
+>  	},
+> -- 
+> 2.37.1
+> 
+
 -- 
-Chen-Yu Tsai <wens@csie.org>
-
+மணிவண்ணன் சதாசிவம்
 
