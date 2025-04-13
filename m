@@ -4,79 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB12DC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Apr 2025 20:04:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53F41C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Apr 2025 20:11:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xlS7E6p7Ytas9vZrt7ZYXwDtW9ob9dINKkIh4Z/X1ik=; b=AUItgYGJt68goRMQ0ViWlKrj+8
-	5PGDH3HfvajaXc7jbI+2C+CbL33zxKa8/6WNqt7khgbwdDDeUzMI8yRsMRAAtRsE8P+mYJmDVTNNw
-	6qd7vtuyKc+kH8puodDSfP11PuNkL423tgLjmliQSwBEATntXvtcjz/ArYc9TIPHsj3psmRisjzUD
-	yGL7ZZ4UogVO5pnh/9x+xKD2LPuz0JpCnn8mgQz2tGeYVpd9U1houzXAXruO5EGWLFXTTk+Q8ciy6
-	EbdxtFNiAUviQJFLZgZ6NZQvTrphLgY6wIq/Kr/j+z9AWdugxlmYl8LewzASKQqdF3VlXZy40YHKO
-	BEFsf4qg==;
+	bh=4+bWvLNfqVXKoM92yRwQ99BQCTFezGqLq0CQ17PjyRk=; b=WP4+HBqxjlfBFS4oWT5IL/HZ9B
+	MsJE4C7+sd48EW922prMNFx0W06FJThi1f1oMNX/lqckjAXOFrLkzfZHyV1OPUxv2L+n/caZSZJCf
+	HSJx9nyIBI7nPZcl3NEj/Xkd9LBSV/jLuCJ3arXyTEj54wbCKOamtLzRxw5c2NQjynP6NHXQTPgQK
+	wlMICHaMKkyAaCYfZnO4pRHRxTonMhgZY+LWnFtKhKlPG2qrcjw4ikeu1wNTk9VrDpv7SsDWIugE2
+	9Txpgdf4hOywJ7IwGQCji+O+ZbBQ8xnRvqptEd1QuFngeN3SH7tXuvUOOlJgvII/RF3pnT98nrABs
+	+KbqXYfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u43Yp-000000004l0-1a8m;
-	Sun, 13 Apr 2025 20:04:11 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u43fb-000000005Pr-2Ksx;
+	Sun, 13 Apr 2025 20:11:11 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u43V8-000000004DN-1mWz
+	id 1u43dl-000000005E0-17dF
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Apr 2025 20:00:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 811855C352B;
-	Sun, 13 Apr 2025 19:58:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18373C4CEE7;
-	Sun, 13 Apr 2025 20:00:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744574421;
-	bh=+Fq0MhmsH1itLSjdDC0e0AQDvHDYfYtdZa0fZk4m4G8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=I7etbMb4XdA3KK4rodjXK+gs7WJKkTNURpYg1Dm3lmMi0djrpCanbW0EMa1nU7NgG
-	 2m9IMgPYgfqHVSx3hNRxMTiGSv596a7uN8rGHOVN4C2Y6+5refmXtRlnnNYx1t68WI
-	 ThOA3/zPpfS2ql5xJy7ecnRSV9lHnVMRbDbJW7qX/GlkALVy1Xyl8JfuN9V1NAZ7Fp
-	 VFjpzfocCRa1cc4gVTkn9hclofT6PEcML1iQJb1X4y4mGvpGdXlGssK20oAL4hI2py
-	 vFuYL+IiJOje9CSjjDInkdrDbO15+Giymo5Njey3/KkhpB48k0zKHvb2tTdb+uodP4
-	 0+q2UgFBlyqSg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1u43V4-0051hr-Fo;
-	Sun, 13 Apr 2025 21:00:18 +0100
-Date: Sun, 13 Apr 2025 21:00:23 +0100
-Message-ID: <87v7r7ygq0.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org,	linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org,	linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev,	Alyssa Rosenzweig <alyssa@rosenzweig.io>,	Janne
- Grunau <j@jannau.net>,	Hector Martin <marcan@marcan.st>,	Sven Peter
- <sven@svenpeter.dev>,	Bjorn Helgaas <bhelgaas@google.com>,	Lorenzo
- Pieralisi <lpieralisi@kernel.org>,	Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?=
- <kw@linux.com>,	Rob Herring <robh@kernel.org>,	Krzysztof Kozlowski
- <krzk+dt@kernel.org>,	Mark Kettenis <mark.kettenis@xs4all.nl>
-Subject: Re: [PATCH v3 01/13] PCI: apple: Set only available ports up
-In-Reply-To: <k3wj3wkk3cymyacboalkhe2fa7jvkpuehq4knpsouoyhvoavpl@bafg4oakp4lr>
-References: <20250401091713.2765724-1-maz@kernel.org>
-	<20250401091713.2765724-2-maz@kernel.org>
-	<k3wj3wkk3cymyacboalkhe2fa7jvkpuehq4knpsouoyhvoavpl@bafg4oakp4lr>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: manivannan.sadhasivam@linaro.org, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, asahi@lists.linux.dev, alyssa@rosenzweig.io, j@jannau.net, marcan@marcan.st, sven@svenpeter.dev, bhelgaas@google.com, lpieralisi@kernel.org, kw@linux.com, robh@kernel.org, krzk+dt@kernel.org, mark.kettenis@xs4all.nl
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Sun, 13 Apr 2025 20:09:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=4+bWvLNfqVXKoM92yRwQ99BQCTFezGqLq0CQ17PjyRk=; b=ZcGKUAeh7QEUUa1hdlTLhnNbV/
+	iwc2eD/oDOI5JIH62/PG9XxJIzQV3QExdX6K+g5ZBNZrdW8JqakiMP/tZ3fWTI8ZRp5gSii7IKKIq
+	gglFdW0PxMfuww6tSpdbHmNFgmoYdq6CJGpkQROcxxo7bOSd0T+BYj47VyfysMOPmh/s=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1u43dh-0095hS-QW; Sun, 13 Apr 2025 22:09:13 +0200
+Date: Sun, 13 Apr 2025 22:09:13 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	netdev@vger.kernel.org, Rob Herring <robh@kernel.org>
+Subject: Re: [PATCH] arm64: dts: qcom: remove max-speed = 1G for RGMII for
+ ethernet
+Message-ID: <a21ccb50-1f32-47b4-b37d-d8250a505afb@lunn.ch>
+References: <E1u3bkm-000Epw-QU@rmk-PC.armlinux.org.uk>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <E1u3bkm-000Epw-QU@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250413_130022_518021_C7ADE56F 
-X-CRM114-Status: GOOD (  15.08  )
+X-CRM114-CacheID: sfid-20250413_130917_306968_0AECB00F 
+X-CRM114-Status: UNSURE (   8.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,29 +73,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 13 Apr 2025 17:57:35 +0100,
-Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org> wrote:
+On Sat, Apr 12, 2025 at 03:22:40PM +0100, Russell King (Oracle) wrote:
+> The RGMII interface is designed for speeds up to 1G. Phylink already
+> imposes the design limits for MII interfaces, and additional
+> specification is unnecessary. Therefore, we can remove this property
+> without any effect.
 > 
-> On Tue, Apr 01, 2025 at 10:17:01AM +0100, Marc Zyngier wrote:
-> > From: Janne Grunau <j@jannau.net>
-> > 
-> > Iterating over disabled ports results in of_irq_parse_raw() parsing
-> > the wrong "interrupt-map" entries, as it takes the status of the node
-> 
-> 'as it doesn't take account'?
-> 
-> > into account.
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-No, I really mean it in the positive form. of_irq_parse_raw() checks
-of_device_is_available(), and gets really confused if walking from a
-disabled port. You end up with the interrupt for the next *available*
-port, and everything goes pear shaped from then onwards.
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-So IMO "as it takes into account" describes pretty accurately the
-situation.
-
-	M.
-
--- 
-Jazz isn't dead. It just smells funny.
+    Andrew
 
