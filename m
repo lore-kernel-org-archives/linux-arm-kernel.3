@@ -4,75 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 505EEC369AE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Apr 2025 20:58:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BF8CC3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Apr 2025 04:57:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Ck4o/n3lpkxAXlPzedzjCk/JD+YtxzckBUpPpLxJb6o=; b=ti0jpeSYIK9zm+Yl8LEoVkMfji
-	AQVwVlX1YYx5/6j1SQFdbMD53uCvk4q6k3CXHvPoO/g5paoKBzTvWo+avssUlnT4saz9yFIPEhC+j
-	TnGYFaNprkgm0iDbR7K3HykeQcYxdWDrLciq6/eptNnU2oXuV6j6p4Iiugu6yUTJBnv8+otGN7Fa+
-	ZIQdxA+4DJLijUELxVRXX6KOrmbkoeABLo4U/BDMyD+HHI4IiswCoIUe7b6e594mlVkLeh07y+VbY
-	SHA+0obfZOrbi1xZ+gS9s2tJO+CNuOez22h4zgcmkio63iMMNNeOdWf6RjSqSklnaGXwx0OnbLfVr
-	UOx35iuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O6e/7+xSkqHNapzqaKLz5lcr5fn/gFwGUJi7HyR0IVQ=; b=IiHLqfnoxtD8DBJvF18/uTv2dU
+	69FSm3B60MdzQ0l8OZlLgdcO8Wc8D0MdI8iFLSgc2O7idSuKagbCnqFnmj43qn5x6vmzCs4FyvME6
+	hJzx18OGJgHY1tt1d+rgc2D8WbDt6cr15aew42MpG2bbqloCW8VW1CyXBgQL5ycM6wn9qZIY3s5e7
+	1doAf7M1/A44dNF7nGIaQTXF1CSb6t4P3fd6ABUgaetFIm+mUr3rgGEGYm9JHgdGxhoNEaClfYZLZ
+	ZU1CY1PyvjOcdAY271eAJ42CVACuuTvx9INqy06tGo1byv1I2soWJJqFsuE9easpIzUfhHhJL5GA8
+	I3A39+MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3hvn-0000000GSCV-44Z4;
-	Sat, 12 Apr 2025 20:58:27 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1u3pPR-0000000GoEO-2UcO;
+	Sun, 13 Apr 2025 04:57:33 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3hjT-0000000GRAz-49ix;
-	Sat, 12 Apr 2025 20:45:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1744490727; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=LkB4JmyPpInWvLyByLSXnrVwUoHwkko0u0pgw7pRQuJ8cnCjbEUOJ0QByfp1DVNc87WcDJdTrMjvwo8H5qW2VpVBpJSWsVzj6R8om4Q30l/xCX+SBth+ukcVpfgfLtb8nc4UDysXMqumpybjoBdxeRZGQZxCobR+eaW0vXtS3KU=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1744490727; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Ck4o/n3lpkxAXlPzedzjCk/JD+YtxzckBUpPpLxJb6o=; 
-	b=Fzo2zKJFej2Ingwr3PPjnkPU4k2Tx7JeYwULVE9T7dUQInM5NcUNgiiYYNchX5aEEP6QRjH5WAr+2NFI+YpjblMo9DFui1YVEBcp+0sJkYh36Ew8f4qO92ZsCuoIJyzelTt8XS6bhYnUHDb7odjMJQGE/jII9Wblk1Nl1Nwd0M4=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1744490727;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:To:To:Cc:Cc:Reply-To;
-	bh=Ck4o/n3lpkxAXlPzedzjCk/JD+YtxzckBUpPpLxJb6o=;
-	b=PPx1dBZwrk2/pChhtqkioqIHh5RKqd9VDJ4kk/HvIClo890Q6K1dNuh56IWPb7gc
-	kiUJs3fF6Kw2hc9BMcgj1UeuW0RqTiv3p5yuVarNCaePg7fDCPrXxjid8mD7W4TBTVd
-	eSCsikskvXbgOKRioptue4ke9eea40NL27KpXMJE=
-Received: by mx.zohomail.com with SMTPS id 1744490726578169.77104371916073;
-	Sat, 12 Apr 2025 13:45:26 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Sat, 12 Apr 2025 22:45:08 +0200
-Subject: [PATCH v2] mmc: sdhci-of-dwcmshc: add PD workaround on RK3576
+	id 1u3pNd-0000000GnfP-3b5Z
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 13 Apr 2025 04:55:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 19EBBA407E5;
+	Sun, 13 Apr 2025 04:50:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7EE6C4CEEC;
+	Sun, 13 Apr 2025 04:55:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744520140;
+	bh=0eZGQ4HOV8ila8DyyAF1mDleVNmhJHh2p5GKktNCdP0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=raC1yaz/NDXB5M5reoTn4t/01dfz407KBNfd0K/poDFbBFUEXP/CzzQ/h7BteTKya
+	 +l7uKwR0/amZTMR3DiCT4nH7nArCjhZueQexvrtZHd1cqtpaZmRDLh5ctmFa/17nNz
+	 YvKl3VfyjfrY+n4+fVBaZFVabVob+HzAYlmZBeuLJed3kN9mqzNFK1Dr+NpPQHmKfv
+	 aTwBkkxbcyoedBvl/d93d69Apzs8J+eTE/mQIYs1kMuv509JB0qmRvALse4njknTIM
+	 +MqCByN2EQaGo2r6lHoqjSObkDTt2F9oRPuZ1LRLrdmx8gkUI1M9HlEWVfoq+o2o+e
+	 OGm+yRM8WpVlw==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	x86@kernel.org,
+	Danny Tsen <dtsen@linux.ibm.com>
+Subject: [PATCH 1/9] crypto: powerpc/poly1305 - implement library instead of shash
+Date: Sat, 12 Apr 2025 21:54:13 -0700
+Message-ID: <20250413045421.55100-2-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250413045421.55100-1-ebiggers@kernel.org>
+References: <20250413045421.55100-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250412-rk3576-emmc-fix-v2-1-830e653ad4f0@collabora.com>
-X-B4-Tracking: v=1; b=H4sIANPQ+mcC/3WOyw6CMBREf4V07TW9ffBa+R+GRSlFGoFqi0Rj+
- Hdr3RldzmTOzDxJMN6aQOrsSbxZbbBujoLtMqIHNZ8M2C5qwiiTlGMB/sxlkYOZJg29vUPR6RJ
- VzgrBGInUxZtop8Zj89HeXG+xePmYpFXBgHbTZJc6W/M9SvAayTs82LA4/0hvVkzpv8MrAkInu
- ehEpQT28qDdOKrWebWP7e8viRW0/M1ySquSlS22HL/YZtu2F2uNYI0bAQAA
-X-Change-ID: 20250317-rk3576-emmc-fix-7dc81a627422
-To: Shawn Lin <shawn.lin@rock-chips.com>, 
- Ulf Hansson <ulf.hansson@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
- Elaine Zhang <zhangqing@rock-chips.com>, 
- Finley Xiao <finley.xiao@rock-chips.com>, 
- Adrian Hunter <adrian.hunter@intel.com>
-Cc: Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Detlev Casanova <detlev.casanova@collabora.com>, kernel@collabora.com, 
- linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-mmc@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250412_134544_079797_E968AC96 
-X-CRM114-Status: GOOD (  22.84  )
+X-CRM114-CacheID: sfid-20250412_215542_033655_766B31ED 
+X-CRM114-Status: GOOD (  18.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,116 +75,271 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-RK3576's power domains have a peculiar problem where the PD_NVM
-power domain, of which the sdhci controller is a part, seemingly does
-not have idempotent disable/enable. The end effect is that if PD_NVM
-gets turned off by the generic power domain logic because all the
-devices depending on it are suspended, then the next time the sdhci
-device is unsuspended, it'll hang the SoC as soon as it tries accessing
-the CQHCI registers.
+From: Eric Biggers <ebiggers@google.com>
 
-RK3576's UFS support needed a new dev_pm_genpd_rpm_always_on function
-added to the generic power domains API to handle what appears to be a
-similar hardware issue.
+Currently the Power10 optimized Poly1305 is only wired up to the
+crypto_shash API, which makes it unavailable to users of the library
+API.  The crypto_shash API for Poly1305 is going to change to be
+implemented on top of the library API, so the library API needs to be
+supported.  And of course it's needed anyway to serve the library users.
 
-Use this new function to ask for the same treatment in the sdhci
-controller by giving rk3576 its own platform data with its own postinit
-function. The benefit of doing this instead of marking the power domains
-always on in the power domain core is that we only do this if we know
-the platform we're running on actually uses the sdhci controller. For
-others, keeping PD_NVM always on would be a waste, as they won't run
-into this specific issue. The only other IP in PD_NVM that could be
-affected is FSPI0. If it gets a mainline driver, it will probably want
-to do the same thing.
+Therefore, change the Power10 optimized Poly1305 code to implement the
+library API instead of the crypto_shash API.
 
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Danny Tsen <dtsen@linux.ibm.com>
+Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
-Changes in v2:
-- Rewrite patch to use dev_pm_genpd_rpm_always_on in sdhci driver
-  instead, after Ulf Hansson made me aware of its existence
-- Link to v1: https://lore.kernel.org/r/20250408-rk3576-emmc-fix-v1-1-3009828b1b31@collabora.com
----
- drivers/mmc/host/sdhci-of-dwcmshc.c | 39 +++++++++++++++++++++++++++++++++++++
- 1 file changed, 39 insertions(+)
+ arch/powerpc/crypto/Kconfig             |  11 +-
+ arch/powerpc/crypto/poly1305-p10-glue.c | 132 +++++++-----------------
+ 2 files changed, 39 insertions(+), 104 deletions(-)
 
-diff --git a/drivers/mmc/host/sdhci-of-dwcmshc.c b/drivers/mmc/host/sdhci-of-dwcmshc.c
-index 09b9ab15e4995f0bddf57dd309c010c849be40d9..a00aec05eff2da8197cc64690ba9665be756e54a 100644
---- a/drivers/mmc/host/sdhci-of-dwcmshc.c
-+++ b/drivers/mmc/host/sdhci-of-dwcmshc.c
-@@ -17,6 +17,7 @@
+diff --git a/arch/powerpc/crypto/Kconfig b/arch/powerpc/crypto/Kconfig
+index 47dccdd49637..cbcf76953d83 100644
+--- a/arch/powerpc/crypto/Kconfig
++++ b/arch/powerpc/crypto/Kconfig
+@@ -98,20 +98,15 @@ config CRYPTO_CHACHA20_P10
+ 	select CRYPTO_LIB_CHACHA_GENERIC
+ 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
+ 	default CRYPTO_LIB_CHACHA_INTERNAL
+ 
+ config CRYPTO_POLY1305_P10
+-	tristate "Hash functions: Poly1305 (P10 or later)"
++	tristate
+ 	depends on PPC64 && CPU_LITTLE_ENDIAN && VSX
+-	select CRYPTO_HASH
++	select CRYPTO_ARCH_HAVE_LIB_POLY1305
+ 	select CRYPTO_LIB_POLY1305_GENERIC
+-	help
+-	  Poly1305 authenticator algorithm (RFC7539)
+-
+-	  Architecture: PowerPC64
+-	  - Power10 or later
+-	  - Little-endian
++	default CRYPTO_LIB_POLY1305_INTERNAL
+ 
+ config CRYPTO_DEV_VMX
+         bool "Support for VMX cryptographic acceleration instructions"
+         depends on PPC64 && VSX
+         help
+diff --git a/arch/powerpc/crypto/poly1305-p10-glue.c b/arch/powerpc/crypto/poly1305-p10-glue.c
+index 369686e9370b..87bd5eba4497 100644
+--- a/arch/powerpc/crypto/poly1305-p10-glue.c
++++ b/arch/powerpc/crypto/poly1305-p10-glue.c
+@@ -2,28 +2,26 @@
+ /*
+  * Poly1305 authenticator algorithm, RFC7539.
+  *
+  * Copyright 2023- IBM Corp. All rights reserved.
+  */
+-
+-#include <crypto/algapi.h>
+-#include <linux/crypto.h>
+ #include <linux/kernel.h>
  #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/platform_device.h>
-+#include <linux/pm_domain.h>
- #include <linux/pm_runtime.h>
- #include <linux/reset.h>
- #include <linux/sizes.h>
-@@ -745,6 +746,28 @@ static void dwcmshc_rk35xx_postinit(struct sdhci_host *host, struct dwcmshc_priv
- 	}
+ #include <linux/jump_label.h>
+-#include <crypto/internal/hash.h>
+-#include <crypto/internal/poly1305.h>
+ #include <crypto/internal/simd.h>
++#include <crypto/poly1305.h>
+ #include <linux/cpufeature.h>
+ #include <linux/unaligned.h>
+ #include <asm/simd.h>
+ #include <asm/switch_to.h>
+ 
+ asmlinkage void poly1305_p10le_4blocks(void *h, const u8 *m, u32 mlen);
+ asmlinkage void poly1305_64s(void *h, const u8 *m, u32 mlen, int highbit);
+ asmlinkage void poly1305_emit_64(void *h, void *s, u8 *dst);
+ 
++static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_p10);
++
+ static void vsx_begin(void)
+ {
+ 	preempt_disable();
+ 	enable_kernel_vsx();
+ }
+@@ -32,82 +30,50 @@ static void vsx_end(void)
+ {
+ 	disable_kernel_vsx();
+ 	preempt_enable();
  }
  
-+static void dwcmshc_rk3576_postinit(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv)
-+{
-+	struct device *dev = mmc_dev(host->mmc);
-+	int ret;
-+
-+	/*
-+	 * This works around what appears to be a silicon bug, which makes the
-+	 * PD_NVM power domain, which the sdhci controller on the RK3576 is in,
-+	 * never come back the same way once it's turned off once. This can
-+	 * happen during early kernel boot if no driver is using either PD_NVM
-+	 * or its child power domain PD_SDGMAC for a short moment, leading to it
-+	 * being turned off to save power. By keeping it on, sdhci suspending
-+	 * won't lead to PD_NVM becoming a candidate for getting turned off.
-+	 */
-+	ret = dev_pm_genpd_rpm_always_on(dev, true);
-+	if (ret && ret != -EOPNOTSUPP)
-+		dev_warn(dev, "failed to set PD rpm always on, SoC may hang later: %pe\n",
-+			 ERR_PTR(ret));
-+
-+	dwcmshc_rk35xx_postinit(host, dwc_priv);
-+}
-+
- static int th1520_execute_tuning(struct sdhci_host *host, u32 opcode)
+-static int crypto_poly1305_p10_init(struct shash_desc *desc)
++void poly1305_init_arch(struct poly1305_desc_ctx *dctx, const u8 key[POLY1305_KEY_SIZE])
  {
- 	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-@@ -1176,6 +1199,18 @@ static const struct dwcmshc_pltfm_data sdhci_dwcmshc_rk35xx_pdata = {
- 	.postinit = dwcmshc_rk35xx_postinit,
- };
- 
-+static const struct dwcmshc_pltfm_data sdhci_dwcmshc_rk3576_pdata = {
-+	.pdata = {
-+		.ops = &sdhci_dwcmshc_rk35xx_ops,
-+		.quirks = SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN |
-+			  SDHCI_QUIRK_BROKEN_TIMEOUT_VAL,
-+		.quirks2 = SDHCI_QUIRK2_PRESET_VALUE_BROKEN |
-+			   SDHCI_QUIRK2_CLOCK_DIV_ZERO_BROKEN,
-+	},
-+	.init = dwcmshc_rk35xx_init,
-+	.postinit = dwcmshc_rk3576_postinit,
-+};
+-	struct poly1305_desc_ctx *dctx = shash_desc_ctx(desc);
+-
+-	poly1305_core_init(&dctx->h);
++	if (!static_key_enabled(&have_p10))
++		return poly1305_init_generic(dctx, key);
 +
- static const struct dwcmshc_pltfm_data sdhci_dwcmshc_th1520_pdata = {
- 	.pdata = {
- 		.ops = &sdhci_dwcmshc_th1520_ops,
-@@ -1274,6 +1309,10 @@ static const struct of_device_id sdhci_dwcmshc_dt_ids[] = {
- 		.compatible = "rockchip,rk3588-dwcmshc",
- 		.data = &sdhci_dwcmshc_rk35xx_pdata,
- 	},
-+	{
-+		.compatible = "rockchip,rk3576-dwcmshc",
-+		.data = &sdhci_dwcmshc_rk3576_pdata,
-+	},
- 	{
- 		.compatible = "rockchip,rk3568-dwcmshc",
- 		.data = &sdhci_dwcmshc_rk35xx_pdata,
++	dctx->h = (struct poly1305_state){};
++	dctx->core_r.key.r64[0] = get_unaligned_le64(key + 0);
++	dctx->core_r.key.r64[1] = get_unaligned_le64(key + 8);
++	dctx->s[0] = get_unaligned_le32(key + 16);
++	dctx->s[1] = get_unaligned_le32(key + 20);
++	dctx->s[2] = get_unaligned_le32(key + 24);
++	dctx->s[3] = get_unaligned_le32(key + 28);
+ 	dctx->buflen = 0;
+-	dctx->rset = 0;
+-	dctx->sset = false;
+-
+-	return 0;
+ }
++EXPORT_SYMBOL(poly1305_init_arch);
+ 
+-static unsigned int crypto_poly1305_setdctxkey(struct poly1305_desc_ctx *dctx,
+-					       const u8 *inp, unsigned int len)
++void poly1305_update_arch(struct poly1305_desc_ctx *dctx,
++			  const u8 *src, unsigned int srclen)
+ {
+-	unsigned int acc = 0;
+-
+-	if (unlikely(!dctx->sset)) {
+-		if (!dctx->rset && len >= POLY1305_BLOCK_SIZE) {
+-			struct poly1305_core_key *key = &dctx->core_r;
+-
+-			key->key.r64[0] = get_unaligned_le64(&inp[0]);
+-			key->key.r64[1] = get_unaligned_le64(&inp[8]);
+-			inp += POLY1305_BLOCK_SIZE;
+-			len -= POLY1305_BLOCK_SIZE;
+-			acc += POLY1305_BLOCK_SIZE;
+-			dctx->rset = 1;
+-		}
+-		if (len >= POLY1305_BLOCK_SIZE) {
+-			dctx->s[0] = get_unaligned_le32(&inp[0]);
+-			dctx->s[1] = get_unaligned_le32(&inp[4]);
+-			dctx->s[2] = get_unaligned_le32(&inp[8]);
+-			dctx->s[3] = get_unaligned_le32(&inp[12]);
+-			acc += POLY1305_BLOCK_SIZE;
+-			dctx->sset = true;
+-		}
+-	}
+-	return acc;
+-}
++	unsigned int bytes;
+ 
+-static int crypto_poly1305_p10_update(struct shash_desc *desc,
+-				      const u8 *src, unsigned int srclen)
+-{
+-	struct poly1305_desc_ctx *dctx = shash_desc_ctx(desc);
+-	unsigned int bytes, used;
++	if (!static_key_enabled(&have_p10))
++		return poly1305_update_generic(dctx, src, srclen);
+ 
+ 	if (unlikely(dctx->buflen)) {
+ 		bytes = min(srclen, POLY1305_BLOCK_SIZE - dctx->buflen);
+ 		memcpy(dctx->buf + dctx->buflen, src, bytes);
+ 		src += bytes;
+ 		srclen -= bytes;
+ 		dctx->buflen += bytes;
+-
+-		if (dctx->buflen == POLY1305_BLOCK_SIZE) {
+-			if (likely(!crypto_poly1305_setdctxkey(dctx, dctx->buf,
+-							       POLY1305_BLOCK_SIZE))) {
+-				vsx_begin();
+-				poly1305_64s(&dctx->h, dctx->buf,
+-						  POLY1305_BLOCK_SIZE, 1);
+-				vsx_end();
+-			}
+-			dctx->buflen = 0;
+-		}
++		if (dctx->buflen < POLY1305_BLOCK_SIZE)
++			return;
++		vsx_begin();
++		poly1305_64s(&dctx->h, dctx->buf, POLY1305_BLOCK_SIZE, 1);
++		vsx_end();
++		dctx->buflen = 0;
+ 	}
+ 
+ 	if (likely(srclen >= POLY1305_BLOCK_SIZE)) {
+ 		bytes = round_down(srclen, POLY1305_BLOCK_SIZE);
+-		used = crypto_poly1305_setdctxkey(dctx, src, bytes);
+-		if (likely(used)) {
+-			srclen -= used;
+-			src += used;
+-		}
+ 		if (crypto_simd_usable() && (srclen >= POLY1305_BLOCK_SIZE*4)) {
+ 			vsx_begin();
+ 			poly1305_p10le_4blocks(&dctx->h, src, srclen);
+ 			vsx_end();
+ 			src += srclen - (srclen % (POLY1305_BLOCK_SIZE * 4));
+@@ -124,63 +90,37 @@ static int crypto_poly1305_p10_update(struct shash_desc *desc,
+ 
+ 	if (unlikely(srclen)) {
+ 		dctx->buflen = srclen;
+ 		memcpy(dctx->buf, src, srclen);
+ 	}
+-
+-	return 0;
+ }
++EXPORT_SYMBOL(poly1305_update_arch);
+ 
+-static int crypto_poly1305_p10_final(struct shash_desc *desc, u8 *dst)
++void poly1305_final_arch(struct poly1305_desc_ctx *dctx, u8 *dst)
+ {
+-	struct poly1305_desc_ctx *dctx = shash_desc_ctx(desc);
++	if (!static_key_enabled(&have_p10))
++		return poly1305_final_generic(dctx, dst);
+ 
+-	if (unlikely(!dctx->sset))
+-		return -ENOKEY;
+-
+-	if ((dctx->buflen)) {
++	if (dctx->buflen) {
+ 		dctx->buf[dctx->buflen++] = 1;
+ 		memset(dctx->buf + dctx->buflen, 0,
+ 		       POLY1305_BLOCK_SIZE - dctx->buflen);
+ 		vsx_begin();
+ 		poly1305_64s(&dctx->h, dctx->buf, POLY1305_BLOCK_SIZE, 0);
+ 		vsx_end();
+-		dctx->buflen = 0;
+ 	}
+ 
+ 	poly1305_emit_64(&dctx->h, &dctx->s, dst);
+-	return 0;
+ }
+-
+-static struct shash_alg poly1305_alg = {
+-	.digestsize	= POLY1305_DIGEST_SIZE,
+-	.init		= crypto_poly1305_p10_init,
+-	.update		= crypto_poly1305_p10_update,
+-	.final		= crypto_poly1305_p10_final,
+-	.descsize	= sizeof(struct poly1305_desc_ctx),
+-	.base		= {
+-		.cra_name		= "poly1305",
+-		.cra_driver_name	= "poly1305-p10",
+-		.cra_priority		= 300,
+-		.cra_blocksize		= POLY1305_BLOCK_SIZE,
+-		.cra_module		= THIS_MODULE,
+-	},
+-};
++EXPORT_SYMBOL(poly1305_final_arch);
+ 
+ static int __init poly1305_p10_init(void)
+ {
+-	return crypto_register_shash(&poly1305_alg);
+-}
+-
+-static void __exit poly1305_p10_exit(void)
+-{
+-	crypto_unregister_shash(&poly1305_alg);
++	if (cpu_has_feature(CPU_FTR_ARCH_31))
++		static_branch_enable(&have_p10);
++	return 0;
+ }
+-
+-module_cpu_feature_match(PPC_MODULE_FEATURE_P10, poly1305_p10_init);
+-module_exit(poly1305_p10_exit);
++arch_initcall(poly1305_p10_init);
+ 
+ MODULE_LICENSE("GPL");
+ MODULE_AUTHOR("Danny Tsen <dtsen@linux.ibm.com>");
+ MODULE_DESCRIPTION("Optimized Poly1305 for P10");
+-MODULE_ALIAS_CRYPTO("poly1305");
+-MODULE_ALIAS_CRYPTO("poly1305-p10");
 
----
-base-commit: 64e9fdfc89a76fed38d8ddeed72d42ec71957ed9
-change-id: 20250317-rk3576-emmc-fix-7dc81a627422
-
-Best regards,
+base-commit: 3be3f70ee95da03a87d94c4a714ee679a5c7b34d
 -- 
-Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+2.49.0
 
 
