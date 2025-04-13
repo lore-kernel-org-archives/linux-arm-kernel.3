@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BF8CC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Apr 2025 04:57:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCCA8C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Apr 2025 04:59:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O6e/7+xSkqHNapzqaKLz5lcr5fn/gFwGUJi7HyR0IVQ=; b=IiHLqfnoxtD8DBJvF18/uTv2dU
-	69FSm3B60MdzQ0l8OZlLgdcO8Wc8D0MdI8iFLSgc2O7idSuKagbCnqFnmj43qn5x6vmzCs4FyvME6
-	hJzx18OGJgHY1tt1d+rgc2D8WbDt6cr15aew42MpG2bbqloCW8VW1CyXBgQL5ycM6wn9qZIY3s5e7
-	1doAf7M1/A44dNF7nGIaQTXF1CSb6t4P3fd6ABUgaetFIm+mUr3rgGEGYm9JHgdGxhoNEaClfYZLZ
-	ZU1CY1PyvjOcdAY271eAJ42CVACuuTvx9INqy06tGo1byv1I2soWJJqFsuE9easpIzUfhHhJL5GA8
-	I3A39+MA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+XAO5wt0ktJuJ5hEdlkeCvL90T0dhvyuQigSTjc3SHA=; b=gOETqrduxsmktpENl6X4HwHpnH
+	MJWbcNXmji4MCmeYvkKFFY7viLvOuQhT1bV8aGn+8rFEvExTwJvTRqaRBQ0T0GjM2yZbxJtzbT7wn
+	SMOiB4aEoa4dQn6BIaS3M5Ql3i9z13cWUwI/JruKsXkhwEXkzcFqzCQu0Kql0uSktlV/lIgaOFZeU
+	knI/OM5rtwf0DfR3iOjmoUAeF7c5K/9Y1DjN7hzrFzEPi+koG6HeknJQ1jQNPZuDPjnDjfTR1rnSj
+	vZj4wcosyf0MfZCmW0lESoXkimT0wOkkQ43yp1YsvSBJq6YPWNoiME1djkugR+P4Cf9DezrxCDiV4
+	C4UuF6Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3pPR-0000000GoEO-2UcO;
-	Sun, 13 Apr 2025 04:57:33 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u3pRD-0000000GoRL-13E1;
+	Sun, 13 Apr 2025 04:59:23 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3pNd-0000000GnfP-3b5Z
+	id 1u3pNd-0000000GnfO-3bBx
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 13 Apr 2025 04:55:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 19EBBA407E5;
-	Sun, 13 Apr 2025 04:50:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7EE6C4CEEC;
+	by nyc.source.kernel.org (Postfix) with ESMTP id D74CDA40709;
+	Sun, 13 Apr 2025 04:50:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35EB2C4CEDD;
 	Sun, 13 Apr 2025 04:55:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744520140;
-	bh=0eZGQ4HOV8ila8DyyAF1mDleVNmhJHh2p5GKktNCdP0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=raC1yaz/NDXB5M5reoTn4t/01dfz407KBNfd0K/poDFbBFUEXP/CzzQ/h7BteTKya
-	 +l7uKwR0/amZTMR3DiCT4nH7nArCjhZueQexvrtZHd1cqtpaZmRDLh5ctmFa/17nNz
-	 YvKl3VfyjfrY+n4+fVBaZFVabVob+HzAYlmZBeuLJed3kN9mqzNFK1Dr+NpPQHmKfv
-	 aTwBkkxbcyoedBvl/d93d69Apzs8J+eTE/mQIYs1kMuv509JB0qmRvALse4njknTIM
-	 +MqCByN2EQaGo2r6lHoqjSObkDTt2F9oRPuZ1LRLrdmx8gkUI1M9HlEWVfoq+o2o+e
-	 OGm+yRM8WpVlw==
+	s=k20201202; t=1744520139;
+	bh=KIyhx1f4Q7uvfnMxlwu8uJX8GawuhnAXHEOquMlum8c=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Yc/ME7eQGv8kGFM/ofAJq9o/X0+8PKRBpM3Wp5A+5TdNIaSiKI9px1zivC+4ScNOE
+	 edV34Vx6yTLrfmA6YUyw5zdvhZoT23tXp10pvsPW7szRHx12TRNTLtMyrg/X+YqTQp
+	 jPiyzNsejFq70gbzcjMylWY8tJzHDhjL2q/fGBAsYQXAqZ2lgNWp+Z5QIIiFeUDz9X
+	 CnonudAtwDp1I5jboQgmoWL3IVF/z/968+wE/w6DgOrbLOQRwJzSSFg5+BjyipQWSY
+	 Ur5ba8acNYG7o1Ehc6NJ+tF4e1U7N1lHgTSXt2pPaKe9V+6IC59DbmTmOx1mKwPWgl
+	 jY4IW/oULs7Zw==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mips@vger.kernel.org,
 	linuxppc-dev@lists.ozlabs.org,
-	x86@kernel.org,
-	Danny Tsen <dtsen@linux.ibm.com>
-Subject: [PATCH 1/9] crypto: powerpc/poly1305 - implement library instead of shash
-Date: Sat, 12 Apr 2025 21:54:13 -0700
-Message-ID: <20250413045421.55100-2-ebiggers@kernel.org>
+	x86@kernel.org
+Subject: [PATCH 0/9] Remove per-architecture poly1305 shash glue code
+Date: Sat, 12 Apr 2025 21:54:12 -0700
+Message-ID: <20250413045421.55100-1-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250413045421.55100-1-ebiggers@kernel.org>
-References: <20250413045421.55100-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250412_215542_033655_766B31ED 
-X-CRM114-Status: GOOD (  18.84  )
+X-CRM114-CacheID: sfid-20250412_215541_962625_E68A2767 
+X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,268 +72,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Eric Biggers <ebiggers@google.com>
+This series removes the per-architecture poly1305 shash glue code and
+re-implements the poly1305 shashes on top of the Poly1305 library
+functions.  This ends up being much simpler, and it is how it should
+have been done originally.  This follows similar changes to crc32,
+crc32c, and chacha20.
 
-Currently the Power10 optimized Poly1305 is only wired up to the
-crypto_shash API, which makes it unavailable to users of the library
-API.  The crypto_shash API for Poly1305 is going to change to be
-implemented on top of the library API, so the library API needs to be
-supported.  And of course it's needed anyway to serve the library users.
+This series also makes the Poly1305 library be optimized on PowerPC.
+Previously the PowerPC-optimized Poly1305 code only supported shash.
 
-Therefore, change the Power10 optimized Poly1305 code to implement the
-library API instead of the crypto_shash API.
+Eric Biggers (9):
+  crypto: powerpc/poly1305 - implement library instead of shash
+  crypto: poly1305 - centralize the shash wrappers for arch code
+  crypto: arm/poly1305 - remove redundant shash algorithm
+  crypto: arm64/poly1305 - remove redundant shash algorithm
+  crypto: mips/poly1305 - drop redundant dependency on CONFIG_MIPS
+  crypto: mips/poly1305 - remove redundant shash algorithm
+  crypto: x86/poly1305 - remove redundant shash algorithm
+  crypto: x86/poly1305 - don't select CRYPTO_LIB_POLY1305_GENERIC
+  crypto: poly1305 - remove rset and sset fields of poly1305_desc_ctx
 
-Cc: Danny Tsen <dtsen@linux.ibm.com>
-Signed-off-by: Eric Biggers <ebiggers@google.com>
----
+ arch/arm/crypto/Kconfig                 |   6 -
+ arch/arm/crypto/poly1305-glue.c         | 170 ++----------------------
+ arch/arm64/crypto/Kconfig               |   6 -
+ arch/arm64/crypto/poly1305-glue.c       | 143 ++------------------
+ arch/mips/crypto/Kconfig                |   6 -
+ arch/mips/crypto/poly1305-glue.c        | 120 +----------------
  arch/powerpc/crypto/Kconfig             |  11 +-
- arch/powerpc/crypto/poly1305-p10-glue.c | 132 +++++++-----------------
- 2 files changed, 39 insertions(+), 104 deletions(-)
+ arch/powerpc/crypto/poly1305-p10-glue.c | 134 ++++++-------------
+ arch/x86/crypto/Kconfig                 |   8 --
+ arch/x86/crypto/poly1305_glue.c         |  99 ++------------
+ crypto/Makefile                         |   3 +-
+ crypto/poly1305.c                       | 153 +++++++++++++++++++++
+ crypto/poly1305_generic.c               | 149 ---------------------
+ include/crypto/poly1305.h               |  13 +-
+ lib/crypto/poly1305.c                   |   2 -
+ 15 files changed, 242 insertions(+), 781 deletions(-)
+ create mode 100644 crypto/poly1305.c
+ delete mode 100644 crypto/poly1305_generic.c
 
-diff --git a/arch/powerpc/crypto/Kconfig b/arch/powerpc/crypto/Kconfig
-index 47dccdd49637..cbcf76953d83 100644
---- a/arch/powerpc/crypto/Kconfig
-+++ b/arch/powerpc/crypto/Kconfig
-@@ -98,20 +98,15 @@ config CRYPTO_CHACHA20_P10
- 	select CRYPTO_LIB_CHACHA_GENERIC
- 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
- 	default CRYPTO_LIB_CHACHA_INTERNAL
- 
- config CRYPTO_POLY1305_P10
--	tristate "Hash functions: Poly1305 (P10 or later)"
-+	tristate
- 	depends on PPC64 && CPU_LITTLE_ENDIAN && VSX
--	select CRYPTO_HASH
-+	select CRYPTO_ARCH_HAVE_LIB_POLY1305
- 	select CRYPTO_LIB_POLY1305_GENERIC
--	help
--	  Poly1305 authenticator algorithm (RFC7539)
--
--	  Architecture: PowerPC64
--	  - Power10 or later
--	  - Little-endian
-+	default CRYPTO_LIB_POLY1305_INTERNAL
- 
- config CRYPTO_DEV_VMX
-         bool "Support for VMX cryptographic acceleration instructions"
-         depends on PPC64 && VSX
-         help
-diff --git a/arch/powerpc/crypto/poly1305-p10-glue.c b/arch/powerpc/crypto/poly1305-p10-glue.c
-index 369686e9370b..87bd5eba4497 100644
---- a/arch/powerpc/crypto/poly1305-p10-glue.c
-+++ b/arch/powerpc/crypto/poly1305-p10-glue.c
-@@ -2,28 +2,26 @@
- /*
-  * Poly1305 authenticator algorithm, RFC7539.
-  *
-  * Copyright 2023- IBM Corp. All rights reserved.
-  */
--
--#include <crypto/algapi.h>
--#include <linux/crypto.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/jump_label.h>
--#include <crypto/internal/hash.h>
--#include <crypto/internal/poly1305.h>
- #include <crypto/internal/simd.h>
-+#include <crypto/poly1305.h>
- #include <linux/cpufeature.h>
- #include <linux/unaligned.h>
- #include <asm/simd.h>
- #include <asm/switch_to.h>
- 
- asmlinkage void poly1305_p10le_4blocks(void *h, const u8 *m, u32 mlen);
- asmlinkage void poly1305_64s(void *h, const u8 *m, u32 mlen, int highbit);
- asmlinkage void poly1305_emit_64(void *h, void *s, u8 *dst);
- 
-+static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_p10);
-+
- static void vsx_begin(void)
- {
- 	preempt_disable();
- 	enable_kernel_vsx();
- }
-@@ -32,82 +30,50 @@ static void vsx_end(void)
- {
- 	disable_kernel_vsx();
- 	preempt_enable();
- }
- 
--static int crypto_poly1305_p10_init(struct shash_desc *desc)
-+void poly1305_init_arch(struct poly1305_desc_ctx *dctx, const u8 key[POLY1305_KEY_SIZE])
- {
--	struct poly1305_desc_ctx *dctx = shash_desc_ctx(desc);
--
--	poly1305_core_init(&dctx->h);
-+	if (!static_key_enabled(&have_p10))
-+		return poly1305_init_generic(dctx, key);
-+
-+	dctx->h = (struct poly1305_state){};
-+	dctx->core_r.key.r64[0] = get_unaligned_le64(key + 0);
-+	dctx->core_r.key.r64[1] = get_unaligned_le64(key + 8);
-+	dctx->s[0] = get_unaligned_le32(key + 16);
-+	dctx->s[1] = get_unaligned_le32(key + 20);
-+	dctx->s[2] = get_unaligned_le32(key + 24);
-+	dctx->s[3] = get_unaligned_le32(key + 28);
- 	dctx->buflen = 0;
--	dctx->rset = 0;
--	dctx->sset = false;
--
--	return 0;
- }
-+EXPORT_SYMBOL(poly1305_init_arch);
- 
--static unsigned int crypto_poly1305_setdctxkey(struct poly1305_desc_ctx *dctx,
--					       const u8 *inp, unsigned int len)
-+void poly1305_update_arch(struct poly1305_desc_ctx *dctx,
-+			  const u8 *src, unsigned int srclen)
- {
--	unsigned int acc = 0;
--
--	if (unlikely(!dctx->sset)) {
--		if (!dctx->rset && len >= POLY1305_BLOCK_SIZE) {
--			struct poly1305_core_key *key = &dctx->core_r;
--
--			key->key.r64[0] = get_unaligned_le64(&inp[0]);
--			key->key.r64[1] = get_unaligned_le64(&inp[8]);
--			inp += POLY1305_BLOCK_SIZE;
--			len -= POLY1305_BLOCK_SIZE;
--			acc += POLY1305_BLOCK_SIZE;
--			dctx->rset = 1;
--		}
--		if (len >= POLY1305_BLOCK_SIZE) {
--			dctx->s[0] = get_unaligned_le32(&inp[0]);
--			dctx->s[1] = get_unaligned_le32(&inp[4]);
--			dctx->s[2] = get_unaligned_le32(&inp[8]);
--			dctx->s[3] = get_unaligned_le32(&inp[12]);
--			acc += POLY1305_BLOCK_SIZE;
--			dctx->sset = true;
--		}
--	}
--	return acc;
--}
-+	unsigned int bytes;
- 
--static int crypto_poly1305_p10_update(struct shash_desc *desc,
--				      const u8 *src, unsigned int srclen)
--{
--	struct poly1305_desc_ctx *dctx = shash_desc_ctx(desc);
--	unsigned int bytes, used;
-+	if (!static_key_enabled(&have_p10))
-+		return poly1305_update_generic(dctx, src, srclen);
- 
- 	if (unlikely(dctx->buflen)) {
- 		bytes = min(srclen, POLY1305_BLOCK_SIZE - dctx->buflen);
- 		memcpy(dctx->buf + dctx->buflen, src, bytes);
- 		src += bytes;
- 		srclen -= bytes;
- 		dctx->buflen += bytes;
--
--		if (dctx->buflen == POLY1305_BLOCK_SIZE) {
--			if (likely(!crypto_poly1305_setdctxkey(dctx, dctx->buf,
--							       POLY1305_BLOCK_SIZE))) {
--				vsx_begin();
--				poly1305_64s(&dctx->h, dctx->buf,
--						  POLY1305_BLOCK_SIZE, 1);
--				vsx_end();
--			}
--			dctx->buflen = 0;
--		}
-+		if (dctx->buflen < POLY1305_BLOCK_SIZE)
-+			return;
-+		vsx_begin();
-+		poly1305_64s(&dctx->h, dctx->buf, POLY1305_BLOCK_SIZE, 1);
-+		vsx_end();
-+		dctx->buflen = 0;
- 	}
- 
- 	if (likely(srclen >= POLY1305_BLOCK_SIZE)) {
- 		bytes = round_down(srclen, POLY1305_BLOCK_SIZE);
--		used = crypto_poly1305_setdctxkey(dctx, src, bytes);
--		if (likely(used)) {
--			srclen -= used;
--			src += used;
--		}
- 		if (crypto_simd_usable() && (srclen >= POLY1305_BLOCK_SIZE*4)) {
- 			vsx_begin();
- 			poly1305_p10le_4blocks(&dctx->h, src, srclen);
- 			vsx_end();
- 			src += srclen - (srclen % (POLY1305_BLOCK_SIZE * 4));
-@@ -124,63 +90,37 @@ static int crypto_poly1305_p10_update(struct shash_desc *desc,
- 
- 	if (unlikely(srclen)) {
- 		dctx->buflen = srclen;
- 		memcpy(dctx->buf, src, srclen);
- 	}
--
--	return 0;
- }
-+EXPORT_SYMBOL(poly1305_update_arch);
- 
--static int crypto_poly1305_p10_final(struct shash_desc *desc, u8 *dst)
-+void poly1305_final_arch(struct poly1305_desc_ctx *dctx, u8 *dst)
- {
--	struct poly1305_desc_ctx *dctx = shash_desc_ctx(desc);
-+	if (!static_key_enabled(&have_p10))
-+		return poly1305_final_generic(dctx, dst);
- 
--	if (unlikely(!dctx->sset))
--		return -ENOKEY;
--
--	if ((dctx->buflen)) {
-+	if (dctx->buflen) {
- 		dctx->buf[dctx->buflen++] = 1;
- 		memset(dctx->buf + dctx->buflen, 0,
- 		       POLY1305_BLOCK_SIZE - dctx->buflen);
- 		vsx_begin();
- 		poly1305_64s(&dctx->h, dctx->buf, POLY1305_BLOCK_SIZE, 0);
- 		vsx_end();
--		dctx->buflen = 0;
- 	}
- 
- 	poly1305_emit_64(&dctx->h, &dctx->s, dst);
--	return 0;
- }
--
--static struct shash_alg poly1305_alg = {
--	.digestsize	= POLY1305_DIGEST_SIZE,
--	.init		= crypto_poly1305_p10_init,
--	.update		= crypto_poly1305_p10_update,
--	.final		= crypto_poly1305_p10_final,
--	.descsize	= sizeof(struct poly1305_desc_ctx),
--	.base		= {
--		.cra_name		= "poly1305",
--		.cra_driver_name	= "poly1305-p10",
--		.cra_priority		= 300,
--		.cra_blocksize		= POLY1305_BLOCK_SIZE,
--		.cra_module		= THIS_MODULE,
--	},
--};
-+EXPORT_SYMBOL(poly1305_final_arch);
- 
- static int __init poly1305_p10_init(void)
- {
--	return crypto_register_shash(&poly1305_alg);
--}
--
--static void __exit poly1305_p10_exit(void)
--{
--	crypto_unregister_shash(&poly1305_alg);
-+	if (cpu_has_feature(CPU_FTR_ARCH_31))
-+		static_branch_enable(&have_p10);
-+	return 0;
- }
--
--module_cpu_feature_match(PPC_MODULE_FEATURE_P10, poly1305_p10_init);
--module_exit(poly1305_p10_exit);
-+arch_initcall(poly1305_p10_init);
- 
- MODULE_LICENSE("GPL");
- MODULE_AUTHOR("Danny Tsen <dtsen@linux.ibm.com>");
- MODULE_DESCRIPTION("Optimized Poly1305 for P10");
--MODULE_ALIAS_CRYPTO("poly1305");
--MODULE_ALIAS_CRYPTO("poly1305-p10");
 
 base-commit: 3be3f70ee95da03a87d94c4a714ee679a5c7b34d
 -- 
