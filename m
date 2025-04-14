@@ -4,94 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A3E0C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 10:32:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D925C369B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 10:34:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Smsg72GcXkF+Ivv2bDXZHVMpQJJmZfbh7twUx1di6OI=; b=QgOhHKwZf4245smT43gzNKSL34
-	/eXH6NrGHNpIXARi0GQ7b8QvDI6xtJunEPqMweEkGhEwGSEYZHDL7qRpg2HNc6zd1Xw8dp23NPUU7
-	MpN9/HjqR3NBdUVTThGREywO9iiIm4BtmM2qSmtwal9mDnVA2Iok/vr8NAnM51Ymwb9RsnVb21eKd
-	xhNlFgTlg8/YzBDZeQ39/pprdHfzB0R+Sy1nOd0tGvdNU7a/MxyS1bHkrp4Ps8369pMuMyQvt4Emc
-	SQLAIN50iAVETNgsXLq8xXbW0U6//XxRdgvrDQ2AVwYGuR2e4wBDPz59QLQS4kLAEVEw5ny9ZulLp
-	+rGn3elQ==;
+	bh=0aXK0mDrYkJOBL3Ge0JtxXwmv+mTN/3CdT138OZQc88=; b=MzaNLJv20U+K7owgNEHdxgZDLF
+	RqDeCZ8bnLJwqt468Fsc2Au2rWDHbBXV8jKjnu8SwIK8doyR0KDWHs4kK92xrXa3d+prgYZ37jZIU
+	DoJOx0/fbEQoxi/mJI3FFF0PRQLgQTbLhxnNKZxq5HxrKaQC21q8rcB7o3/DneFDna8kRudM104T5
+	MtUwlqkpdHp4Yr+hZUQQ6GuS9rZ0C0UP3Wj3n2SHeqWfQdRDcr+tlPBn1GL/O7NVxkkYwhL1ZJjz4
+	mE5CjjMhaEfEwta8hd1vvKSnF9HGrMjXUzNBvZmkjRYGetG/FPZ+JTWSb6Q7OmBX4b69t04FRzB9Z
+	Xw9gPJnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4H7D-00000001YGV-0Rbg;
-	Mon, 14 Apr 2025 10:32:35 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4GpI-00000001SOg-1i3d
+	id 1u4H94-00000001Ypg-2DXL;
+	Mon, 14 Apr 2025 10:34:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u4Gqa-00000001Sso-0oTs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 10:14:05 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-224191d92e4so38092505ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 03:14:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744625643; x=1745230443; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=Smsg72GcXkF+Ivv2bDXZHVMpQJJmZfbh7twUx1di6OI=;
-        b=mIuuVAJNMO+NBP8KteqP3YXOXgMXDKvUENcXD6QlEFmukJ1Ij+NvpajSnk57k2OEYM
-         TmZ7B5BKpwlfLXMshdvO60gluDx+LPC3Mqmxci/v+xUiGw4SoiVl312n8hNzsaQlHZPu
-         aDCjNhdjfgkwiTglJ7OH6Qs0sBtY17peLDbJqWZeW1O3hnDA62PCWlD7Pc7Zj2EUszgS
-         ghdR8gcf+/U2ATPdahuGoHLMEim/3zX3i4XXvnwvZwXFuYADdpLv+vX4coz2aPojCuhy
-         5WG9Fbg4LJx87EhFvukC6vNLFraDkJDF4FWHBh6yEu13YI10Nz3Y/Ufpr+1Vsp24r+X1
-         +D0Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744625643; x=1745230443;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Smsg72GcXkF+Ivv2bDXZHVMpQJJmZfbh7twUx1di6OI=;
-        b=G4KwvubwmM1GeXnipPqH/9Nqp/j9SM9qeBodLf1gxLJRa408S0IwIUYQBI7tgMnalM
-         ig/48G+iXGC6jiLK2AQhBZIAp9Yo2s6OXNGmSEhnFI/cmmXSb6KJt+scyk5GBVYWgEJ3
-         6RvAIAMZx7RNMhrqSL1/9nPJiRvkP7gisZex389McCKfknYQ39QoroAuRwjDkeomYgsd
-         xGA3vgIudjKvOt1/qI1Yrf5UPxEYcPZJ9u84WPRHlFzoosPPRAOMk0N3UmeDwE1VxtGF
-         7tCm9WkYrhnYfOT3hg4HdISpQnT/OrRkSfq3NsrNG3J9DTKjye8Js4ZGLPeKhoKFxZaO
-         DZpA==
-X-Gm-Message-State: AOJu0YwCvr6skzfR4PusVMAUw148y8mjz9oUNnrWXSOoAZCPF239Nupi
-	2MpY9gEgvJLo1QtM5SwbZ5YzgoboM+gRiVepjZgE1B6qyXTPBlTdSwddkvSPinqqViQ0jFAmSq0
-	=
-X-Gm-Gg: ASbGncsJf3mGUdxeX35kdbj+fD0yq9siLNnoSBJvlMRQlyUX0nkrtEG4ePZwtGE9Hxj
-	U8nS+QejjWeQvJK1IfoI0JG1FnsR1NN4/eF9fIvj1uhQk20gWvtX8YANQA0ldjYr4nApaJZgfRm
-	XmUSbaLZO1NCTMW/xEPg0h6yNgb4qpOFT+HR31tCvd9ipuhGY/NHaTFxl3ZYemZ1yekjJmwznml
-	RwC1bz5i4i+FMArX8t7Ms7R65yOCIKNLNEPc5VPP9nkctIOE/YElmNXYWFq0LOg8tp8XWqcRYFJ
-	jJKEANon/5gEeVo9ShfUlzXID3tJRDdS50lr/J7BjbekdrsrcWPle/67fLGdjK0=
-X-Google-Smtp-Source: AGHT+IFP91KCL2ubggimJjnRS6FXpsDpAY6dmmHmoDGSKCTanmBivzBpL+STAELx6GokUH9JL1EV7Q==
-X-Received: by 2002:a17:903:244d:b0:224:93e:b5d7 with SMTP id d9443c01a7336-22bea4f6649mr164638455ad.34.1744625643547;
-        Mon, 14 Apr 2025 03:14:03 -0700 (PDT)
-Received: from thinkpad ([120.56.202.123])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22ac7c93addsm95066555ad.152.2025.04.14.03.13.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Apr 2025 03:14:03 -0700 (PDT)
-Date: Mon, 14 Apr 2025 15:43:54 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, asahi@lists.linux.dev, 
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Janne Grunau <j@jannau.net>, Hector Martin <marcan@marcan.st>, 
-	Sven Peter <sven@svenpeter.dev>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Mark Kettenis <mark.kettenis@xs4all.nl>
-Subject: Re: [PATCH v3 01/13] PCI: apple: Set only available ports up
-Message-ID: <egu73pd5m4ubr5ex26kw5vwtmekuto73x46lzzmc3gy2rkiv5m@wjat4ewfsud2>
-References: <20250401091713.2765724-1-maz@kernel.org>
- <20250401091713.2765724-2-maz@kernel.org>
- <k3wj3wkk3cymyacboalkhe2fa7jvkpuehq4knpsouoyhvoavpl@bafg4oakp4lr>
- <87v7r7ygq0.wl-maz@kernel.org>
+	Mon, 14 Apr 2025 10:15:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 41DBB1007;
+	Mon, 14 Apr 2025 03:15:22 -0700 (PDT)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E12813F694;
+	Mon, 14 Apr 2025 03:15:20 -0700 (PDT)
+Date: Mon, 14 Apr 2025 11:15:17 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	"Pengutronix Kernel Team" <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, "Rob Herring" <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	"Conor Dooley" <conor+dt@kernel.org>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
+Subject: Re: [PATCH v4 5/7] firmware: imx: Add i.MX95 SCMI LMM driver
+Message-ID: <20250414-tiny-classic-barnacle-5f8c8f@sudeepholla>
+References: <20250408-imx-lmm-cpu-v4-0-4c5f4a456e49@nxp.com>
+ <20250408-imx-lmm-cpu-v4-5-4c5f4a456e49@nxp.com>
+ <20250414-wonderful-cute-bandicoot-accb6b@sudeepholla>
+ <PAXPR04MB8459195AAF65D38AFA1D4F9688B32@PAXPR04MB8459.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <87v7r7ygq0.wl-maz@kernel.org>
+In-Reply-To: <PAXPR04MB8459195AAF65D38AFA1D4F9688B32@PAXPR04MB8459.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_031404_466133_8FD2F75E 
-X-CRM114-Status: GOOD (  16.12  )
+X-CRM114-CacheID: sfid-20250414_031524_274048_A89377F8 
+X-CRM114-Status: GOOD (  23.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,36 +78,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 13, 2025 at 09:00:23PM +0100, Marc Zyngier wrote:
-> On Sun, 13 Apr 2025 17:57:35 +0100,
-> Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org> wrote:
-> > 
-> > On Tue, Apr 01, 2025 at 10:17:01AM +0100, Marc Zyngier wrote:
-> > > From: Janne Grunau <j@jannau.net>
-> > > 
-> > > Iterating over disabled ports results in of_irq_parse_raw() parsing
-> > > the wrong "interrupt-map" entries, as it takes the status of the node
-> > 
-> > 'as it doesn't take account'?
-> > 
-> > > into account.
+On Mon, Apr 14, 2025 at 09:57:43AM +0000, Peng Fan wrote:
+> Hi Sudeep,
 > 
-> No, I really mean it in the positive form. of_irq_parse_raw() checks
-> of_device_is_available(), and gets really confused if walking from a
-> disabled port. You end up with the interrupt for the next *available*
-> port, and everything goes pear shaped from then onwards.
+> > Subject: Re: [PATCH v4 5/7] firmware: imx: Add i.MX95 SCMI LMM
+> > driver
+> > 
+> > On Tue, Apr 08, 2025 at 04:44:29PM +0800, Peng Fan (OSS) wrote:
+> > > From: Peng Fan <peng.fan@nxp.com>
+> > >
+> > > The i.MX95 System manager exports SCMI LMM protocol for linux to
+> > > manage Logical Machines. The driver is to use the LMM Protocol
+> > > interface to boot, shutdown a LM.
+> > >
+> > > Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
+> > > Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> > > ---
+> > >  drivers/firmware/arm_scmi/vendors/imx/Kconfig |  3 +-
+> > >  drivers/firmware/imx/Kconfig                  | 11 ++++
+> > >  drivers/firmware/imx/Makefile                 |  1 +
+> > >  drivers/firmware/imx/sm-lmm.c                 | 91
+> > +++++++++++++++++++++++++++
+> > >  include/linux/firmware/imx/sm.h               | 14 +++++
+> > >  5 files changed, 119 insertions(+), 1 deletion(-)
+> > >
+> > > diff --git a/drivers/firmware/arm_scmi/vendors/imx/Kconfig
+> > > b/drivers/firmware/arm_scmi/vendors/imx/Kconfig
+> > > index
+> > >
+> > b5f13d0e40155e485f4d1696e9550645d888ef44..4c24e17425f83081
+> > 0f8ba376ece9
+> > > db93c8cded6d 100644
+> > > --- a/drivers/firmware/arm_scmi/vendors/imx/Kconfig
+> > > +++ b/drivers/firmware/arm_scmi/vendors/imx/Kconfig
+> > > @@ -26,7 +26,8 @@ config IMX_SCMI_CPU_EXT  config
+> > IMX_SCMI_LMM_EXT
+> > >  	tristate "i.MX SCMI LMM EXTENSION"
+> > >  	depends on ARM_SCMI_PROTOCOL || (COMPILE_TEST && OF)
+> > > -	default y if ARCH_MXC
+> > > +	depends on IMX_SCMI_LMM_DRV
+> > > +	default y if ARCH_MXC && ARM64
+> > 
+> > I can't understand the ARM64 dependency on this and next patch.
+> 
+> ARCH_MXC both supports ARM32 and ARM64.
+> 
+> To i.MX ARM32 platform, there is no plan to enable SCMI, so only
+> set y for ARCH_MXC ARM64 platforms.
 > 
 
-Ah okay. 
-
-> So IMO "as it takes into account" describes pretty accurately the
-> situation.
-> 
-
-Thanks for the clarification.
-
-- Mani
+OK but why is it different for IMX_SCMI_MISC_DRV. I really don't see
+any dependency. If it is not supported today fine, but do you need any
+issue to use it or compile it for arm32 ?
 
 -- 
-மணிவண்ணன் சதாசிவம்
+Regards,
+Sudeep
 
