@@ -4,75 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79DA9C369B4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 14:28:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B69A3C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 14:30:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UAdCAcDDcbUAFaQhhiPijezFVFrbVIScJZbGC9BYzaw=; b=SNeWvY9EKH4B8O79wUz71SKh6F
-	so03rU+TDyqbf8mQNHSBQJFLw5s8R7tAws//Z4I44Ehs2MILH5VnO1GvIawNc7ErLCD8KKbqrbXOH
-	u8i9gUNUDOhf2Hp3uB1PCFOXOLNEDka5IoxvwuwfBJRbji8t5aIGZGnbcm/zo1cW0K9dQABysYEES
-	7grmDZ/7PG0ZHI/AQ27byNrkdcoFmoMOuq7uJdo2vJvBGMSXaK0WZvPcV9ulVdIau91CyYYj7lf/Y
-	7gPkBN+g8Zs+OeMAbiKziaUDUn0Kqe+M1MMoj93NzHEcOVhREHUSLu37sM0KOiTm3pQfQagHnp/In
-	uaPQpLkQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tfVnT7zto9fIU0SX/IfnPhW6n2xIqa2B7dlheARLf4Q=; b=bjhMEYBXFZKSs1QkBQ5ym1yMCp
+	D9BmCe3U3/gw1k8X6PG/Jf5y1U4aQ+2pfS6MdF9rMrDDxlJZqs3BV5/DM8oz4G/YsccYcRHHNT3LS
+	ZPPygGa/I0RC+I8kWusW7S2zVaEzcgOTyqmMfIQbdx26A12tH83n6rrFI2Ssv6hzjvLbDr03fGLLX
+	G33FvBZGtN9oQQd+GjCUiJgivRv/7MiqdULcuQE/ZwfypuAaeoP/YLxduzUnAwNP9eMy/zvSZQX6N
+	rH4PKkZrZ0mYiHV3YmTYG7AhO4/9Fr7MtVk9vys609Y/ZB3foGwJrQ62uWHAHadCePAMTtFg0yr8A
+	hM6NEdhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Knn-00000002Nbs-1GLq;
-	Mon, 14 Apr 2025 14:28:47 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u4Kpe-00000002ODx-3QSo;
+	Mon, 14 Apr 2025 14:30:42 +0000
+Received: from mail-oa1-x2b.google.com ([2001:4860:4864:20::2b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4KWA-00000002J8h-0WGV
+	id 1u4Kdr-00000002L4K-35hv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 14:10:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6F3355C542F;
-	Mon, 14 Apr 2025 14:08:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEAEAC4CEE2;
-	Mon, 14 Apr 2025 14:10:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744639833;
-	bh=UAdCAcDDcbUAFaQhhiPijezFVFrbVIScJZbGC9BYzaw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RsE1fqnYQ0D/umEGmNaSWaZcYYZlpe8oJ4M9bNmQUXNC47OUyTTQ7DB18P+L6ECfU
-	 BUOknsLyEtUAUxoXGJ8P/TLemQCIiv7oKKaL7iPzY3CrBKbeA/VaAUOTSQOnLviFpH
-	 Z/1mOoDTt3raVyS/XYhqxZBV5YbWFQpPnBReB/ykzLWof49KucUxQCJ4tD5/dfiWkI
-	 Wvqm1qlxJwJnHY5kRdOgzC9m2nEm6ThmVtaNH7tkkIPxgWfFZ59yHNhwe8jiGYfbmY
-	 jrrMTJPPkCNVGmSDXakfvukg/6IL18z5IwrDVgDp6vHgvx+YVoswa+iJJC1RfYw/91
-	 SVNFl3op8CVzw==
-Date: Mon, 14 Apr 2025 15:10:27 +0100
-From: Mark Brown <broonie@kernel.org>
-To: =?iso-8859-1?B?Q3Pza+Fz?= Bence <csokas.bence@prolan.hu>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Varshini Rajendran <varshini.rajendran@microchip.com>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>, linux-spi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Len Brown <len.brown@intel.com>, Pavel Machek <pavel@ucw.cz>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Alexander Dahl <ada@thorsis.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Pavel Machek <pavel@kernel.org>
-Subject: Re: [PATCH v6 1/2] pm: runtime: Add new devm functions
-Message-ID: <58e37046-f9fd-41cf-a5f5-f7cbb1eb97ab@sirena.org.uk>
-References: <20250327195928.680771-2-csokas.bence@prolan.hu>
- <20250327195928.680771-3-csokas.bence@prolan.hu>
- <CAJZ5v0jmuzvo-xzGBDhGVBbY7svbrqEdi-SeJrx5BG=qtN6ZiQ@mail.gmail.com>
- <832eb5e3-7e2d-4ed2-8571-eca9fe129013@prolan.hu>
+	Mon, 14 Apr 2025 14:18:32 +0000
+Received: by mail-oa1-x2b.google.com with SMTP id 586e51a60fabf-2c764f2c223so1548995fac.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 07:18:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744640310; x=1745245110; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=tfVnT7zto9fIU0SX/IfnPhW6n2xIqa2B7dlheARLf4Q=;
+        b=P4P3MsKuOeCxGut9CK7AwUNTfQtsKx0AASVdfZgmu0dH8ezKDPLeE39XKWp+raEWIk
+         5NfqOtuNGSitjjLwSSmqtF4MUNaC6dxBMbAqp4X2VPblkeEtUt/p2ehdVQq0iJNQn6cK
+         L0Se89/ILyuihLr6t9MtgJorquDbWYY/aeICiL/+ArfdtryIuge/DXEzmiNT09e3P+IJ
+         6NGh6ND53uYutVN/gZikT4wdU3ewAlDDivf2qS50tTp+I/S6+h5en6krIExZ3Q8wD4Ci
+         xu6pMMboy5R8B99x8kDqAq/83R28OXuW9wbRtwbJRPn685XU1Wu2VrcyS/tzyTbJn72B
+         Dpyg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744640310; x=1745245110;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=tfVnT7zto9fIU0SX/IfnPhW6n2xIqa2B7dlheARLf4Q=;
+        b=G8VOTn0ofdRls4MvTrUM0Oxqut265kVBS0/NQUXOkCnlDfFlkL39bo2DyLX6H8pE9q
+         Q5/sGtc8xJYZhY6PuK49SF78d/4O64tiRYTCvxuNEIcWDs5uwMoYwaE8flaMrKmX+EKb
+         KXkx/53q+WlYkX9w+Z3EqM0U6psBpYgTelkKgJfOb7dBhkgKgXZ/CqL3LSqw3Vpa+Y3k
+         8rHDHAyS8cuknhu2WRzHDT5NmT4JWgnNP5r+NMs69qRheyJtRmmNS/b/GtuZ28xX9RjW
+         wlKuCJg0zwGmgp7h7sb4l1bjeQpYzdqwCM1K8sz50ccDu+OCSoam4wQQUGueW1nnPqxF
+         qppA==
+X-Gm-Message-State: AOJu0Yz/CJIckldVSJX0tPMcTVcaDzaaEjinadqv5/mmkbN9vkd9XQ93
+	hwPx2TPThPNo11ibEprypwd31ciyd4Z8x89HOP5beFdlb2Z9RQPl
+X-Gm-Gg: ASbGnctG6PLBhX8eusr8TnkDLt9KACiDM7JBEfzeq/lR9bb7+7CzBuAWWCvd1crq6vq
+	8cw+9Xk21j7q3Wddmv9Qffx5lhBWiKNPVQEa4SGE5Cy/YOmWPGkZzC84mOkfMUM1HCjc6kDwrPN
+	PfcjwrPHAVQjhNSooYbcJqXWwFbEYX41cEnsu+QG/sThsCceXN1TVxlT6REd+0CwF5TqKN85b2s
+	3/fh9oXei4a47yH7ZSzleXkpasY2K3+GAsSt5J3VDhBpCV3z2i8IX+fS/Yp3P4atfovh1Z3KiJY
+	tpSmnxvY86figFLQ7fSCIW+vwTNTtCeRaVSExc7YT+E=
+X-Google-Smtp-Source: AGHT+IGrGIv9+tHzBbFDrY/OgsyEegZmR/zRD35s6mF0qYYRRIOMTdft6Y8aGScRga8UiruK67c+TQ==
+X-Received: by 2002:a05:6870:2199:b0:29e:503a:7ea3 with SMTP id 586e51a60fabf-2d0d5fc7469mr7070651fac.36.1744640310211;
+        Mon, 14 Apr 2025 07:18:30 -0700 (PDT)
+Received: from [10.30.57.29] ([204.77.163.55])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-72e73e689c6sm1991322a34.69.2025.04.14.07.18.29
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 14 Apr 2025 07:18:29 -0700 (PDT)
+Message-ID: <8f7a84af-444f-46a9-b518-4fb010b7fba0@gmail.com>
+Date: Mon, 14 Apr 2025 09:18:28 -0500
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="nb4I0smoCForxcgo"
-Content-Disposition: inline
-In-Reply-To: <832eb5e3-7e2d-4ed2-8571-eca9fe129013@prolan.hu>
-X-Cookie: Good day to avoid cops.  Crawl to work.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm[64]/memremap: fix arch_memremap_can_ram_remap()
+To: Catalin Marinas <catalin.marinas@arm.com>,
+ Ross Stutterheim <ross.stutterheim@garmin.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Mike Rapoport <rppt@kernel.org>, Russell King <linux@armlinux.org.uk>
+References: <20250414133219.107455-1-ross.stutterheim@garmin.com>
+ <Z_0SfqQHsKs3S1cn@arm.com>
+Content-Language: en-US
+From: Ross Stutterheim <ross.sweng@gmail.com>
+In-Reply-To: <Z_0SfqQHsKs3S1cn@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_071034_219554_F98E88D2 
-X-CRM114-Status: GOOD (  14.61  )
+X-CRM114-CacheID: sfid-20250414_071831_779563_F7A6EF52 
+X-CRM114-Status: GOOD (  10.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,41 +100,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 4/14/25 08:49, Catalin Marinas wrote:
+> Please cc the maintainers and the original contributor of the commit you
+> are fixing, otherwise the patch may not be noticed.
+Thanks for adding them on your reply. I will add to V2.
 
---nb4I0smoCForxcgo
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+>> diff --git a/arch/arm64/mm/ioremap.c b/arch/arm64/mm/ioremap.c
+>> index 10e246f11271..48c38c986b95 100644
+>> --- a/arch/arm64/mm/ioremap.c
+>> +++ b/arch/arm64/mm/ioremap.c
+>> @@ -51,7 +51,5 @@ void __init early_ioremap_init(void)
+>>   bool arch_memremap_can_ram_remap(resource_size_t offset, size_t size,
+>>   				 unsigned long flags)
+>>   {
+>> -	unsigned long pfn = PHYS_PFN(offset);
+>> -
+>> -	return pfn_is_map_memory(pfn);
+>> +	return pfn_is_map_memory(offset);
+> 
+> This is already correct.
+Will remove on V2.
 
-On Mon, Apr 14, 2025 at 03:56:47PM +0200, Cs=F3k=E1s Bence wrote:
-> On 2025. 04. 09. 19:43, Rafael J. Wysocki wrote:
-
-> > I can apply this one alone if you want me to do that, but I could also
-> > apply the other patch in the series if it got an ACK from the driver
-> > maintainer.
-
-> I think you can apply it and then Mark can apply the SPI part to his tree.
-> @broonie what do you think?
-
-Please don't add random characters to my name.
-
-I'd need a tag since the driver change isn't going to build without the
-new API.
-
---nb4I0smoCForxcgo
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmf9F1IACgkQJNaLcl1U
-h9CVyQf+OoBLAj4WQr+H7BEg9lObLdNL4KRPrtCilkLER2n2jv1LKxR5AOVaM5s0
-a5jKczyVXb543ZHBu2u2Mr3F2ofULa7INlrO88vcmVjI0QQgaKweqTO0Z6bL8atX
-D0gRFG0/QKfQ/EscdGHTVDza0RH5LNDwzz7Jw3guBzw5lu1d7raDhXCmorKVzMAc
-H1yoyUGhmLGv71cpmm3Y4vO3hvQZP4O50+8f83Ntf7A/TpByOrxd8RI6wtFndpJU
-FJalHnIvuMSv1djWNklF0r2E41AheaCGCxGO3SlLffqjXbGh98QS7a3mG8yjMOCA
-TR41WG7xTs+F7TjDT4E1tYyh/vdRjg==
-=mnIx
------END PGP SIGNATURE-----
-
---nb4I0smoCForxcgo--
+--
+Ross
 
