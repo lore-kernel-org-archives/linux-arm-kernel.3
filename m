@@ -4,92 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5947EC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 22:33:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2678C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 22:46:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oJUU5/KwFR6EBw6HmiWZSj5H1CAAPNYinIfo2az6p00=; b=c0MxbjZvYSv47/K9Dy4wanGXFC
-	uvK2qPHWFLCW0y4YGIZ/DTwWuqlWKtF8Z/rfJ9wT/xNVA0ISTuGTg+TxUzQCxSIiUMqvurohko7KL
-	8fYJWdHZ3BamNOYaodrN8OFAB5yndq6+Q58NdinWdCcJGxQ/LyULOYZjynGJXcU89gDzKALpP200M
-	DxvKFvKoSpP7CzTLQig/Mp74bSgvNypLzio8sM47xBVhGBg1G7PGzp+TpLxf/D169n5PfISccV/k5
-	SYyn6xkndOSX9eQ3ZNg1Q6vLPJueBcz4zZ0q77l0zGUIPH6/GCdLmQrjtD3nrR1TlbjT101P2EPOq
-	XaDuvk+g==;
+	bh=D/cPLBpNaY7IG7s+uxYBLEgAEukvVZ/Jx8w1LcX6TNY=; b=4YpcmxGztwI9JzgFNb3OysR8h6
+	TSxzyOOiwaEslY4k69vXtFh8DVcYQIUs+m8wRmAtvNiIdfQCj+d9WVzFD5zKGG5INgxd0GV12uj4p
+	oY56KCnvPB4KMhpfNcS6XhmFXT9hJ72fVeMc6wH0drrQKMu3PYQLqsMcuFHs/VY6eFAbNhQrzb4Li
+	AdN0gTvhWD1gSurkznxIgRvW5zvl6cssl0Kj/DRjnJUbCMxbV+N1ZI/86kzhGnmftiiaOjhr6aNra
+	sRQaisbm79byg23NaKfpArlakrReCe/Vp04JpPSe+HwADVKxwYVebbd0OlchbQm/A36FtIDn3lztn
+	7lD4sxKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4SMi-00000003jvt-117c;
-	Mon, 14 Apr 2025 22:33:20 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1u4SZX-00000003kyG-2tpT;
+	Mon, 14 Apr 2025 22:46:35 +0000
+Received: from mx0b-00823401.pphosted.com ([148.163.152.46])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4SJx-00000003jal-0vw2
+	id 1u4SXi-00000003knj-2ehw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 22:30:31 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-5f435c9f2f9so2370035a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 15:30:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1744669827; x=1745274627; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=oJUU5/KwFR6EBw6HmiWZSj5H1CAAPNYinIfo2az6p00=;
-        b=R2k04nzOlWB24IwVYuaQ7pY+kkBvGAiXS86f+ugiq30DMON3hglETkx30Bjmg6+hwg
-         FeU0UfyRNbjiW7teRFbXUqIU0x4CpgRoVlHDoX/nFDP1tfz3RsK92EVHtUzah65svmDl
-         rr6COTsfzEg2Mn51sRgA15IaqqNE+odUzVNW/CqE18qW2q6xoJbZAgmkkhK5eabslluS
-         8tJ1eUyMOYqEBUHBY0ig/1FH0GXVfRpG8HhAwxZiaj/plidqG2g1/yMPSv9TCmYRaQG4
-         GPXKtanp0Bv5d+OE2vfzbR84pZBwCeG851GW79r37202TlkFybMxDV/h3nb0UculrLJt
-         6uWQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744669827; x=1745274627;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=oJUU5/KwFR6EBw6HmiWZSj5H1CAAPNYinIfo2az6p00=;
-        b=Uy+DlA1xnTIZ64Z64mcHDiOLbZEzCuyXpbecEKzmsbjJwx3pk21eZ4Ll0XwFeQgQg7
-         ZwbOzTr/j19CI1dnBICdMi6n3aNlbPriVWGhobiQuQc+8VKLmPGIxqxUQ0Se03pQzDhC
-         NznRdkcQjxnP22WW1QJMTs7o2Yuunrz6JWiWmFPu6IeRjtzoezCzpQmRtl8kgOS6rSbX
-         0F6gXNf+8V5pyWVLiHhjsNclSKOW2UrGqe1AZTRQEaDs3DnYerqiguOJh02UJrNBEpEA
-         bh1XAI86N2Y1++pzSwM2jKNaLpAQ93YRIveNI+eyayHgm8lLBCAFmJNEPgtRtYq7Pysl
-         A5PA==
-X-Forwarded-Encrypted: i=1; AJvYcCVk+ihEmT0mvTWqjBbP4DWpaO7ZX8erqHkt00+mR5JyMi+8kBJvs5syJPVpqFRBR6mRVKGZMyhXlTUed0IYvvZ2@lists.infradead.org
-X-Gm-Message-State: AOJu0YzsQdYUZO49f3bHZrM+A5BqFJ9lB1eVXpYPoJqXzzOOB/Z+HJFS
-	XEcNox6XEF0/s8tF8/oClRcGZahm8wJryY8PLZHmyLYDGnSFj7K4JeTKmc90WHc=
-X-Gm-Gg: ASbGncsZlBsbzfF5B1JLNd0HAlcJgnQ/5rgl07eS7bq9+wy8K0rJAgjxiV4NAcJAVeA
-	BcDgBGHwmeFlKWYv9yhqongGNc1tvfgrJPlVnu10alXKnCL4ulkf75BUps+uobn1Vae1dk05xd3
-	hR2kjGe3ydFCIzsooWIubM5i/zeH5VjMppYX8OKfWs4/pxEr5Nk9myPZlI8exoh5pu3JP50eWUE
-	MGbmbSK1FQqLCebKDtmdJhQ85N0EOl9KsLYnDVYeq5TxHpeUfAALOhv4D8Sorr6S9oVP/dw0OdI
-	PZpM3Zdg7todT2SRQQVvDTFyH41aOK+H9j8svcicCyLpPw==
-X-Google-Smtp-Source: AGHT+IHZhK+qYZqSi1SpL+1u6PEyVqPY3kj7P/rJwDZYHQs5W9C/B5usPcBT3HSPzMoZrr6flIoa1w==
-X-Received: by 2002:a05:6402:3214:b0:5f4:370d:96c4 with SMTP id 4fb4d7f45d1cf-5f4370d9b5amr5203042a12.0.1744669827520;
-        Mon, 14 Apr 2025 15:30:27 -0700 (PDT)
-Received: from localhost ([2a02:8071:b783:6940:36f3:9aff:fec2:7e46])
-        by smtp.gmail.com with UTF8SMTPSA id 4fb4d7f45d1cf-5f36ee54d84sm5746425a12.8.2025.04.14.15.30.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Apr 2025 15:30:26 -0700 (PDT)
-Date: Tue, 15 Apr 2025 00:30:25 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Alexandre Mergnat <amergnat@baylibre.com>
-Cc: Eddie Huang <eddie.huang@mediatek.com>, 
-	Sean Wang <sean.wang@mediatek.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-rtc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v3 3/5] rtc: Fix the RTC time comparison issues adding
- cast
-Message-ID: <erttkpna2hzg7zuddzlocaou2wqcwmgcxfhldwdt55yleie6dm@nfg374fv66fq>
-References: <20250109-enable-rtc-v3-0-f003e8144419@baylibre.com>
- <20250109-enable-rtc-v3-3-f003e8144419@baylibre.com>
+	Mon, 14 Apr 2025 22:44:43 +0000
+Received: from pps.filterd (m0355090.ppops.net [127.0.0.1])
+	by m0355090.ppops.net (8.18.1.2/8.18.1.2) with ESMTP id 53EFjn3t019360;
+	Mon, 14 Apr 2025 22:43:25 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=motorola.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=DKIM202306; bh=D/cPLBpNaY7IG7s+uxYBLEg
+	AEukvVZ/Jx8w1LcX6TNY=; b=37MtPe2+ewGYz44vyX13gc57Ay5RFeM2siTG2Oz
+	F2Hvw0Gfjeq8J3ufftdGtpkdI0rRVDHcDtej8L25TtUqxX0WGd+1h+soQqpzWk7E
+	4Uf8CJ7+3TLVYtdJM5JThfDxEj79+CDg7KYxkYfOVuomYq4LcKP8FZL736i7xfua
+	AuyK2Zflm9vXippfTyTxJewid7eqwg2GT87POBS0S10Hyu+SSxacsTdNs2A16uBP
+	IBvA4m3FP+3a3J/65oTwVN4OedwlI2CmPJhxGGNwRBe7TIZME4i1XDNFylbvZuiD
+	cLivrO9O1RoPm7cP0k6XPx/sD20tu2TxTCldCy4wMcqbj0Q==
+Received: from iadlppfpol2.lenovo.com ([104.232.228.81])
+	by m0355090.ppops.net (PPS) with ESMTPS id 4603gukden-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 14 Apr 2025 22:43:24 +0000 (GMT)
+Received: from ilclmmrp02.lenovo.com (unknown [100.65.83.26])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by iadlppfpol2.lenovo.com (Postfix) with ESMTPS id 4Zc2Pb3CLkzYkjct;
+	Mon, 14 Apr 2025 22:43:15 +0000 (UTC)
+Received: from ilclasset02 (ilclasset02.mot.com [100.64.11.15])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: mbland)
+	by ilclmmrp02.lenovo.com (Postfix) with ESMTPSA id 4Zc2Pm0bBkz3p6l2;
+	Mon, 14 Apr 2025 22:43:24 +0000 (UTC)
+Date: Mon, 14 Apr 2025 17:43:20 -0500
+From: Maxwell Bland <mbland@motorola.com>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+        Mark Brown <broonie@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Dave Hansen <dave.hansen@linux.intel.com>,
+        Jann Horn <jannh@google.com>, Jeff Xu <jeffxu@chromium.org>,
+        Joey Gouly <joey.gouly@arm.com>, Kees Cook <kees@kernel.org>,
+        Linus Walleij <linus.walleij@linaro.org>,
+        Andy Lutomirski <luto@kernel.org>, Marc Zyngier <maz@kernel.org>,
+        Peter Zijlstra <peterz@infradead.org>,
+        Pierre Langlois <pierre.langlois@arm.com>,
+        Quentin Perret <qperret@google.com>,
+        "Mike Rapoport (IBM)" <rppt@kernel.org>,
+        Ryan Roberts <ryan.roberts@arm.com>,
+        Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+        Matthew Wilcox <willy@infradead.org>,
+        Qi Zheng <zhengqi.arch@bytedance.com>,
+        linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+        x86@kernel.org
+Subject: Re: [RFC PATCH v3 00/15] pkeys-based page table hardening
+Message-ID: <fv3ijx6vcha2hfn5m2py4h73ympmgbur6wruwoej5pbz2lhjfc@t5j7gfa5j674>
+References: <20250203101839.1223008-1-kevin.brodsky@arm.com>
+ <a32cjyekuecoowzbitc2xykilvpu6l3jjtityp7x5hw7xbiysp@5l2lptwmqiug>
+ <802963a0-32bd-49e8-82b1-34443acdd5ae@arm.com>
+ <epnxrdkidbrjyjzapms7dfsvjcc7ewewjue7khbuxhresy5x5n@hyhokacdi2yg>
+ <bcaa98c0-4218-470d-981d-9ab0894d3b1b@arm.com>
+ <rzmxyxnufxrti7nxw3i25dil4bcqjzwqty4alwikm7bgbpjbju@dx5leafgss5l>
+ <107650bf-a8c1-4a71-a302-2e80abd5d062@arm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="tsmmcnqrrufeyjni"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250109-enable-rtc-v3-3-f003e8144419@baylibre.com>
+In-Reply-To: <107650bf-a8c1-4a71-a302-2e80abd5d062@arm.com>
+X-Proofpoint-ORIG-GUID: u5D-UadS7v89dy-zw2UEWuH7V_j9ffAh
+X-Proofpoint-GUID: u5D-UadS7v89dy-zw2UEWuH7V_j9ffAh
+X-Authority-Analysis: v=2.4 cv=EvPSrTcA c=1 sm=1 tr=0 ts=67fd8f8c cx=c_pps a=Bzw+04pMMuzJwu0RtP1G/Q==:117 a=Bzw+04pMMuzJwu0RtP1G/Q==:17 a=kj9zAlcOel0A:10 a=XR8D0OoHHMoA:10 a=Pj3cbH4x630mQXpL76YA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-14_08,2025-04-10_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=999
+ impostorscore=0 spamscore=0 phishscore=0 priorityscore=1501 clxscore=1015
+ malwarescore=0 adultscore=0 suspectscore=0 mlxscore=0 bulkscore=0
+ lowpriorityscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2504140163
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_153029_348519_C3627295 
-X-CRM114-Status: GOOD (  35.67  )
+X-CRM114-CacheID: sfid-20250414_154442_848320_720FD32A 
+X-CRM114-Status: GOOD (  21.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,172 +119,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Apr 04, 2025 at 09:57:02AM +0200, Kevin Brodsky wrote:
+> On 28/03/2025 17:15, Maxwell Bland wrote:
+> Overall this seems worth investigating. I wonder, have you considered
+> how accessors would find the shadow memory? It could of course be linked
+> directly from task_struct, but then nothing prevents that pointer from
+> being corrupted. I can't think of another cheap way to link $p$ though.
+> This is not a full-blown shadow memory approach, so I'm not sure we can
+> reserve a whole chunk of the address space for that purpose.
 
---tsmmcnqrrufeyjni
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v3 3/5] rtc: Fix the RTC time comparison issues adding
- cast
-MIME-Version: 1.0
+Hi, apologies for the delay again, I had much fire to put out last week.
 
-Hello Alex,
+I saw you posted a V4 for this, so I'll close out this chain.
 
-On Fri, Apr 11, 2025 at 02:35:56PM +0200, Alexandre Mergnat wrote:
-> The RTC subsystem was experiencing comparison issues between signed and
-> unsigned time values. When comparing time64_t variables (signed) with
-> potentially unsigned range values, incorrect results could occur leading
-> to runtime errors.
->=20
-> Adds explicit type casts to time64_t for critical RTC time comparisons
-> in both class.c and interface.c files. The changes ensure proper
-> handling of negative time values during range validation and offset
-> calculations, particularly when dealing with timestamps before 1970.
->=20
-> The previous implementation might incorrectly interpret negative values
-> as extremely large positive values, causing unexpected behavior in the
-> RTC hardware abstraction logic.
->=20
-> Signed-off-by: Alexandre Mergnat <amergnat@baylibre.com>
-> ---
->  drivers/rtc/class.c     | 6 +++---
->  drivers/rtc/interface.c | 8 ++++----
->  2 files changed, 7 insertions(+), 7 deletions(-)
->=20
-> diff --git a/drivers/rtc/class.c b/drivers/rtc/class.c
-> index e31fa0ad127e9..1ee3f609f92ea 100644
-> --- a/drivers/rtc/class.c
-> +++ b/drivers/rtc/class.c
-> @@ -282,7 +282,7 @@ static void rtc_device_get_offset(struct rtc_device *=
-rtc)
->  	 * then we can not expand the RTC range by adding or subtracting one
->  	 * offset.
->  	 */
-> -	if (rtc->range_min =3D=3D rtc->range_max)
-> +	if (rtc->range_min =3D=3D (time64_t)rtc->range_max)
->  		return;
+W.r.t. the above, it may be possible to segment the RB tree in vmalloc.c
+and designate an allocation region for this purpose. I did something
+similar to enforce PXNTable-across-vmalloc a year or so ago which ended
+up successful on a production device.
 
-For which values of range_min and range_max does this change result in a
-different semantic?
+I plan to experiment a bit with different approaches and will probably
+send the code to the mailing list once/if I get something together (also
+if it isn't pre-empted by someone smarter and faster doing something
+better).  (-:
 
-Trying to answer that question myself I wrote two functions:
+> Indeed. For experimenting a Coccinelle script to convert direct access
+> to certain members to a function call is probably easier :)
 
-	#include <stdint.h>
+This does keep it in-kernel, which is nice, and I will keep this in mind
+as I write.
 
-	int compare_unsigned(uint64_t a, int64_t b)
-	{
-		return a =3D=3D b;
-	}
+Thank you for the discussion and patch, as well as the newest one!
 
-	int compare_signed(uint64_t a, int64_t b)
-	{
-		return (int64_t)a =3D=3D b;
-	}
-
-When I compile this (with gcc -Os) the assembly for both functions is
-the same (tested for x86_64 and arm32).
-
->  	ret =3D device_property_read_u32(rtc->dev.parent, "start-year",
-> @@ -299,7 +299,7 @@ static void rtc_device_get_offset(struct rtc_device *=
-rtc)
->  	if (!rtc->set_start_time)
->  		return;
-> =20
-> -	range_secs =3D rtc->range_max - rtc->range_min + 1;
-> +	range_secs =3D (time64_t)rtc->range_max - rtc->range_min + 1;
-
-In the case where no overflow (or underflow) happens, the result is the
-same, isn't it? If there is an overflow, the unsigned variant is
-probably the better choice because overflow for signed variables is
-undefined behaviour (UB).
-
-Respective demo program looks as follows:
-
-	#include <stdint.h>
-
-	int test_unsigned(uint64_t a)
-	{
-		return a + 3 > a;
-	}
-
-	int test_signed(int64_t a)
-	{
-		return a + 3 > a;
-	}
-
-Using again `gcc -Os`, the signed variant is compiled to a function that
-returns true unconditionally while the unsigned one implements the
-expected semantic.
-
->  	/*
->  	 * If the start_secs is larger than the maximum seconds (rtc->range_max)
-> @@ -327,7 +327,7 @@ static void rtc_device_get_offset(struct rtc_device *=
-rtc)
->  	 *
->  	 * Otherwise the offset seconds should be 0.
->  	 */
-> -	if (rtc->start_secs > rtc->range_max ||
-
-The original comparison uses unsigned semantics. With start_secs signed
-and range_max unsigned, this might become true if start_secs is less
-than 0.
-
-> +	if (rtc->start_secs > (time64_t)rtc->range_max ||
-
-This new comparison has a similar problem: If range_max is bigger than
-INT64_MAX, its value interpreted as signed 64bit integer might be a
-negative number and so this comparison might become true unexpectedly.
-
-So even if UB doesn't play a role here (I'm not sure), it's not clear to
-me why you consider the issue of the unsigned comparison worse than the
-signed one.
-
-If this is indeed beneficial, it needs a better explanation than "When
-comparing time64_t variables (signed) with potentially unsigned range
-values, incorrect results could occur leading to runtime errors.".
-
-Maybe you have to replace
-
-	rtc->start_secs > rtc->range_max
-
-by:
-
-	rtc->start_secs >=3D 0 && rtc->start_secs > rtc->range_max
-
-instead?
-
->  	    rtc->start_secs + range_secs - 1 < rtc->range_min)
->  		rtc->offset_secs =3D rtc->start_secs - rtc->range_min;
->  	else if (rtc->start_secs > rtc->range_min)
-
-I didn't check the other hunks.
-
-All in all I would suggest to split this series in two:
-
- - Adding support for mt6357 in the rtc-mt6359 driver
- - Fixing overflow issues in the rtc core
-
-Given that I don't understand the intend of this patch, I cannot say if
-it should be included in the 2nd series, or if this is yet another
-standalone topic.
-
-Best regards
-Uwe
-
---tsmmcnqrrufeyjni
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmf9jH4ACgkQj4D7WH0S
-/k51FwgAsL7mzjW04I3FbsimeTdILk9y1+3zCv9FAZYVpWnaNgF1Ug6wloE92sfC
-A6VZrP7eNxWVQ9EcrpIqph4n6AnLEukD2eY9MeSndzqnJJQWJuJ06aafMX7DvkJh
-lvvXOn6lX1VI0gjX/pYu4ayTiJ2iBLyXJXM5Pk1E2raJJfF1r5cuRJPXPk0HNwgL
-pHIOgpIQKEO1OxYFY8Q7W/af63h/ZmqvQadBh4gPEpDGDKvHG5DgA3G2BMAhqiDX
-fvNL/hqBmRa8FC7e274ACveXF00oTDU5uGP/ezWx+U5J2K5wIb3kBzd1BDhIaNFS
-oOLoIX9qnbCZ1GOtLtXWLAkT7Wjm4A==
-=bJIL
------END PGP SIGNATURE-----
-
---tsmmcnqrrufeyjni--
+- Maxwell Bland
 
