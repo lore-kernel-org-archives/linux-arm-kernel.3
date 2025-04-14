@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA0D1C369B4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 19:48:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C95CEC369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 19:52:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2//YI37gCwEJnWo7XbAl9+oojJRWv9moUx4jBN5YgjE=; b=xTN8udcaAhRY6NXMpxuIlFxvpk
-	JgrcsP5tDEsv/+we/Q1KELt/9F9gbvmewRfX/Qn6FL/H2EcMLEv4rL4ioUn2Ge8dPpCpZo24Makor
-	r7oWHw1c/8dv3wDBVaB9ysdehaAbHQ6sh/4fgghc5VuQ/XRXxn4/R8V/JV+y4CJ7Dq4tdjyZEy7yE
-	d55/pCBi+pBlY+fXJue7Xn6rVMLtYlZF1Tl0BtyJnxVynRnmWIpVATnDyVD+NClS4ny8ey4U1rssf
-	gU9VKY+KEWKnRL0TToubTAm1+mVd/NzJgazIDBZuESktWkwKftnS3cC5wHDJ8cX8fx6r17N21wzG6
-	15pSbCPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AoqXrtJBdP+wl7piwv+xJnM7uthmTaWpxUyS8wptGUw=; b=AjB4h2UoLgtdunuC657l1qy41v
+	WoOabmlaOeTMppjPoWGCDQXrp5gwSILh+eNxBA0RqNM5ijW3yesrRs4aZgiQJMLbCkiSl4zp8rEGi
+	OYfTZ9N2moXPfauFc+wyimfBwzszDGfb6rvS/bW7eW4u98ovKsuUAXs++gWlaI1NCFW6w7mPYUXsB
+	PLArRJaKgHBYBOhyUF+IcEKZT5GP1so0W6+Vt+VXvNRIKWkZtNzIDVoXIyENvw5po6Dhho3bSWYjk
+	oNKIYI7AHeL+jHTP5fV5sGEpAwKfB4hf8M/6iVsfKEDoxXRWzqOvgo/XKNhyFjZFhM5YsX1xvp7Tk
+	3uoagmQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4PnE-00000003O3m-3x4o;
-	Mon, 14 Apr 2025 19:48:32 +0000
-Received: from pandora.armlinux.org.uk ([78.32.30.218])
+	id 1u4Pqp-00000003ONz-3JFH;
+	Mon, 14 Apr 2025 19:52:15 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4PlM-00000003Nuc-0APZ
+	id 1u4Pow-00000003OFP-3vOT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 19:46:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=2//YI37gCwEJnWo7XbAl9+oojJRWv9moUx4jBN5YgjE=; b=OKFNLW+vkmj6v9qjccZiLLFMgf
-	ahhqabsAexbgPEievMAp9Hu/1LCpC1eJCrvYcapZJvKAVKbq47kpKcGUPtoeVAd0f+B2O60t6M0FK
-	vRCeXSSLjN27fF0SWa0Fr7QXxvTRBQ/eWQZ+r8/2cTozGUM6uf5h8zSAov6dB70FFoQQgd0pJMkDp
-	VLUkjb7I+OtCnnVoceHzb4ap14cVVacy0ymoS79Q6Ja0QLZTX8lr2N20OZGPo9zACJKER8PgVHpRl
-	wg9Y4HvnR8OkeUdXKL8yRGr8fCD41PwCH+zWee/P6SRhyGDDUdpCxo/p55rkGgBTKYvQX62WyxCVC
-	Lnoe67Vg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:56924)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1u4PlE-00072D-1b;
-	Mon, 14 Apr 2025 20:46:28 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1u4PlB-00081U-0U;
-	Mon, 14 Apr 2025 20:46:25 +0100
-Date: Mon, 14 Apr 2025 20:46:25 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Christian Schrefl <chrisi.schrefl@gmail.com>
-Cc: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
-	Jocelyn Falempe <jfalempe@redhat.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	rust-for-linux <rust-for-linux@vger.kernel.org>,
-	Linux ARM <linux-arm-kernel@lists.infradead.org>,
-	dri-devel <dri-devel@lists.freedesktop.org>,
-	Linus Walleij <linus.walleij@linaro.org>
-Subject: Re: `u64` by `u64` div/mod in DRM QR for arm32
-Message-ID: <Z_1mEHnzYjhz0Ldz@shell.armlinux.org.uk>
-References: <CANiq72ke45eOwckMhWHvmwxc03dxr4rnxxKvx+HvWdBLopZfrQ@mail.gmail.com>
- <38867e79-c0e3-4bcd-bdf9-3fb5b571d51e@gmail.com>
+	Mon, 14 Apr 2025 19:50:20 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 3121125DAC;
+	Mon, 14 Apr 2025 21:50:11 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id R9FkhobHa6Ut; Mon, 14 Apr 2025 21:50:10 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1744660210; bh=dcR7kDT88f2BjMAzrV0CEFOH3VQYsiVxkmdWN9CU5NM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=R/qqRnXA/7LIcaoUZcttO7OYB2QWkbzAUYtZVZ0RCtvMPFukx1KCicdSN42BdMyWl
+	 PPadXTuvAiQOE4UWFuTs8iS3WqcG3CAg7nzbe/YoGDN7k8Ke9kWWUCviGa0Nawpgja
+	 F4adTiq8pct/uJkvEBJ/s6acYH3R5UmwquYLw2hkn+nS0ZfJxGM0slDRIWNgCm4Nqi
+	 wqRyNqplFO9CXGfNv1qP8z2wtwvA3zo+kehpIe1nuizRK0+S69RlsBlo/2gXAo8DGZ
+	 mgCzRsHmaOxHfsqTn7jTCxH7OItjfUUE7XT9408HAI76z9ZYiWZ6tUKNLDVp8H2Flz
+	 A726QuDyBy9cw==
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <38867e79-c0e3-4bcd-bdf9-3fb5b571d51e@gmail.com>
+Date: Mon, 14 Apr 2025 19:50:10 +0000
+From: Kaustabh Chakraborty <kauschluss@disroot.org>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-samsung-soc@vger.kernel.org, Krzysztof Kozlowski
+ <krzk@kernel.org>, devicetree@vger.kernel.org, Ivaylo Ivanov
+ <ivo.ivanov.ivanov1@gmail.com>, linux-arm-kernel@lists.infradead.org, Kees
+ Cook <kees@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org, Tony Luck
+ <tony.luck@intel.com>, linux-hardening@vger.kernel.org, "Guilherme G.
+ Piccoli" <gpiccoli@igalia.com>, Alim Akhtar <alim.akhtar@samsung.com>
+Subject: Re: [PATCH v6 0/5] Add support for the Exynos7870 SoC, along with
+ three devices
+In-Reply-To: <174463433283.154575.16025374701126076484.robh@kernel.org>
+References: <20250414-exynos7870-v6-0-039bd5385411@disroot.org>
+ <174463433283.154575.16025374701126076484.robh@kernel.org>
+Message-ID: <524e47208a69616d700642857d37bd57@disroot.org>
+X-Sender: kauschluss@disroot.org
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_124636_076988_45BFAC46 
-X-CRM114-Status: GOOD (  21.91  )
+X-CRM114-CacheID: sfid-20250414_125019_392389_727636C9 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,50 +80,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 14, 2025 at 09:21:42PM +0200, Christian Schrefl wrote:
-> Hi Miguel,
+On 2025-04-14 12:42, Rob Herring (Arm) wrote:
+[...]
 > 
-> On 14.04.25 8:14 PM, Miguel Ojeda wrote:
-> > Hi Jocelyn, Christian,
-> > 
-> > I started build-testing arm 32-bit within my other usual routine
-> > tests, and I hit:
-> > 
-> >     ld.lld: error: undefined symbol: __aeabi_uldivmod
-> >     >>> referenced by drm_panic_qr.rs:417 (drivers/gpu/drm/drm_panic_qr.rs:417)
-> >     >>> drivers/gpu/drm/drm_panic_qr.o:(<drm_panic_qr::SegmentIterator
-> > as core::iter::traits::iterator::Iterator>::next) in archive vmlinux.a
-> > 
-> > which comes from both these `u64` by `u64`:
-> > 
-> >     let out = (self.carry / pow) as u16;
-> >     self.carry = self.carry % pow;
-> > 
-> > Christian: I guess we can offer a set of `div64` functions using the C
-> > ones, at least for the time being, and eventually wire the actual
-> > operator with some support from upstream Rust. Or do you have
-> > something else in mind? (i.e. I think you have been discussing
-> > intrinsics lately)
+> My bot found new DTB warnings on the .dts files added or changed in this
+> series.
 > 
-> I think using the C implementations is fine. Not sure how much the
-> FFI is going to matter for performance, but it should be rare enough
-> that is shouldn't matter (and hopefully we will get cross lang LTO 
-> or something similar at some point).
+> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+> are fixed by another series. Ultimately, it is up to the platform
+> maintainer whether these warnings are acceptable or not. No need to reply
+> unless the platform maintainer has comments.
 > 
-> We could also just implement the intrinsic(s) ourselves, but then 
-> the u64 divisions would be implicit which is probably undesired.
-> We could also rename the intrinsics so they are only usable from 
-> specific crates. 
+> If you already ran DT checks and didn't see these error(s), then
+> make sure dt-schema is up to date:
 > 
-> I think we need the opinion of the some arm people here.
+>   pip3 install dtschema --upgrade
 > 
-> CC Russell King and Linus Walleij.
+> 
+> This patch series was applied (using b4) to base:
+>  Base: using specified base-commit 29e7bf01ed8033c9a14ed0dc990dfe2736dbcd18
+> 
+> If this is not the correct base, please add 'base-commit' tag
+> (or use b4 which does this automatically)
+> 
+> New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/exynos/' for 20250414-exynos7870-v6-0-039bd5385411@disroot.org:
+> 
+> arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dtb: /soc@0/phy@135c0000: failed to match any schema with compatible: ['samsung,exynos7870-usbdrd-phy']
+> arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dtb: /soc@0/phy@135c0000: failed to match any schema with compatible: ['samsung,exynos7870-usbdrd-phy']
+> arch/arm64/boot/dts/exynos/exynos7870-j6lte.dtb: /soc@0/phy@135c0000: failed to match any schema with compatible: ['samsung,exynos7870-usbdrd-phy']
 
-The kernel has had the general position that u64 by u64 division is
-silly and isn't supported. Several 32-bit architectures including
-32-bit ARM don't support it.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Note: These have been accepted and are currently residing in vkoul/phy.
 
