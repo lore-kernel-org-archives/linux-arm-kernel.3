@@ -4,77 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 540D2C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 11:20:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E445C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 11:22:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uE1Wytg16lMT8ifH4+9KDLY0YnjOJXle533c9rO8+PM=; b=UUX1kUgF3/bo7fwNoYrIlH/8D/
-	qV9p37U2MeybaagVuPNNGxyZ3VRO/wEbA3sMKK3sIVDl53d3FFrFZ95L9v6c15XaqWlN76zwPcL9B
-	phlZTpRr1rKlRdtESkP1590OXCFCIPLsix47UegKj4SiBGl8JA2pfAbszrwqVHA0hPkK1woRH6CE7
-	RCCxHwNnLJSNL8xFhoOhC4HOhOwZr+qRYPVaX9AywSMhBXOICeupYQyl89FqMzbR9Dru+nD5XTrhr
-	VFXjlxAKd0LJTiCJ0wMj1Iaba8hYHOMcQVpQaFeL1pA6YINJPtyjWRCHPey+4U3KHqA44vLq6GbSH
-	QhELZ1ag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0EbZ/7NYSQIH2cjZdJu66a5YVTDn2d6A3WWziI79Ht0=; b=sAH/pLv+M0owo0CHVPtwOjg8co
+	4rHpUxquLfHsGQGNixkK5ZtOfkAYGo2mygFS3S+GRX2GLLKBoJueSj4XfRRw/A9oXZs5F2bSgkS4r
+	QmCXesA4pB3A2rk/oi3EE4so/Y3y+acG7Htt66kcAiFS+ZM6IStSLqZ3fHek0RcSpj5W6e1gORla5
+	Q+12hWLRc2NzfRHzx88rhoQypmjcn/5ktCVxzP91kB5EEQk4gesVukt5h8OP++jtm1BNxotp4yDxI
+	T2telMRSodpdxTgaKtMGrzJN5LWwqND20w7QioYN2mM7FcI2K+J2FTjeojn5cmVJflP2a6vs/Aqyo
+	+7H2OeZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Hrf-00000001k4u-2MCC;
-	Mon, 14 Apr 2025 11:20:35 +0000
-Received: from smtp-fw-52003.amazon.com ([52.119.213.152])
+	id 1u4HtV-00000001kRQ-1EOQ;
+	Mon, 14 Apr 2025 11:22:29 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Hn8-00000001ieW-3Oab
+	id 1u4Hku-00000001hsn-0zoM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 11:15:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
-  t=1744629354; x=1776165354;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=uE1Wytg16lMT8ifH4+9KDLY0YnjOJXle533c9rO8+PM=;
-  b=iPt2xKzAqWFszYFzzJYWXmJnBHB8T0TRQGTY8gQKMnNh109ES/zY1iy5
-   uMta6nOgCe53SYMlmvpSn3W3S2HtlgkQ0ibszgPYRpT2RzHPaTP2Ebu6l
-   TL5TkvroSqcEjKAT0KD7nNjr4ctzQ2s9yGtsfj1mVpnQMHsqea766IBQ+
-   g=;
-X-IronPort-AV: E=Sophos;i="6.15,212,1739836800"; 
-   d="scan'208";a="83450314"
-Received: from iad12-co-svc-p1-lb1-vlan3.amazon.com (HELO smtpout.prod.us-east-1.prod.farcaster.email.amazon.dev) ([10.43.8.6])
-  by smtp-border-fw-52003.iad7.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Apr 2025 11:15:51 +0000
-Received: from EX19MTAEUC001.ant.amazon.com [10.0.43.254:51553]
- by smtpin.naws.eu-west-1.prod.farcaster.email.amazon.dev [10.0.0.201:2525] with esmtp (Farcaster)
- id e0e345b7-4395-46d2-a344-14a1cfd2ffd8; Mon, 14 Apr 2025 11:15:51 +0000 (UTC)
-X-Farcaster-Flow-ID: e0e345b7-4395-46d2-a344-14a1cfd2ffd8
-Received: from EX19D018EUA002.ant.amazon.com (10.252.50.146) by
- EX19MTAEUC001.ant.amazon.com (10.252.51.193) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
- Mon, 14 Apr 2025 11:15:50 +0000
-Received: from u94b036d6357a55.ant.amazon.com.com (10.106.82.24) by
- EX19D018EUA002.ant.amazon.com (10.252.50.146) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
- Mon, 14 Apr 2025 11:15:44 +0000
-From: Ilias Stamatis <ilstam@amazon.com>
-To: <kvmarm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-	<maz@kernel.org>, <oliver.upton@linux.dev>
-CC: <joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <yuzenghui@huawei.com>,
-	<eric.auger@redhat.com>, <andre.przywara@arm.com>, <will@kernel.org>,
-	<dwmw@amazon.co.uk>, <ilstam@amazon.com>, <jgrall@amazon.co.uk>,
-	<ugurus@amazon.co.uk>, <nh-open-source@amazon.com>
-Subject: [RFC PATCH 1/1] KVM: arm64: vgic-its: Add flag for saving ITTs in userspace buffer
-Date: Mon, 14 Apr 2025 12:12:44 +0100
-Message-ID: <20250414111244.153528-2-ilstam@amazon.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250414111244.153528-1-ilstam@amazon.com>
-References: <20250414111244.153528-1-ilstam@amazon.com>
+	Mon, 14 Apr 2025 11:13:37 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53E99qdc001754
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 11:13:35 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	0EbZ/7NYSQIH2cjZdJu66a5YVTDn2d6A3WWziI79Ht0=; b=EMH8o4UiuC80ePp5
+	bTfw+V5gsrNTJyr5ErSeCcejqaOEE7efz0FI6/+TJd+hSUi/Pn7oqsw9/uPrNrIK
+	01F3VCO5qtsWnNBoxrPHR7/BukU6wQLZFdSiC0o/j9pZinVPSWOEIvflzJ+uEmw9
+	KwdDovqji/+ymjp0OGqYdu5+ZQhICieELp6b3yKBQWwf62Tk/WlF7R+H35SiYYd5
+	EXg0oprAgxfHyfCpzm+ksPBnh6RMSTkbgP+2tqQ9wZYBZE8JqxivdiVU+WqWiN/n
+	AaFT744056+93JgbBUuSKrGcnxw5dG8NANk2LIAhxvqhI1oNXPG+AMKNqButGZHf
+	LrDcvg==
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45ydhq4j30-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 11:13:34 +0000 (GMT)
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-476786e50d9so8939801cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 04:13:34 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744629214; x=1745234014;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=0EbZ/7NYSQIH2cjZdJu66a5YVTDn2d6A3WWziI79Ht0=;
+        b=FfeJ+6DUT+vuthgl8QQPSuqUghrjp0vm+iClDgd/U6qAuFAAjncVi28XzrGp484dX7
+         anlmWlR5tjToWxNuxrpmNrw972QzzjgmVYGCNtLeFKvfYXfbC+G/gy07iKaI0IgF24/W
+         /9AGvrTki5AcQdYeiF2Po+Z9NyDOWsfF3iKX2xmlsx602qMYxBwzhZ5toS959y6SqTf1
+         3dLz0PzmpBkOO3ep0oOmFpct+6SZoVu65FW5UOtLzMXJiOTZOPKWoXTd7bQVXHiQlLZD
+         iVwwjW9GE0WP9OVktfB/7ImFO6IbKZLvQUYrXIeptKUzoLhQegGPGzLAn3LE7h8AaTOI
+         WSCg==
+X-Forwarded-Encrypted: i=1; AJvYcCUkhuzXnk7jy0xbXKOE4BQxqxqjuooqAkZ/0ZXX346F+7KvJ9eW0CvCy4/m14zMts1HBezsBgsO0cpnd6JSPCy3@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZQw8MSL2Rd3b2wpJ6AuAG7ThtXVtG6F2G4tU/01xXnR8eQZTW
+	L6jvmlzszSL1u8MV1y7lSuBb6JizaPXVbksYRRDITDraUhcNpwbWObf65dU0/l7Ad+nCFCLN6yy
+	scrA+IvJbR/6dEtbUcNs9q/N/PNA6Azx4+oxc9nx2YIpx4eCn/DhXLjeei3a5CO5w7uST7VFEOQ
+	==
+X-Gm-Gg: ASbGncvKtGObxCalXlFWc/h80ukd5Y9xh6qo7TGDMWzK5f3Z9VU7A02O6b2mI8RYM6N
+	anv+eFqBPQUA5eOZpztrDKNzb1sYcLHWbyYVww0J6hiatrE9QevArk6brXDNnIEzqxJWG4Hip3y
+	ExBbG37YgjqPAn88Nh2u3r+AT9xflEyR7TVi9EmXi4yXck4dFxT9UCapsreVIgVS/5RHnavmses
+	1BgRuRg9wFgUQiLXstVxQ4N4SBhr4GpIItDRmbuXqb3Ub0YFwuz1KXl995YEyBgJSPC+rPy4Wtl
+	pJQhyDLlFaSsAvYjCPMg0PbiOJXsKVa9Hn/zqvt1lAVnq8ZrvtMLyy3zsIrsMyJ0ZA==
+X-Received: by 2002:a05:6214:f0b:b0:6d8:a091:4f52 with SMTP id 6a1803df08f44-6f230ed2d8emr52864916d6.7.1744629214002;
+        Mon, 14 Apr 2025 04:13:34 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IH1Jbmw7xqykDTZc49xLzKxc4E3Rb3zQy24sMs1xRcp71xMPft8CUZbEMdUMS6+juIPQDVqtw==
+X-Received: by 2002:a05:6214:f0b:b0:6d8:a091:4f52 with SMTP id 6a1803df08f44-6f230ed2d8emr52864726d6.7.1744629213585;
+        Mon, 14 Apr 2025 04:13:33 -0700 (PDT)
+Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-acaa1ce81c5sm880990966b.184.2025.04.14.04.13.29
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 14 Apr 2025 04:13:32 -0700 (PDT)
+Message-ID: <c14dfd37-7d12-40c3-8281-fd0a7410813e@oss.qualcomm.com>
+Date: Mon, 14 Apr 2025 13:13:28 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.106.82.24]
-X-ClientProxiedBy: EX19D041UWB004.ant.amazon.com (10.13.139.143) To
- EX19D018EUA002.ant.amazon.com (10.252.50.146)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 10/10] arm64: dts: qcom: sar2130p: add display nodes
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Rob Clark <robdclark@gmail.com>,
+        Abhinav Kumar <quic_abhinavk@quicinc.com>,
+        Dmitry Baryshkov <lumag@kernel.org>, Sean Paul <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Kuogee Hsieh <quic_khsieh@quicinc.com>,
+        Krishna Manikandan <quic_mkrishn@quicinc.com>,
+        Jonathan Marek <jonathan@marek.ca>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+        Joerg Roedel <joro@8bytes.org>, Konrad Dybcio <konradybcio@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
+        freedreno@lists.freedesktop.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org,
+        Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+References: <20250314-sar2130p-display-v2-0-31fa4502a850@oss.qualcomm.com>
+ <20250314-sar2130p-display-v2-10-31fa4502a850@oss.qualcomm.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20250314-sar2130p-display-v2-10-31fa4502a850@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: 4GaRZAzhXAfuXnDFpUzsCuvHkwIteI7N
+X-Authority-Analysis: v=2.4 cv=C7DpyRP+ c=1 sm=1 tr=0 ts=67fcedde cx=c_pps a=WeENfcodrlLV9YRTxbY/uA==:117 a=FpWmc02/iXfjRdCD7H54yg==:17 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=KKAkSRfTAAAA:8 a=M9PBs-WKjKzZjRsr6pgA:9 a=QEXdDO2ut3YA:10
+ a=kacYvNCVWA4VmyqE58fU:22 a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-GUID: 4GaRZAzhXAfuXnDFpUzsCuvHkwIteI7N
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-14_03,2025-04-10_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 mlxlogscore=738
+ priorityscore=1501 suspectscore=0 clxscore=1015 spamscore=0 bulkscore=0
+ impostorscore=0 phishscore=0 lowpriorityscore=0 malwarescore=0 mlxscore=0
+ classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2504140081
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_041555_002440_97C90221 
-X-CRM114-Status: GOOD (  32.52  )
+X-CRM114-CacheID: sfid-20250414_041336_406753_9A022550 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,363 +142,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When running a protected VM on top of pKVM or another lowvisor the EL1
-host kernel cannot access guest memory in order to save/restore the ITT
-tables for the KVM_DEV_ARM_ITS_SAVE_TABLES and
-KVM_DEV_ARM_ITS_RESTORE_TABLES operations.
+On 3/14/25 7:09 AM, Dmitry Baryshkov wrote:
+> From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> 
+> Add display controller, two DSI hosts, two DSI PHYs and a single DP
+> controller. Link DP to the QMP Combo PHY.
+> 
+> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> ---
 
-Introduce a new KVM_DEV_ARM_ITS_ITT_UBUF flag that when set instructs
-the vITS to serialize the ITTs into a buffer provided by userspace or
-restore them from it. The struct kvm_device_attr passed to
-KVM_DEV_ARM_ITS_{SAVE,RESTORE}_TABLES has a currently unused 'addr'
-field. Use that field to pass the buffer address. Also use the upper
-32-bits of 'attr' from the same struct for the buffer size.
+[...]
 
-The format of the blob stored in the buffer is the following. There is a
-64-bit ITT start marker which embeds the device ID owning the ITT. The
-start marker is followed by 64-bit ITEs stored using the existing ITS
-Table ABI REV0 with the 'next' field being replaced by an 'event_id'
-field which stores the event ID rather than an offset. An end marker
-indicates the end of the ITT and is followed by the start marker for the
-ITT of the next device.
+> +			mdss_mdp: display-controller@ae01000 {
+> +				compatible = "qcom,sar2130p-dpu";
+> +				reg = <0x0 0x0ae01000 0x0 0x8f000>,
+> +				      <0x0 0x0aeb0000 0x0 0x2008>;
 
-This is an RFC patch, the ABI is not documented yet.
+size = 0x3000
 
-Signed-off-by: Ilias Stamatis <ilstam@amazon.com>
----
- arch/arm64/include/uapi/asm/kvm.h |   5 +
- arch/arm64/kvm/vgic/vgic-its.c    | 213 +++++++++++++++++++++++++++++-
- arch/arm64/kvm/vgic/vgic.h        |   4 +
- include/kvm/arm_vgic.h            |  11 ++
- 4 files changed, 227 insertions(+), 6 deletions(-)
+[...]
 
-diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
-index b57f28c9d60f..45edb34ec595 100644
---- a/arch/arm64/include/uapi/asm/kvm.h
-+++ b/arch/arm64/include/uapi/asm/kvm.h
-@@ -367,6 +367,11 @@ struct kvm_arm_counter_offset {
- #define   KVM_DEV_ARM_VGIC_SAVE_PENDING_TABLES	3
- #define   KVM_DEV_ARM_ITS_CTRL_RESET		4
- 
-+/*
-+ * Flags for KVM_DEV_ARM_ITS_{SAVE,RESTORE}_TABLES
-+ */
-+#define   KVM_DEV_ARM_ITS_ITT_UBUF           (1ULL << 0)
-+
- #define KVM_DEV_ARM_VGIC_NR_IRQS_SHIFT 12
- #define KVM_DEV_ARM_VGIC_NR_IRQS_MASK                                          \
- 	((1 << KVM_DEV_ARM_VGIC_NR_IRQS_SHIFT) - 1)
-diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-index b8a78a678aa1..142e663eb75d 100644
---- a/arch/arm64/kvm/vgic/vgic-its.c
-+++ b/arch/arm64/kvm/vgic/vgic-its.c
-@@ -2225,6 +2225,62 @@ static int scan_its_table(struct vgic_its *its, gpa_t base, int size, u32 esz,
- 	return 1;
- }
- 
-+static int vgic_its_ubuf_append_entry(struct vgic_its *its, u64 entry)
-+{
-+	entry = cpu_to_le64(entry);
-+
-+	if (its->itt_ubuf.slot_next > its->itt_ubuf.slot_max)
-+		return -ENOMEM;
-+
-+	if (copy_to_user(&its->itt_ubuf.ubuf[its->itt_ubuf.slot_next], &entry, sizeof(entry)))
-+		return -EFAULT;
-+
-+	its->itt_ubuf.slot_next++;
-+	return 0;
-+}
-+
-+static int vgic_its_save_itt_ubuf(struct vgic_its *its, struct its_device *device) {
-+	int ret = 0;
-+	u64 val;
-+	struct its_ite *ite;
-+
-+	/*
-+	 * Write the start marker. Here we abuse the ITS Table ABI REV0. A
-+	 * valid physical LPI has an ID of 8192. We can use numbers lower than
-+	 * that for different types of entries such as ITT start/end markers.
-+	 * The high 16-bits of the entry contain the device ID.
-+	 */
-+	val = ((u64)device->device_id << KVM_ITS_ITE_NEXT_SHIFT) |
-+	      ((u64)KVM_ITS_ITT_START_MARKER << KVM_ITS_ITE_PINTID_SHIFT);
-+	if ((ret = vgic_its_ubuf_append_entry(its, val)))
-+		return ret;
-+
-+	list_for_each_entry(ite, &device->itt_head, ite_list) {
-+		/*
-+		 * If an LPI carries the HW bit, this means that this
-+		 * interrupt is controlled by GICv4, and we do not
-+		 * have direct access to that state without GICv4.1.
-+		 * Let's simply fail the save operation...
-+		 */
-+		if (ite->irq->hw && !kvm_vgic_global_state.has_gicv4_1)
-+			return -EACCES;
-+
-+		val = ((u64)ite->event_id << KVM_ITS_ITE_NEXT_SHIFT) |
-+		       ((u64)ite->irq->intid << KVM_ITS_ITE_PINTID_SHIFT) |
-+			ite->collection->collection_id;
-+		if ((ret = vgic_its_ubuf_append_entry(its, val)))
-+			return ret;
-+	}
-+
-+	/* Write the end marker */
-+	val = ((u64)device->device_id << KVM_ITS_ITE_NEXT_SHIFT) |
-+	      ((u64)KVM_ITS_ITT_END_MARKER << KVM_ITS_ITE_PINTID_SHIFT);
-+	if ((ret = vgic_its_ubuf_append_entry(its, val)))
-+		return ret;
-+
-+	return ret;
-+}
-+
- /**
-  * vgic_its_save_ite - Save an interrupt translation entry at @gpa
-  */
-@@ -2327,6 +2383,9 @@ static int vgic_its_save_itt(struct vgic_its *its, struct its_device *device)
- 
- 	list_sort(NULL, &device->itt_head, vgic_its_ite_cmp);
- 
-+	if (its->itt_ubuf.must_be_used)
-+		return vgic_its_save_itt_ubuf(its, device);
-+
- 	list_for_each_entry(ite, &device->itt_head, ite_list) {
- 		gpa_t gpa = base + ite->event_id * ite_esz;
- 
-@@ -2494,10 +2553,12 @@ static int vgic_its_restore_dte(struct vgic_its *its, u32 id,
- 	if (IS_ERR(dev))
- 		return PTR_ERR(dev);
- 
--	ret = vgic_its_restore_itt(its, dev);
--	if (ret) {
--		vgic_its_free_device(its->dev->kvm, its, dev, false);
--		return ret;
-+	if (!its->itt_ubuf.must_be_used) {
-+		ret = vgic_its_restore_itt(its, dev);
-+		if (ret) {
-+			vgic_its_free_device(its->dev->kvm, its, dev, false);
-+			return ret;
-+		}
- 	}
- 
- 	return offset;
-@@ -2776,6 +2837,112 @@ static int vgic_its_save_tables_v0(struct vgic_its *its)
- 	return vgic_its_save_collection_table(its);
- }
- 
-+static int vgic_its_ubuf_pop_entry(struct vgic_its *its, u64 *entry)
-+{
-+	if (!entry)
-+		return -EINVAL;
-+
-+	if (its->itt_ubuf.slot_next > its->itt_ubuf.slot_max)
-+		return -ENOMEM;
-+
-+	if (copy_from_user(entry, &its->itt_ubuf.ubuf[its->itt_ubuf.slot_next], sizeof(*entry)))
-+		return -EFAULT;
-+
-+	its->itt_ubuf.slot_next++;
-+
-+	*entry = le64_to_cpu(*entry);
-+
-+	return 0;
-+}
-+
-+static int vgic_its_restore_itt_ubuf(struct vgic_its *its, struct its_device *device)
-+{
-+	u64 entry, device_id, type, event_id;
-+	bool found_end = false;
-+	int ret;
-+
-+	/* Confirm there is a start marker matching the device ID */
-+	ret = vgic_its_ubuf_pop_entry(its, &entry);
-+	if (ret)
-+		return ret;
-+
-+	/*
-+	 * See the comment in vgic_its_save_itt_ubuf() explaining how the ITS
-+	 * Table ABI REV0 is abused.
-+	 */
-+	device_id = entry >> KVM_ITS_ITE_NEXT_SHIFT;
-+	type = (entry & KVM_ITS_ITE_PINTID_MASK) >> KVM_ITS_ITE_PINTID_SHIFT;
-+
-+	if (type != KVM_ITS_ITT_START_MARKER) {
-+		printk(KERN_WARNING "Failed to restore vGIC interrupt translation entry: did not find start marker (device_id=%u)",
-+		       device->device_id);
-+		return -EBADF;
-+	}
-+	if (device_id != device->device_id) {
-+		printk(KERN_WARNING "Failed to restore vGIC interrupt translation entry: found start marker for device_id=%llu instead of device_id=%u",
-+		       device_id, device->device_id);
-+		return -ENODEV;
-+	}
-+
-+	while (its->itt_ubuf.slot_next <= its->itt_ubuf.slot_max) {
-+		ret = vgic_its_ubuf_pop_entry(its, &entry);
-+		if (ret)
-+			return ret;
-+
-+		/*
-+		 * Is this an ITE or is it an end marker?
-+		 */
-+		type = (entry & KVM_ITS_ITE_PINTID_MASK) >> KVM_ITS_ITE_PINTID_SHIFT;
-+		if (type == KVM_ITS_ITT_END_MARKER) {
-+			found_end = true;
-+			device_id = entry >> KVM_ITS_ITE_NEXT_SHIFT;
-+			if (device_id != device->device_id)
-+				return -ENODEV;
-+			break;
-+		}
-+
-+		event_id = entry >> KVM_ITS_ITE_NEXT_SHIFT;
-+		/*
-+		 * Set the 'next' field of the entry to 0 which is a valid
-+		 * value for vgic_its_restore_ite().
-+		 */
-+		entry &= ~KVM_ITS_ITE_NEXT_MASK;
-+		ret = vgic_its_restore_ite(its, event_id, &entry, device);
-+		if (ret < 0)
-+			return ret;
-+	}
-+
-+	if (!found_end)
-+		return -ENOMEM;
-+
-+	return 0;
-+}
-+
-+static int vgic_its_restore_itt_all_ubuf(struct vgic_its *its)
-+{
-+	int ret;
-+	struct its_device *dev;
-+
-+	/*
-+	 * The list is sorted in vgic_its_save_device_tables() before
-+	 * serialization, therefore we expect the ITTs to be sorted in the blob.
-+	 */
-+	list_sort(NULL, &its->device_list, vgic_its_device_cmp);
-+
-+	list_for_each_entry(dev, &its->device_list, dev_list) {
-+		ret = vgic_its_restore_itt_ubuf(its, dev);
-+		if (ret)
-+			break;
-+	}
-+
-+	if (ret) {
-+		vgic_its_free_device(its->dev->kvm, its, dev, false);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
- /**
-  * vgic_its_restore_tables_v0 - Restore the ITS tables from guest RAM
-  * to internal data structs according to V0 ABI
-@@ -2789,7 +2956,14 @@ static int vgic_its_restore_tables_v0(struct vgic_its *its)
- 	if (ret)
- 		return ret;
- 
--	return vgic_its_restore_device_tables(its);
-+	ret = vgic_its_restore_device_tables(its);
-+	if (ret)
-+		return ret;
-+
-+	if (its->itt_ubuf.must_be_used)
-+		return vgic_its_restore_itt_all_ubuf(its);
-+
-+	return 0;
- }
- 
- static int vgic_its_commit_v0(struct vgic_its *its)
-@@ -2860,7 +3034,11 @@ static int vgic_its_ctlr(struct kvm_device *dev,
- 	struct kvm *kvm = dev->kvm;
- 	const struct vgic_its_abi *abi = vgic_its_get_abi(its);
- 	int ret = 0;
--	u64 attrval = attr->attr;
-+	/*
-+	 * The low 32 bits are used for the attribute, whereas the high 32 bits
-+	 * have a special meaning for KVM_DEV_ARM_ITS_{SAVE,RESTORE}_TABLES
-+	 */
-+	u64 attrval = attr->attr & 0xffffffff;
- 	bool need_itslock = true;
- 
- 	switch (attrval) {
-@@ -2886,6 +3064,29 @@ static int vgic_its_ctlr(struct kvm_device *dev,
- 		return -EBUSY;
- 	}
- 
-+	if (attrval == KVM_DEV_ARM_ITS_SAVE_TABLES || attrval == KVM_DEV_ARM_ITS_RESTORE_TABLES) {
-+		if (attr->flags & KVM_DEV_ARM_ITS_ITT_UBUF) {
-+			u32 buf_size = attr->attr >> 32;
-+			u32 num_slots = buf_size / sizeof(u64);
-+			if (num_slots == 0)
-+				return -ENOSPC;
-+
-+			its->itt_ubuf.must_be_used = true;
-+			its->itt_ubuf.ubuf = (u64 *)attr->addr;
-+			its->itt_ubuf.slot_next = 0;
-+			its->itt_ubuf.slot_max = num_slots - 1;
-+
-+			if (attrval == KVM_DEV_ARM_ITS_SAVE_TABLES) {
-+				/* Zero out the first entry */
-+				u64 invalid = 0;
-+				if (copy_to_user(&its->itt_ubuf.ubuf[0], &invalid, sizeof(invalid)))
-+					return -EFAULT;
-+			}
-+		} else {
-+			its->itt_ubuf.must_be_used = false;
-+		}
-+	}
-+
- 	switch (attrval) {
- 	case KVM_DEV_ARM_ITS_CTRL_RESET:
- 		vgic_its_reset(kvm, its);
-diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
-index 1d0e8bfdc676..f5dac01a9a27 100644
---- a/arch/arm64/kvm/vgic/vgic.h
-+++ b/arch/arm64/kvm/vgic/vgic.h
-@@ -76,6 +76,7 @@ static inline bool vgic_irq_is_lpi(u32 const intid)
- #define KVM_ITS_CTE_RDBASE_SHIFT	16
- #define KVM_ITS_CTE_ICID_MASK		GENMASK_ULL(15, 0)
- #define KVM_ITS_ITE_NEXT_SHIFT		48
-+#define KVM_ITS_ITE_NEXT_MASK		GENMASK_ULL(63, 48)
- #define KVM_ITS_ITE_PINTID_SHIFT	16
- #define KVM_ITS_ITE_PINTID_MASK		GENMASK_ULL(47, 16)
- #define KVM_ITS_ITE_ICID_MASK		GENMASK_ULL(15, 0)
-@@ -90,6 +91,9 @@ static inline bool vgic_irq_is_lpi(u32 const intid)
- /* we only support 64 kB translation table page size */
- #define KVM_ITS_L1E_ADDR_MASK		GENMASK_ULL(51, 16)
- 
-+#define KVM_ITS_ITT_START_MARKER        1
-+#define KVM_ITS_ITT_END_MARKER          2
-+
- #define KVM_VGIC_V3_RDIST_INDEX_MASK	GENMASK_ULL(11, 0)
- #define KVM_VGIC_V3_RDIST_FLAGS_MASK	GENMASK_ULL(15, 12)
- #define KVM_VGIC_V3_RDIST_FLAGS_SHIFT	12
-diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
-index 8cef0b7767e8..43e1f47a4c7a 100644
---- a/include/kvm/arm_vgic.h
-+++ b/include/kvm/arm_vgic.h
-@@ -190,6 +190,17 @@ struct vgic_its {
- 	struct list_head	device_list;
- 	struct list_head	collection_list;
- 	struct list_head	inval_dte_list;
-+
-+	/*
-+	 * Userspace buffer to be used by KVM_DEV_ARM_ITS_{SAVE,RESTORE}_TABLES
-+	 * optionally for saving/restoring the ITTs of all device tables.
-+	 */
-+	struct {
-+		bool must_be_used;
-+		u64 __user *ubuf;
-+		size_t slot_max;
-+		size_t slot_next;
-+	} itt_ubuf;
- };
- 
- struct vgic_state_iter;
--- 
-2.47.1
+> +
+> +			mdss_dp0: displayport-controller@ae90000 {
+> +				compatible = "qcom,sar2130p-dp",
+> +					     "qcom,sm8350-dp";
+> +				reg = <0x0 0xae90000 0x0 0x200>,
+> +				      <0x0 0xae90200 0x0 0x200>,
+> +				      <0x0 0xae90400 0x0 0xc00>,
+> +				      <0x0 0xae91000 0x0 0x400>,
+> +				      <0x0 0xae91400 0x0 0x400>;
+> +				interrupt-parent = <&mdss>;
+> +				interrupts = <12>;
+> +				clocks = <&dispcc DISP_CC_MDSS_AHB_CLK>,
+> +					 <&dispcc DISP_CC_MDSS_DPTX0_AUX_CLK>,
+> +					 <&dispcc DISP_CC_MDSS_DPTX0_LINK_CLK>,
+> +					 <&dispcc DISP_CC_MDSS_DPTX0_LINK_INTF_CLK>,
+> +					 <&dispcc DISP_CC_MDSS_DPTX0_PIXEL0_CLK>;
+> +				clock-names = "core_iface",
+> +					      "core_aux",
+> +					      "ctrl_link",
+> +					      "ctrl_link_iface",
+> +					      "stream_pixel";
+> +
+> +				assigned-clocks = <&dispcc DISP_CC_MDSS_DPTX0_LINK_CLK_SRC>,
+> +						  <&dispcc DISP_CC_MDSS_DPTX0_PIXEL0_CLK_SRC>;
+> +				assigned-clock-parents = <&usb_dp_qmpphy QMP_USB43DP_DP_LINK_CLK>,
+> +							 <&usb_dp_qmpphy QMP_USB43DP_DP_VCO_DIV_CLK>;
+> +
+> +				phys = <&usb_dp_qmpphy QMP_USB43DP_DP_PHY>;
+> +				phy-names = "dp";
+> +
+> +				#sound-dai-cells = <0>;
+> +
+> +				operating-points-v2 = <&dp_opp_table>;
+> +				power-domains = <&rpmhpd RPMHPD_MMCX>;
+> +
+> +				status = "disabled";
+> +
+> +				ports {
+> +					#address-cells = <1>;
+> +					#size-cells = <0>;
+> +
+> +					port@0 {
+> +						reg = <0>;
+> +
+> +						mdss_dp0_in: endpoint {
+> +							remote-endpoint = <&dpu_intf0_out>;
+> +						};
+> +					};
+> +
+> +					port@1 {
+> +						reg = <1>;
+> +
+> +						mdss_dp0_out: endpoint {
+> +							remote-endpoint = <&usb_dp_qmpphy_dp_in>;
+> +						};
+> +					};
+> +				};
+> +
+> +				dp_opp_table: opp-table {
+> +					compatible = "operating-points-v2";
+> +
+> +					opp-162000000 {
+> +						opp-hz = /bits/ 64 <162000000>;
+> +						required-opps = <&rpmhpd_opp_low_svs_d1>;
+> +					};
 
+> +
+> +					opp-270000000 {
+> +						opp-hz = /bits/ 64 <270000000>;
+> +						required-opps = <&rpmhpd_opp_low_svs>;
+> +					};
+> +
+> +					opp-540000000 {
+> +						opp-hz = /bits/ 64 <540000000>;
+> +						required-opps = <&rpmhpd_opp_svs_l1>;
+> +					};
+Weirdly enough the 540 rate isn't in the clock plan for the pclk
+and so isn't 162
+
+> +
+> +					opp-810000000 {
+> +						opp-hz = /bits/ 64 <810000000>;
+> +						required-opps = <&rpmhpd_opp_nom>;
+> +					};
+> +				};
+> +			};
+
+[...]
+
+> +				assigned-clocks = <&dispcc DISP_CC_MDSS_BYTE0_CLK_SRC>,
+> +						  <&dispcc DISP_CC_MDSS_PCLK0_CLK_SRC>;
+> +				assigned-clock-parents = <&mdss_dsi0_phy 0>,
+> +							 <&mdss_dsi0_phy 1>;
+
+Krzysztof recently introduced defines for these
+
+Konrad
 
