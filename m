@@ -4,110 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA02BC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 11:14:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F4E0C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 11:16:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sKIv+Ew1hQAFZsKTKMtzV43PXBAkEaoS28OQ89MT8N8=; b=Kz75PZKGua8l8JaS2NPHbtGyPZ
-	TbL2rjP0TkdoME7+Rs7/Qm0BtkgQk8CGkgsPx0lB9/Q5HgCoV2GPEGZ0Xb1/l1kdxskRdXJ0SUmFw
-	uVIx8jzdpwvdFEocwf8lAfvBJDG48ah/7iyShPYA09FTAds6Fx797CLtLdix0Lb2GY6Yg23uqUspz
-	HsEX/5rxoSDZZUjxr29iaf+Fc7JB/dQgsyktVInXZzXvFbJvQKMXkXnHex7JutPYWt6MKrl2cMAMB
-	FJLXzikLa3+P9Zo+LpWH2ZJkLduo84H3aTq1HojJ6lMPLXhZbCF5HgWTaVo5dg+2LPGHidmQRY5NA
-	OfoB0rpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rGJveFqFdd4rg7V6pj5VRC0DXtHbP4pqzHJWTyABUE0=; b=QgFBgRbRK/Pad1SNubpD5wQDwP
+	VoYe0SPCoWN3gOMAHiNipl9FOozdzc8D06/qBNXFOSEb5g3elmrqiAKogYaQh4TVP5OQK9n+U4KUA
+	ZaQdOESFQUgFLUQdSTRxGjruMEmKP75bk+I+AioQClS3+W8nZkX3aV8HmJauet0lMqEa6GSod7+qH
+	7Z396PqWeFsKIEU5x7VIBNDKJ5/A3ZM+7yDcNg7JWNLnuuBIK9dJQHwQkz+zbJP3rOx1255B3gn3e
+	l2xgXds5a9Ug1r4DSHgfBI73BxluLCvjLJYrf4NzIlkYv6ZgZC+BIM2uc2wp64SSHhKuXW65yLPt1
+	GzcrHIUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4HlO-00000001i3h-1Xna;
-	Mon, 14 Apr 2025 11:14:06 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1u4HnG-00000001igt-0Jc8;
+	Mon, 14 Apr 2025 11:16:02 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4HcN-00000001efE-1hOA
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 11:04:48 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-39c1ee0fd43so4015675f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 04:04:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744628686; x=1745233486; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=sKIv+Ew1hQAFZsKTKMtzV43PXBAkEaoS28OQ89MT8N8=;
-        b=kMYnbt+TF1rw79rgvZkkwUIMADc3FNDOaNt1vp7ASe+xMvOuedZ8I6v6O+FUFrTHTV
-         VRlcKX6Ayxi3MzO3FecxjIbSSvmD0CzuPaTR76kqar3O5tuLNc3Sj0opr7InPRsYE7SO
-         pMOMO3JHbhZ5c9kOzUbbKQXQkBKALefHJwnjqCKaT8F1fQmfvbZ90hJ/lHQK15xlIH2+
-         +w6GMCVgGToPeWSmS7kn9Gn9CBkF8wxbdMXvPiqRZJspwuvYbqdfBtCFW+ZgGfhp0o0i
-         atb09O6FCXGIvqhKxKF/jdkPNh7PsQWA2d9PMxH5ytHfkHGjjhVpIF0byrLbyvy6a/4c
-         s1dg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744628686; x=1745233486;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=sKIv+Ew1hQAFZsKTKMtzV43PXBAkEaoS28OQ89MT8N8=;
-        b=O3/zikeTyJH/xlttsh8YmiVzpTTE1fal0gySBy2LPeGij6ZeSl1TdBPykGV7IznIeY
-         /oddOyFEYpn+RHUP2DlBEMr9kF0I6aWhxoXa6WwbQ9IrefXunxlMiJPw/0Iv7fhOZaRW
-         g9HxHcvTrZgzTDt55xXL8AmvEY4JCdQpxDLNPj9I5t919g7edMx5AX5TNiUB8AGHNGPf
-         bokaav6nSNrGdU3MonCSE+SQwDzO5txrwrgfaS5SCfl2xCopxOzrWmIg0/2M0OXIgQut
-         BcBcPYXauagKq2bEEY4AQVAjnZCr+yPTBytF/pHchzNUuUOriZfpqEU1h7zl1gYigd+L
-         Q7Vw==
-X-Forwarded-Encrypted: i=1; AJvYcCVPXlJq0+T5fzFV/AMWBAlF2KH3QOJkW9HwnbWlf7QrEiWUOHXUtw7QsR0Y3qQYa/mWja+ZtyBFdkxYFkTvzge0@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz4jAx1v8bEpzmg89kKHPmwRtkZ1SSkYvxz4+ubi1xwdY2ubAH0
-	52i7IrBU7F/+YiTAMcEDlxU/P4c13TirSuaE0biO0BD/OkZojSUw
-X-Gm-Gg: ASbGncuUHumzcJ6P82labxqIedZRoTa+rGAD1XwYw51ces6oe5r206YCnFj+0jcQTOI
-	LcwptvtfL4O+mAWj3EyMgOIIzCNqmL6DyInoNoKNSZu9YSdv59ZewbB5tobhG8J1Sw7rAhMkiMq
-	/6RmqSuicJYaWeAkZyj/OLubDbqBxCJPkrBZo5DWYtxo+Ze4kh/vdt/z7R4XmraSquLHFV0BSvN
-	HCZupJphsvOuntBSypHDBD1VG5lTRX3ELw6d/P+nb6pqMsgc2U2ulSKShr7MSzar8I6mnhP0bgM
-	8zKYqPhuaQGoS787W5BoY02yxIDjqvo=
-X-Google-Smtp-Source: AGHT+IGrvwgLQedKQvifH2Jvu4TYIj9/pf5+d/bwg1/VjkLHL4cwxQAuHsTjKrrtJbJPnThtPqVuQg==
-X-Received: by 2002:a05:6000:144b:b0:399:6dc0:f134 with SMTP id ffacd0b85a97d-39eaaed20c4mr9243328f8f.51.1744628685126;
-        Mon, 14 Apr 2025 04:04:45 -0700 (PDT)
-Received: from krava ([2a00:102a:4007:73e1:1681:405:90b2:869b])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39eae9777a0sm10625743f8f.43.2025.04.14.04.04.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Apr 2025 04:04:44 -0700 (PDT)
-From: Jiri Olsa <olsajiri@gmail.com>
-X-Google-Original-From: Jiri Olsa <jolsa@kernel.org>
-Date: Mon, 14 Apr 2025 13:04:41 +0200
-To: Alexis =?iso-8859-1?Q?Lothor=E9_=28eBPF_Foundation=29?= <alexis.lothore@bootlin.com>
-Cc: Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>,
-	Hao Luo <haoluo@google.com>, Puranjay Mohan <puranjay@kernel.org>,
-	Xu Kuohai <xukuohai@huaweicloud.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mykola Lysenko <mykolal@fb.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Florent Revest <revest@chromium.org>,
-	Bastien Curutchet <bastien.curutchet@bootlin.com>,
-	ebpf@linuxfoundation.org,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH RFC bpf-next 1/4] bpf: add struct largest member size in
- func model
-Message-ID: <Z_zryQkfmrSXYN4k@krava>
-References: <20250411-many_args_arm64-v1-0-0a32fe72339e@bootlin.com>
- <20250411-many_args_arm64-v1-1-0a32fe72339e@bootlin.com>
+	id 1u4Hgj-00000001gFv-2ZtH;
+	Mon, 14 Apr 2025 11:09:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1744628955;
+	bh=wjnJnWMkojXnEo1V8ScaOLq3IF7OMdLybc1gyWhzlmI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=bm83xP1tD0JnIrATrbQIMEtpktlE/Z1bIw1eXJGyGVv1ngWG1Hro9fHFlmCy7g/GX
+	 Qn2A4ntb4XnkqFJO0J+0h6YAodB5abD4pjeEQFiWvtwApTKkShnIIGIWWCNW9JZRQk
+	 FofNz1nxl8itoPV4dRoHgYmBdVqvdpesiUk6Rdaq/ElUPqHUry2ysa2Vvyjef3+Izj
+	 mG6OX0Zp9gSUX/IM5z5qt4kRMKAFCJO+JXeaKmZ9wJ1ltT0atdhHTWMI8ql3yYLIv8
+	 vBUTkP96MILKzAH01LORDHQipJUWx60mLLoLArD2OGq9ubX64BsrE44tyo780JFp8j
+	 rreUitkY3193w==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 224D717E00AC;
+	Mon, 14 Apr 2025 13:09:15 +0200 (CEST)
+Message-ID: <968001f7-96d1-4ad5-8c36-28cac5dc30f1@collabora.com>
+Date: Mon, 14 Apr 2025 13:09:14 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250411-many_args_arm64-v1-1-0a32fe72339e@bootlin.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 4/5] rtc: mt6397: Remove start time parameters
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Alexandre Mergnat <amergnat@baylibre.com>
+Cc: Eddie Huang <eddie.huang@mediatek.com>, Sean Wang
+ <sean.wang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-rtc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+References: <20250109-enable-rtc-v3-0-f003e8144419@baylibre.com>
+ <20250109-enable-rtc-v3-4-f003e8144419@baylibre.com>
+ <20250411133609a1295543@mail.local> <202504111339359e840246@mail.local>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <202504111339359e840246@mail.local>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_040447_447987_6774828B 
-X-CRM114-Status: GOOD (  26.78  )
+X-CRM114-CacheID: sfid-20250414_040917_803551_D3BA1412 
+X-CRM114-Status: GOOD (  14.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,92 +81,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 11, 2025 at 10:32:10PM +0200, Alexis Lothoré (eBPF Foundation) wrote:
-> In order to properly JIT the trampolines needed to attach BPF programs
-> to functions, some architectures like ARM64 need to know about the
-> alignment needed for the function arguments. Such alignment can
-> generally be deduced from the argument size, but that's not completely
-> true for composite types. In the specific case of ARM64, the AAPCS64 ABI
-> defines that a composite type which needs to be passed through stack
-> must be aligned on the maximum between 8 and the largest alignment
-> constraint of its first-level members. So the JIT compiler needs more
-> information about the arguments to make sure to generate code that
-> respects those alignment constraints.
+Il 11/04/25 15:39, Alexandre Belloni ha scritto:
+> On 11/04/2025 15:36:12+0200, Alexandre Belloni wrote:
+>> On 11/04/2025 14:35:57+0200, Alexandre Mergnat wrote:
+>>> The start time parameters is currently hardcoded to the driver, but
+>>> it may not fit with all equivalent RTC that driver is able to support.
+>>>
+>>> Remove the start_secs and set_start_time value setup because it
+>>> will be handled by the rtc_device_get_offset function using the
+>>> start-year DTS property.
+>>>
+>>> Signed-off-by: Alexandre Mergnat <amergnat@baylibre.com>
+>>> ---
+>>>   drivers/rtc/rtc-mt6397.c | 2 --
+>>>   1 file changed, 2 deletions(-)
+>>>
+>>> diff --git a/drivers/rtc/rtc-mt6397.c b/drivers/rtc/rtc-mt6397.c
+>>> index 692c00ff544b2..d47626d47602f 100644
+>>> --- a/drivers/rtc/rtc-mt6397.c
+>>> +++ b/drivers/rtc/rtc-mt6397.c
+>>> @@ -291,8 +291,6 @@ static int mtk_rtc_probe(struct platform_device *pdev)
+>>>   	rtc->rtc_dev->ops = &mtk_rtc_ops;
+>>>   	rtc->rtc_dev->range_min = RTC_TIMESTAMP_BEGIN_1900;
+>>>   	rtc->rtc_dev->range_max = mktime64(2027, 12, 31, 23, 59, 59);
+>>> -	rtc->rtc_dev->start_secs = mktime64(1968, 1, 2, 0, 0, 0);
+>>> -	rtc->rtc_dev->set_start_time = true;
+>>>   
+>>
+>> This is going to break the time for people upgrading their kernel, you
+>> are unfortunately stuck with this.
+>>
 > 
-> For struct arguments, add information about the size of the largest
-> first-level member in the struct btf_func_model to allow the JIT
-> compiler to guess the needed alignment. The information is quite
-> specific, but it allows to keep arch-specific concerns (ie: guessing the
-> final needed alignment for an argument) isolated in each JIT compiler.
+> To be clear, the breakage will happen when upgrading the kernel but not
+> the device tree with 5/5
 > 
-> Signed-off-by: Alexis Lothoré (eBPF Foundation) <alexis.lothore@bootlin.com>
-> ---
->  include/linux/bpf.h |  1 +
->  kernel/bpf/btf.c    | 25 +++++++++++++++++++++++++
->  2 files changed, 26 insertions(+)
-> 
-> diff --git a/include/linux/bpf.h b/include/linux/bpf.h
-> index 3f0cc89c0622cb1a097999afb78c17102593b6bb..8b34dcf60a0ce09228ff761b962ab67b6a3e2263 100644
-> --- a/include/linux/bpf.h
-> +++ b/include/linux/bpf.h
-> @@ -1106,6 +1106,7 @@ struct btf_func_model {
->  	u8 nr_args;
->  	u8 arg_size[MAX_BPF_FUNC_ARGS];
->  	u8 arg_flags[MAX_BPF_FUNC_ARGS];
-> +	u8 arg_largest_member_size[MAX_BPF_FUNC_ARGS];
->  };
->  
->  /* Restore arguments before returning from trampoline to let original function
-> diff --git a/kernel/bpf/btf.c b/kernel/bpf/btf.c
-> index 16ba36f34dfab7531babf5753cab9f368cddefa3..5d40911ec90210086a6175d569abb6e52d75ad17 100644
-> --- a/kernel/bpf/btf.c
-> +++ b/kernel/bpf/btf.c
-> @@ -7318,6 +7318,29 @@ static int __get_type_size(struct btf *btf, u32 btf_id,
->  	return -EINVAL;
->  }
->  
-> +static u8 __get_largest_member_size(struct btf *btf, const struct btf_type *t)
-> +{
-> +	const struct btf_member *member;
-> +	const struct btf_type *mtype;
-> +	u8 largest_member_size = 0;
-> +	int i;
-> +
-> +	if (!__btf_type_is_struct(t))
-> +		return largest_member_size;
-> +
-> +	for_each_member(i, t, member) {
-> +		mtype = btf_type_by_id(btf, member->type);
-> +		while (mtype && btf_type_is_modifier(mtype))
-> +			mtype = btf_type_by_id(btf, mtype->type);
-> +		if (!mtype)
-> +			return -EINVAL;
 
-should we use __get_type_size for member->type instead ?
+Yes, you're stuck with this. Devicetree has to be retrocompatible.
 
-jirka
+Besides, this start_secs is what gets used by default, and the start-year
+devicetree property should take precedence and effectively override the
+start_secs default.
 
-> +		if (mtype->size > largest_member_size)
-> +			largest_member_size = mtype->size;
-> +	}
-> +
-> +	return largest_member_size;
-> +}
-> +
->  static u8 __get_type_fmodel_flags(const struct btf_type *t)
->  {
->  	u8 flags = 0;
-> @@ -7396,6 +7419,8 @@ int btf_distill_func_proto(struct bpf_verifier_log *log,
->  		}
->  		m->arg_size[i] = ret;
->  		m->arg_flags[i] = __get_type_fmodel_flags(t);
-> +		m->arg_largest_member_size[i] =
-> +			__get_largest_member_size(btf, t);
->  	}
->  	m->nr_args = nargs;
->  	return 0;
+Just keep it there.... :-)
+
+Cheers,
+Angelo
+
+>>>   	return devm_rtc_register_device(rtc->rtc_dev);
+>>>   }
+>>>
+>>> -- 
+>>> 2.25.1
+>>>
+>>
+>> -- 
+>> Alexandre Belloni, co-owner and COO, Bootlin
+>> Embedded Linux and Kernel engineering
+>> https://bootlin.com
 > 
-> -- 
-> 2.49.0
-> 
+
+
+
 
