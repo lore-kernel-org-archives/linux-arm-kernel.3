@@ -4,100 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75649C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 17:04:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5377C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 17:32:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KqFT3PKAxBM7aneYNA4QM0R7Gd1DemUhbyEfOOJZdwc=; b=e1Qi6540D4xibzS8FmUYudKMeN
-	nnkiq/t9ubN1mMUnbWN3L75hLHgBvkLNdVJTHCbQuqgBEH6JFHeKEp1NtONwjzuaMcHZWHZ+GIgBE
-	/9xFLi0oaBVxiMKZGYVrevGR+ChY2V7cqxMYpIBhHL5zRt8ed/Q+z1EVqFFoLJQ8rzXnGNwUXOzR+
-	oRNMAN77BFx7BXAH857Ywn467MD2I6S3R8OnAbGfF0RdM+QtZrM+xhy9Q9bDm7D9LDAzkRpl1+fp6
-	Z87PpSnnWLOenVbf3mFB2q5r/PXzauS6zrzbDP9maDe+QPoVXr0kHTQ7DKLzVVQNiabCzBgBf6bPU
-	7b9l8Txg==;
+	bh=GwXhaxA7ixaqtqzPddoX1oS8D1J/btE2jtBkZI27lYE=; b=OXOUmdRjqKJmNaeDFci5cDwdf8
+	4n/AyDaxsuo3dMifVVb9WxAgB2Zanm/8yy6G3d6CrRDwLU1Qr+4Mfyk8Kl/y0OByMiVqAiXU8TbQ6
+	2RzIVOclmNpB1i16epH8ZdypjfaUs8FmRMPhAXqT1Bwopm/KJZALLfThgB4/EKvBHvpHf7ENsWHJ9
+	b5c1tf9pUcLY0PswAExkGzSjna1YDlfFoCMpFcM9rufXhJihVFXgXB5FPxqyNTKtPiYuLI4Kfkqz4
+	vAQmQgjonA93sZgeEcjHP7BjDvvnS2cf33YfyB1q1V1o8wbHnQvlPfumLm3BDqGsoVAOQu9G7+I+z
+	nJtcFPeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4NEg-00000002sZu-0MWi;
-	Mon, 14 Apr 2025 17:04:42 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u4NfF-00000002wic-0luO;
+	Mon, 14 Apr 2025 17:32:09 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4NCn-00000002sL1-46LI;
-	Mon, 14 Apr 2025 17:02:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 461C4A4A0C4;
-	Mon, 14 Apr 2025 16:57:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BD4FC4CEEB;
-	Mon, 14 Apr 2025 17:02:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744650164;
-	bh=KqFT3PKAxBM7aneYNA4QM0R7Gd1DemUhbyEfOOJZdwc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=haXXUUQ5j7/xdMK6YjwHt6lr9C50Nl/g7bFmEYMZvNiz+gF0wIYn0k0JlsN7AgIIr
-	 4iu+74zlC0pGVbnny4GpZcvFCtRv7UbXiLj/Jktoz55Xw4OI0gFEF9IMr5JRkbS89a
-	 FWUp+fMSf5UkmLfyLJ4Oh8mMhzRX4zRBtIyxizLmg1yK8LXnD6fzQ4a/5VdOID9XcX
-	 dE75rVIJSiBbQRqIjkmlXD+Sz1tODj0aRj329Hqs8wN3tRMUOekPmkiQJuBXhlIRBs
-	 zzEUQdKKdZxKbNiIRzd4lVHI7DTVE6ie+lpUtXY7UaT3cQKWd5+rfYxv5sIPEdod6N
-	 ZZHwk4psw8ppw==
-Date: Mon, 14 Apr 2025 18:02:33 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Rob Herring <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Steen Hegelund <Steen.Hegelund@microchip.com>,
-	Daniel Machon <daniel.machon@microchip.com>,
-	UNGLinuxDriver@microchip.com,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Andy Gross <agross@kernel.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Viresh Kumar <vireshk@kernel.org>, Nishanth Menon <nm@ti.com>,
-	Stephen Boyd <sboyd@kernel.org>, zhouyanjie@wanyeetech.com,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Stephan Gerhold <stephan.gerhold@linaro.org>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, imx@lists.linux.dev,
-	linux-rockchip@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org, linux-mips@vger.kernel.org,
-	linux-pm@vger.kernel.org, linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v2 03/17] arm64: dts: microchip: sparx5: Fix CPU node
- "enable-method" property dependencies
-Message-ID: <20250414-fragile-same-9cd06114cd85@spud>
-References: <20250410-dt-cpu-schema-v2-0-63d7dc9ddd0a@kernel.org>
- <20250410-dt-cpu-schema-v2-3-63d7dc9ddd0a@kernel.org>
- <20250411-ebay-exerciser-392c42daf5ba@spud>
- <CAL_JsqJza-bufzjZ415THyDDQaOfk8F+JRFvFxzNwObG=NKVJQ@mail.gmail.com>
+	id 1u4NdL-00000002wL2-1G7O
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 14 Apr 2025 17:30:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=GwXhaxA7ixaqtqzPddoX1oS8D1J/btE2jtBkZI27lYE=; b=snsGLG06OR6QoVP8gONg2dBtEJ
+	f86M8hOBLcq4ZGic4n+aQDFW+YLzjtYKznL4c3ZilygILPHMKZ/PM55zsxE0P1rxbk/9eiJOraWIj
+	jbZs6BOLx3dPo8VzPN++5e27FkP8Twy+uoODw2THnngk+zwFLsvRQq8VsZuB/+JL863Y=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1u4NdC-009EyA-5v; Mon, 14 Apr 2025 19:30:02 +0200
+Date: Mon, 14 Apr 2025 19:30:02 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 2/2] net: stmmac: ingenic: convert to
+ devm_stmmac_pltfr_probe()
+Message-ID: <9d7b5f8b-d372-4fcc-90a5-c648db966fde@lunn.ch>
+References: <Z_0u9pA0Ziop-BuU@shell.armlinux.org.uk>
+ <E1u4M5S-000YGJ-9K@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="pt+1yttKuNYLWgzQ"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAL_JsqJza-bufzjZ415THyDDQaOfk8F+JRFvFxzNwObG=NKVJQ@mail.gmail.com>
+In-Reply-To: <E1u4M5S-000YGJ-9K@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_100246_147340_ED1ACF19 
-X-CRM114-Status: GOOD (  19.89  )
+X-CRM114-CacheID: sfid-20250414_103011_343777_713C02DF 
+X-CRM114-Status: UNSURE (   9.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,47 +78,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Apr 14, 2025 at 04:51:06PM +0100, Russell King (Oracle) wrote:
+> As Ingenic now uses the stmmac platform PM ops, convert it to use
+> devm_stmmac_pltfr_probe() which will call the plat_dat->init() method
+> before stmmac_drv_probe() and appropriately cleaning up via the
+> ->exit() method, thus simplifying the code. Using the devm_*()
+> variant also allows removal of the explicit call to
+> stmmac_pltfr_remove().
+> 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
---pt+1yttKuNYLWgzQ
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-On Fri, Apr 11, 2025 at 03:26:50PM -0500, Rob Herring wrote:
-> On Fri, Apr 11, 2025 at 11:22=E2=80=AFAM Conor Dooley <conor@kernel.org> =
-wrote:
-> >
-> > On Thu, Apr 10, 2025 at 10:47:24AM -0500, Rob Herring (Arm) wrote:
-> > > The "spin-table" enable-method requires "cpu-release-addr" property,
-> > > so add a dummy entry. It is assumed the bootloader will fill in the
-> > > correct values.
-> > >
-> > > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> > > Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
-> > > Tested-by: Daniel Machon <daniel.machon@microchip.com>
-> >
-> > This is already applied, guess I forgot to merge it into the branch that
-> > appears in linux next. I'll do that now..
->=20
-> Sometimes I check next, but in this case I just looked at replies for
-> which there were none. I dislike submitting dts changes because it's a
-> range of AWOL maintainers, only applying around some rcN (so up to 2
-> months later), silently applying, and applied but never in linux-next
-> (until in soc tree).
-
-Let's add "send the b4 ty email" to the list of things that I did not
-do, but thought that I had done.
-
---pt+1yttKuNYLWgzQ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ/0/qQAKCRB4tDGHoIJi
-0llIAQCfeSIfGZefusGStXxy21uaJUGlki/H/XzQ1dq4t278oAD9GMv/CXNEj8CG
-oPoSllLdscFoA/5qVRjJh0erPiNF8gA=
-=q+yA
------END PGP SIGNATURE-----
-
---pt+1yttKuNYLWgzQ--
+    Andrew
 
