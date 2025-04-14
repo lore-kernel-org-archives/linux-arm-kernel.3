@@ -4,69 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFBE3C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 11:24:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E3E2C369B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 11:26:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4orVmC3GhfRl0U7QTJBOtRjJ6OlRAsrNJb9UpzhDlyM=; b=wDE8ViOY6/bb3QuaJ+REZnMzjC
-	VPyzFCgWC6L96ogVNQFKMeaER+5te7KewBefjGbYbfnSjCqZaaN83M+HXOuHkhsjIAcR1On4uBs0x
-	F6rpQGYkatb8Uem8nWHQNMFNwoK1m3PCZHIKBIevvgNVZgZH5iFryf5g32EPDZAAgiiFOF0bie5g6
-	TpoK3MXcw3lxyKzwMPHBl05JCCVMza7x0xhKQ85xTy7RBIln8F/gZpVquchkxOD8mMCB+8q7EUew0
-	b6A18llYC9OUPihgsPfKxq6icjGMYe68nQgLFdMz0yF/QCJSe3TmQAENMaqGR5UT5ejxkE28LZ6XB
-	VCJOPW4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b64+5Fyc2XBoUKGin9x9phROn71/VpDRGxeTWMDWMDQ=; b=VQHTcPFlgO4ESQ8i4AYT//Ad8M
+	BqG5Q1Qm8RwlzSHpqXfvauS08ecYNwizGtxlzJK5nIqjbA0EJh8kssOc4BwprELsse2ZCc9jCxHVb
+	VdBe565nIh6RmK7TXKTlEgmNLBZTB/ojrWe/8yKfsmWsiJDh2GQjc4PuJMLh2sFUmixzUBml4QHCW
+	sYw3dxmZQ4IbKvt+DCRTlGM2juQ9V6JxZb/UUQ/okQZZOEMhxjt6QuJoQLwBoUFyDsNIEt8O/FJhk
+	2ZJprZ+OTfRHwMa0h4Xn3+DQ+wfCjoLJc8HH4VtDumTFBaLOKevWX6mMw73LzawsGbwQJ/1jGkIwx
+	n/RRx5QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4HvK-00000001kmc-42ZH;
-	Mon, 14 Apr 2025 11:24:22 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Hoq-00000001jQf-3XUl
+	id 1u4HxB-00000001lBA-3LDk;
+	Mon, 14 Apr 2025 11:26:17 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u4HqH-00000001jhg-1SPR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 11:17:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EFB4E1007;
-	Mon, 14 Apr 2025 04:17:38 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9C4413F66E;
-	Mon, 14 Apr 2025 04:17:37 -0700 (PDT)
-Date: Mon, 14 Apr 2025 12:17:34 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"Dan Carpenter" <dan.carpenter@linaro.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
-Subject: Re: [PATCH v4 5/7] firmware: imx: Add i.MX95 SCMI LMM driver
-Message-ID: <20250414-ebony-slug-of-felicity-421b0f@sudeepholla>
-References: <20250408-imx-lmm-cpu-v4-0-4c5f4a456e49@nxp.com>
- <20250408-imx-lmm-cpu-v4-5-4c5f4a456e49@nxp.com>
- <20250414-wonderful-cute-bandicoot-accb6b@sudeepholla>
- <PAXPR04MB8459195AAF65D38AFA1D4F9688B32@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <20250414-tiny-classic-barnacle-5f8c8f@sudeepholla>
- <PAXPR04MB84593BB91063D13BB05BEB5988B32@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <PAXPR04MB84598733FA39A7402E91DA1988B32@PAXPR04MB8459.eurprd04.prod.outlook.com>
+	Mon, 14 Apr 2025 11:19:11 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53E8DgFV030537;
+	Mon, 14 Apr 2025 13:18:45 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	b64+5Fyc2XBoUKGin9x9phROn71/VpDRGxeTWMDWMDQ=; b=2r7UTh6GWBYWwiT9
+	hcaoQA3S3eaZFgcfT4Lr1bqqqeIBB6cnwspB4DKMTz3xB0JnArETHV+YciqnlAnR
+	MBQrDZxmIu7tbYJ9F359QeeerglGi4NamuvmQ1AiuLfACtSYb01nNHXVcc95qZ+c
+	y7jHdqYOdWDI8SjvBwyqr/FoKdqFpO+ho3DfZglE2PSncQj7R3f2P/mFHSVZEkkS
+	XWaTiGK8cwznlxNzII67+wUV5l/ssK7ByJKYMaYp4wbZQvV7P+pDcMQqQzQCFKtr
+	0G2VBeUkdBXQf8zsbrB8y1p2Y1S7QxlYDOeXmIm5FGRniSr/3yVi5YpVLn2nj173
+	ejk8hg==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45yda8ynsf-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 14 Apr 2025 13:18:44 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id E762C40047;
+	Mon, 14 Apr 2025 13:17:46 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id A3FE295BA29;
+	Mon, 14 Apr 2025 13:17:19 +0200 (CEST)
+Received: from [10.48.86.196] (10.48.86.196) by SHFDAG1NODE3.st.com
+ (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 14 Apr
+ 2025 13:17:19 +0200
+Message-ID: <f7dcc10e-b2c6-4252-9c71-6715cebe49fd@foss.st.com>
+Date: Mon, 14 Apr 2025 13:17:18 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <PAXPR04MB84598733FA39A7402E91DA1988B32@PAXPR04MB8459.eurprd04.prod.outlook.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] dmaengine: stm32: Don't use %pK through printk
+To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
+        Vinod
+ Koul <vkoul@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>
+CC: <dmaengine@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20250407-restricted-pointers-dma-v1-1-b617dd0e293a@linutronix.de>
+Content-Language: en-US
+From: Amelie Delaunay <amelie.delaunay@foss.st.com>
+In-Reply-To: <20250407-restricted-pointers-dma-v1-1-b617dd0e293a@linutronix.de>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.48.86.196]
+X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-14_03,2025-04-10_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_041740_925163_FD408719 
-X-CRM114-Status: GOOD (  10.35  )
+X-CRM114-CacheID: sfid-20250414_041909_855178_4071F389 
+X-CRM114-Status: GOOD (  18.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,21 +95,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 14, 2025 at 11:00:20AM +0000, Peng Fan wrote:
-> 
-> Oops, I just checked wrong Kconfig under drivers/firmware/arm_scmi/
-> vendors/imx
-> 
-> Build this for ARM32 i.MX is ok, I just think no need. So add
-> a ARM64 dependency.
-> 
 
-OK, I will drop the ARM64 dependency when applying. I also don't understand
-the dependency on i.MX firmware LMM and CPU drivers in the scmi vendor
-protocol as the dependency should be other way around. But I see Arnd had
-fixed it so I will keep it as you have posted to keep them all aligned.
 
--- 
-Regards,
-Sudeep
+On 4/7/25 10:26, Thomas Weißschuh wrote:
+> In the past %pK was preferable to %p as it would not leak raw pointer
+> values into the kernel log.
+> Since commit ad67b74d2469 ("printk: hash addresses printed with %p")
+> the regular %p has been improved to avoid this issue.
+> Furthermore, restricted pointers ("%pK") were never meant to be used
+> through printk(). They can still unintentionally leak raw pointers or
+> acquire sleeping looks in atomic contexts.
+
+I forgot to highlight this typo:
+
+s/looks/locks
+
+> 
+> Switch to the regular pointer formatting which is safer and
+> easier to reason about.
+> There are still a few users of %pK left, but these use it through seq_file,
+> for which its usage is safe.
+> 
+> Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+> ---
+>   drivers/dma/stm32/stm32-dma.c  | 10 +++++-----
+>   drivers/dma/stm32/stm32-dma3.c | 10 +++++-----
+>   drivers/dma/stm32/stm32-mdma.c |  8 ++++----
+>   3 files changed, 14 insertions(+), 14 deletions(-)
+> 
+> diff --git a/drivers/dma/stm32/stm32-dma.c b/drivers/dma/stm32/stm32-dma.c
+> index 917f8e9223739af853e492d97cecac0e95e0aea3..ee9246c6888ffde2d416270f25890c04c72daff7 100644
+> --- a/drivers/dma/stm32/stm32-dma.c
+> +++ b/drivers/dma/stm32/stm32-dma.c
+> @@ -613,7 +613,7 @@ static void stm32_dma_start_transfer(struct stm32_dma_chan *chan)
+>   	reg->dma_scr |= STM32_DMA_SCR_EN;
+>   	stm32_dma_write(dmadev, STM32_DMA_SCR(chan->id), reg->dma_scr);
+>   
+> -	dev_dbg(chan2dev(chan), "vchan %pK: started\n", &chan->vchan);
+> +	dev_dbg(chan2dev(chan), "vchan %p: started\n", &chan->vchan);
+>   }
+>   
+>   static void stm32_dma_configure_next_sg(struct stm32_dma_chan *chan)
+> @@ -676,7 +676,7 @@ static void stm32_dma_handle_chan_paused(struct stm32_dma_chan *chan)
+>   
+>   	chan->status = DMA_PAUSED;
+>   
+> -	dev_dbg(chan2dev(chan), "vchan %pK: paused\n", &chan->vchan);
+> +	dev_dbg(chan2dev(chan), "vchan %p: paused\n", &chan->vchan);
+>   }
+>   
+>   static void stm32_dma_post_resume_reconfigure(struct stm32_dma_chan *chan)
+> @@ -728,7 +728,7 @@ static void stm32_dma_post_resume_reconfigure(struct stm32_dma_chan *chan)
+>   	dma_scr |= STM32_DMA_SCR_EN;
+>   	stm32_dma_write(dmadev, STM32_DMA_SCR(chan->id), dma_scr);
+>   
+> -	dev_dbg(chan2dev(chan), "vchan %pK: reconfigured after pause/resume\n", &chan->vchan);
+> +	dev_dbg(chan2dev(chan), "vchan %p: reconfigured after pause/resume\n", &chan->vchan);
+>   }
+>   
+>   static void stm32_dma_handle_chan_done(struct stm32_dma_chan *chan, u32 scr)
+> @@ -820,7 +820,7 @@ static void stm32_dma_issue_pending(struct dma_chan *c)
+>   
+>   	spin_lock_irqsave(&chan->vchan.lock, flags);
+>   	if (vchan_issue_pending(&chan->vchan) && !chan->desc && !chan->busy) {
+> -		dev_dbg(chan2dev(chan), "vchan %pK: issued\n", &chan->vchan);
+> +		dev_dbg(chan2dev(chan), "vchan %p: issued\n", &chan->vchan);
+>   		stm32_dma_start_transfer(chan);
+>   
+>   	}
+> @@ -922,7 +922,7 @@ static int stm32_dma_resume(struct dma_chan *c)
+>   
+>   	spin_unlock_irqrestore(&chan->vchan.lock, flags);
+>   
+> -	dev_dbg(chan2dev(chan), "vchan %pK: resumed\n", &chan->vchan);
+> +	dev_dbg(chan2dev(chan), "vchan %p: resumed\n", &chan->vchan);
+>   
+>   	return 0;
+>   }
+> diff --git a/drivers/dma/stm32/stm32-dma3.c b/drivers/dma/stm32/stm32-dma3.c
+> index 0c6c4258b19561c94f1c68f26ade16b82660ebe6..50e7106c5cb73394c1de52ad5f571f6db63750e6 100644
+> --- a/drivers/dma/stm32/stm32-dma3.c
+> +++ b/drivers/dma/stm32/stm32-dma3.c
+> @@ -801,7 +801,7 @@ static void stm32_dma3_chan_start(struct stm32_dma3_chan *chan)
+>   
+>   	chan->dma_status = DMA_IN_PROGRESS;
+>   
+> -	dev_dbg(chan2dev(chan), "vchan %pK: started\n", &chan->vchan);
+> +	dev_dbg(chan2dev(chan), "vchan %p: started\n", &chan->vchan);
+>   }
+>   
+>   static int stm32_dma3_chan_suspend(struct stm32_dma3_chan *chan, bool susp)
+> @@ -1452,7 +1452,7 @@ static int stm32_dma3_pause(struct dma_chan *c)
+>   
+>   	chan->dma_status = DMA_PAUSED;
+>   
+> -	dev_dbg(chan2dev(chan), "vchan %pK: paused\n", &chan->vchan);
+> +	dev_dbg(chan2dev(chan), "vchan %p: paused\n", &chan->vchan);
+>   
+>   	return 0;
+>   }
+> @@ -1465,7 +1465,7 @@ static int stm32_dma3_resume(struct dma_chan *c)
+>   
+>   	chan->dma_status = DMA_IN_PROGRESS;
+>   
+> -	dev_dbg(chan2dev(chan), "vchan %pK: resumed\n", &chan->vchan);
+> +	dev_dbg(chan2dev(chan), "vchan %p: resumed\n", &chan->vchan);
+>   
+>   	return 0;
+>   }
+> @@ -1490,7 +1490,7 @@ static int stm32_dma3_terminate_all(struct dma_chan *c)
+>   	spin_unlock_irqrestore(&chan->vchan.lock, flags);
+>   	vchan_dma_desc_free_list(&chan->vchan, &head);
+>   
+> -	dev_dbg(chan2dev(chan), "vchan %pK: terminated\n", &chan->vchan);
+> +	dev_dbg(chan2dev(chan), "vchan %p: terminated\n", &chan->vchan);
+>   
+>   	return 0;
+>   }
+> @@ -1543,7 +1543,7 @@ static void stm32_dma3_issue_pending(struct dma_chan *c)
+>   	spin_lock_irqsave(&chan->vchan.lock, flags);
+>   
+>   	if (vchan_issue_pending(&chan->vchan) && !chan->swdesc) {
+> -		dev_dbg(chan2dev(chan), "vchan %pK: issued\n", &chan->vchan);
+> +		dev_dbg(chan2dev(chan), "vchan %p: issued\n", &chan->vchan);
+>   		stm32_dma3_chan_start(chan);
+>   	}
+>   
+> diff --git a/drivers/dma/stm32/stm32-mdma.c b/drivers/dma/stm32/stm32-mdma.c
+> index e6d525901de7ecf822d218b87b95aba6bbf0a3ef..080c1c725216cb627675c372591b4c0c227c3cea 100644
+> --- a/drivers/dma/stm32/stm32-mdma.c
+> +++ b/drivers/dma/stm32/stm32-mdma.c
+> @@ -1187,7 +1187,7 @@ static void stm32_mdma_start_transfer(struct stm32_mdma_chan *chan)
+>   
+>   	chan->busy = true;
+>   
+> -	dev_dbg(chan2dev(chan), "vchan %pK: started\n", &chan->vchan);
+> +	dev_dbg(chan2dev(chan), "vchan %p: started\n", &chan->vchan);
+>   }
+>   
+>   static void stm32_mdma_issue_pending(struct dma_chan *c)
+> @@ -1200,7 +1200,7 @@ static void stm32_mdma_issue_pending(struct dma_chan *c)
+>   	if (!vchan_issue_pending(&chan->vchan))
+>   		goto end;
+>   
+> -	dev_dbg(chan2dev(chan), "vchan %pK: issued\n", &chan->vchan);
+> +	dev_dbg(chan2dev(chan), "vchan %p: issued\n", &chan->vchan);
+>   
+>   	if (!chan->desc && !chan->busy)
+>   		stm32_mdma_start_transfer(chan);
+> @@ -1220,7 +1220,7 @@ static int stm32_mdma_pause(struct dma_chan *c)
+>   	spin_unlock_irqrestore(&chan->vchan.lock, flags);
+>   
+>   	if (!ret)
+> -		dev_dbg(chan2dev(chan), "vchan %pK: pause\n", &chan->vchan);
+> +		dev_dbg(chan2dev(chan), "vchan %p: pause\n", &chan->vchan);
+>   
+>   	return ret;
+>   }
+> @@ -1261,7 +1261,7 @@ static int stm32_mdma_resume(struct dma_chan *c)
+>   
+>   	spin_unlock_irqrestore(&chan->vchan.lock, flags);
+>   
+> -	dev_dbg(chan2dev(chan), "vchan %pK: resume\n", &chan->vchan);
+> +	dev_dbg(chan2dev(chan), "vchan %p: resume\n", &chan->vchan);
+>   
+>   	return 0;
+>   }
+> 
+> ---
+> base-commit: e48e99b6edf41c69c5528aa7ffb2daf3c59ee105
+> change-id: 20250404-restricted-pointers-dma-29cf839a1a0b
+> 
+> Best regards,
 
