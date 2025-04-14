@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0A84C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 09:22:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BBC2C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 09:24:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gnja6srub3n8tJYS03csOlPaZZrQF5QqUXIS5NZAuvw=; b=eCW73jAoPtoii2G1HkxddoG74o
-	YJlBruoSiyZj4yaCi3MJAw4SUn7i0BlcqQEdD7D1TP6GTqmRrW85S8xs24iKw/Q1hBJ7ulFwyv8/Y
-	JyUBYzjJjLnOAGjr7Kp4N07S4VlIPzpBK5r1H3XpIBTf5+eOsC//+F2mU+bE+70buPY5mP1L3V1VS
-	jDkFmqnTpMuf3W/YJKcYarcO4P+WV3SKkXAhyk3YkQhLQmzHxSaWvBH3YT2hY17EbPAlCNXxaBjIq
-	M5ccWy6Zy+0wTBnCxK8Wm7rfTQQ6CEpWX1wKsYKebycSpWKdenGhI7pOHYwgZhxWFkX4Nu7TWm+Di
-	XbZKoHjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wOqlWtFSPV7O6xwum69lDdpSmcDreIi287vOPBtUK1g=; b=nVUwntcYBd4okVFLMhb8YmXPzc
+	RM+DWBGZ/eZDn+zt9x5FNiQYhrHZzxZA9EhlnXaeV2KiSXHz5ED7E9FDnWMxAIItnGv/F0ksCDySQ
+	uJERNw49Yp7ojOEBEXdwVKg8tMrN8ulvohrAWw0PzP/Qbn6kBLoxhyb5vGsLerWz57UdzgJQg668b
+	9n0yuK7/rleye2yddXfye8k9eeOTd6ws6sNgEQAdKzN3bxqrZ1UH+rjr4lCMfjagEgr0vhVi+0cBa
+	3k0IpQMeokuURn/9jbph0IWON9oXj9NkNBSTNTo4A/lib1uahh/AqPIjJ+OPmzMB8XXulPQVsJGMB
+	PJ16gwog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4G1N-00000001GGJ-3XuT;
-	Mon, 14 Apr 2025 09:22:29 +0000
+	id 1u4G3A-00000001GTn-2Ail;
+	Mon, 14 Apr 2025 09:24:20 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4FlY-00000001DN1-48Hi
+	id 1u4FmE-00000001DPT-3r2J
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 09:06:10 +0000
+	Mon, 14 Apr 2025 09:06:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=gnja6srub3n8tJYS03csOlPaZZrQF5QqUXIS5NZAuvw=; b=Kgb3xxE+36KP1bFTLvCdZqc0HL
-	e/Fh3IlAjOp4ZAvzc4UcuLthtIZD34391hP9VimUS8hvGE+b3sKLTkM2RJhz2ICgBX2q/L3W2N8PU
-	tK23bjbOibkojsSFIa9MszfDB3ZqiVdtK5IetR771Sb9pCDCnCzMZ/cLZV7Yi7A5i5iefVyOMj6y0
-	xLUXAV3hdJFU+iXPVjzBmlESzekW1wK6ZlrGTDjPBvL7IjmK2yfljrSDtaRHX2j43UO6l13L1SM+4
-	i+Z6Aby5Njc4n79Je8xr+hSKWDIAiJDOUBWqyWFah6Syxj5YpL7SjxZ+Wgt92r7IPxQ2USKmRZg23
-	LAP1tBMA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:58320)
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=wOqlWtFSPV7O6xwum69lDdpSmcDreIi287vOPBtUK1g=; b=ud6F4mT5ycwwzMR0SWj57hOdK0
+	eJrhqgZZR0WcP7CX1KTr0T44rMI875/x5gmuu+UXquOYe7nSF+wTH/+j8ka4v47mN92CTgY/UJ+Kf
+	S9DF/5zXIZlyjJYNHgIk4Ov01r01aZbIW+LnUcsHp+Hi9lEuaWz5HzG6N2vdCw1qDfx1HvoOZuV/y
+	vsvrZGwcGZuImWPKlfLoKHksUL6PBE5o6oyox8baN8O/Zjkifh94J+S4fN7PcYeJz/4xdWTMa5jNQ
+	k63oTHVgWbhBpbTWkgT7j2kW1PAGXp/UPyPuPBoC60MiWPk04/TpRScnU2Zn4vBKnbVGLS3+imZqe
+	CRMruvSQ==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:41504 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1u4FlQ-0006CB-22;
-	Mon, 14 Apr 2025 10:06:00 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1u4FlM-0007cR-16;
-	Mon, 14 Apr 2025 10:05:56 +0100
-Date: Mon, 14 Apr 2025 10:05:56 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1u4Fm6-0006Cb-1r;
+	Mon, 14 Apr 2025 10:06:42 +0100
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1u4FlV-000XjG-83; Mon, 14 Apr 2025 10:06:05 +0100
+In-Reply-To: <Z_zP9BvZlqeq3Ssl@shell.armlinux.org.uk>
+References: <Z_zP9BvZlqeq3Ssl@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
 Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
@@ -59,17 +60,20 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Jakub Kicinski <kuba@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH v2 net-next 0/4] net: stmmac: anarion: cleanups
-Message-ID: <Z_zP9BvZlqeq3Ssl@shell.armlinux.org.uk>
+Subject: [PATCH net-next v2 2/4] net: stmmac: anarion: clean up interface
+ parsing
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1u4FlV-000XjG-83@rmk-PC.armlinux.org.uk>
+Date: Mon, 14 Apr 2025 10:06:05 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_020609_022255_8D92AA1B 
-X-CRM114-Status: UNSURE (   8.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250414_020650_958514_B74A3BD0 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,29 +88,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A series of cleanups to the anarion glue driver.
+anarion_config_dt() used a switch statement to check for the RGMII
+modes, complete with an unnecessary "fallthrough", and also printed
+the numerical value of the PHY interface mode on error. Clean this
+up using the phy_interface_mode_is_rgmii() helper, and print the
+English version of the PHY interface mode on error.
 
-Clean up anarion_config_dt() error handling, printing a human readable
-error rather than the numeric errno, and use ERR_CAST().
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ .../net/ethernet/stmicro/stmmac/dwmac-anarion.c    | 14 ++++----------
+ 1 file changed, 4 insertions(+), 10 deletions(-)
 
-Using a switch statement with incorrect "fallthrough;" for RGMII vs
-non-RGMII is unnecessary when we have phy_interface_mode_is_rgmii().
-Convert to use the helper.
-
-Use stmmac_pltfr_probe() rahter than open-coding the call to the
-init function (which stmmac_pltfr_probe() will do for us.)
-
-Finally, convert to use devm_stmmac_pltfr_probe() which allows the
-removal of the .remove initialiser in the driver structure.
-
-Not tested on hardware.
-
-v2: fix build error, add Andrew's r-bs.
-
- .../net/ethernet/stmicro/stmmac/dwmac-anarion.c    | 25 +++++++---------------
- 1 file changed, 8 insertions(+), 17 deletions(-)
-
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-anarion.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-anarion.c
+index 232aae752690..941ea724c643 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-anarion.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-anarion.c
+@@ -79,17 +79,11 @@ anarion_config_dt(struct platform_device *pdev,
+ 
+ 	gmac->ctl_block = ctl_block;
+ 
+-	switch (plat_dat->phy_interface) {
+-	case PHY_INTERFACE_MODE_RGMII:
+-		fallthrough;
+-	case PHY_INTERFACE_MODE_RGMII_ID:
+-	case PHY_INTERFACE_MODE_RGMII_RXID:
+-	case PHY_INTERFACE_MODE_RGMII_TXID:
++	if (phy_interface_mode_is_rgmii(plat_dat->phy_interface)) {
+ 		gmac->phy_intf_sel = GMAC_CONFIG_INTF_RGMII;
+-		break;
+-	default:
+-		dev_err(&pdev->dev, "Unsupported phy-mode (%d)\n",
+-			plat_dat->phy_interface);
++	} else {
++		dev_err(&pdev->dev, "Unsupported phy-mode (%s)\n",
++			phy_modes(plat_dat->phy_interface));
+ 		return ERR_PTR(-ENOTSUPP);
+ 	}
+ 
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.30.2
+
 
