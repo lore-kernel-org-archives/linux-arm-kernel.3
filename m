@@ -4,122 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBDD8C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 12:18:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2EC8C369B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 12:20:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xp75qIMm57nPPVP8J/rsf6yDNuT8ofPVgHhiAuNSxeI=; b=wHYpEV7mKzPltK653N01tbEX7g
-	hofiWprHlHwsisEkQj/McoKUZdBzHDPWb6Q7F31zySAoy6AjkeP4w3PSKAZ07UAsi0eTrvuMv6Ai8
-	06UwfqW7IOl5jDyxG81qZj+VrprVAcj43G8XVbz0t/wVsQvLmlMmAXb4mH2h6DxmBqZMaufA34+IB
-	y/YvbZ6kK3HguOuNSHU0dYZGKbKVjeOHwj3dhhkmnDe5gyedqKVJDa+3mpSXW9vP0blIXIC8BXo6V
-	bh3xl0jeqxJ9QOQb5nvoBDuTXpLBVMgmOOHc4dzhbVoSLgGWQ6BBVAu7dVLwiU+WSWRfFOL9FoyjP
-	Syu9f/sg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FY2G7ywdamUCOs1pJmxsy0MWSW+4XqqFqXoRrEMbON4=; b=1FUWUAXsh99R6inTTakSL7vT6s
+	rg7CcVjIfQDWePsUHni6B4Z93quNwog+LYX4Yjk9LRLe7bDEjRmJMxlQFoslJ8p4uiRxgCUd8uRym
+	VlFSQT7KrHeTCRVpyJ+SDuRAQVEogrAGQXCmwj64ashJVXN6v5eYy3hT501LYFpAWVH8l2cXM3BRU
+	HwjiwGCp6oiLURCRCYU6+ZNOl2U8+kkeIDSlpADZSj9DdZLzO8s2ilOd3jSd+FSXxwyQHZDxzs2JV
+	ysjqZszCHC4yBrLkFhB/Qz/p2G4ICdvglh9vVCW1fsz3Y7AIvBhM3Fh8o6bD4aF1xpBVX3ZvfSLjt
+	kJ9l7uHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Ilh-00000001vAu-3cUq;
-	Mon, 14 Apr 2025 12:18:29 +0000
-Received: from mout.gmx.net ([212.227.15.19])
+	id 1u4InW-00000001vOl-2PiR;
+	Mon, 14 Apr 2025 12:20:22 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Id4-00000001tPN-3bMI
+	id 1u4Id7-00000001tPm-1BPQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 12:09:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1744632571; x=1745237371; i=wahrenst@gmx.net;
-	bh=Xp75qIMm57nPPVP8J/rsf6yDNuT8ofPVgHhiAuNSxeI=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=Adt+S7Q58ZFbuxAVqbEHCpygKTx6tn4q8QFotlb4nz9t3K9hHxvdOH/1pAT7pDKq
-	 7K00hQI/NjI8dhXowu96FesxpdRIAkVhl1AETvGYXKo7gqF3fv+Fwx4ND4ER/RD2y
-	 ELkGEIzv+5pCMk6VBKZbfg3Ix86aTtbSsWt/fENeELl+/i3HHem1d++0CE5u+KUhl
-	 NgqMqn4ICiQFQn6id9mrXwC7AMh+1c8O1Qe7YgMaeNSLE1uILdOvMmsERdUwLF/Jl
-	 +xl7Pcjbxqrt6LNfi0ot6A0mu+Wp3iTkvLGpZVMmJDlJOOShnLQsJH+YlHLKBL9pf
-	 Ly//gAj0bMnUHv2S/A==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.107] ([37.4.251.153]) by mail.gmx.net (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MXXyP-1tWtt73HQ7-00Jmb6; Mon, 14
- Apr 2025 14:09:30 +0200
-Message-ID: <23ac3d05-5fb7-4cd8-bb87-cf1f3eab521d@gmx.net>
-Date: Mon, 14 Apr 2025 14:09:29 +0200
+	Mon, 14 Apr 2025 12:09:38 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53EC9U0R2150317
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 14 Apr 2025 07:09:30 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1744632570;
+	bh=FY2G7ywdamUCOs1pJmxsy0MWSW+4XqqFqXoRrEMbON4=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=eSCYkf2f4IKIQQ2xCOtpJuiKiCMNGvpZqmaN9WPL3OGOG7TWJ+U0vbaEdmxbM0NPw
+	 DijoYY52vLkdtu3+nTedcsO5WnrSf1JtqTUq/u09eiP4l7fU0YeLQUuG8yKNT2TYFH
+	 9xicptTbWs5aYibt1NMSDadlqjGnBKVbKVFu9XEU=
+Received: from DFLE103.ent.ti.com (dfle103.ent.ti.com [10.64.6.24])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53EC9U0x054608
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 14 Apr 2025 07:09:30 -0500
+Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE103.ent.ti.com
+ (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 14
+ Apr 2025 07:09:30 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 14 Apr 2025 07:09:30 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53EC9Uic090737;
+	Mon, 14 Apr 2025 07:09:30 -0500
+Date: Mon, 14 Apr 2025 07:09:30 -0500
+From: Nishanth Menon <nm@ti.com>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+CC: <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <u-kumar1@ti.com>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>
+Subject: Re: [PATCH 0/2] J722S: DT Node cleanup for serdes0 and serdes1
+Message-ID: <20250414120930.m7x7zfmyby22urpo@ultimate>
+References: <20250412052712.927626-1-s-vadapalli@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 05/13] clk: rp1: Add support for clocks provided by RP1
-To: Andrea della Porta <andrea.porta@suse.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Krzysztof Wilczynski <kw@linux.com>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Linus Walleij
- <linus.walleij@linaro.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
- Derek Kiernan <derek.kiernan@amd.com>, Dragan Cvetic
- <dragan.cvetic@amd.com>, Arnd Bergmann <arnd@arndb.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-gpio@vger.kernel.org, Masahiro Yamada <masahiroy@kernel.org>,
- Herve Codina <herve.codina@bootlin.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Andrew Lunn
- <andrew@lunn.ch>, Phil Elwell <phil@raspberrypi.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>, kernel-list@raspberrypi.com
-References: <cover.1742418429.git.andrea.porta@suse.com>
- <370137263691f4fc14928e4b378b27f75bfd0826.1742418429.git.andrea.porta@suse.com>
-Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <370137263691f4fc14928e4b378b27f75bfd0826.1742418429.git.andrea.porta@suse.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:jVwfn61L1l623hq7JXUK39FgY+Ke6mJ2vq3rv9zPlizsfdYXY7A
- 2eFM7o4p/xMmoEYRWw3X5rZ9EwLs3HX0RNGwjh32MBVmJ5tPIWKJD3TZOSZ5mQ9ScVCGxhS
- vZxFeauGQHcerGX4V2kn7p5gOHGCNFF+iuDo1OHP9HHq1BHKzBHpm8KosKpBNLrmbKyMqZa
- ufvid/6nBIWqMTvIQqIYw==
-UI-OutboundReport: notjunk:1;M01:P0:tB7vyzX7o7A=;RW1rgnOFo0RixCKF/d2mYwqmzGx
- gSFo/UeVvOCf8bVNC1Pj3NvNg4zJkY2004QcR9y+HC+L9+2uD13HLgztYw34Eqy/JQFtZnJSh
- tsP1fuZth67d3KlO5JOyvYsSToFt2mGGZCPx/jhttn2z6otSqiviaOL0CjzN2I1vpxQpaib+e
- HpTPgSz2QuMBb11T2VbJtGnA7hl9YwHqfL9VpD0cRn+E7HiSXxn/kg0AfwgOES61fERkhXxXX
- N8CqWE4HHFISvUiC964Z8hB+AE5Gn3LwmQ4c2+FJeIOG6CPRjzlMjIWj10Ucncaj91yFH/p2y
- CsjdMjb2SwMOP3LzZVzujsM2AaoFmLkGd0TMGhP2oRkMxMos/Vzg6/9kH5aFAPojtRI3weHgZ
- mBKwKjhhpWuxjbBKH8Kw/TtEI+hArfK25tHFEmHM/xLZtODPYIEDRxCP0Ajz//YOHVbn2zXZV
- GkcQzwL0Nr1DmTIC6TMM1I8FE2PRerSZS3/OIJxTUtjWq6kWunHUzak5KymWS5qLSHPp/joxD
- V1s7ZzdV53RFNVC4eEJxNeVyPUdoL02WLzuMAYcJ4rEoxOO6LCSM1eqiNGKy+vB56rQQt8p0+
- YaIhNK4URPD4bPcQzCZuGVzUKItTkxWZo+uqd6ZFNBjmrwWhQzh8g5eYZmGuUZVkq2wggYGUp
- kdpPgEKHa58d8XSwi9ZK3Rz4NKk9Gqq4YHaKljiEgFF856gzEvLaAT28quohPIz3Qk8s7elrs
- 721i8oM45qWxYxeoe8nXLalgEUfdajTRc2lsI6vZDKNPzmI2tm0W5iXXznsPLnuyzuFHlAmh/
- Nq1uEtn80MHmaXPa9jluhzG2TJvd9UH6RRX4iDWvRQPkeIVuDX9pxZ1D4rY0eNUO2r4BkmTo3
- VIFvwwPS6WNJUnXOJsS225ihQIxBao3xVA8pzL9pFpKdmA56O0RiAdfLGRThRxbeptsHFq3ag
- sQXdvxBQWfpeUjlT0xYEn7EDFjlsCBSeyzGSvrrbGnjPvaeqaHGMsmr+Bh4gUtlHfy5FihEbq
- Ydud5f8o1RCCbMtl1JFKrbfb/KPKF0IOLCbySmGELYixS75meuWv+UzBksXhIWSZJJxPwk+AK
- S/KvqBqKiUBQWMkbBy6R9Yl+Bi9LjmWwnQhnJajIp1ksZU+I+q6CKi2FwRJuHr1BcZ5/OcY6n
- Xg0mmgKkb7028ajltzj5lHq3xoa6vy58CfZyxMRSj5q46oQNCmFdJbc5ijAv0Laiheg01kcuB
- PgKlduTSecrLH5OQpUT+C98gY7zi0EeHf8S2hE2wnL1RwP4ddWOHoeomzOF8EzyxeLSXwA5C+
- B2x/genRqFN6zZMzhsFkcVtBuozi3z6AI2DP92pkRH1wbAZpWxEoxf1b8xYZnVQ4og66l02y/
- rhyKF2O/8nZYHtPRC2ORjtO1vRVK9m/Dbdo5E3aM25e3tya4bp/Gk1PgQuDefWuNp2Ym2Bos9
- 1dHlIJr5UGJta6dClhb240M3P0aNwZQRADOsrn9mmblCnJoFT
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250412052712.927626-1-s-vadapalli@ti.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_050935_194307_19780390 
-X-CRM114-Status: GOOD (  22.65  )
+X-CRM114-CacheID: sfid-20250414_050937_365937_6FF75519 
+X-CRM114-Status: GOOD (  17.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,110 +85,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrea,
+On 10:57-20250412, Siddharth Vadapalli wrote:
+> Hello,
+> 
+> This series is based on the following series:
+> https://patchwork.kernel.org/project/linux-arm-kernel/cover/20250408103606.3679505-1-s-vadapalli@ti.com/
+> Based on the discussion in the above series which disabled 'serdes_wiz0'
+> and 'serdes_wiz1' nodes in the SoC file and enabled them in the board
+> file, Udit pointed out that it wasn't necessary to disable 'serdes0' and
+> 'serdes1' in the SoC file anymore, since that is not a working
+> configuration - serdes_wizX enabled and serdesX disabled doesn't work.
+> 
+> Hence, this series aims to cleanup the serdesX nodes after the changes
+> made by the above series.
+> 
+> Regards,
+> Siddharth.
+> 
+> Siddharth Vadapalli (2):
+>   arm64: dts: ti: k3-j722s-main: don't disable serdes0 and serdes1
+>   arm64: dts: ti: k3-j722s-evm: drop redundant status within
+>     serdes0/serdes1
+> 
+>  arch/arm64/boot/dts/ti/k3-j722s-evm.dts   | 2 --
+>  arch/arm64/boot/dts/ti/k3-j722s-main.dtsi | 4 ----
+>  2 files changed, 6 deletions(-)
+> 
+> -- 
+> 2.34.1
+> 
 
-Am 19.03.25 um 22:52 schrieb Andrea della Porta:
-> RaspberryPi RP1 is an MFD providing, among other peripherals, several
-> clock generators and PLLs that drives the sub-peripherals.
-> Add the driver to support the clock providers.
->
-> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> ---
->   MAINTAINERS           |    5 +
->   drivers/clk/Kconfig   |    9 +
->   drivers/clk/Makefile  |    1 +
->   drivers/clk/clk-rp1.c | 1512 +++++++++++++++++++++++++++++++++++++++++
->   4 files changed, 1527 insertions(+)
->   create mode 100644 drivers/clk/clk-rp1.c
->
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 896a307fa065..75263700370d 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -19748,6 +19748,11 @@ S:	Maintained
->   F:	Documentation/devicetree/bindings/media/raspberrypi,rp1-cfe.yaml
->   F:	drivers/media/platform/raspberrypi/rp1-cfe/
->
-> +RASPBERRY PI RP1 PCI DRIVER
-> +M:	Andrea della Porta <andrea.porta@suse.com>
-> +S:	Maintained
-> +F:	drivers/clk/clk-rp1.c
-> +
->   RC-CORE / LIRC FRAMEWORK
->   M:	Sean Young <sean@mess.org>
->   L:	linux-media@vger.kernel.org
-> diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
-> index 713573b6c86c..cff90de71409 100644
-> --- a/drivers/clk/Kconfig
-> +++ b/drivers/clk/Kconfig
-> @@ -88,6 +88,15 @@ config COMMON_CLK_RK808
->   	  These multi-function devices have two fixed-rate oscillators, clock=
-ed at 32KHz each.
->   	  Clkout1 is always on, Clkout2 can off by control register.
->
-> +config COMMON_CLK_RP1
-> +	tristate "Raspberry Pi RP1-based clock support"
-> +	depends on MISC_RP1 || COMPILE_TEST
-> +	default MISC_RP1
-> +	help
-> +	  Enable common clock framework support for Raspberry Pi RP1.
-> +	  This multi-function device has 3 main PLLs and several clock
-> +	  generators to drive the internal sub-peripherals.
-> +
->   config COMMON_CLK_HI655X
->   	tristate "Clock driver for Hi655x" if EXPERT
->   	depends on (MFD_HI655X_PMIC || COMPILE_TEST)
-> diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
-> index bf4bd45adc3a..ff3993ed7e09 100644
-> --- a/drivers/clk/Makefile
-> +++ b/drivers/clk/Makefile
-> @@ -84,6 +84,7 @@ obj-$(CONFIG_CLK_LS1028A_PLLDIG)	+=3D clk-plldig.o
->   obj-$(CONFIG_COMMON_CLK_PWM)		+=3D clk-pwm.o
->   obj-$(CONFIG_CLK_QORIQ)			+=3D clk-qoriq.o
->   obj-$(CONFIG_COMMON_CLK_RK808)		+=3D clk-rk808.o
-> +obj-$(CONFIG_COMMON_CLK_RP1)            +=3D clk-rp1.o
->   obj-$(CONFIG_COMMON_CLK_HI655X)		+=3D clk-hi655x.o
->   obj-$(CONFIG_COMMON_CLK_S2MPS11)	+=3D clk-s2mps11.o
->   obj-$(CONFIG_COMMON_CLK_SCMI)           +=3D clk-scmi.o
-> diff --git a/drivers/clk/clk-rp1.c b/drivers/clk/clk-rp1.c
-> new file mode 100644
-> index 000000000000..72c74e344c1d
-> --- /dev/null
-> +++ b/drivers/clk/clk-rp1.c
-> @@ -0,0 +1,1512 @@
-> +// SPDX-License-Identifier: GPL-2.0
-...
-> +
-> +static int rp1_pll_divider_set_rate(struct clk_hw *hw,
-> +				    unsigned long rate,
-> +				    unsigned long parent_rate)
-> +{
-> +	struct rp1_clk_desc *divider =3D container_of(hw, struct rp1_clk_desc,=
- div.hw);
-> +	struct rp1_clockman *clockman =3D divider->clockman;
-> +	const struct rp1_pll_data *data =3D divider->data;
-> +	u32 div, sec;
-> +
-> +	div =3D DIV_ROUND_UP_ULL(parent_rate, rate);
-> +	div =3D clamp(div, 8u, 19u);
-> +
-> +	spin_lock(&clockman->regs_lock);
-> +	sec =3D clockman_read(clockman, data->ctrl_reg);
-> +	sec &=3D ~PLL_SEC_DIV_MASK;
-> +	sec |=3D FIELD_PREP(PLL_SEC_DIV_MASK, div);
-> +
-> +	/* Must keep the divider in reset to change the value. */
-> +	sec |=3D PLL_SEC_RST;
-> +	clockman_write(clockman, data->ctrl_reg, sec);
-> +
-> +	/* TODO: must sleep 10 pll vco cycles */
-Is it possible to implement this with some kind of xsleep or xdelay?
-> +	sec &=3D ~PLL_SEC_RST;
-> +	clockman_write(clockman, data->ctrl_reg, sec);
-> +	spin_unlock(&clockman->regs_lock);
-> +
-> +	return 0;
-> +}
-> +
->
+
+I do not understand the logic here. serdes cannot operate without wiz
+nodes, correct? why would we leave serdes on by default?
+
+
+-- 
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
 
