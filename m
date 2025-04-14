@@ -4,108 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56F01C369B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 08:13:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEE1AC369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 08:25:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=693kFrHQm3g8BIBjHtk0aF8IDBLbXRbxKMffoemJuJI=; b=oxUxBoSvNXg+1OPHPp5zUy1b1L
-	O3ahu9ziGj/YP4sQBmrd41ylIqLcd2P3u/5vUeyn4Lex+Td7wMgtlo2x85I+NJZakQYJq9uBUiVnB
-	n8C3oyMn/z3mMBzWR/JJ4DMqCekSwgBUifpSL8TBw559kb37QgIqmxfszGaWmqgEEWuqd3ZUhH+Z3
-	YjA5arJ0A8Wr1sfv53mOabHKLnhNilkz63ogs1Yg7zhwffumt5cZjELnW9+E7rdtEcfZ6br4ZuUn1
-	kMkPBc0fUXbgenLZNCb4HSrch6SOka6Cicez0IL+0g9olaqAgEOy51zxBhFbzr/1IFq3k+FdhtCuv
-	v9bisnYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CRjxIsjDv/+PcKK97QYejBhHnd+r4kHElZN+p0QN6Q4=; b=qgPgrvha5w+LKSYcJXAfEmwgWA
+	sMBIZhNGq/QsDgkMSdBbZ00Cl9nv5T6wdWM5pCP/zvMyu22oU/jc5ZPUXhkdIcN36EJ9yy03ImSLA
+	CkpYEM/PHiqEOTuUuUuUVRbJ14Z4hgxjjSnrKQy9THfCHx08jTjnNpEBJdHHDi3sASCDUyk0qyws/
+	lyZk2dwk1CEFG7fv6eAE3kWFKI5069gn+RSF5t3Ilc4uU/kRe2kd4vIDzG9CFB2lEA8CCzUGbW12c
+	lcVs4uGLoZgr7Au6XgK4fWRqaAt/gFNW5Lrx+XXSUzY02L+t5OiBPywBXATwEqGh8LowAunypgRwW
+	qt9i8wAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4EwX-000000012wT-1Wmk;
-	Mon, 14 Apr 2025 08:13:25 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Eue-000000012aO-2Eny
+	id 1u4F8B-000000014Kq-0T7L;
+	Mon, 14 Apr 2025 08:25:27 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u4F6J-0000000149z-44ny
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 08:11:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CF0B35C3F29;
-	Mon, 14 Apr 2025 08:09:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A04BC4CEE2;
-	Mon, 14 Apr 2025 08:11:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744618287;
-	bh=E0DN7a8A+y5Kvvfvhro0n9ha/aKnB9uQ9ShbKAHxGt8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=oNVMYZKUwR/RguJZM6Zq/d+aGkU19e3fVom7e4Unc3odCAhC9kMnsNv0rU+8pqyq7
-	 sDMmY3r+skV8IcBVQ0oXpnUUSACFiRkxPEmDS+Qo9Fv5VawlYyDBDdvMRpzMhhna19
-	 164lCc5HXXC4KyOcM8GDBV6sEfx0Dj0TWZ70QfYXQfkepBja6sFaJFMb6H6IGLaqOO
-	 n6jVjIx16Q+C5D7mLpfkfxR9rjbLNDTcfXArdHcxQmHuipStFM+Qlp41HWw+bo+SLN
-	 y6G19a6l6ZyEzuvwxuPTPUsrnEQoDNaKc4vMdD1VG/AE7eX4DmpkTndO9MMgKZJX5J
-	 XCMKeFfdr608w==
-Message-ID: <e52ee383-6803-4b2d-aa30-0f081d3564e0@kernel.org>
-Date: Mon, 14 Apr 2025 10:11:20 +0200
+	Mon, 14 Apr 2025 08:23:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1C92C1007;
+	Mon, 14 Apr 2025 01:23:28 -0700 (PDT)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9BCAC3F694;
+	Mon, 14 Apr 2025 01:23:27 -0700 (PDT)
+Date: Mon, 14 Apr 2025 09:23:24 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: Mike Tipton <quic_mdtipton@quicinc.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>, <arm-scmi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] cpufreq: scmi: Skip SCMI devices that aren't used by the
+ CPUs
+Message-ID: <20250414-splendid-clam-of-democracy-dacf96@sudeepholla>
+References: <20250411212941.1275572-1-quic_mdtipton@quicinc.com>
+ <20250414083832.GA19563@nxa18884-linux>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] soc: samsung: usi: prevent wrong bits inversion during
- unconfiguring
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250413163755.788907-1-ivo.ivanov.ivanov1@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250413163755.788907-1-ivo.ivanov.ivanov1@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250414083832.GA19563@nxa18884-linux>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_011128_685515_A2902879 
-X-CRM114-Status: UNSURE (   8.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250414_012332_057334_F316E952 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,18 +69,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/04/2025 18:37, Ivaylo Ivanov wrote:
-> Instead of setting bit 1 (USI_OPTION_CLKSTOP_ON) during USI unconfiguring,
-> all the other bits in the USI_OPTION register get inverted, which
-> should not happen as that means the clock will keep getting provided
-> to the USI IP. Remove the unnecessary tilde.
+Hi Peng,
+
+On Mon, Apr 14, 2025 at 04:38:32PM +0800, Peng Fan wrote:
+> Hi Mike,
+> On Fri, Apr 11, 2025 at 02:29:41PM -0700, Mike Tipton wrote:
+> >Currently, all SCMI devices with performance domains attempt to register
+> >a cpufreq driver,
 > 
-> Fixes: 11e77776b58a ("soc: samsung: usi: add a routine for unconfiguring the ip")
-> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-> ---
+> The scmi cpufreq device is created based on entry
+> { SCMI_PROTOCOL_PERF, "cpufreq" },
+> 
+> So the scmi-cpufreq driver could only probe the upper single device.
+> 
+> How could the driver work with all SCMI devices with performance domains?
+> 
 
-Thanks, applied.
+IIUC, this is on a system with multiple SCMI servers/providers some of
+which don't deal with CPU performance domains at all.
 
-Best regards,
-Krzysztof
+-- 
+Regards,
+Sudeep
 
