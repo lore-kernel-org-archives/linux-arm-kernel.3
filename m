@@ -4,66 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D925C369B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 10:34:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EAF8C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 10:36:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0aXK0mDrYkJOBL3Ge0JtxXwmv+mTN/3CdT138OZQc88=; b=MzaNLJv20U+K7owgNEHdxgZDLF
-	RqDeCZ8bnLJwqt468Fsc2Au2rWDHbBXV8jKjnu8SwIK8doyR0KDWHs4kK92xrXa3d+prgYZ37jZIU
-	DoJOx0/fbEQoxi/mJI3FFF0PRQLgQTbLhxnNKZxq5HxrKaQC21q8rcB7o3/DneFDna8kRudM104T5
-	MtUwlqkpdHp4Yr+hZUQQ6GuS9rZ0C0UP3Wj3n2SHeqWfQdRDcr+tlPBn1GL/O7NVxkkYwhL1ZJjz4
-	mE5CjjMhaEfEwta8hd1vvKSnF9HGrMjXUzNBvZmkjRYGetG/FPZ+JTWSb6Q7OmBX4b69t04FRzB9Z
-	Xw9gPJnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SceVE8FU3+MkupJVCuwJx4NvPv+OBwNBxI5lA921f5Q=; b=f6adK3zwuSoanqtnGsj0Q4eqpu
+	UtYe4My8PoCZVu4HycU/44Xr8l8pzLA8olGWMHDFQbD8T7bRBCNnKb3Th51KXcJtXYm4y6zDBSaNf
+	eA/mkcBS/gY5VlGhsMUE30Y554otzN3/kbrucMss0uIvZWSHnor4YpcsENLpfIchGJV+yd9GuwWaP
+	6TUwYQJchGyjzk14SWfmTTrn4rq1+qrtMmMcYhoT5I615ekFzWc2N1ncqChjFDA+5jSd0vT89ypz/
+	XIJfIrrfauhnYlV9VqwhryVmjOZFDdJjziObajgXQrlVFMebbgKoYxYhR9Ty/Sb52YxWuuOvMsLh/
+	AevUNhVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4H94-00000001Ypg-2DXL;
-	Mon, 14 Apr 2025 10:34:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
+	id 1u4HAx-00000001ZLK-0MXF;
+	Mon, 14 Apr 2025 10:36:27 +0000
+Received: from m16.mail.163.com ([117.135.210.5])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Gqa-00000001Sso-0oTs
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 10:15:25 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 41DBB1007;
-	Mon, 14 Apr 2025 03:15:22 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E12813F694;
-	Mon, 14 Apr 2025 03:15:20 -0700 (PDT)
-Date: Mon, 14 Apr 2025 11:15:17 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	"Pengutronix Kernel Team" <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, "Rob Herring" <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	"Conor Dooley" <conor+dt@kernel.org>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
-Subject: Re: [PATCH v4 5/7] firmware: imx: Add i.MX95 SCMI LMM driver
-Message-ID: <20250414-tiny-classic-barnacle-5f8c8f@sudeepholla>
-References: <20250408-imx-lmm-cpu-v4-0-4c5f4a456e49@nxp.com>
- <20250408-imx-lmm-cpu-v4-5-4c5f4a456e49@nxp.com>
- <20250414-wonderful-cute-bandicoot-accb6b@sudeepholla>
- <PAXPR04MB8459195AAF65D38AFA1D4F9688B32@PAXPR04MB8459.eurprd04.prod.outlook.com>
+	id 1u4Gsn-00000001Tnx-2sCw;
+	Mon, 14 Apr 2025 10:17:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=FtHH1d9fc5EscATSZ+LEwdKwN/9RUht32VDf5GvO+Zs=; b=b
+	/1e/km85XpatlSBKKo7qYtrX+aI1570IX3PQtLF1DTpxf1GE46YD+sx8rH8Qnulf
+	tu0Qcr/20nQLkg3120uaN/zqHTnin0TEd5SpxfyOrd2/FUdDyXeT8/LxfMxeyDs8
+	Tmfp8Gxb5WBoeYC3cMIK03yTNMycR4+3Ywci88WK0Q=
+Received: from andyshrk$163.com ( [58.22.7.114] ) by
+ ajax-webmail-wmsvr-40-120 (Coremail) ; Mon, 14 Apr 2025 18:16:28 +0800
+ (CST)
+X-Originating-IP: [58.22.7.114]
+Date: Mon, 14 Apr 2025 18:16:28 +0800 (CST)
+From: "Andy Yan" <andyshrk@163.com>
+To: "Konstantin Shabanov" <mail@etehtsea.me>
+Cc: "Sandy Huang" <hjc@rock-chips.com>,
+	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+	"Andy Yan" <andy.yan@rock-chips.com>,
+	"Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
+	"Maxime Ripard" <mripard@kernel.org>,
+	"Thomas Zimmermann" <tzimmermann@suse.de>,
+	"David Airlie" <airlied@gmail.com>,
+	"Simona Vetter" <simona@ffwll.ch>,
+	"Daniel Stone" <daniel@fooishbar.org>,
+	"Dan Callaghan" <djc@djc.id.au>, dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re:[PATCH v2] (drm/rockchip) Reject AFBC for resolutions >2560x1600
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20240801(9da12a7b)
+ Copyright (c) 2002-2025 www.mailtech.cn 163com
+In-Reply-To: <20250414095332.9674-1-mail@etehtsea.me>
+References: <20250402125320.21836-1-mail@etehtsea.me>
+ <20250414095332.9674-1-mail@etehtsea.me>
+X-NTES-SC: AL_Qu2fBvqZuk8j7iGdZOkfmkcVgOw9UcO5v/Qk3oZXOJF8jDLp/j0HdmVSAWfk9OO0GyOzmgmGQhZw7+16UYtfUYcQHT/0ebyDUKlumhG+41/E3w==
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <PAXPR04MB8459195AAF65D38AFA1D4F9688B32@PAXPR04MB8459.eurprd04.prod.outlook.com>
+Message-ID: <60813eed.a78b.19633cce4fb.Coremail.andyshrk@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: eCgvCgDX_PN84PxnM7qWAA--.37454W
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbBkA0vXmf83VVrHAABsJ
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_031524_274048_A89377F8 
-X-CRM114-Status: GOOD (  23.55  )
+X-CRM114-CacheID: sfid-20250414_031742_031985_6F1C940C 
+X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,60 +85,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 14, 2025 at 09:57:43AM +0000, Peng Fan wrote:
-> Hi Sudeep,
-> 
-> > Subject: Re: [PATCH v4 5/7] firmware: imx: Add i.MX95 SCMI LMM
-> > driver
-> > 
-> > On Tue, Apr 08, 2025 at 04:44:29PM +0800, Peng Fan (OSS) wrote:
-> > > From: Peng Fan <peng.fan@nxp.com>
-> > >
-> > > The i.MX95 System manager exports SCMI LMM protocol for linux to
-> > > manage Logical Machines. The driver is to use the LMM Protocol
-> > > interface to boot, shutdown a LM.
-> > >
-> > > Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
-> > > Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> > > ---
-> > >  drivers/firmware/arm_scmi/vendors/imx/Kconfig |  3 +-
-> > >  drivers/firmware/imx/Kconfig                  | 11 ++++
-> > >  drivers/firmware/imx/Makefile                 |  1 +
-> > >  drivers/firmware/imx/sm-lmm.c                 | 91
-> > +++++++++++++++++++++++++++
-> > >  include/linux/firmware/imx/sm.h               | 14 +++++
-> > >  5 files changed, 119 insertions(+), 1 deletion(-)
-> > >
-> > > diff --git a/drivers/firmware/arm_scmi/vendors/imx/Kconfig
-> > > b/drivers/firmware/arm_scmi/vendors/imx/Kconfig
-> > > index
-> > >
-> > b5f13d0e40155e485f4d1696e9550645d888ef44..4c24e17425f83081
-> > 0f8ba376ece9
-> > > db93c8cded6d 100644
-> > > --- a/drivers/firmware/arm_scmi/vendors/imx/Kconfig
-> > > +++ b/drivers/firmware/arm_scmi/vendors/imx/Kconfig
-> > > @@ -26,7 +26,8 @@ config IMX_SCMI_CPU_EXT  config
-> > IMX_SCMI_LMM_EXT
-> > >  	tristate "i.MX SCMI LMM EXTENSION"
-> > >  	depends on ARM_SCMI_PROTOCOL || (COMPILE_TEST && OF)
-> > > -	default y if ARCH_MXC
-> > > +	depends on IMX_SCMI_LMM_DRV
-> > > +	default y if ARCH_MXC && ARM64
-> > 
-> > I can't understand the ARM64 dependency on this and next patch.
-> 
-> ARCH_MXC both supports ARM32 and ARM64.
-> 
-> To i.MX ARM32 platform, there is no plan to enable SCMI, so only
-> set y for ARCH_MXC ARM64 platforms.
-> 
-
-OK but why is it different for IMX_SCMI_MISC_DRV. I really don't see
-any dependency. If it is not supported today fine, but do you need any
-issue to use it or compile it for arm32 ?
-
--- 
-Regards,
-Sudeep
+CgpIaSBLb25zdGFudGlu77yMCgp0aGUgU3ViamVjdCBzaG91bGQgYmU6IGRybS9yb2NrY2hpcDog
+eHh4eHh4eHh4eHh4CgpBdCAyMDI1LTA0LTE0IDE3OjUzOjMxLCAiS29uc3RhbnRpbiBTaGFiYW5v
+diIgPG1haWxAZXRlaHRzZWEubWU+IHdyb3RlOgo+QXMgaXQgaXNuJ3Qgc3VwcG9ydGVkIGJ5IGhh
+cmR3YXJlLiBBdCBsZWFzdCwgUkszMzk5IGRvZXNuJ3Qgc3VwcG9ydAo+aXQuIEZyb20gdGhlIGRh
+dGFzaGVldFsxXQo+KCIxLjIuMTAgVmlkZW8gSU4vT1VUIiwgIkRpc3BsYXkgSW50ZXJmYWNlIiwg
+cC4gMTcpOgo+Cj4gIFN1cHBvcnQgQUZCQyBmdW5jdGlvbiBjby1vcGVyYXRpb24gd2l0aCBHUFUK
+PiAgICAqIHN1cHBvcnQgMjU2MHgxNjAwIFVJCj4KPk1hbnVhbGx5IHRlc3RlZCBvbiBSb2NrUHJv
+NjQgKHJrMzM5OSk6Cj4tIEFSTV9BRkJDIG1vZGlmaWVyIGlzIHVzZWQgZm9yIDE5MjB4MTA4MAo+
+LSBEUk1fRk9STUFUX01PRF9MSU5FQVIgbW9kaWZpZXIgdXMgdXNlZCBmb3IgMzg0MHgyMTYwCj4t
+IE5vIG5vaXNlIG9uIHRoZSBzY3JlZW4gd2hlbiBzd2F5IGlzIHJ1bm5pbmcgaW4gNGsKPi0gRHlu
+YW1pYyByZXNvbHV0aW9uIHN3aXRjaGluZyB3b3JrcyBjb3JyZWN0bHkgaW4gc3dheQo+Cj5TaWdu
+ZWQtb2ZmLWJ5OiBLb25zdGFudGluIFNoYWJhbm92IDxtYWlsQGV0ZWh0c2VhLm1lPgo+Q2M6IERh
+bmllbCBTdG9uZSA8ZGFuaWVsQGZvb2lzaGJhci5vcmc+Cj5SZXBvcnRlZC1ieTogRGFuIENhbGxh
+Z2hhbiA8ZGpjQGRqYy5pZC5hdT4KPkNsb3NlczogaHR0cHM6Ly9naXRsYWIuZnJlZWRlc2t0b3Au
+b3JnL21lc2EvbWVzYS8tL2lzc3Vlcy83OTY4Cj4KPlsxXTogaHR0cHM6Ly9vcGVuc291cmNlLnJv
+Y2stY2hpcHMuY29tL2ltYWdlcy9kL2Q3L1JvY2tjaGlwX1JLMzM5OV9EYXRhc2hlZXRfVjIuMS0y
+MDIwMDMyMy5wZGYKPi0tLQo+IGRyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1f
+ZmIuYyB8IDkgKysrKysrKysrCj4gMSBmaWxlIGNoYW5nZWQsIDkgaW5zZXJ0aW9ucygrKQo+Cj5k
+aWZmIC0tZ2l0IGEvZHJpdmVycy9ncHUvZHJtL3JvY2tjaGlwL3JvY2tjaGlwX2RybV9mYi5jIGIv
+ZHJpdmVycy9ncHUvZHJtL3JvY2tjaGlwL3JvY2tjaGlwX2RybV9mYi5jCj5pbmRleCBkY2MxZjA3
+NjMyYzMuLjEzNzliYzNjZDkzNyAxMDA2NDQKPi0tLSBhL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hp
+cC9yb2NrY2hpcF9kcm1fZmIuYwo+KysrIGIvZHJpdmVycy9ncHUvZHJtL3JvY2tjaGlwL3JvY2tj
+aGlwX2RybV9mYi5jCj5AQCAtMTgsNiArMTgsOCBAQAo+ICNpbmNsdWRlICJyb2NrY2hpcF9kcm1f
+ZmIuaCIKPiAjaW5jbHVkZSAicm9ja2NoaXBfZHJtX2dlbS5oIgo+Cj4rI2RlZmluZSBST0NLQ0hJ
+UF9BRkJDX01BWF9XSURUSAkJMjU2MAo+Kwo+IHN0YXRpYyBjb25zdCBzdHJ1Y3QgZHJtX2ZyYW1l
+YnVmZmVyX2Z1bmNzIHJvY2tjaGlwX2RybV9mYl9mdW5jcyA9IHsKPiAJLmRlc3Ryb3kgICAgICAg
+PSBkcm1fZ2VtX2ZiX2Rlc3Ryb3ksCj4gCS5jcmVhdGVfaGFuZGxlID0gZHJtX2dlbV9mYl9jcmVh
+dGVfaGFuZGxlLAo+QEAgLTUyLDYgKzU0LDEzIEBAIHJvY2tjaGlwX2ZiX2NyZWF0ZShzdHJ1Y3Qg
+ZHJtX2RldmljZSAqZGV2LCBzdHJ1Y3QgZHJtX2ZpbGUgKmZpbGUsCj4gCX0KPgo+IAlpZiAoZHJt
+X2lzX2FmYmMobW9kZV9jbWQtPm1vZGlmaWVyWzBdKSkgewo+KwkJaWYgKG1vZGVfY21kLT53aWR0
+aCA+IFJPQ0tDSElQX0FGQkNfTUFYX1dJRFRIKSB7Cj4rCQkJRFJNX0RFQlVHX0tNUygiQUZCQyBp
+cyBub3Qgc3VwcG9ydGVkIGZvciB0aGUgd2lkdGggJWQgKG1heCAlZClcbiIsCj4rCQkJCSAgICAg
+IG1vZGVfY21kLT53aWR0aCwKPisJCQkJICAgICAgUk9DS0NISVBfQUZCQ19NQVhfV0lEVEgpOwo+
+KwkJCXJldHVybiBFUlJfUFRSKC1FSU5WQUwpOwo+KwkJfTsKCkFzIHRoZSBjb21taXQgbWVzc2Fn
+ZSBzYXlpbmc6IFRoaXMgcmVzdHJpY3Rpb24gb25seSBhcHBsaWVzIHRvIHJrMzM5OS4KClRoZXJl
+IGlzIG5vIHN1Y2ggbGltaXRhdGlvbiBmb3IgcmszNTZ4L3JrMzU4OC4KQnV0IHRoaXMgcGF0Y2gg
+d2lsbCBSZWplY3QgQUZCQyBmb3IgcmVzb2x1dGlvbnMgPjI1NjB4MTYwMCBvbiBhbGwgcm9ja2No
+aXAgcGxhdGZvcm1zLApzbyB0aGlzIGlzIG5vdCByaWdodC4KCgo+Kwo+IAkJaW50IHJldCwgaTsK
+Pgo+IAkJcmV0ID0gZHJtX2dlbV9mYl9hZmJjX2luaXQoZGV2LCBtb2RlX2NtZCwgYWZiY19mYik7
+Cj4KPmJhc2UtY29tbWl0OiBlN2JiN2Q0NGMzYjk3YWVhMWYwZTM1NGM2NDk5OTAwMTU0YWM2N2Yy
+Cj4tLQo+Mi40OC4xCg==
 
