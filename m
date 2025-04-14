@@ -4,60 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEABEC369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 18:21:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCAEAC369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 18:23:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RDughPP61Ex50t+n5Kc6DXtFrchUu1kwIJMuSu3OimE=; b=MiRtDnQYCz7NdkXsNlgubWz7+V
-	I/jqfai4KJaQP0/1jYjp+wufBQ8e8MpVduvwm59c/fntfBMnc1xCBSXjMQeo8/KJqMDaWQBlsAtBX
-	K9l+qTd6ZuwP9316Pib5Mkh/3vaZSN+jE9Yqagul/NlUO/KyK6qhvzupKhhJxU6ttl2dlbiGr9esu
-	QDcBKhhoMXFpFkr5v0E6CspBb3rd9s51r9YXXMpkEFpiUL9oDy9Ol/0Bd+F+8rhpGf08L7sf/aWP5
-	54CKTHfRAgvgtaCeVFbhi7cMOaZPAb1fJ6jY7qUVkhgbh/d/FdmEV3T7UPXUJx3r+nzneE0FhLtpX
-	O4bhju1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3Zo2/Q4jXx4tQJgnkuvoBWk5YY5nVuzk5xKWf9FHsoI=; b=dboAiIcw9cKHgdtO0LYZjLjoG9
+	txVNaY9/jzra7WZbtgFkM8hiZIB5XKXplKYXbPg53K6lcDXQ+vxNNQ5nDyh4dLeW1KX0XsCAC31FX
+	9JOaYkH6mw4mzjqZ5Vy5PEUfEukrDjlQk3GtgI1F8bjOQUo4HY3M5ptIBL4w/GAU8mygN4+x5wKyp
+	MufMqTIXi+b2epZVttxBtuCFYSzivfdzSB9UQ7YLmRa6jXPbAoLZJe7ssuAu/thEZ31Lvp+s4rd6C
+	Xz37GQXQJWDOC0ExFtLGZMzk3oFr3ir0olFzE89nI2aOjmkO6IQEMTEfYRD9OmmmTmk6TTP8xf42K
+	h1TVOhFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4OQn-000000035An-170z;
-	Mon, 14 Apr 2025 18:21:17 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1u4OSb-000000035MJ-2HeG;
+	Mon, 14 Apr 2025 18:23:09 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4OIp-000000033g8-0BW4;
-	Mon, 14 Apr 2025 18:13:04 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.98.2)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1u4OIi-000000003za-20KK;
-	Mon, 14 Apr 2025 18:12:56 +0000
-Date: Mon, 14 Apr 2025 19:12:53 +0100
-From: Daniel Golle <daniel@makrotopia.org>
-To: Bo-Cun Chen <bc-bocun.chen@mediatek.com>, Felix Fietkau <nbd@nbd.name>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Daniel Golle <daniel@makrotopia.org>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH net 5/5] net: ethernet: mtk_eth_soc: convert cap_bit in
- mtk_eth_muxc struct to u64
-Message-ID: <dde46bff10fc0ac5e7c6facd1bab018b147356d9.1744654076.git.daniel@makrotopia.org>
-References: <08498e31e830cf0ee1ceb4fc1313d5c528a69150.1744654076.git.daniel@makrotopia.org>
+	id 1u4OK1-000000033vN-3X7J
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 14 Apr 2025 18:14:19 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-3032a9c7cfeso866705a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 11:14:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744654456; x=1745259256; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=3Zo2/Q4jXx4tQJgnkuvoBWk5YY5nVuzk5xKWf9FHsoI=;
+        b=ZZ0KSNYdnI8NvzxSsL1XjkHwVZG4GOf/QtGoSpSQQNpWzQg4t8hw/34v/9SH/g4n6s
+         3juCK16OPFvsUOi2Fd7yqUK4L0vRwlodXjKSMgTpT1ugLogXPsITEMp/u4zS8WN8UXT6
+         rJEbbDIbPdzhuxAjOmZM2VyYWzsKik65ubhdLf4syht2vTvc3ZouhGt6a87c4S2THDLB
+         SMLvDqpEUt9g/h8Z87pUSTAQXxwxiVdqLFz4VH4J4t4XlvYHV+ee6rZbfJAjV6OxMt4p
+         nCxWzECZ/qe1Vfb99MNVdzj0Xsfp5IvMwUGNiOAFMwTuYwAgphcS3JFHRoF1BZB85p49
+         w0lQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744654456; x=1745259256;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=3Zo2/Q4jXx4tQJgnkuvoBWk5YY5nVuzk5xKWf9FHsoI=;
+        b=kqSZMnvH7lIAchejajbU7/nzIXFV93QngjoH2qTdddGsO8QWLALjK16/9zknDBiVVu
+         kxWJyVDRuKcsxrVY68UjFhWl0TWv8uFRhfrC5RVnHfW6wYkPYsBnJdV22Wv3UJFk5qY6
+         Z7L+tQDq5GYFuruhrvXTlQef0gEwqnOa8yeNFop+Euc/HmC1rq1tWGOdAMKsAbuYs1WS
+         Eru0xG2FV7CNnDIf2QPrEww8JWqtBhj4tqXv9qmDYBScMXLjcB7RQM1T+gC1MKbr/9LN
+         Nxv9Wh1OoctMW9Y9ARYJVKAx4LAXCawQay1B0tTWrZpR5haqZH7UwS7169owc678Ltcq
+         iV7Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVibh4+kUmVYZOT1OgiWFnhaY/1kKMnkuvXW4RN82j1Prt7sXzZGqbFXuzN6pDntZhuZvP8+3CJ02rImEl6MqH/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx/m/GDVz+JdH962XkfbZOa3w/Zs0xsgAFvhA/1LivIgS1MZqyb
+	pMTBFDtY6lzOQJbb6TpbuyjPA3JBy4mxeJ66cDdnpK0lCg5spA/u+Db8hVrsbb5dX3tHdj+BNgV
+	z2Ww7k0QC2BV558SRppwRUaFnVmY=
+X-Gm-Gg: ASbGncug058a1JT5qVASEjI2x3jfYO4nAHzG1KPnLaGkcJ2y05bdbR9BhtabI/e+RY4
+	CyOwVcEEfMc8k1I29BWWKPyNCscB/2L0BXrGfrhDKC3kuxtnA2Urq4L47tTkNbogsubxPeLAuuk
+	19xKN4x7WHtoQ65GpQM+nNGw==
+X-Google-Smtp-Source: AGHT+IEkXTvk5+VQsfOHU41Nt1ayqw8E86sP2+R4MnwHDGO5t2/updHhtIrmagcb2TLk839XbaUBZCLWooev7OOZdng=
+X-Received: by 2002:a17:90b:4c4b:b0:301:ba2b:3bc6 with SMTP id
+ 98e67ed59e1d1-3084e777d31mr460558a91.7.1744654456437; Mon, 14 Apr 2025
+ 11:14:16 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <08498e31e830cf0ee1ceb4fc1313d5c528a69150.1744654076.git.daniel@makrotopia.org>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Mon, 14 Apr 2025 20:14:04 +0200
+X-Gm-Features: ATxdqUEQM3cWjHtvsETO9v7OduJ-ylsXDY8NGs7BGU0wFttRYdVgU1MA1pnQNM4
+Message-ID: <CANiq72ke45eOwckMhWHvmwxc03dxr4rnxxKvx+HvWdBLopZfrQ@mail.gmail.com>
+Subject: `u64` by `u64` div/mod in DRM QR for arm32
+To: Jocelyn Falempe <jfalempe@redhat.com>, Christian Schrefl <chrisi.schrefl@gmail.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, rust-for-linux <rust-for-linux@vger.kernel.org>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	dri-devel <dri-devel@lists.freedesktop.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_111303_081473_4BF37F7C 
-X-CRM114-Status: GOOD (  10.83  )
+X-CRM114-CacheID: sfid-20250414_111417_900082_B75D9E98 
+X-CRM114-Status: UNSURE (   5.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,31 +91,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
+Hi Jocelyn, Christian,
 
-Wihtout this patch, the mtk_eth_mux_setup() function may not correctly
-search the Mux.
+I started build-testing arm 32-bit within my other usual routine
+tests, and I hit:
 
-Fixes: 51a4df60db5c2 ("net: ethernet: mtk_eth_soc: convert caps in mtk_soc_data struct to u64")
-Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
-Signed-off-by: Daniel Golle <daniel@makrotopia.org>
----
- drivers/net/ethernet/mediatek/mtk_eth_path.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+    ld.lld: error: undefined symbol: __aeabi_uldivmod
+    >>> referenced by drm_panic_qr.rs:417 (drivers/gpu/drm/drm_panic_qr.rs:417)
+    >>> drivers/gpu/drm/drm_panic_qr.o:(<drm_panic_qr::SegmentIterator
+as core::iter::traits::iterator::Iterator>::next) in archive vmlinux.a
 
-diff --git a/drivers/net/ethernet/mediatek/mtk_eth_path.c b/drivers/net/ethernet/mediatek/mtk_eth_path.c
-index 7c27a19c4d8f4..6fbfb16438a51 100644
---- a/drivers/net/ethernet/mediatek/mtk_eth_path.c
-+++ b/drivers/net/ethernet/mediatek/mtk_eth_path.c
-@@ -14,7 +14,7 @@
- 
- struct mtk_eth_muxc {
- 	const char	*name;
--	int		cap_bit;
-+	u64		cap_bit;
- 	int		(*set_path)(struct mtk_eth *eth, u64 path);
- };
- 
--- 
-2.49.0
+which comes from both these `u64` by `u64`:
+
+    let out = (self.carry / pow) as u16;
+    self.carry = self.carry % pow;
+
+Christian: I guess we can offer a set of `div64` functions using the C
+ones, at least for the time being, and eventually wire the actual
+operator with some support from upstream Rust. Or do you have
+something else in mind? (i.e. I think you have been discussing
+intrinsics lately)
+
+Thanks!
+
+Cheers,
+Miguel
 
