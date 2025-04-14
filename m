@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0A9AC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 12:52:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3F70C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 12:54:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=77oi9lqhFhaRcjE8+3d7j7EJvGUZJl9yis2gt0lJHQk=; b=uZM3KtmKbymZhCtqoQWUVaPHty
-	UTcBq05DoSdHS1C7MnswBsZBViviiwVmnP0kD/NE/m4U4QMZ8P5NjpRZrNY0o/XL/k3/xTmkgIo0s
-	vDZiMd0hILDG+MD+FQoQEzXhGz28CRIY7smG+yaFfDbfIExOdPKW9ctxQHBaRsbHkSsWi80fjbLrw
-	WRY6bMzdj3duR3iPuwEIlFKb2pUotfs/TNI+N3P39z5AxYHm9+rL72lk1JyzLT/YkNBPwCQ46mWv0
-	5KCRfSma4DUSTGPL5mEA/GSVJZ03G1uxpDoARDbln4MMmkAQFoMvqYzWDKoGMBAad+WyeFsYEWpuS
-	Jgyo0ZOQ==;
+	bh=TsBDIP+6j3YBYTqyuD4e2mvdJ7/Zjpp+cUhethHLAi4=; b=Jw4f0+CWPYdIvZu6J7fJywNZ/x
+	llqiJe3xyCkrjo7abBwaVdWxkBwnabP20aKVC7MeobwqVPIVDS49C53rOYTcatFwNxUrhUgRik4xY
+	GLv3lwVVUubS+irPMET8VMhUqAWszG5SLwWN7CaVq7tRTdgujilUDKXjvmDtAAkJu9+3YmLbN3bbh
+	ZBzngWTU2uzV+q5ZkzL7eQschIRGhzzwEmr3KGUOSmDZNAfXnrgAbzkS1KIC8SnSZP/hu5/fHvq26
+	/fW4oMdOgGC6ijB3ewUwQrAQo9s/Cjf6P6aWMlRxw0bP0hlroIyqidYdkUgxMOWLvdyhAAZ7CVp3X
+	kd5gBFQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4JIS-000000020vx-1k5j;
-	Mon, 14 Apr 2025 12:52:20 +0000
+	id 1u4JKH-000000021Bi-0hQ3;
+	Mon, 14 Apr 2025 12:54:13 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4J7y-00000001zOO-3xqd
+	id 1u4J82-00000001zPx-2lDR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 12:41:32 +0000
+	Mon, 14 Apr 2025 12:41:36 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 134511595;
-	Mon, 14 Apr 2025 05:41:29 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EA1961007;
+	Mon, 14 Apr 2025 05:41:32 -0700 (PDT)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A11433F59E;
-	Mon, 14 Apr 2025 05:41:28 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 83C403F59E;
+	Mon, 14 Apr 2025 05:41:32 -0700 (PDT)
 From: Ben Horgan <ben.horgan@arm.com>
 To: linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
@@ -44,17 +44,17 @@ Cc: maz@kernel.org,
 	yuzenghui@huawei.com,
 	shuah@kernel.org,
 	Ben Horgan <ben.horgan@arm.com>
-Subject: [RFC PATCH 1/3] arm64/sysreg: Expose MTE_frac so that it is visible to KVM
-Date: Mon, 14 Apr 2025 13:40:57 +0100
-Message-ID: <20250414124059.1938303-2-ben.horgan@arm.com>
+Subject: [RFC PATCH 2/3] KVM: arm64: Make MTE_frac masking conditional on MTE capability
+Date: Mon, 14 Apr 2025 13:40:58 +0100
+Message-ID: <20250414124059.1938303-3-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250414124059.1938303-1-ben.horgan@arm.com>
 References: <20250414124059.1938303-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_054131_026697_59077FEA 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20250414_054134_818616_5DEA6333 
+X-CRM114-Status: GOOD (  16.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,38 +69,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-KVM exposes the sanitised ID registers to guests. Currently these ignore
-the ID_AA64PFR1_EL1.MTE_frac field, meaning guests always see a value of
-zero.
+If MTE_frac is masked out unconditionally then the guest will always
+see ID_AA64PFR1_EL1_MTE_frac as 0. However, a value of 0 when
+ID_AA64PFR1_EL1_MTE is 2 indicates that MTE_ASYNC is supported. Hence, for
+a host with ID_AA64PFR1_EL1_MTE==2 and ID_AA64PFR1_EL1_MTE_frac==0xf
+(MTE_ASYNC unsupported) the guest would see MTE_ASYNC advertised as
+supported whilst the host does not support it. Hence, expose the sanitised
+value of MTE_frac to the guest and user-space.
 
-This is a problem for platforms without the MTE_ASYNC feature where
-ID_AA64PFR1_EL1.MTE==0x2 and ID_AA64PFR1_EL1.MTE_frac==0xf. KVM forces
-MTE_frac to zero, meaning the guest believes MTE_ASYNC is supported, when
-no async fault will ever occur.
+As MTE_frac was previously hidden, always 0, and KVM must accept values
+from KVM provided by user-space, when ID_AA64PFR1_EL1.MTE is 2 allow
+user-space to set ID_AA64PFR1_EL1.MTE_frac to 0. However, ignore it to
+avoid incorrectly claiming hardware support for MTE_ASYNC in the guest.
 
-Before KVM can fix this, the architecture needs to sanitise the ID
-register field for MTE_frac.
-
-Linux itself does not use MTE_frac field and just assumes MTE async faults
-can be generated if MTE is supported.
+Note that linux does not check the value of ID_AA64PFR1_EL1_MTE_frac and
+wrongly assumes that MTE async faults can be generated even on hardware
+that does nto support them. This issue is not addressed here.
 
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
- arch/arm64/kernel/cpufeature.c | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/kvm/sys_regs.c | 26 ++++++++++++++++++++++++--
+ 1 file changed, 24 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 9c4d6d552b25..e952f4b07ce1 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -298,6 +298,7 @@ static const struct arm64_ftr_bits ftr_id_aa64pfr0[] = {
- static const struct arm64_ftr_bits ftr_id_aa64pfr1[] = {
- 	ARM64_FTR_BITS(FTR_VISIBLE_IF_IS_ENABLED(CONFIG_ARM64_GCS),
- 		       FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR1_EL1_GCS_SHIFT, 4, 0),
-+	S_ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR1_EL1_MTE_frac_SHIFT, 4, 0),
- 	ARM64_FTR_BITS(FTR_VISIBLE_IF_IS_ENABLED(CONFIG_ARM64_SME),
- 		       FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR1_EL1_SME_SHIFT, 4, 0),
- 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR1_EL1_MPAM_frac_SHIFT, 4, 0),
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 005ad28f7306..9ae647082684 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -1600,13 +1600,14 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
+ 		val = sanitise_id_aa64pfr0_el1(vcpu, val);
+ 		break;
+ 	case SYS_ID_AA64PFR1_EL1:
+-		if (!kvm_has_mte(vcpu->kvm))
++		if (!kvm_has_mte(vcpu->kvm)) {
+ 			val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MTE);
++			val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MTE_frac);
++		}
+ 
+ 		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_SME);
+ 		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_RNDR_trap);
+ 		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_NMI);
+-		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MTE_frac);
+ 		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_GCS);
+ 		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_THE);
+ 		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MTEX);
+@@ -1953,11 +1954,32 @@ static int set_id_aa64pfr1_el1(struct kvm_vcpu *vcpu,
+ {
+ 	u64 hw_val = read_sanitised_ftr_reg(SYS_ID_AA64PFR1_EL1);
+ 	u64 mpam_mask = ID_AA64PFR1_EL1_MPAM_frac_MASK;
++	u8 mte = SYS_FIELD_GET(ID_AA64PFR1_EL1, MTE, hw_val);
++	u8 user_mte_frac = SYS_FIELD_GET(ID_AA64PFR1_EL1, MTE_frac, user_val);
+ 
+ 	/* See set_id_aa64pfr0_el1 for comment about MPAM */
+ 	if ((hw_val & mpam_mask) == (user_val & mpam_mask))
+ 		user_val &= ~ID_AA64PFR1_EL1_MPAM_frac_MASK;
+ 
++	/*
++	 * Previously MTE_frac was hidden from guest. However, if the
++	 * hardware supports MTE2 but not MTE_ASYM_FAULT then a value
++	 * of 0 for this field indicates that the hardware supports
++	 * MTE_ASYNC. Whereas, 0xf indicates MTE_ASYNC is not supported.
++	 *
++	 * As KVM must accept values from KVM provided by user-space,
++	 * when ID_AA64PFR1_EL1.MTE is 2 allow user-space to set
++	 * ID_AA64PFR1_EL1.MTE_frac to 0. However, ignore it to avoid
++	 * incorrectly claiming hardware support for MTE_ASYNC in the
++	 * guest.
++	 */
++
++	if (mte == ID_AA64PFR1_EL1_MTE_MTE2 &&
++	    user_mte_frac == ID_AA64PFR1_EL1_MTE_frac_ASYNC) {
++		user_val &= ~ID_AA64PFR1_EL1_MTE_frac_MASK;
++		user_val |= hw_val & ID_AA64PFR1_EL1_MTE_frac_MASK;
++	}
++
+ 	return set_id_reg(vcpu, rd, user_val);
+ }
+ 
 -- 
 2.43.0
 
