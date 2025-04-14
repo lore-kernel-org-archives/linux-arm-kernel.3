@@ -4,60 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29A6DC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 23:12:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8332C369B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 23:14:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TBCMpP++xTIE1VGQILxkhLBlbX6f9b2G688bs9uqXW0=; b=tqErrWtaYPiED1JKkdf9ElnU9+
-	AbgSy/qpuoJACzcCpVVULFwtwTa3DWYNXpL9FsvREtWAMgK7gI+Ndz9hWM+curRkltk5/bB2MDdOQ
-	MrwPYQFTeCS5ZTMBSEd7pItM/3nBOT1RaN4nSJ5RsBGodKnymJy/3a3WBH4h03O2hrDH6+C/D8Oru
-	Uh2p817ZlHVJgzePNu6AxrGotqgwJFW847kugfwCKC0ZuLjnxifaBIw4otOva3DXGd0VGptbqs3A+
-	hg4gOfjkWJzINrInNOk6MR4H1NJxFCDI30LPiJ+LxNCdBsDAyhtKTXRH0CRpnJIfsOxft4ID01l4e
-	57DBVyHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pQIZFlCPibizKXhvar99W1K7dgV/OfJMMxgvyW8K1Fg=; b=XbzkHvbL8SYTQYsTtypvmiZBc7
+	Wxl3yAG12zz0H9yZnwWlkcFnCN1iMq3urjjz45/mxcnlPZdb5Kum3dY60fvu8AVD2fEJ/bTuWfE5h
+	MV+YlfQhNfJDJqoBK9aJxJhmVyOojkfCNd6apm81l3vzT/3MJmbokRLnC0dkiGIkr6wNA6UgSqn8D
+	Y/OE2fLo0X5hTuPw+ge6QWXEtuP9sPbgiGCVlm0viEmdOBrhhfF+6djE8vf4xpTOrViUyMNCe71EU
+	qJEAF7SOsfwdz2FrcZjtMPLKpt27vLAjBaMgRay7+ZJ6AVNj9iSULywQCscJ0i37wabYyB/jpO38n
+	vodPezhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Sya-00000003rX5-3TlJ;
-	Mon, 14 Apr 2025 23:12:28 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u4T0O-00000003sIw-3UHS;
+	Mon, 14 Apr 2025 23:14:20 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Sh5-00000003mep-2fuN;
-	Mon, 14 Apr 2025 22:54:23 +0000
+	id 1u4SwE-00000003qUp-3Aur
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 14 Apr 2025 23:10:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0E2656114C;
-	Mon, 14 Apr 2025 22:54:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CA22C4CEE2;
-	Mon, 14 Apr 2025 22:54:22 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 18B2EA4A374;
+	Mon, 14 Apr 2025 23:04:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20F20C4CEE9;
+	Mon, 14 Apr 2025 23:10:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744671262;
-	bh=ghPGn+DUPYc+Jh9QH/Xyzy1W+UjOc9wYqcXMeDG62fc=;
-	h=From:To:Cc:Subject:Date:From;
-	b=oM1Vx58jytipBJXdWNnXqHQgB+IyN8/IWkn7e7XxhtZ0cNBmkyRL0kqlCL0Oa0Rxf
-	 YuZbA1sr3oYTR2Njig+Y6mXtjpbgz+u0WquK/pkdrsfpQpPdIPf29r7YPwtcEZnqos
-	 cV9eD+XIlu/O/TeTmh/H1jndfWnQnyw2JyMB2TeEbhytmCKauDeHprNhWuMCY+dsql
-	 FtAPHXhLhA0ISG3XN2sf1eidEp+rcvW4QxirSCllqDgDCDI/xPHKT8kk0i8xGWTHtS
-	 1KyMqMBJ0K0Y6wMM9BlwxA2qp04E7j5outt1hz9cA1NqRlLySWCwe1r27stHG3gdYF
-	 yi12Pu8rU9ZbA==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] dt-bindings: phy: rockchip: Convert RK3399 PCIe PHY to schema
-Date: Mon, 14 Apr 2025 17:53:09 -0500
-Message-ID: <20250414225311.1913480-1-robh@kernel.org>
-X-Mailer: git-send-email 2.47.2
+	s=k20201202; t=1744672201;
+	bh=kROQQEO8+TMrf324dpy5mOF7Dx1PBVtIvpcK+Zvgr6k=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=YGgW25A5QjKiqLBGOiVjcCLGCGCVU8TouC3ZDc/kEnH6l/JvRuu7b89W+brlQ36wX
+	 tKU9p1auYdALhGA0HeHXDaCdTp9DYeM72EJWDNXJi73yYBLzAm4lv6S2IrPmg27vtq
+	 FnUXH+o8SEaw4JQmHg3qPnzJ8YCesmqsyiEP1YrYsPdOU3VhVtkZlGi9mhfE+juMee
+	 yiYxc52A57Y5kUSWG3IOAyEFHnk9iZdbxhKY9bUuSJmHXNXX8KriIZFehIaJRhcHSn
+	 bxkN8H+QjYrklSGXur4Pcodd6LJpZaQ1j6j438hRRorm+6QSFHyl9ImMAOH1X+9d4c
+	 dttKUc3uYoWRw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33C6C3822D1A;
+	Mon, 14 Apr 2025 23:10:40 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next 0/2] CPSW Bindings for 5000M Fixed-Link
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <174467223899.2068134.1491793248862918118.git-patchwork-notify@kernel.org>
+Date: Mon, 14 Apr 2025 23:10:38 +0000
+References: <20250411060917.633769-1-s-vadapalli@ti.com>
+In-Reply-To: <20250411060917.633769-1-s-vadapalli@ti.com>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, rogerq@kernel.org, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, srk@ti.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250414_161002_866365_E4652759 
+X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,90 +78,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the Rockchip RK3399 PCIe PHY to DT schema format. Move the
-example to the GRF binding as that has the complete block.
+Hello:
 
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
----
- .../bindings/phy/rockchip-pcie-phy.txt        | 36 -------------------
- .../devicetree/bindings/soc/rockchip/grf.yaml | 13 +++++--
- 2 files changed, 11 insertions(+), 38 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/phy/rockchip-pcie-phy.txt
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-diff --git a/Documentation/devicetree/bindings/phy/rockchip-pcie-phy.txt b/Documentation/devicetree/bindings/phy/rockchip-pcie-phy.txt
-deleted file mode 100644
-index b496042f1f44..000000000000
---- a/Documentation/devicetree/bindings/phy/rockchip-pcie-phy.txt
-+++ /dev/null
-@@ -1,36 +0,0 @@
--Rockchip PCIE PHY
-------------------------
--
--Required properties:
-- - compatible: rockchip,rk3399-pcie-phy
-- - clocks: Must contain an entry in clock-names.
--	See ../clocks/clock-bindings.txt for details.
-- - clock-names: Must be "refclk"
-- - resets: Must contain an entry in reset-names.
--	See ../reset/reset.txt for details.
-- - reset-names: Must be "phy"
--
--Required properties for legacy PHY mode (deprecated):
-- - #phy-cells: must be 0
--
--Required properties for per-lane PHY mode (preferred):
-- - #phy-cells: must be 1
--
--Example:
--
--grf: syscon@ff770000 {
--	compatible = "rockchip,rk3399-grf", "syscon", "simple-mfd";
--	#address-cells = <1>;
--	#size-cells = <1>;
--
--	...
--
--	pcie_phy: pcie-phy {
--		compatible = "rockchip,rk3399-pcie-phy";
--		#phy-cells = <0>;
--		clocks = <&cru SCLK_PCIEPHY_REF>;
--		clock-names = "refclk";
--		resets = <&cru SRST_PCIEPHY>;
--		reset-names = "phy";
--	};
--};
-diff --git a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
-index 2f61c1b95fea..fc328c4a35e4 100644
---- a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
-+++ b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
-@@ -201,8 +201,8 @@ allOf:
- 
-         pcie-phy:
-           type: object
--          description:
--            Documentation/devicetree/bindings/phy/rockchip-pcie-phy.txt
-+          $ref: /schemas/phy/rockchip,rk3399-pcie-phy.yaml#
-+          unevaluatedProperties: false
- 
-       patternProperties:
-         "^phy@[0-9a-f]+$":
-@@ -326,6 +326,15 @@ examples:
-         #phy-cells = <0>;
-       };
- 
-+      pcie-phy {
-+        compatible = "rockchip,rk3399-pcie-phy";
-+        #phy-cells = <1>;
-+        clocks = <&cru SCLK_PCIEPHY_REF>;
-+        clock-names = "refclk";
-+        resets = <&cru SRST_PCIEPHY>;
-+        reset-names = "phy";
-+      };
-+
-       phy@f780 {
-         compatible = "rockchip,rk3399-emmc-phy";
-         reg = <0xf780 0x20>;
+On Fri, 11 Apr 2025 11:39:15 +0530 you wrote:
+> Hello,
+> 
+> This series adds 5000M as a valid speed for fixed-link mode of operation
+> and also updates the CPSW bindings to evaluate fixed-link property. This
+> series is in the context of the following device-tree overlay which
+> enables USXGMII 5000M Fixed-link mode of operation with CPSW on TI's
+> J784S4 SoC:
+> https://github.com/torvalds/linux/blob/v6.15-rc1/arch/arm64/boot/dts/ti/k3-j784s4-evm-usxgmii-exp1-exp2.dtso
+> 
+> [...]
+
+Here is the summary with links:
+  - [net-next,1/2] dt-bindings: net: ethernet-controller: add 5000M speed to fixed-link
+    https://git.kernel.org/netdev/net-next/c/f9c1120d9b5e
+  - [net-next,2/2] dt-bindings: net: ti: k3-am654-cpsw-nuss: evaluate fixed-link property
+    https://git.kernel.org/netdev/net-next/c/8b36a102c1a1
+
+You are awesome, thank you!
 -- 
-2.47.2
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
