@@ -4,62 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 956B3C369B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 20:58:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A41FC369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 21:15:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NjEEFFYwSwoQGChaGn2xYz+HvAAtUu4eyUM8yzFkZWA=; b=WOTldX0yUXw4SzMlUJGtVo9s51
-	npeflTgBEhzjysBOeBXlTa22gLCXkCqqwv9ROdJ6FbU6xfs1sJ+s0blSJfRlAxDPC2M+FWxLGu2Au
-	6/89CxmdqAfusg6I5xyCLSB31YMRera3at+lK3FxzAU1P0VIgqYbznm51ffWJI3DuCsZLpVlLR2+B
-	7DZhxGIzrkVsHVTjJTDF7Av7D9RAPi3vcTBvDxTfxDgPRMzZENjwDRYUTzks9v1E535b351Dos9yt
-	va/ySjo0LWtHaIH7/vwcASAI3R/s8uVkvuxwxYLESOylcUtSmRblkqjXQaVo2qCqWUBJ1+FrNl8j4
-	KUkxQnDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mne82N7Mesq9/UUHJtdWqeS07/Vs5JeUXiKEr1uaUc4=; b=nFfpUcgjupqEEuy1W9q2MfTXcH
+	T3hWg0+tNGIeSoZquEjrGlzFEmfg0ZyABjS2hJcAdMvV3B90PNNJsxAA/c20FogcpqRIQpiUN/NVe
+	h4IhniGKJZ6Gf0/PVQ3aP4lgIemqHAdp/NKy5GLXNAYb+rnRxwvwRrIX2cVQKjwmEGPwOepCaz8n0
+	Am4zcknjr6JiPumGNNCMHGGvUYCacrnUWHeJY8w9TgOiqkzQO0ot+NDmiKLZ/v+vU/F/gjzrteZbC
+	DNGol27vOvdHQUjPVqWs3qKkgwv95wPfBiF2DAdmwQmmitmMmz1MF1gyCoXakXWTb+2to4h3AlJm+
+	qnhTPrcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Qsd-00000003WR0-1Xnj;
-	Mon, 14 Apr 2025 20:58:11 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4OYB-0000000366q-2u5l
+	id 1u4R8j-00000003Xgm-0K1B;
+	Mon, 14 Apr 2025 21:14:49 +0000
+Received: from mail-db8eur05on20615.outbound.protection.outlook.com ([2a01:111:f403:2614::615] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u4R1s-00000003X8V-2O0J
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 18:28:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 662741595;
-	Mon, 14 Apr 2025 11:28:51 -0700 (PDT)
-Received: from [10.57.86.225] (unknown [10.57.86.225])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 191BD3F59E;
-	Mon, 14 Apr 2025 11:28:47 -0700 (PDT)
-Message-ID: <aabc9fb1-4e74-409a-b25b-8e844e65c502@arm.com>
-Date: Mon, 14 Apr 2025 19:28:46 +0100
+	Mon, 14 Apr 2025 21:07:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Yc1Jbb4O9mRpStgydKJYXwEQxzEuFw2DQ1in1E9ZJXZwDe2SxNjheJabBGKYPy5XMmBsyCedsiLrRwu2MJjmS7TEels3wIatgVCP5HFAk/xtDz2Qrwe4TGPUZmDPbBfzcZ73wgFuNuQLrU68699pyDbOFns2lJ0JuY8dXBWKty9QbzffePHv1ypWf/Dh+4ItbnCckklcUcXbS5kHMwDc6FX48EZ4ltrBExrfWZVYNV8cMgAAKiUvkNlFtAa9jHvG5DPXa+al1gsiHKdA3jDgQibWcO5MCqOa+hKHOfEqAWhViSm/ZsDZ4W+RiTOO6+syEYaj6ktyI/GgWQZ+aVf+Wg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mne82N7Mesq9/UUHJtdWqeS07/Vs5JeUXiKEr1uaUc4=;
+ b=pvHemS+LfjgnguLZHBAWzFuyzUsCq7k39Sj4Xx8S2jumc3Kn3+5aBEQsF8pOuuzlSJyBfXAA1/VvV567iI8O6+rHjrYw5L/jDoV5xrnXFNcs3+XKI7QTkpjwOUgs9MDCW+qoF3Rzda79Ud010YmS709rBAgaQpCRblExeVeZ1UzNi4NGa1yIHYRMP9ktFC4bv6M0TH7j4Ar4v2zHQ5ikD7vQwXXJmeOGhQkhPWp4/yaLbYkfkVjfdABW4LdUy8lBjxLsFDn1rAnwpGOIfR+xi31x+pPLybgXt9idAVW811OD5ZNGe9RHTV5Y+21obf0dcznTIDr1yTym0fgtvABjvg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mne82N7Mesq9/UUHJtdWqeS07/Vs5JeUXiKEr1uaUc4=;
+ b=Wp6sB3Yz5Eya4qtZhZvftgstK7abTJGMTOrdMVFbAsPuChnKvDScRTPzWsvUYG0mh0ic8kI3jnnfOykBl+PwEL8TzVAQl3KMrTdS/gEjt8fE4BjPjYjEXBBUt7W8je9WichJzHPXu9NUaEnSJKjaqQR4UOOuJfudDFG4J+WTLkdzChpbcqrE+awSgX3yTtNwIsR2gZJEWFvbQttTwBySLHkuxVPgLBADpnvwa26VQPJUqNpEWL20mbyLgNJy1mTfLOkfYoOJ+XTsFJ+hjg++JRCpzjZDqqz+OzdLWTW1zG8Epp48sG1E3GOkIATIVVg66o/+iVC3pUNGlbdN/TcTYw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AS8PR04MB9206.eurprd04.prod.outlook.com (2603:10a6:20b:44d::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.34; Mon, 14 Apr
+ 2025 21:07:36 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8632.030; Mon, 14 Apr 2025
+ 21:07:36 +0000
+From: Frank Li <Frank.Li@nxp.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Steve Longerbeam <slongerbeam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	linux-media@vger.kernel.org (open list:MEDIA INPUT INFRASTRUCTURE (V4L/DVB)),
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Cc: imx@lists.linux.dev
+Subject: [PATCH 1/1] dt-bindings: media: convert imx.txt to yaml format
+Date: Mon, 14 Apr 2025 17:07:18 -0400
+Message-Id: <20250414210720.3359301-1-Frank.Li@nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: PH7P220CA0054.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:32b::11) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 11/11] arm64/mm: Batch barriers when updating kernel
- mappings
-Content-Language: en-GB
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>, Pasha Tatashin
- <pasha.tatashin@soleen.com>, Andrew Morton <akpm@linux-foundation.org>,
- Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
- David Hildenbrand <david@redhat.com>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Alexandre Ghiti <alexghiti@rivosinc.com>,
- Kevin Brodsky <kevin.brodsky@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org
-References: <20250304150444.3788920-1-ryan.roberts@arm.com>
- <20250304150444.3788920-12-ryan.roberts@arm.com> <Z_1IC-_Fp-yGLRSc@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <Z_1IC-_Fp-yGLRSc@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS8PR04MB9206:EE_
+X-MS-Office365-Filtering-Correlation-Id: dd89c066-e73f-408d-c59a-08dd7b9861e1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|52116014|366016|38350700014|13003099007|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?10dJXbk8YFN0mZSAh5nvDb8iwO9mwqC+KaO20ANVw+83mx9ZdLyCaMSOYlCb?=
+ =?us-ascii?Q?0N01bj/f8e8P0aA7+gokWxV+s+RqoDH+BH4p8tOxlIDW9/aEtLveYQ6SeJ67?=
+ =?us-ascii?Q?vAHYDYcyyod5FcULeqOmgPuNuUolthcsOou753k+3v3S88S6+5QHDNuDWEgz?=
+ =?us-ascii?Q?HJVEf3r77PKHJ+96pEFs5S63plxXo8TgJWlF2CUF5wI4vO0fjVvdu6aO+vL2?=
+ =?us-ascii?Q?i7gD87OQrE59xbEVa5YE66bP7uKMYHlgyZJZnYPjVdrqdNZ/7Ad8lEQw19aM?=
+ =?us-ascii?Q?izeRklfp+MmkE75JDp/H0UbKPhof/XjRQNGsDcgoM+PGodu/2ut8oeR5iHJJ?=
+ =?us-ascii?Q?+Vllw5GnZp3MsjyE80ktI/Lgpov1+neaxhIDxEd7rteFLhoUcBei7nrdaOvu?=
+ =?us-ascii?Q?rd7Mve3yYd4JGM5wa8sAHVPzVXcRma9GJBh320T7czCRXhiCJlosunP4bXOH?=
+ =?us-ascii?Q?Vnl89phAwM3W4hjnivpR+AiL9dVdkCQG9Uc/y8ey1i8JCzlA1rQx/e/HfdYK?=
+ =?us-ascii?Q?UnxGyzrjAaqsm+ZFCCA8oF74vu4F4l3SOCG39xGvEUKUK/DUoiIpP4Fulrtj?=
+ =?us-ascii?Q?efVsMMlM/YEgt18ig/VdIvlt8ZUt/3gr+twRmWDRhCx73A4Dv/x9rrKTRA5m?=
+ =?us-ascii?Q?kqpb69zlwtLl5sHKqkrKmAW9AYvswRHbCvgwVBZ85M4G60oqSzWkoGvoowRV?=
+ =?us-ascii?Q?xiPs5SPRwsXDKoivF0CGx34DOVkL+LLhWOc7PA+4OG7TJ25MzdIwHkU4Na5w?=
+ =?us-ascii?Q?eVZGBRKPmttS3AgHnVeWX1I6Ac70+k9xVuzEJPqIyK8kmLWm5dDz9WH/5v7W?=
+ =?us-ascii?Q?vlxiyl00PiQI2FLBrNjiH6rIXu9A0y0aR3SmJwKQxKtzxZwCewjdNIVm+MHQ?=
+ =?us-ascii?Q?L4gFzsyrlAm4YsRG7g47vMfJYnrW2A+CJjfUuMqq6pAd/mBSyg94ubyrIbZ2?=
+ =?us-ascii?Q?4mbRUFnZU/Pt9ahWNsX/iZOnG7hR0byghiGhJUM+22EdwesiEczGeGIsQVhW?=
+ =?us-ascii?Q?CqjGyEJhkssdp3HMLz0zM+BYNWHjVMHPY1kMM3Cx7cNQFBE+NKn/Zk44vJk4?=
+ =?us-ascii?Q?13fdRBCrb7h39I+is8gt+ldMaNhdg31p4iulFMaRGOZMCeRkQiJ+CFIc/ezp?=
+ =?us-ascii?Q?Qa3YdikWuf5X1WZ0b4lHwS/fpLKexSySROFUzZl2U5iY0tj9jVihAtUIavyQ?=
+ =?us-ascii?Q?J+XzxGdsLvGOE4ibfb01bqV55rMnp1UTlmvXvBlpk82vqT9QvvGquWldMfUB?=
+ =?us-ascii?Q?tpSShQXc3MNX7SX3t1y1a1dNHYptzCjiKwRu34xZMU8AYU6t2q8zJEIxHN9W?=
+ =?us-ascii?Q?ddQ4TgIXlD1XkAVR5HeMZD8qyxLRarIuRxyHMzoIr55Ttkzl9pkR0Pl1WO+8?=
+ =?us-ascii?Q?3AeuNASOd8T4BnKGtGn55Ne+rfWSGA28C9jegsYJHrnWDdvrNFMD7BaDLqR9?=
+ =?us-ascii?Q?sDxpzNkrPITs5hoj6B2eSCawwZFCkhUC?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(52116014)(366016)(38350700014)(13003099007)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?qmcu/8VcJFPJ1Gp1pJyi6IpqRs/7E8saDr57D4EAkRu116vLneBhmR1A1vhS?=
+ =?us-ascii?Q?2wFSM5ZkyYfp3xzFBQYCK4ZEriRnJMvfqrWteVheL0wVoBt+ybA0KrEeKi3V?=
+ =?us-ascii?Q?SYpRX7wwXG3XYKAqXwU8AIaT+4nFuKwYbPeZQAaBxOaduugKdHEcLfU7noXc?=
+ =?us-ascii?Q?4LEFI+/cApx6T+qIoMBLTjkLUKC3yX70Zq6HL1iNay4Yj6HNTtvHdNp2ysti?=
+ =?us-ascii?Q?DLta2mo9lbtVN/7a2LAE5JlJ5Cu7ZhUedg+jmM5AQ0DNn/jpddDZnpe1s7V2?=
+ =?us-ascii?Q?PqYC2IJi668qF73VgNIKlBxM0WOC5i88a6bwNRp/+5wn+mBw2X7NWb6qzxCD?=
+ =?us-ascii?Q?vNaD37Y4Vyo0+PL6Mnlr00h0ZHeUhF4ZFlGs+rx7j9KGZumSOMC/SWRcbshq?=
+ =?us-ascii?Q?K3USeMaGqJ6YfXT04MuiFJC475gSCsEPYOvUdWSLzncv4haAqBrD/9kN+fPw?=
+ =?us-ascii?Q?RicF+Bl/mDofLr74+427hgbwVa36n9MIcUZbWynI6B3TM6vXwXc7WZELgh9p?=
+ =?us-ascii?Q?wjphxQx2ITjhmdM/EVVsq64zawyyfFVhIn6MK74MWSYaU1GtC/KLwhLg6SDc?=
+ =?us-ascii?Q?NjGSuGlFuv/oO2XTZWZI6mmA0y7wU6TLoTQzawDvYwPUyHR7L53XwDB7XcdV?=
+ =?us-ascii?Q?ENSV8K8qUdLJwpiBpsriN8ylXmEDJrplSc2qzOYjjv4oE3zmsP+gb9VjZTz2?=
+ =?us-ascii?Q?6kVV7K4C1Ag2/zWBjW5KSCN6LzFn4UZ1DYalqt4EYcmDW3sODIMA8FnJ8fvL?=
+ =?us-ascii?Q?925FOffrOo9gy3/mOeHw7CiMiQkUkL7giYaS1kdNSMfSN1Xz8wPD5cF16Dz1?=
+ =?us-ascii?Q?jhrcUEGqY2/H7T1DHFHR+TumRQwSuXObCDjIJZXhn1G90ljb0prrF/7sL06x?=
+ =?us-ascii?Q?EqDUq/+6uxYnudNJcMxLULXFGgIEkUd1DsYWO4ESNeehnedDT7oz0U4J4ePo?=
+ =?us-ascii?Q?niWwGhWXwsi0pqta7y9UygwMhhuuPnP8/tGAKNeHfeE1Nwk6B8YTQ66E+25c?=
+ =?us-ascii?Q?zrNEhjtquYBg0tfruYXso31vghTxnJwNViwWwwXoCi3KtkPDyy4LTGhOHgEp?=
+ =?us-ascii?Q?HwFlI+fitnfHtvQrxuz5unFl9PjwM81dCoX3KXVzpBO7S67a1zCW6LA0fIPJ?=
+ =?us-ascii?Q?EQ2uyqcmp4/dovga0Mo9jAnsugsh8aAG0+C2ewfaqy/i9nJQGCRXV0/OrAry?=
+ =?us-ascii?Q?1+KKMGYczohgQKtRSAhkk0SNCsBW4vYGaT1nIl9uG7NFpohvRbj9ZlbAZFHv?=
+ =?us-ascii?Q?LZxid8w6FOa9blrhCqFR6EdibV5S/jPEIs4EnMJghfB9poKcBtJ3h5uq/akA?=
+ =?us-ascii?Q?6SLWMkkcGEf0EH2g6ln9Lii1xcgH4/dXANh+8Ymd/sKieeceNJUuKURgohcq?=
+ =?us-ascii?Q?jKQAka6pz8LAQ7JM6pX1RwtWZDrmBFjipRPO8XTKCiYwH2Sib/7TvbHQ9wv9?=
+ =?us-ascii?Q?rQvD7T7v/lXVfK8okESFqZqK8YsajWXYpg7BbuBMZz+JJpwgP1xK7865Ku93?=
+ =?us-ascii?Q?abNPH1CkrxUNcM5HtjqahbOPS8K2B7pBLSRP6HgPozIE+9Q4i1n31PNbYd1R?=
+ =?us-ascii?Q?tHwiM20PaEX2w+fvvDk=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: dd89c066-e73f-408d-c59a-08dd7b9861e1
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Apr 2025 21:07:36.7045
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: fT7qRl5SV1X4IdWs1VQJvBrmXkXLRDIwxeRRBxOOWEgIZK7tyN8URMLo/uM7L8u0WXdF5OxCYdeb31vOgRyEeg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9206
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_112855_817136_CE2EF6C3 
-X-CRM114-Status: GOOD (  26.64  )
+X-CRM114-CacheID: sfid-20250414_140744_774759_315DD53C 
+X-CRM114-Status: GOOD (  18.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,213 +167,258 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/04/2025 18:38, Catalin Marinas wrote:
-> On Tue, Mar 04, 2025 at 03:04:41PM +0000, Ryan Roberts wrote:
->> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
->> index 1898c3069c43..149df945c1ab 100644
->> --- a/arch/arm64/include/asm/pgtable.h
->> +++ b/arch/arm64/include/asm/pgtable.h
->> @@ -40,6 +40,55 @@
->>  #include <linux/sched.h>
->>  #include <linux/page_table_check.h>
->>  
->> +static inline void emit_pte_barriers(void)
->> +{
->> +	/*
->> +	 * These barriers are emitted under certain conditions after a pte entry
->> +	 * was modified (see e.g. __set_pte_complete()). The dsb makes the store
->> +	 * visible to the table walker. The isb ensures that any previous
->> +	 * speculative "invalid translation" marker that is in the CPU's
->> +	 * pipeline gets cleared, so that any access to that address after
->> +	 * setting the pte to valid won't cause a spurious fault. If the thread
->> +	 * gets preempted after storing to the pgtable but before emitting these
->> +	 * barriers, __switch_to() emits a dsb which ensure the walker gets to
->> +	 * see the store. There is no guarrantee of an isb being issued though.
->> +	 * This is safe because it will still get issued (albeit on a
->> +	 * potentially different CPU) when the thread starts running again,
->> +	 * before any access to the address.
->> +	 */
->> +	dsb(ishst);
->> +	isb();
->> +}
->> +
->> +static inline void queue_pte_barriers(void)
->> +{
->> +	if (test_thread_flag(TIF_LAZY_MMU))
->> +		set_thread_flag(TIF_LAZY_MMU_PENDING);
-> 
-> As we can have lots of calls here, it might be slightly cheaper to test
-> TIF_LAZY_MMU_PENDING and avoid setting it unnecessarily.
+Convert binding doc imx.txt to yaml format. Create two yaml files:
+fsl,imx6-mipi-csi2.yaml and fsl,imx-capture-subsystem.yaml.
 
-Yes, good point.
+Additional changes:
+- add example for fsl,imx6-mipi-csi2
 
-> 
-> I haven't checked - does the compiler generate multiple mrs from sp_el0
-> for subsequent test_thread_flag()?
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+ .../media/fsl,imx-capture-subsystem.yaml      |  38 ++++++
+ .../bindings/media/fsl,imx6-mipi-csi2.yaml    | 126 ++++++++++++++++++
+ .../devicetree/bindings/media/imx.txt         |  53 --------
+ 3 files changed, 164 insertions(+), 53 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/media/fsl,imx-capture-subsystem.yaml
+ create mode 100644 Documentation/devicetree/bindings/media/fsl,imx6-mipi-csi2.yaml
+ delete mode 100644 Documentation/devicetree/bindings/media/imx.txt
 
-It emits a single mrs but it loads from the pointer twice. I think v3 is the version we want?
-
-
-void TEST_queue_pte_barriers_v1(void)
-{
-	if (test_thread_flag(TIF_LAZY_MMU))
-		set_thread_flag(TIF_LAZY_MMU_PENDING);
-	else
-		emit_pte_barriers();
-}
-
-void TEST_queue_pte_barriers_v2(void)
-{
-	if (test_thread_flag(TIF_LAZY_MMU) &&
-	    !test_thread_flag(TIF_LAZY_MMU_PENDING))
-		set_thread_flag(TIF_LAZY_MMU_PENDING);
-	else
-		emit_pte_barriers();
-}
-
-void TEST_queue_pte_barriers_v3(void)
-{
-	unsigned long flags = read_thread_flags();
-
-	if ((flags & (_TIF_LAZY_MMU | _TIF_LAZY_MMU_PENDING)) == _TIF_LAZY_MMU)
-		set_thread_flag(TIF_LAZY_MMU_PENDING);
-	else
-		emit_pte_barriers();
-}
-
-
-000000000000101c <TEST_queue_pte_barriers_v1>:
-    101c:	d5384100 	mrs	x0, sp_el0
-    1020:	f9400001 	ldr	x1, [x0]
-    1024:	37f80081 	tbnz	w1, #31, 1034 <TEST_queue_pte_barriers_v1+0x18>
-    1028:	d5033a9f 	dsb	ishst
-    102c:	d5033fdf 	isb
-    1030:	d65f03c0 	ret
-    1034:	14000004 	b	1044 <TEST_queue_pte_barriers_v1+0x28>
-    1038:	d2c00021 	mov	x1, #0x100000000           	// #4294967296
-    103c:	f821301f 	stset	x1, [x0]
-    1040:	d65f03c0 	ret
-    1044:	f9800011 	prfm	pstl1strm, [x0]
-    1048:	c85f7c01 	ldxr	x1, [x0]
-    104c:	b2600021 	orr	x1, x1, #0x100000000
-    1050:	c8027c01 	stxr	w2, x1, [x0]
-    1054:	35ffffa2 	cbnz	w2, 1048 <TEST_queue_pte_barriers_v1+0x2c>
-    1058:	d65f03c0 	ret
-
-000000000000105c <TEST_queue_pte_barriers_v2>:
-    105c:	d5384100 	mrs	x0, sp_el0
-    1060:	f9400001 	ldr	x1, [x0]
-    1064:	37f80081 	tbnz	w1, #31, 1074 <TEST_queue_pte_barriers_v2+0x18>
-    1068:	d5033a9f 	dsb	ishst
-    106c:	d5033fdf 	isb
-    1070:	d65f03c0 	ret
-    1074:	f9400001 	ldr	x1, [x0]
-    1078:	b707ff81 	tbnz	x1, #32, 1068 <TEST_queue_pte_barriers_v2+0xc>
-    107c:	14000004 	b	108c <TEST_queue_pte_barriers_v2+0x30>
-    1080:	d2c00021 	mov	x1, #0x100000000           	// #4294967296
-    1084:	f821301f 	stset	x1, [x0]
-    1088:	d65f03c0 	ret
-    108c:	f9800011 	prfm	pstl1strm, [x0]
-    1090:	c85f7c01 	ldxr	x1, [x0]
-    1094:	b2600021 	orr	x1, x1, #0x100000000
-    1098:	c8027c01 	stxr	w2, x1, [x0]
-    109c:	35ffffa2 	cbnz	w2, 1090 <TEST_queue_pte_barriers_v2+0x34>
-    10a0:	d65f03c0 	ret
-
-00000000000010a4 <TEST_queue_pte_barriers_v3>:
-    10a4:	d5384101 	mrs	x1, sp_el0
-    10a8:	f9400020 	ldr	x0, [x1]
-    10ac:	d2b00002 	mov	x2, #0x80000000            	// #2147483648
-    10b0:	92610400 	and	x0, x0, #0x180000000
-    10b4:	eb02001f 	cmp	x0, x2
-    10b8:	54000080 	b.eq	10c8 <TEST_queue_pte_barriers_v3+0x24>  // b.none
-    10bc:	d5033a9f 	dsb	ishst
-    10c0:	d5033fdf 	isb
-    10c4:	d65f03c0 	ret
-    10c8:	14000004 	b	10d8 <TEST_queue_pte_barriers_v3+0x34>
-    10cc:	d2c00020 	mov	x0, #0x100000000           	// #4294967296
-    10d0:	f820303f 	stset	x0, [x1]
-    10d4:	d65f03c0 	ret
-    10d8:	f9800031 	prfm	pstl1strm, [x1]
-    10dc:	c85f7c20 	ldxr	x0, [x1]
-    10e0:	b2600000 	orr	x0, x0, #0x100000000
-    10e4:	c8027c20 	stxr	w2, x0, [x1]
-    10e8:	35ffffa2 	cbnz	w2, 10dc <TEST_queue_pte_barriers_v3+0x38>
-    10ec:	d65f03c0 	ret
-
-
-
-> 
->> +	else
->> +		emit_pte_barriers();
->> +}
->> +
->> +#define  __HAVE_ARCH_ENTER_LAZY_MMU_MODE
->> +static inline void arch_enter_lazy_mmu_mode(void)
->> +{
->> +	VM_WARN_ON(in_interrupt());
->> +	VM_WARN_ON(test_thread_flag(TIF_LAZY_MMU));
->> +
->> +	set_thread_flag(TIF_LAZY_MMU);
->> +}
->> +
->> +static inline void arch_flush_lazy_mmu_mode(void)
->> +{
->> +	if (test_and_clear_thread_flag(TIF_LAZY_MMU_PENDING))
->> +		emit_pte_barriers();
->> +}
->> +
->> +static inline void arch_leave_lazy_mmu_mode(void)
->> +{
->> +	arch_flush_lazy_mmu_mode();
->> +	clear_thread_flag(TIF_LAZY_MMU);
->> +}
->> +
->>  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
->>  #define __HAVE_ARCH_FLUSH_PMD_TLB_RANGE
->>  
->> @@ -323,10 +372,8 @@ static inline void __set_pte_complete(pte_t pte)
->>  	 * Only if the new pte is valid and kernel, otherwise TLB maintenance
->>  	 * has the necessary barriers.
->>  	 */
->> -	if (pte_valid_not_user(pte)) {
->> -		dsb(ishst);
->> -		isb();
->> -	}
->> +	if (pte_valid_not_user(pte))
->> +		queue_pte_barriers();
->>  }
-> 
-> I think this scheme works, I couldn't find a counter-example unless
-> __set_pte() gets called in an interrupt context. You could add
-> VM_WARN_ON(in_interrupt()) in queue_pte_barriers() as well.
-> 
-> With preemption, the newly mapped range shouldn't be used before
-> arch_flush_lazy_mmu_mode() is called, so it looks safe as well. I think
-> x86 uses a per-CPU variable to track this but per-thread is easier to
-> reason about if there's no nesting.
-> 
->>  static inline void __set_pte(pte_t *ptep, pte_t pte)
->> @@ -778,10 +825,8 @@ static inline void set_pmd(pmd_t *pmdp, pmd_t pmd)
->>  
->>  	WRITE_ONCE(*pmdp, pmd);
->>  
->> -	if (pmd_valid(pmd)) {
->> -		dsb(ishst);
->> -		isb();
->> -	}
->> +	if (pmd_valid(pmd))
->> +		queue_pte_barriers();
->>  }
-> 
-> We discussed on a previous series - for pmd/pud we end up with barriers
-> even for user mappings but they are at a much coarser granularity (and I
-> wasn't keen on 'user' attributes for the table entries).
-> 
-> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-
-Thanks!
-
-Ryan
+diff --git a/Documentation/devicetree/bindings/media/fsl,imx-capture-subsystem.yaml b/Documentation/devicetree/bindings/media/fsl,imx-capture-subsystem.yaml
+new file mode 100644
+index 0000000000000..77be3c1f37c5b
+--- /dev/null
++++ b/Documentation/devicetree/bindings/media/fsl,imx-capture-subsystem.yaml
+@@ -0,0 +1,38 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/media/fsl,imx-capture-subsystem.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Freescale i.MX Media Video Device
++
++description:
++  This is the media controller node for video capture support. It is a
++  virtual device that lists the camera serial interface nodes that the
++  media device will control
++
++maintainers:
++  - Frank Li <Frank.Li@nxp.com>
++
++properties:
++  compatible:
++    const: fsl,imx-capture-subsystem
++
++  ports:
++    $ref: /schemas/types.yaml#/definitions/phandle-array
++    description:
++      Should contain a list of phandles pointing to camera
++      sensor interface ports of IPU devices.
++
++required:
++  - compatible
++
++additionalProperties: false
++
++examples:
++  - |
++    capture-subsystem {
++        compatible = "fsl,imx-capture-subsystem";
++        ports = <&ipu1_csi0>, <&ipu1_csi1>;
++    };
++
+diff --git a/Documentation/devicetree/bindings/media/fsl,imx6-mipi-csi2.yaml b/Documentation/devicetree/bindings/media/fsl,imx6-mipi-csi2.yaml
+new file mode 100644
+index 0000000000000..1e69a1ff868cd
+--- /dev/null
++++ b/Documentation/devicetree/bindings/media/fsl,imx6-mipi-csi2.yaml
+@@ -0,0 +1,126 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/media/fsl,imx6-mipi-csi2.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: MIPI CSI-2 Receiver core in the i.MX SoC
++
++description:
++  This is the device node for the MIPI CSI-2 Receiver core in the i.MX
++  SoC. This is a Synopsys Designware MIPI CSI-2 host controller core
++  combined with a D-PHY core mixed into the same register block. In
++  addition this device consists of an i.MX-specific "CSI2IPU gasket"
++  glue logic, also controlled from the same register block. The CSI2IPU
++  gasket demultiplexes the four virtual channel streams from the host
++  controller's 32-bit output image bus onto four 16-bit parallel busses
++  to the i.MX IPU CSIs.
++
++maintainers:
++  - Frank Li <Frank.Li@nxp.com>
++
++properties:
++  compatible:
++    const: fsl,imx6-mipi-csi2
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: hsi_tx (the D-PHY clock)
++      - description: video_27m (D-PHY PLL reference clock)
++      - description: eim_podf;
++
++  clock-names:
++    items:
++      - const: dphy
++      - const: ref
++      - const: pix
++
++  interrupts:
++    maxItems: 2
++
++  '#address-cells':
++    const: 1
++
++  '#size-cells':
++    const: 0
++
++  port@0:
++    $ref: /schemas/graph.yaml#/$defs/port-base
++    unevaluatedProperties: false
++    description:
++      Input port node, single endpoint describing the CSI-2 transmitter.
++
++    properties:
++      endpoint:
++        $ref: video-interfaces.yaml#
++        unevaluatedProperties: false
++
++        properties:
++          clock-lanes:
++            const: 0
++
++          data-lanes:
++            minItems: 1
++            items:
++              - const: 1
++              - const: 2
++              - const: 3
++              - const: 4
++
++        required:
++          - data-lanes
++
++patternProperties:
++  '^port@[1-4]':
++    $ref: /schemas/graph.yaml#/$defs/port-base
++    unevaluatedProperties: false
++    description:
++      ports 1 through 4 are output ports connecting with parallel bus sink
++      endpoint nodes and correspond to the four MIPI CSI-2 virtual channel
++      outputs.
++
++    properties:
++      endpoint@0:
++        $ref: video-interfaces.yaml#
++        unevaluatedProperties: false
++
++      endpoint@1:
++        $ref: video-interfaces.yaml#
++        unevaluatedProperties: false
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/imx6qdl-clock.h>
++
++    mipi@21dc000 {
++        compatible = "fsl,imx6-mipi-csi2";
++        reg = <0x021dc000 0x4000>;
++        #address-cells = <1>;
++        #size-cells = <0>;
++        clocks = <&clks IMX6QDL_CLK_HSI_TX>,
++                 <&clks IMX6QDL_CLK_VIDEO_27M>,
++                 <&clks IMX6QDL_CLK_EIM_PODF>;
++        clock-names = "dphy", "ref", "pix";
++
++        port@0 {
++            reg = <0>;
++
++            endpoint {
++                remote-endpoint = <&ov5640_to_mipi_csi2>;
++                clock-lanes = <0>;
++                data-lanes = <1 2>;
++            };
++        };
++    };
++
+diff --git a/Documentation/devicetree/bindings/media/imx.txt b/Documentation/devicetree/bindings/media/imx.txt
+deleted file mode 100644
+index 77f4b0a7fd2b0..0000000000000
+--- a/Documentation/devicetree/bindings/media/imx.txt
++++ /dev/null
+@@ -1,53 +0,0 @@
+-Freescale i.MX Media Video Device
+-=================================
+-
+-Video Media Controller node
+----------------------------
+-
+-This is the media controller node for video capture support. It is a
+-virtual device that lists the camera serial interface nodes that the
+-media device will control.
+-
+-Required properties:
+-- compatible : "fsl,imx-capture-subsystem";
+-- ports      : Should contain a list of phandles pointing to camera
+-		sensor interface ports of IPU devices
+-
+-example:
+-
+-capture-subsystem {
+-	compatible = "fsl,imx-capture-subsystem";
+-	ports = <&ipu1_csi0>, <&ipu1_csi1>;
+-};
+-
+-
+-mipi_csi2 node
+---------------
+-
+-This is the device node for the MIPI CSI-2 Receiver core in the i.MX
+-SoC. This is a Synopsys Designware MIPI CSI-2 host controller core
+-combined with a D-PHY core mixed into the same register block. In
+-addition this device consists of an i.MX-specific "CSI2IPU gasket"
+-glue logic, also controlled from the same register block. The CSI2IPU
+-gasket demultiplexes the four virtual channel streams from the host
+-controller's 32-bit output image bus onto four 16-bit parallel busses
+-to the i.MX IPU CSIs.
+-
+-Required properties:
+-- compatible	: "fsl,imx6-mipi-csi2";
+-- reg           : physical base address and length of the register set;
+-- clocks	: the MIPI CSI-2 receiver requires three clocks: hsi_tx
+-		  (the D-PHY clock), video_27m (D-PHY PLL reference
+-		  clock), and eim_podf;
+-- clock-names	: must contain "dphy", "ref", "pix";
+-- port@*        : five port nodes must exist, containing endpoints
+-		  connecting to the source and sink devices according to
+-		  of_graph bindings. The first port is an input port,
+-		  connecting with a MIPI CSI-2 source, and ports 1
+-		  through 4 are output ports connecting with parallel
+-		  bus sink endpoint nodes and correspond to the four
+-		  MIPI CSI-2 virtual channel outputs.
+-
+-Optional properties:
+-- interrupts	: must contain two level-triggered interrupts,
+-		  in order: 100 and 101;
+-- 
+2.34.1
 
 
