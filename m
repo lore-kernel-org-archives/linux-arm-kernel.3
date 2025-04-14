@@ -4,66 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7869C369BA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 12:38:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 281AAC369B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 12:41:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6jjWGroHGOrbFOOptF4jEgafuPyQuu86Nx3zSpKz1B0=; b=KXuHe9oTGnsblH6xpuf2T9sC48
-	18JmCO/D7YqUHHjg23uE1WvLlBHekStJot94h0nit/+ThCfau9Dlxp0gr2AHCKHvjhzlbBxC1oFUM
-	CcUNd/GWs72NYrDKHMGj1UG4mhjaDDd0AhqFWPGZnQ5m8+X3UGSMiJ+we18RE4hD4tjJDu2NSOWp/
-	yrfGZqCjYVhofF0t3nFwB5RbliWnt+EAYfIxBvkCkTiB4uGTo4A2KFW5l8kL1eCfycR5k6RqMBVzw
-	ljU2KLBcawtEwIiUCc4z4Fc483T/hDkeK6kEtN5roL93bWdc6q/UpjEC2VNO4KGYdt0Ew1wt812Pp
-	q8/6UYHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=inhlHpE/bBAKBKJKN86FXX+kIdOLvF82cEnSWLQQO4w=; b=iu0ObCqvGS9RljjU+PNQoPVWIg
+	OHNq4weKOoF7n1km+0oz0XWyyLT+h/asPMz8cOeMlGwk1dism/hvIs+syAfQ2Sf5HTuAoaZ+Pnggn
+	iO6uxyuKe6vkBtjuRRyYArewy6GHhkE5CzkRthgbbTmhJaxdrcqeFZdf/nc5qdMZem0qrI2103bJH
+	xpuIFVloUPZDMBSMyqdpvtJC0VCEb4Nv6AQMgQnwOPYbRZMNF1uQxFKsfVKRWVeJas+roFpmjof7H
+	rAl5kmZ7MPhzNlTJr8oGMwzcwxdkWpXXFr/hxnA7iadh3PXoVkmddwudh6W9nz3YV4RD08twbCUHB
+	WSqGX3fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4J4d-00000001yFv-2BBn;
-	Mon, 14 Apr 2025 12:38:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u4J7U-00000001zIT-0y7R;
+	Mon, 14 Apr 2025 12:41:00 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4J0X-00000001xRa-2OMq;
-	Mon, 14 Apr 2025 12:33:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E60FA45117;
-	Mon, 14 Apr 2025 12:33:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83C29C4CEE2;
-	Mon, 14 Apr 2025 12:33:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744634028;
-	bh=t1toO7w3jtiuM0z/5E1BAN7M3f4Zd+MamGderKQMHzY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EqAOEOU5Ih2l7qouIuhnxB9hV7Y69NDFwpQEF6kwT7giPfHPw7SGHoFF7xOZOYB2n
-	 +eKi9YsDDnp1BaKR4FYNiGkITE+WfTM4ThI0NqaNQJsftC1y8vYnkKfFbcZQJ0CO5o
-	 uMqA+g69thaaR7ReCAF/FO1cQ6ZkehQxhPHm9iukWSMX6tdx0S26dqdA+I6uvAlLBF
-	 WDaiPY7luZ2XkkFxhtA49ma6RoiNLzT+xBuL5W//4SapxL2tuo7qwIeEU4v5oUa5CU
-	 7WcMd9SQvxpDu/sTZSbQcFcT8svQm+fI/SnAHROhfnF1sGtXeBbB6JBYcz0eZD++Dd
-	 LZY/naVHEnqjg==
-Date: Mon, 14 Apr 2025 07:33:46 -0500
-From: Rob Herring <robh@kernel.org>
-To: Chuan Liu <chuan.liu@amlogic.com>
-Cc: linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Kevin Hilman <khilman@baylibre.com>,
+	id 1u4J5a-00000001yna-3jDo
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 14 Apr 2025 12:39:04 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-43690d4605dso33160245e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 05:39:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744634341; x=1745239141; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=inhlHpE/bBAKBKJKN86FXX+kIdOLvF82cEnSWLQQO4w=;
+        b=VqFZQzKJ7gIAXmTHmARGGGg/DfHogPuiXO9og5WnnMbwUvxZ1VBXcfQu2TjKJfTcqw
+         1BEd8WIGRY8SAxVn18xU9DLAHp95yr2p6JarWnLU4PSyNyGRoekD2ntDYCnGd6uoWAvK
+         MkTWzyerYNKkiw5hellsg/9lWkPT2BcXs+RzyRyp+ybhSM/OmFrG3agQbFZ30Eop+TIH
+         A9yCMO7OYbtQbOgnAd0p0S08M3rQVxn9Rf7l+fv39d7Lm+Sf4erpVgjTwSeFOa3q/0QE
+         Vg8knFVCBwD/sBVW0dCwwNtphTFyJBEk990IYAcH0jZc3nKX2N9OKYMe//HQH+NDoV0S
+         cMkQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744634341; x=1745239141;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=inhlHpE/bBAKBKJKN86FXX+kIdOLvF82cEnSWLQQO4w=;
+        b=s7DDL3p18FjJRuQEPVVScGWdIQsrmxJ9LVZdSy9yp7eJGAfMXnNN96pwXxHYcLzkxX
+         4N7vJTSwtru68SHs8BsMOqJrSxAWb4VHNPwB8wH9MslvndtU/fwNQOxi2uZNiFU/2bkA
+         L4jcRD1JEOW7sWg2EG6NoP0qpKjWC3kX15jkbZbXtLYyuZD5mDG2wPpzEvws+8lMWYde
+         HB9KGPcbci+2AZHWWjhigTXDn5Y4KlFWSeEagcRl/8QeD8WT8LpKCDENEJ6dVtw/YrWK
+         /RlIjNBoyVZNflOB3Q5JoPAZulGCSGEwBPNed5Zi91jZF39/LMziB88ShSWXAv2Xb0p0
+         Xgfw==
+X-Forwarded-Encrypted: i=1; AJvYcCW0//Dc7oOEQVS52CIMlwNTJeNVjuW2pNyEySpUkqfET1uvJAhQqtpiQvhNQLI4ijPvQoev95u7noBLQmlPIXfc@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7z02PwQ4E5qajrtSSXNH2E+sP3C3eiquh7VrYeYPXfxl7KvZU
+	+nvo5CE42jlD/CyFW2XjCnBWKq8Y/d8DiPHKSNKiMEjTlQO4aTzK
+X-Gm-Gg: ASbGncuq2dflVAUAHHiFgsVLyF7LULlnsjabZwS1ouk2Ww2qhsaK60opOzKiN98sV6b
+	Bee0axUAs+krQt5ZiCqvEx1yoBJC+pA+giCPZm96mNyZfzdCBzZVKLab0Kzsehpnf35A+v9Bq6w
+	zvHEM0bvW5Una6FXzHycFoqRFOOufmEW/cpd47tud8zigmEvkfKjxKZtSzOqzmHL4E93ukeNDDP
+	/NLs4vxFZXrwPG3dxMyNxa0kT23fLWCFlKiSSMzRCvEd32n+vftNUIlpYrV7qmGMeTGDBcvbXQL
+	lD94AAYrm6FXPPbF7ZwpFvDxHte0Lwb0Yfw2
+X-Google-Smtp-Source: AGHT+IGxy9csrrrck37dUxkD2h6nTaQdmDSXqt3VTHDGwVn+NyfGt2ybLDJfHlnEm9onkikV9dtWOQ==
+X-Received: by 2002:a5d:648a:0:b0:39c:1efc:b02 with SMTP id ffacd0b85a97d-39ea52149d7mr9849917f8f.28.1744634340629;
+        Mon, 14 Apr 2025 05:39:00 -0700 (PDT)
+Received: from vitor-nb.. ([2001:8a0:e602:d900:68a4:1b76:fda:f9fe])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39eae96bf97sm10703259f8f.25.2025.04.14.05.38.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 14 Apr 2025 05:39:00 -0700 (PDT)
+From: Vitor Soares <ivitro@gmail.com>
+To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	Conor Dooley <conor+dt@kernel.org>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH v2 2/7] dt-bindings: soc: amlogic: C3 supports clk-measure
-Message-ID: <20250414123346.GA135245-robh@kernel.org>
-References: <20250414-clk-measure-v2-0-65077690053a@amlogic.com>
- <20250414-clk-measure-v2-2-65077690053a@amlogic.com>
- <174463269823.14040.7362554560667126238.robh@kernel.org>
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Daniel Baluta <daniel.baluta@gmail.com>
+Cc: Vitor Soares <vitor.soares@toradex.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	ivitro@gmail.com
+Subject: [PATCH v2 0/2] Add support for Toradex SMARC i.MX8MP
+Date: Mon, 14 Apr 2025 13:38:25 +0100
+Message-Id: <20250414123827.428339-1-ivitro@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <174463269823.14040.7362554560667126238.robh@kernel.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_053349_629846_204290C0 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20250414_053902_926379_40C64FD2 
+X-CRM114-Status: GOOD (  12.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,38 +105,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 14, 2025 at 07:11:38AM -0500, Rob Herring (Arm) wrote:
-> 
-> On Mon, 14 Apr 2025 18:12:29 +0800, Chuan Liu wrote:
-> > C3 adds support for clk-measure.
-> > 
-> > Acked-by: Rob Herring (Arm) <robh@kernel.org>
-> > Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
-> > ---
-> >  .../devicetree/bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml    | 1 +
-> >  1 file changed, 1 insertion(+)
-> > 
-> 
-> My bot found errors running 'make dt_binding_check' on your patch:
-> 
-> yamllint warnings/errors:
-> 
-> dtschema/dtc warnings/errors:
-> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/fsl/fsl,ls1028a-reset.yaml: maintainers:0: 'Frank Li' does not match '@'
-> 	from schema $id: http://devicetree.org/meta-schemas/base.yaml#
-> 
-> doc reference errors (make refcheckdocs):
-> Documentation/userspace-api/netlink/netlink-raw.rst: :doc:`rt_link<../../networking/netlink_spec/rt_link>`
-> Warning: Documentation/arch/powerpc/cxl.rst references a file that doesn't exist: Documentation/ABI/testing/sysfs-class-cxl
-> Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/misc/fsl,qoriq-mc.txt
-> Warning: lib/Kconfig.debug references a file that doesn't exist: Documentation/dev-tools/fault-injection/fault-injection.rst
-> Documentation/userspace-api/netlink/netlink-raw.rst: :doc:`rt_link<../../networking/netlink_spec/rt_link>`
-> Documentation/arch/powerpc/cxl.rst: Documentation/ABI/testing/sysfs-class-cxl
-> MAINTAINERS: Documentation/devicetree/bindings/misc/fsl,qoriq-mc.txt
-> lib/Kconfig.debug: Documentation/dev-tools/fault-injection/fault-injection.rst
+From: Vitor Soares <vitor.soares@toradex.com>
 
+This series adds support for the new Toradex SMARC i.MX8MP
+System-on-Module (SoM) and its Development carrier board.
 
-This report can be ignored.
+More information on the SoM and carrier board can be found here:
+https://www.toradex.com/computer-on-modules/smarc-arm-family/nxp-imx-8m-plus
+https://www.toradex.com/products/carrier-board/smarc-development-board-kit
 
-Rob
+Changes in v2:
+ - Move the Makefile rule to the proper place. (Daniel Baluta)
+ - Remove the dsp_reserved node, it is already disabled in imx8mp.dtsi
+ - Add Acked-by from Conor Dooley
+
+Vitor Soares (2):
+  dt-bindings: arm: fsl: add Toradex SMARC iMX8MP SoM and carrier
+  arm64: dts: freescale: add Toradex SMARC iMX8MP
+
+ .../devicetree/bindings/arm/fsl.yaml          |    6 +
+ arch/arm64/boot/dts/freescale/Makefile        |    1 +
+ .../freescale/imx8mp-toradex-smarc-dev.dts    |  297 ++++
+ .../dts/freescale/imx8mp-toradex-smarc.dtsi   | 1284 +++++++++++++++++
+ 4 files changed, 1588 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc-dev.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc.dtsi
+
+-- 
+2.34.1
+
 
