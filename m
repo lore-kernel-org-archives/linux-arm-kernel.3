@@ -4,87 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F706C369B2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78F92C369B9
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 20:28:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eNfZjFUF8tiixZr4lIXwI64Yf2XFIFSD4HDG3uAfy5Y=; b=J7l4bdPV859NoesHVOkOeRSBAq
-	KK9Jk1TNhXVtiolWGbceRu/BbfMzV+357T6rCsjbDmHB0PvXQ4L4N+QSbkYpFww48JQN5mThqlxTh
-	zTxj9274GRmN1vWSz1BJhwh0qV+2QrMkuL5m4oaufJ9Us6WCmRCTgIc+rleYL2VvxEt62SLV0jDjo
-	YjsJEUch3CnXtN1boOXowtqIQ07iWH7OpIfWglj/SgFiWoYA3qO7yhP04lCdD+8wYZw5K/sI4ClZU
-	ViMr7EBFVVWbzreSoWzzjUpoQNyA/wpZbHr2RIYfmSa4LTZwab/56AxsTUzBCnyJx0R9kj3eXpU5h
-	DkJuQbDQ==;
+	bh=qdnDpkLQDueaCtpgfvGpaidsvIby3mC+Wvd04T7dy5g=; b=SlfVKOxBeQJzbsLcCBpNO1fzF5
+	F8sP4ql3c7hkHcmx7+J3pilMMFn2NXaB+IlOle8CuBLyN0KTY80xmMg6iq86Lmu+qzzSSfHlFOkjg
+	z7TfYMHNV0rJCsJlwuOY7q8QjRx1xWJ6DkgT3/Hk4Zb8cTwud5JFen2Z8qfSo6uvjnNsLkcku7fwI
+	IuXOkTH0180ImQOTqDtCxpPDvHQrILGkyAnX+mNzV4tznEyQHlD5qfxP3zl3NrM0aXX7shQjTAINX
+	J5nYKsmTNWwkYbHaBiU1lJzXdvlK3k6elHt4nkr/mwZngCGrG4xgQ0o+a6H8CBR2UjlYOMuT25ti6
+	TuCpwQCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4QPg-00000003Sh2-01wy;
-	Mon, 14 Apr 2025 20:28:16 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u4QPh-00000003SiX-0F71;
+	Mon, 14 Apr 2025 20:28:17 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4PMD-00000003J4n-3Wom;
-	Mon, 14 Apr 2025 19:20:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=eNfZjFUF8tiixZr4lIXwI64Yf2XFIFSD4HDG3uAfy5Y=; b=kUmTJcBf49jnaaAA65j/OijLqa
-	0DYEVpxMghWUTpwJ5XokvdswnECl0d9mxLB3BTJnDS3j+2yGlBE2sHsY21e7HsuHYc0LJnqv/NKHn
-	cxoW9sivYaBpGZQOSqAWsmAtQtzXZJSYCcLDRzA/r1DWWzn0wFVJwbE3LUj+s4UyphQRZjnttrN4I
-	SMEELfIAIOM+MkHPlJoaVCNANPTSFUGDVjDKq9u9XGd+rv+vvYCuLw9J3PRN4ukHEecMA+LZAJHK/
-	8ky4X2KWOD9N3cXJ1nQVp6W+JnTCZ53g0WVtDv3tddmVG7Lje9jSoO3LzD/ojguiKBJknJOOWiBqG
-	DqiK5jeA==;
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u4PLw-00000009lBO-339F;
-	Mon, 14 Apr 2025 19:20:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1744658390;
-	bh=5OW4OtjtSyBB2oKPfpNX3Y7CKOSwuIZGdOJ/RR0idGo=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=f25TF4Y0FfGGEJNhRUjHuzeTyxe6aUlb6CUP4s97f12LFRjBK7jeu8bEuSL1NJUVT
-	 eF2FKvulL4465Z2GVwWeSGBSx38bn5In78T0Qmf0ym0CSUl9daYBiBI9xpb+lB7ofa
-	 ajtwNypoUMig5CIwQegKtxeS1dIoKSnNi3mWpiJVmkK9/rnHPKCQDCNEmDGqq5uM+d
-	 vUFjyGClwgbiynHhHX6E15j2KQiU1rXm4yUbky0fpItXCDA3nq+9wpDlGUMp/nB/Bp
-	 w6aw3kelbOy1Vay9YLQ9FwVxzam/gKiXPatuKJsq+NrI3w5y6/edkstBOwgKYoLWAL
-	 kg56Xvc7LsKSQ==
-Received: from [IPv6:2606:6d00:11:e976::c41] (unknown [IPv6:2606:6d00:11:e976::c41])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id AAF2517E0FD5;
-	Mon, 14 Apr 2025 21:19:48 +0200 (CEST)
-Message-ID: <4052616c2ee6dafe1c8889454df73da2c4452f04.camel@collabora.com>
-Subject: Re: [PATCH v2 4/5] media: vcodec: Implement manual request
- completion
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>, Laurent Pinchart
- <laurent.pinchart@ideasonboard.com>, Mauro Carvalho Chehab
- <mchehab@kernel.org>, Hans Verkuil <hverkuil@xs4all.nl>, Tiffany Lin
- <tiffany.lin@mediatek.com>,  Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
- Yunfei Dong <yunfei.dong@mediatek.com>, Matthias Brugger	
- <matthias.bgg@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, kernel@collabora.com, 
-	linux-media@vger.kernel.org, Sebastian Fricke
- <sebastian.fricke@collabora.com>
-Date: Mon, 14 Apr 2025 15:19:47 -0400
-In-Reply-To: <d3da96bf-d1c8-4bf8-a22a-21a43f78f27d@collabora.com>
-References: <20250410-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v2-0-5b99ec0450e6@collabora.com>
-	 <20250410-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v2-4-5b99ec0450e6@collabora.com>
-	 <d3da96bf-d1c8-4bf8-a22a-21a43f78f27d@collabora.com>
-Organization: Collabora Canada
-Content-Type: text/plain; charset="UTF-8"
-User-Agent: Evolution 3.56.0 (3.56.0-1.fc42) 
+	id 1u4PNM-00000003Jr4-1UWX
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 14 Apr 2025 19:21:49 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-43cfe63c592so52703965e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 12:21:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744658507; x=1745263307; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=qdnDpkLQDueaCtpgfvGpaidsvIby3mC+Wvd04T7dy5g=;
+        b=kyk+0FQdFXVqLYx7GsnXGn0CobC0Bxlu4+vPRW/QzSWxX63/+KkDLB7g4wK2d3U3or
+         kfSjgj4a/VnYoXGptXPdFjNhTrzonkPEKRzPqYyvhe/Retcbxovvno4AeKh/XjJLOwjd
+         MT/4E88CkA9VhurYJmOQYQYCSlezZbBh5hGc6SHChHDLlnfAUG8mda0b7BKrD6UzbIr7
+         XnGzZPzwFyg1lfnFBy7lSk56ZdAFR383Xvx+sAg9DQEJcNJXwteQ3qeG7IJwGfByXTIe
+         sYApCsV6ivIoDsGLOLoC/WDc1XPVKd7ovnmC/6k+vwHjg+RP05K37GluIwVaV8SHbaok
+         hX3w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744658507; x=1745263307;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=qdnDpkLQDueaCtpgfvGpaidsvIby3mC+Wvd04T7dy5g=;
+        b=Q0XNUg4JyfOL8jwLyE9KSPY9TWFEZj/xDfB2oWnSr6Wk6SGEaDpS2Uga+0p82A574k
+         8FNAqSEWxhGSPSTUqAbXHhEz6SMNu+eXrCONJRcC5pTNGsVmxZbS6I9aN1Toc+4/HGtu
+         aiuDTO+QUyQ5Mwf/2xeTLkejopJOMdsYeM2f1OZJQGkDEiw2iszt2zjLgbanwFC1CQKO
+         VmeyFyXKgMafcpPiGiJUFY5JZ8LukO7+n/FCAjpIALTKVlonX88BBJmrOscT6x7YuOr/
+         RpeUDF74CYZjXScosmALPt3GfLo+4qPLJUrp60OhDtYZzhcCCE4y6hdyjWue4Gh3PNeQ
+         fMOA==
+X-Forwarded-Encrypted: i=1; AJvYcCWhh31rpuPAF+zTwPPfamtD+WVeQ5NdWoyH/vwb4HflcpcXi9L+NB2iyQDcKfSrd8TnA9mgE9ZaQRcDCJt4KhnX@lists.infradead.org
+X-Gm-Message-State: AOJu0YxPAQ+kgTCHD8kPA1Ze46o50IPT3GVHfYrmMRY3EZLl8ec90wwZ
+	Xa6nyEIC0uhGSFx11JPVPCo3kKmc9YOZzWzdhmiCr/c5+fIShGn5
+X-Gm-Gg: ASbGnctTbi17PnS3roIpkhMgbjhJJqEYUJEj0Lvx4Y2s72EMkj7QZRu5zLtY+g4D1Wb
+	gEeAU/x/RmU+ysKTBwrreiEuq+94fqzkZE1jJ2xWT9ILoMBPM892ogntDt+F2SxZ/8Mowi3en4G
+	2jtmI2o8i2LHXBSrX+sIH5CJlWaLa/4mmFc5aU+eWhCgTTJGMEo/iZVRX8HbQYdUsI2HXm+f9pY
+	Ci1a6JxYUiVCqHc83LHN51louOBmdrbusN1k4e/mjkslSSAZ9+iN8C6LFslSez+QAgr3j0pa+m7
+	AAlrBHlZjBHqW40BOCAPtBFciW2w7GbQSl61e0lkfqOOAzNGLPISuA==
+X-Google-Smtp-Source: AGHT+IHrtPJf7tJJ5VJyh1jOHcx4HFwLVSxBmFMH5rzu041anN5yYzVbiM1Y436XhCJ6X/gw2IidJQ==
+X-Received: by 2002:a05:600c:1c8e:b0:439:6118:c188 with SMTP id 5b1f17b1804b1-43f3a95c43amr105045055e9.19.1744658506479;
+        Mon, 14 Apr 2025 12:21:46 -0700 (PDT)
+Received: from ?IPV6:2001:871:22a:99c5::1ad1? ([2001:871:22a:99c5::1ad1])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43f206269c8sm193445625e9.16.2025.04.14.12.21.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 14 Apr 2025 12:21:46 -0700 (PDT)
+Message-ID: <38867e79-c0e3-4bcd-bdf9-3fb5b571d51e@gmail.com>
+Date: Mon, 14 Apr 2025 21:21:42 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: `u64` by `u64` div/mod in DRM QR for arm32
+To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
+ Jocelyn Falempe <jfalempe@redhat.com>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+ rust-for-linux <rust-for-linux@vger.kernel.org>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ dri-devel <dri-devel@lists.freedesktop.org>,
+ Russell King <linux@armlinux.org.uk>,
+ Linus Walleij <linus.walleij@linaro.org>
+References: <CANiq72ke45eOwckMhWHvmwxc03dxr4rnxxKvx+HvWdBLopZfrQ@mail.gmail.com>
+Content-Language: en-US, de-DE
+From: Christian Schrefl <chrisi.schrefl@gmail.com>
+In-Reply-To: <CANiq72ke45eOwckMhWHvmwxc03dxr4rnxxKvx+HvWdBLopZfrQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_202021_954298_2FBD4B72 
-X-CRM114-Status: GOOD (  31.82  )
+X-CRM114-CacheID: sfid-20250414_122148_405250_5DBDF1D5 
+X-CRM114-Status: GOOD (  17.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,205 +104,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le lundi 14 avril 2025 à 11:11 +0200, AngeloGioacchino Del Regno a écrit :
-> Il 10/04/25 17:39, Nicolas Dufresne ha scritto:
-> > From: Sebastian Fricke <sebastian.fricke@collabora.com>
-> > 
-> > Rework how requests are completed in the MediaTek VCodec driver, by
-> > implementing the new manual request completion feature, which allows to
-> > keep a request open while allowing to add new bitstream data.
-> > This is useful in this case, because the hardware has a LAT and a core
-> > decode work, after the LAT decode the bitstream isn't required anymore
-> > so the source buffer can be set done and the request stays open until
-> > the core decode work finishes.
-> > 
-> > Signed-off-by: Sebastian Fricke <sebastian.fricke@collabora.com>
-> > Co-developed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-> > Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-> 
-> This patch is great - but looks like it's worsening naming consistency across the
-> driver.
-> 
-> Please look below.
-> 
-> > ---
-> >   .../mediatek/vcodec/common/mtk_vcodec_cmn_drv.h    | 13 +++++
-> >   .../mediatek/vcodec/decoder/mtk_vcodec_dec.c       |  4 +-
-> >   .../mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c   | 50 +++++++++++++++++
-> >   .../mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h   | 19 +++++++
-> >   .../vcodec/decoder/mtk_vcodec_dec_stateless.c      | 63 +++++++++++++---------
-> >   5 files changed, 124 insertions(+), 25 deletions(-)
-> > 
-> > diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_cmn_drv.h b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_cmn_drv.h
-> > index 6087e27bd604d24e5d37b48de5bb37eab86fc1ab..c5fd37cb60ca0cc5fd09c9243b36fbc716c56454 100644
-> > --- a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_cmn_drv.h
-> > +++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_cmn_drv.h
-> > @@ -105,6 +105,19 @@ enum mtk_instance_state {
-> >   	MTK_STATE_ABORT = 4,
-> >   };
-> >   
-> > +/**
-> > + * enum mtk_request_state - Stages of processing a request
-> > + * @MTK_REQUEST_RECEIVED: Hardware prepared for the LAT decode
-> > + * @MTK_REQUEST_LAT_DONE: LAT decode finished, the bitstream is not
-> > + *		      needed anymore
-> > + * @MTK_REQUEST_CORE_DONE: CORE decode finished
-> > + */
-> > +enum mtk_request_state {
-> > +	MTK_REQUEST_RECEIVED = 0,
-> > +	MTK_REQUEST_LAT_DONE = 1,
-> > +	MTK_REQUEST_CORE_DONE = 2,
-> > +};
-> > +
-> >   enum mtk_fmt_type {
-> >   	MTK_FMT_DEC = 0,
-> >   	MTK_FMT_ENC = 1,
-> > diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.c b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.c
-> > index 98838217b97d45ed2b5431fdf87c94e0ff79fc57..036ad191a9c3e644fe99b4ce25d6a089292f1e57 100644
-> > --- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.c
-> > +++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.c
-> > @@ -889,8 +889,10 @@ void vb2ops_vdec_stop_streaming(struct vb2_queue *q)
-> >   					src_buf->vb2_buf.req_obj.req;
-> >   				v4l2_m2m_buf_done(src_buf,
-> >   						VB2_BUF_STATE_ERROR);
-> > -				if (req)
-> > +				if (req) {
-> >   					v4l2_ctrl_request_complete(req, &ctx->ctrl_hdl);
-> > +					media_request_manual_complete(req);
-> > +				}
-> >   			}
-> >   		}
-> >   		return;
-> > diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
-> > index 9247d92d431d8570609423156b989878f7901f1c..c80c1db509eaadd449bfd183c5eb9db0a1fc22bd 100644
-> > --- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
-> > +++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
-> > @@ -26,6 +26,56 @@
-> >   #include "mtk_vcodec_dec_pm.h"
-> >   #include "../common/mtk_vcodec_intr.h"
-> >   
-> > +static const char *state_to_str(enum mtk_request_state state)
-> 
-> static const char *mtk_vcodec_req_state_to_str(enum mtk_request_state state)
+Hi Miguel,
 
-I'd keep this one an exception, its local to this C file.
+On 14.04.25 8:14 PM, Miguel Ojeda wrote:
+> Hi Jocelyn, Christian,
+> 
+> I started build-testing arm 32-bit within my other usual routine
+> tests, and I hit:
+> 
+>     ld.lld: error: undefined symbol: __aeabi_uldivmod
+>     >>> referenced by drm_panic_qr.rs:417 (drivers/gpu/drm/drm_panic_qr.rs:417)
+>     >>> drivers/gpu/drm/drm_panic_qr.o:(<drm_panic_qr::SegmentIterator
+> as core::iter::traits::iterator::Iterator>::next) in archive vmlinux.a
+> 
+> which comes from both these `u64` by `u64`:
+> 
+>     let out = (self.carry / pow) as u16;
+>     self.carry = self.carry % pow;
+> 
+> Christian: I guess we can offer a set of `div64` functions using the C
+> ones, at least for the time being, and eventually wire the actual
+> operator with some support from upstream Rust. Or do you have
+> something else in mind? (i.e. I think you have been discussing
+> intrinsics lately)
 
-> 
-> > +{
-> > +	switch (state) {
-> > +	case MTK_REQUEST_RECEIVED:
-> > +		return "RECEIVED";
-> > +	case MTK_REQUEST_LAT_DONE:
-> > +		return "LAT_DONE";
-> > +	case MTK_REQUEST_CORE_DONE:
-> > +		return "CORE_DONE";
-> > +	default:
-> > +		return "UNKNOWN";
-> > +	}
-> > +}
-> > +
-> > +void mtk_request_complete(struct mtk_vcodec_dec_ctx *ctx, enum mtk_request_state state,
-> 
-> void mtk_vcodec_request_complete( ....)
+I think using the C implementations is fine. Not sure how much the
+FFI is going to matter for performance, but it should be rare enough
+that is shouldn't matter (and hopefully we will get cross lang LTO 
+or something similar at some point).
 
-Ack, though the namspace here seems to be "mtk_vcodec_dec", so I'll opt
-for that.
+We could also just implement the intrinsic(s) ourselves, but then 
+the u64 divisions would be implicit which is probably undesired.
+We could also rename the intrinsics so they are only usable from 
+specific crates. 
 
-> 
-> 
-> > +			  enum vb2_buffer_state buffer_state, struct media_request *src_buf_req)
-> > +{
-> > +	struct mtk_request *req = req_to_mtk_req(src_buf_req);
-> > +	struct vb2_v4l2_buffer *src_buf, *dst_buf;
-> > +
-> > +	mutex_lock(&ctx->lock);
-> > +
-> > +	if (req->req_state >= state) {
-> > +		mutex_unlock(&ctx->lock);
-> > +		return;
-> > +	}
-> > +
-> > +	switch (req->req_state) {
-> > +	case MTK_REQUEST_RECEIVED:
-> > +		v4l2_ctrl_request_complete(src_buf_req, &ctx->ctrl_hdl);
-> > +		src_buf = v4l2_m2m_src_buf_remove(ctx->m2m_ctx);
-> > +		v4l2_m2m_buf_done(src_buf, buffer_state);
-> > +		if (state == MTK_REQUEST_LAT_DONE)
-> > +			break;
-> > +		fallthrough;
-> > +	case MTK_REQUEST_LAT_DONE:
-> > +		dst_buf = v4l2_m2m_dst_buf_remove(ctx->m2m_ctx);
-> > +		v4l2_m2m_buf_done(dst_buf, buffer_state);
-> > +		media_request_manual_complete(src_buf_req);
-> > +		break;
-> > +	default:
-> > +		break;
-> > +	}
-> > +
-> > +	mtk_v4l2_vdec_dbg(3, ctx, "Switch state from %s to %s.\n",
-> > +			  state_to_str(req->req_state), state_to_str(state));
-> > +	req->req_state = state;
-> > +	mutex_unlock(&ctx->lock);
-> > +}
-> > +
-> >   static int mtk_vcodec_get_hw_count(struct mtk_vcodec_dec_ctx *ctx, struct mtk_vcodec_dec_dev *dev)
-> >   {
-> >   	switch (dev->vdec_pdata->hw_arch) {
-> > diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h
-> > index ac568ed14fa257d25b533b6fd6b3cd341227ecc2..cd61bf46de6918c27ed39ba64162e5f2637f93b2 100644
-> > --- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h
-> > +++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h
-> > @@ -126,6 +126,17 @@ struct mtk_vcodec_dec_pdata {
-> >   	bool uses_stateless_api;
-> >   };
-> >   
-> > +/**
-> > + * struct mtk_request - Media request private data.
-> > + *
-> > + * @req_state: Request completion state
-> > + * @req: Media Request structure
-> > + */
-> > +struct mtk_request {
-> 
-> Maybe mtk_vcodec_dec_request? :-)
+I think we need the opinion of the some arm people here.
 
-Ack.
+CC Russell King and Linus Walleij.
 
-> 
-> > +	enum mtk_request_state req_state;
-> > +	struct media_request req;
-> > +};
-> > +
-> >   /**
-> >    * struct mtk_vcodec_dec_ctx - Context (instance) private data.
-> >    *
-> > @@ -317,6 +328,11 @@ static inline struct mtk_vcodec_dec_ctx *ctrl_to_dec_ctx(struct v4l2_ctrl *ctrl)
-> >   	return container_of(ctrl->handler, struct mtk_vcodec_dec_ctx, ctrl_hdl);
-> >   }
-> >   
-> > +static inline struct mtk_request *req_to_mtk_req(struct media_request *req)
-> 
-> ...and this could become req_to_dec_req ... but no strong opinions on this one
-> specifically, so feel free to keep this as it is.
 
-Something like that, very subtle at this point.
+I'm not sure what could be done in upstream rust to help here
+and that would probably need be a very specific features for the
+kernel.
 
-> 
-> > +{
-> > +	return container_of(req, struct mtk_request, req);
-> > +}
-> > +
-> >   /* Wake up context wait_queue */
-> >   static inline void
-> >   wake_up_dec_ctx(struct mtk_vcodec_dec_ctx *ctx, unsigned int reason, unsigned int hw_id)
-> 
-> After which....
-> 
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-thanks,
-
--- 
-Nicolas Dufresne
-Principal Engineer at Collabora
+Cheers
+Chrisitan
 
