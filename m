@@ -4,213 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FE85C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 08:44:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB1FDC369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 08:46:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nZMwd7uZWgLGy/domUcI3mPimVYEvLWMYAIsEWrEXxA=; b=bi694aFEOJPl0hPJFhSMt36rtI
-	xe/u3uMUSOniDr7BzUjZwkNGzevIEPhVWIuu0YO9wKuZXjzg5U/flhsou5ITCAfQ6cEhjtg5VoAIP
-	K9SYG/BKiAhrOFgbtUUwR8jrR48jFBWbXlaAA8pt/TVRAjrUqaVD4PtA6hJ0vbrrLIPWZMHCtj57t
-	SM3i+3MT7vuuXUXDb4i+QdSR1PmWcn6Krs84Xuwwktu/1TuaxDlczSGBtFm1YkK4IYAubn5sKSE8Z
-	3/FTCBGRfSMlzTmJNey+wPFC4QlxVBbKJsPsQHZLrD2iOHrwCJTtR1MkKZEK0xkuR9cFD6s33ctll
-	8g3hCk9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=WXq4f+qNSQa/AaUN4fDNIHXG0CZfYvmELgN3BHkzoyY=; b=te9EhCsbipIsyH
+	MmvFKGJQ3AV+7lZRux9pwQLZyy2X+WNdD7x1jBak0DNR0LGMF78lZhAuXw+ckmVDpL+Mx+aC2n9H8
+	VDYEFxLDN5jDVqZrPJxffUachYEjXqM+GmazjN6WD47t97c8apAvA9KxIW4D3ur5Yoh41UZi0MRoT
+	lEFUXs54YmvKc7+gPQb2PjzPOMCyBjrvtTW1+b3Bq9CGB/XeItVLYaE5SQewbtOpejoyqVpPsa7Im
+	UHWRaHnXkHPY9X//CqomDQHhx2pHi2HqiwhuFj9kb45dLa0j6sMuasDruchLopsG0J9RQ8W9pG9PR
+	4PSXEtSqt99ECoEQumqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4FQg-000000019Se-3FgN;
-	Mon, 14 Apr 2025 08:44:34 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1u4FSV-000000019sN-2Dv1;
+	Mon, 14 Apr 2025 08:46:27 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4FOm-0000000194s-1191;
-	Mon, 14 Apr 2025 08:42:39 +0000
-X-UUID: 65faea0c190c11f083f2a1c9db70dae0-20250414
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=nZMwd7uZWgLGy/domUcI3mPimVYEvLWMYAIsEWrEXxA=;
-	b=K/xBOnU0glqwQYdwXFRo9IY531ohMWMIadr3cKjLu3NONjAVarsfAbMB8oeNNbI5QNFt+DH3MY87HdF5yIp0jS/n1OtnPdS9x8BfFZY+BVqx2xV2MB/cQrDMk8lrPy0z7miPlQdGhDI0v6GetZSCA0SXA2PB6YiblfnJdhEU2n8=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:8a99ef79-7c7c-4345-94e3-c31a9ce3e339,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:7790388b-0afe-4897-949e-8174746b1932,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111,TC:nil,Conte
-	nt:0|50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,
-	OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 65faea0c190c11f083f2a1c9db70dae0-20250414
-Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw01.mediatek.com
-	(envelope-from <chun-jen.tseng@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 2088292261; Mon, 14 Apr 2025 01:42:28 -0700
-Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+	id 1u4FPM-000000019C8-282k
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 14 Apr 2025 08:43:14 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53DHa1xh001993;
+	Mon, 14 Apr 2025 08:43:04 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=WXq4f+qNSQa/AaUN4fDNIH
+	XG0CZfYvmELgN3BHkzoyY=; b=PunuDS0hoya2+4Q01Mj1GC18AMnMm8sWCWavbR
+	w4XO03Pe0Oil2isqMfRS2hyFwsmbWHkhfbz+6F6mBkqZ7FZQGjWrELf73v1axB8U
+	7tEifr/DPNaIIAdxNNtJXu+9PTeoaupO7W3IsyOR0EltAJDrd/Z1HuOGOR5nQWnx
+	7vGQ+qCkmXhMIM/4yWI7gvKhLgHEZHI6XVfrPxNNIkkxySd8Ij5ylv23ud9oMfZy
+	xwx0PIrq95y6U5M8yvMWqcQiNykuitueVw1/M6GqqtE4hL4qCgNRhsY9UGeJiMWB
+	mDTaBMYVmkrGpEZaNO7S41EWPjfcZF3JX2Ebc6zrajBo/2tQ==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45ygj93v5x-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 14 Apr 2025 08:43:04 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53E8h3rg031892
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 14 Apr 2025 08:43:03 GMT
+Received: from hu-tdas-hyd.qualcomm.com (10.80.80.8) by
+ nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Mon, 14 Apr 2025 16:42:26 +0800
-Received: from APC01-PSA-obe.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Mon, 14 Apr 2025 16:42:26 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZhLWjPaYnJ5Um6Q+oWNlY2lf1KIlgYF6GtSOeG2PaMwPuUzfVTZfcYSDgFar9R2OQ8Kl5ym/jGiHwHli4oqx51xqpnFMkai0LpIh2V2yfuGM88yqk87mLaqGYR/Y4Lw/w9pkRnIGj+GUj+XrU/r+q/q2TSP59i985JncNqpGoomsq69Pi1mY1byzk/OQSad88o4x6lvdGHgdRv/R2VhzcOcsjPWhi5X9wKEph6yfYhe4h1ulwSghdnd1OGoPw8fZ7MXAeBU9fm1k4AiEwqxHgnirSTTg1LsGlsM529qGNV7+taW4hJGMqyiPBOuRtlNwVtGmXzfc1ivsc0xxRpRFAw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nZMwd7uZWgLGy/domUcI3mPimVYEvLWMYAIsEWrEXxA=;
- b=DIPKvrckjpYcw6Z6Tj5/WnMy7vJrgeCl87VWbaAsx7wjtAsMj2iUmacGPb5Mw2PzAFrPqKX8mF9lBlROlpvAj3VjxGrBJk2F5y7bRtBXCWokHMkuD/e/h1cjbfCqNlGbauOAPS/NRUERrRMTWtgdu7NQ2H5G3w1bv3b9J977Jn4y7c5K9g1wlxEBXvJX77iz5VfsjICRkkFHhTAbOBzOakQnXv8OTYJRuDsHmVZbJte7LAuzFj92tZSyjzDuil1b4tJexI1xav6Zj4C+B/GQOOphnD8aDmDKWWyIH/u6J3vUesQgxfTA4K+h9ZlMimYTdfq8ZYZf7TFpwJ0bFr0wxg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nZMwd7uZWgLGy/domUcI3mPimVYEvLWMYAIsEWrEXxA=;
- b=UHa1xhVmPRLs3rDz+6+Vc82INOZjO3hj0tNHYts0fftZlgQcgza9Ro0D4YsT+OgC37guH5vBJiBvyf3HMskUP4g2wlKVWXQu1IKc7SMHURiOT1+nfQGaYElc85TggLgYMH9qnWd7M+QbdN4ZS9qNtGZi3a18rRMV9+1O5GaUXp8=
-Received: from PSAPR03MB5351.apcprd03.prod.outlook.com (2603:1096:301:40::11)
- by SEZPR03MB6444.apcprd03.prod.outlook.com (2603:1096:101:48::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.31; Mon, 14 Apr
- 2025 08:42:23 +0000
-Received: from PSAPR03MB5351.apcprd03.prod.outlook.com
- ([fe80::c9d6:2574:8710:24fd]) by PSAPR03MB5351.apcprd03.prod.outlook.com
- ([fe80::c9d6:2574:8710:24fd%5]) with mapi id 15.20.8632.030; Mon, 14 Apr 2025
- 08:42:22 +0000
-From: =?utf-8?B?Q2h1bi1KZW4gVHNlbmcgKOabvuS/iuS7gSk=?=
-	<Chun-Jen.Tseng@mediatek.com>
-To: "viresh.kumar@linaro.org" <viresh.kumar@linaro.org>
-CC: "cw00.choi@samsung.com" <cw00.choi@samsung.com>, "rafael@kernel.org"
-	<rafael@kernel.org>, Project_Global_Chrome_Upstream_Group
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>, "AngeloGioacchino Del
- Regno" <angelogioacchino.delregno@collabora.com>, "myungjoo.ham@samsung.com"
-	<myungjoo.ham@samsung.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "kyungmin.park@samsung.com"
-	<kyungmin.park@samsung.com>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>, "linux-pm@vger.kernel.org"
-	<linux-pm@vger.kernel.org>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>
-Subject: Re: [PATCH v3 1/3] cpufreq: mediatek: using global lock avoid race
- condition
-Thread-Topic: [PATCH v3 1/3] cpufreq: mediatek: using global lock avoid race
- condition
-Thread-Index: AQHbfrQ2e/+qwhbOe0mntrlJoHcSLbNOJJ+AgC3AXICAAVjNAIAACfiAgAAITgCABIoWAIAAJ8+AgCEy6oA=
-Date: Mon, 14 Apr 2025 08:42:22 +0000
-Message-ID: <06356a55cdb3c34dfc716349d1967f95655b0ab2.camel@mediatek.com>
-References: <20250214074353.1169864-1-chun-jen.tseng@mediatek.com>
-	 <20250214074353.1169864-2-chun-jen.tseng@mediatek.com>
-	 <20250219054209.erwfp7sgzchaiuds@vireshk-i7>
-	 <e8337c5eee0cadb797bacf26b00f1ca303c5147f.camel@mediatek.com>
-	 <20250321045624.mwm2mnkqeow5uids@vireshk-i7>
-	 <2a73b5ca35692c8ffa68c9ff0df73e24a592967d.camel@mediatek.com>
-	 <20250321060148.adhxjexpnm4dkpnt@vireshk-i7>
-	 <e1c2c12bace22d1803d16ecbfb32129518d87157.camel@mediatek.com>
-	 <20250324054333.sgwwksawnybx3lp4@vireshk-i7>
-In-Reply-To: <20250324054333.sgwwksawnybx3lp4@vireshk-i7>
-Accept-Language: zh-TW, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PSAPR03MB5351:EE_|SEZPR03MB6444:EE_
-x-ms-office365-filtering-correlation-id: de63c491-d0e5-4ce0-ca80-08dd7b304674
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?NmZYRTIxU2pxZXlLWnhWQzBSVGY4Q0FiQ3lCMVM4MEcxY094MWlLUUFBZ0pR?=
- =?utf-8?B?bjlqNVVtS1JmVTJZUE1SM3p6MXl2YXFJV1JGVkdhcDJnZTlteFFRbURmbW44?=
- =?utf-8?B?MThHSklZbTd3NmtBQ0dvdTNtamlaRVdneDFjQjRSTm9lVHhScXlsM2k5dHNI?=
- =?utf-8?B?OW5JLzlydGhxSC8zSWNWbTgyc1Jzc25FaWl0TzMzM0dNUGNsL0FNYmdpV2wv?=
- =?utf-8?B?NUtkU290NGNLRDNjRE0rRkovMW9ST08zRlJHQzNpa0hXSGMwMnpqVWIvNUcv?=
- =?utf-8?B?OHREQ3BDL0ViNkpxYWJnQ3U3SzNwUXBjZUlkT3Y4czgwYmJWT21rdlBOQUlG?=
- =?utf-8?B?b1M0bnc2a3VvVmZQOGlFZlZsSFd0VTBTSFE1bGFBR1duYTBwRjlNdU02aXdZ?=
- =?utf-8?B?Zmd6YzE4dEJGTVdrOThITUw0KzhiY2RKWktUdGpSQnJrZE92dnJ5TmZJMkIv?=
- =?utf-8?B?ZmdXOEFVVW1pZldESEJjdThveDVMMnpxRVNTQURmVFFZYlNiZWFVUVZ3OFVK?=
- =?utf-8?B?aUgvS1A0OWJyVHczSzd4SVFwVmhpeHJ6WkUydzl5SklFY2JITm5tUXBvbEpR?=
- =?utf-8?B?OTZMckNlTEFRa3lkRkVnNEt1S0VDamtHR1k0Q3BGTy8xWWxJLzMvVUxHVDRZ?=
- =?utf-8?B?bHdoL2tpdmRITmZJejg4RHBteFJOcFJOcGMvb21jekZ2dEJHTDg1VVN3N3pH?=
- =?utf-8?B?RUk5SEc5NWxkL3JVN0hCRGhnb1Y2ZTg1VitZU01RZjNMdVV6THMyaWE4UDJr?=
- =?utf-8?B?Ylh4akQ0d21QUnNJMkROYllxMnMxZ1B3VCtneWZZcnVyV1kyMUNaK3paZ2ox?=
- =?utf-8?B?QjVFUkUybERkNGtZVDhIY3ptald4YUFoWU1CM3ZvaE9SbjhPSjR6WVg4UjVU?=
- =?utf-8?B?V29DQ25tenZNRWs3dmRCQit1ZkhtQkhKdlpCSE5vNlQxM0NWMnVWdm15UzMv?=
- =?utf-8?B?UnJJcjRMaXBwSHJWSVAxOE5ZYzloVjlPYkxkMTVJaXNkZ29SdFVGWlJSOSs3?=
- =?utf-8?B?MEp0U29vcVo5aTJMT3U0cVZQWW51K3lmVFRML0pGdFNVM0cxeG1ML1Y5WTVG?=
- =?utf-8?B?bjZLSUREdU5ZZXNuekx6VGI1a3hyNGlyUnBQTThHRVYxbTEzZXpPTTg3ZWNq?=
- =?utf-8?B?bDdUMXBkNmFRbjR4NzVOSzVTMy9PTFAwejFSTVhaY0ZrWjljTlV0V2hpbmdr?=
- =?utf-8?B?bm12TTBLS0VGYko3Nm92TXl3Nm8rYW10VVBoT0hrRGczOHhVTnJiRVFTQXpO?=
- =?utf-8?B?MlAvYzhvMjQrNVZCTW5PbjdqdUNqL2VRNFNhYlJOK0pQempzQmk0OUpsZ1RK?=
- =?utf-8?B?YitzNkt5RjVDNkJuclRaRmd4NndsLzVIU3ljTjhpdzRiWDNueEU2cTBRNVps?=
- =?utf-8?B?a3ZnVlVOMDRkSkNTNzBXZlR0SncwVnRBTk10cU83UXJWQmt5QzNwUzZnM3Jh?=
- =?utf-8?B?djU1Q3plWUN5RjE0NlExZDU0NjRnQ0x1eFlDRmJxeXVVVjNnUk5ZRFBURlFK?=
- =?utf-8?B?eERlelA0NEU1blI5dk14ZmkvYkZDTENrdGc3L2x4bVF0MEI2UTZjTEpYUjRh?=
- =?utf-8?B?REphVzJ5WXRSZURob1gzRDVWa0U4RzJWQVBKZldQQ21GaXR5TXQ3dzRSQTB5?=
- =?utf-8?B?WFA3UzA0cDJGYThuQXFmYWQzZlBtRlBFNXp1YVJiS3NrUU5iM0hBR1piSjBa?=
- =?utf-8?B?aFY1U3NYZDVCbGNHY09uWGk2RnVFR3lIT0YyMmRGbm44NDU1bEV2WVkxVmJl?=
- =?utf-8?B?U05oMnJPMkVOSmhRQXI5UE1MMXNKYXFwaStGTUl1NmdmbVY1dy9oUGkvQVhk?=
- =?utf-8?B?RUFEWHFjQUdnNVpLMFd5djdJaEw0V2RIOWlTWGkzUmt5OFlYRm1JZ0Y1UVNl?=
- =?utf-8?B?UUxnTmJJa2ttZzNsb0p1cEtrUDFWcDE0VUUrZmVwclVJbjhqeDRCZnRtNnFW?=
- =?utf-8?B?UjUweVZCOFRRMVJrcVJzb0hoSHcxMkpPM25SZzI2cEhoczBRbmIvNkJjSCsz?=
- =?utf-8?B?MDVxb21oNlVnPT0=?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PSAPR03MB5351.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?ZFQ3U0JXT2xsS3BUM3VBZUhVeEgrTTRpaGQ0RmlVUHZUOGJHNjJ5Z1JIVlJI?=
- =?utf-8?B?L3N6K3lHMGZ0TnhVeUNkbDBvT0FkREV4bEZzTXNibU9ZcFBQNjUyUjBqL1pZ?=
- =?utf-8?B?MWxTSjNGZFV0N3JQbW4rU09oOCt6WS9zdk1FZE9XWVBqQnI2RFZLYmM4WE1n?=
- =?utf-8?B?MzNEQTU3dHN4VVR3S3JHT1hBN2QxYXdkaWVJQ2pWcXlFaFkrWDBTYUE4OFRT?=
- =?utf-8?B?dXcrSjRpM1cyVC90SDdtcTJYVzQzTnB5cFd5d0JlcWVwZEM1WlorVUlUY1E1?=
- =?utf-8?B?QzN0aHJncmVPUk9scHg4V0R0ZjBUTHhkbXhmUFplL0xvN3A4RlhKWGozWm9P?=
- =?utf-8?B?Y2E4ODdjSFhPVWhCQ0xpMWtTZHdkckpuRStHUVQrSnF4NHd2YTlQUXY1djBh?=
- =?utf-8?B?QmpURmwvM3RLdlM2ZFoyRFRtL1FzeWJieVBxM3dvWk9BQXFIbDZtZldKVVFO?=
- =?utf-8?B?MzB0NS9pdzNnMmhhQVB5c0dhaDVUT2tDVEIyQkFQRmt3UHZoV1ExdERTcGZI?=
- =?utf-8?B?bGJvMVF4QkhjOXpjTDNpUjk2clNJWktpWkVqUFFxQ203dkZIU1hBNEt5UkxF?=
- =?utf-8?B?QkU0ZUtzWE9Wb0xJeFdDMDgvRzl2Z2Rjb0tudFJMckNTYVAyc3EzRkFjTnZQ?=
- =?utf-8?B?bjA5bVA4cExYcFhOdFRGSHdmdFVab3AyLzBaWjJHV1l3eDVqZktxdWhRc2VC?=
- =?utf-8?B?OURoNmRxc0JzTWxCRUxaM1JRWU9zWTlwVWY0RDA0dm1CaXp5ZjQvVmZKSk1r?=
- =?utf-8?B?REI5YnVyUTV2ckNKQlpDRFBaYm5hdU9salZhV0p1MXZnV2JnM3ZFSGNLRmpY?=
- =?utf-8?B?dkpodEpkRDB1VWFYc3BqMjVsUmh6Q3FKVmZmVWQrMHlremZXclk3bnRhaWJl?=
- =?utf-8?B?VHZ5RFNiSnMwUXlYeC85SFRxT1gxdFZkUmVIODJiVUdIZ3lidnpXMk11TlBY?=
- =?utf-8?B?ZjdVZ3VkK3l2UTlnT003Ri9SMCttQmtyN0Fkb2I4OEdNckpkNERGUERxcmR0?=
- =?utf-8?B?VGtyQm9MbXFlanFJRExOd0tCQjNRU0s3clhoL0ZrRjBKa3ZmRDVjS0w5NGtQ?=
- =?utf-8?B?WHZsUGpjVkU5MEx5angxSjhOOVBybGJoZkNPREN6R2pocEVRVFFQU0dtNGpU?=
- =?utf-8?B?KzhiRno3K0xvVVE0VXFITStEUlhmN2NhRzZ0YTZKMXVDYTVFQXh6ZWd1TUhz?=
- =?utf-8?B?K1Y5OVQ5bTh5WTZ2c3g3WGFnNGFIZGF2dHEzS2t3UzVCR1h6NW02VGlmNDI3?=
- =?utf-8?B?UDVqTjIvRjRuRXFtb1JNSXhEZWtJZ2tGUkgvM012dE1lNkxpWWxEbWxTMkpS?=
- =?utf-8?B?OHdaOHMyMTV6Z1RVTWtJc1NTVHV4SVRZenF4bUJlZXBVeGFMOGczRjVXMUdV?=
- =?utf-8?B?Z0lxOGNuakxNMmQrdUV2Wmx6YWJRdXB1VzVYczFKU1luZVR5TUdIYzZKYWFo?=
- =?utf-8?B?a1dqci91b3d2cFNVbjlYZzN0eStvaXVhMDRsTXpnZjlXSmVnTmtUMzdKL3No?=
- =?utf-8?B?UGV2L3paZ2o3YW5YZDkxeStZOVZoR2taN1hXZWNLWXg5SHBKdDdPNGl5QnpF?=
- =?utf-8?B?SXM3YTd5MzJ5Zm55VHBEZDhzaWJ0YTdRdkg3Vmp6MHdqalhMclJyWTkwbC80?=
- =?utf-8?B?U0hXazlRUUIzZmdrSW16eUw5NTZlYzllRnd5a0EyQmVoem1GOXVHak42dDN3?=
- =?utf-8?B?dEoyN0Fxa2NuRDhzTUdUNXk4SHZ0aGpQa09UOHZYSStDN0VsTDNLWWtLcC81?=
- =?utf-8?B?UDY0K2NDSFVaQis3Z0M0aUFSdkkvbVVSc3N5UVNEWjRhMU5lRnhibjFtcldM?=
- =?utf-8?B?NENYZjczZVRENkxXeHZlTE5QWW5LVFE4ZDhNRmtxOVhDaW81VWxIVjJMMnZK?=
- =?utf-8?B?VlFiVWRxSFJjSksvUkRxRjQ4QnA3c3ROckxMZXFmdktlbjZNMXhuRFFlUXYr?=
- =?utf-8?B?cG8wc3hsQ2ZYVU1GanMzZzVYeTc5ZFlvZXRXcExyb0E1eG5PU29ubXB5L244?=
- =?utf-8?B?cFVYeGJSenBEdTM3MVF1bklCL2syb1ByZFVNQldOQzF6WXVkZVRGdjY0Q1BJ?=
- =?utf-8?B?Mzk1SjBPQlp2UC9PM0ZYR3UrK3kxc3ViRDhmdjdUWkFXc0dVYlVsS3dPLzNM?=
- =?utf-8?B?MktIN3pqOE5VV1k2cUtCeE1LT2RQWmVYRk8xOXlZTzlrYWlGMnNnM29ZakNw?=
- =?utf-8?B?bHc9PQ==?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <F7F3036CC88628478B595CD16A709375@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+ 15.2.1544.9; Mon, 14 Apr 2025 01:42:57 -0700
+From: Taniya Das <quic_tdas@quicinc.com>
+Subject: [PATCH v7 00/10] Add support for videocc, camcc, dispcc and gpucc
+ on Qualcomm QCS615 platform
+Date: Mon, 14 Apr 2025 14:12:11 +0530
+Message-ID: <20250414-qcs615-mm-v7-clock-controllers-v7-0-ebab8e3a96e9@quicinc.com>
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PSAPR03MB5351.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: de63c491-d0e5-4ce0-ca80-08dd7b304674
-X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Apr 2025 08:42:22.6853
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: VrtJ53sNsgxfTq+2ydeT0gQ2PLmREl8tX8K5g5pKXSdGbLoWrgpqe1QC9sCf5UsTsgQ5WN6nfwTR83PQjhwjmm/ktL1b1rfwi/iCq/9I158=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR03MB6444
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGTK/GcC/x3NTQ6CQAxA4auQrm3C/CDiVYwLqUUbhxlsDTEh3
+ N2Jy2/z3gbGKmxwbjZQXsWk5Ir+0AA9b/nBKPdq8K3v2ugivsmOrsN5xrVHSoVeSCV/tKTEaui
+ HMZxCGOPgJqiRRXmS739wue77DyI1imdwAAAA
+X-Change-ID: 20250414-qcs615-mm-v7-clock-controllers-29b3833b491f
+To: Bjorn Andersson <andersson@kernel.org>,
+        Michael Turquette
+	<mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon
+	<will@kernel.org>
+CC: Ajit Pandey <quic_ajipan@quicinc.com>,
+        Imran Shaik
+	<quic_imrashai@quicinc.com>,
+        Jagadeesh Kona <quic_jkona@quicinc.com>,
+        <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Taniya Das <quic_tdas@quicinc.com>,
+        Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+        Bryan O'Donoghue
+	<bryan.odonoghue@linaro.org>,
+        Dmitry Baryshkov <lumag@kernel.org>
+X-Mailer: b4 0.15-dev-aa3f6
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: G2iDjs8pC2RDSxwd8K1LDDMl56oCMAiy
+X-Authority-Analysis: v=2.4 cv=PruTbxM3 c=1 sm=1 tr=0 ts=67fcca98 cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=VwQbUJbxAAAA:8 a=COk6AnOGAAAA:8 a=pGLkceISAAAA:8
+ a=qvAcXBSyIl58lO48RIsA:9 a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-GUID: G2iDjs8pC2RDSxwd8K1LDDMl56oCMAiy
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-14_02,2025-04-10_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 bulkscore=0
+ priorityscore=1501 malwarescore=0 adultscore=0 lowpriorityscore=0
+ impostorscore=0 clxscore=1011 spamscore=0 mlxscore=0 mlxlogscore=999
+ phishscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2504140061
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_014236_303617_7A3FF2E2 
-X-CRM114-Status: GOOD (  20.40  )
+X-CRM114-CacheID: sfid-20250414_014312_683740_626DDD49 
+X-CRM114-Status: GOOD (  14.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -225,51 +122,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgVmlyZXNoLA0KDQpUaGUgQ0NJIGxldmVsIGNob29zZSBieSBNYXhfTGV2ZWwoTENQVSAmIEJD
-UFUgZnJlcXVlbmN5KSBpbiBkZXZmcmVxDQpkcml2ZXIuDQp3aXRob3V0IGdsb2JhbCBsb2NrLCBJ
-dCBtYXkgY2hvb3NlIHdyb25nIENDSSBsZXZlbCBhbmQgY2F1c2Ugc3lzdGVtDQpzdGFsbC4NCg0K
-SSBob3BlIHRoaXMgZmxvdyBpcyBzZXJpYWwgc2V0dGluZyBsaWtlLCBCQ1BVIC8gTENQVSBzZXQg
-ZnJlcXVlbmN5IC0+DQpzZXQgQ0NJIGxldmVsIC0+IEJDUFUgLyBMQ1BVIHNldCBmcmVxdWVuY3kg
-LT4gc2V0IENDSSBsZXZlbCAtPiAuLi4uLi4NCg0Kd2l0aG91dCBnbG9iYWwgbG9jaywgaXQgY291
-bGQgYmUgTENQVSAvIEJDUFUgc2V0IGZyZXF1ZW5jeSAtPiBzZXQgQ0NJDQpsZXZlbChkdXJpbmcg
-dGhpcyB0aW1lLCBpdCBtYXkgY2hhbmdlIEJDUFUgLyBMQ1BVIGZyZXF1ZW5jeSBhbmQgY2F1c2UN
-CnN5c3RlbSBzdGFsbC4NCg0KSSBhbHNvIGNhbiBvbmx5IGRvIGdsb2JhbCBsb2NrIG9uIGNjaWZy
-ZXFfc3VwcG9ydCBTb0MuDQoNCkJScywNCg0KTWFyayBUc2VuZw0KDQpPbiBNb24sIDIwMjUtMDMt
-MjQgYXQgMTE6MTMgKzA1MzAsIFZpcmVzaCBLdW1hciB3cm90ZToNCj4gDQo+IEV4dGVybmFsIGVt
-YWlsIDogUGxlYXNlIGRvIG5vdCBjbGljayBsaW5rcyBvciBvcGVuIGF0dGFjaG1lbnRzIHVudGls
-DQo+IHlvdSBoYXZlIHZlcmlmaWVkIHRoZSBzZW5kZXIgb3IgdGhlIGNvbnRlbnQuDQo+IA0KPiAN
-Cj4gSGksDQo+IA0KPiBUaGFua3MgZm9yIHNoYXJpbmcgdGhlIGRldGFpbHMgdGhpcyB0aW1lLCBp
-dCBtYWtlcyBpdCBtdWNoIGNsZWFyZXINCj4gbm93Lg0KPiANCj4gT24gMjQtMDMtMjUsIDAzOjIx
-LCBDaHVuLUplbiBUc2VuZyAo5pu+5L+K5LuBKSB3cm90ZToNCj4gPiBJIHRoaW5rIHRoZSBiZXN0
-IGNvbmZpZ3VyYXRpb24gc2VxdWVuY2UgaXMgYXMgZm9sbG93czoNCj4gPiDCoCBjcHVmcmVxIHBv
-bGljeSAtPiBzZXQgZnJlcXVlbmN5IC0+IENDSSBnb3Zlcm5vciBnZXQNCj4gPiBDUFVGUkVRX1BP
-U1RDSEFOR0UgTkIgLT4gY2hvb3NlIENDSSBmcmVxdWVuY3kgLT4gc2V0IENDSSBmcmVxdWVuY3kN
-Cj4gPiANCj4gPiBIb3dldmVyLCBpbiBkcml2ZXJzL2RldmZyZXEvZ292ZXJub3JfcGFzc2l2ZS5j
-I0w3NywNCj4gPiBnZXRfdGFyZ2V0X2ZyZXFfd2l0aF9jcHVmcmVxKCkgcmV0cmlldmVzIHRoZSBj
-dXJyZW50IGZyZXF1ZW5jeSBvZg0KPiA+IGVhY2gNCj4gPiBwb2xpY3ksDQo+ID4gYW5kIGl0IGRl
-dGVybWluZXMgdGhlIENDSSBmcmVxdWVuY3kgYmFzZWQgb24gdGhlIGZyZXF1ZW5jeSBvZiBlYWNo
-DQo+ID4gcG9saWN5Lg0KPiA+IA0KPiA+IEJ1dCBpZiBwb2xpY3ktMCBhbmQgcG9saWN5LTYgZW50
-ZXIgc2ltdWx0YW5lb3VzbHksIHRoZSBDQ0kgZ292ZXJub3INCj4gPiBtaWdodCBnZXQgYW4gaW5j
-b3JyZWN0IGZyZXF1ZW5jeS4NCj4gDQo+IFllcyBpdCBtYXkgZmV0Y2ggdGhlIGN1cnJlbnQgZnJl
-cXVlbmN5IChvciBsYXN0IGtub3duIG9uZSksIGJ1dCB0aGF0DQo+IHNob3VsZG4ndCBiZSBhIHBy
-b2JsZW0gYXMgdGhlIHBvc3RjaGFuZ2Ugbm90aWZpY2F0aW9uIGZvciBwb2xpY3ktNg0KPiBzaG91
-bGQgZ2V0IGNhbGxlZCByaWdodCBhZnRlciBhbmQgc2hvdWxkIGZpeCB0aGUgaXNzdWUuIFJpZ2h0
-ID8NCj4gDQo+IEkgZG9uJ3QgdGhpbmsgdGhpcyBpcyBhIHJhY2UgYW5kIGlmIHRoaXMgcmVxdWly
-ZXMgZml4aW5nLiBjbGtfZ2V0KCkNCj4gZm9yIGFueSBkZXZpY2UsIHdpbGwgYWx3YXlzIHJldHVy
-biB0aGUgbGFzdCBjb25maWd1cmVkIHZhbHVlLCB3aGlsZQ0KPiB0aGUgY2xvY2sgbWlnaHQgYmUg
-Y2hhbmdpbmcgYXQgdGhlIHNhbWUgdGltZS4NCj4gDQo+IFdoYXQncyBpbXBvcnRhbnQgaXMgdGhh
-dCB5b3UgZG9uJ3QgZ2V0IGFuIGluY29ycmVjdCBmcmVxdWVuY3kgKGFzIGluDQo+IGJhc2VkIG9u
-IGludGVybWVkaWF0ZSB2YWx1ZXMgb2YgcmVnaXN0ZXJzLCBldGMpLiBOb3RlIHRoYXQgdGhlIGxh
-c3QNCj4gY29uZmlndXJlZCBmcmVxdWVuY3kgaXNuJ3QgYW4gaW5jb3JyZWN0IGZyZXF1ZW5jeS4N
-Cj4gDQo+ID4gY3B1ZnJlcSBwb2xpY3ktMCAtPiBzZXQgZnJlcXVlbmN5IC0+IENDSSBnb3Zlcm5v
-ciBnZXQNCj4gPiBDUFVGUkVRX1BPU1RDSEFOR0UgTkIgLT4gY2hvb3NlIENDSSBmcmVxdWVuY3kg
-LT4gc2V0IENDSSBmcmVxdWVuY3kNCj4gPiA9PiBkdXJpbmcgdGhpcyB0aW1lLCB0aGUgQ0NJIGdv
-dmVybm9yIGdldHMgcG9saWN5LTAgYW5kIHBvbGljeS02LA0KPiA+IEJVVA0KPiA+IHBvbGljeS02
-IG1heSBjaGFuZ2UgZnJlcXVlbmN5IGJ5IGNwdWZyZXEgZHJpdmVyIGF0IHRoZSBzYW1lIHRpbWUu
-DQo+IA0KPiBTdXJlLCBhbmQgSSBkb24ndCBzZWUgYSBwcm9ibGVtIHdpdGggdGhhdC4gVGhlIGlz
-c3VlIGlzIHRoZXJlIG9ubHkgaWYNCj4gd2UgY2FuIHJlYWNoIGEgc3RhdGUgd2hlcmUgQ0NJIGlz
-IGxlZnQgY29uZmlndXJlZCBpbiB0aGUgd3Jvbmcgc3RhdGUuDQo+IFdoaWNoIEkgZG9uJ3QgdGhp
-bmsgd291bGQgaGFwcGVuIGhlcmUgYXMgdGhlIHBvc3RjaGFuZ2Ugbm90aWZpZXIgd2lsbA0KPiBn
-ZXQgY2FsbGVkIGFnYWluLCBmb3JjaW5nIGEgc3dpdGNoIG9mIGZyZXF1ZW5jeSBhZ2Fpbi4NCj4g
-DQo+IC0tDQo+IHZpcmVzaA0KDQo=
+Add support for multimedia clock controllers on Qualcomm QCS615 platform.
+Update the defconfig to enable these clock controllers.
+
+Global clock controller support
+https://lore.kernel.org/all/20241022-qcs615-clock-driver-v4-0-3d716ad0d987@quicinc.com/
+
+Changes in v7:
+- Update DT bindings for CAMCC, DISPCC, VIDEOCC, GPUCC to remove the
+  common bindings and add reference to "qcom,gcc.yaml" [Krzysztof]
+- Fix the following in the alpha pll code [Bjorn]
+	- double space removal in clk_alpha_pll_slew_set_rate
+	- fix the alpha_width from dynamic to 'ALPHA_REG_BITWIDTH'
+	- cleanup the programming of lower/upper_32_bits of 'alpha'
+	- update the comment for 'mb()'
+- Link to v6: https://lore.kernel.org/all/20250313-qcs615-v5-mm-cc-v6-1-ebf4b9a5e916@quicinc.com/
+
+Changes in v6:
+- Remove wrongly RB-By tags which got introduced in v4 and was carried
+  to v5 as well.
+- Adding the reference where the tags were added and dropped.
+  -[01/10] clk: qcom: clk-alpha-pll: Add support for dynamic update for slewing PLLs
+    - RB-By from Imran (v2)
+  -[02/10] dt-bindings: clock: Add Qualcomm QCS615 Camera clock controller
+    - RB-By from Krzysztof (v2), drop wrong RB-By from Dmitry (v5)
+  -[03/10] clk: qcom: camcc-qcs615: Add QCS615 camera clock controller driver
+    - R-By from Bryan (v2)
+  -[04/10] dt-bindings: clock: Add Qualcomm QCS615 Display clock controller
+    - Drop wrong RB-By from Dmitry (v5)
+  -[05/10] clk: qcom: dispcc-qcs615: Add QCS615 display clock controller driver
+    - R-By from Dmitry (v1)
+  -[06/10] dt-bindings: clock: Add Qualcomm QCS615 Graphics clock controller
+    - Drop wrong RB-By from Dmitry(v5)
+  -[07/10] clk: qcom: gpucc-qcs615: Add QCS615 graphics clock controller driver
+    - R-By from Dmitry (v1)
+  -[08/10] dt-bindings: clock: Add Qualcomm QCS615 Video clock controller
+    - Drop wrong RB-By from Dmitry(v5)
+  -[09/10] clk: qcom: videocc-qcs615: Add QCS615 video clock controller driver
+    - R-By from Dmitry and Bryan (v3)
+  -[10/10] arm64: defconfig: Enable QCS615 clock controllers
+    - Drop wrong RB-By from Dmitry (v5)
+- Link to v5: https://lore.kernel.org/r/20250221-qcs615-v5-mm-cc-v5-0-b6d9ddf2f28d@quicinc.com
+
+Changes in v5:
+- Update ARM64 || COMPILE_TEST in all Kconfig to resolve kismet warnings.
+- Fix sparse errors in GPUCC.
+- Link to v4: https://lore.kernel.org/r/20250119-qcs615-mm-v4-clockcontroller-v4-0-5d1bdb5a140c@quicinc.com
+
+Changes in v4:
+- Drop patch Update the support for alpha mode configuration as this
+  patch was picked - https://lore.kernel.org/all/20241021-fix-alpha-mode-config-v1-1-f32c254e02bc@gmail.com/
+- Update the bindings to include "qcom,gcc.yaml" [Dmitry]
+
+Changes in v3:
+- update PLL configs to use BIT and GENMASK for vco_val and vco_mask for all CCs [Bryan O'Donoghue]
+- Link to v2: https://lore.kernel.org/r/20241101-qcs615-mm-clockcontroller-v2-0-d1a4870a4aed@quicinc.com
+
+Changes in v2:
+- cleanups in clk_alpha_pll_slew_update and clk_alpha_pll_slew_enable functions [Christophe]
+- update PLL configs for "vco_val = 0x0" shift(20)  [Bryan O'Donoghue]
+- update PLL configs to use lower case for L value  [Dmitry]
+- Link parents for IFE/IPE/BPS GDSCs as Titan Top GDSC [Bryan O'Donoghue, Dmitry]
+- Remove DT_BI_TCXO_AO from camcc-qcs615           [Dmitry]
+- Remove HW_CTRL_TRIGGER from camcc-qcs615         [Bryan O'Donoghue]
+- Update platform name for default configuration   [Dmitry]
+- Link to v1: https://lore.kernel.org/r/20241019-qcs615-mm-clockcontroller-v1-0-4cfb96d779ae@quicinc.com
+
+Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
+---
+Taniya Das (10):
+      clk: qcom: clk-alpha-pll: Add support for dynamic update for slewing PLLs
+      dt-bindings: clock: Add Qualcomm QCS615 Camera clock controller
+      clk: qcom: camcc-qcs615: Add QCS615 camera clock controller driver
+      dt-bindings: clock: Add Qualcomm QCS615 Display clock controller
+      clk: qcom: dispcc-qcs615: Add QCS615 display clock controller driver
+      dt-bindings: clock: Add Qualcomm QCS615 Graphics clock controller
+      clk: qcom: gpucc-qcs615: Add QCS615 graphics clock controller driver
+      dt-bindings: clock: Add Qualcomm QCS615 Video clock controller
+      clk: qcom: videocc-qcs615: Add QCS615 video clock controller driver
+      arm64: defconfig: Enable QCS615 clock controllers
+
+ .../bindings/clock/qcom,qcs615-camcc.yaml          |   51 +
+ .../bindings/clock/qcom,qcs615-dispcc.yaml         |   63 +
+ .../bindings/clock/qcom,qcs615-gpucc.yaml          |   57 +
+ .../bindings/clock/qcom,qcs615-videocc.yaml        |   55 +
+ arch/arm64/configs/defconfig                       |    4 +
+ drivers/clk/qcom/Kconfig                           |   35 +
+ drivers/clk/qcom/Makefile                          |    4 +
+ drivers/clk/qcom/camcc-qcs615.c                    | 1591 ++++++++++++++++++++
+ drivers/clk/qcom/clk-alpha-pll.c                   |  170 +++
+ drivers/clk/qcom/clk-alpha-pll.h                   |    1 +
+ drivers/clk/qcom/dispcc-qcs615.c                   |  786 ++++++++++
+ drivers/clk/qcom/gpucc-qcs615.c                    |  525 +++++++
+ drivers/clk/qcom/videocc-qcs615.c                  |  332 ++++
+ include/dt-bindings/clock/qcom,qcs615-camcc.h      |  110 ++
+ include/dt-bindings/clock/qcom,qcs615-dispcc.h     |   52 +
+ include/dt-bindings/clock/qcom,qcs615-gpucc.h      |   39 +
+ include/dt-bindings/clock/qcom,qcs615-videocc.h    |   30 +
+ 17 files changed, 3905 insertions(+)
+---
+base-commit: 01c6df60d5d4ae00cd5c1648818744838bba7763
+change-id: 20250414-qcs615-mm-v7-clock-controllers-29b3833b491f
+
+Best regards,
+-- 
+Taniya Das <quic_tdas@quicinc.com>
+
 
