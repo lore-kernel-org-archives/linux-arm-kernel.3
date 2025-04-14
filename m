@@ -4,92 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78F92C369B9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 20:28:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0F92C369B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 20:29:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	Subject:Cc:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qdnDpkLQDueaCtpgfvGpaidsvIby3mC+Wvd04T7dy5g=; b=SlfVKOxBeQJzbsLcCBpNO1fzF5
-	F8sP4ql3c7hkHcmx7+J3pilMMFn2NXaB+IlOle8CuBLyN0KTY80xmMg6iq86Lmu+qzzSSfHlFOkjg
-	z7TfYMHNV0rJCsJlwuOY7q8QjRx1xWJ6DkgT3/Hk4Zb8cTwud5JFen2Z8qfSo6uvjnNsLkcku7fwI
-	IuXOkTH0180ImQOTqDtCxpPDvHQrILGkyAnX+mNzV4tznEyQHlD5qfxP3zl3NrM0aXX7shQjTAINX
-	J5nYKsmTNWwkYbHaBiU1lJzXdvlK3k6elHt4nkr/mwZngCGrG4xgQ0o+a6H8CBR2UjlYOMuT25ti6
-	TuCpwQCg==;
+	bh=qjMFJPpRCPOvsPjgp/zlZf5TXQQY8q9e/fZxYLwtj0c=; b=k8O2vmdj7iI3YKpIjgCCPW0itA
+	PvS+CQ3yd+lwIb8Nn6TMM4QQwvWcvk4ousGnpZuszWh9RRtVTYNLf2LHbUudPBWy4yYurfXjHAY49
+	4xB+0+ygy48iKgGM1NElm6PlKP/22WDW3GbB5utlBeDMvJ8227i0M7RrNY25mUKa0pGpvwFZ48qx6
+	9zKz3hNCxfucYleI7OIe98cFIOMi+vy9t/BJxGJ1ELCFkiYf+m2WtaFoVqrmR2wG8cxnhjrC0jhef
+	4Ro0fIRBBg7fo+CLym6rSTUr7odzkDwaAFqV84yv6Xmjqvkotk3YRjFzqIWJ3EFVm9LOgUNNM/cZe
+	onKhiqrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4QPh-00000003SiX-0F71;
-	Mon, 14 Apr 2025 20:28:17 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1u4QR3-00000003TJS-2wv2;
+	Mon, 14 Apr 2025 20:29:41 +0000
+Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4PNM-00000003Jr4-1UWX
+	id 1u4QPB-00000003SYX-3d43
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 19:21:49 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-43cfe63c592so52703965e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 12:21:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744658507; x=1745263307; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=qdnDpkLQDueaCtpgfvGpaidsvIby3mC+Wvd04T7dy5g=;
-        b=kyk+0FQdFXVqLYx7GsnXGn0CobC0Bxlu4+vPRW/QzSWxX63/+KkDLB7g4wK2d3U3or
-         kfSjgj4a/VnYoXGptXPdFjNhTrzonkPEKRzPqYyvhe/Retcbxovvno4AeKh/XjJLOwjd
-         MT/4E88CkA9VhurYJmOQYQYCSlezZbBh5hGc6SHChHDLlnfAUG8mda0b7BKrD6UzbIr7
-         XnGzZPzwFyg1lfnFBy7lSk56ZdAFR383Xvx+sAg9DQEJcNJXwteQ3qeG7IJwGfByXTIe
-         sYApCsV6ivIoDsGLOLoC/WDc1XPVKd7ovnmC/6k+vwHjg+RP05K37GluIwVaV8SHbaok
-         hX3w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744658507; x=1745263307;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=qdnDpkLQDueaCtpgfvGpaidsvIby3mC+Wvd04T7dy5g=;
-        b=Q0XNUg4JyfOL8jwLyE9KSPY9TWFEZj/xDfB2oWnSr6Wk6SGEaDpS2Uga+0p82A574k
-         8FNAqSEWxhGSPSTUqAbXHhEz6SMNu+eXrCONJRcC5pTNGsVmxZbS6I9aN1Toc+4/HGtu
-         aiuDTO+QUyQ5Mwf/2xeTLkejopJOMdsYeM2f1OZJQGkDEiw2iszt2zjLgbanwFC1CQKO
-         VmeyFyXKgMafcpPiGiJUFY5JZ8LukO7+n/FCAjpIALTKVlonX88BBJmrOscT6x7YuOr/
-         RpeUDF74CYZjXScosmALPt3GfLo+4qPLJUrp60OhDtYZzhcCCE4y6hdyjWue4Gh3PNeQ
-         fMOA==
-X-Forwarded-Encrypted: i=1; AJvYcCWhh31rpuPAF+zTwPPfamtD+WVeQ5NdWoyH/vwb4HflcpcXi9L+NB2iyQDcKfSrd8TnA9mgE9ZaQRcDCJt4KhnX@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPAQ+kgTCHD8kPA1Ze46o50IPT3GVHfYrmMRY3EZLl8ec90wwZ
-	Xa6nyEIC0uhGSFx11JPVPCo3kKmc9YOZzWzdhmiCr/c5+fIShGn5
-X-Gm-Gg: ASbGnctTbi17PnS3roIpkhMgbjhJJqEYUJEj0Lvx4Y2s72EMkj7QZRu5zLtY+g4D1Wb
-	gEeAU/x/RmU+ysKTBwrreiEuq+94fqzkZE1jJ2xWT9ILoMBPM892ogntDt+F2SxZ/8Mowi3en4G
-	2jtmI2o8i2LHXBSrX+sIH5CJlWaLa/4mmFc5aU+eWhCgTTJGMEo/iZVRX8HbQYdUsI2HXm+f9pY
-	Ci1a6JxYUiVCqHc83LHN51louOBmdrbusN1k4e/mjkslSSAZ9+iN8C6LFslSez+QAgr3j0pa+m7
-	AAlrBHlZjBHqW40BOCAPtBFciW2w7GbQSl61e0lkfqOOAzNGLPISuA==
-X-Google-Smtp-Source: AGHT+IHrtPJf7tJJ5VJyh1jOHcx4HFwLVSxBmFMH5rzu041anN5yYzVbiM1Y436XhCJ6X/gw2IidJQ==
-X-Received: by 2002:a05:600c:1c8e:b0:439:6118:c188 with SMTP id 5b1f17b1804b1-43f3a95c43amr105045055e9.19.1744658506479;
-        Mon, 14 Apr 2025 12:21:46 -0700 (PDT)
-Received: from ?IPV6:2001:871:22a:99c5::1ad1? ([2001:871:22a:99c5::1ad1])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43f206269c8sm193445625e9.16.2025.04.14.12.21.44
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 14 Apr 2025 12:21:46 -0700 (PDT)
-Message-ID: <38867e79-c0e3-4bcd-bdf9-3fb5b571d51e@gmail.com>
-Date: Mon, 14 Apr 2025 21:21:42 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: `u64` by `u64` div/mod in DRM QR for arm32
-To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
- Jocelyn Falempe <jfalempe@redhat.com>
-Cc: Arnd Bergmann <arnd@arndb.de>,
- rust-for-linux <rust-for-linux@vger.kernel.org>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- dri-devel <dri-devel@lists.freedesktop.org>,
- Russell King <linux@armlinux.org.uk>,
- Linus Walleij <linus.walleij@linaro.org>
-References: <CANiq72ke45eOwckMhWHvmwxc03dxr4rnxxKvx+HvWdBLopZfrQ@mail.gmail.com>
-Content-Language: en-US, de-DE
-From: Christian Schrefl <chrisi.schrefl@gmail.com>
-In-Reply-To: <CANiq72ke45eOwckMhWHvmwxc03dxr4rnxxKvx+HvWdBLopZfrQ@mail.gmail.com>
+	Mon, 14 Apr 2025 20:27:48 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id C4EB94384E;
+	Mon, 14 Apr 2025 20:27:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1744662460;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=qjMFJPpRCPOvsPjgp/zlZf5TXQQY8q9e/fZxYLwtj0c=;
+	b=N4HnxsbeyxlL0cI2fjrgbDYOY26mtPrjrWBL3s4rpcNcFbKrZ5oML+muF9dSwIf+R31jOO
+	KNd1PzJKTjjfbLK6hep9vPg39UlV0zZF1BKJF267ZKn2J1xoru9QbkUvAEvvzknyjloLJP
+	whWw08ja2cuoNe2+omAHJq+d4WWMJz7eKipWxuppjlyBY8Jo9C/UgNEqJDTHPvWP/vWHdm
+	5/xJrI+nUBg1sp6a6dvPhPruhokRRYG2wFB5FSR7rUVrXYzQ/nSXIftSCXTb8e6TiR1Qh1
+	dpKt+psmNo3zzf34HIghYQmvKiizqjkVg33fTgTDXfhAAH/Cfhn3QN9AUiqQCA==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Date: Mon, 14 Apr 2025 22:27:38 +0200
+Message-Id: <D96N84S9OJFA.1L2ME0ASNZH9K@bootlin.com>
+To: "Jiri Olsa" <olsajiri@gmail.com>
+Cc: "Alexei Starovoitov" <ast@kernel.org>, "Daniel Borkmann"
+ <daniel@iogearbox.net>, "John Fastabend" <john.fastabend@gmail.com>,
+ "Andrii Nakryiko" <andrii@kernel.org>, "Martin KaFai Lau"
+ <martin.lau@linux.dev>, "Eduard Zingerman" <eddyz87@gmail.com>, "Song Liu"
+ <song@kernel.org>, "Yonghong Song" <yonghong.song@linux.dev>, "KP Singh"
+ <kpsingh@kernel.org>, "Stanislav Fomichev" <sdf@fomichev.me>, "Hao Luo"
+ <haoluo@google.com>, "Puranjay Mohan" <puranjay@kernel.org>, "Xu Kuohai"
+ <xukuohai@huaweicloud.com>, "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Will Deacon" <will@kernel.org>, "Mykola Lysenko" <mykolal@fb.com>, "Shuah
+ Khan" <shuah@kernel.org>, "Maxime Coquelin" <mcoquelin.stm32@gmail.com>,
+ "Alexandre Torgue" <alexandre.torgue@foss.st.com>, "Florent Revest"
+ <revest@chromium.org>, "Bastien Curutchet" <bastien.curutchet@bootlin.com>,
+ <ebpf@linuxfoundation.org>, "Thomas Petazzoni"
+ <thomas.petazzoni@bootlin.com>, <bpf@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kselftest@vger.kernel.org>,
+ <linux-stm32@st-md-mailman.stormreply.com>
+Subject: Re: [PATCH RFC bpf-next 1/4] bpf: add struct largest member size in
+ func model
+From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
+X-Mailer: aerc 0.20.1-0-g2ecb8770224a
+References: <20250411-many_args_arm64-v1-0-0a32fe72339e@bootlin.com>
+ <20250411-many_args_arm64-v1-1-0a32fe72339e@bootlin.com>
+ <Z_zryQkfmrSXYN4k@krava>
+In-Reply-To: <Z_zryQkfmrSXYN4k@krava>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvvdduheduucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpegggfgtfffkvfevuffhofhfjgesthhqredtredtjeenucfhrhhomheptehlvgigihhsucfnohhthhhorhoruceorghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeekgfffhfehhfefgeekhfffudfhheekveffleeuhfelgfefueevhedvkeduhfehveenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtddvmeekgedvkeemfhelgegtmegvtddtmeemfhekheenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtvdemkeegvdekmehfleegtgemvgdttdemmehfkeehpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvdelpdhrtghpthhtohepohhlshgrjhhirhhisehgmhgrihhlrdgtohhmpdhrtghpthhtoheprghstheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepuggrnhhivghlsehiohhgvggrrhgsohigrdhnvghtpdhrtghpthhtohepjhhohhhnrdhfrghsthgrsggvnhgusehgmhgrihhlrdgto
+ hhmpdhrtghpthhtoheprghnughrihhisehkvghrnhgvlhdrohhrghdprhgtphhtthhopehmrghrthhinhdrlhgruheslhhinhhugidruggvvhdprhgtphhtthhopegvugguhiiikeejsehgmhgrihhlrdgtohhmpdhrtghpthhtohepshhonhhgsehkvghrnhgvlhdrohhrgh
+X-GND-Sasl: alexis.lothore@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_122148_405250_5DBDF1D5 
-X-CRM114-Status: GOOD (  17.63  )
+X-CRM114-CacheID: sfid-20250414_132746_542004_03DF0906 
+X-CRM114-Status: UNSURE (   7.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,50 +95,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Miguel,
+Hello Jiri,
 
-On 14.04.25 8:14 PM, Miguel Ojeda wrote:
-> Hi Jocelyn, Christian,
-> 
-> I started build-testing arm 32-bit within my other usual routine
-> tests, and I hit:
-> 
->     ld.lld: error: undefined symbol: __aeabi_uldivmod
->     >>> referenced by drm_panic_qr.rs:417 (drivers/gpu/drm/drm_panic_qr.rs:417)
->     >>> drivers/gpu/drm/drm_panic_qr.o:(<drm_panic_qr::SegmentIterator
-> as core::iter::traits::iterator::Iterator>::next) in archive vmlinux.a
-> 
-> which comes from both these `u64` by `u64`:
-> 
->     let out = (self.carry / pow) as u16;
->     self.carry = self.carry % pow;
-> 
-> Christian: I guess we can offer a set of `div64` functions using the C
-> ones, at least for the time being, and eventually wire the actual
-> operator with some support from upstream Rust. Or do you have
-> something else in mind? (i.e. I think you have been discussing
-> intrinsics lately)
+On Mon Apr 14, 2025 at 1:04 PM CEST, Jiri Olsa wrote:
+> On Fri, Apr 11, 2025 at 10:32:10PM +0200, Alexis Lothor=C3=A9 (eBPF Found=
+ation) wrote:
 
-I think using the C implementations is fine. Not sure how much the
-FFI is going to matter for performance, but it should be rare enough
-that is shouldn't matter (and hopefully we will get cross lang LTO 
-or something similar at some point).
+[...]
 
-We could also just implement the intrinsic(s) ourselves, but then 
-the u64 divisions would be implicit which is probably undesired.
-We could also rename the intrinsics so they are only usable from 
-specific crates. 
+>> +	for_each_member(i, t, member) {
+>> +		mtype =3D btf_type_by_id(btf, member->type);
+>> +		while (mtype && btf_type_is_modifier(mtype))
+>> +			mtype =3D btf_type_by_id(btf, mtype->type);
+>> +		if (!mtype)
+>> +			return -EINVAL;
+>
+> should we use __get_type_size for member->type instead ?
 
-I think we need the opinion of the some arm people here.
+Ah, yes, thanks for the hint, that will allow to get rid of the manual
+modifiers skip.
 
-CC Russell King and Linus Walleij.
+Alexis
+> jirka
 
+--=20
+Alexis Lothor=C3=A9, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
-I'm not sure what could be done in upstream rust to help here
-and that would probably need be a very specific features for the
-kernel.
-
-
-Cheers
-Chrisitan
 
