@@ -4,168 +4,209 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E39EC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 03:34:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E96BC369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 03:49:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:In-reply-to:Subject:Cc
+	:To:From:References:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uV7fg5wOUgk0fyr8x5AtY6A5+CAPZb129BqzOiqDu0s=; b=mHKWJp4c/HARIO/jubM00Yph3M
-	ItVU2ntRcizIAv6jVANvfje77flxDjD/6D2HPaTKwzlMCeeuXkkwB9MDC0sW6qnOohftF1zmA2Rs5
-	SvWL+UvIhnzTiZPVQfQoSR3/3Dc7TWa0aZn/1F348RqRoEY6UDNDYp1ApypAToRBIhE7kOv5a+6P0
-	ktSugNobWsNJpH68fEh/8f5ghqgM3u6ux+qFlY7XdwORT+zQVUPw54bS4fsRCtMrJ5Wx09TUgBfG6
-	/3ujHy4LITt+D8d7OszcE8R8C0NktZEPd2Tex2Y7Yn6fwEQdbjQJ4LVK7ogA4ayZTSvPRg8USi0eB
-	NckVq6rQ==;
+	bh=F3VfYigKQBAt8uXuUkn6BnF/R1lIBfpr3SbE/zluzU8=; b=DBCIpil0PjOrcngZN5rdEmVY0X
+	kFXXFkkMjTE+nRS/kG1sOQEZjWdA3F5tV8HXoyCq0NSe8eJdZ2a7cBwpLLHW9uiujaKkMmm6pyGPh
+	H35Ktc7jg+nANIahUVwh4B/7ia663egHfvH8TBnsYVQwDunnnoLrO5WXUIBHEOz0ZbcxL6wiXARgn
+	6Dp5FTS/d2tOOLySmCt7M61duCt0Hw5Nb/pR5tSbDflliHhD5V0JUQV9F0cOfiXugOo6syZgUDMdV
+	jan3Mj34n2810nizwr1PzuNEJ1S6ACr4UnIjd6Hui1DtKVCF288wiq2+GLbmgtLe3QJUCL3jA6id5
+	g+CHz9pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4AaL-00000000YSI-2okS;
-	Mon, 14 Apr 2025 03:34:13 +0000
-Received: from mail-psaapc01on2072f.outbound.protection.outlook.com ([2a01:111:f403:200e::72f] helo=APC01-PSA-obe.outbound.protection.outlook.com)
+	id 1u4Aoz-00000000ZHb-1sn4;
+	Mon, 14 Apr 2025 03:49:21 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4AYV-00000000YKQ-1M5Q;
-	Mon, 14 Apr 2025 03:32:20 +0000
+	id 1u4An9-00000000Z9x-3nkl
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 14 Apr 2025 03:47:29 +0000
+Received: from pps.filterd (m0333520.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53E3MKj7000707;
+	Mon, 14 Apr 2025 03:46:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	corp-2023-11-20; bh=F3VfYigKQBAt8uXuUkn6BnF/R1lIBfpr3SbE/zluzU8=; b=
+	NNNjpz5EmbI7O8B3OJPDVqdMW8fBBxQ7QTutcdC9YwEotsFdARVPw9D1i6LVk7B9
+	PyZD6ZNhZrDLaf+6iVk698R340Tv+1McQnrrODC5SPhcSn30DbcrMasKA77ZQtLb
+	u2aT3fz0H56DbRrRKp3A/oJTKfIaQD8CcHh4UqTMoWBVgpOTf0Y7gL41LXxwhQmj
+	HkVC4SzFtqIAWMVag9tYxj1tpgD9JpyZBBxNRX1QVJ1xQChO7Np63ENsEaw63QEE
+	oQKxhAD+b0R0XO6XBU6hX8UuCLZokICcqolluP5LngR0fwQEGZ7cXYpkvC71gc2N
+	1HVi/559WiMjCja22TbVng==
+Received: from phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta03.appoci.oracle.com [138.1.37.129])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 460td100kp-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 14 Apr 2025 03:46:57 +0000 (GMT)
+Received: from pps.filterd (phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 53E3Mgx6024687;
+	Mon, 14 Apr 2025 03:46:56 GMT
+Received: from bl2pr02cu003.outbound.protection.outlook.com (mail-eastusazlp17010003.outbound.protection.outlook.com [40.93.11.3])
+	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 460d4x6ehh-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 14 Apr 2025 03:46:56 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cSErXmdaf7u3U2qYRmCnxTuHnmH/SV4AprtKhW3uZhBpjyG1pMChz2zmG2R/QtRyic41CpYHye6Bd87tnafDskVop/lo/9UQTykm+yg/CRCexdfJ5uC/RF0hFi0KUUFnK+n4jkM/8L/+/BnGT0ziM9MZ2Lvtf0b/FoeSuVZKbHyQjv98tTO1aBnbo7qPSYeM8n6IZetsUpXu9lJ7lTiz6UvJkbiAaTFdfOUFzR66OKDC55JA24AdLZO6vRNBCuaZB3XNEIXQgtT8sdI02c/Fd8JPZ9eq71Ch0qFUKkx9Jnw8aYWTIG8y0NYb8c/A9mku4J+tnzjxK7H7mHE/O8OLSA==
+ b=vm62l0sW4EqYxSTi8WiqDbsNrvfT9YYtyKor1eAC7lJVlFEw0GYLc2rTefTSirwG3ho25B2IoxoG+SnwEXEr0U3z1E/L/RSyGUFO/uWuEY6y8n38XJQQyieCyf+JbTxtE1dm3tJ6Bpto1BV7iYsy2HawCzJyC5ImghqIv+2q2NKZgQ0UT948LwYd0OtB9j5nek+vb9z1M6rDeOpfd8w8PwA8S+58/TlJa481jFRVIBW1uKQ6wfyezq0PvRA9Kg46DqTHvJMxkiaORg/Wm/67uvz6F6BQ7X4EHWphDHaEoL7QPSrztGjFQnt+AHrNmQByl8XeA/K1Ndygj9tEqXlR1g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uV7fg5wOUgk0fyr8x5AtY6A5+CAPZb129BqzOiqDu0s=;
- b=vh3VrnE2vaX6g8ka+QJFbevmvtw+dJj2DFUwtER2T4492UYi0xRoC+fiZuguv7MJ+ySjqjMsQkFFj/qlA4bKlFTB9zl1UXEva/FtBA/47VmZB5FK8A2xcTCxlFiW6YKMV5k7BQkG5/YB9YGx8l24SM+3zAxFWoOYRbA89I+zw0kTUmNorfu8VBdlw4iSWwq48+8mTtuoNkqUvqY6hD2hZu8FVbfihH2ZRqZ4NVa8ixtvLtxqg2VxFL8hNwqY5yxWPcy9JLYhvwB6JbaurV5oeFXQHyUDL6ab7r0PrVb+N2yX26Dqd/o3l/v2jU5xWS+lCnC860i1m6J/w8hY8MjUmg==
+ bh=F3VfYigKQBAt8uXuUkn6BnF/R1lIBfpr3SbE/zluzU8=;
+ b=WK8MM64LgA5xXBh0vDqAV+5OETd6oyUdLw4fDYReGYSvYOjRdB/rjbjaknyccQusj2MRZdNkE5SN3TBW03i3Aa8YQlRnu8ul+V7qxyHwXD/yZk8/uBIOGLtz7z7mUrxVuxjcfKqVgHobN+FrWK9SIDX2yBPSDvB1iRcbMzpvGDfmQNIxIyvm9vGato2VIuncXg7JfaMA+3w8/92ZGY81olveI1ak68tzZScXjlFLn+T+W8JvrWR4xHjYFarQ28uwUeZUbp0gS/9ACcfLrXsP7ft2p4nYrFUxXHHuO1TxbkaGe19eyrZwEkqYrSuoPt/fJah8+P6GbhNoDLe7ja3gng==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=uV7fg5wOUgk0fyr8x5AtY6A5+CAPZb129BqzOiqDu0s=;
- b=l4nSH49AZY7pAlXRMS7ZC1sMYDvN4UvGke0dnbOQEW0MoOhO/GqdgCttIImpVAn/r7Hpz+k3nro6w/vD2ewnFYmX8YSgNR1cmHYEPw2g5jLtcY9rpBTIIRdx5DG5Vptre95h85EQWolMVmrYYxRE0rWwi1ZeJnTIW699s18AvGDkB8VYTU4zwm+Z2zkvCg70pZpNnIKkK8lUz04NHJQcT7RbDqiZMxN4nTkCkk/yStvvfqx9pcxvxzH4q2QXO3xfFugQDjnWSS1Yt5mxmw6ufbkx4iszALsuAXq5THJfGYQE4aSTl/YvM/oXt5S66R21GBe762RRM61kPfeJzGRWRQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from KL1PR03MB5778.apcprd03.prod.outlook.com (2603:1096:820:6d::13)
- by PUZPR03MB7064.apcprd03.prod.outlook.com (2603:1096:301:11f::5) with
+ bh=F3VfYigKQBAt8uXuUkn6BnF/R1lIBfpr3SbE/zluzU8=;
+ b=nSYSmRTS6Lmu/3GfZjl31KA3UcFmIHb8LAz5s2aJaAkm1JTmfY/qi2zt2WbGwE6iWAuRsX52jWYr7CsyKlldAroIA+IPzlyYtV3e0Vsp2BOXTRQGSbgEhsooaSVHBHPr3gk4TdAWxcEUPXpW0HX40Gs+PMy6r22bIEoukQqm/oM=
+Received: from CO6PR10MB5409.namprd10.prod.outlook.com (2603:10b6:5:357::14)
+ by DS4PPFDB583D803.namprd10.prod.outlook.com (2603:10b6:f:fc00::d50) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.33; Mon, 14 Apr
- 2025 03:32:01 +0000
-Received: from KL1PR03MB5778.apcprd03.prod.outlook.com
- ([fe80::9d11:d1f6:1097:22ca]) by KL1PR03MB5778.apcprd03.prod.outlook.com
- ([fe80::9d11:d1f6:1097:22ca%6]) with mapi id 15.20.8632.030; Mon, 14 Apr 2025
- 03:32:01 +0000
-Message-ID: <c6072fa7-9cb0-445f-ba6c-58a950bda2f3@amlogic.com>
-Date: Mon, 14 Apr 2025 11:31:44 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/7] soc: amlogic: clk-measure: Define MSR_CLK's register
- offset separately
-To: neil.armstrong@linaro.org, Kevin Hilman <khilman@baylibre.com>,
- Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-References: <20250411-clk-measure-v1-0-cb46a78d019a@amlogic.com>
- <20250411-clk-measure-v1-1-cb46a78d019a@amlogic.com>
- <9f10bc53-10c8-4312-b7f7-2935990fb193@linaro.org>
-From: Chuan Liu <chuan.liu@amlogic.com>
-In-Reply-To: <9f10bc53-10c8-4312-b7f7-2935990fb193@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: TYWPR01CA0001.jpnprd01.prod.outlook.com
- (2603:1096:400:a9::6) To KL1PR03MB5778.apcprd03.prod.outlook.com
- (2603:1096:820:6d::13)
+ 2025 03:46:53 +0000
+Received: from CO6PR10MB5409.namprd10.prod.outlook.com
+ ([fe80::25a9:32c2:a7b0:de9e]) by CO6PR10MB5409.namprd10.prod.outlook.com
+ ([fe80::25a9:32c2:a7b0:de9e%5]) with mapi id 15.20.8632.030; Mon, 14 Apr 2025
+ 03:46:53 +0000
+References: <20250218213337.377987-1-ankur.a.arora@oracle.com>
+ <20250218213337.377987-11-ankur.a.arora@oracle.com>
+ <18875bd7-bf01-4ba8-b38a-4c0767e3130e@linux.alibaba.com>
+ <87h62u76xg.fsf@oracle.com>
+ <f384a766-d91a-4db5-9ed6-c1ed6079da1d@linux.alibaba.com>
+User-agent: mu4e 1.4.10; emacs 27.2
+From: Ankur Arora <ankur.a.arora@oracle.com>
+To: Shuai Xue <xueshuai@linux.alibaba.com>
+Cc: Ankur Arora <ankur.a.arora@oracle.com>, linux-pm@vger.kernel.org,
+        kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+        catalin.marinas@arm.com, will@kernel.org, x86@kernel.org,
+        pbonzini@redhat.com, vkuznets@redhat.com, rafael@kernel.org,
+        daniel.lezcano@linaro.org, peterz@infradead.org, arnd@arndb.de,
+        lenb@kernel.org, mark.rutland@arm.com, harisokn@amazon.com,
+        mtosatti@redhat.com, sudeep.holla@arm.com, cl@gentwo.org,
+        maz@kernel.org, misono.tomohiro@fujitsu.com, maobibo@loongson.cn,
+        zhenglifeng1@huawei.com, joao.m.martins@oracle.com,
+        boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
+Subject: Re: [PATCH v10 10/11] arm64: idle: export arch_cpu_idle()
+In-reply-to: <f384a766-d91a-4db5-9ed6-c1ed6079da1d@linux.alibaba.com>
+Date: Sun, 13 Apr 2025 20:46:52 -0700
+Message-ID: <87ikn75rrn.fsf@oracle.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-ClientProxiedBy: MW4PR02CA0011.namprd02.prod.outlook.com
+ (2603:10b6:303:16d::28) To CO6PR10MB5409.namprd10.prod.outlook.com
+ (2603:10b6:5:357::14)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: KL1PR03MB5778:EE_|PUZPR03MB7064:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1aea7fdb-76d7-407f-8cd3-08dd7b04eadb
+X-MS-TrafficTypeDiagnostic: CO6PR10MB5409:EE_|DS4PPFDB583D803:EE_
+X-MS-Office365-Filtering-Correlation-Id: 720a88fa-eab8-4f73-fcb2-08dd7b06ff0e
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|7416014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?MC9mdENEeTZrdklxZDNpMm9PS2FsZDNUVU5KNG9ZcWxiQVZSNFRvRVlrL0xw?=
- =?utf-8?B?bkxpTVh0SEhFK2FSN29MbDdTei8wK0JORFBuRHJaS1BEYXpzNGdhWUQvUUVJ?=
- =?utf-8?B?b3lraWwzV3djRlY4S0FVeEk3NStJWFRQQ2pxeDFzQUVrQlFKUmJpU1ZJcDlw?=
- =?utf-8?B?Z01ZQWNNUXVnVXFBcnV2R0VlMGdNMGNkN01QSFhFZkhsdkdCNSsvY3VKNmU0?=
- =?utf-8?B?V0N3Ui9Iak43anZ3OWlTRUdpRDlVempab3ovUGt3Qk1RVkFjbE9VUVRkRlg2?=
- =?utf-8?B?aGwrblA4VFl1T3NyOGRxRWR2aU1zNGJaMHVrRGpNL3JDOWpDb0xzWVpKcGtJ?=
- =?utf-8?B?cVpBcndHQXVvSk9sZXVldzdsN3NmSG5VdjNvZzZHZXRXaG5KVVNjVmdjMWt5?=
- =?utf-8?B?SU54UmtDWXFlVXl6OWRJR0Z4eG4xS1VpbGgwLzhuMWpwRHRyRWtGOVFRVktv?=
- =?utf-8?B?RllnN0RjdmxUcUZtS3FndnNESUlTUkJ6VVhxeFY5alJwWEprQXk0cFYzblo4?=
- =?utf-8?B?Y1NpZkhaRXY2WXVORGJMRFgwVVYybk14NFduY0hmMWQxaG9UUzU2OUhndjda?=
- =?utf-8?B?cHo5UDdqMHhlcFoyeUFQN2xETFVQL3hHOWtQMHlzaE14Z011K0dIYVFDUElu?=
- =?utf-8?B?WVYwNHp3bzA5M0hYUG9HL1Q0cHhLelBTR3NLY0V3VmpuWG9OdzJBS2lsd0lZ?=
- =?utf-8?B?UlFFUmw2UEtRWVAraW0yNkxtNUNXMlAzWnNQaGtOK1NULytFdFk3Ny9ERlhS?=
- =?utf-8?B?N1V2M3dHZVNxdnRZVWVBYmt0WENqWWljT0FsaHVGUlJnanJGWDN3WlhKVDhI?=
- =?utf-8?B?VlR5RXUyTHhYOVUraDNPMkpwdzJUNk1jQ0g2NzJBQnRzUlRwSi9oT0RxSnZv?=
- =?utf-8?B?dU5seVVSVHlBdXJzR3BYamljL2N6b1lXdE5iS1IxV0lzRHNobWNDNENuRVZh?=
- =?utf-8?B?dHFjT1RSSjdSdEZBdnVQdXM3bCtORVpLN1RqMzhtL21XZENRZjFxL3NaNjhS?=
- =?utf-8?B?dVVNckM3b216NTRVYXZkd3N4azIrV1JvL0dDUHdwNExwSGVCeTVkcVRWK3dp?=
- =?utf-8?B?Rm5sMmV4UGFZKys5RjJXWGNoY2E5OWIreXJtdEhNN0hSSSt4Qy96VCtuM3BR?=
- =?utf-8?B?R1dzdHF1aDlpM25acHpleXdhbmNhbmgvM0ZwUUZBbnZnUHNXaTNuaVBOSmww?=
- =?utf-8?B?RmVHOURSOVdOMmczT2tHZ1dMR2QyOTZweGtQOVY0Vk9IMzE3VzIxdEtqcWhu?=
- =?utf-8?B?UEFoTDNnZlVmb1puZHRyYkFQQjZTYWN4NVgwWmxMNjVyZ3RSeXdJM3pwa3ZJ?=
- =?utf-8?B?TG12NHVHZW5WdlVYUXNYY2R2WHN2eVgrYzJQS3RRbjBYRmU0MUZSTUVhbVl6?=
- =?utf-8?B?ai9pSG1MNC83NWpkV2x4NG1BakhEaEtFWlBrRVBydHpVRnl1OUpqMndabFEv?=
- =?utf-8?B?c1AraGUyNGxqK2wvaVhHa0J5dHIycHdneVI2bHA5YUo1WVpnN0t3bjhiT21I?=
- =?utf-8?B?YmI1Y3lhUXdDbTdqVTBGN05EMzJUcGZQNTk1enR6dElHNjd3eUQxLzRuY0dZ?=
- =?utf-8?B?SmNvZ2ZIUytjcHA4QWVEd2MzNklJK1lsTG1KSlNDL1ZRc2Q2R2Z4VEFuWUZU?=
- =?utf-8?B?Z2JvaUs5NzhIdDlnTUl3ZEJtVkxhYzJZZVAvSmtLYU5KYjF2UjNvdENoa0Zj?=
- =?utf-8?B?WC8yNmd2NW9acm0rWW9kM2NGT1pLV2R5V0pGMTQ3Y0pVSm5valJKSllTZ0l2?=
- =?utf-8?B?YnU5d1pFYkgwdWJOK3dzNDV4TCtpYXFwVG5RaUtQSEoxM21EN0NVdmVOR2VV?=
- =?utf-8?B?MjRVN2o0SkVncW1RUjlDeVFXRlEvbVltVVd3MlFrL0xJWHJ1TVVsdGw2M1NP?=
- =?utf-8?B?dEZKa3N1ZVNtVURxRmlvanphNGQ2MEJkV3RZK2JkcjMyOXhHZUtVS3haWmMr?=
- =?utf-8?Q?j4c2mFHCquk=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB5778.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(1800799024);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?c292cDZiMXRTV1NkNmdHNTRJQ2E3aE4rMnJoK1hWamVkNGlEb2RObXNWUzFu?=
+ =?utf-8?B?YVFpY1FzU0lNSlVxUDJnNDM4YlpYTUxURXNlZkg0eDJQZzN4NSszOGtBemFa?=
+ =?utf-8?B?ZE43UitjZ1dIS29USFlLNjl2L013eTlHTFNKbkVGZnFzbXdTR3VFUUt6T0lZ?=
+ =?utf-8?B?U0lTWXljTjJNVUFoanIrcnJ4U2VhRFV1UjVMTEcrdk5EdUxWZHk0eTVsWVZK?=
+ =?utf-8?B?MWMyenRkZ084UzdQMEFwVm5idGJwOGUyK1puQjlXSGM3dTlYZ2thVmJwQlhM?=
+ =?utf-8?B?alNFbGZ4OFhhUi9CZzlLYmhsNzJyN1NhbE4rRG5kOU9yU0d0MVZOYlp2UWxx?=
+ =?utf-8?B?dllNQjhNWUo3NXEzOFlIdFYyMUtvUk4zMmJWMExaMVdBNXN0eEJ3TXVXVEMz?=
+ =?utf-8?B?YUpKZCttRGRDd2tLNUFwUnB2MHJoUVdoNU5kbWNYeFc0UllMNWM1MUJRVm9X?=
+ =?utf-8?B?b1JGK01CR3BWbjBmTExPaTV1M3hTMFkybUhVb2hZKzBJWXZNY2lmWCtzR21U?=
+ =?utf-8?B?Q1JIZ1ZXbVhndXM2ektNeEwySTBGQ09ZcHNSWXlCZlNKT09MYmRSZFRRdjNF?=
+ =?utf-8?B?cWFIUjNwZWVMZU5OSWZNeS8zS0NhTG5FZHRwRHAyOWRaazR4KzhJSzJvTGdF?=
+ =?utf-8?B?K1dzQ1prSFhDQlQyMUFyMFphQytqMmlIWEFHak1qWUx1OTExN0M2RFZYT1Nn?=
+ =?utf-8?B?K1Q4WDk1MVZjWnZjKzlMZjE2SVRKejNaTUhnY1B2UlB6ZXdEYmZPTWU1ZmVX?=
+ =?utf-8?B?dTZFRU5NNHVjWVBIbGQ5SW1tRzdRaHFZMUhJdzJYMDJDeXl2V1Y5VFpRd2x2?=
+ =?utf-8?B?aWRWendKSFF6dDVhVGNqYnliQmpsaUREaUJ5c1J1SkdHWEptcjdPRGZrTEFB?=
+ =?utf-8?B?QjhJWURlSEtoTkRPTEFJT2dxbGdrcGlaTXVpVGtOU09QN0xjMzhldWFYODkv?=
+ =?utf-8?B?cXF2Z2xYWTA0Qk5ZeEVoZy93NzV4Yld6VkpNZS9KalN5aTYvZ3JUR3ZJMXlC?=
+ =?utf-8?B?SWV0eG1NUmkyZ1ZwbUJQN3paMkh6NFczM2x6azBOOUxsWFpyUEZsVHpISVFr?=
+ =?utf-8?B?aHBmVTBHN3IxVURnS3BubHU3WndzT003MWl2bElmeEJLL2RmNG94RnA1bkFH?=
+ =?utf-8?B?VmxQL0ZHYjVrN2lZYlJZSUpyYmxLdFN6VHBsL0xvMURlK01pZUlaOWpJSDY0?=
+ =?utf-8?B?ditxMDlkM0x1OUQ5YWRhUU9oSUZyRmwxMVJvU3UvczNockZITDlhdkREckxm?=
+ =?utf-8?B?UStURStBK0Z4c1NURHN3QmpKa1EzbjR5NGZHR21FUTZ3a0pPTUl6Y2lwVkt6?=
+ =?utf-8?B?TkxxRGsrSG5mRmVWeTNYcG5LYjlpMytGZmEwdmdBL1oxY2dsT0p0R0gzYWVM?=
+ =?utf-8?B?UGlCazNicHlSZ3lWVWtEWTJYVFFHSEF4d2tHUHhWZnJRU29wM0p5SjkzaStJ?=
+ =?utf-8?B?dW84L3E4S1FkTkprOE1tUk9RbU9NYnVpdHVwQjdLV3paOVRlblZTVjVNcnh4?=
+ =?utf-8?B?eTlMNnZsR1dFNUlHUlZFYjdnckZ1MXcyWTNPMHM1eEhsbDJUR1gyamdFT2hq?=
+ =?utf-8?B?c2FlOXFjY0Y5NThmbXhqK2Z5U1BLS2tqQjk3U2I5MGliVEtMMGc3M3JiY3dK?=
+ =?utf-8?B?bWtmQXhNODMzRWh3eUI3QVpxd0pwWDNkc0ZXSEVraTB0ZVhURmllR04zTHgv?=
+ =?utf-8?B?UDhwYU10SW5CcE9KRWwxamlxVmtGc0VWV0dkVWgrZ24zYUhRc2tUSXhWTEpi?=
+ =?utf-8?B?aE5TbVlOMFk2N0k1TjR0QlRqY1o1SHhTYVRnS3NPMjNERmU5Ymp5Q0VVSjBt?=
+ =?utf-8?B?MGNoQ0MveWJmbHMxeWtKY1dlZkNYK2NKWEhzOVFlUEExMy9rblhTV1AyQnpF?=
+ =?utf-8?B?b3Zha0xEcVlpUDdQZnZ1WmR0d09zM3VsTUxEbkVldzlNTEc3NEQyc2daWHpR?=
+ =?utf-8?Q?woheLYu/aEQ=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR10MB5409.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(7053199007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NUtrR2pGK2Rmek52d2RHM2ZVU01wRVVSSmtXNEVBRmhteWtQMXFqWTI2VEk1?=
- =?utf-8?B?QlJSUE4rN3h4d3dJTEluQzNyaXMxNXI1b0s1L1h6K25LOS91NHQyaWZtOXNT?=
- =?utf-8?B?TGV4eVcvS2RycXRpZTliNFgrbWNWelExWHNRek1iRTc0OWdJZWt2dm9RTFAw?=
- =?utf-8?B?blpTSEUyL3I3RldSUUUreGI5RTNPdUR3NTJ2VUxHZVp3QVBRUHVBWVN4WjNo?=
- =?utf-8?B?MGJaNzRTekNvak9HTjdyKzVPTlhxbU03NHFUdllzTVRZZGxlbFlBSWNKNmFP?=
- =?utf-8?B?Y2JmcVJCeWQrdWQyczVWZHpRcUw4OFUvc1o5WFNHRWhycDBqVGIvdVZTSzRh?=
- =?utf-8?B?a3F0c2ZKbWFCcG95Z2F6c3U1QkNWZUd1SUE2OHdQbzRxRWZyM0N6Uk1xSDY0?=
- =?utf-8?B?OWpBVC9RRnI1M1NOU2NaUjUyeXFVQ0tWcTNzWkczaXZqbDNhOHFiS0ZFVnNx?=
- =?utf-8?B?YzgyWko3ODM0bkprVGhmcjBOUXF1cmRaRmRjU2J6Zjl3Z2VoMi9MM00zYmVT?=
- =?utf-8?B?S3ptanFlZ2dOQ01xT1NVZldjRnlEdUs5aldZSkZlWXhrblVwWnVrS200MEFx?=
- =?utf-8?B?VDFmZHZkUWhLVWRFckd0Z2VwdVNQVGVOYUFSUEV3MVVEWk1IV21nbVNISlJl?=
- =?utf-8?B?VXI2OE9xVmFxdlg4bzA3OFRrM0NVeENTekxCaU1KSml6ZTQ5Q29hUFVSUU1w?=
- =?utf-8?B?NFgweTRXRFJZK0ZCVzVJY29VR0pUYjZwY3RqRXhFeVdOQlJYbzU4VTJMaWxM?=
- =?utf-8?B?WCsrektKM2EweEtSWU1YVnFmb0pXdlY0dTRQQ29jdzhWRTFDcjlwbVZ5NHZ4?=
- =?utf-8?B?NThFbnRKRk1vZkQxakRJNFhRUXRGNlVtcVJsQ1ErYWY2dVIxb0lBbnFvUmxS?=
- =?utf-8?B?YUZ4M1cyUG5mUm5DeTN6Vm54b0tMa3QxOFQ0Y0M3cUFsTFZhWlVlRTI3djYw?=
- =?utf-8?B?L0lWdnM0ZHpCaVdmd3NtbnREbUxhQnowMTRleGJxS1JMdDQ5cmVTLzNiUVBu?=
- =?utf-8?B?dk9MQ1VweG5DSmdrSXlVaE9XQXQ4QzI0Vy9xZGdWc21MSm91NWowSWRTbWE5?=
- =?utf-8?B?SVREbFllN1E4enFMOFY0QUtqdGJSbGxYRDBEcGFLZlJCUGg0V3JYM3RWMEhm?=
- =?utf-8?B?L0V1Y3h1M2wzWGJYb2QvQ1VYOXFxYXU4UXF1ZlAwUjN5ZS82ajBCK1gzbGE4?=
- =?utf-8?B?eXNYVmgydy8zUlIrakV3SHd5ZGg2Y2RKSUtZaVFTTXd4M0FNQTF5c1licDlN?=
- =?utf-8?B?RGlSWFdQNk1LZ0d4KzlteVczczBFZktaNkVYN3UwbjhRbUh1TW5DdGRRNHNL?=
- =?utf-8?B?NERJYTlYSFRGWWl3RHAzZTl5Vmlnb2I1UDcrdXpkVkRzbHE4eFpCZ3FkNjli?=
- =?utf-8?B?dEhRVGM0ZjVIeUM4TGp4dTJNU3E3dkdNd0pwSE1aQzY2WjVqQi9TeE1PbUhz?=
- =?utf-8?B?cG9YY0U1ckNDaVdNa0hRK3BtWWllajNKV0hVQ01yUEo3Q2JqOXdVSFlwTjdh?=
- =?utf-8?B?azBabW1ublZnRllidnVReGI3ejJiM3NnYTF2M29nZFl2bHIwam1IOW9xdk82?=
- =?utf-8?B?M0NhMWQ2UmlOSWVFaWwwcjJmSGlhQm05V0hzejZKaHc4R3lrWDRUblBWOVFq?=
- =?utf-8?B?ekhBNUkrYzRycTlRV3dyOWp6U2xGY3psVjM0QWdzTCs1TWw0ZEd6NVBvWnNs?=
- =?utf-8?B?SFN0VEFqbWZBN3M1MFpPTXlsSGdBQ2hqTnlWSGlhM2E3Y2tJSkkwZjVQNEF2?=
- =?utf-8?B?M1lJTjhEeUhYRCtKcGZyZlBBUi81dmo3QVJQSERHSVEyK2oyTERBOFNnVjJ2?=
- =?utf-8?B?d3hMY1h5YXlmNThWRHdia1FsU1BVanFTenR5aVA4YVVOWXY0V2hhaXd3Qmto?=
- =?utf-8?B?SW1NSDZxOXVxaU9oQ0hvRTFTWWxyQ3JqQWdTUGFxUnRJWHZFMEVyR2U1SC83?=
- =?utf-8?B?RE1nOXVWUE9VaTlLd0RtY3VtL3RWb2g1UUx2ZTVjYmQveS9MekF0STlzdy91?=
- =?utf-8?B?RkF6UCtpYStrbmZ1T2h0WjJZVU9YaFFGM3RFV0I3dVo2N29YMHM3dTd0T2lK?=
- =?utf-8?B?QkRDbjZvQU5WQWpJcXcxYWRpRTFVNnVnaHBBVlVJalFxZnY0Y2dYSUdjODhy?=
- =?utf-8?Q?Sa5bFhFzD+4X+bO2Y5KMlbqiI?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1aea7fdb-76d7-407f-8cd3-08dd7b04eadb
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB5778.apcprd03.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eDIvYjJwaVRReUQvME1YTDhNc0dIUnV1eXo2MjRnMjVOdWlUd29UN2VOSTJz?=
+ =?utf-8?B?TFVnUEN6MjB2OGhkb3JrSG5SMUZmWkgxamtzbExHMnVZOXgxZm5UVyt5c3Rh?=
+ =?utf-8?B?dWo0QlpXSExiZWJrYjV0OFE2S0I5UFNHVzJ2Z0tHYXBiZDRydWdiVWwrbndP?=
+ =?utf-8?B?cStDTFViOHkwZHY3Ykl1NU1DN2kvaVdwVWxIWldzZDhyM2Z4K09OdWVFMEZN?=
+ =?utf-8?B?RjFoY2tDdnJUM0xqVXZoNUJRb01uWG41eDZyck9iRGV4eEVscWs5Q1JCbUEx?=
+ =?utf-8?B?ZHFFSVI0UXQ0SWJXM2N4bDJkUVY2YVRjSjJibFByMFo2dzUweGZPekpQRXI2?=
+ =?utf-8?B?TjhvbmFCZWZEY3pVdkxrUWNocHlmeWw3NVJXTUZBNGM5T0M5UEhjbVh4QjV4?=
+ =?utf-8?B?Y3hzR0pUUjhZb2tiTm95MlA3RWJTUnpKN1VKNTZXZGdSSmIyWXVoWnUwRGNq?=
+ =?utf-8?B?dFlTL1pydEVIKzBBNE5xRVpXaVAxOWxQUmJRV3ZuNDd5RkgzQk9hMUFZUTBV?=
+ =?utf-8?B?TnRqUThjanFON0ZwMmMzZ0E5NmQxWFA1TXB1T1BnbkpwUkJab1FMdEVjaUFB?=
+ =?utf-8?B?bzRHU0dJM09jejE3Qi8vcjJQZDI3ZkpEekZOelZMY2U2VlllMURrMTNkNXpC?=
+ =?utf-8?B?VjBhbG1Mam1idUhsR0tlaXdXS1ZwUnFlcTI3dGpVTzFDOGJYK0JRdFdoVDVO?=
+ =?utf-8?B?eHUzaTBDTjNtMWhQczFZUDF5Zkc2ZHB1N3RHZ1pHU0RBU1V5WGh0VXlOV3h6?=
+ =?utf-8?B?ZUIwN2lsQlFvUEtyTUcrdWZaaWUwenVpWnhyZmpqUGNTUVRXUHQyak4rTmlD?=
+ =?utf-8?B?V1VFUExnRExzQXhmM2dlaXdFRW1VWTdyVW1YN05JQmJmWGtKdUMzL1dsNGUw?=
+ =?utf-8?B?b3VmS1dDWkcxMCtkMlAvSkU0K2JjZXMySjJDc3hubkpibTY2cStmeUhQdm55?=
+ =?utf-8?B?bDNjc2RQV2dIRTlxMTVTQitrS1NhREs5YmttZXg3a0UvSEQrbzZjZ1RPUEFU?=
+ =?utf-8?B?bVZpQytQa0c1OGpjUjFpaDRhdnVyaUpHMVQ0ay8yM29aazRmOVhXM0RPYTNm?=
+ =?utf-8?B?b3NqRFZSdlVCMjZFWGFmcGkxeXNTZFJDYzkyL1RncWVtalIyRTN5UldUL0RL?=
+ =?utf-8?B?YWRMZkFZUndkU1JmbDd5R3l3MXpnNGtLYlQ1am9WbVJtdUQyWWxBWmNrQ09F?=
+ =?utf-8?B?QmxrOUgxbFI2QUhQOFdiaDFwYWVzNnBtZXVWZXc0aWVVT3lhWHlWTlFsak54?=
+ =?utf-8?B?R3NOVFIxWWh2bTdQOHJDR2luODBmTDY1NXRpTUJEaHNscklJaWJqY2krUFQ1?=
+ =?utf-8?B?VnQ4UExJNjBQdlA1UFg1aU5OSm5EakcwYjhRcjBEWnZ6b1lwSm5XeE9sTFBJ?=
+ =?utf-8?B?cERhYXlFZFdTQ0tsOWIzVXVmYXg4Y0l1ekVieWU5cDgvQkFzOFp4MnMvajNU?=
+ =?utf-8?B?UDRYUDF1TlNwZDdqbFk2Wk82WmZIT2ZKcFpRNE5jVGlXcks0UlFLa3E5dEhn?=
+ =?utf-8?B?WG1SU29IOWZKU1BWM0pLK3RKTWxwTi84Zno2ZkgwU21ZaktWcmplQnk1L09s?=
+ =?utf-8?B?MkR6b0NKWFJDa1VlNG0vM3hNYk5reXZzL0pFR0R2bnhBa0orRHNKSk9NeDBJ?=
+ =?utf-8?B?TjRCQitvUUF1eWNlc3BUem5RSWp2V1dNUHdobng2SDhNN3doVjA0UkJzbEtY?=
+ =?utf-8?B?QjBqK2Q4VVRMa2NNSldaZjJEcnR0aXFtcXdheS81enNvOWk0NmFqeGZyRTh1?=
+ =?utf-8?B?OXB1WXM0OGtaQmxKV0ZUcVZ6SmZOUEtnTnRvaHdzQy9FQ1U5VG9NMDk0WldO?=
+ =?utf-8?B?ZEVIYUFlOU1FR2V5NHhkazhNa3Qwendqd0xJRmRPNUNuMnVaSkxKYWovUUNN?=
+ =?utf-8?B?VGJ5Q1dVeGR5c3lFN3VmRFJqQVE3NXpFVDNpNnoxbWdQVCtXVGF5OHkwVStx?=
+ =?utf-8?B?Y05qUXAyL0RGU3JBUE1veG4yeEN4bzhUZlg4d0lkbzBnVkJrMnQ3SXZsL2lp?=
+ =?utf-8?B?VTFTNlZXNFExQmRwMXJHeU1GSjBiOWgvQnFacDhxeDQxUEdWSGZHT3pwQzFw?=
+ =?utf-8?B?cTVMZXRxbHBZblRyZENWNGZUTndTTlFzeTVMZTdxT0dPWkhlWFgzdG5oQUxo?=
+ =?utf-8?B?VEJKbmM5NDdKT3hDdG5VNGk5UkpZR0R3R1NxYlJaSnhjVW5hQUlVMUljYk1E?=
+ =?utf-8?B?elE9PQ==?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: 9RvBSaJZBocBknkNfhfldkhlLxBhH4LbOAXJ0fAg7XI2DcTUpCsoiWhu8QLhb1/lcHxw3ZR1GI25uxjCQM0rHQi/+lKDLGLPl79LHrjjtWcAA4pZe2jPNyAXUYeorbDogFRytc5pM0jfwN2UmMi5ZTfRY1WwSx4sT5j3klwxH4L7PIGzloSZEunRk3JNX8Gz6G7ZhIJ6HomyRtkDaEFghlGDKC6coI6GzrAw+Fdt9s4e87AKJWngT4hWwA+vzksLNnRWSrdjooGAQDN6wjw1Klyo/quGPkI9UhUxKIIFej2McdquseC4V35b0Rra7DELvXkejrnZ7RRJbK6Xn2Gz2lfQtHwqsRKvFKuKLaYsigDcbcKbUvETNhKrF2ERq4ZarJqEALwt2kcJOpH+FODoZAVPA0GWEaZxrtdNSsphekfkwCTYvuq++RBYnKocGBNT5R/mhbqHdYSsseqLGnqV3F5zy+Bk6R1cPjRMemrZlSBCfPRMGD1IBL08iNf5+59PVI+tjA42j4iGIbC7SwcmFY1BwMdOUC1FBbtyWAFQCGvzkEqCt5rGyl+Zz4UcCjecHMvCi8xF+CIHHUnCJlnBY5IWpUs4F8iHxVgIhA7fflo=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 720a88fa-eab8-4f73-fcb2-08dd7b06ff0e
+X-MS-Exchange-CrossTenant-AuthSource: CO6PR10MB5409.namprd10.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Apr 2025 03:32:00.9383
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Apr 2025 03:46:53.7457
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: CHXIH1vJEN1aHyS13xiCAeqrrD1sxgxXbpSJHnBpWRacduURymOfDj8As9BYf36366YVqphlFyBy5s4/MNfM2Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUZPR03MB7064
+X-MS-Exchange-CrossTenant-UserPrincipalName: 07DlYef+wMwzwyNdSqaJnoCuQRjl5hPM8NN80BYSsI582J+FeWHuhGSKF+eCQv1o3wjK1mM1ln3g5hN47AXQ5WhO1jxeC+hon6Jx++h/9Vw=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PPFDB583D803
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-14_01,2025-04-10_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0 phishscore=0
+ mlxlogscore=999 bulkscore=0 suspectscore=0 mlxscore=0 malwarescore=0
+ spamscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2502280000 definitions=main-2504140026
+X-Proofpoint-ORIG-GUID: _FtVnGp4oxXm0VobQjkVMhU9uV0QZ_5M
+X-Proofpoint-GUID: _FtVnGp4oxXm0VobQjkVMhU9uV0QZ_5M
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250413_203219_541210_28E75D06 
-X-CRM114-Status: GOOD (  17.70  )
+X-CRM114-CacheID: sfid-20250413_204728_121873_46DB1D39 
+X-CRM114-Status: GOOD (  16.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,264 +221,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Neil:
 
-     Thanks for your suggestion.
+Shuai Xue <xueshuai@linux.alibaba.com> writes:
 
-
-On 4/11/2025 9:31 PM, Neil Armstrong wrote:
-> [ EXTERNAL EMAIL ]
+> =E5=9C=A8 2025/4/12 04:57, Ankur Arora =E5=86=99=E9=81=93:
+>> Shuai Xue <xueshuai@linux.alibaba.com> writes:
+>>
+>>> =E5=9C=A8 2025/2/19 05:33, Ankur Arora =E5=86=99=E9=81=93:
+>>>> Needed for cpuidle-haltpoll.
+>>>> Acked-by: Will Deacon <will@kernel.org>
+>>>> Signed-off-by: Ankur Arora <ankur.a.arora@oracle.com>
+>>>> ---
+>>>>    arch/arm64/kernel/idle.c | 1 +
+>>>>    1 file changed, 1 insertion(+)
+>>>> diff --git a/arch/arm64/kernel/idle.c b/arch/arm64/kernel/idle.c
+>>>> index 05cfb347ec26..b85ba0df9b02 100644
+>>>> --- a/arch/arm64/kernel/idle.c
+>>>> +++ b/arch/arm64/kernel/idle.c
+>>>> @@ -43,3 +43,4 @@ void __cpuidle arch_cpu_idle(void)
+>>>>    	 */
+>>>>    	cpu_do_idle();
+>>>
+>>> Hi, Ankur,
+>>>
+>>> With haltpoll_driver registered, arch_cpu_idle() on x86 can select
+>>> mwait_idle() in idle threads.
+>>>
+>>> It use MONITOR sets up an effective address range that is monitored
+>>> for write-to-memory activities; MWAIT places the processor in
+>>> an optimized state (this may vary between different implementations)
+>>> until a write to the monitored address range occurs.
+>> MWAIT is more capable than WFE -- it allows selection of deeper idle
+>> state. IIRC C2/C3.
+>>
+>>> Should arch_cpu_idle() on arm64 also use the LDXR/WFE
+>>> to avoid wakeup IPI like x86 monitor/mwait?
+>> Avoiding the wakeup IPI needs TIF_NR_POLLING and polling in idle support
+>> that this series adds.
+>> As Haris notes, the negative with only using WFE is that it only allows
+>> a single idle state, one that is fairly shallow because the event-stream
+>> causes a wakeup every 100us.
+>> --
+>> ankur
 >
-> Hi,
+> Hi, Ankur and Haris
 >
-> On 11/04/2025 14:42, Chuan Liu via B4 Relay wrote:
->> From: Chuan Liu <chuan.liu@amlogic.com>
->>
->> Since the MSR_CLK register offset differs between chip variants, we
->> replace the macro-based definition with chip-specific assignments.
->>
->> Change the max_register in regmap_config to be retrieved from DTS.
->>
->> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
->> ---
->>   drivers/soc/amlogic/meson-clk-measure.c | 70 
->> ++++++++++++++++++++++++++-------
->>   1 file changed, 55 insertions(+), 15 deletions(-)
->>
->> diff --git a/drivers/soc/amlogic/meson-clk-measure.c 
->> b/drivers/soc/amlogic/meson-clk-measure.c
->> index 39638d6a593c..30387d26307c 100644
->> --- a/drivers/soc/amlogic/meson-clk-measure.c
->> +++ b/drivers/soc/amlogic/meson-clk-measure.c
->> @@ -14,11 +14,6 @@
->>
->>   static DEFINE_MUTEX(measure_lock);
->>
->> -#define MSR_CLK_DUTY         0x0
->> -#define MSR_CLK_REG0         0x4
->> -#define MSR_CLK_REG1         0x8
->> -#define MSR_CLK_REG2         0xc
->> -
->>   #define MSR_DURATION                GENMASK(15, 0)
->>   #define MSR_ENABLE          BIT(16)
->>   #define MSR_CONT            BIT(17) /* continuous measurement */
->> @@ -39,9 +34,20 @@ struct meson_msr_id {
->>       const char *name;
->>   };
->>
->> +struct msr_reg_offset {
->> +     unsigned int duty;
->> +     unsigned int reg0;
->> +     unsigned int reg1;
->> +     unsigned int reg2;
->> +     unsigned int reg3;
->> +     unsigned int reg4;
->> +     unsigned int reg5;
->> +};
+> Got it, thanks for explaination :)
 >
-> I don't object, but:
-> 1) could you help actually put a real name on those registers ?
+> Comparing sched-pipe performance on Rund with Yitian 710, *IPC improved 3=
+5%*:
 
+Thanks for testing Shuai. I wasn't expecting the IPC to improve by quite
+that much :). The reduced instructions make sense since we don't have to
+handle the IRQ anymore but we would spend some of the saved cycles
+waiting in WFE instead.
 
-The clk-measure registers and their corresponding functions in our
-released documentation are as follows:
-MSR_CLK_DUTY: Accumulates counts of clock high/low levels within a
-measurement window for duty cycle calculation.
-MSR_CLK_REG0: Control register for clock frequency measurement.
-MSR_CLK_REG1: Control register for clock duty cycle measurement.
-MSR_CLK_REG2: Accumulates total cycle counts within the measurement
-window for frequency calculation.
-MSR_CLK_REG3-6: Debug status registers for clk-measure (typically
-unused in normal operation).
+I'm not familiar with the Yitian 710. Can you check if you are running
+with WFE? That's the __smp_cond_load_relaxed_timewait() path vs the
+__smp_cond_load_relaxed_spinwait() path in [0]. Same question for the
+Kunpeng 920.
 
-Register Renaming for Next Version:
-"duty" -> "duty_val"
-"reg0" -> "freq_ctrl"
-"reg1" -> "duty_ctrl"
-"reg2" -> "freq_val"
+Also, I'm working on a new version of the series in [1]. Would you be
+okay trying that out?
 
+Thanks
+Ankur
 
-> 2) why adding regs 3, 4 & 5 if you don't use them ?
+[0] https://lore.kernel.org/lkml/20250203214911.898276-1-ankur.a.arora@orac=
+le.com/
+[1] https://lore.kernel.org/lkml/20250203214911.898276-4-ankur.a.arora@orac=
+le.com/
 
-
-These three registers are unused in normal operation and will be removed
-in the next version.
-
-
+> w/o haltpoll
+> Performance counter stats for 'CPU(s) 0,1' (5 runs):
 >
->> +
->>   struct meson_msr_data {
->>       struct meson_msr_id *msr_table;
->>       unsigned int msr_count;
->> +     struct msr_reg_offset reg;
->>   };
->>
->>   struct meson_msr {
->> @@ -495,6 +501,7 @@ static int meson_measure_id(struct meson_msr_id 
->> *clk_msr_id,
->>                           unsigned int duration)
->>   {
->>       struct meson_msr *priv = clk_msr_id->priv;
->> +     struct msr_reg_offset *reg = &priv->data.reg;
->>       unsigned int val;
->>       int ret;
->>
->> @@ -502,22 +509,22 @@ static int meson_measure_id(struct meson_msr_id 
->> *clk_msr_id,
->>       if (ret)
->>               return ret;
->>
->> -     regmap_write(priv->regmap, MSR_CLK_REG0, 0);
->> +     regmap_write(priv->regmap, reg->reg0, 0);
->>
->>       /* Set measurement duration */
->> -     regmap_update_bits(priv->regmap, MSR_CLK_REG0, MSR_DURATION,
->> +     regmap_update_bits(priv->regmap, reg->reg0, MSR_DURATION,
->>                          FIELD_PREP(MSR_DURATION, duration - 1));
->>
->>       /* Set ID */
->> -     regmap_update_bits(priv->regmap, MSR_CLK_REG0, MSR_CLK_SRC,
->> +     regmap_update_bits(priv->regmap, reg->reg0, MSR_CLK_SRC,
->>                          FIELD_PREP(MSR_CLK_SRC, clk_msr_id->id));
->>
->>       /* Enable & Start */
->> -     regmap_update_bits(priv->regmap, MSR_CLK_REG0,
->> +     regmap_update_bits(priv->regmap, reg->reg0,
->>                          MSR_RUN | MSR_ENABLE,
->>                          MSR_RUN | MSR_ENABLE);
->>
->> -     ret = regmap_read_poll_timeout(priv->regmap, MSR_CLK_REG0,
->> +     ret = regmap_read_poll_timeout(priv->regmap, reg->reg0,
->>                                      val, !(val & MSR_BUSY), 10, 10000);
->>       if (ret) {
->>               mutex_unlock(&measure_lock);
->> @@ -525,10 +532,10 @@ static int meson_measure_id(struct meson_msr_id 
->> *clk_msr_id,
->>       }
->>
->>       /* Disable */
->> -     regmap_update_bits(priv->regmap, MSR_CLK_REG0, MSR_ENABLE, 0);
->> +     regmap_update_bits(priv->regmap, reg->reg0, MSR_ENABLE, 0);
->>
->>       /* Get the value in multiple of gate time counts */
->> -     regmap_read(priv->regmap, MSR_CLK_REG2, &val);
->> +     regmap_read(priv->regmap, reg->reg2, &val);
->>
->>       mutex_unlock(&measure_lock);
->>
->> @@ -599,11 +606,10 @@ static int clk_msr_summary_show(struct seq_file 
->> *s, void *data)
->>   }
->>   DEFINE_SHOW_ATTRIBUTE(clk_msr_summary);
->>
->> -static const struct regmap_config meson_clk_msr_regmap_config = {
->> +static struct regmap_config meson_clk_msr_regmap_config = {
->>       .reg_bits = 32,
->>       .val_bits = 32,
->>       .reg_stride = 4,
->> -     .max_register = MSR_CLK_REG2,
->>   };
->>
->>   static int meson_msr_probe(struct platform_device *pdev)
->> @@ -611,6 +617,7 @@ static int meson_msr_probe(struct platform_device 
->> *pdev)
->>       const struct meson_msr_data *match_data;
->>       struct meson_msr *priv;
->>       struct dentry *root, *clks;
->> +     struct resource *res;
->>       void __iomem *base;
->>       int i;
->>
->> @@ -636,15 +643,18 @@ static int meson_msr_probe(struct 
->> platform_device *pdev)
->>              match_data->msr_count * sizeof(struct meson_msr_id));
->>       priv->data.msr_count = match_data->msr_count;
->>
->> -     base = devm_platform_ioremap_resource(pdev, 0);
->> +     base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
->>       if (IS_ERR(base))
->>               return PTR_ERR(base);
->>
->> +     meson_clk_msr_regmap_config.max_register = resource_size(res) - 4;
->>       priv->regmap = devm_regmap_init_mmio(&pdev->dev, base,
->> &meson_clk_msr_regmap_config);
->>       if (IS_ERR(priv->regmap))
->>               return PTR_ERR(priv->regmap);
->>
->> +     memcpy(&priv->data.reg, &match_data->reg, sizeof(struct 
->> msr_reg_offset));
->> +
->>       root = debugfs_create_dir("meson-clk-msr", NULL);
->>       clks = debugfs_create_dir("clks", root);
->>
->> @@ -667,26 +677,56 @@ static int meson_msr_probe(struct 
->> platform_device *pdev)
->>   static const struct meson_msr_data clk_msr_gx_data = {
->>       .msr_table = (void *)clk_msr_gx,
->>       .msr_count = ARRAY_SIZE(clk_msr_gx),
->> +     .reg = {
->> +             .duty = 0x0,
->> +             .reg0 = 0x4,
->> +             .reg1 = 0x8,
->> +             .reg2 = 0xc,
->> +     },
+>     32521.53 msec task-clock                #    2.000 CPUs utilized     =
+       ( +-  1.16% )
+>  38081402726      cycles                    #    1.171 GHz               =
+       ( +-  1.70% )
+>  27324614561      instructions              #    0.72  insn per cycle    =
+       ( +-  0.12% )
+>          181      sched:sched_wake_idle_without_ipi #    0.006 K/sec
 >
-> Would be great to not duplicate this struct.
-
-
-Okay, I'll change it to use the same struct across multiplechips.
-
-
+> w/ haltpoll
+> Performance counter stats for 'CPU(s) 0,1' (5 runs):
 >
->>   };
->>
->>   static const struct meson_msr_data clk_msr_m8_data = {
->>       .msr_table = (void *)clk_msr_m8,
->>       .msr_count = ARRAY_SIZE(clk_msr_m8),
->> +     .reg = {
->> +             .duty = 0x0,
->> +             .reg0 = 0x4,
->> +             .reg1 = 0x8,
->> +             .reg2 = 0xc,
->> +     },
->>   };
->>
->>   static const struct meson_msr_data clk_msr_axg_data = {
->>       .msr_table = (void *)clk_msr_axg,
->>       .msr_count = ARRAY_SIZE(clk_msr_axg),
->> +     .reg = {
->> +             .duty = 0x0,
->> +             .reg0 = 0x4,
->> +             .reg1 = 0x8,
->> +             .reg2 = 0xc,
->> +     },
->>   };
->>
->>   static const struct meson_msr_data clk_msr_g12a_data = {
->>       .msr_table = (void *)clk_msr_g12a,
->>       .msr_count = ARRAY_SIZE(clk_msr_g12a),
->> +     .reg = {
->> +             .duty = 0x0,
->> +             .reg0 = 0x4,
->> +             .reg1 = 0x8,
->> +             .reg2 = 0xc,
->> +     },
->>   };
->>
->>   static const struct meson_msr_data clk_msr_sm1_data = {
->>       .msr_table = (void *)clk_msr_sm1,
->>       .msr_count = ARRAY_SIZE(clk_msr_sm1),
->> +     .reg = {
->> +             .duty = 0x0,
->> +             .reg0 = 0x4,
->> +             .reg1 = 0x8,
->> +             .reg2 = 0xc,
->> +     },
->>   };
->>
->>   static const struct of_device_id meson_msr_match_table[] = {
->>
+>      9477.15 msec task-clock                #    2.000 CPUs utilized     =
+       ( +-  0.89% )
+>  21486828269      cycles                    #    2.267 GHz               =
+       ( +-  0.35% )
+>  23867109747      instructions              #    1.11  insn per cycle    =
+       ( +-  0.11% )
+>      1925207      sched:sched_wake_idle_without_ipi #    0.203 M/sec
 >
-> Thanks,
-> Neil
+> Comparing sched-pipe performance on QEMU with Kunpeng 920, *IPC improved =
+10%*:
+>
+> w/o haltpoll
+> Performance counter stats for 'CPU(s) 0,1' (5 runs):
+>
+>          34,007.89 msec task-clock                       #    2.000 CPUs =
+utilized               ( +-  8.86% )
+>      4,407,859,620      cycles                           #    0.130 GHz  =
+                       ( +- 84.92% )
+>      2,482,046,461      instructions                     #    0.56  insn =
+per cycle              ( +- 88.27% )
+>                 16      sched:sched_wake_idle_without_ipi #    0.470 /sec=
+                        ( +- 98.77% )
+>
+>              17.00 +- 1.51 seconds time elapsed  ( +-  8.86% )
+>
+> w/ haltpoll
+> Performance counter stats for 'CPU(s) 0,1' (5 runs):
+>
+>          16,894.37 msec task-clock                       #    2.000 CPUs =
+utilized               ( +-  3.80% )
+>      8,703,158,826      cycles                           #    0.515 GHz  =
+                       ( +- 31.31% )
+>      5,379,257,839      instructions                     #    0.62  insn =
+per cycle              ( +- 30.03% )
+>            549,434      sched:sched_wake_idle_without_ipi #   32.522 K/se=
+c                       ( +- 30.05% )
+>
+>              8.447 +- 0.321 seconds time elapsed  ( +-  3.80% )
+>
+> Tested-by: Shuai Xue <xueshuai@linux.alibaba.com>
+>
+> Thanks.
+> Shuai
 
