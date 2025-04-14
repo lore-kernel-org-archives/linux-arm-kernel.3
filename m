@@ -4,69 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F4E0C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 11:16:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0225EC369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 11:18:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rGJveFqFdd4rg7V6pj5VRC0DXtHbP4pqzHJWTyABUE0=; b=QgFBgRbRK/Pad1SNubpD5wQDwP
-	VoYe0SPCoWN3gOMAHiNipl9FOozdzc8D06/qBNXFOSEb5g3elmrqiAKogYaQh4TVP5OQK9n+U4KUA
-	ZaQdOESFQUgFLUQdSTRxGjruMEmKP75bk+I+AioQClS3+W8nZkX3aV8HmJauet0lMqEa6GSod7+qH
-	7Z396PqWeFsKIEU5x7VIBNDKJ5/A3ZM+7yDcNg7JWNLnuuBIK9dJQHwQkz+zbJP3rOx1255B3gn3e
-	l2xgXds5a9Ug1r4DSHgfBI73BxluLCvjLJYrf4NzIlkYv6ZgZC+BIM2uc2wp64SSHhKuXW65yLPt1
-	GzcrHIUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FvxpSXO+bFgB1St+7rEJp93C352vyZIr+mzbHjB7ijA=; b=0Zn4Pzls54i6oHdrgbX+kMiWAs
+	ZQT9FI5YZ+SmQX2ccX8v2J6t7kWOr81f0KfWmEIYkS9u+nDjBe7K8YVIJ+CCpqAsE0sawQBLiMXAu
+	i/zro1HYWd6At/7s41aZzVlHKc5XL7YK9luSlFWxA+WfdxsNOL0yG0dCf757xMTkRy0HNZ30TqoJg
+	vv5fcFS7V50tjvJ9S9a3FbokhQaFyU+nN7PGpLQQBnoNtwThBXgV/YwAVu+2hPbZe85nGVh2+zBPy
+	EZoLBUSs6dr9n4hyJui09bDJk3ppBWjSk+cHt6gqOE/9z2S/8EWYKP8HZtgJM1yJhjSIfIDT7L++O
+	R9iscRIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4HnG-00000001igt-0Jc8;
-	Mon, 14 Apr 2025 11:16:02 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1u4Hpp-00000001jcF-3PF2;
+	Mon, 14 Apr 2025 11:18:41 +0000
+Received: from smtp-fw-9106.amazon.com ([207.171.188.206])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Hgj-00000001gFv-2ZtH;
-	Mon, 14 Apr 2025 11:09:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1744628955;
-	bh=wjnJnWMkojXnEo1V8ScaOLq3IF7OMdLybc1gyWhzlmI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=bm83xP1tD0JnIrATrbQIMEtpktlE/Z1bIw1eXJGyGVv1ngWG1Hro9fHFlmCy7g/GX
-	 Qn2A4ntb4XnkqFJO0J+0h6YAodB5abD4pjeEQFiWvtwApTKkShnIIGIWWCNW9JZRQk
-	 FofNz1nxl8itoPV4dRoHgYmBdVqvdpesiUk6Rdaq/ElUPqHUry2ysa2Vvyjef3+Izj
-	 mG6OX0Zp9gSUX/IM5z5qt4kRMKAFCJO+JXeaKmZ9wJ1ltT0atdhHTWMI8ql3yYLIv8
-	 vBUTkP96MILKzAH01LORDHQipJUWx60mLLoLArD2OGq9ubX64BsrE44tyo780JFp8j
-	 rreUitkY3193w==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 224D717E00AC;
-	Mon, 14 Apr 2025 13:09:15 +0200 (CEST)
-Message-ID: <968001f7-96d1-4ad5-8c36-28cac5dc30f1@collabora.com>
-Date: Mon, 14 Apr 2025 13:09:14 +0200
+	id 1u4Hmv-00000001iZi-460n
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 14 Apr 2025 11:15:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
+  t=1744629342; x=1776165342;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=FvxpSXO+bFgB1St+7rEJp93C352vyZIr+mzbHjB7ijA=;
+  b=g4VyiZanF+3+99IKm9gy3KsBGNyLVfDMNqEmyNPbm3oDudjHEkaoS1ZH
+   CBv5KNB4w9prV7Kjxp0F7lqXYB7BiyPg4dZ1XwHXZx0E8INfpGSL6YXz2
+   ztIbR8SAb/k+oFhvmSnbgUrWd8aybUBaC5nYtUd4VOV1N57IO8cwk85tU
+   A=;
+X-IronPort-AV: E=Sophos;i="6.15,212,1739836800"; 
+   d="scan'208";a="815825200"
+Received: from pdx4-co-svc-p1-lb2-vlan2.amazon.com (HELO smtpout.prod.us-east-1.prod.farcaster.email.amazon.dev) ([10.25.36.210])
+  by smtp-border-fw-9106.sea19.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Apr 2025 11:15:34 +0000
+Received: from EX19MTAEUA002.ant.amazon.com [10.0.43.254:44527]
+ by smtpin.naws.eu-west-1.prod.farcaster.email.amazon.dev [10.0.12.56:2525] with esmtp (Farcaster)
+ id fea6780a-9d42-46ff-ab79-6f921b6f0769; Mon, 14 Apr 2025 11:15:32 +0000 (UTC)
+X-Farcaster-Flow-ID: fea6780a-9d42-46ff-ab79-6f921b6f0769
+Received: from EX19D018EUA002.ant.amazon.com (10.252.50.146) by
+ EX19MTAEUA002.ant.amazon.com (10.252.50.124) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
+ Mon, 14 Apr 2025 11:15:32 +0000
+Received: from u94b036d6357a55.ant.amazon.com.com (10.106.82.24) by
+ EX19D018EUA002.ant.amazon.com (10.252.50.146) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
+ Mon, 14 Apr 2025 11:15:26 +0000
+From: Ilias Stamatis <ilstam@amazon.com>
+To: <kvmarm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+	<maz@kernel.org>, <oliver.upton@linux.dev>
+CC: <joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <yuzenghui@huawei.com>,
+	<eric.auger@redhat.com>, <andre.przywara@arm.com>, <will@kernel.org>,
+	<dwmw@amazon.co.uk>, <ilstam@amazon.com>, <jgrall@amazon.co.uk>,
+	<ugurus@amazon.co.uk>, <nh-open-source@amazon.com>
+Subject: [RFC] ARM vGIC-ITS tables serialization when running protected VMs
+Date: Mon, 14 Apr 2025 12:12:43 +0100
+Message-ID: <20250414111244.153528-1-ilstam@amazon.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/5] rtc: mt6397: Remove start time parameters
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Alexandre Mergnat <amergnat@baylibre.com>
-Cc: Eddie Huang <eddie.huang@mediatek.com>, Sean Wang
- <sean.wang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-rtc@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-References: <20250109-enable-rtc-v3-0-f003e8144419@baylibre.com>
- <20250109-enable-rtc-v3-4-f003e8144419@baylibre.com>
- <20250411133609a1295543@mail.local> <202504111339359e840246@mail.local>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <202504111339359e840246@mail.local>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.106.82.24]
+X-ClientProxiedBy: EX19D041UWB004.ant.amazon.com (10.13.139.143) To
+ EX19D018EUA002.ant.amazon.com (10.252.50.146)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_040917_803551_D3BA1412 
-X-CRM114-Status: GOOD (  14.96  )
+X-CRM114-CacheID: sfid-20250414_041542_067957_56DEEB70 
+X-CRM114-Status: GOOD (  33.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,65 +87,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 11/04/25 15:39, Alexandre Belloni ha scritto:
-> On 11/04/2025 15:36:12+0200, Alexandre Belloni wrote:
->> On 11/04/2025 14:35:57+0200, Alexandre Mergnat wrote:
->>> The start time parameters is currently hardcoded to the driver, but
->>> it may not fit with all equivalent RTC that driver is able to support.
->>>
->>> Remove the start_secs and set_start_time value setup because it
->>> will be handled by the rtc_device_get_offset function using the
->>> start-year DTS property.
->>>
->>> Signed-off-by: Alexandre Mergnat <amergnat@baylibre.com>
->>> ---
->>>   drivers/rtc/rtc-mt6397.c | 2 --
->>>   1 file changed, 2 deletions(-)
->>>
->>> diff --git a/drivers/rtc/rtc-mt6397.c b/drivers/rtc/rtc-mt6397.c
->>> index 692c00ff544b2..d47626d47602f 100644
->>> --- a/drivers/rtc/rtc-mt6397.c
->>> +++ b/drivers/rtc/rtc-mt6397.c
->>> @@ -291,8 +291,6 @@ static int mtk_rtc_probe(struct platform_device *pdev)
->>>   	rtc->rtc_dev->ops = &mtk_rtc_ops;
->>>   	rtc->rtc_dev->range_min = RTC_TIMESTAMP_BEGIN_1900;
->>>   	rtc->rtc_dev->range_max = mktime64(2027, 12, 31, 23, 59, 59);
->>> -	rtc->rtc_dev->start_secs = mktime64(1968, 1, 2, 0, 0, 0);
->>> -	rtc->rtc_dev->set_start_time = true;
->>>   
->>
->> This is going to break the time for people upgrading their kernel, you
->> are unfortunately stuck with this.
->>
-> 
-> To be clear, the breakage will happen when upgrading the kernel but not
-> the device tree with 5/5
-> 
+# The problem
 
-Yes, you're stuck with this. Devicetree has to be retrocompatible.
+KVM's ARM Virtual Interrupt Translation Service (ITS) interface supports the
+KVM_DEV_ARM_ITS_SAVE_TABLES and KVM_DEV_ARM_ITS_RESTORE_TABLES operations.
+These operations save and restore a set of tables (Device Tables, Interrupt
+Translation Tables, Collection Table) to and from guest memory.
 
-Besides, this start_secs is what gets used by default, and the start-year
-devicetree property should take precedence and effectively override the
-start_secs default.
+This can be a problem when running a protected VM on top of pKVM or another
+lowvisor since the host kernel (running at EL1) cannot access guest memory.
 
-Just keep it there.... :-)
+# Page declassification and why ITTs are special
 
-Cheers,
-Angelo
+The Collection and Device tables are page aligned and their sizes must be a
+multiple of page size. If the lowvisor knows where these tables live, it is
+possible to "declassify" the corresponding pages and configure the MMU such as
+that the EL1 host can write to guest memory directly.
 
->>>   	return devm_rtc_register_device(rtc->rtc_dev);
->>>   }
->>>
->>> -- 
->>> 2.25.1
->>>
->>
->> -- 
->> Alexandre Belloni, co-owner and COO, Bootlin
->> Embedded Linux and Kernel engineering
->> https://bootlin.com
-> 
+The ITTs (Interrupt Translation Tables) are different. They are NOT page
+aligned, they are 256 byte aligned and their size is variable. That means that
+the lowvisor can't declassify pages containing ITTs and configure the MMU
+giving the host direct access as above since those pages may contain unrelated
+data.
 
+If the lowvisor knows where the ITTs live in guest memory it could instead
+perform the guest memory accesses on behalf of the host. I.e. the EL1 host
+would attempt to save the ITTs to guest memory like it does today, that would
+generate a data abort, and then the EL2 lowvisor could perform the copy after
+validating that the faulty address belongs to an ITT in guest memory.
 
+One issue with the above is that the ITS save/restore happens at hypervisor
+live update which is a time sensitive operation and the extra traps (one per
+interrupt mapping?) can introduce significant additional overhead there.
+
+Another issue is that it's actually hard for the lowvisor to know where these
+tables live without trusting the EL1 host which virtualizes the ITS. It is
+especially hard knowing the locations of the ITTs (compared to
+Collection/Device tables) because that probably means having to parse the ITS
+command queue from EL2 which is complex and undesirable.
+
+# An alternative: Serializing ITTs into a userspace buffer
+
+Rather than writing the ITTs to guest memory, the EL1 host can serialize them
+into a buffer provided by userspace.
+
+The struct kvm_device_attr passed to KVM_DEV_ARM_ITS_{SAVE,RESTORE}_TABLES has
+a currently unused 'addr' field that can be used for the buffer address. The
+upper 32-bits of 'attr' from the struct could be used for the buffer size (even
+though that feels hacky). Also a flag in the 'flags' field can be used to
+determine whether the userspace buffer must be used or not.
+
+I'm attaching a not-so-pretty RFC patch that does just this. The format of the
+blob stored in the buffer is the following. There is a 64-bit ITT start marker
+which embeds the device ID owning the ITT. The start marker is followed by
+64-bit ITEs stored using the existing ITS Table ABI REV0 with the 'next' field
+being replaced by an 'event_id' field which stores the event ID rather than an
+offset. An end marker indicates the end of the ITT and is followed by the start
+marker for the ITT of the next device.
+
+Note that I haven't actually documented this new ABI in the patch yet, because
+it's unlikely to stay as it is. There are many different ways to achieve the
+same result.
+
+Also note that this patch treats the ITTs specially for the reasons mentioned
+in the previous section (harder to declassify), but there could be flags for
+choosing between storing all tables or just the ITTs in the userspace buffer.
+
+Finally, the patch is based on an older kernel tree at the moment but from a
+quick look it won't be too difficult to rebase on top of 6.15. However, I
+wanted some initial feedback to see whether this approach is something that
+maintainers would even consider before rebasing, adding tests and making this
+as robust as possible.
+
+# How can userspace calculate the size of the buffer?
+
+This is another big problem. Today the guest is responsible for allocating
+memory for the ITTs (and other tables) before passing it to the (v)GIC.
+However, if userspace is to provide the host kernel with a buffer it has to
+know how much memory to allocate for it.
+
+Userspace should probably account for the worst case where ITTs are fully
+populated. The theoritical maximum depends on the number of Device ID bits and
+Event ID bits that the ITS advertises. Today these values are fixed in KVM's
+vITS and set to 16 bits each. Therefore the theoritical maximum is a very large
+number (2^16 * 2^16 * 8 bytes per ITT entry = 32GiB per vITS) which is
+unrealistic.
+
+However, it should be possible to make the Device ID and Event ID bits
+configurable by userspace. That way by using smaller numbers there, the
+theoritical maximum for the ITTs can be reduced to more realistic sizes.
+
+# Please suggest something better
+
+I'm fully aware that this is not a great patch and feels hacky and potentially
+non-robust. However, I'm struggling to come up with anything better and this
+RFC is meant to start a discussion around this problem. Is storing the ITS
+tables in host memory something that makes sense or is there a better/simpler
+approach that would work for Confidential Computing?
+
+Thanks
+
+Ilias Stamatis (1):
+  KVM: arm64: vgic-its: Add flag for saving ITTs in userspace buffer
+
+ arch/arm64/include/uapi/asm/kvm.h |   5 +
+ arch/arm64/kvm/vgic/vgic-its.c    | 213 +++++++++++++++++++++++++++++-
+ arch/arm64/kvm/vgic/vgic.h        |   4 +
+ include/kvm/arm_vgic.h            |  11 ++
+ 4 files changed, 227 insertions(+), 6 deletions(-)
+
+-- 
+2.47.1
 
 
