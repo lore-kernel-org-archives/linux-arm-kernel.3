@@ -4,155 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51E77C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 06:12:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07E07C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 06:32:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xVAg16JVCAiG9MQW0qpPpwc3/MP7bc75m1yF5eeUErA=; b=oCmSXWQhW3WXGJbjx41u6hMoRV
-	iIcH1r85UOSvMMG9fHi/gARfMC7B7Z0Nh0oexQ/7iSLuyioDeBzrlmUbEfmOvFDexBWIyv+Bze/4R
-	DweacZOuyzg/IYJtacOLnXXOgnXnrtFxbiLa84yOrK6E+FGDHva/Ijc43YKbssBrODHV5vRTw1YH+
-	jew/qBt4rOkhz8qWNJz09MlG01yWAPTrEXBnVmntRL9esuYcf/VJE31ugfH7FTQEn1lq8ie9raC5b
-	siOWk0keMgWG8hZcjBGBME1DOONln7sP+X6+SYkOaz5WMEx0wXP2bwQexAuLHnU23XzDGiIz/+SmN
-	NNwfBVqA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oYfoVcPlnIZBlMCT1PgnledXdTqIoZXrnrBD6DbtP6o=; b=toTv/mrI08txUE1mXUM99aY9BU
+	ZJ1ks+7ddBAYIBNZpW7ieJZFDUydY7z/tk6chMFYXbQk1DZacC0FD/e4I9mdWKBaYnAfJTNlCjQGy
+	uGCR2V9aJhdChFZh3tqU/C+zO7XaoneUB+RFfb36uR4+fCXmdZszuS+gazZ2+oCg5YsnGrSa8Y9Ph
+	e92VYCQ3ezRHayMBPl1LpD+2EcE04mclQbJZ1lo1daMMeFJzpZSmHzJctdWaquab7qd4Cni/Px7IF
+	4gb3gBWXGF195Z5ujdKGV23cinVEE5MW7kb+FOU2zNIxSe89o+K3tAcHjh47Qgynq//TyDpJRK346
+	Dmf8yKqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4D2w-00000000ly7-1WVj;
-	Mon, 14 Apr 2025 06:11:54 +0000
-Received: from mail-vi1eur03on2061b.outbound.protection.outlook.com ([2a01:111:f403:260c::61b] helo=EUR03-VI1-obe.outbound.protection.outlook.com)
+	id 1u4DMe-00000000nti-03Qk;
+	Mon, 14 Apr 2025 06:32:16 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4D15-00000000lrM-4AgB
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 06:10:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XymWrqTHsEGaPNg+TRN8iUgwR0bjFntFTL9u8rq23DpV9blLKIEXgrg2jfk2FDlme8KXPtMINn3uw3afnL05iMQ9Zx6x5dYP8QsuWj/PwnhCdzzI8ApNW53WCvaZgTBl9acrIQOgVN5oa18lqKCotWVV+rRpcZE/B/v6UexpYRGn7JdmotIlnxSTf+0oP5JMU8Hc75yOD4O88uYx8G5qPN8yiS0iQRp39GNXinYf91jkmmHXDyTYE+ODMWAGflS/kBwe8buSyYFaLAkxgchepF/tmp8LdYqsEwmCXgoL1XGvZy+CdXV0BhYzcAQfXv3q6eUr6bAP0hJtROvrMomj1g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xVAg16JVCAiG9MQW0qpPpwc3/MP7bc75m1yF5eeUErA=;
- b=cZT1slbWvsqiAgJ+qVY/1T+7UBEtPud6KeDUxTZVj8/sdnJ1K3HUNhCPfkSSNb7z7YylRoV7ukNJyp8XP4dx+B2Y1kypy0Xcvo8D4NLPz8mlKDO+8KVe4oY30Ie/86gy1dfQ6ke08wI3ff1kjBW/a5089zdjBkiBiGfvaSgB6XYGqOajiI0+lRxSyV7ubuquVuA2u8GQzXrnXnqTVVbAY0dM7TXxxZbEr3E19nTjZ/MxM/LF7W2KFvfnr3wMgTCfOE1/4j/P0HqfP4redMECQxIi4RBQtCQMH/Sz4hxZr6ZMY44sAOZ4Tfcyt86VVX19krmuMFtk/8xp2OipA1iHKw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xVAg16JVCAiG9MQW0qpPpwc3/MP7bc75m1yF5eeUErA=;
- b=SdOUyh/JHtr7W7hVpk6tLXHFTuZB1r7kyZvvQfhP0P6+Wad2Jc7eBvFrV0hrWvjxdw2K3efvb2owzIII/tqL59V4olDloccHUSJUuYR7zUvrJDFvVrAQM9M0yZOG6t6Y/XHv78rFijRilUxNlWkCKIwWgtaEvg+0fDlO3ephT1YqHuOa31DNoGefLteFi1bqDCqAf3svVfheWiI17gde7xCTpqW7Ev58SoTJWiZCCxpUZbNYxvA7wXJerD30aS/mM7RJTsiVgLKfK/1Tjp50oqCCHPWWKMtd0+ys63HdqnXHIprsz1yTCipMFw7szGIKXXhJSxj0Bg+spmElc65sAg==
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by DBAPR04MB7221.eurprd04.prod.outlook.com (2603:10a6:10:1b1::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.32; Mon, 14 Apr
- 2025 06:09:49 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8632.030; Mon, 14 Apr 2025
- 06:09:49 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Hiago De Franco <hiagofranco@gmail.com>
-CC: "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>, Ulf Hansson
-	<ulf.hansson@linaro.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
-	<s.hauer@pengutronix.de>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "regressions@lists.linux.dev"
-	<regressions@lists.linux.dev>, Hiago De Franco <hiago.franco@toradex.com>
-Subject: RE: [REGRESSION] Kernel reboots unexpectdely on i.MX8X when Cortex-M4
- is running and it was started by U-Boot bootaux
-Thread-Topic: [REGRESSION] Kernel reboots unexpectdely on i.MX8X when
- Cortex-M4 is running and it was started by U-Boot bootaux
-Thread-Index: AQHbpWxIyVwHrK1A2UqE7zPASmzQ0LOedbwAgAAHyXCAADO/AIAECmYA
-Date: Mon, 14 Apr 2025 06:09:49 +0000
-Message-ID: <PAXPR04MB8459ED33238AA790252E730988B32@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20250404141713.ac2ntcsjsf7epdfa@hiago-nb>
- <20250411125024.i2pib4hyeq4g6ffw@hiago-nb>
- <PAXPR04MB8459ED6CE869173D4051257088B62@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <20250411162328.y2kchvdb4v4xi2lj@hiago-nb>
-In-Reply-To: <20250411162328.y2kchvdb4v4xi2lj@hiago-nb>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|DBAPR04MB7221:EE_
-x-ms-office365-filtering-correlation-id: 5f00f20e-aedf-421d-1612-08dd7b1af6b0
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|366016|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?GS08y8v7Bj0UdXM+YFZgacSaOkA5sDgnlGJqMejUa8p8q8g5Bu88WgfGafZ1?=
- =?us-ascii?Q?ZL6bVtyG5X3MQsar34vxEALXIOCZNmAgDMVRPmxlKYSDYdeN2QTWHapsWf16?=
- =?us-ascii?Q?R8CWEFKjV/QnQ0H7QT4+FpeKvbLjsA5TMWP/7eOWp3rp/XYixwUqOxX3RwZZ?=
- =?us-ascii?Q?TjtFOuZYOZsPT1rlFdc2bFZl6W02DhhTKu+R3/YNn6MSFxRkcfMqpfSNHjZ2?=
- =?us-ascii?Q?28AilgMDfl27LJFOyRP6dBJElJV9lWdp0SV1UstzCrklv7WVbxsrSVrD2p0S?=
- =?us-ascii?Q?8MOIZ5M0e03gw13NewoZoQS4/B0GY3zGFS0DpMxJwIkamb2Ip56eqcJpjlaB?=
- =?us-ascii?Q?AXVttCJyTl6lXxdm0kuHIWlFJKrFJjBUtkvLuBWs3SisK/wEtlqAHQeQj6ZW?=
- =?us-ascii?Q?v5Gq7AtQH+KH2QI2R5ZDXPYnW5ZNZxA+QfV1WlTP3WR/UJIv4QSYqLllKfkj?=
- =?us-ascii?Q?nJo9oE/rbn4obqcmsF3DAC0yBwP4xqPnGQpE+FPqiNhdDx76gxSzau76jk28?=
- =?us-ascii?Q?82pArh+qi6bkXElHUOZLTBgBGaBuHIzzJr9t5GUlu9UYUuFV3gS+ASrPTZla?=
- =?us-ascii?Q?muYpJQEQulDT1FUOaszMt0UshDEKt+IDFxjTFr9IpeOHuEL31uV5MWw3DEJf?=
- =?us-ascii?Q?qBLt1stkEyoOXaV4eJrDT8gRZRqbi7TSiU9SmcMzCzldicwEQ/zgU9YdgqCI?=
- =?us-ascii?Q?lcL1Xl2uQP43yZoE3uTQZV71kzv/1gPj1unSOwXomQN3N/H8fyGL62kyo5cM?=
- =?us-ascii?Q?lHcA0G8dNNRk948yjAb0apKR5q4BBMuVjtHvfTJsG2a9fhbco63Yh2479Ton?=
- =?us-ascii?Q?pEoXGr6rpGJxQXE9EoTSF96XA6R/jtniDCA8ipu/5U78lPjP1DPwzymbqNpv?=
- =?us-ascii?Q?zgiDjNZdy1M7iFAN2YVYyJ8w0evCUVBi92FetWiWczSVgr8k0F5iQBW3LWnx?=
- =?us-ascii?Q?jv5uMYs2pPX6n/HAG/nNOP7pGAcOxLOpgRc+YGQSA/YP3TjoeBENhzpyOkaw?=
- =?us-ascii?Q?3dUwROFtHzw810cyG1JkllrqlPt91kgUneJ4S0UoaqZL5FUF56H/twXS3uar?=
- =?us-ascii?Q?SMUh58PraJGyWnN4CqNgcGIP+SLVEeUSwEPEmQU1Wxelzsa2aTC6i81u3Hxv?=
- =?us-ascii?Q?N6kZMmJWX+gV/tG2qZ8F1mN8rcI85fG0b5cfL8f85tSt74oIahicAC1o+C/3?=
- =?us-ascii?Q?ExIJ+2nC7pQq0YqJTgZ2uT0Y0dwJ9UKO7zjmMm10Vhpjggn1U64ZdWctKsio?=
- =?us-ascii?Q?C/OqnU9py5DFecIUWJwbl48TYO9ECEvGSYeAYRsz5wDFjiipPRnK1dAKcYdM?=
- =?us-ascii?Q?z6kZ7MgGTC3cz/WPLn7zqLxtKpKAqCQUH/CUuNQHS7DUOJuQi8668e6jvp9m?=
- =?us-ascii?Q?x8i/qa6Q4zdxFckfogezEk0Df6iteyrYD+23c2exkzjXfCYi3IzMd7esA200?=
- =?us-ascii?Q?bsw+JgiGO4OQd/71X6BJ5SYOZs8vfbH6yhKmUePPfLoFzZ6cHxq7zw=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?f/CQh87NgFmyD4RNKR5C5yawiDxo9uNGpbkRlEcESP66JGZk0/bQNsrUDy0x?=
- =?us-ascii?Q?lvURllKdvMBdJBxFa39zjA1prJ1WlbGGK4HmXuZYLEvlRxnMlOuXAL71pR4Q?=
- =?us-ascii?Q?trNDYfpERXgoKqPJ56ae+nlf39/rsPOenJLUJD0iGQk3i9nijeYmNN/IU3tk?=
- =?us-ascii?Q?nx4OOguA5BVkLSMgmCe6ctUClK58m5LabfMP/rjccEkg6/D1CcfoYHOw2EUP?=
- =?us-ascii?Q?0546JWZ/OnX9O9DzQ9HXv9nQacwiWkI6Q8Pw5mK3rO4YSVcs1UJJMnoZnZUe?=
- =?us-ascii?Q?TSYrNC9zioFdiGWAaVKEIHe4YytVlHOUQ9J+nVwygoOgiehKE/oax3uwv61p?=
- =?us-ascii?Q?XP/rPMkWgwEGRVipNwb4v+UGyYnybtypghuQ5KowS80YIY0fye+cpWATDB5H?=
- =?us-ascii?Q?olqMUahJHoBGN53hqZQ8QC5/YejENqTlMIlJB7iuLSQ6yNo1s08F7w0mfESo?=
- =?us-ascii?Q?szFV2wBzUn6AgdkZHPqDNpC6woRotf0AdtUIH5Nl1adXKBH+D3pHfErVuUEB?=
- =?us-ascii?Q?0zrvsDTtowwCLM6Wrunr9Z+ck+/tqV7XBsUYg31cZt2GbEI+BnnAsFzwu31d?=
- =?us-ascii?Q?2HeeIVVWquWfRuMMYiZy4ZaVdIoSpSl3LR0LUMbAZfqRoqDIBDaM5pEZ2ZrI?=
- =?us-ascii?Q?b2hyr7n3V6KFAAPwU4+S9NFel0BXxudKYzwwMdw7MzKjxmUVLhxiLGkBQe8m?=
- =?us-ascii?Q?sgI9dugMIg5ojmZg5vsCbsxtx924HF+TEoHDKAYmpz4mu2XO4Krtvyv0vK5+?=
- =?us-ascii?Q?C/7Fog9Kbj2tZNQGBHtr9BhT9HOlJLk7EudIcwtNsFBJ5gY6G61xm2GsAUhG?=
- =?us-ascii?Q?ovO5CS9a1gD2ZNHP8IFQoi2CELqliX58ZljFqDhrnCnAAOv1E9B/xdkzy8s+?=
- =?us-ascii?Q?tH8dafQLz/k+Etq/IkNe4PpWMAxQWwd0zuEgpyet72FpfxGK687C96veoEXS?=
- =?us-ascii?Q?OmgV7+AmBFMsk4lrEVSiNjpvLg4zDc533/0/wp0/tS2qvFH/4rFAQs0Ggvuf?=
- =?us-ascii?Q?n3SagwI7srAwFaY6ebn2gaseX4NAOizVANpJfYpdFEXisc7OuHcetVL6fV2L?=
- =?us-ascii?Q?cJNnUZP2j1uf2wfbhMaxPwamdKoweorwDJJHDdA3ziYShnvRT4ww+LzqihSd?=
- =?us-ascii?Q?gh5CZWFRiojU6Y75+E9Fs5vX78knhOkZY96fjW0bWTEgk3txTaG5lHDuup8i?=
- =?us-ascii?Q?qPR4o4ErRycV7apfNRCfnvk3wXQgBdqVIXsd23K0Z3X3Pw9R6KnU+nkIJWhE?=
- =?us-ascii?Q?ouHLIanIHsJ4mlA1pbRjy3NrIErROsQhGdJLl44LjTV18RSGqlEiSeKkDm80?=
- =?us-ascii?Q?54uo/3NZVPl3NbQ6AUTVpxgLFQgT7fRGzhsMDXT6HhiyxBJNyOdL4m/GJOpQ?=
- =?us-ascii?Q?CjcldavTgd/qLT2IawW9pyevSZxIKov91DmqUTOgQMUINXwV3pFkDG3yD2EN?=
- =?us-ascii?Q?XnjX1/Rao3wD6SMeOuiKtcxNA1uUB1adq0fvO0adngp7fVHiThzHUVliVoEU?=
- =?us-ascii?Q?K8NctyEe30U5cmrC9B04hmHpaDLOFD7t1/OLmCoc4hAk9Dz9NsrrxDMDjFaU?=
- =?us-ascii?Q?sawUbO2t86e9VRQPUaY=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1u4DKn-00000000nd5-27Xm;
+	Mon, 14 Apr 2025 06:30:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 511BB447C3;
+	Mon, 14 Apr 2025 06:30:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 167CCC4CEE2;
+	Mon, 14 Apr 2025 06:30:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744612219;
+	bh=CK7oamQ/u7YicjK4ooDvIecsdbM7b6TnJ4HdPk294E0=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=eosYtut7kZvnX9UEia962gbtjSvlvfbfQYXF3ApBpo2dvL0VE4ae7KvFlP0pXu7BH
+	 zA8MrzvDIEteRb5ZMBoy19mUwMCsMbUmOEcKTJOEp7xR8qC0pLlWto9+fLXb4SM2bn
+	 /EeyjgMqUK4nMNy4orI1Vq0qjMLXaf5pcHdfhaurJORUGkTauXAZs18EOv+OmuXrYx
+	 z5p91eFemAyjH0lOMIMOTpIQTvyKahd9mE9BkQFNTorkKrtODeGxlI8vhsGSzvKSOP
+	 GweVZfipcKSHRflXl4NKtfh/vLUpJZMkjci6WN8Zmu/x5wawsepmZNFahsauISr6dr
+	 EKaBbrsu940KQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0AA04C3601E;
+	Mon, 14 Apr 2025 06:30:18 +0000 (UTC)
+From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
+Date: Mon, 14 Apr 2025 14:30:16 +0800
+Subject: [PATCH v2] spi: meson-spicc: add DMA support
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5f00f20e-aedf-421d-1612-08dd7b1af6b0
-X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Apr 2025 06:09:49.4370
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 3teFmPanowaMfJr698OjANhcCST/M/nnH0OyO5KbIfZEUrbxf3c7BBqerVQQ2GAXtQRXjaSy2+qklszAiTmztA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7221
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250414-spi-dma-v2-1-84bbd92fa469@amlogic.com>
+X-B4-Tracking: v=1; b=H4sIAHer/GcC/2XMQQ6DIBCF4auYWZcGUIx05T0aF3RAnaSIgYa0M
+ dy91G2X/8vLd0BykVyCW3NAdJkSha2GvDSAq9kWx8jWBsml4h0fWNqJWW8YdlrPqudWagX1vUc
+ 30/uU7lPtldIrxM8JZ/Fb/40smGAttsPD9RK5xtH4Z1gIrxg8TKWULy0/7OKgAAAA
+To: Mark Brown <broonie@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Sunny Luo <sunny.luo@amlogic.com>, Xianwei Zhao <xianwei.zhao@amlogic.com>
+X-Mailer: b4 0.12.4
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1744612216; l=11623;
+ i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
+ bh=K38dd2ROpHs/4tx+cPKZN+kqAxqsqkokJqx1gtC9UE4=;
+ b=yjkWJQQx46rMxvB39CFR/EFq0onm4aWZfuR124a+5MYQMTj+Lep/QfaMIHEtj3RADwnBN9Z5v
+ UVmjvqMRqSmCXqrVtI+2r9iZoPxGXMG5kDgAd9mHmOW6O2bb6JO1wWT
+X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
+ pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
+X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
+ auth_id=107
+X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250413_231000_205991_B0C02898 
-X-CRM114-Status: GOOD (  43.69  )
+X-CRM114-CacheID: sfid-20250413_233021_600601_EE753195 
+X-CRM114-Status: GOOD (  31.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,228 +86,350 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: Re: [REGRESSION] Kernel reboots unexpectdely on i.MX8X
-> when Cortex-M4 is running and it was started by U-Boot bootaux
->=20
-> Hi Peng,
->=20
-> On Fri, Apr 11, 2025 at 01:23:32PM +0000, Peng Fan wrote:
-> > Hi,
-> >
-> > Sorry for late.
-> > > Subject: Re: [REGRESSION] Kernel reboots unexpectdely on i.MX8X
-> when
-> > > Cortex-M4 is running and it was started by U-Boot bootaux
-> > >
-> > > On Fri, Apr 04, 2025 at 11:17:13AM -0300, Hiago De Franco wrote:
-> > > > #regzbot introduced: 4f6c983261
-> > > >
-> > > > Hi Peng and all,
-> > > >
-> > > > Commit 4f6c9832613b ("genpd: imx: scu-pd: initialize is_off
-> > > according
-> > > > to HW state") introduced a regression where the Kernel reboots
-> > > > unexpectedly (without any warnings, crashes or errors) when the
-> > > > Cortex-M4 was loaded and running by U-Boot, using the bootaux
-> > > command:
-> > > >
-> > > > # load mmc 0:2 ${loadaddr} /home/root/hello_world.bin #
-> bootaux
-> > > > ${loadaddr} 0 # boot
-> > > >
-> > > > This is a simple hello world binary that prints a message into the
-> > > > M40.UART0 pin (demo from NXP MCUXpresso).
-> >
-> > Which release is this image from?
->=20
-> This is MCUXpresso SDK 2.9.0.
->=20
-> >
-> > > >
-> > > > Before this commit, everything worked as expected, Linux boots
-> > > > fine and the HMP core keeps running and printing messages to
-> the UART.
-> > > > After the commit, the kernel reboots at the beggining of the boot
-> > > > process. The only relevant message is printed by U-Boot after
-> reset:
-> > > >
-> > > > "Reset cause: SCFW fault reset"
-> > > >
-> > > > This commit was bisectabled, the same device tree, u-boot
-> version,
-> > > and
-> > > > SCFW versions were used. Reverting this commit fixes the issues.
-> > > >
-> > > > For testing purposes, I created the following patch which also
-> > > > fixes the
-> > > > issue:
-> > > >
-> > > > diff --git a/drivers/pmdomain/imx/scu-pd.c
-> > > > b/drivers/pmdomain/imx/scu-pd.c index
-> > > 38f3cdd21042..0477b3fb4991
-> > > > 100644
-> > > > --- a/drivers/pmdomain/imx/scu-pd.c
-> > > > +++ b/drivers/pmdomain/imx/scu-pd.c
-> > > > @@ -539,6 +539,9 @@ imx_scu_add_pm_domain(struct device
-> > > *dev, int idx,
-> > > >                 return NULL;
-> > > >         }
-> > > >
-> > > > +       if (strstr("cm40", sc_pd->name) !=3D NULL)
-> > > > +               is_off =3D true;
-> > > > +
-> > > >         ret =3D pm_genpd_init(&sc_pd->pd, NULL, is_off);
-> > > >         if (ret) {
-> > > >                 dev_warn(dev, "failed to init pd %s rsrc id %d",
-> > > >
-> > > >
-> > > > Test Environment:
-> > > > - Hardware: Colibri iMX8DX 1GB with Colbiri Evaluation Board.
-> > > > - U-Boot Version: 2024.04
-> > > > - U-Boot Build info:
-> > > > 	SCFW 83624b99, SECO-FW c9de51c0, IMX-MKIMAGE
-> > > 4622115c, ATF 7c64d4e
-> > > >
-> > > > The issue is not present on: v6.5
-> > > >
-> > > > The real root cause is still unclear to me. Anybody has any ideas?
-> > > > I am happy to share more details if needed.
-> >
-> > Have you tried pd_ignore_unused?
-> >
-> > I think it is linux power down M4 which M4 is running, then SCFW
-> > reports error. So please give a try pd_ignore_unused.
->=20
-> For debugging purposes, I tried it and it works, kernel boots fine with
-> M4 running and pd_ignore_unused parameter.
->=20
-> >
-> > If this is the case, may I know do you have m4 nodes in dts and with
-> > power domain included?
->=20
-> This is the device tree overlay I am testing:
->=20
-> /dts-v1/;
-> /plugin/;
->=20
-> #include <dt-bindings/clock/imx8mm-clock.h>
-> #include <dt-bindings/firmware/imx/rsrc.h>
->=20
-> / {
-> 	compatible =3D "toradex,colibri-imx8x";
-> };
->=20
-> &{/} {
-> 	imx8x-cm4 {
-> 		compatible =3D "fsl,imx8qxp-cm4";
-> 		mbox-names =3D "tx", "rx", "rxdb";
-> 		mboxes =3D <&lsio_mu5 0 1
-> 			  &lsio_mu5 1 1
-> 			  &lsio_mu5 3 1>;
-> 		memory-region =3D <&vdevbuffer>, <&vdev0vring0>,
-> <&vdev0vring1>,
-> 				<&vdev1vring0>, <&vdev1vring1>,
-> <&rsc_table>;
-> 		power-domains =3D <&pd IMX_SC_R_M4_0_PID0>,
-> 				<&pd IMX_SC_R_M4_0_MU_1A>;
-> 		fsl,entry-address =3D <0x34fe0000>;
-> 		fsl,resource-id =3D <IMX_SC_R_M4_0_PID0>;
-> 	};
->=20
-> 	reserved-memory {
-> 		#address-cells =3D <2>;
-> 		#size-cells =3D <2>;
-> 		ranges;
->=20
-> 		vdev0vring0: memory@90000000 {
-> 			reg =3D <0 0x90000000 0 0x8000>;
-> 			no-map;
-> 		};
->=20
-> 		vdev0vring1: memory@90008000 {
-> 			reg =3D <0 0x90008000 0 0x8000>;
-> 			no-map;
-> 		};
->=20
-> 		vdev1vring0: memory@90010000 {
-> 			reg =3D <0 0x90010000 0 0x8000>;
-> 			no-map;
-> 		};
->=20
-> 		vdev1vring1: memory@90018000 {
-> 			reg =3D <0 0x90018000 0 0x8000>;
-> 			no-map;
-> 		};
->=20
-> 		rsc_table: memory@900ff000 {
-> 			reg =3D <0 0x900ff000 0 0x1000>;
-> 			no-map;
-> 		};
->=20
-> 		vdevbuffer: memory@90400000 {
-> 			compatible =3D "shared-dma-pool";
-> 			reg =3D <0 0x90400000 0 0x100000>;
-> 			no-map;
-> 		};
-> 	};
-> };
->=20
-> &lsio_mu5 {
-> 	status =3D "okay";
-> };
->=20
-> This was basically copied from
-> arch/arm64/boot/dts/freescale/imx8qxp-mek.dts. Do you see anything
-> wrong? Should I also add the "clocks" property to imx8x-cm4 node?
+From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-In your case, m4 is in same scu partition as a53, so m4
-power domain is manageable(owned) by Linux.
+Add DMA support for spicc driver.
 
-However to m4 earlyboot(kicked by bootloader),
-if you not wanna linux to handle m4, use scu_rm
-to create a separate partition in u-boot.
-If you wanna linux to handle m4, but not wanna linux
-to shutdown the pd in kernel boot, imx_rproc.c
-needs to be built in, and need to add a clock entry
-or use clock optional api in imx_rproc.c .
+DMA works if the transfer meets the following conditions:
+1. 64 bits per word;
+2. The transfer length must be multiples of the dma_burst_len,
+   and the dma_burst_len should be one of 8,7...2,
+   otherwise, it will be split into several SPI bursts.
 
-Current imx_rproc.c needs a clock entry to probe pass.
+Signed-off-by: Sunny Luo <sunny.luo@amlogic.com>
+Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+---
+Changes in v2:
+- Make formatting adjustments and code optimizations according to Neil's suggestions.
+- Remove two special DMA trigger modes that are not fully implemented.
+- Link to v1: https://lore.kernel.org/r/20250408-spi-dma-v1-1-3c38be62c09c@amlogic.com
+---
+ drivers/spi/spi-meson-spicc.c | 241 ++++++++++++++++++++++++++++++++++++++----
+ 1 file changed, 220 insertions(+), 21 deletions(-)
 
-I think in your case, this driver not probe pass, so the
-M4 pd still get powered off.
+diff --git a/drivers/spi/spi-meson-spicc.c b/drivers/spi/spi-meson-spicc.c
+index df74ad5060f8..6b9137307533 100644
+--- a/drivers/spi/spi-meson-spicc.c
++++ b/drivers/spi/spi-meson-spicc.c
+@@ -21,18 +21,26 @@
+ #include <linux/interrupt.h>
+ #include <linux/reset.h>
+ #include <linux/pinctrl/consumer.h>
++#include <linux/dma-mapping.h>
+ 
+ /*
+- * The Meson SPICC controller could support DMA based transfers, but is not
+- * implemented by the vendor code, and while having the registers documentation
+- * it has never worked on the GXL Hardware.
+- * The PIO mode is the only mode implemented, and due to badly designed HW :
+- * - all transfers are cutted in 16 words burst because the FIFO hangs on
+- *   TX underflow, and there is no TX "Half-Empty" interrupt, so we go by
+- *   FIFO max size chunk only
+- * - CS management is dumb, and goes UP between every burst, so is really a
+- *   "Data Valid" signal than a Chip Select, GPIO link should be used instead
+- *   to have a CS go down over the full transfer
++ * There are two modes for data transmission: PIO and DMA.
++ * When bits_per_word is 8, 16, 24, or 32, data is transferred using PIO mode.
++ * When bits_per_word is 64, DMA mode is used by default.
++ *
++ * DMA achieves a transfer with one or more SPI bursts, each SPI burst is made
++ * up of one or more DMA bursts. The DMA burst implementation mechanism is,
++ * For TX, when the number of words in TXFIFO is less than the preset
++ * reading threshold, SPICC starts a reading DMA burst, which reads the preset
++ * number of words from TX buffer, then writes them into TXFIFO.
++ * For RX, when the number of words in RXFIFO is greater than the preset
++ * writing threshold, SPICC starts a writing request burst, which reads the
++ * preset number of words from RXFIFO, then write them into RX buffer.
++ * DMA works if the transfer meets the following conditions,
++ * - 64 bits per word
++ * - The transfer length in word must be multiples of the dma_burst_len, and
++ *   the dma_burst_len should be one of 8,7...2, otherwise, it will be split
++ *   into several SPI bursts by this driver
+  */
+ 
+ #define SPICC_MAX_BURST	128
+@@ -128,6 +136,23 @@
+ 
+ #define SPICC_DWADDR	0x24	/* Write Address of DMA */
+ 
++#define SPICC_LD_CNTL0	0x28
++#define VSYNC_IRQ_SRC_SELECT		BIT(0)
++#define DMA_EN_SET_BY_VSYNC		BIT(2)
++#define XCH_EN_SET_BY_VSYNC		BIT(3)
++#define DMA_READ_COUNTER_EN		BIT(4)
++#define DMA_WRITE_COUNTER_EN		BIT(5)
++#define DMA_RADDR_LOAD_BY_VSYNC		BIT(6)
++#define DMA_WADDR_LOAD_BY_VSYNC		BIT(7)
++#define DMA_ADDR_LOAD_FROM_LD_ADDR	BIT(8)
++
++#define SPICC_LD_CNTL1	0x2c
++#define DMA_READ_COUNTER		GENMASK(15, 0)
++#define DMA_WRITE_COUNTER		GENMASK(31, 16)
++#define DMA_BURST_LEN_DEFAULT		8
++#define DMA_BURST_COUNT_MAX		0xffff
++#define SPI_BURST_LEN_MAX	(DMA_BURST_LEN_DEFAULT * DMA_BURST_COUNT_MAX)
++
+ #define SPICC_ENH_CTL0	0x38	/* Enhanced Feature */
+ #define SPICC_ENH_CLK_CS_DELAY_MASK	GENMASK(15, 0)
+ #define SPICC_ENH_DATARATE_MASK		GENMASK(23, 16)
+@@ -171,6 +196,9 @@ struct meson_spicc_device {
+ 	struct pinctrl			*pinctrl;
+ 	struct pinctrl_state		*pins_idle_high;
+ 	struct pinctrl_state		*pins_idle_low;
++	dma_addr_t			tx_dma;
++	dma_addr_t			rx_dma;
++	bool				using_dma;
+ };
+ 
+ #define pow2_clk_to_spicc(_div) container_of(_div, struct meson_spicc_device, pow2_div)
+@@ -202,6 +230,148 @@ static void meson_spicc_oen_enable(struct meson_spicc_device *spicc)
+ 	writel_relaxed(conf, spicc->base + SPICC_ENH_CTL0);
+ }
+ 
++static int meson_spicc_dma_map(struct meson_spicc_device *spicc,
++			       struct spi_transfer *t)
++{
++	struct device *dev = spicc->host->dev.parent;
++
++	if (!(t->tx_buf && t->rx_buf))
++		return -EINVAL;
++
++	t->tx_dma = dma_map_single(dev, (void *)t->tx_buf, t->len, DMA_TO_DEVICE);
++	if (dma_mapping_error(dev, t->tx_dma))
++		return -ENOMEM;
++
++	t->rx_dma = dma_map_single(dev, t->rx_buf, t->len, DMA_FROM_DEVICE);
++	if (dma_mapping_error(dev, t->rx_dma))
++		return -ENOMEM;
++
++	spicc->tx_dma = t->tx_dma;
++	spicc->rx_dma = t->rx_dma;
++
++	return 0;
++}
++
++static void meson_spicc_dma_unmap(struct meson_spicc_device *spicc,
++				  struct spi_transfer *t)
++{
++	struct device *dev = spicc->host->dev.parent;
++
++	if (t->tx_dma)
++		dma_unmap_single(dev, t->tx_dma, t->len, DMA_TO_DEVICE);
++	if (t->rx_dma)
++		dma_unmap_single(dev, t->rx_dma, t->len, DMA_FROM_DEVICE);
++}
++
++/*
++ * According to the remain words length, calculate a suitable spi burst length
++ * and a dma burst length for current spi burst
++ */
++static u32 meson_spicc_calc_dma_len(struct meson_spicc_device *spicc,
++				    u32 len, u32 *dma_burst_len)
++{
++	u32 i;
++
++	if (len <= spicc->data->fifo_size) {
++		*dma_burst_len = len;
++		return len;
++	}
++
++	*dma_burst_len = DMA_BURST_LEN_DEFAULT;
++
++	if (len == (SPI_BURST_LEN_MAX + 1))
++		return SPI_BURST_LEN_MAX - DMA_BURST_LEN_DEFAULT;
++
++	if (len >= SPI_BURST_LEN_MAX)
++		return SPI_BURST_LEN_MAX;
++
++	for (i = DMA_BURST_LEN_DEFAULT; i > 1; i--)
++		if ((len % i) == 0) {
++			*dma_burst_len = i;
++			return len;
++		}
++
++	i = len % DMA_BURST_LEN_DEFAULT;
++	len -= i;
++
++	if (i == 1)
++		len -= DMA_BURST_LEN_DEFAULT;
++
++	return len;
++}
++
++static void meson_spicc_setup_dma(struct meson_spicc_device *spicc)
++{
++	unsigned int len;
++	unsigned int dma_burst_len, dma_burst_count;
++	unsigned int count_en = 0;
++	unsigned int txfifo_thres = 0;
++	unsigned int read_req = 0;
++	unsigned int rxfifo_thres = 31;
++	unsigned int write_req = 0;
++	unsigned int ld_ctr1 = 0;
++
++	writel_relaxed(spicc->tx_dma, spicc->base + SPICC_DRADDR);
++	writel_relaxed(spicc->rx_dma, spicc->base + SPICC_DWADDR);
++
++	/* Set the max burst length to support a transmission with length of
++	 * no more than 1024 bytes(128 words), which must use the CS management
++	 * because of some strict timing requirements
++	 */
++	writel_bits_relaxed(SPICC_BURSTLENGTH_MASK, SPICC_BURSTLENGTH_MASK,
++			    spicc->base + SPICC_CONREG);
++
++	len = meson_spicc_calc_dma_len(spicc, spicc->xfer_remain,
++				       &dma_burst_len);
++	spicc->xfer_remain -= len;
++	dma_burst_count = DIV_ROUND_UP(len, dma_burst_len);
++	dma_burst_len--;
++
++	if (spicc->tx_dma) {
++		spicc->tx_dma += len;
++		count_en |= DMA_READ_COUNTER_EN;
++		txfifo_thres = spicc->data->fifo_size - dma_burst_len;
++		read_req = dma_burst_len;
++		ld_ctr1 |= FIELD_PREP(DMA_READ_COUNTER, dma_burst_count);
++	}
++
++	if (spicc->rx_dma) {
++		spicc->rx_dma += len;
++		count_en |= DMA_WRITE_COUNTER_EN;
++		rxfifo_thres = dma_burst_len;
++		write_req = dma_burst_len;
++		ld_ctr1 |= FIELD_PREP(DMA_WRITE_COUNTER, dma_burst_count);
++	}
++
++	writel_relaxed(count_en, spicc->base + SPICC_LD_CNTL0);
++	writel_relaxed(ld_ctr1, spicc->base + SPICC_LD_CNTL1);
++	writel_relaxed(SPICC_DMA_ENABLE
++		    | SPICC_DMA_URGENT
++		    | FIELD_PREP(SPICC_TXFIFO_THRESHOLD_MASK, txfifo_thres)
++		    | FIELD_PREP(SPICC_READ_BURST_MASK, read_req)
++		    | FIELD_PREP(SPICC_RXFIFO_THRESHOLD_MASK, rxfifo_thres)
++		    | FIELD_PREP(SPICC_WRITE_BURST_MASK, write_req),
++		    spicc->base + SPICC_DMAREG);
++}
++
++static irqreturn_t meson_spicc_dma_irq(struct meson_spicc_device *spicc)
++{
++	if (readl_relaxed(spicc->base + SPICC_DMAREG) & SPICC_DMA_ENABLE)
++		return IRQ_HANDLED;
++
++	if (spicc->xfer_remain) {
++		meson_spicc_setup_dma(spicc);
++	} else {
++		writel_bits_relaxed(SPICC_SMC, 0, spicc->base + SPICC_CONREG);
++		writel_relaxed(0, spicc->base + SPICC_INTREG);
++		writel_relaxed(0, spicc->base + SPICC_DMAREG);
++		meson_spicc_dma_unmap(spicc, spicc->xfer);
++		complete(&spicc->done);
++	}
++
++	return IRQ_HANDLED;
++}
++
+ static inline bool meson_spicc_txfull(struct meson_spicc_device *spicc)
+ {
+ 	return !!FIELD_GET(SPICC_TF,
+@@ -293,6 +463,9 @@ static irqreturn_t meson_spicc_irq(int irq, void *data)
+ 
+ 	writel_bits_relaxed(SPICC_TC, SPICC_TC, spicc->base + SPICC_STATREG);
+ 
++	if (spicc->using_dma)
++		return meson_spicc_dma_irq(spicc);
++
+ 	/* Empty RX FIFO */
+ 	meson_spicc_rx(spicc);
+ 
+@@ -426,9 +599,6 @@ static int meson_spicc_transfer_one(struct spi_controller *host,
+ 
+ 	meson_spicc_reset_fifo(spicc);
+ 
+-	/* Setup burst */
+-	meson_spicc_setup_burst(spicc);
+-
+ 	/* Setup wait for completion */
+ 	reinit_completion(&spicc->done);
+ 
+@@ -442,11 +612,36 @@ static int meson_spicc_transfer_one(struct spi_controller *host,
+ 	/* Increase it twice and add 200 ms tolerance */
+ 	timeout += timeout + 200;
+ 
+-	/* Start burst */
+-	writel_bits_relaxed(SPICC_XCH, SPICC_XCH, spicc->base + SPICC_CONREG);
++	if (xfer->bits_per_word == 64) {
++		int ret;
++
++		/* dma_burst_len 1 can't trigger a dma burst */
++		if (xfer->len < 16)
++			return -EINVAL;
++
++		ret = meson_spicc_dma_map(spicc, xfer);
++		if (ret) {
++			meson_spicc_dma_unmap(spicc, xfer);
++			dev_err(host->dev.parent, "dma map failed\n");
++			return ret;
++		}
++
++		spicc->using_dma = true;
++		spicc->xfer_remain = DIV_ROUND_UP(xfer->len, spicc->bytes_per_word);
++		meson_spicc_setup_dma(spicc);
++		writel_relaxed(SPICC_TE_EN, spicc->base + SPICC_INTREG);
++		writel_bits_relaxed(SPICC_SMC, SPICC_SMC, spicc->base + SPICC_CONREG);
++	} else {
++		spicc->using_dma = false;
++		/* Setup burst */
++		meson_spicc_setup_burst(spicc);
+ 
+-	/* Enable interrupts */
+-	writel_relaxed(SPICC_TC_EN, spicc->base + SPICC_INTREG);
++		/* Start burst */
++		writel_bits_relaxed(SPICC_XCH, SPICC_XCH, spicc->base + SPICC_CONREG);
++
++		/* Enable interrupts */
++		writel_relaxed(SPICC_TC_EN, spicc->base + SPICC_INTREG);
++	}
+ 
+ 	if (!wait_for_completion_timeout(&spicc->done, msecs_to_jiffies(timeout)))
+ 		return -ETIMEDOUT;
+@@ -545,6 +740,14 @@ static int meson_spicc_setup(struct spi_device *spi)
+ 	if (!spi->controller_state)
+ 		spi->controller_state = spi_controller_get_devdata(spi->controller);
+ 
++	/* DMA works at 64 bits, the rest works on PIO */
++	if (spi->bits_per_word != 8 &&
++	    spi->bits_per_word != 16 &&
++	    spi->bits_per_word != 24 &&
++	    spi->bits_per_word != 32 &&
++	    spi->bits_per_word != 64)
++		return -EINVAL;
++
+ 	return 0;
+ }
+ 
+@@ -853,10 +1056,6 @@ static int meson_spicc_probe(struct platform_device *pdev)
+ 	host->num_chipselect = 4;
+ 	host->dev.of_node = pdev->dev.of_node;
+ 	host->mode_bits = SPI_CPHA | SPI_CPOL | SPI_CS_HIGH | SPI_LOOP;
+-	host->bits_per_word_mask = SPI_BPW_MASK(32) |
+-				   SPI_BPW_MASK(24) |
+-				   SPI_BPW_MASK(16) |
+-				   SPI_BPW_MASK(8);
+ 	host->flags = (SPI_CONTROLLER_MUST_RX | SPI_CONTROLLER_MUST_TX);
+ 	host->min_speed_hz = spicc->data->min_speed_hz;
+ 	host->max_speed_hz = spicc->data->max_speed_hz;
+
+---
+base-commit: 49807ed87851916ef655f72e9562f96355183090
+change-id: 20250408-spi-dma-c499f560d295
+
+Best regards,
+-- 
+Xianwei Zhao <xianwei.zhao@amlogic.com>
 
 
-Regards,
-Peng.
-
->=20
-> >
-> > Anyway, I will give a try on i.MX8QM EVK.
->=20
-> Great, thanks.
->=20
-> >
-> > >
-> > > Hello everyone, as this introduced a regression, should I send a
-> > > revert for 4f6c983261?
-> >
-> > Please wait a while, I think we need find root cause.
-> >
-> > Thanks,
-> > Peng.
-> >
-> > Or any ideas that might help fix this issue?
-> > >
-> > > >
-> > > > Cheers,
-> > > > Hiago.
-> > >
-> > > Cheers,
-> > > Hiago.
->=20
-> Cheers,
-> Hiago.
 
