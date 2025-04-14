@@ -4,55 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 349F7C369B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 11:02:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CEFAC369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 11:04:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
-	To:From:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ge5VPrg8KO37tThyzwpHlK6nev7hbYkYNGJz3eDOPNk=; b=DzI4wX/VLSl9tl
-	wNxQWvLSTzY2BBPH4WNzl6Io/EMMYicmUM5xDZE6F4nR5Y6rsLq5Nti++PrsADVsKz++u2rxe//oB
-	0+G2H+K4ht0O7J360AhwKAudPWSCHldOQWVUcQOTarqQ8P3iEoAvBIXQofVIiidi1d9eVpJhKDLbp
-	9JDup+BUHG7tXjPBA++1sN/JYFG0Z2ZKYDD548I7X0bL5tHe2mLSwtETohhe4zvedOtOJa1+g17xz
-	nt4DRtBV6kdVDVfBq4AoH0AVx5CUE5l5vEm5QM4g6C+jp5MGbL2LZNhTJ8Wx1kgMntZIm6VAZIRQy
-	SUoEkWY3E+VF1JZ2mWEA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P2qO2ZoAdv0baZMEO99kSPY+gV44jsQJUPSAZcBIj+s=; b=veB4zU5ZPTsyjzdkYjAxxIBeHW
+	mJntqhAS6pEDdAmxKnBxuUVU4f2EPJXjkVLgJeF466qeWJkVsupaL+H4WKNISrnfCtjXbudyZiJEa
+	CpwVeQRSVeEhpfVWfmhIvTXeMeDKo7/LylMAoWUUKsNL1ncE60a8yY6HSzBIpIauwQRd0365xt0hd
+	d3+T9WXPnDiDoSq4YagNJS0vb1aBx3jYWnsSbhoNrPnNYnPHTRc5+4F013VyujozKh4g9Z61sXOiW
+	P4E8Ekirc8WZqKJBAgkduDsWd2t/FQ9mOdUdTKfooLvQNw9/k3+r9wYGbeUE2h0fL24gr8gseXe+P
+	q0iFCvog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4HaC-00000001eGP-2vHZ;
-	Mon, 14 Apr 2025 11:02:32 +0000
-Received: from correo.desarrollominero.gob.ve ([190.205.109.227])
+	id 1u4Hc3-00000001eZy-1uwc;
+	Mon, 14 Apr 2025 11:04:27 +0000
+Received: from mail-westeuropeazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c201::7] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4HHt-00000001aya-2UXh
+	id 1u4HIe-00000001b6n-1Utq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 10:43:38 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by correo.desarrollominero.gob.ve (Postfix) with ESMTP id 28F64C2A7FD
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 05:07:38 -0400 (VET)
-Received: from correo.desarrollominero.gob.ve ([127.0.0.1])
-	by localhost (correo.desarrollominero.gob.ve [127.0.0.1]) (amavisd-new, port 10032)
-	with ESMTP id uX4KS2RAydEw for <linux-arm-kernel@lists.infradead.org>;
-	Mon, 14 Apr 2025 05:07:37 -0400 (VET)
-Received: from correo.desarrollominero.gob.ve (localhost [127.0.0.1])
-	by correo.desarrollominero.gob.ve (Postfix) with ESMTPS id E6F51C2A806
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 05:07:37 -0400 (VET)
-Received: from [185.42.124.23] (unknown [185.42.124.23])
-	by correo.desarrollominero.gob.ve (Postfix) with ESMTPSA id 48A65C2A7FD
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 05:07:37 -0400 (VET)
-From: SGG ENERGY<sggenergytechnology@elzoghby-eg.com>
-To: linux-arm-kernel@lists.infradead.org
-Subject: ATTENTION
-Date: 14 Apr 2025 12:07:34 +0300
-Message-ID: <20250414120733.852F96AC5DDBC1D8@elzoghby-eg.com>
-MIME-Version: 1.0
-Content-Type: text/plain;
-	charset="utf-8"
+	Mon, 14 Apr 2025 10:44:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=n5ozpG2MjmVzz9baMukTPA3mB/NlK/cnmR76KR/r2Zh10hzLsJBOYyZGnIIs1saPAAVpIcGX6UxedK2laXZ6diC9DTvprIQvrJu/r/YS0ykxVRs0liPdcGkDIbLmA6hVvYXLdqEfrycC58iFh1rWsNe5xnOjQcJUJxrGIjwjmopsZyJ/YnClBYssICNaXOw1zOVrzTRF99jeqsNCsn3gv5mVVhrHZnu+u0+h2MeqR24iAttaSE4lt9GjiRa9mt9IrpkwqQtKjITtCqLzFADQuyPaAanPXtK4S80Tdw7Mrn+eexrTDn9befUIeiUz4yXHd5CseAquSREAqbwQaTTiWg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=P2qO2ZoAdv0baZMEO99kSPY+gV44jsQJUPSAZcBIj+s=;
+ b=E9Hzf3jD/rypN1u2mNuun4QBEZPG9b3KM3v0yj1qharLwS0OE/PSm651QUuJtHfOGhIvwFT/nRzrPqH2H2GjW1uFnxXpFIPNHmpyDEALgFN7hSS25kruWViZzG3JnK2qX0FTyVhDqNo55n1f+IETo0bBQmLlOubqXG2DzFa5J84MfJDSLoOdrUpMZFIjsMxN8UceIFO+WyafiP1HMq+n4WQn6AA3yKed4wMy5DKuT3u4ZfhdBc0mSdvevL3vBMgM4vStb/2sZS1kGtjkEua2n4t0lM3t/DSjxI3cUNu/DOHKj6Ew9eDUyljpE+Z9Sc7nGFyugMrinLa1GwyohiOJ5Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=P2qO2ZoAdv0baZMEO99kSPY+gV44jsQJUPSAZcBIj+s=;
+ b=RBu8J9ZujiFQCKOFaAX+B2ph3ih/vC9c3u00+muoBMfTVm2519vGDsfbyLahSf29rzH6Nq1Cbrop4TUgcZb8EFcS4ybjbv7LPXHmf8kiHLXB4mfiXljAa/biHSwUASo3uiXxd3/QQYJoVh+4gHjMLwewqMJmLYprDjfE7ZFzfuzpVSATVFOvlhf6fGHm/5ONEaX9E2XCHARquSbD7E1pwiKoQIre8gh/gO3bHqRFZKa9kEEuwzSAjgzIkiQe0XWShIm3ZPuNbhzMv/0l9fn3cTsVx2m65iHUx8xt/kWoV7eAQvKNeLqNr8RAiv+8GrqXtQMk67bu4L9+1FSA00Gumw==
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by AS1PR04MB9503.eurprd04.prod.outlook.com (2603:10a6:20b:4d1::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.35; Mon, 14 Apr
+ 2025 10:44:19 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8632.030; Mon, 14 Apr 2025
+ 10:44:18 +0000
+From: Peng Fan <peng.fan@nxp.com>
+To: Sudeep Holla <sudeep.holla@arm.com>
+CC: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Cristian Marussi
+	<cristian.marussi@arm.com>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+	<s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Dan
+ Carpenter <dan.carpenter@linaro.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "arm-scmi@vger.kernel.org"
+	<arm-scmi@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>
+Subject: RE: [PATCH v4 5/7] firmware: imx: Add i.MX95 SCMI LMM driver
+Thread-Topic: [PATCH v4 5/7] firmware: imx: Add i.MX95 SCMI LMM driver
+Thread-Index: AQHbqGLe3kxhTr5dw0mXAVP8MdrZO7Oi8B4AgAAF/qCAAAVbgIAABZIQ
+Date: Mon, 14 Apr 2025 10:44:18 +0000
+Message-ID: <PAXPR04MB84593BB91063D13BB05BEB5988B32@PAXPR04MB8459.eurprd04.prod.outlook.com>
+References: <20250408-imx-lmm-cpu-v4-0-4c5f4a456e49@nxp.com>
+ <20250408-imx-lmm-cpu-v4-5-4c5f4a456e49@nxp.com>
+ <20250414-wonderful-cute-bandicoot-accb6b@sudeepholla>
+ <PAXPR04MB8459195AAF65D38AFA1D4F9688B32@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <20250414-tiny-classic-barnacle-5f8c8f@sudeepholla>
+In-Reply-To: <20250414-tiny-classic-barnacle-5f8c8f@sudeepholla>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|AS1PR04MB9503:EE_
+x-ms-office365-filtering-correlation-id: a3474237-cb2b-4b8d-c838-08dd7b414f44
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?PgC4hvtVSg75ddbQme3R7hP5JsCLso/SZ7nF0c2DL+w6fUs3myZH479LQGO3?=
+ =?us-ascii?Q?LRXQ8gHh2EqJMm0FT0aAqcpHUQZy/6vCQfJaZHeWcyg3hraacOhx6RB2DTVX?=
+ =?us-ascii?Q?xsYeR+QeIW9Cd2RYBpjUeo4xmA9dL801pdllRc1bMVz8c9l77tSFCwnls1CV?=
+ =?us-ascii?Q?AUn8szCf2YMuH96vH2qSXd6+8cNHq+P2Rr8dZ8aC9Ecx/78Hml4s7jjRSdKE?=
+ =?us-ascii?Q?jEhMX9JvV3QMsC9O6AK+7DP0GSQNkkwo2O+fKUBq2vxbLZeDp28bIuP7n9by?=
+ =?us-ascii?Q?l8YhkNODE5Tu0IYdtrfexgpuWWKBFVx0BJvh2G801yoUo65E0VTQ1tOXwiER?=
+ =?us-ascii?Q?+gTnUxVpeSjzxDQen8k6mhrfpjm/jowMtVtEgAFOGYzDuYJ1i9b+6Gw61wnv?=
+ =?us-ascii?Q?RCoxIi+3pQRbKCnnbba47oaehXt6ICxXJXRtbBacrEDoe1M/juMS0PHK1Ygf?=
+ =?us-ascii?Q?zn9nzpWrBvZvwp0z5/R0asTNhXLE3Bynzlb6d/KTAHDb487VbyS/M+3LQVW0?=
+ =?us-ascii?Q?R6FvXGtKhAXi+O5RaBxhitpLH0+Stw1naBCk07Q/uHGnNEnrfRAspcZT58JU?=
+ =?us-ascii?Q?E1QZ64sMIujkLtfSZhaiKTZw7upwl/DLynoqCj+HQLpHYHy/2mJgb6WYnAMO?=
+ =?us-ascii?Q?qEd0WfRrxy5k0uPoh3orJeUnyZWB7lB6kr6mJsl3LI2/mS+gEt6P7ALTdqmW?=
+ =?us-ascii?Q?L2wfFsF8M7vTDKvKpFz9nXEOzNyZZVIEkMPZ95Yr6CGbGnGE7cpGHy0ma1j3?=
+ =?us-ascii?Q?6iXJkMJTYkMz0aUtP1d86E01YvZlJA25xLzBxUXDNKaYr7UfpeJCEdg1eLC9?=
+ =?us-ascii?Q?Wn9PK40U2B9tIFCMkFi5ErVoyqeOkfdo6dSLhNtPiM4TntrvSYijiYRsEfaT?=
+ =?us-ascii?Q?hHZwajzok6TPgUkOQxvkUrkZrbVd3Qp5r5PrpB0lpHs2LuFDn+AiYDk0C2Wk?=
+ =?us-ascii?Q?HiPsVU00ZnAtLcNJs4Uytzng2QlliX8LqxrdPbgzRd7DFr+f+hIIy6zW2EnF?=
+ =?us-ascii?Q?w47TJJ16ut9BHfR1pCRWorO5j9+GOJVqSNYNJesLbJRFX+sZL3BbpRQvcfL9?=
+ =?us-ascii?Q?tXwxodY++MYlbcTzN25Cq/0eEZ4wpcC6dbTBppJe6aJu2j2Zu4YXuX92WL4s?=
+ =?us-ascii?Q?jJi7+q9YCDXXmJiW9LM78vdReddyv8qUt0WWE7tvfM7lFxw4G7PLzB+2NKtc?=
+ =?us-ascii?Q?yfMP7Sg+siEzBC6vnrRvePYIKIpqNO7QCogGMBHqY28jn/AliWlHOy3UG/oY?=
+ =?us-ascii?Q?ksBvwstDVw6Ra6tEJ5PvNgZP4NBAjYBZb7rY1XYSbm0Rhlahl1VH/i+mTBqX?=
+ =?us-ascii?Q?yhF0P/G3rn/1dOqid78+PivaDoWKAlzMYx3BErbJ3HkIbIlnpRsjPfWiJ4VV?=
+ =?us-ascii?Q?cCRYWfo0x1e/iJ5NxomnWN5yYMdivk/TRo0E3Zj/4DvnVOr7uJN98+A8YZEZ?=
+ =?us-ascii?Q?3pBJGAmQ9t7fxUNM35Nj+WUUAJfCijKP3UOJx378stcrz/kgg6XoJA=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?ut/PlIviMTZQFjIdTbO9OzUuyfzQXsbdwjRWeu0UrTE+PN8SxfB0eq2e0NkP?=
+ =?us-ascii?Q?6eJu35xaX/iWotOhHg03w2DhQy3Tw7zyj/P2smE82jRZjDSCn03xh8TRG5Kk?=
+ =?us-ascii?Q?jFmbnI7UDQpds9rnOeYxH7SytSsmPEdAG0iZN/3cRl/2ZbiM5R4vMKRX3ggD?=
+ =?us-ascii?Q?3EPGRDb0DZUoCwebfDwINo2HoTWMqbLZKzAfIOX4Sk5liGdHRcm7hoMPmUrf?=
+ =?us-ascii?Q?3IXkdcRh6KOPR3eqjdDzHGugQO7A943DLEn5+7i3EJHWBtNi42Ox5Fnvz2uf?=
+ =?us-ascii?Q?6Y7mzV2O/ASIvMOxCJfeF3no5t1ZqJGluqdN041mzfT9l87Xelks75TzgwnF?=
+ =?us-ascii?Q?+dqtDgpP8lmxMOdV7DTHy5JqcVyMtmzuP/nqHoRYVb7590FDbcdaHqbO7MQM?=
+ =?us-ascii?Q?yL7L4I5TcjDdDiMmpvoxNDXW8Zl13nkbPMTPEX+Zs2RDNgaQR2sUOyvlDxQX?=
+ =?us-ascii?Q?eSKET4V6v4kX9aj5QL0WHPVS4tcKgGoRgkninmlUh82ayO9IswLE5DJwR+Qw?=
+ =?us-ascii?Q?S7MEv0og77WhpIoAsElNkbKdeGNr3WW2WF+x75qkYIVgzHwAEve9iiIJsptk?=
+ =?us-ascii?Q?dKNL4b9oCO/R6QqGy75msu6fJ5BhbqaEsN6sryUU4ZZQ+Iq7b9zA/nXrVkrN?=
+ =?us-ascii?Q?PeBvKa9qDKn6fEdq1NrNSU4P3ZMN5NtCe4fLcyncwQoDbgIf3oQWnYBs8mNc?=
+ =?us-ascii?Q?PQJxDlpvGgk+jvnC8zEPS7WYqbEH8wWQh1tTxPKCfghM8PWWBc9/JMjkNWK+?=
+ =?us-ascii?Q?6maBLcPa244rJIRSpdfSwHz6p3FtRnz29GS19PPltJHYU7M7RZ3wzZUJTeVN?=
+ =?us-ascii?Q?+KR91OpFRjHkc27q517qT75bEgO/FvQFuirULrtv35EySXeVWfRRHH0Cl+O2?=
+ =?us-ascii?Q?7bQk/q2wbFbHoE4P82CUHYGdp3VhgVblZDwgD0OhDS5ZSTiQMSkL6qoGtWZ4?=
+ =?us-ascii?Q?6HQ2SMDbC4qAQpBpzIiXEBpOrklQ3nezrvz4zRCBFDeM5KKXNlikJXe7JoH7?=
+ =?us-ascii?Q?2yR7ygyJYwYEpSNaqxsD2Z1TZOxERv9SiVX7EJhkCNcV9kFNPz2ei50OYDzA?=
+ =?us-ascii?Q?qV3a4Ws0pZhDaPhiPwGE4aK6x9Og31MPUNA4902RrYm2B2SkZOq5cMCl3+xh?=
+ =?us-ascii?Q?qG0sAInt1qmST860pO+vsc9BFYEwhpgExjiNDihTR/fkAxu03sdIiRHGh56+?=
+ =?us-ascii?Q?WfWY6i6s9V+I6/+Iuu6xlmx2YIPm5wFGv8eUAIezfN658OxtHMpteH/eWXhM?=
+ =?us-ascii?Q?gy2EmFQki5iOHPG4RFQgEah1DpT08i7lctA7OS0N5EMRY77Y5m8KDmNu3DZT?=
+ =?us-ascii?Q?G5yZ4bM0ZdlK+d7Ml/x3AV5scCi9SbPCP5FMWPAhFqeHvm7BHqKcJu0Jq+bF?=
+ =?us-ascii?Q?yfxU3ia430853dQ/zXIPMrFl/TBVfBAK02MLbsaImsRMkx+30rNpT3+sZI6A?=
+ =?us-ascii?Q?bzyUtlsPl346r9gf8J8UgEmqsFcPJZtSWNgATtu0db1jbbHI4mNs++VeQeLC?=
+ =?us-ascii?Q?0bj//rBK6o6cDooWUR+obDNtkNPxUe/9x/uzB0JwQ8/+c3on5VbiQM08EMvj?=
+ =?us-ascii?Q?HJa4nd2FDpKUentgQu8=3D?=
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a3474237-cb2b-4b8d-c838-08dd7b414f44
+X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Apr 2025 10:44:18.9116
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: PmZ5uKa7HRdWOpzxd6yNgQtBYorcLtBOL9M2N5ipkzB5nUHAgUziv28plJW1Z72I5/DQ4z70iCyyMdo4mBJFnw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9503
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_034337_753501_C056BE09 
-X-CRM114-Status: UNSURE (   0.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250414_034424_400729_CADD18E8 
+X-CRM114-Status: GOOD (  31.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,32 +168,88 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: kazpetro@sggenergytech.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dear linux-arm-kernel
-To whom it may Concern.
+Hi Sudeep,
 
-We PRIVATE COMPANY SGG ENERGY TECHNOLOGY LTD, With BIN Code:=20
-211140900115 and Office address located at Astana, Esil District,=20
-Syganak Street, Building 54a, N.P. 142A. With authorized legalized=20
-mandate certificate from trusted and reliable supplier refinery of=20
-petroleum commodities. Attached kindly find our official offer for=20
-your review and if any of our give procedure is acceptable to any=20
-ready buyer=E2=80=99s management, do kindly proceed to issue an official IC=
-PO=20
-to commence transaction.
-And further your management is in need of assistance and further=20
-clarification do not hesitate to contact our management.
+> Subject: Re: [PATCH v4 5/7] firmware: imx: Add i.MX95 SCMI LMM
+> driver
+>=20
+> On Mon, Apr 14, 2025 at 09:57:43AM +0000, Peng Fan wrote:
+> > Hi Sudeep,
+> >
+> > > Subject: Re: [PATCH v4 5/7] firmware: imx: Add i.MX95 SCMI LMM
+> > > driver
+> > >
+> > > On Tue, Apr 08, 2025 at 04:44:29PM +0800, Peng Fan (OSS) wrote:
+> > > > From: Peng Fan <peng.fan@nxp.com>
+> > > >
+> > > > The i.MX95 System manager exports SCMI LMM protocol for linux
+> to
+> > > > manage Logical Machines. The driver is to use the LMM Protocol
+> > > > interface to boot, shutdown a LM.
+> > > >
+> > > > Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
+> > > > Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> > > > ---
+> > > >  drivers/firmware/arm_scmi/vendors/imx/Kconfig |  3 +-
+> > > >  drivers/firmware/imx/Kconfig                  | 11 ++++
+> > > >  drivers/firmware/imx/Makefile                 |  1 +
+> > > >  drivers/firmware/imx/sm-lmm.c                 | 91
+> > > +++++++++++++++++++++++++++
+> > > >  include/linux/firmware/imx/sm.h               | 14 +++++
+> > > >  5 files changed, 119 insertions(+), 1 deletion(-)
+> > > >
+> > > > diff --git a/drivers/firmware/arm_scmi/vendors/imx/Kconfig
+> > > > b/drivers/firmware/arm_scmi/vendors/imx/Kconfig
+> > > > index
+> > > >
+> > >
+> b5f13d0e40155e485f4d1696e9550645d888ef44..4c24e17425f83081
+> > > 0f8ba376ece9
+> > > > db93c8cded6d 100644
+> > > > --- a/drivers/firmware/arm_scmi/vendors/imx/Kconfig
+> > > > +++ b/drivers/firmware/arm_scmi/vendors/imx/Kconfig
+> > > > @@ -26,7 +26,8 @@ config IMX_SCMI_CPU_EXT  config
+> > > IMX_SCMI_LMM_EXT
+> > > >  	tristate "i.MX SCMI LMM EXTENSION"
+> > > >  	depends on ARM_SCMI_PROTOCOL || (COMPILE_TEST && OF)
+> > > > -	default y if ARCH_MXC
+> > > > +	depends on IMX_SCMI_LMM_DRV
+> > > > +	default y if ARCH_MXC && ARM64
+> > >
+> > > I can't understand the ARM64 dependency on this and next patch.
+> >
+> > ARCH_MXC both supports ARM32 and ARM64.
+> >
+> > To i.MX ARM32 platform, there is no plan to enable SCMI, so only set
+> y
+> > for ARCH_MXC ARM64 platforms.
+> >
+>=20
+> OK but why is it different for IMX_SCMI_MISC_DRV. I really don't see
+> any dependency. If it is not supported today fine, but do you need any
+> issue to use it or compile it for arm32 ?
 
-Thank You.
----
-PRIVATE COMPANY SGG ENERGY TECHNOLOGY LTD.
-Address: Astana, Esil District, Syganak Street, Building 54a, N.P.=20
-142A
-BIN: 211140900115
-Email:kazpetro@sggenergytech.com=20=20
-Tel/WhatsApp: +7 775 540 3537
-Director: Dou Shengjun
+Seems my over-thinking.
+There is no ARM64 dependency. No issue.
+I just think there is no need to default build in this driver for i.MX
+ARM32 platform, because no i.MX ARM32 platform supports SCMI.
+
+But after a rethink, ARM64 dependency could be dropped, because
+there was already a dependency ARM_SCMI_PROTOCOL(i.MX ARM32
+not select this option), so we could follow same as
+IMX_SCMI_MISC_DRV.
+
+Please let me know if I need post new version for this and
+Dan's comments. Anyway, no rush.
+
+Thanks,
+Peng.
+
+>=20
+> --
+> Regards,
+> Sudeep
 
