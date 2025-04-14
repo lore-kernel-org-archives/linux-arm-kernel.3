@@ -4,83 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED366C369B6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 09:07:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AAE1C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 09:09:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iMxypOAW8Oa6O6QVpYmX6cdYifOLRH3rTIKzTjQ0LoE=; b=MXDdbSKf9lbHgwWEQJzX9n+ndd
-	0IYSyanoYfBQ7w/utG6ZQDK5K0iEqufLn4hBTzGiIWDIUKN1l6ciKLaeW/8xkgGGck0ra6E1isz+g
-	/XpWYUlyNfwgzXVgHosPTrP3oSlj1YcGk6vIN7mkMo71aJgpl6VV3ZaQm3yQef02y3Z9IrnEM6bk4
-	AfmVxODNoXOJgFdwMwKnbAtTFi7pqwLmtBXq5jOjUaHqGDgycwKlLpU5s1dlZ/FHm7NB9O7YgINR9
-	zTOxl2bZdbRyRXAP+Ke3FiQlxFTqr3HHzV33DfzbpInDjPMmpMbDWRgF1WlWBxXKQM9DDyWvR3lAR
-	+xI0GA2A==;
+	bh=FMQai05fnMzG1+ZLdemAe/l6jrB3pJN1CqWIPECMVd4=; b=wu4omo5PUdLk+vSEVWRoO/ymxt
+	fj5I2g0LyY3Iy3KOwcCmJnAoZSH6chQNuzhXOokw+feAjevKWTO5/Xrh+puO3WEcfh7IbrAFS8X5T
+	FUi3vAKOAk9njU0M2KI8jrPaMW4v0knEiSD3Rg6l9dWA3QBQgXoSCGZMf3NQzwmSnzGaMVjRrNu4q
+	z5SqMNz8dpDn6nAs2lENHOgB0emphl+Ga+bf/GYKeDAj9PDh7iseJh6+TlDKPTmOWGOMYrV6D1SY+
+	/TVDyoF82mXeEM4IbfrseIf+yRB8a4qrVoRt3TXYzEGhD+jmj0g8uLdJKfweAI2g3KESI+A9pr4A7
+	mFdUIrLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4FmI-00000001DQ2-45Yq;
-	Mon, 14 Apr 2025 09:06:54 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1u4Foa-00000001E8H-12Ji;
+	Mon, 14 Apr 2025 09:09:16 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4FRb-000000019hG-14Bo
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 08:45:33 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53E8Dgqr002903;
-	Mon, 14 Apr 2025 10:45:04 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	iMxypOAW8Oa6O6QVpYmX6cdYifOLRH3rTIKzTjQ0LoE=; b=s8+Piv/1ysUJCi+t
-	7UIfFhgwwEsmNuzbYPLELMy2rag14Nn81fUecOECARc7pji3gWZCvYKM23HALKXg
-	T8EHjYHUWpMlmmHc8k4k+AW324xnojdYfhII8eyQKqUz7gT6DeMrzhxHDh1O/dMD
-	20GKksyHX3CbcIzlu8Utbhmkz5I41Uzra7jNxmgaaIlg7Jyteoww92pcPdIAXEka
-	8cpKC0BaEI5U9GZVmQaqWJVeQN8cM+wneLJb27Hun9vPGvfrsyiSxylPsO+1HjZf
-	P7G8WcMRM/bOr6kh6bY3VvJNiED2zFfYHtCmBtA+qiJiyhos9xob46iGKsmttuWy
-	fnRGaA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45yfh1pveg-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 14 Apr 2025 10:45:04 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 8132B400B0;
-	Mon, 14 Apr 2025 10:43:47 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id A5BF59EA15F;
-	Mon, 14 Apr 2025 10:40:18 +0200 (CEST)
-Received: from [10.48.86.196] (10.48.86.196) by SHFDAG1NODE3.st.com
- (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 14 Apr
- 2025 10:40:18 +0200
-Message-ID: <b8140b9d-b5d9-48dc-b652-9eebc3e1ee01@foss.st.com>
-Date: Mon, 14 Apr 2025 10:40:17 +0200
+	id 1u4FYi-00000001B7J-2nRJ;
+	Mon, 14 Apr 2025 08:52:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1744620770;
+	bh=InbklK980sc2Hl5l2LdpFp3sTcyRxx81UWaVcsxBvAs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Ndvzx4QpjvxRLVd/JpqTOQGcOTkRKjRxNoUTlHu+HJb/APV2XF33Fp6Rt3g72youU
+	 JhVm5LhxHUFxGB/or1l5DQDcfJrKltBQhY8EErlj6nodXX7b3Kfo96rv2TScFzUwT4
+	 1Wvqil1NVJFZLoFnMnKAACV+ZDVaQvfMb0cysSJCWJYnxzX2+AlZmxrnM3o5o/xQHh
+	 eIeI6MHhV7uKdCX5AWoA00QVMBsch0NohzOaJznNCmMqkhV26ArInXUuKQYJ7BKuJc
+	 TIm3W3qpMFDKPpUPWhokZV63FwLY/yq3IStFoSMqeM8+bE6yeKexpRm3CBboUz2vkX
+	 WLYKA21xJ0Qiw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D406B17E0702;
+	Mon, 14 Apr 2025 10:52:48 +0200 (CEST)
+Message-ID: <bc6e0c12-2af8-4608-a05a-3d04209a4325@collabora.com>
+Date: Mon, 14 Apr 2025 10:52:48 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dmaengine: stm32: Don't use %pK through printk
-To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
-        Vinod
- Koul <vkoul@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>
-CC: <dmaengine@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20250407-restricted-pointers-dma-v1-1-b617dd0e293a@linutronix.de>
+Subject: Re: [PATCH v8 16/23] drm/mediatek: mtk_hdmi: Split driver and add
+ common probe function
+To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
+ "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
+Cc: "robh@kernel.org" <robh@kernel.org>,
+ "jie.qiu@mediatek.com" <jie.qiu@mediatek.com>,
+ "tzimmermann@suse.de" <tzimmermann@suse.de>,
+ "simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
+ <mripard@kernel.org>, =?UTF-8?B?Sml0YW8gU2hpICjnn7PorrDmtpsp?=
+ <jitao.shi@mediatek.com>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "kernel@collabora.com" <kernel@collabora.com>,
+ "dmitry.baryshkov@linaro.org" <dmitry.baryshkov@linaro.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ =?UTF-8?B?TGV3aXMgTGlhbyAo5buW5p+P6YieKQ==?= <Lewis.Liao@mediatek.com>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ =?UTF-8?B?VG9tbXlZTCBDaGVuICjpmbPlvaXoia8p?= <TommyYL.Chen@mediatek.com>,
+ =?UTF-8?B?SXZlcyBDaGVuamggKOmZs+S/iuW8mCk=?= <Ives.Chenjh@mediatek.com>,
+ "airlied@gmail.com" <airlied@gmail.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ =?UTF-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>,
+ "junzhi.zhao@mediatek.com" <junzhi.zhao@mediatek.com>
+References: <20250409131318.108690-1-angelogioacchino.delregno@collabora.com>
+ <20250409131318.108690-17-angelogioacchino.delregno@collabora.com>
+ <b9eafca53149fec817433da3d10bf06a6c96f959.camel@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-From: Amelie Delaunay <amelie.delaunay@foss.st.com>
-In-Reply-To: <20250407-restricted-pointers-dma-v1-1-b617dd0e293a@linutronix.de>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+In-Reply-To: <b9eafca53149fec817433da3d10bf06a6c96f959.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.86.196]
-X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-14_02,2025-04-10_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_014531_881483_C47B60B6 
-X-CRM114-Status: GOOD (  18.17  )
+X-CRM114-CacheID: sfid-20250414_015252_867531_85AEE56B 
+X-CRM114-Status: GOOD (  24.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,175 +101,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 4/7/25 10:26, Thomas Weißschuh wrote:
-> In the past %pK was preferable to %p as it would not leak raw pointer
-> values into the kernel log.
-> Since commit ad67b74d2469 ("printk: hash addresses printed with %p")
-> the regular %p has been improved to avoid this issue.
-> Furthermore, restricted pointers ("%pK") were never meant to be used
-> through printk(). They can still unintentionally leak raw pointers or
-> acquire sleeping looks in atomic contexts.
+Il 11/04/25 10:18, CK Hu (胡俊光) ha scritto:
+> On Wed, 2025-04-09 at 15:13 +0200, AngeloGioacchino Del Regno wrote:
+>> External email : Please do not click links or open attachments until you have verified the sender or the content.
+>>
+>>
+>> In preparation for adding a new driver for the HDMI TX v2 IP,
+>> split out the functions that will be common between the already
+>> present mtk_hdmi (v1) driver and the new one.
+>>
+>> Since the probe flow for both drivers is 90% similar, add a common
+>> probe function that will be called from each driver's .probe()
+>> callback, avoiding lots of code duplication.
+>>
+>> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>> ---
+>>   drivers/gpu/drm/mediatek/Kconfig           |  11 +-
+>>   drivers/gpu/drm/mediatek/Makefile          |   1 +
+>>   drivers/gpu/drm/mediatek/mtk_hdmi.c        | 542 +--------------------
+>>   drivers/gpu/drm/mediatek/mtk_hdmi_common.c | 426 ++++++++++++++++
+>>   drivers/gpu/drm/mediatek/mtk_hdmi_common.h | 188 +++++++
+>>   5 files changed, 633 insertions(+), 535 deletions(-)
+>>   create mode 100644 drivers/gpu/drm/mediatek/mtk_hdmi_common.c
+>>   create mode 100644 drivers/gpu/drm/mediatek/mtk_hdmi_common.h
+>>
+>> diff --git a/drivers/gpu/drm/mediatek/Kconfig b/drivers/gpu/drm/mediatek/Kconfig
+>> index e47debd60619..994b48b82d44 100644
+>> --- a/drivers/gpu/drm/mediatek/Kconfig
+>> +++ b/drivers/gpu/drm/mediatek/Kconfig
+>> @@ -30,9 +30,18 @@ config DRM_MEDIATEK_DP
+>>          help
+>>            DRM/KMS Display Port driver for MediaTek SoCs.
+>>
+>> +config DRM_MEDIATEK_HDMI_COMMON
+>> +       tristate
+>> +       depends on DRM_MEDIATEK
+>> +       select DRM_DISPLAY_HDMI_HELPER
+>> +       select DRM_DISPLAY_HELPER
+>> +       select SND_SOC_HDMI_CODEC if SND_SOC
+>> +       help
+>> +         MediaTek SoC HDMI common library
+>> +
+>>   config DRM_MEDIATEK_HDMI
+>>          tristate "DRM HDMI Support for Mediatek SoCs"
+>>          depends on DRM_MEDIATEK
+>> -       select SND_SOC_HDMI_CODEC if SND_SOC
+>> +       select DRM_MEDIATEK_HDMI_COMMON
+>>          help
+>>            DRM/KMS HDMI driver for Mediatek SoCs
+>> diff --git a/drivers/gpu/drm/mediatek/Makefile b/drivers/gpu/drm/mediatek/Makefile
+>> index 43afd0a26d14..78cf2d4fc85f 100644
+>> --- a/drivers/gpu/drm/mediatek/Makefile
+>> +++ b/drivers/gpu/drm/mediatek/Makefile
+>> @@ -21,6 +21,7 @@ mediatek-drm-y := mtk_crtc.o \
+>>
+>>   obj-$(CONFIG_DRM_MEDIATEK) += mediatek-drm.o
+>>
+>> +obj-$(CONFIG_DRM_MEDIATEK_HDMI_COMMON) += mtk_hdmi_common.o
 > 
-> Switch to the regular pointer formatting which is safer and
-> easier to reason about.
-> There are still a few users of %pK left, but these use it through seq_file,
-> for which its usage is safe.
->
-> Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
-Thank you for your patch,
+> The whole patch looks good to me.
+> But make common part to a module looks a little bit more modularized.
+> Let things to be simple, I would like the whole MediaTek hdmi driver be a single module.
+> For MediaTek drm driver, it is already broken to mediatek-drm, hdmi, dp modules.
+> Maybe someday dsi or dpi would be broken to modules.
+> So I would like hdmi to be a single module which include v1, v2 and common part.
+> If someday we need to optimize code size, then send patch to break hdmi module.
+> 
 
-Reviewed-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
+Hello CK,
 
-> ---
->   drivers/dma/stm32/stm32-dma.c  | 10 +++++-----
->   drivers/dma/stm32/stm32-dma3.c | 10 +++++-----
->   drivers/dma/stm32/stm32-mdma.c |  8 ++++----
->   3 files changed, 14 insertions(+), 14 deletions(-)
+The HDMIv1 and HDMIv2 drivers are handling two *very* different IPs that can never
+be *both* present at the same time on one SoC: having one Kconfig for both would
+not only add unnecessary bloat (especially on older SoCs!!), but would actually be
+wrong.
+
+Also, please be aware that old LK bootloaders (smartphones/tablets) have a very
+limited RAM carveout for kernel + ramdisk that should be around 8MB if I recall
+correctly.
+
+Remember as well that these devices *cannot* run different bootloaders as those
+are only able to run *OEM signed* binaries in the early bootchain, so replacing
+the bootloader is not a viable solution.
+
+It's true, people can (and most probably want to and will) build this as a module
+but, in my opinion, freedom should be given to have the HDMI driver built-in even
+in these cases - and that's another good reason to keep them split.
+
+This is done to avoid being hostile to old platforms, in full upstream spirit.
+
+Regards,
+Angelo
+
+> Regards,
+> CK
 > 
-> diff --git a/drivers/dma/stm32/stm32-dma.c b/drivers/dma/stm32/stm32-dma.c
-> index 917f8e9223739af853e492d97cecac0e95e0aea3..ee9246c6888ffde2d416270f25890c04c72daff7 100644
-> --- a/drivers/dma/stm32/stm32-dma.c
-> +++ b/drivers/dma/stm32/stm32-dma.c
-> @@ -613,7 +613,7 @@ static void stm32_dma_start_transfer(struct stm32_dma_chan *chan)
->   	reg->dma_scr |= STM32_DMA_SCR_EN;
->   	stm32_dma_write(dmadev, STM32_DMA_SCR(chan->id), reg->dma_scr);
->   
-> -	dev_dbg(chan2dev(chan), "vchan %pK: started\n", &chan->vchan);
-> +	dev_dbg(chan2dev(chan), "vchan %p: started\n", &chan->vchan);
->   }
->   
->   static void stm32_dma_configure_next_sg(struct stm32_dma_chan *chan)
-> @@ -676,7 +676,7 @@ static void stm32_dma_handle_chan_paused(struct stm32_dma_chan *chan)
->   
->   	chan->status = DMA_PAUSED;
->   
-> -	dev_dbg(chan2dev(chan), "vchan %pK: paused\n", &chan->vchan);
-> +	dev_dbg(chan2dev(chan), "vchan %p: paused\n", &chan->vchan);
->   }
->   
->   static void stm32_dma_post_resume_reconfigure(struct stm32_dma_chan *chan)
-> @@ -728,7 +728,7 @@ static void stm32_dma_post_resume_reconfigure(struct stm32_dma_chan *chan)
->   	dma_scr |= STM32_DMA_SCR_EN;
->   	stm32_dma_write(dmadev, STM32_DMA_SCR(chan->id), dma_scr);
->   
-> -	dev_dbg(chan2dev(chan), "vchan %pK: reconfigured after pause/resume\n", &chan->vchan);
-> +	dev_dbg(chan2dev(chan), "vchan %p: reconfigured after pause/resume\n", &chan->vchan);
->   }
->   
->   static void stm32_dma_handle_chan_done(struct stm32_dma_chan *chan, u32 scr)
-> @@ -820,7 +820,7 @@ static void stm32_dma_issue_pending(struct dma_chan *c)
->   
->   	spin_lock_irqsave(&chan->vchan.lock, flags);
->   	if (vchan_issue_pending(&chan->vchan) && !chan->desc && !chan->busy) {
-> -		dev_dbg(chan2dev(chan), "vchan %pK: issued\n", &chan->vchan);
-> +		dev_dbg(chan2dev(chan), "vchan %p: issued\n", &chan->vchan);
->   		stm32_dma_start_transfer(chan);
->   
->   	}
-> @@ -922,7 +922,7 @@ static int stm32_dma_resume(struct dma_chan *c)
->   
->   	spin_unlock_irqrestore(&chan->vchan.lock, flags);
->   
-> -	dev_dbg(chan2dev(chan), "vchan %pK: resumed\n", &chan->vchan);
-> +	dev_dbg(chan2dev(chan), "vchan %p: resumed\n", &chan->vchan);
->   
->   	return 0;
->   }
-> diff --git a/drivers/dma/stm32/stm32-dma3.c b/drivers/dma/stm32/stm32-dma3.c
-> index 0c6c4258b19561c94f1c68f26ade16b82660ebe6..50e7106c5cb73394c1de52ad5f571f6db63750e6 100644
-> --- a/drivers/dma/stm32/stm32-dma3.c
-> +++ b/drivers/dma/stm32/stm32-dma3.c
-> @@ -801,7 +801,7 @@ static void stm32_dma3_chan_start(struct stm32_dma3_chan *chan)
->   
->   	chan->dma_status = DMA_IN_PROGRESS;
->   
-> -	dev_dbg(chan2dev(chan), "vchan %pK: started\n", &chan->vchan);
-> +	dev_dbg(chan2dev(chan), "vchan %p: started\n", &chan->vchan);
->   }
->   
->   static int stm32_dma3_chan_suspend(struct stm32_dma3_chan *chan, bool susp)
-> @@ -1452,7 +1452,7 @@ static int stm32_dma3_pause(struct dma_chan *c)
->   
->   	chan->dma_status = DMA_PAUSED;
->   
-> -	dev_dbg(chan2dev(chan), "vchan %pK: paused\n", &chan->vchan);
-> +	dev_dbg(chan2dev(chan), "vchan %p: paused\n", &chan->vchan);
->   
->   	return 0;
->   }
-> @@ -1465,7 +1465,7 @@ static int stm32_dma3_resume(struct dma_chan *c)
->   
->   	chan->dma_status = DMA_IN_PROGRESS;
->   
-> -	dev_dbg(chan2dev(chan), "vchan %pK: resumed\n", &chan->vchan);
-> +	dev_dbg(chan2dev(chan), "vchan %p: resumed\n", &chan->vchan);
->   
->   	return 0;
->   }
-> @@ -1490,7 +1490,7 @@ static int stm32_dma3_terminate_all(struct dma_chan *c)
->   	spin_unlock_irqrestore(&chan->vchan.lock, flags);
->   	vchan_dma_desc_free_list(&chan->vchan, &head);
->   
-> -	dev_dbg(chan2dev(chan), "vchan %pK: terminated\n", &chan->vchan);
-> +	dev_dbg(chan2dev(chan), "vchan %p: terminated\n", &chan->vchan);
->   
->   	return 0;
->   }
-> @@ -1543,7 +1543,7 @@ static void stm32_dma3_issue_pending(struct dma_chan *c)
->   	spin_lock_irqsave(&chan->vchan.lock, flags);
->   
->   	if (vchan_issue_pending(&chan->vchan) && !chan->swdesc) {
-> -		dev_dbg(chan2dev(chan), "vchan %pK: issued\n", &chan->vchan);
-> +		dev_dbg(chan2dev(chan), "vchan %p: issued\n", &chan->vchan);
->   		stm32_dma3_chan_start(chan);
->   	}
->   
-> diff --git a/drivers/dma/stm32/stm32-mdma.c b/drivers/dma/stm32/stm32-mdma.c
-> index e6d525901de7ecf822d218b87b95aba6bbf0a3ef..080c1c725216cb627675c372591b4c0c227c3cea 100644
-> --- a/drivers/dma/stm32/stm32-mdma.c
-> +++ b/drivers/dma/stm32/stm32-mdma.c
-> @@ -1187,7 +1187,7 @@ static void stm32_mdma_start_transfer(struct stm32_mdma_chan *chan)
->   
->   	chan->busy = true;
->   
-> -	dev_dbg(chan2dev(chan), "vchan %pK: started\n", &chan->vchan);
-> +	dev_dbg(chan2dev(chan), "vchan %p: started\n", &chan->vchan);
->   }
->   
->   static void stm32_mdma_issue_pending(struct dma_chan *c)
-> @@ -1200,7 +1200,7 @@ static void stm32_mdma_issue_pending(struct dma_chan *c)
->   	if (!vchan_issue_pending(&chan->vchan))
->   		goto end;
->   
-> -	dev_dbg(chan2dev(chan), "vchan %pK: issued\n", &chan->vchan);
-> +	dev_dbg(chan2dev(chan), "vchan %p: issued\n", &chan->vchan);
->   
->   	if (!chan->desc && !chan->busy)
->   		stm32_mdma_start_transfer(chan);
-> @@ -1220,7 +1220,7 @@ static int stm32_mdma_pause(struct dma_chan *c)
->   	spin_unlock_irqrestore(&chan->vchan.lock, flags);
->   
->   	if (!ret)
-> -		dev_dbg(chan2dev(chan), "vchan %pK: pause\n", &chan->vchan);
-> +		dev_dbg(chan2dev(chan), "vchan %p: pause\n", &chan->vchan);
->   
->   	return ret;
->   }
-> @@ -1261,7 +1261,7 @@ static int stm32_mdma_resume(struct dma_chan *c)
->   
->   	spin_unlock_irqrestore(&chan->vchan.lock, flags);
->   
-> -	dev_dbg(chan2dev(chan), "vchan %pK: resume\n", &chan->vchan);
-> +	dev_dbg(chan2dev(chan), "vchan %p: resume\n", &chan->vchan);
->   
->   	return 0;
->   }
+>>   obj-$(CONFIG_DRM_MEDIATEK_HDMI) += mtk_cec.o
+>>   obj-$(CONFIG_DRM_MEDIATEK_HDMI) += mtk_hdmi.o
+>>   obj-$(CONFIG_DRM_MEDIATEK_HDMI) += mtk_hdmi_ddc.o
+>> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
 > 
-> ---
-> base-commit: e48e99b6edf41c69c5528aa7ffb2daf3c59ee105
-> change-id: 20250404-restricted-pointers-dma-29cf839a1a0b
-> 
-> Best regards,
+
 
