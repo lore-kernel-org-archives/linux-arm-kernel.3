@@ -4,122 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8D58C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 12:01:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 044D1C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 12:03:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ztxpMMJFLLvR1oZapArlbuf/s3HpqOv3E90SpnFpTec=; b=ZBWxdJv5mP78RLcMu2d9gGG5JI
-	1Gu1FplcvxoKOQWgWRp2DC4YaIcba2VFn+71XX33jMbqI1hHooRwsFIfk2HFaJUPivrNi1IJc4yrz
-	zUA8DA94fOrFrspLviDYiiNfB/OULQm/i1KxmmKqQoCnvEfLAwPNmXUGdJGh4mKANDt1UrQBRuhu2
-	En9fv7kFqfh/P1qoyxERb61TTRKYoghwH/4C2fX5HyNBwNCvRVH2zAEkwm3PMauo+alYRg3ylCJab
-	8ztNyHiovXQ/QkE1FwfwsDRwdL4P7TMGynYZPI5GQYcQcnKttzKBsJJx7VPaqP48ABsdT1ADhHkf9
-	vfWzJbDA==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y5ACmq3Yrzj3X9LtXUICStUphd4BBh7NKKwspPcqHa0=; b=hm3P8/tKHMHIEzz8aQCf/VmNnd
+	EutXnPHANoOWFvfCvY8gvc/h0rExcuw1mgj7n322i44FW+DRsN9UPAXU2v+PG/8hjM9c3bkgNaXFJ
+	plRtteSOdUaHECwZMe+I36P+uxJEC37psurprLOD8RqAC0bFP6xWZIC4hHXYplNWy6WQ0ManXGpfa
+	ZsL9zyeJnjJo3m8GhIAnKVMeaGHsnLR9Q+CPgay1MEF6hyj8N3lgv8oOwuoPEZFO0jreyqsxfLBjw
+	koSs/M/nsavUrUSteousRjkpukU3E8Lf7RXSLscQ3k/UDepmhRKN4pUSVTGpD7RAzuP0LlWxkoiGX
+	FIy/+Acg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4IUf-00000001rkA-3YvU;
-	Mon, 14 Apr 2025 12:00:53 +0000
-Received: from mout.gmx.net ([212.227.15.15])
+	id 1u4IWX-00000001rul-1RkE;
+	Mon, 14 Apr 2025 12:02:49 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4IJV-00000001pfY-3ULA
+	id 1u4IKd-00000001q1Q-12do
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 11:49:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1744631350; x=1745236150; i=wahrenst@gmx.net;
-	bh=ztxpMMJFLLvR1oZapArlbuf/s3HpqOv3E90SpnFpTec=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:From:Subject:To:
-	 References:In-Reply-To:Content-Type:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=B5TZlic7IPw+iMxfK9Lw9WWs8SYX20bTSJlUcIxtp/PzT1ScTT/296LjM++pVwoH
-	 KsgGS0ZLHf0eFe2EwsWVPUxnVTAskcG+DUTb9PAEF8cYZtGHbGnp/RxbjDwusmlVg
-	 CyDfhnCH0QPJG5mGNy6kZdYtIpmuYEk5/nfAhZPYE1UmVpv8x8m02w95v4FsfVlJb
-	 eMRSoRZmNvVDsRnq1HL+maAKRE9qlj7VZ0H38bUx++udVrwMH2De8NuQ7XH6x8F4f
-	 VzpRSu70sfLuoLORrwVKXma7u4dsVEYk8Pkm04JTswtRxgcmWKhhGry/nCGqDa8CK
-	 8VEhHj+pUhiYeDjZYw==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.107] ([37.4.251.153]) by mail.gmx.net (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1Mof9P-1tFnGG3XYH-00ZWq1; Mon, 14
- Apr 2025 13:49:10 +0200
-Message-ID: <a1133205-7dcd-4875-8a1f-a7f128140730@gmx.net>
-Date: Mon, 14 Apr 2025 13:49:08 +0200
+	Mon, 14 Apr 2025 11:50:32 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53EBo9lp2048113
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 14 Apr 2025 06:50:09 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1744631409;
+	bh=y5ACmq3Yrzj3X9LtXUICStUphd4BBh7NKKwspPcqHa0=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=pPvENMRg+2qi8WZHRAJ+9bEgDdLWUfvZ0fxDdW/IK49AZLeXQf9sU6sL2RdMksh3O
+	 bE4SGKB+lR8N43aalUVftuBBtZpujL5kWWuAzHqiEGtvB3lbf2ojRKcsX43+reUKWg
+	 aoJMD2UFL8RTaI31oMiK6Dzo8TMVqVao8Tn6BEoE=
+Received: from DLEE102.ent.ti.com (dlee102.ent.ti.com [157.170.170.32])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53EBo9WB010676
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 14 Apr 2025 06:50:09 -0500
+Received: from DLEE113.ent.ti.com (157.170.170.24) by DLEE102.ent.ti.com
+ (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 14
+ Apr 2025 06:50:08 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE113.ent.ti.com
+ (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 14 Apr 2025 06:50:08 -0500
+Received: from [172.24.227.115] (abhilash-hp.dhcp.ti.com [172.24.227.115])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53EBo4rA059109;
+	Mon, 14 Apr 2025 06:50:05 -0500
+Message-ID: <e08b7127-4f9b-433e-b0f3-e2c4ef279b78@ti.com>
+Date: Mon, 14 Apr 2025 17:20:04 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Stefan Wahren <wahrenst@gmx.net>
-Subject: Re: [PATCH v8 13/13] arm64: defconfig: Enable OF_OVERLAY option
-To: Andrea della Porta <andrea.porta@suse.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Krzysztof Wilczynski <kw@linux.com>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Linus Walleij
- <linus.walleij@linaro.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
- Derek Kiernan <derek.kiernan@amd.com>, Dragan Cvetic
- <dragan.cvetic@amd.com>, Arnd Bergmann <arnd@arndb.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-gpio@vger.kernel.org, Masahiro Yamada <masahiroy@kernel.org>,
- Herve Codina <herve.codina@bootlin.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Andrew Lunn
- <andrew@lunn.ch>, Phil Elwell <phil@raspberrypi.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>, kernel-list@raspberrypi.com
-References: <cover.1742418429.git.andrea.porta@suse.com>
- <9d5b41bf6d1565f0de96c7c1680bd404cba40189.1742418429.git.andrea.porta@suse.com>
+Subject: Re: [PATCH v2 1/7] arm64: dts: ti: j721e-sk: Add DT nodes for power
+ regulators
+To: "Kumar, Udit" <u-kumar1@ti.com>, <nm@ti.com>, <vigneshr@ti.com>
+CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <vaishnav.a@ti.com>, <jai.luthra@linux.dev>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <imx@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+        <stable@vger.kernel.org>
+References: <20250409134128.2098195-1-y-abhilashchandra@ti.com>
+ <20250409134128.2098195-2-y-abhilashchandra@ti.com>
+ <44c3ec3d-2fa3-4a61-8c93-5ef4791fcf8a@ti.com>
 Content-Language: en-US
-In-Reply-To: <9d5b41bf6d1565f0de96c7c1680bd404cba40189.1742418429.git.andrea.porta@suse.com>
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Provags-ID: V03:K1:T0QNT8oJFH3Ns/oSx+yvOcldq/37PEeJZ8dWssGFEoeeUNJGOj8
- KAfIXjvO1zKr1QEuPh7Eqjuqz2/z4zNabaGMxpSWbn1clCvFtqKNgYdhRGLS9tgQXUxW/se
- Tfk4+QgRqvFMd4vCU928Nm/NcWEAy0TPBmjeOKyqxFpQXGP2n71irv4xUMvjL7SMvpqm/0c
- M1XqzoKqO2/ChPsE+19rg==
-UI-OutboundReport: notjunk:1;M01:P0:jtrZ2GhFz9g=;d8d7oUs6bLbBoChY0c/bH2hp8ck
- XGrKelH8fwQk/0LqxpwXocMb9CXERgTSgjBpcgv5kgMBSy0KCQjo5T+E2x8qUWlqS5Vaxzloc
- pTYaVkPIQ2MLk5BsZvDYqHTpU/n50KPJJ5y/+XmXaLuvpQUK3MkpVuU8ulQoZs4d2djPLDx+v
- VUfqWpUAX2lBrYLk+c3JRboMIZWoOQM6yl6C+bzkYvczoG8LwZYsOYslVH7iyTA5XF1h2lc5w
- 9CFiY8SiiwDh3O7PtNhYH2ylGVLlnrJeKpcZCCyXrcEJt7bi4WLEN2jYTC6/fRXwgh11B+lfy
- zyGzLPzD5L8xSP1UsaLh+7SNeOYFVDbosrVloNwzNEyJkW3F/Ddz7Gs6FDrgRVTp9rhTMw1wm
- k1aOuTy72BYjctn3yJO/+c2A8PDCDnlxcQR7+Q0ZWTDc5xfO0ho2XYJ+E/PpymnS0k4XyFGAD
- 8aHzJyPF43s0VrW01FG1bupTaV+ZLUrm45yMRIn6OWOxEbB4s/GZtoxCUr117QE4HmYmlU/im
- 0wuFg96Vtqd16hmnorVDPs2Nj/uIfN5jkEJvRIIeufjVsYq5d8nRGrwFn8BF8JvFI/rwbLb52
- MPZY0LjXueBPZvHK90N6riGUDA7hrbIFqAJ874CfvOg++n44CcS9VtWXBanfp+1amcIId0AAx
- r8L69lfIabDc9qL8Vby9v2do6WTVykZJLqeEEJwbwlEJfbdWNSVF2WL/UCCRvFVbHccQLvcco
- TFtUWQMk7GWxPR3OxDikizp2gQWCYrtQm9qi7C4eJ46rCx7fgpR1JWiCfcUOFvFdCfNXI+45m
- o+8E09k1b2xWXUSnyWqmJIkG5tx3OINOz7odIwV6GRakKPaP+254OB2esGpBCZ+TM8+iIHFu4
- zuZc8flXXe2LipHd2BQtvKUf1TJ3BAupIfRm3Kae1AqP4aL5mlAxKZ51dZxoUZnDG3RaJmJpQ
- HlzVF8qQoGr+LVMkq1hu1I1zTGmtK5z5ZIPbqTEZqI9nCa0d9sHSEmd37svI7H7T/YOAWg0Pc
- RNL6H18wXttv36KJ1jp0G6IuFeTNta7cnUaW0o2JzyWPApIDcLebHenkiemf+Hl9pToRgquzR
- V2hC7F0r6JMP+vNEg+Ur7ZZgaRxe/uZ3Hg0zyW5GzJKo6Fry60qR/Vm7oPeqqjzxYF1iPqno3
- 6sjfYYHLhb+NpZNhAakG/q3YVR4QaXW/De1Zba4zang5EzvpnWTBZ0nrYQy2dB26Mwl41V11V
- V3bl2W41nR2JHbtGte4xy6po1IhfNqX7qEU56ZbrVHG3nt/aEW7A7Eh+Kfql/CwVkmA6VZS0x
- fEsKSx3VMu5nZTzZCSeZOT4WlDZf9zyO0smlAmZxE9iMwh4lWkuM1AX15hKi4twaARRKYekwd
- xnrZlNvZcMDl7LaTeT1hkNEhlqcHU5Tdl+zuPzGX7fiWqJiAZqM2fwoWAOcTywiCpeaM6sL03
- 1CNkjD9+vq9JFcuda+xardD/PgYZP+avbY519DXAi/+fBr4LF
+From: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+In-Reply-To: <44c3ec3d-2fa3-4a61-8c93-5ef4791fcf8a@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_044922_167216_8038A6F3 
-X-CRM114-Status: UNSURE (   6.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250414_045031_379453_84C1F06F 
+X-CRM114-Status: GOOD (  17.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,14 +91,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Udit,
 
-Am 19.03.25 um 22:52 schrieb Andrea della Porta:
-> The RP1 driver uses the infrastructure enabled by OF_OVERLAY config
-> option. Enable that option in defconfig in order to produce a kernel
-> usable on RaspberryPi5 avoiding to enable it separately.
->
-> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+On 11/04/25 19:04, Kumar, Udit wrote:
+> 
+> On 4/9/2025 7:11 PM, Yemike Abhilash Chandra wrote:
+>> Add device tree nodes for two power regulators on the J721E SK board.
+>> vsys_5v0: A fixed regulator representing the 5V supply output from the
+>> LM61460 and vdd_sd_dv: A GPIO-controlled TLV71033 regulator.
+>>
+>> J721E-SK schematics: https://www.ti.com/lit/zip/sprr438
+>> Fixes: 1bfda92a3a36 ("arm64: dts: ti: Add support for J721E SK")
+> 
+> For me does not looks like a fix, you can adding missing nodes
+> 
 
-Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
+Since we are adding the regulator nodes in the sensor overlay, (Patch 4 
+of this series) which in turn references these regulator nodes, I have
+included the Fixes tag in this patch as well.
 
+> 
+>> Cc: stable@vger.kernel.org
+>> Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+>> ---
+>>   arch/arm64/boot/dts/ti/k3-j721e-sk.dts | 31 ++++++++++++++++++++++++++
+>>   1 file changed, 31 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-sk.dts 
+>> b/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
+>> index 440ef57be294..4965957e6545 100644
+>> --- a/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
+>> +++ b/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
+>> @@ -184,6 +184,17 @@ vsys_3v3: fixedregulator-vsys3v3 {
+>>           regulator-boot-on;
+>>       };
+>> +    vsys_5v0: fixedregulator-vsys5v0 {
+>> +        /* Output of LM61460 */
+>> +        compatible = "regulator-fixed";
+>> +        regulator-name = "vsys_5v0";
+>> +        regulator-min-microvolt = <5000000>;
+>> +        regulator-max-microvolt = <5000000>;
+>> +        vin-supply = <&vusb_main>;
+>> +        regulator-always-on;
+>> +        regulator-boot-on;
+>> +    };
+>> +
+>>       vdd_mmc1: fixedregulator-sd {
+>>           compatible = "regulator-fixed";
+>>           pinctrl-names = "default";
+>> @@ -211,6 +222,20 @@ vdd_sd_dv_alt: gpio-regulator-tps659411 {
+>>                <3300000 0x1>;
+>>       };
+>> +    vdd_sd_dv: gpio-regulator-TLV71033 {
+>> +        compatible = "regulator-gpio";
+>> +        pinctrl-names = "default";
+>> +        pinctrl-0 = <&vdd_sd_dv_pins_default>;
+>> +        regulator-name = "tlv71033";
+>> +        regulator-min-microvolt = <1800000>;
+>> +        regulator-max-microvolt = <3300000>;
+>> +        regulator-boot-on;
+>> +        vin-supply = <&vsys_5v0>;
+>> +        gpios = <&main_gpio0 118 GPIO_ACTIVE_HIGH>;
+>> +        states = <1800000 0x0>,
+>> +             <3300000 0x1>;
+>> +    };
+>> +
+>>       transceiver1: can-phy1 {
+>>           compatible = "ti,tcan1042";
+>>           #phy-cells = <0>;
+>> @@ -613,6 +638,12 @@ J721E_WKUP_IOPAD(0xd4, PIN_OUTPUT, 7) /* (G26) 
+>> WKUP_GPIO0_9 */
+>>           >;
+>>       };
+>> +    vdd_sd_dv_pins_default: vdd-sd-dv-default-pins {
+>> +        pinctrl-single,pins = <
+>> +            J721E_IOPAD(0x1dc, PIN_INPUT, 7) /* (Y1) 
+>> SPI1_CLK.GPIO0_118 */
+> 
+> Shouldn't be this pin be output to control regulator ?
+> 
+
+Yes, I will correct this in the next revision.
+
+Thanks and Regards
+Yemike Abhilash Chandra
+
+> 
+>> +        >;
+>> +    };
+>> +
+>>       wkup_uart0_pins_default: wkup-uart0-default-pins {
+>>           pinctrl-single,pins = <
+>>               J721E_WKUP_IOPAD(0xa0, PIN_INPUT, 0) /* (J29) 
+>> WKUP_UART0_RXD */
 
