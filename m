@@ -4,64 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 049A1C369B8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 12:58:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B866C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 13:03:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ssPHAsXq4qRGkOI1OXTbKPd+e7dKhr4csRhJq7ekiG4=; b=sNkCPnMMTidYxR3BQoZClt5U30
-	tci7ZggAemtnAIXNPnKH7clpVUpJ/+MZU/tauTjVYWgIJxqN/9cN/+mDgRISHUCxCJo3o3CmOAqAy
-	xJ2gEsYSj64+j/Woav+94ey0IYcGSuUrUyio1v4RcQYCQFPZLnW/Gz/x6oivM77dVjjh6nZnwOmUl
-	yxOI9dPDKsvl2Iaz5LBQEqbyJs2z5XaJYp4CN187kqtbhMyQYxrJ/ZEtp9xPWuxlMAdZeqYw1SXhy
-	6W2gAXYeyJ68Yp0rY5CNuAZ5e2vp3fG3x00eEYUkb2WEU8Qmct1CBveCDGJv3hemQhraNAP3HL+0I
-	+RGXEpCA==;
+	bh=VX8a/yvVIobMpnRl8a6ZehZn3dZHFdJf7iaKYTSI3Nw=; b=W3XqXOxkyIySSLNytPERNUD76g
+	rrCzBE6SNY7iKihmXxTIxX39lFXL+VfwRMi8/RboaO5iefpGJH4iCEQzPc1pEdxQYyyLH7+XzDKbJ
+	p+c7v17V+Kd9lck7fAeFcMD5390wiuJlng8PBj7aLEdC63AmWGiCE3hi+MBqMF4jf0iIcR3gkrV+/
+	CRocCKyaTTmK9dRpnglXHVWQbX1+9CDZIipSMLIiaAbWuBHNuW3LCOa/cGtY0adnoS1+OkUcfDgCo
+	SIrUUqUHMoL2xJMqxe5a+BaGIHINH2O4ti6jc1kW1wRS2Sp2dQGtSYnK5u9Q3rtS82iZwgMqJ3+h/
+	d8FthOHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4JNv-000000021aB-2L0d;
-	Mon, 14 Apr 2025 12:57:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u4JSq-000000022R9-0o40;
+	Mon, 14 Apr 2025 13:03:04 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4J8y-00000001zWY-16LN
+	id 1u4JQz-0000000226c-0D9Y
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 14 Apr 2025 13:01:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=VX8a/yvVIobMpnRl8a6ZehZn3dZHFdJf7iaKYTSI3Nw=; b=bnRPhj3o2yE65W3FvAFfApsLL5
+	3QN+WUkhVW//bAs8GIA5rcUAl0T/ra1ONUW6FIxVH+FWKU1qJAYm7WQD4xWpHhAmb8f3cL8eXD+Pa
+	utzgfP2LD/J8LyjyQFzGDPtfSphoUTxMCOogoOKCrEgHwGD3cMRwXyWlPgzcXRfnvS8xbXQnA5pPr
+	2IL+QGq2mkvNRrYXbaqfBNTQNKB5jxFEirK5tHC8gkdU8MHA3JfF91oSnJCiXR7r1Y+0MEVcZtXQF
+	gNKm0lxd1aYd0djw5MCRR+Z/+cddR1JAFEugMKPtMfO/Yq9lCZgz8Y2PqEvtCIavaB42XNi9WjzsO
+	cX9awDfw==;
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u4JQv-00000009gDK-1KjY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 12:42:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1A7FC61148;
-	Mon, 14 Apr 2025 12:42:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24450C4CEE9;
-	Mon, 14 Apr 2025 12:42:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744634551;
-	bh=o09OELAddsi8bCdV3+5IJmIdA4i1w0bEWAJwIwGctBk=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=ufMWvOO54+JWbV2ME33aWUd0siSmj/zBYCbvPgoW/Fw1vAbRUoROWRAsmmD+pbH1q
-	 p6rS1yawyJ3TtwBPkIfhrH8e2nJSyhJgl/FKyur/zK8aqJm06EfMGxaHSunpjOe3J7
-	 aexYqDLN0zNkt3PPZx2N+FoPH7ysRlhdUE6dtgDU5aB08RXrsGKwSpBnwdnDRHuYsA
-	 RfRT4m9dbb2/3h0nJvYudqPI5Z4XSE3ziX3yf6pJM1rr2zRnKhyrp8pwa6MUY4c4Gm
-	 vPL0GYEF/j4VgvQfhnNLCnHMYSi66CyUkDhgld+AOGBqn2iQ4EV9TJyyC4odCHAWHE
-	 4+nlwJqjmnsHQ==
-Date: Mon, 14 Apr 2025 07:42:29 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Mon, 14 Apr 2025 13:01:07 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53ED0tBe2062857
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 14 Apr 2025 08:00:55 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1744635655;
+	bh=VX8a/yvVIobMpnRl8a6ZehZn3dZHFdJf7iaKYTSI3Nw=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=JG4xywC2mDpw8S6eXsJk0pcJbPrkdw1+4Am3wGY+xOZsTUmA9lvISe9h64MMGDsAk
+	 UR7wYuXzsJtS5GXPWAziYI5ufrbwnoBkuHqY1hYiALh/lN0a3DlXrR71Ic2nnXTGiv
+	 H3b6sEMD5uHL8kXUqHuzzR6sPOwOflVgoFHq18jc=
+Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53ED0tKH129700
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 14 Apr 2025 08:00:55 -0500
+Received: from DLEE105.ent.ti.com (157.170.170.35) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 14
+ Apr 2025 08:00:54 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE105.ent.ti.com
+ (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 14 Apr 2025 08:00:54 -0500
+Received: from localhost (uda0492258.dhcp.ti.com [10.24.72.113])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53ED0r0g024564;
+	Mon, 14 Apr 2025 08:00:54 -0500
+Date: Mon, 14 Apr 2025 18:30:53 +0530
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: Nishanth Menon <nm@ti.com>
+CC: Siddharth Vadapalli <s-vadapalli@ti.com>, <vigneshr@ti.com>,
+        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <u-kumar1@ti.com>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <srk@ti.com>
+Subject: Re: [PATCH 0/2] J722S: DT Node cleanup for serdes0 and serdes1
+Message-ID: <79ef7f50-22d5-4c40-ae28-02bf297ca79c@ti.com>
+References: <20250412052712.927626-1-s-vadapalli@ti.com>
+ <20250414120930.m7x7zfmyby22urpo@ultimate>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-samsung-soc@vger.kernel.org, 
- Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, 
- Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, 
- linux-arm-kernel@lists.infradead.org, Kees Cook <kees@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org, 
- Tony Luck <tony.luck@intel.com>, linux-hardening@vger.kernel.org, 
- "Guilherme G. Piccoli" <gpiccoli@igalia.com>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-To: Kaustabh Chakraborty <kauschluss@disroot.org>
-In-Reply-To: <20250414-exynos7870-v6-0-039bd5385411@disroot.org>
-References: <20250414-exynos7870-v6-0-039bd5385411@disroot.org>
-Message-Id: <174463433283.154575.16025374701126076484.robh@kernel.org>
-Subject: Re: [PATCH v6 0/5] Add support for the Exynos7870 SoC, along with
- three devices
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250414120930.m7x7zfmyby22urpo@ultimate>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250414_140105_750568_CEAAAE67 
+X-CRM114-Status: GOOD (  23.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,135 +102,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Apr 14, 2025 at 07:09:30AM -0500, Nishanth Menon wrote:
 
-On Mon, 14 Apr 2025 00:28:41 +0530, Kaustabh Chakraborty wrote:
-> Samsung Exynos 7870 (codename: Joshua) is an ARM-v8 system-on-chip that was
-> announced in 2016. The chipset was found in several popular mid-range to
-> low-end Samsung phones, released within 2016 to 2019.
-> 
-> This patch series aims to add support for Exynos 7870, starting with the
-> most basic yet essential components such as CPU, GPU, clock controllers,
-> PMIC, pin controllers, etc.
-> 
-> Moreover, the series also adds support for three Exynos 7870 devices via
-> devicetree. The devices are:
->  * Samsung Galaxy J7 Prime	- released 2016, codename on7xelte
->  * Samsung Galaxy J6		- released 2018, codename j6lte
->  * Samsung Galaxy A2 Core	- released 2019, codename a2corelte
-> 
-> Additional features implemented in this series include:
->  * I2C	- touchscreen, IIO sensors, etc.
->  * UART	- bluetooth and serial debugging
->  * MMC	- eMMC, Wi-Fi SDIO, SDCard
->  * USB	- micro-USB 2.0 interface
-> 
-> Build dependencies are in these sub-series:
->  * pmu-clocks		A https://lore.kernel.org/all/20250301-exynos7870-pmu-clocks-v5-0-715b646d5206@disroot.org/
-> 
-> Other related sub-series:
->  * gpu			A https://lore.kernel.org/all/20250318-exynos7870-gpu-v1-1-084863f28b5c@disroot.org/
->  * i2c	      		A https://lore.kernel.org/all/20250204-exynos7870-i2c-v1-0-63d67871ab7e@disroot.org/
->  * mmc			A https://lore.kernel.org/all/20250219-exynos7870-mmc-v2-0-b4255a3e39ed@disroot.org/
->  * pinctrl	  	A https://lore.kernel.org/all/20250301-exynos7870-pinctrl-v3-0-ba1da9d3cd2f@disroot.org/
->  * pmic-regulators	A https://lore.kernel.org/all/20250301-exynos7870-pmic-regulators-v3-0-808d0b47a564@disroot.org/
->  * uart			A https://lore.kernel.org/all/20250318-exynos7870-uart-v2-1-b9dcf145ae87@disroot.org/
->  * usb			A https://lore.kernel.org/all/20250301-exynos7870-usb-v3-0-f01697165d19@disroot.org/
->  * usbphy		A https://lore.kernel.org/all/20250410-exynos7870-usbphy-v2-0-2eb005987455@disroot.org/
-> (Legend: [R]eviewed, [A]pplied)
-> 
-> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
-> ---
-> Changes in v6:
-> - Append the following trailers:
->   [v5 1/5] dt-bindings: arm: samsung: add compatibles for exynos7870 devices
->     Acked-by: Rob Herring (Arm) <robh@kernel.org>
-> - Link to v5: https://lore.kernel.org/r/20250411-exynos7870-v5-0-6b319ae36c36@disroot.org
-> 
-> Changes in v5:
-> - Drop the exynos7870-bootmode patchset for now.
-> - Add card-detect-delay and cd-broken properties in sd-mmc nodes.
-> - Drop the following applied patches:
->   [v4 1/7] dt-bindings: soc: samsung: exynos-pmu: add exynos7870-pmu compatible
->   [v4 3/7] soc: samsung: exynos-chipid: add support for exynos7870
-> - Link to v4: https://lore.kernel.org/r/20250301-exynos7870-v4-0-2925537f9b2a@disroot.org
-> 
-> Changes in v4:
-> - Drop merged [PATCH v3 1/7].
-> - Explicitly mention sub-series having build dependencies.
-> - Include the following patch from the pmu-clocks series:
->   - dt-bindings: soc: samsung: exynos-pmu: add exynos7870-pmu compatible
-> - Adjust clock header file name to match changes in pmu-clocks.
-> - Change regulator node names to match changes in pmic-regulators.
-> - Remove non-removable flag for the SDCard's mmc node.
-> - Link to v3: https://lore.kernel.org/r/20250219-exynos7870-v3-0-e384fb610cad@disroot.org
-> 
-> Changes in v3:
-> - Added patches from https://lore.kernel.org/all/20250204-exynos7870-chipid-v1-0-0bf2db08e621@disroot.org/
-> - Fix devicetree formatting according to the devicetree style guide.
-> - Take over ownership of patches by the co-author, upon their request.
-> - Link to v2: https://lore.kernel.org/r/20250204-exynos7870-v2-0-56313165ef0c@disroot.org
-> 
-> Changes in v2:
-> - Redo a few commit descriptions.
-> - Split patchsets into multiple sub-series, subsystem-wise.
-> - Link to v1: https://lore.kernel.org/r/20250203-exynos7870-v1-0-2b6df476a3f0@disroot.org
-> 
-> ---
-> Kaustabh Chakraborty (5):
->       dt-bindings: arm: samsung: add compatibles for exynos7870 devices
->       arm64: dts: exynos: add initial devicetree support for exynos7870
->       arm64: dts: exynos: add initial support for Samsung Galaxy J7 Prime
->       arm64: dts: exynos: add initial support for Samsung Galaxy A2 Core
->       arm64: dts: exynos: add initial support for Samsung Galaxy J6
-> 
->  .../bindings/arm/samsung/samsung-boards.yaml       |    8 +
->  arch/arm64/boot/dts/exynos/Makefile                |    3 +
->  .../arm64/boot/dts/exynos/exynos7870-a2corelte.dts |  630 ++++++++++++
->  arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts    |  618 ++++++++++++
->  arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dts |  666 +++++++++++++
->  arch/arm64/boot/dts/exynos/exynos7870-pinctrl.dtsi | 1022 ++++++++++++++++++++
->  arch/arm64/boot/dts/exynos/exynos7870.dtsi         |  713 ++++++++++++++
->  7 files changed, 3660 insertions(+)
-> ---
-> base-commit: 29e7bf01ed8033c9a14ed0dc990dfe2736dbcd18
-> change-id: 20250201-exynos7870-049587e4b7df
-> 
-> Best regards,
-> --
-> Kaustabh Chakraborty <kauschluss@disroot.org>
+Hello Nishanth,
+
+> On 10:57-20250412, Siddharth Vadapalli wrote:
+> > Hello,
+> > 
+> > This series is based on the following series:
+> > https://patchwork.kernel.org/project/linux-arm-kernel/cover/20250408103606.3679505-1-s-vadapalli@ti.com/
+> > Based on the discussion in the above series which disabled 'serdes_wiz0'
+> > and 'serdes_wiz1' nodes in the SoC file and enabled them in the board
+> > file, Udit pointed out that it wasn't necessary to disable 'serdes0' and
+> > 'serdes1' in the SoC file anymore, since that is not a working
+> > configuration - serdes_wizX enabled and serdesX disabled doesn't work.
+> > 
+> > Hence, this series aims to cleanup the serdesX nodes after the changes
+> > made by the above series.
+> > 
+> > Regards,
+> > Siddharth.
+> > 
+> > Siddharth Vadapalli (2):
+> >   arm64: dts: ti: k3-j722s-main: don't disable serdes0 and serdes1
+> >   arm64: dts: ti: k3-j722s-evm: drop redundant status within
+> >     serdes0/serdes1
+> > 
+> >  arch/arm64/boot/dts/ti/k3-j722s-evm.dts   | 2 --
+> >  arch/arm64/boot/dts/ti/k3-j722s-main.dtsi | 4 ----
+> >  2 files changed, 6 deletions(-)
+> > 
+> > -- 
+> > 2.34.1
+> > 
 > 
 > 
-> 
+> I do not understand the logic here. serdes cannot operate without wiz
+> nodes, correct? why would we leave serdes on by default?
 
+Yes, serdesX requires serdes_wizX, but at the same time, serdesX is the
+child node of serdes_wizX. Therefore, without enabling serdes_wizX, we
+cannot enable serdesX.
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+Prior to this series, but with the dependent series at:
+https://patchwork.kernel.org/project/linux-arm-kernel/cover/20250408103606.3679505-1-s-vadapalli@ti.com/
+applied, the nodes look like:
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
+	serdes_wizX {
+		...
+		status = "disabled";
 
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
+		serdesX {
+			...
+			status = "disabled";
+		};
+	};
 
-  pip3 install dtschema --upgrade
+The dependent series fixes 'serdes_wizX' by disabling it in the SoC file
+k3-j722s-main.dtsi. But after the fix, we have a 'status = "disabled";'
+within the serdesX node which isn't required since:
+a) serdes_wizX enabled but serdesX disabled is non-functional and
+unusable
+b) serdes_wizX disabled in DT implies that serdesX is also disabled
 
-
-This patch series was applied (using b4) to base:
- Base: using specified base-commit 29e7bf01ed8033c9a14ed0dc990dfe2736dbcd18
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/exynos/' for 20250414-exynos7870-v6-0-039bd5385411@disroot.org:
-
-arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dtb: /soc@0/phy@135c0000: failed to match any schema with compatible: ['samsung,exynos7870-usbdrd-phy']
-arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dtb: /soc@0/phy@135c0000: failed to match any schema with compatible: ['samsung,exynos7870-usbdrd-phy']
-arch/arm64/boot/dts/exynos/exynos7870-j6lte.dtb: /soc@0/phy@135c0000: failed to match any schema with compatible: ['samsung,exynos7870-usbdrd-phy']
-
-
-
-
-
+Regards,
+Siddharth.
 
