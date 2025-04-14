@@ -4,171 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E13D4C369B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 21:27:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62E29C369B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 21:36:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DGXPxttzqv6A5ancFJU+4S/PNVTQHZC6YpEWKcmzl0k=; b=C8M97lqufMm1rPbHxBP2WiOIu+
-	W2Ry8drR4lW2zUrRGFzfxf/Jyf3kwQW/t/7EejetKkDLnG/21/6WAWzdqBxjp+GKVrZtj61lNTtRz
-	hqs1Ihil0a8tKKIdciXyMYqbg7BA3LG/zO4dpwE3YK/m8XYmZ0TeU3X1M05iBYIYrgjyZ0sViqb2O
-	cDYrlke3/8sG9xPCieoNTuJOq4lDBOAyCvteYDV8uxqaeBbOiPprtgubYf+93zlaruxxAb5mOi/IG
-	W77nZx/D1vlJJAZX3rYeBXayKicwcxaWg9VXQAQqZGWDaMpcY18vdArRfKflfVkK9HCH7Jpac680h
-	+c/ZVLCQ==;
+	bh=S7BZi7HnKfbbt9TH74oPDg7WDBebYy2OSaVokgDUUbg=; b=wq2LoQ0T3KIubtj1ZCwjyBfiqn
+	DX0hrz6vp6BXaas3mvokHXizbciO/ifqeGEQrn89iLkbg/8cOjYvsKxU2P4g65fIR4MPDTgiuo4T6
+	LGwVr9ThXGplvUbTPV0bpv9+W78NEqDvnipYPeVy91b5eSZ62Z4PixGT8JlZ0IwNMEtVJoSctOgKG
+	qa87AyIkpAN/JKyRhKzyFUZ1Vk5q+JngyTsXgyyXn54tORJdHJ2k6QhFXYJCl9y5f/YEyiKwoSx80
+	uHqkFk2GTlPjBl7lXUP6h+F5sSZV7MI4Vde4w5a81gwJtWIxqWVxb3Bg8YS93Xoep2m9UxO+BJgSS
+	g9ywQXHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4RKP-00000003Z1y-0ldj;
-	Mon, 14 Apr 2025 21:26:53 +0000
-Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	id 1u4RTz-00000003Zy6-21Zs;
+	Mon, 14 Apr 2025 21:36:47 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4RIa-00000003YoK-1jJw
+	id 1u4RSA-00000003ZnD-14q3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 21:25:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vMh95NThUVWgQL78k2FZ8MDTsUfHrVfXZW+7hdh784ZD+TpfdZ7oV/y9ZngMlmvdw633rkhwTlr2v1rps1PvGaeD3L3LVdngwY73MgF9DvbTZ7nzfYkrRzSa1Ra398sE04f6CKKoirPweG0W/NO6anU7IrJTCasys/Y/KYznhml46kNmau1WsmGnJpq5D+AGSSdZmiwd0FXnZkAyedE1NNYtXtS2vGhhJ24oilPqj/zGeIoJg7fEpkZx7wqsgPLOa/iSLuCzOs7AjQN7g3YRwGtbpDE/Yko41MCmRD0g8gCvYrYSjNgBdV+SLHCmHqxws3UAUlmEqXYuifXg/QwC/w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DGXPxttzqv6A5ancFJU+4S/PNVTQHZC6YpEWKcmzl0k=;
- b=Ok+vHe7cya+kVMLEcrncOhbvbowEPAKQjCZE4fpEpg34XOd1qxDwA8VVyM6yPy61jlhz0GjvdVAlvBlY8SA79FBp29pm8DeuoGw84qod5xp3AoQi2y1e4/5vNk626Cowk9X+2ErudMoG49B1MgecSDU4OfaT0q0ekczjKw7gG++t7a8TB0KBc7+1h2uAchH4I2NvMD43vfSS0Rxx2vHwma5wJ7HkVSbzfldBQmvUXmVPtftTFk9CUOyKE2rLkg1s+n339EXM+tuylkT/W2zeQU8hAn+Q7hHz8nPqwkOYsCNTdBJIei0tSB0fwseENmjzb3W21sBQpE97itOXewElkA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
+	Mon, 14 Apr 2025 21:34:56 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-5e5c7d6b96fso8926027a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 14:34:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DGXPxttzqv6A5ancFJU+4S/PNVTQHZC6YpEWKcmzl0k=;
- b=Rw2qQYylf842AtWgXMq930jDOeobX0zMuLFTS4XriHFSq8sRj/bF3jJRM3tPIZzYxsxwnOhAmEUicMeVlzpFKDqZCrVTKByd2o+ePs91cixukQgzbTULxpvsgZlCQARFVlqmMCjrpsg5ImwIRK6GXqOLTfQg1uQc+Ygq4NZfqQo=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- PH0PR01MB7287.prod.exchangelabs.com (2603:10b6:510:10a::21) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8632.35; Mon, 14 Apr 2025 21:24:45 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460%4]) with mapi id 15.20.8632.035; Mon, 14 Apr 2025
- 21:24:45 +0000
-Message-ID: <4d02978c-03c0-48fe-84eb-0f3fa0c54fea@os.amperecomputing.com>
-Date: Mon, 14 Apr 2025 14:24:41 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [v3 PATCH 0/6] arm64: support FEAT_BBM level 2 and large block
- mapping when rodata=full
-To: Ryan Roberts <ryan.roberts@arm.com>, will@kernel.org,
- catalin.marinas@arm.com, Miko.Lenczewski@arm.com,
- scott@os.amperecomputing.com, cl@gentwo.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250304222018.615808-1-yang@os.amperecomputing.com>
- <3750d3f8-17c6-4bb8-8107-215d442e4ec3@os.amperecomputing.com>
- <2fb974bb-1470-4a5f-90d5-97456140c98f@arm.com>
- <22b53cff-00db-48f1-b1e8-b11a54ebb147@os.amperecomputing.com>
- <4794885d-2e17-4bd8-bdf3-8ac37047e8ee@os.amperecomputing.com>
- <5c6d9706-7684-4288-b630-c60b3766b13f@arm.com>
-Content-Language: en-US
-From: Yang Shi <yang@os.amperecomputing.com>
-In-Reply-To: <5c6d9706-7684-4288-b630-c60b3766b13f@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: CY8P220CA0028.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:930:47::12) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1744666491; x=1745271291; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=S7BZi7HnKfbbt9TH74oPDg7WDBebYy2OSaVokgDUUbg=;
+        b=0Z+AaAJ+gi0HklMWs3WqxC7zZbNG/xkjYq2Qzw8F8iAw2llCu7EISvz3a9jwOnaXAN
+         qHqpP66S1NppAfcGFySiYH8Hr9V+c+Uy0gvbvW96Ly6TL4tn6xvjfqlaWxZy7PkC0g2b
+         Jfe6lZRRLBgtpxVEVn4XVamZpyXi1CPddbP+pOCql0cCJQtCfnpoNVfBqrpRoz4YiaGa
+         aTlzRDAsvGLHyfucA1HO3hLAZWhquhu2BDkXHh00Th6ecy/vnBCmz7PAL5msnEH54aoe
+         jUnmOwieXFcHNsWcp/HtD0E7YxN1m2ThubyhXx6/kVcBRtQUksQ4AIc0Kv9qd/CcVNmr
+         DsxA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744666491; x=1745271291;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=S7BZi7HnKfbbt9TH74oPDg7WDBebYy2OSaVokgDUUbg=;
+        b=nlFfmuRE8CmvUeAOzzFjL3pqfPwqm24xPG/nOrbcZPrKngvJ0pgk6HYRdTFtBjptA2
+         RH7qAdRYtSfofeAO8dcKSoHoPcSy97VkLduPGq5b9XPr459U4wtJbvr8GFSp7yhTjouk
+         FqOow7emuUQvB1a9R4dK6xSfz1IMu1g1sbbtdH1nirIbG7L+D1s/vK9Je1lascCIrV5Q
+         i0lGIAj41/l/7AO913QmU6DO+ONgWkWWRWc+iGVyxLC0XgVips9054b1oJu804eka9zW
+         jQabqq3nTvJEYWkp9HC9QQ5oO7ONA1/zpJsuz9r5cjeAOmZXaMSjxmoOnXhYxVPoPcbo
+         PNjQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW2eQhjJkpvwB47U2Q5V3u9VEQwrQuvbX39cE74J3PVdHyKK7XJRa4Pom0RV5FJOWzh8I5azzVbzNA8Qzze8Kns@lists.infradead.org
+X-Gm-Message-State: AOJu0YyPIefe0HyUvZz67TNg7OQ22X45mAhbSvcVCTwcOU5G1jApKNv7
+	yCjR6C83DGVihydsT+zRmB7ZgEOt/Hkzv6N//9USQWVioK2fgqWEnlIAtOsX0P9o6tIxDw5Hcdl
+	G
+X-Gm-Gg: ASbGncu8WqalW7a0qHimPY3HKvo+Ri7JSvaXSGlTOqb6kB7Ze/pQpF+ZoyF7o6p3WCp
+	KvhzojLwjtbVGwQA7JSFHDbp3UoLA6YC/eP1U0VbnzNegREfx6DIUn+sVNU3kCY5mXXByK/b62O
+	/BG8xIvG0NhA95CFbpL55XpC/n1c79lqo7fReyZR35bi9r/AhkRc9uCsTd6yR3OhbtRqJhd7EeZ
+	EogVA5nTOpohJ2RzwTwssZ2mo8I6ndq3F20wzVDnrD0io69jj2aI/9MHO1kRKcMi05IkvVwqYlw
+	Xpnc+mTsF4OlEMdMDl9HQpmX5fZXL2IcpMFuTvjQ1WNzKQ==
+X-Google-Smtp-Source: AGHT+IG/kDZsmoxinyBq4n/Im69g3ys9L3BT2wiv3DJKobRUo+Jzgfnpx2t+FVw18cLid5H4hJIEjA==
+X-Received: by 2002:a05:6402:1ec9:b0:5f3:8171:a4e2 with SMTP id 4fb4d7f45d1cf-5f38171a75amr12298487a12.18.1744666491385;
+        Mon, 14 Apr 2025 14:34:51 -0700 (PDT)
+Received: from localhost ([2a02:8071:b783:6940:36f3:9aff:fec2:7e46])
+        by smtp.gmail.com with UTF8SMTPSA id 4fb4d7f45d1cf-5f36f506425sm5554281a12.53.2025.04.14.14.34.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 14 Apr 2025 14:34:50 -0700 (PDT)
+Date: Mon, 14 Apr 2025 23:34:48 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Alexandre Mergnat <amergnat@baylibre.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Eddie Huang <eddie.huang@mediatek.com>, 
+	Sean Wang <sean.wang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, linux-rtc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v3 4/5] rtc: mt6397: Remove start time parameters
+Message-ID: <vpf4apahhpovhrqje4i647nldszen2pglbm5fdmar7bsyg7uao@3ymuod45ftlj>
+References: <20250109-enable-rtc-v3-0-f003e8144419@baylibre.com>
+ <20250109-enable-rtc-v3-4-f003e8144419@baylibre.com>
+ <20250411133609a1295543@mail.local>
+ <202504111339359e840246@mail.local>
+ <968001f7-96d1-4ad5-8c36-28cac5dc30f1@collabora.com>
+ <97cfeafe-7044-4f06-b2e6-e4a158419473@baylibre.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|PH0PR01MB7287:EE_
-X-MS-Office365-Filtering-Correlation-Id: 56641564-042a-4d6d-7154-08dd7b9ac6d7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?SjlsVmFQdm5iZE0zTkpSSkFCOHVyTzRiNEhMKzQwNUR6blB0RkJCdWsyYjRo?=
- =?utf-8?B?VUhDWGZjS0gwTVBYc1pucjRGN21GZzVZanlKbGVFd3JYUlI5SThSUHROaUda?=
- =?utf-8?B?TVFEcSt2aDdqbUJ6MDNNbVpYbHFVZlZtTWZXMk8xS2NWeE41K2lzbFZRZXpn?=
- =?utf-8?B?d0hRdEh5enN5bXl5dmNNc3g2WUVIVDRnZFNQVTdpRzViSk1wZzJiOFhxWkR2?=
- =?utf-8?B?MUtYS1ZUazVoQjJmR0lMblhoSlR4NVQyVXJpNzA1N3pIeHc1aGlVYmNuTjUr?=
- =?utf-8?B?OFhJNmhyQTBzeElHcFBCcG9LYUt6a0tGRTZrR2piODRoMkkvWU10WGlBa3A3?=
- =?utf-8?B?OWtGUGNCMFNVc0xTVXp0R1Z4cEJCdHRhUFNFRmRsVVBhalhZWFhLVTVFajQ4?=
- =?utf-8?B?MVp2eklPQXc2cmRrZXNnWUZGcXlxNXZIM1o2Z1FQdUZ1aHMzbFVCQkNTbWla?=
- =?utf-8?B?Z3NHUXNzQ0czU05TT1VpY1FqQVRQeGROSUtXamxqREs2dUNYcFlYejRSL2Ex?=
- =?utf-8?B?TnFZWGZRQytway9kR3N6RVd4MldSeUl6aHV4QlJHcXlhWWdqcTQxK1Z4eXN4?=
- =?utf-8?B?K2N2eWpEVmovZGdRVzh6QkY4Q25idzdpak8vUUlNTzhuZDU2aUxKNUNRWCtL?=
- =?utf-8?B?QnZUUkJwMUp4VCtGdjJNdm5yN00wWWNheVZnWW15UXZXaGkwenVOWTNaazE5?=
- =?utf-8?B?c09ONVl4elNKekdQM0Vlb2NMZGtKcGJTYy9FK3VNenNCaFNNNE9rWmZiUlFN?=
- =?utf-8?B?Y1hwei9lSS91ZmJrWHJSV2tFS3g5M2dWdzdzRWh2TldpcUF4azdCTVYxL09V?=
- =?utf-8?B?ZzQ3NzNWcTRFeEJWRThMUGw0cTJ6V1JBdTFTaHRxN2dUQmVCVURRbjBNVHdr?=
- =?utf-8?B?OXVJVTFYZkJ5bll6VXFTMnNtOUVxYzA4SmM3NVI3NVBqbWN0bG54aStzalZ6?=
- =?utf-8?B?UWRlZFRrc1NibE5sK3V6UzJTaG9UdHNwYXJaenNCY25DaTZMditUWnhHbExy?=
- =?utf-8?B?bmZPdDNnK2l4Nm5GcWdJTDJ0MWcwaUFBYkFHL3hhWDFocmdxRDZBaGtkcjNF?=
- =?utf-8?B?dUdOem9PeTJ5VDltcVBRcDFuK1Q0UFg1SmUyVm9nTk55RzNyZG14WHhjTk5E?=
- =?utf-8?B?S1hZU25DR1JJRnhFU0E1eFJFYWpmWHVlbitPSndFTlY4bUJ6bUdZcDVTd1hH?=
- =?utf-8?B?N1kyOS9DMzFuQjlBUyt3T3AvVGRPaXE4WVczWEVObVp2cXdKZXk1UE9FaUFD?=
- =?utf-8?B?ZmxkZys3VCtadVR2U215d0YrOW5lS0Z3RXROMXIwQWQ2anhubnpXK3dXWU50?=
- =?utf-8?B?N3I4RmVaME9wYXg3WU9WWGs3ODFNdGI4N0RDcXM5cHc2ZjNQbWFhVG51bnNT?=
- =?utf-8?B?aEpacVBLejZVR0dYY2ZER3c2Tis0SHYzN002ZW5xZnh6QU5zaGpUZEF2SDVh?=
- =?utf-8?B?TmRLeVNBcVF5ZU9zTGZZWUNRZmFqWkpidTd6ZXJ6OWptVmZCR0Zid05USVRW?=
- =?utf-8?B?d1JyVFVva044TWZmSGw5YmZsL3ZkWmNOVDZZd2k2OXVvTisxQjJJZFdBOWM3?=
- =?utf-8?B?czJ3MDMyVzRac01pN2c2UGRuVFdBM1JnRGtWS1ZxUkV4RFA1cmtaTzBvS2w5?=
- =?utf-8?B?WFM0UnpVSE13KzZKTUs2ajJQZjAxTjVtY01ZdDFPOTdtcW83dG9FMHZlb25r?=
- =?utf-8?B?Z3JZVzhVZWowaTlrK3BDNWlTN1hQSG4reUZlazg0THNUblVjN0FBMHptdFpG?=
- =?utf-8?B?a0pKbVpHN09pU2ZydE4rOHJ0ejJycmRmOEpJYmRIUkJmVzduZDFiZnZ6bkg2?=
- =?utf-8?B?TzdYZ094K0UwYkxTUGx1TFVpbFltLzhKQ0RsS2lZWDRpTlliVFRNcnlib29z?=
- =?utf-8?B?TTV2bmxaUXVpUnFLSmd1U25PeXI0R2JnSjQwcnN4MWtHa0dTdUVmelROZjBx?=
- =?utf-8?Q?/fUlnRUTrHo=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SW1pL05NWEhhakF6ZVorcWlIazJ4aUFZb0ZRTjRSTVF3bFlTTGVxbXU0RHFB?=
- =?utf-8?B?aHcydVJGeW96WXJkUHRYOUhFY1FhL3oyNHVWZkhDeFk2YWVPY3VLUEhGdUdB?=
- =?utf-8?B?Z2d1MWV2NWxSNk5QR3ZLMjRhNVhvL2FCQU13cS9NZGZ2NG0vdHBIRnVLcmdP?=
- =?utf-8?B?NXp4WWZqU1ZzdXhLREZmcEJCMllGT2FOSnNIaDNzQkdscllwMWg0WXJ3eFFS?=
- =?utf-8?B?MGNWWnlET0dmTllGY25UeXFvZjVIOVBrc1RVaFFocDlSTFJpRjNoQWxkM0lB?=
- =?utf-8?B?VUNQRVl2cmg3V3F4cWp2ZmVmdDVBZXVZVm90V08wTWtxMWkyWG8rU09ZaXQ4?=
- =?utf-8?B?WEEwcXpSUndaZEhyODZ3YUN6Mm5kNHJZd3NsM21QUGd5RFZnOFYwaU9PVEJ1?=
- =?utf-8?B?dzJkdVZpcGx1RHRVWFhSR0Y0YXNpbjkydUh2ZExoRUw2THlzWlI0N3ZiS3Nq?=
- =?utf-8?B?ZGoyRVJtMmgxQkRYeEhCSlNRUjl5UTIvMktJVDUydFJWZUJIZ0s0VEtsS09Z?=
- =?utf-8?B?bDI3QWxYSjJ3blh4emNxbzVuenVrVFllOGJ4M2hvd3dudHBQSkNYc1pFZDJK?=
- =?utf-8?B?NndwOU1oMURiMEIwSm1YS3UvZTVyUmdnS3JHbjBNRmdnTXdTR3dzREVVZmd4?=
- =?utf-8?B?eWxiaFl3a216ejR1b0FuWDJpM3VJY2VldmVBMk1XTTdteHg1dmdGck1keGlz?=
- =?utf-8?B?eGxwTy9DZEhqeXBUS3dZdCtST0tUelZmbVNVaE9EdFE5em5QdHFaWVJrV2xF?=
- =?utf-8?B?Znd0bmlNcUg5YktLbTAxVjRvOGpUNXJVaVRVZjhOeFJ3Z0l5L0lnK09lNEZB?=
- =?utf-8?B?SmFYOWt3bmR5NEZOcmVMR3c0M2IrSEdpdG1QdkZsczU0NTNSSjhacER3c3VT?=
- =?utf-8?B?S2pjeitkdDVNZmltdGlsR1Jpell2b0lSc2VqU3h1aXg3Z2psd3UvVmVTNDlt?=
- =?utf-8?B?Q3hzOHJjYXZiUlljMkxNMmxISWx6V0FlMCt4dVdHREVqbjVEMWJta0llTnQ3?=
- =?utf-8?B?RCsyWS9GMkcvZTFvaUYvek9TeUdWR1EyeUM5SDRFdklCeGRjUmZydVZyZkxk?=
- =?utf-8?B?OGxxL0JJeU9nYkxCcTBlbnoyRmRyRk1ycjIvSzVNcU5XYXNWUXhZMFBoZkVZ?=
- =?utf-8?B?c2gyU0txMDNLZ0R1bmQ5RDZiblNtYXhQNGd4WUg3RTNUUG5HeExkcEdINDN6?=
- =?utf-8?B?OEd2TGV4b2pGbHFEQTVMU0Q0MGxwZWZTLzVZTGQzWWp0ckQxVzc3d2NtcTZ5?=
- =?utf-8?B?SW9sM09pRzZwbDN3amZhYWo0b2swSXBLQ3orKzdqRXFtbS9LTXRoS1A5dmJN?=
- =?utf-8?B?ZGdIMFAyNENmZnhPRS9ZRlFUNExSckVCL0xKdTJNQWhCcGpJUExaWVByMlNB?=
- =?utf-8?B?bEV5QVovSFAwRDc2akUvVkY4YTFIS0NyeUI1TUZDSVZ2eUxZTGVLc2tVZ2lk?=
- =?utf-8?B?SjRjMEFFQ2ZiNWRyOFNFTWV2QU9tc2hKMnZFOUFNaGt3MGZrUUZMUCtxaTM1?=
- =?utf-8?B?ajB3WUMyWE5ORVpGSHJPMUs0V1hmY29JcVVVNzdsUm00MDRkQjZxa2VFQTVG?=
- =?utf-8?B?cGFjbUVPbzQ3VkJjNXE0Sm12dlJlZXJWT0xhVUtJdHdDL2JHTXBVeks5cFRF?=
- =?utf-8?B?VkxKSDdZWlhpRWtYRjhnM2E0NnYwL2xFOWtwYlFORzNWQUdhSlhLZFZZMDBY?=
- =?utf-8?B?eU1heFJFV0tMUEtsbDZoRERuaDRMVTV0TXBtcmhTYzRtcjRmaEJoRjJOZkZu?=
- =?utf-8?B?SFY2T21YZC9kKzV5MG1vZWJVbjBZU29hTzJzTnpoMHJtaDlMbXFsdDBta0pi?=
- =?utf-8?B?WjZEdE9CZERsTmZMWVk2SFJPNkZtZktUVFFvakY5QytvNkZwOFRqU2dPMlBB?=
- =?utf-8?B?QVY1dWJWZ0drd1FTSUJHRm5zODdHekdoSmNmWWFuaUhqN3RVRDlXTjgrc2o1?=
- =?utf-8?B?NEJGcVR6c24vQnVpM0FGVVM4cHdsL3pEZ2RLQzlvOVdLMytOVnN1S0prN2dC?=
- =?utf-8?B?aU15Q283eTNEQmFFMysrWmNGdE5BSWdxcFRzTFF0NGVvN3NMZGJMeTVLUldJ?=
- =?utf-8?B?UU9wa2djOGtpWVJCL3hpQlRRWFBDS0VzUzhyUVB2RmFSMFJEeHdBcForalh2?=
- =?utf-8?B?NHRsY2NoWUVzbXRobjVvaXM2NXRCZGdaUU5CR295bEhsZU4zRVVhWnhFeUtx?=
- =?utf-8?Q?NrHrNoekWKaPZjvqGndj8R8=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 56641564-042a-4d6d-7154-08dd7b9ac6d7
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Apr 2025 21:24:45.4187
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: V7Yd1okQHokqzopE2fG7NEqUfli5PDMogZvNQCFphMdW773YziLrDT9trn8UdQ5u7IMXdhlifcygWq0Rsq3D/gQLctq3+Jm6720TPqhXzw4=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR01MB7287
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="xgxword5effrvsfi"
+Content-Disposition: inline
+In-Reply-To: <97cfeafe-7044-4f06-b2e6-e4a158419473@baylibre.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_142500_451957_8EAAD0A4 
-X-CRM114-Status: GOOD (  25.77  )
+X-CRM114-CacheID: sfid-20250414_143454_516418_3ED19238 
+X-CRM114-Status: GOOD (  32.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,219 +109,105 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--xgxword5effrvsfi
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 4/5] rtc: mt6397: Remove start time parameters
+MIME-Version: 1.0
 
-On 4/14/25 6:03 AM, Ryan Roberts wrote:
-> On 10/04/2025 23:00, Yang Shi wrote:
->> Hi Ryan,
->>
->> I know you may have a lot of things to follow up after LSF/MM. Just gently ping,
->> hopefully we can resume the review soon.
-> Hi, I'm out on holiday at the moment, returning on the 22nd April. But I'm very
-> keen to move this series forward so will come back to you next week. (although
-> TBH, I thought I was waiting for you to respond to me... :-| )
->
-> FWIW, having thought about it a bit more, I think some of the suggestions I
-> previously made may not have been quite right, but I'll elaborate next week. I'm
-> keen to build a pgtable splitting primitive here that we can reuse with vmalloc
-> as well to enable huge mappings by default with vmalloc too.
+Hello Alex,
 
-Sounds good. I think the patches can support splitting vmalloc page 
-table too. Anyway we can discuss more after you are back. Enjoy your 
-holiday.
+On Mon, Apr 14, 2025 at 03:56:11PM +0200, Alexandre Mergnat wrote:
+> On 14/04/2025 13:09, AngeloGioacchino Del Regno wrote:
+> > Il 11/04/25 15:39, Alexandre Belloni ha scritto:
+> > > On 11/04/2025 15:36:12+0200, Alexandre Belloni wrote:
+> > > > On 11/04/2025 14:35:57+0200, Alexandre Mergnat wrote:
+> > > > > diff --git a/drivers/rtc/rtc-mt6397.c b/drivers/rtc/rtc-mt6397.c
+> > > > > index 692c00ff544b2..d47626d47602f 100644
+> > > > > --- a/drivers/rtc/rtc-mt6397.c
+> > > > > +++ b/drivers/rtc/rtc-mt6397.c
+> > > > > @@ -291,8 +291,6 @@ static int mtk_rtc_probe(struct platform_devi=
+ce *pdev)
+> > > > > =A0=A0=A0=A0=A0 rtc->rtc_dev->ops =3D &mtk_rtc_ops;
+> > > > > =A0=A0=A0=A0=A0 rtc->rtc_dev->range_min =3D RTC_TIMESTAMP_BEGIN_1=
+900;
+> > > > > =A0=A0=A0=A0=A0 rtc->rtc_dev->range_max =3D mktime64(2027, 12, 31=
+, 23, 59, 59);
+> > > > > -=A0=A0=A0 rtc->rtc_dev->start_secs =3D mktime64(1968, 1, 2, 0, 0=
+, 0);
+> > > > > -=A0=A0=A0 rtc->rtc_dev->set_start_time =3D true;
+> > > >=20
+> > > > This is going to break the time for people upgrading their kernel, =
+you
+> > > > are unfortunately stuck with this.
+> > >=20
+> > > To be clear, the breakage will happen when upgrading the kernel but n=
+ot
+> > > the device tree with 5/5
+> >
+> > Yes, you're stuck with this. Devicetree has to be retrocompatible.
+> >=20
+> > Besides, this start_secs is what gets used by default, and the start-ye=
+ar
+> > devicetree property should take precedence and effectively override the
+> > start_secs default.
+> >=20
+> > Just keep it there.... :-)
 
-Thanks,
-Yang
+It would work to keep setting start_secs but allow overwriting that
+value in the device tree. But see below.
+=20
+> When you boot your board for the first time, is the date January 2nd 1968=
+ ?
+> If not, that mean it is used as a finetune offset year.
+> IMHO, mktime64(1968, 1, 2, 0, 0, 0) is a workaround for the rtc framework
+> issue we try to solve in this serie because start_secs is negative (1968 <
+> 1970). Now framework handle the negative value properly, even if you keep
+> mktime64(1968, 1, 2, 0, 0, 0) , the device time will change. I prefer to
+> notify you.  :)
 
->
-> Thanks,
-> Ryan
->
->> Thanks,
->> Yang
->>
->>
->> On 3/13/25 10:40 AM, Yang Shi wrote:
->>>
->>> On 3/13/25 10:36 AM, Ryan Roberts wrote:
->>>> On 13/03/2025 17:28, Yang Shi wrote:
->>>>> Hi Ryan,
->>>>>
->>>>> I saw Miko posted a new spin of his patches. There are some slight changes that
->>>>> have impact to my patches (basically check the new boot parameter). Do you
->>>>> prefer I rebase my patches on top of his new spin right now then restart review
->>>>> from the new spin or review the current patches then solve the new review
->>>>> comments and rebase to Miko's new spin together?
->>>> Hi Yang,
->>>>
->>>> Sorry I haven't got to reviewing this version yet, it's in my queue!
->>>>
->>>> I'm happy to review against v3 as it is. I'm familiar with Miko's series and am
->>>> not too bothered about the integration with that; I think it's pretty straight
->>>> forward. I'm more interested in how you are handling the splitting, which I
->>>> think is the bulk of the effort.
->>> Yeah, sure, thank you.
->>>
->>>> I'm hoping to get to this next week before heading out to LSF/MM the following
->>>> week (might I see you there?)
->>> Unfortunately I can't make it this year. Have a fun!
->>>
->>> Thanks,
->>> Yang
->>>
->>>> Thanks,
->>>> Ryan
->>>>
->>>>
->>>>> Thanks,
->>>>> Yang
->>>>>
->>>>>
->>>>> On 3/4/25 2:19 PM, Yang Shi wrote:
->>>>>> Changelog
->>>>>> =========
->>>>>> v3:
->>>>>>      * Rebased to v6.14-rc4.
->>>>>>      * Based on Miko's BBML2 cpufeature patch (https://lore.kernel.org/linux-
->>>>>> arm-kernel/20250228182403.6269-3-miko.lenczewski@arm.com/).
->>>>>>        Also included in this series in order to have the complete patchset.
->>>>>>      * Enhanced __create_pgd_mapping() to handle split as well per Ryan.
->>>>>>      * Supported CONT mappings per Ryan.
->>>>>>      * Supported asymmetric system by splitting kernel linear mapping if such
->>>>>>        system is detected per Ryan. I don't have such system to test, so the
->>>>>>        testing is done by hacking kernel to call linear mapping repainting
->>>>>>        unconditionally. The linear mapping doesn't have any block and cont
->>>>>>        mappings after booting.
->>>>>>
->>>>>> RFC v2:
->>>>>>      * Used allowlist to advertise BBM lv2 on the CPUs which can handle TLB
->>>>>>        conflict gracefully per Will Deacon
->>>>>>      * Rebased onto v6.13-rc5
->>>>>>      * https://lore.kernel.org/linux-arm-kernel/20250103011822.1257189-1-
->>>>>> yang@os.amperecomputing.com/
->>>>>>
->>>>>> RFC v1: https://lore.kernel.org/lkml/20241118181711.962576-1-
->>>>>> yang@os.amperecomputing.com/
->>>>>>
->>>>>> Description
->>>>>> ===========
->>>>>> When rodata=full kernel linear mapping is mapped by PTE due to arm's
->>>>>> break-before-make rule.
->>>>>>
->>>>>> A number of performance issues arise when the kernel linear map is using
->>>>>> PTE entries due to arm's break-before-make rule:
->>>>>>      - performance degradation
->>>>>>      - more TLB pressure
->>>>>>      - memory waste for kernel page table
->>>>>>
->>>>>> These issues can be avoided by specifying rodata=on the kernel command
->>>>>> line but this disables the alias checks on page table permissions and
->>>>>> therefore compromises security somewhat.
->>>>>>
->>>>>> With FEAT_BBM level 2 support it is no longer necessary to invalidate the
->>>>>> page table entry when changing page sizes.  This allows the kernel to
->>>>>> split large mappings after boot is complete.
->>>>>>
->>>>>> This patch adds support for splitting large mappings when FEAT_BBM level 2
->>>>>> is available and rodata=full is used. This functionality will be used
->>>>>> when modifying page permissions for individual page frames.
->>>>>>
->>>>>> Without FEAT_BBM level 2 we will keep the kernel linear map using PTEs
->>>>>> only.
->>>>>>
->>>>>> If the system is asymmetric, the kernel linear mapping may be repainted once
->>>>>> the BBML2 capability is finalized on all CPUs.  See patch #6 for more details.
->>>>>>
->>>>>> We saw significant performance increases in some benchmarks with
->>>>>> rodata=full without compromising the security features of the kernel.
->>>>>>
->>>>>> Testing
->>>>>> =======
->>>>>> The test was done on AmpereOne machine (192 cores, 1P) with 256GB memory and
->>>>>> 4K page size + 48 bit VA.
->>>>>>
->>>>>> Function test (4K/16K/64K page size)
->>>>>>      - Kernel boot.  Kernel needs change kernel linear mapping permission at
->>>>>>        boot stage, if the patch didn't work, kernel typically didn't boot.
->>>>>>      - Module stress from stress-ng. Kernel module load change permission for
->>>>>>        linear mapping.
->>>>>>      - A test kernel module which allocates 80% of total memory via vmalloc(),
->>>>>>        then change the vmalloc area permission to RO, this also change linear
->>>>>>        mapping permission to RO, then change it back before vfree(). Then
->>>>>> launch
->>>>>>        a VM which consumes almost all physical memory.
->>>>>>      - VM with the patchset applied in guest kernel too.
->>>>>>      - Kernel build in VM with guest kernel which has this series applied.
->>>>>>      - rodata=on. Make sure other rodata mode is not broken.
->>>>>>      - Boot on the machine which doesn't support BBML2.
->>>>>>
->>>>>> Performance
->>>>>> ===========
->>>>>> Memory consumption
->>>>>> Before:
->>>>>> MemTotal:       258988984 kB
->>>>>> MemFree:        254821700 kB
->>>>>>
->>>>>> After:
->>>>>> MemTotal:       259505132 kB
->>>>>> MemFree:        255410264 kB
->>>>>>
->>>>>> Around 500MB more memory are free to use.  The larger the machine, the
->>>>>> more memory saved.
->>>>>>
->>>>>> Performance benchmarking
->>>>>> * Memcached
->>>>>> We saw performance degradation when running Memcached benchmark with
->>>>>> rodata=full vs rodata=on.  Our profiling pointed to kernel TLB pressure.
->>>>>> With this patchset we saw ops/sec is increased by around 3.5%, P99
->>>>>> latency is reduced by around 9.6%.
->>>>>> The gain mainly came from reduced kernel TLB misses.  The kernel TLB
->>>>>> MPKI is reduced by 28.5%.
->>>>>>
->>>>>> The benchmark data is now on par with rodata=on too.
->>>>>>
->>>>>> * Disk encryption (dm-crypt) benchmark
->>>>>> Ran fio benchmark with the below command on a 128G ramdisk (ext4) with disk
->>>>>> encryption (by dm-crypt).
->>>>>> fio --directory=/data --random_generator=lfsr --norandommap --randrepeat 1 \
->>>>>>        --status-interval=999 --rw=write --bs=4k --loops=1 --ioengine=sync \
->>>>>>        --iodepth=1 --numjobs=1 --fsync_on_close=1 --group_reporting --thread \
->>>>>>        --name=iops-test-job --eta-newline=1 --size 100G
->>>>>>
->>>>>> The IOPS is increased by 90% - 150% (the variance is high, but the worst
->>>>>> number of good case is around 90% more than the best number of bad case).
->>>>>> The bandwidth is increased and the avg clat is reduced proportionally.
->>>>>>
->>>>>> * Sequential file read
->>>>>> Read 100G file sequentially on XFS (xfs_io read with page cache populated).
->>>>>> The bandwidth is increased by 150%.
->>>>>>
->>>>>>
->>>>>> Mikołaj Lenczewski (1):
->>>>>>          arm64: Add BBM Level 2 cpu feature
->>>>>>
->>>>>> Yang Shi (5):
->>>>>>          arm64: cpufeature: add AmpereOne to BBML2 allow list
->>>>>>          arm64: mm: make __create_pgd_mapping() and helpers non-void
->>>>>>          arm64: mm: support large block mapping when rodata=full
->>>>>>          arm64: mm: support split CONT mappings
->>>>>>          arm64: mm: split linear mapping if BBML2 is not supported on secondary
->>>>>> CPUs
->>>>>>
->>>>>>     arch/arm64/Kconfig                  |  11 +++++
->>>>>>     arch/arm64/include/asm/cpucaps.h    |   2 +
->>>>>>     arch/arm64/include/asm/cpufeature.h |  15 ++++++
->>>>>>     arch/arm64/include/asm/mmu.h        |   4 ++
->>>>>>     arch/arm64/include/asm/pgtable.h    |  12 ++++-
->>>>>>     arch/arm64/kernel/cpufeature.c      |  95 ++++++++++++++++++++++++++++++
->>>>>> +++++++
->>>>>>     arch/arm64/mm/mmu.c                 | 397 ++++++++++++++++++++++++++++++
->>>>>> ++++
->>>>>> ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
->>>>>> ++++++++++++++++++++++-------------------
->>>>>>     arch/arm64/mm/pageattr.c            |  37 ++++++++++++---
->>>>>>     arch/arm64/tools/cpucaps            |   1 +
->>>>>>     9 files changed, 518 insertions(+), 56 deletions(-)
->>>>>>
->>>>>>
+I don't understand everything you wrote here, but as far as I see it,
+rtc_time64_to_tm() not being able to handle dates before 1970 is the
+main issue here. This is of course only relevant, because your hardware
+occasionally contains such a date. The technically right fix is to
+extend rtc_time64_to_tm() to work for dates >=3D 1900-01-01. (An
+alternative would be to assume that a hardware read returning a date
+before 1970 is invalid. If you refuse to write dates before 1970 that
+should give a consistent behaviour. But the original approach is the
+nicer one.)
 
+> TBH, it's hard to follow the logic, so I've a question:
+> If I push in my V4 a framework fix that drivers using year < 1970 will ne=
+ed
+> to have a new start_secs or start-year value to stay aligned with there
+> previous value, do you will accept it ?
+
+Doesn't the need to shift the start year simply goes away once
+rtc_time64_to_tm() is fixed for negative time values?
+
+So I would expect that going forward with just patches #1 and #2 should
+result in a fixed driver regarding the breakage you're seeing. (I'm
+unsure about patch #3, I'll address that in a reply to the respective
+mail.)
+
+Best regards
+Uwe
+
+--xgxword5effrvsfi
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmf9f3UACgkQj4D7WH0S
+/k6kAwgAn7QiSrVS5Jy5qEwJYxUOj7XozPsN8Zq0zgKKYBqm8IWz+mS1nyNSrfl5
+oZQooSYT9XLLkgxOZJjHUV47P8G3ClP+nR+PvatZa7ukJTHU32GEOWNEtAd1NZ6k
+EbH7z1BFqU+zXbNp4lCwS4bXpp0JH3j4r727u/UD5rg1yrO7HACF+VoNUYKpcKuw
+aEVAFy51VngHisOufxAY3JYnQMtwhLN03t1UpwWrm/dhcukyWsBQGgJHs3cQMK0r
+JJhVftzvihK98K3vv94fjlc8tr51LJIl8HVqMSZkVp/C9QwkaFHUy9bV9UGWqhQO
+wBdR79PYhwox2zLOU50JR6euQ/yhFw==
+=Kl2H
+-----END PGP SIGNATURE-----
+
+--xgxword5effrvsfi--
 
