@@ -4,169 +4,184 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40BADC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 03:14:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B240AC3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 03:17:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yr76jyA2u211F1uyXN9juyYgjGvDDo2F/Nml+y9sbQU=; b=o2NyLyTGay0yYZO5vew5lyusE7
-	TDuGy2z+jJDeYQNfEiQ0Z4BocQtUc1/Qz2g59OGkz6WYlnVdIsIW1i1isJISv7zUfbhxDe4jBBWou
-	rcUjA3+0lla1CigmEW0X0n1qx5H2LCb1jCQLeij66e6FGJK4VsvGcUCpiRbR0il1uqQeLnv/UqXZs
-	3TVg9dL+6jjna1S2Ga98Qk5T5bjWIVAmIXikUoXqQGyuzSpqZNaNLjzSpU23Wlt+ug2bThSpGsFvv
-	1r62ZIxESidLvK++ONL5Q6WYS+wcN3RCMeZkA3ppGJm9+TLLCY0a5cSHOSDqy+Azi0r4jZwsPzcWb
-	EZ5aM4/w==;
+	bh=QFz15Yb7ThbF0LEfpE6tdgbAs388WDj1TZuXwIdrWm0=; b=34Tpr0udHqmEUI/iDInnv7ShQV
+	SXBHwHwFa0q1VQ/Tm5gjO/Sb2ULpbE72NaQC6qz4LWIPggpCQ62CXz9BQyWPfgbN2vaWbRDjknsXJ
+	DdH180Hp9xenbvQxkoWZ4wC/LrwQsdUkHgi28zDpfT/47cXddIHdsRz6roiYb2uhVhPq3TTvRrYqz
+	2TglvbNxXFlIYSqngZME54Os9iXK3Tmm1Ua8lQCKCmr/bAiIjaW9jeIGR1DYXFH4LXgT6fy0pGLo6
+	RaY/am/dwA79vcegGJWGIKH8rhw/3+voMVa9fa67AAMf6rwrh6vOkR6+n5U1zGb/ai0yjsxmkObPw
+	Wvxq5pUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4AH2-00000000X5T-259b;
-	Mon, 14 Apr 2025 03:14:16 +0000
-Received: from mail-eastasiaazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c400::3] helo=HK3PR03CU002.outbound.protection.outlook.com)
+	id 1u4AK8-00000000XTs-3wwX;
+	Mon, 14 Apr 2025 03:17:28 +0000
+Received: from mail-am7eur03on20627.outbound.protection.outlook.com ([2a01:111:f403:260e::627] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4AF6-00000000Wvb-0b83;
-	Mon, 14 Apr 2025 03:12:17 +0000
+	id 1u4AIK-00000000XJQ-4Am4
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 14 Apr 2025 03:15:38 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YfjbXpfNLjDS+HwOFAH71ltl3hrW2o7flLsyp4UvLE7/kzYT8z+hTdNaJXZ2dBFAu5xGKxTaIWlwqUOQuR6OqnARFZbsZ0UIh9yL3Vk/B9DRODGgoUcFnkrNQvT6HS97fflgT88uPinphvTTabfjksBV6aZyF/Gux6Vt7yEGe2zREfNXO4jS7ArbuKUgDoDAruvYUBUY4gl6QKJWpD0Z4eKhzB6h8qxnfTLUBGrvyEtLguFcj6gUAjVQnEch85SariKd36kY+ZGFTEcWHwKp9wbwFPQHl1KuA+rxDOkk3HrFDbWGeOJAv+mNM9V/pPECVhVqvy9C16UyFL0BggVuNQ==
+ b=rmgBh/ItOgOslCiAZ30uRcBXz7Wmzbiox+AaXs216kBB2vVaB6MaYagHKcX55OCSq2bIujd64bwRn17J72ISs7EVRLw8sbGrWyB14QGHmDaJbR8cywDmXH1RTZC6C1hpYP8DFeXraqCbpc2Tij87p0WxGenXfyTZUP2iM3CKC8DH6fC54Je1za2kQeRzyAvyS+aRwLrlHYFndYzn9rErDW8jtVeSHB58EiojzPjs3bjMP46lMv2dhJM/Fn75Y2yYgkezmDpqaHX8IFZbtJlOtVAzED/bP/h9asbVPXIDxoN0wFX1UNUALobALHMdkEr/Yniz6sVGiOAFTBPakjpsWg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yr76jyA2u211F1uyXN9juyYgjGvDDo2F/Nml+y9sbQU=;
- b=HbZm3E7xOZDxF5aUCpfMHt6+qPyPmGieCRHkd4WFtczt1Ts2XD2SDgLoTj5gg0AYEfaZQemSBnZj1jdIjpG1eYANLLkL2Ru4P+UVrU5oTNopVT2apuGahJXjQlziSobSYCJiLXxYwgJxxPPzP4Kpag4WMYAxeruPCXQ7QD9CfoGwDBWSSfp0SMEF2JMm0PYv6sRfmrjphrCbJVUFzbL1v3OIWcerffw2TCcfdLDQulpLtjvI2DNVTnxcipmjTuzAzB4sHiqA66U7yFWBjrPeM0bA0NdnRXIzR0qA5ySPdd6CNMXYERtLgcyNajiVxJJHwzDhg06lC6k8/TYOQQyMJQ==
+ bh=QFz15Yb7ThbF0LEfpE6tdgbAs388WDj1TZuXwIdrWm0=;
+ b=dx3peYxW/lpk11uE0jFEQECkLE8BW+5mz0eBqFF++ls6di6SXiXCxfg/CJFzmOv1dVB3Lw5NxgyRYGMt3P3YRUAqy9frBPn9/0pn821w0ITn9HI1G8mpfzD1UZx5LIZNgbHBuEdFYIk/evjYTU3UgIMevAoSLOuHLBg/S9d5oUfW7X3drL9kIXblAAYTATv5WuupnCmcEjMIo6l9d5064H2y/nOOFqezsDwk2bto2DMvc7mUOdfSeHXODhyAY1dtQb9QGQOJ5+90E5RFAtwWDR9rHkEbsz407XfJ/Pc79iFfKIUxu66Cy6fZ4nhVFsIrVnN0baBuz6Lv5/p5VbSZhg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yr76jyA2u211F1uyXN9juyYgjGvDDo2F/Nml+y9sbQU=;
- b=q6vxKgEpbkcsw+qoKQL3d2Ez6MExZFQxWUuGkacl+lsW7cotJWOZW9uVjaarJDLK1nQ5W0EW4smPb7s3yciVYiwBhXkGSlLcEm5cYU3s2zgeyZbF11TlcocUeQeVJddej4Yx9MgDEOAdWAnjmojpV4uNFbRWlDiapR6pkQI8VUzppawluwVizQ3tjpdomGZ9g0mpBICwsUjYIPFXkd0YNA3fRJli5Rn9BjyP0Vp+/o1SUwp3k+D20Ua1jRcO/ok4+kPU78Y2xVfJIzpVJMyO9z0zfQsbIbeCK7w1+e/S21NKJW81TZbikdaGz7CHvQonLwOEC4XpJ3lZGg6Fk0z0SA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from TYZPR03MB6896.apcprd03.prod.outlook.com (2603:1096:400:289::14)
- by KL1PR03MB7825.apcprd03.prod.outlook.com (2603:1096:820:ef::11) with
+ bh=QFz15Yb7ThbF0LEfpE6tdgbAs388WDj1TZuXwIdrWm0=;
+ b=Pa5cILEtvH8e17vQfhxctrpNokOezYpyccMoR+WKYx9EKTI/QkHBD9efHFuURlkCgET8ApAjdX7viUYw8ZASqQ5DrTPEcDlpiQElrP9RBhJkLp621OIKLVeIFrClfHcv9ueb/fCnrW9DuS1Wuty+mbcNt7yw4UTpeyxG2UiS8xwNGwh/0g54qcc1mJshSdrlLcvmHMWpI+qJT93UmPwrl58t/DqpS6y/NFfmZVUg/zkcJsqJ/C5ZBxeF+Vva+zC2BzjzzbNZZQ1gRyNBHuun5ftf8UeXTmhrlTfLtZXVLzJWabUoLoHzXTWwNiIu/FWArscexURhMnE3D1Ymc0Yhag==
+Received: from AS8PR04MB8676.eurprd04.prod.outlook.com (2603:10a6:20b:42b::10)
+ by DUZPR04MB9782.eurprd04.prod.outlook.com (2603:10a6:10:4b1::19) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.32; Mon, 14 Apr
- 2025 03:11:40 +0000
-Received: from TYZPR03MB6896.apcprd03.prod.outlook.com
- ([fe80::ac4e:718:3b03:3123]) by TYZPR03MB6896.apcprd03.prod.outlook.com
- ([fe80::ac4e:718:3b03:3123%5]) with mapi id 15.20.8606.027; Mon, 14 Apr 2025
- 03:11:40 +0000
-Message-ID: <c9f0ca5f-17c4-474f-8370-fc0c83ac9093@amlogic.com>
-Date: Mon, 14 Apr 2025 11:11:35 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] spi: meson-spicc: add DMA support
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.33; Mon, 14 Apr
+ 2025 03:15:28 +0000
+Received: from AS8PR04MB8676.eurprd04.prod.outlook.com
+ ([fe80::28b2:de72:ad25:5d93]) by AS8PR04MB8676.eurprd04.prod.outlook.com
+ ([fe80::28b2:de72:ad25:5d93%4]) with mapi id 15.20.8632.030; Mon, 14 Apr 2025
+ 03:15:28 +0000
+From: Hongxing Zhu <hongxing.zhu@nxp.com>
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+CC: Frank Li <frank.li@nxp.com>, "l.stach@pengutronix.de"
+	<l.stach@pengutronix.de>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"kw@linux.com" <kw@linux.com>, "robh@kernel.org" <robh@kernel.org>,
+	"bhelgaas@google.com" <bhelgaas@google.com>, "shawnguo@kernel.org"
+	<shawnguo@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com"
+	<festevam@gmail.com>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH v3 3/6] PCI: imx6: Workaround i.MX95 PCIe may not exit L23
+ ready
+Thread-Topic: [PATCH v3 3/6] PCI: imx6: Workaround i.MX95 PCIe may not exit
+ L23 ready
+Thread-Index: AQHbn44DKK1oo7avrE6ytacDA3gL7LOP/LQAgAAFMnCAAIO0gIAAxEXQgAfaDNCAAnoMAIAAn9+QgAWXVoCAAMAcwA==
+Date: Mon, 14 Apr 2025 03:15:28 +0000
+Message-ID: <AS8PR04MB8676CFD0FA7BCBB06AC51B018CB32@AS8PR04MB8676.eurprd04.prod.outlook.com>
+References: <20250328030213.1650990-1-hongxing.zhu@nxp.com>
+ <20250328030213.1650990-4-hongxing.zhu@nxp.com>
+ <ovaomfvo7b3uxoss3tzhrkgdy6cvxi4kr2zxmqsfjxds5qfohl@t6kc4rswq6gp>
+ <AS8PR04MB8676687332C78840B927E7568CAF2@AS8PR04MB8676.eurprd04.prod.outlook.com>
+ <rqgl5jjauppyudgmugp34fillkeli3qkwf4uf2djghi6nslebg@pyi6rbwyduxd>
+ <AS8PR04MB8676BB3EDFCF3E5A490AC0628CAE2@AS8PR04MB8676.eurprd04.prod.outlook.com>
+ <AS8PR04MB8676C5D0DB84975D34C4C65A8CB52@AS8PR04MB8676.eurprd04.prod.outlook.com>
+ <4qrfkx3ckywcbk7qbjplal5j7v6sjs3zebeehe5dnrgjz2ej2t@krdwjb4xm2sx>
+ <AS8PR04MB8676221C998474EF5A9B94288CB72@AS8PR04MB8676.eurprd04.prod.outlook.com>
+ <h7pja24zffl4t7653rjaamp6v2j5nmukbzq7rdajynemlyb6l6@3e37ggkparjg>
+In-Reply-To: <h7pja24zffl4t7653rjaamp6v2j5nmukbzq7rdajynemlyb6l6@3e37ggkparjg>
+Accept-Language: en-US
 Content-Language: en-US
-To: neil.armstrong@linaro.org, Mark Brown <broonie@kernel.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
- Sunny Luo <sunny.luo@amlogic.com>
-References: <20250408-spi-dma-v1-1-3c38be62c09c@amlogic.com>
- <c29a8c28-996c-4e94-b0a1-0e4a37f0bebb@linaro.org>
- <aebccc51-14a2-40be-8d9e-20a55ce94459@amlogic.com>
- <d9d81cb4-12b4-4db3-becb-4578548986b2@linaro.org>
-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
-In-Reply-To: <d9d81cb4-12b4-4db3-becb-4578548986b2@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SI2PR06CA0009.apcprd06.prod.outlook.com
- (2603:1096:4:186::17) To TYZPR03MB6896.apcprd03.prod.outlook.com
- (2603:1096:400:289::14)
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS8PR04MB8676:EE_|DUZPR04MB9782:EE_
+x-ms-office365-filtering-correlation-id: 0f039a40-4ca3-4a64-0386-08dd7b029bad
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?dzB6eTJvd2ZXM2NLZXZac2ovUGw2Q2lvSFV2dlpBYXZVQUc1QytXT1V1ajg4?=
+ =?utf-8?B?NWJNNld4NWFXNTVvaWtWbWhrSDFTbE1XMGFhWDJQUmczdmVSb1VVMk9UZzVp?=
+ =?utf-8?B?MmVsZUhhKzNnUmJ5c3dZZ2Q0aW9QUE9EZkVjL2lQTTNTMWRoaHNsMnRoZ2RU?=
+ =?utf-8?B?ZnlSRlErQ1F6LzJkdWZ0T3Z1L3lJditVMFNlOFpMOGpCYmVQaG50M2NyS1pw?=
+ =?utf-8?B?eW5iUEltVldBODFUczNkQkFIWCtaN0Z1ZTJGRkVkaitpU1htNTYwdFVEdzhu?=
+ =?utf-8?B?STVBSUpmL0ZxazR0N0YvTm1Ec0JLOVp3YnBiUUtMOTlyajNwTUlwZS9memRH?=
+ =?utf-8?B?V2hORVlzSlVROTNjR1ovaFVRRXp5akZqWVZTUzZzdGdPTXFDenY2ZmpjdUh0?=
+ =?utf-8?B?bGQya0ozdkltcjVNMnB3QVQ1ZVFYbXlEcXFVQldsR1licEhIWVB0UkQyUTlu?=
+ =?utf-8?B?UEJnTmE3TDh0cVNsSHBJcXNwM21HaVlKZ2tHMXdiM3F6dXJPY1FFaDl1WG44?=
+ =?utf-8?B?eCt4WjNKTlRQcytiNVJINmZNaXRSREFJT2ZXTzBhdkpBajI3RmIyRWxUZnFU?=
+ =?utf-8?B?ZXZBdWttWTdLQnZjcGFEaDk0QkZXTE9sZ2JDSG9JM2g3OUVZMExKemtLWjVz?=
+ =?utf-8?B?U1ZtSUhEMEMvOUtBNkJFZHV6QUJtR29uRkF5anBQcG5jbURJWGJmN0RCT2c1?=
+ =?utf-8?B?R2lHTDYwNjhIVTBJa2lXdmN1cEJuYjZSeU40QldaQ1k4UEtlWWh5Y0Q2YWpE?=
+ =?utf-8?B?enRrQzB0N2Z6MGpYRmNSakk0cnJIL2Z6ZHpNT1U0SFRYeDJsZUlqQk5HUHpQ?=
+ =?utf-8?B?Z0lqcGh0K2tmN1BEQzd2UW81aHZzWFJZQlZBV3gwUFF2a3dHeVIyY3ZHVExI?=
+ =?utf-8?B?Q0ZvUkRJTHlwVDJGUDJqSCthdFlQU2ZOMmR5b2FOb29mKy9TY2xmUUVKcUtW?=
+ =?utf-8?B?SlVxbGdma0YxU1o4NlpWU2dHOUd1MjlkcmtKblZra3NTaVo3c0JtQWJERlhl?=
+ =?utf-8?B?UmRTR1JPL0l6eHdEU29lckRwRlZtZENaZ3JSZmE3cWxIcWloaENCOG5VdnBv?=
+ =?utf-8?B?ZVFON0Vwdy9zRURvVVJxMXhoa09NazhqbVdYRlZDRzl5azEwSENMTXVLRUpE?=
+ =?utf-8?B?UDJIZTdPNEFCdzlHRXVzd0V0ZTBZY2R0R2Q2NXhCUEhqeWFGN0cvb3RFL0Uw?=
+ =?utf-8?B?L0RMM0x1UzBza2xYY2kxbDlBYStRMzd4S1h3YndsODg0bGNqUFhHS2d0blp1?=
+ =?utf-8?B?RlphK0Q5UlJjV2c0bjkzTjlzTTBCS3NKNWNNWnNNWk1tS29GQ1Y0S0tpcStQ?=
+ =?utf-8?B?UFByQ0pnTVRMbWNra1RkajdFc3hjZDJ1a2hyVUZybGZZb3Zvb29iVDVwUFNH?=
+ =?utf-8?B?aUtlT3kzRWYzOWM1UmJoNkZ1Qnkvakd1b29GRkFmTjg0Vm1sQ0wwbTFTNDlt?=
+ =?utf-8?B?Q2Zyd1dkRnF0Ylk0VTNCVTg1YXhlV1RzTzYzekJJdnNxQ282RUk1RjBwL2pZ?=
+ =?utf-8?B?RGVhRUQrT2lPb25NVHViQVBIOHQ2L0lEN1FOZnhMZ2VZV3QxdzBoY2xNTFBn?=
+ =?utf-8?B?VjBaWm1XOUMvbHRiSzlrRHVpcFA0bnV0V3dmQzZEM0NrQ2owdUxHRXYxUitS?=
+ =?utf-8?B?SGxwRFp1c1RNb1FLZjUxeU9ZdGUzdXJxZC9vc1pJalYvb3JnMnFIeTJhazlJ?=
+ =?utf-8?B?SVgwczl2TUlaTkhaNGVKSnBRZG5XZ3lkQ0RpS29NTHlPS3lBNkZmR0ZQUmRV?=
+ =?utf-8?B?aUNGL3dNT2oraU93dElJRmNGRWpuWWo5U3NLUG5lN2RnUGIwVXI2aHVQWTk4?=
+ =?utf-8?B?eGR2dWVzUlBzOWlWL0dDTVJIVE1OMEwxU1BhY2FyN0tjRmg1Q0xlM3FKVURP?=
+ =?utf-8?B?QVdGbmROOUprQW9PRHV5UHBUTlRHRlRjNENQMVlBQXMwaStVbEpzS3ZyeTJa?=
+ =?utf-8?B?VXVaWHJENzNWaGhtR0JTeE9PRVluZEdnMjhkdnZwREU1SVFIcVY0YTZqdWNw?=
+ =?utf-8?B?SVkxckJSWThBPT0=?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8676.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?OG9vdWZBWUkrYTh2VmJkRWN1Z2c0TjVuZFpmRjgreGJlb256ZkR1U2xBUnlp?=
+ =?utf-8?B?UVRIWUNldnR4SmFtNFFpRnhmK2pGa1BJbDhTMTdIMVdRUWYrNHBEMFJEN1FW?=
+ =?utf-8?B?UVBZMkkvcHVqd0k1THdtSzBUbW5VOHpacDFIUjRhOFJIVjdsV3JvZXJ6QVNV?=
+ =?utf-8?B?SzBrQ1FHampDTVVseldNb29jdERBWXBHK1QxMFBKVW42bmNHbDV1QmVkSGY2?=
+ =?utf-8?B?cUtGT0hzNm1FV1pqY1d5Qnc5V2FGeENvR3NpL01RSFZHa2cyTXIwNVpFVXpQ?=
+ =?utf-8?B?RklqVzFiMWtkdHIzK2MxQWViNUlyakRaZkhvV2xNNmNINnc2ZjFsOFVJck5r?=
+ =?utf-8?B?SFhHc1RjQndOTnRCeXE1dk9CbFJ5aDZxcnN2YWpaWWVwUG5JKzgxYlcvb3FG?=
+ =?utf-8?B?dW5mbTVtSmJZZEc3MEtGYkRuZVhLZzhPVEdNK3NSMXA3NzZOcjJ5N1VpaHFS?=
+ =?utf-8?B?UkI0d0lQSWdCQ2FiZU5XeEYyWHNxYXg3Yi9lbEw1bXo3aVo5NHlGWG5hRkNN?=
+ =?utf-8?B?UVcyZlpjQnJ3dlhldmx2RThReWYvUHQ0VDJHUzNWZi9GbWhJY3EvQVlrV056?=
+ =?utf-8?B?VDNpekI5MEQ1ZEVXd013aVVlcGFsSURrRTM4NE1kaW9Ed243dkZOelhmTUp4?=
+ =?utf-8?B?VjlIaGtjTWpzRjZWYWFGMEh6cnhjWTBWcFdIdnpTWG5tRXEwSjdFUkVQN2x0?=
+ =?utf-8?B?ZjV5Wlc3REMvVWE3Zk56eFYyQ3NIVHFKNHBuVUV2L3hOUVdzZEhzaVg0ZWtn?=
+ =?utf-8?B?TnVvVUw4aTJyc203U2ppWnpxN3pMNkg1Wlh5ekpnZm1ONUthZ1RlUGh5aXRU?=
+ =?utf-8?B?Z2xnSVhlZG92ZU1GenVDN3RpbG9OdFF1L3haeFpaY2trZXZObmpPSmRnNjVs?=
+ =?utf-8?B?VGRGYUdxNEhmQXV1bEZPMDk0eUcyK1BlSW1LMURiU2Nhbk1kU2dlejNGTGhz?=
+ =?utf-8?B?aGo4bUNCemJLdU1qeDZyK1lEaEo0WG1MeGdrL0EvNU04d1VDMDlHdWllMzQ0?=
+ =?utf-8?B?Vkszc1lkdmlyc1RoUlNYMy9GZlRBUVNNaFYzelRhaE1BbHFJVy96OUdTU1Q3?=
+ =?utf-8?B?Z09vTm5MSTNORVhXYVdsVHBPM012aTd0OUZ1ZlIrNDdqeWp2K1RFZFAzSkZP?=
+ =?utf-8?B?UEhsajc4RDBuWkxTcG95WC80UCs0c01SWkZXbWs4ZWdzcWJQVWJQNFYxTkFr?=
+ =?utf-8?B?ZXVBSGMxRndHbG1OY1R5WkpxVDVFSlM4bFkwZWlrbDJqaDMvaEhmdUZjZVg5?=
+ =?utf-8?B?dnQvbjI0K2VLck5maVlvc1h1MU02RUJFcjhFMTJlNFFqak01ZEkyN2NoalZ0?=
+ =?utf-8?B?Znc1bVBGRGxZRklKODVqNktwZE1DUEVUSTRrd2lCZmdJNVNmdGVSeXpXRkFK?=
+ =?utf-8?B?NjUwWDF6d245cEtvaUVvSlFORXFnbEZXYjMvMjNXWS9kYXdTRXVOOERRNDlZ?=
+ =?utf-8?B?bDZVWjlmTVdUYkFDMmovaXdZZkEwdm5HVUNyKzUzTWkzc1ZqQkc0Sm1RUVhl?=
+ =?utf-8?B?QzJEdktWL2pWaTc0TlhjZlJMZDg3SmY1amR2SUxUdjdPTVpvSU1paFhieEJI?=
+ =?utf-8?B?MzNCOTZvcmVIWmsremRNV2NUTVArczg3WEJqc20wKzVEbnNtYnRJNHVyMEth?=
+ =?utf-8?B?V05wVU8xMHlwU2JpWnRwREdnakxkc1p6OCtoY0RNb0tEbmpsdlZiWWRNYndn?=
+ =?utf-8?B?Ym5QSzFHK3RpN3VVUUVBVUJ6bktDK1RzdG4zUEp5ZUM2SllZbE15UkFBR2lu?=
+ =?utf-8?B?dFlHYkNPWEhRelBFa2dBbGxjc3RLTmRmdEFBTWs4dUVGclVQWEl1VHdyTXha?=
+ =?utf-8?B?N2hLNllzTmNtSTNxTzhIeEsvSUZpRnFOYUJudndrWVRwYnlYSWZ3eUloNEY5?=
+ =?utf-8?B?clJrMXFldDBlV0JnSGZFSmNIVUt5M25iakZmenZ5bjlzcDRNeUc0SjdxbmJZ?=
+ =?utf-8?B?NkxkM2FEZnlaRXpjSlRkOEk3ckc2OTdmbzVOdjNjYnpnY2FnWW0zRmxITEkx?=
+ =?utf-8?B?SlZSNFNKdVd1RDRhL1VUZTJibVZLTVdFMjlMV3NMOURyRXFLczQyTkJFR2pG?=
+ =?utf-8?B?MnRvWHNaREdzSEduQ2wyKzBMOEVieU9kZzE2amZjZVcxaTEyRE5GUEgweGQy?=
+ =?utf-8?Q?XFuBLbQsWuyhPy0fypHcCJ7Qc?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TYZPR03MB6896:EE_|KL1PR03MB7825:EE_
-X-MS-Office365-Filtering-Correlation-Id: bd31cd36-58b5-4a18-3aaf-08dd7b02133e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?UFdEdzlxay9SU1dyN21USVBSWFNLUVEvSTQvSDdOdjFPV2hxUVNhYTNHR2NS?=
- =?utf-8?B?V3dnMjllWWp6eVl4azJkS0hsdDVZL25rbjNYejkxUGlXMk1CYysyL2NCR2p5?=
- =?utf-8?B?ckdyZEJpcFFOQ1AvbXAyVHZlSnVld3k2dXRNdnJpYTdTeEpiMzVjVjBDU3Za?=
- =?utf-8?B?Y2hVdkp0S2huZ0tTZFdHUG5sc1hDT3doL3JiWFRrUDFsN1FoWitFTUpicVdS?=
- =?utf-8?B?VWQ1QmtLNjliSkN0cXFFd1F3cUx6MWZkUDZCTTFhNlRBUnkzWGpqdk51ZmlR?=
- =?utf-8?B?NmcrSjUzd243S3NHTHdmRmU1eGZ2ZmVmS0JuMUJ6RGp3eGFtSVZvT1pHenZp?=
- =?utf-8?B?MkxYMjZjcHAxUlpoUDQwWDFLd3VadXNGaUxSblVZMHh1TFhPY1FDR1VMaHR6?=
- =?utf-8?B?M2ZHamRVcVhMNk1LZVpVNSs4REE0bDJZSTBMRjc2ajB1ZVVOY3dITUk4WjBv?=
- =?utf-8?B?M0ZNR0FLUE1NSmxLazNXKzZiR1VnV1ZJdk9EdHZGVEhVaXZBWVNTOVVLbWww?=
- =?utf-8?B?WktWem8yOUhRNUlSTzBYaHFQaFYzaDQwL3JYQXUwblJ0a0Iyc3ZZOU1vVXc2?=
- =?utf-8?B?bzlmeDNOTkluZTFBdy9iTkFZT0syRmwyWUVUTGxkMUx3a2VMc0lRemtCNDBT?=
- =?utf-8?B?NENpQjAzd2txdW4zRFAzWVR6Z1lRUmNsTEEwendJdWlUSmh4bUozMjQ2R29k?=
- =?utf-8?B?aFFmaFUrM3c0MkhMQnJGbW5ReGxQejR4SldpLzZHZy83U29JbE15aFFETm1y?=
- =?utf-8?B?QTRXKzZIZjZQbWpjT0Zsa0htZWFnb2xWVytwaGlVTzZxNkNsc3dNaGkvRWZO?=
- =?utf-8?B?T1F1dUtVWjdma0dtNTBuN3NManJrVmhxRUVvVEgvZXhvOFFyZDhYUkpFN3FI?=
- =?utf-8?B?a3V2bW9NcTEzM1FzeS9ZcXhLelhYMm53Vmh3cnlFUVpaOHVwdW9KNXdWanVL?=
- =?utf-8?B?ZG53QldYc2dHQllPcnhjNlZpOVJqbUkyVGU4clJZV1lpMUF5Smp0a0N1eFBM?=
- =?utf-8?B?cXlDem5EVW14ZnJqVTU3TzVuSy82Z0hSZXV0OXVhL3hFNVRlQ01ST3ZjOGhu?=
- =?utf-8?B?UHZDaXBsa3hjcjdueFkzT2pGOW43SHhLQ2owaGprd3JQWm1XYTFDd1dHbXMx?=
- =?utf-8?B?SmtubG5YenVsWmVveVdrakpRS0tWUUlGYThRL0lML3dIc2haZUdWMGtUUjV2?=
- =?utf-8?B?aEJDNUtKbzBWeFowM0dRUmtralZyZHNXeGlpeWM2TGdqNVRRSlVEMUROeVpv?=
- =?utf-8?B?OUkzTXh1VjZHSDBoM3RUTjlHVHczY0ZlR3lFRmIvZFV1VCtpUU83WUFpdEtM?=
- =?utf-8?B?VWovbTgyZXJFamMwTnE3K0tyamdOeDNiajVvVG1yR3U0VmFvdHBaNS9sNFhs?=
- =?utf-8?B?ZTVBZWFjc1NNQ0hHQTJudW5UcW9pN3RMMnNrK2dNbHJRaHoxc3BYYmtoWXVI?=
- =?utf-8?B?bnBFVGlRYVdCOGtNMm5aWDdDNkUyMFRxUnMybWpoMWNKQUFDWCs4RHlIWkxL?=
- =?utf-8?B?ZWNVTVhGM05tN1d0aG5GZHBzVVZEak1ZYWtuQVFMTXNqc2c2QjF1Wkh3UkNq?=
- =?utf-8?B?SDBKL0w5RHhVTjQ3VXZBK2J1ZXEvZUtkN2tVQmRON213NmpZeld0cXF2Q3dK?=
- =?utf-8?B?MXV1RFNpcytVRC9Qd2YybUNQcUV6bTZlTTVxS2xWdGNleVF0L3BEdCtvYmZN?=
- =?utf-8?B?NUYrZjNhTFp3UjNyb3ZHc3dlQVR1YnhzQ2RiekVzeDkvbEdiUnlmOFZiYlpS?=
- =?utf-8?B?elplY2xuRkI3dFZWcGlCRndORlZYMDlNNVAzTnQ4NndlYkdlZVEweHNsWVZS?=
- =?utf-8?B?SlMrSFo4Uk5aNkw2L3ZmalpIRHNWeDQrbDJCdXNwL1lFQnpJRFZYbEZTSldJ?=
- =?utf-8?B?UFBqYzNxaktXcVplUlFCNXRQb3dSVlBCZkJqTkM1ZWN1WWdXRmhzUWhtNW5M?=
- =?utf-8?Q?mmSkFSSNNxI=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6896.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7053199007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YXlvcVpDMmFDMDN4T2ZpYWZGTmRsUXlrUitXdlFjTU94cXhOWWJyb3BHclRC?=
- =?utf-8?B?SHBMU0pYUnkzK2lyclRUYmN2Nzk5c3RNNGZqd0w1MEthSlg3eE9iVmdXNFoy?=
- =?utf-8?B?QjdlZURmS1E1MDNwYXJ5a3NmMlRrSkFUdzIzYnVPbElTUS9tNDFYeHpqZVFv?=
- =?utf-8?B?SHk4Q1RpZU1RVHNuV3FKK01rQW5EWFlEY01IWTlqOUZZNjdLWGh2QUc2N2xl?=
- =?utf-8?B?eHo2SDhZK2ErcEZrRXlIRlhsTU5rRVVGcUo3RFNyaENUZ0Q1eVRTNnNWTzFy?=
- =?utf-8?B?cWZ2ZEtDZUlNaTdjWUtHQXlRQ2QrSHJsM1V6MGF0R0pCS1pqd2RPRUcvbDJK?=
- =?utf-8?B?SDI0bEZML0Y3cy9RZkRINUwwcGFabnhwdHAzQWlmN1UzckNMMHducnBnYml6?=
- =?utf-8?B?aWtzTFIwdnZOVWYzZElORTJTTVMxUVVSUldVZGZaNGMxbFZzalU0ZW1LUFpq?=
- =?utf-8?B?eEhBd25Pc3J6TUVGOGppaFFKTjB2YTBIc2FHa2pqaGJENWNETU1TT0JhcFcr?=
- =?utf-8?B?ZFJmd21Ud2IvS1BkRHdhcFpLVFZEREYwMHBOV2dxd0JaeWdSaEtHZU5oQVRt?=
- =?utf-8?B?bUJxNHJ1akRFWGZpQ2FacFlxRDdybndDK3p4TWwzeTZtNWxVUVBJQllpeitB?=
- =?utf-8?B?YzZ4NTRmcjJ1WWFpNkVFVXp5U2lOdTQzOVJzbzFEVUluMnJYZDdxa2FGTkly?=
- =?utf-8?B?a1RZVTE0K2h0aHJBbkxacEw3dlZLVlY0NUdDR0IvYmFONjJoU0hIeDhKc2Vq?=
- =?utf-8?B?cm1oOGZYeElhOUk5dSt5K1JLNzlGQ3FkalVhT0U1NTJpSkJ3WkpGN3prTlpH?=
- =?utf-8?B?WEFxWTE4SlhkL2twMDlIM0tNSjEvTWE3dEJOdExKbUNUUndMYi9sWlF5c3p0?=
- =?utf-8?B?Sy9QQ0Z1QkVtdmJiZFhTTHRrWUFsVEhDVk1xWTRSVmRnYnBxdzdFSnNReGNx?=
- =?utf-8?B?cUkvYWhka2w3YVhXQkVvaWNsRzhHUkVXcXlOMDhuUzVkRUs3MlR4QzluVUov?=
- =?utf-8?B?MERjbFdhd0ZRNE9sOHJqRWJFMm5Ud3c4aHNjT2QyblhDNGV2QWQrc2dBTUp5?=
- =?utf-8?B?MVNtSmVVVDdMUlQwM2pBbGlUZklEQjBuRUloOHlaY3lyU25MR3dwVDZiTFFa?=
- =?utf-8?B?ZkxVSUR6T2x6Rm4rem83YXZRbTRMQ2lsN2xzM1ZsL2RCczVUQWtoZGYwc0Vr?=
- =?utf-8?B?NXlEcXBZcUxDRGI4OTU4WmlOZGFHZi9Wbzd3em4zT011cmNNQlk5ZFAvaVNk?=
- =?utf-8?B?TGE0L0lZdy81bmFwOWY5bXdJR0tyZkFIYjVMUWJGbWtTR0pVVXd0ZU9CUmFB?=
- =?utf-8?B?UHFLQUJpZDhSam1WdkpaMUJnUy9WSWZBZGQvbDd1Zk9QdFhBSGk3OFNBS0E5?=
- =?utf-8?B?ckllN1NKQTV1U0xydFZKWWcyNzhqNmlMOW9ybFBmeWxIKzZTemN5VFlkQWNZ?=
- =?utf-8?B?VG5NdytPa2NtaGlHMU5tZ0drSTRKSVBFV0RDcWtSR2xpak1iWVpjTGh6SVZS?=
- =?utf-8?B?U1JDMklOdzlONm56eUFUZFBaUVFTYXVDOVFEdVAwOE5lQXJsTnVOUVg1Z0Iv?=
- =?utf-8?B?Um00cjJHWm9HRFowMnQwNXcrUWtPV3dHREF3emo4N2hEMjJiT3dBSU1LS3p5?=
- =?utf-8?B?RUFld2ZWMXpmNUlSb2k2YTVySENYNUZwaTUxMHFjY21kQWJxWVVveitPMDVr?=
- =?utf-8?B?WXliY0dwaXBQU0F3WVVHWGRuUUtHbGczRmJXV0x5YW5aVkRHVmUybTdYMjgz?=
- =?utf-8?B?M1hiQzRMZUJJR29VMzVlaTdzS3JsU2IrSzc1M2Q5WTVndlhjMlZLUFhtN0F6?=
- =?utf-8?B?dzlOUTJnWkE5clU3UjN6UTdxZXJuYlVUanBSQ1RCdlp2dTdnQ0cvQzVrZkV1?=
- =?utf-8?B?TlJxcTVkOFV3cGZaaERVbkVjb05uWEx1K2dBSTNVcDNtTVhuMzR1NmpyT2JE?=
- =?utf-8?B?TGdodzVlUVFwWVJtRHlxU1hWVTN6dFkzM0Y0UzJmdEp3citPSGlGUDdveWY2?=
- =?utf-8?B?L3RHa2VOaVcvU3hscTB4d2NtYmx5V3JNMW9VbGYxTkU3T1pPaklhL3ExRFcz?=
- =?utf-8?B?N1RKM2JiUFNXTkRmYVE4YnlqWEorREgyT0JPWk1MdkRiV1hlQ0hyWE1BZ2tJ?=
- =?utf-8?B?bW1PSVpNd2dQZ2dNaUoxWHFxR3FDaCtlaVdKMHYrYjFnNGlISmtBRjNBNjM1?=
- =?utf-8?B?TVE9PQ==?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bd31cd36-58b5-4a18-3aaf-08dd7b02133e
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6896.apcprd03.prod.outlook.com
+X-OriginatorOrg: nxp.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Apr 2025 03:11:40.1053
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8676.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0f039a40-4ca3-4a64-0386-08dd7b029bad
+X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Apr 2025 03:15:28.7823
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: P+GjxSQFj00CVSWFWWAPB6ae9shj9s2s6nNVMOdDii+NJ6niswnNMtuy/wrnrXnMF3uRpMYC87ypVFu5IcCrZTuzGG4srRisrJjQEbam5mc=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR03MB7825
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: +2DZ92PlOz9McBpvnBZddoJQrKztY3XnrsXC2gbkzfQfHKkOolW3H8jA+9gMP67qrPkGhMOfRIY2IApeXIc6KQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR04MB9782
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250413_201216_370540_B30BF11C 
-X-CRM114-Status: GOOD (  21.76  )
+X-CRM114-CacheID: sfid-20250413_201537_184013_5A8C543E 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,476 +196,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Neil,
-    Thanks for your reply.
-
-On 2025/4/9 20:35, neil.armstrong@linaro.org wrote:
-> 
-> Hi,
-> 
-> On 09/04/2025 03:49, Xianwei Zhao wrote:
->> Hi Neil,
->>     Thanks for your reply.
->>
->> On 2025/4/8 15:41, Neil Armstrong wrote:
->>> [ EXTERNAL EMAIL ]
->>>
->>> Hi,
->>>
->>> On 08/04/2025 09:04, Xianwei Zhao via B4 Relay wrote:
->>>> From: Xianwei Zhao <xianwei.zhao@amlogic.com>
->>>>
->>>> Add DMA support for spicc driver.
->>>>
->>>> DMA works if the transfer meets the following conditions:
->>>> 1. 64 bits per word;
->>>> 2. The transfer length must be multiples of the dma_burst_len,
->>>>     and the dma_burst_len should be one of 8,7...2,
->>>>     otherwise, it will be split into several SPI bursts.
->>>>
->>>> Signed-off-by: Sunny Luo <sunny.luo@amlogic.com>
->>>> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
->>>> ---
->>>>   drivers/spi/spi-meson-spicc.c | 243 
->>>> ++++++++++++++++++++++++++++++++++++++++--
->>>>   1 file changed, 232 insertions(+), 11 deletions(-)
->>>>
->>>> diff --git a/drivers/spi/spi-meson-spicc.c 
->>>> b/drivers/spi/spi-meson-spicc.c
->>>> index df74ad5060f8..81e263bceba9 100644
->>>> --- a/drivers/spi/spi-meson-spicc.c
->>>> +++ b/drivers/spi/spi-meson-spicc.c
->>>> @@ -21,6 +21,7 @@
->>>>   #include <linux/interrupt.h>
->>>>   #include <linux/reset.h>
->>>>   #include <linux/pinctrl/consumer.h>
->>>> +#include <linux/dma-mapping.h>
->>>>
->>>>   /*
->>>>    * The Meson SPICC controller could support DMA based transfers, 
->>>> but is not
->>>> @@ -33,6 +34,20 @@
->>>>    * - CS management is dumb, and goes UP between every burst, so is 
->>>> really a
->>>>    *   "Data Valid" signal than a Chip Select, GPIO link should be 
->>>> used instead
->>>>    *   to have a CS go down over the full transfer
->>>> + *
->>>> + * DMA achieves a transfer with one or more SPI bursts, each SPI 
->>>> burst is made
->>>> + * up of one or more DMA bursts. The DMA burst implementation 
->>>> mechanism is,
->>>> + * For TX, when the number of words in TXFIFO is less than the preset
->>>> + * reading threshold, SPICC starts a reading DMA burst, which reads 
->>>> the preset
->>>> + * number of words from TX buffer, then writes them into TXFIFO.
->>>> + * For RX, when the number of words in RXFIFO is greater than the 
->>>> preset
->>>> + * writing threshold, SPICC starts a writing request burst, which 
->>>> reads the
->>>> + * preset number of words from RXFIFO, then write them into RX buffer.
->>>> + * DMA works if the transfer meets the following conditions,
->>>> + * - 64 bits per word
->>>> + * - The transfer length in word must be multiples of the 
->>>> dma_burst_len, and
->>>> + *   the dma_burst_len should be one of 8,7...2, otherwise, it will 
->>>> be split
->>>> + *   into several SPI bursts by this driver
->>>
->>> Fine, but then also rephrase the previous paragraph since you're 
->>> adding DMA.
->>>
->> Will do.
->>
->>> Could you precise on which platform you tested the DMA ?
->>>
->>
->> aq222(S4)
-> 
-> Will you be able to test on other platforms ?
->
-
-I tested it on other platforms over the last few days. G12A and C3 and 
-T7(T7 CLOCK use local source).
-
-My board SPI does not connect peripherals and is tested through a 
-hardware loop.
-cmd:
-spi_test -D /dev/spidev0.0 -v -s 5000000 -b 64 -l
-
->>
->>>>    */
->>>>
->>>>   #define SPICC_MAX_BURST     128
->>>> @@ -128,6 +143,29 @@
->>>>
->>>>   #define SPICC_DWADDR        0x24    /* Write Address of DMA */
->>>>
->>>> +#define SPICC_LD_CNTL0       0x28
->>>> +#define VSYNC_IRQ_SRC_SELECT         BIT(0)
->>>> +#define DMA_EN_SET_BY_VSYNC          BIT(2)
->>>> +#define XCH_EN_SET_BY_VSYNC          BIT(3)
->>>> +#define DMA_READ_COUNTER_EN          BIT(4)
->>>> +#define DMA_WRITE_COUNTER_EN         BIT(5)
->>>> +#define DMA_RADDR_LOAD_BY_VSYNC              BIT(6)
->>>> +#define DMA_WADDR_LOAD_BY_VSYNC              BIT(7)
->>>> +#define DMA_ADDR_LOAD_FROM_LD_ADDR   BIT(8)
->>>> +
->>>> +#define SPICC_LD_CNTL1       0x2c
->>>> +#define DMA_READ_COUNTER             GENMASK(15, 0)
->>>> +#define DMA_WRITE_COUNTER            GENMASK(31, 16)
->>>> +#define DMA_BURST_LEN_DEFAULT                8
->>>> +#define DMA_BURST_COUNT_MAX          0xffff
->>>> +#define SPI_BURST_LEN_MAX    (DMA_BURST_LEN_DEFAULT * 
->>>> DMA_BURST_COUNT_MAX)
->>>> +
->>>> +enum {
->>>> +     DMA_TRIG_NORMAL = 0,
->>>> +     DMA_TRIG_VSYNC,
->>>> +     DMA_TRIG_LINE_N,
->>>
->>> You're only using DMA_TRIG_NORMAL, what the other 2 values for ?
->>>
->>
->> DMA_TRIG_VSYNC and DMA_TRIG_LINE_N are used by VOUT modules in certain 
->> partial TV SoCs. These DMA triggering methods rely on special signal 
->> lines, and are not supported in this context. I will delete the 
->> corresponding information.
->>
->>>
->>>> +
->>>>   #define SPICC_ENH_CTL0      0x38    /* Enhanced Feature */
->>>>   #define SPICC_ENH_CLK_CS_DELAY_MASK GENMASK(15, 0)
->>>>   #define SPICC_ENH_DATARATE_MASK             GENMASK(23, 16)
->>>> @@ -171,6 +209,9 @@ struct meson_spicc_device {
->>>>       struct pinctrl                  *pinctrl;
->>>>       struct pinctrl_state            *pins_idle_high;
->>>>       struct pinctrl_state            *pins_idle_low;
->>>> +     dma_addr_t                      tx_dma;
->>>> +     dma_addr_t                      rx_dma;
->>>> +     bool                            using_dma;
->>>>   };
->>>>
->>>>   #define pow2_clk_to_spicc(_div) container_of(_div, struct 
->>>> meson_spicc_device, pow2_div)
->>>> @@ -202,6 +243,155 @@ static void meson_spicc_oen_enable(struct 
->>>> meson_spicc_device *spicc)
->>>>       writel_relaxed(conf, spicc->base + SPICC_ENH_CTL0);
->>>>   }
->>>>
->>>> +static int meson_spicc_dma_map(struct meson_spicc_device *spicc,
->>>> +                            struct spi_transfer *t)
->>>> +{
->>>> +     struct device *dev = spicc->host->dev.parent;
->>>> +
->>>> +     if (!(t->tx_buf && t->rx_buf))
->>>> +             return -EINVAL;
->>>> +
->>>> +     t->tx_dma = dma_map_single(dev, (void *)t->tx_buf, t->len, 
->>>> DMA_TO_DEVICE);
->>>> +     if (dma_mapping_error(dev, t->tx_dma))
->>>> +             return -ENOMEM;
->>>> +
->>>> +     t->rx_dma = dma_map_single(dev, t->rx_buf, t->len, 
->>>> DMA_FROM_DEVICE);
->>>> +     if (dma_mapping_error(dev, t->rx_dma))
->>>> +             return -ENOMEM;
->>>> +
->>>> +     spicc->tx_dma = t->tx_dma;
->>>> +     spicc->rx_dma = t->rx_dma;
->>>> +
->>>> +     return 0;
->>>> +}
->>>> +
->>>> +static void meson_spicc_dma_unmap(struct meson_spicc_device *spicc,
->>>> +                               struct spi_transfer *t)
->>>> +{
->>>> +     struct device *dev = spicc->host->dev.parent;
->>>> +
->>>> +     if (t->tx_dma)
->>>> +             dma_unmap_single(dev, t->tx_dma, t->len, DMA_TO_DEVICE);
->>>> +     if (t->rx_dma)
->>>> +             dma_unmap_single(dev, t->rx_dma, t->len, 
->>>> DMA_FROM_DEVICE);
->>>> +}
->>>> +
->>>> +/*
->>>> + * According to the remain words length, calculate a suitable spi 
->>>> burst length
->>>> + * and a dma burst length for current spi burst
->>>> + */
->>>> +static u32 meson_spicc_calc_dma_len(struct meson_spicc_device *spicc,
->>>> +                                 u32 len, u32 *dma_burst_len)
->>>> +{
->>>> +     u32 i;
->>>> +
->>>> +     if (len <= spicc->data->fifo_size) {
->>>> +             *dma_burst_len = len;
->>>> +             return len;
->>>> +     }
->>>> +
->>>> +     *dma_burst_len = DMA_BURST_LEN_DEFAULT;
->>>> +
->>>> +     if (len == (SPI_BURST_LEN_MAX + 1))
->>>> +             return SPI_BURST_LEN_MAX - DMA_BURST_LEN_DEFAULT;
->>>> +
->>>> +     if (len >= SPI_BURST_LEN_MAX)
->>>> +             return SPI_BURST_LEN_MAX;
->>>> +
->>>> +     for (i = DMA_BURST_LEN_DEFAULT; i > 1; i--)
->>>> +             if ((len % i) == 0) {
->>>> +                     *dma_burst_len = i;
->>>> +                     return len;
->>>> +             }
->>>> +
->>>> +     i = len % DMA_BURST_LEN_DEFAULT;
->>>> +     len -= i;
->>>> +
->>>> +     if (i == 1)
->>>> +             len -= DMA_BURST_LEN_DEFAULT;
->>>> +
->>>> +     return len;
->>>> +}
->>>> +
->>>> +static void meson_spicc_setup_dma(struct meson_spicc_device *spicc, 
->>>> u8 trig)
->>>> +{
->>>> +     unsigned int len;
->>>> +     unsigned int dma_burst_len, dma_burst_count;
->>>> +     unsigned int count_en = 0;
->>>> +     unsigned int txfifo_thres = 0;
->>>> +     unsigned int read_req = 0;
->>>> +     unsigned int rxfifo_thres = 31;
->>>> +     unsigned int write_req = 0;
->>>> +     unsigned int ld_ctr1 = 0;
->>>> +
->>>> +     writel_relaxed(spicc->tx_dma, spicc->base + SPICC_DRADDR);
->>>> +     writel_relaxed(spicc->rx_dma, spicc->base + SPICC_DWADDR);
->>>> +
->>>> +     /* Set the max burst length to support a transmission with 
->>>> length of
->>>> +      * no more than 1024 bytes(128 words), which must use the CS 
->>>> management
->>>> +      * because of some strict timing requirements
->>>> +      */
->>>> +     writel_bits_relaxed(SPICC_BURSTLENGTH_MASK, 
->>>> SPICC_BURSTLENGTH_MASK,
->>>> +                         spicc->base + SPICC_CONREG);
->>>> +
->>>> +     len = meson_spicc_calc_dma_len(spicc, spicc->xfer_remain,
->>>> +                                    &dma_burst_len);
->>>> +     spicc->xfer_remain -= len;
->>>> +     dma_burst_count = DIV_ROUND_UP(len, dma_burst_len);
->>>> +     dma_burst_len--;
->>>> +
->>>> +     if (trig == DMA_TRIG_LINE_N)
->>>> +             count_en |= VSYNC_IRQ_SRC_SELECT;
->>>
->>> Is this the VPU VSYNC irq ? is this a tested and valid usecase ?
->>>
->>
->> Yes, it is VPU VSYNC irq, This part of the code is not completely. NO 
->> tested about it. I will delete it.
-> 
-> Thx
-> 
->>
->>>> +
->>>> +     if (spicc->tx_dma) {
->>>> +             spicc->tx_dma += len;
->>>> +             count_en |= DMA_READ_COUNTER_EN;
->>>> +             if (trig == DMA_TRIG_VSYNC || trig == DMA_TRIG_LINE_N)
->>>> +                     count_en |= DMA_RADDR_LOAD_BY_VSYNC
->>>> +                                 | DMA_ADDR_LOAD_FROM_LD_ADDR;
->>>> +             txfifo_thres = spicc->data->fifo_size - dma_burst_len;
->>>> +             read_req = dma_burst_len;
->>>> +             ld_ctr1 |= FIELD_PREP(DMA_READ_COUNTER, dma_burst_count);
->>>> +     }
->>>> +
->>>> +     if (spicc->rx_dma) {
->>>> +             spicc->rx_dma += len;
->>>> +             count_en |= DMA_WRITE_COUNTER_EN;
->>>> +             if (trig == DMA_TRIG_VSYNC || trig == DMA_TRIG_LINE_N)
->>>> +                     count_en |= DMA_WADDR_LOAD_BY_VSYNC
->>>> +                                 | DMA_ADDR_LOAD_FROM_LD_ADDR;
->>>> +             rxfifo_thres = dma_burst_len;
->>>> +             write_req = dma_burst_len;
->>>> +             ld_ctr1 |= FIELD_PREP(DMA_WRITE_COUNTER, 
->>>> dma_burst_count);
->>>> +     }
->>>> +
->>>> +     writel_relaxed(count_en, spicc->base + SPICC_LD_CNTL0);
->>>> +     writel_relaxed(ld_ctr1, spicc->base + SPICC_LD_CNTL1);
->>>> +     writel_relaxed(((trig == DMA_TRIG_NORMAL) ? SPICC_DMA_ENABLE : 0)
->>>> +                 | SPICC_DMA_URGENT
->>>> +                 | FIELD_PREP(SPICC_TXFIFO_THRESHOLD_MASK, 
->>>> txfifo_thres)
->>>> +                 | FIELD_PREP(SPICC_READ_BURST_MASK, read_req)
->>>> +                 | FIELD_PREP(SPICC_RXFIFO_THRESHOLD_MASK, 
->>>> rxfifo_thres)
->>>> +                 | FIELD_PREP(SPICC_WRITE_BURST_MASK, write_req),
->>>> +                 spicc->base + SPICC_DMAREG);
->>>> +}
->>>> +
->>>> +static void meson_spicc_dma_irq(struct meson_spicc_device *spicc)
->>>> +{
->>>> +     if (readl_relaxed(spicc->base + SPICC_DMAREG) & SPICC_DMA_ENABLE)
->>>> +             return;
->>>> +
->>>> +     if (spicc->xfer_remain) {
->>>> +             meson_spicc_setup_dma(spicc, DMA_TRIG_NORMAL);
->>>> +     } else {
->>>> +             writel_bits_relaxed(SPICC_SMC, 0, spicc->base + 
->>>> SPICC_CONREG);
->>>> +             writel_relaxed(0, spicc->base + SPICC_INTREG);
->>>> +             writel_relaxed(0, spicc->base + SPICC_DMAREG);
->>>> +             meson_spicc_dma_unmap(spicc, spicc->xfer);
->>>> +             complete(&spicc->done);
->>>> +     }
->>>> +}
->>>> +
->>>>   static inline bool meson_spicc_txfull(struct meson_spicc_device 
->>>> *spicc)
->>>>   {
->>>>       return !!FIELD_GET(SPICC_TF,
->>>> @@ -293,6 +483,11 @@ static irqreturn_t meson_spicc_irq(int irq, 
->>>> void *data)
->>>>
->>>>       writel_bits_relaxed(SPICC_TC, SPICC_TC, spicc->base + 
->>>> SPICC_STATREG);
->>>>
->>>> +     if (spicc->using_dma) {
->>>> +             meson_spicc_dma_irq(spicc);
->>>> +             return IRQ_HANDLED;
->>>> +     }
->>>
->>> Make meson_spicc_dma_irq() return irqreturn_t and return IRQ_HANDLED.
->>>
->>
->> Will do.
->>
->>>> +
->>>>       /* Empty RX FIFO */
->>>>       meson_spicc_rx(spicc);
->>>>
->>>> @@ -426,9 +621,6 @@ static int meson_spicc_transfer_one(struct 
->>>> spi_controller *host,
->>>>
->>>>       meson_spicc_reset_fifo(spicc);
->>>>
->>>> -     /* Setup burst */
->>>> -     meson_spicc_setup_burst(spicc);
->>>> -
->>>>       /* Setup wait for completion */
->>>>       reinit_completion(&spicc->done);
->>>>
->>>> @@ -442,11 +634,40 @@ static int meson_spicc_transfer_one(struct 
->>>> spi_controller *host,
->>>>       /* Increase it twice and add 200 ms tolerance */
->>>>       timeout += timeout + 200;
->>>>
->>>> -     /* Start burst */
->>>> -     writel_bits_relaxed(SPICC_XCH, SPICC_XCH, spicc->base + 
->>>> SPICC_CONREG);
->>>> +     if (xfer->bits_per_word == 64) {
->>>> +             int ret;
->>>>
->>>> -     /* Enable interrupts */
->>>> -     writel_relaxed(SPICC_TC_EN, spicc->base + SPICC_INTREG);
->>>> +             /* must tx */
->>>> +             if (!xfer->tx_buf)
->>>> +                     return -EINVAL;
->>>> +
->>>> +             /* dma_burst_len 1 can't trigger a dma burst */
->>>> +             if (xfer->len < 16)
->>>> +                     return -EINVAL;
->>>
->>> Those 2 checks should be done to enable the DMA mode, you should 
->>> fallback to FIFO mode
->>> instead of returning EINVAL, except if 64 bits_per_word is only valid 
->>> in DMA mode ?
->>>
->>
->> I only support DMA when bits_per_word equals 64, because the register 
->> operation is more complicated if use PIO module. The register is 32 
->> bits wide, a word needs to be written twice to the register.
-> 
-> OK then leave it as-is
-> 
->>
->>>> +
->>>> +             ret = meson_spicc_dma_map(spicc, xfer);
->>>> +             if (ret) {
->>>> +                     meson_spicc_dma_unmap(spicc, xfer);
->>>> +                     dev_err(host->dev.parent, "dma map failed\n");
->>>> +                     return ret;
->>>> +             }
->>>> +
->>>> +             spicc->using_dma = true;
->>>> +             spicc->xfer_remain = DIV_ROUND_UP(xfer->len, 
->>>> spicc->bytes_per_word);
->>>> +             meson_spicc_setup_dma(spicc, DMA_TRIG_NORMAL);
->>>> +             writel_relaxed(SPICC_TE_EN, spicc->base + SPICC_INTREG);
->>>> +             writel_bits_relaxed(SPICC_SMC, SPICC_SMC, spicc->base 
->>>> + SPICC_CONREG);
->>>> +     } else {
->>>> +             spicc->using_dma = false;
->>>> +             /* Setup burst */
->>>> +             meson_spicc_setup_burst(spicc);
->>>> +
->>>> +             /* Start burst */
->>>> +             writel_bits_relaxed(SPICC_XCH, SPICC_XCH, spicc->base 
->>>> + SPICC_CONREG);
->>>> +
->>>> +             /* Enable interrupts */
->>>> +             writel_relaxed(SPICC_TC_EN, spicc->base + SPICC_INTREG);
->>>> +     }
->>>>
->>>>       if (!wait_for_completion_timeout(&spicc->done, 
->>>> msecs_to_jiffies(timeout)))
->>>>               return -ETIMEDOUT;
->>>> @@ -853,10 +1074,10 @@ static int meson_spicc_probe(struct 
->>>> platform_device *pdev)
->>>>       host->num_chipselect = 4;
->>>>       host->dev.of_node = pdev->dev.of_node;
->>>>       host->mode_bits = SPI_CPHA | SPI_CPOL | SPI_CS_HIGH | SPI_LOOP;
->>>> -     host->bits_per_word_mask = SPI_BPW_MASK(32) |
->>>> -                                SPI_BPW_MASK(24) |
->>>> -                                SPI_BPW_MASK(16) |
->>>> -                                SPI_BPW_MASK(8);
->>>> +     /* DMA works at 64 bits, but it is invalidated by the spi core,
->>>> +      * clr the mask to avoid the spi core validation check
->>>> +      */
->>>> +     host->bits_per_word_mask = 0;
->>>
->>> Fine, instead please add a check in meson_spicc_setup() to make sure
->>> we operate only in 8, 16, 24, 32 & 64 bits_per_word.
->>>
->>> So not need to clear it, the host buffer was allocated with 
->>> spi_alloc_host() which
->>> allocates with kzalloc(), already zeroing the allocated memory.
->>>
->>
->> Will drop this line, and check bits_per_word in meson_spicc_setup.
-> 
-> Thanks,
-> Neil
-> 
->>
->>> Neil
->>>
->>>>       host->flags = (SPI_CONTROLLER_MUST_RX | SPI_CONTROLLER_MUST_TX);
->>>>       host->min_speed_hz = spicc->data->min_speed_hz;
->>>>       host->max_speed_hz = spicc->data->max_speed_hz;
->>>>
->>>> ---
->>>> base-commit: 49807ed87851916ef655f72e9562f96355183090
->>>> change-id: 20250408-spi-dma-c499f560d295
->>>>
->>>> Best regards,
->>>
->>> With those fixed, the path is clear & clean, thanks !
->>>
->>> Neil
-> 
+PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBNYW5pdmFubmFuIFNhZGhhc2l2
+YW0gPG1hbml2YW5uYW4uc2FkaGFzaXZhbUBsaW5hcm8ub3JnPg0KPiBTZW50OiAyMDI15bm0NOac
+iDEz5pelIDIzOjM5DQo+IFRvOiBIb25neGluZyBaaHUgPGhvbmd4aW5nLnpodUBueHAuY29tPg0K
+PiBDYzogRnJhbmsgTGkgPGZyYW5rLmxpQG54cC5jb20+OyBsLnN0YWNoQHBlbmd1dHJvbml4LmRl
+Ow0KPiBscGllcmFsaXNpQGtlcm5lbC5vcmc7IGt3QGxpbnV4LmNvbTsgcm9iaEBrZXJuZWwub3Jn
+Ow0KPiBiaGVsZ2Fhc0Bnb29nbGUuY29tOyBzaGF3bmd1b0BrZXJuZWwub3JnOyBzLmhhdWVyQHBl
+bmd1dHJvbml4LmRlOw0KPiBrZXJuZWxAcGVuZ3V0cm9uaXguZGU7IGZlc3RldmFtQGdtYWlsLmNv
+bTsgbGludXgtcGNpQHZnZXIua2VybmVsLm9yZzsNCj4gbGludXgtYXJtLWtlcm5lbEBsaXN0cy5p
+bmZyYWRlYWQub3JnOyBpbXhAbGlzdHMubGludXguZGV2Ow0KPiBsaW51eC1rZXJuZWxAdmdlci5r
+ZXJuZWwub3JnDQo+IFN1YmplY3Q6IFJlOiBbUEFUQ0ggdjMgMy82XSBQQ0k6IGlteDY6IFdvcmth
+cm91bmQgaS5NWDk1IFBDSWUgbWF5IG5vdCBleGl0DQo+IEwyMyByZWFkeQ0KPiANCj4gT24gVGh1
+LCBBcHIgMTAsIDIwMjUgYXQgMDI6NDU6NTFBTSArMDAwMCwgSG9uZ3hpbmcgWmh1IHdyb3RlOg0K
+PiA+ID4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0NCj4gPiA+IEZyb206IE1hbml2YW5uYW4g
+U2FkaGFzaXZhbSA8bWFuaXZhbm5hbi5zYWRoYXNpdmFtQGxpbmFyby5vcmc+DQo+ID4gPiBTZW50
+OiAyMDI15bm0NOaciDEw5pelIDA6NDQNCj4gPiA+IFRvOiBIb25neGluZyBaaHUgPGhvbmd4aW5n
+LnpodUBueHAuY29tPg0KPiA+ID4gQ2M6IEZyYW5rIExpIDxmcmFuay5saUBueHAuY29tPjsgbC5z
+dGFjaEBwZW5ndXRyb25peC5kZTsNCj4gPiA+IGxwaWVyYWxpc2lAa2VybmVsLm9yZzsga3dAbGlu
+dXguY29tOyByb2JoQGtlcm5lbC5vcmc7DQo+ID4gPiBiaGVsZ2Fhc0Bnb29nbGUuY29tOyBzaGF3
+bmd1b0BrZXJuZWwub3JnOyBzLmhhdWVyQHBlbmd1dHJvbml4LmRlOw0KPiA+ID4ga2VybmVsQHBl
+bmd1dHJvbml4LmRlOyBmZXN0ZXZhbUBnbWFpbC5jb207DQo+ID4gPiBsaW51eC1wY2lAdmdlci5r
+ZXJuZWwub3JnOyBsaW51eC1hcm0ta2VybmVsQGxpc3RzLmluZnJhZGVhZC5vcmc7DQo+ID4gPiBp
+bXhAbGlzdHMubGludXguZGV2OyBsaW51eC1rZXJuZWxAdmdlci5rZXJuZWwub3JnDQo+ID4gPiBT
+dWJqZWN0OiBSZTogW1BBVENIIHYzIDMvNl0gUENJOiBpbXg2OiBXb3JrYXJvdW5kIGkuTVg5NSBQ
+Q0llIG1heQ0KPiA+ID4gbm90IGV4aXQgTDIzIHJlYWR5DQo+ID4gPg0KPiA+ID4gT24gVHVlLCBB
+cHIgMDgsIDIwMjUgYXQgMDM6MDI6NDJBTSArMDAwMCwgSG9uZ3hpbmcgWmh1IHdyb3RlOg0KPiA+
+ID4gPiA+IC0tLS0tT3JpZ2luYWwgTWVzc2FnZS0tLS0tDQo+ID4gPiA+ID4gRnJvbTogSG9uZ3hp
+bmcgWmh1DQo+ID4gPiA+ID4gU2VudDogMjAyNeW5tDTmnIgz5pelIDExOjIzDQo+ID4gPiA+ID4g
+VG86IE1hbml2YW5uYW4gU2FkaGFzaXZhbSA8bWFuaXZhbm5hbi5zYWRoYXNpdmFtQGxpbmFyby5v
+cmc+DQo+ID4gPiA+ID4gQ2M6IEZyYW5rIExpIDxmcmFuay5saUBueHAuY29tPjsgbC5zdGFjaEBw
+ZW5ndXRyb25peC5kZTsNCj4gPiA+ID4gPiBscGllcmFsaXNpQGtlcm5lbC5vcmc7IGt3QGxpbnV4
+LmNvbTsgcm9iaEBrZXJuZWwub3JnOw0KPiA+ID4gPiA+IGJoZWxnYWFzQGdvb2dsZS5jb207IHNo
+YXduZ3VvQGtlcm5lbC5vcmc7DQo+ID4gPiA+ID4gcy5oYXVlckBwZW5ndXRyb25peC5kZTsga2Vy
+bmVsQHBlbmd1dHJvbml4LmRlOw0KPiA+ID4gPiA+IGZlc3RldmFtQGdtYWlsLmNvbTsgbGludXgt
+cGNpQHZnZXIua2VybmVsLm9yZzsNCj4gPiA+ID4gPiBsaW51eC1hcm0ta2VybmVsQGxpc3RzLmlu
+ZnJhZGVhZC5vcmc7DQo+ID4gPiA+ID4gaW14QGxpc3RzLmxpbnV4LmRldjsgbGludXgta2VybmVs
+QHZnZXIua2VybmVsLm9yZw0KPiA+ID4gPiA+IFN1YmplY3Q6IFJFOiBbUEFUQ0ggdjMgMy82XSBQ
+Q0k6IGlteDY6IFdvcmthcm91bmQgaS5NWDk1IFBDSWUNCj4gPiA+ID4gPiBtYXkgbm90IGV4aXQN
+Cj4gPiA+ID4gPiBMMjMgcmVhZHkNCj4gPiA+ID4gPg0KPiA+ID4gPiA+ID4gLS0tLS1PcmlnaW5h
+bCBNZXNzYWdlLS0tLS0NCj4gPiA+ID4gPiA+IEZyb206IE1hbml2YW5uYW4gU2FkaGFzaXZhbQ0K
+PiA8bWFuaXZhbm5hbi5zYWRoYXNpdmFtQGxpbmFyby5vcmc+DQo+ID4gPiA+ID4gPiBTZW50OiAy
+MDI15bm0NOaciDLml6UgMjM6MTgNCj4gPiA+ID4gPiA+IFRvOiBIb25neGluZyBaaHUgPGhvbmd4
+aW5nLnpodUBueHAuY29tPg0KPiA+ID4gPiA+ID4gQ2M6IEZyYW5rIExpIDxmcmFuay5saUBueHAu
+Y29tPjsgbC5zdGFjaEBwZW5ndXRyb25peC5kZTsNCj4gPiA+ID4gPiA+IGxwaWVyYWxpc2lAa2Vy
+bmVsLm9yZzsga3dAbGludXguY29tOyByb2JoQGtlcm5lbC5vcmc7DQo+ID4gPiA+ID4gPiBiaGVs
+Z2Fhc0Bnb29nbGUuY29tOyBzaGF3bmd1b0BrZXJuZWwub3JnOw0KPiA+ID4gPiA+ID4gcy5oYXVl
+ckBwZW5ndXRyb25peC5kZTsga2VybmVsQHBlbmd1dHJvbml4LmRlOw0KPiA+ID4gPiA+ID4gZmVz
+dGV2YW1AZ21haWwuY29tOyBsaW51eC1wY2lAdmdlci5rZXJuZWwub3JnOw0KPiA+ID4gPiA+ID4g
+bGludXgtYXJtLWtlcm5lbEBsaXN0cy5pbmZyYWRlYWQub3JnOw0KPiA+ID4gPiA+ID4gaW14QGxp
+c3RzLmxpbnV4LmRldjsgbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZw0KPiA+ID4gPiA+ID4g
+U3ViamVjdDogUmU6IFtQQVRDSCB2MyAzLzZdIFBDSTogaW14NjogV29ya2Fyb3VuZCBpLk1YOTUg
+UENJZQ0KPiA+ID4gPiA+ID4gbWF5IG5vdCBleGl0IEwyMyByZWFkeQ0KPiA+ID4gPiA+ID4NCj4g
+PiA+ID4gPiA+IE9uIFdlZCwgQXByIDAyLCAyMDI1IGF0IDA3OjU5OjI2QU0gKzAwMDAsIEhvbmd4
+aW5nIFpodSB3cm90ZToNCj4gPiA+ID4gPiA+ID4gPiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0t
+LQ0KPiA+ID4gPiA+ID4gPiA+IEZyb206IE1hbml2YW5uYW4gU2FkaGFzaXZhbQ0KPiA+ID4gPiA+
+ID4gPiA+IDxtYW5pdmFubmFuLnNhZGhhc2l2YW1AbGluYXJvLm9yZz4NCj4gPiA+ID4gPiA+ID4g
+PiBTZW50OiAyMDI15bm0NOaciDLml6UgMTU6MDgNCj4gPiA+ID4gPiA+ID4gPiBUbzogSG9uZ3hp
+bmcgWmh1IDxob25neGluZy56aHVAbnhwLmNvbT4NCj4gPiA+ID4gPiA+ID4gPiBDYzogRnJhbmsg
+TGkgPGZyYW5rLmxpQG54cC5jb20+OyBsLnN0YWNoQHBlbmd1dHJvbml4LmRlOw0KPiA+ID4gPiA+
+ID4gPiA+IGxwaWVyYWxpc2lAa2VybmVsLm9yZzsga3dAbGludXguY29tOyByb2JoQGtlcm5lbC5v
+cmc7DQo+ID4gPiA+ID4gPiA+ID4gYmhlbGdhYXNAZ29vZ2xlLmNvbTsgc2hhd25ndW9Aa2VybmVs
+Lm9yZzsNCj4gPiA+ID4gPiA+ID4gPiBzLmhhdWVyQHBlbmd1dHJvbml4LmRlOyBrZXJuZWxAcGVu
+Z3V0cm9uaXguZGU7DQo+ID4gPiA+ID4gPiA+ID4gZmVzdGV2YW1AZ21haWwuY29tOyBsaW51eC1w
+Y2lAdmdlci5rZXJuZWwub3JnOw0KPiA+ID4gPiA+ID4gPiA+IGxpbnV4LWFybS1rZXJuZWxAbGlz
+dHMuaW5mcmFkZWFkLm9yZzsNCj4gPiA+ID4gPiA+ID4gPiBpbXhAbGlzdHMubGludXguZGV2OyBs
+aW51eC1rZXJuZWxAdmdlci5rZXJuZWwub3JnDQo+ID4gPiA+ID4gPiA+ID4gU3ViamVjdDogUmU6
+IFtQQVRDSCB2MyAzLzZdIFBDSTogaW14NjogV29ya2Fyb3VuZCBpLk1YOTUNCj4gPiA+ID4gPiA+
+ID4gPiBQQ0llIG1heSBub3QgZXhpdCBMMjMgcmVhZHkNCj4gPiA+ID4gPiA+ID4gPg0KPiA+ID4g
+PiA+ID4gPiA+IE9uIEZyaSwgTWFyIDI4LCAyMDI1IGF0IDExOjAyOjEwQU0gKzA4MDAsIFJpY2hh
+cmQgWmh1IHdyb3RlOg0KPiA+ID4gPiA+ID4gPiA+ID4gRVJSMDUxNjI0OiBUaGUgQ29udHJvbGxl
+ciBXaXRob3V0IFZhdXggQ2Fubm90IEV4aXQgTDIzDQo+ID4gPiA+ID4gPiA+ID4gPiBSZWFkeSBU
+aHJvdWdoIEJlYWNvbiBvciBQRVJTVCMgRGUtYXNzZXJ0aW9uDQo+ID4gPiA+ID4gPiA+ID4NCj4g
+PiA+ID4gPiA+ID4gPiBJcyBpdCBwb3NzaWJsZSB0byBzaGFyZSB0aGUgbGluayB0byB0aGUgZXJy
+YXR1bT8NCj4gPiA+ID4gPiA+ID4gPg0KPiA+ID4gPiA+ID4gPiBTb3JyeSwgdGhlIGVycmF0dW0g
+ZG9jdW1lbnQgaXNuJ3QgcmVhZHkgdG8gYmUgcHVibGlzaGVkIHlldC4NCj4gPiA+ID4gPiA+ID4g
+PiA+DQo+ID4gPiA+ID4gPiA+ID4gPiBXaGVuIHRoZSBhdXhpbGlhcnkgcG93ZXIgaXMgbm90IGF2
+YWlsYWJsZSwgdGhlDQo+ID4gPiA+ID4gPiA+ID4gPiBjb250cm9sbGVyIGNhbm5vdCBleGl0IGZy
+b20NCj4gPiA+ID4gPiA+ID4gPiA+IEwyMyBSZWFkeSB3aXRoIGJlYWNvbiBvciBQRVJTVCMgZGUt
+YXNzZXJ0aW9uIHdoZW4gbWFpbg0KPiA+ID4gPiA+ID4gPiA+ID4gcG93ZXIgaXMgbm90IHJlbW92
+ZWQuDQo+ID4gPiA+ID4gPiA+ID4gPg0KPiA+ID4gPiA+ID4gPiA+DQo+ID4gPiA+ID4gPiA+ID4g
+SSBkb24ndCB1bmRlcnN0YW5kIGhvdyB0aGUgcHJlc2VuY2Ugb2YgVmF1eCBhZmZlY3RzIHRoZQ0K
+PiBjb250cm9sbGVyLg0KPiA+ID4gPiA+ID4gPiA+IFNhbWUgZ29lcyBmb3IgUEVSU1QjIGRlYXNz
+ZXJ0aW9uLiBIb3cgZG9lcyB0aGF0IHJlbGF0ZSB0bw0KPiA+ID4gPiA+ID4gPiA+IFZhdXg/IElz
+IHRoaXMgZXJyYXR1bSBmb3IgYSBzcGVjaWZpYyBlbmRwb2ludCBiZWhhdmlvcj8NCj4gPiA+ID4g
+PiA+ID4gSU1ITyBJIGRvbid0IGtub3cgdGhlIGV4YWN0IGRldGFpbHMgb2YgdGhlIHBvd2VyIHN1
+cHBsaWVzIGluDQo+ID4gPiA+ID4gPiA+IHRoaXMgSVANCj4gPiA+IGRlc2lnbi4NCj4gPiA+ID4g
+PiA+ID4gUmVmZXIgdG8gbXkgZ3Vlc3MgLCBtYXliZSB0aGUgYmVhY29uIGRldGVjdCBvciB3YWtl
+LXVwIGxvZ2ljDQo+ID4gPiA+ID4gPiA+IGluIGRlc2lnbnMgaXMgIHJlbGllZCBvbiB0aGUgc3Rh
+dHVzIG9mIFNZU19BVVhfUFdSX0RFVA0KPiA+ID4gPiA+ID4gPiBzaWduYWxzIGluIHRoaXMNCj4g
+PiA+IGNhc2UuDQo+ID4gPiA+ID4gPg0KPiA+ID4gPiA+ID4gQ2FuIHlvdSBwbGVhc2UgdHJ5IHRv
+IGdldCBtb3JlIGRldGFpbHM/IEkgY291bGRuJ3QgdW5kZXJzdGFuZCB0aGUNCj4gZXJyYXRhLg0K
+PiA+ID4gPiA+ID4NCj4gPiA+ID4gPiBTdXJlLiBXaWxsIGNvbnRhY3QgZGVzaWduZXIgYW5kIHRy
+eSB0byBnZXQgbW9yZSBkZXRhaWxzLg0KPiA+ID4gPiBIaSBNYW5pOg0KPiA+ID4gPiBHZXQgc29t
+ZSBpbmZvcm1hdGlvbiBmcm9tIGRlc2lnbnMsIHRoZSBpbnRlcm5hbCBkZXNpZ24gbG9naWMgaXMN
+Cj4gPiA+ID4gcmVsaWVkIG9uIHRoZSAgc3RhdHVzIG9mIFNZU19BVVhfUFdSX0RFVCBzaWduYWwg
+dG8gaGFuZGxlIHRoZSBsb3cNCj4gcG93ZXIgc3R1ZmYuDQo+ID4gPiA+IFNvLCB0aGUgU1lTX0FV
+WF9QV1JfREVUIGlzIHJlcXVpcmVkIHRvIGJlIDFiJzEgaW4gdGhlIFNXDQo+IHdvcmthcm91bmQu
+DQo+ID4gPiA+DQo+ID4gPg0KPiA+ID4gT2suIFNvIGR1ZSB0byB0aGUgZXJyYXRhLCB3aGVuIHRo
+ZSBsaW5rIGVudGVycyBMMjMgUmVhZHkgc3RhdGUsIGl0DQo+ID4gPiBjYW5ub3QgdHJhbnNpdGlv
+biB0byBMMyB3aGVuIFZhdXggaXMgbm90IGF2YWlsYWJsZS4gQW5kIHRoZQ0KPiA+ID4gd29ya2Fy
+b3VuZCByZXF1aXJlcyBzZXR0aW5nIFNZU19BVVhfUFdSX0RFVCBiaXQ/DQo+ID4gPg0KPiA+IFJl
+ZmVyIHRvIHRoZSBkZXNjcmlwdGlvbiBvZiB0aGlzIGVycmF0YSwgaXQganVzdCBtZW50aW9ucyB0
+aGUgZXhpc3QNCj4gPiBmcm9tDQo+ID4gIEwyMyBSZWFkeSBzdGF0ZS4NCj4gDQo+IEV4aXRpbmcg
+ZnJvbSBMMjMgUmVhZHkgPT0gZW50ZXJpbmcgTDIvTDMuIEFuZCBzaW5jZSB5b3UgbWVudGlvbmVk
+IHRoYXQgVmF1eA0KPiBpcyBub3QgYXZhaWxhYmxlLCBpdCBpcyBkZWZpbml0ZWx5IGVudGVyaW5n
+IEwzLg0KPiANCj4gPiBZZXMsIHRoZSB3b3JrYXJvdW5kIHJlcXVpcmVzIHNldHRpbmcgU1lTX0FV
+WF9QV1JfREVUIGJpdCB0byAxYicxLg0KPiA+DQo+ID4gPiBJSVVDLCB0aGUgaXNzdWUgaGVyZSBp
+cyB0aGF0IHRoZSBjb250cm9sbGVyIGlzIG5vdCBhYmxlIHRvIGRldGVjdA0KPiA+ID4gdGhlIHBy
+ZXNlbmNlIG9mIFZhdXggaW4gdGhlIEwyMyBSZWFkeSBzdGF0ZS4gU28gaXQgcmVsaWVzIG9uIHRo
+ZQ0KPiA+ID4gU1lTX0FVWF9QV1JfREVUIGJpdC4gQnV0IGV2ZW4gaW4gdGhhdCBjYXNlLCBob3cg
+d291bGQgeW91IHN1cHBvcnQgdGhlDQo+IGVuZHBvaW50ICp3aXRoKiBWYXV4Pw0KPiA+ID4NCj4g
+PiBUaGlzIGVycmF0YSBpcyBvbmx5IGFwcGxpZWQgZm9yIGkuTVg5NSBkdWFsIFBDSWUgbW9kZSBj
+b250cm9sbGVyLg0KPiA+IFRoZSBWYXV4IGlzIG5vdCBwcmVzZW50IGZvciBpLk1YOTUgUENJZSBF
+UCBtb2RlIGVpdGhlci4NCj4gPg0KPiANCj4gRmlyc3Qgb2YgYWxsLCBkb2VzIHRoZSBjb250cm9s
+bGVyIHJlYWxseSBrbm93IHdoZXRoZXIgVmF1eCBpcyBzdXBwbGllZCB0byB0aGUNCj4gZW5kcG9p
+bnQgb3Igbm90PyBBRkFJSywgaXQgaXMgdXAgdG8gdGhlIGJvYXJkIGRlc2lnbmVycyB0byByb3V0
+ZSBWYXV4IGFuZCBvbmx5DQo+IGVuZHBvaW50IHNob3VsZCBjYXJlIGFib3V0IGl0Lg0KPiANCj4g
+SSBzdGlsbCBmZWVsIHRoYXQgdGhpcyBzcGVjaWZpYyBlcnJhdHVtIGlzIGZvciBmaXhpbmcgdGhl
+IGlzc3VlIHdpdGggc29tZSBlbmRwb2ludHMNCj4gd2hlcmUgVmF1eCBpcyBub3Qgc3VwcGxpZWQg
+YW5kIHRoZSBsaW5rIGRvZXNuJ3QgZXhpdCBMMjMgUmVhZHkuIEFnYWluLCB3aGF0DQo+IHdvdWxk
+IGJlIHRoZSBiZWhhdmlvciBpZiBWYXV4IGlzIHN1cHBsaWVkIHRvIHRoZSBlbmRwb2ludD8gWW91
+IGNhbm5vdCBqdXN0IHNheQ0KPiB0aGF0IHRoZSBjb250cm9sbGVyIGRvZXNuJ3Qgc3VwcG9ydCBW
+YXV4LCB3aGljaCBpcyBub3QgYSB2YWxpZCBzdGF0ZW1lbnQgSU1PLg0KPiANClNvcnJ5LCBJIG1p
+c3MtdW5kZXJzdGFuZCB0aGUgcXVlc3Rpb24geW91IHBvc3RlZCBpbiB0aGUgcHJldmlvdXMgcmVw
+bHkuDQpJIGdldCB0aGUgZm9sbG93aW5nIGFuc3dlciBmcm9tIGRlc2lnbmVycyB3aGVuIHRoZSBW
+YXV4IGlzIHN1cHBsaWVkIHRvIHRoZQ0KIHJlbW90ZSBlbmRwb2ludC4gSG9wZSBpdCBjYW4gZ2V0
+IHJpZGUgb2YgeW91ciBjb25jZXJucy4NClE6DQpIb3cgYWJvdXQgdGhlIHNpdHVhdGlvbnMgd2hl
+biByZW1vdGUgcGFydG5lciBoYXMgdGhlIFZhdXggcHJlc2VudD8NCkZvciBleGFtcGxlLCBpLk1Y
+OTUgUENJZSB1c2VkIGFzIFJDLCBhbmQgYSBlbmRwb2ludCBkZXZpY2Ugd2l0aCBvbmUgVmF1eA0K
+IHByZXNlbnQgaXMgY29ubmVjdGVkIHRvIGkuTVg5NSBQQ0llIFJDLg0KDQpBOg0KIiBBcyBwZXIg
+bXkgdW5kZXJzdGFuZGluZyBpdCBzaG91bGQgd29yayBpcnJlc3BlY3RpdmUgb2YgdmF1eCBwcmVz
+ZW5jZSBpbiByZW1vdGUgcGFydG5lci4iDQoNCkJlc3QgUmVnYXJkcw0KUmljaGFyZCBaaHUNCg0K
+PiAtIE1hbmkNCj4gDQo+IC0tDQo+IOCuruCuo+Cuv+CuteCuo+CvjeCuo+CuqeCvjSDgrprgrqTg
+rr7grprgrr/grrXgrq7gr40NCg==
 
