@@ -4,83 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE9D8C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 20:06:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D3BBC369B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 20:28:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zMHnsHq/OTZKiV4PYYiWLQwRz7k4SvVkH85VQAVMhEk=; b=DVucLnbVyb3o2vFvEBNbLQFLGc
-	gxwYmVNffgj5zO8HeTHQb+9KdxWxQXDsjH3QBjB73KBb7MmqoSxPHcUQDZCDeP6QhZk/XI9fMm5o/
-	OpIrVjitKBsRsjkWseJAWP5o0RYH4ENvS/KBov/USk6xGs00O7LAe/yx3DhYS7KcBd5Cl43Qpuv2b
-	KngNllUY5eFEcLZGX/glpfpNk02mqwFI1jL0fTTPPXv55qPeIlHEYUqwJG2w8LS7EF8pY9IvmChix
-	mly+gy0yzrJvtvrTkvYLksVBtC5OF57muBKMIFuP8CEcZfuEKdRKfBduF2zKWyESPInJbl/KYp5o4
-	s6vEI/Dg==;
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vER/u90S0SdkXA4UMsHIWKT1OAbjNluH8Bje8qojOyg=; b=nm52HI+N+LjwV0zKNbFg8SpDoU
+	w6HLiEOmK8MYUVzPoxNebayLG0MbTHbAIu6oE0o/kch2IRGiBMLkjjBrJ+LoHbk505dVdv9IftnQ9
+	c4h7NMrOxUK4JNN2wzqrquMW3P8ny6wk/Ut1aRk/QYeJNgU17yB8CRr1VKX1R2zYL32SbN0WSpX1w
+	FfURYrihVlIPYJi9VskGaCsagnCBtguKWAXka77/KWXSqxjz9loqjYsisx5vOvdm18qYbKtqwHMJn
+	4WGAwlX+bK9b3SrJWl1MJ2YiUI2Fdp1KZd4ARDCAAiF/Cm+/cFLLSbt3rWqulGX4CMc7unm9YHCkL
+	2mKm5WxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Q4O-00000003Q8Y-1qix;
-	Mon, 14 Apr 2025 20:06:16 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1u4QPb-00000003SdJ-1J4L;
+	Mon, 14 Apr 2025 20:28:11 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Q2W-00000003PzI-30OE
+	id 1u4P5O-00000003C2M-0uZn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 20:04:22 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-2ff6b9a7f91so821991a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 13:04:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744661060; x=1745265860; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zMHnsHq/OTZKiV4PYYiWLQwRz7k4SvVkH85VQAVMhEk=;
-        b=SXMF41d9mo2L9j8ecHOvY/v9fRVhbdejd4Pd1GBlIgQNyhitlU/IsddphPR3kWB5vb
-         QFutbnkfYsAKINPuCjHSkbb51TQM/bckLxSTudN6Z8EbJSKo5mTQtEoLBvtn2BdizGB+
-         SSLYOGAfFtrOxMPZ5u9Z0fDJbUnxtBE1bsi66MfW5wahqcTY5nfgwu2pgcNIhcGpDxLK
-         94rXqMysSTA0Rb/HQWrHaV87BPCiLfmv4ndt6TBNlJh7yNe4QXTLgtNuRJr4u2i2SHUW
-         qEO7Y9dOArnkQvIYz901/tWUE46ROO0xlEc13A9tRaarro1ivuW/4+OWAtwW41IDqlBC
-         dkGw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744661060; x=1745265860;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zMHnsHq/OTZKiV4PYYiWLQwRz7k4SvVkH85VQAVMhEk=;
-        b=lbKvZoFaR/J5PjHQ/D438fHZQZBSQZq2E5C436SaLriRAxmgWcehqtivbzaQxPcrjL
-         TklCz5HPh0oy4NKoRJGKl29HhdMkFq/U3Bioq2Umafy0GMfLbh5h7VcZxmtxj2frThG2
-         SGs6JDh/JJZYwx+5LrHQQsgCYbScay9t9Er+5lNAszoMeizDJGSwnSPcBSWiusKDmFaQ
-         IsEDEQkDnyzMrii4Lms6bBf9lVkLt6bfQC1TjchPhPgIXeKolAwr9BXoYgWTdZ47QX+n
-         20AOK0XVOQg739AGSTrqzH7xc4p5EO3T5YfylDSXpAG/0iDgJ7CKA2AXohfXNuemILP1
-         jZ3Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXUYwdWASGcs9K4/ryiYV4ViDQeqYPNUOdIbxZX5L8NNgBH3Dq3t189U/pIsBWQN8NnJEQ35nvexJWnstN58HAe@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx495dNB6dQ7xCTquMc5ndL3upmYKvdapCCXY+E1C9NayIujft8
-	jb40+egkzHak4npdjK621JoqDJ71+5zPgU+AATQxD5QtcmhN74OBBc5ZbhkWCOReoL3CyB5RWjH
-	dlltTVTs09AdQrsl+BG5f6pe6t/jiT+6Y
-X-Gm-Gg: ASbGncuHQW7Eddi+81JceBXMyC0mLu4li2SYvUm41/XIAl4yF3drJwHNtbR6V6r4oDe
-	/QsRlkxwT5SFsAQdLSJGThi4mnDiJwHKnPDYAkS2p3DjnhvFY0TLhbD3+vlVGHoVW4Zdcwarjec
-	y1jXuymWIUwGuaqiHiMrIUPg==
-X-Google-Smtp-Source: AGHT+IEIsC+csnI6Weh2OROunc3WgcgEHXLp5SfVQnPJhalUb5ZDeDIp3PEVZXXpGRp6IE4jLRwQHMQHJQ/2aNQrYNg=
-X-Received: by 2002:a17:90b:17c4:b0:2ff:7970:d2b6 with SMTP id
- 98e67ed59e1d1-3084e7660a7mr588747a91.5.1744661059013; Mon, 14 Apr 2025
- 13:04:19 -0700 (PDT)
+	Mon, 14 Apr 2025 19:03:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1744657391;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=vER/u90S0SdkXA4UMsHIWKT1OAbjNluH8Bje8qojOyg=;
+	b=IoGvnelvrgV9+8y/E8UfJPxGZhYC1Q8WFLQZx9bpuxsKs+cnlsgOLeC1ejrYutZDPjyaEd
+	qsoafHgdP6KvV1DNbqZu6PwkUHXtIZagyuJYvnaKECVNRde32sh7hOTOG7vZhkEBgHyuZu
+	IWgycaEhlXV/mUSVg6iBDuN3ZSj31Gk=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-434-OLZCfNeFO86PPG6ahcSEUA-1; Mon,
+ 14 Apr 2025 15:03:07 -0400
+X-MC-Unique: OLZCfNeFO86PPG6ahcSEUA-1
+X-Mimecast-MFC-AGG-ID: OLZCfNeFO86PPG6ahcSEUA_1744657386
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 46CD019560B5;
+	Mon, 14 Apr 2025 19:03:06 +0000 (UTC)
+Received: from [172.20.251.156] (unknown [10.30.44.99])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id DD3001808867;
+	Mon, 14 Apr 2025 19:03:04 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.15.0-rc2,
+ upstream-arm-next, c7269210)
+Date: Mon, 14 Apr 2025 19:03:04 -0000
+To: will@kernel.org, linux-arm-kernel@lists.infradead.org,
+ catalin.marinas@arm.com
 MIME-Version: 1.0
-References: <CANiq72ke45eOwckMhWHvmwxc03dxr4rnxxKvx+HvWdBLopZfrQ@mail.gmail.com>
-In-Reply-To: <CANiq72ke45eOwckMhWHvmwxc03dxr4rnxxKvx+HvWdBLopZfrQ@mail.gmail.com>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Mon, 14 Apr 2025 22:04:05 +0200
-X-Gm-Features: ATxdqUGhP1sZvMYgYKWAALlWFoszwfZM_Wql-C1K7rgS--G_42gWwTfE1HErvmc
-Message-ID: <CANiq72k0BY04QgxWUTsgDTZJmwHurtK4XKmdWrBA1qN5jKZqpw@mail.gmail.com>
-Subject: Re: `u64` by `u64` div/mod in DRM QR for arm32
-To: Jocelyn Falempe <jfalempe@redhat.com>, Christian Schrefl <chrisi.schrefl@gmail.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, rust-for-linux <rust-for-linux@vger.kernel.org>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	dri-devel <dri-devel@lists.freedesktop.org>
-Content-Type: text/plain; charset="UTF-8"
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
+Message-Id: <02753.125041415030701045@us-mta-434.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 8WqgTndvmS60Vg3yVCzir7YzmOKKLGIkJpuJlfeigHY_1744657386
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_130420_754039_3E4E73F1 
-X-CRM114-Status: UNSURE (   7.50  )
+X-CRM114-CacheID: sfid-20250414_120314_411186_1AD1F09E 
+X-CRM114-Status: UNSURE (   6.16  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,13 +84,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 14, 2025 at 8:14=E2=80=AFPM Miguel Ojeda
-<miguel.ojeda.sandonis@gmail.com> wrote:
->
-> operator with some support from upstream Rust. Or do you have
+Hi, we tested your kernel and here are the results:
 
-Or, probably something that makes more sense: just forbidding its use.
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
+              Test: OK
 
-Cheers,
-Miguel
+Tested-by: CKI Project <cki-project@redhat.com>
+
+Kernel information:
+    Commit message: Merge branch 'for-next/core' into for-kernelci
+
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1768012154
+
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
+
 
