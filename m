@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 970C1C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 14:09:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44618C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 14:11:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RcHU8PJmKPgUT+CtX2Sa6IH4Bm2t1CXjP6VaLo8O514=; b=o2BAfb2KOry/3rdqxF+XDVU77h
-	tjntSHcet4zXmA66G0ve4BnQWTv5/3s8uF9YcGY8c24X8S7oN6/gtlMnlhrU+f+MHBDHozxLFvmU5
-	2mssrKakrgfUDpjfNu36YR0W4E/Qdu8P8mhgSPb+r7yu/tLvW0NdoNTu6r1i/DcLlzd54DhWpqT86
-	DF7h4dslKZdCrRZYzPEQpDgEin+Gp15gUpYbqw9lSp8GHrP88P2y/BdEn6MiOMGY0U8jN65WvoIKM
-	YIkefQ/jZqPmbthSUcUCDTXhhaJUMSGvmnMxoJWN9yv4jWpnm+xRBC5ZfYMRcJjTG8a6iB0/IIZxV
-	7nnBrvnA==;
+	bh=hKsxFyucq1BakC1c3Sw1LsOOiiJAybngj8+dLBZ1o00=; b=kai8oVispb+lfWl14+T1xGQ4a0
+	3CIVSR45iAS/T5gFYODaOSLvtAX76VcwJeZGoDPmkJrIv0sow/mp0oorEIf1sS8x5mgBCqd2iGWa7
+	Z+HsHyIprJQxEbW0QLEHEey7ih9HJlnmweEQMnxOz/4tTLgKK1eQuTZlv1K4SrtfsUpq+FR+MQslK
+	F5qynGD8enaxZlve97OQ31+XkuCkxNURro8NvNQxYmKwrzohuPoznolmSDXgehseBKvB/FQjGO9IL
+	csAOwGNkzgYOIXGOqQcqh/JfYhhNlu3AaCiii7hDbvxWVOi6SrSgI7WwxwErRYp414Vf6SYWsk2eo
+	pxOPWpvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4KVK-00000002Itt-1GdF;
-	Mon, 14 Apr 2025 14:09:42 +0000
+	id 1u4KXB-00000002JJW-4Acr;
+	Mon, 14 Apr 2025 14:11:37 +0000
 Received: from mx.denx.de ([89.58.32.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4KNu-00000002H40-21uw
+	id 1u4KNw-00000002H5a-1NxL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 14:02:04 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 632CC102E13EB;
-	Mon, 14 Apr 2025 16:01:57 +0200 (CEST)
+	Mon, 14 Apr 2025 14:02:06 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4207B1026CEBF;
+	Mon, 14 Apr 2025 16:02:01 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1744639318; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1744639322; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=RcHU8PJmKPgUT+CtX2Sa6IH4Bm2t1CXjP6VaLo8O514=;
-	b=Z9+cWXmW7Bq+CfjMAku3X1jjnrqnOdMlT3AOqcayEYeJKZLzemN3/1xIUte+K7bFSUO167
-	XNfH/uA3Juq33fTO9DccHjMxNszhKEbYWKB34LRr9uyRK8Y9RkL8x2XVdJlX2wQRztoiKH
-	LU2kgLSgPDE1VXc24WpvX0/dfjETuYgyOqjsP0UOZNtgyL6EBLqG9kh2qZ7u3fKPh8OAqD
-	GqBWgPJLBz5SlZc/R9xj9ApZSERX6PO8euAfJ7rwIhkeQWN/hCU/8uzuI/wkj+q8Iz8e5Q
-	/qtH57Fqu3APIr2cYgfaqTqBiQ2/C8TdtN8NYPP356YuxtNPObeiNd5tO+AFrA==
+	bh=hKsxFyucq1BakC1c3Sw1LsOOiiJAybngj8+dLBZ1o00=;
+	b=HSsETckq8d2eEx89kid1+jM62XLbmqhjpnmn3oCftKkpD25aPUDGbRxFLPuZI4G1CCusZ5
+	Zwcu+bAyaaCOZlBoPvpH0MPvFUIme66M5Hb04abb+Ipae3KJOzt5H3r2m9+I7BJsw3X3Li
+	epPBBciqBEzJzfS0XsCn9ekkYUP++bE8Lx2JZtEtl9LCeQ6hkT06m9PQmLfh1hVcVjf/h+
+	2YaGVcsciJNBy5vSw1B7+SgHv/bL6rw5bjPELJqS54wwGVJLgvKjZQ0viO/meBluEGxH0V
+	4S9K7xCiBp7SXR9M91mgLtv3MSWTPA5A0Ayi2QMkeAbrGmIWYCfk71eztb/ybg==
 From: Lukasz Majewski <lukma@denx.de>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	davem@davemloft.net,
@@ -59,10 +59,11 @@ Cc: Sascha Hauer <s.hauer@pengutronix.de>,
 	linux-arm-kernel@lists.infradead.org,
 	Stefan Wahren <wahrenst@gmx.net>,
 	Simon Horman <horms@kernel.org>,
-	Lukasz Majewski <lukma@denx.de>
-Subject: [net-next v5 1/6] dt-bindings: net: Add MTIP L2 switch description
-Date: Mon, 14 Apr 2025 16:01:23 +0200
-Message-Id: <20250414140128.390400-2-lukma@denx.de>
+	Lukasz Majewski <lukma@denx.de>,
+	Andrew Lunn <andrew@lunn.ch>
+Subject: [net-next v5 3/6] ARM: dts: nxp: mxs: Adjust XEA board's DTS to support L2 switch
+Date: Mon, 14 Apr 2025 16:01:25 +0200
+Message-Id: <20250414140128.390400-4-lukma@denx.de>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250414140128.390400-1-lukma@denx.de>
 References: <20250414140128.390400-1-lukma@denx.de>
@@ -70,8 +71,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_070202_825151_202B3685 
-X-CRM114-Status: GOOD (  14.18  )
+X-CRM114-CacheID: sfid-20250414_070204_524367_3B2FF96F 
+X-CRM114-Status: GOOD (  11.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,186 +87,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch provides description of the MTIP L2 switch available in some
-NXP's SOCs - e.g. imx287.
+The description is similar to the one used with the new CPSW driver.
 
 Signed-off-by: Lukasz Majewski <lukma@denx.de>
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+
 ---
 Changes for v2:
-- Rename the file to match exactly the compatible
-  (nxp,imx287-mtip-switch)
+- Remove properties which are common for the imx28(7) SoC
+- Use mdio properties to perform L2 switch reset (avoid using
+  deprecated properties)
 
 Changes for v3:
-- Remove '-' from const:'nxp,imx287-mtip-switch'
-- Use '^port@[12]+$' for port patternProperties
-- Drop status = "okay";
-- Provide proper indentation for 'example' binding (replace 8
-  spaces with 4 spaces)
-- Remove smsc,disable-energy-detect; property
-- Remove interrupt-parent and interrupts properties as not required
-- Remove #address-cells and #size-cells from required properties check
-- remove description from reg:
-- Add $ref: ethernet-switch.yaml#
+- Replace IRQ_TYPE_EDGE_FALLING with IRQ_TYPE_LEVEL_LOW
+- Update comment regarding PHY interrupts s/AND/OR/g
 
 Changes for v4:
-- Use $ref: ethernet-switch.yaml#/$defs/ethernet-ports and remove already
-  referenced properties
-- Rename file to nxp,imx28-mtip-switch.yaml
+- Use GPIO_ACTIVE_LOW instead of 0 in 'reset-gpios'
+- Replace port@[12] with ethernet-port@[12]
 
 Changes for v5:
-- Provide proper description for 'ethernet-port' node
+- Add proper multiline comment for IRQs description
 ---
- .../bindings/net/nxp,imx28-mtip-switch.yaml   | 141 ++++++++++++++++++
- 1 file changed, 141 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
+ arch/arm/boot/dts/nxp/mxs/imx28-xea.dts | 56 +++++++++++++++++++++++++
+ 1 file changed, 56 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml b/Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
-new file mode 100644
-index 000000000000..6f2b5a277ac2
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
-@@ -0,0 +1,141 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/nxp,imx28-mtip-switch.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/arm/boot/dts/nxp/mxs/imx28-xea.dts b/arch/arm/boot/dts/nxp/mxs/imx28-xea.dts
+index 6c5e6856648a..69032b29d767 100644
+--- a/arch/arm/boot/dts/nxp/mxs/imx28-xea.dts
++++ b/arch/arm/boot/dts/nxp/mxs/imx28-xea.dts
+@@ -5,6 +5,7 @@
+  */
+ 
+ /dts-v1/;
++#include<dt-bindings/interrupt-controller/irq.h>
+ #include "imx28-lwe.dtsi"
+ 
+ / {
+@@ -90,6 +91,61 @@ &reg_usb_5v {
+ 	gpio = <&gpio0 2 0>;
+ };
+ 
++&eth_switch {
++	pinctrl-names = "default";
++	pinctrl-0 = <&mac0_pins_a>, <&mac1_pins_a>;
++	phy-supply = <&reg_fec_3v3>;
++	status = "okay";
 +
-+title: NXP SoC Ethernet Switch Controller (L2 MoreThanIP switch)
++	ethernet-ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
 +
-+maintainers:
-+  - Lukasz Majewski <lukma@denx.de>
++		mtip_port1: ethernet-port@1 {
++			reg = <1>;
++			label = "lan0";
++			local-mac-address = [ 00 00 00 00 00 00 ];
++			phy-mode = "rmii";
++			phy-handle = <&ethphy0>;
++		};
 +
-+description:
-+  The 2-port switch ethernet subsystem provides ethernet packet (L2)
-+  communication and can be configured as an ethernet switch. It provides the
-+  reduced media independent interface (RMII), the management data input
-+  output (MDIO) for physical layer device (PHY) management.
++		mtip_port2: ethernet-port@2 {
++			reg = <2>;
++			label = "lan1";
++			local-mac-address = [ 00 00 00 00 00 00 ];
++			phy-mode = "rmii";
++			phy-handle = <&ethphy1>;
++		};
++	};
 +
-+$ref: ethernet-switch.yaml#/$defs/ethernet-ports
++	mdio_sw: mdio {
++		#address-cells = <1>;
++		#size-cells = <0>;
 +
-+properties:
-+  compatible:
-+    const: nxp,imx28-mtip-switch
++		reset-gpios = <&gpio3 21 GPIO_ACTIVE_LOW>;
++		reset-delay-us = <25000>;
++		reset-post-delay-us = <10000>;
 +
-+  reg:
-+    maxItems: 1
++		ethphy0: ethernet-phy@0 {
++			reg = <0>;
++			smsc,disable-energy-detect;
++			/*
++			 * Both PHYs (i.e. 0,1) have the same, single GPIO,
++			 * line to handle both, their interrupts (OR'ed)
++			 */
++			interrupt-parent = <&gpio4>;
++			interrupts = <13 IRQ_TYPE_LEVEL_LOW>;
++		};
 +
-+  phy-supply:
-+    description:
-+      Regulator that powers Ethernet PHYs.
++		ethphy1: ethernet-phy@1 {
++			reg = <1>;
++			smsc,disable-energy-detect;
++			interrupt-parent = <&gpio4>;
++			interrupts = <13 IRQ_TYPE_LEVEL_LOW>;
++		};
++	};
++};
 +
-+  clocks:
-+    items:
-+      - description: Register accessing clock
-+      - description: Bus access clock
-+      - description: Output clock for external device - e.g. PHY source clock
-+      - description: IEEE1588 timer clock
-+
-+  clock-names:
-+    items:
-+      - const: ipg
-+      - const: ahb
-+      - const: enet_out
-+      - const: ptp
-+
-+  interrupts:
-+    items:
-+      - description: Switch interrupt
-+      - description: ENET0 interrupt
-+      - description: ENET1 interrupt
-+
-+  pinctrl-names: true
-+
-+  ethernet-ports:
-+    type: object
-+    additionalProperties: true
-+    properties:
-+      ethernet-port:
-+        type: object
-+        unevaluatedProperties: false
-+
-+        properties:
-+          reg:
-+            items:
-+              - enum: [1, 2]
-+            description: MTIP L2 switch port number
-+
-+        required:
-+          - reg
-+          - label
-+          - phy-mode
-+          - phy-handle
-+
-+  mdio:
-+    type: object
-+    $ref: mdio.yaml#
-+    unevaluatedProperties: false
-+    description:
-+      Specifies the mdio bus in the switch, used as a container for phy nodes.
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - interrupts
-+  - mdio
-+  - ethernet-ports
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include<dt-bindings/interrupt-controller/irq.h>
-+    switch@800f0000 {
-+        compatible = "nxp,imx28-mtip-switch";
-+        reg = <0x800f0000 0x20000>;
-+        pinctrl-names = "default";
-+        pinctrl-0 = <&mac0_pins_a>, <&mac1_pins_a>;
-+        phy-supply = <&reg_fec_3v3>;
-+        interrupts = <100>, <101>, <102>;
-+        clocks = <&clks 57>, <&clks 57>, <&clks 64>, <&clks 35>;
-+        clock-names = "ipg", "ahb", "enet_out", "ptp";
-+
-+        ethernet-ports {
-+            #address-cells = <1>;
-+            #size-cells = <0>;
-+
-+            mtip_port1: ethernet-port@1 {
-+                reg = <1>;
-+                label = "lan0";
-+                local-mac-address = [ 00 00 00 00 00 00 ];
-+                phy-mode = "rmii";
-+                phy-handle = <&ethphy0>;
-+            };
-+
-+            mtip_port2: ethernet-port@2 {
-+                reg = <2>;
-+                label = "lan1";
-+                local-mac-address = [ 00 00 00 00 00 00 ];
-+                phy-mode = "rmii";
-+                phy-handle = <&ethphy1>;
-+            };
-+        };
-+
-+        mdio_sw: mdio {
-+            #address-cells = <1>;
-+            #size-cells = <0>;
-+
-+            reset-gpios = <&gpio2 13 0>;
-+            reset-delay-us = <25000>;
-+            reset-post-delay-us = <10000>;
-+
-+            ethphy0: ethernet-phy@0 {
-+                reg = <0>;
-+            };
-+
-+            ethphy1: ethernet-phy@1 {
-+                reg = <1>;
-+            };
-+        };
-+    };
+ &spi2_pins_a {
+ 	fsl,pinmux-ids = <
+ 		MX28_PAD_SSP2_SCK__SSP2_SCK
 -- 
 2.39.5
 
