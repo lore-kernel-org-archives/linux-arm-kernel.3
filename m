@@ -4,88 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3586CC369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 17:02:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75649C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 17:04:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yZVRVFitHVYKh8lUFpDXz29jMQ4TVL55S2+Fg6L3zdM=; b=TDaZ/ZROS+RwZhbMaS4tvPnn0r
-	/8DtAAZAHGEp19sibP1gqMiT4ALEgR1MldK1PXStnfRmjsBsk+XwKg4s7Ok7dkulG7IydQwOdgU7I
-	hc9rBz/eg/Noc8drPa08NkTDVcXMb7WO8tfrdQMSR2GJsmukoQbMzMjQfCmz4gYFy71hBKfDZ0fei
-	khaNt3y3v3AlL6X5clMI0bs+Zf55HLCqThXZaebejmeNu63TBNIv6Pw3k6PHJMtDQd5utavs9wUnv
-	C2BzTon+oAfuZNvyBuaX/raU5bhmuU7u+7qg4IyZsqkOCjIzITGiz7ZZQGjzQ1F1r9OHLqGsJJ4m1
-	m7ZmiOnw==;
+	bh=KqFT3PKAxBM7aneYNA4QM0R7Gd1DemUhbyEfOOJZdwc=; b=e1Qi6540D4xibzS8FmUYudKMeN
+	nnkiq/t9ubN1mMUnbWN3L75hLHgBvkLNdVJTHCbQuqgBEH6JFHeKEp1NtONwjzuaMcHZWHZ+GIgBE
+	/9xFLi0oaBVxiMKZGYVrevGR+ChY2V7cqxMYpIBhHL5zRt8ed/Q+z1EVqFFoLJQ8rzXnGNwUXOzR+
+	oRNMAN77BFx7BXAH857Ywn467MD2I6S3R8OnAbGfF0RdM+QtZrM+xhy9Q9bDm7D9LDAzkRpl1+fp6
+	Z87PpSnnWLOenVbf3mFB2q5r/PXzauS6zrzbDP9maDe+QPoVXr0kHTQ7DKLzVVQNiabCzBgBf6bPU
+	7b9l8Txg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4NCW-00000002sHX-43Hb;
-	Mon, 14 Apr 2025 17:02:28 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1u4NEg-00000002sZu-0MWi;
+	Mon, 14 Apr 2025 17:04:42 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4N8M-00000002rUW-3hVT
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 16:58:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=yZVRVFitHVYKh8lUFpDXz29jMQ4TVL55S2+Fg6L3zdM=; b=OjIeHuD93l2eyXtskX24h8WOtk
-	L0lAdRcCp2gO9pW7MVq+3mm1HqBIp0Qpome2851bjAZ/uO0U4rITvM2C13uYfxaq5jcMJlLhx46gb
-	CFyTcWeFOjvOWJuTu23KNEiGhH/TJiPjV2yV9bOq86Zto0+sQ5ACQ3wFcc0BXltuA+S6veUoXhKOZ
-	9givV4yMZuESfUKFgiHLB6mudZhFAdWPUxka2yklXXBHXCWKHWA1An3lhBuu1ogx0NNNbjgn0d+se
-	KNKSCbD+JBnwkWd7Lfk9p/Qv8HiRzUoOjhd8wKNXJCvd/DVerSJ2YlJT6Lz/j4YmfUNVhRMBuisF8
-	wlBiGAnw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:35404)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1u4N83-0006rx-0D;
-	Mon, 14 Apr 2025 17:57:51 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1u4N7w-0007v6-0o;
-	Mon, 14 Apr 2025 17:57:44 +0100
-Date: Mon, 14 Apr 2025 17:57:44 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Prabhakar <prabhakar.csengg@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
+	id 1u4NCn-00000002sL1-46LI;
+	Mon, 14 Apr 2025 17:02:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 461C4A4A0C4;
+	Mon, 14 Apr 2025 16:57:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BD4FC4CEEB;
+	Mon, 14 Apr 2025 17:02:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744650164;
+	bh=KqFT3PKAxBM7aneYNA4QM0R7Gd1DemUhbyEfOOJZdwc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=haXXUUQ5j7/xdMK6YjwHt6lr9C50Nl/g7bFmEYMZvNiz+gF0wIYn0k0JlsN7AgIIr
+	 4iu+74zlC0pGVbnny4GpZcvFCtRv7UbXiLj/Jktoz55Xw4OI0gFEF9IMr5JRkbS89a
+	 FWUp+fMSf5UkmLfyLJ4Oh8mMhzRX4zRBtIyxizLmg1yK8LXnD6fzQ4a/5VdOID9XcX
+	 dE75rVIJSiBbQRqIjkmlXD+Sz1tODj0aRj329Hqs8wN3tRMUOekPmkiQJuBXhlIRBs
+	 zzEUQdKKdZxKbNiIRzd4lVHI7DTVE6ie+lpUtXY7UaT3cQKWd5+rfYxv5sIPEdod6N
+	 ZZHwk4psw8ppw==
+Date: Mon, 14 Apr 2025 18:02:33 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Rob Herring <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Steen Hegelund <Steen.Hegelund@microchip.com>,
+	Daniel Machon <daniel.machon@microchip.com>,
+	UNGLinuxDriver@microchip.com,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
 	Geert Uytterhoeven <geert+renesas@glider.be>,
 	Magnus Damm <magnus.damm@gmail.com>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: Re: [PATCH net-next v5 3/3] net: stmmac: Add DWMAC glue layer for
- Renesas GBETH
-Message-ID: <Z_0-iH91A4Sexlzj@shell.armlinux.org.uk>
-References: <20250407120317.127056-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20250407120317.127056-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Andy Gross <agross@kernel.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Viresh Kumar <vireshk@kernel.org>, Nishanth Menon <nm@ti.com>,
+	Stephen Boyd <sboyd@kernel.org>, zhouyanjie@wanyeetech.com,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Stephan Gerhold <stephan.gerhold@linaro.org>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, imx@lists.linux.dev,
+	linux-rockchip@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-pm@vger.kernel.org, linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v2 03/17] arm64: dts: microchip: sparx5: Fix CPU node
+ "enable-method" property dependencies
+Message-ID: <20250414-fragile-same-9cd06114cd85@spud>
+References: <20250410-dt-cpu-schema-v2-0-63d7dc9ddd0a@kernel.org>
+ <20250410-dt-cpu-schema-v2-3-63d7dc9ddd0a@kernel.org>
+ <20250411-ebay-exerciser-392c42daf5ba@spud>
+ <CAL_JsqJza-bufzjZ415THyDDQaOfk8F+JRFvFxzNwObG=NKVJQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="pt+1yttKuNYLWgzQ"
 Content-Disposition: inline
-In-Reply-To: <20250407120317.127056-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
+In-Reply-To: <CAL_JsqJza-bufzjZ415THyDDQaOfk8F+JRFvFxzNwObG=NKVJQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_095810_919476_2633C463 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20250414_100246_147340_ED1ACF19 
+X-CRM114-Status: GOOD (  19.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,51 +112,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 07, 2025 at 01:03:17PM +0100, Prabhakar wrote:
-> +	gbeth->rstc = devm_reset_control_get_exclusive(dev, NULL);
-> +	if (IS_ERR(gbeth->rstc))
-> +		return PTR_ERR(gbeth->rstc);
-> +
-> +	gbeth->dev = dev;
-> +	gbeth->regs = stmmac_res.addr;
-> +	gbeth->plat_dat = plat_dat;
-> +	plat_dat->bsp_priv = gbeth;
-> +	plat_dat->set_clk_tx_rate = stmmac_set_clk_tx_rate;
-> +	plat_dat->clks_config = renesas_gbeth_clks_config;
-> +	plat_dat->flags |= STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY |
-> +			   STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP |
-> +			   STMMAC_FLAG_SPH_DISABLE;
-> +
-> +	err = renesas_gbeth_clks_config(gbeth, true);
-> +	if (err)
-> +		return err;
-> +
-> +	err = stmmac_dvr_probe(dev, plat_dat, &stmmac_res);
-> +	if (err)
-> +		renesas_gbeth_clks_config(gbeth, false);
-> +
-> +	return err;
-> +}
-> +
-> +static void renesas_gbeth_remove(struct platform_device *pdev)
-> +{
-> +	stmmac_dvr_remove(&pdev->dev);
-> +
-> +	renesas_gbeth_clks_config(get_stmmac_bsp_priv(&pdev->dev), false);
-> +}
 
-Would calling renesas_gbeth_clks_config() in the suspend/resume paths
-cause problems?
+--pt+1yttKuNYLWgzQ
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-If not, please consider using plat_dat->init() and plat_dat->exit()
-to control these clocks, and then use devm_stmmac_pltfr_probe()
-which will call the ->init and ->exit functions around the probe
-as necessary and at removal time (and you won't need the remove
-method.)
+On Fri, Apr 11, 2025 at 03:26:50PM -0500, Rob Herring wrote:
+> On Fri, Apr 11, 2025 at 11:22=E2=80=AFAM Conor Dooley <conor@kernel.org> =
+wrote:
+> >
+> > On Thu, Apr 10, 2025 at 10:47:24AM -0500, Rob Herring (Arm) wrote:
+> > > The "spin-table" enable-method requires "cpu-release-addr" property,
+> > > so add a dummy entry. It is assumed the bootloader will fill in the
+> > > correct values.
+> > >
+> > > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> > > Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
+> > > Tested-by: Daniel Machon <daniel.machon@microchip.com>
+> >
+> > This is already applied, guess I forgot to merge it into the branch that
+> > appears in linux next. I'll do that now..
+>=20
+> Sometimes I check next, but in this case I just looked at replies for
+> which there were none. I dislike submitting dts changes because it's a
+> range of AWOL maintainers, only applying around some rcN (so up to 2
+> months later), silently applying, and applied but never in linux-next
+> (until in soc tree).
 
-Thanks.
+Let's add "send the b4 ty email" to the list of things that I did not
+do, but thought that I had done.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+--pt+1yttKuNYLWgzQ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ/0/qQAKCRB4tDGHoIJi
+0llIAQCfeSIfGZefusGStXxy21uaJUGlki/H/XzQ1dq4t278oAD9GMv/CXNEj8CG
+oPoSllLdscFoA/5qVRjJh0erPiNF8gA=
+=q+yA
+-----END PGP SIGNATURE-----
+
+--pt+1yttKuNYLWgzQ--
 
