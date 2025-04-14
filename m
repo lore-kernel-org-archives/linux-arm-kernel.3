@@ -4,85 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0202FC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 07:44:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 209F8C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 07:46:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MXmOU2mBSnJ1Q/G80oE+sQEi5M/NGyL+TQUbVq1jkto=; b=dFvPaAsoSQEVslS+NM01Zhw3DQ
-	rENsj3z8FZpAa/tt+gp0ga3+BgX/tPPPNyPIyfV7nfvPgGPNm8p7QwS7CT0CftBkWQnKd3Qk2/nk3
-	hpqF1vWDU1iredAvUQxZshFEz3qBWYhQqKoAnlVMiCfwjTomEkPjqWtytHJK6RO5Jy+7zUveitmed
-	UB+vPvwLGpprtfXNPV0ja3HbzM3bsHgXrEGwcnM9QYjCAwJwt5JXpDUiKfuUdRFB0g9RWty9JT80x
-	6ZsZeJ+h3swcUCh+TSiMOK+J5CJp9csia9Gknz1aNOGxN2HkggdMqBF0LuVQlRKx6Dz9KbIEWxlzk
-	FUwYaP8Q==;
+	bh=C6S9D8CaBKO/q2oBksdQOb459DEafNnNvUFs5jBUstY=; b=uYqC1RqS0q/b8KkaOG9eE2znNy
+	lZrSEaK9HBfaA6lwnYtZwGEPLLP6kvghrKfTDYNo+a5b1FymlN2FcvtNWpDPdVsr/VBeZNOTozSWN
+	FXsZusDie5Zu27vPrMZKLWSGbfYux3I72p2E70zV9PCf0LdDqFDWgC5Nyn/auxCi9qs0TF3sUfFnn
+	j7h9dRzfoaRNoz7FDqyLcc4DxYfjuSVJNlhynkWmWpAJSX3x0nMjGhwa2cAbW1iHTc4OVIheD234e
+	YzaBh1X1Ye0EGj6Tu+9D+pKC7hApje7xMdY3+2lVSXSu7Y8fhPo7QcejV2ZJXDXQF9A1QMMLQweSX
+	t5dQqfzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4EUW-00000000yfI-2dl5;
-	Mon, 14 Apr 2025 07:44:28 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1u4EWN-00000000z3I-1fWH;
+	Mon, 14 Apr 2025 07:46:23 +0000
+Received: from out30-111.freemail.mail.aliyun.com ([115.124.30.111])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4ESd-00000000yJH-3C8m
+	id 1u4ETO-00000000yUS-0ezE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 07:42:33 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-5e6ff035e9aso7472741a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 00:42:29 -0700 (PDT)
+	Mon, 14 Apr 2025 07:43:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1744616548; x=1745221348; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MXmOU2mBSnJ1Q/G80oE+sQEi5M/NGyL+TQUbVq1jkto=;
-        b=GGw3EZ8vx7ZNBKGAX9hXSt4fjtC54LT/FS5H2nlyMpqNyLmUsozeJVJPs5lZV3Kj7N
-         QbBcGkWNj4NbRaKNa/5wJUPNE4cyI36qT8qwJnlTTy7b9ZQfwOTyJv0QiW5gocc3F2A7
-         VSeIG3dhFdpdksgWmXRO5SvlnKiJVzaltRnx8Wl77Rq5EhvrZG5h2zGgom8TCoTj9pvp
-         eiHNWwZHZGll9j5X9qLm+Fnp3kxenU1g0FyyfvnP/K888CFGd6R3Xu8urf3SrZ7fQ6MY
-         jkNsOnG8Ih8HTyoN7Vq7y2Uy9Ofv5Q1ZA8lrHZjfB4vuv088pTRbvY5A2/LNPgB0dB93
-         2JWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744616548; x=1745221348;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=MXmOU2mBSnJ1Q/G80oE+sQEi5M/NGyL+TQUbVq1jkto=;
-        b=e+BTyAR5CtfZJX3P578X+fSP78ir6srztjaCYjBC8PDTwK/+YYXWAugehWvH12GNj7
-         3fGV5PzvSE8V+pEaYsQLQZO10h/ux0ZmYNC7e1DrmTn1Ocu+nUaV3GkZv/BjIyM0eGf7
-         Fha8XO0RvH9iSUvcPbmhwsBg8vutEED+XcaZhfJwDQo31HAXDKRKxI00ttH48sduK2bg
-         TOoqr4uv42wy26oMDIpMdrfrZ6g+kRCGLw4wWzItuOaDKC/Te6rRGi1lWLQNT7I+XY4H
-         0B8fQK7dGb/dlELH0/jlgA6n+QRGTB+r2avjCSN22LfpkvTIh1MrDEwuehsGSqPAWZqf
-         f6BQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU4/vyKXxtfmk0ASE3rZpwBGBGt9x/dmLqmkLSCOhdTngwm4Gq0YmERvxA8De2LlQHgyKFLJjZ21mwOICskkABc@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw1H/OEYAw2RrMdiF3aSDTeNh/H3iSaqhCluc+7+3xgDhenIFME
-	e/Umg9m9YVIXJCx7I+OrhRs85tmQwkd2VjMLf0Fi4/G5KdxupZd3CBchA/7iyw1bunktRXH0eRB
-	/oeKYxLeBlpzLk0H2flDd4sm8hqNfZGCazx0K
-X-Gm-Gg: ASbGncvgmZWWgbCbKllI0Gy6sifi1q76DyhuHr/2D9Yz1JZ/clE3L3VWjq/BwgrTyrV
-	rr+xFlPbuQLaEE8tqAdxOBTJLv6IyfzEpMYGf70tkdVpVZptBh78CSf50cnjzDosM1jzUVoIalz
-	jNcK00HxjSd4PJ2mjfta+Ne3A3SUrTywuRU3KYS+3xU7RSMBPL
-X-Google-Smtp-Source: AGHT+IH09efJ8Do6RKQnRVYr9V5LLKXMMFfz2m0gjC+zCWdS733LZPt7VwiJ8EFz/qGyl/AVQsVsgaoO2y2QWrRxPjs=
-X-Received: by 2002:a05:6402:5110:b0:5e7:8827:2c33 with SMTP id
- 4fb4d7f45d1cf-5f36fb8e0femr10232874a12.11.1744616548318; Mon, 14 Apr 2025
- 00:42:28 -0700 (PDT)
+	d=linux.alibaba.com; s=default;
+	t=1744616594; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=C6S9D8CaBKO/q2oBksdQOb459DEafNnNvUFs5jBUstY=;
+	b=m8yH7rBy4s4AyxRV0a2mGOSwvHnyFGh6tzM/1E/JHv1Scn69rM2m5oJbv4KWGtzVdJRCU9vqPPR6URosDVqDoe4XwrEfgdrI3uoUWxSYDADY3VsKzAqdm/AQa1PjDdGq0jo/lDnhcq+LvWGAkiLaTKMnMrI+Z/rq1InVTrKGo4E=
+Received: from 30.246.161.79(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WWirnWt_1744616589 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Mon, 14 Apr 2025 15:43:10 +0800
+Message-ID: <6b313eef-c576-4c0c-8d9f-8ef0bf3cc0fd@linux.alibaba.com>
+Date: Mon, 14 Apr 2025 15:43:09 +0800
 MIME-Version: 1.0
-References: <20250403183638.3386628-1-korneld@google.com> <38049b58-a504-4223-9f6d-537609931fb4@arm.com>
- <CACF_fqnevOo9NSRwDAh7KVQZTHTkP0pc2NKEXrWFapMYLf0Wkw@mail.gmail.com>
-In-Reply-To: <CACF_fqnevOo9NSRwDAh7KVQZTHTkP0pc2NKEXrWFapMYLf0Wkw@mail.gmail.com>
-From: =?UTF-8?Q?Kornel_Dul=C4=99ba?= <korneld@google.com>
-Date: Mon, 14 Apr 2025 09:42:16 +0200
-X-Gm-Features: ATxdqUG4qM2qSi7P61VxUS_DpHbalmw0jUa2CR-GhJDUE8W1x3Gplsn-A1ToMew
-Message-ID: <CACF_fqmzULKuq0C3FQe5enmu4A2UQYUeC5rrznM54uiQDCrsHg@mail.gmail.com>
-Subject: Re: [PATCH] arm64: Support ARM64_VA_BITS=52 when setting ARCH_MMAP_RND_BITS_MAX
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Steve Capper <steve.capper@arm.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, ssradjacoumar@google.com, 
-	chromeos-krk-upstreaming@google.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 10/11] arm64: idle: export arch_cpu_idle()
+To: Ankur Arora <ankur.a.arora@oracle.com>
+Cc: linux-pm@vger.kernel.org, kvm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-acpi@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org,
+ x86@kernel.org, pbonzini@redhat.com, vkuznets@redhat.com, rafael@kernel.org,
+ daniel.lezcano@linaro.org, peterz@infradead.org, arnd@arndb.de,
+ lenb@kernel.org, mark.rutland@arm.com, harisokn@amazon.com,
+ mtosatti@redhat.com, sudeep.holla@arm.com, cl@gentwo.org, maz@kernel.org,
+ misono.tomohiro@fujitsu.com, maobibo@loongson.cn, zhenglifeng1@huawei.com,
+ joao.m.martins@oracle.com, boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
+References: <20250218213337.377987-1-ankur.a.arora@oracle.com>
+ <20250218213337.377987-11-ankur.a.arora@oracle.com>
+ <18875bd7-bf01-4ba8-b38a-4c0767e3130e@linux.alibaba.com>
+ <87h62u76xg.fsf@oracle.com>
+ <f384a766-d91a-4db5-9ed6-c1ed6079da1d@linux.alibaba.com>
+ <87ikn75rrn.fsf@oracle.com>
+From: Shuai Xue <xueshuai@linux.alibaba.com>
+In-Reply-To: <87ikn75rrn.fsf@oracle.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_004231_822959_FE9DBAEF 
-X-CRM114-Status: GOOD (  32.87  )
+X-CRM114-CacheID: sfid-20250414_004318_842691_C2BA68EB 
+X-CRM114-Status: GOOD (  16.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,82 +77,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 4, 2025 at 6:46=E2=80=AFPM Kornel Dul=C4=99ba <korneld@google.c=
-om> wrote:
->
-> On Thu, Apr 3, 2025 at 11:46=E2=80=AFPM Anshuman Khandual
-> <anshuman.khandual@arm.com> wrote:
-> >
-> >
-> >
-> > On 4/4/25 00:06, Kornel Dul=C4=99ba wrote:
-> > > When the 52-bit virtual addressing was enabled the select like
-> > > ARCH_MMAP_RND_BITS_MAX logic was never updated to account for it.
-> > > Because of that the rnd max bits would be set to the default value of
-> > > 18 when ARM64_VA_BITS=3D52.
-> > > Fix this by setting ARCH_MMAP_RND_BITS_MAX to the same value that wou=
-ld
-> > > be used if 48-bit addressing was used. That's because the 52-bit
-> > > addressing is used only if the caller provides a hint to mmap, with a
-> > > fallback to 48-bit addressing.
-> >
-> > Why should ARCH_MMAP_RND_BITS_MAX value be same for both 48 bits and 52
-> > bits VA in case the user does request for 52 bit VA via mmap() hint and
-> > the HW supports it ?
->
-> Two reasons really.
-> 1. The whole behavior is controlled through a global knob -
-> /proc/sys/vm/mmap_rnd_bits. ARCH_MMAP_RND_BITS_MAX is used as an upper
-> bound for the value that can be set to that knob.
-> So we have a single setting for all processes. Some might want 52 bit
-> addressing, others will stick with 48.
-> 2. Quoting the documentation for this knob:
->
-> """
-> mmap_rnd_bits
-> This value can be used to select the number of bits to use to
-> determine the random offset to the base address of vma regions
-> resulting from mmap allocations on architectures which support tuning
-> address space randomization. This value will be bounded by the
-> architecture=E2=80=99s minimum and maximum supported values.
-> """
->
-> I suppose that it's legal for some calls to mmap from the same process
-> to request a 52 bit VA, while other calls will want only 48 bits.
-> Because of that the random offset can't be larger than what would work
-> for the 48 bit case.
 
-Hi,
 
-Do you have any further comments?
+在 2025/4/14 11:46, Ankur Arora 写道:
+> 
+> Shuai Xue <xueshuai@linux.alibaba.com> writes:
+> 
+>> 在 2025/4/12 04:57, Ankur Arora 写道:
+>>> Shuai Xue <xueshuai@linux.alibaba.com> writes:
+>>>
+>>>> 在 2025/2/19 05:33, Ankur Arora 写道:
+>>>>> Needed for cpuidle-haltpoll.
+>>>>> Acked-by: Will Deacon <will@kernel.org>
+>>>>> Signed-off-by: Ankur Arora <ankur.a.arora@oracle.com>
+>>>>> ---
+>>>>>     arch/arm64/kernel/idle.c | 1 +
+>>>>>     1 file changed, 1 insertion(+)
+>>>>> diff --git a/arch/arm64/kernel/idle.c b/arch/arm64/kernel/idle.c
+>>>>> index 05cfb347ec26..b85ba0df9b02 100644
+>>>>> --- a/arch/arm64/kernel/idle.c
+>>>>> +++ b/arch/arm64/kernel/idle.c
+>>>>> @@ -43,3 +43,4 @@ void __cpuidle arch_cpu_idle(void)
+>>>>>     	 */
+>>>>>     	cpu_do_idle();
+>>>>
+>>>> Hi, Ankur,
+>>>>
+>>>> With haltpoll_driver registered, arch_cpu_idle() on x86 can select
+>>>> mwait_idle() in idle threads.
+>>>>
+>>>> It use MONITOR sets up an effective address range that is monitored
+>>>> for write-to-memory activities; MWAIT places the processor in
+>>>> an optimized state (this may vary between different implementations)
+>>>> until a write to the monitored address range occurs.
+>>> MWAIT is more capable than WFE -- it allows selection of deeper idle
+>>> state. IIRC C2/C3.
+>>>
+>>>> Should arch_cpu_idle() on arm64 also use the LDXR/WFE
+>>>> to avoid wakeup IPI like x86 monitor/mwait?
+>>> Avoiding the wakeup IPI needs TIF_NR_POLLING and polling in idle support
+>>> that this series adds.
+>>> As Haris notes, the negative with only using WFE is that it only allows
+>>> a single idle state, one that is fairly shallow because the event-stream
+>>> causes a wakeup every 100us.
+>>> --
+>>> ankur
+>>
+>> Hi, Ankur and Haris
+>>
+>> Got it, thanks for explaination :)
+>>
+>> Comparing sched-pipe performance on Rund with Yitian 710, *IPC improved 35%*:
+> 
+> Thanks for testing Shuai. I wasn't expecting the IPC to improve by quite
+> that much :). The reduced instructions make sense since we don't have to
+> handle the IRQ anymore but we would spend some of the saved cycles
+> waiting in WFE instead.
+> 
+> I'm not familiar with the Yitian 710. Can you check if you are running
+> with WFE? That's the __smp_cond_load_relaxed_timewait() path vs the
+> __smp_cond_load_relaxed_spinwait() path in [0]. Same question for the
+> Kunpeng 920.
 
-Regards
-Kornel
-> >
-> > >
-> > > Fixes: b6d00d47e81a ("arm64: mm: Introduce 52-bit Kernel VAs")
-> > > Signed-off-by: Kornel Dul=C4=99ba <korneld@google.com>
-> > > ---
-> > >  arch/arm64/Kconfig | 6 +++---
-> > >  1 file changed, 3 insertions(+), 3 deletions(-)
-> > >
-> > > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> > > index 748c34dc953c..38e0bac567f5 100644
-> > > --- a/arch/arm64/Kconfig
-> > > +++ b/arch/arm64/Kconfig
-> > > @@ -332,9 +332,9 @@ config ARCH_MMAP_RND_BITS_MAX
-> > >       default 24 if ARM64_VA_BITS=3D39
-> > >       default 27 if ARM64_VA_BITS=3D42
-> > >       default 30 if ARM64_VA_BITS=3D47
-> > > -     default 29 if ARM64_VA_BITS=3D48 && ARM64_64K_PAGES
-> > > -     default 31 if ARM64_VA_BITS=3D48 && ARM64_16K_PAGES
-> > > -     default 33 if ARM64_VA_BITS=3D48
-> > > +     default 29 if (ARM64_VA_BITS=3D48 || ARM64_VA_BITS=3D52) && ARM=
-64_64K_PAGES
-> > > +     default 31 if (ARM64_VA_BITS=3D48 || ARM64_VA_BITS=3D52) && ARM=
-64_16K_PAGES
-> > > +     default 33 if (ARM64_VA_BITS=3D48 || ARM64_VA_BITS=3D52)
-> > >       default 14 if ARM64_64K_PAGES
-> > >       default 16 if ARM64_16K_PAGES
-> > >       default 18
+Yes, it running with __smp_cond_load_relaxed_timewait().
+
+I use perf-probe to check if WFE is available in Guest:
+
+perf probe 'arch_timer_evtstrm_available%return r=$retval'
+perf record -e probe:arch_timer_evtstrm_available__return -aR sleep 1
+perf script
+swapper       0 [000]  1360.063049: probe:arch_timer_evtstrm_available__return: (ffff800080a5c640 <- ffff800080d42764) r=0x1
+
+arch_timer_evtstrm_available returns true, so
+__smp_cond_load_relaxed_timewait() is used.
+
+> 
+> Also, I'm working on a new version of the series in [1]. Would you be
+> okay trying that out?
+
+Sure. Please cc me when you send out a new version.
+
+> 
+> Thanks
+> Ankur
+> 
+> [0] https://lore.kernel.org/lkml/20250203214911.898276-1-ankur.a.arora@oracle.com/
+> [1] https://lore.kernel.org/lkml/20250203214911.898276-4-ankur.a.arora@oracle.com/
+> 
+
+Thanks.
+Shuai
 
