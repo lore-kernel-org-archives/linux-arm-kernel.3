@@ -4,71 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D3BBC369B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 20:28:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D039CC369B8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 20:28:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vER/u90S0SdkXA4UMsHIWKT1OAbjNluH8Bje8qojOyg=; b=nm52HI+N+LjwV0zKNbFg8SpDoU
-	w6HLiEOmK8MYUVzPoxNebayLG0MbTHbAIu6oE0o/kch2IRGiBMLkjjBrJ+LoHbk505dVdv9IftnQ9
-	c4h7NMrOxUK4JNN2wzqrquMW3P8ny6wk/Ut1aRk/QYeJNgU17yB8CRr1VKX1R2zYL32SbN0WSpX1w
-	FfURYrihVlIPYJi9VskGaCsagnCBtguKWAXka77/KWXSqxjz9loqjYsisx5vOvdm18qYbKtqwHMJn
-	4WGAwlX+bK9b3SrJWl1MJ2YiUI2Fdp1KZd4ARDCAAiF/Cm+/cFLLSbt3rWqulGX4CMc7unm9YHCkL
-	2mKm5WxA==;
+	bh=+y7I1oZWN2/po5vA16mDXvPmb5GbQ6NI0a1DSD0jx7c=; b=vc4HSJqCCX01CYEpSwp2hdHZQH
+	TwBfTohR0zoIqz4mMQmBo/Ww3MfbXCNHhMvNwLcNidS65oB08QMjTf5Ac1fpEHv10cgULx0xYuk95
+	+1cwwdboA+aKCvgwB+sSC89sZDmoOY3+p+HC3WmBG8xB37sq30km0U/3NjYZAWwe6Bre312FIRUpU
+	FEB1r3oT+kcU7jP0EVHU6hfC3n2IlIhi7haURUUar6MR51+fhfLqXXlHpVkbB3I0sLYihOn6Bmofe
+	UJAvaRP9sDioHCRp9EDQUfZx4zmUJrppimlLtNi4fi8X3tfLv32HxekHrBtmfOw2wI2Jg9VAyCYgm
+	jOX8FMVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4QPb-00000003SdJ-1J4L;
+	id 1u4QPb-00000003SdQ-3UMy;
 	Mon, 14 Apr 2025 20:28:11 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4P5O-00000003C2M-0uZn
+	id 1u4PF2-00000003GL1-3Oij
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 14 Apr 2025 19:13:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=+y7I1oZWN2/po5vA16mDXvPmb5GbQ6NI0a1DSD0jx7c=; b=Wd8hchKDFb/wQutq1CsbTUYVGT
+	LYBWeAEsnYlL/84thPFAiajeGnJ85qhIpNvbL2CM4zY5ob7fWDfIWRCQy1ZtSMOUGHbaNOB4GPmkn
+	ZmMO6a+luMvw/aMlXdGE2VfMTpWuXi/IU1gH9uHsYi5IrThKAm58U15ALfxnz84XU6mwqrapqx9mv
+	pmoH8zUSmzXouP/LKtEPBtLf3NGYvCFwi0kI7ru4zXrqGJymYmYlVu+ZwLGb1r4UyzzkuV9UlxoSK
+	F9aA6zI3gkfZ2SesAMzCCv0yseuRtK+1WEJmzQj/C18JkQdpftlrx6vCcOGO6NlyNRNlNe5Xv+v5g
+	FBVhDj5g==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u4PEm-00000009kzE-2H2H
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 19:03:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1744657391;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=vER/u90S0SdkXA4UMsHIWKT1OAbjNluH8Bje8qojOyg=;
-	b=IoGvnelvrgV9+8y/E8UfJPxGZhYC1Q8WFLQZx9bpuxsKs+cnlsgOLeC1ejrYutZDPjyaEd
-	qsoafHgdP6KvV1DNbqZu6PwkUHXtIZagyuJYvnaKECVNRde32sh7hOTOG7vZhkEBgHyuZu
-	IWgycaEhlXV/mUSVg6iBDuN3ZSj31Gk=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-434-OLZCfNeFO86PPG6ahcSEUA-1; Mon,
- 14 Apr 2025 15:03:07 -0400
-X-MC-Unique: OLZCfNeFO86PPG6ahcSEUA-1
-X-Mimecast-MFC-AGG-ID: OLZCfNeFO86PPG6ahcSEUA_1744657386
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 46CD019560B5;
-	Mon, 14 Apr 2025 19:03:06 +0000 (UTC)
-Received: from [172.20.251.156] (unknown [10.30.44.99])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id DD3001808867;
-	Mon, 14 Apr 2025 19:03:04 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.15.0-rc2,
- upstream-arm-next, c7269210)
-Date: Mon, 14 Apr 2025 19:03:04 -0000
-To: will@kernel.org, linux-arm-kernel@lists.infradead.org,
- catalin.marinas@arm.com
+	Mon, 14 Apr 2025 19:13:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 89B9743C5A;
+	Mon, 14 Apr 2025 19:12:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 58162C4CEE2;
+	Mon, 14 Apr 2025 19:12:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744657950;
+	bh=6BqgelGhI6z4Y+nuFdm2UZwyVMhVkDOkptQV5GFW2ww=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=YwOXZP9oUQrIkjckCiga6ktjbWj+V3K4nTVJSiXpj0ITpu5PwNRPa7PtvDkuemePW
+	 pqMleumOZ238lUV9p0/sPTbrHGZOox1NFM/xBwvvxB2EKbIrPQscZP1xUiB4FCs5nE
+	 V/LFZ09oZnYRgEcAp1rP6mNJdfOUM8RKeFb3JT/AVFPCzDiYY874oC9NNYJayO8NHc
+	 l9tvqv62kSaIsbYacxghFhs4ByVuY9TNm5crSYMFwVr4pSvZEhNRfdePO40Eh1R57a
+	 ELhXmaZ8WAojKYKL+oDikCJTWF4v4YwnKG6MQKqAu3UicttAnKGO62dtrzxrrhahXR
+	 oE0wrpOCBaBmg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4926BC369B2;
+	Mon, 14 Apr 2025 19:12:30 +0000 (UTC)
+From: David Heidelberg via B4 Relay <devnull+david.ixit.cz@kernel.org>
+Date: Mon, 14 Apr 2025 21:12:29 +0200
+Subject: [PATCH v2] media: dt-bindings: media: i2c: align filenames format
+ with standard
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
-Message-Id: <02753.125041415030701045@us-mta-434.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 8WqgTndvmS60Vg3yVCzir7YzmOKKLGIkJpuJlfeigHY_1744657386
-X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250414-media-i2c-align-filenames-v2-1-e133749e0d45@ixit.cz>
+X-B4-Tracking: v=1; b=H4sIABxe/WcC/43OQQqDMBCF4atI1h1JgiHaVe9RXAxm1AGNJQliK
+ 9690U23Xf6L9/F2ESkwRXEvdhFo5ciLz6FvhehG9AMBu9xCS21kpSqYyTEC6w5w4sFDzxN5nCm
+ CrZ0iiw4NaZH3r0A9b5f9bHP3YZkhjYHwJ2rZqMYYZUtV1VZKUOBwZffgjVPZfU5n5JiW8L4ur
+ urU/ty2x3F8ARqwiV/hAAAA
+X-Change-ID: 20250414-media-i2c-align-filenames-78d1e7ada5e2
+To: Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, 
+ Kieran Bingham <kieran.bingham@ideasonboard.com>, 
+ Hans Verkuil <hverkuil@xs4all.nl>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Ramesh Shanmugasundaram <rashanmu@gmail.com>, 
+ Tim Harvey <tharvey@gateworks.com>, Akinobu Mita <akinobu.mita@gmail.com>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ =?utf-8?q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+ =?utf-8?q?Niklas_S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>, 
+ David Heidelberg <david@ixit.cz>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=14828; i=david@ixit.cz;
+ h=from:subject:message-id;
+ bh=mHA4VTRSwJqrHD9O7Hk/y42cNsbaTKLbs1trwGNiN7s=;
+ b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBn/V4dI1Uqb5A2eVfK55PAo3SrBDt0/GSIzl/Ko
+ eow13167vCJAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCZ/1eHQAKCRBgAj/E00kg
+ cprOD/9STCZP+f4B2Gk/JAq0OtZXl4f79OQCKH7JBc60tXtqV0c2hPRAPo0eQ7dabxfOLad9la+
+ uMu4QKvLrGO5iumZDEEgtwL6iXGjfy81A565o4/6iyfXJLTGRmycma+nwq2OdKJXF+HhieTYt+M
+ hBzD8ZVn/nkQFe/KaNEq4qHKF6i0L5gLCK1IFaD2RhK/vGR2vPCBnf2+v3sqTSpX9Uh3M2PZC/l
+ nS2iuzpKQ4heCsX7bHYCy0CTWmL9R7ZZeWEXEgQlVOsm1mK8CN8LzH50pw6U0o5ijsPLaPCli66
+ v6gIxKDgrzfEAk8aRSc2N/bopsa+UtGMDKDk25dtloI9uuf5CaKeHA0MLPnR4QwekHiYhtKdPgC
+ wHTJRjYTLfp2RxXnNOs315BIMB0XcxUcgMeW6/i6i9YIH9is+pAXfjT7R7ohXkrC4CNWqlFNz+H
+ q5wToEqXWoRtwOcuuAprxxfwFqRl9t/ZcLIYkx6Xgp2z1pCeIR9pZnIvVUmQIDAVsgGOP7LRsCr
+ RKW69UvxjRgXIdn/lmyP1JRX2MsgXkAmSp6mr+r4LH+Vu+Qp/ese05VWPTubW7E4A5/FnmtZlz2
+ hyGFaDVa362I0WwYG6hfXpgr6wzkmOjq0Kaqta2tg3HAE1LXWj6ieT/kfU8gBb5C5a7T7W6oOtp
+ vTgqt6gE0BWikDQ==
+X-Developer-Key: i=david@ixit.cz; a=openpgp;
+ fpr=D77A09CFEEDC2BBD53A7047460023FC4D3492072
+X-Endpoint-Received: by B4 Relay for david@ixit.cz/default with auth_id=355
+X-Original-From: David Heidelberg <david@ixit.cz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_120314_411186_1AD1F09E 
-X-CRM114-Status: UNSURE (   6.16  )
+X-CRM114-CacheID: sfid-20250414_201300_749825_2586C37B 
+X-CRM114-Status: UNSURE (   8.83  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,41 +129,296 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: david@ixit.cz
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+From: David Heidelberg <david@ixit.cz>
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
-              Test: OK
+Append missing vendor and align with other sony definitions.
 
-Tested-by: CKI Project <cki-project@redhat.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Reviewed-by: Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
+Signed-off-by: David Heidelberg <david@ixit.cz>
+---
+Changes in v2:
+- Omit touching ad5820.txt which is being converted to YAML by another
+  patch in parallel.
+- Link to v1: https://lore.kernel.org/r/20250209195517.148700-1-david@ixit.cz
+---
+ .../media/i2c/{adp1653.txt => adi,adp1653.txt}      |  0
+ .../media/i2c/{adv7180.yaml => adi,adv7180.yaml}    |  2 +-
+ .../media/i2c/{adv7343.txt => adi,adv7343.txt}      |  0
+ .../media/i2c/{adv748x.yaml => adi,adv748x.yaml}    |  2 +-
+ .../media/i2c/{adv7604.yaml => adi,adv7604.yaml}    |  2 +-
+ .../media/i2c/{mt9v032.txt => aptina,mt9v032.txt}   |  0
+ .../media/i2c/{max2175.txt => maxim,max2175.txt}    |  0
+ .../media/i2c/{mt9m111.txt => micron,mt9m111.txt}   |  0
+ .../media/i2c/{tda1997x.txt => nxp,tda1997x.txt}    |  0
+ .../media/i2c/{mt9m001.txt => onnn,mt9m001.txt}     |  0
+ .../media/i2c/{ov2640.txt => ovti,ov2640.txt}       |  0
+ .../media/i2c/{ov2659.txt => ovti,ov2659.txt}       |  0
+ .../media/i2c/{ov7670.txt => ovti,ov7670.txt}       |  0
+ .../media/i2c/{ov7740.txt => ovti,ov7740.txt}       |  0
+ .../media/i2c/{ov9650.txt => ovti,ov9650.txt}       |  0
+ .../media/i2c/{imx219.yaml => sony,imx219.yaml}     |  2 +-
+ .../media/i2c/{ths8200.txt => ti,ths8200.txt}       |  0
+ .../media/i2c/{tvp514x.txt => ti,tvp514x.txt}       |  0
+ .../media/i2c/{tvp5150.txt => ti,tvp5150.txt}       |  0
+ .../media/i2c/{tvp7002.txt => ti,tvp7002.txt}       |  0
+ .../i2c/{tc358743.txt => toshiba,tc358743.txt}      |  0
+ MAINTAINERS                                         | 21 ++++++++++++---------
+ 22 files changed, 16 insertions(+), 13 deletions(-)
 
-Kernel information:
-    Commit message: Merge branch 'for-next/core' into for-kernelci
+diff --git a/Documentation/devicetree/bindings/media/i2c/adp1653.txt b/Documentation/devicetree/bindings/media/i2c/adi,adp1653.txt
+similarity index 100%
+rename from Documentation/devicetree/bindings/media/i2c/adp1653.txt
+rename to Documentation/devicetree/bindings/media/i2c/adi,adp1653.txt
+diff --git a/Documentation/devicetree/bindings/media/i2c/adv7180.yaml b/Documentation/devicetree/bindings/media/i2c/adi,adv7180.yaml
+similarity index 98%
+rename from Documentation/devicetree/bindings/media/i2c/adv7180.yaml
+rename to Documentation/devicetree/bindings/media/i2c/adi,adv7180.yaml
+index 9ee1483775f60905d300fe909f10052a00183fbe..dee8ce7cb7ba2e9e8c3d6018c164f63bb612ad1b 100644
+--- a/Documentation/devicetree/bindings/media/i2c/adv7180.yaml
++++ b/Documentation/devicetree/bindings/media/i2c/adi,adv7180.yaml
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+ %YAML 1.2
+ ---
+-$id: http://devicetree.org/schemas/media/i2c/adv7180.yaml#
++$id: http://devicetree.org/schemas/media/i2c/adi,adv7180.yaml#
+ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ 
+ title: Analog Devices ADV7180 analog video decoder family
+diff --git a/Documentation/devicetree/bindings/media/i2c/adv7343.txt b/Documentation/devicetree/bindings/media/i2c/adi,adv7343.txt
+similarity index 100%
+rename from Documentation/devicetree/bindings/media/i2c/adv7343.txt
+rename to Documentation/devicetree/bindings/media/i2c/adi,adv7343.txt
+diff --git a/Documentation/devicetree/bindings/media/i2c/adv748x.yaml b/Documentation/devicetree/bindings/media/i2c/adi,adv748x.yaml
+similarity index 98%
+rename from Documentation/devicetree/bindings/media/i2c/adv748x.yaml
+rename to Documentation/devicetree/bindings/media/i2c/adi,adv748x.yaml
+index d6353081402bed849467e2cd003d80fe0e9d2734..254987350321bcff7ef255d2b4decdf5fa26bce7 100644
+--- a/Documentation/devicetree/bindings/media/i2c/adv748x.yaml
++++ b/Documentation/devicetree/bindings/media/i2c/adi,adv748x.yaml
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+ %YAML 1.2
+ ---
+-$id: http://devicetree.org/schemas/media/i2c/adv748x.yaml#
++$id: http://devicetree.org/schemas/media/i2c/adi,adv748x.yaml#
+ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ 
+ title: Analog Devices ADV748X video decoder with HDMI receiver
+diff --git a/Documentation/devicetree/bindings/media/i2c/adv7604.yaml b/Documentation/devicetree/bindings/media/i2c/adi,adv7604.yaml
+similarity index 98%
+rename from Documentation/devicetree/bindings/media/i2c/adv7604.yaml
+rename to Documentation/devicetree/bindings/media/i2c/adi,adv7604.yaml
+index 7589d377c686450bb0065de94091f9f6678b9413..6c403003cdda1ea0ac33a2b6be6d7477fb5fd44a 100644
+--- a/Documentation/devicetree/bindings/media/i2c/adv7604.yaml
++++ b/Documentation/devicetree/bindings/media/i2c/adi,adv7604.yaml
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+ %YAML 1.2
+ ---
+-$id: http://devicetree.org/schemas/media/i2c/adv7604.yaml#
++$id: http://devicetree.org/schemas/media/i2c/adi,adv7604.yaml#
+ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ 
+ title: Analog Devices ADV7604/10/11/12 video decoder with HDMI receiver
+diff --git a/Documentation/devicetree/bindings/media/i2c/mt9v032.txt b/Documentation/devicetree/bindings/media/i2c/aptina,mt9v032.txt
+similarity index 100%
+rename from Documentation/devicetree/bindings/media/i2c/mt9v032.txt
+rename to Documentation/devicetree/bindings/media/i2c/aptina,mt9v032.txt
+diff --git a/Documentation/devicetree/bindings/media/i2c/max2175.txt b/Documentation/devicetree/bindings/media/i2c/maxim,max2175.txt
+similarity index 100%
+rename from Documentation/devicetree/bindings/media/i2c/max2175.txt
+rename to Documentation/devicetree/bindings/media/i2c/maxim,max2175.txt
+diff --git a/Documentation/devicetree/bindings/media/i2c/mt9m111.txt b/Documentation/devicetree/bindings/media/i2c/micron,mt9m111.txt
+similarity index 100%
+rename from Documentation/devicetree/bindings/media/i2c/mt9m111.txt
+rename to Documentation/devicetree/bindings/media/i2c/micron,mt9m111.txt
+diff --git a/Documentation/devicetree/bindings/media/i2c/tda1997x.txt b/Documentation/devicetree/bindings/media/i2c/nxp,tda1997x.txt
+similarity index 100%
+rename from Documentation/devicetree/bindings/media/i2c/tda1997x.txt
+rename to Documentation/devicetree/bindings/media/i2c/nxp,tda1997x.txt
+diff --git a/Documentation/devicetree/bindings/media/i2c/mt9m001.txt b/Documentation/devicetree/bindings/media/i2c/onnn,mt9m001.txt
+similarity index 100%
+rename from Documentation/devicetree/bindings/media/i2c/mt9m001.txt
+rename to Documentation/devicetree/bindings/media/i2c/onnn,mt9m001.txt
+diff --git a/Documentation/devicetree/bindings/media/i2c/ov2640.txt b/Documentation/devicetree/bindings/media/i2c/ovti,ov2640.txt
+similarity index 100%
+rename from Documentation/devicetree/bindings/media/i2c/ov2640.txt
+rename to Documentation/devicetree/bindings/media/i2c/ovti,ov2640.txt
+diff --git a/Documentation/devicetree/bindings/media/i2c/ov2659.txt b/Documentation/devicetree/bindings/media/i2c/ovti,ov2659.txt
+similarity index 100%
+rename from Documentation/devicetree/bindings/media/i2c/ov2659.txt
+rename to Documentation/devicetree/bindings/media/i2c/ovti,ov2659.txt
+diff --git a/Documentation/devicetree/bindings/media/i2c/ov7670.txt b/Documentation/devicetree/bindings/media/i2c/ovti,ov7670.txt
+similarity index 100%
+rename from Documentation/devicetree/bindings/media/i2c/ov7670.txt
+rename to Documentation/devicetree/bindings/media/i2c/ovti,ov7670.txt
+diff --git a/Documentation/devicetree/bindings/media/i2c/ov7740.txt b/Documentation/devicetree/bindings/media/i2c/ovti,ov7740.txt
+similarity index 100%
+rename from Documentation/devicetree/bindings/media/i2c/ov7740.txt
+rename to Documentation/devicetree/bindings/media/i2c/ovti,ov7740.txt
+diff --git a/Documentation/devicetree/bindings/media/i2c/ov9650.txt b/Documentation/devicetree/bindings/media/i2c/ovti,ov9650.txt
+similarity index 100%
+rename from Documentation/devicetree/bindings/media/i2c/ov9650.txt
+rename to Documentation/devicetree/bindings/media/i2c/ovti,ov9650.txt
+diff --git a/Documentation/devicetree/bindings/media/i2c/imx219.yaml b/Documentation/devicetree/bindings/media/i2c/sony,imx219.yaml
+similarity index 97%
+rename from Documentation/devicetree/bindings/media/i2c/imx219.yaml
+rename to Documentation/devicetree/bindings/media/i2c/sony,imx219.yaml
+index 07d088cf66e0bde362b12d3494e5c91a1dd96bf3..8b23e5fc6a24f5ce55986b44218f82b8281875bc 100644
+--- a/Documentation/devicetree/bindings/media/i2c/imx219.yaml
++++ b/Documentation/devicetree/bindings/media/i2c/sony,imx219.yaml
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+ %YAML 1.2
+ ---
+-$id: http://devicetree.org/schemas/media/i2c/imx219.yaml#
++$id: http://devicetree.org/schemas/media/i2c/sony,imx219.yaml#
+ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ 
+ title: Sony 1/4.0-Inch 8Mpixel CMOS Digital Image Sensor
+diff --git a/Documentation/devicetree/bindings/media/i2c/ths8200.txt b/Documentation/devicetree/bindings/media/i2c/ti,ths8200.txt
+similarity index 100%
+rename from Documentation/devicetree/bindings/media/i2c/ths8200.txt
+rename to Documentation/devicetree/bindings/media/i2c/ti,ths8200.txt
+diff --git a/Documentation/devicetree/bindings/media/i2c/tvp514x.txt b/Documentation/devicetree/bindings/media/i2c/ti,tvp514x.txt
+similarity index 100%
+rename from Documentation/devicetree/bindings/media/i2c/tvp514x.txt
+rename to Documentation/devicetree/bindings/media/i2c/ti,tvp514x.txt
+diff --git a/Documentation/devicetree/bindings/media/i2c/tvp5150.txt b/Documentation/devicetree/bindings/media/i2c/ti,tvp5150.txt
+similarity index 100%
+rename from Documentation/devicetree/bindings/media/i2c/tvp5150.txt
+rename to Documentation/devicetree/bindings/media/i2c/ti,tvp5150.txt
+diff --git a/Documentation/devicetree/bindings/media/i2c/tvp7002.txt b/Documentation/devicetree/bindings/media/i2c/ti,tvp7002.txt
+similarity index 100%
+rename from Documentation/devicetree/bindings/media/i2c/tvp7002.txt
+rename to Documentation/devicetree/bindings/media/i2c/ti,tvp7002.txt
+diff --git a/Documentation/devicetree/bindings/media/i2c/tc358743.txt b/Documentation/devicetree/bindings/media/i2c/toshiba,tc358743.txt
+similarity index 100%
+rename from Documentation/devicetree/bindings/media/i2c/tc358743.txt
+rename to Documentation/devicetree/bindings/media/i2c/toshiba,tc358743.txt
+diff --git a/MAINTAINERS b/MAINTAINERS
+index af3537005de35dfd0ded11bdc2b9c63e10c70e93..aed17acd8845f24ebbe99b5a12763ae8cbf4623d 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -528,6 +528,7 @@ ADP1653 FLASH CONTROLLER DRIVER
+ M:	Sakari Ailus <sakari.ailus@iki.fi>
+ L:	linux-media@vger.kernel.org
+ S:	Maintained
++F:	Documentation/devicetree/bindings/media/i2c/adi,adp1653.txt
+ F:	drivers/media/i2c/adp1653.c
+ F:	include/media/i2c/adp1653.h
+ 
+@@ -1596,14 +1597,14 @@ M:	Lars-Peter Clausen <lars@metafoo.de>
+ L:	linux-media@vger.kernel.org
+ S:	Supported
+ W:	https://ez.analog.com/linux-software-drivers
+-F:	Documentation/devicetree/bindings/media/i2c/adv7180.yaml
++F:	Documentation/devicetree/bindings/media/i2c/adi,adv7180.yaml
+ F:	drivers/media/i2c/adv7180.c
+ 
+ ANALOG DEVICES INC ADV748X DRIVER
+ M:	Kieran Bingham <kieran.bingham@ideasonboard.com>
+ L:	linux-media@vger.kernel.org
+ S:	Maintained
+-F:	Documentation/devicetree/bindings/media/i2c/adv748x.yaml
++F:	Documentation/devicetree/bindings/media/i2c/adi,adv748x.yaml
+ F:	drivers/media/i2c/adv748x/*
+ 
+ ANALOG DEVICES INC ADV7511 DRIVER
+@@ -1616,7 +1617,7 @@ ANALOG DEVICES INC ADV7604 DRIVER
+ M:	Hans Verkuil <hverkuil-cisco@xs4all.nl>
+ L:	linux-media@vger.kernel.org
+ S:	Maintained
+-F:	Documentation/devicetree/bindings/media/i2c/adv7604.yaml
++F:	Documentation/devicetree/bindings/media/i2c/adi,adv7604.yaml
+ F:	drivers/media/i2c/adv7604*
+ 
+ ANALOG DEVICES INC ADV7842 DRIVER
+@@ -14480,7 +14481,7 @@ M:	Ramesh Shanmugasundaram <rashanmu@gmail.com>
+ L:	linux-media@vger.kernel.org
+ S:	Maintained
+ T:	git git://linuxtv.org/media.git
+-F:	Documentation/devicetree/bindings/media/i2c/max2175.txt
++F:	Documentation/devicetree/bindings/media/i2c/maxim,max2175.txt
+ F:	Documentation/userspace-api/media/drivers/max2175.rst
+ F:	drivers/media/i2c/max2175*
+ F:	include/uapi/linux/max2175.h
+@@ -16553,7 +16554,7 @@ M:	Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+ L:	linux-media@vger.kernel.org
+ S:	Maintained
+ T:	git git://linuxtv.org/media.git
+-F:	Documentation/devicetree/bindings/media/i2c/mt9v032.txt
++F:	Documentation/devicetree/bindings/media/i2c/aptina,mt9v032.txt
+ F:	drivers/media/i2c/mt9v032.c
+ F:	include/media/i2c/mt9v032.h
+ 
+@@ -18007,7 +18008,7 @@ OMNIVISION OV7740 SENSOR DRIVER
+ L:	linux-media@vger.kernel.org
+ S:	Orphan
+ T:	git git://linuxtv.org/media.git
+-F:	Documentation/devicetree/bindings/media/i2c/ov7740.txt
++F:	Documentation/devicetree/bindings/media/i2c/ovti,ov7740.txt
+ F:	drivers/media/i2c/ov7740.c
+ 
+ OMNIVISION OV8856 SENSOR DRIVER
+@@ -18048,7 +18049,7 @@ R:	Sylwester Nawrocki <s.nawrocki@samsung.com>
+ L:	linux-media@vger.kernel.org
+ S:	Maintained
+ T:	git git://linuxtv.org/media.git
+-F:	Documentation/devicetree/bindings/media/i2c/ov9650.txt
++F:	Documentation/devicetree/bindings/media/i2c/ovti,ov9650.txt
+ F:	drivers/media/i2c/ov9650.c
+ 
+ OMNIVISION OV9734 SENSOR DRIVER
+@@ -18253,6 +18254,7 @@ S:	Maintained
+ W:	https://linuxtv.org
+ Q:	http://patchwork.linuxtv.org/project/linux-media/list/
+ T:	git git://linuxtv.org/mhadli/v4l-dvb-davinci_devices.git
++F:	Documentation/devicetree/bindings/media/i2c/ovti,ov2659.txt
+ F:	drivers/media/i2c/ov2659.c
+ F:	include/media/i2c/ov2659.h
+ 
+@@ -22554,7 +22556,7 @@ M:	Dave Stevenson <dave.stevenson@raspberrypi.com>
+ L:	linux-media@vger.kernel.org
+ S:	Maintained
+ T:	git git://linuxtv.org/media.git
+-F:	Documentation/devicetree/bindings/media/i2c/imx219.yaml
++F:	Documentation/devicetree/bindings/media/i2c/sony,imx219.yaml
+ F:	drivers/media/i2c/imx219.c
+ 
+ SONY IMX258 SENSOR DRIVER
+@@ -23686,6 +23688,7 @@ L:	linux-media@vger.kernel.org
+ S:	Maintained
+ W:	https://linuxtv.org
+ Q:	http://patchwork.linuxtv.org/project/linux-media/list/
++F:	Documentation/devicetree/bindings/media/i2c/nxp,tda1997x.txt
+ F:	drivers/media/i2c/tda1997x.*
+ 
+ TDA827x MEDIA DRIVER
+@@ -24523,7 +24526,7 @@ TOSHIBA TC358743 DRIVER
+ M:	Hans Verkuil <hverkuil-cisco@xs4all.nl>
+ L:	linux-media@vger.kernel.org
+ S:	Maintained
+-F:	Documentation/devicetree/bindings/media/i2c/tc358743.txt
++F:	Documentation/devicetree/bindings/media/i2c/toshiba,tc358743.txt
+ F:	drivers/media/i2c/tc358743*
+ F:	include/media/i2c/tc358743.h
+ 
 
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1768012154
+---
+base-commit: b425262c07a6a643ebeed91046e161e20b944164
+change-id: 20250414-media-i2c-align-filenames-78d1e7ada5e2
 
+Best regards,
+-- 
+David Heidelberg <david@ixit.cz>
 
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
 
 
