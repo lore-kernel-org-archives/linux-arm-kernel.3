@@ -4,61 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62C3BC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 12:28:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93225C369B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 12:29:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tZfSgCqT1MXPjGamUD2POr5pRB19OSpD8x2p74mlHYA=; b=BUgElE0YnaHUpE6btokBsHz8Zl
-	BVLQVmhlksSzj2zcn+LvpsLnLecZOrZydOs4OefoM0WcrA6asacfFUR6GGFEqlHqYx/rF2q2VPtdL
-	Agt3q72R/icCRT/XjnmMMH0zTMCeAu2ZajOWbek5gW2iN4kelKpyqmkuP5un3tVSOk4dbmdH7AhJS
-	TIBf3RKNR3Hm7yPgxca+FyV2sMTxQviXN76UlY3qA3uymg7LjJS2CEs3ggdju9oVe4CFsudREmaX5
-	uKER6z4uJQR46vuucJLzocbcrA1JkGZe4pwN82eLMYXTeGoRU7Ayockydy9RmlQuAkghWoXvjD962
-	V3OpQQ/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bGrXNa6dHXvr4kroK+MTw5NQiqX7zWwS0Ak/+A0yv10=; b=XXfj2MUVpdml1uKSs9qs5VAwdf
+	O3f/rQZoAIYxjSZy2XTXOvLTR2t40M6S8lnhNsyncRBORVyLHT9WD1zSwBbF+KyjqZhYsC8BKXHBJ
+	UHf/iSAi7h2wgNksiMdF+4i07T39BzjVLa0MQTQ/PRxT4S9j2od2O4zGtgazlHn1SPPqlF2FvX06O
+	vKR6wpE9ZxovJWspW2bM0HffZN+WVwpdyFbcIFdgwf+lxJkflIqhGauu6sMxuEtf0C4/Aw7hn3MuM
+	dIw9KIoZdPFuMelU44NFDgayTsVrLVcXxK5BSprCKBJTDckaCwv7ILrRulzX+2d4/WwD0kJAOZ3lY
+	3Jou4R0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Iup-00000001wL2-1kdB;
-	Mon, 14 Apr 2025 12:27:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4IfC-00000001tyn-1d4V
+	id 1u4Iwe-00000001waQ-0mNi;
+	Mon, 14 Apr 2025 12:29:48 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u4Ihg-00000001uWd-04B2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 12:11:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6B6091007;
-	Mon, 14 Apr 2025 05:11:44 -0700 (PDT)
-Received: from [10.57.86.225] (unknown [10.57.86.225])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E8CA83F694;
-	Mon, 14 Apr 2025 05:11:43 -0700 (PDT)
-Message-ID: <f0e109c7-6bb2-4218-bc76-c5de39184064@arm.com>
-Date: Mon, 14 Apr 2025 13:11:42 +0100
+	Mon, 14 Apr 2025 12:14:21 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53E99qg2016550
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 12:14:19 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=bGrXNa6dHXvr4kroK+MTw5NQ
+	iqX7zWwS0Ak/+A0yv10=; b=ZNnmEjjePUV+BrjhfwfZTyG1deE26VgjPzjuXCo2
+	YWBhbuGcHoo2EGQ7wYQa84DJiFY6uKeFTtqeAq2pA4PidWV0R6BqXsNcSSbf8MBe
+	YF0B3Y7ghr7H95bhvH9LgPrqCSdABJrEiOPd5UpukkduE75MokYhKwkrc6nQwGON
+	1WPuc2Z2hQA1rfj82vrIGp/zNwzMH2ygBfWAFOtNX7k6ch8kF/5ijpbVTnYBZTwi
+	njM6B/f7Ox90/VGAKNDEnn+Z7cORaoJQxSkMSPUzkunN++eE+slgLMUCYwFYX4RW
+	gTjDEUB0NwlU3JemWDeeJiW8oyF+fZxUNvumTEkU/zMIuw==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45yf69mhuu-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 12:14:18 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-7c5750ca8b2so678037085a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 05:14:18 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744632858; x=1745237658;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bGrXNa6dHXvr4kroK+MTw5NQiqX7zWwS0Ak/+A0yv10=;
+        b=uk6CkHV9SYNFRfGeu7l89We+OVpTxwHkvUcET6HSZcq39BkK5sd260yvNicu1KdWHy
+         FRuD1xqRZjntZn7gVIh8JKM4T7xsE3lP+ev9rCjeufn13KgGtlAkQclnt7NsxjO3FanB
+         vZ8tT7n/y5+VZjALj3yjBNao35kAzKJ4hSynSNF+YWiRm6rD+GOksbbL8mzs3/ScYVsO
+         Jtaag75BFeS0MDNUF9LaEI5yd1ehhLUPbqmw0JcfucSxAgMb5ahnzwhaOJRRq/EWaMJR
+         u8SQg50mRf24WZoVsq8t587y2D/tG9/drxRQgs4VJLdk1Qg2e//77CHvuEGy3/J3lD8u
+         c2kQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU6fCtpY+RTvleSjYnuBylqKJ3BNP9yd/Xj9OoBZZsDkG9MeXAeJmAv6gnvuhRjHFMeeiM4mHxqEt1R5oaaQ++k@lists.infradead.org
+X-Gm-Message-State: AOJu0YxbVN4KRAKu/RwA4O3+YaZu8SpSauMmqGmXTdpCj6MU9wR+nQIH
+	z07kEN0b5mqi00r1xan1BIc6/x+O0bjoeJ9hAKwR5GsSw1KqbsfVcbP79op6oZmCT+yIlGjxP0D
+	nER2ixcN3euZoYxPDfayCbEctkL+NfmPQUIDbrzjR8zQEaG3iauVRebGrlWRn69zpkhRMEhSKPQ
+	==
+X-Gm-Gg: ASbGncsRfeTIytdsbGI4NTVehP9ejc/rPVrR6V/zMJya14iI6bK7wKj5nQpPho1bckv
+	jA3rdJiRZ5iVCUmYay4TrRjcj5ZCFpvtMHFFpDq8K6DMOrorS3TiMu3SlWPWpr2vU+j0ReykFzg
+	D2Q3K9E1NiiasvSHbDpllQsMWJPUnS/nRe75FxIZ00gJjv6CbCMb2++rlA6dNPUhvNtSk47tBvV
+	yD/Xg+akAQTKaoJEHSxAdtszLKFxorwo+mIqZ4VpAn1i+TK2/5LiX7a+8j15Z/Ng5wauMzDIL8S
+	Mlw9fAaCU1Rn84mLk7dDa4k5BsYFv4CqLs1pP9VZ2ad2uCIfrcvQ4y9TenKDNLPOfP7vvBEKFus
+	=
+X-Received: by 2002:a05:620a:40c7:b0:7c5:4001:3e9f with SMTP id af79cd13be357-7c7af0e0f5emr1701934885a.29.1744632857849;
+        Mon, 14 Apr 2025 05:14:17 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFxzp5iYZiEnUZWE3gvlgW+sXTiIEbnk35cNdFG+zRQtIEUe8+f5w9ReiZy8l+u4jZmVg+wwA==
+X-Received: by 2002:a05:620a:40c7:b0:7c5:4001:3e9f with SMTP id af79cd13be357-7c7af0e0f5emr1701928685a.29.1744632857299;
+        Mon, 14 Apr 2025 05:14:17 -0700 (PDT)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54d3d2386b6sm1128164e87.72.2025.04.14.05.14.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 14 Apr 2025 05:14:16 -0700 (PDT)
+Date: Mon, 14 Apr 2025 15:14:14 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Cc: Rob Clark <robdclark@gmail.com>, Abhinav Kumar <quic_abhinavk@quicinc.com>,
+        Dmitry Baryshkov <lumag@kernel.org>, Sean Paul <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Kuogee Hsieh <quic_khsieh@quicinc.com>,
+        Krishna Manikandan <quic_mkrishn@quicinc.com>,
+        Jonathan Marek <jonathan@marek.ca>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+        Joerg Roedel <joro@8bytes.org>, Konrad Dybcio <konradybcio@kernel.org>,
+        linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
+        freedreno@lists.freedesktop.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org,
+        Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Subject: Re: [PATCH v2 10/10] arm64: dts: qcom: sar2130p: add display nodes
+Message-ID: <fd2dtxhbfvgpiwy7rc5z4hrrmuthet7bmp6iespdcvxgaz5uhe@ivg2gun7sb6q>
+References: <20250314-sar2130p-display-v2-0-31fa4502a850@oss.qualcomm.com>
+ <20250314-sar2130p-display-v2-10-31fa4502a850@oss.qualcomm.com>
+ <c14dfd37-7d12-40c3-8281-fd0a7410813e@oss.qualcomm.com>
+ <umhperyjdgiz4bo6grbxfhe44wiwoqb3w3qrzg62gf3ty66mjq@pddxfo3kkohv>
+ <8fe8c0f8-71d5-4a85-96e5-17cb4773820d@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] mm/contpte: Optimize loop to reduce redundant
- operations
-Content-Language: en-GB
-To: Dev Jain <dev.jain@arm.com>, Lance Yang <ioworker0@gmail.com>,
- Xavier <xavier_qy@163.com>
-Cc: Barry Song <21cnbao@gmail.com>, catalin.marinas@arm.com, will@kernel.org,
- akpm@linux-foundation.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, David Hildenbrand <david@redhat.com>,
- Matthew Wilcox <willy@infradead.org>, Zi Yan <ziy@nvidia.com>
-References: <20250407092243.2207837-1-xavier_qy@163.com>
- <CAGsJ_4wsW+urp6gbp+yDG40fZw9Bszny2iJVsV_AzzGqgQy+4g@mail.gmail.com>
- <7dccb3a2-f5e2-4f9e-8f5c-465a1d3ffdb6@arm.com>
- <CAK1f24=5-VVJoE75wrskXxrGi=KmrbxSYH9P69PRPiOxQuArpA@mail.gmail.com>
- <1613c84e-1e65-44cd-9f23-1c9870df4655@arm.com>
- <a084d29e-8027-4d20-a1b4-584bdbbe111d@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <a084d29e-8027-4d20-a1b4-584bdbbe111d@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <8fe8c0f8-71d5-4a85-96e5-17cb4773820d@oss.qualcomm.com>
+X-Proofpoint-GUID: vf7iiAyMSjaOr9wdndxkUOKPB0izzsSG
+X-Authority-Analysis: v=2.4 cv=JNc7s9Kb c=1 sm=1 tr=0 ts=67fcfc1a cx=c_pps a=50t2pK5VMbmlHzFWWp8p/g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10 a=XR8D0OoHHMoA:10 a=KKAkSRfTAAAA:8 a=nRcdhEhJI-3p1s1dT_wA:9 a=CjuIK1q_8ugA:10 a=IoWCM6iH3mJn3m4BftBB:22
+ a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-ORIG-GUID: vf7iiAyMSjaOr9wdndxkUOKPB0izzsSG
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-14_04,2025-04-10_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 malwarescore=0
+ suspectscore=0 mlxlogscore=682 lowpriorityscore=0 bulkscore=0
+ impostorscore=0 clxscore=1015 phishscore=0 adultscore=0 priorityscore=1501
+ spamscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2504140089
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_051146_534094_D1A58E35 
-X-CRM114-Status: GOOD (  21.17  )
+X-CRM114-CacheID: sfid-20250414_051420_183408_C0F1C2E0 
+X-CRM114-Status: GOOD (  20.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,188 +142,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/04/2025 09:51, Dev Jain wrote:
+On Mon, Apr 14, 2025 at 01:39:56PM +0200, Konrad Dybcio wrote:
+> On 4/14/25 1:37 PM, Dmitry Baryshkov wrote:
+> > On Mon, Apr 14, 2025 at 01:13:28PM +0200, Konrad Dybcio wrote:
+> >> On 3/14/25 7:09 AM, Dmitry Baryshkov wrote:
+> >>> From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> >>>
+> >>> Add display controller, two DSI hosts, two DSI PHYs and a single DP
+> >>> controller. Link DP to the QMP Combo PHY.
+> >>>
+> >>> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> >>> ---
+> >>
+> >> [...]
+> >>
+> >>> +			mdss_mdp: display-controller@ae01000 {
+> >>> +				compatible = "qcom,sar2130p-dpu";
+> >>> +				reg = <0x0 0x0ae01000 0x0 0x8f000>,
+> >>> +				      <0x0 0x0aeb0000 0x0 0x2008>;
+> >>
+> >> size = 0x3000
+> > 
+> > Existing platforms (including SM8650) use 0x2008 here. Would you like to
+> > change all the platforms and why?
 > 
-> 
-> On 14/04/25 1:36 pm, Ryan Roberts wrote:
->> On 12/04/2025 06:05, Lance Yang wrote:
->>> On Sat, Apr 12, 2025 at 1:30 AM Dev Jain <dev.jain@arm.com> wrote:
->>>>
->>>> +others
->>>>
->>>> On 11/04/25 2:55 am, Barry Song wrote:
->>>>> On Mon, Apr 7, 2025 at 9:23 PM Xavier <xavier_qy@163.com> wrote:
->>>>>>
->>>>>> This commit optimizes the contpte_ptep_get function by adding early
->>>>>>    termination logic. It checks if the dirty and young bits of orig_pte
->>>>>>    are already set and skips redundant bit-setting operations during
->>>>>>    the loop. This reduces unnecessary iterations and improves performance.
->>>>>>
->>>>>> Signed-off-by: Xavier <xavier_qy@163.com>
->>>>>> ---
->>>>>>    arch/arm64/mm/contpte.c | 13 +++++++++++--
->>>>>>    1 file changed, 11 insertions(+), 2 deletions(-)
->>>>>>
->>>>>> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
->>>>>> index bcac4f55f9c1..ca15d8f52d14 100644
->>>>>> --- a/arch/arm64/mm/contpte.c
->>>>>> +++ b/arch/arm64/mm/contpte.c
->>>>>> @@ -163,17 +163,26 @@ pte_t contpte_ptep_get(pte_t *ptep, pte_t orig_pte)
->>>>>>
->>>>>>           pte_t pte;
->>>>>>           int i;
->>>>>> +       bool dirty = false;
->>>>>> +       bool young = false;
->>>>>>
->>>>>>           ptep = contpte_align_down(ptep);
->>>>>>
->>>>>>           for (i = 0; i < CONT_PTES; i++, ptep++) {
->>>>>>                   pte = __ptep_get(ptep);
->>>>>>
->>>>>> -               if (pte_dirty(pte))
->>>>>> +               if (!dirty && pte_dirty(pte)) {
->>>>>> +                       dirty = true;
->>>>>>                           orig_pte = pte_mkdirty(orig_pte);
->>>>>> +               }
->>>>>>
->>>>>> -               if (pte_young(pte))
->>>>>> +               if (!young && pte_young(pte)) {
->>>>>> +                       young = true;
->>>>>>                           orig_pte = pte_mkyoung(orig_pte);
->>>>>> +               }
->>>>>> +
->>>>>> +               if (dirty && young)
->>>>>> +                       break;
->>>>>
->>>>> This kind of optimization is always tricky. Dev previously tried a similar
->>>>> approach to reduce the loop count, but it ended up causing performance
->>>>> degradation:
->>>>> https://lore.kernel.org/linux-mm/20240913091902.1160520-1-dev.jain@arm.com/
->>>>>
->>>>> So we may need actual data to validate this idea.
->>>>
->>>> The original v2 patch does not work, I changed it to the following:
->>>>
->>>> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
->>>> index bcac4f55f9c1..db0ad38601db 100644
->>>> --- a/arch/arm64/mm/contpte.c
->>>> +++ b/arch/arm64/mm/contpte.c
->>>> @@ -152,6 +152,16 @@ void __contpte_try_unfold(struct mm_struct *mm,
->>>> unsigned long addr,
->>>>    }
->>>>    EXPORT_SYMBOL_GPL(__contpte_try_unfold);
->>>>
->>>> +#define CHECK_CONTPTE_FLAG(start, ptep, orig_pte, flag) \
->>>> +       int _start; \
->>>> +       pte_t *_ptep = ptep; \
->>>> +       for (_start = start; _start < CONT_PTES; _start++, ptep++) { \
->>>> +               if (pte_##flag(__ptep_get(_ptep))) { \
->>>> +                       orig_pte = pte_mk##flag(orig_pte); \
->>>> +                       break; \
->>>> +               } \
->>>> +       }
->>>> +
->>>>    pte_t contpte_ptep_get(pte_t *ptep, pte_t orig_pte)
->>>>    {
->>>>           /*
->>>> @@ -169,11 +179,17 @@ pte_t contpte_ptep_get(pte_t *ptep, pte_t orig_pte)
->>>>           for (i = 0; i < CONT_PTES; i++, ptep++) {
->>>>                   pte = __ptep_get(ptep);
->>>>
->>>> -               if (pte_dirty(pte))
->>>> +               if (pte_dirty(pte)) {
->>>>                           orig_pte = pte_mkdirty(orig_pte);
->>>> +                       CHECK_CONTPTE_FLAG(i, ptep, orig_pte, young);
->>>> +                       break;
->>>> +               }
->>>>
->>>> -               if (pte_young(pte))
->>>> +               if (pte_young(pte)) {
->>>>                           orig_pte = pte_mkyoung(orig_pte);
->>>> +                       CHECK_CONTPTE_FLAG(i, ptep, orig_pte, dirty);
->>>> +                       break;
->>>> +               }
->>>>           }
->>>>
->>>>           return orig_pte;
->>>>
->>>> Some rudimentary testing with micromm reveals that this may be
->>>> *slightly* faster. I cannot say for sure yet.
->>>
->>> Yep, this change works as expected, IIUC.
->>>
->>> However, I'm still wondering if the added complexity is worth it for
->>> such a slight/negligible performance gain. That said, if we have
->>> solid numbers/data to back it up, all doubts would disappear ;)
->>
->> I agree with Barry; we need clear performance improvement numbers to consider
->> this type of optimization. I doubt there will be measurable improvement for 4K
->> and 64K base pages (because the the number of PTEs in a contpte block are 16 and
->> 32 respectively). But 16K base pages may benefit given there are 128 PTEs in a
->> contpte block for that case.
->>
->> Also FWIW, I'm struggling to understand CHECK_CONTPTE_FLAG(); Perhaps something
->> like this would suffice?
-> 
-> The idea of CHECK_CONTPTE_FLAG() is to check only for the other flag until it's
-> found; the diff below will still keep checking for both until both are found.
+> The last register is base+0x2004 but the region is 0x3000-sized on 2130
 
-Oh I see. Although you're effectively just saving a tbnz instruction, which will
-be in the noise.
+As I wrote, this still applies to other existing platforms. I think up
+to now we were using a mixture of 'last actual register' and 'documented
+space size' with VBIF using the former one. Should we switch all
+platforms to use the latter one for this region? In such a case I'll
+update this one and all other platforms. Otherwise I'd prefer uniformity
+and still use 0x2008 here like other platforms do.
 
-Anyway, come back with numbers and we can talk :)
-
-> 
->>
->> ----8<----
->> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
->> index 55107d27d3f8..7787b116b339 100644
->> --- a/arch/arm64/mm/contpte.c
->> +++ b/arch/arm64/mm/contpte.c
->> @@ -169,11 +169,17 @@ pte_t contpte_ptep_get(pte_t *ptep, pte_t orig_pte)
->>          for (i = 0; i < CONT_PTES; i++, ptep++) {
->>                  pte = __ptep_get(ptep);
->>
->> -               if (pte_dirty(pte))
->> +               if (pte_dirty(pte)) {
->>                          orig_pte = pte_mkdirty(orig_pte);
->> +                       if (pte_young(orig_pte))
->> +                               break;
->> +               }
->>
->> -               if (pte_young(pte))
->> +               if (pte_young(pte)) {
->>                          orig_pte = pte_mkyoung(orig_pte);
->> +                       if (pte_dirty(orig_pte))
->> +                               break;
->> +               }
->>          }
->>
->>          return orig_pte;
->> ----8<----
->>
->> Thanks,
->> Ryan
->>
->>
->>>
->>> Thanks,
->>> Lance
->>>
->>>>
->>>>>
->>>>>>           }
->>>>>>
->>>>>>           return orig_pte;
->>>>>> -- 
->>>>>> 2.34.1
->>>>>>
->>>>>
->>>>> Thanks
->>>>> Barry
->>>>>
->>>>
->>
-> 
-
+-- 
+With best wishes
+Dmitry
 
