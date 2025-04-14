@@ -4,94 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB2DFC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 09:20:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0A84C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 09:22:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RK1FjQCAv98Eay4SPuOitMP3sY6he/myS3klmD5dY54=; b=I8dFOatRhOT9OaeToizbeVYYRb
-	wClHmlBsehpS6847XGViPmUzi7B+F+2B96cx2q3VZR8W0/Wtc6D5wupwS7oif9IcDNLvOOc3nYmFQ
-	L2HwA75vKuXeyC5cu9nMeTvB2T5SjpdzUImNLuQI/Rv616NL6Xti4kynYsHFWW+b7mIQyAnafQdtW
-	b9SaVTVgRqYSIxvDIZRL/Wqywvs2yaYe2h70we4pgTPttjN6fHtlib5TkjflGld9k1UYx/rKL9VC6
-	eQWIObaxbY6OWdp3agqs+hcKZuNbBW3xOya1cNM1c1fLF1XG1C87MQcZq+Bx+qMz2mIZueF+PmIVr
-	JwTKlUnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gnja6srub3n8tJYS03csOlPaZZrQF5QqUXIS5NZAuvw=; b=eCW73jAoPtoii2G1HkxddoG74o
+	YJlBruoSiyZj4yaCi3MJAw4SUn7i0BlcqQEdD7D1TP6GTqmRrW85S8xs24iKw/Q1hBJ7ulFwyv8/Y
+	JyUBYzjJjLnOAGjr7Kp4N07S4VlIPzpBK5r1H3XpIBTf5+eOsC//+F2mU+bE+70buPY5mP1L3V1VS
+	jDkFmqnTpMuf3W/YJKcYarcO4P+WV3SKkXAhyk3YkQhLQmzHxSaWvBH3YT2hY17EbPAlCNXxaBjIq
+	M5ccWy6Zy+0wTBnCxK8Wm7rfTQQ6CEpWX1wKsYKebycSpWKdenGhI7pOHYwgZhxWFkX4Nu7TWm+Di
+	XbZKoHjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Fza-00000001G0A-0dar;
-	Mon, 14 Apr 2025 09:20:38 +0000
-Received: from mail-vk1-xa2a.google.com ([2607:f8b0:4864:20::a2a])
+	id 1u4G1N-00000001GGJ-3XuT;
+	Mon, 14 Apr 2025 09:22:29 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4FYN-00000001B2Y-0liq
+	id 1u4FlY-00000001DN1-48Hi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 08:52:32 +0000
-Received: by mail-vk1-xa2a.google.com with SMTP id 71dfb90a1353d-52617ceae0dso1180800e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 01:52:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744620749; x=1745225549; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RK1FjQCAv98Eay4SPuOitMP3sY6he/myS3klmD5dY54=;
-        b=TLBHQMRDEUc+LgLDmOTuRHlSaxMhsCvszjhbMCTcAc4NISAbM6U8uchPSA2OjczLhQ
-         w673JWGHsMDcNqipRkAwSeEOVXXDbbIFWzo4OJfUa//ZJzd6W96IgDKmiz2BGgM1my8+
-         BKX4jg9zaflPiOZROIZY01ff7wCptKA+1ocK6Dwh3P/BECPUptffGcE72F/UOoD0o/xC
-         m5ILPVzcIXM775OFidJSKgY720OV4FQ5cxDo2KzZ9nEt1eD4rwlquZhE7A68aGdyLwLV
-         2IirFmuTUirfc1J7QEmwBUwCADJule0y6WePTqcAzJz1jHd2qESnbWNonUT/gL7+3PNd
-         VRrA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744620749; x=1745225549;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=RK1FjQCAv98Eay4SPuOitMP3sY6he/myS3klmD5dY54=;
-        b=DUV9lo5SA/gZo7bTNRwVdYn6KscCDosGtAW7SMwbfWJXl0jtqJQ0q0D9NxAu1X4lP5
-         vKPEMwWjILTTc/jsCblWnpXUwCGbA4ReEGyoqpXOKLw1zGuZl2rMQxZwiMnHclyuNK9d
-         jfgX6OJt7AIDY5jhktoRQswBczIdM8by9mxGtxWLd71uh8lLhCUkb3E/7sWCYVazmN5v
-         Oz2wmzMG/pAdFBMY4u0mASUxN8v8o7+ECZW2QwcwEdqdPMOq7XnqaQWhK1qTe3vD1G/0
-         ChP6KwPq//k1Vd9jlYn8n7+qVaqqZ58xCC0NgymlVi9ndHVdOjKnGoa9hnOSp7+PJ7yz
-         J+3Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWB1qkhTSM0hnQpnTm3OhWF5KUAZ7sFjAxtA+azeR6KA6kIYIFvWkH9663dUo8MUIBAvzr946l8zWmY28itNyOs@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyupzlaz3Bqalbr/M0287hcfmvySLklubizEB/70gHDah+1Q897
-	UTmW2TdwrJfAbRnbcoyuHwRO8v36SxjwXVYKk7SbsFt46Fyz7QJm3xvzXuHCbbE+S1NvrNoD4GQ
-	d3FBv+wgvbPH7Wv2vNNklssdozMQ=
-X-Gm-Gg: ASbGncsc43SGGcI6rw1UQk9MCyLETS0Fr3neNrySxZHimT72nk6FBcO3SwXGkvvxgde
-	CiIndtHkPpcdezCQjCH9VhiYVgThJ6VXA8oUWuRWIsBbbyD0T6pv/5Xixy/xpwRWCu+vRxiq1oJ
-	x2nOd7serwWNzT8DSkmcN3CQ==
-X-Google-Smtp-Source: AGHT+IHDQYAJXdFj/iNG0npq557KpIZpBxXkLL2l+9hPwfBOs75fehWJLdCe6um+3vhYJFwWD4BbKD7nZni0VXc/gQE=
-X-Received: by 2002:a05:6122:319d:b0:527:67da:74ee with SMTP id
- 71dfb90a1353d-527c34d1fd1mr7094050e0c.5.1744620749318; Mon, 14 Apr 2025
- 01:52:29 -0700 (PDT)
+	Mon, 14 Apr 2025 09:06:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=gnja6srub3n8tJYS03csOlPaZZrQF5QqUXIS5NZAuvw=; b=Kgb3xxE+36KP1bFTLvCdZqc0HL
+	e/Fh3IlAjOp4ZAvzc4UcuLthtIZD34391hP9VimUS8hvGE+b3sKLTkM2RJhz2ICgBX2q/L3W2N8PU
+	tK23bjbOibkojsSFIa9MszfDB3ZqiVdtK5IetR771Sb9pCDCnCzMZ/cLZV7Yi7A5i5iefVyOMj6y0
+	xLUXAV3hdJFU+iXPVjzBmlESzekW1wK6ZlrGTDjPBvL7IjmK2yfljrSDtaRHX2j43UO6l13L1SM+4
+	i+Z6Aby5Njc4n79Je8xr+hSKWDIAiJDOUBWqyWFah6Syxj5YpL7SjxZ+Wgt92r7IPxQ2USKmRZg23
+	LAP1tBMA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:58320)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1u4FlQ-0006CB-22;
+	Mon, 14 Apr 2025 10:06:00 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1u4FlM-0007cR-16;
+	Mon, 14 Apr 2025 10:05:56 +0100
+Date: Mon, 14 Apr 2025 10:05:56 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH v2 net-next 0/4] net: stmmac: anarion: cleanups
+Message-ID: <Z_zP9BvZlqeq3Ssl@shell.armlinux.org.uk>
 MIME-Version: 1.0
-References: <20250407120317.127056-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <20250407104447.072449cd@kernel.org>
-In-Reply-To: <20250407104447.072449cd@kernel.org>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Mon, 14 Apr 2025 09:52:03 +0100
-X-Gm-Features: ATxdqUEHxcklYN6PVPbrfMER-iWYYX-JiIMzDYloXSJi2mPCrezqGIzibq2L6CY
-Message-ID: <CA+V-a8uqkG+u_ZXztPe7R0BNV6BA46KgGRHRW-G3axBt566pEQ@mail.gmail.com>
-Subject: Re: [PATCH net-next v5 0/3] Add GBETH glue layer driver for Renesas
- RZ/V2H(P) SoC
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Richard Cochran <richardcochran@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
-	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
-	Biju Das <biju.das.jz@bp.renesas.com>, 
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_015231_221965_B509AD96 
-X-CRM114-Status: GOOD (  14.58  )
+X-CRM114-CacheID: sfid-20250414_020609_022255_8D92AA1B 
+X-CRM114-Status: UNSURE (   8.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,30 +84,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jakub,
+A series of cleanups to the anarion glue driver.
 
-On Mon, Apr 7, 2025 at 6:44=E2=80=AFPM Jakub Kicinski <kuba@kernel.org> wro=
-te:
->
-> On Mon,  7 Apr 2025 13:03:14 +0100 Prabhakar wrote:
-> > This patch series adds support for the GBETH (Gigabit Ethernet) glue la=
-yer
-> > driver for the Renesas RZ/V2H(P) SoC. The GBETH IP is integrated with
-> > the Synopsys DesignWare MAC (version 5.20). The changes include updatin=
-g
-> > the device tree bindings, documenting the GBETH bindings, and adding th=
-e
-> > DWMAC glue layer for the Renesas GBETH.
->
-> This was posted prior to the "net-next is OPEN" announcement:
-> https://lore.kernel.org/all/20250407055403.7a8f40df@kernel.org/
->
-> In the interest of fairness towards those who correctly wait
-> for the tree to be open I will ask you to repost this again,
-> in a couple of days.
->
-Are you ok for me to now respin this series?
+Clean up anarion_config_dt() error handling, printing a human readable
+error rather than the numeric errno, and use ERR_CAST().
 
-Cheers,
-Prabhakar
+Using a switch statement with incorrect "fallthrough;" for RGMII vs
+non-RGMII is unnecessary when we have phy_interface_mode_is_rgmii().
+Convert to use the helper.
+
+Use stmmac_pltfr_probe() rahter than open-coding the call to the
+init function (which stmmac_pltfr_probe() will do for us.)
+
+Finally, convert to use devm_stmmac_pltfr_probe() which allows the
+removal of the .remove initialiser in the driver structure.
+
+Not tested on hardware.
+
+v2: fix build error, add Andrew's r-bs.
+
+ .../net/ethernet/stmicro/stmmac/dwmac-anarion.c    | 25 +++++++---------------
+ 1 file changed, 8 insertions(+), 17 deletions(-)
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
