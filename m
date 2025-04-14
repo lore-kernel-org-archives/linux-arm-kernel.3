@@ -4,76 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37AB5C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 14:53:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AA26C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 14:55:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kdT+7LsmYp3aMsU0Jt0Gl2TDugmLWMX+RoAf8WcPExE=; b=NP6uhFPz99cC8Ycd+mmYaKQayZ
-	hXwEk7jsya5OAIL7k//ccVT0xe7YnMerNUogGP0403HHPU0fj85wdHjTrmDUTeDUd2rdvWligA/3I
-	MCKukqwAtCtwbi5DpON7ZETJ8SwV+HTy2l90hQRdZuerLLKSYOth3nadI7ltRv2NOhmQG0l2W5d/0
-	obG7MWdNuftN4lQbfC2BvFReQ2ouqn+XwNHEO2LT8tD3tgSavIhBkUX/TYttMP6iP1WzAq+jWHF1m
-	XXGmyCoOaMssBzxIc0LHLX3q2yCWJsLelozX6NPLj9+tc6U/qJcQGnJG5WeOxiASV1z3ymfYPbMhl
-	TIHLsnpA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CXlbWKegeuuphuVD8v7XhITmdjJpr+DU67mdolnYNJ8=; b=IyzmRk6L0ZYznZbZxYGQSsWCkY
+	WmHwDe62aDmyL/3Z1bgM75dE7uGN1rgSilzrq7Zleylt/ScWbLYA3JaJ/F6HcT207kBv1zxqh0iv5
+	IjJ9df2MjpxChohPQNXhsY8Lt5Irx7hCNdGJxNEGVQP1VYw/uoilLZXy8nJ+sKtgNj9A/sGb6IhQr
+	7vz/LATL1h2vKpHtNN8qXuShi96QiviHmOAaWAz5GI2rXXD0bYWiGh5GhFTj6Ayz08XZPiUIEN14d
+	D8bj9FbXlm1AdQzEWDSMTBT3GkxDJlJDQ13Vo13v/m0Yu+XNbFY1NSBgDgg0eYrR9LYHb2n/qi7iz
+	a8S9Zu2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4LBq-00000002Ufq-3hzV;
-	Mon, 14 Apr 2025 14:53:38 +0000
-Received: from szxga04-in.huawei.com ([45.249.212.190])
+	id 1u4LDh-00000002VDa-1zqQ;
+	Mon, 14 Apr 2025 14:55:33 +0000
+Received: from mail-m1973173.qiye.163.com ([220.197.31.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4L6Y-00000002TKG-1YMo
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 14:48:12 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.214])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4ZbqnK03gVz2CdZF;
-	Mon, 14 Apr 2025 22:44:37 +0800 (CST)
-Received: from dggpemf500002.china.huawei.com (unknown [7.185.36.57])
-	by mail.maildlp.com (Postfix) with ESMTPS id 785021A016C;
-	Mon, 14 Apr 2025 22:48:02 +0800 (CST)
-Received: from [10.174.178.247] (10.174.178.247) by
- dggpemf500002.china.huawei.com (7.185.36.57) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 14 Apr 2025 22:48:00 +0800
-Subject: Re: [RESEND PATCH v18 2/2] ACPI: APEI: handle synchronous exceptions
- in task work
-To: Shuai Xue <xueshuai@linux.alibaba.com>, <catalin.marinas@arm.com>,
-	<sudeep.holla@arm.com>, <lpieralisi@kernel.org>,
-	<linux-acpi@vger.kernel.org>, <yazen.ghannam@amd.com>,
-	<mark.rutland@arm.com>, <mingo@redhat.com>, <robin.murphy@arm.com>,
-	<Jonathan.Cameron@Huawei.com>, <bp@alien8.de>, <rafael@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <wangkefeng.wang@huawei.com>,
-	<tanxiaofei@huawei.com>, <mawupeng1@huawei.com>, <tony.luck@intel.com>,
-	<linmiaohe@huawei.com>, <naoya.horiguchi@nec.com>, <james.morse@arm.com>,
-	<tongtiangen@huawei.com>, <gregkh@linuxfoundation.org>, <will@kernel.org>,
-	<jarkko@kernel.org>
-CC: <linux-mm@kvack.org>, <linux-kernel@vger.kernel.org>,
-	<akpm@linux-foundation.org>, <linux-edac@vger.kernel.org>, <x86@kernel.org>,
-	<justin.he@arm.com>, <ardb@kernel.org>, <ying.huang@linux.alibaba.com>,
-	<ashish.kalra@amd.com>, <baolin.wang@linux.alibaba.com>,
-	<tglx@linutronix.de>, <dave.hansen@linux.intel.com>, <lenb@kernel.org>,
-	<hpa@zytor.com>, <robert.moore@intel.com>, <lvying6@huawei.com>,
-	<xiexiuqi@huawei.com>, <zhuo.song@linux.alibaba.com>
-References: <20250404112050.42040-1-xueshuai@linux.alibaba.com>
- <20250404112050.42040-3-xueshuai@linux.alibaba.com>
-From: Hanjun Guo <guohanjun@huawei.com>
-Message-ID: <fb399bd0-c2a2-574f-06fa-3cd0f309f7a5@huawei.com>
-Date: Mon, 14 Apr 2025 22:48:00 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101
- Thunderbird/68.6.0
+	id 1u4L9i-00000002U4r-3PFW;
+	Mon, 14 Apr 2025 14:51:28 +0000
+Received: from localhost.localdomain (unknown [124.72.37.3])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 11d4dc641;
+	Mon, 14 Apr 2025 22:51:12 +0800 (GMT+08:00)
+From: Kever Yang <kever.yang@rock-chips.com>
+To: heiko@sntech.de
+Cc: andersson@kernel.org,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Simon Xue <xxm@rock-chips.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Finley Xiao <finley.xiao@rock-chips.com>,
+	Frank Wang <frank.wang@rock-chips.com>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	linux-pci@vger.kernel.org,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	linux-rockchip@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v9 0/2] rockchip: Add rk3576 pcie dts nodes
+Date: Mon, 14 Apr 2025 22:51:08 +0800
+Message-Id: <20250414145110.11275-1-kever.yang@rock-chips.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-In-Reply-To: <20250404112050.42040-3-xueshuai@linux.alibaba.com>
-Content-Type: text/plain; charset="utf-8"; format=flowed
-Content-Language: en-GB
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.178.247]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- dggpemf500002.china.huawei.com (7.185.36.57)
+Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkZSEoZVkpMGEhLGENCQ0JLGFYVFAkWGhdVEwETFh
+	oSFyQUDg9ZV1kYEgtZQVlKSU9VTElVSExVSFlXWRYaDxIVHRRZQVlPS0hVSktJSEJIQ1VKS0tVSk
+	JLS1kG
+X-HM-Tid: 0a9634c86d2a03afkunm11d4dc641
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6P1E6PAw*KjIBKCIRSgs#EkwX
+	FU8aCgNVSlVKTE9PTU9JSUxIQ0lMVTMWGhIXVRAeDR4JVQIaFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlKSU9VTElVSExVSFlXWQgBWUFJTUhNNwY+
+DKIM-Signature: a=rsa-sha256;
+	b=iZD/OC4KppITphC8tbsX4PwJw6hHwNbJFgEM5bNyDTHCWkMwnb49j42ECGwPfTJxzV0sU7PDBpN+M9E8u2qZ6Spy1SLAQdizv6R3P15UPNkVUgw5OtuTQBgffFfuboRQvs2DNH/0wi+MUuR0C4oTH+slONI4ZTJ+wVFyDOsi2ko=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=CXlbWKegeuuphuVD8v7XhITmdjJpr+DU67mdolnYNJ8=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_074810_841476_63F333A1 
-X-CRM114-Status: GOOD (  39.46  )
+X-CRM114-CacheID: sfid-20250414_075127_382592_A4BBECA5 
+X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,319 +89,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/4/4 19:20, Shuai Xue wrote:
-> The memory uncorrected error could be signaled by asynchronous interrupt
-> (specifically, SPI in arm64 platform), e.g. when an error is detected by
-> a background scrubber, or signaled by synchronous exception
-> (specifically, data abort exception in arm64 platform), e.g. when a CPU
-> tries to access a poisoned cache line. Currently, both synchronous and
-> asynchronous error use memory_failure_queue() to schedule
-> memory_failure() to exectute in a kworker context.
-> 
-> As a result, when a user-space process is accessing a poisoned data, a
-> data abort is taken and the memory_failure() is executed in the kworker
-> context, memory_failure():
-> 
->    - will send wrong si_code by SIGBUS signal in early_kill mode, and
->    - can not kill the user-space in some cases resulting a synchronous
->      error infinite loop
-> 
-> Issue 1: send wrong si_code in early_kill mode
-> 
-> Since commit a70297d22132 ("ACPI: APEI: set memory failure flags as
-> MF_ACTION_REQUIRED on synchronous events")', the flag MF_ACTION_REQUIRED
-> could be used to determine whether a synchronous exception occurs on
-> ARM64 platform.  When a synchronous exception is detected, the kernel is
-> expected to terminate the current process which has accessed poisoned
-> page. This is done by sending a SIGBUS signal with an error code
-> BUS_MCEERR_AR, indicating an action-required machine check error on
-> read.
-> 
-> However, when kill_proc() is called to terminate the processes who have
-> the poisoned page mapped, it sends the incorrect SIGBUS error code
-> BUS_MCEERR_AO because the context in which it operates is not the one
-> where the error was triggered.
-> 
-> To reproduce this problem:
-> 
->    #sysctl -w vm.memory_failure_early_kill=1
->    vm.memory_failure_early_kill = 1
-> 
->    # STEP2: inject an UCE error and consume it to trigger a synchronous error
->    #einj_mem_uc single
->    0: single   vaddr = 0xffffb0d75400 paddr = 4092d55b400
->    injecting ...
->    triggering ...
->    signal 7 code 5 addr 0xffffb0d75000
->    page not present
->    Test passed
-> 
-> The si_code (code 5) from einj_mem_uc indicates that it is BUS_MCEERR_AO
-> error and it is not the fact.
-> 
-> After this patch:
-> 
->    # STEP1: enable early kill mode
->    #sysctl -w vm.memory_failure_early_kill=1
->    vm.memory_failure_early_kill = 1
->    # STEP2: inject an UCE error and consume it to trigger a synchronous error
->    #einj_mem_uc single
->    0: single   vaddr = 0xffffb0d75400 paddr = 4092d55b400
->    injecting ...
->    triggering ...
->    signal 7 code 4 addr 0xffffb0d75000
->    page not present
->    Test passed
-> 
-> The si_code (code 4) from einj_mem_uc indicates that it is a BUS_MCEERR_AR
-> error as we expected.
-> 
-> Issue 2: a synchronous error infinite loop
-> 
-> If a user-space process, e.g. devmem, accesses a poisoned page for which
-> the HWPoison flag is set, kill_accessing_process() is called to send
-> SIGBUS to current processs with error info. Because the memory_failure()
-> is executed in the kworker context, it will just do nothing but return
-> EFAULT. So, devmem will access the posioned page and trigger an
-> exception again, resulting in a synchronous error infinite loop. Such
-> exception loop may cause platform firmware to exceed some threshold and
-> reboot when Linux could have recovered from this error.
-> 
-> To reproduce this problem:
-> 
->    # STEP 1: inject an UCE error, and kernel will set HWPosion flag for related page
->    #einj_mem_uc single
->    0: single   vaddr = 0xffffb0d75400 paddr = 4092d55b400
->    injecting ...
->    triggering ...
->    signal 7 code 4 addr 0xffffb0d75000
->    page not present
->    Test passed
-> 
->    # STEP 2: access the same page and it will trigger a synchronous error infinite loop
->    devmem 0x4092d55b400
-> 
-> To fix above two issues, queue memory_failure() as a task_work so that
-> it runs in the context of the process that is actually consuming the
-> poisoned data.
-> 
-> Signed-off-by: Shuai Xue <xueshuai@linux.alibaba.com>
-> Tested-by: Ma Wupeng <mawupeng1@huawei.com>
-> Reviewed-by: Kefeng Wang <wangkefeng.wang@huawei.com>
-> Reviewed-by: Xiaofei Tan <tanxiaofei@huawei.com>
-> Reviewed-by: Baolin Wang <baolin.wang@linux.alibaba.com>
-> Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
-> Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-> Reviewed-by: Jane Chu <jane.chu@oracle.com>
-> Reviewed-by: Yazen Ghannam <yazen.ghannam@amd.com>
-> ---
->   drivers/acpi/apei/ghes.c | 79 +++++++++++++++++++++++-----------------
->   include/acpi/ghes.h      |  3 --
->   include/linux/mm.h       |  1 -
->   mm/memory-failure.c      | 13 -------
->   4 files changed, 45 insertions(+), 51 deletions(-)
-> 
-> diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
-> index 50e4d924aa8b..87cf4b373ebe 100644
-> --- a/drivers/acpi/apei/ghes.c
-> +++ b/drivers/acpi/apei/ghes.c
-> @@ -464,28 +464,41 @@ static void ghes_clear_estatus(struct ghes *ghes,
->   		ghes_ack_error(ghes->generic_v2);
->   }
->   
-> -/*
-> - * Called as task_work before returning to user-space.
-> - * Ensure any queued work has been done before we return to the context that
-> - * triggered the notification.
-> +/**
-> + * struct ghes_task_work - for synchronous RAS event
-> + *
-> + * @twork:                callback_head for task work
-> + * @pfn:                  page frame number of corrupted page
-> + * @flags:                work control flags
-> + *
-> + * Structure to pass task work to be handled before
-> + * returning to user-space via task_work_add().
->    */
-> -static void ghes_kick_task_work(struct callback_head *head)
-> +struct ghes_task_work {
-> +	struct callback_head twork;
-> +	u64 pfn;
-> +	int flags;
-> +};
-> +
-> +static void memory_failure_cb(struct callback_head *twork)
->   {
-> -	struct acpi_hest_generic_status *estatus;
-> -	struct ghes_estatus_node *estatus_node;
-> -	u32 node_len;
-> +	struct ghes_task_work *twcb = container_of(twork, struct ghes_task_work, twork);
-> +	int ret;
->   
-> -	estatus_node = container_of(head, struct ghes_estatus_node, task_work);
-> -	if (IS_ENABLED(CONFIG_ACPI_APEI_MEMORY_FAILURE))
-> -		memory_failure_queue_kick(estatus_node->task_work_cpu);
-> +	ret = memory_failure(twcb->pfn, twcb->flags);
-> +	gen_pool_free(ghes_estatus_pool, (unsigned long)twcb, sizeof(*twcb));
->   
-> -	estatus = GHES_ESTATUS_FROM_NODE(estatus_node);
-> -	node_len = GHES_ESTATUS_NODE_LEN(cper_estatus_len(estatus));
-> -	gen_pool_free(ghes_estatus_pool, (unsigned long)estatus_node, node_len);
-> +	if (!ret || ret == -EHWPOISON || ret == -EOPNOTSUPP)
-> +		return;
-> +
-> +	pr_err("%#llx: Sending SIGBUS to %s:%d due to hardware memory corruption\n",
-> +			twcb->pfn, current->comm, task_pid_nr(current));
-> +	force_sig(SIGBUS);
->   }
->   
->   static bool ghes_do_memory_failure(u64 physical_addr, int flags)
->   {
-> +	struct ghes_task_work *twcb;
->   	unsigned long pfn;
->   
->   	if (!IS_ENABLED(CONFIG_ACPI_APEI_MEMORY_FAILURE))
-> @@ -499,6 +512,18 @@ static bool ghes_do_memory_failure(u64 physical_addr, int flags)
->   		return false;
->   	}
->   
-> +	if (flags == MF_ACTION_REQUIRED && current->mm) {
-> +		twcb = (void *)gen_pool_alloc(ghes_estatus_pool, sizeof(*twcb));
-> +		if (!twcb)
-> +			return false;
-> +
-> +		twcb->pfn = pfn;
-> +		twcb->flags = flags;
-> +		init_task_work(&twcb->twork, memory_failure_cb);
-> +		task_work_add(current, &twcb->twork, TWA_RESUME);
-> +		return true;
-> +	}
-> +
->   	memory_failure_queue(pfn, flags);
->   	return true;
->   }
-> @@ -743,7 +768,7 @@ int cxl_cper_kfifo_get(struct cxl_cper_work_data *wd)
->   }
->   EXPORT_SYMBOL_NS_GPL(cxl_cper_kfifo_get, "CXL");
->   
-> -static bool ghes_do_proc(struct ghes *ghes,
-> +static void ghes_do_proc(struct ghes *ghes,
->   			 const struct acpi_hest_generic_status *estatus)
->   {
->   	int sev, sec_sev;
-> @@ -809,8 +834,6 @@ static bool ghes_do_proc(struct ghes *ghes,
->   			current->comm, task_pid_nr(current));
->   		force_sig(SIGBUS);
->   	}
-> -
-> -	return queued;
->   }
->   
->   static void __ghes_print_estatus(const char *pfx,
-> @@ -1114,9 +1137,7 @@ static void ghes_proc_in_irq(struct irq_work *irq_work)
->   	struct ghes_estatus_node *estatus_node;
->   	struct acpi_hest_generic *generic;
->   	struct acpi_hest_generic_status *estatus;
-> -	bool task_work_pending;
->   	u32 len, node_len;
-> -	int ret;
->   
->   	llnode = llist_del_all(&ghes_estatus_llist);
->   	/*
-> @@ -1131,25 +1152,16 @@ static void ghes_proc_in_irq(struct irq_work *irq_work)
->   		estatus = GHES_ESTATUS_FROM_NODE(estatus_node);
->   		len = cper_estatus_len(estatus);
->   		node_len = GHES_ESTATUS_NODE_LEN(len);
-> -		task_work_pending = ghes_do_proc(estatus_node->ghes, estatus);
-> +
-> +		ghes_do_proc(estatus_node->ghes, estatus);
-> +
->   		if (!ghes_estatus_cached(estatus)) {
->   			generic = estatus_node->generic;
->   			if (ghes_print_estatus(NULL, generic, estatus))
->   				ghes_estatus_cache_add(generic, estatus);
->   		}
-> -
-> -		if (task_work_pending && current->mm) {
-> -			estatus_node->task_work.func = ghes_kick_task_work;
-> -			estatus_node->task_work_cpu = smp_processor_id();
-> -			ret = task_work_add(current, &estatus_node->task_work,
-> -					    TWA_RESUME);
-> -			if (ret)
-> -				estatus_node->task_work.func = NULL;
-> -		}
-> -
-> -		if (!estatus_node->task_work.func)
-> -			gen_pool_free(ghes_estatus_pool,
-> -				      (unsigned long)estatus_node, node_len);
-> +		gen_pool_free(ghes_estatus_pool, (unsigned long)estatus_node,
-> +			      node_len);
->   
->   		llnode = next;
->   	}
-> @@ -1210,7 +1222,6 @@ static int ghes_in_nmi_queue_one_entry(struct ghes *ghes,
->   
->   	estatus_node->ghes = ghes;
->   	estatus_node->generic = ghes->generic;
-> -	estatus_node->task_work.func = NULL;
->   	estatus = GHES_ESTATUS_FROM_NODE(estatus_node);
->   
->   	if (__ghes_read_estatus(estatus, buf_paddr, fixmap_idx, len)) {
-> diff --git a/include/acpi/ghes.h b/include/acpi/ghes.h
-> index be1dd4c1a917..ebd21b05fe6e 100644
-> --- a/include/acpi/ghes.h
-> +++ b/include/acpi/ghes.h
-> @@ -35,9 +35,6 @@ struct ghes_estatus_node {
->   	struct llist_node llnode;
->   	struct acpi_hest_generic *generic;
->   	struct ghes *ghes;
-> -
-> -	int task_work_cpu;
-> -	struct callback_head task_work;
->   };
->   
->   struct ghes_estatus_cache {
-> diff --git a/include/linux/mm.h b/include/linux/mm.h
-> index 8483e09aeb2c..327517bf2168 100644
-> --- a/include/linux/mm.h
-> +++ b/include/linux/mm.h
-> @@ -3933,7 +3933,6 @@ enum mf_flags {
->   int mf_dax_kill_procs(struct address_space *mapping, pgoff_t index,
->   		      unsigned long count, int mf_flags);
->   extern int memory_failure(unsigned long pfn, int flags);
-> -extern void memory_failure_queue_kick(int cpu);
->   extern int unpoison_memory(unsigned long pfn);
->   extern atomic_long_t num_poisoned_pages __read_mostly;
->   extern int soft_offline_page(unsigned long pfn, int flags);
-> diff --git a/mm/memory-failure.c b/mm/memory-failure.c
-> index 327e02fdc029..ad07f673608d 100644
-> --- a/mm/memory-failure.c
-> +++ b/mm/memory-failure.c
-> @@ -2494,19 +2494,6 @@ static void memory_failure_work_func(struct work_struct *work)
->   	}
->   }
->   
-> -/*
-> - * Process memory_failure work queued on the specified CPU.
-> - * Used to avoid return-to-userspace racing with the memory_failure workqueue.
-> - */
-> -void memory_failure_queue_kick(int cpu)
-> -{
-> -	struct memory_failure_cpu *mf_cpu;
-> -
-> -	mf_cpu = &per_cpu(memory_failure_cpu, cpu);
-> -	cancel_work_sync(&mf_cpu->work);
-> -	memory_failure_work_func(&mf_cpu->work);
-> -}
-> -
->   static int __init memory_failure_init(void)
->   {
->   	struct memory_failure_cpu *mf_cpu;
 
-Looks good to me,
+Hi Bjorn,
 
-Reviewed-by: Hanjun Guo <guohanjun@huawei.com>
+This patch set adds support for rk3576 pcie by adding the dts node,
+and this series is a re-base on v6.15-rc1 and collect tags without code
+change.
 
-Thanks
-Hanjun
+Please help take the dt-binding to PCI tree if there is no more change request.
+
+Thanks,
+Kever
+
+
+Changes in v9:
+- Collect review tag
+- rebase on 6.15-rc1
+- Add test tag
+
+Changes in v8:
+- Collect review tag and add Co-developed-by tag.
+
+Changes in v7:
+- Move the rk3576 device specific schema out of common.yaml
+- re-order the properties.
+
+Changes in v6:
+- Fix make dt_binding_check and make CHECK_DTBS=y
+
+Changes in v5:
+- Add constraints per device for interrupt-names due to the interrupt is
+different from rk3588.
+
+Changes in v4:
+- Fix wrong indentation in dt_binding_check report by Rob
+
+Changes in v3:
+- Fix dtb check broken on rk3588
+- Update commit message
+- Update the subject
+
+Changes in v2:
+- remove required 'msi-map'
+- add interrupt name 'msi'
+- Update clock and reset names and sequence to pass DTB check
+
+Kever Yang (2):
+  dt-bindings: PCI: dw: rockchip: Add rk3576 support
+  arm64: dts: rockchip: Add rk3576 pcie nodes
+
+ .../bindings/pci/rockchip-dw-pcie-common.yaml |  10 +-
+ .../bindings/pci/rockchip-dw-pcie.yaml        |  55 ++++++++-
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi      | 108 ++++++++++++++++++
+ 3 files changed, 165 insertions(+), 8 deletions(-)
+
+-- 
+2.25.1
+
 
