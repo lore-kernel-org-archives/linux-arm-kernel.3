@@ -4,64 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A075C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 07:22:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10385C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 07:28:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t/7/uFVkH7fbdkVCmtDBJiDLcA2Ta8d7AFWr0TEb6zU=; b=Qhwla+ikVvUE2Ec/n8k4N0QOfx
-	rczxU7Pn6DO9s+pNqW2hGULckhWdNeqqH2TlCfqg+ML/uTODKiDMugCPiPdejDFagrssb5Rsugg8N
-	kr64+9O8az1rlyfZM/1OdCppQAJSn/EfwKivpHAJ885dBh2aS9eutCHG2WBi9ioBSbobvHgOE9FTM
-	5mkR396//OPTsXvH7WYu0Nd1ly765W+FTupadzC3EjUrXZix7TeKlo4QB4CJGK09joH2aLYT6Nzoi
-	jEHN9EmsB0hnmz90jw5z/PQ9V/C2vSLpdk+JuKN9eiGgmbDMtpPk7edlJK1tSaS7YO+Hd7RXsxM4d
-	xfsqNhRg==;
+	bh=2vNsOu8sp2fRdDgf410rq7pYVosRvPTNLnT3emxaF8s=; b=cGx0xG+QgZx0N51IrjqLBzadvS
+	lYkAIlM6MCFlso51YsvWNSZRg76CnQF+JjWA2RDZQ6pfi1aNFVbypYljewkzcYfSom5GRICCcag6G
+	77u5ulwVgaAhhCxQTpqXvs48HclBBqkzqmand2yRkU+awNIr4Re5PHfhGEMBWW6IpHVlRZ2YMGlbv
+	RIpkfuOCWqJpCzLYNDBpt/8PYi8LcxXe55EnfNtRujw0d7HJZL9ZmS30bXjV+DfuAF/1tBmnLRneU
+	Dv+mu0o41JqYWXsa2VdCHtwKTkfV3i042DzzDRrYljqg61PdfqYQJUNeXiKeGwwdGJrnIHqaEvmHW
+	zr2K4HLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4E8f-00000000ujH-2xDx;
-	Mon, 14 Apr 2025 07:21:53 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u4EFG-00000000vbJ-1L83;
+	Mon, 14 Apr 2025 07:28:42 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4E64-00000000uU1-0sre;
-	Mon, 14 Apr 2025 07:19:13 +0000
+	id 1u4EDP-00000000vMl-2g73;
+	Mon, 14 Apr 2025 07:26:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1F40CA4863D;
-	Mon, 14 Apr 2025 07:13:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC602C4CEE2;
-	Mon, 14 Apr 2025 07:19:10 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id A08365C2756;
+	Mon, 14 Apr 2025 07:24:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0DB1C4CEE2;
+	Mon, 14 Apr 2025 07:26:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744615151;
-	bh=5XAwYqPF/VcumK0eqoVgJ7WMHjerh75+AgOEX07/FYs=;
+	s=k20201202; t=1744615606;
+	bh=B5aWKWH2FORQFNpAWOtD5r+9LPdCnzGQZHEkjywxDVw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PCxRpoo5tBeIdkv6YPps3K58/RgIF8jkAbi3crSrltPrby0+rAINAv/jYbrLiu4J9
-	 eKKnKRj8rVIytyAEtadMBcsYrNzBw93UPb01ZYTd/w6vcLGzaPw7szlvAL5glU+R81
-	 Xk2a/9+wdFcpMvqpGEjWKzrTsCqfETOsIRhfcWW2FughmX9XcbiBVpBLEsdpWyWTOe
-	 uEQbD9AL7AuDl8RQtgiDdxQuj9eUPyPpSSA2ien2vZYrBnscjcnIFLOMiMN8NrF9qv
-	 jpC6p7PwHpPp6Xqxef7L2dz3jP7IXfoV5+POEPEv0J1lxx9A5Jr8uQJXVkC9FUavHz
-	 wMuyZXe9FMeGw==
-Date: Mon, 14 Apr 2025 09:19:08 +0200
+	b=XvkA14ufc5R0yibMxePJMAuvTCUdkfjLaz+u1o1kazGDjsXZVnin8IklNLq6t9t6Q
+	 j4629ZES7tetWbWjxK4CtZnr/79RrZQIKyYIH6OvFM6Og+9IWGSizuRQN99jzIf4s+
+	 hI5FOaCQ+TxFm5nfYsm39ZfXLxw4DBaFMbWaTRQtqZmVPeiab2pN1dSPHgBcCg2iIe
+	 YrT88ukt5bElpzx9Uybz69OTYlQVroXxLU0KkdwTBpIImf792PELU/0fg8/ibG/Dkh
+	 aC947MFroRYdqEDVsDbHKJV1JA0CQkqBvJGAT5C8aFS2hvoh4tEcObmf0EvwqjW1NN
+	 Sbx/eoo2HIOng==
+Date: Mon, 14 Apr 2025 09:26:42 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Kishon Vijay Abraham I <kishon@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	linux-samsung-soc@vger.kernel.org, linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH v4 02/10] dt-bindings: phy: samsung,usb3-drd-phy: add
- exynos2200 support
-Message-ID: <20250414-mottled-divergent-swift-666aaf@shite>
-References: <20250412202620.738150-1-ivo.ivanov.ivanov1@gmail.com>
- <20250412202620.738150-3-ivo.ivanov.ivanov1@gmail.com>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Sugar Zhang <sugar.zhang@rock-chips.com>, 
+	Luca Ceresoli <luca.ceresoli@bootlin.com>, Sebastian Reichel <sebastian.reichel@collabora.com>, 
+	kernel@collabora.com, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-sound@vger.kernel.org
+Subject: Re: [PATCH v2 05/11] ASoC: dt-bindings: add schema for rockchip SAI
+ controllers
+Message-ID: <20250414-xanthic-tortoise-of-experiment-dcbfda@shite>
+References: <20250410-rk3576-sai-v2-0-c64608346be3@collabora.com>
+ <20250410-rk3576-sai-v2-5-c64608346be3@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250412202620.738150-3-ivo.ivanov.ivanov1@gmail.com>
+In-Reply-To: <20250410-rk3576-sai-v2-5-c64608346be3@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_001912_320245_84854530 
-X-CRM114-Status: UNSURE (   9.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250414_002647_719326_075A41DB 
+X-CRM114-Status: GOOD (  11.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,16 +81,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Apr 12, 2025 at 11:26:12PM GMT, Ivaylo Ivanov wrote:
-> Document support for Exynos2200. As the USBDRD 3.2 4nm controller
-> consists of Synopsys eUSB2.0 phy and USBDP/SS combophy, which will
-> be handled by external drivers, define only the bus clocked used
-> by the link controller.
+On Thu, Apr 10, 2025 at 09:39:57PM GMT, Nicolas Frattaroli wrote:
+> Rockchip introduced a new audio controller called the "Serial Audio
+> Interface", or "SAI" for short, on some of their newer SoCs. In
+> particular, this controller is used several times on the RK3576 SoC.
 > 
-> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+> Add a schema for it, with only an RK3576 compatible for now. Other SoCs
+> may follow as mainline support for them lands.
+> 
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 > ---
->  .../bindings/phy/samsung,usb3-drd-phy.yaml    | 38 +++++++++++++++++--
->  1 file changed, 34 insertions(+), 4 deletions(-)
+>  .../bindings/sound/rockchip,rk3576-sai.yaml        | 144 +++++++++++++++++++++
+>  MAINTAINERS                                        |   6 +
+>  2 files changed, 150 insertions(+)
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
