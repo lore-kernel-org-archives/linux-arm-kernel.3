@@ -4,56 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8D65C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 05:46:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51E77C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 06:12:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qXzWTUkG7jHHcY5HpXRDHsUc9O9nej7xLiqnNfpGop8=; b=MI6O8/WPjD2gaengJJMAPpLerb
-	YLZnVpWC1rmTdHkWmYHfKtlKMQ7WwAi02FHxiSHcp3FgUNDieeIo/0DhyN28vzAMfJxDrE6EpM6ZF
-	IX2uhEHnj4kgUtZaUtF7YwPVLlUkyQgZvxPiUGyZ5o7ZDhfGmDlEWDdqyYEdnwJGunHpmFXtQyKoS
-	8/ROuFuJBBEMzAhMw8TVjauefMYIJ+sGkmAGjduQCJWV+KsDeVR37YBJekP6W+FylX3+D7nnaiJOh
-	QUH915d6LoglE+kV7RWU7sPsd0z4ePt/vgF1pU3cK7aUG1jeasOu7BO+Hi1IRZ1wkcQ3JbWhDtqIn
-	QuxrtyLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xVAg16JVCAiG9MQW0qpPpwc3/MP7bc75m1yF5eeUErA=; b=oCmSXWQhW3WXGJbjx41u6hMoRV
+	iIcH1r85UOSvMMG9fHi/gARfMC7B7Z0Nh0oexQ/7iSLuyioDeBzrlmUbEfmOvFDexBWIyv+Bze/4R
+	DweacZOuyzg/IYJtacOLnXXOgnXnrtFxbiLa84yOrK6E+FGDHva/Ijc43YKbssBrODHV5vRTw1YH+
+	jew/qBt4rOkhz8qWNJz09MlG01yWAPTrEXBnVmntRL9esuYcf/VJE31ugfH7FTQEn1lq8ie9raC5b
+	siOWk0keMgWG8hZcjBGBME1DOONln7sP+X6+SYkOaz5WMEx0wXP2bwQexAuLHnU23XzDGiIz/+SmN
+	NNwfBVqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Cdq-00000000jIA-2NXv;
-	Mon, 14 Apr 2025 05:45:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Cby-00000000j4N-39Cp
+	id 1u4D2w-00000000ly7-1WVj;
+	Mon, 14 Apr 2025 06:11:54 +0000
+Received: from mail-vi1eur03on2061b.outbound.protection.outlook.com ([2a01:111:f403:260c::61b] helo=EUR03-VI1-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u4D15-00000000lrM-4AgB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 05:44:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B9CDC1007;
-	Sun, 13 Apr 2025 22:43:56 -0700 (PDT)
-Received: from [10.162.16.153] (unknown [10.162.16.153])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E95443F66E;
-	Sun, 13 Apr 2025 22:43:55 -0700 (PDT)
-Message-ID: <095e8787-9c46-45e8-8db8-7df22a2decc8@arm.com>
-Date: Mon, 14 Apr 2025 11:13:53 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64/mm: Re-organise setting up FEAT_S1PIE registers
- PIRE0_EL1 and PIR_EL1
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Ryan Roberts <ryan.roberts@arm.com>,
- linux-kernel@vger.kernel.org
-References: <20250410074024.1545768-1-anshuman.khandual@arm.com>
- <CAMj1kXGn71CGqXCN2mWokZuq37bbEtnOKkrB=_dddp0dyPTndw@mail.gmail.com>
+	Mon, 14 Apr 2025 06:10:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XymWrqTHsEGaPNg+TRN8iUgwR0bjFntFTL9u8rq23DpV9blLKIEXgrg2jfk2FDlme8KXPtMINn3uw3afnL05iMQ9Zx6x5dYP8QsuWj/PwnhCdzzI8ApNW53WCvaZgTBl9acrIQOgVN5oa18lqKCotWVV+rRpcZE/B/v6UexpYRGn7JdmotIlnxSTf+0oP5JMU8Hc75yOD4O88uYx8G5qPN8yiS0iQRp39GNXinYf91jkmmHXDyTYE+ODMWAGflS/kBwe8buSyYFaLAkxgchepF/tmp8LdYqsEwmCXgoL1XGvZy+CdXV0BhYzcAQfXv3q6eUr6bAP0hJtROvrMomj1g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xVAg16JVCAiG9MQW0qpPpwc3/MP7bc75m1yF5eeUErA=;
+ b=cZT1slbWvsqiAgJ+qVY/1T+7UBEtPud6KeDUxTZVj8/sdnJ1K3HUNhCPfkSSNb7z7YylRoV7ukNJyp8XP4dx+B2Y1kypy0Xcvo8D4NLPz8mlKDO+8KVe4oY30Ie/86gy1dfQ6ke08wI3ff1kjBW/a5089zdjBkiBiGfvaSgB6XYGqOajiI0+lRxSyV7ubuquVuA2u8GQzXrnXnqTVVbAY0dM7TXxxZbEr3E19nTjZ/MxM/LF7W2KFvfnr3wMgTCfOE1/4j/P0HqfP4redMECQxIi4RBQtCQMH/Sz4hxZr6ZMY44sAOZ4Tfcyt86VVX19krmuMFtk/8xp2OipA1iHKw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xVAg16JVCAiG9MQW0qpPpwc3/MP7bc75m1yF5eeUErA=;
+ b=SdOUyh/JHtr7W7hVpk6tLXHFTuZB1r7kyZvvQfhP0P6+Wad2Jc7eBvFrV0hrWvjxdw2K3efvb2owzIII/tqL59V4olDloccHUSJUuYR7zUvrJDFvVrAQM9M0yZOG6t6Y/XHv78rFijRilUxNlWkCKIwWgtaEvg+0fDlO3ephT1YqHuOa31DNoGefLteFi1bqDCqAf3svVfheWiI17gde7xCTpqW7Ev58SoTJWiZCCxpUZbNYxvA7wXJerD30aS/mM7RJTsiVgLKfK/1Tjp50oqCCHPWWKMtd0+ys63HdqnXHIprsz1yTCipMFw7szGIKXXhJSxj0Bg+spmElc65sAg==
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by DBAPR04MB7221.eurprd04.prod.outlook.com (2603:10a6:10:1b1::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.32; Mon, 14 Apr
+ 2025 06:09:49 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8632.030; Mon, 14 Apr 2025
+ 06:09:49 +0000
+From: Peng Fan <peng.fan@nxp.com>
+To: Hiago De Franco <hiagofranco@gmail.com>
+CC: "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>, Ulf Hansson
+	<ulf.hansson@linaro.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+	<s.hauer@pengutronix.de>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "regressions@lists.linux.dev"
+	<regressions@lists.linux.dev>, Hiago De Franco <hiago.franco@toradex.com>
+Subject: RE: [REGRESSION] Kernel reboots unexpectdely on i.MX8X when Cortex-M4
+ is running and it was started by U-Boot bootaux
+Thread-Topic: [REGRESSION] Kernel reboots unexpectdely on i.MX8X when
+ Cortex-M4 is running and it was started by U-Boot bootaux
+Thread-Index: AQHbpWxIyVwHrK1A2UqE7zPASmzQ0LOedbwAgAAHyXCAADO/AIAECmYA
+Date: Mon, 14 Apr 2025 06:09:49 +0000
+Message-ID: <PAXPR04MB8459ED33238AA790252E730988B32@PAXPR04MB8459.eurprd04.prod.outlook.com>
+References: <20250404141713.ac2ntcsjsf7epdfa@hiago-nb>
+ <20250411125024.i2pib4hyeq4g6ffw@hiago-nb>
+ <PAXPR04MB8459ED6CE869173D4051257088B62@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <20250411162328.y2kchvdb4v4xi2lj@hiago-nb>
+In-Reply-To: <20250411162328.y2kchvdb4v4xi2lj@hiago-nb>
+Accept-Language: en-US
 Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <CAMj1kXGn71CGqXCN2mWokZuq37bbEtnOKkrB=_dddp0dyPTndw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|DBAPR04MB7221:EE_
+x-ms-office365-filtering-correlation-id: 5f00f20e-aedf-421d-1612-08dd7b1af6b0
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|366016|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?GS08y8v7Bj0UdXM+YFZgacSaOkA5sDgnlGJqMejUa8p8q8g5Bu88WgfGafZ1?=
+ =?us-ascii?Q?ZL6bVtyG5X3MQsar34vxEALXIOCZNmAgDMVRPmxlKYSDYdeN2QTWHapsWf16?=
+ =?us-ascii?Q?R8CWEFKjV/QnQ0H7QT4+FpeKvbLjsA5TMWP/7eOWp3rp/XYixwUqOxX3RwZZ?=
+ =?us-ascii?Q?TjtFOuZYOZsPT1rlFdc2bFZl6W02DhhTKu+R3/YNn6MSFxRkcfMqpfSNHjZ2?=
+ =?us-ascii?Q?28AilgMDfl27LJFOyRP6dBJElJV9lWdp0SV1UstzCrklv7WVbxsrSVrD2p0S?=
+ =?us-ascii?Q?8MOIZ5M0e03gw13NewoZoQS4/B0GY3zGFS0DpMxJwIkamb2Ip56eqcJpjlaB?=
+ =?us-ascii?Q?AXVttCJyTl6lXxdm0kuHIWlFJKrFJjBUtkvLuBWs3SisK/wEtlqAHQeQj6ZW?=
+ =?us-ascii?Q?v5Gq7AtQH+KH2QI2R5ZDXPYnW5ZNZxA+QfV1WlTP3WR/UJIv4QSYqLllKfkj?=
+ =?us-ascii?Q?nJo9oE/rbn4obqcmsF3DAC0yBwP4xqPnGQpE+FPqiNhdDx76gxSzau76jk28?=
+ =?us-ascii?Q?82pArh+qi6bkXElHUOZLTBgBGaBuHIzzJr9t5GUlu9UYUuFV3gS+ASrPTZla?=
+ =?us-ascii?Q?muYpJQEQulDT1FUOaszMt0UshDEKt+IDFxjTFr9IpeOHuEL31uV5MWw3DEJf?=
+ =?us-ascii?Q?qBLt1stkEyoOXaV4eJrDT8gRZRqbi7TSiU9SmcMzCzldicwEQ/zgU9YdgqCI?=
+ =?us-ascii?Q?lcL1Xl2uQP43yZoE3uTQZV71kzv/1gPj1unSOwXomQN3N/H8fyGL62kyo5cM?=
+ =?us-ascii?Q?lHcA0G8dNNRk948yjAb0apKR5q4BBMuVjtHvfTJsG2a9fhbco63Yh2479Ton?=
+ =?us-ascii?Q?pEoXGr6rpGJxQXE9EoTSF96XA6R/jtniDCA8ipu/5U78lPjP1DPwzymbqNpv?=
+ =?us-ascii?Q?zgiDjNZdy1M7iFAN2YVYyJ8w0evCUVBi92FetWiWczSVgr8k0F5iQBW3LWnx?=
+ =?us-ascii?Q?jv5uMYs2pPX6n/HAG/nNOP7pGAcOxLOpgRc+YGQSA/YP3TjoeBENhzpyOkaw?=
+ =?us-ascii?Q?3dUwROFtHzw810cyG1JkllrqlPt91kgUneJ4S0UoaqZL5FUF56H/twXS3uar?=
+ =?us-ascii?Q?SMUh58PraJGyWnN4CqNgcGIP+SLVEeUSwEPEmQU1Wxelzsa2aTC6i81u3Hxv?=
+ =?us-ascii?Q?N6kZMmJWX+gV/tG2qZ8F1mN8rcI85fG0b5cfL8f85tSt74oIahicAC1o+C/3?=
+ =?us-ascii?Q?ExIJ+2nC7pQq0YqJTgZ2uT0Y0dwJ9UKO7zjmMm10Vhpjggn1U64ZdWctKsio?=
+ =?us-ascii?Q?C/OqnU9py5DFecIUWJwbl48TYO9ECEvGSYeAYRsz5wDFjiipPRnK1dAKcYdM?=
+ =?us-ascii?Q?z6kZ7MgGTC3cz/WPLn7zqLxtKpKAqCQUH/CUuNQHS7DUOJuQi8668e6jvp9m?=
+ =?us-ascii?Q?x8i/qa6Q4zdxFckfogezEk0Df6iteyrYD+23c2exkzjXfCYi3IzMd7esA200?=
+ =?us-ascii?Q?bsw+JgiGO4OQd/71X6BJ5SYOZs8vfbH6yhKmUePPfLoFzZ6cHxq7zw=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?f/CQh87NgFmyD4RNKR5C5yawiDxo9uNGpbkRlEcESP66JGZk0/bQNsrUDy0x?=
+ =?us-ascii?Q?lvURllKdvMBdJBxFa39zjA1prJ1WlbGGK4HmXuZYLEvlRxnMlOuXAL71pR4Q?=
+ =?us-ascii?Q?trNDYfpERXgoKqPJ56ae+nlf39/rsPOenJLUJD0iGQk3i9nijeYmNN/IU3tk?=
+ =?us-ascii?Q?nx4OOguA5BVkLSMgmCe6ctUClK58m5LabfMP/rjccEkg6/D1CcfoYHOw2EUP?=
+ =?us-ascii?Q?0546JWZ/OnX9O9DzQ9HXv9nQacwiWkI6Q8Pw5mK3rO4YSVcs1UJJMnoZnZUe?=
+ =?us-ascii?Q?TSYrNC9zioFdiGWAaVKEIHe4YytVlHOUQ9J+nVwygoOgiehKE/oax3uwv61p?=
+ =?us-ascii?Q?XP/rPMkWgwEGRVipNwb4v+UGyYnybtypghuQ5KowS80YIY0fye+cpWATDB5H?=
+ =?us-ascii?Q?olqMUahJHoBGN53hqZQ8QC5/YejENqTlMIlJB7iuLSQ6yNo1s08F7w0mfESo?=
+ =?us-ascii?Q?szFV2wBzUn6AgdkZHPqDNpC6woRotf0AdtUIH5Nl1adXKBH+D3pHfErVuUEB?=
+ =?us-ascii?Q?0zrvsDTtowwCLM6Wrunr9Z+ck+/tqV7XBsUYg31cZt2GbEI+BnnAsFzwu31d?=
+ =?us-ascii?Q?2HeeIVVWquWfRuMMYiZy4ZaVdIoSpSl3LR0LUMbAZfqRoqDIBDaM5pEZ2ZrI?=
+ =?us-ascii?Q?b2hyr7n3V6KFAAPwU4+S9NFel0BXxudKYzwwMdw7MzKjxmUVLhxiLGkBQe8m?=
+ =?us-ascii?Q?sgI9dugMIg5ojmZg5vsCbsxtx924HF+TEoHDKAYmpz4mu2XO4Krtvyv0vK5+?=
+ =?us-ascii?Q?C/7Fog9Kbj2tZNQGBHtr9BhT9HOlJLk7EudIcwtNsFBJ5gY6G61xm2GsAUhG?=
+ =?us-ascii?Q?ovO5CS9a1gD2ZNHP8IFQoi2CELqliX58ZljFqDhrnCnAAOv1E9B/xdkzy8s+?=
+ =?us-ascii?Q?tH8dafQLz/k+Etq/IkNe4PpWMAxQWwd0zuEgpyet72FpfxGK687C96veoEXS?=
+ =?us-ascii?Q?OmgV7+AmBFMsk4lrEVSiNjpvLg4zDc533/0/wp0/tS2qvFH/4rFAQs0Ggvuf?=
+ =?us-ascii?Q?n3SagwI7srAwFaY6ebn2gaseX4NAOizVANpJfYpdFEXisc7OuHcetVL6fV2L?=
+ =?us-ascii?Q?cJNnUZP2j1uf2wfbhMaxPwamdKoweorwDJJHDdA3ziYShnvRT4ww+LzqihSd?=
+ =?us-ascii?Q?gh5CZWFRiojU6Y75+E9Fs5vX78knhOkZY96fjW0bWTEgk3txTaG5lHDuup8i?=
+ =?us-ascii?Q?qPR4o4ErRycV7apfNRCfnvk3wXQgBdqVIXsd23K0Z3X3Pw9R6KnU+nkIJWhE?=
+ =?us-ascii?Q?ouHLIanIHsJ4mlA1pbRjy3NrIErROsQhGdJLl44LjTV18RSGqlEiSeKkDm80?=
+ =?us-ascii?Q?54uo/3NZVPl3NbQ6AUTVpxgLFQgT7fRGzhsMDXT6HhiyxBJNyOdL4m/GJOpQ?=
+ =?us-ascii?Q?CjcldavTgd/qLT2IawW9pyevSZxIKov91DmqUTOgQMUINXwV3pFkDG3yD2EN?=
+ =?us-ascii?Q?XnjX1/Rao3wD6SMeOuiKtcxNA1uUB1adq0fvO0adngp7fVHiThzHUVliVoEU?=
+ =?us-ascii?Q?K8NctyEe30U5cmrC9B04hmHpaDLOFD7t1/OLmCoc4hAk9Dz9NsrrxDMDjFaU?=
+ =?us-ascii?Q?sawUbO2t86e9VRQPUaY=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5f00f20e-aedf-421d-1612-08dd7b1af6b0
+X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Apr 2025 06:09:49.4370
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 3teFmPanowaMfJr698OjANhcCST/M/nnH0OyO5KbIfZEUrbxf3c7BBqerVQQ2GAXtQRXjaSy2+qklszAiTmztA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7221
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250413_224403_082328_54E23CE3 
-X-CRM114-Status: GOOD (  20.74  )
+X-CRM114-CacheID: sfid-20250413_231000_205991_B0C02898 
+X-CRM114-Status: GOOD (  43.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,161 +167,225 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> Subject: Re: [REGRESSION] Kernel reboots unexpectdely on i.MX8X
+> when Cortex-M4 is running and it was started by U-Boot bootaux
+>=20
+> Hi Peng,
+>=20
+> On Fri, Apr 11, 2025 at 01:23:32PM +0000, Peng Fan wrote:
+> > Hi,
+> >
+> > Sorry for late.
+> > > Subject: Re: [REGRESSION] Kernel reboots unexpectdely on i.MX8X
+> when
+> > > Cortex-M4 is running and it was started by U-Boot bootaux
+> > >
+> > > On Fri, Apr 04, 2025 at 11:17:13AM -0300, Hiago De Franco wrote:
+> > > > #regzbot introduced: 4f6c983261
+> > > >
+> > > > Hi Peng and all,
+> > > >
+> > > > Commit 4f6c9832613b ("genpd: imx: scu-pd: initialize is_off
+> > > according
+> > > > to HW state") introduced a regression where the Kernel reboots
+> > > > unexpectedly (without any warnings, crashes or errors) when the
+> > > > Cortex-M4 was loaded and running by U-Boot, using the bootaux
+> > > command:
+> > > >
+> > > > # load mmc 0:2 ${loadaddr} /home/root/hello_world.bin #
+> bootaux
+> > > > ${loadaddr} 0 # boot
+> > > >
+> > > > This is a simple hello world binary that prints a message into the
+> > > > M40.UART0 pin (demo from NXP MCUXpresso).
+> >
+> > Which release is this image from?
+>=20
+> This is MCUXpresso SDK 2.9.0.
+>=20
+> >
+> > > >
+> > > > Before this commit, everything worked as expected, Linux boots
+> > > > fine and the HMP core keeps running and printing messages to
+> the UART.
+> > > > After the commit, the kernel reboots at the beggining of the boot
+> > > > process. The only relevant message is printed by U-Boot after
+> reset:
+> > > >
+> > > > "Reset cause: SCFW fault reset"
+> > > >
+> > > > This commit was bisectabled, the same device tree, u-boot
+> version,
+> > > and
+> > > > SCFW versions were used. Reverting this commit fixes the issues.
+> > > >
+> > > > For testing purposes, I created the following patch which also
+> > > > fixes the
+> > > > issue:
+> > > >
+> > > > diff --git a/drivers/pmdomain/imx/scu-pd.c
+> > > > b/drivers/pmdomain/imx/scu-pd.c index
+> > > 38f3cdd21042..0477b3fb4991
+> > > > 100644
+> > > > --- a/drivers/pmdomain/imx/scu-pd.c
+> > > > +++ b/drivers/pmdomain/imx/scu-pd.c
+> > > > @@ -539,6 +539,9 @@ imx_scu_add_pm_domain(struct device
+> > > *dev, int idx,
+> > > >                 return NULL;
+> > > >         }
+> > > >
+> > > > +       if (strstr("cm40", sc_pd->name) !=3D NULL)
+> > > > +               is_off =3D true;
+> > > > +
+> > > >         ret =3D pm_genpd_init(&sc_pd->pd, NULL, is_off);
+> > > >         if (ret) {
+> > > >                 dev_warn(dev, "failed to init pd %s rsrc id %d",
+> > > >
+> > > >
+> > > > Test Environment:
+> > > > - Hardware: Colibri iMX8DX 1GB with Colbiri Evaluation Board.
+> > > > - U-Boot Version: 2024.04
+> > > > - U-Boot Build info:
+> > > > 	SCFW 83624b99, SECO-FW c9de51c0, IMX-MKIMAGE
+> > > 4622115c, ATF 7c64d4e
+> > > >
+> > > > The issue is not present on: v6.5
+> > > >
+> > > > The real root cause is still unclear to me. Anybody has any ideas?
+> > > > I am happy to share more details if needed.
+> >
+> > Have you tried pd_ignore_unused?
+> >
+> > I think it is linux power down M4 which M4 is running, then SCFW
+> > reports error. So please give a try pd_ignore_unused.
+>=20
+> For debugging purposes, I tried it and it works, kernel boots fine with
+> M4 running and pd_ignore_unused parameter.
+>=20
+> >
+> > If this is the case, may I know do you have m4 nodes in dts and with
+> > power domain included?
+>=20
+> This is the device tree overlay I am testing:
+>=20
+> /dts-v1/;
+> /plugin/;
+>=20
+> #include <dt-bindings/clock/imx8mm-clock.h>
+> #include <dt-bindings/firmware/imx/rsrc.h>
+>=20
+> / {
+> 	compatible =3D "toradex,colibri-imx8x";
+> };
+>=20
+> &{/} {
+> 	imx8x-cm4 {
+> 		compatible =3D "fsl,imx8qxp-cm4";
+> 		mbox-names =3D "tx", "rx", "rxdb";
+> 		mboxes =3D <&lsio_mu5 0 1
+> 			  &lsio_mu5 1 1
+> 			  &lsio_mu5 3 1>;
+> 		memory-region =3D <&vdevbuffer>, <&vdev0vring0>,
+> <&vdev0vring1>,
+> 				<&vdev1vring0>, <&vdev1vring1>,
+> <&rsc_table>;
+> 		power-domains =3D <&pd IMX_SC_R_M4_0_PID0>,
+> 				<&pd IMX_SC_R_M4_0_MU_1A>;
+> 		fsl,entry-address =3D <0x34fe0000>;
+> 		fsl,resource-id =3D <IMX_SC_R_M4_0_PID0>;
+> 	};
+>=20
+> 	reserved-memory {
+> 		#address-cells =3D <2>;
+> 		#size-cells =3D <2>;
+> 		ranges;
+>=20
+> 		vdev0vring0: memory@90000000 {
+> 			reg =3D <0 0x90000000 0 0x8000>;
+> 			no-map;
+> 		};
+>=20
+> 		vdev0vring1: memory@90008000 {
+> 			reg =3D <0 0x90008000 0 0x8000>;
+> 			no-map;
+> 		};
+>=20
+> 		vdev1vring0: memory@90010000 {
+> 			reg =3D <0 0x90010000 0 0x8000>;
+> 			no-map;
+> 		};
+>=20
+> 		vdev1vring1: memory@90018000 {
+> 			reg =3D <0 0x90018000 0 0x8000>;
+> 			no-map;
+> 		};
+>=20
+> 		rsc_table: memory@900ff000 {
+> 			reg =3D <0 0x900ff000 0 0x1000>;
+> 			no-map;
+> 		};
+>=20
+> 		vdevbuffer: memory@90400000 {
+> 			compatible =3D "shared-dma-pool";
+> 			reg =3D <0 0x90400000 0 0x100000>;
+> 			no-map;
+> 		};
+> 	};
+> };
+>=20
+> &lsio_mu5 {
+> 	status =3D "okay";
+> };
+>=20
+> This was basically copied from
+> arch/arm64/boot/dts/freescale/imx8qxp-mek.dts. Do you see anything
+> wrong? Should I also add the "clocks" property to imx8x-cm4 node?
+
+In your case, m4 is in same scu partition as a53, so m4
+power domain is manageable(owned) by Linux.
+
+However to m4 earlyboot(kicked by bootloader),
+if you not wanna linux to handle m4, use scu_rm
+to create a separate partition in u-boot.
+If you wanna linux to handle m4, but not wanna linux
+to shutdown the pd in kernel boot, imx_rproc.c
+needs to be built in, and need to add a clock entry
+or use clock optional api in imx_rproc.c .
+
+Current imx_rproc.c needs a clock entry to probe pass.
+
+I think in your case, this driver not probe pass, so the
+M4 pd still get powered off.
 
 
-On 4/10/25 17:58, Ard Biesheuvel wrote:
-> Hi Anshuman,
-> 
-> On Thu, 10 Apr 2025 at 09:40, Anshuman Khandual
-> <anshuman.khandual@arm.com> wrote:
->>
->> mov_q cannot really move PIE_E[0|1] macros into a general purpose register
->> as expected if those macro constants contain some 128 bit layout elements,
->> required for D128 page tables.
-> 
-> Could you elaborate?
+Regards,
+Peng.
 
-Without this change in place, the following build error comes up.
-
-arch/arm64/mm/proc.S: Assembler messages:
-arch/arm64/mm/proc.S:539: Error: too many positional arguments
-arch/arm64/mm/proc.S:541: Error: too many positional arguments
-make[4]: *** [scripts/Makefile.build:335: arch/arm64/mm/proc.o] Error 1
-make[4]: *** Waiting for unfinished jobs....
-make[3]: *** [scripts/Makefile.build:461: arch/arm64/mm] Error 2
-make[3]: *** Waiting for unfinished jobs...
-
-SYM_FUNC_START(__cpu_setup)
-	..........................
-	..........................
-#define PTE_MAYBE_NG            0
-#define PTE_MAYBE_SHARED        0
-
-        mov_q   x0, PIE_E0		 (arch/arm64/mm/proc.S:539)
-        msr     REG_PIRE0_EL1, x0
-        mov_q   x0, PIE_E1		 (arch/arm64/mm/proc.S:541)
-        msr     REG_PIR_EL1, x0
-
-#undef PTE_MAYBE_NG
-#undef PTE_MAYBE_SHARED
-	..........................
-	..........................
-
-Please note the following PIE_E0 definition in D128 context.
-
-#define PTE_PI_MASK     GENMASK_U128(118, 115)
-#define PTE_PI_SHIFT    115
-
-#define pte_pi_index(pte)       (((pte) & PTE_PI_MASK) >> PTE_PI_SHIFT)
-
-#define PIE_E0  ( \
-        PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_GCS),           PIE_GCS)  | \
-        PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_GCS_RO),        PIE_R)   | \
-        PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_EXECONLY),      PIE_X_O) | \
-        PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_READONLY_EXEC), PIE_RX_O)  | \
-        PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_SHARED_EXEC),   PIE_RWX_O) | \
-        PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_READONLY),      PIE_R_O)   | \
-        PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_SHARED),        PIE_RW_O))
-
-Where _PAGE_XXX definitions here might contain page flags beyond just 64
-bits as well.
-
-> 
->> Fix this problem via first loading up these
->> macro constants into a given memory location and then subsequently setting
->> up registers PIRE0_EL1 and PIR_EL1 by retrieving the memory stored values.
->>
-> 
-> If this is necessary, we could also remove the PTE_MAYBE_xx override hack no?
-
-Could you please elaborate ? Not sure if PTE_MAYBE_xx is the problem here.
-
-> 
->> Cc: Catalin Marinas <catalin.marinas@arm.com>
->> Cc: Will Deacon <will@kernel.org>
->> Cc: Mark Rutland <mark.rutland@arm.com>
->> Cc: Ard Biesheuvel <ardb@kernel.org>
->> Cc: Ryan Roberts <ryan.roberts@arm.com>
->> Cc: linux-arm-kernel@lists.infradead.org
->> Cc: linux-kernel@vger.kernel.org
->> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
->> ---
->> This patch applies on v6.15-rc1
->>
->>  arch/arm64/kernel/head.S         | 3 +++
->>  arch/arm64/kernel/pi/map_range.c | 6 ++++++
->>  arch/arm64/kernel/pi/pi.h        | 1 +
->>  arch/arm64/mm/mmu.c              | 1 +
->>  arch/arm64/mm/proc.S             | 5 +++--
->>  5 files changed, 14 insertions(+), 2 deletions(-)
->>
->> diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
->> index 2ce73525de2c..4950d9cc638a 100644
->> --- a/arch/arm64/kernel/head.S
->> +++ b/arch/arm64/kernel/head.S
->> @@ -126,6 +126,9 @@ SYM_CODE_START(primary_entry)
->>          * On return, the CPU will be ready for the MMU to be turned on and
->>          * the TCR will have been set.
->>          */
->> +       adr_l   x0, pir_data
->> +       bl      __pi_load_pir_data
->> +
->>         bl      __cpu_setup                     // initialise processor
->>         b       __primary_switch
->>  SYM_CODE_END(primary_entry)
->> diff --git a/arch/arm64/kernel/pi/map_range.c b/arch/arm64/kernel/pi/map_range.c
->> index 81345f68f9fc..cd9d24e73046 100644
->> --- a/arch/arm64/kernel/pi/map_range.c
->> +++ b/arch/arm64/kernel/pi/map_range.c
->> @@ -103,3 +103,9 @@ asmlinkage u64 __init create_init_idmap(pgd_t *pg_dir, pteval_t clrmask)
->>
->>         return ptep;
->>  }
->> +
->> +asmlinkage void __init load_pir_data(u64 pir_data[])
->> +{
->> +       pir_data[0] = PIE_E0;
->> +       pir_data[1] = PIE_E1;
->> +}
->> diff --git a/arch/arm64/kernel/pi/pi.h b/arch/arm64/kernel/pi/pi.h
->> index c91e5e965cd3..ae61df4fdb77 100644
->> --- a/arch/arm64/kernel/pi/pi.h
->> +++ b/arch/arm64/kernel/pi/pi.h
->> @@ -34,3 +34,4 @@ void map_range(u64 *pgd, u64 start, u64 end, u64 pa, pgprot_t prot,
->>  asmlinkage void early_map_kernel(u64 boot_status, void *fdt);
->>
->>  asmlinkage u64 create_init_idmap(pgd_t *pgd, pteval_t clrmask);
->> +asmlinkage void load_pir_data(u64 pir_data[]);
->> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->> index ea6695d53fb9..762e81ff4e85 100644
->> --- a/arch/arm64/mm/mmu.c
->> +++ b/arch/arm64/mm/mmu.c
->> @@ -58,6 +58,7 @@ static bool rodata_is_rw __ro_after_init = true;
->>   * with MMU turned off.
->>   */
->>  long __section(".mmuoff.data.write") __early_cpu_boot_status;
->> +unsigned long __section(".mmuoff.data.write") pir_data[2];
->>
->>  /*
->>   * Empty_zero_page is a special page that is used for zero-initialized data
->> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
->> index fb30c8804f87..7dd28cf101c2 100644
->> --- a/arch/arm64/mm/proc.S
->> +++ b/arch/arm64/mm/proc.S
->> @@ -524,9 +524,10 @@ alternative_else_nop_endif
->>  #define PTE_MAYBE_NG           0
->>  #define PTE_MAYBE_SHARED       0
->>
->> -       mov_q   x0, PIE_E0
->> +       adr_l   x1, pir_data
->> +       ldr     x0, [x1, #0]
->>         msr     REG_PIRE0_EL1, x0
->> -       mov_q   x0, PIE_E1
->> +       ldr     x0, [x1, #8]
->>         msr     REG_PIR_EL1, x0
->>
->>  #undef PTE_MAYBE_NG
->> --
->> 2.25.1
->>
+>=20
+> >
+> > Anyway, I will give a try on i.MX8QM EVK.
+>=20
+> Great, thanks.
+>=20
+> >
+> > >
+> > > Hello everyone, as this introduced a regression, should I send a
+> > > revert for 4f6c983261?
+> >
+> > Please wait a while, I think we need find root cause.
+> >
+> > Thanks,
+> > Peng.
+> >
+> > Or any ideas that might help fix this issue?
+> > >
+> > > >
+> > > > Cheers,
+> > > > Hiago.
+> > >
+> > > Cheers,
+> > > Hiago.
+>=20
+> Cheers,
+> Hiago.
 
