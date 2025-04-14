@@ -4,155 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A41FC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 21:15:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E13D4C369B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 21:27:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mne82N7Mesq9/UUHJtdWqeS07/Vs5JeUXiKEr1uaUc4=; b=nFfpUcgjupqEEuy1W9q2MfTXcH
-	T3hWg0+tNGIeSoZquEjrGlzFEmfg0ZyABjS2hJcAdMvV3B90PNNJsxAA/c20FogcpqRIQpiUN/NVe
-	h4IhniGKJZ6Gf0/PVQ3aP4lgIemqHAdp/NKy5GLXNAYb+rnRxwvwRrIX2cVQKjwmEGPwOepCaz8n0
-	Am4zcknjr6JiPumGNNCMHGGvUYCacrnUWHeJY8w9TgOiqkzQO0ot+NDmiKLZ/v+vU/F/gjzrteZbC
-	DNGol27vOvdHQUjPVqWs3qKkgwv95wPfBiF2DAdmwQmmitmMmz1MF1gyCoXakXWTb+2to4h3AlJm+
-	qnhTPrcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DGXPxttzqv6A5ancFJU+4S/PNVTQHZC6YpEWKcmzl0k=; b=C8M97lqufMm1rPbHxBP2WiOIu+
+	W2Ry8drR4lW2zUrRGFzfxf/Jyf3kwQW/t/7EejetKkDLnG/21/6WAWzdqBxjp+GKVrZtj61lNTtRz
+	hqs1Ihil0a8tKKIdciXyMYqbg7BA3LG/zO4dpwE3YK/m8XYmZ0TeU3X1M05iBYIYrgjyZ0sViqb2O
+	cDYrlke3/8sG9xPCieoNTuJOq4lDBOAyCvteYDV8uxqaeBbOiPprtgubYf+93zlaruxxAb5mOi/IG
+	W77nZx/D1vlJJAZX3rYeBXayKicwcxaWg9VXQAQqZGWDaMpcY18vdArRfKflfVkK9HCH7Jpac680h
+	+c/ZVLCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4R8j-00000003Xgm-0K1B;
-	Mon, 14 Apr 2025 21:14:49 +0000
-Received: from mail-db8eur05on20615.outbound.protection.outlook.com ([2a01:111:f403:2614::615] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1u4RKP-00000003Z1y-0ldj;
+	Mon, 14 Apr 2025 21:26:53 +0000
+Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4R1s-00000003X8V-2O0J
+	id 1u4RIa-00000003YoK-1jJw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 21:07:46 +0000
+	Mon, 14 Apr 2025 21:25:02 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Yc1Jbb4O9mRpStgydKJYXwEQxzEuFw2DQ1in1E9ZJXZwDe2SxNjheJabBGKYPy5XMmBsyCedsiLrRwu2MJjmS7TEels3wIatgVCP5HFAk/xtDz2Qrwe4TGPUZmDPbBfzcZ73wgFuNuQLrU68699pyDbOFns2lJ0JuY8dXBWKty9QbzffePHv1ypWf/Dh+4ItbnCckklcUcXbS5kHMwDc6FX48EZ4ltrBExrfWZVYNV8cMgAAKiUvkNlFtAa9jHvG5DPXa+al1gsiHKdA3jDgQibWcO5MCqOa+hKHOfEqAWhViSm/ZsDZ4W+RiTOO6+syEYaj6ktyI/GgWQZ+aVf+Wg==
+ b=vMh95NThUVWgQL78k2FZ8MDTsUfHrVfXZW+7hdh784ZD+TpfdZ7oV/y9ZngMlmvdw633rkhwTlr2v1rps1PvGaeD3L3LVdngwY73MgF9DvbTZ7nzfYkrRzSa1Ra398sE04f6CKKoirPweG0W/NO6anU7IrJTCasys/Y/KYznhml46kNmau1WsmGnJpq5D+AGSSdZmiwd0FXnZkAyedE1NNYtXtS2vGhhJ24oilPqj/zGeIoJg7fEpkZx7wqsgPLOa/iSLuCzOs7AjQN7g3YRwGtbpDE/Yko41MCmRD0g8gCvYrYSjNgBdV+SLHCmHqxws3UAUlmEqXYuifXg/QwC/w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mne82N7Mesq9/UUHJtdWqeS07/Vs5JeUXiKEr1uaUc4=;
- b=pvHemS+LfjgnguLZHBAWzFuyzUsCq7k39Sj4Xx8S2jumc3Kn3+5aBEQsF8pOuuzlSJyBfXAA1/VvV567iI8O6+rHjrYw5L/jDoV5xrnXFNcs3+XKI7QTkpjwOUgs9MDCW+qoF3Rzda79Ud010YmS709rBAgaQpCRblExeVeZ1UzNi4NGa1yIHYRMP9ktFC4bv6M0TH7j4Ar4v2zHQ5ikD7vQwXXJmeOGhQkhPWp4/yaLbYkfkVjfdABW4LdUy8lBjxLsFDn1rAnwpGOIfR+xi31x+pPLybgXt9idAVW811OD5ZNGe9RHTV5Y+21obf0dcznTIDr1yTym0fgtvABjvg==
+ bh=DGXPxttzqv6A5ancFJU+4S/PNVTQHZC6YpEWKcmzl0k=;
+ b=Ok+vHe7cya+kVMLEcrncOhbvbowEPAKQjCZE4fpEpg34XOd1qxDwA8VVyM6yPy61jlhz0GjvdVAlvBlY8SA79FBp29pm8DeuoGw84qod5xp3AoQi2y1e4/5vNk626Cowk9X+2ErudMoG49B1MgecSDU4OfaT0q0ekczjKw7gG++t7a8TB0KBc7+1h2uAchH4I2NvMD43vfSS0Rxx2vHwma5wJ7HkVSbzfldBQmvUXmVPtftTFk9CUOyKE2rLkg1s+n339EXM+tuylkT/W2zeQU8hAn+Q7hHz8nPqwkOYsCNTdBJIei0tSB0fwseENmjzb3W21sBQpE97itOXewElkA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mne82N7Mesq9/UUHJtdWqeS07/Vs5JeUXiKEr1uaUc4=;
- b=Wp6sB3Yz5Eya4qtZhZvftgstK7abTJGMTOrdMVFbAsPuChnKvDScRTPzWsvUYG0mh0ic8kI3jnnfOykBl+PwEL8TzVAQl3KMrTdS/gEjt8fE4BjPjYjEXBBUt7W8je9WichJzHPXu9NUaEnSJKjaqQR4UOOuJfudDFG4J+WTLkdzChpbcqrE+awSgX3yTtNwIsR2gZJEWFvbQttTwBySLHkuxVPgLBADpnvwa26VQPJUqNpEWL20mbyLgNJy1mTfLOkfYoOJ+XTsFJ+hjg++JRCpzjZDqqz+OzdLWTW1zG8Epp48sG1E3GOkIATIVVg66o/+iVC3pUNGlbdN/TcTYw==
+ bh=DGXPxttzqv6A5ancFJU+4S/PNVTQHZC6YpEWKcmzl0k=;
+ b=Rw2qQYylf842AtWgXMq930jDOeobX0zMuLFTS4XriHFSq8sRj/bF3jJRM3tPIZzYxsxwnOhAmEUicMeVlzpFKDqZCrVTKByd2o+ePs91cixukQgzbTULxpvsgZlCQARFVlqmMCjrpsg5ImwIRK6GXqOLTfQg1uQc+Ygq4NZfqQo=
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AS8PR04MB9206.eurprd04.prod.outlook.com (2603:10a6:20b:44d::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.34; Mon, 14 Apr
- 2025 21:07:36 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8632.030; Mon, 14 Apr 2025
- 21:07:36 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Steve Longerbeam <slongerbeam@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	linux-media@vger.kernel.org (open list:MEDIA INPUT INFRASTRUCTURE (V4L/DVB)),
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Cc: imx@lists.linux.dev
-Subject: [PATCH 1/1] dt-bindings: media: convert imx.txt to yaml format
-Date: Mon, 14 Apr 2025 17:07:18 -0400
-Message-Id: <20250414210720.3359301-1-Frank.Li@nxp.com>
-X-Mailer: git-send-email 2.34.1
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
+ PH0PR01MB7287.prod.exchangelabs.com (2603:10b6:510:10a::21) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8632.35; Mon, 14 Apr 2025 21:24:45 +0000
+Received: from CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460%4]) with mapi id 15.20.8632.035; Mon, 14 Apr 2025
+ 21:24:45 +0000
+Message-ID: <4d02978c-03c0-48fe-84eb-0f3fa0c54fea@os.amperecomputing.com>
+Date: Mon, 14 Apr 2025 14:24:41 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [v3 PATCH 0/6] arm64: support FEAT_BBM level 2 and large block
+ mapping when rodata=full
+To: Ryan Roberts <ryan.roberts@arm.com>, will@kernel.org,
+ catalin.marinas@arm.com, Miko.Lenczewski@arm.com,
+ scott@os.amperecomputing.com, cl@gentwo.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250304222018.615808-1-yang@os.amperecomputing.com>
+ <3750d3f8-17c6-4bb8-8107-215d442e4ec3@os.amperecomputing.com>
+ <2fb974bb-1470-4a5f-90d5-97456140c98f@arm.com>
+ <22b53cff-00db-48f1-b1e8-b11a54ebb147@os.amperecomputing.com>
+ <4794885d-2e17-4bd8-bdf3-8ac37047e8ee@os.amperecomputing.com>
+ <5c6d9706-7684-4288-b630-c60b3766b13f@arm.com>
+Content-Language: en-US
+From: Yang Shi <yang@os.amperecomputing.com>
+In-Reply-To: <5c6d9706-7684-4288-b630-c60b3766b13f@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: PH7P220CA0054.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:32b::11) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+X-ClientProxiedBy: CY8P220CA0028.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:930:47::12) To CH0PR01MB6873.prod.exchangelabs.com
+ (2603:10b6:610:112::22)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS8PR04MB9206:EE_
-X-MS-Office365-Filtering-Correlation-Id: dd89c066-e73f-408d-c59a-08dd7b9861e1
+X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|PH0PR01MB7287:EE_
+X-MS-Office365-Filtering-Correlation-Id: 56641564-042a-4d6d-7154-08dd7b9ac6d7
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|52116014|366016|38350700014|13003099007|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?10dJXbk8YFN0mZSAh5nvDb8iwO9mwqC+KaO20ANVw+83mx9ZdLyCaMSOYlCb?=
- =?us-ascii?Q?0N01bj/f8e8P0aA7+gokWxV+s+RqoDH+BH4p8tOxlIDW9/aEtLveYQ6SeJ67?=
- =?us-ascii?Q?vAHYDYcyyod5FcULeqOmgPuNuUolthcsOou753k+3v3S88S6+5QHDNuDWEgz?=
- =?us-ascii?Q?HJVEf3r77PKHJ+96pEFs5S63plxXo8TgJWlF2CUF5wI4vO0fjVvdu6aO+vL2?=
- =?us-ascii?Q?i7gD87OQrE59xbEVa5YE66bP7uKMYHlgyZJZnYPjVdrqdNZ/7Ad8lEQw19aM?=
- =?us-ascii?Q?izeRklfp+MmkE75JDp/H0UbKPhof/XjRQNGsDcgoM+PGodu/2ut8oeR5iHJJ?=
- =?us-ascii?Q?+Vllw5GnZp3MsjyE80ktI/Lgpov1+neaxhIDxEd7rteFLhoUcBei7nrdaOvu?=
- =?us-ascii?Q?rd7Mve3yYd4JGM5wa8sAHVPzVXcRma9GJBh320T7czCRXhiCJlosunP4bXOH?=
- =?us-ascii?Q?Vnl89phAwM3W4hjnivpR+AiL9dVdkCQG9Uc/y8ey1i8JCzlA1rQx/e/HfdYK?=
- =?us-ascii?Q?UnxGyzrjAaqsm+ZFCCA8oF74vu4F4l3SOCG39xGvEUKUK/DUoiIpP4Fulrtj?=
- =?us-ascii?Q?efVsMMlM/YEgt18ig/VdIvlt8ZUt/3gr+twRmWDRhCx73A4Dv/x9rrKTRA5m?=
- =?us-ascii?Q?kqpb69zlwtLl5sHKqkrKmAW9AYvswRHbCvgwVBZ85M4G60oqSzWkoGvoowRV?=
- =?us-ascii?Q?xiPs5SPRwsXDKoivF0CGx34DOVkL+LLhWOc7PA+4OG7TJ25MzdIwHkU4Na5w?=
- =?us-ascii?Q?eVZGBRKPmttS3AgHnVeWX1I6Ac70+k9xVuzEJPqIyK8kmLWm5dDz9WH/5v7W?=
- =?us-ascii?Q?vlxiyl00PiQI2FLBrNjiH6rIXu9A0y0aR3SmJwKQxKtzxZwCewjdNIVm+MHQ?=
- =?us-ascii?Q?L4gFzsyrlAm4YsRG7g47vMfJYnrW2A+CJjfUuMqq6pAd/mBSyg94ubyrIbZ2?=
- =?us-ascii?Q?4mbRUFnZU/Pt9ahWNsX/iZOnG7hR0byghiGhJUM+22EdwesiEczGeGIsQVhW?=
- =?us-ascii?Q?CqjGyEJhkssdp3HMLz0zM+BYNWHjVMHPY1kMM3Cx7cNQFBE+NKn/Zk44vJk4?=
- =?us-ascii?Q?13fdRBCrb7h39I+is8gt+ldMaNhdg31p4iulFMaRGOZMCeRkQiJ+CFIc/ezp?=
- =?us-ascii?Q?Qa3YdikWuf5X1WZ0b4lHwS/fpLKexSySROFUzZl2U5iY0tj9jVihAtUIavyQ?=
- =?us-ascii?Q?J+XzxGdsLvGOE4ibfb01bqV55rMnp1UTlmvXvBlpk82vqT9QvvGquWldMfUB?=
- =?us-ascii?Q?tpSShQXc3MNX7SX3t1y1a1dNHYptzCjiKwRu34xZMU8AYU6t2q8zJEIxHN9W?=
- =?us-ascii?Q?ddQ4TgIXlD1XkAVR5HeMZD8qyxLRarIuRxyHMzoIr55Ttkzl9pkR0Pl1WO+8?=
- =?us-ascii?Q?3AeuNASOd8T4BnKGtGn55Ne+rfWSGA28C9jegsYJHrnWDdvrNFMD7BaDLqR9?=
- =?us-ascii?Q?sDxpzNkrPITs5hoj6B2eSCawwZFCkhUC?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(52116014)(366016)(38350700014)(13003099007)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?SjlsVmFQdm5iZE0zTkpSSkFCOHVyTzRiNEhMKzQwNUR6blB0RkJCdWsyYjRo?=
+ =?utf-8?B?VUhDWGZjS0gwTVBYc1pucjRGN21GZzVZanlKbGVFd3JYUlI5SThSUHROaUda?=
+ =?utf-8?B?TVFEcSt2aDdqbUJ6MDNNbVpYbHFVZlZtTWZXMk8xS2NWeE41K2lzbFZRZXpn?=
+ =?utf-8?B?d0hRdEh5enN5bXl5dmNNc3g2WUVIVDRnZFNQVTdpRzViSk1wZzJiOFhxWkR2?=
+ =?utf-8?B?MUtYS1ZUazVoQjJmR0lMblhoSlR4NVQyVXJpNzA1N3pIeHc1aGlVYmNuTjUr?=
+ =?utf-8?B?OFhJNmhyQTBzeElHcFBCcG9LYUt6a0tGRTZrR2piODRoMkkvWU10WGlBa3A3?=
+ =?utf-8?B?OWtGUGNCMFNVc0xTVXp0R1Z4cEJCdHRhUFNFRmRsVVBhalhZWFhLVTVFajQ4?=
+ =?utf-8?B?MVp2eklPQXc2cmRrZXNnWUZGcXlxNXZIM1o2Z1FQdUZ1aHMzbFVCQkNTbWla?=
+ =?utf-8?B?Z3NHUXNzQ0czU05TT1VpY1FqQVRQeGROSUtXamxqREs2dUNYcFlYejRSL2Ex?=
+ =?utf-8?B?TnFZWGZRQytway9kR3N6RVd4MldSeUl6aHV4QlJHcXlhWWdqcTQxK1Z4eXN4?=
+ =?utf-8?B?K2N2eWpEVmovZGdRVzh6QkY4Q25idzdpak8vUUlNTzhuZDU2aUxKNUNRWCtL?=
+ =?utf-8?B?QnZUUkJwMUp4VCtGdjJNdm5yN00wWWNheVZnWW15UXZXaGkwenVOWTNaazE5?=
+ =?utf-8?B?c09ONVl4elNKekdQM0Vlb2NMZGtKcGJTYy9FK3VNenNCaFNNNE9rWmZiUlFN?=
+ =?utf-8?B?Y1hwei9lSS91ZmJrWHJSV2tFS3g5M2dWdzdzRWh2TldpcUF4azdCTVYxL09V?=
+ =?utf-8?B?ZzQ3NzNWcTRFeEJWRThMUGw0cTJ6V1JBdTFTaHRxN2dUQmVCVURRbjBNVHdr?=
+ =?utf-8?B?OXVJVTFYZkJ5bll6VXFTMnNtOUVxYzA4SmM3NVI3NVBqbWN0bG54aStzalZ6?=
+ =?utf-8?B?UWRlZFRrc1NibE5sK3V6UzJTaG9UdHNwYXJaenNCY25DaTZMditUWnhHbExy?=
+ =?utf-8?B?bmZPdDNnK2l4Nm5GcWdJTDJ0MWcwaUFBYkFHL3hhWDFocmdxRDZBaGtkcjNF?=
+ =?utf-8?B?dUdOem9PeTJ5VDltcVBRcDFuK1Q0UFg1SmUyVm9nTk55RzNyZG14WHhjTk5E?=
+ =?utf-8?B?S1hZU25DR1JJRnhFU0E1eFJFYWpmWHVlbitPSndFTlY4bUJ6bUdZcDVTd1hH?=
+ =?utf-8?B?N1kyOS9DMzFuQjlBUyt3T3AvVGRPaXE4WVczWEVObVp2cXdKZXk1UE9FaUFD?=
+ =?utf-8?B?ZmxkZys3VCtadVR2U215d0YrOW5lS0Z3RXROMXIwQWQ2anhubnpXK3dXWU50?=
+ =?utf-8?B?N3I4RmVaME9wYXg3WU9WWGs3ODFNdGI4N0RDcXM5cHc2ZjNQbWFhVG51bnNT?=
+ =?utf-8?B?aEpacVBLejZVR0dYY2ZER3c2Tis0SHYzN002ZW5xZnh6QU5zaGpUZEF2SDVh?=
+ =?utf-8?B?TmRLeVNBcVF5ZU9zTGZZWUNRZmFqWkpidTd6ZXJ6OWptVmZCR0Zid05USVRW?=
+ =?utf-8?B?d1JyVFVva044TWZmSGw5YmZsL3ZkWmNOVDZZd2k2OXVvTisxQjJJZFdBOWM3?=
+ =?utf-8?B?czJ3MDMyVzRac01pN2c2UGRuVFdBM1JnRGtWS1ZxUkV4RFA1cmtaTzBvS2w5?=
+ =?utf-8?B?WFM0UnpVSE13KzZKTUs2ajJQZjAxTjVtY01ZdDFPOTdtcW83dG9FMHZlb25r?=
+ =?utf-8?B?Z3JZVzhVZWowaTlrK3BDNWlTN1hQSG4reUZlazg0THNUblVjN0FBMHptdFpG?=
+ =?utf-8?B?a0pKbVpHN09pU2ZydE4rOHJ0ejJycmRmOEpJYmRIUkJmVzduZDFiZnZ6bkg2?=
+ =?utf-8?B?TzdYZ094K0UwYkxTUGx1TFVpbFltLzhKQ0RsS2lZWDRpTlliVFRNcnlib29z?=
+ =?utf-8?B?TTV2bmxaUXVpUnFLSmd1U25PeXI0R2JnSjQwcnN4MWtHa0dTdUVmelROZjBx?=
+ =?utf-8?Q?/fUlnRUTrHo=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?qmcu/8VcJFPJ1Gp1pJyi6IpqRs/7E8saDr57D4EAkRu116vLneBhmR1A1vhS?=
- =?us-ascii?Q?2wFSM5ZkyYfp3xzFBQYCK4ZEriRnJMvfqrWteVheL0wVoBt+ybA0KrEeKi3V?=
- =?us-ascii?Q?SYpRX7wwXG3XYKAqXwU8AIaT+4nFuKwYbPeZQAaBxOaduugKdHEcLfU7noXc?=
- =?us-ascii?Q?4LEFI+/cApx6T+qIoMBLTjkLUKC3yX70Zq6HL1iNay4Yj6HNTtvHdNp2ysti?=
- =?us-ascii?Q?DLta2mo9lbtVN/7a2LAE5JlJ5Cu7ZhUedg+jmM5AQ0DNn/jpddDZnpe1s7V2?=
- =?us-ascii?Q?PqYC2IJi668qF73VgNIKlBxM0WOC5i88a6bwNRp/+5wn+mBw2X7NWb6qzxCD?=
- =?us-ascii?Q?vNaD37Y4Vyo0+PL6Mnlr00h0ZHeUhF4ZFlGs+rx7j9KGZumSOMC/SWRcbshq?=
- =?us-ascii?Q?K3USeMaGqJ6YfXT04MuiFJC475gSCsEPYOvUdWSLzncv4haAqBrD/9kN+fPw?=
- =?us-ascii?Q?RicF+Bl/mDofLr74+427hgbwVa36n9MIcUZbWynI6B3TM6vXwXc7WZELgh9p?=
- =?us-ascii?Q?wjphxQx2ITjhmdM/EVVsq64zawyyfFVhIn6MK74MWSYaU1GtC/KLwhLg6SDc?=
- =?us-ascii?Q?NjGSuGlFuv/oO2XTZWZI6mmA0y7wU6TLoTQzawDvYwPUyHR7L53XwDB7XcdV?=
- =?us-ascii?Q?ENSV8K8qUdLJwpiBpsriN8ylXmEDJrplSc2qzOYjjv4oE3zmsP+gb9VjZTz2?=
- =?us-ascii?Q?6kVV7K4C1Ag2/zWBjW5KSCN6LzFn4UZ1DYalqt4EYcmDW3sODIMA8FnJ8fvL?=
- =?us-ascii?Q?925FOffrOo9gy3/mOeHw7CiMiQkUkL7giYaS1kdNSMfSN1Xz8wPD5cF16Dz1?=
- =?us-ascii?Q?jhrcUEGqY2/H7T1DHFHR+TumRQwSuXObCDjIJZXhn1G90ljb0prrF/7sL06x?=
- =?us-ascii?Q?EqDUq/+6uxYnudNJcMxLULXFGgIEkUd1DsYWO4ESNeehnedDT7oz0U4J4ePo?=
- =?us-ascii?Q?niWwGhWXwsi0pqta7y9UygwMhhuuPnP8/tGAKNeHfeE1Nwk6B8YTQ66E+25c?=
- =?us-ascii?Q?zrNEhjtquYBg0tfruYXso31vghTxnJwNViwWwwXoCi3KtkPDyy4LTGhOHgEp?=
- =?us-ascii?Q?HwFlI+fitnfHtvQrxuz5unFl9PjwM81dCoX3KXVzpBO7S67a1zCW6LA0fIPJ?=
- =?us-ascii?Q?EQ2uyqcmp4/dovga0Mo9jAnsugsh8aAG0+C2ewfaqy/i9nJQGCRXV0/OrAry?=
- =?us-ascii?Q?1+KKMGYczohgQKtRSAhkk0SNCsBW4vYGaT1nIl9uG7NFpohvRbj9ZlbAZFHv?=
- =?us-ascii?Q?LZxid8w6FOa9blrhCqFR6EdibV5S/jPEIs4EnMJghfB9poKcBtJ3h5uq/akA?=
- =?us-ascii?Q?6SLWMkkcGEf0EH2g6ln9Lii1xcgH4/dXANh+8Ymd/sKieeceNJUuKURgohcq?=
- =?us-ascii?Q?jKQAka6pz8LAQ7JM6pX1RwtWZDrmBFjipRPO8XTKCiYwH2Sib/7TvbHQ9wv9?=
- =?us-ascii?Q?rQvD7T7v/lXVfK8okESFqZqK8YsajWXYpg7BbuBMZz+JJpwgP1xK7865Ku93?=
- =?us-ascii?Q?abNPH1CkrxUNcM5HtjqahbOPS8K2B7pBLSRP6HgPozIE+9Q4i1n31PNbYd1R?=
- =?us-ascii?Q?tHwiM20PaEX2w+fvvDk=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dd89c066-e73f-408d-c59a-08dd7b9861e1
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SW1pL05NWEhhakF6ZVorcWlIazJ4aUFZb0ZRTjRSTVF3bFlTTGVxbXU0RHFB?=
+ =?utf-8?B?aHcydVJGeW96WXJkUHRYOUhFY1FhL3oyNHVWZkhDeFk2YWVPY3VLUEhGdUdB?=
+ =?utf-8?B?Z2d1MWV2NWxSNk5QR3ZLMjRhNVhvL2FCQU13cS9NZGZ2NG0vdHBIRnVLcmdP?=
+ =?utf-8?B?NXp4WWZqU1ZzdXhLREZmcEJCMllGT2FOSnNIaDNzQkdscllwMWg0WXJ3eFFS?=
+ =?utf-8?B?MGNWWnlET0dmTllGY25UeXFvZjVIOVBrc1RVaFFocDlSTFJpRjNoQWxkM0lB?=
+ =?utf-8?B?VUNQRVl2cmg3V3F4cWp2ZmVmdDVBZXVZVm90V08wTWtxMWkyWG8rU09ZaXQ4?=
+ =?utf-8?B?WEEwcXpSUndaZEhyODZ3YUN6Mm5kNHJZd3NsM21QUGd5RFZnOFYwaU9PVEJ1?=
+ =?utf-8?B?dzJkdVZpcGx1RHRVWFhSR0Y0YXNpbjkydUh2ZExoRUw2THlzWlI0N3ZiS3Nq?=
+ =?utf-8?B?ZGoyRVJtMmgxQkRYeEhCSlNRUjl5UTIvMktJVDUydFJWZUJIZ0s0VEtsS09Z?=
+ =?utf-8?B?bDI3QWxYSjJ3blh4emNxbzVuenVrVFllOGJ4M2hvd3dudHBQSkNYc1pFZDJK?=
+ =?utf-8?B?NndwOU1oMURiMEIwSm1YS3UvZTVyUmdnS3JHbjBNRmdnTXdTR3dzREVVZmd4?=
+ =?utf-8?B?eWxiaFl3a216ejR1b0FuWDJpM3VJY2VldmVBMk1XTTdteHg1dmdGck1keGlz?=
+ =?utf-8?B?eGxwTy9DZEhqeXBUS3dZdCtST0tUelZmbVNVaE9EdFE5em5QdHFaWVJrV2xF?=
+ =?utf-8?B?Znd0bmlNcUg5YktLbTAxVjRvOGpUNXJVaVRVZjhOeFJ3Z0l5L0lnK09lNEZB?=
+ =?utf-8?B?SmFYOWt3bmR5NEZOcmVMR3c0M2IrSEdpdG1QdkZsczU0NTNSSjhacER3c3VT?=
+ =?utf-8?B?S2pjeitkdDVNZmltdGlsR1Jpell2b0lSc2VqU3h1aXg3Z2psd3UvVmVTNDlt?=
+ =?utf-8?B?Q3hzOHJjYXZiUlljMkxNMmxISWx6V0FlMCt4dVdHREVqbjVEMWJta0llTnQ3?=
+ =?utf-8?B?RCsyWS9GMkcvZTFvaUYvek9TeUdWR1EyeUM5SDRFdklCeGRjUmZydVZyZkxk?=
+ =?utf-8?B?OGxxL0JJeU9nYkxCcTBlbnoyRmRyRk1ycjIvSzVNcU5XYXNWUXhZMFBoZkVZ?=
+ =?utf-8?B?c2gyU0txMDNLZ0R1bmQ5RDZiblNtYXhQNGd4WUg3RTNUUG5HeExkcEdINDN6?=
+ =?utf-8?B?OEd2TGV4b2pGbHFEQTVMU0Q0MGxwZWZTLzVZTGQzWWp0ckQxVzc3d2NtcTZ5?=
+ =?utf-8?B?SW9sM09pRzZwbDN3amZhYWo0b2swSXBLQ3orKzdqRXFtbS9LTXRoS1A5dmJN?=
+ =?utf-8?B?ZGdIMFAyNENmZnhPRS9ZRlFUNExSckVCL0xKdTJNQWhCcGpJUExaWVByMlNB?=
+ =?utf-8?B?bEV5QVovSFAwRDc2akUvVkY4YTFIS0NyeUI1TUZDSVZ2eUxZTGVLc2tVZ2lk?=
+ =?utf-8?B?SjRjMEFFQ2ZiNWRyOFNFTWV2QU9tc2hKMnZFOUFNaGt3MGZrUUZMUCtxaTM1?=
+ =?utf-8?B?ajB3WUMyWE5ORVpGSHJPMUs0V1hmY29JcVVVNzdsUm00MDRkQjZxa2VFQTVG?=
+ =?utf-8?B?cGFjbUVPbzQ3VkJjNXE0Sm12dlJlZXJWT0xhVUtJdHdDL2JHTXBVeks5cFRF?=
+ =?utf-8?B?VkxKSDdZWlhpRWtYRjhnM2E0NnYwL2xFOWtwYlFORzNWQUdhSlhLZFZZMDBY?=
+ =?utf-8?B?eU1heFJFV0tMUEtsbDZoRERuaDRMVTV0TXBtcmhTYzRtcjRmaEJoRjJOZkZu?=
+ =?utf-8?B?SFY2T21YZC9kKzV5MG1vZWJVbjBZU29hTzJzTnpoMHJtaDlMbXFsdDBta0pi?=
+ =?utf-8?B?WjZEdE9CZERsTmZMWVk2SFJPNkZtZktUVFFvakY5QytvNkZwOFRqU2dPMlBB?=
+ =?utf-8?B?QVY1dWJWZ0drd1FTSUJHRm5zODdHekdoSmNmWWFuaUhqN3RVRDlXTjgrc2o1?=
+ =?utf-8?B?NEJGcVR6c24vQnVpM0FGVVM4cHdsL3pEZ2RLQzlvOVdLMytOVnN1S0prN2dC?=
+ =?utf-8?B?aU15Q283eTNEQmFFMysrWmNGdE5BSWdxcFRzTFF0NGVvN3NMZGJMeTVLUldJ?=
+ =?utf-8?B?UU9wa2djOGtpWVJCL3hpQlRRWFBDS0VzUzhyUVB2RmFSMFJEeHdBcForalh2?=
+ =?utf-8?B?NHRsY2NoWUVzbXRobjVvaXM2NXRCZGdaUU5CR295bEhsZU4zRVVhWnhFeUtx?=
+ =?utf-8?Q?NrHrNoekWKaPZjvqGndj8R8=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 56641564-042a-4d6d-7154-08dd7b9ac6d7
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Apr 2025 21:07:36.7045
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Apr 2025 21:24:45.4187
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fT7qRl5SV1X4IdWs1VQJvBrmXkXLRDIwxeRRBxOOWEgIZK7tyN8URMLo/uM7L8u0WXdF5OxCYdeb31vOgRyEeg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9206
+X-MS-Exchange-CrossTenant-UserPrincipalName: V7Yd1okQHokqzopE2fG7NEqUfli5PDMogZvNQCFphMdW773YziLrDT9trn8UdQ5u7IMXdhlifcygWq0Rsq3D/gQLctq3+Jm6720TPqhXzw4=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR01MB7287
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_140744_774759_315DD53C 
-X-CRM114-Status: GOOD (  18.21  )
+X-CRM114-CacheID: sfid-20250414_142500_451957_8EAAD0A4 
+X-CRM114-Status: GOOD (  25.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,258 +183,220 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert binding doc imx.txt to yaml format. Create two yaml files:
-fsl,imx6-mipi-csi2.yaml and fsl,imx-capture-subsystem.yaml.
 
-Additional changes:
-- add example for fsl,imx6-mipi-csi2
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
- .../media/fsl,imx-capture-subsystem.yaml      |  38 ++++++
- .../bindings/media/fsl,imx6-mipi-csi2.yaml    | 126 ++++++++++++++++++
- .../devicetree/bindings/media/imx.txt         |  53 --------
- 3 files changed, 164 insertions(+), 53 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/media/fsl,imx-capture-subsystem.yaml
- create mode 100644 Documentation/devicetree/bindings/media/fsl,imx6-mipi-csi2.yaml
- delete mode 100644 Documentation/devicetree/bindings/media/imx.txt
+On 4/14/25 6:03 AM, Ryan Roberts wrote:
+> On 10/04/2025 23:00, Yang Shi wrote:
+>> Hi Ryan,
+>>
+>> I know you may have a lot of things to follow up after LSF/MM. Just gently ping,
+>> hopefully we can resume the review soon.
+> Hi, I'm out on holiday at the moment, returning on the 22nd April. But I'm very
+> keen to move this series forward so will come back to you next week. (although
+> TBH, I thought I was waiting for you to respond to me... :-| )
+>
+> FWIW, having thought about it a bit more, I think some of the suggestions I
+> previously made may not have been quite right, but I'll elaborate next week. I'm
+> keen to build a pgtable splitting primitive here that we can reuse with vmalloc
+> as well to enable huge mappings by default with vmalloc too.
 
-diff --git a/Documentation/devicetree/bindings/media/fsl,imx-capture-subsystem.yaml b/Documentation/devicetree/bindings/media/fsl,imx-capture-subsystem.yaml
-new file mode 100644
-index 0000000000000..77be3c1f37c5b
---- /dev/null
-+++ b/Documentation/devicetree/bindings/media/fsl,imx-capture-subsystem.yaml
-@@ -0,0 +1,38 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/media/fsl,imx-capture-subsystem.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Freescale i.MX Media Video Device
-+
-+description:
-+  This is the media controller node for video capture support. It is a
-+  virtual device that lists the camera serial interface nodes that the
-+  media device will control
-+
-+maintainers:
-+  - Frank Li <Frank.Li@nxp.com>
-+
-+properties:
-+  compatible:
-+    const: fsl,imx-capture-subsystem
-+
-+  ports:
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    description:
-+      Should contain a list of phandles pointing to camera
-+      sensor interface ports of IPU devices.
-+
-+required:
-+  - compatible
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    capture-subsystem {
-+        compatible = "fsl,imx-capture-subsystem";
-+        ports = <&ipu1_csi0>, <&ipu1_csi1>;
-+    };
-+
-diff --git a/Documentation/devicetree/bindings/media/fsl,imx6-mipi-csi2.yaml b/Documentation/devicetree/bindings/media/fsl,imx6-mipi-csi2.yaml
-new file mode 100644
-index 0000000000000..1e69a1ff868cd
---- /dev/null
-+++ b/Documentation/devicetree/bindings/media/fsl,imx6-mipi-csi2.yaml
-@@ -0,0 +1,126 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/media/fsl,imx6-mipi-csi2.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: MIPI CSI-2 Receiver core in the i.MX SoC
-+
-+description:
-+  This is the device node for the MIPI CSI-2 Receiver core in the i.MX
-+  SoC. This is a Synopsys Designware MIPI CSI-2 host controller core
-+  combined with a D-PHY core mixed into the same register block. In
-+  addition this device consists of an i.MX-specific "CSI2IPU gasket"
-+  glue logic, also controlled from the same register block. The CSI2IPU
-+  gasket demultiplexes the four virtual channel streams from the host
-+  controller's 32-bit output image bus onto four 16-bit parallel busses
-+  to the i.MX IPU CSIs.
-+
-+maintainers:
-+  - Frank Li <Frank.Li@nxp.com>
-+
-+properties:
-+  compatible:
-+    const: fsl,imx6-mipi-csi2
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: hsi_tx (the D-PHY clock)
-+      - description: video_27m (D-PHY PLL reference clock)
-+      - description: eim_podf;
-+
-+  clock-names:
-+    items:
-+      - const: dphy
-+      - const: ref
-+      - const: pix
-+
-+  interrupts:
-+    maxItems: 2
-+
-+  '#address-cells':
-+    const: 1
-+
-+  '#size-cells':
-+    const: 0
-+
-+  port@0:
-+    $ref: /schemas/graph.yaml#/$defs/port-base
-+    unevaluatedProperties: false
-+    description:
-+      Input port node, single endpoint describing the CSI-2 transmitter.
-+
-+    properties:
-+      endpoint:
-+        $ref: video-interfaces.yaml#
-+        unevaluatedProperties: false
-+
-+        properties:
-+          clock-lanes:
-+            const: 0
-+
-+          data-lanes:
-+            minItems: 1
-+            items:
-+              - const: 1
-+              - const: 2
-+              - const: 3
-+              - const: 4
-+
-+        required:
-+          - data-lanes
-+
-+patternProperties:
-+  '^port@[1-4]':
-+    $ref: /schemas/graph.yaml#/$defs/port-base
-+    unevaluatedProperties: false
-+    description:
-+      ports 1 through 4 are output ports connecting with parallel bus sink
-+      endpoint nodes and correspond to the four MIPI CSI-2 virtual channel
-+      outputs.
-+
-+    properties:
-+      endpoint@0:
-+        $ref: video-interfaces.yaml#
-+        unevaluatedProperties: false
-+
-+      endpoint@1:
-+        $ref: video-interfaces.yaml#
-+        unevaluatedProperties: false
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/imx6qdl-clock.h>
-+
-+    mipi@21dc000 {
-+        compatible = "fsl,imx6-mipi-csi2";
-+        reg = <0x021dc000 0x4000>;
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+        clocks = <&clks IMX6QDL_CLK_HSI_TX>,
-+                 <&clks IMX6QDL_CLK_VIDEO_27M>,
-+                 <&clks IMX6QDL_CLK_EIM_PODF>;
-+        clock-names = "dphy", "ref", "pix";
-+
-+        port@0 {
-+            reg = <0>;
-+
-+            endpoint {
-+                remote-endpoint = <&ov5640_to_mipi_csi2>;
-+                clock-lanes = <0>;
-+                data-lanes = <1 2>;
-+            };
-+        };
-+    };
-+
-diff --git a/Documentation/devicetree/bindings/media/imx.txt b/Documentation/devicetree/bindings/media/imx.txt
-deleted file mode 100644
-index 77f4b0a7fd2b0..0000000000000
---- a/Documentation/devicetree/bindings/media/imx.txt
-+++ /dev/null
-@@ -1,53 +0,0 @@
--Freescale i.MX Media Video Device
--=================================
--
--Video Media Controller node
-----------------------------
--
--This is the media controller node for video capture support. It is a
--virtual device that lists the camera serial interface nodes that the
--media device will control.
--
--Required properties:
--- compatible : "fsl,imx-capture-subsystem";
--- ports      : Should contain a list of phandles pointing to camera
--		sensor interface ports of IPU devices
--
--example:
--
--capture-subsystem {
--	compatible = "fsl,imx-capture-subsystem";
--	ports = <&ipu1_csi0>, <&ipu1_csi1>;
--};
--
--
--mipi_csi2 node
----------------
--
--This is the device node for the MIPI CSI-2 Receiver core in the i.MX
--SoC. This is a Synopsys Designware MIPI CSI-2 host controller core
--combined with a D-PHY core mixed into the same register block. In
--addition this device consists of an i.MX-specific "CSI2IPU gasket"
--glue logic, also controlled from the same register block. The CSI2IPU
--gasket demultiplexes the four virtual channel streams from the host
--controller's 32-bit output image bus onto four 16-bit parallel busses
--to the i.MX IPU CSIs.
--
--Required properties:
--- compatible	: "fsl,imx6-mipi-csi2";
--- reg           : physical base address and length of the register set;
--- clocks	: the MIPI CSI-2 receiver requires three clocks: hsi_tx
--		  (the D-PHY clock), video_27m (D-PHY PLL reference
--		  clock), and eim_podf;
--- clock-names	: must contain "dphy", "ref", "pix";
--- port@*        : five port nodes must exist, containing endpoints
--		  connecting to the source and sink devices according to
--		  of_graph bindings. The first port is an input port,
--		  connecting with a MIPI CSI-2 source, and ports 1
--		  through 4 are output ports connecting with parallel
--		  bus sink endpoint nodes and correspond to the four
--		  MIPI CSI-2 virtual channel outputs.
--
--Optional properties:
--- interrupts	: must contain two level-triggered interrupts,
--		  in order: 100 and 101;
--- 
-2.34.1
+Sounds good. I think the patches can support splitting vmalloc page 
+table too. Anyway we can discuss more after you are back. Enjoy your 
+holiday.
+
+Thanks,
+Yang
+
+>
+> Thanks,
+> Ryan
+>
+>> Thanks,
+>> Yang
+>>
+>>
+>> On 3/13/25 10:40 AM, Yang Shi wrote:
+>>>
+>>> On 3/13/25 10:36 AM, Ryan Roberts wrote:
+>>>> On 13/03/2025 17:28, Yang Shi wrote:
+>>>>> Hi Ryan,
+>>>>>
+>>>>> I saw Miko posted a new spin of his patches. There are some slight changes that
+>>>>> have impact to my patches (basically check the new boot parameter). Do you
+>>>>> prefer I rebase my patches on top of his new spin right now then restart review
+>>>>> from the new spin or review the current patches then solve the new review
+>>>>> comments and rebase to Miko's new spin together?
+>>>> Hi Yang,
+>>>>
+>>>> Sorry I haven't got to reviewing this version yet, it's in my queue!
+>>>>
+>>>> I'm happy to review against v3 as it is. I'm familiar with Miko's series and am
+>>>> not too bothered about the integration with that; I think it's pretty straight
+>>>> forward. I'm more interested in how you are handling the splitting, which I
+>>>> think is the bulk of the effort.
+>>> Yeah, sure, thank you.
+>>>
+>>>> I'm hoping to get to this next week before heading out to LSF/MM the following
+>>>> week (might I see you there?)
+>>> Unfortunately I can't make it this year. Have a fun!
+>>>
+>>> Thanks,
+>>> Yang
+>>>
+>>>> Thanks,
+>>>> Ryan
+>>>>
+>>>>
+>>>>> Thanks,
+>>>>> Yang
+>>>>>
+>>>>>
+>>>>> On 3/4/25 2:19 PM, Yang Shi wrote:
+>>>>>> Changelog
+>>>>>> =========
+>>>>>> v3:
+>>>>>>      * Rebased to v6.14-rc4.
+>>>>>>      * Based on Miko's BBML2 cpufeature patch (https://lore.kernel.org/linux-
+>>>>>> arm-kernel/20250228182403.6269-3-miko.lenczewski@arm.com/).
+>>>>>>        Also included in this series in order to have the complete patchset.
+>>>>>>      * Enhanced __create_pgd_mapping() to handle split as well per Ryan.
+>>>>>>      * Supported CONT mappings per Ryan.
+>>>>>>      * Supported asymmetric system by splitting kernel linear mapping if such
+>>>>>>        system is detected per Ryan. I don't have such system to test, so the
+>>>>>>        testing is done by hacking kernel to call linear mapping repainting
+>>>>>>        unconditionally. The linear mapping doesn't have any block and cont
+>>>>>>        mappings after booting.
+>>>>>>
+>>>>>> RFC v2:
+>>>>>>      * Used allowlist to advertise BBM lv2 on the CPUs which can handle TLB
+>>>>>>        conflict gracefully per Will Deacon
+>>>>>>      * Rebased onto v6.13-rc5
+>>>>>>      * https://lore.kernel.org/linux-arm-kernel/20250103011822.1257189-1-
+>>>>>> yang@os.amperecomputing.com/
+>>>>>>
+>>>>>> RFC v1: https://lore.kernel.org/lkml/20241118181711.962576-1-
+>>>>>> yang@os.amperecomputing.com/
+>>>>>>
+>>>>>> Description
+>>>>>> ===========
+>>>>>> When rodata=full kernel linear mapping is mapped by PTE due to arm's
+>>>>>> break-before-make rule.
+>>>>>>
+>>>>>> A number of performance issues arise when the kernel linear map is using
+>>>>>> PTE entries due to arm's break-before-make rule:
+>>>>>>      - performance degradation
+>>>>>>      - more TLB pressure
+>>>>>>      - memory waste for kernel page table
+>>>>>>
+>>>>>> These issues can be avoided by specifying rodata=on the kernel command
+>>>>>> line but this disables the alias checks on page table permissions and
+>>>>>> therefore compromises security somewhat.
+>>>>>>
+>>>>>> With FEAT_BBM level 2 support it is no longer necessary to invalidate the
+>>>>>> page table entry when changing page sizes.  This allows the kernel to
+>>>>>> split large mappings after boot is complete.
+>>>>>>
+>>>>>> This patch adds support for splitting large mappings when FEAT_BBM level 2
+>>>>>> is available and rodata=full is used. This functionality will be used
+>>>>>> when modifying page permissions for individual page frames.
+>>>>>>
+>>>>>> Without FEAT_BBM level 2 we will keep the kernel linear map using PTEs
+>>>>>> only.
+>>>>>>
+>>>>>> If the system is asymmetric, the kernel linear mapping may be repainted once
+>>>>>> the BBML2 capability is finalized on all CPUs.  See patch #6 for more details.
+>>>>>>
+>>>>>> We saw significant performance increases in some benchmarks with
+>>>>>> rodata=full without compromising the security features of the kernel.
+>>>>>>
+>>>>>> Testing
+>>>>>> =======
+>>>>>> The test was done on AmpereOne machine (192 cores, 1P) with 256GB memory and
+>>>>>> 4K page size + 48 bit VA.
+>>>>>>
+>>>>>> Function test (4K/16K/64K page size)
+>>>>>>      - Kernel boot.  Kernel needs change kernel linear mapping permission at
+>>>>>>        boot stage, if the patch didn't work, kernel typically didn't boot.
+>>>>>>      - Module stress from stress-ng. Kernel module load change permission for
+>>>>>>        linear mapping.
+>>>>>>      - A test kernel module which allocates 80% of total memory via vmalloc(),
+>>>>>>        then change the vmalloc area permission to RO, this also change linear
+>>>>>>        mapping permission to RO, then change it back before vfree(). Then
+>>>>>> launch
+>>>>>>        a VM which consumes almost all physical memory.
+>>>>>>      - VM with the patchset applied in guest kernel too.
+>>>>>>      - Kernel build in VM with guest kernel which has this series applied.
+>>>>>>      - rodata=on. Make sure other rodata mode is not broken.
+>>>>>>      - Boot on the machine which doesn't support BBML2.
+>>>>>>
+>>>>>> Performance
+>>>>>> ===========
+>>>>>> Memory consumption
+>>>>>> Before:
+>>>>>> MemTotal:       258988984 kB
+>>>>>> MemFree:        254821700 kB
+>>>>>>
+>>>>>> After:
+>>>>>> MemTotal:       259505132 kB
+>>>>>> MemFree:        255410264 kB
+>>>>>>
+>>>>>> Around 500MB more memory are free to use.  The larger the machine, the
+>>>>>> more memory saved.
+>>>>>>
+>>>>>> Performance benchmarking
+>>>>>> * Memcached
+>>>>>> We saw performance degradation when running Memcached benchmark with
+>>>>>> rodata=full vs rodata=on.  Our profiling pointed to kernel TLB pressure.
+>>>>>> With this patchset we saw ops/sec is increased by around 3.5%, P99
+>>>>>> latency is reduced by around 9.6%.
+>>>>>> The gain mainly came from reduced kernel TLB misses.  The kernel TLB
+>>>>>> MPKI is reduced by 28.5%.
+>>>>>>
+>>>>>> The benchmark data is now on par with rodata=on too.
+>>>>>>
+>>>>>> * Disk encryption (dm-crypt) benchmark
+>>>>>> Ran fio benchmark with the below command on a 128G ramdisk (ext4) with disk
+>>>>>> encryption (by dm-crypt).
+>>>>>> fio --directory=/data --random_generator=lfsr --norandommap --randrepeat 1 \
+>>>>>>        --status-interval=999 --rw=write --bs=4k --loops=1 --ioengine=sync \
+>>>>>>        --iodepth=1 --numjobs=1 --fsync_on_close=1 --group_reporting --thread \
+>>>>>>        --name=iops-test-job --eta-newline=1 --size 100G
+>>>>>>
+>>>>>> The IOPS is increased by 90% - 150% (the variance is high, but the worst
+>>>>>> number of good case is around 90% more than the best number of bad case).
+>>>>>> The bandwidth is increased and the avg clat is reduced proportionally.
+>>>>>>
+>>>>>> * Sequential file read
+>>>>>> Read 100G file sequentially on XFS (xfs_io read with page cache populated).
+>>>>>> The bandwidth is increased by 150%.
+>>>>>>
+>>>>>>
+>>>>>> Mikołaj Lenczewski (1):
+>>>>>>          arm64: Add BBM Level 2 cpu feature
+>>>>>>
+>>>>>> Yang Shi (5):
+>>>>>>          arm64: cpufeature: add AmpereOne to BBML2 allow list
+>>>>>>          arm64: mm: make __create_pgd_mapping() and helpers non-void
+>>>>>>          arm64: mm: support large block mapping when rodata=full
+>>>>>>          arm64: mm: support split CONT mappings
+>>>>>>          arm64: mm: split linear mapping if BBML2 is not supported on secondary
+>>>>>> CPUs
+>>>>>>
+>>>>>>     arch/arm64/Kconfig                  |  11 +++++
+>>>>>>     arch/arm64/include/asm/cpucaps.h    |   2 +
+>>>>>>     arch/arm64/include/asm/cpufeature.h |  15 ++++++
+>>>>>>     arch/arm64/include/asm/mmu.h        |   4 ++
+>>>>>>     arch/arm64/include/asm/pgtable.h    |  12 ++++-
+>>>>>>     arch/arm64/kernel/cpufeature.c      |  95 ++++++++++++++++++++++++++++++
+>>>>>> +++++++
+>>>>>>     arch/arm64/mm/mmu.c                 | 397 ++++++++++++++++++++++++++++++
+>>>>>> ++++
+>>>>>> ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+>>>>>> ++++++++++++++++++++++-------------------
+>>>>>>     arch/arm64/mm/pageattr.c            |  37 ++++++++++++---
+>>>>>>     arch/arm64/tools/cpucaps            |   1 +
+>>>>>>     9 files changed, 518 insertions(+), 56 deletions(-)
+>>>>>>
+>>>>>>
 
 
