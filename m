@@ -4,95 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAE16C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 15:36:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15112C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 15:40:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oVZV0AwDXeRJIVKP1ntdkFoyDgbEMhaaG3s/gT1aGF0=; b=NsVe+SZxNaJ4zhG/JpHpN4pcsY
-	WLxeSCBKHtQeUGnuUKpXjIgOWjlNQYYERTKiAe2XVNGvDLeQ1fSQ3ga9Xv4XSs8Yn29Haz/iVpTfb
-	z6/Giqv37Rn86xBT1q3tPGPkG4hSXi5kX77Lc0fDypvOfsX0fHfAl91LHcGYaBid8gCqRewtdh2pO
-	l9nAon7YpRfzjJtn9flW+1mKRcAzK4N20NT9inO0c+RUbZLI9Sdn2ml3dLJVs4uxtWKfKnSB2CAvw
-	fJHEUjGXhK/ZIXPNsOsQOcR96ol2ttChdNj3SN+/avk1Djf3eRDLTbnNfmCJvtL//H6jEAqxeCCK+
-	xCMAUFZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iGXrY6D7FU19wN4Bhg4nWtc5sUSS9dum2nNQRB7Xhzk=; b=0j5Umq1kU5JuBATCFpPYS41/Ub
+	7cjrpb9NG2xF+dX+acYr8XaDZA4sHiRhu5FXqK/2kgsgcc0woIe1swqPDOIJ6Fma5Row5ILcJwI+k
+	7Eo9uG09i2TeJFVcqBW4wt9imvub6aF5lxR53zUhKlszWjXXBD+awCfTeeBFwLCcj00zjNLUSKZLg
+	2ysvA+++aPkrOMarVG3OQGMno6nEVhvkKs56UUPO88WltLONKmWO2AOqpsWKkrbTgSOt/OeYrdWW/
+	UakVEJOhk8aqQyurFdS6fEKTHKLfsMxY33Bn7yZKBZLOmbW0D18+GkMyFLsNg+Obji7MoC11luRn9
+	rUC34aPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4LrK-00000002emQ-1OMe;
-	Mon, 14 Apr 2025 15:36:30 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4LpS-00000002ePB-25p6
+	id 1u4Lv5-00000002fY8-1QnT;
+	Mon, 14 Apr 2025 15:40:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u4Lt3-00000002f9O-3xCs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 15:34:35 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53E99tDl015786;
-	Mon, 14 Apr 2025 15:34:27 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=oVZV0AwDXeRJIVKP1ntdkFoy
-	DgbEMhaaG3s/gT1aGF0=; b=OeKHL6vXUOTAEqHdRvx07ebA6GxJAj+OUH8Gln3R
-	woSPKnmGqdx/jYw6G8ZrJcNntgDDTIFCzAO0FliOGNzHnl5OyRTZVsmXgXotQ3ZG
-	UKEVlbrLoNW9Fw2DAq+B+A3RogaJFfK7rOk2mDq1uX+BVpeXw41Fi0F0X2XoytHy
-	TK0lsSC1aHHvQw73HoqdP7QimG1q2oUC77e17OX84y+OOmWuaD3gzTj0DZErGtBo
-	b0nT9vnHMTFYCkODBae2t9w3ECAzAcZuirDcBsefzwZkFMOZsJ0o8BBy5dSyyKro
-	o5BMFwti7wXwoJplLKeVSZOyj8Wu7xEZLa056QU3qKN6bQ==
-Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45ygd6d1mp-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 14 Apr 2025 15:34:27 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53EFYQnp004077
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 14 Apr 2025 15:34:26 GMT
-Received: from hu-mdtipton-lv.qualcomm.com (10.49.16.6) by
- nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Mon, 14 Apr 2025 08:34:26 -0700
-Date: Mon, 14 Apr 2025 08:34:25 -0700
-From: Mike Tipton <quic_mdtipton@quicinc.com>
-To: Peng Fan <peng.fan@oss.nxp.com>
-CC: Sudeep Holla <sudeep.holla@arm.com>,
-        Cristian Marussi
-	<cristian.marussi@arm.com>,
-        "Rafael J . Wysocki" <rafael@kernel.org>,
-        Viresh
- Kumar <viresh.kumar@linaro.org>, <arm-scmi@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] cpufreq: scmi: Skip SCMI devices that aren't used by the
- CPUs
-Message-ID: <Z/0rAfQjxjZEAIeP@hu-mdtipton-lv.qualcomm.com>
-References: <20250411212941.1275572-1-quic_mdtipton@quicinc.com>
- <20250414083832.GA19563@nxa18884-linux>
- <20250414-splendid-clam-of-democracy-dacf96@sudeepholla>
- <20250414102813.GB19563@nxa18884-linux>
+	Mon, 14 Apr 2025 15:38:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 137701007;
+	Mon, 14 Apr 2025 08:38:13 -0700 (PDT)
+Received: from [192.168.1.102] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EE7993F66E;
+	Mon, 14 Apr 2025 08:38:10 -0700 (PDT)
+Message-ID: <50a06ba8-0a99-40d2-8601-778ebf451f6a@arm.com>
+Date: Mon, 14 Apr 2025 16:37:59 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250414102813.GB19563@nxa18884-linux>
-X-Originating-IP: [10.49.16.6]
-X-ClientProxiedBy: nalasex01a.na.qualcomm.com (10.47.209.196) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: Ctqw9QoNA1g2hcgJ4hfNZGubd1CKCaWV
-X-Proofpoint-GUID: Ctqw9QoNA1g2hcgJ4hfNZGubd1CKCaWV
-X-Authority-Analysis: v=2.4 cv=ANaQCy7k c=1 sm=1 tr=0 ts=67fd2b03 cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=3H110R4YSZwA:10 a=kj9zAlcOel0A:10 a=XR8D0OoHHMoA:10 a=odXGOWDWpvyb1jO9vMYA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-14_05,2025-04-10_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 adultscore=0
- mlxlogscore=661 suspectscore=0 clxscore=1011 lowpriorityscore=0
- phishscore=0 impostorscore=0 spamscore=0 priorityscore=1501 malwarescore=0
- bulkscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2504140112
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/4] iommu: Get DT/ACPI parsing into the proper probe
+ path
+To: Johan Hovold <johan@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Russell King <linux@armlinux.org.uk>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>, Stuart Yoder <stuyoder@gmail.com>,
+ Laurentiu Tudor <laurentiu.tudor@nxp.com>, Nipun Gupta
+ <nipun.gupta@amd.com>, Nikhil Agarwal <nikhil.agarwal@amd.com>,
+ Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+ Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
+ Bjorn Helgaas <bhelgaas@google.com>, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ iommu@lists.linux.dev, devicetree@vger.kernel.org,
+ linux-pci@vger.kernel.org, Charan Teja Kalla <quic_charante@quicinc.com>
+References: <cover.1740753261.git.robin.murphy@arm.com>
+ <e3b191e6fd6ca9a1e84c5e5e40044faf97abb874.1740753261.git.robin.murphy@arm.com>
+ <Z_jMiC1uj_MJpKVj@hovoldconsulting.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <Z_jMiC1uj_MJpKVj@hovoldconsulting.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_083434_559501_3AC0C8E2 
-X-CRM114-Status: GOOD (  19.11  )
+X-CRM114-CacheID: sfid-20250414_083818_076176_E991862C 
+X-CRM114-Status: GOOD (  26.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,40 +79,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 14, 2025 at 06:28:14PM +0800, Peng Fan wrote:
-> Hi Sudeep,
-> On Mon, Apr 14, 2025 at 09:23:24AM +0100, Sudeep Holla wrote:
-> >Hi Peng,
-> >
-> >On Mon, Apr 14, 2025 at 04:38:32PM +0800, Peng Fan wrote:
-> >> Hi Mike,
-> >> On Fri, Apr 11, 2025 at 02:29:41PM -0700, Mike Tipton wrote:
-> >> >Currently, all SCMI devices with performance domains attempt to register
-> >> >a cpufreq driver,
-> >> 
-> >> The scmi cpufreq device is created based on entry
-> >> { SCMI_PROTOCOL_PERF, "cpufreq" },
-> >> 
-> >> So the scmi-cpufreq driver could only probe the upper single device.
-> >> 
-> >> How could the driver work with all SCMI devices with performance domains?
-> >> 
-> >
-> >IIUC, this is on a system with multiple SCMI servers/providers some of
-> >which don't deal with CPU performance domains at all.
+On 2025-04-11 9:02 am, Johan Hovold wrote:
+> Hi Robin,
 > 
-> Yeah. This sounds valid case.
-> CPU perf only needs to be managed by one server, the other server
-> also has performance domains that only for peripherals.
+> On Fri, Feb 28, 2025 at 03:46:33PM +0000, Robin Murphy wrote:
+>> In hindsight, there were some crucial subtleties overlooked when moving
+>> {of,acpi}_dma_configure() to driver probe time to allow waiting for
+>> IOMMU drivers with -EPROBE_DEFER, and these have become an
+>> ever-increasing source of problems. The IOMMU API has some fundamental
+>> assumptions that iommu_probe_device() is called for every device added
+>> to the system, in the order in which they are added. Calling it in a
+>> random order or not at all dependent on driver binding leads to
+>> malformed groups, a potential lack of isolation for devices with no
+>> driver, and all manner of unexpected concurrency and race conditions.
+>> We've attempted to mitigate the latter with point-fix bodges like
+>> iommu_probe_device_lock, but it's a losing battle and the time has come
+>> to bite the bullet and address the true source of the problem instead.
+> 
+>> @@ -426,6 +438,12 @@ static int iommu_init_device(struct device *dev)
+>>   		ret = -ENODEV;
+>>   		goto err_free;
+>>   	}
+>> +	/*
+>> +	 * And if we do now see any replay calls, they would indicate someone
+>> +	 * misusing the dma_configure path outside bus code.
+>> +	 */
+>> +	if (dev->driver)
+>> +		dev_WARN(dev, "late IOMMU probe at driver bind, something fishy here!\n");
+>>   
+>>   	if (!try_module_get(ops->owner)) {
+>>   		ret = -EINVAL;
+>> diff --git a/drivers/iommu/of_iommu.c b/drivers/iommu/of_iommu.c
+>> index e10a68b5ffde..6b989a62def2 100644
+>> --- a/drivers/iommu/of_iommu.c
+>> +++ b/drivers/iommu/of_iommu.c
+>> @@ -155,7 +155,12 @@ int of_iommu_configure(struct device *dev, struct device_node *master_np,
+>>   		dev_iommu_free(dev);
+>>   	mutex_unlock(&iommu_probe_device_lock);
+>>   
+>> -	if (!err && dev->bus)
+>> +	/*
+>> +	 * If we're not on the iommu_probe_device() path (as indicated by the
+>> +	 * initial dev->iommu) then try to simulate it. This should no longer
+>> +	 * happen unless of_dma_configure() is being misused outside bus code.
+>> +	 */
+> 
+> This assumption does not hold as there is nothing preventing iommu
+> driver probe from racing with a client driver probe.
 
-Yeah, this is the case we're trying to fix.
+Not sure I follow - *this* assumption is that if we arrived here with 
+dev->iommu already allocated then __iommu_probe_device() is already in 
+progress for this device, either in the current callchain or on another 
+thread, and so we can (and should) skip calling into it again. There's 
+no ambiguity about that.
 
+>> +	if (!err && dev->bus && !dev_iommu_present)
+>>   		err = iommu_probe_device(dev);
+>>   
+>>   	if (err && err != -EPROBE_DEFER)
 > 
-> Thanks,
-> Peng
+> I hit the (now moved) dev_WARN() on the ThinkPad T14s where the GPU SMMU
+> is probed late due to a clock dependency and can end up probing in
+> parallel with the GPU driver.
+
+And what *should* happen is that the GPU driver probe waits for the 
+IOMMU driver probe to finish. Do you have fw_devlink enabled?
+
+> [    3.805282] arm-smmu 3da0000.iommu: probing hardware configuration...
+> [    3.806007] arm-smmu 3da0000.iommu: SMMUv2 with:
+> [    3.806843] arm-smmu 3da0000.iommu:  stage 1 translation
+> [    3.807562] arm-smmu 3da0000.iommu:  coherent table walk
+> [    3.808253] arm-smmu 3da0000.iommu:  stream matching with 24 register groups
+> [    3.808957] arm-smmu 3da0000.iommu:  22 context banks (0 stage-2 only)
+> [    3.809651] arm-smmu 3da0000.iommu:  Supported page sizes: 0x61311000
+> [    3.810339] arm-smmu 3da0000.iommu:  Stage-1: 48-bit VA -> 40-bit IPA
+> [    3.811130] arm-smmu 3da0000.iommu:  preserved 0 boot mappings
 > 
-> >
-> >-- 
-> >Regards,
-> >Sudeep
+> [    3.829042] platform 3d6a000.gmu: Adding to iommu group 8
+> 
+> [    3.992050] ------------[ cut here ]------------
+> [    3.993045] adreno 3d00000.gpu: late IOMMU probe at driver bind, something fishy here!
+> [    3.994058] WARNING: CPU: 9 PID: 343 at drivers/iommu/iommu.c:579 __iommu_probe_device+0x2b0/0x4ac
+> 
+> [    4.003272] CPU: 9 UID: 0 PID: 343 Comm: kworker/u50:2 Not tainted 6.15.0-rc1 #109 PREEMPT
+> [    4.003276] Hardware name: LENOVO 21N2ZC5PUS/21N2ZC5PUS, BIOS N42ET83W (2.13 ) 10/04/2024
+> 
+> [    4.025943] Call trace:
+> [    4.025945]  __iommu_probe_device+0x2b0/0x4ac (P)
+> [    4.030453]  iommu_probe_device+0x38/0x7c
+> [    4.030455]  of_iommu_configure+0x188/0x26c
+> [    4.030457]  of_dma_configure_id+0xcc/0x300
+> [    4.030460]  platform_dma_configure+0x74/0xac
+> [    4.030462]  really_probe+0x74/0x38c
+
+Indeed this is exactly what is *not* supposed to be happening - does 
+this patch help at all?
+
+https://lore.kernel.org/linux-iommu/09d901ad11b3a410fbb6e27f7d04ad4609c3fe4a.1741706365.git.robin.murphy@arm.com/
+
+If not then I guess I do need to do something to explicitly distinguish 
+the "iommu_device_register() is still running" state after all...
+
+Thanks,
+Robin.
+
+> [    4.030464]  __driver_probe_device+0x7c/0x160
+> [    4.030465]  driver_probe_device+0x40/0x110
+> [    4.030467]  __device_attach_driver+0xbc/0x158
+> [    4.030468]  bus_for_each_drv+0x84/0xe0
+> [    4.030470]  __device_attach+0xa8/0x1d4
+> [    4.030472]  device_initial_probe+0x14/0x20
+> [    4.030473]  bus_probe_device+0xb0/0xb4
+> [    4.030476]  deferred_probe_work_func+0xa0/0xf4
+> 
+> [    4.030501] ---[ end trace 0000000000000000 ]---
+> [    4.031269] adreno 3d00000.gpu: Adding to iommu group 9
+> 
+> Johan
+
 
