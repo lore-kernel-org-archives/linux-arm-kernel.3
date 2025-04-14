@@ -4,70 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CE36C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 18:36:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72BAEC369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 18:38:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0W68kifwClbmxOD9uB2cLoC+ZOmDFfEOuSDxczncg7A=; b=lpOOtFeNZ5rZUm6wa7Rt3j+8z+
-	SzUpi+TqV5KU3CbUi76FROwG5ZOOVUEFzn60SQ40n/6MeL96fjRFfBsz8Vh/CdnYM6KytJPcnMHUl
-	SLrJKIzyz0rA91A71o1MvMVKqEQggyZ+pdfBHu+OHWergyFU1R80n7F1O/+6cg34qn1QXxb1CddiU
-	LbqUvWyIxBTYKbwtZiIt39346EXCc3G2NgevpT8QZbpUZb31LeaSwmmfibBzFGoVA2gF2/VyPmTC+
-	ceYQ+ne3bikIMg48zwsEZ8l0Nyz2dbQn4iSz84+qCk2Z7cYQJ3artwf17SF/3ii6nB5UBkczA3yDG
-	re6407fw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iMCnbrJiSVgsnlnzip6/crB87NSMbiRPqYzRRrVE8XU=; b=Bo01iEsnnqZGCorVCsWIbdgLEA
+	PpJlfsF/3NlYHgDvxSNRNMvFQSMhtUZRHyGqkCN7xbF1kwk8BmaVl865ML4m0cPLb/zbVse5L2vaQ
+	tWQVQx5Q2slzHeLyTzMDn9+pEdMclmhj1neO1VfHXDCQ8dD3dcPEO7P/TUBcN+dLUl5w4cqqRjizs
+	wz4Ub5xhQYrteuFJrx2PevmhCpB8EzH3V6UcIVLIXMGf3Ws+yQ9ztNpdpHAkqhd2YpY23yKgxc71L
+	JEHcQvEwHC5IRHqLbGquuQCr7nV4HXciySIGQYLyRQo9qX1oqKkGvJ+BlnEHVAuuHWuxvvKt0xLwe
+	jL1yM+wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4OfV-00000003896-2qlA;
-	Mon, 14 Apr 2025 18:36:29 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1u4OhL-000000038YT-1e3M;
+	Mon, 14 Apr 2025 18:38:23 +0000
+Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Oa4-000000036aX-1mG5;
-	Mon, 14 Apr 2025 18:30:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1744655447; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=aK9QbFLPjjNWwlAHM+7jqXXYkZSyotrm4OpqYBZ6Z+7vjhqlvez1f+PL379uk9xzqoSF6iITw0vcbLi/5d56FqTSxfckQ8bVg5OlU5oCF3kg4cd/t22MRnH8JVTkmi91wGUqj/PNsc2dHlDKILWgCHoGv596aKqZGHKYDCjqwiA=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1744655447; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=0W68kifwClbmxOD9uB2cLoC+ZOmDFfEOuSDxczncg7A=; 
-	b=NnanDKGIw2jbi6e5Xc8Wy7BWebenhI2JPjGlWQZaOSjFO/+adLpumbi87vt34Pw9mygqSwkmkjWTIbSQKpBMHvR5Ce9B0Wlk/LiqOkwmLtFuKdfMt3clvw1c54CtQ49kEH49mBfTBBzoFLO/2aVawi+VBEAGE7vkb6hem77sVRI=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1744655447;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=0W68kifwClbmxOD9uB2cLoC+ZOmDFfEOuSDxczncg7A=;
-	b=A9M8M+KDKMG7ngJrCcR8EyH1YFAWoOsBiMjvc5f7DXQ9x4mceV+16Cb+JYnRFbp5
-	eMN9g8GulITK60NJnEJuO3cH3+5U6KzGHHzzub8twfHPEIJQdWiKFIJ5hp1zIgDdA2t
-	lqyBWjpaLaPs6cnIcPL++Vy6dfuJ4pV/lyRvktOI=
-Received: by mx.zohomail.com with SMTPS id 1744655444841430.53710170104966;
-	Mon, 14 Apr 2025 11:30:44 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: heiko@sntech.de, Kever Yang <kever.yang@rock-chips.com>
-Cc: andersson@kernel.org, Kever Yang <kever.yang@rock-chips.com>,
- Shawn Lin <Shawn.lin@rock-chips.com>, Conor Dooley <conor+dt@kernel.org>,
- Finley Xiao <finley.xiao@rock-chips.com>,
- Frank Wang <frank.wang@rock-chips.com>, Rob Herring <robh@kernel.org>,
- Detlev Casanova <detlev.casanova@collabora.com>,
- linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
- Andy Yan <andy.yan@rock-chips.com>, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v9 2/2] arm64: dts: rockchip: Add rk3576 pcie nodes
-Date: Mon, 14 Apr 2025 20:30:38 +0200
-Message-ID: <5019259.31r3eYUQgx@workhorse>
-In-Reply-To: <20250414145110.11275-3-kever.yang@rock-chips.com>
-References: <20250414145110.11275-1-kever.yang@rock-chips.com>
- <20250414145110.11275-3-kever.yang@rock-chips.com>
+	id 1u4Oa5-000000036az-1Bbe
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 14 Apr 2025 18:30:54 +0000
+Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-30bef9b04adso49422771fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 11:30:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1744655451; x=1745260251; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=iMCnbrJiSVgsnlnzip6/crB87NSMbiRPqYzRRrVE8XU=;
+        b=n20W4ZkeYIqyMr0r19eUttrbTAFfE2M/PQgPZJyfV67rUWsqZFTwSXCTS0LnX4idGF
+         5x07OfmeZY5jSjA+JT021NXBam0dJBvpQX1Rj7eerBNyiJOlPUvDntTd5/VTB/Y9oSue
+         OP2O+s4I3+X3dHD8i4KQTgpHU1XkFfWkdKt4lWLM/HeoNjO3FWAjEf1H/BfkPILwCqrj
+         OAY+UmtjjfIQIYRfXJWOCu3OUBfkcT+bs5x4xHLUoV6U4cBJbHFuP3+ruwHvkjq8DmLP
+         yMdyMFy6m63NvmqG964WEgRRixQXNVj3MiJ+0PK2Yl4rwGIXqmEqgfNVfnsA1SKGEvRC
+         LjYg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744655451; x=1745260251;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=iMCnbrJiSVgsnlnzip6/crB87NSMbiRPqYzRRrVE8XU=;
+        b=DGFgx5GkJ5C3w2Pw7E/PT6MDBG+TmsS8OXdEqwDFG5YkPFL1ZT1v4TX2UDC4ArA2RF
+         PvqzPDw3AcKnro8GIUo5N+0noHZDdj48F4tBN6mre2bfEnTOT+Mlqlqb2/U/7O6BVDhZ
+         TXZQyeTD8WQe8rb9N2nTo4EeMrsR0zPwvy0sMzU+nfQkkbvANW6+t1vVb9OwB5CbAWfs
+         Ua/iKHF3iCETKj4RcSTZA4QALQZcA1oXwT4rhjziVUdPG49HDN1QBVhVkmYQfvweoig4
+         MaBaLYYIh6+EGY8UbE7t7oQGyZ2/KK+HlRtO75OvTWL9qBukcEmuZwqvULzHp3oSlgH8
+         G/eg==
+X-Forwarded-Encrypted: i=1; AJvYcCXIM/iIKXliNZHNPpROf8kh6+6Gy0eST/0iP6HWNb0Vc95qgPvr7JUES8Ykx+R+G9KE6TBCKwpF5eR41O+hJGmm@lists.infradead.org
+X-Gm-Message-State: AOJu0YwkEK2mmAmnm8AHOhXRxak+xcyV1lYKSSO/By1x4nVfM3L1Mbs8
+	f1WpU9xzaSTDJIDR6Pgg5XjsKpvHROYt/zfkCRr+iRoecOGmLNIEhEjInmXyO4dpMPnYA9YjNVI
+	X15frCAIpcvnZj13fl/+RWgGMneLdVx6MVO2UAw==
+X-Gm-Gg: ASbGncvOBmLB6j/D5euixGz/MYCvxoOWsZYmD0+R5/jsCPmCfWDb+RKmuYuYwTaN7PA
+	vV11HyYIOd4+WCNhTdqfz0MJ0nJKAtowhpgbBwC4dKTdloU252dBasxLxjaHmepW6r+AdIL4pch
+	W774asFJnOte6INY/Raog4fj4UBj9ZfyejVUOOs6zUZPo/3Ddha4lxoPxSlkqQDVU=
+X-Google-Smtp-Source: AGHT+IGG6HfO0a687DQ2ObWoW5dsDkKpKT5mJSVYkj4mYbmZ4ySEjWG7K8FyQL0/ZDaad7PXpi1Rz3cQhvFr0qElIMU=
+X-Received: by 2002:a05:651c:1597:b0:30c:160b:c76c with SMTP id
+ 38308e7fff4ca-31049a1c6d6mr38019201fa.17.1744655451082; Mon, 14 Apr 2025
+ 11:30:51 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+References: <20250412193153.49138-1-chenyuan0y@gmail.com> <D9694O0MKV31.3SY6ZCTSKXWI9@bootlin.com>
+ <CALGdzurLWayryjUEdSy4iuHAgFO=RA=HN=u+BZY96JqESKvi+A@mail.gmail.com>
+In-Reply-To: <CALGdzurLWayryjUEdSy4iuHAgFO=RA=HN=u+BZY96JqESKvi+A@mail.gmail.com>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Mon, 14 Apr 2025 20:30:40 +0200
+X-Gm-Features: ATxdqUHR3IF_jBbcAtQS5Mjt4i90SIKTxCncQEK71lUbbQWQS1vGZ6vrZEF8J6s
+Message-ID: <CAMRc=Md+w7Wp8gS=PvpYkz6z4y45z6QiO7A0i24ESSa8N_byeg@mail.gmail.com>
+Subject: Re: [PATCH] gpio: nomadik: Add check for clk_enable()
+To: Chenyuan Yang <chenyuan0y@gmail.com>
+Cc: =?UTF-8?B?VGjDqW8gTGVicnVu?= <theo.lebrun@bootlin.com>, 
+	linus.walleij@linaro.org, linux-arm-kernel@lists.infradead.org, 
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_113052_538572_6E74B2BF 
-X-CRM114-Status: GOOD (  14.07  )
+X-CRM114-CacheID: sfid-20250414_113053_584893_5207B409 
+X-CRM114-Status: GOOD (  13.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,54 +96,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Monday, 14 April 2025 16:51:10 Central European Summer Time Kever Yang wrote:
-> rk3576 has two pcie controllers, both are pcie2x1 work with
-> naneng-combphy.
-> 
-> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
-> Tested-by: Shawn Lin <Shawn.lin@rock-chips.com>
-> ---
-> 
-> Changes in v9:
-> - rebase on 6.15-rc1
-> - Add test tag
-> 
-> Changes in v8: None
-> Changes in v7:
-> - re-order the properties.
-> 
-> Changes in v6: None
-> Changes in v5: None
-> Changes in v4: None
-> Changes in v3:
-> - Update the subject
-> 
-> Changes in v2:
-> - Update clock and reset names and sequence to pass DTB check
-> 
->  arch/arm64/boot/dts/rockchip/rk3576.dtsi | 108 +++++++++++++++++++++++
->  1 file changed, 108 insertions(+)
-> 
+On Mon, Apr 14, 2025 at 2:11=E2=80=AFPM Chenyuan Yang <chenyuan0y@gmail.com=
+> wrote:
+>
+> On Mon, Apr 14, 2025 at 4:24=E2=80=AFAM Th=C3=A9o Lebrun <theo.lebrun@boo=
+tlin.com> wrote:
+> >
+> > As for why irq_startup returns an unsigned int, I am unsure. The kernel
+> > Git history isn't enough to know more. The startup field in struct
+> > hw_interrupt_type appeared on v2.3.14 [2], so no commit message to
+> > explain decisions.
+> >
+> > Seeing the __irq_startup() code, my proposal would be to turn the retur=
+n
+> > value to a signed int, but I haven't exhaustively checked codepaths.
+>
+> Good catch! I agree that using a signed int could be a better option.
+>
+> Dear Linus and Bartosz, could you please share your thoughts? If
+> you=E2=80=99re on board with the change, I=E2=80=99ll go ahead and send a=
+ new patch.
+>
 
-Reviewed-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Tested-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Ok, I'm backing out this one then.
 
-Successfully used this on an ArmSoM Sige5 RK3576 board. PCIe works.
-Properties look correct, though the `ranges = ` doesn't separate out the
-different ranges into individual `<cells>` but this doesn't seem to make
-any difference and doesn't cause any warnings either. The only added
-warning is "simple-bus unit address format error" which seems like a
-bug in the thing generating the warning and not the device-tree itself,
-as it doesn't seem to notice that the address of the node is within the
-regs array, just not as the first cell.
-
-I think this looks good for merging, I'll also send out a Sige5 enablement
-patch shortly.
-
-Thank you!
-
-Regards,
-Nicolas Frattaroli
-
-
+Bartosz
 
