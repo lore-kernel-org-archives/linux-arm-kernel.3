@@ -4,57 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DA0FC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 12:36:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7869C369BA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 12:38:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9umxLTWLSfrtnjYZ/+GeUmdRtMBqJiviwaDawIz4Ngw=; b=x9NXq9ss2xpoTEn0ksbhbFLHOT
-	4hMSpOAqR/Aj7uAtE+K60u6m9lrzxAqIPwHowCbpI+FvpmBDc0c2GurUjx0+K+XEgGNsikfSF0PWG
-	E9y3nmJMPP64pIiJpGoV44iNz8Fc/QEgBK4yMboJnNtRRC34EuasjEt1LTh7cY4QXOTY8bTKV9pAR
-	Y05uTp78CmXatGSxWvKc4+gs+bPljCRHiO4mFrEqrfjaB6wOMO0haowAtpwwxcwcXjBV+7qepmWpi
-	f4EVSEZpTje/OgiFjtRyRsZgzs9SnIiqSNYqC8+utF0ySvdnBo84mIEgPt0xBYkKiJlLwRl+4kEF1
-	FiHJvLGQ==;
+	bh=6jjWGroHGOrbFOOptF4jEgafuPyQuu86Nx3zSpKz1B0=; b=KXuHe9oTGnsblH6xpuf2T9sC48
+	18JmCO/D7YqUHHjg23uE1WvLlBHekStJot94h0nit/+ThCfau9Dlxp0gr2AHCKHvjhzlbBxC1oFUM
+	CcUNd/GWs72NYrDKHMGj1UG4mhjaDDd0AhqFWPGZnQ5m8+X3UGSMiJ+we18RE4hD4tjJDu2NSOWp/
+	yrfGZqCjYVhofF0t3nFwB5RbliWnt+EAYfIxBvkCkTiB4uGTo4A2KFW5l8kL1eCfycR5k6RqMBVzw
+	ljU2KLBcawtEwIiUCc4z4Fc483T/hDkeK6kEtN5roL93bWdc6q/UpjEC2VNO4KGYdt0Ew1wt812Pp
+	q8/6UYHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4J2n-00000001xjO-0dtf;
-	Mon, 14 Apr 2025 12:36:09 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1u4J4d-00000001yFv-2BBn;
+	Mon, 14 Apr 2025 12:38:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Izt-00000001xGE-02PG;
-	Mon, 14 Apr 2025 12:33:10 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.98.2)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1u4Izh-0000000016s-3E1k;
-	Mon, 14 Apr 2025 12:32:57 +0000
-Date: Mon, 14 Apr 2025 13:32:54 +0100
-From: Daniel Golle <daniel@makrotopia.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Frank Wunderlich <linux@fw-web.de>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Rob Herring <robh@kernel.org>,
+	id 1u4J0X-00000001xRa-2OMq;
+	Mon, 14 Apr 2025 12:33:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E60FA45117;
+	Mon, 14 Apr 2025 12:33:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83C29C4CEE2;
+	Mon, 14 Apr 2025 12:33:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744634028;
+	bh=t1toO7w3jtiuM0z/5E1BAN7M3f4Zd+MamGderKQMHzY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EqAOEOU5Ih2l7qouIuhnxB9hV7Y69NDFwpQEF6kwT7giPfHPw7SGHoFF7xOZOYB2n
+	 +eKi9YsDDnp1BaKR4FYNiGkITE+WfTM4ThI0NqaNQJsftC1y8vYnkKfFbcZQJ0CO5o
+	 uMqA+g69thaaR7ReCAF/FO1cQ6ZkehQxhPHm9iukWSMX6tdx0S26dqdA+I6uvAlLBF
+	 WDaiPY7luZ2XkkFxhtA49ma6RoiNLzT+xBuL5W//4SapxL2tuo7qwIeEU4v5oUa5CU
+	 7WcMd9SQvxpDu/sTZSbQcFcT8svQm+fI/SnAHROhfnF1sGtXeBbB6JBYcz0eZD++Dd
+	 LZY/naVHEnqjg==
+Date: Mon, 14 Apr 2025 07:33:46 -0500
+From: Rob Herring <robh@kernel.org>
+To: Chuan Liu <chuan.liu@amlogic.com>
+Cc: linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Kevin Hilman <khilman@baylibre.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	Conor Dooley <conor+dt@kernel.org>,
-	Frank Wunderlich <frank-w@public-files.de>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v2] arm64: dts: mediatek: mt7988a-bpi-r4: allow hw
- variants of bpi-r4
-Message-ID: <Z_0AdtyvehR9SHnU@pidgin.makrotopia.org>
-References: <20250412102109.101094-1-linux@fw-web.de>
- <c8f9f019-a238-47c8-a900-9ca48ce09503@collabora.com>
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH v2 2/7] dt-bindings: soc: amlogic: C3 supports clk-measure
+Message-ID: <20250414123346.GA135245-robh@kernel.org>
+References: <20250414-clk-measure-v2-0-65077690053a@amlogic.com>
+ <20250414-clk-measure-v2-2-65077690053a@amlogic.com>
+ <174463269823.14040.7362554560667126238.robh@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <c8f9f019-a238-47c8-a900-9ca48ce09503@collabora.com>
+In-Reply-To: <174463269823.14040.7362554560667126238.robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_053309_046099_41171894 
-X-CRM114-Status: GOOD (  21.85  )
+X-CRM114-CacheID: sfid-20250414_053349_629846_204290C0 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,70 +78,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 14, 2025 at 11:27:23AM +0200, AngeloGioacchino Del Regno wrote:
-> Il 12/04/25 12:21, Frank Wunderlich ha scritto:
-> > From: Frank Wunderlich <frank-w@public-files.de>
-> > 
-> > Sinovoip has released other variants of Bananapi-R4 board.
-> > The known changes affecting only the LAN SFP+ slot which is replaced
-> > by a 2.5G phy with optional PoE.
-> > 
-> > Just move the common parts to a new dtsi and keep differences (only
-> > i2c for lan-sfp) in dts.
-> > 
-> > Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
-> > ---
-> > v2:
-> > - added basic dts for 2g5 variant
-> > - moved i2c used for sfp-lan to board dts
-> > ---
-> >   arch/arm64/boot/dts/mediatek/Makefile         |   2 +
-> >   .../mediatek/mt7988a-bananapi-bpi-r4-2g5.dts  |   5 +
-> >   .../dts/mediatek/mt7988a-bananapi-bpi-r4.dts  | 404 +-----------------
-> >   .../dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi | 403 +++++++++++++++++
-> >   4 files changed, 414 insertions(+), 400 deletions(-)
-> >   create mode 100644 arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-2g5.dts
-> >   create mode 100644 arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
-> > 
-> > diff --git a/arch/arm64/boot/dts/mediatek/Makefile b/arch/arm64/boot/dts/mediatek/Makefile
-> > index 58484e830063..a1ebc9aa4ba6 100644
-> > --- a/arch/arm64/boot/dts/mediatek/Makefile
-> > +++ b/arch/arm64/boot/dts/mediatek/Makefile
-> > @@ -22,6 +22,7 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986a-bananapi-bpi-r3-sd.dtbo
-> >   dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986a-rfb.dtb
-> >   dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986b-rfb.dtb
-> >   dtb-$(CONFIG_ARCH_MEDIATEK) += mt7988a-bananapi-bpi-r4.dtb
-> > +dtb-$(CONFIG_ARCH_MEDIATEK) += mt7988a-bananapi-bpi-r4-2g5.dtb
-> >   dtb-$(CONFIG_ARCH_MEDIATEK) += mt7988a-bananapi-bpi-r4-emmc.dtbo
-> >   dtb-$(CONFIG_ARCH_MEDIATEK) += mt7988a-bananapi-bpi-r4-sd.dtbo
-> >   dtb-$(CONFIG_ARCH_MEDIATEK) += mt8167-pumpkin.dtb
-> > @@ -107,4 +108,5 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8516-pumpkin.dtb
-> >   DTC_FLAGS_mt7986a-bananapi-bpi-r3 := -@
-> >   DTC_FLAGS_mt7986a-bananapi-bpi-r3-mini := -@
-> >   DTC_FLAGS_mt7988a-bananapi-bpi-r4 := -@
-> > +DTC_FLAGS_mt7988a-bananapi-bpi-r4-2g5 := -@
-> >   DTC_FLAGS_mt8395-radxa-nio-12l := -@
-> > diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-2g5.dts b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-2g5.dts
-> > new file mode 100644
-> > index 000000000000..76eca976b968
-> > --- /dev/null
-> > +++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-2g5.dts
-> > @@ -0,0 +1,5 @@
-> > +// SPDX-License-Identifier: GPL-2.0-only OR MIT
-> > +
-> > +/dts-v1/;
-> > +
-> > +#include "mt7988a-bananapi-bpi-r4.dtsi"
+On Mon, Apr 14, 2025 at 07:11:38AM -0500, Rob Herring (Arm) wrote:
 > 
-> This should at least have some different compatible, if not probably also a
-> different model string - as it's a different device.
+> On Mon, 14 Apr 2025 18:12:29 +0800, Chuan Liu wrote:
+> > C3 adds support for clk-measure.
+> > 
+> > Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> > Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
+> > ---
+> >  .../devicetree/bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml    | 1 +
+> >  1 file changed, 1 insertion(+)
+> > 
 > 
-> 	compatible = "bananapi,bpi-r4-2g5", "bananapi,bpi-r4", "mediatek,mt7988a";
+> My bot found errors running 'make dt_binding_check' on your patch:
+> 
+> yamllint warnings/errors:
+> 
+> dtschema/dtc warnings/errors:
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/fsl/fsl,ls1028a-reset.yaml: maintainers:0: 'Frank Li' does not match '@'
+> 	from schema $id: http://devicetree.org/meta-schemas/base.yaml#
+> 
+> doc reference errors (make refcheckdocs):
+> Documentation/userspace-api/netlink/netlink-raw.rst: :doc:`rt_link<../../networking/netlink_spec/rt_link>`
+> Warning: Documentation/arch/powerpc/cxl.rst references a file that doesn't exist: Documentation/ABI/testing/sysfs-class-cxl
+> Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/misc/fsl,qoriq-mc.txt
+> Warning: lib/Kconfig.debug references a file that doesn't exist: Documentation/dev-tools/fault-injection/fault-injection.rst
+> Documentation/userspace-api/netlink/netlink-raw.rst: :doc:`rt_link<../../networking/netlink_spec/rt_link>`
+> Documentation/arch/powerpc/cxl.rst: Documentation/ABI/testing/sysfs-class-cxl
+> MAINTAINERS: Documentation/devicetree/bindings/misc/fsl,qoriq-mc.txt
+> lib/Kconfig.debug: Documentation/dev-tools/fault-injection/fault-injection.rst
 
-Imho it doesn't make sense to declare compatibility with the
-"bananapi,bpi-r4" as the "bananapi,bpi-r4-2g5" is NOT compatible with the
-"bananapi,bpi-r4". It's a different board and using firmware meant for the
-"bananapi,bpi-r4-2g5" on the "bananapi,bpi-r4" (or vice versa) will result
-in a non-working Ethernet port.
 
+This report can be ignored.
+
+Rob
 
