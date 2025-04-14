@@ -4,79 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75190C369B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 11:51:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD5A4C369B8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 11:53:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z2v2YqDM9wvESESnYHXaNZpR11dPLsmv6R7Z15lYtSc=; b=j/HMwprxZyK+CAvJCPc4qThQZu
-	zfG9NNhUBCCJ7t9eqxnklG2jDnhsGkJMxeF9QJ7GWMcFxszg4PYLQ2OCpopkK7rV9K4Wp0nXkpGII
-	2dsI/qaiGIdkv6CBylw9qWHqN12HMfgnXIN571TzPuyRRZwbtVVdD5ToTqohUqOXHk7nzBVCjM6UH
-	1LgC9K9i2XntGfOPiotzjoHpradRI/5OBX+Wwe6Oxpzz5+pba4K8jUYUyqtsOQtZ9EQXNHC/eDo8k
-	T3rvle8gLNaJvX1TrtRZNNasnaRfgGaysmQFOi67+RftR2PMrWL+PdK0XK4g2HOL0YAjtuQzDhECr
-	uF60PBjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=QIse+0+Ci6NeEFdT0wdBT14A3roxLoiCl8xqvQRBM3Y=; b=Zg0xA+vER0nFcw
+	WdD5e8txYi41mxdbURZ+Z16L10s6nUtcKgdIKr9smeOPu/vlh+hRX4V2TkHdnGm5SF4OOPoveUi1c
+	FGJFNjjs4384DYcoRnzSFfu6gMg8EOiefvv/MUHe2v19SdmLgywk0KGuLrrKkwBcYl56i1xS69W4L
+	x3Bu/Iruxks+stXoqDpc0zhtWhBPVoLPXysO9GOimaPdlPBhx1nDlkfJ/s4u7oBULXBMuvo52+XCm
+	TtsXminveRJiPDOoofFgcfYN2RNFsDFoQc6apxy4Z/2IPgYQX4RTp6yuH2LkmQ2N0niEsc+2Yirfz
+	pUrju7vNLCditUMI48tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4ILU-00000001q9Q-1PON;
-	Mon, 14 Apr 2025 11:51:24 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1u4INK-00000001qa4-0ZPF;
+	Mon, 14 Apr 2025 11:53:18 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4IBa-00000001nzQ-2dYv
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 11:41:12 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53EBekXw2046321
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 14 Apr 2025 06:40:46 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744630846;
-	bh=z2v2YqDM9wvESESnYHXaNZpR11dPLsmv6R7Z15lYtSc=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=xfUZB7npYQOpoB54c4TURLLSpjiSlMy8CTSi5P27KH4fLe3UbByHjGqDXcxWveT6W
-	 cUClb1Xcl+4td+jDQzvDUzL4rEz70rsnu5gtBYjIp6FjXN5maISUSsHe0UXO5fZusg
-	 gvrTGJjo3JO+CEq5C7QbtGbQQpF9FZAvUepIjfRk=
-Received: from DLEE107.ent.ti.com (dlee107.ent.ti.com [157.170.170.37])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53EBekMm102049
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 14 Apr 2025 06:40:46 -0500
-Received: from DLEE102.ent.ti.com (157.170.170.32) by DLEE107.ent.ti.com
- (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 14
- Apr 2025 06:40:46 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE102.ent.ti.com
- (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 14 Apr 2025 06:40:45 -0500
-Received: from [172.24.227.115] (abhilash-hp.dhcp.ti.com [172.24.227.115])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53EBefOi038625;
-	Mon, 14 Apr 2025 06:40:42 -0500
-Message-ID: <28fa61b8-15a6-40c6-96b8-268939226a03@ti.com>
-Date: Mon, 14 Apr 2025 17:10:41 +0530
+	id 1u4IDY-00000001oQR-1IIH;
+	Mon, 14 Apr 2025 11:43:13 +0000
+Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c31:2dc0:c767:bd08:cc70:b57a])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 840A6502;
+	Mon, 14 Apr 2025 13:41:07 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1744630868;
+	bh=FYKvrynLsDaxZBstU34tOoBLrmrnzq8eiLT9NiQLpNM=;
+	h=From:Subject:Date:To:Cc:From;
+	b=Vt9CxhJjUp384eX0SE9lh7JywyHooJ6NoM8Bzui049UY6kiVMnaLaMcBI0JROIQz5
+	 6Vqvd1o9FMNLFTkilpRtjDNcwm8/NJ3PvNgL0nCzXAtbZtJf8/WkPxeChKuVibOUGA
+	 Ds1dpassjjLaDuS10yrOpwsh0NatFstXcxmT8pxs=
+From: Jai Luthra <jai.luthra@ideasonboard.com>
+Subject: [PATCH v4 0/2] media: rockchip: rkisp1: Add support for WDR and
+ AWB64
+Date: Mon, 14 Apr 2025 17:12:11 +0530
+Message-Id: <20250414-awb64-v4-0-bfaea506cbd0@ideasonboard.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/7] arm64: dts: ti: k3-j721e-sk: Add requiried voltage
- supplies for IMX219
-To: "Francis, Neha" <n-francis@ti.com>, <nm@ti.com>, <vigneshr@ti.com>
-CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <vaishnav.a@ti.com>, <jai.luthra@linux.dev>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <imx@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-        <u-kumar1@ti.com>, <stable@vger.kernel.org>
-References: <20250409134128.2098195-1-y-abhilashchandra@ti.com>
- <20250409134128.2098195-5-y-abhilashchandra@ti.com>
- <16713a1b-1e74-4b08-bd4c-12dc0a9d32df@ti.com>
-Content-Language: en-US
-From: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
-In-Reply-To: <16713a1b-1e74-4b08-bd4c-12dc0a9d32df@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-B4-Tracking: v=1; b=H4sIAJP0/GcC/3XMQQ6CMBCF4auYrq3pDC0FV97DuGhhkC6kpjVVQ
+ 7i7hQRNjC7fZL5/ZJGCo8j2m5EFSi46P+QhtxvW9GY4E3dt3gwFSsBCcHO3peS6Ri1EXREoYvn
+ 3Gqhzj6VzPOXdu3jz4blkE8zX70ICDhy1FUSl6pSCg2vJRD9Yb0K7a/yFzaGEK1YC4I0xYwFWd
+ 1ZqkKX6g4sPRlQrLnjudFhbQAEkqx94mqYX/sIG7RsBAAA=
+X-Change-ID: 20241230-awb64-79270098e15e
+To: Dafna Hirschfeld <dafna@fastmail.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Stefan Klug <stefan.klug@ideasonboard.com>, 
+ Jai Luthra <jai.luthra@ideasonboard.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2309;
+ i=jai.luthra@ideasonboard.com; h=from:subject:message-id;
+ bh=FYKvrynLsDaxZBstU34tOoBLrmrnzq8eiLT9NiQLpNM=;
+ b=owEBbQKS/ZANAwAIAUPekfkkmnFFAcsmYgBn/PTHLnQUsCSzjRwBWU2Y1/b+qWlo0gSSQAD8e
+ KjbIjPClf2JAjMEAAEIAB0WIQRN4NgY5dV16NRar8VD3pH5JJpxRQUCZ/z0xwAKCRBD3pH5JJpx
+ RfNdD/0X+Nb1A930CAE3wd2x3UK3vb76iVoM/SIoDZwcxuJ/JrNWLEWC7vbo/lzID8SYNAQON4Y
+ lrGYzX+XbFvz/Z90oLM/y+6Lnw+TPkkQqhxpPNpHT7NWv9DvtfTOJ6hfqLdjLaci/MdXcl5Bl0j
+ bpV154zUtIVBdKbsdre5JSLmDLbj5mc6vo+u//P6oNal6eiR4YcNWt2zdSesKxvI3pKMNu31847
+ 8ianIc/OnJt9jI5a1XzjWqxvmm5rGpKTKFUtmSNJKRmBiBJFe+btxWmpitvfYE7ovBHUTbd69EI
+ 2Tx694nKfUF5ou0Jk2WLMKRBsQijJUtp8aY4MpflZJhzZo7YDPn2zn8tnbyENtGIcpvLgFBbA/T
+ VlvRZdSvrGhPOAo9CAPi4fHWtVnDGekIpyO25rH3KE2gXA61RKyiUzwk7xqA9kunGlyKSbUx4jg
+ hmRTvNQBkiTocs9O2l9DZxY4QfeAtqaHXc3gaUd8SmFYsRDdYLFhuM9bXR2FuMnXaXIOogbZNKX
+ cWLaPqy5vqKkqj6QXUpO0sC8dWpKF5P2wiVm7t7Mea6/gRYL3P+AhGCFijq9iUew2dqnQWs7jcY
+ r/CEjE+ydcFhNAihHV6PFTGs7tomh4ItQSyxOH5j64++Zostud6Wixr2ZHPIGYAYf5Ox50Sz56C
+ gtQZk7JRrR+ov6Q==
+X-Developer-Key: i=jai.luthra@ideasonboard.com; a=openpgp;
+ fpr=4DE0D818E5D575E8D45AAFC543DE91F9249A7145
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_044110_807013_39AD52E9 
-X-CRM114-Status: GOOD (  17.49  )
+X-CRM114-CacheID: sfid-20250414_044312_491336_2D4E2D52 
+X-CRM114-Status: GOOD (  11.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,100 +92,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Neha,
+Add support for Wide Dynamic Range and Auto White Balance 64 modules of
+the ISP.
 
-On 11/04/25 19:08, Francis, Neha wrote:
-> On 4/9/2025 7:11 PM, Yemike Abhilash Chandra wrote:
->> The device tree overlay for the IMX219 sensor requires three voltage
->> supplies to be defined: VANA (analog), VDIG (digital core), and VDDL
->> (digital I/O). Add the corresponding voltage supply definitions to avoid
->> dtbs_check warnings.
->>
->> Fixes: f767eb918096 ("arm64: dts: ti: k3-j721e-sk: Add overlay for IMX219")
->> Cc: stable@vger.kernel.org
->> Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
->> ---
->>   .../dts/ti/k3-j721e-sk-csi2-dual-imx219.dtso  | 33 +++++++++++++++++++
->>   1 file changed, 33 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-sk-csi2-dual-imx219.dtso b/arch/arm64/boot/dts/ti/k3-j721e-sk-csi2-dual-imx219.dtso
->> index 4a395d1209c8..4eb3cffab032 100644
->> --- a/arch/arm64/boot/dts/ti/k3-j721e-sk-csi2-dual-imx219.dtso
->> +++ b/arch/arm64/boot/dts/ti/k3-j721e-sk-csi2-dual-imx219.dtso
-> 
-> The link to the schematics seems to need updation, would like to see where these
-> regulators are mentioned, can't find them in [0] which I assume is the latest link.
-> 
+This series is in continuation of the v2 posted earlier that enabled
+only AWB64. We add a new patch enabling WDR, and rebase the AWB64
+patch on top of it, as WDR is a simpler module which is present across
+different variants of the ISP.
 
-Yes, It seems that the link to the schematics has been changed.
-I will submit a separate patch to fix that.
+Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
+---
+Changes in v4:
+- Rebase on v6.15-rc1
+- Address Laurent's review comments on WDR patch
+- Link to v3: https://lore.kernel.org/r/20250225-awb64-v3-0-af29b1201e48@ideasonboard.com
 
-While the regulators are not clearly documented in the schematics,
-the voltage levels can be observed in the top-right corner of the 
-schematics.
+Changes in v3:
+- Add a new patch that enables support for WDR module, and rebase AWB64
+  support on top of it
+- Document the fractional bits used for AWB64 configuration parameters
+- Link to v2: https://lore.kernel.org/r/20250110-awb64-v2-1-01b7fb471465@ideasonboard.com
 
-However, the required regulators are explicitly described in the device 
-tree bindings.
-Please refer: ./Documentation/devicetree/bindings/media/i2c/imx219.yaml
+Changes in v2:
+- Fix register offsets
+- Drop the _v10 suffix from awb64 functions
+- Combine the min and max for R, G, B components into a single value in
+  the struct
+- Move all the configuration except IRQ and module enable in the
+  meas_config() routine, making sure the bool bits are cleared if
+  userspace updates the struct
+- Fix documentation and indent at various places
+- Create a single function for getting both AWB and AWB64 stats for
+  IMX8MP
+- Rename accumulator fields to only specify RGB and not YUV, as AWB64
+  block does not operate on YUV colorspace
+- Link to v1: https://lore.kernel.org/r/20241230-awb64-v1-1-27b0ee65f551@ideasonboard.com
 
-Thanks and Regards
-Yemike Abhilash Chandra
+---
+Jai Luthra (2):
+      media: rockchip: rkisp1: Add support for Wide Dynamic Range
+      media: rockchip: rkisp1: Add support for AWB64
 
+ .../media/platform/rockchip/rkisp1/rkisp1-common.h |   2 +
+ .../media/platform/rockchip/rkisp1/rkisp1-dev.c    |   3 +-
+ .../media/platform/rockchip/rkisp1/rkisp1-params.c | 213 +++++++++++++++++++++
+ .../media/platform/rockchip/rkisp1/rkisp1-regs.h   | 140 +++++++-------
+ .../media/platform/rockchip/rkisp1/rkisp1-stats.c  |  40 ++++
+ include/uapi/linux/rkisp1-config.h                 | 208 ++++++++++++++++++++
+ 6 files changed, 531 insertions(+), 75 deletions(-)
+---
+base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
+change-id: 20241230-awb64-79270098e15e
 
->> @@ -19,6 +19,33 @@ clk_imx219_fixed: imx219-xclk {
->>   		#clock-cells = <0>;
->>   		clock-frequency = <24000000>;
->>   	};
->> +
->> +	reg_2p8v: regulator-2p8v {
->> +		compatible = "regulator-fixed";
->> +		regulator-name = "2P8V";
->> +		regulator-min-microvolt = <2800000>;
->> +		regulator-max-microvolt = <2800000>;
->> +		vin-supply = <&vdd_sd_dv>;
->> +		regulator-always-on;
->> +	};
->> +
->> +	reg_1p8v: regulator-1p8v {
->> +		compatible = "regulator-fixed";
->> +		regulator-name = "1P8V";
->> +		regulator-min-microvolt = <1800000>;
->> +		regulator-max-microvolt = <1800000>;
->> +		vin-supply = <&vdd_sd_dv>;
->> +		regulator-always-on;
->> +	};
->> +
->> +	reg_1p2v: regulator-1p2v {
->> +		compatible = "regulator-fixed";
->> +		regulator-name = "1P2V";
->> +		regulator-min-microvolt = <1200000>;
->> +		regulator-max-microvolt = <1200000>;
->> +		vin-supply = <&vdd_sd_dv>;
->> +		regulator-always-on;
->> +	};
->>   };
->>   
->>   &csi_mux {
->> @@ -34,6 +61,9 @@ imx219_0: imx219-0@10 {
->>   		reg = <0x10>;
->>   
->>   		clocks = <&clk_imx219_fixed>;
->> +		VANA-supply = <&reg_2p8v>;
->> +		VDIG-supply = <&reg_1p8v>;
->> +		VDDL-supply = <&reg_1p2v>;
->>   
->>   		port {
->>   			csi2_cam0: endpoint {
->> @@ -55,6 +85,9 @@ imx219_1: imx219-1@10 {
->>   		reg = <0x10>;
->>   
->>   		clocks = <&clk_imx219_fixed>;
->> +		VANA-supply = <&reg_2p8v>;
->> +		VDIG-supply = <&reg_1p8v>;
->> +		VDDL-supply = <&reg_1p2v>;
->>   
->>   		port {
->>   			csi2_cam1: endpoint {
-> [0] https://datasheets.raspberrypi.com/camera/camera-module-2-schematics.pdf
-> 
+Best regards,
+-- 
+Jai Luthra <jai.luthra@ideasonboard.com>
+
 
