@@ -4,67 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15112C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 15:40:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3F48C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 15:43:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iGXrY6D7FU19wN4Bhg4nWtc5sUSS9dum2nNQRB7Xhzk=; b=0j5Umq1kU5JuBATCFpPYS41/Ub
-	7cjrpb9NG2xF+dX+acYr8XaDZA4sHiRhu5FXqK/2kgsgcc0woIe1swqPDOIJ6Fma5Row5ILcJwI+k
-	7Eo9uG09i2TeJFVcqBW4wt9imvub6aF5lxR53zUhKlszWjXXBD+awCfTeeBFwLCcj00zjNLUSKZLg
-	2ysvA+++aPkrOMarVG3OQGMno6nEVhvkKs56UUPO88WltLONKmWO2AOqpsWKkrbTgSOt/OeYrdWW/
-	UakVEJOhk8aqQyurFdS6fEKTHKLfsMxY33Bn7yZKBZLOmbW0D18+GkMyFLsNg+Obji7MoC11luRn9
-	rUC34aPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=elgj3ZOFdOekNxu9YHg784/p7U8yNMODKbzLcLEGcmw=; b=qvhEz/SWihjvSX4jDmq7kVQ1vH
+	rsQJBGZN3SswJ1M2KLuIZ4HyR8w5C690MmtDzFO/uh1M+99EbyZyIZIQTDq7SkaJ+9mCi9j7PKIMt
+	cVPPFj6jpCmvMX/psS+tSSPxiN0pi3rZv3mxL6uEVJNylkJQEyIwPdwWNerazy7IjucfkMu2a8vIS
+	UIqQy3jce8E87tiPz+rjZ/f4e1Cwy+X/D1I8OJ5AyXx7spFMZdm+dXfkfzFJ/LNfpE+qfVvynWzr9
+	WIHeg8DXvauS+3+ML+McT3Na0K+RW1L00ysq0AuYpsmLn0E594q6zqp90wfdGn5p7Qb1pw1X2AKRF
+	8LVOLIHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Lv5-00000002fY8-1QnT;
-	Mon, 14 Apr 2025 15:40:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Lt3-00000002f9O-3xCs
+	id 1u4Lxw-00000002g69-0lAG;
+	Mon, 14 Apr 2025 15:43:20 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u4Lw3-00000002fn2-2ltA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 15:38:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 137701007;
-	Mon, 14 Apr 2025 08:38:13 -0700 (PDT)
-Received: from [192.168.1.102] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EE7993F66E;
-	Mon, 14 Apr 2025 08:38:10 -0700 (PDT)
-Message-ID: <50a06ba8-0a99-40d2-8601-778ebf451f6a@arm.com>
-Date: Mon, 14 Apr 2025 16:37:59 +0100
+	Mon, 14 Apr 2025 15:41:25 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-22409077c06so59562435ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 08:41:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1744645282; x=1745250082; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=elgj3ZOFdOekNxu9YHg784/p7U8yNMODKbzLcLEGcmw=;
+        b=Yqq4pGSkL64PRz0RECuRDHZM6/TSboL8M85/ha4alu6YcFmQj8N+qsWkQ44tdaMQiK
+         zY+2NIWgEWCI3Kfw8rz8cNDuIsV3JHPhTu3Cqv6UgggNJj/8BisfZcAGkoLrJ8pFQnWt
+         PXHQP/K/aw8qM/mr6ZqtabYgEbzt/+aloTsT0re1PlbvL2wjon7tLJQ+iI6alfvKb0/W
+         eZUhorNWSqac+NqdsCe26qc7icawRrribrQfu909CnE2w6tG8WyS9nRxRj9fvM3q3O6q
+         NyLXn/Xw9i2XEVwNg4HMTzxEYbttcNhfobOFvcZXt3OED/704AfOgnH1iYhmYrOtf9qM
+         5KpQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744645282; x=1745250082;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=elgj3ZOFdOekNxu9YHg784/p7U8yNMODKbzLcLEGcmw=;
+        b=pNGR8TeR2yHyJEy2vYeRB/DSB1eYMj2ZE1EZSBRnZtKO77pyAY9dR/IA2VuvrYh1aE
+         hKHWelg56TuXqu4AbA5xPARrXS/CQLr5l326qCU345bhetvXR5AIrSdqWGGceon5dVJL
+         bDl0/w1o6QWBlJ6wHxOKrtT1UZohgSSFH+JlLwT5zbJ/PacvkNJ6K9vcS3SyEIkUSMdf
+         L+FuhbFBO5dkLmlelCnaFxmo51TiA4XLdaCUW+IptAlEaA2lM6lca8ku9uBKmGcFPsDz
+         gr+UOIuexE+ffLbwmGWTJGNzhUosjwTux+UgOK9DgCwYva3bnI8VyPH83PbgSuZwPFS0
+         2HBg==
+X-Forwarded-Encrypted: i=1; AJvYcCXz8SnoY/ygvag1ws3uEXv4P/CPyD39eFBNGIZqQR8+3AFsfxkFqowt3wR7UK5kqdclaZD1LglvY75xplr+mMqU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxiee2U2EuFvvazgj5w+g8bkXBRcmsuuT4k1VLbzpw5W7rT1UL9
+	8ivccQFp4aPlQ+tN11/pmfZXK48QSKX7uxSejHANkSk9S3mxIrBLvzpX29k7ma0=
+X-Gm-Gg: ASbGncuPnd92wCA3NirJRdYAdS6+uP4evLrIBW1cHCG6zG6v/E23ibY6q09+nbTawkB
+	88yZ8iHFSoubEbOejC4tVm2oTFUuSuBdPPHOeQxWB8AY2FQ6ddhK4+ohqsLzSZ2cWqDYQ+lfxTl
+	HKlESinYOIoKNHeqclvt534BWb0kpnwBHZus35Pvx4c3JiDHHfOXj/pTup8nrCPDYrNWKjBvpT/
+	Pe1sodVtbgLRmvnPdhu2t/iQwfQKxCELyT3wEGIIywAK4/igJ0hYZTUyBmqd9lgLfPqdV2bwjdh
+	pVd/ETq9mJrAUQJyRz+7WYVW4lG2V96hOKsOcAincQ==
+X-Google-Smtp-Source: AGHT+IFmaJd8K2wTbkQ9KfdS3yzMTir1mRSVtiN6w//mvc5Njk/mc7f9WAGT+beU7YlMLRaLsVEzWw==
+X-Received: by 2002:a17:902:e842:b0:223:5c33:56b4 with SMTP id d9443c01a7336-22bea4ad1abmr164559865ad.20.1744645282220;
+        Mon, 14 Apr 2025 08:41:22 -0700 (PDT)
+Received: from p14s ([2604:3d09:148c:c800:cc1f:6a:9d70:9f8b])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22ac7ccbfacsm99984745ad.249.2025.04.14.08.41.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 14 Apr 2025 08:41:21 -0700 (PDT)
+Date: Mon, 14 Apr 2025 09:41:19 -0600
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: "Iuliana Prodan (OSS)" <iuliana.prodan@oss.nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	"S.J. Wang" <shengjiu.wang@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Mpuaudiosw <Mpuaudiosw@nxp.com>,
+	Iuliana Prodan <iuliana.prodan@nxp.com>, imx@lists.linux.dev,
+	linux-remoteproc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Subject: Re: [PATCH v4] remoteproc: imx_dsp_rproc: Add support for
+ DSP-specific features
+Message-ID: <Z_0snwzpkPTJqjWX@p14s>
+References: <20250409213030.3489481-1-iuliana.prodan@oss.nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/4] iommu: Get DT/ACPI parsing into the proper probe
- path
-To: Johan Hovold <johan@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Russell King <linux@armlinux.org.uk>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>, Stuart Yoder <stuyoder@gmail.com>,
- Laurentiu Tudor <laurentiu.tudor@nxp.com>, Nipun Gupta
- <nipun.gupta@amd.com>, Nikhil Agarwal <nikhil.agarwal@amd.com>,
- Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
- Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
- Bjorn Helgaas <bhelgaas@google.com>, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- iommu@lists.linux.dev, devicetree@vger.kernel.org,
- linux-pci@vger.kernel.org, Charan Teja Kalla <quic_charante@quicinc.com>
-References: <cover.1740753261.git.robin.murphy@arm.com>
- <e3b191e6fd6ca9a1e84c5e5e40044faf97abb874.1740753261.git.robin.murphy@arm.com>
- <Z_jMiC1uj_MJpKVj@hovoldconsulting.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <Z_jMiC1uj_MJpKVj@hovoldconsulting.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250409213030.3489481-1-iuliana.prodan@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_083818_076176_E991862C 
-X-CRM114-Status: GOOD (  26.56  )
+X-CRM114-CacheID: sfid-20250414_084123_731643_338F4282 
+X-CRM114-Status: GOOD (  40.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,122 +105,217 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-04-11 9:02 am, Johan Hovold wrote:
-> Hi Robin,
+On Thu, Apr 10, 2025 at 12:30:30AM +0300, Iuliana Prodan (OSS) wrote:
+> From: Iuliana Prodan <iuliana.prodan@nxp.com>
 > 
-> On Fri, Feb 28, 2025 at 03:46:33PM +0000, Robin Murphy wrote:
->> In hindsight, there were some crucial subtleties overlooked when moving
->> {of,acpi}_dma_configure() to driver probe time to allow waiting for
->> IOMMU drivers with -EPROBE_DEFER, and these have become an
->> ever-increasing source of problems. The IOMMU API has some fundamental
->> assumptions that iommu_probe_device() is called for every device added
->> to the system, in the order in which they are added. Calling it in a
->> random order or not at all dependent on driver binding leads to
->> malformed groups, a potential lack of isolation for devices with no
->> driver, and all manner of unexpected concurrency and race conditions.
->> We've attempted to mitigate the latter with point-fix bodges like
->> iommu_probe_device_lock, but it's a losing battle and the time has come
->> to bite the bullet and address the true source of the problem instead.
+> Some DSP firmware requires a FW_READY signal before proceeding, while
+> others do not.
+> Therefore, add support to handle i.MX DSP-specific features.
 > 
->> @@ -426,6 +438,12 @@ static int iommu_init_device(struct device *dev)
->>   		ret = -ENODEV;
->>   		goto err_free;
->>   	}
->> +	/*
->> +	 * And if we do now see any replay calls, they would indicate someone
->> +	 * misusing the dma_configure path outside bus code.
->> +	 */
->> +	if (dev->driver)
->> +		dev_WARN(dev, "late IOMMU probe at driver bind, something fishy here!\n");
->>   
->>   	if (!try_module_get(ops->owner)) {
->>   		ret = -EINVAL;
->> diff --git a/drivers/iommu/of_iommu.c b/drivers/iommu/of_iommu.c
->> index e10a68b5ffde..6b989a62def2 100644
->> --- a/drivers/iommu/of_iommu.c
->> +++ b/drivers/iommu/of_iommu.c
->> @@ -155,7 +155,12 @@ int of_iommu_configure(struct device *dev, struct device_node *master_np,
->>   		dev_iommu_free(dev);
->>   	mutex_unlock(&iommu_probe_device_lock);
->>   
->> -	if (!err && dev->bus)
->> +	/*
->> +	 * If we're not on the iommu_probe_device() path (as indicated by the
->> +	 * initial dev->iommu) then try to simulate it. This should no longer
->> +	 * happen unless of_dma_configure() is being misused outside bus code.
->> +	 */
+> Implement handle_rsc callback to handle resource table parsing and to
+> process DSP-specific resource, to determine if waiting is needed.
 > 
-> This assumption does not hold as there is nothing preventing iommu
-> driver probe from racing with a client driver probe.
+> Update imx_dsp_rproc_start() to handle this condition accordingly.
+> 
+> Signed-off-by: Iuliana Prodan <iuliana.prodan@nxp.com>
+> ---
+> Changes in v4:
+> - Reviews from Mathieu Poirier:
+>   - Adjusted len to include the size of struct fw_rsc_imx_dsp.
+>   - Updated len validation checks.
+> - Review from Frank Li:
+>   - In imx_dsp_rproc_handle_rsc(), removed the goto ignored statement.
+> - In probe(), set flags to WAIT_FW_READY to ensure the host waits
+> for fw_ready when no vendor-specific resource is defined.
+> - Link to v3: https://lore.kernel.org/all/20250403100124.637889-1-iuliana.prodan@oss.nxp.com/
+> 
+> Changes in v3:
+> - Reviews from Mathieu Poirier:
+>   - Added version and magic number to vendor-specific resource table entry.
+>   - Updated defines to maintain backward compatibility with a resource table that doesn't have a vendor-specific resource.
+>     - By default, wait for `fw_ready`, unless specified otherwise.
+> - Link to v2: https://lore.kernel.org/all/20250318215007.2109726-1-iuliana.prodan@oss.nxp.com
+> 
+> Changes in v2:
+> - Reviews from Mathieu Poirier:
+>   - Use vendor-specific resource table entry.
+>   - Implement resource handler specific to the i.MX DSP.
+> - Revise commit message to include recent updates.
+> - Link to v1: https://lore.kernel.org/all/20250305123923.514386-1-iuliana.prodan@oss.nxp.com/
+> 
+>  drivers/remoteproc/imx_dsp_rproc.c | 98 +++++++++++++++++++++++++++++-
+>  1 file changed, 96 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
+> index b9bb15970966..e4212e624a91 100644
+> --- a/drivers/remoteproc/imx_dsp_rproc.c
+> +++ b/drivers/remoteproc/imx_dsp_rproc.c
+> @@ -35,9 +35,18 @@ module_param_named(no_mailboxes, no_mailboxes, int, 0644);
+>  MODULE_PARM_DESC(no_mailboxes,
+>  		 "There is no mailbox between cores, so ignore remote proc reply after start, default is 0 (off).");
+>  
+> +/* Flag indicating that the remote is up and running */
+>  #define REMOTE_IS_READY				BIT(0)
+> +/* Flag indicating that the host should wait for a firmware-ready response */
+> +#define WAIT_FW_READY				BIT(1)
+>  #define REMOTE_READY_WAIT_MAX_RETRIES		500
+>  
+> +/*
+> + * This flag is set in the DSP resource table's features field to indicate
+> + * that the firmware requires the host NOT to wait for a FW_READY response.
+> + */
+> +#define FEATURE_DONT_WAIT_FW_READY		BIT(0)
+> +
+>  /* att flags */
+>  /* DSP own area */
+>  #define ATT_OWN					BIT(31)
+> @@ -72,6 +81,10 @@ MODULE_PARM_DESC(no_mailboxes,
+>  
+>  #define IMX8ULP_SIP_HIFI_XRDC			0xc200000e
+>  
+> +#define FW_RSC_NXP_S_MAGIC			((uint32_t)'n' << 24 |	\
+> +						 (uint32_t)'x' << 16 |	\
+> +						 (uint32_t)'p' << 8 |	\
+> +						 (uint32_t)'s')
+>  /*
+>   * enum - Predefined Mailbox Messages
+>   *
+> @@ -136,6 +149,24 @@ struct imx_dsp_rproc_dcfg {
+>  	int (*reset)(struct imx_dsp_rproc *priv);
+>  };
+>  
+> +/**
+> + * struct fw_rsc_imx_dsp - i.MX DSP specific info
+> + *
+> + * @len: length of the resource entry
+> + * @magic_num: 32-bit magic number
+> + * @version: version of data structure
+> + * @features: feature flags supported by the i.MX DSP firmware
+> + *
+> + * This represents a DSP-specific resource in the firmware's
+> + * resource table, providing information on supported features.
+> + */
+> +struct fw_rsc_imx_dsp {
+> +	uint32_t len;
+> +	uint32_t magic_num;
+> +	uint32_t version;
+> +	uint32_t features;
+> +} __packed;
+> +
+>  static const struct imx_rproc_att imx_dsp_rproc_att_imx8qm[] = {
+>  	/* dev addr , sys addr  , size	    , flags */
+>  	{ 0x596e8000, 0x556e8000, 0x00008000, ATT_OWN },
+> @@ -300,6 +331,66 @@ static int imx_dsp_rproc_ready(struct rproc *rproc)
+>  	return -ETIMEDOUT;
+>  }
+>  
+> +/**
+> + * imx_dsp_rproc_handle_rsc() - Handle DSP-specific resource table entries
+> + * @rproc: remote processor instance
+> + * @rsc_type: resource type identifier
+> + * @rsc: pointer to the resource entry
+> + * @offset: offset of the resource entry
+> + * @avail: available space in the resource table
+> + *
+> + * Parse the DSP-specific resource entry and update flags accordingly.
+> + * If the WAIT_FW_READY feature is set, the host must wait for the firmware
+> + * to signal readiness before proceeding with execution.
+> + *
+> + * Return: RSC_HANDLED if processed successfully, RSC_IGNORED otherwise.
+> + */
+> +static int imx_dsp_rproc_handle_rsc(struct rproc *rproc, u32 rsc_type,
+> +				    void *rsc, int offset, int avail)
+> +{
+> +	struct imx_dsp_rproc *priv = rproc->priv;
+> +	struct fw_rsc_imx_dsp *imx_dsp_rsc = rsc;
+> +	struct device *dev = rproc->dev.parent;
+> +
+> +	if (!imx_dsp_rsc) {
+> +		dev_dbg(dev, "Invalid fw_rsc_imx_dsp.\n");
+> +		return RSC_IGNORED;
+> +	}
+> +
+> +	/* Make sure resource isn't truncated */
+> +	if (sizeof(struct fw_rsc_imx_dsp) > avail ||
 
-Not sure I follow - *this* assumption is that if we arrived here with 
-dev->iommu already allocated then __iommu_probe_device() is already in 
-progress for this device, either in the current callchain or on another 
-thread, and so we can (and should) skip calling into it again. There's 
-no ambiguity about that.
+We agree on that part.
 
->> +	if (!err && dev->bus && !dev_iommu_present)
->>   		err = iommu_probe_device(dev);
->>   
->>   	if (err && err != -EPROBE_DEFER)
-> 
-> I hit the (now moved) dev_WARN() on the ThinkPad T14s where the GPU SMMU
-> is probed late due to a clock dependency and can end up probing in
-> parallel with the GPU driver.
+> +	    sizeof(struct fw_rsc_imx_dsp) < imx_dsp_rsc->len) {
 
-And what *should* happen is that the GPU driver probe waits for the 
-IOMMU driver probe to finish. Do you have fw_devlink enabled?
+From the above, "sizeof(struct fw_rsc_imx_dsp) > imx_dsp_rsc->len" would be a
+valid condition when it clearly isn't.  I am still convinced the only
+valid option is:
 
-> [    3.805282] arm-smmu 3da0000.iommu: probing hardware configuration...
-> [    3.806007] arm-smmu 3da0000.iommu: SMMUv2 with:
-> [    3.806843] arm-smmu 3da0000.iommu:  stage 1 translation
-> [    3.807562] arm-smmu 3da0000.iommu:  coherent table walk
-> [    3.808253] arm-smmu 3da0000.iommu:  stream matching with 24 register groups
-> [    3.808957] arm-smmu 3da0000.iommu:  22 context banks (0 stage-2 only)
-> [    3.809651] arm-smmu 3da0000.iommu:  Supported page sizes: 0x61311000
-> [    3.810339] arm-smmu 3da0000.iommu:  Stage-1: 48-bit VA -> 40-bit IPA
-> [    3.811130] arm-smmu 3da0000.iommu:  preserved 0 boot mappings
-> 
-> [    3.829042] platform 3d6a000.gmu: Adding to iommu group 8
-> 
-> [    3.992050] ------------[ cut here ]------------
-> [    3.993045] adreno 3d00000.gpu: late IOMMU probe at driver bind, something fishy here!
-> [    3.994058] WARNING: CPU: 9 PID: 343 at drivers/iommu/iommu.c:579 __iommu_probe_device+0x2b0/0x4ac
-> 
-> [    4.003272] CPU: 9 UID: 0 PID: 343 Comm: kworker/u50:2 Not tainted 6.15.0-rc1 #109 PREEMPT
-> [    4.003276] Hardware name: LENOVO 21N2ZC5PUS/21N2ZC5PUS, BIOS N42ET83W (2.13 ) 10/04/2024
-> 
-> [    4.025943] Call trace:
-> [    4.025945]  __iommu_probe_device+0x2b0/0x4ac (P)
-> [    4.030453]  iommu_probe_device+0x38/0x7c
-> [    4.030455]  of_iommu_configure+0x188/0x26c
-> [    4.030457]  of_dma_configure_id+0xcc/0x300
-> [    4.030460]  platform_dma_configure+0x74/0xac
-> [    4.030462]  really_probe+0x74/0x38c
+            sizeof(struct fw_rsc_imx_dsp) != imx_dsp_rsc->len)
 
-Indeed this is exactly what is *not* supposed to be happening - does 
-this patch help at all?
-
-https://lore.kernel.org/linux-iommu/09d901ad11b3a410fbb6e27f7d04ad4609c3fe4a.1741706365.git.robin.murphy@arm.com/
-
-If not then I guess I do need to do something to explicitly distinguish 
-the "iommu_device_register() is still running" state after all...
+I am happy to change my mind but would need more information.
 
 Thanks,
-Robin.
+Mathieu
 
-> [    4.030464]  __driver_probe_device+0x7c/0x160
-> [    4.030465]  driver_probe_device+0x40/0x110
-> [    4.030467]  __device_attach_driver+0xbc/0x158
-> [    4.030468]  bus_for_each_drv+0x84/0xe0
-> [    4.030470]  __device_attach+0xa8/0x1d4
-> [    4.030472]  device_initial_probe+0x14/0x20
-> [    4.030473]  bus_probe_device+0xb0/0xb4
-> [    4.030476]  deferred_probe_work_func+0xa0/0xf4
+> +		dev_dbg(dev, "Resource fw_rsc_imx_dsp is truncated.\n");
+> +		return RSC_IGNORED;
+> +	}
+> +
+> +	/*
+> +	 * If FW_RSC_NXP_S_MAGIC number is not found then
+> +	 * wait for fw_ready reply (default work flow)
+> +	 */
+> +	if (imx_dsp_rsc->magic_num != FW_RSC_NXP_S_MAGIC) {
+> +		dev_dbg(dev, "Invalid resource table magic number.\n");
+> +		return RSC_IGNORED;
+> +	}
+> +
+> +	/*
+> +	 * For now, in struct fw_rsc_imx_dsp, version 0,
+> +	 * only FEATURE_DONT_WAIT_FW_READY is valid.
+> +	 *
+> +	 * When adding new features, please upgrade version.
+> +	 */
+> +	if (imx_dsp_rsc->version > 0) {
+> +		dev_warn(dev, "Unexpected fw_rsc_imx_dsp version %d.\n",
+> +			 imx_dsp_rsc->version);
+> +		return RSC_IGNORED;
+> +	}
+> +
+> +	if (imx_dsp_rsc->features & FEATURE_DONT_WAIT_FW_READY)
+> +		priv->flags &= ~WAIT_FW_READY;
+> +
+> +	return RSC_HANDLED;
+> +}
+> +
+>  /*
+>   * Start function for rproc_ops
+>   *
+> @@ -335,8 +426,8 @@ static int imx_dsp_rproc_start(struct rproc *rproc)
+>  
+>  	if (ret)
+>  		dev_err(dev, "Failed to enable remote core!\n");
+> -	else
+> -		ret = imx_dsp_rproc_ready(rproc);
+> +	else if (priv->flags & WAIT_FW_READY)
+> +		return imx_dsp_rproc_ready(rproc);
+>  
+>  	return ret;
+>  }
+> @@ -936,6 +1027,7 @@ static const struct rproc_ops imx_dsp_rproc_ops = {
+>  	.kick		= imx_dsp_rproc_kick,
+>  	.load		= imx_dsp_rproc_elf_load_segments,
+>  	.parse_fw	= imx_dsp_rproc_parse_fw,
+> +	.handle_rsc	= imx_dsp_rproc_handle_rsc,
+>  	.find_loaded_rsc_table = rproc_elf_find_loaded_rsc_table,
+>  	.sanity_check	= rproc_elf_sanity_check,
+>  	.get_boot_addr	= rproc_elf_get_boot_addr,
+> @@ -1053,6 +1145,8 @@ static int imx_dsp_rproc_probe(struct platform_device *pdev)
+>  	priv = rproc->priv;
+>  	priv->rproc = rproc;
+>  	priv->dsp_dcfg = dsp_dcfg;
+> +	/* By default, host waits for fw_ready reply */
+> +	priv->flags |= WAIT_FW_READY;
+>  
+>  	if (no_mailboxes)
+>  		imx_dsp_rproc_mbox_init = imx_dsp_rproc_mbox_no_alloc;
+> -- 
+> 2.25.1
 > 
-> [    4.030501] ---[ end trace 0000000000000000 ]---
-> [    4.031269] adreno 3d00000.gpu: Adding to iommu group 9
-> 
-> Johan
-
 
