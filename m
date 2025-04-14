@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 993FAC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 23:03:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D968CC369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 23:05:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GR2GmT7fACAPkitPj8eTbd2Bh3lgrZjljTTbjCNGmE4=; b=IfXNkXBFUe7gKbMc5cl7cGkxCp
-	1y/N5AJto56diWeU9r1hig1GQx65duXTvQe+Mtb0tkHmqp1j4UXHEIkW3qfsczLBtngzg7rJz6gHB
-	YP9eGL2I2Tu5c/VJ7Of9GLVHik5WcEmBTQQAMtQJA1WGJJR/BmZWFN6AML9LdT5UBHNeQBzeJkd42
-	VHCAom/DM8Z1jRvACrWwIkxr640qn1sG5EN0QwBtOQXG6ntz4GMhT8ugatKJVFcrhM9yHvgmond1d
-	XBK1YIXTnW7jDD+7mpdSuJG+ekQFRZD3jVogiG7fiZcv5k1HBE35gwN7zLQ5ZrFmjp21D0CFFj+Iz
-	6jK0OtdQ==;
+	bh=y7usvJbWdzao6Cpj0TdEPzfAZnIHMs9Jb/NJTFyO0qY=; b=uKugBGkP7LfpVEoUb8ogWZQ+Mp
+	ezvbUBU2eVNBi73O4c1dkAZdC7MN3mJU2t7/Q7+taoSKkY+q+twSOdQbDIt00xDClsZ3Fm0HULLQ7
+	WJIFuI3FQhQZHHEnnUEcpYICJXOpwY68NXbcLwIxkQAWnxdO2QiysTIE1UIJCAn2m2RQtww/lfEiq
+	wRxxq3OyuQCzAV4giyU4HYtU6+gfKBQIZLtxmq9AVeXrW/+AYU0Bq9XLnFuOT5+lAGBDpuxBrhOiJ
+	+Ba+46odKTQPTVBZ0CBjO4OCkk5hlksp1wFKXwyReH3eYSCk/Qd8aOObNcVcgqAnoMlpxsYVz73Sp
+	ZalPRerA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Spd-00000003oN6-0dnU;
-	Mon, 14 Apr 2025 23:03:13 +0000
+	id 1u4SrP-00000003oqz-3qBt;
+	Mon, 14 Apr 2025 23:05:03 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4SaG-00000003l52-11GN
+	id 1u4SaG-00000003l5N-27Tf
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 14 Apr 2025 22:47:21 +0000
 Received: from romank-3650.corp.microsoft.com (unknown [131.107.159.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 8AFFB210C434;
+	by linux.microsoft.com (Postfix) with ESMTPSA id E87F0210C427;
 	Mon, 14 Apr 2025 15:47:17 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 8AFFB210C434
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com E87F0210C427
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1744670837;
-	bh=GR2GmT7fACAPkitPj8eTbd2Bh3lgrZjljTTbjCNGmE4=;
+	s=default; t=1744670838;
+	bh=y7usvJbWdzao6Cpj0TdEPzfAZnIHMs9Jb/NJTFyO0qY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=HufyQv9ttcOdarL6+tlfprRYglH4+VTdbj9xTSaKOfJYd6oQp3mbjoYATtlXGPG9R
-	 /20EKFyZdf679VARrKL1MuHl7S0l43AzP8UJdvCwy2C+JnfvK7688pmoke7ziowitq
-	 Gbrtf5ozPZxIK5y1zSCfFQpi8pQ/mGPoI2bx2seQ=
+	b=Gj2oxpdSuACPti/8he18aDXfYtphJ/3fkyIYSmN5EQ1dRHt9q0oE87ILB59oJjKm6
+	 DuVJbC44rXuUFyWSFTjAzFEfipRR7S6MrIK1bHyGPM1nob9+BrNaNCap9Yf/ndZkwp
+	 N+YSpRdcVpiqp8OS2oybRgmxQchVjEbHEjcpKxPY=
 From: Roman Kisel <romank@linux.microsoft.com>
 To: arnd@arndb.de,
 	bhelgaas@google.com,
@@ -83,17 +83,17 @@ Cc: apais@microsoft.com,
 	benhill@microsoft.com,
 	bperkins@microsoft.com,
 	sunilmut@microsoft.com
-Subject: [PATCH hyperv-next v8 07/11] dt-bindings: microsoft,vmbus: Add interrupt and DMA coherence properties
-Date: Mon, 14 Apr 2025 15:47:09 -0700
-Message-ID: <20250414224713.1866095-8-romank@linux.microsoft.com>
+Subject: [PATCH hyperv-next v8 08/11] Drivers: hv: vmbus: Get the IRQ number from DeviceTree
+Date: Mon, 14 Apr 2025 15:47:10 -0700
+Message-ID: <20250414224713.1866095-9-romank@linux.microsoft.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250414224713.1866095-1-romank@linux.microsoft.com>
 References: <20250414224713.1866095-1-romank@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_154720_373200_A99DFA44 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20250414_154720_584996_7C7AB52D 
+X-CRM114-Status: GOOD (  11.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,70 +108,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To boot in the VTL mode, VMBus on arm64 needs interrupt description
-which the binding documentation lacks. The transactions on the bus are
-DMA coherent which is not mentioned as well.
+The VMBus driver uses ACPI for interrupt assignment on
+arm64 hence it won't function in the VTL mode where only
+DeviceTree can be used.
 
-Add the interrupt property and the DMA coherence property to the VMBus
-binding. Update the example to match that. Fix typos.
+Update the VMBus driver to discover interrupt configuration
+from DT.
 
 Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Reviewed-by: Michael Kelley <mhklinux@outlook.com>
 ---
- .../devicetree/bindings/bus/microsoft,vmbus.yaml | 16 ++++++++++++++--
- 1 file changed, 14 insertions(+), 2 deletions(-)
+ drivers/hv/vmbus_drv.c | 30 ++++++++++++++++++++++++++++++
+ 1 file changed, 30 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml b/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml
-index a8d40c766dcd..0bea4f5287ce 100644
---- a/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml
-+++ b/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml
-@@ -10,8 +10,8 @@ maintainers:
-   - Saurabh Sengar <ssengar@linux.microsoft.com>
+diff --git a/drivers/hv/vmbus_drv.c b/drivers/hv/vmbus_drv.c
+index 22afebfc28ff..e8f2c3e92d1f 100644
+--- a/drivers/hv/vmbus_drv.c
++++ b/drivers/hv/vmbus_drv.c
+@@ -2345,6 +2345,31 @@ static int vmbus_acpi_add(struct platform_device *pdev)
+ }
+ #endif
  
- description:
--  VMBus is a software bus that implement the protocols for communication
--  between the root or host OS and guest OSs (virtual machines).
-+  VMBus is a software bus that implements the protocols for communication
-+  between the root or host OS and guest OS'es (virtual machines).
- 
- properties:
-   compatible:
-@@ -25,9 +25,16 @@ properties:
-   '#size-cells':
-     const: 1
- 
-+  dma-coherent: true
++static int vmbus_set_irq(struct platform_device *pdev)
++{
++	struct irq_data *data;
++	int irq;
++	irq_hw_number_t hwirq;
 +
-+  interrupts:
-+    maxItems: 1
-+    description: Interrupt is used to report a message from the host.
++	irq = platform_get_irq(pdev, 0);
++	/* platform_get_irq() may not return 0. */
++	if (irq < 0)
++		return irq;
 +
- required:
-   - compatible
-   - ranges
-+  - interrupts
-   - '#address-cells'
-   - '#size-cells'
++	data = irq_get_irq_data(irq);
++	if (!data) {
++		pr_err("No interrupt data for VMBus virq %d\n", irq);
++		return -ENODEV;
++	}
++	hwirq = irqd_to_hwirq(data);
++
++	vmbus_irq = irq;
++	vmbus_interrupt = hwirq;
++	pr_debug("VMBus virq %d, hwirq %d\n", vmbus_irq, vmbus_interrupt);
++
++	return 0;
++}
++
+ static int vmbus_device_add(struct platform_device *pdev)
+ {
+ 	struct resource **cur_res = &hyperv_mmio;
+@@ -2359,6 +2384,11 @@ static int vmbus_device_add(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
  
-@@ -35,6 +42,8 @@ additionalProperties: false
++	if (!__is_defined(HYPERVISOR_CALLBACK_VECTOR))
++		ret = vmbus_set_irq(pdev);
++	if (ret)
++		return ret;
++
+ 	for_each_of_range(&parser, &range) {
+ 		struct resource *res;
  
- examples:
-   - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-     soc {
-         #address-cells = <2>;
-         #size-cells = <1>;
-@@ -49,6 +58,9 @@ examples:
-                 #address-cells = <2>;
-                 #size-cells = <1>;
-                 ranges = <0x0f 0xf0000000 0x0f 0xf0000000 0x10000000>;
-+                dma-coherent;
-+                interrupt-parent = <&gic>;
-+                interrupts = <GIC_PPI 2 IRQ_TYPE_EDGE_RISING>;
-             };
-         };
-     };
 -- 
 2.43.0
 
