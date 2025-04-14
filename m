@@ -4,130 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93225C369B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 12:29:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB48DC369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 12:31:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bGrXNa6dHXvr4kroK+MTw5NQiqX7zWwS0Ak/+A0yv10=; b=XXfj2MUVpdml1uKSs9qs5VAwdf
-	O3f/rQZoAIYxjSZy2XTXOvLTR2t40M6S8lnhNsyncRBORVyLHT9WD1zSwBbF+KyjqZhYsC8BKXHBJ
-	UHf/iSAi7h2wgNksiMdF+4i07T39BzjVLa0MQTQ/PRxT4S9j2od2O4zGtgazlHn1SPPqlF2FvX06O
-	vKR6wpE9ZxovJWspW2bM0HffZN+WVwpdyFbcIFdgwf+lxJkflIqhGauu6sMxuEtf0C4/Aw7hn3MuM
-	dIw9KIoZdPFuMelU44NFDgayTsVrLVcXxK5BSprCKBJTDckaCwv7ILrRulzX+2d4/WwD0kJAOZ3lY
-	3Jou4R0A==;
+	bh=6Zb/849ES3rQECOKKm4QFm3Dk6RHBGNbJvTLGQpVzfA=; b=iAojdBPVepszzjrbOv7tZkpjgN
+	fiLZ1szAi9E5JFcljbUT5+1QnijsImN8LSph6OS2A5H9gCqwvpyD1YL00JQFYz2yjJDCfywIQqy8S
+	+hG9LSMBxgTJIp5hnSPDXYoJp/XrBxHngr6S094EbUJIuCqeOqG44HRqaj9ACJ4NqUHP+Ws0YiY8o
+	YgukUJqiaJ3/59nO/picNEZGQlz6+j1UcvbnJf34D3p5BxXJ4Z2oqkD4mPDJttfDjUiPEJ1v4bbyI
+	T6DGF0iRBc5SzjbnAyOYE3JXhZJnmKlo1G4S7+VDn/CN+ELLilCgtIwjYocG8xzDShz+9rzXcCYyq
+	2PAWGiuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Iwe-00000001waQ-0mNi;
-	Mon, 14 Apr 2025 12:29:48 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1u4IyZ-00000001wxS-0zPi;
+	Mon, 14 Apr 2025 12:31:47 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Ihg-00000001uWd-04B2
+	id 1u4IvI-00000001wOw-3oph
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 12:14:21 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53E99qg2016550
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 12:14:19 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=bGrXNa6dHXvr4kroK+MTw5NQ
-	iqX7zWwS0Ak/+A0yv10=; b=ZNnmEjjePUV+BrjhfwfZTyG1deE26VgjPzjuXCo2
-	YWBhbuGcHoo2EGQ7wYQa84DJiFY6uKeFTtqeAq2pA4PidWV0R6BqXsNcSSbf8MBe
-	YF0B3Y7ghr7H95bhvH9LgPrqCSdABJrEiOPd5UpukkduE75MokYhKwkrc6nQwGON
-	1WPuc2Z2hQA1rfj82vrIGp/zNwzMH2ygBfWAFOtNX7k6ch8kF/5ijpbVTnYBZTwi
-	njM6B/f7Ox90/VGAKNDEnn+Z7cORaoJQxSkMSPUzkunN++eE+slgLMUCYwFYX4RW
-	gTjDEUB0NwlU3JemWDeeJiW8oyF+fZxUNvumTEkU/zMIuw==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45yf69mhuu-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 12:14:18 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-7c5750ca8b2so678037085a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 05:14:18 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744632858; x=1745237658;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bGrXNa6dHXvr4kroK+MTw5NQiqX7zWwS0Ak/+A0yv10=;
-        b=uk6CkHV9SYNFRfGeu7l89We+OVpTxwHkvUcET6HSZcq39BkK5sd260yvNicu1KdWHy
-         FRuD1xqRZjntZn7gVIh8JKM4T7xsE3lP+ev9rCjeufn13KgGtlAkQclnt7NsxjO3FanB
-         vZ8tT7n/y5+VZjALj3yjBNao35kAzKJ4hSynSNF+YWiRm6rD+GOksbbL8mzs3/ScYVsO
-         Jtaag75BFeS0MDNUF9LaEI5yd1ehhLUPbqmw0JcfucSxAgMb5ahnzwhaOJRRq/EWaMJR
-         u8SQg50mRf24WZoVsq8t587y2D/tG9/drxRQgs4VJLdk1Qg2e//77CHvuEGy3/J3lD8u
-         c2kQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU6fCtpY+RTvleSjYnuBylqKJ3BNP9yd/Xj9OoBZZsDkG9MeXAeJmAv6gnvuhRjHFMeeiM4mHxqEt1R5oaaQ++k@lists.infradead.org
-X-Gm-Message-State: AOJu0YxbVN4KRAKu/RwA4O3+YaZu8SpSauMmqGmXTdpCj6MU9wR+nQIH
-	z07kEN0b5mqi00r1xan1BIc6/x+O0bjoeJ9hAKwR5GsSw1KqbsfVcbP79op6oZmCT+yIlGjxP0D
-	nER2ixcN3euZoYxPDfayCbEctkL+NfmPQUIDbrzjR8zQEaG3iauVRebGrlWRn69zpkhRMEhSKPQ
-	==
-X-Gm-Gg: ASbGncsRfeTIytdsbGI4NTVehP9ejc/rPVrR6V/zMJya14iI6bK7wKj5nQpPho1bckv
-	jA3rdJiRZ5iVCUmYay4TrRjcj5ZCFpvtMHFFpDq8K6DMOrorS3TiMu3SlWPWpr2vU+j0ReykFzg
-	D2Q3K9E1NiiasvSHbDpllQsMWJPUnS/nRe75FxIZ00gJjv6CbCMb2++rlA6dNPUhvNtSk47tBvV
-	yD/Xg+akAQTKaoJEHSxAdtszLKFxorwo+mIqZ4VpAn1i+TK2/5LiX7a+8j15Z/Ng5wauMzDIL8S
-	Mlw9fAaCU1Rn84mLk7dDa4k5BsYFv4CqLs1pP9VZ2ad2uCIfrcvQ4y9TenKDNLPOfP7vvBEKFus
-	=
-X-Received: by 2002:a05:620a:40c7:b0:7c5:4001:3e9f with SMTP id af79cd13be357-7c7af0e0f5emr1701934885a.29.1744632857849;
-        Mon, 14 Apr 2025 05:14:17 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFxzp5iYZiEnUZWE3gvlgW+sXTiIEbnk35cNdFG+zRQtIEUe8+f5w9ReiZy8l+u4jZmVg+wwA==
-X-Received: by 2002:a05:620a:40c7:b0:7c5:4001:3e9f with SMTP id af79cd13be357-7c7af0e0f5emr1701928685a.29.1744632857299;
-        Mon, 14 Apr 2025 05:14:17 -0700 (PDT)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54d3d2386b6sm1128164e87.72.2025.04.14.05.14.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Apr 2025 05:14:16 -0700 (PDT)
-Date: Mon, 14 Apr 2025 15:14:14 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Cc: Rob Clark <robdclark@gmail.com>, Abhinav Kumar <quic_abhinavk@quicinc.com>,
-        Dmitry Baryshkov <lumag@kernel.org>, Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Kuogee Hsieh <quic_khsieh@quicinc.com>,
-        Krishna Manikandan <quic_mkrishn@quicinc.com>,
-        Jonathan Marek <jonathan@marek.ca>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        Joerg Roedel <joro@8bytes.org>, Konrad Dybcio <konradybcio@kernel.org>,
-        linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
-        freedreno@lists.freedesktop.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org,
-        Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Subject: Re: [PATCH v2 10/10] arm64: dts: qcom: sar2130p: add display nodes
-Message-ID: <fd2dtxhbfvgpiwy7rc5z4hrrmuthet7bmp6iespdcvxgaz5uhe@ivg2gun7sb6q>
-References: <20250314-sar2130p-display-v2-0-31fa4502a850@oss.qualcomm.com>
- <20250314-sar2130p-display-v2-10-31fa4502a850@oss.qualcomm.com>
- <c14dfd37-7d12-40c3-8281-fd0a7410813e@oss.qualcomm.com>
- <umhperyjdgiz4bo6grbxfhe44wiwoqb3w3qrzg62gf3ty66mjq@pddxfo3kkohv>
- <8fe8c0f8-71d5-4a85-96e5-17cb4773820d@oss.qualcomm.com>
+	Mon, 14 Apr 2025 12:28:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id B0659A49DAA
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 12:22:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1A63C4CEE2
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 12:28:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744633703;
+	bh=ixX+aTSMxs21n/o59hXTar0t+IatGCpyamxq2gI482w=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=TYnvjh6ZJJh9llFKwpdi2rKgaw/aYoo/5OTh8b2NPrW4idCos5cdlcW6JKzc6gVkK
+	 GD6Kj0Jsu8JgDDZw399RmmKxlbPqVW5x3QyZ89JPIKCHueDRjPG7n0AUWtXk85FqBU
+	 CKhI3RZg1+Ugqlv86MFOU3Rcd+IZuWWtA5+sR8ld9tamF0FNWyAssny1J+653Lat6F
+	 s8soQWMXqWpNn8mV6CahGrV01EWubZy4mTyyvB2fr6aPO8Nwsk6Bwc7unU/1bHhOYu
+	 88O3uOWfjRhk2YgSJcAZfm2XIJ6TfumCAAUqnX4eG9QbtC3+Y6n1GkkFs1d9MyZWkS
+	 63wQQH8UvzORw==
+Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-548409cd2a8so5583915e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 05:28:23 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUN00rZrUW5ZdJ+1qw98S0RVF7iwqYGLqtlnTsiMJX0sWHVr/MZIeDAautnOpdj845RS5pa/9LDBK3MA29g7tiO@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxjh0/X/OWd0Ym83luQ517OfkoDWCeVJnz8/eNHl3kdImOU6Kw0
+	UVHEGUCm/k4BWnlgmWREa2G4vOpnDznfa+Uvt7hFY01e4zntN2E7nrrWBGjCvIlNmvfz8ColNVY
+	dpn+fzpj4y6yp2h0JSbWZadKeMGw=
+X-Google-Smtp-Source: AGHT+IFzhIt2ejuDXn9Okk3Y8KB1rg/VBUn0uGKtytenAj+wyPYEIJ32ztqV+LpBKmoYT2VlQX5UZH28uiPnUCd19IA=
+X-Received: by 2002:a05:6512:1310:b0:54a:cc11:a94c with SMTP id
+ 2adb3069b0e04-54d4528e98bmr4369914e87.3.1744633702098; Mon, 14 Apr 2025
+ 05:28:22 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <8fe8c0f8-71d5-4a85-96e5-17cb4773820d@oss.qualcomm.com>
-X-Proofpoint-GUID: vf7iiAyMSjaOr9wdndxkUOKPB0izzsSG
-X-Authority-Analysis: v=2.4 cv=JNc7s9Kb c=1 sm=1 tr=0 ts=67fcfc1a cx=c_pps a=50t2pK5VMbmlHzFWWp8p/g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10 a=XR8D0OoHHMoA:10 a=KKAkSRfTAAAA:8 a=nRcdhEhJI-3p1s1dT_wA:9 a=CjuIK1q_8ugA:10 a=IoWCM6iH3mJn3m4BftBB:22
- a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-ORIG-GUID: vf7iiAyMSjaOr9wdndxkUOKPB0izzsSG
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-14_04,2025-04-10_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 malwarescore=0
- suspectscore=0 mlxlogscore=682 lowpriorityscore=0 bulkscore=0
- impostorscore=0 clxscore=1015 phishscore=0 adultscore=0 priorityscore=1501
- spamscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2504140089
+References: <20250410074024.1545768-1-anshuman.khandual@arm.com>
+ <6e6305fd-3b93-43ec-8114-e81b2926adfc@arm.com> <CAMj1kXG5R1jVWLQ-XEcqF9U365T18pTW8u3DgC7OY4N53hchOA@mail.gmail.com>
+ <16602b97-2f49-4612-9e9a-d6d0ed964fd3@arm.com>
+In-Reply-To: <16602b97-2f49-4612-9e9a-d6d0ed964fd3@arm.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Mon, 14 Apr 2025 14:28:10 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXEnmpu3Dc5zZz1aQJGVwEFwx=JdYisSFkDNjUJ44FjX9Q@mail.gmail.com>
+X-Gm-Features: ATxdqUGG3syj4r4Drcn8JQR1d7j0A7RWn7_D18-LehW_FREU0x2VqOAPU1pcR_k
+Message-ID: <CAMj1kXEnmpu3Dc5zZz1aQJGVwEFwx=JdYisSFkDNjUJ44FjX9Q@mail.gmail.com>
+Subject: Re: [PATCH] arm64/mm: Re-organise setting up FEAT_S1PIE registers
+ PIRE0_EL1 and PIR_EL1
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>, linux-arm-kernel@lists.infradead.org, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_051420_183408_C0F1C2E0 
-X-CRM114-Status: GOOD (  20.63  )
+X-CRM114-CacheID: sfid-20250414_052825_092194_A6FCD286 
+X-CRM114-Status: GOOD (  31.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,40 +86,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 14, 2025 at 01:39:56PM +0200, Konrad Dybcio wrote:
-> On 4/14/25 1:37 PM, Dmitry Baryshkov wrote:
-> > On Mon, Apr 14, 2025 at 01:13:28PM +0200, Konrad Dybcio wrote:
-> >> On 3/14/25 7:09 AM, Dmitry Baryshkov wrote:
-> >>> From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+On Mon, 14 Apr 2025 at 14:04, Ryan Roberts <ryan.roberts@arm.com> wrote:
+>
+> On 14/04/2025 10:41, Ard Biesheuvel wrote:
+> > On Mon, 14 Apr 2025 at 09:52, Ryan Roberts <ryan.roberts@arm.com> wrote:
+> >>
+> >> On 10/04/2025 08:40, Anshuman Khandual wrote:
+> >>> mov_q cannot really move PIE_E[0|1] macros into a general purpose register
+> >>> as expected if those macro constants contain some 128 bit layout elements,
+> >>> required for D128 page tables. Fix this problem via first loading up these
+> >>> macro constants into a given memory location and then subsequently setting
+> >>> up registers PIRE0_EL1 and PIR_EL1 by retrieving the memory stored values.
+> >>
+> >> From memory, the primary issue is that for D128, PIE_E[0|1] are defined in terms
+> >> of 128-bit types with shifting and masking, which the assembler can't do? It
+> >> would be good to spell this out.
+> >>
 > >>>
-> >>> Add display controller, two DSI hosts, two DSI PHYs and a single DP
-> >>> controller. Link DP to the QMP Combo PHY.
-> >>>
-> >>> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> >>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> >>> Cc: Will Deacon <will@kernel.org>
+> >>> Cc: Mark Rutland <mark.rutland@arm.com>
+> >>> Cc: Ard Biesheuvel <ardb@kernel.org>
+> >>> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> >>> Cc: linux-arm-kernel@lists.infradead.org
+> >>> Cc: linux-kernel@vger.kernel.org
+> >>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 > >>> ---
+> >>> This patch applies on v6.15-rc1
+> >>>
+> >>>  arch/arm64/kernel/head.S         | 3 +++
+> >>>  arch/arm64/kernel/pi/map_range.c | 6 ++++++
+> >>>  arch/arm64/kernel/pi/pi.h        | 1 +
+> >>>  arch/arm64/mm/mmu.c              | 1 +
+> >>>  arch/arm64/mm/proc.S             | 5 +++--
+> >>>  5 files changed, 14 insertions(+), 2 deletions(-)
+> >>>
+> >>> diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
+> >>> index 2ce73525de2c..4950d9cc638a 100644
+> >>> --- a/arch/arm64/kernel/head.S
+> >>> +++ b/arch/arm64/kernel/head.S
+> >>> @@ -126,6 +126,9 @@ SYM_CODE_START(primary_entry)
+> >>>        * On return, the CPU will be ready for the MMU to be turned on and
+> >>>        * the TCR will have been set.
+> >>>        */
+> >>> +     adr_l   x0, pir_data
+> >>> +     bl      __pi_load_pir_data
 > >>
-> >> [...]
+> >> Using C code to pre-calculate the values into global variables that the assembly
+> >> code then loads and stuffs into the PIR registers feels hacky. I wonder if we
+> >> can instead pre-calculate into asm-offsets.h? e.g. add the following to
+> >> asm-offsets.c:
 > >>
-> >>> +			mdss_mdp: display-controller@ae01000 {
-> >>> +				compatible = "qcom,sar2130p-dpu";
-> >>> +				reg = <0x0 0x0ae01000 0x0 0x8f000>,
-> >>> +				      <0x0 0x0aeb0000 0x0 0x2008>;
+> >> DEFINE(PIE_E0_ASM, PIE_E0);
+> >> DEFINE(PIE_E1_ASM, PIE_E1);
 > >>
-> >> size = 0x3000
-> > 
-> > Existing platforms (including SM8650) use 0x2008 here. Would you like to
-> > change all the platforms and why?
-> 
-> The last register is base+0x2004 but the region is 0x3000-sized on 2130
+> >> Which will generate the asm-offsets.h header with PIE_E[0|1]_ASM with the
+> >> pre-calculated values that you can then use in proc.S?
+> >>
+> >
+> > There is another issue, which is that mov_q tries to be smart, and
+> > emit fewer than 4 MOVZ/MOVK instructions if possible. So the .if
+> > directive evaluates the argument, which does not work with symbolic
+> > constants.
+>
+> I'm not quite understanding the detail here; what do you mean by "symbolic
+> constants"? asm-offsets.h will provide something like:
+>
+> #define PIE_E0_ASM 1234567890
+>
+> The current code is using a hash-define and that's working fine:
+>
+> mov_q   x0, PIE_E0
+>
+>
+> Won't the C preprocessor just substitute and everything will work out?
+>
 
-As I wrote, this still applies to other existing platforms. I think up
-to now we were using a mixture of 'last actual register' and 'documented
-space size' with VBIF using the former one. Should we switch all
-platforms to use the latter one for this region? In such a case I'll
-update this one and all other platforms. Otherwise I'd prefer uniformity
-and still use 0x2008 here like other platforms do.
+Yeah, you're right. I was experimenting with something like
 
--- 
-With best wishes
-Dmitry
+.set .Lpie_e0, PIE_E0_ASM
+mov_q xN, .Lpie_e0
+
+where this problem does exist, but we can just use PIE_E0_ASM directly
+and things should work as expected.
 
