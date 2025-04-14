@@ -4,95 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 871E7C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 22:48:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71033C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 22:50:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qCbufsqovhRdxKI/Wo+sxDQep3MCh6y6M1Tif6pvFv0=; b=XBsE85NUikLDcKBwR3IL7FsM3/
-	HG2ArW5BVtQ1HYRDZDtPUp6F90MLAEW/r+Uis9HzXeWlnTRZc32bDxD1nK2jzjPQVn7wpm8nzDJYy
-	UENlsFBvbV502+4ZoibYRTXhTGOQco8i6z9mKKfGsVoyZPKMUOZVJhxjRIsu3zcxUniQc698BwNBr
-	Dg1boCtFcXfeN3r8mCGT4z8PrxDWnMPIbFteUs8UPXva4aO0N+TpFCA2+UGpEl7agwHRBFmXImtSy
-	ox4ktVQPVd9vxGdMlyY2gTznpTwEctzbke1WCW8jS1moUEaohTdIWJB3Zq58N6W8fkotKdBMXSw3U
-	8u2UTzrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rhnJtvnH7YaE9kiuTnIDSlmMxPznpzzWQTqKaGAKEg4=; b=wgTWB0gCPYaarR9gF9HcGcQf5q
+	5sYgJ5YEn3Fkg0aKOCSPzfiRvUGklFeOb+lJwuNLaMrd8dssWj5ptcnx2kcCtlQ4eyRfhw9H8pkfQ
+	EtfMSfEPQQfuCQiG3rD0aMjFvICa8toyVvyMgT8zeIz0lca+mD1oY1fkbKJGLBY6PZsEpYMYkc/4c
+	9Id9hU+6229apZb+s2Em7AbYwiFvL/P9vqL9XG6FObn/xUGVdxYzCoW1xXkUzu7XJB0/tn4KZjbNi
+	c9IGQlkv3RYkfx4udMlZTaiYXRm5DEtBsHJmx8ulQBMj0M9u3P5/qUsrmWM2F8U83IXLMW/3LLGRl
+	YaPr+ojQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4SbL-00000003lKa-1NWe;
-	Mon, 14 Apr 2025 22:48:27 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4SXz-00000003kpj-1djO
+	id 1u4Sd9-00000003lrB-03fu;
+	Mon, 14 Apr 2025 22:50:19 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u4SaD-00000003l2p-2Z82
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 22:45:00 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-22928d629faso47405325ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 15:44:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744670698; x=1745275498; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=qCbufsqovhRdxKI/Wo+sxDQep3MCh6y6M1Tif6pvFv0=;
-        b=fuDpcHSNnUMshWHy2GApDqB+pBLHYb6jlJPL+Uk8DmlTuSUOe2StOLL9MwwgpyV1yK
-         8V5FAZOC7HstX1bmDBj2wcPK7PTHyw16vhESaV0Md9OOQ3WkJmKh7wWx2Ff5aHZE1bPd
-         2X/SenmmHAP8R8jEvp+c+z5tu7xGGLn9gETFm/QE3lUIhnJANwQ92vqf3pD0JKU+u9xL
-         6lFkSsPnogB6O3xitblgkQIirrTGeiXzsfeY/UmAmpY2swVid3PVlj7DKEuD8oQZ4Woz
-         Bomcs20o2214+DodHyJ3QfkL6Z3EJ1Lq0+GgC3kHcCOCt1soIpMO4WiFDoI3t1zrwWkT
-         cnLA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744670698; x=1745275498;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qCbufsqovhRdxKI/Wo+sxDQep3MCh6y6M1Tif6pvFv0=;
-        b=UeCM9MkTEyRJ8Vaz5qwMfpeaAXSbl942YFFp9iHmGwfkju6abZlvKER7M+LSt9VRcO
-         dCTjGse65SkyYu05Ui3tZ9WHu8+6MxM3pvw2zotZJMtyLCQ4Cli7wAnfUfSh5UD76IVK
-         W9M6kf4eUOtMj35yGLUw+I8eT18f3P6BOCC9QFNEzuhjZjWYeWUReYxyfllVqIxGJAur
-         A0j+Dp8d0Tprohs+kp9HLF5lSs5HNz+IxQts7moY+1ppBJhcqjP5ElTdMPtoUpkMdKaI
-         f6CnORpL3mUfdpCzdISFxtzUo7PEsWe/LqFNnZALLYl0tZBcH9HfJnA1hKy4Uwf1INIM
-         XXwA==
-X-Forwarded-Encrypted: i=1; AJvYcCU8foikdS59xsyHvOJ6rueACqhi/XTyPo6rISrL09eWq0xC+ngZJwkq64pm5aowU2z/NL6yUPtLDIyzIYPyt/Rx@lists.infradead.org
-X-Gm-Message-State: AOJu0YxhUr8TJTO2m9dYPzKEMuJnE//p6LKAcNxuIIPxc9LyGg+2z+lo
-	01bwhy9DD9vI0hKLey0IIx44IEJxbbTzUnlAPUlGeJ17IduPtQPKWSJIloII
-X-Gm-Gg: ASbGnctqMCGjXeDkiSk6WshXjFBOaPoPv02e7ruNTjIsmVnrCGXREc5mmwwjtxv6Kgy
-	77NDMfbax1qIbxTKbN3KajncovDKLUWvLf05t0o6zaMICOKsJ1gA7c3ZkBzNQ1Rdw3XrqtqHJcO
-	X9TEZDIDYpucpapVHwmouhjanxU/lxTgoehTyAVXw+RpAzSbd1CuXSHwHBC2T8AHIQxmxBNUchv
-	p19tKxZrd4r1h/wkI6E/6U8LGQR1sB/pGeijBDpI1qjXRUEtZZC5R49nMgruRvmOTdJVjZPVdwh
-	S9He7s8x9L2d6BvMybJAzSIsQqhbr6LCAjT5WmEahhbMnLX3rhQ=
-X-Google-Smtp-Source: AGHT+IGWOQk/MY4RrJwds2DUYwvDvZppCoo869G7JJk+fcUnDOZsIWUfuBx0HTAue14NQURwioU/rA==
-X-Received: by 2002:a17:902:ebc2:b0:220:e63c:5b13 with SMTP id d9443c01a7336-22bea4fd043mr193492195ad.46.1744670698007;
-        Mon, 14 Apr 2025 15:44:58 -0700 (PDT)
-Received: from hiago-nb ([2804:1b3:a7c3:a964:131b:ff00:5ee5:94c5])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73bd21c62c3sm7400010b3a.52.2025.04.14.15.44.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Apr 2025 15:44:57 -0700 (PDT)
-Date: Mon, 14 Apr 2025 19:44:52 -0300
-From: Hiago De Franco <hiagofranco@gmail.com>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"regressions@lists.linux.dev" <regressions@lists.linux.dev>,
-	Hiago De Franco <hiago.franco@toradex.com>
-Subject: Re: [REGRESSION] Kernel reboots unexpectdely on i.MX8X when
- Cortex-M4 is running and it was started by U-Boot bootaux
-Message-ID: <20250414224452.gk4ccniqtumfbjth@hiago-nb>
-References: <20250404141713.ac2ntcsjsf7epdfa@hiago-nb>
- <20250411125024.i2pib4hyeq4g6ffw@hiago-nb>
- <PAXPR04MB8459ED6CE869173D4051257088B62@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <20250411162328.y2kchvdb4v4xi2lj@hiago-nb>
- <PAXPR04MB8459ED33238AA790252E730988B32@PAXPR04MB8459.eurprd04.prod.outlook.com>
+	Mon, 14 Apr 2025 22:47:18 +0000
+Received: from romank-3650.corp.microsoft.com (unknown [131.107.159.188])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 414C5210C428;
+	Mon, 14 Apr 2025 15:47:15 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 414C5210C428
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1744670835;
+	bh=rhnJtvnH7YaE9kiuTnIDSlmMxPznpzzWQTqKaGAKEg4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=UogxrJE6PIQV5QblJ22dzZK9GBw8qB3EkLT5mF3Gq/ZnMeaWMeyKFVUjEn4gHP1+H
+	 T7rragX4q4oB0xT12QYyxrWUpVLp33H3dFwmns2oLs86oOtqY4yBj0umgslDwllewo
+	 woRzNMrPlddztG/LEXJENyfWot4phT7mr19HUE2E=
+From: Roman Kisel <romank@linux.microsoft.com>
+To: arnd@arndb.de,
+	bhelgaas@google.com,
+	bp@alien8.de,
+	catalin.marinas@arm.com,
+	conor+dt@kernel.org,
+	dan.carpenter@linaro.org,
+	dave.hansen@linux.intel.com,
+	decui@microsoft.com,
+	haiyangz@microsoft.com,
+	hpa@zytor.com,
+	joey.gouly@arm.com,
+	krzk+dt@kernel.org,
+	kw@linux.com,
+	kys@microsoft.com,
+	lenb@kernel.org,
+	lpieralisi@kernel.org,
+	manivannan.sadhasivam@linaro.org,
+	mark.rutland@arm.com,
+	maz@kernel.org,
+	mingo@redhat.com,
+	oliver.upton@linux.dev,
+	rafael@kernel.org,
+	robh@kernel.org,
+	rafael.j.wysocki@intel.com,
+	ssengar@linux.microsoft.com,
+	sudeep.holla@arm.com,
+	suzuki.poulose@arm.com,
+	tglx@linutronix.de,
+	wei.liu@kernel.org,
+	will@kernel.org,
+	yuzenghui@huawei.com,
+	devicetree@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-acpi@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-hyperv@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	x86@kernel.org
+Cc: apais@microsoft.com,
+	benhill@microsoft.com,
+	bperkins@microsoft.com,
+	sunilmut@microsoft.com
+Subject: [PATCH hyperv-next v8 01/11] arm64: kvm, smccc: Introduce and use API for getting hypervisor UUID
+Date: Mon, 14 Apr 2025 15:47:03 -0700
+Message-ID: <20250414224713.1866095-2-romank@linux.microsoft.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250414224713.1866095-1-romank@linux.microsoft.com>
+References: <20250414224713.1866095-1-romank@linux.microsoft.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <PAXPR04MB8459ED33238AA790252E730988B32@PAXPR04MB8459.eurprd04.prod.outlook.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_154459_426780_BEE4DCE2 
-X-CRM114-Status: GOOD (  19.28  )
+X-CRM114-CacheID: sfid-20250414_154717_695488_C96447A8 
+X-CRM114-Status: GOOD (  15.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,41 +108,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peng,
+The KVM/arm64 uses SMCCC to detect hypervisor presence. That code is
+private, and it follows the SMCCC specification. Other existing and
+emerging hypervisor guest implementations can and should use that
+standard approach as well.
 
-On Mon, Apr 14, 2025 at 06:09:49AM +0000, Peng Fan wrote:
-> 
-> In your case, m4 is in same scu partition as a53, so m4
-> power domain is manageable(owned) by Linux.
-> 
-> However to m4 earlyboot(kicked by bootloader),
-> if you not wanna linux to handle m4, use scu_rm
-> to create a separate partition in u-boot.
-> If you wanna linux to handle m4, but not wanna linux
-> to shutdown the pd in kernel boot, imx_rproc.c
-> needs to be built in, and need to add a clock entry
-> or use clock optional api in imx_rproc.c .
-> 
-> Current imx_rproc.c needs a clock entry to probe pass.
-> 
-> I think in your case, this driver not probe pass, so the
-> M4 pd still get powered off.
+Factor out a common infrastructure that the guests can use, update KVM
+to employ the new API. The central notion of the SMCCC method is the
+UUID of the hypervisor, and the new API follows that.
 
-This was correct, indeed. I was not able to find exactly where the
-cortex-m4 clock is defined, so I added a clk_dummy to the imx8x-cm4
-remoteproc node and now it works, the code continues to run and I can
-control the m4 with Linux. Thanks!
+No functional changes. Validated with a KVM/arm64 guest.
 
-One thing that I noticed is I cannot make the RPMsg work with this
-devicetree node, even tought I assigned the correct memory-regions
-(vdev0buffer, vdev0ring0...). Also tested with the rpmsg-lite from the
-linux-imx. Is this supposed to work with RPMsg as well?
+Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
+---
+ arch/arm64/kvm/hypercalls.c        | 10 +++--
+ drivers/firmware/smccc/kvm_guest.c | 10 +----
+ drivers/firmware/smccc/smccc.c     | 17 ++++++++
+ include/linux/arm-smccc.h          | 64 ++++++++++++++++++++++++++++--
+ 4 files changed, 85 insertions(+), 16 deletions(-)
 
-> 
-> 
-> Regards,
-> Peng.
->
+diff --git a/arch/arm64/kvm/hypercalls.c b/arch/arm64/kvm/hypercalls.c
+index 27ce4cb44904..e641cb2b47d7 100644
+--- a/arch/arm64/kvm/hypercalls.c
++++ b/arch/arm64/kvm/hypercalls.c
+@@ -268,6 +268,7 @@ int kvm_smccc_call_handler(struct kvm_vcpu *vcpu)
+ 	u32 feature;
+ 	u8 action;
+ 	gpa_t gpa;
++	uuid_t uuid;
+ 
+ 	action = kvm_smccc_get_action(vcpu, func_id);
+ 	switch (action) {
+@@ -353,10 +354,11 @@ int kvm_smccc_call_handler(struct kvm_vcpu *vcpu)
+ 			val[0] = gpa;
+ 		break;
+ 	case ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID:
+-		val[0] = ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_0;
+-		val[1] = ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_1;
+-		val[2] = ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_2;
+-		val[3] = ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_3;
++		uuid = ARM_SMCCC_VENDOR_HYP_UID_KVM;
++		val[0] = smccc_uuid_to_reg(&uuid, 0);
++		val[1] = smccc_uuid_to_reg(&uuid, 1);
++		val[2] = smccc_uuid_to_reg(&uuid, 2);
++		val[3] = smccc_uuid_to_reg(&uuid, 3);
+ 		break;
+ 	case ARM_SMCCC_VENDOR_HYP_KVM_FEATURES_FUNC_ID:
+ 		val[0] = smccc_feat->vendor_hyp_bmap;
+diff --git a/drivers/firmware/smccc/kvm_guest.c b/drivers/firmware/smccc/kvm_guest.c
+index f3319be20b36..87f910887d61 100644
+--- a/drivers/firmware/smccc/kvm_guest.c
++++ b/drivers/firmware/smccc/kvm_guest.c
+@@ -14,17 +14,11 @@ static DECLARE_BITMAP(__kvm_arm_hyp_services, ARM_SMCCC_KVM_NUM_FUNCS) __ro_afte
+ 
+ void __init kvm_init_hyp_services(void)
+ {
++	uuid_t kvm_uuid = ARM_SMCCC_VENDOR_HYP_UID_KVM;
+ 	struct arm_smccc_res res;
+ 	u32 val[4];
+ 
+-	if (arm_smccc_1_1_get_conduit() != SMCCC_CONDUIT_HVC)
+-		return;
+-
+-	arm_smccc_1_1_invoke(ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID, &res);
+-	if (res.a0 != ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_0 ||
+-	    res.a1 != ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_1 ||
+-	    res.a2 != ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_2 ||
+-	    res.a3 != ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_3)
++	if (!arm_smccc_hypervisor_has_uuid(&kvm_uuid))
+ 		return;
+ 
+ 	memset(&res, 0, sizeof(res));
+diff --git a/drivers/firmware/smccc/smccc.c b/drivers/firmware/smccc/smccc.c
+index a74600d9f2d7..cd65b434dc6e 100644
+--- a/drivers/firmware/smccc/smccc.c
++++ b/drivers/firmware/smccc/smccc.c
+@@ -67,6 +67,23 @@ s32 arm_smccc_get_soc_id_revision(void)
+ }
+ EXPORT_SYMBOL_GPL(arm_smccc_get_soc_id_revision);
+ 
++bool arm_smccc_hypervisor_has_uuid(const uuid_t *hyp_uuid)
++{
++	struct arm_smccc_res res = {};
++	uuid_t uuid;
++
++	if (arm_smccc_1_1_get_conduit() != SMCCC_CONDUIT_HVC)
++		return false;
++
++	arm_smccc_1_1_hvc(ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID, &res);
++	if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
++		return false;
++
++	uuid = smccc_res_to_uuid(res.a0, res.a1, res.a2, res.a3);
++	return uuid_equal(&uuid, hyp_uuid);
++}
++EXPORT_SYMBOL_GPL(arm_smccc_hypervisor_has_uuid);
++
+ static int __init smccc_devices_init(void)
+ {
+ 	struct platform_device *pdev;
+diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
+index 67f6fdf2e7cd..4bb38f0e3fe2 100644
+--- a/include/linux/arm-smccc.h
++++ b/include/linux/arm-smccc.h
+@@ -7,6 +7,11 @@
+ 
+ #include <linux/args.h>
+ #include <linux/init.h>
++
++#ifndef __ASSEMBLY__
++#include <linux/uuid.h>
++#endif
++
+ #include <uapi/linux/const.h>
+ 
+ /*
+@@ -107,10 +112,10 @@
+ 			   ARM_SMCCC_FUNC_QUERY_CALL_UID)
+ 
+ /* KVM UID value: 28b46fb6-2ec5-11e9-a9ca-4b564d003a74 */
+-#define ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_0	0xb66fb428U
+-#define ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_1	0xe911c52eU
+-#define ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_2	0x564bcaa9U
+-#define ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_3	0x743a004dU
++#define ARM_SMCCC_VENDOR_HYP_UID_KVM UUID_INIT(\
++	0xb66fb428, 0xc52e, 0xe911, \
++	0xa9, 0xca, 0x4b, 0x56, \
++	0x4d, 0x00, 0x3a, 0x74)
+ 
+ /* KVM "vendor specific" services */
+ #define ARM_SMCCC_KVM_FUNC_FEATURES		0
+@@ -333,6 +338,57 @@ s32 arm_smccc_get_soc_id_version(void);
+  */
+ s32 arm_smccc_get_soc_id_revision(void);
+ 
++#ifndef __ASSEMBLY__
++
++/*
++ * Returns whether a specific hypervisor UUID is advertised for the
++ * Vendor Specific Hypervisor Service range.
++ */
++bool arm_smccc_hypervisor_has_uuid(const uuid_t *uuid);
++
++static inline uuid_t smccc_res_to_uuid(u32 r0, u32 r1, u32 r2, u32 r3)
++{
++	uuid_t uuid = {
++		.b = {
++			[0]  = (r0 >> 0)  & 0xff,
++			[1]  = (r0 >> 8)  & 0xff,
++			[2]  = (r0 >> 16) & 0xff,
++			[3]  = (r0 >> 24) & 0xff,
++
++			[4]  = (r1 >> 0)  & 0xff,
++			[5]  = (r1 >> 8)  & 0xff,
++			[6]  = (r1 >> 16) & 0xff,
++			[7]  = (r1 >> 24) & 0xff,
++
++			[8]  = (r2 >> 0)  & 0xff,
++			[9]  = (r2 >> 8)  & 0xff,
++			[10] = (r2 >> 16) & 0xff,
++			[11] = (r2 >> 24) & 0xff,
++
++			[12] = (r3 >> 0)  & 0xff,
++			[13] = (r3 >> 8)  & 0xff,
++			[14] = (r3 >> 16) & 0xff,
++			[15] = (r3 >> 24) & 0xff,
++		},
++	};
++
++	return uuid;
++}
++
++static inline u32 smccc_uuid_to_reg(const uuid_t *uuid, int reg)
++{
++	u32 val = 0;
++
++	val |= (u32)(uuid->b[4 * reg + 0] << 0);
++	val |= (u32)(uuid->b[4 * reg + 1] << 8);
++	val |= (u32)(uuid->b[4 * reg + 2] << 16);
++	val |= (u32)(uuid->b[4 * reg + 3] << 24);
++
++	return val;
++}
++
++#endif /* !__ASSEMBLY__ */
++
+ /**
+  * struct arm_smccc_res - Result from SMC/HVC call
+  * @a0-a3 result values from registers 0 to 3
+-- 
+2.43.0
 
-Hiago
 
