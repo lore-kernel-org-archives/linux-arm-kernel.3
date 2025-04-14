@@ -4,66 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36AE4C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 09:47:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E5E0C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 09:49:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oQty0lcT26LGD7pF2bpOzeJUHivvlWxMoP2U/JsFOg4=; b=jvTBwRs2cViJwpV3d89xCJalPh
-	nMhoq8g7qDOoTdYGwoDUDtFm6ZvnPqqZNNzIj6ZWvmMKrVltumb4UtMM9omWUiN5U6OLLfN/EPVsL
-	+cLfpSdmvUr3S3sKyoRsIOBCGfvt9TJzSJrbRs48QMUCMfrOkar3jdCifkHWdabKlTMb02OIpnyev
-	X2slfPYblhLfaCsI6bbtji1Thxg5uhhSOk307TXmt1VA6Z9HC+2Y4TVySx/oc1yoxWlXFgbe9Bfu3
-	Mc6sM5psfjX9VoUqqH0HLk1V98akF4C4DN1UFr3H2Pfh3UycWCnUvrfSi6T2yYEAq9b9V+wRK4RGT
-	4RC9l5FQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IsCv35TMBEgAjtDwhfffuTof3S8rajwpU13csNYvCPw=; b=ZkeRL0r9MeFs3ZaEV0c6WxsPSc
+	SEnCTA4+jAlJ8S1qpsljhYzGmIyCg+5nQtqRCJTomTI+ibNTkwGCue20YHIHzRJBi7SogGSfyhhn5
+	Lc832XyYcvCmAF2Sp6hvhoWlQfmYizbTIz9wMfFci0/wJPE7Sp4vk6jOl73Z6BXJdbS+Idne0yzOp
+	kKEjkQdkyrTeogKOVDeT6DqtoZueezDYZ7odO6FgqXg8Js8BMfImVtiOnpox+uDNtEB4yF7crE22e
+	SzUisFAxNnshhTvueUt1OlY7cVPSJSeL+A1p9vXAyCkSFu0g7b5YX8VLZq/OXRjYkqLt6mHER1QJY
+	fExN1egA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4GPD-00000001K5U-3OUF;
-	Mon, 14 Apr 2025 09:47:07 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4G6A-00000001GtE-0T7B;
-	Mon, 14 Apr 2025 09:27:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1744622844;
-	bh=k9z8u+21LVEgAfkjUSJ5SSMbZtKhyPUmMn4Bg55YBOg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hzICPuV94bxD6HHKvy/Wd4B91VbG1VXczdYg7fWy6kGa3jUKFAZWHaPsNPorYGECV
-	 cjIkUZMjROI0HtHVyY/EPyfcVqKG8Jndcmw5iuf2UDTj+UQa/rHrF02K3qfWB/kxNu
-	 x2bNEshdtao6xCP8hai/B/4DsXNoP5H/WpAX+Pn+g/kUurso5XfOIX/rJ/F3y8fJlq
-	 BFOVsmfPYPcRyJQmgOFNPmt2NmLUOLT7Lm+pgFybA7ElUOmmcgwlaNIucpDHLG3dY7
-	 uxpQABkS2x7MTjZOxYkJ45laKd89jROk2Epkx6jxGyHGe5zZ7G+mWlMLi/2CgrAsof
-	 f/blUgmhEqlFA==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A90AA17E0F85;
-	Mon, 14 Apr 2025 11:27:23 +0200 (CEST)
-Message-ID: <c8f9f019-a238-47c8-a900-9ca48ce09503@collabora.com>
-Date: Mon, 14 Apr 2025 11:27:23 +0200
+	id 1u4GQz-00000001KEp-2GiW;
+	Mon, 14 Apr 2025 09:48:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u4GDH-00000001HtQ-0aLn
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 14 Apr 2025 09:34:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8B1B71007;
+	Mon, 14 Apr 2025 02:34:44 -0700 (PDT)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2DAB63F66E;
+	Mon, 14 Apr 2025 02:34:43 -0700 (PDT)
+Date: Mon, 14 Apr 2025 10:34:40 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	<linux-kernel@vger.kernel.org>, <arm-scmi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <imx@lists.linux.dev>,
+	<devicetree@vger.kernel.org>, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v4 5/7] firmware: imx: Add i.MX95 SCMI LMM driver
+Message-ID: <20250414-wonderful-cute-bandicoot-accb6b@sudeepholla>
+References: <20250408-imx-lmm-cpu-v4-0-4c5f4a456e49@nxp.com>
+ <20250408-imx-lmm-cpu-v4-5-4c5f4a456e49@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: dts: mediatek: mt7988a-bpi-r4: allow hw
- variants of bpi-r4
-To: Frank Wunderlich <linux@fw-web.de>,
- Matthias Brugger <matthias.bgg@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: Frank Wunderlich <frank-w@public-files.de>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- devicetree@vger.kernel.org, Daniel Golle <daniel@makrotopia.org>
-References: <20250412102109.101094-1-linux@fw-web.de>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250412102109.101094-1-linux@fw-web.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250408-imx-lmm-cpu-v4-5-4c5f4a456e49@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_022726_346486_6C3B9CB8 
-X-CRM114-Status: GOOD (  17.83  )
+X-CRM114-CacheID: sfid-20250414_023447_218523_1ED547ED 
+X-CRM114-Status: GOOD (  15.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,98 +73,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 12/04/25 12:21, Frank Wunderlich ha scritto:
-> From: Frank Wunderlich <frank-w@public-files.de>
+On Tue, Apr 08, 2025 at 04:44:29PM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
 > 
-> Sinovoip has released other variants of Bananapi-R4 board.
-> The known changes affecting only the LAN SFP+ slot which is replaced
-> by a 2.5G phy with optional PoE.
+> The i.MX95 System manager exports SCMI LMM protocol for linux to manage
+> Logical Machines. The driver is to use the LMM Protocol interface to
+> boot, shutdown a LM.
 > 
-> Just move the common parts to a new dtsi and keep differences (only
-> i2c for lan-sfp) in dts.
-> 
-> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+> Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 > ---
-> v2:
-> - added basic dts for 2g5 variant
-> - moved i2c used for sfp-lan to board dts
-> ---
->   arch/arm64/boot/dts/mediatek/Makefile         |   2 +
->   .../mediatek/mt7988a-bananapi-bpi-r4-2g5.dts  |   5 +
->   .../dts/mediatek/mt7988a-bananapi-bpi-r4.dts  | 404 +-----------------
->   .../dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi | 403 +++++++++++++++++
->   4 files changed, 414 insertions(+), 400 deletions(-)
->   create mode 100644 arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-2g5.dts
->   create mode 100644 arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
+>  drivers/firmware/arm_scmi/vendors/imx/Kconfig |  3 +-
+>  drivers/firmware/imx/Kconfig                  | 11 ++++
+>  drivers/firmware/imx/Makefile                 |  1 +
+>  drivers/firmware/imx/sm-lmm.c                 | 91 +++++++++++++++++++++++++++
+>  include/linux/firmware/imx/sm.h               | 14 +++++
+>  5 files changed, 119 insertions(+), 1 deletion(-)
 > 
-> diff --git a/arch/arm64/boot/dts/mediatek/Makefile b/arch/arm64/boot/dts/mediatek/Makefile
-> index 58484e830063..a1ebc9aa4ba6 100644
-> --- a/arch/arm64/boot/dts/mediatek/Makefile
-> +++ b/arch/arm64/boot/dts/mediatek/Makefile
-> @@ -22,6 +22,7 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986a-bananapi-bpi-r3-sd.dtbo
->   dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986a-rfb.dtb
->   dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986b-rfb.dtb
->   dtb-$(CONFIG_ARCH_MEDIATEK) += mt7988a-bananapi-bpi-r4.dtb
-> +dtb-$(CONFIG_ARCH_MEDIATEK) += mt7988a-bananapi-bpi-r4-2g5.dtb
->   dtb-$(CONFIG_ARCH_MEDIATEK) += mt7988a-bananapi-bpi-r4-emmc.dtbo
->   dtb-$(CONFIG_ARCH_MEDIATEK) += mt7988a-bananapi-bpi-r4-sd.dtbo
->   dtb-$(CONFIG_ARCH_MEDIATEK) += mt8167-pumpkin.dtb
-> @@ -107,4 +108,5 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8516-pumpkin.dtb
->   DTC_FLAGS_mt7986a-bananapi-bpi-r3 := -@
->   DTC_FLAGS_mt7986a-bananapi-bpi-r3-mini := -@
->   DTC_FLAGS_mt7988a-bananapi-bpi-r4 := -@
-> +DTC_FLAGS_mt7988a-bananapi-bpi-r4-2g5 := -@
->   DTC_FLAGS_mt8395-radxa-nio-12l := -@
-> diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-2g5.dts b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-2g5.dts
-> new file mode 100644
-> index 000000000000..76eca976b968
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-2g5.dts
-> @@ -0,0 +1,5 @@
-> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
-> +
-> +/dts-v1/;
-> +
-> +#include "mt7988a-bananapi-bpi-r4.dtsi"
+> diff --git a/drivers/firmware/arm_scmi/vendors/imx/Kconfig b/drivers/firmware/arm_scmi/vendors/imx/Kconfig
+> index b5f13d0e40155e485f4d1696e9550645d888ef44..4c24e17425f830810f8ba376ece9db93c8cded6d 100644
+> --- a/drivers/firmware/arm_scmi/vendors/imx/Kconfig
+> +++ b/drivers/firmware/arm_scmi/vendors/imx/Kconfig
+> @@ -26,7 +26,8 @@ config IMX_SCMI_CPU_EXT
+>  config IMX_SCMI_LMM_EXT
+>  	tristate "i.MX SCMI LMM EXTENSION"
+>  	depends on ARM_SCMI_PROTOCOL || (COMPILE_TEST && OF)
+> -	default y if ARCH_MXC
+> +	depends on IMX_SCMI_LMM_DRV
+> +	default y if ARCH_MXC && ARM64
 
-This should at least have some different compatible, if not probably also a
-different model string - as it's a different device.
+I can't understand the ARM64 dependency on this and next patch.
 
-	compatible = "bananapi,bpi-r4-2g5", "bananapi,bpi-r4", "mediatek,mt7988a";
-	model = "Banana Pi BPI-R4 (2.5GbE)";
-	chassis-type = "embedded";
-
-> diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
-> index 6623112c24c7..431bf066fffb 100644
-> --- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
-> +++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
-
-..snip..
-
-a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi 
-b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
-> new file mode 100644
-> index 000000000000..1ab09ed2f151
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
-> @@ -0,0 +1,403 @@
-> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
-> +
-> +/dts-v1/;
-> +
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/regulator/richtek,rt5190a-regulator.h>
-> +
-> +#include "mt7988a.dtsi"
-> +
-> +/ {
-> +	compatible = "bananapi,bpi-r4", "mediatek,mt7988a";
-> +	model = "Banana Pi BPI-R4";
-> +	chassis-type = "embedded";
-
-Please keep compatible/model/chassis-type in dts files.
-
-
-Cheers,
-Angelo
+-- 
+Regards,
+Sudeep
 
