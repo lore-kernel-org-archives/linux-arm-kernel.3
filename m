@@ -4,59 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E09CBC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 08:08:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC789C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 08:11:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=luQB3rGRXIt6X3UGaDK70S81omAKnYZDiL+Tx8r9EZA=; b=QvrWRNwYwS9BOECRoOCTopJ+Yq
-	hog6HGpPMqxjY9PCYzE6QglD+bwyi/5q6CgJ113SZJZtTk2me7CbYOtkDqNanHutv8wUUDIjMBUKE
-	7F81PZKWeKhbbp/a9jc+9FofVEUf4c+qSdfK/x+3AYuzyhnDzRXN7/cILhgMxI0Thu+6nYxZfvMFC
-	yJKANz3YjKy6qTUfRMR2NjoMj2nTb0EBhXc+QpCmt+hyQlslkRuTmKrXs75C/z1Vt7S7GBiUgGvDb
-	fTT9COck/lr3DlQptFRVxxSJhUXrvsnW4ZsxbesTSGbHJNzbWwpBF3loGDSVDXwbABB4m6mMNlnyZ
-	ESI6JU/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1+bi5BRaH8DfzDs1MY6ef7X5cdHeOVU4rvwc2gCAF4E=; b=CkUO9dCCAKx8OopqUEukNLUlAV
+	AZXYuKzlpxWSgODINvijXjxyRovRhHm35YdBWhSmMkPIpX6KDFLrB4OChD4gJxDcDyxuWNDSaq9pR
+	mMkleBbPht01F11yfeSQ6T3AeNWqLr1WskxD8q1Iv44uyHCd44if7ysowrOurHkqMc2iyJxpxsmx2
+	EJfVJuEU/M1rBs0lvRV4w42Hm+UQc4UsXFVo9J9iwess6XzcyJ3aiAp2wqrYwrVC6sMAMp/Pk93SE
+	IsJ3HE7aSbwZ2vqXNsFluxf9WNj1U6/ENk4C9o1ETBuq5utN6AtNy/J71bokcxE55PAqZDvoSoPSW
+	ciU2nkKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4ErJ-000000011t6-1Ird;
-	Mon, 14 Apr 2025 08:08:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4EpR-000000011dr-0tq0
+	id 1u4Euh-000000012bp-2sf9;
+	Mon, 14 Apr 2025 08:11:31 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u4Esp-000000012F7-2FDP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 08:06:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C21FE1007;
-	Mon, 14 Apr 2025 01:06:02 -0700 (PDT)
-Received: from [10.57.88.7] (unknown [10.57.88.7])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 21D1E3F694;
-	Mon, 14 Apr 2025 01:06:01 -0700 (PDT)
-Message-ID: <1613c84e-1e65-44cd-9f23-1c9870df4655@arm.com>
-Date: Mon, 14 Apr 2025 09:06:00 +0100
+	Mon, 14 Apr 2025 08:09:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1744618175; x=1776154175;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=h0j1Hfu+P4Ik7wn30u2UB2Z6uWgvo3dBsKVHdecR3uE=;
+  b=mLIUvKQqj9LKfihc/gpKRvrRINiWr1cAaYUxgu1+NmzzhwmWcqkywGrh
+   RPCdDuuiy7IrWCkpE22sLfRFZmZvqUQAl0TJ5tXAXTaWdPhakZuVemorQ
+   oF8SQOeXj7/dOpRS+w1cWQP7xPic7DjFTzyyKDDagVjO2M0x2X9yl1CMR
+   s6EghHy8OKERtQFAwow9QNpui+XhE+PK6yfbGgc0gtQBfru/HIumO3Sqa
+   LHvLzspMJU7+WV2NFszgRGqg9ehFT/Xn/XjjVxuHQxoWIpZjyjCqpG6Hy
+   EF3V40QNj7PbNwr+h8ofV6V6OHCGFPSovx1DlKOpDvlcrC9xvonwhvTuG
+   A==;
+X-CSE-ConnectionGUID: 5xYJiw05RtCQRh+qRxlmIg==
+X-CSE-MsgGUID: 7ANzqKVCRMWdSWtDj6dTKA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11402"; a="46239547"
+X-IronPort-AV: E=Sophos;i="6.15,211,1739865600"; 
+   d="scan'208";a="46239547"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Apr 2025 01:09:34 -0700
+X-CSE-ConnectionGUID: HS0x0csZR3WR491+o8WFfw==
+X-CSE-MsgGUID: 5AiuT9BLSwOJ7JRHOjoxdw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,211,1739865600"; 
+   d="scan'208";a="129691082"
+Received: from lkp-server01.sh.intel.com (HELO b207828170a5) ([10.239.97.150])
+  by orviesa010.jf.intel.com with ESMTP; 14 Apr 2025 01:09:30 -0700
+Received: from kbuild by b207828170a5 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1u4Esh-000DvK-09;
+	Mon, 14 Apr 2025 08:09:27 +0000
+Date: Mon, 14 Apr 2025 16:08:37 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@kernel.org>, Haibo Chen <haibo.chen@nxp.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Luke Wang <ziniu.wang_1@nxp.com>
+Cc: oe-kbuild-all@lists.linux.dev, Arnd Bergmann <arnd@arndb.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Josua Mayer <josua@solid-run.com>, imx@lists.linux.dev,
+	linux-mmc@vger.kernel.org, s32@nxp.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] [v2] mmc: esdhc-imx: convert to modern PM_OPS
+Message-ID: <202504141551.hdiQj4os-lkp@intel.com>
+References: <20250411085932.1902662-1-arnd@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] mm/contpte: Optimize loop to reduce redundant
- operations
-Content-Language: en-GB
-To: Lance Yang <ioworker0@gmail.com>, Dev Jain <dev.jain@arm.com>,
- Xavier <xavier_qy@163.com>
-Cc: Barry Song <21cnbao@gmail.com>, catalin.marinas@arm.com, will@kernel.org,
- akpm@linux-foundation.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, David Hildenbrand <david@redhat.com>,
- Matthew Wilcox <willy@infradead.org>, Zi Yan <ziy@nvidia.com>
-References: <20250407092243.2207837-1-xavier_qy@163.com>
- <CAGsJ_4wsW+urp6gbp+yDG40fZw9Bszny2iJVsV_AzzGqgQy+4g@mail.gmail.com>
- <7dccb3a2-f5e2-4f9e-8f5c-465a1d3ffdb6@arm.com>
- <CAK1f24=5-VVJoE75wrskXxrGi=KmrbxSYH9P69PRPiOxQuArpA@mail.gmail.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <CAK1f24=5-VVJoE75wrskXxrGi=KmrbxSYH9P69PRPiOxQuArpA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250411085932.1902662-1-arnd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_010605_359160_8796E243 
-X-CRM114-Status: GOOD (  22.12  )
+X-CRM114-CacheID: sfid-20250414_010935_591542_B38DC075 
+X-CRM114-Status: GOOD (  14.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,172 +96,197 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/04/2025 06:05, Lance Yang wrote:
-> On Sat, Apr 12, 2025 at 1:30 AM Dev Jain <dev.jain@arm.com> wrote:
->>
->> +others
->>
->> On 11/04/25 2:55 am, Barry Song wrote:
->>> On Mon, Apr 7, 2025 at 9:23 PM Xavier <xavier_qy@163.com> wrote:
->>>>
->>>> This commit optimizes the contpte_ptep_get function by adding early
->>>>   termination logic. It checks if the dirty and young bits of orig_pte
->>>>   are already set and skips redundant bit-setting operations during
->>>>   the loop. This reduces unnecessary iterations and improves performance.
->>>>
->>>> Signed-off-by: Xavier <xavier_qy@163.com>
->>>> ---
->>>>   arch/arm64/mm/contpte.c | 13 +++++++++++--
->>>>   1 file changed, 11 insertions(+), 2 deletions(-)
->>>>
->>>> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
->>>> index bcac4f55f9c1..ca15d8f52d14 100644
->>>> --- a/arch/arm64/mm/contpte.c
->>>> +++ b/arch/arm64/mm/contpte.c
->>>> @@ -163,17 +163,26 @@ pte_t contpte_ptep_get(pte_t *ptep, pte_t orig_pte)
->>>>
->>>>          pte_t pte;
->>>>          int i;
->>>> +       bool dirty = false;
->>>> +       bool young = false;
->>>>
->>>>          ptep = contpte_align_down(ptep);
->>>>
->>>>          for (i = 0; i < CONT_PTES; i++, ptep++) {
->>>>                  pte = __ptep_get(ptep);
->>>>
->>>> -               if (pte_dirty(pte))
->>>> +               if (!dirty && pte_dirty(pte)) {
->>>> +                       dirty = true;
->>>>                          orig_pte = pte_mkdirty(orig_pte);
->>>> +               }
->>>>
->>>> -               if (pte_young(pte))
->>>> +               if (!young && pte_young(pte)) {
->>>> +                       young = true;
->>>>                          orig_pte = pte_mkyoung(orig_pte);
->>>> +               }
->>>> +
->>>> +               if (dirty && young)
->>>> +                       break;
->>>
->>> This kind of optimization is always tricky. Dev previously tried a similar
->>> approach to reduce the loop count, but it ended up causing performance
->>> degradation:
->>> https://lore.kernel.org/linux-mm/20240913091902.1160520-1-dev.jain@arm.com/
->>>
->>> So we may need actual data to validate this idea.
->>
->> The original v2 patch does not work, I changed it to the following:
->>
->> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
->> index bcac4f55f9c1..db0ad38601db 100644
->> --- a/arch/arm64/mm/contpte.c
->> +++ b/arch/arm64/mm/contpte.c
->> @@ -152,6 +152,16 @@ void __contpte_try_unfold(struct mm_struct *mm,
->> unsigned long addr,
->>   }
->>   EXPORT_SYMBOL_GPL(__contpte_try_unfold);
->>
->> +#define CHECK_CONTPTE_FLAG(start, ptep, orig_pte, flag) \
->> +       int _start; \
->> +       pte_t *_ptep = ptep; \
->> +       for (_start = start; _start < CONT_PTES; _start++, ptep++) { \
->> +               if (pte_##flag(__ptep_get(_ptep))) { \
->> +                       orig_pte = pte_mk##flag(orig_pte); \
->> +                       break; \
->> +               } \
->> +       }
->> +
->>   pte_t contpte_ptep_get(pte_t *ptep, pte_t orig_pte)
->>   {
->>          /*
->> @@ -169,11 +179,17 @@ pte_t contpte_ptep_get(pte_t *ptep, pte_t orig_pte)
->>          for (i = 0; i < CONT_PTES; i++, ptep++) {
->>                  pte = __ptep_get(ptep);
->>
->> -               if (pte_dirty(pte))
->> +               if (pte_dirty(pte)) {
->>                          orig_pte = pte_mkdirty(orig_pte);
->> +                       CHECK_CONTPTE_FLAG(i, ptep, orig_pte, young);
->> +                       break;
->> +               }
->>
->> -               if (pte_young(pte))
->> +               if (pte_young(pte)) {
->>                          orig_pte = pte_mkyoung(orig_pte);
->> +                       CHECK_CONTPTE_FLAG(i, ptep, orig_pte, dirty);
->> +                       break;
->> +               }
->>          }
->>
->>          return orig_pte;
->>
->> Some rudimentary testing with micromm reveals that this may be
->> *slightly* faster. I cannot say for sure yet.
-> 
-> Yep, this change works as expected, IIUC.
-> 
-> However, I'm still wondering if the added complexity is worth it for
-> such a slight/negligible performance gain. That said, if we have
-> solid numbers/data to back it up, all doubts would disappear ;)
+Hi Arnd,
 
-I agree with Barry; we need clear performance improvement numbers to consider
-this type of optimization. I doubt there will be measurable improvement for 4K
-and 64K base pages (because the the number of PTEs in a contpte block are 16 and
-32 respectively). But 16K base pages may benefit given there are 128 PTEs in a
-contpte block for that case.
+kernel test robot noticed the following build errors:
 
-Also FWIW, I'm struggling to understand CHECK_CONTPTE_FLAG(); Perhaps something
-like this would suffice?
+[auto build test ERROR on v6.15-rc2]
+[also build test ERROR on linus/master next-20250411]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-----8<----
-diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
-index 55107d27d3f8..7787b116b339 100644
---- a/arch/arm64/mm/contpte.c
-+++ b/arch/arm64/mm/contpte.c
-@@ -169,11 +169,17 @@ pte_t contpte_ptep_get(pte_t *ptep, pte_t orig_pte)
-        for (i = 0; i < CONT_PTES; i++, ptep++) {
-                pte = __ptep_get(ptep);
+url:    https://github.com/intel-lab-lkp/linux/commits/Arnd-Bergmann/mmc-esdhc-imx-convert-to-modern-PM_OPS/20250414-092134
+base:   v6.15-rc2
+patch link:    https://lore.kernel.org/r/20250411085932.1902662-1-arnd%40kernel.org
+patch subject: [PATCH] [v2] mmc: esdhc-imx: convert to modern PM_OPS
+config: i386-buildonly-randconfig-006-20250414 (https://download.01.org/0day-ci/archive/20250414/202504141551.hdiQj4os-lkp@intel.com/config)
+compiler: gcc-12 (Debian 12.2.0-14) 12.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250414/202504141551.hdiQj4os-lkp@intel.com/reproduce)
 
--               if (pte_dirty(pte))
-+               if (pte_dirty(pte)) {
-                        orig_pte = pte_mkdirty(orig_pte);
-+                       if (pte_young(orig_pte))
-+                               break;
-+               }
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202504141551.hdiQj4os-lkp@intel.com/
 
--               if (pte_young(pte))
-+               if (pte_young(pte)) {
-                        orig_pte = pte_mkyoung(orig_pte);
-+                       if (pte_dirty(orig_pte))
-+                               break;
-+               }
-        }
+All errors (new ones prefixed by >>):
 
-        return orig_pte;
-----8<----
-
-Thanks,
-Ryan
+   drivers/mmc/host/sdhci-esdhc-imx.c: In function 'sdhci_esdhc_suspend':
+>> drivers/mmc/host/sdhci-esdhc-imx.c:1902:15: error: implicit declaration of function 'sdhci_suspend_host'; did you mean 'sdhci_add_host'? [-Werror=implicit-function-declaration]
+    1902 |         ret = sdhci_suspend_host(host);
+         |               ^~~~~~~~~~~~~~~~~~
+         |               sdhci_add_host
+   drivers/mmc/host/sdhci-esdhc-imx.c: In function 'sdhci_esdhc_resume':
+>> drivers/mmc/host/sdhci-esdhc-imx.c:1927:15: error: implicit declaration of function 'sdhci_resume_host'; did you mean 'sdhci_remove_host'? [-Werror=implicit-function-declaration]
+    1927 |         ret = sdhci_resume_host(host);
+         |               ^~~~~~~~~~~~~~~~~
+         |               sdhci_remove_host
+   drivers/mmc/host/sdhci-esdhc-imx.c: In function 'sdhci_esdhc_runtime_suspend':
+>> drivers/mmc/host/sdhci-esdhc-imx.c:1953:15: error: implicit declaration of function 'sdhci_runtime_suspend_host' [-Werror=implicit-function-declaration]
+    1953 |         ret = sdhci_runtime_suspend_host(host);
+         |               ^~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/mmc/host/sdhci-esdhc-imx.c: In function 'sdhci_esdhc_runtime_resume':
+>> drivers/mmc/host/sdhci-esdhc-imx.c:1999:15: error: implicit declaration of function 'sdhci_runtime_resume_host' [-Werror=implicit-function-declaration]
+    1999 |         err = sdhci_runtime_resume_host(host, 0);
+         |               ^~~~~~~~~~~~~~~~~~~~~~~~~
+   cc1: some warnings being treated as errors
 
 
-> 
-> Thanks,
-> Lance
-> 
->>
->>>
->>>>          }
->>>>
->>>>          return orig_pte;
->>>> --
->>>> 2.34.1
->>>>
->>>
->>> Thanks
->>> Barry
->>>
->>
+vim +1902 drivers/mmc/host/sdhci-esdhc-imx.c
 
+95f25efe0ce22e Wolfram Sang      2010-10-15  1879  
+04143fbaeb5799 Dong Aisheng      2016-07-12  1880  static int sdhci_esdhc_suspend(struct device *dev)
+04143fbaeb5799 Dong Aisheng      2016-07-12  1881  {
+3e3274ab9ff37f Ulf Hansson       2016-07-27  1882  	struct sdhci_host *host = dev_get_drvdata(dev);
+a26a4f1baca55a Haibo Chen        2020-02-19  1883  	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
+a26a4f1baca55a Haibo Chen        2020-02-19  1884  	struct pltfm_imx_data *imx_data = sdhci_pltfm_priv(pltfm_host);
+bb6e358169bf62 BOUGH CHEN        2019-01-07  1885  	int ret;
+bb6e358169bf62 BOUGH CHEN        2019-01-07  1886  
+bb6e358169bf62 BOUGH CHEN        2019-01-07  1887  	if (host->mmc->caps2 & MMC_CAP2_CQE) {
+bb6e358169bf62 BOUGH CHEN        2019-01-07  1888  		ret = cqhci_suspend(host->mmc);
+bb6e358169bf62 BOUGH CHEN        2019-01-07  1889  		if (ret)
+bb6e358169bf62 BOUGH CHEN        2019-01-07  1890  			return ret;
+bb6e358169bf62 BOUGH CHEN        2019-01-07  1891  	}
+3e3274ab9ff37f Ulf Hansson       2016-07-27  1892  
+a26a4f1baca55a Haibo Chen        2020-02-19  1893  	if ((imx_data->socdata->flags & ESDHC_FLAG_STATE_LOST_IN_LPMODE) &&
+a26a4f1baca55a Haibo Chen        2020-02-19  1894  		(host->tuning_mode != SDHCI_TUNING_MODE_1)) {
+a26a4f1baca55a Haibo Chen        2020-02-19  1895  		mmc_retune_timer_stop(host->mmc);
+a26a4f1baca55a Haibo Chen        2020-02-19  1896  		mmc_retune_needed(host->mmc);
+a26a4f1baca55a Haibo Chen        2020-02-19  1897  	}
+a26a4f1baca55a Haibo Chen        2020-02-19  1898  
+d38dcad4e7b48f Adrian Hunter     2017-03-20  1899  	if (host->tuning_mode != SDHCI_TUNING_MODE_3)
+d38dcad4e7b48f Adrian Hunter     2017-03-20  1900  		mmc_retune_needed(host->mmc);
+d38dcad4e7b48f Adrian Hunter     2017-03-20  1901  
+af8fade4bd7bc7 Haibo Chen        2020-02-19 @1902  	ret = sdhci_suspend_host(host);
+f6140462611308 Haibo Chen        2020-05-27  1903  	if (ret)
+f6140462611308 Haibo Chen        2020-05-27  1904  		return ret;
+f6140462611308 Haibo Chen        2020-05-27  1905  
+f6140462611308 Haibo Chen        2020-05-27  1906  	ret = pinctrl_pm_select_sleep_state(dev);
+f6140462611308 Haibo Chen        2020-05-27  1907  	if (ret)
+f6140462611308 Haibo Chen        2020-05-27  1908  		return ret;
+f6140462611308 Haibo Chen        2020-05-27  1909  
+f6140462611308 Haibo Chen        2020-05-27  1910  	ret = mmc_gpio_set_cd_wake(host->mmc, true);
+af8fade4bd7bc7 Haibo Chen        2020-02-19  1911  
+af8fade4bd7bc7 Haibo Chen        2020-02-19  1912  	return ret;
+04143fbaeb5799 Dong Aisheng      2016-07-12  1913  }
+04143fbaeb5799 Dong Aisheng      2016-07-12  1914  
+04143fbaeb5799 Dong Aisheng      2016-07-12  1915  static int sdhci_esdhc_resume(struct device *dev)
+04143fbaeb5799 Dong Aisheng      2016-07-12  1916  {
+cc17e1294b8aeb Dong Aisheng      2016-07-12  1917  	struct sdhci_host *host = dev_get_drvdata(dev);
+bb6e358169bf62 BOUGH CHEN        2019-01-07  1918  	int ret;
+cc17e1294b8aeb Dong Aisheng      2016-07-12  1919  
+af8fade4bd7bc7 Haibo Chen        2020-02-19  1920  	ret = pinctrl_pm_select_default_state(dev);
+af8fade4bd7bc7 Haibo Chen        2020-02-19  1921  	if (ret)
+af8fade4bd7bc7 Haibo Chen        2020-02-19  1922  		return ret;
+af8fade4bd7bc7 Haibo Chen        2020-02-19  1923  
+19dbfdd3d5152d Dong Aisheng      2016-07-12  1924  	/* re-initialize hw state in case it's lost in low power mode */
+19dbfdd3d5152d Dong Aisheng      2016-07-12  1925  	sdhci_esdhc_imx_hwinit(host);
+cc17e1294b8aeb Dong Aisheng      2016-07-12  1926  
+bb6e358169bf62 BOUGH CHEN        2019-01-07 @1927  	ret = sdhci_resume_host(host);
+bb6e358169bf62 BOUGH CHEN        2019-01-07  1928  	if (ret)
+bb6e358169bf62 BOUGH CHEN        2019-01-07  1929  		return ret;
+bb6e358169bf62 BOUGH CHEN        2019-01-07  1930  
+bb6e358169bf62 BOUGH CHEN        2019-01-07  1931  	if (host->mmc->caps2 & MMC_CAP2_CQE)
+bb6e358169bf62 BOUGH CHEN        2019-01-07  1932  		ret = cqhci_resume(host->mmc);
+bb6e358169bf62 BOUGH CHEN        2019-01-07  1933  
+f6140462611308 Haibo Chen        2020-05-27  1934  	if (!ret)
+f6140462611308 Haibo Chen        2020-05-27  1935  		ret = mmc_gpio_set_cd_wake(host->mmc, false);
+f6140462611308 Haibo Chen        2020-05-27  1936  
+bb6e358169bf62 BOUGH CHEN        2019-01-07  1937  	return ret;
+04143fbaeb5799 Dong Aisheng      2016-07-12  1938  }
+04143fbaeb5799 Dong Aisheng      2016-07-12  1939  
+89d7e5c131228a Dong Aisheng      2013-11-04  1940  static int sdhci_esdhc_runtime_suspend(struct device *dev)
+89d7e5c131228a Dong Aisheng      2013-11-04  1941  {
+89d7e5c131228a Dong Aisheng      2013-11-04  1942  	struct sdhci_host *host = dev_get_drvdata(dev);
+89d7e5c131228a Dong Aisheng      2013-11-04  1943  	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
+070e6d3ff5a696 Jisheng Zhang     2016-02-16  1944  	struct pltfm_imx_data *imx_data = sdhci_pltfm_priv(pltfm_host);
+89d7e5c131228a Dong Aisheng      2013-11-04  1945  	int ret;
+89d7e5c131228a Dong Aisheng      2013-11-04  1946  
+bb6e358169bf62 BOUGH CHEN        2019-01-07  1947  	if (host->mmc->caps2 & MMC_CAP2_CQE) {
+bb6e358169bf62 BOUGH CHEN        2019-01-07  1948  		ret = cqhci_suspend(host->mmc);
+bb6e358169bf62 BOUGH CHEN        2019-01-07  1949  		if (ret)
+bb6e358169bf62 BOUGH CHEN        2019-01-07  1950  			return ret;
+bb6e358169bf62 BOUGH CHEN        2019-01-07  1951  	}
+bb6e358169bf62 BOUGH CHEN        2019-01-07  1952  
+89d7e5c131228a Dong Aisheng      2013-11-04 @1953  	ret = sdhci_runtime_suspend_host(host);
+371d39fabcebc3 Michael Trimarchi 2018-01-04  1954  	if (ret)
+371d39fabcebc3 Michael Trimarchi 2018-01-04  1955  		return ret;
+89d7e5c131228a Dong Aisheng      2013-11-04  1956  
+d38dcad4e7b48f Adrian Hunter     2017-03-20  1957  	if (host->tuning_mode != SDHCI_TUNING_MODE_3)
+d38dcad4e7b48f Adrian Hunter     2017-03-20  1958  		mmc_retune_needed(host->mmc);
+d38dcad4e7b48f Adrian Hunter     2017-03-20  1959  
+3602785b341a95 Michael Trimarchi 2018-01-04  1960  	imx_data->actual_clock = host->mmc->actual_clock;
+3602785b341a95 Michael Trimarchi 2018-01-04  1961  	esdhc_pltfm_set_clock(host, 0);
+89d7e5c131228a Dong Aisheng      2013-11-04  1962  	clk_disable_unprepare(imx_data->clk_per);
+89d7e5c131228a Dong Aisheng      2013-11-04  1963  	clk_disable_unprepare(imx_data->clk_ipg);
+89d7e5c131228a Dong Aisheng      2013-11-04  1964  	clk_disable_unprepare(imx_data->clk_ahb);
+89d7e5c131228a Dong Aisheng      2013-11-04  1965  
+1c4989b000aeac BOUGH CHEN        2019-04-29  1966  	if (imx_data->socdata->flags & ESDHC_FLAG_PMQOS)
+d1b98305916bc0 Rafael J. Wysocki 2020-02-12  1967  		cpu_latency_qos_remove_request(&imx_data->pm_qos_req);
+1c4989b000aeac BOUGH CHEN        2019-04-29  1968  
+89d7e5c131228a Dong Aisheng      2013-11-04  1969  	return ret;
+89d7e5c131228a Dong Aisheng      2013-11-04  1970  }
+89d7e5c131228a Dong Aisheng      2013-11-04  1971  
+89d7e5c131228a Dong Aisheng      2013-11-04  1972  static int sdhci_esdhc_runtime_resume(struct device *dev)
+89d7e5c131228a Dong Aisheng      2013-11-04  1973  {
+89d7e5c131228a Dong Aisheng      2013-11-04  1974  	struct sdhci_host *host = dev_get_drvdata(dev);
+89d7e5c131228a Dong Aisheng      2013-11-04  1975  	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
+070e6d3ff5a696 Jisheng Zhang     2016-02-16  1976  	struct pltfm_imx_data *imx_data = sdhci_pltfm_priv(pltfm_host);
+17b1eb7f0bf3dc Fabio Estevam     2017-05-16  1977  	int err;
+89d7e5c131228a Dong Aisheng      2013-11-04  1978  
+1c4989b000aeac BOUGH CHEN        2019-04-29  1979  	if (imx_data->socdata->flags & ESDHC_FLAG_PMQOS)
+d1b98305916bc0 Rafael J. Wysocki 2020-02-12  1980  		cpu_latency_qos_add_request(&imx_data->pm_qos_req, 0);
+1c4989b000aeac BOUGH CHEN        2019-04-29  1981  
+5c11f1ffb02244 Haibo Chen        2020-02-19  1982  	if (imx_data->socdata->flags & ESDHC_FLAG_CLK_RATE_LOST_IN_PM_RUNTIME)
+5c11f1ffb02244 Haibo Chen        2020-02-19  1983  		clk_set_rate(imx_data->clk_per, pltfm_host->clock);
+5c11f1ffb02244 Haibo Chen        2020-02-19  1984  
+a0ad3087586d09 Michael Trimarchi 2018-01-04  1985  	err = clk_prepare_enable(imx_data->clk_ahb);
+a0ad3087586d09 Michael Trimarchi 2018-01-04  1986  	if (err)
+1c4989b000aeac BOUGH CHEN        2019-04-29  1987  		goto remove_pm_qos_request;
+a0ad3087586d09 Michael Trimarchi 2018-01-04  1988  
+17b1eb7f0bf3dc Fabio Estevam     2017-05-16  1989  	err = clk_prepare_enable(imx_data->clk_per);
+17b1eb7f0bf3dc Fabio Estevam     2017-05-16  1990  	if (err)
+a0ad3087586d09 Michael Trimarchi 2018-01-04  1991  		goto disable_ahb_clk;
+af5d2b7b0d24f5 Ulf Hansson       2019-09-08  1992  
+17b1eb7f0bf3dc Fabio Estevam     2017-05-16  1993  	err = clk_prepare_enable(imx_data->clk_ipg);
+17b1eb7f0bf3dc Fabio Estevam     2017-05-16  1994  	if (err)
+17b1eb7f0bf3dc Fabio Estevam     2017-05-16  1995  		goto disable_per_clk;
+af5d2b7b0d24f5 Ulf Hansson       2019-09-08  1996  
+3602785b341a95 Michael Trimarchi 2018-01-04  1997  	esdhc_pltfm_set_clock(host, imx_data->actual_clock);
+a0ad3087586d09 Michael Trimarchi 2018-01-04  1998  
+c6303c5d52d5ec Baolin Wang       2019-07-25 @1999  	err = sdhci_runtime_resume_host(host, 0);
+17b1eb7f0bf3dc Fabio Estevam     2017-05-16  2000  	if (err)
+a0ad3087586d09 Michael Trimarchi 2018-01-04  2001  		goto disable_ipg_clk;
+17b1eb7f0bf3dc Fabio Estevam     2017-05-16  2002  
+bb6e358169bf62 BOUGH CHEN        2019-01-07  2003  	if (host->mmc->caps2 & MMC_CAP2_CQE)
+bb6e358169bf62 BOUGH CHEN        2019-01-07  2004  		err = cqhci_resume(host->mmc);
+bb6e358169bf62 BOUGH CHEN        2019-01-07  2005  
+bb6e358169bf62 BOUGH CHEN        2019-01-07  2006  	return err;
+89d7e5c131228a Dong Aisheng      2013-11-04  2007  
+17b1eb7f0bf3dc Fabio Estevam     2017-05-16  2008  disable_ipg_clk:
+17b1eb7f0bf3dc Fabio Estevam     2017-05-16  2009  	clk_disable_unprepare(imx_data->clk_ipg);
+17b1eb7f0bf3dc Fabio Estevam     2017-05-16  2010  disable_per_clk:
+17b1eb7f0bf3dc Fabio Estevam     2017-05-16  2011  	clk_disable_unprepare(imx_data->clk_per);
+a0ad3087586d09 Michael Trimarchi 2018-01-04  2012  disable_ahb_clk:
+a0ad3087586d09 Michael Trimarchi 2018-01-04  2013  	clk_disable_unprepare(imx_data->clk_ahb);
+1c4989b000aeac BOUGH CHEN        2019-04-29  2014  remove_pm_qos_request:
+1c4989b000aeac BOUGH CHEN        2019-04-29  2015  	if (imx_data->socdata->flags & ESDHC_FLAG_PMQOS)
+d1b98305916bc0 Rafael J. Wysocki 2020-02-12  2016  		cpu_latency_qos_remove_request(&imx_data->pm_qos_req);
+17b1eb7f0bf3dc Fabio Estevam     2017-05-16  2017  	return err;
+89d7e5c131228a Dong Aisheng      2013-11-04  2018  }
+89d7e5c131228a Dong Aisheng      2013-11-04  2019  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
