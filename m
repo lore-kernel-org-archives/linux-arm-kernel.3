@@ -4,158 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4FB5C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 10:11:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3836C369B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 10:13:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J/w6g0WIIWyF3hmk7nvh1oW66RrI9ukGxbjsk8lSaDc=; b=3uUdP3FIhJ4Pa6AQ08kEDs3CEe
-	CKfoXU7T77QV0ACsWO7+egEDOBC1AmHcVoTsUpo8H+Qj+zndMxapxl7AgRchluAeTddXjO+MDc/nA
-	oR0SFpbDcJ3Miig0lLMboXxT3dhQj48spfmvGkcH1tKHCdRaUhdozopnTBJLCJ2F1C2EtbQnyKqyC
-	xM5B0QdRA/88PPUK8ekoa+WZqZ3mbqlznUFJcEEFJX2UM8ClQWAV18Xae+uNX8aoxF9bY+1jtinC2
-	fkUNupjmdEnYKsDw97RC7Zw2eEZUOydACwJ6mGiYiFEB2anQb/wQ6PAKCb6cxVQadELgxbJ8Liqgi
-	bGP0a3sQ==;
+	bh=rOXr1eEY5TU6O5Ym6JE6bY+USqOFX4YOjRn6m0UbaKQ=; b=X9C47H2yE/4js1jn7p3dEpTTPz
+	RXtnHsLHQyoHnnRA7s2tTdtg30Uv4Ye7ADe8TpFwpWuagkTEuD+zR/HhNf7u2Wd1SpxJVXGpqsEuW
+	/4c3/9F761M/JK/XlXGFvhaM0QRjzuhue30aa3tAEMaTcc8DPZZJM1oYFeau1AAWkI/BJos3Ft9f3
+	56HOhmYAySJ423uqpFEJ+OQVnyH3EuTYWbu9oKdBtCiQZCnpIn4IepfkLwmRH5B9blxX+BPzDnbu0
+	4VxaWlvyV5l0xfkIShHsSxMlmjIksX3gXHnIIqX9J/Vk8mIs/ecZp0DsNfY2Dd9TOUUtVNrd774x3
+	en9mRB1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Gn0-00000001RO6-3BSR;
-	Mon, 14 Apr 2025 10:11:42 +0000
-Received: from mail-am7eur03on20630.outbound.protection.outlook.com ([2a01:111:f403:260e::630] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
+	id 1u4Goo-00000001S2Q-1yZL;
+	Mon, 14 Apr 2025 10:13:34 +0000
+Received: from mail-eastasiaazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c400::3] helo=HK3PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4GZY-00000001NDa-0vza
+	id 1u4Gax-00000001NRA-3wyE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 09:57:49 +0000
+	Mon, 14 Apr 2025 09:59:17 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZLFoaIfg/xt0cHuqP6MzbQZlhPzDOqrQHjogre7KMN6Xg/4Wt1upibmAvrofLdUdFIglsolZ8RV9vHEgXMv7Wg0q7iGzSEay6LHcXsLqNMBHHpOwV9phkPUvVxIOSqYbUAqrAYUovNn4cFR3NpxdrcJbpHaD0cM8NV9KyJqq81O8wYTBEiQWL4HmbnNaNvX+3RXQ37iTa7eFgme825oqfj1Vs/7gsd7joSEX5DZNtNAtgKS3AAkgor+/0QMjficx0xWpm4LZT7y8VhqA87BhZoqXVqXhAwDJrQdufvpV4htqf0vtiiyGvON2t0c7ARW938FZLJSh66LymjVE7l+4dw==
+ b=HDvGSX8efv8D4UaQxlR27WXfJJbCiXQk7HXfjEVXyzPqzs//MyWJK1Vhz/Z4mFs5AFJ6B2hD65tTKHxdqqgq2S/COZOOJ98b4hDULv/DdPrSDuXdYL9jKTK0dfQfqIawGTw2qKct6RtgolZvBi3R6gRESI3M/i7Jo5mRAOnKddv3rifwrn1eorMM6eIkp4bCEC72CclyBy0zZya9JCNkgjrNDP+Jnfd0IOx7s5C4J4ALWDh66ryjTneVyZdnyIsZY+yh2gYCWoTIAbr3tObhaFkwZbXq5yhnc918zL65J6vl3wR0fy/VHC1znVMxpLBydePvfPqqDIf8lhww+yBBSA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=J/w6g0WIIWyF3hmk7nvh1oW66RrI9ukGxbjsk8lSaDc=;
- b=CXcjNpJRNUn8uf281OVQ2bxHWocNnk3iYAuBapSMLpr7/UiGIZg2DQx5JUtbWqorlZtDUNsxWp0AR2QfripHd83VLRZZSufq6+3vdy/afMZmK03+iSJZcXJ8HbjWisVjp5sfnVBrGKpFl+2k6QiZIqNpJlxsyfKRUqkd6GJoqnEFh6QtdzpuNFUiHJBABgVXn4S0T08Hc0EUNykMfn89rWZ63M9+M2pL6QW+v7xMoB8BIcYd/s9pwRqjL6MIPq+mdi+gGpR7sK64rdG22jn8P9wcMK7/szg9Fuu8uXMRRffZlqtbJT0AJyT/Bi4bIOJxlDyFwQzhwR8Vnfw0fLqh2Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ bh=rOXr1eEY5TU6O5Ym6JE6bY+USqOFX4YOjRn6m0UbaKQ=;
+ b=YCY0a/Epio6Z984S5LwVBhLJIArJnD0qkJUav8nXE/HCYJKHQaB7LShtlodC78nVXVvvK6SNfpm1l01rTySFuNpjzExGOxkGPDMgqdro3zvFofui/C6RbVQo4ugCRFIX3EBybSIG4NMUUDPiPPK6nISmrMUx60HXQE7WrO9hJxeNFFG0GZuiZFWw6UM0PmKBSr1oEvRznJdljhJyzqaAYMsazShn7QTWz/91S39ev7bZ/eKT+NNy+WSVqwn4HDR3UhtfVVQoyYfrQUwsJwOOrzQGsUzKr3zJbRDLXljDdQ+DN2TYean5nZg1KL4hv2ll4xdR9zPBildsInhfS29VBw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 58.252.5.68) smtp.rcpttodomain=google.com smtp.mailfrom=oppo.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=oppo.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oppo.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=J/w6g0WIIWyF3hmk7nvh1oW66RrI9ukGxbjsk8lSaDc=;
- b=Zpi7vun3UGu7jLvXDjOBd7e5OWsFDxaBD1i0tezk/mBXZhN+ybwPtjRx+0qH8vMHwysQxDdTs5ZUjl8alsphQut1izRvo/UmF/jCiNyiXzdtNFw6/AnXttuiMUGCXX/hkH9303EIMvpGQTGW87gFeEUhmfFGshQOPGcnD6aT0ZMPZ1UxyDj7myvy6X+yQMn/MRMGPIhrBHflO4LuFrLvRMMnjalJICDmNmknuhjxsAy1XS5ABo8nAXY3e3E5f1RUEpg7TrBZpMUDoWqv91rBw1ryR70Ksi1yAtPDY6HoraBAnniOgdZs6dWvyU+0EbstSY4P/wniiOZQadE46/xeAQ==
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by DU6PR04MB11085.eurprd04.prod.outlook.com (2603:10a6:10:5c4::12) with
+ bh=rOXr1eEY5TU6O5Ym6JE6bY+USqOFX4YOjRn6m0UbaKQ=;
+ b=TdfLlrUBVUSWiCbhua1VF94vnc07JQdnyGiiszhFcDmfbc93tI3QYt6Na0R04MtiPOUaDnApSVrr8LcG/6bqxdD3HUdP5kx/qNkukZVKk/qzS1z02onaDMFDWE8aGfsiQuBixHk0e+6l0HDgOuKPZuykegjQ3SEflr2iHOooMFM=
+Received: from SI1PR02CA0045.apcprd02.prod.outlook.com (2603:1096:4:1f6::16)
+ by PS1PPFEB36B4825.apcprd02.prod.outlook.com (2603:1096:308::2b0) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.32; Mon, 14 Apr
- 2025 09:57:44 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8632.030; Mon, 14 Apr 2025
- 09:57:43 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Sudeep Holla <sudeep.holla@arm.com>, "Peng Fan (OSS)"
-	<peng.fan@oss.nxp.com>
-CC: Cristian Marussi <cristian.marussi@arm.com>, Shawn Guo
-	<shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Dan Carpenter <dan.carpenter@linaro.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>
-Subject: RE: [PATCH v4 5/7] firmware: imx: Add i.MX95 SCMI LMM driver
-Thread-Topic: [PATCH v4 5/7] firmware: imx: Add i.MX95 SCMI LMM driver
-Thread-Index: AQHbqGLe3kxhTr5dw0mXAVP8MdrZO7Oi8B4AgAAF/qA=
-Date: Mon, 14 Apr 2025 09:57:43 +0000
-Message-ID: <PAXPR04MB8459195AAF65D38AFA1D4F9688B32@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20250408-imx-lmm-cpu-v4-0-4c5f4a456e49@nxp.com>
- <20250408-imx-lmm-cpu-v4-5-4c5f4a456e49@nxp.com>
- <20250414-wonderful-cute-bandicoot-accb6b@sudeepholla>
-In-Reply-To: <20250414-wonderful-cute-bandicoot-accb6b@sudeepholla>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|DU6PR04MB11085:EE_
-x-ms-office365-filtering-correlation-id: e723288f-3210-4793-e201-08dd7b3acd4d
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?gM4CfkXwZ9UL2Rkgnw5+4lB9Y6idZPnQW5KC+ayrdCUjo1duAqWB0aA3ChSj?=
- =?us-ascii?Q?J5JaAHDs0F5Ro6oqXx2RVcvo2J1CpQJZS88yzwgKcoEdS8vz3wueVvWn8UoZ?=
- =?us-ascii?Q?bizNP+s8hXSBrXcsGvddrI8I7Ffv3KWSQnp4wP9umwCuz7IrqjzJkOq4LuEe?=
- =?us-ascii?Q?i8yZRdn/fdMTCi8uFKNP+sb4m6uzr3XWBdOsq6wLPghsd7f2+C6mMiuRSibI?=
- =?us-ascii?Q?M1ShxGrUH02OFo+dvrvZSvY/ybxiWQSo23bMbEOZDKBtI9/u/4M58c99ox7y?=
- =?us-ascii?Q?UjKGmw0OXw//21aCORADgjgtaCWfQMXiGQP4CTLUMEVIG+ZJTLsdSn5BTENE?=
- =?us-ascii?Q?hPoM4K0A1XPQVkzY/oykTOC7XurbL2WE5Z1wqilgU+JEmn9UxB1Zn6OYR99V?=
- =?us-ascii?Q?6yTTa91fnLl8O2IXigGprjsvdiMy/Ab4fyeGyPAL6DcfHO78z58VgxHNGyHn?=
- =?us-ascii?Q?A3FlTVBmComofIw0GSnKs5MkVu1D4MlaV/I6C2pjL+nrlkS4ayg1ZbIUmzwu?=
- =?us-ascii?Q?jNuHq5t3WMEPXAehH1RbE+S2gdaTrbGExFOtbzadG3VkjtISVatnDIV4kSAI?=
- =?us-ascii?Q?G+tPAok4sp3yCRRvocMn+Wr60PhsCnrTm0OfmxeA5wDZqKd+v20oK2x6hCsM?=
- =?us-ascii?Q?BOGrtryO6YLQ8sGj/CK7zVyeOGo6KC9QVK7S8SudKQgRUE+cTUE+yxdwFZni?=
- =?us-ascii?Q?R2x1WJodHipauFLbVPCty3/YsuhcbRRQHZ6q+YM9Ore6zqX/Zsgp+gQZmEWp?=
- =?us-ascii?Q?bG81ir2tCWCndL/GG0LlPj11XibwaiChXuuEpOyWBWWjYG+2e3YbsxuxcVER?=
- =?us-ascii?Q?nl12CCZzqaJN18rgs8gAV7ARq7MDhPro2RzxXTwgqZa359+EI7HkjdaI83C6?=
- =?us-ascii?Q?hD4jNlr0XQr+uJU8iPPhWd5fesSvxeptAG4n4RQxvVDg0Hjh7hdhpSj2TfA6?=
- =?us-ascii?Q?Yj/iV7KYJwaAn4qL7t/Wx3TApWAYZTSPUcKjh3E/L9vJ04QHev++sFvtoYmi?=
- =?us-ascii?Q?z7Gtp6gbhR+GUfBLJggOq1TjOsshgdtWtd7D4vKNxC7FZaBhYHJBY+uInqOw?=
- =?us-ascii?Q?T0xDmgI16zVR310+16QTJDIotsTqndfMPOT5JBbS1EPxTrKYZ3Tft3IBfCJ1?=
- =?us-ascii?Q?0fb4QSwcvaaGrbjjgcSMSVuBaYF2MoekyToq/hbQyCc2ZJnDYPmuAoVpznxZ?=
- =?us-ascii?Q?VcawaY4qXF+2gRxvayi05qz6n/HAZGzC9aHVZZe3Wgmrc/Gia0tJ9UkQwZ0K?=
- =?us-ascii?Q?MYqs6hDq/Ngb2T4uP+WuJQ4S5bxq1uPiUzqYhaS6TMuT71rMydLx8ylZux7I?=
- =?us-ascii?Q?JIXEHM4At1hTrZZ3wTVCBib0f61glIXsbniTXShyWu5fLXxe4c4A/8OdsTHs?=
- =?us-ascii?Q?16UzyyZ4smZ4Q3lNKg8GyLac6+uIEUIEc5E/sv8KQiTFt4i2W+SwSJ4YOIYj?=
- =?us-ascii?Q?THIfhmZ59UBsSzCGUCr/JuDym6Ah5JqaTQ60h2DVdcfz/oVQ+JFSfQ=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?L+zUfbbiXyL8rvWYOEJVabeuTRjIq2EhpWeoD9S1PEI/IRvJqAhr/SQ+nmTd?=
- =?us-ascii?Q?SICJELQkh4Ej4wAf8YVpar9L12DLTNcmvTnfnCuc6CyP66Vd+iP2SHeSNpwx?=
- =?us-ascii?Q?LizhIrSnEHulPULgOe3mjGwSGyWWUX5n9RmaGJVXfoJ5CCo2upo3T5Syp9gU?=
- =?us-ascii?Q?N4lILwhhU9VlikoKdLWGECrVzmMYkLQRilsSOCloOdYOGhGWZxqooiXv0bVe?=
- =?us-ascii?Q?DrkPiFF8+dCQH2JFuDyfOKMD8+hDAqKHLAVg8mDGAWIvCvPwSK2teI8yld+l?=
- =?us-ascii?Q?+To0eg7LX8YzJtbNA6bH2XmsP7hSjD7dSvJsc47pWUKwVVIwF6RrjynbGe9N?=
- =?us-ascii?Q?XwMOesCxl/Wjib7axX4jbU6mVcKF1D52nWr7x946JQzl0nNo7P07e6sE38bU?=
- =?us-ascii?Q?vAxhFeUYGk+piABNKUoJx2OC7Y0apGvP/eEApYfVI3Jlc/Ee+D669OuXDOGr?=
- =?us-ascii?Q?4kbILCUMvF5HDTloXe5ZuJ+W9Ktxo+bvBEQLEPigPP4NMPYfMySwK8EgvY+0?=
- =?us-ascii?Q?VjuBkHFHdWwMZoQ3P90Eie7CINfC9OCXxrAa11h7QdjXS3Xl/k01G0W9d04Y?=
- =?us-ascii?Q?11tx5ekIhJ4ZlZYgojBWN7vmQcJbFGJWFZOAIUxe/IU4rzCRxhrAgDBp1Rgt?=
- =?us-ascii?Q?vgvLxEgkyxVdN6thX0apYni6/Mg1PSsIlnuxCK9GH1zCPvBfQ71VgXsjj3B5?=
- =?us-ascii?Q?jJ5eCvXw8N8YCRYFIcHoZqk7sPf47ACplhvHG+Z0q6ZROJL3+LjsIVkIqsXv?=
- =?us-ascii?Q?Q9GYRm89qgk7+hGdbSrmuBURgHlJ9xyLvbk1KYkWVqrQRUtnIAWyO3RgXW2Y?=
- =?us-ascii?Q?/kz0n4G4Tso/mMtu5xlu8q3BzRnFiDy2keuDzgIwj5WM1RK9Sh+N6hZwGdmO?=
- =?us-ascii?Q?O4Bz6Tax2NSYi5afQMVN1wdIInjaJQ8HkaLb1CKxsOpU4ZJN91ae4EaSFIKu?=
- =?us-ascii?Q?JBdC41ljmgbuVMUV45de2AMcyMKLNcG4h49eyyNrx75FXo8HDW0LOU+pCIZo?=
- =?us-ascii?Q?m1KcOdBO6NVXtCADBVY61kGslnau38r5sTuQAMivaMYaOL55wVoUwWgH6SBt?=
- =?us-ascii?Q?hD0oIgaaz1fNnCSAxmTWB99qixI6t4KqMZxGh3s9rWqWgfRRhqDmeHq13qGX?=
- =?us-ascii?Q?QtpeyqsgJ89SbDuHepEVthqau8a9L5PgYomJaWCC3pLo9R2j8LdQwwB7BX4W?=
- =?us-ascii?Q?EjWUflDgp+k2tCj7zi6qqtR9j5boyiRSpxEa76PSI8zp0O0VOG07+oU6mqNt?=
- =?us-ascii?Q?TkC3Il8Xryg+2asF2F6ZP3Zz61yN11w4YPw1920xzH7fnI7JdbfSXBhEwyIO?=
- =?us-ascii?Q?JlN/ovPP/mAPTdftjRdeKvv/O/rKstYXYkRUwoSwM89UpDt9Ca+wJUuDg08n?=
- =?us-ascii?Q?/ekeHRIx+TvPa+zDw2n3jmuf1Ei4sOhwvEyIgCDvkRZmx2bqbr7Lm6eMktcs?=
- =?us-ascii?Q?pXShNIyt7QnHjrN6YU0fx++ezLWCiza9exjuYTenxplBZ74E0rAzTy0c0lpa?=
- =?us-ascii?Q?lA6xfXFTx7lsBk2IHZyJF80sTd9NaUBKjI5yp3IJYWjk9pauGniXjVM6Htfh?=
- =?us-ascii?Q?pY/09T2Ntoigqix1uX4=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.16; Mon, 14 Apr
+ 2025 09:59:06 +0000
+Received: from HK3PEPF00000221.apcprd03.prod.outlook.com
+ (2603:1096:4:1f6:cafe::ad) by SI1PR02CA0045.outlook.office365.com
+ (2603:1096:4:1f6::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8632.32 via Frontend Transport; Mon,
+ 14 Apr 2025 09:59:05 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 58.252.5.68)
+ smtp.mailfrom=oppo.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=oppo.com;
+Received-SPF: Pass (protection.outlook.com: domain of oppo.com designates
+ 58.252.5.68 as permitted sender) receiver=protection.outlook.com;
+ client-ip=58.252.5.68; helo=mail.oppo.com; pr=C
+Received: from mail.oppo.com (58.252.5.68) by
+ HK3PEPF00000221.mail.protection.outlook.com (10.167.8.43) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.8655.12 via Frontend Transport; Mon, 14 Apr 2025 09:59:05 +0000
+Received: from localhost.localdomain (172.16.40.118) by mailappw30.adc.com
+ (172.16.56.197) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 14 Apr
+ 2025 17:59:02 +0800
+From: Dao Huang <huangdao1@oppo.com>
+To: <samitolvanen@google.com>
+CC: <andrii@kernel.org>, <ast@kernel.org>, <bpf@vger.kernel.org>,
+	<catalin.marinas@arm.com>, <daniel@iogearbox.net>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<mark.rutland@arm.com>, <mbland@motorola.com>, <puranjay12@gmail.com>,
+	<will@kernel.org>
+Subject: Re: [PATCH bpf-next v8 2/2] arm64/cfi,bpf: Support kCFI + BPF on arm64
+Date: Mon, 14 Apr 2025 17:58:32 +0800
+Message-ID: <1744624712-472774-1-git-send-email-huangdao1@oppo.com>
+X-Mailer: git-send-email 2.7.4
+In-Reply-To: <20250310222942.1988975-6-samitolvanen@google.com>
+References: <20250310222942.1988975-6-samitolvanen@google.com>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e723288f-3210-4793-e201-08dd7b3acd4d
-X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Apr 2025 09:57:43.8792
+Content-Type: text/plain
+X-Originating-IP: [172.16.40.118]
+X-ClientProxiedBy: mailappw30.adc.com (172.16.56.197) To mailappw30.adc.com
+ (172.16.56.197)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: HK3PEPF00000221:EE_|PS1PPFEB36B4825:EE_
+X-MS-Office365-Filtering-Correlation-Id: c47ccdf5-1fd2-4554-512c-08dd7b3afdfb
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|376014|7416014|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?R1ugjyEjE11c/adXDMb/Tz3fAjIRO+0DviyHct3M/67oBi4KIw5fir32yuBF?=
+ =?us-ascii?Q?cDNSFIwxV20CggVX/fl7C5UpWX/iRgdf6dpo0QP+jf5cQkLfBPjXPGhurv25?=
+ =?us-ascii?Q?W5XtUcG+VcbvQqvK6l87AC0PN5GanJrNhIQrc9Eh40VrdQm505nSTMB3U/C6?=
+ =?us-ascii?Q?xjEiMCU6Y8weSdPPtZuNutXDXlweaCFKGanZdphMVsy/nZmsBORCtdo4xti4?=
+ =?us-ascii?Q?NjQPzP6W3oS97A0RwVfFQCk5PCaende+zlIJAGN1GfDmwW/SCN5stOd3ebX4?=
+ =?us-ascii?Q?tdflPx1bznM+pJcwO9l/Zj+QB3PtgcXW07xHWDdTn3AKyltM1ATnN0Q+U3dT?=
+ =?us-ascii?Q?14S3tpENZOm7JrxY3qekRFy0gS1qzQkvpL54xcd3/zMlEBKlvGvEXTOi+tiW?=
+ =?us-ascii?Q?6EmmKpvB2t14WPtla7bU4odBK66H8SQ8989jDSlKwxtfC46BfLlorQnKkiL2?=
+ =?us-ascii?Q?b+AhbJlK/wPvqd6Id1Yqjsh19YyeEQYlDEvHrTnHp0jRxomFvpNWxQCki9TC?=
+ =?us-ascii?Q?XLJYczaVcmWURlM1TQxGQZ291WbXIEBqDG+gQCKJRon27ypywMFwPUf8YuSg?=
+ =?us-ascii?Q?bx2m4aC9yHE0hcTKp9KQhZHYMJSEClU/b1e9pWu5uqo1ptgAZtXAr1E7gN7r?=
+ =?us-ascii?Q?G7uYjtrJ0h6e/oyJ77kt/8ssAvIX3w2IG1Qdv9H8qEDJLaC+K+P5e21hjxOe?=
+ =?us-ascii?Q?TjDToAIZaKm9TKWYyfKhH1csV92fIJLJD4yEL1V8qmuZX2V4c/uQf5KO6471?=
+ =?us-ascii?Q?DF0+KettsBwLL7B35WVVCYtgoAREvvPUJupo7Zlb0OJSofTZk7GFhv8Wl3mr?=
+ =?us-ascii?Q?83ro0L2gA9lsSUWmuAv1rJgSGL+Yw6WR/k0u1IgFDrohodrcENuqeD3mUPv4?=
+ =?us-ascii?Q?ZU5i635ugihTkxl+z4GbIPaPC/oC9SOK4S6ZzQExjkp4Fay5WuokEnuzY2SU?=
+ =?us-ascii?Q?kymjnRRjxur0qQRMuIWsYMSg/HEL8lD34AmvujRWc4ow5SkpseEmaOG6mGk5?=
+ =?us-ascii?Q?3HKmzUlrAqJk1OFtGbvy0OL39WQ21s8kOwEUQFyBaB3uCEPsz1I45iXpOq6L?=
+ =?us-ascii?Q?f2rPPnpMKxcPQvIVslqiVykLjs6CvoJ//LjnwijNih9adTksf7+KxWTXYeJ9?=
+ =?us-ascii?Q?5Cme7gwDi0bce7+zSOILWy13UyBKF17yPP5Zp3U0S7KOEztcyyJ88ATBgrvl?=
+ =?us-ascii?Q?3UaFLIXAfB8GQqKNIKHJWpoylLmFV/z9a9Mq2baFcOBTfXrbTObO07hmPI24?=
+ =?us-ascii?Q?NNIROzFFJuSmUgPHSWtRpaS9IBgO1G+n8yKBS3v8p17bR15dkK9lxP9iVXyq?=
+ =?us-ascii?Q?IY93uOhjCgx5LVp/DW3z86GJMsgo7i0yRPeZI8wrmWe0TAwnQXL0tGZ1uXG7?=
+ =?us-ascii?Q?P2e64tiJ2Z5gwP7Iu+6WOp5L9zWbxFekPXBTJlEjHz+cJdLGedn8zfM7C1ZQ?=
+ =?us-ascii?Q?dVjUGJEZLkU9DqPhmDCxQASDxsGBPIL0TSr+NI+UPHg00n2ezNDApP4R4yyU?=
+ =?us-ascii?Q?1QwIQ6b6o5UpRZ42fmhpWfwpQ4rR9g/D5S4o?=
+X-Forefront-Antispam-Report: CIP:58.252.5.68;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.oppo.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(376014)(7416014)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: oppo.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Apr 2025 09:59:05.4341
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: B9Ela1xmAbFoX79c8vUJCIJhdQuArTTWvnqtvDzsrPQ5EDUQRxNydY/8nGr4+JNS9VFvCv6+D8KA/pX56DfUGg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU6PR04MB11085
+X-MS-Exchange-CrossTenant-Network-Message-Id: c47ccdf5-1fd2-4554-512c-08dd7b3afdfb
+X-MS-Exchange-CrossTenant-Id: f1905eb1-c353-41c5-9516-62b4a54b5ee6
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f1905eb1-c353-41c5-9516-62b4a54b5ee6;Ip=[58.252.5.68];Helo=[mail.oppo.com]
+X-MS-Exchange-CrossTenant-AuthSource: HK3PEPF00000221.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PS1PPFEB36B4825
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_025748_270590_DDB757DB 
-X-CRM114-Status: GOOD (  19.78  )
+X-CRM114-CacheID: sfid-20250414_025915_986546_5D6943D4 
+X-CRM114-Status: GOOD (  29.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,58 +145,184 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sudeep,
+> From: Puranjay Mohan <puranjay12@gmail.com>
+> 
+> Currently, bpf_dispatcher_*_func() is marked with `__nocfi` therefore
+> calling BPF programs from this interface doesn't cause CFI warnings.
+> 
+> When BPF programs are called directly from C: from BPF helpers or
+> struct_ops, CFI warnings are generated.
+> 
+> Implement proper CFI prologues for the BPF programs and callbacks and
+> drop __nocfi for arm64. Fix the trampoline generation code to emit kCFI
+> prologue when a struct_ops trampoline is being prepared.
+> 
+> Signed-off-by: Puranjay Mohan <puranjay12@gmail.com>
+> Co-Developed-by: Maxwell Bland <mbland@motorola.com>
+> Signed-off-by: Maxwell Bland <mbland@motorola.com>
+> Co-Developed-by: Sami Tolvanen <samitolvanen@google.com>
+> Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
+> ---
+>  arch/arm64/include/asm/cfi.h    | 23 +++++++++++++++++++++++
+>  arch/arm64/kernel/alternative.c | 25 +++++++++++++++++++++++++
+>  arch/arm64/net/bpf_jit_comp.c   | 22 +++++++++++++++++++---
+>  3 files changed, 67 insertions(+), 3 deletions(-)
+>  create mode 100644 arch/arm64/include/asm/cfi.h
+> 
+> diff --git a/arch/arm64/include/asm/cfi.h b/arch/arm64/include/asm/cfi.h
+> new file mode 100644
+> index 000000000000..670e191f8628
+> --- /dev/null
+> +++ b/arch/arm64/include/asm/cfi.h
+> @@ -0,0 +1,23 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef _ASM_ARM64_CFI_H
+> +#define _ASM_ARM64_CFI_H
+> +
+> +#ifdef CONFIG_CFI_CLANG
+> +#define __bpfcall
+> +static inline int cfi_get_offset(void)
+> +{
+> +	return 4;
+> +}
+> +#define cfi_get_offset cfi_get_offset
+> +extern u32 cfi_bpf_hash;
+> +extern u32 cfi_bpf_subprog_hash;
+> +extern u32 cfi_get_func_hash(void *func);
+> +#else
+> +#define cfi_bpf_hash 0U
+> +#define cfi_bpf_subprog_hash 0U
+> +static inline u32 cfi_get_func_hash(void *func)
+> +{
+> +	return 0;
+> +}
+> +#endif /* CONFIG_CFI_CLANG */
+> +#endif /* _ASM_ARM64_CFI_H */
+> diff --git a/arch/arm64/kernel/alternative.c b/arch/arm64/kernel/alternative.c
+> index 8ff6610af496..71c153488dad 100644
+> --- a/arch/arm64/kernel/alternative.c
+> +++ b/arch/arm64/kernel/alternative.c
+> @@ -8,11 +8,13 @@
+>  
+>  #define pr_fmt(fmt) "alternatives: " fmt
+>  
+> +#include <linux/cfi_types.h>
+>  #include <linux/init.h>
+>  #include <linux/cpu.h>
+>  #include <linux/elf.h>
+>  #include <asm/cacheflush.h>
+>  #include <asm/alternative.h>
+> +#include <asm/cfi.h>
+>  #include <asm/cpufeature.h>
+>  #include <asm/insn.h>
+>  #include <asm/module.h>
+> @@ -298,3 +300,26 @@ noinstr void alt_cb_patch_nops(struct alt_instr *alt, __le32 *origptr,
+>  		updptr[i] = cpu_to_le32(aarch64_insn_gen_nop());
+>  }
+>  EXPORT_SYMBOL(alt_cb_patch_nops);
+> +
+> +#ifdef CONFIG_CFI_CLANG
+> +struct bpf_insn;
+> +
+> +/* Must match bpf_func_t / DEFINE_BPF_PROG_RUN() */
+> +extern unsigned int __bpf_prog_runX(const void *ctx,
+> +				    const struct bpf_insn *insn);
+> +DEFINE_CFI_TYPE(cfi_bpf_hash, __bpf_prog_runX);
+> +
+> +/* Must match bpf_callback_t */
+> +extern u64 __bpf_callback_fn(u64, u64, u64, u64, u64);
+> +DEFINE_CFI_TYPE(cfi_bpf_subprog_hash, __bpf_callback_fn);
+> +
+> +u32 cfi_get_func_hash(void *func)
+> +{
+> +	u32 hash;
+> +
+> +	if (get_kernel_nofault(hash, func - cfi_get_offset()))
+> +		return 0;
+> +
+> +	return hash;
+> +}
+> +#endif /* CONFIG_CFI_CLANG */
+> diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
+> index 70d7c89d3ac9..8870c205f934 100644
+> --- a/arch/arm64/net/bpf_jit_comp.c
+> +++ b/arch/arm64/net/bpf_jit_comp.c
+> @@ -17,6 +17,7 @@
+>  #include <asm/asm-extable.h>
+>  #include <asm/byteorder.h>
+>  #include <asm/cacheflush.h>
+> +#include <asm/cfi.h>
+>  #include <asm/debug-monitors.h>
+>  #include <asm/insn.h>
+>  #include <asm/text-patching.h>
+> @@ -164,6 +165,12 @@ static inline void emit_bti(u32 insn, struct jit_ctx *ctx)
+>  		emit(insn, ctx);
+>  }
+>  
+> +static inline void emit_kcfi(u32 hash, struct jit_ctx *ctx)
+> +{
+> +	if (IS_ENABLED(CONFIG_CFI_CLANG))
+> +		emit(hash, ctx);
+> +}
+> +
+>  /*
+>   * Kernel addresses in the vmalloc space use at most 48 bits, and the
+>   * remaining bits are guaranteed to be 0x1. So we can compose the address
+> @@ -474,7 +481,6 @@ static int build_prologue(struct jit_ctx *ctx, bool ebpf_from_cbpf)
+>  	const bool is_main_prog = !bpf_is_subprog(prog);
+>  	const u8 fp = bpf2a64[BPF_REG_FP];
+>  	const u8 arena_vm_base = bpf2a64[ARENA_VM_START];
+> -	const int idx0 = ctx->idx;
+>  	int cur_offset;
+>  
+>  	/*
+> @@ -500,6 +506,9 @@ static int build_prologue(struct jit_ctx *ctx, bool ebpf_from_cbpf)
+>  	 *
+>  	 */
+>  
+> +	emit_kcfi(is_main_prog ? cfi_bpf_hash : cfi_bpf_subprog_hash, ctx);
+> +	const int idx0 = ctx->idx;
+> +
+>  	/* bpf function may be invoked by 3 instruction types:
+>  	 * 1. bl, attached via freplace to bpf prog via short jump
+>  	 * 2. br, attached via freplace to bpf prog via long jump
+> @@ -2009,9 +2018,9 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
+>  		jit_data->ro_header = ro_header;
+>  	}
+>  
+> -	prog->bpf_func = (void *)ctx.ro_image;
+> +	prog->bpf_func = (void *)ctx.ro_image + cfi_get_offset();
+>  	prog->jited = 1;
+> -	prog->jited_len = prog_size;
+> +	prog->jited_len = prog_size - cfi_get_offset();
+>  
+>  	if (!prog->is_func || extra_pass) {
+>  		int i;
+> @@ -2271,6 +2280,12 @@ static int prepare_trampoline(struct jit_ctx *ctx, struct bpf_tramp_image *im,
+>  	/* return address locates above FP */
+>  	retaddr_off = stack_size + 8;
+>  
+> +	if (flags & BPF_TRAMP_F_INDIRECT) {
+> +		/*
+> +		 * Indirect call for bpf_struct_ops
+> +		 */
+> +		emit_kcfi(cfi_get_func_hash(func_addr), ctx);
+> +	}
+>  	/* bpf trampoline may be invoked by 3 instruction types:
+>  	 * 1. bl, attached to bpf prog or kernel function via short jump
+>  	 * 2. br, attached to bpf prog or kernel function via long jump
+> @@ -2790,6 +2805,7 @@ void bpf_jit_free(struct bpf_prog *prog)
+>  					   sizeof(jit_data->header->size));
+>  			kfree(jit_data);
+>  		}
+> +		prog->bpf_func -= cfi_get_offset();
+>  		hdr = bpf_jit_binary_pack_hdr(prog);
+>  		bpf_jit_binary_pack_free(hdr, NULL);
+>  		WARN_ON_ONCE(!bpf_prog_kallsyms_verify_off(prog));
+> -- 
+> 2.49.0.rc0.332.g42c0ae87b1-goog
 
-> Subject: Re: [PATCH v4 5/7] firmware: imx: Add i.MX95 SCMI LMM
-> driver
->=20
-> On Tue, Apr 08, 2025 at 04:44:29PM +0800, Peng Fan (OSS) wrote:
-> > From: Peng Fan <peng.fan@nxp.com>
-> >
-> > The i.MX95 System manager exports SCMI LMM protocol for linux to
-> > manage Logical Machines. The driver is to use the LMM Protocol
-> > interface to boot, shutdown a LM.
-> >
-> > Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
-> > Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> > ---
-> >  drivers/firmware/arm_scmi/vendors/imx/Kconfig |  3 +-
-> >  drivers/firmware/imx/Kconfig                  | 11 ++++
-> >  drivers/firmware/imx/Makefile                 |  1 +
-> >  drivers/firmware/imx/sm-lmm.c                 | 91
-> +++++++++++++++++++++++++++
-> >  include/linux/firmware/imx/sm.h               | 14 +++++
-> >  5 files changed, 119 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/firmware/arm_scmi/vendors/imx/Kconfig
-> > b/drivers/firmware/arm_scmi/vendors/imx/Kconfig
-> > index
-> >
-> b5f13d0e40155e485f4d1696e9550645d888ef44..4c24e17425f83081
-> 0f8ba376ece9
-> > db93c8cded6d 100644
-> > --- a/drivers/firmware/arm_scmi/vendors/imx/Kconfig
-> > +++ b/drivers/firmware/arm_scmi/vendors/imx/Kconfig
-> > @@ -26,7 +26,8 @@ config IMX_SCMI_CPU_EXT  config
-> IMX_SCMI_LMM_EXT
-> >  	tristate "i.MX SCMI LMM EXTENSION"
-> >  	depends on ARM_SCMI_PROTOCOL || (COMPILE_TEST && OF)
-> > -	default y if ARCH_MXC
-> > +	depends on IMX_SCMI_LMM_DRV
-> > +	default y if ARCH_MXC && ARM64
->=20
-> I can't understand the ARM64 dependency on this and next patch.
-
-ARCH_MXC both supports ARM32 and ARM64.
-
-To i.MX ARM32 platform, there is no plan to enable SCMI, so only
-set y for ARCH_MXC ARM64 platforms.
-
-Thanks,
-Peng.
-
->=20
-> --
-> Regards,
-> Sudeep
+we oppo team have tested this patch on Mediatek DX-5(arm64)
+with a kernel based on android-16(kernel-6.12). It has been running
+fine for a week on both machines.
 
