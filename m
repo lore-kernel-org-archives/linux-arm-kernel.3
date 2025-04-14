@@ -4,79 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCAEAC369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 18:23:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7F1EC369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 18:25:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3Zo2/Q4jXx4tQJgnkuvoBWk5YY5nVuzk5xKWf9FHsoI=; b=dboAiIcw9cKHgdtO0LYZjLjoG9
-	txVNaY9/jzra7WZbtgFkM8hiZIB5XKXplKYXbPg53K6lcDXQ+vxNNQ5nDyh4dLeW1KX0XsCAC31FX
-	9JOaYkH6mw4mzjqZ5Vy5PEUfEukrDjlQk3GtgI1F8bjOQUo4HY3M5ptIBL4w/GAU8mygN4+x5wKyp
-	MufMqTIXi+b2epZVttxBtuCFYSzivfdzSB9UQ7YLmRa6jXPbAoLZJe7ssuAu/thEZ31Lvp+s4rd6C
-	Xz37GQXQJWDOC0ExFtLGZMzk3oFr3ir0olFzE89nI2aOjmkO6IQEMTEfYRD9OmmmTmk6TTP8xf42K
-	h1TVOhFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ab8qgY0wYeMeF9f8GAqkiU/85dkzWksm0Y+DavzpAGg=; b=Ot0l5kll3MiZdpPrzOAa32M/wG
+	H9+rFQSB3eETOQJSp6d/9nJzdw8IndvLY0pMR/1cidFzShsRzAFyoKjrGwHAFIzJ4SUqM2DFgS9vE
+	7p6S9oD+8ReNg/5huXPSerhGsWaFatV+24Z7OPz614e9Kw9DY/rCKemzW09ncKrCQs/hgTtURDa2g
+	3qUELC4SvabpwJIVVpWY4RI+vN8yZFU663hRhSj5VJgwuf4rjIz9mXI4XffWypYHnWc7gvDPeL84P
+	3GL5t+CBhWAPwXZVESaS56Hq9BRet47ieRjETgLu63V07cY4Z2W9US3wHDuxTxUwCSgbvBR+pTYLF
+	eR6H6xzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4OSb-000000035MJ-2HeG;
-	Mon, 14 Apr 2025 18:23:09 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1u4OUR-000000035cI-1PNV;
+	Mon, 14 Apr 2025 18:25:03 +0000
+Received: from mail-vk1-xa35.google.com ([2607:f8b0:4864:20::a35])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4OK1-000000033vN-3X7J
+	id 1u4OKr-0000000345u-3Cak
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 18:14:19 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-3032a9c7cfeso866705a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 11:14:17 -0700 (PDT)
+	Mon, 14 Apr 2025 18:15:11 +0000
+Received: by mail-vk1-xa35.google.com with SMTP id 71dfb90a1353d-523de538206so1678337e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 11:15:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744654456; x=1745259256; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=3Zo2/Q4jXx4tQJgnkuvoBWk5YY5nVuzk5xKWf9FHsoI=;
-        b=ZZ0KSNYdnI8NvzxSsL1XjkHwVZG4GOf/QtGoSpSQQNpWzQg4t8hw/34v/9SH/g4n6s
-         3juCK16OPFvsUOi2Fd7yqUK4L0vRwlodXjKSMgTpT1ugLogXPsITEMp/u4zS8WN8UXT6
-         rJEbbDIbPdzhuxAjOmZM2VyYWzsKik65ubhdLf4syht2vTvc3ZouhGt6a87c4S2THDLB
-         SMLvDqpEUt9g/h8Z87pUSTAQXxwxiVdqLFz4VH4J4t4XlvYHV+ee6rZbfJAjV6OxMt4p
-         nCxWzECZ/qe1Vfb99MNVdzj0Xsfp5IvMwUGNiOAFMwTuYwAgphcS3JFHRoF1BZB85p49
-         w0lQ==
+        d=gmail.com; s=20230601; t=1744654509; x=1745259309; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ab8qgY0wYeMeF9f8GAqkiU/85dkzWksm0Y+DavzpAGg=;
+        b=Hz3plUwQslM1Z5axejSQAH26rrwIRO1IA10U4x5d0haGxZ9s95LFwm4iUff/4dI2uQ
+         kB4XxBFalgLltQ6scGFC+Ie+ntxQZK87HNCqHPIX722SPtuU8v8988nNFlpFtIdqZK7M
+         Ao00Lr5fgtfR++6yKXPom8gwQYsC7jUFa9Ht6IibQVBRU8zURzEfuyr6O2scIoNPy25b
+         djvVmHtpRfzD/feXSJTkOGM3eohfRTZ8R+CRWImIMEICAv1nPjibTqcOQ7eUdBGdnMfU
+         F0XGWikWRsLPY86sOhOt5cFByDHLDyR5R+Ce2TLjhbla58DKiKhxYr2DSA1IiGZWvwVL
+         kXMA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744654456; x=1745259256;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=3Zo2/Q4jXx4tQJgnkuvoBWk5YY5nVuzk5xKWf9FHsoI=;
-        b=kqSZMnvH7lIAchejajbU7/nzIXFV93QngjoH2qTdddGsO8QWLALjK16/9zknDBiVVu
-         kxWJyVDRuKcsxrVY68UjFhWl0TWv8uFRhfrC5RVnHfW6wYkPYsBnJdV22Wv3UJFk5qY6
-         Z7L+tQDq5GYFuruhrvXTlQef0gEwqnOa8yeNFop+Euc/HmC1rq1tWGOdAMKsAbuYs1WS
-         Eru0xG2FV7CNnDIf2QPrEww8JWqtBhj4tqXv9qmDYBScMXLjcB7RQM1T+gC1MKbr/9LN
-         Nxv9Wh1OoctMW9Y9ARYJVKAx4LAXCawQay1B0tTWrZpR5haqZH7UwS7169owc678Ltcq
-         iV7Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVibh4+kUmVYZOT1OgiWFnhaY/1kKMnkuvXW4RN82j1Prt7sXzZGqbFXuzN6pDntZhuZvP8+3CJ02rImEl6MqH/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/m/GDVz+JdH962XkfbZOa3w/Zs0xsgAFvhA/1LivIgS1MZqyb
-	pMTBFDtY6lzOQJbb6TpbuyjPA3JBy4mxeJ66cDdnpK0lCg5spA/u+Db8hVrsbb5dX3tHdj+BNgV
-	z2Ww7k0QC2BV558SRppwRUaFnVmY=
-X-Gm-Gg: ASbGncug058a1JT5qVASEjI2x3jfYO4nAHzG1KPnLaGkcJ2y05bdbR9BhtabI/e+RY4
-	CyOwVcEEfMc8k1I29BWWKPyNCscB/2L0BXrGfrhDKC3kuxtnA2Urq4L47tTkNbogsubxPeLAuuk
-	19xKN4x7WHtoQ65GpQM+nNGw==
-X-Google-Smtp-Source: AGHT+IEkXTvk5+VQsfOHU41Nt1ayqw8E86sP2+R4MnwHDGO5t2/updHhtIrmagcb2TLk839XbaUBZCLWooev7OOZdng=
-X-Received: by 2002:a17:90b:4c4b:b0:301:ba2b:3bc6 with SMTP id
- 98e67ed59e1d1-3084e777d31mr460558a91.7.1744654456437; Mon, 14 Apr 2025
- 11:14:16 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1744654509; x=1745259309;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Ab8qgY0wYeMeF9f8GAqkiU/85dkzWksm0Y+DavzpAGg=;
+        b=Ah0OclNlgWPM2wMYzb+rz4WNdITrVCrCtiq1Zzt0QhAHA75mireJ37Exis2NR6RYe/
+         R1m4GVxuAPrp6HQXoiJV8A9dA6HeSLLrihIedgVI5PkY0EFa/MpJ1ibBCiKgy5iNb+3K
+         NnOq0O3YDtmxKnSAt6OS3YG5eZvKibCUZ3Cf0ihIUL5t/FU/DkxwW3EsD7gDKwRYEEIy
+         D0C+Vi73bS+UtS/Av9FmMCZfrtUWPFT86DDqnAuaglmX2rQJS9JWbUhUV7rvKgNdTqsM
+         qVjsaRECJQmWu3oRRRuQtx3su1+swGrUK09as65BTgOEqK6zGgaSK5mEqXwa78k4xAep
+         53uQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXmUpNxIsya0CWM5FrEsztQe408fk3Ng1zou/FeZVqixAdDIoX6tIiLiztM7NzVn1bP5/Ci1XS6Kw9/mfv6b3wp@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRBDkUHcGW5tuLICDgIMxjvWDkPLoyVJEpINv8jdGsvQe3qLvp
+	K91oL9pVmwICn36bup5CD3LQaf1ewl9Vcu0lals0huwEckx5i7ikG3h229KgX+L0/uSjr8ivi+a
+	hye3fi/hCYhGQVPXhvXUFkxHhxqM=
+X-Gm-Gg: ASbGncvjgbo/luqeMp/Sfdt0v2xvPfhRCis10LgVluw9vnor2fmbEu8mOjOSOG54xby
+	V9N+wm+hxMaSyqKeuH1lrKF1UNDSEHarCiRLKQ/nDiPOOcXOrqXaHCildV7q9+wuPE95FPfnIJz
+	3ll1U5bz+5z4NN9go2IA67vI3AwjCRs5+XBK2vK0ttFdsc90UoucqksQ==
+X-Google-Smtp-Source: AGHT+IGQY2h60f8WJYp88UGsGy+zjKZoZ77MuV/wdekbtzAvVIiA03PukMvok77iK0iUI19EfMYr3Th7THvYja4ZcDE=
+X-Received: by 2002:a05:6122:7d0:b0:527:67db:9cb2 with SMTP id
+ 71dfb90a1353d-527c34d1d3cmr9206320e0c.4.1744654508673; Mon, 14 Apr 2025
+ 11:15:08 -0700 (PDT)
 MIME-Version: 1.0
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Mon, 14 Apr 2025 20:14:04 +0200
-X-Gm-Features: ATxdqUEQM3cWjHtvsETO9v7OduJ-ylsXDY8NGs7BGU0wFttRYdVgU1MA1pnQNM4
-Message-ID: <CANiq72ke45eOwckMhWHvmwxc03dxr4rnxxKvx+HvWdBLopZfrQ@mail.gmail.com>
-Subject: `u64` by `u64` div/mod in DRM QR for arm32
-To: Jocelyn Falempe <jfalempe@redhat.com>, Christian Schrefl <chrisi.schrefl@gmail.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, rust-for-linux <rust-for-linux@vger.kernel.org>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	dri-devel <dri-devel@lists.freedesktop.org>
+References: <20250407120317.127056-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20250407120317.127056-4-prabhakar.mahadev-lad.rj@bp.renesas.com> <Z_0-iH91A4Sexlzj@shell.armlinux.org.uk>
+In-Reply-To: <Z_0-iH91A4Sexlzj@shell.armlinux.org.uk>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Mon, 14 Apr 2025 19:14:42 +0100
+X-Gm-Features: ATxdqUEl2MkISqtCUulKnIjkTEEvAI8jUFwXWbR4ZrlJPw4rcSyDREbiYNsOOl0
+Message-ID: <CA+V-a8sS0TtS-TEdkQ8MB5F4JtzV9358Y9fmKe5MggGU+wP=4Q@mail.gmail.com>
+Subject: Re: [PATCH net-next v5 3/3] net: stmmac: Add DWMAC glue layer for
+ Renesas GBETH
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Richard Cochran <richardcochran@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
+	Biju Das <biju.das.jz@bp.renesas.com>, 
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_111417_900082_B75D9E98 
-X-CRM114-Status: UNSURE (   5.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250414_111509_804896_B2553D8E 
+X-CRM114-Status: GOOD (  15.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,29 +107,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jocelyn, Christian,
+Hi Russell,
 
-I started build-testing arm 32-bit within my other usual routine
-tests, and I hit:
-
-    ld.lld: error: undefined symbol: __aeabi_uldivmod
-    >>> referenced by drm_panic_qr.rs:417 (drivers/gpu/drm/drm_panic_qr.rs:417)
-    >>> drivers/gpu/drm/drm_panic_qr.o:(<drm_panic_qr::SegmentIterator
-as core::iter::traits::iterator::Iterator>::next) in archive vmlinux.a
-
-which comes from both these `u64` by `u64`:
-
-    let out = (self.carry / pow) as u16;
-    self.carry = self.carry % pow;
-
-Christian: I guess we can offer a set of `div64` functions using the C
-ones, at least for the time being, and eventually wire the actual
-operator with some support from upstream Rust. Or do you have
-something else in mind? (i.e. I think you have been discussing
-intrinsics lately)
-
-Thanks!
+On Mon, Apr 14, 2025 at 5:57=E2=80=AFPM Russell King (Oracle)
+<linux@armlinux.org.uk> wrote:
+>
+> On Mon, Apr 07, 2025 at 01:03:17PM +0100, Prabhakar wrote:
+> > +     gbeth->rstc =3D devm_reset_control_get_exclusive(dev, NULL);
+> > +     if (IS_ERR(gbeth->rstc))
+> > +             return PTR_ERR(gbeth->rstc);
+> > +
+> > +     gbeth->dev =3D dev;
+> > +     gbeth->regs =3D stmmac_res.addr;
+> > +     gbeth->plat_dat =3D plat_dat;
+> > +     plat_dat->bsp_priv =3D gbeth;
+> > +     plat_dat->set_clk_tx_rate =3D stmmac_set_clk_tx_rate;
+> > +     plat_dat->clks_config =3D renesas_gbeth_clks_config;
+> > +     plat_dat->flags |=3D STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY |
+> > +                        STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP |
+> > +                        STMMAC_FLAG_SPH_DISABLE;
+> > +
+> > +     err =3D renesas_gbeth_clks_config(gbeth, true);
+> > +     if (err)
+> > +             return err;
+> > +
+> > +     err =3D stmmac_dvr_probe(dev, plat_dat, &stmmac_res);
+> > +     if (err)
+> > +             renesas_gbeth_clks_config(gbeth, false);
+> > +
+> > +     return err;
+> > +}
+> > +
+> > +static void renesas_gbeth_remove(struct platform_device *pdev)
+> > +{
+> > +     stmmac_dvr_remove(&pdev->dev);
+> > +
+> > +     renesas_gbeth_clks_config(get_stmmac_bsp_priv(&pdev->dev), false)=
+;
+> > +}
+>
+> Would calling renesas_gbeth_clks_config() in the suspend/resume paths
+> cause problems?
+>
+> If not, please consider using plat_dat->init() and plat_dat->exit()
+> to control these clocks, and then use devm_stmmac_pltfr_probe()
+> which will call the ->init and ->exit functions around the probe
+> as necessary and at removal time (and you won't need the remove
+> method.)
+>
+I'll test this on the platform which can support suspend/resume and
+update accordingly.
 
 Cheers,
-Miguel
+Prabhakar
 
