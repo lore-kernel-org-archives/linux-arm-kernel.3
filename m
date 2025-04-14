@@ -4,72 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 158F7C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 07:48:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9387C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 07:54:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vu67UkXmiFFya5XoeJuQ7PZ1kH7H8hEZhkpL2VvaDRc=; b=hATUhscGDDWTssjXaDR4OpzP/U
-	VCgUn9a1Shv/0G/VKeABRCejovGmmoGio8+3ZGgDC+AEf3Whluw5OjUSdcQI3syFiGY3/1jsbWsx8
-	pfW4oV+9UfQzF8L8qSvsvZq5yfyeXz9Obn0KHz6EQ9TujYGOFJ8L2HGfZTlYO+tN/BAEg/HzSXwct
-	fPC+wZmO5bsS/5t4WeTDzpXWbMxbaer8K0IKY5ZJpt286Hf2rIiqpyV9xgjsuzBheidm44M2qHS/N
-	D8MvjwgtUvXuTxA+hcAQ3ojQyLVPH+yHeWvahM3ikvFpTC5W8CvBe4tvHS/DQ5YWPVFiK9LnFUwMm
-	UkTDZeIQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+I0cmPavFVWH+xTCnfDDOUhHYdgvBD+Uf4QFJV/B8C8=; b=kOBOtc6VAoRcK+5QhuxR2XmZUO
+	jMumQaC2n2zBmiMRh2FjG0fdWaiG2Ojc9f2LUeKNsmuId4p+86lzzqLazoF3myWXl8FRBYbV43YaF
+	SksByZFauTQENcZUnn57l2WGPoCt6iIzNRUnE0RHXf9UnV/oRA4t89QPlcyuH63dUCJY2cGT7Y51J
+	GwiYTyOTOs3L08KRS1C6DZrbaIbaYBn8NzfMRF3pP+uxppq8zdLqDXTv5m8drkqVRm8WFv4cokyDi
+	WfJ0wY7eCP6ViJCQjrRgGMCCLth8zBCVGqCJlYfObgHLkxT1HQwKj5mQzvTmUGX/QvGSwsAErh6n1
+	BuCI4mcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4EYB-00000000zI3-1ubf;
-	Mon, 14 Apr 2025 07:48:15 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4ETx-00000000ya0-16DR
+	id 1u4EeI-00000000zwj-3JiM;
+	Mon, 14 Apr 2025 07:54:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u4EcR-00000000zip-04vc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 07:43:56 +0000
-Received: from localhost (unknown [124.16.138.129])
-	by APP-05 (Coremail) with SMTP id zQCowAAHQwuwvPxn49_nCA--.16546S2;
-	Mon, 14 Apr 2025 15:43:44 +0800 (CST)
-From: Chen Ni <nichen@iscas.ac.cn>
-To: Zhiqiang.Hou@nxp.com,
-	lpieralisi@kernel.org,
-	kw@linux.com,
-	manivannan.sadhasivam@linaro.org,
-	robh@kernel.org,
-	bhelgaas@google.com
-Cc: linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Chen Ni <nichen@iscas.ac.cn>
-Subject: [PATCH] PCI: ls-gen4: Use to_delayed_work()
-Date: Mon, 14 Apr 2025 15:42:41 +0800
-Message-Id: <20250414074241.3954081-1-nichen@iscas.ac.cn>
-X-Mailer: git-send-email 2.25.1
+	Mon, 14 Apr 2025 07:52:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 01E621007;
+	Mon, 14 Apr 2025 00:52:34 -0700 (PDT)
+Received: from [10.57.88.7] (unknown [10.57.88.7])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0CAA83F694;
+	Mon, 14 Apr 2025 00:52:33 -0700 (PDT)
+Message-ID: <6e6305fd-3b93-43ec-8114-e81b2926adfc@arm.com>
+Date: Mon, 14 Apr 2025 08:52:32 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowAAHQwuwvPxn49_nCA--.16546S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7Gw1xJF43Zw1DurWUuF4fGrg_yoWDXFX_u3
-	yqkF9FkFyYk3s5J34akrW3ZFykA34xXw1kKFs5KFZ8Zay7Jr1jy348ZFWDAFW8Kr45XF13
-	CF9xCF13C3yDAjkaLaAFLSUrUUUUbb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbf8FF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j
-	6F4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFylc2xSY4AK67AK6r4xMxAIw28IcxkI7VAKI4
-	8JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xv
-	wVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjx
-	v20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20E
-	Y4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267
-	AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUbVHq3UUUUU==
-X-Originating-IP: [124.16.138.129]
-X-CM-SenderInfo: xqlfxv3q6l2u1dvotugofq/
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64/mm: Re-organise setting up FEAT_S1PIE registers
+ PIRE0_EL1 and PIR_EL1
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
+ linux-kernel@vger.kernel.org
+References: <20250410074024.1545768-1-anshuman.khandual@arm.com>
+Content-Language: en-GB
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20250410074024.1545768-1-anshuman.khandual@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_004353_681162_D3D15BF7 
-X-CRM114-Status: UNSURE (   8.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250414_005239_111896_A1D46675 
+X-CRM114-Status: GOOD (  24.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,28 +67,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use to_delayed_work() instead of open-coding it.
+On 10/04/2025 08:40, Anshuman Khandual wrote:
+> mov_q cannot really move PIE_E[0|1] macros into a general purpose register
+> as expected if those macro constants contain some 128 bit layout elements,
+> required for D128 page tables. Fix this problem via first loading up these
+> macro constants into a given memory location and then subsequently setting
+> up registers PIRE0_EL1 and PIR_EL1 by retrieving the memory stored values.
 
-Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
----
- drivers/pci/controller/mobiveil/pcie-layerscape-gen4.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+From memory, the primary issue is that for D128, PIE_E[0|1] are defined in terms
+of 128-bit types with shifting and masking, which the assembler can't do? It
+would be good to spell this out.
 
-diff --git a/drivers/pci/controller/mobiveil/pcie-layerscape-gen4.c b/drivers/pci/controller/mobiveil/pcie-layerscape-gen4.c
-index 5af22bee913b..09dff6bf824f 100644
---- a/drivers/pci/controller/mobiveil/pcie-layerscape-gen4.c
-+++ b/drivers/pci/controller/mobiveil/pcie-layerscape-gen4.c
-@@ -174,8 +174,7 @@ static int ls_g4_pcie_interrupt_init(struct mobiveil_pcie *mv_pci)
- 
- static void ls_g4_pcie_reset(struct work_struct *work)
- {
--	struct delayed_work *dwork = container_of(work, struct delayed_work,
--						  work);
-+	struct delayed_work *dwork = to_delayed_work(work);
- 	struct ls_g4_pcie *pcie = container_of(dwork, struct ls_g4_pcie, dwork);
- 	struct mobiveil_pcie *mv_pci = &pcie->pci;
- 	u16 ctrl;
--- 
-2.25.1
+> 
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Ard Biesheuvel <ardb@kernel.org>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> ---
+> This patch applies on v6.15-rc1
+> 
+>  arch/arm64/kernel/head.S         | 3 +++
+>  arch/arm64/kernel/pi/map_range.c | 6 ++++++
+>  arch/arm64/kernel/pi/pi.h        | 1 +
+>  arch/arm64/mm/mmu.c              | 1 +
+>  arch/arm64/mm/proc.S             | 5 +++--
+>  5 files changed, 14 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
+> index 2ce73525de2c..4950d9cc638a 100644
+> --- a/arch/arm64/kernel/head.S
+> +++ b/arch/arm64/kernel/head.S
+> @@ -126,6 +126,9 @@ SYM_CODE_START(primary_entry)
+>  	 * On return, the CPU will be ready for the MMU to be turned on and
+>  	 * the TCR will have been set.
+>  	 */
+> +	adr_l	x0, pir_data
+> +	bl      __pi_load_pir_data
+
+Using C code to pre-calculate the values into global variables that the assembly
+code then loads and stuffs into the PIR registers feels hacky. I wonder if we
+can instead pre-calculate into asm-offsets.h? e.g. add the following to
+asm-offsets.c:
+
+DEFINE(PIE_E0_ASM, PIE_E0);
+DEFINE(PIE_E1_ASM, PIE_E1);
+
+Which will generate the asm-offsets.h header with PIE_E[0|1]_ASM with the
+pre-calculated values that you can then use in proc.S?
+
+Or if that doesn't work for some reason, is it possible to store to the PIR
+registers directly from the C code?
+
+Thanks,
+Ryan
+
+> +
+>  	bl	__cpu_setup			// initialise processor
+>  	b	__primary_switch
+>  SYM_CODE_END(primary_entry)
+> diff --git a/arch/arm64/kernel/pi/map_range.c b/arch/arm64/kernel/pi/map_range.c
+> index 81345f68f9fc..cd9d24e73046 100644
+> --- a/arch/arm64/kernel/pi/map_range.c
+> +++ b/arch/arm64/kernel/pi/map_range.c
+> @@ -103,3 +103,9 @@ asmlinkage u64 __init create_init_idmap(pgd_t *pg_dir, pteval_t clrmask)
+>  
+>  	return ptep;
+>  }
+> +
+> +asmlinkage void __init load_pir_data(u64 pir_data[])
+> +{
+> +	pir_data[0] = PIE_E0;
+> +	pir_data[1] = PIE_E1;
+> +}
+> diff --git a/arch/arm64/kernel/pi/pi.h b/arch/arm64/kernel/pi/pi.h
+> index c91e5e965cd3..ae61df4fdb77 100644
+> --- a/arch/arm64/kernel/pi/pi.h
+> +++ b/arch/arm64/kernel/pi/pi.h
+> @@ -34,3 +34,4 @@ void map_range(u64 *pgd, u64 start, u64 end, u64 pa, pgprot_t prot,
+>  asmlinkage void early_map_kernel(u64 boot_status, void *fdt);
+>  
+>  asmlinkage u64 create_init_idmap(pgd_t *pgd, pteval_t clrmask);
+> +asmlinkage void load_pir_data(u64 pir_data[]);
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index ea6695d53fb9..762e81ff4e85 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -58,6 +58,7 @@ static bool rodata_is_rw __ro_after_init = true;
+>   * with MMU turned off.
+>   */
+>  long __section(".mmuoff.data.write") __early_cpu_boot_status;
+> +unsigned long __section(".mmuoff.data.write") pir_data[2];
+>  
+>  /*
+>   * Empty_zero_page is a special page that is used for zero-initialized data
+> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
+> index fb30c8804f87..7dd28cf101c2 100644
+> --- a/arch/arm64/mm/proc.S
+> +++ b/arch/arm64/mm/proc.S
+> @@ -524,9 +524,10 @@ alternative_else_nop_endif
+>  #define PTE_MAYBE_NG		0
+>  #define PTE_MAYBE_SHARED	0
+>  
+> -	mov_q	x0, PIE_E0
+> +	adr_l	x1, pir_data
+> +	ldr	x0, [x1, #0]
+>  	msr	REG_PIRE0_EL1, x0
+> -	mov_q	x0, PIE_E1
+> +	ldr	x0, [x1, #8]
+>  	msr	REG_PIR_EL1, x0
+>  
+>  #undef PTE_MAYBE_NG
 
 
