@@ -4,136 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2024AC369B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 13:16:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACDDFC369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 13:18:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2lDMoGbLTkfpV9XPmY4UE7cjKyAc0EvO1VXR+z/uwKo=; b=39wd/kqGRhJtP7HHRsLznLaKi4
-	sW6Y/+almRQI7oGV6amD86pYIxeuJBKZct49AZHhZNwAMxqeW/IFB2umtgzi7egmAL+YmmGQD4VIi
-	N9b0I0YFc7u2XqnUl80suQBaiPkpwmvOmhl45D+E4YtVwaJXirvKqaF7fSQJ05EiU+9Qand8ht/u9
-	5fqkNZBYAWmw/Gpya4Wt3J3ZZzaneR7lA/AeXuKEIeYtbqMR7HOWThzB1EcDQaevxkFMugwNsCIWq
-	5o1CZMzy/k2KOU+D0jylzspP3uz7IWM2kIwwco7SG5HmvzsxjtN/qcFadS0QlONU8rjbNqY1GmO+4
-	0/gdjMJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2SNscoirtsDvIbwZnwBiZN/ZoEFlVMwbl3RNRFA+lQo=; b=ClQ8FPDjfI7IB+/PL5Ze4jmb5r
+	Zjq2fjeHpYtjPut0P9WZgWKab7rqlbYKgzduNOxJm9Uh9sxBmrXEqYHN13jTYO8qdmNKKv6fOWLQ5
+	0izQxsAyvXqIA3D51pOA0+aQkdZjY+5cjMjWSh8tA0a2HjVV/jvoO+HKyQIKpb9OYO2TMIFGv1jfn
+	Dg3IB6ZSIwgdKTKXxsn+d5nz8UXcclGKOhULf4EVvAemQHHgSXtt8Ismz4C+tOWlHMSiYMtvJrIQy
+	8/RDRGU9QQREtgw5ksttAARvdmP3FCxJcyr06ui95yNUO1VMDyeBKApoOrYcxDvPjwwcWDE+tYMPR
+	4tcmqLEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Jfg-000000025Fx-2bGb;
-	Mon, 14 Apr 2025 13:16:20 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4JXD-000000023hG-1IiI
+	id 1u4JhW-000000025tZ-3ryT;
+	Mon, 14 Apr 2025 13:18:14 +0000
+Received: from relmlor1.renesas.com ([210.160.252.171] helo=relmlie5.idc.renesas.com)
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u4JdJ-000000024dS-08gv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 13:07:37 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53E99nQa015732
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 13:07:34 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	2lDMoGbLTkfpV9XPmY4UE7cjKyAc0EvO1VXR+z/uwKo=; b=VcSosi47HmKEE9fd
-	TAKwP7IleGAq85XwKdpf7SEqMk3nFF3HRFKNZYb0zOx7D7scBTCM4+O0Gqu7CPs6
-	LVgDK/quX6mxxfrOOhzc+MUxlx/HtZtGwCrsHfdKA+7xNZOtaWk9LIqtl628skQL
-	jzFxNYtKCoNlV8MFHYaXknULyKRfE6CQKUhynqsdTdVkv28y+EIbJOcCibXbEoB9
-	lBWQUOMAeMmBXyruLjYrGg6fEM5qIF1M7uFopExABEcUi0qkC6QHnWxICluET0y4
-	lOeDTJin7+Y0WNdcS64OE2Wt/XRiLzbrNPNbmmVPrv8mJNq6Cdoy3l3GWY7AWrnD
-	aBgxCQ==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45ygd6cmr6-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 13:07:33 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-7c5841ae28eso100349485a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 06:07:33 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744636052; x=1745240852;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=2lDMoGbLTkfpV9XPmY4UE7cjKyAc0EvO1VXR+z/uwKo=;
-        b=ewgyeYXffGKP82YVLEl5fqRTphCr+G729kEAkcW1mO7f4Emm3hOfPz9UkzQFM2cUnr
-         6bMmQNmH+nwqsM8eUVLXFMB/2uG6mqs8M3ea0voedwYRY7SriWhxPEUfvIOgaXoDkhhp
-         Q4uilqZSNdS9FESzuWwAraHOXPbDRbVTRJ6lPNjKpHu1A185XqGisrXXfYBZ4l44fRcP
-         abRb0aLRxQMTn2nHN3nbNqGTxyFGF9NM4F0KY0aqHa5CbjE6NkWWvSIhSmLG/sqfqc4Y
-         FvctQgmqPRxmgBLdThzWRTHk51Qx9a2FMAaLcgKHFo8SDm5nlfxdFX9acMABKOCa4niT
-         xn/w==
-X-Forwarded-Encrypted: i=1; AJvYcCVhkOIKVGG4l64S70rQZag9FGYxS4r/H4r7j1ulbi8sjEZ4UwCg2yaneBkM4s6a9Jt1tb02oyE9S1uXC1vWjNK4@lists.infradead.org
-X-Gm-Message-State: AOJu0YztYl5/rnKUiVL12D9CDNonvjrrs7VwjFnaEEUb1oMdaE+RhAgh
-	TucqE/oic/hseAnxK65mc684uMLlrzb5Nh8flFLjCWqfx3bhkdGfzvxwn9VFdJndHUFNOhsN7SZ
-	TZGvRmzcn0VEY6Y/2FPbLbG0g4Ij2dr4FrQxRCqeh0dz96mwLVZhrDNAll+ZjxuCBeNgZbl7/Xg
-	==
-X-Gm-Gg: ASbGncvnpJKslb7eioiJLZlSAO/Zl9OpfoG0I/t4K+vv4jI5/jP/G+90EyTRNw9Hl5A
-	UQd+Fb4I89WJA12EDl3ONynUoQ7kLsJhNs8+q2GM/1qZcw0UTG7L5Q8bQD1ExwbboQBA5p0lnj5
-	YdouugsfQNE3oHWOomB6nJiZ6CsmqjDlSRAoIORnQXyWjZUtN9iVHNTwRFAesHCUIL50iABEPOZ
-	jQnrUU5FPIAloqT1OwaT2tG4d8n4Jj2ZSTJELqpBVdLXuoorB1DBKvBNzfOsdAsfv346uUO1r/Z
-	6+UMRTqklzx4zcmoKjPZPqaBLUwvSoGczEsrnIhpK107ihcSFspsy0HflCzEvGtdzA==
-X-Received: by 2002:a05:620a:c55:b0:7c3:d752:f256 with SMTP id af79cd13be357-7c7b19a73d9mr526925885a.7.1744636052503;
-        Mon, 14 Apr 2025 06:07:32 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGkjyPRb5zjVxNYkQFuXETFI2mifPtUz3VVZ8CZhW5cBCjg9CtZG+TWolnSrPbDxliiMbxdEQ==
-X-Received: by 2002:a05:620a:c55:b0:7c3:d752:f256 with SMTP id af79cd13be357-7c7b19a73d9mr526922685a.7.1744636051876;
-        Mon, 14 Apr 2025 06:07:31 -0700 (PDT)
-Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5f459a32596sm302607a12.65.2025.04.14.06.07.27
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 14 Apr 2025 06:07:31 -0700 (PDT)
-Message-ID: <5b7bd3a6-532d-416c-aa64-8523c54d87b6@oss.qualcomm.com>
-Date: Mon, 14 Apr 2025 15:07:26 +0200
+	Mon, 14 Apr 2025 13:13:55 +0000
+X-CSE-ConnectionGUID: Q88s0WCoTpy8kQw+Z7mjWQ==
+X-CSE-MsgGUID: BdcF5JAqRmKL37V0LnFwwQ==
+Received: from unknown (HELO relmlir6.idc.renesas.com) ([10.200.68.152])
+  by relmlie5.idc.renesas.com with ESMTP; 14 Apr 2025 22:13:47 +0900
+Received: from [10.226.92.218] (unknown [10.226.92.218])
+	by relmlir6.idc.renesas.com (Postfix) with ESMTP id 71E9041C595F;
+	Mon, 14 Apr 2025 22:13:39 +0900 (JST)
+Message-ID: <f20e6589-37d9-458b-af82-92fb1ed0db18@bp.renesas.com>
+Date: Mon, 14 Apr 2025 14:13:37 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 10/10] arm64: dts: qcom: sar2130p: add display nodes
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Cc: Rob Clark <robdclark@gmail.com>,
-        Abhinav Kumar
- <quic_abhinavk@quicinc.com>,
-        Dmitry Baryshkov <lumag@kernel.org>, Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Kuogee Hsieh <quic_khsieh@quicinc.com>,
-        Krishna Manikandan <quic_mkrishn@quicinc.com>,
-        Jonathan Marek <jonathan@marek.ca>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        Joerg Roedel <joro@8bytes.org>, Konrad Dybcio <konradybcio@kernel.org>,
-        linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
-        freedreno@lists.freedesktop.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org,
-        Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-References: <20250314-sar2130p-display-v2-0-31fa4502a850@oss.qualcomm.com>
- <20250314-sar2130p-display-v2-10-31fa4502a850@oss.qualcomm.com>
- <c14dfd37-7d12-40c3-8281-fd0a7410813e@oss.qualcomm.com>
- <umhperyjdgiz4bo6grbxfhe44wiwoqb3w3qrzg62gf3ty66mjq@pddxfo3kkohv>
- <8fe8c0f8-71d5-4a85-96e5-17cb4773820d@oss.qualcomm.com>
- <fd2dtxhbfvgpiwy7rc5z4hrrmuthet7bmp6iespdcvxgaz5uhe@ivg2gun7sb6q>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <fd2dtxhbfvgpiwy7rc5z4hrrmuthet7bmp6iespdcvxgaz5uhe@ivg2gun7sb6q>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: jaAPzsY0c-vIhKeEhGtBnXvqUgY0dgGm
-X-Proofpoint-GUID: jaAPzsY0c-vIhKeEhGtBnXvqUgY0dgGm
-X-Authority-Analysis: v=2.4 cv=ANaQCy7k c=1 sm=1 tr=0 ts=67fd0895 cx=c_pps a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=FpWmc02/iXfjRdCD7H54yg==:17 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=KKAkSRfTAAAA:8 a=ivjB2eyK2o-HjyQSxY8A:9 a=QEXdDO2ut3YA:10
- a=PEH46H7Ffwr30OY-TuGO:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-14_04,2025-04-10_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 adultscore=0
- mlxlogscore=769 suspectscore=0 clxscore=1015 lowpriorityscore=0
- phishscore=0 impostorscore=0 spamscore=0 priorityscore=1501 malwarescore=0
- bulkscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2504140096
+Subject: Re: [PATCH net-next v5 3/3] net: stmmac: Add DWMAC glue layer for
+ Renesas GBETH
+To: Prabhakar <prabhakar.csengg@gmail.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Magnus Damm <magnus.damm@gmail.com>,
+ "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+ Jose Abreu <joabreu@synopsys.com>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org,
+ Biju Das <biju.das.jz@bp.renesas.com>,
+ Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20250407120317.127056-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20250407120317.127056-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Language: en-GB
+From: Paul Barker <paul.barker.ct@bp.renesas.com>
+In-Reply-To: <20250407120317.127056-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Type: multipart/signed; micalg=pgp-sha256;
+ protocol="application/pgp-signature";
+ boundary="------------5XZcBvmkaTabxuEc9swqfILM"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_060735_360972_1BC360EB 
-X-CRM114-Status: GOOD (  17.55  )
+X-CRM114-CacheID: sfid-20250414_061353_301699_88233610 
+X-CRM114-Status: GOOD (  17.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,41 +86,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/14/25 2:14 PM, Dmitry Baryshkov wrote:
-> On Mon, Apr 14, 2025 at 01:39:56PM +0200, Konrad Dybcio wrote:
->> On 4/14/25 1:37 PM, Dmitry Baryshkov wrote:
->>> On Mon, Apr 14, 2025 at 01:13:28PM +0200, Konrad Dybcio wrote:
->>>> On 3/14/25 7:09 AM, Dmitry Baryshkov wrote:
->>>>> From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
->>>>>
->>>>> Add display controller, two DSI hosts, two DSI PHYs and a single DP
->>>>> controller. Link DP to the QMP Combo PHY.
->>>>>
->>>>> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
->>>>> ---
->>>>
->>>> [...]
->>>>
->>>>> +			mdss_mdp: display-controller@ae01000 {
->>>>> +				compatible = "qcom,sar2130p-dpu";
->>>>> +				reg = <0x0 0x0ae01000 0x0 0x8f000>,
->>>>> +				      <0x0 0x0aeb0000 0x0 0x2008>;
->>>>
->>>> size = 0x3000
->>>
->>> Existing platforms (including SM8650) use 0x2008 here. Would you like to
->>> change all the platforms and why?
->>
->> The last register is base+0x2004 but the region is 0x3000-sized on 2130
-> 
-> As I wrote, this still applies to other existing platforms. I think up
-> to now we were using a mixture of 'last actual register' and 'documented
-> space size' with VBIF using the former one. Should we switch all
-> platforms to use the latter one for this region? In such a case I'll
-> update this one and all other platforms. Otherwise I'd prefer uniformity
-> and still use 0x2008 here like other platforms do.
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--------------5XZcBvmkaTabxuEc9swqfILM
+Content-Type: multipart/mixed; boundary="------------ueneKmR1e1Faq6614lRwIjUE";
+ protected-headers="v1"
+From: Paul Barker <paul.barker.ct@bp.renesas.com>
+To: Prabhakar <prabhakar.csengg@gmail.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Magnus Damm <magnus.damm@gmail.com>,
+ "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+ Jose Abreu <joabreu@synopsys.com>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org,
+ Biju Das <biju.das.jz@bp.renesas.com>,
+ Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Message-ID: <f20e6589-37d9-458b-af82-92fb1ed0db18@bp.renesas.com>
+Subject: Re: [PATCH net-next v5 3/3] net: stmmac: Add DWMAC glue layer for
+ Renesas GBETH
+References: <20250407120317.127056-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20250407120317.127056-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
+In-Reply-To: <20250407120317.127056-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Let's stick to allocated region sizes (i.e. 0x3000 here)
+--------------ueneKmR1e1Faq6614lRwIjUE
+Content-Type: multipart/mixed; boundary="------------Zc6ku6fXf3RcrzFBSscMfX9c"
 
-Konrad
+--------------Zc6ku6fXf3RcrzFBSscMfX9c
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Hi Prabhakar,
+
+On 07/04/2025 13:03, Prabhakar wrote:
+> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+>=20
+> Add the DWMAC glue layer for the GBETH IP found in the Renesas RZ/V2H(P=
+)
+> SoC.
+>=20
+> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+
+[snip]
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c =
+b/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
+> new file mode 100644
+> index 000000000000..a0f7cacea810
+> --- /dev/null
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
+> @@ -0,0 +1,165 @@
+> +// SPDX-License-Identifier: GPL-2.0+
+> +/*
+> + * dwmac-renesas-gbeth.c - DWMAC Specific Glue layer for Renesas GBETH=
+
+> + *
+> + * The Rx and Tx clocks are supplied as follows for the GBETH IP.
+> + *
+> + *                         Rx / Tx
+> + *   -------+------------- on / off -------
+> + *          |
+> + *          |            Rx-180 / Tx-180
+> + *          +---- not ---- on / off -------
+> + *
+> + * Copyright (C) 2025 Renesas Electronics Corporation
+> + */
+> +
+> +#include <linux/clk.h>
+> +#include <linux/device.h>
+> +#include <linux/module.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/reset.h>
+> +
+> +#include "dwmac4.h"
+
+I'm looking at this while working on RZ/T2H Ethernet support, clangd
+says inclusion of dwmac4.h is not needed here and compilation succeeds
+with the include removed.
+
+Thanks,
+
+--=20
+Paul Barker
+--------------Zc6ku6fXf3RcrzFBSscMfX9c
+Content-Type: application/pgp-keys; name="OpenPGP_0x27F4B3459F002257.asc"
+Content-Disposition: attachment; filename="OpenPGP_0x27F4B3459F002257.asc"
+Content-Description: OpenPGP public key
+Content-Transfer-Encoding: quoted-printable
+
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+xsFNBGS4BNsBEADEc28TO+aryCgRIuhxWAviuJl+f2TcZ1JeeaMzRLgSXKuXzkiI
+g6JIVfNvThjwJaBmb7+/5+D7kDLJuutu9MFfOzTS0QOQWppwIPgbfktvMvwwsq3m
+7e9Qb+S1LVeV0/ldZfuzgzAzHFDwmzryfIyt2JEbsBsGTq/QE+7hvLAe8R9xofIn
+z6/IndiiTYhNCNf06nFPR4Y5ZDZPGb9aw5Jisqh+OSxtc0BFHDSV8/35yWM/JLQ1
+Ja8AOHw1kP9KO+iE9rHMt0+7lH3mN1GBabxH26EdgFfPShsi14qmziLOuUlGLuwO
+ApIYqvdtCs+zlMA8PsiJIMuxizZ6qCLur3r2b+/YXoJjuFDcax9M+Pr0D7rZX0Hk
+6PW3dtvDQHfspwLY0FIlXbbtCfCqGLe47VaS7lvG0XeMlo3dUEsf707Q2h0+G1tm
+wyeuWSPEzZQq/KI7JIFlxr3N/3VCdGa9qVf/40QF0BXPfJdcwTEzmPlYetRgA11W
+bglw8DxWBv24a2gWeUkwBWFScR3QV4FAwVjmlCqrkw9dy/JtrFf4pwDoqSFUcofB
+95u6qlz/PC+ho9uvUo5uIwJyz3J5BIgfkMAPYcHNZZ5QrpI3mdwf66im1TOKKTuf
+3Sz/GKc14qAIQhxuUWrgAKTexBJYJmzDT0Mj4ISjlr9K6VXrQwTuj2zC4QARAQAB
+zStQYXVsIEJhcmtlciA8cGF1bC5iYXJrZXIuY3RAYnAucmVuZXNhcy5jb20+wsGU
+BBMBCgA+FiEE9KKf333+FIzPGaxOJ/SzRZ8AIlcFAmS4BNsCGwEFCQPCZwAFCwkI
+BwIGFQoJCAsCBBYCAwECHgECF4AACgkQJ/SzRZ8AIlfxaQ/8CM36qjfad7eBfwja
+cI1LlH1NwbSJ239rE0X7hU/5yra72egr3T5AUuYTt9ECNQ8Ld03BYhbC6hPki5rb
+OlFM2hEPUQYeohcJ4Na5iIFpTxoIuC49Hp2ce6ikvt9Hc4O2FAntabg+9hE8WA4f
+QWW+Qo5ve5OJ0sGylzu0mRZ2I3mTaDsxuDkXOICF5ggSdjT+rcd/pRVOugImjpZv
+/jzSgUfKV2wcZ8vVK0616K21tyPiRjYtDQjJAKff8gBY6ZvP5REPl+fYNvZm1y4l
+hsVupGHL3aV+BKooMsKRZIMTiKJCIy6YFKHOcgWFG62cuRrFDf4r54MJuUGzyeoF
+1XNFzbe1ySoRfU/HrEuBNqC+1CEBiduumh89BitfDNh6ecWVLw24fjsF1Ke6vYpU
+lK9/yGLV26lXYEN4uEJ9i6PjgJ+Q8fubizCVXVDPxmWSZIoJg8EspZ+Max03Lk3e
+flWQ0E3l6/VHmsFgkvqhjNlzFRrj/k86IKdOi0FOd0xtKh1p34rQ8S/4uUN9XCVj
+KtmyLfQgqPVEC6MKv7yFbextPoDUrFAzEgi4OBdqDJjPbdU9wUjONxuWJRrzRFcr
+nTIG7oC4dae0p1rs5uTlaSIKpB2yulaJLKjnNstAj9G9Evf4SE2PKH4l4Jlo/Hu1
+wOUqmCLRo3vFbn7xvfr1u0Z+oMTOOARkuAhwEgorBgEEAZdVAQUBAQdAcuNbK3VT
+WrRYypisnnzLAguqvKX3Vc1OpNE4f8pOcgMDAQgHwsF2BBgBCgAgFiEE9KKf333+
+FIzPGaxOJ/SzRZ8AIlcFAmS4CHACGwwACgkQJ/SzRZ8AIlc90BAAr0hmx8XU9KCj
+g4nJqfavlmKUZetoX5RB9g3hkpDlvjdQZX6lenw3yUzPj53eoiDKzsM03Tak/KFU
+FXGeq7UtPOfXMyIh5UZVdHQRxC4sIBMLKumBfC7LM6XeSegtaGEX8vSzjQICIbaI
+roF2qVUOTMGal2mvcYEvmObC08bUZuMd4nxLnHGiej2t85+9F3Y7GAKsA25EXbbm
+ziUg8IVXw3TojPNrNoQ3if2Z9NfKBhv0/s7x/3WhhIzOht+rAyZaaW+31btDrX4+
+Y1XLAzg9DAfuqkL6knHDMd9tEuK6m2xCOAeZazXaNeOTjQ/XqCHmZ+691VhmAHCI
+7Z7EBPh++TjEqn4ZH+4KPn6XD52+ruWXGbJP29zc+3bwQ+ZADfUaL3ADj69ySxzm
+bO24USHBAg+BhZAZMBkbkygbTen/umT6tBxG91krqbKlDdc8mhGonBN6i+nz8qv1
+6MdC5P1rDbo834rxNLvoFMSLCcpjoafiprl9qk0wQLq48WGphs9DX7V75ZAU5Lt6
+yA+je8i799EZJsVlB933Gpj688H4csaZqEMBjq7vMvI+a5MnLCGcjwRhsUfogpRb
+AWTx9ddVau4MJgEHzB7UU/VFyP2vku7XPj6mgSfSHyNVf2hqxwISQ8eZLoyxauOD
+Y61QMX6YFL170ylToSFjH627h6TzlUDOMwRkuAiAFgkrBgEEAdpHDwEBB0Bibkmu
+Sf7yECzrkBmjD6VGWNVxTdiqb2RuAfGFY9RjRsLB7QQYAQoAIBYhBPSin999/hSM
+zxmsTif0s0WfACJXBQJkuAiAAhsCAIEJECf0s0WfACJXdiAEGRYIAB0WIQSiu8gv
+1Xr0fIw/aoLbaV4Vf/JGvQUCZLgIgAAKCRDbaV4Vf/JGvZP9AQCwV06n3DZvuce3
+/BtzG5zqUuf6Kp2Esgr2FrD4fKVbogD/ZHpXfi9ELdH/JTSVyujaTqhuxQ5B7UzV
+CUIb1qbg1APIEA/+IaLJIBySehy8dHDZQXit/XQYeROQLTT9PvyM35rZVMGH6VG8
+Zb23BPCJ3N0ISOtVdG402lSP0ilP/zSyQAbJN6F0o2tiPd558lPerFd/KpbCIp8N
+kYaLlHWIDiN2AE3c6sfCiCPMtXOR7HCeQapGQBS/IMh1qYHffuzuEy7tbrMvjdra
+VN9Rqtp7PSuRTbO3jAhm0Oe4lDCAK4zyZfjwiZGxnj9s1dyEbxYB2GhTOgkiX/96
+Nw+m/ShaKqTM7o3pNUEs9J3oHeGZFCCaZBv97ctqrYhnNB4kzCxAaZ6K9HAAmcKe
+WT2q4JdYzwB6vEeHnvxl7M0Dj9pUTMujW77Qh5IkUQLYZ2XQYnKAV2WI90B0R1p9
+bXP+jqqkaNCrxKHV1tYOB6037CziGcZmiDneiTlM765MTLJLlHNqlXxDCzRwEazU
+y9dNzITjVT0qhc6th8/vqN9dqvQaAGa13u86Gbv4XPYdE+5MXPM/fTgkKaPBYcIV
+QMvLfoZxyaTk4nzNbBxwwEEHrvTcWDdWxGNtkWRZw0+U5JpXCOi9kBCtFrJ701UG
+UFs56zWndQUS/2xDyGk8GObGBSRLCwsXsKsF6hSX5aKXHyrAAxEUEscRaAmzd6O3
+ZyZGVsEsOuGCLkekUMF/5dwOhEDXrY42VR/ZxdDTY99dznQkwTt4o7FOmkY=3D
+=3DsIIN
+-----END PGP PUBLIC KEY BLOCK-----
+
+--------------Zc6ku6fXf3RcrzFBSscMfX9c--
+
+--------------ueneKmR1e1Faq6614lRwIjUE--
+
+--------------5XZcBvmkaTabxuEc9swqfILM
+Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="OpenPGP_signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+wnsEABYIACMWIQSiu8gv1Xr0fIw/aoLbaV4Vf/JGvQUCZ/0KAQUDAAAAAAAKCRDbaV4Vf/JGvVy9
+AQC8bBQR7l5ED4UfiLb0EhysVsbVdBOhfqkFNise9GXRIAD+OwNb0RGxiJZGo/+yeHP1gGhfWVRI
++rBlwKWwdQaQ6A4=
+=dLCZ
+-----END PGP SIGNATURE-----
+
+--------------5XZcBvmkaTabxuEc9swqfILM--
 
