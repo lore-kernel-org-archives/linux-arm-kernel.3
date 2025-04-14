@@ -4,74 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B558C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 14:15:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 731A5C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 14:17:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RbGnIm4hb935cyx0JLBc0r6wcr8bm4+ihAtRQ47eXPI=; b=Pv/oC60/5BzTw1H95AVwC03RA5
-	NvuUyukfOmdHt5PF5wna7sFl0Szn1n99weGf8sAZNiuTxX7nem8uiwCVYAoJVV7SXCtfQ495OSk1v
-	kIbijlDW8OzLwtNonaakemjWdJw1KmoL9z5dB5L3B0kmEqbZ/IWtGNteos2diTnS5breEKgS2RQS3
-	QuwVhDnksWnjJPSFStgCfZglR+8nEsLpqSWny8gvv+HSmecXg1w7Z/e82LXavYqOlm4xrRTkkEJWr
-	AV0wySqqzscmTv2MZGJXMt1HkkKzb8kiwmOFkkLe2XklvfIn6D2LOpKiB+Kmo87gW/E2goHU7VoTk
-	gP+jsmYA==;
+	bh=AXBT3Gx49OIy8DXLSl7KoI0jOZ+YAa+TLsMsUTA/Dt4=; b=39CnPl1oXlO7WGUuqwHzWGmLM6
+	XScAltCVc4KErBf8fbYq5fig0hHB6k7toub6HJiv6GtWJvJJBrWNinkvtpuBErP1Mah//K0124OHo
+	yZaEyrz43LcyqBYDf/QGhwrtpT6MWmq+P+V2CH6wzywdNBj9eiwwFHZCbT6+Zjfq096GID334nCav
+	QbaoveIsrjSfgHTrCBDNmEwjhRwtK42oHpL6MmGnH3N1luMAS2liBtcCjRDr/lrND2PfnRIJ6nJXB
+	FPJ4kpJiw0n9Svg7jJstvVM7WLHqhODBfet2DIiQ+HfOkn+nZsRfM7ynHo7CTjbvdVCem2+4gTAwm
+	t9KGjkzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Kas-00000002KFT-220T;
-	Mon, 14 Apr 2025 14:15:26 +0000
-Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
+	id 1u4Kci-00000002KnB-3JtU;
+	Mon, 14 Apr 2025 14:17:20 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4KO2-00000002H7g-3esW
+	id 1u4KPR-00000002HQ2-1SuJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 14:02:12 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A26861026C88F;
-	Mon, 14 Apr 2025 16:02:06 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1744639328; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=RbGnIm4hb935cyx0JLBc0r6wcr8bm4+ihAtRQ47eXPI=;
-	b=OJJaZGgOUsi76mes6eYPL7Zp1qTQvUA/bQKvbhIOHR8Fu6Iz3avQpCSqUPtI5zLwP4AtOV
-	LmKdvytWy3RJJAZubLeXuKvp8eEVF/ouGrZsfBNx8FWUC6WS0qxu7Kwu9JYZyDNkU1tbbq
-	MvEIZyyIBSwU+K5Qg3qx6aRGv00nDnKO+Gj4aH6rLo6ymNpFs0mrASyZEnkgfq+mcagn0L
-	FcJCewBj8NRyVcT4trFsm/KxEnl+YK8KNkoVM1X2HpAHqzwDj86nAbKKpFHIFD2RJEFb+w
-	oZ0B/Yf6LxnI3407/ZJ8/yFAQSimop1gTJGF23PXFOSSf2GteIVH8da0Tzmd4Q==
-From: Lukasz Majewski <lukma@denx.de>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Simon Horman <horms@kernel.org>,
-	Lukasz Majewski <lukma@denx.de>
-Subject: [net-next v5 6/6] ARM: mxs_defconfig: Enable CONFIG_FEC_MTIP_L2SW to support MTIP L2 switch
-Date: Mon, 14 Apr 2025 16:01:28 +0200
-Message-Id: <20250414140128.390400-7-lukma@denx.de>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250414140128.390400-1-lukma@denx.de>
-References: <20250414140128.390400-1-lukma@denx.de>
+	Mon, 14 Apr 2025 14:03:39 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53ECsOaa017111;
+	Mon, 14 Apr 2025 16:03:26 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	AXBT3Gx49OIy8DXLSl7KoI0jOZ+YAa+TLsMsUTA/Dt4=; b=OOObsEyzzjEjvwnu
+	cH7LPVAmKJ3JygUwty9UIFQ/TSuUXnHve4rbZGsgO07BlL7GQ29k/0NFClsHE0Md
+	vJ5vPJ0zeuVHGgmDZL40DY2s/+JFq/U94176Hm1bP8mYaOFml7X5VuOWhfqLRLJk
+	iPBrnq7tIYC3zwDPqJgkrjLaCdpcJSUiyKw4tjUPwEUNlrIu9b0K0W9fln1u+V0q
+	4z/KsPm57RESOEsPoZaTun0UXAStaG/xkeVSzBlNVE4ObKfaMkSbgoLYNx74nK+o
+	iWJqNQRyEXb9k6G+dEJn4g4ljLAa1rMfwe4gFEX/TZaZVimMs5o99VKJ3uC2Bzc3
+	3qTJGw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45yf2gr5j9-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 14 Apr 2025 16:03:26 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 7752440049;
+	Mon, 14 Apr 2025 16:02:16 +0200 (CEST)
+Received: from Webmail-eu.st.com (eqndag1node4.st.com [10.75.129.133])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 53C46981A1E;
+	Mon, 14 Apr 2025 15:59:34 +0200 (CEST)
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE4.st.com
+ (10.75.129.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 14 Apr
+ 2025 15:59:34 +0200
+Received: from [10.48.86.121] (10.48.86.121) by SAFDAG1NODE1.st.com
+ (10.75.90.17) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 14 Apr
+ 2025 15:59:33 +0200
+Message-ID: <be981c5c-5252-4650-a148-c2f51d83a430@foss.st.com>
+Date: Mon, 14 Apr 2025 15:59:32 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+From: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
+Subject: Re: [PATCH v16 0/6] Introduction of a remoteproc tee to load signed
+ firmware
+To: Bjorn Andersson <andersson@kernel.org>,
+        Mathieu Poirier
+	<mathieu.poirier@linaro.org>,
+        Jens Wiklander <jens.wiklander@linaro.org>,
+        "Rob Herring" <robh+dt@kernel.org>,
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>,
+        Conor Dooley <conor+dt@kernel.org>
+CC: <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-remoteproc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <op-tee@lists.trustedfirmware.org>, <devicetree@vger.kernel.org>
+References: <20250325095833.3059895-1-arnaud.pouliquen@foss.st.com>
+Content-Language: en-US
+Organization: STMicroelectronics
+In-Reply-To: <20250325095833.3059895-1-arnaud.pouliquen@foss.st.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.86.121]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SAFDAG1NODE1.st.com
+ (10.75.90.17)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-14_04,2025-04-10_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_070211_052934_58496943 
-X-CRM114-Status: GOOD (  10.13  )
+X-CRM114-CacheID: sfid-20250414_070337_900059_85E571FA 
+X-CRM114-Status: GOOD (  18.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,48 +106,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch enables support for More Than IP L2 switch available on some
-imx28[7] devices.
+Hello Bjorn,
 
-Moreover, it also enables CONFIG_SWITCHDEV and CONFIG_BRIDGE required
-by this driver for correct operation.
+Gentle reminder.
 
-Signed-off-by: Lukasz Majewski <lukma@denx.de>
----
-Changes for v4:
-- New patch
+For your information, I proposed to Mathieu that he wait for your first review,
+as this revision is intended to address your comments on revision 15."
 
-Changes for v5:
-- Apply this patch on top of patch, which updates mxs_defconfig to
-  v6.15-rc1
-- Add more verbose commit message with explanation why SWITCHDEV and
-  BRIDGE must be enabled as well
----
- arch/arm/configs/mxs_defconfig | 3 +++
- 1 file changed, 3 insertions(+)
+Thanks,
+Arnaud
 
-diff --git a/arch/arm/configs/mxs_defconfig b/arch/arm/configs/mxs_defconfig
-index 91723fdd3c04..4f8f715dcc41 100644
---- a/arch/arm/configs/mxs_defconfig
-+++ b/arch/arm/configs/mxs_defconfig
-@@ -34,6 +34,8 @@ CONFIG_IP_PNP_DHCP=y
- CONFIG_SYN_COOKIES=y
- # CONFIG_INET_DIAG is not set
- # CONFIG_IPV6 is not set
-+CONFIG_BRIDGE=y
-+CONFIG_NET_SWITCHDEV=y
- CONFIG_CAN=m
- # CONFIG_WIRELESS is not set
- CONFIG_DEVTMPFS=y
-@@ -52,6 +54,7 @@ CONFIG_EEPROM_AT24=y
- CONFIG_SCSI=y
- CONFIG_BLK_DEV_SD=y
- CONFIG_NETDEVICES=y
-+CONFIG_FEC_MTIP_L2SW=y
- CONFIG_ENC28J60=y
- CONFIG_ICPLUS_PHY=y
- CONFIG_MICREL_PHY=y
--- 
-2.39.5
 
+On 3/25/25 10:58, Arnaud Pouliquen wrote:
+> Main updates from version V15[1]:
+> - Removed the rproc_ops:load_fw() operation introduced in the previous version.
+> - Returned to managing the remoteproc firmware loading in rproc_tee_parse_fw to
+>   load and authenticate the firmware before getting the resource table.
+> - Added spinlock and dev_link mechanisms in remoteproc TEE to better manage
+>   bind/unbind.
+> 
+> More details are available in each patch commit message.
+> 
+> [1] https://lore.kernel.org/linux-remoteproc/20241128084219.2159197-7-arnaud.pouliquen@foss.st.com/T/
+> 
+> Tested-on: commit 0a0ba9924445 ("Linux 6.14-rc7")
+> 
+> Description of the feature:
+> --------------------------
+> This series proposes the implementation of a remoteproc tee driver to
+> communicate with a TEE trusted application responsible for authenticating
+> and loading the remoteproc firmware image in an Arm secure context.
+> 
+> 1) Principle:
+> 
+> The remoteproc tee driver provides services to communicate with the OP-TEE
+> trusted application running on the Trusted Execution Context (TEE).
+> The trusted application in TEE manages the remote processor lifecycle:
+> 
+> - authenticating and loading firmware images,
+> - isolating and securing the remote processor memories,
+> - supporting multi-firmware (e.g., TF-M + Zephyr on a Cortex-M33),
+> - managing the start and stop of the firmware by the TEE.
+> 
+> 2) Format of the signed image:
+> 
+> Refer to:
+> https://github.com/OP-TEE/optee_os/blob/master/ta/remoteproc/src/remoteproc_core.c#L18-L57
+> 
+> 3) OP-TEE trusted application API:
+> 
+> Refer to:
+> https://github.com/OP-TEE/optee_os/blob/master/ta/remoteproc/include/ta_remoteproc.h
+> 
+> 4) OP-TEE signature script
+> 
+> Refer to:
+> https://github.com/OP-TEE/optee_os/blob/master/scripts/sign_rproc_fw.py
+> 
+> Example of usage:
+> sign_rproc_fw.py --in <fw1.elf> --in <fw2.elf> --out <signed_fw.sign> --key ${OP-TEE_PATH}/keys/default.pem
+> 
+> 
+> 5) Impact on User space Application
+> 
+> No sysfs impact. The user only needs to provide the signed firmware image
+> instead of the ELF image.
+> 
+> 
+> For more information about the implementation, a presentation is available here
+> (note that the format of the signed image has evolved between the presentation
+> and the integration in OP-TEE).
+> 
+> https://resources.linaro.org/en/resource/6c5bGvZwUAjX56fvxthxds
+> 
+> 
+> 
+> Arnaud Pouliquen (6):
+>   remoteproc: core: Introduce rproc_pa_to_va helper
+>   remoteproc: Add TEE support
+>   remoteproc: Introduce release_fw optional operation
+>   dt-bindings: remoteproc: Add compatibility for TEE support
+>   remoteproc: stm32: Create sub-functions to request shutdown and
+>     release
+>   remoteproc: stm32: Add support of an OP-TEE TA to load the firmware
+> 
+>  .../bindings/remoteproc/st,stm32-rproc.yaml   |  58 +-
+>  drivers/remoteproc/Kconfig                    |  10 +
+>  drivers/remoteproc/Makefile                   |   1 +
+>  drivers/remoteproc/remoteproc_core.c          |  52 ++
+>  drivers/remoteproc/remoteproc_internal.h      |   6 +
+>  drivers/remoteproc/remoteproc_tee.c           | 619 ++++++++++++++++++
+>  drivers/remoteproc/stm32_rproc.c              | 139 +++-
+>  include/linux/remoteproc.h                    |   4 +
+>  include/linux/remoteproc_tee.h                |  90 +++
+>  9 files changed, 935 insertions(+), 44 deletions(-)
+>  create mode 100644 drivers/remoteproc/remoteproc_tee.c
+>  create mode 100644 include/linux/remoteproc_tee.h
+> 
+> 
+> base-commit: 0a0ba99244455fea8706c4a53f5f66a45d87905d
 
