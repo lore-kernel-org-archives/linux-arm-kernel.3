@@ -4,116 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5BEBC369B8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 13:47:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 718A9C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 13:50:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GGyhxlay54IRFzuBkra/A/yq80IVczLJEIsYnlPDjgA=; b=X3d9dSw6f2Vo2TBDjtQsC0qW4A
-	hW3GBVU1qfFHCqMb+gjwJtQRvguhqj42Uq8OzZUPXKbRTM8an2a0Uv4eLviTVftnnpf44u+iV0Plo
-	MBqx9oelqOI93l6kl15GWS9noRfIMjDNdlKIuVxVa4zzKWwzeuj8bVDoz9e/vsF9clK0nOnCrQC5+
-	o+RAQ7FI7RRzB111m+3AgCQA9TctfTD9LVpDMYXzhWtFKAkfevQwCLEk2Kck8eJT9YUgpr7Vf2ONy
-	1t5FJyEj5gFTWFXEBJkrcYBBpiytjNjKrHB/56JfrFjrinsWyFoPQXVJZjWtfy9BNnyymnH13rofC
-	uwc4PjgA==;
+	bh=YWq/boYisZYMrhdhaDiWHyihYMW/MTKTJ7vYRohwc+E=; b=ZrhJLzBtqFf3/SgbL79nUb91ef
+	K31Si+zQoSnTSoQFWgTWFx6og8Dni3RuEHW1yAyjw74X61RGbrtbW5R1qJWkLX/u1CsAsHk1l1fLt
+	YrBr/A/ugukQU6vHncutKAVqfjy4nItjGBhGR0giREY2Uut2mPQIYsQ2WGmeLbblQWXS5rUsCY39t
+	HQehZE4MKjpxa+DpHoKyhcoDdgKWm2ecZGhh0NmjUjQ3+ChyOnavhQxpb2T8Mxy6y+lhUS92n8Aix
+	HLvPpZLN6wv6hysgTq8Cfnc6jvP+r7+k93O8VbZMCmFAEd0ZsuNcGeC+NBIO7zShxwc63csrNkzu5
+	UPPvzH2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4K9E-00000002Dnt-38qr;
-	Mon, 14 Apr 2025 13:46:52 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4K7M-00000002DQf-1UQp
+	id 1u4KD2-00000002EbO-30T6;
+	Mon, 14 Apr 2025 13:50:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u4KB9-00000002EFw-2ic2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 13:44:57 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53E99r1g030666
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 13:44:55 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	GGyhxlay54IRFzuBkra/A/yq80IVczLJEIsYnlPDjgA=; b=GpRsMp1vvSyRCbYZ
-	8AUyply8bOhmTnKkUYgtKyT2XoW9oAi0r4k8KzwbNLM76Ne2pqPvlFToQJbSK+2w
-	ivukfjTndJnP7Lf/7b84SxpvudvmV1Nrj4xly1MTelzyGLynBrdJYZo1aRhBmnMy
-	mxV2iefMqzk8a8pGm4ijPEAjBKyp3Er8/NgltMA9sDVx90u55iOwD1dOwnCrZxlI
-	sL5ICCR0DPbyANCPn2AX9v5gzP95ytEg94UvRMhPRpTa5S1AltW5j5z1yxOJo1PZ
-	CsMk3NbYbek1Mv6DzfhJEduYM3DX9HdvvRj59zgvDk/UkHxdM6iMY/2pK9qdYBwZ
-	PSlhfw==
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45ydvj4w7j-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 13:44:55 +0000 (GMT)
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-6eeb8a269a7so13739346d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 06:44:55 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744638294; x=1745243094;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=GGyhxlay54IRFzuBkra/A/yq80IVczLJEIsYnlPDjgA=;
-        b=cAU0MVbbsS+OmGTNcqWB2nKK+/7DhuMDlwom6CPQihh0cGqIXprpNJDrxSzMxAKV5Q
-         WBunEb4hbgbvnouXC8JDZDcDuzYooRdxSYC/0dtclkUVBa483OQMJG9myR10K+Ji7y5U
-         7rNTnB9Cg/JSQLzR95kssGOLiSioSHwvymnuPoc6qFb7eNxuH1JBmPpTIRJvX9s900D1
-         vwbaBKXVu6f8AYls5by4ZuRg2c5cnwXTAOPIbuc92CqP6mzAFEySGdIYi8vNPSOapJRV
-         VkgKjzRFTabrJeRr/QurbsaPn7RqN1gy/UPWIfblyncPphDU1x5pO743MoTSIKaRcn75
-         Gj9g==
-X-Gm-Message-State: AOJu0YwKVbGyiTWSBSEqLbP+l6oq215HGtkL0sYTuVYskFoSJsDL7z/f
-	qN+qXugTxdhxODfp2Funlw77FeBMAoPlibgMbdTV4LvLAtYKvENJ30Ai0a2kpBg2LP5i29Qo5ne
-	qkMrdEdHp8DUwz33qVcUhFqXY1yNGb1i/6rcKzCRWcPb6A31UwUSLh/6wjJo1FCC1u4QkWmessQ
-	==
-X-Gm-Gg: ASbGncuAdYTNbBeMIe1kMfm0XJMLgapaOyiqxf/aAjDDfmd4b2NCW6Svph8WKx12F8e
-	CtDCwK/NKCrhi3IUzsflj9TxxNAKcJ7l3h6+Tn1J29MWnONhJ5cWqbfnol4V+6vE8DFik8LhKNA
-	wHDZyZlU7gYmV9AlPTVMYptwVuziqsQi/mCK81MavtZ5bdtYmTVIEG2wiKsEzlx4GLSANxFCNK4
-	LnOE0cuVzLIH+KJ8sjrVitOTJHla0sPcmRfi47fP9XqgXJHhEZnDeQczoXdCT+peTXN9wMRB2rb
-	YGJ6hWawHJNlGmv1Imx7CFPRPh36cmsolhKCR19/1EIp1R6DeiIDRT/oEq6FWoE8CQ==
-X-Received: by 2002:a05:6214:19e5:b0:6e8:fcd2:360e with SMTP id 6a1803df08f44-6f23f15d812mr61942686d6.8.1744638293963;
-        Mon, 14 Apr 2025 06:44:53 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEZVo5rWcpGuTu3YsE5z95sRrLd11UcEgqrLzSlXM3gKn6ONHCheTTQxg6qNFAYdN3dceNSIA==
-X-Received: by 2002:a05:6214:19e5:b0:6e8:fcd2:360e with SMTP id 6a1803df08f44-6f23f15d812mr61942526d6.8.1744638293402;
-        Mon, 14 Apr 2025 06:44:53 -0700 (PDT)
-Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-acaa1ccd205sm928040066b.141.2025.04.14.06.44.50
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 14 Apr 2025 06:44:52 -0700 (PDT)
-Message-ID: <6e98b5ca-3ff1-44c3-928f-e993cf29215f@oss.qualcomm.com>
-Date: Mon, 14 Apr 2025 15:44:50 +0200
+	Mon, 14 Apr 2025 13:48:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ACBB51007;
+	Mon, 14 Apr 2025 06:48:49 -0700 (PDT)
+Received: from [10.57.86.225] (unknown [10.57.86.225])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 107F43F66E;
+	Mon, 14 Apr 2025 06:48:48 -0700 (PDT)
+Message-ID: <6cd5a4ef-5835-41db-8282-4b022df7c953@arm.com>
+Date: Mon, 14 Apr 2025 14:48:47 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 2/2] arm64: dts: qcom: sa8775p: Add support for camss
-To: Vikram Sharma <quic_vikramsa@quicinc.com>, rfoss@kernel.org,
-        todor.too@gmail.com, bryan.odonoghue@linaro.org, mchehab@kernel.org,
-        robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-        andersson@kernel.org, konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
-        cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com,
-        will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org,
-        Suresh Vankadara <quic_svankada@quicinc.com>
-References: <20250210155605.575367-1-quic_vikramsa@quicinc.com>
- <20250210155605.575367-3-quic_vikramsa@quicinc.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20250210155605.575367-3-quic_vikramsa@quicinc.com>
+Subject: Re: [PATCH v2] arm64: pageattr: Explicitly bail out when changing
+ permissions for vmalloc_huge mappings
+Content-Language: en-GB
+To: David Hildenbrand <david@redhat.com>, Dev Jain <dev.jain@arm.com>,
+ catalin.marinas@arm.com, will@kernel.org
+Cc: gshan@redhat.com, rppt@kernel.org, steven.price@arm.com,
+ suzuki.poulose@arm.com, tianyaxiong@kylinos.cn, ardb@kernel.org,
+ urezki@gmail.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250403052844.61818-1-dev.jain@arm.com>
+ <75884033-9474-4d0c-b737-d9b6aebe298b@redhat.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <75884033-9474-4d0c-b737-d9b6aebe298b@redhat.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=ZIrXmW7b c=1 sm=1 tr=0 ts=67fd1157 cx=c_pps a=wEM5vcRIz55oU/E2lInRtA==:117 a=FpWmc02/iXfjRdCD7H54yg==:17 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=KVm0XDNadgfEQVUGQ2gA:9 a=QEXdDO2ut3YA:10
- a=OIgjcC2v60KrkQgK7BGD:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: HYxpqUFGb8mJGPXMAooTMCJ3uMtk6fcl
-X-Proofpoint-ORIG-GUID: HYxpqUFGb8mJGPXMAooTMCJ3uMtk6fcl
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-14_04,2025-04-10_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 suspectscore=0
- clxscore=1015 priorityscore=1501 bulkscore=0 phishscore=0 mlxlogscore=999
- spamscore=0 impostorscore=0 malwarescore=0 mlxscore=0 lowpriorityscore=0
- classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2504140099
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_064456_407608_940C6589 
-X-CRM114-Status: GOOD (  18.15  )
+X-CRM114-CacheID: sfid-20250414_064851_726215_432D369E 
+X-CRM114-Status: GOOD (  16.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,70 +69,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/10/25 4:56 PM, Vikram Sharma wrote:
-> Add changes to support the camera subsystem on the SA8775P.
+On 04/04/2025 13:57, David Hildenbrand wrote:
+> On 03.04.25 07:28, Dev Jain wrote:
+>> arm64 uses apply_to_page_range to change permissions for kernel vmalloc mappings,
+>> which does not support changing permissions for block mappings. This function
+>> will change permissions until it encounters a block mapping, and will bail
+>> out with a warning. Since there are no reports of this triggering, it
+>> implies that there are currently no cases of code doing a vmalloc_huge()
+>> followed by partial permission change. But this is a footgun waiting to
+>> go off, so let's detect it early and avoid the possibility of permissions
+>> in an intermediate state. So,  explicitly disallow changing permissions
+>> for VM_ALLOW_HUGE_VMAP mappings.
+>>
+>> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+>> Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+>> Signed-off-by: Dev Jain <dev.jain@arm.com>
+>> ---
+>> v1->v2:
+>>   - Improve changelog, keep mention of page mappings in comment
+>>
+>>   arch/arm64/mm/pageattr.c | 6 +++---
+>>   1 file changed, 3 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+>> index 39fd1f7ff02a..04d4a8f676db 100644
+>> --- a/arch/arm64/mm/pageattr.c
+>> +++ b/arch/arm64/mm/pageattr.c
+>> @@ -96,8 +96,8 @@ static int change_memory_common(unsigned long addr, int
+>> numpages,
+>>        * we are operating on does not result in such splitting.
+>>        *
+>>        * Let's restrict ourselves to mappings created by vmalloc (or vmap).
+>> -     * Those are guaranteed to consist entirely of page mappings, and
+>> -     * splitting is never needed.
+>> +     * Disallow VM_ALLOW_HUGE_VMAP mappings to guarantee that only page
+>> +     * mappings are updated and splitting is never needed.
+>>        *
+>>        * So check whether the [addr, addr + size) interval is entirely
+>>        * covered by precisely one VM area that has the VM_ALLOC flag set.
+>> @@ -105,7 +105,7 @@ static int change_memory_common(unsigned long addr, int
+>> numpages,
+>>       area = find_vm_area((void *)addr);
+>>       if (!area ||
+>>           end > (unsigned long)kasan_reset_tag(area->addr) + area->size ||
+>> -        !(area->flags & VM_ALLOC))
+>> +        ((area->flags & (VM_ALLOC | VM_ALLOW_HUGE_VMAP)) != VM_ALLOC))
+>>           return -EINVAL;
+>>         if (!numpages)
 > 
-> Co-developed-by: Suresh Vankadara <quic_svankada@quicinc.com>
-> Signed-off-by: Suresh Vankadara <quic_svankada@quicinc.com>
-> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
-> ---
->  arch/arm64/boot/dts/qcom/sa8775p.dtsi | 187 ++++++++++++++++++++++++++
->  1 file changed, 187 insertions(+)
+> Makes sense to me. Whenever required, we can improve the checks (or even try
+> supporting splitting).
+
+Yes that's the plan; I'd like to get to the point where we can do huge vmalloc
+mappings by default on systems that support BBML2, then split mappings when needed.
+
+
 > 
-> diff --git a/arch/arm64/boot/dts/qcom/sa8775p.dtsi b/arch/arm64/boot/dts/qcom/sa8775p.dtsi
-> index 3394ae2d1300..83640fef05d2 100644
-> --- a/arch/arm64/boot/dts/qcom/sa8775p.dtsi
-> +++ b/arch/arm64/boot/dts/qcom/sa8775p.dtsi
-> @@ -7,6 +7,7 @@
->  #include <dt-bindings/interconnect/qcom,icc.h>
->  #include <dt-bindings/interrupt-controller/arm-gic.h>
->  #include <dt-bindings/clock/qcom,rpmh.h>
-> +#include <dt-bindings/clock/qcom,sa8775p-camcc.h>
->  #include <dt-bindings/clock/qcom,sa8775p-dispcc.h>
->  #include <dt-bindings/clock/qcom,sa8775p-gcc.h>
->  #include <dt-bindings/clock/qcom,sa8775p-gpucc.h>
-> @@ -3796,6 +3797,192 @@ videocc: clock-controller@abf0000 {
->  			#power-domain-cells = <1>;
->  		};
->  
-> +		camss: isp@ac7a000 {
-> +			compatible = "qcom,sa8775p-camss";
-> +
-> +			reg = <0x0 0xac7a000 0x0 0x0f01>,
-> +			      <0x0 0xac7c000 0x0 0x0f01>,
-> +			      <0x0 0xac84000 0x0 0x0f01>,
-> +			      <0x0 0xac88000 0x0 0x0f01>,
-> +			      <0x0 0xac8c000 0x0 0x0f01>,
-> +			      <0x0 0xac90000 0x0 0x0f01>,
-> +			      <0x0 0xac94000 0x0 0x0f01>,
-These I think should begin 0x1000 earlier and as a result be 0x1000
+> Acked-by: David Hildenbrand <david@redhat.com>
+> 
 
-longer
-I also believe this is an off-by-one.. there's nothing past a certain
-register in there, but 0xf00 is what I believe makes more sense here
-
-[...]
-
-> +				 <&camcc CAM_CC_CSI3PHYTIMER_CLK>,
-> +				 <&camcc CAM_CC_CSID_CSIPHY_RX_CLK>,
-> +				 <&gcc   GCC_CAMERA_HF_AXI_CLK>,
-> +				 <&gcc   GCC_CAMERA_SF_AXI_CLK>,
-
-Please don't forcefully align these
-
-[...]
-
-> +			interconnects = <&gem_noc MASTER_APPSS_PROC QCOM_ICC_TAG_ACTIVE_ONLY
-> +					 &config_noc SLAVE_CAMERA_CFG QCOM_ICC_TAG_ACTIVE_ONLY>,
-> +					<&mmss_noc MASTER_CAMNOC_HF QCOM_ICC_TAG_ALWAYS
-> +					 &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>,
-> +					<&mmss_noc MASTER_CAMNOC_SF QCOM_ICC_TAG_ACTIVE_ONLY
-> +					 &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ACTIVE_ONLY>;
-
-The last one should probably be always-on, given we're doing all
-voting on the APPS RSC as of right now
-
-otherwise looks reasonable
-
-Konrad
 
