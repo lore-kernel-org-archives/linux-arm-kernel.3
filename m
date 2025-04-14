@@ -4,92 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49D5DC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 12:14:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2D0AC369B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 12:16:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0qRngjH5NfK8k3qCBdkRYGMa0moa4Ms3X3uCZG/AMm0=; b=BMOHbG36pABhm81EOcBLpZUajZ
-	YQgYTYZIUg7ldRmxU456o3aDhfz63jJ8dMfq7NiL1O5Sq9o4Cb+7Xt0gEGlz4ZXDA8YzBigzd09gg
-	ecgKQ9haIDahISpD8K6e9h6ybLP0dCXI/aDeC7MbEkGWnr/HUIjz+T2Fv+M4ca3J6bUjUz4fUrOxk
-	k1tlkcLFxd7GNcsA2d74OXA9mrcDJ5GZnJ/UN8vlBJ4p9hOAfPl0fpf2v1P/3aVZd5bLD1CdANdTO
-	IePmSxGqlHMrqQ+rUrwJABcx2Fq4CLmnlIZ8lBOf7Q0SHTNZqyCcmJNU6bP4Y/Wfz+lkvzxo3pZHM
-	8iM6N6sw==;
+	bh=i7fjaaffP15XqkniyfX75okb0C6c8PrElL3LeRzWROM=; b=1g16t3G6lgXnupnw7DTEcVxMJA
+	8aikLtnK1KaIGEMcI0/uX/Ps0YdVGLagMSI5EwAENm+NDlvpV5D4AAb03G0YhumjjnaJx5asde9jw
+	o3nOAH1trUUglmVXw76sY+3PRhPuFI2LT6hR/28PoYKZtq8+NBAST24s8GBimM9cZQdjhmhn0E5mA
+	0EHTzIQ62Rl6P5V27FEiyyngZD+zEjtxcuzyztCVvNrsOMhgfpjn+TVjUbw0MjnOK70wabu1i9sVr
+	xhEYIdmweRnRAG6nctJUuV44RUaeP3OPbULVP9jhlWo/8F0FVo3+vhMSXunykW8+ygOWUO1qHfBF7
+	4RfMjeOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Ii2-00000001uag-1ILN;
-	Mon, 14 Apr 2025 12:14:42 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1u4Ijs-00000001uwu-0HaR;
+	Mon, 14 Apr 2025 12:16:36 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4IaP-00000001shi-0mZ0
+	id 1u4IbD-00000001t7v-3diH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 12:06:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1744632409; x=1776168409;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=0qRngjH5NfK8k3qCBdkRYGMa0moa4Ms3X3uCZG/AMm0=;
-  b=iz77Av69kgjXapYYE8HpENZJfksPlK0fyCJbhkPm1hxgyUEXZzpGOyNY
-   UfQVcYxLqjp6kJHAx/Hw3GP3JadJ8WbNM3k00sqPu1KMUBK2Tnim++Gi8
-   ulVWAKI0RrYPaO6x9JALh3qGkFC4zP7z0AwPKJf75fJJx76YU5l1q9yv/
-   MTSy0C1lpwWSzLKrZ2mFKu0DhQBn8v+ec746R/AtanulecxmAol/Kk3Vu
-   acyvdcvMxzlxI8w00Usxrbcij+P6q2M3C6ohHqIxNNbbC/whiwTeV+fCt
-   AjK4xT+fuSAVQrMBltb6wGLtPRasIODqTTidnbdY6Kfz52sA5Fyw8aS2D
-   Q==;
-X-CSE-ConnectionGUID: kH924yWkRCymE1jkCKaZGw==
-X-CSE-MsgGUID: tgjbru6kQT2ztrblDagr2w==
-X-IronPort-AV: E=Sophos;i="6.15,212,1739833200"; 
-   d="scan'208";a="43513528"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 14 Apr 2025 14:06:44 +0200
-X-CheckPoint: {67FCFA54-F-903EAEAC-E04C76C8}
-X-MAIL-CPID: E1346D004478E871A011FAD80CD6DD9E_5
-X-Control-Analysis: str=0001.0A006378.67FCFA53.003E,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 60C11160F74;
-	Mon, 14 Apr 2025 14:06:38 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1744632399;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0qRngjH5NfK8k3qCBdkRYGMa0moa4Ms3X3uCZG/AMm0=;
-	b=Tl4qp1ypBg1TFonNEIdoGASEqRt8LFOamSTfyjhS+4n69oR0qt2D3mwv0+5Jr8UlF3oi/z
-	prGKl+D49I9qlAX5db8g94IB5w81Qi0OMxBymjretiwb+ihk9UAK4DnoZLmM0HBe1NXsSh
-	QxPt3L5X6lX3S7v0qPIGcm2tPFMQxjo2mx+x9+IeaCDOOpOMQWYRhbYEmQGpMrKnxQ9vRh
-	TFgMthFmB7TbTC4Lht3SoL1tL9Zy57kYlrRGie57ZQ63+D7+KHMfmIMwU3D8YztSbjZUAe
-	XxnlRkWhTeOoMuEAFdOQ4VjtbZykuYYgxMPbwAcz5EoXEzVfcfDyYEyFP4eLfw==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>,
- "open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
- "moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>, hongxing.zhu@nxp.com
-Subject: Re: [PATCH 4/5] arm64: dts: imx95: add PCIe's msi-map and iommu-map property
-Date: Mon, 14 Apr 2025 14:06:37 +0200
-Message-ID: <2778503.mvXUDI8C0e@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <Z/kqVYPOV1Em+6H2@lizhi-Precision-Tower-5810>
-References: <20250128211559.1582598-1-Frank.Li@nxp.com> <1970445.taCxCBeP46@steina-w>
- <Z/kqVYPOV1Em+6H2@lizhi-Precision-Tower-5810>
+	Mon, 14 Apr 2025 12:07:41 +0000
+Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c31:2dc0:c767:bd08:cc70:b57a])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 98DEF4CE;
+	Mon, 14 Apr 2025 14:05:36 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1744632337;
+	bh=i7fjaaffP15XqkniyfX75okb0C6c8PrElL3LeRzWROM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eBYdtTrTSjty2OFqvMHEBm3LzQykQ/BAtHcpCLiKmRTDE75RUuAz/mbzgnjYthV9l
+	 21W0gW7ZbNgPsSn0uc0jzJov4/C9tPw8ZMLzsWz2iXQrNnevvKgDdHbf1jn1Y6kebI
+	 LR97sDij1fnLgnKdUfu4TyMbyUiV0YGHjPsg1Ga8=
+Date: Mon, 14 Apr 2025 17:37:31 +0530
+From: Jai Luthra <jai.luthra@ideasonboard.com>
+To: Catalin Popescu <catalin.popescu@leica-geosystems.com>, 
+	Shawn Guo <shawnguo2@yeah.net>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	festevam@gmail.com, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, m.felsch@pengutronix.de, 
+	bsp-development.geo@leica-geosystems.com, stefan.klug@ideasonboard.com, laurent.pinchart@ideasonboard.com
+Subject: Re: [PATCH] arm64: dts: imx8mp: add cpuidle state "cpu-pd-wait"
+Message-ID: <qqi2z7wutuy7e6o5fhpzsgfwkyn4quqmdeftl24meld72sudpg@lo3qpk4x7lbv>
+References: <20241007134424.859467-1-catalin.popescu@leica-geosystems.com>
+ <ZxYiCv6SpLq9uh08@dragon>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="b2c4etq6n6kvcnzt"
+Content-Disposition: inline
+In-Reply-To: <ZxYiCv6SpLq9uh08@dragon>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_050649_722959_46D35755 
-X-CRM114-Status: GOOD (  29.88  )
+X-CRM114-CacheID: sfid-20250414_050740_056972_5E3E0D48 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,132 +72,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-Am Freitag, 11. April 2025, 16:42:29 CEST schrieb Frank Li:
-> On Fri, Apr 11, 2025 at 08:53:02AM +0200, Alexander Stein wrote:
-> > Hi,
-> >
-> > Am Mittwoch, 9. April 2025, 16:59:21 CEST schrieb Frank Li:
-> > > On Wed, Apr 09, 2025 at 12:14:48PM +0200, Alexander Stein wrote:
-> > > > Hi Frank,
-> > > >
-> > > > Am Donnerstag, 27. M=E4rz 2025, 19:48:33 CEST schrieb Frank Li:
-> > > > > [snip]
-> > > > > Finially we get realtek PCI card
-> > > > >
-> > > > > it quite complex, there are one PCIe switch to split it to two pc=
-i bus.
-> > > > >
-> > > > >  lspci -t
-> > > > > -[0000:00]---00.0-[01-ff]----00.0-[02-04]--+-03.0-[03]----00.0
-> > > > >                                            \-07.0-[04]----00.0
-> > > >
-> > > > Interesting. Mine looks slightly different:
-> > > >
-> > > > $ lspci -t
-> > > > -[0000:00]---00.0-[01-ff]----00.0-[02-04]--+-01.0-[03]----00.0
-> > > >                                            \-02.0-[04]----00.0
-> > > >
-> > > > >
-> > > > >
-> > > > > 0000:00:00.0 PCI bridge: Philips Semiconductors Device 0000
-> > > > > 0000:01:00.0 PCI bridge: ASMedia Technology Inc. ASM1182e 2-Port =
-PCIe x1 Gen2 Packet Switch
-> > > > > 0000:02:03.0 PCI bridge: ASMedia Technology Inc. ASM1182e 2-Port =
-PCIe x1 Gen2 Packet Switch
-> > > > > 0000:02:07.0 PCI bridge: ASMedia Technology Inc. ASM1182e 2-Port =
-PCIe x1 Gen2 Packet Switch
-> > > >
-> > > > It seems you have a newer hardware revision. I have
-> > > > 0000:01:00.0 PCI bridge: Pericom Semiconductor Device a303 (rev 03)
-> > > > 0000:02:01.0 PCI bridge: Pericom Semiconductor Device a303 (rev 03)
-> > > > 0000:02:02.0 PCI bridge: Pericom Semiconductor Device a303 (rev 03)
-> > > >
-> > > > PCIe bridges.
-> > > >
-> > > > > 0000:03:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd.=
- RTL8111/8168/8211/8411 PCI Express Gigabit Ethernet Controller (rev 09)
-> > > > > 0000:04:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd.=
- RTL8111/8168/8211/8411 PCI Express Gigabit Ethernet Controller (rev 09)
-> > > > >
-> > > > > It need below change
-> > > > >
-> > > > > diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm6=
-4/boot/dts/freescale/imx95.dtsi
-> > > > > index 9bb26b466a061..9dbf395b9a67b 100644
-> > > > > --- a/arch/arm64/boot/dts/freescale/imx95.dtsi
-> > > > > +++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
-> > > > > @@ -1660,10 +1660,18 @@ pcie0: pcie@4c300000 {
-> > > > >                         power-domains =3D <&scmi_devpd IMX95_PD_H=
-SIO_TOP>;
-> > > > >                         /* pcie0's Devid(BIT[7:6]) is 0x00, strea=
-m id(BIT[5:0]) is 0x10~0x17 */
-> > > > >                         msi-map =3D <0x0 &its 0x10 0x1>,
-> > > > > -                                 <0x100 &its 0x11 0x7>;
-> > > > > +                                 <0x100 &its 0x11 0x1>,
-> > > > > +                                 <0x218 &its 0x12 0x1>,
-> > > > > +                                 <0x238 &its 0x13 0x1>,
-> > > > > +                                 <0x300 &its 0x14 0x1>,
-> > > > > +                                 <0x400 &its 0x15 0x1>;
-> > > > >                         iommu-map =3D <0x000 &smmu 0x10 0x1>,
-> > > > > -                                   <0x100 &smmu 0x11 0x7>;
-> > > > > -                       iommu-map-mask =3D <0x1ff>;
-> > > > > +                                   <0x100 &smmu 0x11 0x1>,
-> > > > > +                                   <0x218 &smmu 0x12 0x1>,
-> > > > > +                                   <0x238 &smmu 0x13 0x1>,
-> > > > > +                                   <0x300 &smmu 0x14 0x1>,
-> > > > > +                                   <0x400 &smmu 0x15 0x1>;
-> > > > > +                       //iommu-map-mask =3D <0x1ff>;
-> > > > >                         fsl,max-link-speed =3D <3>;
-> > > > >                         status =3D "disabled";
-> > > > >
-> > > > >
-> > > > > Only 8 stream id assign to PCIe0 device, it is hard to dynamaic a=
-lloce one,
-> > > > > or need extra works
-> > > >
-> > > > Uh, this looks awefully complicated. Even worse this doesn't work on
-> > > > my hardware. I need mappings for IDs 0x208 and 0x210, so I replaced=
- 0x218
-> > > > and 0x238 from your diff into my numbers.
-> > > >
-> > > > So I take that PCIe bridges are not supported properly. What would =
-be
-> > > > necessary to support this?
-> > >
-> > > I remember bridge use msi to do port power managements.
-> > >
-> > > ITS msi-map can distribute difference irq to difference cores beside =
-iommu
-> > > address protection. It is quite userful for nvme or network devices, =
-which
-> > > have multi queues. Of course, we need more elegant solution.
-> > >
-> > > My card use difference pcie switch chip. But suppose it should work a=
-fter
-> > > you update RID information.
-> >
-> > Yep, after adjusting RID mapping, it works here.
+--b2c4etq6n6kvcnzt
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] arm64: dts: imx8mp: add cpuidle state "cpu-pd-wait"
+MIME-Version: 1.0
+
+Hi Catalin, Shawn,
+
+On Oct 21, 2024 at 17:42:34 +0800, Shawn Guo wrote:
+> On Mon, Oct 07, 2024 at 03:44:24PM +0200, Catalin Popescu wrote:
+> > So far, only WFI is supported on i.MX8mp platform. Add support for
+> > deeper cpuidle state "cpu-pd-wait" that would allow for better power
+> > usage during runtime. This is a port from NXP downstream kernel.
+> >=20
+
+Since the introduction of this patch in mainline, I am facing sluggish=20
+network performance with my Debix Model-A board with i.MX8mp SoC.
+
+The network latency jumps to >1s after almost every other packet:
+
+PING debix (10.0.42.5) 56(84) bytes of data.
+64 bytes from debix (10.0.42.5): icmp_seq=3D1 ttl=3D64 time=3D1008 ms
+64 bytes from debix (10.0.42.5): icmp_seq=3D2 ttl=3D64 time=3D0.488 ms
+64 bytes from debix (10.0.42.5): icmp_seq=3D3 ttl=3D64 time=3D1025 ms
+64 bytes from debix (10.0.42.5): icmp_seq=3D4 ttl=3D64 time=3D0.810 ms
+64 bytes from debix (10.0.42.5): icmp_seq=3D5 ttl=3D64 time=3D590 ms
+64 bytes from debix (10.0.42.5): icmp_seq=3D6 ttl=3D64 time=3D0.351 ms
+^C
+--- debix ping statistics ---
+7 packets transmitted, 6 received, 14.2857% packet loss, time 6126ms
+rtt min/avg/max/mdev =3D 0.351/437.416/1024.755/459.370 ms, pipe 2
+darkapex at freya in ~
+
+If I revert the patch, or disable the deeper cpuidle state through=20
+sysfs, the issue goes away.
+
+# echo 1 > /sys/devices/system/cpu/cpu$i/cpuidle/state1/disable
+
+PING debix (10.0.42.5) 56(84) bytes of data.
+64 bytes from debix (10.0.42.5): icmp_seq=3D1 ttl=3D64 time=3D0.482 ms
+64 bytes from debix (10.0.42.5): icmp_seq=3D2 ttl=3D64 time=3D2.28 ms
+64 bytes from debix (10.0.42.5): icmp_seq=3D3 ttl=3D64 time=3D2.26 ms
+64 bytes from debix (10.0.42.5): icmp_seq=3D4 ttl=3D64 time=3D0.848 ms
+64 bytes from debix (10.0.42.5): icmp_seq=3D5 ttl=3D64 time=3D0.406 ms
+^C
+--- debix ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4051ms
+rtt min/avg/max/mdev =3D 0.406/1.255/2.280/0.842 ms
+
+> > Signed-off-by: Catalin Popescu=20
+> > <catalin.popescu@leica-geosystems.com>
 >=20
-> Are you sure it work after adjusting RID mapping? you said
-> "I take that PCIe bridges are not supported properly"
+> Applied, thanks!
 >=20
-> So I am confused. If it works, I can think how to allocate a stream elega=
-nt.
+>=20
 
-Sorry, this sounded misleading. I was referring to the current state.
-Without additional adjustments PCIe bridges might not work, AFAIU.
-If I adjust the RID mapping, the Ethernet hardware having 2 bridges works on
-my platforms.
+Thanks,
+Jai
 
-Best regards
-Alexander
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
+--b2c4etq6n6kvcnzt
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
 
+iQIzBAABCAAdFiEETeDYGOXVdejUWq/FQ96R+SSacUUFAmf8+oMACgkQQ96R+SSa
+cUUNPg//anR3yxnNmlggeRsPCsaXgpxgH5UJ7tzVGaft9KVR/F/gw/8q2uj9AfTu
+uOfUd2n31EPxw+JLA3YDL7SNENesWvNnPAmKYIhajou7fgsm1q+gejvni8XntT3A
+uxI1ewvh8irH9fDFNNLrxkVLKpTowPUXEwHxCMC/SdxugUxUk0yOJdX+N9Rm5xw2
+VeRxmnj6v0Tv9x0ZRZPKNyTVDncRhFia6r4UJWTWCbGZotzKqNK8NbTmlsZ76pw6
+RPNwoRNs6GSZnY0kOLv16PN5PkVKSB8/NwUcPcsqAJXNqx28Bu9jzHjvdLPZ5XDo
+WWrcC9eK30I8H/Fb6X1r9qZ6B99UiMgAu0rVI8WdOkkHN0MZMGvICq4FSMgOyFhc
++W5Hf6b61EnPAVRRYb3LxrQL41r3D5c3N7ZMyGCri2DeOft9X2L1KeE0W7txBSnX
+s2iofxxOBc/p0qP0wsm+Q60Sm7VH9NbA1POhT1/UL0m5xl7Y1wlHXovGrUNL9q71
+8WlGI1+H1vAhZxelmZofWV8AgmZKrC3tHReGdQqk2q2lhOyfS1zNYWYPQwcR8agm
+t0MdrTPDHi4LtpYQSBr6BvWhHf8Wsd+9z9jTWeP2bB4i9sVncybB2lnYrE1g0l1V
+VCfKJ5GncNuftXQULhFsY9qu9iaVIMXVbHDSlyhyn7pyDFmY+uo=
+=mTz8
+-----END PGP SIGNATURE-----
+
+--b2c4etq6n6kvcnzt--
 
