@@ -4,76 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ED50C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 15:57:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B79F5C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 16:27:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HhFzwgkdtFig+wSBVpbiTQ6PyiK1BHIb2bxLfvyCxnQ=; b=DMJ+eTeaqrojRQA+FaoAT2dFxb
-	dU/o6kAYSBPz/SbMnT1dQPOI1kS9wMrc5ISr9szJBBT9Vdaf4jZIXq9iNA8IgzYMDlIJ1odPcl7/m
-	DK19mYITBagkgnQXuJJNgQ+rPrDVbFZFl9Xp9LDX7KIIE5QVT0jHkH230bpEeVQ2aLlugJsACiQ2v
-	+EsP9OkG2dzo7uXIunhd+SOQhtQ+MvIZrHwzKztOwXML5tVGmTH3kryUy2Lp3R6FWFW4mF3KebyXT
-	mU1AguNM6TeSONaSAvJu0mVsefBQ0z5Nld5CYykSneMz7u/37gaHeOwRNhrWX4Slh4hqsdchgLsx7
-	9pKPoi9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B47q7VuSwb+/KbgR7SpRudbZnMLCz0OlCGXA+NFqc04=; b=d75MAAEdUXJuJmNzQhrPyZx+oN
+	iOPQ86fsteSfPYO1AAoe6M02fYpBvjfD0xPwBLZSKnP9a5z74eCbVMrsoFiNYe/01L9oma2PsffBZ
+	OS3djnAIrjyfUW6alKgo9zrKatwXVQUhIsrDsxov1BTl6FSu1FDtqJtgQvgdDssNvFyebjLWfc9Iw
+	t0Gj2YtBHB9itzDQ8g7n33Ui+ZqtFGxNym8dU+wu81mbVetfs60udLvAEY9RIqjawhlZ999TpC9Ck
+	Rsyqe5VOjhwKnaKiRQeAmoleJxeOditEa0TBL9pekN112q9iTixQCI+vo+HagWchbdGwp1DwQB4Nj
+	+SuLZYmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4MBT-00000002i8F-3MRH;
-	Mon, 14 Apr 2025 15:57:19 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1u4MeI-00000002nPP-01K0;
+	Mon, 14 Apr 2025 16:27:06 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4M69-00000002hR1-06kV
+	id 1u4McQ-00000002nEU-0cGI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 15:51:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=HhFzwgkdtFig+wSBVpbiTQ6PyiK1BHIb2bxLfvyCxnQ=; b=Wbl8gfonUQZznefGkRxyfoZSbu
-	XayvzADa8sqk88ah+QtUcvFL0yjtwd9Uh8eyEICwpjndetOBUPoDA0JBnK4iKMsdfOhNmM+un+VDJ
-	IxpfD2jYyC/FI2WoAOJVh46fjXy0oCffACU1we/+Fc78LhkyzpI/YHsuDjM+AqUpKACcVGUWQ8tgD
-	N4LUjaBK5Xnyzdk8qCA0j9ZrXYWNTiZ9bziBUdzLxlHi+KNKjTE7BgH4RoB7bPogmnEaVwts6pamj
-	SzCmSR5Q/qUUg7d997Ieid+JzBHU29ho1a8znibPA4M16MD3jsL40Hn1ZrMrrLBftNeY6oP769Aqs
-	vLI5vW+g==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:47062 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1u4M63-0006oO-2G;
-	Mon, 14 Apr 2025 16:51:43 +0100
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1u4M5S-000YGJ-9K; Mon, 14 Apr 2025 16:51:06 +0100
-In-Reply-To: <Z_0u9pA0Ziop-BuU@shell.armlinux.org.uk>
-References: <Z_0u9pA0Ziop-BuU@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 2/2] net: stmmac: ingenic: convert to
- devm_stmmac_pltfr_probe()
+	Mon, 14 Apr 2025 16:25:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1FE925C4795;
+	Mon, 14 Apr 2025 16:22:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E2FEC4CEE2;
+	Mon, 14 Apr 2025 16:25:05 +0000 (UTC)
+Date: Mon, 14 Apr 2025 17:25:02 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Will Deacon <will@kernel.org>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Christoph Hellwig <hch@infradead.org>,
+	David Hildenbrand <david@redhat.com>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 04/11] arm64/mm: Refactor __set_ptes() and
+ __ptep_get_and_clear()
+Message-ID: <Z_023iswKD9NO3uH@arm.com>
+References: <20250304150444.3788920-1-ryan.roberts@arm.com>
+ <20250304150444.3788920-5-ryan.roberts@arm.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1u4M5S-000YGJ-9K@rmk-PC.armlinux.org.uk>
-Date: Mon, 14 Apr 2025 16:51:06 +0100
+In-Reply-To: <20250304150444.3788920-5-ryan.roberts@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_085149_062714_D8F7DF53 
-X-CRM114-Status: GOOD (  12.91  )
+X-CRM114-CacheID: sfid-20250414_092510_242929_E5A964AE 
+X-CRM114-Status: GOOD (  12.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,44 +74,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As Ingenic now uses the stmmac platform PM ops, convert it to use
-devm_stmmac_pltfr_probe() which will call the plat_dat->init() method
-before stmmac_drv_probe() and appropriately cleaning up via the
-->exit() method, thus simplifying the code. Using the devm_*()
-variant also allows removal of the explicit call to
-stmmac_pltfr_remove().
+On Tue, Mar 04, 2025 at 03:04:34PM +0000, Ryan Roberts wrote:
+> +static inline void set_ptes_anysz(struct mm_struct *mm, pte_t *ptep, pte_t pte,
+> +				  unsigned int nr, unsigned long pgsize)
+>  {
+> -	__sync_cache_and_tags(pte, nr);
+> -	__check_safe_pte_update(mm, ptep, pte);
+> -	__set_pte(ptep, pte);
+> +	unsigned long stride = pgsize >> PAGE_SHIFT;
+> +
+> +	switch (pgsize) {
+> +	case PAGE_SIZE:
+> +		page_table_check_ptes_set(mm, ptep, pte, nr);
+> +		break;
+> +	case PMD_SIZE:
+> +		page_table_check_pmds_set(mm, (pmd_t *)ptep, pte_pmd(pte), nr);
+> +		break;
+> +	case PUD_SIZE:
+> +		page_table_check_puds_set(mm, (pud_t *)ptep, pte_pud(pte), nr);
+> +		break;
+> +	default:
+> +		VM_WARN_ON(1);
+> +	}
+> +
+> +	__sync_cache_and_tags(pte, nr * stride);
+> +
+> +	for (;;) {
+> +		__check_safe_pte_update(mm, ptep, pte);
+> +		__set_pte(ptep, pte);
+> +		if (--nr == 0)
+> +			break;
+> +		ptep++;
+> +		pte = pte_advance_pfn(pte, stride);
+> +	}
+>  }
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c | 7 +------
- 1 file changed, 1 insertion(+), 6 deletions(-)
+I thought I replied to this one but somehow failed to send. The only
+comment I have is that I'd add a double underscore in front of the anysz
+functions to imply it's a private API. Otherwise it looks fine.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c
-index 607e467324a4..15abe214131f 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c
-@@ -290,11 +290,7 @@ static int ingenic_mac_probe(struct platform_device *pdev)
- 	plat_dat->bsp_priv = mac;
- 	plat_dat->init = ingenic_mac_init;
- 
--	ret = ingenic_mac_init(pdev, mac);
--	if (ret)
--		return ret;
--
--	return stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
-+	return devm_stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
- }
- 
- static struct ingenic_soc_info jz4775_soc_info = {
-@@ -345,7 +341,6 @@ MODULE_DEVICE_TABLE(of, ingenic_mac_of_matches);
- 
- static struct platform_driver ingenic_mac_driver = {
- 	.probe		= ingenic_mac_probe,
--	.remove		= stmmac_pltfr_remove,
- 	.driver		= {
- 		.name	= "ingenic-mac",
- 		.pm		= &stmmac_pltfr_pm_ops,
--- 
-2.30.2
-
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
