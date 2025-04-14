@@ -4,62 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B79F5C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 16:27:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88A62C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 16:30:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B47q7VuSwb+/KbgR7SpRudbZnMLCz0OlCGXA+NFqc04=; b=d75MAAEdUXJuJmNzQhrPyZx+oN
-	iOPQ86fsteSfPYO1AAoe6M02fYpBvjfD0xPwBLZSKnP9a5z74eCbVMrsoFiNYe/01L9oma2PsffBZ
-	OS3djnAIrjyfUW6alKgo9zrKatwXVQUhIsrDsxov1BTl6FSu1FDtqJtgQvgdDssNvFyebjLWfc9Iw
-	t0Gj2YtBHB9itzDQ8g7n33Ui+ZqtFGxNym8dU+wu81mbVetfs60udLvAEY9RIqjawhlZ999TpC9Ck
-	Rsyqe5VOjhwKnaKiRQeAmoleJxeOditEa0TBL9pekN112q9iTixQCI+vo+HagWchbdGwp1DwQB4Nj
-	+SuLZYmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Puvc1JtJ4EndPWc5A0w8qF4xlf4Ob96CxrifJNdC1Es=; b=PppNgX1+11Lw7QE9X5XKYl3hq4
+	MB4t42PymwOy1paWarXJxeb5ERrWWSzcou4iEmfaS67zIToWeGIx4D49rPrvi68lWhrXpPqEy/4Zy
+	oNojrMwHijOo+dYwGg2pyffSYJ8tTnnxvMEwII1wakC1DWiVDUleeUm0NeKNfPXcIVr4bHmuOoCpd
+	zfOk7v5bXAPorpZh2qBzfNrn4QG9Ksza7wIrRgNSBAGm7KZr8jkkN+Z6UFx2pH3QTrRm5gHAR9P/1
+	Nsnjrz6S8TmYbZuX0KOZvFRetgASw165UtQD0rzrPwR8nkKrdriQt6KTDGphBJumcR3t5dBUuENCQ
+	9oQwWfBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4MeI-00000002nPP-01K0;
-	Mon, 14 Apr 2025 16:27:06 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u4Mhn-00000002ns7-3J4y;
+	Mon, 14 Apr 2025 16:30:43 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4McQ-00000002nEU-0cGI
+	id 1u4Mfv-00000002ncg-0JmR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 16:25:11 +0000
+	Mon, 14 Apr 2025 16:28:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1FE925C4795;
-	Mon, 14 Apr 2025 16:22:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E2FEC4CEE2;
-	Mon, 14 Apr 2025 16:25:05 +0000 (UTC)
-Date: Mon, 14 Apr 2025 17:25:02 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Will Deacon <will@kernel.org>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Christoph Hellwig <hch@infradead.org>,
-	David Hildenbrand <david@redhat.com>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 04/11] arm64/mm: Refactor __set_ptes() and
- __ptep_get_and_clear()
-Message-ID: <Z_023iswKD9NO3uH@arm.com>
-References: <20250304150444.3788920-1-ryan.roberts@arm.com>
- <20250304150444.3788920-5-ryan.roberts@arm.com>
+	by tor.source.kernel.org (Postfix) with ESMTP id 85D686115E;
+	Mon, 14 Apr 2025 16:28:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28C61C4CEEB;
+	Mon, 14 Apr 2025 16:28:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744648126;
+	bh=P/fa8u8mypyH0+6vdYrtZjJEaFzYh19+DjXazRmCLPg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=sK929LWNbvs845GbWY+rfc/M02ZlGNFxZwVDINnN5mSSEZOVzRx5BbM9eiPNLwD8W
+	 VChZqkmLlSEFvE002cJO/oAZil7ruyP3ou8ywNsmPTUr9U+KvFoTT7byucRGAgYYlJ
+	 3EzZvxi/TGFTic4AqyIL3GIrzC4L/P7jfKTEhAJyXKi2cTafz1/KXrppnOyyvRrfVF
+	 NeqVXmnJNA9Gf9rxd8wW/13nU5uM4BDkclidQoiC4i2sLxuxrq54NrpHxfodDdyb/I
+	 LCNHQaUuLSSDP4ke82MUU/9YDqui7lhAO1Bv2W3wzoUoHmTnpHKQmc4DAwuE2FIhPw
+	 9wZ39T/yFzK9A==
+Date: Mon, 14 Apr 2025 09:28:44 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Richard Cochran <richardcochran@gmail.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Geert Uytterhoeven
+ <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, "Russell
+ King (Oracle)" <rmk+kernel@armlinux.org.uk>, Giuseppe Cavallaro
+ <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org,
+ Biju Das <biju.das.jz@bp.renesas.com>, Fabrizio Castro
+ <fabrizio.castro.jz@renesas.com>, Lad Prabhakar
+ <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: Re: [PATCH net-next v5 0/3] Add GBETH glue layer driver for Renesas
+ RZ/V2H(P) SoC
+Message-ID: <20250414092844.77999958@kernel.org>
+In-Reply-To: <CA+V-a8uqkG+u_ZXztPe7R0BNV6BA46KgGRHRW-G3axBt566pEQ@mail.gmail.com>
+References: <20250407120317.127056-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	<20250407104447.072449cd@kernel.org>
+	<CA+V-a8uqkG+u_ZXztPe7R0BNV6BA46KgGRHRW-G3axBt566pEQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250304150444.3788920-5-ryan.roberts@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_092510_242929_E5A964AE 
-X-CRM114-Status: GOOD (  12.50  )
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,44 +85,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 04, 2025 at 03:04:34PM +0000, Ryan Roberts wrote:
-> +static inline void set_ptes_anysz(struct mm_struct *mm, pte_t *ptep, pte_t pte,
-> +				  unsigned int nr, unsigned long pgsize)
->  {
-> -	__sync_cache_and_tags(pte, nr);
-> -	__check_safe_pte_update(mm, ptep, pte);
-> -	__set_pte(ptep, pte);
-> +	unsigned long stride = pgsize >> PAGE_SHIFT;
-> +
-> +	switch (pgsize) {
-> +	case PAGE_SIZE:
-> +		page_table_check_ptes_set(mm, ptep, pte, nr);
-> +		break;
-> +	case PMD_SIZE:
-> +		page_table_check_pmds_set(mm, (pmd_t *)ptep, pte_pmd(pte), nr);
-> +		break;
-> +	case PUD_SIZE:
-> +		page_table_check_puds_set(mm, (pud_t *)ptep, pte_pud(pte), nr);
-> +		break;
-> +	default:
-> +		VM_WARN_ON(1);
-> +	}
-> +
-> +	__sync_cache_and_tags(pte, nr * stride);
-> +
-> +	for (;;) {
-> +		__check_safe_pte_update(mm, ptep, pte);
-> +		__set_pte(ptep, pte);
-> +		if (--nr == 0)
-> +			break;
-> +		ptep++;
-> +		pte = pte_advance_pfn(pte, stride);
-> +	}
->  }
+On Mon, 14 Apr 2025 09:52:03 +0100 Lad, Prabhakar wrote:
+> > On Mon,  7 Apr 2025 13:03:14 +0100 Prabhakar wrote:  
+> > > This patch series adds support for the GBETH (Gigabit Ethernet) glue layer
+> > > driver for the Renesas RZ/V2H(P) SoC. The GBETH IP is integrated with
+> > > the Synopsys DesignWare MAC (version 5.20). The changes include updating
+> > > the device tree bindings, documenting the GBETH bindings, and adding the
+> > > DWMAC glue layer for the Renesas GBETH.  
+> >
+> > This was posted prior to the "net-next is OPEN" announcement:
+> > https://lore.kernel.org/all/20250407055403.7a8f40df@kernel.org/
+> >
+> > In the interest of fairness towards those who correctly wait
+> > for the tree to be open I will ask you to repost this again,
+> > in a couple of days.
+> >  
+> Are you ok for me to now respin this series?
 
-I thought I replied to this one but somehow failed to send. The only
-comment I have is that I'd add a double underscore in front of the anysz
-functions to imply it's a private API. Otherwise it looks fine.
-
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+yessir
 
