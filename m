@@ -4,96 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB465C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 23:10:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29A6DC369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 23:12:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k4K++fqiP84qacsZ/10/m3tNXa1bo+IGgMpwd09KRMY=; b=oysF7UcqH9gCd7VXqaIEHKqp2n
-	FOd3gubFy5XGfNI/Ymd7alJsM7hJW+dwEKWOnDnIXQ1m9Rp6UF7ihJ4K0ZNC+IAOCeW90WeKILn9q
-	wVVBHNsuJ6adCzTGSFgbiVcIF0MTbQ+lddZhgOtOnAptBcCJHyTpWWvuCtf29/qC4DU+VbaoklMy+
-	R+LVAYPZKRVSLPWlAZrJrzBNSxncgrnTpbQGHTJ8t4r+7692gGekpYzCoEpjvX89AoqPS2Mibude5
-	MCgHwxWioSZlr/8Keas3ee7rg1LMkjRrDw7qyHTGeevDE/yXtwHiqY6GvgF0h+FVWtCcIza/1RAun
-	BlPtrqSg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TBCMpP++xTIE1VGQILxkhLBlbX6f9b2G688bs9uqXW0=; b=tqErrWtaYPiED1JKkdf9ElnU9+
+	AbgSy/qpuoJACzcCpVVULFwtwTa3DWYNXpL9FsvREtWAMgK7gI+Ndz9hWM+curRkltk5/bB2MDdOQ
+	MrwPYQFTeCS5ZTMBSEd7pItM/3nBOT1RaN4nSJ5RsBGodKnymJy/3a3WBH4h03O2hrDH6+C/D8Oru
+	Uh2p817ZlHVJgzePNu6AxrGotqgwJFW847kugfwCKC0ZuLjnxifaBIw4otOva3DXGd0VGptbqs3A+
+	hg4gOfjkWJzINrInNOk6MR4H1NJxFCDI30LPiJ+LxNCdBsDAyhtKTXRH0CRpnJIfsOxft4ID01l4e
+	57DBVyHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Swo-00000003qoP-0LCJ;
-	Mon, 14 Apr 2025 23:10:38 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4SaG-00000003l5s-3h1w
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Apr 2025 22:47:23 +0000
-Received: from romank-3650.corp.microsoft.com (unknown [131.107.159.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 52DB9210C435;
-	Mon, 14 Apr 2025 15:47:18 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 52DB9210C435
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1744670838;
-	bh=k4K++fqiP84qacsZ/10/m3tNXa1bo+IGgMpwd09KRMY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=E6b2GjcSqr1tTUiwoZMteZIe79pX9+xfxANCmTJuXtCqsi+X7XJnn1RrzQOAcS4Me
-	 +ypIFaa5M/Rj0HtY3ZrbdOj/0MwGmxfQsaob4LxxFpnpNeMi3ijt7R9XszGsL69jj0
-	 bcMLL7ukJC2fZU85jZScI4d9MRci2UizAkdBk7gY=
-From: Roman Kisel <romank@linux.microsoft.com>
-To: arnd@arndb.de,
-	bhelgaas@google.com,
-	bp@alien8.de,
-	catalin.marinas@arm.com,
-	conor+dt@kernel.org,
-	dan.carpenter@linaro.org,
-	dave.hansen@linux.intel.com,
-	decui@microsoft.com,
-	haiyangz@microsoft.com,
-	hpa@zytor.com,
-	joey.gouly@arm.com,
-	krzk+dt@kernel.org,
-	kw@linux.com,
-	kys@microsoft.com,
-	lenb@kernel.org,
-	lpieralisi@kernel.org,
-	manivannan.sadhasivam@linaro.org,
-	mark.rutland@arm.com,
-	maz@kernel.org,
-	mingo@redhat.com,
-	oliver.upton@linux.dev,
-	rafael@kernel.org,
-	robh@kernel.org,
-	rafael.j.wysocki@intel.com,
-	ssengar@linux.microsoft.com,
-	sudeep.holla@arm.com,
-	suzuki.poulose@arm.com,
-	tglx@linutronix.de,
-	wei.liu@kernel.org,
-	will@kernel.org,
-	yuzenghui@huawei.com,
+	id 1u4Sya-00000003rX5-3TlJ;
+	Mon, 14 Apr 2025 23:12:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u4Sh5-00000003mep-2fuN;
+	Mon, 14 Apr 2025 22:54:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0E2656114C;
+	Mon, 14 Apr 2025 22:54:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CA22C4CEE2;
+	Mon, 14 Apr 2025 22:54:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744671262;
+	bh=ghPGn+DUPYc+Jh9QH/Xyzy1W+UjOc9wYqcXMeDG62fc=;
+	h=From:To:Cc:Subject:Date:From;
+	b=oM1Vx58jytipBJXdWNnXqHQgB+IyN8/IWkn7e7XxhtZ0cNBmkyRL0kqlCL0Oa0Rxf
+	 YuZbA1sr3oYTR2Njig+Y6mXtjpbgz+u0WquK/pkdrsfpQpPdIPf29r7YPwtcEZnqos
+	 cV9eD+XIlu/O/TeTmh/H1jndfWnQnyw2JyMB2TeEbhytmCKauDeHprNhWuMCY+dsql
+	 FtAPHXhLhA0ISG3XN2sf1eidEp+rcvW4QxirSCllqDgDCDI/xPHKT8kk0i8xGWTHtS
+	 1KyMqMBJ0K0Y6wMM9BlwxA2qp04E7j5outt1hz9cA1NqRlLySWCwe1r27stHG3gdYF
+	 yi12Pu8rU9ZbA==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: linux-phy@lists.infradead.org,
 	devicetree@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-acpi@vger.kernel.org,
-	linux-arch@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-hyperv@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	x86@kernel.org
-Cc: apais@microsoft.com,
-	benhill@microsoft.com,
-	bperkins@microsoft.com,
-	sunilmut@microsoft.com
-Subject: [PATCH hyperv-next v8 09/11] Drivers: hv: vmbus: Introduce hv_get_vmbus_root_device()
-Date: Mon, 14 Apr 2025 15:47:11 -0700
-Message-ID: <20250414224713.1866095-10-romank@linux.microsoft.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250414224713.1866095-1-romank@linux.microsoft.com>
-References: <20250414224713.1866095-1-romank@linux.microsoft.com>
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] dt-bindings: phy: rockchip: Convert RK3399 PCIe PHY to schema
+Date: Mon, 14 Apr 2025 17:53:09 -0500
+Message-ID: <20250414225311.1913480-1-robh@kernel.org>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_154721_015024_3648587E 
-X-CRM114-Status: GOOD (  14.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,119 +72,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ARM64 PCI code for hyperv needs to know the VMBus root
-device, and it is private.
+Convert the Rockchip RK3399 PCIe PHY to DT schema format. Move the
+example to the GRF binding as that has the complete block.
 
-Provide a function that returns it. Rename it from "hv_dev"
-as "hv_dev" as a symbol is very overloaded. No functional
-changes.
-
-Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
-Reviewed-by: Michael Kelley <mhklinux@outlook.com>
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- drivers/hv/vmbus_drv.c | 23 +++++++++++++++--------
- include/linux/hyperv.h |  2 ++
- 2 files changed, 17 insertions(+), 8 deletions(-)
+ .../bindings/phy/rockchip-pcie-phy.txt        | 36 -------------------
+ .../devicetree/bindings/soc/rockchip/grf.yaml | 13 +++++--
+ 2 files changed, 11 insertions(+), 38 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/phy/rockchip-pcie-phy.txt
 
-diff --git a/drivers/hv/vmbus_drv.c b/drivers/hv/vmbus_drv.c
-index e8f2c3e92d1f..df18b4070b01 100644
---- a/drivers/hv/vmbus_drv.c
-+++ b/drivers/hv/vmbus_drv.c
-@@ -45,7 +45,8 @@ struct vmbus_dynid {
- 	struct hv_vmbus_device_id id;
- };
+diff --git a/Documentation/devicetree/bindings/phy/rockchip-pcie-phy.txt b/Documentation/devicetree/bindings/phy/rockchip-pcie-phy.txt
+deleted file mode 100644
+index b496042f1f44..000000000000
+--- a/Documentation/devicetree/bindings/phy/rockchip-pcie-phy.txt
++++ /dev/null
+@@ -1,36 +0,0 @@
+-Rockchip PCIE PHY
+------------------------
+-
+-Required properties:
+- - compatible: rockchip,rk3399-pcie-phy
+- - clocks: Must contain an entry in clock-names.
+-	See ../clocks/clock-bindings.txt for details.
+- - clock-names: Must be "refclk"
+- - resets: Must contain an entry in reset-names.
+-	See ../reset/reset.txt for details.
+- - reset-names: Must be "phy"
+-
+-Required properties for legacy PHY mode (deprecated):
+- - #phy-cells: must be 0
+-
+-Required properties for per-lane PHY mode (preferred):
+- - #phy-cells: must be 1
+-
+-Example:
+-
+-grf: syscon@ff770000 {
+-	compatible = "rockchip,rk3399-grf", "syscon", "simple-mfd";
+-	#address-cells = <1>;
+-	#size-cells = <1>;
+-
+-	...
+-
+-	pcie_phy: pcie-phy {
+-		compatible = "rockchip,rk3399-pcie-phy";
+-		#phy-cells = <0>;
+-		clocks = <&cru SCLK_PCIEPHY_REF>;
+-		clock-names = "refclk";
+-		resets = <&cru SRST_PCIEPHY>;
+-		reset-names = "phy";
+-	};
+-};
+diff --git a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
+index 2f61c1b95fea..fc328c4a35e4 100644
+--- a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
++++ b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
+@@ -201,8 +201,8 @@ allOf:
  
--static struct device  *hv_dev;
-+/* VMBus Root Device */
-+static struct device  *vmbus_root_device;
+         pcie-phy:
+           type: object
+-          description:
+-            Documentation/devicetree/bindings/phy/rockchip-pcie-phy.txt
++          $ref: /schemas/phy/rockchip,rk3399-pcie-phy.yaml#
++          unevaluatedProperties: false
  
- static int hyperv_cpuhp_online;
+       patternProperties:
+         "^phy@[0-9a-f]+$":
+@@ -326,6 +326,15 @@ examples:
+         #phy-cells = <0>;
+       };
  
-@@ -80,9 +81,15 @@ static struct resource *fb_mmio;
- static struct resource *hyperv_mmio;
- static DEFINE_MUTEX(hyperv_mmio_lock);
- 
-+struct device *hv_get_vmbus_root_device(void)
-+{
-+	return vmbus_root_device;
-+}
-+EXPORT_SYMBOL_GPL(hv_get_vmbus_root_device);
++      pcie-phy {
++        compatible = "rockchip,rk3399-pcie-phy";
++        #phy-cells = <1>;
++        clocks = <&cru SCLK_PCIEPHY_REF>;
++        clock-names = "refclk";
++        resets = <&cru SRST_PCIEPHY>;
++        reset-names = "phy";
++      };
 +
- static int vmbus_exists(void)
- {
--	if (hv_dev == NULL)
-+	if (vmbus_root_device == NULL)
- 		return -ENODEV;
- 
- 	return 0;
-@@ -861,7 +868,7 @@ static int vmbus_dma_configure(struct device *child_device)
- 	 * On x86/x64 coherence is assumed and these calls have no effect.
- 	 */
- 	hv_setup_dma_ops(child_device,
--		device_get_dma_attr(hv_dev) == DEV_DMA_COHERENT);
-+		device_get_dma_attr(vmbus_root_device) == DEV_DMA_COHERENT);
- 	return 0;
- }
- 
-@@ -1930,7 +1937,7 @@ int vmbus_device_register(struct hv_device *child_device_obj)
- 		     &child_device_obj->channel->offermsg.offer.if_instance);
- 
- 	child_device_obj->device.bus = &hv_bus;
--	child_device_obj->device.parent = hv_dev;
-+	child_device_obj->device.parent = vmbus_root_device;
- 	child_device_obj->device.release = vmbus_device_release;
- 
- 	child_device_obj->device.dma_parms = &child_device_obj->dma_parms;
-@@ -2292,7 +2299,7 @@ static int vmbus_acpi_add(struct platform_device *pdev)
- 	struct acpi_device *ancestor;
- 	struct acpi_device *device = ACPI_COMPANION(&pdev->dev);
- 
--	hv_dev = &device->dev;
-+	vmbus_root_device = &device->dev;
- 
- 	/*
- 	 * Older versions of Hyper-V for ARM64 fail to include the _CCA
-@@ -2378,7 +2385,7 @@ static int vmbus_device_add(struct platform_device *pdev)
- 	struct device_node *np = pdev->dev.of_node;
- 	int ret;
- 
--	hv_dev = &pdev->dev;
-+	vmbus_root_device = &pdev->dev;
- 
- 	ret = of_range_parser_init(&parser, np);
- 	if (ret)
-@@ -2696,7 +2703,7 @@ static int __init hv_acpi_init(void)
- 	if (ret)
- 		return ret;
- 
--	if (!hv_dev) {
-+	if (!vmbus_root_device) {
- 		ret = -ENODEV;
- 		goto cleanup;
- 	}
-@@ -2727,7 +2734,7 @@ static int __init hv_acpi_init(void)
- 
- cleanup:
- 	platform_driver_unregister(&vmbus_platform_driver);
--	hv_dev = NULL;
-+	vmbus_root_device = NULL;
- 	return ret;
- }
- 
-diff --git a/include/linux/hyperv.h b/include/linux/hyperv.h
-index 675959fb97ba..1f310fbbc4f9 100644
---- a/include/linux/hyperv.h
-+++ b/include/linux/hyperv.h
-@@ -1277,6 +1277,8 @@ static inline void *hv_get_drvdata(struct hv_device *dev)
- 	return dev_get_drvdata(&dev->device);
- }
- 
-+struct device *hv_get_vmbus_root_device(void);
-+
- struct hv_ring_buffer_debug_info {
- 	u32 current_interrupt_mask;
- 	u32 current_read_index;
+       phy@f780 {
+         compatible = "rockchip,rk3399-emmc-phy";
+         reg = <0xf780 0x20>;
 -- 
-2.43.0
+2.47.2
 
 
