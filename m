@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 057B5C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 10:19:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E677C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Apr 2025 10:21:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hHnZB0DU6EioUlWcnU2NPfLyBHxDTgWmrFuhhLqJ2tQ=; b=b/Vt53vvwotW3N75NLwXBrv0OP
-	1KJ4WSGQT+E/CPiuiH75ALjnM3beOlJRQ6X5S9B0ibZ4dRC1SXn1r44UU+O6pj2DCEKOCbvkPae/o
-	Ka/+sdowmUosiuYjf6kT89l9WFR5D4dAGcbpTTheapPRTYOkVRIsGLGhUsZzjKV2eoXPgMR5XumiI
-	oijooQqez8Rd4tPCDdc+mrTIxqnvFWnotOxaTL6CbUNMaHw0889rA93a6Bha9yuPNeOyiawcdh0G3
-	HjEZrXjwfaIGJWvEQCaeaTEV3VMCoJLtLziRxcO4H+hrXYCx54pjl00QFVVr+JBbgyrSL5+zMahfu
-	sWDrKHDw==;
+	bh=I5Mj1pNRB/Jcmnkcnw1AaVmDZcbv1F2dQhqjQblRV04=; b=3ZrjphXM/7M73L9wPqwwzzgr1Q
+	9BYb+hZEInsBZgTD4NKiRaLqpSMX5l8k/iHl+x2fZPN+1Bx3pfhv3goP1r0RrAym/lXyzJW5d1C7/
+	EMOJdQi1RJg/4ibJDK1HY7AM45DAG/ta2Z4E1QDA2mXRvwUsTiwDo2CeIkQYQWIN2+6c6TpTskbKo
+	TqFi4bpaRE45G44pwCXraHjXMWgSQbUtj1VI0SAvIQJONAiP1P4fFA83Lvoq+NJ3jCNsh8M/BHEPN
+	dwLOeY8OciZX9z0rlE1C7Hv6XwcDF1X3ggo1nUu2POHxrAA/csfNDnWNjzzyA0wy9B/ZpaHwcCErG
+	xd+dxRvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4GuD-00000001UBu-1Zas;
-	Mon, 14 Apr 2025 10:19:09 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u4Gvz-00000001Uck-3IL8;
+	Mon, 14 Apr 2025 10:20:59 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4GoC-00000001Rl7-3aDX;
-	Mon, 14 Apr 2025 10:12:56 +0000
+	id 1u4GoC-00000001Rl3-3Pll;
+	Mon, 14 Apr 2025 10:12:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C4DD66115E;
-	Mon, 14 Apr 2025 10:12:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D4B8DC4CEED;
+	by sea.source.kernel.org (Postfix) with ESMTP id 386FD4A57D;
 	Mon, 14 Apr 2025 10:12:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0BE96C4CEEF;
+	Mon, 14 Apr 2025 10:12:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744625575;
-	bh=lawTPlEWBNrpmsUAEJ3a2nqdx22fCqWe8OZPiyf0Vpk=;
+	s=k20201202; t=1744625576;
+	bh=h91kvtbHybCRq0mtV86D3bylhFUe+/Vc/2PFX8biaKk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=fL6hDZHhHtmzEX7J0C+nt2NrcyxPHnF6KxscSkHIPGMhImzye42Bf7PXUGc7qmp4t
-	 jFpfSwnXIokmmTnFxQ52PmFTQihDDSHkbMsR2RuCCXjymVm/q4MSosR9ZKJgUBysdj
-	 ZpEK4NY9cvBHJHhMR6570mDTZUO/wIpCApyW24/+WuvRQBvV+Rf4QVeHkxcMjSh3Gn
-	 +lGazLDZd49zSY1YoAdi1ShTU+pdYBF82UMr2ZDbuxHiM41cRfHusdLSB6X44yjUeW
-	 r+q6ZKuD8WKQG9nb+EYnfsWlAzM1wWJ+bnv32AX78lk9Rx8gk9VyWF0BLBpOtc3wPi
-	 rdPoHMca01g+Q==
+	b=BfijaWJTU4q0BV4MwPkaPrZm82mtAYyUa7UyRcxO0p03GMJOMgnzEBJ67BB2+aXiN
+	 wJDo2di/IEL1InRahYszkLgeyin1GZV9p+7ZTe/vWF6mdRa2guIPtjxcpTCHKqmXOe
+	 K6iH5uSzqwjcJ9PAV6ysa3YSmQqs3WqyYzqpG/aWgRDFGW5PYY8oX1osQ1VPDTJFEw
+	 rN04Pr8aE3NcfqXWA497XLhpbwDjceE3kp9DFjED59BlOu1lZxpaapLDV1GmofWyLp
+	 HbiXohTwn0Io6a/nq+3+rFGEWTxFLkx0XnwaLxSgmuC5KsMeUB+MuU/RXED2+wLceU
+	 HMcTESji78Azg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C9A6FC369B9;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EC774C369B8;
 	Mon, 14 Apr 2025 10:12:55 +0000 (UTC)
 From: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
-Date: Mon, 14 Apr 2025 18:12:31 +0800
-Subject: [PATCH v2 4/7] soc: amlogic: clk-measure: Add support for C3
+Date: Mon, 14 Apr 2025 18:12:33 +0800
+Subject: [PATCH v2 6/7] arm64: dts: amlogic: C3: Add clk-measure controller
+ node
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250414-clk-measure-v2-4-65077690053a@amlogic.com>
+Message-Id: <20250414-clk-measure-v2-6-65077690053a@amlogic.com>
 References: <20250414-clk-measure-v2-0-65077690053a@amlogic.com>
 In-Reply-To: <20250414-clk-measure-v2-0-65077690053a@amlogic.com>
 To: Neil Armstrong <neil.armstrong@linaro.org>, 
@@ -62,16 +63,20 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
  Chuan Liu <chuan.liu@amlogic.com>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1744625573; l=6690;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1744625573; l=777;
  i=chuan.liu@amlogic.com; s=20240902; h=from:subject:message-id;
- bh=5IKQzZzkHNcYRV76KtgkiOFs5UjhFwnt2rPvLFuVIO4=;
- b=acBLkRsoLCAmiIu3KkKqmnuwU0PJ0hBmrQm/D4kygfXKowcuP2kispAcyKocZkJbjCJ8OINaD
- MY6JNigM/aKC8z/SH4kjYhYwjcS3NUqgl0oy+jaxP5ZK6TX0+nbgiI7
+ bh=RawVLe8oduTQK4vrDANIUMhpJtp0oGlCVlxkPVdHe1c=;
+ b=3xweDT1QpTKyZLFyATVKjOvY8gWyeBw2Icep1hGvtVtfCGF6p50LPTNw3y7UlQbbexbA9u9GP
+ ILoTEzuk94sAmzqn2xZU5w1seUpKGYz7UvEXkXOzYlpnZr968zz1ZXg
 X-Developer-Key: i=chuan.liu@amlogic.com; a=ed25519;
  pk=fnKDB+81SoWGKW2GJNFkKy/ULvsDmJZRGBE7pR5Xcpo=
 X-Endpoint-Received: by B4 Relay for chuan.liu@amlogic.com/20240902 with
  auth_id=203
 X-Original-From: Chuan Liu <chuan.liu@amlogic.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250414_031256_881711_E82EC1B9 
+X-CRM114-Status: UNSURE (   7.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,195 +94,29 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chuan Liu <chuan.liu@amlogic.com>
 
-Add the clk-measurer clocks IDs for the Amlogic C3 SoC family.
+Add the clk-measure controller node for C3 SoC family.
 
 Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
 ---
- drivers/soc/amlogic/meson-clk-measure.c | 157 ++++++++++++++++++++++++++++++++
- 1 file changed, 157 insertions(+)
+ arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/drivers/soc/amlogic/meson-clk-measure.c b/drivers/soc/amlogic/meson-clk-measure.c
-index 82c008ade894..810454ac4119 100644
---- a/drivers/soc/amlogic/meson-clk-measure.c
-+++ b/drivers/soc/amlogic/meson-clk-measure.c
-@@ -494,6 +494,146 @@ static const struct meson_msr_id clk_msr_sm1[] = {
- 	CLK_MSR_ID(127, "csi2_data"),
- };
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi
+index fd0e557eba06..cb9ea3ca6ee0 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi
++++ b/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi
+@@ -760,6 +760,11 @@ internal_ephy: ethernet_phy@8 {
+ 				};
+ 			};
  
-+static const struct meson_msr_id clk_msr_c3[] = {
-+	CLK_MSR_ID(0,	"sys_clk"),
-+	CLK_MSR_ID(1,	"axi_clk"),
-+	CLK_MSR_ID(2,	"rtc_clk"),
-+	CLK_MSR_ID(3,	"p20_usb2_ckout"),
-+	CLK_MSR_ID(4,	"eth_mpll_test"),
-+	CLK_MSR_ID(5,	"sys_pll"),
-+	CLK_MSR_ID(6,	"cpu_clk_div16"),
-+	CLK_MSR_ID(7,	"ts_pll"),
-+	CLK_MSR_ID(8,	"fclk_div2"),
-+	CLK_MSR_ID(9,	"fclk_div2p5"),
-+	CLK_MSR_ID(10,	"fclk_div3"),
-+	CLK_MSR_ID(11,	"fclk_div4"),
-+	CLK_MSR_ID(12,	"fclk_div5"),
-+	CLK_MSR_ID(13,	"fclk_div7"),
-+	CLK_MSR_ID(15,	"fclk_50m"),
-+	CLK_MSR_ID(16,	"sys_oscin32k_i"),
-+	CLK_MSR_ID(17,	"mclk_pll"),
-+	CLK_MSR_ID(19,	"hifi_pll"),
-+	CLK_MSR_ID(20,	"gp0_pll"),
-+	CLK_MSR_ID(21,	"gp1_pll"),
-+	CLK_MSR_ID(22,	"eth_mppll_50m_ckout"),
-+	CLK_MSR_ID(23,	"sys_pll_div16"),
-+	CLK_MSR_ID(24,	"ddr_dpll_pt_clk"),
-+	CLK_MSR_ID(26,	"nna_core"),
-+	CLK_MSR_ID(27,	"rtc_sec_pulse_out"),
-+	CLK_MSR_ID(28,	"rtc_osc_clk_out"),
-+	CLK_MSR_ID(29,	"debug_in_clk"),
-+	CLK_MSR_ID(30,	"mod_eth_phy_ref_clk"),
-+	CLK_MSR_ID(31,	"mod_eth_tx_clk"),
-+	CLK_MSR_ID(32,	"eth_125m"),
-+	CLK_MSR_ID(33,	"eth_rmii"),
-+	CLK_MSR_ID(34,	"co_clkin_to_mac"),
-+	CLK_MSR_ID(36,	"co_rx_clk"),
-+	CLK_MSR_ID(37,	"co_tx_clk"),
-+	CLK_MSR_ID(38,	"eth_phy_rxclk"),
-+	CLK_MSR_ID(39,	"eth_phy_plltxclk"),
-+	CLK_MSR_ID(40,	"ephy_test_clk"),
-+	CLK_MSR_ID(66,	"vapb"),
-+	CLK_MSR_ID(67,	"ge2d"),
-+	CLK_MSR_ID(68,	"dewarpa"),
-+	CLK_MSR_ID(70,	"mipi_dsi_meas"),
-+	CLK_MSR_ID(71,	"dsi_phy"),
-+	CLK_MSR_ID(79,	"rama"),
-+	CLK_MSR_ID(94,	"vc9000e_core"),
-+	CLK_MSR_ID(95,	"vc9000e_sys"),
-+	CLK_MSR_ID(96,	"vc9000e_aclk"),
-+	CLK_MSR_ID(97,	"hcodec"),
-+	CLK_MSR_ID(106,	"deskew_pll_clk_div32_out"),
-+	CLK_MSR_ID(107,	"mipi_csi_phy_clk_out[0]"),
-+	CLK_MSR_ID(108,	"mipi_csi_phy_clk_out[1]"),
-+	CLK_MSR_ID(110,	"spifc"),
-+	CLK_MSR_ID(111,	"saradc"),
-+	CLK_MSR_ID(112,	"ts"),
-+	CLK_MSR_ID(113,	"sd_emmc_c"),
-+	CLK_MSR_ID(114,	"sd_emmc_b"),
-+	CLK_MSR_ID(115,	"sd_emmc_a"),
-+	CLK_MSR_ID(116,	"gpio_msr_clk"),
-+	CLK_MSR_ID(117,	"spicc_b"),
-+	CLK_MSR_ID(118,	"spicc_a"),
-+	CLK_MSR_ID(122,	"mod_audio_pdm_dclk_o"),
-+	CLK_MSR_ID(124,	"o_earcrx_dmac_clk"),
-+	CLK_MSR_ID(125,	"o_earcrx_cmdc_clk"),
-+	CLK_MSR_ID(126,	"o_earctx_dmac_clk"),
-+	CLK_MSR_ID(127,	"o_earctx_cmdc_clk"),
-+	CLK_MSR_ID(128,	"o_tohdmitx_bclk"),
-+	CLK_MSR_ID(129,	"o_tohdmitx_mclk"),
-+	CLK_MSR_ID(130,	"o_tohdmitx_spdif_clk"),
-+	CLK_MSR_ID(131,	"o_toacodec_bclk"),
-+	CLK_MSR_ID(132,	"o_toacodec_mclk"),
-+	CLK_MSR_ID(133,	"o_spdifout_b_mst_clk"),
-+	CLK_MSR_ID(134,	"o_spdifout_mst_clk"),
-+	CLK_MSR_ID(135,	"o_spdifin_mst_clk"),
-+	CLK_MSR_ID(136,	"o_audio_mclk"),
-+	CLK_MSR_ID(137,	"o_vad_clk"),
-+	CLK_MSR_ID(138,	"o_tdmout_d_sclk"),
-+	CLK_MSR_ID(139,	"o_tdmout_c_sclk"),
-+	CLK_MSR_ID(140,	"o_tdmout_b_sclk"),
-+	CLK_MSR_ID(141,	"o_tdmout_a_sclk"),
-+	CLK_MSR_ID(142,	"o_tdminb_1b_sclk"),
-+	CLK_MSR_ID(143,	"o_tdmin_1b_sclk"),
-+	CLK_MSR_ID(144,	"o_tdmin_d_sclk"),
-+	CLK_MSR_ID(145,	"o_tdmin_c_sclk"),
-+	CLK_MSR_ID(146,	"o_tdmin_b_sclk"),
-+	CLK_MSR_ID(147,	"o_tdmin_a_sclk"),
-+	CLK_MSR_ID(148,	"o_resampleb_clk"),
-+	CLK_MSR_ID(149,	"o_resamplea_clk"),
-+	CLK_MSR_ID(150,	"o_pdmb_sysclk"),
-+	CLK_MSR_ID(151,	"o_pdmb_dclk"),
-+	CLK_MSR_ID(152,	"o_pdm_sysclk"),
-+	CLK_MSR_ID(153,	"o_pdm_dclk"),
-+	CLK_MSR_ID(154,	"c_alockerb_out_clk"),
-+	CLK_MSR_ID(155,	"c_alockerb_in_clk"),
-+	CLK_MSR_ID(156,	"c_alocker_out_clk"),
-+	CLK_MSR_ID(157,	"c_alocker_in_clk"),
-+	CLK_MSR_ID(158,	"audio_mst_clk[34]"),
-+	CLK_MSR_ID(159,	"audio_mst_clk[35]"),
-+	CLK_MSR_ID(160,	"pwm_n"),
-+	CLK_MSR_ID(161,	"pwm_m"),
-+	CLK_MSR_ID(162,	"pwm_l"),
-+	CLK_MSR_ID(163,	"pwm_k"),
-+	CLK_MSR_ID(164,	"pwm_j"),
-+	CLK_MSR_ID(165,	"pwm_i"),
-+	CLK_MSR_ID(166,	"pwm_h"),
-+	CLK_MSR_ID(167,	"pwm_g"),
-+	CLK_MSR_ID(168,	"pwm_f"),
-+	CLK_MSR_ID(169,	"pwm_e"),
-+	CLK_MSR_ID(170,	"pwm_d"),
-+	CLK_MSR_ID(171,	"pwm_c"),
-+	CLK_MSR_ID(172,	"pwm_b"),
-+	CLK_MSR_ID(173,	"pwm_a"),
-+	CLK_MSR_ID(174,	"AU_DAC1_CLK_TO_GPIO"),
-+	CLK_MSR_ID(175,	"AU_ADC_CLK_TO_GPIO"),
-+	CLK_MSR_ID(176,	"rng_ring_osc_clk[0]"),
-+	CLK_MSR_ID(177,	"rng_ring_osc_clk[1]"),
-+	CLK_MSR_ID(178,	"rng_ring_osc_clk[2]"),
-+	CLK_MSR_ID(179,	"rng_ring_osc_clk[3]"),
-+	CLK_MSR_ID(180,	"sys_cpu_ring_osc_clk[0]"),
-+	CLK_MSR_ID(181,	"sys_cpu_ring_osc_clk[1]"),
-+	CLK_MSR_ID(182,	"sys_cpu_ring_osc_clk[2]"),
-+	CLK_MSR_ID(183,	"sys_cpu_ring_osc_clk[3]"),
-+	CLK_MSR_ID(184,	"sys_cpu_ring_osc_clk[4]"),
-+	CLK_MSR_ID(185,	"sys_cpu_ring_osc_clk[5]"),
-+	CLK_MSR_ID(186,	"sys_cpu_ring_osc_clk[6]"),
-+	CLK_MSR_ID(187,	"sys_cpu_ring_osc_clk[7]"),
-+	CLK_MSR_ID(188,	"sys_cpu_ring_osc_clk[8]"),
-+	CLK_MSR_ID(189,	"sys_cpu_ring_osc_clk[9]"),
-+	CLK_MSR_ID(190,	"sys_cpu_ring_osc_clk[10]"),
-+	CLK_MSR_ID(191,	"sys_cpu_ring_osc_clk[11]"),
-+	CLK_MSR_ID(192,	"am_ring_osc_clk_out[12](dmc)"),
-+	CLK_MSR_ID(193,	"am_ring_osc_clk_out[13](rama)"),
-+	CLK_MSR_ID(194,	"am_ring_osc_clk_out[14](nna)"),
-+	CLK_MSR_ID(195,	"am_ring_osc_clk_out[15](nna)"),
-+	CLK_MSR_ID(200,	"rng_ring_osc_clk_1[0]"),
-+	CLK_MSR_ID(201,	"rng_ring_osc_clk_1[1]"),
-+	CLK_MSR_ID(202,	"rng_ring_osc_clk_1[2]"),
-+	CLK_MSR_ID(203,	"rng_ring_osc_clk_1[3]"),
++			clk_msr: clock-measure@48000 {
++				compatible = "amlogic,c3-clk-measure";
++				reg = <0x0 0x48000 0x0 0x1c>;
++			};
 +
-+};
-+
- static int meson_measure_id(struct meson_msr_id *clk_msr_id,
- 			    unsigned int duration)
- {
-@@ -713,6 +853,19 @@ static const struct meson_msr_data clk_msr_sm1_data = {
- 	.reg = &msr_reg_offset,
- };
- 
-+struct msr_reg_offset msr_reg_offset_v2 = {
-+	.freq_ctrl = 0x0,
-+	.duty_ctrl = 0x4,
-+	.freq_val = 0x8,
-+	.duty_val = 0x18,
-+};
-+
-+static const struct meson_msr_data clk_msr_c3_data = {
-+	.msr_table = (void *)clk_msr_c3,
-+	.msr_count = ARRAY_SIZE(clk_msr_c3),
-+	.reg = &msr_reg_offset_v2,
-+};
-+
- static const struct of_device_id meson_msr_match_table[] = {
- 	{
- 		.compatible = "amlogic,meson-gx-clk-measure",
-@@ -738,6 +891,10 @@ static const struct of_device_id meson_msr_match_table[] = {
- 		.compatible = "amlogic,meson-sm1-clk-measure",
- 		.data = &clk_msr_sm1_data,
- 	},
-+	{
-+		.compatible = "amlogic,c3-clk-measure",
-+		.data = &clk_msr_c3_data,
-+	},
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, meson_msr_match_table);
+ 			spicc0: spi@50000 {
+ 				compatible = "amlogic,meson-g12a-spicc";
+ 				reg = <0x0 0x50000 0x0 0x44>;
 
 -- 
 2.42.0
