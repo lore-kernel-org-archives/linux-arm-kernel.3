@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF7E3C369B4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 14:38:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A177BC369B4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 14:40:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bTGC1Swmyp5o5ydafC25FiEDYeygl74JbWXdajolsGw=; b=A46kx48K0KUQrAXdPI71vJaLLL
-	NrImAKM72PSrUDGTj4lJPFnmjL8pnXHlXDjJ3Ty6n9JPu8L+C6dTmImypv3rHrWTGR16c6CzrQKWs
-	N9XTqEzRD20Yf2cnv+bZ4H2wTUkg4xspImwVyZdISvOov9V4tUY0U5W2LlPfLEi68hMH2P3s42+l/
-	eGp7rnf0hEXLnOl1QU6N0Ks1F9sHHvklGu4sFutOMObxNeRYuMnVK8jttMwe0uuFwI6jkxyc7QfX5
-	Ne2JpGzgtpaMf3Ndl/RiFZwBZhlnyc8aZRl+k87QYRwaEJGG6/xdcs59sCEmovPZsiGoeXiELSe31
-	oYqQqU4Q==;
+	bh=Wb1IsrpqdyxzkBNIjUspgs8FHl1M9ahIVF+j7HQ6Rtw=; b=zozEsLf+k1+0VCkEEVEDiMHDz4
+	ZkXzPmgvKBsPseRI6RL7yCGPQ/v2lYVBPw+25cqqcEOww/IK/VWXTTu0dQlT5SxXvKs/6/IXAuNVN
+	1NMJRXoaXHFa1VmTc85WVnzqYyjF4sAoBgIgSTvImS78Cd1NIzcGfe0MFFfhGSwgGC6Z35v96VMyf
+	KXOGSVFYsmWLtVKD9BXyzWcAlX19wfJtaCpPAzBnhk3Qvmn62lj4nZ4V9rBpDmbuu1Sl7fZY5X/7F
+	IKXokAp46OOpJ5JYyeCdkB/sgHWfw3RzlpBNcxErZ1+SnIc9uCehFbc4k9WJ9byDPJ2TF2Yxoh6wx
+	1fVN3hPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4hQB-0000000675s-2Zcn;
-	Tue, 15 Apr 2025 14:37:55 +0000
+	id 1u4hS3-000000067RM-1UNV;
+	Tue, 15 Apr 2025 14:39:51 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4hIk-0000000661Q-1uFH
+	id 1u4hIn-0000000662N-0VOy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 14:30:15 +0000
+	Tue, 15 Apr 2025 14:30:18 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5CC161756;
-	Tue, 15 Apr 2025 07:30:12 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DED1615A1;
+	Tue, 15 Apr 2025 07:30:14 -0700 (PDT)
 Received: from pluto.guest.local (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E2B293F694;
-	Tue, 15 Apr 2025 07:30:11 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6F3AC3F694;
+	Tue, 15 Apr 2025 07:30:14 -0700 (PDT)
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -48,17 +48,17 @@ Cc: sudeep.holla@arm.com,
 	maz@kernel.org,
 	johan@kernel.org,
 	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH 3/4] firmware: arm_scmi: quirk: Fix CLOCK_DESCRIBE_RATES triplet
-Date: Tue, 15 Apr 2025 15:29:32 +0100
-Message-ID: <20250415142933.1746249-4-cristian.marussi@arm.com>
+Subject: [PATCH 4/4] [NOT FOR UPSTREAM] firmware: arm_scmi: quirk: Ignore FC bit in attributes
+Date: Tue, 15 Apr 2025 15:29:33 +0100
+Message-ID: <20250415142933.1746249-5-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20250415142933.1746249-1-cristian.marussi@arm.com>
 References: <20250415142933.1746249-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_073014_580925_A856E215 
-X-CRM114-Status: GOOD (  16.01  )
+X-CRM114-CacheID: sfid-20250415_073017_260356_FE686742 
+X-CRM114-Status: GOOD (  14.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,122 +73,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert an existing quirk in CLOCK_DESCRIBE_RATES parsing to the new quirk
-framework. This is a sort of a peculiar quirk since it matches any platform
-and any firmware.
+Some platform misreported the support of FastChannel when queried: ignore
+that bit on selected platforms.
 
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
- drivers/firmware/arm_scmi/clock.c  | 49 ++++++++++++++++--------------
- drivers/firmware/arm_scmi/quirks.c |  2 ++
- drivers/firmware/arm_scmi/quirks.h |  3 ++
- 3 files changed, 32 insertions(+), 22 deletions(-)
+Match features has to be set-up properly before upstreaming this.
+Ideally the out-of-spec firmware should be matched with a quirk matching
+pattern based on Vendor/SubVendor/ImplVersion....but it is NOT clear if the
+platform at hand will ship with future fixed firmwares where the ImplVersion
+field is properly handled.
+If we cannot be sure about that, we should fallback to a compatible match.
 
-diff --git a/drivers/firmware/arm_scmi/clock.c b/drivers/firmware/arm_scmi/clock.c
-index 2ed2279388f0..cb9839ec96d7 100644
---- a/drivers/firmware/arm_scmi/clock.c
-+++ b/drivers/firmware/arm_scmi/clock.c
-@@ -11,6 +11,7 @@
+RFC->V1
+- fix QUIRKS conditions
+---
+ drivers/firmware/arm_scmi/driver.c | 8 ++++++++
+ drivers/firmware/arm_scmi/quirks.c | 3 +++
+ drivers/firmware/arm_scmi/quirks.h | 1 +
+ 3 files changed, 12 insertions(+)
+
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index 1d500663004a..e38cf3c3b157 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -1904,6 +1904,13 @@ struct scmi_msg_resp_desc_fc {
+ 	__le32 db_preserve_hmask;
+ };
  
- #include "protocols.h"
- #include "notify.h"
-+#include "quirks.h"
- 
- /* Updated only after ALL the mandatory features for that version are merged */
- #define SCMI_PROTOCOL_SUPPORTED_VERSION		0x30000
-@@ -429,6 +430,31 @@ static void iter_clk_describe_prepare_message(void *message,
- 	msg->rate_index = cpu_to_le32(desc_index);
- }
- 
-+#define QUIRK_OUT_OF_SPEC_TRIPLET					       \
-+	({								       \
-+	/* Warn about out of spec replies ... */			       \
-+	if (!p->clk->rate_discrete &&					       \
-+	    (st->num_returned != 3 || st->num_remaining != 0)) {	       \
-+		dev_warn(p->dev,					       \
-+			 "Out-of-spec CLOCK_DESCRIBE_RATES reply for %s - returned:%d remaining:%d rx_len:%zd\n",\
-+			 p->clk->name, st->num_returned, st->num_remaining,    \
-+			 st->rx_len);					       \
-+		/*							       \
-+		 * A known quirk: a triplet is returned but num_returned != 3  \
-+		 * Check for a safe payload size and fix.		       \
-+		 */							       \
-+		if (st->num_returned != 3 && st->num_remaining == 0 &&	       \
-+		    st->rx_len == sizeof(*r) + sizeof(__le32) * 2 * 3) {       \
-+			st->num_returned = 3;				       \
-+			st->num_remaining = 0;				       \
-+		} else {						       \
-+			dev_err(p->dev,					       \
-+				"Cannot fix out-of-spec reply !\n");	       \
-+			return -EPROTO;					       \
-+		}							       \
-+	}								       \
++#define QUIRK_PERF_FC_FORCE						\
++	({								\
++		if (pi->proto->id == SCMI_PROTOCOL_PERF &&		\
++		    message_id == 0x8 /* PERF_LEVEL_GET */)		\
++			attributes |= BIT(0);				\
 +	})
 +
- static int
- iter_clk_describe_update_state(struct scmi_iterator_state *st,
- 			       const void *response, void *priv)
-@@ -442,28 +468,7 @@ iter_clk_describe_update_state(struct scmi_iterator_state *st,
- 	st->num_returned = NUM_RETURNED(flags);
- 	p->clk->rate_discrete = RATE_DISCRETE(flags);
+ static void
+ scmi_common_fastchannel_init(const struct scmi_protocol_handle *ph,
+ 			     u8 describe_id, u32 message_id, u32 valid_size,
+@@ -1924,6 +1931,7 @@ scmi_common_fastchannel_init(const struct scmi_protocol_handle *ph,
  
--	/* Warn about out of spec replies ... */
--	if (!p->clk->rate_discrete &&
--	    (st->num_returned != 3 || st->num_remaining != 0)) {
--		dev_warn(p->dev,
--			 "Out-of-spec CLOCK_DESCRIBE_RATES reply for %s - returned:%d remaining:%d rx_len:%zd\n",
--			 p->clk->name, st->num_returned, st->num_remaining,
--			 st->rx_len);
--
--		/*
--		 * A known quirk: a triplet is returned but num_returned != 3
--		 * Check for a safe payload size and fix.
--		 */
--		if (st->num_returned != 3 && st->num_remaining == 0 &&
--		    st->rx_len == sizeof(*r) + sizeof(__le32) * 2 * 3) {
--			st->num_returned = 3;
--			st->num_remaining = 0;
--		} else {
--			dev_err(p->dev,
--				"Cannot fix out-of-spec reply !\n");
--			return -EPROTO;
--		}
--	}
-+	SCMI_QUIRK(clock_rates_triplet_out_of_spec, QUIRK_OUT_OF_SPEC_TRIPLET);
- 
- 	return 0;
- }
+ 	/* Check if the MSG_ID supports fastchannel */
+ 	ret = scmi_protocol_msg_check(ph, message_id, &attributes);
++	SCMI_QUIRK(perf_level_get_fc_force, QUIRK_PERF_FC_FORCE);
+ 	if (ret || !MSG_SUPPORTS_FASTCHANNEL(attributes)) {
+ 		dev_dbg(ph->dev,
+ 			"Skip FC init for 0x%02X/%d  domain:%d - ret:%d\n",
 diff --git a/drivers/firmware/arm_scmi/quirks.c b/drivers/firmware/arm_scmi/quirks.c
-index 2f95b35b5ca1..b523bd1ca49f 100644
+index b523bd1ca49f..3e3b61a03780 100644
 --- a/drivers/firmware/arm_scmi/quirks.c
 +++ b/drivers/firmware/arm_scmi/quirks.c
-@@ -86,6 +86,7 @@ struct scmi_quirk {
- 	__DEFINE_SCMI_QUIRK_ENTRY(_qn, _comp, _ven, _sub, _impl)
+@@ -87,6 +87,8 @@ struct scmi_quirk {
  
  /* Global Quirks Definitions */
-+DEFINE_SCMI_QUIRK(clock_rates_triplet_out_of_spec, NULL, NULL, NULL, NULL);
+ DEFINE_SCMI_QUIRK(clock_rates_triplet_out_of_spec, NULL, NULL, NULL, NULL);
++DEFINE_SCMI_QUIRK(perf_level_get_fc_force,
++		  NULL, "bad-vend", NULL, "0x20000-");
  
  /*
   * Quirks Pointers Array
-@@ -94,6 +95,7 @@ struct scmi_quirk {
-  * defined quirks descriptors.
+@@ -96,6 +98,7 @@ DEFINE_SCMI_QUIRK(clock_rates_triplet_out_of_spec, NULL, NULL, NULL, NULL);
   */
  static struct scmi_quirk *scmi_quirks_table[] = {
-+	__DECLARE_SCMI_QUIRK_ENTRY(clock_rates_triplet_out_of_spec),
+ 	__DECLARE_SCMI_QUIRK_ENTRY(clock_rates_triplet_out_of_spec),
++	__DECLARE_SCMI_QUIRK_ENTRY(perf_level_get_fc_force),
  	NULL
  };
  
 diff --git a/drivers/firmware/arm_scmi/quirks.h b/drivers/firmware/arm_scmi/quirks.h
-index 0f1a14b13ba5..e5252ba4774b 100644
+index e5252ba4774b..f8a7f234b2ae 100644
 --- a/drivers/firmware/arm_scmi/quirks.h
 +++ b/drivers/firmware/arm_scmi/quirks.h
-@@ -37,4 +37,7 @@ static inline void scmi_quirks_enable(struct device *dev, const char *compat,
+@@ -39,5 +39,6 @@ static inline void scmi_quirks_enable(struct device *dev, const char *compat,
  
- #endif /* CONFIG_ARM_SCMI_QUIRKS */
+ /* Quirk delarations */
+ DECLARE_SCMI_QUIRK(clock_rates_triplet_out_of_spec);
++DECLARE_SCMI_QUIRK(perf_level_get_fc_force);
  
-+/* Quirk delarations */
-+DECLARE_SCMI_QUIRK(clock_rates_triplet_out_of_spec);
-+
  #endif /* _SCMI_QUIRKS_H */
 -- 
 2.47.0
