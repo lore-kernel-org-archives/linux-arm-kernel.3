@@ -4,67 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51547C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 01:46:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2E3AC369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 01:57:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wGR7nK8EU+Cj5W9ySk84JYng8rysMk1dgDF+70d6Bc8=; b=bwzl3XBCryk8Ho9EOGAJd9Y6Lc
-	K6uIaYAWpHattGZ/G4NR3xSG0/gfpCA4o8gOvV616ALopM47GbbQpUlEZB4W/C+ZWu8LuGBxAfH8l
-	5GULMGJit+nqYEx4IIO17DZuf9lGm7SoQ2K6dhQFd9XN9/Aa1c0fmqKe4sjpCpVKjtXEXlk+bd/9m
-	uRrAESC3WdjfdYmreaAG2rtiCc9RhjEZAIvEaOcYSMJAFJZDq2VD113f1PvzOwfxUHp5T4bI5PSlJ
-	YilsoaloprKB1J+bZNAxLwifpOkwvlSZEvXGfNOzdDwryD3gyhnN1yxMlzLlC5A4XQJfOCK4rnlnf
-	FLO9oSkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wnkPaXEk6qnYCo+vvtWUioDSPxFUMrg19yw3XdC2wC4=; b=cfvHI2ykNvJEZaN86Evyrosr+3
+	P4aBIcIFnSEkYWhDJ8rWeQRKItGghm2gC/w+1s/xNia7jxQaf1EGG+DzV20QzYnZ2sE67N6ZLLaC+
+	YC+DjXxHNZOEpiKmU837WiHFoGa4NMwmRsYi/z8i1NEJnZXZnbvFAh115MdvSSMUMZ5ZvtP4V2uvw
+	qovaTBwdCwsL64BExPehGDZsmP9/gCVitDsqQe5071oCK5tx+K+Ztl7UpGllUusMgYumzNmJXWUUk
+	EhS29IBPIEu6UmnHxp82ysD77O6J6VUsuVYgUalz0CUk79zjL5tulsF/wgTetIMMSW1nj4RmDNbQT
+	R74tnmzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4VNA-000000048fQ-0jop;
-	Tue, 15 Apr 2025 01:46:00 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1u4VXm-000000049fr-2IK2;
+	Tue, 15 Apr 2025 01:56:58 +0000
+Received: from bg4.exmail.qq.com ([43.155.67.158])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4VLL-000000048VL-3DrP
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 01:44:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=wGR7nK8EU+Cj5W9ySk84JYng8rysMk1dgDF+70d6Bc8=; b=gkT1XCiFMPbPvAozaSPSIi2XnW
-	7ylKKmYfn5zEZNYYZb8vFvCYJOsVlqoJAYTK9KVIxklBr4X/NwyS2mkh+jVnyd8898ni4BXUR3UOE
-	ut9/u80pzzVHjE5+nrAGEWQ7cBye7POaHgaQOP/YdOv0Orw03jhVVcnp4WQZKyqWeLK0=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1u4VL9-009Jyv-LS; Tue, 15 Apr 2025 03:43:55 +0200
-Date: Tue, 15 Apr 2025 03:43:55 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Lukasz Majewski <lukma@denx.de>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
+	id 1u4VVw-000000049Kj-36R7;
+	Tue, 15 Apr 2025 01:55:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
+	s=altu2504; t=1744682090;
+	bh=wnkPaXEk6qnYCo+vvtWUioDSPxFUMrg19yw3XdC2wC4=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version;
+	b=pvpKKiLnzxT2FnGg12YQopnGAxFS6dDaf45OAClNaQ+2LqcdaeSQUmZnQ4PU74Usi
+	 kg2nCVJZHqp9/lmbfx44wFbD5vv9eh/4MQeyFSojUpk0xwRvCZKQKNb3JqFM2rhDVI
+	 fPthn3g6EnW6fXKlTGG2dvZ53SetVcRhfdXc2g7Q=
+X-QQ-mid: izesmtp87t1744682086tba17c408
+X-QQ-Originating-IP: fKMTSp+kc+w90RdYckDRM+y8DxFPMNasfY7wqVQrQR0=
+Received: from localhost.localdomain ( [58.22.7.114])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 15 Apr 2025 09:54:44 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 17149853333597941837
+EX-QQ-RecipientCnt: 20
+From: Chaoyi Chen <kernel@airkyi.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Stefan Wahren <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>
-Subject: Re: [net-next v5 4/6] net: mtip: The L2 switch driver for imx287
-Message-ID: <45a4fe47-d590-442a-9073-39472a49d52d@lunn.ch>
-References: <20250414140128.390400-1-lukma@denx.de>
- <20250414140128.390400-5-lukma@denx.de>
+	Conor Dooley <conor+dt@kernel.org>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Jianfeng Liu <liujianfeng1994@gmail.com>,
+	Dragan Simic <dsimic@manjaro.org>,
+	Jimmy Hon <honyuenkwun@gmail.com>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	FUKAUMI Naoki <naoki@radxa.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Alexey Charkov <alchark@gmail.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/2] Add support for RK3588 EVB2 board
+Date: Tue, 15 Apr 2025 01:54:39 +0000
+Message-ID: <3B59B383C82BCCCA+20250415015441.371214-1-kernel@airkyi.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250414140128.390400-5-lukma@denx.de>
+Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: izesmtp:airkyi.com:qybglogicsvrsz:qybglogicsvrsz4a-0
+X-QQ-XMAILINFO: OCFGt05vYz7YvWpe1uePm5eULD9aSIb3h30C2kLwI6I8RuW9oQyu/npC
+	P10Yi0xxJzADchGsRXCTk7XYog1tUQJVmgeMReY45F2X3ZcCEzFHERJBwERZGZiy8H7qMNv
+	GoOyB+xWO70+LwoZ98Dk0Bv1YK5rioJ9/X1sLbIBNUiplTfOkjYKSrKjm5pomDdUb/V2Eb2
+	lrM2EcRYQu3r1WIvpDiUij2U+7XhXfXjNKuNtZruvm2mc3J/1D3cb6G5/RmzaIf3BLhV/a7
+	UqihwMHe1ZEcK9TfQRstJ5Bk9oatQ1q16B/WH99YWYHgkKfB1mhKSUpE3xrfCCCNStIl3Xd
+	rJ/VucsF7cXflqBiOiQPKHTKkvI3zc5ic1Dfa4bOOK+l6am0rrEL6uAjgYFPsikJPwCGjZk
+	5LrJiezijk5cz5zLP+josrXYf1J3O+6c1nbQU9kH8lVXyVSj4wYcDNY9klQtyl6pmBLGj9e
+	vdp6G7s1MfFKaJWOGWK3rYC2y27CwoHKUHVh4Z4PnGPbYXsyxs1EgaRzntIG4vnYPBKq5Ef
+	jF7FDwQe0t8FDyhb3ORT0s0LKpsNlrInkhzu7YQwhWcx6uH158GgJDU70jJaZaPnB4A5nv0
+	OjjYMEag52v6hOnZv46Njoph+qQvQMWGFHWZmyIzskkMCNNVnBriulHWQ1S3QADeiPghMfG
+	2ddmYa7UKDmZHZ4MCSlQ85i8j1B7EIxPsaW+Wn0QCr7KGVmhjhJ6yUYQ+9Ns7zQQtuF5lYx
+	Tco81aa10T/u+Pff/FM1UqHU0WO1sp+nFMKbQWsUWCN20qLDENnFJxB9Fcmz7lIBrzwtgAG
+	i0p4dS9Xok/gJyB4ES9Qc//mr5UBVX1KTjwEBGaVxR4d69nl5z8Vt0WN7kAKyEhpA9z6U3y
+	+ofewRHTbSS1rh98mDIzssfmBjt/OsmqbsPPA4yFnYmTPWmXvki8lHjJ//2MhY6mw3KjJWQ
+	aLkfbguE+SmNhv29MI2SWQzMd0/4qq3vbxsMjrvytk9wptklcEzDh3+4P
+X-QQ-XMRINFO: OD9hHCdaPRBwq3WW+NvGbIU=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_184407_803461_C6041C74 
-X-CRM114-Status: GOOD (  16.06  )
+X-CRM114-CacheID: sfid-20250414_185505_094985_1330D9B8 
+X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,24 +106,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 14, 2025 at 04:01:26PM +0200, Lukasz Majewski wrote:
-> This patch series provides support for More Than IP L2 switch embedded
-> in the imx287 SoC.
-> 
-> This is a two port switch (placed between uDMA[01] and MAC-NET[01]),
-> which can be used for offloading the network traffic.
-> 
-> It can be used interchangeably with current FEC driver - to be more
-> specific: one can use either of it, depending on the requirements.
-> 
-> The biggest difference is the usage of DMA - when FEC is used, separate
-> DMAs are available for each ENET-MAC block.
-> However, with switch enabled - only the DMA0 is used to send/receive data
-> to/form switch (and then switch sends them to respecitive ports).
-> 
-> Signed-off-by: Lukasz Majewski <lukma@denx.de>
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+General features for rk3588 evb2 board:
+- Rockchip RK3588
+- LPDDR4/4X
+- eMMC5.1
+- RK806-2x2pcs + DiscretePower
+- 1x HDMI2.1 TX / HDMI2.0 RX
+- 1x full size DisplayPort
+- 3x USB3.0 Host
+- 1x USB2.0 Host
+- WIFI/BT
 
-    Andrew
+Chaoyi Chen (2):
+  dt-bindings: arm: rockchip: Add rk3588 evb2 board
+  arm64: dts: rockchip: Add rk3588 evb2 board
+
+ .../devicetree/bindings/arm/rockchip.yaml     |   4 +-
+ arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+ .../boot/dts/rockchip/rk3588-evb2-v10.dts     | 931 ++++++++++++++++++
+ 3 files changed, 935 insertions(+), 1 deletion(-)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-evb2-v10.dts
+
+--
+2.49.0
+
 
