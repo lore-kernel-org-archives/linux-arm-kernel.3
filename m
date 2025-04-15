@@ -4,158 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C24D2C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 00:13:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89977C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 00:19:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SXOG6Vjx25wFsREDMt46YLHRz+CDLCaqJ7NlBevBAB8=; b=uqL02zpFbAQROB/bySrpR5ijIz
-	rKrhjewg+D/GMvsEf5R/C6iEEDxaWYGH8vqUVbvmXuyo4iXrmDwhydI9qkFq7G3WkFPtTYJT9SpFU
-	CFg3n2RxSrxmZo/74AwCX1nZ+9UCH4w1jyEDboV+6eI8QzdX3E729oMZxQrQIcyPAUFKrpD+j896G
-	2USzG+Q0auS6TVJgICvRdDKDS+SgmthNfO2NYmDO71BFut6CsDdOGb0SeDz6b59WQntmUu3JJgEA/
-	ryfN9X2wLEUVEi63OA2RTKlmZJJPtFcCjZ47Y0u1leAWNa5YVkF80+gpriJcd1n5cu3WBFb1iHhtA
-	5JjcgbCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:
+	References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:Content-Type:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ugM52EDDN5T4m7r/U5qsyvGrmtbv8uvnFRRVmHC+5uI=; b=NyZSt/h9A6QoI3XUKZUNt2w/Js
+	o45EL3eU5c+mDejQLOyCxVRIxO/oFmmDlzoK/KN6Pf3v+0c42YTBN+3E4Pk/gD68r6H2MRt8ZwK5f
+	Vp869IPmeJ/HYysSd4sVdnbmDzfQX9PbU8mXs/ZVVZx4O4LgusSvO4aUfar0EimlodiehAgQ+/U2x
+	LL9qX/3YsL0RrGJoXTfA/zKPS3oyle98yDvFKPflZIHjljbOnoHJRHAWsja0Fg8NOmFnGmMu3tIfz
+	o1jVvaUdaV5tjvfp6EfMQxcFm1cVOlb31YV1en9Rs1mS0g4EkfQY39bFoA4Yui4s7Z6yRpj+zc8ie
+	Y4x5sYXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Tvi-00000003y4Q-1lay;
-	Tue, 15 Apr 2025 00:13:34 +0000
-Received: from mail-am7eur03on20624.outbound.protection.outlook.com ([2a01:111:f403:260e::624] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
+	id 1u4U0t-00000003yXk-2apH;
+	Tue, 15 Apr 2025 00:18:55 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Ttt-00000003xsi-2Jip
+	id 1u4Tz4-00000003yKt-3GFR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 00:11:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VuNyVculBS/IPuQ+8soIoZWaK9KNlSW5AxngkWBSn6zDppuAF7j7+hMXt8RYjr5AcNCSRa/+5uEVqh1Wh/zeP3tLTGHZK81Tpt3GPvysGaV0f6b05KO0pSdDfDPu73Rq0fWVr3WowAlNdSMv/wQTS6ecBRBUHipjnw/b2LU0TFsrXRcKjX4vHrP+JGPS93xEu2gXBshz89MkZysIXhgWj1DwPdsak60sI0gYXul8BNC34+a/gRcMRqfAc6wzPE/yHU6+2CBE/0tSQMacaEidtsMdPre/2/DyaZpOXMPbLRNYH3dXUkCOOD0QBSt/N8RApMBXiq6CZZC80cF4Hn82Jg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SXOG6Vjx25wFsREDMt46YLHRz+CDLCaqJ7NlBevBAB8=;
- b=rDjLE1d3HmaYC8tdEaOxx1SL+RRNg33zZLjePrS8i3jbFPZ0QogbmKOOnS4LfQ3MXH3LpAjjF9ZGuatq86Sf5+B4j8RizJrBDKKLl2wVoOtL/OY/IC8ELzJqwRyfHYmo6eWDKboX0IYs4blgzsX2BJ1gDDh5evMuB61HFtTsAZZi2H/hBHVskDHlZ9gDp3cHZT5mCb86lhPfiNIFc6OUUTYAVdn1PaNcGbYcsQgdbp2qFMQE5Y8h38B5y03KktPi4fAqDCk1a8XbQ0ScFRupSnCU6xwKfaTy1PvYn9GOOVweNXOMbJBNVaYyMSzpC1JFYE/iPgdVSYn8uMGnK1o/pQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SXOG6Vjx25wFsREDMt46YLHRz+CDLCaqJ7NlBevBAB8=;
- b=eOH5FX9Pws+1IKfSRt/U0DvJpUzwTXWKhDVFQ9QTSXqGrQdoqKk8M9hG6wWk+gxSz00gduVUxmfB5o49/R4HA3vrXbKVxcDhpXYzDS5emUPtAyIfDWIhEerQlU6/zayAk0UDNW4TeNXfXvqtM/EAe1ydGg2YWJ8cyjNdEJt3yLL3j7EORSMyuzQq01KoIZE3QsMDwUr2IruqphjurMyHbPRi/iX++VUREh6GYlBhwNxHQ7A2aHg1i1qAGXWB2L2Q+aOrAIxvgzjGyR4Ky0xun/F7czFh8T1NL/yaK+v9sdE7XzRuRVYJ4lAIri2Z3UQYoLjYt82Y2OkiF3GUBbMAnw==
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by PA4PR04MB7552.eurprd04.prod.outlook.com (2603:10a6:102:ec::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.34; Tue, 15 Apr
- 2025 00:11:33 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8632.030; Tue, 15 Apr 2025
- 00:11:33 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Hiago De Franco <hiagofranco@gmail.com>
-CC: "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>, Ulf Hansson
-	<ulf.hansson@linaro.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
-	<s.hauer@pengutronix.de>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "regressions@lists.linux.dev"
-	<regressions@lists.linux.dev>, Hiago De Franco <hiago.franco@toradex.com>
-Subject: RE: [REGRESSION] Kernel reboots unexpectdely on i.MX8X when Cortex-M4
- is running and it was started by U-Boot bootaux
-Thread-Topic: [REGRESSION] Kernel reboots unexpectdely on i.MX8X when
- Cortex-M4 is running and it was started by U-Boot bootaux
-Thread-Index: AQHbpWxIyVwHrK1A2UqE7zPASmzQ0LOedbwAgAAHyXCAADO/AIAECmYAgAEXKACAABeSoA==
-Date: Tue, 15 Apr 2025 00:11:33 +0000
-Message-ID: <PAXPR04MB84591C4D560C0D3D64F927FC88B22@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20250404141713.ac2ntcsjsf7epdfa@hiago-nb>
- <20250411125024.i2pib4hyeq4g6ffw@hiago-nb>
- <PAXPR04MB8459ED6CE869173D4051257088B62@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <20250411162328.y2kchvdb4v4xi2lj@hiago-nb>
- <PAXPR04MB8459ED33238AA790252E730988B32@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <20250414224452.gk4ccniqtumfbjth@hiago-nb>
-In-Reply-To: <20250414224452.gk4ccniqtumfbjth@hiago-nb>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|PA4PR04MB7552:EE_
-x-ms-office365-filtering-correlation-id: 6207e61c-0f0d-4b5f-fd63-08dd7bb2149d
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|366016|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?RBZAEBq9eHTArfhcREG5yaEEvQkH+ZsM8Amz6LM9Yg6WmRw30jhU/isI0yKA?=
- =?us-ascii?Q?+55DvZcsWpt3IZ0WuUqkurTMUJfvZYYpb+/ZRdQWS5tsZDW+LgPP89tbKLYW?=
- =?us-ascii?Q?b6z01g+t7BNag7h50suoV8iUGmM1SaWi0uKCtSE+OqzyFVQ6llqJjSLHwpbR?=
- =?us-ascii?Q?TYeSCrGxMC6hL6fe7ywcsGeiU2x+C4zwQBYc+S37rbfGBQXPxgQ/ZVHtJndc?=
- =?us-ascii?Q?TSVYZEk9GUnfv2ehCeT8gtIuFZKY7YRVifeZCoDeDrUk/ANmz2r87j8LIWIX?=
- =?us-ascii?Q?9JbBLYbaTay9L5hMLc+2wajl8q5wYh+v9EkrSO29BvpzjjLWSRJLT8CyusN+?=
- =?us-ascii?Q?qsRmBQkhEk9PFCKD3p8OwK0Rhimnkxkm/F0i2yeJf4TiAGyf90qPPq+1lGTk?=
- =?us-ascii?Q?b2J6l35ijNUSRqeIxVKO9BQFmFLRHuAIi09Co+58yDnSpE+fX2a3ZrhcxoXB?=
- =?us-ascii?Q?yvTkjWWKUURGwJsaNeD0Aqf4tqYq8WA0SwUbBLlqItJH8AdD0LSiD9D25pjM?=
- =?us-ascii?Q?y/zy7W9dnsX5LfHATc9sNNO2lkNYLtH+FykyA3Ag2GSRtgNZOD3x+nbBTfDF?=
- =?us-ascii?Q?9lelmLo6nVwiZ1LjqvoWIiT9KH5sd9BzUDoUkQ4yI6AJgNtreZKT8EIp4uDl?=
- =?us-ascii?Q?hGdTDhN+VU8BQfqbCGrGG/XMviTeYJ9lVYXt+9YT5bdgC0kd+KZipFU6zYbg?=
- =?us-ascii?Q?KDaZRp4Kcd9Ll28hq60HVAiRMB9KRPQW3EaprIeJZoM+duHBZVn8cyt9QBnr?=
- =?us-ascii?Q?VHxqSuQjBVIDBXYIGt6R5l8NwR7qIuT4uUGYjk9q/vf3diTZ7u+37sdE3KYJ?=
- =?us-ascii?Q?mxf/e76xKPWU3IyJU0T4Xa8D9TsSRMPTLlSwhGzDux3aQzVldBK4RLYStLJD?=
- =?us-ascii?Q?+QsM7eDI2NDwMNXMLBf1zpJcWzbaBZ+IONJt8eK5pl7acZauoAELFqZObXce?=
- =?us-ascii?Q?lkSyUWhxGfOTg89MDrJNrQRtX41Iyp1y0H4Cep6CgvcXRuyJ0/MMUt79tlWt?=
- =?us-ascii?Q?2TsGw8bndoH/Btg8sJA8WJ5IeFrdESadwrsdI4IPC58oa5jGFIjjY3eZ4srX?=
- =?us-ascii?Q?qJOCd8vhyz0Wk7Lama63Fv1NwSUYOuH1SUHqhtGPPyBpZS7LcFgBTEjWXeDa?=
- =?us-ascii?Q?Icn1c0uGjxy/4Fg6Ik9dOiguNzoAUIrOf7zU/MezJrU1hWgxfcPratCh+tbq?=
- =?us-ascii?Q?rWuXnr74JYZ2FAttwle9ZacB5OVLtjzM++3SdP84Yt6xijpu7zvtWmmwoICG?=
- =?us-ascii?Q?Hly4kv4IpCYyJLTu5DsIia7r1X8Si2qRR/LAnej0yZSFan4U8NMLtt+foYTK?=
- =?us-ascii?Q?xLnXqJZjtO79kEjYkI5gO3cPFATESOlOWLcObG8Y5rpwAOV/xAiGukXsZehU?=
- =?us-ascii?Q?WX6hSoxssNApIV2AvQ78OFxba/E0GDRGS0qivz2MhY4oZmzH+IMhntuTdlMe?=
- =?us-ascii?Q?AbxhanPgKpzFb0oxThuZ89bfacN93tes+TSSYjWeV68rQpI1fuoEEhmlDxf8?=
- =?us-ascii?Q?8CtSFFPEymxc/vA=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?W0tLjoxgArmyScf5CRPvUk1+BLI91XwfX1hW6Hw8C2SIFGbO1jZ3f2bLf2ZG?=
- =?us-ascii?Q?jXITC2JzsbbB5ab10mVP7PEIdcxRcW+9fWM/oLKeQLfmdPK8kTy57MQAnWx8?=
- =?us-ascii?Q?rsfA1roPV6dKE+ljdRl0qFOZCO2AQUs27n6T7RfhYMtLVGbS3Dj/d/KyXpFf?=
- =?us-ascii?Q?LhfwX/vQ1PPEOsgh8POKhS/hDwReugtfKfVZn+Oebf7dNF39pKW2tEikQwq1?=
- =?us-ascii?Q?qSnvFMIlewm/WKcKNotxaxc7Jirs/enYa1SIS70Rsw7aVLEL4GKNav9LON3Y?=
- =?us-ascii?Q?XrWn5Gsn/GOg4IzaQhHhUI/WQOAYHYCNH77KHnXk3RsyrLDGhLdhN01FZQ91?=
- =?us-ascii?Q?OEevuJZoBz8Wf9vlNlkA44MajIQaEnhjqzLHIRa4zv9qVrlOvBKTQcnB9RF5?=
- =?us-ascii?Q?10JzePCenDMNT0nw3VO5/z505xTNJkAkKiiwE45zrW27lF7PawfaprRkrgUR?=
- =?us-ascii?Q?iNSdFGWC8JM5+gkwxgyT/HytBJecTd6g2xhQpBHRNiyqXqQD9BTo/PAltWNI?=
- =?us-ascii?Q?arsQvDYn9n/sRo+FC3txbVMW1wnJvBjXowYa0MYUbSDxXzHaVjgEXUsh37jT?=
- =?us-ascii?Q?IetgWkrZeXwZkoCgvIxuVuzO/9aRmTEFCM0c55g0SAM7snZKG6rCuT2W6yhu?=
- =?us-ascii?Q?0xzrigrDARRSNZIGX3dHU23zxnT/jyEsXS7hNSS2nGbUfdNjPF2SrW6VOErh?=
- =?us-ascii?Q?KhOhuA2B3cBVZDIHrjqZIsidosQ6aZx1VPIELJ/gAcjWarisPFarSoe2xJf9?=
- =?us-ascii?Q?BV1Idcpegzz6hmJZZJov6aGkMdP+Jhv8mZq4xZkfGCmz38JajloTCfWfQnZT?=
- =?us-ascii?Q?/2f5pqBrK7j8Svod71cz58q8NsHkaTlzb2xctoWqbltUIRbKXNpi7CJsQvzV?=
- =?us-ascii?Q?5CdPLJY9i+0Y5ospGNS4PKCrDyx48j4E46leImTIWCDAxkD0KvCuT3jlyHHb?=
- =?us-ascii?Q?h6tfVPtayYWAvpj2i4NHxY+SYdS1aSatP0A1VF2h/HdljLITjN1yKyfnVUc+?=
- =?us-ascii?Q?q2a0NpQ0hMnFtirYxrepQZdCj88gdldfgo5jY/rj1u/NNWIkGVZVMyoq+Zqz?=
- =?us-ascii?Q?jJpaWr+eJyO0IIB36dzGUpPVQB0k0cXzBaHV66wXyAN54URIBC78aka/3Jk0?=
- =?us-ascii?Q?XqqKrmS5BFTq1477lfJumUU3nwB5zWsD807+Qq0SezCt+oP4wAGmPZj16bow?=
- =?us-ascii?Q?ohGUiqYyfyj2jtc9+I4tXeGfLyGphx8lex021Tows8V2UCdKaRHmnX0pzZp3?=
- =?us-ascii?Q?pwLIDwkn9fWiMQ+5318XtGM93blLoEfj4a0khR5Hd1T+X81BD9LziJDqlGfS?=
- =?us-ascii?Q?Fj/8dHdbCQEboJWBDFJhiL/N6cniXsyBgTa+xccgK/yuukTk3cjWI0/nqd0e?=
- =?us-ascii?Q?kQQgTgBlVtog0VSIbtem/TSpCIQyzJ4D3YetDcW6lH19tX3SB8YTQmn0SNw7?=
- =?us-ascii?Q?l69uFzPkq+VTLvvGZzR0jrxY3/GIQ2MaJNRZL81dUm9WUBYjsY1RU4EISDRm?=
- =?us-ascii?Q?cYECjLALlUlidcsOvMabY9lU30ztuu9ada/5rnRSjb8JuNcyI3agZByA0dDV?=
- =?us-ascii?Q?PZQiy7ctcF7CGTyUj58=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 15 Apr 2025 00:17:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0C423A40A02;
+	Tue, 15 Apr 2025 00:11:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2EFAC4CEE2;
+	Tue, 15 Apr 2025 00:17:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744676220;
+	bh=ugM52EDDN5T4m7r/U5qsyvGrmtbv8uvnFRRVmHC+5uI=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=erkyWkykhGfY8ZkymHjIOJrKT9DeXyK/jmtUy7UBbpAPRFhvm5nooC/0EHHjqdMsu
+	 UlGFRPBf5DC0DRngjM0vWwoMLzaWKHnZR6FqOk1i+KOiVeGr5FzKPHWrKctsZnHH0q
+	 aZKK3Tn9HeeEiTAIfT7Nnl8++CJ7cOz3mlvMFyg6GUUjKEM8OnP0b7W2OFd7SwPJet
+	 0n8RHeF9qpUWgXCrLz+XXNQuYLwgueMmTvpQGcv6G/3mx7Y+RwjLJ+hmldUbf2rf3W
+	 yHxSOGPOcRAZT+qzTuDi6hlOU4Ee4NLizHW+ljw4S/pczBfCDxzvxXKwytjeU0p5Cv
+	 ZeO/OeFf4U6yw==
+Message-ID: <756e49dfefe4838c5dce4855c1e7ce87@kernel.org>
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6207e61c-0f0d-4b5f-fd63-08dd7bb2149d
-X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Apr 2025 00:11:33.6733
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: cgBAx1SwMoKTOhLzgkiU5KIiIEzBy8Nri03Xx1LZts9Xjs7rP8Gb0bBI66ggHrYtDjgJ13VzybRki4FzQTvj5Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7552
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20250409-spmi-v4-1-eb81ecfd1f64@gmail.com>
+References: <20250409-spmi-v4-0-eb81ecfd1f64@gmail.com> <20250409-spmi-v4-1-eb81ecfd1f64@gmail.com>
+Subject: Re: [PATCH v4 1/3] dt-bindings: spmi: Add Apple SPMI controller
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, Sasha Finkelstein <fnkl.kernel@gmail.com>
+To: Alyssa Rosenzweig <alyssa@rosenzweig.io>, Conor Dooley <conor+dt@kernel.org>, Janne Grunau <j@jannau.net>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>, Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>, Sven Peter <sven@svenpeter.dev>, fnkl.kernel@gmail.com
+Date: Mon, 14 Apr 2025 17:16:58 -0700
+User-Agent: alot/0.12.dev8+g17a99a841c4b
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_171141_597266_59CAE607 
-X-CRM114-Status: GOOD (  25.61  )
+X-CRM114-CacheID: sfid-20250414_171702_881524_95E1E73B 
+X-CRM114-Status: UNSURE (   6.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,56 +72,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: Re: [REGRESSION] Kernel reboots unexpectdely on i.MX8X
-> when Cortex-M4 is running and it was started by U-Boot bootaux
+Quoting Sasha Finkelstein via B4 Relay (2025-04-09 14:52:12)
+> From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 >=20
-> Hi Peng,
+> Add bindings for the SPMI controller present on most Apple SoCs
 >=20
-> On Mon, Apr 14, 2025 at 06:09:49AM +0000, Peng Fan wrote:
-> >
-> > In your case, m4 is in same scu partition as a53, so m4 power domain
-> > is manageable(owned) by Linux.
-> >
-> > However to m4 earlyboot(kicked by bootloader), if you not wanna
-> linux
-> > to handle m4, use scu_rm to create a separate partition in u-boot.
-> > If you wanna linux to handle m4, but not wanna linux to shutdown
-> the
-> > pd in kernel boot, imx_rproc.c needs to be built in, and need to add a
-> > clock entry or use clock optional api in imx_rproc.c .
-> >
-> > Current imx_rproc.c needs a clock entry to probe pass.
-> >
-> > I think in your case, this driver not probe pass, so the
-> > M4 pd still get powered off.
->=20
-> This was correct, indeed. I was not able to find exactly where the
-> cortex-m4 clock is defined, so I added a clk_dummy to the imx8x-cm4
-> remoteproc node and now it works, the code continues to run and I
-> can control the m4 with Linux. Thanks!
->=20
-> One thing that I noticed is I cannot make the RPMsg work with this
-> devicetree node, even tought I assigned the correct memory-regions
-> (vdev0buffer, vdev0ring0...). Also tested with the rpmsg-lite from the
-> linux-imx. Is this supposed to work with RPMsg as well?
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> Reviewed-by: Sven Peter <sven@svenpeter.dev>
+> Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
+> ---
 
-To make rpmsg work, you need a m4 demo that could publish
-resource table, such as i.MX tty echo or pingpong demo.
-
-There is downstream rpmsg driver under drivers/rpmsg/imx_*.c
-that could be used to talk with m4.
-
-helloworld demo does not have any virtio devices, so no rpmsg.
-
-Regards,
-Peng.
-
->=20
-> >
-> >
-> > Regards,
-> > Peng.
-> >
->=20
-> Hiago
+Applied to spmi-next
 
