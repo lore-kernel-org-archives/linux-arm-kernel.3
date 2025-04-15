@@ -4,78 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FE79C369B4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 12:26:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2A98C369B4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 12:28:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mLnZgqvmZUslCmhAZLKa6fq00Kni+5LROob1vmy9xy4=; b=CiFgED/GPYszC5wKiNonjugxYo
-	ba2Wjv5NP9UObW9/CqmldqCpEzLS66MbbsejTLibZqmjl2PY3NNF8/2jzas3XQLXuYgiH2SWBPDw8
-	pv4fx6YLh36lWP+ZXFikRRdrMW8e+c7buJolqtyEeMJRp92r1Tc97ZT2LRl3tPSxYfT88iTk8+HPk
-	JaZB+45sm+PfGPzRyoqlry5eHt2QKOdtEu4R4oLG5ZhPjBu0gBd4kTyM12LCD0JLvY1ie0O9iZ7fQ
-	OlSGM1v6n24GZnNShUKxG9Bkur8vCsqoUEsQNvIEoHD8KrdaN5GZSHK0QKal6OGS8X/CmQOsxOG0Q
-	c7d++vZA==;
+	bh=k4ZxXn9N7BVkWasocQAyjBn49uv3gVDKltvSRDAFPmg=; b=WZXw1YPK3v1tsb9sfmYOru3WzU
+	yWHGHaEFgbN1W5DelCrS4fHOgPHZViB7mmD+lzbyg7Sds9ldZ0aMzpEjeH6sb3AQPidH/95FwVxZZ
+	22kEQ2fN4Le1MkuX0tK6V9kUhz79SO0F7S/42TyQYKATDGgRwPvhn4H9bG6iT/c7YNJy5rj8Dz2EJ
+	1PEI/SckakY8mNgVu7c6t036oe7KZhvbqQGS0DJBTcCopZKKt9kQiFbB3kEj/FkOYPk18nLhu5FIo
+	9T5PEHqqMaTXhCk23cBviWPsX86cGwLxd/5vrAGwyPEpAFyyAO62Ym88SL1L08A6FR0Hi4gyN1SJX
+	rSttRR/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4fN2-00000005jVh-1aAD;
-	Tue, 15 Apr 2025 12:26:32 +0000
-Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
+	id 1u4fOq-00000005jwc-08VX;
+	Tue, 15 Apr 2025 12:28:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4e0I-00000005RR6-3LrB
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 10:59:00 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id A055243305;
-	Tue, 15 Apr 2025 10:58:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1744714736;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mLnZgqvmZUslCmhAZLKa6fq00Kni+5LROob1vmy9xy4=;
-	b=XM7YPbt791zIDP+SeVWHdv4KfB5W7XtbTro6hQrW5tP5JehqDTdZjfIC9zWnqzQtxlVs9e
-	MPETzod9BZwHRuPcHF3ElGeNh5mIA4rKdVDa+FBYQTer3lwhy61m0WE+3sqZAdK3Wgdp0C
-	wMeQ5dPfGT/aLMIvJ13qJOWUEMwSytO/CXxGDeGBWFK1ISWTh/Y7BPKcjNFb4khYsRrGgh
-	ItCdsijh3HVYT1VLA06kQwmNB6K35awIavWvr7Cv8AOnk5acet6LiPrCT8RqlDXjugCfcF
-	Q4m1G0EJbfaACPhAWkYWgvU6D/4oaHQEktRVQCRHN6sr26X/+EiDUieauRmytg==
-Date: Tue, 15 Apr 2025 12:58:53 +0200
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
- <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Andy Whitcroft <apw@canonical.com>, Dwaipayan Ray
- <dwaipayanray1@gmail.com>, Lukas Bulwahn <lukas.bulwahn@gmail.com>, Joe
- Perches <joe@perches.com>, Jonathan Corbet <corbet@lwn.net>, Nishanth Menon
- <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Siddharth Vadapalli
- <s-vadapalli@ti.com>, Roger Quadros <rogerq@kernel.org>, Tero Kristo
- <kristo@kernel.org>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux@ew.tq-group.com
-Subject: Re: [PATCH net-next 2/4] dt-bindings: net: ti: k3-am654-cpsw-nuss:
- update phy-mode in example
-Message-ID: <20250415125853.00b6603f@fedora.home>
-In-Reply-To: <4216050f7b33ce4e5ce54f32023ec6ce093bd83c.1744710099.git.matthias.schiffer@ew.tq-group.com>
-References: <cover.1744710099.git.matthias.schiffer@ew.tq-group.com>
-	<4216050f7b33ce4e5ce54f32023ec6ce093bd83c.1744710099.git.matthias.schiffer@ew.tq-group.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	id 1u4e1E-00000005Rb0-1RwX;
+	Tue, 15 Apr 2025 10:59:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B0D8249F2C;
+	Tue, 15 Apr 2025 10:59:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D498C4CEDD;
+	Tue, 15 Apr 2025 10:59:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744714795;
+	bh=/SwxoZm7KffQwQcm64rmu15PgqiClZfE4G1P786RlWg=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=S+8TH31bbgYVT+o+w43u5OJE1Ev1z6n0jcqfKDrcz7QSnZZM781T08zwJSxECRc58
+	 C/2MIXTZu7sxzHx1ZFtQKAApiUxh6J9y9UJnLD+cPPY+ZHmD8CgaTIAxRbO4OLCmd4
+	 YxEARDQzKrVOcmRUXXchqttfgbFygQp8KR6GmpABkN7+BJC4OHsYvGD6hn4XbOBmci
+	 KZngaaOQO4+8FkCOeIkpbvrgqaf5omF2ulENTVc4MNm0asafOYxnth623cmqZZUp4K
+	 eaJcu/n0fp7NLZCpz+kNiwc4FBKXBeBe0IGXFcB1ZhSs5yB6BOlPlVxND726KnJKPO
+	 hWe1hITDMb/Kw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id AE8A03822D55;
+	Tue, 15 Apr 2025 11:00:34 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvvdeffeduucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvdehpdhrtghpthhtohepmhgrthhthhhirghsrdhstghhihhffhgvrhesvgifrdhtqhdqghhrohhuphdrtghomhdprhgtphhtthhopegrnhgurhgvfidonhgvthguvghvsehluhhnnhdrtghhpdhrtghpthhtohepuggrvhgvm
- hesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrgh
-X-GND-Sasl: maxime.chevallier@bootlin.com
+Content-Transfer-Encoding: 8bit
+Subject: Re: [net-next PATCH 0/6] net: dsa: mt7530: modernize MIB handling + fix
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <174471483350.2586745.804728746309953080.git-patchwork-notify@kernel.org>
+Date: Tue, 15 Apr 2025 11:00:33 +0000
+References: <20250410163022.3695-1-ansuelsmth@gmail.com>
+In-Reply-To: <20250410163022.3695-1-ansuelsmth@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: chester.a.unal@arinc9.com, daniel@makrotopia.org, dqfext@gmail.com,
+ sean.wang@mediatek.com, andrew@lunn.ch, olteanv@gmail.com,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_035858_998601_B766AA36 
-X-CRM114-Status: UNSURE (   8.35  )
+X-CRM114-CacheID: sfid-20250415_035956_400107_556A8FB3 
+X-CRM114-Status: UNSURE (   8.71  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,17 +78,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 15 Apr 2025 12:18:02 +0200
-Matthias Schiffer <matthias.schiffer@ew.tq-group.com> wrote:
+Hello:
 
-> k3-am65-cpsw-nuss controllers have a fixed internal TX delay, so RXID
-> mode is not actually possible and will result in a warning from the
-> driver going forward.
+This series was applied to netdev/net-next.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
+
+On Thu, 10 Apr 2025 18:30:08 +0200 you wrote:
+> This small series modernize MIB handling for MT7530 and also
+> implement .get_stats64.
 > 
-> Signed-off-by: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+> It was reported that kernel and Switch MIB desync in scenario where
+> a packet is forwarded from a port to another. In such case, the
+> forwarding is offloaded and the kernel is not aware of the
+> transmitted packet. To handle this, read the counter directly
+> from Switch registers.
+> 
+> [...]
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Here is the summary with links:
+  - [net-next,1/6] net: dsa: mt7530: generalize read port stats logic
+    https://git.kernel.org/netdev/net-next/c/ee6a2db281a3
+  - [net-next,2/6] net: dsa: mt7530: move pkt size and rx err MIB counter to rmon stats API
+    https://git.kernel.org/netdev/net-next/c/33bc7af2b281
+  - [net-next,3/6] net: dsa: mt7530: move pause MIB counter to eth_ctrl stats API
+    https://git.kernel.org/netdev/net-next/c/e12989ab719c
+  - [net-next,4/6] net: dsa: mt7530: move pkt stats and err MIB counter to eth_mac stats API
+    https://git.kernel.org/netdev/net-next/c/dcf9eb6d33a2
+  - [net-next,5/6] net: dsa: mt7530: move remaining MIB counter to define
+    https://git.kernel.org/netdev/net-next/c/c3b904c6dd81
+  - [net-next,6/6] net: dsa: mt7530: implement .get_stats64
+    https://git.kernel.org/netdev/net-next/c/88c810f35ed5
 
-Maxime
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
