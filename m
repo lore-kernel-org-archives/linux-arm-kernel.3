@@ -4,51 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE961C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 16:31:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB60BC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 16:33:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WBifGwplIibBzKzi0odZOOCXZXemNk43fJJCTstApN4=; b=wg/3Ja1aBLBh2C5JC8XNa1rjbk
-	jG4fVrN3Mp1lUwkw873u1SAyij9bRYCsfJkWbVXL0/6ekDxxlnlunlLnko+OV+MYKq3fWBFdALmUh
-	Ql8Dl3KuRFPTCsUmEw97UneykkGRfEqeCIfj4KhUo3EFXnWq/oOtJz3/QMXG+ZMbJvb4j6Cqfzdog
-	iE8Ve2T6J7fm8PwD3mP0o2XQip3u2BcQOppWi5G5q7HYAyoo6hkVqxXu5ZZYtEq1/davIXl55+Oz5
-	Ix9jxvHQ2wQpymMIN3CZK+sFdtb3vvLNsQEWlgY79apyRixXoItAsPnFCq4fchuZgHQ8XxQ1Rkgho
-	zvFNKdqQ==;
+	bh=nYBIi406G9MnOIXd2PEqWNVuxe9g0jd3Fn2QI+RoiXM=; b=EmBEdUVgfTJ4mUfAtJOiTUaHsj
+	6Tc8yFluGCGr8q0rZzFcPME4pdOKvbWUi12aYStJhZuwIodtZaqEpYxi3gXHhMvYZ1DCckQ+DXwDi
+	d9vM3Wbji8fcXkXsamCWJnAONxslY0BpoAgXoXIAH9aRe6CZD7QMSt7VCIIsn/nPSEt3E2klPYSU6
+	FEFJxh2/YLalSkvL42KxxxivxVmu9gEOCgy6T6UzNNSvFR0+7i/IzpsbDpIK6+BfBsVvUsvAYPHRj
+	/TQjHGuFZBqrlIoe1bOxI5ZxHPUVAEfWoF3zXzMaNIuvR10t/6B+oxulN8caRB4EcTRXX+a0eNU+n
+	yEuFEZ4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4jC1-00000006QGy-3fF2;
-	Tue, 15 Apr 2025 16:31:25 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u4jDo-00000006QRR-2nc5;
+	Tue, 15 Apr 2025 16:33:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4icr-00000006KRv-1J3W
+	id 1u4ijs-00000006LYI-3VDH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 15:55:06 +0000
+	Tue, 15 Apr 2025 16:02:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E4C5FA4A474;
-	Tue, 15 Apr 2025 15:49:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 297E6C4CEEB;
-	Tue, 15 Apr 2025 15:55:00 +0000 (UTC)
-Date: Tue, 15 Apr 2025 16:54:58 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Subject: Re: [BUG][PATCH v8 4/6] arm64: Make _midr_in_range_list() an
- exported function
-Message-ID: <Z_6BUgekb7YXOExu@arm.com>
-References: <20250221140229.12588-1-shameerali.kolothum.thodi@huawei.com>
- <20250221140229.12588-5-shameerali.kolothum.thodi@huawei.com>
- <3d97e45a-23cf-419b-9b6f-140b4d88de7b@arm.com>
- <865xj5la2q.wl-maz@kernel.org>
+	by tor.source.kernel.org (Postfix) with ESMTP id 57F9961362;
+	Tue, 15 Apr 2025 16:02:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86DCFC4CEEB;
+	Tue, 15 Apr 2025 16:02:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744732939;
+	bh=7Rmh8vV6GpjW8tGOLmzMipD5iUxBweVFlC56ryJ2b3I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aANLp776GKPJr5pXAnfPCvusHmJYG8nzy62olk0fqthF3OToJIaIlkaCECG05ghZ8
+	 Un00ln3T/UclXpdbp+IwVgad5hUelMoCgjZ3JLblQuDGZosgZlH/w+UmFazy/FcEQe
+	 QKCKWF0mFzEG9r2zEcWuheOQPeBVknSgquyecaSIgfO+nu2Oopa/Afub5Z31RQXzl9
+	 SYCRm9kl1WT275bzi0f487LXy0Kb8n2F2RLBY9uAq23ZrZqlQDGdMNBpTkhr2yFx+T
+	 mO2GEdOLLSGBD0mgsJFep3vPLvT29DE/BOI1TWKCvdyOagM0TqAo+QPFE2K9xRtJLj
+	 HXdR/+0rgoqvQ==
+Date: Tue, 15 Apr 2025 17:02:12 +0100
+From: Lee Jones <lee@kernel.org>
+To: =?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
+	linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v4 00/32] Samsung S2MPG10 PMIC MFD-based drivers
+Message-ID: <20250415160212.GA372032@google.com>
+References: <20250409-s2mpg10-v4-0-d66d5f39b6bf@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <865xj5la2q.wl-maz@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_085505_413501_A04FA308 
-X-CRM114-Status: GOOD (  25.14  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250409-s2mpg10-v4-0-d66d5f39b6bf@linaro.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,49 +82,182 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, jiangkunkun@huawei.com, eric.auger@redhat.com, cohuck@redhat.com, linuxarm@huawei.com, oliver.upton@linux.dev, yuzenghui@huawei.com, wangzhou1@hisilicon.com, Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>, jonathan.cameron@huawei.com, kvmarm@lists.linux.dev, sebott@redhat.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, anthony.jebson@huawei.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 15, 2025 at 04:26:53PM +0100, Marc Zyngier wrote:
-> On Tue, 15 Apr 2025 11:57:50 +0100,
-> Ada Couprie Diaz <ada.coupriediaz@arm.com> wrote:
-> > I discovered that this patch breaks boot for some CPUs when building
-> > the default defconfig plus KASAN. This is still the case in v6.15-rc1
-> > and rc2.
-> > 
-> > This patch marks `is_midr_in_range_list` as position independent but
-> > it isn't, breaking early boot when instrumented with KASAN and
-> > `CONFIG_RANDOMIZE_BASE` enabled.
-> > 
-> > The breaking usage seems to be in `kaslr_requires_kpti()` called in
-> > `early_map_kernel()`.
-> > My testing on an AMD Seattle board does crash, but newer machines
-> > implementing E0PD do not crash as they do not need to check MIDRs in
-> > `kaslr_requires_kpti()`.
-> > `is_mdr_in_range_list` did work in PI code previously because it was
-> > `inline`, which this patch changes.
-> 
-> OK, this is much more of a pain than I thought.
-> 
-> I tried bringing the various helpers into the PI section, but it ended
-> up being extremely ugly.
-> 
-> More importantly, this is something that is pretty much at odds with
-> the whole idea of the MIDR override -- it happens way earlier than we
-> can populate the table.
-> 
-> The thing is, the only reason we need to do this is that we need to
-> support the Cavium SEFAC (Sorry Excuse For A Computer) that cannot run
-> with KPTI.
-> 
-> I can restore harmony with the following hack. But maybe we should
-> just prune TX from the kernel and be done with this contraption.
+On Wed, 09 Apr 2025, André Draszik wrote:
 
-That works for me. Well, we can still keep it around but panic on boot
-if kpti is enabled on this platform. Just don't bother checking it via
-early_map_kernel() from the PI code.
+> This series adds initial support for the Samsung S2MPG10 PMIC using the
+> MFD framework. This is a PMIC for mobile applications and is used on
+> the Google Pixel 6 and 6 Pro (oriole / raven).
+> 
+> *** dependency note ***
+> 
+> To compile, this depends on the Samsung ACPM driver in Linux next with
+> the following additional patches:
+> https://lore.kernel.org/all/20250324-acpm-atomic-v2-0-7d87746e1765@linaro.org/
+> https://lore.kernel.org/all/20250319-acpm-fixes-v2-0-ac2c1bcf322b@linaro.org/
+> https://lore.kernel.org/all/20250327-acpm-children-v1-0-0afe15ee2ff7@linaro.org/
+> 
+> *** dependency note end ***
+> 
+> +++ Kconfig update +++
+> 
+> There is a Kconfig symbol update in this series, because the existing
+> Samsung S2M driver has been split into core and transport (I2C & ACPM)
+> parts. CONFIG_MFD_SEC_CORE is now truly a core driver, and
+> the I2C code that was part of it is now enabled via CONFIG_MFD_SEC_I2C.
+> 
+> This was necessary because unlike the other S2M PMICs, S2MPG10 doesn't
+> talk via I2C, but via the Samsung ACPM firmware.
+> 
+> +++ Kconfig update end +++
+> 
+> This series must be applied in-order, due to interdependencies of some
+> of the patches. There are also various cleanup patches to the S2M
+> drivers. I've kept them ordered as:
+>   * DT bindings (patches 1 ... 3)
+>   * s2m mfd prep for adding S2MPG10 support (patches 4 ... 7)
+>   * split S2M mfd driver into s2m-core and s2m-i2c, including the
+>     kconfig symbol update (patch 8)
+>   * S2MPG10 core driver (patch 9)
+>   * s2m mfd driver cleanup patches (patches 10 ... 23)
+>   * S2MPG10 clock driver (patch 24)
+>   * s2m RTC prep for adding S2MPG10 (patch 25 ... 26)
+>   * S2MPG10 RTC driver (patch 27)
+>   * s2m RTC cleanup patches (patches 28 ... 31)
+> 
+> I realise these are many, but since some prep-work was required to be
+> able to add S2MPG anyway, I wanted to get the cleanup patches in as
+> well :-) Let me know if I should postpone them to a later date instead.
+> 
+> The S2MPG10 includes buck converters, various LDOs, power meters, RTC,
+> clock outputs, and additional GPIOs interfaces.
+> 
+> This series adds support in the top-level device driver, and for the
+> RTC and clock. Importantly, having the RTC driver allows to do a proper
+> reset of the system. Drivers or driver updates for the other components
+> will be added in future patches.
+> 
+> This will need a DT update for Oriole / Raven to enable this device. I
+> will send that out separately.
+> 
+> Cheers,
+> Andre'
+> 
+> Signed-off-by: André Draszik <andre.draszik@linaro.org>
+> ---
+> Changes in v4:
+> - various updates to sec-acpm (patch 9, Lee)
+> - cache enum type in patch 25 (Krzysztof)
+> - collect tags
+> - Link to v3: https://lore.kernel.org/r/20250403-s2mpg10-v3-0-b542b3505e68@linaro.org
+> 
+> Changes in v3:
+> - Krzysztof:
+>   - keep 'regulators' subnode required even for s2mpg10
+>   - drop '$ref' and 'unevaluatedProperties' from pmic subnode, use
+>     'additionalProperties' instead
+>   - add some regulators to examples since s2mpg10 requires them as of
+>     v3
+> - sec-acpm:
+>   - use an enum for struct sec_acpm_bus_context::type
+>   - consistent name space for all functions sec_pmic_acpm_... to be
+>     similar to i2c and consistent in this file
+> - Link to v2: https://lore.kernel.org/r/20250328-s2mpg10-v2-0-b54dee33fb6b@linaro.org
+> 
+> Changes in v2:
+> - Rob:
+>   - make PMIC node a child of ACPM, and all related changes (binding,
+>     driver)
+> - Krzysztof:
+>   - merge defconfig updates into patch changing the symbols (patch 8)
+>   - split MODULE_AUTHOR update into a separate patch
+>   - better alignment fix (patch 11)
+>   - merge two s2dos05/s2mpu05 related patches into one (patch 14)
+> - myself:
+>   - keep PMIC DT parsing in core, not in transport driver
+>   - several updates in sec-acpm.c, see separate entries in patch 9
+>   - fix typo in patch 17
+>   - collect tags
+> - Link to v1: https://lore.kernel.org/r/20250323-s2mpg10-v1-0-d08943702707@linaro.org
+> 
+> ---
+> André Draszik (32):
+>       dt-bindings: mfd: samsung,s2mps11: add s2mpg10
+>       dt-bindings: clock: samsung,s2mps11: add s2mpg10
+>       dt-bindings: firmware: google,gs101-acpm-ipc: add PMIC child node
+>       mfd: sec-core: Drop non-existing forward declarations
+>       mfd: sec: Sort includes alphabetically
+>       mfd: sec: Update includes to add missing and remove superfluous ones
+>       mfd: sec: Move private internal API to internal header
+>       mfd: sec: Split into core and transport (i2c) drivers
+>       mfd: sec: Add support for S2MPG10 PMIC
+>       mfd: sec: Merge separate core and irq modules
+>       mfd: sec-common: Fix multiple trivial whitespace issues
+>       mfd: sec-i2c: Sort struct of_device_id entries and the device type switch
+>       mfd: sec: Use dev_err_probe() where appropriate
+>       mfd: sec-i2c: s2dos05/s2mpu05: Use explicit regmap config and drop default
+>       mfd: sec-irq: s2dos05 doesn't support interrupts
+>       mfd: sec-common: Don't ignore errors from sec_irq_init()
+>       mfd: sec-i2c: Rework platform data and regmap instantiating
+>       mfd: sec: Change device_type to int
+>       mfd: sec: Don't compare against NULL / 0 for errors, use !
+>       mfd: sec-common: Use sizeof(*var), not sizeof(struct type_of_var)
+>       mfd: sec-common: Convert to using MFD_CELL macros
+>       mfd: sec-irq: Convert to using REGMAP_IRQ_REG() macros
+>       mfd: sec: Add myself as module author
+>       clk: s2mps11: add support for S2MPG10 PMIC clock
+>       rtc: s5m: cache device type during probe
+>       rtc: s5m: prepare for external regmap
+>       rtc: s5m: add support for S2MPG10 RTC
+>       rtc: s5m: fix a typo: peding -> pending
+>       rtc: s5m: switch to devm_device_init_wakeup
+>       rtc: s5m: replace regmap_update_bits with regmap_clear/set_bits
+>       rtc: s5m: replace open-coded read/modify/write registers with regmap helpers
+>       MAINTAINERS: add myself as reviewer for Samsung S2M MFD
+> 
+>  .../devicetree/bindings/clock/samsung,s2mps11.yaml |   1 +
+>  .../bindings/firmware/google,gs101-acpm-ipc.yaml   |  35 ++
+>  .../devicetree/bindings/mfd/samsung,s2mps11.yaml   |  26 +-
+>  MAINTAINERS                                        |   3 +-
+>  arch/arm/configs/exynos_defconfig                  |   2 +-
+>  arch/arm/configs/multi_v7_defconfig                |   2 +-
+>  arch/arm/configs/pxa_defconfig                     |   2 +-
+>  arch/arm64/configs/defconfig                       |   2 +-
+
+>  drivers/clk/clk-s2mps11.c                          |   8 +
+
+>  drivers/mfd/Kconfig                                |  35 +-
+>  drivers/mfd/Makefile                               |   5 +-
+>  drivers/mfd/sec-acpm.c                             | 442 +++++++++++++++++++
+>  drivers/mfd/sec-common.c                           | 301 +++++++++++++
+>  drivers/mfd/sec-core.c                             | 481 ---------------------
+>  drivers/mfd/sec-core.h                             |  23 +
+>  drivers/mfd/sec-i2c.c                              | 239 ++++++++++
+>  drivers/mfd/sec-irq.c                              | 460 +++++++-------------
+
+>  drivers/rtc/rtc-s5m.c                              | 197 ++++++---
+
+MFD parts look okay to me now.
+
+With Acks from the Clk and RTC maintainers, I can merge all of the
+driver stuff together and submit a PR for others to pull from.
+
+>  include/linux/mfd/samsung/core.h                   |   7 +-
+>  include/linux/mfd/samsung/irq.h                    | 103 +++++
+>  include/linux/mfd/samsung/rtc.h                    |  37 ++
+>  include/linux/mfd/samsung/s2mpg10.h                | 454 +++++++++++++++++++
+>  22 files changed, 2001 insertions(+), 864 deletions(-)
+> ---
+> base-commit: f58dd835f82a5dda6c9d3895ee6f15016431fb1f
+> change-id: 20250321-s2mpg10-ef5d1ebd3043
+> 
+> Best regards,
+> -- 
+> André Draszik <andre.draszik@linaro.org>
+> 
 
 -- 
-Catalin
+Lee Jones [李琼斯]
 
