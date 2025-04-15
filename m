@@ -4,70 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31870C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 21:17:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A565C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 21:27:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IAeshu1rPRVwkbSbcg36lO4ijxbO9PeaGLWgVnDeV5c=; b=4O3rjrees2dwXDbmYD4VV+vTTK
-	AEOXv3uJllLDDMD1jkbYfiddL4//6/wxQctC82550TMq6o2t4zq3XPxpedcTy6hJPE9+uTzkj+miy
-	DMJcknp//EujxjigsKgTnTZcKZ49b4J+6z4S71+2WMdCYWYr0m8WS3QL3k+mxCgMgByMR5mbLMAUV
-	BIvlGwI1Q/YiuV0/TK9APzVZvdlxufAfmFJKP90JIpNKlwRj1ae7sq7QD8stnYnbHFZIuxZbflSS5
-	JG0F8OxUdNJrLAf4i8L6VGN1tMFy7b2P1KJrIZBa05spj0rPWbnDM8pLmkXjMNBqxwTtd0OkN/Hyu
-	b24afthQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UwJG8J1iyTH8V+SfRmZi+ISFZpJOYpkT7vaEBR18O5k=; b=cmxRvyn0fkh85o6TVWEvK+vrdU
+	qzwJXlMB7oseNMx+2elagqIrW1CUnzEpjnuPVo5FzxN5pJLc4Rrc2cLYdDRVUCLDvwGlqhKXHB0/4
+	4UA3sWUS2GeiPlW6yDZidTptxWrvDZbsYkkcOYuNkHqdrq/Np7E7HMJNCtcG5UoPv6bD+YNK2C7UL
+	6RsFhTgw6izGQmeRrarjbsX1Qs6vqfMmHignuCzTnpApjihJX8XC2MT618HezPThqmwDzM80CEYMx
+	vEX/p69B8xzNbKlaHKFX56gXHbRpg24T7vu+X2FBkP5p+DWKcNfBMqZU7vTDqfBKx0S50kcDOtUQB
+	naufw6tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4neT-000000079u8-0vD0;
-	Tue, 15 Apr 2025 21:17:05 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1u4nol-00000007BKZ-2HVf;
+	Tue, 15 Apr 2025 21:27:43 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4ncc-000000079d1-3zeA
+	id 1u4nmv-00000007B6H-0L7K
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 21:15:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1744751709;
- bh=IAeshu1rPRVwkbSbcg36lO4ijxbO9PeaGLWgVnDeV5c=;
- b=U5i1pZdoW4CT26Gc8KxUIgt7JevZT93mhnrQNsX/BXpS7PWjJbJfoZAFP2HdGQ66pe7rR5I0S
- Y7mlv429WG42hgbWvQ/TdNdipifVGSND4kGUeUyvklsnRUU6a2LCW0TAqCt8SUjhUXHvtlvKQtJ
- okhyBElfNYsPk8la7gJPp376bNgP04C16XuKOqvQQ0iHfvB3oqAQy3cJvBD/PLmr1Juv9r09fv+
- 0UO1x162h1M0V/xsrsdp5movsVx2gXvI/L5l6gRQqpVWK8uTWByabgmW1o6SLHoDXx4CUMqqxq2
- smknR6g9qFkdNDf4cQ+QCJ73leslt0mQIRqviW3ZtiOw==
-X-Forward-Email-ID: 67fecc56f405d8e4e0433b24
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 1.0.2
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <7e5ac4a8-6188-447b-8041-89ea00ca1576@kwiboo.se>
-Date: Tue, 15 Apr 2025 23:14:58 +0200
+	Tue, 15 Apr 2025 21:25:50 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-22548a28d0cso87530255ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Apr 2025 14:25:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1744752347; x=1745357147; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=UwJG8J1iyTH8V+SfRmZi+ISFZpJOYpkT7vaEBR18O5k=;
+        b=eOEJnmkMb4+z8ku2oR+CSs75V7K5BQ64AsBd2ejtSu+vwNxjnfVEDaVytBC01tbPRI
+         zZQ/rMflokQXkCq4proMybcEtg2ngAcigP9bUlyFmuX2X3/KSvX9XV1fke5SW3eAZzi/
+         vqEKhpfz0Y6Qalg0nZenFxw2b53rm29sMFHLArI3BxIvASKezT0VeBmMuB7ekOXS7srW
+         m3onlw6EdmSXTrpqAq4WiioeHgeE1c8xyPzuW2okSUgDOPS9qMLv3Abf7JcMWlp3xkvL
+         bzEVvW0JLhmi6Rwrk9ovVMFY74GQMXETjY00X0fsSptImUdqiKW8zyJkFW3HDtHjWgKw
+         wmTQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744752347; x=1745357147;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UwJG8J1iyTH8V+SfRmZi+ISFZpJOYpkT7vaEBR18O5k=;
+        b=K3UlgdLSPYdmkp107mj4WFLW0nx6LVR0dLYQna7ARULmesm91I0lH7J8q2vX2xzSrC
+         2V7dkVpnhSMI+42p9kg8LWscn71j6AW+o42o2RaVatrLhq9uritQL4h7NcicOD06FK28
+         bbH/B3tO77F4vAgCrbHsv4UjDAqrDpNhV+HZpB1C+HGzyHAbRM7KwJZ9h8AwgQj3luHU
+         umwiw24BaamSG/KTA06xHXVF558Y9GJ6Qo+3nmpnujXYbmK6f5lznYoXVqU5dQOcSfAa
+         kwzbgQfpiiAl3bt66V8Rm9M3VNHSoMUfIB5zP3ItVz7+R67K2PbHQwiZvqCMMl6+c+7L
+         xUmg==
+X-Forwarded-Encrypted: i=1; AJvYcCUENbZIxWSilXfk2d5n57Rh3qFtynhETTXKPyHJcQOVnRMKIsdVAY09vfRKQQdWwi8NoWXiADv/1GN263vNWxrX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx4j4jadbBb2rWw8/UgfbR1WJnxTcxM3Eic8AAQcHp9UrDuzW5C
+	uJfOgfDP0Ap0RwsKII3DMxG7tRUPeqPAUd6e46JFUB9YghKUUYOCTVz4N0R8Bg==
+X-Gm-Gg: ASbGncvv8o6HiMaj8JPnRdx1cClvbnSby7gIxMd4xiE3baxeyS1WKJZm+ecp9SAN1ki
+	b8hU3/RZx7VebgOypWklRCD2zJCLu4diA+dTzHuEpiOmQYmyJVa3rAk+bbFyzttKPZUvJDXvTZk
+	At5DKEs3mZdDmvNVcisaFyk1EvO6sLI/C4w227tdtkH7ZHzERo5H7z67wPDpqFjlJUlM1h64FGT
+	y8us07dfPVel6WvwFiigaws1Ok3qhL06kjDByxlcBR3jQQjLc3JfxcJc25DQzaePwLm3I9P/8hn
+	TDxiOY5ssNdDYXkRjO4tywR+KUV69whbUPSh+k8lAsVWJF9SMBCnWSB+2ZWSiKOFQaH5d+0oeH6
+	pjVBrxA==
+X-Google-Smtp-Source: AGHT+IFbV5rZHgTJXmvY63NNUPHF83MLOSfyfSDJgneqMsKOmSCLVHVGlipkv2ZUH8ySI1osZFQGUA==
+X-Received: by 2002:a17:902:ef4c:b0:224:f12:3734 with SMTP id d9443c01a7336-22c319f7f6bmr11029435ad.30.1744752347289;
+        Tue, 15 Apr 2025 14:25:47 -0700 (PDT)
+Received: from google.com (7.104.168.34.bc.googleusercontent.com. [34.168.104.7])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73bd230e8b1sm9292900b3a.148.2025.04.15.14.25.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 15 Apr 2025 14:25:46 -0700 (PDT)
+Date: Tue, 15 Apr 2025 14:25:43 -0700
+From: William McVicker <willmcvicker@google.com>
+To: Daniel Lezcano <daniel.lezcano@linaro.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Saravana Kannan <saravanak@google.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Donghoon Yu <hoony.yu@samsung.com>,
+	Hosung Kim <hosung0.kim@samsung.com>, kernel-team@android.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Youngmin Nam <youngmin.nam@samsung.com>,
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 6/7] clocksource/drivers/exynos_mct: Add module support
+Message-ID: <Z_7O1xi2-ZGhJ1r_@google.com>
+References: <20250402233407.2452429-1-willmcvicker@google.com>
+ <20250402233407.2452429-7-willmcvicker@google.com>
+ <Z_6OZHYfC0bC5289@mai.linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] thermal: rockchip: Add support for rk3562 SoC
-To: Kever Yang <kever.yang@rock-chips.com>
-Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, heiko@sntech.de,
- linux-rockchip@lists.infradead.org, Shaohan Yao
- <shaohan.yao@rock-chips.com>, linux-pm@vger.kernel.org,
- Lukasz Luba <lukasz.luba@arm.com>, linux-kernel@vger.kernel.org,
- Zhang Rui <rui.zhang@intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
- linux-arm-kernel@lists.infradead.org,
- Daniel Lezcano <daniel.lezcano@linaro.org>
-References: <20250415033940.47914-1-kever.yang@rock-chips.com>
- <20250415033940.47914-2-kever.yang@rock-chips.com>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20250415033940.47914-2-kever.yang@rock-chips.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z_6OZHYfC0bC5289@mai.linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_141511_400569_C4AF28BB 
-X-CRM114-Status: GOOD (  31.26  )
+X-CRM114-CacheID: sfid-20250415_142549_137287_B3864822 
+X-CRM114-Status: GOOD (  33.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,239 +114,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kever,
+On 04/15/2025, Daniel Lezcano wrote:
+> Hi Will,
 
-On 2025-04-15 05:39, Kever Yang wrote:
-> From: Shaohan Yao <shaohan.yao@rock-chips.com>
+Hi Daniel,
+
 > 
-> There is one Temperature Sensor with channel 0 on rk3562 SoC.
-> This driver adds the mapping table as-is from the TRM so that we can
-> always sync to the TRM once there have any change in the future.
+> On Wed, Apr 02, 2025 at 04:33:57PM -0700, Will McVicker wrote:
+> > From: Donghoon Yu <hoony.yu@samsung.com>
+> > 
+> > On Arm64 platforms the Exynos MCT driver can be built as a module. On
+> > boot (and even after boot) the arch_timer is used as the clocksource and
+> > tick timer. Once the MCT driver is loaded, it can be used as the wakeup
+> > source for the arch_timer.
 > 
-> Signed-off-by: Shaohan Yao <shaohan.yao@rock-chips.com>
-> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
-> ---
+> From a previous thread where there is no answer:
 > 
-> Changes in v2:
-> - Update the commit message
+> https://lore.kernel.org/all/c1e8abec-680c-451d-b5df-f687291aa413@linaro.org/
 > 
->  drivers/thermal/rockchip_thermal.c | 112 ++++++++++++++++++++++++++++-
->  1 file changed, 111 insertions(+), 1 deletion(-)
+> I don't feel comfortable with changing the clocksource / clockevent drivers to
+> a module for the reasons explained in the aforementionned thread.
 > 
-> diff --git a/drivers/thermal/rockchip_thermal.c b/drivers/thermal/rockchip_thermal.c
-> index a8ad85feb68f..3278472b06f9 100644
-> --- a/drivers/thermal/rockchip_thermal.c
-> +++ b/drivers/thermal/rockchip_thermal.c
-> @@ -1,6 +1,7 @@
->  // SPDX-License-Identifier: GPL-2.0-only
->  /*
-> - * Copyright (c) 2014-2016, Fuzhou Rockchip Electronics Co., Ltd
-> + * Copyright (c) 2014-2021, Fuzhou Rockchip Electronics Co., Ltd.
-> + * Copyright (c) 2021-2024, Rockchip Electronics Co., Ltd.
->   * Caesar Wang <wxt@rock-chips.com>
->   */
->  
-> @@ -185,6 +186,8 @@ struct rockchip_thermal_data {
->  #define TSADCV2_AUTO_PERIOD_HT			0x6c
->  #define TSADCV3_AUTO_PERIOD			0x154
->  #define TSADCV3_AUTO_PERIOD_HT			0x158
-> +#define TSADCV9_Q_MAX				0x210
-> +#define TSADCV9_FLOW_CON			0x218
->  
->  #define TSADCV2_AUTO_EN				BIT(0)
->  #define TSADCV2_AUTO_EN_MASK			BIT(16)
-> @@ -195,6 +198,7 @@ struct rockchip_thermal_data {
->  #define TSADCV2_AUTO_TSHUT_POLARITY_MASK	BIT(24)
->  
->  #define TSADCV3_AUTO_Q_SEL_EN			BIT(1)
-> +#define TSADCV3_AUTO_Q_SEL_EN_MASK		BIT(17)
->  
->  #define TSADCV2_INT_SRC_EN(chn)			BIT(chn)
->  #define TSADCV2_INT_SRC_EN_MASK(chn)		BIT(16 + (chn))
-> @@ -220,6 +224,12 @@ struct rockchip_thermal_data {
->  #define TSADCV5_AUTO_PERIOD_HT_TIME		1622 /* 2.5ms */
->  #define TSADCV6_AUTO_PERIOD_TIME		5000 /* 2.5ms */
->  #define TSADCV6_AUTO_PERIOD_HT_TIME		5000 /* 2.5ms */
-> +#define TSADCV7_AUTO_PERIOD_TIME		3000 /* 2.5ms */
-> +#define TSADCV7_AUTO_PERIOD_HT_TIME		3000 /* 2.5ms */
-> +#define TSADCV12_AUTO_PERIOD_TIME		3000 /* 2.5ms */
-> +#define TSADCV12_AUTO_PERIOD_HT_TIME		3000 /* 2.5ms */
-> +#define TSADCV3_Q_MAX_VAL			0x7ff /* 11bit 2047 */
-> +#define TSADCV12_Q_MAX_VAL			0xfff /* 12bit 4095 */
->  
->  #define TSADCV2_USER_INTER_PD_SOC		0x340 /* 13 clocks */
->  #define TSADCV5_USER_INTER_PD_SOC		0xfc0 /* 97us, at least 90us */
-> @@ -230,6 +240,8 @@ struct rockchip_thermal_data {
->  
->  #define PX30_GRF_SOC_CON2			0x0408
->  
-> +#define RK3562_GRF_TSADC_CON			0x0580
-> +
->  #define RK3568_GRF_TSADC_CON			0x0600
->  #define RK3568_GRF_TSADC_ANA_REG0		(0x10001 << 0)
->  #define RK3568_GRF_TSADC_ANA_REG1		(0x10001 << 1)
-> @@ -498,6 +510,45 @@ static const struct tsadc_table rk3399_code_table[] = {
->  	{TSADCV3_DATA_MASK, 125000},
->  };
->  
-> +static const struct tsadc_table rk3562_code_table[] = {
-> +	{0, -40000},
-> +	{1419, -40000},
-> +	{1428, -35000},
-> +	{1436, -30000},
-> +	{1445, -25000},
-> +	{1453, -20000},
-> +	{1462, -15000},
-> +	{1470, -10000},
-> +	{1479, -5000},
-> +	{1487, 0},
-> +	{1496, 5000},
-> +	{1504, 10000},
-> +	{1512, 15000},
-> +	{1521, 20000},
-> +	{1529, 25000},
-> +	{1538, 30000},
-> +	{1546, 35000},
-> +	{1555, 40000},
-> +	{1563, 45000},
-> +	{1572, 50000},
-> +	{1580, 55000},
-> +	{1589, 60000},
-> +	{1598, 65000},
-> +	{1606, 70000},
-> +	{1615, 75000},
-> +	{1623, 80000},
-> +	{1632, 85000},
-> +	{1640, 90000},
-> +	{1648, 95000},
-> +	{1657, 100000},
-> +	{1666, 105000},
-> +	{1674, 110000},
-> +	{1682, 115000},
-> +	{1691, 120000},
-> +	{1699, 125000},
-> +	{TSADCV2_DATA_MASK, 125000},
-> +};
-> +
->  static const struct tsadc_table rk3568_code_table[] = {
->  	{0, -40000},
->  	{1584, -40000},
-> @@ -835,6 +886,37 @@ static void rk_tsadcv8_initialize(struct regmap *grf, void __iomem *regs,
->  			       regs + TSADCV2_AUTO_CON);
->  }
->  
-> +static void rk_tsadcv12_initialize(struct regmap *grf, void __iomem *regs,
-> +				   enum tshut_polarity tshut_polarity)
-> +{
-> +	writel_relaxed(TSADCV12_AUTO_PERIOD_TIME, regs + TSADCV3_AUTO_PERIOD);
-> +	writel_relaxed(TSADCV12_AUTO_PERIOD_HT_TIME,
-> +		       regs + TSADCV3_AUTO_PERIOD_HT);
-> +	writel_relaxed(TSADCV2_HIGHT_INT_DEBOUNCE_COUNT,
-> +		       regs + TSADCV3_HIGHT_INT_DEBOUNCE);
-> +	writel_relaxed(TSADCV2_HIGHT_TSHUT_DEBOUNCE_COUNT,
-> +		       regs + TSADCV3_HIGHT_TSHUT_DEBOUNCE);
-> +	writel_relaxed(TSADCV12_Q_MAX_VAL, regs + TSADCV9_Q_MAX);
-> +	writel_relaxed(TSADCV3_AUTO_Q_SEL_EN | TSADCV3_AUTO_Q_SEL_EN_MASK,
-> +		       regs + TSADCV2_AUTO_CON);
-> +	if (tshut_polarity == TSHUT_HIGH_ACTIVE)
-> +		writel_relaxed(TSADCV2_AUTO_TSHUT_POLARITY_HIGH |
-> +			       TSADCV2_AUTO_TSHUT_POLARITY_MASK,
-> +			       regs + TSADCV2_AUTO_CON);
-> +	else
-> +		writel_relaxed(TSADCV2_AUTO_TSHUT_POLARITY_MASK,
-> +			       regs + TSADCV2_AUTO_CON);
-> +
-> +	if (!IS_ERR(grf)) {
-> +		regmap_write(grf, RK3562_GRF_TSADC_CON, RK3568_GRF_TSADC_TSEN);
-> +		udelay(15);
-> +		regmap_write(grf, RK3562_GRF_TSADC_CON, RK3568_GRF_TSADC_ANA_REG0);
-> +		regmap_write(grf, RK3562_GRF_TSADC_CON, RK3568_GRF_TSADC_ANA_REG1);
-> +		regmap_write(grf, RK3562_GRF_TSADC_CON, RK3568_GRF_TSADC_ANA_REG2);
-> +		usleep_range(100, 200);
-> +	}
-> +}
-> +
->  static void rk_tsadcv2_irq_ack(void __iomem *regs)
->  {
->  	u32 val;
-> @@ -1259,6 +1341,30 @@ static const struct rockchip_tsadc_chip rk3399_tsadc_data = {
->  	},
->  };
->  
-> +static const struct rockchip_tsadc_chip rk3562_tsadc_data = {
-> +	.chn_offset = 0,
-> +	.chn_num = 1, /* one channels for tsadc */
-> +
-> +	.tshut_mode = TSHUT_MODE_GPIO, /* default TSHUT via GPIO give PMIC */
-> +	.tshut_polarity = TSHUT_LOW_ACTIVE, /* default TSHUT LOW ACTIVE */
+> Before this could be accepted, I really need a strong acked-by from Thomas
 
-Vendor kernel seem to set following in DT for RK3562:
+Thanks for the response! I'll copy-and-paste your replies from that previous
+thread and try to address your concerns.
 
-  rockchip,hw-tshut-mode = <0>; /* tshut mode 0:CRU 1:GPIO */
-  rockchip,hw-tshut-polarity = <0>; /* tshut polarity 0:LOW 1:HIGH */
+>   * the GKI approach is to have an update for the 'mainline' kernel and
+> let the different SoC vendors deal with their drivers. I'm afraid this
+> will prevent driver fixes to be carry on upstream because they will stay
+> in the OoT kernels
 
-Why not adjust the default tshut_mode to match what is default used in
-DT for this SoC i.e. TSHUT_MODE_CRU?
+I can't speak for that specific thread or their intent, but I can speak to this
+thread and our intent.
 
-> +	.tshut_temp = 95000,
+This whole patch series is about upstreaming the downstream changes. So saying
+this will prevent others from upstreaming changes is punishing the folks who
+are actually trying to upstream changes. I don't think that's a fair way to
+handle this.
 
-Similar here, for all/most SoCs the default in the driver is 95 deg and
-then SoC DTs override and set a higher default, e.g.:
+Also, rejecting this series will not prevent people from upstreaming their
+changes, it'll just make it more unlikely because they now have to deal with
+upstreaming more changes that were rejected in the past. That's daunting for
+someone who doesn't do upstreaming often. I'm telling this from experience
+dealing with SoC vendors and asking them to upstream stuff.
 
-  rockchip,hw-tshut-temp = <120000>;
+With that said, let me try to address some of your technical concerns.
 
-Is there any specific reason for this? Or just how it has ended up for
-all SoCs?
+> * the core code may not be prepared for that, so loading / unloading
+> the modules with active timers may result into some issues
 
-I have a few pending patches for adding tsadc support for RK3528 [1]
-that was waiting on the updated RK3562 OTP series, and for RK3528 I
-changed to use CRU as default tshut_mode but kept the 95 deg default in
-driver.
+We had the same concern for irqchip drivers. We can easily disable unloading
+for these clocksource modules just like we did for irqchip by making them
+permanent modules.
 
-[1] https://github.com/Kwiboo/linux-rockchip/commits/next-20250319-rk3528/
+> * it may end up with some interactions with cpuidle at boot time and
+> the broadcast timer
 
-> +
-> +	.initialize = rk_tsadcv12_initialize,
-> +	.irq_ack = rk_tsadcv4_irq_ack,
-> +	.control = rk_tsadcv4_control,
-> +	.get_temp = rk_tsadcv4_get_temp,
-> +	.set_alarm_temp = rk_tsadcv3_alarm_temp,
-> +	.set_tshut_temp = rk_tsadcv3_tshut_temp,
-> +	.set_tshut_mode = rk_tsadcv3_tshut_mode,
+If I'm understanding this correctly, no driver is guaranteed to probe at
+initialization time regardless of whether it is built-in or a module. Taking
+a look at the other clocksource drivers, I found that the following drivers are
+all calling `clocksource_register_hz()` and `clockevents_config_and_register()`
+at probe time.
 
-I suggest you rebase this on top of Nicolas Frattaroli's RK3576 tsadc
-series [2] and add support for RK3562 trim values in next version.
+  timer-sun5i.c
+  sh_tmu.c
+  sh_cmt.c
+  timer-tegra186.c
+  timer-stm32-lp.c (only calls clockevents_config_and_register())
 
-This rk_tsadcv3_tshut_mode is e.g. renamed to match the v4 name used by
-the vendor kernel.
+So this concern is unrelated to building these drivers are modules. Please let
+me know if I'm missing something here.
 
-[2] https://lore.kernel.org/all/20250317-rk3576-tsadc-upstream-v4-0-c5029ce55d74@collabora.com/
+>  * the timekeeping may do jump in the past [if and] when switching the
+> clocksource
 
-Regards,
-Jonas
+Can you clarify how this relates to modules? IIUC, the clocksource can be
+changed anytime by writing to:
 
-> +
-> +	.table = {
-> +		.id = rk3562_code_table,
-> +		.length = ARRAY_SIZE(rk3562_code_table),
-> +		.data_mask = TSADCV2_DATA_MASK,
-> +		.mode = ADC_INCREMENT,
-> +	},
-> +};
-> +
->  static const struct rockchip_tsadc_chip rk3568_tsadc_data = {
->  	/* cpu, gpu */
->  	.chn_offset = 0,
-> @@ -1338,6 +1444,10 @@ static const struct of_device_id of_rockchip_thermal_match[] = {
->  		.compatible = "rockchip,rk3399-tsadc",
->  		.data = (void *)&rk3399_tsadc_data,
->  	},
-> +	{
-> +		.compatible = "rockchip,rk3562-tsadc",
-> +		.data = (void *)&rk3562_tsadc_data,
-> +	},
->  	{
->  		.compatible = "rockchip,rk3568-tsadc",
->  		.data = (void *)&rk3568_tsadc_data,
+ /sys/devices/system/clocksource/clocksource0/current_clocksource
 
+If there's a bug related to timekeeping and changing the clocksource, then that
+should be handled separately from the modularization code.
+
+For ARM64 in general, the recommendation is to use the ARM architected timer
+which is not a module and is used for scheduling and timekeeping. While the
+Exynos MCT driver can functionally be used as the primary clocksource, it's not
+recommended due to performance issues. So building the MCT driver as a kernel
+module really shouldn't be an issue and has been thoroughly testing on several
+generations of Pixel devices which is why we are trying to upstream our
+downstream technical debt (so we can directly using the upstream version of the
+Exynos MCT driver).
+
+Thanks,
+Will
+
+[...]
 
