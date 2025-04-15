@@ -4,69 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 967D4C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 16:05:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBED6C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 16:07:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aWGrnOqysJizSR01smsSWh2TP1Mi7MZUbGBVnPLFD8I=; b=1np3Y4hISssr31YxBijG5pcR6V
-	r9bXxVONdnchPifywe3O4Cme2kezeZTmPNDMDxPPNzQ+cujUGtofU+6nKXAE6Baqjc0w0c29H7523
-	/TSGWpJVhhtmfsZZ9URkMOewGVvkAFJ8qISluL/3mwFYFe3gJckD5czLnmoQ+6YRnY2KWEHGxtDic
-	cO9EXL4BECkwaHoaNsNSx6AGf2KEl/Cj+Ffno4piR3fQjf0fbLXfreClyPVI1A1MjP0Uxe63YJou2
-	siD6GUNWpkSGh0OM3DiPsFS1/joC1ir/weltSin3JxtCQXU9QZJzSlykd3qwf3ssLPwKRK4kGpEwk
-	unkH/24g==;
+	bh=864IBWPR/g77N41nse+BQX0aC8cI/YU4haFPAwkPj8Y=; b=OU6ezLJgaFFeQd8HkN7rdxnM0W
+	8ve9sxNAMvTZPcupRjFQO8o7JX/nRVLTcLTYBck0MwiCbmXIMdGXJM3jb8BK20zHsX1elaAClBg9s
+	d9uRhqYcXhaDhYKVSk15QurMQJsaXlcSLy+lFaOGHbXlUW/jLRDVMyp2Tjoy8Ys414JoNpGZdNF+n
+	nTXOzEx/+XdFiYrTSYkVmYGMr9pLh/OnxqjGVz/GcCYOfV0VVpLvBqPabamnN/ZYSwc/vKA2c/Gez
+	luU2lbYGTXzJuGW8F0LUEZrq2qkziI+IbNQlNbioSM9QWNL1Skrt4EDXTrHkhP8m8qpgt2NNAEJY9
+	IoKQS6JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4imq-00000006M2f-1B7Z;
-	Tue, 15 Apr 2025 16:05:24 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4iLm-00000006GoY-18dp
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 15 Apr 2025 15:37:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Content-ID:Content-Description;
-	bh=aWGrnOqysJizSR01smsSWh2TP1Mi7MZUbGBVnPLFD8I=; b=cQYeQygKY84EZMwl47zQuXAvo+
-	XtTpk5qhOoAse+eKXTX3yJydG0g0tFNBJg1bLDaduPKB2+FMATOR8awUbZEMnScNivkipVJ8fQUUH
-	7zk0q1YEMzeE70WBcZjU8dXyW53kDEegfzi4UetlMWoX6jpzNSRkWNhz9jw1DmqUjvWAvCkoVTtOu
-	Q7LZt+UDMqFtMVdk9kj/HWqmfS7IysbVQy4Uq78iHYznwQo1gE0ZeRglZdNBdwM9s9OsgIEx/qbOv
-	7tGjHPXfpFaSWr1KpibR6EhFJ3lV31hZL/AHEqEIqzKmWqjKTFMJ+vDxp1APY7zJWzdaU7J+MKZv/
-	iUeDQOqA==;
+	id 1u4iod-00000006MJj-4BR9;
+	Tue, 15 Apr 2025 16:07:16 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u4iLi-00000009uss-3gbx
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u4iLg-00000006GlX-2rKl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 15:37:25 +0000
+	Tue, 15 Apr 2025 15:37:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A55744A347;
+	by sea.source.kernel.org (Postfix) with ESMTP id 6E5A54A28B;
 	Tue, 15 Apr 2025 15:37:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 7DA19C4CEF6;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 45DBBC4CEEC;
 	Tue, 15 Apr 2025 15:37:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1744731437;
-	bh=NZgmwCPRLWI3kpiACRhVK8RgHlS1bLhmnT/HYgkFGdk=;
+	bh=tKCZ1U57MVrN0lerBtOC7DMLUFHO1/PGHr6C3AN/kw8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=TSKpof01gBcDIqp1QhNNuavMJvKiQDekMhNXaX1zqpSboLdMZt2sYK64S6kK0yoTR
-	 LTpr9IzVoTwInti3CLtqjFiBpJkfUGK8MhvbOt0AbXjUMvLTuAjrHJg0vPyQ/KX+7k
-	 cukVgT0d2r99Tro+Av5nrtkIWP7a8irZ06tj6nDyHxm2cx+QO8g4ZdpaRCoK8Br/nv
-	 Utq0cRG96+rjcwCiEa2j/KTBEzkc4dkkwPSPCDwMQpY/E/pUJkltn6+ceJlhBZW1F4
-	 rfDqV0kct4pAWX6u+H4Dr08bpjttADS/WZY7LGZynCuFhZTkG3sBicTH2id5NbxwqT
-	 n9vXb2FCIxmJg==
+	b=rsTNqLfyi72SZ2jdirJeSjURBXX62aZ3L4pWjWLptiWpw2cfwZe/aRXiQoEaOh4g5
+	 RLBOosAfAdYQtJgmkQoTKYqqnhgD6zjHH2wtCPTV/YJltfh4aZs3h6P+ObW3x1zwWo
+	 CtLJFr08sd65Rrec7g9PTaXiGScXZa3ArJQla2WLBTVQTRskWfFcRoTTpACdHw0GZx
+	 /fbvokcvpvMPAZqSOZB9qn9hyf7MPRAYfpf92zozbk0aN42rIqjTfSw0J8WMc5sbjS
+	 GaICvSypnddmjlIYeLpm4LrLFSX44d7INNmiyQA1ngqw98f+TNdtdO5ZGweFn9rBIu
+	 qWr8fXD3ygmSA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6DB67C369BD;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 30B65C369C1;
 	Tue, 15 Apr 2025 15:37:17 +0000 (UTC)
 From: Sven Peter via B4 Relay <devnull+sven.svenpeter.dev@kernel.org>
-Date: Tue, 15 Apr 2025 15:36:59 +0000
-Subject: [PATCH v2 5/6] i2c: pasemi: Enable the unjam machine
+Date: Tue, 15 Apr 2025 15:36:56 +0000
+Subject: [PATCH v2 2/6] i2c: pasemi: Sort includes alphabetically
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250415-pasemi-fixes-v2-5-c543bf53151a@svenpeter.dev>
+Message-Id: <20250415-pasemi-fixes-v2-2-c543bf53151a@svenpeter.dev>
 References: <20250415-pasemi-fixes-v2-0-c543bf53151a@svenpeter.dev>
 In-Reply-To: <20250415-pasemi-fixes-v2-0-c543bf53151a@svenpeter.dev>
 To: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
@@ -79,21 +64,22 @@ Cc: linuxppc-dev@lists.ozlabs.org, asahi@lists.linux.dev,
  linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Sven Peter <sven@svenpeter.dev>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1300; i=sven@svenpeter.dev;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1747; i=sven@svenpeter.dev;
  h=from:subject:message-id;
- bh=avtSs0p55pNQJTNl3swTi6LwCmUmFUOOKuZ3dOr9VMk=;
- b=owGbwMvMwCHmIlirolUq95LxtFoSQ/q/Ws2ndfPmtB3bbO2jqvDW5Ev4LGcDy+r+knvZS59Pe
- X71jezqjlIWBjEOBlkxRZbt++1Nnzx8I7h006X3MHNYmUCGMHBxCsBEbHkZGU6nTbw1R/BPS4jk
- jcyrs3Uk5026L3Qj8fylVBc5TZurXrMYGd5u+bD78K+fK15NMFWyPLghsbbqqc4xs/jri+yaTOL
- 5uXgB
+ bh=d4SrViBETCvEIVGrCu813u0fCI79k8TBuEJCcmGpDI0=;
+ b=owGbwMvMwCHmIlirolUq95LxtFoSQ/q/WtWl7ddnLW1MubOp8d16cesWr2/7U2cXBHtceHk94
+ Xb343vXOkpZGMQ4GGTFFFm277c3ffLwjeDSTZfew8xhZQIZwsDFKQATyZrO8D+9Oq6hSL4vb+s3
+ aes9x67wXZ7ywlla4kKDZuwqy/eW7yMY/ik9+WNdy5A+zzfXXDRK0vDdoZPBj/T0lJ3n3axrt+s
+ uZwUA
 X-Developer-Key: i=sven@svenpeter.dev; a=openpgp;
  fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
 X-Endpoint-Received: by B4 Relay for sven@svenpeter.dev/default with
  auth_id=167
 X-Original-From: Sven Peter <sven@svenpeter.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_163723_456334_BBFE2BEA 
-X-CRM114-Status: GOOD (  11.71  )
+X-CRM114-CacheID: sfid-20250415_083720_764357_11E1AE11 
+X-CRM114-Status: UNSURE (   8.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,36 +95,66 @@ Reply-To: sven@svenpeter.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hector Martin <marcan@marcan.st>
+From: Sven Peter <sven@svenpeter.dev>
 
-The I2C bus can get stuck under some conditions (desync between
-controller and device). The pasemi controllers include an unjam feature
-that is enabled on reset, but was being disabled by the driver. Keep it
-enabled by explicitly setting the UJM bit in the CTL register. This
-should help recover the bus from certain conditions, which would
-otherwise remain stuck forever.
+No functional changes.
 
-Signed-off-by: Hector Martin <marcan@marcan.st>
-Reviewed-by: Neal Gompa <neal@gompa.dev>
-Reviewed-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
 Signed-off-by: Sven Peter <sven@svenpeter.dev>
 ---
- drivers/i2c/busses/i2c-pasemi-core.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/i2c/busses/i2c-pasemi-core.c | 10 +++++-----
+ drivers/i2c/busses/i2c-pasemi-pci.c  | 10 +++++-----
+ 2 files changed, 10 insertions(+), 10 deletions(-)
 
 diff --git a/drivers/i2c/busses/i2c-pasemi-core.c b/drivers/i2c/busses/i2c-pasemi-core.c
-index 2f31f039bedfd7f78d6572fe925125b1a6d0724b..41db38d82fe62c73614b8fafe4cb73c7d1a24762 100644
+index 71cc8cfc7c5cbf3924269f6217712d42008c03ff..df1b0087dcacb0a3b94196368137d5e20b0e6d7e 100644
 --- a/drivers/i2c/busses/i2c-pasemi-core.c
 +++ b/drivers/i2c/busses/i2c-pasemi-core.c
-@@ -78,7 +78,7 @@ static inline int reg_read(struct pasemi_smbus *smbus, int reg)
+@@ -6,15 +6,15 @@
+  */
  
- static void pasemi_reset(struct pasemi_smbus *smbus)
- {
--	u32 val = (CTL_MTR | CTL_MRR | (smbus->clk_div & CTL_CLK_M));
-+	u32 val = (CTL_MTR | CTL_MRR | CTL_UJM | (smbus->clk_div & CTL_CLK_M));
+ #include <linux/bits.h>
++#include <linux/delay.h>
++#include <linux/i2c.h>
++#include <linux/io.h>
++#include <linux/kernel.h>
+ #include <linux/module.h>
+ #include <linux/pci.h>
+-#include <linux/kernel.h>
+-#include <linux/stddef.h>
+ #include <linux/sched.h>
+-#include <linux/i2c.h>
+-#include <linux/delay.h>
+ #include <linux/slab.h>
+-#include <linux/io.h>
++#include <linux/stddef.h>
  
- 	if (smbus->hw_rev >= 6)
- 		val |= CTL_EN;
+ #include "i2c-pasemi-core.h"
+ 
+diff --git a/drivers/i2c/busses/i2c-pasemi-pci.c b/drivers/i2c/busses/i2c-pasemi-pci.c
+index 77f90c7436eda2df16afd7f1cac79355fb005bfd..b9ccb54ec77e22bb1b77848c858e2e0cc51db7e3 100644
+--- a/drivers/i2c/busses/i2c-pasemi-pci.c
++++ b/drivers/i2c/busses/i2c-pasemi-pci.c
+@@ -5,15 +5,15 @@
+  * SMBus host driver for PA Semi PWRficient
+  */
+ 
++#include <linux/delay.h>
++#include <linux/i2c.h>
++#include <linux/io.h>
++#include <linux/kernel.h>
+ #include <linux/module.h>
+ #include <linux/pci.h>
+-#include <linux/kernel.h>
+-#include <linux/stddef.h>
+ #include <linux/sched.h>
+-#include <linux/i2c.h>
+-#include <linux/delay.h>
+ #include <linux/slab.h>
+-#include <linux/io.h>
++#include <linux/stddef.h>
+ 
+ #include "i2c-pasemi-core.h"
+ 
 
 -- 
 2.34.1
