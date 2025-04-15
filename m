@@ -4,86 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CEF6C369B5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 08:39:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C213FC369B5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 08:41:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kbC+rbiQeXAmTKOdQ5ekU8ntNo3bts/iVzbE7GMiRTY=; b=fruhaWGRRqoA/7azcTJYYtFwAa
-	jq+xswZ8K9a63MSjmt7Jy2yY+E217rkPK8Hqqm930QG5kBNalm1CcGnUBN7mtdPr0j87zcwF40CFd
-	Ctns4cNgubpLkI4TwlLNHBVnB7qTs8YSNt1X44rH+QdvLj+vG4+UFBmAjL8E0ERThQWqRB8wXJ9pH
-	OgK8IBvomT0wfozleFjPi91egmFxSS+Vz7ffwtWAiOK1l7jAseEm1235Gz0q8Ud890cn5mo3wvunL
-	Uy/AnkzBjxEy1ELCOTJ2Eohg0oZFbtSWgtbpffxPXETHEI9sHyjppV/UZw7kT8vSOfYQLDsj2v8xh
-	DNM8oB7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Th0bC5z7NAsF3wV1BB0jWB9e5JaXMZmmXy/KtVmbVWI=; b=ww13b79YHPAT8TZSLWQiTP06li
+	Ddr8u/fMaxpQ+lSYEhPEU3/X3E4RMPaGuN+YZqg7lHaBAN/77lwlxTKu82m7Guh3zpy4X9RCValom
+	j5x9wdMbg/5oeRtsiOABynSMOg25BpWkugYZObCo1iXwK0yyeL4KR6Uv4vAZDrQ1Lv/XPR5H6TX9g
+	EEhVS92eE0C6W+MlaEstX6HOer3s3n4W09kHtEE/NdxhxCw8TfI4DK5i1WdZXTgo3+JGk26nmNK/n
+	eanUzZMBAYEK1PTHeZT5SBBJuyxZs7vsw/j3ObpKh8dJcVqz8HUOherlF3PVIo/oF1RMMBw9Ppq9C
+	SlL62Pzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4bp7-000000052Hh-1LPm;
-	Tue, 15 Apr 2025 08:39:17 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1u4bqu-000000052W4-2TF7;
+	Tue, 15 Apr 2025 08:41:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4bfK-0000000505I-2BSP
+	id 1u4blg-000000051gJ-1nPM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 08:29:11 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-54addb5a139so6009993e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Apr 2025 01:29:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744705749; x=1745310549; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kbC+rbiQeXAmTKOdQ5ekU8ntNo3bts/iVzbE7GMiRTY=;
-        b=RE2vnj7bu4shTcFtbHoQRdRpr7tBS9LNxX0qntvUtnU2i0/09TFKQ5ahGYF3OmDhkp
-         5Ub2Ykk9x8+FuVmA2DcX5AJuqR1P8PmGp7V3Fp7CUv0LI54e/xcAY2ck0AttrS9SDS1B
-         VQtx1fwe3lMXLeqLM7osPoCO0OQ0YNXsELtdCb2O4o/XzahDTotpv/r6TXGzXuZWavZf
-         FImbxc5Ea2xkIlz48P1VvmnWIBfPjiVj42Se+Si+tB8psDAiCXlCpIIcLpURNNrijnzv
-         Zs4L6aKBgVYkdn1mR0xzBVBdkH4qVK3fPMSZ3l/HQaIITWNfaFN04T0KyNoyqi5Di5pK
-         Yexw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744705749; x=1745310549;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=kbC+rbiQeXAmTKOdQ5ekU8ntNo3bts/iVzbE7GMiRTY=;
-        b=wPPA/AJy6Nq85XFC5zyGABZ9yYT3gAHOLKGqIZOpGdkE69w9FsB410R/vjuOY2XBhO
-         K7K1arJ9oZdhO+fhTMZsuvXkMIR5WfhempNpIj5VN7A0ICaVrRaqcGmv+hBTFjF4wNDh
-         kX94C+PGsmVl8BodrLOTB7FxpdtXJEG2i1ftH2ISpDt1uQcNjoja+3LIkOed7oYO85nE
-         beFqduS+fR7BVfirdYGx2iDAG9SEPpE/y+Kf1CGQT00nCttARAjp4xdCkvX1SyJI5dOT
-         snLsemQh0FvHnGKG3y4449hipCH0pgv3X0xQMyF9k8jcsd/ny5iK0L8r8j+grUVpzDAp
-         glQg==
-X-Forwarded-Encrypted: i=1; AJvYcCUmzb2u7cyiE1wAuBTdmWpHU26Hw22iiHZF6TLodpFm15+09AkUVyilYDilQvWL4hYs70u8akXVpKW71BbnpVgE@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxb3EDvRbHuxf+PQ4sqCV+z7RMrEz1nWFxtbHolSmxDdEV0N+q7
-	L7eHv5chUUEgfTLIomTNKaRSl3ha4lFNnXR+InA+AHO/IcewdC9lWaiGEApaYxZcr5pQ6rYKZbT
-	GWJ4oNI5i2DZjOMSjl5FQ+5l94EJ/Uba78GtkUQ==
-X-Gm-Gg: ASbGncsNawgcBYBoBvzzcyVACbon4Rau6QI/WnYFRj8gKk+gzqR/R+OqnP8+s0FPcjJ
-	+7THbGM29yJC6fK3E0jCstzGke4Ujn4X1f68TAVg/Dkwm4WfDlCIg93cR7VlAYaN65g8SrCoyLb
-	DFmxYZsrg55JVGa89WxNgMMw==
-X-Google-Smtp-Source: AGHT+IEldvSloEtUxO9vAvr6pIUF6+6mI//GyNNWKS45SYnCGnbYk7X+AjHq8bg3bqosme6qdruAqr1basQdBWgZhUQ=
-X-Received: by 2002:a05:651c:30d4:b0:30d:e104:b594 with SMTP id
- 38308e7fff4ca-31049aaef6fmr47714041fa.40.1744705748864; Tue, 15 Apr 2025
- 01:29:08 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250407-gpiochip-set-rv-arm-v1-0-9e4a914c7fd4@linaro.org> <20250407-gpiochip-set-rv-arm-v1-2-9e4a914c7fd4@linaro.org>
-In-Reply-To: <20250407-gpiochip-set-rv-arm-v1-2-9e4a914c7fd4@linaro.org>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 15 Apr 2025 10:28:58 +0200
-X-Gm-Features: ATxdqUFq-Vl9qhescQDJ20ocPhYf75xWr8mTBKZ04eLcprRDa-HJLgwcNWmq4o0
-Message-ID: <CACRpkdYN4wZcnmxjh9KGCa7i_K_hKtzvFgBzywbVAfK46A2fKQ@mail.gmail.com>
-Subject: Re: [PATCH 2/4] ARM: sa1100/gpio: use new line value setter callbacks
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Andrew Lunn <andrew@lunn.ch>, Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
-	Gregory Clement <gregory.clement@bootlin.com>, Russell King <linux@armlinux.org.uk>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_012910_553308_D69D8853 
-X-CRM114-Status: GOOD (  10.62  )
+	Tue, 15 Apr 2025 08:35:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 144246115F;
+	Tue, 15 Apr 2025 08:35:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BBF5C4CEEB;
+	Tue, 15 Apr 2025 08:35:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744706143;
+	bh=GpBbXos+rpkgip/aX1rfTMEn4O35+HO/6MJjvnJqcyA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=seP/ZTf8iLlbgzcIHo8RL2ZCfC/mUhhQgKaygg5g8slnHNvHmqaoMoGa4AjXvFXGG
+	 3wP6ia8Vo/+1JaS17ddt15Db8hClkaIa7FV7T53FS4poYiADDVq1hrutP2hdDzbzsO
+	 V8wZZox3s8OFC67d25DTlYVeFCHJlbLl8eN6Zo5fmtODTunDTXFk4leS/acZ/q8k1w
+	 37LfkrbCG3jYOhX6/0NmAXJ4lxukhVLvhc8+JjCR9Niy06spZJuQAlk31f9IsexsdQ
+	 tuv1b/SqEL/kA3zG34VhrUc5G1dGYx5XweGbbtWPIBhmQ8ERbmMWb3GecHzIxbIezI
+	 izBcf1FFTqMUA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1u4blc-005aaY-P8;
+	Tue, 15 Apr 2025 09:35:40 +0100
+Date: Tue, 15 Apr 2025 09:35:40 +0100
+Message-ID: <867c3llt43.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ilias Stamatis <ilstam@amazon.com>
+Cc: <kvmarm@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<oliver.upton@linux.dev>,
+	<joey.gouly@arm.com>,
+	<suzuki.poulose@arm.com>,
+	<yuzenghui@huawei.com>,
+	<eric.auger@redhat.com>,
+	<andre.przywara@arm.com>,
+	<will@kernel.org>,
+	<dwmw@amazon.co.uk>,
+	<jgrall@amazon.co.uk>,
+	<ugurus@amazon.co.uk>,
+	<nh-open-source@amazon.com>
+Subject: Re: [RFC] ARM vGIC-ITS tables serialization when running protected VMs
+In-Reply-To: <20250414111244.153528-1-ilstam@amazon.com>
+References: <20250414111244.153528-1-ilstam@amazon.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ilstam@amazon.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, eric.auger@redhat.com, andre.przywara@arm.com, will@kernel.org, dwmw@amazon.co.uk, jgrall@amazon.co.uk, ugurus@amazon.co.uk, nh-open-source@amazon.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,19 +91,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 7, 2025 at 9:09=E2=80=AFAM Bartosz Golaszewski <brgl@bgdev.pl> =
-wrote:
-
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+On Mon, 14 Apr 2025 12:12:43 +0100,
+Ilias Stamatis <ilstam@amazon.com> wrote:
+> 
+> # The problem
+> 
+> KVM's ARM Virtual Interrupt Translation Service (ITS) interface supports the
+> KVM_DEV_ARM_ITS_SAVE_TABLES and KVM_DEV_ARM_ITS_RESTORE_TABLES operations.
+> These operations save and restore a set of tables (Device Tables, Interrupt
+> Translation Tables, Collection Table) to and from guest memory.
+> 
+> This can be a problem when running a protected VM on top of pKVM or another
+> lowvisor since the host kernel (running at EL1) cannot access guest memory.
 >
-> struct gpio_chip now has callbacks for setting line values that return
-> an integer, allowing to indicate failures. Convert the driver to using
-> them.
->
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+pKVM doesn't allow a guest to be saved/restored, full stop.
 
-Yours,
-Linus Walleij
+> # Page declassification and why ITTs are special
+> 
+> The Collection and Device tables are page aligned and their sizes must be a
+> multiple of page size. If the lowvisor knows where these tables live, it is
+> possible to "declassify" the corresponding pages and configure the MMU such as
+> that the EL1 host can write to guest memory directly.
+> 
+> The ITTs (Interrupt Translation Tables) are different. They are NOT page
+> aligned, they are 256 byte aligned and their size is variable. That means that
+> the lowvisor can't declassify pages containing ITTs and configure the MMU
+> giving the host direct access as above since those pages may contain unrelated
+> data.
+
+And it is the responsibility of the guest to make these page aligned
+if it intend to let the hypervisor use them. To sum it up, the ITT
+isn't special at all.
+
+> 
+> If the lowvisor knows where the ITTs live in guest memory it could instead
+> perform the guest memory accesses on behalf of the host. I.e. the EL1 host
+> would attempt to save the ITTs to guest memory like it does today, that would
+> generate a data abort, and then the EL2 lowvisor could perform the copy after
+> validating that the faulty address belongs to an ITT in guest memory.
+> 
+> One issue with the above is that the ITS save/restore happens at hypervisor
+> live update which is a time sensitive operation and the extra traps (one per
+> interrupt mapping?) can introduce significant additional overhead
+> there.
+
+I don't believe this for a second.
+
+> 
+> Another issue is that it's actually hard for the lowvisor to know where these
+> tables live without trusting the EL1 host which virtualizes the ITS. It is
+> especially hard knowing the locations of the ITTs (compared to
+> Collection/Device tables) because that probably means having to parse the ITS
+> command queue from EL2 which is complex and undesirable.
+> 
+> # An alternative: Serializing ITTs into a userspace buffer
+
+NAK.
+
+Share the page-aligned memory with the rest of the hypervisor, and use
+the existing API.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
