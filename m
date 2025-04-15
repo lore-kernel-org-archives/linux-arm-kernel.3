@@ -4,97 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0C01C369B5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 14:07:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E658C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 14:09:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f7Ug76I8PBqsVyX7451rWvT3DCckR1pFD90rVI4kapk=; b=u4Kmvc+GSNxMXgIOUtBBtgqNGD
-	m8WakUN2jLAeV/gz1VhJyO6PkAsR5jn4OCO3SwpJxNJxwlcWepMscWANdTWzNGXrZBJOR35V5TKQ8
-	3MEoaopBw6TG07t9IQH7miFr7M9MtluFKRoMgnssdkzXTUArPo8BXBLZSgLVYJHzkbiTGVO27mo/7
-	Nv8wmNK3OtWPToJvXhe8EtRSe4CGC4vYCW7AuSIfPzlsybRnKmtp/c9X+2i/PytH5v3vLm0gbhjwr
-	oeUgif8qubfBShEz+lCuOLH5Mr8FhcNrKTZqOP5a2ONtz1MbOActfyXhBknl83Q0qiTV0tgs70iUv
-	NNUDdJQA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:References:
+	In-Reply-To:Subject:CC:To:From:Date:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=AJATmyjm2eijeuuPsjt7QjMYsSq4CG6lw+58QD8jKh0=; b=3sYnf28yueI2dT
+	F+JaRJYgJAz2mORvyk1ULF7FdpHLwNqUa6muOI5QMl2/bRc6k3tjqPnYGh21rl3OjVCbeQfqxS+8U
+	zZsYLngg/E8MQ9DoBAR/PqjnDbQW7ZG9BIN6cIK75b4H/GUuDENq5Koqlop4X+7neK9UJbBnXI/Wg
+	UXP/vtRf/Jkq9hOQ1kGlZ7gRAJAGrYWF+XaSHwIPxDgSB0r9tfMPf4fGPgQWlnB3lutfe8sNYXGpA
+	MJftNUZhfYRMYlcArZnyVrECEBgU3GW4bK/Sxs1cu8Td4loGtL1YJ26cJAE1chP3v+9nvMIJvUKzy
+	NPvmhlxix7Z7wDiqgnmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4gwi-000000062Yp-3Wz5;
-	Tue, 15 Apr 2025 14:07:28 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1u4gyV-000000062nD-3Qsl;
+	Tue, 15 Apr 2025 14:09:19 +0000
+Received: from mout.gmx.net ([212.227.15.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4gln-0000000605c-1f8b
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 13:56:13 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-39141ffa9fcso7276386f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Apr 2025 06:56:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744725370; x=1745330170; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=f7Ug76I8PBqsVyX7451rWvT3DCckR1pFD90rVI4kapk=;
-        b=aaULxJ+s7nttEBLwhnVM/GaXPwueeR1lRHl2FZ1dIMNxcShy0rJuV2WOE1DIPUoXDc
-         m4MSNKCXAFqjf4ESk+aGOC2ohJkY/oBU+2p2n10mYuktjqIw3kpBsWNn5kEBvZ/xMidh
-         KmVQsFavMNvc1JEMgt/D/w4hhceMCURulYgCd4WUwLdbzo2UOquLDNkgDgwbXx0n0X1x
-         orKEUQY+UFLifr+C9FfQptIMGIOlxIEGGX9sR5K8A4y0H7eE6X5CYFlCT6T+OS6t/fak
-         2u9Df7FXGWHOekpoLs1+0KQGzvzJg6DTZQBv1ahIHUwcP3EEchGuez3I/E+N3SIBx9Sc
-         nrYA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744725370; x=1745330170;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=f7Ug76I8PBqsVyX7451rWvT3DCckR1pFD90rVI4kapk=;
-        b=dN/mtXCKhEdcx0jNES0RCLefauAE3TCSxJHv4Zl+j9EKeDbSEQplywqroyEfj9/lrd
-         S9YwAlHf0DggGOEhogg/AhpfX3UEwTrNs9dPzbcz/eoaLQ7419e42DdvIWN+2Ab2Oydd
-         wiEcQt3d4Umrte3qPY7rPEnSOopdF+el5xw4zAufX2gRSw6gGibEcoFzJo8Ek/3woh/M
-         8EvcgU52pDWyRv3e0FYvz4r/xmEOvOXnblSlinK3qoC/P+6ZtvBbt8NW3PDQ3+fSFAbI
-         b+8+gJCQHtxQ/D8IpAT7DZ+ZoQEIdtlvA6j2uuLxt9zofU5iZnGBErjHbQ8tO9seTON+
-         eKEA==
-X-Forwarded-Encrypted: i=1; AJvYcCV6EnzZdCOmQe56nMLsr2r9tuMJdB7PX4X6bvJ+WufxDIng02v+fAzgQ0NvnMovp14Aw/k8+0BRrnzhuDP9+ar4@lists.infradead.org
-X-Gm-Message-State: AOJu0YxpA8qUacyOCjzJtzuGgzPZQngmBf/Npdj39vsZGV51/M6Wp6GP
-	/8UvSjUmxBVHWBOEWUhyw+yDKmwUi0dwyFtvzDk3YISEOKI6wNqZ
-X-Gm-Gg: ASbGncttbETHlm463xBkrNPaAFzTwCs//NZvWfH9kUE1FVri12SXzxtxmHO3W2gzP5P
-	TeSv20thUPmm/OpU7/wWDDI8n7UpR3rEZ1rCeQ2V63wRFjXYgOprUUQkxRLAc0CgO2ObppW+4Y5
-	LPq5tOJ5CTwncXTNdusw0zU8eCT40tLX1lMvo2tiKo0qSkSmbE10yh/K9rvtVpFjMkaTBjDr1Hd
-	EfJBnbxNarKrS6w/EBkmL9w5Ri0LPaCEFpkylSGNofcto8p5hEZwMFT8y/9muET8GesfpA87Q+1
-	bCfDWOfqjjBYsp/Tsnr+lpssXT1bSnFP9xBL+YQhNg==
-X-Google-Smtp-Source: AGHT+IEUc51u2H2A2sXDUuHdbW0oUHYeFA2HCqNohoAXTGQXycwn5Mca0dijghzNDofByf9HiAEEYQ==
-X-Received: by 2002:a05:6000:381:b0:39a:c80b:8283 with SMTP id ffacd0b85a97d-39ea521206bmr13186409f8f.31.1744725369575;
-        Tue, 15 Apr 2025 06:56:09 -0700 (PDT)
-Received: from Red ([2a01:cb1d:898:ab00:4a02:2aff:fe07:1efc])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-39eaf445515sm13993745f8f.89.2025.04.15.06.56.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Apr 2025 06:56:09 -0700 (PDT)
-Date: Tue, 15 Apr 2025 15:56:07 +0200
-From: Corentin Labbe <clabbe.montjoie@gmail.com>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>, Chen-Yu Tsai <wens@csie.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-sunxi@lists.linux.dev,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Samuel Holland <samuel@sholland.org>
-Subject: Re: [PATCH net-next] net: stmmac: sun8i: use stmmac_pltfr_probe()
-Message-ID: <Z_5ld6D1Yyo7Ysur@Red>
-References: <E1u4dKb-000dV7-3B@rmk-PC.armlinux.org.uk>
+	id 1u4gsm-000000061c3-1aar;
+	Tue, 15 Apr 2025 14:03:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
+	s=s31663417; t=1744725782; x=1745330582; i=frank-w@public-files.de;
+	bh=AJATmyjm2eijeuuPsjt7QjMYsSq4CG6lw+58QD8jKh0=;
+	h=X-UI-Sender-Class:Date:From:To:CC:Subject:Reply-to:In-Reply-To:
+	 References:Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=nYmUjMHXFsev/dNDJDi7pjjPr1EsqhdfzUnQAB7/a+X1gNhe9qs0AnAOEtsUYRz+
+	 MIitZ1TDPeS7nBA/kMXTFa+oIIIGoNZviTiHmTbETCpqNMf1OggPyzPllSR/aNJFs
+	 S8xyUEISv78LA16U1u2V4K3Ko2v8Q0qmxEgQV9MygL2WnXZT7IOTa8W7Z7cTpda9A
+	 LcML4t+cx0XGT7cL/6qqiNu8t7xcW8QqprEIiJdCi0MVW4aDjeeVgPTVRKOFz8rdM
+	 NrCkuX3n1nSstOx0VsqBgZhJQ0cyPDGVkbY8Oc42h9PNYrzpjRwTNbZ9+rJ6mfamw
+	 u9C/XLTWdiiWcHkJXg==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [127.0.0.1] ([217.61.148.30]) by mail.gmx.net (mrgmx004
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1M7sDg-1tzkvP3too-00Bho5; Tue, 15
+ Apr 2025 16:03:02 +0200
+Date: Tue, 15 Apr 2025 16:03:02 +0200
+From: Frank Wunderlich <frank-w@public-files.de>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Frank Wunderlich <linux@fw-web.de>, Chunfeng Yun <chunfeng.yun@mediatek.com>,
+ Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>
+CC: Daniel Golle <daniel@makrotopia.org>, Sam Shih <sam.shih@mediatek.com>,
+ MandyJH Liu <mandyjh.liu@mediatek.com>, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: =?US-ASCII?Q?Re=3A_=5BRFC_3/5=5D_dt-bindings=3A_power=3A_Add_binding?=
+ =?US-ASCII?Q?_for_MediaTek_MT7988_topmisc_power_controller?=
+User-Agent: K-9 Mail for Android
+In-Reply-To: <bbb81e79-95da-4cf9-9eef-7cbaea191ebb@collabora.com>
+References: <20250413085806.8544-1-linux@fw-web.de> <20250413085806.8544-4-linux@fw-web.de> <700af1ab-f43e-4583-8f0e-27e5d4424338@collabora.com> <2EA2BDB0-E1C9-49BC-98FC-5048905AA036@public-files.de> <bbb81e79-95da-4cf9-9eef-7cbaea191ebb@collabora.com>
+Message-ID: <AC7CF61A-A8A0-40B7-B5B5-51C56A1D3E81@public-files.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <E1u4dKb-000dV7-3B@rmk-PC.armlinux.org.uk>
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:pEE0QNLaCjGOh1Q3A+m2eGYrUmWJexG4y4QniLuUTqDVWg4CIOB
+ 84GmAnGh6QGkVbhwiumdWdvKVApuC2JIYMqVYiI2UJ8kXwUFnoleHNXl7yc7QrRK2yKcCIA
+ 3I5SoqqnMHQ4CVxWJe3F86siWLEd074Se1G0CnkRyrhWEsyWM91xeQei1J++PcvHaZSDvtG
+ xrOEUf4OgwvpgvHHD/pBA==
+UI-OutboundReport: notjunk:1;M01:P0:7lIXNkQsibE=;ecACNA+AaIzPbg8w5bjKrIo/tsr
+ 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
+ pKptU6VyxXIk2QK7Kx481TFV0HrsMyhgeJ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_065611_433575_C3A40D12 
-X-CRM114-Status: GOOD (  12.36  )
+X-CRM114-CacheID: sfid-20250415_070324_723280_89B3FC05 
+X-CRM114-Status: GOOD (  12.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,24 +129,92 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: frank-w@public-files.de
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Tue, Apr 15, 2025 at 11:15:53AM +0100, Russell King (Oracle) a écrit :
-> Using stmmac_pltfr_probe() simplifies the probe function. This will not
-> only call plat_dat->init (sun8i_dwmac_init), but also plat_dat->exit
-> (sun8i_dwmac_exit) appropriately if stmmac_dvr_probe() fails. This
-> results in an overall simplification of the glue driver.
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> ---
->  drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c | 10 ++--------
->  1 file changed, 2 insertions(+), 8 deletions(-)
-> 
+Am 15=2E April 2025 11:59:06 MESZ schrieb AngeloGioacchino Del Regno <angel=
+ogioacchino=2Edelregno@collabora=2Ecom>:
+>Il 15/04/25 11:52, Frank Wunderlich ha scritto:
+>> Hi Angelo,
+>>=20
+>> Am 14=2E April 2025 12:25:23 MESZ schrieb AngeloGioacchino Del Regno <a=
+ngelogioacchino=2Edelregno@collabora=2Ecom>:
+>>> Il 13/04/25 10:58, Frank Wunderlich ha scritto:
+>>>> From: Frank Wunderlich <frank-w@public-files=2Ede>
+>>>>=20
+>>>> Topmisc is a systemcontroller used for xs-phy and ethernet on  mt7988=
+=2E
+>>>> Add binding for it=2E
+>>>=20
+>>> That's the wrong binding=2E=2E=2E check mfd/syscon=2Eyaml :-)
+>>>=20
+>>> P=2ES=2E: Is there any reset controller in topmisc? Any clock?
+>>>       If yes, syscon=2Eyaml is also wrong, and you need a driver for t=
+hat=2E
+>>>       Remember: If it turns out *later* that this has clk/resets and t=
+he
+>>>       bindings are already set for just a syscon, it's gonna be way ha=
+rder!
+>>>=20
+>>> Cheers,
+>>> Angelo
+>>=20
+>> Ok based on the power-domain-cells property i guessed powercontroller i=
+s the right place=2E
+>
+>power-domain-cells, but without any power domain assignment, so that was =
+wrong :)))
+>
+>>=20
+>> But based on your suggestion i tried moving compatible to syscon bindin=
+g and made dtbs_check here=2E
+>>=20
+>> I can confirm dropping the unexpected properties reported by syscon bin=
+ding (power-domain-cells,clock-cells,adress-cells and size-cells) are not n=
+eeded for function (xsphy and ethernet)=2E
+>>=20
+>> For verifying that there are really no clocks/resets in topmisc (have n=
+ot found it in public available register documents) i asked mtk (waiting fo=
+r answer)=2E
+>>=20
+>> Also got it working without the syscon compatible by changing ethernet =
+driver too (after this change xsphy was also working)=2E
+>
+>Perfect, a bit of a cleanup and you're done, then!
+>
+>Cheers!
+>
+>>=20
+>> Eth:
+>> https://github=2Ecom/frank-w/BPI-Router-Linux/commit/d866e648717800b6f6=
+395ad36c38f9effcf0498d
+>> Xsphy:
+>> <https://github=2Ecom/frank-w/BPI-Router-Linux/commit/0121a94df99700487=
+704ca056b210b13db07e90c>
+>>=20
+>> regards Frank
+>
+>
+>
 
-Tested-by: Corentin Labbe <clabbe.montjoie@gmail.com>
-Tested-on: sun50i-h6-pine-h64
-Tested-on: sun8i-a83t-bananapi-m3
+Got response from MTK and basicly topmisc contains a powercontroller (for =
+cpu and internal 2g5) but currently not needed because ATF already switch t=
+his on=2E The second part is the pcs/phy muxing and 3rd some unneeded switc=
+hes (where i have no detailed information)=2E But no clocks or resets as th=
+ese are handled in the connected platform driver (xsphy/ethernet)=2E
 
-Thanks
+So my original binding imho made more sense=2E
+
+The syscon binding seems to need syscon fallback and shows error about une=
+xpected "compatible" property=2E The binding itself does not contain any pr=
+operties but references syscon-common where iiuc compatible property must h=
+ave at least 2 items and requires the "syscon" fallback=2E
+
+Mtk suggests splitting topmisc into the 2 blocks by only using the mux par=
+t as syscon with splitting the reg=2E If powerdomain really is needed then =
+a second topmisc node could be added and bound to a new driver=2E
+
+But this would need a bit more of testing=2E
+regards Frank
 
