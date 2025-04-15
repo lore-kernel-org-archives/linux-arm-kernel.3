@@ -4,86 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5342C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 20:31:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31870C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 21:17:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:CC:Message-ID:Date:Content-Type:Content-Transfer-Encoding:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dt+F+4fNm1LcRSmr3GDnsB8MmFE+gO5sTMiOLjM3yRc=; b=wNBPqtphxaT9jBXh4s1CN5xjBz
-	4d7IgI/a6J1ZYB77tUFkhqqywhd2tzqljyt2pTCHJwsG4nEwKN7vTxMqlqeOLSjY5dgSVKDpS0EoJ
-	9kbSVqoOfrw/PFLdLO1/AD9AL6pCyFulANzg3r7w1A+pFvfWN9UjgfEgm3bOhHWxFfDGe9re2s7vo
-	xEynTkKcOFDmr7Jp6zELRW2q/ix3JJBCi4MHdZ24oD1P0HCTaM2aER10MrfcDkqFUAw/k3TEeZsMC
-	iNzCX1uF2uRqjeroHSXQiR+QvmNy73ow2Nlg4sgaB2AcVEtaPuUwLsyGCQZ9iMPDR5YTLZcKgPj/i
-	T6NYlrvQ==;
+	bh=IAeshu1rPRVwkbSbcg36lO4ijxbO9PeaGLWgVnDeV5c=; b=4O3rjrees2dwXDbmYD4VV+vTTK
+	AEOXv3uJllLDDMD1jkbYfiddL4//6/wxQctC82550TMq6o2t4zq3XPxpedcTy6hJPE9+uTzkj+miy
+	DMJcknp//EujxjigsKgTnTZcKZ49b4J+6z4S71+2WMdCYWYr0m8WS3QL3k+mxCgMgByMR5mbLMAUV
+	BIvlGwI1Q/YiuV0/TK9APzVZvdlxufAfmFJKP90JIpNKlwRj1ae7sq7QD8stnYnbHFZIuxZbflSS5
+	JG0F8OxUdNJrLAf4i8L6VGN1tMFy7b2P1KJrIZBa05spj0rPWbnDM8pLmkXjMNBqxwTtd0OkN/Hyu
+	b24afthQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4mwB-000000073Sx-2wKN;
-	Tue, 15 Apr 2025 20:31:19 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1u4neT-000000079u8-0vD0;
+	Tue, 15 Apr 2025 21:17:05 +0000
+Received: from smtp.forwardemail.net ([121.127.44.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4muL-0000000733n-0hQn
+	id 1u4ncc-000000079d1-3zeA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 20:29:26 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53FKTFuw132148
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 15 Apr 2025 15:29:16 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744748956;
-	bh=Dt+F+4fNm1LcRSmr3GDnsB8MmFE+gO5sTMiOLjM3yRc=;
-	h=Date:CC:Subject:From:To:References:In-Reply-To;
-	b=SWyx3AmmMrIv43dKfd22i8mv2lb3nCKBH3U3heM1QXblBqpY+yjOCxmO7aCLeTyck
-	 /H2xqXDtbR4fC2OU0l0RS27XAH0QjRnrkG/w1BCDSE3Chaq7MCtRJ15FDSZexNJuNk
-	 z/V+smRVugU9LYk9G1cR78ofjwrIYnsavFZ0bheY=
-Received: from DLEE107.ent.ti.com (dlee107.ent.ti.com [157.170.170.37])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53FKTF79043236
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 15 Apr 2025 15:29:15 -0500
-Received: from DLEE113.ent.ti.com (157.170.170.24) by DLEE107.ent.ti.com
- (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 15
- Apr 2025 15:29:13 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 15 Apr 2025 15:29:13 -0500
-Received: from localhost (rs-desk.dhcp.ti.com [128.247.81.144])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53FKTD9C078755;
-	Tue, 15 Apr 2025 15:29:13 -0500
+	Tue, 15 Apr 2025 21:15:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1744751709;
+ bh=IAeshu1rPRVwkbSbcg36lO4ijxbO9PeaGLWgVnDeV5c=;
+ b=U5i1pZdoW4CT26Gc8KxUIgt7JevZT93mhnrQNsX/BXpS7PWjJbJfoZAFP2HdGQ66pe7rR5I0S
+ Y7mlv429WG42hgbWvQ/TdNdipifVGSND4kGUeUyvklsnRUU6a2LCW0TAqCt8SUjhUXHvtlvKQtJ
+ okhyBElfNYsPk8la7gJPp376bNgP04C16XuKOqvQQ0iHfvB3oqAQy3cJvBD/PLmr1Juv9r09fv+
+ 0UO1x162h1M0V/xsrsdp5movsVx2gXvI/L5l6gRQqpVWK8uTWByabgmW1o6SLHoDXx4CUMqqxq2
+ smknR6g9qFkdNDf4cQ+QCJ73leslt0mQIRqviW3ZtiOw==
+X-Forward-Email-ID: 67fecc56f405d8e4e0433b24
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.73
+X-Forward-Email-Version: 1.0.2
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <7e5ac4a8-6188-447b-8041-89ea00ca1576@kwiboo.se>
+Date: Tue, 15 Apr 2025 23:14:58 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="UTF-8"
-Date: Tue, 15 Apr 2025 15:29:13 -0500
-Message-ID: <D97HVW413ESX.1EEP5D4O6HMOG@ti.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Frank Binns <frank.binns@imgtec.com>,
-        Alessio
- Belle <alessio.belle@imgtec.com>,
-        Alexandru Dadu <alexandru.dadu@imgtec.com>,
-        Luigi Santivetti <luigi.santivetti@imgtec.com>,
-        Darren Etheridge
-	<detheridge@ti.com>
-Subject: Re: [PATCH 2/2] arm64: dts: ti: k3-j721s2: Add GPU node
-From: Randolph Sapp <rs@ti.com>
-To: Matt Coster <matt.coster@imgtec.com>, Nishanth Menon <nm@ti.com>,
-        Vignesh
- Raghavendra <vigneshr@ti.com>,
-        Tero Kristo <kristo@kernel.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>
-X-Mailer: aerc 0.20.1-0-g2ecb8770224a
-References: <20250415-bxs-4-64-dts-v1-0-f7d3fa06625d@imgtec.com>
- <20250415-bxs-4-64-dts-v1-2-f7d3fa06625d@imgtec.com>
-In-Reply-To: <20250415-bxs-4-64-dts-v1-2-f7d3fa06625d@imgtec.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] thermal: rockchip: Add support for rk3562 SoC
+To: Kever Yang <kever.yang@rock-chips.com>
+Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, heiko@sntech.de,
+ linux-rockchip@lists.infradead.org, Shaohan Yao
+ <shaohan.yao@rock-chips.com>, linux-pm@vger.kernel.org,
+ Lukasz Luba <lukasz.luba@arm.com>, linux-kernel@vger.kernel.org,
+ Zhang Rui <rui.zhang@intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ linux-arm-kernel@lists.infradead.org,
+ Daniel Lezcano <daniel.lezcano@linaro.org>
+References: <20250415033940.47914-1-kever.yang@rock-chips.com>
+ <20250415033940.47914-2-kever.yang@rock-chips.com>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <20250415033940.47914-2-kever.yang@rock-chips.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_132925_379032_6BB4ABD0 
-X-CRM114-Status: GOOD (  16.72  )
+X-CRM114-CacheID: sfid-20250415_141511_400569_C4AF28BB 
+X-CRM114-Status: GOOD (  31.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,62 +82,239 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue Apr 15, 2025 at 11:20 AM CDT, Matt Coster wrote:
-> The J721S2 binding is based on the TI downstream binding in commit
-> 54b0f2a00d92 ("arm64: dts: ti: k3-j721s2-main: add gpu node") from [1]
-> but with updated compatible strings.
->
-> The clock[2] and power[3] indices were verified from docs, but the
-> source of the interrupt index remains elusive.
->
+Hi Kever,
 
-For future reference, interrupt maps are present in the TRM. "Table 6-89. G=
-PU0
-Hardware Requests" explicitly calls it out "GPU0 | GPU0_MISC_0_IRQ_0 |
-GIC500_SPI_IN_56 | COMPUTE_CLUSTER0 | GPU0 interrupt request". Subtract 32 =
-from
-that pin number to get the DT number.
-
-That comment aside, this series seems fine to me.
-Reviewed-by: Randolph Sapp <rs@ti.com>
-
-> [1]: https://git.ti.com/cgit/ti-linux-kernel/ti-linux-kernel
-> [2]: https://downloads.ti.com/tisci/esd/latest/5_soc_doc/j721s2/clocks.ht=
-ml
-> [3]: https://downloads.ti.com/tisci/esd/latest/5_soc_doc/j721s2/devices.h=
-tml
->
-> Signed-off-by: Matt Coster <matt.coster@imgtec.com>
+On 2025-04-15 05:39, Kever Yang wrote:
+> From: Shaohan Yao <shaohan.yao@rock-chips.com>
+> 
+> There is one Temperature Sensor with channel 0 on rk3562 SoC.
+> This driver adds the mapping table as-is from the TRM so that we can
+> always sync to the TRM once there have any change in the future.
+> 
+> Signed-off-by: Shaohan Yao <shaohan.yao@rock-chips.com>
+> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
 > ---
-> This patch was previously sent as [DO NOT MERGE]:
-> https://lore.kernel.org/r/20250410-sets-bxs-4-64-patch-v1-v6-18-eda620c58=
-65f@imgtec.com
-> ---
->  arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi b/arch/arm64/boot=
-/dts/ti/k3-j721s2-main.dtsi
-> index 92bf48fdbeba45ecca8c854db5f72fd3666239c5..a79ac41b2c1f51b7193e61338=
-64428bd35a5e835 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
-> @@ -2048,4 +2048,16 @@ watchdog8: watchdog@23f0000 {
->  		/* reserved for MAIN_R5F1_1 */
->  		status =3D "reserved";
->  	};
+> 
+> Changes in v2:
+> - Update the commit message
+> 
+>  drivers/thermal/rockchip_thermal.c | 112 ++++++++++++++++++++++++++++-
+>  1 file changed, 111 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/thermal/rockchip_thermal.c b/drivers/thermal/rockchip_thermal.c
+> index a8ad85feb68f..3278472b06f9 100644
+> --- a/drivers/thermal/rockchip_thermal.c
+> +++ b/drivers/thermal/rockchip_thermal.c
+> @@ -1,6 +1,7 @@
+>  // SPDX-License-Identifier: GPL-2.0-only
+>  /*
+> - * Copyright (c) 2014-2016, Fuzhou Rockchip Electronics Co., Ltd
+> + * Copyright (c) 2014-2021, Fuzhou Rockchip Electronics Co., Ltd.
+> + * Copyright (c) 2021-2024, Rockchip Electronics Co., Ltd.
+>   * Caesar Wang <wxt@rock-chips.com>
+>   */
+>  
+> @@ -185,6 +186,8 @@ struct rockchip_thermal_data {
+>  #define TSADCV2_AUTO_PERIOD_HT			0x6c
+>  #define TSADCV3_AUTO_PERIOD			0x154
+>  #define TSADCV3_AUTO_PERIOD_HT			0x158
+> +#define TSADCV9_Q_MAX				0x210
+> +#define TSADCV9_FLOW_CON			0x218
+>  
+>  #define TSADCV2_AUTO_EN				BIT(0)
+>  #define TSADCV2_AUTO_EN_MASK			BIT(16)
+> @@ -195,6 +198,7 @@ struct rockchip_thermal_data {
+>  #define TSADCV2_AUTO_TSHUT_POLARITY_MASK	BIT(24)
+>  
+>  #define TSADCV3_AUTO_Q_SEL_EN			BIT(1)
+> +#define TSADCV3_AUTO_Q_SEL_EN_MASK		BIT(17)
+>  
+>  #define TSADCV2_INT_SRC_EN(chn)			BIT(chn)
+>  #define TSADCV2_INT_SRC_EN_MASK(chn)		BIT(16 + (chn))
+> @@ -220,6 +224,12 @@ struct rockchip_thermal_data {
+>  #define TSADCV5_AUTO_PERIOD_HT_TIME		1622 /* 2.5ms */
+>  #define TSADCV6_AUTO_PERIOD_TIME		5000 /* 2.5ms */
+>  #define TSADCV6_AUTO_PERIOD_HT_TIME		5000 /* 2.5ms */
+> +#define TSADCV7_AUTO_PERIOD_TIME		3000 /* 2.5ms */
+> +#define TSADCV7_AUTO_PERIOD_HT_TIME		3000 /* 2.5ms */
+> +#define TSADCV12_AUTO_PERIOD_TIME		3000 /* 2.5ms */
+> +#define TSADCV12_AUTO_PERIOD_HT_TIME		3000 /* 2.5ms */
+> +#define TSADCV3_Q_MAX_VAL			0x7ff /* 11bit 2047 */
+> +#define TSADCV12_Q_MAX_VAL			0xfff /* 12bit 4095 */
+>  
+>  #define TSADCV2_USER_INTER_PD_SOC		0x340 /* 13 clocks */
+>  #define TSADCV5_USER_INTER_PD_SOC		0xfc0 /* 97us, at least 90us */
+> @@ -230,6 +240,8 @@ struct rockchip_thermal_data {
+>  
+>  #define PX30_GRF_SOC_CON2			0x0408
+>  
+> +#define RK3562_GRF_TSADC_CON			0x0580
 > +
-> +	gpu: gpu@4e20000000 {
-> +		compatible =3D "ti,j721s2-gpu", "img,img-bxs-4-64", "img,img-rogue";
-> +		reg =3D <0x4e 0x20000000 0x00 0x80000>;
-> +		clocks =3D <&k3_clks 130 1>;
-> +		clock-names =3D "core";
-> +		interrupts =3D <GIC_SPI 24 IRQ_TYPE_LEVEL_HIGH>;
-> +		power-domains =3D <&k3_pds 130 TI_SCI_PD_EXCLUSIVE>,
-> +				<&k3_pds 373 TI_SCI_PD_EXCLUSIVE>;
-> +		power-domain-names =3D "a", "b";
-> +		dma-coherent;
-> +	};
+>  #define RK3568_GRF_TSADC_CON			0x0600
+>  #define RK3568_GRF_TSADC_ANA_REG0		(0x10001 << 0)
+>  #define RK3568_GRF_TSADC_ANA_REG1		(0x10001 << 1)
+> @@ -498,6 +510,45 @@ static const struct tsadc_table rk3399_code_table[] = {
+>  	{TSADCV3_DATA_MASK, 125000},
 >  };
+>  
+> +static const struct tsadc_table rk3562_code_table[] = {
+> +	{0, -40000},
+> +	{1419, -40000},
+> +	{1428, -35000},
+> +	{1436, -30000},
+> +	{1445, -25000},
+> +	{1453, -20000},
+> +	{1462, -15000},
+> +	{1470, -10000},
+> +	{1479, -5000},
+> +	{1487, 0},
+> +	{1496, 5000},
+> +	{1504, 10000},
+> +	{1512, 15000},
+> +	{1521, 20000},
+> +	{1529, 25000},
+> +	{1538, 30000},
+> +	{1546, 35000},
+> +	{1555, 40000},
+> +	{1563, 45000},
+> +	{1572, 50000},
+> +	{1580, 55000},
+> +	{1589, 60000},
+> +	{1598, 65000},
+> +	{1606, 70000},
+> +	{1615, 75000},
+> +	{1623, 80000},
+> +	{1632, 85000},
+> +	{1640, 90000},
+> +	{1648, 95000},
+> +	{1657, 100000},
+> +	{1666, 105000},
+> +	{1674, 110000},
+> +	{1682, 115000},
+> +	{1691, 120000},
+> +	{1699, 125000},
+> +	{TSADCV2_DATA_MASK, 125000},
+> +};
+> +
+>  static const struct tsadc_table rk3568_code_table[] = {
+>  	{0, -40000},
+>  	{1584, -40000},
+> @@ -835,6 +886,37 @@ static void rk_tsadcv8_initialize(struct regmap *grf, void __iomem *regs,
+>  			       regs + TSADCV2_AUTO_CON);
+>  }
+>  
+> +static void rk_tsadcv12_initialize(struct regmap *grf, void __iomem *regs,
+> +				   enum tshut_polarity tshut_polarity)
+> +{
+> +	writel_relaxed(TSADCV12_AUTO_PERIOD_TIME, regs + TSADCV3_AUTO_PERIOD);
+> +	writel_relaxed(TSADCV12_AUTO_PERIOD_HT_TIME,
+> +		       regs + TSADCV3_AUTO_PERIOD_HT);
+> +	writel_relaxed(TSADCV2_HIGHT_INT_DEBOUNCE_COUNT,
+> +		       regs + TSADCV3_HIGHT_INT_DEBOUNCE);
+> +	writel_relaxed(TSADCV2_HIGHT_TSHUT_DEBOUNCE_COUNT,
+> +		       regs + TSADCV3_HIGHT_TSHUT_DEBOUNCE);
+> +	writel_relaxed(TSADCV12_Q_MAX_VAL, regs + TSADCV9_Q_MAX);
+> +	writel_relaxed(TSADCV3_AUTO_Q_SEL_EN | TSADCV3_AUTO_Q_SEL_EN_MASK,
+> +		       regs + TSADCV2_AUTO_CON);
+> +	if (tshut_polarity == TSHUT_HIGH_ACTIVE)
+> +		writel_relaxed(TSADCV2_AUTO_TSHUT_POLARITY_HIGH |
+> +			       TSADCV2_AUTO_TSHUT_POLARITY_MASK,
+> +			       regs + TSADCV2_AUTO_CON);
+> +	else
+> +		writel_relaxed(TSADCV2_AUTO_TSHUT_POLARITY_MASK,
+> +			       regs + TSADCV2_AUTO_CON);
+> +
+> +	if (!IS_ERR(grf)) {
+> +		regmap_write(grf, RK3562_GRF_TSADC_CON, RK3568_GRF_TSADC_TSEN);
+> +		udelay(15);
+> +		regmap_write(grf, RK3562_GRF_TSADC_CON, RK3568_GRF_TSADC_ANA_REG0);
+> +		regmap_write(grf, RK3562_GRF_TSADC_CON, RK3568_GRF_TSADC_ANA_REG1);
+> +		regmap_write(grf, RK3562_GRF_TSADC_CON, RK3568_GRF_TSADC_ANA_REG2);
+> +		usleep_range(100, 200);
+> +	}
+> +}
+> +
+>  static void rk_tsadcv2_irq_ack(void __iomem *regs)
+>  {
+>  	u32 val;
+> @@ -1259,6 +1341,30 @@ static const struct rockchip_tsadc_chip rk3399_tsadc_data = {
+>  	},
+>  };
+>  
+> +static const struct rockchip_tsadc_chip rk3562_tsadc_data = {
+> +	.chn_offset = 0,
+> +	.chn_num = 1, /* one channels for tsadc */
+> +
+> +	.tshut_mode = TSHUT_MODE_GPIO, /* default TSHUT via GPIO give PMIC */
+> +	.tshut_polarity = TSHUT_LOW_ACTIVE, /* default TSHUT LOW ACTIVE */
+
+Vendor kernel seem to set following in DT for RK3562:
+
+  rockchip,hw-tshut-mode = <0>; /* tshut mode 0:CRU 1:GPIO */
+  rockchip,hw-tshut-polarity = <0>; /* tshut polarity 0:LOW 1:HIGH */
+
+Why not adjust the default tshut_mode to match what is default used in
+DT for this SoC i.e. TSHUT_MODE_CRU?
+
+> +	.tshut_temp = 95000,
+
+Similar here, for all/most SoCs the default in the driver is 95 deg and
+then SoC DTs override and set a higher default, e.g.:
+
+  rockchip,hw-tshut-temp = <120000>;
+
+Is there any specific reason for this? Or just how it has ended up for
+all SoCs?
+
+I have a few pending patches for adding tsadc support for RK3528 [1]
+that was waiting on the updated RK3562 OTP series, and for RK3528 I
+changed to use CRU as default tshut_mode but kept the 95 deg default in
+driver.
+
+[1] https://github.com/Kwiboo/linux-rockchip/commits/next-20250319-rk3528/
+
+> +
+> +	.initialize = rk_tsadcv12_initialize,
+> +	.irq_ack = rk_tsadcv4_irq_ack,
+> +	.control = rk_tsadcv4_control,
+> +	.get_temp = rk_tsadcv4_get_temp,
+> +	.set_alarm_temp = rk_tsadcv3_alarm_temp,
+> +	.set_tshut_temp = rk_tsadcv3_tshut_temp,
+> +	.set_tshut_mode = rk_tsadcv3_tshut_mode,
+
+I suggest you rebase this on top of Nicolas Frattaroli's RK3576 tsadc
+series [2] and add support for RK3562 trim values in next version.
+
+This rk_tsadcv3_tshut_mode is e.g. renamed to match the v4 name used by
+the vendor kernel.
+
+[2] https://lore.kernel.org/all/20250317-rk3576-tsadc-upstream-v4-0-c5029ce55d74@collabora.com/
+
+Regards,
+Jonas
+
+> +
+> +	.table = {
+> +		.id = rk3562_code_table,
+> +		.length = ARRAY_SIZE(rk3562_code_table),
+> +		.data_mask = TSADCV2_DATA_MASK,
+> +		.mode = ADC_INCREMENT,
+> +	},
+> +};
+> +
+>  static const struct rockchip_tsadc_chip rk3568_tsadc_data = {
+>  	/* cpu, gpu */
+>  	.chn_offset = 0,
+> @@ -1338,6 +1444,10 @@ static const struct of_device_id of_rockchip_thermal_match[] = {
+>  		.compatible = "rockchip,rk3399-tsadc",
+>  		.data = (void *)&rk3399_tsadc_data,
+>  	},
+> +	{
+> +		.compatible = "rockchip,rk3562-tsadc",
+> +		.data = (void *)&rk3562_tsadc_data,
+> +	},
+>  	{
+>  		.compatible = "rockchip,rk3568-tsadc",
+>  		.data = (void *)&rk3568_tsadc_data,
 
 
