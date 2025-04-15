@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CBA5C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 14:34:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACC45C369B4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 14:36:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZXSwZ86gJHOC7qQMR9SiUrfCxAxKjOgph8ucYxy7o4M=; b=EDembAFD5CportsSlv9bd6Ff2P
-	ZBghPdqQ0ylCkbd0r2myPhxgJ3WNJjNPW24DOyHH/qLKY5mqSbA6Gqk8G/sDscRxLqpuq0GWIFZSI
-	XuOWLXcibDTWolqxXkmgttlIBgiatxXISpnwo7NN3xzi6fhGqrLdxpIPGXmXJuNpBGLZi8z4mSks5
-	U+0bNgxTgZAfNE8xJtNb8FzE2wN/2D+1kp8o0OdcpsW9ItP+gJCbOgNFWKOgiqundS5KuDy2NZd5i
-	kp1PwR4Wp2sUwizw4R6o76w9NAxayUd333TVwfKpHQ5X8UuAuv2lAcKRTmDJaPFWT4hOg9ILmZrPP
-	KeVlWh6g==;
+	bh=k11HOgGDlPjrn/e1n1YvsE5DQoXo1BShsm/q56uVz2Y=; b=QkMw9Alu9IfNLAMBmXbSfxNY/J
+	TzotCgt+oH2jH/pq/i5vVJG0roVGvoGIKIJb/TMim9UcLah6oqpTYT/Qb50TOTOGgQjiF3wjm0bBD
+	c3MyZDNXdt8tyAyAzPoSraG4Pzc7II9fdQA0nxSmwrrrIDtZjg1ogMXUQI+Cl+ogES6MlxFLp01kn
+	9kL+pnEl9VBf65W/dDk45gh/5Ya03EarSPOWoMkvs5kyu/0vszT7Fe0pNNfkjO7ygPpG2LmqFbI25
+	47G2og9lDrvwnPeRrCpFJnsmPoa9g3LpRQoVTfM/24ANjbQirKBgoOEqud3T1XKXlqEDd/V+oful9
+	YbPFzPPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4hMS-000000066Pj-0QKF;
-	Tue, 15 Apr 2025 14:34:04 +0000
+	id 1u4hOJ-000000066i5-3Urk;
+	Tue, 15 Apr 2025 14:35:59 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4hIf-0000000660T-1BYW
+	id 1u4hIh-0000000660y-3Zk1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 14:30:10 +0000
+	Tue, 15 Apr 2025 14:30:13 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F2EDF1756;
-	Tue, 15 Apr 2025 07:30:06 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A7F5115A1;
+	Tue, 15 Apr 2025 07:30:09 -0700 (PDT)
 Received: from pluto.guest.local (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 44F843F694;
-	Tue, 15 Apr 2025 07:30:06 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0F03F3F694;
+	Tue, 15 Apr 2025 07:30:08 -0700 (PDT)
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -47,20 +47,18 @@ Cc: sudeep.holla@arm.com,
 	dan.carpenter@linaro.org,
 	maz@kernel.org,
 	johan@kernel.org,
-	stable@vger.kernel.org,
-	Johan Hovold <johan+linaro@kernel.org>,
 	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH 1/4] firmware: arm_scmi: Ensure that the message-id supports fastchannel
-Date: Tue, 15 Apr 2025 15:29:30 +0100
-Message-ID: <20250415142933.1746249-2-cristian.marussi@arm.com>
+Subject: [PATCH 2/4] firmware: arm_scmi: Add Quirks framework
+Date: Tue, 15 Apr 2025 15:29:31 +0100
+Message-ID: <20250415142933.1746249-3-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20250415142933.1746249-1-cristian.marussi@arm.com>
 References: <20250415142933.1746249-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_073009_416947_25BED1E6 
-X-CRM114-Status: GOOD (  18.84  )
+X-CRM114-CacheID: sfid-20250415_073011_992689_55C60CE7 
+X-CRM114-Status: GOOD (  35.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,165 +73,429 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sibi Sankar <quic_sibis@quicinc.com>
+Add a common framework to describe SCMI quirks and associate them with a
+specific platform or a specific set of SCMI firmware versions.
 
-Currently the perf and powercap protocol relies on the protocol domain
-attributes, which just ensures that one fastchannel per domain, before
-instantiating fastchannels for all possible message-ids. Fix this by
-ensuring that each message-id supports fastchannel before initialization.
+All the matching SCMI quirks will be enabled when the SCMI core stack
+probes and after all the needed SCMI firmware versioning information was
+retrieved using Base protocol.
 
-Logs:
-scmi: Failed to get FC for protocol 13 [MSG_ID:6 / RES_ID:0] - ret:-95. Using regular messaging.
-scmi: Failed to get FC for protocol 13 [MSG_ID:6 / RES_ID:1] - ret:-95. Using regular messaging.
-scmi: Failed to get FC for protocol 13 [MSG_ID:6 / RES_ID:2] - ret:-95. Using regular messaging.
-
-CC: stable@vger.kernel.org
-Reported-by: Johan Hovold <johan+linaro@kernel.org>
-Closes: https://lore.kernel.org/lkml/ZoQjAWse2YxwyRJv@hovoldconsulting.com/
-Fixes: 6f9ea4dabd2d ("firmware: arm_scmi: Generalize the fast channel support")
-Reviewed-by: Johan Hovold <johan+linaro@kernel.org>
-Tested-by: Johan Hovold <johan+linaro@kernel.org>
-Signed-off-by: Sibi Sankar <quic_sibis@quicinc.com>
-[Cristian: Modified the condition checked to establish support or not]
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
-RFC -> V1
- - picked up a few tags
-
-Since PROTOCOL_MESSAGE_ATTRIBUTES, used to check if message_id is supported,
-is a mandatory command, it cannot fail so we must bail-out NOT only if FC was
-not supported for that command but also if the query fails as a whole; so the
-condition checked for bailing out is modified to:
-
-	if (ret || !MSG_SUPPORTS_FASTCHANNEL(attributes)) {
-
-Removed also Tested-by and Reviewed-by tags since I modified the logic.
+RFC->V1
+- added handling of impl_ver ranges in quirk definition
+- make Quirks Framework default-y
+- match on all NULL/0 too..these are quirks that apply always anywhere !
+- depends on COMPILE_TEST too
+- move quirk enable calling logic out of Base protocol init (triggers a
+  LOCKDEP issues around cpu locks (cpufreq, static_branch_enable interactions..)
 ---
- drivers/firmware/arm_scmi/driver.c    | 76 +++++++++++++++------------
- drivers/firmware/arm_scmi/protocols.h |  2 +
- 2 files changed, 45 insertions(+), 33 deletions(-)
+ drivers/firmware/arm_scmi/Kconfig  |  13 ++
+ drivers/firmware/arm_scmi/Makefile |   1 +
+ drivers/firmware/arm_scmi/base.c   |   1 +
+ drivers/firmware/arm_scmi/driver.c |  22 +++
+ drivers/firmware/arm_scmi/quirks.c | 242 +++++++++++++++++++++++++++++
+ drivers/firmware/arm_scmi/quirks.h |  40 +++++
+ 6 files changed, 319 insertions(+)
+ create mode 100644 drivers/firmware/arm_scmi/quirks.c
+ create mode 100644 drivers/firmware/arm_scmi/quirks.h
 
+diff --git a/drivers/firmware/arm_scmi/Kconfig b/drivers/firmware/arm_scmi/Kconfig
+index dabd874641d0..e3fb36825978 100644
+--- a/drivers/firmware/arm_scmi/Kconfig
++++ b/drivers/firmware/arm_scmi/Kconfig
+@@ -69,6 +69,19 @@ config ARM_SCMI_DEBUG_COUNTERS
+ 	  such useful debug counters. This can be helpful for debugging and
+ 	  SCMI monitoring.
+ 
++config ARM_SCMI_QUIRKS
++	bool "Enable SCMI Quirks framework"
++	depends on JUMP_LABEL || COMPILE_TEST
++	default y
++	help
++	  Enables support for SCMI Quirks framework to workaround SCMI platform
++	  firmware bugs on system already deployed in the wild.
++
++	  The framework allows the definition of platform-specific code quirks
++	  that will be associated and enabled only on the desired platforms
++	  depending on the SCMI firmware advertised versions and/or machine
++	  compatibles.
++
+ source "drivers/firmware/arm_scmi/transports/Kconfig"
+ source "drivers/firmware/arm_scmi/vendors/imx/Kconfig"
+ 
+diff --git a/drivers/firmware/arm_scmi/Makefile b/drivers/firmware/arm_scmi/Makefile
+index 9ac81adff567..780cd62b2f78 100644
+--- a/drivers/firmware/arm_scmi/Makefile
++++ b/drivers/firmware/arm_scmi/Makefile
+@@ -3,6 +3,7 @@ scmi-bus-y = bus.o
+ scmi-core-objs := $(scmi-bus-y)
+ 
+ scmi-driver-y = driver.o notify.o
++scmi-driver-$(CONFIG_ARM_SCMI_QUIRKS) += quirks.o
+ scmi-driver-$(CONFIG_ARM_SCMI_RAW_MODE_SUPPORT) += raw_mode.o
+ scmi-transport-$(CONFIG_ARM_SCMI_HAVE_SHMEM) = shmem.o
+ scmi-transport-$(CONFIG_ARM_SCMI_HAVE_MSG) += msg.o
+diff --git a/drivers/firmware/arm_scmi/base.c b/drivers/firmware/arm_scmi/base.c
+index 86b376c50a13..00dc8f86c627 100644
+--- a/drivers/firmware/arm_scmi/base.c
++++ b/drivers/firmware/arm_scmi/base.c
+@@ -8,6 +8,7 @@
+ #define pr_fmt(fmt) "SCMI Notifications BASE - " fmt
+ 
+ #include <linux/module.h>
++#include <linux/of.h>
+ #include <linux/scmi_protocol.h>
+ 
+ #include "common.h"
 diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 1cf18cc8e63f..0e281fca0a38 100644
+index 0e281fca0a38..1d500663004a 100644
 --- a/drivers/firmware/arm_scmi/driver.c
 +++ b/drivers/firmware/arm_scmi/driver.c
-@@ -1738,6 +1738,39 @@ static int scmi_common_get_max_msg_size(const struct scmi_protocol_handle *ph)
- 	return info->desc->max_msg_size;
+@@ -38,6 +38,7 @@
+ 
+ #include "common.h"
+ #include "notify.h"
++#include "quirks.h"
+ 
+ #include "raw_mode.h"
+ 
+@@ -3112,6 +3113,23 @@ static const struct scmi_desc *scmi_transport_setup(struct device *dev)
+ 	return &trans->desc;
  }
  
-+/**
-+ * scmi_protocol_msg_check  - Check protocol message attributes
-+ *
-+ * @ph: A reference to the protocol handle.
-+ * @message_id: The ID of the message to check.
-+ * @attributes: A parameter to optionally return the retrieved message
-+ *		attributes, in case of Success.
-+ *
-+ * An helper to check protocol message attributes for a specific protocol
-+ * and message pair.
-+ *
-+ * Return: 0 on SUCCESS
-+ */
-+static int scmi_protocol_msg_check(const struct scmi_protocol_handle *ph,
-+				   u32 message_id, u32 *attributes)
++static void scmi_enable_matching_quirks(struct scmi_info *info)
 +{
-+	int ret;
-+	struct scmi_xfer *t;
++	struct scmi_revision_info *rev = &info->version;
++	const char *compatible = NULL;
++	struct device_node *root;
 +
-+	ret = xfer_get_init(ph, PROTOCOL_MESSAGE_ATTRIBUTES,
-+			    sizeof(__le32), 0, &t);
++	root = of_find_node_by_path("/");
++	if (root) {
++		of_property_read_string(root, "compatible", &compatible);
++		of_node_put(root);
++	}
++
++	/* Enable applicable quirks */
++	scmi_quirks_enable(info->dev, compatible,
++			   rev->vendor_id, rev->sub_vendor_id, rev->impl_ver);
++}
++
+ static int scmi_probe(struct platform_device *pdev)
+ {
+ 	int ret;
+@@ -3233,6 +3251,8 @@ static int scmi_probe(struct platform_device *pdev)
+ 	list_add_tail(&info->node, &scmi_list);
+ 	mutex_unlock(&scmi_list_mutex);
+ 
++	scmi_enable_matching_quirks(info);
++
+ 	for_each_available_child_of_node(np, child) {
+ 		u32 prot_id;
+ 
+@@ -3391,6 +3411,8 @@ static struct dentry *scmi_debugfs_init(void)
+ 
+ static int __init scmi_driver_init(void)
+ {
++	scmi_quirks_initialize();
++
+ 	/* Bail out if no SCMI transport was configured */
+ 	if (WARN_ON(!IS_ENABLED(CONFIG_ARM_SCMI_HAVE_TRANSPORT)))
+ 		return -EINVAL;
+diff --git a/drivers/firmware/arm_scmi/quirks.c b/drivers/firmware/arm_scmi/quirks.c
+new file mode 100644
+index 000000000000..2f95b35b5ca1
+--- /dev/null
++++ b/drivers/firmware/arm_scmi/quirks.c
+@@ -0,0 +1,242 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * System Control and Management Interface (SCMI) Message Protocol Quirks
++ *
++ * Copyright (C) 2025 ARM Ltd.
++ */
++
++#include <linux/ctype.h>
++#include <linux/device.h>
++#include <linux/export.h>
++#include <linux/hashtable.h>
++#include <linux/kstrtox.h>
++#include <linux/static_key.h>
++#include <linux/string.h>
++#include <linux/types.h>
++
++#include "quirks.h"
++
++#define SCMI_QUIRKS_HT_SZ	4
++
++struct scmi_quirk {
++	bool enabled;
++	const char *name;
++	char *compatible;
++	char *vendor;
++	char *sub_vendor_id;
++	char *impl_ver_range;
++	u32 start_range;
++	u32 end_range;
++	struct static_key_false *key;
++	struct hlist_node hash;
++	unsigned int hkey;
++};
++
++#define __DEFINE_SCMI_QUIRK_ENTRY(_qn, _comp, _ven, _sub, _impl)	\
++	static struct scmi_quirk scmi_quirk_entry_ ## _qn = {		\
++		.name = __stringify(quirk_ ## _qn),			\
++		.compatible = _comp,					\
++		.vendor = _ven,						\
++		.sub_vendor_id = _sub,					\
++		.impl_ver_range = _impl,				\
++		.key = &(scmi_quirk_ ## _qn),				\
++	}
++
++#define __DECLARE_SCMI_QUIRK_ENTRY(_qn)		(&(scmi_quirk_entry_ ## _qn))
++
++/*
++ * Define a quirk by name (_qn) and provide the matching tokens where:
++ *
++ *  _comp : compatible string, NULL means any.
++ *  _ven : SCMI Vendor ID string, NULL means any.
++ *  _sub : SCMI SubVendor ID string, NULL means any.
++ *  _impl : SCMI Implementation Version string, NULL means any.
++ *          This version string can express ranges using the following
++ *          syntax:
++ *
++ *			NULL		[0, 0xFFFFFFFF]
++ *			"X"		[X, X]
++ *			"X-"		[X, 0xFFFFFFFF]
++ *			"-X"		[0, X]
++ *			"X-Y"		[X, Y]
++ *
++ *          where <v> in [MIN, MAX] means:
++ *
++ *		MIN <= <v> <= MAX  && MIN <= MAX
++ *
++ *  This implicitly define also a properly named global static-key that
++ *  will be used to dynamically enable the quirk at initialization time.
++ *
++ *  Note that it is possible to associate multiple quirks to the same
++ *  matching pattern, if your firmware quality is really astounding :P
++ */
++#define DEFINE_SCMI_QUIRK(_qn, _comp, _ven, _sub, _impl)		\
++	DEFINE_STATIC_KEY_FALSE(scmi_quirk_ ## _qn);			\
++	__DEFINE_SCMI_QUIRK_ENTRY(_qn, _comp, _ven, _sub, _impl)
++
++/*
++ * Same as DEFINE_SCMI_QUIRK but EXPORTED: this is meant to address quirks
++ * that possibly reside in code that is included in loadable kernel modules
++ * that needs to be able to access the global static keys at runtime to
++ * determine if enabled or not. (see SCMI_QUIRK to understand usage)
++ */
++#define DEFINE_SCMI_QUIRK_EXPORTED(_qn, _comp, _ven, _sub, _impl)	\
++	DEFINE_STATIC_KEY_FALSE(scmi_quirk_ ## _qn);			\
++	EXPORT_SYMBOL_GPL(scmi_quirk_ ## _qn);				\
++	__DEFINE_SCMI_QUIRK_ENTRY(_qn, _comp, _ven, _sub, _impl)
++
++/* Global Quirks Definitions */
++
++/*
++ * Quirks Pointers Array
++ *
++ * This is filled at compile-time with the list of pointers to all the currently
++ * defined quirks descriptors.
++ */
++static struct scmi_quirk *scmi_quirks_table[] = {
++	NULL
++};
++
++/*
++ * Quirks HashTable
++ *
++ * A run-time populated hashtable containing all the defined quirks descriptors
++ * hashed by matching pattern.
++ */
++static DEFINE_READ_MOSTLY_HASHTABLE(scmi_quirks_ht, SCMI_QUIRKS_HT_SZ);
++
++static unsigned int
++scmi_quirk_signature(const char *compat, const char *vend, const char *sub_vend)
++{
++	char *signature, *p;
++	unsigned int hash32;
++	unsigned long hash = 0;
++
++	/* vendor_id/sub_vendor_id guaranteed <= SCMI_SHORT_NAME_MAX_SIZE */
++	signature = kasprintf(GFP_KERNEL, "|%s|%s|%s|",
++			      compat ?: "", vend ?: "", sub_vend ?: "");
++	if (!signature)
++		return 0;
++
++	pr_debug("SCMI Quirk Signature >>>%s<<<\n", signature);
++
++	p = signature;
++	while (*p)
++		hash = partial_name_hash(tolower(*p++), hash);
++	hash32 = end_name_hash(hash);
++
++	kfree(signature);
++
++	return hash32;
++}
++
++static int scmi_quirk_range_parse(struct scmi_quirk *quirk)
++{
++	const char *last, *first = quirk->impl_ver_range;
++	size_t len;
++	char *sep;
++	int ret;
++
++	quirk->start_range = 0;
++	quirk->end_range = 0xFFFFFFFF;
++	len = quirk->impl_ver_range ? strlen(quirk->impl_ver_range) : 0;
++	if (!len)
++		return 0;
++
++	last = first + len - 1;
++	sep = strchr(quirk->impl_ver_range, '-');
++	if (sep)
++		*sep = '\0';
++
++	if (sep == first) // -X
++		ret = kstrtouint(first + 1, 0, &quirk->end_range);
++	else // X OR X- OR X-y
++		ret = kstrtouint(first, 0, &quirk->start_range);
 +	if (ret)
 +		return ret;
 +
-+	put_unaligned_le32(message_id, t->tx.buf);
-+	ret = do_xfer(ph, t);
-+	if (!ret && attributes)
-+		*attributes = get_unaligned_le32(t->rx.buf);
-+	xfer_put(ph, t);
++	if (!sep)
++		quirk->end_range = quirk->start_range;
++	else if (sep != last) //x-Y
++		ret = kstrtouint(sep + 1, 0, &quirk->end_range);
++
++	if (quirk->start_range > quirk->end_range)
++		return -EINVAL;
 +
 +	return ret;
 +}
 +
- /**
-  * struct scmi_iterator  - Iterator descriptor
-  * @msg: A reference to the message TX buffer; filled by @prepare_message with
-@@ -1879,6 +1912,7 @@ scmi_common_fastchannel_init(const struct scmi_protocol_handle *ph,
- 	int ret;
- 	u32 flags;
- 	u64 phys_addr;
-+	u32 attributes;
- 	u8 size;
- 	void __iomem *addr;
- 	struct scmi_xfer *t;
-@@ -1887,6 +1921,15 @@ scmi_common_fastchannel_init(const struct scmi_protocol_handle *ph,
- 	struct scmi_msg_resp_desc_fc *resp;
- 	const struct scmi_protocol_instance *pi = ph_to_pi(ph);
- 
-+	/* Check if the MSG_ID supports fastchannel */
-+	ret = scmi_protocol_msg_check(ph, message_id, &attributes);
-+	if (ret || !MSG_SUPPORTS_FASTCHANNEL(attributes)) {
-+		dev_dbg(ph->dev,
-+			"Skip FC init for 0x%02X/%d  domain:%d - ret:%d\n",
-+			pi->proto->id, message_id, domain, ret);
-+		return;
++void scmi_quirks_initialize(void)
++{
++	struct scmi_quirk *quirk;
++	int i;
++
++	for (i = 0, quirk = scmi_quirks_table[0]; quirk;
++	     i++, quirk = scmi_quirks_table[i]) {
++		int ret;
++
++		ret = scmi_quirk_range_parse(quirk);
++		if (ret) {
++			pr_err("SCMI skip QUIRK [%s] - BAD RANGE\n",
++			       quirk->name);
++			continue;
++		}
++		quirk->hkey = scmi_quirk_signature(quirk->compatible,
++						   quirk->vendor,
++						   quirk->sub_vendor_id);
++
++		hash_add(scmi_quirks_ht, &quirk->hash, quirk->hkey);
++
++		pr_debug("Registered SCMI QUIRK [%s] -- %p - Key [0x%08X] - %s/%s/%s/[0x%08X-0x%08X]\n",
++			 quirk->name, quirk, quirk->hkey, quirk->compatible,
++			 quirk->vendor, quirk->sub_vendor_id,
++			 quirk->start_range, quirk->end_range);
 +	}
 +
- 	if (!p_addr) {
- 		ret = -EINVAL;
- 		goto err_out;
-@@ -2004,39 +2047,6 @@ static void scmi_common_fastchannel_db_ring(struct scmi_fc_db_info *db)
- 		SCMI_PROTO_FC_RING_DB(64);
- }
- 
--/**
-- * scmi_protocol_msg_check  - Check protocol message attributes
-- *
-- * @ph: A reference to the protocol handle.
-- * @message_id: The ID of the message to check.
-- * @attributes: A parameter to optionally return the retrieved message
-- *		attributes, in case of Success.
-- *
-- * An helper to check protocol message attributes for a specific protocol
-- * and message pair.
-- *
-- * Return: 0 on SUCCESS
-- */
--static int scmi_protocol_msg_check(const struct scmi_protocol_handle *ph,
--				   u32 message_id, u32 *attributes)
--{
--	int ret;
--	struct scmi_xfer *t;
--
--	ret = xfer_get_init(ph, PROTOCOL_MESSAGE_ATTRIBUTES,
--			    sizeof(__le32), 0, &t);
--	if (ret)
--		return ret;
--
--	put_unaligned_le32(message_id, t->tx.buf);
--	ret = do_xfer(ph, t);
--	if (!ret && attributes)
--		*attributes = get_unaligned_le32(t->rx.buf);
--	xfer_put(ph, t);
--
--	return ret;
--}
--
- static const struct scmi_proto_helpers_ops helpers_ops = {
- 	.extended_name_get = scmi_common_extended_name_get,
- 	.get_max_msg_size = scmi_common_get_max_msg_size,
-diff --git a/drivers/firmware/arm_scmi/protocols.h b/drivers/firmware/arm_scmi/protocols.h
-index aaee57cdcd55..d62c4469d1fd 100644
---- a/drivers/firmware/arm_scmi/protocols.h
-+++ b/drivers/firmware/arm_scmi/protocols.h
-@@ -31,6 +31,8 @@
- 
- #define SCMI_PROTOCOL_VENDOR_BASE	0x80
- 
-+#define MSG_SUPPORTS_FASTCHANNEL(x)	((x) & BIT(0))
++	pr_debug("SCMI Quirks initialized\n");
++}
 +
- enum scmi_common_cmd {
- 	PROTOCOL_VERSION = 0x0,
- 	PROTOCOL_ATTRIBUTES = 0x1,
++void scmi_quirks_enable(struct device *dev, const char *compat,
++			const char *vend, const char *subv, const u32 impl)
++{
++	dev_dbg(dev, "Looking for quirks matching: %s/%s/%s/0x%08X\n",
++		compat, vend, subv, impl);
++
++	/* Lookup into scmi_quirks_ht using 2 loops: with/without compatible */
++	for (int k = 1; k >= 0 ; k--) {
++		const char *compat_sel = k > 0 ? compat : NULL;
++
++		for (int i = 3; i > 0; i--) {
++			struct scmi_quirk *quirk;
++			unsigned int hkey;
++
++			hkey = scmi_quirk_signature(compat_sel,
++						    i > 1 ? vend : NULL,
++						    i > 2 ? subv : NULL);
++
++			/*
++			 * Note that there could be multiple matches so we
++			 * will enable multiple quirk part of an hash collision
++			 * domain...BUT we cannot assume that ALL quirks on the
++			 * same collision domain are a full match.
++			 */
++			hash_for_each_possible(scmi_quirks_ht, quirk, hash, hkey) {
++				if (quirk->enabled || quirk->hkey != hkey ||
++				    impl < quirk->start_range ||
++				    impl > quirk->end_range)
++					continue;
++
++				dev_info(dev, "Enabling SCMI Quirk [%s]\n",
++					 quirk->name);
++				dev_dbg(dev,
++					"Quirk matched on: %s/%s/%s/[0x%08X-0x%08X]\n",
++					quirk->compatible, quirk->vendor,
++					quirk->sub_vendor_id,
++					quirk->start_range, quirk->end_range);
++
++				static_branch_enable(quirk->key);
++				quirk->enabled = true;
++			}
++		}
++	}
++}
+diff --git a/drivers/firmware/arm_scmi/quirks.h b/drivers/firmware/arm_scmi/quirks.h
+new file mode 100644
+index 000000000000..0f1a14b13ba5
+--- /dev/null
++++ b/drivers/firmware/arm_scmi/quirks.h
+@@ -0,0 +1,40 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * System Control and Management Interface (SCMI) Message Protocol Quirks
++ *
++ * Copyright (C) 2025 ARM Ltd.
++ */
++#ifndef _SCMI_QUIRKS_H
++#define _SCMI_QUIRKS_H
++
++#include <linux/static_key.h>
++#include <linux/types.h>
++
++#ifdef CONFIG_ARM_SCMI_QUIRKS
++
++#define DECLARE_SCMI_QUIRK(_qn)						\
++	DECLARE_STATIC_KEY_FALSE(scmi_quirk_ ## _qn)
++
++#define SCMI_QUIRK(_qn, _blk)						\
++	do {								\
++		if (static_branch_unlikely(&(scmi_quirk_ ## _qn)))	\
++			(_blk);						\
++	} while (0)
++
++void scmi_quirks_initialize(void);
++void scmi_quirks_enable(struct device *dev, const char *compat,
++			const char *vend, const char *subv, const u32 impl);
++
++#else
++
++#define DECLARE_SCMI_QUIRK(_qn)
++#define SCMI_QUIRK(_qn, _blk)
++
++static inline void scmi_quirks_initialize(void) { }
++static inline void scmi_quirks_enable(struct device *dev, const char *compat,
++				      const char *vend, const char *sub_vend,
++				      const u32 impl) { }
++
++#endif /* CONFIG_ARM_SCMI_QUIRKS */
++
++#endif /* _SCMI_QUIRKS_H */
 -- 
 2.47.0
 
