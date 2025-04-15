@@ -4,70 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B57B0C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 07:54:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9284C369B9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 07:55:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZSVm0Sg4JNsS2Z+oM/y7piT/XSs97tEGm0noAA2h7bw=; b=qKNnSmXaJu4cPiC9s6TtZVWYBM
-	tMEn5SVXM5jZN40p7Nl4ilsPVgp7NA0CIbWzk6ljRb7pTFxOc4Km22+zJAUZi98PB3so423scsrJ+
-	B9DlO5aONzTa+AhLiDf/yEZc5OO7mZ/wGzWCz6YQLdUAcxlRCQx/snFmAyj9UJrNnh1RwhWQH3Q1t
-	GW6Ohk0rPOsGjj37NYSModgK7gkY2kt6IKa+SCjXQZCHmcsQfT8jESko6eBEFDH/pX9b/RlFlVfC2
-	ZRUtjrO+Br72QDv+69DvAhEpn6xcm59WwwkYZ1qSz6ooBsxWQLXTO9aQs2O0VPcArnJq6YbuiClFw
-	QKM+RYpg==;
+	bh=mvzVunjooJkOd76fbmWLggolhiDrqhzGzGsPDBPnwNY=; b=Fj8LXa+GE0LQ7TEbDljqAUDN5D
+	uqb4KOcIkwLef+2ZQOq8U8FPSzkOGlRFb8DCXFjOPiqDyO01ELAueFK2TpU6EbZlfiSzQ4j6loTk5
+	zOrIwyqvEZDIQyPFeqk4RdxHcxi22OhxoAB0ZKevDfVwx+WDTkWwWdw1O/EVJuw5IPRzb5zrD9khw
+	x8ZJdL1IfmbEmWJQCnJgJ+SKjL4TYHEhmVBGMOGoInuxF7RckcQDF0JZ/j3JmrhX+ipxHPNUKmSg+
+	6HpNGjQoNkvNRi/1e8H4FsXDxYmCZf1hsdMof3+0u+sjgvK1Ma8VpaBSTuziiIh+zvtyfv1+T6p8t
+	x81y4K0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4b7A-00000004tBg-3trZ;
-	Tue, 15 Apr 2025 07:53:52 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1u4b8y-00000004tPo-0zyc;
+	Tue, 15 Apr 2025 07:55:44 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4as0-00000004pgl-1G2i;
-	Tue, 15 Apr 2025 07:38:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1744702690;
-	bh=voe72fPOWYDOgKbHC5pT7xXAC4bwfo9UuMDzcL8nkW4=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=jcmq4UsiCrCdB57TvR1j9uL06+uNAWSu32krqKm+keC4y0zXQLoMjN0x06AZAD5WG
-	 pbg9rRGMBM2YLbv+qADCCpO7E+OBB8H/iFh8c5S5Xhgi8XzS8+Sfrm5N+BniqBFuCx
-	 DXoOd0zYqfWuSjpZCQPSXJ5K7eJw9Kpf7Z56v1AudCc/jyizzfXtw3eJncl/rcySMJ
-	 7MkUPGTFis/mCv+LrGeQBM0S2orCbfLrdw0XDdSz38O3lARniX8hdB6Pw4oMNH5vxj
-	 dl9MWULi1K6pHVsYuOpNZRQWVC4Jbp6ZHFWWXyPjo7jcUaVJjgUp3nOpA+4l9UaD/D
-	 uOr8Cnz534Lhg==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id AF36017E0CA7;
-	Tue, 15 Apr 2025 09:38:09 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: chunkuang.hu@kernel.org, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: p.zabel@pengutronix.de, airlied@gmail.com, simona@ffwll.ch, 
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, 
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
- mchehab@kernel.org, matthias.bgg@gmail.com, moudy.ho@mediatek.com, 
- dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- kernel@collabora.com, sebastian.fricke@collabora.com, 
- macpaul.lin@mediatek.com
-In-Reply-To: <20241218105320.38980-1-angelogioacchino.delregno@collabora.com>
-References: <20241218105320.38980-1-angelogioacchino.delregno@collabora.com>
-Subject: Re: [PATCH v1 0/3] MediaTek MT8188 MDP3 Enablement
-Message-Id: <174470268964.14740.2655102858243748239.b4-ty@collabora.com>
-Date: Tue, 15 Apr 2025 09:38:09 +0200
+	id 1u4asa-00000004pm5-1cXs
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 15 Apr 2025 07:38:49 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-306b602d2ffso5446167a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Apr 2025 00:38:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744702727; x=1745307527; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mvzVunjooJkOd76fbmWLggolhiDrqhzGzGsPDBPnwNY=;
+        b=Eb46uR1TF/n29v6wl0QRbQSC7ckLjf87NM4udgc7c+dcZKCHLY2xiNFbR0tVjhhCgl
+         o4EPZG9PdYm7P9FMEMglh8AEE24Br1oDO27gqFocsLid/ykej2XdEgOmt9EF6tt/t3LZ
+         WgU4avT0fK5G7SLaafWnTVjHKw55Ua7QcVyYDMj7SfurMoqXGT/Ljw4hDrFX3au/MoaN
+         xmh/54DU9iP3kQzuPCD2uvH7Os4VB39719BxVnQlwPqwO0JpUMT6ZEG1OGaZ9Ts4kZfd
+         r8cmVY8lOgTCmO6ZIXJKMjjdCL2xJDRLUKOxfYnCVpzptXoL0SbagoM8QCw/VibHSTth
+         rryg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744702727; x=1745307527;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=mvzVunjooJkOd76fbmWLggolhiDrqhzGzGsPDBPnwNY=;
+        b=fP7i0DCVJJCS65553QIIqQy/GAHhiXihESy2H8/rJVR9U9lwRMH0YKlFeE15Z4dSA6
+         mvUGSmTmz+Ntv63FsSkTC/XaxUn8F35iZAsbdQMMYXY3f926HR2SVjCGu+AUCLzYUErx
+         kHS0KVKgOBO6iB3nH9CWlY5uECRl4iX2otbV3hU3L/g/eq6CjH5bP1ELrjwlhilRvanJ
+         eydlQ4sSdNVx1mJ6xWDPctrdQj4ql3d5o9Y2C1FVw2QtO1l/K7biRdapnkOrwMgSBKVg
+         c+/zrVRwRCxFrRBg6QJwN7DKql4RyVPaM7vG5Ziof4TQn6mgjVJ7+N9zfIAs4x6DwYjG
+         UHsQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWd+hW7IPyVxxXDLWAOVlRCZHQ8tdylYUoBw+Vz9H9UHAGQ6OuIUQY7LMuqnTOV037WR5M0K1U99benD64Gb6m5@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHBCySL2xcKWE4h1qlPUu2WvWM3i6JViTr0VDpUiMTXeSu6df2
+	6wm7mB07j7Xi2EFFqsn8tFuQV8hqq/1Qv/K25ax5bEwGsoPVoTJmqOPkyC79MsOj/iCnkeaDVmz
+	vvr0ShnMOGT5fRhVCQCke2xvlRAw=
+X-Gm-Gg: ASbGncucsvMb/5VkVyH2hwL7vRM7sJo7jQfN9Jk1UGX+RTHJoh58ehS6dimeeNdgedu
+	Ll4zJtOfygMMh5GjRveSBZt87/C7n09J1QuFcOJ/QHX9CmA0A47rFdrS5bqElaRkKdngvkLb0jm
+	AvJOg+AKvZQPSCKQoKEg==
+X-Google-Smtp-Source: AGHT+IEaQw1fMF+aLm6pFlRnZGVkYepFCANlU8kbPs9GBkc7bc76oOvq8qIgGhVqNudolyAIqZhr3iUCEwZKISUsLJM=
+X-Received: by 2002:a17:90b:524f:b0:2ee:d024:e4fc with SMTP id
+ 98e67ed59e1d1-3082367f7b5mr25807985a91.33.1744702727316; Tue, 15 Apr 2025
+ 00:38:47 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+References: <20250320121004.2542314-1-daniel.baluta@nxp.com>
+In-Reply-To: <20250320121004.2542314-1-daniel.baluta@nxp.com>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Tue, 15 Apr 2025 10:40:32 +0300
+X-Gm-Features: ATxdqUHIjcegsRqkaCNjdC-btbkENgkxvRanbyOKxKHVbD_D9EvsKEww42I_CYM
+Message-ID: <CAEnQRZBFoZuiFJtzs0wCjrHJro3c=fWshRogNBnfGmkeyh-LtA@mail.gmail.com>
+Subject: Re: [PATCH v7 0/5] Configure imx8mp dsp node for rproc usage
+To: Daniel Baluta <daniel.baluta@nxp.com>
+Cc: shawnguo@kernel.org, robh@kernel.org, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	festevam@gmail.com, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	frank.li@nxp.com, aisheng.dong@nxp.com, laurentiu.mihalcea@nxp.com, 
+	shengjiu.wang@nxp.com, iuliana.prodan@nxp.com, a.fatoum@pengutronix.de, 
+	mathieu.poirier@linaro.org, linux-remoteproc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_003812_486961_FEAEFF4E 
-X-CRM114-Status: UNSURE (   6.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250415_003848_426499_1C7B3061 
+X-CRM114-Status: GOOD (  19.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,31 +99,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 18 Dec 2024 11:53:17 +0100, AngeloGioacchino Del Regno wrote:
-> This series adds the necessary bindings and devicetree nodes to enable
-> the entire Multimedia Data Path 3 (MDP3) macro-block, found in MediaTek's
-> MT8188 SoC.
-> 
-> This was tested on a MediaTek Genio 700 EVK board.
-> 
-> AngeloGioacchino Del Regno (3):
->   dt-bindings: display: mediatek: Add compatibles for MT8188 MDP3
->   dt-bindings: media: mediatek: mdp3: Add compatibles for MT8188 MDP3
->   arm64: dts: mediatek: mt8188: Add all Multimedia Data Path 3 nodes
-> 
-> [...]
+Hi Shawn,
 
-Applied to v6.15-next/dts64, thanks!
-
-[1/3] dt-bindings: display: mediatek: Add compatibles for MT8188 MDP3
-      commit: 2971de063fa56c18b2720ab19bdebca23cd96471
-[2/3] dt-bindings: media: mediatek: mdp3: Add compatibles for MT8188 MDP3
-      commit: cfb00dfa1b778a8037faf6973cca226e5ad4f45a
-[3/3] arm64: dts: mediatek: mt8188: Add all Multimedia Data Path 3 nodes
-      commit: f0935480253ede5405045a4e733f4476343cbb91
-
-Cheers,
-Angelo
+Gentle ping.
 
 
+On Thu, Mar 20, 2025 at 2:08=E2=80=AFPM Daniel Baluta <daniel.baluta@nxp.co=
+m> wrote:
+>
+> DSP found in i.MX8MP SOC can be used by multiple frameworks in order to
+> enable various applications:
+>         - rproc/rpmsg framework, used to load for example Zephyr samples
+>         - Sound Open Firmware, used to enable various audio processing
+>           pipelines.
+>
+> Current dsp node was configured with SOF in mind but it doesn't work
+> well with imx8mp-evk dts. SOF controls audio IPs from firmware side
+> while imx8mp-evk.dts preffers to control audio IPs from Linux side.
+>
+> So, configure 'dsp' node to be used with rproc scenario and later will
+> add a separate dts or an overlay to configure the node for SOF.
+>
+> This patch series configures and enables dsp node to be used with rproc.
+>
+> Changes since v6:
+>         - addressed Alexander Stein comments
+>         - enable mu2 separately in patch 5/5
+>         - put "status" always as the last in node definition
+>
+> Changes since v5:
+>        - do not enable mu2 node by default
+>        - fix dt_bindings errors
+>
+> Changes since v4:
+> (https://lore.kernel.org/linux-arm-kernel/Z6zGLn3B6SVXhTV1@lizhi-Precisio=
+n-Tower-5810/T/)=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=
+=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=
+=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=
+=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=
+=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=
+=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=
+=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=
+=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7=C2=B7
+>        - after comments received on v4, we implemented the run/stall
+>          bits using reset controller API (changes merged ->
+> https://patchwork.kernel.org/project/linux-arm-kernel/cover/2025031108581=
+2.1296243-1-daniel.baluta@nxp.com/)
+>         - drop patches related to DSP run/stall/reset via syscon
+>        - picked up patch related to using run_stall via reset
+>          controller API.
+>
+>
+> Daniel Baluta (5):
+>   arm64: dts: imx8mp: Use resets property
+>   arm64: dts: imx8mp: Add mu2 root clock
+>   arm64: dts: imx8mp: Configure dsp node for rproc usage
+>   arm64: dts: imx8mp: Add DSP clocks
+>   arm64: dts: Enable DSP node for remoteproc usage
+>
+>  arch/arm64/boot/dts/freescale/imx8mp-evk.dts | 14 +++++++++++++
+>  arch/arm64/boot/dts/freescale/imx8mp.dtsi    | 22 +++++++++++++-------
+>  2 files changed, 29 insertions(+), 7 deletions(-)
+>
+> --
+> 2.43.0
+>
 
