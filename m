@@ -4,73 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB60BC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 16:33:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B703EC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 16:35:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nYBIi406G9MnOIXd2PEqWNVuxe9g0jd3Fn2QI+RoiXM=; b=EmBEdUVgfTJ4mUfAtJOiTUaHsj
-	6Tc8yFluGCGr8q0rZzFcPME4pdOKvbWUi12aYStJhZuwIodtZaqEpYxi3gXHhMvYZ1DCckQ+DXwDi
-	d9vM3Wbji8fcXkXsamCWJnAONxslY0BpoAgXoXIAH9aRe6CZD7QMSt7VCIIsn/nPSEt3E2klPYSU6
-	FEFJxh2/YLalSkvL42KxxxivxVmu9gEOCgy6T6UzNNSvFR0+7i/IzpsbDpIK6+BfBsVvUsvAYPHRj
-	/TQjHGuFZBqrlIoe1bOxI5ZxHPUVAEfWoF3zXzMaNIuvR10t/6B+oxulN8caRB4EcTRXX+a0eNU+n
-	yEuFEZ4w==;
+	bh=+jQxFBP/JSAAUutzyrrqlrFbYucFls00Np41KWtf/mM=; b=4uUm23BNXxWNVxhxW44wrzFlGn
+	LUjdZXu7+W6nBe4LnnU6UDLAcxYkyriXN69oghHm4yBCthA/nvS8+3pW44HhREwcLLiI02/MgP4f8
+	ISkbQTTvWDW8ZHPgnwMtFivLNOMBRAN6ccFF73zS9rmZOqX6g9pTtKN4hkaYI8uxOQVwkl5YVPF7X
+	F+mbsrEWdyvktEIhS+IpFvgCwMy0We8cQJUGCtw8MC3INEdZe+ydtUVA80glZKZuPUAyPhORWDp8D
+	mJECT8ZkX9XQze1O7RKzaDhI6ilYKuRofkfeIGx74KdFDzLvuZ+0YBuUefnl/Ulg9bCHQHYHXPa3n
+	ELrQjkaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4jDo-00000006QRR-2nc5;
-	Tue, 15 Apr 2025 16:33:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u4jFc-00000006QhR-1RQs;
+	Tue, 15 Apr 2025 16:35:08 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4ijs-00000006LYI-3VDH
+	id 1u4irK-00000006MlW-0hSZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 16:02:20 +0000
+	Tue, 15 Apr 2025 16:10:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 57F9961362;
-	Tue, 15 Apr 2025 16:02:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86DCFC4CEEB;
-	Tue, 15 Apr 2025 16:02:15 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0B417A4A136;
+	Tue, 15 Apr 2025 16:04:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2B8EC4CEEB;
+	Tue, 15 Apr 2025 16:09:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744732939;
-	bh=7Rmh8vV6GpjW8tGOLmzMipD5iUxBweVFlC56ryJ2b3I=;
+	s=k20201202; t=1744733401;
+	bh=beq2Ygwh38BLpBgBTdS0N0mql61y8fm0HHZQtool68A=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aANLp776GKPJr5pXAnfPCvusHmJYG8nzy62olk0fqthF3OToJIaIlkaCECG05ghZ8
-	 Un00ln3T/UclXpdbp+IwVgad5hUelMoCgjZ3JLblQuDGZosgZlH/w+UmFazy/FcEQe
-	 QKCKWF0mFzEG9r2zEcWuheOQPeBVknSgquyecaSIgfO+nu2Oopa/Afub5Z31RQXzl9
-	 SYCRm9kl1WT275bzi0f487LXy0Kb8n2F2RLBY9uAq23ZrZqlQDGdMNBpTkhr2yFx+T
-	 mO2GEdOLLSGBD0mgsJFep3vPLvT29DE/BOI1TWKCvdyOagM0TqAo+QPFE2K9xRtJLj
-	 HXdR/+0rgoqvQ==
-Date: Tue, 15 Apr 2025 17:02:12 +0100
-From: Lee Jones <lee@kernel.org>
-To: =?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Chanwoo Choi <cw00.choi@samsung.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
-	linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v4 00/32] Samsung S2MPG10 PMIC MFD-based drivers
-Message-ID: <20250415160212.GA372032@google.com>
-References: <20250409-s2mpg10-v4-0-d66d5f39b6bf@linaro.org>
+	b=tUivVYM4WiuwVIKi7LaW7bAnj8AjndcYTbNttYoMJOjgRoAp04y1ZN6H0ebVhI1gE
+	 2zaOFHjDfraMIQOzVXm965QBxeKMuoOGlfqVEEcPUxNELGpcLhDSHsMecQTWi3L29g
+	 c3m7Yvf5eN2VAHfvdXKq9v24OECRleMWA4PIWOJe1tHLEJ360w4ahDCtpNQn98Sn42
+	 olWxzk5XMRvGQqL0uYMIkbXv5ikUm2ittEUuhJq/CIbQZOq6RY8iZcnPJNmtPuqPro
+	 aPDKR9NJGuRNdeGJ/z/FKxlxj6uo4zcRsuL/b4fFyjY9uPKAa7lXhVigRsyrFyNpmG
+	 Wc+e08W1tyImQ==
+Date: Tue, 15 Apr 2025 17:09:56 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Dominik Haller <d.haller@phytec.de>
+Cc: robh@kernel.org, kristo@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, vigneshr@ti.com, nm@ti.com, m-chawdhry@ti.com,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	upstream@lists.phytec.de
+Subject: Re: [PATCH v2 1/3] dt-bindings: arm: ti: Add bindings for PHYTEC
+ AM68x based hardware
+Message-ID: <20250415-lark-deskwork-7850a95aa955@spud>
+References: <20250415130458.33714-1-d.haller@phytec.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="Sc/8E7LvZN4m53Ig"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250409-s2mpg10-v4-0-d66d5f39b6bf@linaro.org>
+In-Reply-To: <20250415130458.33714-1-d.haller@phytec.de>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250415_091002_273050_71B22A15 
+X-CRM114-Status: GOOD (  16.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,179 +75,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 09 Apr 2025, André Draszik wrote:
 
-> This series adds initial support for the Samsung S2MPG10 PMIC using the
-> MFD framework. This is a PMIC for mobile applications and is used on
-> the Google Pixel 6 and 6 Pro (oriole / raven).
-> 
-> *** dependency note ***
-> 
-> To compile, this depends on the Samsung ACPM driver in Linux next with
-> the following additional patches:
-> https://lore.kernel.org/all/20250324-acpm-atomic-v2-0-7d87746e1765@linaro.org/
-> https://lore.kernel.org/all/20250319-acpm-fixes-v2-0-ac2c1bcf322b@linaro.org/
-> https://lore.kernel.org/all/20250327-acpm-children-v1-0-0afe15ee2ff7@linaro.org/
-> 
-> *** dependency note end ***
-> 
-> +++ Kconfig update +++
-> 
-> There is a Kconfig symbol update in this series, because the existing
-> Samsung S2M driver has been split into core and transport (I2C & ACPM)
-> parts. CONFIG_MFD_SEC_CORE is now truly a core driver, and
-> the I2C code that was part of it is now enabled via CONFIG_MFD_SEC_I2C.
-> 
-> This was necessary because unlike the other S2M PMICs, S2MPG10 doesn't
-> talk via I2C, but via the Samsung ACPM firmware.
-> 
-> +++ Kconfig update end +++
-> 
-> This series must be applied in-order, due to interdependencies of some
-> of the patches. There are also various cleanup patches to the S2M
-> drivers. I've kept them ordered as:
->   * DT bindings (patches 1 ... 3)
->   * s2m mfd prep for adding S2MPG10 support (patches 4 ... 7)
->   * split S2M mfd driver into s2m-core and s2m-i2c, including the
->     kconfig symbol update (patch 8)
->   * S2MPG10 core driver (patch 9)
->   * s2m mfd driver cleanup patches (patches 10 ... 23)
->   * S2MPG10 clock driver (patch 24)
->   * s2m RTC prep for adding S2MPG10 (patch 25 ... 26)
->   * S2MPG10 RTC driver (patch 27)
->   * s2m RTC cleanup patches (patches 28 ... 31)
-> 
-> I realise these are many, but since some prep-work was required to be
-> able to add S2MPG anyway, I wanted to get the cleanup patches in as
-> well :-) Let me know if I should postpone them to a later date instead.
-> 
-> The S2MPG10 includes buck converters, various LDOs, power meters, RTC,
-> clock outputs, and additional GPIOs interfaces.
-> 
-> This series adds support in the top-level device driver, and for the
-> RTC and clock. Importantly, having the RTC driver allows to do a proper
-> reset of the system. Drivers or driver updates for the other components
-> will be added in future patches.
-> 
-> This will need a DT update for Oriole / Raven to enable this device. I
-> will send that out separately.
-> 
-> Cheers,
-> Andre'
-> 
-> Signed-off-by: André Draszik <andre.draszik@linaro.org>
+--Sc/8E7LvZN4m53Ig
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Apr 15, 2025 at 03:04:56PM +0200, Dominik Haller wrote:
+> Add devicetree bindings for the AM68x based phyCORE-AM68x/TDA4x SoM
+> and the phyBOARD-Izar carrier board.
+>=20
+> Signed-off-by: Dominik Haller <d.haller@phytec.de>
 > ---
-> Changes in v4:
-> - various updates to sec-acpm (patch 9, Lee)
-> - cache enum type in patch 25 (Krzysztof)
-> - collect tags
-> - Link to v3: https://lore.kernel.org/r/20250403-s2mpg10-v3-0-b542b3505e68@linaro.org
-> 
-> Changes in v3:
-> - Krzysztof:
->   - keep 'regulators' subnode required even for s2mpg10
->   - drop '$ref' and 'unevaluatedProperties' from pmic subnode, use
->     'additionalProperties' instead
->   - add some regulators to examples since s2mpg10 requires them as of
->     v3
-> - sec-acpm:
->   - use an enum for struct sec_acpm_bus_context::type
->   - consistent name space for all functions sec_pmic_acpm_... to be
->     similar to i2c and consistent in this file
-> - Link to v2: https://lore.kernel.org/r/20250328-s2mpg10-v2-0-b54dee33fb6b@linaro.org
-> 
-> Changes in v2:
-> - Rob:
->   - make PMIC node a child of ACPM, and all related changes (binding,
->     driver)
-> - Krzysztof:
->   - merge defconfig updates into patch changing the symbols (patch 8)
->   - split MODULE_AUTHOR update into a separate patch
->   - better alignment fix (patch 11)
->   - merge two s2dos05/s2mpu05 related patches into one (patch 14)
-> - myself:
->   - keep PMIC DT parsing in core, not in transport driver
->   - several updates in sec-acpm.c, see separate entries in patch 9
->   - fix typo in patch 17
->   - collect tags
-> - Link to v1: https://lore.kernel.org/r/20250323-s2mpg10-v1-0-d08943702707@linaro.org
-> 
-> ---
-> André Draszik (32):
->       dt-bindings: mfd: samsung,s2mps11: add s2mpg10
->       dt-bindings: clock: samsung,s2mps11: add s2mpg10
->       dt-bindings: firmware: google,gs101-acpm-ipc: add PMIC child node
->       mfd: sec-core: Drop non-existing forward declarations
->       mfd: sec: Sort includes alphabetically
->       mfd: sec: Update includes to add missing and remove superfluous ones
->       mfd: sec: Move private internal API to internal header
->       mfd: sec: Split into core and transport (i2c) drivers
->       mfd: sec: Add support for S2MPG10 PMIC
->       mfd: sec: Merge separate core and irq modules
->       mfd: sec-common: Fix multiple trivial whitespace issues
->       mfd: sec-i2c: Sort struct of_device_id entries and the device type switch
->       mfd: sec: Use dev_err_probe() where appropriate
->       mfd: sec-i2c: s2dos05/s2mpu05: Use explicit regmap config and drop default
->       mfd: sec-irq: s2dos05 doesn't support interrupts
->       mfd: sec-common: Don't ignore errors from sec_irq_init()
->       mfd: sec-i2c: Rework platform data and regmap instantiating
->       mfd: sec: Change device_type to int
->       mfd: sec: Don't compare against NULL / 0 for errors, use !
->       mfd: sec-common: Use sizeof(*var), not sizeof(struct type_of_var)
->       mfd: sec-common: Convert to using MFD_CELL macros
->       mfd: sec-irq: Convert to using REGMAP_IRQ_REG() macros
->       mfd: sec: Add myself as module author
->       clk: s2mps11: add support for S2MPG10 PMIC clock
->       rtc: s5m: cache device type during probe
->       rtc: s5m: prepare for external regmap
->       rtc: s5m: add support for S2MPG10 RTC
->       rtc: s5m: fix a typo: peding -> pending
->       rtc: s5m: switch to devm_device_init_wakeup
->       rtc: s5m: replace regmap_update_bits with regmap_clear/set_bits
->       rtc: s5m: replace open-coded read/modify/write registers with regmap helpers
->       MAINTAINERS: add myself as reviewer for Samsung S2M MFD
-> 
->  .../devicetree/bindings/clock/samsung,s2mps11.yaml |   1 +
->  .../bindings/firmware/google,gs101-acpm-ipc.yaml   |  35 ++
->  .../devicetree/bindings/mfd/samsung,s2mps11.yaml   |  26 +-
->  MAINTAINERS                                        |   3 +-
->  arch/arm/configs/exynos_defconfig                  |   2 +-
->  arch/arm/configs/multi_v7_defconfig                |   2 +-
->  arch/arm/configs/pxa_defconfig                     |   2 +-
->  arch/arm64/configs/defconfig                       |   2 +-
+>=20
+> Notes:
+>     Changes in v2:
+>     - no changes
+>=20
+>  Documentation/devicetree/bindings/arm/ti/k3.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/arm/ti/k3.yaml b/Documenta=
+tion/devicetree/bindings/arm/ti/k3.yaml
+> index 18f155cd06c8..a03fdb9c0482 100644
+> --- a/Documentation/devicetree/bindings/arm/ti/k3.yaml
+> +++ b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+> @@ -135,6 +135,8 @@ properties:
+>        - description: K3 J721s2 SoC
+>          items:
+>            - enum:
+> +              - phytec,am68-phyboard-izar
+> +              - phytec,am68-phycore-som
 
->  drivers/clk/clk-s2mps11.c                          |   8 +
+This looks wrong, if I am not misunderstanding. Your izar dts includes
+the som dtsi, so this should be configured with a fallback, so you're
+going "phytec,am68-phyboard-izar", "phytec,am68-phycore-som", "ti,j721s2",
+no?
 
->  drivers/mfd/Kconfig                                |  35 +-
->  drivers/mfd/Makefile                               |   5 +-
->  drivers/mfd/sec-acpm.c                             | 442 +++++++++++++++++++
->  drivers/mfd/sec-common.c                           | 301 +++++++++++++
->  drivers/mfd/sec-core.c                             | 481 ---------------------
->  drivers/mfd/sec-core.h                             |  23 +
->  drivers/mfd/sec-i2c.c                              | 239 ++++++++++
->  drivers/mfd/sec-irq.c                              | 460 +++++++-------------
+>                - ti,am68-sk
+>                - ti,j721s2-evm
+>            - const: ti,j721s2
+> --=20
+> 2.43.0
+>=20
 
->  drivers/rtc/rtc-s5m.c                              | 197 ++++++---
+--Sc/8E7LvZN4m53Ig
+Content-Type: application/pgp-signature; name="signature.asc"
 
-MFD parts look okay to me now.
+-----BEGIN PGP SIGNATURE-----
 
-With Acks from the Clk and RTC maintainers, I can merge all of the
-driver stuff together and submit a PR for others to pull from.
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ/6E1AAKCRB4tDGHoIJi
+0iT1AQDyBsyo6j8AEVY9RFO8bjD7VGy2QOQTpOWBias0CqF4SAEAkW+ON/H7IAJ/
+/J3fjUlnfBE6Tr8BX7hSROG1WsmbPA8=
+=buBB
+-----END PGP SIGNATURE-----
 
->  include/linux/mfd/samsung/core.h                   |   7 +-
->  include/linux/mfd/samsung/irq.h                    | 103 +++++
->  include/linux/mfd/samsung/rtc.h                    |  37 ++
->  include/linux/mfd/samsung/s2mpg10.h                | 454 +++++++++++++++++++
->  22 files changed, 2001 insertions(+), 864 deletions(-)
-> ---
-> base-commit: f58dd835f82a5dda6c9d3895ee6f15016431fb1f
-> change-id: 20250321-s2mpg10-ef5d1ebd3043
-> 
-> Best regards,
-> -- 
-> André Draszik <andre.draszik@linaro.org>
-> 
-
--- 
-Lee Jones [李琼斯]
+--Sc/8E7LvZN4m53Ig--
 
