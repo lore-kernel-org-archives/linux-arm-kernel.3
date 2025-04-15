@@ -4,62 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87536C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 10:04:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5911C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 10:05:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0VKOmYDW4CnICKMLQOGWg3GqeC1BFteuctz72BlkqQ8=; b=tLXJFmn0iinEbdzkid1eXdF+el
-	b4OYBQ4mNCHBCl4O5cw30AwPA/HCwndxFCsJtWomAUsCLnkjZVI0SR3q4gj8ytCyUqlZCavNDt9i3
-	Fy7vXi8/tFWHiRIvB6RZlxtIS3p2crUy6UYuqZfzSFN+VfCfX87EjEsZXan7yGoOG0GgRQOFRZbC1
-	PBBXNPSddK6HdHGW5E4NzbhXHHmIic8br31jkkg8NNDaOWiCPUigtLS7BY7sn2TjYmmP0DcFRgvPK
-	teTGIQzsG+Hn/gdrF0uX8wv62NyHri1162SiRzPgOnfKLCsnt4zgSURFdW7rZCMplLGVOEJJcRRit
-	LIHICXzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dh7xlUxtOWfIN7SBnmAvxpsTUhx8yFt35Gg5z7br5FU=; b=i9Z5p8imd+5xI0OxhX4Tv4IvGx
+	tUUwTa8ygC1/8JMEf27bKVvqNLQrL1CgzA3czGAtvzWh5J60auQQwj6HQbSktogMW9m8aMlhXO2Is
+	RtF+X/WSCN20ObOTv1EYsqf7xON3EACaZQ8TLpffL3ZZH6eToWlDXx2qs1DX4KJ0PjO/yAFU0gWaz
+	R33rRvldV9qPTbXSxtBuZwNGwbAn46+ZBHHMfHvo1cLwYOAJigJgr37diqLDfGvmHFQqLWa5I2pdw
+	AIUdgu+8/eWc+QBzvoNHs2NiaGnb8AKsI30VV5v/acSzQog3jVmlcSzeQZt8UhyQ0xAlPTMYlRarz
+	OCOgNPtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4d8v-00000005Fzt-2W0Z;
-	Tue, 15 Apr 2025 10:03:49 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u4dAj-00000005GKz-1xV0;
+	Tue, 15 Apr 2025 10:05:41 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4cqS-00000005C5T-2qVA
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 15 Apr 2025 09:44:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:References:
-	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=0VKOmYDW4CnICKMLQOGWg3GqeC1BFteuctz72BlkqQ8=; b=e6djeZMjeHHneEywS/Cj2IrlrJ
-	6zhgX94NBuclE00jS5i1zShKoW0jWtzSMe+cte5/92FFNNseAm9tiqTNe1eQ8Dzik/qzLWnFKrwzo
-	nLbLEfvTBljA7b6Me9lXyJgpZ2nIwlv+JNsyYwFjOE9D9Qie1kp/h0qPkJc7oEOs/b7JUjAGlfXoL
-	HKcR2CuWWd641lanOZaZMmIyrbKjnuBJ0x1AwSW/emjWqJzObin7btUr/CGAvwgVdmC3nURMaUaPK
-	5TZN9yUCfaua/r00SLC5GtaosEBnOt/66Ioble9SNFV0RN8ntmg4dv67A2Gs583Q7cXcqhq0d3A11
-	/NBgLOQQ==;
-Received: from [172.31.31.140] (helo=u09cd745991455d.lumleys.internal)
-	by desiato.infradead.org with esmtpsa (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u4cqO-00000009qZx-0HfK;
-	Tue, 15 Apr 2025 09:44:40 +0000
-Message-ID: <94fb9d4adb81f824912ee23a296776aa07873354.camel@infradead.org>
-Subject: Re: [RFC] ARM vGIC-ITS tables serialization when running protected
- VMs
-From: David Woodhouse <dwmw2@infradead.org>
-To: Marc Zyngier <maz@kernel.org>, Ilias Stamatis <ilstam@amazon.com>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, eric.auger@redhat.com, andre.przywara@arm.com, 
-	will@kernel.org, jgrall@amazon.co.uk, ugurus@amazon.co.uk, 
-	nh-open-source@amazon.com
-Date: Tue, 15 Apr 2025 10:44:39 +0100
-In-Reply-To: <867c3llt43.wl-maz@kernel.org>
-References: <20250414111244.153528-1-ilstam@amazon.com>
-	 <867c3llt43.wl-maz@kernel.org>
-Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
-	boundary="=-kvekzmVFWW8CtbbTfdnn"
-User-Agent: Evolution 3.52.3-0ubuntu1 
+	id 1u4cqT-00000005C5z-3pGD
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 15 Apr 2025 09:44:47 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53F8tJAV031809
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Apr 2025 09:44:44 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	dh7xlUxtOWfIN7SBnmAvxpsTUhx8yFt35Gg5z7br5FU=; b=V2dK16yQl6pylqWS
+	R1E95Tw4nkew+6moyHTARiLlnzpU7er5QnXJOU6ovmVvOv7CvgFE+WH6F3WS/uWH
+	2037Xy7QYlyzwmIzWlRgwVJcYpGY2vKoGDzFnX/B6t3f/dekJxM3g1v0Ue8tvzdI
+	4K/8BvTKNaPDcQit495aEP72xKPw0DGcQFntRIgUrXwTaOve0qWcJupVBbl+e2V3
+	wjkvTYEiU8UELOL/r7isTbpTdiFRkxhqYQmwyzGgOzd0NIf7KLgmuIwZo9L/Xhdw
+	TQ5MQ25y14hj0RqNACX/BCiGgErdDIPNv7/02OUrxS3t4YT8kK4g3GK9hCiJhhEs
+	g5FIQQ==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45yfs17jjd-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Apr 2025 09:44:44 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-476783cbdb8so13629301cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Apr 2025 02:44:44 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744710284; x=1745315084;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=dh7xlUxtOWfIN7SBnmAvxpsTUhx8yFt35Gg5z7br5FU=;
+        b=aOWlpljnG/XrJa+jYp1TfC9qF0WDATzUEGutJODXzkwwnlaZ1qsktVV1uBlwDA2chJ
+         dnJI6VZmk46i+Wb/yIyendiyLtCj18pt4UYfZteGE3HX4hCNkCtcoGiiwAhMKC+OG/j4
+         hDZIStGKsd27mWkDhhOoKYenpK+Hj6AFJGbqxo2xND4w5NLIp/0uDxuo1wxqvZjDDtwy
+         msTAEHU7HAG0mY5zy7OgsinEFUstPdq4hJbaa9BgEZPLx4lrn0CVtsSUTWvSJeUspe5o
+         GXryqt1UtsPsJBoHXFTgBU9cgIKHgoMmH6o6luabC6RLmrpsszjh36oz8wDwYR0M3QFM
+         7ZTw==
+X-Forwarded-Encrypted: i=1; AJvYcCWcaL6g/+o2jO3MWtZzDfN3edyKut29WvO8m9gNdv35zK43dZaSm6qoUX1yNoPLMC7QA1NtoTlB5K8EJTmAUrCk@lists.infradead.org
+X-Gm-Message-State: AOJu0YzkM19puZRtuB7BkK2pPtHgtQr3KBxIxk10DSlrhY6w1pMT85D7
+	U7wNVxx32gvRBERKhE3VKi0baE0+vmEty2wFEXF4mwgmH8EZc2z1P+Pj77wmbem278fr3liGpZB
+	VfGVcH9RT22BSiXbzVJaBCBqhj5kOsNDfNgAsL3fUsVjr63y9Aro8Wj7Ovt8HH1/kT9OrnZMg+g
+	==
+X-Gm-Gg: ASbGncvfjww/JI5jcX/H+cF5cAxlYgF/wxjl41jbsM3r7gHYmUu6tjisHD4ssuT6mnx
+	6QU70kuyZ8dMhIToTz7ylsJ7BydNIgXcx0VnXcraMlZcpvpdzEDqvvOI+80s+4Mb8CQVPHNhH8L
+	ipj74XcJZp4BJwG49HN/izZAqB31vuM88Vo6H0Fam8yDnlUIbV4XNhCuAn8DCHRlDOE7ikIl6st
+	gZyjg4cteU8Qy+iIAD/kk8sfucTW3AC55lf7K8jzaJAsV7KP3Ka+WgCF5ZjVg1DjP0kT9QX+cEV
+	aKSwoNO4pkAVvnVlYDzcDCR6FpLFXHdFUUCdDS1auapNemIXG7Wou5D4Sr1huFV+kf4=
+X-Received: by 2002:a05:622a:190b:b0:476:66fb:4df4 with SMTP id d75a77b69052e-479773fae77mr86594331cf.0.1744710283884;
+        Tue, 15 Apr 2025 02:44:43 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEtDVLNzgvpQI0Lhz9q3H+Gl7nwNw80XyxluXGruUxEXUTIGiDUoi+aDVsGLS4X9fWsR8kNoQ==
+X-Received: by 2002:a05:622a:190b:b0:476:66fb:4df4 with SMTP id d75a77b69052e-479773fae77mr86594041cf.0.1744710283561;
+        Tue, 15 Apr 2025 02:44:43 -0700 (PDT)
+Received: from [192.168.65.246] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5f36ef61911sm6334674a12.32.2025.04.15.02.44.39
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 15 Apr 2025 02:44:43 -0700 (PDT)
+Message-ID: <aa67f077-98dd-4561-b431-9db276ea29ba@oss.qualcomm.com>
+Date: Tue, 15 Apr 2025 11:44:39 +0200
 MIME-Version: 1.0
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by desiato.infradead.org. See http://www.infradead.org/rpr.html
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 09/10] iommu/arm-smmu-qcom: Add SAR2130P MDSS
+ compatible
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Rob Clark <robdclark@gmail.com>,
+        Abhinav Kumar <quic_abhinavk@quicinc.com>,
+        Dmitry Baryshkov <lumag@kernel.org>, Sean Paul <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Kuogee Hsieh <quic_khsieh@quicinc.com>,
+        Krishna Manikandan <quic_mkrishn@quicinc.com>,
+        Jonathan Marek <jonathan@marek.ca>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+        Joerg Roedel <joro@8bytes.org>, Konrad Dybcio <konradybcio@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
+        freedreno@lists.freedesktop.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org
+References: <20250415-sar2130p-display-v3-0-62314b1c9023@oss.qualcomm.com>
+ <20250415-sar2130p-display-v3-9-62314b1c9023@oss.qualcomm.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20250415-sar2130p-display-v3-9-62314b1c9023@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=P9I6hjAu c=1 sm=1 tr=0 ts=67fe2a8c cx=c_pps a=JbAStetqSzwMeJznSMzCyw==:117 a=FpWmc02/iXfjRdCD7H54yg==:17 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=VwQbUJbxAAAA:8 a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8 a=TMI2DeuJ6cRHfy_QMqYA:9
+ a=QEXdDO2ut3YA:10 a=uxP6HrT_eTzRwkO_Te1X:22 a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-GUID: 4vXCWTDZa-4LThwBBXv6v58BHKo-uTFZ
+X-Proofpoint-ORIG-GUID: 4vXCWTDZa-4LThwBBXv6v58BHKo-uTFZ
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-15_04,2025-04-10_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
+ clxscore=1015 bulkscore=0 impostorscore=0 phishscore=0 suspectscore=0
+ mlxscore=0 spamscore=0 malwarescore=0 adultscore=0 priorityscore=1501
+ mlxlogscore=672 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2504150067
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250415_024446_081252_75E45477 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,222 +142,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 4/15/25 11:39 AM, Dmitry Baryshkov wrote:
+> From: Dmitry Baryshkov <lumag@kernel.org>
+> 
+> Add the SAR2130P compatible to clients compatible list, the device
+> require identity domain.
+> 
+> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> ---
 
---=-kvekzmVFWW8CtbbTfdnn
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
-On Tue, 2025-04-15 at 09:35 +0100, Marc Zyngier wrote:
-> On Mon, 14 Apr 2025 12:12:43 +0100,
-> Ilias Stamatis <ilstam@amazon.com> wrote:
-> >=20
-> > # The problem
-> >=20
-> > KVM's ARM Virtual Interrupt Translation Service (ITS) interface support=
-s the
-> > KVM_DEV_ARM_ITS_SAVE_TABLES and KVM_DEV_ARM_ITS_RESTORE_TABLES operatio=
-ns.
-> > These operations save and restore a set of tables (Device Tables, Inter=
-rupt
-> > Translation Tables, Collection Table) to and from guest memory.
-> >=20
-> > This can be a problem when running a protected VM on top of pKVM or ano=
-ther
-> > lowvisor since the host kernel (running at EL1) cannot access guest mem=
-ory.
-> >=20
->=20
-> pKVM doesn't allow a guest to be saved/restored, full stop.
-
-Yet. Either it's going to need to learn to support live update, or
-it'll remain a toy solution.
-
-> > # Page declassification and why ITTs are special
-> >=20
-> > The Collection and Device tables are page aligned and their sizes must =
-be a
-> > multiple of page size. If the lowvisor knows where these tables live, i=
-t is
-> > possible to "declassify" the corresponding pages and configure the MMU =
-such as
-> > that the EL1 host can write to guest memory directly.
-> >=20
-> > The ITTs (Interrupt Translation Tables) are different. They are NOT pag=
-e
-> > aligned, they are 256 byte aligned and their size is variable. That mea=
-ns that
-> > the lowvisor can't declassify pages containing ITTs and configure the M=
-MU
-> > giving the host direct access as above since those pages may contain un=
-related
-> > data.
->=20
-> And it is the responsibility of the guest to make these page aligned
-> if it intend to let the hypervisor use them. To sum it up, the ITT
-> isn't special at all.
-
-The ITT has nothing to do with virtualization, does it? And despite
-this being logically "DMA", I don't believe it's possible to advertise
-it as being behind the SMMU, which would have allowed for access
-control (and would indeed have meant that the guest would be expected
-to grant access to full pages).
-
-What exactly are you suggesting? That the GIC specification should be
-changed to require page alignment, or to document that in a
-confidential compute setup, the remainder of any page which contains
-ITTs will be implicitly made non-confidential and shared with the
-hypervisor?
-
-And then the lowvisor would also have to snoop the ITS command queues
-to even find out which pages to implicitly allow access to?
-
-> >=20
-> > If the lowvisor knows where the ITTs live in guest memory it could inst=
-ead
-> > perform the guest memory accesses on behalf of the host. I.e. the EL1 h=
-ost
-> > would attempt to save the ITTs to guest memory like it does today, that=
- would
-> > generate a data abort, and then the EL2 lowvisor could perform the copy=
- after
-> > validating that the faulty address belongs to an ITT in guest memory.
-> >=20
-> > One issue with the above is that the ITS save/restore happens at hyperv=
-isor
-> > live update which is a time sensitive operation and the extra traps (on=
-e per
-> > interrupt mapping?) can introduce significant additional overhead
-> > there.
->=20
-> I don't believe this for a second.
-
-You don't believe that every millisecond of live update downtime,
-perceived by the guest as unwanted steal time of a hypervisor that's
-generally trying to be as quiescent as possible, is an issue?
-
-> >=20
-> > Another issue is that it's actually hard for the lowvisor to know where=
- these
-> > tables live without trusting the EL1 host which virtualizes the ITS. It=
- is
-> > especially hard knowing the locations of the ITTs (compared to
-> > Collection/Device tables) because that probably means having to parse t=
-he ITS
-> > command queue from EL2 which is complex and undesirable.
-> >=20
-> > # An alternative: Serializing ITTs into a userspace buffer
->=20
-> NAK.
->=20
-> Share the page-aligned memory with the rest of the hypervisor, and use
-> the existing API.
-
-That seems like a bad choice. All this is just using guest memory to
-store KVM's state.
-
-Yes, the guest provides a buffer which the virtual hardware *may* use
-if it wants, but with no IOMMU or access control defined in the
-specification.
-
-It seems like it would be much cleaner just to let KVM pass its state
-up to userspace for serialization like we do for all *other* KVM state,
-which is what Ilias is proposing.
-
---=-kvekzmVFWW8CtbbTfdnn
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Transfer-Encoding: base64
-
-MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
-ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
-AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
-BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
-MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
-a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
-jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
-GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
-aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
-nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
-8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
-HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
-IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
-KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
-BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
-QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
-QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
-ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
-/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
-uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
-xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
-W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
-c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
-VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
-NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
-DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
-sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
-w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
-i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
-kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
-0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
-ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
-blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
-hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
-VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
-HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
-ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
-AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
-cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
-cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
-AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
-aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
-hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
-iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
-8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
-JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
-xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
-EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
-B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
-MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
-KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
-Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
-nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
-WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
-W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
-nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
-g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
-9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
-9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
-sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
-a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
-ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
-AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
-dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
-MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
-YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
-4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
-6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
-QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
-nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
-MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
-VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
-ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI1MDQxNTA5NDQz
-OVowLwYJKoZIhvcNAQkEMSIEIHqRiyU8I1VVo0QkJFQUraepic4oV4rt4H8WJPUKGYTaMGQGCSsG
-AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
-cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
-VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
-cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIAIlbRC0zbtGGz
-zoHigyN/6QNXQIzyBuUU9wAU8vavFcOZZB9X1FfWmfE95hR3HHwRDLhOOYrE2S+mCLQLUCMXjDip
-zYoUo54I3gOenNVM4VtlRRYMlcRLsgwwwHx8oiMnBrhq1VWRFFsoTQGLsU8RizvfRGuQYdpwzcYw
-0RNYSbQVdEzT9VyU/AFRFGYThAwi8wE3IRu582wCW9ffteDjrcooWeFtdyEHvDBahTQqmKDFGnWS
-mOV1lU8KOzBYqMVTAJQ8iPYQX7Pwj5Qwra5DWWF6ffIUrMksszFRQtSPNhuN5UuiW+e9TVwqIeD/
-QIclN/059wwKu9Y8VcX0SILOaKAFTYJWw5Hyr7xN7Nm+mK8MugSmQWNYgd3JfbJzZHQVfZNPAnf0
-JPDYeiOobkcKc85wMCYCbWWwDYb5Oh5HAsMrTsW6sYAVkPC6o3/FYPIAV3xynCoIy+GVT3F72Tii
-haJqkPde/pb60P9WyXd3Cu3k0nrSq4D9hxbAk58rvjgpUoyWx55hd3QqdpkgJy7a50gRrlvJqU9M
-OBlmpIWGnUHfocL0O8RuCFW1eMpIpFNwgacW8tb0EpRKhxWaQw+N3JcSBPH0lJntMArl0Ef46PTT
-sk2pYQN7mbiJaOAnetCKcDKFyjg5J2aZHWZ/Unrqjc5ihyFmor0s4RhQoy4PcREAAAAAAAA=
-
-
---=-kvekzmVFWW8CtbbTfdnn--
+Konrad
 
