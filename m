@@ -4,141 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E77EC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 05:25:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64047C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 05:26:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xPg8r9+qxP3FUQR7JGslU2hw0AcMpptvhuQODcbrUBo=; b=u//Y4weNvpPAJUFhX1hGrSKPzN
-	lB4xSg+3wmAmNYz4ULzAQdSr7aj/XBZookHBwEoLc8Q4msC/cC5BS59EQGTNXLSyjpCzpFBCGedtW
-	EndnOsaQXn13aztifYUa90xWjiGPOyYkOcs/vRND9a6FSSM//AmjtxF7DaQs4kjwY32OOKmEG/6IV
-	5wsti3WwIIv5Qt+agv9wlaa20uwzvUwObgs/ywcmLQi+0Juq3Fc5H0bcITf6JSupxtqc0GmquEiex
-	bLYc4mMD/ADkPMa9eyMgCSjERNCJT+owrGHa1hF14EVYPdUb1y2wldG0orrq7Dv+yAvfPoEooKATO
-	MmlAsCNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vtJFnwCivtD4xc4Z5me44owQkKWSiGPgtP3EzDzyv2k=; b=tvwv2IzbXCMYhLlhKNy4nDX8mm
+	To+Qe3whCYSyia3HlX9nPR5rBt7TXdtXOUAZbfZdf1p8v9QptDEuyoas4+WGHbUed0mt9A2DxZzBZ
+	s3zbpOqQioYSZa2iuuOsgX2dUAUjXubsblHUUPTwN4LCdGwnKRvapkj0v3z3yMv/TPX5rw+8PA45O
+	wIwJG6tcoFAbAceaSBOKS/1TujrBRVMwgnVP0v4XZeY/jZAERAlr08ekvIeGqw/c2mP5JpyxzlGRS
+	7/fN7iVrM8LYuitGAnVa5vWyNGk0MQXusWf8VOSKNocVfXBKJPL/pxQ/XaHRCyT4p4uWsY0QgHhmq
+	iS55+Pzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Yn2-00000004Y0y-1TR2;
-	Tue, 15 Apr 2025 05:24:56 +0000
-Received: from mail-mw2nam04on20613.outbound.protection.outlook.com ([2a01:111:f403:240a::613] helo=NAM04-MW2-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4YNi-00000004V25-0XXa
+	id 1u4Yop-00000004YIP-0DQQ;
+	Tue, 15 Apr 2025 05:26:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u4YOk-00000004VKK-2cBI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 04:58:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=a9/Y5i7PvBkwkb13f4rszRPwY+ffud2NFIBvnlDhn5LUg0cog+wov1sZtK9lYxb8Hxu/LaqORSJj7RT6QJWUOkFHAkE95zPczYpp56xr29FlDe1ic9ydSmhOsBhZPzKi53SmrJkgrHOXzhYAIXxs2mVWonOc60VjcJQtVSSZFbR3aT81ohJlYkVauBpmkolKTS40jfOGYBNYga8A10foKIfPDC/RPGhsxUi0p9vIHqoXlqJ1aX4jx2xwPZJEeDZQLa9BnL87ZJg7el54I1RErmoT/QvhUjEwB4BITBKn9UWiUxOYTMQ2YHZ32e+PSHA45QgTwoq9z0j/CpzqaJ7Vkw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xPg8r9+qxP3FUQR7JGslU2hw0AcMpptvhuQODcbrUBo=;
- b=qFE4+KQ2XXAcGOMVL03uTNwcVReQ413PVDoyKJDkPvIQGhLieSLTYqttNhJPG3TRFFyl9LL7v/1nKufN9t4T6GuOvpRRGq78CMDUONsSgj1KtmzRTXpbsI4jZOOxuzTdkgmK11AE7gWNNMrfjnkgjI2vBL805nbxwqMPXaxLvRyOuz63HLy0373Sb5XuPXBCAH7l3QXSz0SvguES1SD+Zqjv4nOY/VYIP1VLcEIvO2bhc6UWs4jmRl+I9bsSf/9tOEA1arN8AwY3dDyWVFI9cqs7BClvaeipvRDACxL4D52TSuwjQ5+bNGlMk6obDbFrQpU1ynsrmm0jq2c46+Xy8A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xPg8r9+qxP3FUQR7JGslU2hw0AcMpptvhuQODcbrUBo=;
- b=Sa1tXXKMyqI48eFANd1PhAgvIhqehlRLDEPgw897nmEYeF6rlwAB8tpbFN5Or6BSWiUDMVHpuf61KI0qP9J+UvOlhWF/R6rOlukGVcBW7gA9ZR38/ZAL0cNb5NLiWzLIk5fvKKwkyWz0YHwnvmLFE4qx+Fv8Cr+ctv8NmfWECXsYJPWsqr/Nr49aSjizECFulaLTifeBUIcidqGx2BFUP7aJmrbnsZ49ALq3cGNRZZ7s+fcj7sO3cGgP0r/dmJ4M49ywZjULh8yMw93Nq5GxX11a510RCIsanOk4RSC/eD/CEpOtO7a0qid2fudNhzHLynU+RYoW2yCHYvPnQ1ujOg==
-Received: from BL0PR02CA0076.namprd02.prod.outlook.com (2603:10b6:208:51::17)
- by PH8PR12MB6844.namprd12.prod.outlook.com (2603:10b6:510:1cb::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.34; Tue, 15 Apr
- 2025 04:58:39 +0000
-Received: from BL02EPF0002992E.namprd02.prod.outlook.com
- (2603:10b6:208:51:cafe::e9) by BL0PR02CA0076.outlook.office365.com
- (2603:10b6:208:51::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8632.34 via Frontend Transport; Tue,
- 15 Apr 2025 04:58:39 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- BL02EPF0002992E.mail.protection.outlook.com (10.167.249.59) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8655.12 via Frontend Transport; Tue, 15 Apr 2025 04:58:39 +0000
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 14 Apr
- 2025 21:58:23 -0700
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail204.nvidia.com
- (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Mon, 14 Apr
- 2025 21:58:23 -0700
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.11) by mail.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server id 15.2.1544.14 via Frontend
- Transport; Mon, 14 Apr 2025 21:58:22 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <will@kernel.org>, <robin.murphy@arm.com>, <jgg@nvidia.com>
-CC: <joro@8bytes.org>, <kevin.tian@intel.com>, <praan@google.com>,
-	<nathan@kernel.org>, <yi.l.liu@intel.com>, <peterz@infradead.org>,
-	<mshavit@google.com>, <jsnitsel@redhat.com>, <smostafa@google.com>,
-	<jeff.johnson@oss.qualcomm.com>, <zhangzekun11@huawei.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <shameerali.kolothum.thodi@huawei.com>
-Subject: [PATCH v2 11/11] iommu/arm-smmu-v3: Allow to share S2 nest_parent domain across vSMMUs
-Date: Mon, 14 Apr 2025 21:57:46 -0700
-Message-ID: <e6a808167d61bc254aea397cbe75622e02e9d703.1744692494.git.nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1744692494.git.nicolinc@nvidia.com>
-References: <cover.1744692494.git.nicolinc@nvidia.com>
+	Tue, 15 Apr 2025 04:59:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 54BFA15A1;
+	Mon, 14 Apr 2025 21:59:47 -0700 (PDT)
+Received: from [10.163.49.104] (unknown [10.163.49.104])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5A51D3F66E;
+	Mon, 14 Apr 2025 21:59:45 -0700 (PDT)
+Message-ID: <7e68b780-0591-4b05-98f0-154441f5dd14@arm.com>
+Date: Tue, 15 Apr 2025 10:29:42 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL02EPF0002992E:EE_|PH8PR12MB6844:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6e74d588-f5c6-4b84-e04d-08dd7bda302d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|82310400026|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Feaa/PIdfZS7IN2u+8jdzgbMB9CLJef1g+Jv48viimOzb1pXetgTyKELurvL?=
- =?us-ascii?Q?RsxJty1LuByEKRo2P2iAzB4I8sYWamCPo0ClYex9Nd+pjsInFtsXUN/wWyfy?=
- =?us-ascii?Q?OzwTn5fD/t2GEKK7XHVetN6w8VrQhJNYnQgD4Q4grvNPOJyYEuYwAJsmEqDp?=
- =?us-ascii?Q?QUhqsiM2x4KXGk4tZn6/bC4HjrfhYiIZA30qgHXRKEdhZ9FJ3M5BKrTrnPlU?=
- =?us-ascii?Q?O7KZFI86zGW6rzC2Vp0VXYlOm94vgOLGmWGsabce4aryRfAlFmvkoQW/jeap?=
- =?us-ascii?Q?uISb8VWmT9F5lbZywz9vaV3A+DskcXfVZwqoqSsRv+r+4jNmRXwxbDQyh53T?=
- =?us-ascii?Q?M5phJZ7eRZ6DVc0jNUpObaZfa8wRMJKgwpMkbn3NZGv/GPxD9fHcOCiEc+x4?=
- =?us-ascii?Q?3FEm8WhYfwv/KoZTqZZlVI/GSnNiFNUONdrCEeiRWpx4JBmnB7m9lD4W47ma?=
- =?us-ascii?Q?sjjbSvYS2xIAgDH0byUdmJBHfpulwfSkCSedzpZMg7h0XrfCahfb5DvcZ6Re?=
- =?us-ascii?Q?z+ZZLzY6b2itsfqrtb41Gnbu6P2Wx1TFRc8D4RFUa3yb6smp49V5ozmkYZM4?=
- =?us-ascii?Q?QFsWqBgua98AXvMKSFPTDdMNM4I5SdrTwamu3u9SL4XnA70qQJ2LNyD7yVrb?=
- =?us-ascii?Q?l7QAV6i2w+GYz7d2Hv++/6v2SJ3e9BtGznkg8nGacZkouKDLiK3zXvEZWiIq?=
- =?us-ascii?Q?bL2EaeAyl0zDHBxQZ9+xxBYg/SVG7jxxzbh0ILsFn6LkdyD/TFTEcgD+YcWW?=
- =?us-ascii?Q?dxqr5MtFO06S3mGMaQx3TOsdnMBhuorGTwN+z5hGA+bh+j08/vRUX971MNYu?=
- =?us-ascii?Q?BtPK/Ip/TSZJPwHdIKyvc9KleqRnnyjfT2jY1P7i4dnqXtlZ+1kh2Fp3a1xB?=
- =?us-ascii?Q?0OPGGHxb3GT/hyBwTeQMqiTCL8li0XKWA+lwPIN4ZayqaKwH1qSeUdVIubrf?=
- =?us-ascii?Q?Wrdee1H5d3m8LpYFzVPqvufuH78vr7yX5GATffHVTlGuWALc9RjLrXlwPd/3?=
- =?us-ascii?Q?KdKtHCHKov+wU6/mk6yLt/8Ndd+l9tepWxa9nPL6SCZix2EY6KM1dN1lSZo5?=
- =?us-ascii?Q?Yx/xKKT1SF3+kql5tvzSlcZginL19drxucBRf8Qcy/Jt+Q16++ov/i8UgsAf?=
- =?us-ascii?Q?REWx23hXw9KFTqF9Uq6hZD1A3dpqe3k60RaWhWvkZB4M2eEkJ4j61X5cyZpN?=
- =?us-ascii?Q?uNxyCr2mRyExCPgy/ohtI3599IvcmHU25XgxzEXdJuaxcs3h2S7FhVrqlPX8?=
- =?us-ascii?Q?vHBej67TJWOLeEZg3Omku+boNkQFHfoyETjBOP1k+U37qekUoJI2KVHCfpGW?=
- =?us-ascii?Q?XF/QuuZfxWeThU2+a4TPjKL3cvcwDtkDfAfLi3Sp6HoxUihaJZCIiwk7CtJC?=
- =?us-ascii?Q?gNazix7LkdhxqIG0AfE8R8JngVXHC7etd4Z/iMdPD9lmPTzF4HAdH8+IBw5h?=
- =?us-ascii?Q?4C5eO/JADJq0OOJUGw3KAl1ocvSq2LG0ppia3K05kXy+ZV9ChyFDHs/4DwLU?=
- =?us-ascii?Q?Afb5itbq4ghgiWnrWe+2uaP7zBStPwQ+Q+ej?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(82310400026)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Apr 2025 04:58:39.6003
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6e74d588-f5c6-4b84-e04d-08dd7bda302d
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL02EPF0002992E.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB6844
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64/mm: Implement pte_po_index() for permission overlay
+ index
+To: Ryan Roberts <ryan.roberts@arm.com>, linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ linux-kernel@vger.kernel.org
+References: <20250410052021.1533180-1-anshuman.khandual@arm.com>
+ <0bad3714-06b3-488f-a414-b825f409b926@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <0bad3714-06b3-488f-a414-b825f409b926@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_215846_182439_6FEA9C26 
-X-CRM114-Status: GOOD (  14.09  )
+X-CRM114-CacheID: sfid-20250414_215950_755486_439C5705 
+X-CRM114-Status: GOOD (  17.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,63 +66,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-An S2 nest_parent domain used by one vSMMU can be shared with another vSMMU
-so long as the underlying stage-2 page table is compatible by the physical
-SMMU instance.
 
-There is no direct information about the page table from the master device,
-but a comparison can be done between the physical SMMU that the nest_parent
-domain was allocated for and the physical SMMU that the device is behind.
 
-Replace the smmu test in arm_vsmmu_alloc() with a compatibility test, which
-goes through the physical SMMU parameters that were used to decide the page
-table formats.
+On 4/14/25 18:58, Ryan Roberts wrote:
+> On 10/04/2025 06:20, Anshuman Khandual wrote:
+>> From: Ryan Roberts <ryan.roberts@arm.com>
+>>
+>> Previously pte_access_permitted() used FIELD_GET() directly to retrieve
+>> the permission overlay index from the pte. However, FIELD_GET() doesn't
+>> work for 128 bit quanitites. Since we are about to add support for D128
+>> pgtables, let's create a specific helper, pte_po_index() which can do
+>> the required mask and shift regardless of the data type width.
+>>
+>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> Cc: Will Deacon <will@kernel.org>
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> Cc: linux-kernel@vger.kernel.org
+>> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>> ---
+>> This patch applies on v6.15-rc1
+>>
+>>  arch/arm64/include/asm/pgtable-hwdef.h | 1 +
+>>  arch/arm64/include/asm/pgtable-prot.h  | 2 ++
+>>  arch/arm64/include/asm/pgtable.h       | 2 +-
+>>  3 files changed, 4 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/arch/arm64/include/asm/pgtable-hwdef.h b/arch/arm64/include/asm/pgtable-hwdef.h
+>> index f3b77deedfa2..028a164924df 100644
+>> --- a/arch/arm64/include/asm/pgtable-hwdef.h
+>> +++ b/arch/arm64/include/asm/pgtable-hwdef.h
+>> @@ -211,6 +211,7 @@
+>>  #define PTE_PO_IDX_2	(_AT(pteval_t, 1) << 62)
+>>  
+>>  #define PTE_PO_IDX_MASK		GENMASK_ULL(62, 60)
+>> +#define PTE_PO_IDX_SHIFT	60
+>>  
+>>  
+>>  /*
+>> diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
+>> index 7830d031742e..b53bc241e4e7 100644
+>> --- a/arch/arm64/include/asm/pgtable-prot.h
+>> +++ b/arch/arm64/include/asm/pgtable-prot.h
+>> @@ -136,6 +136,8 @@ static inline bool __pure lpa2_is_enabled(void)
+>>  	((pte & BIT(PTE_PI_IDX_1)) >> (PTE_PI_IDX_1 - 1)) | \
+>>  	((pte & BIT(PTE_PI_IDX_0)) >> (PTE_PI_IDX_0 - 0)))
+>>  
+>> +#define pte_po_index(pte)	((pte_val(pte) & PTE_PO_IDX_MASK) >> PTE_PO_IDX_SHIFT)
+>> +
+>>  /*
+>>   * Page types used via Permission Indirection Extension (PIE). PIE uses
+>>   * the USER, DBM, PXN and UXN bits to to generate an index which is used
+>> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+>> index d3b538be1500..41979c0e6c21 100644
+>> --- a/arch/arm64/include/asm/pgtable.h
+>> +++ b/arch/arm64/include/asm/pgtable.h
+>> @@ -182,7 +182,7 @@ static inline bool por_el0_allows_pkey(u8 pkey, bool write, bool execute)
+>>  	(((pte_val(pte) & (PTE_VALID | PTE_USER)) == (PTE_VALID | PTE_USER)) && (!(write) || pte_write(pte)))
+>>  #define pte_access_permitted(pte, write) \
+>>  	(pte_access_permitted_no_overlay(pte, write) && \
+>> -	por_el0_allows_pkey(FIELD_GET(PTE_PO_IDX_MASK, pte_val(pte)), write, false))
+>> +	por_el0_allows_pkey(pte_po_index(pte), write, false))
+>>  #define pmd_access_permitted(pmd, write) \
+>>  	(pte_access_permitted(pmd_pte(pmd), (write)))
+>>  #define pud_access_permitted(pud, write) \
+> 
+> kvm also uses PTE_PO_IDX_MASK in compute_s1_overlay_permissions(). Shouldn't we
+> be converting that site too?
 
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
----
- .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     | 21 ++++++++++++++++++-
- 1 file changed, 20 insertions(+), 1 deletion(-)
+Just wanted to keep the KVM changes for later but sure, will fold these in.
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-index 5d05f8a78215..f654e665739a 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-@@ -501,6 +501,25 @@ static const struct iommufd_viommu_ops arm_vsmmu_ops = {
- 	.cache_invalidate = arm_vsmmu_cache_invalidate,
- };
- 
-+static bool arm_smmu_s2_parent_can_share(struct arm_smmu_domain *s2_parent,
-+					 struct arm_smmu_device *smmu)
-+{
-+	struct arm_smmu_device *s2_smmu = s2_parent->smmu;
-+
-+	if (s2_smmu == smmu)
-+		return true;
-+	if (s2_smmu->iommu.ops != smmu->iommu.ops)
-+		return false;
-+	if (s2_smmu->ias > smmu->ias || s2_smmu->oas > smmu->oas)
-+		return false;
-+	if (s2_smmu->pgsize_bitmap != smmu->pgsize_bitmap)
-+		return false;
-+	if ((s2_smmu->features & ARM_SMMU_FEAT_COHERENCY) !=
-+	    (smmu->features & ARM_SMMU_FEAT_COHERENCY))
-+		return false;
-+	return true;
-+}
-+
- struct iommufd_viommu *arm_vsmmu_alloc(struct device *dev,
- 				       struct iommu_domain *parent,
- 				       struct iommufd_ctx *ictx,
-@@ -520,7 +539,7 @@ struct iommufd_viommu *arm_vsmmu_alloc(struct device *dev,
- 	if (!(smmu->features & ARM_SMMU_FEAT_NESTING))
- 		return ERR_PTR(-EOPNOTSUPP);
- 
--	if (s2_parent->smmu != master->smmu)
-+	if (!arm_smmu_s2_parent_can_share(s2_parent, master->smmu))
- 		return ERR_PTR(-EINVAL);
- 
- 	/*
--- 
-2.43.0
-
+> 
+> ----8<----
+> diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
+> index 3a96c96816e9..d9a8ee8e600f 100644
+> --- a/arch/arm64/kvm/at.c
+> +++ b/arch/arm64/kvm/at.c
+> @@ -1073,7 +1073,7 @@ static void compute_s1_overlay_permissions(struct kvm_vcpu
+> *vcpu,
+>  {
+>         u8 idx, pov_perms, uov_perms;
+> 
+> -       idx = FIELD_GET(PTE_PO_IDX_MASK, wr->desc);
+> +       idx = pte_po_index(__pte(wr->desc));
+> 
+>         switch (wi->regime) {
+>         case TR_EL10:
+> ----8<----
 
