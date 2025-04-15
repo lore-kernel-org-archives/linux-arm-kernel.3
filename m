@@ -4,100 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6371DC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 23:03:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A115EC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 23:05:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JD5gqJgl0o904ungOO+PQFcT58GKy6PoIttE79uySS8=; b=VGgobz+mmPBv+sVVZFBNCTVhYy
-	ZTVuyIch7kfzqjrNUtKFBpUMhFW+Dn8KwjuVCL1TNkTzZ1k4cmmsmJ1MOXofEkRhLcmtmr9/KrW5o
-	fEO9+YRiWJWmWf5iUo7VQdpgF1XDHf98JSu0t1RufWEOLnqzkMoZLU10HvpXC4DXmLecEILN298BB
-	5a2aOGr1yku61+C5HTbnzRIr4Da9LmgEexu3uGGHK32Vg0HrRI0HaH0LBttK/+5d5QEPqRITjseJI
-	PsoiNEczJP2gykyIpXXc4+5mp5lgdOJTtSUMc0KWu6LWdaPf2DMsMKNofhEZ6W6ASTradLgRbHSfV
-	QqVE2jag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qGdCOCVUSzs5OT1uWlSAdF55OdATWKLJYH1gEY/jG8Q=; b=iKuxcRsri+4EjhaEpts9C7xJnG
+	r9fvRPLf3F2TDD9IaFCOc+Sep9Ij2KYMML4v1aDYjaz1KOcR0rDXGCoRYmPpNuUbf6EmA6n3up1CR
+	IjJgfPIl8fOGCcDI+7t+NlDpAs6u4zguMSoFnV2SSpMdSdTuXPNS/doMdyRNunWvy0WYT756uDkwf
+	1HqcooZXI24dUC78ghkz9hnY8noNmrC62X2FjNt2w7x1HlWXiSfiucG1w1Jpeusx3HPzC5ca0Hueu
+	ZEJG/6KPGfBitJOT/JObilnodKlhklW31OMDU3l+Z55af3AqPgwjegJJXpp0hK2NfJsb//6h3gUoA
+	A9fNDrtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4pJb-00000007PSM-2SYc;
-	Tue, 15 Apr 2025 23:03:39 +0000
-Received: from mail-il1-x133.google.com ([2607:f8b0:4864:20::133])
+	id 1u4pLS-00000007Pmt-1Cfu;
+	Tue, 15 Apr 2025 23:05:34 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4pFs-00000007OgJ-1Hp4
+	id 1u4pHV-00000007Oz4-0Qiq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 22:59:49 +0000
-Received: by mail-il1-x133.google.com with SMTP id e9e14a558f8ab-3d57143ee39so47500265ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Apr 2025 15:59:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744757987; x=1745362787; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JD5gqJgl0o904ungOO+PQFcT58GKy6PoIttE79uySS8=;
-        b=gMmhsEu1Jfg22tAHO4Ote9sbslJqJKBgBE/Knp4yJzNtIyV6oMlmRvm0Wnfopyu7IN
-         kRAfiw+70Ior9YbSQEcidcEDA21OYhcEOtKXXnWBVrnoxgPCdi2ZDi1IHOdJdc1plJRY
-         wwE0DTWBSJ13ghdWV4cM+KHLcIER1GqNN3Q2WdHBr+zAbJwCYu2O3lA6mMv5TCWMM7UJ
-         OcvrdZSXJYg14teMJNdaqAXSU5MA3bZZVCC9kWEBpj7Pbt2qR6qxmi8YnciQwyGneptS
-         wQq8uogiV/BtLtHzhPbHS91D5MtXduEduqO4NOskhCR2NBQmIYacuctrxd8sGMDzUZq8
-         SLAA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744757987; x=1745362787;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=JD5gqJgl0o904ungOO+PQFcT58GKy6PoIttE79uySS8=;
-        b=GfRsbJZgf12NTvrW73blfIAY7hhgmqMDBPGvPV2wXSsRflX3aUW2cfWZbqtLB3op43
-         ilnetyfe1NuYToXBnGSFxk0yHV/+g7jHiErLRW+TZKOj4nDdzN2+hqPw1AVGM5If/Oyr
-         PQSiPuwUBeTwjl0pK2GFbBes52W7QNCee8wzJM3kBTGj4D3sLJ0K570LA2YKVJfRTres
-         YKGSrnpZ/wmniXTVwM48//fnNmRMYoSOXTYs7DTaeSysExi6NlySg37h7G9GhmKBTYNC
-         KMc7pUMi3/av0p85FtCq1PhbHeGX3EZQBvD2ZyVODfFsKszGfa+7D44CP0HmSgoXi/YD
-         xdHg==
-X-Gm-Message-State: AOJu0YxW+B0vXJAPs3ZE5cznW/cRFgpXfjlglllt188cWAGWAnX/pt4o
-	SishJv2T/gXOwyMkxN6Kgbh5PFQI571O1+TxNAjz2uLG2dbIzNiT3UQMpw==
-X-Gm-Gg: ASbGncsH3YKi86WufnVS8UEi62K9euKI+A+KsRxe+OFFCTrvD0IENwfVEgNLnlNG3iT
-	gOdoh4hpSzzWpskUyRClLdGQRtBCUQmI8h1uu564fuKBolVFV98T/ANkCeLp02m8aVC7qUdwvf7
-	utqiYTudJ5awU8tjkVxOihig6TBtEyXdYY40jBuwk6hfXT3dZSLNbRVCY2jzQnJ9F1QWbrPI78u
-	BGgX6+pO4qxcBQA18pV+chiJI0rdq+bqDeFRRMic6KQ+YOjZ2D4BjB3Aecs5URsggcv1+s5qN7i
-	azeN8C8igSSlHCU3HGR6lRY8yeDDZoeKNP9x6slMw18Vjo4zV/D9CS5Ve1m48tydlxFTVVjD7Ey
-	3
-X-Google-Smtp-Source: AGHT+IGpMiPfTzR40QNSAj6EDFVf4XLqvKGDcUTaU7AUhVx9rRQ5+OjTWJMgthJkRWXzj9Kjq0kMrw==
-X-Received: by 2002:a05:6e02:1aad:b0:3cf:c9ad:46a1 with SMTP id e9e14a558f8ab-3d812546cdfmr11947175ab.13.1744757987052;
-        Tue, 15 Apr 2025 15:59:47 -0700 (PDT)
-Received: from hestia.. (24-220-158-153-dynamic.midco.net. [24.220.158.153])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4f505d175edsm3382356173.55.2025.04.15.15.59.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Apr 2025 15:59:46 -0700 (PDT)
-From: Robert Nelson <robertcnelson@gmail.com>
-To: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Cc: Robert Nelson <robertcnelson@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Nishanth Menon <nm@ti.com>,
-	Andrew Davis <afd@ti.com>,
-	Roger Quadros <rogerq@kernel.org>,
-	Siddharth Vadapalli <s-vadapalli@ti.com>,
-	Judith Mendez <jm@ti.com>,
-	Andrei Aldea <a-aldea@ti.com>,
-	Dhruva Gole <d-gole@ti.com>,
-	Jason Kridner <jkridner@beagleboard.org>,
-	Deepak Khatri <lorforlinux@beagleboard.org>,
-	Ayush Singh <ayush@beagleboard.org>
-Subject: [PATCH v3 2/2] arm64: dts: ti: Add k3-am62-pocketbeagle2
-Date: Tue, 15 Apr 2025 17:59:40 -0500
-Message-ID: <20250415225940.3899486-2-robertcnelson@gmail.com>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250415225940.3899486-1-robertcnelson@gmail.com>
-References: <20250415225940.3899486-1-robertcnelson@gmail.com>
+	Tue, 15 Apr 2025 23:01:30 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 16373353;
+	Wed, 16 Apr 2025 00:59:23 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1744757963;
+	bh=reONu9DCX8yIdj7GLfXXkccHOkCnNJe0Ef9D9h6QGQk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=LNinphU21VM8OFnnSnZNbt5K+oDpNQ119G58IJinl3fPGKbpdtvWtuwTZNeC4uVwP
+	 zDUZYnkigre8k9BnHfz0utab+c0D7EoR7/Bq2dh/mlLw9pv+KOD0yWcF4k9fYySv4X
+	 g0VC6PFm+O/41wyVA4Q2yQinKO8r452Bwp7rsM8U=
+Date: Wed, 16 Apr 2025 02:01:24 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Marco Felsch <m.felsch@pengutronix.de>
+Cc: POPESCU Catalin <catalin.popescu@leica-geosystems.com>,
+	Jai Luthra <jai.luthra@ideasonboard.com>,
+	Shawn Guo <shawnguo2@yeah.net>, "robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"shawnguo@kernel.org" <shawnguo@kernel.org>,
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	GEO-CHHER-bsp-development <bsp-development.geo@leica-geosystems.com>,
+	"stefan.klug@ideasonboard.com" <stefan.klug@ideasonboard.com>
+Subject: Re: [PATCH] arm64: dts: imx8mp: add cpuidle state "cpu-pd-wait"
+Message-ID: <20250415230124.GJ9439@pendragon.ideasonboard.com>
+References: <20241007134424.859467-1-catalin.popescu@leica-geosystems.com>
+ <ZxYiCv6SpLq9uh08@dragon>
+ <qqi2z7wutuy7e6o5fhpzsgfwkyn4quqmdeftl24meld72sudpg@lo3qpk4x7lbv>
+ <d6852cf6-e8a0-49b8-a565-2d94eeef67d9@leica-geosystems.com>
+ <20250415154724.GG9439@pendragon.ideasonboard.com>
+ <20250415155239.GH9439@pendragon.ideasonboard.com>
+ <20250415181423.qderfey4wpmp2bjm@pengutronix.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250415181423.qderfey4wpmp2bjm@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_155948_352528_F57447FF 
-X-CRM114-Status: GOOD (  16.46  )
+X-CRM114-CacheID: sfid-20250415_160129_465568_2C91B941 
+X-CRM114-Status: GOOD (  35.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,597 +85,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-BeagleBoard.org PocketBeagle 2 is an upgraded version of the popular
-PocketBeagle.  It is based on Texas Instruments AM6232 or AM6254 SoC.
-Its dual or quad A53 cores can provide higher performance than classic
-PocketBeagle. The new design comes with pre-soldered headers, a 3-pin
-JST-SH 1.00mm UART debug port, a USB-C port, Texas Instruments
-MSPM0L1105 Cortex-M0+ MCU for ADC, 512MB RAM, and a LiPo Battery charger.
+Hi Marco,
 
-MSPM0L1105 firmware source: https://openbeagle.org/pocketbeagle/mspm0-adc-eeprom
-* EEPROM 24c32 emulation
-* ADC ad7291 emulation
+On Tue, Apr 15, 2025 at 08:14:23PM +0200, Marco Felsch wrote:
+> On 25-04-15, Laurent Pinchart wrote:
+> > On Tue, Apr 15, 2025 at 06:47:26PM +0300, Laurent Pinchart wrote:
+> > > On Tue, Apr 15, 2025 at 03:42:22PM +0000, POPESCU Catalin wrote:
+> > > > Hi Jai,
+> > > > 
+> > > > This issue was already reported by Stefan. The problem is that I don't 
+> > > > have a Debix board to investigate.
+> > > > The main difference b/w WFI and cpu-pd-wait is that the first doesn't 
+> > > > call PSCI/TF-A. So, the issue looks to be related to some settings in 
+> > > > the TF-A.
+> > > 
+> > > Jai, are you using mainline U-Boot and TF-A, or a downstream version of
+> > > either (or both) ?
+> > 
+> > Actually, same question for Calatin :-)
+> > 
+> > I'm running mainline U-Boot 2025.01 and TF-A rel_imx_5.4.70_2.3.6 (from
+> > https://github.com/nxp-imx/imx-atf) and don't seem to experience the
+> > issue:
+> 
+> Interessting, can you share your imx-atf build-config please?
 
-https://www.beagleboard.org/boards/pocketbeagle-2
-https://openbeagle.org/pocketbeagle/pocketbeagle-2
+I've followed the instructions in the doc/board/nxp/imx8mp_evk.rst file
+(in the U-Boot source):
 
-Signed-off-by: Robert Nelson <robertcnelson@gmail.com>
-CC: Rob Herring <robh@kernel.org>
-CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
-CC: Conor Dooley <conor+dt@kernel.org>
-CC: Vignesh Raghavendra <vigneshr@ti.com>
-CC: Nishanth Menon <nm@ti.com>
-CC: Andrew Davis <afd@ti.com>
-CC: Roger Quadros <rogerq@kernel.org>
-CC: Siddharth Vadapalli <s-vadapalli@ti.com>
-CC: Judith Mendez <jm@ti.com>
-CC: Andrei Aldea <a-aldea@ti.com>
-CC: Dhruva Gole <d-gole@ti.com>
-CC: Jason Kridner <jkridner@beagleboard.org>
-CC: Deepak Khatri <lorforlinux@beagleboard.org>
-CC: Ayush Singh <ayush@beagleboard.org>
----
-Changes since v2:
- - cleanup unused serial aliases
- - cleanup unused sdhci0 (un-populated) aliases
- - cleanup unused main_i2c1 (un-populated) aliases
- - add missing main_i2c0 aliases
- - fix bootph, function, color, gpios order in leds nodes
- - drop local cpsw disable, needs to be moved to k3-am62-main
- - MSPM0L1105 add firmware source and note where emulated
- - usb0 add note about Type-C connector, but only wired for USB 2.0
- - usb1 add compatible note with original PocketBeagle expansion boards
-Changes since v1:
- - fix '_' in main-i2c2-default-pins
- - aliases i2c match original pocketbeagle
- - add mcu_m4fss with reseved memory and mailbox
- - drop unused main_gpio0_pins_default pinmux
- - drop unused main_gpio1_pins_default pinmux
- - drop unused main_spi2_pins_gpio pinmux
- - Reserve 128MiB of global CMA
----
- arch/arm64/boot/dts/ti/Makefile               |   1 +
- .../boot/dts/ti/k3-am62-pocketbeagle2.dts     | 518 ++++++++++++++++++
- 2 files changed, 519 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts
+```
+Get and Build the ARM Trusted firmware
+--------------------------------------
 
-diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-index 03d4cecfc001..4f8fcb69a2c1 100644
---- a/arch/arm64/boot/dts/ti/Makefile
-+++ b/arch/arm64/boot/dts/ti/Makefile
-@@ -27,6 +27,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-wifi-yavia.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am62x-phyboard-lyra-gpio-fan.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am62-lp-sk.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am62-lp-sk-nand.dtbo
-+dtb-$(CONFIG_ARCH_K3) += k3-am62-pocketbeagle2.dtb
- 
- # Boards with AM62Ax SoC
- dtb-$(CONFIG_ARCH_K3) += k3-am62a7-sk.dtb
-diff --git a/arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts b/arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts
-new file mode 100644
-index 000000000000..50d8d9a076a0
---- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts
-@@ -0,0 +1,518 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * https://www.beagleboard.org/boards/pocketbeagle-2
-+ *
-+ * Copyright (C) 2025 Texas Instruments Incorporated - https://www.ti.com/
-+ * Copyright (C) 2025 Robert Nelson, BeagleBoard.org Foundation
-+ */
-+
-+/dts-v1/;
-+
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/input/input.h>
-+#include "k3-am625.dtsi"
-+
-+/ {
-+	compatible = "beagle,am62-pocketbeagle2", "ti,am625";
-+	model = "BeagleBoard.org PocketBeagle2";
-+
-+	aliases {
-+		serial0 = &wkup_uart0;
-+		serial1 = &main_uart1;
-+		serial2 = &main_uart6;
-+		serial3 = &main_uart0;
-+		mmc1 = &sdhci1;
-+		usb0 = &usb0;
-+		usb1 = &usb1;
-+		i2c0 = &main_i2c0;
-+		i2c2 = &main_i2c2;
-+		i2c3 = &wkup_i2c0;
-+	};
-+
-+	chosen {
-+		stdout-path = &main_uart6;
-+	};
-+
-+	memory@80000000 {
-+		/* 512MB RAM */
-+		reg = <0x00000000 0x80000000 0x00000000 0x20000000>;
-+		device_type = "memory";
-+		bootph-pre-ram;
-+	};
-+
-+	reserved_memory: reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		/* global cma region */
-+		linux,cma {
-+			compatible = "shared-dma-pool";
-+			reusable;
-+			size = <0x00 0x8000000>;
-+			linux,cma-default;
-+		};
-+
-+		mcu_m4fss_dma_memory_region: m4f-dma-memory@9cb00000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x9cb00000 0x00 0x100000>;
-+			no-map;
-+		};
-+
-+		mcu_m4fss_memory_region: m4f-memory@9cc00000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x9cc00000 0x00 0xe00000>;
-+			no-map;
-+		};
-+
-+		secure_tfa_ddr: tfa@9e780000 {
-+			reg = <0x00 0x9e780000 0x00 0x80000>;
-+			alignment = <0x1000>;
-+			no-map;
-+		};
-+
-+		secure_ddr: optee@9e800000 {
-+			reg = <0x00 0x9e800000 0x00 0x01800000>;
-+			alignment = <0x1000>;
-+			no-map;
-+		};
-+
-+		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9db00000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x9db00000 0x00 0xc00000>;
-+			no-map;
-+		};
-+	};
-+
-+	vsys_5v0: regulator-1 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vsys_5v0";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+		bootph-all;
-+	};
-+
-+	vdd_3v3: regulator-2 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vdd_3v3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vsys_5v0>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+		bootph-all;
-+	};
-+
-+	vdd_mmc1: regulator-3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vdd_mmc1";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&vdd_3v3_sd_pins_default>;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-boot-on;
-+		enable-active-high;
-+		regulator-always-on;
-+		vin-supply = <&vdd_3v3>;
-+		gpio = <&main_gpio0 0 GPIO_ACTIVE_HIGH>;
-+		bootph-all;
-+	};
-+
-+	vdd_sd_dv: regulator-4 {
-+		compatible = "regulator-gpio";
-+		regulator-name = "sd_hs200_switch";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&vdd_sd_dv_pins_default>;
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-boot-on;
-+		vin-supply = <&vdd_3v3>;
-+		gpios = <&main_gpio1 49 GPIO_ACTIVE_HIGH>;
-+		states = <1800000 0x0>,
-+			 <3300000 0x1>;
-+		bootph-all;
-+	};
-+
-+	adc_vref: regulator-5 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "default";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-boot-on;
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&led_pins_default>;
-+		bootph-all;
-+
-+		led-1 {
-+			function = LED_FUNCTION_HEARTBEAT;
-+			color = <LED_COLOR_ID_GREEN>;
-+			linux,default-trigger = "heartbeat";
-+			gpios = <&main_gpio0 6 GPIO_ACTIVE_HIGH>;
-+			default-state = "on";
-+			bootph-all;
-+		};
-+
-+		led-2 {
-+			function = LED_FUNCTION_DISK_ACTIVITY;
-+			color = <LED_COLOR_ID_GREEN>;
-+			linux,default-trigger = "mmc1";
-+			gpios = <&main_gpio0 5 GPIO_ACTIVE_HIGH>;
-+			default-state = "on";
-+			bootph-all;
-+		};
-+
-+		led-3 {
-+			function = LED_FUNCTION_INDICATOR;
-+			color = <LED_COLOR_ID_GREEN>;
-+			gpios = <&main_gpio0 4 GPIO_ACTIVE_HIGH>;
-+			default-state = "off";
-+			bootph-all;
-+		};
-+
-+		led-4 {
-+			function = LED_FUNCTION_INDICATOR;
-+			color = <LED_COLOR_ID_GREEN>;
-+			gpios = <&main_gpio0 3 GPIO_ACTIVE_HIGH>;
-+			default-state = "off";
-+			bootph-all;
-+		};
-+	};
-+};
-+
-+&main_pmx0 {
-+	led_pins_default: led-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x000c, PIN_OUTPUT, 7) /* (E25) OSPI0_D0.GPIO0_3 */
-+			AM62X_IOPAD(0x0010, PIN_OUTPUT, 7) /* (G24) OSPI0_D1.GPIO0_4 */
-+			AM62X_IOPAD(0x0014, PIN_OUTPUT, 7) /* (F25) OSPI0_D2.GPIO0_5 */
-+			AM62X_IOPAD(0x0018, PIN_OUTPUT, 7) /* (F24) OSPI0_D3.GPIO0_6 */
-+		>;
-+		bootph-all;
-+	};
-+
-+	main_i2c0_pins_default: main-i2c0-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x01e0, PIN_INPUT_PULLUP, 0) /* (B16) I2C0_SCL */
-+			AM62X_IOPAD(0x01e4, PIN_INPUT_PULLUP, 0) /* (A16) I2C0_SDA */
-+		>;
-+		bootph-all;
-+	};
-+
-+	main_i2c2_pins_default: main-i2c2-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x00b0, PIN_INPUT_PULLUP, 1) /* (K22) GPMC0_CSn2.I2C2_SCL */
-+			AM62X_IOPAD(0x00b4, PIN_INPUT_PULLUP, 1) /* (K24) GPMC0_CSn3.I2C2_SDA */
-+		>;
-+		bootph-all;
-+	};
-+
-+	main_uart0_pins_default: main-uart0-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x1c8, PIN_INPUT, 0) /* (D14/A13) UART0_RXD */
-+			AM62X_IOPAD(0x1cc, PIN_OUTPUT, 0) /* (E14/E11) UART0_TXD */
-+		>;
-+		bootph-all;
-+	};
-+
-+	main_uart1_pins_default: main-uart1-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x194, PIN_INPUT, 2) /* (B19/B18) MCASP0_AXR3.UART1_CTSn */
-+			AM62X_IOPAD(0x198, PIN_OUTPUT, 2) /* (A19/B17) MCASP0_AXR2.UART1_RTSn */
-+			AM62X_IOPAD(0x1ac, PIN_INPUT, 2) /* (E19/D15) MCASP0_AFSR.UART1_RXD */
-+			AM62X_IOPAD(0x1b0, PIN_OUTPUT, 2) /* (A20/D16) MCASP0_ACLKR.UART1_TXD */
-+		>;
-+		bootph-all;
-+	};
-+
-+	main_uart6_pins_default: main-uart6-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x001c, PIN_INPUT, 3) /* (J23) OSPI0_D4.UART6_RXD */
-+			AM62X_IOPAD(0x0020, PIN_OUTPUT, 3) /* (J25) OSPI0_D5.UART6_TXD */
-+		>;
-+	};
-+
-+	main_mmc1_pins_default: main-mmc1-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x23c, PIN_INPUT, 0) /* (A21/C18) MMC1_CMD */
-+			AM62X_IOPAD(0x234, PIN_INPUT, 0) /* (B22/A20) MMC1_CLK */
-+			AM62X_IOPAD(0x230, PIN_INPUT, 0) /* (A22/A19) MMC1_DAT0 */
-+			AM62X_IOPAD(0x22c, PIN_INPUT, 0) /* (B21/B19) MMC1_DAT1 */
-+			AM62X_IOPAD(0x228, PIN_INPUT, 0) /* (C21/B20) MMC1_DAT2 */
-+			AM62X_IOPAD(0x224, PIN_INPUT, 0) /* (D22/C19) MMC1_DAT3 */
-+			AM62X_IOPAD(0x240, PIN_INPUT, 7) /* (D17/C15) MMC1_SDCD.GPIO1_48 */
-+		>;
-+		bootph-all;
-+	};
-+
-+	vdd_sd_dv_pins_default: vdd-sd-dv-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x0244, PIN_OUTPUT, 7) /* (P25) GPMC0_CLK.GPIO1_49 */
-+		>;
-+		bootph-all;
-+	};
-+
-+	pmic_irq_pins_default: pmic-irq-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x01f4, PIN_INPUT_PULLUP, 0) /* (D16) EXTINTn */
-+		>;
-+		bootph-all;
-+	};
-+
-+	vdd_3v3_sd_pins_default: vdd-3v3-sd-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x0000, PIN_OUTPUT, 7) /* (H24) OSPI0_CLK.GPIO0_0 */
-+		>;
-+		bootph-all;
-+	};
-+
-+	usb1_pins_default: usb1-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x0258, PIN_INPUT, 0) /* (F18) USB1_DRVVBUS */
-+		>;
-+		bootph-all;
-+	};
-+
-+	epwm2_pins_default: epwm2-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x01e8, PIN_OUTPUT, 8) /* (B17) I2C1_SCL.EHRPWM2_A */
-+		>;
-+	};
-+};
-+
-+&epwm2 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&epwm2_pins_default>;
-+};
-+
-+&mailbox0_cluster0 {
-+	mbox_m4_0: mbox-m4-0 {
-+		ti,mbox-rx = <0 0 0>;
-+		ti,mbox-tx = <1 0 0>;
-+	};
-+};
-+
-+&main_uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_uart0_pins_default>;
-+	bootph-all;
-+	status = "okay";
-+};
-+
-+&main_uart1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_uart1_pins_default>;
-+	bootph-pre-ram;
-+	status = "reserved";
-+};
-+
-+&main_uart6 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_uart6_pins_default>;
-+	bootph-all;
-+	status = "okay";
-+};
-+
-+&main_i2c0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_i2c0_pins_default>;
-+	clock-frequency = <400000>;
-+	bootph-all;
-+	status = "okay";
-+
-+	ad7291: adc@20 {
-+		/* Emulated with MSPM0L1105 */
-+		compatible = "adi,ad7291";
-+		reg = <0x20>;
-+		vref-supply = <&adc_vref>;
-+	};
-+
-+	eeprom: eeprom@50 {
-+		/* Emulated with MSPM0L1105 */
-+		compatible = "atmel,24c32";
-+		reg = <0x50>;
-+	};
-+};
-+
-+&main_i2c2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_i2c2_pins_default>;
-+	clock-frequency = <400000>;
-+	bootph-all;
-+	status = "okay";
-+};
-+
-+&mcu_m4fss {
-+	mboxes = <&mailbox0_cluster0 &mbox_m4_0>;
-+	memory-region = <&mcu_m4fss_dma_memory_region>,
-+			<&mcu_m4fss_memory_region>;
-+	status = "okay";
-+};
-+
-+&mcu_pmx0 {
-+	wkup_uart0_pins_default: wkup-uart0-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_MCU_IOPAD(0x02c, PIN_INPUT, 0)	/* (C6/A7) WKUP_UART0_CTSn */
-+			AM62X_MCU_IOPAD(0x030, PIN_OUTPUT, 0)	/* (A4/B4) WKUP_UART0_RTSn */
-+			AM62X_MCU_IOPAD(0x024, PIN_INPUT, 0)	/* (B4/B5) WKUP_UART0_RXD */
-+			AM62X_MCU_IOPAD(0x028, PIN_OUTPUT, 0)	/* (C5/C6) WKUP_UART0_TXD */
-+		>;
-+		bootph-all;
-+	};
-+
-+	wkup_i2c0_pins_default: wkup-i2c0-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_MCU_IOPAD(0x004c, PIN_INPUT_PULLUP, 0)	/* (B9) WKUP_I2C0_SCL */
-+			AM62X_MCU_IOPAD(0x0050, PIN_INPUT_PULLUP, 0)	/* (A9) WKUP_I2C0_SDA */
-+		>;
-+		bootph-all;
-+	};
-+};
-+
-+&sdhci1 {
-+	/* SD/MMC */
-+	vmmc-supply = <&vdd_mmc1>;
-+	vqmmc-supply = <&vdd_sd_dv>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_mmc1_pins_default>;
-+	disable-wp;
-+	cd-gpios = <&main_gpio1 48 GPIO_ACTIVE_LOW>;
-+	cd-debounce-delay-ms = <100>;
-+	bootph-all;
-+	ti,fails-without-test-cd;
-+	status = "okay";
-+};
-+
-+&usbss0 {
-+	bootph-all;
-+	ti,vbus-divider;
-+	status = "okay";
-+};
-+
-+&usb0 {
-+	/* This is a Type-C socket, but wired as USB 2.0 */
-+	dr_mode = "peripheral";
-+	bootph-all;
-+};
-+
-+&usbss1 {
-+	ti,vbus-divider;
-+	status = "okay";
-+};
-+
-+&usb1 {
-+	/* Compatible with original PocketBeagle, expansion boards assumed this was pre-setup as host */
-+	dr_mode = "host";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&usb1_pins_default>;
-+};
-+
-+&wkup_uart0 {
-+	/* WKUP UART0 is used by Device Manager firmware */
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&wkup_uart0_pins_default>;
-+	bootph-all;
-+	status = "reserved";
-+};
-+
-+&wkup_i2c0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&wkup_i2c0_pins_default>;
-+	clock-frequency = <100000>;
-+	bootph-all;
-+	status = "okay";
-+
-+	tps65219: pmic@30 {
-+		compatible = "ti,tps65219";
-+		reg = <0x30>;
-+		buck1-supply = <&vsys_5v0>;
-+		buck2-supply = <&vsys_5v0>;
-+		buck3-supply = <&vsys_5v0>;
-+		ldo1-supply = <&vdd_3v3>;
-+		ldo2-supply = <&buck2_reg>;
-+		ldo3-supply = <&vdd_3v3>;
-+		ldo4-supply = <&vdd_3v3>;
-+
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pmic_irq_pins_default>;
-+		interrupt-parent = <&gic500>;
-+		interrupts = <GIC_SPI 224 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-controller;
-+		#interrupt-cells = <1>;
-+
-+		bootph-all;
-+		system-power-controller;
-+		ti,power-button;
-+
-+		regulators {
-+			buck1_reg: buck1 {
-+				regulator-name = "VDD_CORE";
-+				regulator-min-microvolt = <850000>;
-+				regulator-max-microvolt = <850000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			buck2_reg: buck2 {
-+				regulator-name = "VDD_1V8";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			buck3_reg: buck3 {
-+				regulator-name = "VDD_1V2";
-+				regulator-min-microvolt = <1200000>;
-+				regulator-max-microvolt = <1200000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			ldo1_reg: ldo1 {
-+				/*
-+				 * Regulator is left as is unused, vdd_sd
-+				 * is controlled via GPIO with bypass config
-+				 * as per the NVM configuration
-+				 */
-+				regulator-name = "VDD_SD_3V3";
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-allow-bypass;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			ldo2_reg: ldo2 {
-+				regulator-name = "VDDA_0V85";
-+				regulator-min-microvolt = <850000>;
-+				regulator-max-microvolt = <850000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			ldo3_reg: ldo3 {
-+				regulator-name = "VDDA_1V8";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			ldo4_reg: ldo4 {
-+				regulator-name = "VDD_2V5";
-+				regulator-min-microvolt = <2500000>;
-+				regulator-max-microvolt = <2500000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+		};
-+	};
-+};
+Get ATF from: https://github.com/nxp-imx/imx-atf
+branch: imx_5.4.70_2.3.0
+
+.. code-block:: bash
+
+   $ make PLAT=imx8mp bl31
+```
+
+I had to patch the TF-A makefile as follows to fix errors with recent
+versions of gcc:
+
+```
+diff --git a/Makefile b/Makefile
+index 2ae12fda741a..46512993c6e0 100644
+--- a/Makefile
++++ b/Makefile
+@@ -285,7 +285,8 @@ ASFLAGS			+=	$(CPPFLAGS) $(ASFLAGS_$(ARCH))			\
+ 				-ffreestanding -Wa,--fatal-warnings
+ TF_CFLAGS		+=	$(CPPFLAGS) $(TF_CFLAGS_$(ARCH))		\
+ 				-ffreestanding -fno-builtin -Wall -std=gnu99	\
+-				-Os -ffunction-sections -fdata-sections
++				-Os -ffunction-sections -fdata-sections		\
++				-Wno-error=array-bounds
+
+ ifeq (${SANITIZE_UB},on)
+ TF_CFLAGS		+=	-fsanitize=undefined -fno-sanitize-recover
+@@ -300,9 +301,11 @@ GCC_V_OUTPUT		:=	$(shell $(CC) -v 2>&1)
+ ifneq ($(findstring armlink,$(notdir $(LD))),)
+ TF_LDFLAGS		+=	--diag_error=warning --lto_level=O1
+ TF_LDFLAGS		+=	--remove --info=unused,unusedsymbols
++TF_LDFLAGS		+=	-Wl,--no-warn-rwx-segment
+ else
+ TF_LDFLAGS		+=	--fatal-warnings -O1
+ TF_LDFLAGS		+=	--gc-sections
++TF_LDFLAGS		+=	--no-warn-rwx-segment
+ endif
+ TF_LDFLAGS		+=	$(TF_LDFLAGS_$(ARCH))
+
+```
+
+> I checked the code base and found a missing SLPCR_A53_FASTWUP_STOP_MODE
+> during the imx_set_sys_lpm() which is called during
+> .pwr_domain_suspend(). Can you check/trace if pwr_domain_suspend() was
+> entered?
+
+I'm no TF-A expert, can you tell me how to check/trace that ?
+
+> > # cat /sys/devices/system/cpu/cpu*/cpuidle/state1/disable
+> > 0
+> > 0
+> > 0
+> > 0
+> > 
+> > $ ping debix
+> > PING debix.farm.ideasonboard.com (192.168.2.230) 56(84) bytes of data.
+> > 64 bytes from debix.farm.ideasonboard.com (192.168.2.230): icmp_seq=1 ttl=64 time=1.03 ms
+> > 64 bytes from debix.farm.ideasonboard.com (192.168.2.230): icmp_seq=2 ttl=64 time=0.800 ms
+> > 64 bytes from debix.farm.ideasonboard.com (192.168.2.230): icmp_seq=3 ttl=64 time=0.935 ms
+> > 64 bytes from debix.farm.ideasonboard.com (192.168.2.230): icmp_seq=4 ttl=64 time=0.902 ms
+> > 64 bytes from debix.farm.ideasonboard.com (192.168.2.230): icmp_seq=5 ttl=64 time=0.738 ms
+> > 64 bytes from debix.farm.ideasonboard.com (192.168.2.230): icmp_seq=6 ttl=64 time=0.939 ms
+> > 
+> > > > What I don't get is why I don't see this issue neither on our IMX8MP 
+> > > > specific design nor on the EVK, which uses the same PHY as the Debix board.
+> > > >
+> > > > On 14/04/2025 14:07, Jai Luthra wrote:
+> > > > > On Oct 21, 2024 at 17:42:34 +0800, Shawn Guo wrote:
+> > > > >> On Mon, Oct 07, 2024 at 03:44:24PM +0200, Catalin Popescu wrote:
+> > > > >>> So far, only WFI is supported on i.MX8mp platform. Add support for
+> > > > >>> deeper cpuidle state "cpu-pd-wait" that would allow for better power
+> > > > >>> usage during runtime. This is a port from NXP downstream kernel.
+> > > > >>>
+> > > > > Since the introduction of this patch in mainline, I am facing sluggish
+> > > > > network performance with my Debix Model-A board with i.MX8mp SoC.
+> > > > >
+> > > > > The network latency jumps to >1s after almost every other packet:
+> > > > >
+> > > > > PING debix (10.0.42.5) 56(84) bytes of data.
+> > > > > 64 bytes from debix (10.0.42.5): icmp_seq=1 ttl=64 time=1008 ms
+> > > > > 64 bytes from debix (10.0.42.5): icmp_seq=2 ttl=64 time=0.488 ms
+> > > > > 64 bytes from debix (10.0.42.5): icmp_seq=3 ttl=64 time=1025 ms
+> > > > > 64 bytes from debix (10.0.42.5): icmp_seq=4 ttl=64 time=0.810 ms
+> > > > > 64 bytes from debix (10.0.42.5): icmp_seq=5 ttl=64 time=590 ms
+> > > > > 64 bytes from debix (10.0.42.5): icmp_seq=6 ttl=64 time=0.351 ms
+> > > > > ^C
+> > > > > --- debix ping statistics ---
+> > > > > 7 packets transmitted, 6 received, 14.2857% packet loss, time 6126ms
+> > > > > rtt min/avg/max/mdev = 0.351/437.416/1024.755/459.370 ms, pipe 2
+> > > > > darkapex at freya in ~
+> > > > >
+> > > > > If I revert the patch, or disable the deeper cpuidle state through
+> > > > > sysfs, the issue goes away.
+> > > > >
+> > > > > # echo 1 > /sys/devices/system/cpu/cpu$i/cpuidle/state1/disable
+> > > > >
+> > > > > PING debix (10.0.42.5) 56(84) bytes of data.
+> > > > > 64 bytes from debix (10.0.42.5): icmp_seq=1 ttl=64 time=0.482 ms
+> > > > > 64 bytes from debix (10.0.42.5): icmp_seq=2 ttl=64 time=2.28 ms
+> > > > > 64 bytes from debix (10.0.42.5): icmp_seq=3 ttl=64 time=2.26 ms
+> > > > > 64 bytes from debix (10.0.42.5): icmp_seq=4 ttl=64 time=0.848 ms
+> > > > > 64 bytes from debix (10.0.42.5): icmp_seq=5 ttl=64 time=0.406 ms
+> > > > > ^C
+> > > > > --- debix ping statistics ---
+> > > > > 5 packets transmitted, 5 received, 0% packet loss, time 4051ms
+> > > > > rtt min/avg/max/mdev = 0.406/1.255/2.280/0.842 ms
+> > > > >
+> > > > >>> Signed-off-by: Catalin Popescu <catalin.popescu@leica-geosystems.com>
+> > > > >>
+> > > > >> Applied, thanks!
+
 -- 
-2.47.2
+Regards,
 
+Laurent Pinchart
 
