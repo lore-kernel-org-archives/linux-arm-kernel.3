@@ -4,209 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4514EC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 18:04:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93ED4C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 18:06:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n0V8VM2vyr//jKthe+a2qM6YYsx0QqQUIBlQneciM9E=; b=VplVw37SwQPNoN5FuiJ/96Moah
-	VSpJsMwh5KRHO74/QgIrnwQH8uoFPyiHqtQ+w2YZlFfZjIfhFQYaWeGUuUr2WdvvRxE/xzest9VW9
-	IzLiPUk0aEc4/AqlBCg9U018NxptXN9b4GorQw/zQ/esSyvwHMvoQ54kDLBA2cPCbwwDLAdd4V+DK
-	O+B8W8eSAd0lZxktskwx/jd5jXW+F1r+2fKJPEleeawdcScwtk8XmKZh/VhDYmoVat/TDRLQn44Pb
-	1LlEI24EtKnivN59WQ+4A8eRzGhsf15yig1DdJoCRHCw2+7LFhhyLK1XFVDzLb+oDlZHZOKfu+V5M
-	X9+agiKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3lEFBr2jj25xKXxpjoAqc/eJChB4FgEmoq37ynqaing=; b=K1N4JeybDhOcSlwUZt3GW5M1F8
+	+Dvjsq3alAjXdRwERuiHICtcvW0bm1PtYCbIklzOIkHrswAVTH25DSkZ+2Jh8/GLJ68F6Owf7eTpS
+	+K5F9Hiqd4aKovkMqwUu1anrbYHIvvfNcQG2vof9Zv2PFpvm451X6i1SlxOxNmNMZNw7NqB+WooJT
+	rJxvtbCoIM/llJJDSC9kHhCUpKzB+GeJFdWyA59wDdIe0iiEVvHpsadU6Foo28pDR17C7/BohmkyM
+	BljFvencIQTp5wg8GA4U5reuahK+4yLDoTeBPN9b9O+AVueb+EPAiP+KUt6wLVruqzgf1GDFn+VjL
+	PApT1Y0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4ke1-00000006fQ2-39sM;
-	Tue, 15 Apr 2025 18:04:25 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4kIu-00000006bwh-23oy
+	id 1u4kfq-00000006feg-1szc;
+	Tue, 15 Apr 2025 18:06:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u4kJY-00000006c5H-3VIO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 17:42:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1744738957; x=1776274957;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=44PzqW9Ay72BAL9LFocUkvg1BNz2FTbtOhD1rny5WBY=;
-  b=YTvcLhVMyuJkV/Mhw/hbXQwUJ3OmCaUV6ZXP5ujNA1Xd8cVLu/mH4DlT
-   l2Zm/xMp97IUX69fuQUFU4ZLviflqALNnP0PzEenGfrLtEhLCpU6pUD2j
-   QNq5oh5Uo934s5eQtb4zs1Ad9spPzi8OiWMc3hsXhomcpxVDmz4AIteER
-   ai5m/fmuG8nqGJ9R+BLhXDH86an/5CHOANFOP3x6WfO5BVDgqKlRJiXT/
-   feptG86/bNMdAO4+aCHNpzCMfScktx2Rhm6/GxWdldoOg35gN+uQFPyXH
-   VOjEoFEVElUW7xtLPcMyAZ73gABIgf5JAxhWJUaYT4+Qb4MEO4jGaZYTR
-   w==;
-X-CSE-ConnectionGUID: OwQOyswRQ9apS20WtUG+bQ==
-X-CSE-MsgGUID: UgW3am27RGuF4Kxa0esvkQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11404"; a="63665258"
-X-IronPort-AV: E=Sophos;i="6.15,213,1739865600"; 
-   d="scan'208";a="63665258"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Apr 2025 10:42:35 -0700
-X-CSE-ConnectionGUID: CUzYZ+JyT0K6H3f+QShRnQ==
-X-CSE-MsgGUID: VhQCG+ojSu+WFzf1GdRMEw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,213,1739865600"; 
-   d="scan'208";a="130726378"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by orviesa007.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Apr 2025 10:42:34 -0700
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Tue, 15 Apr 2025 10:42:33 -0700
-Received: from ORSEDG601.ED.cps.intel.com (10.7.248.6) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14 via Frontend Transport; Tue, 15 Apr 2025 10:42:33 -0700
-Received: from NAM10-MW2-obe.outbound.protection.outlook.com (104.47.55.40) by
- edgegateway.intel.com (134.134.137.102) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.44; Tue, 15 Apr 2025 10:42:33 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MEwmWXWeDMa7loR+ZzxGpypumCtV2WSK41HytSJsMJPDEFsotS6wNGN+xhx4RUXsiEbEJKQttiVY7IoR/yrUhe8dMOGGOTi0JJ2M8oXxl/EXO81S5e4B6ciScr7OL8Hh38Ms830CV57Lgfjbf/zyljXdTOgvpFaDiXpnsd4s0wHlraRQIStFZfttLTQg331Py9KVfKsL/OkdXJoQ6LLdDvE/6I7m5cQijQ+BGp8JdVtH9nGQJT1wvY8wgzzoEsfzOBAsJEuA7bmQWb/mG9TUMLFHFKTU9El6uuZatrANAj05vTU0jXIQ/R7O1oUnokAXijRJ0BCX89Dhj+oj1Kvimg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=n0V8VM2vyr//jKthe+a2qM6YYsx0QqQUIBlQneciM9E=;
- b=nYvm/8GR/Dtyr1/pgV6/RdM9giT5uQ7yVKr8VaEhmTF/q14P65sHblR/GHUTfwIUruoYUxmvB5SbR299vuf5S121ddsu82TmBt1AOqyrsSPH+XUVC3VKJYCrP0m5f5LRq1bgQgnXwObOdOhro4rsvVCbEKpGjV5px7K6gpnblghjcZl+7MBtwF3mx9SNSxGzV4Z9dHu6b9gsMtHMWXLlVJi1X+fHXKlXNjHlcEfTs2TLkkNL9sdScXTsZ0+GBQnc1iKQ/GEJZlV+FQ/87xo2mmfxL707j452K8mrNwerdwKaZri+BpiT8V2MmLYwyMFq3ysrm7iZcstAJX4+ELtw0g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from CO1PR11MB5089.namprd11.prod.outlook.com (2603:10b6:303:9b::16)
- by SA0PR11MB4607.namprd11.prod.outlook.com (2603:10b6:806:9b::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.35; Tue, 15 Apr
- 2025 17:42:29 +0000
-Received: from CO1PR11MB5089.namprd11.prod.outlook.com
- ([fe80::7de8:e1b1:a3b:b8a8]) by CO1PR11MB5089.namprd11.prod.outlook.com
- ([fe80::7de8:e1b1:a3b:b8a8%4]) with mapi id 15.20.8632.025; Tue, 15 Apr 2025
- 17:42:29 +0000
-Message-ID: <0cd1637c-91b7-4029-b3df-143b7c9e02ef@intel.com>
-Date: Tue, 15 Apr 2025 10:42:27 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v4 2/3] net: ti: icssg-prueth: Fix possible NULL
- pointer dereference inside emac_xmit_xdp_frame()
-To: Meghana Malladi <m-malladi@ti.com>, <dan.carpenter@linaro.org>,
-	<javier.carrasco.cruz@gmail.com>, <diogo.ivo@siemens.com>,
-	<horms@kernel.org>, <john.fastabend@gmail.com>, <hawk@kernel.org>,
-	<daniel@iogearbox.net>, <ast@kernel.org>, <richardcochran@gmail.com>,
-	<pabeni@redhat.com>, <kuba@kernel.org>, <edumazet@google.com>,
-	<davem@davemloft.net>, <andrew+netdev@lunn.ch>
-CC: <bpf@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<srk@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Roger Quadros
-	<rogerq@kernel.org>, <danishanwar@ti.com>
-References: <20250415090543.717991-1-m-malladi@ti.com>
- <20250415090543.717991-3-m-malladi@ti.com>
-Content-Language: en-US
-From: Jacob Keller <jacob.e.keller@intel.com>
-In-Reply-To: <20250415090543.717991-3-m-malladi@ti.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MW4PR04CA0343.namprd04.prod.outlook.com
- (2603:10b6:303:8a::18) To CO1PR11MB5089.namprd11.prod.outlook.com
- (2603:10b6:303:9b::16)
+	Tue, 15 Apr 2025 17:43:18 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C053515A1;
+	Tue, 15 Apr 2025 10:43:13 -0700 (PDT)
+Received: from [10.57.86.225] (unknown [10.57.86.225])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 736E03F59E;
+	Tue, 15 Apr 2025 10:43:14 -0700 (PDT)
+Message-ID: <30b6c851-993a-42a2-be71-9748faa2eb4d@arm.com>
+Date: Tue, 15 Apr 2025 18:43:12 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PR11MB5089:EE_|SA0PR11MB4607:EE_
-X-MS-Office365-Filtering-Correlation-Id: bde7e469-4527-4641-dba2-08dd7c44e4e3
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|921020|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?WjJVeGJrN25qSzJUNGxLSEcwV2pmc0R4SXJiUWtSenhDcDdOK3pSWUtKa0ZQ?=
- =?utf-8?B?dk9hRTJSdU8rNSsyU1FBMlpLZTEvY1ByK2laUGtwS0dmaFRlWnFIckU2aHkr?=
- =?utf-8?B?ZDFRME53VU1JdDFtTXkzSDJSbS93bWQvUXlQN243UUlLS1FGcWd0QWdYV284?=
- =?utf-8?B?Tm5PQmJsc0VNeEIwekcxWkhvcHVTNWVjY1c1cjNLallLV1MzZlRVVldrN2cw?=
- =?utf-8?B?cVRlMCtQOFJBbXN3WDdrN01QL0VWUTdKZjRJSE1XV1BINVkvdEpHVDN1RTA5?=
- =?utf-8?B?cWdxdzdOWGpQTm9RNnBUMXl4cVd0bzhlWFE0ZG1XRzZ0RVhGQjdjQjhCSDN2?=
- =?utf-8?B?U0pBeDVXcWNyaTBHeU5kRG13bHpqR3ZaTHluQ2hUN3VHdzN4TUN5b0pSUUhE?=
- =?utf-8?B?Tkc1RDRCbmZwRzRnTDVZZUpOR2xpMlhMS1dCR3J0WElWQms3ODBTSVJKdDNX?=
- =?utf-8?B?SzlIcnR5NE12eWhHTjNDUy93Tzk2SWJzNk9mSEladHJsNXZQTGZpSm10SFZz?=
- =?utf-8?B?YmNKbjk0UDk5M3FqVjFiYlRDT0xucGxBMmJUc1d2UXFkZFV2SWs3aUR1aHp1?=
- =?utf-8?B?WUlzd3puc25XQnF4c1hpRTg5SUV6dGRyb0VweWFlaFdKRXNzZFpQemwwRjNy?=
- =?utf-8?B?NEFsd21TblVKVkFaaERBb3ZBdk4yMmtsWUQyY2hGeWMzbmV1WWNNSlIrSU10?=
- =?utf-8?B?NnRHVWdJbjhDcm1ackMydnNReXV1T2ZIY3p1bmNhdTVaNHBJclpwMFI5ZDhZ?=
- =?utf-8?B?ZUhFZUcwMFlMeFd3QTh3bkZoWmM4bVJ5V0lna2x2eE1vM2xTSEt1dm1RRFo0?=
- =?utf-8?B?TjlsVCtCWW9abGhUMzlKN3Rub2s1WHhwV1FDb1VoUTMzdENrY1o5S0pXOXVj?=
- =?utf-8?B?eU9OMUhkTThsY2pEbnViZ2dKZmVpaW8vbHRoQnRwbTN3eGZGWlgwZ2x0dVVT?=
- =?utf-8?B?dFhsMldPdEZ0MXJ2eHlpdkp4Y2xpSjdtcVJHdFk0dE5pOUNrVDhXNG9CRGhv?=
- =?utf-8?B?bHBWa3I1eXRoNWVIQ21LRTRYVkNaV2lIVmFCU2JJSlY5NWtEdEhrU2VsRXdm?=
- =?utf-8?B?ckVKYm9rRVQzZjBXRGJDaHFjWk5zRWFEandPL1lzZW5keUFveW10eEh4L0lM?=
- =?utf-8?B?Z3lpSFFVUGY0SlBhOFhCN09lTzR0QjJNVnZQVHdURHNVTjJDeWozNnltNkQ4?=
- =?utf-8?B?NTBzdTlPT2F3U0gyQ3orK3A3TEtHOWNmK0hrQkd0TjUzRlJzQ01TNi94QXl0?=
- =?utf-8?B?TXhHcnFsQ2pTcmtaM3cxZ2JSWEVXTXQvVXdjR2JhS1RWZzYyQ3FMWk14bWpD?=
- =?utf-8?B?TWlza3lZSFl1L3NxYnRSTExzWTM5TjVUdkdLWXhtRExqcGlMdnRDRFJRVExk?=
- =?utf-8?B?Unk5eTN0enlRbGJuU0xqb3lwbFllRUpIcEo0WGl6UDFmeW1Bb0VlbGYvZVI2?=
- =?utf-8?B?TjBmUDRHZW5CRTB2c25zdHhnMCtSSHpJYjIyRFdZZHRvcHh3MWpsaWVlNGVI?=
- =?utf-8?B?bnNLNWxXNHkzSEoyMW92cW0rMjUyeW8vUGhzZXlSZUF0azlWMTRablZDbkJ0?=
- =?utf-8?B?ZUI2L2MrWWdib3RlWnBYV05qUGpVUFljUUlLMzhQMzY1WXZtZ0ZvZGN5SUN5?=
- =?utf-8?B?amxmM0RweVdzWTdiZ3ZnYnAvWDZxV2ZlNHE1dWxYcXJUQm9OR3o0TnU3SWk0?=
- =?utf-8?B?VHZ2czdKRlAyelM4cUg2SGdnOE1VcHE0MVBvQlFieDFiVUFDVytiUHplSlRH?=
- =?utf-8?B?YWhhMlUwZmVnSXZOV2lVODhMM1hyT2RRMWg4eXE4K1c5cHZLMzd5K3FoQ05O?=
- =?utf-8?B?QUltWnViYnQzb2xrQkRhalBVdUhxRWZSY0FMQ2tMcXZEdjJJbVN3V1l5aWxQ?=
- =?utf-8?B?bVBqRG02N1ZkNTQ5NXFRQ3NOaDZ3NHg5S3o4cUR0WHFPVnRRMkphOUNLL0ti?=
- =?utf-8?B?ejdlUThjQXQySm54QW1oZ3E2Nm5mZW8yd05xYnNGdWRzWTQ3RUc0dHV4Wkha?=
- =?utf-8?B?QS9vOEh6OU5RPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5089.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(921020)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aVlaSXFMejMyb29paCtXa29vMWR2OVNIYWxDbld0dXE5eU1WU3ZIUVlwLzBW?=
- =?utf-8?B?Q0pMUFZZVElSaGFJM28zS1UvbFgwY0t5d0psazNvVUtiZ0hxWkhXM05VYldF?=
- =?utf-8?B?ZURydWI3WWU3YUoxWDJwMFh3K29GT1J4dXErY1BpNHl5aUM4Q1ZsYm1mK3dt?=
- =?utf-8?B?OHRwVXQ5aTBTSzZMeW51NjVoOVI5eWR2Z1NyQ2NaVW11STZYRDJ4ZFIzbmgy?=
- =?utf-8?B?dVN1ZTMxb1Q0SGFLMitac1FkODFPKzdCVlkwclNXWk52N3JDSklGYkJaemdP?=
- =?utf-8?B?VEdvRVR0OCtXUkh5eGdPVzdkY0dmdGUvUmtLZnMwdjhzcjRZWHNuUkJaNkNo?=
- =?utf-8?B?MHBUT05vclZCQVJTTng3U2Q3a0NFZDdHclAzTkNjT1o0QkJnQVZBVGkrVGpy?=
- =?utf-8?B?MVJRRkMxSTlFOFREejRReVAvL21zMmV3RWF1VUx4UEIwSFRvRGkyWCt6dTBU?=
- =?utf-8?B?NHdPcmdzbWUvNklYb2w0bzlVUEd3cVllLzR3eCtJQjQ0ckZlM01BZzdUK0FE?=
- =?utf-8?B?b24rUmdkVDNOSWJzVjc0c2g0L08rb2NtdW1sWHNJRFdhSmN5b1F6SnRHY0kz?=
- =?utf-8?B?TWp4Mzc3WEZORm9FTGhlNWFZTEVWMVd1Z2RWdkNBM05VTlZYakNkZytmcUxr?=
- =?utf-8?B?Tm1vMGF2d1g1U2pHNzV0VnpzMmtrQnBIZThRbDRWTDlKK1BneFU1Z2YwcWV3?=
- =?utf-8?B?ZmxEWk8zVXV5SFRWS3JRSXRBTlNOcWl3THp1UXpTM1dHYlZQNy8vditVNWJI?=
- =?utf-8?B?OXJ5RHFrSDNUNWttWjZNc2cvb1NRbisvd2xTSVpHaDFpNE05WU5mRGRHSHFq?=
- =?utf-8?B?bHhTRVNOVWFmd3psVU9KYXNNK1d3aHNadDUxNll2UkdVRzZ3UVdjbkJGdVZ0?=
- =?utf-8?B?b1Z1dDJTQ3ZtaFJmRlhlVXUrSEkrMUU0b21zOURXdHlBNUNtU292VUFmZVox?=
- =?utf-8?B?dVBCZnMrbnp2VEI1L3hqWXIzajI1YjFVMVM1US96QlJlb3B5a01aaWdLY2pp?=
- =?utf-8?B?RHNGUzB1eTZLUVFCNWtRZE5WMjIxOUJxY0pPMlVEcXpkTHNiY2NYMHdRTjRF?=
- =?utf-8?B?NXUyd1d1TWRiRHN3MmJvemV2bWJPMjZ3eHBpU0RBTjArRStPWGg0UzBGUWVF?=
- =?utf-8?B?U0tXVmRQaGd5TUNJYkZub2VjNlo2aHhBYVVhTnlIWjNIU01xTUhPREg1UFht?=
- =?utf-8?B?cm9aWkFmWDdoM2tsK1JjQmlkSnBtamhFN04xdCt1cmxsUmJCZlNObk9qZ0VX?=
- =?utf-8?B?c2R1aFNWeWl2S0hkNmYvZ2VCMlNLWUkrRlJJZFhyN3d3MHBZdWdtZjVJL1JH?=
- =?utf-8?B?dTMzaWwxOWtiek5SdlhZTjhmeTdLWGpQd0MxcHRTZVNVU005NU9NMWR4M2Mr?=
- =?utf-8?B?eDM5VXh5Ym9HRWgyVit5dm4vZEMyRE5zd3VtTk1sbWJMVjhTbGdGSHVDSG1x?=
- =?utf-8?B?eC9MYmFXcno5WS94Y212a251YUVDRll5N0lWZi93Q0pOTjdmRG9meUlHOGl0?=
- =?utf-8?B?eTkwckJjMHhFeDFURnlBRzdLdXFSSUJlUE9PYXdXbCs3Y3VkNGJRUW9jaEV2?=
- =?utf-8?B?USt6S21vN2FsT0xaTDR2anJ6L1BoaXBDbzF4WHY2WHZ6UTl5dk1kYXJZeFl3?=
- =?utf-8?B?Z2NnTkZOeWZjeFZjT1NscHdBTlFvSVl1NlU1a0U4clQ1alB3L053MWhnQklw?=
- =?utf-8?B?R01Zd1BRa1VCREF0VmpVOXB1aVlyc0VHa1U2VXZra1RSeTl3cFRBWk1LSjZS?=
- =?utf-8?B?WUZPWG1zWnJtNUpwSDQ2M0xTT1k0MHh3L1U5bjlJZVFHQnoyZ2E4LzNKUko0?=
- =?utf-8?B?Q3RRKzhCOEJOVit0OWw2Ukt4eVJyODQ0QVR0WlRqcjA4Z1lrRkNETDlYQTE3?=
- =?utf-8?B?UWMwaEdONThDYVNTWDdtTktwcGsyTWpPNXJHWUZzVFBZSkZleS82a2ZqdXpF?=
- =?utf-8?B?aWN1dzlUMU9WNTNqSmFMTGp3NXB0YnBwZDNHTCsrbGNZMXNXbXFEbGFQSkc1?=
- =?utf-8?B?K1hnamdHN281eEhCOXU1SWc5c3Ezb3ZGQVU1SXVtMnpiaXdHL0lOaytNL3Z0?=
- =?utf-8?B?elZmbVI4bWRWajgydjF3anJEZi9WTnloV1piK2QybHdoS0Rmd2JqTnlQbzU4?=
- =?utf-8?B?VnM1V1prL0VFVW1yT1kvWjlzallacXpHaVNLSFRhZG5UL0xWV1FkYXMrNW5j?=
- =?utf-8?B?SXc9PQ==?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: bde7e469-4527-4641-dba2-08dd7c44e4e3
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5089.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Apr 2025 17:42:29.7757
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: m4tLcnuwPGgy4NVB5ifKPalbWXlquNufAiP54dgaBtT07VMbFdK2gIRA3sC6dERzUpjcz26eCZCxE+otFWeCEuN/DWJEmgvgtqflZLZFzI4=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR11MB4607
-X-OriginatorOrg: intel.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64/mm: Re-organise setting up FEAT_S1PIE registers
+ PIRE0_EL1 and PIR_EL1
+Content-Language: en-GB
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ Ard Biesheuvel <ardb@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, linux-kernel@vger.kernel.org
+References: <20250410074024.1545768-1-anshuman.khandual@arm.com>
+ <6e6305fd-3b93-43ec-8114-e81b2926adfc@arm.com>
+ <CAMj1kXG5R1jVWLQ-XEcqF9U365T18pTW8u3DgC7OY4N53hchOA@mail.gmail.com>
+ <16602b97-2f49-4612-9e9a-d6d0ed964fd3@arm.com>
+ <CAMj1kXEnmpu3Dc5zZz1aQJGVwEFwx=JdYisSFkDNjUJ44FjX9Q@mail.gmail.com>
+ <5d975762-7678-419f-8e2f-40547c079276@arm.com>
+ <0eabad93-26ef-4452-bd89-17c153f483f3@arm.com>
+ <7b26c6e4-5483-4ac3-a084-bb0769768006@arm.com>
+ <fb411be7-b8e8-493f-ae79-90adb8bb79fd@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <fb411be7-b8e8-493f-ae79-90adb8bb79fd@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_104236_602222_9F63E2D4 
-X-CRM114-Status: GOOD (  19.93  )
+X-CRM114-CacheID: sfid-20250415_104316_975862_7067B459 
+X-CRM114-Status: GOOD (  28.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -221,60 +75,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 15/04/2025 10:46, Anshuman Khandual wrote:
+> 
+> 
+> On 4/15/25 13:23, Ryan Roberts wrote:
+>> On 15/04/2025 07:27, Anshuman Khandual wrote:
+>>>
+>>>
+>>> On 4/14/25 18:01, Ryan Roberts wrote:
+>>>> On 14/04/2025 13:28, Ard Biesheuvel wrote:
+>>>>> On Mon, 14 Apr 2025 at 14:04, Ryan Roberts <ryan.roberts@arm.com> wrote:
+>>>>>>
+>>>>>> On 14/04/2025 10:41, Ard Biesheuvel wrote:
+>>>>>>> On Mon, 14 Apr 2025 at 09:52, Ryan Roberts <ryan.roberts@arm.com> wrote:
+>>>>>>>>
+>>>>>>>> On 10/04/2025 08:40, Anshuman Khandual wrote:
+>>>>>>>>> mov_q cannot really move PIE_E[0|1] macros into a general purpose register
+>>>>>>>>> as expected if those macro constants contain some 128 bit layout elements,
+>>>>>>>>> required for D128 page tables. Fix this problem via first loading up these
+>>>>>>>>> macro constants into a given memory location and then subsequently setting
+>>>>>>>>> up registers PIRE0_EL1 and PIR_EL1 by retrieving the memory stored values.
+>>>>>>>>
+>>>>>>>> From memory, the primary issue is that for D128, PIE_E[0|1] are defined in terms
+>>>>>>>> of 128-bit types with shifting and masking, which the assembler can't do? It
+>>>>>>>> would be good to spell this out.
+>>>>>>>>
+>>>>>>>>>
+>>>>>>>>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>>>>>>>>> Cc: Will Deacon <will@kernel.org>
+>>>>>>>>> Cc: Mark Rutland <mark.rutland@arm.com>
+>>>>>>>>> Cc: Ard Biesheuvel <ardb@kernel.org>
+>>>>>>>>> Cc: Ryan Roberts <ryan.roberts@arm.com>
+>>>>>>>>> Cc: linux-arm-kernel@lists.infradead.org
+>>>>>>>>> Cc: linux-kernel@vger.kernel.org
+>>>>>>>>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>>>>>>>>> ---
+>>>>>>>>> This patch applies on v6.15-rc1
+>>>>>>>>>
+>>>>>>>>>  arch/arm64/kernel/head.S         | 3 +++
+>>>>>>>>>  arch/arm64/kernel/pi/map_range.c | 6 ++++++
+>>>>>>>>>  arch/arm64/kernel/pi/pi.h        | 1 +
+>>>>>>>>>  arch/arm64/mm/mmu.c              | 1 +
+>>>>>>>>>  arch/arm64/mm/proc.S             | 5 +++--
+>>>>>>>>>  5 files changed, 14 insertions(+), 2 deletions(-)
+>>>>>>>>>
+>>>>>>>>> diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
+>>>>>>>>> index 2ce73525de2c..4950d9cc638a 100644
+>>>>>>>>> --- a/arch/arm64/kernel/head.S
+>>>>>>>>> +++ b/arch/arm64/kernel/head.S
+>>>>>>>>> @@ -126,6 +126,9 @@ SYM_CODE_START(primary_entry)
+>>>>>>>>>        * On return, the CPU will be ready for the MMU to be turned on and
+>>>>>>>>>        * the TCR will have been set.
+>>>>>>>>>        */
+>>>>>>>>> +     adr_l   x0, pir_data
+>>>>>>>>> +     bl      __pi_load_pir_data
+>>>>>>>>
+>>>>>>>> Using C code to pre-calculate the values into global variables that the assembly
+>>>>>>>> code then loads and stuffs into the PIR registers feels hacky. I wonder if we
+>>>>>>>> can instead pre-calculate into asm-offsets.h? e.g. add the following to
+>>>>>>>> asm-offsets.c:
+>>>>>>>>
+>>>>>>>> DEFINE(PIE_E0_ASM, PIE_E0);
+>>>>>>>> DEFINE(PIE_E1_ASM, PIE_E1);
+>>>>>>>>
+>>>>>>>> Which will generate the asm-offsets.h header with PIE_E[0|1]_ASM with the
+>>>>>>>> pre-calculated values that you can then use in proc.S?
+>>>>>>>>
+>>>>>>>
+>>>>>>> There is another issue, which is that mov_q tries to be smart, and
+>>>>>>> emit fewer than 4 MOVZ/MOVK instructions if possible. So the .if
+>>>>>>> directive evaluates the argument, which does not work with symbolic
+>>>>>>> constants.
+>>>>>>
+>>>>>> I'm not quite understanding the detail here; what do you mean by "symbolic
+>>>>>> constants"? asm-offsets.h will provide something like:
+>>>>>>
+>>>>>> #define PIE_E0_ASM 1234567890
+>>>>>>
+>>>>>> The current code is using a hash-define and that's working fine:
+>>>>>>
+>>>>>> mov_q   x0, PIE_E0
+>>>>>>
+>>>>>>
+>>>>>> Won't the C preprocessor just substitute and everything will work out?
+>>>>>>
+>>>>>
+>>>>> Yeah, you're right. I was experimenting with something like
+>>>>>
+>>>>> .set .Lpie_e0, PIE_E0_ASM
+>>>>> mov_q xN, .Lpie_e0
+>>>>>
+>>>>> where this problem does exist, but we can just use PIE_E0_ASM directly
+>>>>> and things should work as expected.
+>>>>
+>>>> Ahh great, sounds like this should be pretty simple then!
+>>>
+>>> Following change works both on current and with D128 page tables.
+>>>
+>>> --- a/arch/arm64/kernel/asm-offsets.c
+>>> +++ b/arch/arm64/kernel/asm-offsets.c
+>>> @@ -182,5 +182,7 @@ int main(void)
+>>>  #ifdef CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
+>>>    DEFINE(FTRACE_OPS_DIRECT_CALL,       offsetof(struct ftrace_ops, direct_call));
+>>>  #endif
+>>> +  DEFINE(PIE_E0_ASM, PIE_E0);
+>>> +  DEFINE(PIE_E1_ASM, PIE_E1);
+>>>    return 0;
+>>>  }
+>>> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
+>>> index 737c99d79833..f45494425d09 100644
+>>> --- a/arch/arm64/mm/proc.S
+>>> +++ b/arch/arm64/mm/proc.S
+>>> @@ -536,9 +536,9 @@ alternative_else_nop_endif
+>>>  #define PTE_MAYBE_NG           0
+>>>  #define PTE_MAYBE_SHARED       0
+>>
+>> I think at minimum, you can remove this PTE_MAYBE_* hack from proc.S. But as Ard
+>> says, you may need to add it to asm-offsets.c? I'm surprised asm-offsets.c even
+> 
+> Moving PTE_MAYBE_* inside asm-offsets.c works as well in both cases
+> but still wondering why this is even required ? What am I missing ?
 
+Without the overrides:
 
-On 4/15/2025 2:05 AM, Meghana Malladi wrote:
-> There is an error check inside emac_xmit_xdp_frame() function which
-> is called when the driver wants to transmit XDP frame, to check if
-> the allocated tx descriptor is NULL, if true to exit and return
-> ICSSG_XDP_CONSUMED implying failure in transmission.
-> 
-> In this case trying to free a descriptor which is NULL will result
-> in kernel crash due to NULL pointer dereference. Fix this error handling
-> and increase netdev tx_dropped stats in the caller of this function
-> if the function returns ICSSG_XDP_CONSUMED.
-> 
-> Fixes: 62aa3246f462 ("net: ti: icssg-prueth: Add XDP support")
-> Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-> Closes: https://lore.kernel.org/all/70d8dd76-0c76-42fc-8611-9884937c82f5@stanley.mountain/
-> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
-> Reviewed-by: Simon Horman <horms@kernel.org>
-> Reviewed-by: Roger Quadros <rogerq@kernel.org>
-> ---
-> 
+#define PTE_MAYBE_NG		(arm64_use_ng_mappings ? PTE_NG : 0)
+#define PTE_MAYBE_SHARED	(lpa2_is_enabled() ? 0 : PTE_SHARED)
 
-Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
+And these are used in the definition of PROT_DEFAULT, which is used in the
+definition of _PAGE_KERNEL*, which are used in the definition of PIE_E1.
 
-> Changes from v3 (v4-v3):
-> - Collected RB tag from Roger Quadros <rogerq@kernel.org>
+For the assembly code arm64_use_ng_mappings and lpa2_is_enabled() are not
+accessible. But we don't actually care about those bits so its just hacked to
+override the fields to 0.
+
+I would have expected the asm-offsets.c case to have a similer problem because
+we have not defined arm64_use_ng_mappings and lpa2_is_enabled(). asm-offsets.c
+is compiled as a standalone object then the macros are exfiltrated and
+asm-offsets.h is created.
+
+Perhaps the compiler is smart enough to see that we don't care about the bits in
+those fields (pte_pi_index() is only keeping selected bits) and asm-offsets.c
+can be safely compiled without the hack?
+
 > 
->  drivers/net/ethernet/ti/icssg/icssg_common.c | 6 ++++--
->  1 file changed, 4 insertions(+), 2 deletions(-)
+>> compiles without this hack since surely it doesn't have arm64_use_ng_mappings or
+>> is_realm_world() available?
+> Did not face any problem with defconfig for the mainline kernel and
+> both these symbols were visible in the built code.
 > 
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_common.c b/drivers/net/ethernet/ti/icssg/icssg_common.c
-> index ec643fb69d30..b4be76e13a2f 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_common.c
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_common.c
-> @@ -583,7 +583,7 @@ u32 emac_xmit_xdp_frame(struct prueth_emac *emac,
->  	first_desc = k3_cppi_desc_pool_alloc(tx_chn->desc_pool);
->  	if (!first_desc) {
->  		netdev_dbg(ndev, "xdp tx: failed to allocate descriptor\n");
-> -		goto drop_free_descs;	/* drop */
-> +		return ICSSG_XDP_CONSUMED;	/* drop */
->  	}
->  
->  	if (page) { /* already DMA mapped by page_pool */
-> @@ -671,8 +671,10 @@ static u32 emac_run_xdp(struct prueth_emac *emac, struct xdp_buff *xdp,
->  
->  		q_idx = smp_processor_id() % emac->tx_ch_num;
->  		result = emac_xmit_xdp_frame(emac, xdpf, page, q_idx);
-> -		if (result == ICSSG_XDP_CONSUMED)
-> +		if (result == ICSSG_XDP_CONSUMED) {
-> +			ndev->stats.tx_dropped++;
->  			goto drop;
-> +		}
->  
->  		dev_sw_netstats_rx_add(ndev, xdpf->len);
->  		return result;
+>>
+>> Thanks,
+>> Ryan
+>>
+>>>  
+>>> -       mov_q   x0, PIE_E0
+>>> +       mov_q   x0, PIE_E0_ASM
+>>>         msr     REG_PIRE0_EL1, x0
+>>> -       mov_q   x0, PIE_E1
+>>> +       mov_q   x0, PIE_E1_ASM
+>>>         msr     REG_PIR_EL1, x0
+>>>  
+>>>  #undef PTE_MAYBE_NG
+>>>
+>>
 
 
