@@ -4,74 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F65FC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 00:50:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 063B4C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 00:52:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KNXZtHXlMZe/GAVsS/mXzE2WPhNrxEPsqIaKcJonkWQ=; b=eKm4GtV5OeonQsYTX0SYsYnq/n
-	b7h8Mk+wEUy+vV1tWObJSyZqHSPyPFxL9EAEZ5F+fLtG0WxedjXxiM/XVX+XqKwptbM9EXmLL1U14
-	GXoElHHEXlOKs/zRjamolpyocUouHfWyH9P4hUzFhNuX0eszKNxf8598Xp/0K5c45Y98Fi1SWFW5G
-	D77X54N3VdCSvgEF3h8wy+BGr6YsdWRhn6ERuWd2XKHHHONxdubEozkrqTdYoH+rM3DGIwI/UNo7i
-	6oJ0cJbwgJoWmDomFEUwJkRYoRloMDnJDHCZcwNknUnku2PhlKfKpcLTGenrM5JULdU33aD7LYOhW
-	aFpMP5TQ==;
+	bh=qARlvUaIwXnpqAVrZ7AaV4cXwC3k6TzhVkLKVBmuyp0=; b=DlNJtT1FycKJijuzIuhft7iXmA
+	ow//VFgSSBZXcTd3/EcjIfgKm5s23rDjkjGPCbbu8dYipcB6kfBuj5C+IkkTttV2aGGwdQOAEfV8W
+	JFLOPiiS0BItS94mJR8+4pqscbi+Oioa4OMZammyuJIHm2usgQ6c4vRrt0H8Isb7K8E5sXzh5k/a5
+	H8sq76cvuVice4+Uzuw4bVf1+npbxGoD+pbtRV9pgRoDpr8pKhMoiEdtaE6oE84vJiiEdBgaUeMTc
+	/ELdrfqEwFzdkaS1OXFtbt8YHZWDvkvIR14djYeORlWF6ye+cHjTVv5PPeEyifeJpjtdWUF1sH1VP
+	yC2Jd1nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4UUv-000000043BN-1Pb0;
-	Tue, 15 Apr 2025 00:49:57 +0000
+	id 1u4UWo-000000043UC-3tv7;
+	Tue, 15 Apr 2025 00:51:54 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4UT6-0000000433G-1CKA;
-	Tue, 15 Apr 2025 00:48:05 +0000
+	id 1u4UUy-000000043DO-3raY
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 15 Apr 2025 00:50:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AAD2044817;
-	Tue, 15 Apr 2025 00:48:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AC51C4CEEC;
-	Tue, 15 Apr 2025 00:48:03 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8907343B0E;
+	Tue, 15 Apr 2025 00:49:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 564C8C4CEE2;
+	Tue, 15 Apr 2025 00:50:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744678083;
-	bh=RctWjOi2giJst7wLG7hJMf+486uMe6AiP6atMkwHVFY=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=rYUJEomi3t13v0k52FKZq1BfWI8eGCDRGljAyJxToldcbr/ynOjQkMsdwWECFTdi4
-	 c7rJKZQFv1uEbNg3G7iys7O2BOZqzbut+enjmj7WmmAriF/jPbGsW9SiB6ITKmBmhl
-	 2xUM75bT8eeqbiJfSGc+THgHhDh0s/E8TAdvQQZ5PTJ601jo+gFD9XJ8xdb/zjQ94x
-	 SIluMEXi2Lu7fBl4mK9wbzHGKAR9Wd7xIg+MWq+07V1K0czh7Hu2z3xsgzcWFK3JNJ
-	 TLjklGfuuB4ruIKMIjlBiFDgjbVYJFXE48AGHUA0Ba34rxsjVdt0MIlwSEG7Mh4TX4
-	 eNTt6U6Auy1Cg==
-Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-5ed1ac116e3so7385795a12.3;
-        Mon, 14 Apr 2025 17:48:03 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUaFccndpl+VrrnX1cEsyuh5dKWnaFFpLhzB4Wm1dv0QpUvAp/GBzUQvRn9nwKtxCfgVP91mO4IY7BDjv0v5ks=@lists.infradead.org, AJvYcCXW53ItvB4VSK/Homxs2fJEjYFpP6SSF1bDxwpR+K1GdFX7TTagXbvKgXbz7Y7djq/UKCtms9mhY3yd25WYkYGX@lists.infradead.org
-X-Gm-Message-State: AOJu0YwBQYnt0CtHO1L6ZJBwj6fQ3iJaGSt+anI7KsnvGlLV91ogSAXp
-	lSAA70ZUwtCu1ENY7KDKOE1EvKGZuvz5t9DFiG6bxEM1Iyl/tF6noEkSbGAVW8ZmZOxuT5SAsOm
-	ypg3H6O2uBXMMndVhisOvTOq0oQ==
-X-Google-Smtp-Source: AGHT+IFFPfOrrDqgzpv3auvBWL0e6nlb0egIXX4wtTdxuwO1Kxz4UxhZv8bMmjzVcyJ70rS0tg3eelf7AFPeC8n1FUc=
-X-Received: by 2002:a05:6402:2711:b0:5e5:be7f:a1f6 with SMTP id
- 4fb4d7f45d1cf-5f36f527034mr10329827a12.1.1744678082088; Mon, 14 Apr 2025
- 17:48:02 -0700 (PDT)
+	s=k20201202; t=1744678200;
+	bh=W6GdVISjXNNNfTPg1VWXU+iBRCd39F1D5CkWm+qTSxg=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=XCIWK2vpFxsGuS6nbZfIV3V5Zki+V3bEKonR5gV06bw4Brn33H/4cM3d4ZHJ+POek
+	 l8qS8aLAtwqgL4DBCAVcwGzGCZh/Kx/ZdIGS+pagwNwnM3St0uwGzOBUK5o5f4AwEU
+	 Blgm3fghvpvjiWX7bRcjFVQgTqadKlZIHEU0tsFFReZhzstP/cCdZfCrrYODT985kZ
+	 +7SSFYs81XyKdRCOKMwVi1VGGk4qBCLg5ZVFkkneBTv5leOPAWNRhYXJu5WlP6H+QL
+	 4bsbIk+gLsr3lP278fIP9yUwQkr2xmss814Mb8b2DjoybfbJzngL5FIa/k+gO6gtbt
+	 ejj+GoH6/RW+A==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70C623822D1A;
+	Tue, 15 Apr 2025 00:50:39 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-References: <20250414225311.1913480-1-robh@kernel.org>
-In-Reply-To: <20250414225311.1913480-1-robh@kernel.org>
-From: Rob Herring <robh@kernel.org>
-Date: Mon, 14 Apr 2025 19:47:50 -0500
-X-Gmail-Original-Message-ID: <CAL_Jsq+D832Dq6oHO6Vxg=oMEA6drwWpgUqwHS+5f3s8-LBNeQ@mail.gmail.com>
-X-Gm-Features: ATxdqUGRL_jz_WBTa5GmqkL_V7H8md2ow6s-ckR8Dq1jEmPSQe6gYDCQzg7ci0U
-Message-ID: <CAL_Jsq+D832Dq6oHO6Vxg=oMEA6drwWpgUqwHS+5f3s8-LBNeQ@mail.gmail.com>
-Subject: Re: [PATCH] dt-bindings: phy: rockchip: Convert RK3399 PCIe PHY to schema
-To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next 0/4] net: stmmac: qcom-ethqos: simplifications
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <174467823825.2089736.3756695494399689904.git-patchwork-notify@kernel.org>
+Date: Tue, 15 Apr 2025 00:50:38 +0000
+References: <Z_p0LzY2_HFupWK0@shell.armlinux.org.uk>
+In-Reply-To: <Z_p0LzY2_HFupWK0@shell.armlinux.org.uk>
+To: Russell King (Oracle) <linux@armlinux.org.uk>
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-arm-msm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ mcoquelin.stm32@gmail.com, netdev@vger.kernel.org, pabeni@redhat.com,
+ vkoul@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_174804_343127_76EBB81D 
-X-CRM114-Status: UNSURE (   8.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250414_175000_985959_D557AEEA 
+X-CRM114-Status: GOOD (  10.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,16 +78,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 14, 2025 at 5:54=E2=80=AFPM Rob Herring (Arm) <robh@kernel.org>=
- wrote:
->
-> Convert the Rockchip RK3399 PCIe PHY to DT schema format. Move the
-> example to the GRF binding as that has the complete block.
->
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
->  .../bindings/phy/rockchip-pcie-phy.txt        | 36 -------------------
->  .../devicetree/bindings/soc/rockchip/grf.yaml | 13 +++++--
+Hello:
 
-Sigh. Forgot the new schema...
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Sat, 12 Apr 2025 15:09:51 +0100 you wrote:
+> Remove unnecessary code from the qcom-ethqos glue driver.
+> 
+> Start by consistently using -> serdes_speed to set the speed of the
+> serdes PHY rather than sometimes using ->serdes_speed and sometimes
+> using ->speed.
+> 
+> This then allows the removal of ->speed in the second patch.
+> 
+> [...]
+
+Here is the summary with links:
+  - [net-next,1/4] net: stmmac: qcom-ethqos: set serdes speed using serdes_speed
+    https://git.kernel.org/netdev/net-next/c/b4589810082a
+  - [net-next,2/4] net: stmmac: qcom-ethqos: remove ethqos->speed
+    https://git.kernel.org/netdev/net-next/c/a3d54648ada2
+  - [net-next,3/4] net: stmmac: qcom-ethqos: remove unnecessary setting max_speed
+    https://git.kernel.org/netdev/net-next/c/4c30093f784e
+  - [net-next,4/4] net: stmmac: qcom-ethqos: remove speed_mode_2500() method
+    https://git.kernel.org/netdev/net-next/c/0d1c18a10dd1
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
