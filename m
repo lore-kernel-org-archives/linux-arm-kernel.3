@@ -4,63 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DC8EC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 00:45:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F65FC369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 00:50:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xS/901HelupphCtabHLAVeFJMXbBv7LKYzmobKqPT3I=; b=kDVwdylyEu50HChlOL1bfoxD77
-	ttmU7NNGfx0N2f3EVlqjcKM8NFE023gKJYuCfupSU+ycKc5hTonBaqvz6XbNmyORO36AgxY3zVlJq
-	OorThZPVV53R4xzNN7fbxqkUrEyb6NiA+7kQPMYdXE8e80qIzBGm7/Zbg1pegUAadLp4Op0mShIGL
-	HXWNYYUDrP2PaVz3Bn3oESGZkLwyRR8sFZyIqrGfOxJXSlZAX2YqWDUqMWxvz/L0kAw1PsHjiKrGD
-	j8eDZqHoFR+W284mgwg6q69Q3r4e0jJTCHoj60hC3WJlUM8c7WAhIslqyrNJBj85IGj2LLTlidtX9
-	o/CSyrgw==;
+	bh=KNXZtHXlMZe/GAVsS/mXzE2WPhNrxEPsqIaKcJonkWQ=; b=eKm4GtV5OeonQsYTX0SYsYnq/n
+	b7h8Mk+wEUy+vV1tWObJSyZqHSPyPFxL9EAEZ5F+fLtG0WxedjXxiM/XVX+XqKwptbM9EXmLL1U14
+	GXoElHHEXlOKs/zRjamolpyocUouHfWyH9P4hUzFhNuX0eszKNxf8598Xp/0K5c45Y98Fi1SWFW5G
+	D77X54N3VdCSvgEF3h8wy+BGr6YsdWRhn6ERuWd2XKHHHONxdubEozkrqTdYoH+rM3DGIwI/UNo7i
+	6oJ0cJbwgJoWmDomFEUwJkRYoRloMDnJDHCZcwNknUnku2PhlKfKpcLTGenrM5JULdU33aD7LYOhW
+	aFpMP5TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4UQi-000000042ev-3p3K;
-	Tue, 15 Apr 2025 00:45:36 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u4UUv-000000043BN-1Pb0;
+	Tue, 15 Apr 2025 00:49:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4UOu-000000042Uh-3xe1
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 00:43:45 +0000
+	id 1u4UT6-0000000433G-1CKA;
+	Tue, 15 Apr 2025 00:48:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D7C8961127;
-	Tue, 15 Apr 2025 00:43:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51250C4CEE2;
-	Tue, 15 Apr 2025 00:43:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AAD2044817;
+	Tue, 15 Apr 2025 00:48:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AC51C4CEEC;
+	Tue, 15 Apr 2025 00:48:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744677823;
-	bh=4ae4V/iCsu7Dm/UVFu21GxYfPTorOCXdVBpV9LrqHHk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Yt3PGILq/RNZhYPUlG+8q/pUOPhjI1fV/t/Xmev9/0Pk6iLyytypHcMQmAXS9RkfT
-	 pqD29Icaa4wo3UDg8Rw3Sl6W9s3tJCv9U51Vv9oLXSm9jfsROpODvS8ywTxbTUswB5
-	 YrvHrqXg2Rb9ToqcEz5XJ/XwNxTPNBKItGNzAVgDObSVSFKlf0/aAWBatzGrRSbvGY
-	 Ip9WcR3s72Y0xF4h/xUaVZ4d8Z8QQYphlNqRxPU5bkStf3MUp6ChYJ/vesgIWXuWVb
-	 /yCW+eerjUeHPHINLfAdHAoCn0zjQLKt0k/JNjR4iUJpDgWXlEOrcw3XQyMUGJHamJ
-	 bwBb60QHiHlhg==
-Date: Mon, 14 Apr 2025 17:43:42 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org, Paolo Abeni
- <pabeni@redhat.com>
-Subject: Re: [PATCH net-next 1/3] net: stmmac: call phylink_start() and
- phylink_stop() in XDP functions
-Message-ID: <20250414174342.67fe4b1d@kernel.org>
-In-Reply-To: <E1u3XG6-000EJg-V8@rmk-PC.armlinux.org.uk>
-References: <Z/ozvMMoWGH9o6on@shell.armlinux.org.uk>
-	<E1u3XG6-000EJg-V8@rmk-PC.armlinux.org.uk>
+	s=k20201202; t=1744678083;
+	bh=RctWjOi2giJst7wLG7hJMf+486uMe6AiP6atMkwHVFY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=rYUJEomi3t13v0k52FKZq1BfWI8eGCDRGljAyJxToldcbr/ynOjQkMsdwWECFTdi4
+	 c7rJKZQFv1uEbNg3G7iys7O2BOZqzbut+enjmj7WmmAriF/jPbGsW9SiB6ITKmBmhl
+	 2xUM75bT8eeqbiJfSGc+THgHhDh0s/E8TAdvQQZ5PTJ601jo+gFD9XJ8xdb/zjQ94x
+	 SIluMEXi2Lu7fBl4mK9wbzHGKAR9Wd7xIg+MWq+07V1K0czh7Hu2z3xsgzcWFK3JNJ
+	 TLjklGfuuB4ruIKMIjlBiFDgjbVYJFXE48AGHUA0Ba34rxsjVdt0MIlwSEG7Mh4TX4
+	 eNTt6U6Auy1Cg==
+Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-5ed1ac116e3so7385795a12.3;
+        Mon, 14 Apr 2025 17:48:03 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUaFccndpl+VrrnX1cEsyuh5dKWnaFFpLhzB4Wm1dv0QpUvAp/GBzUQvRn9nwKtxCfgVP91mO4IY7BDjv0v5ks=@lists.infradead.org, AJvYcCXW53ItvB4VSK/Homxs2fJEjYFpP6SSF1bDxwpR+K1GdFX7TTagXbvKgXbz7Y7djq/UKCtms9mhY3yd25WYkYGX@lists.infradead.org
+X-Gm-Message-State: AOJu0YwBQYnt0CtHO1L6ZJBwj6fQ3iJaGSt+anI7KsnvGlLV91ogSAXp
+	lSAA70ZUwtCu1ENY7KDKOE1EvKGZuvz5t9DFiG6bxEM1Iyl/tF6noEkSbGAVW8ZmZOxuT5SAsOm
+	ypg3H6O2uBXMMndVhisOvTOq0oQ==
+X-Google-Smtp-Source: AGHT+IFFPfOrrDqgzpv3auvBWL0e6nlb0egIXX4wtTdxuwO1Kxz4UxhZv8bMmjzVcyJ70rS0tg3eelf7AFPeC8n1FUc=
+X-Received: by 2002:a05:6402:2711:b0:5e5:be7f:a1f6 with SMTP id
+ 4fb4d7f45d1cf-5f36f527034mr10329827a12.1.1744678082088; Mon, 14 Apr 2025
+ 17:48:02 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+References: <20250414225311.1913480-1-robh@kernel.org>
+In-Reply-To: <20250414225311.1913480-1-robh@kernel.org>
+From: Rob Herring <robh@kernel.org>
+Date: Mon, 14 Apr 2025 19:47:50 -0500
+X-Gmail-Original-Message-ID: <CAL_Jsq+D832Dq6oHO6Vxg=oMEA6drwWpgUqwHS+5f3s8-LBNeQ@mail.gmail.com>
+X-Gm-Features: ATxdqUGRL_jz_WBTa5GmqkL_V7H8md2ow6s-ckR8Dq1jEmPSQe6gYDCQzg7ci0U
+Message-ID: <CAL_Jsq+D832Dq6oHO6Vxg=oMEA6drwWpgUqwHS+5f3s8-LBNeQ@mail.gmail.com>
+Subject: Re: [PATCH] dt-bindings: phy: rockchip: Convert RK3399 PCIe PHY to schema
+To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250414_174804_343127_76EBB81D 
+X-CRM114-Status: UNSURE (   8.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,30 +86,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 12 Apr 2025 10:34:42 +0100 Russell King (Oracle) wrote:
-> Phylink does not permit drivers to mess with the netif carrier, as
-> this will de-synchronise phylink with the MAC driver. Moreover,
-> setting and clearing the TE and RE bits via stmmac_mac_set() in this
-> path is also wrong as the link may not be up.
-> 
-> Replace the netif_carrier_on(), netif_carrier_off() and
-> stmmac_mac_set() calls with the appropriate phylink_start() and
-> phylink_stop() calls, thereby allowing phylink to manage the netif
-> carrier and TE/RE bits through the .mac_link_up() and .mac_link_down()
-> methods.
-> 
-> Note that RE should only be set after the DMA is ready to avoid the
-> receive FIFO between the MAC and DMA blocks overflowing, so
-> phylink_start() needs to be placed after DMA has been started.
+On Mon, Apr 14, 2025 at 5:54=E2=80=AFPM Rob Herring (Arm) <robh@kernel.org>=
+ wrote:
+>
+> Convert the Rockchip RK3399 PCIe PHY to DT schema format. Move the
+> example to the GRF binding as that has the complete block.
+>
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+>  .../bindings/phy/rockchip-pcie-phy.txt        | 36 -------------------
+>  .../devicetree/bindings/soc/rockchip/grf.yaml | 13 +++++--
 
-IIUC this will case a link loss when XDP is installed, if not disregard
-the reset of the email.
-
-Any idea why it's necessary to mess with the link for XDP changes?
-Is there no way to discard all the traffic and let the queues go
-idle without dropping the link?
-
-I think we should mention in the commit message that the side effect is
-link loss on XDP on / off. I don't know of any other driver which would
-need this, stmmac is a real gift..
+Sigh. Forgot the new schema...
 
