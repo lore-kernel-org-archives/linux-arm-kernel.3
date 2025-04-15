@@ -4,67 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D13E9C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 17:25:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C8FEC369BD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 17:27:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9c/jqs0ImTq23JWKqJ6pgYTsopt6CaO9c3noHLUB4W0=; b=KMV+JRj8uGdD5ueLZ6hQR675TS
-	XrVVOs2OQGBd+185BXQ3oqXJb9JOKsDO2ekZu7MazUua5fJStqMulaWBTj7EZqwK07fbbrf8+hmiQ
-	pTRdHZMj3abzUy+zOK7W0SSPrLlomJRmpmLaU/dFdcj/iDQX0Np5qTN1dz130WmtU5gQjDIbw5Tu6
-	xIrmt6/eIdZauORvXwkWCNmMuTqvg/HOALZsoCM3pKNeUg2LUoZLtyatQzyNKTcsLzl+q/N20c2IM
-	ETirBkWFQ/MKXyoRkZonn1pK3ieWyColHnkCONh7rGC2PQNrPwsn60Eqo6u7hBePx5jo0jzDBOARg
-	OACxVYrA==;
+	bh=l+ItDRvc2CgbELkYEQjQqulbuQxz4MyRUQS30G+nsPs=; b=rSRW532e7Vy9dFA9ZGl5XSIxae
+	Bk2b+KHuMET2B/m/aUT9GbVXYNq0VLz7k54pcbVZFOL+I8stjFsWVqb/oFPJQGXkMkHZfWZnahQKW
+	Fhejr5ovaehpdSfDN880dxdv0RY2BCwmAuV8DaV7MeFteBtJhr3PCdmtlwL+NN97NEN2Yv6wFfHx0
+	hj4Pv9G79okoK7TnAvYjrnx9F7a6w6mYcVt+dF1q+420KEGjCg2kgCG11CxPczEquLIgELER4y7s/
+	NLAPTTPETa9JWHagL/KTRrOu2fAfILtYyx4Czur4DKpp8DirhILAGAY9zLwQek8S3xHHCIi7hibDP
+	SeMI5TSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4k2E-00000006YfH-2nVe;
-	Tue, 15 Apr 2025 17:25:22 +0000
-Received: from out-189.mta1.migadu.com ([2001:41d0:203:375::bd])
+	id 1u4k42-00000006YsZ-1Vd5;
+	Tue, 15 Apr 2025 17:27:14 +0000
+Received: from out-179.mta0.migadu.com ([91.218.175.179])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4jkX-00000006Vmc-3GJ1
+	id 1u4joA-00000006WPh-4BW7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 17:07:07 +0000
-Date: Tue, 15 Apr 2025 10:06:50 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1744736821;
+	Tue, 15 Apr 2025 17:10:52 +0000
+Date: Tue, 15 Apr 2025 13:10:40 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
+	s=key1; t=1744737045;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=9c/jqs0ImTq23JWKqJ6pgYTsopt6CaO9c3noHLUB4W0=;
-	b=t1kNm8gOBoKSdP89u+A7EqbQrPcqmy3FSsr20RSggxMlDMceadc1SOwc3wxueBIeHEFgQb
-	1pUp4ktDIRycIBlsGuHyc8X+c29lVHjM5bUsiHKMcq4dLuWV4X6GDZqkFS1n7vHKBz90y7
-	+HXBR0DmYT9IVl99GPClah6fjMSTe9c=
+	bh=l+ItDRvc2CgbELkYEQjQqulbuQxz4MyRUQS30G+nsPs=;
+	b=c6y3umwuPNz+nEZojVdyszn3dB7XfYQ6DeOGO0pEcfZYHJZFEQC6gO5ZQENAnnJouRPvUL
+	rUhnMlvqolEh+vEcC1cc4b7bgSH+GUDph2yh1qNZiao/yEgJp2XvIMepfstsT6bFB3+QhS
+	MTA46PVnNK36GsCw0NqCSieU1jNsHRBqqc5MzIT0iNRcm+g82GQ5gFMqSCdeHlvU+gxypA
+	+6oHbfKbxam8Qcqns2H0PlmeebG6aZQgmz8onhwLASMlbmXaTFSwxes+N5HMdDIjybb9od
+	lPFK9bY9pBc4bVRjV+60lkAcZp0K9HG0rVT3Jd3emgWqSPifN2Dw0OL4SM8mBQ==
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: D Scott Phillips <scott@os.amperecomputing.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	James Morse <james.morse@arm.com>, Joey Gouly <joey.gouly@arm.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Marc Zyngier <maz@kernel.org>, Mark Brown <broonie@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	"Rob Herring (Arm)" <robh@kernel.org>,
-	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
-	Shiqi Liu <shiqiliu@hust.edu.cn>, Will Deacon <will@kernel.org>,
-	Yicong Yang <yangyicong@hisilicon.com>, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 2/2] arm64: errata: Work around AmpereOne's erratum
- AC04_CPU_23
-Message-ID: <Z_6SKjdvje1Lpeo3@linux.dev>
-References: <20250415154711.1698544-1-scott@os.amperecomputing.com>
- <20250415154711.1698544-2-scott@os.amperecomputing.com>
+From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+To: sven@svenpeter.dev
+Cc: Janne Grunau <j@jannau.net>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	Andi Shyti <andi.shyti@kernel.org>, Neal Gompa <neal@gompa.dev>,
+	Hector Martin <marcan@marcan.st>, linuxppc-dev@lists.ozlabs.org,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Andy Shevchenko <andy.shevchenko@gmail.com>
+Subject: Re: [PATCH v2 1/6] i2c: pasemi: Use correct bits.h include
+Message-ID: <Z_6TENulj4zwBzfm@blossom>
+References: <20250415-pasemi-fixes-v2-0-c543bf53151a@svenpeter.dev>
+ <20250415-pasemi-fixes-v2-1-c543bf53151a@svenpeter.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20250415154711.1698544-2-scott@os.amperecomputing.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250415-pasemi-fixes-v2-1-c543bf53151a@svenpeter.dev>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_100706_021361_FEF56118 
-X-CRM114-Status: GOOD (  20.79  )
+X-CRM114-CacheID: sfid-20250415_101051_503757_711503AC 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,75 +80,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Reviewed-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
 
-On Tue, Apr 15, 2025 at 08:47:11AM -0700, D Scott Phillips wrote:
-> Updates to HCR_EL2 can rarely corrupt simultaneous translations from
-> either earlier translations (back to the previous dsb) or later
-> translations (up to the next isb). Put a dsb before and isb after writes
-> to HCR_EL2.
+Le Tue , Apr 15, 2025 at 03:36:55PM +0000, Sven Peter via B4 Relay a écrit :
+> From: Sven Peter <sven@svenpeter.dev>
 > 
-> Signed-off-by: D Scott Phillips <scott@os.amperecomputing.com>
+> When changing the #defines to use BIT and GENMASK the bitfield.h include
+> was added instead of the correct bits.h include.
+> 
+> Reported-by: Andy Shevchenko <andy.shevchenko@gmail.com>
+> Closes: https://lore.kernel.org/asahi/Z965tVhC5jxy1kqZ@surfacebook.localdomain/
+> Fixes: 8b4da3ef9206 ("i2c: pasemi: Add registers bits and switch to BIT()")
+> Signed-off-by: Sven Peter <sven@svenpeter.dev>
 > ---
->  arch/arm64/Kconfig              | 13 +++++++++++++
->  arch/arm64/include/asm/sysreg.h |  7 +++++++
->  arch/arm64/kernel/cpu_errata.c  | 14 ++++++++++++++
->  arch/arm64/tools/cpucaps        |  1 +
->  4 files changed, 35 insertions(+)
+>  drivers/i2c/busses/i2c-pasemi-core.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index e5fd87446a3b8..2a2e1c8de6a16 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -481,6 +481,19 @@ config AMPERE_ERRATUM_AC03_CPU_38
+> diff --git a/drivers/i2c/busses/i2c-pasemi-core.c b/drivers/i2c/busses/i2c-pasemi-core.c
+> index bd128ab2e2ebb64929f2f6a3525835a880c3114d..71cc8cfc7c5cbf3924269f6217712d42008c03ff 100644
+> --- a/drivers/i2c/busses/i2c-pasemi-core.c
+> +++ b/drivers/i2c/busses/i2c-pasemi-core.c
+> @@ -5,7 +5,7 @@
+>   * SMBus host driver for PA Semi PWRficient
+>   */
 >  
->  	  If unsure, say Y.
->  
-> +config AMPERE_ERRATUM_AC04_CPU_23
-> +        bool "AmpereOne: AC04_CPU_23:  Failure to synchronize writes to HCR_EL2 may corrupt address translations."
-> +	default y
-> +	help
-> +	  This option adds an alternative code sequence to work around Ampere
-> +	  errata AC04_CPU_23 on AmpereOne.
-> +
-> +	  Updates to HCR_EL2 can rarely corrupt simultaneous translations from
-> +	  either earlier translations (back to the previous dsb) or later
-> +	  translations (up to the next isb).
-> +
-> +	  If unsure, say Y.
-> +
->  config ARM64_WORKAROUND_CLEAN_CACHE
->  	bool
->  
-> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-> index e7781f7e7f7a7..253de5bc68834 100644
-> --- a/arch/arm64/include/asm/sysreg.h
-> +++ b/arch/arm64/include/asm/sysreg.h
-> @@ -1142,6 +1142,10 @@
->  	(IS_ENABLED(CONFIG_AMPERE_ERRATUM_AC03_CPU_36) &&	\
->  	 __sysreg_is_hcr_el2(r) &&				\
->  	 alternative_has_cap_unlikely(ARM64_WORKAROUND_AMPERE_AC03_CPU_36))
-> +#define __hcr_el2_ac04_cpu_23(r)				\
-> +	(IS_ENABLED(CONFIG_AMPERE_ERRATUM_AC04_CPU_23) &&	\
-> +	 __sysreg_is_hcr_el2(r) &&				\
-> +	 alternative_has_cap_unlikely(ARM64_WORKAROUND_AMPERE_AC04_CPU_23))
->  
->  /*
->   * The "Z" constraint normally means a zero immediate, but when combined with
-> @@ -1154,6 +1158,9 @@
->  		asm volatile("mrs %0, daif; msr daifset, #0xf;"	\
->  			     "msr hcr_el2, %x1; msr daif, %0"	\
->  		: "=&r"(__daif) : "rZ" (__val));		\
-> +	} else if (__hcr_el2_ac04_cpu_23(r)) {			\
-> +		asm volatile("dsb nsh; msr hcr_el2, %x0; isb"	\
-> +			     : : "rZ" (__val));			\
-
-At least from your erratum description it isn't clear to me that this
-eliminates the problem and only narrows the window of opportunity.
-Couldn't the implementation speculatively fetch translations with an
-unsynchronized HCR up to the ISB? Do we know what translation regimes
-are affected by the erratum?
-
-Thanks,
-Oliver
+> -#include <linux/bitfield.h>
+> +#include <linux/bits.h>
+>  #include <linux/module.h>
+>  #include <linux/pci.h>
+>  #include <linux/kernel.h>
+> 
+> -- 
+> 2.34.1
+> 
+> 
 
