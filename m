@@ -4,84 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A65C369B5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 11:30:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF33FC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 11:32:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oUaCoDFXTdi5appnG+Kc9Qez5OwywPqmWEvFCOVtsB4=; b=5DMAJdy4CG2tEq7Pm2tpx7g8fq
-	cymhNL2BczGepEv3etguD/7BoLTP/VuLoYYZImJHOxHVD47BPulMwvmDTPL0EIO9++0WceRZhGo4q
-	auA+OdxqXSAOg3fw26TurwjUmopnIme3vzwdRI8Uosy0GhR+buHw19va6Z8VahmQbzIyLrJCUca9e
-	nXPgAPgIS5DEeejyeywj/6M7xR5QWvMT4cXQz5mDIc89LTAnp/kDgaUJZSqWWSCio1MWteo6mxgam
-	55ZdpdfQOy3AJ/39khOZxXyiA6TL3lt45Mxj52Dipz30Z//Q+mBZnx7h4B+3euDnwCS9B5fkQCr5Z
-	oh0aliEw==;
+	bh=izSPy9yN5eadW5G0HXPfjkBbOQOu24hDdeaTSQaukE4=; b=aAFE4wUnXC4OQOmnMd6k83nEZl
+	1tUCpMYKF1sfsQKuSYHwIC7pX5XRg2bevRN59pMJKUWzqV/0asA8J2J4uQI/gRIqemeCCQ9zv0ubK
+	nIIeCE/ST0eEXcQHRHlm4cr8fpjT2TnHtlvcvxbogqxyxNDW3CUe4rgPojwboEJJiHKegSb8K8hz1
+	0eOyEu03Y32tjO6LPnYX5VzWOjCbs7+iMAMIJipu6CerbzqFLmBHfGHH9x8KmuexgdD4dfYBuSMRB
+	bKBygVfgEoPdLwPfgPMX1v4pB1FY/xs8TW96fSTBQ7zTZ0QqNYrcz2MycJ6RlC7U1fGNuN79/LIb3
+	N+7as9Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4eUL-00000005Y09-44vZ;
-	Tue, 15 Apr 2025 11:30:01 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1u4eWA-00000005YXt-41wj;
+	Tue, 15 Apr 2025 11:31:54 +0000
+Received: from relay3-d.mail.gandi.net ([217.70.183.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4dly-00000005NjH-0apV;
-	Tue, 15 Apr 2025 10:44:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1744713848;
-	bh=xh7Jj9EwZ14z10Z5YmH2kybmKZ8PUNlCUMcMfNXz5ow=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=H0GcVP4NzvA1Xb/LixrkEuPOh9lBAgvyY+YWlLvxVXJdSASm7CzedyjhX+ZMiFVzV
-	 KDYppK/mxYep+iSKfSrJBLXJD/wqcE566DwkwMwqNOmiLwkaW4UA32w+saCGVRwiLN
-	 7l88q2RwRRrRLQbAD8TFGaZ9hGbIog/AuZiEzw1I74hiNVW9ngFCGFMrXtmSx8kCWk
-	 iSfV+OX6i2TpTNriz3kSl9rBQ+1rh2E62ZdxIgjCg3fr3+X7KJFqkPBLxeXbWkdPqt
-	 W9dRNMLBWW1a+dY7iKMHvWGZAkwn/xDA0yuzm/f1oLEzVtR296ggt0W1PJpG3+BNcc
-	 q93y/0RhL4VZw==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5BC0017E35E5;
-	Tue, 15 Apr 2025 12:44:07 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: chunkuang.hu@kernel.org
-Cc: p.zabel@pengutronix.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	ck.hu@mediatek.com,
-	jitao.shi@mediatek.com,
-	jie.qiu@mediatek.com,
-	junzhi.zhao@mediatek.com,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com,
-	dmitry.baryshkov@linaro.org,
-	lewis.liao@mediatek.com,
-	ives.chenjh@mediatek.com,
-	tommyyl.chen@mediatek.com,
-	jason-jh.lin@mediatek.com
-Subject: [PATCH v9 23/23] drm/mediatek: mtk_hdmi_v2: Add debugfs ops and implement ABIST
-Date: Tue, 15 Apr 2025 12:43:21 +0200
-Message-ID: <20250415104321.51149-24-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250415104321.51149-1-angelogioacchino.delregno@collabora.com>
-References: <20250415104321.51149-1-angelogioacchino.delregno@collabora.com>
+	id 1u4dq2-00000005Oww-14ap
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 15 Apr 2025 10:48:24 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id EE0541FCF2;
+	Tue, 15 Apr 2025 10:48:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1744714099;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=izSPy9yN5eadW5G0HXPfjkBbOQOu24hDdeaTSQaukE4=;
+	b=ObcvX56MZ0k9lGklXRSsumGr3d6Q2N9qZNknU+xGzaQEh/9/n7F0JIcgXEseF8HSX0jEiX
+	sR97CSdk8GVNDaWvSeeHJTZw8VtHRHZV/F98Y47kwA2UccLMXi8RAiRNS7Kqw5baAbunRi
+	Od6O+Cs4TZPq13kYRPRTyFGZSjTE6NwkvdtsDV5HzC63NaQHi/KMIdSLCPnfH4I4B9datU
+	/jd+GYFEJ6C9fkglfF5bAPx27cgqEhoRTTg0W2t6blVkMVX6K9z7736NgDavd+IlpuvOA9
+	zMCnRher3BipFMGTfhXK0PIA9Sp4Zr84gAChBb9zd4O1OfjhijETYNN5tmOlaA==
+Date: Tue, 15 Apr 2025 12:48:16 +0200
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, Chen-Yu Tsai <wens@csie.org>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+ <kuba@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org, Paolo
+ Abeni <pabeni@redhat.com>, Samuel Holland <samuel@sholland.org>
+Subject: Re: [PATCH net-next] net: stmmac: sun8i: use stmmac_pltfr_probe()
+Message-ID: <20250415124816.1a420410@fedora.home>
+In-Reply-To: <E1u4dKb-000dV7-3B@rmk-PC.armlinux.org.uk>
+References: <E1u4dKb-000dV7-3B@rmk-PC.armlinux.org.uk>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvvdefvdelucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudejpdhrtghpthhtoheprhhmkhdokhgvrhhnvghlsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohephhhkrghllhifvghithdusehgmhgrihhlrdgto
+ hhmpdhrtghpthhtoheprghlvgigrghnughrvgdrthhorhhguhgvsehfohhsshdrshhtrdgtohhmpdhrtghpthhtoheprghnughrvgifodhnvghtuggvvheslhhunhhnrdgthhdprhgtphhtthhopeifvghnshestghsihgvrdhorhhgpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhm
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_034410_339513_E236A882 
-X-CRM114-Status: GOOD (  15.77  )
+X-CRM114-CacheID: sfid-20250415_034822_989337_D81EA43E 
+X-CRM114-Status: UNSURE (   8.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,170 +85,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement the Automated Built-In Self-Test ABIST functionality
-provided by the HDMIv2 IP and expose it through the "hdmi_abist"
-debugfs file.
+Hi Russell,
 
-Write "1" to this file to activate ABIST, or "0" to deactivate.
+On Tue, 15 Apr 2025 11:15:53 +0100
+"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk> wrote:
 
-The ABIST functionality can be used to validate that the HDMI
-Transmitter itself works and that can output a valid image to
-the HDMI Display that is connected.
+ > Using stmmac_pltfr_probe() simplifies the probe function. This will not
+> only call plat_dat->init (sun8i_dwmac_init), but also plat_dat->exit
+> (sun8i_dwmac_exit) appropriately if stmmac_dvr_probe() fails. This
+> results in an overall simplification of the glue driver.
+> 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-This is especially useful when trying to rule out any possible
-issue that is related to the display pipeline, as the HDMI Tx
-is always the last component; this means that HDMI ABIST can be
-used even without prior display controller pipeline configuration.
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
-The expected output is a 100% color bar (rainbow) test pattern.
-
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/gpu/drm/mediatek/mtk_hdmi_v2.c | 123 +++++++++++++++++++++++++
- 1 file changed, 123 insertions(+)
-
-diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c b/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
-index dd10f272eabd..284d5cc0cffd 100644
---- a/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
-+++ b/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
-@@ -1188,6 +1188,128 @@ static int mtk_hdmi_v2_hdmi_write_infoframe(struct drm_bridge *bridge,
- 	return 0;
- }
- 
-+static int mtk_hdmi_v2_set_abist(struct mtk_hdmi *hdmi, bool enable)
-+{
-+	struct drm_display_mode *mode = &hdmi->mode;
-+	int abist_format = -EINVAL;
-+	bool interlaced;
-+
-+	if (!enable) {
-+		regmap_clear_bits(hdmi->regs, TOP_CFG00, HDMI_ABIST_ENABLE);
-+		return 0;
-+	}
-+
-+	if (!mode->hdisplay || !mode->vdisplay)
-+		return -EINVAL;
-+
-+	interlaced = mode->flags & DRM_MODE_FLAG_INTERLACE;
-+
-+	switch (mode->hdisplay) {
-+	case 720:
-+		if (mode->vdisplay == 480)
-+			abist_format = 2;
-+		else if (mode->vdisplay == 576)
-+			abist_format = 11;
-+		break;
-+	case 1280:
-+		if (mode->vdisplay == 720)
-+			abist_format = 3;
-+		break;
-+	case 1440:
-+		if (mode->vdisplay == 480)
-+			abist_format = interlaced ? 5 : 9;
-+		else if (mode->vdisplay == 576)
-+			abist_format = interlaced ? 14 : 18;
-+		break;
-+	case 1920:
-+		if (mode->vdisplay == 1080)
-+			abist_format = interlaced ? 4 : 10;
-+		break;
-+	case 3840:
-+		if (mode->vdisplay == 2160)
-+			abist_format = 25;
-+		break;
-+	case 4096:
-+		if (mode->vdisplay == 2160)
-+			abist_format = 26;
-+		break;
-+	default:
-+		break;
-+	}
-+	if (abist_format < 0)
-+		return abist_format;
-+
-+	regmap_update_bits(hdmi->regs, TOP_CFG00, HDMI_ABIST_VIDEO_FORMAT,
-+			   FIELD_PREP(HDMI_ABIST_VIDEO_FORMAT, abist_format));
-+	regmap_set_bits(hdmi->regs, TOP_CFG00, HDMI_ABIST_ENABLE);
-+	return 0;
-+}
-+
-+static int mtk_hdmi_v2_debug_abist_show(struct seq_file *m, void *arg)
-+{
-+	struct mtk_hdmi *hdmi = m->private;
-+	bool en;
-+	u32 val;
-+	int ret;
-+
-+	if (!hdmi)
-+		return -EINVAL;
-+
-+	ret = regmap_read(hdmi->regs, TOP_CFG00, &val);
-+	if (ret)
-+		return ret;
-+
-+	en = FIELD_GET(HDMI_ABIST_ENABLE, val);
-+
-+	seq_printf(m, "HDMI Automated Built-In Self Test: %s\n",
-+		   en ? "Enabled" : "Disabled");
-+
-+	return 0;
-+}
-+
-+static ssize_t mtk_hdmi_v2_debug_abist_write(struct file *file,
-+					     const char __user *ubuf,
-+					     size_t len, loff_t *offp)
-+{
-+	struct seq_file *m = file->private_data;
-+	int ret;
-+	u32 en;
-+
-+	if (!m || !m->private || *offp)
-+		return -EINVAL;
-+
-+	ret = kstrtouint_from_user(ubuf, len, 0, &en);
-+	if (ret)
-+		return ret;
-+
-+	if (en < 0 || en > 1)
-+		return -EINVAL;
-+
-+	mtk_hdmi_v2_set_abist((struct mtk_hdmi *)m->private, en);
-+	return len;
-+}
-+
-+static int mtk_hdmi_v2_debug_abist_open(struct inode *inode, struct file *file)
-+{
-+	return single_open(file, mtk_hdmi_v2_debug_abist_show, inode->i_private);
-+}
-+
-+static const struct file_operations mtk_hdmi_debug_abist_fops = {
-+	.owner = THIS_MODULE,
-+	.open = mtk_hdmi_v2_debug_abist_open,
-+	.read = seq_read,
-+	.write = mtk_hdmi_v2_debug_abist_write,
-+	.llseek = seq_lseek,
-+	.release = single_release,
-+};
-+
-+static void mtk_hdmi_v2_debugfs_init(struct drm_bridge *bridge, struct dentry *root)
-+{
-+	struct mtk_hdmi *dpi = hdmi_ctx_from_bridge(bridge);
-+
-+	debugfs_create_file("hdmi_abist", 0640, root, dpi, &mtk_hdmi_debug_abist_fops);
-+}
-+
- static const struct drm_bridge_funcs mtk_v2_hdmi_bridge_funcs = {
- 	.attach = mtk_hdmi_v2_bridge_attach,
- 	.detach = mtk_hdmi_v2_bridge_detach,
-@@ -1207,6 +1329,7 @@ static const struct drm_bridge_funcs mtk_v2_hdmi_bridge_funcs = {
- 	.hdmi_tmds_char_rate_valid = mtk_hdmi_v2_hdmi_tmds_char_rate_valid,
- 	.hdmi_clear_infoframe = mtk_hdmi_v2_hdmi_clear_infoframe,
- 	.hdmi_write_infoframe = mtk_hdmi_v2_hdmi_write_infoframe,
-+	.debugfs_init = mtk_hdmi_v2_debugfs_init,
- };
- 
- /*
--- 
-2.49.0
-
+Maxime
 
