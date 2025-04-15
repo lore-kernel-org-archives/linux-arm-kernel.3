@@ -4,35 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9791C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 04:50:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AF38C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 04:52:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SddrtGUvF1J5FirU6BDQmK0OMYLfnO4NLh3i8TJ1zf4=; b=3dWHJmChrjtUrrQRTNBBwj7njm
-	qXGD8dLZB4gvMb+om19/suO1ZjxhoiQnH0r5JwD8C1Jj47soU0qDlL0oRmhE+NRXDcRVkIpZ5dcXZ
-	U3ya4eHGJ9p12vDF575W93aSSMG+OFycZTFzGE+vCmqm0ZIFQcFZINerOPpVmBQ3AR7QI68vKqwVM
-	RbgcBwa9FaM1EOSo6NEHKPPP5kECIgb+lgGdAWgOsSr3rZ9CCLbOXmqtbNjlApfM/wsh0dVIPjRdW
-	4pbqcgB4otdF0AmvGaWkYhtNzKNs3xVHWJKKlhOwua4B9MrAAOa+1X77tjl7q0ClhXMNQQmArlqVQ
-	fcz0902g==;
+	bh=9gcKyz+Pj1YQ810JfBTl/e+ixHjM51/SdjsZxMjmnDM=; b=XPB9yGQuT9G389KtkhsKTz6pOE
+	wDuI7mxjYFCSVQU3SZK6yNyjHwWnLSyps4OAtG9xq7BaW7q+6tNxhVMisfS1SrYf7/0jHZKcwQHlI
+	ZWQrfRUepbLn2QbvmYGYBogALlRLVnxz9seegGGA5LP5TbNA3patDSblH5F+gfCtvkKJcvDzoRHCG
+	N1yU66bTAggcmOj88T4SpbQw3a+g4H27KcjOmAK+ghGHUstfk23Tuz+H2mCE2AZeAwDeTDoNguOHQ
+	DYyWldoJ6dwLMPYEw8qDff5SRDFDCGmPmdebYNNTMd2qM2RF3Rcx7jrXG2q4va3ftLFt3ngPLrNmn
+	KhX0+fRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4YFE-00000004Tx7-1b3R;
-	Tue, 15 Apr 2025 04:50:00 +0000
-Received: from cpanel.siel.si ([46.19.9.99])
+	id 1u4YH1-00000004UBj-0QbE;
+	Tue, 15 Apr 2025 04:51:51 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4XzB-00000004RmD-0gdK
+	id 1u4XzE-00000004RoC-0hoK
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 15 Apr 2025 04:33:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=9gcKyz+Pj1YQ810JfBTl/e+ixHjM51/SdjsZxMjmnDM=; b=JgO/att9Gaa9mqJeevQnhTqduz
+	H+qHdNb4xHm7pRvsG4nA59ei5x27lynOfbEZRdSkkfMvZSAVKcCu9pTA4wwQTj5qyZlRA48n3iDa/
+	3whZAw759Tz8c76SN+G12c8b/n3bOmf7fZI0Dn23hew+Es5Ti1cgknkSg5tWCDf82h4TYH4u4AiMK
+	HG7IlQzaXhvBpQz94IeoebcyD3k2RY+Nvl1RCqGarSS9KARooXIjjy5wHmC2JmKdNEMq8DQCcCG5c
+	bEnSYt+YNHPehCudK7DYETCAeCxhC3JrKl8+VMT3GbWo9mW98a9cSm3llz1yskLhn7AsutK4IQ/6e
+	CwAztA2A==;
+Received: from cpanel.siel.si ([46.19.9.99])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u4Xz8-00000009olB-0PDC
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 15 Apr 2025 04:33:26 +0000
 Received: from [89.212.21.243] (port=52324 helo=localhost.localdomain)
 	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <primoz.fiser@norik.com>)
-	id 1u4XzA-00Gb4I-27;
-	Tue, 15 Apr 2025 06:33:23 +0200
+	id 1u4Xz5-00Gb4I-16;
+	Tue, 15 Apr 2025 06:33:18 +0200
 From: Primoz Fiser <primoz.fiser@norik.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -46,9 +61,9 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	upstream@lists.phytec.de
-Subject: [PATCH v2 10/15] arm64: dts: freescale: imx93-phyboard-segin: Add RTC support
-Date: Tue, 15 Apr 2025 06:33:06 +0200
-Message-Id: <20250415043311.3385835-11-primoz.fiser@norik.com>
+Subject: [PATCH v2 07/15] arm64: dts: freescale: imx93-phyboard-segin: Disable SD-card write-protect
+Date: Tue, 15 Apr 2025 06:33:03 +0200
+Message-Id: <20250415043311.3385835-8-primoz.fiser@norik.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250415043311.3385835-1-primoz.fiser@norik.com>
 References: <20250415043311.3385835-1-primoz.fiser@norik.com>
@@ -65,8 +80,8 @@ X-Source:
 X-Source-Args: 
 X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_213325_372797_4AC82A35 
-X-CRM114-Status: UNSURE (   7.65  )
+X-CRM114-CacheID: sfid-20250415_053324_008930_1E46415D 
+X-CRM114-Status: UNSURE (   6.03  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,85 +97,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for RTC connected via I2C on phyBOARD-Segin-i.MX93. Set
-default RTC by configuring the aliases.
+Add disable-wp flag (write-protect) to usdhc2 node (SD-card) to get rid
+of the following kernel boot warning:
+
+  host does not support reading read-only switch, assuming write-enable
+
+Micro SD cards can't be physically write-protected like full-sized
+cards anyways.
 
 Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
 ---
 Changes in v2:
 - reword commit message
 
- .../dts/freescale/imx93-phyboard-segin.dts    | 36 +++++++++++++++++++
- 1 file changed, 36 insertions(+)
+ arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-index 525f52789f8b..38b89398e646 100644
+index 902b523fc92c..3d5cd0561362 100644
 --- a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
 +++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-@@ -17,6 +17,11 @@ /{
- 	compatible = "phytec,imx93-phyboard-segin", "phytec,imx93-phycore-som",
- 		     "fsl,imx93";
- 
-+	aliases {
-+		rtc0 = &i2c_rtc;
-+		rtc1 = &bbnsm_rtc;
-+	};
-+
- 	chosen {
- 		stdout-path = &lpuart1;
- 	};
-@@ -33,6 +38,24 @@ reg_usdhc2_vmmc: regulator-usdhc2 {
- 	};
- };
- 
-+/* I2C2 */
-+&lpi2c2 {
-+	clock-frequency = <400000>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_lpi2c2>;
-+	status = "okay";
-+
-+	/* RTC */
-+	i2c_rtc: rtc@68 {
-+		compatible = "microcrystal,rv4162";
-+		reg = <0x68>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_rtc>;
-+		interrupt-parent = <&gpio4>;
-+		interrupts = <26 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+};
-+
- /* Console */
- &lpuart1 {
- 	pinctrl-names = "default";
-@@ -56,6 +79,13 @@ &usdhc2 {
- };
- 
- &iomuxc {
-+	pinctrl_lpi2c2: lpi2c2grp {
-+		fsl,pins = <
-+			MX93_PAD_I2C2_SCL__LPI2C2_SCL		0x40000b9e
-+			MX93_PAD_I2C2_SDA__LPI2C2_SDA		0x40000b9e
-+		>;
-+	};
-+
- 	pinctrl_uart1: uart1grp {
- 		fsl,pins = <
- 			MX93_PAD_UART1_RXD__LPUART1_RX		0x31e
-@@ -69,6 +99,12 @@ MX93_PAD_SD2_RESET_B__GPIO3_IO07	0x31e
- 		>;
- 	};
- 
-+	pinctrl_rtc: rtcgrp {
-+		fsl,pins = <
-+			MX93_PAD_ENET2_RD2__GPIO4_IO26		0x31e
-+		>;
-+	};
-+
- 	pinctrl_usdhc2_cd: usdhc2cdgrp {
- 		fsl,pins = <
- 			MX93_PAD_SD2_CD_B__GPIO3_IO00		0x31e
+@@ -48,6 +48,7 @@ &usdhc2 {
+ 	pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_cd>;
+ 	bus-width = <4>;
+ 	cd-gpios = <&gpio3 0 GPIO_ACTIVE_LOW>;
++	disable-wp;
+ 	no-mmc;
+ 	no-sdio;
+ 	vmmc-supply = <&reg_usdhc2_vmmc>;
 -- 
 2.34.1
 
