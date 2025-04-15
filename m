@@ -4,86 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D258C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 18:30:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64690C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 18:33:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:
-	Message-Id:Date:Content-Type:Content-Transfer-Encoding:Mime-Version:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=L49TGW+7xz/Nh6pz+awW7HEg66lfzot3qylqJrkV2gw=; b=xLbug3IpspoEgvH/GrfUNslSqS
-	1jT2zsf1HlW/Er2GRErnSin0EMJ5kUB97VhfOGILkGwBIz88XO/rTzVFbymyCXhMZPJXBxP32IS74
-	p2UeOeY+98me0Hr2ZHF28BdA2x04/K8/X0zYaJPjL8b2UqXgVrb9Dbm+MaS+zip6gE1itIphERe2B
-	5HZKO8SBHH7oP7dfdk4F3Thd2QrxFdh5oZAlV13RwP/1/gKpLvcoHiB5e4xIhkwT6QIyIEFq2phQx
-	818IyDjOePeL2qo5AX3r/bfazeVskmDzHTZXYKoBbfmfABCMAhJqoLeqY2v/xadwFsnQlbq+Ou+V6
-	7ibYnkoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BMuIQjhmXCvM26ZnqO2A6hT2z1GDpQOu0QQsu7jkcnk=; b=ZlscFt16BM4zlr4p/iVy6OGbQZ
+	m0jO8SlBjKMwnSMa+CAXQkgi5yaLjXbVNKCCEn/G1ySDb95Hjhysu9+LfoY+b1ocRTMbrMXWkIYDw
+	G/nqJKl24DdF2C7Gt1igfqUUVhKDJ9i+H8rUp7Lfi8eg9dsMuMk+T0CxtXkGlxw0py4mVn9pTQ/6c
+	gjN8HZlk6+dOxL2oE7rL7duhnMhm+sJOR0fsybysY+26i7sbVs0utPMbLzYxaqHZxp0WSsXdcqHHc
+	yK1jSZWAPzzwEBto6J0EakbtYwXOMlUd4A1r7LVEw4NLKnKPkwi1iqgMmrKGNtgjGB3A7Oz8MGe0v
+	HdPxOZBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4l2w-00000006j1s-2BtR;
-	Tue, 15 Apr 2025 18:30:10 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1u4l5i-00000006jLu-1862;
+	Tue, 15 Apr 2025 18:33:02 +0000
+Received: from mail-db8eur05on20606.outbound.protection.outlook.com ([2a01:111:f403:2614::606] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4l16-00000006ikI-3qYz
+	id 1u4l3p-00000006j6Z-0Le5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 18:28:18 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-43edecbfb94so62113425e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Apr 2025 11:28:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744741695; x=1745346495; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:date:content-transfer-encoding
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=L49TGW+7xz/Nh6pz+awW7HEg66lfzot3qylqJrkV2gw=;
-        b=drWn6uMUErfjrRrTJ6zEt5IkPOPW0Z5RtBKM8h2pBO9SkSwS37eBHMWEajwuQ9anjR
-         m6XJtHM80HV0rkYv6Mr/55dPqoUGl+CPNJFkvWXHcy5ScTCV92FOtMdJB2pd/46b0jUu
-         KrkmTNbSYY4Dgyym7MF8sCWukqgyc5/LZcz0zkFLK7oZaULxRXAkyehfmjgQt//EdiHk
-         QvOc/+tNxPGanpbKPVF+vMvCNosRWiN7R+rBCdV3vm3aDN2X+CPw9Cvmu1cJQ6/YkP7d
-         Wi0ghGnIo9Dgx4n8VN99bThhDt36IieKAiki8ArR7pPC2/BVGIHvOaUuiM8BY1VNmdNo
-         RYIA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744741695; x=1745346495;
-        h=cc:to:from:subject:message-id:date:content-transfer-encoding
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=L49TGW+7xz/Nh6pz+awW7HEg66lfzot3qylqJrkV2gw=;
-        b=glmP9GPxlTM7xuYRULPTU97DX1G96zsLbTpssoLPXshAk33EKhQAYa30EEMlpbsxv3
-         KCN3xASQPcG27jqMC+++UBLuunkBRug75JVToAHRvYocy4EJPVnQ/oXW4HkB1iqs6tip
-         bjzVT3isnHiIsSmw0aJT6FUCHzuvU/6mGnf30br03Mvi5SRNpexh9Edg4nzivH7eLfGT
-         Wkafl/jbvEhcUZO+YSjK2RqzrA+jw4tmtrb8lP86WR7cE9rAVcQt8hTRH9AZZO5LfIHT
-         gxjOQ4eZmhZOAXqlTN71iHvqSgzIgjdum6aIbYF61d+g/3iNWqI0PU37ttbIn1vNop6q
-         ZCow==
-X-Forwarded-Encrypted: i=1; AJvYcCU3xMTe3JQXpny+h76C6OhQFO+C7ZhL2hFwH4g3J0GVJVSFtMMp8PctEwPWxhbzg7kzqdWs+22CYUh5yv6CgcTA@lists.infradead.org
-X-Gm-Message-State: AOJu0YyV7nnhSas32z82+3XdgSLtJ10zC2RYi2kCyS2jfpYMA5gJzYZf
-	LMIgJbgq3d06loY8nAEGS+exXqQwy5w+SF9aNZQALq11GsqR/Blvsya7Va7C71E=
-X-Gm-Gg: ASbGncvrlDnhT4wL8RfZXPQpXojZLgGI8kxVSgdsKE4wpKJV56FXdKSPKaz1EGTf0OQ
-	Y48jL82FAPZSPOlknGLfuiDaITPZj4+0YjvhHz8b7qbS8Bd95IuEM8xRZY6FM02hInRLoRkPDjL
-	vi4kihZvXoSRR/wef3giZIkvnZsNlUuwqItiOm4ERSpmLsV89FA6XbxmsIK7V3quQu6gdFlF4of
-	kyKMR5mnn+Y6xHyUl1oD7i6sGcORhpfPQthGpgK93TUaCis5TYhJ8O3XCdjHfnmxFkVBojFCUSN
-	l/AdD+2Y/MOKKQo7zc/VQMsoK4hCWkT6IEkxWy2y
-X-Google-Smtp-Source: AGHT+IH6mc9ELyei13BV0wrRCDW96LMH74+mJafLGoFBT7/zz8c7C0skMK9mvtbozXXRqxJ2TdA7Lg==
-X-Received: by 2002:a05:600c:1d95:b0:43d:878c:7c40 with SMTP id 5b1f17b1804b1-44059fcb970mr2110625e9.10.1744741694981;
-        Tue, 15 Apr 2025 11:28:14 -0700 (PDT)
-Received: from localhost ([2.216.7.124])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39eaf445708sm15206699f8f.96.2025.04.15.11.28.14
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 15 Apr 2025 11:28:14 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 15 Apr 2025 19:28:13 +0100
-Message-Id: <D97FB92117J2.PXTNFKCIRWAS@linaro.org>
-Subject: [REGRESSION] amdgpu: async system error exception from
- hdp_v5_0_flush_hdp()
-From: "Alexey Klimov" <alexey.klimov@linaro.org>
-To: <alexander.deucher@amd.com>, <frank.min@amd.com>,
- <amd-gfx@lists.freedesktop.org>
-Cc: <stable@vger.kernel.org>, <david.belanger@amd.com>,
- <christian.koenig@amd.com>, <peter.chen@cixtech.com>,
- <cix-kernel-upstream@cixtech.com>, <linux-arm-kernel@lists.infradead.org>
-X-Mailer: aerc 0.20.0
+	Tue, 15 Apr 2025 18:31:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YAquEF/QLhYRoEnIvNVz6GVw9WtlT5rNavYtR+DMrHvm/RkQA3K7b41IWmvX2fSyP9tnNLrDlkY/sg0f7/7L+y76Q++oagghI6MEC45hJGbJWDnZbjXxU+6btZvrEEc6DBhxejVC46uko2dBEHb+cKnkG6kKPXrIX+/34NjMAZfFKR3W3Btd/0ozg6onIOCevyy+4WwZllFSvk//95ho/oFo7zI1TjwifySUanJXLbvP4JLdMlBEYOgoW7Pxd53e+Cw/1zHo9PGtFH3qImiTONGVc3IBXmQOPHpcoMW4FKBOMozYe/dKdbFV7Crn/fC4bsVIQ3aydqhjKIDoYK/MUw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BMuIQjhmXCvM26ZnqO2A6hT2z1GDpQOu0QQsu7jkcnk=;
+ b=RZ2tBxuNbsLQv7DjgTbgp82p+5YB+XfXly3BJzHR7NNe2LvlJpoX3+hmjxPlMyJHoznVKZSHVisiFg90c3sKvUR/rHhFhTMOeuOTnxlVI79RUVWynkyfFiD+MVR4+OKzynHdKE0/feBU6xZ+JvIFs++m/tF4W5M556yFoLdg/yfKj2uQBAn2l/tuohsggZHwV/58yIfIdtk+X2CR1aAwOKAyY4sLScPnfdpHeqEgxq+18/3xpDCgeiIFGbX12fIXeqOlpwnuFJ3BQa2Y34/ZPXi1JY3ixxRtZtE9/TuUxSpsjB8Oy5gRBlAEJ8xMmJ1ay1uyfEM026ODTuHXa/V0Iw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BMuIQjhmXCvM26ZnqO2A6hT2z1GDpQOu0QQsu7jkcnk=;
+ b=RuPpJ6dU9GRlb8mIO0rRNhGCQ5MTpDzbmt8cYxHSgFbgfyMB+4Zfz6ngtTz2Z5YlNf7x55ry1Zl3o9TAjX1GSNB+S7PsQGE+jESdEhbPhmQ4NpUBQK4s5tCEtGGpqF9RSzHdUdsOe9pq7Vsn1NrfGpusxDZs/K6QbTSwVw8jRb3LK0FQtHD+hdt0g+JIVh/HoMpSeGrIDIgVxm6xz+U9SqMmm6oiKzxEYw3AO8hZefBq4/6dPlfXov8ddCTySiJd8qfnugXeXtoNHziYkq8E3Qm8XPkQStylxUHHJAG8Tc1lt/0oTaVGZedhmyyvGeDVWDDkGomoK3M475Gq3r6Ntw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by PA1PR04MB11059.eurprd04.prod.outlook.com (2603:10a6:102:485::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.32; Tue, 15 Apr
+ 2025 18:30:58 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8632.035; Tue, 15 Apr 2025
+ 18:30:57 +0000
+Date: Tue, 15 Apr 2025 14:30:49 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Primoz Fiser <primoz.fiser@norik.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, upstream@lists.phytec.de
+Subject: Re: [PATCH v2 02/15] arm64: dts: freescale: imx93-phycore-som: Add
+ EEPROM support
+Message-ID: <Z/6l2btFEp1LsXWV@lizhi-Precision-Tower-5810>
+References: <20250415043311.3385835-1-primoz.fiser@norik.com>
+ <20250415043311.3385835-3-primoz.fiser@norik.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250415043311.3385835-3-primoz.fiser@norik.com>
+X-ClientProxiedBy: PH8P221CA0036.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:346::25) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PA1PR04MB11059:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4cfe6d89-27ec-4c8f-8d4e-08dd7c4baa24
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|1800799024|366016|376014|7416014|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Lcg4YsBwj766APQ+XiEetQQJ0hNbFQIBoPvCaIipfImcPjRuNViPd5oTdEVV?=
+ =?us-ascii?Q?tmhdjxV7nfby9dWhCFDrN7hG+c9l2SYYHslk6V7vHf4d0q9pKGG6OoadjZuA?=
+ =?us-ascii?Q?89iiG0MNHAMIuboxcuZeWJqCVvjfAaPguYBn9YvuJfR6+TM7SP/SJ1iw7MyG?=
+ =?us-ascii?Q?QJ1H2U2xn+iIe5UOkRNvXqiD34YzNqORTO6gJ1sZOXMm2jqtohZf1DjR/Jcy?=
+ =?us-ascii?Q?23k7bV+tzfEH3GimctTEOKLSewkNz2dIss1XNdIScW96MQiIo9CHfrMRMO74?=
+ =?us-ascii?Q?DE3iQW0T3mnEu+Mv2Hzj2Vz3EZ5uwzVEvIc600FnNMTtCGzcv/NoAZ5+onfF?=
+ =?us-ascii?Q?+gmdSEfBu7WUo6RvRD12To2Zbxa3Y/FwuI7tCeTfxhMb8CiF7JNrh+tut597?=
+ =?us-ascii?Q?xE3kb9N6iO78etunTlGD9ukZwocNS1o6y2ywBpyi1QBeecQHsrt/P6QuS29k?=
+ =?us-ascii?Q?NwQmSP0Eib6fdGHSzsMB9Vv4zKTzXfuFVE9g6NB/OZBP7pG/BKZjhJ7SzI3G?=
+ =?us-ascii?Q?TGWuuQL+Ciuf5S8nWwx7wCG11ZidSzSEX9hHRgFtN06xzTY/RGaH2PDPyVIL?=
+ =?us-ascii?Q?wxZDEsjOYsyeC1/WdfA1cCq2jgeAh90hvKSk9l3Wh5+vOZtUXZYP9ORp+EfI?=
+ =?us-ascii?Q?AR4TJki7FTlLS22pkxmuGFkjq18Lzsspo0+nKoTDAtJpa6Gt0SAmqiTCGkMc?=
+ =?us-ascii?Q?K+eWdYfOA8+uUxnEmIlR6vLJEuUg5GylrH2h7u7yCWTS4H1e37HXdrUmiD8+?=
+ =?us-ascii?Q?/siByY87JVgxSBCJ1XZkjuj8qBk6P63TytoNaxgaT2F85tvWYhBy4lwcldZl?=
+ =?us-ascii?Q?ec0f1B6CAlU4d9nDdWWV75Lfao8rfzgH44xqN7v2IoQag1mdz1RjK4l5OBHP?=
+ =?us-ascii?Q?odfZCIwnppk99tmhd9BFLOWQEdg/LQ9NaU5x6VNKsjQjqbArxG+i5h9f7lX7?=
+ =?us-ascii?Q?vC9jWlcnuw1ssJoSVogIiObmoVEiwqdIf97A1UOChgMX3K6daujFwUm+Qc6R?=
+ =?us-ascii?Q?ZJ08nSybWaMswmSbnZ7QAmUHW5vetGDFRm9j5xobGVeWSKi6DSCEEGUChPdE?=
+ =?us-ascii?Q?MI94hLt79xyuFsr2j2BMLXwlBT+UBcHjHXhulCaJ1a1unRo6NAlDxguySXzS?=
+ =?us-ascii?Q?hBasA3/Hn885UP0t/XQCJyNiNHAPVuu3m+jBseo8d147HbLHbOEEyLD5VC1r?=
+ =?us-ascii?Q?YN3fomzpJzOTWcpWZMH0oKFWMqxhgPjQ7/La+F+8zMCVo5kxafI28DCMhMFf?=
+ =?us-ascii?Q?9WhNoJgryugq5fpG0YGKSp+dEMT4kGXX5yAUh4U+PjT1HDk5wPRghYIsX9Be?=
+ =?us-ascii?Q?YU8YsDKGoEohW3uq27nA6dswDJ6myNN7w830LJqaXbZfZMhyW0TKeVQekhBc?=
+ =?us-ascii?Q?WDAJur99sr8xBA9T/Aj1Adsz0SpCe94YFdz6j8/QREpgnNpxVJcA2+b7Crus?=
+ =?us-ascii?Q?K1ZiiOExf7pp4B2yxYRMZY+b34gKyMlxyX5d7Z3nLDAqSH7aIYevxQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(1800799024)(366016)(376014)(7416014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?jMtZLSLz3xSBJd7Q4Iu6tdWa+G5+0VsEkpvNv99E95yc+BySwufaJIRe/gsr?=
+ =?us-ascii?Q?TAZebyIOWCeNQONYn4ctBaF8N9aghWaKVdLdcdwWsTlv/ef+G8u8Qn7PFyKa?=
+ =?us-ascii?Q?7EJl/T7ickY4XhARaLxhAyuwmXHopcTXAFk2s8lgZ7eGXf6i3eWB6Ljm1Dp2?=
+ =?us-ascii?Q?j/N5agAy5ZZA+OmRgkRoKOhkv5cIZvqIADxbdwS/tgoMhHkH3hhxjTDbILv7?=
+ =?us-ascii?Q?2QTzS39Zee+P/dSaf12bFMYUUwF/P/96TlE1U44YDI9uEk5xamGI/j5nVKAi?=
+ =?us-ascii?Q?4W+3noTY3597+i9bHMdnrEIAlkCqJF6mjNy98aamlCvBaE2DXBwKEIpLHsal?=
+ =?us-ascii?Q?8MuCGmynavOAr05/M5+9xhTJCPB8RyEdX6jVfjtTLX8puPPXk+x+hUDivTdT?=
+ =?us-ascii?Q?gAnybS3ksnq3TWlLSUWueSUN7V/hxeZ3NNhYodCE0Phmt9s6gjbbw8xCx21x?=
+ =?us-ascii?Q?vfLq+cnpkI/qU9DXJMkBFl0UkIH5Say9mp8eLt3K+hsxnqfH4N1jjrLQYN1L?=
+ =?us-ascii?Q?8k5n0ZlPdp0jt8d88hD9u0LU3Q+154EgL5WtSF5JoWVTlOrxr41WgWZkIx5O?=
+ =?us-ascii?Q?8WQZ15Q017vy+JfwixW2GJkcxvjPVyX9Kt9TtAwV2BVUHwYBtw9SEnr8IqhN?=
+ =?us-ascii?Q?dV+OfpLCqRBXra4k/f3/8SYBHdKvaVtMt6Vbmz1GWUKU5BUw/9W5NaeIS6QO?=
+ =?us-ascii?Q?npWyUvcUcEJlxPdHsC2ZH22qPhj3LocJihuZKocstfEQekv+L8+ScrIuzXjF?=
+ =?us-ascii?Q?yFyvgB1BJxxSewwKJQNiSFIhCH0rJTLVIHwU6kbvzcsweCSXudBucyDZIuw/?=
+ =?us-ascii?Q?E8S2yO7AD/B2L6ggwVSS1FKxHvFO5WBLcHcV6W3COzTDU2zozedm3ed9dk/W?=
+ =?us-ascii?Q?dRCleqkl0sV2CCf51oQAdKfjIvodbHH6VXkzAYp75PkExhVrJ8ULccPYfvfk?=
+ =?us-ascii?Q?sd6ds1AaiLdZ0GHqDsaQsgG1YTlesDZWUV+Yq5CnHEHpbMCbc2Kwk9MSfpS4?=
+ =?us-ascii?Q?MC5XaFbQWd6YEmAIbCowmEWX4+i6awjEcdF+d0DNgP6UZ06uPfoXCOkDiTHs?=
+ =?us-ascii?Q?3L2ujfiJJhPSDTsvpP4zWyt9flY92qb/kWgfDChYGGMDNhuwIcQ/5t/anRZr?=
+ =?us-ascii?Q?474vpEyl2E1BkLpxJQ6klcIku29StNlDpAcXBai/sJwstyqQvblszcffMera?=
+ =?us-ascii?Q?J/8/uTh6aphCO4QWKZjUmUvHDvbfBKo6PFRx/BlIYoe09fIumLCuaWKSRemU?=
+ =?us-ascii?Q?6OJqHUuuwuqw2iNOLew+hPCsuSE8cDtwziuiyENY1T0WRpiqQ1PjzjXo2Cks?=
+ =?us-ascii?Q?+ClOCEXceZT9VOTN55HQebA5J2fI8RCgoAX5eZ0WCzDw/vdRm9DrDD2R+MHb?=
+ =?us-ascii?Q?yfKy35lrMIH98okg7lQNAuEhj22l2OnruK08NIGnFeG2CFBR/UhPNJ1G1EpV?=
+ =?us-ascii?Q?611ZXeuC+B9BjxG8i1rBv5tdWkjeXxntY+tpa1QlUxuBIvyeCvGgGD3945A3?=
+ =?us-ascii?Q?NDx6qWn8NG6E3vmciFPGnnebOcqPgYbXhX64A8U95VrO2+mT89L5aF0Avu1j?=
+ =?us-ascii?Q?FxpKymxMuHaDZeesEEY/LudV7awOpET8YGsK+SJs?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4cfe6d89-27ec-4c8f-8d4e-08dd7c4baa24
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Apr 2025 18:30:57.7453
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: PvrRpUBZpDp6nMsvaHL6pNwA/Exitw+jU2Q/P7NdwSMJeaj0W1lu3XYHcjtM/+Hi5trv1ULDZNNJioo0VQ74qg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11059
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_112816_972346_BAD5E15F 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20250415_113105_147323_C5EFCDBE 
+X-CRM114-Status: GOOD (  16.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,108 +162,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Apr 15, 2025 at 06:32:58AM +0200, Primoz Fiser wrote:
+> Add support for the EEPROM chip available on I2C3 bus (address 0x50),
+> used for the PHYTEC SOM detection.
+>
+> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+> ---
 
-#regzbot introduced: v6.12..v6.13
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-I use RX6600 on arm64 Orion o6 board and it seems that amdgpu is broken on =
-recent kernels, fails on boot:
-
-[drm] amdgpu: 7886M of GTT memory ready.
-[drm] GART: num cpu pages 131072, num gpu pages 131072
-SError Interrupt on CPU11, code 0x00000000be000011 -- SError
-CPU: 11 UID: 0 PID: 255 Comm: (udev-worker) Tainted: G S                  6=
-.15.0-rc2+ #1 VOLUNTARY
-Tainted: [S]=3DCPU_OUT_OF_SPEC
-Hardware name: Radxa Computer (Shenzhen) Co., Ltd. Radxa Orion O6/Radxa Ori=
-on O6, BIOS 1.0 Jan  1 1980
-pstate: 83400009 (Nzcv daif +PAN -UAO +TCO +DIT -SSBS BTYPE=3D--)
-pc : amdgpu_device_rreg+0x60/0xe4 [amdgpu]
-lr : hdp_v5_0_flush_hdp+0x6c/0x80 [amdgpu]
-sp : ffffffc08321b490
-x29: ffffffc08321b490 x28: ffffff80b8b80000 x27: ffffff80b8bd0178
-x26: ffffff80b8b8fe88 x25: 0000000000000001 x24: ffffff8081647000
-x23: ffffffc079d6e000 x22: ffffff80b8bd5000 x21: 000000000007f000
-x20: 000000000001fc00 x19: 00000000ffffffff x18: 00000000000015fc
-x17: 00000000000015fc x16: 00000000000015cf x15: 00000000000015ce
-x14: 00000000000015d0 x13: 00000000000015d1 x12: 00000000000015d2
-x11: 00000000000015d3 x10: 000000000000ec00 x9 : 00000000000015fd
-x8 : 00000000000015fd x7 : 0000000000001689 x6 : 0000000000555401
-x5 : 0000000000000001 x4 : 0000000000100000 x3 : 0000000000100000
-x2 : 0000000000000000 x1 : 000000000007f000 x0 : 0000000000000000
-Kernel panic - not syncing: Asynchronous SError Interrupt
-CPU: 11 UID: 0 PID: 255 Comm: (udev-worker) Tainted: G S                  6=
-.15.0-rc2+ #1 VOLUNTARY
-Tainted: [S]=3DCPU_OUT_OF_SPEC
-Hardware name: Radxa Computer (Shenzhen) Co., Ltd. Radxa Orion O6/Radxa Ori=
-on O6, BIOS 1.0 Jan  1 1980
-Call trace:
- show_stack+0x2c/0x84 (C)
- dump_stack_lvl+0x60/0x80
- dump_stack+0x18/0x24
- panic+0x148/0x330
- add_taint+0x0/0xbc
- arm64_serror_panic+0x64/0x7c
- do_serror+0x28/0x68
- el1h_64_error_handler+0x30/0x48
- el1h_64_error+0x6c/0x70
- amdgpu_device_rreg+0x60/0xe4 [amdgpu] (P)
- hdp_v5_0_flush_hdp+0x6c/0x80 [amdgpu]
- gmc_v10_0_hw_init+0xec/0x1fc [amdgpu]
- amdgpu_device_init+0x19f8/0x2480 [amdgpu]
- amdgpu_driver_load_kms+0x20/0xb0 [amdgpu]
- amdgpu_pci_probe+0x1b8/0x5d4 [amdgpu]
- pci_device_probe+0xbc/0x1a8
- really_probe+0xc0/0x39c
- __driver_probe_device+0x7c/0x14c
- driver_probe_device+0x3c/0x120
- __driver_attach+0xc4/0x200
- bus_for_each_dev+0x68/0xb4
- driver_attach+0x24/0x30
- bus_add_driver+0x110/0x240
- driver_register+0x68/0x124
- __pci_register_driver+0x44/0x50
- amdgpu_init+0x84/0xf94 [amdgpu]
- do_one_initcall+0x60/0x1e0
- do_init_module+0x54/0x200
- load_module+0x18f8/0x1e68
- init_module_from_file+0x74/0xa0
- __arm64_sys_finit_module+0x1e0/0x3f0
- invoke_syscall+0x64/0xe4
- el0_svc_common.constprop.0+0x40/0xe0
- do_el0_svc+0x1c/0x28
- el0_svc+0x34/0xd0
- el0t_64_sync_handler+0x10c/0x138
- el0t_64_sync+0x198/0x19c
-SMP: stopping secondary CPUs
-Kernel Offset: disabled
-CPU features: 0x1000,000000e0,f169a650,9b7ff667
-Memory Limit: none
----[ end Kernel panic - not syncing: Asynchronous SError Interrupt ]---
-
-(bios version seems to be 45 years old but that is the state of the board
-when I received it)
-
-Also saw this crash with RX6700. Old radeons like HD5450 and nvidia gt1030
-work fine on that board.
-
-A little bit of testing showed that it was introduced between 6.12 and 6.13=
-.
-Also it seems that changes were taken by some distro kernels already and
-different iso images I tried failed to boot before I bumped into some iso
-with kernel 6.8 that worked just fine.
-
-The only change related to hdp_v5_0_flush_hdp() was
-cf424020e040 drm/amdgpu/hdp5.0: do a posting read when flushing HDP
-
-Reverting that commit ^^ did help and resolved that problem. Before sending
-revert as-is I was interested to know if there supposed to be a proper fix
-for this or maybe someone is interested to debug this or have any suggestio=
-ns.
-
-In theory I also need to confirm that exactly that change introduced the
-regression.
-
-Thanks,
-Alexey
-
+> Changes in v2:
+> - move reg property ahead of pagesize
+>
+>  arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+> index 507a71f9294b..0528e293c03d 100644
+> --- a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+> @@ -154,6 +154,14 @@ ldo5: LDO5 {
+>  			};
+>  		};
+>  	};
+> +
+> +	/* EEPROM */
+> +	eeprom@50 {
+> +		compatible = "atmel,24c32";
+> +		reg = <0x50>;
+> +		pagesize = <32>;
+> +		vcc-supply = <&buck4>;
+> +	};
+>  };
+>
+>  /* eMMC */
+> --
+> 2.34.1
+>
 
