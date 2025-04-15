@@ -4,80 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97554C369BD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 04:45:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8BA7C369B1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 04:47:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gALzjJL46EqE2gxJlPo5NC2Dj08gYBKnNv3K/rC23To=; b=EnOmopW2zDCSUw2IMwFxdhjVQa
-	hGCc2nabfvA2Y+dnu6J4InZeZn/UYP1uYz47HD90rdz0JNuNeIhmw1+DoKDlXCAVbN4aUM2aawso2
-	309Yn8083UitdtyxF14cRNEjJJiIc+ehSiNpL/s246BnRu1LkNPuUavK4ShsyE0cC1aSLTbRVpXvc
-	2skYR6I+5agn9K2Fvl1ZDsW1B64k/IKgwSePecoxNz27Hrj7yyY2qcKRiLTbm7ThieSlyNvjf8Syb
-	AVP5+kc9KwYGbpwjiOCObiHcKsD/75JNWswqxGfTz3KKr28Oy2ILfyBUl7N0rHBLJ41gInu30BN1D
-	uNglB7nw==;
+	bh=csrorJtB6IL/7qP22Qy5p8avAYjCYJENPj8BH/AI1pg=; b=v/0bmRcEwa28p12J5oHChH7XUD
+	n0ynCm+fTB6q8GtNhRiMhV4mLwDPtl2IjcSBuCTdTT77emaIYEYbzM9scmQmAPNiFjjIXKvpideCn
+	uwOw5TOKSRSbU16gwYdjfSL+GDutdP2Tq+tlYxZQ3aikzT1/RvWRS1VMxpgNQr6Ki1q/BUej1rNMZ
+	2h9QjFk1edBO0E5yhjiACDmZWBxrbMz3EAvlohb7VOvkiFokPUGeFHYDoJQqivgPbGK/oZbcie8IU
+	FyGIohCHeYH0UG8/HteIVxOpYi53hq4ZmX19FIB5PNaiDBLFF/St4Q38kJ3QnKb25K3ScNUOMlCKw
+	y2eORVag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4ueb-00000008BCE-3Zha;
-	Wed, 16 Apr 2025 04:45:41 +0000
+	id 1u4ugP-00000008Bah-0pkZ;
+	Wed, 16 Apr 2025 04:47:33 +0000
 Received: from mgamail.intel.com ([198.175.65.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4ucj-00000008Au5-3cqq;
-	Wed, 16 Apr 2025 04:43:48 +0000
+	id 1u4uco-00000008Au5-0rfL
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 16 Apr 2025 04:43:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1744778625; x=1776314625;
+  t=1744778630; x=1776314630;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=kMf0cmB4IfhJGDyQcQ96/97AIhp2FK1esnEM3gpY0iQ=;
-  b=KKkeZtKAda0vLsg1bcOYG3H7eH9HbbIyKXHyNv9AXbhl9kOtYE8jWygM
-   /yzi3l3YtBdEyXIy4oxrJRr1vlW9zp9WKwJm0Ckb8HopOgPUZYHGi2N1C
-   alE7WvXUlTcJthrg8ccWxm//HUBdobSLoAavqAlR+BGtQCXyXrtx1EzDs
-   dnwzrq77Az2NKK+zpTECNAqX02x+jKO+mjKa4A+4hALHMM6paKEA87nKH
-   G+Gek3RPTinmdkj1QyFZ2F5Cua5bai7Anq7vqk4X8E0e8eHgvGqyLiSW0
-   PxT1sX5RLSPiOBB/fg1BmtCWMqnQSmdxlHhXhyXbRygd5l46t3CWwGsPT
-   w==;
-X-CSE-ConnectionGUID: ygHqpUdpQdu9EOSdV+EWBQ==
-X-CSE-MsgGUID: nbudu0WTRE+Q7dWFzIBl2A==
-X-IronPort-AV: E=McAfee;i="6700,10204,11404"; a="56487238"
+  bh=vAMnGxUcU//psHUkii+s33jTvdxyHAKQoI0SO/OFGjs=;
+  b=VJSgildbS8rP+93rYBfFRaS4WKN36X1A6rIUExaF5hngCyWGpiKzSaEn
+   K4C+qFzt+w9/88/ipiHNV9TUSso6dz3TB2CKyZArSLfyu8Ktt46HvbNqD
+   bn8Hitcsl3VH+tScFWdy8+NxDBZuHk7lhfGsIc6/+xDw+PNF+ugDR8TsM
+   +WUAd6D5hMkoUwWk5+0ZxFokZdsZq34w10L7e8hefJIiElN/dO7Js0/ru
+   BjOzeRn/6zN+rPA7EhIpy/xfPzoLeV7vdxbZOcs7TImOcxfCw6Dfw7LaS
+   vpsawE7Ni578O35PhqKVJe4P0LsoH8leRgxDY6QAsC59laTDA6+crpSi0
+   g==;
+X-CSE-ConnectionGUID: QlOWI/8pSMO00ZDjzryyxQ==
+X-CSE-MsgGUID: /ae1PfRgRR+2zdu8ZYuMbQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11404"; a="56487257"
 X-IronPort-AV: E=Sophos;i="6.15,215,1739865600"; 
-   d="scan'208";a="56487238"
+   d="scan'208";a="56487257"
 Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Apr 2025 21:43:41 -0700
-X-CSE-ConnectionGUID: RWhfaWJXTlSqn+I56IqIAg==
-X-CSE-MsgGUID: YcUu2o6NQha09i7N4bz+Ng==
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Apr 2025 21:43:49 -0700
+X-CSE-ConnectionGUID: oMYQ5FoORgWO2U6X1+z1Lg==
+X-CSE-MsgGUID: eGG8BGuoSBi+lbHpR/YvUA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.15,215,1739865600"; 
-   d="scan'208";a="131286278"
+   d="scan'208";a="131286386"
 Received: from lkp-server01.sh.intel.com (HELO b207828170a5) ([10.239.97.150])
-  by orviesa008.jf.intel.com with ESMTP; 15 Apr 2025 21:43:38 -0700
+  by orviesa008.jf.intel.com with ESMTP; 15 Apr 2025 21:43:45 -0700
 Received: from kbuild by b207828170a5 with local (Exim 4.96)
 	(envelope-from <lkp@intel.com>)
-	id 1u4pbR-000HF8-0v;
-	Tue, 15 Apr 2025 23:22:05 +0000
-Date: Wed, 16 Apr 2025 07:21:50 +0800
+	id 1u4non-000H57-2S;
+	Tue, 15 Apr 2025 21:27:45 +0000
+Date: Wed, 16 Apr 2025 05:27:12 +0800
 From: kernel test robot <lkp@intel.com>
-To: "Rob Herring (Arm)" <robh@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
+To: Frank Li <Frank.Li@nxp.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: oe-kbuild-all@lists.linux.dev, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] dt-bindings: phy: rockchip: Convert RK3399 Type-C PHY to
- schema
-Message-ID: <202504160640.7d02llyK-lkp@intel.com>
-References: <20250415011814.2319719-1-robh@kernel.org>
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Steve Longerbeam <slongerbeam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	"open list:MEDIA INPUT INFRASTRUCTURE (V4L/DVB)" <linux-media@vger.kernel.org>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev, linux-media@vger.kernel.org
+Subject: Re: [PATCH 1/1] dt-bindings: media: convert imx.txt to yaml format
+Message-ID: <202504160540.HtRDAA78-lkp@intel.com>
+References: <20250414210720.3359301-1-Frank.Li@nxp.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="a22HVJgpbW7o+5A2"
+Content-Type: multipart/mixed; boundary="96t8v4EgpfL9ABFy"
 Content-Disposition: inline
-In-Reply-To: <20250415011814.2319719-1-robh@kernel.org>
+In-Reply-To: <20250414210720.3359301-1-Frank.Li@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_214346_147937_20AE9561 
-X-CRM114-Status: GOOD (  14.16  )
+X-CRM114-CacheID: sfid-20250415_214350_353936_E52691C0 
+X-CRM114-Status: GOOD (  15.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,49 +100,50 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---a22HVJgpbW7o+5A2
+--96t8v4EgpfL9ABFy
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 
-Hi Rob,
+Hi Frank,
 
 kernel test robot noticed the following build warnings:
 
 [auto build test WARNING on robh/for-next]
-[also build test WARNING on linus/master v6.15-rc2 next-20250415]
+[also build test WARNING on linuxtv-media-pending/master linus/master v6.15-rc2 next-20250415]
 [If your patch is applied to the wrong git tree, kindly drop us a note.
 And when submitting patch, we suggest to use '--base' as documented in
 https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Rob-Herring-Arm/dt-bindings-phy-rockchip-Convert-RK3399-Type-C-PHY-to-schema/20250415-091940
+url:    https://github.com/intel-lab-lkp/linux/commits/Frank-Li/dt-bindings-media-convert-imx-txt-to-yaml-format/20250415-050859
 base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
-patch link:    https://lore.kernel.org/r/20250415011814.2319719-1-robh%40kernel.org
-patch subject: [PATCH] dt-bindings: phy: rockchip: Convert RK3399 Type-C PHY to schema
+patch link:    https://lore.kernel.org/r/20250414210720.3359301-1-Frank.Li%40nxp.com
+patch subject: [PATCH 1/1] dt-bindings: media: convert imx.txt to yaml format
 reproduce:
 
 If you fix the issue in a separate patch/commit (i.e. not just a new version of
 the same patch/commit), kindly add following tags
 | Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202504160640.7d02llyK-lkp@intel.com/
+| Closes: https://lore.kernel.org/oe-kbuild-all/202504160540.HtRDAA78-lkp@intel.com/
 
 All warnings (new ones prefixed by >>):
 
-   Documentation/userspace-api/netlink/netlink-raw.rst: :doc:`rt_link<../../networking/netlink_spec/rt_link>`
-   Documentation/userspace-api/netlink/netlink-raw.rst: :doc:`tc<../../networking/netlink_spec/tc>`
-   Documentation/userspace-api/netlink/netlink-raw.rst: :doc:`tc<../../networking/netlink_spec/tc>`
-   Warning: Documentation/devicetree/bindings/regulator/siliconmitus,sm5703-regulator.yaml references a file that doesn't exist: Documentation/devicetree/bindings/mfd/siliconmitus,sm5703.yaml
->> Warning: Documentation/devicetree/bindings/usb/rockchip,dwc3.yaml references a file that doesn't exist: Documentation/devicetree/bindings/phy/phy-rockchip-typec.txt
-   Warning: Documentation/hwmon/g762.rst references a file that doesn't exist: Documentation/devicetree/bindings/hwmon/g762.txt
-   Warning: Documentation/translations/ja_JP/SubmittingPatches references a file that doesn't exist: linux-2.6.12-vanilla/Documentation/dontdiff
-   Warning: Documentation/translations/ja_JP/process/submit-checklist.rst references a file that doesn't exist: Documentation/translations/ja_JP/SubmitChecklist
-   Warning: Documentation/translations/zh_CN/admin-guide/README.rst references a file that doesn't exist: Documentation/dev-tools/kgdb.rst
-   Warning: Documentation/translations/zh_CN/dev-tools/gdb-kernel-debugging.rst references a file that doesn't exist: Documentation/dev-tools/gdb-kernel-debugging.rst
+   Warning: Documentation/translations/zh_TW/admin-guide/README.rst references a file that doesn't exist: Documentation/dev-tools/kgdb.rst
+   Warning: Documentation/translations/zh_TW/dev-tools/gdb-kernel-debugging.rst references a file that doesn't exist: Documentation/dev-tools/gdb-kernel-debugging.rst
+   Warning: Documentation/userspace-api/netlink/index.rst references a file that doesn't exist: Documentation/networking/netlink_spec/index.rst
+   Warning: Documentation/userspace-api/netlink/specs.rst references a file that doesn't exist: Documentation/networking/netlink_spec/index.rst
+   Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/counter/ftm-quaddec.txt
+>> Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/media/imx.txt
+   Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/leds/backlight/ti,lp8864.yaml
+   Can't build as 1 mandatory dependency is missing at ./scripts/sphinx-pre-install line 984.
+   make[2]: *** [Documentation/Makefile:121: htmldocs] Error 255
+   make[1]: *** [Makefile:1801: htmldocs] Error 2
+   make: *** [Makefile:248: __sub-make] Error 2
 
 -- 
 0-DAY CI Kernel Test Service
 https://github.com/intel/lkp-tests/wiki
 
---a22HVJgpbW7o+5A2
+--96t8v4EgpfL9ABFy
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: attachment; filename=reproduce
 
@@ -143,13 +151,13 @@ reproduce:
         git remote add robh https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git
         git fetch robh for-next
         git checkout robh/for-next
-        b4 shazam https://lore.kernel.org/r/20250415011814.2319719-1-robh@kernel.org
+        b4 shazam https://lore.kernel.org/r/20250414210720.3359301-1-Frank.Li@nxp.com
         make menuconfig
         # enable CONFIG_COMPILE_TEST, CONFIG_WARN_MISSING_DOCUMENTS, CONFIG_WARN_ABI_ERRORS
         # install Sphinx 2.4.4
         make htmldocs
 
---a22HVJgpbW7o+5A2
+--96t8v4EgpfL9ABFy
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: attachment; filename=config
 
@@ -1970,5 +1978,5 @@ CONFIG_WARN_MISSING_DOCUMENTS=y
 CONFIG_WARN_ABI_ERRORS=y
 # end of Documentation
 
---a22HVJgpbW7o+5A2--
+--96t8v4EgpfL9ABFy--
 
