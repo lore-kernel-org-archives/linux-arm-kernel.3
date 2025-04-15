@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10371C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 17:01:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67E23C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 17:03:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=k5sn0c6EnK9MQwe7/DFbVJ/3yq40vsmcM6FfsWqie5M=; b=whximszsIEgxy7K7fd869ohgTH
-	0uX4aNzFZVl7ONMO5slLOOJI0OZJveZB/fzY+jkewRtZufS0bKY2QnhwJh+MqKzx8xG/Ksv+HFZSw
-	E9V+6CnOtiWfppp7GSt5ltNsg7hEKCBhDF1RbXwAI5cRAnkOt2QLGbm2XqdErSgMfOnfDidk4hiu0
-	TTCFXtk3T044YTuVv20q0wa+Xb4rzw/P5goS3f5h05uoJDee+6kEjDnLgLTJ9fG3ritkxHK3+Hfm1
-	CDGlhi9hj3213SNK8SZpg3V4RucvPXzApqp88ED6VYFVAndZlpjmH+OJ4yfTkdPdkPw3QFQXb8U7a
-	u1V+rVig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ygajSd1GoADtgJHoVQD1nG09yoLswhvg7GNMQk1G7Ts=; b=VLnKu8T05lmCbkfsiw+HeMZIMb
+	KlpEl3my4mOP4O2hmlqoBKA0S7YLJ6jCw0YuF+1DvL56b2HFiGQ1rNUt10rcCclIIRF3o0dn+mU6n
+	uBFsdGaMx/Vi01ghExlE9xTYevzY1g9V3JG8Twy9AzVutQ7P6UBvvWeREG8lBBgfryWOk/LiDB7WG
+	09GeUjWKT22Da2kefops6bL1yAruPrgk4wHmFZjGl5DZEpu6A/tui4FSmTmwbU3tTamyV5g+P762Q
+	8aKlikH+8dqZ7xKCWXijuZ1NUArlHu6mmOS8NkMj275l0AbkfmAo8p0Ey9xAqhl19SiBExweI1Kkv
+	OW90ht6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4jeo-00000006Ug9-0eJn;
-	Tue, 15 Apr 2025 17:01:10 +0000
+	id 1u4jgb-00000006V2F-3Xp3;
+	Tue, 15 Apr 2025 17:03:01 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4jN1-00000006RsJ-3ZMD
+	id 1u4jNJ-00000006Rws-27Hd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 16:42:49 +0000
+	Tue, 15 Apr 2025 16:43:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=k5sn0c6EnK9MQwe7/DFbVJ/3yq40vsmcM6FfsWqie5M=; b=m2W1M6XJOPCYLAtdn5g6aK359J
-	RlC0Ip1UHsog4S2oa/AZA0jnCbVWilrDXYZDfYbLvfNabQM9rBnvY6DtnH8/mElHn42/yxo0eyQVI
-	IO/QpL/cYgBaPZPF9xZq6piwT1CM34R2Pim9+5WogOPDC+VeiM7GSFQx7mirZMk7+PXhj+LRkv/W3
-	Dr4GeQt40Kefw4YhUZyrayEBbhuv7Lg+enVZykW+zV1/8EeA7mX5qQdKsIVLap/i4qmdhUukX+OgJ
-	hsq3QslBcvX22lapOZ2jdVMCsmpzbErIHBO5b5pk60BOOoxgqWGrPjfoFnbEtaBydBQTAp6WTXmz4
-	AYPr3gpA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:56610)
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=ygajSd1GoADtgJHoVQD1nG09yoLswhvg7GNMQk1G7Ts=; b=m4EjXFXOke+PyYG0vZ0RghbcyP
+	HzNUpBXNynINV4KieJZcX+97P4vS78uPA/HwlohSjU4CnDfYHZAuzX0J6FMiHpGEFO49G/fey2Xct
+	y8PTmuL4RnbN2waGULstWrBlsmoTdorLqTKOH6So0ai1TrvIYN6kIYswW5UT0IfrFeR9Wm+731M6l
+	kqKfXJugRikahFA0IDA9J6MUL+ZArBn4jMjPURNVOzzUZYYA0J0CWIKXmakOHochX99Who7oTm/zU
+	Q5i8XX1HYQsnQm245bMw7FOkTF4zv9GcuOtYVv/zqR99TpL9vvHNqnJTG1fb4qwXGXIhNN9O6nDGD
+	BcIhCVaQ==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:35468 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1u4jMv-0008Vb-2y;
-	Tue, 15 Apr 2025 17:42:42 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1u4jMt-0000X2-0r;
-	Tue, 15 Apr 2025 17:42:39 +0100
-Date: Tue, 15 Apr 2025 17:42:39 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1u4jNF-0008Vr-1c;
+	Tue, 15 Apr 2025 17:43:01 +0100
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1u4jMd-000rCG-VU; Tue, 15 Apr 2025 17:42:24 +0100
+In-Reply-To: <Z_6Mfx_SrionoU-e@shell.armlinux.org.uk>
+References: <Z_6Mfx_SrionoU-e@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
 Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
@@ -59,16 +60,20 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Jakub Kicinski <kuba@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 0/3] net: stmmac: sti cleanups
-Message-ID: <Z_6Mfx_SrionoU-e@shell.armlinux.org.uk>
+Subject: [PATCH net-next 1/3] net: stmmac: sti: use
+ phy_interface_mode_is_rgmii()
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1u4jMd-000rCG-VU@rmk-PC.armlinux.org.uk>
+Date: Tue, 15 Apr 2025 17:42:23 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_094247_892756_9854C4FE 
-X-CRM114-Status: UNSURE (   7.67  )
+X-CRM114-CacheID: sfid-20250415_094305_538398_01F21182 
+X-CRM114-Status: UNSURE (   9.84  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,24 +89,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Clean up the STI platform glue code.
+Replace the custom IS_PHY_IF_MODE_RGMII() macro with our generic
+phy_interface_mode_is_rgmii() inline function.
 
-- IS_PHY_IF_MODE_RGMII() is just a duplicate for
-  phy_interface_mode_is_rgmii(), so use the generic version that we
-  already have.
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ drivers/net/ethernet/stmicro/stmmac/dwmac-sti.c | 9 ++-------
+ 1 file changed, 2 insertions(+), 7 deletions(-)
 
-- add init/exit functions that call clk_prepare_enable(),
-  sti_dwmac_set_mode() and clk_disable_unprepare() as appropriate,
-  converting to devm_stmmac_pltfr_probe().
-
-- the custom suspend/resume ops do basically what the generic ones
-  do with init/exit functions populated, but also add runtime and
-  noirq ops. Update STI to use the generic ops.
-
- drivers/net/ethernet/stmicro/stmmac/dwmac-sti.c | 88 ++++++++-----------------
- 1 file changed, 29 insertions(+), 59 deletions(-)
-
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sti.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sti.c
+index be57c6c12c1c..c580647ff9dc 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sti.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sti.c
+@@ -23,12 +23,7 @@
+ 
+ #define DWMAC_50MHZ	50000000
+ 
+-#define IS_PHY_IF_MODE_RGMII(iface)	(iface == PHY_INTERFACE_MODE_RGMII || \
+-			iface == PHY_INTERFACE_MODE_RGMII_ID || \
+-			iface == PHY_INTERFACE_MODE_RGMII_RXID || \
+-			iface == PHY_INTERFACE_MODE_RGMII_TXID)
+-
+-#define IS_PHY_IF_MODE_GBIT(iface)	(IS_PHY_IF_MODE_RGMII(iface) || \
++#define IS_PHY_IF_MODE_GBIT(iface)	(phy_interface_mode_is_rgmii(iface) || \
+ 					 iface == PHY_INTERFACE_MODE_GMII)
+ 
+ /* STiH4xx register definitions (STiH407/STiH410 families)
+@@ -148,7 +143,7 @@ static void stih4xx_fix_retime_src(void *priv, int spd, unsigned int mode)
+ 			src = TX_RETIME_SRC_CLKGEN;
+ 			freq = DWMAC_50MHZ;
+ 		}
+-	} else if (IS_PHY_IF_MODE_RGMII(dwmac->interface)) {
++	} else if (phy_interface_mode_is_rgmii(dwmac->interface)) {
+ 		/* On GiGa clk source can be either ext or from clkgen */
+ 		freq = rgmii_clock(spd);
+ 
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.30.2
+
 
