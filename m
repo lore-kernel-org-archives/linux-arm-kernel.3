@@ -4,102 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62C57C369B5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 08:28:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCF48C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 08:30:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jV6NGQFGLg4JdFHEjIqGuC71J4i1+oIq9oJnSeBlp3s=; b=mwkXQFZkPxpnRm1fh80estdfcI
-	RHoQ0CUIMR44v78DRpSx4VFU5uMcqdrnbwPbvCNR0SrKwCx02BBLxd/RNV7XHLmTTmVryE6HDOqwI
-	carljB24Eu5sshqGKYX6i+7+4DO7Zr2KJRWpACKlXrQ4uDEm3PqgrVIOVjcVS8NiewmvY4WvURKN/
-	bXlsv+xW6TPHpE5VGxF/5kWYQrMkSE1CMJe+wawvsuVrCyDBMHY1z01iSD25KrAAyHxNE96OfP1tq
-	U2asPveUl+XEucMkAs4xYoomWu8mGlinq/LkyvycX100n4sRYLlNWxrfOO6BTuG46ACCkpvBTcv4Q
-	T8/eqmQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JOyJ3bbxtTyHnbUxiYgYRtegI1lip9bbHwf/0u573ho=; b=lZrHUu4b9uPuBFKISJ89Sr9rOJ
+	6PlDb1LlRm3xuJiljYR1IP/OQkvs4zij2b/5xa8e40xKaPkqw6Z1l1G0X1R0dU9Rpmb2eUCSAUSH+
+	Km5THG+FTQrGRpAEIB+3Jt4ifDWhFRnAd+BPOUq9xfKSdC20hNrLI65cFhIYkvLzr/SLXcMd/UToO
+	pihHfPkOCT8FTM6lSli1xtwVnwkc0MjfnN2dvTV+boOZftXwTre9sCl2EHjCMjFn+Mf9NEvaBENqM
+	U9F/6CyIhPAp9N/BiGmIDdUY53qjAl3tuJ4BxXU6CyJdpZytHUamPd326lzreECiSV5USkbe1nBGM
+	NrvUJJqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4beR-00000004zoT-1TXF;
-	Tue, 15 Apr 2025 08:28:15 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4aXi-00000004m3q-05gH
+	id 1u4bg8-000000050Gb-0fAM;
+	Tue, 15 Apr 2025 08:30:00 +0000
+Received: from m16.mail.163.com ([220.197.31.2])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u4bZ8-00000004yNe-12Xb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 07:17:15 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2295d78b433so54012505ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Apr 2025 00:17:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744701433; x=1745306233; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=jV6NGQFGLg4JdFHEjIqGuC71J4i1+oIq9oJnSeBlp3s=;
-        b=sEb45h034UcQMfpdQFwQI6uufw7IKhkC+x1r9t3Hi5zdDtQaKV2HO9L66/PInTMEb6
-         qyQentmbYS6c01c1eW4d1RdYVw5BAAhyNuP8lDHdEsBqaxD53L9KJo+2r8umszpffGpQ
-         8kxxgkD/0U8o9QURs0aDxIox+fuGkdOHCvYgvmiwxMcAxa20S+QxVBXHUggGWnPQ7d4G
-         fhmCMgEmeNkXPS6bBt46T/ajOyx7iKJHXWtf3Ejs2LrR2PvLZbTXuirniQoIgF6esIqa
-         A3p1sv1ubzlUk3bmsaBQZZLoFNpB9FNpLK6K5xmKVvOQ1eiE//iKQ99Qb8u+fPGpTWab
-         dgzw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744701433; x=1745306233;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=jV6NGQFGLg4JdFHEjIqGuC71J4i1+oIq9oJnSeBlp3s=;
-        b=KakKBySyJRAMysowuWx9gGphzA0dI8zv+DSxm0oOwMAHUXA1xEjHQdYyuCa65U0WTU
-         C9icw3eb/T3LjGXdhIKjJS+cSXfffVubJUJrOTsDWggVbqbbo0QHKbC0DHo2kZcXuLxG
-         14t08YjU4w3pkccwsz43rGs6lxMjoZrWzy4we2HUVaW3YUgfrDGOseSykShSoubalzLe
-         DH4FbYq5CCK3Ay8oHopU6LWrxK+3V3tiKRBPRTHRYL0Ji+2/KkzEdReJo2mhPI47hzX3
-         sk4SjiV9H9qAMpxyUO1mEz7oyzPW/fD0qIS7Mcy4q8J8BneELDzhOO51ucwfUbbMNexa
-         Hu/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWcJIv8g5PowlUOIGE02TfS5Geeys8QKmaXqAhWI7cB1X9T1zjTcf5FZioj3YLeIFF4Eq9sH4EvyuP+mnfz9znD@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxoba2dNMTDfGgmtoicKshA8sOpQZsuGOpit/H1n8laQDw5Bns3
-	LypXO/OSiCUdgaMpdtpwoPfbjLifqD+8UjTI083YAwQV15e15gJREXt5pE3rCA==
-X-Gm-Gg: ASbGncsSt88heiCU/NiY1mCUihl64lHNNAx/4vL1CqJur3V1ht+efFxz207xnQ1X5lQ
-	IaFJ0WppZY3WHPOrNfHS5/PS82JyqyaM6gImDJe2yWiXB6yZRemX7yrN4qAvHwXo4io6QRfnzs6
-	nLQySVMKZYC70jdhqMpKbfJmTh9QPqvwKJPDbU3/JY/Y5NVEkt4SM+5t4PWr5xkHRhEH+pD2KRs
-	uSQEMPMgChjEFsgaFlyu0zpEcCJb/9Y47i2j7z59RuDVoGN6SDd2IV/Mxv0JkuqB4sGSqy7Rmba
-	iy8cl19ohe01R2DXDvcfWvgOtg3aU9Ddjr9LVlJlJbN+w+k/Mw==
-X-Google-Smtp-Source: AGHT+IEsKIi1AC4jZA/ksxZU1y9WCKtKtWG0llGnvi3XAKZ2YzyptaNOJKPI/OvYlRGlImVjo9ZAgw==
-X-Received: by 2002:a17:902:f707:b0:224:2175:b0cd with SMTP id d9443c01a7336-22bea4c3baamr218535905ad.26.1744701432954;
-        Tue, 15 Apr 2025 00:17:12 -0700 (PDT)
-Received: from thinkpad ([120.60.71.35])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22ac7b8b355sm110106255ad.87.2025.04.15.00.17.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Apr 2025 00:17:12 -0700 (PDT)
-Date: Tue, 15 Apr 2025 12:47:06 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Hongxing Zhu <hongxing.zhu@nxp.com>
-Cc: Frank Li <frank.li@nxp.com>, 
-	"l.stach@pengutronix.de" <l.stach@pengutronix.de>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>, 
-	"kw@linux.com" <kw@linux.com>, "robh@kernel.org" <robh@kernel.org>, 
-	"bhelgaas@google.com" <bhelgaas@google.com>, "shawnguo@kernel.org" <shawnguo@kernel.org>, 
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>, 
-	"festevam@gmail.com" <festevam@gmail.com>, "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v3 3/6] PCI: imx6: Workaround i.MX95 PCIe may not exit
- L23 ready
-Message-ID: <cm5esahjwyoi5hky344nk2vfawf26hzgvu2rkplabav6d2r3gt@y4ypf6mdaapx>
-References: <20250328030213.1650990-4-hongxing.zhu@nxp.com>
- <ovaomfvo7b3uxoss3tzhrkgdy6cvxi4kr2zxmqsfjxds5qfohl@t6kc4rswq6gp>
- <AS8PR04MB8676687332C78840B927E7568CAF2@AS8PR04MB8676.eurprd04.prod.outlook.com>
- <rqgl5jjauppyudgmugp34fillkeli3qkwf4uf2djghi6nslebg@pyi6rbwyduxd>
- <AS8PR04MB8676BB3EDFCF3E5A490AC0628CAE2@AS8PR04MB8676.eurprd04.prod.outlook.com>
- <AS8PR04MB8676C5D0DB84975D34C4C65A8CB52@AS8PR04MB8676.eurprd04.prod.outlook.com>
- <4qrfkx3ckywcbk7qbjplal5j7v6sjs3zebeehe5dnrgjz2ej2t@krdwjb4xm2sx>
- <AS8PR04MB8676221C998474EF5A9B94288CB72@AS8PR04MB8676.eurprd04.prod.outlook.com>
- <h7pja24zffl4t7653rjaamp6v2j5nmukbzq7rdajynemlyb6l6@3e37ggkparjg>
- <AS8PR04MB8676CFD0FA7BCBB06AC51B018CB32@AS8PR04MB8676.eurprd04.prod.outlook.com>
+	Tue, 15 Apr 2025 08:22:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-Id:MIME-Version; bh=JOyJ3
+	bbxtTyHnbUxiYgYRtegI1lip9bbHwf/0u573ho=; b=eiYwfh3b9Gv+hi0GvBuzY
+	g4/bqySGRTR8KN4ak8/zV3dCSxHtXt9v2XuIqBSdbw4pwApRNle8ZcN/UeyK69/h
+	C/hEl91J28fg8cil1oVq3/bOsQfAyG425QqgxklF7hq00LDoJ155cCjL3RCHRlyK
+	GxGtLonTAWowIDIR1Moac4=
+Received: from localhost (unknown [])
+	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wAXIEsxF_5n1K_IAA--.17854S2;
+	Tue, 15 Apr 2025 16:22:10 +0800 (CST)
+From: Xavier <xavier_qy@163.com>
+To: ryan.roberts@arm.com,
+	dev.jain@arm.com,
+	ioworker0@gmail.com,
+	21cnbao@gmail.com
+Cc: akpm@linux-foundation.org,
+	catalin.marinas@arm.com,
+	david@redhat.com,
+	gshan@redhat.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	will@kernel.org,
+	willy@infradead.org,
+	xavier_qy@163.com,
+	ziy@nvidia.com
+Subject: [mm/contpte v3 1/1] mm/contpte: Optimize loop to reduce redundant operations
+Date: Tue, 15 Apr 2025 16:22:05 +0800
+Message-Id: <20250415082205.2249918-2-xavier_qy@163.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250415082205.2249918-1-xavier_qy@163.com>
+References: <f0e109c7-6bb2-4218-bc76-c5de39184064@arm.com>
+ <20250415082205.2249918-1-xavier_qy@163.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <AS8PR04MB8676CFD0FA7BCBB06AC51B018CB32@AS8PR04MB8676.eurprd04.prod.outlook.com>
+X-CM-TRANSID: _____wAXIEsxF_5n1K_IAA--.17854S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7Ww18ZFWxZrykGr48ur1DGFg_yoW8WF1Upr
+	y8Cw1aqr1xJF13Jas3tw1rtrW5Jwn3tay7ArnIya1UA34rZr95uryFk3ya9rWUGrWFq3y8
+	Zw1jqrsrCFW7CaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piJUUUUUUUU=
+X-Originating-IP: [101.132.132.191]
+X-CM-SenderInfo: 50dyxvpubt5qqrwthudrp/1tbiwhowEGf+Eoi2tQAAs4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_001714_065580_528A0042 
-X-CRM114-Status: GOOD (  47.52  )
+X-CRM114-CacheID: sfid-20250415_012246_594687_7A6BD919 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,166 +84,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 14, 2025 at 03:15:28AM +0000, Hongxing Zhu wrote:
-> > -----Original Message-----
-> > From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> > Sent: 2025年4月13日 23:39
-> > To: Hongxing Zhu <hongxing.zhu@nxp.com>
-> > Cc: Frank Li <frank.li@nxp.com>; l.stach@pengutronix.de;
-> > lpieralisi@kernel.org; kw@linux.com; robh@kernel.org;
-> > bhelgaas@google.com; shawnguo@kernel.org; s.hauer@pengutronix.de;
-> > kernel@pengutronix.de; festevam@gmail.com; linux-pci@vger.kernel.org;
-> > linux-arm-kernel@lists.infradead.org; imx@lists.linux.dev;
-> > linux-kernel@vger.kernel.org
-> > Subject: Re: [PATCH v3 3/6] PCI: imx6: Workaround i.MX95 PCIe may not exit
-> > L23 ready
-> > 
-> > On Thu, Apr 10, 2025 at 02:45:51AM +0000, Hongxing Zhu wrote:
-> > > > -----Original Message-----
-> > > > From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> > > > Sent: 2025年4月10日 0:44
-> > > > To: Hongxing Zhu <hongxing.zhu@nxp.com>
-> > > > Cc: Frank Li <frank.li@nxp.com>; l.stach@pengutronix.de;
-> > > > lpieralisi@kernel.org; kw@linux.com; robh@kernel.org;
-> > > > bhelgaas@google.com; shawnguo@kernel.org; s.hauer@pengutronix.de;
-> > > > kernel@pengutronix.de; festevam@gmail.com;
-> > > > linux-pci@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
-> > > > imx@lists.linux.dev; linux-kernel@vger.kernel.org
-> > > > Subject: Re: [PATCH v3 3/6] PCI: imx6: Workaround i.MX95 PCIe may
-> > > > not exit L23 ready
-> > > >
-> > > > On Tue, Apr 08, 2025 at 03:02:42AM +0000, Hongxing Zhu wrote:
-> > > > > > -----Original Message-----
-> > > > > > From: Hongxing Zhu
-> > > > > > Sent: 2025年4月3日 11:23
-> > > > > > To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> > > > > > Cc: Frank Li <frank.li@nxp.com>; l.stach@pengutronix.de;
-> > > > > > lpieralisi@kernel.org; kw@linux.com; robh@kernel.org;
-> > > > > > bhelgaas@google.com; shawnguo@kernel.org;
-> > > > > > s.hauer@pengutronix.de; kernel@pengutronix.de;
-> > > > > > festevam@gmail.com; linux-pci@vger.kernel.org;
-> > > > > > linux-arm-kernel@lists.infradead.org;
-> > > > > > imx@lists.linux.dev; linux-kernel@vger.kernel.org
-> > > > > > Subject: RE: [PATCH v3 3/6] PCI: imx6: Workaround i.MX95 PCIe
-> > > > > > may not exit
-> > > > > > L23 ready
-> > > > > >
-> > > > > > > -----Original Message-----
-> > > > > > > From: Manivannan Sadhasivam
-> > <manivannan.sadhasivam@linaro.org>
-> > > > > > > Sent: 2025年4月2日 23:18
-> > > > > > > To: Hongxing Zhu <hongxing.zhu@nxp.com>
-> > > > > > > Cc: Frank Li <frank.li@nxp.com>; l.stach@pengutronix.de;
-> > > > > > > lpieralisi@kernel.org; kw@linux.com; robh@kernel.org;
-> > > > > > > bhelgaas@google.com; shawnguo@kernel.org;
-> > > > > > > s.hauer@pengutronix.de; kernel@pengutronix.de;
-> > > > > > > festevam@gmail.com; linux-pci@vger.kernel.org;
-> > > > > > > linux-arm-kernel@lists.infradead.org;
-> > > > > > > imx@lists.linux.dev; linux-kernel@vger.kernel.org
-> > > > > > > Subject: Re: [PATCH v3 3/6] PCI: imx6: Workaround i.MX95 PCIe
-> > > > > > > may not exit L23 ready
-> > > > > > >
-> > > > > > > On Wed, Apr 02, 2025 at 07:59:26AM +0000, Hongxing Zhu wrote:
-> > > > > > > > > -----Original Message-----
-> > > > > > > > > From: Manivannan Sadhasivam
-> > > > > > > > > <manivannan.sadhasivam@linaro.org>
-> > > > > > > > > Sent: 2025年4月2日 15:08
-> > > > > > > > > To: Hongxing Zhu <hongxing.zhu@nxp.com>
-> > > > > > > > > Cc: Frank Li <frank.li@nxp.com>; l.stach@pengutronix.de;
-> > > > > > > > > lpieralisi@kernel.org; kw@linux.com; robh@kernel.org;
-> > > > > > > > > bhelgaas@google.com; shawnguo@kernel.org;
-> > > > > > > > > s.hauer@pengutronix.de; kernel@pengutronix.de;
-> > > > > > > > > festevam@gmail.com; linux-pci@vger.kernel.org;
-> > > > > > > > > linux-arm-kernel@lists.infradead.org;
-> > > > > > > > > imx@lists.linux.dev; linux-kernel@vger.kernel.org
-> > > > > > > > > Subject: Re: [PATCH v3 3/6] PCI: imx6: Workaround i.MX95
-> > > > > > > > > PCIe may not exit L23 ready
-> > > > > > > > >
-> > > > > > > > > On Fri, Mar 28, 2025 at 11:02:10AM +0800, Richard Zhu wrote:
-> > > > > > > > > > ERR051624: The Controller Without Vaux Cannot Exit L23
-> > > > > > > > > > Ready Through Beacon or PERST# De-assertion
-> > > > > > > > >
-> > > > > > > > > Is it possible to share the link to the erratum?
-> > > > > > > > >
-> > > > > > > > Sorry, the erratum document isn't ready to be published yet.
-> > > > > > > > > >
-> > > > > > > > > > When the auxiliary power is not available, the
-> > > > > > > > > > controller cannot exit from
-> > > > > > > > > > L23 Ready with beacon or PERST# de-assertion when main
-> > > > > > > > > > power is not removed.
-> > > > > > > > > >
-> > > > > > > > >
-> > > > > > > > > I don't understand how the presence of Vaux affects the
-> > controller.
-> > > > > > > > > Same goes for PERST# deassertion. How does that relate to
-> > > > > > > > > Vaux? Is this erratum for a specific endpoint behavior?
-> > > > > > > > IMHO I don't know the exact details of the power supplies in
-> > > > > > > > this IP
-> > > > design.
-> > > > > > > > Refer to my guess , maybe the beacon detect or wake-up logic
-> > > > > > > > in designs is  relied on the status of SYS_AUX_PWR_DET
-> > > > > > > > signals in this
-> > > > case.
-> > > > > > >
-> > > > > > > Can you please try to get more details? I couldn't understand the
-> > errata.
-> > > > > > >
-> > > > > > Sure. Will contact designer and try to get more details.
-> > > > > Hi Mani:
-> > > > > Get some information from designs, the internal design logic is
-> > > > > relied on the  status of SYS_AUX_PWR_DET signal to handle the low
-> > power stuff.
-> > > > > So, the SYS_AUX_PWR_DET is required to be 1b'1 in the SW
-> > workaround.
-> > > > >
-> > > >
-> > > > Ok. So due to the errata, when the link enters L23 Ready state, it
-> > > > cannot transition to L3 when Vaux is not available. And the
-> > > > workaround requires setting SYS_AUX_PWR_DET bit?
-> > > >
-> > > Refer to the description of this errata, it just mentions the exist
-> > > from
-> > >  L23 Ready state.
-> > 
-> > Exiting from L23 Ready == entering L2/L3. And since you mentioned that Vaux
-> > is not available, it is definitely entering L3.
-> > 
-> > > Yes, the workaround requires setting SYS_AUX_PWR_DET bit to 1b'1.
-> > >
-> > > > IIUC, the issue here is that the controller is not able to detect
-> > > > the presence of Vaux in the L23 Ready state. So it relies on the
-> > > > SYS_AUX_PWR_DET bit. But even in that case, how would you support the
-> > endpoint *with* Vaux?
-> > > >
-> > > This errata is only applied for i.MX95 dual PCIe mode controller.
-> > > The Vaux is not present for i.MX95 PCIe EP mode either.
-> > >
-> > 
-> > First of all, does the controller really know whether Vaux is supplied to the
-> > endpoint or not? AFAIK, it is up to the board designers to route Vaux and only
-> > endpoint should care about it.
-> > 
-> > I still feel that this specific erratum is for fixing the issue with some endpoints
-> > where Vaux is not supplied and the link doesn't exit L23 Ready. Again, what
-> > would be the behavior if Vaux is supplied to the endpoint? You cannot just say
-> > that the controller doesn't support Vaux, which is not a valid statement IMO.
-> > 
-> Sorry, I miss-understand the question you posted in the previous reply.
-> I get the following answer from designers when the Vaux is supplied to the
->  remote endpoint. Hope it can get ride of your concerns.
-> Q:
-> How about the situations when remote partner has the Vaux present?
-> For example, i.MX95 PCIe used as RC, and a endpoint device with one Vaux
->  present is connected to i.MX95 PCIe RC.
-> 
-> A:
-> " As per my understanding it should work irrespective of vaux presence in remote partner."
+This commit optimizes the contpte_ptep_get function by adding early
+ termination logic. It checks if the dirty and young bits of orig_pte
+ are already set and skips redundant bit-setting operations during
+ the loop. This reduces unnecessary iterations and improves performance.
 
-Okay, thanks for the confirmation. Please include this information in commit
-message for documentation.
+Signed-off-by: Xavier <xavier_qy@163.com>
+---
+ arch/arm64/mm/contpte.c | 20 ++++++++++++++++++--
+ 1 file changed, 18 insertions(+), 2 deletions(-)
 
-- Mani
-
+diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
+index bcac4f55f9c1..0acfee604947 100644
+--- a/arch/arm64/mm/contpte.c
++++ b/arch/arm64/mm/contpte.c
+@@ -152,6 +152,16 @@ void __contpte_try_unfold(struct mm_struct *mm, unsigned long addr,
+ }
+ EXPORT_SYMBOL_GPL(__contpte_try_unfold);
+ 
++/* Note: in order to improve efficiency, using this macro will modify the
++ * passed-in parameters.*/
++#define CHECK_CONTPTE_FLAG(start, ptep, orig_pte, flag) \
++    for (; (start) < CONT_PTES; (start)++, (ptep)++) { \
++		if (pte_##flag(__ptep_get(ptep))) { \
++				orig_pte = pte_mk##flag(orig_pte); \
++				break; \
++		} \
++    }
++
+ pte_t contpte_ptep_get(pte_t *ptep, pte_t orig_pte)
+ {
+ 	/*
+@@ -169,11 +179,17 @@ pte_t contpte_ptep_get(pte_t *ptep, pte_t orig_pte)
+ 	for (i = 0; i < CONT_PTES; i++, ptep++) {
+ 		pte = __ptep_get(ptep);
+ 
+-		if (pte_dirty(pte))
++		if (pte_dirty(pte)) {
+ 			orig_pte = pte_mkdirty(orig_pte);
++			CHECK_CONTPTE_FLAG(i, ptep, orig_pte, young);
++			break;
++		}
+ 
+-		if (pte_young(pte))
++		if (pte_young(pte)) {
+ 			orig_pte = pte_mkyoung(orig_pte);
++			CHECK_CONTPTE_FLAG(i, ptep, orig_pte, dirty);
++			break;
++		}
+ 	}
+ 
+ 	return orig_pte;
 -- 
-மணிவண்ணன் சதாசிவம்
+2.34.1
+
 
