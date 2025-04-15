@@ -4,63 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D98EC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 05:50:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D57ECC369B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 05:52:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VIUOSlrko0h2jUvG39K/Qx5N2ZXhHAtPK+3tWwT18Tk=; b=imBymmHyhVSosKdUCpKeToZ3+F
-	A9csm7x7FWUZ90c6LXBIfrLnh/ISZ3cUGBsknRFTixqrRXVK7iy+Aweo7pExPA3bX/KSBDQJLr2ot
-	Kl9YGm/wp1S/13znUdZGh3hbdV7PrDPXIW6F29cProRlo8b2C1yMDNru4cQv+3FJRVJf0JCRRSsTj
-	PBBirnV6CzmVBAC3mniURDcFRbpSvT/aHx1aFJXD21TsggG3rOKe9E8ip9lktVM8Ym0Wy/Qy2jIno
-	gHJGNbxprGbliriB2zmOiDR219SSIssqNlmfh/4XF17sm9835YZ/2HupTFlvP4kwf5dYBEONcP7S5
-	zzpPFt2Q==;
+	bh=jq2DB56Rzj9BtvrW+QsLVl2N3jvGyUdNszWFvWZmSrc=; b=BpPmg5Pxt0VNebdVvXWihYfsiT
+	/Nos3/ToajZxla9t1fcLZl7QOT7defZqeQJb+5inODMZBd8KVlV9/K4iK23ydnayorqC1rr+eUHR1
+	IhFejCKNcWZYUw5kQMA4+a9Cp2YLt7HSkKCbG3gyNHlB1YMWLXwTlCXRdENzz9IptsPMwlo0G1d4V
+	G6ulnnyF62JZe8e1dML+kmfYI3BxioMoQGOunbeCvIMkGzPs9fqoDGEILnZ13tc72X3D9qMIogqxM
+	tPC+m7gnLUE3eoIp0Sjt/dolH4lmd5JttDx29+9BbpKJCLABBzOQE+PYB22b4CNpw28J2YAst+DmJ
+	4dSDmjmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4ZBz-00000004b5r-1piq;
-	Tue, 15 Apr 2025 05:50:43 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u4ZDm-00000004bLX-0RFv;
+	Tue, 15 Apr 2025 05:52:34 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4YoV-00000004YFP-3u1i
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 05:26:28 +0000
+	id 1u4Yqb-00000004YUE-05mt;
+	Tue, 15 Apr 2025 05:28:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0B3AE6115D;
-	Tue, 15 Apr 2025 05:26:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 842DFC4CEDD;
-	Tue, 15 Apr 2025 05:26:23 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id D5007A42F8A;
+	Tue, 15 Apr 2025 05:23:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1197DC4CEDD;
+	Tue, 15 Apr 2025 05:28:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744694787;
-	bh=b9M9qpWbtsCwxohRow865SANgXGc/E5AsCrqscWGaVk=;
+	s=k20201202; t=1744694915;
+	bh=4YUY3Q0KwhuNRg5IXnl3ohiC9TIhP/hPPob/XU3qvNw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qbEMKHueJ+Ozeqm/ewb8EHV2oNqhB6OJnN3n8ZXr7EQN/6w17CwRtAaRJPIqABJxy
-	 J0mhQiVz2LlSab/oFWlToj6LLpDkoa6K1P4RcUTzZ6DHJcx1Kf0jkubqNOWXtxGr5a
-	 Hws6ymtsF8x6gTtldnUG3N7qZJoR917fy3ID7yyjLpAfHcw+NnSgI7kq2DrzcyZqxC
-	 +08Pczlafr2I9B/rEWDOHDKf2H833RMopWA2V2jAjQuQe4H3JXWVPkWj4e/5zrkbb0
-	 /Sjq2iLCyvWO8BJfeZlupzzrh4G5D/jMtwI9A9s3owNrDeE+y/aTnLzUbh5EBl/Snx
-	 4OsYri8O0LsCw==
-Message-ID: <d6b1d072-0dbe-4eeb-88ab-d290b7190178@kernel.org>
-Date: Tue, 15 Apr 2025 07:26:21 +0200
+	b=p1cDkLLk+9aHsiQyq4hUVt3Lr8S/onWYeUrC2r4qC6KFwErfe1PsZZeNJpooq3ZCA
+	 6ajwsGRWCksf07VIaOcY8EVV/I4QXwrh0BR3QquWYAZDuKIQ6qhZdo5t7yQRoreNhd
+	 UkjhaSfBOUeMtHYHVVocNRXNolQZ6F5ChrgBzQhESZutC0YFg/qx+Ow1pemK9RDawU
+	 +dXb2EvHy0laVvCM69XZV359mZ8pwNNGyEYZP/R/dLOcgsKOnvwkKDK9kOC59rilVd
+	 7aFaIXBfVNZeqKs8zAc+cQueWtEdnrsUXSfM+ayVLxIr3miAN4eQ04MEGxXSfueIfp
+	 zhdnfB/dyJ3XQ==
+Message-ID: <bf9c11bf-332d-4a67-9ba9-c5b3bd1caae4@kernel.org>
+Date: Tue, 15 Apr 2025 07:28:31 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 08/10] dt-bindings: clock: Add Qualcomm QCS615 Video
- clock controller
-To: Taniya Das <quic_tdas@quicinc.com>, Bjorn Andersson
- <andersson@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>
-Cc: Ajit Pandey <quic_ajipan@quicinc.com>,
- Imran Shaik <quic_imrashai@quicinc.com>,
- Jagadeesh Kona <quic_jkona@quicinc.com>, linux-arm-msm@vger.kernel.org,
- linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20250414-qcs615-mm-v7-clock-controllers-v7-0-ebab8e3a96e9@quicinc.com>
- <20250414-qcs615-mm-v7-clock-controllers-v7-8-ebab8e3a96e9@quicinc.com>
+Subject: Re: [PATCH v2 1/2] dt-bindings: phy: rockchip,inno-usb2phy: add
+ rk3562
+To: Kever Yang <kever.yang@rock-chips.com>, heiko@sntech.de
+Cc: linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
+ Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ Vinod Koul <vkoul@kernel.org>, linux-kernel@vger.kernel.org,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-phy@lists.infradead.org,
+ Kishon Vijay Abraham I <kishon@kernel.org>,
+ linux-arm-kernel@lists.infradead.org
+References: <20250415050005.52773-1-kever.yang@rock-chips.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,9 +100,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250414-qcs615-mm-v7-clock-controllers-v7-8-ebab8e3a96e9@quicinc.com>
+In-Reply-To: <20250415050005.52773-1-kever.yang@rock-chips.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250414_222837_198105_ECB87655 
+X-CRM114-Status: UNSURE (   5.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,31 +121,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/04/2025 10:42, Taniya Das wrote:
-> +  clocks:
-> +    items:
-> +      - description: Board XO source
-> +      - description: Sleep clock source
-> +
-> +required:
-> +  - compatible
-> +  - reg
+On 15/04/2025 07:00, Kever Yang wrote:
+> Add compatible for the USB2 phy in the Rockchip RK3562 SoC.
+> 
+> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
+> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+> ---
 
-Drop
-
-> +  - clocks
-> +  - '#clock-cells'
-
-Drop
-
-> +  - '#reset-cells'
-
-Drop
-
-> +  - '#power-domain-cells'
-> +
-> +allOf:
-> +  - $ref: qcom,gcc.yaml#
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
