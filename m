@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC802C369B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 12:32:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21C24C369B4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 12:34:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wn/K4EMIl2PBfUi2u8eilvhlvKBANZeEcdbvG8VYM2U=; b=cKBIZXf5+Gmt1ILMdqpz+3Lpmk
-	mGHehWqMCQIKV58RiRtMsTUsAXVO9bDGpKTK1aApU2C+/LWtxjVppRgaE1kznvQfAADkOsdxXaYOE
-	STZIpIp6U0ZZXmJffXCdu1SsbeX9dLiyW43s3Gjrs9nxNeSryiY9BPQXC04PPktgCcqMk4iMZt/GJ
-	QwOgpGiscW5fdobFjjbwjZr9dfU+YQK2QkT4Vmc7zH+NO0DH2/Z0yfiVrBGDYxpr7euWdIR7iTjjK
-	gOTFXbKjJTRZtmoBXe+C4BVP3YfuXmqUZletcXuB7XdjuTLAmyIuFvS3Lf4mTwpBM3cRz2u9GiRvt
-	9OHQlNbg==;
+	bh=PCsUjldb4db3iq2Cf3MidpG2bUQw4RzaBYc+Xse0Bc0=; b=AyjJxkOaTKZNQlFHhVVsWEnM93
+	3zPXh0R58s0uk4gUp4Ktesmv33g7zrQslD4UCDmg+vrPpSQpnjabAycDtJYB/55G4H3bx3LRHsVrd
+	5+gWBbnbvJzBWUsrZbmY+oXFO4Ycib64TYmNP9kt6IEaZTQ9sGn4VNJ1zXiO+JC6eIqwOgcOohvPQ
+	B3RCkLWrh7rQ7NmHUsAkEe4N6wx9t19rcRTF6FOWj9FhfoKmbGis3yv+3huveLrVAlav3aRCUIZWu
+	IWtBQS/9KE7ijsDqFuw9fSxOnODgSVOZFZVvkUou0hp4J6vR6TRrAoZ9EJjR4/za/Q9xoFsJutDus
+	2PGCJB2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4fSR-00000005khj-27FN;
-	Tue, 15 Apr 2025 12:32:07 +0000
-Received: from mxout3.routing.net ([2a03:2900:1:a::8])
+	id 1u4fUG-00000005l4k-17Rp;
+	Tue, 15 Apr 2025 12:34:00 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4eXp-00000005YvY-1HI4;
-	Tue, 15 Apr 2025 11:33:38 +0000
-Received: from mxbox3.masterlogin.de (unknown [192.168.10.78])
-	by mxout3.routing.net (Postfix) with ESMTP id 4755860DDB;
-	Tue, 15 Apr 2025 11:33:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1744716813;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Wn/K4EMIl2PBfUi2u8eilvhlvKBANZeEcdbvG8VYM2U=;
-	b=a2GtEIVXory+IgYl0EmnoCOcxVptYv4o7dG/MwxsKzW/G4mQwgLwN0x4TD010FCxaxF57J
-	Gs/NzzX7KKjaV/JadskIj18TqOiPj0DHJBsiCZdPFyxz8lA7t9Uv2EyS88oLSosadxy2lY
-	ce6YWG0NW+JzKP1yX7l6o9dRnoKEJWw=
-Received: from [127.0.0.1] (fttx-pool-217.61.148.30.bambit.de [217.61.148.30])
-	by mxbox3.masterlogin.de (Postfix) with ESMTPSA id 4858136014D;
-	Tue, 15 Apr 2025 11:33:32 +0000 (UTC)
-Date: Tue, 15 Apr 2025 13:33:34 +0200
-From: Frank Wunderlich <linux@fw-web.de>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- frank-w@public-files.de, Chunfeng Yun <chunfeng.yun@mediatek.com>,
- Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>
-CC: Daniel Golle <daniel@makrotopia.org>, Sam Shih <sam.shih@mediatek.com>,
- MandyJH Liu <mandyjh.liu@mediatek.com>, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: =?US-ASCII?Q?Re=3A_=5BRFC_3/5=5D_dt-bindings=3A_power=3A_Add_binding?=
- =?US-ASCII?Q?_for_MediaTek_MT7988_topmisc_power_controller?=
-User-Agent: K-9 Mail for Android
-In-Reply-To: <bbb81e79-95da-4cf9-9eef-7cbaea191ebb@collabora.com>
-References: <20250413085806.8544-1-linux@fw-web.de> <20250413085806.8544-4-linux@fw-web.de> <700af1ab-f43e-4583-8f0e-27e5d4424338@collabora.com> <2EA2BDB0-E1C9-49BC-98FC-5048905AA036@public-files.de> <bbb81e79-95da-4cf9-9eef-7cbaea191ebb@collabora.com>
-Message-ID: <0B0447D6-0495-4BBA-9F44-8A5191F00377@fw-web.de>
+	id 1u4ebT-00000005ZkP-48zE;
+	Tue, 15 Apr 2025 11:37:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1744717042;
+	bh=LL2E+u91dO99wB41wuqyXT2j19QaB9gNRGI2R7/b5YQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=OIw6Wy9e+R7VZf18fWQAN7uWonzzfJXvfUPULmxni+zAEvAbUSPu4wFgV1x8Jo/YN
+	 2KVmpk3L296/aMW+vmusHHvUCiqcInGNYexO+3bITYSFxCGwZR7Imge4ArE94dvKih
+	 25NKYIeh0R6M+wXAv/fdnZ3IcFn/W4FQBrtWVy2ri4bbm42RPIt8dN2c5ZzbmkGz5c
+	 U50PruUlqwudkueNNS1OZI+XqxqHoh5TMf0a1Sj/R7zopgf4NYYDKLD8zuk6DbJE9P
+	 O+Lku6ssL0tg6mpKFuBIENzpjYgrX9NIOS/zKOK3cLwMzfZu/Bpm1laYEZRQeLotaH
+	 tqtYa/LZCXtcg==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9B9AD17E03B6;
+	Tue, 15 Apr 2025 13:37:21 +0200 (CEST)
+Message-ID: <c648c4f3-f20a-4255-93eb-69a80c695fa7@collabora.com>
+Date: Tue, 15 Apr 2025 13:37:21 +0200
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Mail-ID: 5c3047d5-1951-4654-9899-7fad06ca004b
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] pinctrl: mediatek: common-v1: Fix EINT breakage on older
+ controllers
+To: Chen-Yu Tsai <wenst@chromium.org>, Sean Wang <sean.wang@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>
+Cc: linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+ Hao Chang <ot_chhao.chang@mediatek.com>,
+ Qingliang Li <qingliang.li@mediatek.com>
+References: <20250415112339.2385454-1-wenst@chromium.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250415112339.2385454-1-wenst@chromium.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_043337_505267_77D0A0A0 
-X-CRM114-Status: UNSURE (   9.73  )
+X-CRM114-CacheID: sfid-20250415_043724_193567_6EF816E1 
+X-CRM114-Status: UNSURE (   8.82  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,74 +81,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 15=2E April 2025 11:59:06 MESZ schrieb AngeloGioacchino Del Regno <angel=
-ogioacchino=2Edelregno@collabora=2Ecom>:
->Il 15/04/25 11:52, Frank Wunderlich ha scritto:
->> Hi Angelo,
->>=20
->> Am 14=2E April 2025 12:25:23 MESZ schrieb AngeloGioacchino Del Regno <a=
-ngelogioacchino=2Edelregno@collabora=2Ecom>:
->>> Il 13/04/25 10:58, Frank Wunderlich ha scritto:
->>>> From: Frank Wunderlich <frank-w@public-files=2Ede>
->>>>=20
->>>> Topmisc is a systemcontroller used for xs-phy and ethernet on  mt7988=
-=2E
->>>> Add binding for it=2E
->>>=20
->>> That's the wrong binding=2E=2E=2E check mfd/syscon=2Eyaml :-)
->>>=20
->>> P=2ES=2E: Is there any reset controller in topmisc? Any clock?
->>>       If yes, syscon=2Eyaml is also wrong, and you need a driver for t=
-hat=2E
->>>       Remember: If it turns out *later* that this has clk/resets and t=
-he
->>>       bindings are already set for just a syscon, it's gonna be way ha=
-rder!
->>>=20
->>> Cheers,
->>> Angelo
->>=20
->> Ok based on the power-domain-cells property i guessed powercontroller i=
-s the right place=2E
->
->power-domain-cells, but without any power domain assignment, so that was =
-wrong :)))
->
->>=20
->> But based on your suggestion i tried moving compatible to syscon bindin=
-g and made dtbs_check here=2E
->>=20
->> I can confirm dropping the unexpected properties reported by syscon bin=
-ding (power-domain-cells,clock-cells,adress-cells and size-cells) are not n=
-eeded for function (xsphy and ethernet)=2E
->>=20
->> For verifying that there are really no clocks/resets in topmisc (have n=
-ot found it in public available register documents) i asked mtk (waiting fo=
-r answer)=2E
->>=20
->> Also got it working without the syscon compatible by changing ethernet =
-driver too (after this change xsphy was also working)=2E
->
->Perfect, a bit of a cleanup and you're done, then!
+Il 15/04/25 13:23, Chen-Yu Tsai ha scritto:
+> When EINT support for multiple addresses was introduced, the driver
+> library for the older generations (pinctrl-mtk-common) was not fixed
+> together. This resulted in invalid pointer accesses.
+> 
+> Fix up the filled in |struct mtk_eint| in pinctrl-mtk-common to match
+> what is now expected by the mtk-eint library.
+> 
+> Reported-by: "Uwe Kleine-König" <u.kleine-koenig@baylibre.com>
+> Closes: https://lore.kernel.org/all/43nd5jxpk7b7fv46frqlfjnqfh5jlpqsemeoakqzd4wdi3df6y@w7ycd3k5ezvn/
+> Fixes: 3ef9f710efcb ("pinctrl: mediatek: Add EINT support for multiple addresses")
+> Cc: Hao Chang <ot_chhao.chang@mediatek.com>
+> Cc: Qingliang Li <qingliang.li@mediatek.com>
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 
-If i do not have to change/merge driver code=2E=2E=2Eand i hope getting re=
-sponse from mtk soon=2E
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
->Cheers!
->
->>=20
->> Eth:
->> https://github=2Ecom/frank-w/BPI-Router-Linux/commit/d866e648717800b6f6=
-395ad36c38f9effcf0498d
->> Xsphy:
->> <https://github=2Ecom/frank-w/BPI-Router-Linux/commit/0121a94df99700487=
-704ca056b210b13db07e90c>
->>=20
->> regards Frank
->
->
->
-
-
-regards Frank
 
