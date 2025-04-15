@@ -4,121 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1816C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 19:17:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA06BC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 19:35:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t8YiPd1ZphysNTUjgASCoCw3dBdpJDSVkH79WF+uK0o=; b=PApLccbKaDGP5p9cJpVT5RuYh7
-	pQuqDrX2xp8U9q4gJlJL3pvhnbOszXruuyTHRKdZxTGOM37CkID0hulpfsna9wl7FtwK9D+qXgizU
-	X3hSZm3YhzpAJ3fvMQIx1LUM+Bfe78FtOLJ2ZmbYBrQabragDvdkVy2BKsM0oOaeFCkIbqGNu8y3H
-	TRF6Wfu8iCOKfyskWcq1jHVsFwuI5vey85KbeqpgQOrekbHTScPGOytwOwbVRQwJMhdR0r0p4d7Yv
-	V8tGVmZB2X0ElxilA9yv4tJt4RQamSQr28WiRr28hQG50oHRvsDXknIqgGEocfGicPttmf8RCPK0o
-	J9OFtZZA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=T0s7laNZe+Ra4wMHJ2pL3MTfBGq+kD5jv59e6Nhd28g=; b=icX7W8WYfzRWc+QX3SJ+WJfbwu
+	MFiTy2n8d18kMCxhw1PkCFq6gNLXSRpuIJUdfWfTecNLm+fTDm9bk8KdjZIpNsMbm0qUu94ZEa/+/
+	5DozCnRx9RGpqzWayTW8YUjIdBa8s2oMnRtnWQwMIRgHfGmB6Vycxq+oLKSI+l4l8P4vTUkAFsNPJ
+	4nCBn3QjNBenmUB3lEOwJV70eD06wk6U7VrRPk5TI/2Rz4+hHBDSh1cJEbAfaJiazgXrk1wUhpGM+
+	Rt2KCq/ok8GKzku+neobndnJa6dvYSK4ncmqUP/0Hhi9YN5PrOvxYaZ+YMQ6N4Om5eSLiLFc57DJy
+	Crnsk8bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4lmf-00000006rGc-47pZ;
-	Tue, 15 Apr 2025 19:17:25 +0000
-Received: from mail-ot1-x333.google.com ([2607:f8b0:4864:20::333])
+	id 1u4m4F-00000006u4i-2gzq;
+	Tue, 15 Apr 2025 19:35:35 +0000
+Received: from out-186.mta0.migadu.com ([2001:41d0:1004:224b::ba])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4leU-00000006pTA-3e20
+	id 1u4m2O-00000006tZ8-3H9U
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 19:09:00 +0000
-Received: by mail-ot1-x333.google.com with SMTP id 46e09a7af769-72bbc03d436so3675360a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Apr 2025 12:08:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1744744137; x=1745348937; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=t8YiPd1ZphysNTUjgASCoCw3dBdpJDSVkH79WF+uK0o=;
-        b=PGFzppzuR1tarAt5QwZKgd7G2b9tJO39FDblOcYUie5AM0HB/U4HYIVYjjTpVTL6YB
-         /oiqS/W0clGaQhi+7F1YvusUuKskmEAs1xHdOOQEQpuYUg9+J5bLDqox1s/yFXazMadL
-         XcAhEnV35PwLFyr8xqN0J1Ay6t+ZSQnYdiJZw=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744744137; x=1745348937;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=t8YiPd1ZphysNTUjgASCoCw3dBdpJDSVkH79WF+uK0o=;
-        b=qf0jiose+5VR9qVyRUVCkFUK1FHzrqhq7NCmE0JxW/mIQVI/YGg8LhUxkldcc97ZbJ
-         bTu/NbSDpK8Zyg7PXt/WXGqnAr/8yQ1cD90rfM8QjyTv8YpdXd73hVjpCC+4gd2DGVjH
-         /4nfDLMubKoQbjzjUFIMN/x+nnRvlfxX/SOhxC7gYxJ7rO9GVVLpdhzlkzeMPTwnV/sx
-         FwAYYVitt+epMRI0ddk2zhktm10PhgmrtmjF36OImCGlhCUpJiVvxRNQJ4DaFneAG5Qv
-         nw4SkcyDL8s2q4c5SqPcrmX6LxPTPykLNiJ632RcZClw06GB47Sv9nn/1lVPS8bKc0Og
-         GkWg==
-X-Forwarded-Encrypted: i=1; AJvYcCXbJ2kWUydPc+g/HxMvaib3j23ccVspOe6JZc5ihyV5Eta48un+k3gUMqtcaXseJHlFf/mBOsCmnS0giSs93jRM@lists.infradead.org
-X-Gm-Message-State: AOJu0YwuXsjFlSqB+K3QllNLUJXOryKgvNS40FWxuqkhzUCoqjoHu68F
-	JgahSQSsv8LHAXvd2rvB/rVVXFJBuvGLsac26JX49d8qN/W3WZMcX3A7WzH1t6gMh7z0cMQYAay
-	M6Q==
-X-Gm-Gg: ASbGncunYhoS0mojzF20/XDo3zN8yZi+hYakLcLjMBpxMzAfE0L4jDaD8gpa1PuByYM
-	lehrC6HMNsbqdoSbjYBbG2MqC13nCjZo7Y1r31tcUkU+Bf2fMNFv0xqlvfZ1bDQNT7F2iz2tmCF
-	VvbRB2t8LAgaCVC3go++SOpccjacMjsLjKl2kR4qAa71s2HUACzoQPJiJZW9bKUtsan2gPQDwuM
-	K95p4fjoCKPpoqoGNcu9SbO+D6E+eS2VkzReSKWbu1UZlOu+TDgPE8pgme2pSv6ORB8/iWP1ONG
-	VmYRA9X3iK9Cj0FwH6oVuJcFi4pVACKgLI4jJPzaaUnxjLMHwacqG8EA4eHBdLdGaXmvmVn/p3s
-	DcnYUQPEKD8fP4ys=
-X-Google-Smtp-Source: AGHT+IEdIO6hs+AQENhHU/Q4pBw0xIAh3rKosnODs1WPRYYqWq5Vk2+oRWHgZPkrZVPbj0ckU1aOlQ==
-X-Received: by 2002:a05:6830:aca:b0:72b:92aa:b69f with SMTP id 46e09a7af769-72ec1b5249emr392783a34.16.1744744136978;
-        Tue, 15 Apr 2025 12:08:56 -0700 (PDT)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-72e73d8cc9asm2526253a34.30.2025.04.15.12.08.55
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 15 Apr 2025 12:08:55 -0700 (PDT)
-Message-ID: <1b2faf6c-6a8e-4d16-8248-ba7fdb5c1702@broadcom.com>
-Date: Tue, 15 Apr 2025 12:08:54 -0700
+	Tue, 15 Apr 2025 19:33:43 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1744745615;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=T0s7laNZe+Ra4wMHJ2pL3MTfBGq+kD5jv59e6Nhd28g=;
+	b=N1oM4jQ4Lwu92X2S0t05SGm7yatDoaajqQms2NTdODIoyDLQrtVFgaxaPCaFUGyl80a7PJ
+	/3eLC+yEjKRSjFz69q115+HcJ+BPeEjGZZKWzq8HNID5laWJxe7m7hMGA7zIW5XjdxrAPl
+	rj8kk3uDjUTj0DAomRbaE2mSjGR1v8A=
+From: Sean Anderson <sean.anderson@linux.dev>
+To: netdev@vger.kernel.org,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Russell King <linux@armlinux.org.uk>
+Cc: upstream@airoha.com,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	Kory Maincent <kory.maincent@bootlin.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Sean Anderson <sean.anderson@linux.dev>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Clark Wang <xiaoning.wang@nxp.com>,
+	Claudiu Beznea <claudiu.beznea@microchip.com>,
+	Claudiu Manoil <claudiu.manoil@nxp.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Ioana Ciornei <ioana.ciornei@nxp.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Joyce Ooi <joyce.ooi@intel.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Madalin Bucur <madalin.bucur@nxp.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Robert Hancock <robert.hancock@calian.com>,
+	Saravana Kannan <saravanak@google.com>,
+	UNGLinuxDriver@microchip.com,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Wei Fang <wei.fang@nxp.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: [net-next PATCH v3 00/11] Add PCS core support
+Date: Tue, 15 Apr 2025 15:33:12 -0400
+Message-Id: <20250415193323.2794214-1-sean.anderson@linux.dev>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] pmdomain: bcm: bcm2835-power: Use devm_clk_get_optional
-To: Stefan Wahren <wahrenst@gmx.net>, Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
- linux-arm-kernel@lists.infradead.org, bcm-kernel-feedback-list@broadcom.com,
- kernel-list@raspberrypi.com, linux-pm@vger.kernel.org
-References: <20250415190558.16354-1-wahrenst@gmx.net>
-Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20250415190558.16354-1-wahrenst@gmx.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_120858_951091_66B82B35 
-X-CRM114-Status: UNSURE (   7.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250415_123341_487919_E2AA3081 
+X-CRM114-Status: GOOD (  18.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,15 +101,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/15/25 12:05, Stefan Wahren wrote:
-> The driver tries to implement optional clock handling with devm_clk_get.
-> It treats all errors except EPROBE_DEFER as a missing clock, which is
-> not correct. So use devm_clk_get_optional here and get the corner-cases
-> right.
-> 
-> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+This series adds support for creating PCSs as devices on a bus with a
+driver (patch 3). As initial users,
 
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+- The Lynx PCS (and all of its users) is converted to this system (patch 5)
+- The Xilinx PCS is broken out from the AXI Ethernet driver (patches 6-8)
+- The Cadence MACB driver is converted to support external PCSs (namely
+  the Xilinx PCS) (patches 9-10).
+
+To build documentation without errors, this series requires commit
+de258fa8ca8d ("scripts: kernel-doc: fix parsing function-like typedefs
+(again)"), currently applied to docs-next [1].
+
+Care has been taken to ensure backwards-compatibility. The main source
+of this is that many PCS devices lack compatibles and get detected as
+PHYs. To address this, pcs_get_by_fwnode_compat allows drivers to edit
+the devicetree to add appropriate compatibles.
+
+There is another series [2] with the same goal by Christian Marangi. In
+comparison, I believe this series
+
+- Implements a simpler and more-robust method of PCS access.
+- Provides a more-direct upgrade path for existing MAC and PCS drivers.
+
+[1] https://lore.kernel.org/all/e0abb103c73a96d76602d909f60ab8fd6e2fd0bd.1744106242.git.mchehab+huawei@kernel.org/
+[2] https://lore.kernel.org/netdev/20250406221423.9723-1-ansuelsmth@gmail.com/
+
+Changes in v3:
+- Add '>' modifier for paragraph to description
+- Adjust axienet_xilinx_pcs_get for changes to pcs_find_fwnode API
+- Drop patches destined for other trees, as they have either already
+  been applied or are no longer necessary.
+- Edit description to reference clocks instead of resets
+- Remove support for #pcs-cells. Upon further investigation, the
+  requested functionality can be accomplished by specifying the PCS's
+  fwnode manually.
+- Select PCS_XILINX unconditionally
+
+Changes in v2:
+- Add fallbacks for pcs_get* and pcs_put
+- Add support for #pcs-cells
+- Change base compatible to just xlnx,pcs
+- Change compatible to just xlnx,pcs
+- Defer devicetree updates for another series
+- Drop #clock-cells description
+- Drop PCS_ALTERA_TSE which was accidentally added while rebasing
+- Move #clock-cells after compatible
+- Move update to macb_pcs_get_state to previous patch
+- Remove outdated comment
+- Remove second example
+- Remove unused variable
+- Remove unused variable lynx_properties
+- Rename pcs-modes to xlnx,pcs-modes
+- Reorder pcs_handle to come before suffix props
+- Reword commit message
+- Rework xilinx_pcs_validate to just clear out half-duplex modes instead
+  of constraining modes based on the interface.
+
+Sean Anderson (10):
+  dt-bindings: net: Add Xilinx PCS
+  net: phylink: Support setting PCS link change callbacks
+  net: pcs: Add subsystem
+  net: pcs: lynx: Convert to an MDIO driver
+  net: phy: Export some functions
+  net: pcs: Add Xilinx PCS driver
+  net: axienet: Convert to use PCS subsystem
+  net: macb: Move most of mac_config to mac_prepare
+  net: macb: Support external PCSs
+  of: property: Add device link support for PCS
+
+Vladimir Oltean (1):
+  net: dsa: ocelot: suppress PHY device scanning on the internal MDIO
+    bus
+
+ .../devicetree/bindings/net/xilinx,pcs.yaml   | 114 +++
+ Documentation/networking/index.rst            |   1 +
+ Documentation/networking/kapi.rst             |   4 +
+ Documentation/networking/pcs.rst              | 102 +++
+ MAINTAINERS                                   |   8 +
+ drivers/net/dsa/ocelot/Kconfig                |   4 +
+ drivers/net/dsa/ocelot/felix_vsc9959.c        |  15 +-
+ drivers/net/dsa/ocelot/seville_vsc9953.c      |  16 +-
+ drivers/net/ethernet/altera/Kconfig           |   2 +
+ drivers/net/ethernet/altera/altera_tse_main.c |   7 +-
+ drivers/net/ethernet/cadence/macb.h           |   1 +
+ drivers/net/ethernet/cadence/macb_main.c      | 229 ++++--
+ drivers/net/ethernet/freescale/dpaa/Kconfig   |   2 +-
+ drivers/net/ethernet/freescale/dpaa2/Kconfig  |   3 +
+ .../net/ethernet/freescale/dpaa2/dpaa2-mac.c  |  11 +-
+ drivers/net/ethernet/freescale/enetc/Kconfig  |   2 +
+ .../net/ethernet/freescale/enetc/enetc_pf.c   |   8 +-
+ .../net/ethernet/freescale/enetc/enetc_pf.h   |   1 -
+ .../freescale/enetc/enetc_pf_common.c         |   4 +-
+ drivers/net/ethernet/freescale/fman/Kconfig   |   4 +-
+ .../net/ethernet/freescale/fman/fman_memac.c  |  27 +-
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |   3 +
+ .../ethernet/stmicro/stmmac/dwmac-socfpga.c   |   6 +-
+ drivers/net/ethernet/xilinx/Kconfig           |   7 +
+ drivers/net/ethernet/xilinx/xilinx_axienet.h  |   4 +-
+ .../net/ethernet/xilinx/xilinx_axienet_main.c | 104 +--
+ drivers/net/pcs/Kconfig                       |  44 +-
+ drivers/net/pcs/Makefile                      |   4 +
+ drivers/net/pcs/core.c                        | 690 ++++++++++++++++++
+ drivers/net/pcs/pcs-lynx.c                    | 110 +--
+ drivers/net/pcs/pcs-xilinx.c                  | 477 ++++++++++++
+ drivers/net/phy/mdio_device.c                 |   1 +
+ drivers/net/phy/phy_device.c                  |   3 +-
+ drivers/net/phy/phylink.c                     |  24 +-
+ drivers/of/property.c                         |   2 +
+ include/linux/pcs-lynx.h                      |  13 +-
+ include/linux/pcs-xilinx.h                    |  15 +
+ include/linux/pcs.h                           | 193 +++++
+ include/linux/phy.h                           |   1 +
+ include/linux/phylink.h                       |  27 +-
+ 40 files changed, 1997 insertions(+), 296 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/xilinx,pcs.yaml
+ create mode 100644 Documentation/networking/pcs.rst
+ create mode 100644 drivers/net/pcs/core.c
+ create mode 100644 drivers/net/pcs/pcs-xilinx.c
+ create mode 100644 include/linux/pcs-xilinx.h
+ create mode 100644 include/linux/pcs.h
+
 -- 
-Florian
+2.35.1.1320.gc452695387.dirty
+
 
