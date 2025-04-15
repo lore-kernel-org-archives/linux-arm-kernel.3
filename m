@@ -4,94 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE383C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 17:08:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC5A9C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 17:10:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	MIME-Version:References:In-Reply-To:Subject:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+kDB+MDxRVThD8Eyv10zNktc2R/pYfeT2l4xLH5sq0c=; b=dXOUM3bgxAhIEksnI/p4XU7rN1
-	xgWoqPkQdLU+/Sz34agc4TxiR539VrwmedD+MKO3OH6qPnO1NcnocjMfV80vAWObmLobEhZkgTy2j
-	XZBSvX3m8B3zgECHqeKgKEQHxlunj+kWsAtnHzpzn/ftzMfeMZ30B9aZlRAoBVSfzwqsj3SDyEk44
-	Qw3btlr3Gh1nKSIuRR/utjjd79v0A5JLpoNJZtAVVzDIvPIqdimashi+ozbL23kqyb+efitTy7Smg
-	kvLCYeA6nRpjj042CPiazQTr8Q1z6Mj4lK2YplzLYOXZ7eA5hhF3jnZaemDZ8ditcIT1y298vFMAy
-	LV29xVQw==;
+	bh=1EfRfRqZty/phg79wR/+NBJcpg8BeMm7F0L+7mvixTY=; b=5AQQGHAWBWrYAPCNSH9JvfxVmG
+	5IlHl1RBI5KRwbG4h3nJuyHM4TajTeEkpLAuo8DH8nQwyqfgZOs2jWa+GLlZR7P52fCEYaS7VMUKH
+	ds+/+Yo8Xc9yE/rSILXVZLigZdGZhZ6kZqrlCBL64J1d5GxvIlMSuwjrlW96GAckZ+L0pnmIsRWzo
+	p7LtKaeGRMfNfCCw0etTZlE/PBNSkrQj6pEaZahr9avpXIW4V9b5fCkQy4qeMsWTR/uCc0wUYj40Z
+	1PM7S8CiSD+9Su5H2rpSApVX4+UN/qxhzvZvqswdlXauWerR7GNmQWB7bYYIbgmNhqWBoxC1HJaqB
+	rDZ0ByxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4jm1-00000006W4I-2IXX;
-	Tue, 15 Apr 2025 17:08:37 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1u4jnq-00000006WN1-1Bo6;
+	Tue, 15 Apr 2025 17:10:30 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4jPF-00000006SIu-3HwI
+	id 1u4jRn-00000006Sf8-1zt7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 16:45:07 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53F8tCtH025071;
-	Tue, 15 Apr 2025 16:44:58 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=+kDB+MDxRVThD8Eyv10zNktc
-	2R/pYfeT2l4xLH5sq0c=; b=Q6oA97FCcAITogJh02z4K9O3Oh77YbOdAt0jViLC
-	GsRzb7YcHmSMJT7flsasQeNge24zxRQqa0esofn4G9vjwRyv6tikvC4UpQDKgp6W
-	I2fmDiAq2tI8tQRoOn1ZNYa/yc1a+8g052Rq90KUrbwSEGsjliOjIEaafTmL/aLz
-	pk2B12DJ9eVvPdoiYKrGixaBkDufi2YVPHNoFWggFo2uQET6Bf3UF/49lDRNmIH7
-	uQ3fLzSAiSCy8f71mE2Ig7LnHgrXcxyqRFrGom7wrPW6XxZ3kDbaknGZ9wgtFbbc
-	rizWfVdhmIDePT6lwrFM/TOT7G4j5tk0ZZ4gmT9afd1F3g==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45yg8wgu3x-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 15 Apr 2025 16:44:57 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53FGiuiK019612
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 15 Apr 2025 16:44:56 GMT
-Received: from hu-mdtipton-lv.qualcomm.com (10.49.16.6) by
- nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Tue, 15 Apr 2025 09:44:56 -0700
-Date: Tue, 15 Apr 2025 09:44:55 -0700
-From: Mike Tipton <quic_mdtipton@quicinc.com>
-To: Peng Fan <peng.fan@oss.nxp.com>
-CC: Sudeep Holla <sudeep.holla@arm.com>,
-        Cristian Marussi
-	<cristian.marussi@arm.com>,
-        "Rafael J . Wysocki" <rafael@kernel.org>,
-        Viresh
- Kumar <viresh.kumar@linaro.org>, <arm-scmi@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] cpufreq: scmi: Skip SCMI devices that aren't used by the
- CPUs
-Message-ID: <Z/6NB2QRvRrqwgcQ@hu-mdtipton-lv.qualcomm.com>
-References: <20250411212941.1275572-1-quic_mdtipton@quicinc.com>
- <20250415090655.GA10243@nxa18884-linux>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250415090655.GA10243@nxa18884-linux>
-X-Originating-IP: [10.49.16.6]
-X-ClientProxiedBy: nalasex01b.na.qualcomm.com (10.47.209.197) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=E9TNpbdl c=1 sm=1 tr=0 ts=67fe8d09 cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=3H110R4YSZwA:10 a=kj9zAlcOel0A:10 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=nqZ6nTEg5KUHkvYbfU8A:9 a=CjuIK1q_8ugA:10
- a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: 6zJdl26a50mbWxYTiGA4Xw4GOcA4slVa
-X-Proofpoint-GUID: 6zJdl26a50mbWxYTiGA4Xw4GOcA4slVa
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-15_06,2025-04-15_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 adultscore=0
- mlxscore=0 bulkscore=0 clxscore=1015 phishscore=0 lowpriorityscore=0
- suspectscore=0 mlxlogscore=999 spamscore=0 priorityscore=1501
- impostorscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2504150116
+	Tue, 15 Apr 2025 16:47:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5208FA4A4B5;
+	Tue, 15 Apr 2025 16:42:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5216AC4CEEB;
+	Tue, 15 Apr 2025 16:47:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744735662;
+	bh=JYZJzr7x+Atlm+fxY93DHOqC1gun/3AWa+eqzCQCrVc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=FBCkaEqJjhqXWmSH+6Fp9cIhLQgWDGLX/1L+PLdWUmgkojwyMzb+Njwm8C7xSpsYj
+	 1O0BA6ypfhrXTXOjf2gWXZAWJjtNxiswOtfJiK3ArbPjlBqPNogbqc5h5x1wJBue7w
+	 9qX4V+xoanLsf5v02Sni+QuszVVpXNESmlXPj9eIg2go9na8tcOY/G7mHDY6H6OdX7
+	 Uq9WMQgTtL2Uo+eLg25e0C78qT/yRQg3oqUVvfDwOBJvKDdew7CmKCa1MkjMOTqJbI
+	 diPMiWOMkGj2GyjwNzs225eyntShpooAw/4A2DzLQIVeL0sUeRLajpGuKo6r7r2uDE
+	 7V8ksA7be1e9w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1u4jRk-005kZx-3z;
+	Tue, 15 Apr 2025 17:47:40 +0100
+Date: Tue, 15 Apr 2025 17:47:39 +0100
+Message-ID: <864iypl6c4.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: [BUG][PATCH v8 4/6] arm64: Make _midr_in_range_list() an exported function
+In-Reply-To: <Z_6BUgekb7YXOExu@arm.com>
+References: <20250221140229.12588-1-shameerali.kolothum.thodi@huawei.com>
+	<20250221140229.12588-5-shameerali.kolothum.thodi@huawei.com>
+	<3d97e45a-23cf-419b-9b6f-140b4d88de7b@arm.com>
+	<865xj5la2q.wl-maz@kernel.org>
+	<Z_6BUgekb7YXOExu@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: catalin.marinas@arm.com, ada.coupriediaz@arm.com, shameerali.kolothum.thodi@huawei.com, kvmarm@lists.linux.dev, oliver.upton@linux.dev, will@kernel.org, mark.rutland@arm.com, cohuck@redhat.com, eric.auger@redhat.com, sebott@redhat.com, yuzenghui@huawei.com, wangzhou1@hisilicon.com, jiangkunkun@huawei.com, jonathan.cameron@huawei.com, anthony.jebson@huawei.com, linux-arm-kernel@lists.infradead.org, linuxarm@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_094505_956655_6F991F25 
-X-CRM114-Status: GOOD (  20.73  )
+X-CRM114-CacheID: sfid-20250415_094743_640420_9CC92295 
+X-CRM114-Status: GOOD (  32.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,85 +82,62 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, jiangkunkun@huawei.com, eric.auger@redhat.com, cohuck@redhat.com, linuxarm@huawei.com, oliver.upton@linux.dev, yuzenghui@huawei.com, wangzhou1@hisilicon.com, Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>, jonathan.cameron@huawei.com, kvmarm@lists.linux.dev, sebott@redhat.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, anthony.jebson@huawei.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 15, 2025 at 05:06:55PM +0800, Peng Fan wrote:
-> On Fri, Apr 11, 2025 at 02:29:41PM -0700, Mike Tipton wrote:
-> >Currently, all SCMI devices with performance domains attempt to register
-> >a cpufreq driver, even if their performance domains aren't used to
-> >control the CPUs. The cpufreq framework only supports registering a
-> >single driver, so only the first device will succeed. And if that device
-> >isn't used for the CPUs, then cpufreq will scale the wrong domains.
-> >
-> >To avoid this, return early from scmi_cpufreq_probe() if the probing
-> >SCMI device isn't referenced by the CPU device phandles.
-> >
-> >This keeps the existing assumption that all CPUs are controlled by a
-> >single SCMI device.
-> >
-> >Signed-off-by: Mike Tipton <quic_mdtipton@quicinc.com>
-> >---
-> > drivers/cpufreq/scmi-cpufreq.c | 29 +++++++++++++++++++++++++++++
-> > 1 file changed, 29 insertions(+)
-> >
-> >diff --git a/drivers/cpufreq/scmi-cpufreq.c b/drivers/cpufreq/scmi-cpufreq.c
-> >index 944e899eb1be..7981a879974b 100644
-> >--- a/drivers/cpufreq/scmi-cpufreq.c
-> >+++ b/drivers/cpufreq/scmi-cpufreq.c
-> >@@ -393,6 +393,32 @@ static struct cpufreq_driver scmi_cpufreq_driver = {
-> > 	.set_boost	= cpufreq_boost_set_sw,
-> > };
-> > 
-> >+static bool scmi_dev_used_by_cpus(struct device *scmi_dev)
-> >+{
-> >+	struct device_node *scmi_np = scmi_dev->of_node;
-> >+	struct device_node *np;
-> >+	struct device *cpu_dev;
-> >+	int cpu, idx;
-> >+
-> >+	for_each_possible_cpu(cpu) {
-> >+		cpu_dev = get_cpu_device(cpu);
-> >+		if (!cpu_dev)
-> >+			continue;
-> >+
-> >+		np = cpu_dev->of_node;
-> >+
-> >+		if (of_parse_phandle(np, "clocks", 0) == scmi_np)
-> >+			return true;
-> >+
-> >+		idx = of_property_match_string(np, "power-domain-names", "perf");
-> >+
-> >+		if (of_parse_phandle(np, "power-domains", idx) == scmi_np)
-> >+			return true;
-> >+	}
-> >+
-> >+	return false;
-> >+}
-> >+
-> > static int scmi_cpufreq_probe(struct scmi_device *sdev)
-> > {
-> > 	int ret;
-> >@@ -404,6 +430,9 @@ static int scmi_cpufreq_probe(struct scmi_device *sdev)
-> > 	if (!handle)
-> > 		return -ENODEV;
-> > 
-> >+	if (!scmi_dev_used_by_cpus(dev))
-> >+		return 0;
+On Tue, 15 Apr 2025 16:54:58 +0100,
+Catalin Marinas <catalin.marinas@arm.com> wrote:
 > 
-> Should 'return -ENOTSUPP' be used here?
-> There is no need to mark the probe success.
+> On Tue, Apr 15, 2025 at 04:26:53PM +0100, Marc Zyngier wrote:
+> > On Tue, 15 Apr 2025 11:57:50 +0100,
+> > Ada Couprie Diaz <ada.coupriediaz@arm.com> wrote:
+> > > I discovered that this patch breaks boot for some CPUs when building
+> > > the default defconfig plus KASAN. This is still the case in v6.15-rc1
+> > > and rc2.
+> > > 
+> > > This patch marks `is_midr_in_range_list` as position independent but
+> > > it isn't, breaking early boot when instrumented with KASAN and
+> > > `CONFIG_RANDOMIZE_BASE` enabled.
+> > > 
+> > > The breaking usage seems to be in `kaslr_requires_kpti()` called in
+> > > `early_map_kernel()`.
+> > > My testing on an AMD Seattle board does crash, but newer machines
+> > > implementing E0PD do not crash as they do not need to check MIDRs in
+> > > `kaslr_requires_kpti()`.
+> > > `is_mdr_in_range_list` did work in PI code previously because it was
+> > > `inline`, which this patch changes.
+> > 
+> > OK, this is much more of a pain than I thought.
+> > 
+> > I tried bringing the various helpers into the PI section, but it ended
+> > up being extremely ugly.
+> > 
+> > More importantly, this is something that is pretty much at odds with
+> > the whole idea of the MIDR override -- it happens way earlier than we
+> > can populate the table.
+> > 
+> > The thing is, the only reason we need to do this is that we need to
+> > support the Cavium SEFAC (Sorry Excuse For A Computer) that cannot run
+> > with KPTI.
+> > 
+> > I can restore harmony with the following hack. But maybe we should
+> > just prune TX from the kernel and be done with this contraption.
+> 
+> That works for me. Well, we can still keep it around but panic on boot
+> if kpti is enabled on this platform. Just don't bother checking it via
+> early_map_kernel() from the PI code.
 
-Returning -ENOTSUPP will add noise in the logs from probe failures, for
-example:
+early_map_kernel() immediately builds nG page tables, and that's a
+strong guarantee to catch fire on this machine.  Which means that
+distro kernels (which all have KPTI enabled by default) would explode.
 
-    scmi-cpufreq scmi_dev.4: probe with driver scmi-cpufreq failed with error -524
+The only way to avoid it would be to mandate that users of these
+machines have nokaslr on the command-line. I'm happy to do so on my
+box, but I'm hardly representative of arm64 users...
 
-These are "expected" failures, so this would be misleading. However, we
-could return -ENODEV instead which doesn't log anything by default. It
-uses a dev_dbg() in that case:
+	M.
 
-    scmi-cpufreq scmi_dev.4: probe with driver scmi-cpufreq rejects match -19
-
-Returning -ENODEV seems more appropriate. I can make that change.
+-- 
+Without deviation from the norm, progress is not possible.
 
