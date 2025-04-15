@@ -4,77 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5A0CC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 10:23:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B642C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 10:25:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GSBt2MJMjAhzFPApeUUI2g2BMUd4P0q8zYxmPlvwJ4o=; b=Bqz7TNlvbV1eCq6cgz2GMCAccr
-	h2k1U69g1jAfYBuKsaIFNKf5Ntw8gTmVAk1rn2qMZ/rr6DSbcWbQJGZL5bfiU15Bfaj2cNHYdbJxT
-	xa1p/Gyu6Cz3x86XbimYFdKU2L/uPLAMt9gGfjH+/IO+iMYTfXY+7xn+L8OioiCWjuSaScznLiYGc
-	MJK9toQRAN2eMKXohXoC+wGWU6dfgfsPJeIyFb2YIq9p9L958Hrpjfb0CVKdjaqFBKBDSzMtyhe6h
-	yZX05NYx8lzDShY6HNh27qV4xXCaF1xBG0cWbUSdEtvunUv+eDBtVVtRFg14jbxC9SIn0Gorgs2T2
-	BojQLt+A==;
+	bh=Nb1CaeSyZdwCqAexjrlTSruwnwqmG4LLxlXJojt81rk=; b=k/jaegcs9xanoxsmPk+SebCPzW
+	kXSShBpYXW8jIagA6ou/hBB1296BGVvHw9Ss4whF0F+pp1p1yj6eftzZ+/K/5fqyPf/qHQQlWyEMr
+	rmIJx1JqggYNW85FFbDcbSIO4xvjTomAMGPDNVxMyZSsEouTLbu6A69YaXLYU3RaPcMTQv8hNxbVZ
+	6QvaNuENAJbpNcjWXWojw8uvKe7wcPNfjUbAXYs75z9fJ0JqBRIHjYvtPNSawctGcBp7lkVy2dzR3
+	sSiooiFC0Htw4x5LaNnlveChlJkg8if/LdEC966+vCxALJPmCq3t0YTfZ2mRd7iub9nbCRNWuTe6W
+	CaE+rOcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4dRU-00000005Jdz-32B2;
-	Tue, 15 Apr 2025 10:23:00 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1u4dTH-00000005JzC-1hFz;
+	Tue, 15 Apr 2025 10:24:51 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4dLK-00000005IFh-1R64
+	id 1u4dNc-00000005IhJ-47gi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 10:16:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
-	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
-	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=GSBt2MJMjAhzFPApeUUI2g2BMUd4P0q8zYxmPlvwJ4o=; b=pBFYel6ZhGCVZlhKkN/xfHKsko
-	tfy1jP7AXZCpn+Fv0iO3J+QH9y+fdv9ae4eyH3wZvouaDR0Q4rjtII3jx8b677GlXq0aQNvGe211F
-	jVo/Nxzpjkrj2sKzknLp358emVznhbUzkGmsG31BW7nQsrPEp3idj2VJtAt1YDKhRbLKu4Pu72WtC
-	o9aoZ9MOLjriuUdcfKgr39maOzwwWmvg4Q4GII5/ZpZ55MQ/nTOxe/WpgZ/CCmArF90EzKkqoua+k
-	stER9Yr1gqsBEbI4ujJWByZxkFbeTVelpbwTYNbCcFzXD+ObzhCSigsKRjCVi+UwMlHgJ+X9IoVsX
-	aGcvGTqw==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:36516 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1u4dLC-0007w1-1L;
-	Tue, 15 Apr 2025 11:16:30 +0100
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1u4dKb-000dV7-3B; Tue, 15 Apr 2025 11:15:53 +0100
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Chen-Yu Tsai <wens@csie.org>,
+	Tue, 15 Apr 2025 10:19:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1744712340; x=1776248340;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=Nb1CaeSyZdwCqAexjrlTSruwnwqmG4LLxlXJojt81rk=;
+  b=HqmeQ8XfuzytTNcKI8GeFLUfJNL7lSfj6g46scE0AhPZKD+Fi8/wx2QY
+   mmEZYzMQeWb2BW5GWeIbuqf1gQG8FupvpDH7MPatibpFtWFXTaJhSL3Lg
+   fs8ouAhmjRSVqAF1W7PlOka+WdhqpsM3Kcxy95jArL09rJsTYiKZDJn3T
+   rCZO/K3hf+VsF2Y0SDxpmMvnK7BN5WpQNGXgt7xR66BFPZzJzcbTyEotB
+   MvjCMQjVPmrsOJyUdiu+1vWqNP1EH5I0SSW3vVtetMJzkY9eeCO3cJtCT
+   o696ZYEowgGom7ZhczleUSrJ57Y337hdREGoqbdjMif4I9vBR8EHamXyG
+   Q==;
+X-CSE-ConnectionGUID: qHslwqOKQDS3n+C1PL8nQQ==
+X-CSE-MsgGUID: z5CBpqFHQfidSCZ9bnHD7g==
+X-IronPort-AV: E=Sophos;i="6.15,213,1739833200"; 
+   d="scan'208";a="43537779"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 15 Apr 2025 12:18:55 +0200
+X-CheckPoint: {67FE3290-2D-903EAEAC-E04C76C8}
+X-MAIL-CPID: 776D1808CE1E037E8E14824437E2A7F7_5
+X-Control-Analysis: str=0001.0A006378.67FE328F.0080,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E105F161113;
+	Tue, 15 Apr 2025 12:18:48 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1744712331;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Nb1CaeSyZdwCqAexjrlTSruwnwqmG4LLxlXJojt81rk=;
+	b=FxbIXQ3HA+sGY8beUPvzMhSf8rVMxH9ihaDwISw58nDj4onHiPYDmzZR3r5FmvyQ0+ryhE
+	SPTAUFh5jUFCYhlaUWM0uUeM2ttx8wXnwRF7SAZI50AGPebD5uP+rZ44+XCcghjbAg+3ba
+	v/VucSP2xJw4k/hFi8G33/22jbmMOP0XsrRWeID36OjgICE1rfJHeyT6bnivXqmE6aAnmj
+	3UggLZoPYk5wHtd9qwIhlbjpv462wNqOLuiXrDRUmMQ2RVE0imOhqc5FRo0BX7se8qW2f8
+	IpNo1YCmCWf3g6pjX3ie/lkmJrK59/Ogx8BbITKc/rNhU/FXHqimWAH8vt5Riw==
+From: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
 	Jakub Kicinski <kuba@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-sunxi@lists.linux.dev,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>,
-	Samuel Holland <samuel@sholland.org>
-Subject: [PATCH net-next] net: stmmac: sun8i: use stmmac_pltfr_probe()
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andy Whitcroft <apw@canonical.com>
+Cc: Dwaipayan Ray <dwaipayanray1@gmail.com>,
+	Lukas Bulwahn <lukas.bulwahn@gmail.com>,
+	Joe Perches <joe@perches.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Siddharth Vadapalli <s-vadapalli@ti.com>,
+	Roger Quadros <rogerq@kernel.org>,
+	Tero Kristo <kristo@kernel.org>,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux@ew.tq-group.com,
+	Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+Subject: [PATCH net-next 0/4] RGMII mode clarification + am65-cpsw fix
+Date: Tue, 15 Apr 2025 12:18:00 +0200
+Message-ID: <cover.1744710099.git.matthias.schiffer@ew.tq-group.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Disposition: inline
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1u4dKb-000dV7-3B@rmk-PC.armlinux.org.uk>
-Date: Tue, 15 Apr 2025 11:15:53 +0100
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_031638_385002_B3E2A3C0 
-X-CRM114-Status: GOOD (  10.64  )
+X-CRM114-CacheID: sfid-20250415_031901_532866_7B37EB60 
+X-CRM114-Status: GOOD (  15.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,48 +113,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Using stmmac_pltfr_probe() simplifies the probe function. This will not
-only call plat_dat->init (sun8i_dwmac_init), but also plat_dat->exit
-(sun8i_dwmac_exit) appropriately if stmmac_dvr_probe() fails. This
-results in an overall simplification of the glue driver.
+As discussed [1], the comments for the different rgmii(-*id) modes do not
+accurately describe what these values mean. Update the binding
+documentation and fix up the mode to account for the fixed TX delay on
+the AM65 CPSW Ethernet controllers, similar to the way the icssg-prueth
+does it. For backwards compatibility, the "impossible" modes that claim
+to have a delay on the PCB are still accepted, but trigger a warning
+message.
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c | 10 ++--------
- 1 file changed, 2 insertions(+), 8 deletions(-)
+As Andrew suggested, I have also added a checkpatch check that requires
+a comment for any RGMII mode that is not "rgmii-id".
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-index 85723a78793a..fd6518e252e3 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-@@ -1239,14 +1239,10 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
--	ret = sun8i_dwmac_init(pdev, plat_dat->bsp_priv);
-+	ret = stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
- 	if (ret)
- 		goto dwmac_syscon;
- 
--	ret = stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
--	if (ret)
--		goto dwmac_exit;
--
- 	ndev = dev_get_drvdata(&pdev->dev);
- 	priv = netdev_priv(ndev);
- 
-@@ -1283,9 +1279,7 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
- 	clk_put(gmac->ephy_clk);
- dwmac_remove:
- 	pm_runtime_put_noidle(&pdev->dev);
--	stmmac_dvr_remove(&pdev->dev);
--dwmac_exit:
--	sun8i_dwmac_exit(pdev, gmac);
-+	stmmac_pltfr_remove(pdev);
- dwmac_syscon:
- 	sun8i_dwmac_unset_syscon(gmac);
- 
+No Device Trees are updated to avoid the warning for now, to give other
+projects syncing the Linux Device Trees some time to fix their drivers
+as well. I intend to submit an equivalent change for U-Boot's
+am65-cpsw-nuss driver as soon as the changes are accepted for Linux.
+
+[1] https://lore.kernel.org/lkml/d25b1447-c28b-4998-b238-92672434dc28@lunn.ch/
+
+Submitting for net-next for now - I don't know it would make sense to
+backport some of these changes to stable.
+
+Note: I have also added the maintainers for the TI K3 SoC families to cc
+in addition to the get_maintainers.pl output, to loop in some more of
+the relevant people at TI. Should MAINTAINERS be extended to include
+some of you for the am65-cpsw* files? At the moment, only the netdev
+maintainers are reported for drivers/net/ethernet/ti/am65-cpsw-nuss.c
+(except for "authored" lines etc.)
+
+Matthias Schiffer (4):
+  dt-bindings: net: ethernet-controller: update descriptions of RGMII
+    modes
+  dt-bindings: net: ti: k3-am654-cpsw-nuss: update phy-mode in example
+  net: ethernet: ti: am65-cpsw: fixup PHY mode for fixed RGMII TX delay
+  checkpatch: check for comment explaining rgmii(|-rxid|-txid) PHY modes
+
+ Documentation/dev-tools/checkpatch.rst        |  9 +++++++
+ .../bindings/net/ethernet-controller.yaml     | 16 ++++++-----
+ .../bindings/net/ti,k3-am654-cpsw-nuss.yaml   |  2 +-
+ drivers/net/ethernet/ti/am65-cpsw-nuss.c      | 27 +++++++++++++++++--
+ scripts/checkpatch.pl                         | 11 ++++++++
+ 5 files changed, 55 insertions(+), 10 deletions(-)
+
 -- 
-2.30.2
+TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht München, HRB 105018
+Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
+https://www.tq-group.com/
 
 
