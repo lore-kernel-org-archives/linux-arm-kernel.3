@@ -4,53 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45221C369B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 05:54:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2208C369B9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 06:02:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=J4FNARvOhkfZh98Pa90BJCmLDPGaUvjUkQw+6AWjTys=; b=ieDackFnmfsDiH/Zpzqexwg0QF
-	eYQYfDYYljYtWSvxJkgibV4lDkuDANyLsKpRweJJPDBauYxFbow1P5g8m3JqNGikPLQR8cTNAdoBI
-	paunBpWKjmuMLLl1XOQZM2j7nwQ4OZ9TCXu53rwuKwtwIEG3uyb4ZbimOm56XrN6SqCYwWYWoNw4V
-	4bQXdsnhem33wlaKpmZhXenfiC6a6GZ5rALQdHvtnDN0FTweJXveP2jWR0o7trnNdPdcFzs50wtoi
-	+rgG4+AUR2+u0YTZjj/WxXialz788adYJU3EYvPR30axExR63iMHN56b/+0oI9+oNzyN16Cln/niG
-	J9saTIkA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Bk7r2q81g5JFUREMlC3SzQ8Y6LQkLINBtG2ItrVtRQE=; b=rGZX6lkmv3YBaNenV/DDaFJgAE
+	nCEesL+fGEoSMNV8kOzdPJZu5DRX9NPbDueXVg+jMotOpJyxz0cJqJa+M61S2ji+TfzlPTWL9bBOV
+	px+gqF5GNE/sMgLNZsRtqgusI76tTQylaP53IidhqZwkfsbI8eLMvrIqJes9kovVCt+bkclL5PZbO
+	/4YtKciGdsI+X4qIFhHGNBmUDm53viAtR+D//jMc6FKWwjrms0VPyEbrZSS/p3+3lSmhCTw/jbpUE
+	UOVnMjDnDZcPazxDPgxRkCJCr2MtWoT0GOknycqJzTk/l8Uy926M6tiF8k16Cg6TPS7sGVOQp/Jnl
+	Wfqoijyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4ZFY-00000004bea-42Uu;
-	Tue, 15 Apr 2025 05:54:24 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Z6j-00000004aS0-0i95
+	id 1u4ZN9-00000004clU-0xhg;
+	Tue, 15 Apr 2025 06:02:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u4ZLK-00000004cWV-15SJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 05:45:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EE23315A1;
-	Mon, 14 Apr 2025 22:45:12 -0700 (PDT)
-Received: from a077893.arm.com (unknown [10.163.49.104])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B630F3F66E;
-	Mon, 14 Apr 2025 22:45:11 -0700 (PDT)
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Ryan Roberts <ryan.roberts@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Anshuman Khandual <anshuman.khandual@arm.com>
-Subject: [PATCH V2] arm64/mm: Implement pte_po_index() for permission overlay index
-Date: Tue, 15 Apr 2025 11:14:42 +0530
-Message-Id: <20250415054442.2287891-1-anshuman.khandual@arm.com>
-X-Mailer: git-send-email 2.25.1
+	Tue, 15 Apr 2025 06:00:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id F13D149E61;
+	Tue, 15 Apr 2025 06:00:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0032C4CEDD;
+	Tue, 15 Apr 2025 06:00:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744696821;
+	bh=YyxASKKC3r1Z4ow/cLgYW4zg4LmPi857OufnknP3J3k=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=JquIGz51n1h3ng6uvE+1H9U4b08OKLgsHjUg0cNF2KQLYLrgtx0H7k593ZWL/7jTx
+	 fuVjsZSB2B3z+eJMqroklgRZ4/Pr/Loss1njGL/wFUL2xQczkffYf1D1pYL1Wly83Y
+	 dQsLVf9pe5u2YxoeIUzfNkhPh/F9iS0AWBHZngJSfUU5KysZ5zCDSNkM//WKamxk85
+	 GJ3+nm9ljXzlAmeU9hoZDPjx/X32zlkeYRLgevdbDywpV5pRnRmhnsN/NKlnKjmAMa
+	 X3ZFgkj8TDGsoRHTCUon5PPjtQAJCmOLHvDCL7cut3Ia3azsjOu8KsTPcweTVLRIIM
+	 TW1y16DwihVtA==
+Message-ID: <3dd741ef-4589-49cd-967f-8a2d72e75cf4@kernel.org>
+Date: Tue, 15 Apr 2025 08:00:17 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 2/3] memory: Add STM32 Octo Memory Manager driver
+To: Patrice Chotard <patrice.chotard@foss.st.com>,
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: christophe.kerello@foss.st.com, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20250410-upstream_ospi_v6-v9-0-cf119508848a@foss.st.com>
+ <20250410-upstream_ospi_v6-v9-2-cf119508848a@foss.st.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250410-upstream_ospi_v6-v9-2-cf119508848a@foss.st.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_224517_297743_07D603D0 
-X-CRM114-Status: GOOD (  12.72  )
+X-CRM114-CacheID: sfid-20250414_230022_340734_47357875 
+X-CRM114-Status: GOOD (  11.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,91 +124,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ryan Roberts <ryan.roberts@arm.com>
+On 10/04/2025 11:27, Patrice Chotard wrote:
+> +	for (i = 0; i < omm->nb_child; i++) {
+> +		idx = of_property_match_string(dev->of_node,
+> +					       "memory-region-names",
+> +					       mm_name[i]);
+> +		if (idx < 0)
+> +			continue;
+> +
+> +		/* res1 only used on second loop iteration */
+> +		res1.start = res.start;
+> +		res1.end = res.end;
+> +
+> +		node = of_parse_phandle(dev->of_node, "memory-region", idx);
+> +		if (!node)
+> +			continue;
+> +
+> +		ret = of_address_to_resource(node, 0, &res);
+> +		if (ret) {
+> +			of_node_put(node);
+> +			dev_err(dev, "unable to resolve memory region\n");
+> +			return ret;
+> +		}
+> +
+> +		/* check that memory region fits inside OMM memory map area */
+> +		if (!resource_contains(omm->mm_res, &res)) {
+> +			dev_err(dev, "%s doesn't fit inside OMM memory map area\n",
+> +				mm_name[i]);
+> +			dev_err(dev, "%pR doesn't fit inside %pR\n", &res, omm->mm_res);
+> +
 
-Previously pte_access_permitted() used FIELD_GET() directly to retrieve
-the permission overlay index from the pte. However, FIELD_GET() doesn't
-work for 128 bit quanitites. Since we are about to add support for D128
-pgtables, let's create a specific helper, pte_po_index() which can do
-the required mask and shift regardless of the data type width.
+I don't understand. I already pointed out that you leak OF reference.
+You fixed it in one place, ignoring all the rest. You must fix it
+everywhere.
 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: kvmarm@lists.linux.dev
-Cc: linux-kernel@vger.kernel.org
-Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
----
-This patch applies on v6.15-rc2
+> +			return -EFAULT;
+> +		}
+> +
 
-Changes in V2:
 
-- Replaced FIELD_GET() in compute_s1_overlay_permissions() per Ryan
-
-Changes in V1:
-
-https://lore.kernel.org/linux-arm-kernel/20250410052021.1533180-1-anshuman.khandual@arm.com/
-
- arch/arm64/include/asm/pgtable-hwdef.h | 1 +
- arch/arm64/include/asm/pgtable-prot.h  | 2 ++
- arch/arm64/include/asm/pgtable.h       | 2 +-
- arch/arm64/kvm/at.c                    | 2 +-
- 4 files changed, 5 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/include/asm/pgtable-hwdef.h b/arch/arm64/include/asm/pgtable-hwdef.h
-index f3b77deedfa2..028a164924df 100644
---- a/arch/arm64/include/asm/pgtable-hwdef.h
-+++ b/arch/arm64/include/asm/pgtable-hwdef.h
-@@ -211,6 +211,7 @@
- #define PTE_PO_IDX_2	(_AT(pteval_t, 1) << 62)
- 
- #define PTE_PO_IDX_MASK		GENMASK_ULL(62, 60)
-+#define PTE_PO_IDX_SHIFT	60
- 
- 
- /*
-diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
-index 7830d031742e..b53bc241e4e7 100644
---- a/arch/arm64/include/asm/pgtable-prot.h
-+++ b/arch/arm64/include/asm/pgtable-prot.h
-@@ -136,6 +136,8 @@ static inline bool __pure lpa2_is_enabled(void)
- 	((pte & BIT(PTE_PI_IDX_1)) >> (PTE_PI_IDX_1 - 1)) | \
- 	((pte & BIT(PTE_PI_IDX_0)) >> (PTE_PI_IDX_0 - 0)))
- 
-+#define pte_po_index(pte)	((pte_val(pte) & PTE_PO_IDX_MASK) >> PTE_PO_IDX_SHIFT)
-+
- /*
-  * Page types used via Permission Indirection Extension (PIE). PIE uses
-  * the USER, DBM, PXN and UXN bits to to generate an index which is used
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index d3b538be1500..41979c0e6c21 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -182,7 +182,7 @@ static inline bool por_el0_allows_pkey(u8 pkey, bool write, bool execute)
- 	(((pte_val(pte) & (PTE_VALID | PTE_USER)) == (PTE_VALID | PTE_USER)) && (!(write) || pte_write(pte)))
- #define pte_access_permitted(pte, write) \
- 	(pte_access_permitted_no_overlay(pte, write) && \
--	por_el0_allows_pkey(FIELD_GET(PTE_PO_IDX_MASK, pte_val(pte)), write, false))
-+	por_el0_allows_pkey(pte_po_index(pte), write, false))
- #define pmd_access_permitted(pmd, write) \
- 	(pte_access_permitted(pmd_pte(pmd), (write)))
- #define pud_access_permitted(pud, write) \
-diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
-index f74a66ce3064..66bee3f2d7c2 100644
---- a/arch/arm64/kvm/at.c
-+++ b/arch/arm64/kvm/at.c
-@@ -1073,7 +1073,7 @@ static void compute_s1_overlay_permissions(struct kvm_vcpu *vcpu,
- {
- 	u8 idx, pov_perms, uov_perms;
- 
--	idx = FIELD_GET(PTE_PO_IDX_MASK, wr->desc);
-+	idx = pte_po_index(__pte(wr->desc));
- 
- 	switch (wi->regime) {
- 	case TR_EL10:
--- 
-2.25.1
-
+Best regards,
+Krzysztof
 
