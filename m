@@ -4,87 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 176AFC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 08:23:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 743FEC369B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 08:25:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tLEWsOGdQhM0Zjsf3h6/8bfBGD6fRYml+UveW8GvJwE=; b=bQX8Hps/srNLSW+UK5R3pyLsa2
-	EDSVw/6qE0q+EnNf3kp9z1D9iQAJCa6HeGgwBE3Z1ezeqySq14gMb5XITNdtD6rekvQtLWTMpTEQZ
-	0BxDlHwDXoLeULuYKgLlHgKhj5eiD0omjlG6OZcm7tj30iuZVGJBbuP4+x/ALX0hH1A67z2MWd6WG
-	KQAfKVqsjt5zP+HY+v0tr9jtpwfILu5HXGiQq5QEp0tUTSZA7vCSF/v1WS+eDKPuNz7jQHHo8yJQA
-	L/JX+9lcoOngYfs2GOVaTYPKvDW4rhCLxo+mp+QfJSHfPpb7iCa/vInbBsbqli0ts4IOceMhmdilw
-	wq9XrjEQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=q0dIPshsaA/dFIEd9k7I6rbRmEbIoDubphxdguOOa8U=; b=Z4s2Ahrluc31WggGEXilW/aMPy
+	nPLDutapqEWaJ4zQiB7wNxh/OjZzRfC8BpFpIV7rJWpfPxeieo9wxWRSf45VxDbsTLwJ07B5uDJ8y
+	o8UUTTr1M1pjV6lkE9VmWa7hjkpcdW2tpT5dxwC/1ns/OK8FOODK9wksijeO77unsWvlFhVOVixi9
+	6oFl6ynP6vkwjq1th2FC2aPtH+pzhfASpX1hoXeFDqrDwb+ci86/QM/AhrtI+mA84G/WU9MIuVw3W
+	BDCSORMwN74VFw3oRWAfhscjalUf96A5cZxE20g1D4xKLxQRF1ER704qOWJYmsEutn+oqwSleGseb
+	FJD/H9Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4bZt-00000004yXn-22Eo;
-	Tue, 15 Apr 2025 08:23:33 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1u4bbg-00000004z2s-21eO;
+	Tue, 15 Apr 2025 08:25:24 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4bMh-00000004wFD-2MTn
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 08:09:57 +0000
-Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-54af20849bbso6554685e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Apr 2025 01:09:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744704594; x=1745309394; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tLEWsOGdQhM0Zjsf3h6/8bfBGD6fRYml+UveW8GvJwE=;
-        b=v2WiGbVeNVLqZt/OpsTOQGKwjCgGV5by1FZH1aDsVUK88qr0tNalL9lBkC+v1M5MV0
-         C/uAQAd9QgVhdxl2S4K7YmFh2VUa5nkMNhcNJ/n843U3dA9GXqviBSioASJV7YrQxC8Y
-         mK/WGtj+vyzr+O7j4/mcP1p+O7L5sS4zALSHq2y3+x+prmYXAlwbz6H1UioJ/3z9owgw
-         +/hn332X3p+90y7CHQbVA5imzcNGE6ZtPdQ/YEuvpSJG8cls7KTMx7etzzKXTqlEYBEX
-         lC+uBkmr2GcSO6fYRr5IHZ1zOfGf5+++JAjM99I25HaQ8cGgPNRuhpc1ec5kUS7QIulm
-         0r4g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744704594; x=1745309394;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=tLEWsOGdQhM0Zjsf3h6/8bfBGD6fRYml+UveW8GvJwE=;
-        b=sLIduk0xU8+7/Kt0Cz/HRyZbim+xGZsMoWFsqTxu33rNFhmFwMCBVWmaFimCdVxQV1
-         aOmy7t1eRiCmYTgyZVHNCf8jtihZAttPKQlp/ZKuGvsS0OW0CqerD0oLerDyzuc0UcLh
-         qAS0c0njtHBpCBxChu5FBCTLevtJvwxLHyM//YD0VdpZ3O+0k0MDTkBJSFjJdAYg+4yL
-         ZfIU4xmfcg0ODy6DypKQ2UQfSvynhYM3Gjm0RpRdAoV0yJk2/plOn4YTL4btkex+BpBg
-         VJaqX8MmuE6Mg7RsNVH6k8jk+cwAGEuqR/lP4FnpbtLo1/ebeiN0t1ZXVAsPxuNbxLbz
-         dv7g==
-X-Forwarded-Encrypted: i=1; AJvYcCVhaJ1cH4NTGclsBebGzW6XjLveuVisB9pr1F22c4WU0JTCcbucYa2O6jT0AhdtbD0Nu1sWuMFhNSVjDtmeQPKR@lists.infradead.org
-X-Gm-Message-State: AOJu0YwXPd0Ba2trJ3aLArB4or2UuJ+rJ8L9v5IudFs8mxNzVqF9ohGW
-	wDsZzqCF2DEmniOwP3rW8BWT2rmvbqX3gS9Kr8yS5xC8CMcFGs3qKAInLDh/2UkDNkTr4uxLbYn
-	9AnRrXvooXuEfK17YdzCsiP2Yet+aMsX/+Qj4fQ==
-X-Gm-Gg: ASbGnctOV7AIhFyfRvghXhgmC+dAZLyX/5VAuSF9jmuGsHq0RwPjMiotW5yfUqgs6sr
-	O3mGv2ugEbBuSF5eRrSYwQbt9ekMDVk/pODMDBR/+8kqCG6MvpeRbrwNzV7Dk8D2PMgJkut/O2t
-	Par3BFXnCGuuXWm+2JkRjS7A==
-X-Google-Smtp-Source: AGHT+IEMlMqsPAGJBzvZT2lPJQosRhpvoETScw1sCKukc31T9fTkGic2VsMp5FRUxyJuWIZeSw3pyLssyZGpIRA+vOE=
-X-Received: by 2002:a2e:ad07:0:b0:30b:a187:44ad with SMTP id
- 38308e7fff4ca-31049a80842mr52529351fa.26.1744704593653; Tue, 15 Apr 2025
- 01:09:53 -0700 (PDT)
+	id 1u4bPR-00000004wei-3571;
+	Tue, 15 Apr 2025 08:12:47 +0000
+Received: from localhost (unknown [124.16.138.129])
+	by APP-05 (Coremail) with SMTP id zQCowAAnYgr1FP5nL84SCQ--.28067S2;
+	Tue, 15 Apr 2025 16:12:37 +0800 (CST)
+From: Chen Ni <nichen@iscas.ac.cn>
+To: vkoul@kernel.org,
+	kishon@kernel.org,
+	heiko@sntech.de
+Cc: linux-phy@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Chen Ni <nichen@iscas.ac.cn>
+Subject: [PATCH] phy: rockchip: samsung-hdptx: Remove unneeded semicolon
+Date: Tue, 15 Apr 2025 16:12:00 +0800
+Message-Id: <20250415081200.349939-1-nichen@iscas.ac.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20250404115719.309999-1-krzysztof.kozlowski@linaro.org> <20250404115719.309999-2-krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20250404115719.309999-2-krzysztof.kozlowski@linaro.org>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 15 Apr 2025 10:09:42 +0200
-X-Gm-Features: ATxdqUEiPhEWajxjZ0u616Ca2IYOkRClv6g0V-9rh2iDXiM0Iv0_Uzdx0X_IW4c
-Message-ID: <CACRpkdYJNLwKFyzjzOeuZofBzoHci39UH-0H5cEM=97koyW1FQ@mail.gmail.com>
-Subject: Re: [PATCH 2/2] pinctrl: uniphier: Do not enable by default during
- compile testing
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu <mhiramat@kernel.org>, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: zQCowAAnYgr1FP5nL84SCQ--.28067S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrZFWDuF4rXw4DWw1xKF1UAwb_yoW3AFb_C3
+	4xWw47Xw1kJF95Kw1DJ3yxu34qyw1UWw1ruaySvFy5Aa1DXw1Fqa4fZr43Ja4UZrsruFWx
+	G34qvFyfCry3tjkaLaAFLSUrUUUUbb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbsAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
+	Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x0267AKxVWxJr
+	0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lc7CjxVAaw2AFwI0_
+	Jw0_GFylc2xSY4AK67AK6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r
+	4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF
+	67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2I
+	x0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2
+	z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnU
+	UI43ZEXa7VUjWSotUUUUU==
+X-Originating-IP: [124.16.138.129]
+X-CM-SenderInfo: xqlfxv3q6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_010955_623128_6DB6170B 
-X-CRM114-Status: UNSURE (   8.79  )
+X-CRM114-CacheID: sfid-20250415_011246_150510_EE113A94 
+X-CRM114-Status: UNSURE (   8.30  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -100,16 +81,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 4, 2025 at 1:57=E2=80=AFPM Krzysztof Kozlowski
-<krzysztof.kozlowski@linaro.org> wrote:
+Remove unnecessary semicolons reported by Coccinelle/coccicheck and the
+semantic patch at scripts/coccinelle/misc/semicolon.cocci.
 
-> Enabling the compile test should not cause automatic enabling of all
-> drivers.
->
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
+---
+ drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-No comments, but the patch makes perfect sense to me, so applied.
+diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+index fc289ed8d915..bb49d69a6f17 100644
+--- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
++++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+@@ -1507,7 +1507,7 @@ static int rk_hdptx_phy_verify_hdmi_config(struct rk_hdptx_phy *hdptx,
+ 		break;
+ 	default:
+ 		return -EINVAL;
+-	};
++	}
+ 
+ 	return 0;
+ }
+-- 
+2.25.1
 
-Yours,
-Linus Walleij
 
