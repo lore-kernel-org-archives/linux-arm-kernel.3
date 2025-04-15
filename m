@@ -4,85 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C36B3C369BA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 16:59:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10371C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 17:01:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iFq+f28rvVPKPSrubIQp1tokt+o0pF9109v9jVjSGIo=; b=s0m3xPkmwuTdwUnD1t72ADcemM
-	9R/WXMqhTIDBKKD8i69YfMN5uXoSweuysQDDOVkz/McLXW1n8L3UnJUmm9H7Kxk8OPU/bbDf1+iVR
-	OrPIEdChcBMf/f2onwlWqWAj7gGXYoDW4Rj2zVS5F6lrebj376vAogNRic95vhA7Qa2KvRvqRKraM
-	SRYZITMbK3psXEzK3yZOAfiebaP6tgx6sV79O0gmKRsH75x5753ko03u+Uo/yzi1fxwUxyrY3vsMx
-	x+w0Sd68duJ6G31xsSMRSVRMILOljJwggVMjO/jOhhv1YOUz7hDQuCMep0MH1PGLHNKAQsB/WYfHP
-	oNSP7urA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=k5sn0c6EnK9MQwe7/DFbVJ/3yq40vsmcM6FfsWqie5M=; b=whximszsIEgxy7K7fd869ohgTH
+	0uX4aNzFZVl7ONMO5slLOOJI0OZJveZB/fzY+jkewRtZufS0bKY2QnhwJh+MqKzx8xG/Ksv+HFZSw
+	E9V+6CnOtiWfppp7GSt5ltNsg7hEKCBhDF1RbXwAI5cRAnkOt2QLGbm2XqdErSgMfOnfDidk4hiu0
+	TTCFXtk3T044YTuVv20q0wa+Xb4rzw/P5goS3f5h05uoJDee+6kEjDnLgLTJ9fG3ritkxHK3+Hfm1
+	CDGlhi9hj3213SNK8SZpg3V4RucvPXzApqp88ED6VYFVAndZlpjmH+OJ4yfTkdPdkPw3QFQXb8U7a
+	u1V+rVig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4jd0-00000006UJv-2Y2D;
-	Tue, 15 Apr 2025 16:59:18 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1u4jeo-00000006Ug9-0eJn;
+	Tue, 15 Apr 2025 17:01:10 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4jF3-00000006Qbw-1inA
+	id 1u4jN1-00000006RsJ-3ZMD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 16:34:35 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53FGYRMV071702
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 15 Apr 2025 11:34:28 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744734868;
-	bh=iFq+f28rvVPKPSrubIQp1tokt+o0pF9109v9jVjSGIo=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=lDtzA1FoWC9cSnfpYWCdhYJpszR/YkBTzbinL0HRYQxpLJ50Nt+NbGPXtSmxhT7aB
-	 WL4SOmdHi3ysvYV6GgjcdlF84LpYDt3y6dD5VtWrUDfkDo4yYVWQQCK6x+ydv7Jv1F
-	 YX/xLyjKxE+sOW0cTc041kx4Fh/2s0ozHt9qkiRI=
-Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53FGYRnV057982
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 15 Apr 2025 11:34:27 -0500
-Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE105.ent.ti.com
- (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 15
- Apr 2025 11:34:27 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE108.ent.ti.com
- (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 15 Apr 2025 11:34:27 -0500
-Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53FGYQOS059307;
-	Tue, 15 Apr 2025 11:34:26 -0500
-Message-ID: <fe5583ca-d476-4e57-b412-3dd4fe4ff82c@ti.com>
-Date: Tue, 15 Apr 2025 11:34:26 -0500
+	Tue, 15 Apr 2025 16:42:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=k5sn0c6EnK9MQwe7/DFbVJ/3yq40vsmcM6FfsWqie5M=; b=m2W1M6XJOPCYLAtdn5g6aK359J
+	RlC0Ip1UHsog4S2oa/AZA0jnCbVWilrDXYZDfYbLvfNabQM9rBnvY6DtnH8/mElHn42/yxo0eyQVI
+	IO/QpL/cYgBaPZPF9xZq6piwT1CM34R2Pim9+5WogOPDC+VeiM7GSFQx7mirZMk7+PXhj+LRkv/W3
+	Dr4GeQt40Kefw4YhUZyrayEBbhuv7Lg+enVZykW+zV1/8EeA7mX5qQdKsIVLap/i4qmdhUukX+OgJ
+	hsq3QslBcvX22lapOZ2jdVMCsmpzbErIHBO5b5pk60BOOoxgqWGrPjfoFnbEtaBydBQTAp6WTXmz4
+	AYPr3gpA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:56610)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1u4jMv-0008Vb-2y;
+	Tue, 15 Apr 2025 17:42:42 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1u4jMt-0000X2-0r;
+	Tue, 15 Apr 2025 17:42:39 +0100
+Date: Tue, 15 Apr 2025 17:42:39 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next 0/3] net: stmmac: sti cleanups
+Message-ID: <Z_6Mfx_SrionoU-e@shell.armlinux.org.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 01/11] arm64: dts: ti: k3-am62: Add ATCM and BTCM cbass
- ranges
-To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>
-CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Hari Nagalla <hnagalla@ti.com>,
-        Beleswar
- Prasad <b-padhi@ti.com>,
-        Markus Schneider-Pargmann <msp@baylibre.com>,
-        Devarsh Thakkar <devarsht@lewv0571a.ent.ti.com>
-References: <20250415153147.1844076-1-jm@ti.com>
- <20250415153147.1844076-2-jm@ti.com>
-Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <20250415153147.1844076-2-jm@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_093433_626679_30BBB5BF 
-X-CRM114-Status: GOOD (  12.75  )
+X-CRM114-CacheID: sfid-20250415_094247_892756_9854C4FE 
+X-CRM114-Status: UNSURE (   7.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,43 +84,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/15/25 10:31 AM, Judith Mendez wrote:
-> Add cbass ranges for ATCM and BTCM on am62x device, without
-> these, remoteproc driver fails to probe and attach to the DM
-> r5 core and IPC communication is broken.
-> 
-> Signed-off-by: Judith Mendez <jm@ti.com>
-> ---
+Clean up the STI platform glue code.
 
-Acked-by: Andrew Davis <afd@ti.com>
+- IS_PHY_IF_MODE_RGMII() is just a duplicate for
+  phy_interface_mode_is_rgmii(), so use the generic version that we
+  already have.
 
->   arch/arm64/boot/dts/ti/k3-am62.dtsi | 8 ++++++--
->   1 file changed, 6 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62.dtsi b/arch/arm64/boot/dts/ti/k3-am62.dtsi
-> index bfb55ca113239..59f6dff552ed4 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62.dtsi
-> @@ -86,7 +86,9 @@ cbass_main: bus@f0000 {
->   			 /* Wakeup Domain Range */
->   			 <0x00 0x00b00000 0x00 0x00b00000 0x00 0x00002400>, /* VTM */
->   			 <0x00 0x2b000000 0x00 0x2b000000 0x00 0x00300400>,
-> -			 <0x00 0x43000000 0x00 0x43000000 0x00 0x00020000>;
-> +			 <0x00 0x43000000 0x00 0x43000000 0x00 0x00020000>,
-> +			 <0x00 0x78000000 0x00 0x78000000 0x00 0x00008000>, /* DM R5 ATCM*/
-> +			 <0x00 0x78100000 0x00 0x78100000 0x00 0x00008000>; /* DM R5 BTCM*/
->   
->   		cbass_mcu: bus@4000000 {
->   			bootph-all;
-> @@ -103,7 +105,9 @@ cbass_wakeup: bus@b00000 {
->   			#size-cells = <2>;
->   			ranges = <0x00 0x00b00000 0x00 0x00b00000 0x00 0x00002400>, /* VTM */
->   				 <0x00 0x2b000000 0x00 0x2b000000 0x00 0x00300400>, /* Peripheral Window */
-> -				 <0x00 0x43000000 0x00 0x43000000 0x00 0x00020000>;
-> +				 <0x00 0x43000000 0x00 0x43000000 0x00 0x00020000>,
-> +				 <0x00 0x78000000 0x00 0x78000000 0x00 0x00008000>, /* DM R5 ATCM*/
-> +				 <0x00 0x78100000 0x00 0x78100000 0x00 0x00008000>; /* DM R5 BTCM*/
->   		};
->   	};
->   
+- add init/exit functions that call clk_prepare_enable(),
+  sti_dwmac_set_mode() and clk_disable_unprepare() as appropriate,
+  converting to devm_stmmac_pltfr_probe().
+
+- the custom suspend/resume ops do basically what the generic ones
+  do with init/exit functions populated, but also add runtime and
+  noirq ops. Update STI to use the generic ops.
+
+ drivers/net/ethernet/stmicro/stmmac/dwmac-sti.c | 88 ++++++++-----------------
+ 1 file changed, 29 insertions(+), 59 deletions(-)
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
