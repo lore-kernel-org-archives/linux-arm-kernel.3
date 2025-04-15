@@ -4,78 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 926FFC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 11:41:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2858FC369B4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 11:43:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mU1L0OE4kqRPKvQXu+iydZ3XN/8SOPqiZLDwwEQ+2VQ=; b=xBB/JofvKLOlcKzGwXF976Trd7
-	N/ZuODKIji7SBp9LpofPrHQbTVnlWbadKi9HCZzHzDJAt8tM+GIw8zMi3oA+rSZIMsKOG2GukbVP5
-	IPZiNQq02oXGkRIXjgrKdEpWVAJD8MfS/Sdryd17pGGh22fwyJzFWCJGZMRKfTjk+FWTq5n/d8i10
-	GJo7YOVEoXalz/58ByXLd25hJhqxZ5xVd6omjUZrOqApnLFk+l186X2iPl/q4tay0dBFp8ALGbRFd
-	67SKjc4VkIKJ7jkcxeio02nKpbVXzifj7MCF4LjsYpjxAIsolgXgd7NtbCBGlrdHHamWagprole81
-	uI9Gd71Q==;
+	bh=xBqbHZcs8CPykMaJ/HWYWA6kXU7/l1yWnnmjytgc6vo=; b=FdYYwerJqk/ORjsZdwhcALJ3Xw
+	fL1plpHyr7qjOFkRe+X7J9IXvCc+R82YJAj0Wv1yz6u0F8deeKnlYmuPuLIKozVxStL75rsLGN2YM
+	jdR9Ar8FE8ttCr2FNXyVdxwNi/U9qGwXd9d6aV9H6Y+vGtetCvDGiMvtEw+gkYnaI5TON9BGX662S
+	bSVQ8SkXNCVcpWLAhv57VTb+m+hIGy6ovMEQ+xqriax/k9gnRXoJK8xLqzP/kvcvksl36EkJPolkd
+	5q2hpLYav6wb8k/Fl/gV9gHt/TP7pwRpT5O6vPqtkEtGzEvQZZXXuRPLNVYGGNwFmVDH+XIwFrSOC
+	Ju69Rueg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4efC-00000005aej-0LZv;
-	Tue, 15 Apr 2025 11:41:14 +0000
-Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
+	id 1u4egz-00000005b50-40qf;
+	Tue, 15 Apr 2025 11:43:05 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4dwI-00000005QYz-0yuC
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 10:54:51 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 415CF439EF;
-	Tue, 15 Apr 2025 10:54:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1744714488;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mU1L0OE4kqRPKvQXu+iydZ3XN/8SOPqiZLDwwEQ+2VQ=;
-	b=mCfuv+acyWBVEOk80bVR88MWbZihQzFzcW+stWpRN/l17K3BaXZZDLLn2DQo5PMG0YfFR/
-	KoQPbiuhOBwwrDvnsX85xi3qgQmPIpZFdnFBd0YNRFxRvvyoxDmdJWmaWzfPmWvuUNTSc1
-	v5Ir/o134mD+MulWaQkAdGTbsafUtdbilckUjHhFrig1dHF83cU5n2DDVoJVFktwMErPFC
-	qRLwJ0UtjLv6/u++ARoKBvHAgaNfnhhoLnLGpbyAciMy/yLtFpQnZWdCKe104bnfOT12H4
-	SdBOoPsbEm8ZaYgc82l5dMJ6KKgfKtmYmXW6sSj7tPprSNqoOs3BhROFmvQi8A==
-Date: Tue, 15 Apr 2025 12:54:45 +0200
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
- <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Andy Whitcroft <apw@canonical.com>, Dwaipayan Ray
- <dwaipayanray1@gmail.com>, Lukas Bulwahn <lukas.bulwahn@gmail.com>, Joe
- Perches <joe@perches.com>, Jonathan Corbet <corbet@lwn.net>, Nishanth Menon
- <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Siddharth Vadapalli
- <s-vadapalli@ti.com>, Roger Quadros <rogerq@kernel.org>, Tero Kristo
- <kristo@kernel.org>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux@ew.tq-group.com
-Subject: Re: [PATCH net-next 1/4] dt-bindings: net: ethernet-controller:
- update descriptions of RGMII modes
-Message-ID: <20250415125445.27d6ed8d@fedora.home>
-In-Reply-To: <218a27ae2b2ef2db53fdb3573b58229659db65f9.1744710099.git.matthias.schiffer@ew.tq-group.com>
-References: <cover.1744710099.git.matthias.schiffer@ew.tq-group.com>
-	<218a27ae2b2ef2db53fdb3573b58229659db65f9.1744710099.git.matthias.schiffer@ew.tq-group.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	id 1u4dyh-00000005RE8-20HG;
+	Tue, 15 Apr 2025 10:57:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1744714638;
+	bh=I4v2Dk3UXXCfyD10RjI9laeeZkWMimGScChJK688VCE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=os9JNntIE8193OeW6CQMrCMc8/CUvgVYvmEzYGxuN95MMzFM5t5niYaZgYnfFl7W0
+	 TqKcv5Nug8q8ZKutEzdoSAtZIpJdETZZa71/3h3Dw6lai6zmplII4OphofJwgx0VJk
+	 W4yx5o1p8Doh0ocJoy84PFrtW2EYQ2EHEIkHTQyxX3nJJMwoDITgiOI5bmKJeQhUUQ
+	 OlODgGe8c1XdZN69zlA/Fghhlicp8ZBcD2u/oakoDIeZAAfMq4fGMXUysc24FejvWx
+	 rlZxRPFzs/xZnzlw8p+w2sm44d4QxsuBEsA7iUkTf6CIbZmpvz4bZGPiEeUbYMjwhq
+	 6ACYLBwKhzM9Q==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 590C017E03B6;
+	Tue, 15 Apr 2025 12:57:17 +0200 (CEST)
+Message-ID: <71cc71a2-7872-419f-8413-dba3b7313894@collabora.com>
+Date: Tue, 15 Apr 2025 12:57:16 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: dts: mediatek: mt7988a-bpi-r4: allow hw
+ variants of bpi-r4
+To: frank-w@public-files.de, Daniel Golle <daniel@makrotopia.org>
+Cc: Frank Wunderlich <linux@fw-web.de>,
+ Matthias Brugger <matthias.bgg@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ devicetree@vger.kernel.org
+References: <20250412102109.101094-1-linux@fw-web.de>
+ <c8f9f019-a238-47c8-a900-9ca48ce09503@collabora.com>
+ <Z_0AdtyvehR9SHnU@pidgin.makrotopia.org>
+ <36fe0778-399a-4406-8516-54b968cd9073@collabora.com>
+ <D7682B25-5BEF-46D1-A5FD-32D2AAF84EFF@public-files.de>
+ <8fe762e3-a9eb-4a9c-81a2-b7a10539b615@collabora.com>
+ <48DEC6CC-A81B-4DD7-9F55-CA1179FBA2F2@public-files.de>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <48DEC6CC-A81B-4DD7-9F55-CA1179FBA2F2@public-files.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvvdeffedtucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepudfgleelvddtffdvkeduieejudeuvedvveffheduhedvueduteehkeehiefgteehnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucfkphepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvhedprhgtphhtthhopehmrghtthhhihgrshdrshgthhhifhhfvghrsegvfidrthhqqdhgrhhouhhprdgtohhmpdhrtghpthhtoheprghnughrvgifodhnvghtuggvvhesl
- hhunhhnrdgthhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohepvgguuhhmrgiivghtsehgohhoghhlvgdrtghomhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhg
-X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_035450_425075_5D679383 
-X-CRM114-Status: GOOD (  14.07  )
+X-CRM114-CacheID: sfid-20250415_035719_665373_BBEBC5FD 
+X-CRM114-Status: GOOD (  20.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,31 +85,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Matthias,
-
-On Tue, 15 Apr 2025 12:18:01 +0200
-Matthias Schiffer <matthias.schiffer@ew.tq-group.com> wrote:
-
-> As discussed [1], the comments for the different rgmii(-*id) modes do not
-> accurately describe what these values mean.
+Il 15/04/25 12:30, Frank Wunderlich ha scritto:
+> Am 15. April 2025 11:56:37 MESZ schrieb AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>:
+>> Il 15/04/25 10:07, Frank Wunderlich ha scritto:
+>>> Am 15. April 2025 09:36:43 MESZ schrieb AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>:
+>>>> Il 14/04/25 14:32, Daniel Golle ha scritto:
+>>>>> On Mon, Apr 14, 2025 at 11:27:23AM +0200, AngeloGioacchino Del Regno wrote:
+>>>>>> Il 12/04/25 12:21, Frank Wunderlich ha scritto:
+>>>>>>> From: Frank Wunderlich <frank-w@public-files.de>
+>>>>>>>
+>>>>>>> Sinovoip has released other variants of Bananapi-R4 board.
+>>>>>>> The known changes affecting only the LAN SFP+ slot which is replaced
+>>>>>>> by a 2.5G phy with optional PoE.
+>>>>>>>
+>>>>>>> Just move the common parts to a new dtsi and keep differences (only
+>>>>>>> i2c for lan-sfp) in dts.
+>>>
+>>>>>> This should at least have some different compatible, if not probably also a
+>>>>>> different model string - as it's a different device.
+>>>>>>
+>>>>>> 	compatible = "bananapi,bpi-r4-2g5", "bananapi,bpi-r4", "mediatek,mt7988a";
+>>>>>
+>>>>> Imho it doesn't make sense to declare compatibility with the
+>>>>> "bananapi,bpi-r4" as the "bananapi,bpi-r4-2g5" is NOT compatible with the
+>>>>> "bananapi,bpi-r4". It's a different board and using firmware meant for the
+>>>>> "bananapi,bpi-r4-2g5" on the "bananapi,bpi-r4" (or vice versa) will result
+>>>>> in a non-working Ethernet port.
+>>>>>
+>>>>
+>>>> Is this device a BananaPi R4 variant, or is it a completely different device?
+>>>
+>>> The only difference is that sfp-lan is replaced by RJ45 socket with mt7988 internal phy.
+>>>
+>>
+>> Perfect, then:
+>> - The only difference is one routing
+>>    - The base board is the same
+>>    - Same hw project
+>>      - The two machines are compatible with each other
+>>        ...bar one difference
+>>
+>> ...then the compatibles shall be as I said before :-)
+>>
+>>>> If this is a completely different device, then it's not even a BananaPi R4,
+>>>> otherwise this is compatible with BananaPi R4, with a small variation :-)
+>>>
+>>> Sinovoip now announces a R4Pro with some more changes (e.g. an external 2.5g switch),but we have no detailed shematic yet. It looks they also plan a R4lite which is based on different SoC (afair mt7987),but this is for sure different device (and so not using this bpi-r4.dtsi).
+>>
+>> In that case, R4Lite shall not be compatible with R4, as the name may be the
+>> same, but in practice it's a different machine.
+>>
+>>>
+>>> But basicly all are named BPi-R4. I guess R4Pro will also get own dts as too much changed.
+>>
+>> If R4pro is a redesign of the R4 board, that would not be compatible, as it
+>> would not be the same base design; otherwise, I'm sure you have well understood
+>> how it works for the compatibles, anyway :D
 > 
-> As the Device Tree is primarily supposed to describe the hardware and not
-> its configuration, the different modes need to distinguish board designs
-> (if a delay is built into the PCB using different trace lengths); whether
-> a delay is added on the MAC or the PHY side when needed should not matter.
+> Yes, should i use 3 const in the binding (as i do not expect another hw variant of current R4) or still enum for the first compatible?
+
+Use 3 consts please :-)
+
+Besides, if a variant comes up later, we can always change the first const
+to an enum, so no worries.
+
 > 
-> Unfortunately, implementation in MAC drivers is somewhat inconsistent
-> where a delay is fixed or configurable on the MAC side. As a first step
-> towards sorting this out, improve the documentation.
+>> Cheers!
+>>
+>>>
+>>>> Cheers,
+>>>> Angelo
+>>>
+>>>
+>>> regards Frank
+>>
+>>
 > 
-> Link: https://lore.kernel.org/lkml/d25b1447-c28b-4998-b238-92672434dc28@lunn.ch/ [1]
-> Signed-off-by: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+> 
+> regards Frank
 
-Thanks for doing that ! I've tried to document that as well in the
-past but it didn't go anywhere and was more clumsy. I think your wording
-is clear and helpful.
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-
-Maxime
 
