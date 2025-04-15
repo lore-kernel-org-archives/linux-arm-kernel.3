@@ -4,62 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA4BFC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 22:02:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74C21C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 22:10:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pz07/EufaHtw7Y9w3Q7VjGlp62+uDZLE2jtAqUUE6v4=; b=SAPvr/1V6uvuMV3ujO6n+NaZ8U
-	ZQOZINM/nAZpcqDOKa1lDVIC4e3sZT092FymPqoek6ATHW7XUv3oMi9vcjLiF9si+4HlARIv3sX9T
-	uX4hUtIEL9G+Iu0r0cquntPiI2EbTTgKd+lOOnk2GqUU5KfYrzyTLNOsPV1/Vgbbrl99jXH4y2cRM
-	TjhplEpYNzxlni77GOnH9wHcbcJfhkXs/13OgvgnhLCjmATNTKdRZ4StDCqwZuLgvNl4+fXGm4D1t
-	0Lt6iCNb70/WhlxDOARMvBq9VgnD8R/wWSDesLIJwNmQlw6GIyeyM+y0GkYKBz9GR3TZ85KDbwUTz
-	ugK8Ad1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BfzcMj9rMfWGxK4br5oNdBb324jSxRfmapgoM2d2W88=; b=ua28Ji++AP77UMkTUroNOZFRk1
+	kysDx/3CsGSbz7iLgoJNdb9455u3CPZjNv/0MH+dIjiZdKZ+kucIdREbC3LXZq55HtkDAdZngI5lU
+	FxwydplbwhWksZ4zre+L0//YjH7GgjJq83eRakT4IL0/A0D4SxgPPX9MxRONr+P8ZkYRAW1hRL0f3
+	/vFDFTT8Bqov9rVbdDbNvUkqsbsYN75SJEyXjr7wc4V4ng9UxiIdFbszKHOXfneUryDNCbg/V3hve
+	3o7tXuYCGJRbsvn3oF7jMs+vMGylCTe2B1RY2+btlXynRhpaCVJvQJziUVFOglb4RyJrUj2nicymk
+	cQ/joUgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4oMX-00000007H01-0nrJ;
-	Tue, 15 Apr 2025 22:02:37 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u4oTt-00000007I2y-2ZiR;
+	Tue, 15 Apr 2025 22:10:13 +0000
+Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4oGZ-00000007G2X-16MK
+	id 1u4oS3-00000007HeU-3NE8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 21:56:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 36A79A4A0F5;
-	Tue, 15 Apr 2025 21:50:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1EEFFC4CEE7;
-	Tue, 15 Apr 2025 21:56:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744754186;
-	bh=Vo/YKkJ/8t7MWgy4qvcqRwSc3jZbe8FFEUN84uQGTQM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=r2IDSzD6Kl5nwaZoIdLcD6+WF8g5Tmol0Ffd8tTdPEvmDuYHUNBw1OpU5UFDwATzk
-	 Zjx4aAYSKftDnaFVDbDnTRyCuBDgZkqDyPWyFXbYLlZ2Uk+NL4NheyqZ1fnMWs3Fwm
-	 xV2gmbhNDCKmID211P2qWYsl0MtDHx7ad3WFGp7nHhi+UGv+iK3FdrCr/zxWW27gF+
-	 pHWq+2EmLIg42/vj0cTNWCfR4FBqAU/Wwkfec9nhJCXdzmqWgsmMdOTB6q+xqz9QpU
-	 SCoLm0bHvqWPtQ0eTzp/xV2zQHyaL5kt1SY9kIvQ3is+C7Ld9dHGoD0kDUlyDv/1MA
-	 FLADkDwxK1Afw==
-Date: Tue, 15 Apr 2025 16:56:24 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Jernej Skrabec <jernej.skrabec@gmail.com>
-Cc: samuel@sholland.org, linux-sunxi@lists.linux.dev, conor+dt@kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	krzk+dt@kernel.org, wens@csie.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/2] dt-bindings: arm: sunxi: Add Orange Pi 3 LTS board
-Message-ID: <174475418391.894498.2952286031502803448.robh@kernel.org>
-References: <20250413134318.66681-1-jernej.skrabec@gmail.com>
- <20250413134318.66681-2-jernej.skrabec@gmail.com>
+	Tue, 15 Apr 2025 22:08:21 +0000
+Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-30effbfaf4aso60013841fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Apr 2025 15:08:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1744754898; x=1745359698; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BfzcMj9rMfWGxK4br5oNdBb324jSxRfmapgoM2d2W88=;
+        b=EwYozCDWAflAg2RnENCedTks9iOZuOoCXul4wuPgmj4QxybngPH227osEDEceK3h60
+         G293kHTBqsW/gVRUeZhW6qh1tmoKjPclDTnb6XWiBCBtVBxABmdZNHuC16CSsZ1+M5f/
+         WAZfPVFT1aiPxiMbzP/QonprLPK+7HW0PaPMenQZslhxEUy/h9QOXjnJS6xxLKN5y7k/
+         SFf9E1FHZmRsgoHrOk5IY7oa6QEedDyKmFBWQCsxlLeDWxwhj74hELOik1SD11c2/t42
+         8YfetEoawEb//CVfjzGa95VFygjfTJx9pjd0uUyCa9qEGzBIkDqQISBtj0SBIlThLu9Q
+         wg4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744754898; x=1745359698;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=BfzcMj9rMfWGxK4br5oNdBb324jSxRfmapgoM2d2W88=;
+        b=pi4v0ZEbv3GU2e3hMJeHm9GzHx04ldrJkll7Ojy8H6g1m1RBBKbYke5xG+PedxN1UW
+         ux5js7TmCodt3EQyXfo/Un0L7dSrj1NpcZGKPc7HnoaGtBl7RVIij9sK99CrqFXXZpjo
+         +3mTLwnlDVO7XjcUdKwtMesOVD+QuPOJytuFbZIIRe3E2I7ma2XlNYE5ZCC2k3Yw9Wre
+         lDPFxfP5BM8F3vy/9ZQNS2wrzQfyf3v9uQmpiA+3UUhAvn6Fitqvw3IWQo/Yj6lO0AqF
+         XbYDIhsMdRQ75Fe6eNUMlneWTGPEGN8H8rgNdcRi+Vu4nEQjz0z0Dyh0x2OcfpqjSLK+
+         PIIA==
+X-Forwarded-Encrypted: i=1; AJvYcCV7gsLWIJnYbcZifABCWu3vdDGR4SdVWPre1CGJvVDuxzgVYcAXOIrJcg9FGy+F36/L/hZzhAJsAOrHEu/FzILo@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8dpRatV8MdYIeftmau0Nb0kRVv6I/dvltTtb07sFZIfJY7LQS
+	zphg2FRWEqLoYRFKq/aoTvR/uGK5WTeAOlHXIdhB97MWbEWj5uptvvL9JcP4/SO4ef3O84ohWiW
+	DJb1c4AjK/KPN0/hBkr7LT+HamSKVZnnorXMddA==
+X-Gm-Gg: ASbGncujvnSmPxaGnjn0vH+m5ohcDmC1MvIDXAUAPZJPmj7znSsmGJ4yCRZ9fYgij58
+	YpyYSmL+kjd8Uvn0Z9XNZroqqr33ygpLzHnBZ81wcF5etE/97MxD7tVrBX+hBaAUGtLxixNvkr/
+	FLnz2ARPvv3EGRxtBEiQ2JP7WhvwwFB1/A
+X-Google-Smtp-Source: AGHT+IHME6WhXalxlSPMh3DrzpLBS3m4KTrSQRda1Fkzzwg9vWhHTJqmuOgiRLVa0dHhEZ5Zf/JplgqHpAebpbRY5D4=
+X-Received: by 2002:a05:651c:1470:b0:30d:e104:b593 with SMTP id
+ 38308e7fff4ca-3107c36e105mr1677811fa.39.1744754897789; Tue, 15 Apr 2025
+ 15:08:17 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250413134318.66681-2-jernej.skrabec@gmail.com>
+References: <20250410023652.8266-1-hanchunchao@inspur.com>
+In-Reply-To: <20250410023652.8266-1-hanchunchao@inspur.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Wed, 16 Apr 2025 00:08:06 +0200
+X-Gm-Features: ATxdqUFR6vsrzijVD_Qjdt1doHFGMo0fgRLa54xDdj1l3AD5b73FKPjghdKzqJ0
+Message-ID: <CACRpkdYhsoermgqTiLqUZHUL8c06meg89F_gei1CatH6hJ_nkg@mail.gmail.com>
+Subject: Re: [PATCH] ARM: Remove the repeated word "the" in Kconfig.
+To: Charles Han <hanchunchao@inspur.com>
+Cc: linux@armlinux.org.uk, rmk+kernel@armlinux.org.uk, ardb@kernel.org, 
+	arnd@arndb.de, iuyuntao12@huawei.com, ruanjinjie@huawei.com, 
+	ebiggers@google.com, david@redhat.com, masahiroy@kernel.org, 
+	dave@vasilevsky.ca, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_145627_362531_8DC05442 
-X-CRM114-Status: UNSURE (   9.65  )
+X-CRM114-CacheID: sfid-20250415_150819_838460_363E5F80 
+X-CRM114-Status: UNSURE (   9.23  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,19 +98,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Charles,
 
-On Sun, 13 Apr 2025 15:42:56 +0200, Jernej Skrabec wrote:
-> Orange Pi 3 LTS board is similar to Orange Pi 3, with slightly different
-> hardware but mostly same functionality. It has less options than
-> original variant. eMMC was optional before, now it's always included.
-> 2 GB RAM is now standard, previous variant also has 1 GB RAM version.
-> 
-> Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-> ---
->  Documentation/devicetree/bindings/arm/sunxi.yaml | 5 +++++
->  1 file changed, 5 insertions(+)
-> 
+On Thu, Apr 10, 2025 at 4:37=E2=80=AFAM Charles Han <hanchunchao@inspur.com=
+> wrote:
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> Fix "The the" typo in the description.
+>
+> Signed-off-by: Charles Han <hanchunchao@inspur.com>
 
+Please put this patch into Russell's patch tracker so it's easy for
+him to apply it.
+https://www.armlinux.org.uk/developer/patches/
+
+Yours,
+Linus Walleij
 
