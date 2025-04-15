@@ -4,71 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAA3CC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 16:29:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE961C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 16:31:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PgZttnciKGhdX2jP1b0Ob/WvYsTvZsPc6bDtmCYXNlk=; b=S7yDmR8UAHOpobjkSIJI0cPO3c
-	cpqZUEVGiVZ6Yzx5Zg3dJ+Eax1wbPww93ea/5GvxSCkHZs5iAiQPLe8Rdj/JNYBk7p/URgQnRxi/o
-	h2xFC+B1mpY0USIc3pt+pkjM9BuB52E0VlxxkfnuLseEmSiVdf9K75MDPhhyPjQoDagL72YSs0kBB
-	8AK4t2TtysTlQL26fAtkewC0XlNlBH0mw5bvNqwzKpCJ5vekrs1Uy3I6THI1U0Tz8QJWANaSb/aL7
-	PGljsCk3MXxs0wM41D3uztOFoTUWXGJVj5Rx7dB6iTforc6AqnrfGFAbYRV9FKMIAKDXh2kHCaZyt
-	EbHSPjFQ==;
+	bh=WBifGwplIibBzKzi0odZOOCXZXemNk43fJJCTstApN4=; b=wg/3Ja1aBLBh2C5JC8XNa1rjbk
+	jG4fVrN3Mp1lUwkw873u1SAyij9bRYCsfJkWbVXL0/6ekDxxlnlunlLnko+OV+MYKq3fWBFdALmUh
+	Ql8Dl3KuRFPTCsUmEw97UneykkGRfEqeCIfj4KhUo3EFXnWq/oOtJz3/QMXG+ZMbJvb4j6Cqfzdog
+	iE8Ve2T6J7fm8PwD3mP0o2XQip3u2BcQOppWi5G5q7HYAyoo6hkVqxXu5ZZYtEq1/davIXl55+Oz5
+	Ix9jxvHQ2wQpymMIN3CZK+sFdtb3vvLNsQEWlgY79apyRixXoItAsPnFCq4fchuZgHQ8XxQ1Rkgho
+	zvFNKdqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4jAE-00000006Pqf-0e3T;
-	Tue, 15 Apr 2025 16:29:34 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1u4jC1-00000006QGy-3fF2;
+	Tue, 15 Apr 2025 16:31:25 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4iaZ-00000006K4n-3z8j
+	id 1u4icr-00000006KRv-1J3W
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 15:52:45 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id DC9B5725;
-	Tue, 15 Apr 2025 17:50:37 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1744732238;
-	bh=xGINZiurunNqT7Sjhf4GRxno/zL+xXdahm7qTRDteUU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZlsxAtckn2HJvPc+WvLK7jai4kCXy66sIrWFMzm0ZD0J1IHu3LGnY9gTB9/URPu9s
-	 ZDw2Tugemhs1jtEigETtiZCjgFTzsBEFHA4es126qGhZIReagbyIKcZnWHbvtJQXUT
-	 BjzwHE+SrBs4Ynx0a4KOcc59xgMSYZig9Cl2t5d0=
-Date: Tue, 15 Apr 2025 18:52:39 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: POPESCU Catalin <catalin.popescu@leica-geosystems.com>
-Cc: Jai Luthra <jai.luthra@ideasonboard.com>,
-	Shawn Guo <shawnguo2@yeah.net>, "robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"shawnguo@kernel.org" <shawnguo@kernel.org>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"m.felsch@pengutronix.de" <m.felsch@pengutronix.de>,
-	GEO-CHHER-bsp-development <bsp-development.geo@leica-geosystems.com>,
-	"stefan.klug@ideasonboard.com" <stefan.klug@ideasonboard.com>
-Subject: Re: [PATCH] arm64: dts: imx8mp: add cpuidle state "cpu-pd-wait"
-Message-ID: <20250415155239.GH9439@pendragon.ideasonboard.com>
-References: <20241007134424.859467-1-catalin.popescu@leica-geosystems.com>
- <ZxYiCv6SpLq9uh08@dragon>
- <qqi2z7wutuy7e6o5fhpzsgfwkyn4quqmdeftl24meld72sudpg@lo3qpk4x7lbv>
- <d6852cf6-e8a0-49b8-a565-2d94eeef67d9@leica-geosystems.com>
- <20250415154724.GG9439@pendragon.ideasonboard.com>
+	Tue, 15 Apr 2025 15:55:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id E4C5FA4A474;
+	Tue, 15 Apr 2025 15:49:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 297E6C4CEEB;
+	Tue, 15 Apr 2025 15:55:00 +0000 (UTC)
+Date: Tue, 15 Apr 2025 16:54:58 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Subject: Re: [BUG][PATCH v8 4/6] arm64: Make _midr_in_range_list() an
+ exported function
+Message-ID: <Z_6BUgekb7YXOExu@arm.com>
+References: <20250221140229.12588-1-shameerali.kolothum.thodi@huawei.com>
+ <20250221140229.12588-5-shameerali.kolothum.thodi@huawei.com>
+ <3d97e45a-23cf-419b-9b6f-140b4d88de7b@arm.com>
+ <865xj5la2q.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250415154724.GG9439@pendragon.ideasonboard.com>
+In-Reply-To: <865xj5la2q.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_085244_129565_60D5D90C 
-X-CRM114-Status: GOOD (  26.63  )
+X-CRM114-CacheID: sfid-20250415_085505_413501_A04FA308 
+X-CRM114-Status: GOOD (  25.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,95 +60,49 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, jiangkunkun@huawei.com, eric.auger@redhat.com, cohuck@redhat.com, linuxarm@huawei.com, oliver.upton@linux.dev, yuzenghui@huawei.com, wangzhou1@hisilicon.com, Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>, jonathan.cameron@huawei.com, kvmarm@lists.linux.dev, sebott@redhat.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, anthony.jebson@huawei.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 15, 2025 at 06:47:26PM +0300, Laurent Pinchart wrote:
-> Hi Catalin,
-> 
-> On Tue, Apr 15, 2025 at 03:42:22PM +0000, POPESCU Catalin wrote:
-> > Hi Jai,
+On Tue, Apr 15, 2025 at 04:26:53PM +0100, Marc Zyngier wrote:
+> On Tue, 15 Apr 2025 11:57:50 +0100,
+> Ada Couprie Diaz <ada.coupriediaz@arm.com> wrote:
+> > I discovered that this patch breaks boot for some CPUs when building
+> > the default defconfig plus KASAN. This is still the case in v6.15-rc1
+> > and rc2.
 > > 
-> > This issue was already reported by Stefan. The problem is that I don't 
-> > have a Debix board to investigate.
-> > The main difference b/w WFI and cpu-pd-wait is that the first doesn't 
-> > call PSCI/TF-A. So, the issue looks to be related to some settings in 
-> > the TF-A.
+> > This patch marks `is_midr_in_range_list` as position independent but
+> > it isn't, breaking early boot when instrumented with KASAN and
+> > `CONFIG_RANDOMIZE_BASE` enabled.
+> > 
+> > The breaking usage seems to be in `kaslr_requires_kpti()` called in
+> > `early_map_kernel()`.
+> > My testing on an AMD Seattle board does crash, but newer machines
+> > implementing E0PD do not crash as they do not need to check MIDRs in
+> > `kaslr_requires_kpti()`.
+> > `is_mdr_in_range_list` did work in PI code previously because it was
+> > `inline`, which this patch changes.
 > 
-> Jai, are you using mainline U-Boot and TF-A, or a downstream version of
-> either (or both) ?
+> OK, this is much more of a pain than I thought.
+> 
+> I tried bringing the various helpers into the PI section, but it ended
+> up being extremely ugly.
+> 
+> More importantly, this is something that is pretty much at odds with
+> the whole idea of the MIDR override -- it happens way earlier than we
+> can populate the table.
+> 
+> The thing is, the only reason we need to do this is that we need to
+> support the Cavium SEFAC (Sorry Excuse For A Computer) that cannot run
+> with KPTI.
+> 
+> I can restore harmony with the following hack. But maybe we should
+> just prune TX from the kernel and be done with this contraption.
 
-Actually, same question for Calatin :-)
-
-I'm running mainline U-Boot 2025.01 and TF-A rel_imx_5.4.70_2.3.6 (from
-https://github.com/nxp-imx/imx-atf) and don't seem to experience the
-issue:
-
-# cat /sys/devices/system/cpu/cpu*/cpuidle/state1/disable
-0
-0
-0
-0
-
-$ ping debix
-PING debix.farm.ideasonboard.com (192.168.2.230) 56(84) bytes of data.
-64 bytes from debix.farm.ideasonboard.com (192.168.2.230): icmp_seq=1 ttl=64 time=1.03 ms
-64 bytes from debix.farm.ideasonboard.com (192.168.2.230): icmp_seq=2 ttl=64 time=0.800 ms
-64 bytes from debix.farm.ideasonboard.com (192.168.2.230): icmp_seq=3 ttl=64 time=0.935 ms
-64 bytes from debix.farm.ideasonboard.com (192.168.2.230): icmp_seq=4 ttl=64 time=0.902 ms
-64 bytes from debix.farm.ideasonboard.com (192.168.2.230): icmp_seq=5 ttl=64 time=0.738 ms
-64 bytes from debix.farm.ideasonboard.com (192.168.2.230): icmp_seq=6 ttl=64 time=0.939 ms
-
-> > What I don't get is why I don't see this issue neither on our IMX8MP 
-> > specific design nor on the EVK, which uses the same PHY as the Debix board.
-> >
-> > On 14/04/2025 14:07, Jai Luthra wrote:
-> > > On Oct 21, 2024 at 17:42:34 +0800, Shawn Guo wrote:
-> > >> On Mon, Oct 07, 2024 at 03:44:24PM +0200, Catalin Popescu wrote:
-> > >>> So far, only WFI is supported on i.MX8mp platform. Add support for
-> > >>> deeper cpuidle state "cpu-pd-wait" that would allow for better power
-> > >>> usage during runtime. This is a port from NXP downstream kernel.
-> > >>>
-> > > Since the introduction of this patch in mainline, I am facing sluggish
-> > > network performance with my Debix Model-A board with i.MX8mp SoC.
-> > >
-> > > The network latency jumps to >1s after almost every other packet:
-> > >
-> > > PING debix (10.0.42.5) 56(84) bytes of data.
-> > > 64 bytes from debix (10.0.42.5): icmp_seq=1 ttl=64 time=1008 ms
-> > > 64 bytes from debix (10.0.42.5): icmp_seq=2 ttl=64 time=0.488 ms
-> > > 64 bytes from debix (10.0.42.5): icmp_seq=3 ttl=64 time=1025 ms
-> > > 64 bytes from debix (10.0.42.5): icmp_seq=4 ttl=64 time=0.810 ms
-> > > 64 bytes from debix (10.0.42.5): icmp_seq=5 ttl=64 time=590 ms
-> > > 64 bytes from debix (10.0.42.5): icmp_seq=6 ttl=64 time=0.351 ms
-> > > ^C
-> > > --- debix ping statistics ---
-> > > 7 packets transmitted, 6 received, 14.2857% packet loss, time 6126ms
-> > > rtt min/avg/max/mdev = 0.351/437.416/1024.755/459.370 ms, pipe 2
-> > > darkapex at freya in ~
-> > >
-> > > If I revert the patch, or disable the deeper cpuidle state through
-> > > sysfs, the issue goes away.
-> > >
-> > > # echo 1 > /sys/devices/system/cpu/cpu$i/cpuidle/state1/disable
-> > >
-> > > PING debix (10.0.42.5) 56(84) bytes of data.
-> > > 64 bytes from debix (10.0.42.5): icmp_seq=1 ttl=64 time=0.482 ms
-> > > 64 bytes from debix (10.0.42.5): icmp_seq=2 ttl=64 time=2.28 ms
-> > > 64 bytes from debix (10.0.42.5): icmp_seq=3 ttl=64 time=2.26 ms
-> > > 64 bytes from debix (10.0.42.5): icmp_seq=4 ttl=64 time=0.848 ms
-> > > 64 bytes from debix (10.0.42.5): icmp_seq=5 ttl=64 time=0.406 ms
-> > > ^C
-> > > --- debix ping statistics ---
-> > > 5 packets transmitted, 5 received, 0% packet loss, time 4051ms
-> > > rtt min/avg/max/mdev = 0.406/1.255/2.280/0.842 ms
-> > >
-> > >>> Signed-off-by: Catalin Popescu <catalin.popescu@leica-geosystems.com>
-> > >>
-> > >> Applied, thanks!
+That works for me. Well, we can still keep it around but panic on boot
+if kpti is enabled on this platform. Just don't bother checking it via
+early_map_kernel() from the PI code.
 
 -- 
-Regards,
-
-Laurent Pinchart
+Catalin
 
