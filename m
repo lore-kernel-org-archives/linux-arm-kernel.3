@@ -4,65 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E057BC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 16:37:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 997C8C369BA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 16:39:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DWScL87oSbaROaqP0r2Mnx0JFl+WWSfAwu3JhjgVITA=; b=d0ZMHJwjuq7PgVAahwNIxxd+K6
-	ywy4hZwIPrkbiw5DXPw20+bNs6fXWOhaYkCziTrb8kAfGgrD3WxvodQlP0DArZc1XC0MVuwx000BM
-	UFJQafQeu70fJ5ln8TrMbXHo4Q7uHs2+EfeTj6ZcFiz1ENOZKryt0CkNmnTfcgoJPWcTwFAyAQE5Q
-	ywbUov07Sa8ZCOfKOPVBW6qNZekGLhAveIfWJ88lhaA9oHbryfG63NpVOmofft6lPOR3dZ4re7GOD
-	4TusQc7l+Xqg6TTEF4o9E/+/9XWA3WN2NhS7IIeA36Bwi2DhRSksbh1vM0tJ0rkD3e/3Bz5qFBT3G
-	qZWajxLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=APgoBf+Is3ZPqFyP/c5CPqLm6hwrC4T/1VCp5MTirk0=; b=KevDTj662e+ESVyOVG+DwaieCp
+	YwHSfqwffi8Iups0+qMMop7Tcp6rU80lApSPAY0qVgvCG4YtHsxgbTsm0sl7JWQTgwujAOsNwjub9
+	lzDMko7ov6N2Sh/sMTwu03feK3PH3w9iXTytV70qm1MEgRYk84f1tqQ6NM5tokqXgcFbZ0TinxF1o
+	iQ8/zc2dfpkR/WceEm/7ZGHYYtFVpVhWb533qQ1qnvZUjRBbM6j8BwX8kW3kxTaG9Xseq9lYJXo7+
+	fvVTOGY6+iVp2TPQNAYc6tx6EPW/Gmz3j13e4k9cSdkcI8p5whaUCUFqWROHPqk+BJ/BYgq8Fg/G3
+	+aiLjTqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4jHQ-00000006QxF-05Kn;
-	Tue, 15 Apr 2025 16:37:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u4jJC-00000006R6j-3EJz;
+	Tue, 15 Apr 2025 16:38:50 +0000
+Received: from smtprelay0017.hostedemail.com ([216.40.44.17] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4irk-00000006MqW-3bXH
+	id 1u4isc-00000006N2o-23vF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 16:10:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2775F6115F;
-	Tue, 15 Apr 2025 16:10:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05D85C4CEEB;
-	Tue, 15 Apr 2025 16:10:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744733427;
-	bh=DWScL87oSbaROaqP0r2Mnx0JFl+WWSfAwu3JhjgVITA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dDUO2OfM54X8t0zCgKesLTSab/rlpOm5RNER8WzgLP9wT3bmd7lizZoZjt8q7DJEe
-	 r4nQKELgqWHziQ3JNKZYRE40PRLn3QfoOu/J47BzAeE24q5p0iSfIqgs6lVCanFUAY
-	 nM87l4GZ7BSsTX2mTjrgtx6sTIpA8epdI+xTbTwgMCeRxNq+8qftDFe5tXRb5wb7ee
-	 B2Uz484E9EkKSgFaC/wHHAvim77A86BPrJAr5wnzAhHlLkK3q8RQrv2i7Bzgr97+ox
-	 6QSvqkPoUiAOexmcWlO5lwjgjooXM1h7aeMXhHqtAiyKR8nWuV5ZYnyBNNUl1eGTPC
-	 3j4CCyoi95b/g==
-Date: Tue, 15 Apr 2025 17:10:22 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Markus Niebel <Markus.Niebel@ew.tq-group.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux@ew.tq-group.com
-Subject: Re: [PATCH 1/2] dt-bindings: arm: add MBa91xxCA Mainboard for
- TQMa93xxCA/LA SOM
-Message-ID: <20250415-vacancy-magnesium-9a56984c4bdc@spud>
-References: <20250415125947.429121-1-alexander.stein@ew.tq-group.com>
+	Tue, 15 Apr 2025 16:11:23 +0000
+Received: from omf08.hostedemail.com (a10.router.float.18 [10.200.18.1])
+	by unirelay02.hostedemail.com (Postfix) with ESMTP id CE4651212FC;
+	Tue, 15 Apr 2025 16:11:15 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: joe@perches.com) by omf08.hostedemail.com (Postfix) with ESMTPA id CDFE820025;
+	Tue, 15 Apr 2025 16:11:11 +0000 (UTC)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="HWWKzsLMAyfTe0PA"
-Content-Disposition: inline
-In-Reply-To: <20250415125947.429121-1-alexander.stein@ew.tq-group.com>
+Date: Tue, 15 Apr 2025 09:11:11 -0700
+From: Joe Perches <joe@perches.com>
+To: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+ <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Andy Whitcroft <apw@canonical.com>, Dwaipayan Ray
+ <dwaipayanray1@gmail.com>, Lukas Bulwahn <lukas.bulwahn@gmail.com>, Jonathan
+ Corbet <corbet@lwn.net>, Nishanth Menon <nm@ti.com>, Vignesh Raghavendra
+ <vigneshr@ti.com>, Siddharth Vadapalli <s-vadapalli@ti.com>, Roger Quadros
+ <rogerq@kernel.org>, Tero Kristo <kristo@kernel.org>,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux@ew.tq-group.com, Andrew Lunn
+ <andrew@lunn.ch>
+Subject: Re: [PATCH net-next 4/4] checkpatch: check for comment explaining
+ rgmii(|-rxid|-txid) PHY modes
+In-Reply-To: <16a08c72ec6cf68bbe55b82d6fb2f12879941f16.1744710099.git.matthias.schiffer@ew.tq-group.com>
+References: <cover.1744710099.git.matthias.schiffer@ew.tq-group.com>
+ <16a08c72ec6cf68bbe55b82d6fb2f12879941f16.1744710099.git.matthias.schiffer@ew.tq-group.com>
+Message-ID: <f3acd53796a44576408a2a14aa5baaed@perches.com>
+X-Sender: joe@perches.com
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+X-Stat-Signature: jh3nqazk1jc3b5jt4mi3gt34yip7om1u
+X-Rspamd-Server: rspamout06
+X-Rspamd-Queue-Id: CDFE820025
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Session-ID: U2FsdGVkX1+5zct2ruo7E6hoPc/hJUfsW7XPRtFJmdg=
+X-HE-Tag: 1744733471-828432
+X-HE-Meta: U2FsdGVkX19tqmX0rgSBcUP9E/t3KWTRFktRBaWmUsQ4KGi9uYcqiGhovIVKP6pAI4rVekGl1QVJDA50D1+Lrtr9m/ZswlJxmFu8ADGYsLOSWJHP4VmV/ligfFokJ1G2C1VGar8DWuqzC5l6RupMwZjeQlU3t9oTvFZA88BL6AK9O5g9b+N5mFDLw/SNfqzOhfR0oYphVPMVzTQnzrgZ7ztXhxcgbg/RNsvX2AYTNFWIBIiUnkJznYkGtJioV5EJhg7adrhusTqKmPRPfoV34w==
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250415_091122_589478_C35CDA15 
+X-CRM114-Status: GOOD (  12.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,33 +83,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 2025-04-15 03:18, Matthias Schiffer wrote:
+> Historially, the RGMII PHY modes specified in Device Trees have been
+> used inconsistently, often referring to the usage of delays on the PHY
+> side rather than describing the board; many drivers still implement 
+> this
+> incorrectly.
+> 
+> Require a comment in Devices Trees using these modes (usually 
+> mentioning
+> that the delay is relalized
 
---HWWKzsLMAyfTe0PA
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+realized
 
-On Tue, Apr 15, 2025 at 02:59:44PM +0200, Alexander Stein wrote:
-> From: Markus Niebel <Markus.Niebel@ew.tq-group.com>
->=20
-> Add MBa91xxCA starterkit base board for TQMa93xxCA/LA SOM for
-> parallel display evaluation.
->=20
-> Signed-off-by: Markus Niebel <Markus.Niebel@ew.tq-group.com>
-> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> diff --git a/scripts/checkpatch.pl b/scripts/checkpatch.pl
+> index 784912f570e9d..57fcbd4b63ede 100755
+> --- a/scripts/checkpatch.pl
+> +++ b/scripts/checkpatch.pl
+> @@ -3735,6 +3735,17 @@ sub process {
+>  			}
+>  		}
+> 
+> +# Check for RGMII phy-mode with delay on PCB
+> +		if ($realfile =~ /\.dtsi?$/ && $line =~ 
+> /^\+\s*(phy-mode|phy-connection-type)\s*=\s*"/ &&
+> +		    !ctx_has_comment($first_line, $linenr)) {
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Not sure where $first_line comes from and unsure if this works on 
+patches rather than complete files.
 
---HWWKzsLMAyfTe0PA
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ/6E7gAKCRB4tDGHoIJi
-0i83AQC96FoHk045P5XAidRz9D8+rNym2nWrxLT/TR+37l91gwD9E+cqusUmLC0k
-SnMu8z0jL3L+no+u1iPagJkqfW17Fgo=
-=7xr2
------END PGP SIGNATURE-----
-
---HWWKzsLMAyfTe0PA--
+Does it?
 
