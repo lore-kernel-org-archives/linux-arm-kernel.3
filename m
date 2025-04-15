@@ -4,76 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87AF5C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 00:55:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69172C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 01:20:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TBfuehwXuYhvd62sof+pq+FLDnLYUXIU4YI6SF56HJE=; b=qJhwXUdy/NSJZU42bGCpHr5Kde
-	PU5QuNEwTPMT/Cz4xTRGXc2k2mUgK2S2ZoMc/7y4VUMPZqMM+X3etVxBY2gsj5iz7Gj1j3XuJDHID
-	NPURpF91IA0c608Dqxlq62YWXIHx/yxo/5xKFbHwjT4bdDuCpcH+y00eqzvJrKh025vNM9O+5S0uy
-	nFDVFielPUpieEZG1w9rgkp8d6p60A2QWqobydCngBCWIfjo+LXTJDKY6lrqe0jNqYXuP0H2eaC9/
-	qoxfeYx33S6XBu8FtHP/udi+yKV3HVUJ0DlHfiFG+d1CZQFAPBSCaf3U0AbP1cu3N+H2BJ5AstgFA
-	s2F4PIuQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nrDft/3Kdnzpyc+fSm2aBfdoXN3pLHf3cbl8JiVU+ZI=; b=eNmLh0A5ocko816jPwIw69p9oa
+	4rTIyN7W5N0/J+WUiiq+5HY68u6wWc0RrOMmJ118WBku/x6Nx/0o5m6sWWMmVYIetImatB7KETVc6
+	DFZmaBKxYR+4qqenaInux+It/7jdc7u1K1kqvNUoSmLe4dxErGcHjkE5umnSqXWZnlZney789v13s
+	n8k+nMnBUGApK8jr2yu+RERblBK9ktgbd4+T95KqiSsi1uCcA06fJgOCSkzAv/80PvOdnhYg5DkQp
+	G8LSWJHvLrr7geowH0hWSuz/PwfDpBEIDs3tqORh3wzxXh2YvQbl1G3jVUBfNgTRl/CBJ6Kht7q9s
+	kaj46OPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4UZw-000000043nY-0iQi;
-	Tue, 15 Apr 2025 00:55:08 +0000
+	id 1u4UyD-000000045pf-2XED;
+	Tue, 15 Apr 2025 01:20:13 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4UY6-000000043cJ-2wX6
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 00:53:16 +0000
+	id 1u4UwN-000000045dW-3N9P;
+	Tue, 15 Apr 2025 01:18:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 61D7644AB3
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Apr 2025 00:53:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40890C4CEEB
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Apr 2025 00:53:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2D8D044BBB;
+	Tue, 15 Apr 2025 01:18:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CACE3C4CEEB;
+	Tue, 15 Apr 2025 01:18:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744678394;
-	bh=rpcRVsmZpP1OTfgBK0pVQa/BNowodj/ZTEugq8lgEHk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=n+Wyy6N6IcDOdsdf//4vJ3ol8RWOp12oQ0G4XNvCV3m29Z1NziZjpmYtNGIf0DPvV
-	 S0OTCHeej+biO7N7WtGMkqwWR58/fapqmPuTPH3N+ehV7JTlV3tZxh0IlvFHOmh4Ys
-	 1CR+dmOOt9jK/0K4vHulpPH+cEkd0qIrAZAhidNS1UXV5gtX/RrBGLA939nw5GNs+z
-	 HFQS1RNNM/nvucPHUThM2tBk8h427ROKjepMQLWMyJtSNHRIYpdGq9l+zEvzqWYTnX
-	 Mu/sqH5SnOy0VhOcy40W57MktIAGWg+HnacS/hZE/4JbuVbt3r+c8p0yuQ1upyN0Eq
-	 J9fk2szY0WcSw==
-Received: by mail-ed1-f42.google.com with SMTP id 4fb4d7f45d1cf-5e673822f76so8779682a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 17:53:14 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXfs6/r1Aae6F2nOSzNmfSjHqTLJVHITZwfQ/Fd1naKmEEoMm+EjG8IFpQmAyp1up/QbAhQbKx+UluhMRy8/hXU@lists.infradead.org
-X-Gm-Message-State: AOJu0YxwMvsdAAo9KVG9xJiO+wKHarnuLIc1rr+WNZENBEwDJc+/gf7u
-	D0fanMnTzdztBOptm0wwGYK86ZlUIOhhq1OmFXAYoCbScETt7oiTECGx0flesCUDpoqsrldGLs+
-	sEOBY7Fr3bq7BWOYvptWu8PGwdA==
-X-Google-Smtp-Source: AGHT+IHmZnqswUI6HY4X7lhwWG4IXdrIAQ98ELXwpAIik5dZKiLq3R4+YKd0t7tRwsYVN1y86TzHYWW3TmgHsiWOsdY=
-X-Received: by 2002:a17:906:f585:b0:ac7:3912:5ea8 with SMTP id
- a640c23a62f3a-acad371af0amr1293247866b.61.1744678392821; Mon, 14 Apr 2025
- 17:53:12 -0700 (PDT)
+	s=k20201202; t=1744679899;
+	bh=aHjsyeBYm57m9m7wzMHZdilF8oPhvPfbMMJA6cAeYi4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=XCo+Vf3YmtzwkJ2xaJ7W44/0bzpKvWjmtU5a7QfB4yjjvITuPTZhDOFk++CoVA9+8
+	 9BGl05JeLH0J/5ErFRVKqZAi2HVZjcbRyLfY/Xarz/SdpsWJApP/H/u31Hy0RcuuPb
+	 JZv6KT+gkzoMImFeaHVm3t3R7jJ7kzSptq2WVqDS+GwbgLLEWG8EQhoZBv+GY6Ijfh
+	 fROgZNB7QVGuHVza9t0Ay0vR25IbURxh9uek7/JqfX9xH/xcKvSDWVLrcReKo6e1Iu
+	 8WNwFNJcMdJ5uX6gchdcSWpoN4QhhCE87rC8gt/2PUsztYpQrslrCZa9iVat+db0Hy
+	 7dioKtqOebWSA==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] dt-bindings: phy: rockchip: Convert RK3399 Type-C PHY to schema
+Date: Mon, 14 Apr 2025 20:18:13 -0500
+Message-ID: <20250415011814.2319719-1-robh@kernel.org>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-References: <20250414214135.1680076-1-robh@kernel.org> <174466977142.1877467.9140482106900041765.robh@kernel.org>
-In-Reply-To: <174466977142.1877467.9140482106900041765.robh@kernel.org>
-From: Rob Herring <robh@kernel.org>
-Date: Mon, 14 Apr 2025 19:53:01 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqK40++GbHbsXc2M2Q=wDv86=41kQrp=VJ-1nfMQN6rXng@mail.gmail.com>
-X-Gm-Features: ATxdqUGgBWF_RyIbWCm1WwHPzqKVexIxZ_OM52tDjGnbjYrGcxtLD8az7H9x9DA
-Message-ID: <CAL_JsqK40++GbHbsXc2M2Q=wDv86=41kQrp=VJ-1nfMQN6rXng@mail.gmail.com>
-Subject: Re: [PATCH] dt-bindings: PCI: Convert marvell,armada8k-pcie to schema
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-pci@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>, 
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Jingoo Han <jingoohan1@gmail.com>, 
-	linux-kernel@vger.kernel.org, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Gustavo Pimentel <gustavo.pimentel@synopsys.com>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-arm-kernel@lists.infradead.org, 
-	Conor Dooley <conor+dt@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, devicetree@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_175314_780364_42F67954 
-X-CRM114-Status: GOOD (  16.46  )
+X-CRM114-CacheID: sfid-20250414_181819_887256_1079BC44 
+X-CRM114-Status: GOOD (  16.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,46 +75,235 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 14, 2025 at 5:29=E2=80=AFPM Rob Herring (Arm) <robh@kernel.org>=
- wrote:
->
->
-> On Mon, 14 Apr 2025 16:41:33 -0500, Rob Herring (Arm) wrote:
-> > Convert the marvell,armada8k-pcie binding to DT schema. The binding
-> > uses different names for reg, clocks, and phys which have to be added
-> > to the common Synopsys DWC binding.
-> >
-> > The "marvell,reset-gpio" property was not documented. Mark it deprecate=
-d
-> > as the "reset-gpios" property can be used instead. The "msi-parent"
-> > property was also not documented.
-> >
-> > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> > ---
-> >  .../bindings/pci/marvell,armada8k-pcie.yaml   | 100 ++++++++++++++++++
-> >  .../devicetree/bindings/pci/pci-armada8k.txt  |  48 ---------
-> >  .../bindings/pci/snps,dw-pcie-common.yaml     |   3 +-
-> >  .../devicetree/bindings/pci/snps,dw-pcie.yaml |   4 +-
-> >  MAINTAINERS                                   |   2 +-
-> >  5 files changed, 106 insertions(+), 51 deletions(-)
-> >  create mode 100644 Documentation/devicetree/bindings/pci/marvell,armad=
-a8k-pcie.yaml
-> >  delete mode 100644 Documentation/devicetree/bindings/pci/pci-armada8k.=
-txt
-> >
->
-> My bot found errors running 'make dt_binding_check' on your patch:
->
-> yamllint warnings/errors:
->
-> dtschema/dtc warnings/errors:
-> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/p=
-ci/marvell,armada8k-pcie.example.dtb: pcie@f2600000 (marvell,armada8k-pcie)=
-: interrupts: [[0], [32], [4]] is too long
->         from schema $id: http://devicetree.org/schemas/pci/marvell,armada=
-8k-pcie.yaml#
+Convert the Rockchip RK3399 Type-C PHY to DT schema format. Add the
+missing "power-domains" property and "port" and "orientation-switch"
+properties in the child nodes.
 
-This is a bug in dtschema which I've now fixed.
+Omit the previously deprecated properties as they aren't used anywhere.
 
-Rob
+Drop the 2nd example which was pretty much identical to the 1st example.
+
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ .../bindings/phy/phy-rockchip-typec.txt       |  84 -------------
+ .../phy/rockchip,rk3399-typec-phy.yaml        | 116 ++++++++++++++++++
+ 2 files changed, 116 insertions(+), 84 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/phy/phy-rockchip-typec.txt
+ create mode 100644 Documentation/devicetree/bindings/phy/rockchip,rk3399-typec-phy.yaml
+
+diff --git a/Documentation/devicetree/bindings/phy/phy-rockchip-typec.txt b/Documentation/devicetree/bindings/phy/phy-rockchip-typec.txt
+deleted file mode 100644
+index 960da7fcaa9e..000000000000
+--- a/Documentation/devicetree/bindings/phy/phy-rockchip-typec.txt
++++ /dev/null
+@@ -1,84 +0,0 @@
+-* ROCKCHIP type-c PHY
+----------------------
+-
+-Required properties:
+- - compatible : must be "rockchip,rk3399-typec-phy"
+- - reg: Address and length of the usb phy control register set
+- - rockchip,grf : phandle to the syscon managing the "general
+-   register files"
+- - clocks : phandle + clock specifier for the phy clocks
+- - clock-names : string, clock name, must be "tcpdcore", "tcpdphy-ref";
+- - assigned-clocks: main clock, should be <&cru SCLK_UPHY0_TCPDCORE> or
+-		    <&cru SCLK_UPHY1_TCPDCORE>;
+- - assigned-clock-rates : the phy core clk frequency, shall be: 50000000
+- - resets : a list of phandle + reset specifier pairs
+- - reset-names : string reset name, must be:
+-		 "uphy", "uphy-pipe", "uphy-tcphy"
+-
+-Optional properties:
+- - extcon : extcon specifier for the Power Delivery
+-
+-Required nodes : a sub-node is required for each port the phy provides.
+-		 The sub-node name is used to identify dp or usb3 port,
+-		 and shall be the following entries:
+-	* "dp-port" : the name of DP port.
+-	* "usb3-port" : the name of USB3 port.
+-
+-Required properties (port (child) node):
+-- #phy-cells : must be 0, See ./phy-bindings.txt for details.
+-
+-Deprecated properties, do not use in new device tree sources, these
+-properties are determined by the compatible value:
+- - rockchip,typec-conn-dir
+- - rockchip,usb3tousb2-en
+- - rockchip,external-psm
+- - rockchip,pipe-status
+-
+-Example:
+-	tcphy0: phy@ff7c0000 {
+-		compatible = "rockchip,rk3399-typec-phy";
+-		reg = <0x0 0xff7c0000 0x0 0x40000>;
+-		rockchip,grf = <&grf>;
+-		extcon = <&fusb0>;
+-		clocks = <&cru SCLK_UPHY0_TCPDCORE>,
+-			 <&cru SCLK_UPHY0_TCPDPHY_REF>;
+-		clock-names = "tcpdcore", "tcpdphy-ref";
+-		assigned-clocks = <&cru SCLK_UPHY0_TCPDCORE>;
+-		assigned-clock-rates = <50000000>;
+-		resets = <&cru SRST_UPHY0>,
+-			 <&cru SRST_UPHY0_PIPE_L00>,
+-			 <&cru SRST_P_UPHY0_TCPHY>;
+-		reset-names = "uphy", "uphy-pipe", "uphy-tcphy";
+-
+-		tcphy0_dp: dp-port {
+-			#phy-cells = <0>;
+-		};
+-
+-		tcphy0_usb3: usb3-port {
+-			#phy-cells = <0>;
+-		};
+-	};
+-
+-	tcphy1: phy@ff800000 {
+-		compatible = "rockchip,rk3399-typec-phy";
+-		reg = <0x0 0xff800000 0x0 0x40000>;
+-		rockchip,grf = <&grf>;
+-		extcon = <&fusb1>;
+-		clocks = <&cru SCLK_UPHY1_TCPDCORE>,
+-			 <&cru SCLK_UPHY1_TCPDPHY_REF>;
+-		clock-names = "tcpdcore", "tcpdphy-ref";
+-		assigned-clocks = <&cru SCLK_UPHY1_TCPDCORE>;
+-		assigned-clock-rates = <50000000>;
+-		resets = <&cru SRST_UPHY1>,
+-			 <&cru SRST_UPHY1_PIPE_L00>,
+-			 <&cru SRST_P_UPHY1_TCPHY>;
+-		reset-names = "uphy", "uphy-pipe", "uphy-tcphy";
+-
+-		tcphy1_dp: dp-port {
+-			#phy-cells = <0>;
+-		};
+-
+-		tcphy1_usb3: usb3-port {
+-			#phy-cells = <0>;
+-		};
+-	};
+diff --git a/Documentation/devicetree/bindings/phy/rockchip,rk3399-typec-phy.yaml b/Documentation/devicetree/bindings/phy/rockchip,rk3399-typec-phy.yaml
+new file mode 100644
+index 000000000000..91c011f68cd0
+--- /dev/null
++++ b/Documentation/devicetree/bindings/phy/rockchip,rk3399-typec-phy.yaml
+@@ -0,0 +1,116 @@
++# SPDX-License-Identifier: GPL-2.0
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/phy/rockchip,rk3399-typec-phy.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Rockchip Type-C PHY
++
++maintainers:
++  - Heiko Stuebner <heiko@sntech.de>
++
++properties:
++  compatible:
++    const: rockchip,rk3399-typec-phy
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 2
++
++  clock-names:
++    items:
++      - const: tcpdcore
++      - const: tcpdphy-ref
++
++  extcon: true
++
++  power-domains:
++    maxItems: 1
++
++  resets:
++    maxItems: 3
++
++  reset-names:
++    items:
++      - const: uphy
++      - const: uphy-pipe
++      - const: uphy-tcphy
++
++  rockchip,grf:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      Phandle to the syscon managing the "general register files" (GRF).
++
++  dp-port:
++    type: object
++    additionalProperties: false
++
++    properties:
++      '#phy-cells':
++        const: 0
++
++      port:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: Connection to USB Type-C connector
++
++    required:
++      - '#phy-cells'
++
++  usb3-port:
++    type: object
++    additionalProperties: false
++
++    properties:
++      '#phy-cells':
++        const: 0
++
++      orientation-switch: true
++
++      port:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: Connection to USB Type-C connector SS port
++
++    required:
++      - '#phy-cells'
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - resets
++  - reset-names
++  - dp-port
++  - usb3-port
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/rk3399-cru.h>
++
++    phy@ff7c0000 {
++        compatible = "rockchip,rk3399-typec-phy";
++        reg = <0xff7c0000 0x40000>;
++        rockchip,grf = <&grf>;
++        extcon = <&fusb0>;
++        clocks = <&cru SCLK_UPHY0_TCPDCORE>,
++           <&cru SCLK_UPHY0_TCPDPHY_REF>;
++        clock-names = "tcpdcore", "tcpdphy-ref";
++        resets = <&cru SRST_UPHY0>,
++                 <&cru SRST_UPHY0_PIPE_L00>,
++                 <&cru SRST_P_UPHY0_TCPHY>;
++        reset-names = "uphy", "uphy-pipe", "uphy-tcphy";
++
++        dp-port {
++            #phy-cells = <0>;
++        };
++
++        usb3-port {
++            #phy-cells = <0>;
++        };
++    };
++
++...
+-- 
+2.47.2
+
 
