@@ -4,58 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D44D6C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 21:55:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51EE7C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 21:57:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mO/SLhVwR4ngfZVCoJSJBtW/BUjVaiA2u5pFAT8P3Hk=; b=vWzc5Y1txeSfZTHE99BVM7tNvY
-	pBmz6Vz7C+c7z0TgtlkKO40qWbahDQwQkunNJrTghXsBbIiV34HmPPQrcRbK/nHTghwmyfO2CUL13
-	pDVjLjhTNH3aacur0NUMMiZZEaGVGAOPHIxHm3rLAfxGINCtPdrRsxp72OmeSvdFbvQWuwB6kdfkf
-	KYSPYmWJtVAhFqwlphCDXKWyYquKOc/GHUAenXciy1l+G566TOlsz3b6H8PmVVc76D01rHxaCJFcL
-	IwVnL/ThiFS4BDqFI5fhYCuNMpgucr3H8SWVaxak+lFMeUpwmUJWQv+LBEZLKarPp+VUSd/b1IUwC
-	mkV9WOuw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8pxXUO13OmywnjWbndSNjsRcRezVKvS4TSdwRLkNCB0=; b=S3WWvjE+T6gw0pxUShfJvYUfqv
+	RUW8jUOYixGWdlXnaVsoHrlGXr76EML/JuFI3MIdr1WJmFi8Oqq0qbKqL8osiwXZROawy7JhPujmV
+	ArmPLf9LBdSKKldENgais4rMYuFhgIVZdubQ0krEkqQRc2pYGt+a0WS6mxXX7RlZqTTg82qFRz5Dh
+	oTeGzWimwFdpClXgDaMUijT81vV3cbJslymhuxbwyN4v2ZzOpH7g5p33J81E3TZ4FQVLkQ5/3EqqV
+	nLEutBwsF8nAcS/KxbCunm+/7W4hDOFjoO+cjuOdt+jX6FidwfExnrM5msaC7PZJHvnJ6WU1mLR7Z
+	zDl9NM8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4oFL-00000007Fn4-14Xy;
-	Tue, 15 Apr 2025 21:55:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u4oH9-00000007G8K-0FUL;
+	Tue, 15 Apr 2025 21:57:03 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4oCy-00000007FGq-2g2b
+	id 1u4oCy-00000007FH4-2xSZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 21:52:45 +0000
+	Tue, 15 Apr 2025 21:52:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9559744B5F;
-	Tue, 15 Apr 2025 21:52:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 73842C4CEE7;
+	by dfw.source.kernel.org (Postfix) with ESMTP id D13695C4B0F;
+	Tue, 15 Apr 2025 21:50:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 82C7AC4CEEB;
 	Tue, 15 Apr 2025 21:52:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1744753963;
-	bh=jBNCv2rda4YJZMZlnqUFKXhD2YixBW/bajeGa6Tnahg=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=ZTC875YDSXTbhMKwBPJqLXIDR4ehZNUQyv27RtLDUGt2lWnURr5FL53iytvdRoQ0k
-	 DNtByinSi0TTzxSAb5GBdpuiqqHHxoaz4R7fpmjDEhpcTkzkWoVCIJHvo5JaKQhTbw
-	 NOFEFM+SI/PWr07PCTXx8P/czUGezvVP/Aog3+LMoNIaaZeXNM47H5yElOxkn/sxfx
-	 TNR5DnBs+x2+5GT0lMSwIg5cie3u6EVVL4lF4fpEODX9PP/wmzKe8VV/0XPGLpHKr9
-	 a4Bdt4QYs/RDPhH7QL/IQvaAbYExNREcpFsRCaO2C8AYB8EqZhX58md6uRu651L1kd
-	 EWbLYuOxG0dFA==
+	bh=wfntpCJd/e5roM+54wRFN7CgYmeIDo3y6frBznii81c=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=eKhQLP6FH7xmcUyckmyjejCwflDtvSAli4tTNgAZ+aBAlUsHToD25NrJuJU+e3udZ
+	 r40l9Qfi4TCmgk0pQ9z+CIX6bgDzYw1cmG/wQBCwEPx5xp78EyAcx8KElYzDmVYfLL
+	 lysGeEPwHjH9mFqlhOjLZbIdzJYSSyhzIAcWmeRjHJDYi+I8a6APETeTlc7qeiUMqK
+	 SV3beJlcx2XRY5xu5smvyLt5iwmYreb2Yh0GM9cJPUWBbWNGhZQu87ZF+QB/dK180B
+	 NqnVI4iOviuRosjQgQ9ZiF/j2kMgpp5AXdIv7pVlUDNZy2tQRkBl63ET78aV/nWu/4
+	 /mnX4gui5bMHA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6138DC369BD;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 72187C369AB;
 	Tue, 15 Apr 2025 21:52:43 +0000 (UTC)
 From: Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>
-Subject: [PATCH 0/3] Generic SPMI NVMEM cell driver
-Date: Tue, 15 Apr 2025 23:52:33 +0200
-Message-Id: <20250415-spmi-nvmem-v1-0-22067be253cf@gmail.com>
+Date: Tue, 15 Apr 2025 23:52:34 +0200
+Subject: [PATCH 1/3] dt-bindings: spmi: Add generic SPMI NVMEM
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIACLV/mcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1MDE0NT3eKC3EzdvLLc1FzdVAMLM2NTY0MzQ3NTJaCGgqLUtMwKsGHRsbW
- 1ABuu0b9cAAAA
-X-Change-ID: 20250415-spmi-nvmem-e08635316175
+Message-Id: <20250415-spmi-nvmem-v1-1-22067be253cf@gmail.com>
+References: <20250415-spmi-nvmem-v1-0-22067be253cf@gmail.com>
+In-Reply-To: <20250415-spmi-nvmem-v1-0-22067be253cf@gmail.com>
 To: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>, 
  Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, 
  Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, 
@@ -63,21 +61,21 @@ To: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>,
  Conor Dooley <conor+dt@kernel.org>
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Sasha Finkelstein <fnkl.kernel@gmail.com>, Hector Martin <marcan@marcan.st>
+ Sasha Finkelstein <fnkl.kernel@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1744753962; l=1432;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1744753962; l=2233;
  i=fnkl.kernel@gmail.com; s=20241124; h=from:subject:message-id;
- bh=jBNCv2rda4YJZMZlnqUFKXhD2YixBW/bajeGa6Tnahg=;
- b=z/bozObO8yi+GVG8sufEa3NcrtwV6CqAU6PzOgE14u6VKIBZuU8qylsUv97vpKOw9XrAYnnts
- RA/RVyk+lJwCJ3/TPasI9fumkGl32BPZfim4W4o7J+IHeyGvfsrR/2T
+ bh=591KYbP5CwVkqQ6YYbLbnzAujw1V85G/WXwDPpVeG5A=;
+ b=dtHz27lt85WFhI+s2T92MhW7ImjxiLCLFGTibgzijQjFJYGkCw1YoJ6DMIPShYH1XV08HvqP6
+ vT8H80dEvlNDXgEm50C3wLDnRILWCNSnLf4fl0U5MKN3bFeT8X5KjrN
 X-Developer-Key: i=fnkl.kernel@gmail.com; a=ed25519;
  pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
 X-Endpoint-Received: by B4 Relay for fnkl.kernel@gmail.com/20241124 with
  auth_id=283
 X-Original-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_145244_717152_38956F85 
-X-CRM114-Status: GOOD (  10.39  )
+X-CRM114-CacheID: sfid-20250415_145244_862272_CAE48FB5 
+X-CRM114-Status: GOOD (  12.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,42 +91,81 @@ Reply-To: fnkl.kernel@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi.
+From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 
-This patch series adds a driver for exposing a set of SPMI registers
-as NVMEM cells. This is used on Apple ARM platforms to store the RTC
-offset and to communicate platform power state between the OS and
-boot firmware.
-
-The NVMEM cell consumer drivers will be sent in a further series.
+Add bindings for exposing SPMI registers as NVMEM cells
 
 Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
 ---
-Hector Martin (2):
-      nvmem: Add spmi-nvmem driver
-      arm64: dts: apple: Add PMU NVMEM
+ .../devicetree/bindings/nvmem/spmi-nvmem.yaml      | 44 ++++++++++++++++++++++
+ MAINTAINERS                                        |  1 +
+ 2 files changed, 45 insertions(+)
 
-Sasha Finkelstein (1):
-      dt-bindings: spmi: Add generic SPMI NVMEM
+diff --git a/Documentation/devicetree/bindings/nvmem/spmi-nvmem.yaml b/Documentation/devicetree/bindings/nvmem/spmi-nvmem.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..0041babefc37ed4d82d7d6f68fc67d29eed53d9f
+--- /dev/null
++++ b/Documentation/devicetree/bindings/nvmem/spmi-nvmem.yaml
+@@ -0,0 +1,44 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/nvmem/spmi-nvmem.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Generic SPMI NVMEM
++
++description: Exports a series of SPMI registers as NVMEM cells
++
++maintainers:
++  - Sasha Finkelstein <fnkl.kernel@gmail.com>
++
++allOf:
++  - $ref: nvmem.yaml#
++
++properties:
++  compatible:
++    items:
++      - enum:
++          - apple,maverick-pmu
++          - apple,sera-pmu
++          - apple,stowe-pmu
++      - const: spmi-nvmem
++
++  reg:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/spmi/spmi.h>
++
++    pmu@f {
++        compatible = "apple,maverick-pmu", "spmi-nvmem";
++        reg = <0xf SPMI_USID>;
++    };
++
++...
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 96b82704950184bd71623ff41fc4df31e4c7fe87..e7b2d0df81b387ba5398957131971588dc7b89dc 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2277,6 +2277,7 @@ F:	Documentation/devicetree/bindings/mailbox/apple,mailbox.yaml
+ F:	Documentation/devicetree/bindings/net/bluetooth/brcm,bcm4377-bluetooth.yaml
+ F:	Documentation/devicetree/bindings/nvme/apple,nvme-ans.yaml
+ F:	Documentation/devicetree/bindings/nvmem/apple,efuses.yaml
++F:	Documentation/devicetree/bindings/nvmem/spmi-nvmem.yaml
+ F:	Documentation/devicetree/bindings/pci/apple,pcie.yaml
+ F:	Documentation/devicetree/bindings/pinctrl/apple,pinctrl.yaml
+ F:	Documentation/devicetree/bindings/power/apple*
 
- .../devicetree/bindings/nvmem/spmi-nvmem.yaml      | 44 +++++++++++++++
- MAINTAINERS                                        |  2 +
- arch/arm64/boot/dts/apple/t6001.dtsi               |  1 +
- arch/arm64/boot/dts/apple/t6002.dtsi               |  1 +
- arch/arm64/boot/dts/apple/t600x-die0.dtsi          | 50 +++++++++++++++++
- arch/arm64/boot/dts/apple/t8103.dtsi               | 50 +++++++++++++++++
- arch/arm64/boot/dts/apple/t8112.dtsi               | 50 +++++++++++++++++
- drivers/nvmem/Kconfig                              | 14 +++++
- drivers/nvmem/Makefile                             |  2 +
- drivers/nvmem/spmi-nvmem.c                         | 62 ++++++++++++++++++++++
- 10 files changed, 276 insertions(+)
----
-base-commit: 2e0e70c95077172b29a5b13716c4b159d578e82c
-change-id: 20250415-spmi-nvmem-e08635316175
-
-Best regards,
 -- 
-Sasha Finkelstein <fnkl.kernel@gmail.com>
+2.49.0
 
 
 
