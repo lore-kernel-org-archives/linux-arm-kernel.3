@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 951DFC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 05:47:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B89FC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 05:49:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eWVxR5rExlvjL5DRRbzxCuwm1A9QJtFKJSdDRvDB7Tc=; b=mhWAmOn0IkyUQR/lYoGgB8O9ru
-	gLWCZdKEoSfuJliPccd0v7GueVzC1YjX+qf4cwgwXOxUBMnUwAoRpyx+uvM0+a/gr8h/E/1NIYDaA
-	gwqpcJ9mQg77KSKZjh2MrcfBz7UuQqUWwpiNtkxG8hBrTlvIREa3uGRUlcz9v65yyhuFS44o7N3w9
-	EOxq+64xg8oqOq+7/fVQ0e/NdPl0539bKfJuwFeNJpCoRAoEPP6d8Kp898rLyLZUQy6OokLcLTVGf
-	41szRuwhG/4MfvWyg/DNSuXpKL8vzlIOETBLgcAqqI08fd9Vwmpwv5786vTx1BKDwLZ2tue23gT+p
-	gYY1ACEg==;
+	bh=71HsIumWcmFwoO4uHHLv4ESnoZKccm5f8S4vJ/EIL4w=; b=db89KzBU64Wg0ZojH3/3lstXQ6
+	tBAzmWRmfnsjPNsfPN8S4q9ulIFwWNxLmq20tIvd4Tl2HDJz46TExtjZKLuF0AO0nHVWu/CSR1Dkv
+	YZLkDSXJjepN80odzHp5pGDZ+WwY4X/XZRontZWQReYNwT2zRkHbfPsWjYFPVZdwAPtzFZjvOdihG
+	mP9NLUgToESkAvnSTNtsrDR7+MpGAMd/wuHqPLoYhxY0nfnDgs+aJQ1n5CKhFAG/69qEsW7oqIrrk
+	sNNzM9ZMBR1KPn8cLOCD/svc3Be7GYwUt3wwOEwf9SEQqSHaOQ0+42WCo4e2ccVABbvion/QczqDI
+	bAicz23g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Z8Q-00000004agq-04lu;
-	Tue, 15 Apr 2025 05:47:02 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u4ZAC-00000004aul-2udq;
+	Tue, 15 Apr 2025 05:48:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4YnZ-00000004Y63-0P2H
+	id 1u4Yo9-00000004YC2-3R7s
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 05:25:30 +0000
+	Tue, 15 Apr 2025 05:26:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 77FB35C455A;
-	Tue, 15 Apr 2025 05:23:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6B74C4CEDD;
-	Tue, 15 Apr 2025 05:25:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B889361157;
+	Tue, 15 Apr 2025 05:25:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28D43C4CEDD;
+	Tue, 15 Apr 2025 05:26:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744694728;
-	bh=3g0HtHucKV2ELg8L1hSRLVBf5I+pEyhtwCZI6HcaQg4=;
+	s=k20201202; t=1744694764;
+	bh=EvHiyvVkdqgk6fsYqMxwTCXNEKHtPJiQ6zmgTTyjJrI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Nhqqj8Q3H0wMsFhCEbBr3e0Ck8+P5y8SUweVH2dePT8jyjphnZQ8+rmv9cf9fmspI
-	 bu2WPrtskV728ljnwnS003NI8xtnNiu6stEMfzCf3MOyrkiQ/ITWJ2qfm+PhyIMmB8
-	 IVKrz6t8Kdzezv4/h90Ks7SrjmR7rMkod0C4CONDCUJwODfC/aL32G/lQqn2Rjac3G
-	 y/MvbWlGp2echnM/uyR4S1jfZwLYL6aP4z46GS7ukexLRrbm+ApG/UQZHgOxkgHori
-	 lc3aakjGmMX6206Jia0yE42lTa5/yi7Kv5PXg7Ivei0B11MXiJ5FtErxanG7FLtwVK
-	 kXexFD9AkolOw==
-Message-ID: <ac5f2ada-1561-45f4-91c6-f6b403f65e20@kernel.org>
-Date: Tue, 15 Apr 2025 07:25:21 +0200
+	b=pICAeC+y0/vaVjW0O5xFk70KuiZNQeHKxu6cJ5S3vOoQV8EuRblbBpYOVy91TXo16
+	 3WQJ7J998aRzLWiUsqJ+jFmAaL5i5HdlbvqyQIXiL6FSB8xy2ZTTdBkwRUA8YCjXKm
+	 S8uPFhhczOLoiMjzQo4sB1jiNdb3ccmLmAYdVDkt6ZVuz+ACU6h/tUNMufWmZNuGZ2
+	 8czA1lDQx6YGLqLih2nbSZ8bOQfOSM9p1Ba6vBosCGFcEVcini5tKP3ch4qsqLfD03
+	 WrHqRQoSXcqcUjIn53PE4UkC8wcjnaBRF9e7lI+k5UbBtbLpFib7AJqKx9PM+f3uC5
+	 5EQcqOlvfwPBA==
+Message-ID: <aabfa18e-32f5-4688-b584-5d4e6f66b5ed@kernel.org>
+Date: Tue, 15 Apr 2025 07:25:58 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 04/10] dt-bindings: clock: Add Qualcomm QCS615 Display
+Subject: Re: [PATCH v7 06/10] dt-bindings: clock: Add Qualcomm QCS615 Graphics
  clock controller
 To: Taniya Das <quic_tdas@quicinc.com>, Bjorn Andersson
  <andersson@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
@@ -60,7 +60,7 @@ Cc: Ajit Pandey <quic_ajipan@quicinc.com>,
  linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 References: <20250414-qcs615-mm-v7-clock-controllers-v7-0-ebab8e3a96e9@quicinc.com>
- <20250414-qcs615-mm-v7-clock-controllers-v7-4-ebab8e3a96e9@quicinc.com>
+ <20250414-qcs615-mm-v7-clock-controllers-v7-6-ebab8e3a96e9@quicinc.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,13 +106,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250414-qcs615-mm-v7-clock-controllers-v7-4-ebab8e3a96e9@quicinc.com>
+In-Reply-To: <20250414-qcs615-mm-v7-clock-controllers-v7-6-ebab8e3a96e9@quicinc.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_222529_258964_135C1F77 
-X-CRM114-Status: UNSURE (   6.51  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,6 +124,11 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 14/04/2025 10:42, Taniya Das wrote:
+> +  clocks:
+> +    items:
+> +      - description: Board XO source
+> +      - description: GPLL0 main branch source
+> +      - description: GPLL0 GPUCC div branch source
 > +
 > +required:
 > +  - compatible
@@ -144,8 +145,6 @@ Drop
 
 Drop
 
-Please look at other bindings when writing yours.
-
 > +  - '#power-domain-cells'
 > +
 > +allOf:
@@ -157,20 +156,15 @@ Please look at other bindings when writing yours.
 > +  - |
 > +    #include <dt-bindings/clock/qcom,rpmh.h>
 > +    #include <dt-bindings/clock/qcom,qcs615-gcc.h>
-> +    clock-controller@af00000 {
-> +      compatible = "qcom,qcs615-dispcc";
-> +      reg = <0x0af00000 0x20000>;
+> +
+> +    clock-controller@5090000 {
+> +      compatible = "qcom,qcs615-gpucc";
+> +      reg = <0x5090000 0x9000>;
 > +      clocks = <&rpmhcc RPMH_CXO_CLK>,
-> +               <&gcc GCC_DISP_GPLL0_DIV_CLK_SRC>,
-> +               <&mdss_dsi0_phy 0>,
-> +               <&mdss_dsi0_phy 1>,
-> +               <&mdss_dsi1_phy 0>,
-> +               <&mdss_dp_phy   0>,
-> +               <&mdss_dp_vco   0>;
-
-
-Drop excessive spaces before '0'.
-
+> +               <&gcc    GPLL0>,
+> +               <&gcc    GCC_GPU_GPLL0_DIV_CLK_SRC>;
+> +
+Drop excessive spaces before clock ID.
 
 Best regards,
 Krzysztof
