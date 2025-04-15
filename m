@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67E23C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 17:03:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ECE0C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 17:05:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ygajSd1GoADtgJHoVQD1nG09yoLswhvg7GNMQk1G7Ts=; b=VLnKu8T05lmCbkfsiw+HeMZIMb
-	KlpEl3my4mOP4O2hmlqoBKA0S7YLJ6jCw0YuF+1DvL56b2HFiGQ1rNUt10rcCclIIRF3o0dn+mU6n
-	uBFsdGaMx/Vi01ghExlE9xTYevzY1g9V3JG8Twy9AzVutQ7P6UBvvWeREG8lBBgfryWOk/LiDB7WG
-	09GeUjWKT22Da2kefops6bL1yAruPrgk4wHmFZjGl5DZEpu6A/tui4FSmTmwbU3tTamyV5g+P762Q
-	8aKlikH+8dqZ7xKCWXijuZ1NUArlHu6mmOS8NkMj275l0AbkfmAo8p0Ey9xAqhl19SiBExweI1Kkv
-	OW90ht6g==;
+	bh=3D1RJ0/Ps/DvFGgzYJpHiZKHJVAnkqEv0/IjI/ebBHM=; b=YFsjvTtt5SGM5nvhttXYwn0ZVJ
+	Y4ramewY60lr74shQSJ6fYY480LmMtDgFHPyeqRqopN1c5A4EmqX7NjUIEnMQwotuC+ke1vz1qmKS
+	E1QvQmwsseSiqasugYVTPpw1jG9hdHjwAhOuvu8akqvkI2sLYw2wgQx3niSDf4SlVEqKpdBN95adu
+	phY//ajbSe52UI+qM1rpK4SI5pFqj2zoKm8rxdV4GHEU5Y0BI7bPDY6mR7qNRs5SDJC6GEJFeGxhv
+	WEJmqwEgSP1zqv4UgZFLdE4KuozSAKUzOIwD+46E+eqNzY6mbyjUzBLOc6KXfw7lVKcdjqquA/dre
+	z6DUxz2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4jgb-00000006V2F-3Xp3;
-	Tue, 15 Apr 2025 17:03:01 +0000
+	id 1u4jiQ-00000006VQh-0QzV;
+	Tue, 15 Apr 2025 17:04:54 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4jNJ-00000006Rws-27Hd
+	id 1u4jNP-00000006RyR-1XIe
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 16:43:06 +0000
+	Tue, 15 Apr 2025 16:43:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=ygajSd1GoADtgJHoVQD1nG09yoLswhvg7GNMQk1G7Ts=; b=m4EjXFXOke+PyYG0vZ0RghbcyP
-	HzNUpBXNynINV4KieJZcX+97P4vS78uPA/HwlohSjU4CnDfYHZAuzX0J6FMiHpGEFO49G/fey2Xct
-	y8PTmuL4RnbN2waGULstWrBlsmoTdorLqTKOH6So0ai1TrvIYN6kIYswW5UT0IfrFeR9Wm+731M6l
-	kqKfXJugRikahFA0IDA9J6MUL+ZArBn4jMjPURNVOzzUZYYA0J0CWIKXmakOHochX99Who7oTm/zU
-	Q5i8XX1HYQsnQm245bMw7FOkTF4zv9GcuOtYVv/zqR99TpL9vvHNqnJTG1fb4qwXGXIhNN9O6nDGD
-	BcIhCVaQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:35468 helo=rmk-PC.armlinux.org.uk)
+	bh=3D1RJ0/Ps/DvFGgzYJpHiZKHJVAnkqEv0/IjI/ebBHM=; b=qKUEAxtBHWydPkd/XUkJulqAuq
+	USPeyYYN9yYJ+kE4Io4U/4NCtbXseSPJbQh1d855r/jVbfGK5MGB3/LtFBVyGngH4OXZh7XJoFcC8
+	+2Jof+xiTsFMEm21T4txvRrZxx0k+UqA+/e/gwF9qmu8A60ILslyaAJyHp8lZu84ALBs6vmAnOLJa
+	hMEV+TwLVNttPutLTAULdZ3K1O5VhqkSP+7UjJW1b75ulunlGSFOQ167HfTplV9GbVn8XSFy4psOw
+	TtVwrdDuiVvaH6wP1huLvoo05no2pw4wfRSgeRzxVFUDcbu0LF7a1LbDMG5D1XLN7wXui+3fuqIXp
+	jfi9uX3Q==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:35474 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1u4jNF-0008Vr-1c;
-	Tue, 15 Apr 2025 17:43:01 +0100
+	id 1u4jNK-0008W4-1c;
+	Tue, 15 Apr 2025 17:43:06 +0100
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1u4jMd-000rCG-VU; Tue, 15 Apr 2025 17:42:24 +0100
+	id 1u4jMj-000rCM-31; Tue, 15 Apr 2025 17:42:29 +0100
 In-Reply-To: <Z_6Mfx_SrionoU-e@shell.armlinux.org.uk>
 References: <Z_6Mfx_SrionoU-e@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -63,18 +63,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 1/3] net: stmmac: sti: use
- phy_interface_mode_is_rgmii()
+Subject: [PATCH net-next 2/3] net: stmmac: sti: convert to
+ devm_stmmac_pltfr_probe()
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1u4jMd-000rCG-VU@rmk-PC.armlinux.org.uk>
-Date: Tue, 15 Apr 2025 17:42:23 +0100
+Message-Id: <E1u4jMj-000rCM-31@rmk-PC.armlinux.org.uk>
+Date: Tue, 15 Apr 2025 17:42:29 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_094305_538398_01F21182 
-X-CRM114-Status: UNSURE (   9.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250415_094311_404795_4C6CD20E 
+X-CRM114-Status: GOOD (  13.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,41 +88,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace the custom IS_PHY_IF_MODE_RGMII() macro with our generic
-phy_interface_mode_is_rgmii() inline function.
+Convert sti to use the generic devm_stmmac_pltfr_probe() which will
+call plat_dat->init()/plat_dat->exit() as appropriate, thus
+simplifying the code.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/ethernet/stmicro/stmmac/dwmac-sti.c | 9 ++-------
- 1 file changed, 2 insertions(+), 7 deletions(-)
+ .../net/ethernet/stmicro/stmmac/dwmac-sti.c   | 54 +++++++++----------
+ 1 file changed, 26 insertions(+), 28 deletions(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sti.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sti.c
-index be57c6c12c1c..c580647ff9dc 100644
+index c580647ff9dc..b6e09bd33894 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sti.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sti.c
-@@ -23,12 +23,7 @@
+@@ -233,6 +233,29 @@ static int sti_dwmac_parse_data(struct sti_dwmac *dwmac,
+ 	return 0;
+ }
  
- #define DWMAC_50MHZ	50000000
++static int sti_dwmac_init(struct platform_device *pdev, void *bsp_priv)
++{
++	struct sti_dwmac *dwmac = bsp_priv;
++	int ret;
++
++	ret = clk_prepare_enable(dwmac->clk);
++	if (ret)
++		return ret;
++
++	ret = sti_dwmac_set_mode(dwmac);
++	if (ret)
++		clk_disable_unprepare(dwmac->clk);
++
++	return ret;
++}
++
++static void sti_dwmac_exit(struct platform_device *pdev, void *bsp_priv)
++{
++	struct sti_dwmac *dwmac = bsp_priv;
++
++	clk_disable_unprepare(dwmac->clk);
++}
++
+ static int sti_dwmac_probe(struct platform_device *pdev)
+ {
+ 	struct plat_stmmacenet_data *plat_dat;
+@@ -269,34 +292,10 @@ static int sti_dwmac_probe(struct platform_device *pdev)
  
--#define IS_PHY_IF_MODE_RGMII(iface)	(iface == PHY_INTERFACE_MODE_RGMII || \
--			iface == PHY_INTERFACE_MODE_RGMII_ID || \
--			iface == PHY_INTERFACE_MODE_RGMII_RXID || \
--			iface == PHY_INTERFACE_MODE_RGMII_TXID)
+ 	plat_dat->bsp_priv = dwmac;
+ 	plat_dat->fix_mac_speed = data->fix_retime_src;
++	plat_dat->init = sti_dwmac_init;
++	plat_dat->exit = sti_dwmac_exit;
+ 
+-	ret = clk_prepare_enable(dwmac->clk);
+-	if (ret)
+-		return ret;
 -
--#define IS_PHY_IF_MODE_GBIT(iface)	(IS_PHY_IF_MODE_RGMII(iface) || \
-+#define IS_PHY_IF_MODE_GBIT(iface)	(phy_interface_mode_is_rgmii(iface) || \
- 					 iface == PHY_INTERFACE_MODE_GMII)
+-	ret = sti_dwmac_set_mode(dwmac);
+-	if (ret)
+-		goto disable_clk;
+-
+-	ret = stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
+-	if (ret)
+-		goto disable_clk;
+-
+-	return 0;
+-
+-disable_clk:
+-	clk_disable_unprepare(dwmac->clk);
+-
+-	return ret;
+-}
+-
+-static void sti_dwmac_remove(struct platform_device *pdev)
+-{
+-	struct sti_dwmac *dwmac = get_stmmac_bsp_priv(&pdev->dev);
+-
+-	stmmac_dvr_remove(&pdev->dev);
+-
+-	clk_disable_unprepare(dwmac->clk);
++	return devm_stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
+ }
  
- /* STiH4xx register definitions (STiH407/STiH410 families)
-@@ -148,7 +143,7 @@ static void stih4xx_fix_retime_src(void *priv, int spd, unsigned int mode)
- 			src = TX_RETIME_SRC_CLKGEN;
- 			freq = DWMAC_50MHZ;
- 		}
--	} else if (IS_PHY_IF_MODE_RGMII(dwmac->interface)) {
-+	} else if (phy_interface_mode_is_rgmii(dwmac->interface)) {
- 		/* On GiGa clk source can be either ext or from clkgen */
- 		freq = rgmii_clock(spd);
+ static int sti_dwmac_suspend(struct device *dev)
+@@ -334,7 +333,6 @@ MODULE_DEVICE_TABLE(of, sti_dwmac_match);
  
+ static struct platform_driver sti_dwmac_driver = {
+ 	.probe  = sti_dwmac_probe,
+-	.remove = sti_dwmac_remove,
+ 	.driver = {
+ 		.name           = "sti-dwmac",
+ 		.pm		= pm_sleep_ptr(&sti_dwmac_pm_ops),
 -- 
 2.30.2
 
