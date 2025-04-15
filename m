@@ -4,80 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52CF6C369B4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 12:17:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0A86C369B4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 12:19:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UWCsC7zGtGSkyIZL2K8l+kCFL+HE0y5JNWj8lXy9FMc=; b=rs3agJiuro9KGLPQc5Z4tDUZWA
-	lxVk3i+CK/pLB4IZSa8dYR6HSLj6kJKoL6JWMS8toC8Nw85xLdqzGGezne9NEsdsnJVvilU/soG88
-	o8WPITjGlfP9V9ltl0ciG5iwtyIUDc6e8yTI6TCacy+kgm8Hdg33su1tuayjNIaHfvWSl3vspKLLb
-	TRCc9ktVGFPwLTXFJQSzadfL0BYGCmBLSBSvsDp2LIRye4viarnhN6xFl4WLRmzwmQ2y4NCUf35Q7
-	985+DsZ0Uj6F0KNxyY0FVFTAZ1IDn35Db0m+U5brqzxeA175JhVNHgveZR3NHMXzPNEMnP9TcyXG0
-	UTbTiK1g==;
+	bh=TMnAqpzrY02pHoPTNbvY3PZslZvc/QgN62hcBMzzO+E=; b=Cz8sef3czlOsUwDDqVIOWaAZPN
+	+dRUbql5NQ8SMGIYdRQ7cRgJsqGys8/hqdcNyvHsjsJHAkWI8xNiv96mR8d133KGcCqDvv/VuK+fP
+	VWkt1BkEDT8uLUscUKTEb+5enx3DKgKfi4cEABpY0n7p6wAlfFZBmz6b9iplX1ynUQYBSj5ucYdLH
+	+EOVODXqzuxafdrLbVhcjf40LFR17eXV6+vpV8Xi8OJCTxILHEffP6lZnF87nGQmPnYkMvUpZ1XcP
+	65ZulKKId0jF4nCR5B/T1gEm3kZn0zXoXo0oKtnG1lSBZWlW/7YIw0vvb/N+UO3yKWxKBPFG6hJxj
+	JS7/tSXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4fE3-00000005gxA-3Rsl;
-	Tue, 15 Apr 2025 12:17:15 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93])
+	id 1u4fFq-00000005hXX-378d;
+	Tue, 15 Apr 2025 12:19:06 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4eKh-00000005VN8-1ce8
+	id 1u4eMC-00000005VjE-32yA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 11:20:04 +0000
-Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53F7IDHD027359;
-	Tue, 15 Apr 2025 13:19:50 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	UWCsC7zGtGSkyIZL2K8l+kCFL+HE0y5JNWj8lXy9FMc=; b=6Ah1WE3C5VLMXvZb
-	N4LbRY8XNpnOrskAWag239poEQdgCaicdZiPdgkVrJVkXtbIeTq6sNj+4p0sBSfx
-	x1VHGJGSVLxaefEysbf1X6R4A3mwqE/QTP7iDgVl2Z3O06j24wkMca64jloDVmdw
-	1G1+oXseFpG0NcrFvV0Vjb5dRp6uWkIa4ULO5zKzFKIwK3XBcX3foA2y0enZtRBS
-	urNU7J74Lt3y02uAZ4KSjJC7t5HJFT082YrZub+PXWWxHcH+kK8aUlE9DZXq7OrI
-	PBz8otGYazh4buETkRIO7G7iEKB7K7dckRiez1dOI9Pf+QiKVs6qv+i3x8Ilf2kx
-	8MnQng==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46034n29bf-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 15 Apr 2025 13:19:50 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id C0FBB40044;
-	Tue, 15 Apr 2025 13:18:56 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 35A339D260B;
-	Tue, 15 Apr 2025 13:18:20 +0200 (CEST)
-Received: from localhost (10.130.77.120) by SHFDAG1NODE3.st.com (10.75.129.71)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 15 Apr
- 2025 13:18:19 +0200
-From: Christian Bruel <christian.bruel@foss.st.com>
-To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>
-CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <maz@kernel.org>, Christian Bruel <christian.bruel@foss.st.com>
-Subject: [PATCH v2 6/6] arm64: dts: st: Use 128kB size for aliased GIC400 register access on stm32mp23 SoCs
-Date: Tue, 15 Apr 2025 13:16:54 +0200
-Message-ID: <20250415111654.2103767-7-christian.bruel@foss.st.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250415111654.2103767-1-christian.bruel@foss.st.com>
-References: <20250415111654.2103767-1-christian.bruel@foss.st.com>
+	Tue, 15 Apr 2025 11:21:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1744716096; x=1776252096;
+  h=message-id:subject:from:to:cc:date:in-reply-to:
+   references:content-transfer-encoding:mime-version;
+  bh=TMnAqpzrY02pHoPTNbvY3PZslZvc/QgN62hcBMzzO+E=;
+  b=bPPJlfy1Kj9ZlrUsmwZtxCKcV1J9dXCyMOkVvuv6kgTXmXa64ETwxcy1
+   za7P7cC831Yr4mizhYTr0hQgWVrlzdZspygv31WSv5XmZG1qk3zQuG/OM
+   LSozT9gYF5zVEKjx3WDTXY9qg0oxaJusNakoOR+Yh0No7qffbu6E18vTe
+   J5iRzibOJK4h1SXpNa8Ffe92lml7DF4Cqu0+UEr70vSttLQ5CwZu1Vkr4
+   CWTm6T95vZbbn1HPEApH4nri5ilfQ1+w7bar5JYA3bevbf2bFVM+9tDiS
+   JsWdY6e2Pj3ZB7mgC+2IUJscA139LR/UJPDs7csbOl6rwsvNoZizsykr0
+   Q==;
+X-CSE-ConnectionGUID: L4JEi/L5Q7qvy1dy9z59xA==
+X-CSE-MsgGUID: Up2UxQSvRDu1WrpYJnpxpQ==
+X-IronPort-AV: E=Sophos;i="6.15,213,1739833200"; 
+   d="scan'208";a="43539482"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 15 Apr 2025 13:21:34 +0200
+X-CheckPoint: {67FE413D-40-DC4DC9A0-F4F29281}
+X-MAIL-CPID: 1F665C71A695893F14C3B49810C37D09_0
+X-Control-Analysis: str=0001.0A00639F.67FE413B.0038,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3BED7166161;
+	Tue, 15 Apr 2025 13:21:26 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1744716089;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=TMnAqpzrY02pHoPTNbvY3PZslZvc/QgN62hcBMzzO+E=;
+	b=I6MRJx/rKBk94GF/GTO8H8BRD747mhW7zqwK52aiOPfH3LrSmunMHpe/AN6jGx+ICYtvjU
+	8pxrd7fzPopJ9HuHnihBQvFLermjG/iDE5MzeE14wZwOWnWpu2me2eOU5xhfkSDChn8+JN
+	8LZqvlO4IUPG7XIS2LqJuSsZ6h9w4LdyFb9N6yQJS2EtOZEvESwTUxrnNItG/NUfJ8wlHc
+	XXq5NkykQJomJv/RpscRj0/hA8hFmP5MHT9Il6lfHs8rTT5dQAmaN3yf3AYWgFQPyI+VY8
+	lzvomRTtiRiYf3U+GOPz+22ka6IOMSjEQWF7SeFFcFFl/p87lU0IZH5kcYW6zg==
+Message-ID: <a40072f780a531e5274ce7f2ed28d1319b12d872.camel@ew.tq-group.com>
+Subject: Re: [PATCH net-next 4/4] checkpatch: check for comment explaining
+ rgmii(|-rxid|-txid) PHY modes
+From: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>,  Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+ <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Andy Whitcroft <apw@canonical.com>, Dwaipayan Ray
+ <dwaipayanray1@gmail.com>, Lukas Bulwahn <lukas.bulwahn@gmail.com>, Joe
+ Perches <joe@perches.com>, Jonathan Corbet <corbet@lwn.net>, Nishanth Menon
+ <nm@ti.com>,  Vignesh Raghavendra <vigneshr@ti.com>, Siddharth Vadapalli
+ <s-vadapalli@ti.com>, Roger Quadros <rogerq@kernel.org>, Tero Kristo
+ <kristo@kernel.org>, linux-doc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
+ linux@ew.tq-group.com, Andrew Lunn <andrew@lunn.ch>
+Date: Tue, 15 Apr 2025 13:21:25 +0200
+In-Reply-To: <20250415131548.0ae3b66f@fedora.home>
+References: <cover.1744710099.git.matthias.schiffer@ew.tq-group.com>
+	 <16a08c72ec6cf68bbe55b82d6fb2f12879941f16.1744710099.git.matthias.schiffer@ew.tq-group.com>
+	 <20250415131548.0ae3b66f@fedora.home>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.3-0ubuntu1 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.130.77.120]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-15_05,2025-04-10_01,2024-11-22_01
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_042003_711265_7B326565 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20250415_042137_105705_534180A0 
+X-CRM114-Status: GOOD (  28.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,37 +108,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Adjust the size of 8kB GIC regions to 128kB so that each 4kB is mapped 16
-times over a 64kB region.
-The offset is then adjusted in the irq-gic driver.
+On Tue, 2025-04-15 at 13:15 +0200, Maxime Chevallier wrote:
+> On Tue, 15 Apr 2025 12:18:04 +0200
+> Matthias Schiffer <matthias.schiffer@ew.tq-group.com> wrote:
+>=20
+> > Historially, the RGMII PHY modes specified in Device Trees have been
+>   ^^^^^^^^^^^
+>   Historically
+> > used inconsistently, often referring to the usage of delays on the PHY
+> > side rather than describing the board; many drivers still implement thi=
+s
+> > incorrectly.
+> >=20
+> > Require a comment in Devices Trees using these modes (usually mentionin=
+g
+> > that the delay is relalized on the PCB), so we can avoid adding more
+> > incorrect uses (or will at least notice which drivers still need to be
+> > fixed).
+> >=20
+> > Suggested-by: Andrew Lunn <andrew@lunn.ch>
+> > Signed-off-by: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+> > ---
+> >  Documentation/dev-tools/checkpatch.rst |  9 +++++++++
+> >  scripts/checkpatch.pl                  | 11 +++++++++++
+> >  2 files changed, 20 insertions(+)
+> >=20
+> > diff --git a/Documentation/dev-tools/checkpatch.rst b/Documentation/dev=
+-tools/checkpatch.rst
+> > index abb3ff6820766..8692d3bc155f1 100644
+> > --- a/Documentation/dev-tools/checkpatch.rst
+> > +++ b/Documentation/dev-tools/checkpatch.rst
+> > @@ -513,6 +513,15 @@ Comments
+> > =20
+> >      See: https://lore.kernel.org/lkml/20131006222342.GT19510@leaf/
+> > =20
+> > +  **UNCOMMENTED_RGMII_MODE**
+> > +    Historially, the RGMII PHY modes specified in Device Trees have be=
+en
+>        ^^^^^^^^^^^
+>       	 Historically
+> > +    used inconsistently, often referring to the usage of delays on the=
+ PHY
+> > +    side rather than describing the board.
+> > +
+> > +    PHY modes "rgmii", "rgmii-rxid" and "rgmii-txid" modes require the=
+ clock
+> > +    signal to be delayed on the PCB; this unusual configuration should=
+ be
+> > +    described in a comment. If they are not (meaning that the delay is=
+ realized
+> > +    internally in the MAC or PHY), "rgmii-id" is the correct PHY mode.
+> > =20
+> >  Commit message
+> >  --------------
+> > diff --git a/scripts/checkpatch.pl b/scripts/checkpatch.pl
+> > index 784912f570e9d..57fcbd4b63ede 100755
+> > --- a/scripts/checkpatch.pl
+> > +++ b/scripts/checkpatch.pl
+> > @@ -3735,6 +3735,17 @@ sub process {
+> >  			}
+> >  		}
+> > =20
+> > +# Check for RGMII phy-mode with delay on PCB
+> > +		if ($realfile =3D~ /\.dtsi?$/ && $line =3D~ /^\+\s*(phy-mode|phy-con=
+nection-type)\s*=3D\s*"/ &&
+> > +		    !ctx_has_comment($first_line, $linenr)) {
+> > +			my $prop =3D $1;
+> > +			my $mode =3D get_quoted_string($line, $rawline);
+> > +			if ($mode =3D~ /^"rgmii(?:|-rxid|-txid)"$/) {
+> > +				CHK("UNCOMMENTED_RGMII_MODE",
+> > +				    "$prop $mode without comment -- delays on the PCB should be de=
+scribed, otherwise use \"rgmii-id\"\n" . $herecurr);
+> > +			}
+> > +		}
+> > +
+>=20
+> My Perl-fu isn't good enough for me to review this properly... I think
+> though that Andrew mentioned something along the lines of 'Comment
+> should include PCB somewhere', but I don't know if this is easily
+> doable with checkpatch though.
+>=20
+> Maxime
 
-see commit 12e14066f4835 ("irqchip/GIC: Add workaround for aliased GIC400")
+I think it can be done using ctx_locate_comment instead of ctx_has_comment,=
+ but
+I decided against it - requiring to have a comment at all should be suffici=
+ent
+to make people think about the used mode, and a comment with a bad explanat=
+ion
+would hopefully be caught during review.
 
-Fixes: e9b03ef21386e ("arm64: dts: st: introduce stm32mp23 SoCs family")
-Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
-Suggested-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/boot/dts/st/stm32mp231.dtsi | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+Thanks,
+Matthias
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp231.dtsi b/arch/arm64/boot/dts/st/stm32mp231.dtsi
-index 3f73cf1d443d..75697acd1345 100644
---- a/arch/arm64/boot/dts/st/stm32mp231.dtsi
-+++ b/arch/arm64/boot/dts/st/stm32mp231.dtsi
-@@ -1203,9 +1203,9 @@ exti2: interrupt-controller@46230000 {
- 		intc: interrupt-controller@4ac10000 {
- 			compatible = "arm,gic-400";
- 			reg = <0x4ac10000 0x1000>,
--			      <0x4ac20000 0x2000>,
--			      <0x4ac40000 0x2000>,
--			      <0x4ac60000 0x2000>;
-+			      <0x4ac20000 0x20000>,
-+			      <0x4ac40000 0x20000>,
-+			      <0x4ac60000 0x20000>;
- 			#interrupt-cells = <3>;
- 			interrupt-controller;
- 		};
--- 
-2.34.1
 
+
+--=20
+TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Germ=
+any
+Amtsgericht M=C3=BCnchen, HRB 105018
+Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan Sch=
+neider
+https://www.tq-group.com/
 
