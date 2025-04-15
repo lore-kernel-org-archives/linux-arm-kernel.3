@@ -4,209 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C67CC369BD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 18:08:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 962D9C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 18:14:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GmJRA1I2Xbvf4AK69yk48YG8HL30WQxLVtarBqsytTA=; b=QjhnN5JzPnsf+7vPZOExQlhgHJ
-	AeNA/LUhccuxxWK3LMs+pg6B/cBmphHyYrUUy4/2GTYY1NeSQUyUAJ2zxkawtHtYKUo7WsONnE6aP
-	2rq3+ETpUMw1YX8A8m9QPTBz7sHb1EaE0LiN+XjAivGe67rGvhrAbbuf5dBOLbAFUAdKI5gcObRgR
-	DATrJR0ryQOtAThdBSYtgoaL2BRumfLaYqSwqTMnbcibek9V1Iu55kd5b1PLeLZ5VZ7No0ZSoV3DN
-	4+BCjuPUDN6GhRKCbeyqNRgO1PJ0KfebCUDUUtX7naLO8+gXPybsVzd44gK/rCBVlkWNixC7Tez3E
-	URzL52rQ==;
+	bh=PqoEIgpDSo2cpAEOTSjusWqo/NN3euqoFsdwH9F8KEM=; b=NeGptZIzeKl7t4q61Adphi4qZz
+	dTQH+gspGdBBFZTV7kB0At47qYMoh9ITdKvy3rpHUIE1jztPFNceufQYceXL6TJjwn/DAHyQkLqvK
+	vLhbURFbjrjc5d5UCnMJwKr/Dm87ia7wg1inRJMlLqQq7ZNG4483iR/L70JGXZXCCeX807/BkPZ5m
+	uz97ImCVVs75B2zwn4VhpFg6j2HzXjXdbLRPpKzyzN6AhaZaaeEIuXZiRa9AaZ5PzSCNF90p6vjNo
+	LANiB1AyB1MOkvYO/HsW0DzFNAPy79jsXlPoltH5Z415o90cFhOXp6T+OqKXTnwHY/dBtLp3i9b+D
+	XWXfSQaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4khd-00000006fqq-0kZU;
-	Tue, 15 Apr 2025 18:08:09 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1u4knu-00000006h5B-0TTP;
+	Tue, 15 Apr 2025 18:14:38 +0000
+Received: from out-182.mta1.migadu.com ([95.215.58.182])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4kLk-00000006cK9-3lkU
+	id 1u4km4-00000006gpw-1E2j
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 17:45:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1744739133; x=1776275133;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=lgZaPnTG+THgSuAy7AXgSE/Zn1NInnKeGyDXZwPNe2s=;
-  b=EiAjygtGisapGLQYSBG9rBnwek48yUhe7P/q52EApmBoLWnDc90fv00O
-   fjVtc6gmY8YVHHjRndMumJQD+E8aNgsbkFDmXaQ2XR63dkeEFDHRAQnWV
-   2uQU9cq324UtDYY8WYZRgVG6AZzkgj2kKIberAzqABbD4IMllN5BXuFoa
-   4+rcJdnEw+4nmlS5CDs5ULlDvsXhpL015gTd5a28clxiBLTy5SJCv9NGl
-   5giHtgu3XFEcVLN2pprWCbKutQdizt++hTcJf2mUKFAtyCxswMIiH1svM
-   UyxbZyAomk5bCKljipeynbjGWSlxZ4uhUJd/IVdcprRnk9WosFTbbFaME
-   A==;
-X-CSE-ConnectionGUID: z91NMuRlQp2gnVoK/LAOww==
-X-CSE-MsgGUID: Wg7SyVDdS9Wgl6kvCqxDvg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11404"; a="71655965"
-X-IronPort-AV: E=Sophos;i="6.15,213,1739865600"; 
-   d="scan'208";a="71655965"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Apr 2025 10:45:32 -0700
-X-CSE-ConnectionGUID: KuEChjICSqilwEZCfrmcaA==
-X-CSE-MsgGUID: 3nyvIseIR06MeXf0RT/6hw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,213,1739865600"; 
-   d="scan'208";a="130058881"
-Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
-  by fmviesa006.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Apr 2025 10:45:31 -0700
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Tue, 15 Apr 2025 10:45:31 -0700
-Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14 via Frontend Transport; Tue, 15 Apr 2025 10:45:31 -0700
-Received: from NAM10-BN7-obe.outbound.protection.outlook.com (104.47.70.42) by
- edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.44; Tue, 15 Apr 2025 10:45:29 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=k/5ZGCfmfe6rfpMnra2tz/xv3iJZ9KeL1JDtqi2qFxsKr1XjVJqTQe7GbGPGQ+cIVWEJSPr55pIzM6fFbhp8zdguM8vx0GShH93gUzGmLtR09Y5sWpgf7uz2QDTJy+HRmTXXWwwCfb2qG6uNVKbPfsfMcVOeSVQKJYggRAF3iouT6+fN3gROOd8OXgQBdUaxzg2kX3pKHwFWFEVDdUlAVQMh1f37LMh9jQLwIypuHsbT+VMWVrLxh02mVDTJOheZ7LBqpbaRs+EhGmtXEtCP9hfianKcnZPpiSQMdp55Fsrz9RTe9nM538JZa0i/Pysfu1Fw2oPU3YS4/nUO4RTiRg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GmJRA1I2Xbvf4AK69yk48YG8HL30WQxLVtarBqsytTA=;
- b=eb+uXUUpMZ+gW/e+1h2+UdtZV0UsP+MDbtVpqiORcIemhDFAcuqQbbZkrlXcFjEGnj3Nqk0ZU51yDBEH+0DmBA87xqkjQeNfID2sWktJ9S5PCIDKPPUShSvHmt0O0x/NXPsez8oDmJvkX7piJ28nvLeZKA1W1nhogDg1xRsxP8SftywZtXIx7465KVRjvwqacf+kfXREAHJLZnrhWdT8gjpas+YUUq3eHFgow06ahOx2zbLu9XkLek1cEcDdgNXDbFVQFzMMAqxZJ3zxtJVbqHXcTfN2xWECWKMQuIUPG5ySN5kVSma8b13nF0nT3AJMxYePOIm02GPE8XOSCMJXRw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from CO1PR11MB5089.namprd11.prod.outlook.com (2603:10b6:303:9b::16)
- by CY8PR11MB6819.namprd11.prod.outlook.com (2603:10b6:930:61::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.32; Tue, 15 Apr
- 2025 17:45:11 +0000
-Received: from CO1PR11MB5089.namprd11.prod.outlook.com
- ([fe80::7de8:e1b1:a3b:b8a8]) by CO1PR11MB5089.namprd11.prod.outlook.com
- ([fe80::7de8:e1b1:a3b:b8a8%4]) with mapi id 15.20.8632.025; Tue, 15 Apr 2025
- 17:45:11 +0000
-Message-ID: <0750ffc8-8185-4b72-980a-3e96c7075100@intel.com>
-Date: Tue, 15 Apr 2025 10:45:09 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v4 3/3] net: ti: icss-iep: Fix possible NULL pointer
- dereference for perout request
-To: Meghana Malladi <m-malladi@ti.com>, <dan.carpenter@linaro.org>,
-	<javier.carrasco.cruz@gmail.com>, <diogo.ivo@siemens.com>,
-	<horms@kernel.org>, <john.fastabend@gmail.com>, <hawk@kernel.org>,
-	<daniel@iogearbox.net>, <ast@kernel.org>, <richardcochran@gmail.com>,
-	<pabeni@redhat.com>, <kuba@kernel.org>, <edumazet@google.com>,
-	<davem@davemloft.net>, <andrew+netdev@lunn.ch>
-CC: <bpf@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<srk@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Roger Quadros
-	<rogerq@kernel.org>, <danishanwar@ti.com>
-References: <20250415090543.717991-1-m-malladi@ti.com>
- <20250415090543.717991-4-m-malladi@ti.com>
-Content-Language: en-US
-From: Jacob Keller <jacob.e.keller@intel.com>
-In-Reply-To: <20250415090543.717991-4-m-malladi@ti.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MW4PR02CA0009.namprd02.prod.outlook.com
- (2603:10b6:303:16d::20) To CO1PR11MB5089.namprd11.prod.outlook.com
- (2603:10b6:303:9b::16)
+	Tue, 15 Apr 2025 18:12:45 +0000
+Date: Tue, 15 Apr 2025 11:12:28 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1744740760;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=PqoEIgpDSo2cpAEOTSjusWqo/NN3euqoFsdwH9F8KEM=;
+	b=el69VYgiHKtjxIaR241ZUqBen6LFB+jm/g5eljKnEsX0e4GiewBupkrYMgCIg0pVOa6XiT
+	x+Zse6d3pCj8jDylkoh2TKeHEDtgRGgKq5J7z8jq1jNMEIdP24sIP9bhTxZum5vED0/VZR
+	oX5/nrGbIIuRwFSiCJa0waTsAacRWNg=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: D Scott Phillips <scott@os.amperecomputing.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	James Morse <james.morse@arm.com>, Joey Gouly <joey.gouly@arm.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Marc Zyngier <maz@kernel.org>, Mark Brown <broonie@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	"Rob Herring (Arm)" <robh@kernel.org>,
+	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
+	Shiqi Liu <shiqiliu@hust.edu.cn>, Will Deacon <will@kernel.org>,
+	Yicong Yang <yangyicong@hisilicon.com>, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] arm64: errata: Work around AmpereOne's erratum
+ AC03_CPU_36
+Message-ID: <Z_6hjKOJ6TvXYa87@linux.dev>
+References: <20250415154711.1698544-1-scott@os.amperecomputing.com>
+ <Z_6Te1TjMqyXChvQ@linux.dev>
+ <86cyddgwn7.fsf@scott-ph-mail.amperecomputing.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PR11MB5089:EE_|CY8PR11MB6819:EE_
-X-MS-Office365-Filtering-Correlation-Id: 10826209-e8e9-4982-24f4-08dd7c45451e
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|921020|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?eTZ3ZzNsUEhrZEdYaGV4VkI3VjNBNTZabmxmcFRFZ0dDcDNXUm01RUhGOFpK?=
- =?utf-8?B?NkxXck5JZEFJUUV1SUVCNWxEY3dvcWhXM3IybTZvV1ZndkFheDlaMWdqZFhy?=
- =?utf-8?B?VDdKTnZtR1RNWUx1cldMN3ZteThscU5uSS9iMTVqUEtZbGMxUnhYcWdTaCto?=
- =?utf-8?B?OHFHSnBDVmcrR3RTSVVGOHZvTFEyMG5iY0daZFJ6YjlRT0xPaGxLM3d2YXVX?=
- =?utf-8?B?UG5ERkZSRnBoNVQzTGtKN1ozbXNnZlAzL2lFWkdUYXA0NXd1aFhNTWh1YnFB?=
- =?utf-8?B?KzZHZGl3d2VXVWoyUWdkVWJBTUNzQWhHVG5JMTRQNmJZOTgxRW9UUDl2dlVx?=
- =?utf-8?B?TENNMHZTL21tK0RQNXUvSjVjT3JwZTVTNUVkNmh5aFVqeXRmQzFVNkdzVW1Y?=
- =?utf-8?B?MnVaRzdrK08vYVVEeXNaQUVkMnE2NTdtZnBsaU8zVGs3bm42Yk9uaWVuUEgr?=
- =?utf-8?B?ODRvdGRyZEg4dUoxa0JUK2lsV2lNWHZDMmNtWTIyVDk4dHpRUHlnaXhncEZj?=
- =?utf-8?B?bXRqeVhDMVFUclkrT2hjYWJLYmdyNktGRFAxdGkwbkNBOStvT0xFNjJsRkJh?=
- =?utf-8?B?L0VpZnJQeUZWZWZTTXBJRmpPZVoxRVgyMDNPd0FzNVhvZCtPc2w5Rk1hZFRm?=
- =?utf-8?B?U2RDVGdOaFo2MGtaRjFtV0J1NVovVjlTWWFoVXdvYmZLWTZ5QmgvYlgzMDdM?=
- =?utf-8?B?eWUwaEpzSER5ZVJuUEhxcEpnY0wwK3RLVFNzOWwxYkg2NVZqSEhpbXhoQjQz?=
- =?utf-8?B?TmlsaytPNDVXQUhiL0xCdWNwcCs1ZmQzR3BRcWUyRi9CYlN6M2ptOXNWT3F5?=
- =?utf-8?B?eWhQck5ObVFVeDZ0VjkwNUhYWWFRaWs3ZUpvaG5ZU1J5ZFVoaGVhOHlzL1Vy?=
- =?utf-8?B?alB4STJXZWIranpBNW4vWnJ6bW1MZ0JnZE8vbFdVOU90TDcwRzdQb2k4S3RX?=
- =?utf-8?B?SmdwMk45dHRsY0tTbENOTlhCN2RvcXZnMXRteThPWFVSM2lyK3V0ajFaQ2NG?=
- =?utf-8?B?QkFVTmp5R1diZ0VubEJiN2hoajdJeW11QkxkTlA2RUxMZkk0WlRyeVVkMjB6?=
- =?utf-8?B?bnlxV0d3MGhrUDNCR2p2Uks0bG1kOFc5L3NTN01jV2hwckhPRUVYVmlBak9h?=
- =?utf-8?B?YXVNUk9JN08xWG9RZU1pZTlHN1VZSEdSV3pKSVZPZ0syT09IMG1CeWczdk4r?=
- =?utf-8?B?RGhjUU5RUXVOcDIzTkJ0dm9uL2hqRHVxendqU3IrVUdnOXI0SWNETzcyZ0hF?=
- =?utf-8?B?ckpERXZEczF4K2lsZjgvbEpwVmZsM1lseDd5R0pjYS9kRGhYUGIxVVNIVVlo?=
- =?utf-8?B?SjdQeUI5Tlg3bi9YMWd0SXJBQ29VekwyUGtEMmQySXhBalZweFo0Kzk0K0FX?=
- =?utf-8?B?VmVHY0NOQlVkK1ZDeVVIL0xadWUwMm5XeTE5dkk2cnBXVEh5VTZTVGxDcjZh?=
- =?utf-8?B?TUtlaVRDTTBQSGpqOFZLWENnbjh3WDdweU04S3FENVlCQTdJY0c5MVMwWjE2?=
- =?utf-8?B?eHE2WlJ6OGV1UXJXbUZjb08zSitMbVZmTFhjZFpaNm02VlpVdUJKelJPdUk3?=
- =?utf-8?B?Z1FnRW9IdCtmVkdkY3RzWTVlT0VmSjhLN1N5RnFFK01YSkJoY3dMM0pnVHFv?=
- =?utf-8?B?Rms3Z2wzUVhpZVZRNndPRzFVcjNUVk9YaTd5d2Q4a21nTW5RZmtMc0JMbEQ5?=
- =?utf-8?B?NTJhWW9wUzM1eTlzanZ2VDZ2a0NIWk1qNERZaDFHMHZnQXRzY0lvZ2VaamFn?=
- =?utf-8?B?NGo3L0NrdEZJbC9VeGNkY2xJeEJjeWRrMWRhWW9lK0p0YW1NYzBWalBveXhz?=
- =?utf-8?B?SHYzQ0VsOWJ0K2lINnpWNCt5cGd2ZmduWHhrbnBwV0NWVmZEMVBEUkFTVE1q?=
- =?utf-8?B?OXltR2x4MVpBUmtKYVdxeklXZUs1V2p4WEpXOXZNL2swb09VdmlQQVRsYkRX?=
- =?utf-8?B?MDdVaE8zQkp3dTFEcktVR0x6YURjZE1ERlVaVEwrRW1CZGhkaERKVTZNcUdy?=
- =?utf-8?B?NHFHaVd0U25RPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5089.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(921020)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?b1puVEpLbW1wUVhJbGoyV3FuR3VFUHZjYWxmV0M5TDE1aXh3RU5LQ2ExTmhO?=
- =?utf-8?B?aFg4aDZ1QnEzS3oxQ0NsUXl6Smp5SDIweHBvRE1nUSsvK1lubzVFQTZqY094?=
- =?utf-8?B?cWVTZjZvQUdBa1dYMkR4U24yNVhzbUY3OHJjdGU5ZGs4elpLYXRzbjZHRWpq?=
- =?utf-8?B?eWFzd21XbFF0U0U1QnZwUlNwOWtPN29RaUZ6WkxrQkdmRWgvYlRVTFdMTzJ2?=
- =?utf-8?B?TzRvVDY1TlZ2MndRNGZtWFFiYkpBNU45TDVha0hvcUpqbFNRMW90ZUQxZ2U1?=
- =?utf-8?B?Qi9Ta0VpeGRYOTdxdXJKaWdta0ZMalZ0VTY0SE5zblJraHZpVzBCMm1NODlp?=
- =?utf-8?B?YlYwVnpGQ2J4UG9zNmErN2Fzcml5TEljdllCbVc3SjNiOE44em9wbUoraDVG?=
- =?utf-8?B?Uy9aaU9SU09hSnF0QmdIWHN6WUlTbXNSblR0dHdSRldOYjdvcHlvMVdNU0Q3?=
- =?utf-8?B?aGtvMWFkMVZYUGxrYjFEc0hWT0dNcS8zWE5SYkVLcHlwRi9nN0xGTWRnaUdG?=
- =?utf-8?B?a2w2SUVSRWJyeVljaUZUOElpdVNPdWNUSEIrRmk5ZmZLbEVHOENtL1FoTkxL?=
- =?utf-8?B?RlhEK3BucVpvRit5SEovZHRvUW9lRWd6dHEweGxMV1pGRmNLUnIycHRaeDlp?=
- =?utf-8?B?M1ptZmdaQk5WanhCUGNyRmorZG44a2ZDWWk5bjFoQU1iWTVqZVpQRGowRjRH?=
- =?utf-8?B?ZWNIWnM1dVF0MWlPVHcwdEVFU0xXZzNhNm10cWdISVZlM3N6Q2V1OFVtWVQy?=
- =?utf-8?B?bDQwWFFnL0hnOElGSnFrbkxMZCt3VzVLVTl0Z3hvdHBqNnluZStsbStZeDd0?=
- =?utf-8?B?OHE4eTRBTEh2ZS9Ed3NjUzI4aG5BK01SMC8vRVR5T1JEYmtxT0d2NC9ydmox?=
- =?utf-8?B?UE1JMFgrdjlEMHJTQ0VmTEhzcFgvK1d2WHlCM0thdkRvaXRzZnh6ZkI0Q29U?=
- =?utf-8?B?R2QxYW16em43YWo0aEx1S0VvTzNNOGxWRFllUGtRNTVuVE1hUHZZUTVxdXpZ?=
- =?utf-8?B?enM5WXJkTlRJRFh5akIzbEpRUVYxSERNdDVTdGdHVk1ZM1JyeXFQdzVMQzFp?=
- =?utf-8?B?SjIyVlR4bHMxTnlkak15QUJBSE9CK2JmZGlxeVJSZi84MkJ3Y3BCSWxlL3Rr?=
- =?utf-8?B?Y2RCVldzejBaUDEzNzNjV2d2R056TTYwdmQyL09ESWRZYVgrdTgvd1B6TE83?=
- =?utf-8?B?ejh0WWovMlBwa1hCdHN3bzFRRlJtU3NkcklnK05ZcE1MazNnSmI4cnk3NWFY?=
- =?utf-8?B?WU5CRGVGc2cxSkVtZTNPc3lMeG85a0hPWEk4REYrWTBYRVJOZFNPRE1ad2VW?=
- =?utf-8?B?VjlZNWhSdmVzc1pJSlZtb2c4OVlZNFJQM2w5ZHE3Wng4OU1kbGtOVTYzMlVn?=
- =?utf-8?B?Sjl1czl1MExMdXkrNm81QmQ5aFFJVGJWUU1xTHhhMnExQlRvYnFxUjJCYWs4?=
- =?utf-8?B?Q0FZTlI3K0lCaWpDazVBVFdXUDRtQnlBNGRpb2cxbGVOMFRGdVFybVIyUmpt?=
- =?utf-8?B?eTFoOXVzM3dabFJ5Ynl4WUk3RWRpU25PVk95YWdYTWVRYTk4QmtsdmxNcXVo?=
- =?utf-8?B?czRXblNSbFdCeVJOS1ROQXdDNkdrOGtLTUlweUVRdTljOUpNV2Jsa3U4Z2Ny?=
- =?utf-8?B?ZTRzcjVUUHVVWi84OWJiZWllcVpJWlQxN1RzRlgwYWVlY0VxckhwL1FqSjhO?=
- =?utf-8?B?QVlBRVlHeU50b1I4REU4cWhvTURXb2huWExCeFQ1VFY4b0NxNERjZkVvSm9o?=
- =?utf-8?B?SjZYVXkrYnhXMm1LSkpJM3p4c2FLVWh0NzF1U1pHYW9QTkZmMXFPd2toTGVy?=
- =?utf-8?B?VFBlL3pwYXRZNExxaVFQWm9JQzNWM08vT0lzSWZnVC9qVzVoTG1JSzB3RVYw?=
- =?utf-8?B?amxkclAzNmtZdU5yRTV4T1Z6M1VJV3ErMWo3TUtSUlpnNTNrcTUvZ0toczFZ?=
- =?utf-8?B?cEV6dXJqcjF4N0RhSlQ4dWo3RHpVTWJXT1lDV3JPZjRGbkU5WWRNZ1hqNXoz?=
- =?utf-8?B?RFhtQzR4NlVDZ0xEWlFvaU5wSWhNOUpqby94MXQ1bjcwWFl2YU5mNXhrVmw2?=
- =?utf-8?B?SENMZXZYU2pZdlcweGpuTzcwTTJzQzZRODVid2F0ejIzNUpVU3pBZ3NFdWxr?=
- =?utf-8?B?c044VUhmVHRiaUdrZ0hDRXRqUk1ielFPYlJYVkFTdnNYSTVmNVdKUHVTWEF5?=
- =?utf-8?B?L3c9PQ==?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 10826209-e8e9-4982-24f4-08dd7c45451e
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5089.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Apr 2025 17:45:11.1630
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: rG71tAw8lO0QyINSz/5i76n3I8qhQqwT4JTzEeFqd3xskdNZoCvZL2ZmSX51reFBuJf7AOoSY4C9iaZS1Q14IFVJM6x3xWtJuk8FN9Co51I=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR11MB6819
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86cyddgwn7.fsf@scott-ph-mail.amperecomputing.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_104533_015354_BBFBA6F4 
-X-CRM114-Status: GOOD (  19.68  )
+X-CRM114-CacheID: sfid-20250415_111244_477506_28A6E75D 
+X-CRM114-Status: GOOD (  26.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -221,108 +79,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 4/15/2025 2:05 AM, Meghana Malladi wrote:
-> The ICSS IEP driver tracks perout and pps enable state with flags.
-> Currently when disabling pps and perout signals during icss_iep_exit(),
-> results in NULL pointer dereference for perout.
+On Tue, Apr 15, 2025 at 10:30:36AM -0700, D Scott Phillips wrote:
+> Oliver Upton <oliver.upton@linux.dev> writes:
+> > On Tue, Apr 15, 2025 at 08:47:10AM -0700, D Scott Phillips wrote:
+> >> AC03_CPU_36 can cause asynchronous exceptions to be routed to the wrong
+> >> exception level if an async exception coincides with an update to the
+> >> controls for the target exception level in HCR_EL2. On affected
+> >> machines, always do writes to HCR_EL2 with async exceptions blocked.
+> >> 
+> >> Signed-off-by: D Scott Phillips <scott@os.amperecomputing.com>
+> >> ---
+> >>  arch/arm64/Kconfig              | 17 +++++++++++++++++
+> >>  arch/arm64/include/asm/sysreg.h | 18 ++++++++++++++++--
+> >>  arch/arm64/kernel/cpu_errata.c  | 14 ++++++++++++++
+> >>  arch/arm64/tools/cpucaps        |  1 +
+> >>  4 files changed, 48 insertions(+), 2 deletions(-)
+> >> 
+> >> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> >> index a182295e6f08b..e5fd87446a3b8 100644
+> >> --- a/arch/arm64/Kconfig
+> >> +++ b/arch/arm64/Kconfig
+> >> @@ -445,6 +445,23 @@ menu "Kernel Features"
+> >>  
+> >>  menu "ARM errata workarounds via the alternatives framework"
+> >>  
+> >> +config AMPERE_ERRATUM_AC03_CPU_36
+> >> +        bool "AmpereOne: AC03_CPU_36: CPU can take an invalid exception, if an asynchronous exception to EL2 occurs while EL2 software is changing the EL2 exception controls."
+> >> +	default y
+> >> +	help
+> >> +	  This option adds an alternative code sequence to work around Ampere
+> >> +	  errata AC03_CPU_36 on AmpereOne.
+> >> +
+> >> +	  If an async exception happens at the same time as an update to the
+> >> +	  controls for the target EL for async exceptions, an exception can be
+> >> +	  delivered to the wrong EL. For example, an EL may be routed from EL2
+> >> +	  to EL1.
+> >> +
+> >> +	  The workaround masks all asynchronous exception types when writing
+> >> +	  to HCR_EL2.
+> >> +
+> >> +	  If unsure, say Y.
+> >> +
+> >>  config AMPERE_ERRATUM_AC03_CPU_38
+> >>          bool "AmpereOne: AC03_CPU_38: Certain bits in the Virtualization Translation Control Register and Translation Control Registers do not follow RES0 semantics"
+> >>  	default y
+> >> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+> >> index 2639d3633073d..e7781f7e7f7a7 100644
+> >> --- a/arch/arm64/include/asm/sysreg.h
+> >> +++ b/arch/arm64/include/asm/sysreg.h
+> >> @@ -1136,14 +1136,28 @@
+> >>  	__val;							\
+> >>  })
+> >>  
+> >> +#define __sysreg_is_hcr_el2(r)					\
+> >> +	(__builtin_strcmp("hcr_el2", __stringify(r)) == 0)
+> >
+> > This looks fragile. What about:
+> >
+> > 	write_sysreg(hcr, HCR_EL2);
+> >
+> > or:
+> >
+> > 	write_sysreg_s(hcr, SYS_HCR_EL2);
 > 
-> To fix the null pointer dereference issue, the icss_iep_perout_enable_hw
-> function can be modified to directly clear the IEP CMP registers when
-> disabling PPS or PEROUT, without referencing the ptp_perout_request
-> structure, as its contents are irrelevant in this case.
-> 
-> Fixes: 9b115361248d ("net: ti: icssg-prueth: Fix clearing of IEP_CMP_CFG registers during iep_init")
-> Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-> Closes: https://lore.kernel.org/all/7b1c7c36-363a-4085-b26c-4f210bee1df6@stanley.mountain/
-> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
-> ---
-> 
+> I had also thought about changing the users of write_sysreg(..hcr_el2)
+> to some new function write_hcr_el2() or something, but I guess that
+> would have the same fragility. Any suggestions on a better way? Trying
+> harder with the string stuff, or do something totally else?
 
-Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
+I think the least bad approach would be to convert to HCR-specific
+accessors. It's the most likely to encourage folks to respect the errata
+mitigation + keeps the ugliness out of unrelated common helpers.
 
-> Changes from v3 (v4-v3):
-> - Fix the logic in icss_iep_perout_enable_hw() to clear IEP registers
->   when disabling periodic signal
-> 
->  drivers/net/ethernet/ti/icssg/icss_iep.c | 121 +++++++++++------------
->  1 file changed, 58 insertions(+), 63 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/ti/icssg/icss_iep.c b/drivers/net/ethernet/ti/icssg/icss_iep.c
-> index b4a34c57b7b4..2a1c43316f46 100644
-> --- a/drivers/net/ethernet/ti/icssg/icss_iep.c
-> +++ b/drivers/net/ethernet/ti/icssg/icss_iep.c
-> @@ -430,64 +446,39 @@ static int icss_iep_perout_enable_hw(struct icss_iep *iep,
->  		if (ret)
->  			return ret;
->  
-> -		if (on) {
-> -			/* Configure CMP */
-> -			regmap_write(iep->map, ICSS_IEP_CMP1_REG0, lower_32_bits(cmp));
-> -			if (iep->plat_data->flags & ICSS_IEP_64BIT_COUNTER_SUPPORT)
-> -				regmap_write(iep->map, ICSS_IEP_CMP1_REG1, upper_32_bits(cmp));
-> -			/* Configure SYNC, based on req on width */
-> -			regmap_write(iep->map, ICSS_IEP_SYNC_PWIDTH_REG,
-> -				     div_u64(ns_width, iep->def_inc));
-> -			regmap_write(iep->map, ICSS_IEP_SYNC0_PERIOD_REG, 0);
-> -			regmap_write(iep->map, ICSS_IEP_SYNC_START_REG,
-> -				     div_u64(ns_start, iep->def_inc));
-> -			regmap_write(iep->map, ICSS_IEP_SYNC_CTRL_REG, 0); /* one-shot mode */
-> -			/* Enable CMP 1 */
-> -			regmap_update_bits(iep->map, ICSS_IEP_CMP_CFG_REG,
-> -					   IEP_CMP_CFG_CMP_EN(1), IEP_CMP_CFG_CMP_EN(1));
-> -		} else {
-> -			/* Disable CMP 1 */
-> -			regmap_update_bits(iep->map, ICSS_IEP_CMP_CFG_REG,
-> -					   IEP_CMP_CFG_CMP_EN(1), 0);
-> -
-> -			/* clear regs */
-> -			regmap_write(iep->map, ICSS_IEP_CMP1_REG0, 0);
-> -			if (iep->plat_data->flags & ICSS_IEP_64BIT_COUNTER_SUPPORT)
-> -				regmap_write(iep->map, ICSS_IEP_CMP1_REG1, 0);
-> -		}
-> +		/* Configure CMP */
-> +		regmap_write(iep->map, ICSS_IEP_CMP1_REG0, lower_32_bits(cmp));
-> +		if (iep->plat_data->flags & ICSS_IEP_64BIT_COUNTER_SUPPORT)
-> +			regmap_write(iep->map, ICSS_IEP_CMP1_REG1, upper_32_bits(cmp));
-> +		/* Configure SYNC, based on req on width */
-> +		regmap_write(iep->map, ICSS_IEP_SYNC_PWIDTH_REG,
-> +			     div_u64(ns_width, iep->def_inc));
-> +		regmap_write(iep->map, ICSS_IEP_SYNC0_PERIOD_REG, 0);
-> +		regmap_write(iep->map, ICSS_IEP_SYNC_START_REG,
-> +			     div_u64(ns_start, iep->def_inc));
-> +		regmap_write(iep->map, ICSS_IEP_SYNC_CTRL_REG, 0); /* one-shot mode */
-> +		/* Enable CMP 1 */
-> +		regmap_update_bits(iep->map, ICSS_IEP_CMP_CFG_REG,
-> +				   IEP_CMP_CFG_CMP_EN(1), IEP_CMP_CFG_CMP_EN(1));
-
-Nice to see this also has a marked improvement with removing a level of
-indentation.
-
-> @@ -498,11 +489,21 @@ static int icss_iep_perout_enable(struct icss_iep *iep,
->  {
->  	int ret = 0;
->  
-> +	if (!on)
-> +		goto disable;
-> +
->  	/* Reject requests with unsupported flags */
->  	if (req->flags & ~(PTP_PEROUT_DUTY_CYCLE |
->  			  PTP_PEROUT_PHASE))
->  		return -EOPNOTSUPP;
->  
-
-This likely causes a textual conflict with my .supported_perout_flags
-patch. It looks like it wouldn't be too difficult to resolve though.
-
-> +	/* Set default "on" time (1ms) for the signal if not passed by the app */
-> +	if (!(req->flags & PTP_PEROUT_DUTY_CYCLE)) {
-> +		req->on.sec = 0;
-> +		req->on.nsec = NSEC_PER_MSEC;
-> +	}
-> +
-
-Regards,
-Jake
+Thanks,
+Oliver
 
