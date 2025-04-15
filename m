@@ -4,79 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76F55C369B4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 11:47:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D684C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 11:49:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=udU7VdwDyMJ3EQPBOEs8+xexnGGNWkNKUrKue8Vn0cU=; b=j3uHZMqGJbJTGsM+PEVNPgNRJu
-	o9BGYRzWfTeAYpEtuVJJV98UoBJTz/AMQxHX7On51AwUfOtAusMNGrmpfEo2uPz7QuamLnj8itLCb
-	UiQZbrB8U+dKxl5iW1fMT7CI07TwLZLevWrpSqnAN8Jrev3f+Hn/ye5MRD4wOWYDKWpUPMnZXP4KM
-	u8GaEYBiWUe90lGFrOlYWq0IRxG26am5V372JLxr0fMh/skbMWZEcS0H69UrVTvSDVfzkSXIEW+Ot
-	E2MyvfE3mR+RlT18QAd8QY8Xn8rUc3FRjLYsFTPrWwI4k0yMM5ezP+jLb+GKAygchXAzgAnSLFyey
-	ql5F3bDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Kg2NnHcrGc9RkC6KDeqvn/0+/AwqkcPgEQ1yg+2Ozm4=; b=mnsSnqWk6pNy9cig8c7J2XJh5G
+	5s993aQkpWNTHyGREhRsGJsUdKtOFbeWxNIJ0CnuYQqb36Y4x3blmCtHi8C98s0CVFkYlCzGvfljW
+	zU4SPfbKnS5faU2kl5c4QW7xoLam2cdnIt7sARknWqm63y9y2LBu3CBvGH2T4jxchQF86FOJPugEq
+	osCjHKv4AJNkR1uAmOjeODVHiekXwufTqXEK7DxllgfPNvQzlhSYeqs65ov67X6pwoPVqotHwrzMd
+	HXIDEBQT6Fnwe8EFgdE6DuwwCDsLD5dfYORcVRIi9VTWzyJ70Kk07rYCVuBsJ8Kr16+AdyYuCe1Lz
+	0Onx2OOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4elM-00000005bxe-3mkB;
-	Tue, 15 Apr 2025 11:47:36 +0000
-Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
+	id 1u4enA-00000005cRJ-3sbp;
+	Tue, 15 Apr 2025 11:49:29 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4e7q-00000005SU1-3pmn
+	id 1u4eF6-00000005Tul-1t2q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 11:06:48 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id DD3D54333F;
-	Tue, 15 Apr 2025 11:06:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1744715205;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=udU7VdwDyMJ3EQPBOEs8+xexnGGNWkNKUrKue8Vn0cU=;
-	b=MAy+kUu6XYprpvyB25g/DO0TGELhc5Rxkkc0RFGGgSdkXUkcI5UK41CK+H08djf1xkeheO
-	sh5NG8p8T4LWiwyRhYNueufUaZziKHiqRrfF3YADbuisMVhNMDpE0a5pRd9XsOouRH9CbW
-	KcH7a+h6rgo/EfumJK+nt1o1MXNBpQ+na70auxJ484YUZgC1KgpXUzxmUPg2GgkBHPTzDR
-	vt048Qh0DbOBar99p6W6IWhdXWbJDMJwG35KLBLtz5G0BSK4ZVEwzdTjCpoX9jQLjDZXo3
-	JipGw4zRJvJeG7IgYW+oUYInFT89xTPDbHvGXwgwiTtBujxC40ZNP4YYCFcm2A==
-Date: Tue, 15 Apr 2025 13:06:42 +0200
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
- <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Andy Whitcroft <apw@canonical.com>, Dwaipayan Ray
- <dwaipayanray1@gmail.com>, Lukas Bulwahn <lukas.bulwahn@gmail.com>, Joe
- Perches <joe@perches.com>, Jonathan Corbet <corbet@lwn.net>, Nishanth Menon
- <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Siddharth Vadapalli
- <s-vadapalli@ti.com>, Roger Quadros <rogerq@kernel.org>, Tero Kristo
- <kristo@kernel.org>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux@ew.tq-group.com
-Subject: Re: [PATCH net-next 3/4] net: ethernet: ti: am65-cpsw: fixup PHY
- mode for fixed RGMII TX delay
-Message-ID: <20250415130642.00410100@fedora.home>
-In-Reply-To: <32e0dffa7ea139e7912607a08e391809d7383677.1744710099.git.matthias.schiffer@ew.tq-group.com>
-References: <cover.1744710099.git.matthias.schiffer@ew.tq-group.com>
-	<32e0dffa7ea139e7912607a08e391809d7383677.1744710099.git.matthias.schiffer@ew.tq-group.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	Tue, 15 Apr 2025 11:14:17 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53FBDv8S2975116
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 15 Apr 2025 06:13:57 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1744715637;
+	bh=Kg2NnHcrGc9RkC6KDeqvn/0+/AwqkcPgEQ1yg+2Ozm4=;
+	h=From:To:CC:Subject:Date;
+	b=kXFJs50TpXcISr3WXqVtI89G9hbECLV3QTFJ+DdE41OIDlGaqbJiQ/8mePP99X7nd
+	 9KGGskrNs/RPtwTJQjmJo+wu/m+sA7Uc6U+sH8Pk1F8O8BjXolz8gYx1FpvDZDVVsk
+	 cDoilLMdhXU3nTDiRre6S/lkc7eeA+7e7uSJ0Og8=
+Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53FBDvxh122629
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 15 Apr 2025 06:13:57 -0500
+Received: from DLEE104.ent.ti.com (157.170.170.34) by DLEE114.ent.ti.com
+ (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 15
+ Apr 2025 06:13:56 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE104.ent.ti.com
+ (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 15 Apr 2025 06:13:56 -0500
+Received: from abhilash-HP.dhcp.ti.com (abhilash-hp.dhcp.ti.com [172.24.227.115])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53FBDqI5051431;
+	Tue, 15 Apr 2025 06:13:53 -0500
+From: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>
+CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <vaishnav.a@ti.com>, <jai.luthra@linux.dev>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <imx@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+        <u-kumar1@ti.com>, Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+Subject: [PATCH v3 0/7] Fix dtbs_check warnings in CSI overlays
+Date: Tue, 15 Apr 2025 16:43:21 +0530
+Message-ID: <20250415111328.3847502-1-y-abhilashchandra@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvvdeffedvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeeftdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepheetveefiedvkeejfeekkefffefgtdduteejheekgeeileehkefgfefgveevfffhnecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvdehpdhrtghpthhtohepmhgrthhthhhirghsrdhstghhihhffhgvrhesvgifrdhtqhdqghhrohhuphdrtghomhdprhgtphhtthhopegrnhgurhgvfidonhgvthguvghvsehluhhnnhdrtghhpdhrtghpthhtohepuggrvhgvm
- hesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrgh
-X-GND-Sasl: maxime.chevallier@bootlin.com
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_040647_108218_1525AE78 
-X-CRM114-Status: UNSURE (   9.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250415_041416_595438_6ACBFD65 
+X-CRM114-Status: GOOD (  10.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,20 +85,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 15 Apr 2025 12:18:03 +0200
-Matthias Schiffer <matthias.schiffer@ew.tq-group.com> wrote:
+There are a bunch of new warnings generated using CONFIG_OF_ALL_DTBS.
+This configuration applies DTB and overlay together to generate test DTBs,
+which are then validated using dtbs_check.
 
-> All am65-cpsw controllers have a fixed TX delay, so the PHY interface
-> mode must be fixed up to account for this.
-> 
-> Modes that claim to a delay on the PCB can't actually work. Warn people
-> to update their Device Trees if one of the unsupported modes is specified.
-> 
-> Signed-off-by: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+This patch series fixes all warnings related to sensor overlays on
+jacinto platforms and a few minor warnings on sitara as well.
 
-This looks good to me,
+To fix some of the warnings, missing power regulator nodes are added on
+the J721E-SK and the regulator hierarchy on the AM68-SK is corrected.
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+IMX219 Logs: https://gist.github.com/Yemike-Abhilash-Chandra/3a2f8d0f2f5710108d8ca82eeba17bdf
+OV5640 Logs: https://gist.github.com/Yemike-Abhilash-Chandra/7801f74d28ed5895a15049ce9f0fbe60
 
-Maxime
+Changelog:
+Changes in v3:
+- Change the PIN_INPUT to PIN_OUTPUT to control the regulator in j721e-sk.dts
+- Rebase on top of next-20250415
+- Collect R/B tags
+
+Changes in v2:
+- Split commits containing logically separate changes into individual patches.
+- Use fixes and stable according to ./Documentation/process/stable-kernel-rules.rst
+- Rebase on top of next-20250409
+
+v2: https://lore.kernel.org/all/20250409134128.2098195-1-y-abhilashchandra@ti.com/
+
+Yemike Abhilash Chandra (7):
+  arm64: dts: ti: j721e-sk: Add DT nodes for power regulators
+  arm64: dts: ti: am68-sk: Fix regulator hierarchy
+  arm64: dts: ti: k3-j721e-sk: Remove clock-names property from IMX219
+    overlay
+  arm64: dts: ti: k3-j721e-sk: Add requiried voltage supplies for IMX219
+  arm64: dts: ti: k3-am62x: Remove clock-names property from IMX219
+    overlay
+  arm64: dts: ti: k3-am62x: Rename I2C switch to I2C mux in IMX219
+    overlay
+  arm64: dts: ti: k3-am62x: Rename I2C switch to I2C mux in OV5640
+    overlay
+
+ .../boot/dts/ti/k3-am62x-sk-csi2-imx219.dtso  |  3 +-
+ .../boot/dts/ti/k3-am62x-sk-csi2-ov5640.dtso  |  2 +-
+ .../dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso  |  2 +-
+ .../boot/dts/ti/k3-am68-sk-base-board.dts     | 13 ++++++-
+ .../dts/ti/k3-j721e-sk-csi2-dual-imx219.dtso  | 35 +++++++++++++++++--
+ arch/arm64/boot/dts/ti/k3-j721e-sk.dts        | 31 ++++++++++++++++
+ 6 files changed, 79 insertions(+), 7 deletions(-)
+
+-- 
+2.34.1
+
 
