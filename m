@@ -4,79 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B9DCC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 07:07:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 068FDC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 07:09:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NeoSQl2FLdGTN2XQXHvy2Yf+6ASS0TB+E/t2YCPe3wg=; b=f9opx9s4joinT7VCgnWzTTndyh
-	iPsCccnm/nR5B0QJOzM9z9TV+dkevC6P28MMrpyNLlceForhqzvQ6SjuZuiV/THPS2H5wMCy8P2ZL
-	tmC5J0eEPZh/VRAJ8dFB7BU1mEAIn5qow64CyfK78OEhooW6t/xCAtG7/dIIhZQmG5YdfAo1EHlcM
-	2Fxh6o7ZIdKXAQb2fNl9iqFZQ8rClC2ZusAG64M5XTdB4JA9PIzX6DMEXWXp7t78dZa8nKwP5272Y
-	qkiMU5rIAHlbTIEkSEuEEroZhlkmWn3JqM3ET2VBkmZktNeSDWeSIEKSH6OmsXcGIdxnEb5j3fSMC
-	Dgk4zoaQ==;
+	bh=k9OqEDY3JEcssGMHTHMMKW2DIA2hSwtYUS+Auc8BG6o=; b=PyxpVwx2BfdGRoivFv2USoSCT+
+	zyIPApRYqv9OYgrFICS9p9AmTRjXyoJhCgFIIHBgDn1EWhn8HVYchPpLWs6Sj1DxrqBeB7oRP24Qo
+	6Rbi5xEQK33I1xQWfmuIhBa9AnWG+zHTlOt++tIeWOC3qaSD0r7YLbtyUfXyGLWmKSyYbMvYT5Lvl
+	SMkUOmayS1B4x/t1zJtbHDzRk/gB0X3SRfgHnfR9nT5tB8gAeawJHVXnfX1bG4yBLMEOYxJoKm4zx
+	b6kVvAA3Oz7+EiYdb2Eody8Izs4Zv0XcoPpQ2cxAIREjfyu26E1KELPNHkKmy/EJPLltvun8IxcFX
+	JUXD3bRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4aOM-00000004kJy-2bPr;
-	Tue, 15 Apr 2025 07:07:34 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1u4aQ8-00000004kR1-19SI;
+	Tue, 15 Apr 2025 07:09:24 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4aBh-00000004iL4-3992
+	id 1u4aBh-00000004iL1-3gRV
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 15 Apr 2025 06:54:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B10795C5569;
-	Tue, 15 Apr 2025 06:52:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 291EEC4CEEF;
-	Tue, 15 Apr 2025 06:54:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744700068;
-	bh=hrPSQeENU4uIDE2eHQ2o1WCsLDaulSSH1VdJmPvBaVg=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=oJW3BvVrZjK63rHZrFWVLPrVFAcoBh17mEQ0AdKUDZVThtcfz7PVJ1DhedSfmJo9C
-	 8r5t3FNynBnwGNZ83V29a3Bjh3NxIK4nCMlx21qx41xZTqeo6L78jN/4YgXGKSM8hz
-	 zUMGYXGlCPMYfmACaDba5t2TqWAJrv24pjNflZaJiCDD4ul+P0+ZMm/BefAAe9k6GM
-	 CZqtUv5/CKVCAxSRd9SiRP/h93N0f72HQoQfJffAH6Q5QnAUFiSQZJazGXTjADLZ1w
-	 tAgbjDMEnW6oHYdHUDbqcxQ3AfKB6cyo+Q/yLniHZBat7nFphGPrIiPlAhbOle+CEy
-	 WjzajXZK7YWHg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1A984C369B9;
-	Tue, 15 Apr 2025 06:54:28 +0000 (UTC)
-From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
-Date: Tue, 15 Apr 2025 08:54:27 +0200
-Subject: [PATCH v5 4/8] MAINTAINERS: add maintainer for the GOcontroll
- Moduline controllers
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-301302a328bso5066323a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Apr 2025 23:54:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744700068; x=1745304868; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=k9OqEDY3JEcssGMHTHMMKW2DIA2hSwtYUS+Auc8BG6o=;
+        b=CfpFxfcMO6XEsqEqz6UE9uaNHzCXBQmAGKsYYg3EzYDPnUPIwrDwMOe2bEZU9wh7ZH
+         IbBSpLpFmYxkUJ5lpq9bNmwmefn/hk+NcHMWsdRdyhb/wM7Su6hZnbLXNaygKt8kFDtT
+         G9YMccrKb8tagxQ5/yyD3uGfNRlHHI8xcxoQU8ajZ/py6GiJdB9IYmtEEAw7qNsQvgWv
+         LCX+hMnH8OiHcbR9Qv8fJ+Tp86lHMpxHVkiWC9nTOtn83Ksjq6k+jMebx3zEpOsk0ybT
+         BaXjY/ET4Bq7nn+CJnrkX/MzknUQPK8YsdIa7yIUObevi++ZPkb3y3rxRQcj2ERvJYAS
+         yn7A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744700068; x=1745304868;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=k9OqEDY3JEcssGMHTHMMKW2DIA2hSwtYUS+Auc8BG6o=;
+        b=MEdeqC5LfkxmxDzAUwVjyeun4hX/Cr7/Fx5/gqTnz5WP62+12X4Yq51C5CPN2K9o90
+         RYS/6S3yR3GJl3vOnco24t0XMolc28CH0dp6oqdw7OyfKwOqDcipBFGTn9yvZtuGG96V
+         la30+vLW1ChLwBCjLSReawOBCGFKGLcmLY8BwrsFFTG2o+WuqkhAvab7pzLAJUP6SKzk
+         eAxOskl8s7mG1QxIwv6Uj0onYvwqKiKUC1gWU1Q9OqvS7Wq5FF3fFbKJvmDUR5sYY6Dx
+         lYfpVHQHw1m2VCns5dr1TSXMMAysgEMWcSKsZ59DvI8L+0O9aNaNiXvM5xXSbnUAPv7y
+         TQNw==
+X-Forwarded-Encrypted: i=1; AJvYcCXjnzxYCVHZjy0AJhCk2M2QfppYFYioE7CnNLPBrtPgbl5bvTqdBVUGV1mZAC9Rt1RxoTh34hdn0eBRNiz+9mfI@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz2ixLD91xzYfsf5sG+TkYiFbT0+bmiblu/XdqNUEq+1KlC6TWK
+	026tEWy3viIhhcyfLFt7ixIymcXs3lwiEdvg0CYW1ROq7gzvsLSLxJoGrcFHjAl2VLCAvsL+g+S
+	mDtm/93s/905O+gbdnWhbwYV6FTU=
+X-Gm-Gg: ASbGnctWXezWsF10FFHWKMRpP4qU1SpAxudESiUB0PHh7k6co1xK4jk8oJlTaGmdulO
+	7A7Bct5/lwCYuMYYmdwh4hffC3byhDxQdNUVis2h5WpBIXkkojsNAvplEiaAKYRpXy9cuqSW1+b
+	DvYL/zPHmZtpa1CCKaUA==
+X-Google-Smtp-Source: AGHT+IGsWWhYe9e4mWSJsic/j7kKIeW7DfXwjL4Jb4i7m9zXmuDIJPuuX3HEnkVvhnsbqUdqK2dIfJphOjrZOmuAgmI=
+X-Received: by 2002:a17:90b:2811:b0:2ee:c291:765a with SMTP id
+ 98e67ed59e1d1-30823639c94mr21764256a91.8.1744700068456; Mon, 14 Apr 2025
+ 23:54:28 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250415-initial_display-v5-4-f309f8d71499@gocontroll.com>
-References: <20250415-initial_display-v5-0-f309f8d71499@gocontroll.com>
-In-Reply-To: <20250415-initial_display-v5-0-f309f8d71499@gocontroll.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Maud Spierings <maudspierings@gocontroll.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1744700066; l=777;
- i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
- bh=U+cI301uttTYTg6gAR1QRerlXekISKPf4H+SFf8T4EI=;
- b=8R9Qv7eVCATXQybZcqW6FXRKqRe/5yNEdrsJZ2Dv122cIscipOZULbmyu5hncag/7FC6wiRFU
- 4Q3S6elRmxGAGTbtD7d1bbI5Ul4TawZXTjlgiu/oY7L6oTvB9fD6Vv3
-X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
- pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
-X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
- with auth_id=341
-X-Original-From: Maud Spierings <maudspierings@gocontroll.com>
+References: <20250414123827.428339-1-ivitro@gmail.com> <20250414123827.428339-3-ivitro@gmail.com>
+In-Reply-To: <20250414123827.428339-3-ivitro@gmail.com>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Tue, 15 Apr 2025 09:56:14 +0300
+X-Gm-Features: ATxdqUGxqJNdcd-JZaoJQzqSGgpBMKry2SLqzTD77e0YfcWpcDRWqQ9RF6-oALY
+Message-ID: <CAEnQRZBt7mgi2ep8j5U=8DWA+KfO_nGfczXrSxAy_HaSeGNTMA@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] arm64: dts: freescale: add Toradex SMARC iMX8MP
+To: Vitor Soares <ivitro@gmail.com>
+Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Vitor Soares <vitor.soares@toradex.com>, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Hiago De Franco <hiago.franco@toradex.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_235429_939087_4B05F729 
-X-CRM114-Status: UNSURE (   8.99  )
+X-CRM114-CacheID: sfid-20250414_235429_950962_1154B318 
+X-CRM114-Status: UNSURE (   8.85  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,39 +96,26 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: maudspierings@gocontroll.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Maud Spierings <maudspierings@gocontroll.com>
+On Mon, Apr 14, 2025 at 3:39=E2=80=AFPM Vitor Soares <ivitro@gmail.com> wro=
+te:
+>
+> From: Vitor Soares <vitor.soares@toradex.com>
+>
+> Add DT support for Toradex SMARC iMX8MP SoM and Toradex SMARC Development
+> carrier board.
+>
+> Link: https://www.toradex.com/computer-on-modules/smarc-arm-family/nxp-im=
+x-8m-plus
+> Link: https://www.toradex.com/products/carrier-board/smarc-development-bo=
+ard-kit
+> Co-developed-by: Hiago De Franco <hiago.franco@toradex.com>
+> Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
+> Signed-off-by: Vitor Soares <vitor.soares@toradex.com>
 
-Add a maintainer for the GOcontroll Moduline series of controllers.
+Audio part looks good to me.
 
-Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
----
- MAINTAINERS | 6 ++++++
- 1 file changed, 6 insertions(+)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 1ca022081bcf564c8ec91fb6431570045495ec23..3c94e530d0784d90b50109d4f9e7e6ced40f08b0 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -10060,6 +10060,12 @@ L:	linux-media@vger.kernel.org
- S:	Maintained
- F:	drivers/media/usb/go7007/
- 
-+GOCONTROLL MODULINE CONTROLLERS
-+M:	Maud Spierings <maudspierings@gocontroll.com>
-+L:	imx@lists.linux.dev
-+S:	Maintained
-+F:	arch/arm64/boot/dts/freescale/*moduline*.dts*
-+
- GOCONTROLL MODULINE MODULE SLOT
- M:	Maud Spierings <maudspierings@gocontroll.com>
- S:	Maintained
-
--- 
-2.49.0
-
-
+Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
 
