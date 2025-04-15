@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AECCC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 17:32:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C24FBC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 17:34:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qv+ZzkT8wiOt/Jb449id+th5lYD4svWIp5pF/e792HA=; b=h2iwNLn6jhjsbeEk+f2n6pWrAJ
-	xus5sS+N+gKtfeQiy7q3ZZ2xWmCO7tJR1TO65yBliyVvgPMPc5+39l8jcgEenMXdCnarcl8N0F8k2
-	VjTluUol8oV57eWJVQcRTCZcssI8fL9PSP9iYQ5pNgFwIxhTODyCxevUlYiF5ZyBs1WwDTNuRPK8r
-	HhhyErmaFmUAQ7mxOXvKf/ZYUdpKiigGvPZGsvOfnsMk9rPeZAcc6U5Z2cFmfC1Hi0I+ev1QEPMyW
-	ddBKB0T4YOHpWUrEUqJ2FvnYk12xnDrxrJ5sBEh5SmRAOSMzGc2Q/0ONLQo4ldSjMwYVNPkArsAvi
-	AmnUBM/w==;
+	bh=TZ5TeuXVlqIBcTKnyUPN6n6PTqhb3E+xVpAkmmqWBI8=; b=jdhvjoi5FiopoqlkYCaoI2vdGR
+	QuFarLCf2Yn3wqKS4SBrSXllUNeCDnSqgf56gT1MEJ9CEDpMSXNnZ42OTNWfPb/vYJVAzzy/5+N+O
+	YgDxPiBPLiyEN58SYGVd0jKyex8SfufocQSbT99U7v5sQy0CA0e1g7Wjxck0cTAPLhizwfO1pufKf
+	agPQwoVifOfQE2buxhPhxboE/1b5DYdBwGJZH44J70guChghH+dRU0OfKiaGTTh0uERkdz/tVfWPQ
+	/5j1OvQbYhyolxAbPF92gI5QpHEgEIiBt+hCThG2aHzZrnnan3JianlOdPw39wJwCRCuXZ0lTwvcl
+	sesbL0FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4k9Q-00000006ZvY-2Rh9;
-	Tue, 15 Apr 2025 17:32:48 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u4kBE-00000006aJd-1VtR;
+	Tue, 15 Apr 2025 17:34:40 +0000
+Received: from out-177.mta0.migadu.com ([91.218.175.177])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4jp3-00000006WXg-2RdQ
+	id 1u4jpG-00000006WYn-2fXl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 17:11:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 27E0EA4A51E;
-	Tue, 15 Apr 2025 17:06:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2027C4CEEB;
-	Tue, 15 Apr 2025 17:11:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744737104;
-	bh=4+BEleAxCA1h8yglvPaLoYfzczV5ax1MbrOkRurw+MY=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=k0jU74qy0xMb3SOYEjXWLSZQ5D7TqJ9mMdJIgma3+21RPrdjfat0wcauC8QmKJZVC
-	 jhY2DQrLJAmM5Y0wRjYBD6Ccu9S3Sbj/f7GJWvk2zRas0Mpqdl9chgkrSJ8UosQxEj
-	 269qFRwPTvKYwrWNF9Fen0Ez/IQhxL4tX2tKfvcsV6QNHAMyZUL3YtxT3ZFDsbsY02
-	 coPDCT3X+DFEHzcyXhpjeE+JXE8oG6fphdrz40PjYg+TwLMvmruFlJTx4aUNY5nRhy
-	 +gsOVT4WakyfRADOdbFTs7kGlTACXJkfBq7nwnjaUIyI6uwhBlrAiPZ0gKdfKVM6Ix
-	 w+/Q4V7utNo6Q==
-Date: Tue, 15 Apr 2025 12:11:42 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Tue, 15 Apr 2025 17:12:00 +0000
+Date: Tue, 15 Apr 2025 13:11:51 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
+	s=key1; t=1744737116;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=TZ5TeuXVlqIBcTKnyUPN6n6PTqhb3E+xVpAkmmqWBI8=;
+	b=oFlrKFE4LAVCgIG+lnbBcjPxf379TP8S57q7VeZGqKPSLoMsXkqz8/bW4DFZwGljq48SIS
+	5JGRUASghmHz8I2DS3FnnTTUgSbCY0OVjCB44yrdsBbb6gaQTdplmXNS7Pr3MbmMic8/il
+	u/gK8rVWZGtJCJgA9lA6cPzx7TsCgtf3DtsLBSv1Gcjmtj3lA+cWhzUf/0ySFFQGq0uivf
+	3+nDtOlNfKhzPEd1yBjoNewkC6tThMgDjJvj06zeuH71hXyaGylesqRmtdzFBQtaBWdSW/
+	xuR/GbERtUk8S47AzQ2lxF5NDnBA447wq2R7byXt74R3ZcoszoXceD0TmqeMaQ==
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+To: sven@svenpeter.dev
+Cc: Janne Grunau <j@jannau.net>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	Andi Shyti <andi.shyti@kernel.org>, Neal Gompa <neal@gompa.dev>,
+	Hector Martin <marcan@marcan.st>, linuxppc-dev@lists.ozlabs.org,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 3/6] i2c: pasemi: Improve timeout handling
+Message-ID: <Z_6TV-tPU2wRdfFf@blossom>
+References: <20250415-pasemi-fixes-v2-0-c543bf53151a@svenpeter.dev>
+ <20250415-pasemi-fixes-v2-3-c543bf53151a@svenpeter.dev>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: devicetree@vger.kernel.org, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Shawn Guo <shawnguo@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, Sascha Hauer <s.hauer@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Conor Dooley <conor+dt@kernel.org>, 
- Frank Li <Frank.Li@nxp.com>
-To: Maud Spierings <maudspierings@gocontroll.com>
-In-Reply-To: <20250415-initial_display-v5-0-f309f8d71499@gocontroll.com>
-References: <20250415-initial_display-v5-0-f309f8d71499@gocontroll.com>
-Message-Id: <174473699503.763716.6096044459854517599.robh@kernel.org>
-Subject: Re: [PATCH v5 0/8] arm64: dts: freescale: Add support for the
- GOcontroll Moduline Display
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250415-pasemi-fixes-v2-3-c543bf53151a@svenpeter.dev>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_101145_751757_CDCE4E57 
-X-CRM114-Status: GOOD (  28.61  )
+X-CRM114-CacheID: sfid-20250415_101158_812587_8F4AC453 
+X-CRM114-Status: GOOD (  19.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,110 +79,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Reviewed-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
 
-On Tue, 15 Apr 2025 08:54:23 +0200, Maud Spierings wrote:
-> Add inital support for 2 variants of the Moduline Display controller.
-> This system is powered by the Ka-Ro Electronics tx8p-ml81 COM, which
-> features an imx8mp SoC.
+Le Tue , Apr 15, 2025 at 03:36:57PM +0000, Sven Peter via B4 Relay a écrit :
+> From: Sven Peter <sven@svenpeter.dev>
 > 
-> Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
+> Add proper timeout handling for the interrupt path.
+> Previously, this was only correctly done for the polling path.
+> Note that we drop reg_write(smbus, REG_SMSTA, status) here which
+> will be done anyway whenever the next transaction starts via
+> pasemi_smb_clear.
+> 
+> Signed-off-by: Sven Peter <sven@svenpeter.dev>
 > ---
-> Changes in v5:
-> - Merge the makefile patch into the two dtso patches
-> - Fix references to the root node in the dtso patches
-> - Enable the USB bus going to the adapter board in the mainboard dts
-> - Fix some formatting issues in the mainboard dts
-> - Fix some formatting issues in the COM dts
-> - Change a clock as suggested in the COM dts
-> - Fix the maintainers entries, remove devicetree list and imx list
-> - Rebase on latest linux-next
-> - Link to v4: https://lore.kernel.org/r/20250402-initial_display-v4-0-9f898838a864@gocontroll.com
+>  drivers/i2c/busses/i2c-pasemi-core.c | 24 +++++++++++++++++-------
+>  1 file changed, 17 insertions(+), 7 deletions(-)
 > 
-> Changes in v4:
-> - Add imx mailing list to ka-ro tx8p maintainer entry
-> - Fix several small indentation and ordering issues in devicetrees
-> - Change the two display adapter boards to overlays
-> - Add the missing patch for the Makefile to actually be able to build
->   the new devicetrees
-> - Link to v3: https://lore.kernel.org/r/20250327-initial_display-v3-0-4e89ea1676ab@gocontroll.com
+> diff --git a/drivers/i2c/busses/i2c-pasemi-core.c b/drivers/i2c/busses/i2c-pasemi-core.c
+> index df1b0087dcacb0a3b94196368137d5e20b0e6d7e..9b611dbdfef23e78a4ea75ac0311938d52b6ba96 100644
+> --- a/drivers/i2c/busses/i2c-pasemi-core.c
+> +++ b/drivers/i2c/busses/i2c-pasemi-core.c
+> @@ -91,32 +91,42 @@ static void pasemi_smb_clear(struct pasemi_smbus *smbus)
+>  static int pasemi_smb_waitready(struct pasemi_smbus *smbus)
+>  {
+>  	int timeout = 100;
+> +	int ret;
+>  	unsigned int status;
+>  
+>  	if (smbus->use_irq) {
+>  		reinit_completion(&smbus->irq_completion);
+>  		reg_write(smbus, REG_IMASK, SMSTA_XEN | SMSTA_MTN);
+> -		wait_for_completion_timeout(&smbus->irq_completion, msecs_to_jiffies(100));
+> +		ret = wait_for_completion_timeout(&smbus->irq_completion, msecs_to_jiffies(100));
+>  		reg_write(smbus, REG_IMASK, 0);
+>  		status = reg_read(smbus, REG_SMSTA);
+> +
+> +		if (ret < 0) {
+> +			dev_err(smbus->dev,
+> +				"Completion wait failed with %d, status 0x%08x\n",
+> +				ret, status);
+> +			return ret;
+> +		} else if (ret == 0) {
+> +			dev_warn(smbus->dev, "Timeout, status 0x%08x\n", status);
+> +			return -ETIME;
+> +		}
+>  	} else {
+>  		status = reg_read(smbus, REG_SMSTA);
+>  		while (!(status & SMSTA_XEN) && timeout--) {
+>  			msleep(1);
+>  			status = reg_read(smbus, REG_SMSTA);
+>  		}
+> +
+> +		if (timeout < 0) {
+> +			dev_warn(smbus->dev, "Timeout, status 0x%08x\n", status);
+> +			return -ETIME;
+> +		}
+>  	}
+>  
+>  	/* Got NACK? */
+>  	if (status & SMSTA_MTN)
+>  		return -ENXIO;
+>  
+> -	if (timeout < 0) {
+> -		dev_warn(smbus->dev, "Timeout, status 0x%08x\n", status);
+> -		reg_write(smbus, REG_SMSTA, status);
+> -		return -ETIME;
+> -	}
+> -
+>  	/* Clear XEN */
+>  	reg_write(smbus, REG_SMSTA, SMSTA_XEN);
+>  
 > 
-> Changes in v3:
-> - Set regulator-boot-on and always-on on LDO5 of the pmic, after 20 ish
->   seconds it auto disabled this LDO causing weird behaviour like
->   ethernet droping out, wifi not working anymore. This LDO can control
->   the IO voltage level of certain pins, just let it keep the u-boot
->   value.
-> - Fix the comment style in imx8mp-pinfunc.h
-> - Rebase on newest next tag
-> - Link to v2: https://lore.kernel.org/r/20250226-initial_display-v2-0-23fafa130817@gocontroll.com
-> 
-> Changes in v2:
-> - Dropped the trivial-devices patch
-> - Added a patch with bindings for the gocontroll,moduline-module-slot
-> - Added a patch to spidev.c to enable the spidev driver for the module
->   slot
-> - Added a missing usb-c connector in the av101hdt-a10 variant dts
-> - Switched to the new bindings for the module slots in the base dts
-> - Fixed some commit typos
-> - Link to v1: https://lore.kernel.org/r/20250224-initial_display-v1-0-5ccbbf613543@gocontroll.com
-> 
-> ---
-> Maud Spierings (8):
->       dt-bindings: arm: fsl: Add GOcontroll Moduline Display
->       arm64: dts: imx8mp: Add pinctrl config definitions
->       MAINTAINERS: add maintainer for the Ka-Ro tx8p-ml81 COM module
->       MAINTAINERS: add maintainer for the GOcontroll Moduline controllers
->       arm64: dts: freescale: add Ka-Ro Electronics tx8p-ml81 COM
->       arm64: dts: freescale: Add the GOcontroll Moduline Display baseboard
->       arm64: dts: freescale: Add the BOE av101hdt-a10 variant of the Moduline Display
->       arm64: dts: freescale: Add the BOE av123z7m-n17 variant of the Moduline Display
-> 
->  Documentation/devicetree/bindings/arm/fsl.yaml     |   1 +
->  MAINTAINERS                                        |  12 +
->  arch/arm64/boot/dts/freescale/Makefile             |   8 +
->  arch/arm64/boot/dts/freescale/imx8mp-pinfunc.h     |  33 ++
->  ...x8p-ml81-moduline-display-106-av101hdt-a10.dtso |  94 ++++
->  ...x8p-ml81-moduline-display-106-av123z7m-n17.dtso | 139 ++++++
->  .../imx8mp-tx8p-ml81-moduline-display-106.dts      | 525 ++++++++++++++++++++
->  .../arm64/boot/dts/freescale/imx8mp-tx8p-ml81.dtsi | 548 +++++++++++++++++++++
->  8 files changed, 1360 insertions(+)
-> ---
-> base-commit: fb44e19e78df2950877a9f7b4f24b58db790d293
-> change-id: 20250224-initial_display-fa82218e06e5
-> 
-> Best regards,
-> --
-> Maud Spierings <maudspierings@gocontroll.com>
+> -- 
+> 2.34.1
 > 
 > 
-> 
-
-
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
-
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-This patch series was applied (using b4) to base:
- Base: base-commit fb44e19e78df2950877a9f7b4f24b58db790d293 not known, ignoring
- Base: attempting to guess base-commit...
- Base: tags/next-20250415 (exact match)
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/' for 20250415-initial_display-v5-0-f309f8d71499@gocontroll.com:
-
-arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106.dtb: / (gocontroll,moduline-display): 'model' is a required property
-	from schema $id: http://devicetree.org/schemas/root-node.yaml#
-
 
