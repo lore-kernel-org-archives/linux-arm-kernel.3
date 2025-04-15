@@ -4,76 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB829C369BA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 16:57:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C36B3C369BA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 16:59:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OSNFXUitTBQmBWJf8ItL/iUtTikNWM/6SKlHYshO2Eo=; b=ArNzIVjLSeSjkh0UQLEVaTPIIy
-	sJ0kjhYRoj7nlV2xgPShYNXwVuyPWpW4XEhxpDEOrENJhOPQyas5U7w4eigpMJNpvAf3iqLXTnz03
-	wwXm7SFU1gvcHpOsOVgOjmXfF9GtDpCyFmeuTA2XbUaGdjJaaCCXKtd4wvejNjgeR8YA6M8aZHYyN
-	slHQ7INxowF0dijPQolsQw3awVUphKaSehbrJYdPwxTYIqxciCgIc2XrAWkC5IsDa4rGltu5pQuXa
-	YaKLxElgLKkW1aipWhYZ6CrbNZA7lqVGzY+RMzIIdJ7YLkGLonoVl8oDabzKvYuRpC4MEhYZ/f9bH
-	ZgHT2kbg==;
+	bh=iFq+f28rvVPKPSrubIQp1tokt+o0pF9109v9jVjSGIo=; b=s0m3xPkmwuTdwUnD1t72ADcemM
+	9R/WXMqhTIDBKKD8i69YfMN5uXoSweuysQDDOVkz/McLXW1n8L3UnJUmm9H7Kxk8OPU/bbDf1+iVR
+	OrPIEdChcBMf/f2onwlWqWAj7gGXYoDW4Rj2zVS5F6lrebj376vAogNRic95vhA7Qa2KvRvqRKraM
+	SRYZITMbK3psXEzK3yZOAfiebaP6tgx6sV79O0gmKRsH75x5753ko03u+Uo/yzi1fxwUxyrY3vsMx
+	x+w0Sd68duJ6G31xsSMRSVRMILOljJwggVMjO/jOhhv1YOUz7hDQuCMep0MH1PGLHNKAQsB/WYfHP
+	oNSP7urA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4jbB-00000006U2e-3p05;
-	Tue, 15 Apr 2025 16:57:25 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1u4jd0-00000006UJv-2Y2D;
+	Tue, 15 Apr 2025 16:59:18 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4jAq-00000006Q29-0C1q
+	id 1u4jF3-00000006Qbw-1inA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 16:30:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=OSNFXUitTBQmBWJf8ItL/iUtTikNWM/6SKlHYshO2Eo=; b=kzCjuU/B23MPb3sv40S02ftkml
-	7OwG1tLDmV/hKnUsmNKynV3BEisSYlOWnS6rJs/4MbUiOXcNHIv9ZxDP1h+zetgB4J/AXcdzwOtYu
-	gVQgunW/21kD+KYsjND/tarMIVCjHVm5J74WBIxAlAhn9XZutV8Uww5tzTZPsQlQ90iEy8OUv7I5k
-	jvnnRtmT/lIlo9YPCUULADz4Hnta5jFAnrsnE2EVZCEJOBSXboS4kPy69UVBQO4fDZbsFZInOc4/m
-	PI2edD1IA+OhzIu+iy6XCTfn542/bmE+aQzorpBayt47Yoo4AkC8HCpvPdu4x0HOe6unBXLt2oSO2
-	RS3SG5sg==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:54230 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1u4jAj-0008UJ-0a;
-	Tue, 15 Apr 2025 17:30:05 +0100
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1u4jA7-000r1h-5I; Tue, 15 Apr 2025 17:29:27 +0100
-In-Reply-To: <Z_6JaPBiGu_RB4xN@shell.armlinux.org.uk>
-References: <Z_6JaPBiGu_RB4xN@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 5/5] net: stmmac: socfpga: convert to
- devm_stmmac_pltfr_probe()
+	Tue, 15 Apr 2025 16:34:35 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53FGYRMV071702
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 15 Apr 2025 11:34:28 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1744734868;
+	bh=iFq+f28rvVPKPSrubIQp1tokt+o0pF9109v9jVjSGIo=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=lDtzA1FoWC9cSnfpYWCdhYJpszR/YkBTzbinL0HRYQxpLJ50Nt+NbGPXtSmxhT7aB
+	 WL4SOmdHi3ysvYV6GgjcdlF84LpYDt3y6dD5VtWrUDfkDo4yYVWQQCK6x+ydv7Jv1F
+	 YX/xLyjKxE+sOW0cTc041kx4Fh/2s0ozHt9qkiRI=
+Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53FGYRnV057982
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 15 Apr 2025 11:34:27 -0500
+Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 15
+ Apr 2025 11:34:27 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 15 Apr 2025 11:34:27 -0500
+Received: from [10.249.42.149] ([10.249.42.149])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53FGYQOS059307;
+	Tue, 15 Apr 2025 11:34:26 -0500
+Message-ID: <fe5583ca-d476-4e57-b412-3dd4fe4ff82c@ti.com>
+Date: Tue, 15 Apr 2025 11:34:26 -0500
 MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1u4jA7-000r1h-5I@rmk-PC.armlinux.org.uk>
-Date: Tue, 15 Apr 2025 17:29:27 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 01/11] arm64: dts: ti: k3-am62: Add ATCM and BTCM cbass
+ ranges
+To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>
+CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Hari Nagalla <hnagalla@ti.com>,
+        Beleswar
+ Prasad <b-padhi@ti.com>,
+        Markus Schneider-Pargmann <msp@baylibre.com>,
+        Devarsh Thakkar <devarsht@lewv0571a.ent.ti.com>
+References: <20250415153147.1844076-1-jm@ti.com>
+ <20250415153147.1844076-2-jm@ti.com>
+Content-Language: en-US
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <20250415153147.1844076-2-jm@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_093012_083617_E131D731 
-X-CRM114-Status: GOOD (  13.97  )
+X-CRM114-CacheID: sfid-20250415_093433_626679_30BBB5BF 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,49 +97,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert socfpga to use devm_stmmac_pltfr_probe() to further simplify
-the probe function, wrapping the call to the set_phy_mode() method
-into socfpga_dwmac_init() which can be called from the plat_dat->init()
-method. Also call this from socfpga_dwmac_resume() thereby simplifying
-that function.
+On 4/15/25 10:31 AM, Judith Mendez wrote:
+> Add cbass ranges for ATCM and BTCM on am62x device, without
+> these, remoteproc driver fails to probe and attach to the DM
+> r5 core and IPC communication is broken.
+> 
+> Signed-off-by: Judith Mendez <jm@ti.com>
+> ---
 
-Using the devm variant also means we can remove the call to
-stmmac_pltfr_remove().
+Acked-by: Andrew Davis <afd@ti.com>
 
-Unfortunately, we can't also convert to stmmac_pltfr_pm_ops as there is
-extra work done in socfpga_dwmac_resume().
-
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c | 7 +------
- 1 file changed, 1 insertion(+), 6 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-index 251d8b72bed5..8e6d780669b9 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-@@ -501,11 +501,7 @@ static int socfpga_dwmac_probe(struct platform_device *pdev)
- 
- 	plat_dat->riwt_off = 1;
- 
--	ret = socfpga_dwmac_init(pdev, dwmac);
--	if (ret)
--		return ret;
--
--	return stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
-+	return devm_stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
- }
- 
- static const struct socfpga_dwmac_ops socfpga_gen5_ops = {
-@@ -525,7 +521,6 @@ MODULE_DEVICE_TABLE(of, socfpga_dwmac_match);
- 
- static struct platform_driver socfpga_dwmac_driver = {
- 	.probe  = socfpga_dwmac_probe,
--	.remove = stmmac_pltfr_remove,
- 	.driver = {
- 		.name           = "socfpga-dwmac",
- 		.pm		= &stmmac_pltfr_pm_ops,
--- 
-2.30.2
-
+>   arch/arm64/boot/dts/ti/k3-am62.dtsi | 8 ++++++--
+>   1 file changed, 6 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62.dtsi b/arch/arm64/boot/dts/ti/k3-am62.dtsi
+> index bfb55ca113239..59f6dff552ed4 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am62.dtsi
+> @@ -86,7 +86,9 @@ cbass_main: bus@f0000 {
+>   			 /* Wakeup Domain Range */
+>   			 <0x00 0x00b00000 0x00 0x00b00000 0x00 0x00002400>, /* VTM */
+>   			 <0x00 0x2b000000 0x00 0x2b000000 0x00 0x00300400>,
+> -			 <0x00 0x43000000 0x00 0x43000000 0x00 0x00020000>;
+> +			 <0x00 0x43000000 0x00 0x43000000 0x00 0x00020000>,
+> +			 <0x00 0x78000000 0x00 0x78000000 0x00 0x00008000>, /* DM R5 ATCM*/
+> +			 <0x00 0x78100000 0x00 0x78100000 0x00 0x00008000>; /* DM R5 BTCM*/
+>   
+>   		cbass_mcu: bus@4000000 {
+>   			bootph-all;
+> @@ -103,7 +105,9 @@ cbass_wakeup: bus@b00000 {
+>   			#size-cells = <2>;
+>   			ranges = <0x00 0x00b00000 0x00 0x00b00000 0x00 0x00002400>, /* VTM */
+>   				 <0x00 0x2b000000 0x00 0x2b000000 0x00 0x00300400>, /* Peripheral Window */
+> -				 <0x00 0x43000000 0x00 0x43000000 0x00 0x00020000>;
+> +				 <0x00 0x43000000 0x00 0x43000000 0x00 0x00020000>,
+> +				 <0x00 0x78000000 0x00 0x78000000 0x00 0x00008000>, /* DM R5 ATCM*/
+> +				 <0x00 0x78100000 0x00 0x78100000 0x00 0x00008000>; /* DM R5 BTCM*/
+>   		};
+>   	};
+>   
 
