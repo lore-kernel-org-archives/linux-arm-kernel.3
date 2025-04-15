@@ -4,110 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91446C369B5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 14:13:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E245C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 14:15:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dxtx+wYgnayT5+SYG5cHUYe65nSDdAbTREq4fQgE5Vg=; b=hdpPbZlvAEdsdhyR/bEWrHBBza
-	8uQtL5r4aZmz4u1S3nApqj+PmGrjDzrwhmO0QKcLGOm3pRVJx92V5nYxjP6rZJMwpXPpE6ZNUrN7D
-	i6NVFueur5kczSkrQoqw0eL4ySX1RbATUWrOjVIGJWYKoodbIAf7OVnFQe3G/+7+I9FH8JVIsaXLx
-	ejmFWAD3I4pzrgqNNWzwwUWYEnxE9EA9ZLjRxyeWbOx6YnZ8TZo/O8HafCsbAYgLVL2zRhmNXpb72
-	k+lJTQZ8+Uh1FhZOj2vbD0PG0YpgOzXiSEJFZWSmTEbmKbcXNxUELozXGJ6rTZJi+uLcbnGFm+Aqw
-	LqjbshIQ==;
+	bh=311B7+ZPD1a8pqbabAsnqtV56A13O1FPfwualOLas1U=; b=Eo3q6domwAe6w+nhyBavafdC4Z
+	jXMxRpClyHNyzwNSxCQIv2TaWct1JPUA3EWYc1jhKGOH2QeyOpXgMWUQ0xBqIUw7pjndv50apCWOH
+	nWcASy3WpcXeWqNHhGeahPJqZXfTnVLbEFzBgxGvs07dtTvco/MfsYVaNfVPAbT/8mS8H1fdE83nW
+	VejzGJI1HI32SyGryg047K8OWouFdsvOgroPb0kFb6bw0osB3AzvijCk92IHbfc6HtUrnQw/b1Uah
+	AP6jpodtExOqDeK7jbyGhc0Mvs9IzNWmwjP9vEAThbuFQRyAooxUchbc9J5MTRqJ/BSeJiOCxmZ3I
+	XsWq508Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4h2L-000000063XI-2ItK;
-	Tue, 15 Apr 2025 14:13:17 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1u4h4B-000000063rk-1HrI;
+	Tue, 15 Apr 2025 14:15:11 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4fqN-00000005pZH-0Jz6
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 12:56:52 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-39c14016868so5071683f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Apr 2025 05:56:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744721809; x=1745326609; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Dxtx+wYgnayT5+SYG5cHUYe65nSDdAbTREq4fQgE5Vg=;
-        b=aijLrqvsAGkwRXihAznm/UZo+XOM7WoDZHZ/JZjsp69xDIAQLkXMNR6jnGr54U+hK+
-         hJ8vj1v+elqja0H+jTv0sF75BJo4MM2nQ+i6K5B5uLES/Ejgb4BhOMilve8yC3G/meYw
-         GLjKlgE95W1AYPBX/thvM7Iu3ijui8AolIdxInjNf9Dt0pZZ1PCeIUCQ3NOGE2hlYfT/
-         Tcputj3YYDeQcgDPW2Sb/j8z8dxWOb5RQ9Jzfxvw5y15o9pAqnn4OxeWX3jKV766ehlH
-         OLcT8f7RyYPX3Sp0y76ms34SFvVjx+DET4wsTQcWHNOTqtjY+EWHzABTosUrREhGx1i7
-         TDdA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744721809; x=1745326609;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Dxtx+wYgnayT5+SYG5cHUYe65nSDdAbTREq4fQgE5Vg=;
-        b=kQvnP+E2SC2y0C0cFCFTCjvUx6M/Qli4FMD3VMDvqaFQKfdly4C6yl23WsIoXszIzx
-         ZisAYcJawg1E5xHsVqai3K1VtV7ITPl8N3MBze7/gRIG5aTfULZFZl7UaB5amVRXti8c
-         v93jCCcZFvgnq9N97OKZJc+TTDvbQYU4ckpn9+QlJUzcLvJF0dFvrkpKDLwKbIiQBVC7
-         3lSJ/L+xfcx2DJS2F2EI976iv+KDh5Z7yF2KWunc53p2eIZlHL9DI/2Y7OdrfrWrCqsZ
-         z/vEfpxlquzUGY2ExB0AOWpDvKyBSXKGECAuirb59n27HazAuOOOPok0tNFGAVZVZkyK
-         BVYg==
-X-Forwarded-Encrypted: i=1; AJvYcCUBAI5ZD4mAp/5mVSYKROu66EZYVgyaev09848yWOiYqszZxwupypfd4LurHQwF6T/O77PU3jzKj4rotKrYhH4Z@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz4W1cMq2cLPDDKzdBovL0moWeC6iUI+t1CjuA8jGc+0Gq+U9SI
-	lcjeNjBb14bD7DvOLtOIZD6DdSKy07hojsbIxLzp8o/yNclfGgyI
-X-Gm-Gg: ASbGncu625QT2pA5PFsE4JwBqKa2OK1g0/4/LhSH5gPzvW2dXDArOD+q+Q/okQDcZQl
-	2xjL9x2wOxImAHpsaCEkOTBpsoBe7pmcDgM3aCLFCNGC6WMiqrTWJfnikcpn5m80e2zzJmLUXJT
-	idtebPimk/nCeP7E5vXukhZYlPM3V+wXwLbuXDwmqR4PsuGxB0geqGB83BZqBkxzkBHVyZn1d22
-	C1yj2QhqKNWVfU8a1v/a1UlB3hKUF/eWrQwx3XxYZOShcK4wnb5M1pzxPNxJZAd7GmikOlsSiCW
-	Wv+shx5y3BJS4oFgiZnSXloGA3kGPVtFd5UWuJLPaf+F+317jLRbb+RpZn9ZUZdn
-X-Google-Smtp-Source: AGHT+IHh1oHEy/id+2kXHtxdu/j3+e8kGj1u5Gw07xALuQpAX70pVHKbVNleZqFSuazAXcZb5wjYGw==
-X-Received: by 2002:a5d:5f87:0:b0:39c:266c:12a5 with SMTP id ffacd0b85a97d-39ea5201e7fmr11010905f8f.13.1744721809254;
-        Tue, 15 Apr 2025 05:56:49 -0700 (PDT)
-Received: from iku.Home ([2a06:5906:61b:2d00:1883:aa4:a265:bc12])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39eae96bf97sm13922334f8f.25.2025.04.15.05.56.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Apr 2025 05:56:48 -0700 (PDT)
-From: Prabhakar <prabhakar.csengg@gmail.com>
-X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>
-Cc: netdev@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Prabhakar <prabhakar.csengg@gmail.com>,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH net-next v6 1/4] dt-bindings: net: dwmac: Increase 'maxItems' for 'interrupts' and 'interrupt-names'
-Date: Tue, 15 Apr 2025 13:56:39 +0100
-Message-ID: <20250415125642.241427-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250415125642.241427-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-References: <20250415125642.241427-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	id 1u4h21-000000063Su-3TBF;
+	Tue, 15 Apr 2025 14:12:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1744726376;
+	bh=xK2LkYSeBxb14Vlfe6VfU2/wPR+W/1fTwZEbUWZJGgQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=p/RHqChcX4FNsKxL65WMJUOImMkYAxDiG2sjW2jRGBIQnljNhwumM9hPGIAvUSQsl
+	 ZpjWDbWXvHF77gwRXMojrW/SLXsXL9HUy56HwnIhFUM2xgHTu6UKm0Ka6ujtvvlar7
+	 6vCxYVBVQ2WCnHth+gaxfU8jWdOkI65nQ61+oI+3nsdhmN6lQE9eUiw+/EsGJ8ElC6
+	 b9sWs9DiWIiLKLDOUv0k3f34cLIeVlVd19Ctz72DDQQw78V1R1CTz0uHaJ2z8ILlsc
+	 /Rb7aIetv28NRvFcni0JE2kUipCZGZT7MVElmEljSBp5AJK31XS6dJqEV3apQeUhbK
+	 3hzpS0Kzx5OdQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2948A17E017D;
+	Tue, 15 Apr 2025 16:12:55 +0200 (CEST)
+Message-ID: <95b965c2-1f03-423b-86a1-cd22784b480d@collabora.com>
+Date: Tue, 15 Apr 2025 16:12:54 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC 3/5] dt-bindings: power: Add binding for MediaTek MT7988
+ topmisc power controller
+To: frank-w@public-files.de, Frank Wunderlich <linux@fw-web.de>,
+ Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>
+Cc: Daniel Golle <daniel@makrotopia.org>, Sam Shih <sam.shih@mediatek.com>,
+ MandyJH Liu <mandyjh.liu@mediatek.com>,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20250413085806.8544-1-linux@fw-web.de>
+ <20250413085806.8544-4-linux@fw-web.de>
+ <700af1ab-f43e-4583-8f0e-27e5d4424338@collabora.com>
+ <2EA2BDB0-E1C9-49BC-98FC-5048905AA036@public-files.de>
+ <bbb81e79-95da-4cf9-9eef-7cbaea191ebb@collabora.com>
+ <AC7CF61A-A8A0-40B7-B5B5-51C56A1D3E81@public-files.de>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <AC7CF61A-A8A0-40B7-B5B5-51C56A1D3E81@public-files.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_055651_116734_13A2DC1F 
-X-CRM114-Status: GOOD (  12.26  )
+X-CRM114-CacheID: sfid-20250415_071258_033610_443FDAE5 
+X-CRM114-Status: GOOD (  16.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,63 +87,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Il 15/04/25 16:03, Frank Wunderlich ha scritto:
+> Am 15. April 2025 11:59:06 MESZ schrieb AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>:
+>> Il 15/04/25 11:52, Frank Wunderlich ha scritto:
+>>> Hi Angelo,
+>>>
+>>> Am 14. April 2025 12:25:23 MESZ schrieb AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>:
+>>>> Il 13/04/25 10:58, Frank Wunderlich ha scritto:
+>>>>> From: Frank Wunderlich <frank-w@public-files.de>
+>>>>>
+>>>>> Topmisc is a systemcontroller used for xs-phy and ethernet on  mt7988.
+>>>>> Add binding for it.
+>>>>
+>>>> That's the wrong binding... check mfd/syscon.yaml :-)
+>>>>
+>>>> P.S.: Is there any reset controller in topmisc? Any clock?
+>>>>        If yes, syscon.yaml is also wrong, and you need a driver for that.
+>>>>        Remember: If it turns out *later* that this has clk/resets and the
+>>>>        bindings are already set for just a syscon, it's gonna be way harder!
+>>>>
+>>>> Cheers,
+>>>> Angelo
+>>>
+>>> Ok based on the power-domain-cells property i guessed powercontroller is the right place.
+>>
+>> power-domain-cells, but without any power domain assignment, so that was wrong :)))
+>>
+>>>
+>>> But based on your suggestion i tried moving compatible to syscon binding and made dtbs_check here.
+>>>
+>>> I can confirm dropping the unexpected properties reported by syscon binding (power-domain-cells,clock-cells,adress-cells and size-cells) are not needed for function (xsphy and ethernet).
+>>>
+>>> For verifying that there are really no clocks/resets in topmisc (have not found it in public available register documents) i asked mtk (waiting for answer).
+>>>
+>>> Also got it working without the syscon compatible by changing ethernet driver too (after this change xsphy was also working).
+>>
+>> Perfect, a bit of a cleanup and you're done, then!
+>>
+>> Cheers!
+>>
+>>>
+>>> Eth:
+>>> https://github.com/frank-w/BPI-Router-Linux/commit/d866e648717800b6f6395ad36c38f9effcf0498d
+>>> Xsphy:
+>>> <https://github.com/frank-w/BPI-Router-Linux/commit/0121a94df99700487704ca056b210b13db07e90c>
+>>>
+>>> regards Frank
+>>
+>>
+>>
+> 
+> Got response from MTK and basicly topmisc contains a powercontroller (for cpu and internal 2g5) but currently not needed because ATF already switch this on. The second part is the pcs/phy muxing and 3rd some unneeded switches (where i have no detailed information). But no clocks or resets as these are handled in the connected platform driver (xsphy/ethernet).
+> 
+> So my original binding imho made more sense.
+> 
+> The syscon binding seems to need syscon fallback and shows error about unexpected "compatible" property. The binding itself does not contain any properties but references syscon-common where iiuc compatible property must have at least 2 items and requires the "syscon" fallback.
+> 
+> Mtk suggests splitting topmisc into the 2 blocks by only using the mux part as syscon with splitting the reg. If powerdomain really is needed then a second topmisc node could be added and bound to a new driver.
+> 
 
-Increase the `maxItems` value for the `interrupts` and `interrupt-names`
-properties to 11 to support additional per-channel Tx/Rx completion
-interrupts on the Renesas RZ/V2H(P) SoC, which features the
-`snps,dwmac-5.20` IP.
+I agree with MediaTek's suggestion. Split it, that just makes more sense.
 
-Refactor the `interrupt-names` property by replacing repeated `enum`
-entries with a `oneOf` list. Add support for per-channel receive and
-transmit completion interrupts using regex patterns.
+Besides, if the first part (the power controller in topmisc) is managed by ATF it's
+a good idea to avoid touching anything in there from the kernel :-)
 
-Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
----
- .../devicetree/bindings/net/snps,dwmac.yaml   | 24 ++++++++++++-------
- 1 file changed, 15 insertions(+), 9 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-index 78b3030dc56d..4d4fcaeca8a8 100644
---- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-@@ -114,19 +114,25 @@ properties:
- 
-   interrupts:
-     minItems: 1
--    items:
--      - description: Combined signal for various interrupt events
--      - description: The interrupt to manage the remote wake-up packet detection
--      - description: The interrupt that occurs when Rx exits the LPI state
--      - description: The interrupt that occurs when HW safety error triggered
-+    maxItems: 11
- 
-   interrupt-names:
-     minItems: 1
-+    maxItems: 11
-     items:
--      - const: macirq
--      - enum: [eth_wake_irq, eth_lpi, sfty]
--      - enum: [eth_wake_irq, eth_lpi, sfty]
--      - enum: [eth_wake_irq, eth_lpi, sfty]
-+      oneOf:
-+        - description: Combined signal for various interrupt events
-+          const: macirq
-+        - description: The interrupt to manage the remote wake-up packet detection
-+          const: eth_wake_irq
-+        - description: The interrupt that occurs when Rx exits the LPI state
-+          const: eth_lpi
-+        - description: The interrupt that occurs when HW safety error triggered
-+          const: sfty
-+        - description: Per channel receive completion interrupt
-+          pattern: '^rx-queue-[0-3]$'
-+        - description: Per channel transmit completion interrupt
-+          pattern: '^tx-queue-[0-3]$'
- 
-   clocks:
-     minItems: 1
--- 
-2.49.0
+> But this would need a bit more of testing.
+> regards Frank
+
 
 
