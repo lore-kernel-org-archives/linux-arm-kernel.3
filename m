@@ -4,81 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89303C369B5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 08:57:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D55DFC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 08:59:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CL4VDDzYo+gIiDyrhm09oNU2W4rD91r8p0855Qcob/Y=; b=Cuk4ieAHtTOtcmmx8LKxkYh83/
-	uRCLe98fgQJF9zlLdrHB/cAt9JKvW8AxxSzh5OFr5xJo05HroJv3maH0PrxK57gkFi52SdXR8LNrc
-	wSu59zvSPzhvuUfi22s0dOEnZLdY3s5dB/79z6SOwtgDQL2IgXnfMyTac9deE8gQsd1VScMmnWi/h
-	WYm+b63gKWxnNColzOqIgGC6MA36fmyDuM9SxInkrVA2KbJvwbduQelRR2pQEBlP2l3md2s7klTQx
-	Cmz7k+ndxPTpGRBgsrDvftE3tlWcWl2NF+FMFPtI2hiOSzUCR8e18R59mDL7878eEwrb6PUYeOEIM
-	Jhdm19YA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Rtj3Fb5dHWZLZ3vPSit/+NKo2PS6aeT/ceViHiKr3EI=; b=sbK9ls8I6TAMs7ck3AADBN9MvS
+	ihlCQ67tddYeoJewAegz/C7NCZLDeyWhv/YgaQClubK953bCAA9FxxVk2lzZQp/MZQJUsLzy5X8/l
+	bLS2mngaQyDSUDLqz6ulids7xuYNt0TkuXVjQtevvJZAa0BArbeulf2QhHzqnGhOvD17aEAqoRPLa
+	3u04u7+NHUwwssHAO7zjErLwICq7B0083X2wFlSN0lOg1nLlape86WPzCOBzlf448JBmRpAoLX+OT
+	rDDCPPdqI5hX02mn/C3UuzKo1rSaKZmmQH5Fhct6KSuYdZ4Xwrri/1oPqe736NU/de9G2dSKPH8ys
+	o5BMjgiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4c6t-000000054wD-0HwK;
-	Tue, 15 Apr 2025 08:57:39 +0000
-Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
+	id 1u4c8g-000000055D8-3Q6U;
+	Tue, 15 Apr 2025 08:59:30 +0000
+Received: from smtp-fw-80009.amazon.com ([99.78.197.220])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4c1S-000000053xL-1bQh
+	id 1u4c28-0000000548k-1oKN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 08:52:05 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 93FD7432F9;
-	Tue, 15 Apr 2025 08:51:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1744707120;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CL4VDDzYo+gIiDyrhm09oNU2W4rD91r8p0855Qcob/Y=;
-	b=IkhkRHikiINIcguI107lZVBvRJLSRvJeEYzQirsoXMKHSpW0g3fDOSv7zHgi8h02xZHWo2
-	S2URt6wwt7ejiiixeYsqqvvc7n55wzcQoBRHxkjlYLSs23jIPrLq5uYOOQs5CfUq3cjU7p
-	6mB96PfCGbV7ukXaKY6bSzaBL87+dWnoGIAc6IvxIyZdXiW+QO3FdSk9ciGG8uFjjJ47jA
-	fyahCviPUBksHml/45jcHQyTI0+hFzWoAizjVHKMd/K4pe8YbRxLXLBmtkvQvyYGRCo7qW
-	x7Hd1/0cCrPc15m95R6CJMiiRv52vX2kvUVXmhN/9c6vefyAYWIP4uDEMAT+8w==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: davem@davemloft.net,
-	Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	thomas.petazzoni@bootlin.com,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	=?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Simon Horman <horms@kernel.org>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Piergiorgio Beruto <piergiorgio.beruto@gmail.com>
-Subject: [PATCH net-next v6 2/2] net: ethtool: phy: Convert the PHY_GET command to generic phy dump
-Date: Tue, 15 Apr 2025 10:51:54 +0200
-Message-ID: <20250415085155.132963-3-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250415085155.132963-1-maxime.chevallier@bootlin.com>
-References: <20250415085155.132963-1-maxime.chevallier@bootlin.com>
+	Tue, 15 Apr 2025 08:52:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazon201209;
+  t=1744707164; x=1776243164;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=Rtj3Fb5dHWZLZ3vPSit/+NKo2PS6aeT/ceViHiKr3EI=;
+  b=snbO5sKP5+9hCFoshOzlj6X6OmgAybVYPB7O5j8xRwc76l5RLN5AVGZ8
+   t+3V+6mnLqNS465VysR0TsYAnjG8ARqUBwG0Y/a3aVITHK7F8MhR9bUdw
+   W+pYnYmMDoKdyF8PTDjI5CJmxRRBYv06+k0geyVl/kj8UdDeip6RBDfvG
+   w=;
+X-IronPort-AV: E=Sophos;i="6.15,213,1739836800"; 
+   d="scan'208";a="191198224"
+Received: from pdx4-co-svc-p1-lb2-vlan2.amazon.com (HELO smtpout.prod.us-east-1.prod.farcaster.email.amazon.dev) ([10.25.36.210])
+  by smtp-border-fw-80009.pdx80.corp.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Apr 2025 08:52:40 +0000
+Received: from EX19MTAEUA001.ant.amazon.com [10.0.17.79:33255]
+ by smtpin.naws.eu-west-1.prod.farcaster.email.amazon.dev [10.0.10.171:2525] with esmtp (Farcaster)
+ id 1f41e102-36f7-4d0b-9d26-7f24e9a11f09; Tue, 15 Apr 2025 08:52:39 +0000 (UTC)
+X-Farcaster-Flow-ID: 1f41e102-36f7-4d0b-9d26-7f24e9a11f09
+Received: from EX19D012EUA003.ant.amazon.com (10.252.50.98) by
+ EX19MTAEUA001.ant.amazon.com (10.252.50.50) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
+ Tue, 15 Apr 2025 08:52:39 +0000
+Received: from EX19D029EUC001.ant.amazon.com (10.252.61.252) by
+ EX19D012EUA003.ant.amazon.com (10.252.50.98) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
+ Tue, 15 Apr 2025 08:52:39 +0000
+Received: from EX19D029EUC001.ant.amazon.com ([fe80::e41d:7151:42cf:bb88]) by
+ EX19D029EUC001.ant.amazon.com ([fe80::e41d:7151:42cf:bb88%3]) with mapi id
+ 15.02.1544.014; Tue, 15 Apr 2025 08:52:39 +0000
+From: "Szczepanek, Bartosz" <bsz@amazon.de>
+To: Rob Herring <robh@kernel.org>
+CC: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "Graf (AWS), Alexander" <graf@amazon.de>,
+	=?utf-8?B?U2Now7ZuaGVyciwgSmFuIEgu?= <jschoenh@amazon.de>
+Subject: Re: [PATCH] fdt: arch/arm64: Delete the rng-seed property after use
+Thread-Topic: [PATCH] fdt: arch/arm64: Delete the rng-seed property after use
+Thread-Index: AQHbreO941xxZSVUCEmQcWh0NXV+1w==
+Date: Tue, 15 Apr 2025 08:52:39 +0000
+Message-ID: <61efdf178da04ab6ae0d3feb70852cfe@amazon.de>
+References: <20250414083243.59664-1-bsz@amazon.de>,<CAL_JsqJdk_UtCEEVrakO8azjxWeLLDGTfWAVqtoPS99VQz3jWQ@mail.gmail.com>
+In-Reply-To: <CAL_JsqJdk_UtCEEVrakO8azjxWeLLDGTfWAVqtoPS99VQz3jWQ@mail.gmail.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.252.51.69]
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvvdeftdegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepvddtueefvdfhiefgieelfeeggeefiedvueevkedttddvffekleeujedtjeeuteehnecuffhomhgrihhnpegsrghsvgdruggvvhenucfkphepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvuddprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvl
- hdrohhrghdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehhkhgrlhhlfigvihhtudesghhmrghilhdrtghomhdprhgtphhtthhopehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrkhgvrhhnvghlrdhorhhg
-X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_015202_720130_4F368326 
-X-CRM114-Status: GOOD (  19.85  )
+X-CRM114-CacheID: sfid-20250415_015244_522437_8CBC73B4 
+X-CRM114-Status: GOOD (  54.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,469 +97,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that we have an infrastructure in ethnl for perphy DUMPs, we can get
-rid of the custom ->doit and ->dumpit to deal with PHY listing commands.
-
-As most of the code was custom, this basically means re-writing how we
-deal with PHY listing.
-
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
-V6: No changes
-
- net/ethtool/netlink.c |   9 +-
- net/ethtool/netlink.h |   4 -
- net/ethtool/phy.c     | 342 ++++++++++++------------------------------
- 3 files changed, 101 insertions(+), 254 deletions(-)
-
-diff --git a/net/ethtool/netlink.c b/net/ethtool/netlink.c
-index afb609ed515a..db0c1acf116b 100644
---- a/net/ethtool/netlink.c
-+++ b/net/ethtool/netlink.c
-@@ -410,6 +410,7 @@ ethnl_default_requests[__ETHTOOL_MSG_USER_CNT] = {
- 	[ETHTOOL_MSG_MM_SET]		= &ethnl_mm_request_ops,
- 	[ETHTOOL_MSG_TSCONFIG_GET]	= &ethnl_tsconfig_request_ops,
- 	[ETHTOOL_MSG_TSCONFIG_SET]	= &ethnl_tsconfig_request_ops,
-+	[ETHTOOL_MSG_PHY_GET]		= &ethnl_phy_request_ops,
- };
- 
- static struct ethnl_dump_ctx *ethnl_dump_context(struct netlink_callback *cb)
-@@ -1433,10 +1434,10 @@ static const struct genl_ops ethtool_genl_ops[] = {
- 	},
- 	{
- 		.cmd	= ETHTOOL_MSG_PHY_GET,
--		.doit	= ethnl_phy_doit,
--		.start	= ethnl_phy_start,
--		.dumpit	= ethnl_phy_dumpit,
--		.done	= ethnl_phy_done,
-+		.doit	= ethnl_default_doit,
-+		.start	= ethnl_perphy_start,
-+		.dumpit	= ethnl_perphy_dumpit,
-+		.done	= ethnl_perphy_done,
- 		.policy = ethnl_phy_get_policy,
- 		.maxattr = ARRAY_SIZE(ethnl_phy_get_policy) - 1,
- 	},
-diff --git a/net/ethtool/netlink.h b/net/ethtool/netlink.h
-index ec6ab5443a6f..91b953924af3 100644
---- a/net/ethtool/netlink.h
-+++ b/net/ethtool/netlink.h
-@@ -499,10 +499,6 @@ int ethnl_tunnel_info_dumpit(struct sk_buff *skb, struct netlink_callback *cb);
- int ethnl_act_module_fw_flash(struct sk_buff *skb, struct genl_info *info);
- int ethnl_rss_dump_start(struct netlink_callback *cb);
- int ethnl_rss_dumpit(struct sk_buff *skb, struct netlink_callback *cb);
--int ethnl_phy_start(struct netlink_callback *cb);
--int ethnl_phy_doit(struct sk_buff *skb, struct genl_info *info);
--int ethnl_phy_dumpit(struct sk_buff *skb, struct netlink_callback *cb);
--int ethnl_phy_done(struct netlink_callback *cb);
- int ethnl_tsinfo_start(struct netlink_callback *cb);
- int ethnl_tsinfo_dumpit(struct sk_buff *skb, struct netlink_callback *cb);
- int ethnl_tsinfo_done(struct netlink_callback *cb);
-diff --git a/net/ethtool/phy.c b/net/ethtool/phy.c
-index 1f590e8d75ed..68372bef4b2f 100644
---- a/net/ethtool/phy.c
-+++ b/net/ethtool/phy.c
-@@ -12,304 +12,154 @@
- #include <net/netdev_lock.h>
- 
- struct phy_req_info {
--	struct ethnl_req_info		base;
--	struct phy_device_node		*pdn;
-+	struct ethnl_req_info base;
- };
- 
--#define PHY_REQINFO(__req_base) \
--	container_of(__req_base, struct phy_req_info, base)
-+struct phy_reply_data {
-+	struct ethnl_reply_data	base;
-+	u32 phyindex;
-+	char *drvname;
-+	char *name;
-+	unsigned int upstream_type;
-+	char *upstream_sfp_name;
-+	unsigned int upstream_index;
-+	char *downstream_sfp_name;
-+};
-+
-+#define PHY_REPDATA(__reply_base) \
-+	container_of(__reply_base, struct phy_reply_data, base)
- 
- const struct nla_policy ethnl_phy_get_policy[ETHTOOL_A_PHY_HEADER + 1] = {
- 	[ETHTOOL_A_PHY_HEADER] = NLA_POLICY_NESTED(ethnl_header_policy),
- };
- 
--/* Caller holds rtnl */
--static ssize_t
--ethnl_phy_reply_size(const struct ethnl_req_info *req_base,
--		     struct netlink_ext_ack *extack)
-+static int phy_reply_size(const struct ethnl_req_info *req_info,
-+			  const struct ethnl_reply_data *reply_data)
- {
--	struct phy_req_info *req_info = PHY_REQINFO(req_base);
--	struct phy_device_node *pdn = req_info->pdn;
--	struct phy_device *phydev = pdn->phy;
-+	struct phy_reply_data *rep_data = PHY_REPDATA(reply_data);
- 	size_t size = 0;
- 
--	ASSERT_RTNL();
--
- 	/* ETHTOOL_A_PHY_INDEX */
- 	size += nla_total_size(sizeof(u32));
- 
- 	/* ETHTOOL_A_DRVNAME */
--	if (phydev->drv)
--		size += nla_total_size(strlen(phydev->drv->name) + 1);
-+	if (rep_data->drvname)
-+		size += nla_total_size(strlen(rep_data->drvname) + 1);
- 
- 	/* ETHTOOL_A_NAME */
--	size += nla_total_size(strlen(dev_name(&phydev->mdio.dev)) + 1);
-+	size += nla_total_size(strlen(rep_data->name) + 1);
- 
- 	/* ETHTOOL_A_PHY_UPSTREAM_TYPE */
- 	size += nla_total_size(sizeof(u32));
- 
--	if (phy_on_sfp(phydev)) {
--		const char *upstream_sfp_name = sfp_get_name(pdn->parent_sfp_bus);
--
--		/* ETHTOOL_A_PHY_UPSTREAM_SFP_NAME */
--		if (upstream_sfp_name)
--			size += nla_total_size(strlen(upstream_sfp_name) + 1);
-+	/* ETHTOOL_A_PHY_UPSTREAM_SFP_NAME */
-+	if (rep_data->upstream_sfp_name)
-+		size += nla_total_size(strlen(rep_data->upstream_sfp_name) + 1);
- 
--		/* ETHTOOL_A_PHY_UPSTREAM_INDEX */
-+	/* ETHTOOL_A_PHY_UPSTREAM_INDEX */
-+	if (rep_data->upstream_index)
- 		size += nla_total_size(sizeof(u32));
--	}
- 
- 	/* ETHTOOL_A_PHY_DOWNSTREAM_SFP_NAME */
--	if (phydev->sfp_bus) {
--		const char *sfp_name = sfp_get_name(phydev->sfp_bus);
--
--		if (sfp_name)
--			size += nla_total_size(strlen(sfp_name) + 1);
--	}
-+	if (rep_data->downstream_sfp_name)
-+		size += nla_total_size(strlen(rep_data->downstream_sfp_name) + 1);
- 
- 	return size;
- }
- 
--static int
--ethnl_phy_fill_reply(const struct ethnl_req_info *req_base, struct sk_buff *skb)
-+static int phy_prepare_data(const struct ethnl_req_info *req_info,
-+			    struct ethnl_reply_data *reply_data,
-+			    const struct genl_info *info)
- {
--	struct phy_req_info *req_info = PHY_REQINFO(req_base);
--	struct phy_device_node *pdn = req_info->pdn;
--	struct phy_device *phydev = pdn->phy;
--	enum phy_upstream ptype;
-+	struct phy_link_topology *topo = reply_data->dev->link_topo;
-+	struct phy_reply_data *rep_data = PHY_REPDATA(reply_data);
-+	struct nlattr **tb = info->attrs;
-+	struct phy_device_node *pdn;
-+	struct phy_device *phydev;
- 
--	ptype = pdn->upstream_type;
-+	/* RTNL is held by the caller */
-+	phydev = ethnl_req_get_phydev(req_info, tb, ETHTOOL_A_PHY_HEADER,
-+				      info->extack);
-+	if (IS_ERR_OR_NULL(phydev))
-+		return -EOPNOTSUPP;
- 
--	if (nla_put_u32(skb, ETHTOOL_A_PHY_INDEX, phydev->phyindex) ||
--	    nla_put_string(skb, ETHTOOL_A_PHY_NAME, dev_name(&phydev->mdio.dev)) ||
--	    nla_put_u32(skb, ETHTOOL_A_PHY_UPSTREAM_TYPE, ptype))
--		return -EMSGSIZE;
-+	pdn = xa_load(&topo->phys, phydev->phyindex);
-+	if (!pdn)
-+		return -EOPNOTSUPP;
- 
--	if (phydev->drv &&
--	    nla_put_string(skb, ETHTOOL_A_PHY_DRVNAME, phydev->drv->name))
--		return -EMSGSIZE;
-+	rep_data->phyindex = phydev->phyindex;
-+	rep_data->name = kstrdup(dev_name(&phydev->mdio.dev), GFP_KERNEL);
-+	rep_data->drvname = kstrdup(phydev->drv->name, GFP_KERNEL);
-+	rep_data->upstream_type = pdn->upstream_type;
- 
--	if (ptype == PHY_UPSTREAM_PHY) {
-+	if (pdn->upstream_type == PHY_UPSTREAM_PHY) {
- 		struct phy_device *upstream = pdn->upstream.phydev;
--		const char *sfp_upstream_name;
--
--		/* Parent index */
--		if (nla_put_u32(skb, ETHTOOL_A_PHY_UPSTREAM_INDEX, upstream->phyindex))
--			return -EMSGSIZE;
--
--		if (pdn->parent_sfp_bus) {
--			sfp_upstream_name = sfp_get_name(pdn->parent_sfp_bus);
--			if (sfp_upstream_name &&
--			    nla_put_string(skb, ETHTOOL_A_PHY_UPSTREAM_SFP_NAME,
--					   sfp_upstream_name))
--				return -EMSGSIZE;
--		}
--	}
--
--	if (phydev->sfp_bus) {
--		const char *sfp_name = sfp_get_name(phydev->sfp_bus);
--
--		if (sfp_name &&
--		    nla_put_string(skb, ETHTOOL_A_PHY_DOWNSTREAM_SFP_NAME,
--				   sfp_name))
--			return -EMSGSIZE;
-+		rep_data->upstream_index = upstream->phyindex;
- 	}
- 
--	return 0;
--}
--
--static int ethnl_phy_parse_request(struct ethnl_req_info *req_base,
--				   struct nlattr **tb,
--				   struct netlink_ext_ack *extack)
--{
--	struct phy_link_topology *topo = req_base->dev->link_topo;
--	struct phy_req_info *req_info = PHY_REQINFO(req_base);
--	struct phy_device *phydev;
-+	if (pdn->parent_sfp_bus)
-+		rep_data->upstream_sfp_name = kstrdup(sfp_get_name(pdn->parent_sfp_bus),
-+						      GFP_KERNEL);
- 
--	phydev = ethnl_req_get_phydev(req_base, tb, ETHTOOL_A_PHY_HEADER,
--				      extack);
--	if (!phydev)
--		return 0;
--
--	if (IS_ERR(phydev))
--		return PTR_ERR(phydev);
--
--	if (!topo)
--		return 0;
--
--	req_info->pdn = xa_load(&topo->phys, phydev->phyindex);
-+	if (phydev->sfp_bus)
-+		rep_data->downstream_sfp_name = kstrdup(sfp_get_name(phydev->sfp_bus),
-+							GFP_KERNEL);
- 
- 	return 0;
- }
- 
--int ethnl_phy_doit(struct sk_buff *skb, struct genl_info *info)
-+static int phy_fill_reply(struct sk_buff *skb,
-+			  const struct ethnl_req_info *req_info,
-+			  const struct ethnl_reply_data *reply_data)
- {
--	struct phy_req_info req_info = {};
--	struct nlattr **tb = info->attrs;
--	struct sk_buff *rskb;
--	void *reply_payload;
--	int reply_len;
--	int ret;
--
--	ret = ethnl_parse_header_dev_get(&req_info.base,
--					 tb[ETHTOOL_A_PHY_HEADER],
--					 genl_info_net(info), info->extack,
--					 true);
--	if (ret < 0)
--		return ret;
--
--	rtnl_lock();
--	netdev_lock_ops(req_info.base.dev);
--
--	ret = ethnl_phy_parse_request(&req_info.base, tb, info->extack);
--	if (ret < 0)
--		goto err_unlock;
--
--	/* No PHY, return early */
--	if (!req_info.pdn)
--		goto err_unlock;
--
--	ret = ethnl_phy_reply_size(&req_info.base, info->extack);
--	if (ret < 0)
--		goto err_unlock;
--	reply_len = ret + ethnl_reply_header_size();
--
--	rskb = ethnl_reply_init(reply_len, req_info.base.dev,
--				ETHTOOL_MSG_PHY_GET_REPLY,
--				ETHTOOL_A_PHY_HEADER,
--				info, &reply_payload);
--	if (!rskb) {
--		ret = -ENOMEM;
--		goto err_unlock;
--	}
--
--	ret = ethnl_phy_fill_reply(&req_info.base, rskb);
--	if (ret)
--		goto err_free_msg;
-+	struct phy_reply_data *rep_data = PHY_REPDATA(reply_data);
- 
--	netdev_unlock_ops(req_info.base.dev);
--	rtnl_unlock();
--	ethnl_parse_header_dev_put(&req_info.base);
--	genlmsg_end(rskb, reply_payload);
--
--	return genlmsg_reply(rskb, info);
--
--err_free_msg:
--	nlmsg_free(rskb);
--err_unlock:
--	netdev_unlock_ops(req_info.base.dev);
--	rtnl_unlock();
--	ethnl_parse_header_dev_put(&req_info.base);
--	return ret;
--}
--
--struct ethnl_phy_dump_ctx {
--	struct phy_req_info	*phy_req_info;
--	unsigned long ifindex;
--	unsigned long phy_index;
--};
--
--int ethnl_phy_start(struct netlink_callback *cb)
--{
--	const struct genl_info *info = genl_info_dump(cb);
--	struct ethnl_phy_dump_ctx *ctx = (void *)cb->ctx;
--	int ret;
--
--	BUILD_BUG_ON(sizeof(*ctx) > sizeof(cb->ctx));
--
--	ctx->phy_req_info = kzalloc(sizeof(*ctx->phy_req_info), GFP_KERNEL);
--	if (!ctx->phy_req_info)
--		return -ENOMEM;
--
--	ret = ethnl_parse_header_dev_get(&ctx->phy_req_info->base,
--					 info->attrs[ETHTOOL_A_PHY_HEADER],
--					 sock_net(cb->skb->sk), cb->extack,
--					 false);
--	ctx->ifindex = 0;
--	ctx->phy_index = 0;
--
--	if (ret)
--		kfree(ctx->phy_req_info);
-+	if (nla_put_u32(skb, ETHTOOL_A_PHY_INDEX, rep_data->phyindex) ||
-+	    nla_put_string(skb, ETHTOOL_A_PHY_NAME, rep_data->name) ||
-+	    nla_put_u32(skb, ETHTOOL_A_PHY_UPSTREAM_TYPE, rep_data->upstream_type))
-+		return -EMSGSIZE;
- 
--	return ret;
--}
-+	if (rep_data->drvname &&
-+	    nla_put_string(skb, ETHTOOL_A_PHY_DRVNAME, rep_data->drvname))
-+		return -EMSGSIZE;
- 
--int ethnl_phy_done(struct netlink_callback *cb)
--{
--	struct ethnl_phy_dump_ctx *ctx = (void *)cb->ctx;
-+	if (rep_data->upstream_index &&
-+	    nla_put_u32(skb, ETHTOOL_A_PHY_UPSTREAM_INDEX,
-+			rep_data->upstream_index))
-+		return -EMSGSIZE;
- 
--	if (ctx->phy_req_info->base.dev)
--		ethnl_parse_header_dev_put(&ctx->phy_req_info->base);
-+	if (rep_data->upstream_sfp_name &&
-+	    nla_put_string(skb, ETHTOOL_A_PHY_UPSTREAM_SFP_NAME,
-+			   rep_data->upstream_sfp_name))
-+		return -EMSGSIZE;
- 
--	kfree(ctx->phy_req_info);
-+	if (rep_data->downstream_sfp_name &&
-+	    nla_put_string(skb, ETHTOOL_A_PHY_DOWNSTREAM_SFP_NAME,
-+			   rep_data->downstream_sfp_name))
-+		return -EMSGSIZE;
- 
- 	return 0;
- }
- 
--static int ethnl_phy_dump_one_dev(struct sk_buff *skb, struct net_device *dev,
--				  struct netlink_callback *cb)
-+static void phy_cleanup_data(struct ethnl_reply_data *reply_data)
- {
--	struct ethnl_phy_dump_ctx *ctx = (void *)cb->ctx;
--	struct phy_req_info *pri = ctx->phy_req_info;
--	struct phy_device_node *pdn;
--	int ret = 0;
--	void *ehdr;
--
--	if (!dev->link_topo)
--		return 0;
--
--	xa_for_each_start(&dev->link_topo->phys, ctx->phy_index, pdn, ctx->phy_index) {
--		ehdr = ethnl_dump_put(skb, cb, ETHTOOL_MSG_PHY_GET_REPLY);
--		if (!ehdr) {
--			ret = -EMSGSIZE;
--			break;
--		}
--
--		ret = ethnl_fill_reply_header(skb, dev, ETHTOOL_A_PHY_HEADER);
--		if (ret < 0) {
--			genlmsg_cancel(skb, ehdr);
--			break;
--		}
--
--		pri->pdn = pdn;
--		ret = ethnl_phy_fill_reply(&pri->base, skb);
--		if (ret < 0) {
--			genlmsg_cancel(skb, ehdr);
--			break;
--		}
--
--		genlmsg_end(skb, ehdr);
--	}
-+	struct phy_reply_data *rep_data = PHY_REPDATA(reply_data);
- 
--	return ret;
-+	kfree(rep_data->drvname);
-+	kfree(rep_data->name);
-+	kfree(rep_data->upstream_sfp_name);
-+	kfree(rep_data->downstream_sfp_name);
- }
- 
--int ethnl_phy_dumpit(struct sk_buff *skb, struct netlink_callback *cb)
--{
--	struct ethnl_phy_dump_ctx *ctx = (void *)cb->ctx;
--	struct net *net = sock_net(skb->sk);
--	struct net_device *dev;
--	int ret = 0;
--
--	rtnl_lock();
--
--	if (ctx->phy_req_info->base.dev) {
--		dev = ctx->phy_req_info->base.dev;
--		netdev_lock_ops(dev);
--		ret = ethnl_phy_dump_one_dev(skb, dev, cb);
--		netdev_unlock_ops(dev);
--	} else {
--		for_each_netdev_dump(net, dev, ctx->ifindex) {
--			netdev_lock_ops(dev);
--			ret = ethnl_phy_dump_one_dev(skb, dev, cb);
--			netdev_unlock_ops(dev);
--			if (ret)
--				break;
--
--			ctx->phy_index = 0;
--		}
--	}
--	rtnl_unlock();
--
--	return ret;
--}
-+const struct ethnl_request_ops ethnl_phy_request_ops = {
-+	.request_cmd		= ETHTOOL_MSG_PHY_GET,
-+	.reply_cmd		= ETHTOOL_MSG_PHY_GET_REPLY,
-+	.hdr_attr		= ETHTOOL_A_PHY_HEADER,
-+	.req_info_size		= sizeof(struct phy_req_info),
-+	.reply_data_size	= sizeof(struct phy_reply_data),
-+
-+	.prepare_data		= phy_prepare_data,
-+	.reply_size		= phy_reply_size,
-+	.fill_reply		= phy_fill_reply,
-+	.cleanup_data		= phy_cleanup_data,
-+};
--- 
-2.49.0
-
+PiBGcm9tOiBSb2IgSGVycmluZyA8cm9iaEBrZXJuZWwub3JnPg0KPiBTZW50OiBNb25kYXksIEFw
+cmlsIDE0LCAyMDI1IDQ6MjIgUE0NCj4gVG86IFN6Y3plcGFuZWssIEJhcnRvc3oNCj4NCj4gT24g
+TW9uLCBBcHIgMTQsIDIwMjUgYXQgMzozM+KAr0FNIEJhcnRvc3ogU3pjemVwYW5layA8YnN6QGFt
+YXpvbi5kZT4gd3JvdGU6DQo+ID4NCj4gPiBBcyBhIHBhcnQgb2YgcGxhdGZvcm0gYm9vdCwgZGV2
+aWNlIHRyZWUgaXMgYmVpbmcgcmVhZCB0byBleHRyYWN0DQo+ID4gcmFuZG9ubWVzcyBiaXRzLiBU
+aGUgJ3JuZy1zZWVkJyBwcm9wZXJ0eSBpcyB1c2VkIGZvciB0aGF0IHB1cnBvc2UuDQo+ID4gQWZ0
+ZXIgcmVhZGluZyB0aGUgdmFsdWUsIHRoZSBmaWVsZCB3YXMgb3ZlcnJpZGRlbiB3aXRoIE5PUCBp
+bnN0ZWFkIG9mDQo+ID4gYmVpbmcgZGVsZXRlZCBvciB6ZXJvZWQuIFRoZSBwcm9ibGVtIGlzIHRo
+YXQgTk9QZWQgZmllbGRzIGFyZSBsYXRlciBub3QNCj4gPiByZXVzZWQsIGFuZCBrZXhlYyBjb2Rl
+IGFwcGVuZGVkIHRoaXMgcHJvcGVydHkgZXZlcnkgdGltZSBEVEIgaXMgcHJlcGFyZWQ6DQo+ID4N
+Cj4gPsKgwqAgLyogYWRkIHJuZy1zZWVkICovDQo+ID7CoMKgIGlmIChybmdfaXNfaW5pdGlhbGl6
+ZWQoKSkgew0KPiA+wqDCoMKgwqDCoMKgwqDCoMKgwqAgdm9pZCAqcm5nX3NlZWQ7DQo+ID7CoMKg
+wqDCoMKgwqDCoMKgwqDCoCByZXQgPSBmZHRfc2V0cHJvcF9wbGFjZWhvbGRlcihkdGIsIG9mZiwg
+RkRUX1BST1BfUk5HX1NFRUQsDQo+ID7CoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgIFJOR19TRUVEX1NJWkUsICZybmdfc2VlZCk7DQo+ID7CoMKgwqDC
+oMKgwqDCoMKgwqDCoCBpZiAocmV0KQ0KPiA+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgIGdvdG8gb3V0Ow0KPiA+wqDCoMKgwqDCoMKgwqDCoMKgwqAgZ2V0X3JhbmRvbV9ieXRl
+cyhybmdfc2VlZCwgUk5HX1NFRURfU0laRSk7DQo+ID7CoMKgIH0NCj4gPiAoc291cmNlOiBhcmNo
+L2FybTY0L2tlcm5lbC9tYWNoaW5lX2tleGVjX2ZpbGUuYykNCj4gPg0KPiA+IFRha2VuIHRvZ2V0
+aGVyLCBEVEIgZ3JldyBhdCBlYWNoIGtleGVjIGJ5IDE0MCBieXRlcyBpZS4gc2l6ZSBvZiB0aGUN
+Cj4gPiBuZXdseSBhZGRlZCAoYW5kIG5vdCBvdmVyd3JpdHRlbikgcm5nLXNlZWQgcHJvcGVydHku
+IEFSTTY0IHNldHMgYSBoYXJkDQo+ID4gbGltaXQgb24gRkRUIHNpemUgYXQgMk1CLCB3aGljaCBt
+ZWFucyB0aGF0IGFmdGVyIGF0IG1vc3QgMTQsOTc5IGtleGVjcw0KPiA+IERUQiBleGNlZWRlZCB0
+aGUgbGltaXQgY2F1c2luZyBjYXRhc3Ryb3BoaWMgKGJ1dCBzaWxlbnQpIGZhaWx1cmUgaW4NCj4g
+PiBzZXR1cF9tYWNoaW5lX2ZkdCgpLg0KPg0KPiBKdXN0IGxpa2UgMk1CIHNob3VsZCBiZSBlbm91
+Z2ggZm9yIGFueW9uZSwgMTQ5Nzkga2V4ZWNzIHNob3VsZCBiZSBlbm91Z2guIDspDQoNCkknbSBh
+Y3R1YWxseSBnbGFkIGl0IHdhc24ndCBtb3JlIHRoYW4gdGhhdCwgSSdtIGFmcmFpZCBpZiBpdCB3
+ZXJlIDE0OTc5MCBJIHdvdWxkDQpiZSBzdGlsbCBzY3JhdGNoaW5nIG15IGhlYWQgYWJvdXQgdGhl
+IG9jY2FzaW9uYWwgY3Jhc2hlcyBvdXQgb2Ygbm93aGVyZSAoOg0KDQo+DQo+DQo+ID4gVGhpcyBj
+b21taXRzIGFkZHJlc3NlcyB0aGUgaXNzdWUgYXMgZm9sbG93czoNCj4gPsKgIDEuIENhbGwgdG8g
+ZmR0X25vcF9wcm9wZXJ0eSBpcyByZXBsYWNlZCB3aXRoIG92ZXJ3cml0aW5nIHRoZSBybmctc2Vl
+ZA0KPiA+wqDCoMKgwqAgdmFsdWUgd2l0aCB6ZXJvcy4NCj4gPsKgIDIuIFplcm9lZCBybmctc2Vl
+ZCBnZXRzIHNwZWNpYWwgdHJlYXRtZW50IGFuZCBpcyBub3QgYWNjZXB0ZWQgYXMgdmFsaWQNCj4g
+PsKgwqDCoMKgIHNlZWQuIFdhcm5pbmcgaXMgZW1pdHRlZCBvbiB6ZXJvZWQgdmFsdWUuDQo+DQo+
+IEhvdyBkbyB5b3UgZ2V0IGEgemVyb2VkIHNlZWQgaWYgeW91IGRlbGV0ZSB0aGUgcHJvcGVydHkg
+d2hlbiB6ZXJvZWQ/DQo+IFN1cmUsIGFueSByYW5kb20gYm9vdGxvYWRlciBjb3VsZCBkbyB0aGF0
+LCBidXQgdGhhdCBoYXMgbm90aGluZyB0byBkbw0KPiB3aXRoIGtleGVjLiBBbmQgZG9lcyBpdCBy
+ZWFsbHkgaHVydCB0byBhZGQgMHMgdG8gdGhlIHJhbmRvbSBwb29sPyBBDQo+IHdhcm5pbmcgaXMg
+ZmluZS4gSW4gYW55IGNhc2UsIG5vbmUgb2YgdGhpcyBpcyBzcGVjaWZpYyB0byBEVCBzZWVkcy4g
+SXQNCj4gYWxsIGJlbG9uZ3MgaW4gdGhlIGNvcmUgaWYgaXQgaXMgYSBwcm9ibGVtLg0KDQpZb3Un
+cmUgcmlnaHQgdGhhdCB6ZXJvZWQgcHJvcGVydHkgc2hvdWxkIG5ldmVyIGdldCB0byBlYXJseV9p
+bml0X2R0X3NjYW5fY2hvc2VuLg0KSWYgdGhlIG91dGdvaW5nIGtlcm5lbCBjYW4ndCBnaXZlIHVz
+IHJhbmRvbW5lc3MsIGl0IHJlbW92ZXMgdGhlIHByZXZpb3VzbHkNCnplcm9lZCAicm5nLXNlZWQi
+LiBTbyBpdCdzIGFuIGV4dHJhIGNoZWNrIGFuZCB3ZSBjb3VsZCBwZXJoYXBzIGRvIHdpdGhvdXQg
+aXQuDQoNCkFzIGZvciB3aGV0aGVyIGl0IGh1cnRzIHRvIGFkZCB6ZXJvcyB0byByYW5kb20gcG9v
+bCwgSSBhY3R1YWxseSB3YW50ZWQgdG8gYXZvaWQNCmFueSBkb3VidHMgYWJvdXQgc2VjdXJpdHkg
+YnkgaGFuZGxpbmcgdGhhdCBjYXNlIGV4cGxpY2l0bHkuIFdlIGNhbiBtYWtlIGl0IGENCm1lcmUg
+d2FybmluZyBpZiB5b3UgbGlrZSBidXQgSSB0aG91Z2h0IHRoYXQgaWxsdXNpb24gb2YgcmFuZG9t
+bmVzcyBpcyB3b3JzZQ0KdGhhbiBsYWNrIG9mIHJhbmRvbW5lc3MgZnJvbSBhIHNlY3VyaXR5IHN0
+YW5kcG9pbnQuIElmIHdlIGJhaWwgb3V0IG9uIHplcm9zLA0Kd2UgYXJlIHN1cmUgdGhhdCB1bmRl
+ciBubyBjaXJjdW1zdGFuY2VzIHdlIGdldCBtaXNndWlkZWQgYnkgInJuZy1zZWVkIiB0aGF0IGlz
+DQp0aGVyZSBidXQgZG9lc24ndCBicmluZyB1cyBhY3R1YWwgZW50cm9weS4NCg0KPg0KPiA+wqAg
+My4gS2V4ZWNfZmlsZSBjb2RlIGlzIG1vZGlmaWVkIHRvIGRlbGV0ZSB0aGUgemVyb2VkIHByb3Bl
+cnR5IGlmIGl0DQo+ID7CoMKgwqDCoCBjYW4ndCBmaWxsIGl0IHdpdGggdmFsaWQgc2VlZC4NCj4g
+PsKgIDQuIFByb3BlciBlcnJvciBoYW5kbGluZyBpcyBhZGRlZCBmb3IgdGhlIGNhc2Ugd2hlbiBE
+VEIgZXhjZWVkcyAyTUIuDQo+ID4NCj4gPiBUaGUgY2hhbmdlIHdhcyB0ZXN0ZWQgaW4gUUVNVSBh
+cm02NCBlbnZpcm9ubWVudC4gVG8gZG8gc28sIGtlcm5lbA0KPiA+IGNvbnRhaW5pbmcgdGhlIGNo
+YW5nZSB3YXMgYnVpbHQgYW5kIGluY2x1ZGVkIGluIGJ1aWxkcm9vdCBpbml0cmFtZnMuDQo+ID4g
+U3Vic2VxdWVudGx5LCBrZXJuZWwgd2FzIHN0YXJ0ZWQgaW4gUUVNVS4gVXNpbmcga2V4ZWNfZmls
+ZSwgbmV3IGtlcm5lbA0KPiA+IHdhcyBsb2FkZWQgYW5kIGtleGVjIHJlYm9vdCB3YXMgaXNzdWVk
+LiBEVEIgc2l6ZSB3YXMgbm90ZWQgaW4gdGhpcyBzdGVwLg0KPiA+IEFmdGVyIG5ldyBrZXJuZWwg
+aGFzIGJvb3RlZCwgYW5vdGhlciBrZXhlY19maWxlIHdhcyBpc3N1ZWQuIERUQiBzaXplDQo+ID4g
+d2FzIGNvbmZpcm1lZCBub3QgdG8gY2hhbmdlLg0KPiA+DQo+ID4gU2lnbmVkLW9mZi1ieTogQmFy
+dG9zeiBTemN6ZXBhbmVrIDxic3pAYW1hem9uLmRlPg0KPiA+IC0tLQ0KPiA+wqAgYXJjaC9hcm02
+NC9rZXJuZWwvbWFjaGluZV9rZXhlY19maWxlLmMgfMKgIDUgKysrKysNCj4gPsKgIGRyaXZlcnMv
+b2YvZmR0LmPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8IDE4
+ICsrKysrKysrKysrKysrKy0tLQ0KPiA+wqAgZHJpdmVycy9vZi9rZXhlYy5jwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8IDEyICsrKysrKysrKysrLQ0KPiA+wqAgMyBm
+aWxlcyBjaGFuZ2VkLCAzMSBpbnNlcnRpb25zKCspLCA0IGRlbGV0aW9ucygtKQ0KPiA+DQo+ID4g
+ZGlmZiAtLWdpdCBhL2FyY2gvYXJtNjQva2VybmVsL21hY2hpbmVfa2V4ZWNfZmlsZS5jIGIvYXJj
+aC9hcm02NC9rZXJuZWwvbWFjaGluZV9rZXhlY19maWxlLmMNCj4gPiBpbmRleCBhZjFjYTg3NWM1
+MmMuLmFmMGUzOWY2Yzk2ZCAxMDA2NDQNCj4gPiAtLS0gYS9hcmNoL2FybTY0L2tlcm5lbC9tYWNo
+aW5lX2tleGVjX2ZpbGUuYw0KPiA+ICsrKyBiL2FyY2gvYXJtNjQva2VybmVsL21hY2hpbmVfa2V4
+ZWNfZmlsZS5jDQo+ID4gQEAgLTE3MCw2ICsxNzAsMTEgQEAgaW50IGxvYWRfb3RoZXJfc2VnbWVu
+dHMoc3RydWN0IGtpbWFnZSAqaW1hZ2UsDQo+ID7CoMKgwqDCoMKgwqDCoMKgIC8qIHRyaW0gaXQg
+Ki8NCj4gPsKgwqDCoMKgwqDCoMKgwqAgZmR0X3BhY2soZHRiKTsNCj4gPsKgwqDCoMKgwqDCoMKg
+wqAgZHRiX2xlbiA9IGZkdF90b3RhbHNpemUoZHRiKTsNCj4gPiArwqDCoMKgwqDCoMKgIGlmIChk
+dGJfbGVuID4gTUFYX0ZEVF9TSVpFKSB7DQo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqAgcHJfZXJyKCJEVEIgZXhjZWVkcyB0aGUgbWF4aW11bSBzaXplOiAweCVseCA+IDB4JXgiLCBk
+dGJfbGVuLCBNQVhfRkRUX1NJWkUpOw0KPg0KPiBZb3UgY2FuJ3QgY2hlY2sgcmVzdHJpY3Rpb25z
+IG9mIHRoZSBrZXhlYydlZCBrZXJuZWwgaW4gdGhlIGN1cnJlbnQNCj4ga2VybmVsLiBUaGF0IHJl
+c3RyaWN0aW9uIGNvdWxkIGJlIHJlbW92ZWQgYXQgYW55IHBvaW50IGFuZCBtaWdodCBub3QNCj4g
+YmUgYSBwcm9ibGVtIGZvciB0aGUga2V4ZWMnZWQga2VybmVsLg0KDQpGYWlyIHBvaW50Lg0KDQpX
+aGF0IHdvdWxkIHlvdSBzYXkgdGhlbiBmb3IgbWFraW5nIGl0IGEgd2FybmluZz8gVGhhdCBjb3Vs
+ZCBiZSBhIG1pZGRsZSBncm91bmQNCnRoYXQgd291bGQgMSkgYWxsb3cgdXMgdG8ga2V4ZWMgaW50
+byBtb3JlIGNhcGFibGUga2VybmVsIHdpdGhvdXQgcmVzdHJpY3Rpb24sDQpidXQgYWxzbyAyKSBo
+ZWxwIGF2b2lkIGxlbmd0aHkgaW52ZXN0aWdhdGlvbnMgYWJvdXQgZWFybHlfaW5pdF9kdF9zY2Fu
+X2Nob3Nlbg0KZmFpbHVyZXMuIEtlZXAgaW4gbWluZCB0aGF0IHRoZSBmdW5jdGlvbiBpcyBzbyBl
+YXJseSB0aGF0IGVhcmx5IGNvbnNvbGVzIGFyZQ0Kbm90IHBsdWdnZWQgaW4sIHNvIGZyb20gcmVh
+ZGVyIHBlcnNwZWN0aXZlIGl0J3MgIkJ5ZSEiIGZyb20gdGhlIG91dGdvaW5nIGtlcm5lbA0KZm9s
+bG93ZWQgYnkgZXRlcm5hbCBzaWxlbmNlLg0KDQo+DQo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqAgZ290byBvdXRfZXJyOw0KPiA+ICvCoMKgwqDCoMKgwqAgfQ0KPiA+ICvCoMKgwqDC
+oMKgwqAgcHJfaW5mbygiRFRCIHN1Y2Nlc3NmdWxseSBjcmVhdGVkIGF0IDB4JWx4IChsZW5ndGgg
+MHglbHgpIiwgKHVuc2lnbmVkIGxvbmcpZHRiLCBkdGJfbGVuKTsNCj4gPsKgwqDCoMKgwqDCoMKg
+wqAga2J1Zi5idWZmZXIgPSBkdGI7DQo+ID7CoMKgwqDCoMKgwqDCoMKgIGtidWYuYnVmc3ogPSBk
+dGJfbGVuOw0KPiA+wqDCoMKgwqDCoMKgwqDCoCBrYnVmLm1lbSA9IEtFWEVDX0JVRl9NRU1fVU5L
+Tk9XTjsNCj4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9vZi9mZHQuYyBiL2RyaXZlcnMvb2YvZmR0
+LmMNCj4gPiBpbmRleCBhZWRkMGUyZGNkODkuLjhjMjg5NWNlZTY4MiAxMDA2NDQNCj4gPiAtLS0g
+YS9kcml2ZXJzL29mL2ZkdC5jDQo+ID4gKysrIGIvZHJpdmVycy9vZi9mZHQuYw0KPiA+IEBAIC0x
+MDE5LDYgKzEwMTksMTggQEAgaW50IF9faW5pdCBlYXJseV9pbml0X2R0X3NjYW5fbWVtb3J5KHZv
+aWQpDQo+ID7CoMKgwqDCoMKgwqDCoMKgIHJldHVybiBmb3VuZF9tZW1vcnk7DQo+ID7CoCB9DQo+
+ID4NCj4gPiArc3RhdGljIGludCBjaGVja19yYW5kb21uZXNzX25vbnplcm8oY29uc3QgdWludDhf
+dCAqcm5nX3NlZWQsIGludCBsZW4pDQoNClNlbGYtcmV2aWV3IGJpdDogaXQgbmVlZHMgdG8gYmUg
+Ym9vbC4gSSdsbCBwb3N0IGEgdjIgb25jZSB3ZSBoYXZlIGEgY29tbW9uDQp2aWV3cG9pbnQgb24g
+dGhlIG1hdHRlcnMgYWJvdmUuDQoNCktpbmQgcmVnYXJkcywNCkJhcnRvc3oNCg0KPiA+ICt7DQo+
+ID4gK8KgwqDCoMKgwqDCoCBpbnQgaTsNCj4gPiArDQo+ID4gK8KgwqDCoMKgwqDCoCBmb3IgKGkg
+PSAwOyBpIDwgbGVuOyBpKyspDQo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgaWYg
+KHJuZ19zZWVkW2ldICE9IDApDQo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgIHJldHVybiB0cnVlOw0KPiA+ICsNCj4gPiArwqDCoMKgwqDCoMKgIHByX3dh
+cm4oIlByb3ZpZGVkIHJuZy1zZWVkIHZhbHVlIGlzIGFsbCB6ZXJvcyEiKTsNCj4gPiArwqDCoMKg
+wqDCoMKgIHJldHVybiBmYWxzZTsNCj4gPiArfQ0KPiA+ICsNCj4gPsKgIGludCBfX2luaXQgZWFy
+bHlfaW5pdF9kdF9zY2FuX2Nob3NlbihjaGFyICpjbWRsaW5lKQ0KPiA+wqAgew0KPiA+wqDCoMKg
+wqDCoMKgwqDCoCBpbnQgbCwgbm9kZTsNCj4gPiBAQCAtMTAzOSwxMSArMTA1MSwxMSBAQCBpbnQg
+X19pbml0IGVhcmx5X2luaXRfZHRfc2Nhbl9jaG9zZW4oY2hhciAqY21kbGluZSkNCj4gPsKgwqDC
+oMKgwqDCoMKgwqAgZWFybHlfaW5pdF9kdF9jaGVja19mb3JfZWxmY29yZWhkcihub2RlKTsNCj4g
+Pg0KPiA+wqDCoMKgwqDCoMKgwqDCoCBybmdfc2VlZCA9IG9mX2dldF9mbGF0X2R0X3Byb3Aobm9k
+ZSwgInJuZy1zZWVkIiwgJmwpOw0KPiA+IC3CoMKgwqDCoMKgwqAgaWYgKHJuZ19zZWVkICYmIGwg
+PiAwKSB7DQo+ID4gK8KgwqDCoMKgwqDCoCBpZiAocm5nX3NlZWQgJiYgbCA+IDAgJiYgY2hlY2tf
+cmFuZG9tbmVzc19ub256ZXJvKHJuZ19zZWVkLCBsKSkgew0KPiA+wqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqAgYWRkX2Jvb3Rsb2FkZXJfcmFuZG9tbmVzcyhybmdfc2VlZCwgbCk7DQo+
+ID4NCj4gPiAtwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAvKiB0cnkgdG8gY2xlYXIgc2Vl
+ZCBzbyBpdCB3b24ndCBiZSBmb3VuZC4gKi8NCj4gPiAtwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoCBmZHRfbm9wX3Byb3BlcnR5KGluaXRpYWxfYm9vdF9wYXJhbXMsIG5vZGUsICJybmctc2Vl
+ZCIpOw0KPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIC8qIFplcm8gb3V0IHRoZSBy
+bmctc2VlZCBwcm9wZXJ0eSAqLw0KPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIG1l
+bXNldCgodm9pZCAqKXJuZ19zZWVkLCAwLCBsKTsNCj4gPg0KPiA+wqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqAgLyogdXBkYXRlIENSQyBjaGVjayB2YWx1ZSAqLw0KPiA+wqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgb2ZfZmR0X2NyYzMyID0gY3JjMzJfYmUofjAsIGluaXRp
+YWxfYm9vdF9wYXJhbXMsDQo+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvb2Yva2V4ZWMuYyBiL2Ry
+aXZlcnMvb2Yva2V4ZWMuYw0KPiA+IGluZGV4IDViOTI0NTk3YTRkZS4uZjViZmJhYzc3YTY2IDEw
+MDY0NA0KPiA+IC0tLSBhL2RyaXZlcnMvb2Yva2V4ZWMuYw0KPiA+ICsrKyBiL2RyaXZlcnMvb2Yv
+a2V4ZWMuYw0KPiA+IEBAIC00NTMsOCArNDUzLDE4IEBAIHZvaWQgKm9mX2tleGVjX2FsbG9jX2Fu
+ZF9zZXR1cF9mZHQoY29uc3Qgc3RydWN0IGtpbWFnZSAqaW1hZ2UsDQo+ID7CoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgZ290byBvdXQ7DQo+ID7CoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBnZXRfcmFuZG9tX2J5dGVzKHJuZ19zZWVkLCBSTkdf
+U0VFRF9TSVpFKTsNCj4gPsKgwqDCoMKgwqDCoMKgwqAgfSBlbHNlIHsNCj4gPiAtwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoCBwcl9ub3RpY2UoIlJORyBpcyBub3QgaW5pdGlhbGlzZWQ6IG9t
+aXR0aW5nIFwiJXNcIiBwcm9wZXJ0eVxuIiwNCj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoCBwcl9ub3RpY2UoIlJORyBpcyBub3QgaW5pdGlhbGlzZWQ6IGRlbGV0aW5nIFwiJXNcIiBw
+cm9wZXJ0eVxuIiwNCj4gPsKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqAgInJuZy1zZWVkIik7DQo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqAgLyoNCj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgICogVGhlIHJuZy1zZWVk
+IHByb3BlcnR5IG1heSBleGlzdCBhcyB6ZXJvZWQgc3R1Yi4gSWYgc28sDQo+ID4gK8KgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAqIHJlbW92ZSBpdCB0byBub3QgY29uZnVzZSB0aGUgaW5j
+b21pbmcga2VybmVsLg0KPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgKi8NCj4g
+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCByZXQgPSBmZHRfZGVscHJvcChmZHQsIGNo
+b3Nlbl9ub2RlLCAicm5nLXNlZWQiKTsNCj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oCBpZiAocmV0ID09IC1GRFRfRVJSX05PVEZPVU5EKQ0KPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAvKiBJdCdzIGZpbmUgKi8NCj4gPiArwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgcmV0ID0gMDsNCj4gPiArwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBlbHNlIGlmIChyZXQpDQo+ID4gK8KgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGdvdG8gb3V0Ow0KPiA+wqDCoMKgwqDCoMKg
+wqDCoCB9DQo+ID4NCj4gPsKgwqDCoMKgwqDCoMKgwqAgcmV0ID0gZmR0X3NldHByb3AoZmR0LCBj
+aG9zZW5fbm9kZSwgImxpbnV4LGJvb3RlZC1mcm9tLWtleGVjIiwgTlVMTCwgMCk7DQo+ID4gLS0N
+Cj4gPiAyLjQ3LjENCj4gPg0KPg==
 
