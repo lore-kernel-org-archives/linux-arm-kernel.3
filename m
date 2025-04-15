@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 743FEC369B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 08:25:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 337B3C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 08:28:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=q0dIPshsaA/dFIEd9k7I6rbRmEbIoDubphxdguOOa8U=; b=Z4s2Ahrluc31WggGEXilW/aMPy
-	nPLDutapqEWaJ4zQiB7wNxh/OjZzRfC8BpFpIV7rJWpfPxeieo9wxWRSf45VxDbsTLwJ07B5uDJ8y
-	o8UUTTr1M1pjV6lkE9VmWa7hjkpcdW2tpT5dxwC/1ns/OK8FOODK9wksijeO77unsWvlFhVOVixi9
-	6oFl6ynP6vkwjq1th2FC2aPtH+pzhfASpX1hoXeFDqrDwb+ci86/QM/AhrtI+mA84G/WU9MIuVw3W
-	BDCSORMwN74VFw3oRWAfhscjalUf96A5cZxE20g1D4xKLxQRF1ER704qOWJYmsEutn+oqwSleGseb
-	FJD/H9Ew==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s1pdI+qWLMdWvmOJhkNxJK7/x/XjeO8jfm8Kt43rM84=; b=OoVFrvcLXrGLuhN/qfHKwkqoc5
+	V7gVTOc+GWvwwR58pEmb8/wAkwwZ/WW/fuCmk1gFn3gvfpmhrlTRYyLqXqlwiI7CW74cOLU5zc5Qp
+	R0fBtsIKyAD6f8X3c2oM8JWXIz2m+eGxxQEQhaBKPo/xL9lLXe6r75Dcu6uQUGXWhRdL/b2IxClmF
+	EDly/ax51mmkuQPhyBIBVG/QXtHLnZRgm8pDChNVMKS8lEMd3CQebmv/SPvBVoQMXKjmwSCCDto1I
+	V3czyMo0s3ah8BZ7KbEYaBKbLciqT9hWdlP8plAbnjCUEzT3K4zMD/Im4LKkH4SN0GkpGkW7P1QnY
+	wrCMkJLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4bbg-00000004z2s-21eO;
-	Tue, 15 Apr 2025 08:25:24 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4bPR-00000004wei-3571;
-	Tue, 15 Apr 2025 08:12:47 +0000
-Received: from localhost (unknown [124.16.138.129])
-	by APP-05 (Coremail) with SMTP id zQCowAAnYgr1FP5nL84SCQ--.28067S2;
-	Tue, 15 Apr 2025 16:12:37 +0800 (CST)
-From: Chen Ni <nichen@iscas.ac.cn>
-To: vkoul@kernel.org,
-	kishon@kernel.org,
-	heiko@sntech.de
-Cc: linux-phy@lists.infradead.org,
+	id 1u4beK-00000004zlz-37wA;
+	Tue, 15 Apr 2025 08:28:08 +0000
+Received: from m16.mail.163.com ([220.197.31.4])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u4bZ4-00000004yN9-1paK
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 15 Apr 2025 08:22:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-Id:MIME-Version; bh=s1pdI
+	+qWLMdWvmOJhkNxJK7/x/XjeO8jfm8Kt43rM84=; b=I8GZSVT1d//0q4O5ajzNv
+	kSUx7iQH51Fo1rpim/DDXykkH7hOb+qG7abm7fWerL1p/QgDVhiBOmll3+/ePMzd
+	JhYWqsdg8xab+317ijmBrUNcLLT6JUssavtscVtrICIamHD1hUuLEaau9ulREKRp
+	/crVyqGRUCI2RKZZwL5HJQ=
+Received: from localhost (unknown [])
+	by gzsmtp2 (Coremail) with SMTP id PSgvCgD31wgvF_5nMzQKAg--.53883S2;
+	Tue, 15 Apr 2025 16:22:07 +0800 (CST)
+From: Xavier <xavier_qy@163.com>
+To: ryan.roberts@arm.com,
+	dev.jain@arm.com,
+	ioworker0@gmail.com,
+	21cnbao@gmail.com
+Cc: akpm@linux-foundation.org,
+	catalin.marinas@arm.com,
+	david@redhat.com,
+	gshan@redhat.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Chen Ni <nichen@iscas.ac.cn>
-Subject: [PATCH] phy: rockchip: samsung-hdptx: Remove unneeded semicolon
-Date: Tue, 15 Apr 2025 16:12:00 +0800
-Message-Id: <20250415081200.349939-1-nichen@iscas.ac.cn>
-X-Mailer: git-send-email 2.25.1
+	will@kernel.org,
+	willy@infradead.org,
+	xavier_qy@163.com,
+	ziy@nvidia.com
+Subject: [mm/contpte v3 0/1] mm/contpte: Optimize loop to reduce redundant operations
+Date: Tue, 15 Apr 2025 16:22:04 +0800
+Message-Id: <20250415082205.2249918-1-xavier_qy@163.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <f0e109c7-6bb2-4218-bc76-c5de39184064@arm.com>
+References: <f0e109c7-6bb2-4218-bc76-c5de39184064@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowAAnYgr1FP5nL84SCQ--.28067S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrZFWDuF4rXw4DWw1xKF1UAwb_yoW3AFb_C3
-	4xWw47Xw1kJF95Kw1DJ3yxu34qyw1UWw1ruaySvFy5Aa1DXw1Fqa4fZr43Ja4UZrsruFWx
-	G34qvFyfCry3tjkaLaAFLSUrUUUUbb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbsAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
-	Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x0267AKxVWxJr
-	0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lc7CjxVAaw2AFwI0_
-	Jw0_GFylc2xSY4AK67AK6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r
-	4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF
-	67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2I
-	x0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2
-	z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnU
-	UI43ZEXa7VUjWSotUUUUU==
-X-Originating-IP: [124.16.138.129]
-X-CM-SenderInfo: xqlfxv3q6l2u1dvotugofq/
+X-CM-TRANSID: PSgvCgD31wgvF_5nMzQKAg--.53883S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxWrWDWw48GFW3AFy3Kw17KFg_yoWrCF1kpa
+	y7GF9I9r18GF9I93y7Cw1v9r1rAa95J343Jrs7Xa1fAas8Xr9YgryIkr4YyFyUGr1qq3yf
+	ZF4j9rWDuFyvya7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piQJ57UUUUU=
+X-Originating-IP: [101.132.132.191]
+X-CM-SenderInfo: 50dyxvpubt5qqrwthudrp/1tbiTgMwEGf+CY+r+QACsi
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_011246_150510_EE113A94 
-X-CRM114-Status: UNSURE (   8.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250415_012242_896086_284797E0 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,28 +83,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove unnecessary semicolons reported by Coccinelle/coccicheck and the
-semantic patch at scripts/coccinelle/misc/semicolon.cocci.
+Patch V3 has changed the while loop to a for loop according to the suggestions
+of Dev. Meanwhile, to improve efficiency, the definition of local variables has
+been removed. This macro is only used within the current function and there
+will be no additional risks. In order to verify the optimization performance of
+Patch V3, a test function has been designed. By repeatedly calling mlock in a
+loop, the kernel is made to call contpte_ptep_get extensively to test the
+optimization effect of this function.
+The function's execution time and instruction statistics have been traced using
+perf, and the following are the operation results on a certain Qualcomm mobile
+phone chip:
 
-Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
+Instruction Statistics - Before Optimization
+#          count  event_name              # count / runtime
+      20,814,352  branch-load-misses      # 662.244 K/sec
+  41,894,986,323  branch-loads            # 1.333 G/sec
+       1,957,415  iTLB-load-misses        # 62.278 K/sec
+  49,872,282,100  iTLB-loads              # 1.587 G/sec
+     302,808,096  L1-icache-load-misses   # 9.634 M/sec
+  49,872,282,100  L1-icache-loads         # 1.587 G/sec
+
+Total test time: 31.485237 seconds.
+
+Instruction Statistics - After Optimization
+#          count  event_name              # count / runtime
+      19,340,524  branch-load-misses      # 688.753 K/sec
+  38,510,185,183  branch-loads            # 1.371 G/sec
+       1,812,716  iTLB-load-misses        # 64.554 K/sec
+  47,673,923,151  iTLB-loads              # 1.698 G/sec
+     675,853,661  L1-icache-load-misses   # 24.068 M/sec
+  47,673,923,151  L1-icache-loads         # 1.698 G/sec
+
+Total test time: 28.108048 seconds.
+
+Function Statistics - Before Optimization
+Arch: arm64
+Event: cpu-cycles (type 0, config 0)
+Samples: 1419716
+Event count: 99618088900
+
+Overhead   Symbol
+21.42%     lock_release
+21.26%     lock_acquire
+20.88%     arch_counter_get_cntvct
+14.32%     _raw_spin_unlock_irq
+6.79%      contpte_ptep_get
+2.20%      test_contpte_perf
+1.82%      follow_page_pte
+0.97%      lock_acquired
+0.97%      rcu_is_watching
+0.89%      mlock_pte_range
+0.84%      sched_clock_noinstr
+0.70%      handle_softirqs.llvm.8218488130471452153
+0.58%      test_preempt_disable_long
+0.57%      _raw_spin_unlock_irqrestore
+0.54%      arch_stack_walk
+0.51%      vm_normal_folio
+0.48%      check_preemption_disabled
+0.47%      stackinfo_get_task
+0.36%      try_grab_folio
+0.34%      preempt_count
+0.32%      trace_preempt_on
+0.29%      trace_preempt_off
+0.24%      debug_smp_processor_id
+
+Function Statistics - After Optimization
+Arch: arm64
+Event: cpu-cycles (type 0, config 0)
+Samples: 1431006
+Event count: 118856425042
+
+Overhead   Symbol
+22.59%     lock_release
+22.13%     arch_counter_get_cntvct
+22.08%     lock_acquire
+15.32%     _raw_spin_unlock_irq
+2.26%      test_contpte_perf
+1.50%      follow_page_pte
+1.49%      arch_stack_walk
+1.30%      rcu_is_watching
+1.09%      lock_acquired
+1.07%      sched_clock_noinstr
+0.88%      handle_softirqs.llvm.12507768597002095717
+0.88%      trace_preempt_off
+0.76%      _raw_spin_unlock_irqrestore
+0.61%      check_preemption_disabled
+0.52%      trace_preempt_on
+0.50%      mlock_pte_range
+0.43%      try_grab_folio
+0.41%      folio_mark_accessed
+0.40%      vm_normal_folio
+0.38%      test_preempt_disable_long
+0.28%      contpte_ptep_get
+0.27%      __traceiter_android_rvh_preempt_disable
+0.26%      debug_smp_processor_id
+0.24%      return_address
+0.20%      __pte_offset_map_lock
+0.19%      unwind_next_frame_record
+
+If there is no problem with my test program, it can be seen that there is a
+significant performance improvement both in the overall number of instructions
+and the execution time of contpte_ptep_get.
+
+If any reviewers have time, you can also test it on your machines for comparison.
+I have enabled THP and hugepages-64kB.
+
+Test Function:
 ---
- drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+#define PAGE_SIZE 4096
+#define CONT_PTES 16
+#define TEST_SIZE (4096* CONT_PTES * PAGE_SIZE)
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index fc289ed8d915..bb49d69a6f17 100644
---- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-+++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-@@ -1507,7 +1507,7 @@ static int rk_hdptx_phy_verify_hdmi_config(struct rk_hdptx_phy *hdptx,
- 		break;
- 	default:
- 		return -EINVAL;
--	};
-+	}
- 
- 	return 0;
- }
+void rwdata(char *buf)
+{
+	for (size_t i = 0; i < TEST_SIZE; i += PAGE_SIZE) {
+		buf[i] = 'a';
+		volatile char c = buf[i];
+	}
+}
+void test_contpte_perf()
+{
+	char *buf;
+	int ret = posix_memalign((void **)&buf, PAGE_SIZE, TEST_SIZE);
+	if (ret != 0) {
+		perror("posix_memalign failed");
+		exit(EXIT_FAILURE);
+	}
+
+	rwdata(buf);
+
+	for (int j = 0; j < 500; j++) {
+		mlock(buf, TEST_SIZE);
+
+		rwdata(buf);
+
+		munlock(buf, TEST_SIZE);
+	}
+	
+	free(buf);
+}
+---
+
+Xavier (1):
+  mm/contpte: Optimize loop to reduce redundant operations
+
+ arch/arm64/mm/contpte.c | 20 ++++++++++++++++++--
+ 1 file changed, 18 insertions(+), 2 deletions(-)
+
 -- 
-2.25.1
+2.34.1
 
 
