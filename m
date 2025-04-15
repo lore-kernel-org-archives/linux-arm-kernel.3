@@ -4,57 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72D36C369B4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 13:58:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0327C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 14:00:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=93ewRw/AuXBm453L+29rWHx4DYAHBNomlgKeByeTfPE=; b=ZGXl2DQlEbPlVRzKQBoVtjjmnP
-	0DkaTlvwVhwIDgPJ8F3ZOEDcMc2632m4M/ES7yfc3DtsJtOdSvGUTdsXJYOEEHVF3Os0ri/xMG7Jx
-	lheacUh/+jwRTVBCnhZvunWpFoNBqVVxvC74VnGKToggNDgWRlGtQBCn6cS05mwLQiWrQgW/QE3qr
-	77VFOC7R9DuNmv+N2w6O92fDvEIhwOl/NDtZkDxd0cOJFaEt8CNpV5hvmjBO1pQLtevWgdeMuT5hQ
-	CPte7U4UwD+dJ62P7urPUwOmgSV8q3EbfM5uNEbnKBkRTfVB8jg7L65P0UftE7X0YUeVX9/1K2KSn
-	B84ILvXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5uxiqPgqs4MERopy3QM6Zed1EBCGngYHtZhorQ/3Qy0=; b=HXxXgN5AI/ojADvk/rHD+oQo8A
+	ltF8ZUT6vH2smkiFWwBtefrOEtFzh3zYQuRlYgsDiPNEM/hbsIMp87JkMVLOs+sy3bTP0vU2GTsss
+	S30abqWymHWfX0gGyDBdvlIa0hA4DOUIChtqqBWD6NVZXldHbdDJQMWj2JRIZlF2b8n8L9ECICYul
+	KOo1o8kvmTAKI6KaaOT4k///w/PqzGwaETUEwptZ+9/xxFlGbA+ItllAsWSjCa9U+wup6Oep2K4wg
+	A6Pz8DmwhBxWJYCkJ/JQb1l3IfZDLTkUv9JGir4klziDiXYsJ5JvA05wK1gLhunlD3EmIevQtQ6Vc
+	FiUBMz7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4gnk-000000060c6-36LC;
-	Tue, 15 Apr 2025 13:58:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4geg-00000005yRg-11Dt
+	id 1u4gpY-0000000613D-06RK;
+	Tue, 15 Apr 2025 14:00:04 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u4ghS-00000005z2B-14MD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 13:48:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6344015A1;
-	Tue, 15 Apr 2025 06:48:45 -0700 (PDT)
-Received: from gentoo-vm (unknown [10.57.44.57])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7B2B13F59E;
-	Tue, 15 Apr 2025 06:48:44 -0700 (PDT)
-Date: Tue, 15 Apr 2025 13:48:38 +0000
-From: Kajetan Puchalski <kajetan.puchalski@arm.com>
-To: Peter Chen <peter.chen@cixtech.com>
-Cc: soc@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de, 
-	jassisinghbrar@gmail.com, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com, maz@kernel.org, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Fugang Duan <fugang.duan@cixtech.com>, 
-	Guomin Chen <Guomin.Chen@cixtech.com>, Gary Yang <gary.yang@cixtech.com>
-Subject: Re: [PATCH v6 09/10] arm64: dts: cix: add initial CIX P1(SKY1) dts
- support
-Message-ID: <7cnhezft5jzvtdjx6m2vjmtaxgla33j4fynd6ef4c6b7dh5pvo@4cbxewawilqp>
-References: <20250415072724.3565533-1-peter.chen@cixtech.com>
- <20250415072724.3565533-10-peter.chen@cixtech.com>
+	Tue, 15 Apr 2025 13:51:43 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-39c266c2dd5so4980266f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Apr 2025 06:51:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1744725100; x=1745329900; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=5uxiqPgqs4MERopy3QM6Zed1EBCGngYHtZhorQ/3Qy0=;
+        b=dHDYc2YxsDpu0hdODMvvI8vhCO5V6x2mooEy07hvOOqhFts1MezYjzUPFe9L2vnQWV
+         H3JDOoXPDJxe8oGwlpW6l6KndvjCpFka6T/O3t25qUDIyhzXVBc/6SsV3MZg0582NjYC
+         vowe/GLE0FFY0QY5tQn4t90927FmPYVbsSbas2NsuuwodYxh6H2oABITA7xKZsns3c9E
+         Wz430a6BKrxbrFr9L6yJxxiMWDsq/CW0Yj6UT+B5rs1QUiKbN2JlsBOQoyrIbilF8Yb8
+         dKgtda0JslTkPFR0I7KahO/i7YIryQhXTLok1FCyLrd3OhBAAUKUj8l31UDi0SGmqi38
+         SBsA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744725100; x=1745329900;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=5uxiqPgqs4MERopy3QM6Zed1EBCGngYHtZhorQ/3Qy0=;
+        b=RdmahyA1uGR4MFHFCn0/r+S3wx6HE1MX2m/zi686ZcM8HeODkKBgBKZZlCI3UpA1VZ
+         oT5bMVX9rc5n47B7YpSZtgvm6uEQIrxtpHTv0MO138XdFuYqJDjBX1yz0/vbrDDcpAWX
+         uByrwCa/lRApwM0SfmnSQ0Re+67IFz+xEAAHwN9mcURyF315okugseskXRicJI1XrnIf
+         6zeBwaDV+l6Y8h/Zh9FT1gMisQQKtjV8UwTRgmNTQrMQkOai+tL+BKNY6R61EcLfXLDz
+         7G+KEo9bqtAs7t2HEIPnJqeugv8IG47yrEYTOHk94m3b2wXFbP0iXEWNEhSFshEqQY9I
+         ZO5A==
+X-Forwarded-Encrypted: i=1; AJvYcCXS7p9ohInfDKh+Ce1RgpmJ52CAfgAsvS99eJmymUHYHXtTDrtkDCgGSdn5zyLUcBRyUjy08hgWR0Rbb6vJmSTj@lists.infradead.org
+X-Gm-Message-State: AOJu0Yytyu7elgheZEVWLbrjPf4ZjRIWLet/dYD0msfc6HtqvPZOVUz5
+	hTn+YIG5B+IeJbonQa3GzwB80evB9rXT2dXpATGokxutcQGSEpN8GvBYndQvq/I=
+X-Gm-Gg: ASbGnct/ePSyfeulqscdv8uJ464tXjr9lHONv1/aYXY1rSLn7Tye86s+OwK+B42C51J
+	0g33zC/ZmDZxPAoOHDWTseF8X9k3izBZqh2Z40lkfDbtiddexh5LBo1d/03a9XpicjmANWyv0N9
+	FO1UJAboAvhRDE4ifYp6gL/JMkdiTGFz+Ep1L1OUfX33cc1jQcY70tREO+bq5eSUf0HBJxPuXhN
+	VhSz2O8q9MR3z/OBqejg5ueU8Np2mz+L2R3z8EO8V0Sb6fqR753Urj9C8yU2iqakLNog+elFtPZ
+	whO/O+c/fqjn7wTooSAyZ4DbJALiTo3km63pt94DiiKWBdRr8uO3wQ==
+X-Google-Smtp-Source: AGHT+IFQjbRWWPWnXrdkJHVnDwqcGcHfF9uwpPgeKOFyRZHe1CETzGQ7LKb7u2GUPWdd1at8v+uIzw==
+X-Received: by 2002:a05:6000:401f:b0:39c:141b:904a with SMTP id ffacd0b85a97d-39ea51ecad1mr14249426f8f.11.1744725100601;
+        Tue, 15 Apr 2025 06:51:40 -0700 (PDT)
+Received: from [192.168.1.3] ([77.81.75.81])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39eaf44571fsm14191129f8f.84.2025.04.15.06.51.39
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 15 Apr 2025 06:51:40 -0700 (PDT)
+Message-ID: <358f4a8c-29ad-4e5e-91b9-063f06e769ec@linaro.org>
+Date: Tue, 15 Apr 2025 14:51:39 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250415072724.3565533-10-peter.chen@cixtech.com>
-User-Agent: NeoMutt/20250109-134-7b7c50
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/2] coresight: core: Disable helpers for devices that
+ fail to enable
+To: Yabin Cui <yabinc@google.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@arm.com>,
+ Jie Gan <quic_jiegan@quicinc.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>
+References: <20250408195922.770377-1-yabinc@google.com>
+ <20250408195922.770377-3-yabinc@google.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20250408195922.770377-3-yabinc@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_064850_320472_E20998A1 
-X-CRM114-Status: GOOD (  13.86  )
+X-CRM114-CacheID: sfid-20250415_065142_295116_4E1BA0A5 
+X-CRM114-Status: GOOD (  18.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,67 +104,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 15, 2025 at 03:27:23PM +0800, Peter Chen wrote:
-> CIX SKY1 SoC is high performance Armv9 SoC designed by Cixtech,
-> and Orion O6 is the motherboard launched by Radxa. See below for
-> detail:
-> https://docs.radxa.com/en/orion/o6/getting-started/introduction
-> In this commit, it adds sky1 base, mailbox, clock (scmi firmware baseed)
-> and uart, and the kernel could boot up to console.
 
-The commit message style is supposed to be in imperative tone, i.e. "Add sky1 base".
 
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Acked-by: Fugang Duan <fugang.duan@cixtech.com>
-> Signed-off-by: Guomin Chen <Guomin.Chen@cixtech.com>
-> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
-> Signed-off-by: Peter Chen <peter.chen@cixtech.com>
+On 08/04/2025 8:59 pm, Yabin Cui wrote:
+> When enabling a SINK or LINK type coresight device fails, the
+> associated helpers should be disabled.
+> 
+> Signed-off-by: Yabin Cui <yabinc@google.com>
+> Suggested-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 > ---
+>   drivers/hwtracing/coresight/coresight-core.c | 9 +++++++--
+>   1 file changed, 7 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+> index fb43ef6a3b1f..a56ba9087538 100644
+> --- a/drivers/hwtracing/coresight/coresight-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-core.c
+> @@ -486,8 +486,10 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
+>   			 * that need disabling. Disabling the path here
+>   			 * would mean we could disrupt an existing session.
+>   			 */
+> -			if (ret)
+> +			if (ret) {
+> +				coresight_disable_helpers(csdev);
 
-I've tested this on my own Orion O6 with 6.15-rc2, the UART does work and the kernel
-does boot up to the expected point. Feel free to add the tag if you'd like.
+Hi Yabin,
 
-Tested-by: Kajetan Puchalski <kajetan.puchalski@arm.com>
+Unfortunately coresight_disable_helpers() takes a path pointer now so 
+this needs to be updated.
 
-> +++ b/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
-> @@ -0,0 +1,39 @@
-> +// SPDX-License-Identifier: BSD-3-Clause
-> +/*
-> + * Copyright 2025 Cix Technology Group Co., Ltd.
-> + *
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include "sky1.dtsi"
-> +/ {
-> +	model = "Radxa Orion O6";
-> +	compatible = "radxa,orion-o6", "cix,sky1";
-> +
-> +	aliases {
-> +		serial2 = &uart2;
-> +	};
-> +
-> +	chosen {
-> +		stdout-path = &uart2;
-> +	};
-> +
-> +	reserved-memory {
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		ranges;
-> +
-> +		linux,cma {
-> +			compatible = "shared-dma-pool";
-> +			reusable;
-> +			size = <0x0 0x28000000>;
-> +			linux,cma-default;
-> +		};
-> +	};
-> +
-> +};
-> +
-> +&uart2 {
-> +	status = "okay";
-> +};
+I tested with that change made and it works ok.
+
+>   				goto out;
+> +			}
+>   			break;
+>   		case CORESIGHT_DEV_TYPE_SOURCE:
+>   			/* sources are enabled from either sysFS or Perf */
+> @@ -496,10 +498,13 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
+>   			parent = list_prev_entry(nd, link)->csdev;
+>   			child = list_next_entry(nd, link)->csdev;
+>   			ret = coresight_enable_link(csdev, parent, child, source);
+> -			if (ret)
+> +			if (ret) {
+> +				coresight_disable_helpers(csdev);
+>   				goto err;
+> +			}
+>   			break;
+>   		default:
+> +			coresight_disable_helpers(csdev);
+
+Minor nit, you could collapse these last two into "goto 
+err_disable_helpers" and add another label before err: that disables 
+helpers before falling through to err:.
+
+Other than that:
+
+Reviewed-by: James Clark <james.clark@linaro.org>
+
+>   			goto err;
+>   		}
+>   	}
+
 
