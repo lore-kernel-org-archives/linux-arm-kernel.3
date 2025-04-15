@@ -4,65 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60D77C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 09:23:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 872A6C369B4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 09:28:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dIHeTD8Kwvo6z8MEqZL3742x9P8G+OUFPUsU1G6dCK8=; b=fNpdHqxMKNxGlafBpTEWmYjGQz
-	3l+1SOyUW5kQXG5j864MpOFEpGkvzLKHwvhZgKbyTZP+7B87nMn1fLMViK1Sy5ZJDa6W3TYLiUDbe
-	SKjQGUqdWNT8YZj3VFMKBK8tBJEPF9J6Sy+iXcKV5GZVS6ryB1IVgODpraWRDyTmdzkjjxKRRTLQL
-	VPx0l7WoA6qFQmBPDfAYHUXWVHkJ8Dx71yTNadmmw8ZvA2Mimju5miT2VuMFv4Y/lFKfZBKlhtUe2
-	e89sUizk/UshPzOC+T7k5e2f5RZYoInGh9EdV/8a8VfInfg5EhxPtFjC6ZoKASgjuR5rhAo3tR5dQ
-	pnvgLfFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ZqwRMi8M1IUtIS6VXtjKJquub+so3nVVibWZGQx2TpA=; b=BrvtyJOtL8VjwW
+	LeNJJys543cP0FrMskQnH86I+ct2w6ayTNyA7E/GaZR6KILoSo2slGmJ9ycQ7vtg7LMbtto5LhokZ
+	ji53pkm+xh9w5XRvvKabuZJxW7j4HIq5OF5uvUCshI9uUaMMvvuFvhEsOGy94NFaRiWDQwoUw4mXg
+	KOIiIQkCABhit6jk8fF99/pJTseW03//htpspJoK58N8/ioP0YsneNV0p2KqxAFa7zLV/FpqSq9jJ
+	0DsKqqMaGeyaQGmedbnObqI2Swn1xYnZ1aCge02b51yTCtsgHZspCLKFd6S0/ZGQbaTOer/xpluER
+	xvPJU+QWMkns5tyl+uNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4cVb-000000058po-1c3J;
-	Tue, 15 Apr 2025 09:23:11 +0000
-Received: from mail-m1973181.qiye.163.com ([220.197.31.81])
+	id 1u4caf-000000059hP-1WAa;
+	Tue, 15 Apr 2025 09:28:25 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4cTl-000000058cx-1f2J;
-	Tue, 15 Apr 2025 09:21:19 +0000
-Received: from [192.168.60.65] (unknown [103.29.142.67])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 11f0ba4a1;
-	Tue, 15 Apr 2025 17:21:09 +0800 (GMT+08:00)
-Message-ID: <9e2b5033-b09b-4264-a9d6-f5354292be64@rock-chips.com>
-Date: Tue, 15 Apr 2025 17:21:08 +0800
+	id 1u4cYp-000000059Je-1olS
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 15 Apr 2025 09:26:33 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53F8tH9t005263;
+	Tue, 15 Apr 2025 09:26:22 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=ZqwRMi8M1IUtIS6VXtjKJq
+	uub+so3nVVibWZGQx2TpA=; b=k+dzLShd7NITl7CfdS09rV8Qd+OuKmnnqtlXUM
+	ig8urptOfhFL9f5gl1J8f0ufyBEalWfzkEnSCCvflSnrOkF8qremtP1aZIIXSb/F
+	yZLlU+DmwZsoetKR0CThu4rVJ4mDNhL0/VfPc8E4KXU5poUojIdlts1bBxIx6AcO
+	fXqas7YvSmATER/iEiDEEQtGrsjW764yHgYt4sRzDhT5vXi6OhAKZ7cBsOuc1rxe
+	4Mh78uBZRSsrUDAruqKFjqtX1xiRtbPc+dpZUOU672BxSuN6UX3kY7djmgDJfm+L
+	tEOd0C5OdGTTlgXjDQ72gPNcz+5jOFHopEv6sEmLknTJ+xwQ==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45yhbpqa06-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 15 Apr 2025 09:26:22 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53F9QLrW006213
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 15 Apr 2025 09:26:21 GMT
+Received: from yuanfang4-gv.ap.qualcomm.com (10.80.80.8) by
+ nalasex01b.na.qualcomm.com (10.47.209.197) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Tue, 15 Apr 2025 02:26:18 -0700
+From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Subject: [PATCH v4 0/2] coresight: Add Coresight Trace Network On Chip
+ driver
+Date: Tue, 15 Apr 2025 17:25:38 +0800
+Message-ID: <20250415-trace-noc-v4-0-979938fedfd8@quicinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] nvmem: rockchip-otp: Add support for rk3568-otp
-To: Jonas Karlman <jonas@kwiboo.se>
-Cc: heiko@sntech.de, linux-rockchip@lists.infradead.org,
- Finley Xiao <finley.xiao@rock-chips.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Srinivas Kandagatla <srinivas.kandagatla@linaro.org>
-References: <20250227110804.2342976-1-kever.yang@rock-chips.com>
- <20250227110804.2342976-2-kever.yang@rock-chips.com>
- <8c697031-9978-40cd-a1e0-f40552db9107@kwiboo.se>
-Content-Language: en-US
-From: Kever Yang <kever.yang@rock-chips.com>
-In-Reply-To: <8c697031-9978-40cd-a1e0-f40552db9107@kwiboo.se>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlCQktMVk4aTE1CTBkaGkhMTlYVFAkWGhdVEwETFh
-	oSFyQUDg9ZV1kYEgtZQVlKS0hVSUJVSk9JVU1MWVdZFhoPEhUdFFlBWU9LSFVKS0lPT09IVUpLS1
-	VKQktLWQY+
-X-HM-Tid: 0a9638c09dc003afkunm11f0ba4a1
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6ODI6Lhw4TzJLLBgXOEoPTwML
-	MU4aChBVSlVKTE9PTEtDQ0xKS01JVTMWGhIXVRAeDR4JVQIaFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlKS0hVSUJVSk9JVU1MWVdZCAFZQUJNSEo3Bg++
-DKIM-Signature: a=rsa-sha256;
-	b=aN7IwJwSJ62qLkfuHxNsKpcehfAkHojBLvWL5iItJ9OXLJDA54xozFm6USSxFPM4ZGtRh/gXUksV0Ui2Qk42PvRGqpA8W6ST8kqqWW2bTIh1Lq0o92dg2MC5JphlVAFpkuMM0n1UHvJVbmhN7dZRNhfWGZSvgPJSzmSnstY78mc=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=dIHeTD8Kwvo6z8MEqZL3742x9P8G+OUFPUsU1G6dCK8=;
-	h=date:mime-version:subject:message-id:from;
+X-B4-Tracking: v=1; b=H4sIABIm/mcC/3XPy07DMBAF0F+pvK6RHxM/WPEfqAs/ZqgXJOCUq
+ KjKv+NEIKVEXc7I5871jY1YC47s+XBjFacylqFvAxwPLJ1D/4a85DYzJVQnQGh+qSEh74fEySl
+ nom5bh6y9/6hI5bpmvZ7afC7jZajfa/Qkly0DY0AL53l0LnPwOfGIouM2kohRSXJgXz6/Sip9e
+ krDO1tyJr3a3wZ202DSXPAOoqesQg7k7+zxr7WU/40k6XMma7yP+3vw8B40652BQEmDjW5vu4e
+ 2a1ZbslomAoy4t2Zr3daa5Z/KJCODEpbMvZ3n+QeqJ7N5yAEAAA==
+X-Change-ID: 20250403-trace-noc-f8286b30408e
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>
+CC: <kernel@oss.qualcomm.com>, <linux-arm-msm@vger.kernel.org>,
+        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        Yuanfang Zhang
+	<quic_yuanfang@quicinc.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1744709177; l=1710;
+ i=quic_yuanfang@quicinc.com; s=20241209; h=from:subject:message-id;
+ bh=UTwpbbngg84fuy2zUb2xDQozibZQbR5SveTQ8xVJlNU=;
+ b=QqN88X/vzOI7YeLmoIHxWhivRSa/lrfSS2xycn/rGoayOrunSkrPf7d4pWqbKnYhUmjWsWKzO
+ 2ILEyqHPcSlBQ0w1PlO6P0lLFiIBDKiebD5isCi9/n4abiQJXZ4xwcS
+X-Developer-Key: i=quic_yuanfang@quicinc.com; a=ed25519;
+ pk=ZrIjRVq9LN8/zCQGbDEwrZK/sfnVjwQ2elyEZAOaV1Q=
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: XfsPSoorrSd5FiA-etJlvgXxWZ5k1sba
+X-Proofpoint-GUID: XfsPSoorrSd5FiA-etJlvgXxWZ5k1sba
+X-Authority-Analysis: v=2.4 cv=I+plRMgg c=1 sm=1 tr=0 ts=67fe263e cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=VwQbUJbxAAAA:8 a=COk6AnOGAAAA:8 a=wQFbxXTkjMarF-hqfQ4A:9
+ a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-15_04,2025-04-10_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 spamscore=0
+ phishscore=0 adultscore=0 priorityscore=1501 mlxscore=0 lowpriorityscore=0
+ bulkscore=0 mlxlogscore=999 clxscore=1015 impostorscore=0 malwarescore=0
+ classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2504150065
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_022117_913390_4B7E26BC 
-X-CRM114-Status: GOOD (  32.47  )
+X-CRM114-CacheID: sfid-20250415_022631_500713_535EE615 
+X-CRM114-Status: GOOD (  10.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,289 +123,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonas,
+The Trace Network On Chip (TNOC) is an integration hierarchy which is a
+hardware component that integrates the functionalities of TPDA and
+funnels. It collects trace form subsystems and transfers to coresight
+sink.
 
-On 2025/3/17 05:52, Jonas Karlman wrote:
-> Hi Kever,
->
-> On 2025-02-27 12:08, Kever Yang wrote:
->> From: Finley Xiao <finley.xiao@rock-chips.com>
->>
->> This adds the necessary data for handling efuse on the rk3568.
->>
->> Signed-off-by: Finley Xiao <finley.xiao@rock-chips.com>
->> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
->> ---
->>
->> Changes in v2: None
->>
->>   drivers/nvmem/rockchip-otp.c | 82 ++++++++++++++++++++++++++++++++++++
->>   1 file changed, 82 insertions(+)
->>
->> diff --git a/drivers/nvmem/rockchip-otp.c b/drivers/nvmem/rockchip-otp.c
->> index ebc3f0b24166..a04bce89ecc8 100644
->> --- a/drivers/nvmem/rockchip-otp.c
->> +++ b/drivers/nvmem/rockchip-otp.c
->> @@ -27,6 +27,7 @@
->>   #define OTPC_USER_CTRL			0x0100
->>   #define OTPC_USER_ADDR			0x0104
->>   #define OTPC_USER_ENABLE		0x0108
->> +#define OTPC_USER_QP			0x0120
->>   #define OTPC_USER_Q			0x0124
->>   #define OTPC_INT_STATUS			0x0304
->>   #define OTPC_SBPI_CMD0_OFFSET		0x1000
->> @@ -53,6 +54,8 @@
->>   #define SBPI_ENABLE_MASK		GENMASK(16, 16)
->>   
->>   #define OTPC_TIMEOUT			10000
->> +#define OTPC_TIMEOUT_PROG		100000
-> This is not used anywhere in this patch, please drop it.
->
->> +#define RK3568_NBYTES			2
->>   
->>   /* RK3588 Register */
->>   #define RK3588_OTPC_AUTO_CTRL		0x04
->> @@ -184,6 +187,70 @@ static int px30_otp_read(void *context, unsigned int offset,
->>   	return ret;
->>   }
->>   
->> +static int rk3568_otp_read(void *context, unsigned int offset, void *val,
->> +			   size_t bytes)
->> +{
->> +	struct rockchip_otp *otp = context;
->> +	unsigned int addr_start, addr_end, addr_offset, addr_len;
->> +	unsigned int otp_qp;
->> +	u32 out_value;
->> +	u8 *buf;
->> +	int ret = 0, i = 0;
->> +
->> +	addr_start = rounddown(offset, RK3568_NBYTES) / RK3568_NBYTES;
->> +	addr_end = roundup(offset + bytes, RK3568_NBYTES) / RK3568_NBYTES;
->> +	addr_offset = offset % RK3568_NBYTES;
->> +	addr_len = addr_end - addr_start;
->> +
->> +	buf = kzalloc(array3_size(addr_len, RK3568_NBYTES, sizeof(*buf)),
->> +		      GFP_KERNEL);
->> +	if (!buf)
->> +		return -ENOMEM;
->> +
->> +	ret = rockchip_otp_reset(otp);
->> +	if (ret) {
->> +		dev_err(otp->dev, "failed to reset otp phy\n");
->> +		return ret;
-> This is leaking the kzalloc memory above.
->
->> +	}
->> +
->> +	ret = rockchip_otp_ecc_enable(otp, true);
->> +	if (ret < 0) {
->> +		dev_err(otp->dev, "rockchip_otp_ecc_enable err\n");
->> +		return ret;
-> Same here.
->
->> +	}
->> +
->> +	writel(OTPC_USE_USER | OTPC_USE_USER_MASK, otp->base + OTPC_USER_CTRL);
->> +	udelay(5);
->> +	while (addr_len--) {
->> +		writel(addr_start++ | OTPC_USER_ADDR_MASK,
->> +		       otp->base + OTPC_USER_ADDR);
->> +		writel(OTPC_USER_FSM_ENABLE | OTPC_USER_FSM_ENABLE_MASK,
->> +		       otp->base + OTPC_USER_ENABLE);
->> +		ret = rockchip_otp_wait_status(otp, OTPC_INT_STATUS, OTPC_USER_DONE);
->> +		if (ret < 0) {
->> +			dev_err(otp->dev, "timeout during read setup\n");
->> +			goto read_end;
->> +		}
->> +		otp_qp = readl(otp->base + OTPC_USER_QP);
->> +		if (((otp_qp & 0xc0) == 0xc0) || (otp_qp & 0x20)) {
->> +			ret = -EIO;
->> +			dev_err(otp->dev, "ecc check error during read setup\n");
->> +			goto read_end;
->> +		}
->> +		out_value = readl(otp->base + OTPC_USER_Q);
->> +		memcpy(&buf[i], &out_value, RK3568_NBYTES);
->> +		i += RK3568_NBYTES;
->> +	}
->> +
->> +	memcpy(val, buf + addr_offset, bytes);
->> +
->> +read_end:
->> +	writel(0x0 | OTPC_USE_USER_MASK, otp->base + OTPC_USER_CTRL);
->> +	kfree(buf);
->> +
->> +	return ret;
->> +}
-> This can be simplified if this is rebased on top of "nvmem: rockchip-otp:
-> Handle internal word_size in main reg_read op" [1].
->
-> [1] https://lore.kernel.org/r/20250316191900.1858944-1-jonas@kwiboo.se
-This look good to me, I will do it.
->
-> Something like following could be squashed in with this:
->
-> diff --git a/drivers/nvmem/rockchip-otp.c b/drivers/nvmem/rockchip-otp.c
-> index ea48d51bc2ff..0991a4047bec 100644
-> --- a/drivers/nvmem/rockchip-otp.c
-> +++ b/drivers/nvmem/rockchip-otp.c
-> @@ -54,8 +54,6 @@
->   #define SBPI_ENABLE_MASK		GENMASK(16, 16)
->   
->   #define OTPC_TIMEOUT			10000
-> -#define OTPC_TIMEOUT_PROG		100000
-> -#define RK3568_NBYTES			2
->   
->   /* RK3588 Register */
->   #define RK3588_OTPC_AUTO_CTRL		0x04
-> @@ -188,24 +186,12 @@ static int px30_otp_read(void *context, unsigned int offset,
->   }
->   
->   static int rk3568_otp_read(void *context, unsigned int offset, void *val,
-> -			   size_t bytes)
-> +			   size_t count)
->   {
->   	struct rockchip_otp *otp = context;
-> -	unsigned int addr_start, addr_end, addr_offset, addr_len;
-> -	unsigned int otp_qp;
-> -	u32 out_value;
-> -	u8 *buf;
-> -	int ret = 0, i = 0;
-> -
-> -	addr_start = rounddown(offset, RK3568_NBYTES) / RK3568_NBYTES;
-> -	addr_end = roundup(offset + bytes, RK3568_NBYTES) / RK3568_NBYTES;
-> -	addr_offset = offset % RK3568_NBYTES;
-> -	addr_len = addr_end - addr_start;
-> -
-> -	buf = kzalloc(array3_size(addr_len, RK3568_NBYTES, sizeof(*buf)),
-> -		      GFP_KERNEL);
-> -	if (!buf)
-> -		return -ENOMEM;
-> +	u16 *buf = val;
-> +	u32 otp_qp;
-> +	int ret;
->   
->   	ret = rockchip_otp_reset(otp);
->   	if (ret) {
-> @@ -214,39 +200,39 @@ static int rk3568_otp_read(void *context, unsigned int offset, void *val,
->   	}
->   
->   	ret = rockchip_otp_ecc_enable(otp, true);
-> -	if (ret < 0) {
-> +	if (ret) {
->   		dev_err(otp->dev, "rockchip_otp_ecc_enable err\n");
->   		return ret;
->   	}
->   
->   	writel(OTPC_USE_USER | OTPC_USE_USER_MASK, otp->base + OTPC_USER_CTRL);
->   	udelay(5);
-> -	while (addr_len--) {
-> -		writel(addr_start++ | OTPC_USER_ADDR_MASK,
-> +
-> +	while (count--) {
-> +		writel(offset++ | OTPC_USER_ADDR_MASK,
->   		       otp->base + OTPC_USER_ADDR);
->   		writel(OTPC_USER_FSM_ENABLE | OTPC_USER_FSM_ENABLE_MASK,
->   		       otp->base + OTPC_USER_ENABLE);
-> -		ret = rockchip_otp_wait_status(otp, OTPC_INT_STATUS, OTPC_USER_DONE);
-> -		if (ret < 0) {
-> +
-> +		ret = rockchip_otp_wait_status(otp, OTPC_INT_STATUS,
-> +					       OTPC_USER_DONE);
-> +		if (ret) {
->   			dev_err(otp->dev, "timeout during read setup\n");
->   			goto read_end;
->   		}
-> +
->   		otp_qp = readl(otp->base + OTPC_USER_QP);
->   		if (((otp_qp & 0xc0) == 0xc0) || (otp_qp & 0x20)) {
->   			ret = -EIO;
->   			dev_err(otp->dev, "ecc check error during read setup\n");
->   			goto read_end;
->   		}
-> -		out_value = readl(otp->base + OTPC_USER_Q);
-> -		memcpy(&buf[i], &out_value, RK3568_NBYTES);
-> -		i += RK3568_NBYTES;
-> -	}
->   
-> -	memcpy(val, buf + addr_offset, bytes);
-> +		*buf++ = readl(otp->base + OTPC_USER_Q);
-> +	}
->   
->   read_end:
->   	writel(0x0 | OTPC_USE_USER_MASK, otp->base + OTPC_USER_CTRL);
-> -	kfree(buf);
->   
->   	return ret;
->   }
->
->> +
->>   static int rk3588_otp_read(void *context, unsigned int offset,
->>   			   void *val, size_t bytes)
->>   {
->> @@ -274,6 +341,17 @@ static const struct rockchip_data px30_data = {
->>   	.reg_read = px30_otp_read,
->>   };
->>   
->> +static const char * const rk3568_otp_clocks[] = {
->> +	"usr", "sbpi", "apb_pclk", "phy",
-> Why do we change from using the "otp"-name for the main clock?
->
-> I suggest we keep the main clock named "otp" instead of "usr" for
-> consistency.
+Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+---
+Changes in v4:
+- Fix dt_binding warning.
+- update mask of trace_noc amba_id.
+- Modify driver comments.
+- rename TRACE_NOC_SYN_VAL to TRACE_NOC_SYNC_INTERVAL.
+- Link to v3: https://lore.kernel.org/r/20250411-trace-noc-v3-0-1f19ddf7699b@quicinc.com
 
-The name is from the hardware design, it follows the hardware naming by 
-default.
+Changes in v3:
+- Remove unnecessary sysfs nodes.
+- update commit messages.
+- Use 'writel' instead of 'write_relaxed' when writing to the register for the last time.
+- Add trace_id ops.
+- Link to v2: https://lore.kernel.org/r/20250226-trace-noc-driver-v2-0-8afc6584afc5@quicinc.com
 
-To be honest the driver does not care the clock/reset naming and the 
-sequence at all,
+Changes in v2:
+- Modified the format of DT binging file.
+- Fix compile warnings.
+- Link to v1: https://lore.kernel.org/r/46643089-b88d-49dc-be05-7bf0bb21f847@quicinc.com
 
-and the clock/reset name and number are keep changing due to the 
-controller IP
+---
+Yuanfang Zhang (2):
+      dt-bindings: arm: Add device Trace Network On Chip definition
+      coresight: add coresight Trace Network On Chip driver
 
-may come from different vendor or process change.
+ .../bindings/arm/qcom,coresight-tnoc.yaml          | 111 ++++++++++++
+ drivers/hwtracing/coresight/Kconfig                |  13 ++
+ drivers/hwtracing/coresight/Makefile               |   1 +
+ drivers/hwtracing/coresight/coresight-tnoc.c       | 191 +++++++++++++++++++++
+ drivers/hwtracing/coresight/coresight-tnoc.h       |  34 ++++
+ 5 files changed, 350 insertions(+)
+---
+base-commit: a2cc6ff5ec8f91bc463fd3b0c26b61166a07eb11
+change-id: 20250403-trace-noc-f8286b30408e
 
-I can rename the "usr" to "otp" to make it looks better, and also 
-reorder it so like it
+Best regards,
+-- 
+Yuanfang Zhang <quic_yuanfang@quicinc.com>
 
-look like rk3588.
-
-
-Thanks,
-- Kever
->> +};
->> +
->> +static const struct rockchip_data rk3568_data = {
->> +	.size = 0x80,
-> If this is rebased on top of [1] you should also add:
->
-> 	.word_size = sizeof(u16),
->
-> Above suggested changes can also be found in a FIXUP commit at my
-> linux-rockchip tree of pending RK3528 patches [2].
->
-> [2] https://github.com/Kwiboo/linux-rockchip/commits/next-20250314-rk3528/
->
-> Regards,
-> Jonas
->
->> +	.clks = rk3568_otp_clocks,
->> +	.num_clks = ARRAY_SIZE(rk3568_otp_clocks),
->> +	.reg_read = rk3568_otp_read,
->> +};
->> +
->>   static const char * const rk3588_otp_clocks[] = {
->>   	"otp", "apb_pclk", "phy", "arb",
->>   };
->> @@ -294,6 +372,10 @@ static const struct of_device_id rockchip_otp_match[] = {
->>   		.compatible = "rockchip,rk3308-otp",
->>   		.data = &px30_data,
->>   	},
->> +	{
->> +		.compatible = "rockchip,rk3568-otp",
->> +		.data = &rk3568_data,
->> +	},
->>   	{
->>   		.compatible = "rockchip,rk3588-otp",
->>   		.data = &rk3588_data,
->
 
