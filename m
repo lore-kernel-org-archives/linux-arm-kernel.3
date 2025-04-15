@@ -4,58 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51144C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 15:56:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0C95C369BA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 15:58:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fihApEIuWNDTZ5SUlcQlAQ9Qq6nixx8s0KB4soooB8M=; b=i1P7QJyBAmulJyuCW4pHGpj5k0
-	aHqK8coETanyXnlqI2ffZM886p02Xa9rYT0MhXI/pEpU/0Q7GY2BUtvHILdBxb7eg5EyY3aLcXsC7
-	W5mheTiogTpBjtMnnR9yd3MuMa7ESQWhNP/J3oHQlxgtIgd4Ftv0glj0FFqQLx31rE/zvkWoJcksY
-	de7aKZ9mF3y26BakviFwSMvqopWcZVMhovqof66zlIY9VWhYO/oBwrQQtXH5ccXwFWmwthGwxFitZ
-	BnKi1rESpRwSUprAr7/FSopDHTG8r8Ot0fZOILcAuq0igbq8ETS8bEAwTgkaNKQV6UQss7BejkQ9a
-	TdsAmXxw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Db0zk3sSf6kKlzWkQxrFtagYPSw30vD09DfDatnmOUg=; b=DSsNuvX2IzE1zuI+lmy2O8/cJI
+	DJ3FCAKFvOIMdzDKY52PRsMqDRHvGzxihqX3q7zWpk5YKxY6cRBrIti+/v6QOWBtHnR3G4BOxWAEo
+	8wNtk8ziqacbg7dHYI4xqU/k5a+3tWqRiHHBCqwoP1h4+7fBTpRgGXaYVcyBxzYuuBrXXcmLMzWeu
+	XZc72qHi4hMKot6K7YjbUhLkikfYkGezrQrmKyqlaNooubpBRb7ai09Dm1vB9YQun/ppldm8JvyzC
+	zxOIjNhdLHVBfnT97ZQnQUldRNyfEbaDvWiRtAMgMBP8M/OsDcmRyix83fzzbOqlnrDQ49hq4K0kU
+	xd+CmhaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4ids-00000006KaQ-1tlV;
-	Tue, 15 Apr 2025 15:56:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u4iff-00000006Ko9-0ZmC;
+	Tue, 15 Apr 2025 15:57:59 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4iLe-00000006Glf-1VoB
+	id 1u4iLg-00000006Gln-3XvH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 15:37:18 +0000
+	Tue, 15 Apr 2025 15:37:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AAC1B6115F;
-	Tue, 15 Apr 2025 15:37:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 21F3EC4CEEB;
+	by sea.source.kernel.org (Postfix) with ESMTP id 94FE84A2F9;
+	Tue, 15 Apr 2025 15:37:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 6C5C7C4CEF3;
 	Tue, 15 Apr 2025 15:37:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1744731437;
-	bh=ymN+LyNWSLpbDsTvqi1RfS1hGNC4G0Ay2QtUtBcebSE=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=qxgcx+y8f/T0QqwUy4z4BMkQEGP5nKd1tpaCCc1jg1KFKOJGkzMKzu5Hvs6zUjBtO
-	 papZAgHQ9egtnGMZCNNILgO67XO7nKVDpnB5DvbV0knXpFGLv/x6ui2RoIS2U42H1H
-	 t/PilexvtBsfXdrjGfUHI+BdmkSRO8np4kHOjlMjylBhFd5noOwIRZ87XzPuBCTrfO
-	 ptrL7N18ofihn7iZdUW3zSZOsSOAeSHVxuDoY+frBagPdYWrEjGNL7akfYIRsOqN1d
-	 1P3kb3Bm9hKvDo/dcMvsOBeQudYo+gWBiB9btuxHyDeyoeBr7/jHjYT3dRYLacu1L4
-	 r3bs1VLwQ8/Pw==
+	bh=iLhQrLWil25q6mOdTJw9OuNJ8sG/2mmYC9fMfHYOxvM=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=lvE2uZVvO+1OD/IRYzyhzUtgUpbpJg0fN00+skg3iFQYSsoO1hnnBwuvnWxyvWWcD
+	 uZzh5YFc+a4ZFo/wpYHH+IFhPI2w9udSmKPvfYpJpnzzXSvYCK6sYeKCtmmx5VVxmJ
+	 e/Qi19A4DARCrGoXYkg6ZTikbNZBiFF2If2Su57/RgiKAK+xLh1T4J+ZRdxKTUpVOi
+	 T9KXwbvsj4XSJbr7q40Mjfsixs2/qyqL2gAojajM7Tk+4NScuVzyhrBjTqVNaJ9RuY
+	 3OBe5Eme/wDmy0rCyDBWHaPDlxdPNV+zrNN9CIPlk+ykMKnP0TURN1xFlm7YCiQ7t9
+	 B7WpOUrEOI23Q==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 04DDDC369AB;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5C1DDC369AB;
 	Tue, 15 Apr 2025 15:37:17 +0000 (UTC)
 From: Sven Peter via B4 Relay <devnull+sven.svenpeter.dev@kernel.org>
-Subject: [PATCH v2 0/6] Apple/PASemi i2c error recovery fixes
-Date: Tue, 15 Apr 2025 15:36:54 +0000
-Message-Id: <20250415-pasemi-fixes-v2-0-c543bf53151a@svenpeter.dev>
+Date: Tue, 15 Apr 2025 15:36:58 +0000
+Subject: [PATCH v2 4/6] i2c: pasemi: Improve error recovery
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIABZ9/mcC/1WMQQ6CMBREr0L+2pq2gERX3sOwKHSUvxCaftJoS
- O9uJXHh8s3kvY0EkSF0qTaKSCy8zAXsoaJxcvMDin1hstq22lqtghM8Wd35BVFncxqHrmt0Mzg
- qSojYj2Lc+sITy7rE915P5rv+QvY/lIzSyndwde1bPba4SsIcsCIePRL1OecPBfj1sawAAAA=
-X-Change-ID: 20250220-pasemi-fixes-916cb77404ba
+Message-Id: <20250415-pasemi-fixes-v2-4-c543bf53151a@svenpeter.dev>
+References: <20250415-pasemi-fixes-v2-0-c543bf53151a@svenpeter.dev>
+In-Reply-To: <20250415-pasemi-fixes-v2-0-c543bf53151a@svenpeter.dev>
 To: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
  Madhavan Srinivasan <maddy@linux.ibm.com>, 
  Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
@@ -64,21 +62,23 @@ To: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
  Neal Gompa <neal@gompa.dev>, Hector Martin <marcan@marcan.st>
 Cc: linuxppc-dev@lists.ozlabs.org, asahi@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Sven Peter <sven@svenpeter.dev>, 
- Andy Shevchenko <andy.shevchenko@gmail.com>
+ linux-kernel@vger.kernel.org, Sven Peter <sven@svenpeter.dev>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1509; i=sven@svenpeter.dev;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4795; i=sven@svenpeter.dev;
  h=from:subject:message-id;
- bh=ymN+LyNWSLpbDsTvqi1RfS1hGNC4G0Ay2QtUtBcebSE=;
- b=owGbwMvMwCHmIlirolUq95LxtFoSQ/q/WqW39UeZ2Vs4Hu471P1vrbLFhq3/9kvNXFKdzyq+j
- 7MlkbWwo5SFQYyDQVZMkWX7fnvTJw/fCC7ddOk9zBxWJpAhDFycAjCRm0IM/0y7N11kSl4vsPBN
- e11CRPJmjTvNtzVf/ehWW7f33Wexj76MDEc5bobPYdU5tcPjyDnljo4tLnwHrzcd9mDs/BEcN79
- 4Ej8A
+ bh=UdXQ8SUtLivYr558egJosJKmHk91VYvtGnZh/V57dEs=;
+ b=owGbwMvMwCHmIlirolUq95LxtFoSQ/q/Wo13a1P715ycGSTHyJd7p1dg2YusT38uru8S/HfoW
+ 4udw9lfHaUsDGIcDLJiiizb99ubPnn4RnDppkvvYeawMoEMYeDiFICJ+NYz/HdNckyT5XKt4GsS
+ MeSS/31mp7N65u8gs9C8i406n1JjOBn+cDUKp69mDp+WPaHu2f6rqzh4Tj052h0e43FXwmtpzT9
+ dbgA=
 X-Developer-Key: i=sven@svenpeter.dev; a=openpgp;
  fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
 X-Endpoint-Received: by B4 Relay for sven@svenpeter.dev/default with
  auth_id=167
 X-Original-From: Sven Peter <sven@svenpeter.dev>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250415_083720_941045_4C7BF789 
+X-CRM114-Status: GOOD (  19.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,50 +94,162 @@ Reply-To: sven@svenpeter.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Hector Martin <marcan@marcan.st>
 
-This series adds a few fixes/improvements to the error recovery for
-Apple/PASemi i2c controllers.
-The patches have been in our downstream tree and were originally used
-to debug a rare glitch caused by clock strechting but are useful in
-general. We haven't seen the controller misbehave since adding these.
+The hardware (supposedly) has a 25ms timeout for clock stretching
+and the driver uses 100ms which should be plenty. The error
+reocvery itself is however lacking.
 
-Best,
+Add handling for all the missing error condition, and better recovery in
+pasemi_smb_clear(). Also move the timeout to a #define since it's used
+in multiple places now.
 
-Sven
-
+Signed-off-by: Hector Martin <marcan@marcan.st>
+[sven: adjusted commit message after splitting the commit into two]
 Signed-off-by: Sven Peter <sven@svenpeter.dev>
 ---
-Changes in v2:
-- Added commit to use the correct include (bits.h instead of bitfield.h)
-- Added commit to sort includes
-- Moved timeout explanations to code instead of just the commit log
-- Made timeout recovery also work correctly in the interrupt case when
-  waiting for the condition failed
-- Used readx_poll_timeout instead of open-coded alternative
-- Link to v1: https://lore.kernel.org/r/20250222-pasemi-fixes-v1-0-d7ea33d50c5e@svenpeter.dev
+ drivers/i2c/busses/i2c-pasemi-core.c | 75 +++++++++++++++++++++++++++++++-----
+ 1 file changed, 65 insertions(+), 10 deletions(-)
 
----
-Hector Martin (3):
-      i2c: pasemi: Improve error recovery
-      i2c: pasemi: Enable the unjam machine
-      i2c: pasemi: Log bus reset causes
+diff --git a/drivers/i2c/busses/i2c-pasemi-core.c b/drivers/i2c/busses/i2c-pasemi-core.c
+index 9b611dbdfef23e78a4ea75ac0311938d52b6ba96..2f31f039bedfd7f78d6572fe925125b1a6d0724b 100644
+--- a/drivers/i2c/busses/i2c-pasemi-core.c
++++ b/drivers/i2c/busses/i2c-pasemi-core.c
+@@ -9,6 +9,7 @@
+ #include <linux/delay.h>
+ #include <linux/i2c.h>
+ #include <linux/io.h>
++#include <linux/iopoll.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ #include <linux/pci.h>
+@@ -52,6 +53,12 @@
+ #define CTL_UJM		BIT(8)
+ #define CTL_CLK_M	GENMASK(7, 0)
+ 
++/*
++ * The hardware (supposedly) has a 25ms timeout for clock stretching, thus
++ * use 100ms here which should be plenty.
++ */
++#define TRANSFER_TIMEOUT_MS	100
++
+ static inline void reg_write(struct pasemi_smbus *smbus, int reg, int val)
+ {
+ 	dev_dbg(smbus->dev, "smbus write reg %x val %08x\n", reg, val);
+@@ -80,24 +87,44 @@ static void pasemi_reset(struct pasemi_smbus *smbus)
+ 	reinit_completion(&smbus->irq_completion);
+ }
+ 
+-static void pasemi_smb_clear(struct pasemi_smbus *smbus)
++static int pasemi_smb_clear(struct pasemi_smbus *smbus)
+ {
+ 	unsigned int status;
++	int ret;
+ 
+-	status = reg_read(smbus, REG_SMSTA);
++	/* First wait for the bus to go idle */
++	ret = readx_poll_timeout(ioread32, smbus->ioaddr + REG_SMSTA,
++				 status, !(status & (SMSTA_XIP | SMSTA_JAM)),
++				 USEC_PER_MSEC, USEC_PER_MSEC * TRANSFER_TIMEOUT_MS);
++
++	if (ret < 0) {
++		dev_err(smbus->dev, "Bus is still stuck (status 0x%08x)\n", status);
++		return -EIO;
++	}
++
++	/* If any badness happened or there is data in the FIFOs, reset the FIFOs */
++	if ((status & (SMSTA_MRNE | SMSTA_JMD | SMSTA_MTO | SMSTA_TOM | SMSTA_MTN | SMSTA_MTA)) ||
++	    !(status & SMSTA_MTE))
++		pasemi_reset(smbus);
++
++	/* Clear the flags */
+ 	reg_write(smbus, REG_SMSTA, status);
++
++	return 0;
+ }
+ 
+ static int pasemi_smb_waitready(struct pasemi_smbus *smbus)
+ {
+-	int timeout = 100;
++	int timeout = TRANSFER_TIMEOUT_MS;
+ 	int ret;
+ 	unsigned int status;
+ 
+ 	if (smbus->use_irq) {
+ 		reinit_completion(&smbus->irq_completion);
+-		reg_write(smbus, REG_IMASK, SMSTA_XEN | SMSTA_MTN);
+-		ret = wait_for_completion_timeout(&smbus->irq_completion, msecs_to_jiffies(100));
++		/* XEN should be set when a transaction terminates, whether due to error or not */
++		reg_write(smbus, REG_IMASK, SMSTA_XEN);
++		ret = wait_for_completion_timeout(&smbus->irq_completion,
++						  msecs_to_jiffies(timeout));
+ 		reg_write(smbus, REG_IMASK, 0);
+ 		status = reg_read(smbus, REG_SMSTA);
+ 
+@@ -123,9 +150,35 @@ static int pasemi_smb_waitready(struct pasemi_smbus *smbus)
+ 		}
+ 	}
+ 
++	/* Controller timeout? */
++	if (status & SMSTA_TOM) {
++		dev_warn(smbus->dev, "Controller timeout, status 0x%08x\n", status);
++		return -EIO;
++	}
++
++	/* Peripheral timeout? */
++	if (status & SMSTA_MTO) {
++		dev_warn(smbus->dev, "Peripheral timeout, status 0x%08x\n", status);
++		return -ETIME;
++	}
++
++	/* Still stuck in a transaction? */
++	if (status & SMSTA_XIP) {
++		dev_warn(smbus->dev, "Bus stuck, status 0x%08x\n", status);
++		return -EIO;
++	}
++
++	/* Arbitration loss? */
++	if (status & SMSTA_MTA) {
++		dev_warn(smbus->dev, "Arbitration loss, status 0x%08x\n", status);
++		return -EBUSY;
++	}
++
+ 	/* Got NACK? */
+-	if (status & SMSTA_MTN)
++	if (status & SMSTA_MTN) {
++		dev_warn(smbus->dev, "NACK, status 0x%08x\n", status);
+ 		return -ENXIO;
++	}
+ 
+ 	/* Clear XEN */
+ 	reg_write(smbus, REG_SMSTA, SMSTA_XEN);
+@@ -187,9 +240,9 @@ static int pasemi_i2c_xfer(struct i2c_adapter *adapter,
+ 	struct pasemi_smbus *smbus = adapter->algo_data;
+ 	int ret, i;
+ 
+-	pasemi_smb_clear(smbus);
+-
+-	ret = 0;
++	ret = pasemi_smb_clear(smbus);
++	if (ret)
++		return ret;
+ 
+ 	for (i = 0; i < num && !ret; i++)
+ 		ret = pasemi_i2c_xfer_msg(adapter, &msgs[i], (i == (num - 1)));
+@@ -210,7 +263,9 @@ static int pasemi_smb_xfer(struct i2c_adapter *adapter,
+ 	addr <<= 1;
+ 	read_flag = read_write == I2C_SMBUS_READ;
+ 
+-	pasemi_smb_clear(smbus);
++	err = pasemi_smb_clear(smbus);
++	if (err)
++		return err;
+ 
+ 	switch (size) {
+ 	case I2C_SMBUS_QUICK:
 
-Sven Peter (3):
-      i2c: pasemi: Use correct bits.h include
-      i2c: pasemi: Sort includes alphabetically
-      i2c: pasemi: Improve timeout handling
-
- drivers/i2c/busses/i2c-pasemi-core.c | 114 ++++++++++++++++++++++++++++-------
- drivers/i2c/busses/i2c-pasemi-pci.c  |  10 +--
- 2 files changed, 96 insertions(+), 28 deletions(-)
----
-base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
-change-id: 20250220-pasemi-fixes-916cb77404ba
-
-Best regards,
 -- 
-Sven Peter <sven@svenpeter.dev>
+2.34.1
 
 
 
