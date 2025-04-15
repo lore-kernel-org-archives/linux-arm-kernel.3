@@ -4,86 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8E78C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 16:40:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA5D3C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 16:42:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uf3w369MyYUHM4rPlLnZdm1b0aSBV06F/8EqSZNvqJU=; b=dr6RqKnroPYHemJkW3jIQPCJz8
-	Zup5aOR11TrVfs27IqZp5/YIIe5VjgcPGim6Lo6qXu3sx91LvxLU8SwGHkN8AyMCo6PAM+uudk+xg
-	44xMl+2yxt9zeVOFsR/Rw4nrtUo7Fwi1osdJtP1k7SW5RC9SnaS1UdQoe2uKzifxB3sK7r2am7huZ
-	WpsQX18d4a+ZWCk/ErVsdLuv2Cmeum6WKlebDxj9GZs2LnnMo40zVDA9UV7spr/jt0Zjqf3Mz8IPB
-	ObZaRFrnYZL1VydDFX7NUDWwzqZvMQMwR3ReNIKRxm+BH3yjghmbL5sKdr1zhPT4cbsdN8kMcLckq
-	+ypWqu5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=MdbgZzGrpf3fbja1j7+Yz6FptArFQVzlNAO/yRnhqUY=; b=EgxB0zRvw8LlzT
+	bbn+wCyqfBRgopNxMjxvCbzG1V7X1y5vvJx6B+OVL1C80oO49oIaUN2u00Wjv/qOXmgcqCi6kKYig
+	nHbX7AYfu/dvqtSN894M44ctMt+rR8Ii9XYhK0/eVoyBc9UfPgx+so+pu2tVMi0pABNsoTokYs2OJ
+	8P+L4LFfeojGaGc7GQcoHI1IZHTNqIzM/WoeoOEJNh0F/ayC19m1YysXs758wXeDHbXMTJBKsMVJ7
+	QpkGD3QzQF69WAh6DMMqYUbQdnXR+S5K8hIzIVl1K2wjwiDvsm7ECtNK2hNY7XMwD2V9Y6qTguWNR
+	4uPMyxQIiGYVHaZ1D56g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4jL0-00000006Raw-1adP;
-	Tue, 15 Apr 2025 16:40:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u4jMo-00000006RqY-3SAa;
+	Tue, 15 Apr 2025 16:42:34 +0000
+Received: from mx08-00376f01.pphosted.com ([91.207.212.86])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4iw6-00000006Nds-2O1l
+	id 1u4j1i-00000006OS9-3u6K
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 16:15:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 420CC43C6E;
-	Tue, 15 Apr 2025 16:14:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 743E4C4CEEB;
-	Tue, 15 Apr 2025 16:14:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1744733698;
-	bh=U/rKNYDUD8j6QMOYLJ34Ll3gyPFM6SLKNxk//x2JQP0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pztQCA3m4GCim/1wSoY8Mu8F8hiIGUr0WM7lChdgo6fkoAulk7Da+VoWMtvINe60v
-	 o0eezdUCv+z2WE8DZF6zM1Ra2I8U+5eiZLlBGNASYIpAQD0Z16N9YYS0vmCWJ1gINx
-	 ehq9XyP/8CEQDI9/XyTxr1znYNaP1Pjy2m31UCRc=
-Date: Tue, 15 Apr 2025 18:14:55 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Andrea della Porta <andrea.porta@suse.com>
-Cc: Herve Codina <herve.codina@bootlin.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Wilczynski <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-gpio@vger.kernel.org, Masahiro Yamada <masahiroy@kernel.org>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>, Phil Elwell <phil@raspberrypi.com>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	kernel-list@raspberrypi.com
-Subject: Re: [PATCH v8 08/13] misc: rp1: RaspberryPi RP1 misc driver
-Message-ID: <2025041530-random-cheek-125d@gregkh>
-References: <cover.1742418429.git.andrea.porta@suse.com>
- <3fbc487bc0e4b855ffbee8ed62cfb6bf3b0592e8.1742418429.git.andrea.porta@suse.com>
- <2025041557-masculine-abrasive-c372@gregkh>
- <20250415165505.0c05bc61@bootlin.com>
- <2025041531-dubiously-duchess-276a@gregkh>
- <Z_5-Jjbu6XoHGmxN@apocalypse>
+	Tue, 15 Apr 2025 16:20:49 +0000
+Received: from pps.filterd (m0168888.ppops.net [127.0.0.1])
+	by mx08-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53F7w6Y5029858;
+	Tue, 15 Apr 2025 17:20:35 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
+	:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=dk201812; bh=MdbgZzGrpf3fbja1j7+Yz6F
+	ptArFQVzlNAO/yRnhqUY=; b=wY4dHVhd2akXI4tZJ7bJZgQ2+D+3PgGbWhgfEGZ
+	CToE39my81fTVmOj3uIQIxFRBfwOVQDjh0q37xL4tvoQYGlSr4W2zT9nl4YyVDy7
+	sI3j1pUhvj4ehqHNrQfHXcCIljegyuzMycmX1r2w9eIlvEFKQpv6TE0MX/1/V1Un
+	+x60AfY8IZr5eoM6ZFIUpneVcPHk32ahqgpI11hVSLbwTGNHVrjppIfeUamJ/LLp
+	T5cqFtPMpSbrP1Ye4CnmvPGLH99x2m1vFFqxcRbJxYVJsMM1hOyW01i8tbqHmX3b
+	lIQpExuhyB/xa9+hWVFhki1iZQYvzf7P4/Ks9zrXrRe2X3g==
+Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
+	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 45yeeua1mv-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Tue, 15 Apr 2025 17:20:35 +0100 (BST)
+Received: from
+ 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
+ (172.25.6.134) by HHMAIL05.hh.imgtec.org (10.100.10.120) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Tue, 15 Apr 2025 17:20:34 +0100
+From: Matt Coster <matt.coster@imgtec.com>
+Subject: [PATCH 0/2] Imagination BXS-4-64 MC1 GPU support (DTS changes)
+Date: Tue, 15 Apr 2025 17:20:23 +0100
+Message-ID: <20250415-bxs-4-64-dts-v1-0-f7d3fa06625d@imgtec.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z_5-Jjbu6XoHGmxN@apocalypse>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAEiH/mcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDE0NT3aSKYl0TXTMT3ZSSYt1kSwuTFAMLczNTUzMloJaCotS0zAqwcdG
+ xtbUAQUia+F4AAAA=
+X-Change-ID: 20250415-bxs-4-64-dts-c984d0876556
+To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        "Tero
+ Kristo" <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Frank Binns <frank.binns@imgtec.com>,
+        "Alessio Belle" <alessio.belle@imgtec.com>,
+        Alexandru Dadu
+	<alexandru.dadu@imgtec.com>,
+        Luigi Santivetti <luigi.santivetti@imgtec.com>,
+        Randolph Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=824; i=matt.coster@imgtec.com;
+ h=from:subject:message-id; bh=R6oJbOSdI93M6ihDGiGprnVl9fh+A4F0YVOXmGTzuEU=;
+ b=owGbwMvMwCFWuUfy8817WRsYT6slMaT/aw+80r1sosreTPHNq9bwXFbk+5AlFPjz/IQl/qd8u
+ vdU39/6vKOUhUGMg0FWTJFlxwrLFWp/1LQkbvwqhpnDygQyhIGLUwAmMuEuwy9mZ47tLD/nqMSE
+ Bf9kmHjw4Kt9Ir5VaU1vHht9km2Y7sjDyHD7pkccc77gwY25nCxsak+z1GP0GpVquVuWed1NP2y
+ hzgkA
+X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
+ fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
+X-Originating-IP: [172.25.6.134]
+X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
+X-Authority-Analysis: v=2.4 cv=Ga0XnRXL c=1 sm=1 tr=0 ts=67fe8753 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=UtEzwyU9vMAA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=zVSXwL2RMzKZDUOSOyAA:9
+ a=QEXdDO2ut3YA:10 a=t8nPyN_e6usw4ciXM-Pk:22
+X-Proofpoint-GUID: 2SfXehZXwoaluiDtpteBdrc6yWZFut3X
+X-Proofpoint-ORIG-GUID: 2SfXehZXwoaluiDtpteBdrc6yWZFut3X
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_091458_642182_4CDB0B28 
-X-CRM114-Status: GOOD (  22.51  )
+X-CRM114-CacheID: sfid-20250415_092047_262014_3712D084 
+X-CRM114-Status: UNSURE (   7.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,48 +105,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 15, 2025 at 05:41:26PM +0200, Andrea della Porta wrote:
-> Hi Greg,
-> 
-> On 17:14 Tue 15 Apr     , Greg Kroah-Hartman wrote:
-> > On Tue, Apr 15, 2025 at 04:55:05PM +0200, Herve Codina wrote:
-> > > Hi Greg,
-> > > 
-> > > On Tue, 15 Apr 2025 16:06:43 +0200
-> > > Greg Kroah-Hartman <gregkh@linuxfoundation.org> wrote:
-> > > 
-> > > > On Wed, Mar 19, 2025 at 10:52:29PM +0100, Andrea della Porta wrote:
-> > > > > The RaspberryPi RP1 is a PCI multi function device containing
-> > > > > peripherals ranging from Ethernet to USB controller, I2C, SPI
-> > > > > and others.  
-> > > > 
-> > > > So shouldn't this be using the auxbus code?  That's designed to "split
-> > > > up" PCI devices such that you can share them this way.
-> > > > 
-> > > > Or did that get rejected somewhere previously?
-> > > > 
-> > > 
-> > > It doesn't use auxbus probably for the exact same reason that the
-> > > one given for the LAN966x PCI device driver [0] and [1].
-> > > 
-> > > Avoid all boiler plate needed with auxbus whereas drivers already exist
-> > > as platform drivers. Internal devices are handled by those platform drivers.
-> > > Those devi just need to be described as platform devices and device-tree is
-> > > fully relevant for that description.
-> > > 
-> > > [0] https://lore.kernel.org/all/CAL_Jsq+1r3SSaXupdNAcXO-4rcV-_3_hwh0XJaBsB9fuX5nBCQ@mail.gmail.com/
-> > > [1] https://lore.kernel.org/all/Y9kuxrL3XaCG+blk@kroah.com/
-> > 
-> > I really hate creating platform devices below a PCI device, so I'll keep
-> > complaining about this every time people try to do it.
-> 
-> I agree with you, but as Herve has already pointed out this would mean incurring
-> in significant work to adapt drivers for all the peripherals (there are quite a
-> few), while with this approach they would be left untouched.
+Now that the binding and driver changes to support the Imagination
+BXS-4-64 [1] have landed in a DRM tree, here are the corresponding DTS
+changes without the [DO NOT MERGE] tag.
 
-We have no problem with reworking existing drivers, especially if they
-will be doing the correct thing.  Don't let that be an excuse, it
-doesn't work with me, sorry :)
+This GPU is found in the TI AM68 family of SoCs, with initial support
+added to the k3-j721s2 devicetree and tested on a TI SK-AM68 board.
 
-greg k-h
+[1]: https://lore.kernel.org/r/20250410-sets-bxs-4-64-patch-v1-v6-0-eda620c5865f@imgtec.com
+
+---
+Matt Coster (2):
+      arm64: dts: ti: k3-am62: New GPU binding details
+      arm64: dts: ti: k3-j721s2: Add GPU node
+
+ arch/arm64/boot/dts/ti/k3-am62-main.dtsi   |  4 +++-
+ arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi | 12 ++++++++++++
+ 2 files changed, 15 insertions(+), 1 deletion(-)
+---
+base-commit: 81f6e0e0f3505809dd78eab129106f1c0cf2baf1
+change-id: 20250415-bxs-4-64-dts-c984d0876556
+
 
