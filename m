@@ -4,153 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09F42C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 03:17:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A8F1C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 03:25:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SzyG1JGf8tfQk4QKtEB+0KqtlKR1gGiH5FklZYY6hC8=; b=0+jLeLoCJL+7DrXkxaTYCNMGP6
-	SIffLdY/5tOe7UFfqpIIp3+PuUTFOZB7FcqI1zImJUNCzZ/2ClGW3hR99t6o5TNrhY0ybdJRACiZa
-	QT5l0zwxZXZSGTKnDbayZc5eg8MpDTuOxjyeZfgalJMLeFnhTalgwYcrU02/1L+m7MY6Bk53A2O5+
-	5QFrw+z4PrfvAHQ6O/Od/kqQnPymLkIZkrS6KdiNkgdgIv3EHJtNaI4BMJKk1dRyLL3vSDCymelKC
-	/XPQsu9APx+II6NtK3IZEDsnbCNnTJzIr9GRUiSbD6nXHDPrf2SuDXC+9nVqHHBQwfzjJ3McT6Uvn
-	3+hYYEhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DIAZD5Zf36u+hUjWhCqbjryBN+xHXYlsFrV7UxyUzSw=; b=ZncIDl2BNS8kqgrb51VTbFYtHq
+	mM9hdAs7NbAMkRXLmCIRGXNfh0EUkW19MItF1EW+6kBDPaUKiIlY8ntRi076FZfAlx+0of3uiwdWz
+	CCZdCKC77nE58+aGkGPSibMQx8pGFYuxHYMvMFXgm0SS9/0mKNw9iKYkN338V9LXCi9Uwm7OjuJPO
+	fapmGA39ewdrQM9+J/IW+nvePw+gRJnADlWAedFlwaJcvRn/DWMhhLM6OGALjvrA8s2tMueHU6O0E
+	vbmU1ITs2iotdaYlU+pA1ws/GhXvoWXPWFHFIAdTvr2E/nZ4+EP2Sx6vNDNAhRY1N1GaJoVSOSF1w
+	7ktU+ZEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4WnL-00000004ICc-1paX;
-	Tue, 15 Apr 2025 03:17:07 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1u4WvD-00000004J4c-47Y5;
+	Tue, 15 Apr 2025 03:25:15 +0000
+Received: from mail-m93185.xmail.ntesmail.com ([103.126.93.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4WlV-00000004HuN-361c
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 03:15:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dA60SRmGXjOnKAEQLOpLGx+OlWcnlxgopmyFrIY9V+idMNg5iJzm2RXax9GQ+BHMKiR/byBWfON/M90SlX6oxERKdYN58wBsknNU37lolrFJjUTh8m18elziNO4grCl4vkXdSQU3KbeL8I0TlipIVaLCApzrM+AuPmCIDU/2kYzNoAvTQxEGWf7zmHPp6M2adLhPAxawtQFXDX1QN90PXJ//kOZg78E+4OaIhX3Gd6JxU2PItEbounyPE+fjtNMOoWJVLRQq4PBX8tfnrDj+EkbxfaoUHa1xmYMrLUwukag5H/+WUtcfpHOJVcouO3EZ1HdAZ/8F2HbAVXpP41cqLA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SzyG1JGf8tfQk4QKtEB+0KqtlKR1gGiH5FklZYY6hC8=;
- b=iGtfeMZV6IbnxtwNcIQz4HH2LDOKfHS8MvL3osbMF0sQLD6dfiki9ZGvVaY8plACUD7BOzIw+A/QfcSUSJtlbcUNMWAKOb3e3npYd7qARi2OKwMloroKfjpw3A4CeoqNcXBSecP5/JzmJX0cyhRViPlQT97QJurDQ4zUh/MaqMaEiYrZEq1zmSYM6fYPFVWROMXtfoOdJmp9/zAESru0EoXLQjaZcM7baNvMMsbLSnc2fnx9cAZsJ1NO+bGt7vrzx5wA34h+SIMN9YMQBH5Tu5admqOFv66/uc8CnlmLFzQRFtM7WBBT4/rdLSmoCKnAgTYoYekJ3DJkKhWIx+DsLw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SzyG1JGf8tfQk4QKtEB+0KqtlKR1gGiH5FklZYY6hC8=;
- b=oXXjQw4Od2YOWF3vrswpoTadR+ppKMLdJbEVx4GKdDIiZyii1vJIqg+v+9svqXclPpD6h1+HYXZYV7kr6MfxP9aXLmLCidcYnp6WCvDeudh/uyUK3ApLbRhFPcaSNq2bRfIoVYHJpFJdu83tKGr7W/W+5CJU+0PlByYMO5xJ7rSruD2txHNeetMMdngCSGK/0tvvoWrzzpLGCekqpWJA3z5rTV2/hgZkQ5mll6JqumNWT3q8kHJIgQ2v8Tg61kXE7VaCg2YqxgYj6qBKX+4+Lu2x96axb/1C3ZXMtOQpw64hNI6naL0JYlYD+OLTiYrBdhi3+BscBL3YLHDzWJ7SHg==
-Received: from DU2PR04MB8567.eurprd04.prod.outlook.com (2603:10a6:10:2d6::21)
- by GV1PR04MB9101.eurprd04.prod.outlook.com (2603:10a6:150:20::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.31; Tue, 15 Apr
- 2025 03:15:02 +0000
-Received: from DU2PR04MB8567.eurprd04.prod.outlook.com
- ([fe80::4db:3dc0:c292:493a]) by DU2PR04MB8567.eurprd04.prod.outlook.com
- ([fe80::4db:3dc0:c292:493a%5]) with mapi id 15.20.8632.030; Tue, 15 Apr 2025
- 03:15:02 +0000
-From: Luke Wang <ziniu.wang_1@nxp.com>
-To: Arnd Bergmann <arnd@kernel.org>, Bough Chen <haibo.chen@nxp.com>, Adrian
- Hunter <adrian.hunter@intel.com>, Ulf Hansson <ulf.hansson@linaro.org>, Shawn
- Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>
-CC: Arnd Bergmann <arnd@arndb.de>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Josua Mayer
-	<josua@solid-run.com>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-mmc@vger.kernel.org" <linux-mmc@vger.kernel.org>, dl-S32
-	<S32@nxp.com>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [EXT] [PATCH] [v2] mmc: esdhc-imx: convert to modern PM_OPS
-Thread-Topic: [EXT] [PATCH] [v2] mmc: esdhc-imx: convert to modern PM_OPS
-Thread-Index: AQHbqsAQEeWYoKBe402OH8kq6kt3qrOkEfDA
-Date: Tue, 15 Apr 2025 03:15:02 +0000
-Message-ID: <DU2PR04MB856729305860ED5C3C545771EDB22@DU2PR04MB8567.eurprd04.prod.outlook.com>
-References: <20250411085932.1902662-1-arnd@kernel.org>
-In-Reply-To: <20250411085932.1902662-1-arnd@kernel.org>
-Accept-Language: en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DU2PR04MB8567:EE_|GV1PR04MB9101:EE_
-x-ms-office365-filtering-correlation-id: 6aac0855-aa65-4c3a-4b38-08dd7bcbb638
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?Q2BNeMUlgiSf8bDiz3Cbmi3ZEAd8ex5clNDsl4/TMRz3O9VN6k6yRNvllcKr?=
- =?us-ascii?Q?5OsRgddUr0368RVwGcdVhLGrm6+fr6Ue7bQSgo1dO1M6yijigDikb7wqcQ3O?=
- =?us-ascii?Q?U7ldRJFtulu4Q1dlgMAQa0oUYdU57WTVRIj3HxAkph99MbMvd2lnGY/IkXlu?=
- =?us-ascii?Q?CxqF6CENUIYDV0PSne4hbKvIcwx2ZJ7n5YPyBMoL/uKYSXohblHoxzUWt1p4?=
- =?us-ascii?Q?YBkOUkMxuITp+0IEW+hlXkPcJLED71+j7YY0LvPH372QT+nGvJU/C3syColi?=
- =?us-ascii?Q?EsskkqG3dnz4H5gB0uX98DV1522MU/C88eowAqfSvcB7lvxkmCqwOgXI8Xky?=
- =?us-ascii?Q?8pnPSvDsMc6A0GeGnntFr9Dr84IQjjgs25nbofwynmL++b/3wo8I3ZDwoq8D?=
- =?us-ascii?Q?7vEPzC/pEhC0Bb6h0kqNNYzJu1Us+xheg1HeSTZIhdkCHFYPuWHiQr4a0b3p?=
- =?us-ascii?Q?iopn0QBrllRZtmDlQU7+cDnTNBzDrjXxMRcWDFY8dJBVwmha5WmG1ilvNyZn?=
- =?us-ascii?Q?KNsfBe3hwR3nkpzUvzsA352Hdln99Y2ECfrSfhM789QKWjx8NxA1E9L4lSGR?=
- =?us-ascii?Q?8gARBGvB/LAcDCWQQxbO0fs8pikchKiQlM6GXOMok9UoarbS5Azfq0zJMgPH?=
- =?us-ascii?Q?1idvChCmY77gtb4pTEw+e5vrS3Gc4RyWnxWYbmJDO3jQ/hfutvzo0mkXUFm9?=
- =?us-ascii?Q?2Qrxzuwe2RAjREyZF2vAR0sEysHFgunwrPWzOJJwJNj7RZA4xR6urY74vqfk?=
- =?us-ascii?Q?1KtJ2wB/KWnduMDcSxTVhpFu8s4RwLS3T91nMjlIUkveYqMrZpqaH25rEsNO?=
- =?us-ascii?Q?Bvw82cPzbzVBEyawRd1Ea2PzEMGQL68zidQsPRhmWZctqdwjMcWKAofMBTyt?=
- =?us-ascii?Q?neBskyYPakwIlKGQbW/J97UGN24GSwdKOiWKW64aeROjP7+jE6B7O8DavOpE?=
- =?us-ascii?Q?cAkO3l57EqgnSXAdrme8QznqjWQGxIcucWdeUFM40ICwCeByCqL17Qop1bwG?=
- =?us-ascii?Q?0GY0ekBSn3ueoDeA4TGu+U9ir+Z+FoNMl8sKu7EPE9iGqrVZucHYszpZV9Iw?=
- =?us-ascii?Q?BlAUZSl/Q7ZoUNvBJJJ6NrFzGuAp26VPQWOAgKy5AeezEm9zkHBz2aPb/my8?=
- =?us-ascii?Q?A8kYOSGELudOm6sOoIv9sIFNDrkg7LzIA+fqFnqJwW9bKkTTNMcF4HIKI0sC?=
- =?us-ascii?Q?ZakYRpuuokU9XzMQQkgyVAsk9Q1efvwRRwLH6hS4+7lvKaEEAdtgCqGF3GUP?=
- =?us-ascii?Q?ws4/7XvnRoyuLPqGxuXR7HEiHpL7aYNFDt6PAMBiqPyJQj06tMKKkmx/I0u0?=
- =?us-ascii?Q?spvwg9fqJEPaUmNLoQGeea3EXpixXG+Yjt9Oh3RhXKIKYK26isbj5aMkpZ3S?=
- =?us-ascii?Q?GRrVonEJmReIIIb3RXous83X9qYj0p6K/nc0k5nzc3sFT4hEIEpMO/OkOeJt?=
- =?us-ascii?Q?WAma1u/A7R+AwPEzm+1eveek55PpHI8fy1fJtfPjXz95I0jNcFj71A=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8567.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?E6N0+UvsGE9Uzurb1pG2O7BYmzG15pUX//y4fbT9nZWHbl4B4lk7xKQGfaBQ?=
- =?us-ascii?Q?cPcwzA9DB9DAleZVUYz3FrYI/kZYrKMqoiF9yMnQs91EenKyLrhXyq424KhU?=
- =?us-ascii?Q?hyxDF/gBJaGKpsrwuSE7IDSLgpJ2REjuA0PinXF+4hApEBdUTKaYD6Ga1xN+?=
- =?us-ascii?Q?u3QLRMaD0zxnf39APnGvf8tlMSCdFYvwDh5XE8m3uta9Jnwx/lbEMzR/oeaZ?=
- =?us-ascii?Q?qNyvBzT0lxf6mlccrkw4fP3us+kvtrHZ06xnF+pZ2EzRWTS2mhOAHVfRnEYg?=
- =?us-ascii?Q?1iXJe4AFA3MuLFeOUF0G250d04K9niwmq0jZUX1/QC+zf75vVaprhJAFdi+J?=
- =?us-ascii?Q?VKKlVmLpARrrnlvufyg6U4EitzZLMCHK/evJ5q8Y+ZfSeOSZtuqDnc+508R1?=
- =?us-ascii?Q?OAekNvKEGyiGC4U+2yxINL6NPjetqqhFD1CBl1Pl7wJd5d7lJ4g6bLJMkr/U?=
- =?us-ascii?Q?1R28HSGwrw7xy0a7nCDMwclKEBKpCYnt/kE13WnkE/jXhhjKfwg26kWsxmn8?=
- =?us-ascii?Q?eRasv6RseXqL2j4o3M9V3UXtCy2yK/2fvroJvlLWx12nsp+7EN07G2ViJU2t?=
- =?us-ascii?Q?kuY9IhwMe8Wqy5FCEY9KJFqhZiUKvkZaqBNgV/wqvLLYwsogUj7SeqKsVX+V?=
- =?us-ascii?Q?yaYqJ1PWmrwXlxRVqq/AkEhVU4s11Iw/HyN1dJ5z9+hoO9DpzAFEm5NGZeVW?=
- =?us-ascii?Q?LQRtGbRrrM3vLjZ2B3XBtsMy/fc1oGE7lEkzd5Rx0EgcbzoWdqLe8EovgHVv?=
- =?us-ascii?Q?qoqs0i9p3caO6kufTwIrKUxGiIHkMdBC71eNGzJ0rXgqZjSPX5fsgEQ/TqTM?=
- =?us-ascii?Q?Yw5ag7SWTm68mSLb8g4KwpRYNiWiRPUgL+jaU7PDAgpTeoe1OE0zYIB7Kkt8?=
- =?us-ascii?Q?n/1M9zb6D1DMaCOg66HoyxYRDi0n8Hs92hF1aG4iC9kUtz/9AJHJwuwgeOTX?=
- =?us-ascii?Q?W/nFkk9Zncet95svBk/Xf0JwEF5Q+oIWteAI5U2Ta6xL5LCeGsbUUQbxOJrh?=
- =?us-ascii?Q?RvW8tBr4ciYdWXaOmULnRTA9nWWiVwGme49CywWMI0v3Mcu2x4eoDpXk4w+6?=
- =?us-ascii?Q?1RCokjK1C4kz7it7NrqRoP3qyTgwCOwex8CknFNnCOJ2Il1A6ku4zhSMvs/x?=
- =?us-ascii?Q?7ejLEfQNgAtgS/M2r8THyr9GhAbHMjew+De/SP2klJOQ6KkONnB/iYmSwOVj?=
- =?us-ascii?Q?JQCKX30PF8obn9eWow9h1dc0ghRMUXc55knLW4OVPdBPfxs3AORtGZieCNLd?=
- =?us-ascii?Q?AJ+jv48JNSSvj8+8bQk0Uy+qRPkMkW4/IWWFew1BrsEFSZ/s3hbiV7e61tS/?=
- =?us-ascii?Q?IZ3qo4cHZah7UgWld7OcGy94+Giss8Mf7JIwgg2I3iLNzbMLeZ+0RAIMAyUn?=
- =?us-ascii?Q?YuWuXvM+/E9DWsNSH9u8K7ru1xbcuwpDvyRaGIJmkXF/PydR1h1suV07PcT7?=
- =?us-ascii?Q?NXqwYg8tmF5FCBoVkwXkGdThCHLh67wM7jHjVUPHFJ1mZHsH+hXZ+AXvdjd0?=
- =?us-ascii?Q?Wkw7MXSzWTH7Q/TN46xG+9f9fw+pZgJNh0ObK52B9qYj3ycGv7lWsp8hDJZ7?=
- =?us-ascii?Q?AoM0obmBw+RK5tAGEWxAi8n7mLasSUvFcWpdQ1dB?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1u4WtO-00000004IvP-2Zj6;
+	Tue, 15 Apr 2025 03:23:25 +0000
+Received: from localhost.localdomain (unknown [103.29.142.67])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 11e30c12c;
+	Tue, 15 Apr 2025 11:23:16 +0800 (GMT+08:00)
+From: Kever Yang <kever.yang@rock-chips.com>
+To: heiko@sntech.de
+Cc: linux-rockchip@lists.infradead.org,
+	Finley Xiao <finley.xiao@rock-chips.com>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Elaine Zhang <zhangqing@rock-chips.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Ulf Hansson <ulf.hansson@linaro.org>
+Subject: [PATCH v4 1/2] dt-bindings: power: rockchip: Add support for RK3562 SoC
+Date: Tue, 15 Apr 2025 11:23:13 +0800
+Message-Id: <20250415032314.44997-1-kever.yang@rock-chips.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8567.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6aac0855-aa65-4c3a-4b38-08dd7bcbb638
-X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Apr 2025 03:15:02.1578
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: qUE33dTT9gzepWmfstGIwAZEJ+hPRYQ0adzvNt6A1q8zmtLxs6lRFj/LfhSqhz3P3mH36ugxAL1k+C4mHK0K2A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB9101
+Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkaTk9IVkseTUtKGUNMSU0fHlYVFAkWGhdVEwETFh
+	oSFyQUDg9ZV1kYEgtZQVlKS0hVSUJVSk9JVU1MWVdZFhoPEhUdFFlBWU9LSFVKS0lPT09IVUpLS1
+	VKQktLWQY+
+X-HM-Tid: 0a963778f7e203afkunm11e30c12c
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6MU06Tgw4QzJWDhoBPzA8IyNC
+	TQowCRJVSlVKTE9PTUNMSEJDQ0lNVTMWGhIXVRAeDR4JVQIaFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlKS0hVSUJVSk9JVU1MWVdZCAFZQUhPSkw3Bg++
+DKIM-Signature: a=rsa-sha256;
+	b=eks/hiRoFswef8TBnnQ/HRPkLNJNe+HTLIZD0broMQAbfrO1Eb9izIp/1iI04uXYMJgvoTKVXJN2ZKSpb9ESOa4bC/LT+SPdnp+3rE7JGme0rrWxoXLfzza+dRxmLH3k5cdaxt8ZwvKvV6JyhCTGKjGzcvbh0+pAvrLPKmuXlmI=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=DIAZD5Zf36u+hUjWhCqbjryBN+xHXYlsFrV7UxyUzSw=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_201513_800429_CF9609C8 
-X-CRM114-Status: GOOD (  26.99  )
+X-CRM114-CacheID: sfid-20250414_202323_191768_878652DB 
+X-CRM114-Status: GOOD (  11.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,114 +79,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
+From: Finley Xiao <finley.xiao@rock-chips.com>
 
-This patch has compilation issue because sdhci.c still uses #ifdef CONFIG_P=
-M. Do you plan to send a new patch to fix? If not, I can send a patch to fi=
-x the compilation warning.
+According to a description from TRM, add all the power domains.
 
-Regards
-Luke
+Signed-off-by: Finley Xiao <finley.xiao@rock-chips.com>
+Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+---
 
-> -----Original Message-----
-> From: Arnd Bergmann <arnd@kernel.org>
-> Sent: Friday, April 11, 2025 4:59 PM
-> To: Bough Chen <haibo.chen@nxp.com>; Adrian Hunter
-> <adrian.hunter@intel.com>; Ulf Hansson <ulf.hansson@linaro.org>; Shawn
-> Guo <shawnguo@kernel.org>; Sascha Hauer <s.hauer@pengutronix.de>;
-> Luke Wang <ziniu.wang_1@nxp.com>
-> Cc: Arnd Bergmann <arnd@arndb.de>; Pengutronix Kernel Team
-> <kernel@pengutronix.de>; Fabio Estevam <festevam@gmail.com>; Josua
-> Mayer <josua@solid-run.com>; imx@lists.linux.dev; linux-
-> mmc@vger.kernel.org; dl-S32 <S32@nxp.com>; linux-arm-
-> kernel@lists.infradead.org; linux-kernel@vger.kernel.org
-> Subject: [EXT] [PATCH] [v2] mmc: esdhc-imx: convert to modern PM_OPS
->=20
-> Caution: This is an external email. Please take care when clicking links =
-or
-> opening attachments. When in doubt, report the message using the 'Report
-> this email' button
->=20
->=20
-> From: Arnd Bergmann <arnd@arndb.de>
->=20
-> Two newly added functions are unused in configurations without
-> power management support:
->=20
-> drivers/mmc/host/sdhci-esdhc-imx.c:1586:13: error: unused function
-> 'sdhc_esdhc_tuning_save' [-Werror,-Wunused-function]
->  1586 | static void sdhc_esdhc_tuning_save(struct sdhci_host *host)
->       |             ^~~~~~~~~~~~~~~~~~~~~~
-> drivers/mmc/host/sdhci-esdhc-imx.c:1608:13: error: unused function
-> 'sdhc_esdhc_tuning_restore' [-Werror,-Wunused-function]
->  1608 | static void sdhc_esdhc_tuning_restore(struct sdhci_host *host)
->       |             ^~~~~~~~~~~~~~~~~~~~~~~~~
->=20
-> Remove the #ifdef checks and instead use the better macros that
-> silently drop the unused functions when PM is disabled. This also
-> requires using pm_ptr() to eliminate both the runtime and pm_sleep
-> operations.
->=20
-> Fixes: 3d1eea493894 ("mmc: sdhci-esdhc-imx: Save tuning value when card
-> stays powered in suspend")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
-> v2: add pm_ptr()
-> ---
->  drivers/mmc/host/sdhci-esdhc-imx.c | 10 +++-------
->  1 file changed, 3 insertions(+), 7 deletions(-)
->=20
-> diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-
-> esdhc-imx.c
-> index 7e8addaed697..3c2e50d0260d 100644
-> --- a/drivers/mmc/host/sdhci-esdhc-imx.c
-> +++ b/drivers/mmc/host/sdhci-esdhc-imx.c
-> @@ -1942,7 +1942,6 @@ static void sdhci_esdhc_imx_remove(struct
-> platform_device *pdev)
->         sdhci_pltfm_free(pdev);
->  }
->=20
-> -#ifdef CONFIG_PM_SLEEP
->  static int sdhci_esdhc_suspend(struct device *dev)
->  {
->         struct sdhci_host *host =3D dev_get_drvdata(dev);
-> @@ -2021,9 +2020,7 @@ static int sdhci_esdhc_resume(struct device *dev)
->=20
->         return ret;
->  }
-> -#endif
->=20
-> -#ifdef CONFIG_PM
->  static int sdhci_esdhc_runtime_suspend(struct device *dev)
->  {
->         struct sdhci_host *host =3D dev_get_drvdata(dev);
-> @@ -2103,11 +2100,10 @@ static int sdhci_esdhc_runtime_resume(struct
-> device *dev)
->                 cpu_latency_qos_remove_request(&imx_data->pm_qos_req);
->         return err;
->  }
-> -#endif
->=20
->  static const struct dev_pm_ops sdhci_esdhc_pmops =3D {
-> -       SET_SYSTEM_SLEEP_PM_OPS(sdhci_esdhc_suspend,
-> sdhci_esdhc_resume)
-> -       SET_RUNTIME_PM_OPS(sdhci_esdhc_runtime_suspend,
-> +       SYSTEM_SLEEP_PM_OPS(sdhci_esdhc_suspend, sdhci_esdhc_resume)
-> +       RUNTIME_PM_OPS(sdhci_esdhc_runtime_suspend,
->                                 sdhci_esdhc_runtime_resume, NULL)
->  };
->=20
-> @@ -2116,7 +2112,7 @@ static struct platform_driver
-> sdhci_esdhc_imx_driver =3D {
->                 .name   =3D "sdhci-esdhc-imx",
->                 .probe_type =3D PROBE_PREFER_ASYNCHRONOUS,
->                 .of_match_table =3D imx_esdhc_dt_ids,
-> -               .pm     =3D &sdhci_esdhc_pmops,
-> +               .pm     =3D pm_ptr(&sdhci_esdhc_pmops),
->         },
->         .probe          =3D sdhci_esdhc_imx_probe,
->         .remove         =3D sdhci_esdhc_imx_remove,
-> --
-> 2.39.5
+Changes in v4:
+- Collect review tag from Heiko
+
+Changes in v3:
+- squash the header file and the binding document
+- Update license
+
+Changes in v2:
+- rename to rockchip,rk3562-power.h
+- update the subject
+- use dual license
+
+ .../power/rockchip,power-controller.yaml      |  1 +
+ .../dt-bindings/power/rockchip,rk3562-power.h | 35 +++++++++++++++++++
+ 2 files changed, 36 insertions(+)
+ create mode 100644 include/dt-bindings/power/rockchip,rk3562-power.h
+
+diff --git a/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml b/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml
+index ebab98987e49..f494b7710c09 100644
+--- a/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml
++++ b/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml
+@@ -40,6 +40,7 @@ properties:
+       - rockchip,rk3366-power-controller
+       - rockchip,rk3368-power-controller
+       - rockchip,rk3399-power-controller
++      - rockchip,rk3562-power-controller
+       - rockchip,rk3568-power-controller
+       - rockchip,rk3576-power-controller
+       - rockchip,rk3588-power-controller
+diff --git a/include/dt-bindings/power/rockchip,rk3562-power.h b/include/dt-bindings/power/rockchip,rk3562-power.h
+new file mode 100644
+index 000000000000..5182c2427a55
+--- /dev/null
++++ b/include/dt-bindings/power/rockchip,rk3562-power.h
+@@ -0,0 +1,35 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/*
++ * Copyright (c) 2022-2024 Rockchip Electronics Co., Ltd.
++ */
++#ifndef __DT_BINDINGS_POWER_RK3562_POWER_H__
++#define __DT_BINDINGS_POWER_RK3562_POWER_H__
++
++/* VD_CORE */
++#define RK3562_PD_CPU_0		0
++#define RK3562_PD_CPU_1		1
++#define RK3562_PD_CPU_2		2
++#define RK3562_PD_CPU_3		3
++#define RK3562_PD_CORE_ALIVE	4
++
++/* VD_PMU */
++#define RK3562_PD_PMU		5
++#define RK3562_PD_PMU_ALIVE	6
++
++/* VD_NPU */
++#define RK3562_PD_NPU		7
++
++/* VD_GPU */
++#define RK3562_PD_GPU		8
++
++/* VD_LOGIC */
++#define RK3562_PD_DDR		9
++#define RK3562_PD_VEPU		10
++#define RK3562_PD_VDPU		11
++#define RK3562_PD_VI		12
++#define RK3562_PD_VO		13
++#define RK3562_PD_RGA		14
++#define RK3562_PD_PHP		15
++#define RK3562_PD_LOGIC_ALIVE	16
++
++#endif
+-- 
+2.25.1
 
 
