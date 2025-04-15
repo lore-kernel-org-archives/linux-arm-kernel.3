@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBC11C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 16:50:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A16A5C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 16:52:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z8hTSVnlcCC2WOnj66TO/Zt9nedPd+37sOl0zL+RseU=; b=jfHECpOi+XJCjbh2QosO+x8q6y
-	C2JIkYI81RAI9xpO+co1LjQmSkaunyejGQTVscPeF43bgxDSW9B/PWm3LNNEA/DOagzz2ZHyWaHuJ
-	pnZ/F2yCASidV3AAHKZ4VE21B6fZTiU4EQgm26TeRohcW8etpjbnDAbP58l7LK7B+DeyandaznkZx
-	nQeaNP7UMHlUPPs4wuM8D3atzu/NRrkschsS59c955RBzZBNJyDWvd4D1bZungjLq6HiBnRuyBSkn
-	kBp5GaUVeQdjdy2zBEo0oSNYssnyGEMOQs2w/hwcBjxR9Jibc14EjlGvE0ijmwSkEwXbJQ800Q8zC
-	9x4ishRw==;
+	bh=9n7bu2qX7LooirHoLY1Va5iaADryPdv8WBdIxT2RDo8=; b=3einzYsp9Oc+VaHDfhnKmG5a+j
+	nNV4YRBHaZJxEs+yZ9t9A/NRULGE6cikD3AuVJnVWdbNAVHG9BbA3dNxWY/onktK0YB/y1mL87518
+	YoxkYXHXmvQ2PY0H++mjTF8TUrqnvTz6fmv4ssIYxGDEOOtH6ap4iYVpEn7G95DyHaz8zK7AgCKh+
+	r7enI9OBlHUTQjJG3e9eZxsbO68Nvl6nlBji7AKfbQxlkB6BHHvjPuASMrPVZttzNYK2r1lrMWmCe
+	kFTxkW3U0ySc0QW5SVsSbqaZgJSAPbmMUpgJkTeu5k0JLmSitDkxmzUErRYadEmH8x3hom3HwjPSE
+	hsnJDZNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4jU1-00000006Svs-05Cb;
-	Tue, 15 Apr 2025 16:50:01 +0000
+	id 1u4jVn-00000006TB0-34D3;
+	Tue, 15 Apr 2025 16:51:51 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4jAR-00000006PvN-4Anm
+	id 1u4jAY-00000006Pwg-0aXQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Apr 2025 16:29:49 +0000
+	Tue, 15 Apr 2025 16:29:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=z8hTSVnlcCC2WOnj66TO/Zt9nedPd+37sOl0zL+RseU=; b=cv+yuFcdgRsHPbn6xvXd3cs8vi
-	54sX8Ma38PHYUmmoHY9kT3b1LiWcyoY2h8dravFRaeA/O0hh0Z3Eph7FKNeb5c+aFHICwA7GC13np
-	CqTvKQoUfm0CPY14ofnHiPhfWV7zgvYPk0idwz10fXSzdH/HS3/K70sVamtILY8sHajeiuA+oWTmD
-	u83G6tv8IUH4D161dwjGn3k3r/EBUqJCbMlCgfsN8h0eM8vZW0ZZX3JdBol9h9hDcZM1nGXgb3NOs
-	NtxsytLX+iQrkgLXNnS1B7M07IPYAUvDBS3MSrSqAy2MIVZxNphM3Lo/aEBE6Wvgm4soFkzYlQzVB
-	cw9KEWEQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:39600 helo=rmk-PC.armlinux.org.uk)
+	bh=9n7bu2qX7LooirHoLY1Va5iaADryPdv8WBdIxT2RDo8=; b=p705deL34FQCm0Dclxwms3LDyK
+	YS2H1rGQQW5Tf1PNWCX2n5xv1Aatv06GcMnWcMdBmXHkn/rfCsn06vkbVcAjPHPzEwbIEHNo1syiw
+	RP3J6xDW/5rFlF2Y/tEfRB/fIn9/RmcA3kZvZWwDaJIwXAaWbc2zZj/LnaPj37zc8itbmBuREAwiD
+	FzvVk2h9yjuNlPvzILySyNXiiWjlm25Zyu4NjEp5GC1dMVudNqF5dXprT3UXR8UDyVeAlQ2fSZqsd
+	Nl7ym3YzNj+LEZ5ZzUajhDBHlLrqYmpKUeAEnnAmR49YBrz6j4Hxt5EK/3dpBHOIip9NLyO23JYB4
+	mL2HuuyA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:47222 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1u4jAO-0008TK-0P;
-	Tue, 15 Apr 2025 17:29:44 +0100
+	id 1u4jAT-0008TY-0T;
+	Tue, 15 Apr 2025 17:29:49 +0100
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1u4j9m-000r1J-Nu; Tue, 15 Apr 2025 17:29:06 +0100
+	id 1u4j9r-000r1P-Ra; Tue, 15 Apr 2025 17:29:11 +0100
 In-Reply-To: <Z_6JaPBiGu_RB4xN@shell.armlinux.org.uk>
 References: <Z_6JaPBiGu_RB4xN@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -63,17 +63,16 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 1/5] net: stmmac: socfpga: init dwmac->stmmac_rst
- before registration
+Subject: [PATCH net-next 2/5] net: stmmac: socfpga: provide init function
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1u4j9m-000r1J-Nu@rmk-PC.armlinux.org.uk>
-Date: Tue, 15 Apr 2025 17:29:06 +0100
+Message-Id: <E1u4j9r-000r1P-Ra@rmk-PC.armlinux.org.uk>
+Date: Tue, 15 Apr 2025 17:29:11 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_092948_033693_89B7B23F 
-X-CRM114-Status: GOOD (  16.92  )
+X-CRM114-CacheID: sfid-20250415_092954_179621_7D497F91 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,64 +87,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Initialisation/setup after registration is a bug. This is the first of
-two patches fixing this in socfpga.
-
-dwmac->stmmac_rst is initialised from the stmmac plat_dat's stmmac_rst
-member, which is itself initialised by devm_stmmac_probe_config_dt().
-Therefore, this can be initialised before we call stmmac_dvr_probe().
-Move it there.
-
-dwmac->stmmac_rst is used by the set_phy_mode() method.
+Both the resume and probe path needs to configure the phy mode, so
+provide a common function to do this which can later be hooked into
+plat_dat->init.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- .../net/ethernet/stmicro/stmmac/dwmac-socfpga.c | 17 ++++++-----------
- 1 file changed, 6 insertions(+), 11 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-index 116855658559..bcdb25ee2a33 100644
+index bcdb25ee2a33..000d349a6d4c 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-@@ -442,8 +442,6 @@ static int socfpga_dwmac_probe(struct platform_device *pdev)
- 	struct device		*dev = &pdev->dev;
- 	int			ret;
- 	struct socfpga_dwmac	*dwmac;
--	struct net_device	*ndev;
--	struct stmmac_priv	*stpriv;
- 	const struct socfpga_dwmac_ops *ops;
+@@ -435,6 +435,13 @@ static struct phylink_pcs *socfpga_dwmac_select_pcs(struct stmmac_priv *priv,
+ 	return priv->hw->phylink_pcs;
+ }
  
- 	ops = device_get_match_data(&pdev->dev);
-@@ -479,7 +477,13 @@ static int socfpga_dwmac_probe(struct platform_device *pdev)
- 		return ret;
- 	}
- 
-+	/* The socfpga driver needs to control the stmmac reset to set the phy
-+	 * mode. Create a copy of the core reset handle so it can be used by
-+	 * the driver later.
-+	 */
-+	dwmac->stmmac_rst = plat_dat->stmmac_rst;
- 	dwmac->ops = ops;
++static int socfpga_dwmac_init(struct platform_device *pdev, void *bsp_priv)
++{
++	struct socfpga_dwmac *dwmac = bsp_priv;
 +
- 	plat_dat->bsp_priv = dwmac;
- 	plat_dat->fix_mac_speed = socfpga_dwmac_fix_mac_speed;
- 	plat_dat->pcs_init = socfpga_dwmac_pcs_init;
-@@ -493,15 +497,6 @@ static int socfpga_dwmac_probe(struct platform_device *pdev)
++	return dwmac->ops->set_phy_mode(dwmac);
++}
++
+ static int socfpga_dwmac_probe(struct platform_device *pdev)
+ {
+ 	struct plat_stmmacenet_data *plat_dat;
+@@ -497,7 +504,7 @@ static int socfpga_dwmac_probe(struct platform_device *pdev)
  	if (ret)
  		return ret;
  
--	ndev = platform_get_drvdata(pdev);
--	stpriv = netdev_priv(ndev);
--
--	/* The socfpga driver needs to control the stmmac reset to set the phy
--	 * mode. Create a copy of the core reset handle so it can be used by
--	 * the driver later.
--	 */
--	dwmac->stmmac_rst = stpriv->plat->stmmac_rst;
--
- 	ret = ops->set_phy_mode(dwmac);
+-	ret = ops->set_phy_mode(dwmac);
++	ret = socfpga_dwmac_init(pdev, dwmac);
  	if (ret)
  		goto err_dvr_remove;
+ 
+@@ -516,7 +523,7 @@ static int socfpga_dwmac_resume(struct device *dev)
+ 	struct stmmac_priv *priv = netdev_priv(ndev);
+ 	struct socfpga_dwmac *dwmac_priv = get_stmmac_bsp_priv(dev);
+ 
+-	dwmac_priv->ops->set_phy_mode(priv->plat->bsp_priv);
++	socfpga_dwmac_init(to_platform_device(dev), dwmac_priv);
+ 
+ 	return stmmac_resume(dev);
+ }
 -- 
 2.30.2
 
