@@ -4,67 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D118EC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 03:43:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D743C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 04:27:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Tre13DFbEzWLiu/T9e9wWJekgfPen9D+iwat8GNKM0=; b=LDkirUlekdwZZidcN6A1GZEtrB
-	jSYZC4gJ6BdjldC38m6b95rstN9A8fdjS4mN+G6PvPuGK02J1Iw9P2VZi2oq6GPgnWhCXLyBlDrOQ
-	1vcXc2dgRWReuXs0cgOBxoa7gT5oClRmGoSVEe5x7Zaw0G8yIInPX+QvJcizhvV1s6ZfIcWV8wgWj
-	rtDdzRFhhWnr291D64D/2mS8ayHLyYktyodxVfmV6QffKuAU4t38PWpiRrhi6e7NOLwmsZbh165Gl
-	LbqRIkDIucfDUHm+3hyXdhIu6QhXWQJrPg++GuhHHGB3BjvBuK2HpkLSykTaTnXbyScsTnzbhp8BM
-	LAVNDT8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=hB3jACYTzSD2o23SD0z+VuvGY7L3pnS0a/THqiSfDrs=; b=gbZuT9jfsd7bRz1eYIQxfKM74M
+	3HVhvEgD48yhi3ksxXonZf2TSZ5MCZHuGuQRW3YQt/6mT92vJxDHj5HSdrw9OZmEXB/M2gJV1UwX4
+	sxtjB61KEV6vr+wY3RX6/CgS1fcmXkSffH/IG9V7hj1U4kuR3uZvLdWV3PEH9zlONbThEnWM3lkuG
+	SI8rG/S8/f6+senwfZOHbkDBna18Ek/8IwmkBo0myeYlxyNqRUv0sW/8RLnQUCCcjuqplq8hH0rz0
+	Z7ifAmiDcqlWqLh1SjIbGuUN4kNuEzCAc/SE6vIaWJgQUwdJK2CcjlGN4JBKmFNOaXuIVRVSTXGy7
+	srwvQ7EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4XCt-00000004Kq7-3Yvf;
-	Tue, 15 Apr 2025 03:43:31 +0000
-Received: from mail-m19731117.qiye.163.com ([220.197.31.117])
+	id 1u4Xt7-00000004R9N-0XHU;
+	Tue, 15 Apr 2025 04:27:09 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4X9J-00000004KRd-2SGW;
-	Tue, 15 Apr 2025 03:39:51 +0000
-Received: from localhost.localdomain (unknown [103.29.142.67])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 11e3d216f;
-	Tue, 15 Apr 2025 11:39:45 +0800 (GMT+08:00)
-From: Kever Yang <kever.yang@rock-chips.com>
-To: heiko@sntech.de
-Cc: linux-rockchip@lists.infradead.org,
-	Shaohan Yao <shaohan.yao@rock-chips.com>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	linux-pm@vger.kernel.org,
-	Lukasz Luba <lukasz.luba@arm.com>,
-	linux-kernel@vger.kernel.org,
-	Zhang Rui <rui.zhang@intel.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Daniel Lezcano <daniel.lezcano@linaro.org>
-Subject: [PATCH v2 2/2] thermal: rockchip: Add support for rk3562 SoC
-Date: Tue, 15 Apr 2025 11:39:40 +0800
-Message-Id: <20250415033940.47914-2-kever.yang@rock-chips.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250415033940.47914-1-kever.yang@rock-chips.com>
-References: <20250415033940.47914-1-kever.yang@rock-chips.com>
+	id 1u4XrD-00000004R0i-0V3v
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 15 Apr 2025 04:25:14 +0000
+Received: from epcas1p4.samsung.com (unknown [182.195.41.48])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250415042503epoutp02f64eb675d33e7c4553efcdea14cc5806~2Y1CjjXjc0767207672epoutp02n
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Apr 2025 04:25:03 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250415042503epoutp02f64eb675d33e7c4553efcdea14cc5806~2Y1CjjXjc0767207672epoutp02n
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1744691103;
+	bh=hB3jACYTzSD2o23SD0z+VuvGY7L3pnS0a/THqiSfDrs=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=kS5SD9ZPgh0gkMMQUS2D/oN21G9Voy/pUJycx1omc0UxQI4rXoHO+oxCEjZfPsVJ0
+	 O9kwyuGHO3fuo51vRm94nTvthnjjOh4fGd2aOna9EcVLOBmR6dl+KhqehMmdOnZt6Q
+	 r2Cs17+VxehqSSCxgpp2sVr7qQlaTp0XkIBy8kow=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas1p4.samsung.com (KnoxPortal) with ESMTPS id
+	20250415042502epcas1p4b472cff49569b89957918ec584980af9~2Y1B7QGBE0726507265epcas1p4s;
+	Tue, 15 Apr 2025 04:25:02 +0000 (GMT)
+Received: from epcpadp1new (unknown [182.195.40.141]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4Zc9zy6Z5vz6B9mG; Tue, 15 Apr
+	2025 04:25:02 +0000 (GMT)
+Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
+	epcas1p4.samsung.com (KnoxPortal) with ESMTPA id
+	20250415012410epcas1p42b48977934c21b5db0b19f4185f7a63c~2WXGUleHJ0256102561epcas1p4Y;
+	Tue, 15 Apr 2025 01:24:10 +0000 (GMT)
+Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
+	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20250415012409epsmtrp2b806165f79420521fce5476f72ab69b6~2WXGTyBVw2483324833epsmtrp2d;
+	Tue, 15 Apr 2025 01:24:09 +0000 (GMT)
+X-AuditID: b6c32a52-41dfa70000004c16-c7-67fdb5399a4c
+Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
+	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
+	D8.1D.19478.935BDF76; Tue, 15 Apr 2025 10:24:09 +0900 (KST)
+Received: from parkseongsu-desktop.. (unknown [10.252.69.73]) by
+	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250415012409epsmtip17aaa9ff006eec292d6118788f53b2b96~2WXGHOedu2759227592epsmtip18;
+	Tue, 15 Apr 2025 01:24:09 +0000 (GMT)
+From: Seongsu Park <sgsu.park@samsung.com>
+To: will@kernel.org, catalin.marinas@arm.com, yuzenghui@huawei.com,
+	suzuki.poulose@arm.com, joey.gouly@arm.com, oliver.upton@linux.dev,
+	maz@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, sgsu.park@samsung.com, cpgs@samsung.com
+Subject: [PATCH] arm64: kvm: Replace ternary flags with str_on_off() helper
+Date: Tue, 15 Apr 2025 10:24:05 +0900
+Message-Id: <1891546521.01744691102904.JavaMail.epsvc@epcpadp1new>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlCSBhJVh9LSB8eQ04fT0NISVYVFAkWGhdVEwETFh
-	oSFyQUDg9ZV1kYEgtZQVlKS0hVSUJVSk9JVU1MWVdZFhoPEhUdFFlBWU9LSFVKS0lPT09IVUpLS1
-	VKQktLWQY+
-X-HM-Tid: 0a9637880cbf03afkunm11e3d216f
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NSI6Qyo*TDJPKBoBUUsQLB0I
-	NzdPChFVSlVKTE9PTUNDSENNQkhOVTMWGhIXVRAeDR4JVQIaFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlKS0hVSUJVSk9JVU1MWVdZCAFZQUxJQkg3Bg++
-DKIM-Signature: a=rsa-sha256;
-	b=E1z1LHnRVGLNNS4WWPVLhmjYfgda3WsrsneNuwVnou+gflyY7DJcEepEsxSu0G25Mbj/FiFFtEL9fCgZhfXAP4cgof0iaT+8lBiTsHBqTU9KJUfohk2rfg1DQvVbukDu+odLnXPoQQPwQvZgaw9gYDtm0TklzApbxfnXCwy4xfo=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=1Tre13DFbEzWLiu/T9e9wWJekgfPen9D+iwat8GNKM0=;
-	h=date:mime-version:subject:message-id:from;
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrPLMWRmVeSWpSXmKPExsWy7bCSnK7l1r/pBv9vWFi8X9bDaPHykKbF
+	l+Y2JotXWw6zWGx6fI3V4vKuOWwWO+ecZLWY+vMNm8X7hi5Wi5m3bzNatNwxtbi5dAO7A4/H
+	mnlrGD1ajrxl9di0qpPNY2HDVGaPzUvqPV5snsno0bdlFaPH501yARxRXDYpqTmZZalF+nYJ
+	XBkbl3WzF9zjqFjV18bYwPiTrYuRk0NCwERi/o03jF2MXBxCAtsZJVa23GOBSEhKtL+7DGRz
+	ANnCEocPF4OEhQQ+MErsmRQOYrMJaEms/tfLDtIrIrCIUeLzpPlgDrNAP6PEsqftrCBVwgLe
+	Ep1PpzOBDGIRUJW4cCYRJMwrYC2xev87Johd8hL7D55lhogLSpyc+QTsBmagePPW2cwTGPlm
+	IUnNQpJawMi0ilE0taA4Nz03ucBQrzgxt7g0L10vOT93EyM4zLWCdjAuW/9X7xAjEwfjIUYJ
+	DmYlEV4u51/pQrwpiZVVqUX58UWlOanFhxilOViUxHmVczpThATSE0tSs1NTC1KLYLJMHJxS
+	DUzmJ2TTlj2dcvlSi41p8oa1yS2f5TcG3HB/5a1wUUj1O1OwwfGzR3on2UiXrrnmV7Du7pbs
+	5fdiJgWkcrRrOxob+8mlJbd5vOjrE289arslLq7h8PY1axfF/6vxOK3RtH3elZXH1rSu/jT7
+	4emydK2r/RZts2dbcNot2MP3xkHnybMJHfrTnOWSG1YXCm/QblCbI7w3JNAl4qpEw0z5AHfh
+	lH+6Z2fr/dl+7MPBGDfzj9+K9j42+KvV16h/yvL/LqX9j8Mevd2ceDXctFKcd0eO/Unu+V+P
+	LA0S1Ww8z8e+ZV9Z2e0l4juVzt2r7Lpopsa4+9Hdj+3yHg/qzb8k7km63a+zoa6wZv+3joUP
+	FPqUWIozEg21mIuKEwEp9ESC4gIAAA==
+X-CMS-MailID: 20250415012410epcas1p42b48977934c21b5db0b19f4185f7a63c
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 101P
+X-CPGSPASS: Y
+X-Hop-Count: 3
+X-CMS-RootMailID: 20250415012410epcas1p42b48977934c21b5db0b19f4185f7a63c
+References: <CGME20250415012410epcas1p42b48977934c21b5db0b19f4185f7a63c@epcas1p4.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_203949_825942_84C9B9D7 
-X-CRM114-Status: GOOD (  17.13  )
+X-CRM114-CacheID: sfid-20250414_212512_574252_FD3E24E3 
+X-CRM114-Status: GOOD (  12.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,201 +112,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Shaohan Yao <shaohan.yao@rock-chips.com>
+Replace repetitive ternary expressions with the str_on_off() helper
+function. This change improves code readability and ensures consistency
+in tracepoint string formatting
 
-There is one Temperature Sensor with channel 0 on rk3562 SoC.
-This driver adds the mapping table as-is from the TRM so that we can
-always sync to the TRM once there have any change in the future.
-
-Signed-off-by: Shaohan Yao <shaohan.yao@rock-chips.com>
-Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
+Signed-off-by: Seongsu Park <sgsu.park@samsung.com>
 ---
+ arch/arm64/kvm/trace_arm.h | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-Changes in v2:
-- Update the commit message
-
- drivers/thermal/rockchip_thermal.c | 112 ++++++++++++++++++++++++++++-
- 1 file changed, 111 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/thermal/rockchip_thermal.c b/drivers/thermal/rockchip_thermal.c
-index a8ad85feb68f..3278472b06f9 100644
---- a/drivers/thermal/rockchip_thermal.c
-+++ b/drivers/thermal/rockchip_thermal.c
-@@ -1,6 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0-only
+diff --git a/arch/arm64/kvm/trace_arm.h b/arch/arm64/kvm/trace_arm.h
+index c18c1a95831e..9c60f6465c78 100644
+--- a/arch/arm64/kvm/trace_arm.h
++++ b/arch/arm64/kvm/trace_arm.h
+@@ -176,7 +176,7 @@ TRACE_EVENT(kvm_set_way_flush,
+ 	    ),
+ 
+ 	    TP_printk("S/W flush at 0x%016lx (cache %s)",
+-		      __entry->vcpu_pc, __entry->cache ? "on" : "off")
++		      __entry->vcpu_pc, str_on_off(__entry->cache))
+ );
+ 
+ TRACE_EVENT(kvm_toggle_cache,
+@@ -196,8 +196,8 @@ TRACE_EVENT(kvm_toggle_cache,
+ 	    ),
+ 
+ 	    TP_printk("VM op at 0x%016lx (cache was %s, now %s)",
+-		      __entry->vcpu_pc, __entry->was ? "on" : "off",
+-		      __entry->now ? "on" : "off")
++		      __entry->vcpu_pc, str_on_off(__entry->was),
++		      str_on_off(__entry->now))
+ );
+ 
  /*
-- * Copyright (c) 2014-2016, Fuzhou Rockchip Electronics Co., Ltd
-+ * Copyright (c) 2014-2021, Fuzhou Rockchip Electronics Co., Ltd.
-+ * Copyright (c) 2021-2024, Rockchip Electronics Co., Ltd.
-  * Caesar Wang <wxt@rock-chips.com>
-  */
- 
-@@ -185,6 +186,8 @@ struct rockchip_thermal_data {
- #define TSADCV2_AUTO_PERIOD_HT			0x6c
- #define TSADCV3_AUTO_PERIOD			0x154
- #define TSADCV3_AUTO_PERIOD_HT			0x158
-+#define TSADCV9_Q_MAX				0x210
-+#define TSADCV9_FLOW_CON			0x218
- 
- #define TSADCV2_AUTO_EN				BIT(0)
- #define TSADCV2_AUTO_EN_MASK			BIT(16)
-@@ -195,6 +198,7 @@ struct rockchip_thermal_data {
- #define TSADCV2_AUTO_TSHUT_POLARITY_MASK	BIT(24)
- 
- #define TSADCV3_AUTO_Q_SEL_EN			BIT(1)
-+#define TSADCV3_AUTO_Q_SEL_EN_MASK		BIT(17)
- 
- #define TSADCV2_INT_SRC_EN(chn)			BIT(chn)
- #define TSADCV2_INT_SRC_EN_MASK(chn)		BIT(16 + (chn))
-@@ -220,6 +224,12 @@ struct rockchip_thermal_data {
- #define TSADCV5_AUTO_PERIOD_HT_TIME		1622 /* 2.5ms */
- #define TSADCV6_AUTO_PERIOD_TIME		5000 /* 2.5ms */
- #define TSADCV6_AUTO_PERIOD_HT_TIME		5000 /* 2.5ms */
-+#define TSADCV7_AUTO_PERIOD_TIME		3000 /* 2.5ms */
-+#define TSADCV7_AUTO_PERIOD_HT_TIME		3000 /* 2.5ms */
-+#define TSADCV12_AUTO_PERIOD_TIME		3000 /* 2.5ms */
-+#define TSADCV12_AUTO_PERIOD_HT_TIME		3000 /* 2.5ms */
-+#define TSADCV3_Q_MAX_VAL			0x7ff /* 11bit 2047 */
-+#define TSADCV12_Q_MAX_VAL			0xfff /* 12bit 4095 */
- 
- #define TSADCV2_USER_INTER_PD_SOC		0x340 /* 13 clocks */
- #define TSADCV5_USER_INTER_PD_SOC		0xfc0 /* 97us, at least 90us */
-@@ -230,6 +240,8 @@ struct rockchip_thermal_data {
- 
- #define PX30_GRF_SOC_CON2			0x0408
- 
-+#define RK3562_GRF_TSADC_CON			0x0580
-+
- #define RK3568_GRF_TSADC_CON			0x0600
- #define RK3568_GRF_TSADC_ANA_REG0		(0x10001 << 0)
- #define RK3568_GRF_TSADC_ANA_REG1		(0x10001 << 1)
-@@ -498,6 +510,45 @@ static const struct tsadc_table rk3399_code_table[] = {
- 	{TSADCV3_DATA_MASK, 125000},
- };
- 
-+static const struct tsadc_table rk3562_code_table[] = {
-+	{0, -40000},
-+	{1419, -40000},
-+	{1428, -35000},
-+	{1436, -30000},
-+	{1445, -25000},
-+	{1453, -20000},
-+	{1462, -15000},
-+	{1470, -10000},
-+	{1479, -5000},
-+	{1487, 0},
-+	{1496, 5000},
-+	{1504, 10000},
-+	{1512, 15000},
-+	{1521, 20000},
-+	{1529, 25000},
-+	{1538, 30000},
-+	{1546, 35000},
-+	{1555, 40000},
-+	{1563, 45000},
-+	{1572, 50000},
-+	{1580, 55000},
-+	{1589, 60000},
-+	{1598, 65000},
-+	{1606, 70000},
-+	{1615, 75000},
-+	{1623, 80000},
-+	{1632, 85000},
-+	{1640, 90000},
-+	{1648, 95000},
-+	{1657, 100000},
-+	{1666, 105000},
-+	{1674, 110000},
-+	{1682, 115000},
-+	{1691, 120000},
-+	{1699, 125000},
-+	{TSADCV2_DATA_MASK, 125000},
-+};
-+
- static const struct tsadc_table rk3568_code_table[] = {
- 	{0, -40000},
- 	{1584, -40000},
-@@ -835,6 +886,37 @@ static void rk_tsadcv8_initialize(struct regmap *grf, void __iomem *regs,
- 			       regs + TSADCV2_AUTO_CON);
- }
- 
-+static void rk_tsadcv12_initialize(struct regmap *grf, void __iomem *regs,
-+				   enum tshut_polarity tshut_polarity)
-+{
-+	writel_relaxed(TSADCV12_AUTO_PERIOD_TIME, regs + TSADCV3_AUTO_PERIOD);
-+	writel_relaxed(TSADCV12_AUTO_PERIOD_HT_TIME,
-+		       regs + TSADCV3_AUTO_PERIOD_HT);
-+	writel_relaxed(TSADCV2_HIGHT_INT_DEBOUNCE_COUNT,
-+		       regs + TSADCV3_HIGHT_INT_DEBOUNCE);
-+	writel_relaxed(TSADCV2_HIGHT_TSHUT_DEBOUNCE_COUNT,
-+		       regs + TSADCV3_HIGHT_TSHUT_DEBOUNCE);
-+	writel_relaxed(TSADCV12_Q_MAX_VAL, regs + TSADCV9_Q_MAX);
-+	writel_relaxed(TSADCV3_AUTO_Q_SEL_EN | TSADCV3_AUTO_Q_SEL_EN_MASK,
-+		       regs + TSADCV2_AUTO_CON);
-+	if (tshut_polarity == TSHUT_HIGH_ACTIVE)
-+		writel_relaxed(TSADCV2_AUTO_TSHUT_POLARITY_HIGH |
-+			       TSADCV2_AUTO_TSHUT_POLARITY_MASK,
-+			       regs + TSADCV2_AUTO_CON);
-+	else
-+		writel_relaxed(TSADCV2_AUTO_TSHUT_POLARITY_MASK,
-+			       regs + TSADCV2_AUTO_CON);
-+
-+	if (!IS_ERR(grf)) {
-+		regmap_write(grf, RK3562_GRF_TSADC_CON, RK3568_GRF_TSADC_TSEN);
-+		udelay(15);
-+		regmap_write(grf, RK3562_GRF_TSADC_CON, RK3568_GRF_TSADC_ANA_REG0);
-+		regmap_write(grf, RK3562_GRF_TSADC_CON, RK3568_GRF_TSADC_ANA_REG1);
-+		regmap_write(grf, RK3562_GRF_TSADC_CON, RK3568_GRF_TSADC_ANA_REG2);
-+		usleep_range(100, 200);
-+	}
-+}
-+
- static void rk_tsadcv2_irq_ack(void __iomem *regs)
- {
- 	u32 val;
-@@ -1259,6 +1341,30 @@ static const struct rockchip_tsadc_chip rk3399_tsadc_data = {
- 	},
- };
- 
-+static const struct rockchip_tsadc_chip rk3562_tsadc_data = {
-+	.chn_offset = 0,
-+	.chn_num = 1, /* one channels for tsadc */
-+
-+	.tshut_mode = TSHUT_MODE_GPIO, /* default TSHUT via GPIO give PMIC */
-+	.tshut_polarity = TSHUT_LOW_ACTIVE, /* default TSHUT LOW ACTIVE */
-+	.tshut_temp = 95000,
-+
-+	.initialize = rk_tsadcv12_initialize,
-+	.irq_ack = rk_tsadcv4_irq_ack,
-+	.control = rk_tsadcv4_control,
-+	.get_temp = rk_tsadcv4_get_temp,
-+	.set_alarm_temp = rk_tsadcv3_alarm_temp,
-+	.set_tshut_temp = rk_tsadcv3_tshut_temp,
-+	.set_tshut_mode = rk_tsadcv3_tshut_mode,
-+
-+	.table = {
-+		.id = rk3562_code_table,
-+		.length = ARRAY_SIZE(rk3562_code_table),
-+		.data_mask = TSADCV2_DATA_MASK,
-+		.mode = ADC_INCREMENT,
-+	},
-+};
-+
- static const struct rockchip_tsadc_chip rk3568_tsadc_data = {
- 	/* cpu, gpu */
- 	.chn_offset = 0,
-@@ -1338,6 +1444,10 @@ static const struct of_device_id of_rockchip_thermal_match[] = {
- 		.compatible = "rockchip,rk3399-tsadc",
- 		.data = (void *)&rk3399_tsadc_data,
- 	},
-+	{
-+		.compatible = "rockchip,rk3562-tsadc",
-+		.data = (void *)&rk3562_tsadc_data,
-+	},
- 	{
- 		.compatible = "rockchip,rk3568-tsadc",
- 		.data = (void *)&rk3568_tsadc_data,
 -- 
-2.25.1
+2.34.1
+
 
 
