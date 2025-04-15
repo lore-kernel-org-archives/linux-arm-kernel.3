@@ -4,77 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF338C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 03:00:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63561C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Apr 2025 03:02:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4C9gyr7siZ0xEY4Hy2QnkKs2CQg9nQZqfR0oirdMTNQ=; b=syvRylnEk6L2OUN+qg4NkaRFyN
-	pF/nLMqi7S+t2iTnzaCg7Knp5gxjLxHh9HgIYL+6gJUSQcFcJm8qhRAjcvcmP6IpcuSgUQeEw/VQU
-	2BQOgpWVk17GPu0T/8pj9GcvpjwK964lisd48W8Ho48jzsS+fkZMzQYW43Ec0wlxm+EjQK3FAH3kO
-	ku8uWewrOfhCxXmfIrEmq9dbjXOwJ2lTjaijxuvAAQku4r4Yn/tA3krZlqHdxLGVnoZhnGwhS57Su
-	HSn5KLpwVWBB+wTn2ek07/b/ekVjk0J5aYxQ/hIKP+m1+O+NcjUl4etnz7+LF9NQJQAAsoRVT+GkB
-	xm7Txobw==;
+	bh=I7CFb5phcuP+4Gcly1e9n0FZCqHTwOwFBeLqSWOYM5s=; b=4oZ10JZvNXzD5ZqGzPieExvVQz
+	OQghfwpMw9zOeSjR6IiDZsLKLOS36amSK6l6hYrpsNdKpvADGJ2/RnC2QPQx7ELp2fUDcb9rYcdkT
+	Q7hE9LUcdXsrSiBqY/eY9mCYNky8t3BeZb56Go+WqGIjNcffw3b4jtkBomBuRDuSvOXLLCsC658bE
+	FyjlSLNEwoGrNuZhVoOnBHTHNurS4mPXRCQh9lWHf14ZwdZXA6KLSwG5fTxVqe0zPQWmz4qySrmLZ
+	+jJhTKLuido3iMgqa+esXyojQR7iT2qiX7cMhfeZqnDkAoANVPKvi9s8x2I+XShC3qT7NcjEc6DPG
+	YaIR7Z7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4WXa-00000004GV5-0D4m;
-	Tue, 15 Apr 2025 03:00:50 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u4WZM-00000004Gdu-397j;
+	Tue, 15 Apr 2025 03:02:40 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4WJD-00000004DRR-1gDA;
-	Tue, 15 Apr 2025 02:46:01 +0000
+	id 1u4WPp-00000004FJ1-1PyZ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 15 Apr 2025 02:52:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 22F2AA41451;
-	Tue, 15 Apr 2025 02:40:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id E64ABC4CEF1;
-	Tue, 15 Apr 2025 02:45:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D68BB4A5BD;
+	Tue, 15 Apr 2025 02:52:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA257C4CEEC;
+	Tue, 15 Apr 2025 02:52:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744685158;
-	bh=75keAXRMnoUm3nWjp9JCjWhNFcUePI50VoUETtE1kCQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=SR00pwcp9LgUcNzvz+70649JT5PGeuPxs6DQLzpijiL4Lg8/zQIia3Pie1JAlyXiw
-	 s59u5r43Lmn7xqhd45woDdbz2wC+A7nmprW3hhpeOWZzwCcyJ6gKCFpQ/9FzSvFQnr
-	 sLAK+EzqiPoLywnO1EYAlfhN+IaUlAYp/J8mHsaLQIbZa3hxmITW8WXJT5DPMCzwbj
-	 gQaQuRTAaeBo6DMGMr6bZZWt4t6c43MD4lR3eJnnU0eqrqNKbYRIVycEpr9BmDJGY/
-	 ZvZs6a0G4xL8sP3g1rBxO4swriaLPTG5kktXZe5SpFea+vzBUYkctXeiwY1WtnzVJv
-	 Ds5zomc1aP0pw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D79A9C369B4;
-	Tue, 15 Apr 2025 02:45:57 +0000 (UTC)
-From: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
-Date: Tue, 15 Apr 2025 10:45:26 +0800
-Subject: [PATCH v3 3/7] dt-bindings: soc: amlogic: S4 supports clk-measure
+	s=k20201202; t=1744685566;
+	bh=PQn6OeimQolU3wGoTb/bxlB0yG4NJSd5Q4MyaSlJeyI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=XAOLADc98F4wRQxP38j7hllxw6z+oKU0P/qhhS0ykYZX5vUJxSJ1P0pMVP6GTg4sI
+	 YLxezJtqqOE/jdpflIcxpZ89URJPHCzC94uXMSTwJ2E57oEoFAHeHK/wWCrQ1hPi84
+	 E8MIdvAggc7p/tMtl0n3siIWbn4G8RR7pD+d07EBNKh7r8PAacl3FrLluyTDeirfmP
+	 m9KUAk6zszj5ZwkHZhUM9fFzNHCB8+fBOytNjDBP5NZeqqqu38Roj4EBGr8l281rAK
+	 zDQ/AnhNmE07F/bYVFnrfxJbANw/uUPit2QsWQ8IKFByrSfYRUO+f1f2AOcX9YdD2U
+	 6wyO8wXmoJVDA==
+From: Bjorn Andersson <andersson@kernel.org>
+To: Konrad Dybcio <konradybcio@kernel.org>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	netdev@vger.kernel.org,
+	Rob Herring <robh@kernel.org>
+Subject: Re: [PATCH] arm64: dts: qcom: remove max-speed = 1G for RGMII for ethernet
+Date: Mon, 14 Apr 2025 21:52:39 -0500
+Message-ID: <174468553408.331095.8173023900653725550.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <E1u3bkm-000Epw-QU@rmk-PC.armlinux.org.uk>
+References: <E1u3bkm-000Epw-QU@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250415-clk-measure-v3-3-9b8551dd33b4@amlogic.com>
-References: <20250415-clk-measure-v3-0-9b8551dd33b4@amlogic.com>
-In-Reply-To: <20250415-clk-measure-v3-0-9b8551dd33b4@amlogic.com>
-To: Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- Chuan Liu <chuan.liu@amlogic.com>
-X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1744685155; l=868;
- i=chuan.liu@amlogic.com; s=20240902; h=from:subject:message-id;
- bh=Bv5Y4DpbmiEYh7fjv0Fc7kk2ovIc05XnT6FwbcehZ6c=;
- b=w88IzP6gAbA3az1au7kmY/Stty3NwkvdEmCsgj+oCuRXQV+ilieQMwlv4fHg53IaJrtql/vwN
- uxHZQHA18F9Bf5GYJ98y7H7f6sRAwslBL3LgZFkKiG9INGoVDtaDc2I
-X-Developer-Key: i=chuan.liu@amlogic.com; a=ed25519;
- pk=fnKDB+81SoWGKW2GJNFkKy/ULvsDmJZRGBE7pR5Xcpo=
-X-Endpoint-Received: by B4 Relay for chuan.liu@amlogic.com/20240902 with
- auth_id=203
-X-Original-From: Chuan Liu <chuan.liu@amlogic.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_194559_495313_8B8AE637 
-X-CRM114-Status: UNSURE (   7.36  )
+X-CRM114-CacheID: sfid-20250414_195249_399539_66D7BD1D 
+X-CRM114-Status: UNSURE (   8.51  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,35 +77,24 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: chuan.liu@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chuan Liu <chuan.liu@amlogic.com>
 
-S4 adds support for clk-measure.
+On Sat, 12 Apr 2025 15:22:40 +0100, Russell King (Oracle) wrote:
+> The RGMII interface is designed for speeds up to 1G. Phylink already
+> imposes the design limits for MII interfaces, and additional
+> specification is unnecessary. Therefore, we can remove this property
+> without any effect.
+> 
+> 
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
----
- .../devicetree/bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml    | 1 +
- 1 file changed, 1 insertion(+)
+Applied, thanks!
 
-diff --git a/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml b/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml
-index 275afe7fe374..39d4637c2d08 100644
---- a/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml
-+++ b/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml
-@@ -23,6 +23,7 @@ properties:
-       - amlogic,meson-g12a-clk-measure
-       - amlogic,meson-sm1-clk-measure
-       - amlogic,c3-clk-measure
-+      - amlogic,s4-clk-measure
- 
-   reg:
-     maxItems: 1
+[1/1] arm64: dts: qcom: remove max-speed = 1G for RGMII for ethernet
+      commit: 0d5da04d23c3b398595727a274887cb8ff1c06a3
 
+Best regards,
 -- 
-2.42.0
-
-
+Bjorn Andersson <andersson@kernel.org>
 
