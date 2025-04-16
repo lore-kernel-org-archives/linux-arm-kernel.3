@@ -4,97 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB887C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 01:24:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EAF7C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 01:26:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=FTYOE+l+OFz2+MfFyR+Qm4beQdJPC9V2OvPT/FaDyl0=; b=2VMMfNDC+cl2sFwfnEbj5Nl8R5
-	GOdO4hyYz17KU0ksokj7Aaz0EoF60SNzjWbedizwdmRIrXSB+p9NtwXBbT7C6nWi+oRxeFxu2auZv
-	243JiK22zKfxis3qcPn827d2/9X0OS4leFOBVHctOwx1QsRucEldHWIHLpPBDAKREP5FireQItrTQ
-	20a474ShMOiV6uyLRwPvcxUpYu9m56MaQbmR75AhuSojJy86QUyHk52m6OCLJgtzJjroHjK8q/coJ
-	zLIXFidYS3eE7Zf+Tl4NkIaE9U/zlzQOvG2cm2KuOTU5WSJgCVSMGv5+MrFVmwEtnJfBndEeqhBkK
-	vXPeyQPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h0Xisywrxi493e4looxVWRV4NV8yOgQRE0t8nAqGR74=; b=t7RPsmBEp2+0wf9t99VXAt8xHM
+	2Qs3txX1Or6awR1yRO8uv2/3tjGhRz2anuN6/DEfhPJWAHAPC3Oob0gxZDXiOqFt6mxcjql7O4cWl
+	OJf9IIZDhkir/BECJvCmEgW+w+dJhOBUVt8nNA7q03nBPK83D9rMcgcC9I6XMOdlhvDm0DThsnQvl
+	BEXk8+HfoufCE8oUkIOYIJySR+hMRnWQflBo4TiCY/CJCP5pAwVTOyqLpVfIeXk6QmO5jlIqEQEH2
+	GOgTmDcTB+5g4ZfwqXsoPvVuth1WsazuZybTWWRuHaYB8Ku3+zy4xedqta3tYBjnaZd5i8TkYbzWk
+	6lshstiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4rVq-00000007nld-1hKR;
-	Wed, 16 Apr 2025 01:24:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u4rXh-00000007o0G-0xDU;
+	Wed, 16 Apr 2025 01:26:21 +0000
+Received: from mail-tyzapc01on2097.outbound.protection.outlook.com ([40.107.117.97] helo=APC01-TYZ-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4rAS-00000007jwQ-1M2b
+	id 1u4rDG-00000007kfX-3VV9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 01:02:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9F380447CA;
-	Wed, 16 Apr 2025 01:02:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78E76C4CEE7;
-	Wed, 16 Apr 2025 01:02:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744765339;
-	bh=pxx/BrdLMS5Mul/HFokaPLtg/6DDJYpnVXSSateVRNs=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Ls4HvtgK/y+KTLUCOZzykdiJaX8cTl1dQ4ZonA75BNbJjzCHmKVHV+wUH2bR+QVw9
-	 My8lEaDI8qdNDQaxpFoq/u8x4e5nkqt2ClaWt/DIcnolEblHSKQ+3osoGqwoTqa/+3
-	 Dm+qqHGJsW+YwVaoL4gWUrTTZBn7zdN/JwcO4/CL8QzG2M7ytRbWf9GPtP3pIQihSz
-	 yJVsIaqL3csj9ZvXmN972Ikyq346YVGfEx0kY0YP65BfXFB82aXBjYWZQf1r3G/1ik
-	 KF8Z+vjR8RM41fNhwWOpHZWQuWgo7GWS6gMfNZF7UqMmVXQVxE1fKWRmWRk+PXnigZ
-	 flOePqbJby6Yw==
-From: Kees Cook <kees@kernel.org>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Kees Cook <kees@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Claudiu Manoil <claudiu.manoil@nxp.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Wei Fang <wei.fang@nxp.com>,
-	Clark Wang <xiaoning.wang@nxp.com>,
-	Jeroen de Borst <jeroendb@google.com>,
-	Harshitha Ramamurthy <hramamurthy@google.com>,
-	Ido Schimmel <idosch@nvidia.com>,
-	Petr Machata <petrm@nvidia.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Simon Horman <horms@kernel.org>,
-	Geoff Levand <geoff@infradead.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Alexander Lobakin <aleksander.lobakin@intel.com>,
-	Praveen Kaligineedi <pkaligineedi@google.com>,
-	Willem de Bruijn <willemb@google.com>,
-	Joshua Washington <joshwash@google.com>,
-	Furong Xu <0x1207@gmail.com>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Petr Tesarik <petr@tesarici.cz>,
-	netdev@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Richard Cochran <richardcochran@gmail.com>,
-	Jacob Keller <jacob.e.keller@intel.com>,
-	Shannon Nelson <shannon.nelson@amd.com>,
-	Ziwei Xiao <ziweixiao@google.com>,
-	Shailend Chand <shailend@google.com>,
-	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
-	Andrew Halaney <ahalaney@redhat.com>,
-	Kory Maincent <kory.maincent@bootlin.com>,
-	linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org
-Subject: [PATCH] net: ethtool: Adjust exactly ETH_GSTRING_LEN-long stats to use memcpy
-Date: Tue, 15 Apr 2025 18:02:15 -0700
-Message-Id: <20250416010210.work.904-kees@kernel.org>
-X-Mailer: git-send-email 2.34.1
+	Wed, 16 Apr 2025 01:05:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZfXwvDr0oQiTQ9BqbPET3ETPOMYad6D0FFyt9MLug6LOzIDvlQxD9QjPkBWHs5Ou8hIho1hX4ntezwOjtzwQK0188qPS/qMjsuFUi3OGAw7nrHuDeD2oYxBK/VmX2sgxAUUs4X1QT4kRzqut5Z2JG9qirjgqzZH6ylXfsbVxBWI+rQUcMV2EXOHtOKR5NdibvbeKfY2Dru7eFAS9isv0trVgdYEWbPyYa9Za+y2VXr+O4Jk2VsdeaUwVqx4kcOUpRnspvDgJM8y8F2ifTZquhaQBDEFL6Obq57PMyOOUIXpXW7Uk40AWIde/N8VakzkIpQsCY3ltduT9zKBdeRWv5A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=h0Xisywrxi493e4looxVWRV4NV8yOgQRE0t8nAqGR74=;
+ b=VnUvxoC02Upv5YzMoYIbYIVrnnpBshnMaeGCl6J6gwfgr+I3Y1a0CDoJslF0YU3R4dJ9eTlaUY7TirPt8nd2BNd/in7rMfL216urvUbEpOYZick7ln8Jlq3DSNJoTBO6mKi21s0oL1fflo7un4dAFsWyhgvAMeCQYUi98bCgJJMAdMirXpKdISTZUaV5bBYUo0qiX/UVp9+7DGeRwxZhC+AXl3W0cmaT8YxakH2jBUTiYP/ysFzubRddiMOmjARpH5SIBHSAsixX3XISYaARIGfyEvXRxv/L13/FzR+hcfvdTtUD9evNsNtXuGShHPZA/+n/laJCSTYuNcq/ZKRj8g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SG2PR03CA0117.apcprd03.prod.outlook.com (2603:1096:4:91::21) by
+ TYZPR06MB7063.apcprd06.prod.outlook.com (2603:1096:405:40::10) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8632.32; Wed, 16 Apr 2025 01:04:48 +0000
+Received: from HK3PEPF0000021D.apcprd03.prod.outlook.com
+ (2603:1096:4:91:cafe::ae) by SG2PR03CA0117.outlook.office365.com
+ (2603:1096:4:91::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.15 via Frontend Transport; Wed,
+ 16 Apr 2025 01:04:48 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ HK3PEPF0000021D.mail.protection.outlook.com (10.167.8.39) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8655.12 via Frontend Transport; Wed, 16 Apr 2025 01:04:47 +0000
+Received: from nchen-desktop (unknown [172.16.64.25])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 2754D40A5BFB;
+	Wed, 16 Apr 2025 09:04:46 +0800 (CST)
+Date: Wed, 16 Apr 2025 09:04:41 +0800
+From: Peter Chen <peter.chen@cixtech.com>
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: <soc@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<arnd@arndb.de>, <jassisinghbrar@gmail.com>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<cix-kernel-upstream@cixtech.com>, <maz@kernel.org>,
+	<kajetan.puchalski@arm.com>, Guomin Chen <Guomin.Chen@cixtech.com>,
+	Gary Yang <gary.yang@cixtech.com>,
+	Lihua Liu <Lihua.Liu@cixtech.com>
+Subject: Re: [PATCH v6 06/10] mailbox: add CIX mailbox driver
+Message-ID: <Z_8CKa0SwPI8-MEY@nchen-desktop>
+References: <20250415072724.3565533-1-peter.chen@cixtech.com>
+ <20250415072724.3565533-7-peter.chen@cixtech.com>
+ <20250415-beryl-malamute-of-kindness-7fba06@sudeepholla>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=10779; i=kees@kernel.org; h=from:subject:message-id; bh=pxx/BrdLMS5Mul/HFokaPLtg/6DDJYpnVXSSateVRNs=; b=owGbwMvMwCVmps19z/KJym7G02pJDOn/Gad1NGVU6W/WfyJdUZi984XlOb31Yrwd+hLp+axH9 u1gm7m7o5SFQYyLQVZMkSXIzj3OxeNte7j7XEWYOaxMIEMYuDgFYCKyuxn+l0wtitpevZL7p9xZ h031fhFrzGxyj9pc/ryRMzivRZF7KSPDBwFbj8yl7DXPpy6+d6LaOubjukXbu7+YHxBqkfaXm1X PAAA=
-X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250415-beryl-malamute-of-kindness-7fba06@sudeepholla>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: HK3PEPF0000021D:EE_|TYZPR06MB7063:EE_
+X-MS-Office365-Filtering-Correlation-Id: a1fc3cc4-4c8a-4e5e-aa76-08dd7c82aea8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|36860700013|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?vfGa5E5bLORTiYnHysBPkPUDrJeHjtIHlf1UDpsuva0JVYB25xLAPTY3Lsqr?=
+ =?us-ascii?Q?l1TFI9XpsiDuUzt9BR8wicSAvM83QW/PXt9pCD1A7GcyQLJdy5yWAgoA5XQW?=
+ =?us-ascii?Q?b0Csfniz/I2/V//YXgjkZtAkQD+hr+gm/lH73bYTTzUgahFwTlVIux8F5O1r?=
+ =?us-ascii?Q?i6Yg5U1zfo+aPLvmq0d3XhsjW3gbY/gXBd5aDeVa4AXY2UZ/CeXK/fwgWq4f?=
+ =?us-ascii?Q?4rQXL8t8eYM77GUxfw3AK+BSndhAjfUE6EIeXRAigCxgQLnR+9OVDqSUlGL+?=
+ =?us-ascii?Q?5aOyUm37cFX5OzhVrz2TOJYZxq+mEC6fcS8eqlWEKKnBWJsHWQl5nkuS/6nL?=
+ =?us-ascii?Q?4eGA34YeHorLxuZ7HfxS5qczkQx/5ZglXQtIyHz9FKyXm90mi6o9jY3ZaJ48?=
+ =?us-ascii?Q?zcmhmNQpI0ZyeuKaDXToTLiobahkGS7WwPD8jEggU3+ed1hzFNDffDoq8sj7?=
+ =?us-ascii?Q?NtMzzqWuQ8bxbC4D+kHSEYKn9rWT6mSCX7RVghaLbyAXsno7OuJTRXEAlUMT?=
+ =?us-ascii?Q?imSh/Eix65q85mYAC9H4BymCisDal+fS2NofFkfZGzJVjjWKyVxvkS4ojjAp?=
+ =?us-ascii?Q?MIgZJj4IkH/pzdQ7ybf6gbEnIEBod0WYoSl9K4FXQ+ZoCc2LZEE2AzMUXeNl?=
+ =?us-ascii?Q?FCgYsOrRM7q4y/hqjO8tsfYX3MeJ5Iq/ehNLUVx0em+wuHe2UGq2/h0KPMxJ?=
+ =?us-ascii?Q?YRmM7FB8b82PREJ9H9iUGbJpfn7dP2ZJ+oicmRcv633VSbQr0hzjTb+kQZKo?=
+ =?us-ascii?Q?wwVXDmGDFZ9/z2SrXKpu2yVt9eHCopqOos9NUu60l9tgZO27Lfm0WEG8RxC8?=
+ =?us-ascii?Q?l6U+Pk/77cry52UK8ipL4YxS7d9jrOt7XfaCBLlSV0rjrK868q5lTefRuk5w?=
+ =?us-ascii?Q?z5BKUuWlmj6hGQYTOy60/SMH0h9fG7RwibplXVAWksHZQfaqATZKsf6x7l3e?=
+ =?us-ascii?Q?37ECP0TVFLBzCJ9Fs5UvopiuUFYi4MR09WIUYmwXT1YVLu/gxOEjmmAs60ef?=
+ =?us-ascii?Q?sjiDtDbznIFmWnKb3ba1FC0YIqoYw3SiCSZvAqpiSWII3GdPHxWvS/9DnmIZ?=
+ =?us-ascii?Q?3pXk1+EDe+48sIcLdJlY36etPuIxFtPeqp91dc6RamjYh9pJAqIIdC4R8MJa?=
+ =?us-ascii?Q?VBpIox+Yf6bd4tRFd6H/hXPnnYYKpxedNrem33i6nIO+pXhOHj6bsfCGK4ua?=
+ =?us-ascii?Q?QQ5RLqgLGL27I3C9DT+B55rDl8bFv+kKnRBRRESdwMspbaphKWrfMPuDxNav?=
+ =?us-ascii?Q?bvNnjcskRkjcPMmxnS13lRN1L8rb0c4hLP/E3Xy0KmNVepeNuWR2cZG15sNO?=
+ =?us-ascii?Q?pKTOHFRfnbZvEOY1lsq+OGFwBvXv2J3Cw6S3MkuiYFf7EDOmsi4mmFTybopW?=
+ =?us-ascii?Q?PMFF/beXfIfdrqIq9ID2RVXrHe97Xn+ncm7JOtX9QksVo00qTZZRsL9DOXAj?=
+ =?us-ascii?Q?4Juzkj/T0Y/p5bLYebM4wpf5pTtyx+tL04ZOL8b3TdEZ34OQXdsFO3JFspid?=
+ =?us-ascii?Q?E3hr1ehrR8ufYppgp/3roau+9a2smsziqH7D?=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(36860700013)(82310400026);DIR:OUT;SFP:1102;
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Apr 2025 01:04:47.2016
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a1fc3cc4-4c8a-4e5e-aa76-08dd7c82aea8
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: HK3PEPF0000021D.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR06MB7063
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_180220_412308_2B9E6BCB 
-X-CRM114-Status: GOOD (  20.14  )
+X-CRM114-CacheID: sfid-20250415_180514_879878_98B145D0 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,210 +142,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Many drivers populate the stats buffer using C-String based APIs (e.g.
-ethtool_sprintf() and ethtool_puts()), usually when building up the
-list of stats individually (i.e. with a for() loop). This, however,
-requires that the source strings be populated in such a way as to have
-a terminating NUL byte in the source.
+On 25-04-15 19:39:21, Sudeep Holla wrote:
+> EXTERNAL EMAIL
+> 
+> On Tue, Apr 15, 2025 at 03:27:20PM +0800, Peter Chen wrote:
+> > From: Guomin Chen <Guomin.Chen@cixtech.com>
+> >
+> > The CIX mailbox controller, used in the Cix SoCs, like sky1.
+> > facilitates message transmission between multiple processors
+> > within the SoC, such as the AP, PM, audio DSP, SensorHub MCU,
+> > and others.
+> >
+> 
+> Do you have a specification for this mailbox ?
 
-Other drivers populate the stats buffer directly using one big memcpy()
-of an entire array of strings. No NUL termination is needed here, as the
-bytes are being directly passed through. Yet others will build up the
-stats buffer individually, but also use memcpy(). This, too, does not
-need NUL termination of the source strings.
+Our TRM is on the road.
 
-However, there are cases where the strings that populate the
-source stats strings are exactly ETH_GSTRING_LEN long, and GCC
-15's -Wunterminated-string-initialization option complains that the
-trailing NUL byte has been truncated. This situation is fine only if the
-driver is using the memcpy() approach. If the C-String APIs are used,
-the destination string name will have its final byte truncated by the
-required trailing NUL byte applied by the C-string API.
+> I see lot of resemblance with Arm MHUv3. Is this a variant of it ?
+> I just don't want to see a separate driver for a small tweak of MHU v3 IP
+> itself.
 
-For drivers that are already using memcpy() but have initializers that
-truncate the NUL terminator, mark their source strings as __nonstring to
-silence the GCC warnings.
+Not from the Arm, it is our self-design.
 
-For drivers that have initializers that truncate the NUL terminator and
-are using the C-String APIs, switch to memcpy() to avoid destination
-string truncation and mark their source strings as __nonstring to silence
-the GCC warnings. (Also introduce ethtool_cpy() as a helper to make this
-an easy replacement).
-
-Specifically the following warnings were investigated and addressed:
-
-../drivers/net/ethernet/chelsio/cxgb/cxgb2.c:364:9: warning: initializer-string for array of 'char' truncates NUL terminator but destination lacks 'nonstring' attribute (33 chars into 32 available) [-Wunterminated-string-initialization]
-  364 |         "TxFramesAbortedDueToXSCollisions",
-      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../drivers/net/ethernet/freescale/enetc/enetc_ethtool.c:165:33: warning: initializer-string for array of 'char' truncates NUL terminator but destination lacks 'nonstring' attribute (33 chars into 32 available) [-Wunterminated-string-initialization]
-  165 |         { ENETC_PM_R1523X(0),   "MAC rx 1523 to max-octet packets" },
-      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../drivers/net/ethernet/freescale/enetc/enetc_ethtool.c:190:33: warning: initializer-string for array of 'char' truncates NUL terminator but destination lacks 'nonstring' attribute (33 chars into 32 available) [-Wunterminated-string-initialization]
-  190 |         { ENETC_PM_T1523X(0),   "MAC tx 1523 to max-octet packets" },
-      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../drivers/net/ethernet/google/gve/gve_ethtool.c:76:9: warning: initializer-string for array of 'char' truncates NUL terminator but destination lacks 'nonstring' attribute (33 chars into 32 available) [-Wunterminated-string-initialization]
-   76 |         "adminq_dcfg_device_resources_cnt", "adminq_set_driver_parameter_cnt",
-      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c:117:53: warning: initializer-string for array of 'char' truncates NUL terminator but destination lacks 'nonstring' attribute (33 chars into 32 available) [-Wunterminated-string-initialization]
-  117 |         STMMAC_STAT(ptp_rx_msg_type_pdelay_follow_up),
-      |                                                     ^
-../drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c:46:12: note: in definition of macro 'STMMAC_STAT'
-   46 |         { #m, sizeof_field(struct stmmac_extra_stats, m),       \
-      |            ^
-../drivers/net/ethernet/mellanox/mlxsw/spectrum_ethtool.c:328:24: warning: initializer-string for array of 'char' truncates NUL terminator but destination lacks 'nonstring' attribute (33 chars into 32 available) [-Wunterminated-string-initialization]
-  328 |                 .str = "a_mac_control_frames_transmitted",
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../drivers/net/ethernet/mellanox/mlxsw/spectrum_ethtool.c:340:24: warning: initializer-string for array of 'char' truncates NUL terminator but destination lacks 'nonstring' attribute (33 chars into 32 available) [-Wunterminated-string-initialization]
-  340 |                 .str = "a_pause_mac_ctrl_frames_received",
-      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Signed-off-by: Kees Cook <kees@kernel.org>
----
-Cc: Jakub Kicinski <kuba@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>
-Cc: "David S. Miller" <davem@davemloft.net>
-Cc: Eric Dumazet <edumazet@google.com>
-Cc: Paolo Abeni <pabeni@redhat.com>
-Cc: Claudiu Manoil <claudiu.manoil@nxp.com>
-Cc: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: Wei Fang <wei.fang@nxp.com>
-Cc: Clark Wang <xiaoning.wang@nxp.com>
-Cc: Jeroen de Borst <jeroendb@google.com>
-Cc: Harshitha Ramamurthy <hramamurthy@google.com>
-Cc: Ido Schimmel <idosch@nvidia.com>
-Cc: Petr Machata <petrm@nvidia.com>
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Simon Horman <horms@kernel.org>
-Cc: Geoff Levand <geoff@infradead.org>
-Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: Alexander Lobakin <aleksander.lobakin@intel.com>
-Cc: Praveen Kaligineedi <pkaligineedi@google.com>
-Cc: Willem de Bruijn <willemb@google.com>
-Cc: Joshua Washington <joshwash@google.com>
-Cc: Furong Xu <0x1207@gmail.com>
-Cc: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Jisheng Zhang <jszhang@kernel.org>
-Cc: Petr Tesarik <petr@tesarici.cz>
-Cc: netdev@vger.kernel.org
-Cc: imx@lists.linux.dev
-Cc: linux-stm32@st-md-mailman.stormreply.com
-Cc: linux-arm-kernel@lists.infradead.org
----
- drivers/net/ethernet/chelsio/cxgb/cxgb2.c             |  2 +-
- drivers/net/ethernet/freescale/enetc/enetc_ethtool.c  |  4 ++--
- drivers/net/ethernet/google/gve/gve_ethtool.c         |  4 ++--
- .../net/ethernet/mellanox/mlxsw/spectrum_ethtool.c    |  2 +-
- drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c  |  2 +-
- include/linux/ethtool.h                               | 11 +++++++++++
- 6 files changed, 18 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/net/ethernet/chelsio/cxgb/cxgb2.c b/drivers/net/ethernet/chelsio/cxgb/cxgb2.c
-index 3b7068832f95..4a0e2d2eb60a 100644
---- a/drivers/net/ethernet/chelsio/cxgb/cxgb2.c
-+++ b/drivers/net/ethernet/chelsio/cxgb/cxgb2.c
-@@ -351,7 +351,7 @@ static void set_msglevel(struct net_device *dev, u32 val)
- 	adapter->msg_enable = val;
- }
- 
--static const char stats_strings[][ETH_GSTRING_LEN] = {
-+static const char stats_strings[][ETH_GSTRING_LEN] __nonstring_array = {
- 	"TxOctetsOK",
- 	"TxOctetsBad",
- 	"TxUnicastFramesOK",
-diff --git a/drivers/net/ethernet/freescale/enetc/enetc_ethtool.c b/drivers/net/ethernet/freescale/enetc/enetc_ethtool.c
-index ece3ae28ba82..f47c8b6cc511 100644
---- a/drivers/net/ethernet/freescale/enetc/enetc_ethtool.c
-+++ b/drivers/net/ethernet/freescale/enetc/enetc_ethtool.c
-@@ -141,7 +141,7 @@ static const struct {
- 
- static const struct {
- 	int reg;
--	char name[ETH_GSTRING_LEN];
-+	char name[ETH_GSTRING_LEN] __nonstring;
- } enetc_port_counters[] = {
- 	{ ENETC_PM_REOCT(0),	"MAC rx ethernet octets" },
- 	{ ENETC_PM_RALN(0),	"MAC rx alignment errors" },
-@@ -264,7 +264,7 @@ static void enetc_get_strings(struct net_device *ndev, u32 stringset, u8 *data)
- 			break;
- 
- 		for (i = 0; i < ARRAY_SIZE(enetc_port_counters); i++)
--			ethtool_puts(&data, enetc_port_counters[i].name);
-+			ethtool_cpy(&data, enetc_port_counters[i].name);
- 
- 		break;
- 	}
-diff --git a/drivers/net/ethernet/google/gve/gve_ethtool.c b/drivers/net/ethernet/google/gve/gve_ethtool.c
-index eae1a7595a69..3c1da0cf3f61 100644
---- a/drivers/net/ethernet/google/gve/gve_ethtool.c
-+++ b/drivers/net/ethernet/google/gve/gve_ethtool.c
-@@ -67,7 +67,7 @@ static const char gve_gstrings_tx_stats[][ETH_GSTRING_LEN] = {
- 	"tx_xsk_sent[%u]", "tx_xdp_xmit[%u]", "tx_xdp_xmit_errors[%u]"
- };
- 
--static const char gve_gstrings_adminq_stats[][ETH_GSTRING_LEN] = {
-+static const char gve_gstrings_adminq_stats[][ETH_GSTRING_LEN] __nonstring_array = {
- 	"adminq_prod_cnt", "adminq_cmd_fail", "adminq_timeouts",
- 	"adminq_describe_device_cnt", "adminq_cfg_device_resources_cnt",
- 	"adminq_register_page_list_cnt", "adminq_unregister_page_list_cnt",
-@@ -113,7 +113,7 @@ static void gve_get_strings(struct net_device *netdev, u32 stringset, u8 *data)
- 						i);
- 
- 		for (i = 0; i < ARRAY_SIZE(gve_gstrings_adminq_stats); i++)
--			ethtool_puts(&s, gve_gstrings_adminq_stats[i]);
-+			ethtool_cpy(&s, gve_gstrings_adminq_stats[i]);
- 
- 		break;
- 
-diff --git a/drivers/net/ethernet/mellanox/mlxsw/spectrum_ethtool.c b/drivers/net/ethernet/mellanox/mlxsw/spectrum_ethtool.c
-index 3f64cdbabfa3..0a8fb9c842d3 100644
---- a/drivers/net/ethernet/mellanox/mlxsw/spectrum_ethtool.c
-+++ b/drivers/net/ethernet/mellanox/mlxsw/spectrum_ethtool.c
-@@ -262,7 +262,7 @@ static int mlxsw_sp_port_set_pauseparam(struct net_device *dev,
- }
- 
- struct mlxsw_sp_port_hw_stats {
--	char str[ETH_GSTRING_LEN];
-+	char str[ETH_GSTRING_LEN] __nonstring;
- 	u64 (*getter)(const char *payload);
- 	bool cells_bytes;
- };
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-index 918a32f8fda8..844f7d516a40 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-@@ -37,7 +37,7 @@
- #define ETHTOOL_DMA_OFFSET	55
- 
- struct stmmac_stats {
--	char stat_string[ETH_GSTRING_LEN];
-+	char stat_string[ETH_GSTRING_LEN] __nonstring;
- 	int sizeof_stat;
- 	int stat_offset;
- };
-diff --git a/include/linux/ethtool.h b/include/linux/ethtool.h
-index 013d25858642..7edb5f5e7134 100644
---- a/include/linux/ethtool.h
-+++ b/include/linux/ethtool.h
-@@ -1330,6 +1330,17 @@ extern __printf(2, 3) void ethtool_sprintf(u8 **data, const char *fmt, ...);
-  */
- extern void ethtool_puts(u8 **data, const char *str);
- 
-+/**
-+ * ethtool_cpy - Write possibly-not-NUL-terminated string to ethtool string data
-+ * @data: Pointer to a pointer to the start of string to write into
-+ * @str: NUL-byte padded char array of size ETH_GSTRING_LEN to copy from
-+ */
-+#define ethtool_cpy(data, str)	do {				\
-+	BUILD_BUG_ON(sizeof(str) != ETH_GSTRING_LEN);		\
-+	memcpy(*(data), str, ETH_GSTRING_LEN);			\
-+	*(data) += ETH_GSTRING_LEN;				\
-+} while (0)
-+
- /* Link mode to forced speed capabilities maps */
- struct ethtool_forced_speed_map {
- 	u32		speed;
 -- 
-2.34.1
 
+Best regards,
+Peter
 
