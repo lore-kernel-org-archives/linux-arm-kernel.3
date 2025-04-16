@@ -4,88 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94F6BC369BD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 11:15:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DEECC369BD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 11:17:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MocR616+VqlYQgKAO9looh+5bl/oUxpGHWgrj7ut1gY=; b=hqvl+2mre39miqkrQiz6f/Kcfi
-	JkGF2ikK7GBvNTdBqBSa4zuE03XGIguBEA5lrstWVeo/zmO4Um5FJLHh7Kuzku0cAsy+BDeK/QJKQ
-	79uSf4QvOSEHYWI1lgpiaVMrvHYRmvV3uJCZKB4WLnZ8z7sbJAEK33jT6k5YR422z7rPwSUdvNm5I
-	he0KWAM4P/AzNP7cisuYnuSPKjaai1s1+o+C3fO8HKOvsZUrkJXk1OkFeRo1Qhu7udzbsCnjdYLr3
-	ey/F9ZmwdxPI+lIxarFg4WQpW8J89U/JWTgRm8VrXcfAM4sb3j0nZYsIlKWJVyGMRiV5lywySoiqr
-	0thk0pgw==;
+	bh=V0bcAVcIBXJUMVNToi/c3WDygqPJpKfs0dNrgJ/Ax5Y=; b=jQVC8hHwYrxT1bGYZm6uHBDNqz
+	Dqg8n14wNDVYFp+HOVHwVq3KMCa9sZQm5MMzmFQVnM5PIw4gjzcQ5YLHGpKy0z9CFzV1nvHfTY8xF
+	7ecYKQdc12kYURZZyLewJ1m5QfbtnlPkLMFo8zaDLlpXb/H1NfFSNZqVUoRAnrYeF3jw3DgCQpqOQ
+	TjzCdUxqHriTnanLITZGBaqgUV4czAssYzfnFsQt7yNpBr4VP7ZGSJ6ZyvRcW/qu7Xa985Lqar/WD
+	0gC3xg1UVgAA3gsfGxY8nUIkz5FJNFa09DhEHL93Ev6btXkRmmQmYwDfORSpDgzJOyBPCVwb0WZDN
+	kHjC11tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u50jX-00000009Jhf-3RIg;
-	Wed, 16 Apr 2025 11:15:11 +0000
-Received: from mail-ua1-f50.google.com ([209.85.222.50])
+	id 1u50lN-00000009JuP-3LaU;
+	Wed, 16 Apr 2025 11:17:05 +0000
+Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u50hg-00000009JSf-0dXy;
-	Wed, 16 Apr 2025 11:13:17 +0000
-Received: by mail-ua1-f50.google.com with SMTP id a1e0cc1a2514c-873a2ba6f7cso2519598241.3;
-        Wed, 16 Apr 2025 04:13:15 -0700 (PDT)
+	id 1u50iT-00000009JYr-1NZY
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 16 Apr 2025 11:14:06 +0000
+Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-30bee278c2aso6822041fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 04:14:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1744802043; x=1745406843; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=V0bcAVcIBXJUMVNToi/c3WDygqPJpKfs0dNrgJ/Ax5Y=;
+        b=dWzcrvmmk77JLxScXUXyrjFTSE9LnvrXMoMm2veotCKioHG7h3hcRUO0o7GWSUNJzM
+         h63f/PCcJ6/y/MsVk8G3+f0VvwzKnFRzju/w8hGsa+qUeW+J0tosvowN5VQZ06p6A4lk
+         8bPoMRy3Af6bUh3cOIZl8Ur+PvncomlEAqvng9gaZKSipQROzKkaYJA/JMW5RGwRZz4Z
+         RlZv49p0pE2qjeuPhIQq1vSQizBCYauLfffMM5r0Om2FK4glZxtdXO2katAznZVgGB7P
+         PiSRfi/CajsqdcatybTtCkI6O0kL8cKI1RprT/j7Ccezr4eUEuSk4BHTrE4k9+SCiQWM
+         ddQw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744801992; x=1745406792;
+        d=1e100.net; s=20230601; t=1744802043; x=1745406843;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=MocR616+VqlYQgKAO9looh+5bl/oUxpGHWgrj7ut1gY=;
-        b=mVLb2lf2w4rU6mpKsgS96b5qRJmcd+tUa9nU1n4JcWfmIjYPSEd0qYfxpiu8wc2ayX
-         UU+1WM2T6fZbSLyRyZJG4IT8apnojZbBPTH7dY0BB/aRJO3sykf4QqdXZMO0hIwFJ0J7
-         F0gvJjspFrwcPcicUkNctChiudRquoU3bGEn+8QdynDdv1fQiJBmWucE3EaJzsZzMhlC
-         ZiypAbu+e9+CloSMJsSfgKKivjllyA4buG9SWSZzWVfLDFLeeFPM4mjoVJZY5fGexyd6
-         eDz9V1WFDK+SjuZKN28P/kCW2rgtpwwt00E7BpVB9gN6GcMUXKJ86qyvLhWEbWUnuG5y
-         70DA==
-X-Forwarded-Encrypted: i=1; AJvYcCUYf70LnZnj60xHtkWWDnSaS4oe/Vu+DWvxfs2jIfu8p/RPt7uYM+spI8pxSbu5s2ozZzGAzr5b6oNPeTfcFxg=@lists.infradead.org, AJvYcCXo/EJE1UvIgksNb293YwiWEjerGvz1egkXBlRbjCn+HR60e7jvOkb6+TL7LOWU2En2ct6gasnY3A2kSpm9zAGF@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw1T/5SbEujfxPoJJir/OmnhGiIGMIGmPDPgRQXoLI8TRIHFUdU
-	KknKjpDP0NqPA6jTJjzl8iwZ48LIxUdD7TzRQrXcS6tYEdC4JHV4YCWn3j8w
-X-Gm-Gg: ASbGncufPC0JyEC+HPvAlXH9hTVUeNucOwrkBfqm0CCc8UI1BgNHtCo+Am8Lyg56gBh
-	WSNWJ70aYTDoKyrq+szm95A9IxaW2+QjvjUKK3fFMEVXKmODUCw2UeBnyl3/dzYNIbPUbfSWzWm
-	j/D+GXzzFbz9ktBNRII7XXff7GVvS/5ziIqcmolSJGN+TsXNulr90qnWTnHeu9y92kRyD2+TuGS
-	8vuka3J7zF4x/E4YeJiz+/EPjc2elh3Bgql8EK7ojK1sY+/KxpMAqbDf/DguyQLbrmaZjSNP/BJ
-	SC2xA4a+v8fe3BkcfZpq3U5scGVKRf+jqKsiM21XcUMjYWVdDJ/1Cq9YrcRlO40Ie8hL2Axl6pw
-	oISk=
-X-Google-Smtp-Source: AGHT+IE58K1Yf1PJTZo/0tMXFtdGPqqowIiLIrcrGqkyn29glLmVPnXVShLan7FrgRbRyPIcwm8ZZw==
-X-Received: by 2002:a05:6102:5c19:b0:4b2:c391:7d16 with SMTP id ada2fe7eead31-4cb591e5fbfmr369456137.7.1744801991841;
-        Wed, 16 Apr 2025 04:13:11 -0700 (PDT)
-Received: from mail-ua1-f45.google.com (mail-ua1-f45.google.com. [209.85.222.45])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-4c9c98edc91sm3025623137.29.2025.04.16.04.13.10
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 16 Apr 2025 04:13:11 -0700 (PDT)
-Received: by mail-ua1-f45.google.com with SMTP id a1e0cc1a2514c-873a2ba6f7cso2519579241.3;
-        Wed, 16 Apr 2025 04:13:10 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUCpWt493H3qI779/1OoVgFTRL4ZluQrV5b5wa2a354jb3lHtYqEVvYoq7gEmRteWyslmEpmwueJVYP2XV3Z4LC@lists.infradead.org, AJvYcCWpyE9/CbclvU64hxoydXd4zHrF9HF4oIoc/1wGVhxWrMypzbPvlXNLgkdIHLak5J/lyTuR/+CuqH8xAdyQsHE=@lists.infradead.org
-X-Received: by 2002:a05:6102:2991:b0:4c3:9b0:9e6b with SMTP id
- ada2fe7eead31-4cb591e784bmr414553137.10.1744801990755; Wed, 16 Apr 2025
- 04:13:10 -0700 (PDT)
+        bh=V0bcAVcIBXJUMVNToi/c3WDygqPJpKfs0dNrgJ/Ax5Y=;
+        b=oUV6gwHled13tHQLdZB0rmtzovzIqQTXr1EFTorZpmy/2MPVnm+jwrT/MteE0QpjbB
+         eSmSOIEkAD/432i967jFP92FdkdtVHuyGHRIgfvPZCTXYqy9JYrRSaegi1QRpiBDrj8R
+         WfiM+BKBbuhTguatT/KPTQ/q3uWzTBI48dHtHPvi82qeDftLExqKOLtNHMeLAb494Vrv
+         8R2e3v0RtvBpgNOtmS3y+1qFdZ3HZZs1/EbvmzbxPQMSArAmfmvgCDSwjn8MwClNtcjI
+         idxpC3WwmlZskGbCgJGs4asxJGHaQGTTDS7Yi9pCLS9oKujviO5idEIlIPBAZ8iHj7ru
+         uxTQ==
+X-Gm-Message-State: AOJu0YzzwV73Xssbv9H1+D+oIRibzaS1vPpJ0D3mUcHOSQsE8GtBchY0
+	/9/Dsk10fUY036KcvqCfNjxmaQt4Lxsqe8KMe1oTcZM6aQlY+RYJQ5sKkDLdscn0szwKoJxx0I9
+	2Qz/hJOf/vqlZnJWZ4fwxf8IvFzAfX98C4O/WCg==
+X-Gm-Gg: ASbGncuAqEqd00TEmMBd5WN+3XjG1TRJZ5NBDZJ+Wh5TUfRCJfH3uuT4HNEOa5trs8i
+	Uvp9L75oL2sNbZbF4i6QHtMsHhHXjU587ChzEPuijTUrlsCjra2oyvOMY+pdR/Homv6w7cW78Kn
+	MUMB7vSYanOGWMUjkK323Tfg==
+X-Google-Smtp-Source: AGHT+IGoVa8oKz/9H6qwN720SjI6iTNhQ//CNlCY1oUOFqYVxtOvYaL8+BRnRaElkmRz7KRCi++4w5Het53XuVm3gb8=
+X-Received: by 2002:a05:651c:892:b0:30b:fc3a:5c49 with SMTP id
+ 38308e7fff4ca-3107f6cedf2mr5715001fa.9.1744802043437; Wed, 16 Apr 2025
+ 04:14:03 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250109-enable-rtc-v3-0-f003e8144419@baylibre.com>
- <20250109-enable-rtc-v3-3-f003e8144419@baylibre.com> <erttkpna2hzg7zuddzlocaou2wqcwmgcxfhldwdt55yleie6dm@nfg374fv66fq>
-In-Reply-To: <erttkpna2hzg7zuddzlocaou2wqcwmgcxfhldwdt55yleie6dm@nfg374fv66fq>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 16 Apr 2025 13:12:58 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdX3u97MtDiPuJgFtO5YTRuLeDHgs4tx7004CScLO11WkQ@mail.gmail.com>
-X-Gm-Features: ATxdqUHjMszLt95drNgnUajxAYkWqRme3b0HzHSYcdCgcByHGIiSYzx7n6CDpNY
-Message-ID: <CAMuHMdX3u97MtDiPuJgFtO5YTRuLeDHgs4tx7004CScLO11WkQ@mail.gmail.com>
-Subject: Re: [PATCH v3 3/5] rtc: Fix the RTC time comparison issues adding cast
-To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-Cc: Alexandre Mergnat <amergnat@baylibre.com>, Eddie Huang <eddie.huang@mediatek.com>, 
-	Sean Wang <sean.wang@mediatek.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	linux-rtc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org
+References: <20250414133219.107455-1-ross.stutterheim@garmin.com> <20250414142140.131756-1-ross.stutterheim@garmin.com>
+In-Reply-To: <20250414142140.131756-1-ross.stutterheim@garmin.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Wed, 16 Apr 2025 13:13:52 +0200
+X-Gm-Features: ATxdqUEiBb754m4GSLXFUAZJuTsxVh_7GqMvgbsAw6DFPoC5SezWgynWEt0JdL4
+Message-ID: <CACRpkdbYZAt=gs=Fqq_VvOzpmUHiwoaQuGy9e8nfydqjdM4NyQ@mail.gmail.com>
+Subject: Re: [PATCH v2] arm/memremap: fix arch_memremap_can_ram_remap()
+To: Ross Stutterheim <ross.stutterheim@garmin.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Russell King <linux@armlinux.org.uk>, Mike Rapoport <rppt@linux.ibm.com>, ross.sweng@gmail.com
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_041316_213249_55E739CE 
-X-CRM114-Status: GOOD (  36.59  )
+X-CRM114-CacheID: sfid-20250416_041405_371918_AC599E71 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,111 +93,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Uwe,
+On Mon, Apr 14, 2025 at 4:32=E2=80=AFPM Ross Stutterheim
+<ross.stutterheim@garmin.com> wrote:
 
-On Tue, 15 Apr 2025 at 00:30, Uwe Kleine-K=C3=B6nig
-<u.kleine-koenig@baylibre.com> wrote:
-> On Fri, Apr 11, 2025 at 02:35:56PM +0200, Alexandre Mergnat wrote:
-> > The RTC subsystem was experiencing comparison issues between signed and
-> > unsigned time values. When comparing time64_t variables (signed) with
-> > potentially unsigned range values, incorrect results could occur leadin=
-g
-> > to runtime errors.
-> >
-> > Adds explicit type casts to time64_t for critical RTC time comparisons
-> > in both class.c and interface.c files. The changes ensure proper
-> > handling of negative time values during range validation and offset
-> > calculations, particularly when dealing with timestamps before 1970.
-> >
-> > The previous implementation might incorrectly interpret negative values
-> > as extremely large positive values, causing unexpected behavior in the
-> > RTC hardware abstraction logic.
-> >
-> > Signed-off-by: Alexandre Mergnat <amergnat@baylibre.com>
-> > ---
-> >  drivers/rtc/class.c     | 6 +++---
-> >  drivers/rtc/interface.c | 8 ++++----
-> >  2 files changed, 7 insertions(+), 7 deletions(-)
-> >
-> > diff --git a/drivers/rtc/class.c b/drivers/rtc/class.c
-> > index e31fa0ad127e9..1ee3f609f92ea 100644
-> > --- a/drivers/rtc/class.c
-> > +++ b/drivers/rtc/class.c
-> > @@ -282,7 +282,7 @@ static void rtc_device_get_offset(struct rtc_device=
- *rtc)
-> >        * then we can not expand the RTC range by adding or subtracting =
-one
-> >        * offset.
-> >        */
-> > -     if (rtc->range_min =3D=3D rtc->range_max)
-> > +     if (rtc->range_min =3D=3D (time64_t)rtc->range_max)
-> >               return;
+> commit 260364d112bc ("arm[64]/memremap: don't abuse pfn_valid() to ensure
+> presence of linear map") added the definition of
+> arch_memremap_can_ram_remap() for arm[64] specific filtering of what page=
+s
+> can be used from the linear mapping. memblock_is_map_memory() was called
+> with the pfn of the address given to arch_memremap_can_ram_remap();
+> however, memblock_is_map_memory() expects to be given an address for arm,
+> not a pfn.
 >
-> For which values of range_min and range_max does this change result in a
-> different semantic?
+> This results in calls to memremap() returning a newly mapped area when
+> it should return an address in the existing linear mapping.
 >
-> Trying to answer that question myself I wrote two functions:
+> Fix this by removing the address to pfn translation and pass the
+> address directly.
 >
->         #include <stdint.h>
->
->         int compare_unsigned(uint64_t a, int64_t b)
->         {
->                 return a =3D=3D b;
->         }
->
->         int compare_signed(uint64_t a, int64_t b)
->         {
->                 return (int64_t)a =3D=3D b;
->         }
->
-> When I compile this (with gcc -Os) the assembly for both functions is
-> the same (tested for x86_64 and arm32).
->
-> >       ret =3D device_property_read_u32(rtc->dev.parent, "start-year",
-> > @@ -299,7 +299,7 @@ static void rtc_device_get_offset(struct rtc_device=
- *rtc)
-> >       if (!rtc->set_start_time)
-> >               return;
-> >
-> > -     range_secs =3D rtc->range_max - rtc->range_min + 1;
-> > +     range_secs =3D (time64_t)rtc->range_max - rtc->range_min + 1;
->
-> In the case where no overflow (or underflow) happens, the result is the
-> same, isn't it? If there is an overflow, the unsigned variant is
-> probably the better choice because overflow for signed variables is
-> undefined behaviour (UB).
->
-> Respective demo program looks as follows:
->
->         #include <stdint.h>
->
->         int test_unsigned(uint64_t a)
->         {
->                 return a + 3 > a;
->         }
->
->         int test_signed(int64_t a)
->         {
->                 return a + 3 > a;
->         }
->
-> Using again `gcc -Os`, the signed variant is compiled to a function that
-> returns true unconditionally while the unsigned one implements the
-> expected semantic.
+> Fixes: 260364d112bc ("arm[64]/memremap: don't abuse pfn_valid() to ensure=
+ presence of linear map")
+> Signed-off-by: Ross Stutterheim <ross.stutterheim@garmin.com>
 
-Hence that is why the kernel is compiled with -fwrapv...
+OMG
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 
-Gr{oetje,eeting}s,
+Also add Cc: stable@vger.kernel.org as pointed out by Catalin.
 
-                        Geert
-
---=20
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
-
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
+Yours,
+Linus Walleij
 
