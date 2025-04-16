@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D9F7C369C5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 20:11:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16527C369C7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 20:13:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GVhWTY3ZFGzqPEDO/W0joy8kVqG5wUzwKkcXtfAPvCY=; b=YFqL0mimCNlTJuox/yzeinCib7
-	8DMjit81dbKDuOifJ4fMtF5VQaDqUvry1XDviWLDGC7pqosLeSKEWhonWemX94OvOAaAfSXy40K1w
-	KwmImB4BEshOBPvzo2iA+WntqJSWhDAx26vIkhYoYrQhImgWx1g2gDosr3gopUuVEUqhUf85QIs1E
-	6EpeP0JSw+oPxCO0Ht2PcTc30JpUCuvbjKyE8aocAhtWYiGXfHvBxe7PHiehw+t1vgJ19gPxQb41G
-	u+1qIQQdYeW8zefy8/NkCNrFc3A3yrXEnyiyRzN/PpXZpSsDlYhl4s9tDworWceIlTrJDXLeAe3DN
-	YUEdYJWg==;
+	bh=BDn26bD/sVoa5eox1akKF1fG3Cbrhx05GjL11R6LTds=; b=G4mnDBMIHgmlr01NN7tXOd/IlB
+	JjRwpKXctS23ZCf5HiuWGbMP1Y+R0bYkjxdvZ+kf4vnNVSyflriSyjDLKB2zI2W1mYBurP2YEQc7v
+	tR8UhpL7tiLil26oOPJq441PThBW+iQG2tQCP2xMifg088QF8yE6st2SoS7VU5i9/Dq8X8d97rtgI
+	AzHvvzLqT8deeF9ha1yryN5IvDT8rJ90oLqDVhF4E9SUon/wJ8dXr4lPCPRb1sagylsv08KLxsgt4
+	hq5D8Opk4EEQmGARWsEmhT6yqp3Ue2XU/9n5W+8UX5kLcdBxqZBbsSTAlRYlythvV+NE5oschgC6f
+	K67jv4FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u596M-0000000Am5A-3dDW;
-	Wed, 16 Apr 2025 20:11:18 +0000
+	id 1u598B-0000000AmHY-290T;
+	Wed, 16 Apr 2025 20:13:11 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u594V-0000000Aloa-0yn3
+	id 1u5964-0000000Am1w-13ly
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 20:09:24 +0000
+	Wed, 16 Apr 2025 20:11:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 65AAD5C4D50;
-	Wed, 16 Apr 2025 20:07:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0EE1C4CEE2;
-	Wed, 16 Apr 2025 20:09:20 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B467C5C53A3;
+	Wed, 16 Apr 2025 20:08:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C191C4CEE2;
+	Wed, 16 Apr 2025 20:10:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744834161;
-	bh=pCQdOvo4laUHf7dQwDu8+NqQcri7JEdKnymIyq99jkI=;
+	s=k20201202; t=1744834259;
+	bh=SSak+u5jFVfFMUW7Av1ja2Nldu+0bF8pHTXYXRdifBk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AAdeEAmuon9/vsZ60kDxHnAVHe3K9UHfeEPMgTodwRVWyu0vBQMReQ/G+JYguUv2T
-	 HvMYz8VW5+3VAykUadq3Ns+OuqXJfJnfPwADjMISIV5Hhty5oa/1Su8VrJNBbJphLT
-	 etufmg6zplKq6ZlN6Md9FIGRj8sUg/3UgvmcWw/Fbd/xnM6axYOyRl6wFR6wiHtfkG
-	 Ka2gUyS55p6Zs8sY2eRxz13LBQg0/8KH4ozJMt0IBL/WAmsAbXFzFd1aJArcz1gIv7
-	 xGwnVyApmtGIqPIOvF5zfpYA0DY/I7eVgaGokKpGdDRXMo+vN/3anERyK44APXUMb1
-	 12z4vJN+GnE0A==
-Date: Wed, 16 Apr 2025 15:09:19 -0500
+	b=fSmCipViEcJV+5wzo8ibu91cJy8mSWinHenOYUSP3XrBcgNiYzN7aKvzlWIl2bQzR
+	 6D6r+lCekEyI1+XiujroVPVDf0Vk1lFlRfcJjUfLQ4KnJapYGxkHYEy7tyMhgX3C4T
+	 T5+NMzmiZVdY7RRytwgwu5mxOKduWHl0gEeAP+5BCc153/3UCebfPvDz/1Kn2Z5mjJ
+	 5jV04x52lEniGY8jPu/HVU5XcDd1tafOVDSnM6Q5+ZER2StD3fIMzxRPC28fmzHSp6
+	 kuM7dgb9X3O1KUeQKZU6GS0B6EzQV3ZRzmAErBVPcLw9WyTQ+GHgrY/fCj0C5uGcrt
+	 0D2LXPLBfNeJQ==
+Date: Wed, 16 Apr 2025 15:10:57 -0500
 From: Rob Herring <robh@kernel.org>
 To: Alexey Charkov <alchark@gmail.com>
 Cc: Krzysztof Kozlowski <krzk@kernel.org>,
@@ -61,19 +61,18 @@ Cc: Krzysztof Kozlowski <krzk@kernel.org>,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-mmc@vger.kernel.org, netdev@vger.kernel.org,
 	linux-pwm@vger.kernel.org
-Subject: Re: [PATCH 00/13] ARM: vt8500: DT bindings and dts updates
-Message-ID: <20250416200919.GA3811555-robh@kernel.org>
+Subject: Re: [PATCH 02/13] dt-bindings: interrupt-controller:
+ via,vt8500-intc: Convert to YAML
+Message-ID: <20250416201057.GB3811555-robh@kernel.org>
 References: <20250416-wmt-updates-v1-0-f9af689cdfc2@gmail.com>
- <20250416155442.GA3255418-robh@kernel.org>
- <CABjd4YyPzZoX98=FMwr91BG2RhYc0r5=9P-2GGAbR0s043duPw@mail.gmail.com>
+ <20250416-wmt-updates-v1-2-f9af689cdfc2@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CABjd4YyPzZoX98=FMwr91BG2RhYc0r5=9P-2GGAbR0s043duPw@mail.gmail.com>
+In-Reply-To: <20250416-wmt-updates-v1-2-f9af689cdfc2@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_130923_372247_64EA0695 
-X-CRM114-Status: GOOD (  25.12  )
+X-CRM114-CacheID: sfid-20250416_131100_376765_1CE9E00F 
+X-CRM114-Status: GOOD (  20.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,83 +87,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 16, 2025 at 10:55:52PM +0400, Alexey Charkov wrote:
-> On Wed, Apr 16, 2025 at 7:54 PM Rob Herring <robh@kernel.org> wrote:
-> >
-> > On Wed, Apr 16, 2025 at 12:21:25PM +0400, Alexey Charkov wrote:
-> > > Convert some more VT8500 related textual DT binding descriptions to
-> > > YAML schema, do minor dts correctness fixes, and add a DT for the
-> > > board I'm actually testing those on (VIA APC Rock).
-> > >
-> > > While at that, also describe the PL310 L2 cache controller present on
-> > > WM8850/WM8950.
-> > >
-> > > Note that this series is based upon Krzysztof's linux-dt/for-next
-> > >
-> > > Signed-off-by: Alexey Charkov <alchark@gmail.com>
-> > > ---
-> > > Alexey Charkov (13):
-> > >       dt-bindings: i2c: i2c-wmt: Convert to YAML
-> > >       dt-bindings: interrupt-controller: via,vt8500-intc: Convert to YAML
-> > >       dt-bindings: mmc: vt8500-sdmmc: Convert to YAML
-> > >       dt-bindings: net: via-rhine: Convert to YAML
-> > >       dt-bindings: pwm: vt8500-pwm: Convert to YAML
-> > >       dt-bindings: timer: via,vt8500-timer: Convert to YAML
-> > >       dt-bindings: arm: vt8500: Add VIA APC Rock/Paper boards
-> > >       ARM: dts: vt8500: Add node address and reg in CPU nodes
-> > >       ARM: dts: vt8500: Move memory nodes to board dts and fix addr/size
-> > >       ARM: dts: vt8500: Use generic compatibles for EHCI
-> > >       ARM: dts: vt8500: Use generic node name for the SD/MMC controller
-> > >       ARM: dts: vt8500: Add VIA APC Rock/Paper board
-> > >       ARM: dts: vt8500: Add L2 cache controller on WM8850/WM8950
-> > >
-> > >  Documentation/devicetree/bindings/arm/vt8500.yaml  | 19 ++++---
-> > >  Documentation/devicetree/bindings/i2c/i2c-wmt.txt  | 24 ---------
-> > >  .../devicetree/bindings/i2c/wm,wm8505-i2c.yaml     | 47 +++++++++++++++++
-> > >  .../interrupt-controller/via,vt8500-intc.txt       | 16 ------
-> > >  .../interrupt-controller/via,vt8500-intc.yaml      | 47 +++++++++++++++++
-> > >  .../devicetree/bindings/mmc/vt8500-sdmmc.txt       | 23 --------
-> > >  .../devicetree/bindings/mmc/wm,wm8505-sdhc.yaml    | 61 ++++++++++++++++++++++
-> > >  .../devicetree/bindings/net/via,vt8500-rhine.yaml  | 41 +++++++++++++++
-> > >  .../devicetree/bindings/net/via-rhine.txt          | 17 ------
-> > >  .../devicetree/bindings/pwm/via,vt8500-pwm.yaml    | 43 +++++++++++++++
-> > >  .../devicetree/bindings/pwm/vt8500-pwm.txt         | 18 -------
-> > >  .../devicetree/bindings/timer/via,vt8500-timer.txt | 15 ------
-> > >  .../bindings/timer/via,vt8500-timer.yaml           | 36 +++++++++++++
-> > >  MAINTAINERS                                        |  7 ++-
-> > >  arch/arm/boot/dts/vt8500/Makefile                  |  3 +-
-> > >  arch/arm/boot/dts/vt8500/vt8500-bv07.dts           |  5 ++
-> > >  arch/arm/boot/dts/vt8500/vt8500.dtsi               | 12 ++---
-> > >  arch/arm/boot/dts/vt8500/wm8505-ref.dts            |  5 ++
-> > >  arch/arm/boot/dts/vt8500/wm8505.dtsi               | 14 ++---
-> > >  arch/arm/boot/dts/vt8500/wm8650-mid.dts            |  5 ++
-> > >  arch/arm/boot/dts/vt8500/wm8650.dtsi               | 14 ++---
-> > >  arch/arm/boot/dts/vt8500/wm8750-apc8750.dts        |  5 ++
-> > >  arch/arm/boot/dts/vt8500/wm8750.dtsi               | 14 ++---
-> > >  arch/arm/boot/dts/vt8500/wm8850-w70v2.dts          |  5 ++
-> > >  arch/arm/boot/dts/vt8500/wm8850.dtsi               | 23 +++++---
-> > >  arch/arm/boot/dts/vt8500/wm8950-apc-rock.dts       | 21 ++++++++
-> > >  arch/arm/boot/dts/vt8500/wm8950.dtsi               | 11 ++++
-> > >  27 files changed, 386 insertions(+), 165 deletions(-)
-> > > ---
-> > > base-commit: 62db22c2af6ce306943df5de6f5198ea9bd3d47b
-> >
-> > I could not apply this series for testing. What base is this? It is
-> > unknown to anything I have. Please use most recent rc1 unless you have
-> > a dependency then use recent linux-next or a branch in it.
+On Wed, Apr 16, 2025 at 12:21:27PM +0400, Alexey Charkov wrote:
+> Rewrite the textual description for the VIA/WonderMedia interrupt
+> controller as YAML schema.
 > 
-> It's based on Krzysztof's linux-dt/for-next [1] as mentioned in the
-> cover letter above - it hasn't yet been pulled into today's
-> linux-next. Specifically, this patch [2] from Wolfram is a dependency
-> for patch 10/13 in this series - the rest should apply cleanly on top
-> of 6.15-rc1
+> Signed-off-by: Alexey Charkov <alchark@gmail.com>
+> ---
+>  .../interrupt-controller/via,vt8500-intc.txt       | 16 --------
+>  .../interrupt-controller/via,vt8500-intc.yaml      | 47 ++++++++++++++++++++++
+>  MAINTAINERS                                        |  1 +
+>  3 files changed, 48 insertions(+), 16 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/interrupt-controller/via,vt8500-intc.txt b/Documentation/devicetree/bindings/interrupt-controller/via,vt8500-intc.txt
+> deleted file mode 100644
+> index 0a4ce1051b0252bbbdeef3288b90e9913d3f16f0..0000000000000000000000000000000000000000
+> --- a/Documentation/devicetree/bindings/interrupt-controller/via,vt8500-intc.txt
+> +++ /dev/null
+> @@ -1,16 +0,0 @@
+> -VIA/Wondermedia VT8500 Interrupt Controller
+> ------------------------------------------------------
+> -
+> -Required properties:
+> -- compatible : "via,vt8500-intc"
+> -- reg : Should contain 1 register ranges(address and length)
+> -- #interrupt-cells : should be <1>
+> -
+> -Example:
+> -
+> -	intc: interrupt-controller@d8140000 {
+> -		compatible = "via,vt8500-intc";
+> -		interrupt-controller;
+> -		reg = <0xd8140000 0x10000>;
+> -		#interrupt-cells = <1>;
+> -	};
+> diff --git a/Documentation/devicetree/bindings/interrupt-controller/via,vt8500-intc.yaml b/Documentation/devicetree/bindings/interrupt-controller/via,vt8500-intc.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..a3fbe985db276e6a3b65cc66c7de097ed0719c0c
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/interrupt-controller/via,vt8500-intc.yaml
+> @@ -0,0 +1,47 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/interrupt-controller/via,vt8500-intc.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: VIA and WonderMedia SoCs Interrupt Controller
+> +
+> +maintainers:
+> +  - Alexey Charkov <alchark@gmail.com>
+> +
+> +allOf:
+> +  - $ref: /schemas/interrupt-controller.yaml#
+> +
+> +
+> +properties:
+> +  compatible:
+> +    const: via,vt8500-intc
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 8
 
-Unfortunately tools can't read cover letters other than defined tags 
-like base-commit.
+This wasn't in the original binding. Find to add, but note that in 
+the commit msg. Here, what each of the 8 entries are must be defined.
 
-I would suggest you send each binding patch separately and then just the 
-.dts changes as a series. Then it is split-up by which trees these all 
-get applied to as bindings are applied by the subsystems typically.
-
-Rob
+> +
+> +  interrupt-controller: true
+> +
+> +  '#interrupt-cells':
+> +    const: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupt-controller
+> +  - '#interrupt-cells'
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    interrupt-controller@d8140000 {
+> +        compatible = "via,vt8500-intc";
+> +        interrupt-controller;
+> +        reg = <0xd8140000 0x10000>;
+> +        #interrupt-cells = <1>;
+> +    };
+> +...
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index c5195a98b15a39583d337fb6310b80432b0f6922..2444282096e03b301ed0e3209b4de7a114709764 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -3428,6 +3428,7 @@ M:	Krzysztof Kozlowski <krzk@kernel.org>
+>  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+>  S:	Odd Fixes
+>  F:	Documentation/devicetree/bindings/i2c/wm,wm8505-i2c.yaml
+> +F:	Documentation/devicetree/bindings/interrupt-controller/via,vt8500-intc.yaml
+>  F:	arch/arm/boot/dts/vt8500/
+>  F:	arch/arm/mach-vt8500/
+>  F:	drivers/clocksource/timer-vt8500.c
+> 
+> -- 
+> 2.49.0
+> 
 
