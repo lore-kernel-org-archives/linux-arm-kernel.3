@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9777C369C7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:30:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13A5CC369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:30:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dj5PT88n8b2JvNXoUABiLvbxSkILiT0Rl9oj3LLY50Q=; b=M+1tQwDSkmMVk9nPrHMPjVOM/E
-	zb9EEhvoPWUdUYkcN6LYjfduDWa+qns5lVIfnDs5Ikxx+/jRt4tNuN49xqmkiyEouNxCFP40x4zrQ
-	/TpkOMO8vkeXttwJ0U5Un9bJrZqQw45zkZXShItsE1ZNtTXIvl8e7yyFlEsmrutHNUSQiCdzaK6/M
-	MZ2oQR3/8ef3olo5X0J249yT2HRH2XiNwGXjHqzS9D1MC22vzhy85nHE4/Ng5P5pJIdUp0bjHvkuX
-	3iy1k9HibIe03Bq/bHH/yj7CNT7XibGbNueCg4WA/jc67ynj0DhyuYIWJ+rw/HlbiuB8VF8/rmDg/
-	g0f0etHw==;
+	bh=FS5uPP+ij9oewaAABDY8TZe9TR0+Gp5xre9Bn462Ac4=; b=Wvirs252ndLbbMu0duL8QzwJmW
+	qZ/PpQvsv2xwaSE5V0f2OcVGmdf30kuhZt5jCvXnmCajaaZDbveLuJADvriHF4tkt9CxUlLFftHyr
+	EaaqPOV3EMh4H5Xm44KlXisJEiyv6RRMzKHsIFLoL39DJbxcVrfddQ0zYm81WLYw284csyFbP/j8p
+	o/xH3xdgr//Rzrf++69yJVqdh9IoJfaVg3Z0ugWUiOpumjfkWNXJtFoZwDKHwBqcaOR2uWB7wey47
+	q6ybjxbSfJyjro68A4W/Jzsi3rjqecZQpBAFFxh1ho/NewjA7G1jUVmuUGFr1hjbPaiqSxvbE3r0c
+	HP+cYqgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u502Q-0000000985A-2h84;
-	Wed, 16 Apr 2025 10:30:38 +0000
-Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
+	id 1u502W-000000098BR-0YcH;
+	Wed, 16 Apr 2025 10:30:44 +0000
+Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4y2A-00000008nXb-1C0f
+	id 1u4y2e-00000008nkZ-2XmD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 08:22:20 +0000
-Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-30bfd4d4c63so58821131fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 01:22:14 -0700 (PDT)
+	Wed, 16 Apr 2025 08:22:45 +0000
+Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-30db3f3c907so63766791fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 01:22:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744791732; x=1745396532; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1744791763; x=1745396563; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=dj5PT88n8b2JvNXoUABiLvbxSkILiT0Rl9oj3LLY50Q=;
-        b=SeLRkXDYoXPiJsjxsWcH3RW+o2nK7hJ/W1oiLmtgLsRKll72wY1KKIThVWfS3Zbm9x
-         7TGNHCtaqy487wLi3wEtb2oIA7M/5nI13ucVU3pPybXAqykGb3xLKz2OjJwG65qvJX7P
-         uUe2S9UVtGY1WhNWDNZtBVHSlCkcxfNJYYhXp6zfQymxHX2+HvmOEEUqeDdD9gD5jO1C
-         TxFaLXFJ9mkpJ4qlu2m6XCwHITeFGBzpIK9nG5Rv4Rlxqx+jbqbMaDcv1tG1blsa2qPc
-         ceXJlqbIjN6qlPDtzm+Hr/7FTDLtjlTjmHze3QDcFW50lSbsu6PXTNDLpDtxoJVS4WHC
-         d31w==
+        bh=FS5uPP+ij9oewaAABDY8TZe9TR0+Gp5xre9Bn462Ac4=;
+        b=ikiJmdBI4MNN8jxJIbeVQaLc1uBA74ag+kUSE0kFRrVXZip/3kMatFTKxuYF65ijF4
+         1yLET37GBrvoSgbhOzTTvyDQ4MO0ucTIdNGEQBWYJKO6U5mk96Dn63bjGQy9ZPGnStLB
+         Vl67tJnDgrILQ92V4ogBILj/BmSolPT9aiBu5IaBgskzeqeVdqsWqw7s37Ik4BtivPZP
+         W7gMeRZ0ib/UTHPRwMjFiFE1TzNre/a1KSIzV/5QpPwgVnhOqYTKyhTQZp/+SJm2umpf
+         jsts/jTRmAkV0Ym4Qe82hGHNG8F6+1iisiIj8mEvpKkn7FebuH2W8kE1gWCD+6vP7c4V
+         W9FQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744791732; x=1745396532;
+        d=1e100.net; s=20230601; t=1744791763; x=1745396563;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=dj5PT88n8b2JvNXoUABiLvbxSkILiT0Rl9oj3LLY50Q=;
-        b=qzM7Dd8/uUQ0IneHYMy1gyujjAuHD3q7LKO5vOTlDBX9+au0TyopAPqOkDCmYNYbpv
-         m2JMm6fEMLpRWevnqVM2zMLYuVvPEzDa2+jU2fCifIlLiSbhBn+XFPaqVp3WgcdX4EvY
-         cTEIOmPtPnYBlPj1JiCCuTy+qHo/4YzBGbAMDRQZt7xeTJRNA/VMykK6FTENeQZ0BRKA
-         NqM7PcWfbvn+lOi5DAbQEYlLWSw0yuoWcPsOmboflAYwgOpLOr0MBjsEPPikQCRb0Aha
-         ZTaj/iuzo2iSRtvlX3wnfS85nveFecs2NmbtRH0+ErRJ7k2kqdfEKPpEnHchHK6qlg9o
-         sJog==
-X-Gm-Message-State: AOJu0Yzt8eEmMQBzI9MU8k7uzBKEgsCG3fJ3LIsQ9K4lcoZIaYNGt6WS
-	q83U48J6X2YBB1SOxFzbdEERgXBxN7c/cJMTmfw5kGDdrCGhIEZN
-X-Gm-Gg: ASbGncvn3FKL2wsx/xZli2Kf4yp/Y89i1ss3w8NZCn5lo/ShxQ44oCbmtiEkLVervG6
-	3cPY3W3CG7ec0TLliw9mjGdFhce9Z3cDkIJjQx6mRGbluQgcUrcN336TkhIXvJo0SH6dJcDXcl2
-	jDxhSVvFHA+NjTR+k6s1nsWRp1gApZbud28sAGl3QLNx2OeukrYGryPBRNoyFX7lZ80c9Njv+To
-	Vq7U6zKqBIsKYQ0a2/5jzTc1p5/UNk5LHtD0zl7SeRJUlF+mLSn8MFwU+eidsgbswMklZ4a4lku
-	BFRGAN1+aBudvta1PxWlA0PL2/BgDDoOaGikAl07H1AKj3N5C0ww
-X-Google-Smtp-Source: AGHT+IE9lnGE1KsUoj9JV0gEDYMhu1y4IoeMb6WofbocdBnl/7R5ilrJ5bpyWUq8Z39pTLiMZzYGWQ==
-X-Received: by 2002:a05:651c:30c2:b0:30c:719:1145 with SMTP id 38308e7fff4ca-3107f6cdb69mr3020381fa.17.1744791732408;
-        Wed, 16 Apr 2025 01:22:12 -0700 (PDT)
+        bh=FS5uPP+ij9oewaAABDY8TZe9TR0+Gp5xre9Bn462Ac4=;
+        b=TdFgdb6FEkbn93Avmhv9ntOV/CCg/zWFBJnv/nT2aZ0FE817zfU3Opp5J7kWxfSDx3
+         xxlag/+PBLmMy40CGuSMLGGsZcv7zmVGgutWLuo9oTIrfyT1u3uNy6GhyeNvk3tuDy8I
+         2dC1TS2LGWyoJl3ZqXWSLidchdhBRrMujvoaFJTmb+hB4ZsbuJPzdj+S2rF38tQZyGcW
+         kcO8bd8fQly4CtNwU8PKBQMZXpiy2PLoQkhAv/zqmudnMXwTZPn4y0IkTsDtcC8UGOuB
+         6C/6aGRPm1YGBQPLwSw3227QQaMt9PIvrwGTMJVMjXEq4DWBiEc84BwktofXYWcwwVz5
+         O0Og==
+X-Gm-Message-State: AOJu0YwPCoZCAm9TIYaPJwlUEK2udDnN1SJXu9lm+LiQieKNM4n809QP
+	CiR9b8qeHfAkxEbokgNFYZYJGUlEJv62DCrGVeKEeoOgt178g93W
+X-Gm-Gg: ASbGncvrWFdKrFOXIu4wiAHv8U3Ko4dNjyLIucZA2ysezOp4xFuo7a2O9oZ4Lno91OC
+	v+yv1fdd1VUB+hWDde/KyMnZMpKbWWOauDU+9feP+t9BCN8hi/gXlA02nzY/IGbNmMo0d/It5tM
+	w/es0HUngaF0IlrwoKRcVwrX2sLZmLxDIGzLfgQXQhJv/cAdCLdkrrOAS1OGlp35GxCwPeLW6tE
+	z2tHQ6my/XlwrTf8GLD/xJ4PCM6y8wCB5h9Eub0AAhbOdJJJJ+YkmcF8dmStNamgDIjMrl8iq/t
+	bGlcEzVgdFvg606JwjNtXiND4oRNtTs25WV08QnEqP5QEwO8KOeV
+X-Google-Smtp-Source: AGHT+IHPeVBmX5Vqd+spNUAWjSoBPV5YuATnfOQvkQdVvOGLDQQOmBTgQaBeDe7nS2HMTs/0Pcb2LA==
+X-Received: by 2002:a05:651c:158d:b0:30b:f924:3554 with SMTP id 38308e7fff4ca-3107f6ceb59mr3528241fa.21.1744791762861;
+        Wed, 16 Apr 2025 01:22:42 -0700 (PDT)
 Received: from NB-GIGA003.letovo.school ([5.194.95.139])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30f465f7b20sm23025391fa.97.2025.04.16.01.22.08
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30f465f7b20sm23025391fa.97.2025.04.16.01.22.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Apr 2025 01:22:11 -0700 (PDT)
+        Wed, 16 Apr 2025 01:22:42 -0700 (PDT)
 From: Alexey Charkov <alchark@gmail.com>
-Date: Wed, 16 Apr 2025 12:21:30 +0400
-Subject: [PATCH 05/13] dt-bindings: pwm: vt8500-pwm: Convert to YAML
+Date: Wed, 16 Apr 2025 12:21:37 +0400
+Subject: [PATCH 12/13] ARM: dts: vt8500: Add VIA APC Rock/Paper board
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250416-wmt-updates-v1-5-f9af689cdfc2@gmail.com>
+Message-Id: <20250416-wmt-updates-v1-12-f9af689cdfc2@gmail.com>
 References: <20250416-wmt-updates-v1-0-f9af689cdfc2@gmail.com>
 In-Reply-To: <20250416-wmt-updates-v1-0-f9af689cdfc2@gmail.com>
 To: Krzysztof Kozlowski <krzk@kernel.org>, 
@@ -90,16 +90,16 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
  linux-mmc@vger.kernel.org, netdev@vger.kernel.org, 
  linux-pwm@vger.kernel.org, Alexey Charkov <alchark@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1744791712; l=3177;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1744791712; l=2596;
  i=alchark@gmail.com; s=20250416; h=from:subject:message-id;
- bh=pSa2/+lArCQElaZ7zv8t6mgy94jBQOEPi6HZFwmgmf0=;
- b=5IArVazk/Vp7LbhkSLdoFtXb1jIC+84A1bxqEt5dF1N5SFJ/vY/W23YdW1D3UTtXNTpblMARY
- j/mELPMv6Z7Atzr05vYG8E6JVZSf03GFFz6XvrHPh1UESoohzwmf5mg
+ bh=TZ3ytEYMytA7e0tV+PnpKqiq4sZdXQ+N8pRmsK98hNw=;
+ b=HD3p/YZ1dwkru1Tiqb4TUgeiFPeP70kS2kSj0M4pn2zzpXtTY9j+s8Xw5YZ08y2qcMhKeKIXl
+ Lq+cku1FuBYCfdxA5yTGL410gTy4b/dKbiVUfRlvJFNi0ZVjNnpVXHq
 X-Developer-Key: i=alchark@gmail.com; a=ed25519;
  pk=ltKbQzKLTJPiDgPtcHxdo+dzFthCCMtC3V9qf7+0rkc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_012214_339301_B483302C 
-X-CRM114-Status: GOOD (  16.72  )
+X-CRM114-CacheID: sfid-20250416_012244_651017_FD5823BF 
+X-CRM114-Status: GOOD (  15.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,102 +114,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rewrite the textual description for the WonderMedia PWM controller
-as YAML schema, and switch the filename to follow the compatible
-string.
+APC Rock is a development board based on WonderMedia WM8590 released
+around 2013. Paper is the same board, but with VGA port unpopulated
+and shipped with a recycled cardboard case
+
+Its hardware includes:
+* Single-core Cortex-A9 CPU at 800 MHz
+* 512MB DDR3 RAM
+* 4GB NAND flash
+* 8MB SPI NOR flash
+* ARM Mali-400 GPU
+* HDMI output (type A) capable of 1080p output
+* VGA output (on Rock, but not on Paper)
+* 2x USB 2.0 type A
+* 1x USB 2.0 OTG (microUSB connector)
+* microSD slot
+* 10/100M Ethernet
+* Combined headphones/mic via 3.5mm jack connector
+* Half-height miniPCIe slot (with only USB 2.0 signals)
 
 Signed-off-by: Alexey Charkov <alchark@gmail.com>
 ---
- .../devicetree/bindings/pwm/via,vt8500-pwm.yaml    | 43 ++++++++++++++++++++++
- .../devicetree/bindings/pwm/vt8500-pwm.txt         | 18 ---------
- MAINTAINERS                                        |  1 +
- 3 files changed, 44 insertions(+), 18 deletions(-)
+ arch/arm/boot/dts/vt8500/Makefile            |  3 ++-
+ arch/arm/boot/dts/vt8500/wm8950-apc-rock.dts | 21 +++++++++++++++++++++
+ arch/arm/boot/dts/vt8500/wm8950.dtsi         | 11 +++++++++++
+ 3 files changed, 34 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/pwm/via,vt8500-pwm.yaml b/Documentation/devicetree/bindings/pwm/via,vt8500-pwm.yaml
+diff --git a/arch/arm/boot/dts/vt8500/Makefile b/arch/arm/boot/dts/vt8500/Makefile
+index 255f4403af91c1d6a22416ab694b8eab44bf98a2..c5a2e57d53af4babe40fe2d79b2f8d9c1ae1b8db 100644
+--- a/arch/arm/boot/dts/vt8500/Makefile
++++ b/arch/arm/boot/dts/vt8500/Makefile
+@@ -4,4 +4,5 @@ dtb-$(CONFIG_ARCH_VT8500) += \
+ 	wm8505-ref.dtb \
+ 	wm8650-mid.dtb \
+ 	wm8750-apc8750.dtb \
+-	wm8850-w70v2.dtb
++	wm8850-w70v2.dtb \
++	wm8950a-apc-rock.dtb
+diff --git a/arch/arm/boot/dts/vt8500/wm8950-apc-rock.dts b/arch/arm/boot/dts/vt8500/wm8950-apc-rock.dts
 new file mode 100644
-index 0000000000000000000000000000000000000000..a5f77fa848e0f604bed63c36b8e0996cf599cec0
+index 0000000000000000000000000000000000000000..58b3c8deb4f20ae072bf1381f1dfa5e5adeb414a
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/pwm/via,vt8500-pwm.yaml
-@@ -0,0 +1,43 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pwm/via,vt8500-pwm.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/arch/arm/boot/dts/vt8500/wm8950-apc-rock.dts
+@@ -0,0 +1,21 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Copyright (C) 2025 Alexey Charkov <alchark@gmail.com>
++ */
 +
-+title: VIA/Wondermedia VT8500/WM8xxx series SoC PWM controller
++/dts-v1/;
++/include/ "wm8950.dtsi"
 +
-+maintainers:
-+  - Alexey Charkov <alchark@gmail.com>
++/ {
++	model = "VIA APC Rock";
++	compatible = "via,apc-rock", "wm,wm8950";
 +
-+allOf:
-+  - $ref: pwm.yaml#
++	memory@0 {
++		device_type = "memory";
++		reg = <0x0 0x20000000>;
++	};
++};
 +
-+properties:
-+  compatible:
-+    items:
-+      - const: via,vt8500-pwm
++&uart0 {
++	status = "okay";
++};
+diff --git a/arch/arm/boot/dts/vt8500/wm8950.dtsi b/arch/arm/boot/dts/vt8500/wm8950.dtsi
+new file mode 100644
+index 0000000000000000000000000000000000000000..31fba05d3c3e70b21a64d08b5cdf645102a1faf3
+--- /dev/null
++++ b/arch/arm/boot/dts/vt8500/wm8950.dtsi
+@@ -0,0 +1,11 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Copyright (C) 2025 Alexey Charkov <alchark@gmail.com>
++ */
 +
-+  reg:
-+    maxItems: 1
++/* No differences have been discovered vs. WM8850, but chip markings differ */
++/include/ "wm8850.dtsi"
 +
-+  '#pwm-cells':
-+    const: 3
-+
-+  clocks:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    pwm1: pwm@d8220000 {
-+        #pwm-cells = <3>;
-+        compatible = "via,vt8500-pwm";
-+        reg = <0xd8220000 0x1000>;
-+        clocks = <&clkpwm>;
-+    };
-diff --git a/Documentation/devicetree/bindings/pwm/vt8500-pwm.txt b/Documentation/devicetree/bindings/pwm/vt8500-pwm.txt
-deleted file mode 100644
-index 4fba93ce1985a1e4c5a361423725fafb10eaa339..0000000000000000000000000000000000000000
---- a/Documentation/devicetree/bindings/pwm/vt8500-pwm.txt
-+++ /dev/null
-@@ -1,18 +0,0 @@
--VIA/Wondermedia VT8500/WM8xxx series SoC PWM controller
--
--Required properties:
--- compatible: should be "via,vt8500-pwm"
--- reg: physical base address and length of the controller's registers
--- #pwm-cells: should be 3. See pwm.yaml in this directory for a description of
--  the cells format. The only third cell flag supported by this binding is
--  PWM_POLARITY_INVERTED.
--- clocks: phandle to the PWM source clock
--
--Example:
--
--pwm1: pwm@d8220000 {
--	#pwm-cells = <3>;
--	compatible = "via,vt8500-pwm";
--	reg = <0xd8220000 0x1000>;
--	clocks = <&clkpwm>;
--};
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 001dc954fb44cc9b26570d663ea3bf9214c2deff..d131004add981446b08b1b3d572a3daa8377fd61 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3431,6 +3431,7 @@ F:	Documentation/devicetree/bindings/i2c/wm,wm8505-i2c.yaml
- F:	Documentation/devicetree/bindings/interrupt-controller/via,vt8500-intc.yaml
- F:	Documentation/devicetree/bindings/mmc/wm,wm8505-sdhc.yaml
- F:	Documentation/devicetree/bindings/net/via,vt8500-rhine.yaml
-+F:	Documentation/devicetree/bindings/pwm/via,vt8500-pwm.yaml
- F:	arch/arm/boot/dts/vt8500/
- F:	arch/arm/mach-vt8500/
- F:	drivers/clocksource/timer-vt8500.c
++/ {
++	compatible = "wm,wm8950";
++};
 
 -- 
 2.49.0
