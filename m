@@ -4,59 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91C09C369C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:32:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8227EC369C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:32:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eFa5MOXYGJZnzNbwECy71J6eIeVb1vzSBjf/DthoAfQ=; b=xyCbQrd5igqrpQMi8pEfZJwU2Z
-	EnLG1EisKysk7A92Bd3zABciZLkgxuEXwI4T4OXbpPlKRYTBJUYdnMBJbhZJOLlK849xj9PncaotT
-	on1+tcsbggUwBlK7Emn50fzkMLVYtPIGGBd3KkxEuPEoFIo3Jt6da4V4IhYkIIx+UHC2cfi8lyAJv
-	3wwqNkiGU8hBbShtjyWnBf1IrJgEoBZpss0zfdh/5yBweUHx0ziyLKaYz9BGQFRnRTzEr8PsO/EdK
-	I0W0xVMtDopS7XCCFyQBYJFhQ/3THcbkqEw6Oze5tf20OXezI2iOGusUCr02bJUDeeB1PlJFO7RWJ
-	Lo7PRxaw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dllKgwcLha1xL/vp7a/BLD+IvTjOmLEdGFp4zUwZcgg=; b=AYEDe2qmnjtxT/tSE86Q7WyCX3
+	T0IfslodjJ89sNw6xWCyV5qkQeIauGY2UV5oU5WWVK3jFB4i7flq81lOZrPAI5xPE6QDGnT2zBKPo
+	3vdVW56aBlb60wdGf1i9Vck2GA21Bw3rzONQHEcnIvkfykt2MX7S1S6oKZIGGru8QjTOTIgzpZhWa
+	iYN+PqWfVLMqAfk83fEUewkkANjvF2LILJlFOxR4ttsEtb3/0YrGrqMQp87mctquVe2efx6NegSYH
+	xgEZ7fHIds9m6v5v3cY41Y4RTxchOUi+hPvRO5wZqvQ4J+Yh5UPUxF8EQkziiCIR/B8ALmh4jPqgH
+	85WCkXxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u503d-00000009AEC-1Cyd;
-	Wed, 16 Apr 2025 10:31:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u503j-00000009ANj-0DBT;
+	Wed, 16 Apr 2025 10:31:59 +0000
+Received: from relay3-d.mail.gandi.net ([217.70.183.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4yss-00000008wk4-2nPq
+	id 1u4yua-00000008x1v-29N7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 09:16:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1E44642B60;
-	Wed, 16 Apr 2025 09:16:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1DD6C4CEE2;
-	Wed, 16 Apr 2025 09:16:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744795002;
-	bh=hY7p3m5X0OOft3dhhs3uhZGYBnQpfn9DlIDiE50gYNo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uaUqEwxsykjInJ62sBQ3icULCRHLAodwkEXAyOvS613sBBl8V4XwJieKRR70ZNSRo
-	 sORxELLDb1lvsUeUtfYiZkKEe8CY+EAZP06AL9mkCFhE9DoooapeaccHXYZrhHEMsg
-	 qb2P6bHCitt0DwDuimqyL9TQ1C2IswUiSQipaUsZSeazpYM7zplz2muGRbtavhGTco
-	 GG4r96fbMsyV2Jloo+7nHDHbtlSHGjYxG9WY2DBqz56xjOy/miriXUhr9flsjmRUgv
-	 A6JT2MXZ6p8URA+lrTJ1TPTzca+pn4i0Hh2y/Y51506TjfwfJ9kuSRMlICXH6GMTnl
-	 L5UALTB4jBGWQ==
-Date: Wed, 16 Apr 2025 10:16:32 +0100
-From: Simon Horman <horms@kernel.org>
-To: Parvathi Pudi <parvathi@couthit.com>
-Subject: Re: [PATCH net-next v5 02/11] net: ti: prueth: Adds ICSSM Ethernet
- driver
-Message-ID: <20250416091632.GM395307@horms.kernel.org>
-References: <20250414113458.1913823-1-parvathi@couthit.com>
- <20250414113458.1913823-3-parvathi@couthit.com>
+	Wed, 16 Apr 2025 09:18:30 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 6D0D61FCF1;
+	Wed, 16 Apr 2025 09:18:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1744795104;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dllKgwcLha1xL/vp7a/BLD+IvTjOmLEdGFp4zUwZcgg=;
+	b=nunaxTzVBV3n6npKioC4tkVt5qyJ/0ovo+X8BcdX9YasgCi5MZmYPXEYmZQLlVcbXUapoU
+	/YW+9QKRf1K7y+ySRHWe80jMUkTndaRM8MOjvKCQyRoTQwPNs9rC5OBGm8mx+ZxtuFTS0M
+	Mh+JZq330W/CcxlMqhLY9sUb27AkokWn+pB6L4aFnGPvahVNli93kPUcEwJ9DtSixG4nMG
+	P1sEhO6BOAsiptpbuVq7KGWaNNBphmoJglgknx9T1i6XMbdUohCbAbO6ZiHQumVwZs6Zly
+	BGVahasiNILSThVKRNFpHbojxJF6fnoFTX/w8G6I6tYPNy9h7p/XJv+V6hbqyA==
+Date: Wed, 16 Apr 2025 11:18:19 +0200
+From: Herve Codina <herve.codina@bootlin.com>
+To: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Andrew Lunn
+ <andrew@lunn.ch>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki"
+ <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, Shawn Guo
+ <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, Wolfram Sang
+ <wsa+renesas@sang-engineering.com>, Peter Rosin <peda@axentia.se>, Derek
+ Kiernan <derek.kiernan@amd.com>, Dragan Cvetic <dragan.cvetic@amd.com>,
+ Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>, Saravana
+ Kannan <saravanak@google.com>, Bjorn Helgaas <bhelgaas@google.com>, Mark
+ Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>, Andy Shevchenko
+ <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>, Sakari Ailus
+ <sakari.ailus@linux.intel.com>, Wolfram Sang <wsa@kernel.org>, Geert
+ Uytterhoeven <geert+renesas@glider.be>, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, linux-i2c@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-pci@vger.kernel.org,
+ linux-spi@vger.kernel.org, linux-acpi@vger.kernel.org, Allan Nielsen
+ <allan.nielsen@microchip.com>, Horatiu Vultur
+ <horatiu.vultur@microchip.com>, Steen Hegelund
+ <steen.hegelund@microchip.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH 15/16] misc: lan966x_pci: Add dtso nodes in order to
+ support SFPs
+Message-ID: <20250416111819.4fd7b364@bootlin.com>
+In-Reply-To: <20250410084809.1829dc65@windsurf>
+References: <20250407145546.270683-1-herve.codina@bootlin.com>
+	<20250407145546.270683-16-herve.codina@bootlin.com>
+	<19f1a382-1b6b-42bd-a548-a1a5644c9a1b@lunn.ch>
+	<20250408162603.02d6c3a1@bootlin.com>
+	<D91CSNC07NYM.3KC467K0OZ4GG@bootlin.com>
+	<c14dd5c6-2dae-4398-89a9-342e7a25bb30@lunn.ch>
+	<D91XV1I4CY37.20T12FMZ5QLQ5@bootlin.com>
+	<b1b33000-4c10-43cd-bcf4-d24fc73902b1@lunn.ch>
+	<20250409161444.6158d388@windsurf>
+	<c6257afe-36bb-46d8-8c22-da3b85028105@lunn.ch>
+	<20250410084809.1829dc65@windsurf>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250414113458.1913823-3-parvathi@couthit.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvvdehleelucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtkeertdertdejnecuhfhrohhmpefjvghrvhgvucevohguihhnrgcuoehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepveeiffefgeeitdelleeigefhjeelueeuveekveetgeffheeltdekgeduiefggfdvnecukfhppedvrgdtudemvgdtrgemvdegieemjeejledtmedviegtgeemvgdvvdemiedtfegumeehkegrnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegvtdgrmedvgeeimeejjeeltdemvdeitgegmegvvddvmeeitdefugemheekrgdphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomhephhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeeguddprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehgrhgvghhkhheslhhinhhugihfohhunhgurghtihhonhdrohhrghdprhgtphhtthhopehrrghfrggvlhesk
+ hgvrhhnvghlrdhorhhgpdhrtghpthhtohepuggrkhhrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshdrhhgruhgvrhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvg
+X-GND-Sasl: herve.codina@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_021642_740748_2E769934 
-X-CRM114-Status: GOOD (  25.33  )
+X-CRM114-CacheID: sfid-20250416_021828_678441_16A41AF0 
+X-CRM114-Status: GOOD (  18.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,262 +106,42 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: nm@ti.com, vigneshr@ti.com, tony@atomide.com, edumazet@google.com, glaroque@baylibre.com, pmohan@couthit.com, diogo.ivo@siemens.com, robh@kernel.org, javier.carrasco.cruz@gmail.com, praneeth@ti.com, m-karicheri2@ti.com, basharath@couthit.com, kuba@kernel.org, pabeni@redhat.com, richardcochran@gmail.com, devicetree@vger.kernel.org, conor+dt@kernel.org, schnelle@linux.ibm.com, mohan@couthit.com, s.hauer@pengutronix.de, prajith@ti.com, rogerq@kernel.org, jacob.e.keller@intel.com, ssantosh@kernel.org, linux-arm-kernel@lists.infradead.org, rogerq@ti.com, srk@ti.com, pratheesh@ti.com, m-malladi@ti.com, netdev@vger.kernel.org, rdunlap@infradead.org, linux-kernel@vger.kernel.org, danishanwar@ti.com, afd@ti.com, andrew+netdev@lunn.ch, krishna@couthit.com, krzk+dt@kernel.org, davem@davemloft.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 14, 2025 at 05:04:49PM +0530, Parvathi Pudi wrote:
-> From: Roger Quadros <rogerq@ti.com>
+Hi Thomas, Andrew,
+
+On Thu, 10 Apr 2025 08:48:09 +0200
+Thomas Petazzoni <thomas.petazzoni@bootlin.com> wrote:
+
+> On Wed, 9 Apr 2025 17:03:45 +0200
+> Andrew Lunn <andrew@lunn.ch> wrote:
 > 
-> Updates Kernel configuration to enable PRUETH driver and its dependencies
-> along with makefile changes to add the new PRUETH driver.
+> > So it only supports a single .dtbo. In its current form it does not
+> > scale to multiple .dtso files for multiple different boards built
+> > around the PCIe chip.
+> > 
+> > At the moment, that is not really an issue, but when the second board
+> > comes along, some refactoring will be needed.  
 > 
-> Changes includes init and deinit of ICSSM PRU Ethernet driver including
-> net dev registration and firmware loading for DUAL-MAC mode running on
-> PRU-ICSS2 instance.
+> Indeed, but that's really an implementation detail. It doesn't change
+> anything to the overall approach. The only thing that would have to
+> change is how the driver gets the .dtbo. We could bundle several .dtbos
+> in the driver, we could fall back to request_firmware(), etc.
 > 
-> Changes also includes link handling, PRU booting, default firmware loading
-> and PRU stopping using existing remoteproc driver APIs.
-> 
-> Signed-off-by: Roger Quadros <rogerq@ti.com>
-> Signed-off-by: Andrew F. Davis <afd@ti.com>
-> Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
-> Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
 
-...
+Not sure we need to split right now the existing dtso file nor rename it
+even if it is updated in the series.
 
-> diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+This could be done later when an other user of the LAN996x PCI chip is
+there.
 
-...
+Doing something right now will probably need other modification when this
+potential other user comes in. Indeed, depending on specificities of this
+future user, what is done now could not match the need of this future user.
 
-> +static int icssm_prueth_probe(struct platform_device *pdev)
-> +{
-> +	struct device_node *eth0_node = NULL, *eth1_node = NULL;
-> +	struct device_node *eth_node, *eth_ports_node;
-> +	enum pruss_pru_id pruss_id0, pruss_id1;
-> +	struct device *dev = &pdev->dev;
-> +	struct device_node *np;
-> +	struct prueth *prueth;
-> +	int i, ret;
-> +
-> +	np = dev->of_node;
-> +	if (!np)
-> +		return -ENODEV; /* we don't support non DT */
-> +
-> +	prueth = devm_kzalloc(dev, sizeof(*prueth), GFP_KERNEL);
-> +	if (!prueth)
-> +		return -ENOMEM;
-> +
-> +	platform_set_drvdata(pdev, prueth);
-> +	prueth->dev = dev;
-> +	prueth->fw_data = device_get_match_data(dev);
-> +
-> +	eth_ports_node = of_get_child_by_name(np, "ethernet-ports");
-> +	if (!eth_ports_node)
-> +		return -ENOENT;
-> +
-> +	for_each_child_of_node(eth_ports_node, eth_node) {
-> +		u32 reg;
-> +
-> +		if (strcmp(eth_node->name, "ethernet-port"))
-> +			continue;
-> +		ret = of_property_read_u32(eth_node, "reg", &reg);
-> +		if (ret < 0) {
-> +			dev_err(dev, "%pOF error reading port_id %d\n",
-> +				eth_node, ret);
-> +		}
-> +
-> +		of_node_get(eth_node);
+Any opinion?
 
-Hi Roger, Parvathi, all,
-
-I feel that I'm missing something obvious here.
-But I have some questions about the reference to eth_node
-taken on the line above.
-
-> +
-> +		if (reg == 0) {
-> +			eth0_node = eth_node;
-
-If, while iterating through the for loop above, we reach this point more
-than once, then will the reference to the previously node assigned to
-eth0_node be leaked?
-
-> +			if (!of_device_is_available(eth0_node)) {
-> +				of_node_put(eth0_node);
-> +				eth0_node = NULL;
-> +			}
-> +		} else if (reg == 1) {
-> +			eth1_node = eth_node;
-
-Likewise here for eth1_node.
-
-> +			if (!of_device_is_available(eth1_node)) {
-> +				of_node_put(eth1_node);
-> +				eth1_node = NULL;
-> +			}
-> +		} else {
-> +			dev_err(dev, "port reg should be 0 or 1\n");
-
-And, perhaps more to the point, is the reference to eth_node leaked if
-we reach this line?
-
-> +		}
-> +	}
-> +
-> +	of_node_put(eth_ports_node);
-> +
-> +	/* At least one node must be present and available else we fail */
-> +	if (!eth0_node && !eth1_node) {
-> +		dev_err(dev, "neither port0 nor port1 node available\n");
-> +		return -ENODEV;
-> +	}
-> +
-> +	if (eth0_node == eth1_node) {
-
-Given the if / else if condition in the for loop above,
-I'm not sure this can ever occur.
-
-> +		dev_err(dev, "port0 and port1 can't have same reg\n");
-> +		of_node_put(eth0_node);
-> +		return -ENODEV;
-> +	}
-> +
-> +	prueth->eth_node[PRUETH_MAC0] = eth0_node;
-> +	prueth->eth_node[PRUETH_MAC1] = eth1_node;
-> +
-> +	if (eth0_node) {
-> +		prueth->pru0 = pru_rproc_get(np, 0, &pruss_id0);
-> +		if (IS_ERR(prueth->pru0)) {
-> +			ret = PTR_ERR(prueth->pru0);
-> +			if (ret != -EPROBE_DEFER)
-> +				dev_err(dev, "unable to get PRU0: %d\n", ret);
-> +			goto put_pru;
-> +		}
-> +	}
-> +
-> +	if (eth1_node) {
-> +		prueth->pru1 = pru_rproc_get(np, 1, &pruss_id1);
-> +		if (IS_ERR(prueth->pru1)) {
-> +			ret = PTR_ERR(prueth->pru1);
-> +			if (ret != -EPROBE_DEFER)
-> +				dev_err(dev, "unable to get PRU1: %d\n", ret);
-> +			goto put_pru;
-> +		}
-> +	}
-> +
-> +	/* setup netdev interfaces */
-> +	if (eth0_node) {
-> +		ret = icssm_prueth_netdev_init(prueth, eth0_node);
-> +		if (ret) {
-> +			if (ret != -EPROBE_DEFER) {
-> +				dev_err(dev, "netdev init %s failed: %d\n",
-> +					eth0_node->name, ret);
-> +			}
-> +			goto put_pru;
-> +		}
-> +	}
-> +
-> +	if (eth1_node) {
-> +		ret = icssm_prueth_netdev_init(prueth, eth1_node);
-> +		if (ret) {
-> +			if (ret != -EPROBE_DEFER) {
-> +				dev_err(dev, "netdev init %s failed: %d\n",
-> +					eth1_node->name, ret);
-> +			}
-> +			goto netdev_exit;
-> +		}
-> +	}
-> +
-> +	/* register the network devices */
-> +	if (eth0_node) {
-> +		ret = register_netdev(prueth->emac[PRUETH_MAC0]->ndev);
-> +		if (ret) {
-> +			dev_err(dev, "can't register netdev for port MII0");
-> +			goto netdev_exit;
-> +		}
-> +
-> +		prueth->registered_netdevs[PRUETH_MAC0] =
-> +			prueth->emac[PRUETH_MAC0]->ndev;
-> +	}
-> +
-> +	if (eth1_node) {
-> +		ret = register_netdev(prueth->emac[PRUETH_MAC1]->ndev);
-> +		if (ret) {
-> +			dev_err(dev, "can't register netdev for port MII1");
-> +			goto netdev_unregister;
-> +		}
-> +
-> +		prueth->registered_netdevs[PRUETH_MAC1] =
-> +			prueth->emac[PRUETH_MAC1]->ndev;
-> +	}
-> +
-> +	if (eth1_node)
-> +		of_node_put(eth1_node);
-> +	if (eth0_node)
-> +		of_node_put(eth0_node);
-> +	return 0;
-> +
-> +netdev_unregister:
-> +	for (i = 0; i < PRUETH_NUM_MACS; i++) {
-> +		if (!prueth->registered_netdevs[i])
-> +			continue;
-> +		unregister_netdev(prueth->registered_netdevs[i]);
-> +	}
-> +
-> +netdev_exit:
-> +	for (i = 0; i < PRUETH_NUM_MACS; i++) {
-> +		eth_node = prueth->eth_node[i];
-> +		if (!eth_node)
-> +			continue;
-> +
-> +		icssm_prueth_netdev_exit(prueth, eth_node);
-> +	}
-> +
-> +put_pru:
-> +	if (eth1_node) {
-> +		if (prueth->pru1)
-> +			pru_rproc_put(prueth->pru1);
-> +		of_node_put(eth1_node);
-> +	}
-> +
-> +	if (eth0_node) {
-> +		if (prueth->pru0)
-> +			pru_rproc_put(prueth->pru0);
-> +		of_node_put(eth0_node);
-> +	}
-> +
-> +	return ret;
-> +}
-> +
-> +static void icssm_prueth_remove(struct platform_device *pdev)
-> +{
-> +	struct prueth *prueth = platform_get_drvdata(pdev);
-> +	struct device_node *eth_node;
-> +	int i;
-> +
-> +	for (i = 0; i < PRUETH_NUM_MACS; i++) {
-> +		if (!prueth->registered_netdevs[i])
-> +			continue;
-> +		unregister_netdev(prueth->registered_netdevs[i]);
-> +	}
-> +
-> +	for (i = 0; i < PRUETH_NUM_MACS; i++) {
-> +		eth_node = prueth->eth_node[i];
-> +		if (!eth_node)
-> +			continue;
-> +
-> +		icssm_prueth_netdev_exit(prueth, eth_node);
-> +		of_node_put(eth_node);
-> +	}
-> +
-> +	pruss_put(prueth->pruss);
-> +
-> +	if (prueth->eth_node[PRUETH_MAC0])
-> +		pru_rproc_put(prueth->pru0);
-> +	if (prueth->eth_node[PRUETH_MAC1])
-> +		pru_rproc_put(prueth->pru1);
-> +}
-
-...
+Best regards,
+Hervé
 
