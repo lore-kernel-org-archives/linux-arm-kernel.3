@@ -4,82 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9DD0C369BD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:34:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EF60C369BD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:34:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lptEr5MBJmgPAfYPVZGY9BBR0lfBMliOEOgF6E1DbtY=; b=BMn4kK3EAZvR4jC/45ak723p0S
-	z32/fMH8Yv6jxhBjJ8USu4OXoA0DLtBXvaNaYche5qn/ctQPfDsZ65L9wd3ufKtGHeTTxGfRid9tl
-	R1XKxZ2lfikkh8lDepU8L79RZR9IMkZ4qnu13/jAxj42i9vfUZYxkNZZj33CYo0DXebUFF5PuU+w6
-	yQlxeLr8C8JeSGtgoVw8nPN71r+AwhzuPfHm/eWP+tWwwfMu4Xu6xluo3YUfIvdPiOYifkPa+6H1y
-	PEg8gW8zJsOBOeY1hhR5O1Il+ucok8ParmmfzCyONgyGapjP2wIM9pOSdXdyf9gpZj0A+A5ud+WzP
-	6JelItgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=M8M+j71R+PmQzROfFMQrSEmQk4KpBHTgVm1xyrexVTI=; b=UJzxjaNlwYrMmJ1lNLYC74otLD
+	mgBE3RnBIoaA2+tSt96O+0B6Pbcv7V0fdwQ77W8HsXpEgseILaPGckScjU5Czox0CjJ53xvXxmJWb
+	89iyhD1MIwE7DvFjHZZ6QZUtdSP0UV+nFHrWKJcX7oaRe4rpxipSDVzjwaVJoUErZZfGd+Z1LhsQY
+	TyYco5XsUNKHNbkOBJza6l7UNqbPkaBI6ANBf0KTWZxhnStkZCt1MK0OPPXBMUbfrLFXDHSv9LQa0
+	an3fSQU5xOIx5qd3tubl51bDT1Hp4OVp/5iSnSiOPK6/6Vabjp9Cc15UKL7k2rBUdqlMXV9xWXAaN
+	/NLMaaXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u505h-00000009DJO-0LgO;
-	Wed, 16 Apr 2025 10:34:01 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u505u-00000009DXc-2TrC;
+	Wed, 16 Apr 2025 10:34:14 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4zuA-000000096vq-0Kvd
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 10:22:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6CA825C5CAA;
-	Wed, 16 Apr 2025 10:19:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C978C4CEE2;
-	Wed, 16 Apr 2025 10:22:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744798925;
-	bh=IQpMGOF83TYK+ICeBAr/Du4u99XVKcwdq7lFyw1+9XI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=jPcfby3XXuhu8ih8BvdhdweEIfDqRjX6JU2S1GrPie/yEfEd8QXf2gzSzBrjQ9OpU
-	 F3WjYvWjYQOZpQk2VZcl0a46lKEc4CknmCRUPQgyfL32ZSdDpmIT6mvDJ+KoIxtgFU
-	 KuphqcTvGrzE1rbMqRgwCHeq+HzabXwTjlUZ5Ridu63En+pT5dh4MpBgCwuPNGtiyg
-	 MqQCcfW8O36bRM84zIOwM7bohRG3ba7QS8bMmSguHww+XetKBO2QrzPMOVMlXOOJIN
-	 Eb3fdWrnI1UDll2e/JkLJ93CY+f6ijU2x8eIwT/4dsYviYzDDoFaI1ImPaE99sDDn8
-	 Ljjcms6OOd91A==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1u4zu6-0060vo-LT;
-	Wed, 16 Apr 2025 11:22:02 +0100
-Date: Wed, 16 Apr 2025 11:22:01 +0100
-Message-ID: <86v7r4jtiu.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Viresh Kumar <viresh.kumar@linaro.org>
-Cc: rafael@kernel.org,
-	Chenyuan Yang <chenyuan0y@gmail.com>,
-	sven@svenpeter.dev,
-	j@jannau.net,
-	alyssa@rosenzweig.io,
-	neal@gompa.dev,
-	marcan@marcan.st,
-	asahi@lists.linux.dev,
+	id 1u4zzW-000000097la-3GxH;
+	Wed, 16 Apr 2025 10:27:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
+	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
+	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=M8M+j71R+PmQzROfFMQrSEmQk4KpBHTgVm1xyrexVTI=; b=T0hEdLtEyL0J619DdQWOqxM4UO
+	xBB1qJH9adpPP5NggnFTmHlD6zQr7pbj6x28w5wiF+qH78SSWa3nsB4sAiiwT2EY7wEZl/CUM7By/
+	9ylxn4P2kYNz126W/fOZNgEWvb6RjN45LGdtpvuwr2S67cZcVHmMKnlOOc5qz+ofgsCs867BEjj/o
+	29z5XmyseJ1j7beBK9Y/gzsYwS/Lmy+ijQ7ux5GM2TGTMNA8h6AHyB3vEikWDyJuplszMMGYKTKwN
+	VbXWWJNr2iQcTl6k3g83ROrZYAq0oEY6q/BxF/w38XjrKvS58wPlxopvGLF9DZGoCNvY0nZJIv/CB
+	Bh9e1VMA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:41926 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1u4zzJ-00012Q-2v;
+	Wed, 16 Apr 2025 11:27:25 +0100
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1u4zyh-000xVE-PG; Wed, 16 Apr 2025 11:26:47 +0100
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] cpufreq: apple-soc: Fix possible null pointer dereference
-In-Reply-To: <20250416073420.xrhwnzy22zf6yltm@vireshk-i7>
-References: <20250412160518.1824538-1-chenyuan0y@gmail.com>
-	<86bjt0l6q4.wl-maz@kernel.org>
-	<20250416073420.xrhwnzy22zf6yltm@vireshk-i7>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: viresh.kumar@linaro.org, rafael@kernel.org, chenyuan0y@gmail.com, sven@svenpeter.dev, j@jannau.net, alyssa@rosenzweig.io, neal@gompa.dev, marcan@marcan.st, asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-mediatek@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next] net: stmmac: mediatek: stop initialising
+ plat->mac_interface
+MIME-Version: 1.0
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1u4zyh-000xVE-PG@rmk-PC.armlinux.org.uk>
+Date: Wed, 16 Apr 2025 11:26:47 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_032206_554293_A472C4A2 
-X-CRM114-Status: GOOD (  30.91  )
+X-CRM114-CacheID: sfid-20250416_032738_820437_D406C77A 
+X-CRM114-Status: UNSURE (   9.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,50 +89,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 16 Apr 2025 08:34:20 +0100,
-Viresh Kumar <viresh.kumar@linaro.org> wrote:
-> 
-> On 13-04-25, 11:02, Marc Zyngier wrote:
-> > Irrespective of this, it would be good to describe under which
-> > circumstances this can occur, because I can't see *how* this can
-> > trigger. The policy is directly provided by the core code and provide
-> > its association with a cpu, and is never NULL at the point of init.
-> > 
-> > And if it can trigger, why only fix this one particular case?
-> > Dereferences of policy are all over the map, and would be just as
-> > wrong.
-> > 
-> > So while this is not wrong, I don't think this serves any real
-> > purpose.
-> 
-> I have applied such patches in the past, considering the same as good
-> practice. But I do understand your inputs.
-> 
-> And so I tried to see if there is actually a way to trigger this.
-> 
-> - Platform with two cpufreq policies (freq domains) with one CPU in
->   each of them.
-> - Boot the kernel, policies will initialize for both the domains.
-> - Hotplug out CPU1, that will remove the policy as well.
-> - Call cpufreq_quick_get(1), this will call the ->get() callback for
->   CPU1, for which there is no policy available.
-> 
-> But this is the case only for drivers with `setpolicy` callback, this
-> shouldn't happen on apple-soc.
-> 
-> I am not sure now if we should just apply this patch to be safe, or
-> leave it as is. The cpufreq core may change in the future and call the
-> `get` callback for all drivers.
+Mediatek doesn't make use of mac_interface, and none of the in-tree
+DT files use the mac-mode property. Therefore, mac_interface already
+follows phy_interface. Remove this unnecessary assignment.
 
-If that's the case, I'd suggest adding a __must_check annotation to
-cpufreq_cpu_get_raw() and co. At least we'll get a warning on all
-missing uses, fix them in one go, and avoid the constant churn of more
-or less correct patches.
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-Thanks,
-
-	M.
-
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
+index d178d5ddc7c7..39421d6a34e4 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
+@@ -581,7 +581,6 @@ static int mediatek_dwmac_common_data(struct platform_device *pdev,
+ 	int i;
+ 
+ 	priv_plat->phy_mode = plat->phy_interface;
+-	plat->mac_interface = priv_plat->phy_mode;
+ 	if (priv_plat->mac_wol)
+ 		plat->flags &= ~STMMAC_FLAG_USE_PHY_WOL;
+ 	else
 -- 
-Without deviation from the norm, progress is not possible.
+2.30.2
+
 
