@@ -4,90 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3139C369BA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 17:53:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D401C369BA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 17:55:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fnHPSO7MQZ8t48b1iS+bJTxLKBJSgkTBWMXEEM9ZhIA=; b=ujo7aNPjNeh77RngDsxwFG/n2F
-	MlYAhXBG4EpH1A31v4dVEUEFqQZBXmKxDF89LcPICIK0R4Na0RyAecpMwCn4gO5Q5ssdIc4Yd/IdI
-	vJjyFONK2eSp+yC4ER3j4FABa+tELpdApxMOfgYR0XKFrB+sO1pa8l6aft66+YNBT4nUOM1Be7GwA
-	cwYGzjMLJtIrSoAyWTPEQLtnGVJJS4DZTASaxHsoNIf9Javi0PgVJf2aJDO4xRDSz3mVlzPSxXcfk
-	SJBWKoOHhpxYnUh6wBpmOqtW/20gIS977GCr91GgdmEirpb6EEmeZUFwFu6dBGAdGkb6tmSpk7cV9
-	OVtxKC9A==;
+	bh=7xlBoDFGfwAiK0YOXlC4SwDB4WdN2STB65PhvVY3kGQ=; b=gLOfTUoPgbvaLJbUr7mBRQ4TaI
+	QO8TqzwGmG6IotA52RwXIab7qN+72ciPqdOyErqcXfu5RdM/VbeLPO9CNCSfy9LIoBv2Au8OSfti7
+	kQf4CGqLrUEGBcNoNGQ+58riEuotuaVTZKXMTzjw0wPF4H0lRYLgrywYYYVaewkr6rgGX4ATDj6kX
+	3wtH12EFMC1GTws04HI7GqCgHNGa2fjiJIHSGoYe85yons7G3+kk/MreZmBPjQ2aSP6Xh/Q6gH6BD
+	f0RpjPfpESsL/BQlHXCE/ffJYA1DqQunFXvuW0TlOc/ypsHYZfIpwMEzoYwx03FW7S5lFQR2g59Nj
+	QFempZaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u56we-0000000ATUJ-2fY7;
-	Wed, 16 Apr 2025 17:53:08 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1u56yU-0000000ATlO-1ytO;
+	Wed, 16 Apr 2025 17:55:02 +0000
+Received: from mail-ed1-x543.google.com ([2a00:1450:4864:20::543])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u56sT-0000000ASor-1myD
+	id 1u56v6-0000000ATBW-3mtx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 17:48:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 399EA5C3A54;
-	Wed, 16 Apr 2025 17:46:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0408C4CEE2;
-	Wed, 16 Apr 2025 17:48:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744825727;
-	bh=v4XwhaUeZk3BYsAXaR29UkZdFjLWFGa044ZokdLWR8A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GdBVAovmhB1UljmHHNyLhF0hxqGhhRuRKXZwqcyO/adBY48zZBRbdDbJB9M7PJs+9
-	 0j2ko3cmHZdfFrkH5ZvxYdo9QFPEclZ3dj/jgrPIp3sr9duFHwG5JT2pijcIt27V07
-	 ZNX2u2l/RkL/hLsy/MtGuWmctwaG39Vfk7ejLVl+rzVAMCzANGUNVa9rlfzZYwIuNl
-	 AxFhvAvI0iDRRAQnzJZ3nFXpyy0F9M4Jmp8pKWFsEjPqMUDzjlZl99QnYpNx1IAIHf
-	 xvazOMDRyHkBglCDin7oFj4gJXMJRW+IYMi4GP7mzpkt1qGQpeus7aotP6Kaj8CDgY
-	 wlFKWO6r1sP8A==
-Date: Wed, 16 Apr 2025 10:48:45 -0700
-From: Kees Cook <kees@kernel.org>
-To: Kory Maincent <kory.maincent@bootlin.com>
-Cc: Jakub Kicinski <kuba@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	Claudiu Manoil <claudiu.manoil@nxp.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Wei Fang <wei.fang@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>,
-	Jeroen de Borst <jeroendb@google.com>,
-	Harshitha Ramamurthy <hramamurthy@google.com>,
-	Ido Schimmel <idosch@nvidia.com>, Petr Machata <petrm@nvidia.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Simon Horman <horms@kernel.org>, Geoff Levand <geoff@infradead.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Alexander Lobakin <aleksander.lobakin@intel.com>,
-	Praveen Kaligineedi <pkaligineedi@google.com>,
-	Willem de Bruijn <willemb@google.com>,
-	Joshua Washington <joshwash@google.com>,
-	Furong Xu <0x1207@gmail.com>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Jisheng Zhang <jszhang@kernel.org>, Petr Tesarik <petr@tesarici.cz>,
-	netdev@vger.kernel.org, imx@lists.linux.dev,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Richard Cochran <richardcochran@gmail.com>,
-	Jacob Keller <jacob.e.keller@intel.com>,
-	Shannon Nelson <shannon.nelson@amd.com>,
-	Ziwei Xiao <ziweixiao@google.com>,
-	Shailend Chand <shailend@google.com>,
-	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
-	Andrew Halaney <ahalaney@redhat.com>, linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH] net: ethtool: Adjust exactly ETH_GSTRING_LEN-long stats
- to use memcpy
-Message-ID: <202504161047.79ED8EF5@keescook>
-References: <20250416010210.work.904-kees@kernel.org>
- <20250416110351.1dbb7173@kmaincent-XPS-13-7390>
+	Wed, 16 Apr 2025 17:51:34 +0000
+Received: by mail-ed1-x543.google.com with SMTP id 4fb4d7f45d1cf-5eb92df4fcbso12211319a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 10:51:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1744825891; x=1745430691; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=7xlBoDFGfwAiK0YOXlC4SwDB4WdN2STB65PhvVY3kGQ=;
+        b=D7j1qwHQTuhK9DXEHx1+j08ALudXR46+Th2c3oV010KWklWKRCVRWNkT9FgKnXn9uE
+         gwcAKR9k53uKjZDlnkInU5+H3wrn/amrz+cG6ZQjduvWBLjHV5ZJq+r1eIcyr2poJrnG
+         pIkUNNqypp/d9DJkpW6eBgeHv8sqon7mil0NTV9c8kx4cYKj8g1aIMiJHa3zpfwRP/4q
+         99fEU5GTp1PvaJnH5syc3T0DMPo+732RLsOiSIoZHnaGXXxgLDQ+977q/KgVJxmPthbP
+         abPPm2g9INoV23m2OwpyVqVDOypVEUAiv+hGRyseNs7DSBTZGzT1N9VqI8RzuYrVfJEz
+         tU3A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744825891; x=1745430691;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7xlBoDFGfwAiK0YOXlC4SwDB4WdN2STB65PhvVY3kGQ=;
+        b=Le+bCgcSclV3wgwnK5p8SjX9j7cL6pmBs81o16YRdMagAt70XVB6gq5JJnH+gFuMxg
+         ++nkQHadfUaA4GpwIwBAtOHjKjoy+4f+TiFarqSUnk0yrkOCywoOzfw+OGqFzw38p4r6
+         SAgXHf3nc96sdzyZLNlu69gSay4xhxIycqfiXkSli8lTLF8UdhVaf7CanmxHVWp8XEGV
+         veZB1LtPK9mapMZQosqERnFTPvOUXyNcqrX+dROZVk9j/GX55bRG1Q1eX5nqeywK2FqK
+         V3GZRuPLBNFkkiBNHij/tVGtu8/i+SacgyN6Ohr6jc2e/kNO4eFXngr4Qgh77cxojgJx
+         zW9g==
+X-Forwarded-Encrypted: i=1; AJvYcCXRKFbXKwzcsvlgf3PsQ4kGInp05ALErdb19dGAGyyLcbsEfNrnQ57CoLZGAummGkKlTEvg3AoxAa+uuToP1WHl@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQoV57NiVUp9O6iWdsUqWSn0iTzFbdZ/gs+R4crlP0jrRU2MSm
+	jYmQMAf3vsLtKjmD/2Fs0hAkTkE9KR9O64JRuReovYJlytCmSqLwtKV2wjzkFV0=
+X-Gm-Gg: ASbGncsrbao9Bk4LShSeQGAVZ/QWsl/1N++NZET0gMUuVzZ67b1XiLp6facBYZV2hld
+	LZldl6DK+mbr4F3+A+V7dZ93EJ9aw955JGt0F/vRcXXPKunLJmBzlMtd1MNg9++G1UQZLtiuEUQ
+	o6BK2fXvhrQLfnsdfGRYjJWccArZHuj1Izf280uMI57GSCE90KvwuLDFdot4o6+pf4Bbq7AgUIc
+	xNCu8cQA2Etnxa4igDC0sJlfEUSZzEecZDf5wwFrKfBLEXaaLPSXw+bhaABrd5eJN6jDcnbCbF5
+	ap9EUe8aLAC52E13/SoOrySmP5lGPsD1avOGnlVKVnxQepGu5HxkGTv+lKKyNIoR9SxYGF4=
+X-Google-Smtp-Source: AGHT+IG8ocY2R4u3MSMUM8wLm0cAOVd+8ApQg05RyBRV3UoKUWOsni8cwFhkPXwWINMuR8awGmVJfQ==
+X-Received: by 2002:a17:907:3d0e:b0:ac3:853e:4345 with SMTP id a640c23a62f3a-acb42ac181emr250869466b.45.1744825891181;
+        Wed, 16 Apr 2025 10:51:31 -0700 (PDT)
+Received: from localhost (93-44-188-26.ip98.fastwebnet.it. [93.44.188.26])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-acb3cde06f8sm167165366b.61.2025.04.16.10.51.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 16 Apr 2025 10:51:30 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Wed, 16 Apr 2025 19:52:54 +0200
+To: Stefan Wahren <wahrenst@gmx.net>
+Cc: Andrea della Porta <andrea.porta@suse.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof Wilczynski <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-gpio@vger.kernel.org, Masahiro Yamada <masahiroy@kernel.org>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Andrew Lunn <andrew@lunn.ch>, Phil Elwell <phil@raspberrypi.com>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	kernel-list@raspberrypi.com
+Subject: Re: [PATCH v8 10/13] arm64: dts: Add overlay for RP1 device
+Message-ID: <Z__udrXkRz-5DSB6@apocalypse>
+References: <cover.1742418429.git.andrea.porta@suse.com>
+ <ab9ab3536baf5fdf6016f2a01044f00034189291.1742418429.git.andrea.porta@suse.com>
+ <abb3405a-45fb-4425-a817-89a03b0c16c4@gmx.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250416110351.1dbb7173@kmaincent-XPS-13-7390>
+In-Reply-To: <abb3405a-45fb-4425-a817-89a03b0c16c4@gmx.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_104849_542474_6379DD6A 
-X-CRM114-Status: GOOD (  20.78  )
+X-CRM114-CacheID: sfid-20250416_105132_941021_B5B72C3E 
+X-CRM114-Status: GOOD (  23.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,39 +125,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 16, 2025 at 11:03:51AM +0200, Kory Maincent wrote:
-> On Tue, 15 Apr 2025 18:02:15 -0700
-> Kees Cook <kees@kernel.org> wrote:
-> 
-> > Many drivers populate the stats buffer using C-String based APIs (e.g.
-> > ethtool_sprintf() and ethtool_puts()), usually when building up the
-> > list of stats individually (i.e. with a for() loop). This, however,
-> > requires that the source strings be populated in such a way as to have
-> > a terminating NUL byte in the source.
-> > 
-> > Other drivers populate the stats buffer directly using one big memcpy()
-> > of an entire array of strings. No NUL termination is needed here, as the
-> > bytes are being directly passed through. Yet others will build up the
-> > stats buffer individually, but also use memcpy(). This, too, does not
-> > need NUL termination of the source strings.
-> > 
-> > However, there are cases where the strings that populate the
-> > source stats strings are exactly ETH_GSTRING_LEN long, and GCC
-> > 15's -Wunterminated-string-initialization option complains that the
-> > trailing NUL byte has been truncated. This situation is fine only if the
-> > driver is using the memcpy() approach. If the C-String APIs are used,
-> > the destination string name will have its final byte truncated by the
-> > required trailing NUL byte applied by the C-string API.
-> > 
-> > For drivers that are already using memcpy() but have initializers that
-> > truncate the NUL terminator, mark their source strings as __nonstring to
-> > silence the GCC warnings.
-> 
-> Shouldn't we move on to ethtool_cpy in these drivers too to unify the code?
+Hi Stefan,
 
-I decided that the code churn wasn't worth it. Perhaps in a follow-up
-patch if folks want to see the removal of the explicit memcpy() uses?
+On 13:38 Mon 14 Apr     , Stefan Wahren wrote:
+> Hi Andrea,
+> 
+> just a nit. Could you please add "broadcom:" to the subject?
 
--- 
-Kees Cook
+Consider it done.
+
+Many thanks,
+Andrea
+
+> 
+> Am 19.03.25 um 22:52 schrieb Andrea della Porta:
+> > Define the RP1 node in an overlay. The inclusion tree is
+> > as follow (the arrow points to the includer):
+> > 
+> >                        rp1.dtso
+> >                            ^
+> >                            |
+> > rp1-common.dtsi ----> rp1-nexus.dtsi
+> > 
+> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> > ---
+> > This patch can be considered optional, since it fills just the second
+> > scenario as detailed in [1], which is the RP1 DT node loaded from a dtb
+> > overlay by the FW at early boot stage.
+> > This may be useful for debug purpose, but as such not strictly necessary.
+> > 
+> > [1] https://lore.kernel.org/all/CAMEGJJ0f4YUgdWBhxvQ_dquZHztve9KO7pvQjoDWJ3=zd3cgcg@mail.gmail.com/#t
+> > ---
+> >   arch/arm64/boot/dts/broadcom/Makefile |  3 ++-
+> >   arch/arm64/boot/dts/broadcom/rp1.dtso | 11 +++++++++++
+> >   2 files changed, 13 insertions(+), 1 deletion(-)
+> >   create mode 100644 arch/arm64/boot/dts/broadcom/rp1.dtso
+> > 
+> > diff --git a/arch/arm64/boot/dts/broadcom/Makefile b/arch/arm64/boot/dts/broadcom/Makefile
+> > index 4836c6da5bee..58293f9c16ab 100644
+> > --- a/arch/arm64/boot/dts/broadcom/Makefile
+> > +++ b/arch/arm64/boot/dts/broadcom/Makefile
+> > @@ -13,7 +13,8 @@ dtb-$(CONFIG_ARCH_BCM2835) += bcm2711-rpi-400.dtb \
+> >   			      bcm2837-rpi-3-b.dtb \
+> >   			      bcm2837-rpi-3-b-plus.dtb \
+> >   			      bcm2837-rpi-cm3-io3.dtb \
+> > -			      bcm2837-rpi-zero-2-w.dtb
+> > +			      bcm2837-rpi-zero-2-w.dtb \
+> > +			      rp1.dtbo
+> >   subdir-y	+= bcmbca
+> >   subdir-y	+= northstar2
+> > diff --git a/arch/arm64/boot/dts/broadcom/rp1.dtso b/arch/arm64/boot/dts/broadcom/rp1.dtso
+> > new file mode 100644
+> > index 000000000000..ab4f146d22c0
+> > --- /dev/null
+> > +++ b/arch/arm64/boot/dts/broadcom/rp1.dtso
+> > @@ -0,0 +1,11 @@
+> > +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> > +
+> > +/dts-v1/;
+> > +/plugin/;
+> > +
+> > +&pcie2 {
+> > +	#address-cells = <3>;
+> > +	#size-cells = <2>;
+> > +
+> > +	#include "rp1-nexus.dtsi"
+> > +};
+> 
 
