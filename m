@@ -4,85 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C7A8C369BA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 18:16:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BA50C369BA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 18:18:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xO8p3wWnMTFzkHmEwWDOeYMg/xjqFsfP9HNTtGIh/qY=; b=pz3th65ZvDRSGmDwOZmyOGzfL9
-	hi7lCMcbrEPdAiKbL1hGbwqjaPONKRFZtkSeirUr5wplR8x4JniQ/d0mWqFiYDiP9Z5O2jDK5o5ca
-	LvsJPVL8hqzwzJWP1CfhsQnT6KYN6cYACl8QGNATCO+gLuoJqUDewjSGcgrx/st6SxEdue2NS8zSG
-	Nh6xMGufvK8dUljsYXUiyTtu7LYTU7x9QtCh3Vw4n7sk+PsljgkrU4hYum5w91C8xz0o5WoxRy4AD
-	zlnfkHSBfmJL06iTRNp6LFes4Q2HOOxdCWKdITWQdA9vA10FqtucCLBBxKZ97L0ePsziHxcv+nJgm
-	loEpoKig==;
+	bh=NJezJ3JKJn/lT7bV9zFqb3A9+YwgHaor3OWOH2QhrfY=; b=Wmt38I/IHzS3yfrUP5SZIdcl6B
+	xL7W6tddKp7XHp6q+l4Vg6aeVFF3AVWVmdt3E4dst7akSzFNgPaHkJDHmgCtsjGNdo31t0cXXlvWk
+	hzBjNkwTICcbyCjEzLMRrWe6/+GJt1zBojJ0zrHtCn277FZ85zpOrBb7e39s69zhPJ7MyYGwNUZlP
+	OXAfj+EQq72RpFAInwM5qO+7xiNzVzsrdO9MOhlN11YMCIAGm5VCpSfErkEV8WZVDwhFd5/6GEdV0
+	/G8Jc8bj6XHO+cw3jlCtSAVp2e9oL+J3XvtdxR01cfUYmzsaXjj9kL+vbHsMiT0CH0SSRAxijYCbJ
+	gDzQbVQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u57Ix-0000000AXXL-1lFu;
-	Wed, 16 Apr 2025 18:16:11 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1u57Km-0000000AXiC-0SEh;
+	Wed, 16 Apr 2025 18:18:04 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u578Z-0000000AVGn-3PEb
+	id 1u578j-0000000AUtt-3Jlp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 18:05:29 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-43d22c304adso4551625e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 11:05:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1744826726; x=1745431526; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=xO8p3wWnMTFzkHmEwWDOeYMg/xjqFsfP9HNTtGIh/qY=;
-        b=i9SfC+Y1sEuLbau/I6kzwaZjZuQ2/YBd4p4e6SkMAcRD4AuzWIw6SsjWOBlvsSiCCS
-         Tl7y5L4K9JunOCHkAfu2YJHnhvcCXugRyATijVkxDPnXNV7EbuqWdGhnHF1Nd7Rb5Cxx
-         CMzAaoXxzpqrAxi+vNr6YVypWEFj7OEIaSieFOyWm+iv4r4Kcqe2az/m8wLy7PTrhx5Y
-         iIWxRojKNbrhilrhBbIAlFLDpNWJD0KLQqoweWG9/lm/zUqmW4a97bnoRJ27YjEf8xGd
-         bU1K0nlTAU2pEyjME7EupKPwNIy7FyfRwTGvMmioOGwKrMYe4hLz027xRM9rJ1MsZn3J
-         Mg8g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744826726; x=1745431526;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=xO8p3wWnMTFzkHmEwWDOeYMg/xjqFsfP9HNTtGIh/qY=;
-        b=ZMjlqQ1vktHS2FpWQP51TcvIqjEGIG5hkXiIAorooNP0hqlGye/1BxlXbSbMNcYkpy
-         6eiEQj1i/xBZvwWZhMvhcryanOJgmrSBqnDTlfcrBWkrMnA1nFF4l829u/sqf1xQmem3
-         ZD1usXbO2zkCbYyRKfbmWKMsxUu36vdd/cX/tgXfofnfmRn+4oUeGjyTYatkJOigcBWw
-         QvcToC/UqsRVqf94WyfmHkFPw3vYYlYcsvnpKx8W9ogQ4MTYCqMmGfPxjV8xUTWTwuAA
-         8obAnGIKAT+KVS3mNpeEPPgnh5YAgtCZO14MtUhxBRWumvENXuAp+bi48IuZ/SMigRA/
-         hqnQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXW4ZYv6FHiTIzW8LDVk4hoa4VkLlZaLPv6XWqRfdNO/w+5ARVRN8YlQDyTCSi7zXlGk8SgtWO+TfiSlG2pBLL/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzaEWResiLCxKD77l57qE0oCdrMv8yj3gQnxv/ZnLWvck17li0S
-	LAnNr40mBW1mtrMZnU0HygfNmJLBnLQUFBTHc7orwtdSsiPxN24/nofJOQv09nOUlEJpq5ZJiwI
-	MtlB7sJXLMA==
-X-Google-Smtp-Source: AGHT+IFu4srZxpATOjlO2rI6vko1n4XKZtERHwJbfnOezh1jE9LHVVBUHBqm8Y3anm1ST1HCKXtYf3N4xz9VaA==
-X-Received: from wmbh25.prod.google.com ([2002:a05:600c:a119:b0:43d:586a:9bcb])
- (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:a4b:b0:43b:4829:8067 with SMTP id 5b1f17b1804b1-44062421bd7mr3209925e9.6.1744826726256;
- Wed, 16 Apr 2025 11:05:26 -0700 (PDT)
-Date: Wed, 16 Apr 2025 18:04:34 +0000
-In-Reply-To: <20250416180440.231949-1-smostafa@google.com>
-Mime-Version: 1.0
-References: <20250416180440.231949-1-smostafa@google.com>
-X-Mailer: git-send-email 2.49.0.777.g153de2bbd5-goog
-Message-ID: <20250416180440.231949-5-smostafa@google.com>
-Subject: [PATCH 4/4] KVM: arm64: Handle UBSAN faults
-From: Mostafa Saleh <smostafa@google.com>
-To: kvmarm@lists.linux.dev, kasan-dev@googlegroups.com, 
-	linux-hardening@vger.kernel.org, linux-kbuild@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: will@kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
-	broonie@kernel.org, catalin.marinas@arm.com, tglx@linutronix.de, 
-	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, 
-	hpa@zytor.com, kees@kernel.org, elver@google.com, andreyknvl@gmail.com, 
-	ryabinin.a.a@gmail.com, akpm@linux-foundation.org, yuzenghui@huawei.com, 
-	suzuki.poulose@arm.com, joey.gouly@arm.com, masahiroy@kernel.org, 
-	nathan@kernel.org, nicolas.schier@linux.dev, 
-	Mostafa Saleh <smostafa@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Wed, 16 Apr 2025 18:05:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=NJezJ3JKJn/lT7bV9zFqb3A9+YwgHaor3OWOH2QhrfY=; b=OH6qEwFHc99Ha7JqwKv7jMP/VA
+	I+OxXNDjHtKYzKMGYs/zxhUe0+ZWnqGJ3zNiAOihoC2jTDMThgiHTw/CTK5z2Ek53gqxTw0/s/dZo
+	uXyj4Qc3NPwaUN392Mhj+9rsbliM7UnI+NhBxZQP+6ztCGKnMGy/ao+69nciB7cP7/Wq4Rkjmi0gA
+	U+aPBkgQKOP9gB4lpCkBPoTe2Jhnjw4V2BKwaitBzQ29vdyQsAJPMs1aKscY52Dh1w7kEcMnUcH+l
+	ZYX/zldrDIY2Zq+zD0eNlVoXMVe80MJ8dGH1NrTgj+qKKmNm0mEAy3h9H9qk/yl66JJr1zhLxSpKZ
+	yefTPZ7w==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:57022)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1u576b-0001lk-0h;
+	Wed, 16 Apr 2025 19:03:25 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1u576W-0001bU-1K;
+	Wed, 16 Apr 2025 19:03:20 +0100
+Date: Wed, 16 Apr 2025 19:03:19 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 1/3] net: stmmac: call phylink_start() and
+ phylink_stop() in XDP functions
+Message-ID: <Z__w52jL05YbqSTW@shell.armlinux.org.uk>
+References: <Z/ozvMMoWGH9o6on@shell.armlinux.org.uk>
+ <E1u3XG6-000EJg-V8@rmk-PC.armlinux.org.uk>
+ <20250414174342.67fe4b1d@kernel.org>
+ <Z_4s5DmCPKB8SUJv@shell.armlinux.org.uk>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z_4s5DmCPKB8SUJv@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_110527_848708_4B319701 
-X-CRM114-Status: GOOD (  10.57  )
+X-CRM114-CacheID: sfid-20250416_110537_827695_964FAB6B 
+X-CRM114-Status: GOOD (  29.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,40 +89,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As now UBSAN can be enabled, handle brk64 exits from UBSAN.
-Re-use the decoding code from the kernel, and panic with
-UBSAN message.
+On Tue, Apr 15, 2025 at 10:54:44AM +0100, Russell King (Oracle) wrote:
+> On Mon, Apr 14, 2025 at 05:43:42PM -0700, Jakub Kicinski wrote:
+> > IIUC this will case a link loss when XDP is installed, if not disregard
+> > the reset of the email.
+> 
+> It will, because the author who added XDP support to stmmac decided it
+> was easier to tear everything down and rebuild, which meant (presumably)
+> that it was necessary to use netif_carrier_off() to stop the net layer
+> queueing packets to the driver. I'm just guessing - I know nothing
+> about XDP, and never knowingly used it.
+> 
+> > Any idea why it's necessary to mess with the link for XDP changes?
+> 
+> Depends what you mean by "link". If you're asking why it messes with
+> netif_carrier_foo(), my best guess is as above. However, phylink
+> drivers are not allowed to mess with the netif_carrier state (as the
+> commit message states.) This is not a new requirement, it's always
+> been this way with phylink, and this pre-dates the addition of XDP
+> to this driver.
+> 
+> As long as the code requires the netif_carrier to be turned off, the
+> only way to guarantee that in a phylink using driver is as per this
+> patch.
+> 
+> I'm guessing that the reason it does this is because it completely
+> takes down the MAC and tx/rx rings to reprogram everything from
+> scratch, and thus any interference from a packet coming in to be
+> transmitted is going to cause problems.
 
-Signed-off-by: Mostafa Saleh <smostafa@google.com>
----
- arch/arm64/kvm/handle_exit.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+I'd like the "what do you mean by link" clarified before I update the
+commit message.
 
-diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
-index b73dc26bc44b..5c49540883e3 100644
---- a/arch/arm64/kvm/handle_exit.c
-+++ b/arch/arm64/kvm/handle_exit.c
-@@ -10,6 +10,7 @@
- 
- #include <linux/kvm.h>
- #include <linux/kvm_host.h>
-+#include <linux/ubsan.h>
- 
- #include <asm/esr.h>
- #include <asm/exception.h>
-@@ -474,6 +475,11 @@ void __noreturn __cold nvhe_hyp_panic_handler(u64 esr, u64 spsr,
- 			print_nvhe_hyp_panic("BUG", panic_addr);
- 	} else if (IS_ENABLED(CONFIG_CFI_CLANG) && esr_is_cfi_brk(esr)) {
- 		kvm_nvhe_report_cfi_failure(panic_addr);
-+	} else if (IS_ENABLED(CONFIG_UBSAN_KVM_EL2) &&
-+		   ESR_ELx_EC(esr) == ESR_ELx_EC_BRK64 &&
-+		   esr_is_ubsan_brk(esr)) {
-+		print_nvhe_hyp_panic(report_ubsan_failure(esr & UBSAN_BRK_MASK),
-+				     panic_addr);
- 	} else {
- 		print_nvhe_hyp_panic("panic", panic_addr);
- 	}
+If you're referring to the carrier state via netif_carrier_off() /
+netif_carrier_on(), then nothing actually changes in that respect
+because the carrier manipulation is being done by the driver today,
+behind phylink's back. That changes to inside phylink with phylink's
+knowledge.
+
+It is my understanding that netif_carrier_off() / netif_carrier_on()
+get notified to userspace, so this is visible today when XDP changes.
+
+If you are referring to the messages that appear on the kernel console,
+then yes, phylink will print those in addition, which actually makes
+it more consistent with what's being reported to userspace.
+
+Depending which you are referring to changes what I should say in the
+commit message. E.g.
+
+"We retain the changes to carrier state, which are already being
+reported to userspace as link loss/link gain events, but we gain
+kernel messages reporting the link state."
+
+if you're referring to the carrier state. Or maybe:
+
+"This change will have the side effect of printing link messages to
+the kernel log, even though the physical link hasn't changed state.
+This matches the carrier state."
+
+if you're referring to the additional kernel messages.
+
 -- 
-2.49.0.604.gff1f9ca942-goog
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
