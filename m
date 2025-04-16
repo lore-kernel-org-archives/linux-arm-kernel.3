@@ -4,69 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44CB9C369BD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 16:08:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C06DC369BA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 16:10:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ySUALm4kAiEtFHHbP93/9gqyCVQ7SC9yKGUHGHBoiHU=; b=zTDUl4KpyjW/H6TSuRvhyb9R0j
-	7kTsTHdiC3bSKS1F0miOOqD96tpUHz/6cLU1Lj45VbXiJMhVOxUhh3Op1J2UIVcFUf9XcIj3GBwMW
-	bRtlXSOaiwBK4WMacVZ0gKKdXD/pY7b0L7CvyPmSC+sCLcxmkBz2Ue4HsHd62RrQI6ZPxsbdJxBk7
-	DG0rY3itK/ovivGEH/HOvD65O/jXHqwK2uKT3ky5A9RNb0qP+RtchkrkXBWC9yz89Q4D/cB4EC+Sy
-	wJKby6+3+rrOEno3MfjyS/JOsn7GzhR9Z2kuHn6T/HuTtbLwA12nDG2obUEREobIfrY6qZqldRVfe
-	CbYTv8/A==;
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4H1rdwsdSrifJxMs5eiLI+4nIAiDgFXwyzylypkYumU=; b=I2u8vKMyJyyBwEOUFKkrlMhrIB
+	CMcGcUUC+DuUF7qcobkgidej7Q7zwhJctM8WxSarrmiAKK2uzpuIQOX5PQ3mqFMVLXWrp/xhY2vtB
+	+RaZXAaZYhYFN9MlwN4s7KsKs8XgOQJ85U+krC0mLBaXJYQgautpUkj5B2dyT7W4ct6alN7HXsDiN
+	7C1918LzlyyTHyAAyFY2sJ78P2NKxVzINv+oaeVLrMZPW9pm+ruEMNeASCCqpYklmxWSBjHRU8TTs
+	sC/SqLSzr7hHe0uMbjOZ3PcQ51ovgcQ0tvvV16pKggOq99+GIXG29gsiwhwA851wMiAiAqN2fToAk
+	LsCY5zvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u55Je-0000000ABqG-3CyQ;
-	Wed, 16 Apr 2025 16:08:46 +0000
-Received: from mail-ed1-x549.google.com ([2a00:1450:4864:20::549])
+	id 1u55LT-0000000ACHH-2GnF;
+	Wed, 16 Apr 2025 16:10:39 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u54fB-0000000A4SO-0mUF
-	for linux-arm-kernel@lists.infradead.org;
+	id 1u54fC-0000000A4SX-3SKP
+	for linux-arm-kernel@bombadil.infradead.org;
 	Wed, 16 Apr 2025 15:26:58 +0000
-Received: by mail-ed1-x549.google.com with SMTP id 4fb4d7f45d1cf-5e5c5ea184dso6420855a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 08:26:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:Mime-Version:Date:Sender:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=4H1rdwsdSrifJxMs5eiLI+4nIAiDgFXwyzylypkYumU=; b=OtF+e1jw4KavCh2tMU71Q1kgLU
+	RzVwyivymjpCNKxg7d650ufhh0qopKmAUBmLxIh8uEG7hUqFC9jHIlb5Qvh/9Zk76J3JuCkl2CbwO
+	d2STwjs+gw5/ccCkZCQab1xK+WbJquf2QgrBtCth80ghLkkbXDGqpzNDItNbaH22oOtRFjVmnx9Q5
+	Bc2i6TscBruqo2sUxizHF+aYCg0sYaVWHyT/FHbWmBL6HvblEmU1taDgiAzbnjP/J5mc+LqnHipLZ
+	FEJJYWreKJuZqhLk5wcp9L69QsXSbBC1BAFJtunTrM80WElkBnpl58wkEckAF+3CLOjFzPKbq6Ik3
+	+mmMJwvQ==;
+Received: from mail-ed1-x54a.google.com ([2a00:1450:4864:20::54a])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u54f8-0000000A7ed-3A6F
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 16 Apr 2025 15:26:56 +0000
+Received: by mail-ed1-x54a.google.com with SMTP id 4fb4d7f45d1cf-5e83e38d21aso7171697a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 08:26:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1744817215; x=1745422015; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ySUALm4kAiEtFHHbP93/9gqyCVQ7SC9yKGUHGHBoiHU=;
-        b=LQ8ffLigo5Fr/BD7u/P6fQ96LN6/aLsNCPBCo5PAuHuDq3vpTP5axsOwm92Wg46CY1
-         bzr2Cj9EB1835Afz1aEyGNRqUdwfs5jZif0/XvDEnVe07Y7S1D6gSbqpq+lgGas8G/fg
-         +MXmc259nSWg4h1hp9zPtvDX8t2ifIdBSaE5h2edJHx11vKoZlQo1TxzQgwCjhs4nQ6D
-         3p5LUEAUYKIKxu5Rf26pHO9Ac+pdhoSNmhGjDoIi1Vj2QsHR00XAgDWdVq3ZChAwN+vf
-         cogx5oHvOjrepEDjhuRurbuM42JUaOwCIt7hFL/UqHEBKp5zXEmUzEa64aYXPqLkPL6j
-         MNMg==
+        d=google.com; s=20230601; t=1744817211; x=1745422011; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=4H1rdwsdSrifJxMs5eiLI+4nIAiDgFXwyzylypkYumU=;
+        b=3mZyGwZADDTpejC9gTlq3NsVA0q6juwgc6e2xUd1pVGq9AQ5taFFOplTvDtxQElUNJ
+         8H79kj2A/FUBb+s2EQ/r8UADkTDlKio1ArsywfOYabUHBAtjhdUzNrAfDYMuRWUuTdbq
+         0uIiUEC5TYU1w4PT/ivl5Vudw63EsskdNucInb/lzD7DiCXyPGhFZ8xXtDcoxfXFMnJz
+         +yDl74JbTtzMxA7hR62B3SfHWovVxDVlYSp8k1ajlO4j1EPlN8JaeGVhtzXHlsT5a/Iw
+         4czAu/XMah+3lu/NRRiZjS8AJF4B+kra4F4LNrHkKBtHTK3xx1AhQdLe1zEbWm7/y9+U
+         9rww==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744817215; x=1745422015;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ySUALm4kAiEtFHHbP93/9gqyCVQ7SC9yKGUHGHBoiHU=;
-        b=NUXMFtc/CjNRmmGWJvmhpIDZaQAWI5IjZQLAhiFIjlR5GS4mGETUN4De+trTgNrbO5
-         cfEykrFXN/6K6c8igDdHbzhrtivV5A0/oUwbN4GwbSSVhSQ2WXo2d0cNhvu7TESuZqHd
-         RIuj4yVfD4B4vWiIPj1dtspP6CW9fy4FYSC+md9KbJJfepXEFgwEKR7dvkmYMXdYK6+U
-         i/HEh8ngohKK9aZX+C5jqECkWQaEo3DKATlTfGc0jVg60ULtsvpUkkRWV34CIrAuy8/n
-         4Ht5NEA3L5Ln4cL5aenDW9jbweq9tFgGi3cvCTlL6lDTNdG7MctdrSHvcMC1/N7Sx7/e
-         CMLA==
-X-Forwarded-Encrypted: i=1; AJvYcCUKeU6QhN86QVEbCl7AQAs14UQkp8ZGCVoWSnhtEH7sCGcEXo9GshjB8Di5ZtilaqOIvaPbD6URzd3ZcRIu+xkP@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3rpI+Yn6RwK72osGshq/7VHgyAm1ch+PZ9uImwbDpmE+puQvd
-	hA+M9puh1DAq8VV6oLgSkmigYqhUoX9kI1N83hBei+/n4/WaPZKtKDhniwNKdI87ejwuggvj44/
-	GK818Lw==
-X-Google-Smtp-Source: AGHT+IFO6LqLQpchltIVKkcVMTkkcoAUlzOcNnFkY+QSrpAdIOkv/ajoQQVC0VjwY0/SmeO3qq2XvFKzCmMO
-X-Received: from edb17.prod.google.com ([2002:a05:6402:2391:b0:5f4:b71f:15a6])
- (user=qperret job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6402:26c8:b0:5f4:c619:2392
- with SMTP id 4fb4d7f45d1cf-5f4c6192660mr959365a12.1.1744817215420; Wed, 16
- Apr 2025 08:26:55 -0700 (PDT)
-Date: Wed, 16 Apr 2025 15:26:42 +0000
-In-Reply-To: <20250416152648.2982950-1-qperret@google.com>
+        d=1e100.net; s=20230601; t=1744817211; x=1745422011;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=4H1rdwsdSrifJxMs5eiLI+4nIAiDgFXwyzylypkYumU=;
+        b=nvON/lAklxB6L+iQato38EG8TJ8V6nl8iXEFLwzZfrOXIc/7OhmIbO9iWwGejX5kjV
+         SsIe7Bv3KCwLlGmEUAipExhCWO5u34sgdhXuSj8R8V5wriOArYx4mLB35xVhQ6egXC12
+         ak6yveEvHmkYtxvBKKuAdxzdO7cym9nfXNBIA4nb/0DeKQ/shdE2wu5timzXgCKgoPmz
+         kTk/BCYeC/r2e7MmTL2bTTL8EEvYtohYoW+6JOjG/FiTwgXrk5W87qzAxiD46hCkCs4n
+         SLbPYfbWvZR+GqhHAW9ELtaq+ni7+vr/LCMNIFWFiSfH2s0N7vFD2n8vzWvaPA5H6ZDv
+         9gyg==
+X-Forwarded-Encrypted: i=1; AJvYcCVYf99vDENx0yRCiE8rKR9wux6l4O30eKrEdi6elJutkQE0Mv/htwteUSdxR1ymPc+9rrbSFXyt7Wj9LSnnFO55@lists.infradead.org
+X-Gm-Message-State: AOJu0YyAYlOeev7LqBKrceVn7vgewfgxDuIr9JfKnaCpVz3+Kv41V3py
+	/ogRMEI/68hqrl8l047DEDC7KzN7ty54gAgbxl+0cPYfU7uHwHBuxG9qeK1HGnabrXhTo47UFdl
+	WraVJLg==
+X-Google-Smtp-Source: AGHT+IHuqk+2+OpJM1qcSmjpRDqa8HEvy7iDhIfBrhRdZNtdJ2xDUzaYWX9wIlKoApyZVheRJqd8RH//SOf0
+X-Received: from edbcf8.prod.google.com ([2002:a05:6402:b88:b0:5ec:bf29:2e78])
+ (user=qperret job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6402:849:b0:5f3:4194:187
+ with SMTP id 4fb4d7f45d1cf-5f4b75a6b98mr1899450a12.18.1744817210816; Wed, 16
+ Apr 2025 08:26:50 -0700 (PDT)
+Date: Wed, 16 Apr 2025 15:26:40 +0000
 Mime-Version: 1.0
-References: <20250416152648.2982950-1-qperret@google.com>
 X-Mailer: git-send-email 2.49.0.604.gff1f9ca942-goog
-Message-ID: <20250416152648.2982950-3-qperret@google.com>
-Subject: [PATCH v2 2/7] KVM: arm64: Fix pKVM page-tracking comments
+Message-ID: <20250416152648.2982950-1-qperret@google.com>
+Subject: [PATCH v2 0/7] Move pKVM ownership state to hyp_vmemmap
 From: Quentin Perret <qperret@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -77,8 +90,9 @@ Cc: Vincent Donnefort <vdonnefort@google.com>, Fuad Tabba <tabba@google.com>,
 	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_082657_240537_0A5E4308 
-X-CRM114-Status: GOOD (  16.31  )
+X-CRM114-CacheID: sfid-20250416_162654_968761_DAA29040 
+X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,66 +107,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Most of the comments relating to pKVM page-tracking in nvhe/memory.h are
-now either slightly outdated or outright wrong. Fix the comments.
+Hi all,
 
-Signed-off-by: Quentin Perret <qperret@google.com>
----
- arch/arm64/kvm/hyp/include/nvhe/memory.h | 29 ++++++++++++++++--------
- 1 file changed, 19 insertions(+), 10 deletions(-)
+This series moves the hypervisor's ownership state to the hyp_vmemmap,
+as discussed in [1]. The two main benefits are:
 
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/memory.h b/arch/arm64/kvm/hyp/include/nvhe/memory.h
-index 34233d586060..178028172c0b 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/memory.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/memory.h
-@@ -8,20 +8,29 @@
- #include <linux/types.h>
- 
- /*
-- * Bits 0-1 are reserved to track the memory ownership state of each page:
-- *   00: The page is owned exclusively by the page-table owner.
-- *   01: The page is owned by the page-table owner, but is shared
-- *       with another entity.
-- *   10: The page is shared with, but not owned by the page-table owner.
-- *   11: Reserved for future use (lending).
-+ * Bits 0-1 are used to encode the memory ownership state of each page from the
-+ * point of view of a pKVM "component" (host, hyp, guest, ... see enum
-+ * pkvm_component_id):
-+ *   00: The page is owned and exclusively accessible by the component;
-+ *   01: The page is owned and accessible by the component, but is also
-+ *       accessible by another component;
-+ *   10: The page is accessible but not owned by the component;
-+ * The storage of this state depends on the component: either in the
-+ * hyp_vmemmap for the host state or in PTE software bits for the hypervisor
-+ * and guests.
-  */
- enum pkvm_page_state {
- 	PKVM_PAGE_OWNED			= 0ULL,
- 	PKVM_PAGE_SHARED_OWNED		= BIT(0),
- 	PKVM_PAGE_SHARED_BORROWED	= BIT(1),
--	__PKVM_PAGE_RESERVED		= BIT(0) | BIT(1),
--
--	/* Meta-states which aren't encoded directly in the PTE's SW bits */
-+	__PKVM_PAGE_RESERVED            = BIT(0) | BIT(1),
-+
-+	/*
-+	 * 'Meta-states' are not stored directly in PTE SW bits for hyp and
-+	 * guest states, but inferred from the context (e.g. invalid PTE
-+	 * entries). For the host, meta-states are stored directly in the
-+	 * struct hyp_page.
-+	 */
- 	PKVM_NOPAGE			= BIT(2),
- };
- #define PKVM_PAGE_META_STATES_MASK	(~__PKVM_PAGE_RESERVED)
-@@ -44,7 +53,7 @@ struct hyp_page {
- 	u16 refcount;
- 	u8 order;
- 
--	/* Host (non-meta) state. Guarded by the host stage-2 lock. */
-+	/* Host state. Guarded by the host stage-2 lock. */
- 	enum pkvm_page_state host_state : 8;
- 
- 	u32 host_share_guest_count;
+ 1. much cheaper hyp state lookups, since we can avoid the hyp stage-1
+    page-table walk;
+
+ 2. de-correlates the hyp state from the presence of a mapping in the
+    linear map range of the hypervisor; which enables a bunch of
+    clean-ups in the existing code and will simplify the introduction of
+    other features in the future (hyp tracing, ...)
+
+Patch 01 is a self-sufficient cleanup that I found thanks to patch 06.
+Patch 02 is another self-sufficient cleanup that came out from the
+discussion with Marc at [2]. Patches 03-05 implement the aforementioned
+migration of the hyp state to the vmemmap. Patches 06 and 07 are further
+improvements enabled by that migration.
+
+Changes since v1:
+ - fixed page-tracking comments in nvhe/memory.h
+ - rebased on 6.15-rc2
+ - applied Marc's Reviewed-by
+
+Thanks,
+Quentin
+
+[1] https://lore.kernel.org/kvmarm/Z79ZJVOHtNu6YsVt@google.com/
+[2] https://lore.kernel.org/kvmarm/867c4pnspi.wl-maz@kernel.org/
+
+Fuad Tabba (1):
+  KVM: arm64: Track SVE state in the hypervisor vcpu structure
+
+Quentin Perret (6):
+  KVM: arm64: Fix pKVM page-tracking comments
+  KVM: arm64: Use 0b11 for encoding PKVM_NOPAGE
+  KVM: arm64: Introduce {get,set}_host_state() helpers
+  KVM: arm64: Move hyp state to hyp_vmemmap
+  KVM: arm64: Defer EL2 stage-1 mapping on share
+  KVM: arm64: Unconditionally cross check hyp state
+
+ arch/arm64/include/asm/kvm_host.h        |  12 +--
+ arch/arm64/kvm/hyp/include/nvhe/memory.h |  58 ++++++++++---
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c       |   4 -
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c    | 106 ++++++++++++-----------
+ arch/arm64/kvm/hyp/nvhe/pkvm.c           |  47 +++++++++-
+ arch/arm64/kvm/hyp/nvhe/setup.c          |  10 ++-
+ 6 files changed, 158 insertions(+), 79 deletions(-)
+
 -- 
 2.49.0.604.gff1f9ca942-goog
 
