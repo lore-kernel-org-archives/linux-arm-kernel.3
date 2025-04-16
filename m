@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C94A4C369BD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 15:06:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8498AC369BD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 15:08:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dXNFQSPXFLhbrkMbE/BUWNtGdxkzg0FT4Dg+EmDqmM0=; b=frDx29klJYdxfZoG0/O1eBBIwm
-	cBIo30F6vw0CZwECs1lljF1u65r7qzeTyDo3pZlAT9AQNvqYFHz3i4srWPYCQ21mQ33dT1NhDpZJa
-	B+oWRrStyl6pEv/eV2AHwgjojFkB9xkjUhKNlol92wRWPwZ3q7MYcDI/sQMPiKDaDPPaG1TBgwq8p
-	TiigkoTn2aujNjQY33rBDsZPDjqZS2im/VHKyufxwnfsUS0U8BoBNCQSnFxHxdfQI3QeY6+uoaze6
-	ZkdDGnyfnDYoAahtj5CqMKYF4XgL5CA7UQyqDZlJ1ZN7TGxYsII/vxmQYphJLt6D0BXN5W3eFvhcf
-	B9EYq6Xw==;
+	bh=oHEFmyY3yqu1Q0Nynff3p1k7tUa5ev1AVNrp7BCWqMA=; b=wMaPzSXYSFU/B8104LPsNixgsg
+	6Vi2JYMSmt6oRKRn5nNZRODSmaXS2CWktffTNoLa69QhJyoPlQgZLrBGlleTODLZteVn2/h5k5XYe
+	6mEtjQpyjLln8ax+VtP/RWKAYzxX9YJEQh2pLpXWBYOdO4JPFGRd2PZnNQBwblIYi+SHbFCfUY4SA
+	RZLvWDmJUyjt56jitfLLKq8EEYdMUXpB7Nc1YWKlVHRZg0WR16MaJqRvWDzdqbrYyhh+CtxEhhRAJ
+	h0QZHx15m4BcnBUpcYG+oVRQZlKXO1Gp7PbU6ZIdW2JlXUiNv5fg1CiBrPntaKAnvmXjcLYomwDC4
+	n67ronyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u54L9-0000000A0Lc-2Mvt;
-	Wed, 16 Apr 2025 15:06:15 +0000
+	id 1u54My-0000000A0cF-1A1I;
+	Wed, 16 Apr 2025 15:08:08 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u536J-00000009iLJ-2gn4
+	id 1u536O-00000009iMe-21K8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 13:46:53 +0000
+	Wed, 16 Apr 2025 13:46:58 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 229631692;
-	Wed, 16 Apr 2025 06:46:49 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0C5B41E7D;
+	Wed, 16 Apr 2025 06:46:54 -0700 (PDT)
 Received: from e122027.arm.com (unknown [10.57.90.52])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 164933F59E;
-	Wed, 16 Apr 2025 06:46:46 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A30423F59E;
+	Wed, 16 Apr 2025 06:46:51 -0700 (PDT)
 From: Steven Price <steven.price@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -56,17 +56,17 @@ Cc: Steven Price <steven.price@arm.com>,
 	Shanker Donthineni <sdonthineni@nvidia.com>,
 	Alper Gun <alpergun@google.com>,
 	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-Subject: [PATCH v8 42/43] KVM: arm64: Expose KVM_ARM_VCPU_REC to user space
-Date: Wed, 16 Apr 2025 14:42:04 +0100
-Message-ID: <20250416134208.383984-43-steven.price@arm.com>
+Subject: [PATCH v8 43/43] KVM: arm64: Allow activating realms
+Date: Wed, 16 Apr 2025 14:42:05 +0100
+Message-ID: <20250416134208.383984-44-steven.price@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250416134208.383984-1-steven.price@arm.com>
 References: <20250416134208.383984-1-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_064651_734497_E3935318 
-X-CRM114-Status: GOOD (  10.38  )
+X-CRM114-CacheID: sfid-20250416_064656_563069_99BFE2A1 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,35 +81,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Increment KVM_VCPU_MAX_FEATURES to expose the new capability to user
-space.
+Add the ioctl to activate a realm and set the static branch to enable
+access to the realm functionality if the RMM is detected.
 
 Signed-off-by: Steven Price <steven.price@arm.com>
 ---
-*NOTE*: This also exposes KVM_ARM_VCPU_HAS_EL2/KVM_ARM_VCPU_HAS_EL2_E2H0
-(as they are both less than KVM_ARM_VCPU_REC) - so this currently
-depends on nested virt being 'finished' before merging.
+ arch/arm64/kvm/rme.c | 19 ++++++++++++++++++-
+ 1 file changed, 18 insertions(+), 1 deletion(-)
 
-So this should be merged after: "KVM: arm64: Allow userspace to request
-KVM_ARM_VCPU_EL2*":
-https://lore.kernel.org/r/20250408105225.4002637-17-maz%40kernel.org
----
- arch/arm64/include/asm/kvm_host.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 3c61b84e5c4e..6d0b1772540d 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -40,7 +40,7 @@
+diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
+index 978906ff86fa..3f8441bdf293 100644
+--- a/arch/arm64/kvm/rme.c
++++ b/arch/arm64/kvm/rme.c
+@@ -1234,6 +1234,20 @@ static int kvm_init_ipa_range_realm(struct kvm *kvm,
+ 	return realm_init_ipa_state(realm, addr, end);
+ }
  
- #define KVM_MAX_VCPUS VGIC_V3_MAX_CPUS
++static int kvm_activate_realm(struct kvm *kvm)
++{
++	struct realm *realm = &kvm->arch.realm;
++
++	if (kvm_realm_state(kvm) != REALM_STATE_NEW)
++		return -EINVAL;
++
++	if (rmi_realm_activate(virt_to_phys(realm->rd)))
++		return -ENXIO;
++
++	WRITE_ONCE(realm->state, REALM_STATE_ACTIVE);
++	return 0;
++}
++
+ /* Protects access to rme_vmid_bitmap */
+ static DEFINE_SPINLOCK(rme_vmid_lock);
+ static unsigned long *rme_vmid_bitmap;
+@@ -1383,6 +1397,9 @@ int kvm_realm_enable_cap(struct kvm *kvm, struct kvm_enable_cap *cap)
+ 		r = kvm_populate_realm(kvm, &args);
+ 		break;
+ 	}
++	case KVM_CAP_ARM_RME_ACTIVATE_REALM:
++		r = kvm_activate_realm(kvm);
++		break;
+ 	default:
+ 		r = -EINVAL;
+ 		break;
+@@ -1687,5 +1704,5 @@ void kvm_init_rme(void)
+ 	if (rme_vmid_init())
+ 		return;
  
--#define KVM_VCPU_MAX_FEATURES 7
-+#define KVM_VCPU_MAX_FEATURES 10
- #define KVM_VCPU_VALID_FEATURES	(BIT(KVM_VCPU_MAX_FEATURES) - 1)
- 
- #define KVM_REQ_SLEEP \
+-	/* Future patch will enable static branch kvm_rme_is_available */
++	static_branch_enable(&kvm_rme_is_available);
+ }
 -- 
 2.43.0
 
