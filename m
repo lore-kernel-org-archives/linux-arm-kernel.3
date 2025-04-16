@@ -4,85 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D180C369B1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 07:21:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30C10C369B1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 07:22:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CFJXzkHk3Kj2IxuOJ/Ep1Of/eMdCvzxnv7r1gWoCH1U=; b=whjQwFvuMOQWcbIhMFzLofodKv
-	/sJOhGX3hYA+6X1A9r5tZz3SaEySscEynCQxPy7kTciybFn33a1Eac2KfXoXNuaMxTjQCNOzndQCk
-	tsvuiFlSf6vzKAIRH9y1fpXg3D4juuVK4Ag50s+8nqDAlx7lfvb2dxpHWukx/FlgVDLYppRgqEcED
-	/7wly/rcIELRmz5P9kp5bCHaSkMj9e/nlz4vvV286X7mwGFMxpYvEQYAc//eUU/3xGRwRAvWaIh6k
-	nWdM4IPMPE2iq2J8VCebvX9yXAoyA9YFpaHro2AsdYpZ+ZTLxHHydgleQMRgADldapzIt//PD65sE
-	foHFTlxw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3hgWTf1oOZQ+kNQ9Zi5YDgDfbkbFdIJthIrzxG36rm8=; b=RDIVFgv1LnqyoJSZ2ZMuGhISDJ
+	XL4cKXDxEbGim1baluBGCOQdiomPECpMaH6gXjVLk/KRifKnprQQ3C/FhnxHMVKUPF78GqC6DrWap
+	+LPcgauH7X1Mn71UzNIwZHxdGjqc4z/8mJOqSVCKDpRPBJuTgZOOdh/8lb0q3QaHQrzt+KLxT2FX8
+	lXn4vNg3p5xXpA7gdk1n5MuIlHdNzcHt15U/apIf3Keyp5p54CFrqalF/9lSquqZyyHye0Bf/wcmO
+	CElaCYRLmDXVpp08pCa3Vl2ToqrqCHHtDsYS5GETX/1SnqWPNv46N3u/JU4WXGzps6am+Pivb1pbi
+	KcIvJ1lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4x4s-00000008ado-21AP;
-	Wed, 16 Apr 2025 07:20:58 +0000
-Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
+	id 1u4x6g-00000008b4y-21g0;
+	Wed, 16 Apr 2025 07:22:50 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4x30-00000008aAu-3LOR
+	id 1u4x3Y-00000008aIm-1M2R
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 07:19:04 +0000
-Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-30bfb6ab47cso58956651fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 00:19:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744787941; x=1745392741; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CFJXzkHk3Kj2IxuOJ/Ep1Of/eMdCvzxnv7r1gWoCH1U=;
-        b=O0iq+PeWmcF86l+qtbP3XlqLlE368IaaFH/gBVQx/Svd+9h4G9ltXMAZc0mxWXbhZ0
-         pUs/KE1VVQvw4jxTVRPqhp/Fnb7zecxBO3UXInzJyj7MPjy9mQEJUfZAlFtqsFg+9ITu
-         +GMiiyORVtkIavCmv4j7kSFEdxcQ+wgaSQifFXJxmzq+BTfE4pykjYBG/BQ+3Oqtv4jz
-         FEdK12pdhSd9zSYotEXr4Uryh4WtInBCahVHMaa0yfycoJMMJyeqqvJg9S+9smfZr9K5
-         g+2ktD0rzGWFkU1W+2yajv5yyJLRXorURpQDhbQ39Rtrtyafam62WZGYqy15bSFH1NXh
-         gxTw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744787941; x=1745392741;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=CFJXzkHk3Kj2IxuOJ/Ep1Of/eMdCvzxnv7r1gWoCH1U=;
-        b=G5sOMfgs5/w1l/DWllfNFKWteIqcwIpOeNGUvTG79nkH3k6eleupni6mg6DYiBHY0B
-         bawbjtHMVj6Q+dxczzvqSDKIiGUunR7uPwvymymtKKWPkxdj2KYViXft3byDMDcSxZWI
-         eGsb1TQA7wh7+q1zPCdurHdk2rY7RjaKcs+sx2S/KmJczr36EkqvreoybO9OSM7aKPOB
-         X2zktsnNHF/mRyhRI7YOk3RBrv5+xEoNOv2EV/6y924L574deD7cSdeMoL0CPDQr3hGs
-         EchPNvdzWKNoBFYJkgae0+/3han75oabbIn8b/A7aA292Mc6DeUUg/VMqhUtZ14WXPD2
-         azfg==
-X-Forwarded-Encrypted: i=1; AJvYcCVVxXzmCQiptFvO8hxu/WozPO36JGzq2rTyqxb18i4vqbpy6ER5VA1b3VcHK3jJmp2gzUo0uXrrjRLNggKKa5k4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw0qExncM83jWpWUzimJw9M9vw46T1XigSBJrQpIc+Am34YHaSl
-	8bf7PV+KhWH5oer/JkoS1bon/7ocu6sj61BRDe9tDFBz+h2aGlhx8roQoPf6I6gPrlqQW6xll6Z
-	p0okQ9pNVg4/xkja5zlLz1llbPmwG9FxYtAX7hn9w4+DTyE0e
-X-Gm-Gg: ASbGnctK4VuCH7SVRGkONMfLrOHCqTvGZ89ZcpyZI/MwlrgFH/Ryzw/NPdnjXspp+U6
-	A+l0ilfcaJ+gkQU+SwKth4GQP8sIKnxhTm1SyJo0RPMLur7j52+kZtxKXkSbEC/2GzS2EqdnPh9
-	ZuFN2cbTPylQKb2VPSKF4OD+ZGkDEM8KfE
-X-Google-Smtp-Source: AGHT+IEwGuf6I9l4WitaTnVvA0VbevlCNH9pw1Uf1YwESFwjIdIWV04UPwa2Rl6g3j8USJoLTzOTQddgM+ExezMBQpQ=
-X-Received: by 2002:a05:651c:12c1:b0:30b:ed5a:6f3c with SMTP id
- 38308e7fff4ca-3107f6bcf91mr2027921fa.10.1744787940653; Wed, 16 Apr 2025
- 00:19:00 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250410144044.476060-1-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20250410144044.476060-1-angelogioacchino.delregno@collabora.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 16 Apr 2025 09:18:49 +0200
-X-Gm-Features: ATxdqUHFBx4p6s8-l7d5L0o8ZWLKTNSVqhv1VO0pGzs9J7s5wacyrKjxAz3vpys
-Message-ID: <CACRpkdbKXfQVNGm=QoCHE8xeMKDi5Z1jCmk18XAaTzCcWCDjuA@mail.gmail.com>
-Subject: Re: [PATCH v1 0/3] MediaTek Dimensity 1200 - Add Pin Controller support
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	matthias.bgg@gmail.com, sean.wang@kernel.org, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	kernel@collabora.com
-Content-Type: text/plain; charset="UTF-8"
+	Wed, 16 Apr 2025 07:19:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 892385C5B16;
+	Wed, 16 Apr 2025 07:17:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35CFFC4CEE2;
+	Wed, 16 Apr 2025 07:19:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744787975;
+	bh=L1F0iz+mGjxASpELFwE+TVnNzquaENAnd+uAheImZyI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=YIM+gkhjyg2/4XI5rQHG5SaZj/eHH3qjAJvtu59bFvDiJ5jOD4cVTw8xhKKgoM2n8
+	 mqU4j5lNhXhVaCootafp45UIFJJdKIi6u/Yw7NPVph2C9mjWY0RtUlTmZU/qHGC3jt
+	 8TiPsv6u1Nz6Is2jhMUMQYegEcXn6nyHUeBBHuDY6/w9V99lBiovQ40ADkzabqyCKE
+	 8wVJRCzd4RBWQuYWeaDLq8Mt/7KHJU0ZG3hdT94FoEsty4mSgLyGPIH4sCmUlW4+Wz
+	 SeVemhXMb75PioKUWRTJ81/kRdt+o3UO+VfOqzHudewXiEumpT0NdDNFdY/ldHFh27
+	 bw99kCoj38/lQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1u4x3U-005wvK-S8;
+	Wed, 16 Apr 2025 08:19:32 +0100
+Date: Wed, 16 Apr 2025 08:19:32 +0100
+Message-ID: <86wmbkk1yz.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: D Scott Phillips <scott@os.amperecomputing.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	James Morse <james.morse@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	"Rob Herring (Arm)" <robh@kernel.org>,
+	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
+	Shiqi Liu <shiqiliu@hust.edu.cn>,
+	Will Deacon <will@kernel.org>,
+	Yicong Yang <yangyicong@hisilicon.com>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org (open list)
+Subject: Re: [PATCH 1/2] arm64: errata: Work around AmpereOne's erratum AC03_CPU_36
+In-Reply-To: <20250415154711.1698544-1-scott@os.amperecomputing.com>
+References: <20250415154711.1698544-1-scott@os.amperecomputing.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: scott@os.amperecomputing.com, catalin.marinas@arm.com, james.clark@linaro.org, james.morse@arm.com, joey.gouly@arm.com, kevin.brodsky@arm.com, broonie@kernel.org, mark.rutland@arm.com, oliver.upton@linux.dev, robh@kernel.org, shameerali.kolothum.thodi@huawei.com, shiqiliu@hust.edu.cn, will@kernel.org, yangyicong@hisilicon.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_001902_852945_D4C096BB 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20250416_001936_465698_6B453075 
+X-CRM114-Status: GOOD (  15.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,24 +98,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 10, 2025 at 4:40=E2=80=AFPM AngeloGioacchino Del Regno
-<angelogioacchino.delregno@collabora.com> wrote:
+On Tue, 15 Apr 2025 16:47:10 +0100,
+D Scott Phillips <scott@os.amperecomputing.com> wrote:
+>=20
+> AC03_CPU_36 can cause asynchronous exceptions to be routed to the wrong
+> exception level if an async exception coincides with an update to the
+> controls for the target exception level in HCR_EL2. On affected
+> machines, always do writes to HCR_EL2 with async exceptions blocked.
 
-> In preparation for adding basic support for the OnePlus Nord 2 5G
-> DN2103 smartphone, this series adds support for the pin controller
-> of the MediaTek Dimensity 1200 (MT6893) SoC.
->
-> AngeloGioacchino Del Regno (3):
->   dt-bindings: pinctrl: mediatek: Add support for MT6893
->   pinctrl: mediatek: Add pinctrl driver for MT6893 Dimensity 1200
+=46rom the actual errata document [1]:
 
-Patches 1 & 2 are clean and simple to understand, so
-I applied them to the pinctrl tree!
+<quote>
+If an Asynchronous Exception to EL2 occurs, while EL2 software is
+changing the EL2 exception control bits from a configuration where
+asynchronous exceptions are routed to EL2 to a configuration where
+asynchronous exceptions are routed to EL1, the processor may exhibit
+the incorrect exception behavior of routing an interrupt taken at EL2
+to EL1.  The affected system register is HCR_EL2, which contains
+control bits for routing and enabling of EL2 exceptions.
+</quote>
 
->   arm64: dts: mediatek: Add MT6893 pinmux macro header file
+My reading is that things can go wrong when clearing the xMO bits.
 
-Please apply this through the SoC tree.
+I don't think we need to touch the xMO bits at all when running
+VHE. So my preference would be to:
 
-Yours,
-Linus Walleij
+- simply leave the xMO bits set at all times (nothing bad can happen
+  from that, can it?)
+
+- prevent these systems from using anything but VHE (and fail KVM init
+  otherwise)
+
+This would save a lot of maintenance hassle and the extreme ugliness
+of this patch.
+
+Thanks,
+
+	M.
+
+[1] https://amperecomputing.com/assets/AmpereOne_Developer_ER_v0_80_2024082=
+3_28945022f4.pdf
+
+--=20
+Without deviation from the norm, progress is not possible.
 
