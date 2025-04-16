@@ -4,158 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1347EC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:32:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91C09C369C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:32:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:In-Reply-To:Date:Subject:CC:To:From:References:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hk9PGgfOtu94j5OcKo0DWr17MjPll5iaiddo3FnLpWM=; b=n3oR84URHZQlX/RkXIKBotajcr
-	6RoOQh3i6X1fkGATAg7dFvhjGnUE8RgIFS4/GGNSTzPonMIMt0EXMxjxEJCWsVTQE/INgoCDzHw/M
-	KIOK6K60eKGeAdnVIFqGJdoRPquv73UHffehySVaYcEmHJC83rM+ekavzhAZPbYNbhniPV5DmCQJS
-	FDsVQznYBmka65cvy0k7x/AjdfFMfyVF4Btno1w8EmMfJRVMyRANuTrk0/QYGu2tkQ5Y92r7weQ4D
-	n36ZBQkCXtXdFaSgy4lSF5gJXRVqxxUEaBe+7exdsY3X7+KVterxIr0BKadjaSNP0exfuDB5NaMI5
-	jY5aeJPg==;
+	bh=eFa5MOXYGJZnzNbwECy71J6eIeVb1vzSBjf/DthoAfQ=; b=xyCbQrd5igqrpQMi8pEfZJwU2Z
+	EnLG1EisKysk7A92Bd3zABciZLkgxuEXwI4T4OXbpPlKRYTBJUYdnMBJbhZJOLlK849xj9PncaotT
+	on1+tcsbggUwBlK7Emn50fzkMLVYtPIGGBd3KkxEuPEoFIo3Jt6da4V4IhYkIIx+UHC2cfi8lyAJv
+	3wwqNkiGU8hBbShtjyWnBf1IrJgEoBZpss0zfdh/5yBweUHx0ziyLKaYz9BGQFRnRTzEr8PsO/EdK
+	I0W0xVMtDopS7XCCFyQBYJFhQ/3THcbkqEw6Oze5tf20OXezI2iOGusUCr02bJUDeeB1PlJFO7RWJ
+	Lo7PRxaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u503Z-00000009A5s-2DvV;
-	Wed, 16 Apr 2025 10:31:49 +0000
-Received: from mail-mw2nam12on2060c.outbound.protection.outlook.com ([2a01:111:f403:200a::60c] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1u503d-00000009AEC-1Cyd;
+	Wed, 16 Apr 2025 10:31:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4yr1-00000008wKW-31Wp
+	id 1u4yss-00000008wk4-2nPq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 09:14:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yvKe6l/p8KKfZJQzu1pyG51fkOWJf+/TfNyeqqWZ53vFkuq4DHTouDvCFpWbPKeWGkM1elpUgKBeyeSttpL/fc+cTFJepuRdDNKP9Gry0JtVh5ug+UCnZdFuvy6KKAmPEEUQWW7jnam5H7MkRNA7fA63X+UL82ZkkYDrA7X+YY80EaaHSFmkBuUjlSpgg+SLtbvdnn5eadwwNbOJ7DoZisgAd02RyBHFw+euaHKG8+t/s9Onw3HA4B2FvjKSOnfAG/du5qyJH+fPgstTAD/th/nLTmSUcYpScWGoREEYILeafuC1TAqVYxUxjpe/HzIzBKPhinnll7PtAwkLuklR9g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hk9PGgfOtu94j5OcKo0DWr17MjPll5iaiddo3FnLpWM=;
- b=JorJMz1SimWApaliqad1SxtvUxiKVkyc2K/7yKCa4Ug5xuFf/Anmhyl573cS5JIfGH6xfagegRPc7AjuNaPIR84+b8Dpzt1MEWc6y+kinmSxFckWAupun/6IWt+fN8yAyDLJ3/HWidypx0wxf9GsG+QCsG79djfcora+hdg0DESiaJjh+oJFO5/bRob/xY2xh22UApr8btewVU7bzbzqEuKhMvDuDksy11QXizeXdKNW8kAfK54VjVuNR82PadFuwnR+GmDvGS/Af0DUZDQYmcoASE0/uLsYEiG7n8SLoy2LWB4u89eMYYzCJze7s3h3BDK4lLecquG5Kfl6sSbv/g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hk9PGgfOtu94j5OcKo0DWr17MjPll5iaiddo3FnLpWM=;
- b=hvZG7Py+H7TdLA5QXBIJPIY4Xnu+L/GZ+8Xj1eUeBtk45LPRSk+uUVLLRMlZzHHnRXBTUdHEYpIpPvkuM/beA3fJaAR4AoW0WM+AWxBc+idtO96/x2XknQaNRV04KPoddyUgB5AH85vqbtL/Kgfulmc+COmOCVSiJGnA8NUUJ+5/HcOldfZ+ZdMvzTDWCHCpXTB7bi92iyOqn38lOYJXyIUVsDjYJ+xcHBwnm2HoTnSFQZ6nwST4DVS/sx44lllSMRVhE/1g0M/BUpizxhU7NwR2xx89lGoz7FMiksfUmF6youusawtLa/jPFRv1KXyYzFJAkHoxKjePplZ09pVEWw==
-Received: from BN9PR03CA0742.namprd03.prod.outlook.com (2603:10b6:408:110::27)
- by MN0PR12MB5881.namprd12.prod.outlook.com (2603:10b6:208:379::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.32; Wed, 16 Apr
- 2025 09:14:40 +0000
-Received: from MN1PEPF0000F0DF.namprd04.prod.outlook.com
- (2603:10b6:408:110:cafe::83) by BN9PR03CA0742.outlook.office365.com
- (2603:10b6:408:110::27) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8632.34 via Frontend Transport; Wed,
- 16 Apr 2025 09:14:40 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- MN1PEPF0000F0DF.mail.protection.outlook.com (10.167.242.37) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8655.12 via Frontend Transport; Wed, 16 Apr 2025 09:14:40 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 16 Apr
- 2025 02:14:21 -0700
-Received: from fedora (10.126.231.35) by rnnvmail201.nvidia.com (10.129.68.8)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Wed, 16 Apr
- 2025 02:14:07 -0700
-References: <20250416010210.work.904-kees@kernel.org>
-User-agent: mu4e 1.8.14; emacs 29.4
-From: Petr Machata <petrm@nvidia.com>
-To: Kees Cook <kees@kernel.org>
-CC: Jakub Kicinski <kuba@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>, Claudiu Manoil <claudiu.manoil@nxp.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>, Wei Fang <wei.fang@nxp.com>, Clark
- Wang <xiaoning.wang@nxp.com>, Jeroen de Borst <jeroendb@google.com>,
-	Harshitha Ramamurthy <hramamurthy@google.com>, Ido Schimmel
-	<idosch@nvidia.com>, Petr Machata <petrm@nvidia.com>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Simon Horman <horms@kernel.org>, Geoff Levand <geoff@infradead.org>, Wolfram
- Sang <wsa+renesas@sang-engineering.com>, Alexander Lobakin
-	<aleksander.lobakin@intel.com>, Praveen Kaligineedi
-	<pkaligineedi@google.com>, Willem de Bruijn <willemb@google.com>, "Joshua
- Washington" <joshwash@google.com>, Furong Xu <0x1207@gmail.com>, "Russell
- King (Oracle)" <rmk+kernel@armlinux.org.uk>, Jisheng Zhang
-	<jszhang@kernel.org>, Petr Tesarik <petr@tesarici.cz>,
-	<netdev@vger.kernel.org>, <imx@lists.linux.dev>,
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, Richard Cochran
-	<richardcochran@gmail.com>, Jacob Keller <jacob.e.keller@intel.com>, "Shannon
- Nelson" <shannon.nelson@amd.com>, Ziwei Xiao <ziweixiao@google.com>,
-	"Shailend Chand" <shailend@google.com>, Choong Yong Liang
-	<yong.liang.choong@linux.intel.com>, Andrew Halaney <ahalaney@redhat.com>,
-	Kory Maincent <kory.maincent@bootlin.com>, <linux-kernel@vger.kernel.org>,
-	<linux-hardening@vger.kernel.org>
-Subject: Re: [PATCH] net: ethtool: Adjust exactly ETH_GSTRING_LEN-long stats
- to use memcpy
-Date: Wed, 16 Apr 2025 11:09:43 +0200
-In-Reply-To: <20250416010210.work.904-kees@kernel.org>
-Message-ID: <87ecxswjs4.fsf@nvidia.com>
+	Wed, 16 Apr 2025 09:16:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1E44642B60;
+	Wed, 16 Apr 2025 09:16:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1DD6C4CEE2;
+	Wed, 16 Apr 2025 09:16:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744795002;
+	bh=hY7p3m5X0OOft3dhhs3uhZGYBnQpfn9DlIDiE50gYNo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uaUqEwxsykjInJ62sBQ3icULCRHLAodwkEXAyOvS613sBBl8V4XwJieKRR70ZNSRo
+	 sORxELLDb1lvsUeUtfYiZkKEe8CY+EAZP06AL9mkCFhE9DoooapeaccHXYZrhHEMsg
+	 qb2P6bHCitt0DwDuimqyL9TQ1C2IswUiSQipaUsZSeazpYM7zplz2muGRbtavhGTco
+	 GG4r96fbMsyV2Jloo+7nHDHbtlSHGjYxG9WY2DBqz56xjOy/miriXUhr9flsjmRUgv
+	 A6JT2MXZ6p8URA+lrTJ1TPTzca+pn4i0Hh2y/Y51506TjfwfJ9kuSRMlICXH6GMTnl
+	 L5UALTB4jBGWQ==
+Date: Wed, 16 Apr 2025 10:16:32 +0100
+From: Simon Horman <horms@kernel.org>
+To: Parvathi Pudi <parvathi@couthit.com>
+Subject: Re: [PATCH net-next v5 02/11] net: ti: prueth: Adds ICSSM Ethernet
+ driver
+Message-ID: <20250416091632.GM395307@horms.kernel.org>
+References: <20250414113458.1913823-1-parvathi@couthit.com>
+ <20250414113458.1913823-3-parvathi@couthit.com>
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Originating-IP: [10.126.231.35]
-X-ClientProxiedBy: rnnvmail202.nvidia.com (10.129.68.7) To
- rnnvmail201.nvidia.com (10.129.68.8)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN1PEPF0000F0DF:EE_|MN0PR12MB5881:EE_
-X-MS-Office365-Filtering-Correlation-Id: 300d342e-1bfd-4e03-32c0-08dd7cc71e3d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|36860700013|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?j7IgJbEdesxIdWEYyXpqUrAtgUraiDFgEetdgiKxehUy2vSABUctMFwNZlf2?=
- =?us-ascii?Q?gzXdRMTIGveOZ94zE0JH3BO9Vyt6l37NHF9leljHHfURP4y6ydMvmpu5RGeb?=
- =?us-ascii?Q?6n0hNEV5+oyKqUTW4jWXjBg5bvCWgKaAOX5bIBznE9YN/80R1jVng9mJ2rWp?=
- =?us-ascii?Q?X3JWKkbaBa3Nl3ggOgIElrrc+gsDmJo+7rjvJlW8Lu83GwJe6QPc06rriS+u?=
- =?us-ascii?Q?iypv2Xa+dKj0MofYDNOwaO+eAA8+5lGjL/2ulXpi897P6BJMg3PsuyA7OFCP?=
- =?us-ascii?Q?l6Eg0tTzGKUOe1XXbWA0zJe6qyUB8+GnTlkVW+prUPYw/x33+exPT3fvFxJZ?=
- =?us-ascii?Q?VvM2Hfsw4MQIP+TBn4ikKmukqf/ANfTJ8Jh1tQRITDU/HSQP1xjte3glnfLg?=
- =?us-ascii?Q?0oJ2bV/6eUF1SeFa0LWsRGUhAntXWL1t7RyGwqHfiUFnJ/m/XLYqhslZlWhH?=
- =?us-ascii?Q?FvSe3zunouSc6/PjsnJuiC3Mb40TX3Kq5j9pZ8mTETh/fsw96xCwa1ewjai9?=
- =?us-ascii?Q?04+irs6FTKd+uU8AFzwwq8N7tMgUE3Es1t7pTHrDaleCKmnaivew9/sCd+Bz?=
- =?us-ascii?Q?bx+OP5K8KnCA2JGEF8a+vIuAwxxrNWrsIdIRBtg/httCV8qpuLMTCeiMchWX?=
- =?us-ascii?Q?M4F8cO0DKyobU376zMNa9dzma+CeGOr4jDun2LLEnr2twq52TlsWy313ESIh?=
- =?us-ascii?Q?b7A+W6OnwDI6D1Cz1jJOVG1XDQ25y2YbMvSQWLpMat3eTkVcMs+hXWTQdaqu?=
- =?us-ascii?Q?aV8Fl3IEzwV5ISBS4bLDOgovQVCEpWfhSlwEAbTW8oG5PcwoRXSUUqqYxZT4?=
- =?us-ascii?Q?eRXuvrxF0SKZOQ2fiVtn3tfA5ITt8Wi9sFSLncZ/QsOvX906mT5x4uEzUVHy?=
- =?us-ascii?Q?1fMF+L6ZpCbtSHNZNsZz8kK6NxQdGdicYDZlpHyKliIwtZD4F8rH9vvn2J70?=
- =?us-ascii?Q?f+fSFqkiaEotoJoajiAhPCL63aV5JDm1kgnKCFKB8p4sCUtqCxJ+hT1nB9Ga?=
- =?us-ascii?Q?rawCxiaKwo6TimXmDlg0BDHDD0mW8argYA/ShGGfFJ7sb/awFVCWaGsPqReN?=
- =?us-ascii?Q?biJpTUrn2Tvvxlrf87aafLRzB29OpVvEooLMXAjoChGLAZy2gssIzBltqAqc?=
- =?us-ascii?Q?+GRI7hY9exe/VE9QNRYIN6bLtONDvKa/Hpb8OvvtxYCWkobEa5GpO0NfvnvU?=
- =?us-ascii?Q?vHEMOGXvfGTiyedgVjplY4N8y8myclyeMjCRZZF2lp+LWb/l/JF14EEtj2gZ?=
- =?us-ascii?Q?/1hJBoNZY93KinjF+Wb2OOzJmWAO0b7Qp7EEOM1+F1iM4UOUzhBYsibTTkzo?=
- =?us-ascii?Q?umNFcgTzvBRuQLC7G65Bq5zfZQRZbzBz+JJcd++bqORIJXaA8ITDU1bf67lV?=
- =?us-ascii?Q?j1T6+mGBGtHBZIIvHAViHb5mh4tjQx9qcg5oULOXK/y6FzKIu0NeCBpLGQ5D?=
- =?us-ascii?Q?7lmwnrcfygX6HlM+0dz7OTXiqMotpkYd+SUJa9LLBj+R2rg4Alq9TYOYwTrc?=
- =?us-ascii?Q?3Lsinw0Lw4JaMAs9GA7ISsNRP7qHrqM5ezgx?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(36860700013)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Apr 2025 09:14:40.2423
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 300d342e-1bfd-4e03-32c0-08dd7cc71e3d
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000F0DF.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB5881
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250414113458.1913823-3-parvathi@couthit.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_021447_763623_A84A68B1 
-X-CRM114-Status: GOOD (  19.45  )
+X-CRM114-CacheID: sfid-20250416_021642_740748_2E769934 
+X-CRM114-Status: GOOD (  25.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,58 +68,262 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: nm@ti.com, vigneshr@ti.com, tony@atomide.com, edumazet@google.com, glaroque@baylibre.com, pmohan@couthit.com, diogo.ivo@siemens.com, robh@kernel.org, javier.carrasco.cruz@gmail.com, praneeth@ti.com, m-karicheri2@ti.com, basharath@couthit.com, kuba@kernel.org, pabeni@redhat.com, richardcochran@gmail.com, devicetree@vger.kernel.org, conor+dt@kernel.org, schnelle@linux.ibm.com, mohan@couthit.com, s.hauer@pengutronix.de, prajith@ti.com, rogerq@kernel.org, jacob.e.keller@intel.com, ssantosh@kernel.org, linux-arm-kernel@lists.infradead.org, rogerq@ti.com, srk@ti.com, pratheesh@ti.com, m-malladi@ti.com, netdev@vger.kernel.org, rdunlap@infradead.org, linux-kernel@vger.kernel.org, danishanwar@ti.com, afd@ti.com, andrew+netdev@lunn.ch, krishna@couthit.com, krzk+dt@kernel.org, davem@davemloft.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Apr 14, 2025 at 05:04:49PM +0530, Parvathi Pudi wrote:
+> From: Roger Quadros <rogerq@ti.com>
+> 
+> Updates Kernel configuration to enable PRUETH driver and its dependencies
+> along with makefile changes to add the new PRUETH driver.
+> 
+> Changes includes init and deinit of ICSSM PRU Ethernet driver including
+> net dev registration and firmware loading for DUAL-MAC mode running on
+> PRU-ICSS2 instance.
+> 
+> Changes also includes link handling, PRU booting, default firmware loading
+> and PRU stopping using existing remoteproc driver APIs.
+> 
+> Signed-off-by: Roger Quadros <rogerq@ti.com>
+> Signed-off-by: Andrew F. Davis <afd@ti.com>
+> Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
+> Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
 
-Kees Cook <kees@kernel.org> writes:
+...
 
-> Many drivers populate the stats buffer using C-String based APIs (e.g.
-> ethtool_sprintf() and ethtool_puts()), usually when building up the
-> list of stats individually (i.e. with a for() loop). This, however,
-> requires that the source strings be populated in such a way as to have
-> a terminating NUL byte in the source.
->
-> Other drivers populate the stats buffer directly using one big memcpy()
-> of an entire array of strings. No NUL termination is needed here, as the
-> bytes are being directly passed through. Yet others will build up the
-> stats buffer individually, but also use memcpy(). This, too, does not
-> need NUL termination of the source strings.
->
-> However, there are cases where the strings that populate the
-> source stats strings are exactly ETH_GSTRING_LEN long, and GCC
-> 15's -Wunterminated-string-initialization option complains that the
-> trailing NUL byte has been truncated. This situation is fine only if the
-> driver is using the memcpy() approach. If the C-String APIs are used,
-> the destination string name will have its final byte truncated by the
-> required trailing NUL byte applied by the C-string API.
->
-> For drivers that are already using memcpy() but have initializers that
-> truncate the NUL terminator, mark their source strings as __nonstring to
-> silence the GCC warnings.
+> diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
 
-> Specifically the following warnings were investigated and addressed:
->
-> ../drivers/net/ethernet/mellanox/mlxsw/spectrum_ethtool.c:328:24: warning: initializer-string for array of 'char' truncates NUL terminator but destination lacks 'nonstring' attribute (33 chars into 32 available) [-Wunterminated-string-initialization]
->   328 |                 .str = "a_mac_control_frames_transmitted",
->       |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> ../drivers/net/ethernet/mellanox/mlxsw/spectrum_ethtool.c:340:24: warning: initializer-string for array of 'char' truncates NUL terminator but destination lacks 'nonstring' attribute (33 chars into 32 available) [-Wunterminated-string-initialization]
->   340 |                 .str = "a_pause_mac_ctrl_frames_received",
->       |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+...
 
-> diff --git a/drivers/net/ethernet/mellanox/mlxsw/spectrum_ethtool.c b/drivers/net/ethernet/mellanox/mlxsw/spectrum_ethtool.c
-> index 3f64cdbabfa3..0a8fb9c842d3 100644
-> --- a/drivers/net/ethernet/mellanox/mlxsw/spectrum_ethtool.c
-> +++ b/drivers/net/ethernet/mellanox/mlxsw/spectrum_ethtool.c
-> @@ -262,7 +262,7 @@ static int mlxsw_sp_port_set_pauseparam(struct net_device *dev,
->  }
->  
->  struct mlxsw_sp_port_hw_stats {
-> -	char str[ETH_GSTRING_LEN];
-> +	char str[ETH_GSTRING_LEN] __nonstring;
->  	u64 (*getter)(const char *payload);
->  	bool cells_bytes;
->  };
+> +static int icssm_prueth_probe(struct platform_device *pdev)
+> +{
+> +	struct device_node *eth0_node = NULL, *eth1_node = NULL;
+> +	struct device_node *eth_node, *eth_ports_node;
+> +	enum pruss_pru_id pruss_id0, pruss_id1;
+> +	struct device *dev = &pdev->dev;
+> +	struct device_node *np;
+> +	struct prueth *prueth;
+> +	int i, ret;
+> +
+> +	np = dev->of_node;
+> +	if (!np)
+> +		return -ENODEV; /* we don't support non DT */
+> +
+> +	prueth = devm_kzalloc(dev, sizeof(*prueth), GFP_KERNEL);
+> +	if (!prueth)
+> +		return -ENOMEM;
+> +
+> +	platform_set_drvdata(pdev, prueth);
+> +	prueth->dev = dev;
+> +	prueth->fw_data = device_get_match_data(dev);
+> +
+> +	eth_ports_node = of_get_child_by_name(np, "ethernet-ports");
+> +	if (!eth_ports_node)
+> +		return -ENOENT;
+> +
+> +	for_each_child_of_node(eth_ports_node, eth_node) {
+> +		u32 reg;
+> +
+> +		if (strcmp(eth_node->name, "ethernet-port"))
+> +			continue;
+> +		ret = of_property_read_u32(eth_node, "reg", &reg);
+> +		if (ret < 0) {
+> +			dev_err(dev, "%pOF error reading port_id %d\n",
+> +				eth_node, ret);
+> +		}
+> +
+> +		of_node_get(eth_node);
 
-Reviewed-by: Petr Machata <petrm@nvidia.com> # for mlxsw
+Hi Roger, Parvathi, all,
+
+I feel that I'm missing something obvious here.
+But I have some questions about the reference to eth_node
+taken on the line above.
+
+> +
+> +		if (reg == 0) {
+> +			eth0_node = eth_node;
+
+If, while iterating through the for loop above, we reach this point more
+than once, then will the reference to the previously node assigned to
+eth0_node be leaked?
+
+> +			if (!of_device_is_available(eth0_node)) {
+> +				of_node_put(eth0_node);
+> +				eth0_node = NULL;
+> +			}
+> +		} else if (reg == 1) {
+> +			eth1_node = eth_node;
+
+Likewise here for eth1_node.
+
+> +			if (!of_device_is_available(eth1_node)) {
+> +				of_node_put(eth1_node);
+> +				eth1_node = NULL;
+> +			}
+> +		} else {
+> +			dev_err(dev, "port reg should be 0 or 1\n");
+
+And, perhaps more to the point, is the reference to eth_node leaked if
+we reach this line?
+
+> +		}
+> +	}
+> +
+> +	of_node_put(eth_ports_node);
+> +
+> +	/* At least one node must be present and available else we fail */
+> +	if (!eth0_node && !eth1_node) {
+> +		dev_err(dev, "neither port0 nor port1 node available\n");
+> +		return -ENODEV;
+> +	}
+> +
+> +	if (eth0_node == eth1_node) {
+
+Given the if / else if condition in the for loop above,
+I'm not sure this can ever occur.
+
+> +		dev_err(dev, "port0 and port1 can't have same reg\n");
+> +		of_node_put(eth0_node);
+> +		return -ENODEV;
+> +	}
+> +
+> +	prueth->eth_node[PRUETH_MAC0] = eth0_node;
+> +	prueth->eth_node[PRUETH_MAC1] = eth1_node;
+> +
+> +	if (eth0_node) {
+> +		prueth->pru0 = pru_rproc_get(np, 0, &pruss_id0);
+> +		if (IS_ERR(prueth->pru0)) {
+> +			ret = PTR_ERR(prueth->pru0);
+> +			if (ret != -EPROBE_DEFER)
+> +				dev_err(dev, "unable to get PRU0: %d\n", ret);
+> +			goto put_pru;
+> +		}
+> +	}
+> +
+> +	if (eth1_node) {
+> +		prueth->pru1 = pru_rproc_get(np, 1, &pruss_id1);
+> +		if (IS_ERR(prueth->pru1)) {
+> +			ret = PTR_ERR(prueth->pru1);
+> +			if (ret != -EPROBE_DEFER)
+> +				dev_err(dev, "unable to get PRU1: %d\n", ret);
+> +			goto put_pru;
+> +		}
+> +	}
+> +
+> +	/* setup netdev interfaces */
+> +	if (eth0_node) {
+> +		ret = icssm_prueth_netdev_init(prueth, eth0_node);
+> +		if (ret) {
+> +			if (ret != -EPROBE_DEFER) {
+> +				dev_err(dev, "netdev init %s failed: %d\n",
+> +					eth0_node->name, ret);
+> +			}
+> +			goto put_pru;
+> +		}
+> +	}
+> +
+> +	if (eth1_node) {
+> +		ret = icssm_prueth_netdev_init(prueth, eth1_node);
+> +		if (ret) {
+> +			if (ret != -EPROBE_DEFER) {
+> +				dev_err(dev, "netdev init %s failed: %d\n",
+> +					eth1_node->name, ret);
+> +			}
+> +			goto netdev_exit;
+> +		}
+> +	}
+> +
+> +	/* register the network devices */
+> +	if (eth0_node) {
+> +		ret = register_netdev(prueth->emac[PRUETH_MAC0]->ndev);
+> +		if (ret) {
+> +			dev_err(dev, "can't register netdev for port MII0");
+> +			goto netdev_exit;
+> +		}
+> +
+> +		prueth->registered_netdevs[PRUETH_MAC0] =
+> +			prueth->emac[PRUETH_MAC0]->ndev;
+> +	}
+> +
+> +	if (eth1_node) {
+> +		ret = register_netdev(prueth->emac[PRUETH_MAC1]->ndev);
+> +		if (ret) {
+> +			dev_err(dev, "can't register netdev for port MII1");
+> +			goto netdev_unregister;
+> +		}
+> +
+> +		prueth->registered_netdevs[PRUETH_MAC1] =
+> +			prueth->emac[PRUETH_MAC1]->ndev;
+> +	}
+> +
+> +	if (eth1_node)
+> +		of_node_put(eth1_node);
+> +	if (eth0_node)
+> +		of_node_put(eth0_node);
+> +	return 0;
+> +
+> +netdev_unregister:
+> +	for (i = 0; i < PRUETH_NUM_MACS; i++) {
+> +		if (!prueth->registered_netdevs[i])
+> +			continue;
+> +		unregister_netdev(prueth->registered_netdevs[i]);
+> +	}
+> +
+> +netdev_exit:
+> +	for (i = 0; i < PRUETH_NUM_MACS; i++) {
+> +		eth_node = prueth->eth_node[i];
+> +		if (!eth_node)
+> +			continue;
+> +
+> +		icssm_prueth_netdev_exit(prueth, eth_node);
+> +	}
+> +
+> +put_pru:
+> +	if (eth1_node) {
+> +		if (prueth->pru1)
+> +			pru_rproc_put(prueth->pru1);
+> +		of_node_put(eth1_node);
+> +	}
+> +
+> +	if (eth0_node) {
+> +		if (prueth->pru0)
+> +			pru_rproc_put(prueth->pru0);
+> +		of_node_put(eth0_node);
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+> +static void icssm_prueth_remove(struct platform_device *pdev)
+> +{
+> +	struct prueth *prueth = platform_get_drvdata(pdev);
+> +	struct device_node *eth_node;
+> +	int i;
+> +
+> +	for (i = 0; i < PRUETH_NUM_MACS; i++) {
+> +		if (!prueth->registered_netdevs[i])
+> +			continue;
+> +		unregister_netdev(prueth->registered_netdevs[i]);
+> +	}
+> +
+> +	for (i = 0; i < PRUETH_NUM_MACS; i++) {
+> +		eth_node = prueth->eth_node[i];
+> +		if (!eth_node)
+> +			continue;
+> +
+> +		icssm_prueth_netdev_exit(prueth, eth_node);
+> +		of_node_put(eth_node);
+> +	}
+> +
+> +	pruss_put(prueth->pruss);
+> +
+> +	if (prueth->eth_node[PRUETH_MAC0])
+> +		pru_rproc_put(prueth->pru0);
+> +	if (prueth->eth_node[PRUETH_MAC1])
+> +		pru_rproc_put(prueth->pru1);
+> +}
+
+...
 
