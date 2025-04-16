@@ -4,94 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3133EC369B1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 07:42:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD1D6C369B1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 07:44:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MESsicyyhatyINufDMJoZ4SnaUsTOFcTcz3ZiENjCc4=; b=CvwxYZaIAEIEiP6ifSsJnL4dC7
-	oqskfkoNZ+PdqtBIUhn4xI2ZVs55FZYHJaVI8Gd6mrLxHInF36Cq+g6iZkO/7Je35lMP8czrh4LC6
-	kTbqFQNbyoFJEcY1gyNzbxDjTfZ+piOiX5HWu3zaiv1UORzb/7eeLOpPUbLtWJoa0BBsXx5CQOEU0
-	S1+CJpUoTgjTKYRhjtC01/lW6DORWsXbaT32AZbo77umOOOX+06EO1SgfzbIiJDBhbdk8Ia9r0hFJ
-	+M1gDZtA+aO3ZW7zhIvG0TxWL8qoF1cf+Yi+arvgGoZebYCBCTqSduWx2mW3wFlWZlPyO+ah1mdPE
-	9ISU6fLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0WPXE5cu+KxNpShEllczcd7X5h1MUBPS2Pl6xYsNrzA=; b=De2Cvwc58YrjftTJDkNLR3gRl/
+	3haEPtqxHHibkkOk/FewWneS12I04Ca7GdS0UjYe3ydutYbxyVE5PAjGDY6pjRxGo3g64dLHFGGI8
+	5Nlyk2Z53c81CyMb02FWFtBm8hyz/XRKpJzeIWqFtp0rO4gYBOMMhKYyuR/JsIB0ASAQ6mrwYDYca
+	QcOJQpXeC0mD03s9hWrlLF/ZO96L5OvhG8x68SLOdaDs8HOaScz3x0yJNAxXuSbluVw1RJsHPPPzu
+	Y44WEcsLhON7nfB7F2gB2yVFxRlbhp/LhcIToavSbNvguO9SZGLH1SySE4PUxNsmBGAaF6QZ4cSkm
+	1/GWHumw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4xPP-00000008fId-2sI1;
-	Wed, 16 Apr 2025 07:42:11 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1u4xRD-00000008fhC-1xv0;
+	Wed, 16 Apr 2025 07:44:03 +0000
+Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4xLR-00000008eRM-19gv
+	id 1u4xNQ-00000008evp-3dLW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 07:38:06 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-ac79fa6e1c2so103419366b.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 00:38:04 -0700 (PDT)
+	Wed, 16 Apr 2025 07:40:09 +0000
+Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-70576d2faa1so28115617b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 00:40:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744789083; x=1745393883; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MESsicyyhatyINufDMJoZ4SnaUsTOFcTcz3ZiENjCc4=;
-        b=z7mUyGk1yMvcfWAjayrF3Rw2TqrMTCopv+1ffMRj6/NXWI0CW5Z9jfpvxEqwE9azS2
-         sCL5jQxw7JxROybOwtW9tfOUzOCLmjsC+GOxjENxehZeAL7z1xY9ZuBHyC07pYbSZmc8
-         kX8wwZEH2cC/dbmgqPonTHUimEhWZ912rqdJWReOJfeNtOmIPu79cmFm0ObmuaH1rxMI
-         79/RiHJJk12Ze+fEQ4E6exO0CfwXnncaf2W2eqRrZmETYq1XhHwZn0TrZVgPJrB6LK+q
-         EAKlFTS2VvWvPrxQcQIDDjHZ/fYDLJu/mq6wLVD/1YQZlkKjk4yO7NHQcnlPPgk4gLGT
-         tgzw==
+        d=gmail.com; s=20230601; t=1744789206; x=1745394006; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=0WPXE5cu+KxNpShEllczcd7X5h1MUBPS2Pl6xYsNrzA=;
+        b=btFE9nTVdaENc7o8hbiuD6QaMtzbIDAsHyb59rd2A517+5/VKX+gWAQw/Q6F6NlgOE
+         5o5ULDy1pPHVVDhQWxk8JLDWSyBiXvRDCOrat19lYC8e/4N6IAWrlxlgFlw5R9uzgvjT
+         +wmvh7oQrmQp8DlWcqNybnUbeXbjDq+GBxvFzu6h7tQsIs8IshxsaRWTOP6NrTUjLTuB
+         s/z+MqphraMrtOQSs0ueS7RWgzVdXD21oMgGVvYSK6nmdl3n1BxK56dRMtvXRM7dCrIg
+         JOahkGY3kN293+aBiL1UbwIREPZzpL0fKpqtrEHfI7Ofj6OOygK5oFXDgyG3pC4Q7iiq
+         5dNw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744789083; x=1745393883;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=MESsicyyhatyINufDMJoZ4SnaUsTOFcTcz3ZiENjCc4=;
-        b=wT5Xz7altsTKNvDXkHMo0yEGaigzvxgSs1OLo7pIQpGarrAs+xjyHkivIIzn+1GEXs
-         A9owPqUPrizy3f3COHfRaDbcc/ZWkDp/YgH4bpFOe66SFMBbTpv4D0FQ0IyXW9zZTQyc
-         QPqcxyGsTt5bpP7Dx4+3VX3cVsUF+QHljgCZhfwln9CXOrQknhhAdxmfv9iK3nw7tBrD
-         sg33P1j0zgMYg2Yi03t5wy8b8I31hqUHAiPbmdWpebwDBztjLfJ8+8MekqqPO54T5jph
-         IxLfbnneDqKE/Xp7j/K0s/hgMqTpL1jgXqLvkkDkhjYjT3KUWb5626BUqvCMPjAl6ZW3
-         00MA==
-X-Forwarded-Encrypted: i=1; AJvYcCXbP4hCABqGOM4Nw+R4D60dTxGJJVFMJ3XJ3BnsSVHIh5bFno6tojHUQCn/TEclU+uCoj8H7fjMj/8D7MvCuUPH@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw0bCPd0XJVIsCX6V0kzo1ixSE/Lcef70rO1KO7rGQbpn5jPeRs
-	mG2Nu+vNoG22hhyxopUUMxHx8uA8XE2yAv9JDfoAGOEp5SQwBMIEOEtzrspsMyk=
-X-Gm-Gg: ASbGncuKYn7j/Ey2ikyaOTlsKPk7tjSkILhAL+KFC8KUQTGeGqlG3HzsA54uFs9gtLb
-	6fM28TY49mJmVdlmD+/lUYdiymcFYuGo8CnCdq1i2RglvYfAPXKi7VAWglP8tw+AdV6emCGLWw5
-	ss/SeqfqUUFWPe+1UhTfcZpfF/rHoIi5d+3l6PcjvZqaINPkf+NIwTFSOS2LhT5RcAyLntThalV
-	InSr0iGlT3YcR0yq09EUEyWchDxB+g7JIbdJZ+/UWCrN1Y6X6btKgJyilXE8Gc1yTOUI8V/+uot
-	ElRk7G6l3ucffc0seT8PqPxY5454gv3MQel5Yo2uB/i5kenVk/J6qWhUsf2dwbosyUGtLYv5f6u
-	1u6bUGCnQUlvJR08=
-X-Google-Smtp-Source: AGHT+IGfmvUt/FSzOcqD2du/hnhTnAGiq086+HJ2TFi6ewXNvWJS6ClhkVHTH7jbIEYkihEMx3raLg==
-X-Received: by 2002:a17:907:1c18:b0:ac1:e2eb:8877 with SMTP id a640c23a62f3a-acb42b52478mr17700466b.11.1744789083533;
-        Wed, 16 Apr 2025 00:38:03 -0700 (PDT)
-Received: from [192.168.1.26] (46.150.74.144.lvv.nat.volia.net. [46.150.74.144])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-acb3cd63f12sm75397066b.32.2025.04.16.00.38.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Apr 2025 00:38:02 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Sam Protsenko <semen.protsenko@linaro.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-Cc: linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20250209132043.3906127-1-ivo.ivanov.ivanov1@gmail.com>
-References: <20250209132043.3906127-1-ivo.ivanov.ivanov1@gmail.com>
-Subject: Re: [PATCH v1] arm64: dts: exynos: update all samsung,mode
- constants
-Message-Id: <174478908177.19245.11349422916489425295.b4-ty@linaro.org>
-Date: Wed, 16 Apr 2025 09:38:01 +0200
+        d=1e100.net; s=20230601; t=1744789206; x=1745394006;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0WPXE5cu+KxNpShEllczcd7X5h1MUBPS2Pl6xYsNrzA=;
+        b=w0BN2H6zOVmESJ+xtoHmfFpfr8B70gNxhlmSqvimi7VjyrztXl7Qz+n2EcAnjz/Nyz
+         9qwvBJ75Hjq7yvmBzcpov2YMvpLeA22jF0Q23oU5vC+YYWCBYsnUH79HkEsiFd5HaMQk
+         ncEGNWtUfp6iVNPxiGsj/wnQlIKyUQxDLz5CMr3k3MYGc0KfQb/qNieUF/VMWyG7Xmsb
+         FEwPiOb9lHWi7+8Cql1DZETkkAwY6jakZc78PurHEk/v+34tq2+dEVSAbB+O/UxejK4B
+         FNvsAjXY7dNFJllfT6L5KTEeou9ttTv9rYcVPv1xKrEGdX7Q9sGR2paS1xr1iY4dHUOH
+         RfOA==
+X-Forwarded-Encrypted: i=1; AJvYcCVUqXXHAGshyd8K9bwtUnDdPu1XLPB9c/N/b4l5Xg8TEf3w/wwEOyL7iNqte7JOV86NZA+rFfpeLZz/+PBONcVP@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyjawoguk0ywIEf6iCPq6oDqAAYPlOf7fWQkhQHI3illzPryL/I
+	4iedNwzELxcmBeDe73WCwKMvpipbz7mppRjASDL45lIdHuQmeSTIb7IKbr/qHQAwjHOfbOTohlE
+	8ZNoUqRzM+6ojp7e9iNPN8XsuvhM=
+X-Gm-Gg: ASbGnctceLNuVY4QwlS6XiY3n49GdkFaYahFXclHZcEkf8g0NR/6zVlWvKRBUyZhRon
+	UJk5dGtEebTk4sfg8MzAHizgMJz81RNDq+KuPWTAnoT4EZ4DJ1cxd4AqsQzg4mI41UVb+ioqZ+v
+	QmPHcv9ipMpIlqPLZc2ivnw8+SEXS9ow+VsQ==
+X-Google-Smtp-Source: AGHT+IHxbekuxWHZw8zM+wh6DzTFP8yHpFvuhbdM9QR05wWnGQlGmcOgzlNDdA0KhXBzuIW+VyQTVJg2vQPk1/AsoLU=
+X-Received: by 2002:a05:690c:64c6:b0:6fb:8461:e828 with SMTP id
+ 00721157ae682-706b33627f1mr10607287b3.30.1744789206293; Wed, 16 Apr 2025
+ 00:40:06 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+References: <20250415-spmi-nvmem-v1-0-22067be253cf@gmail.com>
+ <20250415-spmi-nvmem-v1-1-22067be253cf@gmail.com> <63957942-173e-4c28-932e-a8ba7c60ee83@gmail.com>
+In-Reply-To: <63957942-173e-4c28-932e-a8ba7c60ee83@gmail.com>
+From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+Date: Wed, 16 Apr 2025 09:39:54 +0200
+X-Gm-Features: ATxdqUGe8fo0djVdgl0BDmuxVBDLtZEU6DP9B-jNfmxJRRmqMcv0gVTVOL0H8A4
+Message-ID: <CAMT+MTSqdzg9pBCW0qB1KMK4t9w0-fM=vRowO0kWVNqK9GtBRQ@mail.gmail.com>
+Subject: Re: [PATCH 1/3] dt-bindings: spmi: Add generic SPMI NVMEM
+To: Nick Chan <towinchenmi@gmail.com>
+Cc: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>, 
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, 
+	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_003805_320684_84ED395F 
-X-CRM114-Status: UNSURE (   6.69  )
+X-CRM114-CacheID: sfid-20250416_004008_902974_0B07095D 
+X-CRM114-Status: UNSURE (   8.97  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -107,20 +98,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, 16 Apr 2025 at 02:18, Nick Chan <towinchenmi@gmail.com> wrote:
+> Also, the PMIC definitely has more (mostly independent) functions than just non-volatile
+> memory, so I am not sure if it is really appropriate to model it as only a nvmem device.
 
-On Sun, 09 Feb 2025 15:20:43 +0200, Ivaylo Ivanov wrote:
-> Update all samsung,mode property values to account for renaming USI_V2
-> constants to USI_MODE in the bindings.
-> 
-> 
-
-Applied, thanks!
-
-[1/1] arm64: dts: exynos: update all samsung,mode constants
-      https://git.kernel.org/krzk/linux/c/4855244996578ac25495a708b426c3f27632a068
-
-Best regards,
--- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
+It is good enough for the PMICs that i am adding, there are no plans
+to expose any
+other features to the os.
 
