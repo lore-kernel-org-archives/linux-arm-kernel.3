@@ -4,110 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F040C369B1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 07:51:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52B50C369B1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 07:53:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uURxCMp0oI6AQaUrmW9st9AOrERkWSqdJZFYT2Njlfk=; b=gnGOY4PXlXseGxqiOaaiKQstE/
-	EUH9tofO8XaCs2MGIcVDnteiMCFuGF7cZtAqeqp4mntEN6FnyATEzlmX/B+xTAiJOZ1CBjFifyrjg
-	Z/d85rEdK89+2vGMHsYSmbRZQwXak0W3OTXIBwi+1eX+EThvRkiOg5hAXAOteFgxP0PUM5Swwua+u
-	y9Rnwth9dffswEicr3DgwmPkzNLjSHtUv/4k36aeIeDIQ7s5OSWEfzrjigymWDVQ9YMxmw97Uekct
-	tlXK04JBv85Bx3NLK9TqvQQw/KeHP75O8IkqJ1nXwqh4TL+uWgV57tegVRk7IM7XPSBBj+nIrRB0s
-	PHxaVSzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7aW7Z4UKbxktPS4MaepHxqf+DbrSQTTsdz9FCAgfvEQ=; b=y9+sz86OJwmCJ1O3FzueOPLvoC
+	79VAMit1tqr2H4ZOu0Lanb8Feu73DqKJbd08jBdGaBfGAPFb8fhK7NV5YfY7Acl2/jVM0UB5QASlp
+	tbFdXARgaerSpIrsTH9qrufiTAz2E98YduTXenJODA1Y1GszbmaRLfthsfLhdCC3M2s93ygSV025l
+	Zn4XNRlk5VhqECfisuCodpd7AgnbEq3tdq3hEhHqPpB9Ui4pdIo+Hm8WfyJ6X8ZjBKYnnu62e6bGg
+	1niWD41G39JI+xgVEEfyESvWnVnPV6HtcaTsTyuSlaldEwykqyNcb4JBXMnP5XKoJmg9GzOoDsDRq
+	23mYl8LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4xYU-00000008h98-0O3o;
-	Wed, 16 Apr 2025 07:51:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u4xaI-00000008her-3LvG;
+	Wed, 16 Apr 2025 07:53:27 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4xQl-00000008fdm-013z
+	id 1u4xVO-00000008gWa-3oRH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 07:43:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 83A9C4A147;
-	Wed, 16 Apr 2025 07:43:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9234C4CEE2;
-	Wed, 16 Apr 2025 07:43:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744789414;
-	bh=coi3EKXsZvOpCpMCEXeQXpb9y/GBI2peS4Eh/ejGft0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BbWYSAY7bBzu07mrKYHlFEjVQmkx2ltcErHc//CWEigLTyPbnG2uRi+LJ0JEtb6GV
-	 rJV9LKQ1BGMsegtGKxWgC4wYd++DDTAHQGtU4soFmzOmxvvVgcUeR/DDtpWFCz5iCG
-	 55T4ZVDquygHUvZNEixsPsDfTHbQ6m7vHIc2faP4/1SJGI/uq2JxMu4wZaSk4XxXKL
-	 0nQTUHnAI81HfDG2V7lQdAWkctj9kKGfBAAlbmMPnov1qXR3bXiZbphDlQukmtwsnL
-	 Ml0KKfZSpNoTiLZoGzBxmD7Qzm7EiQ5XH/o7IhY4iBAWrUcdOCl28UIKaHVNGbZ6MD
-	 oSe5JwCIuXkwA==
-Message-ID: <bd011058-1d39-4334-8b2c-40f085366cf3@kernel.org>
-Date: Wed, 16 Apr 2025 09:43:31 +0200
+	Wed, 16 Apr 2025 07:48:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1744789702; x=1776325702;
+  h=message-id:subject:from:to:cc:date:in-reply-to:
+   references:content-transfer-encoding:mime-version;
+  bh=7aW7Z4UKbxktPS4MaepHxqf+DbrSQTTsdz9FCAgfvEQ=;
+  b=O7I1P1fwtPfcbdNRApX5uLe7b5G/E3Pi4dgvgyBA3rdlegk5HUhA0l8A
+   aN5VGEPI4iNZZnxlXuUgmQA5+JCRWA4N17bJ2NqNWXBuPP5JR1ZxB2M2a
+   clOmKnjAfYeIpb58KkZcSoHHPWwVr1zCV2ycYsl/UJRl6PUc43JmXtpod
+   dDVVF6rsVym4P2HW/uZ/H9yGLWbpynCq5ijUItfCX6Ndjzqt6d57VkEb1
+   bj/qkTiNNQw8+kC5ZRErwOWNo/38naPC8jMTzYlqh6sEgHzf5iR4n6Nmi
+   noHhOJFKOPw8uZ17A6FCDb4CWyBm/TS11PvYuY4QeLlimvpsqLbTSfrTx
+   A==;
+X-CSE-ConnectionGUID: 40LsbEOEQRiOB0DgIF7Vtw==
+X-CSE-MsgGUID: zhfq6v8tSkSbamkypAuoSA==
+X-IronPort-AV: E=Sophos;i="6.15,215,1739833200"; 
+   d="scan'208";a="43559241"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 16 Apr 2025 09:48:19 +0200
+X-CheckPoint: {67FF60C3-51-2417938-F0170C2B}
+X-MAIL-CPID: C1F86517FBCAB0ED58083B4ED47BF749_2
+X-Control-Analysis: str=0001.0A006396.67FF60C0.0053,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BEFE7167BA8;
+	Wed, 16 Apr 2025 09:48:12 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1744789695;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=7aW7Z4UKbxktPS4MaepHxqf+DbrSQTTsdz9FCAgfvEQ=;
+	b=Utg1IVm2aLPjKEu3z8TbqZySUXUoHt++UW7xuELrTvjAmmm9tIhos26SKan/GalSkemTOL
+	Fk9h5nsoD/wH6jMTzwCBPmqzpNExikWK2RnVW9kY6WXcvvZALAu7F+ptEo5JCMJsdiFGUO
+	++Lfssy63Fl7cWgW8vnwmvJZzKjwYdcW9WwigXvLWmVeB+sdZXSdwZgMD4cpBN6L59xJEX
+	ZbJ0ISdTOXsQwmCd4jKnVU1LdVA0qHUePTEHqY2UtJo352NuL7OrOGsnoCKmTtRw2rd7aT
+	S3Jc6lbVm4iQjHSQYdOhg0RhSmEw/DwIsqKXtp2ePRx1Ez47eixZgLikWDKj8Q==
+Message-ID: <800a61d80a2c6cfa4a5a64d904a2127e60eafc29.camel@ew.tq-group.com>
+Subject: Re: [PATCH net-next 4/4] checkpatch: check for comment explaining
+ rgmii(|-rxid|-txid) PHY modes
+From: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+To: Joe Perches <joe@perches.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>,  Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+ <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Andy Whitcroft <apw@canonical.com>, Dwaipayan Ray
+ <dwaipayanray1@gmail.com>, Lukas Bulwahn <lukas.bulwahn@gmail.com>,
+ Jonathan Corbet <corbet@lwn.net>, Nishanth Menon <nm@ti.com>, Vignesh
+ Raghavendra <vigneshr@ti.com>,  Siddharth Vadapalli <s-vadapalli@ti.com>,
+ Roger Quadros <rogerq@kernel.org>, Tero Kristo <kristo@kernel.org>,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux@ew.tq-group.com, Andrew Lunn
+ <andrew@lunn.ch>
+Date: Wed, 16 Apr 2025 09:48:12 +0200
+In-Reply-To: <f3acd53796a44576408a2a14aa5baaed@perches.com>
+References: <cover.1744710099.git.matthias.schiffer@ew.tq-group.com>
+	 <16a08c72ec6cf68bbe55b82d6fb2f12879941f16.1744710099.git.matthias.schiffer@ew.tq-group.com>
+	 <f3acd53796a44576408a2a14aa5baaed@perches.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.3-0ubuntu1 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: (subset) [PATCH v2 5/5] ARM: dts: vt8500: use correct ohci/ehci
- node names
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- linux-arm-kernel@lists.infradead.org,
- Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: Alexey Charkov <alchark@gmail.com>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org
-References: <20250330193833.21970-7-wsa+renesas@sang-engineering.com>
- <20250330193833.21970-12-wsa+renesas@sang-engineering.com>
- <174478928969.20468.13803674314386256291.b4-ty@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <174478928969.20468.13803674314386256291.b4-ty@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_004335_083344_43A5C942 
-X-CRM114-Status: UNSURE (   8.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250416_004823_304350_F77C214E 
+X-CRM114-Status: GOOD (  16.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,21 +108,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/04/2025 09:41, Krzysztof Kozlowski wrote:
-> 
-> On Sun, 30 Mar 2025 21:38:36 +0200, Wolfram Sang wrote:
->> They should be named "usb@".
->>
->>
-> 
-> Applied, thanks!
-> 
-> [5/5] ARM: dts: vt8500: use correct ohci/ehci node names
->       https://git.kernel.org/krzk/linux-dt/c/b112d9ffaa65635ec38dfa18661f6d8a358c275c
-I assume the rest will be picked up by their maintainers, but if after
-some time (+2 more weeks?) there is no update, you can ping me so I will
-grab these as well.
+On Tue, 2025-04-15 at 09:11 -0700, Joe Perches wrote:
+>=20
+> On 2025-04-15 03:18, Matthias Schiffer wrote:
+> > Historially, the RGMII PHY modes specified in Device Trees have been
+> > used inconsistently, often referring to the usage of delays on the PHY
+> > side rather than describing the board; many drivers still implement=20
+> > this
+> > incorrectly.
+> >=20
+> > Require a comment in Devices Trees using these modes (usually=20
+> > mentioning
+> > that the delay is relalized
+>=20
+> realized
+>=20
+> > diff --git a/scripts/checkpatch.pl b/scripts/checkpatch.pl
+> > index 784912f570e9d..57fcbd4b63ede 100755
+> > --- a/scripts/checkpatch.pl
+> > +++ b/scripts/checkpatch.pl
+> > @@ -3735,6 +3735,17 @@ sub process {
+> >  			}
+> >  		}
+> >=20
+> > +# Check for RGMII phy-mode with delay on PCB
+> > +		if ($realfile =3D~ /\.dtsi?$/ && $line =3D~=20
+> > /^\+\s*(phy-mode|phy-connection-type)\s*=3D\s*"/ &&
+> > +		    !ctx_has_comment($first_line, $linenr)) {
+>=20
+> Not sure where $first_line comes from and unsure if this works on=20
+> patches rather than complete files.
+>=20
+> Does it?
 
-Best regards,
-Krzysztof
+Yes, it works both with patches and full files. I'm using ctx_has_comment()=
+ the
+same way existing checks do - I think $first_line refers to the start of th=
+e
+current context for patch files. I have also verified that it only matches =
+on
+comments directly above the phy-mode line in question.
+
+Best,
+Matthias
+
+
+
+--=20
+TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Germ=
+any
+Amtsgericht M=C3=BCnchen, HRB 105018
+Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan Sch=
+neider
+https://www.tq-group.com/
 
