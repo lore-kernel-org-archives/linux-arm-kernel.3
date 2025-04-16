@@ -4,57 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E99A3C369BD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:33:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9DD0C369BD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:34:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZGJOBV2NCbibTwnn6S0LQ3XdHwwjhkuTmDxeIQQsE7Q=; b=YYqdOT4QVUdiyYpEgCPi7QpEJ6
-	F3mYRUFJNDc7kwIRptzkhH+8/shlHl3zX/vgF4tSHjn77XpmARu6aDrzdE18Vm6O9OqvBsq/2OFPW
-	b4ziFMhhCswboHFZFybdFYWTa2jPq+21grM2qwpPKClKAPdv2Bb5mg4KZ960utTe7Nlc/GtS4dJIB
-	oH48DkO/KTGo/np3eteOtRIfNYXsMxt1I1U/W4RteJGU9UbNO2o84AC9ejRWKhobpDs9vAnb+1GRO
-	/Bzlwy79x7tSvQ3TKZ2B0ihYEvTXUsk+KZ2pSvj/j/j15shZtPtTSIh/5llTExYFEhlO0nuT+ls92
-	B1fksXZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lptEr5MBJmgPAfYPVZGY9BBR0lfBMliOEOgF6E1DbtY=; b=BMn4kK3EAZvR4jC/45ak723p0S
+	z32/fMH8Yv6jxhBjJ8USu4OXoA0DLtBXvaNaYche5qn/ctQPfDsZ65L9wd3ufKtGHeTTxGfRid9tl
+	R1XKxZ2lfikkh8lDepU8L79RZR9IMkZ4qnu13/jAxj42i9vfUZYxkNZZj33CYo0DXebUFF5PuU+w6
+	yQlxeLr8C8JeSGtgoVw8nPN71r+AwhzuPfHm/eWP+tWwwfMu4Xu6xluo3YUfIvdPiOYifkPa+6H1y
+	PEg8gW8zJsOBOeY1hhR5O1Il+ucok8ParmmfzCyONgyGapjP2wIM9pOSdXdyf9gpZj0A+A5ud+WzP
+	6JelItgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u505L-00000009Cue-2sUO;
-	Wed, 16 Apr 2025 10:33:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4zjt-000000095cc-1r0r
+	id 1u505h-00000009DJO-0LgO;
+	Wed, 16 Apr 2025 10:34:01 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u4zuA-000000096vq-0Kvd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 10:11:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3DA5D152B;
-	Wed, 16 Apr 2025 03:11:23 -0700 (PDT)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 867EE3F694;
-	Wed, 16 Apr 2025 03:11:23 -0700 (PDT)
-Date: Wed, 16 Apr 2025 11:11:18 +0100
-From: Andre Przywara <andre.przywara@arm.com>
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: Chen-Yu Tsai <wens@csie.org>, Rob Herring <robh@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Samuel Holland <samuel@sholland.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>, <linux-sunxi@lists.linux.dev>,
- <devicetree@vger.kernel.org>
-Subject: Re: [PATCH 1/1] arm64: dts: allwinner: correct the model name for
- Radxa Cubie A5E
-Message-ID: <20250416111118.2afd8f89@donnerap.manchester.arm.com>
-In-Reply-To: <20250416100006.82920-1-amadeus@jmu.edu.cn>
-References: <20250416100006.82920-1-amadeus@jmu.edu.cn>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
-MIME-Version: 1.0
+	Wed, 16 Apr 2025 10:22:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6CA825C5CAA;
+	Wed, 16 Apr 2025 10:19:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C978C4CEE2;
+	Wed, 16 Apr 2025 10:22:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744798925;
+	bh=IQpMGOF83TYK+ICeBAr/Du4u99XVKcwdq7lFyw1+9XI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=jPcfby3XXuhu8ih8BvdhdweEIfDqRjX6JU2S1GrPie/yEfEd8QXf2gzSzBrjQ9OpU
+	 F3WjYvWjYQOZpQk2VZcl0a46lKEc4CknmCRUPQgyfL32ZSdDpmIT6mvDJ+KoIxtgFU
+	 KuphqcTvGrzE1rbMqRgwCHeq+HzabXwTjlUZ5Ridu63En+pT5dh4MpBgCwuPNGtiyg
+	 MqQCcfW8O36bRM84zIOwM7bohRG3ba7QS8bMmSguHww+XetKBO2QrzPMOVMlXOOJIN
+	 Eb3fdWrnI1UDll2e/JkLJ93CY+f6ijU2x8eIwT/4dsYviYzDDoFaI1ImPaE99sDDn8
+	 Ljjcms6OOd91A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1u4zu6-0060vo-LT;
+	Wed, 16 Apr 2025 11:22:02 +0100
+Date: Wed, 16 Apr 2025 11:22:01 +0100
+Message-ID: <86v7r4jtiu.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Viresh Kumar <viresh.kumar@linaro.org>
+Cc: rafael@kernel.org,
+	Chenyuan Yang <chenyuan0y@gmail.com>,
+	sven@svenpeter.dev,
+	j@jannau.net,
+	alyssa@rosenzweig.io,
+	neal@gompa.dev,
+	marcan@marcan.st,
+	asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] cpufreq: apple-soc: Fix possible null pointer dereference
+In-Reply-To: <20250416073420.xrhwnzy22zf6yltm@vireshk-i7>
+References: <20250412160518.1824538-1-chenyuan0y@gmail.com>
+	<86bjt0l6q4.wl-maz@kernel.org>
+	<20250416073420.xrhwnzy22zf6yltm@vireshk-i7>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: viresh.kumar@linaro.org, rafael@kernel.org, chenyuan0y@gmail.com, sven@svenpeter.dev, j@jannau.net, alyssa@rosenzweig.io, neal@gompa.dev, marcan@marcan.st, asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_031129_531751_3CE689C7 
-X-CRM114-Status: GOOD (  16.27  )
+X-CRM114-CacheID: sfid-20250416_032206_554293_A472C4A2 
+X-CRM114-Status: GOOD (  30.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,39 +94,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 16 Apr 2025 18:00:06 +0800
-Chukun Pan <amadeus@jmu.edu.cn> wrote:
-
-> According to https://radxa.com/products/cubie/a5e,
-> the name of this board should be "Radxa Cubie A5E".
-> This is also consistent with the dt-bindings.
+On Wed, 16 Apr 2025 08:34:20 +0100,
+Viresh Kumar <viresh.kumar@linaro.org> wrote:
 > 
-> Fixes: 80e0fb4e491b ("arm64: dts: allwinner: a523: add Radxa A5E support")
-> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
-
-Indeed, thanks for sending a patch!
-
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-
-Cheers,
-Andre
-
-> ---
->  arch/arm64/boot/dts/allwinner/sun55i-a527-radxa-a5e.dts | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> On 13-04-25, 11:02, Marc Zyngier wrote:
+> > Irrespective of this, it would be good to describe under which
+> > circumstances this can occur, because I can't see *how* this can
+> > trigger. The policy is directly provided by the core code and provide
+> > its association with a cpu, and is never NULL at the point of init.
+> > 
+> > And if it can trigger, why only fix this one particular case?
+> > Dereferences of policy are all over the map, and would be just as
+> > wrong.
+> > 
+> > So while this is not wrong, I don't think this serves any real
+> > purpose.
 > 
-> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a527-radxa-a5e.dts b/arch/arm64/boot/dts/allwinner/sun55i-a527-radxa-a5e.dts
-> index 912e1bda974c..03c9a9ef5adc 100644
-> --- a/arch/arm64/boot/dts/allwinner/sun55i-a527-radxa-a5e.dts
-> +++ b/arch/arm64/boot/dts/allwinner/sun55i-a527-radxa-a5e.dts
-> @@ -8,7 +8,7 @@
->  #include <dt-bindings/gpio/gpio.h>
->  
->  / {
-> -	model = "Radxa A5E";
-> +	model = "Radxa Cubie A5E";
->  	compatible = "radxa,cubie-a5e", "allwinner,sun55i-a527";
->  
->  	aliases {
+> I have applied such patches in the past, considering the same as good
+> practice. But I do understand your inputs.
+> 
+> And so I tried to see if there is actually a way to trigger this.
+> 
+> - Platform with two cpufreq policies (freq domains) with one CPU in
+>   each of them.
+> - Boot the kernel, policies will initialize for both the domains.
+> - Hotplug out CPU1, that will remove the policy as well.
+> - Call cpufreq_quick_get(1), this will call the ->get() callback for
+>   CPU1, for which there is no policy available.
+> 
+> But this is the case only for drivers with `setpolicy` callback, this
+> shouldn't happen on apple-soc.
+> 
+> I am not sure now if we should just apply this patch to be safe, or
+> leave it as is. The cpufreq core may change in the future and call the
+> `get` callback for all drivers.
 
+If that's the case, I'd suggest adding a __must_check annotation to
+cpufreq_cpu_get_raw() and co. At least we'll get a warning on all
+missing uses, fix them in one go, and avoid the constant churn of more
+or less correct patches.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
