@@ -4,63 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED213C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:33:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44F4EC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:33:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jDmYxDzmISTnY0voqddLAiGtcO+o6kbFncIN4sWGtug=; b=Wd4jBNQLUc8s+MVeXybZqpvFYy
-	MNzT/yhhnImH8Ttbs7l0dN7EZPhMAvmyBcEFifLS06k9exVrbamEXWF3sArJrJVkYy5uuRQOWLuyJ
-	NoStrKzLQnWa+aCzkgawG5CFWlxp2qD2S79s3JZNnpZXRrZaugkn61IFNCyjr1hf7u6lTpiGvf8Xm
-	7qHtu7ZwSP3zzTI+yEAvrWGCln+SavVQTxUsKXJTNahMtxSHIZ7H26T2MVKHtcbK6r0Oxpz1xuZcc
-	y83FVbWb0FbnFSbHJj6IlVmBuQhirakbwCP3sCdNsLEXRhV4YBr7v5+mfjunJlT90UZ5BuTiP39UJ
-	d73P3vig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kX9SCcD5vFsKVtPD6ROHec7ImckWMkHUM4/C9zZQT/Y=; b=MJypphXVmUWj2Sfgg78vjVKOJA
+	sZoaQhpYEgMqqIeKUFuMFsP2RX+zbL/5tGlDkJ1OXycGR51kuqrwR+W0pyXjXoxKl14qflFrMdRMA
+	T/I7eobIK4smIEFuVdjbHGkFYy+yptzdpLkD3o9VGRob4WaIKJACJCew0uH9jJRVZnMjnN+PoXha+
+	BfSj+Tw+go+/JCpojTVcV2OY1/vMCkadp+yLIexrc1xf4TqvLEJkWwnTq67IuhNo29Qgm7mZCjJoC
+	+dhcxMMOjOC1NGwC3HHNtRZA9gGrabfJ/k4xWBnRfU7q4PdugsX1kmWHlgSLZAk3uKjTtA7L+Kwry
+	vhIHBjBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5059-00000009Ccu-1Hlb;
-	Wed, 16 Apr 2025 10:33:27 +0000
-Received: from mail-m49198.qiye.163.com ([45.254.49.198])
+	id 1u505F-00000009Cms-3Ijo;
+	Wed, 16 Apr 2025 10:33:33 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4zZC-000000094LM-3oaZ
+	id 1u4ziE-000000095LE-1cpP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 10:00:29 +0000
-Received: from localhost.localdomain (unknown [119.122.214.249])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 1215c4861;
-	Wed, 16 Apr 2025 18:00:10 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: Chen-Yu Tsai <wens@csie.org>
-Cc: Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Samuel Holland <samuel@sholland.org>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	Chukun Pan <amadeus@jmu.edu.cn>
-Subject: [PATCH 1/1] arm64: dts: allwinner: correct the model name for Radxa Cubie A5E
-Date: Wed, 16 Apr 2025 18:00:06 +0800
-Message-Id: <20250416100006.82920-1-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.25.1
+	Wed, 16 Apr 2025 10:09:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 951555C5B9B;
+	Wed, 16 Apr 2025 10:07:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A9D0C4CEE2;
+	Wed, 16 Apr 2025 10:09:43 +0000 (UTC)
+Date: Wed, 16 Apr 2025 11:09:41 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Ross Stutterheim <ross.stutterheim@garmin.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Russell King <linux@armlinux.org.uk>,
+	Mike Rapoport <rppt@linux.ibm.com>, ross.sweng@gmail.com,
+	Linus Walleij <linus.walleij@linaro.org>
+Subject: Re: [PATCH v2] arm/memremap: fix arch_memremap_can_ram_remap()
+Message-ID: <Z_-B5fAhZzShX34I@arm.com>
+References: <20250414133219.107455-1-ross.stutterheim@garmin.com>
+ <20250414142140.131756-1-ross.stutterheim@garmin.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUtXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkZHkkfVh0fS05DTUxPGkhCH1YeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlKSkJVSklJVUlKT1VJT0JZV1kWGg8SFR0UWUFZS1VLVUtVS1kG
-X-HM-Tid: 0a963e0ab3c903a2kunm1215c4861
-X-HM-MType: 10
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Njo6Sgw4DzICGhM0OTkPDiwo
-	KjdPCkNVSlVKTE9PTEJMTUpJSUpJVTMWGhIXVRoWGh8eDgg7ERYOVR4fDlUYFUVZV1kSC1lBWUpK
-	QlVKSUlVSUpPVUlPQllXWQgBWUFKTEpJNwY+
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250414142140.131756-1-ross.stutterheim@garmin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_030027_129927_5B2C9388 
-X-CRM114-Status: UNSURE (   9.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250416_030946_485077_A7C660C9 
+X-CRM114-Status: GOOD (  21.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,30 +64,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-According to https://radxa.com/products/cubie/a5e,
-the name of this board should be "Radxa Cubie A5E".
-This is also consistent with the dt-bindings.
+On Mon, Apr 14, 2025 at 09:21:40AM -0500, Ross Stutterheim wrote:
+> commit 260364d112bc ("arm[64]/memremap: don't abuse pfn_valid() to ensure
+> presence of linear map") added the definition of
+> arch_memremap_can_ram_remap() for arm[64] specific filtering of what pages
+> can be used from the linear mapping. memblock_is_map_memory() was called
+> with the pfn of the address given to arch_memremap_can_ram_remap();
+> however, memblock_is_map_memory() expects to be given an address for arm,
+> not a pfn.
+> 
+> This results in calls to memremap() returning a newly mapped area when
+> it should return an address in the existing linear mapping.
+> 
+> Fix this by removing the address to pfn translation and pass the
+> address directly.
+> 
+> Fixes: 260364d112bc ("arm[64]/memremap: don't abuse pfn_valid() to ensure presence of linear map")
+> Signed-off-by: Ross Stutterheim <ross.stutterheim@garmin.com>
 
-Fixes: 80e0fb4e491b ("arm64: dts: allwinner: a523: add Radxa A5E support")
-Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
----
- arch/arm64/boot/dts/allwinner/sun55i-a527-radxa-a5e.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+I think you could also add:
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a527-radxa-a5e.dts b/arch/arm64/boot/dts/allwinner/sun55i-a527-radxa-a5e.dts
-index 912e1bda974c..03c9a9ef5adc 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-a527-radxa-a5e.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-a527-radxa-a5e.dts
-@@ -8,7 +8,7 @@
- #include <dt-bindings/gpio/gpio.h>
- 
- / {
--	model = "Radxa A5E";
-+	model = "Radxa Cubie A5E";
- 	compatible = "radxa,cubie-a5e", "allwinner,sun55i-a527";
- 
- 	aliases {
+Cc: <stable@vger.kernel.org>
+
+> ---
+>  arch/arm/mm/ioremap.c | 4 +---
+>  1 file changed, 1 insertion(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm/mm/ioremap.c b/arch/arm/mm/ioremap.c
+> index 748698e91a4b..27e64f782cb3 100644
+> --- a/arch/arm/mm/ioremap.c
+> +++ b/arch/arm/mm/ioremap.c
+> @@ -515,7 +515,5 @@ void __init early_ioremap_init(void)
+>  bool arch_memremap_can_ram_remap(resource_size_t offset, size_t size,
+>  				 unsigned long flags)
+>  {
+> -	unsigned long pfn = PHYS_PFN(offset);
+> -
+> -	return memblock_is_map_memory(pfn);
+> +	return memblock_is_map_memory(offset);
+>  }
+
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+
+Not sure how Russell picks patches up these days (I used to send them to
+the patch system -
+https://www.arm.linux.org.uk/developer/patches/info.php).
+
+It might be simpler with git send-email (that's the alias I had):
+
+  git send-email --add-header="KernelVersion: $(git describe --abbrev=0)" --no-thread --suppress-cc=all --to="patches@armlinux.org.uk"
+
 -- 
-2.25.1
-
+Catalin
 
