@@ -4,103 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E338C369C5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:30:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3D3BC369BD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:30:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KAQfuUf83ZQ1MK8Cm8aM+n8tf7t8e38c8JTgiG4heGM=; b=HKxcyDTcgXkW9ccNR1BfQbdg4p
-	sRgNUhJOL67DgxAYiINyO3u25d+6kGBwYjwAOwkYZmeZ5Mq855vwKl4zVFKIq8z2bVrHIX9YOSU0X
-	SJ+j5WN496Sed8e2Lhm3NCi75sYgrpuWd8i0NmhxwW1tW0yNHbJdlVeIrlUyDJ5D0KpmBbDIEe5QW
-	E0eSnq/21JD1JwScdjcUqdQP9B/x5HxMjMZU6ao8yljM9F0uY1cPSWRshbfbMeBmIv99PLzhDzewe
-	MqQ5VB6VuyPCdVsWhX7BlXjn/yBxWVeWsZw6e7qxf5p68ghP2jSJ1QlHylJtFN8klFNibkgyMQ20O
-	ShU5h2vA==;
+	bh=EnwGdEG5qfpvTGMebNhGg1wtFGs1UvPt05cM09AHdDU=; b=EbiWv7rer7nlZ7iNGjqb3Uru1E
+	4tL+gBxanXWgbZ3OX/IIsSfIMpOo1eQmO8LvPyCdYJ/7dtQ0ooXTAUWpo7kogx1uM9+6A0UNeoSHt
+	mHpbUKOmE6MbSiZ3y1K/qcjd3eeeC6KtiKjx5nth+u7tFKdyNO83ki0Jlyj5UsCyk2Q1BRvBHNmGc
+	NGgTKNH+OozjPO6AoDFBgnEwFLL1LfW4+JeHMibmRsEofZVxkGfMUScOYpXyYKBw2ZvSpetqQNVRq
+	/C0mxRM04SvHQg7zohylDWLlOIji2qZNsDYmsv7Uwy4amBvLbN0ohQQumU4OdXop+dOxBpM7zG6/S
+	o4mmTeYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u502T-0000000987N-1QKl;
-	Wed, 16 Apr 2025 10:30:41 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	id 1u502K-0000000981G-0Qj5;
+	Wed, 16 Apr 2025 10:30:32 +0000
+Received: from mail-db8eur05on20616.outbound.protection.outlook.com ([2a01:111:f403:2614::616] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4y2S-00000008nfi-06ln
+	id 1u4xvH-00000008lcs-3Fxd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 08:22:33 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-54af20849bbso7998895e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 01:22:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744791750; x=1745396550; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=KAQfuUf83ZQ1MK8Cm8aM+n8tf7t8e38c8JTgiG4heGM=;
-        b=Tnfnhlsn9h0aLk2p7s6eEKy43RGPFPL+/35W5H7LIhcSlsvX7j+ACA625Dh8m0lda3
-         Nh1lISIx7RPbfr9f0gXhUh1XbVHzwReJma5ZfsJ/p2lzjS6vVSBhUxhkxp26SCuIz85I
-         UXlgrE+gs+mx5iozS/CSWnUHaIn5OiVn45IX9+aXFW5pA/3W0aBw15MAu/GpYPE65b5I
-         +qcfpG2SvkcrjYIJnjDfg1EyYX0zncTuB+wOrjvzzSmXQJ+EZhLAesgN7dSYCl4MaARY
-         0ZL7a5KvUtFYhyIXx+E9HBzwFPU3BxOe1YlB9vCndohqhrxmrg5hLzELewj9x872F1u8
-         HfCw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744791750; x=1745396550;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=KAQfuUf83ZQ1MK8Cm8aM+n8tf7t8e38c8JTgiG4heGM=;
-        b=hxkFNBmcfBVBNbHKgKgnWE85a31AXp7caooUdPCcbKgSzdQqSusUPTjYnSOZtVY2rw
-         YB23fpVo8L7gD7K6hRx4YEP3ENhjdp/cMWe8JcQknRXoXUH1ieiJGv/kVh00pbAw3Xic
-         W6ItHi3tjrYEW/WXuQ7SjJ816oZUyVoQxDSJSYdTZ9vJHM7dX2kkRlvHSdGn20wy+PgL
-         vC/YFogjIOKxaf+X2AzSqwnPdo99d4pro8Cd2iYtYl8S95/dzaV9LCV9CAOya2VfYagA
-         qVRKOU02m8gsU71CLgtLATfiVlfQ9LN6IF/MZCFpkYO/BiJ8pn+JwVa9Df07RQqcQFEj
-         FWhg==
-X-Gm-Message-State: AOJu0YzSaWbpj+KPovnYnP5pobTH4Hkqr+KaIo5ed76YllltKql+perp
-	JBiFpe6h7LI6VHh/Tjukp1cPXBnchEZwzxNp8PEeX1YFuMvVx8l0
-X-Gm-Gg: ASbGnctTBfkJEhb4EqxxJCmJFKE9l72MyePrMXsAGQ8BbzICHe7EQiJMeNycVz4aocM
-	AnMY7unCA5/JwxqlaZ1scOr2l+brLeT5ZSYTRT6vVs3UNJtP4DUWQpW8eWPeeFjZDXjQibyqNkC
-	rDtz+dQ8fOIr/BzsYyP7bmSL9k5YNqWiArkp7AUWMJA+xGlv4UBwxfJPIi3UrQmzxotemHgWcdF
-	5lSqRdAy4z7gipKT2ZElHI07hb1UuUmcSgWQl99ArJfNk1gb1yWKEFZaNJkRmqVpWWaM312ugJH
-	OaE8NHHzbukF1AVumIj690jzRFg5ZvLDxzF8R5P7TXKbHu7kwbQj
-X-Google-Smtp-Source: AGHT+IHptCVJ3TcfVK+g8FtWiw6bqjgdng7HMYdACiNudswsAqCBHy7UbnLsHd9iDozfeXymfzbCSw==
-X-Received: by 2002:a05:6512:108d:b0:545:2fa9:8cf5 with SMTP id 2adb3069b0e04-54d64af4268mr299099e87.49.1744791749775;
-        Wed, 16 Apr 2025 01:22:29 -0700 (PDT)
-Received: from NB-GIGA003.letovo.school ([5.194.95.139])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30f465f7b20sm23025391fa.97.2025.04.16.01.22.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Apr 2025 01:22:29 -0700 (PDT)
-From: Alexey Charkov <alchark@gmail.com>
-Date: Wed, 16 Apr 2025 12:21:34 +0400
-Subject: [PATCH 09/13] ARM: dts: vt8500: Move memory nodes to board dts and
- fix addr/size
+	Wed, 16 Apr 2025 08:15:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sz9EBkWGzESzMwH1o8NkHBg09ynqd3zBQfoM4hrMHjwDgFvjsvhCaZlvSjDG6paSiMaZowaUFPs6Me00GWfAtAXc2hsO5tsfeNOUo+0j35obOW/D6OWFU0P4JjIRGcWwfYZJ2HLwXwgg3kmSWrLplgGNlywbyqn0qMBSSJSsmXhA2VyiVKtDw+hepxKknU3dt9M4DWNhMYqSAmThvfH32zIE/5/NgfpkMnFEpFF7I5pxHL3BPBReB4fPnSSto+64k0spZJ4l5cWtNuC84szSEdU3OAulI/ONt9gvwxs4C1efv+5lMRicU2KykOBrs6TXXBNU7cx8KXRuDHkMQsi2gw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EnwGdEG5qfpvTGMebNhGg1wtFGs1UvPt05cM09AHdDU=;
+ b=gQLZzCST7eAy/ew4mmWNypq7FLYiMDb3uSDlhqmL+ZaAzYPcxB/acEzO6fRnGyveb0xmEUZB6jLdFC9DwN3zYDyRjM8ltsSukr4KsD2xiRdY/5kN+GzfptacfsYH8DtcbPmPEvxgC0oclKoqTXdlZD4ZOzyRizDFPeka3g1M0455wh7ySz2yxNOt0IzwK22OfsU0gSlxeEyFRC9H+cBmYTUHnUGO5cl7GNX3wxKkcRxzNRuXlV/so+dyywFlnPB9a7YDy9L2llYKFDH3OXiJh+4J3V5ULGo4Nmnt2tYdVQtReYUpturXZlQOAqFGI9W+3YneGbgtAGJl90VCiIP9+Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EnwGdEG5qfpvTGMebNhGg1wtFGs1UvPt05cM09AHdDU=;
+ b=nMOn5gJxhdVGRz6aeTupblGHepwgOnBmWlwqnY3jYtt2BlJ+Ck6egMUl3Ue46zQChBdVjidSqTMSEPg4pKBJ1Ayy/wz0UA9JjLTi/vfEZaiRN6AtYxotD9LxKGqo5yIhDxq2ASB6oOY1wRHebw8lkoIoUG1RJMoVvijABZDORLpu/LAb3JD718HVducDNm80a/b03HJXwqkGafF4Z+md0z8RVKsne61UQpXuf6rmzsvbDPkWre7LGzInjqkSSfV95ePmhEtPJ4Lmnwnyz6wvmjgaWWwJ1eHVKKRXcnqfJm5LD7e0vXKeDEki7aSj68Be+mMf0u/Qu1m0zbKJaNF48A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8676.eurprd04.prod.outlook.com (2603:10a6:20b:42b::10)
+ by AM9PR04MB8716.eurprd04.prod.outlook.com (2603:10a6:20b:43f::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.22; Wed, 16 Apr
+ 2025 08:15:05 +0000
+Received: from AS8PR04MB8676.eurprd04.prod.outlook.com
+ ([fe80::28b2:de72:ad25:5d93]) by AS8PR04MB8676.eurprd04.prod.outlook.com
+ ([fe80::28b2:de72:ad25:5d93%4]) with mapi id 15.20.8632.030; Wed, 16 Apr 2025
+ 08:15:05 +0000
+From: Richard Zhu <hongxing.zhu@nxp.com>
+To: frank.li@nxp.com,
+	l.stach@pengutronix.de,
+	lpieralisi@kernel.org,
+	kw@linux.com,
+	manivannan.sadhasivam@linaro.org,
+	robh@kernel.org,
+	bhelgaas@google.com,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Richard Zhu <hongxing.zhu@nxp.com>,
+	Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH RESEND v6 5/7] PCI: imx6: Let i.MX95 PCIe compliance with 8GT/s Receiver Impedance ECN
+Date: Wed, 16 Apr 2025 16:13:12 +0800
+Message-Id: <20250416081314.3929794-6-hongxing.zhu@nxp.com>
+X-Mailer: git-send-email 2.37.1
+In-Reply-To: <20250416081314.3929794-1-hongxing.zhu@nxp.com>
+References: <20250416081314.3929794-1-hongxing.zhu@nxp.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI1PR02CA0030.apcprd02.prod.outlook.com
+ (2603:1096:4:1f4::8) To AS8PR04MB8676.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42b::10)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250416-wmt-updates-v1-9-f9af689cdfc2@gmail.com>
-References: <20250416-wmt-updates-v1-0-f9af689cdfc2@gmail.com>
-In-Reply-To: <20250416-wmt-updates-v1-0-f9af689cdfc2@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Ulf Hansson <ulf.hansson@linaro.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-mmc@vger.kernel.org, netdev@vger.kernel.org, 
- linux-pwm@vger.kernel.org, Alexey Charkov <alchark@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1744791712; l=5773;
- i=alchark@gmail.com; s=20250416; h=from:subject:message-id;
- bh=BmJUD5nwuKvbGTiRZP1tJM+KAwHk7jBLkGQf5lDJmTw=;
- b=B2fRvaOMftmj6JqZFXsv8NqfER23Z4+7JRZ0onR49K8P7sVtgran7RY1mUTl9T4YzngyYido/
- kkWuByJssLDCrVaUq082RnJYMgWkWQmC0+kspWxYA7p5fGHYZ/SlhTT
-X-Developer-Key: i=alchark@gmail.com; a=ed25519;
- pk=ltKbQzKLTJPiDgPtcHxdo+dzFthCCMtC3V9qf7+0rkc=
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8676:EE_|AM9PR04MB8716:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3339cd12-9828-4fcc-dd37-08dd7cbecb0d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|1800799024|366016|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?XBz1BNiwbYsrIrqHBY+dfCj+wz9GO5MM1qgaVqABjoNcKHLVtefpV3/PYddu?=
+ =?us-ascii?Q?OD3JHiMsGd0L1auK+0p9pucoLJ0CWIqi2EbQPatkoo2c0FQkO1OR3Doe/w3I?=
+ =?us-ascii?Q?AFqPa4HsgRiRdGtwq4Dc5GLZcfHZsIv4WOTpVJaTbDx236UViim5nDndO9XH?=
+ =?us-ascii?Q?rHP6f95YY60qS2xrTORsJyvQB0yfP5zpYRzYPaPXA7cp9RGV7pJKWJJpU1jp?=
+ =?us-ascii?Q?ZKL8XuwRcldDSzfC0GovF9pdJiuH7qrQVutTJC+BwoXmCfdBmq8bv+gCKhrL?=
+ =?us-ascii?Q?qAMVthWSLzyZSshwyV9IFGjzNSWFOCbnI/ctOgWOt+KC75ZZcRGlhBs6Vuco?=
+ =?us-ascii?Q?44z7Pa8m5BFDkZVkM1YOpQIMZaLmANTSG7bRifphUfxTy0a20uvF/M6Mm6WL?=
+ =?us-ascii?Q?4XhxoV0nYV9EZppGhQGUwSEQH3t3Xs63oBPpVAOtQZVK/bvMzaiyhWYqQ0WP?=
+ =?us-ascii?Q?Kna3BnUvAbs5iqd2iiveDPPgO7/9IzgCX3zR00dibXszHQbkiJmPvldmj3Da?=
+ =?us-ascii?Q?sKyXFlBk8TkYfcllzG50eAhwnvJYUjiAkP+HUuziotqJpurCZbAdSnGoj+ua?=
+ =?us-ascii?Q?6Q/TlDzakPuFOL9oqnNGu9jyJg/c8z9carlJAx1wArZTcv1xprl1MNisU+rS?=
+ =?us-ascii?Q?XAlvAjaZB1xkmAhesNwgRU3vh8iNhnNYa/LVedgU7D0Dvxe900z3/45SH8pV?=
+ =?us-ascii?Q?LKVRqAztrshtRtG06ywTPAFDwyUhhE7AAx885aD/AW8HWD6AVPRHlNrD9xla?=
+ =?us-ascii?Q?aiDTY4PnPqQjPArZPHUJrijrItdNazkr0KTxG2/P4SMHZWtvXTevdlwRp6pp?=
+ =?us-ascii?Q?3A05Pj8v/4lFkqRXeHHjB36dVe+i6064h2PaFbN8YoWjwZrLrkl8zobEB0KF?=
+ =?us-ascii?Q?wwGPPsdrzUIZNVQuwHg/C7xxZI0FrbmVyYOZ6VCb6yvGrRwr1r1lxsCvUFXV?=
+ =?us-ascii?Q?numscWSVC3Wqs0ahLdFNfbJPVC1zeMUrE1PVPNp2tHXbCUJoFmWpnG53KIrl?=
+ =?us-ascii?Q?XUPEwplrTMSQJ2QZN00NN/Ja2IeLz927f1fIGx9p/upecN5W4Ed3sC4L4Dwd?=
+ =?us-ascii?Q?DQxGpe02d9yh9pKChBceQ4YQktrIC/gbpL5OIxaQaR3y2PUTk+Py16Cmw4HU?=
+ =?us-ascii?Q?z7uXiydShwZMnkmOJmbeFFXrzNPI0/hwzCweSZOr96mlO9x5GEEPRG5Lnt9H?=
+ =?us-ascii?Q?OMapvHzckK4AjW4Gseg1B9mLOgjWSweyCV6pJm9oIpSghlFhI3JaWRWgPkND?=
+ =?us-ascii?Q?Oe1xOMEM/r0dNaQ8j0EMeJkUUqDkZGjKcp24BiWMr3k0wpwFfRl8hlSLRGt+?=
+ =?us-ascii?Q?jNUEEbPvYuMSR2HcLgZ2OctwUmcZbitm1xD0eo7obRxks4FHXO0lZbNaOe/C?=
+ =?us-ascii?Q?PODqG5yNVH/xLBdgQtNDw9TGy3qvDmAHbvRU+Wx5F9pqORqJZj/qo/b/5S4E?=
+ =?us-ascii?Q?blB+gyfLaaJmWEjMVGPLJgG4rZtI66jkXQbQL/9zZbn335p3XZ5pnXSDU5qj?=
+ =?us-ascii?Q?vQbTKG8MYIWnewI=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8676.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(1800799024)(366016)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?uGpVr/rsBm814y3+L8l76k1uHWe+fv/bTBUkDV43eGSf6zTBRJyNBOcKqN0R?=
+ =?us-ascii?Q?9fmPw6+OcPqY4QnFwnh6v8krvXXn3jgPQ4ZAWpV+5RVpI5V5l6Sfc/hj9HjT?=
+ =?us-ascii?Q?drJX1U0FZ5RT6XRSRHW8W+Ml7VKjF7lYY1veu9TZIh1hthy6Ad0doIRnJYg8?=
+ =?us-ascii?Q?GGn+6+tWGPyrApmKYKM2MnDBV5CRhgJ1KEUYTmTgseNm127rH3ErW06lVAvO?=
+ =?us-ascii?Q?ZWFYU6Kc+wNEosgBNXRU0yRh1O0R5AY2QpmViMy8IZxSh7XHSsPM2agWeMJO?=
+ =?us-ascii?Q?8QfgOhhmhFO8/t7ac/uSw4R6faZptnmM15XlGkOtJL9al+iDBwZAgi7ojzfj?=
+ =?us-ascii?Q?5k2XcubYDua1hKIOqMfwlF6HRP7PkbXY+ImCj/cGaua8Td5uMvt9ndZ6urVE?=
+ =?us-ascii?Q?UaeBrz+Mab2M/egIhDoiOsygbFqDCigB20IzhXrg8fVHqhueTKmYwynYld1B?=
+ =?us-ascii?Q?c9DZzf/2pS83UxDzDRHv8bJnHhHu5LhDIwor3tlN508+kn9ubCo/lzlQitu+?=
+ =?us-ascii?Q?AQYLpxzB5na/aqTJKZ1qfaDDP5SqR2DkXZlIyv6ZzoeSvWDN2bKBVcnZ1mud?=
+ =?us-ascii?Q?lqJVicaw1P8TqwxGctO3S56+OkiyhmQiTdt1SjUl9ir3BPbLbAvImH8ugDba?=
+ =?us-ascii?Q?r0M7NXkgcx9Fzl8z622bQbElFjLkaD41pQoNj7GupEEzGEPMAZ5I8gyo5nMo?=
+ =?us-ascii?Q?PN3Sj+6XyDoOqJNAMzlDq3zlhtgjBs2fW1mgwfNyBC9p2kMGA5Y/uzV4F0ZZ?=
+ =?us-ascii?Q?CgcZo0ttIxksIQruF0RkS/H1Bu7S8eYAtd8QRE8Z7Ez5MHXVB+I3XNFvq0QO?=
+ =?us-ascii?Q?CqNN0eC0vkDnycyDVN2GAZStq9vODpk/2ahHv6w8P6vqXmuLBisM/SFz0DL9?=
+ =?us-ascii?Q?trf7aqpfrgRNFQ5wcqXk+tAGCpniWAVcjJmzy6LFbCfHAah073b8h/ctV0Bx?=
+ =?us-ascii?Q?6J5yDR74Ay96/bEtUBnOX/8Q0AdE3iLouNKo7eSptWGdDlTKeqVwL8ckH+3A?=
+ =?us-ascii?Q?XtNuym4WWoBYmvT00ZoKIWKoJnzmMckp+8sYPDjiNsx3rg64lmdJ8qxwaCG6?=
+ =?us-ascii?Q?GOdYlufAui/zHKR+aMemnvkLvDcPyDG53uZXykbhe9W4U4GOpaZJfLdT5G9T?=
+ =?us-ascii?Q?l0bsNf95Thtt90tQjC01a5I14pImLhMZwX/TZVaJ+0/0w/tMh3cJ926M8PqO?=
+ =?us-ascii?Q?F5g303B4VN9hBRy/Pz7LS1AETyeW7xEnQr2eiWlJYnIEtFlnPMLcYoZROaZ7?=
+ =?us-ascii?Q?4X9r3jyFoRc4NT3UIRq2mPsZOxnF0RDSNgBqEHMHf6WWMVc0co2H9pLBMp1X?=
+ =?us-ascii?Q?e32tqDkwUJRLIOj/5assGLIiW5ueo3b4OJvZQdb6SVjjHqULDYypZneVi0cf?=
+ =?us-ascii?Q?Ns1ZdHti1WiFaHVOpG6XPw3HS7L/W2ntPb6osdrqeGFhPNJOUZExd6iTQsCt?=
+ =?us-ascii?Q?iruwmrP5HOLRuVfiDYXR40RCm9jvQ4wjBPy5weJmXAlXf+LjxwHot+an64U/?=
+ =?us-ascii?Q?LKDNkzh2vqKU5QRwOW6ZLutL1Z0vocC3DwFNXFT93cbNK0iFutgRHJI7qmzN?=
+ =?us-ascii?Q?uvqK2TwZM+nbbSUizd9365Qe/dUfg/jG6tRL9VYT?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3339cd12-9828-4fcc-dd37-08dd7cbecb0d
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8676.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Apr 2025 08:15:05.0516
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Kd3P4z8vOLP7XCXX7LbgNB/OQuIA7B1uEea5Foxx8qfyknIhiI1sdjyk4BLesJWUDiNn424yKgu5nFKyV4DwnA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8716
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_012232_068630_47F71118 
-X-CRM114-Status: GOOD (  12.87  )
+X-CRM114-CacheID: sfid-20250416_011507_810474_D688A448 
+X-CRM114-Status: GOOD (  14.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,192 +171,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-VIA/WonderMedia SoCs don't have on-chip memory, so their memory
-nodes are better placed in per-board dts rather than per-SoC dtsi.
+ERR051586: Compliance with 8GT/s Receiver Impedance ECN.
 
-Move them accordingly, and also add correct node addresses and
-sizes for each of the boards. Some boards were also available with
-more memory than included in this commit - those would need a
-separate DT or an appropriate kernel cmdline argument to reflect it,
-as the bootloader on these devices doesn't handle DT at all nor does
-it any runtime discovery of available memory size.
+The default value of GEN3_RELATED_OFF[GEN3_ZRXDC_NONCOMPL] is 1 which
+makes receiver non-compliant with the ZRX-DC parameter for 2.5 GT/s when
+operating at 8 GT/s or higher. It causes unnecessary timeout in L1.
 
-Signed-off-by: Alexey Charkov <alchark@gmail.com>
+Workaround: Program GEN3_RELATED_OFF[GEN3_ZRXDC_NONCOMPL] to 0.
+
+Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 ---
- arch/arm/boot/dts/vt8500/vt8500-bv07.dts    | 5 +++++
- arch/arm/boot/dts/vt8500/vt8500.dtsi        | 5 -----
- arch/arm/boot/dts/vt8500/wm8505-ref.dts     | 5 +++++
- arch/arm/boot/dts/vt8500/wm8505.dtsi        | 5 -----
- arch/arm/boot/dts/vt8500/wm8650-mid.dts     | 5 +++++
- arch/arm/boot/dts/vt8500/wm8650.dtsi        | 5 -----
- arch/arm/boot/dts/vt8500/wm8750-apc8750.dts | 5 +++++
- arch/arm/boot/dts/vt8500/wm8750.dtsi        | 5 -----
- arch/arm/boot/dts/vt8500/wm8850-w70v2.dts   | 5 +++++
- arch/arm/boot/dts/vt8500/wm8850.dtsi        | 5 -----
- 10 files changed, 25 insertions(+), 25 deletions(-)
+ drivers/pci/controller/dwc/pci-imx6.c | 31 +++++++++++++++++++++++++++
+ 1 file changed, 31 insertions(+)
 
-diff --git a/arch/arm/boot/dts/vt8500/vt8500-bv07.dts b/arch/arm/boot/dts/vt8500/vt8500-bv07.dts
-index 38a2da5e2c5d64477f04e1da9d98cb97be0d95e4..c8c07c2b4acf92e977704437de88550391c8679f 100644
---- a/arch/arm/boot/dts/vt8500/vt8500-bv07.dts
-+++ b/arch/arm/boot/dts/vt8500/vt8500-bv07.dts
-@@ -10,6 +10,11 @@
+diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+index 016b86add959..7dcc9d88740d 100644
+--- a/drivers/pci/controller/dwc/pci-imx6.c
++++ b/drivers/pci/controller/dwc/pci-imx6.c
+@@ -110,6 +110,7 @@ enum imx_pcie_variants {
+  */
+ #define IMX_PCIE_FLAG_BROKEN_SUSPEND		BIT(9)
+ #define IMX_PCIE_FLAG_HAS_LUT			BIT(10)
++#define IMX_PCIE_FLAG_8GT_ECN_ERR051586		BIT(11)
  
- / {
- 	model = "Benign BV07 Netbook";
+ #define imx_check_flag(pci, val)	(pci->drvdata->flags & val)
+ 
+@@ -1256,6 +1257,32 @@ static void imx_pcie_host_exit(struct dw_pcie_rp *pp)
+ 		regulator_disable(imx_pcie->vpcie);
+ }
+ 
++static void imx_pcie_host_post_init(struct dw_pcie_rp *pp)
++{
++	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
++	struct imx_pcie *imx_pcie = to_imx_pcie(pci);
++	u32 val;
 +
-+	memory@0 {
-+		device_type = "memory";
-+		reg = <0x0 0x8000000>;
-+	};
++	if (imx_pcie->drvdata->flags & IMX_PCIE_FLAG_8GT_ECN_ERR051586) {
++		/*
++		 * ERR051586: Compliance with 8GT/s Receiver Impedance ECN
++		 *
++		 * The default value of GEN3_RELATED_OFF[GEN3_ZRXDC_NONCOMPL]
++		 * is 1 which makes receiver non-compliant with the ZRX-DC
++		 * parameter for 2.5 GT/s when operating at 8 GT/s or higher.
++		 * It causes unnecessary timeout in L1.
++		 *
++		 * Workaround: Program GEN3_RELATED_OFF[GEN3_ZRXDC_NONCOMPL]
++		 * to 0.
++		 */
++		dw_pcie_dbi_ro_wr_en(pci);
++		val = dw_pcie_readl_dbi(pci, GEN3_RELATED_OFF);
++		val &= ~GEN3_RELATED_OFF_GEN3_ZRXDC_NONCOMPL;
++		dw_pcie_writel_dbi(pci, GEN3_RELATED_OFF, val);
++		dw_pcie_dbi_ro_wr_dis(pci);
++	}
++}
++
+ /*
+  * In old DWC implementations, PCIE_ATU_INHIBIT_PAYLOAD in iATU Ctrl2
+  * register is reserved, so the generic DWC implementation of sending the
+@@ -1281,6 +1308,7 @@ static const struct dw_pcie_host_ops imx_pcie_host_ops = {
+ static const struct dw_pcie_host_ops imx_pcie_host_dw_pme_ops = {
+ 	.init = imx_pcie_host_init,
+ 	.deinit = imx_pcie_host_exit,
++	.post_init = imx_pcie_host_post_init,
  };
  
- &fb {
-diff --git a/arch/arm/boot/dts/vt8500/vt8500.dtsi b/arch/arm/boot/dts/vt8500/vt8500.dtsi
-index 1138940ce16cb8603d196b6e935d54df53b9a229..143daf983d1d926c2c837c43002d1a86cff3866a 100644
---- a/arch/arm/boot/dts/vt8500/vt8500.dtsi
-+++ b/arch/arm/boot/dts/vt8500/vt8500.dtsi
-@@ -21,11 +21,6 @@ cpu@0 {
- 		};
- 	};
+ static const struct dw_pcie_ops dw_pcie_ops = {
+@@ -1392,6 +1420,7 @@ static int imx_add_pcie_ep(struct imx_pcie *imx_pcie,
+ 		dev_err(dev, "failed to initialize endpoint\n");
+ 		return ret;
+ 	}
++	imx_pcie_host_post_init(pp);
  
--	memory {
--		device_type = "memory";
--		reg = <0x0 0x0>;
--	};
--
- 	aliases {
- 		serial0 = &uart0;
- 		serial1 = &uart1;
-diff --git a/arch/arm/boot/dts/vt8500/wm8505-ref.dts b/arch/arm/boot/dts/vt8500/wm8505-ref.dts
-index 8ce9e2ef0a81097e7143a5392ee5b42bf8028ec1..d4ff99c700120fbf3401335168ed88b190335005 100644
---- a/arch/arm/boot/dts/vt8500/wm8505-ref.dts
-+++ b/arch/arm/boot/dts/vt8500/wm8505-ref.dts
-@@ -10,6 +10,11 @@
- 
- / {
- 	model = "Wondermedia WM8505 Netbook";
-+
-+	memory@0 {
-+		device_type = "memory";
-+		reg = <0x0 0x8000000>;
-+	};
- };
- 
- &fb {
-diff --git a/arch/arm/boot/dts/vt8500/wm8505.dtsi b/arch/arm/boot/dts/vt8500/wm8505.dtsi
-index fa76df2830c79a695753c85397d4e916592f6a51..69d2351a81dbc816efd19ffe3ba5ef80eaa4e9dc 100644
---- a/arch/arm/boot/dts/vt8500/wm8505.dtsi
-+++ b/arch/arm/boot/dts/vt8500/wm8505.dtsi
-@@ -21,11 +21,6 @@ cpu@0 {
- 		};
- 	};
- 
--	memory {
--		device_type = "memory";
--		reg = <0x0 0x0>;
--	};
--
-  	aliases {
- 		serial0 = &uart0;
- 		serial1 = &uart1;
-diff --git a/arch/arm/boot/dts/vt8500/wm8650-mid.dts b/arch/arm/boot/dts/vt8500/wm8650-mid.dts
-index 7977b6c1e8ebf215df210dee703e470b9159d329..bfc570e80073d5e6907978dfc5d2413e1ceb2983 100644
---- a/arch/arm/boot/dts/vt8500/wm8650-mid.dts
-+++ b/arch/arm/boot/dts/vt8500/wm8650-mid.dts
-@@ -10,6 +10,11 @@
- 
- / {
- 	model = "Wondermedia WM8650-MID Tablet";
-+
-+	memory@0 {
-+		device_type = "memory";
-+		reg = <0x0 0x10000000>;
-+	};
- };
- 
- &fb {
-diff --git a/arch/arm/boot/dts/vt8500/wm8650.dtsi b/arch/arm/boot/dts/vt8500/wm8650.dtsi
-index 5b6affda3b6b8d8be9f3100b36cb303d015f19b5..deebe9b933876bc1eb188f82ce8c1c17098d04a2 100644
---- a/arch/arm/boot/dts/vt8500/wm8650.dtsi
-+++ b/arch/arm/boot/dts/vt8500/wm8650.dtsi
-@@ -21,11 +21,6 @@ cpu@0 {
- 		};
- 	};
- 
--	memory {
--		device_type = "memory";
--		reg = <0x0 0x0>;
--	};
--
-  	aliases {
- 		serial0 = &uart0;
- 		serial1 = &uart1;
-diff --git a/arch/arm/boot/dts/vt8500/wm8750-apc8750.dts b/arch/arm/boot/dts/vt8500/wm8750-apc8750.dts
-index 136e812bc1e498d48c7fc61154bc66a48888b117..72d633bedff04401c40f4d3772fbcfe45e1c0e31 100644
---- a/arch/arm/boot/dts/vt8500/wm8750-apc8750.dts
-+++ b/arch/arm/boot/dts/vt8500/wm8750-apc8750.dts
-@@ -11,6 +11,11 @@
- 
- / {
- 	model = "VIA APC8750";
-+
-+	memory@0 {
-+		device_type = "memory";
-+		reg = <0x0 0x20000000>;
-+	};
- };
- 
- &pinctrl {
-diff --git a/arch/arm/boot/dts/vt8500/wm8750.dtsi b/arch/arm/boot/dts/vt8500/wm8750.dtsi
-index 14e1d4f7c093a8ae9cce5acfeba3755f6df93a24..bde825b59074eb74af4ab296895a3968e992aefe 100644
---- a/arch/arm/boot/dts/vt8500/wm8750.dtsi
-+++ b/arch/arm/boot/dts/vt8500/wm8750.dtsi
-@@ -21,11 +21,6 @@ cpu@0 {
- 		};
- 	};
- 
--	memory {
--		device_type = "memory";
--		reg = <0x0 0x0>;
--	};
--
- 	aliases {
- 		serial0 = &uart0;
- 		serial1 = &uart1;
-diff --git a/arch/arm/boot/dts/vt8500/wm8850-w70v2.dts b/arch/arm/boot/dts/vt8500/wm8850-w70v2.dts
-index 5d409323b10cb94a5694722de1e31cff5be390ce..eb16991a2cccf35da23c4a0a8ac2ad02665b2109 100644
---- a/arch/arm/boot/dts/vt8500/wm8850-w70v2.dts
-+++ b/arch/arm/boot/dts/vt8500/wm8850-w70v2.dts
-@@ -22,6 +22,11 @@ backlight {
- 		brightness-levels = <0 40 60 80 100 130 190 255>;
- 		default-brightness-level = <5>;
- 	};
-+
-+	memory@0 {
-+		device_type = "memory";
-+		reg = <0x0 0x20000000>;
-+	};
- };
- 
- &fb {
-diff --git a/arch/arm/boot/dts/vt8500/wm8850.dtsi b/arch/arm/boot/dts/vt8500/wm8850.dtsi
-index 3f4a514d65e2ac7658b73cc9c4f3cae1407265bc..e8385c03e04bf5644c86a85aeb41e1cc1eedb202 100644
---- a/arch/arm/boot/dts/vt8500/wm8850.dtsi
-+++ b/arch/arm/boot/dts/vt8500/wm8850.dtsi
-@@ -21,11 +21,6 @@ cpu@0 {
- 		};
- 	};
- 
--	memory {
--		device_type = "memory";
--		reg = <0x0 0x0>;
--	};
--
- 	aliases {
- 		serial0 = &uart0;
- 		serial1 = &uart1;
-
+ 	ret = dw_pcie_ep_init_registers(ep);
+ 	if (ret) {
+@@ -1789,6 +1818,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+ 		.variant = IMX95,
+ 		.flags = IMX_PCIE_FLAG_HAS_SERDES |
+ 			 IMX_PCIE_FLAG_HAS_LUT |
++			 IMX_PCIE_FLAG_8GT_ECN_ERR051586 |
+ 			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
+ 		.ltssm_off = IMX95_PE0_GEN_CTRL_3,
+ 		.ltssm_mask = IMX95_PCIE_LTSSM_EN,
+@@ -1842,6 +1872,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+ 	[IMX95_EP] = {
+ 		.variant = IMX95_EP,
+ 		.flags = IMX_PCIE_FLAG_HAS_SERDES |
++			 IMX_PCIE_FLAG_8GT_ECN_ERR051586 |
+ 			 IMX_PCIE_FLAG_SUPPORT_64BIT,
+ 		.ltssm_off = IMX95_PE0_GEN_CTRL_3,
+ 		.ltssm_mask = IMX95_PCIE_LTSSM_EN,
 -- 
-2.49.0
+2.37.1
 
 
