@@ -4,78 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7B01C369BA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 18:40:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D18E5C369C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 18:42:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8LL977dbkymvSQK4ivUClHaDB3bJ8D34+HYE6+9SqpM=; b=zeQHMDI5MNB12E8SMhYJQy4x0U
-	/7Q11mpmmfRz88TKFFwk63IzF4QR7V7yFNiXep8gA6lL/7+2LO38biFM0dwNx/C4BS9YCGLhYExKF
-	AnM46lV8eoJabjHr4swiqYEtRSxpJpBmbhES08089bL23moDyGyRGkvwfJxW+54sLWZs+j8IEtYNt
-	wZKSml/3a0EKtUUP8ZQHkadd7Je97SuDQ/GzYZ69VE9mWiX/BEwUesRhyX1JYzcoK/LsRPdi4ZrE2
-	GdCZnd2VUJuU0kiit+WpHZX4IJrNtQwpZtMS5Iucwxhow0jApj1SvyezIggFMURrmr11nmgsZnne8
-	b3zIv7fw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hf73Zqm591Z4cwB1QMdZKpjmrpXWTvATJ+WgcmCQVhs=; b=iBFEbFnd1a8xomd4vxU42Yh7tk
+	Ugyt+sPn1GrOZauXTtyHb7WA9O7khNA7SEL1SktjzhE1TNnGY25y8fE/pPN19LhkshNls0QSCfm+G
+	NqdY+aiHKEFVhH1f6rhr+/0/r57Mq511BE8g7s8i+qcdiMoQEFxFRIAjofD7JgNNvTJVI7r8RYkBc
+	K5ztuZ9qIw4zscBsr662Bzgzr87wPhJlLGKWXrnsi2VOfg8b0TYNa1nqT1vXv/QQalyNYtGo93Z3p
+	idTiWEQUUHVSuwO7OPBfro9E7+3izxB9njhhQCvper7hbq3M66aPH2YCtaU9m6UbQSNTeZK+jzSRg
+	xh1UFUrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u57gc-0000000AaYK-1C2l;
-	Wed, 16 Apr 2025 18:40:38 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1u57iR-0000000AazH-4BD3;
+	Wed, 16 Apr 2025 18:42:31 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u57ZC-0000000AZZA-2vOL
+	id 1u57gH-0000000AaUV-1gg8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 18:33:00 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53GIWl3M424996
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 16 Apr 2025 13:32:47 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744828367;
-	bh=8LL977dbkymvSQK4ivUClHaDB3bJ8D34+HYE6+9SqpM=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=lkHT60FWwEMF9Kfnk03FqA8UaYB3TT3DzazCRdTXJWlV1AxR8VI1YlN0GqydumRgH
-	 bSHNEMU7xw+wJrmyitE2XBQNd0TAYloI/I8JpI0OXOlRPfHRY+vL62TuOzOquK3scR
-	 L9t5ES8u5naQZM7H47b0zuZJOmTRtHkzVAtu3g0w=
-Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53GIWlwN009498
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 16 Apr 2025 13:32:47 -0500
-Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE104.ent.ti.com
- (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 16
- Apr 2025 13:32:47 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE108.ent.ti.com
- (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 16 Apr 2025 13:32:47 -0500
-Received: from [10.24.72.182] (jayesh-hp-z2-tower-g5-workstation.dhcp.ti.com [10.24.72.182])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53GIWhiW095159;
-	Wed, 16 Apr 2025 13:32:43 -0500
-Message-ID: <eb6c1dfc-11aa-421a-9b46-2fcaecb04435@ti.com>
-Date: Thu, 17 Apr 2025 00:02:42 +0530
+	Wed, 16 Apr 2025 18:40:18 +0000
+Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-ac29fd22163so1141393766b.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 11:40:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1744828815; x=1745433615; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=hf73Zqm591Z4cwB1QMdZKpjmrpXWTvATJ+WgcmCQVhs=;
+        b=FSocyMw8G/OMOj1weqARjc0igF0HnlSElNc3V2fkPRHU3iJX/MLzRYovxw5jKSFE8+
+         MxohbvsPi8g4v8gf61bD05/0cIaz3g8VbTEqzErFsLWt/18o9MdAIT2mrmG5sb96SS2c
+         pTRaig01rvUxpLEcCd/OlB+Saum6yVNjtY8w2JgLfaAe9BFv1/LpYBkTBvUSPzeZDPoy
+         sDhAqqOMSh9F475YJc5C5Xp7gr2TaX6NBZujtNvub1DDTTydovRcD1kTxU1n90m2iLaY
+         DY4ANFCcgJmYRYZ7fWZ/X5yh573jb6UGssks2Nz2DYg8jl2nr2lsjtk8GbTU0s9KZWfx
+         yQkA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744828815; x=1745433615;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hf73Zqm591Z4cwB1QMdZKpjmrpXWTvATJ+WgcmCQVhs=;
+        b=uCkjk8N+7vSjIs9MHKwe2N7lwfCLcf25CAfawnn7W8b1cAZJAKWLgt5TSgTdCOrRQT
+         cCq10D6jS7T4UnRCBWkszpeDFnV1fRuT58G4kExAf0RvbjxhHLr78Kdx9WYEPjjNzBS9
+         UlPEGYL6RgtgZLWSPS5LhNOhuNytMJYDHgx2HfcA2jQ4QVNL6yYmiTPazPxUvfTe+y4A
+         V6p9GO4eQVa2MC4WmLSzOHpHJail0CrWObx8OQfT0JaerzXt4v4McWFxtwIGiOGKUUhI
+         Vs2zoEH5u8zOGdUBgPG5BZv/DcSPjfADOiuwzTOwS3RwERsg7aQbx6N/YxTPMFSJGmST
+         O5bA==
+X-Forwarded-Encrypted: i=1; AJvYcCWtlK3Fhgxow35QsK5/GSo12rAzZtfpfRJ2VCnCQ/EyJWJHM17PsY8tWUor2XiES6QaxvxRd9kCR1NGNdCLI2w2@lists.infradead.org
+X-Gm-Message-State: AOJu0YxjRdR5MVyKUrIyMtk1xN5KPdt/AwHXkqWvrhxtr9caLwqgce55
+	c7CYfgHB5HgMTSggsHdzhxKMcF1fD5r4jizMJPJuPwzHbLnrT4Ccs62fv0kIvpU=
+X-Gm-Gg: ASbGnct+lLjtBESBgYG3HZx50cW5xOBfoiBK9bvGWrK2ZWZsGOq7s/zFbp8dy/WtD/a
+	C81P4vDcEy9en0xdJMoqvJ1PLMHGQcOp5xnbFAxzpjQp1vzjD206ADNWyCiAGiCewqcs6YHs4ao
+	nx+RzR/lQHjm0ukvpM/jXZu5IvX0xvh/AnRpdKwnYk1KYLhSPXjaVvwZT0CjcrUhGachzI9neoM
+	wdTU0VnDiPjF9X18JnyvoU86Ifv6gg8ojE9QBXexcqAglZRPUG+xtZOmRZEoWgw87akkNkjaIc0
+	3e1804kkyoHpgCuj6D0mzYSLcE4RlvgwCuUmVoJl7orUVknxEXbcs23LOhk0xx50T6w3MLY=
+X-Google-Smtp-Source: AGHT+IHvwwjkQBu7DihmtTvqsvfxr52Defd8zqRFD9EThPH0EkutvTV+muEgyvB55Eg0nTCHnjLeIA==
+X-Received: by 2002:a17:906:f5a9:b0:ac2:cf0b:b809 with SMTP id a640c23a62f3a-acb429ed4d2mr324522566b.31.1744828815585;
+        Wed, 16 Apr 2025 11:40:15 -0700 (PDT)
+Received: from localhost (93-44-188-26.ip98.fastwebnet.it. [93.44.188.26])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-acb3d34a5a8sm174672666b.183.2025.04.16.11.40.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 16 Apr 2025 11:40:15 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Wed, 16 Apr 2025 20:41:37 +0200
+To: Stefan Wahren <wahrenst@gmx.net>
+Cc: Andrea della Porta <andrea.porta@suse.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof Wilczynski <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-gpio@vger.kernel.org, Masahiro Yamada <masahiroy@kernel.org>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Andrew Lunn <andrew@lunn.ch>, Phil Elwell <phil@raspberrypi.com>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	kernel-list@raspberrypi.com
+Subject: Re: [PATCH v8 11/13] arm64: dts: bcm2712: Add external clock for RP1
+ chipset on Rpi5
+Message-ID: <Z__54c628WTjznoG@apocalypse>
+References: <cover.1742418429.git.andrea.porta@suse.com>
+ <7c26a0b52e00a39930ba02f7552abdd1be4c828c.1742418429.git.andrea.porta@suse.com>
+ <45c1a50c-2ecd-4201-85e5-9a0e94f06fa3@gmx.net>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: defconfig: Add CDNS_DSI and CDNS_PHY config
-To: Nishanth Menon <nm@ti.com>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>,
-        <linux-kernel@vger.kernel.org>, <bjorn.andersson@oss.qualcomm.com>,
-        <krzysztof.kozlowski@linaro.org>, <geert+renesas@glider.be>,
-        <lumag@kernel.org>, <nfraprado@collabora.com>, <quic_tdas@quicinc.com>,
-        <elinor.montmasson@savoirfairelinux.com>, <ebiggers@google.com>,
-        <ross.burton@arm.com>, <linux-arm-kernel@lists.infradead.org>
-References: <20250411095043.272488-1-j-choudhary@ti.com>
- <20250411112802.x2q4f7cq4hwilxoe@blasphemy>
-Content-Language: en-US
-From: Jayesh Choudhary <j-choudhary@ti.com>
-In-Reply-To: <20250411112802.x2q4f7cq4hwilxoe@blasphemy>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <45c1a50c-2ecd-4201-85e5-9a0e94f06fa3@gmx.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_113258_846827_D290758A 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20250416_114017_443506_DA2A1463 
+X-CRM114-Status: GOOD (  20.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,52 +126,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Nishanth,
+Hi Stefan,
 
-On 11/04/25 16:58, Nishanth Menon wrote:
-> On 15:20-20250411, Jayesh Choudhary wrote:
->> Enable configs for cdns-dsi and cdns-dphy. (dsi wrapper for
->> j721e is enabled by default if cdns-dsi config is enabled)
+On 13:55 Mon 14 Apr     , Stefan Wahren wrote:
+> Hi Andrea,
 > 
-> What upstream supported boards need this change? Add that to the commit
-> message. Beagley-AI64? or others - please enumerate.
+> Am 19.03.25 um 22:52 schrieb Andrea della Porta:
+> > The RP1 found on Raspberry Pi 5 board needs an external crystal at 50MHz.
+> > Add clk_rp1_xosc node to provide that.
+> > 
+> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> > Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+> i'm fine with the patch content, but I think this is necessary before
+> Patch 9 is applied?
+
+True. Thanks for pointing that out.
+
+Cheers,
+Andrea
+
+> > ---
+> >   arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts | 7 +++++++
+> >   1 file changed, 7 insertions(+)
+> > 
+> > diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
+> > index fbc56309660f..1850a575e708 100644
+> > --- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
+> > +++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
+> > @@ -16,6 +16,13 @@ chosen: chosen {
+> >   		stdout-path = "serial10:115200n8";
+> >   	};
+> > 
+> > +	clk_rp1_xosc: clock-50000000 {
+> > +		compatible = "fixed-clock";
+> > +		#clock-cells = <0>;
+> > +		clock-output-names = "rp1-xosc";
+> > +		clock-frequency = <50000000>;
+> > +	};
+> > +
+> >   	/* Will be filled by the bootloader */
+> >   	memory@0 {
+> >   		device_type = "memory";
 > 
-
-Posted v2 with the list of platforms that require these drivers:
-https://lore.kernel.org/all/20250416182930.32132-1-j-choudhary@ti.com/
-
-
->>
->> Signed-off-by: Jayesh Choudhary <j-choudhary@ti.com>
->> ---
->>   arch/arm64/configs/defconfig | 2 ++
->>   1 file changed, 2 insertions(+)
->>
->> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
->> index 5c85e5da152f..4c0eb2711bbe 100644
->> --- a/arch/arm64/configs/defconfig
->> +++ b/arch/arm64/configs/defconfig
->> @@ -938,6 +938,7 @@ CONFIG_DRM_TI_SN65DSI86=m
->>   CONFIG_DRM_ANALOGIX_ANX7625=m
->>   CONFIG_DRM_I2C_ADV7511=m
->>   CONFIG_DRM_I2C_ADV7511_AUDIO=y
->> +CONFIG_DRM_CDNS_DSI=m
->>   CONFIG_DRM_CDNS_MHDP8546=m
->>   CONFIG_DRM_IMX8MP_DW_HDMI_BRIDGE=m
->>   CONFIG_DRM_DW_HDMI_AHB_AUDIO=m
->> @@ -1579,6 +1580,7 @@ CONFIG_PHY_CAN_TRANSCEIVER=m
->>   CONFIG_PHY_NXP_PTN3222=m
->>   CONFIG_PHY_SUN4I_USB=y
->>   CONFIG_PHY_CADENCE_TORRENT=m
->> +CONFIG_PHY_CADENCE_DPHY=m
->>   CONFIG_PHY_CADENCE_DPHY_RX=m
->>   CONFIG_PHY_CADENCE_SIERRA=m
->>   CONFIG_PHY_CADENCE_SALVO=m
->> -- 
->> 2.34.1
->>
-> 
-
-Warm Regards,
-Jayesh
 
