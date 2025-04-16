@@ -4,89 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AFA5C369BD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:31:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B944C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:31:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DXCImHbhgaHYD5NXAki2E5LHyVFHbeqj7RL6q2PIT+U=; b=O/+Cef8TkKY0nput+qfD5z5b8H
-	iaeZnMTau7CVpjFljMGnT1K5UzNm1X4Q12iaftFpWzbNNs5qiFq41NizwBWCQ3HkyFhAdTbabSWak
-	Km/qRh39bUyIk6ptOsxavt9y2Jz+71SNB5Z6S5GMXrwDCkJOeoBFxoMxEuwIZh0RewliUoRSN3RbG
-	jRrdfUCEByfNLOm8/jia7I+s4pcTbqneUy5TAcexEPeYXQZ3xy0k8fpjW7qds70bPYK2xKEstUU+a
-	jHfDyHmDiqQNnT3/zX4hlkPd+16Nz73eWvpeDLXqs34VZnnjpdy286zZKyP+yvnGWjpH4iGKEamQC
-	tQ0GpvsA==;
+	bh=uSKli9psSweFenpFgv766SwvB6pSxSKceg7FY865wEw=; b=SPhHBhITjF1ViZSmzWEAQSoZ9I
+	vDx2mxK50K61x0NsQ+IJhTV7ltMbjtmtAmf+ro5uph5eYpzmSIHhln9NXDOq3H1bWHCIO6o+lYMAk
+	QegZO+qCYFEvu/tEMLTFBcLLiBU0+36dLuG5Eei5F93Glxo/V2nndjJ/W4vUu+wPsIDMucurAQE1r
+	0HsvPD42Bdl2DTh/iOgkYq3g8v5yLk8d6JNlwKIfpALM+j6Lx/0YGK8QQqq48gKMXgHDi34XxBQ63
+	nWMaCLKkwp1jyDoe9RY2rPef7D4xEcSwtGYyoxTepu07AdLZecvRcBEQIpUFwaqwOoWw/kE0E1MeH
+	L1v8dOIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u502t-000000098rB-2FF6;
-	Wed, 16 Apr 2025 10:31:07 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1u502w-000000098wk-2WKt;
+	Wed, 16 Apr 2025 10:31:10 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4yGO-00000008qTW-2SRi
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 08:36:57 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-54963160818so7881063e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 01:36:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744792615; x=1745397415; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DXCImHbhgaHYD5NXAki2E5LHyVFHbeqj7RL6q2PIT+U=;
-        b=Mk4R82EaKhkISjJ5NZT3bSFh7UtnZQLNIn5D73p95oZej6t5HBad5qf+oVIGrDvxxQ
-         hpip8KDF3gF43LbQOFUui5MFxoOLXYP7YAdQAL5zMidcCkiCvaI6Orozyo2UTPMhbEim
-         8G/9i2cJxynI68a1mPSyaygQ2ZSV0b3Cr1OLvqRw8cT1aeiBjFYmUkKqOUG/oyk1jacx
-         ZIuYKUazTZ1QDiY2DV74TOxAxU9UjXMVuhjzqfGPeoH6cqXdc4iv7qWF+opLzDhQkL9X
-         3oH7GaDrvuqU7gSNUQbM4gJT1/qeoupwoQ8Tn+npEW8Q4H16smpm9cj35OxRi6QupKbT
-         8E0A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744792615; x=1745397415;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=DXCImHbhgaHYD5NXAki2E5LHyVFHbeqj7RL6q2PIT+U=;
-        b=AYxPqE6FEXg+/yfC4MSg6Na77Tr7dJO9Qp11o/82iq4prDKZOiji5qng/dNcAApEMX
-         6ekt28Zt07MktKJGyWZdZEMXfFC3w2Fta4Efr7mab0BQwtPGY1XYV2qzbn6tVw8dO90/
-         ujvNyjqE9EfkitrPd8xzBWp3w2j04GGQaxQ/4qj3IVO2fKCob2v9xDE9/20WBegDKdg4
-         jxy2nheVZlEGvbtBbmQu5vKtThEo9+EIxDbaYXxqD3D2HF0QJ6EfioM0i9b6qCs7MWws
-         T/Db2IQiOCH4YNuFmEG0RlIphoo+Smn8lc7wg45RyxbUdvVx1TgfdbECDpEeDe26Jg9V
-         MjEA==
-X-Forwarded-Encrypted: i=1; AJvYcCVRonfdG3qgCElOdrdLSEqBVh8AREXQ2vzvbOsUuTNYErCzkVXIlsyYmwoW7EKM2eFKmqx7KKn9c7OUfHtDzXi1@lists.infradead.org
-X-Gm-Message-State: AOJu0YxpJeO2s8q6vJQGfBZZ6DN7vqr4zB9roiakyI0YfitvCxvxQd2r
-	0gvYOIRUFCjU8iqw2wckpeNTgVTKLqIS4UtpVix3SkFuRZi35Rif15uwjV+jncivKkMV3cEKLtx
-	kyN0JnILu7EhTGWZgYdkPkSg6XBeFP+xSaBsfGw==
-X-Gm-Gg: ASbGncv2aNkTZYHZpkl2srQQFdyT7QLf+fpgX/CJSOMyOsja3PG2vPzE/LASzIuWaDy
-	SHp3N40qhU3cw09eUD9A5LCwP+rNzcu9x9jyTBv1Gmva2rAwq8lh/nPtWRs4VFqbuJm/gruypI3
-	QMkUUoEvWUzLO5hG1QAr4/5ksU2vzSX0KG
-X-Google-Smtp-Source: AGHT+IFnTyulj/0oGbeIikzilFJSE7sEuMb0JSQLD2qCkdI3QvGlZH639PCmqr2wKnbHsJXFbiOa8zKp3Mk8GGtQ/fo=
-X-Received: by 2002:a05:6512:3d02:b0:549:5802:b32d with SMTP id
- 2adb3069b0e04-54d64a7ae44mr362901e87.3.1744792614952; Wed, 16 Apr 2025
- 01:36:54 -0700 (PDT)
+	id 1u4yH6-00000008qbd-2tiA;
+	Wed, 16 Apr 2025 08:37:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1744792659;
+	bh=SFK4utDb6BiPvIgZqYxn3f+Q+Jaf4K4/kobGg3X7CUw=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=IeoBFVwX2ltZCXPMVn+ySHACWJJN4sHulUsnvMqFYeug52ZWQgBfH2WbnZxmR9d04
+	 /1vKBKB0h0NCMJ564QZM5UyiWP1ffShol2DM2etow3w6kbHjEd4SSm/x3b5w7jj/J+
+	 QKal0lkL//mqk0ry87XcDDbQe274ek84fv0ZG7n7NFw6LlAGt3ECgBrVqH37LZYUv8
+	 i55EIOMaXkiecMwDgl0zp/PW+JIA1PlBdY9+LwZV45CtgJ06KgQqPeFDhuTh5egiEf
+	 /P5bkayrf74kuMHao7+9NbOrswg/gppmm52kVCPYjdV2pvrlQ70R6QLQAagZ1BIYZ1
+	 evRUB+1sVE8AQ==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5127C17E05F7;
+	Wed, 16 Apr 2025 10:37:38 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: linus.walleij@linaro.org, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+ matthias.bgg@gmail.com, sean.wang@kernel.org, linux-gpio@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ kernel@collabora.com
+In-Reply-To: <20250410144044.476060-1-angelogioacchino.delregno@collabora.com>
+References: <20250410144044.476060-1-angelogioacchino.delregno@collabora.com>
+Subject: Re: (subset) [PATCH v1 0/3] MediaTek Dimensity 1200 - Add Pin
+ Controller support
+Message-Id: <174479265826.19309.1291310983060738038.b4-ty@collabora.com>
+Date: Wed, 16 Apr 2025 10:37:38 +0200
 MIME-Version: 1.0
-References: <20250322035307.4811-1-ot_chhao.chang@mediatek.com>
- <20250322035307.4811-2-ot_chhao.chang@mediatek.com> <43nd5jxpk7b7fv46frqlfjnqfh5jlpqsemeoakqzd4wdi3df6y@w7ycd3k5ezvn>
-In-Reply-To: <43nd5jxpk7b7fv46frqlfjnqfh5jlpqsemeoakqzd4wdi3df6y@w7ycd3k5ezvn>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 16 Apr 2025 10:36:42 +0200
-X-Gm-Features: ATxdqUG40hdym0n5Q2fxGBsUSS0OPVO8ybbpsBi47RVMjHapZZipAk2JRY_FG-A
-Message-ID: <CACRpkdbhGJhmNhoS-rqWEtqvH=D_2Q2+djaXWmyEu3o8UEcaZQ@mail.gmail.com>
-Subject: Re: [PATCH v5 1/1] pinctrl: mediatek: Add EINT support for multiple addresses
-To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-Cc: Hao Chang <ot_chhao.chang@mediatek.com>, Sean Wang <sean.wang@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Wenbin Mei <wenbin.mei@mediatek.com>, Axe Yang <axe.yang@mediatek.com>, 
-	Qingliang Li <qingliang.li@mediatek.com>, Hanks Chen <hanks.chen@mediatek.com>, 
-	Chunhui Li <chunhui.li@mediatek.com>, linux-mediatek@lists.infradead.org, 
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, regressions@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_013656_624572_A6687715 
-X-CRM114-Status: UNSURE (   9.36  )
+X-CRM114-CacheID: sfid-20250416_013740_901153_C56A3696 
+X-CRM114-Status: UNSURE (   7.40  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,19 +79,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 14, 2025 at 4:57=E2=80=AFPM Uwe Kleine-K=C3=B6nig
-<u.kleine-koenig@baylibre.com> wrote:
+On Thu, 10 Apr 2025 16:40:41 +0200, AngeloGioacchino Del Regno wrote:
+> In preparation for adding basic support for the OnePlus Nord 2 5G
+> DN2103 smartphone, this series adds support for the pin controller
+> of the MediaTek Dimensity 1200 (MT6893) SoC.
+> 
+> AngeloGioacchino Del Regno (3):
+>   dt-bindings: pinctrl: mediatek: Add support for MT6893
+>   pinctrl: mediatek: Add pinctrl driver for MT6893 Dimensity 1200
+>   arm64: dts: mediatek: Add MT6893 pinmux macro header file
+> 
+> [...]
 
-> this patch became commit 3ef9f710efcb in v6.15-rc1. It breaks booting a
-> mt8365-evk.
->
-> With earlycon it's possible to see a null pointer exception:
+Applied to v6.15-next/dts64, thanks!
 
-Argh, does this patch fix it:
-https://lore.kernel.org/all/20250415112339.2385454-1-wenst@chromium.org/
+[3/3] arm64: dts: mediatek: Add MT6893 pinmux macro header file
+      commit: c0f1fd9eeb317ee57b62127c8da48b309da0525d
 
-I have applied that one for fixes.
+Cheers,
+Angelo
 
-Yours,
-Linus Walleij
+
 
