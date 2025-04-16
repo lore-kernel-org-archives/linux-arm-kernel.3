@@ -4,156 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66372C369C5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 17:51:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3139C369BA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 17:53:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/YUAN4imupbHgjWn5VTBZKruYuHjhfh3kj8IKp3Z0dY=; b=1sdiVB3HFdhdWoz29VI9HaKm95
-	NayXb3zRSBxtiHknbYR6Lj0SQn8AXX5XLx3ATcxqMaVYVlNXPDmk7ckHRz7g7B+R1/n024HRYFSYo
-	CE/NX7bTfMepX+IE0JV07xLeVR5PmWOX7QqMddHNgkDqFYeW3+wH4/a1Oq2z6tlydvBU3M/+wen6N
-	QxLjilAerRIIpPkBN0YzASuQGwJasAKr0CoK4ppcp0dEYh0hQGWdwVIaTe9wyg8vhlpXW6Q/CXMrU
-	etZabcO7S8wGAzQWQ8J4Tx8vBXkEBqAh5ZnzMbz0XlC85WSWuVI4C6nI/p2KroqeiMtZLgn71R2NY
-	w14QyNAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fnHPSO7MQZ8t48b1iS+bJTxLKBJSgkTBWMXEEM9ZhIA=; b=ujo7aNPjNeh77RngDsxwFG/n2F
+	MlYAhXBG4EpH1A31v4dVEUEFqQZBXmKxDF89LcPICIK0R4Na0RyAecpMwCn4gO5Q5ssdIc4Yd/IdI
+	vJjyFONK2eSp+yC4ER3j4FABa+tELpdApxMOfgYR0XKFrB+sO1pa8l6aft66+YNBT4nUOM1Be7GwA
+	cwYGzjMLJtIrSoAyWTPEQLtnGVJJS4DZTASaxHsoNIf9Javi0PgVJf2aJDO4xRDSz3mVlzPSxXcfk
+	SJBWKoOHhpxYnUh6wBpmOqtW/20gIS977GCr91GgdmEirpb6EEmeZUFwFu6dBGAdGkb6tmSpk7cV9
+	OVtxKC9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u56up-0000000AT7m-3uYs;
-	Wed, 16 Apr 2025 17:51:15 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1u56we-0000000ATUJ-2fY7;
+	Wed, 16 Apr 2025 17:53:08 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u56rr-0000000ASeV-1gSp
+	id 1u56sT-0000000ASor-1myD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 17:48:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1744825690;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=/YUAN4imupbHgjWn5VTBZKruYuHjhfh3kj8IKp3Z0dY=;
-	b=cJhBwoVQSK8wr8HO3cOwoVvhMGuGRHqe+aQsl1xh2/9DSi8UiW3Qr4bIRXzBmG/qzpqYpP
-	2K+MCJ8787Nbtm0VYQ7UWkGjSYSNrtjPKW23jVV9F3ZiDrpdJ0WpR8zgWnLZq+vXGPHqEx
-	jNCZTiIwy6HVDR1Tnf7TSKIzrK/Z5pM=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-561-NOdpVmbUOvyo8UgL7vqjzg-1; Wed, 16 Apr 2025 13:48:07 -0400
-X-MC-Unique: NOdpVmbUOvyo8UgL7vqjzg-1
-X-Mimecast-MFC-AGG-ID: NOdpVmbUOvyo8UgL7vqjzg_1744825686
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-3912539665cso544600f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 10:48:07 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744825686; x=1745430486;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/YUAN4imupbHgjWn5VTBZKruYuHjhfh3kj8IKp3Z0dY=;
-        b=WNayjUQaDcnFYGbzAXYbRdC7+ASpNeSCNya+iCtr0cmJgV8rbEVVy5pFLGOmQnZK/k
-         5uQ57Pq+EOW3ijpAvtznYxsaDUcRxrkESfVG/8UrQz91Rk8xbOCS52enbARb2fTrmdm6
-         Sf5g7bmIEf+wtPxtWqFiawuxPNbWZU0ShWGLSVk0TQb6Dq+eO0u4pvvbYOWGYrtmDL26
-         sNK4bkZQasJQpuIfcWkwZw7xGMVVJq/xvYf5nAgSnWyXMCpHU8FQZkk622d17d2wnXwE
-         zpK55Ooofa3EAGuHQagGt3EYJjlfcUBRVCTkoW79WKbyXUdou6hYUk9FVG3te1GsS73L
-         UATw==
-X-Forwarded-Encrypted: i=1; AJvYcCW39CdIZANUI/ig3LR+YYB3kwDEs1kTE/Vetx7JzXSCJbHCeIXMOTOoPmP+9JIrWAZ1IuBJnLlz1jz0WalKXdRe@lists.infradead.org
-X-Gm-Message-State: AOJu0YzT1Czwwu52+7AbvEpPL2fYNqDZ4SVwV04aT6e938Pr4a2JLVvR
-	wGwjy4IXi96cednH1YWPmct/JO+70XpkbvjMC0DtyL01uqJS7fZsb62C52qmDTRtoXtmjKUW2VJ
-	ZaQNeoz+bItC3snBelYBDF358wgWQOtr5tcgy9wR4iS8zkj/iR2eTYE+XAfjDzGzF44ogs3Cv
-X-Gm-Gg: ASbGnctUlr9tgATT9KNrjCbQiyA8WeaZ8iiAhDPIjMo84kqFgqtPFTq+x3ipv2yPUhS
-	quAzZH3WFHBUgFsLvLxhqfbU+9+mzCNyANZIhM26V/CrIRCuQccJaF/ADftPnW+JvUpNV60NxUj
-	pMdyByUTw2TL/zSQ0qjKa7VNxa8ceqXj/kOAuZCNvxcrOI4zjGYkF20SpZSVfx71BP277ReagIW
-	wKb6D5kMbDcqPDzMoJ9FBbSL6MkhLb8kFjuFxZXvORLQkwU2jS5S8JD1jPW4fEKSnX3FTnmCQHW
-	fwuMh55jXV3Z+GPB
-X-Received: by 2002:a5d:598d:0:b0:39c:266b:feec with SMTP id ffacd0b85a97d-39ee904afe3mr313570f8f.7.1744825685981;
-        Wed, 16 Apr 2025 10:48:05 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHd/Q9xU1Lv4kZ9t/WwJIPpluDO/OcIMcKulh4/sk/gvKDXTcl2daOqoE90IlBaQsWY9I2m/g==
-X-Received: by 2002:a5d:598d:0:b0:39c:266b:feec with SMTP id ffacd0b85a97d-39ee904afe3mr313534f8f.7.1744825685524;
-        Wed, 16 Apr 2025 10:48:05 -0700 (PDT)
-Received: from [192.168.10.48] ([176.206.109.83])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-39eae9640e3sm18034375f8f.12.2025.04.16.10.48.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 16 Apr 2025 10:48:04 -0700 (PDT)
-Message-ID: <60b7607b-8ada-447d-9dcb-034d93b9abe8@redhat.com>
-Date: Wed, 16 Apr 2025 19:48:00 +0200
+	Wed, 16 Apr 2025 17:48:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 399EA5C3A54;
+	Wed, 16 Apr 2025 17:46:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0408C4CEE2;
+	Wed, 16 Apr 2025 17:48:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744825727;
+	bh=v4XwhaUeZk3BYsAXaR29UkZdFjLWFGa044ZokdLWR8A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GdBVAovmhB1UljmHHNyLhF0hxqGhhRuRKXZwqcyO/adBY48zZBRbdDbJB9M7PJs+9
+	 0j2ko3cmHZdfFrkH5ZvxYdo9QFPEclZ3dj/jgrPIp3sr9duFHwG5JT2pijcIt27V07
+	 ZNX2u2l/RkL/hLsy/MtGuWmctwaG39Vfk7ejLVl+rzVAMCzANGUNVa9rlfzZYwIuNl
+	 AxFhvAvI0iDRRAQnzJZ3nFXpyy0F9M4Jmp8pKWFsEjPqMUDzjlZl99QnYpNx1IAIHf
+	 xvazOMDRyHkBglCDin7oFj4gJXMJRW+IYMi4GP7mzpkt1qGQpeus7aotP6Kaj8CDgY
+	 wlFKWO6r1sP8A==
+Date: Wed, 16 Apr 2025 10:48:45 -0700
+From: Kees Cook <kees@kernel.org>
+To: Kory Maincent <kory.maincent@bootlin.com>
+Cc: Jakub Kicinski <kuba@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Claudiu Manoil <claudiu.manoil@nxp.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Wei Fang <wei.fang@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>,
+	Jeroen de Borst <jeroendb@google.com>,
+	Harshitha Ramamurthy <hramamurthy@google.com>,
+	Ido Schimmel <idosch@nvidia.com>, Petr Machata <petrm@nvidia.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Simon Horman <horms@kernel.org>, Geoff Levand <geoff@infradead.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Alexander Lobakin <aleksander.lobakin@intel.com>,
+	Praveen Kaligineedi <pkaligineedi@google.com>,
+	Willem de Bruijn <willemb@google.com>,
+	Joshua Washington <joshwash@google.com>,
+	Furong Xu <0x1207@gmail.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Jisheng Zhang <jszhang@kernel.org>, Petr Tesarik <petr@tesarici.cz>,
+	netdev@vger.kernel.org, imx@lists.linux.dev,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Richard Cochran <richardcochran@gmail.com>,
+	Jacob Keller <jacob.e.keller@intel.com>,
+	Shannon Nelson <shannon.nelson@amd.com>,
+	Ziwei Xiao <ziweixiao@google.com>,
+	Shailend Chand <shailend@google.com>,
+	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+	Andrew Halaney <ahalaney@redhat.com>, linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH] net: ethtool: Adjust exactly ETH_GSTRING_LEN-long stats
+ to use memcpy
+Message-ID: <202504161047.79ED8EF5@keescook>
+References: <20250416010210.work.904-kees@kernel.org>
+ <20250416110351.1dbb7173@kmaincent-XPS-13-7390>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/4] KVM: x86: move sev_lock/unlock_vcpus_for_migration
- to kvm_main.c
-To: Peter Zijlstra <peterz@infradead.org>,
- Maxim Levitsky <mlevitsk@redhat.com>
-Cc: kvm@vger.kernel.org, Alexander Potapenko <glider@google.com>,
- "H. Peter Anvin" <hpa@zytor.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- kvm-riscv@lists.infradead.org, Oliver Upton <oliver.upton@linux.dev>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- Jing Zhang <jingzhangos@google.com>, Waiman Long <longman@redhat.com>,
- x86@kernel.org, Kunkun Jiang <jiangkunkun@huawei.com>,
- Boqun Feng <boqun.feng@gmail.com>, Anup Patel <anup@brainfault.org>,
- Albert Ou <aou@eecs.berkeley.edu>, kvmarm@lists.linux.dev,
- linux-kernel@vger.kernel.org, Zenghui Yu <yuzenghui@huawei.com>,
- Borislav Petkov <bp@alien8.de>, Alexandre Ghiti <alex@ghiti.fr>,
- Keisuke Nishimura <keisuke.nishimura@inria.fr>,
- Sebastian Ott <sebott@redhat.com>, Atish Patra <atishp@atishpatra.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Randy Dunlap <rdunlap@infradead.org>, Will Deacon <will@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
- Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org,
- Joey Gouly <joey.gouly@arm.com>, Ingo Molnar <mingo@redhat.com>,
- Andre Przywara <andre.przywara@arm.com>, Thomas Gleixner
- <tglx@linutronix.de>, Sean Christopherson <seanjc@google.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Bjorn Helgaas <bhelgaas@google.com>
-References: <20250409014136.2816971-1-mlevitsk@redhat.com>
- <20250409014136.2816971-3-mlevitsk@redhat.com>
- <20250410081640.GX9833@noisy.programming.kicks-ass.net>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Autocrypt: addr=pbonzini@redhat.com; keydata=
- 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
-In-Reply-To: <20250410081640.GX9833@noisy.programming.kicks-ass.net>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: jJSrvHmOlw9TJCzoVYe8gMP8vlvZayF207n7YFp_l-s_1744825686
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250416110351.1dbb7173@kmaincent-XPS-13-7390>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_104811_534970_18655620 
-X-CRM114-Status: GOOD (  29.79  )
+X-CRM114-CacheID: sfid-20250416_104849_542474_6379DD6A 
+X-CRM114-Status: GOOD (  20.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,172 +102,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/10/25 10:16, Peter Zijlstra wrote:
-> On Tue, Apr 08, 2025 at 09:41:34PM -0400, Maxim Levitsky wrote:
->> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
->> index 69782df3617f..71c0d8c35b4b 100644
->> --- a/virt/kvm/kvm_main.c
->> +++ b/virt/kvm/kvm_main.c
->> @@ -1368,6 +1368,77 @@ static int kvm_vm_release(struct inode *inode, struct file *filp)
->>   	return 0;
->>   }
->>   
->> +
->> +/*
->> + * Lock all VM vCPUs.
->> + * Can be used nested (to lock vCPUS of two VMs for example)
->> + */
->> +int kvm_lock_all_vcpus_nested(struct kvm *kvm, bool trylock, unsigned int role)
->> +{
->> +	struct kvm_vcpu *vcpu;
->> +	unsigned long i, j;
->> +
->> +	lockdep_assert_held(&kvm->lock);
->> +
->> +	kvm_for_each_vcpu(i, vcpu, kvm) {
->> +
->> +		if (trylock && !mutex_trylock_nested(&vcpu->mutex, role))
->> +			goto out_unlock;
->> +		else if (!trylock && mutex_lock_killable_nested(&vcpu->mutex, role))
->> +			goto out_unlock;
->> +
->> +#ifdef CONFIG_PROVE_LOCKING
->> +		if (!i)
->> +			/*
->> +			 * Reset the role to one that avoids colliding with
->> +			 * the role used for the first vcpu mutex.
->> +			 */
->> +			role = MAX_LOCK_DEPTH - 1;
->> +		else
->> +			mutex_release(&vcpu->mutex.dep_map, _THIS_IP_);
->> +#endif
->> +	}
+On Wed, Apr 16, 2025 at 11:03:51AM +0200, Kory Maincent wrote:
+> On Tue, 15 Apr 2025 18:02:15 -0700
+> Kees Cook <kees@kernel.org> wrote:
 > 
-> This code is all sorts of terrible.
+> > Many drivers populate the stats buffer using C-String based APIs (e.g.
+> > ethtool_sprintf() and ethtool_puts()), usually when building up the
+> > list of stats individually (i.e. with a for() loop). This, however,
+> > requires that the source strings be populated in such a way as to have
+> > a terminating NUL byte in the source.
+> > 
+> > Other drivers populate the stats buffer directly using one big memcpy()
+> > of an entire array of strings. No NUL termination is needed here, as the
+> > bytes are being directly passed through. Yet others will build up the
+> > stats buffer individually, but also use memcpy(). This, too, does not
+> > need NUL termination of the source strings.
+> > 
+> > However, there are cases where the strings that populate the
+> > source stats strings are exactly ETH_GSTRING_LEN long, and GCC
+> > 15's -Wunterminated-string-initialization option complains that the
+> > trailing NUL byte has been truncated. This situation is fine only if the
+> > driver is using the memcpy() approach. If the C-String APIs are used,
+> > the destination string name will have its final byte truncated by the
+> > required trailing NUL byte applied by the C-string API.
+> > 
+> > For drivers that are already using memcpy() but have initializers that
+> > truncate the NUL terminator, mark their source strings as __nonstring to
+> > silence the GCC warnings.
 > 
-> Per the lockdep_assert_held() above, you serialize all these locks by
-> holding that lock, this means you can be using the _nest_lock()
-> annotation.
-> 
-> Also, the original code didn't have this trylock nonsense, and the
-> Changelog doesn't mention this -- in fact the Changelog claims no
-> change, which is patently false.
-> 
-> Anyway, please write like:
-> 
-> 	kvm_for_each_vcpu(i, vcpu, kvm) {
-> 		if (mutex_lock_killable_nest_lock(&vcpu->mutex, &kvm->lock))
-> 			goto unlock;
-> 	}
-> 
-> 	return 0;
-> 
-> unlock:
-> 
-> 	kvm_for_each_vcpu(j, vcpu, kvm) {
-> 		if (j == i)
-> 			break;
-> 
-> 		mutex_unlock(&vcpu->mutex);
-> 	}
-> 	return -EINTR;
-> 
-> And yes, you'll have to add mutex_lock_killable_nest_lock(), but that
-> should be trivial.
+> Shouldn't we move on to ethtool_cpy in these drivers too to unify the code?
 
-If I understand correctly, that would be actually
-_mutex_lock_killable_nest_lock() plus a wrapper macro.  But yes,
-that is easy so it sounds good.
+I decided that the code churn wasn't worth it. Perhaps in a follow-up
+patch if folks want to see the removal of the explicit memcpy() uses?
 
-For the ARM case, which is the actual buggy one (it was complaining
-about too high a depth) it still needs mutex_trylock_nest_lock();
-the nest_lock is needed to avoid bumping the depth on every
-mutex_trylock().
-
-It should be something like
-diff --git a/include/linux/mutex.h b/include/linux/mutex.h
-index 2143d05116be..328f573cab6d 100644
---- a/include/linux/mutex.h
-+++ b/include/linux/mutex.h
-@@ -174,6 +174,12 @@ do {									\
-  	_mutex_lock_nest_lock(lock, &(nest_lock)->dep_map);		\
-  } while (0)
-  
-+#define mutex_trylock_nest_lock(lock, nest_lock)			\
-+do {									\
-+	typecheck(struct lockdep_map *, &(nest_lock)->dep_map);		\
-+	_mutex_trylock_nest_lock(lock, &(nest_lock)->dep_map);		\
-+} while (0)
-+
-  #else
-  extern void mutex_lock(struct mutex *lock);
-  extern int __must_check mutex_lock_interruptible(struct mutex *lock);
-@@ -185,6 +191,7 @@ extern void mutex_lock_io(struct mutex *lock);
-  # define mutex_lock_killable_nested(lock, subclass) mutex_lock_killable(lock)
-  # define mutex_lock_nest_lock(lock, nest_lock) mutex_lock(lock)
-  # define mutex_lock_io_nested(lock, subclass) mutex_lock_io(lock)
-+# define mutex_trylock_nest_lock(lock, nest_lock) mutex_trylock(lock)
-  #endif
-  
-  /*
-@@ -193,9 +200,14 @@ extern void mutex_lock_io(struct mutex *lock);
-   *
-   * Returns 1 if the mutex has been acquired successfully, and 0 on contention.
-   */
--extern int mutex_trylock(struct mutex *lock);
-+extern int _mutex_trylock_nest_lock(struct mutex *lock, struct lockdep_map *nest_lock);
-  extern void mutex_unlock(struct mutex *lock);
-  
-+static inline int mutex_trylock(struct mutex *lock)
-+{
-+	return _mutex_trylock_nest_lock(lock, NULL);
-+}
-+
-  extern int atomic_dec_and_mutex_lock(atomic_t *cnt, struct mutex *lock);
-  
-  DEFINE_GUARD(mutex, struct mutex *, mutex_lock(_T), mutex_unlock(_T))
-diff --git a/kernel/locking/mutex.c b/kernel/locking/mutex.c
-index 555e2b3a665a..d5d1e79495fc 100644
---- a/kernel/locking/mutex.c
-+++ b/kernel/locking/mutex.c
-@@ -1063,8 +1063,10 @@ __ww_mutex_lock_interruptible_slowpath(struct ww_mutex *lock,
-  #endif
-  
-  /**
-- * mutex_trylock - try to acquire the mutex, without waiting
-+ * _mutex_trylock_nest_lock - try to acquire the mutex, without waiting
-   * @lock: the mutex to be acquired
-+ * @nest_lock: if not NULL, a mutex that is always taken whenever multiple
-+ *   instances of @lock are
-   *
-   * Try to acquire the mutex atomically. Returns 1 if the mutex
-   * has been acquired successfully, and 0 on contention.
-@@ -1076,7 +1078,7 @@ __ww_mutex_lock_interruptible_slowpath(struct ww_mutex *lock,
-   * This function must not be used in interrupt context. The
-   * mutex must be released by the same task that acquired it.
-   */
--int __sched mutex_trylock(struct mutex *lock)
-+int __sched _mutex_trylock_nest_lock(struct mutex *lock, struct lockdep_map *nest_lock)
-  {
-  	bool locked;
-  
-@@ -1084,11 +1086,11 @@ int __sched mutex_trylock(struct mutex *lock)
-  
-  	locked = __mutex_trylock(lock);
-  	if (locked)
--		mutex_acquire(&lock->dep_map, 0, 1, _RET_IP_);
-+		mutex_acquire_nest(&lock->dep_map, 0, 1, nest_lock, _RET_IP_);
-  
-  	return locked;
-  }
--EXPORT_SYMBOL(mutex_trylock);
-+EXPORT_SYMBOL(_mutex_trylock_nest_lock);
-  
-  #ifndef CONFIG_DEBUG_LOCK_ALLOC
-  int __sched
-
-Does that seem sane?
-
-Paolo
-
+-- 
+Kees Cook
 
