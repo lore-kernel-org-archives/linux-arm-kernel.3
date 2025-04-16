@@ -4,53 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2A73C369B1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 08:01:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3943FC369B1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 08:03:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jxb0oDMobd7GaIcoqojTSF8ZoNcoVg4kM8ohJkoHKb8=; b=nEP69JV3/5FNJ2QdOUnD6FbpNw
-	3IYZll3P4dBUIka2w2t5q4kuO/gLfBLjd5G9Ysvp4N0mRD+iee/4wy03yJUMtjv/L6DoPXSmxPj93
-	gM+vVwN/xA82O8w+TdNuLS3jZ5drtFMEdLrn5fjuLC/gesehWCVqCNoD9aNTbgA4yqKtQmr9AWpN+
-	3fgfGgMmFVq7zTkbhIdSNh739GCUzKgTgisOjHwdswogeqbBT1Hors+Y2bFnUP66IdxtjzvX0mnCE
-	6vi7J23AJBmznN+sTJKhNty7lJaWE4bsnsNWxszY5/Ua24orVSCfd+1Nq2OnqKc7yyEhyCX0NN2Tc
-	PtV0g9KQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QB4w6r8owO4Bb0m5tcn046y0Jgd8/AvOYokKG/K6tmA=; b=hVlDMJzjclssuUee01eVF6r6uK
+	1gmUoOEsAjoe5Xws+zsaLG2UyUoZa7/hawkOi7D0E56dLCo+tM2UgaoAEcOmGK8ayzRyk8T27wfp2
+	hIiMltBQFsWEn4o9+FBfTf4vjMy7T05DSVLhBPU54VouSKbG+ddH1+CpogXzrZUMZrNx+NawFtnyT
+	jyckvlg8EAgE4b4eHyQUamkQpeK/Qg96DhpRuXKPyIAmgnXBUGwRC4ff6PKEbSRJAX+d4TEFmzr9z
+	SYSxqcIIVah3irUHlyheyM/mCrEzEwZk96VooZkgnKj+bVkDChmgh4TWH+36QJqz/ZHymGCLHwbIZ
+	5HIKPqUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4xhx-00000008jLv-3yJW;
-	Wed, 16 Apr 2025 08:01:21 +0000
-Received: from mail.novaplan.pl ([51.195.118.1])
+	id 1u4xjm-00000008jbm-2bIU;
+	Wed, 16 Apr 2025 08:03:14 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4xef-00000008iX6-0EUv
+	id 1u4xew-00000008iZl-35gw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 07:57:59 +0000
-Received: by mail.novaplan.pl (Postfix, from userid 1002)
-	id 02251A480B; Wed, 16 Apr 2025 09:56:35 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=novaplan.pl; s=mail;
-	t=1744790228; bh=jxb0oDMobd7GaIcoqojTSF8ZoNcoVg4kM8ohJkoHKb8=;
-	h=Date:From:To:Subject:From;
-	b=kI43pCKp+74UTqIW/sqx91w4NcWHWgDZmRzFpk4XT9yiqG/sse+MEruu+dlMhWrM0
-	 Mt/ooAMMQOjLskOYpR5zuB1/w+9ddMSgCfZqVUhUwgQlkjyQRRPvPIt0zoBSz+5G6i
-	 Od1RNDjgoXFHLFBnykMX9VGvQkVPhDyCQgU0O63Oa573vEiZ8VoRn2DjIqViJkbJEu
-	 CXZP9LbBdlNCcO2AgI6/7kIkX6qmCtJ1yCbRhSXd5u4YD1q0XWQLqgWt1HiCDuE6o4
-	 ZuEqThnX6pa8pl5mMVCDl3cJ4DEz8k5DG41/DIKNGCwVKRZk5q0gcaxzOeV1y7E/C1
-	 4hO8RnfYKqAVQ==
-Received: by mail.novaplan.pl for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 07:56:14 GMT
-Message-ID: <20250416084500-0.1.l2.1pmu8.0.3se7f6dveq@novaplan.pl>
-Date: Wed, 16 Apr 2025 07:56:14 GMT
-From: "Adrian Liszka" <adrian.liszka@novaplan.pl>
-To: <linux-arm-kernel@lists.infradead.org>
-Subject: =?UTF-8?Q?Prosz=C4=99_o_kontakt?=
-X-Mailer: mail.novaplan.pl
+	Wed, 16 Apr 2025 07:58:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=QB4w
+	6r8owO4Bb0m5tcn046y0Jgd8/AvOYokKG/K6tmA=; b=MvcOO5hzdI8eBgKgmURd
+	jgyKt2mivgEVksW4Byp5EGtGLCpmJJnf71YP67o98TuZNUGt1liI8eM3j7sCUsxf
+	NgYTjEkS99eDtav6hF5WxcWj0syq3d9Hv8LiVGURCJwtoVzDzEtOnkB4LQC3CT6K
+	z50u/HWNMD/no5CwTZTnKz12tlKRQChvWW9WoTExvqj+SKx6qVEMZQCPyAGtq7F8
+	uexsqA6Dlb34jQzFXg/HMTNKHcQTW+Qmtm2/R+RId8/7o3w5DQD3T+5kBXwra/1O
+	NfGakzswIDZkIafzge1fxTT9IgsiJif7K4jm3OzR8dVMEgzChC/PtxTc6oqPjqeo
+	Bw==
+Received: (qmail 625012 invoked from network); 16 Apr 2025 09:58:10 +0200
+Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 16 Apr 2025 09:58:10 +0200
+X-UD-Smtp-Session: l3s3148p1@KWRypeAyKJYujnsq
+Date: Wed, 16 Apr 2025 09:58:09 +0200
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Alexey Charkov <alchark@gmail.com>, Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org
+Subject: Re: (subset) [PATCH v2 5/5] ARM: dts: vt8500: use correct ohci/ehci
+ node names
+Message-ID: <Z_9jETTOLcm6xoc_@shikoro>
+Mail-Followup-To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Alexey Charkov <alchark@gmail.com>, Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org
+References: <20250330193833.21970-7-wsa+renesas@sang-engineering.com>
+ <20250330193833.21970-12-wsa+renesas@sang-engineering.com>
+ <174478928969.20468.13803674314386256291.b4-ty@linaro.org>
+ <bd011058-1d39-4334-8b2c-40f085366cf3@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Xcer6L9aSalqn0Cx"
+Content-Disposition: inline
+In-Reply-To: <bd011058-1d39-4334-8b2c-40f085366cf3@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_005757_786766_D5E1FCD3 
-X-CRM114-Status: UNSURE (   1.26  )
+X-CRM114-CacheID: sfid-20250416_005815_642500_FB18FC8B 
+X-CRM114-Status: UNSURE (   8.31  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -66,19 +83,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dzie=C5=84 dobry,
 
-Czy jest mo=C5=BCliwo=C5=9B=C4=87 nawi=C4=85zania wsp=C3=B3=C5=82pracy z =
-Pa=C5=84stwem?
-
-Z ch=C4=99ci=C4=85 porozmawiam z osob=C4=85 zajmuj=C4=85c=C4=85 si=C4=99 =
-dzia=C5=82aniami zwi=C4=85zanymi ze sprzeda=C5=BC=C4=85.
-
-Pomagamy skutecznie pozyskiwa=C4=87 nowych klient=C3=B3w.
-
-Zapraszam do kontaktu.
+--Xcer6L9aSalqn0Cx
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
 
-Z pozdrowieniami
-Adrian Liszka
+> I assume the rest will be picked up by their maintainers, but if after
+> some time (+2 more weeks?) there is no update, you can ping me so I will
+> grab these as well.
+
+Will do, thank you!
+
+
+--Xcer6L9aSalqn0Cx
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmf/YxEACgkQFA3kzBSg
+KbZkBBAAnrntkbWNLY0+3cOgTJUzY1ufGVPXzoS8bZfIAdUJa0ZBQCPS68ug+4t9
+WRxYdx7uNH6YnRjas+QHPbQa/WX+QYf39NYr3NMlDpI1pfOe+coGzcX+f2QkhS+R
+AFpMWXRQULzXwgGYw2bIgUxjvKFRLwePjpU7LYRrqt/9QdBACLqX6o2dS/87XFwS
+KJqGZ5Bg4Z3hokfbYli8f2ISPQ6/Jw3j2rU8vuneQq2QVxPvUL2UrC5ds1qdN150
+0w0OpYCdsjJiVgLNhCAy7b8GxHEiRFJw4j41HdQTZZv4hkjVFHLg1WK3CYvlB5qH
+rNQHeSb6t1ze85FpOfXV3rAVrA7Owc3MbvwQ7NKPC0F1p0wFvy4YAROsGVPbPYIu
+qySNNi+rubjGyTgd9s695qPN0oXZvitxIwS9JbX8w2ptbQSJ91nzf59swFK3OKFc
+LgQ4FaHk3lHsE3I9S6kI77q9K6v3OhHZM698jfNRyG6g3cuKnIqzZ2di1Pcwad/9
+w7f34UVmGmFdYCbDwrrBbtPHUznX3LVr2EgykM1imIegJQ7fAMGhO4Jgdpl/YEYM
+O8wmu2dNAU2qdRaFYgd79DVxQjY369RLZEUIgx0nOXCNrP7shKGgERn3z1z9yyJm
+V3QK7meAGSTr4r/Gu+88YzgQjjWASwNEoXSVPZ5gKwosSMHkyp4=
+=hR7w
+-----END PGP SIGNATURE-----
+
+--Xcer6L9aSalqn0Cx--
 
