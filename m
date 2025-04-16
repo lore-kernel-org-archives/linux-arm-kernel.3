@@ -4,151 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48BC5C369BA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 15:33:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BD7AC369BA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 15:35:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3aFHCQ+w3z1DHLGeLnKOMTgH2XFE4XyRf2A5IKQtaM4=; b=faBwO8fhjs4iMtx3ZGM7932ySD
-	xjXHv9l+m0o8FYekj418L+TMf89iMEhKJrTnXW9s92AV9fcJ8m5gj3SjIfT0O5QDldWjK+3PnciFs
-	qrPk89BLkLXAxmJuV+k0ieVBAFKjhgOJQuZk4Qo04eASXrQXRQqk9p6g2h1y2pzfg4OfB1cU/NuDH
-	az4ecVBeKWrI0hJxODQPd6z+9ShuOXiCaUUlm9P5MLUnBnvhAYW7xq7Eq1pIPNdc2v/L6EmOngp0+
-	Gz9z/gBbvkPe64dzsjA/k7GxCcOL+NuXGTybkDh/myxwYvbEyQj92Mv9/tcw2BtAVCQG+EfFtRIZa
-	AYWe1AiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RtU5Zjo1XDHI0E92ehgSzdN2gbNG+8MMfQ6wSnWdlaA=; b=K79l5lVICAqD247M+6TNpDkPZP
+	QQKM9dJPEe+PKvpPuBWP5Xa1uqdD4KW1+mETZ5dt8ChIWeS9YgMG1s7KSojdqebOj1DVLshBEglKC
+	VIVaInvb3kRXQQut6IRRSyUxxNYGNEh0on72ptWEcllm1VNpghp6hKowX0dwOTI0rI8trvdmtGkbp
+	LqWKdMgycf4lQbzYFDt8ccC9uJQZLLurm2TRWXc8GnJkBhojXzVas9Kp4FiyVtNcOpfCrJVHHb1Sr
+	V+Pqc2179Ikc76g4TFrvg2KlXuYjCDQABwckKeROYGfRX28ZyVCKSmRHeTB0I5EcHmukcVH9W6AkY
+	m8p9iIAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u54l2-0000000A5ej-1TTp;
-	Wed, 16 Apr 2025 15:33:00 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u540P-00000009wcX-0xAo
+	id 1u54ms-0000000A67r-0ECF;
+	Wed, 16 Apr 2025 15:34:54 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u54Fq-00000009zFy-2ziF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 14:44:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=r5Mfp91DFVUtcMYAfHQRuwcv28f6a0Oxvz0tU5Az+EuEq2Dr9LIw8IH/l9YBfFYzKKCjjBP/FOk49mXGRNevgj2UWX+LKjh8bir9XiN90jeaHKtPhe77XW25F+iKLX9vtpaPr04sn/MGxkzr7WUdlFsl9J56M7VPI+NANG9yvspcNNbKF5ggZtYb8zkyscbNA6q7pSe2eL2c393u6PxcI1aQE99yka/rB0NLZl9ONcGl8HQsCy+GTtyKHiR+p8dM34YgCZVC72QttekGwI9liRsz+I0ykxE7m+HCVSHo+iZEwfVnesR9nmDv9Zv0Aop4J4D/Oy0Xu6JgaKUtwA4VEQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3aFHCQ+w3z1DHLGeLnKOMTgH2XFE4XyRf2A5IKQtaM4=;
- b=QnSiQO+5XerWMji6Kzk32xN1yh3mouIgr5DTNebNncTjZwONkh8zqsfQztuFH6nrji7Nh0f4fDi3xqe+W1LVuAXf3ZWzLd0a63UgNzvCPL2FmNTU8RUus6yrU/s4JCVvA3GQwiodgAgue/jE3XkPf6vIMzEbCxqfAOotFSPnIxXUfPFe5iDmFs9OyvSdZOvuOs7mrPBrA2iAIgadqJXDpnV24nDN/8zMqO6l9glAx5CRhP6YInrZHAVcsXHohb1pziGmbH9MWTq38KDA/sQG97csWyrg79Nx31ad6r83s2y7jPpcfq18jN929ebbtIwBwhD4Guyv3GCvOTZN/S97+g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3aFHCQ+w3z1DHLGeLnKOMTgH2XFE4XyRf2A5IKQtaM4=;
- b=K5YMRSKiiD2HcDnI6i3Z+z0HpWs/b7eQzdK0it/vTEW21PQCYKbbFThvOQpFN2qsdppXSuHpQ9QobE9Ig29zFxA47WqqlksOSE7UD/LbMH6saEnEtPFT/trTO0HrOXhJSP7zk+41KPB7eE6FcYCQ0CDJY16xoiwkrhXb1/plU45jsnNsP7rijeZOWQyV/38PH1B31Q2hCvx0xxFFvRr0f0sa2tfV4gKMfC9iQ6oAV7DBTWT7dzWClv4bv49IMyIN+Fs1gG0tv3XNquDJ4sH9By6P/ebzPMgq48eQRtv7yocWoPQiGnNHxNeHD1boLaCclH26SHcONpI81wYzk6Hy6g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DU4PR04MB10647.eurprd04.prod.outlook.com (2603:10a6:10:589::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.32; Wed, 16 Apr
- 2025 14:44:44 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8632.035; Wed, 16 Apr 2025
- 14:44:44 +0000
-Date: Wed, 16 Apr 2025 10:44:37 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Adam Ford <aford173@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, aford@beaconembedded.com,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH V2 09/10] arm64: dts: imx8mn-beacon: Enable RTC interrupt
- and wakeup-source
-Message-ID: <Z//CVVtvdb5kU/UB@lizhi-Precision-Tower-5810>
-References: <20250416010141.1785841-1-aford173@gmail.com>
- <20250416010141.1785841-9-aford173@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250416010141.1785841-9-aford173@gmail.com>
-X-ClientProxiedBy: PH0PR07CA0006.namprd07.prod.outlook.com
- (2603:10b6:510:5::11) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Wed, 16 Apr 2025 15:00:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AE0EE1595;
+	Wed, 16 Apr 2025 08:00:43 -0700 (PDT)
+Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0D0273F66E;
+	Wed, 16 Apr 2025 08:00:42 -0700 (PDT)
+Date: Wed, 16 Apr 2025 16:00:40 +0100
+From: Andre Przywara <andre.przywara@arm.com>
+To: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+Cc: Ulf Hansson <ulf.hansson@linaro.org>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Samuel Holland
+ <samuel@sholland.org>, David Airlie <airlied@gmail.com>, Simona Vetter
+ <simona@ffwll.ch>, Boris Brezillon <boris.brezillon@collabora.com>, Steven
+ Price <steven.price@arm.com>, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-pm@vger.kernel.org
+Subject: Re: [PATCH 2/5] pmdomain: sunxi: add H6 PRCM PPU driver
+Message-ID: <20250416160040.67d80a76@donnerap.manchester.arm.com>
+In-Reply-To: <4987742.31r3eYUQgx@jernej-laptop>
+References: <20250221005802.11001-1-andre.przywara@arm.com>
+	<20250221005802.11001-3-andre.przywara@arm.com>
+	<4987742.31r3eYUQgx@jernej-laptop>
+Organization: ARM
+X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DU4PR04MB10647:EE_
-X-MS-Office365-Filtering-Correlation-Id: 83830941-9ca8-455a-d57c-08dd7cf53a54
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|52116014|366016|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?oLxQdNn2JYsIqmkU0Dk2vSfOJ5rmApvUZ5BjBqOo7vUWg3b/r++yuCD/+kJM?=
- =?us-ascii?Q?ftI6X2jWoJB5oswDK9pV91UPQ2Xs6txzBz16zuuJM+LyuyWPO80TVx72bq0L?=
- =?us-ascii?Q?k2CJxDLHyfHwNPqyOxR+tgZPBcJzUDBW5QdB87weRBVbRCIJAhj7osFYIVbN?=
- =?us-ascii?Q?XaptR09QZa0DjDaW5hrRRnXHS8a7L9VwHpfnADK3/cVg7M3gB5OXYpUD6No2?=
- =?us-ascii?Q?JTAXA6uP8gg2bZRoYZpI1l/u8tBc9WronXga1wvsQaHFUu4iFlrp9umUR7tC?=
- =?us-ascii?Q?vKF0b2DpquwkSL+QI8gSUJig2YFQQO2kiQyTBajzBmVFXJYuX+AMVLVbetnL?=
- =?us-ascii?Q?VeUURRDg+ZmZuB/R8F94O9u7lLQVNaT0RYQfjaJsE1uZh9HFBgHnm9hvf14x?=
- =?us-ascii?Q?UqH+wyzTA726XXGNvGnEypNO25VAQVlvuGrQ11Irpo2X3qCVeHwsxThJuvlq?=
- =?us-ascii?Q?lAvMTwRual7oKnaBSas9jP2g9Ly4uZN0RH8sI0FZH51HSmyieFFjqjKnhaTC?=
- =?us-ascii?Q?uGwQdjjn/VzKVy2I6hUdzYCeaM1GMIYJe+DOLvJt7DsqrdIGm3U0SNOtfjLG?=
- =?us-ascii?Q?qrqPowYg3t5nhvddL9UGTCq1oBu8MMCf2SG/awHaTwUP+otV+OfRhcmf0oyW?=
- =?us-ascii?Q?19J08gsXU3DvKMfGA73vM8hjRSGmMzWEdrDhdAFAh6MKuV/UbQV4hhGHAJjJ?=
- =?us-ascii?Q?5m7d7aH/yPLrriph7RUaO/C+8dur7t+XSOJTNw0B5VwuQE1maQhvYWf24qoI?=
- =?us-ascii?Q?T9h6RUd2kI2ipkwtGRT2HuZ0IVt9XcDURmv1mNgzUJ5Ig4mrUoXAOEeMDOsD?=
- =?us-ascii?Q?n7/rbQNW0rV2viy0Ipi7Q1de+O41+v/345bCeqc96yMAc4s5n9TcsOVzvpjg?=
- =?us-ascii?Q?MBcyckorUO2/OgMWET08EoF05MvD5TUHMSrIEAcXWKQDH9r2re2HIKIL1yBi?=
- =?us-ascii?Q?gDLAxxWwEWQ1ddOjTnio01X0eMf7sN39UH/WofQcIkTuHB227jrzaqoBQL/M?=
- =?us-ascii?Q?RXO7d8k+L5NWzp9DgWRvX1BSYTCBwM1V8mWKJlPDZmYLiqihnZDcht7nSvaj?=
- =?us-ascii?Q?iNEuipa7jEz7O5Q4chpv1qBFp71GkWxezcOa39JDN3n4ET1//iOvKxI7yg1Y?=
- =?us-ascii?Q?tnQA3eQsGxhJhEBCAGxYR41W2tVxB/OoDDdbmKI+co6SafiAaTQHseQ4h2Wc?=
- =?us-ascii?Q?jIfzeleKL1NyUOPgfzotdoPPcsOte44VAdDMxltqjwEaY/s/fCRCE5g0gOEj?=
- =?us-ascii?Q?IIvJqhKzU+3sn17EqmT+r8U+UWXjGzcxPcPaps7cY89aPt+WCitZMfpPUTXX?=
- =?us-ascii?Q?P9F5MAPyQGZ4llNZpoqaZ/HVJk9cnmWXPF595Eart/6+M3FyUJR9C7x6GWf1?=
- =?us-ascii?Q?ATJU4E+hoZLfI2/m0FuAp3gZ4gPTxL/jHIOvALmf7aM2xcjtA5djr5qnrvHd?=
- =?us-ascii?Q?6CHn9UfL85G4SrctqcoUo4N9YVqQAnSXsu+E4F3jy+4tyMMdRwcS/A=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(52116014)(366016)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?PhflaJ9Rijcu7uhzBzEJasbLkVAqxQpzfewZmidVV/2HJ0LIP4ZKoqPdC6Vv?=
- =?us-ascii?Q?kWBkHMXPFYuheyHKlfQWjw47skQfYGNdM6j7OaZd/o7Hx72Ed6O5whBbFyyC?=
- =?us-ascii?Q?PVY30viMbh+nlIXf+3lQ7/Ve89uq0oyRPgMBOJTBjL21JXZOIliN8Z8xdlRl?=
- =?us-ascii?Q?XluFudc1oAq/3YQRq8IKYpp9RNMg/dYehh/ISGK2P1qzy57zfKRjimMpu3pj?=
- =?us-ascii?Q?ODiv6HdVaOr3aGP0atWQerlXcJnfpQ9H1cywczvW89UQrsX/w3DtV/EHaihf?=
- =?us-ascii?Q?1G3DvjmzaqoaQsOqjdAXmFG9xYjwPPZjW9T/HNJqS+Bhnp2E8S6YepsQ+Vwy?=
- =?us-ascii?Q?a1awECLKHXj2V5QZnh7XYkHuheVucurkz56rhztn0IKQJHEMCpVdE9rs1kEg?=
- =?us-ascii?Q?amsdjyxm986RGGJVypweL8jLXfEPNF2mLJJJpAfpCqRFk+L8x5M8BPiiWQMd?=
- =?us-ascii?Q?mSphV9jqcps2gUIg/+rpfxIBdTcpNMjthn4U9BtADUh+I/lR5y0i9Ej54cro?=
- =?us-ascii?Q?kx7BmWM7M0l7UmxadRDZ+z8glpes4cS0IyEmDNEZQbNaE082TcyE2FnyQC9L?=
- =?us-ascii?Q?8BKACs41rn8oKj+zMcIoWBA1paKSCNO5yza/kpn3bGtCvhu46vAra0sB6SoK?=
- =?us-ascii?Q?y0QbQCEfn+AKd3nV1FgCPsQGsOI4T5w82W/+BYRJNIx96Aj9yU3IryIB2zUg?=
- =?us-ascii?Q?YMl45HZRpOjU3CNTcEohSEU+8etAGJhdbfnQfUGsm81qLljOMnA7xDrsFLEF?=
- =?us-ascii?Q?mdILbT22uzuzPbamq7tbzmtp6xdCI5lQ7rUUxV0HYGRHeD3DArMa5IsXW9uz?=
- =?us-ascii?Q?UwzIoWtqmBk4dkPgsOn/u+JnCdSuaYBa50MX7u9MCHlg7/mmNzgdSblzKfaW?=
- =?us-ascii?Q?7xLOq+4yRuoTDdPvggIyo6EZspVyGVTQt45P/cSa3m4btcTn64JiYcYcjVSV?=
- =?us-ascii?Q?YfevQ4f+we2qLAz1HqDF/z/XEMLlTnfriGm/fPnxVL9bvrCQaTGGobuP4hlz?=
- =?us-ascii?Q?dc+IvoK+khNTFb1sercqC3Vv6pO4DpIrAeBOAy111vMPqcwSw6DaScoJpAWD?=
- =?us-ascii?Q?VrsXj0ITixijFxz5Z8+9RcBg6AcJLqQ6WODkxQScQ1KGNYhObarq4HXXZUJm?=
- =?us-ascii?Q?9+fNRPzufh0RUcET7BwjW6qXY99OzDg3z8ZprWnoaLFmLP3QbBQW6vP2B7Wr?=
- =?us-ascii?Q?kH9jiSFOBHHaiPQ5RhOOi7fMaK408iSusSTdVFctYthpa4BsJ0E4e5DJVKWL?=
- =?us-ascii?Q?CE8yPqSKyPG8OV+gpqd96zxqS1UB2PY/YbXEstyBz7DcgE+lvXRMIlRhdFOe?=
- =?us-ascii?Q?RisboaxPrCA7mQ+E+pIhp6ZtamXH15fiI1A//WCDaOEGeDfpl+zZZpMPx+b7?=
- =?us-ascii?Q?rXqZmNpkxh4yF+LRd4dkTnbMw3u3yi0BVQ7UIWqEneOkHNk1l9L24qtv01dm?=
- =?us-ascii?Q?gIYQb5F607PT5/g1nOpksvVZNthIgAgWav7XSCdg3+Y3yIiMM4JSMBYLYBSX?=
- =?us-ascii?Q?gHQpPA3QoUFA5LtsbQ9n/Ny6qQPmZeL860OWqttrxKcG8mets91KH0a9udeW?=
- =?us-ascii?Q?hOFOZdlnLLNgOEvhv5NYU8T9YFQymalVAHA8DC5X?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 83830941-9ca8-455a-d57c-08dd7cf53a54
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Apr 2025 14:44:44.5708
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Oh9FMuWxGaYu8bLdYBhR0SiWm13M4Cc7DYpw6p36Vh0e5reAE1WBvk1x5G4Q2t9xkVQKlId7NlmQNSRkgx8G6Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10647
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_074449_265049_953316AB 
-X-CRM114-Status: GOOD (  15.73  )
+X-CRM114-CacheID: sfid-20250416_080046_848714_B3BE0977 
+X-CRM114-Status: GOOD (  43.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,51 +74,285 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 15, 2025 at 08:01:35PM -0500, Adam Ford wrote:
-> Enable the interrupts and wakeup-source to allow the external RTC to be
-> used as an alarm.
->
-> Signed-off-by: Adam Ford <aford173@gmail.com>
-> ---
+On Fri, 21 Feb 2025 19:10:33 +0100
+Jernej =C5=A0krabec <jernej.skrabec@gmail.com> wrote:
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Dne petek, 21. februar 2025 ob 01:57:59 Srednjeevropski standardni =C4=8D=
+as je Andre Przywara napisal(a):
+> > The Allwinner Power Reset Clock Management (RPCM) block contains a few
+> > bits that control some power domains. The most prominent one is the one
+> > for the Mali GPU. On the Allwinner H6 this domain is enabled at reset, =
+so
+> > we didn't care about it so far, but the H616 defaults to it being disab=
+led.
+> >=20
+> > Add a power domain driver for those bits. Some BSP code snippets and
+> > some spare documentation describe three bits, slightly different between
+> > the H6 and H616, so add three power domains for each SoC, connected to
+> > their compatible string.
+> >=20
+> > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> > ---
+> >  drivers/pmdomain/sunxi/Kconfig              |  10 +
+> >  drivers/pmdomain/sunxi/Makefile             |   1 +
+> >  drivers/pmdomain/sunxi/sun50i-h6-prcm-ppu.c | 191 ++++++++++++++++++++
+> >  3 files changed, 202 insertions(+)
+> >  create mode 100644 drivers/pmdomain/sunxi/sun50i-h6-prcm-ppu.c
+> >=20
+> > diff --git a/drivers/pmdomain/sunxi/Kconfig b/drivers/pmdomain/sunxi/Kc=
+onfig
+> > index 17781bf8d86d7..43eecb3ea9819 100644
+> > --- a/drivers/pmdomain/sunxi/Kconfig
+> > +++ b/drivers/pmdomain/sunxi/Kconfig
+> > @@ -8,3 +8,13 @@ config SUN20I_PPU
+> >  	help
+> >  	  Say y to enable the PPU power domain driver. This saves power
+> >  	  when certain peripherals, such as the video engine, are idle.
+> > +
+> > +config SUN50I_H6_PRCM_PPU
+> > +	tristate "Allwinner H6 PRCM power domain driver"
+> > +	depends on ARCH_SUNXI || COMPILE_TEST
+> > +	depends on PM
+> > +	select PM_GENERIC_DOMAINS
+> > +	help
+> > +	  Say y to enable the Allwinner H6/H616 PRCM power domain driver.
+> > +	  This is required to enable the Mali GPU in the H616 SoC, it is
+> > +	  optional for the H6.
+> > diff --git a/drivers/pmdomain/sunxi/Makefile b/drivers/pmdomain/sunxi/M=
+akefile
+> > index ec1d7a2fb21db..c1343e1237599 100644
+> > --- a/drivers/pmdomain/sunxi/Makefile
+> > +++ b/drivers/pmdomain/sunxi/Makefile
+> > @@ -1,2 +1,3 @@
+> >  # SPDX-License-Identifier: GPL-2.0-only
+> >  obj-$(CONFIG_SUN20I_PPU)		+=3D sun20i-ppu.o
+> > +obj-$(CONFIG_SUN50I_H6_PRCM_PPU)	+=3D sun50i-h6-prcm-ppu.o
+> > diff --git a/drivers/pmdomain/sunxi/sun50i-h6-prcm-ppu.c b/drivers/pmdo=
+main/sunxi/sun50i-h6-prcm-ppu.c
+> > new file mode 100644
+> > index 0000000000000..1c6b0c78b222d
+> > --- /dev/null
+> > +++ b/drivers/pmdomain/sunxi/sun50i-h6-prcm-ppu.c
+> > @@ -0,0 +1,191 @@
+> > +// SPDX-License-Identifier: GPL-2.0-only
+> > +/*
+> > + * Copyright (C) Arm Ltd. 2024
+> > + *
+> > + * Allwinner H6/H616 PRCM power domain driver.
+> > + * This covers a few registers inside the PRCM (Power Reset Clock Mana=
+gement)
+> > + * block that control some power rails, most prominently for the Mali =
+GPU.
+> > + */
+> > +
+> > +#include <linux/bitfield.h>
+> > +#include <linux/clk.h>
+> > +#include <linux/io.h>
+> > +#include <linux/iopoll.h>
+> > +#include <linux/module.h>
+> > +#include <linux/of.h>
+> > +#include <linux/platform_device.h>
+> > +#include <linux/pm_domain.h>
+> > +#include <linux/reset.h>
+> > +
+> > +/*
+> > + * The PRCM block covers multiple devices, starting with some clocks,
+> > + * then followed by the power rails.
+> > + * The clocks are covered by a different driver, so this driver's MMIO=
+ range
+> > + * starts later in the PRCM MMIO frame, not at the beginning of it.
+> > + * To keep the register offsets consistent with other PRCM documentati=
+on,
+> > + * express the registers relative to the beginning of the whole PRCM, =
+and
+> > + * subtract the PPU offset this driver is bound to.
+> > + */
+> > +#define PD_H6_PPU_OFFSET		0x250
+> > +#define PD_H6_VDD_SYS_REG		0x250
+> > +#define PD_H616_ANA_VDD_GATE			BIT(4)
+> > +#define PD_H6_CPUS_VDD_GATE			BIT(3)
+> > +#define PD_H6_AVCC_VDD_GATE			BIT(2)
+> > +#define PD_H6_GPU_REG			0x254
+> > +#define PD_H6_GPU_GATE				BIT(0)
+> > +
+> > +struct sun50i_h6_ppu_pd {
+> > +	struct generic_pm_domain	genpd;
+> > +	void __iomem			*reg;
+> > +	u32				gate_mask;
+> > +	bool				negated;
+> > +};
+> > +
+> > +#define FLAG_PPU_ALWAYS_ON	BIT(0)
+> > +#define FLAG_PPU_NEGATED	BIT(1)
+> > +
+> > +struct sun50i_h6_ppu_desc {
+> > +	const char *name;
+> > +	u32 offset;
+> > +	u32 mask;
+> > +	unsigned int flags;
+> > +};
+> > +
+> > +struct sun50i_h6_ppu_desc sun50i_h6_ppus[] =3D {
+> > +	{ "AVCC", PD_H6_VDD_SYS_REG, PD_H6_AVCC_VDD_GATE },
+> > +	{ "CPUS", PD_H6_VDD_SYS_REG, PD_H6_CPUS_VDD_GATE },
+> > +	{ "GPU", PD_H6_GPU_REG, PD_H6_GPU_GATE },
+> > +	{}
+> > +};
+> > +
+> > +struct sun50i_h6_ppu_desc sun50i_h616_ppus[] =3D {
+> > +	{ "PLL", PD_H6_VDD_SYS_REG, PD_H6_AVCC_VDD_GATE,
+> > +		FLAG_PPU_ALWAYS_ON | FLAG_PPU_NEGATED },
+> > +	{ "ANA", PD_H6_VDD_SYS_REG, PD_H616_ANA_VDD_GATE, FLAG_PPU_ALWAYS_ON =
+},
+> > +	{ "GPU", PD_H6_GPU_REG, PD_H6_GPU_GATE, FLAG_PPU_NEGATED },
+> > +	{}
+> > +};
+> > +#define to_sun50i_h6_ppu_pd(_genpd) \
+> > +	container_of(_genpd, struct sun50i_h6_ppu_pd, genpd)
+> > +
+> > +static bool sun50i_h6_ppu_power_status(const struct sun50i_h6_ppu_pd *=
+pd)
+> > +{
+> > +	bool bit =3D readl(pd->reg) & pd->gate_mask;
+> > +
+> > +	return bit ^ pd->negated;
+> > +}
+> > +
+> > +static int sun50i_h6_ppu_pd_set_power(const struct sun50i_h6_ppu_pd *p=
+d,
+> > +				      bool set_bit)
+> > +{
+> > +	u32 reg =3D readl(pd->reg);
+> > +
+> > +	if (set_bit)
+> > +		writel(reg | pd->gate_mask, pd->reg);
+> > +	else
+> > +		writel(reg & ~pd->gate_mask, pd->reg);
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static int sun50i_h6_ppu_pd_power_on(struct generic_pm_domain *genpd)
+> > +{
+> > +	const struct sun50i_h6_ppu_pd *pd =3D to_sun50i_h6_ppu_pd(genpd);
+> > +
+> > +	return sun50i_h6_ppu_pd_set_power(pd, !pd->negated);
+> > +}
+> > +
+> > +static int sun50i_h6_ppu_pd_power_off(struct generic_pm_domain *genpd)
+> > +{
+> > +	const struct sun50i_h6_ppu_pd *pd =3D to_sun50i_h6_ppu_pd(genpd);
+> > +
+> > +	return sun50i_h6_ppu_pd_set_power(pd, pd->negated);
+> > +}
+> > +
+> > +static int sun50i_h6_ppu_probe(struct platform_device *pdev)
+> > +{
+> > +	struct device *dev =3D &pdev->dev;
+> > +	struct genpd_onecell_data *ppu;
+> > +	struct sun50i_h6_ppu_pd *pds;
+> > +	const struct sun50i_h6_ppu_desc *desc;
+> > +	void __iomem *base;
+> > +	int ret, i, count;
+> > +
+> > +	desc =3D of_device_get_match_data(dev);
+> > +	if (!desc)
+> > +		return -EINVAL;
+> > +
+> > +	for (count =3D 0; desc[count].name; count++)
+> > +		;
+> > +
+> > +	pds =3D devm_kcalloc(dev, count, sizeof(*pds), GFP_KERNEL);
+> > +	if (!pds)
+> > +		return -ENOMEM;
+> > +
+> > +	ppu =3D devm_kzalloc(dev, sizeof(*ppu), GFP_KERNEL);
+> > +	if (!ppu)
+> > +		return -ENOMEM;
+> > +
+> > +	ppu->num_domains =3D count;
+> > +	ppu->domains =3D devm_kcalloc(dev, count, sizeof(*ppu->domains),
+> > +				    GFP_KERNEL);
+> > +	if (!ppu->domains)
+> > +		return -ENOMEM;
+> > +
+> > +	platform_set_drvdata(pdev, ppu);
+> > +
+> > +	base =3D devm_platform_ioremap_resource(pdev, 0);
+> > +	if (IS_ERR(base))
+> > +		return PTR_ERR(base);
+> > +
+> > +	for (i =3D 0; i < count; i++) {
+> > +		struct sun50i_h6_ppu_pd *pd =3D &pds[i];
+> > +
+> > +		pd->genpd.name		=3D desc[i].name;
+> > +		pd->genpd.power_off	=3D sun50i_h6_ppu_pd_power_off;
+> > +		pd->genpd.power_on	=3D sun50i_h6_ppu_pd_power_on;
+> > +		if (desc[i].flags & FLAG_PPU_ALWAYS_ON)
+> > +			pd->genpd.flags =3D GENPD_FLAG_ALWAYS_ON;
+> > +		pd->negated		=3D !!(desc[i].flags & FLAG_PPU_NEGATED);
+> > +		pd->reg			=3D base + desc[i].offset - PD_H6_PPU_OFFSET;
+> > +		pd->gate_mask		=3D desc[i].mask;
+> > +
+> > +		ret =3D pm_genpd_init(&pd->genpd, NULL,
+> > +				    !sun50i_h6_ppu_power_status(pd));
+> > +		if (ret) {
+> > +			dev_warn(dev, "Failed to add GPU power domain: %d\n", ret); =20
+>=20
+> I suppose you want to replace "GPU" with desc[i].name.
 
-> V2:  Update commit message. No active changes
->
->  arch/arm64/boot/dts/freescale/imx8mn-beacon-som.dtsi | 11 +++++++++++
->  1 file changed, 11 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mn-beacon-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mn-beacon-som.dtsi
-> index b3692b367a42..987c14d3af9d 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mn-beacon-som.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx8mn-beacon-som.dtsi
-> @@ -245,7 +245,12 @@ eeprom@50 {
->  	rtc: rtc@51 {
->  		compatible = "nxp,pcf85263";
->  		reg = <0x51>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&pinctrl_rtc>;
-> +		interrupt-parent = <&gpio1>;
-> +		interrupts = <13 IRQ_TYPE_LEVEL_LOW>;
->  		quartz-load-femtofarads = <12500>;
-> +		wakeup-source;
->  	};
->  };
->
-> @@ -365,6 +370,12 @@ MX8MN_IOMUXC_GPIO1_IO03_GPIO1_IO3		0x141
->  		>;
->  	};
->
-> +	pinctrl_rtc: rtcgrp {
-> +		fsl,pins = <
-> +			MX8MN_IOMUXC_GPIO1_IO13_GPIO1_IO13	0x146
-> +		>;
-> +	};
-> +
->  	pinctrl_uart1: uart1grp {
->  		fsl,pins = <
->  			MX8MN_IOMUXC_UART1_RXD_UART1_DCE_RX	0x140
-> --
-> 2.48.1
->
+Ah yeah, good point, fixed that.
+
+> Otherwise it looks good to me, but I'd like to hear a comment from genpd =
+maintainers.
+
+Thanks!
+
+Cheers,
+Andre
+
+> Best regards,
+> Jernej
+>=20
+> > +			return ret;
+> > +		}
+> > +		ppu->domains[i] =3D &pd->genpd;
+> > +	}
+> > +
+> > +	ret =3D of_genpd_add_provider_onecell(dev->of_node, ppu);
+> > +	if (ret)
+> > +		dev_warn(dev, "Failed to add provider: %d\n", ret);
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static const struct of_device_id sun50i_h6_ppu_of_match[] =3D {
+> > +	{ .compatible	=3D "allwinner,sun50i-h6-prcm-ppu",
+> > +	  .data		=3D &sun50i_h6_ppus },
+> > +	{ .compatible	=3D "allwinner,sun50i-h616-prcm-ppu",
+> > +	  .data		=3D &sun50i_h616_ppus },
+> > +	{ }
+> > +};
+> > +MODULE_DEVICE_TABLE(of, sun50i_h6_ppu_of_match);
+> > +
+> > +static struct platform_driver sun50i_h6_ppu_driver =3D {
+> > +	.probe	=3D sun50i_h6_ppu_probe,
+> > +	.driver	=3D {
+> > +		.name			=3D "sun50i-h6-prcm-ppu",
+> > +		.of_match_table		=3D sun50i_h6_ppu_of_match,
+> > +		/* Power domains cannot be removed while they are in use. */
+> > +		.suppress_bind_attrs	=3D true,
+> > +	},
+> > +};
+> > +module_platform_driver(sun50i_h6_ppu_driver);
+> > +
+> > +MODULE_AUTHOR("Andre Przywara <andre.przywara@arm.com>");
+> > +MODULE_DESCRIPTION("Allwinner H6 PRCM power domain driver");
+> > +MODULE_LICENSE("GPL");
+> >  =20
+>=20
+>=20
+>=20
+>=20
+
 
