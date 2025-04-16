@@ -4,108 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DF4FC369B1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 07:32:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19462C369B1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 07:34:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DG5QEIaQzeLbOfupxCljbXV4kWmUc3nkooBDlQ/DXR8=; b=SsdCw7t70bfsXp1elAq7u1t5/h
-	JMu57IjUlc8Wbsbl9n/TsW9C9qJAGBHS/UylE5+/YB3MgLIGC4MH8NVwz2b4Q9zIhb/vkcKSiRD8y
-	Uz0GTfpfHSIQxehvn3oMziDOVzH/eoYZBESseg2ArPJuE39KUy+XqLfU/q8+ZDEw7Kr80YqihAg6F
-	lJJY8/pUvNt85sDhJeLoZAWTUXNYBAjXp0FqIGLKhafHKoPDEt26m0ugsKqeCZ+3BQig5J/oqD8QQ
-	w5fQqV8ClfcxtpNS8Ay9FNZWq7J7IxaGiKjBNj+Xaf6grPsmvhqiz0W0DMYQfnPVhd3LiYHCIt2Pt
-	XJKDwYjg==;
+	bh=Vu1Z1iNyXH/P0QywYALzynooSIZlETxbTzFpRmXM8t0=; b=jL02/peA/KoMjf5ocKiX3ASnfF
+	CShYBwNxa8y0r7B6vS/dw/dKau1ltWNwF9d7jpkTdah7bLuFFqcFRTDcQwOdVhgI6E0LdDOu4NsaD
+	y5rDsyj/T6GDZ7yIRYMVvilxBFr5KJOnWNx0MpWPPlUFzsxGYQTS1c7dKYloFDu6/8ysk6/ngwx23
+	HM25BZS1THZReJX2FMD05HErK3zoI7kE6Wdkv/0v2CAS3aD/FXyoyT23NHmvKdA2JqLrh8HN5uOWK
+	yVurqI9fpH9UHqT3kBx7ecO/VmDgEd4YX83hjE0tXFUjbMWTIYaMGe08Hzr/EOLyXSfFaR5d921a4
+	VH5f3vtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4xFk-00000008cu2-0U90;
-	Wed, 16 Apr 2025 07:32:12 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1u4xHy-00000008dUH-0T7W;
+	Wed, 16 Apr 2025 07:34:30 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4xC0-00000008c6u-3XWe
+	id 1u4xDW-00000008cUP-0Hhg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 07:28:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2B7B45C5BB9;
-	Wed, 16 Apr 2025 07:26:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02CC2C4CEE2;
-	Wed, 16 Apr 2025 07:28:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744788499;
-	bh=HIk3I9wzakt85jAXOpCYym+UKIgHZ9FhR06F2xOAwBs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jSm0hHpjOsvl1cJZdOTBmGEIHkc6ZGCh60vrjEweW/RCtdX44k7jHXbwo4ZQuITMG
-	 cXG92T59+JxPUYlZuoyVYY+drNbVxN+pogsubPy17BFhkodiYpB/gvf/JPAH1evqky
-	 t0OG4Zok3wKW3QVGzgXVv2oixrB2RTkcKOgKE0l2M+lPtgGryzcpiN/Qx2x32ISkUF
-	 R7UCQofA1aM9H9BX5fhvp7SvRbnDki9SV7C7mYIjxUKuLQlZyGBr3+vPNH0oLINKaL
-	 1+eRUcyx8KqmovuDPOLVDepvTp49HqLqnC4ozmRgOaZdPFwiLKyVY+ReCci3mimKk8
-	 b8nVz71nBgvaA==
-Message-ID: <1f813896-0be6-42bd-9e99-2e0a4895fbd9@kernel.org>
-Date: Wed, 16 Apr 2025 09:28:14 +0200
+	Wed, 16 Apr 2025 07:29:56 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-5499c5d9691so6876009e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 00:29:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1744788592; x=1745393392; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Vu1Z1iNyXH/P0QywYALzynooSIZlETxbTzFpRmXM8t0=;
+        b=qOkQqmKAG7j1+0XdwLHQj3xlj1tCW16HwdHoRpdbEzTchiDnQ7NWjcy8pl+aXzRUEF
+         N+zz1zY/wnAE5vn2M+xKdiRrx10SzPBEj2OKHEIi5n0quOp4gSIHv61RZBp1Y6lP27Tv
+         FWDv7j3pJ8ELZ0i5ni9pKzHo0XCZJ4ytSACwra5oY5Jig7GBjF/qpMXLDlmG6ZpzxwiT
+         p8FxGaZ5Owq1DfSIEYYkj2YcpUHs4wkYSLtgSex56IJficECkesHcWTZPA/1SKxRO1Ku
+         ldx7BP1Dqyq/XJ0WC06Lc1oFd/vV9F98WLhXPNGvJA81hnoiE0kiolg9KKDpGO1PG1ni
+         8Edw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744788592; x=1745393392;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Vu1Z1iNyXH/P0QywYALzynooSIZlETxbTzFpRmXM8t0=;
+        b=Ug53XbKKzQW9FmM+TyH1eii5CoHhLjYGkIUQQekAiClV/wHWKJeDkLQE6zEFTKhXzS
+         QeBxWnS9R8Wx1TW/YQXbfmcAscapmPkiaIvbUxUB2zwJlTe0s/YGlKNRIBQd4fBmE17J
+         IqOsqEfV2zmAftScOfnn/BgFjlD+wgDLMw3hgJrsHOX7ZOIi8mW8/awknDGTz/5E8HXf
+         TM2FRNaKM8uonN/fNTw/Iu5GMUz3ROTGT6padfskrpwAeWm1nW6EuZUT48pCcpyIZulS
+         qN6h2VygLlOMwPW1oo0KCgK8iOts7G7c/107ZHd9gFZfi2velOpMlm+it7k8ok1dOemq
+         fSHA==
+X-Forwarded-Encrypted: i=1; AJvYcCW/SQn5tGHUSVglbMTNtAF3aXH8qwLeosf/fYPbzii0JK5vTFOzARoC8FwE1o+Y7/+S9JNFHaMUfegwl6guqsmE@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3qz239ouLD4Wxd6r+7/UFLiUHSvRFCGes5BvFYtXwK+anvwRV
+	Ww5FnkVhPIFEbk+z1paDYQPVnEUTujcHaFyvYCO6hcQgvFWlM0SJpn3VxuN0oWNuquvDv3K54i3
+	61C5ReK9mB3XfzWlBqfIKbUCGGYT5UdtCfaJcMA==
+X-Gm-Gg: ASbGncuoxQqCRS7jMPxLir7QhZPjOOV69mwCxWLPBcq8s4uOh6L/lVgiXXWqzsvYQwq
+	dmwuaBZhNxh3yTgUWAyEpeQ/nx2qWvbn3NfVEAPICliv/KoEQUT/VlBCu4oA6dVnGv9P/h/RoRO
+	do82hUkDO7vwt3niJFqT4PGg==
+X-Google-Smtp-Source: AGHT+IFIpyoa4b37GuE7bShcO/RCUjBlfmU/mTjYO4extyxyEAUNDPyqKbiJFcyUDnd++AOe+MPmtXvLY9f9jwMpHVM=
+X-Received: by 2002:a05:6512:108e:b0:54a:c835:cc4b with SMTP id
+ 2adb3069b0e04-54d64aea449mr196703e87.45.1744788592107; Wed, 16 Apr 2025
+ 00:29:52 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/4] arm64: dts: exynos: add initial support for
- Samsung Galaxy S22+
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
- Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250321145556.1436201-1-ivo.ivanov.ivanov1@gmail.com>
- <20250321145556.1436201-4-ivo.ivanov.ivanov1@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250321145556.1436201-4-ivo.ivanov.ivanov1@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250415112339.2385454-1-wenst@chromium.org>
+In-Reply-To: <20250415112339.2385454-1-wenst@chromium.org>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Wed, 16 Apr 2025 09:29:41 +0200
+X-Gm-Features: ATxdqUGsaRj7mRwORGwu-YQfJxqBlwgA7akp1LopdnGat1Af2KKfApGkes9E8jA
+Message-ID: <CACRpkda0HVd1auh1zmyX8QdDCL6jNVb+JYj7hbZrdg+v26BQWw@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: mediatek: common-v1: Fix EINT breakage on older controllers
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Sean Wang <sean.wang@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
+	Hao Chang <ot_chhao.chang@mediatek.com>, Qingliang Li <qingliang.li@mediatek.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_002820_968202_902D1A34 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20250416_002954_107173_5B677BC8 
+X-CRM114-Status: GOOD (  10.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,43 +98,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/03/2025 15:55, Ivaylo Ivanov wrote:
-> +
-> +	/*
-> +	 * RTC clock (XrtcXTI); external, must be 32.768 kHz.
-> +	 *
-> +	 * TODO: Remove this once RTC clock is implemented properly as part of
-> +	 *       PMIC driver.
-> +	 */
-> +	rtcclk: clock-rtcclk {
-> +		compatible = "fixed-clock";
-> +		clock-output-names = "rtcclk";
-> +		#clock-cells = <0>;
-> +		clock-frequency = <32768>;
-> +	};
-> +
-> +	/*
-> +	 * cpu2 and cpu3 fail to come up consistently, which leads
-> +	 * to a hang later in the boot process.
-> +	 *
-> +	 * Disable them until the issue is figured out.
-> +	 */
-> +	cpus {
-> +		/delete-node/ cpu@200;
-> +		/delete-node/ cpu@300;
+On Tue, Apr 15, 2025 at 1:23=E2=80=AFPM Chen-Yu Tsai <wenst@chromium.org> w=
+rote:
 
-status = "fail"
-does not work?
+> When EINT support for multiple addresses was introduced, the driver
+> library for the older generations (pinctrl-mtk-common) was not fixed
+> together. This resulted in invalid pointer accesses.
+>
+> Fix up the filled in |struct mtk_eint| in pinctrl-mtk-common to match
+> what is now expected by the mtk-eint library.
+>
+> Reported-by: "Uwe Kleine-K=C3=B6nig" <u.kleine-koenig@baylibre.com>
+> Closes: https://lore.kernel.org/all/43nd5jxpk7b7fv46frqlfjnqfh5jlpqsemeoa=
+kqzd4wdi3df6y@w7ycd3k5ezvn/
+> Fixes: 3ef9f710efcb ("pinctrl: mediatek: Add EINT support for multiple ad=
+dresses")
+> Cc: Hao Chang <ot_chhao.chang@mediatek.com>
+> Cc: Qingliang Li <qingliang.li@mediatek.com>
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 
-> +
-> +		cpu-map {
-> +			cluster0 {
-> +				/delete-node/ core2;
-> +				/delete-node/ core3;
-> +			};
-> +		};
-> +	};
-> +
-Best regards,
-Krzysztof
+Patch applied for fixes.
+
+Yours,
+Linus Walleij
 
