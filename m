@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C2E6C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 01:20:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AC1BC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 01:22:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TYDNr8z0j6kvzKO3dAyJ0NuELH4gcjDFUxtK8W/MH+0=; b=Op9tCFzCfXODYmGxJz7pHxmPj2
-	4wx3csZk7RQarY0YCcdmDstnxJOuEU1hc94cf92Dqf2BBkm/NE8MvqTrzoqZn+wg7w0Usa55s6oll
-	kL/682tOM1PfMKD1EKBivrOvifoVbHQfVkNm+tVzyQ4mBiJPoU/JLN+h9wbvxjsqIZ0HtejMNamLP
-	Mz7X7zqin9XnhvVfEOrjVtt46etazbkwq5M6tKaIMlL3gM2+LXvc2YacLIbPMV8KrSAV9WR0e4n32
-	ZfVUNLjrfDeuhU3q99HQ4tac2k/y1UuE7FhRYzKHGyeCE4h+mO+EWFGd5FHnfWGhP6CeeZD2goS+y
-	k6TTk0qQ==;
+	bh=BOP+Xk7g3usaXB8DY5qKgeIjsWqmRpi7//9PYTGo7zo=; b=0p/vjbDwwXxjadqhXddxHivrO+
+	pr7m18cDf7RtYEtZJ6zj+WSPQrQu9Rlk+cQxHsvZ6ZrrwboCZ3pJ0hxFQTP5DIxU3Qs8UHICCdKZJ
+	131CX4GIDsjP5QMJB5I1nr7sZ94kEaW6QoGy92JsWbn/ZyhYpDJAWV8frtHMMpRJQYRC5gL3DjP3F
+	syQVjHZJnSt5pzlHMCvRNwp8FYeEB9Y2FOT5BButyJCOM1Mc7iF3i3zlwckx2NE9qP6DurvgFjBgv
+	RfUYUK5qfh47zk++iLRw+POjA/q9KgJL8elXW1TYv32LKada2m+vZJmE1YTtK+SvTmEWThwduOs3Z
+	4VnLVD8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4rS7-00000007nLw-44iW;
-	Wed, 16 Apr 2025 01:20:35 +0000
-Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
+	id 1u4rTz-00000007nZa-2kgi;
+	Wed, 16 Apr 2025 01:22:31 +0000
+Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4rAD-00000007jta-0dFS
+	id 1u4rAG-00000007juL-1kTf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 01:02:06 +0000
-Received: by mail-qt1-x836.google.com with SMTP id d75a77b69052e-47686580529so64836331cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Apr 2025 18:02:05 -0700 (PDT)
+	Wed, 16 Apr 2025 01:02:09 +0000
+Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-4768f90bf36so55690591cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Apr 2025 18:02:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744765324; x=1745370124; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1744765326; x=1745370126; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=TYDNr8z0j6kvzKO3dAyJ0NuELH4gcjDFUxtK8W/MH+0=;
-        b=J03gKrfrln0v9kThoUaZcFEjX7YPx11SwqGooMdXX5aVr8TyDh3JEHUxFDAQSQEKxP
-         Seg6V1QMWv/0UOf+0oIH6nocYLdm+UASv1tR0TSkd6We8bCs1QoIliSGx0+cK3GmY77L
-         BOIrVwnV1OrvEW8dHOQLEZ6L7KjnZOA1jjdCr/zgl7EQ8pYVZRCwGKxnAQiOj+GmXQ8O
-         4V5kefOHbYB2OdlOX2h+FTPPW5/taNEIjBCgvKhxpLkz3iuE9xvLEFRzRC19OdIdrwg8
-         CffmmoclgqcsOos/BEXzTiQJNdcr3ypeXblLoKJwcEqfIXfMAqfWK1rm/0AUQQiMxY63
-         RwNw==
+        bh=BOP+Xk7g3usaXB8DY5qKgeIjsWqmRpi7//9PYTGo7zo=;
+        b=ECKLJC4ZWilzBBn8pG/++Y+A8cD/UD6pLTS4/UStw+iXWui/Q7RzEQRHM2aderMvWr
+         UaCoxLFop1mghqfPD6tdhxOsd9nKeBiEjlsVMxj/AlQ8vKPoBmZhhPrM4dXDlMCJ2JtE
+         FZ/SiAi9eDE/VGf7dOxUfftoM2LBp6EaC3upcxlkrsaB1+n+QJgfgjcr5K5Z3PH7HarS
+         sAEgfKerWH5TcORAxGG8AVOMdG6IarAozJTugGjS6GQH9+4JV3vNiFO0U4ky84zPVCOw
+         J2RtHmIq+D7KXGLqoaFPmOK58AOkoemYwnydvlNyE3NnetW70r5zZ5uqHVXbTcK3NmfD
+         RoxA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744765324; x=1745370124;
+        d=1e100.net; s=20230601; t=1744765326; x=1745370126;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=TYDNr8z0j6kvzKO3dAyJ0NuELH4gcjDFUxtK8W/MH+0=;
-        b=Ida9SdALTKEzFlcq3NEgezBHBIcJzyV4B7kF/2Uw8+Rki/p58azU94+M0nLjS6gkIZ
-         2CLSMjnGk5p1rVVU1DG4rVodMIvy0Iu+ncKUKWxJf0RdnwaDs7TYmyJODQGgpjOJ6qxU
-         cTTvv7RDTlj8gdaDqlNNj+hKpt3ZW7BQHvhRA3+QfKpXCt7QHYMjvehR44rAaogCzgXH
-         5k5+qM+LlmBAtUxrDCbdGLCXSzOlLN7dIvuFl9eLxKHpv9niiP3GebJzJir9pzSqo4VQ
-         8R4eUXCBXJ47TGinJ9zbsbJgzxCPN8F8f4EguKVpdlKFz64ItIMNL3yFMLmcVPOAkZYn
-         XmWQ==
-X-Gm-Message-State: AOJu0YzyIiAbMLgCwVqf3TtFZxyarlLAZJiGxYwYoBagxV3w6eo6kuLZ
-	j2L/97p3J3J4tq88IKqokpGQMdJxn22wniYCPSOCCNabNKmXMpOiAvGg+A==
-X-Gm-Gg: ASbGnctKNRTP/bZkVf2PN/uLHQjwmovRUVpqDR7NYn+iS5y1Hq/JSFumARAuq3ol+Ut
-	0+FP74hPR2O+lFWR9R+r3QwNnbdXWM3l1UZyqUw3EKMYyF1UacBzSXuaQmStS75fC2ereXLYq88
-	hl5NVz2eqkswizB5Bqk6bg5k5SICw6oQ4EFs3WqCSgPpnjXJ+OJd4ssrDY47FCPzOHyav0Ag80C
-	zZX/aSleqL9UEevr9960yXTGymVH9Dlm/Iz1FUPk6dgJ/d0/Whil+AVOFAWbE9RyHlNhQD5P5wE
-	JSS+V3GKOU4WhAzXag7lJg7KbaJXOTbm8Eg9L9tabbd3S29b2JcjvrSdHuBqkWEmB6JZX7abl+Q
-	W50m6KD8Yi/5iuic=
-X-Google-Smtp-Source: AGHT+IEepn+UeOPUMPtQ+Vo5vkRhE7eJ7bdIjEaG8YR8t+Jzk2PtaJNwLyufGdL/vXQbzGFnzLR9Qg==
-X-Received: by 2002:a05:622a:18a7:b0:476:a90b:986b with SMTP id d75a77b69052e-47ad3a40319mr23332801cf.28.1744765323709;
-        Tue, 15 Apr 2025 18:02:03 -0700 (PDT)
+        bh=BOP+Xk7g3usaXB8DY5qKgeIjsWqmRpi7//9PYTGo7zo=;
+        b=UcI4yLK8UuUWLtKZUDDsVP74TW93xspt26JAzSRwJxkHFSZx2fIIkCeCnhSofun8W8
+         7RmtFHxCwfCozfwUNO6GBuN/2ca4CIbzA26oNFVbeas0mfgJFmiexhLhd3YAUuol5ZtZ
+         Z0LMJkmVZzDJZ0tHjLPsJHoj3Kcd6CLb9WwTSnC1SMlYf0ZFiGRsUEGP8JlDgXAuKZkq
+         2oKcAJLREHDs8LWa+Zgqju6h2ILrxt8Qnh36Ts23B9ob+FFWNslp0wtLtrHon3TfrgHF
+         hT/hLhxzeaw6x4/4orBe3SQZSbMU7lFHmf0YaxXk84s5NXX4KOQcbUjVluv4YCkn4x85
+         oODA==
+X-Gm-Message-State: AOJu0YyyxWWEfPgItB9rZqedVPTz0ALNmvt+ZpoVKbms9vGpknPvlqIW
+	kZuHG9k+0t/S9Ys9wFxJbOXIlgkhxGbAObmruloxOe/j7YpEJoB+4putBg==
+X-Gm-Gg: ASbGnctz6CzoKxGuoarP6uBCv1ZHPKgA56XvQzmBjnkuZrlHebgDdPXl+oT3RSs8+8b
+	MI7QQEvR1Awt5tvcLr2L7a+tTC+X17vERRUmoeWmvkHx78a3i79Ne60xOL4Y4k1Hrtw5f5iB8+I
+	EMoUcBW3nRY3dw6GUHZDyP1JgoPlcU7ZvTPJ4lcteQHNTgk/vu8De5++YgtqEOYrEHg6cTZZwdG
+	Fmb5SVoh9KYw9Z7KC4o56jaoRZd8/GTAN3etku8UBrJEpPsQFTRQV5R3DXZopBWQ8uMNPNOFPRq
+	BMHpQFA7wYiKWaY/xTSX5HPHK/3sT/a5XED2IuxpWuTlPDRkQwSuiLkQqNP5ZXYTzJDhQeqsOHQ
+	npwChaW/xv2hQXHRn0qixMs1DBA==
+X-Google-Smtp-Source: AGHT+IEDuQm9Q9+u2jWvi1Km6PvJSKi5AhyyT3K/6Ng/ENPnCAb53xcfqp0yjXnII20xvajqm5l6NQ==
+X-Received: by 2002:ac8:59c6:0:b0:477:41fa:1120 with SMTP id d75a77b69052e-47ad3a1d777mr19903451cf.12.1744765326454;
+        Tue, 15 Apr 2025 18:02:06 -0700 (PDT)
 Received: from aford-System-Version.. (c-75-72-162-184.hsd1.mn.comcast.net. [75.72.162.184])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4796edc29ccsm99746291cf.77.2025.04.15.18.02.01
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4796edc29ccsm99746291cf.77.2025.04.15.18.02.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Apr 2025 18:02:02 -0700 (PDT)
+        Tue, 15 Apr 2025 18:02:06 -0700 (PDT)
 From: Adam Ford <aford173@gmail.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: aford@beaconembedded.com,
@@ -83,17 +83,17 @@ Cc: aford@beaconembedded.com,
 	devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH V2 09/10] arm64: dts: imx8mn-beacon: Enable RTC interrupt and wakeup-source
-Date: Tue, 15 Apr 2025 20:01:35 -0500
-Message-ID: <20250416010141.1785841-9-aford173@gmail.com>
+Subject: [PATCH V2 10/10] arm64: dts: imx8mp-beacon: Enable RTC interrupt and wakeup-source
+Date: Tue, 15 Apr 2025 20:01:36 -0500
+Message-ID: <20250416010141.1785841-10-aford173@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250416010141.1785841-1-aford173@gmail.com>
 References: <20250416010141.1785841-1-aford173@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_180205_188299_2CC29B9C 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20250415_180208_454165_D31395A0 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,16 +113,16 @@ used as an alarm.
 
 Signed-off-by: Adam Ford <aford173@gmail.com>
 ---
-V2:  Update commit message. No active changes
+V2:  New to series
 
- arch/arm64/boot/dts/freescale/imx8mn-beacon-som.dtsi | 11 +++++++++++
+ arch/arm64/boot/dts/freescale/imx8mp-beacon-som.dtsi | 11 +++++++++++
  1 file changed, 11 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mn-beacon-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mn-beacon-som.dtsi
-index b3692b367a42..987c14d3af9d 100644
---- a/arch/arm64/boot/dts/freescale/imx8mn-beacon-som.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mn-beacon-som.dtsi
-@@ -245,7 +245,12 @@ eeprom@50 {
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-beacon-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-beacon-som.dtsi
+index 88561df70d03..6a62cb32e22e 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-beacon-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp-beacon-som.dtsi
+@@ -257,7 +257,12 @@ eeprom@50 {
  	rtc: rtc@51 {
  		compatible = "nxp,pcf85263";
  		reg = <0x51>;
@@ -135,19 +135,19 @@ index b3692b367a42..987c14d3af9d 100644
  	};
  };
  
-@@ -365,6 +370,12 @@ MX8MN_IOMUXC_GPIO1_IO03_GPIO1_IO3		0x141
+@@ -382,6 +387,12 @@ MX8MP_IOMUXC_SD1_DATA4__GPIO2_IO06	0x40
  		>;
  	};
  
 +	pinctrl_rtc: rtcgrp {
 +		fsl,pins = <
-+			MX8MN_IOMUXC_GPIO1_IO13_GPIO1_IO13	0x146
++			MX8MP_IOMUXC_GPIO1_IO13__GPIO1_IO13	0x1d0
 +		>;
 +	};
 +
  	pinctrl_uart1: uart1grp {
  		fsl,pins = <
- 			MX8MN_IOMUXC_UART1_RXD_UART1_DCE_RX	0x140
+ 			MX8MP_IOMUXC_UART1_RXD__UART1_DCE_RX	0x140
 -- 
 2.48.1
 
