@@ -4,96 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2884C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 02:28:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F859C369B9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 02:28:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=INCYZW3hzgKSK4AliiojJjATw3Q2KBub6aarsjSNZ2g=; b=OkXgJ7S51qJI7TdmUq5ubBJglN
-	2NKpfXeNXYVNRSvo6uZQuJvuB3qinSLThoh9T0eEaCdjtKrJQoixcrk+PTLV6Zngh0+0wGMFKBK/R
-	H1h8fmsMlg/0Me1BmPqe7RMoIOLyb8Fngz8v33zqUwaGDdHx5qz2PIDKCMdoEC6wXfHTXbhespDkH
-	av568MRF45ulWyzwy4DmAK1alPHeK8V2rgLKoDy2JF6rih0Jd1svZwaIJkUSVUOzBwZgcHY5/ZSBA
-	b9S/XelYd87Yb834zcyM/6OM2B9R6+efmK24i2X9InM9w9m+qNu+vTfK6TXBvMg3SXmv6k2NcWI35
-	yjH4ZPFQ==;
+	bh=Gi3dHytOGS8VHO8KgCT+hpL08tfnWudWC7801liHFW0=; b=SJ/PV2tg8sk5OHpZk9q4rdVw8S
+	GGJWe/C6Xjg8VsW6FuVP3Wo1oDMGzxUX5DNgWpUOO+5+Al3eFgoOf0cBVpt17edWsq2vGP7pHzxP7
+	UeqaYFRs8dR2T8HEqQGEXfEehdsgpMx3iCoSpSZdUXH+usFSlS+qxnA2q4SV9RY9ae0YXsCA9qrqy
+	E9770u1PYQ3B2XhfZR7xR7/dFQ8NhYsqhJwMm6GVy3us593/RSLNKQdk7yNtk93zo4+1Ktn8schQL
+	C1kUDPfaDLRHZRPDnssQtL5IfmxXIMZj7/cscjTN1C4HBpESE9B33NHSuNYJV4SRTk1RxNjsgKsmx
+	H2ibUZLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4sVh-00000007wTy-3oCJ;
-	Wed, 16 Apr 2025 02:28:21 +0000
-Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4rAA-00000007jsm-2nkO
+	id 1u4sVi-00000007wUN-1sdl;
+	Wed, 16 Apr 2025 02:28:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u4sTp-00000007wJv-0QHx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 01:02:03 +0000
-Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-47691d82bfbso27454341cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Apr 2025 18:02:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744765321; x=1745370121; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=INCYZW3hzgKSK4AliiojJjATw3Q2KBub6aarsjSNZ2g=;
-        b=AiQAE61SZaRliQG6FK8LP+o9ZcAT8GnajAJ6BHC347WdMmL4MmlgUZAjx6CUudUvMs
-         Lg25yvOKTQ00aW/Xw54QqMwIPRyKgW1IyOs86+nQ6Nm1okwyUNQfuMdz0FGzCV/HejGV
-         QBa2wsKPXIcr/TJ6sTO9TaogU0i+8JjOpA2nz/leoFmmAWpHoZBWHafbJjXbMXpAzrE8
-         J4212+POXJ6zq8Mt5fZwV+CX2ORJ4J76E517rcxTglI07XmLpWv9ryf7VnDzmWNgMGoE
-         lequkk/oR2f5BUbYXLYeKBzKz5za0aETZO9hNiCKdAur/JaGoWWHIIRX4nf6vBuKwiOg
-         havw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744765321; x=1745370121;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=INCYZW3hzgKSK4AliiojJjATw3Q2KBub6aarsjSNZ2g=;
-        b=Sm81DXvE2TdK7z3Nvh21QNHtrfJDXIoeHkqDGyRy3rSPU9KOHciVqkWqgANVFFl9H2
-         QIoaLOEivmd9fW86pmJSIPxABo2O0dJaqEDnNyWkAqpS7+CwVsr4/2se1yJtLbWpSDcX
-         zlYX7RXhBmKPZSXxyGK4CGZqropEEqO4KyMKjXyiWCM4JNvp+pPYZtGmFMpqeQdgGiPA
-         s0+6UcJOquxGFI8cyc3i2unI4nj2wdjWML8pP7XaiMh3zsrhUqOv7nJJrx2KZKXt7jjS
-         A5ceN5SXla5u4R0O17Mjdaoo6CDGvvnq45GAwsEv63gyWAwjooYJDUFmfGZphLoX0ipo
-         BPJw==
-X-Gm-Message-State: AOJu0YwG7hX8+wx0BNul/uj9EH78rqFvZeHh4VbGwZATJeIauQs8Gp1F
-	IvlMzlwWl+ODN/MpeLZ9skQOG6XRSrmKi1T0VKaCeKGtsf5sgc8iGzQlVQ==
-X-Gm-Gg: ASbGncveYseGjAjISbsuydul99lHjSjydkwAGy/rLaor8SkjnttXX8HPy3A62o1MeW5
-	FMDS814aHGaEOnN3JZ+GNR3L42y0TjXod41M08KObqZHF1EwY/uZ6uIHLEECu4YkxfC2ei7gqwn
-	9YtGywG15tfRp1QLV4Yx9/AjPyX62bkwvojjXOL5EtsqeDGFUVS06F7MMhWlVV8JcLpXD+QDbtt
-	9H8RciI5stvHNvNUKUzLAboxIZCXrkbQ/vxYg3j5Z2zVqlUSNPBb6QXYYcdjPKNlVWT/kUz8xzI
-	al2uImL6sZthRxagiPTqIDzO1Qf57PJOJ8uU9uS4O9QLD7EDk52AWEhh+n2f2BH5F1ptxqnxRR7
-	d8jrXzvGgFoNPoME=
-X-Google-Smtp-Source: AGHT+IGxhkCmvbvhdNDyJBr3gKgLsE1Y/iVTIpUOgdp7ylffmNMMo/b6PF6ouKPTqYWmOf1JNxqzBQ==
-X-Received: by 2002:a05:622a:24b:b0:476:bb72:f429 with SMTP id d75a77b69052e-47ad3ac0f4fmr21814201cf.42.1744765321404;
-        Tue, 15 Apr 2025 18:02:01 -0700 (PDT)
-Received: from aford-System-Version.. (c-75-72-162-184.hsd1.mn.comcast.net. [75.72.162.184])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4796edc29ccsm99746291cf.77.2025.04.15.18.02.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Apr 2025 18:02:00 -0700 (PDT)
-From: Adam Ford <aford173@gmail.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: aford@beaconembedded.com,
-	Frank.li@nxp.com,
-	Adam Ford <aford173@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH V2 08/10] arm64: dts: imx8mm-beacon: Enable RTC interrupt and wakeup-source
-Date: Tue, 15 Apr 2025 20:01:34 -0500
-Message-ID: <20250416010141.1785841-8-aford173@gmail.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250416010141.1785841-1-aford173@gmail.com>
-References: <20250416010141.1785841-1-aford173@gmail.com>
+	Wed, 16 Apr 2025 02:26:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BEA9F1595;
+	Tue, 15 Apr 2025 19:26:21 -0700 (PDT)
+Received: from [10.162.16.49] (a077893.blr.arm.com [10.162.16.49])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CB9F53F694;
+	Tue, 15 Apr 2025 19:26:21 -0700 (PDT)
+Message-ID: <72e7684c-f41d-4620-8c62-204e1ac6354c@arm.com>
+Date: Wed, 16 Apr 2025 07:56:19 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64/mm: Re-organise setting up FEAT_S1PIE registers
+ PIRE0_EL1 and PIR_EL1
+To: Ryan Roberts <ryan.roberts@arm.com>, Ard Biesheuvel <ardb@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, linux-kernel@vger.kernel.org
+References: <20250410074024.1545768-1-anshuman.khandual@arm.com>
+ <6e6305fd-3b93-43ec-8114-e81b2926adfc@arm.com>
+ <CAMj1kXG5R1jVWLQ-XEcqF9U365T18pTW8u3DgC7OY4N53hchOA@mail.gmail.com>
+ <16602b97-2f49-4612-9e9a-d6d0ed964fd3@arm.com>
+ <CAMj1kXEnmpu3Dc5zZz1aQJGVwEFwx=JdYisSFkDNjUJ44FjX9Q@mail.gmail.com>
+ <5d975762-7678-419f-8e2f-40547c079276@arm.com>
+ <0eabad93-26ef-4452-bd89-17c153f483f3@arm.com>
+ <7b26c6e4-5483-4ac3-a084-bb0769768006@arm.com>
+ <fb411be7-b8e8-493f-ae79-90adb8bb79fd@arm.com>
+ <30b6c851-993a-42a2-be71-9748faa2eb4d@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <30b6c851-993a-42a2-be71-9748faa2eb4d@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_180202_705502_8CB11A1C 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20250415_192625_246494_500546A5 
+X-CRM114-Status: GOOD (  33.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,47 +75,182 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the interrupts and wakeup-source to allow the external RTC to be
-used as an alarm.
 
-Signed-off-by: Adam Ford <aford173@gmail.com>
----
-V2:  Update commit message. Re-order node
 
- arch/arm64/boot/dts/freescale/imx8mm-beacon-som.dtsi | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+On 4/15/25 23:13, Ryan Roberts wrote:
+> On 15/04/2025 10:46, Anshuman Khandual wrote:
+>>
+>>
+>> On 4/15/25 13:23, Ryan Roberts wrote:
+>>> On 15/04/2025 07:27, Anshuman Khandual wrote:
+>>>>
+>>>>
+>>>> On 4/14/25 18:01, Ryan Roberts wrote:
+>>>>> On 14/04/2025 13:28, Ard Biesheuvel wrote:
+>>>>>> On Mon, 14 Apr 2025 at 14:04, Ryan Roberts <ryan.roberts@arm.com> wrote:
+>>>>>>>
+>>>>>>> On 14/04/2025 10:41, Ard Biesheuvel wrote:
+>>>>>>>> On Mon, 14 Apr 2025 at 09:52, Ryan Roberts <ryan.roberts@arm.com> wrote:
+>>>>>>>>>
+>>>>>>>>> On 10/04/2025 08:40, Anshuman Khandual wrote:
+>>>>>>>>>> mov_q cannot really move PIE_E[0|1] macros into a general purpose register
+>>>>>>>>>> as expected if those macro constants contain some 128 bit layout elements,
+>>>>>>>>>> required for D128 page tables. Fix this problem via first loading up these
+>>>>>>>>>> macro constants into a given memory location and then subsequently setting
+>>>>>>>>>> up registers PIRE0_EL1 and PIR_EL1 by retrieving the memory stored values.
+>>>>>>>>>
+>>>>>>>>> From memory, the primary issue is that for D128, PIE_E[0|1] are defined in terms
+>>>>>>>>> of 128-bit types with shifting and masking, which the assembler can't do? It
+>>>>>>>>> would be good to spell this out.
+>>>>>>>>>
+>>>>>>>>>>
+>>>>>>>>>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>>>>>>>>>> Cc: Will Deacon <will@kernel.org>
+>>>>>>>>>> Cc: Mark Rutland <mark.rutland@arm.com>
+>>>>>>>>>> Cc: Ard Biesheuvel <ardb@kernel.org>
+>>>>>>>>>> Cc: Ryan Roberts <ryan.roberts@arm.com>
+>>>>>>>>>> Cc: linux-arm-kernel@lists.infradead.org
+>>>>>>>>>> Cc: linux-kernel@vger.kernel.org
+>>>>>>>>>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>>>>>>>>>> ---
+>>>>>>>>>> This patch applies on v6.15-rc1
+>>>>>>>>>>
+>>>>>>>>>>  arch/arm64/kernel/head.S         | 3 +++
+>>>>>>>>>>  arch/arm64/kernel/pi/map_range.c | 6 ++++++
+>>>>>>>>>>  arch/arm64/kernel/pi/pi.h        | 1 +
+>>>>>>>>>>  arch/arm64/mm/mmu.c              | 1 +
+>>>>>>>>>>  arch/arm64/mm/proc.S             | 5 +++--
+>>>>>>>>>>  5 files changed, 14 insertions(+), 2 deletions(-)
+>>>>>>>>>>
+>>>>>>>>>> diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
+>>>>>>>>>> index 2ce73525de2c..4950d9cc638a 100644
+>>>>>>>>>> --- a/arch/arm64/kernel/head.S
+>>>>>>>>>> +++ b/arch/arm64/kernel/head.S
+>>>>>>>>>> @@ -126,6 +126,9 @@ SYM_CODE_START(primary_entry)
+>>>>>>>>>>        * On return, the CPU will be ready for the MMU to be turned on and
+>>>>>>>>>>        * the TCR will have been set.
+>>>>>>>>>>        */
+>>>>>>>>>> +     adr_l   x0, pir_data
+>>>>>>>>>> +     bl      __pi_load_pir_data
+>>>>>>>>>
+>>>>>>>>> Using C code to pre-calculate the values into global variables that the assembly
+>>>>>>>>> code then loads and stuffs into the PIR registers feels hacky. I wonder if we
+>>>>>>>>> can instead pre-calculate into asm-offsets.h? e.g. add the following to
+>>>>>>>>> asm-offsets.c:
+>>>>>>>>>
+>>>>>>>>> DEFINE(PIE_E0_ASM, PIE_E0);
+>>>>>>>>> DEFINE(PIE_E1_ASM, PIE_E1);
+>>>>>>>>>
+>>>>>>>>> Which will generate the asm-offsets.h header with PIE_E[0|1]_ASM with the
+>>>>>>>>> pre-calculated values that you can then use in proc.S?
+>>>>>>>>>
+>>>>>>>>
+>>>>>>>> There is another issue, which is that mov_q tries to be smart, and
+>>>>>>>> emit fewer than 4 MOVZ/MOVK instructions if possible. So the .if
+>>>>>>>> directive evaluates the argument, which does not work with symbolic
+>>>>>>>> constants.
+>>>>>>>
+>>>>>>> I'm not quite understanding the detail here; what do you mean by "symbolic
+>>>>>>> constants"? asm-offsets.h will provide something like:
+>>>>>>>
+>>>>>>> #define PIE_E0_ASM 1234567890
+>>>>>>>
+>>>>>>> The current code is using a hash-define and that's working fine:
+>>>>>>>
+>>>>>>> mov_q   x0, PIE_E0
+>>>>>>>
+>>>>>>>
+>>>>>>> Won't the C preprocessor just substitute and everything will work out?
+>>>>>>>
+>>>>>>
+>>>>>> Yeah, you're right. I was experimenting with something like
+>>>>>>
+>>>>>> .set .Lpie_e0, PIE_E0_ASM
+>>>>>> mov_q xN, .Lpie_e0
+>>>>>>
+>>>>>> where this problem does exist, but we can just use PIE_E0_ASM directly
+>>>>>> and things should work as expected.
+>>>>>
+>>>>> Ahh great, sounds like this should be pretty simple then!
+>>>>
+>>>> Following change works both on current and with D128 page tables.
+>>>>
+>>>> --- a/arch/arm64/kernel/asm-offsets.c
+>>>> +++ b/arch/arm64/kernel/asm-offsets.c
+>>>> @@ -182,5 +182,7 @@ int main(void)
+>>>>  #ifdef CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
+>>>>    DEFINE(FTRACE_OPS_DIRECT_CALL,       offsetof(struct ftrace_ops, direct_call));
+>>>>  #endif
+>>>> +  DEFINE(PIE_E0_ASM, PIE_E0);
+>>>> +  DEFINE(PIE_E1_ASM, PIE_E1);
+>>>>    return 0;
+>>>>  }
+>>>> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
+>>>> index 737c99d79833..f45494425d09 100644
+>>>> --- a/arch/arm64/mm/proc.S
+>>>> +++ b/arch/arm64/mm/proc.S
+>>>> @@ -536,9 +536,9 @@ alternative_else_nop_endif
+>>>>  #define PTE_MAYBE_NG           0
+>>>>  #define PTE_MAYBE_SHARED       0
+>>>
+>>> I think at minimum, you can remove this PTE_MAYBE_* hack from proc.S. But as Ard
+>>> says, you may need to add it to asm-offsets.c? I'm surprised asm-offsets.c even
+>>
+>> Moving PTE_MAYBE_* inside asm-offsets.c works as well in both cases
+>> but still wondering why this is even required ? What am I missing ?
+> 
+> Without the overrides:
+> 
+> #define PTE_MAYBE_NG		(arm64_use_ng_mappings ? PTE_NG : 0)
+> #define PTE_MAYBE_SHARED	(lpa2_is_enabled() ? 0 : PTE_SHARED)
+> 
+> And these are used in the definition of PROT_DEFAULT, which is used in the
+> definition of _PAGE_KERNEL*, which are used in the definition of PIE_E1.
+> 
+> For the assembly code arm64_use_ng_mappings and lpa2_is_enabled() are not
+> accessible. But we don't actually care about those bits so its just hacked to
+> override the fields to 0.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-beacon-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-beacon-som.dtsi
-index ed7a1be4a1a6..c7a8f2a6fe90 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-beacon-som.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-beacon-som.dtsi
-@@ -236,7 +236,12 @@ eeprom@50 {
- 	rtc: rtc@51 {
- 		compatible = "nxp,pcf85263";
- 		reg = <0x51>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_rtc>;
-+		interrupt-parent = <&gpio1>;
-+		interrupts = <13 IRQ_TYPE_LEVEL_LOW>;
- 		quartz-load-femtofarads = <12500>;
-+		wakeup-source;
- 	};
- };
- 
-@@ -354,6 +359,12 @@ MX8MM_IOMUXC_GPIO1_IO03_GPIO1_IO3	0x141
- 		>;
- 	};
- 
-+	pinctrl_rtc: rtcgrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_GPIO1_IO13_GPIO1_IO13	0x146
-+		>;
-+	};
-+
- 	pinctrl_uart1: uart1grp {
- 		fsl,pins = <
- 			MX8MM_IOMUXC_UART1_RXD_UART1_DCE_RX	0x140
--- 
-2.48.1
+Alright.
 
+> 
+> I would have expected the asm-offsets.c case to have a similer problem because
+> we have not defined arm64_use_ng_mappings and lpa2_is_enabled(). asm-offsets.c
+> is compiled as a standalone object then the macros are exfiltrated and
+> asm-offsets.h is created.
+
+Understood.
+
+> 
+> Perhaps the compiler is smart enough to see that we don't care about the bits in
+> those fields (pte_pi_index() is only keeping selected bits) and asm-offsets.c
+> can be safely compiled without the hack?
+
+I guess the best thing here would be to move PTE_MAYBE_* inside asm-offsets.c to
+be on the safer side, rather than depending on what compiler might do otherwise.
+I will respin the patch with both the changes included.
+
+> 
+>>
+>>> compiles without this hack since surely it doesn't have arm64_use_ng_mappings or
+>>> is_realm_world() available?
+>> Did not face any problem with defconfig for the mainline kernel and
+>> both these symbols were visible in the built code.
+>>
+>>>
+>>> Thanks,
+>>> Ryan
+>>>
+>>>>  
+>>>> -       mov_q   x0, PIE_E0
+>>>> +       mov_q   x0, PIE_E0_ASM
+>>>>         msr     REG_PIRE0_EL1, x0
+>>>> -       mov_q   x0, PIE_E1
+>>>> +       mov_q   x0, PIE_E1_ASM
+>>>>         msr     REG_PIR_EL1, x0
+>>>>  
+>>>>  #undef PTE_MAYBE_NG
+>>>>
+>>>
+> 
 
