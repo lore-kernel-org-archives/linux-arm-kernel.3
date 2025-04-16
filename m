@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BB3DC369BD
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF9DAC369CA
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:30:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,69 +12,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2y5y3ZmHmiZpETZLXQ8JayHf4F0abUzXVddI3VfW9eY=; b=4UeloD1nkfR6pdgIznTyWEiDh3
-	psHbFBYYvQcnSoa8pdlExmbWQhV4UQ+UJPnw2EYXJ1UOW0rRL9M8zMEmOxQfZoKkpyaezkUPkaaez
-	ECX8k6J7CYg2pHHQKIssaHgbI+70jBbdqkDlg38Yx1LutNE7WWMADzAUZ2nVmMJd6D+lMeHmfxJ3l
-	92V7kIye5BwcyCH/xu6xVwRCT7COSPNxB1fGx0WczHvmXdt2Bssg1VcgEZBfURRSW62mVkosJR/tm
-	VAA8i67e1n6YHChZtZRN/kYGxlh+M54S7FQ/jyUsjjo5fW4wC8E4tIyX7F4qG3sMlKKuELFa4At7P
-	AZdOj2kQ==;
+	bh=2St31bPcYlMznkhjWLvtUzdzjZa/jmylV06mo55Op4g=; b=uymmNC1ca4z8DYop8RPDyBmNiG
+	Ni1nIt8VkputugHlQEKBSWBfEiH4UlkoLFqp+cIQf+D8Jroo2wKNWNo+2qawD3F6d8V1rfzHCc9G3
+	uZenodkLd5MXPjWvFUEM6DTYOEdw3b7DmPI2O0g6t7YkEYo8KbY4emizcUoZ04PP4jMWd+M4qTTCH
+	nyQ9lqLXWm3ySKjwf/5O8B3HPuO7c7gKYbsn2pX0f2hIc6nj7mb2wP+yz9asvJ9gjTj+5Ad3HgrSg
+	161ycA8rVm0YGvAEo/tgCp6BdXgxTx2ZJJBpRF3hKwUKNYUuo7+LwUcycJMWWIcaWgLb+MhqfwJF2
+	CFHnHzpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u502S-0000000986s-2Y15;
-	Wed, 16 Apr 2025 10:30:40 +0000
-Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
+	id 1u502T-0000000987o-4A1R;
+	Wed, 16 Apr 2025 10:30:41 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4y2N-00000008ndI-3qGk
+	id 1u4y2W-00000008ngw-18ZU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 08:22:29 +0000
-Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-3104ddb8051so42112721fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 01:22:27 -0700 (PDT)
+	Wed, 16 Apr 2025 08:22:41 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-54d65cb6e8aso50234e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 01:22:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744791746; x=1745396546; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1744791754; x=1745396554; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=2y5y3ZmHmiZpETZLXQ8JayHf4F0abUzXVddI3VfW9eY=;
-        b=IEF6ZFSnO8Pc0slHjmTyXmWBZr9q8NNb2QBQLUnMWIY0ycFK9VKpt+Y3w/G0lQRy3H
-         HGPyx+E9lSsZjlXYaIK1TgsCXBLVwr7myi6iG7uhF1tRe+lbwvkEu6Hpe+PJI5cNXfj6
-         xdeC3nT6a+fsP3pie5/SORoy1pl/5unXpp/cbLiHUZnBJlKPCefIYgxXzVBxsr7KLWNQ
-         Fb5g4rhYKX6a3b4luufoOPVupMmX28evaxcxBB6SnwmTQcuLBCI7pcnRClSA3Bh4uGwf
-         ADVqejPjscB4i/PAG9FFWoyQ7vmp5cZHZskxH1JrScdYrJawN82jC5NEBM7B0rbXZQDn
-         EbtQ==
+        bh=2St31bPcYlMznkhjWLvtUzdzjZa/jmylV06mo55Op4g=;
+        b=kYvyDEFJLIsVVvyPVpegKd2Co2fzjCFVGlsqA5c34qlhMtQyHPPJGQLlrD8WTYRgqn
+         AujUUsC/S2vkxeZrzO0XCEUBXDtFKF2BGdRTEnyI3k5NaQK8/4M30GhOk0XKXNicbL2U
+         +12edavu5wKYB0InM/1n9NHonmrfSnRo5ZT/Pn6UQIN9SSVUdZlIfBJL/6ooELl52WO0
+         ihY6/YeoJIChkboV7Oi/xHjQxCAknMwor5Uf/dhT8wq6WMPoML8N7AeaGtUtMyqV8Agb
+         jjI7XKtdzrN9jS/zpACpBc1/MYSbOKrYOzVBOWsqtJfecJDlOWz/OkcKeC5FOqj06QbM
+         q32Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744791746; x=1745396546;
+        d=1e100.net; s=20230601; t=1744791754; x=1745396554;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=2y5y3ZmHmiZpETZLXQ8JayHf4F0abUzXVddI3VfW9eY=;
-        b=C90cQhNRaat7Z5i/b33vRH239sMsldasLWVbjLWBglFFRA98KfTlY57Uurse97vUsa
-         fCVKma6u+sHeOqQgRdvMoDPIUoH7J2XA+o9q0C4Dq83KwWJkC31yUJkQCWgtnGdLC23E
-         xkxxAeGhJgwqmxHWP8BGCmz+h0Ktw5SCMIZ0J3Sr4qBNBASq4ovJ47gHX+DfQsKDlKyK
-         o1U47S3dowV8IlpJ+9vdVunfiMybafWnHE3nfui8A9pAuVJKlToHtEzcyCkGhwIatqEN
-         x7GemCY+bDtEVcdrxQv0XMjn7Eku2bvTcxLiibyA6nJWsRxSlNvDmffzsdCkC7t55PCj
-         4mXA==
-X-Gm-Message-State: AOJu0YzK8KKl6d/INdeTPTdzBE4rJDlPh86wkkGyphPBEbVnsbw6ziV6
-	GFTgOz+LTZ6kD5L362OSTCl4qYZoeTasNRWDxvNy2e/Rk0KPZjMi
-X-Gm-Gg: ASbGnctzG/uvL4d+LQAPgO0qGgTx83/9vKmTUyM7OrNlEwpHXZhSMpIkSP7iTgy5j8I
-	esM7Fucdl6dRrkCct0K5sfcfUSHqEUfF13yde3BqZC2raM+WtlUIlLV1stcrbsKVZ4dcPSodiHA
-	vAiWUKo0ezY3MApDDEl4gzmAJl7HmlmVyqE8CfWYEtIgk4gg+LfQ4eb4dYkLDwRL9pmOalHm60f
-	DdZfDVhWRkTEun913cn6wquhI1tvsVFanPkYlcafxih5Nisg9AVHt1eAErgOPtv7gB4NaIyfmEe
-	zv7u/XyuIbpgddYLJ9zXgk+AJ2ryrqqT61lnM162hbLYzR2gKm1q
-X-Google-Smtp-Source: AGHT+IGHmiw+jcDxFMmYyuWqHF6qUq+/5hAFy3k4yBNyU6kCzD5t65tfejPFzTQNDbufhza2BBNUIQ==
-X-Received: by 2002:a05:651c:1506:b0:30c:dbf:51a5 with SMTP id 38308e7fff4ca-3107f73b63dmr2648981fa.35.1744791745426;
-        Wed, 16 Apr 2025 01:22:25 -0700 (PDT)
+        bh=2St31bPcYlMznkhjWLvtUzdzjZa/jmylV06mo55Op4g=;
+        b=EVlfz3aTftMKIFGA4HS493ZQnCIBpOdgMG/L4MbsNtBIQt6CWyDfmJJkcXrlpBeVsP
+         2lMvutp5GEm1ZvE3GjdupmBfxhGhwZBql9NySWHoXdMxRnDDDF4zysXfYS0WYmlpq2Yp
+         5Ol6S2kxMMqQ+j79Mi/PtU1oMEgEjDxOToEa46Q0rBXJnBa6ezm1PxWfYwsWM1PM+Lw8
+         orVdSrrKt9vi7oAVWEm0bjEu66soS0HcsPU2/GHpW/rrW+TD6Zifr+u/zVOJy2cWZnxh
+         jj2yJKOnospKeK+n7wPd+XQRgc32FpeXi8qWfa7s/hBb7ADfbq/x5Eze9Qi1Et8Bljnk
+         +uwA==
+X-Gm-Message-State: AOJu0YyAEMRTb67tNR4KazvW0xFlgznjKPODMMH7F2Zatxko3aZzImQk
+	6MRGU967SW0fAcnDMxv452i7ff3zHLLLbFRGk8M0KcQMgHp9wbj7
+X-Gm-Gg: ASbGncuJtf/9VVFI1lBBoIaIOnjFXUx9DVw/HEdeiYReTMMpAEaqnIyx3FNETGJEOoU
+	0rYiNo7Wt30cKMqAOl6XVjRNV3dIgxNTDwmaGjpf395Ek9k5MK9mp9hglM1O07wBBPaek4zQsyj
+	Eedfh1OMOzH8wkHOFC5peNGtSD5/RQxITahEz7Rn7RWo9ye/LLtdJHUS9pAu0lZkAGiONf7Z+oc
+	l5g6rEszgc6By2qlzmofBzD/qcA2EjLv+fPpKpcU0GIeQ8zXSK0mwzAEEINDHnTVu6EXsaCjGNH
+	a7GalvqiuDQJq/y4iVlpRnFICgib4EfJLi3lab4oA0n4T2wppDuQK49pSAJpqLQ=
+X-Google-Smtp-Source: AGHT+IFb5qX0XvmZ5ZsVgPWiDomLFb6aepfbcplxh8QI9Sk/uDZL++otj+xKzMeCKeaOxLywh0T8Vw==
+X-Received: by 2002:a05:6512:118a:b0:54c:348d:19b7 with SMTP id 2adb3069b0e04-54d64af007dmr288077e87.46.1744791754143;
+        Wed, 16 Apr 2025 01:22:34 -0700 (PDT)
 Received: from NB-GIGA003.letovo.school ([5.194.95.139])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30f465f7b20sm23025391fa.97.2025.04.16.01.22.21
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30f465f7b20sm23025391fa.97.2025.04.16.01.22.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Apr 2025 01:22:25 -0700 (PDT)
+        Wed, 16 Apr 2025 01:22:33 -0700 (PDT)
 From: Alexey Charkov <alchark@gmail.com>
-Date: Wed, 16 Apr 2025 12:21:33 +0400
-Subject: [PATCH 08/13] ARM: dts: vt8500: Add node address and reg in CPU
- nodes
+Date: Wed, 16 Apr 2025 12:21:35 +0400
+Subject: [PATCH 10/13] ARM: dts: vt8500: Use generic compatibles for EHCI
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250416-wmt-updates-v1-8-f9af689cdfc2@gmail.com>
+Message-Id: <20250416-wmt-updates-v1-10-f9af689cdfc2@gmail.com>
 References: <20250416-wmt-updates-v1-0-f9af689cdfc2@gmail.com>
 In-Reply-To: <20250416-wmt-updates-v1-0-f9af689cdfc2@gmail.com>
 To: Krzysztof Kozlowski <krzk@kernel.org>, 
@@ -91,16 +90,16 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
  linux-mmc@vger.kernel.org, netdev@vger.kernel.org, 
  linux-pwm@vger.kernel.org, Alexey Charkov <alchark@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1744791712; l=2587;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1744791712; l=3187;
  i=alchark@gmail.com; s=20250416; h=from:subject:message-id;
- bh=T9i9uDAOpIqzeQm8w0R/XGIMMG/IUH9cDEWFYQ3QvqI=;
- b=vmBR7nWOqaQvS/UBFzJR8eJ1zXTYzDytcNF2vW+Q+dE3Uz8KEYGI3HsPw55mTEIS4kAJGYzdl
- jhYbpMHCb8lA62v8QnEjoEr3XxaiChrFy57u4hgWPOEqT1aaS/AAcsw
+ bh=sXBBymomR0aMqR41BnxGJR23ORnc03EabD898mjy8I0=;
+ b=phH1l+ArqkItHllKUYxgujxVUZbixuP6/yDZMbVo9thwv4ACvTy/s4XPnDaRM2uzyQ2ho1VOr
+ OXL6RgN4A0pCh6kidlqxTrKQumUKlP/GZBHpsmQSZaHYW1WUQC+iEBE
 X-Developer-Key: i=alchark@gmail.com; a=ed25519;
  pk=ltKbQzKLTJPiDgPtcHxdo+dzFthCCMtC3V9qf7+0rkc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_012227_966173_303C86A8 
-X-CRM114-Status: GOOD (  12.15  )
+X-CRM114-CacheID: sfid-20250416_012236_312994_7619B603 
+X-CRM114-Status: GOOD (  13.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,97 +114,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Adjust CPU nodes according to current guidelines, including address
-and reg. Set #address-cells accordingly.
+VIA/WonderMedia SoCs don't have anything special about their EHCI
+controllers: in fact, vendor provided kernels just use the
+generic PCI driver by emulating a virtual PCI bus with fixed MMIO
+mappings just to bind the existing driver as-is. So switch to the
+generic compatible to save further additions to bindings.
+
+Note that these devices have only ever supported appended-DTB boot,
+so changing the compatible should not affect any existing users.
 
 Signed-off-by: Alexey Charkov <alchark@gmail.com>
 ---
- arch/arm/boot/dts/vt8500/vt8500.dtsi | 5 +++--
- arch/arm/boot/dts/vt8500/wm8505.dtsi | 5 +++--
- arch/arm/boot/dts/vt8500/wm8650.dtsi | 5 +++--
- arch/arm/boot/dts/vt8500/wm8750.dtsi | 5 +++--
- 4 files changed, 12 insertions(+), 8 deletions(-)
+ arch/arm/boot/dts/vt8500/vt8500.dtsi | 2 +-
+ arch/arm/boot/dts/vt8500/wm8505.dtsi | 2 +-
+ arch/arm/boot/dts/vt8500/wm8650.dtsi | 2 +-
+ arch/arm/boot/dts/vt8500/wm8750.dtsi | 2 +-
+ arch/arm/boot/dts/vt8500/wm8850.dtsi | 2 +-
+ 5 files changed, 5 insertions(+), 5 deletions(-)
 
 diff --git a/arch/arm/boot/dts/vt8500/vt8500.dtsi b/arch/arm/boot/dts/vt8500/vt8500.dtsi
-index 09f5ed3e6821b72fc440f9de3df0ad484d2c4e17..1138940ce16cb8603d196b6e935d54df53b9a229 100644
+index 143daf983d1d926c2c837c43002d1a86cff3866a..b848fc33aa13796c098a511c26b4c2280ff453db 100644
 --- a/arch/arm/boot/dts/vt8500/vt8500.dtsi
 +++ b/arch/arm/boot/dts/vt8500/vt8500.dtsi
-@@ -11,12 +11,13 @@ / {
- 	compatible = "via,vt8500";
- 
- 	cpus {
--		#address-cells = <0>;
-+		#address-cells = <1>;
- 		#size-cells = <0>;
- 
--		cpu {
-+		cpu@0 {
- 			device_type = "cpu";
- 			compatible = "arm,arm926ej-s";
-+			reg = <0x0>;
+@@ -106,7 +106,7 @@ timer@d8130100 {
  		};
- 	};
  
+ 		usb@d8007900 {
+-			compatible = "via,vt8500-ehci";
++			compatible = "generic-ehci";
+ 			reg = <0xd8007900 0x200>;
+ 			interrupts = <43>;
+ 		};
 diff --git a/arch/arm/boot/dts/vt8500/wm8505.dtsi b/arch/arm/boot/dts/vt8500/wm8505.dtsi
-index c81810b967bb349419a5ac7db4e788faec3695fb..fa76df2830c79a695753c85397d4e916592f6a51 100644
+index 69d2351a81dbc816efd19ffe3ba5ef80eaa4e9dc..1b9a18f498613d649d4f8bf87ade32d1f7edd9e4 100644
 --- a/arch/arm/boot/dts/vt8500/wm8505.dtsi
 +++ b/arch/arm/boot/dts/vt8500/wm8505.dtsi
-@@ -11,12 +11,13 @@ / {
- 	compatible = "wm,wm8505";
- 
- 	cpus {
--		#address-cells = <0>;
-+		#address-cells = <1>;
- 		#size-cells = <0>;
- 
--		cpu {
-+		cpu@0 {
- 			device_type = "cpu";
- 			compatible = "arm,arm926ej-s";
-+			reg = <0x0>;
+@@ -204,7 +204,7 @@ timer@d8130100 {
  		};
- 	};
  
+ 		usb@d8007100 {
+-			compatible = "via,vt8500-ehci";
++			compatible = "generic-ehci";
+ 			reg = <0xd8007100 0x200>;
+ 			interrupts = <1>;
+ 		};
 diff --git a/arch/arm/boot/dts/vt8500/wm8650.dtsi b/arch/arm/boot/dts/vt8500/wm8650.dtsi
-index 555008120a3e315591d2ca49a39d354925d570fd..5b6affda3b6b8d8be9f3100b36cb303d015f19b5 100644
+index deebe9b933876bc1eb188f82ce8c1c17098d04a2..34378a49ec2017fe2771a38033788fd753dee875 100644
 --- a/arch/arm/boot/dts/vt8500/wm8650.dtsi
 +++ b/arch/arm/boot/dts/vt8500/wm8650.dtsi
-@@ -11,12 +11,13 @@ / {
- 	compatible = "wm,wm8650";
- 
- 	cpus {
--		#address-cells = <0>;
-+		#address-cells = <1>;
- 		#size-cells = <0>;
- 
--		cpu {
-+		cpu@0 {
- 			device_type = "cpu";
- 			compatible = "arm,arm926ej-s";
-+			reg = <0x0>;
+@@ -176,7 +176,7 @@ timer@d8130100 {
  		};
- 	};
  
+ 		usb@d8007900 {
+-			compatible = "via,vt8500-ehci";
++			compatible = "generic-ehci";
+ 			reg = <0xd8007900 0x200>;
+ 			interrupts = <43>;
+ 		};
 diff --git a/arch/arm/boot/dts/vt8500/wm8750.dtsi b/arch/arm/boot/dts/vt8500/wm8750.dtsi
-index 309f6e5129fb817d343cd58a8d90340afd8d6eb9..14e1d4f7c093a8ae9cce5acfeba3755f6df93a24 100644
+index bde825b59074eb74af4ab296895a3968e992aefe..1b7a02834ac14fcd51389a6a809b5f0960d63312 100644
 --- a/arch/arm/boot/dts/vt8500/wm8750.dtsi
 +++ b/arch/arm/boot/dts/vt8500/wm8750.dtsi
-@@ -11,12 +11,13 @@ / {
- 	compatible = "wm,wm8750";
- 
- 	cpus {
--		#address-cells = <0>;
-+		#address-cells = <1>;
- 		#size-cells = <0>;
- 
--		cpu {
-+		cpu@0 {
- 			device_type = "cpu";
- 			compatible = "arm,arm1176jzf";
-+			reg = <0x0>;
+@@ -248,7 +248,7 @@ timer@d8130100 {
  		};
- 	};
  
+ 		usb@d8007900 {
+-			compatible = "via,vt8500-ehci";
++			compatible = "generic-ehci";
+ 			reg = <0xd8007900 0x200>;
+ 			interrupts = <26>;
+ 		};
+diff --git a/arch/arm/boot/dts/vt8500/wm8850.dtsi b/arch/arm/boot/dts/vt8500/wm8850.dtsi
+index e8385c03e04bf5644c86a85aeb41e1cc1eedb202..76337244a8e051732e9ce3432eee36ccca9ed463 100644
+--- a/arch/arm/boot/dts/vt8500/wm8850.dtsi
++++ b/arch/arm/boot/dts/vt8500/wm8850.dtsi
+@@ -234,7 +234,7 @@ timer@d8130100 {
+ 		};
+ 
+ 		usb@d8007900 {
+-			compatible = "via,vt8500-ehci";
++			compatible = "generic-ehci";
+ 			reg = <0xd8007900 0x200>;
+ 			interrupts = <26>;
+ 		};
 
 -- 
 2.49.0
