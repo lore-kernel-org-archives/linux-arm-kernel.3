@@ -4,94 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF6DFC369BD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:53:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94F6BC369BD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 11:15:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XQ+hpkAofX+aHeqBJMhX3S0jMco9fodVrcXEVVX60Pw=; b=o3h+6QCP7x0urmd8RlRC70yJKW
-	ue+un+fa7LVE32++nhCB7s28ypr+29hDzs1axEC+7WTkHNELHf0nA5LsU5LzL9kkEDUvpV6vLGsaJ
-	hJ0O5wTJXX29DLql0p3fV2/aae7X3yF0lKVEvXjUOuw6qkyGH/0uyNDCQW67C31H8Sx22tMQRlrBV
-	VLw8pF0UXvC12Z+9YGQHoy2VQRkb1dNfUiMS8xaPeqmLOsCPMgTdTCVDP7LGBZZL5ojpiwNEZGNNH
-	ZwhkJ6/JBDmrluABZkw/0zBFBi+QCZmUehTc768Oq9MetHpjjI6fnTnE05IEU4v9ApOBY5Cigqpxb
-	oCn7WveA==;
+	bh=MocR616+VqlYQgKAO9looh+5bl/oUxpGHWgrj7ut1gY=; b=hqvl+2mre39miqkrQiz6f/Kcfi
+	JkGF2ikK7GBvNTdBqBSa4zuE03XGIguBEA5lrstWVeo/zmO4Um5FJLHh7Kuzku0cAsy+BDeK/QJKQ
+	79uSf4QvOSEHYWI1lgpiaVMrvHYRmvV3uJCZKB4WLnZ8z7sbJAEK33jT6k5YR422z7rPwSUdvNm5I
+	he0KWAM4P/AzNP7cisuYnuSPKjaai1s1+o+C3fO8HKOvsZUrkJXk1OkFeRo1Qhu7udzbsCnjdYLr3
+	ey/F9ZmwdxPI+lIxarFg4WQpW8J89U/JWTgRm8VrXcfAM4sb3j0nZYsIlKWJVyGMRiV5lywySoiqr
+	0thk0pgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u50On-00000009HFo-15OM;
-	Wed, 16 Apr 2025 10:53:45 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1u50jX-00000009Jhf-3RIg;
+	Wed, 16 Apr 2025 11:15:11 +0000
+Received: from mail-ua1-f50.google.com ([209.85.222.50])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u50Gf-00000009G6e-1aSJ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 10:45:22 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-43cfdc2c8c9so36218155e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 03:45:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744800320; x=1745405120; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XQ+hpkAofX+aHeqBJMhX3S0jMco9fodVrcXEVVX60Pw=;
-        b=H4AbSzXMiJwfawjVVGZNyajsuY/30MTJtIuXKoVSQUBVY+KfBAVVgly10lY0hnzaCt
-         PaP9pADl5xu1srwT5DRFmo6ib70hczGvMjPtfaEwK7K+8zwMynb4DIeNAr2diFy/roai
-         ne0ZlhV5KIDDHh4haQsAspzFMGKWRjH/2yarz+ZfMYutsevKQi4d3tP7ZPZajCCx/ZbB
-         B0SXrtt9US2PoMgKnyPACZTaa/TmO86CEAPD+DCXHVGUEzv4myouJjvaKFyERg3KW0lj
-         4CHkGIQS3BK3Oe1EOegLpi20VA9DaX41C7pNmVSViAVPxn/zZ3ptHVyniJQ5mwWIaIPk
-         GgRA==
+	id 1u50hg-00000009JSf-0dXy;
+	Wed, 16 Apr 2025 11:13:17 +0000
+Received: by mail-ua1-f50.google.com with SMTP id a1e0cc1a2514c-873a2ba6f7cso2519598241.3;
+        Wed, 16 Apr 2025 04:13:15 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744800320; x=1745405120;
+        d=1e100.net; s=20230601; t=1744801992; x=1745406792;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=XQ+hpkAofX+aHeqBJMhX3S0jMco9fodVrcXEVVX60Pw=;
-        b=e6sFxLcWmG75sSvMiHcBS34ZjDigh7t5prqvVD4IBDLB5aerblkMT2eXMnoyBDuTXr
-         zw/qxPIw6w4Bnt07tgev7RXWsTFHybZE3D7sFlX5+7xtphS2LR25ZLNIQTXYaGXDHrNe
-         C3InvCSufLzRaJbdcZDx8zfDxe7Hx2TqwqD5YbgIAKdzYQAr3rFrgP5iyk9QszvSwZc3
-         09yLEzvl++KZpgjfyD94A9tM+PG0nOJZWZQzv67R/SmdMzGp29mOD7wTgO2SzCgAWQ/b
-         YNTIa/eYXhCGjcGg/2jQntOvQdc3xDiH9IBx1hREW4mk5cjBkD5nc3lFS7baU0cFPXcc
-         yoLw==
-X-Forwarded-Encrypted: i=1; AJvYcCX7tWR6VV2W5IluU7NoTzZ9JBAB/2dj6RNKXro5EgACO1QjBPdJtuaopjCDeS+o947x4m7WtrNJM+DJ7v1FKl6J@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx6n+PAOZJXNeX5gskFgvsInZq00NHUdlKh+ZviO1lHTdAT2mfn
-	DNWW34S36C4tOrRE7KqNQgbTM+wTMUKCfpnWv701+X+Nk5MyMcCaXkSEla2NJQnaZdjXhejlYDX
-	g9KcB6RVH5BqgVx74ODvqNlEnAjk=
-X-Gm-Gg: ASbGncsrDNdiJjKfinTLIuM+j4Rwx5mMGcoURvL1MkdRrHCO1zy5x8vdmpjVea0HCUz
-	+GCXkoo5Z/U1TIxsfVp89hj2s2lAPKu0qgvC7Qty6QSBB0Yfn0NGXHSrHHVZgC375Oa0uVzp01K
-	z1fbroqmuMPSJ32wAO0jViHKyb7XMDKck4B3FIQJ+7G+19yp0pfCbrgos=
-X-Google-Smtp-Source: AGHT+IHceAQPkYgr6gv4d+47dQi2BveM4MNunE8eLD0kPVn7VMp8NlOF14LAKjl5p9eftjHmJMrjHs4kMBezXamCYyU=
-X-Received: by 2002:a05:6000:1863:b0:39a:ca04:3e4d with SMTP id
- ffacd0b85a97d-39ee5b1123amr1251169f8f.7.1744800319726; Wed, 16 Apr 2025
- 03:45:19 -0700 (PDT)
+        bh=MocR616+VqlYQgKAO9looh+5bl/oUxpGHWgrj7ut1gY=;
+        b=mVLb2lf2w4rU6mpKsgS96b5qRJmcd+tUa9nU1n4JcWfmIjYPSEd0qYfxpiu8wc2ayX
+         UU+1WM2T6fZbSLyRyZJG4IT8apnojZbBPTH7dY0BB/aRJO3sykf4QqdXZMO0hIwFJ0J7
+         F0gvJjspFrwcPcicUkNctChiudRquoU3bGEn+8QdynDdv1fQiJBmWucE3EaJzsZzMhlC
+         ZiypAbu+e9+CloSMJsSfgKKivjllyA4buG9SWSZzWVfLDFLeeFPM4mjoVJZY5fGexyd6
+         eDz9V1WFDK+SjuZKN28P/kCW2rgtpwwt00E7BpVB9gN6GcMUXKJ86qyvLhWEbWUnuG5y
+         70DA==
+X-Forwarded-Encrypted: i=1; AJvYcCUYf70LnZnj60xHtkWWDnSaS4oe/Vu+DWvxfs2jIfu8p/RPt7uYM+spI8pxSbu5s2ozZzGAzr5b6oNPeTfcFxg=@lists.infradead.org, AJvYcCXo/EJE1UvIgksNb293YwiWEjerGvz1egkXBlRbjCn+HR60e7jvOkb6+TL7LOWU2En2ct6gasnY3A2kSpm9zAGF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1T/5SbEujfxPoJJir/OmnhGiIGMIGmPDPgRQXoLI8TRIHFUdU
+	KknKjpDP0NqPA6jTJjzl8iwZ48LIxUdD7TzRQrXcS6tYEdC4JHV4YCWn3j8w
+X-Gm-Gg: ASbGncufPC0JyEC+HPvAlXH9hTVUeNucOwrkBfqm0CCc8UI1BgNHtCo+Am8Lyg56gBh
+	WSNWJ70aYTDoKyrq+szm95A9IxaW2+QjvjUKK3fFMEVXKmODUCw2UeBnyl3/dzYNIbPUbfSWzWm
+	j/D+GXzzFbz9ktBNRII7XXff7GVvS/5ziIqcmolSJGN+TsXNulr90qnWTnHeu9y92kRyD2+TuGS
+	8vuka3J7zF4x/E4YeJiz+/EPjc2elh3Bgql8EK7ojK1sY+/KxpMAqbDf/DguyQLbrmaZjSNP/BJ
+	SC2xA4a+v8fe3BkcfZpq3U5scGVKRf+jqKsiM21XcUMjYWVdDJ/1Cq9YrcRlO40Ie8hL2Axl6pw
+	oISk=
+X-Google-Smtp-Source: AGHT+IE58K1Yf1PJTZo/0tMXFtdGPqqowIiLIrcrGqkyn29glLmVPnXVShLan7FrgRbRyPIcwm8ZZw==
+X-Received: by 2002:a05:6102:5c19:b0:4b2:c391:7d16 with SMTP id ada2fe7eead31-4cb591e5fbfmr369456137.7.1744801991841;
+        Wed, 16 Apr 2025 04:13:11 -0700 (PDT)
+Received: from mail-ua1-f45.google.com (mail-ua1-f45.google.com. [209.85.222.45])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-4c9c98edc91sm3025623137.29.2025.04.16.04.13.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 16 Apr 2025 04:13:11 -0700 (PDT)
+Received: by mail-ua1-f45.google.com with SMTP id a1e0cc1a2514c-873a2ba6f7cso2519579241.3;
+        Wed, 16 Apr 2025 04:13:10 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUCpWt493H3qI779/1OoVgFTRL4ZluQrV5b5wa2a354jb3lHtYqEVvYoq7gEmRteWyslmEpmwueJVYP2XV3Z4LC@lists.infradead.org, AJvYcCWpyE9/CbclvU64hxoydXd4zHrF9HF4oIoc/1wGVhxWrMypzbPvlXNLgkdIHLak5J/lyTuR/+CuqH8xAdyQsHE=@lists.infradead.org
+X-Received: by 2002:a05:6102:2991:b0:4c3:9b0:9e6b with SMTP id
+ ada2fe7eead31-4cb591e784bmr414553137.10.1744801990755; Wed, 16 Apr 2025
+ 04:13:10 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250416104015.47788-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <20250416104015.47788-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
-In-Reply-To: <20250416104015.47788-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Wed, 16 Apr 2025 11:44:53 +0100
-X-Gm-Features: ATxdqUFZg4onSRXp1_kJuV7m9X73pVYBtmBk0hrdoERO50FU_acfBNENrSpy6UU
-Message-ID: <CA+V-a8ua8anSCuyEYrdcpcCcdzE4EmQ0SDidYfiwe9zzezccaA@mail.gmail.com>
-Subject: Re: [PATCH net-next v7 3/4] net: stmmac: Add DWMAC glue layer for
- Renesas GBETH
-To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Richard Cochran <richardcochran@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
-	Jose Abreu <joabreu@synopsys.com>
-Cc: netdev@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, Biju Das <biju.das.jz@bp.renesas.com>, 
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20250109-enable-rtc-v3-0-f003e8144419@baylibre.com>
+ <20250109-enable-rtc-v3-3-f003e8144419@baylibre.com> <erttkpna2hzg7zuddzlocaou2wqcwmgcxfhldwdt55yleie6dm@nfg374fv66fq>
+In-Reply-To: <erttkpna2hzg7zuddzlocaou2wqcwmgcxfhldwdt55yleie6dm@nfg374fv66fq>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 16 Apr 2025 13:12:58 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdX3u97MtDiPuJgFtO5YTRuLeDHgs4tx7004CScLO11WkQ@mail.gmail.com>
+X-Gm-Features: ATxdqUHjMszLt95drNgnUajxAYkWqRme3b0HzHSYcdCgcByHGIiSYzx7n6CDpNY
+Message-ID: <CAMuHMdX3u97MtDiPuJgFtO5YTRuLeDHgs4tx7004CScLO11WkQ@mail.gmail.com>
+Subject: Re: [PATCH v3 3/5] rtc: Fix the RTC time comparison issues adding cast
+To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Cc: Alexandre Mergnat <amergnat@baylibre.com>, Eddie Huang <eddie.huang@mediatek.com>, 
+	Sean Wang <sean.wang@mediatek.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	linux-rtc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_034521_419941_634056A6 
-X-CRM114-Status: GOOD (  24.89  )
+X-CRM114-CacheID: sfid-20250416_041316_213249_55E739CE 
+X-CRM114-Status: GOOD (  36.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,125 +100,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi All,
+Hi Uwe,
 
-On Wed, Apr 16, 2025 at 11:40=E2=80=AFAM Prabhakar <prabhakar.csengg@gmail.=
-com> wrote:
+On Tue, 15 Apr 2025 at 00:30, Uwe Kleine-K=C3=B6nig
+<u.kleine-koenig@baylibre.com> wrote:
+> On Fri, Apr 11, 2025 at 02:35:56PM +0200, Alexandre Mergnat wrote:
+> > The RTC subsystem was experiencing comparison issues between signed and
+> > unsigned time values. When comparing time64_t variables (signed) with
+> > potentially unsigned range values, incorrect results could occur leadin=
+g
+> > to runtime errors.
+> >
+> > Adds explicit type casts to time64_t for critical RTC time comparisons
+> > in both class.c and interface.c files. The changes ensure proper
+> > handling of negative time values during range validation and offset
+> > calculations, particularly when dealing with timestamps before 1970.
+> >
+> > The previous implementation might incorrectly interpret negative values
+> > as extremely large positive values, causing unexpected behavior in the
+> > RTC hardware abstraction logic.
+> >
+> > Signed-off-by: Alexandre Mergnat <amergnat@baylibre.com>
+> > ---
+> >  drivers/rtc/class.c     | 6 +++---
+> >  drivers/rtc/interface.c | 8 ++++----
+> >  2 files changed, 7 insertions(+), 7 deletions(-)
+> >
+> > diff --git a/drivers/rtc/class.c b/drivers/rtc/class.c
+> > index e31fa0ad127e9..1ee3f609f92ea 100644
+> > --- a/drivers/rtc/class.c
+> > +++ b/drivers/rtc/class.c
+> > @@ -282,7 +282,7 @@ static void rtc_device_get_offset(struct rtc_device=
+ *rtc)
+> >        * then we can not expand the RTC range by adding or subtracting =
+one
+> >        * offset.
+> >        */
+> > -     if (rtc->range_min =3D=3D rtc->range_max)
+> > +     if (rtc->range_min =3D=3D (time64_t)rtc->range_max)
+> >               return;
 >
-> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> For which values of range_min and range_max does this change result in a
+> different semantic?
 >
-> Add the DWMAC glue layer for the GBETH IP found in the Renesas RZ/V2H(P)
-> SoC.
+> Trying to answer that question myself I wrote two functions:
 >
-> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> ---
->  drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 ++
->  drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
->  .../stmicro/stmmac/dwmac-renesas-gbeth.c      | 146 ++++++++++++++++++
->  3 files changed, 158 insertions(+)
->  create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbe=
-th.c
+>         #include <stdint.h>
 >
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/et=
-hernet/stmicro/stmmac/Kconfig
-> index 3c820ef56775..2c99b23f0faa 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-> +++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-> @@ -131,6 +131,17 @@ config DWMAC_QCOM_ETHQOS
->           This selects the Qualcomm ETHQOS glue layer support for the
->           stmmac device driver.
+>         int compare_unsigned(uint64_t a, int64_t b)
+>         {
+>                 return a =3D=3D b;
+>         }
 >
-> +config DWMAC_RENESAS_GBETH
-> +       tristate "Renesas RZ/V2H(P) GBETH support"
-> +       default ARCH_RENESAS
-> +       depends on OF && (ARCH_RENESAS || COMPILE_TEST)
-> +       help
-> +         Support for Gigabit Ethernet Interface (GBETH) on Renesas
-> +         RZ/V2H(P) SoCs.
-> +
-> +         This selects the Renesas RZ/V2H(P) Soc specific glue layer supp=
-ort
-> +         for the stmmac device driver.
-> +
->  config DWMAC_ROCKCHIP
->         tristate "Rockchip dwmac support"
->         default ARCH_ROCKCHIP
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/e=
-thernet/stmicro/stmmac/Makefile
-> index 594883fb4164..91050215511b 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/Makefile
-> +++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
-> @@ -20,6 +20,7 @@ obj-$(CONFIG_DWMAC_LPC18XX)   +=3D dwmac-lpc18xx.o
->  obj-$(CONFIG_DWMAC_MEDIATEK)   +=3D dwmac-mediatek.o
->  obj-$(CONFIG_DWMAC_MESON)      +=3D dwmac-meson.o dwmac-meson8b.o
->  obj-$(CONFIG_DWMAC_QCOM_ETHQOS)        +=3D dwmac-qcom-ethqos.o
-> +obj-$(CONFIG_DWMAC_RENESAS_GBETH) +=3D dwmac-renesas-gbeth.o
->  obj-$(CONFIG_DWMAC_ROCKCHIP)   +=3D dwmac-rk.o
->  obj-$(CONFIG_DWMAC_RZN1)       +=3D dwmac-rzn1.o
->  obj-$(CONFIG_DWMAC_S32)                +=3D dwmac-s32.o
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c b/=
-drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
-> new file mode 100644
-> index 000000000000..f34bec7794e2
-> --- /dev/null
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
-> @@ -0,0 +1,146 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +/*
-> + * dwmac-renesas-gbeth.c - DWMAC Specific Glue layer for Renesas GBETH
-> + *
-> + * The Rx and Tx clocks are supplied as follows for the GBETH IP.
-> + *
-> + *                         Rx / Tx
-> + *   -------+------------- on / off -------
-> + *          |
-> + *          |            Rx-180 / Tx-180
-> + *          +---- not ---- on / off -------
-> + *
-> + * Copyright (C) 2025 Renesas Electronics Corporation
-> + */
-> +
-> +#include <linux/clk.h>
-> +#include <linux/device.h>
-> +#include <linux/module.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/reset.h>
-> +
-> +#include "stmmac_platform.h"
-> +
-> +struct renesas_gbeth {
-> +       struct plat_stmmacenet_data *plat_dat;
-> +       struct reset_control *rstc;
-> +       struct device *dev;
-> +};
-> +
-> +static const char *const renesas_gbeth_clks[] =3D {
-> +       "tx", "tx-180", "rx", "rx-180",
-> +};
-> +
-> +static int renesas_gbeth_init(struct platform_device *pdev, void *priv)
-> +{
-> +       struct plat_stmmacenet_data *plat_dat;
-> +       struct renesas_gbeth *gbeth =3D priv;
-> +       int ret;
-> +
-> +       plat_dat =3D gbeth->plat_dat;
-> +
-> +       ret =3D reset_control_deassert(gbeth->rstc);
-> +       if (ret) {
-> +               dev_err(gbeth->dev, "Reset deassert failed\n");
-> +               return ret;
-> +       }
-> +
-> +       ret =3D clk_bulk_prepare_enable(plat_dat->num_clks,
-> +                                     plat_dat->clks);
-> +       if (ret)
-> +               reset_control_assert(gbeth->rstc);
-> +
-> +       return 0;
-Just noticed this has to be ret, I'll send a new version fixing this.
+>         int compare_signed(uint64_t a, int64_t b)
+>         {
+>                 return (int64_t)a =3D=3D b;
+>         }
+>
+> When I compile this (with gcc -Os) the assembly for both functions is
+> the same (tested for x86_64 and arm32).
+>
+> >       ret =3D device_property_read_u32(rtc->dev.parent, "start-year",
+> > @@ -299,7 +299,7 @@ static void rtc_device_get_offset(struct rtc_device=
+ *rtc)
+> >       if (!rtc->set_start_time)
+> >               return;
+> >
+> > -     range_secs =3D rtc->range_max - rtc->range_min + 1;
+> > +     range_secs =3D (time64_t)rtc->range_max - rtc->range_min + 1;
+>
+> In the case where no overflow (or underflow) happens, the result is the
+> same, isn't it? If there is an overflow, the unsigned variant is
+> probably the better choice because overflow for signed variables is
+> undefined behaviour (UB).
+>
+> Respective demo program looks as follows:
+>
+>         #include <stdint.h>
+>
+>         int test_unsigned(uint64_t a)
+>         {
+>                 return a + 3 > a;
+>         }
+>
+>         int test_signed(int64_t a)
+>         {
+>                 return a + 3 > a;
+>         }
+>
+> Using again `gcc -Os`, the signed variant is compiled to a function that
+> returns true unconditionally while the unsigned one implements the
+> expected semantic.
 
-Cheers,
-Prabhakar
+Hence that is why the kernel is compiled with -fwrapv...
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--=20
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
+.org
+
+In personal conversations with technical people, I call myself a hacker. Bu=
+t
+when I'm talking to journalists I just say "programmer" or something like t=
+hat.
+                                -- Linus Torvalds
 
