@@ -4,140 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D89CCC369BD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 23:37:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D559DC369BD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 23:39:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KrzKY5uhmgWj9q+gxXEnQJYGYW5ydDcGsUNVOknvlWk=; b=Iu/d84ORFlFqacA3gsuAULzdHE
-	+7OHg+FQBTR5cD1aCzcVhXtzgNLmafvNUOT6q/FNOcV+S82Sr/WEjjjq6LwJQ1WBgL3NxVbsXoNUA
-	yoITmk2Gj0IJRA5lXLarxQMbBqJ2oy4LbqrFpUkL+TZE1vr3BKBQBFHTacHYHKLnk52dntGuU7FWU
-	t/9sqVm3M/C589cZcLwyUsVn3t/ncUSf4i90hDXXd0uoaRzQGL2uMcEfh8us8N2aSDKut1+00kZf3
-	zbCGrw+vVNPkaUEykKKjCB4OzhH0QDFvIis0rkFxJNXLOucFP1HbuehWBvlOjcU4eEhshzmDzPzBK
-	SR+YIE/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ssnJFWNTbfHoJOHF7+D0eXZ7iAFZnTocRginKt1YmbI=; b=dF5nyr7zyhfJbSprsvpkvVQxTc
+	wP5W09+SslvtdVXNIxdqG+Mlbd4+m8LPwGxkkeSNPPJ96BOS1pUxElR6IAAigIuumEVWrbS05OsXG
+	cYtCFNJ5RV2ZtV2HUw3hsUWj7QQByYEktFg31t1CjVgoFk/87byzLqDR97t+eMeU5b4qV2F4eYbk6
+	qEa4guMX2sdhSdzyxiT2N+LAJCMuuHuUs7Y+WWWRP+RiLQ5akLAikeiR+bJvNEaIeLOUDWIrqLJY/
+	/aPdgdy2hK7UQm3zMZoBjR5xJ00Zty1x5634ufKtEXla/FZmCouU+6rQ5AzKyhzY9Ct1zGuXph1mU
+	omsqkddg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5CK7-0000000BBEg-3suP;
-	Wed, 16 Apr 2025 23:37:43 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1u5CLx-0000000BBRm-2maa;
+	Wed, 16 Apr 2025 23:39:37 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5C03-0000000B8MS-2JD6
+	id 1u5CG4-0000000BAb6-1NGV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 23:17:01 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53GMCG68007041
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 23:16:58 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	KrzKY5uhmgWj9q+gxXEnQJYGYW5ydDcGsUNVOknvlWk=; b=QhX2YQ02gIlWz6Na
-	vdx8vJk9MFNtlumBtpHH9VRL/FRXk9i8xckoHQScY/7oANGTVxnBb3cU41eymfLs
-	a9bWBP+IFWJKM+6onNox7GgLNn9MAaPxap7q2HnZAfPrIlmTi4Qct85UBcUWmMpj
-	EZlc8XNM+3cKJgPZBd1CZd7Rac4l9SePpBOYqf5I82K8qR347yQtZSvSb83jlmd/
-	/3wZ7VBVSHq5LfOKFfnuK8vbD4W1M8SdX6M4eCHC8ISwU2FOPd0cDEYPhLPDT4Sd
-	z7g9bdzOW/KPQDtQowqqBt1+Sh4SVKwj5FqnhNiLs7BzLPpKs1xnYmx9y7SvpZ4k
-	MaVl+w==
-Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45yfgjmy8c-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 23:16:58 +0000 (GMT)
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-6e8ffb630ffso3469686d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 16:16:58 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744845414; x=1745450214;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=KrzKY5uhmgWj9q+gxXEnQJYGYW5ydDcGsUNVOknvlWk=;
-        b=LKWO6ql4lQPg6KeIOJ0qxlxTG7gW9Dw612rjfgEDhylKEUppfbwkhYGeOCTJztKFfj
-         M3EUViLF97wwvDQiab8YkvvQksqp1hCZeC1+KY+NvtGRRQcIDRg7quwkkR0NB1jAm6Mu
-         yY0QTfHOL6hV7bWl3hJTU96ifML3cw4juFCy+Up8xjMeX8pZ6FD2T7InDNouPtQ8fRnp
-         2ZW715woq9hTIyBZvrXtGINJKyhLbumIEXq0zMbqmc56AwloAqJ0mvfoDk5vF8/lCrJa
-         kMQyGIDIKK+o6V0Pj8uV626nwCzXLJpaSuG4aVxAbNC0tnCzBpXBzMn1sKT2JAnkOeyB
-         Li+g==
-X-Forwarded-Encrypted: i=1; AJvYcCX3yac6RNN2amyQSN/GppIYt1KrYRYqDXYiIeD+xw0JTBgs+xafCmYdaAsnH7RFQQEKubU5JU0YUXw2tEVQe7Jd@lists.infradead.org
-X-Gm-Message-State: AOJu0YymB2SiU+3wUMVgBUFIG6vYAqI5VMctOTXMAEKdmfCaqNPiTWRs
-	Ulu1TIQhtZWnyGrzU7Gz/PjLQCvR8nKbryqtYU5Nrg9aMSedlKQmGLAmY2ShvRq6UMIkhRuH8zF
-	WjXXSNmgvPihHfp+J9PduwVnVv6PdLP6Gr021ANTq6vntWDaQrIYFgk8oNAEljGJZ62mkbswYPg
-	==
-X-Gm-Gg: ASbGnctLUDFSVF4sfE8s26DLQJwaoYvC3ZItvAFnvqNz4LCnnRXqVpigByo6oSD6yU9
-	npQm8LN9pKBMrTp5o2DIcdrVCOirMiSn9dRP5TrbUY+8J89jD5czUq+jn++wz6cTMe/Yj82Rsgi
-	KPhjlhyh4AUDb/z0w3CZneBpLz+xAqFQKA+59MIqoGCUTldcSx43MiQcT932YhTq4UqI5Vej9dj
-	PdFsBay7ob5TTkxnH9/0b0j8bXtqyisIQgtswgFmmlhvm8L7zN12d5MKPLvsPqKzkzCSSlivSpF
-	2RIK1aWc9sqtFBbWRHzewKi0me+ctQnQYPCirOsX6R0lpE4NHvDoLnbABKth/DXDYVpiAI3sA18
-	WeJllQfMgbFK4EBK7TjqmwCUO
-X-Received: by 2002:ad4:5741:0:b0:6e8:98c0:e53d with SMTP id 6a1803df08f44-6f2b30837bbmr61566236d6.45.1744845414019;
-        Wed, 16 Apr 2025 16:16:54 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFYaXel8DmxupHmlwEjoqXrBmi9e4uxWx2hNOwKWLzT+K0SRlhPrAmgnHz5TTPj5n/4VNH9Vw==
-X-Received: by 2002:ad4:5741:0:b0:6e8:98c0:e53d with SMTP id 6a1803df08f44-6f2b30837bbmr61565976d6.45.1744845413650;
-        Wed, 16 Apr 2025 16:16:53 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30f4649d79esm26062181fa.15.2025.04.16.16.16.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Apr 2025 16:16:52 -0700 (PDT)
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Date: Thu, 17 Apr 2025 02:16:40 +0300
-Subject: [PATCH v4 10/10] arm64: dts: qcom: sar2130p: add display nodes
+	Wed, 16 Apr 2025 23:33:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0F6155C0550;
+	Wed, 16 Apr 2025 23:31:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C54BC4CEE2;
+	Wed, 16 Apr 2025 23:33:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744846409;
+	bh=Ecdg41vWCtpkSt3gvW7D8FWTYl606nKDN9OmlaG2l1k=;
+	h=From:Date:Subject:To:Cc:From;
+	b=WpeSk8q6G8wXPJ6NfLBMGWG/BU/EcTU9c+pVJWlb9G9AnKnjn6UXeK/CbOqk2R66x
+	 hIZZoSqqFsKwx1vUls2g07m7PSN3UMTXMFaEWUJRDUKJNHOhuzVLE5tjIXfLBvql3K
+	 FqA3R7OpIgXv4pryPYERza9Nqh4TTFWcX+VI0FnrUNMFJIAkZwsx59/AaoSLbOUDOK
+	 Lc38fDuGdMVYauv8D7YCaZ12rBBn+9P5yRNBadPiCgNEuA8nT7DOCaqBWs3VID6Aw7
+	 H6ZYonMrwmLBRAa4GIn+Smsf9HcGB7dklXKkq82aFPrW9XOab0TGLPArz28ORDEK5V
+	 OKnPJgQNEh64A==
+From: Mark Brown <broonie@kernel.org>
+Date: Thu, 17 Apr 2025 00:32:49 +0100
+Subject: [PATCH] KVM: selftests: add test for SVE host corruption
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250417-sar2130p-display-v4-10-b91dd8a21b1a@oss.qualcomm.com>
-References: <20250417-sar2130p-display-v4-0-b91dd8a21b1a@oss.qualcomm.com>
-In-Reply-To: <20250417-sar2130p-display-v4-0-b91dd8a21b1a@oss.qualcomm.com>
-To: Rob Clark <robdclark@gmail.com>, Abhinav Kumar <quic_abhinavk@quicinc.com>,
-        Dmitry Baryshkov <lumag@kernel.org>, Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Kuogee Hsieh <quic_khsieh@quicinc.com>,
-        Krishna Manikandan <quic_mkrishn@quicinc.com>,
-        Jonathan Marek <jonathan@marek.ca>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        Joerg Roedel <joro@8bytes.org>, Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
-        freedreno@lists.freedesktop.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=11555;
- i=dmitry.baryshkov@oss.qualcomm.com; h=from:subject:message-id;
- bh=sFRN57agjH0j7OcYrkWP/Ch9l5OmUHSzbhBJ88iL2Ng=;
- b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBoADpSPNau1Mg53NFw9U5o1MTwJQUeSNG8UCPcx
- c+ZSbyuFN+JATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCaAA6UgAKCRCLPIo+Aiko
- 1Z6yCACfXJLtHISscdUrXYGCmCwH3ZXxEF3SilHHaziiWfrpq4wXv9yC4ghSVeJYwP1o4lXxSwS
- xyhDOXbiFIQDX+O8EuHFUfyehurUDADAxN/Kiv0vnc7RNy1KghMdN3zQn7eOihP0+D2P04actzv
- GaajQOHeMINuJ/bokNd6GGuztp/EjP7vR1+z1e/1O+s0KHVo4/vjAE58g27wwwLXGv7J3e3Gw+w
- UNUk+l+4Gb5pvHGNWoCt1O89O/PNtMn5sbABoKylw0huBmuBKKMofbuOorXZYRp8R8Ge1tYoO32
- Mbxusvk2zmL/kxsqBFTkPKdcdYmt2myKqIUxu3kGrh7XjMov
-X-Developer-Key: i=dmitry.baryshkov@oss.qualcomm.com; a=openpgp;
- fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
-X-Proofpoint-GUID: WoTs2k90TlurbsSqDu9KWUBxF_4wmtfy
-X-Proofpoint-ORIG-GUID: WoTs2k90TlurbsSqDu9KWUBxF_4wmtfy
-X-Authority-Analysis: v=2.4 cv=Cve/cm4D c=1 sm=1 tr=0 ts=68003a6a cx=c_pps a=7E5Bxpl4vBhpaufnMqZlrw==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=VwQbUJbxAAAA:8 a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8 a=qobt-ayf5lTqXTu-rvoA:9
- a=AIif5W2CIEg7SbQQ:21 a=QEXdDO2ut3YA:10 a=pJ04lnu7RYOZP9TFuWaZ:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-16_09,2025-04-15_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 clxscore=1015
- malwarescore=0 lowpriorityscore=0 bulkscore=0 spamscore=0 phishscore=0
- suspectscore=0 impostorscore=0 mlxlogscore=999 mlxscore=0
- priorityscore=1501 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2504160186
+Message-Id: <20250417-kvm-selftest-sve-signal-v1-1-6330c2f3da0c@kernel.org>
+X-B4-Tracking: v=1; b=H4sIACA+AGgC/x3MMQqAMAxA0atIZgNtQUWvIg7FRA1qlUaKIN7d4
+ viG/x9QjsIKXfFA5CQqR8iwZQHj4sPMKJQNzrjKOFfjmnZU3qaL9UJNjCpz8BtaT2SopcbWI+T
+ 6jDzJ/Z/74X0/uxe3dWkAAAA=
+X-Change-ID: 20250226-kvm-selftest-sve-signal-1add0d9d716c
+To: Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, 
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+ Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>, linux-kernel@vger.kernel.org, 
+ kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+ Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.15-dev-c25d1
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4129; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=Ecdg41vWCtpkSt3gvW7D8FWTYl606nKDN9OmlaG2l1k=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBoAD5GSLv2p33SybMnvyMowOIRAo8cX4B97rSgmn/m
+ FcQJNm+JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaAA+RgAKCRAk1otyXVSH0JsDCA
+ CGWxC17NOadoAMvGZ1sYyldRUE7lDhlVDzftw1ctHVesXShJH7tox5uLPZKsb6y2qRbNs2prMZ/ZWF
+ Ttq6K/zNNRoTyfk6Im9C1mwQ7Hyn89erkF11aFoU6OD/HHfA6AeXix8dD26yJkeB9UU/40sELfIV89
+ vLogqEZbeTho53/NL4mzNsV41ecJeioVEwY7cc1JTuu6JhnTRfQt4TABTRxd8BL5dWxFYvjU8Ibiz6
+ GwaedSRrkBqiLJsx5qy4wc1u03v94qITLQD8mPPlnV9/OfR9YyYxR3L03SDDn336Y8hMhTaJq4EvNZ
+ ZoNnuEgEXV9+HwdMtNMJXKnDalcBF1
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_161659_725879_935B99AA 
-X-CRM114-Status: GOOD (  13.00  )
+X-CRM114-CacheID: sfid-20250416_163332_456585_C6403374 
+X-CRM114-Status: GOOD (  16.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,443 +89,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Dmitry Baryshkov <lumag@kernel.org>
+This test program, originally written by Mark Rutland and lightly modified
+by me for upstream, verifies that we do not have the issues with host SVE
+state being discarded which were fixed in
 
-Add display controller, two DSI hosts, two DSI PHYs and a single DP
-controller. Link DP to the QMP Combo PHY.
+   fbc7e61195e2 ("KVM: arm64: Unconditionally save+flush host FPSIMD/SVE/SME state")
 
-Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+by running a simple VM while checking the SVE register state for
+corruption.
+
+Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/boot/dts/qcom/sar2130p.dtsi | 395 +++++++++++++++++++++++++++++++++
- 1 file changed, 395 insertions(+)
+ tools/testing/selftests/kvm/Makefile.kvm     |   1 +
+ tools/testing/selftests/kvm/arm64/host_sve.c | 127 +++++++++++++++++++++++++++
+ 2 files changed, 128 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/qcom/sar2130p.dtsi b/arch/arm64/boot/dts/qcom/sar2130p.dtsi
-index b45e9e2ae0357bd0c7d719eaf4fc1faa1cf913f2..b97da07bbfb4127afda7826394787a9dda4c4886 100644
---- a/arch/arm64/boot/dts/qcom/sar2130p.dtsi
-+++ b/arch/arm64/boot/dts/qcom/sar2130p.dtsi
-@@ -3,9 +3,11 @@
-  * Copyright (c) 2024, Linaro Limited
-  */
- 
-+#include <dt-bindings/clock/qcom,dsi-phy-28nm.h>
- #include <dt-bindings/clock/qcom,rpmh.h>
- #include <dt-bindings/clock/qcom,sar2130p-gcc.h>
- #include <dt-bindings/clock/qcom,sar2130p-gpucc.h>
-+#include <dt-bindings/clock/qcom,sm8550-dispcc.h>
- #include <dt-bindings/clock/qcom,sm8550-tcsr.h>
- #include <dt-bindings/dma/qcom-gpi.h>
- #include <dt-bindings/interconnect/qcom,icc.h>
-@@ -1915,6 +1917,7 @@ port@2 {
- 					reg = <2>;
- 
- 					usb_dp_qmpphy_dp_in: endpoint {
-+						remote-endpoint = <&mdss_dp0_out>;
- 					};
- 				};
- 			};
-@@ -2012,6 +2015,398 @@ usb_1_dwc3_ss: endpoint {
- 			};
- 		};
- 
-+		mdss: display-subsystem@ae00000 {
-+			compatible = "qcom,sar2130p-mdss";
-+			reg = <0x0 0x0ae00000 0x0 0x1000>;
-+			reg-names = "mdss";
-+
-+			interrupts = <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-controller;
-+			#interrupt-cells = <1>;
-+
-+			clocks = <&dispcc DISP_CC_MDSS_AHB_CLK>,
-+				 <&gcc GCC_DISP_AHB_CLK>,
-+				 <&gcc GCC_DISP_HF_AXI_CLK>,
-+				 <&dispcc DISP_CC_MDSS_MDP_CLK>;
-+
-+			resets = <&dispcc DISP_CC_MDSS_CORE_BCR>;
-+
-+			power-domains = <&dispcc MDSS_GDSC>;
-+
-+			interconnects = <&mmss_noc MASTER_MDP QCOM_ICC_TAG_ALWAYS
-+					 &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>,
-+					<&gem_noc MASTER_APPSS_PROC QCOM_ICC_TAG_ACTIVE_ONLY
-+					 &config_noc SLAVE_DISPLAY_CFG QCOM_ICC_TAG_ACTIVE_ONLY>;
-+			interconnect-names = "mdp0-mem", "cpu-cfg";
-+
-+			iommus = <&apps_smmu 0x2000 0x402>;
-+
-+			#address-cells = <2>;
-+			#size-cells = <2>;
-+			ranges;
-+
-+			status = "disabled";
-+
-+			mdss_mdp: display-controller@ae01000 {
-+				compatible = "qcom,sar2130p-dpu";
-+				reg = <0x0 0x0ae01000 0x0 0x8f000>,
-+				      <0x0 0x0aeb0000 0x0 0x3000>;
-+				reg-names = "mdp",
-+					    "vbif";
-+
-+				interrupt-parent = <&mdss>;
-+				interrupts = <0>;
-+
-+				clocks = <&gcc GCC_DISP_AHB_CLK>,
-+					 <&gcc GCC_DISP_HF_AXI_CLK>,
-+					 <&dispcc DISP_CC_MDSS_AHB_CLK>,
-+					 <&dispcc DISP_CC_MDSS_MDP_LUT_CLK>,
-+					 <&dispcc DISP_CC_MDSS_MDP_CLK>,
-+					 <&dispcc DISP_CC_MDSS_VSYNC_CLK>;
-+				clock-names = "bus",
-+					      "nrt_bus",
-+					      "iface",
-+					      "lut",
-+					      "core",
-+					      "vsync";
-+
-+				power-domains = <&rpmhpd RPMHPD_MMCX>;
-+
-+				assigned-clocks = <&dispcc DISP_CC_MDSS_VSYNC_CLK>;
-+				assigned-clock-rates = <19200000>;
-+
-+				operating-points-v2 = <&mdp_opp_table>;
-+
-+				ports {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					port@0 {
-+						reg = <0>;
-+
-+						dpu_intf1_out: endpoint {
-+							remote-endpoint = <&mdss_dsi0_in>;
-+						};
-+					};
-+
-+					port@1 {
-+						reg = <1>;
-+
-+						dpu_intf2_out: endpoint {
-+							remote-endpoint = <&mdss_dsi1_in>;
-+						};
-+					};
-+
-+					port@2 {
-+						reg = <2>;
-+
-+						dpu_intf0_out: endpoint {
-+							remote-endpoint = <&mdss_dp0_in>;
-+						};
-+					};
-+				};
-+
-+				mdp_opp_table: opp-table {
-+					compatible = "operating-points-v2";
-+
-+					opp-200000000 {
-+						opp-hz = /bits/ 64 <200000000>;
-+						required-opps = <&rpmhpd_opp_low_svs>;
-+					};
-+
-+					opp-325000000 {
-+						opp-hz = /bits/ 64 <325000000>;
-+						required-opps = <&rpmhpd_opp_svs>;
-+					};
-+
-+					opp-514000000 {
-+						opp-hz = /bits/ 64 <514000000>;
-+						required-opps = <&rpmhpd_opp_turbo>;
-+					};
-+				};
-+			};
-+
-+			mdss_dp0: displayport-controller@ae90000 {
-+				compatible = "qcom,sar2130p-dp",
-+					     "qcom,sm8350-dp";
-+				reg = <0x0 0xae90000 0x0 0x200>,
-+				      <0x0 0xae90200 0x0 0x200>,
-+				      <0x0 0xae90400 0x0 0xc00>,
-+				      <0x0 0xae91000 0x0 0x400>,
-+				      <0x0 0xae91400 0x0 0x400>;
-+				interrupt-parent = <&mdss>;
-+				interrupts = <12>;
-+				clocks = <&dispcc DISP_CC_MDSS_AHB_CLK>,
-+					 <&dispcc DISP_CC_MDSS_DPTX0_AUX_CLK>,
-+					 <&dispcc DISP_CC_MDSS_DPTX0_LINK_CLK>,
-+					 <&dispcc DISP_CC_MDSS_DPTX0_LINK_INTF_CLK>,
-+					 <&dispcc DISP_CC_MDSS_DPTX0_PIXEL0_CLK>;
-+				clock-names = "core_iface",
-+					      "core_aux",
-+					      "ctrl_link",
-+					      "ctrl_link_iface",
-+					      "stream_pixel";
-+
-+				assigned-clocks = <&dispcc DISP_CC_MDSS_DPTX0_LINK_CLK_SRC>,
-+						  <&dispcc DISP_CC_MDSS_DPTX0_PIXEL0_CLK_SRC>;
-+				assigned-clock-parents = <&usb_dp_qmpphy QMP_USB43DP_DP_LINK_CLK>,
-+							 <&usb_dp_qmpphy QMP_USB43DP_DP_VCO_DIV_CLK>;
-+
-+				phys = <&usb_dp_qmpphy QMP_USB43DP_DP_PHY>;
-+				phy-names = "dp";
-+
-+				#sound-dai-cells = <0>;
-+
-+				operating-points-v2 = <&dp_opp_table>;
-+				power-domains = <&rpmhpd RPMHPD_MMCX>;
-+
-+				status = "disabled";
-+
-+				ports {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					port@0 {
-+						reg = <0>;
-+
-+						mdss_dp0_in: endpoint {
-+							remote-endpoint = <&dpu_intf0_out>;
-+						};
-+					};
-+
-+					port@1 {
-+						reg = <1>;
-+
-+						mdss_dp0_out: endpoint {
-+							remote-endpoint = <&usb_dp_qmpphy_dp_in>;
-+						};
-+					};
-+				};
-+
-+				dp_opp_table: opp-table {
-+					compatible = "operating-points-v2";
-+
-+					opp-162000000 {
-+						opp-hz = /bits/ 64 <162000000>;
-+						required-opps = <&rpmhpd_opp_low_svs_d1>;
-+					};
-+
-+					opp-270000000 {
-+						opp-hz = /bits/ 64 <270000000>;
-+						required-opps = <&rpmhpd_opp_low_svs>;
-+					};
-+
-+					opp-540000000 {
-+						opp-hz = /bits/ 64 <540000000>;
-+						required-opps = <&rpmhpd_opp_svs_l1>;
-+					};
-+
-+					opp-810000000 {
-+						opp-hz = /bits/ 64 <810000000>;
-+						required-opps = <&rpmhpd_opp_nom>;
-+					};
-+				};
-+			};
-+
-+			mdss_dsi0: dsi@ae94000 {
-+				compatible = "qcom,sar2130p-dsi-ctrl",
-+					     "qcom,mdss-dsi-ctrl";
-+				reg = <0x0 0x0ae94000 0x0 0x400>;
-+				reg-names = "dsi_ctrl";
-+
-+				interrupt-parent = <&mdss>;
-+				interrupts = <4>;
-+
-+				clocks = <&dispcc DISP_CC_MDSS_BYTE0_CLK>,
-+					 <&dispcc DISP_CC_MDSS_BYTE0_INTF_CLK>,
-+					 <&dispcc DISP_CC_MDSS_PCLK0_CLK>,
-+					 <&dispcc DISP_CC_MDSS_ESC0_CLK>,
-+					 <&dispcc DISP_CC_MDSS_AHB_CLK>,
-+					 <&gcc GCC_DISP_HF_AXI_CLK>;
-+				clock-names = "byte",
-+					      "byte_intf",
-+					      "pixel",
-+					      "core",
-+					      "iface",
-+					      "bus";
-+
-+				power-domains = <&rpmhpd RPMHPD_MMCX>;
-+
-+				assigned-clocks = <&dispcc DISP_CC_MDSS_BYTE0_CLK_SRC>,
-+						  <&dispcc DISP_CC_MDSS_PCLK0_CLK_SRC>;
-+				assigned-clock-parents = <&mdss_dsi0_phy DSI_BYTE_PLL_CLK>,
-+							 <&mdss_dsi0_phy DSI_PIXEL_PLL_CLK>;
-+
-+				operating-points-v2 = <&mdss_dsi_opp_table>;
-+
-+				phys = <&mdss_dsi0_phy>;
-+				phy-names = "dsi";
-+
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				status = "disabled";
-+
-+				ports {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					port@0 {
-+						reg = <0>;
-+						mdss_dsi0_in: endpoint {
-+							remote-endpoint = <&dpu_intf1_out>;
-+						};
-+					};
-+
-+					port@1 {
-+						reg = <1>;
-+						mdss_dsi0_out: endpoint {
-+						};
-+					};
-+				};
-+
-+				mdss_dsi_opp_table: opp-table {
-+					compatible = "operating-points-v2";
-+
-+					opp-187500000 {
-+						opp-hz = /bits/ 64 <187500000>;
-+						required-opps = <&rpmhpd_opp_low_svs>;
-+					};
-+
-+					opp-300000000 {
-+						opp-hz = /bits/ 64 <300000000>;
-+						required-opps = <&rpmhpd_opp_svs>;
-+					};
-+
-+					opp-358000000 {
-+						opp-hz = /bits/ 64 <358000000>;
-+						required-opps = <&rpmhpd_opp_nom>;
-+					};
-+				};
-+			};
-+
-+			mdss_dsi0_phy: phy@ae95000 {
-+				compatible = "qcom,sar2130p-dsi-phy-5nm";
-+				reg = <0x0 0x0ae95000 0x0 0x200>,
-+				      <0x0 0x0ae95200 0x0 0x280>,
-+				      <0x0 0x0ae95500 0x0 0x400>;
-+				reg-names = "dsi_phy",
-+					    "dsi_phy_lane",
-+					    "dsi_pll";
-+
-+				clocks = <&dispcc DISP_CC_MDSS_AHB_CLK>,
-+					 <&rpmhcc RPMH_CXO_CLK>;
-+				clock-names = "iface", "ref";
-+
-+				#clock-cells = <1>;
-+				#phy-cells = <0>;
-+
-+				status = "disabled";
-+			};
-+
-+			mdss_dsi1: dsi@ae96000 {
-+				compatible = "qcom,sar2130p-dsi-ctrl",
-+					     "qcom,mdss-dsi-ctrl";
-+				reg = <0x0 0x0ae96000 0x0 0x400>;
-+				reg-names = "dsi_ctrl";
-+
-+				interrupt-parent = <&mdss>;
-+				interrupts = <5>;
-+
-+				clocks = <&dispcc DISP_CC_MDSS_BYTE1_CLK>,
-+					 <&dispcc DISP_CC_MDSS_BYTE1_INTF_CLK>,
-+					 <&dispcc DISP_CC_MDSS_PCLK1_CLK>,
-+					 <&dispcc DISP_CC_MDSS_ESC1_CLK>,
-+					 <&dispcc DISP_CC_MDSS_AHB_CLK>,
-+					 <&gcc GCC_DISP_HF_AXI_CLK>;
-+				clock-names = "byte",
-+					      "byte_intf",
-+					      "pixel",
-+					      "core",
-+					      "iface",
-+					      "bus";
-+
-+				power-domains = <&rpmhpd RPMHPD_MMCX>;
-+
-+				assigned-clocks = <&dispcc DISP_CC_MDSS_BYTE1_CLK_SRC>,
-+						  <&dispcc DISP_CC_MDSS_PCLK1_CLK_SRC>;
-+				assigned-clock-parents = <&mdss_dsi1_phy 0>,
-+							 <&mdss_dsi1_phy 1>;
-+
-+				operating-points-v2 = <&mdss_dsi_opp_table>;
-+
-+				phys = <&mdss_dsi1_phy>;
-+				phy-names = "dsi";
-+
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				status = "disabled";
-+
-+				ports {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					port@0 {
-+						reg = <0>;
-+						mdss_dsi1_in: endpoint {
-+							remote-endpoint = <&dpu_intf2_out>;
-+						};
-+					};
-+
-+					port@1 {
-+						reg = <1>;
-+						mdss_dsi1_out: endpoint {
-+						};
-+					};
-+				};
-+			};
-+
-+			mdss_dsi1_phy: phy@ae97000 {
-+				compatible = "qcom,sar2130p-dsi-phy-5nm";
-+				reg = <0x0 0x0ae97000 0x0 0x200>,
-+				      <0x0 0x0ae97200 0x0 0x280>,
-+				      <0x0 0x0ae97500 0x0 0x400>;
-+				reg-names = "dsi_phy",
-+					    "dsi_phy_lane",
-+					    "dsi_pll";
-+
-+				clocks = <&dispcc DISP_CC_MDSS_AHB_CLK>,
-+					 <&rpmhcc RPMH_CXO_CLK>;
-+				clock-names = "iface", "ref";
-+
-+				#clock-cells = <1>;
-+				#phy-cells = <0>;
-+
-+				status = "disabled";
-+			};
-+		};
-+
-+		dispcc: clock-controller@af00000 {
-+			compatible = "qcom,sar2130p-dispcc";
-+			reg = <0x0 0x0af00000 0x0 0x20000>;
-+			clocks = <&rpmhcc RPMH_CXO_CLK>,
-+				 <&rpmhcc RPMH_CXO_CLK_A>,
-+				 <&gcc GCC_DISP_AHB_CLK>,
-+				 <&sleep_clk>,
-+				 <&mdss_dsi0_phy DSI_BYTE_PLL_CLK>,
-+				 <&mdss_dsi0_phy DSI_PIXEL_PLL_CLK>,
-+				 <&mdss_dsi1_phy DSI_BYTE_PLL_CLK>,
-+				 <&mdss_dsi1_phy DSI_PIXEL_PLL_CLK>,
-+				 <&usb_dp_qmpphy QMP_USB43DP_DP_LINK_CLK>,
-+				 <&usb_dp_qmpphy QMP_USB43DP_DP_VCO_DIV_CLK>,
-+				 <0>, /* dp1 */
-+				 <0>,
-+				 <0>, /* dp2 */
-+				 <0>,
-+				 <0>, /* dp3 */
-+				 <0>;
-+			power-domains = <&rpmhpd RPMHPD_MMCX>;
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+			#power-domain-cells = <1>;
-+		};
-+
- 		pdc: interrupt-controller@b220000 {
- 			compatible = "qcom,sar2130p-pdc", "qcom,pdc";
- 			reg = <0x0 0x0b220000 0x0 0x30000>, <0x0 0x174000f0 0x0 0x64>;
+diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
+index f62b0a5aba35..d37072054a3d 100644
+--- a/tools/testing/selftests/kvm/Makefile.kvm
++++ b/tools/testing/selftests/kvm/Makefile.kvm
+@@ -147,6 +147,7 @@ TEST_GEN_PROGS_arm64 = $(TEST_GEN_PROGS_COMMON)
+ TEST_GEN_PROGS_arm64 += arm64/aarch32_id_regs
+ TEST_GEN_PROGS_arm64 += arm64/arch_timer_edge_cases
+ TEST_GEN_PROGS_arm64 += arm64/debug-exceptions
++TEST_GEN_PROGS_arm64 += arm64/host_sve
+ TEST_GEN_PROGS_arm64 += arm64/hypercalls
+ TEST_GEN_PROGS_arm64 += arm64/mmio_abort
+ TEST_GEN_PROGS_arm64 += arm64/page_fault_test
+diff --git a/tools/testing/selftests/kvm/arm64/host_sve.c b/tools/testing/selftests/kvm/arm64/host_sve.c
+new file mode 100644
+index 000000000000..3826772fd470
+--- /dev/null
++++ b/tools/testing/selftests/kvm/arm64/host_sve.c
+@@ -0,0 +1,127 @@
++// SPDX-License-Identifier: GPL-2.0-only
++
++/*
++ * Host SVE: Check FPSIMD/SVE/SME save/restore over KVM_RUN ioctls.
++ *
++ * Copyright 2025 Arm, Ltd
++ */
++
++#include <errno.h>
++#include <signal.h>
++#include <sys/auxv.h>
++#include <asm/kvm.h>
++#include <kvm_util.h>
++
++#include "ucall_common.h"
++
++static void guest_code(void)
++{
++	for (int i = 0; i < 10; i++) {
++		GUEST_UCALL_NONE();
++	}
++
++	GUEST_DONE();
++}
++
++void handle_sigill(int sig, siginfo_t *info, void *ctx)
++{
++	ucontext_t *uctx = ctx;
++
++	printf("  < host signal %d >\n", sig);
++
++	/*
++	 * Skip the UDF
++	 */
++	uctx->uc_mcontext.pc += 4;
++}
++
++void register_sigill_handler(void)
++{
++	struct sigaction sa = {
++		.sa_sigaction = handle_sigill,
++		.sa_flags = SA_SIGINFO,
++	};
++	sigaction(SIGILL, &sa, NULL);
++}
++
++static void do_sve_roundtrip(void)
++{
++	unsigned long before, after;
++
++	/*
++	 * Set all bits in a predicate register, force a save/restore via a
++	 * SIGILL (which handle_sigill() will recover from), then report
++	 * whether the value has changed.
++	 */
++	asm volatile(
++	"	.arch_extension sve\n"
++	"	ptrue	p0.B\n"
++	"	cntp	%[before], p0, p0.B\n"
++	"	udf #0\n"
++	"	cntp	%[after], p0, p0.B\n"
++	: [before] "=r" (before),
++	  [after] "=r" (after)
++	:
++	: "p0"
++	);
++
++	if (before != after) {
++		TEST_FAIL("Signal roundtrip discarded predicate bits (%ld => %ld)\n",
++			  before, after);
++	} else {
++		printf("Signal roundtrip preserved predicate bits (%ld => %ld)\n",
++		       before, after);
++	}
++}
++
++static void test_run(void)
++{
++	struct kvm_vcpu *vcpu;
++	struct kvm_vm *vm;
++	struct ucall uc;
++	bool guest_done = false;
++
++	register_sigill_handler();
++
++	vm = vm_create_with_one_vcpu(&vcpu, guest_code);
++
++	do_sve_roundtrip();
++
++	while (!guest_done) {
++
++		printf("Running VCPU...\n");
++		vcpu_run(vcpu);
++
++		switch (get_ucall(vcpu, &uc)) {
++		case UCALL_NONE:
++			do_sve_roundtrip();
++			do_sve_roundtrip();
++			break;
++		case UCALL_DONE:
++			guest_done = true;
++			break;
++		case UCALL_ABORT:
++			REPORT_GUEST_ASSERT(uc);
++			break;
++		default:
++			TEST_FAIL("Unexpected guest exit");
++		}
++	}
++
++	kvm_vm_free(vm);
++}
++
++int main(void)
++{
++	/*
++	 * This is testing the host environment, we don't care about
++	 * guest SVE support.
++	 */
++	if (!(getauxval(AT_HWCAP) & HWCAP_SVE)) {
++		printf("SVE not supported\n");
++		return KSFT_SKIP;
++	}
++
++	test_run();
++	return 0;
++}
 
+---
+base-commit: 8ffd015db85fea3e15a77027fda6c02ced4d2444
+change-id: 20250226-kvm-selftest-sve-signal-1add0d9d716c
+
+Best regards,
 -- 
-2.39.5
+Mark Brown <broonie@kernel.org>
 
 
