@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8450BC369BD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 15:14:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBDB5C369BD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 15:17:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:Cc:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KJcMjS1cfW8OWQZ2P9+TBPMrANTKkbwu55CZuBVjxbU=; b=VCZHoUqMO4bwT8VeweVUdZNE7w
-	qqsh5Sqn4V2fYR7A/UQS19XvEK092AHixMfH9XuLVeTKS0c4zxhwsprKYuTqB/OKSfT8fFQbMEugl
-	Cbp15eRgvbuyt1kBk06W/ngLbB5LYjReLWEQQ1GJ0gJoBck6vTSggDr2jMjHPUMhWNcDYLfDnVlX2
-	B7RTR+MQHboZ30Je9bHfuchrqfBNtO3E5Xl77LS1ezGCVtpfmyMRGbhshhhlVr66fxYXgGlKuM07i
-	289drt7oD/sp1F92F5BInstbN0aXBuyPmmZNq3fNqCN94keVE4RMiqnPf33LxdcqwQ9k1tyL3sMy/
-	oEAbqclg==;
+	bh=gai6Yh0IHeScDh3I4+epSp9DgjIHHr9iXOrYzQ4bXLY=; b=VXeZt5YaiMI4e8+utgtaDEzTAP
+	UBXgS2QFz5ev7Y8RcKLIFk45z+1G3Lg/KSaTQ28B8EpD+kC841m1wIRnsSctfga03HdOX/AhD/9it
+	cGnXaYEXF0/cOD1dkENPZMEPrdeyZyNB+UyO5TcbpxYiTd8Npnx2owdSIVu51VY5/nAccMbQCvXCX
+	cic2cu4Az7tpkO0RZVQ+NpHhGleit6XsMU5cvOuOtePI3Qa7Q+KJpYt/sL6p+jgFALFmMQ5+sxdwN
+	tpJx2gQN4B0dsxqRAsm9dU2BN3KR3UPBdRNoPxHi9Sk6OMRrAwgDavXMAbrGFFAgDNDnSIEo27YHg
+	uykXlEfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u54SU-0000000A2FC-3SbD;
-	Wed, 16 Apr 2025 15:13:50 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1u54W7-0000000A2nA-2bkx;
+	Wed, 16 Apr 2025 15:17:35 +0000
+Received: from mail.fris.de ([2a01:4f8:c2c:390b::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u53Ni-00000009n4C-3HLG
+	id 1u53k8-00000009tLq-1UwJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 14:04:52 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1u53NE-0003zg-Oo; Wed, 16 Apr 2025 16:04:20 +0200
-Message-ID: <fcdb9283-07aa-4d50-ac4d-317b0a4e5f7e@pengutronix.de>
-Date: Wed, 16 Apr 2025 16:04:19 +0200
+	Wed, 16 Apr 2025 14:28:01 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4E0E8C9722;
+	Wed, 16 Apr 2025 16:27:57 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=dkim;
+	t=1744813677; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=gai6Yh0IHeScDh3I4+epSp9DgjIHHr9iXOrYzQ4bXLY=;
+	b=0OmFYpiIJP2WFDK2BvruxJ3L80n1q/S+di7uKdiDH/blcBTPEXVABwwxVuyJDPUSi1WdW7
+	J2Aud53DAQJQ5xTloqmdWE1K2w4245Bt6EPzFcoo64orttlgJEfbPr2+imGybH+LoQhRml
+	24DUSNp7UyZOVqkWVtKo5snWUF/GMP0BHRI5v+H0mu3t56V2+ETEnW9yaHBNrDERMAmcws
+	+l6wdKX5Rv47Lc+WTgC9ASa9XW+J6ezdBVI0x/fH32AwqEmFbHjJqx/OuG/naLNUb4M2c8
+	mRAMWPHMWhicRFj2FGzcthpVKMDNfbJtbnMKYmBDsYKTnw54t4tdzsTRF6Gv5w==
+From: Frieder Schrempf <frieder@fris.de>
+To: Peng Fan <peng.fan@nxp.com>,
+	Pankaj Gupta <pankaj.gupta@nxp.com>,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>
+Cc: Frieder Schrempf <frieder.schrempf@kontron.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Subject: [RFC PATCH 1/5] firmware: imx: ele: Add API functions for OCOTP fuse access
+Date: Wed, 16 Apr 2025 16:26:20 +0200
+Message-ID: <20250416142715.1042363-2-frieder@fris.de>
+In-Reply-To: <20250416142715.1042363-1-frieder@fris.de>
+References: <20250416142715.1042363-1-frieder@fris.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/4] ARM: dts: microchip: Remove additional compatible
- string from PIO3 pinctrl nodes
-To: claudiu beznea <claudiu.beznea@tuxon.dev>,
- Manikandan Muralidharan <manikandan.m@microchip.com>,
- linus.walleij@linaro.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, nicolas.ferre@microchip.com,
- alexandre.belloni@bootlin.com, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20240814061315.112564-1-manikandan.m@microchip.com>
- <20240814061315.112564-3-manikandan.m@microchip.com>
- <605ff021-0770-4363-9734-ad8114a429f9@tuxon.dev>
-Content-Language: en-US, de-DE, de-BE
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Cc: lsc@pengutronix.de, "kernel@pengutronix.de" <kernel@pengutronix.de>
-In-Reply-To: <605ff021-0770-4363-9734-ad8114a429f9@tuxon.dev>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_070450_820764_CA4CF101 
-X-CRM114-Status: GOOD (  15.79  )
+X-CRM114-CacheID: sfid-20250416_072800_696937_777B82AC 
+X-CRM114-Status: GOOD (  13.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,48 +75,184 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+From: Frieder Schrempf <frieder.schrempf@kontron.de>
 
-On 8/24/24 16:32, claudiu beznea wrote:
-> 
-> 
-> On 14.08.2024 09:13, Manikandan Muralidharan wrote:
->> The driver data specific to each pinctrl GPIO bank compatible nodes are not
->> the sameand declaring additional compatible string as fallback has no
->> specific purpose
+The ELE S400 API provides read and write access to the OCOTP fuse
+registers. This adds the necessary API functions imx_se_read_fuse()
+and imx_se_write_fuse() to be used by other drivers such as the
+OCOTP S400 NVMEM driver.
 
-That's incorrect. A compatible for the old IP core means that the new
-revision is still compatible with it and old drivers should work for either.
+This is ported from the downstream vendor kernel.
 
-> , hence, removing the additional compatible string from the
->> pinctrl nodes in DT to comply with atmel,at91-pinctrl.txt documentation.
+Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
+---
+ drivers/firmware/imx/ele_base_msg.c | 122 ++++++++++++++++++++++++++++
+ drivers/firmware/imx/ele_base_msg.h |   8 ++
+ include/linux/firmware/imx/se_api.h |   3 +
+ 3 files changed, 133 insertions(+)
 
-The correct resolution would be to add an extra compatible to the
-binding instead of breaking non-Linux users of the device tree.
-
->> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
->> Acked-by: Linus Walleij <linus.walleij@linaro.org>
-
-Me and Lars stumbled upon your patch, because it broke the barebox
-bootloader console on SAMA5D3 boards after it was imported.
-
-Fortunately, the system still booted, because the first stage bootloader
-sets up SD host controller pinmux without referring to the device tree.
-
-We'll submit a driver patch on the barebox side, but please keep DT
-compatibility in mind with similar changes in the future.
-
-Thanks,
-Ahmad
-
-> 
-> Applied to at91-dt, thanks!
-> 
-
+diff --git a/drivers/firmware/imx/ele_base_msg.c b/drivers/firmware/imx/ele_base_msg.c
+index bed1a0459d8d..0dfd4d2fef5a 100644
+--- a/drivers/firmware/imx/ele_base_msg.c
++++ b/drivers/firmware/imx/ele_base_msg.c
+@@ -311,3 +311,125 @@ int ele_debug_dump(struct se_if_priv *priv)
+ 
+ 	return ret;
+ }
++
++static int ele_read_fuse(struct se_if_priv *priv, uint16_t fuse_id, u32 *value)
++{
++	struct se_api_msg *tx_msg __free(kfree) = NULL;
++	struct se_api_msg *rx_msg __free(kfree) = NULL;
++	int rx_msg_sz = ELE_READ_FUSE_RSP_MSG_SZ;
++	int ret = 0;
++
++	if (!priv)
++		return -EINVAL;
++
++	tx_msg = kzalloc(ELE_READ_FUSE_REQ_MSG_SZ, GFP_KERNEL);
++	if (!tx_msg)
++		return -ENOMEM;
++
++	rx_msg = kzalloc(rx_msg_sz, GFP_KERNEL);
++	if (!rx_msg)
++		return -ENOMEM;
++
++	ret = se_fill_cmd_msg_hdr(priv, (struct se_msg_hdr *)&tx_msg->header,
++				  ELE_READ_FUSE_REQ, ELE_READ_FUSE_REQ_MSG_SZ,
++				  true);
++	if (ret)
++		return ret;
++
++	tx_msg->data[0] = fuse_id;
++
++	ret = ele_msg_send_rcv(priv->priv_dev_ctx, tx_msg,
++			       ELE_READ_FUSE_REQ_MSG_SZ, rx_msg, rx_msg_sz);
++	if (ret < 0)
++		return ret;
++
++	ret = se_val_rsp_hdr_n_status(priv, rx_msg, ELE_READ_FUSE_REQ,
++				      rx_msg_sz, true);
++	if (ret)
++		return ret;
++
++	*value = rx_msg->data[1];
++
++	return 0;
++}
++
++/**
++ * imx_se_read_fuse() - API to request SE-FW to read the fuse(s) value.
++ * @void *se_if_data: refs to data attached to the se interface.
++ * @uint16_t fuse_id: Fuse identifier to read.
++ * @u32 *value: unsigned integer array to store the fuse values.
++ *
++ * Secure enclave like EdgeLock Enclave, manages the fuse. This API
++ * requests the FW to read the fuses. FW responds with the read
++ * values.
++ *
++ * Context:
++ *
++ * Return value:
++ *   0,   means success.
++ *   < 0, means failure.
++ */
++int imx_se_read_fuse(void *se_if_data, uint16_t fuse_id, u32 *value)
++{
++	return ele_read_fuse((struct se_if_priv *)se_if_data, fuse_id, value);
++}
++EXPORT_SYMBOL_GPL(imx_se_read_fuse);
++
++static int ele_write_fuse(struct se_if_priv *priv, uint16_t fuse_id, u32 value)
++{
++	struct se_api_msg *tx_msg __free(kfree) = NULL;
++	struct se_api_msg *rx_msg __free(kfree) = NULL;
++	int ret = 0;
++
++	if (!priv)
++		return -EINVAL;
++
++	tx_msg = kzalloc(ELE_WRITE_FUSE_REQ_MSG_SZ, GFP_KERNEL);
++	if (!tx_msg)
++		return -ENOMEM;
++
++	rx_msg = kzalloc(ELE_WRITE_FUSE_RSP_MSG_SZ, GFP_KERNEL);
++	if (!rx_msg)
++		return -ENOMEM;
++
++	ret = se_fill_cmd_msg_hdr(priv, (struct se_msg_hdr *)&tx_msg->header,
++				  ELE_WRITE_FUSE, ELE_WRITE_FUSE_REQ_MSG_SZ,
++				  true);
++	if (ret)
++		return ret;
++
++	tx_msg->data[0] = (32 << 16) | (fuse_id << 5);
++	tx_msg->data[1] = value;
++
++	ret = ele_msg_send_rcv(priv->priv_dev_ctx, tx_msg,
++			       ELE_WRITE_FUSE_REQ_MSG_SZ, rx_msg,
++			       ELE_WRITE_FUSE_RSP_MSG_SZ);
++	if (ret < 0)
++		return ret;
++
++	ret = se_val_rsp_hdr_n_status(priv, rx_msg, ELE_WRITE_FUSE,
++				      ELE_WRITE_FUSE_RSP_MSG_SZ, true);
++
++	return ret;
++}
++
++/**
++ * imx_se_write_fuse() - API to request SE-FW to write to fuses.
++ * @void *se_if_data: refs to data attached to the se interface.
++ * @uint16_t fuse_id: Fuse identifier to write to.
++ * @u32 value: unsigned integer value that to be written to the fuse.
++ *
++ * Secure enclave like EdgeLock Enclave, manages the fuse. This API
++ * requests the FW to write the fuse with the given value.
++ *
++ * Context:
++ *
++ * Return value:
++ *   0,   means success.
++ *   < 0, means failure.
++ */
++int imx_se_write_fuse(void *se_if_data, uint16_t fuse_id, u32 value)
++{
++	return ele_write_fuse((struct se_if_priv *)se_if_data, fuse_id, value);
++}
++EXPORT_SYMBOL_GPL(imx_se_write_fuse);
+diff --git a/drivers/firmware/imx/ele_base_msg.h b/drivers/firmware/imx/ele_base_msg.h
+index dd89412f485e..22f553cdbc33 100644
+--- a/drivers/firmware/imx/ele_base_msg.h
++++ b/drivers/firmware/imx/ele_base_msg.h
+@@ -19,6 +19,14 @@
+ #define ELE_GET_INFO_REQ_MSG_SZ		0x10
+ #define ELE_GET_INFO_RSP_MSG_SZ		0x08
+ 
++#define ELE_WRITE_FUSE			0xD6
++#define ELE_WRITE_FUSE_REQ_MSG_SZ	12
++#define ELE_WRITE_FUSE_RSP_MSG_SZ	12
++
++#define ELE_READ_FUSE_REQ		0x97
++#define ELE_READ_FUSE_REQ_MSG_SZ	0x08
++#define ELE_READ_FUSE_RSP_MSG_SZ	0x0C
++
+ #define MAX_UID_SIZE                     (16)
+ #define DEV_GETINFO_ROM_PATCH_SHA_SZ     (32)
+ #define DEV_GETINFO_FW_SHA_SZ            (32)
+diff --git a/include/linux/firmware/imx/se_api.h b/include/linux/firmware/imx/se_api.h
+index b1c4c9115d7b..9503b9363593 100644
+--- a/include/linux/firmware/imx/se_api.h
++++ b/include/linux/firmware/imx/se_api.h
+@@ -11,4 +11,7 @@
+ #define SOC_ID_OF_IMX8ULP		0x084d
+ #define SOC_ID_OF_IMX93			0x9300
+ 
++int imx_se_write_fuse(void *se_if_data, uint16_t fuse_id, u32 value);
++int imx_se_read_fuse(void *se_if_data, uint16_t fuse_id, u32 *value);
++
+ #endif /* __SE_API_H__ */
 -- 
-Pengutronix e.K.                  |                             |
-Steuerwalder Str. 21              | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany         | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686  | Fax:   +49-5121-206917-5555 |
+2.49.0
 
 
