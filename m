@@ -4,52 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44F4EC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:33:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3F51C369BD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:33:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kX9SCcD5vFsKVtPD6ROHec7ImckWMkHUM4/C9zZQT/Y=; b=MJypphXVmUWj2Sfgg78vjVKOJA
-	sZoaQhpYEgMqqIeKUFuMFsP2RX+zbL/5tGlDkJ1OXycGR51kuqrwR+W0pyXjXoxKl14qflFrMdRMA
-	T/I7eobIK4smIEFuVdjbHGkFYy+yptzdpLkD3o9VGRob4WaIKJACJCew0uH9jJRVZnMjnN+PoXha+
-	BfSj+Tw+go+/JCpojTVcV2OY1/vMCkadp+yLIexrc1xf4TqvLEJkWwnTq67IuhNo29Qgm7mZCjJoC
-	+dhcxMMOjOC1NGwC3HHNtRZA9gGrabfJ/k4xWBnRfU7q4PdugsX1kmWHlgSLZAk3uKjTtA7L+Kwry
-	vhIHBjBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qiJY99ai7mGDr2FC9ZGU82aOrwFyMKWX9y0r6QczlqM=; b=v1CfPTbVKWiQXTnmIPAoAWcVMq
+	eOesf8Ea6E/bsQ++Qafvj8hGccmbUeELUUhGUA5xBK0tgKUOv0rOGSFS1t3bqOZBoGozydqt+/2g4
+	+tlKj+M9Os2j6f6Bndqoshurteq9B+L10MTx/3SoaCeGy5R/dk/yAHEEpGo5k/Ac8f4FYbd+Jp50e
+	SCWyax2+I2Lj0/50/yXJCgaEuIFZl6Fzhal26Qyr9ZlJau4aCCTrdR56vnvy+HhLwV3guczKIv5wl
+	AMIsY4c3ZVrzQw2m1CxhBv/4Qk1z5HTNdk0V7q7YddUDfmV/ty8D5IiiHc0WLEqF+Uz3H87RfYjZZ
+	myu43XHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u505F-00000009Cms-3Ijo;
-	Wed, 16 Apr 2025 10:33:33 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u505I-00000009CqO-0Yxu;
+	Wed, 16 Apr 2025 10:33:36 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4ziE-000000095LE-1cpP
+	id 1u4zim-000000095VU-3Qy6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 10:09:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 951555C5B9B;
-	Wed, 16 Apr 2025 10:07:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A9D0C4CEE2;
-	Wed, 16 Apr 2025 10:09:43 +0000 (UTC)
-Date: Wed, 16 Apr 2025 11:09:41 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Ross Stutterheim <ross.stutterheim@garmin.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Russell King <linux@armlinux.org.uk>,
-	Mike Rapoport <rppt@linux.ibm.com>, ross.sweng@gmail.com,
-	Linus Walleij <linus.walleij@linaro.org>
-Subject: Re: [PATCH v2] arm/memremap: fix arch_memremap_can_ram_remap()
-Message-ID: <Z_-B5fAhZzShX34I@arm.com>
-References: <20250414133219.107455-1-ross.stutterheim@garmin.com>
- <20250414142140.131756-1-ross.stutterheim@garmin.com>
+	Wed, 16 Apr 2025 10:10:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
+	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
+	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=qiJY99ai7mGDr2FC9ZGU82aOrwFyMKWX9y0r6QczlqM=; b=ev55wIti9sjkf3oCexLnb5YgA9
+	R5WFBviTDjeT1r6A31bJxkwq2J1FXwdT8bKtrzAfM4VxqH5iklJwHzIr9gDt72WD8RECSkQYy1dwb
+	OnHHcSXJ6qjXAOjIYix1PyTsgxLw0eXKiKRtSyDy/jPcIcKFtEFPHJqqeAFpsc3EyULQxhek18hIK
+	Nr8Yijxe1F+TxA3GO5kOFBNH3SKhpelPQPQmCs4RFzPdhzgbt8GJRIVrZYfEV6cvg9Yh0+ZqhHCjk
+	tpz6i4XvzAoJOT/VrmWWJ5SpFFiTq+MSfw5RGcFaONxXrsgCMIANsSve0Os43g0YmH68rbZSHtTQx
+	8pwGmbfw==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:33274 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1u4zic-00011J-2A;
+	Wed, 16 Apr 2025 11:10:10 +0100
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1u4zi1-000xHh-57; Wed, 16 Apr 2025 11:09:33 +0100
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jon Hunter <jonathanh@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Thierry Reding <treding@nvidia.com>
+Subject: [PATCH net-next] net: stmmac: dwc-qos: use PHY clock-stop capability
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250414142140.131756-1-ross.stutterheim@garmin.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1u4zi1-000xHh-57@rmk-PC.armlinux.org.uk>
+Date: Wed, 16 Apr 2025 11:09:33 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_030946_485077_A7C660C9 
-X-CRM114-Status: GOOD (  21.62  )
+X-CRM114-CacheID: sfid-20250416_031020_863086_FC7B9F36 
+X-CRM114-Status: UNSURE (   9.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,56 +88,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 14, 2025 at 09:21:40AM -0500, Ross Stutterheim wrote:
-> commit 260364d112bc ("arm[64]/memremap: don't abuse pfn_valid() to ensure
-> presence of linear map") added the definition of
-> arch_memremap_can_ram_remap() for arm[64] specific filtering of what pages
-> can be used from the linear mapping. memblock_is_map_memory() was called
-> with the pfn of the address given to arch_memremap_can_ram_remap();
-> however, memblock_is_map_memory() expects to be given an address for arm,
-> not a pfn.
-> 
-> This results in calls to memremap() returning a newly mapped area when
-> it should return an address in the existing linear mapping.
-> 
-> Fix this by removing the address to pfn translation and pass the
-> address directly.
-> 
-> Fixes: 260364d112bc ("arm[64]/memremap: don't abuse pfn_valid() to ensure presence of linear map")
-> Signed-off-by: Ross Stutterheim <ross.stutterheim@garmin.com>
+Use the PHY clock-stop capability when programming the MAC LPI mode,
+which allows the transmit clock to the PHY to be gated. Tested on the
+Jetson Xavier NX platform.
 
-I think you could also add:
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-Cc: <stable@vger.kernel.org>
-
-> ---
->  arch/arm/mm/ioremap.c | 4 +---
->  1 file changed, 1 insertion(+), 3 deletions(-)
-> 
-> diff --git a/arch/arm/mm/ioremap.c b/arch/arm/mm/ioremap.c
-> index 748698e91a4b..27e64f782cb3 100644
-> --- a/arch/arm/mm/ioremap.c
-> +++ b/arch/arm/mm/ioremap.c
-> @@ -515,7 +515,5 @@ void __init early_ioremap_init(void)
->  bool arch_memremap_can_ram_remap(resource_size_t offset, size_t size,
->  				 unsigned long flags)
->  {
-> -	unsigned long pfn = PHYS_PFN(offset);
-> -
-> -	return memblock_is_map_memory(pfn);
-> +	return memblock_is_map_memory(offset);
->  }
-
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-
-Not sure how Russell picks patches up these days (I used to send them to
-the patch system -
-https://www.arm.linux.org.uk/developer/patches/info.php).
-
-It might be simpler with git send-email (that's the alias I had):
-
-  git send-email --add-header="KernelVersion: $(git describe --abbrev=0)" --no-thread --suppress-cc=all --to="patches@armlinux.org.uk"
-
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
+index 583b5c071cd1..fa900b4991d0 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
+@@ -252,7 +252,8 @@ static int tegra_eqos_probe(struct platform_device *pdev,
+ 	plat_dat->fix_mac_speed = tegra_eqos_fix_speed;
+ 	plat_dat->set_clk_tx_rate = stmmac_set_clk_tx_rate;
+ 	plat_dat->bsp_priv = eqos;
+-	plat_dat->flags |= STMMAC_FLAG_SPH_DISABLE;
++	plat_dat->flags |= STMMAC_FLAG_SPH_DISABLE |
++			   STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP;
+ 
+ 	return 0;
+ 
 -- 
-Catalin
+2.30.2
+
 
