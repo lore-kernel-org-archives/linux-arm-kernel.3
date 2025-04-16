@@ -4,70 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C590C369B1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 08:05:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D62C6C369B1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 08:07:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xoWHXtften/lUbiJBml2hBCsuMZ21wIlk4QxBfXkS3s=; b=h+lDdB4a4WTiaGX9piOXs5sqv9
-	ayoKhTVV5EOtuSNi74NgvYmJ9qUWK0V6T0pZ1cscMqgN8ZO9lSNpZQdtTeWM6WDOplX9bZJMgiBp2
-	9cBtvZWxTzYv5ksjcVCad6vL9sPWEMLU+IZC0/60QQaektNgZMZrIF9A+dIapbPij4ZgQHK0vo0Kw
-	0iAtUdSW28Py9iV2kb2JXfsUT3Lp6y7PzjVspw+srUuJW0HuT2bQDdmXN0oOjZ9rX6t8hOv2Juqvq
-	fKdS4e+H870v+j7sDddxS05rwpd4Lp72ZqWYtBPTPXokLBh6kj1g8KM6aKizdPiXLjGev+F+Aef+l
-	3KQIZDEA==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=CxllXsS7oZKhmgl74o8BLeNmMQKxBZycllNwlO7QoVM=; b=ksq6/HR+knlO5T
+	MI9JxtMuh7+qPzjpckgi8G8mwZdO8ER8t9jm91hJ5q95TdtUC4XGqE5cEmL8Bc9jqxbe90GLQNzqy
+	b0gO6CbPTsFTdXV7BdeJWFau01tE+ac8d+cE6WkagVAkJkOUjxN+Q8ncP5P+5JcWZtN4WsqS4p3YE
+	oh4JZi7FvEe6YYuxJ/tJB68nUlZmLTqPF9y9OjnChCjmPdaIsL7/bj+uFmxIPqi1haoHm1HasT6Xq
+	DXlp8AzC4XiD9DD+OsCQvQ76VTy26U2LLb3XpS6v5etMU36Li1rnpYOtTkcik0E3dHNlnWchCAnof
+	UVphu1A1bI/6+hKEqH5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4xla-00000008jqF-17Rp;
-	Wed, 16 Apr 2025 08:05:06 +0000
+	id 1u4xnP-00000008kBv-1MqI;
+	Wed, 16 Apr 2025 08:06:59 +0000
 Received: from abb.hmeau.com ([144.6.53.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4xfS-00000008il3-44dZ;
-	Wed, 16 Apr 2025 07:58:48 +0000
+	id 1u4xhK-00000008jDk-2ufp
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 16 Apr 2025 08:00:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
-	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=xoWHXtften/lUbiJBml2hBCsuMZ21wIlk4QxBfXkS3s=; b=JbKawVCgPm2re7jfhUtUt73G74
-	tXPzSu7vBAi/lpfKvoTqvBuTnY76PG1u0KigAwwwYbd0M6m7/KecLK1/21GlLJOIbiBP3Y2IYTMoI
-	qoV94/bRmruE7Y9qoSbJ7VELrIIWWknHuIITaWnzbEqI34drIGV7sk0QkU8FDF3gHKGkQ/DGPcD51
-	YGNqiadPiGl73aueuB3ZJiIVR+TUxW1iYKDc125n1OjsVhX305RI6P3fVsh3Y9dUbPdNNIurCtSIV
-	LhMHUTzGtVur/QSSCecJSnC0ENsWkqHZ9z3cPrhtjqATW0tv5gc+QPampD0aZ0jY6O3uFqeZ3tqIU
-	rnJC7fzw==;
+	:Resent-Message-ID:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=CxllXsS7oZKhmgl74o8BLeNmMQKxBZycllNwlO7QoVM=; b=p6rOFRuBNqBL9Vs+KMLwfIwpaW
+	yz/TUWI06KiYLjDOWRkW1thUO1NCa0FsczE1IdP8yWQJuNPoj7zLoeTV/bcNnNzwnrrQZxCAF6hWN
+	rR3nya2bEWTJ06hsRLUYISaUNvMGmmJL2xQjFg9UXnzbuNs+F3O8tZDTNTPjcwkWcdfZbNyJ4y44h
+	MNkHBN0Q6sxrv8XtbZop2V1nmDZtMJY4YBCj2ZV5ufdu+NQuPvRjnUCx6msKVoK7FpDyGaHfZtkeJ
+	fVmHWHaHPram2mO/vEo3QW8W7xM+RzwRRrwC4Eq7LpM/nK/62FTZQlA3nyOmTRNvV4g+dWKgbKTzE
+	D7ct5GZA==;
 Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
 	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1u4xf2-00G7tZ-2s;
-	Wed, 16 Apr 2025 15:58:21 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Wed, 16 Apr 2025 15:58:20 +0800
-Date: Wed, 16 Apr 2025 15:58:20 +0800
+	id 1u4xhH-00G7yK-1U;
+	Wed, 16 Apr 2025 16:00:40 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Wed, 16 Apr 2025 16:00:39 +0800
+Date: Wed, 16 Apr 2025 16:00:39 +0800
 From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: linux-crypto@vger.kernel.org, Olivia Mackall <olivia@selenic.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Avi Fishman <avifishman70@gmail.com>,
-	Tomer Maimon <tmaimon77@gmail.com>,
-	Tali Perry <tali.perry1@gmail.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, openbmc@lists.ozlabs.org
-Subject: Re: [PATCH v2 0/3] Use a local device pointer for hwrng drivers
- instead of casting constantly
-Message-ID: <Z_9jHLmgaG7wjAhT@gondor.apana.org.au>
-References: <20250410152239.4146166-1-sakari.ailus@linux.intel.com>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, x86@kernel.org
+Subject: Re: [PATCH 0/9] Remove per-architecture poly1305 shash glue code
+Message-ID: <Z_9jp6J6YKImbzyg@gondor.apana.org.au>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250410152239.4146166-1-sakari.ailus@linux.intel.com>
+In-Reply-To: <20250413045421.55100-1-ebiggers@kernel.org>
+X-Newsgroups: apana.lists.os.linux.cryptoapi,apana.lists.os.linux.kernel
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_005847_006059_903344B3 
-X-CRM114-Status: GOOD (  12.22  )
+X-CRM114-CacheID: sfid-20250416_010042_729603_0B43D1A2 
+X-CRM114-Status: GOOD (  13.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,29 +74,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 10, 2025 at 06:22:36PM +0300, Sakari Ailus wrote:
-> Hi folks,
+Eric Biggers <ebiggers@kernel.org> wrote:
+> This series removes the per-architecture poly1305 shash glue code and
+> re-implements the poly1305 shashes on top of the Poly1305 library
+> functions.  This ends up being much simpler, and it is how it should
+> have been done originally.  This follows similar changes to crc32,
+> crc32c, and chacha20.
 > 
-> Clean up random number reading by storing struct device pointer to device
-> context struct. The changes are very similar in all three drivers.
+> This series also makes the Poly1305 library be optimized on PowerPC.
+> Previously the PowerPC-optimized Poly1305 code only supported shash.
 > 
-> since v2:
+> Eric Biggers (9):
+>  crypto: powerpc/poly1305 - implement library instead of shash
+>  crypto: poly1305 - centralize the shash wrappers for arch code
+>  crypto: arm/poly1305 - remove redundant shash algorithm
+>  crypto: arm64/poly1305 - remove redundant shash algorithm
+>  crypto: mips/poly1305 - drop redundant dependency on CONFIG_MIPS
+>  crypto: mips/poly1305 - remove redundant shash algorithm
+>  crypto: x86/poly1305 - remove redundant shash algorithm
+>  crypto: x86/poly1305 - don't select CRYPTO_LIB_POLY1305_GENERIC
+>  crypto: poly1305 - remove rset and sset fields of poly1305_desc_ctx
 > 
-> - Add a struct device pointer field to device context structs, don't use
->   struct hwrgn priv field for the purpose anymore.
+> arch/arm/crypto/Kconfig                 |   6 -
+> arch/arm/crypto/poly1305-glue.c         | 170 ++----------------------
+> arch/arm64/crypto/Kconfig               |   6 -
+> arch/arm64/crypto/poly1305-glue.c       | 143 ++------------------
+> arch/mips/crypto/Kconfig                |   6 -
+> arch/mips/crypto/poly1305-glue.c        | 120 +----------------
+> arch/powerpc/crypto/Kconfig             |  11 +-
+> arch/powerpc/crypto/poly1305-p10-glue.c | 134 ++++++-------------
+> arch/x86/crypto/Kconfig                 |   8 --
+> arch/x86/crypto/poly1305_glue.c         |  99 ++------------
+> crypto/Makefile                         |   3 +-
+> crypto/poly1305.c                       | 153 +++++++++++++++++++++
+> crypto/poly1305_generic.c               | 149 ---------------------
+> include/crypto/poly1305.h               |  13 +-
+> lib/crypto/poly1305.c                   |   2 -
+> 15 files changed, 242 insertions(+), 781 deletions(-)
+> create mode 100644 crypto/poly1305.c
+> delete mode 100644 crypto/poly1305_generic.c
 > 
-> Sakari Ailus (3):
->   hwrng: atmel - Add struct device pointer to device context struct
->   hwrng: mtk - Add struct device pointer to device context struct
->   hwrng: npcm - Add struct device pointer to device context struct
 > 
->  drivers/char/hw_random/atmel-rng.c | 11 ++++++-----
->  drivers/char/hw_random/mtk-rng.c   |  9 +++++----
->  drivers/char/hw_random/npcm-rng.c  |  9 +++++----
->  3 files changed, 16 insertions(+), 13 deletions(-)
-> 
-> -- 
-> 2.39.5
+> base-commit: 3be3f70ee95da03a87d94c4a714ee679a5c7b34d
 
 All applied.  Thanks.
 -- 
