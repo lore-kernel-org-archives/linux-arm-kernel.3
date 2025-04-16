@@ -4,196 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38625C369BA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 17:31:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8106C369C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 17:43:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dMHVJRdhcPfj0mkqIqBjIUkqCJ2/Q7pmKEmFOBFWQfo=; b=j3Q3hcgkB8BDroLy44lQt2Yj3K
-	WUbw3nbBTuP+4xjVaWGDxeUWv0bxLKws0ySbQ5TctrNVGCEV89hpD5xJKa/UaZdNy2f476j3aGbj2
-	cU0bVBNsoV5FRL9Q3wJmISurVBvzzRfQNNEjAL4dH77kKA5FlWmhdd5mJQa07K9CWS/1UZmYKMZ9p
-	eM17zGTGRFWBfLH/XTxixsS4HbOoEXseTNS5+2G6vaKwsc3qGZxUm1SWyJWD4ss4mG+ZnCLyDs5E1
-	Ni/qbFLQ/Z+YZVLOxQWDm5DBBPWJ/1vCFbTeI5/ZvVt9jYiGRiNku6+w+w9vV2czWaqqNJBnDSrO5
-	AldmH3Gg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1IgT5vka1RF0inUZLlyjVbWp1JoB/V/Vgbfipk8HtDU=; b=CAFHmybFnW7yccbqQoqOay0Egr
+	PZlqJiC6BoQn5fY5UKKbQgtXbWhmEVXej34O/+DqHSI1AbsCvp7GSiEWuY4qxrg3yTqD2uLJ4u8t6
+	t+hhdhKeeuh9xiQUR5YY2yBOpm8vqBG3ugsfUgKHugsCBnJAl9FMm0nWiq0VO/Q6iZEir6pUYKYvt
+	Z7DlTJBT2Xjfx0Kq28Y0Z81MCmzkUiELJy87mmUiwGYu/XETt7X7L/KkXl85T2ixJMpKHhZOHdjsg
+	dcNYH1EdNLWYM5F8sPwALhibKBnIKUeR5SuzcnL0yOovrkL/mp5cv2iqLySoAAtErqFSPB5j1Y6Y5
+	azJqJ54Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u56bl-0000000AQLh-2vdQ;
-	Wed, 16 Apr 2025 17:31:33 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1u56nG-0000000AS7a-3MEH;
+	Wed, 16 Apr 2025 17:43:26 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u56Ho-0000000AN4V-1Uym
+	id 1u54zM-0000000A8CH-44qI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 17:10:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1744823456; x=1776359456;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=dMHVJRdhcPfj0mkqIqBjIUkqCJ2/Q7pmKEmFOBFWQfo=;
-  b=iX4fmPlLtu235YfLnCx5lMTQpkxI6dG2/lgXWuTw6UF7eGR7aOoxEA36
-   aowvkcKkwQK4+WbbWXVAs0i//oo/iN1wEJdG0nHILzPyz/gkPRTvZeqel
-   LtKnNBAghQTFZ3er7R2X+jrfMUrROOzsraGwpQx+gjfW3EQmmvmALrbW/
-   9ITI+1jASU2PzgHsgjZviRR7BPcqkV6IU2VWFNOIddQc0c/8KXhHDfRQc
-   7UqZchYjILE7EnMFr7+uPM0yjw5oM6gDhfjJbPcae7T+Jw4OIBvjqFGOb
-   NG94HFwR+B1a74MB2WjmYs9u9J9AF4IIAoVDSpZMV3XAkCICCzdvIx20Q
-   g==;
-X-CSE-ConnectionGUID: CuSG++LOSc+OhKu4juJKOw==
-X-CSE-MsgGUID: c+hQu64mQ3q/z/PFn2lVwQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11405"; a="68874854"
-X-IronPort-AV: E=Sophos;i="6.15,216,1739865600"; 
-   d="scan'208";a="68874854"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Apr 2025 10:10:54 -0700
-X-CSE-ConnectionGUID: DozbRtORSsi3ZkuqrT8wnQ==
-X-CSE-MsgGUID: 8o2qTaHyRa+/m7MNQnle+Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,216,1739865600"; 
-   d="scan'208";a="161509314"
-Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
-  by orviesa002.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Apr 2025 10:10:54 -0700
-Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Wed, 16 Apr 2025 10:10:53 -0700
-Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14 via Frontend Transport; Wed, 16 Apr 2025 10:10:53 -0700
-Received: from NAM10-DM6-obe.outbound.protection.outlook.com (104.47.58.41) by
- edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.44; Wed, 16 Apr 2025 10:10:51 -0700
+	Wed, 16 Apr 2025 15:47:50 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ypMquZc8b/mWLqVRd+uKuYG69moXp0dOuIx27MwnENgLuZyrPl4dCAItsJ/l6ShwONvvNe07YdSyWPoveQQhjNogXW2ZYTF7O5e17GoTwU6pm6WZV+zbz31u1kRpZCDIt3HBy1BlDhFA5DRACW8eJ5Dpf/yqdUcyOTYRu0AB/C3e9x4bufmBev36kIB8aK2EkkoHNsU3r13BCPP2o+FgQ/s6kxw96TFha8Sbro6IO4x6V1+d4gOGv9Z+mXQc9QrX7TyMOJb9f1ezuRka485u6jmdWl5WOcxlPKyXd1/Ip2qhzmP3l8nkN3g0qTXv56uCKrf/Va1DU0q1rftw4Qlswg==
+ b=W0eWTimPtvjE/7LJh8eOp+bSk3jz5lZs01on4Iwkw5Icu9yWbtLR6GyCJu4Lvk0LCQtYf7FiMtf7Vn7hNMhNHTDsK1xo6tz30QhKEIZiCsoN6SaOu+dAssJcIxsRZAEGgCDG72TVo2MjY1EnQ4G6Fohb8tkU/2lKakrNpvnSOJ0PGKC91mxarhD2UBDP/vgHQW8PkNpIwrUSGWDRSALlydXvBYv9BO6XqNZpsOHCAcY3G3Oe6EsdKSO0bU9wHJBn1pQcF/I1W3ssFt1SVbHE5KXCjE9DRGoyje0YfbUXJLC9aTVwUmbv4vODnP6T1KPSQh7wGIfoawffxeu8Egpjzg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dMHVJRdhcPfj0mkqIqBjIUkqCJ2/Q7pmKEmFOBFWQfo=;
- b=tL9POt7yfSg0tdpGUKHdj/HeINzfRftTYZkuwwNuWTZ6qTqnjA2OpuE9GVqf6rXAwD6RNVQbAc1iYpBQflBEezSlTzw5ltsoKmLmFJAAxgzfe2sAKPxpZ32ucWdNKhh+hi8KlnJ+zLTbttOMV01KUrdb9luxzIeLyi+b8FYmXpfSicOeumEruxayr3Kz+ygCcl5lOdaiqeRWQSnoN8LGayFOMDVpg3mnz99LcDYW8Mr5LlzC+X+5Wi/HmyPbXDmfVgG/g2ao0S0rgvJSlkvJAlOQrrKSUED9P3PmphKo4aRvrqiIJ1r7lf6AIaDJAZpqdEoJgmCGBR5ymEAfyp2gtQ==
+ bh=1IgT5vka1RF0inUZLlyjVbWp1JoB/V/Vgbfipk8HtDU=;
+ b=EASiUdPqa/9W5suWLRaTnYAIgATVkHMRK/eMt2KJRDofVcses2VtIZTym2CZLNyOdM0B1kIRanLRKOXJXf3pq/c/HbsxPwvP+9l3wHGBiWH/nCptu7JudR4+Ngl2xdXAmKfZq1n6l8uxuLZgn/CxM/eGaQqqnqUj1ZON6OQ/G4oKvzSe1tbM5OCGp8tHAJJg1Km78HwRV1Y4hfrAMk7PNzfVNFQ28vaxpoCDH3xWZUQNzi0QMqEpDfhOpiLOaMhnX9eToGJhxXUkHTI8neFOz+Hy4IEJ/xwWD6vGL7NH8wEtGlICb9gP00TUTOrjhTihTTHsZMEYWaT3A9Mwm+Cblw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from CO1PR11MB5089.namprd11.prod.outlook.com (2603:10b6:303:9b::16)
- by PH0PR11MB4920.namprd11.prod.outlook.com (2603:10b6:510:41::22) with
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1IgT5vka1RF0inUZLlyjVbWp1JoB/V/Vgbfipk8HtDU=;
+ b=VowOriexP0XAkjMgsky9/CzqrhJ3BaMKjsbnXO+RPHa9NLOVZBU5uFOqM9tPIqz+t+RVw5GJlPErBT1WATjCGlcsMYYu0yQ82y3Z1kcvzplehZjBDVH9ImqblAY2EJoVdvJZgOfIWqGb9qEKjthOko/s9LNG0LkFfXtQd3n+QdjUG/tRWUF47J/IQ4TVhL4/zIBABgVNxv/znJj6DfBrSS9fSJgg9CU24aJn+ArONaJxWa/2w8tlfyq6SU8L8AOpeT8eTOUwtzoKZVY+z6GQiT6VzBTW6lA/oYIO35tft0fVtWC1+iozeb6Imw3WsLT/aqh8a5dNagcCkw1/sfICQg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DB8PR04MB6875.eurprd04.prod.outlook.com (2603:10a6:10:11f::11) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.34; Wed, 16 Apr
- 2025 17:10:38 +0000
-Received: from CO1PR11MB5089.namprd11.prod.outlook.com
- ([fe80::7de8:e1b1:a3b:b8a8]) by CO1PR11MB5089.namprd11.prod.outlook.com
- ([fe80::7de8:e1b1:a3b:b8a8%4]) with mapi id 15.20.8632.025; Wed, 16 Apr 2025
- 17:10:38 +0000
-From: "Keller, Jacob E" <jacob.e.keller@intel.com>
-To: Philipp Stanner <phasta@kernel.org>, Sunil Goutham <sgoutham@marvell.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
-	"Dumazet, Eric" <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>, Geetha sowjanya <gakula@marvell.com>,
-	Subbaraya Sundeep <sbhatta@marvell.com>, hariprasad <hkelam@marvell.com>,
-	Bharat Bhushan <bbhushan2@marvell.com>, Taras Chornyi
-	<taras.chornyi@plvision.eu>, Daniele Venzano <venza@brownhat.org>, "Heiner
- Kallweit" <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>,
-	Thomas Gleixner <tglx@linutronix.de>, Helge Deller <deller@gmx.de>, "Ingo
- Molnar" <mingo@kernel.org>, Simon Horman <horms@kernel.org>, Al Viro
-	<viro@zeniv.linux.org.uk>, Sabrina Dubroca <sd@queasysnail.net>
-CC: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "netdev@vger.kernel.org"
-	<netdev@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-parisc@vger.kernel.org"
-	<linux-parisc@vger.kernel.org>
-Subject: RE: [PATCH 0/8] net: Phase out hybrid PCI devres API
-Thread-Topic: [PATCH 0/8] net: Phase out hybrid PCI devres API
-Thread-Index: AQHbru7bZvH76Wug30Wj8YBTGEadN7OmhurQ
-Date: Wed, 16 Apr 2025 17:10:38 +0000
-Message-ID: <CO1PR11MB5089309753FBA1EDE6C2D663D6BD2@CO1PR11MB5089.namprd11.prod.outlook.com>
-References: <20250416164407.127261-2-phasta@kernel.org>
-In-Reply-To: <20250416164407.127261-2-phasta@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: CO1PR11MB5089:EE_|PH0PR11MB4920:EE_
-x-ms-office365-filtering-correlation-id: 809b1a96-25c2-4a8f-5805-08dd7d099c0a
-x-ld-processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|38070700018|921020;
-x-microsoft-antispam-message-info: =?us-ascii?Q?zyFPkOoKk++WfOrGbUG10yyHnjMbWoSUoMJqdG7PEuyFD/dp0J1i8PyYe8Cc?=
- =?us-ascii?Q?cIru+NKw2Op+f4ItYQCP67LJQDR9LCk7WwvnP/0xTjd5omdMYski7dk5t9zQ?=
- =?us-ascii?Q?M5mYhRyGKIJZYNi73qaIB+M6Vi8g9nb2xpDe1TvKGE0eC2fRz5OJm7QzxhGF?=
- =?us-ascii?Q?mpmpLHkq46kHp3RzUjDtUFjg2ZONitz9P6ocVqj+ggVKrWmZwHxyJvjyRR7k?=
- =?us-ascii?Q?ZMJXxKaPd628nQXOHYrdd2DqeX9RJmxfDZVkoyIIpk3TsQiY5106gfMgnImq?=
- =?us-ascii?Q?lwjcJONKIaWtIzyTGQvNVlDMhLR8Ud1hm8MgKstApi2yha2wthJbMt+ufzW6?=
- =?us-ascii?Q?mUhwblg6J8l35EPFi+k5ycOyUHqoDzuD9A3Ls5N74hCCtOPcf55+kQQSLqos?=
- =?us-ascii?Q?8ZzaE2yDZpGc3+s2JYJnxScuurWapO8uMYUpGN6zXIi6jG+NGxi4ssCxOSRm?=
- =?us-ascii?Q?TjDG7+A0Src5m4wcGxvffXz97lX4I2GIoVg45qbLK0YDgdBX7fT+zqty4ilk?=
- =?us-ascii?Q?VA0OAEW20fxvYHdip6ljliCyV1TTHQ/3giNg+B6kAwxn4VofLLZSKsfgIjVH?=
- =?us-ascii?Q?reNr1AZwos54seW18OZLh28Y1s4dMjQjoMhedzXj9FGs9enviusM9t0yXa3Q?=
- =?us-ascii?Q?73L5DlHpDjuW5J+8rP+ZEMzu+KYjPP38ZYOucfk0QY14AYPNx5i+InkqHQ2b?=
- =?us-ascii?Q?zdkTF+52Ef3hSFtPUp9bTPE01e0xjVcLgM8pZE/aJkNBRoNmq2xA1E35dIoi?=
- =?us-ascii?Q?QmE7EG4CX3K+1kTLONAk7Y29Vi1/1zxcrMxNTRWP/VvZ/E6ufp9J6xyvwv1H?=
- =?us-ascii?Q?a4RB+iVoWfCZQH3D7VNZ/JCWrty3QYRx/Wx914C6vKMaxyQU77Cuh6Sqv19d?=
- =?us-ascii?Q?O2M+fZbKJflEuyrlKq/ke4EKemQy7Cg6nIullZuXWrLU3GWlfnfs/mX8muqv?=
- =?us-ascii?Q?Fxmg/BP3CXtc7ys/Zd/PTOzmWucjRPQb0FzaamvpT1FdeT6bl81JxdhUxRqJ?=
- =?us-ascii?Q?Z6JDMBWuH5eQ+ZwGWDfNLhIacbqsivAaUYB3W0+9BLdXy2SSIzjgCcWOMNm8?=
- =?us-ascii?Q?RMoHgXtUk9ky2gcSTaH1UslrHCnMnHPfyTTTxJO16aGfv8Ori0d+byRkTH/X?=
- =?us-ascii?Q?OZXH6fT5PHjyIQK1zut2LMPcX1hoXAzcJpLLk8gZNQsR+fQAOjBSlS8hfD28?=
- =?us-ascii?Q?DVZCK60Mnkang+KvoW3zyi59m/NprV2vkBGS6ScfFzt/8Cbe5oeO2C7IjUfS?=
- =?us-ascii?Q?6lNV/suangJ0CUzEs6kovFxGeJ1uJ5xIoIIHkwRhhdWDULGKTmqfcCoNd9Va?=
- =?us-ascii?Q?DZnWmDH9F/2/wD+uvEZRh7Qp8y0UwLSV1dqqUPEfQnk37Hx+2iZFSILhxK/I?=
- =?us-ascii?Q?IT8aBbz1uYtPw0yToc03TGT/jzQx4K1S5ata8XvqQrV0Fei26jRLyLwcwVOq?=
- =?us-ascii?Q?bNU4RmR0MmEnJ8WgOhqE7lS25DmmP3vhrTZwwqPJYbhXR3CJ790oWLoppEyH?=
- =?us-ascii?Q?feENYCgmLjH4y7A=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5089.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(38070700018)(921020);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Jt2B3mi96pvhgesotUKRG36lle8lX/ohkaVDE0PEdeA0xAiu49s7SUiit9f1?=
- =?us-ascii?Q?w7uo12AdUJHOtZEAC3FKSfzdf/wVJ9csH7d/7uYEiF+AM0NHh0e65QoSSfGq?=
- =?us-ascii?Q?p3f1HrOBLfDMka4QNqwwH/eybMdjG9c7xpLkWjlxKmA/SxX6Lo81PgZlCCF8?=
- =?us-ascii?Q?imhdLaYNAOf0kpVU0BZRR//tpSBCQGceZpQWhK/ahs1ws3TbLULWvy88u9TS?=
- =?us-ascii?Q?O/RsymLmLxSLoRDCM4cVq+KlcbkZBpcPMB2SRRpqEUwk+OyvY/p3bzLSOSL6?=
- =?us-ascii?Q?X1y6ahXppL98IqdhVckfMUkHChQ2zTcZgHjpR7zBvcd+ybeqffPghflHBFw9?=
- =?us-ascii?Q?04FYN9ogZ1FNN62BncWa0zSmGU5yGb1tAL6rc08xYaZ50PT+x61yIhtu6Mpu?=
- =?us-ascii?Q?WIV4L+/EIyjGRXYo/nApDkmga2R6mtW5sTh4OJdXJjPBLpD3Ukku50EfazF3?=
- =?us-ascii?Q?rFNvC9rGPwECIdlqaBAaqmSmaDwKyAnUS3KJRyT3EhVgoHDxFCWIq5xrS5X1?=
- =?us-ascii?Q?EtPTHoO+qGJIQAh75V7zAUXL8hF4izWX3NcOroWfiCy5zLzfcZtUMGPlKKzy?=
- =?us-ascii?Q?+OugraTSGWWix8bfbM9Nw45wRaQF+PobLT6EDio5/oc2kgh4m//W6UAUSW6E?=
- =?us-ascii?Q?E/Yln1nMsfQeOtdf0jKHqCgjzGSrWliWDigd/r9BxnbXpZSfkiOCXSsp0aZg?=
- =?us-ascii?Q?WRT/qsib5NR4BLUwSD2m6MPfdd5dcbRecHGgfmwcs+xHSWrQVrUv1EFu+EZW?=
- =?us-ascii?Q?M6Fst+POafLno+XZLH/QPmp47vGaYGh2S7rx9wo+cfmnoN89Lx4NgVuPAwhI?=
- =?us-ascii?Q?kAMUSSCa6EDxlriE/HFP5teRCz5J0Ihp8RjtsbuALXtaeIfHf6SvQeF9Sj+l?=
- =?us-ascii?Q?wIeCK0CyegyVEEYKkoVRA0/zPj6D3zdM480M7MvY2axqI3eGA0p44pl6M0Ha?=
- =?us-ascii?Q?1XqWNfSpgmn062S9Qwd0FVpxXM6WQbbnnM54uSQG96oB7t+uVfVS+0XEFEJp?=
- =?us-ascii?Q?p1S+0lZK5wmgOKijP0QtWg+J9jeelmXAru/Sybr+kPhPZVTH9/Vmaf6teR23?=
- =?us-ascii?Q?QF7PyFmoXR/zLy92cdX1eVDwGfoweySnT2JZh26fQE+EiampdEEp70NmmWvO?=
- =?us-ascii?Q?o+Lz0hbeNOlUPNjx0jJBhHf9Ht0FD1ZM7ChgeP0q2gW00OJ6cDFEjWlRepXO?=
- =?us-ascii?Q?tVxD3gN8xEhEq37A4oQmNFEjMrNMnnFVPmkxQketuKvrJVRujTqo6uRkCJBv?=
- =?us-ascii?Q?jpMWvzQsMU6qNwY0QfaG59SAxjOTDB8MOS9GMHUpTlhxlaD8TA3JdcJG6r/m?=
- =?us-ascii?Q?CzjgweJy4ySbv7I0LWnlroxEyoT3L1sET6i3hQxEPQ9xYPCVBrew0fEs9QQL?=
- =?us-ascii?Q?q+lRU3vz/Hf5FaqrCLUGZv2JVPcmuZT5DdmEkHR1xKGnTYZYWdXNWvchct8Q?=
- =?us-ascii?Q?01IdhSe7Gq5u5psGmP7Txah/Bp3mgfPFcRAZUSiaVaxZzP00FiUc688jU32U?=
- =?us-ascii?Q?sZx/d4fIGyw5b65oBP1WMu+OnFH9qg1HkwPv/GxzHyOW18XtrMAWLMQAbyxr?=
- =?us-ascii?Q?FejRGUwgaXvzBIeehGGplZ+UcpLr9hqj4IS2enIh?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.22; Wed, 16 Apr
+ 2025 15:47:43 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8632.035; Wed, 16 Apr 2025
+ 15:47:42 +0000
+From: Frank Li <Frank.Li@nxp.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Steve Longerbeam <slongerbeam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	linux-media@vger.kernel.org (open list:MEDIA INPUT INFRASTRUCTURE (V4L/DVB)),
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Cc: imx@lists.linux.dev
+Subject: [PATCH v2 1/1] dt-bindings: media: convert imx.txt to yaml format
+Date: Wed, 16 Apr 2025 11:47:27 -0400
+Message-Id: <20250416154729.3424617-1-Frank.Li@nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: AM9P192CA0029.EURP192.PROD.OUTLOOK.COM
+ (2603:10a6:20b:21d::34) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DB8PR04MB6875:EE_
+X-MS-Office365-Filtering-Correlation-Id: da16f868-3efd-4bf5-f834-08dd7cfe0631
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|52116014|376014|1800799024|13003099007|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?KcNErywhCMKXOWW5tzb+VSjEsJqErhSHIRVfDJnPUS44BPJWF8FVXCM+boq+?=
+ =?us-ascii?Q?+2CE4AIPSJCQDLxLUD4ZQ5DBWV58x0QN+VpMB4+bQ3L0J+8TCNZEhXL7UGQb?=
+ =?us-ascii?Q?Fe5lO7T7D3F+8/nuvrVSZYBi1g9/baFkBXJMMTlZlN3YoDGG8p4q/7oGtS8C?=
+ =?us-ascii?Q?HgVri/Kq11xeji5msCpZMaS/bFaIZaRGzipGc/Xf04FABHIqwbcRDzifbb4J?=
+ =?us-ascii?Q?EOyoxb4zcz/KU/5Pk+s10saVcCtwi4AlnN3AQkABC7UANJ0itXBVWnxorTTt?=
+ =?us-ascii?Q?rKOb+6cVtEMwALSkzTqtdXPLr3mXeNHme7/mUu0sg9aB7KMFQkIEGbEdkaDL?=
+ =?us-ascii?Q?jl8dTF+xtPBHD1Im03u398IyaYoiRMZJ9FAkYT5Dlua6GD5VKEWapPXrLITb?=
+ =?us-ascii?Q?a6YXfvRLilXHmK7oPxgBvZuy9py7G1AIJdzS/che674+cA6nKMmg/+AFcDWR?=
+ =?us-ascii?Q?t3c5vYTtp5J8OOeOEnNtpxXNzHJLap0utWxKmh7NunfgwEyYTsZfylmTQWQW?=
+ =?us-ascii?Q?Jluub/2HSQy00BN5eheBz5IAzjjJ525xCVDcN+CG+kqWILOZH+f+9OMgppzd?=
+ =?us-ascii?Q?AQmwVDNMT7pj8TLKnXt1tXAIHAZ/pbn3Sc/og6h8Eo58r0LHMTCgnTW5Cw3e?=
+ =?us-ascii?Q?+V4xsF+QiZniyEfAkno8uWX9bBTuFPbBqB20ASlmspzKrVcvyZlt6kS9SEuq?=
+ =?us-ascii?Q?Kt06sOAMOB8dXM+xwU14Nh5L0lygiAp40kgbXnWPdTBc8eu45EtfgwQ6AsDV?=
+ =?us-ascii?Q?XJLebTwprnq3HpdVodA/5YmZ7IHNtNDmXRxHcZ61NgnquVnk1Bni2kzi8Ib4?=
+ =?us-ascii?Q?fOIAmZHGGR/H0AjxZXzesVL7gUBqSp0RP5Fghmjp/1sG51wVuumQTbNm7xBG?=
+ =?us-ascii?Q?lwgoApNuqKYD0TSL7seF0QQMvE0t5A57lH21G6M0MrWIZ1qseWTXChK58R5x?=
+ =?us-ascii?Q?sXWVFqm9KfdiAQjsp31LipxgFZ3cAqrX7mtcxAX9hBj416oRTwFrk7VsItRE?=
+ =?us-ascii?Q?EjNgaYSSOLv5D+UC0cDQ0sbWFQjQrcDVWA1o/pOe6wYXD8FLkTaPTk+Hpd6b?=
+ =?us-ascii?Q?vCJhelzYE6YGccDtdyeti6riig9qq4kRxOIAkVXIO2rr/xm60xhv39dYoqgA?=
+ =?us-ascii?Q?W5f3XIuqrwtyEQIq+/W993RzedvIxsVtAXCvk/KMltrSEx6N7b95Bi6E6NIF?=
+ =?us-ascii?Q?Zrswea7MdDBrn7oxyHqmCpKiP/Z4IvI86YEz7MuSnOx0srhdnHXOJ7Pcw6VJ?=
+ =?us-ascii?Q?tXCaeWq+ges7P/s25ntxLJc+a4wyeYTKrZYeSUZPvX77RJV3z4hBEpZi/2nZ?=
+ =?us-ascii?Q?8s69xCn7ThoCZvGaj0vFXq0JGz6s6YBy5iUJy60bp5ZED8Ub9AndpnzyW/pQ?=
+ =?us-ascii?Q?DsS9DVYPdWwmH8c0v4VlHkd7eLpXfNMSQQEeOAudjZnTfFdZPLaGYAUFiWnC?=
+ =?us-ascii?Q?Iqgj2T2eH4bW3V5dSxwx5KwgV3kN7rP8?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(52116014)(376014)(1800799024)(13003099007)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?mg0BmK9k/mPxpvi5GbXEjQ5QzUirIiAX9eXBle/WTn/qqc/RwBop+UJkHP91?=
+ =?us-ascii?Q?d6i/DwGH12/houUr7QQOn6xe0zMfpxlULa7RPcgseJVqfkleVScvOMXZ0uaD?=
+ =?us-ascii?Q?TmcRtel7VPxM1fQf1xjAlSxTflxRVKLO4ly2ip+zl004PGxUT0OBLhEWaZcH?=
+ =?us-ascii?Q?xw2NG2vgR4Gv+FLbdgcb1syXDFD/sPk5DyNZpeGJiDoawxbuP/X+JBPGqnzK?=
+ =?us-ascii?Q?bR6vaRymtNw80UtzVsxxLZEos7FAZaWD15PmZyTx+22Ion+tnIqDFKkTl9Nm?=
+ =?us-ascii?Q?NiHIOpQCqBiQOnA53MzIiWtP+rcjzPpx+Lt+bJkBENyq/YWSv1mpxIifwRpW?=
+ =?us-ascii?Q?pyXv0ILaf18LJ/rvYlKJjcGD85tt4UG+5Z3SNllE4Hfj+x2Ksh17qb9SMk+S?=
+ =?us-ascii?Q?pixW6lCcMIfjmSLGBnc1EHxLowDuIu2wCvmduJLq98t4S2JRnX+oB6i9OI4w?=
+ =?us-ascii?Q?OdpaCH1geeh7swMsg1sP3sTcXJ6yjRSJgeOod7DTSA9WUxVKDAozzwS3JFM0?=
+ =?us-ascii?Q?zkXhYwl7Cj+/9Ox54fMpwTdcivwVo+JbD1aNGTptEsvxHir9W52+LYiDoIks?=
+ =?us-ascii?Q?/uMd1Q0fzL4+wZLS0TcTV6oLLf9ajkCs4IyUDgMt87l4Wtf2GZTNI3HUXdg+?=
+ =?us-ascii?Q?9FM1OuLF/PfhfLhA0gb7DPFZhbQsLWqRkLu5ekoPjHTSZyQBtGz9YbFX2xFh?=
+ =?us-ascii?Q?JTh+AKxD52eTzIFJBr2nLK7j7hv1zQmld5RikOb/CMLN7H+sKAVnc1LXpXRC?=
+ =?us-ascii?Q?SY8FrulO36FchnfIwZcmHxg/splrQ1AlPUDA0CtwCN9CMQYih2JM66hjB7bS?=
+ =?us-ascii?Q?jfavf1QdV91dCTWNpZlMN0KERja/zHyiA8w8mfVaBBZJrM4LaeXG0NNgUPjl?=
+ =?us-ascii?Q?SjZbCwg1PIzmXB2a4DGgsdfUm2YMdcTADo0/59UiXAY6WwUaNMgu7LQWD2GH?=
+ =?us-ascii?Q?QS1Z/VE1dqjzpNcKOARgt8J+HkPUe0+5MMPW5snZo66WeRlGLY+GMa3vDGsy?=
+ =?us-ascii?Q?opFIYZ4vxVTnfBSJiSoR7PM24bLBCspGQGmZviFOG73qfDwfIAZbko+UNQ7q?=
+ =?us-ascii?Q?TPfcNSCXgSzHSxYKZlWcg4v/aVQmS2KFEBI6YQaFdoxledG/Biq7t/fzjYdI?=
+ =?us-ascii?Q?H5ltNcqbLTzeoImkQKpClxtniU0xkCVbhw1YIkBng6yZPRZsFWyO5VcX9IhX?=
+ =?us-ascii?Q?yiZp85ioRMuCC2aGAQaFBBe41WMgHVJT0Q6IREWLPuBkPnRS8/zxjh7JvptB?=
+ =?us-ascii?Q?+t7G5QvL/4rH9s01zrd6e9JYhL204aUpXFxD8TzdXdKxIGDB86iJB0yFhsst?=
+ =?us-ascii?Q?ZBUNjZUoQwcndMtCvlrKTNa2SgstYQqS7tjinHvZtqXPoMQj2IjTLH8NY6LJ?=
+ =?us-ascii?Q?7hCBmJd3HFA7Gug1+UqbX309e2bT7bCea6mjb7evWca3IWHZVcV2FJ2ajs2X?=
+ =?us-ascii?Q?oj3jdBtr+BlDvNHE7W0nWEQv+rhX7bSC/LegNHXrFBw0hrxkQai5oDEDjIwR?=
+ =?us-ascii?Q?p3gAlNi1k5u2bKo/ADhZvkFQAAtar1IDt/MWqla/S353kRTV587UPNp1nyn2?=
+ =?us-ascii?Q?QMWymvxHOIrcdERtnxlly4JnefLw2L1av/KgxeL8?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: da16f868-3efd-4bf5-f834-08dd7cfe0631
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5089.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 809b1a96-25c2-4a8f-5805-08dd7d099c0a
-X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Apr 2025 17:10:38.2451
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Apr 2025 15:47:42.7258
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: kLtokvThYj0Cz2H+Dk7GdxRihk7WbxDamzDSaLF4FRZEE3mYA6MMSBiaw9F+KwN1DmRw8xoSaj3vTFYP14+TJ0lwE+JP6FkM5NBZYBeWA50=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR11MB4920
-X-OriginatorOrg: intel.com
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 27gdYfodRU1g7d96XzMgSBlsYLyJwdhMZBmli3mN18GB/FrqhEAQtrAb23O9A2FFMOA/Qg96plfWDy5MQ4NGxw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6875
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_101056_441500_15420993 
-X-CRM114-Status: GOOD (  10.99  )
+X-CRM114-CacheID: sfid-20250416_084749_158631_C3DFD050 
+X-CRM114-Status: GOOD (  18.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -208,37 +167,298 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Convert binding doc imx.txt to yaml format. Create two yaml files:
+fsl,imx6-mipi-csi2.yaml and fsl,imx-capture-subsystem.yaml.
 
+Additional changes:
+- add example for fsl,imx6-mipi-csi2
+- add irq err1 and err2 description
+- update MAINTAINERS
 
-> -----Original Message-----
-> From: Philipp Stanner <phasta@kernel.org>
-> Sent: Wednesday, April 16, 2025 9:44 AM
-> To: Sunil Goutham <sgoutham@marvell.com>; Andrew Lunn
-> <andrew+netdev@lunn.ch>; David S. Miller <davem@davemloft.net>; Dumazet,
-> Eric <edumazet@google.com>; Jakub Kicinski <kuba@kernel.org>; Paolo Abeni
-> <pabeni@redhat.com>; Geetha sowjanya <gakula@marvell.com>; Subbaraya
-> Sundeep <sbhatta@marvell.com>; hariprasad <hkelam@marvell.com>; Bharat
-> Bhushan <bbhushan2@marvell.com>; Taras Chornyi
-> <taras.chornyi@plvision.eu>; Daniele Venzano <venza@brownhat.org>; Heiner
-> Kallweit <hkallweit1@gmail.com>; Russell King <linux@armlinux.org.uk>; Th=
-omas
-> Gleixner <tglx@linutronix.de>; Philipp Stanner <phasta@kernel.org>; Helge=
- Deller
-> <deller@gmx.de>; Ingo Molnar <mingo@kernel.org>; Simon Horman
-> <horms@kernel.org>; Al Viro <viro@zeniv.linux.org.uk>; Sabrina Dubroca
-> <sd@queasysnail.net>; Keller, Jacob E <jacob.e.keller@intel.com>
-> Cc: linux-arm-kernel@lists.infradead.org; netdev@vger.kernel.org; linux-
-> kernel@vger.kernel.org; linux-parisc@vger.kernel.org
-> Subject: [PATCH 0/8] net: Phase out hybrid PCI devres API
->=20
-> Fixes a number of minor issues with the usage of the PCI API in net.
-> Notbaly, it replaces calls to the sometimes-managed
-> pci_request_regions() to the always-managed pcim_request_all_regions(),
-> enabling us to remove that hybrid functionality from PCI.
->=20
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+change from v1 to v2
+- add irq err1 and err2 description
+- ^port@[1-4] to ^port@[1-4]$
+- add port1 in example files
+- update MAINTAINERS files
+---
+ .../media/fsl,imx-capture-subsystem.yaml      |  38 +++++
+ .../bindings/media/fsl,imx6-mipi-csi2.yaml    | 144 ++++++++++++++++++
+ .../devicetree/bindings/media/imx.txt         |  53 -------
+ MAINTAINERS                                   |   2 +-
+ 4 files changed, 183 insertions(+), 54 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/media/fsl,imx-capture-subsystem.yaml
+ create mode 100644 Documentation/devicetree/bindings/media/fsl,imx6-mipi-csi2.yaml
+ delete mode 100644 Documentation/devicetree/bindings/media/imx.txt
 
-Removing the problematic "sometimes" behavior is good.
-
-Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
+diff --git a/Documentation/devicetree/bindings/media/fsl,imx-capture-subsystem.yaml b/Documentation/devicetree/bindings/media/fsl,imx-capture-subsystem.yaml
+new file mode 100644
+index 0000000000000..77be3c1f37c5b
+--- /dev/null
++++ b/Documentation/devicetree/bindings/media/fsl,imx-capture-subsystem.yaml
+@@ -0,0 +1,38 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/media/fsl,imx-capture-subsystem.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Freescale i.MX Media Video Device
++
++description:
++  This is the media controller node for video capture support. It is a
++  virtual device that lists the camera serial interface nodes that the
++  media device will control
++
++maintainers:
++  - Frank Li <Frank.Li@nxp.com>
++
++properties:
++  compatible:
++    const: fsl,imx-capture-subsystem
++
++  ports:
++    $ref: /schemas/types.yaml#/definitions/phandle-array
++    description:
++      Should contain a list of phandles pointing to camera
++      sensor interface ports of IPU devices.
++
++required:
++  - compatible
++
++additionalProperties: false
++
++examples:
++  - |
++    capture-subsystem {
++        compatible = "fsl,imx-capture-subsystem";
++        ports = <&ipu1_csi0>, <&ipu1_csi1>;
++    };
++
+diff --git a/Documentation/devicetree/bindings/media/fsl,imx6-mipi-csi2.yaml b/Documentation/devicetree/bindings/media/fsl,imx6-mipi-csi2.yaml
+new file mode 100644
+index 0000000000000..e2f3a07c0737d
+--- /dev/null
++++ b/Documentation/devicetree/bindings/media/fsl,imx6-mipi-csi2.yaml
+@@ -0,0 +1,144 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/media/fsl,imx6-mipi-csi2.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: MIPI CSI-2 Receiver core in the i.MX SoC
++
++description:
++  This is the device node for the MIPI CSI-2 Receiver core in the i.MX
++  SoC. This is a Synopsys Designware MIPI CSI-2 host controller core
++  combined with a D-PHY core mixed into the same register block. In
++  addition this device consists of an i.MX-specific "CSI2IPU gasket"
++  glue logic, also controlled from the same register block. The CSI2IPU
++  gasket demultiplexes the four virtual channel streams from the host
++  controller's 32-bit output image bus onto four 16-bit parallel busses
++  to the i.MX IPU CSIs.
++
++maintainers:
++  - Frank Li <Frank.Li@nxp.com>
++
++properties:
++  compatible:
++    const: fsl,imx6-mipi-csi2
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: hsi_tx (the D-PHY clock)
++      - description: video_27m (D-PHY PLL reference clock)
++      - description: eim_podf;
++
++  clock-names:
++    items:
++      - const: dphy
++      - const: ref
++      - const: pix
++
++  interrupts:
++    items:
++      - description: CSI-2 ERR1 irq
++      - description: CSI-2 ERR2 irq
++
++  '#address-cells':
++    const: 1
++
++  '#size-cells':
++    const: 0
++
++  port@0:
++    $ref: /schemas/graph.yaml#/$defs/port-base
++    unevaluatedProperties: false
++    description:
++      Input port node, single endpoint describing the CSI-2 transmitter.
++
++    properties:
++      endpoint:
++        $ref: video-interfaces.yaml#
++        unevaluatedProperties: false
++
++        properties:
++          clock-lanes:
++            const: 0
++
++          data-lanes:
++            minItems: 1
++            items:
++              - const: 1
++              - const: 2
++              - const: 3
++              - const: 4
++
++        required:
++          - data-lanes
++
++patternProperties:
++  '^port@[1-4]$':
++    $ref: /schemas/graph.yaml#/$defs/port-base
++    unevaluatedProperties: false
++    description:
++      ports 1 through 4 are output ports connecting with parallel bus sink
++      endpoint nodes and correspond to the four MIPI CSI-2 virtual channel
++      outputs.
++
++    properties:
++      endpoint@0:
++        $ref: video-interfaces.yaml#
++        unevaluatedProperties: false
++
++      endpoint@1:
++        $ref: video-interfaces.yaml#
++        unevaluatedProperties: false
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/imx6qdl-clock.h>
++
++    mipi@21dc000 {
++        compatible = "fsl,imx6-mipi-csi2";
++        reg = <0x021dc000 0x4000>;
++        #address-cells = <1>;
++        #size-cells = <0>;
++        clocks = <&clks IMX6QDL_CLK_HSI_TX>,
++                 <&clks IMX6QDL_CLK_VIDEO_27M>,
++                 <&clks IMX6QDL_CLK_EIM_PODF>;
++        clock-names = "dphy", "ref", "pix";
++
++        port@0 {
++            reg = <0>;
++
++            endpoint {
++                remote-endpoint = <&ov5640_to_mipi_csi2>;
++                clock-lanes = <0>;
++                data-lanes = <1 2>;
++            };
++        };
++
++        port@1 {
++            reg = <1>;
++            #address-cells = <1>;
++            #size-cells = <0>;
++
++            endpoint@0 {
++                reg = <0>;
++                remote-endpoint = <&ipu1_csi0_mux_from_mipi_vc0>;
++            };
++
++            endpoint@1 {
++                reg = <1>;
++                remote-endpoint = <&ipu1_csi1_mux_from_mipi_vc0>;
++            };
++        };
++    };
++
+diff --git a/Documentation/devicetree/bindings/media/imx.txt b/Documentation/devicetree/bindings/media/imx.txt
+deleted file mode 100644
+index 77f4b0a7fd2b0..0000000000000
+--- a/Documentation/devicetree/bindings/media/imx.txt
++++ /dev/null
+@@ -1,53 +0,0 @@
+-Freescale i.MX Media Video Device
+-=================================
+-
+-Video Media Controller node
+----------------------------
+-
+-This is the media controller node for video capture support. It is a
+-virtual device that lists the camera serial interface nodes that the
+-media device will control.
+-
+-Required properties:
+-- compatible : "fsl,imx-capture-subsystem";
+-- ports      : Should contain a list of phandles pointing to camera
+-		sensor interface ports of IPU devices
+-
+-example:
+-
+-capture-subsystem {
+-	compatible = "fsl,imx-capture-subsystem";
+-	ports = <&ipu1_csi0>, <&ipu1_csi1>;
+-};
+-
+-
+-mipi_csi2 node
+---------------
+-
+-This is the device node for the MIPI CSI-2 Receiver core in the i.MX
+-SoC. This is a Synopsys Designware MIPI CSI-2 host controller core
+-combined with a D-PHY core mixed into the same register block. In
+-addition this device consists of an i.MX-specific "CSI2IPU gasket"
+-glue logic, also controlled from the same register block. The CSI2IPU
+-gasket demultiplexes the four virtual channel streams from the host
+-controller's 32-bit output image bus onto four 16-bit parallel busses
+-to the i.MX IPU CSIs.
+-
+-Required properties:
+-- compatible	: "fsl,imx6-mipi-csi2";
+-- reg           : physical base address and length of the register set;
+-- clocks	: the MIPI CSI-2 receiver requires three clocks: hsi_tx
+-		  (the D-PHY clock), video_27m (D-PHY PLL reference
+-		  clock), and eim_podf;
+-- clock-names	: must contain "dphy", "ref", "pix";
+-- port@*        : five port nodes must exist, containing endpoints
+-		  connecting to the source and sink devices according to
+-		  of_graph bindings. The first port is an input port,
+-		  connecting with a MIPI CSI-2 source, and ports 1
+-		  through 4 are output ports connecting with parallel
+-		  bus sink endpoint nodes and correspond to the four
+-		  MIPI CSI-2 virtual channel outputs.
+-
+-Optional properties:
+-- interrupts	: must contain two level-triggered interrupts,
+-		  in order: 100 and 101;
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 96b8270495018..65e0716554203 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -14775,7 +14775,7 @@ L:	linux-media@vger.kernel.org
+ S:	Maintained
+ T:	git git://linuxtv.org/media.git
+ F:	Documentation/admin-guide/media/imx.rst
+-F:	Documentation/devicetree/bindings/media/imx.txt
++F:	Documentation/devicetree/bindings/media/fsl,imx6-mipi-csi2.yaml
+ F:	drivers/staging/media/imx/
+ F:	include/linux/imx-media.h
+ F:	include/media/imx.h
+-- 
+2.34.1
 
 
