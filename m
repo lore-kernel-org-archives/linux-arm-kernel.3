@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB14FC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 00:06:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0205C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 00:08:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ETD26CH6iD+0uFy4hgKYmRwgyWbV2LZsUcS2ttgEWQs=; b=VEcXbpeWfSD4gTl9Hdt6vVr2Tt
-	tvH0YuSUdWFP4HnGz2ntygrk6rHF6D5eGY/Dx7KQ1Zu1OQwrOGEa4EDKayFxfEITnkeWXo30sbA7H
-	xZKafCgwg8TzC9mlBLpRb/4bKJ+iF3iRrBLyKKCjUsfGRZZZxIGoJsXDv/TXEAquHcKgcpTpwSSNw
-	QfDYpaRsLIKXSfm/Z2GSZpSVPzzrUnBRmUs2Zef6TLBXquiT0DOdCaEgd2TiQSFc8QYvERzxVioVA
-	LQDmmhCoXU9lJTaC0ku/4ktvWzx19EQpKgnpXIH6NWhpa9vyyVNVWKz/kRt1VOCWfeWLPRQnLFXub
-	Nu4alWzw==;
+	bh=ztpfrrq65RboKoVCNPKCaSBonp9V4OT02BBtVtoD/uU=; b=FoUGGC8fZiCInntI2pFgSpbWQ5
+	KBtfC4OPiOSjhq+KIxCIdDRkeAOw3oXrrjJDX4Q6kpRcCvX4YiJV4XA3YCgn8r1CssD5zLue289Y1
+	OUm5KaBmMObRfJvuS7rZo7wD//A4lgP7SZi5oNzUpM7L7su/2UfKW7PtaUfRxapY2F0ZOHmXdhTZd
+	Ie/TQ2aqyih41qyWl4XL6ON0TYayxZ0m+3yvFCxrRb7dsONa5DsPaxrLrbLua3PNladOUuTija5ud
+	tmT4O6b1C4hB3d8G4GtCWm6NTfnN3tQsmMGujf/+INCP/YLnilTTxDsU1X4TXWtKouBG+ZK9PXYoI
+	bNwkrdew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4qI1-00000007aUX-2P7N;
-	Wed, 16 Apr 2025 00:06:05 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1u4qJr-00000007aoZ-1BsO;
+	Wed, 16 Apr 2025 00:07:59 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4qEI-00000007Zc4-0pqy
+	id 1u4qEJ-00000007ZcT-46nR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 00:02:15 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-22435603572so58976695ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Apr 2025 17:02:13 -0700 (PDT)
+	Wed, 16 Apr 2025 00:02:17 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-736c1138ae5so6056818b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Apr 2025 17:02:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1744761733; x=1745366533; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1744761735; x=1745366535; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ETD26CH6iD+0uFy4hgKYmRwgyWbV2LZsUcS2ttgEWQs=;
-        b=G0V2j5mN10t9dMHB/H6TOqUw7JMLd3wi8vC0Z75wYFnlLwWFC3wI7nyRKI4PR2QMOR
-         RnkXfJ6Y+772UPHttphRRBnX84hctJPozAXsUZcvPwYEtrhBFAxoNrcKNSIJD5JmLQBg
-         Pls0ssRsSgqyOT3dnkk2yV5PIIyfKCODF1Rsw=
+        bh=ztpfrrq65RboKoVCNPKCaSBonp9V4OT02BBtVtoD/uU=;
+        b=E8MRNwcwiBWn4VDPIsvl2vI9GagaD1lBdLvQO2KTz05t1EO+jOHIUcpagMW20vj61o
+         09EfIQ1NYeHqVUJzYg/t4Nm8w24ktx58LYwSmyVSJNWPOqw1LQfgwe5xFioI8AjLOnv5
+         IDezinyIIuB1vmlXi3ipsLhI8dVEuB+z7K7D8=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744761733; x=1745366533;
+        d=1e100.net; s=20230601; t=1744761735; x=1745366535;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ETD26CH6iD+0uFy4hgKYmRwgyWbV2LZsUcS2ttgEWQs=;
-        b=QEodA3kNS70wP0HGyplW0jwRrOBJtJLUX6ULPGV4gLKupb9cvXhQbQZszZn9qAK3xW
-         QA+rcULDmaLXJM98G+7gwiJmu5QHbaR1VTojS/FRLAc9hQkzaxRZzlw/odGL/TqWVYHo
-         gMxYf1VHsfWH7BpmbWRml5GiJaEN1HHoCyZEJgNb6J1hVF+RkGJ54iUgkhnbJ30BEHsi
-         kHfsnILfVORJ8T35W3Fu+Okl+/1kwDTfCMyatJ8VCXQhq4pExalLvvmSlBkuEApCfK9T
-         j6BDqTISl+hpi2kmV3sawiBcejcxAG3gG4pjizSr9xSLIySh+73uoHk5a+PZM1ersU3I
-         2DDA==
-X-Forwarded-Encrypted: i=1; AJvYcCX0l2CgwmafBQ77OasPC3X4zguH4zNXDy39U5k0/oWGmmSl1L8loTcAhrtzg8dKQEVhxzJWnuh76kZsL4XksCyc@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLg+edA0biE7qNqJzVluenMAatGpj22gxNT7k+HhbN/YOlvxr+
-	JyURreN7g9pqOA02G4I4O0x71sSBj9S7STCycuo3hEPh253NErpzDQ7qWCRKlA==
-X-Gm-Gg: ASbGncuwFDFbHRtKtiSZe+AaUvModYHg/CBYN65VmLMPsAdFx9H9Sn480xeZtRXnKES
-	+Aj1gZ9urIoDFnmRLZUgIWAYeoWGljDJ81U+rgmp4atkLuPyQ/ERk3FbwNkKpN/uP5z62NW/WHp
-	FN1oYjVyb6gJdq/RVQm7X/ys0+2SAa958U/5Ebc0N9p5619mwKQfohGyVFTb0U0K6ZorE1Uyp7P
-	CZ2u6hyeBftzwvDdBQ+bpS06gkQoUOyTjy75kyaHVyatHYPNYss4H61mYO6pmUz1O+/UC3g5FVy
-	nGhnelR7BJwuAuIWKI3In6bCK65vsslNW1Tnvu9dem864DW/nwGnbT4dmxINo2QBmxBjgfaQuRU
-	BZA==
-X-Google-Smtp-Source: AGHT+IGTNhPFIcDKlL3bF0SzfSJ7SIXjnXhh0YeuCFsofT603F8bPtE9D2lDaA650EUHL4OU3b5nnQ==
-X-Received: by 2002:a17:903:2a85:b0:220:e63c:5aff with SMTP id d9443c01a7336-22c31ae8e3emr14464865ad.47.1744761733360;
-        Tue, 15 Apr 2025 17:02:13 -0700 (PDT)
+        bh=ztpfrrq65RboKoVCNPKCaSBonp9V4OT02BBtVtoD/uU=;
+        b=r1YTF6Yo209Uo8DubzkdSxYKAvOnEghOj4xzUDsfOLgMIdwMUcsB60anfM5opPAGXN
+         B+HPt9tLGh0t6lhjqPXuYTr/0t7wPjglh4jTEK/c4+dizrcfytwTdZ0j33gbGqDNDhQX
+         TMJVFlOBP8IrKJhWWNVZtX9A7+6+nVePfSpTBWnUHWvC4CdMV1MDDTAZKLdj62QlEUzB
+         XX1vU/ULAIQJctYXoRiWIdOXTwJfY1PL5jHhpSQ++06fNYagYUpSGEyk6S/93BDLQo2y
+         AIlV86w4AXnW0p7/1FgB3d89cKmu7+Lm1IBB9Jt7d2P8ch0AFv0wHVbC/KQMCPmxAnU6
+         uYaQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUvE6E6Pn6vWoFYuVzOu2ernv1p9f8ju1bQ6LGSJYZPnLrIaoLfsKfaqZDonDQ9/1lOPHFiOImHU3jKuR0+oPY+@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZIiKty5+tC8iEv9vr+XdFAlRp6m4xys7D8sCKJnI2kH4ZnIrx
+	g7U8k19zQ1A6ffh2hyjjir6DAwbgK0tH7zK3AZ0QKjcEsODhKfZsJ9yXs3P4LA==
+X-Gm-Gg: ASbGncu0T7xud6b9bjlqwxFhmE9/D8Jcabv2GzJLdcMnlbIm+jTya2vLH+6gTrVBAy7
+	wIU0OPAgVSEd0sZRF0T1+rozhENFaS1BXGG+VAYiLora48G3OaPvv5crxyHjQMd8W57YqR757Ap
+	8CtYC6fkOu0A3eIADwREQuqRrzWem6QH6nlDT1M7mxsI6/w9sR3MSoxXgtY1FIKz1eRpoGHtYjy
+	tu/CSjQtyWYDGPKQOKUYvlXJZzWDBHOg4VRnlyKzhWuMD4Kq6Hxs7dKB2EoWrAqhofqOFqfVJI+
+	rajsV2EBRi6lPm6seEODWFyJ8I5Z6q9nlGbAz9Ut+woZrSyUOA+xD4jtk0/IXNOY9EKHObf156b
+	5wA==
+X-Google-Smtp-Source: AGHT+IHkUQNhj55ArcxMsqdZ9goNzK1iX/oCF1gdLXwsnONXGZV+o45RA+2MeBctZXHEWSSuaXlJnA==
+X-Received: by 2002:a05:6a00:2e29:b0:736:48d1:57f7 with SMTP id d2e1a72fcca58-73c1f90d688mr1947843b3a.7.1744761735002;
+        Tue, 15 Apr 2025 17:02:15 -0700 (PDT)
 Received: from localhost (199.24.125.34.bc.googleusercontent.com. [34.125.24.199])
-        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-22c33fc47e0sm1235925ad.167.2025.04.15.17.02.12
+        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-73bd21c3216sm9157830b3a.49.2025.04.15.17.02.14
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 15 Apr 2025 17:02:13 -0700 (PDT)
+        Tue, 15 Apr 2025 17:02:14 -0700 (PDT)
 From: Stephen Boyd <swboyd@chromium.org>
 To: Tzung-Bi Shih <tzungbi@kernel.org>
 Cc: linux-kernel@vger.kernel.org,
@@ -86,9 +86,9 @@ Cc: linux-kernel@vger.kernel.org,
 	=?UTF-8?q?=C5=81ukasz=20Bartosik?= <ukaszb@chromium.org>,
 	Jameson Thies <jthies@google.com>,
 	Andrei Kuchynski <akuchynski@chromium.org>
-Subject: [PATCH 1/7] platform/chrome: cros_ec_typec: No pending status means attention
-Date: Tue, 15 Apr 2025 17:02:01 -0700
-Message-ID: <20250416000208.3568635-2-swboyd@chromium.org>
+Subject: [PATCH 2/7] platform/chrome: cros_ec_typec: Allow DP configure to work
+Date: Tue, 15 Apr 2025 17:02:02 -0700
+Message-ID: <20250416000208.3568635-3-swboyd@chromium.org>
 X-Mailer: git-send-email 2.49.0.604.gff1f9ca942-goog
 In-Reply-To: <20250416000208.3568635-1-swboyd@chromium.org>
 References: <20250416000208.3568635-1-swboyd@chromium.org>
@@ -96,8 +96,8 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_170214_235649_D6D7ADA7 
-X-CRM114-Status: GOOD (  12.45  )
+X-CRM114-CacheID: sfid-20250415_170216_017246_40E83F3E 
+X-CRM114-Status: GOOD (  14.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,11 +112,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If we aren't expecting a status update when
-cros_typec_displayport_status_update() is called then we're handling an
-attention message, like HPD high/low or IRQ. Call
-typec_altmode_attention() in this case so that HPD signaling works in
-the DP altmode driver.
+The DP altmode driver fails the configure stage because the status VDO
+that is spoofed in cros_typec_enable_dp() is missing a couple flags. Add
+them so that the configure succeeds. This has the nice side effect of
+properly reflecting the pin assignment and configuration of the DP
+altmode in sysfs.
 
 Cc: Benson Leung <bleung@chromium.org>
 Cc: Tzung-Bi Shih <tzungbi@kernel.org>
@@ -128,27 +128,22 @@ Cc: Jameson Thies <jthies@google.com>
 Cc: Andrei Kuchynski <akuchynski@chromium.org>
 Signed-off-by: Stephen Boyd <swboyd@chromium.org>
 ---
- drivers/platform/chrome/cros_typec_altmode.c | 7 ++-----
- 1 file changed, 2 insertions(+), 5 deletions(-)
+ drivers/platform/chrome/cros_ec_typec.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/platform/chrome/cros_typec_altmode.c b/drivers/platform/chrome/cros_typec_altmode.c
-index 557340b53af0..c2d9c548b5e8 100644
---- a/drivers/platform/chrome/cros_typec_altmode.c
-+++ b/drivers/platform/chrome/cros_typec_altmode.c
-@@ -280,11 +280,8 @@ int cros_typec_displayport_status_update(struct typec_altmode *altmode,
- 		typec_altmode_get_drvdata(altmode);
- 	struct cros_typec_altmode_data *adata = &dp_data->adata;
+diff --git a/drivers/platform/chrome/cros_ec_typec.c b/drivers/platform/chrome/cros_ec_typec.c
+index 6ee182101bc9..2cbe29f08064 100644
+--- a/drivers/platform/chrome/cros_ec_typec.c
++++ b/drivers/platform/chrome/cros_ec_typec.c
+@@ -531,7 +531,7 @@ static int cros_typec_enable_dp(struct cros_typec_data *typec,
+ 	}
  
--	if (!dp_data->pending_status_update) {
--		dev_dbg(&altmode->dev,
--			"Got DPStatus without a pending request\n");
--		return 0;
--	}
-+	if (!dp_data->pending_status_update)
-+		return typec_altmode_attention(altmode, data->status);
- 
- 	if (dp_data->configured && dp_data->data.conf != data->conf)
- 		dev_dbg(&altmode->dev,
+ 	/* Status VDO. */
+-	dp_data.status = DP_STATUS_ENABLED;
++	dp_data.status = DP_STATUS_ENABLED | DP_STATUS_CON_UFP_D | DP_STATUS_PREFER_MULTI_FUNC;
+ 	if (port->mux_flags & USB_PD_MUX_HPD_IRQ)
+ 		dp_data.status |= DP_STATUS_IRQ_HPD;
+ 	if (port->mux_flags & USB_PD_MUX_HPD_LVL)
 -- 
 https://chromeos.dev
 
