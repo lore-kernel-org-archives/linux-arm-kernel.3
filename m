@@ -4,44 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34BD8C369C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 14:00:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA2FDC369BD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 14:02:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MWsaGM2qMpLObvjdV23pjbAHfxl+UivG9xDMtJ1MroM=; b=rkymAviDe+0fiwnSGPctfN0ELq
-	TgpEHU4brl2IShNmtGFNW8NNE7mgAj2Qa4HfH0E+ViYxZ3xGOfAvH006qSNEUMxwlVTzj4Q3cJOnk
-	eGtEEMkf05OYYhT5ISsoRm6SUx2vObwtMbdkI0DHPi0zGwyCIucPi8GTJIQUhkc+FiCepy5/QEpj3
-	pFFk2Uuvgeotkv+BvxLKQblx+48KikvrJ6i5N0yNELzsy3njOHU3lUmfZlqi56WkB1Fq7GRBPOntc
-	Kyosw3DzIFc7YGHGRPOHA3cHVj8ZpfbVNLQvCqkuzhmQD2a5JvJKqFGqs6i4AV5F03m8qjEvONWJz
-	uEMXcMCA==;
+	bh=JXuOjZA0O7tAh1yR9px7ONkJIQw2DNi0vsOhQErHKUY=; b=1l9nn0krLGQvI77Cmg+BTS/398
+	wBRNUwt4FF+zYKyYZnAzQ6KnHPCl1GKW1vy18JXVgfws4pq+q8VX1DJ2HWGNmxmAb0Ow7f9pcdWet
+	hpgxTBDyK4PpXiKInWgVyDrW/yFGvlVOZfoJeZFSloOau256CzFMuFvB/SLNNLStxwPgqwiJO7vcN
+	KYEoUWkHaJR5Tc2pZ/L4AztOCM4occUsy2GO29/TinMmvY+bH9vd1RFhQZQWRTF7dSAeYLDuRNNWz
+	cSmCWA35RFuyJFKe3NipxYNZXX5HD3qaAIX/DWvH5y7ZcOLulGLfPVUbwcP3uQVvW8QQMZte1l4U5
+	UR4Fa5UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u53JS-00000009luP-2kpr;
-	Wed, 16 Apr 2025 14:00:26 +0000
+	id 1u53LI-00000009mMv-1gvm;
+	Wed, 16 Apr 2025 14:02:20 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u533b-00000009hSL-0hbs
+	id 1u533f-00000009hUC-3teZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 13:44:04 +0000
+	Wed, 16 Apr 2025 13:44:09 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 76B581692;
-	Wed, 16 Apr 2025 06:44:00 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6653D1E7D;
+	Wed, 16 Apr 2025 06:44:05 -0700 (PDT)
 Received: from e122027.arm.com (unknown [10.57.90.52])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2FF8E3F59E;
-	Wed, 16 Apr 2025 06:43:58 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 09D1B3F59E;
+	Wed, 16 Apr 2025 06:44:02 -0700 (PDT)
 From: Steven Price <steven.price@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+Cc: Steven Price <steven.price@arm.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Marc Zyngier <maz@kernel.org>,
 	Will Deacon <will@kernel.org>,
 	James Morse <james.morse@arm.com>,
 	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -54,19 +55,18 @@ Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Gavin Shan <gshan@redhat.com>,
 	Shanker Donthineni <sdonthineni@nvidia.com>,
 	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Steven Price <steven.price@arm.com>
-Subject: [PATCH v8 08/43] kvm: arm64: Don't expose debug capabilities for realm guests
-Date: Wed, 16 Apr 2025 14:41:30 +0100
-Message-ID: <20250416134208.383984-9-steven.price@arm.com>
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+Subject: [PATCH v8 09/43] KVM: arm64: Allow passing machine type in KVM creation
+Date: Wed, 16 Apr 2025 14:41:31 +0100
+Message-ID: <20250416134208.383984-10-steven.price@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250416134208.383984-1-steven.price@arm.com>
 References: <20250416134208.383984-1-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_064403_265305_CBCEC8F6 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20250416_064408_049672_8B267384 
+X-CRM114-Status: GOOD (  20.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,58 +81,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
+Previously machine type was used purely for specifying the physical
+address size of the guest. Reserve the higher bits to specify an ARM
+specific machine type and declare a new type 'KVM_VM_TYPE_ARM_REALM'
+used to create a realm guest.
 
-RMM v1.0 provides no mechanism for the host to perform debug operations
-on the guest. So don't expose KVM_CAP_SET_GUEST_DEBUG and report 0
-breakpoints and 0 watch points.
-
-Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 Signed-off-by: Steven Price <steven.price@arm.com>
 ---
 Changes since v7:
- * Remove the helper functions and inline the kvm_is_realm() check with
-   a ternary operator.
- * Rewrite the commit message to explain this patch.
+ * Add some documentation explaining the new machine type.
+Changes since v6:
+ * Make the check for kvm_rme_is_available more visible and report an
+   error code of -EPERM (instead of -EINVAL) to make it explicit that
+   the kernel supports RME, but the platform doesn't.
 ---
- arch/arm64/kvm/arm.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+ Documentation/virt/kvm/api.rst | 16 ++++++++++++++--
+ arch/arm64/kvm/arm.c           | 15 +++++++++++++++
+ arch/arm64/kvm/mmu.c           |  3 ---
+ include/uapi/linux/kvm.h       | 19 +++++++++++++++----
+ 4 files changed, 44 insertions(+), 9 deletions(-)
 
+diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+index 99ba6c82cf37..54ae0b98030e 100644
+--- a/Documentation/virt/kvm/api.rst
++++ b/Documentation/virt/kvm/api.rst
+@@ -181,8 +181,20 @@ flag KVM_VM_MIPS_VZ.
+ ARM64:
+ ^^^^^^
+ 
+-On arm64, the physical address size for a VM (IPA Size limit) is limited
+-to 40bits by default. The limit can be configured if the host supports the
++On arm64, the machine type identifier is used to encode a type and the
++physical address size for the VM. The lower byte (bits[7-0]) encode the
++address size and the upper bits[11-8] encode a machine type. The machine
++types that might be available are:
++
++ ======================   ============================================
++ KVM_VM_TYPE_ARM_NORMAL   A standard VM
++ KVM_VM_TYPE_ARM_REALM    A "Realm" VM using the Arm Confidential
++                          Compute extensions, the VM's memory is
++                          protected from the host.
++ ======================   ============================================
++
++The physical address size for a VM (IPA Size limit) is limited to 40bits
++by default. The limit can be configured if the host supports the
+ extension KVM_CAP_ARM_VM_IPA_SIZE. When supported, use
+ KVM_VM_TYPE_ARM_IPA_SIZE(IPA_Bits) to set the size in the machine type
+ identifier, where IPA_Bits is the maximum width of any physical
 diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 0e8482fdc4d3..c24448966529 100644
+index c24448966529..ba55950e6a6e 100644
 --- a/arch/arm64/kvm/arm.c
 +++ b/arch/arm64/kvm/arm.c
-@@ -331,7 +331,6 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
- 	case KVM_CAP_ARM_IRQ_LINE_LAYOUT_2:
- 	case KVM_CAP_ARM_NISV_TO_USER:
- 	case KVM_CAP_ARM_INJECT_EXT_DABT:
--	case KVM_CAP_SET_GUEST_DEBUG:
- 	case KVM_CAP_VCPU_ATTRIBUTES:
- 	case KVM_CAP_PTP_KVM:
- 	case KVM_CAP_ARM_SYSTEM_SUSPEND:
-@@ -340,6 +339,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
- 	case KVM_CAP_ARM_WRITABLE_IMP_ID_REGS:
- 		r = 1;
- 		break;
-+	case KVM_CAP_SET_GUEST_DEBUG:
-+		r = !kvm_is_realm(kvm);
+@@ -172,6 +172,21 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
+ 	mutex_unlock(&kvm->lock);
+ #endif
+ 
++	if (type & ~(KVM_VM_TYPE_ARM_MASK | KVM_VM_TYPE_ARM_IPA_SIZE_MASK))
++		return -EINVAL;
++
++	switch (type & KVM_VM_TYPE_ARM_MASK) {
++	case KVM_VM_TYPE_ARM_NORMAL:
 +		break;
- 	case KVM_CAP_SET_GUEST_DEBUG2:
- 		return KVM_GUESTDBG_VALID_MASK;
- 	case KVM_CAP_ARM_SET_DEVICE_ADDR:
-@@ -385,10 +387,10 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
- 		r = cpus_have_final_cap(ARM64_HAS_32BIT_EL1);
- 		break;
- 	case KVM_CAP_GUEST_DEBUG_HW_BPS:
--		r = get_num_brps();
-+		r = kvm_is_realm(kvm) ? 0 : get_num_brps();
- 		break;
- 	case KVM_CAP_GUEST_DEBUG_HW_WPS:
--		r = get_num_wrps();
-+		r = kvm_is_realm(kvm) ? 0 : get_num_wrps();
- 		break;
- 	case KVM_CAP_ARM_PMU_V3:
- 		r = kvm_supports_guest_pmuv3();
++	case KVM_VM_TYPE_ARM_REALM:
++		if (!static_branch_unlikely(&kvm_rme_is_available))
++			return -EPERM;
++		kvm->arch.is_realm = true;
++		break;
++	default:
++		return -EINVAL;
++	}
++
+ 	kvm_init_nested(kvm);
+ 
+ 	ret = kvm_share_hyp(kvm, kvm + 1);
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 5957a07de86d..7531211f7e25 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -886,9 +886,6 @@ static int kvm_init_ipa_range(struct kvm *kvm,
+ 	if (kvm_is_realm(kvm))
+ 		kvm_ipa_limit = kvm_realm_ipa_limit();
+ 
+-	if (type & ~KVM_VM_TYPE_ARM_IPA_SIZE_MASK)
+-		return -EINVAL;
+-
+ 	phys_shift = KVM_VM_TYPE_ARM_IPA_SIZE(type);
+ 	if (is_protected_kvm_enabled()) {
+ 		phys_shift = kvm_ipa_limit;
+diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+index 0b8479985581..957e4646ec99 100644
+--- a/include/uapi/linux/kvm.h
++++ b/include/uapi/linux/kvm.h
+@@ -644,14 +644,25 @@ struct kvm_enable_cap {
+ #define KVM_S390_SIE_PAGE_OFFSET 1
+ 
+ /*
+- * On arm64, machine type can be used to request the physical
+- * address size for the VM. Bits[7-0] are reserved for the guest
+- * PA size shift (i.e, log2(PA_Size)). For backward compatibility,
+- * value 0 implies the default IPA size, 40bits.
++ * On arm64, machine type can be used to request both the machine type and
++ * the physical address size for the VM.
++ *
++ * Bits[11-8] are reserved for the ARM specific machine type.
++ *
++ * Bits[7-0] are reserved for the guest PA size shift (i.e, log2(PA_Size)).
++ * For backward compatibility, value 0 implies the default IPA size, 40bits.
+  */
++#define KVM_VM_TYPE_ARM_SHIFT		8
++#define KVM_VM_TYPE_ARM_MASK		(0xfULL << KVM_VM_TYPE_ARM_SHIFT)
++#define KVM_VM_TYPE_ARM(_type)		\
++	(((_type) << KVM_VM_TYPE_ARM_SHIFT) & KVM_VM_TYPE_ARM_MASK)
++#define KVM_VM_TYPE_ARM_NORMAL		KVM_VM_TYPE_ARM(0)
++#define KVM_VM_TYPE_ARM_REALM		KVM_VM_TYPE_ARM(1)
++
+ #define KVM_VM_TYPE_ARM_IPA_SIZE_MASK	0xffULL
+ #define KVM_VM_TYPE_ARM_IPA_SIZE(x)		\
+ 	((x) & KVM_VM_TYPE_ARM_IPA_SIZE_MASK)
++
+ /*
+  * ioctls for /dev/kvm fds:
+  */
 -- 
 2.43.0
 
