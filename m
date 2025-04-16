@@ -4,110 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A241C369B1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 07:17:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D180C369B1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 07:21:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JhsoaqTOAYtKfhjcgXxFdmRAQnyuGzNXocTQOGswCF8=; b=J5MISSBeZyWIPJMir0Z0navM8q
-	RbwdGn4LX182/565gL9OFRY3AvDnlsDMFq1mxZE1qzR2U62T3y9wtI01eldQNJep+4TQ5WqPjyAD6
-	3u/RDtR4dfmycF600U7PIHkoQYk4QiQeAA1ScW5ZuVYYIy8vrv6haxNw6muvFTyZeXE7P8faesjLh
-	qPx+dXSFXAzojbbeqbjksb/p9eLG2xYsaYIy+Kln1J77BEvyrEKSEjVPzwLP2Vifn3GcLpZplLyTR
-	3pQdNXAoGpWPSdZCaHiB2Wk4QVjMLaQdVioN9smMQNkWOQgs8CZUtPWBj6hScdMZUIrT4/m6yZTP+
-	uLJJkIcA==;
+	bh=CFJXzkHk3Kj2IxuOJ/Ep1Of/eMdCvzxnv7r1gWoCH1U=; b=whjQwFvuMOQWcbIhMFzLofodKv
+	/sJOhGX3hYA+6X1A9r5tZz3SaEySscEynCQxPy7kTciybFn33a1Eac2KfXoXNuaMxTjQCNOzndQCk
+	tsvuiFlSf6vzKAIRH9y1fpXg3D4juuVK4Ag50s+8nqDAlx7lfvb2dxpHWukx/FlgVDLYppRgqEcED
+	/7wly/rcIELRmz5P9kp5bCHaSkMj9e/nlz4vvV286X7mwGFMxpYvEQYAc//eUU/3xGRwRAvWaIh6k
+	nWdM4IPMPE2iq2J8VCebvX9yXAoyA9YFpaHro2AsdYpZ+ZTLxHHydgleQMRgADldapzIt//PD65sE
+	foHFTlxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4x0q-00000008Zos-1fdi;
-	Wed, 16 Apr 2025 07:16:48 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u4x4s-00000008ado-21AP;
+	Wed, 16 Apr 2025 07:20:58 +0000
+Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4wyy-00000008ZY1-2z2D
+	id 1u4x30-00000008aAu-3LOR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 07:14:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 65316A4B064;
-	Wed, 16 Apr 2025 07:09:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78900C4CEE2;
-	Wed, 16 Apr 2025 07:14:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744787691;
-	bh=xF6PsLMmPgmr1v5TguY+yXouQOHNvNH/VcEL1T2xkTk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=W+tfxDbA/0zmes1Ir7E8uvaR9LBIY/RAqGbxEsemJzbOaY+D0xA2gZxDzNhgCjQhw
-	 ajgjN7fTKU2w7KH47Uf0bFoiSxxx1hajNoKzELr4E3dYAFjSqbUVqZopHQReUv1BKe
-	 jTXWMgjXniSIO9woe95dWfAGiSLBJouugUMXPn5+Cz+1Se2wYAGLRJIXevRutqql9b
-	 cpovayRIhyzEereGtHmTJsBJl6TcqgWccola4bJNbC0vW6Q5vKXBafeAsoAX0VAPFy
-	 e5l9m2ynQGDZtGXQ8Z/C4uL9aiEJOQiVtM2yd1FKa2x6vrhPK/I11U1LBGzxNcgMDe
-	 qaAwylM7DgeFw==
-Message-ID: <22b58ea6-0416-461f-b1b3-b2c7a3e87b1e@kernel.org>
-Date: Wed, 16 Apr 2025 09:14:41 +0200
+	Wed, 16 Apr 2025 07:19:04 +0000
+Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-30bfb6ab47cso58956651fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 00:19:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1744787941; x=1745392741; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CFJXzkHk3Kj2IxuOJ/Ep1Of/eMdCvzxnv7r1gWoCH1U=;
+        b=O0iq+PeWmcF86l+qtbP3XlqLlE368IaaFH/gBVQx/Svd+9h4G9ltXMAZc0mxWXbhZ0
+         pUs/KE1VVQvw4jxTVRPqhp/Fnb7zecxBO3UXInzJyj7MPjy9mQEJUfZAlFtqsFg+9ITu
+         +GMiiyORVtkIavCmv4j7kSFEdxcQ+wgaSQifFXJxmzq+BTfE4pykjYBG/BQ+3Oqtv4jz
+         FEdK12pdhSd9zSYotEXr4Uryh4WtInBCahVHMaa0yfycoJMMJyeqqvJg9S+9smfZr9K5
+         g+2ktD0rzGWFkU1W+2yajv5yyJLRXorURpQDhbQ39Rtrtyafam62WZGYqy15bSFH1NXh
+         gxTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744787941; x=1745392741;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=CFJXzkHk3Kj2IxuOJ/Ep1Of/eMdCvzxnv7r1gWoCH1U=;
+        b=G5sOMfgs5/w1l/DWllfNFKWteIqcwIpOeNGUvTG79nkH3k6eleupni6mg6DYiBHY0B
+         bawbjtHMVj6Q+dxczzvqSDKIiGUunR7uPwvymymtKKWPkxdj2KYViXft3byDMDcSxZWI
+         eGsb1TQA7wh7+q1zPCdurHdk2rY7RjaKcs+sx2S/KmJczr36EkqvreoybO9OSM7aKPOB
+         X2zktsnNHF/mRyhRI7YOk3RBrv5+xEoNOv2EV/6y924L574deD7cSdeMoL0CPDQr3hGs
+         EchPNvdzWKNoBFYJkgae0+/3han75oabbIn8b/A7aA292Mc6DeUUg/VMqhUtZ14WXPD2
+         azfg==
+X-Forwarded-Encrypted: i=1; AJvYcCVVxXzmCQiptFvO8hxu/WozPO36JGzq2rTyqxb18i4vqbpy6ER5VA1b3VcHK3jJmp2gzUo0uXrrjRLNggKKa5k4@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw0qExncM83jWpWUzimJw9M9vw46T1XigSBJrQpIc+Am34YHaSl
+	8bf7PV+KhWH5oer/JkoS1bon/7ocu6sj61BRDe9tDFBz+h2aGlhx8roQoPf6I6gPrlqQW6xll6Z
+	p0okQ9pNVg4/xkja5zlLz1llbPmwG9FxYtAX7hn9w4+DTyE0e
+X-Gm-Gg: ASbGnctK4VuCH7SVRGkONMfLrOHCqTvGZ89ZcpyZI/MwlrgFH/Ryzw/NPdnjXspp+U6
+	A+l0ilfcaJ+gkQU+SwKth4GQP8sIKnxhTm1SyJo0RPMLur7j52+kZtxKXkSbEC/2GzS2EqdnPh9
+	ZuFN2cbTPylQKb2VPSKF4OD+ZGkDEM8KfE
+X-Google-Smtp-Source: AGHT+IEwGuf6I9l4WitaTnVvA0VbevlCNH9pw1Uf1YwESFwjIdIWV04UPwa2Rl6g3j8USJoLTzOTQddgM+ExezMBQpQ=
+X-Received: by 2002:a05:651c:12c1:b0:30b:ed5a:6f3c with SMTP id
+ 38308e7fff4ca-3107f6bcf91mr2027921fa.10.1744787940653; Wed, 16 Apr 2025
+ 00:19:00 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 0/5] Add support for the Exynos7870 SoC, along with
- three devices
-To: Kaustabh Chakraborty <kauschluss@disroot.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
- "Guilherme G. Piccoli" <gpiccoli@igalia.com>
-Cc: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
-References: <20250414-exynos7870-v6-0-039bd5385411@disroot.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250414-exynos7870-v6-0-039bd5385411@disroot.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250410144044.476060-1-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20250410144044.476060-1-angelogioacchino.delregno@collabora.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Wed, 16 Apr 2025 09:18:49 +0200
+X-Gm-Features: ATxdqUHFBx4p6s8-l7d5L0o8ZWLKTNSVqhv1VO0pGzs9J7s5wacyrKjxAz3vpys
+Message-ID: <CACRpkdbKXfQVNGm=QoCHE8xeMKDi5Z1jCmk18XAaTzCcWCDjuA@mail.gmail.com>
+Subject: Re: [PATCH v1 0/3] MediaTek Dimensity 1200 - Add Pin Controller support
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	matthias.bgg@gmail.com, sean.wang@kernel.org, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	kernel@collabora.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_001452_888098_8F5B756C 
-X-CRM114-Status: GOOD (  12.20  )
+X-CRM114-CacheID: sfid-20250416_001902_852945_D4C096BB 
+X-CRM114-Status: GOOD (  11.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,52 +97,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/04/2025 20:58, Kaustabh Chakraborty wrote:
-> Samsung Exynos 7870 (codename: Joshua) is an ARM-v8 system-on-chip that was
-> announced in 2016. The chipset was found in several popular mid-range to
-> low-end Samsung phones, released within 2016 to 2019.
-> 
-> This patch series aims to add support for Exynos 7870, starting with the
-> most basic yet essential components such as CPU, GPU, clock controllers,
-> PMIC, pin controllers, etc.
-> 
-> Moreover, the series also adds support for three Exynos 7870 devices via
-> devicetree. The devices are:
->  * Samsung Galaxy J7 Prime	- released 2016, codename on7xelte
->  * Samsung Galaxy J6		- released 2018, codename j6lte
->  * Samsung Galaxy A2 Core	- released 2019, codename a2corelte
-> 
-> Additional features implemented in this series include:
->  * I2C	- touchscreen, IIO sensors, etc.
->  * UART	- bluetooth and serial debugging
->  * MMC	- eMMC, Wi-Fi SDIO, SDCard
->  * USB	- micro-USB 2.0 interface
-> 
-> Build dependencies are in these sub-series:
->  * pmu-clocks		A https://lore.kernel.org/all/20250301-exynos7870-pmu-clocks-v5-0-715b646d5206@disroot.org/
-> 
-> Other related sub-series:
->  * gpu			A https://lore.kernel.org/all/20250318-exynos7870-gpu-v1-1-084863f28b5c@disroot.org/
->  * i2c	      		A https://lore.kernel.org/all/20250204-exynos7870-i2c-v1-0-63d67871ab7e@disroot.org/
->  * mmc			A https://lore.kernel.org/all/20250219-exynos7870-mmc-v2-0-b4255a3e39ed@disroot.org/
->  * pinctrl	  	A https://lore.kernel.org/all/20250301-exynos7870-pinctrl-v3-0-ba1da9d3cd2f@disroot.org/
->  * pmic-regulators	A https://lore.kernel.org/all/20250301-exynos7870-pmic-regulators-v3-0-808d0b47a564@disroot.org/
->  * uart			A https://lore.kernel.org/all/20250318-exynos7870-uart-v2-1-b9dcf145ae87@disroot.org/
->  * usb			A https://lore.kernel.org/all/20250301-exynos7870-usb-v3-0-f01697165d19@disroot.org/
->  * usbphy		A https://lore.kernel.org/all/20250410-exynos7870-usbphy-v2-0-2eb005987455@disroot.org/
-> (Legend: [R]eviewed, [A]pplied)
-> 
-> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
-> ---
-> Changes in v6:
-> - Append the following trailers:
->   [v5 1/5] dt-bindings: arm: samsung: add compatibles for exynos7870 devices
->     Acked-by: Rob Herring (Arm) <robh@kernel.org>
-> - Link to v5: https://lore.kernel.org/r/20250411-exynos7870-v5-0-6b319ae36c36@disroot.org
-This is not the reason to send new version. It only creates unnecessary
-traffic and more effort on my side to filter out versions. Read
-submitting patches regarding handling the tags.
+On Thu, Apr 10, 2025 at 4:40=E2=80=AFPM AngeloGioacchino Del Regno
+<angelogioacchino.delregno@collabora.com> wrote:
 
-Best regards,
-Krzysztof
+> In preparation for adding basic support for the OnePlus Nord 2 5G
+> DN2103 smartphone, this series adds support for the pin controller
+> of the MediaTek Dimensity 1200 (MT6893) SoC.
+>
+> AngeloGioacchino Del Regno (3):
+>   dt-bindings: pinctrl: mediatek: Add support for MT6893
+>   pinctrl: mediatek: Add pinctrl driver for MT6893 Dimensity 1200
+
+Patches 1 & 2 are clean and simple to understand, so
+I applied them to the pinctrl tree!
+
+>   arm64: dts: mediatek: Add MT6893 pinmux macro header file
+
+Please apply this through the SoC tree.
+
+Yours,
+Linus Walleij
 
