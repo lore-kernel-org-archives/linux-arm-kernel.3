@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89BECC369BA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 17:16:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68C41C369BA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 17:18:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yc6jrEFIMyVc1LpbuPo4nJL9lqy17Ko9LczQR9HDXps=; b=mUmirUGxGSANW2VvUYV+B4CHEe
-	sl50pX/UmRs5lpP6qJtILP+oBIywicAJhhRl5iTCWCCHInOlJq7wbQm0jI/3Q5tZMUsQ7Xm14elhe
-	tICvJq6cfBd9y0afY+QhB66Cs0xHfO3eJ7LgQApvRm9l7mWhN0gDcwHnWQ5OJFIhBGv8x3gzZ5bZk
-	rRyXjc09BmLe1tpOQCbHsIO53TcXLgkpl/eYuiXTK6NfX2MIUyNy7Cn50rMaZHw2cBjIo0Wf+rdMX
-	Xhjne3VxlwOk793k2FSUNLmGjEtWY2ZZkoDU0llqc/IqWt3nTFCfCO2YvtngT1hasITHbB1ym0a5h
-	jQEGJQ0w==;
+	bh=4YX/d7L64JrOYUFa+mzeCbGR3vIookQHuQijJyLDH4I=; b=dzZer7z/qPyfj8a/ia6CPDpaHu
+	jBLhm4wk2sERhp5O6Py+s/esYfQ5yIDw02bCIcWvwm9oZ0vFESMm+s1+XbpUGgQJN238EyyPImTXT
+	zI5qiMU7Ld0G7cqOrFZpe/EkgtaXQixrvpYNyk1UWhvf+7mvXouygsGXHpj+HLGd/Auhj7V1u7RMu
+	EtDM+uDfeSd2Vtu7UOeP757hdV3gXrRkKFi9njWHcvrCxevNvw1qANXZmTpknGSFxXHedPO3si6FP
+	zeM36hSdvpykECr/ka5UKcVfH1GN32LfQPsZbvy9WTmicnlTJEVl0ZU443kZsplmgcqGO16X05aMJ
+	w6U0iaGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u56NB-0000000ANw8-1ft1;
-	Wed, 16 Apr 2025 17:16:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u56P1-0000000AOIl-0e9p;
+	Wed, 16 Apr 2025 17:18:23 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u55sa-0000000AJCE-1y3J
+	id 1u55sh-0000000AJE6-1rFf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 16:44:53 +0000
+	Wed, 16 Apr 2025 16:45:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1DF3344EC2;
-	Wed, 16 Apr 2025 16:44:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B8BEC4CEE4;
-	Wed, 16 Apr 2025 16:44:46 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 97C1B5C4A9C;
+	Wed, 16 Apr 2025 16:42:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EACAC4CEE2;
+	Wed, 16 Apr 2025 16:44:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744821892;
-	bh=VylpoJr/xCnl8WcBXr2d8cdXmdql2CE4ZK2UhVwVCpQ=;
+	s=k20201202; t=1744821898;
+	bh=0r0mi/BP6F0I5TWSsjujNCjEBDZ11myDs0TAlZWLbbk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=FYTb/0PUk8ojmN7UBIxKHfkRSeMEwg/0hUpAiEDvb0zobjPvLYKXP1UYT/FK+pmnf
-	 Y0TfMWE/fCWME4nMJEB8KEc8SN09++vKcmgsztDEOkQ2+iqSWaePeSzhGbJxB6xA14
-	 Gh3FPo2jopKKvJG1vAsP4mIFk3Qy7e1AcpgsFpR+awci4na/nE3YcNcxUPr+8Ik4U6
-	 FIojIt+lijROedTs4jPsDFDtUzuqcsYD6HXqjaIOYcL3cJgrx96dKivmrWnjjxTFkN
-	 ObF5qD9Rc32Wi9S7wecLwzKdiTnspJHg77XIyP1sufOGbSm+OLUcXLWY5ALJv55erA
-	 niIsPcRdjxHVQ==
+	b=KNYJUhUXz91F1oOr8Yl/Md/UxSC2sfD7qBpC1mgnGkKbbkKfVeoiCL6YOOeXEtz8T
+	 s2RhhYPvZC7npN3ldiTPwO8UAccI74kCJr1mejeJVsfw2i6apEFf3loy5Xb6ymS2gy
+	 lkrz/vrsZt+olcvVXyF38zfZVOlgGOP9zKHU6e0of4DD4SxJG5hC/NdY5rut8AuNSk
+	 Q61bIGWiQBxC+HGVvh8sEVtXY3t11gFxwjmWRQyKGhcp4HPhp7fAfsX4lrQFr1M1RS
+	 Mws1S3bIQfcmVS6PvCs5K1q9HrWBfNkAOBcE86ujyOUoHVYHJXbMOx+XCTIciOGU5c
+	 94/5g9NU1aCVw==
 From: Philipp Stanner <phasta@kernel.org>
 To: Sunil Goutham <sgoutham@marvell.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -69,17 +69,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-parisc@vger.kernel.org
-Subject: [PATCH 4/8] net: ethernet: natsemi: Use pure PCI devres API
-Date: Wed, 16 Apr 2025 18:44:04 +0200
-Message-ID: <20250416164407.127261-6-phasta@kernel.org>
+Subject: [PATCH 5/8] net: ethernet: sis900: Use pure PCI devres API
+Date: Wed, 16 Apr 2025 18:44:05 +0200
+Message-ID: <20250416164407.127261-7-phasta@kernel.org>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250416164407.127261-2-phasta@kernel.org>
 References: <20250416164407.127261-2-phasta@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_094452_523962_0932529A 
-X-CRM114-Status: GOOD (  13.11  )
+X-CRM114-CacheID: sfid-20250416_094459_530869_101749CB 
+X-CRM114-Status: GOOD (  14.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,21 +106,21 @@ Replace pci_request_regions() with pcim_request_all_regions().
 
 Signed-off-by: Philipp Stanner <phasta@kernel.org>
 ---
- drivers/net/ethernet/natsemi/natsemi.c | 2 +-
+ drivers/net/ethernet/sis/sis900.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/natsemi/natsemi.c b/drivers/net/ethernet/natsemi/natsemi.c
-index 05606692e631..dd279788cf9e 100644
---- a/drivers/net/ethernet/natsemi/natsemi.c
-+++ b/drivers/net/ethernet/natsemi/natsemi.c
-@@ -846,7 +846,7 @@ static int natsemi_probe1(struct pci_dev *pdev, const struct pci_device_id *ent)
- 		return -ENOMEM;
- 	SET_NETDEV_DEV(dev, &pdev->dev);
+diff --git a/drivers/net/ethernet/sis/sis900.c b/drivers/net/ethernet/sis/sis900.c
+index 332cbd725900..df869f82cae8 100644
+--- a/drivers/net/ethernet/sis/sis900.c
++++ b/drivers/net/ethernet/sis/sis900.c
+@@ -468,7 +468,7 @@ static int sis900_probe(struct pci_dev *pci_dev,
+ 	SET_NETDEV_DEV(net_dev, &pci_dev->dev);
  
--	i = pci_request_regions(pdev, DRV_NAME);
-+	i = pcim_request_all_regions(pdev, DRV_NAME);
- 	if (i)
- 		goto err_pci_request_regions;
+ 	/* We do a request_region() to register /proc/ioports info. */
+-	ret = pci_request_regions(pci_dev, "sis900");
++	ret = pcim_request_all_regions(pci_dev, "sis900");
+ 	if (ret)
+ 		goto err_out;
  
 -- 
 2.48.1
