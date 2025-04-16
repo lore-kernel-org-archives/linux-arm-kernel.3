@@ -4,56 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F33EC369BD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 13:08:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21181C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 13:45:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CcpMumGdoFHZtKvc+1E9wdAtxOXmDaQb5hrTUP9KctU=; b=rWc+z6q1T8qoqFSOHtb8/UOX5P
-	h83BaeDMEFhjiT8zWX1R9bHlzbfFZ1WUOaM/g16qHWmiHfChdT0my9cXwljbZj4s4epjyk+46RWkC
-	3dTKe/bxXzUS+jfgaCpDkqNF7KP6XWlds/ToT8NqOYSfYwHm8EGtUS/kp5fHanEtuWijiti74HQAp
-	mfgK7iqEgffFOcwJpG9J4oT8WMzFBRB1fAKE8XOqetFl6/IbPnt9Nkkw4fT9MZm7OvM4xa1CFQZiK
-	4qglvyoGuJsF6Oh4X93yxzqGw+E0X1/R5Md4TJgpvTtDNhFxNDQOLodemnVeVExdNQOFX1Ny+scCU
-	k8MBRLWQ==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IKttftnmW048s/obR1eOzDJeSTPqxiz2qglGtGexWMM=; b=RvmdeI5mTIEErp6qcmwpNw+oDe
+	EYhFyM3oIKbY8c8TRCJ92q9q5XnFqV0HSpgAoZnavTDjFoLyCPRQtv/EUetm/CBHgct1GrlnqNyQE
+	lho0jpaym3WSLp1fyc4sTFDAKF9knI+Uh9k/c4xQvVQrIKtntAvqpUPAJP5qMDqWfzEtklg1pvEZE
+	3fzydlGuxsu3kOk6JWNDT5hCAsQaRM6p9bnybXM3YQnZAo9GIyq6HL28PxLaCgqHCY0jgSeqefhge
+	T7qhiieXuT5HU+ZdCR9vESAbcz5sD7uR8sApldxB/6r596ALSF9KzNf5wxu4KSqsQ7uVJZHWBpXMr
+	wyQKL2lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u52Uy-00000009blh-0k9q;
-	Wed, 16 Apr 2025 13:08:16 +0000
+	id 1u534t-00000009hrR-32kA;
+	Wed, 16 Apr 2025 13:45:23 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u52T7-00000009bav-3ib8
+	id 1u5332-00000009hIm-1w9q
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 13:06:23 +0000
+	Wed, 16 Apr 2025 13:43:30 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1FF9C1595;
-	Wed, 16 Apr 2025 06:06:17 -0700 (PDT)
-Received: from [10.57.43.31] (unknown [10.57.43.31])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 979713F694;
-	Wed, 16 Apr 2025 06:06:17 -0700 (PDT)
-Message-ID: <3690bbfd-a426-4fa7-b2ae-5a665c4d5c7a@arm.com>
-Date: Wed, 16 Apr 2025 14:05:46 +0100
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 56EED1595;
+	Wed, 16 Apr 2025 06:43:22 -0700 (PDT)
+Received: from e122027.arm.com (unknown [10.57.90.52])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B111A3F59E;
+	Wed, 16 Apr 2025 06:43:19 -0700 (PDT)
+From: Steven Price <steven.price@arm.com>
+To: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Cc: Steven Price <steven.price@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+Subject: [PATCH v8 00/43] arm64: Support for Arm CCA in KVM
+Date: Wed, 16 Apr 2025 14:41:22 +0100
+Message-ID: <20250416134208.383984-1-steven.price@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: Remove checks for broken Cavium HW from the PI
- code
-To: Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
- Oliver Upton <oliver.upton@linux.dev>
-References: <20250416123534.1108220-1-maz@kernel.org>
-From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Content-Language: en-US
-Organization: Arm Ltd.
-In-Reply-To: <20250416123534.1108220-1-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_060621_967406_CC11275F 
-X-CRM114-Status: GOOD (  16.47  )
+X-CRM114-CacheID: sfid-20250416_064328_589672_6D5F6D51 
+X-CRM114-Status: GOOD (  18.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,46 +80,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/04/2025 13:35, Marc Zyngier wrote:
+This series adds support for running protected VMs using KVM under the
+Arm Confidential Compute Architecture (CCA).
 
-> Calling into the MIDR checking framework from the PI code has recently
-> become much harder, due to the new fancy "multi-MIDR" support that
-> relies on tables being populated at boot time, but not that early that
-> they are available to the PI code. There are additional issues with
-> this framework, as the code really isn't position independend *at all*.
->
-> This leads to some ugly breakages, as reported by Ada.
->
-> It so appears that the only reason for the PI code to call into the
-> MIDR checking code is to cope with The Most Broken ARM64 System Ever,
-> aka Cavium ThunderX, which cannot deal with nG attributes that result
-> of the combination of KASLR and KPTI as a consequence of Erratum 27456.
->
-> Rather than adding extra complexity for something that is actually
-> a very dead horse, let's simply drop that check. On my own machine,
-> the firmware doesn't provide a KASLR seed, preventing the pathological
-> case to show up.
->
-> And if someone does have a broken box that passes a seed to the kernel,
-> "nokaslr" on the command-line is an easy enough workaround.
->
-> Fixes: c8c2647e69bed ("arm64: Make  _midr_in_range_list() an exported function")
-> Reported-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> Link: https://lore.kernel.org/r/3d97e45a-23cf-419b-9b6f-140b4d88de7b@arm.com
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
-> Cc: Oliver Upton <oliver.upton@linux.dev>
+The related guest support was merged for v6.14-rc1 so you no longer need
+that separately.
 
-Tested-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+There are a few changes since v7, many thanks for the review
+comments. The highlights are below, and individual patches have a changelog.
 
-Thanks for the fix ! I can confirm that it resolves all boot failures I 
-was observing previously.
-No instances of firmware seeding KASRL in the couple of machines I am 
-testing either.
+ * More documentation - the new ioctls and capabilties are now all
+   documented.
 
-Regards,
-Ada
+ * Initial patch adding "only_private"/"only_shared" to struct
+   kvm_gfn_range replaced with already upstream "attr_filter".
+
+ * Improvement in variable naming and error codes, and some improved/new
+   comments. All following valuable review feedback (thanks!).
+
+ * Drop the final WIP patch for enabling large PAGE_SIZE support. It's
+   not ready for merging and I want to focus on landing the 4k support.
+
+ * Rebased onto v6.15-rc1.
+
+Things to note:
+
+ * The magic numbers for capabilities and ioctls have been updated. So
+   you'll need to update your VMM. See below for update kvmtool branch.
+
+ * Patch 42 increases KVM_VCPU_MAX_FEATURES to expose the new feature.
+   This also exposes the NV features (as they are currently numbered
+   lower). This will resolve when Marc's NV series has landed, see [2].
+
+ * There are some conflicts with v6.15-rc2, mostly documentation, but
+   also commit 26fbdf369227 ("KVM: arm64: Don't translate FAR if
+   invalid/unsafe") 'hijacks' HPFAR_EL2_NS as a valid bit. This will
+   require corresponding changes to the CCA code.
+
+The ABI to the RMM (the RMI) is based on RMM v1.0-rel0 specification[1].
+
+This series is based on v6.15-rc1. It is also available as a git
+repository:
+
+https://gitlab.arm.com/linux-arm/linux-cca cca-host/v8
+
+Work in progress changes for kvmtool are available from the git
+repository below:
+
+https://gitlab.arm.com/linux-arm/kvmtool-cca cca/v6
+
+[1] https://developer.arm.com/documentation/den0137/1-0rel0/
+[2] https://lore.kernel.org/r/20250408105225.4002637-17-maz%40kernel.org
+
+Jean-Philippe Brucker (7):
+  arm64: RME: Propagate number of breakpoints and watchpoints to
+    userspace
+  arm64: RME: Set breakpoint parameters through SET_ONE_REG
+  arm64: RME: Initialize PMCR.N with number counter supported by RMM
+  arm64: RME: Propagate max SVE vector length from RMM
+  arm64: RME: Configure max SVE vector length for a Realm
+  arm64: RME: Provide register list for unfinalized RME RECs
+  arm64: RME: Provide accurate register list
+
+Joey Gouly (2):
+  arm64: RME: allow userspace to inject aborts
+  arm64: RME: support RSI_HOST_CALL
+
+Steven Price (31):
+  arm64: RME: Handle Granule Protection Faults (GPFs)
+  arm64: RME: Add SMC definitions for calling the RMM
+  arm64: RME: Add wrappers for RMI calls
+  arm64: RME: Check for RME support at KVM init
+  arm64: RME: Define the user ABI
+  arm64: RME: ioctls to create and configure realms
+  KVM: arm64: Allow passing machine type in KVM creation
+  arm64: RME: RTT tear down
+  arm64: RME: Allocate/free RECs to match vCPUs
+  KVM: arm64: vgic: Provide helper for number of list registers
+  arm64: RME: Support for the VGIC in realms
+  KVM: arm64: Support timers in realm RECs
+  arm64: RME: Allow VMM to set RIPAS
+  arm64: RME: Handle realm enter/exit
+  arm64: RME: Handle RMI_EXIT_RIPAS_CHANGE
+  KVM: arm64: Handle realm MMIO emulation
+  arm64: RME: Allow populating initial contents
+  arm64: RME: Runtime faulting of memory
+  KVM: arm64: Handle realm VCPU load
+  KVM: arm64: Validate register access for a Realm VM
+  KVM: arm64: Handle Realm PSCI requests
+  KVM: arm64: WARN on injected undef exceptions
+  arm64: Don't expose stolen time for realm guests
+  arm64: RME: Always use 4k pages for realms
+  arm64: RME: Prevent Device mappings for Realms
+  arm_pmu: Provide a mechanism for disabling the physical IRQ
+  arm64: RME: Enable PMU support with a realm guest
+  arm64: RME: Hide KVM_CAP_READONLY_MEM for realm guests
+  KVM: arm64: Expose support for private memory
+  KVM: arm64: Expose KVM_ARM_VCPU_REC to user space
+  KVM: arm64: Allow activating realms
+
+Suzuki K Poulose (3):
+  kvm: arm64: Include kvm_emulate.h in kvm/arm_psci.h
+  kvm: arm64: Don't expose debug capabilities for realm guests
+  arm64: RME: Allow checking SVE on VM instance
+
+ Documentation/virt/kvm/api.rst       |   91 +-
+ arch/arm64/include/asm/kvm_emulate.h |   40 +
+ arch/arm64/include/asm/kvm_host.h    |   17 +-
+ arch/arm64/include/asm/kvm_rme.h     |  137 +++
+ arch/arm64/include/asm/rmi_cmds.h    |  508 ++++++++
+ arch/arm64/include/asm/rmi_smc.h     |  259 ++++
+ arch/arm64/include/asm/virt.h        |    1 +
+ arch/arm64/include/uapi/asm/kvm.h    |   49 +
+ arch/arm64/kvm/Kconfig               |    1 +
+ arch/arm64/kvm/Makefile              |    3 +-
+ arch/arm64/kvm/arch_timer.c          |   48 +-
+ arch/arm64/kvm/arm.c                 |  160 ++-
+ arch/arm64/kvm/guest.c               |  104 +-
+ arch/arm64/kvm/hypercalls.c          |    4 +-
+ arch/arm64/kvm/inject_fault.c        |    5 +-
+ arch/arm64/kvm/mmio.c                |   16 +-
+ arch/arm64/kvm/mmu.c                 |  201 ++-
+ arch/arm64/kvm/pmu-emul.c            |    6 +
+ arch/arm64/kvm/psci.c                |   30 +
+ arch/arm64/kvm/reset.c               |   23 +-
+ arch/arm64/kvm/rme-exit.c            |  199 +++
+ arch/arm64/kvm/rme.c                 | 1708 ++++++++++++++++++++++++++
+ arch/arm64/kvm/sys_regs.c            |   49 +-
+ arch/arm64/kvm/vgic/vgic-init.c      |    2 +-
+ arch/arm64/kvm/vgic/vgic-v3.c        |    6 +-
+ arch/arm64/kvm/vgic/vgic.c           |   54 +-
+ arch/arm64/mm/fault.c                |   31 +-
+ drivers/perf/arm_pmu.c               |   15 +
+ include/kvm/arm_arch_timer.h         |    2 +
+ include/kvm/arm_pmu.h                |    4 +
+ include/kvm/arm_psci.h               |    2 +
+ include/linux/perf/arm_pmu.h         |    5 +
+ include/uapi/linux/kvm.h             |   29 +-
+ 33 files changed, 3709 insertions(+), 100 deletions(-)
+ create mode 100644 arch/arm64/include/asm/kvm_rme.h
+ create mode 100644 arch/arm64/include/asm/rmi_cmds.h
+ create mode 100644 arch/arm64/include/asm/rmi_smc.h
+ create mode 100644 arch/arm64/kvm/rme-exit.c
+ create mode 100644 arch/arm64/kvm/rme.c
+
+-- 
+2.43.0
 
 
