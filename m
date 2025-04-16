@@ -4,55 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BA93C369B1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 06:29:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15961C369B1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 06:31:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hHGFVtvO8SwQ6qpTlP2moXsS3ZeqiH3+Q7PiGYDfcW4=; b=4o3fdnOKGZpn0QCIJUtVv0eJlu
-	sICe5rG6I0q3RyntAapqlPWSTvk5UuZaJNQKZAAMaWbZH/xMIpsy8P4tRdnCRf3w93H0NwOlFTP0U
-	aly90rl277mIuOSE7j3cl47AKYkfsbbAkgwABr8qqnYzubX8lz/DbEJRtNxnYenSGpa2TZqgU/CH/
-	MiiTNqzqX+Wa9eGqtxOfVqjl5bUGAYB4XDSleeRy0RQdBnE4xqZuQS33MC/c1/qwwLgEh1lhNmX+/
-	eNy2H909SbEoscV6EqYDC885j5mpgYSQrTDRG/W17Rub70VFDS93bM7ltAQDS2G93blpTfLPX/qQO
-	vAAv+cVQ==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dI3QsCpStO6SjD3RhAtaXcoaJDV5dLorEuip9Lnv4PI=; b=CdaEHxMcvephW8znxSs3yY629E
+	UQj/WftCvk0hg/W0MuGfKx+YpwmT/bDJvi1pFZg7nXZtpB0pvRmDN9HwNsvdXefoIsZ2h8xx6hVVn
+	VfPVrADrYrkUD7pqWaq58lrj/UPFm8sf0c6gRga7Td3RfTBIn6FpZuJajaELfL3xfd9E5rcfn928S
+	ZV3w4oFxCj4uT/b3AGefFQBWWdWp5VfNmfh2w9IIvjb5wdDrA8RNnwXuhgy9wmWBCcfBivTQ4LmVc
+	K6YfrxHoirDnAhIyAvZrWhR2CmXrZcVLF2qGl5y5yzx0c2ZM5JzeRS2uOVehiHkpdxGW2ewG01QK1
+	ogCcI1kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4wGm-00000008PZV-0aEo;
-	Wed, 16 Apr 2025 06:29:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4wEv-00000008PFC-265E
+	id 1u4wIa-00000008PuE-3MFt;
+	Wed, 16 Apr 2025 06:31:04 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u4wFL-00000008PLT-1zU2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 06:27:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BCD48152B;
-	Tue, 15 Apr 2025 23:27:11 -0700 (PDT)
-Received: from a077893.blr.arm.com (a077893.blr.arm.com [10.162.16.49])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 35AEB3F694;
-	Tue, 15 Apr 2025 23:27:10 -0700 (PDT)
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-doc@vger.kernel.org
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] documentation: Add nodebugmon for arm64 platforms
-Date: Wed, 16 Apr 2025 11:57:06 +0530
-Message-Id: <20250416062706.2735563-1-anshuman.khandual@arm.com>
-X-Mailer: git-send-email 2.25.1
+	Wed, 16 Apr 2025 06:27:45 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53G6RXpK242939
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 16 Apr 2025 01:27:33 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1744784853;
+	bh=dI3QsCpStO6SjD3RhAtaXcoaJDV5dLorEuip9Lnv4PI=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=vpEwgBMmkvzZpGXsRKj7VxMbZpku6q8A/x/OcTO2vQAd+qE+W3nvNnQ9VQi9E/HOt
+	 l61aA9jVEbtmK22cN9WqgTBrtJIKNDpstxleynucIYeXuUukTQhGPVok3FrN/VRUSD
+	 dP+2bDlKk3y7LCdoEg0Pcd/ET4gxoWIGrAHlTDo4=
+Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53G6RXmW080365
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Wed, 16 Apr 2025 01:27:33 -0500
+Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE105.ent.ti.com
+ (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 16
+ Apr 2025 01:27:32 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Wed, 16 Apr 2025 01:27:32 -0500
+Received: from [10.249.141.75] ([10.249.141.75])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53G6ROxk104616;
+	Wed, 16 Apr 2025 01:27:25 -0500
+Message-ID: <9464ac11-ba45-4238-9628-51864067d3e9@ti.com>
+Date: Wed, 16 Apr 2025 11:57:23 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/7] arm64: dts: ti: j721e-sk: Add DT nodes for power
+ regulators
+To: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>, <nm@ti.com>,
+        <vigneshr@ti.com>
+CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <vaishnav.a@ti.com>, <jai.luthra@linux.dev>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <imx@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+        <stable@vger.kernel.org>, <u-kumar1@ti.com>
+References: <20250415111328.3847502-1-y-abhilashchandra@ti.com>
+ <20250415111328.3847502-2-y-abhilashchandra@ti.com>
+Content-Language: en-US
+From: "Kumar, Udit" <u-kumar1@ti.com>
+In-Reply-To: <20250415111328.3847502-2-y-abhilashchandra@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_232717_587100_F68AC67A 
-X-CRM114-Status: UNSURE (   8.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250415_232743_658757_986A0D18 
+X-CRM114-Status: GOOD (  15.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,42 +91,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add an entry for nodebugmon which has been used on arm64 platforms.
+Abhilash Thanks ,
 
-Cc: Jonathan Corbet <corbet@lwn.net>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-doc@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
----
-This patch applies on v6.15-rc2
+On 4/15/2025 4:43 PM, Yemike Abhilash Chandra wrote:
+> Add device tree nodes for two power regulators on the J721E SK board.
+> vsys_5v0: A fixed regulator representing the 5V supply output from the
+> LM61460 and vdd_sd_dv: A GPIO-controlled TLV71033 regulator.
+>
+> J721E-SK schematics: https://www.ti.com/lit/zip/sprr438
+> Fixes: 1bfda92a3a36 ("arm64: dts: ti: Add support for J721E SK")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+> ---
+>
+> Changelog:
+> Changes in v3:
+> - Change the PIN_INPUT to PIN_OUTPUT to control the regulator.
+>
+>   arch/arm64/boot/dts/ti/k3-j721e-sk.dts | 31 ++++++++++++++++++++++++++
+>   1 file changed, 31 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-sk.dts b/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
+> index 440ef57be294..ffef3d1cfd55 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
+> @@ -184,6 +184,17 @@ vsys_3v3: fixedregulator-vsys3v3 {
+>   		regulator-boot-on;
+>   	};
+>   
+> [..]
+>   	transceiver1: can-phy1 {
+>   		compatible = "ti,tcan1042";
+>   		#phy-cells = <0>;
+> @@ -613,6 +638,12 @@ J721E_WKUP_IOPAD(0xd4, PIN_OUTPUT, 7) /* (G26) WKUP_GPIO0_9 */
+>   		>;
+>   	};
+>   
+> +	vdd_sd_dv_pins_default: vdd-sd-dv-default-pins {
+> +		pinctrl-single,pins = <
+> +			J721E_IOPAD(0x1dc, PIN_OUTPUT, 7) /* (Y1) SPI1_CLK.GPIO0_118 */
+> +		>;
+> +	};
+> +
 
- Documentation/admin-guide/kernel-parameters.txt | 7 +++++++
- 1 file changed, 7 insertions(+)
+Reviewed-by: Udit Kumar <u-kumar1@ti.com>
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index d9fd26b95b34..f4a313d6c0ab 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -4085,6 +4085,13 @@
- 			/sys/module/printk/parameters/console_suspend) to
- 			turn on/off it dynamically.
- 
-+	nodebugmon
-+			[HW,ARM64] Disable debug monitor
-+			Disables the debug monitor exception handling on the platform
-+			regardless whether breakpoints and watchpoints are programmed
-+			or not. This prevents debug exceptions from being enabled via
-+			MDSCR_EL1 register.
-+
- 	no_debug_objects
- 			[KNL,EARLY] Disable object debugging
- 
--- 
-2.25.1
 
+>   	wkup_uart0_pins_default: wkup-uart0-default-pins {
+>   		pinctrl-single,pins = <
+>   			J721E_WKUP_IOPAD(0xa0, PIN_INPUT, 0) /* (J29) WKUP_UART0_RXD */
 
