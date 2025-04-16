@@ -4,76 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74FA0C369BD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:32:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0FAEC369BD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:32:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jIkX0gP+PNuwun86Ur3bCb3SB1wHpFzUd5pZCiudByo=; b=gHVgFWlq93bmW1VNtchst1Hgxc
-	IJSKVJDI2j+7vbcpFF/KoclfDOC1BO++78q2TysuhKiSegMSSACzNE7C+KqbxQymVS9UldXpHThPe
-	ZJPGBnFenB4iwzltsP1Aeorufn8EtVvm0n5iGyo4OeeTlT1eyaECZCItAsE7qxbA7o0UA9RojiyJh
-	fyXEbAh5nGF1NTZTtXM6/lsM40BqPEuTPDbFZf/+2rBqWcDjlWZhSaqBDDNY7aHCDomyZ5zJWzm2f
-	n/Y1dj5tgssvgPmSvXEAs6ruxqTjWEQT0dHnufKtdoJ1RbUuMElum5pVxvAzhTk1AskfKFS3va6BA
-	5KErGxUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rVB2PVIxoX5y0VwNAUTU6UTUCxBZyuk9nnudYr7DJnI=; b=PxTgpGmHz0kJOd9t5O6F0wJLZs
+	qI81+a0TRcMMPZ1TZu6WJUxOoI+xqqykGC942wi0TC6rvxcospNzmkH1xxpPjkv0gENh9nPqHjXYy
+	/VMxkXH+nlhLzc2k2qZoA/cW4qsDtCu7f2l8s6R22v0eD1BFc8fPcv8z4sr9ROhoYHLjIsPwwQEWT
+	mCUM5Qn0KVun+/CfEpMZQYqhVVPZt8Hg8Pf9hWezAq/ON8Yd5m9ET4+wsJIAMhuqCHaQGOrwH6Yrj
+	slVjuOwjrGv51/AoUujrRQen4V5DpCmSZCFMRdn7IkwxsuD7pG2LVKlg47y6Nrm+AY7bQzEcgDE/l
+	teRjqbmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u503y-00000009Aq8-2ocr;
-	Wed, 16 Apr 2025 10:32:14 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1u504P-00000009BX3-0QBx;
+	Wed, 16 Apr 2025 10:32:41 +0000
+Received: from mxout3.routing.net ([2a03:2900:1:a::8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4z83-00000008z9r-0Mp7
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 09:32:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=jIkX0gP+PNuwun86Ur3bCb3SB1wHpFzUd5pZCiudByo=; b=V76LVS4FiNC0BL2aJOkDY0jDau
-	DSAiacGHiECEANA4bwI/oTYtNgXHrlLMEF5WjVTgMk0DIPByR187M6MTfpWPoiiduTrPlRWjkA3BD
-	q1M3hcsh8u0E/oIYUyvPvH1D91ZgSvEyzjZpOG6LqXzUQgSXhm4KCQdHrqDGrxwBpAUK1/BTuRP2E
-	MJ6XvDhBRy693KxEbFMHj0sfpsKaXq2+5XHC17mSUNSJoQ6WHRRckPEVR1xTImmmjnoQBodNe1mUr
-	TEqx27YCQGoD9FizPZoRX+muDT2DUpynTu8qFRsdpUGgQD/By16xgDgQwSskeCdgNdvJwGluV5gyu
-	PTvkU2zw==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:38780 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1u4z7w-0000zJ-13;
-	Wed, 16 Apr 2025 10:32:16 +0100
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1u4z7K-000xBu-5e; Wed, 16 Apr 2025 10:31:38 +0100
-In-Reply-To: <Z_95AM64tt_4ri1j@shell.armlinux.org.uk>
-References: <Z_95AM64tt_4ri1j@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
+	id 1u4zTI-0000000934L-34aW;
+	Wed, 16 Apr 2025 09:54:22 +0000
+Received: from mxbox3.masterlogin.de (unknown [192.168.10.78])
+	by mxout3.routing.net (Postfix) with ESMTP id 9FA1F60F58;
+	Wed, 16 Apr 2025 09:54:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
+	s=20200217; t=1744797256;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=rVB2PVIxoX5y0VwNAUTU6UTUCxBZyuk9nnudYr7DJnI=;
+	b=RJEb1CmgobI1aJLc6mB14rwQZcd0xdKnCoexAjengZud24wB39P5LmWApsdemzxEZHloq3
+	M22aysxnjBCbDzaV4NwnppmVYB/Cr3bxtPzLPc4FxKrDHBsi8qAzNxuAvtse8YinD90a9M
+	J3hIyX8PBYCkra+vLlSpTSBmtVM6H7w=
+Received: from frank-u24.. (fttx-pool-80.245.72.47.bambit.de [80.245.72.47])
+	by mxbox3.masterlogin.de (Postfix) with ESMTPSA id 6C124360084;
+	Wed, 16 Apr 2025 09:54:15 +0000 (UTC)
+From: Frank Wunderlich <linux@fw-web.de>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Lee Jones <lee@kernel.org>,
+	Chunfeng Yun <chunfeng.yun@mediatek.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Frank Wunderlich <frank-w@public-files.de>,
+	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Sean Wang <sean.wang@mediatek.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next v2 4/5] net: stmmac: socfpga: call set_phy_mode()
- before registration
+	linux-mediatek@lists.infradead.org,
+	linux-phy@lists.infradead.org
+Subject: [PATCH v3 0/8] Add Bananapi R4 variants and add xsphy
+Date: Wed, 16 Apr 2025 11:53:52 +0200
+Message-ID: <20250416095402.90543-1-linux@fw-web.de>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1u4z7K-000xBu-5e@rmk-PC.armlinux.org.uk>
-Date: Wed, 16 Apr 2025 10:31:38 +0100
+X-Mail-ID: e76a1c3f-a271-4636-9d6e-a4f44f5271a4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_023223_124905_D426BDEA 
-X-CRM114-Status: GOOD (  16.10  )
+X-CRM114-CacheID: sfid-20250416_025421_080035_71C253EE 
+X-CRM114-Status: UNSURE (   8.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,83 +85,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Initialisation/setup after registration is a bug. This is the second
-of two patches fixing this in socfpga.
+From: Frank Wunderlich <frank-w@public-files.de>
 
-The set_phy_mode() functions do various hardware setup that would
-interfere with a netdev that has been published, and thus available to
-be opened by the kernel/userspace.
+With this series i continue the mt7988/bananapi-r4 dts upstream work
 
-However, set_phy_mode() relies upon the netdev having been initialised
-to get at the plat_stmmacenet_data structure, which is probably why it
-was placed after stmmac_drv_probe(). We can remove that need by storing
-a pointer to struct plat_stmmacenet_data in struct socfpga_dwmac.
+https://patchwork.kernel.org/project/linux-mediatek/list/?series=952704
+https://patchwork.kernel.org/project/linux-mediatek/list/?series=952805
 
-Move the call to set_phy_mode() before calling stmmac_dvr_probe().
-This also simplifies the probe function as there is no need to
-unregister the netdev if set_phy_mode() fails.
+- Adding new Hardware Variant for bananapi R4 (1 SFP replaced by RJ45 port with internal phy)
+- Adding XS-phy for pcie2
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- .../ethernet/stmicro/stmmac/dwmac-socfpga.c   | 20 +++++--------------
- 1 file changed, 5 insertions(+), 15 deletions(-)
+because of new compatible for 2g5 variant now requires also a series i merged both into one.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-index 69ffc52c0275..c7c120e30297 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-@@ -50,6 +50,7 @@ struct socfpga_dwmac {
- 	u32	reg_offset;
- 	u32	reg_shift;
- 	struct	device *dev;
-+	struct plat_stmmacenet_data *plat_dat;
- 	struct regmap *sys_mgr_base_addr;
- 	struct reset_control *stmmac_rst;
- 	struct reset_control *stmmac_ocp_rst;
-@@ -233,10 +234,7 @@ static int socfpga_dwmac_parse_data(struct socfpga_dwmac *dwmac, struct device *
- 
- static int socfpga_get_plat_phymode(struct socfpga_dwmac *dwmac)
- {
--	struct net_device *ndev = dev_get_drvdata(dwmac->dev);
--	struct stmmac_priv *priv = netdev_priv(ndev);
--
--	return priv->plat->mac_interface;
-+	return dwmac->plat_dat->mac_interface;
- }
- 
- static void socfpga_sgmii_config(struct socfpga_dwmac *dwmac, bool enable)
-@@ -490,6 +488,7 @@ static int socfpga_dwmac_probe(struct platform_device *pdev)
- 	 */
- 	dwmac->stmmac_rst = plat_dat->stmmac_rst;
- 	dwmac->ops = ops;
-+	dwmac->plat_dat = plat_dat;
- 
- 	plat_dat->bsp_priv = dwmac;
- 	plat_dat->fix_mac_speed = socfpga_dwmac_fix_mac_speed;
-@@ -501,20 +500,11 @@ static int socfpga_dwmac_probe(struct platform_device *pdev)
- 
- 	plat_dat->riwt_off = 1;
- 
--	ret = stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
--	if (ret)
--		return ret;
--
- 	ret = socfpga_dwmac_init(pdev, dwmac);
- 	if (ret)
--		goto err_dvr_remove;
--
--	return 0;
--
--err_dvr_remove:
--	stmmac_dvr_remove(&pdev->dev);
-+		return ret;
- 
--	return ret;
-+	return stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
- }
- 
- static const struct socfpga_dwmac_ops socfpga_gen5_ops = {
+Daniel Golle (1):
+  phy: mediatek: xsphy: support type switch by pericfg
+
+Frank Wunderlich (7):
+  dt-bindings: arm: mediatek: add bpi-r4 2g5 phy variant
+  arm64: dts: mediatek: mt7988a-bpi-r4: allow hw variants of bpi-r4
+  dt-bindings: phy: mtk-xs-phy: Add mt7988 compatible
+  dt-bindings: phy: mtk-xs-phy: support type switch by pericfg
+  dt-bindings: mfd: syscon: Add mt7988-topmisc
+  arm64: dts: mediatek: mt7988: Add xsphy for ssusb0/pcie2
+  arm64: dts: mediatek: mt7988a-bpi-r4: enable xsphy
+
+ .../devicetree/bindings/arm/mediatek.yaml     |   4 +
+ .../devicetree/bindings/mfd/syscon.yaml       |   2 +
+ .../bindings/phy/mediatek,xsphy.yaml          |  17 +
+ arch/arm64/boot/dts/mediatek/Makefile         |   2 +
+ .../mediatek/mt7988a-bananapi-bpi-r4-2g5.dts  |  11 +
+ .../dts/mediatek/mt7988a-bananapi-bpi-r4.dts  | 400 +----------------
+ .../dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi | 403 ++++++++++++++++++
+ arch/arm64/boot/dts/mediatek/mt7988a.dtsi     |  36 ++
+ drivers/phy/mediatek/phy-mtk-xsphy.c          |  85 +++-
+ 9 files changed, 564 insertions(+), 396 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-2g5.dts
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
+
 -- 
-2.30.2
+2.43.0
 
 
