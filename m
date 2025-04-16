@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78D7BC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 14:28:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62172C369BD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 14:30:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tStBoCinoWF9WZHf4jy6PpmwBd7g8cb6AihY38qV2qU=; b=Ol8ah/8Mwg4VnsyizXx0zX4qvM
-	wk5xryfcxJAKpLo925ioTsMMzktDwKhlCs87VtbAF7dWp8DnGTywD/1GyRjU6PKuZuvBpLGYFMeu/
-	6iuO3bsmtWQ9gGNJgFSPhH0fPuxoUpJyW/+4S7QPKPxRDRK9y2CsvKPJgpSCwHg7zTUkCZ9hmd5AX
-	KzLxxcfgXSD7jM4yRkVMY1kQRUGO7mdOJcygL4XBpxkb5MXvsNS4YcwpjPVEBGSGTaKcOZwWCI2D4
-	E8bs7Z8udy06hKV37CSM+z4MX58sHNln1J5o7qvNdFQVCeIGlD218N7oXeagKfY07CstdGgpM+RsS
-	KFw7yngQ==;
+	bh=A5aHe3X6T3i1yfdNkyov4VHVmYIWevvmcBomFFXvW1g=; b=KaGDh9+PWMTjqJO9uhcZknmm3y
+	bAXxCxcUyvLAWFqBjDVSKGXMaVa2xICoEJGaMWXSG6AC1PieD8uX2ey5GBfilqN2+tY1dSKHNyqKB
+	0Txw6vQNPJntkNYttb9hmQBKR0N8ngYvMTaQnaG62ISvIkLFOgcu4bs8XQUsu+tilaMgv9CbLX4Gb
+	6COw17YD+OOOJIEEbH86LURg/GtIks+jzEO86XJKy/YF2gxTJJatTUouCeW0zXRKHNDtBAWJCJFTY
+	dwy8+B92JAzS4u2mnifoe1p3W0YbHtg//2DTnPn6BiRNTk8Zx0DVifgzi8b/6b9ioqKwZeIz0ogFH
+	a7pEdAFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u53ko-00000009tWK-3AZa;
-	Wed, 16 Apr 2025 14:28:42 +0000
+	id 1u53me-00000009tzJ-2Dv5;
+	Wed, 16 Apr 2025 14:30:36 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u534m-00000009hpJ-1aca
+	id 1u534r-00000009hqI-0xty
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 13:45:17 +0000
+	Wed, 16 Apr 2025 13:45:22 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AC7BE1E7D;
-	Wed, 16 Apr 2025 06:45:13 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C22641692;
+	Wed, 16 Apr 2025 06:45:18 -0700 (PDT)
 Received: from e122027.arm.com (unknown [10.57.90.52])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 672253F59E;
-	Wed, 16 Apr 2025 06:45:11 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 427713F59E;
+	Wed, 16 Apr 2025 06:45:16 -0700 (PDT)
 From: Steven Price <steven.price@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -56,17 +56,18 @@ Cc: Steven Price <steven.price@arm.com>,
 	Shanker Donthineni <sdonthineni@nvidia.com>,
 	Alper Gun <alpergun@google.com>,
 	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-Subject: [PATCH v8 23/43] KVM: arm64: Handle Realm PSCI requests
-Date: Wed, 16 Apr 2025 14:41:45 +0100
-Message-ID: <20250416134208.383984-24-steven.price@arm.com>
+Subject: [PATCH v8 24/43] KVM: arm64: WARN on injected undef exceptions
+Date: Wed, 16 Apr 2025 14:41:46 +0100
+Message-ID: <20250416134208.383984-25-steven.price@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250416134208.383984-1-steven.price@arm.com>
 References: <20250416134208.383984-1-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_064516_501446_9A4C9865 
-X-CRM114-Status: GOOD (  16.41  )
+X-CRM114-CacheID: sfid-20250416_064521_311324_9D1F9487 
+X-CRM114-Status: UNSURE (   7.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,162 +82,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RMM needs to be informed of the target REC when a PSCI call is made
-with an MPIDR argument. Expose an ioctl to the userspace in case the PSCI
-is handled by it.
+The RMM doesn't allow injection of a undefined exception into a realm
+guest. Add a WARN to catch if this ever happens.
 
-Co-developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 Signed-off-by: Steven Price <steven.price@arm.com>
 Reviewed-by: Gavin Shan <gshan@redhat.com>
 ---
 Changes since v6:
- * Use vcpu_is_rec() rather than kvm_is_realm(vcpu->kvm).
- * Minor renaming/formatting fixes.
+ * if (x) WARN(1, ...) makes no sense, just WARN(x, ...)!
 ---
- arch/arm64/include/asm/kvm_rme.h |  3 +++
- arch/arm64/kvm/arm.c             | 25 +++++++++++++++++++++++++
- arch/arm64/kvm/psci.c            | 30 ++++++++++++++++++++++++++++++
- arch/arm64/kvm/rme.c             | 14 ++++++++++++++
- 4 files changed, 72 insertions(+)
+ arch/arm64/kvm/inject_fault.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/asm/kvm_rme.h
-index 47aa6362c6c9..7000fa1227d0 100644
---- a/arch/arm64/include/asm/kvm_rme.h
-+++ b/arch/arm64/include/asm/kvm_rme.h
-@@ -118,6 +118,9 @@ int realm_map_non_secure(struct realm *realm,
- 			 kvm_pfn_t pfn,
- 			 unsigned long size,
- 			 struct kvm_mmu_memory_cache *memcache);
-+int realm_psci_complete(struct kvm_vcpu *source,
-+			struct kvm_vcpu *target,
-+			unsigned long status);
- 
- static inline bool kvm_realm_is_private_address(struct realm *realm,
- 						unsigned long addr)
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 08d5e0d76749..cacdc10d2a6b 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -1745,6 +1745,22 @@ static int kvm_arm_vcpu_set_events(struct kvm_vcpu *vcpu,
- 	return __kvm_arm_vcpu_set_events(vcpu, events);
- }
- 
-+static int kvm_arm_vcpu_rmm_psci_complete(struct kvm_vcpu *vcpu,
-+					  struct kvm_arm_rmm_psci_complete *arg)
-+{
-+	struct kvm_vcpu *target = kvm_mpidr_to_vcpu(vcpu->kvm, arg->target_mpidr);
-+
-+	if (!target)
-+		return -EINVAL;
-+
-+	/*
-+	 * RMM v1.0 only supports PSCI_RET_SUCCESS or PSCI_RET_DENIED
-+	 * for the status. But, let us leave it to the RMM to filter
-+	 * for making this future proof.
-+	 */
-+	return realm_psci_complete(vcpu, target, arg->psci_status);
-+}
-+
- long kvm_arch_vcpu_ioctl(struct file *filp,
- 			 unsigned int ioctl, unsigned long arg)
+diff --git a/arch/arm64/kvm/inject_fault.c b/arch/arm64/kvm/inject_fault.c
+index 2a9682b9834f..7dba6fc8c41d 100644
+--- a/arch/arm64/kvm/inject_fault.c
++++ b/arch/arm64/kvm/inject_fault.c
+@@ -226,6 +226,7 @@ void kvm_inject_size_fault(struct kvm_vcpu *vcpu)
+  */
+ void kvm_inject_undefined(struct kvm_vcpu *vcpu)
  {
-@@ -1867,6 +1883,15 @@ long kvm_arch_vcpu_ioctl(struct file *filp,
- 
- 		return kvm_arm_vcpu_finalize(vcpu, what);
- 	}
-+	case KVM_ARM_VCPU_RMM_PSCI_COMPLETE: {
-+		struct kvm_arm_rmm_psci_complete req;
-+
-+		if (!vcpu_is_rec(vcpu))
-+			return -EPERM;
-+		if (copy_from_user(&req, argp, sizeof(req)))
-+			return -EFAULT;
-+		return kvm_arm_vcpu_rmm_psci_complete(vcpu, &req);
-+	}
- 	default:
- 		r = -EINVAL;
- 	}
-diff --git a/arch/arm64/kvm/psci.c b/arch/arm64/kvm/psci.c
-index 3b5dbe9a0a0e..a68f3c1878a5 100644
---- a/arch/arm64/kvm/psci.c
-+++ b/arch/arm64/kvm/psci.c
-@@ -103,6 +103,12 @@ static unsigned long kvm_psci_vcpu_on(struct kvm_vcpu *source_vcpu)
- 
- 	reset_state->reset = true;
- 	kvm_make_request(KVM_REQ_VCPU_RESET, vcpu);
-+	/*
-+	 * Make sure we issue PSCI_COMPLETE before the VCPU can be
-+	 * scheduled.
-+	 */
-+	if (vcpu_is_rec(vcpu))
-+		realm_psci_complete(source_vcpu, vcpu, PSCI_RET_SUCCESS);
- 
- 	/*
- 	 * Make sure the reset request is observed if the RUNNABLE mp_state is
-@@ -115,6 +121,11 @@ static unsigned long kvm_psci_vcpu_on(struct kvm_vcpu *source_vcpu)
- 
- out_unlock:
- 	spin_unlock(&vcpu->arch.mp_state_lock);
-+	if (vcpu_is_rec(vcpu) && ret != PSCI_RET_SUCCESS) {
-+		realm_psci_complete(source_vcpu, vcpu,
-+				    ret == PSCI_RET_ALREADY_ON ?
-+				    PSCI_RET_SUCCESS : PSCI_RET_DENIED);
-+	}
- 	return ret;
- }
- 
-@@ -142,6 +153,25 @@ static unsigned long kvm_psci_vcpu_affinity_info(struct kvm_vcpu *vcpu)
- 	/* Ignore other bits of target affinity */
- 	target_affinity &= target_affinity_mask;
- 
-+	if (vcpu_is_rec(vcpu)) {
-+		struct kvm_vcpu *target_vcpu;
-+
-+		/* RMM supports only zero affinity level */
-+		if (lowest_affinity_level != 0)
-+			return PSCI_RET_INVALID_PARAMS;
-+
-+		target_vcpu = kvm_mpidr_to_vcpu(kvm, target_affinity);
-+		if (!target_vcpu)
-+			return PSCI_RET_INVALID_PARAMS;
-+
-+		/*
-+		 * Provide the references of the source and target RECs to the
-+		 * RMM so that the RMM can complete the PSCI request.
-+		 */
-+		realm_psci_complete(vcpu, target_vcpu, PSCI_RET_SUCCESS);
-+		return PSCI_RET_SUCCESS;
-+	}
-+
- 	/*
- 	 * If one or more VCPU matching target affinity are running
- 	 * then ON else OFF
-diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
-index b6959cd17a6c..70244e01c161 100644
---- a/arch/arm64/kvm/rme.c
-+++ b/arch/arm64/kvm/rme.c
-@@ -144,6 +144,20 @@ static void free_delegated_granule(phys_addr_t phys)
- 	free_page((unsigned long)phys_to_virt(phys));
- }
- 
-+int realm_psci_complete(struct kvm_vcpu *source, struct kvm_vcpu *target,
-+			unsigned long status)
-+{
-+	int ret;
-+
-+	ret = rmi_psci_complete(virt_to_phys(source->arch.rec.rec_page),
-+				virt_to_phys(target->arch.rec.rec_page),
-+				status);
-+	if (ret)
-+		return -EINVAL;
-+
-+	return 0;
-+}
-+
- static int realm_rtt_create(struct realm *realm,
- 			    unsigned long addr,
- 			    int level,
++	WARN(vcpu_is_rec(vcpu), "Unexpected undefined exception injection to REC");
+ 	if (vcpu_el1_is_32bit(vcpu))
+ 		inject_undef32(vcpu);
+ 	else
 -- 
 2.43.0
 
