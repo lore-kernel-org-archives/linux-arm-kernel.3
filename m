@@ -4,57 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92E1DC369B1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 06:38:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85FD5C369B1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 06:40:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LdijvAfgV+ApvSb+tzljoVxAc9bhD+0Ia0UkpIhwwO8=; b=hbG/EWrqO/PCS6UykW2k8s/xUM
-	KIVVqRwONm873AkMvG1lGl6JRf4TlYZznjBYMt/Uk4wNmk9ZwZb8V6V5qpHOPuG7F4K+xGUQZ2Q7O
-	DVhK80IvuLhaTB+HaQBmDRZpFyMd6S4Ikiq3qZe9kNtIoDF1A33aTsmGsNlo7MmagcFILdF3+PZkN
-	eBlCilrHh3im7WhhIBVVtgRJJ5B3el1iu9m/5CXB9wFLFJzN0TVIMBeVKhfet2WRsawkabPvMD3KX
-	kcGVbLPjNnB549sNuzqFRAhACYr3sgX4cFNRzNjh6i8Qr+FRl0e2MN6Jo2j6C0NlAglkt1dnXfHV0
-	okl9GdpQ==;
+	bh=D6wwsoIdD3lXdqv2reURR4vKwnfpoKTL2G9j1v6tumQ=; b=SJX1xsZnVpD+DY3XU2wkZq8q5K
+	bWEVjFbUDbqwW7Kfs2uk4ZgwN9c/1Offd18TIIkmx8Re4HNPfC97zJjbrkJ/CwTuDoLan4uYP/3/L
+	UTzaxkDBoGSNY+ijAP51i2OyacNuBU2PGSs+33uuXEvpFjFIfSrDrATOJp/ww1O/krGVOC61tdWRY
+	NI8p5f6pY8wo3KRWkpr7YTjn19Hq2GF1cv7ze9yblZXJaWiGrInEYM8PyGvS9unBVLcvZ1F8b6ly5
+	aHuDro1m1CfnNsHvMylNk7eNYxDM0wlNgRkgFR92ujJdRskol37Vt14JVrx70SSE+v3e+YAtlXtzd
+	NrYEYlyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4wPi-00000008R1m-3fEP;
-	Wed, 16 Apr 2025 06:38:26 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u4wRW-00000008RPE-2T4h;
+	Wed, 16 Apr 2025 06:40:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4wMZ-00000008Qej-0jJb
+	id 1u4wNV-00000008QmP-2ViG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 06:35:12 +0000
+	Wed, 16 Apr 2025 06:36:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 48AC55C5ADB;
-	Wed, 16 Apr 2025 06:32:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC9B9C4CEE2;
-	Wed, 16 Apr 2025 06:35:06 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8BDAE60008;
+	Wed, 16 Apr 2025 06:35:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B35DC4CEE2;
+	Wed, 16 Apr 2025 06:36:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744785310;
-	bh=JrmENTow3eU1JgLnFTACI/p8XRxovgR2TtFW5Z9K0sI=;
+	s=k20201202; t=1744785365;
+	bh=Mr6Zpb9zcG0OVnCwKGCHTpusBfiHnAqZ4PqIGzO8FB0=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=cJDltrYZLIudHpg5OiqO9jvqGZ+H5sMSUNlQnnGCHwSsIaexVPn1KNXzNHAQv7FOw
-	 K5DHtWGeaXvl2aLpI3Qc8Cwezv4YfdiWoQREmtSrNasQ/WlyN+tZJ43AGp6SefMgsy
-	 l/pqyByDXrC8T/LJSbDYuk5rtEu3/RvvmfUwp+bcGWtVqKorgur1wQxR0skGxKEfpM
-	 RUZKaR1cwdeGEWbBW1Ih1JsPaIbVUsgRzZ6RTXvgxib9IayXIN02ZueYrH2B+O+dhO
-	 2VhvoggRhVaBEo0eYUO0QEXINm7xBR0c5kufYsLzBv3wPQHlSX0yUdsSUwgeYL9Wda
-	 8MFt26+IjN/aA==
-Message-ID: <954d6efb-b660-450e-974f-dc89d777bb45@kernel.org>
-Date: Wed, 16 Apr 2025 08:35:03 +0200
+	b=M2c2T/rV1WpJls8mY2WiS06WJ3CbdfassisBM8F8oFz+YOl7xnKaMBW1Faq2GvLFD
+	 j43gbDMnkDGl90ODJJl/abwi3XUR0ZEj4z/3JYkyDN0OyZynnc0oSrkNS0LLd3Qx+6
+	 M1zymk54/0SG6OLsvS389CYUzUJb/OAUI3Bis50xRhLsJYqFNDIH83DydG7rkrZ7uO
+	 lX65zZK2whmhH8CSocv7kpl8BdH/WYpkSXI/ps3NWfQ8IF6dGnmyLu4iUTLk/K7HK+
+	 TMvkDCS5O3Vc6Ir+EhpiMfb0nQ5jPf9gNNpk0q+breOivzhXgwZfNZlr/r+Ch/2P9o
+	 Ix+G+fQLCwIAg==
+Message-ID: <bdfe0108-7ac3-4f2c-b7f2-97943ee85235@kernel.org>
+Date: Wed, 16 Apr 2025 08:35:58 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 07/10] arm64: defconfig: enable CIX mailbox
+Subject: Re: [PATCH v6 08/10] dt-bindings: clock: cix: Add CIX sky1 scmi clock
+ id
 To: Peter Chen <peter.chen@cixtech.com>, soc@kernel.org, robh@kernel.org,
  krzk+dt@kernel.org, conor+dt@kernel.org, catalin.marinas@arm.com,
  will@kernel.org, arnd@arndb.de, jassisinghbrar@gmail.com
 Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
- maz@kernel.org, kajetan.puchalski@arm.com
+ maz@kernel.org, kajetan.puchalski@arm.com, Gary Yang <gary.yang@cixtech.com>
 References: <20250415072724.3565533-1-peter.chen@cixtech.com>
- <20250415072724.3565533-8-peter.chen@cixtech.com>
+ <20250415072724.3565533-9-peter.chen@cixtech.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,12 +101,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250415072724.3565533-8-peter.chen@cixtech.com>
+In-Reply-To: <20250415072724.3565533-9-peter.chen@cixtech.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_233511_355004_B28455CE 
-X-CRM114-Status: GOOD (  12.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,25 +119,27 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 15/04/2025 09:27, Peter Chen wrote:
-> At CIX SoC platforms, the clock handling uses Arm SCMI protocol,
-> the physical clock access is at sub processor, so it needs to enable
-> mailbox by default.
+> From: Gary Yang <gary.yang@cixtech.com>
 > 
-> Signed-off-by: Peter Chen <peter.chen@cixtech.com>
+> Add device tree bindings for the scmi clock id on
+> Cix sky1 platform.
+> 
+> Reviewed-by: Peter Chen <peter.chen@cixtech.com>
+> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
+
+Incomplete SoB chain.
+
 > ---
->  arch/arm64/configs/defconfig | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-> index c8a8fdb0bedb..4e9805c5bcc3 100644
-> --- a/arch/arm64/configs/defconfig
-> +++ b/arch/arm64/configs/defconfig
-> @@ -1424,6 +1424,7 @@ CONFIG_BCM2835_MBOX=y
->  CONFIG_QCOM_APCS_IPC=y
->  CONFIG_MTK_ADSP_MBOX=m
->  CONFIG_QCOM_IPCC=y
-> +CONFIG_CIX_MBOX=y
-Squash the patch. Don't create one patch per one config change.
+>  include/dt-bindings/clock/sky1-clk.h | 279 +++++++++++++++++++++++++++
+
+Filename matching compatible.
+
+
+>  1 file changed, 279 insertions(+)
+>  create mode 100644 include/dt-bindings/clock/sky1-clk.h
+
+Missing actual bindings.
+
 
 Best regards,
 Krzysztof
