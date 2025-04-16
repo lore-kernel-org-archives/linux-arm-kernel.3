@@ -4,131 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83D2AC369BD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:31:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A020DC369C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:31:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ojNiaePhho4E5RIqjVzNSbbu4HJwo7FomnRdlnU0eoE=; b=WTleB0VwsabktILP+P2O0oLsIN
-	Td47dYjrH3oM0jkduPqRF/iSuiEtkgVWFKxUUu1iGqeHlvjHsrbBc4ttACQ3xMTDY1+czRgB7GLEv
-	5uUpvCYDQNPf1h/BNQXStxYYpW+e/7dFpe1tsg2nOfEokdP4bgmsRosSQnQKMUCDOIgQZJ7LzAwS8
-	VZj/vaxs30qpyO0yG+ZZMAbdp7g003NW6kNeCduwdL9a3ZDERvzhuSld4PHNcbb5eYagMxAwcD5mv
-	ap4pmBEiFPRSmobpo9g0Ja4TMPoo7UxChB7QQa4gbRruQmqU7Wtv1/02B3FD5HUTAIINTnuaEeEpC
-	NRFWxw/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RQGQgS3fn9DpLHF39v5wKc9omOFCoaDRzybsm2gWEIE=; b=07su3NlYW2kDFz3InqX16Tz4Nl
+	CeWWUhWfUihfIYfj9xFKm++YbV6kL1KT/GlpsSdxXWJDJ0WdT0y+ZyESiuka6tTU6h/CeHgcOA0cf
+	/HSzj4xeW72qy0/QEToZa8XDKEqG2aEb0mpt0VBzOhNWkdQh+1RVYt5BYoy6Q0LB8jewodJbwQE8O
+	ubI7hEkL35oSGRVgyaPOoOkR5TSPJ1mulsKvscNsl7nfftgH2i0ztu7MosVZPI6FbgjES5mX2QYQ+
+	1AL4cJVN+fkdqD4Ts+cQ5k+HpWMCUVyoutlM4+hIrTi5tcPHh1XP694ndG7EhEWilVVXcez7DO8uN
+	Hz6kugvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u502c-000000098Mz-3a3I;
-	Wed, 16 Apr 2025 10:30:50 +0000
-Received: from mail-sg2apc01on20710.outbound.protection.outlook.com ([2a01:111:f403:200f::710] helo=APC01-SG2-obe.outbound.protection.outlook.com)
+	id 1u502i-000000098Xq-1ek4;
+	Wed, 16 Apr 2025 10:30:57 +0000
+Received: from relay4-d.mail.gandi.net ([217.70.183.196])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4y7Y-00000008p2K-1mjH
+	id 1u4yCa-00000008pxA-3rBs
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 08:27:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Eie5VZcSIjykjuNU9EbZb/fMYlvkEBYUCbNdVNXpZoAXO54BUvNRiEy4m7gz3f1vkXssLEBYLH8HdyXa3507yLl78JfDsdsvB09ep9GJlul2EZADyMJawqisyRJzpp0szphnqsdBdbAmSrjrNf7fvfvNVSKHiayMs4fKDcY6IQBP+b7qcwJYgSnTG7KBrJTkS34XqgEvnObuikuOSQs0YxZjNWm0JJGmEH5PhcOdlwHWEATYeIYjGLrq4Z43k+Itnpxak79EsyvucDDfI4BTgVDFIClJIdimn7Sfse/7kPwLDjkFSGOLgvpHobRVSew/S2HWNXXhmq7YLAlFsfmdEw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ojNiaePhho4E5RIqjVzNSbbu4HJwo7FomnRdlnU0eoE=;
- b=XOKgdz0mmlba3f5nSzQrgeqn/M6q7tov58sCSY7IBX/YFBWm1jRpu9iBBqRP/c4dYo9lU48/c10BjUAH+lFjg1GrVF4n5FrIUi8IMSQglnoK7Mh0KyqNUqNSd+QCyDiHXsacfRjymjfIKZLJaELX3ovHhbNZGP1OWpa18a18Um3ItsQFnctbpJDhlKqSLHyB9q9zH2D/r59BhOxVMWvh8VOAqRu+UubkePYhm9tj5ugQnIsqBvhH878ioJajTFxjrGvt1P67HUq/1SiMBC66x823RGiLmNRBA5K3VQirzThbYRvCXd+Q/umuA3gzuCH6WmgLiuHAg+9mVDGXY02HQg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from PS2PR02CA0034.apcprd02.prod.outlook.com (2603:1096:300:59::22)
- by JH0PR06MB6477.apcprd06.prod.outlook.com (2603:1096:990:33::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.27; Wed, 16 Apr
- 2025 08:27:15 +0000
-Received: from HK3PEPF0000021F.apcprd03.prod.outlook.com
- (2603:1096:300:59:cafe::ad) by PS2PR02CA0034.outlook.office365.com
- (2603:1096:300:59::22) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8632.33 via Frontend Transport; Wed,
- 16 Apr 2025 08:27:15 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- HK3PEPF0000021F.mail.protection.outlook.com (10.167.8.41) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8655.12 via Frontend Transport; Wed, 16 Apr 2025 08:27:14 +0000
-Received: from nchen-desktop (unknown [172.16.64.25])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 9DA9F410F606;
-	Wed, 16 Apr 2025 16:26:43 +0800 (CST)
-Date: Wed, 16 Apr 2025 16:26:38 +0800
-From: Peter Chen <peter.chen@cixtech.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: soc@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org,
-	arnd@arndb.de, jassisinghbrar@gmail.com,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
-	maz@kernel.org, kajetan.puchalski@arm.com,
-	Gary Yang <gary.yang@cixtech.com>
-Subject: Re: [PATCH v6 08/10] dt-bindings: clock: cix: Add CIX sky1 scmi
- clock id
-Message-ID: <Z_9pvs-YKLwFal90@nchen-desktop>
-References: <20250415072724.3565533-1-peter.chen@cixtech.com>
- <20250415072724.3565533-9-peter.chen@cixtech.com>
- <bdfe0108-7ac3-4f2c-b7f2-97943ee85235@kernel.org>
- <2f05420b-0c6f-4336-9854-036edf8d28fa@kernel.org>
+	Wed, 16 Apr 2025 08:33:02 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 05D39433EC;
+	Wed, 16 Apr 2025 08:32:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1744792378;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RQGQgS3fn9DpLHF39v5wKc9omOFCoaDRzybsm2gWEIE=;
+	b=UWDn9fuGUR59UV7s0DWAYDL0GZA6lja8F9iLNR0CJm41eX4TBQgHujtyQR0dQ9lamNwbKK
+	ynw+rFpw8QvOgLP1M3LsmaAyOW+wqFCNfkKm+jiiwo8yaIvcsXSQH1gEzk5+T5cMLBPCqB
+	/egJWGENgZXhvhu721EkXQG3NWlIw3g5Z4nzBLcj35NcuJF/RQcuko7k6+AjY14H0w7Juj
+	M9r59IYpzvkiQsahyB2sxO0hsXuO4821Y4D3oXYm4KUWzjbFxRw0LKsU0MCo7EgWbM+bbr
+	uE5v0PHcjcYVzMvUPaN3fPUf2HBJbOJJ1Onc+KB/DPZiNxgYzwGymLzNd5zKkA==
+Date: Wed, 16 Apr 2025 10:32:53 +0200
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org, Paolo Abeni
+ <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 0/5] net: stmmac: socfpga: fix init ordering
+ and cleanups
+Message-ID: <20250416103253.629db3de@fedora.home>
+In-Reply-To: <Z_9oVrAOnInrhb6z@shell.armlinux.org.uk>
+References: <Z_6JaPBiGu_RB4xN@shell.armlinux.org.uk>
+	<20250416095343.1820272f@fedora.home>
+	<Z_9oVrAOnInrhb6z@shell.armlinux.org.uk>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2f05420b-0c6f-4336-9854-036edf8d28fa@kernel.org>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: HK3PEPF0000021F:EE_|JH0PR06MB6477:EE_
-X-MS-Office365-Filtering-Correlation-Id: e61f8f03-5e72-4eb0-3307-08dd7cc07e1d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|7416014|376014|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?RLUBMoUBVsLp3s8bYwVKB944Sa3bh4seukigCIeRISaJiVXjenXtMENFgQ2R?=
- =?us-ascii?Q?WCQxwPSg3EHYVajcPjxE4vRmvWsE5jyNyca7vClm49DoBwQE75xiVJqTaFXy?=
- =?us-ascii?Q?A+1nt8ChMVTxoQHIMQwIl65UUs9ZW1itosd+gMHqEEfUgG/hWsB/UGMvoRzo?=
- =?us-ascii?Q?/zcp+zdK4EeAZxjj9RRDNzySP9DajwsZY4kJUUMTX6xdT9fetSp8QQLeVUR4?=
- =?us-ascii?Q?3H3l08d+dRd5GB62ISSWalZg3ZriGlwDgqhu2c9DdMQC8k0Z3PSthzjq8KJD?=
- =?us-ascii?Q?v858eJJmgNJvrt8eNvaldp81li8L6XTMEs2fQV/MFI4OEw/HoybD+b2Qqbcv?=
- =?us-ascii?Q?mhOBWzwe6mS2JgFSWNFbiSY8CtPxD+/bTy81PRRgrdt3rteo6PwsTOhWRvFQ?=
- =?us-ascii?Q?zRLiwL1VV4nlg4DI2tMdiDoTIXbp2L9kq6cpDMREkV5wYAbn9RTd/MHF8iY5?=
- =?us-ascii?Q?rpKFu2GfEqZ6R6aGREOhOfYTGcyD46hPoOfcdRB+NN3ua59+Y1V8VZrZp2ke?=
- =?us-ascii?Q?i2+PXaO2CiSw/v/JF2Zi6fW9mg7B449wPBFiE3EvZc8Vy/xUWGKxSW5ik3wX?=
- =?us-ascii?Q?ZvVVk/zRzF2STE9z53Fqt18xPZs/c3v4d+AGt3b3iQl6+MdlHODlIppc3PuB?=
- =?us-ascii?Q?GFVe7V0psYJzKzfvf1Xx2fAlPMimNNAHxfxQVQqp3amnGhAJYFp//d1OEa4O?=
- =?us-ascii?Q?gT/SRI23Dx350I8l42ucpc3N2I8pedB3Vn928l2YwEInZV6pvFm7LMV5alSb?=
- =?us-ascii?Q?v6G3XLk72Mk5RSZ5/6UmkDvVfMvyYMf+Nq+NuvaMj/RXY7nfFldKbfmG1Lc1?=
- =?us-ascii?Q?/biFiUCwpc0zYyaR0PjwKJAE9FPUtJU+Hlqzg9ehv52BjQOiPJAKmTOHyUZF?=
- =?us-ascii?Q?A1nxZnZLUEYWBoe+iCqSuwAHgn9rzGcLeXA2mHxRhtsgmAzK2mdSVdVajsf5?=
- =?us-ascii?Q?Rd7+3tsIvKz+qmdqQBWxMewgzgFGdUEcRy1A4AI7nnO9tki+NgusPJT3fHmz?=
- =?us-ascii?Q?Hqz3c+bFk0pxsI2olfWcPvE9A/gcKb8+87g4uwECJHcXtImrBh0ERo8RLl9N?=
- =?us-ascii?Q?XvjCfI0nCh+YMyIV2jZGuyrlO4XtLkdw+rJTalQzSv9/zP/9y2+suPla6DaB?=
- =?us-ascii?Q?7NGinyGQ/8Y4xC7fADyFIkp/cU02nTzLzFR0yxJWqz/FKX7yAqp3p9buUnJq?=
- =?us-ascii?Q?hX0EUWSxZ9sFNmU7V4Xc1WHMzIFftZDrf5TQjN3yTZE8mljvPrBc2mLmgbL6?=
- =?us-ascii?Q?oVt5gZvKhpE38AFhupold8Z0dxNQmCbciywVI4bCEBAr6BQiDowc0ZjbH0zC?=
- =?us-ascii?Q?pj089OZQ0p8yvmR/cCwwu/zJmXgOESlNoJm6/Kwlh+rMKg3z9PIHezq2SG5t?=
- =?us-ascii?Q?cWOK/1BjGav+I0Uy5myMv+qyHEtoFFLxtSMPigMq6p62FIgsNDZkIto9GWHj?=
- =?us-ascii?Q?PZSHHFQI6WSdnOPhdK2a7FdPn1e3DlV1hSNVYJUZR1gyLyGwuantOG+RZbFE?=
- =?us-ascii?Q?pL14EP94QSJZjAwjevv2iph3yPB5lqW0mi4/?=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(7416014)(376014)(36860700013);DIR:OUT;SFP:1102;
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Apr 2025 08:27:14.5386
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e61f8f03-5e72-4eb0-3307-08dd7cc07e1d
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: HK3PEPF0000021F.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: JH0PR06MB6477
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvvdehledtucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudefpdhrtghpthhtoheplhhinhhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehhkhgrlhhlfigvihhtudesghhmrghilhdrtghomhdprhgtp
+ hhtthhopegrlhgvgigrnhgurhgvrdhtohhrghhuvgesfhhoshhsrdhsthdrtghomhdprhgtphhtthhopegrnhgurhgvfidonhgvthguvghvsehluhhnnhdrtghhpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrgh
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_012748_461310_4B29D4CD 
-X-CRM114-Status: GOOD (  10.40  )
+X-CRM114-CacheID: sfid-20250416_013301_259724_E833A03B 
+X-CRM114-Status: GOOD (  24.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,33 +86,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-04-16 08:38:55, Krzysztof Kozlowski wrote:
-> EXTERNAL EMAIL
+On Wed, 16 Apr 2025 09:20:38 +0100
+"Russell King (Oracle)" <linux@armlinux.org.uk> wrote:
+
+> On Wed, Apr 16, 2025 at 09:53:43AM +0200, Maxime Chevallier wrote:
+> > I've given this a try and unfortunately :  
 > 
-> On 16/04/2025 08:35, Krzysztof Kozlowski wrote:
-> > On 15/04/2025 09:27, Peter Chen wrote:
-> >> From: Gary Yang <gary.yang@cixtech.com>
-> >>
-> >> Add device tree bindings for the scmi clock id on
-> >> Cix sky1 platform.
-> >>
-> >> Reviewed-by: Peter Chen <peter.chen@cixtech.com>
-> >> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
-> >
-> > Incomplete SoB chain.
+> Great, someone with hardware, and who responds to patches! :)
+> 
+> > This is only to get the phymode, maybe we should do like dwmac_imx
+> > and store a pointer to plat_dat into struct dwmac_socfpga, so that we
+> > can get it back in dwmac_init ? I've tried with the patch below and it
+> > does solve the issue, but maybe you have a better approach.  
+> 
+> Yes, but I don't think we need such a big patch:
+> 
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c | 7 +++----
+>  1 file changed, 3 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
+> index 8e6d780669b9..59f90b123c5b 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
+> @@ -50,6 +50,7 @@ struct socfpga_dwmac {
+>  	u32	reg_offset;
+>  	u32	reg_shift;
+>  	struct	device *dev;
+> +	struct plat_stmmacenet_data *plat_dat;
+>  	struct regmap *sys_mgr_base_addr;
+>  	struct reset_control *stmmac_rst;
+>  	struct reset_control *stmmac_ocp_rst;
+> @@ -233,10 +234,7 @@ static int socfpga_dwmac_parse_data(struct socfpga_dwmac *dwmac, struct device *
+>  
+>  static int socfpga_get_plat_phymode(struct socfpga_dwmac *dwmac)
+>  {
+> -	struct net_device *ndev = dev_get_drvdata(dwmac->dev);
+> -	struct stmmac_priv *priv = netdev_priv(ndev);
+> -
+> -	return priv->plat->mac_interface;
+> +	return dwmac->plat_dat->mac_interface;
+>  }
+>  
+>  static void socfpga_sgmii_config(struct socfpga_dwmac *dwmac, bool enable)
+> @@ -490,6 +488,7 @@ static int socfpga_dwmac_probe(struct platform_device *pdev)
+>  	 */
+>  	dwmac->stmmac_rst = plat_dat->stmmac_rst;
+>  	dwmac->ops = ops;
+> +	dwmac->plat_dat = plat_dat;
+>  
+>  	plat_dat->bsp_priv = dwmac;
+>  	plat_dat->fix_mac_speed = socfpga_dwmac_fix_mac_speed;
+> 
 
-Sorry? What do you mean?
+Even better indeed ! I've tested it and it works.
 
-> >
-> >> ---
-> >>  include/dt-bindings/clock/sky1-clk.h | 279 +++++++++++++++++++++++++++
-> >
-> > Filename matching compatible.
+I'll be happy to test any followup :)
 
-Will change to cix,sky1.h
-
--- 
-
-Best regards,
-Peter
+Maxime
 
