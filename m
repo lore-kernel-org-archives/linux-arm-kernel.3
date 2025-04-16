@@ -4,76 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3F51C369BD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:33:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E99A3C369BD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:33:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qiJY99ai7mGDr2FC9ZGU82aOrwFyMKWX9y0r6QczlqM=; b=v1CfPTbVKWiQXTnmIPAoAWcVMq
-	eOesf8Ea6E/bsQ++Qafvj8hGccmbUeELUUhGUA5xBK0tgKUOv0rOGSFS1t3bqOZBoGozydqt+/2g4
-	+tlKj+M9Os2j6f6Bndqoshurteq9B+L10MTx/3SoaCeGy5R/dk/yAHEEpGo5k/Ac8f4FYbd+Jp50e
-	SCWyax2+I2Lj0/50/yXJCgaEuIFZl6Fzhal26Qyr9ZlJau4aCCTrdR56vnvy+HhLwV3guczKIv5wl
-	AMIsY4c3ZVrzQw2m1CxhBv/4Qk1z5HTNdk0V7q7YddUDfmV/ty8D5IiiHc0WLEqF+Uz3H87RfYjZZ
-	myu43XHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZGJOBV2NCbibTwnn6S0LQ3XdHwwjhkuTmDxeIQQsE7Q=; b=YYqdOT4QVUdiyYpEgCPi7QpEJ6
+	F3mYRUFJNDc7kwIRptzkhH+8/shlHl3zX/vgF4tSHjn77XpmARu6aDrzdE18Vm6O9OqvBsq/2OFPW
+	b4ziFMhhCswboHFZFybdFYWTa2jPq+21grM2qwpPKClKAPdv2Bb5mg4KZ960utTe7Nlc/GtS4dJIB
+	oH48DkO/KTGo/np3eteOtRIfNYXsMxt1I1U/W4RteJGU9UbNO2o84AC9ejRWKhobpDs9vAnb+1GRO
+	/Bzlwy79x7tSvQ3TKZ2B0ihYEvTXUsk+KZ2pSvj/j/j15shZtPtTSIh/5llTExYFEhlO0nuT+ls92
+	B1fksXZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u505I-00000009CqO-0Yxu;
-	Wed, 16 Apr 2025 10:33:36 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4zim-000000095VU-3Qy6
+	id 1u505L-00000009Cue-2sUO;
+	Wed, 16 Apr 2025 10:33:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u4zjt-000000095cc-1r0r
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 10:10:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
-	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
-	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=qiJY99ai7mGDr2FC9ZGU82aOrwFyMKWX9y0r6QczlqM=; b=ev55wIti9sjkf3oCexLnb5YgA9
-	R5WFBviTDjeT1r6A31bJxkwq2J1FXwdT8bKtrzAfM4VxqH5iklJwHzIr9gDt72WD8RECSkQYy1dwb
-	OnHHcSXJ6qjXAOjIYix1PyTsgxLw0eXKiKRtSyDy/jPcIcKFtEFPHJqqeAFpsc3EyULQxhek18hIK
-	Nr8Yijxe1F+TxA3GO5kOFBNH3SKhpelPQPQmCs4RFzPdhzgbt8GJRIVrZYfEV6cvg9Yh0+ZqhHCjk
-	tpz6i4XvzAoJOT/VrmWWJ5SpFFiTq+MSfw5RGcFaONxXrsgCMIANsSve0Os43g0YmH68rbZSHtTQx
-	8pwGmbfw==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:33274 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1u4zic-00011J-2A;
-	Wed, 16 Apr 2025 11:10:10 +0100
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1u4zi1-000xHh-57; Wed, 16 Apr 2025 11:09:33 +0100
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jon Hunter <jonathanh@nvidia.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Thierry Reding <treding@nvidia.com>
-Subject: [PATCH net-next] net: stmmac: dwc-qos: use PHY clock-stop capability
+	Wed, 16 Apr 2025 10:11:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3DA5D152B;
+	Wed, 16 Apr 2025 03:11:23 -0700 (PDT)
+Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 867EE3F694;
+	Wed, 16 Apr 2025 03:11:23 -0700 (PDT)
+Date: Wed, 16 Apr 2025 11:11:18 +0100
+From: Andre Przywara <andre.przywara@arm.com>
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: Chen-Yu Tsai <wens@csie.org>, Rob Herring <robh@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Samuel Holland <samuel@sholland.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>, <linux-sunxi@lists.linux.dev>,
+ <devicetree@vger.kernel.org>
+Subject: Re: [PATCH 1/1] arm64: dts: allwinner: correct the model name for
+ Radxa Cubie A5E
+Message-ID: <20250416111118.2afd8f89@donnerap.manchester.arm.com>
+In-Reply-To: <20250416100006.82920-1-amadeus@jmu.edu.cn>
+References: <20250416100006.82920-1-amadeus@jmu.edu.cn>
+Organization: ARM
+X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1u4zi1-000xHh-57@rmk-PC.armlinux.org.uk>
-Date: Wed, 16 Apr 2025 11:09:33 +0100
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_031020_863086_FC7B9F36 
-X-CRM114-Status: UNSURE (   9.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250416_031129_531751_3CE689C7 
+X-CRM114-Status: GOOD (  16.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,30 +69,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the PHY clock-stop capability when programming the MAC LPI mode,
-which allows the transmit clock to the PHY to be gated. Tested on the
-Jetson Xavier NX platform.
+On Wed, 16 Apr 2025 18:00:06 +0800
+Chukun Pan <amadeus@jmu.edu.cn> wrote:
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+> According to https://radxa.com/products/cubie/a5e,
+> the name of this board should be "Radxa Cubie A5E".
+> This is also consistent with the dt-bindings.
+> 
+> Fixes: 80e0fb4e491b ("arm64: dts: allwinner: a523: add Radxa A5E support")
+> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
-index 583b5c071cd1..fa900b4991d0 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
-@@ -252,7 +252,8 @@ static int tegra_eqos_probe(struct platform_device *pdev,
- 	plat_dat->fix_mac_speed = tegra_eqos_fix_speed;
- 	plat_dat->set_clk_tx_rate = stmmac_set_clk_tx_rate;
- 	plat_dat->bsp_priv = eqos;
--	plat_dat->flags |= STMMAC_FLAG_SPH_DISABLE;
-+	plat_dat->flags |= STMMAC_FLAG_SPH_DISABLE |
-+			   STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP;
- 
- 	return 0;
- 
--- 
-2.30.2
+Indeed, thanks for sending a patch!
+
+Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+
+Cheers,
+Andre
+
+> ---
+>  arch/arm64/boot/dts/allwinner/sun55i-a527-radxa-a5e.dts | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a527-radxa-a5e.dts b/arch/arm64/boot/dts/allwinner/sun55i-a527-radxa-a5e.dts
+> index 912e1bda974c..03c9a9ef5adc 100644
+> --- a/arch/arm64/boot/dts/allwinner/sun55i-a527-radxa-a5e.dts
+> +++ b/arch/arm64/boot/dts/allwinner/sun55i-a527-radxa-a5e.dts
+> @@ -8,7 +8,7 @@
+>  #include <dt-bindings/gpio/gpio.h>
+>  
+>  / {
+> -	model = "Radxa A5E";
+> +	model = "Radxa Cubie A5E";
+>  	compatible = "radxa,cubie-a5e", "allwinner,sun55i-a527";
+>  
+>  	aliases {
 
 
