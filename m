@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68C41C369BA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 17:18:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2E60C369C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 17:20:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4YX/d7L64JrOYUFa+mzeCbGR3vIookQHuQijJyLDH4I=; b=dzZer7z/qPyfj8a/ia6CPDpaHu
-	jBLhm4wk2sERhp5O6Py+s/esYfQ5yIDw02bCIcWvwm9oZ0vFESMm+s1+XbpUGgQJN238EyyPImTXT
-	zI5qiMU7Ld0G7cqOrFZpe/EkgtaXQixrvpYNyk1UWhvf+7mvXouygsGXHpj+HLGd/Auhj7V1u7RMu
-	EtDM+uDfeSd2Vtu7UOeP757hdV3gXrRkKFi9njWHcvrCxevNvw1qANXZmTpknGSFxXHedPO3si6FP
-	zeM36hSdvpykECr/ka5UKcVfH1GN32LfQPsZbvy9WTmicnlTJEVl0ZU443kZsplmgcqGO16X05aMJ
-	w6U0iaGw==;
+	bh=GUIinF5PIjvGewYuwt5VSX0HdZXMM/5vnVfZu8vR4T0=; b=4twvzsxCof2oy5pecy57vO3BFs
+	YLVu8V8VjbTCp/X3ZMBRe4I1eaymKq7KWxkm/9t4Yn2o3tNXZmo4B0ZbxlRm0D58+MaUQsBPlfv/h
+	Frn0zqa+xnwl8/9aGRudxG+Hpgu9dKJM+VqmOytk6ZDGmHLogqu3v+30x7kwBEFhs+xeG6ifVsZlF
+	uwE0SEHi2leViGubE4WxEHOv1X1RGfUqnanXKsd4psSb4zoqZ/GSMUKx5I4qI+rgkg4ksDy6h6DNK
+	YGSurhw0z772O9orjVn/5Zi7bV/pjnP+hQe2oKeWxMRjVi2QPdv+ZpqMRofzo33g1KiaooA/HXziz
+	C4RbfVfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u56P1-0000000AOIl-0e9p;
-	Wed, 16 Apr 2025 17:18:23 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u56Qp-0000000AOhG-3hBB;
+	Wed, 16 Apr 2025 17:20:15 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u55sh-0000000AJE6-1rFf
+	id 1u55sn-0000000AJG1-2SBW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 16:45:01 +0000
+	Wed, 16 Apr 2025 16:45:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 97C1B5C4A9C;
-	Wed, 16 Apr 2025 16:42:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EACAC4CEE2;
-	Wed, 16 Apr 2025 16:44:52 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8E153A4A3F7;
+	Wed, 16 Apr 2025 16:39:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC703C4AF0B;
+	Wed, 16 Apr 2025 16:44:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744821898;
-	bh=0r0mi/BP6F0I5TWSsjujNCjEBDZ11myDs0TAlZWLbbk=;
+	s=k20201202; t=1744821904;
+	bh=aMbylj4k052FRMtMNFmpucn2eCtk3oK7X9pyLg34jlU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=KNYJUhUXz91F1oOr8Yl/Md/UxSC2sfD7qBpC1mgnGkKbbkKfVeoiCL6YOOeXEtz8T
-	 s2RhhYPvZC7npN3ldiTPwO8UAccI74kCJr1mejeJVsfw2i6apEFf3loy5Xb6ymS2gy
-	 lkrz/vrsZt+olcvVXyF38zfZVOlgGOP9zKHU6e0of4DD4SxJG5hC/NdY5rut8AuNSk
-	 Q61bIGWiQBxC+HGVvh8sEVtXY3t11gFxwjmWRQyKGhcp4HPhp7fAfsX4lrQFr1M1RS
-	 Mws1S3bIQfcmVS6PvCs5K1q9HrWBfNkAOBcE86ujyOUoHVYHJXbMOx+XCTIciOGU5c
-	 94/5g9NU1aCVw==
+	b=L+grd4nuGvqBhfRZWu3jTChWYz9QoRaywQ6SjKI6z36om6n4Ju5SOYJ98px4bAxtd
+	 rkh5ii5gBtGN9cXF06RnXcHfQvTcBaJGNnoyF+cvULp9Qo1+EauBXC+CUdSUSd7wrS
+	 c24tnxy3EMD7HzDchoUJukafq2MVmL4KqvKd/q9PfocuwZL2dH0p1WPN8tVp0DTqq2
+	 L3RhfvFNIOMwp3BbON1Lpg5YRWkkAEDs3HMh4Bo4Tc1ezg00jrtRaqoFLujverkCU/
+	 mtDWVYCEpKmOLfpS7MzdtIb/MCnfy5tr3b38Nyg5nOmTV0b3LIAzLO/rkeuhjTjiHK
+	 KR3yPoz+wy/CQ==
 From: Philipp Stanner <phasta@kernel.org>
 To: Sunil Goutham <sgoutham@marvell.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -69,17 +69,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-parisc@vger.kernel.org
-Subject: [PATCH 5/8] net: ethernet: sis900: Use pure PCI devres API
-Date: Wed, 16 Apr 2025 18:44:05 +0200
-Message-ID: <20250416164407.127261-7-phasta@kernel.org>
+Subject: [PATCH 6/8] net: mdio: thunder: Use pure PCI devres API
+Date: Wed, 16 Apr 2025 18:44:06 +0200
+Message-ID: <20250416164407.127261-8-phasta@kernel.org>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250416164407.127261-2-phasta@kernel.org>
 References: <20250416164407.127261-2-phasta@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_094459_530869_101749CB 
-X-CRM114-Status: GOOD (  14.10  )
+X-CRM114-CacheID: sfid-20250416_094505_747931_8957EB79 
+X-CRM114-Status: GOOD (  14.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,25 +102,59 @@ pci_enable_device() or pcim_enable_device() has been called before).
 The PCI subsystem wants to remove this behavior and, therefore, needs to
 port all users to functions that don't have this problem.
 
+Furthermore, the PCI function being managed implies that it's not
+necessary to call pci_release_regions() manually.
+
+Remove the calls to pci_release_regions().
+
 Replace pci_request_regions() with pcim_request_all_regions().
 
 Signed-off-by: Philipp Stanner <phasta@kernel.org>
 ---
- drivers/net/ethernet/sis/sis900.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/net/mdio/mdio-thunder.c | 10 +++-------
+ 1 file changed, 3 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/net/ethernet/sis/sis900.c b/drivers/net/ethernet/sis/sis900.c
-index 332cbd725900..df869f82cae8 100644
---- a/drivers/net/ethernet/sis/sis900.c
-+++ b/drivers/net/ethernet/sis/sis900.c
-@@ -468,7 +468,7 @@ static int sis900_probe(struct pci_dev *pci_dev,
- 	SET_NETDEV_DEV(net_dev, &pci_dev->dev);
+diff --git a/drivers/net/mdio/mdio-thunder.c b/drivers/net/mdio/mdio-thunder.c
+index 1e1aa72b1eff..a3047f7258a7 100644
+--- a/drivers/net/mdio/mdio-thunder.c
++++ b/drivers/net/mdio/mdio-thunder.c
+@@ -40,16 +40,16 @@ static int thunder_mdiobus_pci_probe(struct pci_dev *pdev,
+ 		return err;
+ 	}
  
- 	/* We do a request_region() to register /proc/ioports info. */
--	ret = pci_request_regions(pci_dev, "sis900");
-+	ret = pcim_request_all_regions(pci_dev, "sis900");
- 	if (ret)
- 		goto err_out;
+-	err = pci_request_regions(pdev, KBUILD_MODNAME);
++	err = pcim_request_all_regions(pdev, KBUILD_MODNAME);
+ 	if (err) {
+-		dev_err(&pdev->dev, "pci_request_regions failed\n");
++		dev_err(&pdev->dev, "pcim_request_all_regions failed\n");
+ 		goto err_disable_device;
+ 	}
+ 
+ 	nexus->bar0 = pcim_iomap(pdev, 0, pci_resource_len(pdev, 0));
+ 	if (!nexus->bar0) {
+ 		err = -ENOMEM;
+-		goto err_release_regions;
++		goto err_disable_device;
+ 	}
+ 
+ 	i = 0;
+@@ -107,9 +107,6 @@ static int thunder_mdiobus_pci_probe(struct pci_dev *pdev,
+ 	}
+ 	return 0;
+ 
+-err_release_regions:
+-	pci_release_regions(pdev);
+-
+ err_disable_device:
+ 	pci_set_drvdata(pdev, NULL);
+ 	return err;
+@@ -129,7 +126,6 @@ static void thunder_mdiobus_pci_remove(struct pci_dev *pdev)
+ 		mdiobus_unregister(bus->mii_bus);
+ 		oct_mdio_writeq(0, bus->register_base + SMI_EN);
+ 	}
+-	pci_release_regions(pdev);
+ 	pci_set_drvdata(pdev, NULL);
+ }
  
 -- 
 2.48.1
