@@ -4,93 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCFAFC369BD
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD000C369C2
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:31:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D2q9mWrQ077CpWx7gvzoZmI6LLaEYOe/WRqM0y6kozc=; b=uS8gMMlTLd067bztxYSkKKrSr+
-	1t7dJrfrP4T6aHdCCnCa9FsC1Cdm+1V9ql+vmy1Fxm0PgZMUSQHyjif9Mz7CrHmhptKCfQr8KMaoT
-	rOQMFEYX2rtjKgS2ayShoH6g8sPvRn7OvzzP5QrnqajUcey245HAzx2bJb2VIE+W7QvDHAE16/qd7
-	B/yUvyb7wTiklJjk3IB+CAb4D9KPnY6PFy0kWgMpodX0h6V5USB8cbuLZTcXOrDYJNGoMHQFs/QiW
-	LETueF/gaXTRsPJPNUp55cylnCQT9Uu+yJt3KHMBLqq1dgSbObJGV/SkVNXJb2iWuRt3zpjyj5JG3
-	H4x7z7qw==;
+	bh=Sdkzts0oZ32Xc0NbM4rDY8/1yhxTMxRgzx5x42xuyqw=; b=P/n0w5DD18R11Au4S6cqKQBcvn
+	xZSUQYB8One70Al32onUNerSipwkctjBGTlRxJ30RJvWFHfneZuRyYy1TrUKZa61eci285q8ZnOfh
+	L+RalIUmCVSN0ZRviubS11OuXd5qRWtJ20RefPobLf+Wwj+4kQQYal4xltmmVn5yNB3VVyBWxn7DW
+	5KilHGdP+jM9rb+8GjwpjnsTovcWitZK/jvgSGZS4ZwTerKk7VhbiBGWncYN0JzYERFrHSThlpWZ5
+	siB69/MwmcS9IoYTLz3vwRHxpzN3r6xxM+7nudhg6Rk5Jp6h0LBYrx+DyNP1pboFzCc+iBgNjEykq
+	FZFAKtEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u503H-000000099ay-2uyx;
-	Wed, 16 Apr 2025 10:31:31 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1u503I-000000099cy-2yEo;
+	Wed, 16 Apr 2025 10:31:32 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4yZy-00000008tX1-1t6J
+	id 1u4ycY-00000008tus-3ThU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 08:57:11 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-43cfdc2c8c9so35613235e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 01:57:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744793829; x=1745398629; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=D2q9mWrQ077CpWx7gvzoZmI6LLaEYOe/WRqM0y6kozc=;
-        b=mFMX9h0NrDsapu2id7w50d2lrUjwlGhtXYq+LjGBFiNoCStL+UImVWsMWcFfvYM2yD
-         yv3a+psA8tC05h4KwMxAwtSVYRlApyHblaIymwa3VwtTgFMoXyB7DTZ+nu4/2lU4aoez
-         qaJoPVz6iu7eMvKuCSi61bkhrPygXmhiZkObYqbzqw28mw7yKtJKgsgjJTsoD7cR0kv1
-         yNx7Df17Smiy0wGdk6SIpeFbG26HguWryHEzrZt0OvHhFA3vQ+QqDl7SERiQvFFWY197
-         cO6qPZTV3pwILml2odW4/aakkhY11iyjxNTMTRp+imZpgG8ZABSN4Js/xbCks2HspCz4
-         3TYw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744793829; x=1745398629;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=D2q9mWrQ077CpWx7gvzoZmI6LLaEYOe/WRqM0y6kozc=;
-        b=RTo+qckWE5Zzw8JI9iOJlDVdeqVEzRbtOs9+qStfbPMX4MjySjuL/A2aTK+/JAryzs
-         gzMR/6PlFmFsOEffwwIn61drAT/r74G8sYAF3fT2t+WrCv2LCshqrZ1a8+fRn6u9p3Tj
-         rUvN7iyfihpPKplyn2lOpPofXP2QtgLHGPdBCv2YRlrFihKa1GaxCQ4KH8YBkvLy6fI/
-         r9B6Pig54zl7ugo0CFalBJ3lDf6XPaaM39u80nIGfY42p0VXh8Qnc4nTrfwLIwhJgedD
-         I571TaEmS0+2mHbALtT5Sc5lB7eXimfgxvJW0/tRXDdAEbQOeGntXF3VWT0+TiAyp5co
-         zpTg==
-X-Forwarded-Encrypted: i=1; AJvYcCWqWlkG+vVAs1HOvkKCRyHXfb0rUbIGOAYEgs5qLV7DYPPdn2gg7hsmJgaQbHH1dGIYs86qsl4hs/VnuyovOhnR@lists.infradead.org
-X-Gm-Message-State: AOJu0YyybSe5p7wjt98x8JTp2w+rrtK5Qfw+fF1y94VeLJYwaQbqcbdb
-	sZA7WFwzZrLTyz+eDrNDm22HGcoD+dAtPe4ANvHgviB+twxdeC7J
-X-Gm-Gg: ASbGnctQ41Fvx2E6DXTD0Mz4A9JCySO/oBLCKjxD2ZFOH91SFKtZNiQSQjheHY3iXHr
-	Pv2adBkSRaUuA2AabtevJRILQ4bpq6DMBQXlwqVMEIWzXw3pA7CMtq7pAhSJELWj1FGoj5EVy9+
-	5knj8HEAq4QtA2JFuNQOJL92rVtwrctaV0UW4PB0G/1QBQEN/OHu+DUD+0ijP+8q+ta8Gc/lbeK
-	YyQ8zQ48622wb9RDT4Y4LsIN+ZUNVDp57gZjbOA7qlRkuPq6U/PE5WpPRa0q7e3U3FkBRptcHB8
-	XJgjokatPivXBHQGSRAGZviP21ClA98My6kCmBDJsTwdn0mE0GmJZj1u6aPPRpxWIpa8OBq8UEG
-	TDZ4=
-X-Google-Smtp-Source: AGHT+IEdRu9lqhEI67GQdu6KzEDCKydS6x6IrBr2xmSqPRQe84os+UnJO/xBR4d/+hw1Eky5YD7SfQ==
-X-Received: by 2002:a05:600c:4e45:b0:43c:fceb:91a with SMTP id 5b1f17b1804b1-4405d616b5amr9104385e9.11.1744793828365;
-        Wed, 16 Apr 2025 01:57:08 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39eae9640e3sm16841706f8f.12.2025.04.16.01.57.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Apr 2025 01:57:07 -0700 (PDT)
-Date: Wed, 16 Apr 2025 09:57:06 +0100
-From: David Laight <david.laight.linux@gmail.com>
-To: Xavier <xavier_qy@163.com>
-Cc: ryan.roberts@arm.com, dev.jain@arm.com, ioworker0@gmail.com,
- 21cnbao@gmail.com, akpm@linux-foundation.org, catalin.marinas@arm.com,
- david@redhat.com, gshan@redhat.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, will@kernel.org, willy@infradead.org,
- ziy@nvidia.com
-Subject: Re: [mm/contpte v3 1/1] mm/contpte: Optimize loop to reduce
- redundant operations
-Message-ID: <20250416095706.47a8afa2@pumpkin>
-In-Reply-To: <20250415082205.2249918-2-xavier_qy@163.com>
-References: <f0e109c7-6bb2-4218-bc76-c5de39184064@arm.com>
-	<20250415082205.2249918-1-xavier_qy@163.com>
-	<20250415082205.2249918-2-xavier_qy@163.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Wed, 16 Apr 2025 08:59:52 +0000
+Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 870DA965;
+	Wed, 16 Apr 2025 10:57:44 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1744793865;
+	bh=IK9UyR16MCakiskdgLYvgLg+KiigxiyDPwyZXHoB2FA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=vatXZo60UrHedGeP6O9FWVxOQTiJDS6lAZMxI+nX/m/FwwmBdX30c4RD18ZKfL9eq
+	 qFK9BB8+D9D0x5If8AOC2EzAQQAKtp4vuA6cxsIbJBgZ5bDNfcUtqw1Q9AwgYNHqcj
+	 881aElHAa32eokWKJPUOX5p3ybFQ5tuBnK3S8I0U=
+Message-ID: <73bd6628-374d-417f-a30f-88a4b1d157bb@ideasonboard.com>
+Date: Wed, 16 Apr 2025 11:59:43 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 03/11] drm/fourcc: Add DRM_FORMAT_Y8
+To: Pekka Paalanen <pekka.paalanen@haloniitty.fi>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
+ Vishal Sagar <vishal.sagar@amd.com>,
+ Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Michal Simek <michal.simek@amd.com>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+References: <20250326-xilinx-formats-v4-0-322a300c6d72@ideasonboard.com>
+ <20250326-xilinx-formats-v4-3-322a300c6d72@ideasonboard.com>
+ <CAMuHMdXM1B1c=62EpcuUdpdpaBRZSJLXb1GBB0egzp7Fyeo5-w@mail.gmail.com>
+ <b195971c-52e6-463e-a440-83dde4346e65@ideasonboard.com>
+ <20250327112009.6b4dc430@eldfell>
+ <b5cf15a4-7c65-4718-9c39-a4c86179ba4c@ideasonboard.com>
+ <20250327175842.130c0386@eldfell>
+ <CAMuHMdVEpTVWmwrYt+G-QSWucT91goUcFor9qbo5rZ+X2jnRog@mail.gmail.com>
+ <20250331105446.098f0fbe@eldfell>
+ <20250331082135.GB13690@pendragon.ideasonboard.com>
+ <20250331135337.61934003@eldfell> <20250401162732.731ef774@eldfell>
+Content-Language: en-US
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
+ xsFNBE6ms0cBEACyizowecZqXfMZtnBniOieTuFdErHAUyxVgtmr0f5ZfIi9Z4l+uUN4Zdw2
+ wCEZjx3o0Z34diXBaMRJ3rAk9yB90UJAnLtb8A97Oq64DskLF81GCYB2P1i0qrG7UjpASgCA
+ Ru0lVvxsWyIwSfoYoLrazbT1wkWRs8YBkkXQFfL7Mn3ZMoGPcpfwYH9O7bV1NslbmyJzRCMO
+ eYV258gjCcwYlrkyIratlHCek4GrwV8Z9NQcjD5iLzrONjfafrWPwj6yn2RlL0mQEwt1lOvn
+ LnI7QRtB3zxA3yB+FLsT1hx0va6xCHpX3QO2gBsyHCyVafFMrg3c/7IIWkDLngJxFgz6DLiA
+ G4ld1QK/jsYqfP2GIMH1mFdjY+iagG4DqOsjip479HCWAptpNxSOCL6z3qxCU8MCz8iNOtZk
+ DYXQWVscM5qgYSn+fmMM2qN+eoWlnCGVURZZLDjg387S2E1jT/dNTOsM/IqQj+ZROUZuRcF7
+ 0RTtuU5q1HnbRNwy+23xeoSGuwmLQ2UsUk7Q5CnrjYfiPo3wHze8avK95JBoSd+WIRmV3uoO
+ rXCoYOIRlDhg9XJTrbnQ3Ot5zOa0Y9c4IpyAlut6mDtxtKXr4+8OzjSVFww7tIwadTK3wDQv
+ Bus4jxHjS6dz1g2ypT65qnHen6mUUH63lhzewqO9peAHJ0SLrQARAQABzTBUb21pIFZhbGtl
+ aW5lbiA8dG9taS52YWxrZWluZW5AaWRlYXNvbmJvYXJkLmNvbT7CwY4EEwEIADgWIQTEOAw+
+ ll79gQef86f6PaqMvJYe9QUCX/HruAIbAwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgAAKCRD6
+ PaqMvJYe9WmFD/99NGoD5lBJhlFDHMZvO+Op8vCwnIRZdTsyrtGl72rVh9xRfcSgYPZUvBuT
+ VDxE53mY9HaZyu1eGMccYRBaTLJSfCXl/g317CrMNdY0k40b9YeIX10feiRYEWoDIPQ3tMmA
+ 0nHDygzcnuPiPT68JYZ6tUOvAt7r6OX/litM+m2/E9mtp8xCoWOo/kYO4mOAIoMNvLB8vufi
+ uBB4e/AvAjtny4ScuNV5c5q8MkfNIiOyag9QCiQ/JfoAqzXRjVb4VZG72AKaElwipiKCWEcU
+ R4+Bu5Qbaxj7Cd36M/bI54OrbWWETJkVVSV1i0tghCd6HHyquTdFl7wYcz6cL1hn/6byVnD+
+ sR3BLvSBHYp8WSwv0TCuf6tLiNgHAO1hWiQ1pOoXyMEsxZlgPXT+wb4dbNVunckwqFjGxRbl
+ Rz7apFT/ZRwbazEzEzNyrBOfB55xdipG/2+SmFn0oMFqFOBEszXLQVslh64lI0CMJm2OYYe3
+ PxHqYaztyeXsx13Bfnq9+bUynAQ4uW1P5DJ3OIRZWKmbQd/Me3Fq6TU57LsvwRgE0Le9PFQs
+ dcP2071rMTpqTUteEgODJS4VDf4lXJfY91u32BJkiqM7/62Cqatcz5UWWHq5xeF03MIUTqdE
+ qHWk3RJEoWHWQRzQfcx6Fn2fDAUKhAddvoopfcjAHfpAWJ+ENc7BTQROprNHARAAx0aat8GU
+ hsusCLc4MIxOQwidecCTRc9Dz/7U2goUwhw2O5j9TPqLtp57VITmHILnvZf6q3QAho2QMQyE
+ DDvHubrdtEoqaaSKxKkFie1uhWNNvXPhwkKLYieyL9m2JdU+b88HaDnpzdyTTR4uH7wk0bBa
+ KbTSgIFDDe5lXInypewPO30TmYNkFSexnnM3n1PBCqiJXsJahE4ZQ+WnV5FbPUj8T2zXS2xk
+ 0LZ0+DwKmZ0ZDovvdEWRWrz3UzJ8DLHb7blPpGhmqj3ANXQXC7mb9qJ6J/VSl61GbxIO2Dwb
+ xPNkHk8fwnxlUBCOyBti/uD2uSTgKHNdabhVm2dgFNVuS1y3bBHbI/qjC3J7rWE0WiaHWEqy
+ UVPk8rsph4rqITsj2RiY70vEW0SKePrChvET7D8P1UPqmveBNNtSS7In+DdZ5kUqLV7rJnM9
+ /4cwy+uZUt8cuCZlcA5u8IsBCNJudxEqBG10GHg1B6h1RZIz9Q9XfiBdaqa5+CjyFs8ua01c
+ 9HmyfkuhXG2OLjfQuK+Ygd56mV3lq0aFdwbaX16DG22c6flkkBSjyWXYepFtHz9KsBS0DaZb
+ 4IkLmZwEXpZcIOQjQ71fqlpiXkXSIaQ6YMEs8WjBbpP81h7QxWIfWtp+VnwNGc6nq5IQDESH
+ mvQcsFS7d3eGVI6eyjCFdcAO8eMAEQEAAcLBXwQYAQIACQUCTqazRwIbDAAKCRD6PaqMvJYe
+ 9fA7EACS6exUedsBKmt4pT7nqXBcRsqm6YzT6DeCM8PWMTeaVGHiR4TnNFiT3otD5UpYQI7S
+ suYxoTdHrrrBzdlKe5rUWpzoZkVK6p0s9OIvGzLT0lrb0HC9iNDWT3JgpYDnk4Z2mFi6tTbq
+ xKMtpVFRA6FjviGDRsfkfoURZI51nf2RSAk/A8BEDDZ7lgJHskYoklSpwyrXhkp9FHGMaYII
+ m9EKuUTX9JPDG2FTthCBrdsgWYPdJQvM+zscq09vFMQ9Fykbx5N8z/oFEUy3ACyPqW2oyfvU
+ CH5WDpWBG0s5BALp1gBJPytIAd/pY/5ZdNoi0Cx3+Z7jaBFEyYJdWy1hGddpkgnMjyOfLI7B
+ CFrdecTZbR5upjNSDvQ7RG85SnpYJTIin+SAUazAeA2nS6gTZzumgtdw8XmVXZwdBfF+ICof
+ 92UkbYcYNbzWO/GHgsNT1WnM4sa9lwCSWH8Fw1o/3bX1VVPEsnESOfxkNdu+gAF5S6+I6n3a
+ ueeIlwJl5CpT5l8RpoZXEOVtXYn8zzOJ7oGZYINRV9Pf8qKGLf3Dft7zKBP832I3PQjeok7F
+ yjt+9S+KgSFSHP3Pa4E7lsSdWhSlHYNdG/czhoUkSCN09C0rEK93wxACx3vtxPLjXu6RptBw
+ 3dRq7n+mQChEB1am0BueV1JZaBboIL0AGlSJkm23kw==
+In-Reply-To: <20250401162732.731ef774@eldfell>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_015710_492394_3B4FADF5 
-X-CRM114-Status: GOOD (  19.29  )
+X-CRM114-CacheID: sfid-20250416_015951_019688_D3A5BCF7 
+X-CRM114-Status: GOOD (  24.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,73 +129,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 15 Apr 2025 16:22:05 +0800
-Xavier <xavier_qy@163.com> wrote:
+Hi,
 
-> This commit optimizes the contpte_ptep_get function by adding early
->  termination logic. It checks if the dirty and young bits of orig_pte
->  are already set and skips redundant bit-setting operations during
->  the loop. This reduces unnecessary iterations and improves performance.
-
-Benchmarks?
-
-As has been pointed out before CONT_PTES is small and IIRC dirty+young
-is unusual.
-
+On 01/04/2025 16:27, Pekka Paalanen wrote:
+> On Mon, 31 Mar 2025 13:53:37 +0300
+> Pekka Paalanen <pekka.paalanen@haloniitty.fi> wrote:
 > 
-> Signed-off-by: Xavier <xavier_qy@163.com>
-> ---
->  arch/arm64/mm/contpte.c | 20 ++++++++++++++++++--
->  1 file changed, 18 insertions(+), 2 deletions(-)
+>> On Mon, 31 Mar 2025 11:21:35 +0300
+>> Laurent Pinchart <laurent.pinchart@ideasonboard.com> wrote:
+>>
+>>> On Mon, Mar 31, 2025 at 10:54:46AM +0300, Pekka Paalanen wrote:
+>>>> On Thu, 27 Mar 2025 17:35:39 +0100
+>>>> Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+>>>>      
+>>>>> Hi Pekka,
+>>>>>
+>>>>> On Thu, 27 Mar 2025 at 16:59, Pekka Paalanen
+>>>>> <pekka.paalanen@haloniitty.fi> wrote:
+>>>>>> On Thu, 27 Mar 2025 16:21:16 +0200
+>>>>>> Tomi Valkeinen <tomi.valkeinen@ideasonboard.com> wrote:
+>>>>>>> On 27/03/2025 11:20, Pekka Paalanen wrote:
+>>>>>>>> On Wed, 26 Mar 2025 15:55:18 +0200
+>>>>>>>> Tomi Valkeinen <tomi.valkeinen@ideasonboard.com> wrote:
+>>>>>>>>> On 26/03/2025 15:52, Geert Uytterhoeven wrote:
+>>>>>>>>>> On Wed, 26 Mar 2025 at 14:23, Tomi Valkeinen
+>>>>>>>>>> <tomi.valkeinen@ideasonboard.com> wrote:
+>>>>>>>>>>> Add greyscale Y8 format.
+>>>>>>>>>>>
+>>>>>>>>>>> Acked-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+>>>>>>>>>>> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+>>>>>>>>>>
+>>>>>>>>>> Thanks for your patch!
+>>>>>>>>>>       
+>>>>>>>>>>> --- a/include/uapi/drm/drm_fourcc.h
+>>>>>>>>>>> +++ b/include/uapi/drm/drm_fourcc.h
+>>>>>>>>>>> @@ -405,6 +405,9 @@ extern "C" {
+>>>>>>>>>>>     #define DRM_FORMAT_YUV444      fourcc_code('Y', 'U', '2', '4') /* non-subsampled Cb (1) and Cr (2) planes */
+>>>>>>>>>>>     #define DRM_FORMAT_YVU444      fourcc_code('Y', 'V', '2', '4') /* non-subsampled Cr (1) and Cb (2) planes */
+>>>>>>>>>>>
+>>>>>>>>>>> +/* Greyscale formats */
+>>>>>>>>>>> +
+>>>>>>>>>>> +#define DRM_FORMAT_Y8          fourcc_code('G', 'R', 'E', 'Y')  /* 8-bit Y-only */
+>>>>>>>>>>
+>>>>>>>>>> This format differs from e.g. DRM_FORMAT_R8, which encodes
+>>>>>>>>>> the number of bits in the FOURCC format. What do you envision
+>>>>>>>>>> for e.g. DRM_FORMAT_Y16? fourcc_code('G', 'R', '1', '6')?
+>>>>>>>>>
+>>>>>>>>> I wanted to use the same fourcc as on V4L2 side. Strictly speaking it's
+>>>>>>>>> not required, but different fourccs for the same formats do confuse.
+>>>>>>>>>
+>>>>>>>>> So, generally speaking, I'd pick an existing fourcc from v4l2 side if
+>>>>>>>>> possible, and if not, invent a new one.
+>>>>>>>>
+>>>>>>>> what's the actual difference between DRM_FORMAT_R8 and DRM_FORMAT_Y8?
+>>>>>>>>
+>>>>>>>> Is the difference that when R8 gets expanded to RGB, it becomes (R, 0,
+>>>>>>>> 0), but Y8 gets expanded to (c1 * Y, c2 * Y, c3 * Y) where c1..c3 are
+>>>>>>>> defined by MatrixCoefficients (H.273 terminology)?
+>>>>>>>>
+>>>>>>>> That would be my intuitive assumption following how YCbCr is handled.
+>>>>>>>> Is it obvious enough, or should there be a comment to that effect?
+>>>>>>>
+>>>>>>> You raise an interesting point. Is it defined how a display driver, that
+>>>>>>> supports R8 as a format, shows R8 on screen? I came into this in the
+>>>>>>> context of grayscale formats, so I thought R8 would be handled as (R, R,
+>>>>>>> R) in RGB. But you say (R, 0, 0), which... also makes sense.
+>>>>>>
+>>>>>> That is a good question too. I based my assumption on OpenGL behavior
+>>>>>> of R8.
+>>>>>>
+>>>>>> Single channel displays do exist I believe, but being single-channel,
+>>>>>> expansion on the other channels is likely meaningless. Hm, but for the
+>>>>>> KMS color pipeline, it would be meaningful, like with a CTM.
+>>>>>> Interesting.
+>>>>>>
+>>>>>> I don't know. Maybe Geert does?
+>>>>>
+>>>>> I did some digging, and was a bit surprised that it was you who told
+>>>>> me to use R8 instead of Y8?
+>>>>> https://lore.kernel.org/all/20220202111954.6ee9a10c@eldfell
+>>>>
+>>>> Hi Geert,
+>>>>
+>>>> indeed I did. I never thought of the question of expansion to R,G,B
+>>>> before. Maybe that expansion is what spells R8 and Y8 apart?
+>>>>
+>>>> I do think that expansion needs to be specified, so that the KMS color
+>>>> pipeline computations are defined. There is a big difference between
+>>>> multiplying these with an arbitrary 3x3 matrix (e.g. CTM):
+>>>>
+>>>> - (R, 0, 0)
+>>>> - (R, R, R)
+>>>> - (c1 * Y, c2 * Y, c3 * Y)
+>>>
+>>> I'd be very surprised by an YUV to RGB conversion matrix where the first
+>>> column would contain different values. What we need to take into account
+>>> though is quantization (full vs. limited range).
 > 
-> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
-> index bcac4f55f9c1..0acfee604947 100644
-> --- a/arch/arm64/mm/contpte.c
-> +++ b/arch/arm64/mm/contpte.c
-> @@ -152,6 +152,16 @@ void __contpte_try_unfold(struct mm_struct *mm, unsigned long addr,
->  }
->  EXPORT_SYMBOL_GPL(__contpte_try_unfold);
->  
-> +/* Note: in order to improve efficiency, using this macro will modify the
-> + * passed-in parameters.*/
+> Quantization range is indeed good to note. R8 would be always full
+> range, but Y8 would follow COLOR_RANGE property.
+> 
+>> That makes Y8 produce (Y, Y, Y), and we have our answer: R8 should be
+>> (R, 0, 0), so we have both variants.
+>>
+>> Can we specify Y, R, G and B be nominal values in the range 0.0 - 1.0
+>> in the KMS color processing?
+> 
+> I think this 0.0 - 1.0 nominal range definition for the abstract KMS
+> color processing is necessary.
+> 
+> It also means that limited range Y8 data, when containing values 0-15
+> or 240-255, would produce negative and greater than 1.0 values,
+> respectively. They might get immediately clamped to 0.0 - 1.0 with the
+> first color operation they face, though, but the concept seems
+> important and carrying over to the new color pipelines UAPI which might
+> choose not to clamp.
 
-... this macro modifies ...
+Is the behavior of values outside the limited range something that needs 
+to be defined? We can't know how each piece of HW behaves with 
+"undefined" input, so should we not just define the behavior as platform 
+specific?
 
-But you can make it obvious my passing by reference.
-The compiler will generate the same code.
+In any case: I can't say I fully understood all the discussions wrt. 
+color spaces. But my immediate interest is, of course, this series =). 
+So is there something that you think should be improved here?
 
-	David
+My understanding is that the Y-only pixel formats behave in a well 
+defined way (or, as well defined as the YUV formats), and there's 
+nothing more to add here. Is that right?
 
-> +#define CHECK_CONTPTE_FLAG(start, ptep, orig_pte, flag) \
-> +    for (; (start) < CONT_PTES; (start)++, (ptep)++) { \
-> +		if (pte_##flag(__ptep_get(ptep))) { \
-> +				orig_pte = pte_mk##flag(orig_pte); \
-> +				break; \
-> +		} \
-> +    }
-> +
->  pte_t contpte_ptep_get(pte_t *ptep, pte_t orig_pte)
->  {
->  	/*
-> @@ -169,11 +179,17 @@ pte_t contpte_ptep_get(pte_t *ptep, pte_t orig_pte)
->  	for (i = 0; i < CONT_PTES; i++, ptep++) {
->  		pte = __ptep_get(ptep);
->  
-> -		if (pte_dirty(pte))
-> +		if (pte_dirty(pte)) {
->  			orig_pte = pte_mkdirty(orig_pte);
-> +			CHECK_CONTPTE_FLAG(i, ptep, orig_pte, young);
-> +			break;
-> +		}
->  
-> -		if (pte_young(pte))
-> +		if (pte_young(pte)) {
->  			orig_pte = pte_mkyoung(orig_pte);
-> +			CHECK_CONTPTE_FLAG(i, ptep, orig_pte, dirty);
-> +			break;
-> +		}
->  	}
->  
->  	return orig_pte;
+  Tomi
 
 
