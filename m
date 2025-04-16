@@ -4,119 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 118EAC369BA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 16:54:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0512C369BA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 16:55:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ODYn6AqMABErS0MGZHJyExJA6uxCB640fUmnvTdsDC0=; b=XdXH9LHrg45cso2txPY4Z3WWK/
-	qJ+hBRRrsbr8L3t+pcIOQ1r38GaBQ6dj2UOLQ0LGoXxqtdUcIDawasgWrnWYcQ3bnw8Kj1MAoAFFn
-	BvwkSzTClZ6lEKHHC3wa5m/DAEi1+XIqnYYV8H7lKeNhrFcNVqnz9hgWcpEu98kJDyi4buj9bXLfn
-	oz3dLghFiLYFJfRKRJ52/f9cnEtunU0IqXmric16UVKJXFvCAWPDAItB3RHlUU0IARhjnlSSS5wkC
-	0c953537qTDeAthH3eR9daIBeFMHiBpnwwrT8C3RfLNQ/hFL4T2ku6+j8tbrVMwZqmwD+y4zmCyvt
-	rAZiJI2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6gIfY2O9SRNMsf8TpU0oXNbXomtsGMw4EUG+PlvfsPM=; b=Hu/OriY1s2ZSClMPFCCoCHQQ2b
+	wiHuXmpZCDRoV//KGCKGWOpnn/NDMBQkkc/Uenh30vw7L4laAswKNuY1v095XzfbaE36ZCqYStQIG
+	MoOMa3VcGPmRIfmnYRWT4AJuRmOtPEI0LPaenDwOv0SKzS2BpcSPgUChkKIe7rBcRKxkIXX9qI/gn
+	S7X+4AM8Z4NllFfKRMv9CErWFJGkdK+evPh+BojuVDetQop7MGYZ8wuwrHsZ/Q2lSekr21PMoZhKs
+	/jpv/xoIsou4XrOw3rZhQ45lpj0CLR2BkvslnVb2dKnTiWayWgVWmFQeCn6vtZFeBfTBU1HH5e2Ot
+	fFrL6Pbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u561K-0000000AKc3-3VCn;
-	Wed, 16 Apr 2025 16:53:54 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1u5639-0000000AKos-2Yb6;
+	Wed, 16 Apr 2025 16:55:47 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u55KA-0000000ABwg-2SUt
+	id 1u55KP-0000000AC0w-2XO4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 16:09:20 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53G9mC4p021307
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 16:09:16 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	ODYn6AqMABErS0MGZHJyExJA6uxCB640fUmnvTdsDC0=; b=AmzkTcl3OozdoeXI
-	QOXa/7IT9EFhYmScZ021lQK85PBqhd/1vF8wBbc/9HjrE1131NbqkhogJz5pWlce
-	T4PoC4Wvfj/9JUB/KBOVG1CYWgl34wZOo1J4qIEJlME9TiUuzZz0F3lcDvAJR3X+
-	5Zf9uCwfTBXVamSw9o6zEnV3uibaPIaF1nPaJ1lP79yQRNUUHcxmcKJX3kItSKvo
-	sBxrhH0+QAW3OhNCw83pBVU/A5HFGu+SfGJRTledNqAQUWCP/VhKMXVeLnsBR+v5
-	B1OUXkFys97L5RMOsRgWvyfNgFPNeONuCNVzs2z4m2/w8CSZFEOouSVyUxDCEKFA
-	iQj6lg==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45ygj9c2dt-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 16:09:16 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-7c552802e9fso168774585a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 09:09:16 -0700 (PDT)
+	Wed, 16 Apr 2025 16:09:36 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43cf034d4abso75799995e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 09:09:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1744819771; x=1745424571; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=6gIfY2O9SRNMsf8TpU0oXNbXomtsGMw4EUG+PlvfsPM=;
+        b=uBD6ej2fym4DHnoAmf4Ts1sUn4ZOJxNk3TTCsegicwdsg+Tz7HfCFl9fHGX+eYWz7n
+         SAGDR9pghy7XabsnNJqMDueLWmVmsLq/I/wkNZnVWLHitkf6aoagmGhmQDy89iJwHLja
+         OxZP2N6Bim/i48MmYBwtlCOZ/PwZOl7IOlo7Rii1BYPPs00O9MCbU9c3DMGwSGLe8lD9
+         GKw9CMkOwdgyWDLz7Pp67VcIOiOA7Rt8B2ckMPP4A5Rafx42GwFqUzW2ZCa0ZBMyloQH
+         59CwKzg0kGwy9j44jOeqi3jJu1icY095G0oxldfRbWR7nTfuLs28H2VgvrQKvIMGwWHU
+         /q1w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744819756; x=1745424556;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ODYn6AqMABErS0MGZHJyExJA6uxCB640fUmnvTdsDC0=;
-        b=UoY6/YXFFFnykKUIILfV0ejxl2WQIa0kNBkPpVGJIR1ENsYep83KKL5RdArKMWyJEz
-         4tP4r+u8tdkZdRiyc4NJh5lLfjbhkJiIS8c1K8kYfS9qjfJG+0QvrxILpQ6pGdKFKU6s
-         4bQxQJw1nKezrbmZE4rz43nFM1PYMT86Op0RMaI/6LqMCU0jcQ0F6TmOc3HA/g9osfxR
-         dsc5No1Wyh4eVLUw5t1t6FpUKhe9ZM76AvNhoRT8A6Tms0R3VgdjDa7BjDK0HM7Fu41b
-         qBp/GJSytEG1YLDXQQL5LziDLesci2ZBk6Rz/NatM0Gge3TZNFjS/XGZFmafrNZw134v
-         DSKw==
-X-Gm-Message-State: AOJu0YyZyXP3LYFUFQ+SXfRMZ91a+EOqci5qcVsWGSsV8tnG7bN54RrQ
-	A/nZQ1Fh0QWounjNphHkKiL20+lfTxV23ZaH1vswEKD05EMDqCiLt+rtOfqOANu+7D/vqycCHOu
-	2jZNpMwPdTTjD/bqWEguGpqsN8WJxx0A5Czk6hxgjVBgcJtpkdU5qQ2lDG6Gp/ztpreIUBuYsHA
-	==
-X-Gm-Gg: ASbGnctUjKLuq4keAraJiXgz+x+NJr1TIyqGyYntpQHDhZgMZ70tHril8/K+DByxqEh
-	TtDmtXRQbW3YdjYAJn4AuwTatMM4bNQ2efdhIxjkmvks8DcG88voS///iKxlEpmnCE/CqzPJhTk
-	Z0vbhv2wkEYIhEctD75P0saeXvAowRbLF3asv6cR8bydojR66PdMiS7g19Rk9ZLqcnO2BANJvAy
-	UGJfy95O8xHFVdig9UXNwgBcBm732oAIH7TUazvPQWM0lxqXI3suw06T5P+Os80UPJYrmnWTYKT
-	+DNJhvawCyql73vsB5QldLSYEmJFxyDhM0Vr2Ztho/X8CqBj8jUsZCXVW9Mu6izWWto=
-X-Received: by 2002:a05:6214:e6d:b0:6e8:fef8:8b06 with SMTP id 6a1803df08f44-6f2b949f763mr1424076d6.2.1744819755816;
-        Wed, 16 Apr 2025 09:09:15 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHqTEn4ZwnP85Wl9OFLZVFMob3CDIEgC8OxR/srPtQNfxgXZMTXzLdDo2GRaFTa3vUSJvc1xg==
-X-Received: by 2002:a05:6214:e6d:b0:6e8:fef8:8b06 with SMTP id 6a1803df08f44-6f2b949f763mr1423916d6.2.1744819755308;
-        Wed, 16 Apr 2025 09:09:15 -0700 (PDT)
-Received: from [192.168.65.178] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-acb3d127970sm153280866b.113.2025.04.16.09.09.13
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 16 Apr 2025 09:09:14 -0700 (PDT)
-Message-ID: <b6c941d3-85d4-45e8-ae69-9d9e4dab8440@oss.qualcomm.com>
-Date: Wed, 16 Apr 2025 18:09:12 +0200
+        d=1e100.net; s=20230601; t=1744819771; x=1745424571;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6gIfY2O9SRNMsf8TpU0oXNbXomtsGMw4EUG+PlvfsPM=;
+        b=u3kyc+QjWeuxcm6+H7QN63lrseleP7Rc/tov3utjtjNChi5M61/wP878hY/lAmuxRG
+         YcxjpeXQoq0Xctee3aZQg+/noFPBHp7e2IiVZgHTEpNOnL4UTCwlQtqqa0cFS4949/Ds
+         2es2q6etKfmsO3CLpukxvau6/jD2Dop0/cwqrqXuKWmCWYuX/e/nler6ef4uIh98nFCx
+         YEWSKRBUKxGT3ruzwNuCcqtaFSEmxdTSqGfNJsafW8cfcDebFevzYt1M4l6SKAOEMq4+
+         /KepNHt1oKKypz5EAx3TEufKxD0LxaJZO7JEe0hl5w4jotjZU6IXqYjMxHrbCIAhSRoW
+         3ktQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUkU/9s+AxaofVEdphoLY4GoDNcZ7bjzx2fK0rgJGv7nvJb8ZJLCjP8To/iT8v5ZvgTmRl3MUi65yAOIwvg7rPo@lists.infradead.org
+X-Gm-Message-State: AOJu0YwAJ7/Jm4auinygY7LqfNAOgCKODqjirt8zyak7PkBWv3BdeoZ8
+	GPF/D+K9WGnrDWdAou8kyDh3vhn8Juy0CiSrtJQf58NJpprV6qi1f7uK3tReY5g=
+X-Gm-Gg: ASbGncvrLc/OMtRvSbpfRqgH6185uXcddXp3q6iWZUBw6mPx3K98OQg6wfThZenzAl3
+	3qAw+dk5VR4MSwWEAajufWgHTmiz6qtestzcdstth0oWksBNGLITkXBzwBj+jd9rnx7BnhYGFov
+	xiMFZND3V62z86iKj6AxGbylvpgsNNBeLD0GHN/7oZhkUnI+XjdSpeFWJSsCC2MfGS/8K/pOeX2
+	WuAttPOl2BYIBY/FbjxSsjRxoQzUpp6Vfu8XH/yS2M7a2JgFb2eJualZxApcwXdsM+DXemnjzU2
+	kEo3W0s/L2r4ujXumi+QpX45InyYzL3UPYspF2mcX0G+LMVLgxp1dFEugUARG90kKbS0cB/6zxH
+	MULT6q2w=
+X-Google-Smtp-Source: AGHT+IF3ZHpE7zJB9IQ2y8x59SUdSUcwVopqWk1Zp0WNiDguj5I7CqqTziJa38Gb4iY+V+RufRzqeg==
+X-Received: by 2002:a05:600c:3ecb:b0:43c:fa24:873e with SMTP id 5b1f17b1804b1-4405d625054mr30574145e9.13.1744819771461;
+        Wed, 16 Apr 2025 09:09:31 -0700 (PDT)
+Received: from localhost (p200300f65f13aa0400000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f13:aa04::1b9])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4405b4f3df8sm25248205e9.24.2025.04.16.09.09.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 16 Apr 2025 09:09:30 -0700 (PDT)
+Date: Wed, 16 Apr 2025 18:09:29 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Sean Wang <sean.wang@kernel.org>, 
+	Linus Walleij <linus.walleij@linaro.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Hao Chang <ot_chhao.chang@mediatek.com>, Qingliang Li <qingliang.li@mediatek.com>
+Subject: Re: [PATCH] pinctrl: mediatek: common-v1: Fix EINT breakage on older
+ controllers
+Message-ID: <n3pyida4e4qhzzeyp4rpswiwiomgumgqeci7lwuimr6r4m5mxy@5s3w2ab3p75p>
+References: <20250415112339.2385454-1-wenst@chromium.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 2/2] arm64: dts: qcom: sa8775p: Add support for camss
-To: Vikram Sharma <quic_vikramsa@quicinc.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, rfoss@kernel.org,
-        todor.too@gmail.com, bryan.odonoghue@linaro.org, mchehab@kernel.org,
-        robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-        andersson@kernel.org, konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
-        cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com,
-        will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org,
-        Suresh Vankadara <quic_svankada@quicinc.com>
-References: <20250210155605.575367-1-quic_vikramsa@quicinc.com>
- <20250210155605.575367-3-quic_vikramsa@quicinc.com>
- <6e98b5ca-3ff1-44c3-928f-e993cf29215f@oss.qualcomm.com>
- <ee4d08b0-f291-4018-bda3-96dfbc7a07ff@quicinc.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <ee4d08b0-f291-4018-bda3-96dfbc7a07ff@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: gXLtVslzrF4N-NfyatDby2eUPcF_3WOF
-X-Authority-Analysis: v=2.4 cv=PruTbxM3 c=1 sm=1 tr=0 ts=67ffd62c cx=c_pps a=50t2pK5VMbmlHzFWWp8p/g==:117 a=FpWmc02/iXfjRdCD7H54yg==:17 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=eWPriOLmkRKYu5JWBSMA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=IoWCM6iH3mJn3m4BftBB:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: gXLtVslzrF4N-NfyatDby2eUPcF_3WOF
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-16_06,2025-04-15_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 bulkscore=0
- priorityscore=1501 malwarescore=0 adultscore=0 lowpriorityscore=0
- impostorscore=0 clxscore=1015 spamscore=0 mlxscore=0 mlxlogscore=991
- phishscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2504160132
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ed2ffzrhvzkyt6i3"
+Content-Disposition: inline
+In-Reply-To: <20250415112339.2385454-1-wenst@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_090918_746507_CEB9D5D5 
-X-CRM114-Status: GOOD (  14.90  )
+X-CRM114-CacheID: sfid-20250416_090933_921981_C526A84B 
+X-CRM114-Status: GOOD (  15.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,51 +102,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/16/25 5:29 PM, Vikram Sharma wrote:
-> 
-> On 4/14/2025 7:14 PM, Konrad Dybcio wrote:
->> On 2/10/25 4:56 PM, Vikram Sharma wrote:
->>> Add changes to support the camera subsystem on the SA8775P.
->>>
->>> Co-developed-by: Suresh Vankadara<quic_svankada@quicinc.com>
->>> Signed-off-by: Suresh Vankadara<quic_svankada@quicinc.com>
->>> Signed-off-by: Vikram Sharma<quic_vikramsa@quicinc.com>
->>> ---
->>>   arch/arm64/boot/dts/qcom/sa8775p.dtsi | 187 ++++++++++++++++++++++++++
->>>   1 file changed, 187 insertions(+)
->>>
->>> diff --git a/arch/arm64/boot/dts/qcom/sa8775p.dtsi b/arch/arm64/boot/dts/qcom/sa8775p.dtsi
->>> index 3394ae2d1300..83640fef05d2 100644
->>> --- a/arch/arm64/boot/dts/qcom/sa8775p.dtsi
->>> +++ b/arch/arm64/boot/dts/qcom/sa8775p.dtsi
->>> @@ -7,6 +7,7 @@
->>>   #include <dt-bindings/interconnect/qcom,icc.h>
->>>   #include <dt-bindings/interrupt-controller/arm-gic.h>
->>>   #include <dt-bindings/clock/qcom,rpmh.h>
->>> +#include <dt-bindings/clock/qcom,sa8775p-camcc.h>
->>>   #include <dt-bindings/clock/qcom,sa8775p-dispcc.h>
->>>   #include <dt-bindings/clock/qcom,sa8775p-gcc.h>
->>>   #include <dt-bindings/clock/qcom,sa8775p-gpucc.h>
->>> @@ -3796,6 +3797,192 @@ videocc: clock-controller@abf0000 {
->>>               #power-domain-cells = <1>;
->>>           };
->>>   +        camss: isp@ac7a000 {
->>> +            compatible = "qcom,sa8775p-camss";
->>> +
->>> +            reg = <0x0 0xac7a000 0x0 0x0f01>,
->>> +                  <0x0 0xac7c000 0x0 0x0f01>,
->>> +                  <0x0 0xac84000 0x0 0x0f01>,
->>> +                  <0x0 0xac88000 0x0 0x0f01>,
->>> +                  <0x0 0xac8c000 0x0 0x0f01>,
->>> +                  <0x0 0xac90000 0x0 0x0f01>,
->>> +                  <0x0 0xac94000 0x0 0x0f01>,
->> These I think should begin 0x1000 earlier and as a result be 0x1000
-> Hi Konrad,
-> Thanks for your comments.
-> First 0x1000 bytes of CSID are for secure usecase. Actually CSID register address space starts from
-> 'TITAN_A_RT_1_CSID_WRAPPER_CLC_CSID0_HW_VERSION' which is 0xac7a000.
 
-Alright, thanks
+--ed2ffzrhvzkyt6i3
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] pinctrl: mediatek: common-v1: Fix EINT breakage on older
+ controllers
+MIME-Version: 1.0
 
-Konrad
+On Tue, Apr 15, 2025 at 07:23:37PM +0800, Chen-Yu Tsai wrote:
+> When EINT support for multiple addresses was introduced, the driver
+> library for the older generations (pinctrl-mtk-common) was not fixed
+> together. This resulted in invalid pointer accesses.
+>=20
+> Fix up the filled in |struct mtk_eint| in pinctrl-mtk-common to match
+> what is now expected by the mtk-eint library.
+>=20
+> Reported-by: "Uwe Kleine-K=F6nig" <u.kleine-koenig@baylibre.com>
+> Closes: https://lore.kernel.org/all/43nd5jxpk7b7fv46frqlfjnqfh5jlpqsemeoa=
+kqzd4wdi3df6y@w7ycd3k5ezvn/
+> Fixes: 3ef9f710efcb ("pinctrl: mediatek: Add EINT support for multiple ad=
+dresses")
+> Cc: Hao Chang <ot_chhao.chang@mediatek.com>
+> Cc: Qingliang Li <qingliang.li@mediatek.com>
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+
+I confirm this fixes the booting issue on the mt8365-evk.
+
+If it's not too late for that:
+
+Tested-by: Uwe Kleine-K=F6nig <u.kleine-koenig@baylibre.com>
+
+Thanks
+Uwe
+
+--ed2ffzrhvzkyt6i3
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmf/1jcACgkQj4D7WH0S
+/k5aXAf/UP6i2a3y5UocoQPs0pyP+rVPxb+aRfLPNEEqjbC2EfKVw3TBePDcSXYw
+62fTt6kjxzOwm4tDzLbKcDzMIqHEIs2W2mE87RbAtUcp8Kobd1qUPJD++4lcIfjO
+isr+ZlQXT3mG0xCiZF5AHmhgzz4c3Ggc8RqeGDYCxzD3hj30XznRrOTTCv2wovzt
+Rlnu37XuzkHOGMJly86gPc5LSJHDUMyNs/66hNb5h+1v95Hpe8YZ+ZXreQsE9+8T
+9QnXW/NtxHg37nY1XIxdE6pBbUbz1jF8Woe83eBWDIwciCTpAeQ+WOFk1bLKf7Fg
+wRAaujOB3aa0qRpq3UL0vErWjNaMzg==
+=PJFt
+-----END PGP SIGNATURE-----
+
+--ed2ffzrhvzkyt6i3--
 
