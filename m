@@ -4,81 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51853C369BA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 16:22:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84426C369BA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 16:24:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j+5woTKLEDxUzA3eOLn0hsAEJ5MJo4JdU/wMD9M47qc=; b=Kc6HDJDWaEYhjrFjEBaxwnQKYp
-	niiqnSsLqPpgzs3jBB6/y4U0/mXg1XWaWRjChguXV2I0i6+6YUgwBtiXK2/2Gh9Cet49aslSZAUmX
-	kjyUINLE42Yxf/rCT/KJmZzciM6mL5Ud9Bf8NdGPz98kDn8lQYUGs+nXUb3o9c88TiZwCsNKzdulg
-	POBnO5pj8nhgw/4a1SdDhjqG+H1p2MZsjYCx7cfmc5wt42zfHM0Qx8/5EKgsWu2NzOS7YUR9LssCr
-	Wr6kVTpXTzkZ/6NDH2r7tRP7E5YgPpASG/cKVlua/n7ODjCGSSqB/QhsPG2i4/9x0EqnIdrBFD6aq
-	7Z9ozujA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Y9ve19JkjveFsFqfCSTPf1Qll+JvmiD7A2VvAMQXuos=; b=d+Knz85ZU6aDrx2HD2I/yYmlKz
+	MyDjFfgaZWhZexvqwxjMek7oEg8a8UqTKCn5BH+PyXb4NSt8W/We/lVWtHy+76HxTssXEVYJ81ynX
+	W0j1N9v67aFxV67+xWrFB+a0TE6iiGeBbv1zVB61vyNC/l/M0UXjAcv9KolXyIbzRTKLnzXxyUpcl
+	aaF1wyrFKGEE1YkOmERcz/5EQPIGQ1UbtFrTMdklPW0RAyBJ8xH4rdZ/cn3JdJmGEcFAduWtKoB/h
+	3Q9Pwag86kUPdr7gxOWh+vVS1VOqojY5diU1ZFCsPsj7uBWCgFAYAy7wmG3eT60cVufPeBFtAgiBD
+	y1qkLDoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u55WO-0000000AEBM-46lM;
-	Wed, 16 Apr 2025 16:21:56 +0000
-Received: from mail-ej1-x64a.google.com ([2a00:1450:4864:20::64a])
+	id 1u55YD-0000000AEbL-2kSM;
+	Wed, 16 Apr 2025 16:23:49 +0000
+Received: from mout.web.de ([212.227.15.3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u54fM-0000000A4WM-447W
+	id 1u54h7-0000000A4xe-0aTp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 15:27:10 +0000
-Received: by mail-ej1-x64a.google.com with SMTP id a640c23a62f3a-ab39f65dc10so120341166b.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 08:27:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1744817227; x=1745422027; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=j+5woTKLEDxUzA3eOLn0hsAEJ5MJo4JdU/wMD9M47qc=;
-        b=qe+ps0SHoRj75zg5pK4lUl4MvKEhq/sOjSruS5NhcMDA8Gx4P6g8d4zKm5cd73J8ON
-         5ZO+USf3J0b8Alh8iWVZEuPaGzUeJO3GAMlsj8VudPhUC6GW0k3BH+X98A7PQmeMPne1
-         3NofV6K4hbMrzbzRrPh/zlynF2qKai820A5qx5GX1POCo+JMAwcb3tsRJwndMUbVAHp2
-         NSn7cFQuY7xxDdvdjDW4Tqr8L7pEaRsnQlFn4hoF41wEtgIAHqG9H7qzCZps+0Ks8qWz
-         htyOv+l5XTjQzj6UCSKHnf90yLOi06cQqhZe/PsWeAeRrsz9nfAytdvh5OXZ8vqWa2My
-         Fq6A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744817227; x=1745422027;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=j+5woTKLEDxUzA3eOLn0hsAEJ5MJo4JdU/wMD9M47qc=;
-        b=MbSIGv602Z+dRKLP8B3k//rUyWpxIgkd8Q95PaPVn8xF0+QnnflsZx475nxYLxxaZU
-         0woVwm0MdTKmGGNBqVkVrUkDRvQOLXbP97+x6U2dXWaXXH0fsmwohaHV6ROGbEeoF2cy
-         b5Sv+RQFrXSUtC/Wx7d3tj8kHPjaJsLnbf9YYSvcP7fSpnt9SJN/rLqrblhr2NdlH/oh
-         AFuq9PFM7gNXISZJ9lloW5D++gjAWaLt9bTt9PhqJe449S98tMr6V/T2rTvkjpC7UlHk
-         j3PdrPDA5NBAJ9j3jTJNizDYNrdt4uHbbhIDlv8bnEtrHqX+zdvpYieFxEu0vVpdvPwa
-         Mk/A==
-X-Forwarded-Encrypted: i=1; AJvYcCUJHvj/D3EhSt5U3NUjG791AyEm+Vh7M9KXSTHdRqM00QmpUH84cZu3hBPQMyvdeoiIfDJU3J00NGpbBNJZBTLI@lists.infradead.org
-X-Gm-Message-State: AOJu0YwV6K5PHg0rUpTgGZS0T+6UjpM8bmWsx8gfiX3IJbDm7HwVFKNi
-	4O2S/BAA9k2u246kRP98Hq9hwktOiEv9/tcWmBOINZb6gbKUbUQA0+p3uk0uH0klHHhV++FrnZj
-	LpqNLvQ==
-X-Google-Smtp-Source: AGHT+IGCybzKX7dX809ygOrq+ajkf80dzTivmVZqG7Y0aKxNYJUDug4w5qsQZIOiGF/fQUZzevVuaJaQC1OG
-X-Received: from edqt19.prod.google.com ([2002:aa7:d713:0:b0:5e5:339d:60ab])
- (user=qperret job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6402:42c5:b0:5eb:cc22:aa00
- with SMTP id 4fb4d7f45d1cf-5f4b748ff90mr1896967a12.19.1744817226898; Wed, 16
- Apr 2025 08:27:06 -0700 (PDT)
-Date: Wed, 16 Apr 2025 15:26:47 +0000
-In-Reply-To: <20250416152648.2982950-1-qperret@google.com>
-Mime-Version: 1.0
-References: <20250416152648.2982950-1-qperret@google.com>
-X-Mailer: git-send-email 2.49.0.604.gff1f9ca942-goog
-Message-ID: <20250416152648.2982950-8-qperret@google.com>
-Subject: [PATCH v2 7/7] KVM: arm64: Unconditionally cross check hyp state
-From: Quentin Perret <qperret@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>
-Cc: Vincent Donnefort <vdonnefort@google.com>, Fuad Tabba <tabba@google.com>, 
-	Quentin Perret <qperret@google.com>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	Wed, 16 Apr 2025 15:28:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1744817326; x=1745422126; i=markus.elfring@web.de;
+	bh=Y9ve19JkjveFsFqfCSTPf1Qll+JvmiD7A2VvAMQXuos=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:From:
+	 Subject:Content-Type:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=FhIrQWLO0Daw872shpuW1utsEXae3IwGCa8PRn+2bEzfDUMmruzvXuer4Kr0Z+iO
+	 QN6sqvSogX90KEy+GV8fpHfWkDtX6HxciFMNRCTBSoHFSjExXqRDl6YX68KgwgcNg
+	 FwDU3Oj2Zx6G9KSA2gKZZQ1BdFngrfamLb/t8L4tQR5TPZclrZkL9uY4JCCMEdFIi
+	 sQRWqf4fbusXIEMw3IRRbtawBB3TMJ74Gnh0s951gg6sCT97rmTI9Nm8494fj7Ofu
+	 oftCMWtlMsuCHy9Pf7UZSk5klEWVWHadVxHfOVQ08fONGoR9sDxHLLhc4w0QJZO9C
+	 JdNMuGXWQVSurF5gAA==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.93.13]) by smtp.web.de (mrweb006
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1M8Bvz-1tzs212Bvf-00F6Ig; Wed, 16
+ Apr 2025 17:28:46 +0200
+Message-ID: <d4516add-45ad-412a-b9bf-ee21afae3da9@web.de>
+Date: Wed, 16 Apr 2025 17:28:44 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+To: linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@cavium.com>,
+ Mark Rutland <mark.rutland@arm.com>, Suzuki Poulouse
+ <suzuki.poulose@arm.com>, Will Deacon <will@kernel.org>
+Content-Language: en-GB
+Cc: LKML <linux-kernel@vger.kernel.org>, Chenyuan Yang
+ <chenyuan0y@gmail.com>, Julia Lawall <julia.lawall@inria.fr>
+From: Markus Elfring <Markus.Elfring@web.de>
+Subject: [PATCH] perf/thunderx2: Replace devm_kasprintf() call by
+ devm_kstrdup() in tx2_uncore_pmu_register()
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:2orxDoFcZeWABEqYTXfmUT0qCBaa8P1eddz3r+RVltY4BcfGG6B
+ Vr+WUH6usiKVdV4MHUhDg192g6PXWqKIbBWMd+acibmZLPFGsrKY4kk2JxHDdQt/gajKUJV
+ q1hdqM9V8AUc8lmSAlAi33+XCFwpb783DKsXlfm1O68hmc7o63TQzS1ujdCySjdT/nslWNX
+ kuY2YuW6jWSOtTuWldSKA==
+UI-OutboundReport: notjunk:1;M01:P0:fW9PoLHPsDQ=;KP97CRwQzqftHcOiCzPhXPUMPS9
+ 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_082709_004680_658FF088 
-X-CRM114-Status: GOOD (  10.13  )
+X-CRM114-CacheID: sfid-20250416_082857_559556_0062773E 
+X-CRM114-Status: UNSURE (   7.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,70 +126,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that the hypervisor's state is stored in the hyp_vmemmap, we no
-longer need an expensive page-table walk to read it. This means we can
-now afford to cross check the hyp-state during all memory ownership
-transitions where the hyp is involved unconditionally, hence avoiding
-problems such as [1].
+From: Markus Elfring <elfring@users.sourceforge.net>
+Date: Wed, 16 Apr 2025 17:15:54 +0200
 
-[1] https://lore.kernel.org/kvmarm/20241128154406.602875-1-qperret@google.com/
+Use a devm_kstrdup() call instead of a devm_kasprintf() call
+in this function implementation because only a single string
+should be copied.
 
-Reviewed-by: Marc Zyngier <maz@kernel.org>
-Signed-off-by: Quentin Perret <qperret@google.com>
----
- arch/arm64/kvm/hyp/nvhe/mem_protect.c | 24 +++++++++---------------
- 1 file changed, 9 insertions(+), 15 deletions(-)
+The source code was transformed by using the Coccinelle software.
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index 91b757e3fb4c..709d286999a1 100644
---- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -702,11 +702,9 @@ int __pkvm_host_share_hyp(u64 pfn)
- 	ret = __host_check_page_state_range(phys, size, PKVM_PAGE_OWNED);
- 	if (ret)
- 		goto unlock;
--	if (IS_ENABLED(CONFIG_NVHE_EL2_DEBUG)) {
--		ret = __hyp_check_page_state_range(phys, size, PKVM_NOPAGE);
--		if (ret)
--			goto unlock;
--	}
-+	ret = __hyp_check_page_state_range(phys, size, PKVM_NOPAGE);
-+	if (ret)
-+		goto unlock;
- 
- 	__hyp_set_page_state_range(phys, size, PKVM_PAGE_SHARED_BORROWED);
- 	WARN_ON(__host_set_page_state_range(phys, size, PKVM_PAGE_SHARED_OWNED));
-@@ -762,11 +760,9 @@ int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages)
- 	ret = __host_check_page_state_range(phys, size, PKVM_PAGE_OWNED);
- 	if (ret)
- 		goto unlock;
--	if (IS_ENABLED(CONFIG_NVHE_EL2_DEBUG)) {
--		ret = __hyp_check_page_state_range(phys, size, PKVM_NOPAGE);
--		if (ret)
--			goto unlock;
--	}
-+	ret = __hyp_check_page_state_range(phys, size, PKVM_NOPAGE);
-+	if (ret)
-+		goto unlock;
- 
- 	__hyp_set_page_state_range(phys, size, PKVM_PAGE_OWNED);
- 	WARN_ON(pkvm_create_mappings_locked(virt, virt + size, PAGE_HYP));
-@@ -792,11 +788,9 @@ int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages)
- 	ret = __hyp_check_page_state_range(phys, size, PKVM_PAGE_OWNED);
- 	if (ret)
- 		goto unlock;
--	if (IS_ENABLED(CONFIG_NVHE_EL2_DEBUG)) {
--		ret = __host_check_page_state_range(phys, size, PKVM_NOPAGE);
--		if (ret)
--			goto unlock;
--	}
-+	ret = __host_check_page_state_range(phys, size, PKVM_NOPAGE);
-+	if (ret)
-+		goto unlock;
- 
- 	__hyp_set_page_state_range(phys, size, PKVM_NOPAGE);
- 	WARN_ON(kvm_pgtable_hyp_unmap(&pkvm_pgtable, virt, size) != size);
--- 
-2.49.0.604.gff1f9ca942-goog
+Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
+=2D--
+ drivers/perf/thunderx2_pmu.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/drivers/perf/thunderx2_pmu.c b/drivers/perf/thunderx2_pmu.c
+index 6ed4707bd6bb..f0d7d1f9948a 100644
+=2D-- a/drivers/perf/thunderx2_pmu.c
++++ b/drivers/perf/thunderx2_pmu.c
+@@ -736,9 +736,7 @@ static int tx2_uncore_pmu_register(
+ 		.capabilities	=3D PERF_PMU_CAP_NO_EXCLUDE,
+ 	};
+=20
+-	tx2_pmu->pmu.name =3D devm_kasprintf(dev, GFP_KERNEL,
+-			"%s", name);
+-
++	tx2_pmu->pmu.name =3D devm_kstrdup(dev, name, GFP_KERNEL);
+ 	return perf_pmu_register(&tx2_pmu->pmu, tx2_pmu->pmu.name, -1);
+ }
+=20
+=2D-=20
+2.49.0
 
 
