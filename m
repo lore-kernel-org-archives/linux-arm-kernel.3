@@ -4,82 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4430CC369BA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 17:24:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA551C369C5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 17:26:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IjmjfrdSpqXV6oG/2uBZm39p2ERMdlU4gCR4bDOpw+k=; b=eTmCj2O9UrVZBEUvlTlB1BIpQa
-	X34TK4rI2idDC55bacpMMIWSQXgEwFbXtmD8n+VBz0ifghZerb4t46C6MQ4C+g/AJEVwkk3Wk9n7u
-	XdoXFcu4buv3NG5yifyjUdskyoKbyONtwdtR8Tl90pCeExONaziSejzItXWUles3ENV17Uq18XVZN
-	EprJLvjQlc+K4lZdgDFNcH52nh5qvA/6/EUPYkyKMj9ECMDs48BczxrEzGj3FF4rEVnOpkzQlDh5g
-	UAFAfJcD6nN/57ZwjAPlLlLtRAppa2PcPWIkUR9NsPAtjq5m8cTct7jdK63K8DqtmuppAu3GaGbKh
-	jXCeyRUA==;
+	bh=39BxbZJxzOc2j51sx2qrVfV5Kq0/9tpMcS2gikzPL8c=; b=Fz2q2QDXJ4+U7g2EmpsNnjXciK
+	24Asj/LGZbVvso8utZv+Ine0XSRvvPeXKs/TfQUI8MOQLrpDlHVoQZRCeeN9DsiDR6icAMXIM9Rc8
+	GA1c8Z+Fn6gmzO3kGwR1RMqFrrhuzrSisSMNQs9MzpVH37mxbhrY/OIOi1RmVi2BdpCYVYFWPfLBs
+	dLMO4vqp5TjnUvj5zxp+WqRRIM1WpdG6Sxcn/gM3EQSnQo3wjMv7RduJuakbU1RiJzs7tpqK8cF1V
+	Ug5fFipEq6HNjbitB3uryZPc1hi4T5OCUhSOa67VhaIlTvbtDJxQBgkklVX+XWCO8TCx1R+MiY3QG
+	RXKd6WUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u56UT-0000000APKS-1MZf;
-	Wed, 16 Apr 2025 17:24:01 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u56WH-0000000APSe-468R;
+	Wed, 16 Apr 2025 17:25:53 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u55t0-0000000AJK9-0Hpc
+	id 1u55v0-0000000AJnB-3b2q
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 16:45:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 0F2A6A4A411;
-	Wed, 16 Apr 2025 16:39:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FB1FC4CEE4;
-	Wed, 16 Apr 2025 16:45:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744821917;
-	bh=NZjOGkOVi+7Jb5XsEcxcNcG9G1OBjaxyKDLMX1iDNwI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bBOpy31DTEtqpmXaAlAh8RgRHpANHVxKHFZIWjkeLoHLMZLHaxr0nPEGAx2hJcYr9
-	 v/W7PP4/MzIWHEnPuCuHMzuWSZupktvfTqlaqzyVID/C3+3pnvMovCKIn1QCffwxeI
-	 QgKIc+GQCGnm5qymBDf57Wk4CWoK/S3R2o6FyMZ61pn+E4bIDKA5D70KG+OmCsgn4P
-	 9RKfzb1ykAQUuTOS6JZXjU+D7QMcDTmGUv/RRa7ns3pURy3uvSZ2y4gIcghq9kViLn
-	 eyqHdOkNNrtRlIDK1uwSvNaIpiRTYJVVfz/w9m+7u3N8l58xzP6TW8PnZ9RrROG4Qv
-	 d9ORT1a60H/wQ==
-From: Philipp Stanner <phasta@kernel.org>
-To: Sunil Goutham <sgoutham@marvell.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Geetha sowjanya <gakula@marvell.com>,
-	Subbaraya Sundeep <sbhatta@marvell.com>,
-	hariprasad <hkelam@marvell.com>,
-	Bharat Bhushan <bbhushan2@marvell.com>,
-	Taras Chornyi <taras.chornyi@plvision.eu>,
-	Daniele Venzano <venza@brownhat.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Philipp Stanner <phasta@kernel.org>,
-	Helge Deller <deller@gmx.de>,
-	Ingo Molnar <mingo@kernel.org>,
-	Simon Horman <horms@kernel.org>,
-	Al Viro <viro@zeniv.linux.org.uk>,
-	Sabrina Dubroca <sd@queasysnail.net>,
-	Jacob Keller <jacob.e.keller@intel.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-parisc@vger.kernel.org
-Subject: [PATCH 8/8] net: thunder_bgx: Don't disable PCI device manually
-Date: Wed, 16 Apr 2025 18:44:08 +0200
-Message-ID: <20250416164407.127261-10-phasta@kernel.org>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250416164407.127261-2-phasta@kernel.org>
-References: <20250416164407.127261-2-phasta@kernel.org>
+	Wed, 16 Apr 2025 16:47:24 +0000
+Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-5498d2a8b89so7096485e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 09:47:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744822041; x=1745426841; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=39BxbZJxzOc2j51sx2qrVfV5Kq0/9tpMcS2gikzPL8c=;
+        b=gskAYVs3Yp+7+RfKfV/KiFxU4mn30E+WxCLeWjyNFjFKTYOEAPi6gb9y7PGe9mqh2q
+         KfVlvsFfWoFJ4YpPAU7vf4+XOgg3/wUxcPP2FK9/3jVNYsSGA37f32vtsyHFkjHHKjx/
+         GaqQnX+ido3fsWCsIoK4oOmBkjoOO4VQSQoxppKZXJH3h4XBk5Xncd5P71Z9aTXlDL4Z
+         o44CHVDAMNh80Gnw9Zl7Tz0ofLYFW1KHwQeVhE1bni0iqKW+dEHSrQzzJ67BneezqrdC
+         CSj8bpPZ53HC8iEG/xKwdxet11NwU86dYPOaG9uH77hYAZ4MGQ/qAmli8C1lWg3LLj85
+         je0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744822041; x=1745426841;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=39BxbZJxzOc2j51sx2qrVfV5Kq0/9tpMcS2gikzPL8c=;
+        b=HZrmLluErT0t7R0qQsJsdZ6B/VMZp/bW78uKXQ+c6Ua9LwF+rBXZ2VjIIe8xn5kFIC
+         /0tYeSvwEkBhNkRLJw2O1n30WOpCuvAh5U/hNdHh1YQWoLA/aEwMXKkgUnHkS7y4SguQ
+         JPgGQlqIJPBrua+gHQDtsMXYjh2mbC4qRYWbydwREw6Gk6bltatlYHa+fcoMk7pAF/Kk
+         Nxbo32WAqi5BxpGArDnwWSQYBsIcX4Zqqj4hmRISMxUH1s4lLsj5W54n3IvrnlB1Vxxp
+         /P9eGgL/XOLLwpr2270EqpxQRoex/KdtETYOdksNGTiqvQA0y+mhcW1lyvgNzbGQZNyb
+         pc6w==
+X-Forwarded-Encrypted: i=1; AJvYcCUMsdTIvu01EqssK43hdcHGvzTeSWyUo/TbqLwMSyYRGMLg6/4AVmep+SfiulqvafIz8IYBYcHV6tiruRj8brvG@lists.infradead.org
+X-Gm-Message-State: AOJu0YzqFCPLnimJcQ8mctQJNUv9LpbzZM7rEuJ0qua9EiHvWHIhM/Wc
+	V6cSC7LxTRT2vQpuXn42//CJUkOHHHhi/WZhLMYsVeyCiWTiDYQ9FC8p6UHdSKbm3dQQsOkerIN
+	DUyxOKRm688xvIskhDRH8Bsz6ySLSBw==
+X-Gm-Gg: ASbGncu9TO7ox//14ZO+1hAaNSC5Yn4hNqDltL5xVbBlOJikA29lpaYqdsVtuZ7pKRb
+	KFfwk3ZyRRhb+M+1cSmZcv45q5yah9k4XIbyVAaTQ+V0qt+OS1JDmldPDDPB88AHYhiMAmV4SlF
+	IPBSx8jg95ddc1uI/QQ/ZH1T0rjfNSGp3+3tsBH0dYyJgQ4N2USpP3dJ/fkmG8dTAo
+X-Google-Smtp-Source: AGHT+IG8lZZ6TzRpkafiDqZuJb6IdgkKcm718c9RVf9XNRQH9WAewHR/NAdfrRWL4fICzAbGf7ZhyLgzY9E0+gg7jUk=
+X-Received: by 2002:a05:6512:23a8:b0:545:381:71e with SMTP id
+ 2adb3069b0e04-54d64aea47dmr805238e87.40.1744822040616; Wed, 16 Apr 2025
+ 09:47:20 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250414140128.390400-1-lukma@denx.de> <20250414140128.390400-6-lukma@denx.de>
+ <41ea023e-d19d-40f1-b268-37292c9e15de@gmx.net>
+In-Reply-To: <41ea023e-d19d-40f1-b268-37292c9e15de@gmx.net>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Wed, 16 Apr 2025 13:47:08 -0300
+X-Gm-Features: ATxdqUGIOgXds9JKSX6cp4bYSDFF-AKiQ6t09fTbUcUeMyDb0_oZvm6DwfBTF4M
+Message-ID: <CAOMZO5D+OZ6C02n4T3tJnmzJd9hTWtZA9o6-LXcFh-UmTdVb+Q@mail.gmail.com>
+Subject: Re: [net-next v5 5/6] ARM: mxs_defconfig: Update mxs_defconfig to 6.15-rc1
+To: Stefan Wahren <wahrenst@gmx.net>
+Cc: Lukasz Majewski <lukma@denx.de>, Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, Simon Horman <horms@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_094518_245231_AC906D7B 
-X-CRM114-Status: GOOD (  13.07  )
+X-CRM114-CacheID: sfid-20250416_094722_892258_51CA3338 
+X-CRM114-Status: UNSURE (   9.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,58 +101,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-thunder_bgx's PCI device is enabled with pcim_enable_device(), a managed
-devres function which ensures that the device gets enabled on driver
-detach automatically.
+Hi Stefan,
 
-Remove the calls to pci_disable_device().
+On Wed, Apr 16, 2025 at 11:41=E2=80=AFAM Stefan Wahren <wahrenst@gmx.net> w=
+rote:
 
-Signed-off-by: Philipp Stanner <phasta@kernel.org>
----
- drivers/net/ethernet/cavium/thunder/thunder_bgx.c | 8 +++-----
- 1 file changed, 3 insertions(+), 5 deletions(-)
+> This is unintended, even it's not your fault Lukasz. NETFS_SUPPORT isn't
+> user select-able anymore, so it's dropped. AFAIU this comes from NFS
+> support, so i think we need to enable CONFIG_NFS_FSCACHE here. Otherwise
+> this caching feature get lost. Since this is a bugfix, this should be
+> separate patch before the syncronization.
+>
+> @Shawn @Fabio what's your opinion?
 
-diff --git a/drivers/net/ethernet/cavium/thunder/thunder_bgx.c b/drivers/net/ethernet/cavium/thunder/thunder_bgx.c
-index c9369bdd04e0..3b7ad744b2dd 100644
---- a/drivers/net/ethernet/cavium/thunder/thunder_bgx.c
-+++ b/drivers/net/ethernet/cavium/thunder/thunder_bgx.c
-@@ -1608,7 +1608,7 @@ static int bgx_probe(struct pci_dev *pdev, const struct pci_device_id *ent)
- 	err = pcim_request_all_regions(pdev, DRV_NAME);
- 	if (err) {
- 		dev_err(dev, "PCI request regions failed 0x%x\n", err);
--		goto err_disable_device;
-+		goto err_zero_drv_data;
- 	}
- 
- 	/* MAP configuration registers */
-@@ -1616,7 +1616,7 @@ static int bgx_probe(struct pci_dev *pdev, const struct pci_device_id *ent)
- 	if (!bgx->reg_base) {
- 		dev_err(dev, "BGX: Cannot map CSR memory space, aborting\n");
- 		err = -ENOMEM;
--		goto err_disable_device;
-+		goto err_zero_drv_data;
- 	}
- 
- 	set_max_bgx_per_node(pdev);
-@@ -1688,8 +1688,7 @@ static int bgx_probe(struct pci_dev *pdev, const struct pci_device_id *ent)
- err_enable:
- 	bgx_vnic[bgx->bgx_id] = NULL;
- 	pci_free_irq(pdev, GMPX_GMI_TX_INT, bgx);
--err_disable_device:
--	pci_disable_device(pdev);
-+err_zero_drv_data:
- 	pci_set_drvdata(pdev, NULL);
- 	return err;
- }
-@@ -1708,7 +1707,6 @@ static void bgx_remove(struct pci_dev *pdev)
- 	pci_free_irq(pdev, GMPX_GMI_TX_INT, bgx);
- 
- 	bgx_vnic[bgx->bgx_id] = NULL;
--	pci_disable_device(pdev);
- 	pci_set_drvdata(pdev, NULL);
- }
- 
--- 
-2.48.1
-
+Agreed, your suggestions are good ones, thanks.
 
