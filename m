@@ -4,86 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19462C369B1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 07:34:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 736D0C369B1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 07:36:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vu1Z1iNyXH/P0QywYALzynooSIZlETxbTzFpRmXM8t0=; b=jL02/peA/KoMjf5ocKiX3ASnfF
-	CShYBwNxa8y0r7B6vS/dw/dKau1ltWNwF9d7jpkTdah7bLuFFqcFRTDcQwOdVhgI6E0LdDOu4NsaD
-	y5rDsyj/T6GDZ7yIRYMVvilxBFr5KJOnWNx0MpWPPlUFzsxGYQTS1c7dKYloFDu6/8ysk6/ngwx23
-	HM25BZS1THZReJX2FMD05HErK3zoI7kE6Wdkv/0v2CAS3aD/FXyoyT23NHmvKdA2JqLrh8HN5uOWK
-	yVurqI9fpH9UHqT3kBx7ecO/VmDgEd4YX83hjE0tXFUjbMWTIYaMGe08Hzr/EOLyXSfFaR5d921a4
-	VH5f3vtA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9OojZ/Set6ofgNmoLSDBYOLQFH7SYSkSj18BSfmQvXU=; b=saiCWPWYUyY0IYTyjEQ417nCPI
+	3JT1QuVn6S1uh4dzbK1nm4+tWj+rVTdJUz2vTQ2dt7ZNXn7jMMzB/Efn9+Swa1Y5/xV5x0yCXyHFS
+	EZIMdXRKKHwT5xADQEl2xjcMIEk0sxxdJuPH06uWUKfB4/4N7a9hKBmOoXoVybQMy+vWXSq6rtY0S
+	HJfy59R/ieZh8KswZMMPfupMI+jrgETCBgd/kGsfeJYa1TM5r0RW24zLljTUzD4nzBayymrpiIENu
+	l21gXkr1lvDhzY3TQ5M+YG6m0MrH60otd6/SKdaproHXrmmfGHDnU9FScTYMHSKyFLa46oGie5EPm
+	zvyF3hbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4xHy-00000008dUH-0T7W;
-	Wed, 16 Apr 2025 07:34:30 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1u4xJm-00000008dw9-3SXX;
+	Wed, 16 Apr 2025 07:36:22 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4xDW-00000008cUP-0Hhg
+	id 1u4xHs-00000008dQt-2nnn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 07:29:56 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-5499c5d9691so6876009e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 00:29:53 -0700 (PDT)
+	Wed, 16 Apr 2025 07:34:25 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-7369ce5d323so5155236b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 00:34:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744788592; x=1745393392; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Vu1Z1iNyXH/P0QywYALzynooSIZlETxbTzFpRmXM8t0=;
-        b=qOkQqmKAG7j1+0XdwLHQj3xlj1tCW16HwdHoRpdbEzTchiDnQ7NWjcy8pl+aXzRUEF
-         N+zz1zY/wnAE5vn2M+xKdiRrx10SzPBEj2OKHEIi5n0quOp4gSIHv61RZBp1Y6lP27Tv
-         FWDv7j3pJ8ELZ0i5ni9pKzHo0XCZJ4ytSACwra5oY5Jig7GBjF/qpMXLDlmG6ZpzxwiT
-         p8FxGaZ5Owq1DfSIEYYkj2YcpUHs4wkYSLtgSex56IJficECkesHcWTZPA/1SKxRO1Ku
-         ldx7BP1Dqyq/XJ0WC06Lc1oFd/vV9F98WLhXPNGvJA81hnoiE0kiolg9KKDpGO1PG1ni
-         8Edw==
+        d=linaro.org; s=google; t=1744788864; x=1745393664; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=9OojZ/Set6ofgNmoLSDBYOLQFH7SYSkSj18BSfmQvXU=;
+        b=pDjV7mtd6bHL1GtPdnUxFizqOSo9sQFGHOAxXLffH6znOdQ1ECXki6KGiJdmZQchDj
+         mAv6jLip9Q22Nb4ZW/h9dFyJ5aYhXvHD4YBhiUYhTG6iIjr2b1E1jzVXKzS+3A+iVKl3
+         nUG3BTPpt+Jhl50ZbQ6fpmy1SypXGqk6eeOivUMZ6Zj4ab+np3ZJ9MJKiX0PuG/VGm7f
+         38840j8ZeRG4Gm3eZ6XOHSIawSQW2Rdli7lQuUI7neOcgxbDdqT2goS/BhvcquPhAxZL
+         FG2uvVPYBNwoniB3Nysiaz+ZPaA94ahAoFBTElIewj2VJFJNbf1aocr5yxCdkvLsK2uW
+         3iHg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744788592; x=1745393392;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Vu1Z1iNyXH/P0QywYALzynooSIZlETxbTzFpRmXM8t0=;
-        b=Ug53XbKKzQW9FmM+TyH1eii5CoHhLjYGkIUQQekAiClV/wHWKJeDkLQE6zEFTKhXzS
-         QeBxWnS9R8Wx1TW/YQXbfmcAscapmPkiaIvbUxUB2zwJlTe0s/YGlKNRIBQd4fBmE17J
-         IqOsqEfV2zmAftScOfnn/BgFjlD+wgDLMw3hgJrsHOX7ZOIi8mW8/awknDGTz/5E8HXf
-         TM2FRNaKM8uonN/fNTw/Iu5GMUz3ROTGT6padfskrpwAeWm1nW6EuZUT48pCcpyIZulS
-         qN6h2VygLlOMwPW1oo0KCgK8iOts7G7c/107ZHd9gFZfi2velOpMlm+it7k8ok1dOemq
-         fSHA==
-X-Forwarded-Encrypted: i=1; AJvYcCW/SQn5tGHUSVglbMTNtAF3aXH8qwLeosf/fYPbzii0JK5vTFOzARoC8FwE1o+Y7/+S9JNFHaMUfegwl6guqsmE@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3qz239ouLD4Wxd6r+7/UFLiUHSvRFCGes5BvFYtXwK+anvwRV
-	Ww5FnkVhPIFEbk+z1paDYQPVnEUTujcHaFyvYCO6hcQgvFWlM0SJpn3VxuN0oWNuquvDv3K54i3
-	61C5ReK9mB3XfzWlBqfIKbUCGGYT5UdtCfaJcMA==
-X-Gm-Gg: ASbGncuoxQqCRS7jMPxLir7QhZPjOOV69mwCxWLPBcq8s4uOh6L/lVgiXXWqzsvYQwq
-	dmwuaBZhNxh3yTgUWAyEpeQ/nx2qWvbn3NfVEAPICliv/KoEQUT/VlBCu4oA6dVnGv9P/h/RoRO
-	do82hUkDO7vwt3niJFqT4PGg==
-X-Google-Smtp-Source: AGHT+IFIpyoa4b37GuE7bShcO/RCUjBlfmU/mTjYO4extyxyEAUNDPyqKbiJFcyUDnd++AOe+MPmtXvLY9f9jwMpHVM=
-X-Received: by 2002:a05:6512:108e:b0:54a:c835:cc4b with SMTP id
- 2adb3069b0e04-54d64aea449mr196703e87.45.1744788592107; Wed, 16 Apr 2025
- 00:29:52 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1744788864; x=1745393664;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9OojZ/Set6ofgNmoLSDBYOLQFH7SYSkSj18BSfmQvXU=;
+        b=gANYxmTUHVnP22Gw+jiT9LcTCvBEw43MBx325bx2uYB8qyla20nAKZ8sTm2O/VjSDu
+         OtgrcqDm692jWed5UbqG5CnbV8drSJSHcf2Kz6UNmcp9IhCQfMQUd6D4F4W2mufKnadq
+         E10qKAKcZWW8PhBqWIxt0ZSZzjqx2MEXjWp2FOsrHosSMruvI8NxCcIuLOQnviO2Ijf8
+         u51w/9f4G8qYbcCOxNM5MsPI99CenBzXZWfKnluTCAjguB2TQaZY7XiPKo47mY5Ydcho
+         f5Et3fWfnjZjgw+rAAXZ6Jd0ivXlo/3CnHVxWzxNRPjBcLaTVGJ1eA2Z6EkI4rslb+X4
+         R3zA==
+X-Forwarded-Encrypted: i=1; AJvYcCWNpJms3YvoAYzauF6iZTKVnY69mlGaCXVJBiI/7fjd2rCxIr/jLtlwdfuIO4WdXNZeKhw9JbRIfXzQX47VGEBT@lists.infradead.org
+X-Gm-Message-State: AOJu0YxqZLjFR031OPgGhjAcBVM6UUBeSR3cJ8wD39z32gc6oG86+/4A
+	56rQi9u84uzwCwVooDC9zZke7jbITGDZ+Wpo4JH6Tvt6VgJUY32lMg/D02MgxvQ=
+X-Gm-Gg: ASbGncsCoF9yWDZg4Es9E9l14/YVo2jNbvg8bACGMXOoZROaQfA1qDLE69KMT0zur0C
+	hWQlRaw5rbOLj8wAewjItxdrCOKAVET5uJfFaU4EB1fhMfJeRab4aoJxCCb0nFcu3ksJKeybI1D
+	KrsxV68k88OhTyCZJPR5vZRW5kf3JgmKcqS36HI7POyshq5Uy13kKQ38Op9sutpJ7BpyqEGPzNr
+	lU6M590KF/g+sPm/9oxeNSoJsToJ9AtOnoXFx6fjl2LLFc44OeCYyu3sc3DMrtVgCWBfpDYYAUu
+	ze6ik12fZGB9S14PPxkLsbneEqkmQHncch87lUVzoQ==
+X-Google-Smtp-Source: AGHT+IF5gr7KTNmsoqWboKzNZwhfvZjvETmtD0k891OgOb0tDlIqVA7ofglJmZDsPCASVeystx4Ztg==
+X-Received: by 2002:a17:90b:520a:b0:2fe:8282:cb9d with SMTP id 98e67ed59e1d1-3086415c684mr1191209a91.28.1744788863789;
+        Wed, 16 Apr 2025 00:34:23 -0700 (PDT)
+Received: from localhost ([122.172.83.32])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-30861212c3esm872339a91.25.2025.04.16.00.34.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 16 Apr 2025 00:34:23 -0700 (PDT)
+Date: Wed, 16 Apr 2025 13:04:20 +0530
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: rafael@kernel.org, Marc Zyngier <maz@kernel.org>
+Cc: Chenyuan Yang <chenyuan0y@gmail.com>, sven@svenpeter.dev, j@jannau.net,
+	alyssa@rosenzweig.io, neal@gompa.dev, marcan@marcan.st,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] cpufreq: apple-soc: Fix possible null pointer dereference
+Message-ID: <20250416073420.xrhwnzy22zf6yltm@vireshk-i7>
+References: <20250412160518.1824538-1-chenyuan0y@gmail.com>
+ <86bjt0l6q4.wl-maz@kernel.org>
 MIME-Version: 1.0
-References: <20250415112339.2385454-1-wenst@chromium.org>
-In-Reply-To: <20250415112339.2385454-1-wenst@chromium.org>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 16 Apr 2025 09:29:41 +0200
-X-Gm-Features: ATxdqUGsaRj7mRwORGwu-YQfJxqBlwgA7akp1LopdnGat1Af2KKfApGkes9E8jA
-Message-ID: <CACRpkda0HVd1auh1zmyX8QdDCL6jNVb+JYj7hbZrdg+v26BQWw@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: mediatek: common-v1: Fix EINT breakage on older controllers
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Sean Wang <sean.wang@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
-	Hao Chang <ot_chhao.chang@mediatek.com>, Qingliang Li <qingliang.li@mediatek.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86bjt0l6q4.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_002954_107173_5B677BC8 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20250416_003424_711816_57D5AC46 
+X-CRM114-Status: GOOD (  20.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,27 +99,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 15, 2025 at 1:23=E2=80=AFPM Chen-Yu Tsai <wenst@chromium.org> w=
-rote:
+On 13-04-25, 11:02, Marc Zyngier wrote:
+> Irrespective of this, it would be good to describe under which
+> circumstances this can occur, because I can't see *how* this can
+> trigger. The policy is directly provided by the core code and provide
+> its association with a cpu, and is never NULL at the point of init.
+> 
+> And if it can trigger, why only fix this one particular case?
+> Dereferences of policy are all over the map, and would be just as
+> wrong.
+> 
+> So while this is not wrong, I don't think this serves any real
+> purpose.
 
-> When EINT support for multiple addresses was introduced, the driver
-> library for the older generations (pinctrl-mtk-common) was not fixed
-> together. This resulted in invalid pointer accesses.
->
-> Fix up the filled in |struct mtk_eint| in pinctrl-mtk-common to match
-> what is now expected by the mtk-eint library.
->
-> Reported-by: "Uwe Kleine-K=C3=B6nig" <u.kleine-koenig@baylibre.com>
-> Closes: https://lore.kernel.org/all/43nd5jxpk7b7fv46frqlfjnqfh5jlpqsemeoa=
-kqzd4wdi3df6y@w7ycd3k5ezvn/
-> Fixes: 3ef9f710efcb ("pinctrl: mediatek: Add EINT support for multiple ad=
-dresses")
-> Cc: Hao Chang <ot_chhao.chang@mediatek.com>
-> Cc: Qingliang Li <qingliang.li@mediatek.com>
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+I have applied such patches in the past, considering the same as good
+practice. But I do understand your inputs.
 
-Patch applied for fixes.
+And so I tried to see if there is actually a way to trigger this.
 
-Yours,
-Linus Walleij
+- Platform with two cpufreq policies (freq domains) with one CPU in
+  each of them.
+- Boot the kernel, policies will initialize for both the domains.
+- Hotplug out CPU1, that will remove the policy as well.
+- Call cpufreq_quick_get(1), this will call the ->get() callback for
+  CPU1, for which there is no policy available.
+
+But this is the case only for drivers with `setpolicy` callback, this
+shouldn't happen on apple-soc.
+
+I am not sure now if we should just apply this patch to be safe, or
+leave it as is. The cpufreq core may change in the future and call the
+`get` callback for all drivers.
+
+Rafael, what do you suggest ?
+
+-- 
+viresh
 
