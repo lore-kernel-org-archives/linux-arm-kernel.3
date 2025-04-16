@@ -4,117 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD000C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:31:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F1D5C369BD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:31:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sdkzts0oZ32Xc0NbM4rDY8/1yhxTMxRgzx5x42xuyqw=; b=P/n0w5DD18R11Au4S6cqKQBcvn
-	xZSUQYB8One70Al32onUNerSipwkctjBGTlRxJ30RJvWFHfneZuRyYy1TrUKZa61eci285q8ZnOfh
-	L+RalIUmCVSN0ZRviubS11OuXd5qRWtJ20RefPobLf+Wwj+4kQQYal4xltmmVn5yNB3VVyBWxn7DW
-	5KilHGdP+jM9rb+8GjwpjnsTovcWitZK/jvgSGZS4ZwTerKk7VhbiBGWncYN0JzYERFrHSThlpWZ5
-	siB69/MwmcS9IoYTLz3vwRHxpzN3r6xxM+7nudhg6Rk5Jp6h0LBYrx+DyNP1pboFzCc+iBgNjEykq
-	FZFAKtEg==;
+	bh=xWX56MLkHZw/GZNOTxJ7M6xTx+/WmLb4gwBvJUYftZo=; b=I9GGOn3+KotGPLGBSXduRVQsxK
+	iVRPkHf1jNLNJ/RlZXXYhppZWJ4XyMgbChcpwebfD0ytcPllVHALyXDVyNvJCAm1HUJPcq29fs+ts
+	AXSM5A0Ysw2BeeMtNsDS6he5UZmRw319jS0NHtDWUBydf1eJyrkwtSBQBHh91iukHWdwEtsSOERPn
+	opVGVAOSW83Vrwcv2+vuZOfmnyMHzaqjYnesCXGDmOYcbdxMEGw6N96GEtlrTrvOIqJTDYPprA/yD
+	tpmTPdIkRZO4tWRoEHwR9YzSqaPAJ2XDUkEJWAIuyLVyE5OvfU36AKesZtC0xUEJfx1a2/Q0WILiG
+	PyWRAZNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u503I-000000099cy-2yEo;
-	Wed, 16 Apr 2025 10:31:32 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1u503K-000000099fK-02iH;
+	Wed, 16 Apr 2025 10:31:34 +0000
+Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4ycY-00000008tus-3ThU
+	id 1u4yga-00000008uTt-1hae
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 08:59:52 +0000
-Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 870DA965;
-	Wed, 16 Apr 2025 10:57:44 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1744793865;
-	bh=IK9UyR16MCakiskdgLYvgLg+KiigxiyDPwyZXHoB2FA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=vatXZo60UrHedGeP6O9FWVxOQTiJDS6lAZMxI+nX/m/FwwmBdX30c4RD18ZKfL9eq
-	 qFK9BB8+D9D0x5If8AOC2EzAQQAKtp4vuA6cxsIbJBgZ5bDNfcUtqw1Q9AwgYNHqcj
-	 881aElHAa32eokWKJPUOX5p3ybFQ5tuBnK3S8I0U=
-Message-ID: <73bd6628-374d-417f-a30f-88a4b1d157bb@ideasonboard.com>
-Date: Wed, 16 Apr 2025 11:59:43 +0300
+	Wed, 16 Apr 2025 09:04:02 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 87F754327A;
+	Wed, 16 Apr 2025 09:03:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1744794235;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=xWX56MLkHZw/GZNOTxJ7M6xTx+/WmLb4gwBvJUYftZo=;
+	b=Ae6wIsrj0/PLU4ol8EMC2g4AnIqshb3tRqVygY3H+leCF7pJwG/0XjRA8JvcGzoWhYdlBo
+	kQpK7h+ZQVtnTQulWBk2+leKK9kCbYQQQmP7KBNwONPicRAqnIWKLXtbSHaeSbQVKo5aqd
+	s6C0krPwfmcWlN/KDakkOItbDInATBSW5v1oQl3Ovc26dpJDL7Dq3O9bf2PPEnZohFHjFf
+	jHaQ3W/qZKjmhwRVtwG6N5B8/dFUywB+ZV1Krtk+qWMSo0D2cRHqBvcd5U8606wu/i2YGB
+	y0/dPy8cSarGEiXif9YexL7Z7wB8H1bqRqi/25m69TMPLou0A9DbD8tphNNZ0Q==
+Date: Wed, 16 Apr 2025 11:03:51 +0200
+From: Kory Maincent <kory.maincent@bootlin.com>
+To: Kees Cook <kees@kernel.org>
+Cc: Jakub Kicinski <kuba@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Claudiu Manoil
+ <claudiu.manoil@nxp.com>, Vladimir Oltean <vladimir.oltean@nxp.com>, Wei
+ Fang <wei.fang@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>, Jeroen de
+ Borst <jeroendb@google.com>, Harshitha Ramamurthy <hramamurthy@google.com>,
+ Ido Schimmel <idosch@nvidia.com>, Petr Machata <petrm@nvidia.com>, Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Simon Horman <horms@kernel.org>, Geoff
+ Levand <geoff@infradead.org>, Wolfram Sang
+ <wsa+renesas@sang-engineering.com>, Alexander Lobakin
+ <aleksander.lobakin@intel.com>, Praveen Kaligineedi
+ <pkaligineedi@google.com>, Willem de Bruijn <willemb@google.com>, Joshua
+ Washington <joshwash@google.com>, Furong Xu <0x1207@gmail.com>, "Russell
+ King (Oracle)" <rmk+kernel@armlinux.org.uk>, Jisheng Zhang
+ <jszhang@kernel.org>, Petr Tesarik <petr@tesarici.cz>,
+ netdev@vger.kernel.org, imx@lists.linux.dev,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, Richard Cochran
+ <richardcochran@gmail.com>, Jacob Keller <jacob.e.keller@intel.com>,
+ Shannon Nelson <shannon.nelson@amd.com>, Ziwei Xiao <ziweixiao@google.com>,
+ Shailend Chand <shailend@google.com>, Choong Yong Liang
+ <yong.liang.choong@linux.intel.com>, Andrew Halaney <ahalaney@redhat.com>,
+ linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH] net: ethtool: Adjust exactly ETH_GSTRING_LEN-long stats
+ to use memcpy
+Message-ID: <20250416110351.1dbb7173@kmaincent-XPS-13-7390>
+In-Reply-To: <20250416010210.work.904-kees@kernel.org>
+References: <20250416010210.work.904-kees@kernel.org>
+Organization: bootlin
+X-Mailer: Claws Mail 4.0.0 (GTK+ 3.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 03/11] drm/fourcc: Add DRM_FORMAT_Y8
-To: Pekka Paalanen <pekka.paalanen@haloniitty.fi>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
- Vishal Sagar <vishal.sagar@amd.com>,
- Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Michal Simek <michal.simek@amd.com>, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-References: <20250326-xilinx-formats-v4-0-322a300c6d72@ideasonboard.com>
- <20250326-xilinx-formats-v4-3-322a300c6d72@ideasonboard.com>
- <CAMuHMdXM1B1c=62EpcuUdpdpaBRZSJLXb1GBB0egzp7Fyeo5-w@mail.gmail.com>
- <b195971c-52e6-463e-a440-83dde4346e65@ideasonboard.com>
- <20250327112009.6b4dc430@eldfell>
- <b5cf15a4-7c65-4718-9c39-a4c86179ba4c@ideasonboard.com>
- <20250327175842.130c0386@eldfell>
- <CAMuHMdVEpTVWmwrYt+G-QSWucT91goUcFor9qbo5rZ+X2jnRog@mail.gmail.com>
- <20250331105446.098f0fbe@eldfell>
- <20250331082135.GB13690@pendragon.ideasonboard.com>
- <20250331135337.61934003@eldfell> <20250401162732.731ef774@eldfell>
-Content-Language: en-US
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
- 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
-In-Reply-To: <20250401162732.731ef774@eldfell>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvvdehleeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtqhertdertdejnecuhfhrohhmpefmohhrhicuofgrihhntggvnhhtuceokhhorhihrdhmrghinhgtvghnthessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgfdutdefvedtudegvefgvedtgfdvhfdtueeltefffefffffhgfetkedvfeduieeinecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehkmhgrihhntggvnhhtqdgirffuqddufedqjeefledtpdhmrghilhhfrhhomhepkhhorhihrdhmrghinhgtvghnthessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepgedupdhrtghpthhtohepkhgvvghssehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghnughrvgifodhnvghtuggvvheslhhunhhnrdgthhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohepvgguuhhmrgiiv
+ ghtsehgohhoghhlvgdrtghomhdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtoheptghlrghuughiuhdrmhgrnhhoihhlsehngihprdgtohhmpdhrtghpthhtohepvhhlrgguihhmihhrrdholhhtvggrnhesnhigphdrtghomh
+X-GND-Sasl: kory.maincent@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_015951_019688_D3A5BCF7 
-X-CRM114-Status: GOOD (  24.44  )
+X-CRM114-CacheID: sfid-20250416_020400_896937_1254E8B3 
+X-CRM114-Status: GOOD (  15.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,135 +100,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Tue, 15 Apr 2025 18:02:15 -0700
+Kees Cook <kees@kernel.org> wrote:
 
-On 01/04/2025 16:27, Pekka Paalanen wrote:
-> On Mon, 31 Mar 2025 13:53:37 +0300
-> Pekka Paalanen <pekka.paalanen@haloniitty.fi> wrote:
-> 
->> On Mon, 31 Mar 2025 11:21:35 +0300
->> Laurent Pinchart <laurent.pinchart@ideasonboard.com> wrote:
->>
->>> On Mon, Mar 31, 2025 at 10:54:46AM +0300, Pekka Paalanen wrote:
->>>> On Thu, 27 Mar 2025 17:35:39 +0100
->>>> Geert Uytterhoeven <geert@linux-m68k.org> wrote:
->>>>      
->>>>> Hi Pekka,
->>>>>
->>>>> On Thu, 27 Mar 2025 at 16:59, Pekka Paalanen
->>>>> <pekka.paalanen@haloniitty.fi> wrote:
->>>>>> On Thu, 27 Mar 2025 16:21:16 +0200
->>>>>> Tomi Valkeinen <tomi.valkeinen@ideasonboard.com> wrote:
->>>>>>> On 27/03/2025 11:20, Pekka Paalanen wrote:
->>>>>>>> On Wed, 26 Mar 2025 15:55:18 +0200
->>>>>>>> Tomi Valkeinen <tomi.valkeinen@ideasonboard.com> wrote:
->>>>>>>>> On 26/03/2025 15:52, Geert Uytterhoeven wrote:
->>>>>>>>>> On Wed, 26 Mar 2025 at 14:23, Tomi Valkeinen
->>>>>>>>>> <tomi.valkeinen@ideasonboard.com> wrote:
->>>>>>>>>>> Add greyscale Y8 format.
->>>>>>>>>>>
->>>>>>>>>>> Acked-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
->>>>>>>>>>> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
->>>>>>>>>>
->>>>>>>>>> Thanks for your patch!
->>>>>>>>>>       
->>>>>>>>>>> --- a/include/uapi/drm/drm_fourcc.h
->>>>>>>>>>> +++ b/include/uapi/drm/drm_fourcc.h
->>>>>>>>>>> @@ -405,6 +405,9 @@ extern "C" {
->>>>>>>>>>>     #define DRM_FORMAT_YUV444      fourcc_code('Y', 'U', '2', '4') /* non-subsampled Cb (1) and Cr (2) planes */
->>>>>>>>>>>     #define DRM_FORMAT_YVU444      fourcc_code('Y', 'V', '2', '4') /* non-subsampled Cr (1) and Cb (2) planes */
->>>>>>>>>>>
->>>>>>>>>>> +/* Greyscale formats */
->>>>>>>>>>> +
->>>>>>>>>>> +#define DRM_FORMAT_Y8          fourcc_code('G', 'R', 'E', 'Y')  /* 8-bit Y-only */
->>>>>>>>>>
->>>>>>>>>> This format differs from e.g. DRM_FORMAT_R8, which encodes
->>>>>>>>>> the number of bits in the FOURCC format. What do you envision
->>>>>>>>>> for e.g. DRM_FORMAT_Y16? fourcc_code('G', 'R', '1', '6')?
->>>>>>>>>
->>>>>>>>> I wanted to use the same fourcc as on V4L2 side. Strictly speaking it's
->>>>>>>>> not required, but different fourccs for the same formats do confuse.
->>>>>>>>>
->>>>>>>>> So, generally speaking, I'd pick an existing fourcc from v4l2 side if
->>>>>>>>> possible, and if not, invent a new one.
->>>>>>>>
->>>>>>>> what's the actual difference between DRM_FORMAT_R8 and DRM_FORMAT_Y8?
->>>>>>>>
->>>>>>>> Is the difference that when R8 gets expanded to RGB, it becomes (R, 0,
->>>>>>>> 0), but Y8 gets expanded to (c1 * Y, c2 * Y, c3 * Y) where c1..c3 are
->>>>>>>> defined by MatrixCoefficients (H.273 terminology)?
->>>>>>>>
->>>>>>>> That would be my intuitive assumption following how YCbCr is handled.
->>>>>>>> Is it obvious enough, or should there be a comment to that effect?
->>>>>>>
->>>>>>> You raise an interesting point. Is it defined how a display driver, that
->>>>>>> supports R8 as a format, shows R8 on screen? I came into this in the
->>>>>>> context of grayscale formats, so I thought R8 would be handled as (R, R,
->>>>>>> R) in RGB. But you say (R, 0, 0), which... also makes sense.
->>>>>>
->>>>>> That is a good question too. I based my assumption on OpenGL behavior
->>>>>> of R8.
->>>>>>
->>>>>> Single channel displays do exist I believe, but being single-channel,
->>>>>> expansion on the other channels is likely meaningless. Hm, but for the
->>>>>> KMS color pipeline, it would be meaningful, like with a CTM.
->>>>>> Interesting.
->>>>>>
->>>>>> I don't know. Maybe Geert does?
->>>>>
->>>>> I did some digging, and was a bit surprised that it was you who told
->>>>> me to use R8 instead of Y8?
->>>>> https://lore.kernel.org/all/20220202111954.6ee9a10c@eldfell
->>>>
->>>> Hi Geert,
->>>>
->>>> indeed I did. I never thought of the question of expansion to R,G,B
->>>> before. Maybe that expansion is what spells R8 and Y8 apart?
->>>>
->>>> I do think that expansion needs to be specified, so that the KMS color
->>>> pipeline computations are defined. There is a big difference between
->>>> multiplying these with an arbitrary 3x3 matrix (e.g. CTM):
->>>>
->>>> - (R, 0, 0)
->>>> - (R, R, R)
->>>> - (c1 * Y, c2 * Y, c3 * Y)
->>>
->>> I'd be very surprised by an YUV to RGB conversion matrix where the first
->>> column would contain different values. What we need to take into account
->>> though is quantization (full vs. limited range).
-> 
-> Quantization range is indeed good to note. R8 would be always full
-> range, but Y8 would follow COLOR_RANGE property.
-> 
->> That makes Y8 produce (Y, Y, Y), and we have our answer: R8 should be
->> (R, 0, 0), so we have both variants.
->>
->> Can we specify Y, R, G and B be nominal values in the range 0.0 - 1.0
->> in the KMS color processing?
-> 
-> I think this 0.0 - 1.0 nominal range definition for the abstract KMS
-> color processing is necessary.
-> 
-> It also means that limited range Y8 data, when containing values 0-15
-> or 240-255, would produce negative and greater than 1.0 values,
-> respectively. They might get immediately clamped to 0.0 - 1.0 with the
-> first color operation they face, though, but the concept seems
-> important and carrying over to the new color pipelines UAPI which might
-> choose not to clamp.
+> Many drivers populate the stats buffer using C-String based APIs (e.g.
+> ethtool_sprintf() and ethtool_puts()), usually when building up the
+> list of stats individually (i.e. with a for() loop). This, however,
+> requires that the source strings be populated in such a way as to have
+> a terminating NUL byte in the source.
+>=20
+> Other drivers populate the stats buffer directly using one big memcpy()
+> of an entire array of strings. No NUL termination is needed here, as the
+> bytes are being directly passed through. Yet others will build up the
+> stats buffer individually, but also use memcpy(). This, too, does not
+> need NUL termination of the source strings.
+>=20
+> However, there are cases where the strings that populate the
+> source stats strings are exactly ETH_GSTRING_LEN long, and GCC
+> 15's -Wunterminated-string-initialization option complains that the
+> trailing NUL byte has been truncated. This situation is fine only if the
+> driver is using the memcpy() approach. If the C-String APIs are used,
+> the destination string name will have its final byte truncated by the
+> required trailing NUL byte applied by the C-string API.
+>=20
+> For drivers that are already using memcpy() but have initializers that
+> truncate the NUL terminator, mark their source strings as __nonstring to
+> silence the GCC warnings.
 
-Is the behavior of values outside the limited range something that needs 
-to be defined? We can't know how each piece of HW behaves with 
-"undefined" input, so should we not just define the behavior as platform 
-specific?
+Shouldn't we move on to ethtool_cpy in these drivers too to unify the code?
 
-In any case: I can't say I fully understood all the discussions wrt. 
-color spaces. But my immediate interest is, of course, this series =). 
-So is there something that you think should be improved here?
-
-My understanding is that the Y-only pixel formats behave in a well 
-defined way (or, as well defined as the YUV formats), and there's 
-nothing more to add here. Is that right?
-
-  Tomi
-
+Regards,
+--=20
+K=C3=B6ry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
 
