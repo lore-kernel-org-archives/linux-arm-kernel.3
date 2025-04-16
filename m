@@ -4,64 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FA3BC369BA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 07:08:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11858C369B1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 07:13:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EEP+L3xpS1RDue2uh0ljoigdAug0LR5qiQnir/JxXss=; b=X+IzjKV0wGJksPttjZnpDpkPzF
-	7xDiidQCB64p6f97zi45fiazsfpn9XrRjUEeXu4OrYGSQZL/gDpLs5Dham2NaFyPtGhhuHdYIztCh
-	7MI1wyu7et6qJWKH5jQFoTSJc4swc5IUw1ZCQcJLyReI2p5gRGP3LB8pQWfIdmE17SCRi5IdWQLmc
-	3GOQ1+bAE7a/ZAJbak1YUjtoQaxLo3BaXfXknhnRANofNtFjsa2pZLQ6ddUxSUvwRmPOWQzOHLNB2
-	P/bvGbbnxhaGGxkwDfrPbVb2D5RMjt+wmPrrtMSAS+e2DnsA2vuX9VKXeTpEwUtHPuGJQAWvUH1Fg
-	C0iWbMzA==;
+	bh=mOuKKE7dpwYZ4vLZ2roqsOT6vFq0k7BoW8UAUk8/1QA=; b=VtPYDtbztPKJmZWDiPkcjjefOO
+	3jOCZBdNB2PB53V5FSd4PPvr9KcFTTbauMlibFUnL8UAm1Oxv4A1YZGftGOZjhi0EmGl3ClxzwWXR
+	JO/iPzXrfBC+n8j9b72b2X2mWSYyM4ZXINsceBJVfpY8MjPwjsm1R3i0MyfAKL52+FjfbJfXHw5BD
+	wPYPgulaLk8MogBSioBN1l5+SKq9LwGJjMDWlimWRHUXhXQZgTtoi6m/p1dzIPj1ilILQSvS1jqKV
+	mKs2kYrUn3QF+vm76roxiMd9OljgQhhHXkFheOCMqg4D1SGi59VtPelAIGpMl8tQpQosukV+KVBtA
+	/8rBF7HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4wsB-00000008YgS-3vGE;
-	Wed, 16 Apr 2025 07:07:51 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u4wxj-00000008ZLc-1TC0;
+	Wed, 16 Apr 2025 07:13:35 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4wqL-00000008YGc-08vC;
-	Wed, 16 Apr 2025 07:05:58 +0000
+	id 1u4wvt-00000008Z9A-0dth
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 16 Apr 2025 07:11:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 02F1AA4B055;
-	Wed, 16 Apr 2025 07:00:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B175C4CEE2;
-	Wed, 16 Apr 2025 07:05:55 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 363D75C5B6B;
+	Wed, 16 Apr 2025 07:09:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA0FCC4CEE2;
+	Wed, 16 Apr 2025 07:11:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744787156;
-	bh=TvXOOfKd0AybmzJYKKOIvlp2HZzH1NJikgI1O9LLoI8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pga454ijr9cG0L5OgTIT2/FkeP0bBGXdaK2we465eqKPpHz8IGq3a1p1nXMDMQKT6
-	 GB4EQIzSJKyWdnsVmZfr3LNLtmPMXsCzplmXasJAA5dqMY3klHwHOtrBT1ZUvARjN/
-	 Zzbax0FELML6UEenIIsL8HolP4iUWgDgDapZcU/Dn61a8PPpSuwT5iucZYIWsk/lZP
-	 3uPhtIxDWz1tsQ7v2llcz2HDuCexK4UYI/UrHmy8nIC6s1i3671YFiMHRoFjhXL49d
-	 VuqQP61yqkW2fZoS5glxVuRYO1m74CusWu/82h1+wclWgomWjUNbZ+allUKFvzwVoK
-	 L8J/T4NyXXyTw==
-Date: Wed, 16 Apr 2025 09:05:53 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Kever Yang <kever.yang@rock-chips.com>
-Cc: heiko@sntech.de, linux-rockchip@lists.infradead.org, 
-	Finley Xiao <finley.xiao@rock-chips.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
-	Rob Herring <robh@kernel.org>, linux-kernel@vger.kernel.org, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Sebastian Reichel <sebastian.reichel@collabora.com>, 
-	Elaine Zhang <zhangqing@rock-chips.com>, linux-arm-kernel@lists.infradead.org, 
-	Ulf Hansson <ulf.hansson@linaro.org>
-Subject: Re: [PATCH v4 1/2] dt-bindings: power: rockchip: Add support for
- RK3562 SoC
-Message-ID: <20250416-elegant-devious-rook-1bde16@shite>
-References: <20250415032314.44997-1-kever.yang@rock-chips.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250415032314.44997-1-kever.yang@rock-chips.com>
+	s=k20201202; t=1744787499;
+	bh=szqjAkZRW2FQzyNwPP2HrTZPgVMC0eK0PojCcr4EVeE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Y5hlVazRgUt0P5iJmGiFXgqESJvp6duOYlAtmxhyV7VbEQcH6RqQlmtge8oz+Q9xF
+	 iG/vG9W94rLdVaKbE+dYrhp/VUJdlm7oJxbdLGo7YB+KO4rt0Xe88M/c+Bm23spN24
+	 XuI89yyD95/Y/6+p89b2ALbFhM7Ybt29JDGX+ESMGqjs//lQXYOSPBaJdkXGM2zwjv
+	 NpAqY8pYtHZCMe2lX5WJlwlvfMcyRoDbTDPRdUgv7+PhQ3U2iXlsPokgPMLVaV1BhK
+	 qvZaepMUX3zP1HtUWaQQYMbQFzAMn5TyTeEK/bPlNHB0CZ1giIX7OdfS9387apm1zV
+	 DmqTRqSf0x6Fw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1u4wvp-005wlp-Da;
+	Wed, 16 Apr 2025 08:11:37 +0100
+Date: Wed, 16 Apr 2025 08:11:36 +0100
+Message-ID: <86y0w0k2c7.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: D Scott Phillips <scott@os.amperecomputing.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	James Clark
+ <james.clark@linaro.org>,
+	James Morse <james.morse@arm.com>,
+	Joey Gouly
+ <joey.gouly@arm.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Mark Brown
+ <broonie@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	"Rob Herring\
+ (Arm)" <robh@kernel.org>,
+	Shameer Kolothum
+ <shameerali.kolothum.thodi@huawei.com>,
+	Shiqi Liu <shiqiliu@hust.edu.cn>,
+	Will Deacon <will@kernel.org>,
+	Yicong Yang <yangyicong@hisilicon.com>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	open list
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 2/2] arm64: errata: Work around AmpereOne's erratum AC04_CPU_23
+In-Reply-To: <864iypgjjc.fsf@scott-ph-mail.amperecomputing.com>
+References: <20250415154711.1698544-1-scott@os.amperecomputing.com>
+	<20250415154711.1698544-2-scott@os.amperecomputing.com>
+	<Z_6SKjdvje1Lpeo3@linux.dev>
+	<864iypgjjc.fsf@scott-ph-mail.amperecomputing.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: scott@os.amperecomputing.com, oliver.upton@linux.dev, catalin.marinas@arm.com, james.clark@linaro.org, james.morse@arm.com, joey.gouly@arm.com, kevin.brodsky@arm.com, broonie@kernel.org, mark.rutland@arm.com, robh@kernel.org, shameerali.kolothum.thodi@huawei.com, shiqiliu@hust.edu.cn, will@kernel.org, yangyicong@hisilicon.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_000557_133820_29D9355E 
-X-CRM114-Status: UNSURE (   7.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250416_001141_241838_52BF195A 
+X-CRM114-Status: GOOD (  16.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,19 +106,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 15, 2025 at 11:23:13AM GMT, Kever Yang wrote:
-> From: Finley Xiao <finley.xiao@rock-chips.com>
+On Tue, 15 Apr 2025 23:13:43 +0100,
+D Scott Phillips <scott@os.amperecomputing.com> wrote:
 > 
-> According to a description from TRM, add all the power domains.
+> Marc Zyngier <maz@kernel.org> writes:
 > 
-> Signed-off-by: Finley Xiao <finley.xiao@rock-chips.com>
-> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
-> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-> ---
+> > On Tue, 15 Apr 2025 16:47:11 +0100,
+> > If the write to HCR_EL2 can corrupt translations, what guarantees that
+> > such write placed on a page boundary (therefore requiring another TLB
+> > lookup to continue in sequence) will be able to get to the ISB?
+> 
+> Hi Marc, I understand now from the core team that an ISB on another page
+> will be ok as the problem is on the data side only.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Are you guaranteed that a younger data access can't be hoisted up and
+affect things similarly? I don't see anything that would prevent this.
 
-Best regards,
-Krzysztof
+Thanks,
 
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
