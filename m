@@ -4,99 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 326C3C369CA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 21:59:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4780C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 22:01:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9TYUCN/1UNTxn2CDVHf8q4W13nzMO2FOJwS1tEoC09w=; b=rBlQOpgs2AKRZ8DOdVufxFD1np
-	CQzx1Vp23qHmSx+VPkQ2jqIH/6YdqwzrpkGXT0TO123DCpcZvsKBQGcEX/2A90qyO2q4DV9RuC0y8
-	KXw1lYRZiyPX7KolfA9rkEl8ia8wrDsmxI+dW2lAd8DuxZLtIlHr1YJLK8mt7YmHmRSWf9YHwMRrg
-	+E0N0wGyICpcY21Buj1v5MYwQs7Y+zVkDya/7vRQC7DRaYpXx6SOFOfL846goG4wNN2/D6rTqp4jL
-	de3YPZ4AwYBq1EKK6HDHNuO2IREOgp/MugbVbD4bg3Mh7fHhfGjNAiqnkA+MlHmNOE5sieN5DbeQi
-	lav/e5Ew==;
+	bh=vv7BpdqbrC4MIJGIoyaCveI8US7dxRJU75TQa1FCYWA=; b=5CL8u/cs1MMR1u/FZc8TTrG2nm
+	wlULhGROg7xiLQz4NL14mEOWr6Gcehom2wVoELrLG50ekIEBfOisUKMgXZMiEFriYiMYBNJ6PEWz8
+	FeDsPW/x0LxQBlZLaH6WZd/REr8GDx+8abEy65G/RzzFFmUb1t92mCqLmyYJSX2rJTbHCiL72m6rT
+	YunzgrC/8WWVXA9LLg9jsAqXW/5tDE5QbS6bDrZ7QVQgcOGCv5vaojBIAmBHWAw5H37iwq23YAatB
+	adbuDiil5xP4HwyqyhY3dDm8JUb81y7q6u/Q5kgJggsbVhZepWKNsFJxN0KU8b3VsgjX+BoE3v0ic
+	J1Cf+6oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5AnK-0000000AzhG-0vD4;
-	Wed, 16 Apr 2025 21:59:46 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1u5Ap8-0000000B022-3qJn;
+	Wed, 16 Apr 2025 22:01:38 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5AlS-0000000AzDd-3X9L
+	id 1u5AmX-0000000AzUv-1w8h
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 21:57:51 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-2ff799d99dcso64060a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 14:57:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744840669; x=1745445469; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=9TYUCN/1UNTxn2CDVHf8q4W13nzMO2FOJwS1tEoC09w=;
-        b=aYrOQAZahelp8/eKMKi0yUumeCwHm6nQJEVW9DofQ9ZgrTWzgqiX8bxpzkXa98uMNM
-         JdENMWSzXgKSm8cEjFfR1BX2tbcbCnGF7LK+IKi0eIKw3cDUR0iKPbVCpeanQHqFX9DP
-         xgSova7gXeDH6TJbhHUeOfWI/1/CK5A6wohWAqOw3nUEaOui5rM4Msfip4Ge7uPiDSY3
-         IzIaAwx4RQC2bs928WqmDdhb19cbLmLHXj3/ZAQcGyP6Phg6uyU0QqPgJLufH1v8+01J
-         p9JnyE9dJf3+yI9dfDxsggkKDu07P8ee17tPcQdWifLYtEbq0uQ+MnVm8HrsKH6wZ2XQ
-         4zXw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744840669; x=1745445469;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9TYUCN/1UNTxn2CDVHf8q4W13nzMO2FOJwS1tEoC09w=;
-        b=XubOK9oW5aFF4K8lzZ7JBsOu85kRhGOVb6RJZ4EV3h1bimbPqEZ0Hgh3A4e2nnNZB3
-         qlJcHHAc7q0pmvUJEyRqTp9FNofMYsnXyONeW5R5LgEfz+nVeKYYLCZUerSyui5iJ+Ie
-         OepdeScwv7hzBmBftwLHYiw4Y8VYzOG2lRA1DgROCnk2yl3qsTTLwHBzitrxUVM+wOOb
-         AOOZNP4f5hOdd2ZxPxCwQ1vw0LRoMFCsksxug5workaVyPQZO2cC0qrR/BI6zKYfGv2T
-         KedaAcxKyul/0Jh96SAhTVYbyy3HxicobQLiM4yAK09hPegmDMUAsr9jnqNQ+3iwNRBo
-         RRrA==
-X-Forwarded-Encrypted: i=1; AJvYcCW10aGaZP954iaanIY1jRsESHNEyFw357tprcwGuhCx25zhRBeFQUNvdrthBRub4V52MlGQimnpB1a52N/W/sOZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDy2jCzC1AT8GEQCXntJBLquZwoL0+pgw9sMTIe2bewTaE3tta
-	xiLa6jwf7WOxwvGEX7FyExUHC8E2/viMUh4vV+Yeo0mDWkNL/oxVxIqidkWM
-X-Gm-Gg: ASbGncsTuIE7xLRsvjB2fgYqloaa1JWUBXr3/RYsUzHcO9HU96LLdKCH6pI8lWByLXn
-	9vuQg4QmzjPGVYzyDIDAM26Z4PO6IkUdhy66QzvubsBSpUymdoNn6jRvLSLYOlQ0btK3GQ2UV7t
-	YPkikMZtu7b5v8aCPiFr5cNU/PCoWu+/dZUY0wy/w3BcJYOc5DNI2yq8HNLq58BMAZFp1eE2ht1
-	NIg6p1bsn/ddiG+Y1cdqGqV5ANfiD/pvU6XwbBjdRZqECqIqS1bfZfYUIcfUFa1ACh0ZLCej7XI
-	9BWILj2l3TOdddZogaaHyywCSkUK/T13HQYLdteC
-X-Google-Smtp-Source: AGHT+IHeFrgYzvolcRtmLtJYy34iMTe1Y9dhFNFAshuXgx77OGVRADxm1VTMFgvhCLlij4fo6kuyHw==
-X-Received: by 2002:a17:90b:520a:b0:2ff:7b28:a51c with SMTP id 98e67ed59e1d1-30864178e74mr4413005a91.34.1744840669544;
-        Wed, 16 Apr 2025 14:57:49 -0700 (PDT)
-Received: from hiago-nb ([2804:1b3:a7c3:a964:41c8:a4c9:4211:d618])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3085458154esm2640914a91.1.2025.04.16.14.57.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Apr 2025 14:57:48 -0700 (PDT)
-Date: Wed, 16 Apr 2025 18:57:44 -0300
-From: Hiago De Franco <hiagofranco@gmail.com>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Shawn Guo <shawnguo@kernel.org>,
+	Wed, 16 Apr 2025 21:59:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=vv7BpdqbrC4MIJGIoyaCveI8US7dxRJU75TQa1FCYWA=; b=NT3H4zDAb3vOVqUUyDgEmkwU9n
+	pvPgcGIqiVzK4o8M5YI4G/C8hwYJPfzV4/S54epdX+OQhaL0Dx2z9T0K64QX0GPD8SHQlsSxh9652
+	pIq8tf5KvaUfHe9ltDsx3EtN31ZmxU8oIatReKyLyh9zdL7xVFN5Nqq2gpjavK+SXyVg=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1u5AmI-009hQk-EE; Wed, 16 Apr 2025 23:58:42 +0200
+Date: Wed, 16 Apr 2025 23:58:42 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Stefan Wahren <wahrenst@gmx.net>
+Cc: Lukasz Majewski <lukma@denx.de>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"regressions@lists.linux.dev" <regressions@lists.linux.dev>,
-	Hiago De Franco <hiago.franco@toradex.com>
-Subject: Re: [REGRESSION] Kernel reboots unexpectdely on i.MX8X when
- Cortex-M4 is running and it was started by U-Boot bootaux
-Message-ID: <20250416215744.6c57a3oqgt6zkeew@hiago-nb>
-References: <20250404141713.ac2ntcsjsf7epdfa@hiago-nb>
- <20250411125024.i2pib4hyeq4g6ffw@hiago-nb>
- <PAXPR04MB8459ED6CE869173D4051257088B62@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <20250411162328.y2kchvdb4v4xi2lj@hiago-nb>
- <PAXPR04MB8459ED33238AA790252E730988B32@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <20250414224452.gk4ccniqtumfbjth@hiago-nb>
- <PAXPR04MB84591C4D560C0D3D64F927FC88B22@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <20250415184009.2fvtn7tbe6uzwiyg@hiago-nb>
- <PAXPR04MB84596E1E47CDE57ADCE9B40F88BD2@PAXPR04MB8459.eurprd04.prod.outlook.com>
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Simon Horman <horms@kernel.org>
+Subject: Re: [net-next v5 2/6] ARM: dts: nxp: mxs: Adjust the imx28.dtsi L2
+ switch description
+Message-ID: <2c9a5438-40f1-4196-ada9-bfb572052122@lunn.ch>
+References: <20250414140128.390400-1-lukma@denx.de>
+ <20250414140128.390400-3-lukma@denx.de>
+ <06c21281-565a-4a2e-a209-9f811409fbaf@gmx.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <PAXPR04MB84596E1E47CDE57ADCE9B40F88BD2@PAXPR04MB8459.eurprd04.prod.outlook.com>
+In-Reply-To: <06c21281-565a-4a2e-a209-9f811409fbaf@gmx.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_145750_884801_F22E118D 
-X-CRM114-Status: GOOD (  30.61  )
+X-CRM114-CacheID: sfid-20250416_145857_498915_F96122AA 
+X-CRM114-Status: GOOD (  15.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,86 +81,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peng,
+> > -		eth_switch: switch@800f8000 {
+> > -			reg = <0x800f8000 0x8000>;
+> > +		eth_switch: switch@800f0000 {
+> > +			compatible = "nxp,imx28-mtip-switch";
+> > +			reg = <0x800f0000 0x20000>;
+> > +			interrupts = <100>, <101>, <102>;
+> > +			clocks = <&clks 57>, <&clks 57>, <&clks 64>, <&clks 35>;
+> > +			clock-names = "ipg", "ahb", "enet_out", "ptp";
+> >   			status = "disabled";
+> from my understanding of device tree this file should describe the hardware,
+> not the software implementation. After this change the switch memory region
+> overlaps the existing mac0 and mac1 nodes.
+> 
+> Definition in the i.MX28 reference manual:
+> ENET MAC0 ENET 0x800F0000 - 0x800F3FFF 16KB
+> ENET MAC1 ENET 0x800F4000 - 0x800F7FFF 16KB
+> ENT Switch SWITCH 0x800F8000 - 0x800FFFFF 32KB
+> 
+> I'm not the expert how to solve this properly. Maybe two node references to
+> mac0 and mac1 under eth_switch in order to allocate the memory regions
+> separately.
 
-On Wed, Apr 16, 2025 at 08:19:27AM +0000, Peng Fan wrote:
-> > Got it, I was able to make it work with the downstream pingpong
-> > driver and the MCUXpresso demo. I can launch the firmware using the
-> > remoteproc and exchange data between the two cores.
-> >
-> > There is something I noticed, when I start the pingpong demo with U-
-> > Boot, it does not work. I run the pingpong modprobe on Linux but the
-> > name service is never annouced. It only works if I start with the
-> > remoteproc on Linux, not U-Boot. Is this because of Linux not being
-> > able to control the M4?
->
-> No. In you case, you could start using remoteproc, that means
-> Linux could control M4.
->
-> >
-> > If I start the binary using U-Boot, the "state" always report as "offline"
-> > by the remoteproc driver.
->
-> In drivers/remoteproc/imx_rproc.c,  imx_rproc_detect_mode
-> case IMX_RPROC_SCU_API is used for detect mode of M4 for i.MX8Q/X
-> platform. Please give a look where it returns.
->
-> For U-Boot start m4, linux should remote state: "attached"
+I get what you are saying about describing the hardware, but...
 
-Ok, in this case looks its does not work. I start the firmware with
-U-Boot and state is always "offline". Inside the IMX_RPROC_SCU_API case,
-the function returns at this point:
+The hardware can be used in two different ways.
 
-		...
-		/*
-		 * If Mcore resource is not owned by Acore partition, It is kicked by ROM,
-		 * and Linux could only do IPC with Mcore and nothing else.
-		 */
-		if (imx_sc_rm_is_resource_owned(priv->ipc_handle, priv->rsrc_id)) {
-			if (of_property_read_u32(dev->of_node, "fsl,entry-address", &priv->entry))
-				return -EINVAL;
+1) Two FEC devices, and the switch it left unused.
 
-			return imx_rproc_attach_pd(priv); // <-- Returns here
-		...
+For this, it makes sense that each FEC has its own memory range, there
+are two entries, and each has a compatible, since there are two
+devices.
 
-And this function, imx_rproc_attach_pd, returns 0 at the end:
+2) A switch and MAC conglomerate device, which makes use of all three
+   blocks in a single driver.
 
-	...
-	return 0; // <-- Returns here at the end
+The three hardware blocks have to be used as one consistent whole, by
+a single driver. There is one compatible for the whole. Given the
+ranges are contiguous, it makes little sense to map them individually,
+it would just make the driver needlessly more complex.
 
-detach_pd:
-	while (--i >= 0) {
-	...
+It should also be noted that 1) and 2) are mutually exclusive, so i
+don't think it matters the address ranges overlap. Bad things are
+going to happen independent of this if you enable both at once.
 
-So looks like in this case the partition is *not* owned by the A core,
-it is still being owned by the Mcore and I can not attach.
-
-For debugging purposes, I did the following patch, inverting the logic:
-
-diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-index 592a34cfa75e..2fcc9086e916 100644
---- a/drivers/remoteproc/imx_rproc.c
-+++ b/drivers/remoteproc/imx_rproc.c
-@@ -1072,7 +1072,7 @@ static int imx_rproc_detect_mode(struct imx_rproc *priv)
-                 * If Mcore resource is not owned by Acore partition, It is kicked by ROM,
-                 * and Linux could only do IPC with Mcore and nothing else.
-                 */
--               if (imx_sc_rm_is_resource_owned(priv->ipc_handle, priv->rsrc_id)) {
-+               if (!imx_sc_rm_is_resource_owned(priv->ipc_handle, priv->rsrc_id)) {
-                        if (of_property_read_u32(dev->of_node, "fsl,entry-address", &priv->entry))
-                                return -EINVAL;
-
-And now the remoteproc driver attaches to the MCore succesfully, which
-is exactly what I want. However less than one second later the kernel
-reboot with the "SCFW fault reset" again.
-
-Do you know what could be the issue in this case? Maybe the partitions are
-not yet correct?
-
->
-> Regards,
-> Peng.
-
-Cheers,
-Hiago.
+      Andrew
 
