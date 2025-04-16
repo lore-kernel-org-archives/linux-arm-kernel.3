@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A5D5C369C5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 19:56:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2820C369C5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 19:58:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zw1RTUf9P1O8DE2gBZDfX57XQ6qwlxNFLSDVWnPqgU8=; b=FrjCvkr/lSh9IndOGTfhkq7uVV
-	uG4ZzDVw16A8ZmJkhdHBQAtqO1moljixQylP1ckYdFAWSmxpL5D/KZRU0txc5EfMmxpcYuaqvILGk
-	Wb5UmpYX9Uw+GHZGkLXNj1gS/tkDx79B7dZnRrqfdjf6fAOS11cu+2ISFOVZVtK7Nxb7Dv+EiRxRq
-	UiRITOQpTj/3n+Ey4IJOeurUsY+mY2UHBhAVhFMTObYRTvgqveiF1wxIzgMFLzf/9V+G/aZ7Zcdvg
-	DRwfHWFO06O6TDI3BMeNUtGZVovPuB5uSg9rgE4zDYuvwevjhneZT1fC1bsQ8CDyYiHx/ww80cbUB
-	iXKtX+1A==;
+	bh=zOy0kKZXmd4v4LZe/WO0h2WayUdvDZh1TqXaFa62B1o=; b=1YtvqGCTldBQTuOP9JmKrZ1KXy
+	O+84Qz62CyygrQOb+0T/SRmwuYiFzP/MPxb7TaVmcCL+sfvnGrgonSjwSk/i6Rzrb/I4B+qypvEy+
+	FIlI6/qqbwMHos18Dd1bRBVMj39lMqGeHSKn9LFk8wu8a5P64yLeWC+dsw3TVFDVrweeYQkbKbiOr
+	/J0isruJ8NdCxN0uG/bBQNEQspiV+ZR5b4ri9pcW/5O7vTPTkfuPHOfn26Zgo9H5PB9dDxKkPP8dt
+	w/T6BtcgY+zva146MSata+UKEebYxQzsdty4+8v7PjHGar3FoZ5g0hMPtPnGRXdQHGkr/BnnF4k6U
+	o7b3Y+2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u58rs-0000000Akjg-2oAM;
-	Wed, 16 Apr 2025 19:56:20 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u58tu-0000000Al7l-1Qqe;
+	Wed, 16 Apr 2025 19:58:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u58q1-0000000AkY9-2jYS
+	id 1u58s4-0000000AkmO-1YmK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 19:54:27 +0000
+	Wed, 16 Apr 2025 19:56:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 75DC9A4A52D;
-	Wed, 16 Apr 2025 19:48:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66A95C4CEE2;
-	Wed, 16 Apr 2025 19:54:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 740F16156A;
+	Wed, 16 Apr 2025 19:56:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33C56C4CEE2;
+	Wed, 16 Apr 2025 19:56:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744833264;
-	bh=VOgmkXfdlWuIo4XkZejUC7sV2odScaUVZc1wtf1wTE4=;
+	s=k20201202; t=1744833391;
+	bh=1cQoQQDK1oUmzfGtTT0gHZLgQczHjt8gR3Q1A0MnmOs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lz8rnA0BHsADULNyL0KMwo4Act0zMwIUCn0nvTGvkBr6f8BjruW1ndqTE1Di5OZCi
-	 UkuNKo0Nz4XpneU5MJdayxIwLU3YEjBnYSBSCoAUa2UG2FVMIgAkhLZ4tU9p7i/AMC
-	 1U3q0RB0LdLEDHI4tzmJyG9bVWmyPD5T4sUixEk075h5/gOAwy9KDlG8VZDnnMaMFJ
-	 Z8z51RMvOgos4Zn49+OoLoSFfn4hi48Rb/Gc8DESIxm8EMXA9WqIHo7LXyi0Y9N/Er
-	 x4SBoCSP/h1DnaZawfgmSqpf0BZ2MCRdsdiRC0pVr9srZ2Ox+gDVgF03eAkKRLczqB
-	 Ohal3WQ8xg/ew==
-Date: Wed, 16 Apr 2025 12:54:21 -0700
+	b=q28ERErFjTirg5FUFEx+Iimn+lOIgFKU4pP7Jsh6gye4h50ZrKR4GIJQBzK7g5s1E
+	 dcbLn1pWLhIxir6ST0Mu+HWAamcjHWZFCg0M2So4Hx9AS5wxB6Q4HD4aUbUnSQ/4IE
+	 7MHmdtk3WaybPtA8sZDNcqw0EP/b74DLV1SLDmtVeYCLblOIhuzbUEDFE+CarRDK4A
+	 BgumN+7BBFgQsd5ZmOqC8v7TI/GIVitcxQL8pO71OE8Mb8OMZ8iIbvZyCTcjPs3aH/
+	 lX9POmoH+s4icmxYYQVVLemtGQ+EH8oNU1SVMH76A2Tedqe3mbdoCaIKxjAK8ECKWJ
+	 j89csIZJMglSw==
+Date: Wed, 16 Apr 2025 12:56:28 -0700
 From: Kees Cook <kees@kernel.org>
 To: Mostafa Saleh <smostafa@google.com>
 Cc: kvmarm@lists.linux.dev, kasan-dev@googlegroups.com,
@@ -56,17 +56,14 @@ Cc: kvmarm@lists.linux.dev, kasan-dev@googlegroups.com,
 	akpm@linux-foundation.org, yuzenghui@huawei.com,
 	suzuki.poulose@arm.com, joey.gouly@arm.com, masahiroy@kernel.org,
 	nathan@kernel.org, nicolas.schier@linux.dev
-Subject: Re: [PATCH 3/4] KVM: arm64: Introduce CONFIG_UBSAN_KVM_EL2
-Message-ID: <202504161250.CC5C277A@keescook>
+Subject: Re: [PATCH 0/4] KVM: arm64: UBSAN at EL2
+Message-ID: <202504161255.7583BC11@keescook>
 References: <20250416180440.231949-1-smostafa@google.com>
- <20250416180440.231949-4-smostafa@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250416180440.231949-4-smostafa@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_125425_820914_8D1F5F19 
-X-CRM114-Status: GOOD (  27.07  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250416180440.231949-1-smostafa@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,128 +78,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 16, 2025 at 06:04:33PM +0000, Mostafa Saleh wrote:
-> Add a new Kconfig CONFIG_UBSAN_KVM_EL2 for KVM which enables
-> UBSAN for EL2 code (in protected/nvhe/hvhe) modes.
-> This will re-use the same checks enabled for the kernel for
-> the hypervisor. The only difference is that for EL2 it always
-> emits a "brk" instead of implementing hooks as the hypervisor
-> can't print reports.
+On Wed, Apr 16, 2025 at 06:04:30PM +0000, Mostafa Saleh wrote:
+> Many of the sanitizers the kernel supports are disabled when running
+> in EL2 with nvhe/hvhe/proctected modes, some of those are easier
+> (and makes more sense) to integrate than others.
+> Last year, kCFI support was added in [1]
 > 
-> The KVM code will re-use the same code for the kernel
-> "report_ubsan_failure()" so #ifdefs are changed to also have this
-> code for CONFIG_UBSAN_KVM_EL2
+> This patchset adds support for UBSAN in EL2.
+> UBSAN can run in 2 modes:
+>   1) “Normal” (CONFIG_UBSAN_TRAP=n): In this mode the compiler will
+>   do the UBSAN checks and insert some function calls in case of
+>   failures, it can provide more information(ex: what is the value of
+>   the out of bound) about the failures through those function arguments,
+>   and those functions(implemented in lib/ubsan.c) will print a report with
+>   such errors.
 > 
-> Signed-off-by: Mostafa Saleh <smostafa@google.com>
-> ---
+>   2) Trap (CONFIG_UBSAN_TRAP=y): This is a minimal mode, where similarly,
+>   the compiler will do the checks, but instead of doing function calls,
+>   it would do a “brk #imm” (for ARM64) with a unique code with the failure
+>   type, but without any extra information (ex: only print the out-bound line
+>   but not the index)
+> 
+> For nvhe/hvhe/proctected modes, #2 would be suitable, as there is no way to
+> print reports from EL2, so similarly to kCFI(even with permissive) it would
+> cause the hypervisor to panic.
+> 
+> But that means that for EL2 we need to compile the code with the same options
+> as used by “CONFIG_UBSAN_TRAP” independently from the kernel config.
+> 
+> This patch series adds a new KCONFIG for ARM64 to choose to enable UBSAN
+> separately for the modes mentioned.
+> 
+> The same logic decoding the kernel UBSAN is reused, so the messages from
+> the hypervisor will look similar as:
+> [   29.215332] kvm [190]: nVHE hyp UBSAN: array index out of bounds at: [<ffff8000811f2344>] __kvm_nvhe_handle___pkvm_init_vm+0xa8/0xac!
+> 
+> In this patch set, the same UBSAN options(for check types) are used for both
+> EL1/EL2, although a case can be made to have separate options (leading to
+> totally separate CFLAGS) if we want EL2 to be compiled with stricter checks
+> for something as protected mode.
+> However, re-using the current flags, makes code re-use easier for
+> report_ubsan_failure() and  Makefile.ubsan
+> 
+> [1] https://lore.kernel.org/all/20240610063244.2828978-1-ptosi@google.com/
+> 
+> 
+> Mostafa Saleh (4):
+>   arm64: Introduce esr_is_ubsan_brk()
+>   ubsan: Remove regs from report_ubsan_failure()
+>   KVM: arm64: Introduce CONFIG_UBSAN_KVM_EL2
+>   KVM: arm64: Handle UBSAN faults
+> 
+>  arch/arm64/include/asm/esr.h     | 5 +++++
+>  arch/arm64/kernel/traps.c        | 4 ++--
+>  arch/arm64/kvm/handle_exit.c     | 6 ++++++
 >  arch/arm64/kvm/hyp/nvhe/Makefile | 6 ++++++
->  include/linux/ubsan.h            | 2 +-
+>  arch/x86/kernel/traps.c          | 2 +-
+>  include/linux/ubsan.h            | 6 +++---
 >  lib/Kconfig.ubsan                | 9 +++++++++
->  lib/ubsan.c                      | 6 ++++--
+>  lib/ubsan.c                      | 8 +++++---
 >  scripts/Makefile.ubsan           | 5 ++++-
->  5 files changed, 24 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
-> index b43426a493df..cbe7e12752bc 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/Makefile
-> +++ b/arch/arm64/kvm/hyp/nvhe/Makefile
-> @@ -99,3 +99,9 @@ KBUILD_CFLAGS := $(filter-out $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS), $(KBUILD_CFLAG
->  # causes a build failure. Remove profile optimization flags.
->  KBUILD_CFLAGS := $(filter-out -fprofile-sample-use=% -fprofile-use=%, $(KBUILD_CFLAGS))
->  KBUILD_CFLAGS += -fno-asynchronous-unwind-tables -fno-unwind-tables
-> +
-> +ifeq ($(CONFIG_UBSAN_KVM_EL2),y)
-> +UBSAN_SANITIZE := y
-> +# Always use brk and not hooks
-> +ccflags-y += $(CFLAGS_UBSAN_FOR_TRAP)
-> +endif
-> diff --git a/include/linux/ubsan.h b/include/linux/ubsan.h
-> index c843816f5f68..3ab8d38aedb8 100644
-> --- a/include/linux/ubsan.h
-> +++ b/include/linux/ubsan.h
-> @@ -2,7 +2,7 @@
->  #ifndef _LINUX_UBSAN_H
->  #define _LINUX_UBSAN_H
->  
-> -#ifdef CONFIG_UBSAN_TRAP
-> +#if defined(CONFIG_UBSAN_TRAP) || defined(CONFIG_UBSAN_KVM_EL2)
->  const char *report_ubsan_failure(u32 check_type);
->  #else
->  static inline const char *report_ubsan_failure(u32 check_type)
-> diff --git a/lib/Kconfig.ubsan b/lib/Kconfig.ubsan
-> index 4216b3a4ff21..3878858eb473 100644
-> --- a/lib/Kconfig.ubsan
-> +++ b/lib/Kconfig.ubsan
-> @@ -166,4 +166,13 @@ config TEST_UBSAN
->  	  This is a test module for UBSAN.
->  	  It triggers various undefined behavior, and detect it.
->  
-> +config UBSAN_KVM_EL2
-> +	bool "UBSAN for KVM code at EL2"
-> +	depends on ARM64
-> +	help
-> +	  Enable UBSAN when running on ARM64 with KVM in a split mode
-> +	  (nvhe/hvhe/protected) for the hypervisor code running in EL2.
-> +	  In this mode, any UBSAN violation in EL2 would panic the kernel
-> +	  and information similar to UBSAN_TRAP would be printed.
-> +
->  endif	# if UBSAN
-> diff --git a/lib/ubsan.c b/lib/ubsan.c
-> index 17993727fc96..a6ca235dd714 100644
-> --- a/lib/ubsan.c
-> +++ b/lib/ubsan.c
-> @@ -19,7 +19,7 @@
->  
->  #include "ubsan.h"
->  
-> -#ifdef CONFIG_UBSAN_TRAP
-> +#if defined(CONFIG_UBSAN_TRAP) || defined(CONFIG_UBSAN_KVM_EL2)
->  /*
->   * Only include matches for UBSAN checks that are actually compiled in.
->   * The mappings of struct SanitizerKind (the -fsanitize=xxx args) to
-> @@ -97,7 +97,9 @@ const char *report_ubsan_failure(u32 check_type)
->  	}
->  }
->  
-> -#else
-> +#endif
-> +
-> +#ifndef CONFIG_UBSAN_TRAP
->  static const char * const type_check_kinds[] = {
->  	"load of",
->  	"store to",
-> diff --git a/scripts/Makefile.ubsan b/scripts/Makefile.ubsan
-> index 9e35198edbf0..68af6830af0f 100644
-> --- a/scripts/Makefile.ubsan
-> +++ b/scripts/Makefile.ubsan
-> @@ -1,5 +1,8 @@
->  # SPDX-License-Identifier: GPL-2.0
->  
-> +#Shared with KVM/arm64
+>  9 files changed, 41 insertions(+), 10 deletions(-)
 
-Nitpick: Please add a space between "#" and "Shared", and end the line
-with "."
+Nice! I assume this will go via the arm64 tree? I could carry it also,
+if I get arm64 maintainer Acks...
 
-> +export CFLAGS_UBSAN_FOR_TRAP := $(call cc-option,-fsanitize-trap=undefined,-fsanitize-undefined-trap-on-error)
-> +
->  # Enable available and selected UBSAN features.
->  ubsan-cflags-$(CONFIG_UBSAN_ALIGNMENT)		+= -fsanitize=alignment
->  ubsan-cflags-$(CONFIG_UBSAN_BOUNDS_STRICT)	+= -fsanitize=bounds-strict
-> @@ -10,7 +13,7 @@ ubsan-cflags-$(CONFIG_UBSAN_DIV_ZERO)		+= -fsanitize=integer-divide-by-zero
->  ubsan-cflags-$(CONFIG_UBSAN_UNREACHABLE)	+= -fsanitize=unreachable
->  ubsan-cflags-$(CONFIG_UBSAN_BOOL)		+= -fsanitize=bool
->  ubsan-cflags-$(CONFIG_UBSAN_ENUM)		+= -fsanitize=enum
-> -ubsan-cflags-$(CONFIG_UBSAN_TRAP)		+= $(call cc-option,-fsanitize-trap=undefined,-fsanitize-undefined-trap-on-error)
-> +ubsan-cflags-$(CONFIG_UBSAN_TRAP)		+= $(CFLAGS_UBSAN_FOR_TRAP)
-
-Another minor style request: please name this "CFLAGS_UBSAN_TRAP"
-(nothing else in Kconfig uses "FOR" like this, and leaving it off sounds
-more declarative).
-
->  
->  export CFLAGS_UBSAN := $(ubsan-cflags-y)
-
-Otherwise, yes, looks good.
+-Kees
 
 -- 
 Kees Cook
