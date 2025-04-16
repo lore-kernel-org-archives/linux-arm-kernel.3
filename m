@@ -4,64 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7AE5C369BA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 18:23:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BCE0C369BA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 18:25:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Z/ycPhzFOp7kqim8jOWP2MgWDZ24W6IrXcEl8cuJ58=; b=a4voA+E/v42CZgqvoL8XOUiCgr
-	sVf3mpvx2nAe0jEOyNynyWKLo0uw91C9gpb3JPFbtoxwZrivWKN15fCicLZl6UEvRQVKgPY+3yeCf
-	zs9n1qIIc8ZNlNTCIAYsA8vFYM8a6k6zelZqwvE49pGNgiIxno3QNj6FdWhvIgn7TL4R7HvKvX2Im
-	uB5WHGbNdyfu888SpAySbwfVLkJQqZx/LRpHBXUu3uu70bytuDFw8dfcsrxTlq9chMGOmraCMykwN
-	N8P6TNwxn9nOkU0VhkL1szyOqUHvMUrWiI1uWkn+cPNkcP6wFJgoUBdO221WLf++HYxgphyVGAszd
-	boDqWaug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DVLqIkYv+eBmdgh9AzWCJ90b9WZ/2sR3WX5M/g/GVaY=; b=RNouSG6SR43reV2S8gS8j5qnoW
+	PoWvHC7T6L4aUAU0NhrmDEspf+yW2HIm9ouOuLHrovQ+etlj+TIaCL+MGgYegUVCf3gL2VWc26JH/
+	ttkkImMt1VIthaaG77AZZUtIdzVwcfJaziAmhofoXlE0CfabtE9DAzg3QaauKCsZ7wPxUVzxDpXql
+	+AqmIvkEQiK4S28IGbXsl2MHNMFy5ov/LVnLTmFkbFvPLQbngUQ/V4whzNakVEsTtlYFfGCgSu5Ut
+	RZbyuXlsQRVJmdzk1uj8Qty2VyS/K6A0KO6F9zNDxWMDJY5ryIbtpTdjIn9hsVfuxJAU7X9I/fQ/p
+	kOGQPF8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u57QE-0000000AYIy-1lPg;
-	Wed, 16 Apr 2025 18:23:42 +0000
-Received: from out-184.mta0.migadu.com ([91.218.175.184])
+	id 1u57S3-0000000AYWf-0KOh;
+	Wed, 16 Apr 2025 18:25:35 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u57C8-0000000AWA9-3xfG
+	id 1u57Dr-0000000AWXk-294b
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 18:09:10 +0000
-Date: Wed, 16 Apr 2025 14:09:02 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
-	s=key1; t=1744826946;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1Z/ycPhzFOp7kqim8jOWP2MgWDZ24W6IrXcEl8cuJ58=;
-	b=DnrhDyEKSAHD2fzWhfxYKAMLqUZToFlUYZMgSO+5+GZ3c4t3esiForHeklefv6nSkYv15V
-	f1840w5Kopq2OZImcX4hNi7zsQ1tdLtx5/iNlV9Dl0zFAlOoPFCYjPGhxcW2jjG9FFXvpr
-	Rdy2YeX/ZKLv84JBoidMlckAU+DZoGYGvvoCAy7UWyzxQCF3qP6bZy2NvOyXQkKTbN+ms7
-	olCblvgUlVdi9MICJo+Ln+3BI6Hezht9UN5N7tiEyFbQIdJyzWITTElI6ppeNLhMlYUNQe
-	DN+7NAzASQnQroPDyeTYWCS+XcIoE5hPGkUyCWpWkfNv6O0puB+LKcUqc8Dpuw==
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-To: fnkl.kernel@gmail.com
-Cc: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>,
-	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Hector Martin <marcan@marcan.st>
-Subject: Re: [PATCH 2/3] nvmem: Add spmi-nvmem driver
-Message-ID: <Z__yPpi43VdDqPYM@blossom>
-References: <20250415-spmi-nvmem-v1-0-22067be253cf@gmail.com>
- <20250415-spmi-nvmem-v1-2-22067be253cf@gmail.com>
+	Wed, 16 Apr 2025 18:10:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C47084A382;
+	Wed, 16 Apr 2025 18:10:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28084C4CEE2;
+	Wed, 16 Apr 2025 18:10:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744827054;
+	bh=BwHkWTpOhur440Z80ly8g3N+djQD6dBjxS1kT5nV74c=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=lzmYjCsNepDSraryG5VzpwlDZMymqsbCUIVG1pE93F4nsvJ4sDUKkIFceIGn8SsqS
+	 zTTTblMvtpNo4tz5BuU38fRzxWuWXvj9KKn07rXgfg786pZE7moBJKDzN0cWo+pKba
+	 1WqTfdUgmXyJkofHy+pcBGnfJvqFg8ulA1BqG91BvG2a/vHN0gKGU9T5BiT2VjSAk1
+	 EQ1qH6zHSeXlNy7WWa1++M3lNS+qOj99aCAKZDSBaxoPvdDx5xjr9rKNS7EVlkpPEX
+	 8VzNpr0+ZnMqloSkevz2u734MLJELNtf1/Fc5fQNt/0SORCDqLTE8WFV4Am8FM524w
+	 VbZQCI0SUXE2w==
+From: Bjorn Andersson <andersson@kernel.org>
+To: konradybcio@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	mturquette@baylibre.com,
+	sboyd@kernel.org,
+	ulf.hansson@linaro.org,
+	linus.walleij@linaro.org,
+	catalin.marinas@arm.com,
+	p.zabel@pengutronix.de,
+	geert+renesas@glider.be,
+	neil.armstrong@linaro.org,
+	linux-arm-msm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-mmc@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	Sricharan R <quic_srichara@quicinc.com>
+Cc: quic_varada@quicinc.com
+Subject: Re: (subset) [PATCH V5 0/6] Add minimal boot support for IPQ5424
+Date: Wed, 16 Apr 2025 13:10:44 -0500
+Message-ID: <174482704415.446874.4349704931217088020.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20241028060506.246606-1-quic_srichara@quicinc.com>
+References: <20241028060506.246606-1-quic_srichara@quicinc.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250415-spmi-nvmem-v1-2-22067be253cf@gmail.com>
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_110909_283533_4A9ED404 
-X-CRM114-Status: GOOD (  27.79  )
+X-CRM114-CacheID: sfid-20250416_111055_567055_1D3F02AF 
+X-CRM114-Status: UNSURE (   7.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,144 +92,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This should have a Co-developed-by tag in addition to the two sign-offs,
-given you've made significant changes.
 
-> This driver exposes a SPMI device as an NVMEM device.
-> It is intended to be used with e.g. PMUs/PMICs that are used to
-> hold power management configuration, such as used on Apple Silicon
-> Macs.
+On Mon, 28 Oct 2024 11:35:00 +0530, Sricharan R wrote:
+> From: Sricharan Ramabadhran <quic_srichara@quicinc.com>
 > 
-> Signed-off-by: Hector Martin <marcan@marcan.st>
-> Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
-> ---
->  MAINTAINERS                |  1 +
->  drivers/nvmem/Kconfig      | 14 +++++++++++
->  drivers/nvmem/Makefile     |  2 ++
->  drivers/nvmem/spmi-nvmem.c | 62 ++++++++++++++++++++++++++++++++++++++++++++++
->  4 files changed, 79 insertions(+)
+> The IPQ5424 is Qualcomm's 802.11be SoC for Routers, Gateways and
+> Access Points.
 > 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index e7b2d0df81b387ba5398957131971588dc7b89dc..63c12f901aed1f3e6de8227d6db34af1bd046fe6 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -2298,6 +2298,7 @@ F:	drivers/iommu/io-pgtable-dart.c
->  F:	drivers/irqchip/irq-apple-aic.c
->  F:	drivers/nvme/host/apple.c
->  F:	drivers/nvmem/apple-efuses.c
-> +F:	drivers/nvmem/spmi-nvmem.c
->  F:	drivers/pinctrl/pinctrl-apple-gpio.c
->  F:	drivers/pwm/pwm-apple.c
->  F:	drivers/soc/apple/*
-> diff --git a/drivers/nvmem/Kconfig b/drivers/nvmem/Kconfig
-> index 8671b7c974b933e147154bb40b5d41b5730518d2..9ec907d8aa6ef7df0ea45cc35e92d8239d2705ee 100644
-> --- a/drivers/nvmem/Kconfig
-> +++ b/drivers/nvmem/Kconfig
-> @@ -310,6 +310,20 @@ config NVMEM_SNVS_LPGPR
->  	  This driver can also be built as a module. If so, the module
->  	  will be called nvmem-snvs-lpgpr.
->  
-> +config NVMEM_SPMI
-> +	tristate "Generic SPMI NVMEM"
-> +	default ARCH_APPLE
-> +	depends on SPMI
-> +	select REGMAP_SPMI
-> +	help
-> +	  Say y here to build a generic driver to expose a SPMI device
-> +	  as a NVMEM provider. This can be used for PMIC/PMU devices which
-> +	  are used to store power and RTC-related settings on certain
-> +	  platforms, such as Apple Silicon Macs.
-> +
-> +	  This driver can also be built as a module. If so, the module
-> +	  will be called nvmem-spmi.
-> +
->  config NVMEM_SPMI_SDAM
->  	tristate "SPMI SDAM Support"
->  	depends on SPMI
-> diff --git a/drivers/nvmem/Makefile b/drivers/nvmem/Makefile
-> index 5b77bbb6488bf89bfb305750a1cbf4a6731a0a58..b639f4284184db026bb27b11e04d54b8f7ff166f 100644
-> --- a/drivers/nvmem/Makefile
-> +++ b/drivers/nvmem/Makefile
-> @@ -64,6 +64,8 @@ obj-$(CONFIG_NVMEM_SC27XX_EFUSE)	+= nvmem-sc27xx-efuse.o
->  nvmem-sc27xx-efuse-y			:= sc27xx-efuse.o
->  obj-$(CONFIG_NVMEM_SNVS_LPGPR)		+= nvmem_snvs_lpgpr.o
->  nvmem_snvs_lpgpr-y			:= snvs_lpgpr.o
-> +obj-$(CONFIG_NVMEM_SPMI)		+= nvmem_spmi.o
-> +nvmem_spmi-y				:= spmi-nvmem.o
->  obj-$(CONFIG_NVMEM_SPMI_SDAM)		+= nvmem_qcom-spmi-sdam.o
->  nvmem_qcom-spmi-sdam-y			+= qcom-spmi-sdam.o
->  obj-$(CONFIG_NVMEM_SPRD_EFUSE)		+= nvmem_sprd_efuse.o
-> diff --git a/drivers/nvmem/spmi-nvmem.c b/drivers/nvmem/spmi-nvmem.c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..fff6162cb22dd7ab45883f004f5b63ebae014698
-> --- /dev/null
-> +++ b/drivers/nvmem/spmi-nvmem.c
-> @@ -0,0 +1,62 @@
-> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
-> +/*
-> + * Generic SPMI NVMEM driver
-> + *
-> + * Copyright The Asahi Linux Contributors
-> + */
-> +
-> +#include <linux/kernel.h>
-> +#include <linux/module.h>
-> +#include <linux/nvmem-provider.h>
-> +#include <linux/of.h>
-> +#include <linux/spmi.h>
-> +#include <linux/regmap.h>
-> +
-> +static const struct regmap_config spmi_regmap_config = {
-> +	.reg_bits	= 16,
-> +	.val_bits	= 8,
-> +	.max_register	= 0xffff,
-> +};
-> +
-> +static int spmi_nvmem_probe(struct spmi_device *sdev)
-> +{
-> +	struct regmap *regmap;
-> +	struct nvmem_config nvmem_cfg = {
-> +		.dev = &sdev->dev,
-> +		.name = "spmi_nvmem",
-> +		.id = NVMEM_DEVID_AUTO,
-> +		.word_size = 1,
-> +		.stride = 1,
-> +		.size = 0xffff,
-> +		.reg_read = (void *)regmap_bulk_read,
-> +		.reg_write = (void *)regmap_bulk_write,
-> +	};
-> +
-> +	regmap = devm_regmap_init_spmi_ext(sdev, &spmi_regmap_config);
-> +	if (IS_ERR(regmap))
-> +		return PTR_ERR(regmap);
-> +
-> +	nvmem_cfg.priv = regmap;
-> +
-> +	return PTR_ERR_OR_ZERO(devm_nvmem_register(&sdev->dev, &nvmem_cfg));
-> +}
-> +
-> +static const struct of_device_id spmi_nvmem_id_table[] = {
-> +	{ .compatible = "spmi-nvmem" },
-> +	{ },
-> +};
-> +MODULE_DEVICE_TABLE(of, spmi_nvmem_id_table);
-> +
-> +static struct spmi_driver spmi_nvmem_driver = {
-> +	.probe = spmi_nvmem_probe,
-> +	.driver = {
-> +		.name = "spmi-nvmem",
-> +		.of_match_table	= spmi_nvmem_id_table,
-> +	},
-> +};
-> +
-> +module_spmi_driver(spmi_nvmem_driver);
-> +
-> +MODULE_LICENSE("Dual MIT/GPL");
-> +MODULE_AUTHOR("Hector Martin <marcan@marcan.st>");
-> +MODULE_DESCRIPTION("SPMI NVMEM driver");
+> This series adds minimal board boot support for ipq5424-rdp466 board.
 > 
-> -- 
-> 2.49.0
-> 
-> 
+> [...]
+
+Applied, thanks!
+
+[6/6] arm64: defconfig: Enable IPQ5424 RDP466 base configs
+      commit: 4b77122818239bcc05995d0234491b91c8cd477f
+
+Best regards,
+-- 
+Bjorn Andersson <andersson@kernel.org>
 
