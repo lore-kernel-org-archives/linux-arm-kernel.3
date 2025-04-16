@@ -4,69 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8498AC369BD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 15:08:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8446C369BD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 15:10:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oHEFmyY3yqu1Q0Nynff3p1k7tUa5ev1AVNrp7BCWqMA=; b=wMaPzSXYSFU/B8104LPsNixgsg
-	6Vi2JYMSmt6oRKRn5nNZRODSmaXS2CWktffTNoLa69QhJyoPlQgZLrBGlleTODLZteVn2/h5k5XYe
-	6mEtjQpyjLln8ax+VtP/RWKAYzxX9YJEQh2pLpXWBYOdO4JPFGRd2PZnNQBwblIYi+SHbFCfUY4SA
-	RZLvWDmJUyjt56jitfLLKq8EEYdMUXpB7Nc1YWKlVHRZg0WR16MaJqRvWDzdqbrYyhh+CtxEhhRAJ
-	h0QZHx15m4BcnBUpcYG+oVRQZlKXO1Gp7PbU6ZIdW2JlXUiNv5fg1CiBrPntaKAnvmXjcLYomwDC4
-	n67ronyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o/LuuM7yKWjQgHDEWSrK5LrRqlsE2Awtt3xni40sQnA=; b=XdqWz0+c3Z/oC/Dq8pah80zbry
+	hK26peMfhhdWe8svQR/v8KAHyc8clhei10Hd7SLjTdVyhKL6yxYbGEb8L3B6WfMCE81nH1OFQv2pt
+	DQTg5V4vZE+Ld7gRSuoZdOmy0mRiG0I3aE5ryzEXmBWlwH6kIppHJa9TbdchWuzXETzd7DeJWRyo/
+	cXu5yTm+2eEzjsxLWuk+c79uQsVuRZS0G0By5oaGdzCCyYYioSvGrinMXfHrKvnYAhFRIHMDz7vDy
+	d0LMDdgfyKl3tyxFzp7I7azakZYZ5CAYeuSEg3Hr4CEsECAvFZlV6iF60gEU/tgrbh2e746D22SFJ
+	OV/ZfeoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u54My-0000000A0cF-1A1I;
-	Wed, 16 Apr 2025 15:08:08 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u536O-00000009iMe-21K8
+	id 1u54On-0000000A0s4-03fR;
+	Wed, 16 Apr 2025 15:10:01 +0000
+Received: from mx0b-000eb902.pphosted.com ([205.220.177.212])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u53CV-00000009jsx-2ZWg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 13:46:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0C5B41E7D;
-	Wed, 16 Apr 2025 06:46:54 -0700 (PDT)
-Received: from e122027.arm.com (unknown [10.57.90.52])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A30423F59E;
-	Wed, 16 Apr 2025 06:46:51 -0700 (PDT)
-From: Steven Price <steven.price@arm.com>
-To: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Cc: Steven Price <steven.price@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-Subject: [PATCH v8 43/43] KVM: arm64: Allow activating realms
-Date: Wed, 16 Apr 2025 14:42:05 +0100
-Message-ID: <20250416134208.383984-44-steven.price@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250416134208.383984-1-steven.price@arm.com>
-References: <20250416134208.383984-1-steven.price@arm.com>
+	Wed, 16 Apr 2025 13:53:18 +0000
+Received: from pps.filterd (m0220298.ppops.net [127.0.0.1])
+	by mx0a-000eb902.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53G8ODZL011201;
+	Wed, 16 Apr 2025 08:52:39 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garmin.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pps1; bh=o/Luu
+	M7yKWjQgHDEWSrK5LrRqlsE2Awtt3xni40sQnA=; b=fs+a0HgVnMOmN30RjK6ce
+	K18dBGQtxcZrF1cF85ueSFsEL6mTdpSPJgMy1FVemJV255EbTT566HdvLxtfasD1
+	3p7wLCBXRgviuIk2kZpOOBuyv2jY0NIwT+p6YNQ5CTojnoCnyuzgONghg8b2b1AU
+	/OisEYbrsQQOmYMF88qlbqV9H7SHuR4v3pP0FegaZpqbF3zkCsfOo7fblGl/Fqnl
+	no0sI5OnueqlE12PURUV7vVIq/mVc/MKK3jsslqeTM0vC6uR2w9RlNApNCm2kvMn
+	k0Dfbh0Nn5fDG2dA2dFnqBIO3MeVOYPI718YYAj+xvoV5dXisPpMwaUeY23xmx8Q
+	w==
+Received: from nam02-dm3-obe.outbound.protection.outlook.com (mail-dm3nam02lp2045.outbound.protection.outlook.com [104.47.56.45])
+	by mx0a-000eb902.pphosted.com (PPS) with ESMTPS id 46290n0my9-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 16 Apr 2025 08:52:39 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CWAZh8qet8k30HDpRtAa1sv7NaZVQ5atVImvpTejgqJ09OJ8EbQLvE48gXMogm4DcZ+iNsC902vYTx7q1TPsaN1WREsHtHQDGERYvAXh6PAVCI2wbGIUS1eETFKF/zBPOvxapB5J6q9yJNH+wT2TVbK0e2EXuCMOyFfRCQ4xu2BpCl68m62fcglcKCxBGL/NH4XrBY+Dbjh+W3E2/CqbvV1NF/RB2RnXwr17H5UhQH02hhhglEMv/9dIOEXH4yAThDRElVAHW47LruoQKDEFcei3ACKBB5X96oyaizuWYiaaMcRfxgIvVACN3toNSpWs7TDHadicL7tGrcuDFXFYPg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=o/LuuM7yKWjQgHDEWSrK5LrRqlsE2Awtt3xni40sQnA=;
+ b=EDpp+JtYvrOwqQTFJ3TG3Z7UL5syO9vBrfbSOglwB6+loTjxAMxmcHOkRZO0Fi1h3k5rTwYNUZ6c0pFtAr58frVUe8Gmf5EgzWYvQu1fuHzIrHJBTm7vinG/r1cRQkriB6DLufbYjusmze7cyKhnrolFZvXIU3JzSJHglXhito3gM8AgQe5Bfuv14UVHdYAc1iMnCLXSzMr3USWhF6899pz5CI/7nsYNvw13fh3s6FzICTE5rKbVk8qRKJQzYF2DAkLI7rptNKQe9ACpTKNgKlXBH6hwPVeBdm3KPln8Au9pHjM0D6q62UBXAYIy99oalpGSgwNmSNromOn3JhDClw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 204.77.163.244) smtp.rcpttodomain=lists.infradead.org
+ smtp.mailfrom=garmin.com; dmarc=pass (p=reject sp=quarantine pct=100)
+ action=none header.from=garmin.com; dkim=none (message not signed); arc=none
+ (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garmin.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=o/LuuM7yKWjQgHDEWSrK5LrRqlsE2Awtt3xni40sQnA=;
+ b=bKq/SQ8OFTGrVoKnuRbXoYGltc2vzWzoKmkoZQGKZi53mZECeJrQQ5UojkgAydOY6+Ys7qhhmBQjpPHJo63gWJCiI/HnjEs1qvESaXucxJ8ExBsCMpB5zUjpW5k5v/o3OEzuJXfQrQifpPMFul2t73UHo6A1zqk0/hocRbNOdpoksUSMO3JKBvDkeZ7v/ndJfYxmRCTOfLLgcBdct598R61WZvx72BdkUSb2qobR+UplPhonl3p2TyNUl2y3NdeLeeF+iF/s3V1X/cc3wEIA3eYnCw19/+BsjyOH9L+EQFGrQSLCYJi6WOi/KAv5nB3cTm/W2+TvIelUAcWbaZUF6A==
+Received: from DM6PR14CA0045.namprd14.prod.outlook.com (2603:10b6:5:18f::22)
+ by DM8PR04MB7751.namprd04.prod.outlook.com (2603:10b6:8:29::8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8632.33; Wed, 16 Apr 2025 13:52:37 +0000
+Received: from CH3PEPF00000017.namprd21.prod.outlook.com
+ (2603:10b6:5:18f:cafe::98) by DM6PR14CA0045.outlook.office365.com
+ (2603:10b6:5:18f::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8632.34 via Frontend Transport; Wed,
+ 16 Apr 2025 13:52:37 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 204.77.163.244)
+ smtp.mailfrom=garmin.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=garmin.com;
+Received-SPF: Pass (protection.outlook.com: domain of garmin.com designates
+ 204.77.163.244 as permitted sender) receiver=protection.outlook.com;
+ client-ip=204.77.163.244; helo=edgetransport.garmin.com; pr=C
+Received: from edgetransport.garmin.com (204.77.163.244) by
+ CH3PEPF00000017.mail.protection.outlook.com (10.167.244.122) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8678.4 via Frontend Transport; Wed, 16 Apr 2025 13:52:36 +0000
+Received: from OLAWPA-EXMB2.ad.garmin.com (10.5.144.14) by cv1wpa-edge1
+ (10.60.4.252) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 16 Apr
+ 2025 08:52:35 -0500
+Received: from cv1wpa-exmb3.ad.garmin.com (10.5.144.73) by
+ OLAWPA-EXMB2.ad.garmin.com (10.5.144.14) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Wed, 16 Apr 2025 08:52:36 -0500
+Received: from cv1wpa-exmb2.ad.garmin.com (10.5.144.72) by
+ cv1wpa-exmb3.ad.garmin.com (10.5.144.73) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.39; Wed, 16 Apr 2025 08:52:35 -0500
+Received: from OLA-9X4GN34.ad.garmin.com (10.5.209.17) by smtp.garmin.com
+ (10.5.144.72) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
+ Transport; Wed, 16 Apr 2025 08:52:35 -0500
+From: Ross Stutterheim <ross.stutterheim@garmin.com>
+To: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: Russell King <linux@armlinux.org.uk>, Mike Rapoport <rppt@linux.ibm.com>,
+        <ross.stutterheim@garmin.com>, <ross.sweng@gmail.com>,
+        Mike Rapoport
+	<rppt@kernel.org>, <stable@vger.kernel.org>,
+        Catalin Marinas
+	<catalin.marinas@arm.com>,
+        Linus Walleij <linus.walleij@linaro.org>
+Subject: [PATCH v3] arm/memremap: fix arch_memremap_can_ram_remap()
+Date: Wed, 16 Apr 2025 08:52:33 -0500
+Message-ID: <20250416135233.1421962-1-ross.stutterheim@garmin.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250414133219.107455-1-ross.stutterheim@garmin.com>
+References: <20250414133219.107455-1-ross.stutterheim@garmin.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PEPF00000017:EE_|DM8PR04MB7751:EE_
+X-MS-Office365-Filtering-Correlation-Id: b3570432-0a17-46f9-ee25-08dd7cedf20c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|36860700013|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?VqVn0Fo5AeavzP3C5morMmzBUsXo607SxYCPjq1AUNbxAS2Z/TA2XQUFJObr?=
+ =?us-ascii?Q?uitqBjFab65yuEKFojTvx586iuzN9fWtml/xNO8H1l/OjfpTZo0PNYd1IjiO?=
+ =?us-ascii?Q?nl1cp5bjPwpPNaGg/gT3VaKWRINDGlatZgqv8gVEvMMmD3rrqxBT6Bm+7gun?=
+ =?us-ascii?Q?zdJw3C/hJGD5aSRr378sL/1SrMB9Sjn6TpLje9+Ppqp6bqebvhlYbc4aaV7a?=
+ =?us-ascii?Q?7dgLROFHsxDqwf0j9IibpQCbHxU3eqZcfT2BcnShZ5+Mb8qc224WIyrVRlHo?=
+ =?us-ascii?Q?ISkDdWErO+wr/vSDLydPXfQX9nCZ+83FrL9ruQAUQCKgW+3wNkY+9YaFgkAO?=
+ =?us-ascii?Q?I8nlo1oBiSpiFzij+RjEJK/fk50bke+ZfwQbr+dpe01oQ11qyN5JAmE0A3iG?=
+ =?us-ascii?Q?S223tGzl259uAPgYNpxlavmkQCS40sC64o6zBVQYj/Nw2UAQWnWBkInE0Sms?=
+ =?us-ascii?Q?z3+v9W+gL4iBDOMbtJ0AkFvLAgDQHsjbEGCB4pFFAPkOA6iN0BP4m41c2inY?=
+ =?us-ascii?Q?/P1pHdMGn9/RVE+WgXr3nAFJrKDQbwELaTIcMw8RgopxdM5zd6ybL9haDaWd?=
+ =?us-ascii?Q?6CAmEBmh888O9iDsIYrNeOeK5mX2AkVag2YhLZyrkJ2Dv8VRET/soPc7biT7?=
+ =?us-ascii?Q?c4YSqKxL5hKW4UUXWIcDpjW+L8wsETAiUpileHG1qdkgWX5Edv/XzZJOh8AN?=
+ =?us-ascii?Q?13vLVKa2D2Ni8XRVdm8C0J4r+5kUu0y3cWTj4fpyTPAQoR3Lx1I0y9/ORmXz?=
+ =?us-ascii?Q?c/x/PzImrTvGZbVsK5NmV8nfHOOpsnXgUs40Rltn579/8T2x/EOpkqqBsPms?=
+ =?us-ascii?Q?ZEPo69zQ/gbiHWrd3LiSTYQtdtE7Z0YscIbMTXif7y8qevfn47uVhK5XOg7t?=
+ =?us-ascii?Q?aazdSWpQuPWiOsOmjdiqIVzHc+Gny5xhBQX9ge7WXjrn041zp+2JdmQv8ztM?=
+ =?us-ascii?Q?uWu6BjM+ON47z41yZ+oWvqCpyaRDpmiiBCsJg4cNEihvI6vuQQHhCSNZ4/N2?=
+ =?us-ascii?Q?uQ9AwBPX3EQYGCyFlYK5KmI73FrpmzFr8TL0MjN9Ljml+YJ9kLGi2CSlSsJi?=
+ =?us-ascii?Q?f+fROfNV7IzSACS/G8Z3GmbkFZHd5q7WQc5zev2gyMrF9VqAJk2EY8a3cDjr?=
+ =?us-ascii?Q?0jgC9zFNjKTr1YgC/tYcZpikT2WwgZx/3DTum19opNK8R9wq7o01tvgUSdrQ?=
+ =?us-ascii?Q?I0yCgdc9PjE7hs15swsAPpP4FCgtVLaEH8Yw9SIwm6zitA8FLUY96Z5PWmTF?=
+ =?us-ascii?Q?pzpceFkjPGZLw6sawK/za7umDi1PbwaBcuaW0yvZ4hgOaVVFykweg1QqEHq8?=
+ =?us-ascii?Q?sPA5IDlhHVSxJDXbQShLGuBBQxj7zwI8X3BvG3AUcWJ14i7o4ydmlh7CaDvW?=
+ =?us-ascii?Q?CqUAr1fTOg7PTywk7wUe0A1W/45lVCZLyxI919NAPb1JcrfI+hIZTTbrfaPW?=
+ =?us-ascii?Q?HqoBQud/xGnR6vPkmIeIR3sPJ8Br9ey1U88g0Y705vwoD4UoSAB/Hk6hHc2/?=
+ =?us-ascii?Q?+EexI1gIXE3qb10OsJbkecPTlXO1h0+4yDjx?=
+X-Forefront-Antispam-Report: CIP:204.77.163.244;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:edgetransport.garmin.com;PTR:extedge.garmin.com;CAT:NONE;SFS:(13230040)(376014)(1800799024)(36860700013)(82310400026);DIR:OUT;SFP:1102;
+X-OriginatorOrg: garmin.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Apr 2025 13:52:36.5682
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b3570432-0a17-46f9-ee25-08dd7cedf20c
+X-MS-Exchange-CrossTenant-Id: 38d0d425-ba52-4c0a-a03e-2a65c8e82e2d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=38d0d425-ba52-4c0a-a03e-2a65c8e82e2d;Ip=[204.77.163.244];Helo=[edgetransport.garmin.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF00000017.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM8PR04MB7751
+X-Proofpoint-GUID: 2YVlQIvxHBhhj34ZfX284ZkhHqsvrYIn
+X-Proofpoint-ORIG-GUID: 2YVlQIvxHBhhj34ZfX284ZkhHqsvrYIn
+X-Authority-Analysis: v=2.4 cv=OZqYDgTY c=1 sm=1 tr=0 ts=67ffb627 cx=c_pps a=fpyyTn7Kx2iM0+fj1eipXw==:117 a=YA0UzX50FYCGjWi3QxTvkg==:17 a=h8e1o3o8w34MuCiiGQrqVE4VwXA=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=XR8D0OoHHMoA:10
+ a=qm69fr9Wx_0A:10 a=NbHB2C0EAAAA:8 a=VwQbUJbxAAAA:8 a=PHq6YzTAAAAA:8 a=7CQSdrXTAAAA:8 a=KKAkSRfTAAAA:8 a=7Za35VhZ2r2lkZNaMMAA:9 a=ZKzU8r6zoKMcqsNulkmm:22 a=a-qgeE7W1pNrGK8U0ZQC:22 a=cvBusfyB2V15izCimMoJ:22 cc=ntf
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-16_04,2025-04-15_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1011 suspectscore=0
+ priorityscore=1501 impostorscore=0 spamscore=0 mlxlogscore=999 mlxscore=0
+ bulkscore=0 malwarescore=0 adultscore=0 lowpriorityscore=0 phishscore=0
+ classifier=spam authscore=0 authtc=n/a authcc=notification route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.21.0-2502280000
+ definitions=main-2504160113
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_064656_563069_99BFE2A1 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20250416_065316_171070_D8B9054A 
+X-CRM114-Status: GOOD (  14.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,57 +187,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the ioctl to activate a realm and set the static branch to enable
-access to the realm functionality if the RMM is detected.
+commit 260364d112bc ("arm[64]/memremap: don't abuse pfn_valid() to ensure
+presence of linear map") added the definition of
+arch_memremap_can_ram_remap() for arm[64] specific filtering of what pages
+can be used from the linear mapping. memblock_is_map_memory() was called
+with the pfn of the address given to arch_memremap_can_ram_remap();
+however, memblock_is_map_memory() expects to be given an address for arm,
+not a pfn.
 
-Signed-off-by: Steven Price <steven.price@arm.com>
+This results in calls to memremap() returning a newly mapped area when
+it should return an address in the existing linear mapping.
+
+Fix this by removing the address to pfn translation and pass the
+address directly.
+
+Fixes: 260364d112bc ("arm[64]/memremap: don't abuse pfn_valid() to ensure presence of linear map")
+Signed-off-by: Ross Stutterheim <ross.stutterheim@garmin.com>
+Cc: Mike Rapoport <rppt@kernel.org>
+Cc: Russell King <linux@armlinux.org.uk>
+Cc: stable@vger.kernel.org
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- arch/arm64/kvm/rme.c | 19 ++++++++++++++++++-
- 1 file changed, 18 insertions(+), 1 deletion(-)
+ arch/arm/mm/ioremap.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
-index 978906ff86fa..3f8441bdf293 100644
---- a/arch/arm64/kvm/rme.c
-+++ b/arch/arm64/kvm/rme.c
-@@ -1234,6 +1234,20 @@ static int kvm_init_ipa_range_realm(struct kvm *kvm,
- 	return realm_init_ipa_state(realm, addr, end);
- }
- 
-+static int kvm_activate_realm(struct kvm *kvm)
-+{
-+	struct realm *realm = &kvm->arch.realm;
-+
-+	if (kvm_realm_state(kvm) != REALM_STATE_NEW)
-+		return -EINVAL;
-+
-+	if (rmi_realm_activate(virt_to_phys(realm->rd)))
-+		return -ENXIO;
-+
-+	WRITE_ONCE(realm->state, REALM_STATE_ACTIVE);
-+	return 0;
-+}
-+
- /* Protects access to rme_vmid_bitmap */
- static DEFINE_SPINLOCK(rme_vmid_lock);
- static unsigned long *rme_vmid_bitmap;
-@@ -1383,6 +1397,9 @@ int kvm_realm_enable_cap(struct kvm *kvm, struct kvm_enable_cap *cap)
- 		r = kvm_populate_realm(kvm, &args);
- 		break;
- 	}
-+	case KVM_CAP_ARM_RME_ACTIVATE_REALM:
-+		r = kvm_activate_realm(kvm);
-+		break;
- 	default:
- 		r = -EINVAL;
- 		break;
-@@ -1687,5 +1704,5 @@ void kvm_init_rme(void)
- 	if (rme_vmid_init())
- 		return;
- 
--	/* Future patch will enable static branch kvm_rme_is_available */
-+	static_branch_enable(&kvm_rme_is_available);
+diff --git a/arch/arm/mm/ioremap.c b/arch/arm/mm/ioremap.c
+index 748698e91a4b..27e64f782cb3 100644
+--- a/arch/arm/mm/ioremap.c
++++ b/arch/arm/mm/ioremap.c
+@@ -515,7 +515,5 @@ void __init early_ioremap_init(void)
+ bool arch_memremap_can_ram_remap(resource_size_t offset, size_t size,
+ 				 unsigned long flags)
+ {
+-	unsigned long pfn = PHYS_PFN(offset);
+-
+-	return memblock_is_map_memory(pfn);
++	return memblock_is_map_memory(offset);
  }
 -- 
-2.43.0
+2.49.0
 
 
