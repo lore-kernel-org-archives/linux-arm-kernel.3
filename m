@@ -4,158 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC3BAC369C7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 21:22:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50DACC369C9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 21:26:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/xoyyEf8/oJVB/YbJmAdCTuQVX+KwI7c8zxmwCOp21Y=; b=DaqO5QVhTbK5ULKGvAs2ix+lf7
-	4ym+e7wYSlGDtDROd4GrFlGTFBIsrs6h91OF1/uMwHfurPTd9quLQLMkl5xstFt7j2h78MkNiB0QR
-	w/lmfHhaTnsqbAXXRlsTFp7Kr/pf+xkqWbBr/QwvwdmPumcJDPwI5RPx4OV9bBnoZGISKDR1oQQ4W
-	wjzI+Cm0Buhz3yTmEAwKEBBve1wcSFi5vTRixk5XucNhr2cKMA6SBggKqmB5h72ANHls7krC7jSF4
-	9PU9yup6nVXfb6L6KiCoVaD5BGkS41n+8+uGqTyvoVUE8RtaR2/lErCtzBmK+eFzS+hJDyo7E/e4Q
-	mFq9Ianw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4jVAyA2MpizhxtQwsOdID7gg2xhGq08cVN7SZQ9jXqk=; b=ZMPsfRYXC0NAZQ46lwNau/T5kf
+	uxJsbQno1cRHYbrYxPgIb3DPK73HalphduDE1TK1hDNWE+KCKS0za9B55Gqku9E5RsQ5QRhZaRdPC
+	BsA3xYiJf8aL4VYhNij14mVOlugZMyIgUd53D7Qc1Wo8Oa115pSn7q72Tg0w6smIS2Ix7vXhOMLwC
+	vCr5HhJyxTLOVjthbndohw0hNwXEnvr86o8wcxQFxmzoyuFVWbX2DMtuTSEmKV0DQJzqsUjx/vmyC
+	7xB5Go1vZ6bl8WNUjmbloSi+tfBhlgJRcjSt+EgzWtJBARZGxOcypDn5aQz1JeUr8NN50whLWf3bN
+	a2hrC9rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5ACm-0000000Av5T-0YDC;
-	Wed, 16 Apr 2025 21:22:00 +0000
-Received: from mail-vi1eur03on2060e.outbound.protection.outlook.com ([2a01:111:f403:260c::60e] helo=EUR03-VI1-obe.outbound.protection.outlook.com)
+	id 1u5AH9-0000000Avay-0k2K;
+	Wed, 16 Apr 2025 21:26:31 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5AAr-0000000Aujw-3O5V
+	id 1u5AFJ-0000000AvOe-1K8w
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 21:20:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UUMCJOiblyIecPpFCG/HaTRz6T/qGli2lo2g51YSAa1JSdHrRRnbLbUymvSm2Et63buIXHYinDMsR2+4lDmRK+q3+heP2pcz9eeQqGSneQb/88gBO3S9g9zxMD9eZmrSWUgwuqtgb9oZthzkXUdp7rpp5uVyN2aQPS3+nAD59uOePxhjavqdjG592ltTv1b6LlVaUWmrW/57hwBmM3o0Y+quV6bj3eccDrCvp5QVdGVxcaP4aAuTL7h/vNLitdtoCV9W77Occ91nk0Me6wlNkdw8vLbEzIcWIWmqC8QrRjEPyCOOagtTlELZqlkLFHKDu9HUk/NHpGWgAnZBjNwzNg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/xoyyEf8/oJVB/YbJmAdCTuQVX+KwI7c8zxmwCOp21Y=;
- b=K6Dpkc41V58x/DstpQZb2tbBFNXe3OBytXi4kdUiCHm3bMfFTkKh5fukMV9r1rCZxxTdU5unSd3frBGfawim3R8+y1nlEdvrVro+VEcW/1h38LJTt+5jH5KemGUMT5k+61MdHfyAnGOIVTApah1/By91PO7KJ8hzSX7OMI8qXBCU36SnMuyCjQVFuCWPZ2KNJ5zJ6DxtsJH6XAgDKoZIgLqNPt858XHL2oI34Aj1gcyjtPXG+H/5CHs7c89rVMLNEswfWDQphnByrpdlxslsEfTgkhmJqX/ZgCQJ19az2Kh/+ojh9frFEVoZPUBsLBG9ddWKWZJqrfCAGEG55mFwyg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/xoyyEf8/oJVB/YbJmAdCTuQVX+KwI7c8zxmwCOp21Y=;
- b=knJqFyXN+xQo6A3vOR8XACHwA5NPUYk67y8DPBguckJfWASeEnSQhMgA22hJo/fTHO/qy64v9n2ckcTqGSheo4N1nqZiKR2yYcFPzVFknbeAllmJIqX9U7QafzXUzgTuBvez0NIkXAN1OxVmASFneXf38NHne3cXjXaegPzlzBIPEvKqIIbHbOmhGsVVptunKmi8U+YnWXr6Fyn7wftb21lCoIG26p7YAeWCXWMLvyCDYLRiI552+l+3MU7aoujBSQI1HAM1Q7YxY7jc+fQX5M4jVwUHfllli7JUxECEG9tyALDr2aNDzcxp2tYmLMRZk8XAuTPw0zW9hrBNtw5lFw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AM7PR04MB6807.eurprd04.prod.outlook.com (2603:10a6:20b:104::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.22; Wed, 16 Apr
- 2025 21:19:46 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8632.035; Wed, 16 Apr 2025
- 21:19:46 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	dri-devel@lists.freedesktop.org (open list:DRM DRIVERS FOR FREESCALE IMX 5/6),
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Cc: imx@lists.linux.dev
-Subject: [PATCH 1/1] dt-bindings: display: imx: convert ldb.txt to yaml format
-Date: Wed, 16 Apr 2025 17:19:27 -0400
-Message-Id: <20250416211929.3502902-1-Frank.Li@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: PH7P220CA0077.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:32c::12) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Wed, 16 Apr 2025 21:24:38 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-736b34a71a1so75770b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 14:24:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744838676; x=1745443476; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4jVAyA2MpizhxtQwsOdID7gg2xhGq08cVN7SZQ9jXqk=;
+        b=OwvZhl2jsD9aw/4yxSOaWyaw/xOu1d499+ee6qQSc70sgeh8zljDdhWulI9zebo8C5
+         fFA8vG53QHEH7hgyLXlGrmm/9Sp5S7jTIu4xm70XmnFAvvDU4BazukWK1iQdEiPb69dM
+         TKrjLR5CjitiI5NbtLo4KiZdBnw7Za512s9xX4Jgpk6b53cCVfGWOqFSEDw8b4S8nZDa
+         UDFxk+5exsyRvy/4D4XChuFLX/MlhG28X8lpl0NXf5/P6bZaQg88GRKY5ILzEt/pFFXU
+         YBmvJYka+39qPPQSp1f1L8OYXC5Hv5YsYkqeinp2cBhYlRXyN7ZaMl028IGJFrV9Xgq3
+         ezIw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744838676; x=1745443476;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=4jVAyA2MpizhxtQwsOdID7gg2xhGq08cVN7SZQ9jXqk=;
+        b=uNj7PF6KIWgpF67yyfguqJRIRpRaN5eaFkyRlkVfNzMF2s6qHGQyeP/iT0m8EAWjZt
+         GQXtbLBbZW4/zHIZThGfXqoKzaPCRZ/84w1LlOchdiwdJPCtDMXVNhfTyYEynIRea0mx
+         UPS3RA8NXYGwQBb8b4zIf7XgH3YX2EzMXq7HlVnCF5WH7fbQTFYUTLGXZIjg2z9p2loV
+         0etDn6uoFsonMkkNwJUgz1CoezVMwTPgj6IhjL3R5YfDCrdHpUGNlPRqI7+eTTwtoqUZ
+         Q5kGL+klNOThGN6owshDTbmQlpVR2A24HYn/HN3XboTuVzXtLWEDllUhzSkrbmCfe3lD
+         IkpA==
+X-Forwarded-Encrypted: i=1; AJvYcCVVtba+j7VEVem5qgK17jJHOzK2hbV7xPiBUdOqWs2zKXqZTCnZX8C8ejWkqIXPd0FO5RiVDufBm1ZPff13jS1f@lists.infradead.org
+X-Gm-Message-State: AOJu0YwGXXCIXn0KjccyrqfuXGZ32bsp/UCnl1uVTETzszk+eJ+Qh6vQ
+	/VYe6Pjfc1ZybN5qiloQfN2Qn+vCQwgk2Wl1ek8DFcWvuhcAQrqbzowt8No4P+2RBrMNt/BAdjx
+	OSRDlThVYmBzPo0aGXqyrJMAMU/k=
+X-Gm-Gg: ASbGncvZBRD1mJnjZ9I79YU8BQW/z1IdfvkogI1nNcYChagmTIQx8xtAM2WFUju+Zxd
+	pSz37VGpJ83mzHpiJZ8hPf3vGKN4SQrVV39LGyZkGjqX5RROHHsVaU1SiUBxIrslduQF/GwwTGc
+	rN0kLAABUpWohl4KpT1Rw50J5M4uVJupGbfX1Yog==
+X-Google-Smtp-Source: AGHT+IGP0KP8Iix57A7pNCwQp1k9B+JFkxfWiQwRVI0u7EuoGlinHX/1dVpIRADFn6P7r1WHtj3Ss+TZRQvR2I4Bbg8=
+X-Received: by 2002:a05:6a00:aa8d:b0:736:a973:748 with SMTP id
+ d2e1a72fcca58-73c267f8ba4mr4955120b3a.22.1744838675753; Wed, 16 Apr 2025
+ 14:24:35 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM7PR04MB6807:EE_
-X-MS-Office365-Filtering-Correlation-Id: 279c391f-cfd0-48cd-ace8-08dd7d2c69ab
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|7416014|1800799024|376014|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?P1ojfrg0dG6BAVBce1NWuVkxGIexGL/zj7JORDPaXugH2EGK0aVkqRA4sts+?=
- =?us-ascii?Q?LAAXRcV0BeSaGRqhzubfV8FQ/VTzIdLSO6UjDWS8vsDF939VvJ81qa4RFg+w?=
- =?us-ascii?Q?GVrK4f5dqKAQTjL1u+N5JybAc3fUecoeMV8y5aFRNqWhzG4U3SgkzMr2/iiv?=
- =?us-ascii?Q?DgXYjF/zINSxwlby29aF5ePt8HpIPX6/MhEgylaxKasD3Y0C6Mccb2Fj0QMS?=
- =?us-ascii?Q?dgwDwIwdIYrC6Z64RO+j0KfQ2+zmN4UyZzbg3RxgXpJ9xMyxL+a+nlLAdyqa?=
- =?us-ascii?Q?+G4GUoIRb9wqZYrLNWre0zj+fPOJGTR6Z+MSjezZNqoKb/PogG8F77jojZA7?=
- =?us-ascii?Q?RG5+MspIa35mgewPY6m+w+God2vdP3zSVsB67NXWbMRugpEO1j1dUc3rermc?=
- =?us-ascii?Q?ioec5R2m2j1XVIflfIzupiuhxVNhdFelaZM0DB3gGYL4eBnPcPYfRUkFwZul?=
- =?us-ascii?Q?qHW4E6dDGeyfUgryAyt/Facr2Nk/QZaNEot9j7HZjvmzwSxBGnK7nJ41hByQ?=
- =?us-ascii?Q?7EGkZM2vJaGSNMlOSSDkplfQBJE4Q4XwQ/uFvmvsR8/dVfG2MyB6QX8xlHTd?=
- =?us-ascii?Q?Bl44FYLaKQ8JNXKNP+2aJrzsPjUnjmNNXLXMR6UR4ysMDDJOcZBtpI4zvrmP?=
- =?us-ascii?Q?mQ5UZGYoWWttSHKWDxr1cfssdetPQ6ICamz+MOv1cZ5woItZbXAy7ajQf8Vx?=
- =?us-ascii?Q?hftjwdKrVgXn+RjWdnwSwl5/SU0xbBkz3MYP4sFGqMgYIhqP6sxKxaeaFca/?=
- =?us-ascii?Q?baaT1pscGXYLGjIuaZodswfRSFnA5VL3XPI147f7I+8eGOQhtf8kzkvKhGXQ?=
- =?us-ascii?Q?9UR1Gm9/f/kyLJiBlHMOAf50S+pbayHyXnFv4m3N7LKuQWNhH66rRKcVgxD+?=
- =?us-ascii?Q?DcQpBZmgijpjmBJh6MLzxLH3DGykKhIrpO/ev/x2SJmUuxBUdh/mpvHwNC5W?=
- =?us-ascii?Q?zqbtDIWyg0fTPIyojQiArkjN6U36AuRuhHGlmRxgsI8ZjB7F48yi0M4Ujx1g?=
- =?us-ascii?Q?/TexT1NVzKRHx4wzD99+BhcsocVRcda2YdihZ+V6mAVF7GW8j1PwcIpfDcs3?=
- =?us-ascii?Q?KgVmVzNzlTsMr9/kgWEpaYjSrzyuMgHrxM/AlGl4d7Q5Gsg1JAKlDrWFDy23?=
- =?us-ascii?Q?SJUQkVwKuu8iCLWX5U92DqIQ4t4756CV2w6eIhLHsoVQ7stmmW6YXZTeDsYq?=
- =?us-ascii?Q?YWMqBPNPv6/SrBLLkaf9DfWXjKE8IWBuvDi1AeCYWDiblhxJnWuzL2rqzrsZ?=
- =?us-ascii?Q?tEug4I0BPwgemMM7m9vv+M5ACEBoO1TlwXHPA80YO2Qw3NL90yTaQLWy0kE1?=
- =?us-ascii?Q?ttqVPNVocTGhonLnD9B5Z3H92Cx9wPHXV5Ul5/T9tBYRUPHGJZ9hdImm5Ffd?=
- =?us-ascii?Q?C/uNBn7idW4exeI5UEftjw0fOxjpXuPY7RKjIQi6oP9J3nVQIlKZbgNw3vhj?=
- =?us-ascii?Q?VULtx/L7Y+w=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(7416014)(1800799024)(376014)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MCqFRL9nKb9FSYCo2H/uEPH0gaq108yqbIPv+u/4BwQRUioxw6VoDKlzrC2C?=
- =?us-ascii?Q?DvxRSfekJK2rdUJroKrWbCl8vPilcA5HDB2gHeQVfmR6OaeK6NkijzHlPeql?=
- =?us-ascii?Q?dQI8KBd6VWU/yXWq3Ng1gtd6q7mrtqcWoJt64CAWZAcGqtFYxNpWc5jcmvNG?=
- =?us-ascii?Q?DBBr+SNZDt81AMfU/dAf9wAuCajHEVzRVMj/XA1rJC/qikK5BHpUKJ42LWM4?=
- =?us-ascii?Q?WxyQTAr6bfEsH2MuqmD80x5uBGsGW1p8SWuhNx/EgDEZqmSESBfovrYHYwnN?=
- =?us-ascii?Q?LK+CytWl+I7/R3ZgS85f8ZOkPq45rQ0bSdni3cd8ImsE8H7tiNLnwCdfdQiw?=
- =?us-ascii?Q?XO5R6z062AXK6SbBvqV22hhV/saaaMywChYUXqOeFtaPgn0kxwgFAa8UJzY4?=
- =?us-ascii?Q?0IrR+XEjJn7d5Js//LM+sTMUYLfL7Y4BaA/yXhRevWswJjnY3WAKckdex0vt?=
- =?us-ascii?Q?WyLUlhVWBm39kPlRtVP0eHNN/PkIiQwVWyGYWE01ARhNIlE8BbhN1/u4/EtP?=
- =?us-ascii?Q?Tce+/CkvYvesRI+/OClWuCPaNoJeJQ6osT8Ku/ZhGxBNWMbiRiLwXTnQFN5D?=
- =?us-ascii?Q?H0jR3vfMe8Mw/b1tRA9iC7nrZN59CBLuvU1qjfOT01w0V0MAGWh5c7Af8c89?=
- =?us-ascii?Q?S3ZIVTO0tvD8c/niZUkRTEwq6CCSGtxNj0X3A/NQp+WzUsnFyAF0Pb6Ns0gU?=
- =?us-ascii?Q?CKCo64I3U8+L/PFqdC+ZFtnpR6Z4GE2afxm4lMh1OExWsk6RcWB/tEGFPDPw?=
- =?us-ascii?Q?Et+tC0dP1SFD031j0tk9iVZ/9Za/1whLVk7SX9JwsU0TPzEkDbd/qxTy+Qh1?=
- =?us-ascii?Q?3yirD0PWrS/YIAVOEnkzqG4lHn1+ifWwbB3ttO7+JvdVm8A4zQ5tEu2etf+a?=
- =?us-ascii?Q?fTBeuVkrBp3kbtqz0QSdaoSoymYx/FO5+PfYLFa91fMQ5GpFtb3PyYhmpvxo?=
- =?us-ascii?Q?sQhsJDCo6zEC9NyB1wx/4ob6MZoaX2N5tYqxSP478KdgUU+QCtyqqpPuFtbE?=
- =?us-ascii?Q?DZ0IxDp+H8RlFxwEbm0ALp97Y20+tUsJx5Yy3Bjfzj/Rn+LLGRV2+qOzLO4T?=
- =?us-ascii?Q?VVw0s3LPqZ3poIqELan4G5Jwm8hoEQnbXFq6/UML614lcmY11dc5HZsMro4x?=
- =?us-ascii?Q?9rPfnGNDGysCfFyPmmFaPDPei2eWktm6CGeM/l8EcGrM6uxlrpsScZMDQBfj?=
- =?us-ascii?Q?eUV0yUrCiDytZqWgj6oS8ZV56zceWlgL9/2fCBA8vyvhTweENMTc8c7oTR3S?=
- =?us-ascii?Q?VhfUeP5rvtTVJrSP4DHMyHc34n/RB+dALxr/AY0QZg3EqLG+DxZPjp5RMfC/?=
- =?us-ascii?Q?GjKAPCovVkWAGUn8b7ly4C8dqb5/rbxwncTx/x7UWrTVZYJju/lVbT6eHquf?=
- =?us-ascii?Q?tSBgN5y1yw1ywY0GqnsGIJMyZccerYYAVWhadb9Js1kpCh/tyImcG5DmcNW2?=
- =?us-ascii?Q?WRDvkZRC2VmhA0BhAcv9qsS18ReUraKEgWeCFD0KBMIn3oug3vRElvuUK+ab?=
- =?us-ascii?Q?VHHu4Ob5vRL02H5bH5MDgpWifIOesyz1XE6TICzpAkWVn85ACMt//6U0ZCib?=
- =?us-ascii?Q?HfH0EpmCwjFTgCfs7KmhA+8RPNP5KZtzv79b+RBe?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 279c391f-cfd0-48cd-ace8-08dd7d2c69ab
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Apr 2025 21:19:46.4686
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hIr/V/qPSjwZWSL2jby/TVsjyVsu+kRDLk+1o4vTATyODAzXQ9mgGh0KWyErZVRbYqhTeVt4CWVg2uoz3prULg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6807
+References: <20250411-many_args_arm64-v1-0-0a32fe72339e@bootlin.com> <20250411-many_args_arm64-v1-1-0a32fe72339e@bootlin.com>
+In-Reply-To: <20250411-many_args_arm64-v1-1-0a32fe72339e@bootlin.com>
+From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Date: Wed, 16 Apr 2025 14:24:23 -0700
+X-Gm-Features: ATxdqUE6pVn0ZTMRWW3NJojzYizvIX7ZuQkUbJrKxsRI8DDdQqgnpzQYLgypGws
+Message-ID: <CAEf4Bzbn6BdXTOb0dTcsQmOMZpp5=DzGS2hHHQ3+dwcja=gv+w@mail.gmail.com>
+Subject: Re: [PATCH RFC bpf-next 1/4] bpf: add struct largest member size in
+ func model
+To: =?UTF-8?Q?Alexis_Lothor=C3=A9_=28eBPF_Foundation=29?= <alexis.lothore@bootlin.com>
+Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	John Fastabend <john.fastabend@gmail.com>, Andrii Nakryiko <andrii@kernel.org>, 
+	Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, KP Singh <kpsingh@kernel.org>, 
+	Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Puranjay Mohan <puranjay@kernel.org>, Xu Kuohai <xukuohai@huaweicloud.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Florent Revest <revest@chromium.org>, Bastien Curutchet <bastien.curutchet@bootlin.com>, 
+	ebpf@linuxfoundation.org, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	bpf@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_142002_010482_88EC5D83 
-X-CRM114-Status: GOOD (  18.63  )
+X-CRM114-CacheID: sfid-20250416_142437_354793_D2245CF5 
+X-CRM114-Status: GOOD (  25.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,362 +107,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert ldb.txt to yaml format.
+On Fri, Apr 11, 2025 at 1:32=E2=80=AFPM Alexis Lothor=C3=A9 (eBPF Foundatio=
+n)
+<alexis.lothore@bootlin.com> wrote:
+>
+> In order to properly JIT the trampolines needed to attach BPF programs
+> to functions, some architectures like ARM64 need to know about the
+> alignment needed for the function arguments. Such alignment can
+> generally be deduced from the argument size, but that's not completely
+> true for composite types. In the specific case of ARM64, the AAPCS64 ABI
+> defines that a composite type which needs to be passed through stack
+> must be aligned on the maximum between 8 and the largest alignment
+> constraint of its first-level members. So the JIT compiler needs more
+> information about the arguments to make sure to generate code that
+> respects those alignment constraints.
+>
+> For struct arguments, add information about the size of the largest
+> first-level member in the struct btf_func_model to allow the JIT
+> compiler to guess the needed alignment. The information is quite
 
-Additional changes
-- fix clock-names order to match existed dts file.
-- remove lvds-panel and iomuxc-gpr node in examples.
-- fsl,imx6q-ldb fail back to fsl,imx53-ldb.
+I might be missing something, but how can the *size* of the field be
+used to calculate that argument's *alignment*? i.e., I don't
+understand why arg_largest_member_size needs to be calculated instead
+of arg_largest_member_alignment...
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
- .../bindings/display/imx/fsl,imx6q-ldb.yaml   | 182 ++++++++++++++++++
- .../devicetree/bindings/display/imx/ldb.txt   | 146 --------------
- 2 files changed, 182 insertions(+), 146 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx6q-ldb.yaml
- delete mode 100644 Documentation/devicetree/bindings/display/imx/ldb.txt
+> specific, but it allows to keep arch-specific concerns (ie: guessing the
+> final needed alignment for an argument) isolated in each JIT compiler.
 
-diff --git a/Documentation/devicetree/bindings/display/imx/fsl,imx6q-ldb.yaml b/Documentation/devicetree/bindings/display/imx/fsl,imx6q-ldb.yaml
-new file mode 100644
-index 0000000000000..7edd5f28b1372
---- /dev/null
-+++ b/Documentation/devicetree/bindings/display/imx/fsl,imx6q-ldb.yaml
-@@ -0,0 +1,182 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/imx/fsl,imx6q-ldb.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Freescale LVDS Display Bridge (ldb)
-+
-+description:
-+  The LVDS Display Bridge device tree node contains up to two lvds-channel
-+  nodes describing each of the two LVDS encoder channels of the bridge.
-+
-+maintainers:
-+  - Frank Li <Frank.Li@nxp.com>
-+
-+properties:
-+  compatible:
-+    oneOf:
-+      - enum:
-+          - fsl,imx53-ldb
-+      - items:
-+          - const: fsl,imx6q-ldb
-+          - const: fsl,imx53-ldb
-+
-+  reg:
-+    maxItems: 1
-+
-+  '#address-cells':
-+    const: 1
-+
-+  '#size-cells':
-+    const: 0
-+
-+  gpr:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      The phandle points to the iomuxc-gpr region containing the LVDS
-+      control register.
-+
-+  clocks:
-+    minItems: 6
-+    maxItems: 8
-+
-+  clock-names:
-+    items:
-+      - const: di0_pll
-+      - const: di1_pll
-+      - const: di0_sel
-+      - const: di1_sel
-+      - const: di0
-+      - const: di1
-+      - const: di2_sel
-+      - const: di3_sel
-+    minItems: 6
-+
-+  fsl,dual-channel:
-+    $ref: /schemas/types.yaml#/definitions/flag
-+    description:
-+      if it exists, only LVDS channel 0 should
-+      be configured - one input will be distributed on both outputs in dual
-+      channel mode
-+
-+patternProperties:
-+  '^lvds-channel@[0-1]$':
-+    type: object
-+    description:
-+      Each LVDS Channel has to contain either an of graph link to a panel device node
-+      or a display-timings node that describes the video timings for the connected
-+      LVDS display as well as the fsl,data-mapping and fsl,data-width properties.
-+
-+    properties:
-+      reg:
-+        maxItems: 1
-+
-+      '#address-cells':
-+        const: 1
-+
-+      '#size-cells':
-+        const: 0
-+
-+      display-timings:
-+        $ref: /schemas/display/panel/display-timings.yaml#
-+
-+      fsl,data-mapping:
-+        enum:
-+          - spwg
-+          - jeida
-+
-+      fsl,data-width:
-+        $ref: /schemas/types.yaml#/definitions/uint32
-+        description: should be <18> or <24>
-+        enum:
-+          - 18
-+          - 24
-+
-+    patternProperties:
-+      '^port@[0-4]$':
-+        $ref: /schemas/graph.yaml#/$defs/port-base
-+        unevaluatedProperties: false
-+        description:
-+          On i.MX5, the internal two-input-multiplexer is used. Due to hardware
-+          limitations, only one input port (port@[0,1]) can be used for each channel
-+          (lvds-channel@[0,1], respectively).
-+          On i.MX6, there should be four input ports (port@[0-3]) that correspond
-+          to the four LVDS multiplexer inputs.
-+          A single output port (port@2 on i.MX5, port@4 on i.MX6) must be connected
-+          to a panel input port. Optionally, the output port can be left out if
-+          display-timings are used instead.
-+
-+    additionalProperties: false
-+
-+required:
-+  - compatible
-+  - gpr
-+  - clocks
-+  - clock-names
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/imx5-clock.h>
-+
-+    ldb@53fa8008 {
-+        compatible = "fsl,imx53-ldb";
-+        reg = <0x53fa8008 0x4>;
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+        gpr = <&gpr>;
-+        clocks = <&clks IMX5_CLK_LDB_DI0_SEL>,
-+                 <&clks IMX5_CLK_LDB_DI1_SEL>,
-+                 <&clks IMX5_CLK_IPU_DI0_SEL>,
-+                 <&clks IMX5_CLK_IPU_DI1_SEL>,
-+                 <&clks IMX5_CLK_LDB_DI0_GATE>,
-+                 <&clks IMX5_CLK_LDB_DI1_GATE>;
-+        clock-names = "di0_pll", "di1_pll",
-+                      "di0_sel", "di1_sel",
-+                      "di0", "di1";
-+
-+        /* Using an of-graph endpoint link to connect the panel */
-+        lvds-channel@0 {
-+                reg = <0>;
-+                #address-cells = <1>;
-+                #size-cells = <0>;
-+
-+                port@0 {
-+                    reg = <0>;
-+
-+                    endpoint {
-+                        remote-endpoint = <&ipu_di0_lvds0>;
-+                    };
-+                };
-+
-+                port@2 {
-+                    reg = <2>;
-+
-+                    endpoint {
-+                        remote-endpoint = <&panel_in>;
-+                    };
-+               };
-+        };
-+
-+        /* Using display-timings and fsl,data-mapping/width instead */
-+        lvds-channel@1 {
-+                reg = <1>;
-+                #address-cells = <1>;
-+                #size-cells = <0>;
-+                fsl,data-mapping = "spwg";
-+                fsl,data-width = <24>;
-+
-+                display-timings {/* ... */
-+                };
-+
-+                port@1 {
-+                     reg = <1>;
-+
-+                     endpoint {
-+                         remote-endpoint = <&ipu_di1_lvds1>;
-+                     };
-+                };
-+        };
-+    };
-diff --git a/Documentation/devicetree/bindings/display/imx/ldb.txt b/Documentation/devicetree/bindings/display/imx/ldb.txt
-deleted file mode 100644
-index 03653a291b549..0000000000000
---- a/Documentation/devicetree/bindings/display/imx/ldb.txt
-+++ /dev/null
-@@ -1,146 +0,0 @@
--Device-Tree bindings for LVDS Display Bridge (ldb)
--
--LVDS Display Bridge
--===================
--
--The LVDS Display Bridge device tree node contains up to two lvds-channel
--nodes describing each of the two LVDS encoder channels of the bridge.
--
--Required properties:
-- - #address-cells : should be <1>
-- - #size-cells : should be <0>
-- - compatible : should be "fsl,imx53-ldb" or "fsl,imx6q-ldb".
--                Both LDB versions are similar, but i.MX6 has an additional
--                multiplexer in the front to select any of the four IPU display
--                interfaces as input for each LVDS channel.
-- - gpr : should be <&gpr> on i.MX53 and i.MX6q.
--         The phandle points to the iomuxc-gpr region containing the LVDS
--         control register.
--- clocks, clock-names : phandles to the LDB divider and selector clocks and to
--                        the display interface selector clocks, as described in
--                        Documentation/devicetree/bindings/clock/clock-bindings.txt
--        The following clocks are expected on i.MX53:
--                "di0_pll" - LDB LVDS channel 0 mux
--                "di1_pll" - LDB LVDS channel 1 mux
--                "di0" - LDB LVDS channel 0 gate
--                "di1" - LDB LVDS channel 1 gate
--                "di0_sel" - IPU1 DI0 mux
--                "di1_sel" - IPU1 DI1 mux
--        On i.MX6q the following additional clocks are needed:
--                "di2_sel" - IPU2 DI0 mux
--                "di3_sel" - IPU2 DI1 mux
--        The needed clock numbers for each are documented in
--        Documentation/devicetree/bindings/clock/imx5-clock.yaml, and in
--        Documentation/devicetree/bindings/clock/imx6q-clock.yaml.
--
--Optional properties:
-- - pinctrl-names : should be "default" on i.MX53, not used on i.MX6q
-- - pinctrl-0 : a phandle pointing to LVDS pin settings on i.MX53,
--               not used on i.MX6q
-- - fsl,dual-channel : boolean. if it exists, only LVDS channel 0 should
--   be configured - one input will be distributed on both outputs in dual
--   channel mode
--
--LVDS Channel
--============
--
--Each LVDS Channel has to contain either an of graph link to a panel device node
--or a display-timings node that describes the video timings for the connected
--LVDS display as well as the fsl,data-mapping and fsl,data-width properties.
--
--Required properties:
-- - reg : should be <0> or <1>
-- - port: Input and output port nodes with endpoint definitions as defined in
--   Documentation/devicetree/bindings/graph.txt.
--   On i.MX5, the internal two-input-multiplexer is used. Due to hardware
--   limitations, only one input port (port@[0,1]) can be used for each channel
--   (lvds-channel@[0,1], respectively).
--   On i.MX6, there should be four input ports (port@[0-3]) that correspond
--   to the four LVDS multiplexer inputs.
--   A single output port (port@2 on i.MX5, port@4 on i.MX6) must be connected
--   to a panel input port. Optionally, the output port can be left out if
--   display-timings are used instead.
--
--Optional properties (required if display-timings are used):
-- - display-timings : A node that describes the display timings as defined in
--   Documentation/devicetree/bindings/display/panel/display-timing.txt.
-- - fsl,data-mapping : should be "spwg" or "jeida"
--                      This describes how the color bits are laid out in the
--                      serialized LVDS signal.
-- - fsl,data-width : should be <18> or <24>
--
--example:
--
--gpr: iomuxc-gpr@53fa8000 {
--	/* ... */
--};
--
--ldb: ldb@53fa8008 {
--	#address-cells = <1>;
--	#size-cells = <0>;
--	compatible = "fsl,imx53-ldb";
--	gpr = <&gpr>;
--	clocks = <&clks IMX5_CLK_LDB_DI0_SEL>,
--		 <&clks IMX5_CLK_LDB_DI1_SEL>,
--		 <&clks IMX5_CLK_IPU_DI0_SEL>,
--		 <&clks IMX5_CLK_IPU_DI1_SEL>,
--		 <&clks IMX5_CLK_LDB_DI0_GATE>,
--		 <&clks IMX5_CLK_LDB_DI1_GATE>;
--	clock-names = "di0_pll", "di1_pll",
--		      "di0_sel", "di1_sel",
--		      "di0", "di1";
--
--	/* Using an of-graph endpoint link to connect the panel */
--	lvds-channel@0 {
--		#address-cells = <1>;
--		#size-cells = <0>;
--		reg = <0>;
--
--		port@0 {
--			reg = <0>;
--
--			lvds0_in: endpoint {
--				remote-endpoint = <&ipu_di0_lvds0>;
--			};
--		};
--
--		port@2 {
--			reg = <2>;
--
--			lvds0_out: endpoint {
--				remote-endpoint = <&panel_in>;
--			};
--		};
--	};
--
--	/* Using display-timings and fsl,data-mapping/width instead */
--	lvds-channel@1 {
--		#address-cells = <1>;
--		#size-cells = <0>;
--		reg = <1>;
--		fsl,data-mapping = "spwg";
--		fsl,data-width = <24>;
--
--		display-timings {
--			/* ... */
--		};
--
--		port@1 {
--			reg = <1>;
--
--			lvds1_in: endpoint {
--				remote-endpoint = <&ipu_di1_lvds1>;
--			};
--		};
--	};
--};
--
--panel: lvds-panel {
--	/* ... */
--
--	port {
--		panel_in: endpoint {
--			remote-endpoint = <&lvds0_out>;
--		};
--	};
--};
--- 
-2.34.1
+couldn't all this information be calculated in the JIT compiler (if
+JIT needs that) from BTF?
 
+>
+> Signed-off-by: Alexis Lothor=C3=A9 (eBPF Foundation) <alexis.lothore@boot=
+lin.com>
+> ---
+>  include/linux/bpf.h |  1 +
+>  kernel/bpf/btf.c    | 25 +++++++++++++++++++++++++
+>  2 files changed, 26 insertions(+)
+>
+> diff --git a/include/linux/bpf.h b/include/linux/bpf.h
+> index 3f0cc89c0622cb1a097999afb78c17102593b6bb..8b34dcf60a0ce09228ff761b9=
+62ab67b6a3e2263 100644
+> --- a/include/linux/bpf.h
+> +++ b/include/linux/bpf.h
+> @@ -1106,6 +1106,7 @@ struct btf_func_model {
+>         u8 nr_args;
+>         u8 arg_size[MAX_BPF_FUNC_ARGS];
+>         u8 arg_flags[MAX_BPF_FUNC_ARGS];
+> +       u8 arg_largest_member_size[MAX_BPF_FUNC_ARGS];
+>  };
+>
+>  /* Restore arguments before returning from trampoline to let original fu=
+nction
+> diff --git a/kernel/bpf/btf.c b/kernel/bpf/btf.c
+> index 16ba36f34dfab7531babf5753cab9f368cddefa3..5d40911ec90210086a6175d56=
+9abb6e52d75ad17 100644
+> --- a/kernel/bpf/btf.c
+> +++ b/kernel/bpf/btf.c
+> @@ -7318,6 +7318,29 @@ static int __get_type_size(struct btf *btf, u32 bt=
+f_id,
+>         return -EINVAL;
+>  }
+>
+> +static u8 __get_largest_member_size(struct btf *btf, const struct btf_ty=
+pe *t)
+> +{
+> +       const struct btf_member *member;
+> +       const struct btf_type *mtype;
+> +       u8 largest_member_size =3D 0;
+> +       int i;
+> +
+> +       if (!__btf_type_is_struct(t))
+> +               return largest_member_size;
+> +
+> +       for_each_member(i, t, member) {
+> +               mtype =3D btf_type_by_id(btf, member->type);
+> +               while (mtype && btf_type_is_modifier(mtype))
+> +                       mtype =3D btf_type_by_id(btf, mtype->type);
+> +               if (!mtype)
+> +                       return -EINVAL;
+> +               if (mtype->size > largest_member_size)
+> +                       largest_member_size =3D mtype->size;
+> +       }
+> +
+> +       return largest_member_size;
+> +}
+> +
+>  static u8 __get_type_fmodel_flags(const struct btf_type *t)
+>  {
+>         u8 flags =3D 0;
+> @@ -7396,6 +7419,8 @@ int btf_distill_func_proto(struct bpf_verifier_log =
+*log,
+>                 }
+>                 m->arg_size[i] =3D ret;
+>                 m->arg_flags[i] =3D __get_type_fmodel_flags(t);
+> +               m->arg_largest_member_size[i] =3D
+> +                       __get_largest_member_size(btf, t);
+>         }
+>         m->nr_args =3D nargs;
+>         return 0;
+>
+> --
+> 2.49.0
+>
 
