@@ -4,87 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4D55C369BA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 16:31:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2430BC369BA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 16:33:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yLdcYW62KrvvJerOGCHyeuwlEDQ19UgL06buz3bTrWs=; b=JOoUu4gKdjOu1PMcBBp/bezwAZ
-	mJti2MXBn0W/A15N018ZSzuDUR4qGxBqlj6TFyVnmW6LRbmMyi6ngWSkGyHq2Cb+I34Z+i132R2BB
-	fofbsLeDYM0l9uC35BAbWqBu/oXPB3gS8wtDZLIDnX1rzgBxQ+QV6xDHDlYkSTlNKjmGHtmUO4p+e
-	MQn9njbeNbydv4wBN4Anj2wRP79h8b8xiUMxoHj0jFjzYPvw37FzcOM7J6/+cljU1Nt0r97x0bVQf
-	AQ9/LbZZpvYtzOth49gXikT3yl+XdzsTylVUzFuYdH2dNF1+4pwtuwc4EWId3q0zauPoGrUVfoB/8
-	lQSgQN/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NYYsAFSk4SPL13LOyi6D3exP9IGS0u1UBBNKtssYwHE=; b=w0ABBZiHJ1upFgSoW4RaOvmOhV
+	sXae1wCl+yM8/HiPXe0fY37i8N0DDcgxbwLnFgPxIZSzZxBF6SKVSQ+uj3YeKPCuVm9BFhl+zXst3
+	AuJixul/xZQg93wXUm5N1mV9RTZQxfAIB3G3IFgm3tOLnWtj4AL7MuHDk70s8W9u9YzkWpTbgNxic
+	3prwOtSpu1P8HDgIq3a183uAkNouq8idouWZ7KYP+O3Ku0nEywpgJSKG/1QMm2BMjaADtJk8//N0h
+	fEfbFq9jSeAPjiwgIjZHXVR8x/XoCF9FNvwqUlDVbdnoLdBv56U6i661XbmJkZ8G26jnqHUJKtdTV
+	ZywcWp2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u55fV-0000000AGkK-0CqK;
-	Wed, 16 Apr 2025 16:31:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u55hL-0000000AHGZ-07SJ;
+	Wed, 16 Apr 2025 16:33:15 +0000
+Received: from mout.web.de ([212.227.15.3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u54zw-0000000A8Lo-1Fys
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 16 Apr 2025 15:48:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=yLdcYW62KrvvJerOGCHyeuwlEDQ19UgL06buz3bTrWs=; b=I/iO+2BEojM0dBj2MLQv4WtcRk
-	1trORWrRbtPWens5CEKYNR0kNMACvbmAfji3SXZnKKIzu+VI1teHhq0kN1gZlbUIiLm8aErKU4Owi
-	6h2IRsFGOzP0m/zQ7TLIis5MYjZiKDdHzBZ9nd97+pnGiuE38HpULRPY37rZx1qLE9omy2BJ21m9S
-	jZUpP9YUSa008Sxb82MtORsvfyWDmoagEYYBwl1d6B9gTTeKzFxox3nu6I9oWM/2oa+rN8EVgJuW8
-	txpxhuj0IKJwR0KbIkw9bf6RHFJ4m6/bpwDTx/N5vgrQXWP8H5somBlms0Oy8s5FU9+l1bWisroNU
-	loSvo1vg==;
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u54zt-0000000A7ui-0rJd
+	id 1u551p-0000000A8mv-04Lx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 15:48:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=yLdcYW62KrvvJerOGCHyeuwlEDQ19UgL06buz3bTrWs=; b=pE38ll4tzVmjMwjrgTgJ89l7bv
-	8qR11Xf6aAap56g90UXQWw37wr7veCn625eaTTHWNOrQyheqVFfW35Z4nB3aBUyhGrFd+m24KG86L
-	uL+x1tVbM8q9F2YzIe2yR4WbbHpBTIYKs5QzSbCNS5F73granIgM9wtJljRSE/TuYh6g1HBGK4TAl
-	lht199JlgTZDuirsK6rdO7rNeKgVOmpUdStapsd4NjgS8q6lZMXSjLCpqSz217Y5fOTfS6we7BxWb
-	ecncP6w7tYiCRp6MTrabqkXcg9m478O0uTNwCOgIkZjkUTDVG3dpmq6lniKcevAVQTBEVRcNpT0DT
-	4Fvavaag==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:34616)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1u54zj-0001aC-0e;
-	Wed, 16 Apr 2025 16:48:11 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1u54ze-0001WI-34;
-	Wed, 16 Apr 2025 16:48:06 +0100
-Date: Wed, 16 Apr 2025 16:48:06 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Ross Stutterheim <ross.sweng@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Ross Stutterheim <ross.stutterheim@garmin.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Mike Rapoport <rppt@linux.ibm.com>,
-	Linus Walleij <linus.walleij@linaro.org>
-Subject: Re: [PATCH v2] arm/memremap: fix arch_memremap_can_ram_remap()
-Message-ID: <Z__RNhf5CJrbv5yb@shell.armlinux.org.uk>
-References: <20250414133219.107455-1-ross.stutterheim@garmin.com>
- <20250414142140.131756-1-ross.stutterheim@garmin.com>
- <Z_-B5fAhZzShX34I@arm.com>
- <c7db6fda-bf4e-4d6b-8cca-db82c40ce1b6@gmail.com>
+	Wed, 16 Apr 2025 15:50:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1744818617; x=1745423417; i=markus.elfring@web.de;
+	bh=NYYsAFSk4SPL13LOyi6D3exP9IGS0u1UBBNKtssYwHE=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:From:
+	 Subject:Content-Type:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=Z1+w6gVXOebfm0i2U7g1EesZ3ixgFZeCdXVSyPPHv2QZeCLKi6gBc8wr5M8wYsRb
+	 7xArNAstabMmAoHp/iqoh77g+9/wxm1gkFRiAiKYH6zY4ztzoFB613Qqxu17FZthd
+	 A/R6UusZJkTw6UYU9wkqviU1uwhl14m6ewX1RxmjZXoDTO5AjZhlyaf0SbSZKCDug
+	 lm3yQAF/Pld+Ov0jgQQkoszU+agnuw+rji0wkYw/7ThT4T5iNtHa+lm6/zUDjDsUj
+	 5MziiycfD2mhtxnOXwxzuXjazwXNi/3jbZDd7ZL8qmdVMLIzwOKtaZ9vp/e93ZG9z
+	 3ELlQabga3n9HfBXHQ==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.93.13]) by smtp.web.de (mrweb005
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1MREzA-1thts508g8-00Rtse; Wed, 16
+ Apr 2025 17:50:17 +0200
+Message-ID: <93bac949-9356-4819-b0e9-3463056e799c@web.de>
+Date: Wed, 16 Apr 2025 17:50:16 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c7db6fda-bf4e-4d6b-8cca-db82c40ce1b6@gmail.com>
+User-Agent: Mozilla Thunderbird
+To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Cristian Marussi <cristian.marussi@arm.com>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Sudeep Holla <sudeep.holla@arm.com>
+Content-Language: en-GB
+Cc: LKML <linux-kernel@vger.kernel.org>, Chenyuan Yang
+ <chenyuan0y@gmail.com>, Julia Lawall <julia.lawall@inria.fr>
+From: Markus Elfring <Markus.Elfring@web.de>
+Subject: [PATCH] regulator: scmi: Replace devm_kasprintf() call by
+ devm_kstrdup() in scmi_regulator_common_init()
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:dYBj2KWx0G8HSFAktsr3w1LGkI1knCTFkFXfp8ifYqYTFIU4e73
+ 4mYZB1o2JEZDhvB0E+/o2t1QzxRc/zJCkBYConfdLPWDWzsqAHtTDS9t8QR9Kvff6GOKDgY
+ YnQD971/45QzN6VCT5x6kKyRydmj5eL1j2QKhX4LP4mR6Ps0Y7hDVXV6hqrDIts+94okzrW
+ PSTCStZFIiS6X4B2zz5Lg==
+UI-OutboundReport: notjunk:1;M01:P0:kaeKT8pXSfs=;qNL2+lwWG1bWQYIrYAVYJYH6R9Q
+ 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_164821_417329_E3BC4331 
-X-CRM114-Status: GOOD (  15.12  )
+X-CRM114-CacheID: sfid-20250416_085021_363172_20AB7541 
+X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,34 +126,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 16, 2025 at 08:57:09AM -0500, Ross Stutterheim wrote:
-> On 4/16/25 05:09, Catalin Marinas wrote:
-> > > Fixes: 260364d112bc ("arm[64]/memremap: don't abuse pfn_valid() to ensure presence of linear map")
-> > > Signed-off-by: Ross Stutterheim <ross.stutterheim@garmin.com>
-> > 
-> > I think you could also add:
-> > 
-> > Cc: <stable@vger.kernel.org>
-> Done. I also added some other Cc: entries on V3 along with Reviewed-by:
-> lines . I'm new here, so I'm not sure I've used those 100% properly.
-> 
-> > Not sure how Russell picks patches up these days (I used to send them to
-> > the patch system -
-> > https://www.arm.linux.org.uk/developer/patches/info.php).
-> > 
-> > It might be simpler with git send-email (that's the alias I had):
-> > 
-> >    git send-email --add-header="KernelVersion: $(git describe --abbrev=0)" --no-thread --suppress-cc=all --to="patches@armlinux.org.uk"
-> > 
-> Thanks. I created an account there and submitted V3 through the web
-> interface (to avoid my SMTP server appending more stuff on the end).
+From: Markus Elfring <elfring@users.sourceforge.net>
+Date: Wed, 16 Apr 2025 17:38:11 +0200
 
-Thanks, seems all good, applied and pushed out. I'll send it to Linus
-tomorrow as it's certainly a serious regression.
+Use a devm_kstrdup() call instead of a devm_kasprintf() call
+in this function implementation because only a single string
+should be copied.
 
-I'm surprised Mike hasn't responded...
+The source code was transformed by using the Coccinelle software.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
+=2D--
+ drivers/regulator/scmi-regulator.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/regulator/scmi-regulator.c b/drivers/regulator/scmi-r=
+egulator.c
+index 9df726f10ad1..a0b39c83deb6 100644
+=2D-- a/drivers/regulator/scmi-regulator.c
++++ b/drivers/regulator/scmi-regulator.c
+@@ -223,7 +223,7 @@ static int scmi_regulator_common_init(struct scmi_regu=
+lator *sreg)
+ 		return -EOPNOTSUPP;
+ 	}
+=20
+-	sreg->desc.name =3D devm_kasprintf(dev, GFP_KERNEL, "%s", vinfo->name);
++	sreg->desc.name =3D devm_kstrdup(dev, vinfo->name, GFP_KERNEL);
+ 	if (!sreg->desc.name)
+ 		return -ENOMEM;
+=20
+=2D-=20
+2.49.0
+
 
