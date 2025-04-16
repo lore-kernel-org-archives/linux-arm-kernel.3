@@ -4,68 +4,181 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EC1CC369C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:31:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C6AAC369C5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:31:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d1Ah8+0BEPldRUb+Pp7KnRwXO5MRL0tz+DSN6dYy/Lw=; b=0ZCgWQLsSq6mKPxAR6XXyfu7HK
-	dOec+GLnZmbl/LMOqaq80aO8LhOZn1jr/g8fY8PNZW5o3KDUfHbykzgJE8nqMnpCeeXS4o4v6RXWQ
-	IvrogLNKkWFmzmxVUcxtnsc28oZlfXqcxGmEX1jBHeiMb5SsbYBsN5Gr4jZC7iSJc1SYcx+cVy8Ey
-	VfobmBCByHXDGyC9OTANdCf/hqLZeIZYV2/1GdQ8EuoianaihS79gGL+idjh7z7J6/CI5hjSPn1WC
-	WkMbClpVm0FXyl0WxA/l7ZmZc3wsyCh79Qxm3LpmtZgleK4xDE/Vt++MVnc+GEkqVre/k1eYms0vs
-	XMCGLFrw==;
+	bh=07uci2UoD8dBpxN94MVMZYoBhg6rSuhZKCrP9NFZHH0=; b=IUScAc5FOsppZmk4BPbVxOYYxy
+	nb9AgCCBDz13aXFm5NIN4/WQly6EbJVxQNYpZzVwbUgoDiUMM9xKipXS1vAy+sjEki2PxMdKZGD81
+	H2393YEzhmrUcyGtM67tvWO1fky60nzzeoLeZ1exXebf3VSbARx0AjHMGmJnFSkwF9N3v19x2UveW
+	slopQ2Ptit46w5Zva0LbnGc/I35z0st+ctp8hkwtd5NADExcZZq3+5dguAabHfkYpwL0UNDROomNa
+	DPhfjlk7XRVWapEnS3izFg5eqdU/Q0rhEks9BsbenUOc+ENdkgo5V5MxMjqfZOh111KR59MHSenm9
+	DS4wHc2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5038-000000099IX-2PwU;
-	Wed, 16 Apr 2025 10:31:22 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1u503C-000000099RQ-1mhZ;
+	Wed, 16 Apr 2025 10:31:26 +0000
+Received: from mail-mw2nam12on20610.outbound.protection.outlook.com ([2a01:111:f403:200a::610] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4yPw-00000008rvF-2D9d
+	id 1u4yUH-00000008sYR-08lp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 08:46:50 +0000
-Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c31:2dc0:c767:bd08:cc70:b57a])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id A49B5965;
-	Wed, 16 Apr 2025 10:44:40 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1744793081;
-	bh=d1Ah8+0BEPldRUb+Pp7KnRwXO5MRL0tz+DSN6dYy/Lw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=W65ZTAMYlIV88VR5bOLSumZCQie7HoHeHPtUZJBbEuiR+lA6AT7FoT+XP03f9fLCR
-	 veNG9OEUAbKw/cgGtuXMno31IwRKJxaVwve/lfFv/ZbZokrNkFjxI99wlkFE982vjP
-	 P0Cu5+DcSljYg+M8HMWr3Ub5UUXQc0C9jPs4TgAI=
-Date: Wed, 16 Apr 2025 14:16:38 +0530
-From: Jai Luthra <jai.luthra@ideasonboard.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: POPESCU Catalin <catalin.popescu@leica-geosystems.com>, 
-	Shawn Guo <shawnguo2@yeah.net>, "robh@kernel.org" <robh@kernel.org>, 
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>, 
-	"shawnguo@kernel.org" <shawnguo@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, 
-	"kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>, 
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"m.felsch@pengutronix.de" <m.felsch@pengutronix.de>, 
-	GEO-CHHER-bsp-development <bsp-development.geo@leica-geosystems.com>, "stefan.klug@ideasonboard.com" <stefan.klug@ideasonboard.com>
-Subject: Re: [PATCH] arm64: dts: imx8mp: add cpuidle state "cpu-pd-wait"
-Message-ID: <43qcktsp4ajqicfvpmcicpym47rbamrscs5oup5625xs6xxlxa@ztu46vm5dkyq>
-References: <20241007134424.859467-1-catalin.popescu@leica-geosystems.com>
- <ZxYiCv6SpLq9uh08@dragon>
- <qqi2z7wutuy7e6o5fhpzsgfwkyn4quqmdeftl24meld72sudpg@lo3qpk4x7lbv>
- <d6852cf6-e8a0-49b8-a565-2d94eeef67d9@leica-geosystems.com>
- <20250415154724.GG9439@pendragon.ideasonboard.com>
- <20250415155239.GH9439@pendragon.ideasonboard.com>
- <c6uhzqizih7m2tdcnavm4cvtae2udk3jfnmr6of6h4qy3xmxon@323rr4apj5cl>
+	Wed, 16 Apr 2025 08:51:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=elm7Cs07ximn/G1ooMzPAkY1tMpEDjO0AkSgRb/UF2h6MGqNywObWkMEHd/XJKDeOuWUsCN8QcgAu3R8V3U4kwIck3LGEQTKnbVtn/D1GcoK1byMQxLUkt/pp2uzBbkYi8qg8APfxZZHxKv07HnLevNl6qP3kK18XYjo08yaopwhWSEuVMjV9ZD3XjpLGvk2TGXa9fNRmA9K3eR9fS6kzdUMJtZq2RKkZpvfzove2KRoxd60DyYAsK41kTDN0g+PjhVYiK96h90zpYklRwZB920bL4UPDbeicarzOrFC1wFQ32lcktlBuiLE/0X5Vswj+nWAe+g+iN5qXpdI0cU4gA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=07uci2UoD8dBpxN94MVMZYoBhg6rSuhZKCrP9NFZHH0=;
+ b=ghqS1UguBGou4MrF4sSLtMG9zjBdui8LnVA8/YTkPHsU0eUH7SYyQNY0lLD1DBhUBs+WW2p8fFSFZNNmVDQ6IG8xanoQ9xg+e1pdj8GSPg2R/Ilpj9J21R6XOTBX8PjiIEhxB2fW1rTd1R9qjKbtNcmpgb18h9fchE1HNtO552+L6lA67cgpz95zn1nYRvE0Fp4tUu3aH99dLbQbedoxOneKXbw4pST9BS3B5QtzwJNbbsfpW3lXJxP7vfJXr89+sTys6yyc/kkEmgAvPAWkEwDkfQlb8F0KAVuHgRrqJ623zf27VhMtvvhKn1uxKED31rZZGmpuUDNbQl9AgcHxHw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=07uci2UoD8dBpxN94MVMZYoBhg6rSuhZKCrP9NFZHH0=;
+ b=Cu2/snR3jsMWJJA1mwvNeJZHf3w10oyWPgUCK3TkIXNt/MmmYfoQnjJljv93o/cmyzLt+Qlgn2kb6ajTYsfRHbxA3GiMKE4SOmMXNNr8Il7trk9IVyLvzloKDSHIa93i866aT05+bVgW8hQXXGX5n80ZhvJ8fAmlq6o7Vbht2hde0nSsGRxHBVxZziCA1K2oaqWcqcsaeJeLFTWFS6L2+wPrhL1xABc+dgP/ghYaFc8cdVkL/G0b+gakrpTwSU3Q8wxbiBjMbC9yYrIorcIxHU6JYd1aoPR68twj69SzJLTqj+c+mUMKWKV7Jc2lrc4PTCrfu2B49EweoI+qGUVnXA==
+Received: from SA1PR12MB7199.namprd12.prod.outlook.com (2603:10b6:806:2bc::21)
+ by IA0PR12MB7529.namprd12.prod.outlook.com (2603:10b6:208:431::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.32; Wed, 16 Apr
+ 2025 08:51:06 +0000
+Received: from SA1PR12MB7199.namprd12.prod.outlook.com
+ ([fe80::ae1b:d89a:dfb6:37c2]) by SA1PR12MB7199.namprd12.prod.outlook.com
+ ([fe80::ae1b:d89a:dfb6:37c2%6]) with mapi id 15.20.8655.021; Wed, 16 Apr 2025
+ 08:51:05 +0000
+From: Ankit Agrawal <ankita@nvidia.com>
+To: Sean Christopherson <seanjc@google.com>, Jason Gunthorpe <jgg@nvidia.com>
+CC: Marc Zyngier <maz@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>, "joey.gouly@arm.com"
+	<joey.gouly@arm.com>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, "will@kernel.org"
+	<will@kernel.org>, "ryan.roberts@arm.com" <ryan.roberts@arm.com>,
+	"shahuang@redhat.com" <shahuang@redhat.com>, "lpieralisi@kernel.org"
+	<lpieralisi@kernel.org>, "david@redhat.com" <david@redhat.com>, Aniket Agashe
+	<aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>, Kirti Wankhede
+	<kwankhede@nvidia.com>, "Tarun Gupta (SW-GPU)" <targupta@nvidia.com>, Vikram
+ Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>, Alistair Popple
+	<apopple@nvidia.com>, John Hubbard <jhubbard@nvidia.com>, Dan Williams
+	<danw@nvidia.com>, Zhi Wang <zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>,
+	Uday Dhoke <udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
+	Krishnakant Jaju <kjaju@nvidia.com>, "alex.williamson@redhat.com"
+	<alex.williamson@redhat.com>, "sebastianene@google.com"
+	<sebastianene@google.com>, "coltonlewis@google.com" <coltonlewis@google.com>,
+	"kevin.tian@intel.com" <kevin.tian@intel.com>, "yi.l.liu@intel.com"
+	<yi.l.liu@intel.com>, "ardb@kernel.org" <ardb@kernel.org>,
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>, "gshan@redhat.com"
+	<gshan@redhat.com>, "linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"ddutile@redhat.com" <ddutile@redhat.com>, "tabba@google.com"
+	<tabba@google.com>, "qperret@google.com" <qperret@google.com>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v3 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
+ VMA flags
+Thread-Topic: [PATCH v3 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
+ VMA flags
+Thread-Index: AQHbkaduhEbbxySPq0WwO4LU4q6wXLNsQygAgAD/GeCAAIkeAIAAC14ggAFVjACAATjx0YAGtS0AgACvDoCAAOaHAIAANr+AgABucICAAD0IgIAAg/iAgACoeYCAABKYAIAAFAsAgAAouYCACiALVIAAbFcAgAANkACAAAgBgIAAHy6AgAAGMwCAB6GYgIALBt6AgAAPgwCAAAfeAIANn5WY
+Date: Wed, 16 Apr 2025 08:51:05 +0000
+Message-ID: <SA1PR12MB719976799AD7F9FC4407A5A9B0BD2@SA1PR12MB7199.namprd12.prod.outlook.com>
+References: <Z9s7r2JocpoM_t-m@arm.com>
+ <SA1PR12MB7199C7BD48EB39F536DD34DBB0A62@SA1PR12MB7199.namprd12.prod.outlook.com>
+ <Z-QU7qJOf8sEA5R8@google.com> <86y0wrlrxt.wl-maz@kernel.org>
+ <Z-QnBcE1TKPChQay@google.com> <86wmcbllg2.wl-maz@kernel.org>
+ <Z-RGYO3QVj5JNjRB@google.com> <20250331145643.GF10839@nvidia.com>
+ <Z_PtKWnMPzwPb4sp@google.com> <20250407161540.GG1557073@nvidia.com>
+ <Z_QAxiEWEyMpfLgL@google.com>
+In-Reply-To: <Z_QAxiEWEyMpfLgL@google.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SA1PR12MB7199:EE_|IA0PR12MB7529:EE_
+x-ms-office365-filtering-correlation-id: 1b779678-3ac4-4dee-d639-08dd7cc3d302
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|1800799024|376014|38070700018;
+x-microsoft-antispam-message-info: =?iso-8859-1?Q?D/ei9qzud9My8U/1mOzCUVuvSIW74zoImA/xPR3VlPOJsivsvLDmfjbajF?=
+ =?iso-8859-1?Q?Md8JEQHdvkqiSz2WjpzvWpVag5yDAUVjjeELoBW34XDkglD+dovKgJNr6C?=
+ =?iso-8859-1?Q?6QkOTdofbo1VYd9zmD7owrQ2DrihnTQ/it2QAxxONGS0JB6kNEaJMBhmQi?=
+ =?iso-8859-1?Q?Qfi/vF4L5Ed3i0JH83zNK15osJ4vHFyo0XqOLd2cV8v1mo03rpe6pYY0Gn?=
+ =?iso-8859-1?Q?nxS+o6yXY3DIHHZz2qwVGSiZLrAZRa77BBSpfv0GKN3GES6uj8bmb7lraR?=
+ =?iso-8859-1?Q?LTlsSRpijAwU44P/6A5OoIJl7YapuYR2tDUV97cXHB2W/MlLLmf1DMx88k?=
+ =?iso-8859-1?Q?yivkb6pmSNFWTgmewHN9jWiW3dKUhOm14AzBj4lGtdql7CwFaYzWdRA8a1?=
+ =?iso-8859-1?Q?D5lSAm4VUNOQLZhw/bZo69KCPXakR1myBS0KfGFhzpBIaH5WGFIiu4ZFqd?=
+ =?iso-8859-1?Q?CNAd133f5nHzrNfkLL0OY+3jEQr5WXfrTqDUdsr/2p17UkarCvFjPaiOQD?=
+ =?iso-8859-1?Q?1onf4dQDvNgc0Lykea/CInnfR4PtsUy2rxwzouqR047Zqh2pV+LAxJrlum?=
+ =?iso-8859-1?Q?CnqzKBg6oNi7A7Wnq+GahStXL4osXEOgNQ1Fxp6foi1frqQV3vXNI8UdtO?=
+ =?iso-8859-1?Q?fFFB5tCsFy8GzOnG/oDQ7kMX4IyhpjVbPTqAZALlC757Bi4o5yKTSzxcVM?=
+ =?iso-8859-1?Q?SyyaNu8S0dgKVIJoKWv2z4q5E80KCzf8aXrkIBWzy8855tdYpuAzYtWUSo?=
+ =?iso-8859-1?Q?QLSCohlNRr/blzGkLhGtloyRP8vlgGugDb6iLFIG/ICElDR53fYCr9cFph?=
+ =?iso-8859-1?Q?Dp1VJK7DJ/nd1lLewb3PAGfg63z6s+ZArjWi4NkcsWZIpq/4/0wVcbuSPX?=
+ =?iso-8859-1?Q?bGTzEUHzzDI+syp0RA64i9pJq+uPdxU66WCmn8HTxB17srQl8/x9eAdxz4?=
+ =?iso-8859-1?Q?eO5sU37kovFxLDY0XPDj+fELk2PI+497vunGwoGH5+623fdJQ5qq79QDd3?=
+ =?iso-8859-1?Q?C6FHuo73V4f4iYVuYAeLTvhS0MYkZtNOtsBLU0T8tH3+gq9RtxuDdFRg9f?=
+ =?iso-8859-1?Q?uFd9KB1F2nQJVc65Tsmx1x/HqJUurcn7cnioCfz8bVx0eYJS6d86nIqEbf?=
+ =?iso-8859-1?Q?1DZKd4Moec651EaPTFBmlWHlw2C/K7quYnnMIYW1ivUydlhO2dE9c3H5dt?=
+ =?iso-8859-1?Q?z/R59GSuV/vgqq8lYBZ//od9i9bi3f7N8nINzwOp0Hl2CWHcWGB7hxbJJI?=
+ =?iso-8859-1?Q?g/ZuByT82rQfNAz5M/HSBo9PhROI813Ms8YlUorrLSr6yVlwt2lBBoqho0?=
+ =?iso-8859-1?Q?vYQaERxhApfIFGYndMjaHpYfvlWDXNha32KK5qAIX2WO2TdTzJJbwoU3Zv?=
+ =?iso-8859-1?Q?0Pr4Az7ZGYoylgqDWpCgizAe0mZW9DZp0ss3q8WaYC0RkI2gaEBlXPCnWP?=
+ =?iso-8859-1?Q?BN8cq2/6G5OWvQoI5C3mJB7zdJldX2azw+9arEqEYGGicfnPwdGvRFbNsa?=
+ =?iso-8859-1?Q?ZPOCmzCWhIPe0CMxXYLNNsEjOZ5CyjWCbVYuH6Xegxsg=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB7199.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(1800799024)(376014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?IcJk3DhT5hM4TgarFAL85jMMailZcLNo7KyTCvhbKtkshvb16Bk+w48Lzz?=
+ =?iso-8859-1?Q?A2An5Lty7Ij6bYAQfdzPwZzar1tn5I5KDhgOJUl2CpjD8z6oTFWuw/Ql9H?=
+ =?iso-8859-1?Q?tyTqlt72goPyq1LOc0UAfvLMwroj2kK09UiA07+1jO8kpC9W4Vv5dioB4p?=
+ =?iso-8859-1?Q?+OgjzpyPlEWks18KMe3GMEVTWzScx/H0yLnwrNGqR3iR684lIZ1ggmbiCS?=
+ =?iso-8859-1?Q?zhHmBeZY5Us8TiZDO1fzV81qPsarfL74DrxUsB1xv/FFUja4GKxz7Lm/u4?=
+ =?iso-8859-1?Q?G+y2+FRQzt1S0e/p3PyfNkw40LdLlKOBBweKCo6yBHzO4kzlFUDCf0mRfQ?=
+ =?iso-8859-1?Q?e3j7uoGY5PXyuoWOOsqMGihXhjoXcA7BpZiFC26Roa78mJxKEwSRBaR9u9?=
+ =?iso-8859-1?Q?aUzxbijF6XrkQZfYbwZmqtzP+GIM0FG9Ge5oTmY8MblmLQ8hVfFdk0XPN0?=
+ =?iso-8859-1?Q?Z4fXjhwNkx9/g9paX4uDjZrSe+6J1N8Q0b/CSDMfEACbR1iVVFBn6UA/1W?=
+ =?iso-8859-1?Q?Bms8UMujGBzr3pCB1CF3sBdguBvX9ziWDeJCEjvdmI6dCux/SAziJir8d3?=
+ =?iso-8859-1?Q?Q8jjQhRLstmbx3Er8nAxW+zybejeGgR13QMHL9r0wpn4lrEP6saDIX2ia2?=
+ =?iso-8859-1?Q?H1tTFtwil8dNgGfi0iXV4LxQlISjGVl5Go7yUJjPI/q9/QPmsJ7bsgVWm/?=
+ =?iso-8859-1?Q?hYK4OeX8iAKWFstM53cOJHNR1zGchFFBfYB/UXybSCcWyHv5w2QQbOkNxT?=
+ =?iso-8859-1?Q?gmko8pfofkVvHXEk4c6gFCzSEB+3IqV1rK3ZTcpqSL6VyUVQ34DgS38P7j?=
+ =?iso-8859-1?Q?B6DrYDKegNtWvadndt2ERulLdf2nZrGBkMNzLE9d5e35ZOFM6IFZuzBQzm?=
+ =?iso-8859-1?Q?kDPPcT0smrnvSwEn/qP1mbVQj6xvz/wZIb99k1fugYyUfmfvET1T8TFYjK?=
+ =?iso-8859-1?Q?FIlzpGMN3j5PPqjaG+cfIhgUpNptRJoI53no3dyI/62peEB3ERg/PXlkvX?=
+ =?iso-8859-1?Q?Xl3ZwwdqnmUrNjWPfu1sV4sNTsLlcXC8AtsJmnuE1XptYCgMUu2m8ps5jN?=
+ =?iso-8859-1?Q?BDLxxk4w1uqMBUjHMmgUp9i3mgCY/2aIVqscaTM8+FURVYK+mvtzjiYjYU?=
+ =?iso-8859-1?Q?sxJBYSBCNPuhEeTQTGZ34zhIk7BuC4SUf82TkrHCXQz92gl/rRJdMWdioE?=
+ =?iso-8859-1?Q?gsOXNyPZ4b3x6noif5N1lwmVnJscO7q0qpjGr1hl4wDBzemj3m8LEdsfTw?=
+ =?iso-8859-1?Q?HtHJwx6I92beg7d3935i3KkGvqJLL00aRdZ+V7h7E0PB0+b0tyutveixVl?=
+ =?iso-8859-1?Q?QyXEcnf8KzcQK+iObreR06NFggO5svM7YM4wE3knegnrzLpC3QqjUS+cEg?=
+ =?iso-8859-1?Q?PMoOdN/00fOQFJg/ZCOlz1zCrsAdY3pDJUuzk1TPSDM3ITxZU5CqMCv/+s?=
+ =?iso-8859-1?Q?26eGocyF/49V87//dF61v64NqI8m+HH6eG9OXiX+hj0v/5tpOpv2pexO1y?=
+ =?iso-8859-1?Q?z85z7iSRrGPXiPqrn1q96w7NDKGyGM8uSFT+1jrwNWY6sRCZyuYqOWIg0g?=
+ =?iso-8859-1?Q?llY28EEyyO0ZQs4PSDH6LrmdyKI78KJqaXi1wToDl3o+ci+EeO9qTwpmCs?=
+ =?iso-8859-1?Q?hGDo5WcZJEKx8=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="ux5l62wqmf3brrbe"
-Content-Disposition: inline
-In-Reply-To: <c6uhzqizih7m2tdcnavm4cvtae2udk3jfnmr6of6h4qy3xmxon@323rr4apj5cl>
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB7199.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1b779678-3ac4-4dee-d639-08dd7cc3d302
+X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Apr 2025 08:51:05.6805
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: z0J7CMfd+RxuedKemwXYUacJsHH+DhA777vgCtT8be9JOGNiuFyWLflkKp2vT20UVH7390UhF6Uaa7hTZNYc5Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB7529
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_014649_027408_8B6A8E11 
-X-CRM114-Status: GOOD (  33.87  )
+X-CRM114-CacheID: sfid-20250416_015117_073382_C4CF6F4F 
+X-CRM114-Status: GOOD (  12.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,164 +193,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---ux5l62wqmf3brrbe
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] arm64: dts: imx8mp: add cpuidle state "cpu-pd-wait"
-MIME-Version: 1.0
-
-On Apr 16, 2025 at 10:29:27 +0530, Jai Luthra wrote:
-> Hi Laurent,
->=20
-> On Apr 15, 2025 at 18:52:39 +0300, Laurent Pinchart wrote:
-> > On Tue, Apr 15, 2025 at 06:47:26PM +0300, Laurent Pinchart wrote:
-> > > Hi Catalin,
-> > >=20
-> > > On Tue, Apr 15, 2025 at 03:42:22PM +0000, POPESCU Catalin wrote:
-> > > > Hi Jai,
-> > > >=20
-> > > > This issue was already reported by Stefan. The problem is that I do=
-n't=20
-> > > > have a Debix board to investigate.
-> > > > The main difference b/w WFI and cpu-pd-wait is that the first doesn=
-'t=20
-> > > > call PSCI/TF-A. So, the issue looks to be related to some settings =
-in=20
-> > > > the TF-A.
-> > >=20
-> > > Jai, are you using mainline U-Boot and TF-A, or a downstream version =
-of
-> > > either (or both) ?
->=20
-> I am running mainline U-Boot 2024.01 (with cherry-picked Debix support)=
-=20
-> and the same TF-A tag as you rel_imx_5.4.70_2.3.6
->=20
-> I can compile and test with U-Boot 2025.01, will report if it fixes the=
-=20
-> issue on my setup.
->=20
-
-FYI, switching to U-Boot 2025.01 does *not* fix the issue on my setup.
-
-I'm happy to test some other TF-A branch on my board if someone can=20
-point to it.
-
-> >=20
-> > Actually, same question for Calatin :-)
-> >=20
-> > I'm running mainline U-Boot 2025.01 and TF-A rel_imx_5.4.70_2.3.6 (from
-> > https://github.com/nxp-imx/imx-atf) and don't seem to experience the
-> > issue:
-> >=20
-> > # cat /sys/devices/system/cpu/cpu*/cpuidle/state1/disable
-> > 0
-> > 0
-> > 0
-> > 0
-> >=20
-> > $ ping debix
-> > PING debix.farm.ideasonboard.com (192.168.2.230) 56(84) bytes of data.
-> > 64 bytes from debix.farm.ideasonboard.com (192.168.2.230): icmp_seq=3D1=
- ttl=3D64 time=3D1.03 ms
-> > 64 bytes from debix.farm.ideasonboard.com (192.168.2.230): icmp_seq=3D2=
- ttl=3D64 time=3D0.800 ms
-> > 64 bytes from debix.farm.ideasonboard.com (192.168.2.230): icmp_seq=3D3=
- ttl=3D64 time=3D0.935 ms
-> > 64 bytes from debix.farm.ideasonboard.com (192.168.2.230): icmp_seq=3D4=
- ttl=3D64 time=3D0.902 ms
-> > 64 bytes from debix.farm.ideasonboard.com (192.168.2.230): icmp_seq=3D5=
- ttl=3D64 time=3D0.738 ms
-> > 64 bytes from debix.farm.ideasonboard.com (192.168.2.230): icmp_seq=3D6=
- ttl=3D64 time=3D0.939 ms
-> >=20
-> > > > What I don't get is why I don't see this issue neither on our IMX8M=
-P=20
-> > > > specific design nor on the EVK, which uses the same PHY as the Debi=
-x board.
-> > > >
-> > > > On 14/04/2025 14:07, Jai Luthra wrote:
-> > > > > On Oct 21, 2024 at 17:42:34 +0800, Shawn Guo wrote:
-> > > > >> On Mon, Oct 07, 2024 at 03:44:24PM +0200, Catalin Popescu wrote:
-> > > > >>> So far, only WFI is supported on i.MX8mp platform. Add support =
-for
-> > > > >>> deeper cpuidle state "cpu-pd-wait" that would allow for better =
-power
-> > > > >>> usage during runtime. This is a port from NXP downstream kernel.
-> > > > >>>
-> > > > > Since the introduction of this patch in mainline, I am facing slu=
-ggish
-> > > > > network performance with my Debix Model-A board with i.MX8mp SoC.
-> > > > >
-> > > > > The network latency jumps to >1s after almost every other packet:
-> > > > >
-> > > > > PING debix (10.0.42.5) 56(84) bytes of data.
-> > > > > 64 bytes from debix (10.0.42.5): icmp_seq=3D1 ttl=3D64 time=3D100=
-8 ms
-> > > > > 64 bytes from debix (10.0.42.5): icmp_seq=3D2 ttl=3D64 time=3D0.4=
-88 ms
-> > > > > 64 bytes from debix (10.0.42.5): icmp_seq=3D3 ttl=3D64 time=3D102=
-5 ms
-> > > > > 64 bytes from debix (10.0.42.5): icmp_seq=3D4 ttl=3D64 time=3D0.8=
-10 ms
-> > > > > 64 bytes from debix (10.0.42.5): icmp_seq=3D5 ttl=3D64 time=3D590=
- ms
-> > > > > 64 bytes from debix (10.0.42.5): icmp_seq=3D6 ttl=3D64 time=3D0.3=
-51 ms
-> > > > > ^C
-> > > > > --- debix ping statistics ---
-> > > > > 7 packets transmitted, 6 received, 14.2857% packet loss, time 612=
-6ms
-> > > > > rtt min/avg/max/mdev =3D 0.351/437.416/1024.755/459.370 ms, pipe 2
-> > > > > darkapex at freya in ~
-> > > > >
-> > > > > If I revert the patch, or disable the deeper cpuidle state through
-> > > > > sysfs, the issue goes away.
-> > > > >
-> > > > > # echo 1 > /sys/devices/system/cpu/cpu$i/cpuidle/state1/disable
-> > > > >
-> > > > > PING debix (10.0.42.5) 56(84) bytes of data.
-> > > > > 64 bytes from debix (10.0.42.5): icmp_seq=3D1 ttl=3D64 time=3D0.4=
-82 ms
-> > > > > 64 bytes from debix (10.0.42.5): icmp_seq=3D2 ttl=3D64 time=3D2.2=
-8 ms
-> > > > > 64 bytes from debix (10.0.42.5): icmp_seq=3D3 ttl=3D64 time=3D2.2=
-6 ms
-> > > > > 64 bytes from debix (10.0.42.5): icmp_seq=3D4 ttl=3D64 time=3D0.8=
-48 ms
-> > > > > 64 bytes from debix (10.0.42.5): icmp_seq=3D5 ttl=3D64 time=3D0.4=
-06 ms
-> > > > > ^C
-> > > > > --- debix ping statistics ---
-> > > > > 5 packets transmitted, 5 received, 0% packet loss, time 4051ms
-> > > > > rtt min/avg/max/mdev =3D 0.406/1.255/2.280/0.842 ms
-> > > > >
-
---=20
-Thanks,
-Jai
-
---ux5l62wqmf3brrbe
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCAAdFiEETeDYGOXVdejUWq/FQ96R+SSacUUFAmf/bm4ACgkQQ96R+SSa
-cUWvjA//exvKcF3kQxHggMPS8Q+9Q2h9lhBKm3zUCibBA9ZTjXfritWGnp2dlN4G
-7YTgoM5zzkEMcHU7fYE1JpRsDM9WbwT0SjTKYVHdwSj9XPdot12R3v2Py+AcdrFa
-kCR0A+1av4/gd0daTaJHrfbQe+KrXMGxAlvypCrS560Oo06J4EOqE99ijO0/ndnm
-vxbURp5VrtgHK2XP1scGnpIxFRvMsNTmoQfCnBdJB8Py8L0qmwFZE8Ggezz5nHkU
-qeBadmLVZfNg/fjiwGGXR7d3Y2rfE1P/9CFrfVrFHDlDF0VHP59Tf6YGK/6+MagG
-5R1/hGesipalXLFOv29lq8mJCnevy08WlfLBzabGN2p5/3SGXbVchm8MmDQRml7y
-+BgSvnPM22xFTL++faKtqzcl1Y1x0SU2NOOXXcj9t2iX6xaKEe6jcYQsdQOoseK4
-Pnt9gGXGLghOK5V9ZnNZL59kEfmdTcSu0Zl7olNd7tqsj2Htl+L5ZGWhDaGZrkT1
-qcT+VkrMpeNlUs52ga+v5NHpNiKXtzHJch+TpcIrUpI8amPGCtyWGVm/SK2KyUEn
-dHIziKOwTkr0SeYSg7Jmb/1H04/Sez2KbuM5XWkU9MXXZPmBoyv25k1ITBry6rY9
-IusE/reBAbRvMngYbNlD647QmDCYaNGwpuQrcKqhh0sQX9TvThE=
-=e/K7
------END PGP SIGNATURE-----
-
---ux5l62wqmf3brrbe--
+Hi, summarizing the discussion so far and outlining the next steps. The key=
+ points=0A=
+are as follows:=0A=
+1. KVM cap to expose whether the kernel supports mapping cacheable PFNMAP:=
+=0A=
+If the host doesn't have FWB, then the capability doesn't exist. Jason, Oli=
+ver, Caitlin=0A=
+and Sean points that this may not be required as userspace do not have=0A=
+much choice anyways. KVM has to follow the PTEs and userspace cannot ask=0A=
+for something different. However, Marc points that enumerating FWB support=
+=0A=
+would allow userspace to discover the support and prevent live-migration=0A=
+across FWB and non-FWB hosts. Jason suggested that this may still be fine a=
+s=0A=
+we have already built in VFIO side protection where a live migration can be=
+=0A=
+attempted and then fail because of late-detected HW incompatibilities.=0A=
+=0A=
+2. New memslot flag that VMM passes at memslot registration:=0A=
+Discussion point that this is not necessary and KVM should just follow the=
+=0A=
+VMA pgprot.=0A=
+=0A=
+3. Fallback path handling for PFNMAP when the FWB is not set:=0A=
+Discussion points that there shouldn't be any fallback path and the memslot=
+=0A=
+should just fail. i.e. KVM should not allow degrading cachable to non-cacha=
+ble=0A=
+when it can't do flushing. This is to prevent the potential security issue=
+=0A=
+pointed by Jason (S1 cacheable, S2 noncacheable).=0A=
+=0A=
+=0A=
+So AIU, the next step is to send out the updated series with the following =
+patches:=0A=
+1. Block cacheable PFN map in memslot creation (kvm_arch_prepare_memory_reg=
+ion)=0A=
+and during fault handling (user_mem_abort()).=0A=
+=0A=
+2. Enable support for cacheable PFN maps if S2FWB is enabled by following=
+=0A=
+the vma pgprot (this patch).=0A=
+=0A=
+3. Add and expose the new KVM cap to expose cacheable PFNMAP (set to false=
+=0A=
+for !FWB), pending maintainers' feedback on the necessity of this capabilit=
+y.=0A=
+=0A=
+Please let me know if there are any inaccuracies.=0A=
+=0A=
+Thanks=0A=
+Ankit Agrawal=0A=
+=0A=
 
