@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06B10C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 22:57:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D378FC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 22:59:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yc4Au1Jug4OrUgD9WRgxiBXboCYA7XhnTBd4v2chERc=; b=rPSgkT2VlXpWjVsvn5flo5KSXo
-	f5aSlwB6xhgjNCvlF1vUVRtFYj8NhxXxL5Ue/GEGQjS/W+QroCCu4QFvOcdr0Cq/z2YRvYWwPbU6O
-	WPzmiYdPyMJFhQUPuKF4igroPuFET6oA2CwrlbXBIYDUFRS9054IfI3KOAcYHme+Oj/29BzNxhwFZ
-	6YqS9fakNUbFRQL2SocamYIDhpq0idEFa7eVw2SGY6cUv12AbxfJ8HE47r++yvqm1UzDt8xS1LMcG
-	3lKUFZ7ObF18mxHo2feMyNIbDmDt3M0uNOd3WfIcDr9IL5FFuiT9F2Kn4lxhhUhmJk7tuEbu9xh6G
-	A9agyUmg==;
+	bh=LGdIgps2l2D9seU19dnTd6NwpZVe1Er3vyb7f/YrKII=; b=1XIwph4JnVIt+XkLuMe92oCknz
+	xIxHS9HNb086CskemyzNvXpLiW34NqW0hiD3UBCWVIDX5PaGtajZPwPf8M19Dhwc6PvD3iC2Y8GxG
+	bbWH9/M9C7PMEUBccXjUcL9Z5T7fHJ4tDomQ4LNaYqo+noGRGW05UqyqYGrGOywZgcsaUaH68sDfX
+	szgwyHFS993uTzPzu0q05QkVmXYo7/HjevP/TmCH1u0K076gIAc43lknujFEvfQq7jwG2Rr+bMgpc
+	BxUcjZ6MWV+6XwRnZpnrf7Oqw5JJS6demCxd2HDE3ybfX2VMqsz0i/um6A51lZtVTx4PtxnQvyP1b
+	eBt5fISw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Bh1-0000000B62t-1cxH;
-	Wed, 16 Apr 2025 22:57:19 +0000
+	id 1u5Biv-0000000B6Mg-0ajg;
+	Wed, 16 Apr 2025 22:59:17 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5BZd-0000000B5Aj-45E9
+	id 1u5BZg-0000000B5BQ-2iKn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 22:49:43 +0000
+	Wed, 16 Apr 2025 22:49:45 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 55F251595;
-	Wed, 16 Apr 2025 15:49:39 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 777AF1515;
+	Wed, 16 Apr 2025 15:49:41 -0700 (PDT)
 Received: from localhost.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BB4343F66E;
-	Wed, 16 Apr 2025 15:49:39 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DD2503F66E;
+	Wed, 16 Apr 2025 15:49:41 -0700 (PDT)
 From: Andre Przywara <andre.przywara@arm.com>
 To: Ulf Hansson <ulf.hansson@linaro.org>,
 	Rob Herring <robh@kernel.org>,
@@ -48,17 +48,17 @@ Cc: Boris Brezillon <boris.brezillon@collabora.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	linux-pm@vger.kernel.org
-Subject: [PATCH v2 3/4] arm64: dts: allwinner: h616: Add Mali GPU node
-Date: Wed, 16 Apr 2025 23:48:38 +0100
-Message-ID: <20250416224839.9840-4-andre.przywara@arm.com>
+Subject: [PATCH v2 4/4] arm64: dts: allwinner: h616: enable Mali GPU for all boards
+Date: Wed, 16 Apr 2025 23:48:39 +0100
+Message-ID: <20250416224839.9840-5-andre.przywara@arm.com>
 X-Mailer: git-send-email 2.46.3
 In-Reply-To: <20250416224839.9840-1-andre.przywara@arm.com>
 References: <20250416224839.9840-1-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_154942_057980_5FA3D6B7 
-X-CRM114-Status: GOOD (  10.83  )
+X-CRM114-CacheID: sfid-20250416_154944_770771_B1DC7DF2 
+X-CRM114-Status: GOOD (  11.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,60 +73,184 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Allwinner H616 SoC contains a Mali-G31 MP2 GPU, which is of the Mali
-Bifrost family. There is a power domain specifically for that GPU, which
-needs to be enabled to make use of the it.
+All Allwinner H616/H618 SoCs contain a Mali G31 MP2 GPU.
 
-Add the DT nodes for those two devices, and link them together through
-the "power-domains" property.
-Any board wishing to use the GPU would need to enable the GPU node and
-specify the "mali-supply" regulator.
+Enable the DT nodes for that GPU, and specify the regulator providing
+power to the VDD_GPU pins of the package. The rest of the DT node is set
+by the SoC, so is not board specific.
 
 Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 ---
- .../arm64/boot/dts/allwinner/sun50i-h616.dtsi | 21 +++++++++++++++++++
- 1 file changed, 21 insertions(+)
+ arch/arm64/boot/dts/allwinner/sun50i-h313-tanix-tx1.dts      | 5 +++++
+ .../boot/dts/allwinner/sun50i-h616-bigtreetech-cb1.dtsi      | 5 +++++
+ arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero.dtsi | 4 ++++
+ arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero2.dts | 4 ++++
+ arch/arm64/boot/dts/allwinner/sun50i-h616-x96-mate.dts       | 5 +++++
+ .../boot/dts/allwinner/sun50i-h618-longan-module-3h.dtsi     | 5 +++++
+ .../arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts | 5 +++++
+ arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero3.dts | 4 ++++
+ .../boot/dts/allwinner/sun50i-h618-transpeed-8k618-t.dts     | 5 +++++
+ .../boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts  | 5 +++++
+ 10 files changed, 47 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
-index cdce3dcb8ec02..ceedae9e399b6 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
-@@ -150,6 +150,21 @@ soc {
- 		#size-cells = <1>;
- 		ranges = <0x0 0x0 0x0 0x40000000>;
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h313-tanix-tx1.dts b/arch/arm64/boot/dts/allwinner/sun50i-h313-tanix-tx1.dts
+index 17e6aef67aaf9..7906b79c03898 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h313-tanix-tx1.dts
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h313-tanix-tx1.dts
+@@ -79,6 +79,11 @@ &ehci0 {
+ 	status = "okay";
+ };
  
-+		gpu: gpu@1800000 {
-+			compatible = "allwinner,sun50i-h616-mali",
-+				     "arm,mali-bifrost";
-+			reg = <0x1800000 0x40000>;
-+			interrupts = <GIC_SPI 95 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 96 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 97 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "job", "mmu", "gpu";
-+			clocks = <&ccu CLK_GPU0>, <&ccu CLK_BUS_GPU>;
-+			clock-names = "core", "bus";
-+			power-domains = <&prcm_ppu 2>;
-+			resets = <&ccu RST_BUS_GPU>;
-+			status = "disabled";
-+		};
++&gpu {
++	mali-supply = <&reg_dcdc1>;
++	status = "okay";
++};
 +
- 		crypto: crypto@1904000 {
- 			compatible = "allwinner,sun50i-h616-crypto";
- 			reg = <0x01904000 0x800>;
-@@ -874,6 +889,12 @@ r_ccu: clock@7010000 {
- 			#reset-cells = <1>;
- 		};
+ &ir {
+ 	status = "okay";
+ };
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616-bigtreetech-cb1.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h616-bigtreetech-cb1.dtsi
+index d12b01c5f41b6..bebfeb2a337a3 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h616-bigtreetech-cb1.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h616-bigtreetech-cb1.dtsi
+@@ -67,6 +67,11 @@ &cpu0 {
+ 	cpu-supply = <&reg_dcdc2>;
+ };
  
-+		prcm_ppu: power-controller@7010250 {
-+			compatible = "allwinner,sun50i-h616-prcm-ppu";
-+			reg = <0x07010250 0x10>;
-+			#power-domain-cells = <1>;
-+		};
++&gpu {
++	mali-supply = <&reg_dcdc1>;
++	status = "okay";
++};
 +
- 		nmi_intc: interrupt-controller@7010320 {
- 			compatible = "allwinner,sun50i-h616-nmi",
- 				     "allwinner,sun9i-a80-nmi";
+ &mmc0 {
+ 	vmmc-supply = <&reg_dldo1>;
+ 	/* Card detection pin is not connected */
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero.dtsi
+index 908fa3b847a66..a8644fb52b04e 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero.dtsi
+@@ -77,6 +77,10 @@ &emac0 {
+ 	status = "okay";
+ };
+ 
++&gpu {
++	status = "okay";
++};
++
+ &mdio0 {
+ 	ext_rgmii_phy: ethernet-phy@1 {
+ 		compatible = "ethernet-phy-ieee802.3-c22";
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero2.dts b/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero2.dts
+index a360d8567f955..f2e3300e078a9 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero2.dts
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero2.dts
+@@ -24,6 +24,10 @@ &emac0 {
+ 	phy-supply = <&reg_dcdce>;
+ };
+ 
++&gpu {
++	mali-supply = <&reg_dcdcc>;
++};
++
+ &mmc0 {
+ 	vmmc-supply = <&reg_dcdce>;
+ };
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616-x96-mate.dts b/arch/arm64/boot/dts/allwinner/sun50i-h616-x96-mate.dts
+index 968960ebf1d18..085f3e4e8eaa8 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h616-x96-mate.dts
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h616-x96-mate.dts
+@@ -50,6 +50,11 @@ &ehci2 {
+ 	status = "okay";
+ };
+ 
++&gpu {
++	mali-supply = <&reg_dcdcc>;
++	status = "okay";
++};
++
+ &ir {
+ 	status = "okay";
+ };
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h618-longan-module-3h.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h618-longan-module-3h.dtsi
+index e92d150aaf1c1..3f416d129b727 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h618-longan-module-3h.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h618-longan-module-3h.dtsi
+@@ -10,6 +10,11 @@ &cpu0 {
+ 	cpu-supply = <&reg_dcdc2>;
+ };
+ 
++&gpu {
++	mali-supply = <&reg_dcdc1>;
++	status = "okay";
++};
++
+ &mmc2 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&mmc2_pins>;
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts b/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts
+index a0fe7a9afb77c..b340bbcb710de 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts
+@@ -69,6 +69,11 @@ &ehci1 {
+ 
+ /* USB 2 & 3 are on the FPC connector (or the exansion board) */
+ 
++&gpu {
++	mali-supply = <&reg_dcdc1>;
++	status = "okay";
++};
++
+ &mmc0 {
+ 	cd-gpios = <&pio 5 6 GPIO_ACTIVE_LOW>;	/* PF6 */
+ 	bus-width = <4>;
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero3.dts b/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero3.dts
+index e1cd7572a14ce..c51d4d9120dee 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero3.dts
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero3.dts
+@@ -27,6 +27,10 @@ &ext_rgmii_phy {
+ 	motorcomm,clk-out-frequency-hz = <125000000>;
+ };
+ 
++&gpu {
++	mali-supply = <&reg_dcdc1>;
++};
++
+ &mmc0 {
+ 	/*
+ 	 * The schematic shows the card detect pin wired up to PF6, via an
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h618-transpeed-8k618-t.dts b/arch/arm64/boot/dts/allwinner/sun50i-h618-transpeed-8k618-t.dts
+index f828ca1ce51ef..efe0faa252f5e 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h618-transpeed-8k618-t.dts
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h618-transpeed-8k618-t.dts
+@@ -69,6 +69,11 @@ &ehci1 {
+ 	status = "okay";
+ };
+ 
++&gpu {
++	mali-supply = <&reg_dcdc1>;
++	status = "okay";
++};
++
+ &ir {
+ 	status = "okay";
+ };
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts b/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts
+index 7e17ca07892dd..f1efaf6d06831 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts
+@@ -197,6 +197,11 @@ &ehci0 {
+ 	status = "okay";
+ };
+ 
++&gpu {
++	mali-supply = <&reg_dcdc2>;
++	status = "okay";
++};
++
+ &mmc0 {
+ 	vmmc-supply = <&reg_cldo3>;
+ 	disable-wp;
 -- 
 2.46.3
 
