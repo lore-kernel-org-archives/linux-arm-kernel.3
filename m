@@ -4,114 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1C4CC369C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:31:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5E27C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:31:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xvBHlisEiwsmEOKk9DgmbECXhRELhLmzfKIpVikrPpo=; b=xXH3uIMnWhSoU3nR8HbuueGcFv
-	Ki2Hqy5KmSTa0DxO6xZduh8WPPc5tHFgr3jFVbIWAK8GFry5O04Q3DNvlAuJlXbX74tjR4VPiaN1K
-	kaLdPZMQrpCAA/y/4M8Sor9DmqWJORntO+GjuHfl+RGSl8YZz1Ni2+yskCuVM+f2Rm6M+/maBHpzc
-	zIs7r+DE0xFoHABHCY4RZX/bmi/5fNDEVtQUgRkyGc5qTlFkZP+1+U/Q816qljSaJZD4Uhm3ITWQ3
-	0yX5xazQUVDgKr29tM/m+2l3GxlLlrF6xPhPireq+PszNzSKiCp1qFU012cdzMwQMHRjtDK7N7dUy
-	jKMmCNAw==;
+	bh=xqJhOsBVsWyVYfnqK0uV7I58LupVbknyuOuIXchLiwY=; b=FKD0xPBlbRHfivFv3HCbUmnjgf
+	1FcN3m1Nu3jaK8gRv5VZVDwaf/yZg05tWCwP7NbZ9712q1v4W1c3Nm0Is7rSaJUOpmJ/jE3GGSE1x
+	Up5l3viP29/Zj3T5fFt2/BAvbECU3ADRohBY53sF42LzkpsB+U1u240FyJYSVhH4ZY72u4BRUl4oV
+	rpvvOQ5wOj/o8iQXAEWfUiBarm166KLP5y466Ne83RXBjuE1Z6aC0cliyXwJIWeE2rOXOKE9/ngcy
+	RFgTFw0wQKg4bHbdpR7dhs/W3/EXeugQ2b2VCzqdsXJU3T4zqihfwnM6C2IOTHbD+WbdF4Ry2xBF7
+	rHzHPuTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u502e-000000098Pv-1f1X;
-	Wed, 16 Apr 2025 10:30:52 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1u502q-000000098lo-2UV2;
+	Wed, 16 Apr 2025 10:31:04 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4y9e-00000008pQi-37Wh
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 08:29:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CE16D5C4AF5;
-	Wed, 16 Apr 2025 08:27:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 678A0C4CEF0;
-	Wed, 16 Apr 2025 08:29:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744792197;
-	bh=0nwPOV1VNSMSwlia77HyFIYbASXBBO/4IEYSpdZvvcM=;
+	id 1u4yFy-00000008qOy-2Rne;
+	Wed, 16 Apr 2025 08:36:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1744792588;
+	bh=1d2N2Qn/JW5QWfjpDUYk7isFPV0A5T0sy4jRKhZximY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Yo9Xm1F/usrc11Fqyz7FKSlJgu67LMkuh6VwRjFxA2YPYyJiT03aI2dIc1F0NkIyF
-	 Pj2cao9UhrL4PcTJmu9ZRSuG26Dg2kgh9gj7UDDYhVdyK07ryMRnMsu40qSLo2F9Qm
-	 3h6QvoWtAh33w84YsyafCKXymuQzlkruz6CUuipw6purYFSNZ1RJ3P7r1yzuXPmDvD
-	 IICqTN7aooj81Vnb6JsA3NF/N3KpE555zaW6tX2dijm9Oo4ujvusdJS3ENHhSLzYP0
-	 Aca9FMrqLs/OAuStMDXjTegJqw6V6AU7ZEC08TQTG6yu38GuAWroIgTDCH2B3Y0+G7
-	 lPxoN51MkDrdA==
-Message-ID: <99e3b06a-f612-4f22-ae5f-43a3d618b06d@kernel.org>
-Date: Wed, 16 Apr 2025 10:29:45 +0200
+	b=A1Svrby0uVBqHw5jN3tu1pxER4Q8GYXwnq/a2p/Aa0ic3o8l9+2cLEejsDTplQlUC
+	 khUk2yP43g20pxuwiH2RSN6TwBfhBMKk80Cjo7Oti15szIGgPuH/y+BB6bbickqFDA
+	 IQE4JZDFrklcWSFmEF8T5MT/4rUSjQxvkTJt9scFUmEUlwkv3131viA6d3dWbB2DUT
+	 CmISE3zyQkgLfLa3MHvIH3/EIDo2ovLtG8HPuPcaUCqvmUA9JXMpqHW0JZ0DKymAIE
+	 qcmrnF0gwPdQvllMcZiM26tm9cQWmsD0D2osWJNHLRsAet43omk40PSZvyX1Xk8qQu
+	 8z1DXtLNrwwFg==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4212117E1034;
+	Wed, 16 Apr 2025 10:36:27 +0200 (CEST)
+Message-ID: <7f4015b1-9151-4964-88bb-55a6448b96dc@collabora.com>
+Date: Wed, 16 Apr 2025 10:36:26 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 08/10] dt-bindings: clock: cix: Add CIX sky1 scmi clock
- id
-To: Peter Chen <peter.chen@cixtech.com>
-Cc: soc@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de,
- jassisinghbrar@gmail.com, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- cix-kernel-upstream@cixtech.com, maz@kernel.org, kajetan.puchalski@arm.com,
- Gary Yang <gary.yang@cixtech.com>
-References: <20250415072724.3565533-1-peter.chen@cixtech.com>
- <20250415072724.3565533-9-peter.chen@cixtech.com>
- <bdfe0108-7ac3-4f2c-b7f2-97943ee85235@kernel.org>
- <2f05420b-0c6f-4336-9854-036edf8d28fa@kernel.org>
- <Z_9pvs-YKLwFal90@nchen-desktop>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v9 17/23] drm/mediatek: mtk_hdmi: Split driver and add
+ common probe function
+To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
+ "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
+Cc: "robh@kernel.org" <robh@kernel.org>,
+ "jie.qiu@mediatek.com" <jie.qiu@mediatek.com>,
+ "tzimmermann@suse.de" <tzimmermann@suse.de>,
+ "simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
+ <mripard@kernel.org>, =?UTF-8?B?Sml0YW8gU2hpICjnn7PorrDmtpsp?=
+ <jitao.shi@mediatek.com>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "kernel@collabora.com" <kernel@collabora.com>,
+ "dmitry.baryshkov@linaro.org" <dmitry.baryshkov@linaro.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ =?UTF-8?B?TGV3aXMgTGlhbyAo5buW5p+P6YieKQ==?= <Lewis.Liao@mediatek.com>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ =?UTF-8?B?VG9tbXlZTCBDaGVuICjpmbPlvaXoia8p?= <TommyYL.Chen@mediatek.com>,
+ =?UTF-8?B?SXZlcyBDaGVuamggKOmZs+S/iuW8mCk=?= <Ives.Chenjh@mediatek.com>,
+ "airlied@gmail.com" <airlied@gmail.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ =?UTF-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>,
+ "junzhi.zhao@mediatek.com" <junzhi.zhao@mediatek.com>
+References: <20250415104321.51149-1-angelogioacchino.delregno@collabora.com>
+ <20250415104321.51149-18-angelogioacchino.delregno@collabora.com>
+ <bc094a07-2a4c-4048-8c15-b096db62f142@collabora.com>
+ <01872a8318e2c87b124631822785d3ea494030f0.camel@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
- QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
- gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
- /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
- iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
- VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
- 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
- xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
- eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
- AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
- MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
- Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
- ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
- vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
- oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
- lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
- t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
- uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
- 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
- 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <Z_9pvs-YKLwFal90@nchen-desktop>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+In-Reply-To: <01872a8318e2c87b124631822785d3ea494030f0.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_012958_869790_092ED572 
-X-CRM114-Status: UNSURE (   7.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250416_013630_805411_EE4E9E68 
+X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,27 +102,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/04/2025 10:26, Peter Chen wrote:
-> On 25-04-16 08:38:55, Krzysztof Kozlowski wrote:
->> EXTERNAL EMAIL
+Il 16/04/25 08:44, CK Hu (胡俊光) ha scritto:
+> On Tue, 2025-04-15 at 12:48 +0200, AngeloGioacchino Del Regno wrote:
+>> External email : Please do not click links or open attachments until you have verified the sender or the content.
 >>
->> On 16/04/2025 08:35, Krzysztof Kozlowski wrote:
->>> On 15/04/2025 09:27, Peter Chen wrote:
->>>> From: Gary Yang <gary.yang@cixtech.com>
->>>>
->>>> Add device tree bindings for the scmi clock id on
->>>> Cix sky1 platform.
->>>>
->>>> Reviewed-by: Peter Chen <peter.chen@cixtech.com>
->>>> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
+>>
+>> Il 15/04/25 12:43, AngeloGioacchino Del Regno ha scritto:
+>>> In preparation for adding a new driver for the HDMI TX v2 IP,
+>>> split out the functions that will be common between the already
+>>> present mtk_hdmi (v1) driver and the new one.
 >>>
->>> Incomplete SoB chain.
+>>> Since the probe flow for both drivers is 90% similar, add a common
+>>> probe function that will be called from each driver's .probe()
+>>> callback, avoiding lots of code duplication.
+>>>
+>>> Reviewed-by: CK Hu <ck.hu@mediatek.com>
+>>> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>>> ---
+>>>    drivers/gpu/drm/mediatek/Kconfig           |   11 +-
+>>>    drivers/gpu/drm/mediatek/Makefile          |    1 +
+>>>    drivers/gpu/drm/mediatek/mtk_hdmi.c        |  538 +-----
+>>>    drivers/gpu/drm/mediatek/mtk_hdmi.c.orig   | 1769 ++++++++++++++++++++
+>>>    drivers/gpu/drm/mediatek/mtk_hdmi_common.c |  422 +++++
+>>>    drivers/gpu/drm/mediatek/mtk_hdmi_common.h |  188 +++
+>>>    6 files changed, 2398 insertions(+), 531 deletions(-)
+>>>    create mode 100644 drivers/gpu/drm/mediatek/mtk_hdmi.c.orig
+>>
+>> CK, I just acknowledged that a .orig file slipped through and got sent out with
+>> this patch....
+>>
+>> Truly sorry for that, can you please fix that up while applying without having me
+>> send another patchbomb?
 > 
-> Sorry? What do you mean?
+> I would drop mtk_hdmi.c.orig when apply this patch.
+> 
 
-Your SoB is missing. Please read DCO part and actually everything around
-authorship in submitting patches.
+Very much appreciated!
 
-Best regards,
-Krzysztof
+Thanks again,
+Angelo
+
+> Regards,
+> CK
+> 
+>>
+>> Many thanks,
+>> Angelo
+>>
+>>>    create mode 100644 drivers/gpu/drm/mediatek/mtk_hdmi_common.c
+>>>    create mode 100644 drivers/gpu/drm/mediatek/mtk_hdmi_common.h
+>>>
+> 
+
+
 
