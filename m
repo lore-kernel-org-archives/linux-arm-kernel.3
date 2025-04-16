@@ -4,66 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2820C369C5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 19:58:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D9F7C369C5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 20:11:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zOy0kKZXmd4v4LZe/WO0h2WayUdvDZh1TqXaFa62B1o=; b=1YtvqGCTldBQTuOP9JmKrZ1KXy
-	O+84Qz62CyygrQOb+0T/SRmwuYiFzP/MPxb7TaVmcCL+sfvnGrgonSjwSk/i6Rzrb/I4B+qypvEy+
-	FIlI6/qqbwMHos18Dd1bRBVMj39lMqGeHSKn9LFk8wu8a5P64yLeWC+dsw3TVFDVrweeYQkbKbiOr
-	/J0isruJ8NdCxN0uG/bBQNEQspiV+ZR5b4ri9pcW/5O7vTPTkfuPHOfn26Zgo9H5PB9dDxKkPP8dt
-	w/T6BtcgY+zva146MSata+UKEebYxQzsdty4+8v7PjHGar3FoZ5g0hMPtPnGRXdQHGkr/BnnF4k6U
-	o7b3Y+2w==;
+	bh=GVhWTY3ZFGzqPEDO/W0joy8kVqG5wUzwKkcXtfAPvCY=; b=YFqL0mimCNlTJuox/yzeinCib7
+	8DMjit81dbKDuOifJ4fMtF5VQaDqUvry1XDviWLDGC7pqosLeSKEWhonWemX94OvOAaAfSXy40K1w
+	KwmImB4BEshOBPvzo2iA+WntqJSWhDAx26vIkhYoYrQhImgWx1g2gDosr3gopUuVEUqhUf85QIs1E
+	6EpeP0JSw+oPxCO0Ht2PcTc30JpUCuvbjKyE8aocAhtWYiGXfHvBxe7PHiehw+t1vgJ19gPxQb41G
+	u+1qIQQdYeW8zefy8/NkCNrFc3A3yrXEnyiyRzN/PpXZpSsDlYhl4s9tDworWceIlTrJDXLeAe3DN
+	YUEdYJWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u58tu-0000000Al7l-1Qqe;
-	Wed, 16 Apr 2025 19:58:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u596M-0000000Am5A-3dDW;
+	Wed, 16 Apr 2025 20:11:18 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u58s4-0000000AkmO-1YmK
+	id 1u594V-0000000Aloa-0yn3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 19:56:32 +0000
+	Wed, 16 Apr 2025 20:09:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 740F16156A;
-	Wed, 16 Apr 2025 19:56:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33C56C4CEE2;
-	Wed, 16 Apr 2025 19:56:31 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 65AAD5C4D50;
+	Wed, 16 Apr 2025 20:07:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0EE1C4CEE2;
+	Wed, 16 Apr 2025 20:09:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744833391;
-	bh=1cQoQQDK1oUmzfGtTT0gHZLgQczHjt8gR3Q1A0MnmOs=;
+	s=k20201202; t=1744834161;
+	bh=pCQdOvo4laUHf7dQwDu8+NqQcri7JEdKnymIyq99jkI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=q28ERErFjTirg5FUFEx+Iimn+lOIgFKU4pP7Jsh6gye4h50ZrKR4GIJQBzK7g5s1E
-	 dcbLn1pWLhIxir6ST0Mu+HWAamcjHWZFCg0M2So4Hx9AS5wxB6Q4HD4aUbUnSQ/4IE
-	 7MHmdtk3WaybPtA8sZDNcqw0EP/b74DLV1SLDmtVeYCLblOIhuzbUEDFE+CarRDK4A
-	 BgumN+7BBFgQsd5ZmOqC8v7TI/GIVitcxQL8pO71OE8Mb8OMZ8iIbvZyCTcjPs3aH/
-	 lX9POmoH+s4icmxYYQVVLemtGQ+EH8oNU1SVMH76A2Tedqe3mbdoCaIKxjAK8ECKWJ
-	 j89csIZJMglSw==
-Date: Wed, 16 Apr 2025 12:56:28 -0700
-From: Kees Cook <kees@kernel.org>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: kvmarm@lists.linux.dev, kasan-dev@googlegroups.com,
-	linux-hardening@vger.kernel.org, linux-kbuild@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	will@kernel.org, maz@kernel.org, oliver.upton@linux.dev,
-	broonie@kernel.org, catalin.marinas@arm.com, tglx@linutronix.de,
-	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
-	x86@kernel.org, hpa@zytor.com, elver@google.com,
-	andreyknvl@gmail.com, ryabinin.a.a@gmail.com,
-	akpm@linux-foundation.org, yuzenghui@huawei.com,
-	suzuki.poulose@arm.com, joey.gouly@arm.com, masahiroy@kernel.org,
-	nathan@kernel.org, nicolas.schier@linux.dev
-Subject: Re: [PATCH 0/4] KVM: arm64: UBSAN at EL2
-Message-ID: <202504161255.7583BC11@keescook>
-References: <20250416180440.231949-1-smostafa@google.com>
+	b=AAdeEAmuon9/vsZ60kDxHnAVHe3K9UHfeEPMgTodwRVWyu0vBQMReQ/G+JYguUv2T
+	 HvMYz8VW5+3VAykUadq3Ns+OuqXJfJnfPwADjMISIV5Hhty5oa/1Su8VrJNBbJphLT
+	 etufmg6zplKq6ZlN6Md9FIGRj8sUg/3UgvmcWw/Fbd/xnM6axYOyRl6wFR6wiHtfkG
+	 Ka2gUyS55p6Zs8sY2eRxz13LBQg0/8KH4ozJMt0IBL/WAmsAbXFzFd1aJArcz1gIv7
+	 xGwnVyApmtGIqPIOvF5zfpYA0DY/I7eVgaGokKpGdDRXMo+vN/3anERyK44APXUMb1
+	 12z4vJN+GnE0A==
+Date: Wed, 16 Apr 2025 15:09:19 -0500
+From: Rob Herring <robh@kernel.org>
+To: Alexey Charkov <alchark@gmail.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-mmc@vger.kernel.org, netdev@vger.kernel.org,
+	linux-pwm@vger.kernel.org
+Subject: Re: [PATCH 00/13] ARM: vt8500: DT bindings and dts updates
+Message-ID: <20250416200919.GA3811555-robh@kernel.org>
+References: <20250416-wmt-updates-v1-0-f9af689cdfc2@gmail.com>
+ <20250416155442.GA3255418-robh@kernel.org>
+ <CABjd4YyPzZoX98=FMwr91BG2RhYc0r5=9P-2GGAbR0s043duPw@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250416180440.231949-1-smostafa@google.com>
+In-Reply-To: <CABjd4YyPzZoX98=FMwr91BG2RhYc0r5=9P-2GGAbR0s043duPw@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250416_130923_372247_64EA0695 
+X-CRM114-Status: GOOD (  25.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,73 +88,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 16, 2025 at 06:04:30PM +0000, Mostafa Saleh wrote:
-> Many of the sanitizers the kernel supports are disabled when running
-> in EL2 with nvhe/hvhe/proctected modes, some of those are easier
-> (and makes more sense) to integrate than others.
-> Last year, kCFI support was added in [1]
+On Wed, Apr 16, 2025 at 10:55:52PM +0400, Alexey Charkov wrote:
+> On Wed, Apr 16, 2025 at 7:54 PM Rob Herring <robh@kernel.org> wrote:
+> >
+> > On Wed, Apr 16, 2025 at 12:21:25PM +0400, Alexey Charkov wrote:
+> > > Convert some more VT8500 related textual DT binding descriptions to
+> > > YAML schema, do minor dts correctness fixes, and add a DT for the
+> > > board I'm actually testing those on (VIA APC Rock).
+> > >
+> > > While at that, also describe the PL310 L2 cache controller present on
+> > > WM8850/WM8950.
+> > >
+> > > Note that this series is based upon Krzysztof's linux-dt/for-next
+> > >
+> > > Signed-off-by: Alexey Charkov <alchark@gmail.com>
+> > > ---
+> > > Alexey Charkov (13):
+> > >       dt-bindings: i2c: i2c-wmt: Convert to YAML
+> > >       dt-bindings: interrupt-controller: via,vt8500-intc: Convert to YAML
+> > >       dt-bindings: mmc: vt8500-sdmmc: Convert to YAML
+> > >       dt-bindings: net: via-rhine: Convert to YAML
+> > >       dt-bindings: pwm: vt8500-pwm: Convert to YAML
+> > >       dt-bindings: timer: via,vt8500-timer: Convert to YAML
+> > >       dt-bindings: arm: vt8500: Add VIA APC Rock/Paper boards
+> > >       ARM: dts: vt8500: Add node address and reg in CPU nodes
+> > >       ARM: dts: vt8500: Move memory nodes to board dts and fix addr/size
+> > >       ARM: dts: vt8500: Use generic compatibles for EHCI
+> > >       ARM: dts: vt8500: Use generic node name for the SD/MMC controller
+> > >       ARM: dts: vt8500: Add VIA APC Rock/Paper board
+> > >       ARM: dts: vt8500: Add L2 cache controller on WM8850/WM8950
+> > >
+> > >  Documentation/devicetree/bindings/arm/vt8500.yaml  | 19 ++++---
+> > >  Documentation/devicetree/bindings/i2c/i2c-wmt.txt  | 24 ---------
+> > >  .../devicetree/bindings/i2c/wm,wm8505-i2c.yaml     | 47 +++++++++++++++++
+> > >  .../interrupt-controller/via,vt8500-intc.txt       | 16 ------
+> > >  .../interrupt-controller/via,vt8500-intc.yaml      | 47 +++++++++++++++++
+> > >  .../devicetree/bindings/mmc/vt8500-sdmmc.txt       | 23 --------
+> > >  .../devicetree/bindings/mmc/wm,wm8505-sdhc.yaml    | 61 ++++++++++++++++++++++
+> > >  .../devicetree/bindings/net/via,vt8500-rhine.yaml  | 41 +++++++++++++++
+> > >  .../devicetree/bindings/net/via-rhine.txt          | 17 ------
+> > >  .../devicetree/bindings/pwm/via,vt8500-pwm.yaml    | 43 +++++++++++++++
+> > >  .../devicetree/bindings/pwm/vt8500-pwm.txt         | 18 -------
+> > >  .../devicetree/bindings/timer/via,vt8500-timer.txt | 15 ------
+> > >  .../bindings/timer/via,vt8500-timer.yaml           | 36 +++++++++++++
+> > >  MAINTAINERS                                        |  7 ++-
+> > >  arch/arm/boot/dts/vt8500/Makefile                  |  3 +-
+> > >  arch/arm/boot/dts/vt8500/vt8500-bv07.dts           |  5 ++
+> > >  arch/arm/boot/dts/vt8500/vt8500.dtsi               | 12 ++---
+> > >  arch/arm/boot/dts/vt8500/wm8505-ref.dts            |  5 ++
+> > >  arch/arm/boot/dts/vt8500/wm8505.dtsi               | 14 ++---
+> > >  arch/arm/boot/dts/vt8500/wm8650-mid.dts            |  5 ++
+> > >  arch/arm/boot/dts/vt8500/wm8650.dtsi               | 14 ++---
+> > >  arch/arm/boot/dts/vt8500/wm8750-apc8750.dts        |  5 ++
+> > >  arch/arm/boot/dts/vt8500/wm8750.dtsi               | 14 ++---
+> > >  arch/arm/boot/dts/vt8500/wm8850-w70v2.dts          |  5 ++
+> > >  arch/arm/boot/dts/vt8500/wm8850.dtsi               | 23 +++++---
+> > >  arch/arm/boot/dts/vt8500/wm8950-apc-rock.dts       | 21 ++++++++
+> > >  arch/arm/boot/dts/vt8500/wm8950.dtsi               | 11 ++++
+> > >  27 files changed, 386 insertions(+), 165 deletions(-)
+> > > ---
+> > > base-commit: 62db22c2af6ce306943df5de6f5198ea9bd3d47b
+> >
+> > I could not apply this series for testing. What base is this? It is
+> > unknown to anything I have. Please use most recent rc1 unless you have
+> > a dependency then use recent linux-next or a branch in it.
 > 
-> This patchset adds support for UBSAN in EL2.
-> UBSAN can run in 2 modes:
->   1) “Normal” (CONFIG_UBSAN_TRAP=n): In this mode the compiler will
->   do the UBSAN checks and insert some function calls in case of
->   failures, it can provide more information(ex: what is the value of
->   the out of bound) about the failures through those function arguments,
->   and those functions(implemented in lib/ubsan.c) will print a report with
->   such errors.
-> 
->   2) Trap (CONFIG_UBSAN_TRAP=y): This is a minimal mode, where similarly,
->   the compiler will do the checks, but instead of doing function calls,
->   it would do a “brk #imm” (for ARM64) with a unique code with the failure
->   type, but without any extra information (ex: only print the out-bound line
->   but not the index)
-> 
-> For nvhe/hvhe/proctected modes, #2 would be suitable, as there is no way to
-> print reports from EL2, so similarly to kCFI(even with permissive) it would
-> cause the hypervisor to panic.
-> 
-> But that means that for EL2 we need to compile the code with the same options
-> as used by “CONFIG_UBSAN_TRAP” independently from the kernel config.
-> 
-> This patch series adds a new KCONFIG for ARM64 to choose to enable UBSAN
-> separately for the modes mentioned.
-> 
-> The same logic decoding the kernel UBSAN is reused, so the messages from
-> the hypervisor will look similar as:
-> [   29.215332] kvm [190]: nVHE hyp UBSAN: array index out of bounds at: [<ffff8000811f2344>] __kvm_nvhe_handle___pkvm_init_vm+0xa8/0xac!
-> 
-> In this patch set, the same UBSAN options(for check types) are used for both
-> EL1/EL2, although a case can be made to have separate options (leading to
-> totally separate CFLAGS) if we want EL2 to be compiled with stricter checks
-> for something as protected mode.
-> However, re-using the current flags, makes code re-use easier for
-> report_ubsan_failure() and  Makefile.ubsan
-> 
-> [1] https://lore.kernel.org/all/20240610063244.2828978-1-ptosi@google.com/
-> 
-> 
-> Mostafa Saleh (4):
->   arm64: Introduce esr_is_ubsan_brk()
->   ubsan: Remove regs from report_ubsan_failure()
->   KVM: arm64: Introduce CONFIG_UBSAN_KVM_EL2
->   KVM: arm64: Handle UBSAN faults
-> 
->  arch/arm64/include/asm/esr.h     | 5 +++++
->  arch/arm64/kernel/traps.c        | 4 ++--
->  arch/arm64/kvm/handle_exit.c     | 6 ++++++
->  arch/arm64/kvm/hyp/nvhe/Makefile | 6 ++++++
->  arch/x86/kernel/traps.c          | 2 +-
->  include/linux/ubsan.h            | 6 +++---
->  lib/Kconfig.ubsan                | 9 +++++++++
->  lib/ubsan.c                      | 8 +++++---
->  scripts/Makefile.ubsan           | 5 ++++-
->  9 files changed, 41 insertions(+), 10 deletions(-)
+> It's based on Krzysztof's linux-dt/for-next [1] as mentioned in the
+> cover letter above - it hasn't yet been pulled into today's
+> linux-next. Specifically, this patch [2] from Wolfram is a dependency
+> for patch 10/13 in this series - the rest should apply cleanly on top
+> of 6.15-rc1
 
-Nice! I assume this will go via the arm64 tree? I could carry it also,
-if I get arm64 maintainer Acks...
+Unfortunately tools can't read cover letters other than defined tags 
+like base-commit.
 
--Kees
+I would suggest you send each binding patch separately and then just the 
+.dts changes as a series. Then it is split-up by which trees these all 
+get applied to as bindings are applied by the subsystems typically.
 
--- 
-Kees Cook
+Rob
 
