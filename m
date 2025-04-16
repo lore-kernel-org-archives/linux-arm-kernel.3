@@ -4,175 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68DCFC369B1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 05:00:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B133FC369B1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 05:02:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1iFcN16saaUoHcCPEzzMrPLTtu6oaeDZCB/8KLiNxzw=; b=prLWSYCp2uP9owSkYC5UPIHv+9
-	GtfNhfbpRgrBiBLA2lQ666+OseKWRdvhzy5cgAGhThjHZCtyvoZ2DPR27zCbyyPzdjisIx1APKebd
-	BeOySHZVro88wS7mEZ458r/5wrUi6rzf1nxp2e8+rJ27tym6yhjwm7dAPHQ63jlIyKLEv/w/b8soT
-	VqzMYWQf+c1nGF0vTMhawguuhF/esRHOIpN6WWXzLis7mnl+zmYg2St3fWR/Fzfs2bVEMj5SeLBrs
-	dLFtbMyx9IpuomAuYNUXqQUAA2FmTZ/+d3PyEpTFmBtS1pUWjHXf5UTbiYLjNSLLPEUudIbnqhm/W
-	8d8UY0FQ==;
+	bh=fFtTR8fQUvOjp3hOLmXlvnaWEHVD5Cm2FoHAZ9ohiIE=; b=olIEJvIZZlBDj5yDWtk4YuifON
+	0XOUIBZRbX8rIxEw2JZOjGkceJ2uzQSxydBNmXZoVTC4zKwnMJQOz/qPekAsRxJNIH417nHbSXP9Y
+	xNT/jNLw6jUYiXFvNzS2TUCCkcLnwZW1tMNwSGkhBRjEPPDTeBpqKAdhHrcN+ddE4IbLdnqrSNwHK
+	aGf6+vNqviAS1H1GfFlJ63N6Z7mp9rU0V1THphVgmDKMItIm8R/axwnE9nqjlJEOysgS9z2r9FPqI
+	9k68OiLdzAcfGS3qotBn0C4CpmcBhDAKySp82OrgX1qUTrVQKB9I7oLALJcvjYh6kDwwQAPvYRatc
+	lak10G5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4usP-00000008Cxt-1F2C;
-	Wed, 16 Apr 2025 04:59:57 +0000
-Received: from mo-csw1120.securemx.jp ([210.130.202.131] helo=mo-csw.securemx.jp)
+	id 1u4uuD-00000008DAS-45cR;
+	Wed, 16 Apr 2025 05:01:49 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4uqW-00000008Ch2-1ZJj
+	id 1u4us1-00000008CtN-3nbA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 04:58:02 +0000
-DKIM-Signature: v=1;a=rsa-sha256;c=relaxed/simple;d=toshiba.co.jp;h=From:To:CC
-	:Subject:Date:Message-ID:References:In-Reply-To:Content-Type:
-	Content-Transfer-Encoding:MIME-Version;i=nobuhiro1.iwamatsu@toshiba.co.jp;s=
-	key1.smx;t=1744779432;x=1745989032;bh=1iFcN16saaUoHcCPEzzMrPLTtu6oaeDZCB/8KLi
-	Nxzw=;b=lLDYpBx9LMrW2mPJp1IuaaXYGcB1ztrG+NBu+U7sa4wMBg8NxhvoncB/7vy+l2dyTH5IF
-	t63/qUNeGyd4XnJuR/WfAQAanilcmgfRkOgHb2VNSUcCeeD/kzs6RV8T/uboUYUFiXvJrhbxiyj3R
-	ALVkr5/fPlHKtVVeKyt6V8DouBnbXKzwIql+qT2BbKpt6EyCVElAHHy3mRr6mj7kFRaBfFD0grEo4
-	MpinscYyi2URslREr+Pq57D3LkEC0Vx+1s8Gxc4tw2Bmb1DCklSwSCDD3JVK6fpoJXyGBxnGIu5QD
-	MjX+8S5B+KQiUC6nWL4NywkFMO8d8hcHfw7wTMiDYA==;
-Received: by mo-csw.securemx.jp (mx-mo-csw1120) id 53G4vAMp2685397; Wed, 16 Apr 2025 13:57:10 +0900
-X-Iguazu-Qid: 2rWh5b6vGP9uTwTgaF
-X-Iguazu-QSIG: v=2; s=0; t=1744779429; q=2rWh5b6vGP9uTwTgaF; m=8flXb1S9rmKCtzdwEZ+QPuqrsoJCX1U0VrYijPltcEQ=
-Received: from imx12-a.toshiba.co.jp ([38.106.60.135])
-	by relay.securemx.jp (mx-mr1123) id 53G4v69r439112
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 16 Apr 2025 13:57:07 +0900
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=x3F9TSTL5LrehGw1ISKLa58nPu3TRNRb6UOCIltYTEudzE17K33g5zKMB6RKFb8u0VhGgA7JMV+J/m9hvnb9yYE1JPKdjTM8F0/C7SiDRGlrgPXJYIw6ywLkFRJK7gGZBaGuafMyETrHUT7naZUeVH3BolQdy/SpVfrOCXZV927dUKVvwwDjegNWHLZ4JOowVbnW+JSMjIDaY2KGCyb0DMFJBCWCoUv8+9IMTV6JC3mWz6Unw2CytfmStL2MiAfkDv7IxdxfDMfuzs2lLLylUQyqzqeIf+GA9TdwwmoG6Vj07FkTDdm0Vg98TtsMPLKEPxZPkWfVOnIfWL0oLw9nBw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1iFcN16saaUoHcCPEzzMrPLTtu6oaeDZCB/8KLiNxzw=;
- b=mXiaLJDoisyXuQMxYBaCWScH288U48sxocmLiRGdY+8U79940uMuPlbCJJJBQsd8hhCLS0D5I9w4rL6eedTM3t8rXHxhjwOYx2+tZ+qPmwiG1b0/sFkhuF0Cw8k7MI6E4LrUC8RQNxL44655RjWTIwo4ZyQgg91dsfsqjijo8bfSMVjo0YVqrcZEJYkYL0t79w7vgFY578DE/EGCNCscskk+8vDxWvl0+AVABGo3G8kIRbr28pdfxz0q6BMSfcb6NXwEw4xtmBOhZikQrKel6Z3Yb4wFvQFkfIgzRcv2fxz147rEKke+L2Nimsodnxgw5XH1/10Xxk1MScbzs4W37A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=toshiba.co.jp; dmarc=pass action=none
- header.from=toshiba.co.jp; dkim=pass header.d=toshiba.co.jp; arc=none
-From: <nobuhiro1.iwamatsu@toshiba.co.jp>
-To: <rmk+kernel@armlinux.org.uk>, <andrew@lunn.ch>, <hkallweit1@gmail.com>
-CC: <alexandre.torgue@foss.st.com>, <andrew+netdev@lunn.ch>,
-        <davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <mcoquelin.stm32@gmail.com>, <netdev@vger.kernel.org>,
-        <pabeni@redhat.com>
-Subject: RE: [PATCH net-next] net: stmmac: visconti: convert to
- set_clk_tx_rate() method
-Thread-Topic: [PATCH net-next] net: stmmac: visconti: convert to
- set_clk_tx_rate() method
-Thread-Index: AQHbrib2M0uaUqMRpk+uPlXUORCOyLOltZ2A
-Date: Wed, 16 Apr 2025 04:56:58 +0000
-X-TSB-HOP2: ON
-Message-ID: <TY7PR01MB148186C2CDCC2FC8694547BF192BD2@TY7PR01MB14818.jpnprd01.prod.outlook.com>
-References: <E1u4jWi-000rJi-Rg@rmk-PC.armlinux.org.uk>
-In-Reply-To: <E1u4jWi-000rJi-Rg@rmk-PC.armlinux.org.uk>
-Accept-Language: ja-JP, en-US
-Content-Language: ja-JP
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=toshiba.co.jp;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TY7PR01MB14818:EE_|TYYPR01MB14294:EE_
-x-ms-office365-filtering-correlation-id: d170aec7-f173-482b-324d-08dd7ca31e81
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?SXgyWkxWNnZ1QmxXdHF0MWNlbDNxVUk5b2ZhM0RCdFNraDkxNEtlYlYyTTJ5?=
- =?utf-8?B?bEdlN2NVRHo3Z1NTMzd0RkpobXluSUJoaTNPNDl4NVgxOHNZUUpuUXQ1OVVx?=
- =?utf-8?B?dXdlOXNPSlVUT2Q1UVdPZXA0TStwRzExd0hUQ0ZLMWxEQ2Vrbngra2JPZVRW?=
- =?utf-8?B?QkZwbGlVQWg4eXFySHpNcVF0RGQ5WHVldFlpRUYxUzRXSzBiTWJCam5acUNk?=
- =?utf-8?B?NzFyNTFrSWZpQ0QyWHFER0NnbUhFQkZzVW1oUVZaV3VJSHVpRm51RUwrOGp1?=
- =?utf-8?B?MnFkRlhMQXhjcGRJVHFHbEdiU3hVK2EvQno5ZDd3TTdqQTNQQmU2Vldubzg4?=
- =?utf-8?B?M1NLb1BMbUJ4YTdQSy9Rc04rdjJ5NVVieGR4clBuWTAvbGVLWG16RkxBa3Qv?=
- =?utf-8?B?OEpaVlVHNVkvZVllY3ZQNVhsMUxlY1BhRFRyQldUTnBIa0cwNU51QVBaR2RW?=
- =?utf-8?B?bjJkMzB1UWNmM2V0Y2ZqZkRaT3V4ZGxFd0tjRTdqb0pzbzJvODI4enYxR25Z?=
- =?utf-8?B?c002Y2Z6d2FuOEozR1NOZU9BQW5WS0dGZFh0OTRNRlF2R0xoQWlnV2ZDQS9i?=
- =?utf-8?B?ejRqeDhkU0VORmhjWTE4b202d1M5OTZHQitZN3NIMnVHcTlkMWw4Smt1b2RJ?=
- =?utf-8?B?V3drZ25HU2RuZTczVFNqUVE0WUh0QVFvOG03czRHcmxhZEVTRTl4YzhtMDR1?=
- =?utf-8?B?Z3RVMFJTeUltclJEakJDZTgxSk1oWXYvaDhKakNqbnRkS0xVK0I3Z3Z0OVRM?=
- =?utf-8?B?VDcxVC9RUG5pTnRFWjVEYmVyTkdISGRPZ0FiTldpWTBWT3BXcGVVODFyS1R5?=
- =?utf-8?B?bFhJYndVRmhTeFN5cEZQSUN3VzRvb3RsWWdtN3hGaFJNRFBwMW00ZW9pL1Vp?=
- =?utf-8?B?WmZqSXZabm5ocVFOOCtVNjFaTjBFaXNFaTNlZ0x6Z1RtVmVEb0tiL3lPUzla?=
- =?utf-8?B?clNNUE56N2hFQW1wbHpzb2dzQmV1OHBOR2pNQzl6a1NxSlpOZmhaZ2xsQkR1?=
- =?utf-8?B?VkxFK2lLVGloNDJONWtPa0I5Q0Vuc3d0VVRoT3ErcVJHRCs2SVprQnhnZnlI?=
- =?utf-8?B?YUNJdStrQ0N2bDFoRk5kM2hMVC94YWdqQW1jNCt0bU4zVHhERDJLSjBJRitx?=
- =?utf-8?B?cGF1VzJrUzQ1Wm5rTWFsa2ZEbmdmVVBZVWtnOHVHOHBaV0IwNmZDQzVBSnNU?=
- =?utf-8?B?NnMyVyt0ZGt1WEpnMXVQamt2eElJeEwwdjBib2lnZE9YWTdDRjJwb0paWVMr?=
- =?utf-8?B?anhIR3hxZVYwenhMbGdiNDhaN05ZTTEwWTFzM1dzU1dOT0pweFBZTEJucEc2?=
- =?utf-8?B?VXFWN3p0ZDhTb0l5OGlCb1NsdGVqam5BZjZublAzQ1A5RE52Q0V5bjZMKzNV?=
- =?utf-8?B?SzhWZERnMXJ5aWk4N0kxWjVBRFR6TkdiS3ZWL1p3TVhVemY3dHA3Y0VUd0py?=
- =?utf-8?B?bVZleGFJVDQ2clF6d3lWOGtubUQ4ZkZrZmI1NmVWT0JYU2FJcytaL2g2WXBW?=
- =?utf-8?B?d0w0YVpXMnQraHZsdXhzZllMT1BSd3VrdFdHcXZSM1RlNThHMXNEaXNGeHI0?=
- =?utf-8?B?TUt6UTVTemdXbG80cDMwemhKNVh4ZndYQlRlRS9lNHFuOGlVNmNBK0VaMHF6?=
- =?utf-8?B?K05Gbmw5S0cxbktVQnNYRmJZL1NPdmkrbDd5L0hPVU1tUXdwNVFVL3FZdGQ1?=
- =?utf-8?B?VndneDdualowb05NUzgwaDNDT2NhTCt1bjYrMThoY1VtaDgvRmJvNnhla1lP?=
- =?utf-8?B?bGxEZVh4N05IdHg4ajNobXI3eUpxYytXSk1TNEtkMGlzOWFRVDNJSXJoMU9X?=
- =?utf-8?B?Z3E2eWF2ZVhYS0pibCtiMXNkdjc2K1hwb05SMUdJaGdBRUtTSUM0bDJ5T0Iv?=
- =?utf-8?B?aVBqRG5tdnNPdUhROWlnK04yMUtEVUVxUmVqdU5qVzR4NlFOS2hNd1FEcEVK?=
- =?utf-8?B?VVFraHJ3Q0I0Q05mUzgrOGUzQTNRVDZOdkZzaXplOWd4WERod0pyNjZQRmNM?=
- =?utf-8?B?WS9DdkpyeEFRPT0=?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY7PR01MB14818.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?V24xMTNqR3hNN1dyNmkvanBqd0s3cUtGSDNiVno0bC9uYlM5T0Q5Z3RGTTBi?=
- =?utf-8?B?NDJJNnZ2S2pGcGx1UzBCTjlDRmh4VTZFTHBZV2ZNQzUrbUZtZUpYMS9Yc243?=
- =?utf-8?B?VWluSDk2c2h1WmpEWjdDZGZsOFlDRFB3TnBseGxwU2M3Z25zK2FSVms1NEti?=
- =?utf-8?B?RFRtZVF3V2M2eU1FSnZNaXlZR3ZSa2ltVWhMVkh1WVdhdVF3R1paU2JSVnVT?=
- =?utf-8?B?RUVqZitmaGtGenRMT2licVRudVUrc0h0UTgzV2czZGliQjJ0Q00zTFloWXZE?=
- =?utf-8?B?L3JzblZnWnhncTYzTlV0bEVIeDdsQnZmVUx6YUVSRkZFZFJ2eWlsTkpGclpQ?=
- =?utf-8?B?clpRRzhDNFNjQml0a2RaU1dkcEN3VjN0QWxwa3V0cFkrc1ZwajVsTzh4SDJs?=
- =?utf-8?B?Vjg5VldpbVAzV3NSbDJmL3g0NFdRSUc2ZjdibkQzcE5aUUxoTzM1U2hiY2Jx?=
- =?utf-8?B?OUtRczc2eWtOYW1GUFhtMHBla1hlZC81ZllnUXVpRHcxWmJINU10U3BFaE5X?=
- =?utf-8?B?cVFObFdxVGt0cE5yUENQUnN2eitOSmxqdkxRS2M3am1QRVdSWFhudFFtajhX?=
- =?utf-8?B?N2dza1JyMGtyS2xzQzVGOHJDRnhDa0s1S3p2N1pZbllUWWdobFhmbXpyTnVT?=
- =?utf-8?B?N0M0STVkTVFuZmtVRjdzWDFQWmdON2ltZ21nbmNTZTZFVWlock5QTmtxa1U0?=
- =?utf-8?B?VGVuYXUzVjlNNmV0enB1anVqemprSHl2OTRPZ0diY1liaFlObzExenNqeUhR?=
- =?utf-8?B?Y2pjSkNzQ3F0L3A5d3h4K3phOVQydUtTbFAwNWdvYVc1QlY0UEErM04vcFhx?=
- =?utf-8?B?RStOQVVwWkJUS1ZXdnJxalpIM3hsVDUyR2R3NWFRR2EyVTlzSE1PbWMxVUgx?=
- =?utf-8?B?dFpjWXBtNXhQZ3MxcWkzNzZoTVBrdUxyZis3SUxrd0twc2hrU2ozRithS2hk?=
- =?utf-8?B?L0VGbk1hZUNlQ3hzMW5wUGNkMVdrZ2hsdWk1Y3UyTkEveEk5enlteXBnVUlz?=
- =?utf-8?B?dXBNK3RUdVZWU1BPUWRxRlM4cFBOcldJdXBZK1V2VEd0Q1VzdDdyOU9qc1h6?=
- =?utf-8?B?ZGk5MjdvdEU4WS9sMmg3MkVXeHdSRGFickZTNHdDMHhhS2VyS0hPYmorTXd1?=
- =?utf-8?B?eTdNbkI1WkNlVjMyQTVLUXdQSGpQNFZNK3pjTWtoMStnaW9rM09BQjF1OFBY?=
- =?utf-8?B?TGhYRTZONzZBM0JJVis1QmQ4VGdsT0svcjRKbnVVenBSaWJEeWF3enRQVWdw?=
- =?utf-8?B?L1BYcWQ1ZnozK2p5bGNleSszdWdoamRuRTNwTmlQVVdUS3o4WGpueTNYdUJt?=
- =?utf-8?B?S001SytubmNRNzhZakJYNkFZNFo4WFhGcmhCcWVTdTdsZjg2SzR3VTU5dzZR?=
- =?utf-8?B?M3B1TkxpMktaM0NXcmY4TzJzbklFUE4rNGxHV04yaHhyTVFXSVYzSDNKZkZH?=
- =?utf-8?B?WnI1TFJ1Z3ByL2xlV3NEeHRlT25FSm9xUi9rbW04bElrNW9CZUhxVmpNZEdF?=
- =?utf-8?B?WGlEYStPdU5MRFRTNXAyQzlZeWo4OENhbWhZUU9uYzFuWUVBRGdoNVdFR0ZO?=
- =?utf-8?B?VTQ2R2Rrek9xKzhXZm1wZThwSzRwamZidjhCMGJKRkd0YXREVDl1eVdyOXIx?=
- =?utf-8?B?Y3psdTNQQnl2b096TDI3NWt3cGZBWk13K2g2cEJsZ3U5bzJhazg4UjdhajNH?=
- =?utf-8?B?MldtdnVoVjhyT1NDVEtJL1ZURzZXVHE0RFpCdndWUFNSUitnTVBPNHZkUnN2?=
- =?utf-8?B?UUsvSFA5TlIyM0NSclBQdEkySlJCNEhzTDNjd29ENVhiVm50c0F5TUdpUzJE?=
- =?utf-8?B?blBVOTNqNFdxbEdrM0x0OEEwMGVoUm9PVG1ieGVrWm5ZcDdiNkRZc0VYVDc5?=
- =?utf-8?B?NjFUZ25oblA1R29oUjhIRWRyREVQY0F2cG0vVEpzdEZ5L3hLdVluSm5VT3lt?=
- =?utf-8?B?cjhEbjQraStWS1NKcHVTR0lPbUpaaTRQQmF0OGw2UHJVYlZDM0lCUVJGUXQ1?=
- =?utf-8?B?MGQ4YU9iRlRZZWlTbUV2bVZBZTJPclhIVXV0eHZGb0RHb0FMdFdXZXhBanN0?=
- =?utf-8?B?a0U5eVBKd2JxMjlJZ0p0MGFvRmUwSWhNVDZDUlo4Y3Z3Ynp3WGJSRmMvUUtO?=
- =?utf-8?B?MWhXRFJEQ3hQeU9ReXEzdVNqVFlmM3ZYdC95RkxtaE8xKy9Gd3VNSTNpc2xC?=
- =?utf-8?B?eHc9PQ==?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	Wed, 16 Apr 2025 04:59:35 +0000
+Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c31:2dc0:c767:bd08:cc70:b57a])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 7AC48446;
+	Wed, 16 Apr 2025 06:57:24 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1744779444;
+	bh=fFtTR8fQUvOjp3hOLmXlvnaWEHVD5Cm2FoHAZ9ohiIE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YUMeOFhwqd+RmkTnCGSvxQ0qG5oVojLNHD6HHGjdOrimaF3rqiDPQeVnNNfBnXbxk
+	 AJQCZA5+8TBiJCOsSfZcGtwUqQgd59/IJDPJCTfc8Qr38yFCt8zn87ijpImRBekoZj
+	 Ptj7DZSfqHjrPfqJbb5EQ9nsWruByp04kkWuWH6g=
+Date: Wed, 16 Apr 2025 10:29:23 +0530
+From: Jai Luthra <jai.luthra@ideasonboard.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: POPESCU Catalin <catalin.popescu@leica-geosystems.com>, 
+	Shawn Guo <shawnguo2@yeah.net>, "robh@kernel.org" <robh@kernel.org>, 
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>, 
+	"shawnguo@kernel.org" <shawnguo@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, 
+	"kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"m.felsch@pengutronix.de" <m.felsch@pengutronix.de>, 
+	GEO-CHHER-bsp-development <bsp-development.geo@leica-geosystems.com>, "stefan.klug@ideasonboard.com" <stefan.klug@ideasonboard.com>
+Subject: Re: [PATCH] arm64: dts: imx8mp: add cpuidle state "cpu-pd-wait"
+Message-ID: <c6uhzqizih7m2tdcnavm4cvtae2udk3jfnmr6of6h4qy3xmxon@323rr4apj5cl>
+References: <20241007134424.859467-1-catalin.popescu@leica-geosystems.com>
+ <ZxYiCv6SpLq9uh08@dragon>
+ <qqi2z7wutuy7e6o5fhpzsgfwkyn4quqmdeftl24meld72sudpg@lo3qpk4x7lbv>
+ <d6852cf6-e8a0-49b8-a565-2d94eeef67d9@leica-geosystems.com>
+ <20250415154724.GG9439@pendragon.ideasonboard.com>
+ <20250415155239.GH9439@pendragon.ideasonboard.com>
 MIME-Version: 1.0
-X-OriginatorOrg: toshiba.co.jp
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TY7PR01MB14818.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d170aec7-f173-482b-324d-08dd7ca31e81
-X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Apr 2025 04:56:58.9601
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: f109924e-fb71-4ba0-b2cc-65dcdf6fbe4f
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: j4nOmZLUqIwTvpP/fcbbvcXo9oPegwE2VCZ1nDouFp6EdytQ+N15YfsS2I+YQAA4Qc9OzZ/co8Hv7IKJ60XN+C6rpVOxSGRTQk656bHHmC+S3sY+UX6SJv2GV5j8tm5d
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYYPR01MB14294
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="gbylwkaggxhfjf2u"
+Content-Disposition: inline
+In-Reply-To: <20250415155239.GH9439@pendragon.ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_215800_997962_E82DBF2C 
-X-CRM114-Status: GOOD (  21.85  )
+X-CRM114-CacheID: sfid-20250415_215934_266283_AA978B44 
+X-CRM114-Status: GOOD (  30.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,59 +79,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgUnVzc2VsbCwNCg0KVGhhbmtzIGZvciB5b3VyIHVwZGF0ZSENCg0KPiAtLS0tLU9yaWdpbmFs
-IE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBSdXNzZWxsIEtpbmcgPHJta0Bhcm1saW51eC5vcmcudWs+
-IE9uIEJlaGFsZiBPZiBSdXNzZWxsIEtpbmcgKE9yYWNsZSkNCj4gU2VudDogV2VkbmVzZGF5LCBB
-cHJpbCAxNiwgMjAyNSAxOjUzIEFNDQo+IFRvOiBBbmRyZXcgTHVubiA8YW5kcmV3QGx1bm4uY2g+
-OyBIZWluZXIgS2FsbHdlaXQNCj4gPGhrYWxsd2VpdDFAZ21haWwuY29tPg0KPiBDYzogQWxleGFu
-ZHJlIFRvcmd1ZSA8YWxleGFuZHJlLnRvcmd1ZUBmb3NzLnN0LmNvbT47IEFuZHJldyBMdW5uDQo+
-IDxhbmRyZXcrbmV0ZGV2QGx1bm4uY2g+OyBEYXZpZCBTLiBNaWxsZXIgPGRhdmVtQGRhdmVtbG9m
-dC5uZXQ+OyBFcmljDQo+IER1bWF6ZXQgPGVkdW1hemV0QGdvb2dsZS5jb20+OyBKYWt1YiBLaWNp
-bnNraSA8a3ViYUBrZXJuZWwub3JnPjsNCj4gbGludXgtYXJtLWtlcm5lbEBsaXN0cy5pbmZyYWRl
-YWQub3JnOw0KPiBsaW51eC1zdG0zMkBzdC1tZC1tYWlsbWFuLnN0b3JtcmVwbHkuY29tOyBNYXhp
-bWUgQ29xdWVsaW4NCj4gPG1jb3F1ZWxpbi5zdG0zMkBnbWFpbC5jb20+OyBuZXRkZXZAdmdlci5r
-ZXJuZWwub3JnOyBpd2FtYXRzdQ0KPiBub2J1aGlybyjlsqnmnb4g5L+h5rSLIOKWoe+8pO+8qe+8
-tO+8o+KXi++8o++8sO+8tCkNCj4gPG5vYnVoaXJvMS5pd2FtYXRzdUB0b3NoaWJhLmNvLmpwPjsg
-UGFvbG8gQWJlbmkgPHBhYmVuaUByZWRoYXQuY29tPg0KPiBTdWJqZWN0OiBbUEFUQ0ggbmV0LW5l
-eHRdIG5ldDogc3RtbWFjOiB2aXNjb250aTogY29udmVydCB0byBzZXRfY2xrX3R4X3JhdGUoKQ0K
-PiBtZXRob2QNCj4gDQo+IENvbnZlcnQgdmlzY29udGkgdG8gdXNlIHRoZSBzZXRfY2xrX3R4X3Jh
-dGUoKSBtZXRob2QuIEJ5IGRvaW5nIHNvLCB0aGUgR01BQw0KPiBjb250cm9sIHJlZ2lzdGVyIHdp
-bGwgYWxyZWFkeSBoYXZlIGJlZW4gdXBkYXRlZCAodW5saWtlIHdpdGggdGhlDQo+IGZpeF9tYWNf
-c3BlZWQoKSBtZXRob2QpIHNvIHRoaXMgY29kZSBjYW4gYmUgcmVtb3ZlZCB3aGlsZSBwb3J0aW5n
-IHRvIHRoZQ0KPiBzZXRfY2xrX3R4X3JhdGUoKSBtZXRob2QuDQo+IA0KPiBUaGVyZSBpcyBhbHNv
-IG5vIG5lZWQgZm9yIHRoZSBzcGlubG9jaywgYW5kIGhhcyBuZXZlciBiZWVuIC0gbmVpdGhlcg0K
-PiBmaXhfbWFjX3NwZWVkKCkgbm9yIHNldF9jbGtfdHhfcmF0ZSgpIGNhbiBiZSBjYWxsZWQgYnkg
-bW9yZSB0aGFuIG9uZSB0aHJlYWQgYXQNCj4gYSB0aW1lLCBzbyB0aGUgbG9jayBkb2VzIG5vdGhp
-bmcgdXNlZnVsLg0KPiANCj4gU2lnbmVkLW9mZi1ieTogUnVzc2VsbCBLaW5nIChPcmFjbGUpIDxy
-bWsra2VybmVsQGFybWxpbnV4Lm9yZy51az4NCj4gLS0tDQo+ICAuLi4vZXRoZXJuZXQvc3RtaWNy
-by9zdG1tYWMvZHdtYWMtdmlzY29udGkuYyAgIHwgMTggKysrKy0tLS0tLS0tLS0tLS0tDQo+ICAx
-IGZpbGUgY2hhbmdlZCwgNCBpbnNlcnRpb25zKCspLCAxNCBkZWxldGlvbnMoLSkNCj4gDQo+IGRp
-ZmYgLS1naXQgYS9kcml2ZXJzL25ldC9ldGhlcm5ldC9zdG1pY3JvL3N0bW1hYy9kd21hYy12aXNj
-b250aS5jDQo+IGIvZHJpdmVycy9uZXQvZXRoZXJuZXQvc3RtaWNyby9zdG1tYWMvZHdtYWMtdmlz
-Y29udGkuYw0KPiBpbmRleCBlMWRlNDcxYjIxNWMuLjIyMTVhZWYzZWY0MiAxMDA2NDQNCj4gLS0t
-IGEvZHJpdmVycy9uZXQvZXRoZXJuZXQvc3RtaWNyby9zdG1tYWMvZHdtYWMtdmlzY29udGkuYw0K
-PiArKysgYi9kcml2ZXJzL25ldC9ldGhlcm5ldC9zdG1pY3JvL3N0bW1hYy9kd21hYy12aXNjb250
-aS5jDQo+IEBAIC01MSwyMiArNTEsMTYgQEAgc3RydWN0IHZpc2NvbnRpX2V0aCB7DQo+ICAJdTMy
-IHBoeV9pbnRmX3NlbDsNCj4gIAlzdHJ1Y3QgY2xrICpwaHlfcmVmX2NsazsNCj4gIAlzdHJ1Y3Qg
-ZGV2aWNlICpkZXY7DQo+IC0Jc3BpbmxvY2tfdCBsb2NrOyAvKiBsb2NrIHRvIHByb3RlY3QgcmVn
-aXN0ZXIgdXBkYXRlICovDQo+ICB9Ow0KPiANCj4gLXN0YXRpYyB2b2lkIHZpc2NvbnRpX2V0aF9m
-aXhfbWFjX3NwZWVkKHZvaWQgKnByaXYsIGludCBzcGVlZCwgdW5zaWduZWQgaW50DQo+IG1vZGUp
-DQo+ICtzdGF0aWMgaW50IHZpc2NvbnRpX2V0aF9zZXRfY2xrX3R4X3JhdGUodm9pZCAqYnNwX3By
-aXYsIHN0cnVjdCBjbGsgKmNsa190eF9pLA0KPiArCQkJCQlwaHlfaW50ZXJmYWNlX3QgaW50ZXJm
-YWNlLCBpbnQgc3BlZWQpDQo+ICB7DQo+ICAJc3RydWN0IHZpc2NvbnRpX2V0aCAqZHdtYWMgPSBw
-cml2Ow0KPiAgCXN0cnVjdCBuZXRfZGV2aWNlICpuZXRkZXYgPSBkZXZfZ2V0X2RydmRhdGEoZHdt
-YWMtPmRldik7DQo+ICAJdW5zaWduZWQgaW50IHZhbCwgY2xrX3NlbF92YWwgPSAwOw0KPiAgCXVu
-c2lnbmVkIGxvbmcgZmxhZ3M7DQo+IA0KPiAtCXNwaW5fbG9ja19pcnFzYXZlKCZkd21hYy0+bG9j
-aywgZmxhZ3MpOw0KPiAtDQo+IC0JLyogYWRqdXN0IGxpbmsgKi8NCj4gLQl2YWwgPSByZWFkbChk
-d21hYy0+cmVnICsgTUFDX0NUUkxfUkVHKTsNCj4gLQl2YWwgJj0gfihHTUFDX0NPTkZJR19QUyB8
-IEdNQUNfQ09ORklHX0ZFUyk7DQo+IC0NCj4gIAlzd2l0Y2ggKHNwZWVkKSB7DQo+ICAJY2FzZSBT
-UEVFRF8xMDAwOg0KPiAgCQlpZiAoZHdtYWMtPnBoeV9pbnRmX3NlbCA9PSBFVEhFUl9DT05GSUdf
-SU5URl9SR01JSSkNCj4gQEAgLTg5LDEyICs4Myw5IEBAIHN0YXRpYyB2b2lkIHZpc2NvbnRpX2V0
-aF9maXhfbWFjX3NwZWVkKHZvaWQgKnByaXYsIGludA0KPiBzcGVlZCwgdW5zaWduZWQgaW50IG1v
-ZGUpDQo+ICAJZGVmYXVsdDoNCj4gIAkJLyogTm8gYml0IGNvbnRyb2wgKi8NCj4gIAkJbmV0ZGV2
-X2VycihuZXRkZXYsICJVbnN1cHBvcnRlZCBzcGVlZCByZXF1ZXN0ICglZCkiLA0KPiBzcGVlZCk7
-DQo+IC0JCXNwaW5fdW5sb2NrX2lycXJlc3RvcmUoJmR3bWFjLT5sb2NrLCBmbGFncyk7DQo+ICAJ
-CXJldHVybjsNCg0KV2UgbmVlZCB0byBzZXQgdGhlIHJldHVybiBjb2RlICgtRUlOVkFMKS4gDQoN
-Cg0KQmVzdCByZWdhcmRzLA0KIE5vYnVoaXJvDQo=
 
+--gbylwkaggxhfjf2u
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] arm64: dts: imx8mp: add cpuidle state "cpu-pd-wait"
+MIME-Version: 1.0
+
+Hi Laurent,
+
+On Apr 15, 2025 at 18:52:39 +0300, Laurent Pinchart wrote:
+> On Tue, Apr 15, 2025 at 06:47:26PM +0300, Laurent Pinchart wrote:
+> > Hi Catalin,
+> >=20
+> > On Tue, Apr 15, 2025 at 03:42:22PM +0000, POPESCU Catalin wrote:
+> > > Hi Jai,
+> > >=20
+> > > This issue was already reported by Stefan. The problem is that I don'=
+t=20
+> > > have a Debix board to investigate.
+> > > The main difference b/w WFI and cpu-pd-wait is that the first doesn't=
+=20
+> > > call PSCI/TF-A. So, the issue looks to be related to some settings in=
+=20
+> > > the TF-A.
+> >=20
+> > Jai, are you using mainline U-Boot and TF-A, or a downstream version of
+> > either (or both) ?
+
+I am running mainline U-Boot 2024.01 (with cherry-picked Debix support)=20
+and the same TF-A tag as you rel_imx_5.4.70_2.3.6
+
+I can compile and test with U-Boot 2025.01, will report if it fixes the=20
+issue on my setup.
+
+>=20
+> Actually, same question for Calatin :-)
+>=20
+> I'm running mainline U-Boot 2025.01 and TF-A rel_imx_5.4.70_2.3.6 (from
+> https://github.com/nxp-imx/imx-atf) and don't seem to experience the
+> issue:
+>=20
+> # cat /sys/devices/system/cpu/cpu*/cpuidle/state1/disable
+> 0
+> 0
+> 0
+> 0
+>=20
+> $ ping debix
+> PING debix.farm.ideasonboard.com (192.168.2.230) 56(84) bytes of data.
+> 64 bytes from debix.farm.ideasonboard.com (192.168.2.230): icmp_seq=3D1 t=
+tl=3D64 time=3D1.03 ms
+> 64 bytes from debix.farm.ideasonboard.com (192.168.2.230): icmp_seq=3D2 t=
+tl=3D64 time=3D0.800 ms
+> 64 bytes from debix.farm.ideasonboard.com (192.168.2.230): icmp_seq=3D3 t=
+tl=3D64 time=3D0.935 ms
+> 64 bytes from debix.farm.ideasonboard.com (192.168.2.230): icmp_seq=3D4 t=
+tl=3D64 time=3D0.902 ms
+> 64 bytes from debix.farm.ideasonboard.com (192.168.2.230): icmp_seq=3D5 t=
+tl=3D64 time=3D0.738 ms
+> 64 bytes from debix.farm.ideasonboard.com (192.168.2.230): icmp_seq=3D6 t=
+tl=3D64 time=3D0.939 ms
+>=20
+> > > What I don't get is why I don't see this issue neither on our IMX8MP=
+=20
+> > > specific design nor on the EVK, which uses the same PHY as the Debix =
+board.
+> > >
+> > > On 14/04/2025 14:07, Jai Luthra wrote:
+> > > > On Oct 21, 2024 at 17:42:34 +0800, Shawn Guo wrote:
+> > > >> On Mon, Oct 07, 2024 at 03:44:24PM +0200, Catalin Popescu wrote:
+> > > >>> So far, only WFI is supported on i.MX8mp platform. Add support for
+> > > >>> deeper cpuidle state "cpu-pd-wait" that would allow for better po=
+wer
+> > > >>> usage during runtime. This is a port from NXP downstream kernel.
+> > > >>>
+> > > > Since the introduction of this patch in mainline, I am facing slugg=
+ish
+> > > > network performance with my Debix Model-A board with i.MX8mp SoC.
+> > > >
+> > > > The network latency jumps to >1s after almost every other packet:
+> > > >
+> > > > PING debix (10.0.42.5) 56(84) bytes of data.
+> > > > 64 bytes from debix (10.0.42.5): icmp_seq=3D1 ttl=3D64 time=3D1008 =
+ms
+> > > > 64 bytes from debix (10.0.42.5): icmp_seq=3D2 ttl=3D64 time=3D0.488=
+ ms
+> > > > 64 bytes from debix (10.0.42.5): icmp_seq=3D3 ttl=3D64 time=3D1025 =
+ms
+> > > > 64 bytes from debix (10.0.42.5): icmp_seq=3D4 ttl=3D64 time=3D0.810=
+ ms
+> > > > 64 bytes from debix (10.0.42.5): icmp_seq=3D5 ttl=3D64 time=3D590 ms
+> > > > 64 bytes from debix (10.0.42.5): icmp_seq=3D6 ttl=3D64 time=3D0.351=
+ ms
+> > > > ^C
+> > > > --- debix ping statistics ---
+> > > > 7 packets transmitted, 6 received, 14.2857% packet loss, time 6126ms
+> > > > rtt min/avg/max/mdev =3D 0.351/437.416/1024.755/459.370 ms, pipe 2
+> > > > darkapex at freya in ~
+> > > >
+> > > > If I revert the patch, or disable the deeper cpuidle state through
+> > > > sysfs, the issue goes away.
+> > > >
+> > > > # echo 1 > /sys/devices/system/cpu/cpu$i/cpuidle/state1/disable
+> > > >
+> > > > PING debix (10.0.42.5) 56(84) bytes of data.
+> > > > 64 bytes from debix (10.0.42.5): icmp_seq=3D1 ttl=3D64 time=3D0.482=
+ ms
+> > > > 64 bytes from debix (10.0.42.5): icmp_seq=3D2 ttl=3D64 time=3D2.28 =
+ms
+> > > > 64 bytes from debix (10.0.42.5): icmp_seq=3D3 ttl=3D64 time=3D2.26 =
+ms
+> > > > 64 bytes from debix (10.0.42.5): icmp_seq=3D4 ttl=3D64 time=3D0.848=
+ ms
+> > > > 64 bytes from debix (10.0.42.5): icmp_seq=3D5 ttl=3D64 time=3D0.406=
+ ms
+> > > > ^C
+> > > > --- debix ping statistics ---
+> > > > 5 packets transmitted, 5 received, 0% packet loss, time 4051ms
+> > > > rtt min/avg/max/mdev =3D 0.406/1.255/2.280/0.842 ms
+> > > >
+> > > >>> Signed-off-by: Catalin Popescu <catalin.popescu@leica-geosystems.=
+com>
+> > > >>
+> > > >> Applied, thanks!
+>=20
+> --=20
+> Regards,
+>=20
+> Laurent Pinchart
+
+--=20
+Thanks,
+Jai
+
+--gbylwkaggxhfjf2u
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCAAdFiEETeDYGOXVdejUWq/FQ96R+SSacUUFAmf/OSsACgkQQ96R+SSa
+cUW6qw/+PvMGbnroClwQ/uzTkOVg4OWzEeTTnOk1jTSzKgOrJ5vQVN72ch29Gtl7
+3R58uOGPJTzUGrB5J3EWgf1TxTIwjwN2sOkGo3ymO3rmBDkc4uEjCn8OsIcWIV1y
+cZF0a/7bhgiFo+eDp7MD/evFmYF3hoUMiTrqWAOObJd5u+gubA5LgaOp0ub2hn8D
+zRbzRo4kEWiu/XdG19ppXOKaC8TNNBtWhSGPzHdvEmIKx+xMkODzoAayFORN6pLd
+SJUxoE+2fs+2DD4hFGaADdg86a7/mmFmbcwDr7TPsA9aT4S6vwcCYJjMJuBV5Ho1
+aRbfRcKiXkUCbLwlUCtfmLb6FDJvOL2BVcMEXft0t9j/aWgU302UGigAbO7+h+E0
+xtNQfH4Ma+YBCMIbA7q6/+GaXesB7y9HOgj0K/btdys6lqdwCNH78NnWDbSrqRLY
+/Qvoga6XKpb0YhkZ0Y5FR6N7HXrcWf9E6n3se4FGgUDku8w2BZjctDYPCqHpFYES
+dud1zae4vPsW8SiegFqxXb7oKgupYcfZAYR33iv5ucxBdAVELN935RRQ4k5Eo0+K
+E8ywas5NEkoSi05glaHU1ZtZLWHgBGXFNNg5I4u5h8y3AOIIkKQxUqPSWbNKttUg
+q2vpUNnS68/aiNjI+bHEqU6Wf7Wjy7sqW4BGwvX7DcL2SFNzrfs=
+=UuwY
+-----END PGP SIGNATURE-----
+
+--gbylwkaggxhfjf2u--
 
