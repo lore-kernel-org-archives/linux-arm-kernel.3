@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B834CC369BD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:33:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22994C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 10:33:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iFAGcEVJkLP8sDenQY2ZgVlMc8wIv5T+oxuNVRNuQbw=; b=YmwcXbblxJla66Baq8Pm/TxZWj
-	J8hLGN+0qHtXBJCfittmZKQ9wsa51Dsux29lVd7yN0jLlqKws9Ig6QQSYqci7vtXkgAkIPBFEAzyU
-	6rEtgv4Nv/a72njj0E89IQH6Kc7ejqPohATojcao/sJCO8yUXRkwbCJ0oqSLYW5TH7/y+PzsEhhDz
-	XCyBvKpeYMkZvaPYFkbajEPTd8LGpynK1+rL5eem0qp13idmjepbmwnBR/+Y6IxLGaWEZAWDwaIZ0
-	gwwMkE0fwL7Ltu4f87jme2XFbbkCvgOmG/pKbYMzbuh/koVHe9r5mQHEiyDOGShBt4eNVpQvl5KUO
-	VgJNxl8Q==;
+	bh=Tk944o+t28fwTlX6o9Q4U3/0SH31rFieSB+B7TGU3R0=; b=Xot7qWi0nR1QL0XaexB5zjPCEC
+	DNg3jHxcNuyeB1bWqJGhuGSr1TuMRKc/LiIb4uG37uZOVFZr4NyVyBe/kSeaHto1I12m8w8OTVR9P
+	H69BuV7SRy/kGPZzeC936Y1Lnd78YcY6PXKBxAeTQJYRIxEutM3zxWGmSg4EpVxRHNB83KgMG4tzV
+	aTGbMIV/chja/oSqQqlhBJzU780/wiJWCftv/vHr342uSHRDmCx05+nrR/i4fOP070Z7WtKa9IkQi
+	9QMy7wCVONup/3istJ0/WTk2RlJi03Ov94p8oF+Xfc9HUJUXOalmcLUAjLZdnLBJMh0tBs50MzN/n
+	4VMz+4/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u504Y-00000009Bks-3rcC;
-	Wed, 16 Apr 2025 10:32:50 +0000
-Received: from mxout2.routing.net ([2a03:2900:1:a::b])
+	id 1u504c-00000009BqO-1206;
+	Wed, 16 Apr 2025 10:32:54 +0000
+Received: from mxout4.routing.net ([2a03:2900:1:a::9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4zTJ-0000000934M-0JKP;
+	id 1u4zTK-0000000934c-1cMQ;
 	Wed, 16 Apr 2025 09:54:23 +0000
 Received: from mxbox3.masterlogin.de (unknown [192.168.10.78])
-	by mxout2.routing.net (Postfix) with ESMTP id 6C8055FD8A;
-	Wed, 16 Apr 2025 09:54:18 +0000 (UTC)
+	by mxout4.routing.net (Postfix) with ESMTP id 83C66100D7B;
+	Wed, 16 Apr 2025 09:54:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1744797258;
+	s=20200217; t=1744797260;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=iFAGcEVJkLP8sDenQY2ZgVlMc8wIv5T+oxuNVRNuQbw=;
-	b=r4GdzMaTkyCpTki1ceqKpYY14MZZQaqDnWeN+E7VFnr04yBvtpeEvmwgQ0QjiNSamwGkms
-	dQ9NkI2e+8q4Wlymsr/5WE4c34vqgjSmS96qV6cRYN5bOzkB1tjwclzNvUeKG9ZyA+vkos
-	QQxqj2tKT6CSWMAGvXcIwr1IqPK3Z9Q=
+	bh=Tk944o+t28fwTlX6o9Q4U3/0SH31rFieSB+B7TGU3R0=;
+	b=oxckEjGQ55ln5RAA8KeA5PKqqQZXNmwZ0fLAbi7+fhNmAl47tcsVq+TCjXx2bDWlnIkIur
+	uoZ5Tm4mlNx9OAn12bs7bxkgZo1veF3Uxw6O5fWS1jmCeqs8+O1HOfWHCdVhl/o+YH4qKx
+	TwY4ZkGW1bc/CWKPqJsV6KQV9Bq/FLw=
 Received: from frank-u24.. (fttx-pool-80.245.72.47.bambit.de [80.245.72.47])
-	by mxbox3.masterlogin.de (Postfix) with ESMTPSA id 76238360084;
-	Wed, 16 Apr 2025 09:54:17 +0000 (UTC)
+	by mxbox3.masterlogin.de (Postfix) with ESMTPSA id 4A675360528;
+	Wed, 16 Apr 2025 09:54:19 +0000 (UTC)
 From: Frank Wunderlich <linux@fw-web.de>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -61,18 +61,19 @@ Cc: Frank Wunderlich <frank-w@public-files.de>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	linux-phy@lists.infradead.org
-Subject: [PATCH v3 2/8] arm64: dts: mediatek: mt7988a-bpi-r4: allow hw variants of bpi-r4
-Date: Wed, 16 Apr 2025 11:53:54 +0200
-Message-ID: <20250416095402.90543-3-linux@fw-web.de>
+Subject: [PATCH v3 4/8] dt-bindings: phy: mtk-xs-phy: support type switch by pericfg
+Date: Wed, 16 Apr 2025 11:53:56 +0200
+Message-ID: <20250416095402.90543-5-linux@fw-web.de>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250416095402.90543-1-linux@fw-web.de>
 References: <20250416095402.90543-1-linux@fw-web.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Mail-ID: 690c7d62-ab4d-42ff-8053-2107e812bea6
+X-Mail-ID: 5a7bdc89-6d2f-403a-9e25-48950e628308
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_025421_410935_837BE527 
-X-CRM114-Status: GOOD (  15.57  )
+X-CRM114-CacheID: sfid-20250416_025422_598515_AED4C236 
+X-CRM114-Status: UNSURE (   8.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,889 +90,40 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frank Wunderlich <frank-w@public-files.de>
 
-Sinovoip has released other variants of Bananapi-R4 board.
-The known changes affecting only the LAN SFP+ slot which is replaced
-by a 2.5G phy with optional PoE.
-
-Just move the common parts to a new dtsi and keep differences (only
-i2c for lan-sfp) in dts.
+Add support for type switch by pericfg register between USB3/PCIe.
 
 Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 ---
-v3:
-- move compatible to dts
-- added own compatible for 2g5 variant
-- update information in board model
-v2:
-- added basic dts for 2g5 variant
-- moved i2c used for sfp-lan to board dts
----
- arch/arm64/boot/dts/mediatek/Makefile         |   2 +
- .../mediatek/mt7988a-bananapi-bpi-r4-2g5.dts  |  11 +
- .../dts/mediatek/mt7988a-bananapi-bpi-r4.dts  | 400 +-----------------
- .../dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi | 399 +++++++++++++++++
- 4 files changed, 417 insertions(+), 395 deletions(-)
- create mode 100644 arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-2g5.dts
- create mode 100644 arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
+ .../devicetree/bindings/phy/mediatek,xsphy.yaml  | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/mediatek/Makefile b/arch/arm64/boot/dts/mediatek/Makefile
-index 58484e830063..a1ebc9aa4ba6 100644
---- a/arch/arm64/boot/dts/mediatek/Makefile
-+++ b/arch/arm64/boot/dts/mediatek/Makefile
-@@ -22,6 +22,7 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986a-bananapi-bpi-r3-sd.dtbo
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986a-rfb.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986b-rfb.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt7988a-bananapi-bpi-r4.dtb
-+dtb-$(CONFIG_ARCH_MEDIATEK) += mt7988a-bananapi-bpi-r4-2g5.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt7988a-bananapi-bpi-r4-emmc.dtbo
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt7988a-bananapi-bpi-r4-sd.dtbo
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8167-pumpkin.dtb
-@@ -107,4 +108,5 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8516-pumpkin.dtb
- DTC_FLAGS_mt7986a-bananapi-bpi-r3 := -@
- DTC_FLAGS_mt7986a-bananapi-bpi-r3-mini := -@
- DTC_FLAGS_mt7988a-bananapi-bpi-r4 := -@
-+DTC_FLAGS_mt7988a-bananapi-bpi-r4-2g5 := -@
- DTC_FLAGS_mt8395-radxa-nio-12l := -@
-diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-2g5.dts b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-2g5.dts
-new file mode 100644
-index 000000000000..53de9c113f60
---- /dev/null
-+++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-2g5.dts
-@@ -0,0 +1,11 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+
-+/dts-v1/;
-+
-+#include "mt7988a-bananapi-bpi-r4.dtsi"
-+
-+/ {
-+	compatible = "bananapi,bpi-r4-2g5", "bananapi,bpi-r4", "mediatek,mt7988a";
-+	model = "Banana Pi BPI-R4 (1x SFP+, 1x 2.5GbE)";
-+	chassis-type = "embedded";
-+};
-diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
-index 6623112c24c7..36bd1ef2efab 100644
---- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
-@@ -2,408 +2,18 @@
+diff --git a/Documentation/devicetree/bindings/phy/mediatek,xsphy.yaml b/Documentation/devicetree/bindings/phy/mediatek,xsphy.yaml
+index 3b5253659e6f..5033d77c1239 100644
+--- a/Documentation/devicetree/bindings/phy/mediatek,xsphy.yaml
++++ b/Documentation/devicetree/bindings/phy/mediatek,xsphy.yaml
+@@ -151,6 +151,22 @@ patternProperties:
+         minimum: 1
+         maximum: 31
  
- /dts-v1/;
- 
--#include <dt-bindings/gpio/gpio.h>
--#include <dt-bindings/regulator/richtek,rt5190a-regulator.h>
--
--#include "mt7988a.dtsi"
-+#include "mt7988a-bananapi-bpi-r4.dtsi"
- 
- / {
- 	compatible = "bananapi,bpi-r4", "mediatek,mt7988a";
--	model = "Banana Pi BPI-R4";
-+	model = "Banana Pi BPI-R4 (2x SFP+)";
- 	chassis-type = "embedded";
--
--	chosen {
--		stdout-path = "serial0:115200n8";
--	};
--
--	reg_1p8v: regulator-1p8v {
--		compatible = "regulator-fixed";
--		regulator-name = "fixed-1.8V";
--		regulator-min-microvolt = <1800000>;
--		regulator-max-microvolt = <1800000>;
--		regulator-boot-on;
--		regulator-always-on;
--	};
--
--	reg_3p3v: regulator-3p3v {
--		compatible = "regulator-fixed";
--		regulator-name = "fixed-3.3V";
--		regulator-min-microvolt = <3300000>;
--		regulator-max-microvolt = <3300000>;
--		regulator-boot-on;
--		regulator-always-on;
--	};
- };
- 
--&cpu0 {
--	proc-supply = <&rt5190_buck3>;
--};
--
--&cpu1 {
--	proc-supply = <&rt5190_buck3>;
--};
--
--&cpu2 {
--	proc-supply = <&rt5190_buck3>;
--};
--
--&cpu3 {
--	proc-supply = <&rt5190_buck3>;
--};
--
--&cpu_thermal {
--	trips {
--		cpu_trip_hot: hot {
--			temperature = <120000>;
--			hysteresis = <2000>;
--			type = "hot";
--		};
--
--		cpu_trip_active_high: active-high {
--			temperature = <115000>;
--			hysteresis = <2000>;
--			type = "active";
--		};
--
--		cpu_trip_active_med: active-med {
--			temperature = <85000>;
--			hysteresis = <2000>;
--			type = "active";
--		};
--
--		cpu_trip_active_low: active-low {
--			temperature = <40000>;
--			hysteresis = <2000>;
--			type = "active";
--		};
--	};
--};
--
--&i2c0 {
--	pinctrl-names = "default";
--	pinctrl-0 = <&i2c0_pins>;
--	status = "okay";
--
--	rt5190a_64: rt5190a@64 {
--		compatible = "richtek,rt5190a";
--		reg = <0x64>;
--		vin2-supply = <&rt5190_buck1>;
--		vin3-supply = <&rt5190_buck1>;
--		vin4-supply = <&rt5190_buck1>;
--
--		regulators {
--			rt5190_buck1: buck1 {
--				regulator-name = "rt5190a-buck1";
--				regulator-min-microvolt = <5090000>;
--				regulator-max-microvolt = <5090000>;
--				regulator-allowed-modes =
--				<RT5190A_OPMODE_AUTO>, <RT5190A_OPMODE_FPWM>;
--				regulator-boot-on;
--				regulator-always-on;
--			};
--			buck2 {
--				regulator-name = "vcore";
--				regulator-min-microvolt = <600000>;
--				regulator-max-microvolt = <1400000>;
--				regulator-boot-on;
--				regulator-always-on;
--			};
--			rt5190_buck3: buck3 {
--				regulator-name = "vproc";
--				regulator-min-microvolt = <600000>;
--				regulator-max-microvolt = <1400000>;
--				regulator-boot-on;
--			};
--			buck4 {
--				regulator-name = "rt5190a-buck4";
--				regulator-min-microvolt = <1800000>;
--				regulator-max-microvolt = <1800000>;
--				regulator-allowed-modes =
--				<RT5190A_OPMODE_AUTO>, <RT5190A_OPMODE_FPWM>;
--				regulator-boot-on;
--				regulator-always-on;
--			};
--			ldo {
--				regulator-name = "rt5190a-ldo";
--				regulator-min-microvolt = <1800000>;
--				regulator-max-microvolt = <1800000>;
--				regulator-boot-on;
--				regulator-always-on;
--			};
--		};
--	};
--};
--
--&i2c2 {
--	pinctrl-names = "default";
--	pinctrl-0 = <&i2c2_1_pins>;
--	status = "okay";
--
--	pca9545: i2c-mux@70 {
--		compatible = "nxp,pca9545";
--		reg = <0x70>;
--		reset-gpios = <&pio 5 GPIO_ACTIVE_LOW>;
-+&pca9545 {
-+	i2c_sfp2: i2c@2 {
- 		#address-cells = <1>;
- 		#size-cells = <0>;
--
--		i2c@0 {
--			#address-cells = <1>;
--			#size-cells = <0>;
--			reg = <0>;
--
--			pcf8563: rtc@51 {
--				compatible = "nxp,pcf8563";
--				reg = <0x51>;
--				#clock-cells = <0>;
--			};
--
--			eeprom@57 {
--				compatible = "atmel,24c02";
--				reg = <0x57>;
--				size = <256>;
--			};
--
--		};
--
--		i2c_sfp1: i2c@1 {
--			#address-cells = <1>;
--			#size-cells = <0>;
--			reg = <1>;
--		};
--
--		i2c_sfp2: i2c@2 {
--			#address-cells = <1>;
--			#size-cells = <0>;
--			reg = <2>;
--		};
--	};
--};
--
--/* mPCIe SIM2 */
--&pcie0 {
--	status = "okay";
--};
--
--/* mPCIe SIM3 */
--&pcie1 {
--	status = "okay";
--};
--
--/* M.2 key-B SIM1 */
--&pcie2 {
--	status = "okay";
--};
--
--/* M.2 key-M SSD */
--&pcie3 {
--	status = "okay";
--};
--
--&pio {
--	mdio0_pins: mdio0-pins {
--		mux {
--			function = "eth";
--			groups = "mdc_mdio0";
--		};
--
--		conf {
--			pins = "SMI_0_MDC", "SMI_0_MDIO";
--			drive-strength = <8>;
--		};
--	};
--
--	i2c0_pins: i2c0-g0-pins {
--		mux {
--			function = "i2c";
--			groups = "i2c0_1";
--		};
--	};
--
--	i2c1_pins: i2c1-g0-pins {
--		mux {
--			function = "i2c";
--			groups = "i2c1_0";
--		};
--	};
--
--	i2c1_sfp_pins: i2c1-sfp-g0-pins {
--		mux {
--			function = "i2c";
--			groups = "i2c1_sfp";
--		};
--	};
--
--	i2c2_0_pins: i2c2-g0-pins {
--		mux {
--			function = "i2c";
--			groups = "i2c2_0";
--		};
-+		reg = <2>;
- 	};
--
--	i2c2_1_pins: i2c2-g1-pins {
--		mux {
--			function = "i2c";
--			groups = "i2c2_1";
--		};
--	};
--
--	gbe0_led0_pins: gbe0-led0-pins {
--		mux {
--			function = "led";
--			groups = "gbe0_led0";
--		};
--	};
--
--	gbe1_led0_pins: gbe1-led0-pins {
--		mux {
--			function = "led";
--			groups = "gbe1_led0";
--		};
--	};
--
--	gbe2_led0_pins: gbe2-led0-pins {
--		mux {
--			function = "led";
--			groups = "gbe2_led0";
--		};
--	};
--
--	gbe3_led0_pins: gbe3-led0-pins {
--		mux {
--			function = "led";
--			groups = "gbe3_led0";
--		};
--	};
--
--	gbe0_led1_pins: gbe0-led1-pins {
--		mux {
--			function = "led";
--			groups = "gbe0_led1";
--		};
--	};
--
--	gbe1_led1_pins: gbe1-led1-pins {
--		mux {
--			function = "led";
--			groups = "gbe1_led1";
--		};
--	};
--
--	gbe2_led1_pins: gbe2-led1-pins {
--		mux {
--			function = "led";
--			groups = "gbe2_led1";
--		};
--	};
--
--	gbe3_led1_pins: gbe3-led1-pins {
--		mux {
--			function = "led";
--			groups = "gbe3_led1";
--		};
--	};
--
--	i2p5gbe_led0_pins: 2p5gbe-led0-pins {
--		mux {
--			function = "led";
--			groups = "2p5gbe_led0";
--		};
--	};
--
--	i2p5gbe_led1_pins: 2p5gbe-led1-pins {
--		mux {
--			function = "led";
--			groups = "2p5gbe_led1";
--		};
--	};
--
--	mmc0_pins_emmc_45: mmc0-emmc-45-pins {
--		mux {
--			function = "flash";
--			groups = "emmc_45";
--		};
--	};
--
--	mmc0_pins_emmc_51: mmc0-emmc-51-pins {
--		mux {
--			function = "flash";
--			groups = "emmc_51";
--		};
--	};
--
--	mmc0_pins_sdcard: mmc0-sdcard-pins {
--		mux {
--			function = "flash";
--			groups = "sdcard";
--		};
--	};
--
--	uart0_pins: uart0-pins {
--		mux {
--			function = "uart";
--			groups =  "uart0";
--		};
--	};
--
--	snfi_pins: snfi-pins {
--		mux {
--			function = "flash";
--			groups = "snfi";
--		};
--	};
--
--	spi0_pins: spi0-pins {
--		mux {
--			function = "spi";
--			groups = "spi0";
--		};
--	};
--
--	spi0_flash_pins: spi0-flash-pins {
--		mux {
--			function = "spi";
--			groups = "spi0", "spi0_wp_hold";
--		};
--	};
--
--	spi1_pins: spi1-pins {
--		mux {
--			function = "spi";
--			groups = "spi1";
--		};
--	};
--
--	spi2_pins: spi2-pins {
--		mux {
--			function = "spi";
--			groups = "spi2";
--		};
--	};
--
--	spi2_flash_pins: spi2-flash-pins {
--		mux {
--			function = "spi";
--			groups = "spi2", "spi2_wp_hold";
--		};
--	};
--};
--
--&pwm {
--	status = "okay";
--};
--
--&serial0 {
--	status = "okay";
--};
--
--&ssusb1 {
--	status = "okay";
--};
--
--&tphy {
--	status = "okay";
--};
--
--&watchdog {
--	status = "okay";
- };
-diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
-new file mode 100644
-index 000000000000..0d332822971d
---- /dev/null
-+++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
-@@ -0,0 +1,399 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
++      mediatek,syscon-type:
++        $ref: /schemas/types.yaml#/definitions/phandle-array
++        maxItems: 1
++        description:
++          A phandle to syscon used to access the register of type switch,
++          the field should always be 3 cells long.
++        items:
++          items:
++            - description:
++                The first cell represents a phandle to syscon
++            - description:
++                The second cell represents the register offset
++            - description:
++                The third cell represents the index of config segment
++              enum: [0, 1, 2, 3]
 +
-+/dts-v1/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/regulator/richtek,rt5190a-regulator.h>
-+
-+#include "mt7988a.dtsi"
-+
-+/ {
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	reg_1p8v: regulator-1p8v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "fixed-1.8V";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+
-+	reg_3p3v: regulator-3p3v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "fixed-3.3V";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+};
-+
-+&cpu0 {
-+	proc-supply = <&rt5190_buck3>;
-+};
-+
-+&cpu1 {
-+	proc-supply = <&rt5190_buck3>;
-+};
-+
-+&cpu2 {
-+	proc-supply = <&rt5190_buck3>;
-+};
-+
-+&cpu3 {
-+	proc-supply = <&rt5190_buck3>;
-+};
-+
-+&cpu_thermal {
-+	trips {
-+		cpu_trip_hot: hot {
-+			temperature = <120000>;
-+			hysteresis = <2000>;
-+			type = "hot";
-+		};
-+
-+		cpu_trip_active_high: active-high {
-+			temperature = <115000>;
-+			hysteresis = <2000>;
-+			type = "active";
-+		};
-+
-+		cpu_trip_active_med: active-med {
-+			temperature = <85000>;
-+			hysteresis = <2000>;
-+			type = "active";
-+		};
-+
-+		cpu_trip_active_low: active-low {
-+			temperature = <40000>;
-+			hysteresis = <2000>;
-+			type = "active";
-+		};
-+	};
-+};
-+
-+&i2c0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c0_pins>;
-+	status = "okay";
-+
-+	rt5190a_64: rt5190a@64 {
-+		compatible = "richtek,rt5190a";
-+		reg = <0x64>;
-+		vin2-supply = <&rt5190_buck1>;
-+		vin3-supply = <&rt5190_buck1>;
-+		vin4-supply = <&rt5190_buck1>;
-+
-+		regulators {
-+			rt5190_buck1: buck1 {
-+				regulator-name = "rt5190a-buck1";
-+				regulator-min-microvolt = <5090000>;
-+				regulator-max-microvolt = <5090000>;
-+				regulator-allowed-modes =
-+				<RT5190A_OPMODE_AUTO>, <RT5190A_OPMODE_FPWM>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+			buck2 {
-+				regulator-name = "vcore";
-+				regulator-min-microvolt = <600000>;
-+				regulator-max-microvolt = <1400000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+			rt5190_buck3: buck3 {
-+				regulator-name = "vproc";
-+				regulator-min-microvolt = <600000>;
-+				regulator-max-microvolt = <1400000>;
-+				regulator-boot-on;
-+			};
-+			buck4 {
-+				regulator-name = "rt5190a-buck4";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-allowed-modes =
-+				<RT5190A_OPMODE_AUTO>, <RT5190A_OPMODE_FPWM>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+			ldo {
-+				regulator-name = "rt5190a-ldo";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+		};
-+	};
-+};
-+
-+&i2c2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c2_1_pins>;
-+	status = "okay";
-+
-+	pca9545: i2c-mux@70 {
-+		compatible = "nxp,pca9545";
-+		reg = <0x70>;
-+		reset-gpios = <&pio 5 GPIO_ACTIVE_LOW>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		i2c@0 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <0>;
-+
-+			pcf8563: rtc@51 {
-+				compatible = "nxp,pcf8563";
-+				reg = <0x51>;
-+				#clock-cells = <0>;
-+			};
-+
-+			eeprom@57 {
-+				compatible = "atmel,24c02";
-+				reg = <0x57>;
-+				size = <256>;
-+			};
-+
-+		};
-+
-+		i2c_sfp1: i2c@1 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <1>;
-+		};
-+	};
-+};
-+
-+/* mPCIe SIM2 */
-+&pcie0 {
-+	status = "okay";
-+};
-+
-+/* mPCIe SIM3 */
-+&pcie1 {
-+	status = "okay";
-+};
-+
-+/* M.2 key-B SIM1 */
-+&pcie2 {
-+	status = "okay";
-+};
-+
-+/* M.2 key-M SSD */
-+&pcie3 {
-+	status = "okay";
-+};
-+
-+&pio {
-+	mdio0_pins: mdio0-pins {
-+		mux {
-+			function = "eth";
-+			groups = "mdc_mdio0";
-+		};
-+
-+		conf {
-+			pins = "SMI_0_MDC", "SMI_0_MDIO";
-+			drive-strength = <8>;
-+		};
-+	};
-+
-+	i2c0_pins: i2c0-g0-pins {
-+		mux {
-+			function = "i2c";
-+			groups = "i2c0_1";
-+		};
-+	};
-+
-+	i2c1_pins: i2c1-g0-pins {
-+		mux {
-+			function = "i2c";
-+			groups = "i2c1_0";
-+		};
-+	};
-+
-+	i2c1_sfp_pins: i2c1-sfp-g0-pins {
-+		mux {
-+			function = "i2c";
-+			groups = "i2c1_sfp";
-+		};
-+	};
-+
-+	i2c2_0_pins: i2c2-g0-pins {
-+		mux {
-+			function = "i2c";
-+			groups = "i2c2_0";
-+		};
-+	};
-+
-+	i2c2_1_pins: i2c2-g1-pins {
-+		mux {
-+			function = "i2c";
-+			groups = "i2c2_1";
-+		};
-+	};
-+
-+	gbe0_led0_pins: gbe0-led0-pins {
-+		mux {
-+			function = "led";
-+			groups = "gbe0_led0";
-+		};
-+	};
-+
-+	gbe1_led0_pins: gbe1-led0-pins {
-+		mux {
-+			function = "led";
-+			groups = "gbe1_led0";
-+		};
-+	};
-+
-+	gbe2_led0_pins: gbe2-led0-pins {
-+		mux {
-+			function = "led";
-+			groups = "gbe2_led0";
-+		};
-+	};
-+
-+	gbe3_led0_pins: gbe3-led0-pins {
-+		mux {
-+			function = "led";
-+			groups = "gbe3_led0";
-+		};
-+	};
-+
-+	gbe0_led1_pins: gbe0-led1-pins {
-+		mux {
-+			function = "led";
-+			groups = "gbe0_led1";
-+		};
-+	};
-+
-+	gbe1_led1_pins: gbe1-led1-pins {
-+		mux {
-+			function = "led";
-+			groups = "gbe1_led1";
-+		};
-+	};
-+
-+	gbe2_led1_pins: gbe2-led1-pins {
-+		mux {
-+			function = "led";
-+			groups = "gbe2_led1";
-+		};
-+	};
-+
-+	gbe3_led1_pins: gbe3-led1-pins {
-+		mux {
-+			function = "led";
-+			groups = "gbe3_led1";
-+		};
-+	};
-+
-+	i2p5gbe_led0_pins: 2p5gbe-led0-pins {
-+		mux {
-+			function = "led";
-+			groups = "2p5gbe_led0";
-+		};
-+	};
-+
-+	i2p5gbe_led1_pins: 2p5gbe-led1-pins {
-+		mux {
-+			function = "led";
-+			groups = "2p5gbe_led1";
-+		};
-+	};
-+
-+	mmc0_pins_emmc_45: mmc0-emmc-45-pins {
-+		mux {
-+			function = "flash";
-+			groups = "emmc_45";
-+		};
-+	};
-+
-+	mmc0_pins_emmc_51: mmc0-emmc-51-pins {
-+		mux {
-+			function = "flash";
-+			groups = "emmc_51";
-+		};
-+	};
-+
-+	mmc0_pins_sdcard: mmc0-sdcard-pins {
-+		mux {
-+			function = "flash";
-+			groups = "sdcard";
-+		};
-+	};
-+
-+	uart0_pins: uart0-pins {
-+		mux {
-+			function = "uart";
-+			groups =  "uart0";
-+		};
-+	};
-+
-+	snfi_pins: snfi-pins {
-+		mux {
-+			function = "flash";
-+			groups = "snfi";
-+		};
-+	};
-+
-+	spi0_pins: spi0-pins {
-+		mux {
-+			function = "spi";
-+			groups = "spi0";
-+		};
-+	};
-+
-+	spi0_flash_pins: spi0-flash-pins {
-+		mux {
-+			function = "spi";
-+			groups = "spi0", "spi0_wp_hold";
-+		};
-+	};
-+
-+	spi1_pins: spi1-pins {
-+		mux {
-+			function = "spi";
-+			groups = "spi1";
-+		};
-+	};
-+
-+	spi2_pins: spi2-pins {
-+		mux {
-+			function = "spi";
-+			groups = "spi2";
-+		};
-+	};
-+
-+	spi2_flash_pins: spi2-flash-pins {
-+		mux {
-+			function = "spi";
-+			groups = "spi2", "spi2_wp_hold";
-+		};
-+	};
-+};
-+
-+&pwm {
-+	status = "okay";
-+};
-+
-+&serial0 {
-+	status = "okay";
-+};
-+
-+&ssusb1 {
-+	status = "okay";
-+};
-+
-+&tphy {
-+	status = "okay";
-+};
-+
-+&watchdog {
-+	status = "okay";
-+};
+     required:
+       - reg
+       - clocks
 -- 
 2.43.0
 
