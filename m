@@ -4,132 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55CF3C369B9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 01:28:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A383C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 01:41:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0G8RdxQVeg31wQ+e1YW/h7pUUyXwTQfIzEi1LZKqkEQ=; b=yDA5OxAL4/E5tll4dzsT7oywGd
-	DitsKIuKlkvxj75PmaAV1boitKxBCb40Kqm/CmHY8EVBwbZEZCboLLcYgwLBtCz2CM4WTQGj+1VbK
-	W76O14VgYmfT37DJE2M7wJv1NnyA+2o/0uz8eGYlmiyXBsd/G1mE6wvJa5p5zllcnz2dmQN6tpRar
-	Zn/VHQWM/EWhh224RV1XHC9yJLxAf+0d6DIo9Js9U20oDKS+ci+X6SZYs6Oo6DWpmPMNMaOtgCO7P
-	VN9pe8bo7Z5htvphg+oPLgIwH0QNJJQ5vbSgq2h98BSn43wmiYguKzUkENdJKHYHIFuOx1Hwp9XMa
-	K4Rx5K5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V1HXQ+Xi113ayzUNabjj8NTshwQmo5mZvOv0N53Neb4=; b=Irhu6Lj0uDNnKS8sHn3Rb+44yg
+	Urqv4jPwB5sq3ZpBVkZmiL/T+nNY2gXNzxe77lJEn0bzpx9Eiq9Im85Zlhm7SfjRabS1J5AZoT2do
+	V4jP0ydU90pXgVbrOWhCyPcb7bu6kxtmkoeD+iVINdeOf8S0yFpstrFmntIM7r0akUuLB4Pqh+SMp
+	Eon4tuwVnmaKH0pOge8RRFUx0KeXzjgo3Pr80TWEr+qmavgqkF+BHSy8El1oFl8AFHON7CKhlwxmm
+	FeJ9Sm+c7dVPvxu+OIBS12p8HglNoLaUaBdQophxBFhR1fQXTWffNe8Z5/1kpJEfiSkr74s0CfaNG
+	L0uM0ZWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4rZY-00000007oFI-3zEn;
-	Wed, 16 Apr 2025 01:28:16 +0000
-Received: from mail-koreacentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c40f::7] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1u4rm3-00000007ppH-1uBf;
+	Wed, 16 Apr 2025 01:41:11 +0000
+Received: from mail-ej1-f50.google.com ([209.85.218.50])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4rLY-00000007m4h-31Gg
+	id 1u4rk9-00000007pUe-15fk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 01:13:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=a6dmkxGGbsUxbYkHYnAISPDuQ0R3wKoSMXTbi4PDKav965+fq4mfYjHzXUJSYIaYxHGWMrdiJX4RuEmJvTWVecTlK4amrCjrmbPBxc8NEghk/x5N/LyhQSnbNu2FQMISX1RskjO2V20kj4wVyGQiJo7TgKNA0xyO1if84NUFSKhoaoww8l18CsI/Thrfytx/xrCTHaQC2dMfVcJOqMvuWuCYzea7syz8kFONbVZpfYifzH8aERVOcMD8T5+l3YlItVpkWLkjShutUN8jF8ApHgOoOIRviq5rMRO1aMroYtUrcx0rLCs7c9SrgsP55ChFVYiMKRppIgYZbHeekpKk7w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0G8RdxQVeg31wQ+e1YW/h7pUUyXwTQfIzEi1LZKqkEQ=;
- b=dCQoL5bb5atdgird9EfDX2zRIdJYVNTuEPhkxLbvVvOB++e9dZKmW4zAi+6j3JEzHITVigJMMIen2WYefWGsvXnNWBfJLAGhBJy5dTh1nds5LEVPZP3R/fnsp24XeaeJ5lN6sB7U+Vxntb+QTPU+36InVD9/bnVpxd6yANFCSE2pPxO46cqK35vvu2c87KdYAePuThFdiwQ5yWby2oavyDc1n2eGlLecXWP14L2pvFOA+RlA+kUXfZbjHNPrwuidPvyMVRLN8+i0G8wWjc+JPLsYkxHCTGcUbQ72py3th4EHg1YsejuNS1AKAl7POGNLLdN9vyMsMqtI/3bls681lA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from PS2PR03CA0024.apcprd03.prod.outlook.com (2603:1096:300:5b::36)
- by TY0PR06MB5428.apcprd06.prod.outlook.com (2603:1096:400:219::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.33; Wed, 16 Apr
- 2025 01:13:38 +0000
-Received: from HK3PEPF00000220.apcprd03.prod.outlook.com
- (2603:1096:300:5b:cafe::fa) by PS2PR03CA0024.outlook.office365.com
- (2603:1096:300:5b::36) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.15 via Frontend Transport; Wed,
- 16 Apr 2025 01:13:37 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- HK3PEPF00000220.mail.protection.outlook.com (10.167.8.42) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8655.12 via Frontend Transport; Wed, 16 Apr 2025 01:13:36 +0000
-Received: from nchen-desktop (unknown [172.16.64.25])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id E385940A5BFB;
-	Wed, 16 Apr 2025 09:13:35 +0800 (CST)
-Date: Wed, 16 Apr 2025 09:13:34 +0800
-From: Peter Chen <peter.chen@cixtech.com>
-To: Kajetan Puchalski <kajetan.puchalski@arm.com>
-Cc: <soc@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<arnd@arndb.de>, <jassisinghbrar@gmail.com>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<cix-kernel-upstream@cixtech.com>, <maz@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Fugang Duan <fugang.duan@cixtech.com>,
-	Guomin Chen <Guomin.Chen@cixtech.com>,
-	Gary Yang <gary.yang@cixtech.com>
-Subject: Re: [PATCH v6 09/10] arm64: dts: cix: add initial CIX P1(SKY1) dts
- support
-Message-ID: <Z_8EPktc5ogcUmRb@nchen-desktop>
-References: <20250415072724.3565533-1-peter.chen@cixtech.com>
- <20250415072724.3565533-10-peter.chen@cixtech.com>
- <7cnhezft5jzvtdjx6m2vjmtaxgla33j4fynd6ef4c6b7dh5pvo@4cbxewawilqp>
+	Wed, 16 Apr 2025 01:39:14 +0000
+Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-ac73723b2d5so1232531266b.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Apr 2025 18:39:12 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744767550; x=1745372350;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=V1HXQ+Xi113ayzUNabjj8NTshwQmo5mZvOv0N53Neb4=;
+        b=Dk1QOdj1AFiPp7bX+ZN4MCiV5QQ0Xci7ZodV7nyLZ4GMbOWB7buBQ8yHNqe8MGwo+f
+         FkelcctmI+njTI2KwLQAFTbLhYS/44uxYVBllHLhfJxNP9KIcx+qa/lk33tiIt8pYLIl
+         N0CCoTzDYJrbo53t87TDuehkb3HBR6oHhBQKSim10bjF1dcKceUw/+m09nPyRLGnm6zX
+         YfS+rtLbGWvsRp3rMWtZM9iWUWq6zuS4OHUFy5rKuTGWv0jSt3NvltPD+kgxaXWFV7O+
+         szU7FWijfO3aZdY/dGks0XZBpfAymQc/6ayg5dLtjDJ4XE9HLqXLb4HGT2gUIP5GDUea
+         uNZA==
+X-Forwarded-Encrypted: i=1; AJvYcCWrBSEFPD08vPAGKy/p6mMv+rziJBw6IENvoD8IOMZBOzFFDVuKz5aiP2TMmvwONP3UOyUI0XsZBBUeJSzaxmT3@lists.infradead.org
+X-Gm-Message-State: AOJu0YwOnGjlbNw+kVWb5H9/gliCCZOnZ6V3OCFFhL+bdKEKUcaxLKYt
+	nOaLusIYpXtTLSVcImmPegwfqH33O2UpizaiH/pELWCHPeyyeK6p244+6ZPFWHQ=
+X-Gm-Gg: ASbGncvdce0oswhJOL3XSp0CiTgDR8ICi8w74bmw0nGHHB+BZMBtEB/f5yWW6ZM5GDo
+	+Y+1klLy8g7BVq4F2PKxwMpEsZG/+I7+GJH7YLBr3w42nmNUssSvXOspK/EMVLLBc1cU+q0J96G
+	c1oHpRKTx9kP4O+ZH+BCuBNVVXe5gVE4qvAyNO8r0Qhhnjg3FmqqA4qnhK3L5d0QhQMBkuT0fi9
+	RNcj3EbcTEpMKaQRR3gGxLTSlhoEn2qyOlNWT0Fcks/OjSntzZRkkt1eaNkPzQzGA14m4Z8F7ok
+	GPF6u/J29PrCQAARbVKWTP51oz2rP+uCJ0k7J7OYr6pgEKyoUbiLvbbNiGGDIIW+qnAOf3c=
+X-Google-Smtp-Source: AGHT+IFRnkyDhx0qWx96yWiu6kWgFaychaXvCXwg+NZZYSwK9++f33ZZwJIAi6FvrrQsCmpHQcV+zQ==
+X-Received: by 2002:a17:907:9495:b0:ac1:e53c:d13f with SMTP id a640c23a62f3a-acb384e267cmr109873466b.50.1744767549959;
+        Tue, 15 Apr 2025 18:39:09 -0700 (PDT)
+Received: from mail-ej1-f42.google.com (mail-ej1-f42.google.com. [209.85.218.42])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-acb3d128959sm27925266b.112.2025.04.15.18.39.08
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 15 Apr 2025 18:39:08 -0700 (PDT)
+Received: by mail-ej1-f42.google.com with SMTP id a640c23a62f3a-abec8b750ebso1044745666b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Apr 2025 18:39:08 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXydciv8eG4a5OrZNMxFIJlCXO8K5wWHx3aiZjuqtA1R4eZCnYhCRemPaUwxwsRxtnmjAqNzS2fuJEbl+nlUNVG@lists.infradead.org
+X-Received: by 2002:a17:907:6ea1:b0:ac6:e327:8de7 with SMTP id
+ a640c23a62f3a-acb3849df86mr88724666b.42.1744767548484; Tue, 15 Apr 2025
+ 18:39:08 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <7cnhezft5jzvtdjx6m2vjmtaxgla33j4fynd6ef4c6b7dh5pvo@4cbxewawilqp>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: HK3PEPF00000220:EE_|TY0PR06MB5428:EE_
-X-MS-Office365-Filtering-Correlation-Id: 746d5d6d-5f60-4ebc-1400-08dd7c83ea5e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|82310400026|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?2aPRmtHviE0+XdzeUr8X9GkWIiDmJAJxfJmYdxPZ0CWUPn90P7O6cCDXdPkO?=
- =?us-ascii?Q?NNV/5BXLXWXLBpoAUDANrewxZ9CCZTn1H8DOebogmpxyn+SF7AhXa2sS0wkH?=
- =?us-ascii?Q?bth+p92wkygSQVaFsk8hpw8kJSS1niUxzwj/X+lXPoaYrHDe0pvAckq2+Kv2?=
- =?us-ascii?Q?leS8/M0QtnEfhsa0Bva1Xb0L1ulvUgzhodWV+CFp44tV5ltJnOLnS7f0E4/2?=
- =?us-ascii?Q?Cx1psJGrYAaSQ1vk71HfY6lYovfXMPjyrw8Ly39Fzl73jMcUdXi/55TJ2Q7b?=
- =?us-ascii?Q?K4+fC2lwlOq7MkZ0F+uAYuv15hZYOjdN0cM4sW4ApR4l09mJ3EH0jMgRsEZE?=
- =?us-ascii?Q?IanK/kkpMlU1Alwzdeak5E7Ko1mIdfX5uhnf4IBZYbafXE+c1MixPtcTEzWh?=
- =?us-ascii?Q?xEkakfLmuqza78B8RQW+qsY9/wD0duIRLwEgmj17P7eds8CNM0PJ9+GwAdOd?=
- =?us-ascii?Q?ZQ1Kjw2HCO2+AYxbBELAaNnaUNTbja388eo/Wq6Ierrx7Qkqqynpk2Tll6AB?=
- =?us-ascii?Q?H4oWstZzKMTJXF7V3lZn7O3OE5KcN+SGFdhhWhYFXhFlfx1qd1o8Np7UTf7q?=
- =?us-ascii?Q?45vxuoSkQpTW6ZIdPCY2jgJpAeGv5h1Pf2e432qgfFxYFYsJ7c87UYUIQjnr?=
- =?us-ascii?Q?m9X3OwVLvoDjiGOotOVo+bsWaXaBEO67Ql1uKsRR+joMyf3gIPLdQcLZgLDH?=
- =?us-ascii?Q?ngne+LWQREMRGzRFHeaBVzBCDWF2w7CyPFpYLHOpgJdrQ3VVzo4ZPwOg1Paq?=
- =?us-ascii?Q?DYwVasUa1WkiNnKJSqaWm0dD58iRcQdO7OlJ40P1EbiUGt/+bDWw7q1sjMYo?=
- =?us-ascii?Q?vUDzvjA2JNA6b+k+RMSDD44Yj7/lHJi4dR/M2M245a1nd1eWooat2LXnlH0f?=
- =?us-ascii?Q?kcuTh9KrVlbYrDa345VgcPzDA+b6GiMhUJ5KwlFkGXeqrXI0C5X16i/J79qK?=
- =?us-ascii?Q?IVK5BXCWQPbJQqRQOsqDvEC4g4CWjqLpBIiZvZUUbArWE9Bletmvvkl5a6vd?=
- =?us-ascii?Q?/6HAnhczgWXWtgLCn7e7AXAChP55J8LF+z0cZR3h+31vPQC4jSnH+Bs2nhuD?=
- =?us-ascii?Q?jPV1aRwWHeToX9Yy9dN6RZqF6YFSfICPbQ4LR0vRLM7fHWtvABiUiP1a6yd0?=
- =?us-ascii?Q?v/Svky+ztPfzfJkYNgTN/QE+rGiM9IBVKnkMHkBqW0almbyoOIKSB1mCIVxG?=
- =?us-ascii?Q?dpQghidgmcR4kFQjogVULJJ2+rUXcA/Sul4c6JdwEAZGiBE8SZLBj2OB584u?=
- =?us-ascii?Q?zHWUxpPp0y7K5gcqZapqDfm/Ynbtmrqvsa7dkoEqf3sv9U9PM3/WfCgxn9aq?=
- =?us-ascii?Q?4HYxr6/W7tNIecbDosXO2W9giZz1BQmkNk0q5iLSVE4/TtCrjGgBbX5aZOwb?=
- =?us-ascii?Q?u2XTsktEH9EhclqyfXSGRLNd3pqVb5cY0yHURDuCEAip0iG/YnjmQu92zRUk?=
- =?us-ascii?Q?H/ctZ/F+tXMD+rZYc3xBi6yto4PwM3qOtSrXOOAYR4zG0FC+LZ6kUw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(82310400026)(36860700013);DIR:OUT;SFP:1102;
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Apr 2025 01:13:36.8728
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 746d5d6d-5f60-4ebc-1400-08dd7c83ea5e
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: HK3PEPF00000220.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR06MB5428
+References: <20250415-pasemi-fixes-v2-0-c543bf53151a@svenpeter.dev>
+In-Reply-To: <20250415-pasemi-fixes-v2-0-c543bf53151a@svenpeter.dev>
+From: Neal Gompa <neal@gompa.dev>
+Date: Tue, 15 Apr 2025 21:38:32 -0400
+X-Gmail-Original-Message-ID: <CAEg-Je9vfqKe8tThUNxy2hKGGMYR4F2RJaKXqaXJx8f856Oncg@mail.gmail.com>
+X-Gm-Features: ATxdqUGM2YL7UPwB2q8EHrpPvcO9cfPSM4k-2kB4UVuY2Jof3nZs232BzqVAc98
+Message-ID: <CAEg-Je9vfqKe8tThUNxy2hKGGMYR4F2RJaKXqaXJx8f856Oncg@mail.gmail.com>
+Subject: Re: [PATCH v2 0/6] Apple/PASemi i2c error recovery fixes
+To: Sven Peter <sven@svenpeter.dev>
+Cc: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	Naveen N Rao <naveen@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
+	Hector Martin <marcan@marcan.st>, linuxppc-dev@lists.ozlabs.org, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Andy Shevchenko <andy.shevchenko@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_181348_760855_DAB86830 
-X-CRM114-Status: GOOD (  14.70  )
+X-CRM114-CacheID: sfid-20250415_183913_300736_10312913 
+X-CRM114-Status: GOOD (  18.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,39 +99,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-04-15 13:48:38, Kajetan Puchalski wrote:
-> 
-> On Tue, Apr 15, 2025 at 03:27:23PM +0800, Peter Chen wrote:
-> > CIX SKY1 SoC is high performance Armv9 SoC designed by Cixtech,
-> > and Orion O6 is the motherboard launched by Radxa. See below for
-> > detail:
-> > https://docs.radxa.com/en/orion/o6/getting-started/introduction
-> > In this commit, it adds sky1 base, mailbox, clock (scmi firmware baseed)
-> > and uart, and the kernel could boot up to console.
-> 
-> The commit message style is supposed to be in imperative tone, i.e. "Add sky1 base".
+On Tue, Apr 15, 2025 at 11:37=E2=80=AFAM Sven Peter via B4 Relay
+<devnull+sven.svenpeter.dev@kernel.org> wrote:
+>
+> Hi,
+>
+> This series adds a few fixes/improvements to the error recovery for
+> Apple/PASemi i2c controllers.
+> The patches have been in our downstream tree and were originally used
+> to debug a rare glitch caused by clock strechting but are useful in
+> general. We haven't seen the controller misbehave since adding these.
+>
+> Best,
+>
+> Sven
+>
+> Signed-off-by: Sven Peter <sven@svenpeter.dev>
+> ---
+> Changes in v2:
+> - Added commit to use the correct include (bits.h instead of bitfield.h)
+> - Added commit to sort includes
+> - Moved timeout explanations to code instead of just the commit log
+> - Made timeout recovery also work correctly in the interrupt case when
+>   waiting for the condition failed
+> - Used readx_poll_timeout instead of open-coded alternative
+> - Link to v1: https://lore.kernel.org/r/20250222-pasemi-fixes-v1-0-d7ea33=
+d50c5e@svenpeter.dev
+>
+> ---
+> Hector Martin (3):
+>       i2c: pasemi: Improve error recovery
+>       i2c: pasemi: Enable the unjam machine
+>       i2c: pasemi: Log bus reset causes
+>
+> Sven Peter (3):
+>       i2c: pasemi: Use correct bits.h include
+>       i2c: pasemi: Sort includes alphabetically
+>       i2c: pasemi: Improve timeout handling
+>
+>  drivers/i2c/busses/i2c-pasemi-core.c | 114 ++++++++++++++++++++++++++++-=
+------
+>  drivers/i2c/busses/i2c-pasemi-pci.c  |  10 +--
+>  2 files changed, 96 insertions(+), 28 deletions(-)
+> ---
+> base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
+> change-id: 20250220-pasemi-fixes-916cb77404ba
+>
 
-Thanks, I will change subject to
-"arm64: dts: cix: Add sky1 base dts initial support"
-> 
-> > Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> > Acked-by: Fugang Duan <fugang.duan@cixtech.com>
-> > Signed-off-by: Guomin Chen <Guomin.Chen@cixtech.com>
-> > Signed-off-by: Gary Yang <gary.yang@cixtech.com>
-> > Signed-off-by: Peter Chen <peter.chen@cixtech.com>
-> > ---
-> 
-> I've tested this on my own Orion O6 with 6.15-rc2, the UART does work and the kernel
-> does boot up to the expected point. Feel free to add the tag if you'd like.
-> 
-> Tested-by: Kajetan Puchalski <kajetan.puchalski@arm.com>
+The series looks good to me, especially the new patches.
 
-Thanks for your testing.
+Reviewed-by: Neal Gompa <neal@gompa.dev>
 
-Peter
 
--- 
-
-Best regards,
-Peter
+--=20
+=E7=9C=9F=E5=AE=9F=E3=81=AF=E3=81=84=E3=81=A4=E3=82=82=E4=B8=80=E3=81=A4=EF=
+=BC=81/ Always, there's only one truth!
 
