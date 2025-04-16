@@ -4,87 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F4C9C369BA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 16:35:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C4FAC369C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 16:37:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EZQFkTG+TE9XyLSvBWPzBX545sfzGUulEWKqLFKYrkU=; b=ywjGYgV/EgUc9X0tGb6QdzqdDf
-	X4+OvJa+sAh19MOr5RF7ygzDlAlRgNgSDxJS1wuOhUFtVNzWqoO70L0lNuYF51vfOFhyY8c+bX4aB
-	wgbRMnLAcMhJZJzJdnY1li3l+A9ZNmaPbV0mqIajdwU0CNE6mVaHy+rZnHeYhl8TJ5qLZSTnf5DxH
-	KswtwCWCyNb7Krntfnn93kWz21gc8fm6dNsH6FFB/sT8ozElwyLw5Z6WTD5M3ZDIiFI+Dbol1Cxe/
-	WkcoV39g9Q44GbvDGSOSYLwL9IyS3J5BJ7QOcT9kDzfkLkuTGI8KtoA+vWX8NArqzhXprONwhmb0C
-	7ZBopFjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1vUVY5S1FEL0iOA3oN/M/DG3Mn68a6zNLJTu7WJYknc=; b=sjZt1TJnYYp4tlvXijcx+uTgS4
+	PujzEUKdwUYRWZcV+lhNJ2rgZ924N2ZRDsPquLrJHwdKaj+W7heejlfD+IRHasWqamyk9yHRGPGBg
+	/0YBu5NOhkgRb9UUHMO2Y4FWgHXeXcvtzTd+IepBSHjB89Ykz0qz0wDOm/OwbDF/MTpWDhPpqRwvh
+	ea7YPcw1qHj/c7Lmk3/LhHC6ZUAmjgbgwO4A3JKmqittTqIvM8DhkbR8mmU/Wt3PYeXReZWh7jY8h
+	uwSSlZbPPzZvpOUfQYcX+NmI9q3KPhjFZHJ1rhnTXEnpOecgqfQ6vTInl14ojRwZ3+7VMxc1vIF1s
+	YBzzRaGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u55j9-0000000AHgk-3I6H;
-	Wed, 16 Apr 2025 16:35:07 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1u55ky-0000000AHvX-1phM;
+	Wed, 16 Apr 2025 16:37:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5532-0000000A8zd-2AxJ
+	id 1u5564-0000000A9gS-3jos
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 15:51:38 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-54996d30bfbso6216095e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 08:51:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1744818694; x=1745423494; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EZQFkTG+TE9XyLSvBWPzBX545sfzGUulEWKqLFKYrkU=;
-        b=bSBIYzeQHqxv23TUWHcklExGUt8007KSbavpBXQDf7Mij5TID8nkqM6Qcz0WowsbNc
-         x/NGmBe7vApJmoiTXYw+P/wcIyak+zF24tHm3FjGMgcKkXQHrXRntYmQFSbd9gCkGogy
-         qyMxgb3T1fqn95gQxOAfCkbQaOnLNcT7bBQ/pIP31TqE/7ZxgQwHKW/ryFEZZxHvDHI8
-         kSEc1uHcgn0B7HY4aytXM0VD6fiAZUOjvQ8ZMQQKv6AhICqb48liZdaoOS7O8H08GfFb
-         fcV4LurkNYdtuIyqzHBJ9erQAGnE97kNwbeyPpoaHbULJQPSfSXpVAWb4AXDuOM7aW5X
-         uTrQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744818694; x=1745423494;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=EZQFkTG+TE9XyLSvBWPzBX545sfzGUulEWKqLFKYrkU=;
-        b=APKnQ5Kx3dpEcGVuRbNMOA7QfxT3/V4Tuep2F0VX5MbMzMmuDZwE6U4zEZPc78nfKj
-         kxxB7qZPEdZFbmA8DWTvQ+gI73PKqEk7xKCqMd+4tzwGIqdv/52FOpzVP74FOxo+rsps
-         QU2pDPXGT1zehioCEveAAb9OrqE3QOYgy8vVIxJNFC/t/qSELoj+rFmf/SIh47Of27ox
-         awuNS9cj3Uo3Or9NguXa5Mjp2QH4Dp7ddFrHrX6XUxzNdzJWaCuWXnWngzcQTTeRWwCW
-         uigkFueOLt5B9IswyB9kJXYTST03xst3X8+rzd99LDcufsK4Y6UXc+lj/ZJmKy/TFSY9
-         r2Ww==
-X-Forwarded-Encrypted: i=1; AJvYcCUauNByGi6JD7o1fV6/uO5Z0s1Pc6JyfFAvxU7a815LtSybK3nvcupHybGBtjgHI6c9qlvADzUk2NrhBRLFkiEx@lists.infradead.org
-X-Gm-Message-State: AOJu0YzzYiFD1Nh3RC2eJbu7qowfxRn7tvSaOb747rehHpZ8OB2JJ2Id
-	z1YS661pOxbf0JxMN44VLdpBFF3uMII3Xp1zT8xySJ3Xf6ZNV6iEcQMvt//WJvgKOr35G9JoGGu
-	pnCUFuRn2mou5k1DoXSJX8qQNKivt65gmgtjJPA==
-X-Gm-Gg: ASbGncv3WTl6EnuyWN/9ouRU+ZsnJJp3IdfxeOLZ4+4YRZgOF1lwANse4J7NbCUEfu6
-	xLoOwSUzJnozoxO6ru3cdwIGPkdjhcNg56BkCOsjl2tx9tNNnqREhrZ31+hEQ95tKK/SAvCZrpB
-	QmEdgdM6UpjgqrJMIyIKfbpNszrspxh/FrAg6bETILF7hTym0ag7LAWKE=
-X-Google-Smtp-Source: AGHT+IEOA9pETzEiwUlfAn6Sgi+fzg/ihyH1PJsUp8cWH2CmtJSYAu8VpLrjwtghIihEu2y05c8/xl7tyUGx2qaGSuU=
-X-Received: by 2002:a05:6512:304f:b0:546:2fde:d2d9 with SMTP id
- 2adb3069b0e04-54d64aa9f74mr849955e87.28.1744818694067; Wed, 16 Apr 2025
- 08:51:34 -0700 (PDT)
+	Wed, 16 Apr 2025 15:54:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3EC2F6844B;
+	Wed, 16 Apr 2025 15:54:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EF83C4CEE2;
+	Wed, 16 Apr 2025 15:54:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744818883;
+	bh=BK6yw88CCQMOuS+aZ2Cf0kz3xcaYu31IAHaHB7+z3cw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CYsB7iLFu7CRO3Le0pvmC1k268EFLWH7CYrVAhgxHXz/hQKlGrhkytRRyfxhrFRLa
+	 kLWtrgRIFCVezFrhVYZi/slKn9mmAhE5BNzwbioipRzXvxBRe20qSGWRYEoBVVOn4C
+	 EHs3j8eTEtQA7Y1GrcktDJQf0XFLzKInpzctB45OjBhPa2rSJmMnw1aUcZjTSYAK6s
+	 CiSdKNvuxd/I+GZEiYg3us08A1t4SeJm1Z+KQq8BkAxgxhMAYAFQZ/tbuLHPWbWvlI
+	 i4d9EwJSJCI4WiRJ34sJF0ZXuEn3EmuFUh8xOpPzpJWwrT7Oh77TTOUTXNZWnb8eyN
+	 kDLHP3E9Of9dA==
+Date: Wed, 16 Apr 2025 10:54:42 -0500
+From: Rob Herring <robh@kernel.org>
+To: Alexey Charkov <alchark@gmail.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-mmc@vger.kernel.org, netdev@vger.kernel.org,
+	linux-pwm@vger.kernel.org
+Subject: Re: [PATCH 00/13] ARM: vt8500: DT bindings and dts updates
+Message-ID: <20250416155442.GA3255418-robh@kernel.org>
+References: <20250416-wmt-updates-v1-0-f9af689cdfc2@gmail.com>
 MIME-Version: 1.0
-References: <20250407-gpiochip-set-rv-arm-v1-0-9e4a914c7fd4@linaro.org>
- <20250407-gpiochip-set-rv-arm-v1-4-9e4a914c7fd4@linaro.org> <075b347d-dac4-4b75-9c97-f2578bbfd279@kernel.org>
-In-Reply-To: <075b347d-dac4-4b75-9c97-f2578bbfd279@kernel.org>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Wed, 16 Apr 2025 17:51:21 +0200
-X-Gm-Features: ATxdqUFAaEqfpWy-Gz1MlrWfTBrFjpknqD-4vV0rj7YLmXL5PjV9ze05bHY7Jgw
-Message-ID: <CAMRc=McFDhTRV9Zgdu80u+O30pADNRTQEsM79XOPndyGEk6GOw@mail.gmail.com>
-Subject: Re: [PATCH 4/4] ARM: s3c/gpio: use new line value setter callbacks
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Andrew Lunn <andrew@lunn.ch>, Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
-	Gregory Clement <gregory.clement@bootlin.com>, Russell King <linux@armlinux.org.uk>, 
-	Linus Walleij <linus.walleij@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_085136_756073_358862D1 
-X-CRM114-Status: GOOD (  18.09  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250416-wmt-updates-v1-0-f9af689cdfc2@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,36 +82,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 15, 2025 at 8:23=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
->
-> On 07/04/2025 09:09, Bartosz Golaszewski wrote:
-> > From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> >
-> > struct gpio_chip now has callbacks for setting line values that return
-> > an integer, allowing to indicate failures. Convert the driver to using
-> > them.
-> >
-> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> > ---
-> >  arch/arm/mach-s3c/gpio-samsung.c | 8 +++++---
-> >  1 file changed, 5 insertions(+), 3 deletions(-)
-> This was applied a week ago, but it is not in the next (next-20250414).
-> Are you sure you feed linux-next with all your patches?
->
-> Best regards,
-> Krzysztof
+On Wed, Apr 16, 2025 at 12:21:25PM +0400, Alexey Charkov wrote:
+> Convert some more VT8500 related textual DT binding descriptions to
+> YAML schema, do minor dts correctness fixes, and add a DT for the
+> board I'm actually testing those on (VIA APC Rock).
+> 
+> While at that, also describe the PL310 L2 cache controller present on
+> WM8850/WM8950.
+> 
+> Note that this series is based upon Krzysztof's linux-dt/for-next
+> 
+> Signed-off-by: Alexey Charkov <alchark@gmail.com>
+> ---
+> Alexey Charkov (13):
+>       dt-bindings: i2c: i2c-wmt: Convert to YAML
+>       dt-bindings: interrupt-controller: via,vt8500-intc: Convert to YAML
+>       dt-bindings: mmc: vt8500-sdmmc: Convert to YAML
+>       dt-bindings: net: via-rhine: Convert to YAML
+>       dt-bindings: pwm: vt8500-pwm: Convert to YAML
+>       dt-bindings: timer: via,vt8500-timer: Convert to YAML
+>       dt-bindings: arm: vt8500: Add VIA APC Rock/Paper boards
+>       ARM: dts: vt8500: Add node address and reg in CPU nodes
+>       ARM: dts: vt8500: Move memory nodes to board dts and fix addr/size
+>       ARM: dts: vt8500: Use generic compatibles for EHCI
+>       ARM: dts: vt8500: Use generic node name for the SD/MMC controller
+>       ARM: dts: vt8500: Add VIA APC Rock/Paper board
+>       ARM: dts: vt8500: Add L2 cache controller on WM8850/WM8950
+> 
+>  Documentation/devicetree/bindings/arm/vt8500.yaml  | 19 ++++---
+>  Documentation/devicetree/bindings/i2c/i2c-wmt.txt  | 24 ---------
+>  .../devicetree/bindings/i2c/wm,wm8505-i2c.yaml     | 47 +++++++++++++++++
+>  .../interrupt-controller/via,vt8500-intc.txt       | 16 ------
+>  .../interrupt-controller/via,vt8500-intc.yaml      | 47 +++++++++++++++++
+>  .../devicetree/bindings/mmc/vt8500-sdmmc.txt       | 23 --------
+>  .../devicetree/bindings/mmc/wm,wm8505-sdhc.yaml    | 61 ++++++++++++++++++++++
+>  .../devicetree/bindings/net/via,vt8500-rhine.yaml  | 41 +++++++++++++++
+>  .../devicetree/bindings/net/via-rhine.txt          | 17 ------
+>  .../devicetree/bindings/pwm/via,vt8500-pwm.yaml    | 43 +++++++++++++++
+>  .../devicetree/bindings/pwm/vt8500-pwm.txt         | 18 -------
+>  .../devicetree/bindings/timer/via,vt8500-timer.txt | 15 ------
+>  .../bindings/timer/via,vt8500-timer.yaml           | 36 +++++++++++++
+>  MAINTAINERS                                        |  7 ++-
+>  arch/arm/boot/dts/vt8500/Makefile                  |  3 +-
+>  arch/arm/boot/dts/vt8500/vt8500-bv07.dts           |  5 ++
+>  arch/arm/boot/dts/vt8500/vt8500.dtsi               | 12 ++---
+>  arch/arm/boot/dts/vt8500/wm8505-ref.dts            |  5 ++
+>  arch/arm/boot/dts/vt8500/wm8505.dtsi               | 14 ++---
+>  arch/arm/boot/dts/vt8500/wm8650-mid.dts            |  5 ++
+>  arch/arm/boot/dts/vt8500/wm8650.dtsi               | 14 ++---
+>  arch/arm/boot/dts/vt8500/wm8750-apc8750.dts        |  5 ++
+>  arch/arm/boot/dts/vt8500/wm8750.dtsi               | 14 ++---
+>  arch/arm/boot/dts/vt8500/wm8850-w70v2.dts          |  5 ++
+>  arch/arm/boot/dts/vt8500/wm8850.dtsi               | 23 +++++---
+>  arch/arm/boot/dts/vt8500/wm8950-apc-rock.dts       | 21 ++++++++
+>  arch/arm/boot/dts/vt8500/wm8950.dtsi               | 11 ++++
+>  27 files changed, 386 insertions(+), 165 deletions(-)
+> ---
+> base-commit: 62db22c2af6ce306943df5de6f5198ea9bd3d47b
 
-Hi!
+I could not apply this series for testing. What base is this? It is 
+unknown to anything I have. Please use most recent rc1 unless you have 
+a dependency then use recent linux-next or a branch in it.
 
-This is a bit of an exception for me. As discussed with Arnd[1] I
-picked the patches up into a new branch and sent out a PR to
-arm-soc[2]. Once Arnd merges the PR, the patches will appear in next,
-I don't have any ARM branch to feed into linux-next.
-
-Bartosz
-
-[1] https://lore.kernel.org/all/18d59ff1-a357-413c-bde2-961ae0c9b5f2@app.fa=
-stmail.com/
-[2] https://lore.kernel.org/all/20250409083513.21115-1-brgl@bgdev.pl/
+Rob
 
