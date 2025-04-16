@@ -4,90 +4,210 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B53C4C369BA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 18:58:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BF60C369BA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Apr 2025 18:59:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LWNHRRlLGAtt8jzmaA+9D/ojUTlN4AK1HzcVBXaO6JU=; b=egrn1Mw9O1RiY1rfTEm50rKWZX
-	cUdXEa1ePWQy1y3xiXKgJYsV02iN3cxjNPwAuozWl1xmabZuk4CRIsIvEGeAb40a5dBX7zjCZTQ8f
-	XLkJ9CLhwwVl5/TIQfU65ePRGA6qRYeWNzXhfuc4OmXiJA6QIx+6cMrtHbJw+S996M2cVA/Kf7+U6
-	5CeLA2+524/1e4zJq1xvpKx6Khh7rIeAaar1nKR7RGDc7uMBKoxL3YT6nAfUBKbf8bGeG6X36xj0I
-	whVhm/MjxD7265uZhai0iP+FfKfCwXm+J1W/X8yRnwH53gKDXZGuzwrHRMt4faHXjHsMUN7DJMH4S
-	7CX/v/Uw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uL80oCURDCTh0+TCHS+XtrZZvfqO/KUmdTjdKcLXc+Y=; b=pRz7lm0DlDKwecpbKRwT/pK/mv
+	h4ygRLhLT/e/WxC0PVyHMKEKIPh0OoBeeNINhOOy2MFkm6LQ0NRXayyCMZSya7R2IUgTk5GhJ58jP
+	XmRSYazHxbnyIyqvD6lOMuRDn0OYxH3ClfacY1k13Ios0+8Kc3s7JYnrxH8iRo/FamACkhAuFrTI5
+	nk4itkHI+Pskjku6tspAo/7GfDrctZXeWDeLhKtHou+fCso6jAEyHFN9RM5kNbu7NlXCb9fNLHFs1
+	K479gJWkCGATX4T9ttLPbXSpZnnUs9SS6WYnVRNHrKO6NGWV60esawPDGnFsoj+jcjOSsZuVwt4hz
+	+0ZfijJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u57xI-0000000AdFs-05uE;
-	Wed, 16 Apr 2025 18:57:52 +0000
-Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
+	id 1u57z7-0000000AdaU-30vQ;
+	Wed, 16 Apr 2025 18:59:45 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u57vR-0000000Ad30-3pNK
+	id 1u57xC-0000000AdEZ-33xr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Apr 2025 18:55:59 +0000
-Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-47698757053so80743011cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 11:55:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744829756; x=1745434556; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=LWNHRRlLGAtt8jzmaA+9D/ojUTlN4AK1HzcVBXaO6JU=;
-        b=hFdzclifdi3wbz0CV/zgQTkVD+mF7MoCHZvPC0FvNlSFFZF+sx5AeoqKSuZV/QSYSd
-         U+GrwPA6DeyxMBJS8o1ogDB3mvUikw6rDde/JDt3pz+m9Kbx8QmheI8TlSp9/SQtCta2
-         03NQaOKU+to5Mktp8Qe1vFph+pbDecgKHp7Eu8NufQ1YTzullmv5o0zI7g1bXtJ9e08t
-         89smjfrObwDjaLw7aCGRhZfh/7HPjIjwZCaMUhwkLwhYATWR3q2hkrISNAUm4/b/uNgO
-         W+EEkBlBnw5jtDpdKXg1WXKALAEo40XOBMxgXm8LJUXJVEMokkkRSxISCFsy6vyaI3RA
-         Uaxg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744829756; x=1745434556;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=LWNHRRlLGAtt8jzmaA+9D/ojUTlN4AK1HzcVBXaO6JU=;
-        b=qCy8J2QvhtMG6FfR1fuGAMxvNbokBLHidvUSEFRO3rX7E2UYGtGLEZ2u+GfZcxSEIc
-         VEbID6sQXYBL9e1ptlluMIIS53yqqv1K/y8P7MyadkIpq5uP/TG/DsU6uEECt3+2o/l7
-         dK+vxWaYRVs/Mxc+MgKrFECbpYrbwhOAIDPCb1IAyOihkBle4p6GYqJz1KsjvC9yXb3i
-         RazpWuVqwiTnGdJiAgBHC6LK2Ef0G1iTmUYLr3APUobJOcF/QFSbiulS/5TSzlrZ6iBS
-         l8BA7/asA+pTYfjY32+cAzJYgQoz5GeWxe6O/tALtI9FF0ERiC2T3Dzy5uofs6yY3vDn
-         cCVA==
-X-Forwarded-Encrypted: i=1; AJvYcCWFkSm8a4/KHBu1vEIXLpQIIrNm3ltbTzKt9t9VTUa6zNQZMGqfHV0wUOZXOlEdrtfjcb+QDLOT5+7BcM+md52u@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+YwekzRw5N+fQGLHQs8m9bnLHqi1YJ4a6djEk75QSChBuZUgL
-	aURtSW09NMW0Q6ghM/QPL7VJd7FaY6KWju15sS+tJJR/2cM0pednKCi4RlEAG79Qx9d7hwBVIfG
-	7CFmKEXB9Kv9XpsS+Um/vxDfJK4E=
-X-Gm-Gg: ASbGncv+Tlckb9qaZ7uOEWs0gXen0fBWZFgTQgIwfMPAGUZPd6VZmYCIiO3LNk0X2Io
-	9F6VfDScK7zgIccJ6tu71j+vfjmZcNc7YKs9x6v0HoSGGAdBhftmvCvAqwUCAYwxPkN7yOyDpzz
-	7ZthHSp8/74nYwIvuroVyfHdOCxaAWImQqB+sCHKSuIalkP950g6d3svWtMB+GeZk/4Q==
-X-Google-Smtp-Source: AGHT+IEhXho+Wj3++MUDdbSnogTiFF+Hc7VltlvllgRmDoZ0RCwCinDjkFA7Fi5dWwvFAGxwURkTH52ruMHAO7zWqFI=
-X-Received: by 2002:a05:622a:8cc:b0:477:419a:a3bc with SMTP id
- d75a77b69052e-47ad80c2674mr42168791cf.27.1744829756648; Wed, 16 Apr 2025
- 11:55:56 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250416-wmt-updates-v1-0-f9af689cdfc2@gmail.com> <20250416155442.GA3255418-robh@kernel.org>
-In-Reply-To: <20250416155442.GA3255418-robh@kernel.org>
-From: Alexey Charkov <alchark@gmail.com>
-Date: Wed, 16 Apr 2025 22:55:52 +0400
-X-Gm-Features: ATxdqUFabw8TyNaRZlXev_Uf452FGKx5MvA3J16s1sRuFs46iscEw3eoNHUowzg
-Message-ID: <CABjd4YyPzZoX98=FMwr91BG2RhYc0r5=9P-2GGAbR0s043duPw@mail.gmail.com>
-Subject: Re: [PATCH 00/13] ARM: vt8500: DT bindings and dts updates
-To: Rob Herring <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, 
-	Daniel Lezcano <daniel.lezcano@linaro.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org, 
-	netdev@vger.kernel.org, linux-pwm@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	Wed, 16 Apr 2025 18:57:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1744829867; x=1776365867;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=uL80oCURDCTh0+TCHS+XtrZZvfqO/KUmdTjdKcLXc+Y=;
+  b=AEF7YjmG1asKOUUdGgihfEZwBRMfFb6f/pJebEo5czbHGRFJsA06Ux3t
+   ZKBR2LfYiYqWikV4L+lfmDIvYAkhiY6658G2/InIRBXypQ1kLF44WgGsU
+   Bgiy25y9NhUOyTBDs9RYZz7RREi51L+Kf29HoYT0d/wbO2T0tCwl6VZ+a
+   j1DEtNDFBMLWGQ+ZaTpmBSZx8xaTVGQaRQ2WMiXoMLEPocJNiWfHPfX7U
+   GCai/ETAmqLc3vHSk7Xgqt5oDWJ8BcErgCkNCmWZ4EX1WPuS606vaDrVJ
+   LyuT3xoA+R3Jb0qjypxJR1cRVwdFNPpmOcgYJUtBLS54g5KIHjv4ng8Nl
+   g==;
+X-CSE-ConnectionGUID: 68NE5+xDQCWhHdLNidnb/A==
+X-CSE-MsgGUID: r6BUKXyzQSGoSkiRnaLkkA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11405"; a="57768493"
+X-IronPort-AV: E=Sophos;i="6.15,216,1739865600"; 
+   d="scan'208";a="57768493"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Apr 2025 11:57:45 -0700
+X-CSE-ConnectionGUID: 6vxgg0ZuSDOKtLBsvnFZwQ==
+X-CSE-MsgGUID: t8YqcQdXTlSbXHutHp8i/Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,216,1739865600"; 
+   d="scan'208";a="161610551"
+Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
+  by fmviesa001.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Apr 2025 11:57:43 -0700
+Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14; Wed, 16 Apr 2025 11:57:42 -0700
+Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14 via Frontend Transport; Wed, 16 Apr 2025 11:57:42 -0700
+Received: from NAM12-BN8-obe.outbound.protection.outlook.com (104.47.55.172)
+ by edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.44; Wed, 16 Apr 2025 11:57:41 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VrLWMQKR6hytjb7xn1Cnz67QMmTvweXO8BZ8FwTGr0LDvq40Ag3hhd+CB3AatSpK0kET4FortbyAQCTP2E85Lhk7Qh/ruYYkbFjbpVWg2mUy9UrTysH23eNvy49ZtxjqNq7Q28NA0nbessyZ20S5ZrxGBphXJ/2Lz6HIv7SFY7p5sspSF0L2MkeFP4vv2fFkk2xx/T0tx/a1S4OFepLyLkWWVEEySY08OWdIz4+PAskNWOd5/K9Vx/P6mm9L//6dluX80BZM7ua5PP4H9Y3L468dBPhyjRgLWpotUhDpownAY6+0AiL2WxehHW/jUr6s1CKNOnKMUp5GG8es/r3poA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uL80oCURDCTh0+TCHS+XtrZZvfqO/KUmdTjdKcLXc+Y=;
+ b=Cc1y5UINOL8V0HjJkQBMhmohyZ11VUyBxK4ArMf7gv+oT9YWZzxZPfpIgXrQq8eCrxb09tobCP6Hbk+8khjulOa6jtxelqJWGHjpfdA4N6Z0qwU4mAfDsLZOEn2EVzTeJL3B57MjWu8FDqSXwkP9oth4Vvug7DSVBRlRbsTlg5qDhfmYD6L0nOwCT8xy1TRDBNgP5aDPSip68Uma9FgZVcnZwMyvVqg/T3kEvYZso0QYFC0r+QPvXNPUo16XIs0HROL9OjjdnyIjzG82+HwArF5WO3JbCaf7l7nPD293g9o7iGQkEf3jnO7ZzsDv0/yzhC4y/qBULdILX7H+1wmiBQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from CO1PR11MB5089.namprd11.prod.outlook.com (2603:10b6:303:9b::16)
+ by DS7PR11MB6126.namprd11.prod.outlook.com (2603:10b6:8:9e::6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8632.32; Wed, 16 Apr 2025 18:57:36 +0000
+Received: from CO1PR11MB5089.namprd11.prod.outlook.com
+ ([fe80::7de8:e1b1:a3b:b8a8]) by CO1PR11MB5089.namprd11.prod.outlook.com
+ ([fe80::7de8:e1b1:a3b:b8a8%4]) with mapi id 15.20.8632.025; Wed, 16 Apr 2025
+ 18:57:35 +0000
+From: "Keller, Jacob E" <jacob.e.keller@intel.com>
+To: Kees Cook <kees@kernel.org>, Kory Maincent <kory.maincent@bootlin.com>
+CC: Jakub Kicinski <kuba@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>, "Dumazet, Eric"
+	<edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Claudiu Manoil
+	<claudiu.manoil@nxp.com>, Vladimir Oltean <vladimir.oltean@nxp.com>, Wei Fang
+	<wei.fang@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>, Jeroen de Borst
+	<jeroendb@google.com>, Harshitha Ramamurthy <hramamurthy@google.com>, "Ido
+ Schimmel" <idosch@nvidia.com>, Petr Machata <petrm@nvidia.com>, "Maxime
+ Coquelin" <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+	<alexandre.torgue@foss.st.com>, Simon Horman <horms@kernel.org>, Geoff Levand
+	<geoff@infradead.org>, Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	"Lobakin, Aleksander" <aleksander.lobakin@intel.com>, Praveen Kaligineedi
+	<pkaligineedi@google.com>, Willem de Bruijn <willemb@google.com>, "Joshua
+ Washington" <joshwash@google.com>, Furong Xu <0x1207@gmail.com>, "Russell
+ King (Oracle)" <rmk+kernel@armlinux.org.uk>, Jisheng Zhang
+	<jszhang@kernel.org>, Petr Tesarik <petr@tesarici.cz>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "linux-stm32@st-md-mailman.stormreply.com"
+	<linux-stm32@st-md-mailman.stormreply.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, Richard Cochran
+	<richardcochran@gmail.com>, Shannon Nelson <shannon.nelson@amd.com>, "Ziwei
+ Xiao" <ziweixiao@google.com>, Shailend Chand <shailend@google.com>, "Choong
+ Yong Liang" <yong.liang.choong@linux.intel.com>, Andrew Halaney
+	<ahalaney@redhat.com>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-hardening@vger.kernel.org"
+	<linux-hardening@vger.kernel.org>
+Subject: RE: [PATCH] net: ethtool: Adjust exactly ETH_GSTRING_LEN-long stats
+ to use memcpy
+Thread-Topic: [PATCH] net: ethtool: Adjust exactly ETH_GSTRING_LEN-long stats
+ to use memcpy
+Thread-Index: AQHbrmtesaH7QN6MtUGVItUSQ5UO8bOmABqAgACSqICAABMdUA==
+Date: Wed, 16 Apr 2025 18:57:35 +0000
+Message-ID: <CO1PR11MB508977671F23B9E45863417DD6BD2@CO1PR11MB5089.namprd11.prod.outlook.com>
+References: <20250416010210.work.904-kees@kernel.org>
+ <20250416110351.1dbb7173@kmaincent-XPS-13-7390>
+ <202504161047.79ED8EF5@keescook>
+In-Reply-To: <202504161047.79ED8EF5@keescook>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: CO1PR11MB5089:EE_|DS7PR11MB6126:EE_
+x-ms-office365-filtering-correlation-id: ae77acb5-671b-426f-27d1-08dd7d188d35
+x-ld-processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?0/Z/n/h0xqPoF65C9HF3IHKntbQk+OuptpdI3Z/kf1+zb+UdKzqG0U928xve?=
+ =?us-ascii?Q?+lCe16UmePTXJBIuQ9QmRt9q/emdOOHzhHEzWTIrFwhVHgztlq9HlJKCxWBA?=
+ =?us-ascii?Q?BPYXNOYT0F21jDS+tIZfdhbkEgoV+dXqoRVGS07QDrOjYYl7v414kJUk5hF4?=
+ =?us-ascii?Q?bKOx6h5o1Qv4eAYFjeKCR1qsA/0+73ayWXp8Ltu0LN6LQoQxNGr1ZtQ7HAXz?=
+ =?us-ascii?Q?H6LHzlNVocCNHH8HPi+TgSJBWJKln9Ibi6NUt9L7offTPiCSnTcBBOvu8vq8?=
+ =?us-ascii?Q?dr3UMczrurSXO6aaxRIbmMBK2f6rNGB141NmgLYbyh9W6ARJlrt8FzFZOP5z?=
+ =?us-ascii?Q?BXBtO62yk1B/zDIO+ZefEb2Hu8ctbLI0Xp+PONFRYPiMrNjjChTIhcsRkbEH?=
+ =?us-ascii?Q?Jk/hRzDzGqkl2wyNhOgoJ+038YUhGVM1Tdn0FPuCiZFDF5cP9MNou1aS84tn?=
+ =?us-ascii?Q?WXN42FGj2eFT9o7GiYlzb7ENFTHFKvZEekxrh779HVAaeCBmoF6ISv0rn/ar?=
+ =?us-ascii?Q?70iTc/nGhT8++3/NoujHnRiQ1orH+rAWXJg3+j1ejDINSz25o+6j/cI8uP7N?=
+ =?us-ascii?Q?YJj32nOjwJ1iW6aH7PJi5BwC4XczWnb6Yb0vVq8xKTYPmq4cqHZk03FhLp6m?=
+ =?us-ascii?Q?w8Jkvin64p3mXdVolxXsix/BMtR9+SnKkQt3mUJiBUOA8KltMdMKhgpFC5WG?=
+ =?us-ascii?Q?NGbdeg/W8WXIU5sAJTp34skYQwhvR4K9USuCtMt6y08feKcizLTMXIT6stX2?=
+ =?us-ascii?Q?cvhmfkID4u+sWDvbvoeqzlJS/5EqH6TEVSQtbZwaMB9CTHWIN6bHuA42/lvQ?=
+ =?us-ascii?Q?EGMo/obxea5WA1ECjdpY6dL5ngQYo21jHSK1/R0sdxW9MYrcDtPgt6yn2tWz?=
+ =?us-ascii?Q?ESBThHptZgPvsnkhoMqKzulHjMCKjBpo/2ZOx2AkLGJLo6fsdgLa6xYElSWF?=
+ =?us-ascii?Q?PswPIKvz/TuzxHjCzhEdObtL0ZPV9IUfBDsUdfkXKLiZwJqsrdIjMgM4SM4S?=
+ =?us-ascii?Q?PAeDbJ1x3JbLxbjk2qLBaPwrYItvaU7FAbLr+oxzbKAmvAsFOhIe/nln1c7W?=
+ =?us-ascii?Q?pOnxHSsQRubPKI/f3FcHGbulqRqdlgU9CJOX1/XLUspBUk7IEXzz5ZdGncF8?=
+ =?us-ascii?Q?PaVGOcy4LK6q37BNwfHWROItiNqhGQN8DSc7DOQKWfe7HLCRVaLFmrtlyPBo?=
+ =?us-ascii?Q?6jDaQskCI/AN6G7aavz49JFlpfO4aHWcUUcTUJgbB7V7cwJCX+UFIKrD7p7L?=
+ =?us-ascii?Q?HlQ5Psmy1mDMvBGoUIR740Qv9fo/UY38+0vwQojdMzBbOD8PmQw/oNChuzFc?=
+ =?us-ascii?Q?jJ6bdC4fabq+eLEFHC88eXh2yQBt3f/1UO30tB8OZnzSAuV8zFylFmcbZiLT?=
+ =?us-ascii?Q?VRNJWVhGJ36ISrUHEUCs5+l5NnXrbnOlFz40mdsO37w9unW13DXVF9EcS2xS?=
+ =?us-ascii?Q?6ar4ZVvbJ0sK3Ge5oFvYm0JABtYF4us4rBUkvrPS31cokcntXzAZew=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5089.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?a9g2JKldIbjw5+mhIum9J5yEtg5XaojROoLMnsFbzGPZs+EULHzI3gT2F1cY?=
+ =?us-ascii?Q?7+Oip9C2MD8Gs6PRjBGYjUjrskSp1hEOcbqf3CbqWuGMOmSCarEM4EAE73U3?=
+ =?us-ascii?Q?X/XJzCZed3i0dURlKZarR8uLo7PROSKoPIr/cLTKgn7hAlB2Uu01wD35D1CJ?=
+ =?us-ascii?Q?2TfyTm15GP0c0BHnwSwmQdJrfRS3NMh5EifFv+fIccSiwCOfb20pLZxA8r5d?=
+ =?us-ascii?Q?Xwwi+BM+K8dwfHOnQG/2CAPb07Lkj85zRd/UgD/zZ+6rRh2P59V5pIgEIUGW?=
+ =?us-ascii?Q?NNYjZzA/0CUToo+RllRX7J8fr4UqxrMT25Lp8CzELflGacZMcVPIz9iBXnzN?=
+ =?us-ascii?Q?qxTDq/m+iK/ESDezYb3sWEUITi+0KkGyNAcGilrtWXC+2FOEWwb5rOLmrPZR?=
+ =?us-ascii?Q?eBEHHFQ/Lu0SuvV7+e51bzXm9SiydIc+h+qbMrRbkwyP1oIVeZ+P/+tL26JY?=
+ =?us-ascii?Q?TQgDItTb0jwD1WP6KPsDmoicixZPfrFwFNmvInRw5cj+nWx4gEmH/XARNmQQ?=
+ =?us-ascii?Q?S4fZHYhYkwRy6x4jVuGNWkk8cK9L6lqY0yNQtKmL5R4Kj3r+v/JqZEJ5818p?=
+ =?us-ascii?Q?gW3jRSKdHTu2+fM4FbmaM6LM3Z9sL8tU++ZSJIqwH5iXt9zj2q02aL1rzsb1?=
+ =?us-ascii?Q?t2jQsNfrpgbM21/5Qrb7qsD18WVvBH8PfJOWiN2TgLyE5PaRvOJQNG7Lr0F6?=
+ =?us-ascii?Q?1Ub6gQWZuOcYl2nyIrIupa9dfXrdctifApWQRCLDdQCjT7kwalodPvaCLiv9?=
+ =?us-ascii?Q?M9jv9i0I30Pl5Wl+KPqh3WvK7+x33xTvrVABfyntb04ouGAV/HM8BxOkty4V?=
+ =?us-ascii?Q?kFWXGOaKvxF3yGDama6Vmx+KigM/JoVrIxZXwq/tKD91sHGjvbNplw95lw/O?=
+ =?us-ascii?Q?n6eVb1QymtfxK63w+MM7Xc+N1IzS0dNQkAr4m+ipwSAuEA0TB11SdQjAV+CH?=
+ =?us-ascii?Q?LnSZAQOJLni4zaigsm76cM8mHU8LE1noMdm/xtP9MiADVJF/iqQp7g7KtcUz?=
+ =?us-ascii?Q?FGV43Y/PhBrKnPHDWKay816RZb7OVf19O/dWZW8GgjMMlKWeCrCNEZFdSuSW?=
+ =?us-ascii?Q?PlE6veQjlOpbhMoEgELUmqDiVI3jM6hmX3qHazsxvuAcN8cR3G4I+KCKDKGt?=
+ =?us-ascii?Q?7AbJ3gn+BpIIOeHrv1iRrqf2yg7mOytzh8FjXPaVS3l0mdmXKu6DMbcY77Pi?=
+ =?us-ascii?Q?nTbn7GWgX7WepQamFpu6xJ+kCs6EDP7SHnMl5ox0a9d5Qe+QOAgN29/qw6KU?=
+ =?us-ascii?Q?f+DxNH68UAdnBOHOxOKRy1xi1Eu91IkyrTQxakJUkOtNK0vuLQ3+dK1NMHQu?=
+ =?us-ascii?Q?VpZn0fFsTifcHyI+lDuxhR4eZSqamYa6Px6tr4Nn4MMY7gesemyKKBLs4M25?=
+ =?us-ascii?Q?oFlLnKQLu3LcP9BmM0zgekjsuyeRqB9wSMBKFGIhZCiQxJbq/OUCLAVLzKOB?=
+ =?us-ascii?Q?T5g4bt2+bHvJeSIVDnc+8ElRSXLK7n/hIFAjM/ynRYgE0lYpK4doIu5Ya1UR?=
+ =?us-ascii?Q?dxXJ/H4X59xyd8/fMaJ5a7J1k9t6qQ7WFtQtPtoJdA42vFoalzNGRNawXEP5?=
+ =?us-ascii?Q?wXCNp6Pmm99Op4Aq067dKV1KLUHF+RGR+hBuDnRfKf1bxpmM4+f9w8iUdUWy?=
+ =?us-ascii?Q?Fw=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5089.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ae77acb5-671b-426f-27d1-08dd7d188d35
+X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Apr 2025 18:57:35.8124
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: sfGr1iG718iMGTiHMeRWed+m1xb0TI8X9w3J2yHMT+7ty5NfoVc/nWr2R0aM2+Q61MM/+SlMzb288Sl/7tpAqUoDCAwJLyrnk3rkEDTsmSQ=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR11MB6126
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_115557_948263_969F1470 
-X-CRM114-Status: GOOD (  22.88  )
+X-CRM114-CacheID: sfid-20250416_115746_898755_C930DBF1 
+X-CRM114-Status: GOOD (  23.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,89 +222,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 16, 2025 at 7:54=E2=80=AFPM Rob Herring <robh@kernel.org> wrote=
-:
->
-> On Wed, Apr 16, 2025 at 12:21:25PM +0400, Alexey Charkov wrote:
-> > Convert some more VT8500 related textual DT binding descriptions to
-> > YAML schema, do minor dts correctness fixes, and add a DT for the
-> > board I'm actually testing those on (VIA APC Rock).
+
+
+> -----Original Message-----
+> From: Kees Cook <kees@kernel.org>
+> Sent: Wednesday, April 16, 2025 10:49 AM
+> To: Kory Maincent <kory.maincent@bootlin.com>
+> Cc: Jakub Kicinski <kuba@kernel.org>; Andrew Lunn <andrew+netdev@lunn.ch>=
+;
+> David S. Miller <davem@davemloft.net>; Dumazet, Eric <edumazet@google.com=
+>;
+> Paolo Abeni <pabeni@redhat.com>; Claudiu Manoil <claudiu.manoil@nxp.com>;
+> Vladimir Oltean <vladimir.oltean@nxp.com>; Wei Fang <wei.fang@nxp.com>; C=
+lark
+> Wang <xiaoning.wang@nxp.com>; Jeroen de Borst <jeroendb@google.com>;
+> Harshitha Ramamurthy <hramamurthy@google.com>; Ido Schimmel
+> <idosch@nvidia.com>; Petr Machata <petrm@nvidia.com>; Maxime Coquelin
+> <mcoquelin.stm32@gmail.com>; Alexandre Torgue
+> <alexandre.torgue@foss.st.com>; Simon Horman <horms@kernel.org>; Geoff
+> Levand <geoff@infradead.org>; Wolfram Sang <wsa+renesas@sang-
+> engineering.com>; Lobakin, Aleksander <aleksander.lobakin@intel.com>; Pra=
+veen
+> Kaligineedi <pkaligineedi@google.com>; Willem de Bruijn <willemb@google.c=
+om>;
+> Joshua Washington <joshwash@google.com>; Furong Xu <0x1207@gmail.com>;
+> Russell King (Oracle) <rmk+kernel@armlinux.org.uk>; Jisheng Zhang
+> <jszhang@kernel.org>; Petr Tesarik <petr@tesarici.cz>; netdev@vger.kernel=
+.org;
+> imx@lists.linux.dev; linux-stm32@st-md-mailman.stormreply.com; linux-arm-
+> kernel@lists.infradead.org; Richard Cochran <richardcochran@gmail.com>; K=
+eller,
+> Jacob E <jacob.e.keller@intel.com>; Shannon Nelson
+> <shannon.nelson@amd.com>; Ziwei Xiao <ziweixiao@google.com>; Shailend
+> Chand <shailend@google.com>; Choong Yong Liang
+> <yong.liang.choong@linux.intel.com>; Andrew Halaney <ahalaney@redhat.com>=
+;
+> linux-kernel@vger.kernel.org; linux-hardening@vger.kernel.org
+> Subject: Re: [PATCH] net: ethtool: Adjust exactly ETH_GSTRING_LEN-long st=
+ats to
+> use memcpy
+>=20
+> On Wed, Apr 16, 2025 at 11:03:51AM +0200, Kory Maincent wrote:
+> > On Tue, 15 Apr 2025 18:02:15 -0700
+> > Kees Cook <kees@kernel.org> wrote:
 > >
-> > While at that, also describe the PL310 L2 cache controller present on
-> > WM8850/WM8950.
-> >
-> > Note that this series is based upon Krzysztof's linux-dt/for-next
-> >
-> > Signed-off-by: Alexey Charkov <alchark@gmail.com>
-> > ---
-> > Alexey Charkov (13):
-> >       dt-bindings: i2c: i2c-wmt: Convert to YAML
-> >       dt-bindings: interrupt-controller: via,vt8500-intc: Convert to YA=
-ML
-> >       dt-bindings: mmc: vt8500-sdmmc: Convert to YAML
-> >       dt-bindings: net: via-rhine: Convert to YAML
-> >       dt-bindings: pwm: vt8500-pwm: Convert to YAML
-> >       dt-bindings: timer: via,vt8500-timer: Convert to YAML
-> >       dt-bindings: arm: vt8500: Add VIA APC Rock/Paper boards
-> >       ARM: dts: vt8500: Add node address and reg in CPU nodes
-> >       ARM: dts: vt8500: Move memory nodes to board dts and fix addr/siz=
+> > > Many drivers populate the stats buffer using C-String based APIs (e.g=
+.
+> > > ethtool_sprintf() and ethtool_puts()), usually when building up the
+> > > list of stats individually (i.e. with a for() loop). This, however,
+> > > requires that the source strings be populated in such a way as to hav=
 e
-> >       ARM: dts: vt8500: Use generic compatibles for EHCI
-> >       ARM: dts: vt8500: Use generic node name for the SD/MMC controller
-> >       ARM: dts: vt8500: Add VIA APC Rock/Paper board
-> >       ARM: dts: vt8500: Add L2 cache controller on WM8850/WM8950
+> > > a terminating NUL byte in the source.
+> > >
+> > > Other drivers populate the stats buffer directly using one big memcpy=
+()
+> > > of an entire array of strings. No NUL termination is needed here, as =
+the
+> > > bytes are being directly passed through. Yet others will build up the
+> > > stats buffer individually, but also use memcpy(). This, too, does not
+> > > need NUL termination of the source strings.
+> > >
+> > > However, there are cases where the strings that populate the
+> > > source stats strings are exactly ETH_GSTRING_LEN long, and GCC
+> > > 15's -Wunterminated-string-initialization option complains that the
+> > > trailing NUL byte has been truncated. This situation is fine only if =
+the
+> > > driver is using the memcpy() approach. If the C-String APIs are used,
+> > > the destination string name will have its final byte truncated by the
+> > > required trailing NUL byte applied by the C-string API.
+> > >
+> > > For drivers that are already using memcpy() but have initializers tha=
+t
+> > > truncate the NUL terminator, mark their source strings as __nonstring=
+ to
+> > > silence the GCC warnings.
 > >
-> >  Documentation/devicetree/bindings/arm/vt8500.yaml  | 19 ++++---
-> >  Documentation/devicetree/bindings/i2c/i2c-wmt.txt  | 24 ---------
-> >  .../devicetree/bindings/i2c/wm,wm8505-i2c.yaml     | 47 ++++++++++++++=
-+++
-> >  .../interrupt-controller/via,vt8500-intc.txt       | 16 ------
-> >  .../interrupt-controller/via,vt8500-intc.yaml      | 47 ++++++++++++++=
-+++
-> >  .../devicetree/bindings/mmc/vt8500-sdmmc.txt       | 23 --------
-> >  .../devicetree/bindings/mmc/wm,wm8505-sdhc.yaml    | 61 ++++++++++++++=
-++++++++
-> >  .../devicetree/bindings/net/via,vt8500-rhine.yaml  | 41 ++++++++++++++=
-+
-> >  .../devicetree/bindings/net/via-rhine.txt          | 17 ------
-> >  .../devicetree/bindings/pwm/via,vt8500-pwm.yaml    | 43 ++++++++++++++=
-+
-> >  .../devicetree/bindings/pwm/vt8500-pwm.txt         | 18 -------
-> >  .../devicetree/bindings/timer/via,vt8500-timer.txt | 15 ------
-> >  .../bindings/timer/via,vt8500-timer.yaml           | 36 +++++++++++++
-> >  MAINTAINERS                                        |  7 ++-
-> >  arch/arm/boot/dts/vt8500/Makefile                  |  3 +-
-> >  arch/arm/boot/dts/vt8500/vt8500-bv07.dts           |  5 ++
-> >  arch/arm/boot/dts/vt8500/vt8500.dtsi               | 12 ++---
-> >  arch/arm/boot/dts/vt8500/wm8505-ref.dts            |  5 ++
-> >  arch/arm/boot/dts/vt8500/wm8505.dtsi               | 14 ++---
-> >  arch/arm/boot/dts/vt8500/wm8650-mid.dts            |  5 ++
-> >  arch/arm/boot/dts/vt8500/wm8650.dtsi               | 14 ++---
-> >  arch/arm/boot/dts/vt8500/wm8750-apc8750.dts        |  5 ++
-> >  arch/arm/boot/dts/vt8500/wm8750.dtsi               | 14 ++---
-> >  arch/arm/boot/dts/vt8500/wm8850-w70v2.dts          |  5 ++
-> >  arch/arm/boot/dts/vt8500/wm8850.dtsi               | 23 +++++---
-> >  arch/arm/boot/dts/vt8500/wm8950-apc-rock.dts       | 21 ++++++++
-> >  arch/arm/boot/dts/vt8500/wm8950.dtsi               | 11 ++++
-> >  27 files changed, 386 insertions(+), 165 deletions(-)
-> > ---
-> > base-commit: 62db22c2af6ce306943df5de6f5198ea9bd3d47b
->
-> I could not apply this series for testing. What base is this? It is
-> unknown to anything I have. Please use most recent rc1 unless you have
-> a dependency then use recent linux-next or a branch in it.
+> > Shouldn't we move on to ethtool_cpy in these drivers too to unify the c=
+ode?
+>=20
+> I decided that the code churn wasn't worth it. Perhaps in a follow-up
+> patch if folks want to see the removal of the explicit memcpy() uses?
+>=20
 
-It's based on Krzysztof's linux-dt/for-next [1] as mentioned in the
-cover letter above - it hasn't yet been pulled into today's
-linux-next. Specifically, this patch [2] from Wolfram is a dependency
-for patch 10/13 in this series - the rest should apply cleanly on top
-of 6.15-rc1
+A follow-up seems better to me.
 
-Best regards,
-Alexey
+Thanks,
+Jake
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux-dt.git/commi=
-t/?h=3Dfor-next
-[2] https://lore.kernel.org/all/20250330193833.21970-12-wsa+renesas@sang-en=
-gineering.com/
+> --
+> Kees Cook
 
