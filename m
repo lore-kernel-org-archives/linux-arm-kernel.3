@@ -4,89 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1929BC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 14:36:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67691C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 14:37:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kzJ4Wg24qzu6pyKtW142sYMQG0HMZpg+d5djsiZ4znE=; b=uw9XyZcZ6gOEXW4iksKkr36wae
-	l4P0WyiAhRkxrS0m4NoNI8/nyV0qmKG/smBnojnDTRFnVFTZh/rBx4S/dcdVztuFWFx20wjB2ShFe
-	7tGyiRXf27oBaSVHOyZx4m4SyM0xXZmP2Edl4P8bKKu7lOHdN57xIAd12A/II1uUnrR+xzLFo27tt
-	0+jiMm7aUxwN3YCd04KwH2lctuj+XH6/Wk7g3LuRiNtiglcuwRGT0phCEH6ouommMmZHMv77z7SAd
-	1NC5IMhcMfDfx37ZgcXFzMA44kg7t3gI8RsVIuEedo6DL5NGwuCX5QdWUvvX2Sg7oi2zoHMROkQF/
-	SJEo0+Ew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J79qRcZGJZJmCItGNs9XR09SxwFcm6gRBRDcexcVIfk=; b=Tnibfu8ESVefISNXPv8tJoVoEa
+	gKhTLE6GCn4LDWBfjLop2KcpZKGUP+eHlmwOI2ge8REgGHhy4E8OuDgH1Ws+uBcgOXTR5uU8quYtA
+	BrG6ViuxeCLEj2kAjce33GPbwaxz5V40IAzn38hQPomNQ0fkxw0H1oq/1MIc+g5a6fXiwEIchwtCX
+	9gJDZF0v6M7uddiN2f9pXW9UJPbrU36gARwiYZP6WPTn43kIQobp8k8+PIUViBP9TQNuEM3D7jhwI
+	r7DPqfOI+XovqVnzQgxmmv4CXMA1t59DbnOHRTx1s2MavAf0nnSAn/DsTLdbq2nPMhNjxAx6oergM
+	pfIlP63A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5QLJ-0000000DLCL-1sCE;
-	Thu, 17 Apr 2025 14:35:53 +0000
-Received: from mail.8bytes.org ([85.214.250.239])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5QBO-0000000DIdQ-0jC2;
-	Thu, 17 Apr 2025 14:25:39 +0000
-Received: from 8bytes.org (p4ffe03ae.dip0.t-ipconnect.de [79.254.3.174])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.8bytes.org (Postfix) with ESMTPSA id E900D485FD;
-	Thu, 17 Apr 2025 16:25:30 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=8bytes.org;
-	s=default; t=1744899931;
-	bh=/HJPLJW7CBCK1J9D/Tt5sZhelJYUDsDIjSLUZbWv1OE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EuElz7+Qx317T37R6Xk86MhTtQwxCkmp7UHTFVuhPJMl9k8WUHkrpkhEHjiIIU05a
-	 HAzRnmkgmL+RUvIuZioUKw7Vlp9fZaCDnvU3iA4vVdaEZsHSVM/0fMzv6HIRkOKA1H
-	 chS5VzHsAK7xJzIE/CfhOd0QMQq1TCQw4LQUF9XGapf525Y1ufDPhOH9Vvq34bzNc5
-	 NoIPQRHmnCzb7eL4G8h21D64hMj6oM4CkSXYLdrD78OqxWTP5I/Jl8OmL36GnsK76B
-	 +iNsSxMcEukAqjZx3Ur+ZnLAflFKwuDuR6GXgtRCL8p4ZN1N1sjzsv0I5KMogrNGV2
-	 EkNWoKRqfm8Eg==
-Date: Thu, 17 Apr 2025 16:25:29 +0200
-From: Joerg Roedel <joro@8bytes.org>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Alim Akhtar <alim.akhtar@samsung.com>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
-	David Woodhouse <dwmw2@infradead.org>,
-	Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
-	Janne Grunau <j@jannau.net>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
+	id 1u5QNA-0000000DLbp-04al;
+	Thu, 17 Apr 2025 14:37:48 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u5QBP-0000000DIfB-0knF
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Apr 2025 14:25:40 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-5499d2134e8so1015078e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Apr 2025 07:25:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1744899937; x=1745504737; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=J79qRcZGJZJmCItGNs9XR09SxwFcm6gRBRDcexcVIfk=;
+        b=Wn+L8VNOmzLeJKfa8nWyDTg19uQi7gHAcsmof73aQxRqW+2IuEkf6Slsc1lVqonCyE
+         CyXb2PLHztnkkJLqyrXgzlKwg+wWhXk2et+sWuUFWcY1u1VVuBtuGn5Q4m6HJaI8fYvu
+         HyDWEH9RleoEkVLDofOE+r6ABEZBU2IL5zORH2/Ls4W9ft0YoZIc5IavRE/b1oQUlos5
+         F3gnYe7zmaajzO21vTnHL6/OFIxgBIc+O7uq0C7iwHYy+d8jNzWiHzRadU0IWjQF7IGW
+         e2Bs3c1Z6ccb/lmiL+vpdsj9Kn2N7UeKC0jcjnjgvBzNaM8ZzRAwQNgzdDZtryVQG6XN
+         coqw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744899937; x=1745504737;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=J79qRcZGJZJmCItGNs9XR09SxwFcm6gRBRDcexcVIfk=;
+        b=qDpJOkF5+jOSp/7DYMaO34c2Xutlj0Bh8+8akSK2Z3D4uOuE8ePCqgO3/5P1Ywvb4U
+         uh36UfNCL6BkKq4N0tBV9SMpX71SmKlBgI+FGePuX1eKjAK2SErt6i2p4rjNvlRQCyW6
+         +pjkr48nIZ6T5zlY+eCAnC9JkBMgi+qEPQeXhnibaktqjqdqV1RNVxmxIN/TwS6k8PJF
+         L+EbnhyESzmDF82zt6PMF9cbsoNWKD/2/e3HkgCCmRI8miqL8YJoYrh0lUvRZWtWIvI0
+         Pj3ZYETCgkBICFtZxDTS7N5FbdExW4sUcyZYYvlXAQXhV8F7sjOZj74MyOHcc23d5SHA
+         dMXA==
+X-Forwarded-Encrypted: i=1; AJvYcCVnl8OHRyxroBJf9o+Q+FJxUfe6leC1DcElfu3N+6uj0qs/JIXszhBwU7HNtxl9vdx1Euf8RIjDVf/CDZv64MPN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz18P02Spqan5lOCaLSHhwHi9SA3DHzM6wMR5gvdiGWAozcLOHs
+	chmFLF+Z+pXkS9/z4JVGQk6ReStxMqVuTTAkbDD7HonfLLQI5RO49Fy+E/qEZbo=
+X-Gm-Gg: ASbGncuxcwL7yfXq/cQE0XUhSg4JjxV0hIIL27dx3epZaCALL0h0TxXu6bkh8XhSA0c
+	/vZBCyHOekJTJjqxeaWIiLV9j4bOUV/+/4I+EL5mEeKyNVzPUsa6Hw4VUKSrN9poKw3wfo7ACkK
+	KsSfHiR98yVUqgEDEpFQ8p3B8VMswYvOzNh+Da22sjQxsRr/A2Dj2G77/TxwFWsoFGrZNe9dtA5
+	NlPk40cHXmVchYndXmGdYlBzaZdJA9lv8Zm48Y/JjHHJsQpZzc6V17cPyvq6XoXNKsmtwQ+JTxZ
+	50Gir12Y2iJX2jniFbdk+tZFQp7hc8u6QekabPURAKsHt9RCgB66pb4IVRp0jerpK595Nz/Nw4H
+	+1TFFwywoDMJpMTaVKNMfQUWZuQ==
+X-Google-Smtp-Source: AGHT+IFiUhuBtQQApad2nNH4tL0zFojb+VPiB8t6cSOcnI01Uz7KMV7xXLgUmCgNPnGefcFd0iptEA==
+X-Received: by 2002:ac2:4e0b:0:b0:54a:cc11:b558 with SMTP id 2adb3069b0e04-54d64ab204amr1985603e87.33.1744899937335;
+        Thu, 17 Apr 2025 07:25:37 -0700 (PDT)
+Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54d65e43647sm370096e87.58.2025.04.17.07.25.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Apr 2025 07:25:36 -0700 (PDT)
+From: Ulf Hansson <ulf.hansson@linaro.org>
+To: Saravana Kannan <saravanak@google.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	linux-pm@vger.kernel.org
+Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Michael Grzeschik <m.grzeschik@pengutronix.de>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Abel Vesa <abel.vesa@linaro.org>,
+	Devarsh Thakkar <devarsht@lewv0571a.ent.ti.com>,
+	Peng Fan <peng.fan@oss.nxp.com>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Johan Hovold <johan@kernel.org>,
+	Maulik Shah <maulik.shah@oss.qualcomm.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Neal Gompa <neal@gompa.dev>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Sven Peter <sven@svenpeter.dev>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Tomasz Jeznach <tjeznach@rivosinc.com>,
-	Krishna Reddy <vdumpa@nvidia.com>, Chen-Yu Tsai <wens@csie.org>,
-	Will Deacon <will@kernel.org>,
-	Alejandro Jimenez <alejandro.j.jimenez@oracle.com>,
-	Bagas Sanjaya <bagasdotme@gmail.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>, Joerg Roedel <jroedel@suse.de>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	David Rientjes <rientjes@google.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Matthew Wilcox <willy@infradead.org>
-Subject: Re: [PATCH v4 00/23] iommu: Further abstract iommu-pages
-Message-ID: <aAEPWXaBocqgsvbR@8bytes.org>
-References: <0-v4-c8663abbb606+3f7-iommu_pages_jgg@nvidia.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 04/11] pmdomain: core: Add a bus and a driver for genpd providers
+Date: Thu, 17 Apr 2025 16:25:02 +0200
+Message-ID: <20250417142513.312939-5-ulf.hansson@linaro.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250417142513.312939-1-ulf.hansson@linaro.org>
+References: <20250417142513.312939-1-ulf.hansson@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <0-v4-c8663abbb606+3f7-iommu_pages_jgg@nvidia.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_072538_438764_B4B212DD 
-X-CRM114-Status: GOOD (  11.10  )
+X-CRM114-CacheID: sfid-20250417_072539_216631_12403C9C 
+X-CRM114-Status: GOOD (  19.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,36 +111,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Jason Gunthorpe (23):
->   iommu/terga: Do not use struct page as the handle for as->pd memory
->   iommu/tegra: Do not use struct page as the handle for pts
->   iommu/pages: Remove __iommu_alloc_pages()/__iommu_free_pages()
->   iommu/pages: Make iommu_put_pages_list() work with high order
->     allocations
->   iommu/pages: Remove the order argument to iommu_free_pages()
->   iommu/pages: Remove iommu_free_page()
->   iommu/pages: De-inline the substantial functions
->   iommu/pages: Formalize the freelist API
->   iommu/riscv: Convert to use struct iommu_pages_list
->   iommu/amd: Convert to use struct iommu_pages_list
->   iommu: Change iommu_iotlb_gather to use iommu_page_list
->   iommu/pages: Remove iommu_put_pages_list_old and the _Generic
->   iommu/pages: Move from struct page to struct ioptdesc and folio
->   iommu/pages: Move the __GFP_HIGHMEM checks into the common code
->   iommu/pages: Allow sub page sizes to be passed into the allocator
->   iommu/amd: Change rlookup, irq_lookup, and alias to use kvalloc()
->   iommu/amd: Use roundup_pow_two() instead of get_order()
->   iommu/riscv: Update to use iommu_alloc_pages_node_lg2()
->   iommu: Update various drivers to pass in lg2sz instead of order to
->     iommu pages
->   iommu/pages: Remove iommu_alloc_page/pages()
->   iommu/pages: Remove iommu_alloc_page_node()
->   iommu/amd: Use iommu_alloc_pages_node_sz() for the IRT
->   iommu/vtd: Remove iommu_alloc_pages_node()
+When we create a genpd via pm_genpd_init() we are initializing a
+corresponding struct device for it, but we don't add the device to any
+bus_type. It has not really been needed as the device is used as cookie to
+help us manage OPP tables.
 
-Applied to the new iommu-pages branch. I think this has the potential to
-become a conflict nightmare, let's see how it goes in this cycle.
+However, to prepare to make better use of the device let's add a new genpd
+provider bus_type and a corresponding genpd provider driver. Subsequent
+changes will make use of this.
 
- 	Joerg
+Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+---
+ drivers/pmdomain/core.c | 89 ++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 88 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
+index 035b65563947..da51a61a974c 100644
+--- a/drivers/pmdomain/core.c
++++ b/drivers/pmdomain/core.c
+@@ -27,6 +27,11 @@
+ /* Provides a unique ID for each genpd device */
+ static DEFINE_IDA(genpd_ida);
+ 
++/* The parent for genpd_provider devices. */
++static struct device genpd_provider_bus = {
++	.init_name = "genpd_provider",
++};
++
+ #define GENPD_RETRY_MAX_MS	250		/* Approximate */
+ 
+ #define GENPD_DEV_CALLBACK(genpd, type, callback, dev)		\
+@@ -44,6 +49,14 @@ static DEFINE_IDA(genpd_ida);
+ static LIST_HEAD(gpd_list);
+ static DEFINE_MUTEX(gpd_list_lock);
+ 
++#define to_genpd_provider_drv(d) container_of(d, struct genpd_provider_drv, drv)
++
++struct genpd_provider_drv {
++	struct device_driver drv;
++	int (*probe)(struct device *dev);
++	void (*remove)(struct device *dev);
++};
++
+ struct genpd_lock_ops {
+ 	void (*lock)(struct generic_pm_domain *genpd);
+ 	void (*lock_nested)(struct generic_pm_domain *genpd, int depth);
+@@ -2225,6 +2238,26 @@ static int genpd_set_default_power_state(struct generic_pm_domain *genpd)
+ 	return 0;
+ }
+ 
++static int genpd_provider_bus_probe(struct device *dev)
++{
++	struct genpd_provider_drv *drv = to_genpd_provider_drv(dev->driver);
++
++	return drv->probe(dev);
++}
++
++static void genpd_provider_bus_remove(struct device *dev)
++{
++	struct genpd_provider_drv *drv = to_genpd_provider_drv(dev->driver);
++
++	drv->remove(dev);
++}
++
++static const struct bus_type genpd_provider_bus_type = {
++	.name		= "genpd_provider",
++	.probe		= genpd_provider_bus_probe,
++	.remove		= genpd_provider_bus_remove,
++};
++
+ static void genpd_provider_release(struct device *dev)
+ {
+ 	/* nothing to be done here */
+@@ -2262,6 +2295,8 @@ static int genpd_alloc_data(struct generic_pm_domain *genpd)
+ 	genpd->gd = gd;
+ 	device_initialize(&genpd->dev);
+ 	genpd->dev.release = genpd_provider_release;
++	genpd->dev.bus = &genpd_provider_bus_type;
++	genpd->dev.parent = &genpd_provider_bus;
+ 
+ 	if (!genpd_is_dev_name_fw(genpd)) {
+ 		dev_set_name(&genpd->dev, "%s", genpd->name);
+@@ -3355,9 +3390,61 @@ int of_genpd_parse_idle_states(struct device_node *dn,
+ }
+ EXPORT_SYMBOL_GPL(of_genpd_parse_idle_states);
+ 
++static int genpd_provider_probe(struct device *dev)
++{
++	return 0;
++}
++
++static void genpd_provider_remove(struct device *dev)
++{
++}
++
++static void genpd_provider_sync_state(struct device *dev)
++{
++}
++
++static struct genpd_provider_drv genpd_provider_drv = {
++	.drv = {
++		.name = "genpd_provider",
++		.bus = &genpd_provider_bus_type,
++		.sync_state = genpd_provider_sync_state,
++		.suppress_bind_attrs = true,
++	},
++	.probe = genpd_provider_probe,
++	.remove = genpd_provider_remove,
++};
++
+ static int __init genpd_bus_init(void)
+ {
+-	return bus_register(&genpd_bus_type);
++	int ret;
++
++	ret = device_register(&genpd_provider_bus);
++	if (ret) {
++		put_device(&genpd_provider_bus);
++		return ret;
++	}
++
++	ret = bus_register(&genpd_provider_bus_type);
++	if (ret)
++		goto err_dev;
++
++	ret = bus_register(&genpd_bus_type);
++	if (ret)
++		goto err_prov_bus;
++
++	ret = driver_register(&genpd_provider_drv.drv);
++	if (ret)
++		goto err_bus;
++
++	return 0;
++
++err_bus:
++	bus_unregister(&genpd_bus_type);
++err_prov_bus:
++	bus_unregister(&genpd_provider_bus_type);
++err_dev:
++	device_unregister(&genpd_provider_bus);
++	return ret;
+ }
+ core_initcall(genpd_bus_init);
+ 
+-- 
+2.43.0
 
 
