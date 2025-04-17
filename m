@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA4C3C369C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 07:27:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64D03C369C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 07:35:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B6iTx3Lr3Y/E/h3fgZVym20bL7MC/yae8ZyHNmoM91E=; b=DgbADGYex7Jlsp6ojkyarFJl4a
-	C6WS2f5Xv7qRvfYkMXxVz2QHGHTCkcsaPjF9eKScWesqVDq6Oeff1dpMQtlyI4fnsiYFmSa3rLPeT
-	cB6D4/AMHhPOJxtoEDG1AtS0TSFLS7qcbjl6gjPDuI22ZLI6D+19Xptpibrz/EdBAvLWalpCufA0X
-	rmzso3l9uk0aowWth/dvQjmwBzSmyYrcmATq8qfIb/BMoZe5mYJs5LEFJ29n1+jD6wjak0DCy6elv
-	dTt9nBC1T3g/anh4PMe3IHvMB2vMACpt/T0lK8KSZe86TsmZbG6yMWJu5d5E08v/K+Lf4yfWDYl1D
-	NtXY1F/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u0xom2YM8lyIFaJb7oErSmb3c+ED4OylfqTb0GgwBno=; b=KQIg+Aot6bB/f2gDGm+crpfXFH
+	JnPA3HZYXo4IuqUz2cYz/2ICkWgcldXtqc7OVfCw0tVUdseVu5cksFWOAgy+9qpmXgbZf5imnO6lO
+	MnLHKzXQzoegmXITd+pD8L2sA8thLZEFxFu/nnVXH2fMVy1vwGRZC7x+lvtOXhEJTvhkwA2V2XZbe
+	KynFZUDo1Nc/7WSWA/17SyE3G+ffWZeSwvXkXaDIgNb+jOxFudfjZV3PDdl5YJewBq6S4YsOgIaOq
+	YAzsnAR0mi8NkPN8wxyxKKMAWQoUMRR8Yw1287Qy6Z4OoukEtmpCXxBRz7/ldgDfP4rvMDXyhfb/a
+	CtyIrLWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Jex-0000000C5g2-0faq;
-	Thu, 17 Apr 2025 07:27:43 +0000
-Received: from mail-m19731108.qiye.163.com ([220.197.31.108])
+	id 1u5Jme-0000000C80P-2gal;
+	Thu, 17 Apr 2025 07:35:40 +0000
+Received: from mx.denx.de ([89.58.32.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Jd5-0000000C5EU-1DFC;
-	Thu, 17 Apr 2025 07:25:49 +0000
-Received: from [172.16.12.129] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 1233a2cdc;
-	Thu, 17 Apr 2025 15:25:41 +0800 (GMT+08:00)
-Message-ID: <ca283065-a48c-3b39-e70d-03d4c6c8a956@rock-chips.com>
-Date: Thu, 17 Apr 2025 15:25:06 +0800
+	id 1u5Jkn-0000000C7XV-14Pr
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Apr 2025 07:33:46 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0B7671039EF2C;
+	Thu, 17 Apr 2025 09:33:39 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1744875222; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=u0xom2YM8lyIFaJb7oErSmb3c+ED4OylfqTb0GgwBno=;
+	b=CvG1tcL+b+zgb41GwvC6m4xQO6vjuPOzgoQvrY3Bfr/iRSLdc0WvXYEYX/csfLcpbI0Grp
+	vReiazhemuD55KwSeOpMUWTcwxQ4R/DRW5P9KfLigaANWxhDDauvPPAfbeYHgoqf9cjiIb
+	ZlKzSvJmhXXY2iHGQSFe8sufvWb5gOimRy3Va0qL0UvxGaSDP6BdBSh8PW9REt4d6KaqWn
+	2tvTZxQK8P6aM67FQVbQUkppSmvfBEXTaF2ScUJwOcKdf+po/vTAT5O18Ih1hA3egO1/h6
+	jW/72nVBQgjd9dped8D3rBLs9j3SwJmTkUuBT8yqCFfijlbtG+8oElzHaKOq4w==
+Date: Thu, 17 Apr 2025 09:33:38 +0200
+From: Lukasz Majewski <lukma@denx.de>
+To: Stefan Wahren <wahrenst@gmx.net>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
+ <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Simon Horman
+ <horms@kernel.org>
+Subject: Re: [net-next v5 5/6] ARM: mxs_defconfig: Update mxs_defconfig to
+ 6.15-rc1
+Message-ID: <20250417093338.0990e37f@wsk>
+In-Reply-To: <41ea023e-d19d-40f1-b268-37292c9e15de@gmx.net>
+References: <20250414140128.390400-1-lukma@denx.de>
+	<20250414140128.390400-6-lukma@denx.de>
+	<41ea023e-d19d-40f1-b268-37292c9e15de@gmx.net>
+Organization: denx.de
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.15.1
-Cc: shawn.lin@rock-chips.com, lpieralisi@kernel.org, kw@linux.com,
- bhelgaas@google.com, heiko@sntech.de, manivannan.sadhasivam@linaro.org,
- robh@kernel.org, jingoohan1@gmail.com, thomas.richard@bootlin.com,
- linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- Niklas Cassel <cassel@kernel.org>
-Subject: Re: [PATCH] PCI: dw-rockchip: Configure max payload size on host init
-To: Hans Zhang <18255117159@163.com>
-References: <20250416151926.140202-1-18255117159@163.com>
- <aACoEpueUHBLjgbb@ryzen>
- <85643fe4-c7df-4d64-e852-60b66892470a@rock-chips.com>
- <aACsJPkSDOHbRAJM@ryzen>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <aACsJPkSDOHbRAJM@ryzen>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGkkfT1YYGh0YQ0tPThpJQ0NWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-X-HM-Tid: 0a9642a3a11e09cckunm1233a2cdc
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NRg6EAw*LjJCHhAsNQ8ZDjkt
-	VisKFDJVSlVKTE9PQ0xPTE9IQ09PVTMWGhIXVQgTGgwVVRcSFTsJFBgQVhgTEgsIVRgUFkVZV1kS
-	C1lBWU5DVUlJVUxVSkpPWVdZCAFZQUhMTEM3Bg++
-DKIM-Signature: a=rsa-sha256;
-	b=ItIT98LNpFdr+LN3qpvVBueCPohPToRuA3M+VFYxIN+pTgbAm25/vWhApyWFMy6oxAlqpC5i2wsE8inB6fXgXukULBFpKhVNw/hwUlSwtJdC2pnQ4CGrv6rga/mrw18V1sF3k2TDLCkgFJgGpv1q2IgXyb84yN8ZCw95ludXhfI=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=B6iTx3Lr3Y/E/h3fgZVym20bL7MC/yae8ZyHNmoM91E=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: multipart/signed; boundary="Sig_/a2Zuo_5mcQkE7xKuvovt9yS";
+ protocol="application/pgp-signature"; micalg=pgp-sha512
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_002547_498799_A63BF2ED 
-X-CRM114-Status: GOOD (  12.54  )
+X-CRM114-CacheID: sfid-20250417_003345_580233_D567994A 
+X-CRM114-Status: GOOD (  29.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,74 +80,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-在 2025/04/17 星期四 15:22, Niklas Cassel 写道:
-> On Thu, Apr 17, 2025 at 03:08:34PM +0800, Shawn Lin wrote:
->> 在 2025/04/17 星期四 15:04, Niklas Cassel 写道:
->>> Hello Hans,
->>>
->>> On Wed, Apr 16, 2025 at 11:19:26PM +0800, Hans Zhang wrote:
->>>> The RK3588's PCIe controller defaults to a 128-byte max payload size,
->>>> but its hardware capability actually supports 256 bytes. This results
->>>> in suboptimal performance with devices that support larger payloads.
->>>
->>> Patch looks good to me, but please always reference the TRM when you can.
->>>
->>> Before this patch:
->>> 		DevCap: MaxPayload 256 bytes
->>> 		DevCtl: MaxPayload 128 bytes
->>>
->>>
->>> As per rk3588 TRM, section "11.4.3.8 DSP_PCIE_CAP Detail Registers Description"
->>>
->>> DevCap is per the register description of DSP_PCIE_CAP_DEVICE_CAPABILITIES_REG,
->>> field PCIE_CAP_MAX_PAYLOAD_SIZE.
->>> Which claims that the value after reset is 0x1 (256B).
->>>
->>> DevCtl is per the register description of
->>> DSP_PCIE_CAP_DEVICE_CONTROL_DEVICE_STATUS, field PCIE_CAP_MAX_PAYLOAD_SIZE_CS.
->>> Which claims that the reset value is 0x0 (128B).
->>>
->>> Both of these match the values above.
->>>
->>> As per the description of PCIE_CAP_MAX_PAYLOAD_SIZE_CS:
->>> "Permissible values that
->>> can be programmed are indicated by the Max_Payload_Size
->>> Supported field (PCIE_CAP_MAX_PAYLOAD_SIZE) in the Device
->>> Capabilities (DEVICE_CAPABILITIES_REG) register (for more
->>> details, see section 7.5.3.3 of PCI Express Base Specification)."
->>>
->>> So your patch looks good.
->>>
->>> I guess I'm mostly surprised that the e.g. pci_configure_mps() does not
->>> already set DevCtl to the max(DevCap.MPS of the host, DevCap.MPS of the
->>> endpoint).
->>>
->>> Apparently pci_configure_mps() only decreases MPS from the reset values?
->>> It never increases it?
->>>
->>
->> Actually it does:
->>
->> https://github.com/torvalds/linux/blob/master/Documentation/admin-guide/kernel-parameters.txt#L4757
-> 
-> If that is the case, then explain the before/after with Hans lspci output here:
-> https://lore.kernel.org/linux-pci/bb40385c-6839-484c-90b2-d6c7ecb95ba9@163.com/
-> 
-> His patch changes the default value of DevCtl.MPS (from 128B to 256B), but if
-> pci_configure_mps() can bump DevCtl.MPS to a higher value, his patch should not
-> be needed, since the EP (an NVMe SSD in his case) has DevCap.MPS 512B, and the
-> RC itself has DevCap.MPS 256B.
-> 
-> Seems like we are missing something here.
+--Sig_/a2Zuo_5mcQkE7xKuvovt9yS
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-So Hans, could you please help set pci=pcie_bus_safe or
-pci=pcie_bus_perf in your cmdline, and see how lspci dump different
-without your patch?
+Hi Stefan,
 
-> 
-> 
-> Kind regards,
-> Niklas
-> 
-> 
+> Hi Lukasz,
+>=20
+> Am 14.04.25 um 16:01 schrieb Lukasz Majewski:
+> > This file is the updated version of mxs_defconfig for the v6.15-rc1
+> > linux-next. =20
+> thanks for sending this as a separate patch. Unfortunately it's not
+> that simple by replacing the existing mxs_defconfig. We need to
+> double-check all changes to settings, which was enabled before. This
+> should also include a short note for every setting in the commit log,
+> otherwise every reviewer has to do this job. I'll help you here by
+> adding comments ...
+> >
+> > Signed-off-by: Lukasz Majewski <lukma@denx.de>
+> > ---
+> >
+> > Changes for v5:
+> > - New patch
+> > ---
+> >   arch/arm/configs/mxs_defconfig | 11 -----------
+> >   1 file changed, 11 deletions(-)
+> >
+> > diff --git a/arch/arm/configs/mxs_defconfig
+> > b/arch/arm/configs/mxs_defconfig index c76d66135abb..91723fdd3c04
+> > 100644 --- a/arch/arm/configs/mxs_defconfig
+> > +++ b/arch/arm/configs/mxs_defconfig
+> > @@ -32,9 +32,6 @@ CONFIG_INET=3Dy
+> >   CONFIG_IP_PNP=3Dy
+> >   CONFIG_IP_PNP_DHCP=3Dy
+> >   CONFIG_SYN_COOKIES=3Dy
+> > -# CONFIG_INET_XFRM_MODE_TRANSPORT is not set
+> > -# CONFIG_INET_XFRM_MODE_TUNNEL is not set
+> > -# CONFIG_INET_XFRM_MODE_BEET is not set
+> >   # CONFIG_INET_DIAG is not set
+> >   # CONFIG_IPV6 is not set
+> >   CONFIG_CAN=3Dm
+> > @@ -45,7 +42,6 @@ CONFIG_MTD=3Dy
+> >   CONFIG_MTD_CMDLINE_PARTS=3Dy
+> >   CONFIG_MTD_BLOCK=3Dy
+> >   CONFIG_MTD_DATAFLASH=3Dy
+> > -CONFIG_MTD_M25P80=3Dy =20
+> This is safe because it has been replaced MTD_SPI_NOR, which is still=20
+> enabled.
+> >   CONFIG_MTD_SST25L=3Dy
+> >   CONFIG_MTD_RAW_NAND=3Dy
+> >   CONFIG_MTD_NAND_GPMI_NAND=3Dy
+> > @@ -60,7 +56,6 @@ CONFIG_ENC28J60=3Dy
+> >   CONFIG_ICPLUS_PHY=3Dy
+> >   CONFIG_MICREL_PHY=3Dy
+> >   CONFIG_REALTEK_PHY=3Dy
+> > -CONFIG_SMSC_PHY=3Dy =20
+> This is okay, because it's enabled implicit by USB_NET_SMSC95XX.
+> >   CONFIG_CAN_FLEXCAN=3Dm
+> >   CONFIG_USB_USBNET=3Dy
+> >   CONFIG_USB_NET_SMSC95XX=3Dy
+> > @@ -77,13 +72,11 @@ CONFIG_SERIAL_AMBA_PL011=3Dy
+> >   CONFIG_SERIAL_AMBA_PL011_CONSOLE=3Dy
+> >   CONFIG_SERIAL_MXS_AUART=3Dy
+> >   # CONFIG_HW_RANDOM is not set
+> > -# CONFIG_I2C_COMPAT is not set
+> >   CONFIG_I2C_CHARDEV=3Dy
+> >   CONFIG_I2C_MXS=3Dy
+> >   CONFIG_SPI=3Dy
+> >   CONFIG_SPI_GPIO=3Dm
+> >   CONFIG_SPI_MXS=3Dy
+> > -CONFIG_GPIO_SYSFS=3Dy =20
+> This also okay, because it has been deprecated by moving to EXPERT
+> and its replacement GPIO_CDEV is enabled by default.
+> >   # CONFIG_HWMON is not set
+> >   CONFIG_WATCHDOG=3Dy
+> >   CONFIG_STMP3XXX_RTC_WATCHDOG=3Dy
+> > @@ -138,10 +131,6 @@ CONFIG_PWM_MXS=3Dy
+> >   CONFIG_NVMEM_MXS_OCOTP=3Dy
+> >   CONFIG_EXT4_FS=3Dy
+> >   # CONFIG_DNOTIFY is not set
+> > -CONFIG_NETFS_SUPPORT=3Dm
+> > -CONFIG_FSCACHE=3Dy
+> > -CONFIG_FSCACHE_STATS=3Dy
+> > -CONFIG_CACHEFILES=3Dm =20
+> This is unintended, even it's not your fault Lukasz. NETFS_SUPPORT
+> isn't user select-able anymore, so it's dropped. AFAIU this comes
+> from NFS support, so i think we need to enable CONFIG_NFS_FSCACHE
+> here. Otherwise this caching feature get lost. Since this is a
+> bugfix, this should be separate patch before the syncronization.
+>=20
+> @Shawn @Fabio what's your opinion?
+> >   CONFIG_VFAT_FS=3Dy
+> >   CONFIG_TMPFS=3Dy
+> >   CONFIG_TMPFS_POSIX_ACL=3Dy =20
+>=20
+
+Stefan, I will add your comments in next version of this patch.
+Moreover, I'm going to introduce new patch with the NFS_FSCACHE enabled.
+
+
+Best regards,
+
+Lukasz Majewski
+
+--
+
+DENX Software Engineering GmbH,      Managing Director: Erika Unter
+HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
+
+--Sig_/a2Zuo_5mcQkE7xKuvovt9yS
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmgArtIACgkQAR8vZIA0
+zr0QsggA43pyZpG7jnH/6DRTCiYI+DqNL055w+1AQPvbmQvmW7/iJpPEJtFbRDJr
+dz30fj3dMp27htfUPT4jhtvhJRZ27lCO2aHDb7xzLQGzFpGe0/4UYuNyZ5oo9c8t
+HXVF/JWZhdQEiRIUomXaPcZaC9ZKHc71XSP/euaoM601NTRSp2emaLrukGklnWFB
+bd42VvXnntJ+7+8UBqfEv9PWibWtYJOIrEKN5wnQ4wG24TPZ5aJRk+fW/HitKVxy
+ZegQ6H3kTZa1CtLq9iXa9/9DC2CZvHZm0AVy3Yu4ARH6EpXK+/EKuFqIAevPBSra
+fsnhejZQdfkbg/ae/X11ConafcHPpg==
+=Ztk9
+-----END PGP SIGNATURE-----
+
+--Sig_/a2Zuo_5mcQkE7xKuvovt9yS--
 
