@@ -4,65 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59AFFC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 07:11:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CBDFC369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 07:16:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Content-Transfer-Encoding:Mime-Version:To:From:Subject:Cc:Message-Id:Date:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NhjvZ2JRR5EyoY0B1vtxKVPb3zuD+k++ITAMYs8q1PE=; b=SCUbeUi34GfH2maEwK6je3rDwP
-	w5nZwQDs18BiMdPSjulXMv1YkcpfytMPkfwYaInnY4XykWHm3Gwp1fLF9PfUAObi+/XBbu9414995
-	24cum34bBOauK8iquilBxOGgCLyP6aXCibKM2NlyJhak7DF6ZWNVzNdLYNmNIX/Y5ALT/VP1233H5
-	DqO5nZ6rYwhE9CBf/U6VeYVqBk/TU7WfN003QSEd9eH8lvTd0yAlWmsDJyqUB8Mn/Io6/GTmJ3FEg
-	eaJ/JND2bqKGVYfOHLkcBdgjMxwqgqulUYSJR3W+kNaG7sYY5NQRw/7XixTWeSjqWXltW9AVzQOf6
-	84xqdXmw==;
+	bh=YYgBl4XslUIPANcfaH0UDI8ZQnEJjTNt9jHQJbKWOHU=; b=kKtJqWku9KfX+uwJuU2cm9aZcn
+	mvF+5HmcdUPFb2FopFCjNruZSsTSlOEYX5ZLQSKSD3vP/v/ef5NNstOSlNaZIUBmVnAbvAxi0I7rE
+	1Oao1PIL101vaexzGm7/pIbDdZsUnjD8yWvuwtnru0RHXiqtSj+kYYqxi6iYBcBjdCvuIb5VyWMjR
+	AAyg3I1IH22zmJc02f+n9o3HPWzcUNP/JHVwuqncZRQ2A4SMP3JNRFylYta8iFU9NE5v297IPqyHX
+	8WL3X0Hz3ZrcB4OnjbgtL8fOljyGgdoQnUzMeczzBEnm7ySIJjmrpNFVEhgnIHUuNooELQkDG3MIq
+	5tCurStQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5JOw-0000000C2S4-44ry;
-	Thu, 17 Apr 2025 07:11:10 +0000
-Received: from mail-m1973188.qiye.163.com ([220.197.31.88])
+	id 1u5JTz-0000000C3PF-3uQU;
+	Thu, 17 Apr 2025 07:16:23 +0000
+Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5JN5-0000000C2BK-2L6P;
-	Thu, 17 Apr 2025 07:09:17 +0000
-Received: from [172.16.12.129] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 1232f7211;
-	Thu, 17 Apr 2025 15:09:09 +0800 (GMT+08:00)
-Message-ID: <85643fe4-c7df-4d64-e852-60b66892470a@rock-chips.com>
-Date: Thu, 17 Apr 2025 15:08:34 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.15.1
-Cc: shawn.lin@rock-chips.com, lpieralisi@kernel.org, kw@linux.com,
- bhelgaas@google.com, heiko@sntech.de, manivannan.sadhasivam@linaro.org,
- robh@kernel.org, jingoohan1@gmail.com, thomas.richard@bootlin.com,
- linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH] PCI: dw-rockchip: Configure max payload size on host init
-To: Niklas Cassel <cassel@kernel.org>, Hans Zhang <18255117159@163.com>
-References: <20250416151926.140202-1-18255117159@163.com>
- <aACoEpueUHBLjgbb@ryzen>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <aACoEpueUHBLjgbb@ryzen>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGh1PS1YdTh9MTR0YHxlPHR9WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-X-HM-Tid: 0a9642947cc309cckunm1232f7211
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6MxA6Dgw6LTJWGhBPTThCVige
-	SEhPCxdVSlVKTE9PQ0xITE5KSE5CVTMWGhIXVQgTGgwVVRcSFTsJFBgQVhgTEgsIVRgUFkVZV1kS
-	C1lBWU5DVUlJVUxVSkpPWVdZCAFZQUlDSE03Bg++
-DKIM-Signature: a=rsa-sha256;
-	b=Bru4i23kQYP97Nux3LeWYaNmKGGkZOkOZHQ0UKzubnL1kmVrx40dZe9StL44MeqBGjDHQsj/p2arOdsfDLIMDj7XsnYJaSq8EMu/yUacpIEFeqa5MGha3wpPB1oztmJIUtu4dZy5cnd8M4RGAKe/Stpn69AXKrNpf617Id0ZB04=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=NhjvZ2JRR5EyoY0B1vtxKVPb3zuD+k++ITAMYs8q1PE=;
-	h=date:mime-version:subject:message-id:from;
+	id 1u5JS7-0000000C30J-1Axl
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Apr 2025 07:14:29 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 4313F439D4;
+	Thu, 17 Apr 2025 07:14:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1744874062;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=YYgBl4XslUIPANcfaH0UDI8ZQnEJjTNt9jHQJbKWOHU=;
+	b=YEhNjld6ymNJqLjNHhBzpSnN7oxSp7ezkwtyyDXqHLLiBD8JhNvqejYTXoBMtvZDkSP9do
+	k/g8vZ3fmZQuP3/3LiwBWp9ucZU5wxsKptb6ID4sRXNlXlDzNCdwKBE4ud8E4tGTCxlp8L
+	r8mhLATCbpRcjr3kWeU0PDea0TtRrFjiETGwKZZLdbapYValXtnWGRLPuXGOGxpyB6ZoN+
+	ox0SjwLvBXBPurAx36kStx7furqEBRLvFub9fqKWABp708RJsO3lOioWNEgT0zqj7dQbbR
+	7wM7fZzmaeCPebZvlE5TDNCHnvG32PEWeTnAiwHpspnGjirRTX/je3h/ohWATw==
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 17 Apr 2025 09:14:16 +0200
+Message-Id: <D98Q8BRNUVS9.11J60C67L1ALR@bootlin.com>
+Cc: "Alexei Starovoitov" <ast@kernel.org>, "Daniel Borkmann"
+ <daniel@iogearbox.net>, "John Fastabend" <john.fastabend@gmail.com>,
+ "Andrii Nakryiko" <andrii@kernel.org>, "Martin KaFai Lau"
+ <martin.lau@linux.dev>, "Eduard Zingerman" <eddyz87@gmail.com>, "Song Liu"
+ <song@kernel.org>, "Yonghong Song" <yonghong.song@linux.dev>, "KP Singh"
+ <kpsingh@kernel.org>, "Stanislav Fomichev" <sdf@fomichev.me>, "Hao Luo"
+ <haoluo@google.com>, "Jiri Olsa" <jolsa@kernel.org>, "Puranjay Mohan"
+ <puranjay@kernel.org>, "Xu Kuohai" <xukuohai@huaweicloud.com>, "Catalin
+ Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
+ "Mykola Lysenko" <mykolal@fb.com>, "Shuah Khan" <shuah@kernel.org>, "Maxime
+ Coquelin" <mcoquelin.stm32@gmail.com>, "Alexandre Torgue"
+ <alexandre.torgue@foss.st.com>, "Florent Revest" <revest@chromium.org>,
+ "Bastien Curutchet" <bastien.curutchet@bootlin.com>,
+ <ebpf@linuxfoundation.org>, "Thomas Petazzoni"
+ <thomas.petazzoni@bootlin.com>, <bpf@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kselftest@vger.kernel.org>,
+ <linux-stm32@st-md-mailman.stormreply.com>
+Subject: Re: [PATCH RFC bpf-next 1/4] bpf: add struct largest member size in
+ func model
+From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
+To: "Andrii Nakryiko" <andrii.nakryiko@gmail.com>
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: aerc 0.20.1-0-g2ecb8770224a
+References: <20250411-many_args_arm64-v1-0-0a32fe72339e@bootlin.com>
+ <20250411-many_args_arm64-v1-1-0a32fe72339e@bootlin.com>
+ <CAEf4Bzbn6BdXTOb0dTcsQmOMZpp5=DzGS2hHHQ3+dwcja=gv+w@mail.gmail.com>
+In-Reply-To: <CAEf4Bzbn6BdXTOb0dTcsQmOMZpp5=DzGS2hHHQ3+dwcja=gv+w@mail.gmail.com>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvvdekieefucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpegtfffkvefuhffvggfgofhfjgesthhqredtredtjeenucfhrhhomheptehlvgigihhsucfnohhthhhorhoruceorghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpedvhfdvjeektefggfdvhfejveehleeugfeiieelgfffheeggefhvddvudefiedtfeenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedtpdhrtghpthhtoheprghnughrihhirdhnrghkrhihihhkohesghhmrghilhdrtghomhdprhgtphhtthhopegrshhtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegurghnihgvlhesihhoghgvrghrsghogidrnhgvthdprhgtphhtthhopehjohhhnhdrfhgrshhtrggsvghnugesghhmrghilhdrtghomhdprhgtphhtthhopegrnhgur
+ hhiiheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepmhgrrhhtihhnrdhlrghusehlihhnuhigrdguvghvpdhrtghpthhtohepvgguugihiiekjeesghhmrghilhdrtghomhdprhgtphhtthhopehsohhngheskhgvrhhnvghlrdhorhhg
+X-GND-Sasl: alexis.lothore@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_000916_051484_5763B5EA 
-X-CRM114-Status: GOOD (  13.53  )
+X-CRM114-CacheID: sfid-20250417_001427_511788_617DAE1A 
+X-CRM114-Status: GOOD (  19.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,57 +95,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-在 2025/04/17 星期四 15:04, Niklas Cassel 写道:
-> Hello Hans,
-> 
-> On Wed, Apr 16, 2025 at 11:19:26PM +0800, Hans Zhang wrote:
->> The RK3588's PCIe controller defaults to a 128-byte max payload size,
->> but its hardware capability actually supports 256 bytes. This results
->> in suboptimal performance with devices that support larger payloads.
-> 
-> Patch looks good to me, but please always reference the TRM when you can.
-> 
-> Before this patch:
-> 		DevCap: MaxPayload 256 bytes
-> 		DevCtl: MaxPayload 128 bytes
-> 
-> 
-> As per rk3588 TRM, section "11.4.3.8 DSP_PCIE_CAP Detail Registers Description"
-> 
-> DevCap is per the register description of DSP_PCIE_CAP_DEVICE_CAPABILITIES_REG,
-> field PCIE_CAP_MAX_PAYLOAD_SIZE.
-> Which claims that the value after reset is 0x1 (256B).
-> 
-> DevCtl is per the register description of
-> DSP_PCIE_CAP_DEVICE_CONTROL_DEVICE_STATUS, field PCIE_CAP_MAX_PAYLOAD_SIZE_CS.
-> Which claims that the reset value is 0x0 (128B).
-> 
-> Both of these match the values above.
-> 
-> As per the description of PCIE_CAP_MAX_PAYLOAD_SIZE_CS:
-> "Permissible values that
-> can be programmed are indicated by the Max_Payload_Size
-> Supported field (PCIE_CAP_MAX_PAYLOAD_SIZE) in the Device
-> Capabilities (DEVICE_CAPABILITIES_REG) register (for more
-> details, see section 7.5.3.3 of PCI Express Base Specification)."
-> 
-> So your patch looks good.
-> 
-> I guess I'm mostly surprised that the e.g. pci_configure_mps() does not
-> already set DevCtl to the max(DevCap.MPS of the host, DevCap.MPS of the
-> endpoint).
-> 
-> Apparently pci_configure_mps() only decreases MPS from the reset values?
-> It never increases it?
-> 
+Hi Andrii,
 
-Actually it does:
+On Wed Apr 16, 2025 at 11:24 PM CEST, Andrii Nakryiko wrote:
+> On Fri, Apr 11, 2025 at 1:32=E2=80=AFPM Alexis Lothor=C3=A9 (eBPF Foundat=
+ion)
+> <alexis.lothore@bootlin.com> wrote:
+>>
+>> In order to properly JIT the trampolines needed to attach BPF programs
+>> to functions, some architectures like ARM64 need to know about the
+>> alignment needed for the function arguments. Such alignment can
+>> generally be deduced from the argument size, but that's not completely
+>> true for composite types. In the specific case of ARM64, the AAPCS64 ABI
+>> defines that a composite type which needs to be passed through stack
+>> must be aligned on the maximum between 8 and the largest alignment
+>> constraint of its first-level members. So the JIT compiler needs more
+>> information about the arguments to make sure to generate code that
+>> respects those alignment constraints.
+>>
+>> For struct arguments, add information about the size of the largest
+>> first-level member in the struct btf_func_model to allow the JIT
+>> compiler to guess the needed alignment. The information is quite
+>
+> I might be missing something, but how can the *size* of the field be
+> used to calculate that argument's *alignment*? i.e., I don't
+> understand why arg_largest_member_size needs to be calculated instead
+> of arg_largest_member_alignment...
 
-https://github.com/torvalds/linux/blob/master/Documentation/admin-guide/kernel-parameters.txt#L4757
+Indeed I initially checked whether I could return directly some alignment
+info from btf, but it then involves the alignment computation in the btf
+module. Since there could be minor differences between architectures about
+alignment requirements, I though it would be better to in fact keep alignme=
+nt
+computation out of the btf module. For example, I see that 128 bits values
+are aligned on 16 bytes on ARM64, while being aligned on 8 bytes on S390.=
+=20
 
-> 
-> Kind regards,
-> Niklas
-> 
-> 
+And since for ARM64, all needed alignments are somehow derived from size
+(it is either directly size for fundamental types, or alignment of the
+largest member for structs, which is then size of largest member),
+returning the size seems to be enough to allow the JIT side to compute
+alignments.
+
+>> specific, but it allows to keep arch-specific concerns (ie: guessing the
+>> final needed alignment for an argument) isolated in each JIT compiler.
+>
+> couldn't all this information be calculated in the JIT compiler (if
+> JIT needs that) from BTF?
+
+From what I understand, the JIT compiler does not have access to BTF info,
+only a substract from it, arranged in a struct btf_func_model ? This
+struct btf_func_model already has size info for standard types, but for
+structs we need some additional info about the members, hence this
+arg_largest_member_alignment addition in btf_func_model.
+
+Thanks,
+
+Alexis
+
+--=20
+Alexis Lothor=C3=A9, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
 
