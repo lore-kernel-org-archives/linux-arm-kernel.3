@@ -4,99 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2476C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 14:51:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3EDBC369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 14:53:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q4svnLFbJnv3zIx0N7VYQw66/h1rJWDrzgMSBi0aPAY=; b=ZKvaivMsYachEI4idYy4sVkDah
-	UYgXSgJRvclnubfndwlnffNEugDMUpC2PjqX6jYUFOywz5DN0hpPKSmPvvY54WynFr5v/dvsh960I
-	zGptkELt8thIAxwcWPfKcvkdKDcyl6rZmLNfgBuAaxS/1VLcFNF0INRzOmlsLEdd4u5nlau823Yhd
-	WKaLTw05QVs+wkYrEaNfEHtXedLXR78zJWWNATYfyuqevKmvArCc8Mh1jfpw7owQBs4UQb2C/b2ew
-	nCqS0h/SYeIgdJ1Kh0RNQi+oFl6AbX3FHttIqO2qwpg1Lp9qbzFavcRXTiTtgLiv3oFiouD2PPvuj
-	nOnevBlQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MeLYHnHEnBC3dOK3sUpFWpIxdFNNBB7+ix7yzq4GGOU=; b=Vctl4yjQEI31igexO0gBMj0VbF
+	FipktqRU6urW+WG/OrX+9vBMMrAugWKLV4UrVSyc+TZ9pXNXCu5t+yW09QaUlwvepE4x7T52XlLVi
+	Q79c9pt+++x0U0yUkzerYlirg2naXvnacK16L7Sy/UnRRvmQKSuyp9od35P+iKQ4xmacPJiTNPbvb
+	iun2lXmMsFE9V0D15nE4dneHj/jhVaagoCGRyOVvN1xAgv6z5C3merzBv4lKr8VL2hb31wYFvZpJ2
+	tO1CBQS4fXQgE3qB6g464in0sYyFXwbXKswusVLe4raVjrtTHBSxlBXzYrNGhmcO+niGElm9HR3So
+	vJ3KQezQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Qa0-0000000DO6W-20Z4;
-	Thu, 17 Apr 2025 14:51:04 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5QBb-0000000DIop-2wEz
+	id 1u5Qbq-0000000DONZ-14zs;
+	Thu, 17 Apr 2025 14:52:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u5QCZ-0000000DJ6M-0YKn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 14:25:52 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-549b159c84cso1056539e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Apr 2025 07:25:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744899950; x=1745504750; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Q4svnLFbJnv3zIx0N7VYQw66/h1rJWDrzgMSBi0aPAY=;
-        b=SvgsC2GaxJd6sGH5090fMO3xgS9EC7WKjo/XjEIaRi9Y2OR3T14jfNrfxt8OPH9x5T
-         t59U49aAJ1MrPkyZzb9X+19hHeTqczpJXFJ4MA9VCiBjZGBJ0Pr/yrbzRqJskyv7AKJ7
-         QIVPAzt2rFF406RrI/TsRYYjqab0AicnL/u/5Bfw8uqqukYvP+mYTPE+G3q8GCYmEpyf
-         SBHjR1xta6FOBINCn09qrx2RInbJqEasAbVuN85y+SR8O2VbHoOjsFx1TdpixBNPCqjv
-         YO3RLZAHlbGk3kDnFiMHJb8uGNrTQ7EO43xPCztZUrPjwNl6xWxtGovaZjkYpHyMWg52
-         uX5Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744899950; x=1745504750;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Q4svnLFbJnv3zIx0N7VYQw66/h1rJWDrzgMSBi0aPAY=;
-        b=XDCj9CT9q3DeWkdy6ICt4wpbntw/Cz1/cuJNvxyCvjeX2dYnBJnePqvrtvCkJsGA40
-         Y/py7Hf/4FrY+85KnsoSgL/IXvxPwy/R++ZB4RxNXFwVZoeiJv5VsHqea4X/5WY+Z2Iz
-         EAVa53PHcq89a5a41GGrPDo1ifMSzduLJJSg2XzEnokQSlSoaAoEeoxsP5a/IpMSXDCc
-         fxXLAX1kbR0lG/Rhr9EIuGCJ3ImeypkQ8O1cHjZBfasHwx8p5VQUj54CIlBk0sXP4rPe
-         I2yZtnmbEqSpD6hV5NWKqCRvCFHFl8CzBXjCHX1JqacEBwJa5BVwKD3LFRP8zVUK1nh0
-         EwrA==
-X-Forwarded-Encrypted: i=1; AJvYcCXgvUZ2WQ6FMIIoXS2xoYr5CsgoWxQuoBMemqxF32pnz7odGfZ6sYc8HEzCeN5Tko0+cIwdGAZ178f8WVeqS8kt@lists.infradead.org
-X-Gm-Message-State: AOJu0YwUzqiczgJFs6AKFIWd5FM7ZZZFSdvDYqVkYMaZ5tqzTjNMVICB
-	1gEl6c+QE1PpycfaVhu9z6JtXxszubV1pvDBFuzRrTPiZBpEUxs17ZtilRQpCPI=
-X-Gm-Gg: ASbGncsQPNVJW6DmXg+64NpkmpXVn2YH7bxHWCABERQTH9wmjvL4ut2Ov+mSRJU0Gyk
-	tObCHTYUQZbX32PY3n26iEVMzM5av0rXNQ9xibGui8xD3PiKWleXnmv1jg8aaw0mn3btHJ5Tyj+
-	nILtfrHbXbbRDfzrEXxq2qkQ0/caz2QJnMYF6E113WTlbg3opIFCXpUwJmFviVCUV7IZfqF8zZm
-	GlAy67jSHRvDIiHaxabN7FybGsq95JThgOHkkvQVLQzJbQ0Pvk+rpDV3cYM2V7fnKvgZg1+KHXw
-	yigmsKDcrmLcaeZhU/zwEfdk7DYK/Juuk+RpYMPz9she2zUGW+zJLaktXYBBgW1vpOm+z80yxH7
-	NEl4IFXDeeoZtkPs=
-X-Google-Smtp-Source: AGHT+IFLZC+7o/XwKN7xuIyMZVwhsS5rHckZLNTwrcJeTbAwEvd5hmVT1e+JUJqkIv5jp8W5a7Ps7g==
-X-Received: by 2002:a05:6512:2310:b0:54b:117c:1355 with SMTP id 2adb3069b0e04-54d64af41c9mr2069093e87.55.1744899949638;
-        Thu, 17 Apr 2025 07:25:49 -0700 (PDT)
-Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54d65e43647sm370096e87.58.2025.04.17.07.25.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 17 Apr 2025 07:25:49 -0700 (PDT)
-From: Ulf Hansson <ulf.hansson@linaro.org>
-To: Saravana Kannan <saravanak@google.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	linux-pm@vger.kernel.org
-Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
+	Thu, 17 Apr 2025 14:26:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 44A9E1515;
+	Thu, 17 Apr 2025 07:26:45 -0700 (PDT)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0448C3F694;
+	Thu, 17 Apr 2025 07:26:44 -0700 (PDT)
+Date: Thu, 17 Apr 2025 15:26:42 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: Peng Fan <peng.fan@nxp.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Saravana Kannan <saravanak@google.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Michael Grzeschik <m.grzeschik@pengutronix.de>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Abel Vesa <abel.vesa@linaro.org>,
-	Devarsh Thakkar <devarsht@lewv0571a.ent.ti.com>,
-	Peng Fan <peng.fan@oss.nxp.com>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	Johan Hovold <johan@kernel.org>,
-	Maulik Shah <maulik.shah@oss.qualcomm.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 11/11] pmdomain: core: Leave powered-on genpds on until ->sync_state()
-Date: Thu, 17 Apr 2025 16:25:09 +0200
-Message-ID: <20250417142513.312939-12-ulf.hansson@linaro.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250417142513.312939-1-ulf.hansson@linaro.org>
-References: <20250417142513.312939-1-ulf.hansson@linaro.org>
+	Linus Walleij <linus.walleij@linaro.org>,
+	Aisheng Dong <aisheng.dong@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Jacky Bai <ping.bai@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>
+Subject: Re: [PATCH 1/4] firmware: arm_scmi: bus: Bypass setting fwnode for
+ scmi cpufreq
+Message-ID: <20250417-diligent-anteater-of-felicity-70bff3@sudeepholla>
+References: <Z87UJdhiTWhssnbl@bogus>
+ <Z87sGF_jHKau_FMe@bogus>
+ <PAXPR04MB8459EA5C7898393E51C246AD88D12@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <PAXPR04MB8459A73179FFF0ED0C9A51E488D12@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <Z9AdICiyaCmzKh-N@bogus>
+ <Z9FnZzBQuZ1j5k3I@bogus>
+ <Z9Fv9JPdF5OWUHfk@bogus>
+ <20250313052309.GA11131@nxa18884-linux>
+ <20250409035029.GC27988@nxa18884-linux>
+ <20250409-incredible-attentive-scorpion-fa9def@sudeepholla>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250409-incredible-attentive-scorpion-fa9def@sudeepholla>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_072551_739182_11E57B48 
-X-CRM114-Status: GOOD (  16.41  )
+X-CRM114-CacheID: sfid-20250417_072651_263381_C548F667 
+X-CRM114-Status: GOOD (  42.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,87 +85,244 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Powering-off a genpd that was on during boot, before all of its consumer
-devices have been probed, is certainly prone to problems.
+On Wed, Apr 09, 2025 at 12:14:00PM +0100, Sudeep Holla wrote:
+> On Wed, Apr 09, 2025 at 11:50:29AM +0800, Peng Fan wrote:
+> > Hi Sudeep, Cristian
+> > 
+> > On Thu, Mar 13, 2025 at 01:23:27PM +0800, Peng Fan wrote:
+> > >On Wed, Mar 12, 2025 at 11:28:52AM +0000, Sudeep Holla wrote:
+> > >>On Wed, Mar 12, 2025 at 10:52:23AM +0000, Sudeep Holla wrote:
+> > >>> On Tue, Mar 11, 2025 at 11:23:12AM +0000, Sudeep Holla wrote:
+> > >>> > On Tue, Mar 11, 2025 at 11:12:45AM +0000, Peng Fan wrote:
+> > >>> > >
+> > >>> > > So it is clear that wrong fw_devlink is created, it is because scmi cpufreq device is
+> > >>> > > created earlier and when device_add, the below logic makes the fwnode pointer points
+> > >>> > > to scmi cpufreq device.
+> > >>> > >         if (dev->fwnode && !dev->fwnode->dev) {
+> > >>> > >                 dev->fwnode->dev = dev;
+> > >>> > >                 fw_devlink_link_device(dev);
+> > >>> > >         }
+> > >>> > >
+> > >>> >
+> > >>> > Thanks, looks like simple way to reproduce the issue. I will give it a try.
+> > >>> >
+> > >>> 
+> > >>> I could reproduce but none of my solution solved the problem completely
+> > >>> or properly. And I don't like the DT proposal you came up with. I am
+> > >>> not inclined to just drop this fwnode setting in the scmi devices and
+> > >>> just use of_node.
+> > >>>
+> > >>
+> > >>Sorry for the typo that changes the meaning: s/not/now
+> > >>
+> > >>I meant "I am now inclined ..", until we figure out a way to make this
+> > >>work with devlinks properly.
+> > >
+> > >when you have time, please give a look at
+> > >https://github.com/MrVan/linux/commit/b500c29cb7f6f32a38b1ed462e333db5a3e301e4
+> > >
+> > >The upper patch was to follow Cristian's and Dan's suggestion in V2[1] to use
+> > >a flag SCMI_DEVICE_NO_FWNODE for scmi device.
+> > >
+> > >I could post out the upper patch as V3 if it basically looks no design flaw.
+> > >I will drop the pinctrl patch in v3, considering we are first going
+> > >to resolve the fw_devlink issue for cpufreq/devfreq.
+> > >
+> > >[1] https://lore.kernel.org/all/Z6SgFGb4Z88v783c@pluto/
+> > 
+> > Not sure you gave a look on this or not. I am thinking to bring this V3
+> > out to mailing list later this week. Please raise if you have any concern.
+> > 
+> 
+> Yes I had some thoughts. I will take a look and refresh my memories first.
+> 
 
-Let's fix these problems by preventing these genpds from being powered-off
-until ->sync_state(). Note that, this only works for OF based platform as
-->sync_state() are relying on fw_devlink.
+OK, I will post it separately(may be next week) but I wanted this way.
+Revert to old behaviour and driver request fw_devlink dependencies to
+be created if they rely on them. I am not sure if that is better approach.
 
-Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+Regards,
+Sudeep
+
+
+-->8
+
+From: Sudeep Holla <sudeep.holla@arm.com>
+Date: Thu, 17 Apr 2025 10:59:10 +0100
+Subject: [PATCH] firmware: arm_scmi: Add flag to control setting of fwnode
+ handle
+
+Currently, when multiple SCMI devices share the same protocol,
+their fwnode->dev all reference the same device tree node. Depending
+on the order of device creation, fwnode->dev ends up pointing to one
+of the SCMI devices, causing fw_devlink to incorrectly establish
+supplier-consumer relationships treating the first-created device as
+the supplier for all others.
+
+To address this, introduce a flag that enables explicit control over
+whether the fwnode handle should be set. This allows only those devices
+that require fw_devlink support to request it explicitly.
+
+By default, only the of_node is set, which is sufficient for most SCMI
+drivers.
+
+Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
 ---
- drivers/pmdomain/core.c   | 12 +++++++++++-
- include/linux/pm_domain.h |  1 +
- 2 files changed, 12 insertions(+), 1 deletion(-)
+ drivers/firmware/arm_scmi/bus.c    | 19 ++++++++++++-------
+ drivers/firmware/arm_scmi/common.h |  2 +-
+ drivers/firmware/arm_scmi/driver.c | 12 ++++++------
+ include/linux/scmi_protocol.h      |  4 ++++
+ 4 files changed, 23 insertions(+), 14 deletions(-)
 
-diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
-index 695d7d9e5582..a8c56f7a7ba0 100644
---- a/drivers/pmdomain/core.c
-+++ b/drivers/pmdomain/core.c
-@@ -212,6 +212,12 @@ static inline bool irq_safe_dev_in_sleep_domain(struct device *dev,
- 	return ret;
+diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
+index 1adef0389475..eeab5de03a1e 100644
+--- a/drivers/firmware/arm_scmi/bus.c
++++ b/drivers/firmware/arm_scmi/bus.c
+@@ -389,7 +389,7 @@ static void __scmi_device_destroy(struct scmi_device *scmi_dev)
+ 
+ static struct scmi_device *
+ __scmi_device_create(struct device_node *np, struct device *parent,
+-		     int protocol, const char *name)
++		     int protocol, const char *name, u32 flags)
+ {
+ 	int id, retval;
+ 	struct scmi_device *scmi_dev;
+@@ -439,11 +439,15 @@ __scmi_device_create(struct device_node *np, struct device *parent,
+ 	scmi_dev->id = id;
+ 	scmi_dev->protocol_id = protocol;
+ 	scmi_dev->dev.parent = parent;
+-	device_set_node(&scmi_dev->dev, of_fwnode_handle(np));
+ 	scmi_dev->dev.bus = &scmi_bus_type;
+ 	scmi_dev->dev.release = scmi_device_release;
+ 	dev_set_name(&scmi_dev->dev, "scmi_dev.%d", id);
+ 
++	if (flags & SCMI_DEV_SET_FWNODE)
++		device_set_node(&scmi_dev->dev, of_fwnode_handle(np));
++	else
++		scmi_dev->dev.of_node = np;
++
+ 	retval = device_register(&scmi_dev->dev);
+ 	if (retval)
+ 		goto put_dev;
+@@ -461,11 +465,11 @@ __scmi_device_create(struct device_node *np, struct device *parent,
+ 
+ static struct scmi_device *
+ _scmi_device_create(struct device_node *np, struct device *parent,
+-		    int protocol, const char *name)
++		    int protocol, const char *name, u32 flags)
+ {
+ 	struct scmi_device *sdev;
+ 
+-	sdev = __scmi_device_create(np, parent, protocol, name);
++	sdev = __scmi_device_create(np, parent, protocol, name, flags);
+ 	if (!sdev)
+ 		pr_err("(%s) Failed to create device for protocol 0x%x (%s)\n",
+ 		       of_node_full_name(parent->of_node), protocol, name);
+@@ -498,14 +502,14 @@ _scmi_device_create(struct device_node *np, struct device *parent,
+  */
+ struct scmi_device *scmi_device_create(struct device_node *np,
+ 				       struct device *parent, int protocol,
+-				       const char *name)
++				       const char *name, u32 flags)
+ {
+ 	struct list_head *phead;
+ 	struct scmi_requested_dev *rdev;
+ 	struct scmi_device *scmi_dev = NULL;
+ 
+ 	if (name)
+-		return _scmi_device_create(np, parent, protocol, name);
++		return _scmi_device_create(np, parent, protocol, name, flags);
+ 
+ 	mutex_lock(&scmi_requested_devices_mtx);
+ 	phead = idr_find(&scmi_requested_devices, protocol);
+@@ -521,7 +525,8 @@ struct scmi_device *scmi_device_create(struct device_node *np,
+ 
+ 		sdev = _scmi_device_create(np, parent,
+ 					   rdev->id_table->protocol_id,
+-					   rdev->id_table->name);
++					   rdev->id_table->name,
++					   rdev->id_table->flags);
+ 		if (sdev)
+ 			scmi_dev = sdev;
+ 	}
+diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
+index dab758c5fdea..c948c4d88332 100644
+--- a/drivers/firmware/arm_scmi/common.h
++++ b/drivers/firmware/arm_scmi/common.h
+@@ -151,7 +151,7 @@ extern struct blocking_notifier_head scmi_requested_devices_nh;
+ 
+ struct scmi_device *scmi_device_create(struct device_node *np,
+ 				       struct device *parent, int protocol,
+-				       const char *name);
++				       const char *name, u32 flags);
+ void scmi_device_destroy(struct device *parent, int protocol, const char *name);
+ 
+ int scmi_protocol_acquire(const struct scmi_handle *handle, u8 protocol_id);
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index f6c9e4491240..433b057ec0d9 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -436,11 +436,11 @@ EXPORT_SYMBOL_GPL(scmi_protocol_unregister);
+  *	  for the specified protocol.
+  */
+ static void scmi_create_protocol_devices(struct device_node *np,
+-					 struct scmi_info *info,
+-					 int prot_id, const char *name)
++					 struct scmi_info *info, int prot_id,
++					 const char *name, u32 flags)
+ {
+ 	mutex_lock(&info->devreq_mtx);
+-	scmi_device_create(np, info->dev, prot_id, name);
++	scmi_device_create(np, info->dev, prot_id, name, flags);
+ 	mutex_unlock(&info->devreq_mtx);
  }
  
-+#ifdef CONFIG_PM_GENERIC_DOMAINS_OF
-+static bool genpd_may_stay_on(bool on) { return on; }
-+#else
-+static bool genpd_may_stay_on(bool on) { return false; }
-+#endif
-+
- static int genpd_runtime_suspend(struct device *dev);
- 
- /*
-@@ -933,11 +939,12 @@ static void genpd_power_off(struct generic_pm_domain *genpd, bool one_dev_on,
- 	 * The domain is already in the "power off" state.
- 	 * System suspend is in progress.
- 	 * The domain is configured as always on.
-+	 * The domain was on at boot and still need to stay on.
- 	 * The domain has a subdomain being powered on.
- 	 */
- 	if (!genpd_status_on(genpd) || genpd->prepared_count > 0 ||
- 	    genpd_is_always_on(genpd) || genpd_is_rpm_always_on(genpd) ||
--	    atomic_read(&genpd->sd_count) > 0)
-+	    genpd->stay_on || atomic_read(&genpd->sd_count) > 0)
- 		return;
- 
- 	/*
-@@ -2374,6 +2381,7 @@ int pm_genpd_init(struct generic_pm_domain *genpd,
- 	INIT_WORK(&genpd->power_off_work, genpd_power_off_work_fn);
- 	atomic_set(&genpd->sd_count, 0);
- 	genpd->status = is_off ? GENPD_STATE_OFF : GENPD_STATE_ON;
-+	genpd->stay_on = genpd_may_stay_on(!is_off);
- 	genpd->sync_state = GENPD_SYNC_STATE_OFF;
- 	genpd->device_count = 0;
- 	genpd->provider = NULL;
-@@ -2640,6 +2648,7 @@ void of_genpd_sync_state(struct device *dev)
- 	list_for_each_entry(genpd, &gpd_list, gpd_list_node) {
- 		if (genpd->provider == &np->fwnode) {
- 			genpd_lock(genpd);
-+			genpd->stay_on = false;
- 			genpd_power_off(genpd, false, 0);
- 			genpd_unlock(genpd);
- 		}
-@@ -3486,6 +3495,7 @@ static void genpd_provider_sync_state(struct device *dev)
- 
- 	case GENPD_SYNC_STATE_SIMPLE:
- 		genpd_lock(genpd);
-+		genpd->stay_on = false;
- 		genpd_power_off(genpd, false, 0);
- 		genpd_unlock(genpd);
+@@ -2668,7 +2668,7 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
+ 	snprintf(name, 32, "__scmi_transport_device_%s_%02X",
+ 		 idx ? "rx" : "tx", prot_id);
+ 	/* Create a uniquely named, dedicated transport device for this chan */
+-	tdev = scmi_device_create(of_node, info->dev, prot_id, name);
++	tdev = scmi_device_create(of_node, info->dev, prot_id, name, 0);
+ 	if (!tdev) {
+ 		dev_err(info->dev,
+ 			"failed to create transport device (%s)\n", name);
+@@ -2865,7 +2865,7 @@ static int scmi_device_request_notifier(struct notifier_block *nb,
+ 	switch (action) {
+ 	case SCMI_BUS_NOTIFY_DEVICE_REQUEST:
+ 		scmi_create_protocol_devices(np, info, id_table->protocol_id,
+-					     id_table->name);
++					     id_table->name, id_table->flags);
  		break;
-diff --git a/include/linux/pm_domain.h b/include/linux/pm_domain.h
-index 2185ee9e4f7c..c5358cccacad 100644
---- a/include/linux/pm_domain.h
-+++ b/include/linux/pm_domain.h
-@@ -193,6 +193,7 @@ struct generic_pm_domain {
- 	unsigned int performance_state;	/* Aggregated max performance state */
- 	cpumask_var_t cpus;		/* A cpumask of the attached CPUs */
- 	bool synced_poweroff;		/* A consumer needs a synced poweroff */
-+	bool stay_on;			/* Stay powered-on during boot. */
- 	enum genpd_sync_state sync_state; /* How sync_state is managed. */
- 	int (*power_off)(struct generic_pm_domain *domain);
- 	int (*power_on)(struct generic_pm_domain *domain);
+ 	case SCMI_BUS_NOTIFY_DEVICE_UNREQUEST:
+ 		scmi_destroy_protocol_devices(info, id_table->protocol_id,
+@@ -3244,7 +3244,7 @@ static int scmi_probe(struct platform_device *pdev)
+ 		}
+ 
+ 		of_node_get(child);
+-		scmi_create_protocol_devices(child, info, prot_id, NULL);
++		scmi_create_protocol_devices(child, info, prot_id, NULL, 0);
+ 	}
+ 
+ 	return 0;
+diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
+index 688466a0e816..2546b7977fe3 100644
+--- a/include/linux/scmi_protocol.h
++++ b/include/linux/scmi_protocol.h
+@@ -947,9 +947,13 @@ struct scmi_device {
+ 
+ #define to_scmi_dev(d) container_of_const(d, struct scmi_device, dev)
+ 
++/* The scmi device needs fwnode handle */
++#define SCMI_DEV_SET_FWNODE		BIT(0)
++
+ struct scmi_device_id {
+ 	u8 protocol_id;
+ 	const char *name;
++	u32 flags;
+ };
+ 
+ struct scmi_driver {
 -- 
-2.43.0
+2.34.1
 
 
