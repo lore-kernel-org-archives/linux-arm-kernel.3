@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88CE2C369C9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 19:12:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9738AC369CA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 19:13:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bcw9WhJwy8zPhG5QYKyzowO/nlWGUJAb4ocjNVPbD+M=; b=UG252w03c+i8xrkF8V3oo2Vpvn
-	fdVA/07TgBkvcGifKs28uMTAAFBKz7oHFS96Rpxe4E3AsCMvG608dNTNKfpgkMJhqQIy13EBPsFkC
-	4mFokzyd3YR8JFU5yOyv1IFjh23EmJADHAtDhn995Cm1crutEeV9iqulyXmE9Pl7ZXbXwV2wYy8Ls
-	ZthsK7kCU6x06+UIH4KKFl48k8Uq3ruf6oHTM5gD8ns2dmRB317bmYyVkSNoc+rYW6kapdzfbDKIg
-	jTaQBMZ2GGSpRIb+7KxRB7qbSNsB70M/WqOGX9ufqa0uIGyf/QhwhQFTOPBAMQEgFujCDM5PK+XsL
-	x5D3MiIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NavMAhX2VAHEbhiYeDnZbQQONqalfAmvIAdt4Hu1Exs=; b=SoAGdz/rNUEa6akH8ukfoafET9
+	k4NDuaS/6JG7trMSZU370kbV5dzq7z9wUZgRN2Q3+vKvE6e9ucSzeepiPoDgEhDG0rzMHvhJusfy+
+	Na4CutwXEILualPxetXujdUFbRjROYRpElweR4Z7t6IJTHU+AOkk5A+0b0gUXVM9jEcLA3Fj96JBC
+	YEqXVCbqKqeeDPEXKB44c32waHptwXIC9c+jJW35/VzipyO0nZP4FOJ41PY6ZjnV8bvaQwF1NmsbB
+	PYSB57AKgcNFN0ox5Cq0g5kR740nc1aZK7XKEqsyFYJys5yV8DNRo5AIf55M3uYjiEIGYHTkeUpGa
+	Ov7A5tLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Ueu-0000000E97C-2OP9;
-	Thu, 17 Apr 2025 19:12:24 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1u5Ug2-0000000E9HI-2VCB;
+	Thu, 17 Apr 2025 19:13:34 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Ud3-0000000E8uW-1IYY;
-	Thu, 17 Apr 2025 19:10:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=Bcw9WhJwy8zPhG5QYKyzowO/nlWGUJAb4ocjNVPbD+M=; b=eE9j55AmbmSEjJ79eSUkt8Ug8/
-	ods2pey/Q/s9D0W0kHfocu8rE8/Z9z/WMtxqGXtVWe9L+s8G+jCBc3d/ptkxieHfnT9DCjwAxqxgp
-	AmLgzcFgBoIseY1aOwh16oP9ENkDx8pVzXNDRUKSQHTVgrbxZcuHSbXoMuQ90zZVZAGnCTe+DflZn
-	ZLkhDS+F/nlIF2KbkC6Y7hDziCCThaREaT7MnPFYL4VIn/bPYh3uNlo3RaXbYfi9p2iBBoBQoJwuA
-	qd5FPWkxxK1+EAGm6GNNVDEi7dXv9CytuqL2X2WwKuTstCcUsEYa3S+7LVZgEkoY/LDsJjcqk/WB9
-	RGdZL8og==;
-Received: from i53875b95.versanet.de ([83.135.91.149] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1u5Ucj-0001E8-Bd; Thu, 17 Apr 2025 21:10:09 +0200
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
- Chukun Pan <amadeus@jmu.edu.cn>, Yao Zi <ziyao@disroot.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/3] arm64: dts: rockchip: Add I2C controllers for RK3528
-Date: Thu, 17 Apr 2025 21:10:08 +0200
-Message-ID: <13753899.uLZWGnKmhe@diego>
-In-Reply-To: <aAEUS7QQbXSvrcEs@pie.lan>
-References: <20250417120118.17610-3-ziyao@disroot.org>
- <c6d3e343-7005-48a9-a133-bf39cb6790ee@kernel.org> <aAEUS7QQbXSvrcEs@pie.lan>
+	id 1u5T9N-0000000DsTf-3lt4;
+	Thu, 17 Apr 2025 17:35:47 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4ZdlLH61B4z6K8r4;
+	Fri, 18 Apr 2025 01:31:19 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 701A5140146;
+	Fri, 18 Apr 2025 01:35:37 +0800 (CST)
+Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Thu, 17 Apr
+ 2025 19:35:36 +0200
+Date: Thu, 17 Apr 2025 18:35:35 +0100
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: David Lechner <dlechner@baylibre.com>
+CC: Jonathan Cameron <jic23@kernel.org>, Nuno =?ISO-8859-1?Q?S=E1?=
+	<nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Lars-Peter Clausen
+	<lars@metafoo.de>, Michael Hennerich <Michael.Hennerich@analog.com>, "Cosmin
+ Tanislav" <cosmin.tanislav@analog.com>, Tomasz Duszynski
+	<tduszyns@gmail.com>, Jean-Baptiste Maneyrol
+	<jean-baptiste.maneyrol@tdk.com>, Andreas Klinger <ak@it-klinger.de>, "Petre
+ Rodan" <petre.rodan@subdimension.ro>, <linux-iio@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>
+Subject: Re: [PATCH 4/8] iio: chemical: pms7003: use aligned_s64 for
+ timestamp
+Message-ID: <20250417183535.00004d87@huawei.com>
+In-Reply-To: <20250417-iio-more-timestamp-alignment-v1-4-eafac1e22318@baylibre.com>
+References: <20250417-iio-more-timestamp-alignment-v1-0-eafac1e22318@baylibre.com>
+	<20250417-iio-more-timestamp-alignment-v1-4-eafac1e22318@baylibre.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml500011.china.huawei.com (7.191.174.215) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_121029_594890_2A5AB696 
-X-CRM114-Status: GOOD (  18.92  )
+X-CRM114-CacheID: sfid-20250417_103546_082660_1FE979B0 
+X-CRM114-Status: GOOD (  18.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,69 +80,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On Thu, 17 Apr 2025 11:52:36 -0500
+David Lechner <dlechner@baylibre.com> wrote:
 
-Am Donnerstag, 17. April 2025, 16:46:35 Mitteleurop=C3=A4ische Sommerzeit s=
-chrieb Yao Zi:
-> On Thu, Apr 17, 2025 at 04:36:57PM +0200, Krzysztof Kozlowski wrote:
-> > On 17/04/2025 16:36, Krzysztof Kozlowski wrote:
-> > > On 17/04/2025 14:01, Yao Zi wrote:
-> > >> Describe I2C controllers shipped by RK3528 in devicetree. For I2C-2,
-> > >> I2C-4 and I2C-7 which come with only a set of possible pins, a defau=
-lt
-> > >> pin configuration is included.
-> > >>
-> > >> Signed-off-by: Yao Zi <ziyao@disroot.org>
-> > >> ---
-> > >>  arch/arm64/boot/dts/rockchip/rk3528.dtsi | 110 ++++++++++++++++++++=
-+++
-> > >>  1 file changed, 110 insertions(+)
-> > >>
-> > >> diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/b=
-oot/dts/rockchip/rk3528.dtsi
-> > >> index 826f9be0be19..2c9780069af9 100644
-> > >> --- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-> > >> +++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-> > >> @@ -24,6 +24,14 @@ aliases {
-> > >>  		gpio2 =3D &gpio2;
-> > >>  		gpio3 =3D &gpio3;
-> > >>  		gpio4 =3D &gpio4;
-> > >> +		i2c0 =3D &i2c0;
-> > >> +		i2c1 =3D &i2c1;
-> > >> +		i2c2 =3D &i2c2;
-> > >> +		i2c3 =3D &i2c3;
-> > >> +		i2c4 =3D &i2c4;
-> > >> +		i2c5 =3D &i2c5;
-> > >> +		i2c6 =3D &i2c6;
-> > >> +		i2c7 =3D &i2c7;
-> > > Aliases are not properties of the SoC but boards.
-> >=20
-> > Of course this should be: Bus/interface aliases are not...
->=20
-> Thanks for the explanation. Will move them to the board DT.
+> Follow the pattern of other drivers and use aligned_s64 for the
+> timestamp. This will ensure that the timestamp is correctly aligned on
+> all architectures.
+> 
+> Also move the unaligned.h header while touching this since it was the
+> only one not in alphabetical order.
+> 
+> Signed-off-by: David Lechner <dlechner@baylibre.com>
+> ---
+>  drivers/iio/chemical/pms7003.c | 5 +++--
+>  1 file changed, 3 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/iio/chemical/pms7003.c b/drivers/iio/chemical/pms7003.c
+> index d0bd94912e0a3492641acd955adbc2184f4a11b3..e05ce1f12065c65d14b66ab86e291fab47805dec 100644
+> --- a/drivers/iio/chemical/pms7003.c
+> +++ b/drivers/iio/chemical/pms7003.c
+> @@ -5,7 +5,6 @@
+>   * Copyright (c) Tomasz Duszynski <tduszyns@gmail.com>
+>   */
+>  
+> -#include <linux/unaligned.h>
+>  #include <linux/completion.h>
+>  #include <linux/device.h>
+>  #include <linux/errno.h>
+> @@ -19,6 +18,8 @@
+>  #include <linux/module.h>
+>  #include <linux/mutex.h>
+>  #include <linux/serdev.h>
+> +#include <linux/types.h>
+> +#include <linux/unaligned.h>
+>  
+>  #define PMS7003_DRIVER_NAME "pms7003"
+>  
+> @@ -76,7 +77,7 @@ struct pms7003_state {
+>  	/* Used to construct scan to push to the IIO buffer */
+>  	struct {
+>  		u16 data[3]; /* PM1, PM2P5, PM10 */
+> -		s64 ts;
+> +		aligned_s64 ts;
 
-I think we're having that discussion for every soc :-) .
+Bug I think..  So another one that really needs a fixes tag.
+For all these we might be lucky with padding on the allocations
+but we shouldn't really rely on that.
 
-Uarts. gpios, i2c and spi are always labeled foo[0-...] in all pieces
-of Rockchip documentation.
-
-The i2c0 controller has pins i2c0-scl, i2c0_sda; i2c0-labeled iomem;
-i2c0-labeled irq, clk_i2c0, resetn_i2c0.
-
-
-I completely _agree_ that {sdhci, sdmmc, emmc, sdio} -> mmcX is fully
-board specific, but i2c0 should always get the i2c0 label and no other
-controller should occupy that soc-specific i2c0-space, because that would
-cause confusion without end.
-
-
-And with the above it makes no real sense repeating the same list for
-every individual board.
-
-If you _insist_ on this, then fine, but I really don't see the point.
-
-
-Heiko
-
+>  	} scan;
+>  };
+>  
+> 
 
 
