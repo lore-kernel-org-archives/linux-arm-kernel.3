@@ -4,85 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8029BC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 08:12:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81CADC369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 08:15:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wtHyIUQ7PPZmcAeyFR/vgm01NmNP155YBbbcOUPlqcw=; b=e+2nKSrOVUVAYvdY6nOKdqnI2+
-	l/o1v2qXp1D6z6Sw7cXRKDk9ab1CaRT/E85cGVNipXplbDN2HO+IaG185Z5AY0WgedqDw6TcNVnbr
-	CxnruuG61Rzaq1rOtFP9TbEBirTDVsrMfF/OITRDz3kr7x4oPbjCF/8vv7p3D99NkA0lquzX3TMJ0
-	isfPxnpgSf6fj6mNED+Sb5tuosMxzBI0wSXi0jHD5tKT3QehnERVG3zqpaJpU5cAByNLvvSagwqGF
-	NV758My2UFydqy/wtowj5PwoZyVVfzzGv29pH3ekPwTmoB/ZvlwjWq1gKnqtCm6+trKJ/SNzmbuz1
-	e/md3hCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y/NfW24ZU1/22v8pv8IL6oyeqZpSqYrFN91QC0KdvDw=; b=SJb4q7Ubg1unpwfo3hS8KQVhFS
+	BgGMzEwHufiB/p/JRFjXI+Vvf8MaUQS6iyxB9dNunAT3IaGml3ovURgwvn7qUn0l90tbqGQjtKb8v
+	zUnJDuGCCoOEfT4d3lh2/vD7i803YPt6GSim9zg4rX18co6vJREjXjCIw1kZZBcPjyNS4V3MLuplc
+	BAZv9qdLCNlQNFku1ERbYeS7Isam5925DqLfjAjBOl2V5EF++OuKs83HQ7vYX3KwMp9Ar0plFtdS6
+	KtM7A5ndr7DdAygu7+4XTlerTOHekyHeWrHIHYKAduMVUcD5np0oVRXh6IBEptAKZV2+w1ohiezwp
+	Fhu0p3Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5KLz-0000000CEgw-0kDW;
-	Thu, 17 Apr 2025 08:12:11 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1u5KP2-0000000CFES-0ASr;
+	Thu, 17 Apr 2025 08:15:20 +0000
+Received: from whm50.louhi.net ([77.240.19.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5KIc-0000000CE0e-0xoQ
+	id 1u5KN9-0000000CEs9-1h0F
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 08:08:43 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-ac345bd8e13so75576166b.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Apr 2025 01:08:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1744877319; x=1745482119; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wtHyIUQ7PPZmcAeyFR/vgm01NmNP155YBbbcOUPlqcw=;
-        b=aKjVgE7okvH8kSMeUwaAp+kz1UZ/95DATZ7BW3AjJWVQM1FomDD1rtHsX9zYr7GEWy
-         ii3UdN9prJzpETutgxFgR57h7uC2OlHQUnvlxkagWKNvd+pGLLnSpD0gtLxsB91baBSE
-         h6i5Cja5cySWltePZ4CqKdDPDnJh0Nzpqe0YVXUU9tGxgfCNkJSC+DC3qcTeeyv+AEEX
-         TY1Md32Y+eFqKy5Tuh4v5T/Fc3l0hyZYy0a2dwk/xT2J6HY20mmmcYf3zG1X27SKgVDW
-         txv/Jqju94GDxasigKZOGKymByB3/9InKsfzTRBZ11rHbtT7wqG9WYIoH2bw+OaU7D75
-         3mDA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744877319; x=1745482119;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=wtHyIUQ7PPZmcAeyFR/vgm01NmNP155YBbbcOUPlqcw=;
-        b=hPxTHtyLHerKIuOD/rF2pwIUtbA6u7jaaywQD82qY6YK0S1DY9GhBY3E8Levy5TgcP
-         l7l/dEI8dCok7PMfeHP+yi9kJ9oxjtMuP9SCsb6DazG+jc8QfuhWZoZLa+JATBq1zWsV
-         ubfP+YLaWDq/OyCWdy6iJGSeIAYJeFBObVTl52eRx/ABASCInBnZ71yFcKzo2EM6X9Y/
-         23IzmhAzOTcXzv9LgJPjDQg14s9ag70yWaLdcxv6u05Ce6M7u2ayAGZjyhAnGkIdQuY/
-         6xpmTpYzB++3upTSG/lGujlL4tqZ5k2uxrPYAwMzKT95ZNSFQJWf2kcZ1Mli2C8hzueo
-         D3hg==
-X-Forwarded-Encrypted: i=1; AJvYcCWVsiLwV6lC++DLmYVP8soznUlRPoD4+e5jEdL8eqWFKFy6N7eKFLPrhcRjuLtyx3vsjb0540EQ5mTvyuSj6qOa@lists.infradead.org
-X-Gm-Message-State: AOJu0YxOKyJdi3oUh6eIXzm4XlioZPEZXOToZnFpFay7Z4zdv2dQsmtr
-	bl9BrB4+XWmkoORJLtZtfIJG+0y1bVMJIdIjAvBK4lUV8erTacY3dmsx8y1iGuKYU9wLMxMA1rL
-	Ul+iBqR+SDH320+ciuq7Nk9/HTk6XhuJm6VNx
-X-Gm-Gg: ASbGncvKNXsMVzV5Vej7dPbg4uzixBSRR9GEay4pp9MywQ3QZeuZd+o9e/9p6pkRdz3
-	cODT4IDnZcof56a8QePqb1N5SXhugY4ciI7MzbiSntvZHDvKexMpSO67x2b3/Ty8TrSxMaN/VR9
-	Cg7hxMTS9lws8Z7H1KyHWR+p9ucy+pZPNdDmDiUVJVwX4xzZYH
-X-Google-Smtp-Source: AGHT+IGpESoslQHTK0ogEW6yQ7GTAZkJZOLnAr+AoJwj8UFQjOudRmdKb0q0bSeFruID8VwGWPn9BWN2wlym/51A+Ok=
-X-Received: by 2002:a17:906:9f91:b0:ac2:9683:ad25 with SMTP id
- a640c23a62f3a-acb429f1deamr444633566b.34.1744877319462; Thu, 17 Apr 2025
- 01:08:39 -0700 (PDT)
+	Thu, 17 Apr 2025 08:13:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=haloniitty.fi; s=default; h=Content-Type:MIME-Version:References:
+	In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Y/NfW24ZU1/22v8pv8IL6oyeqZpSqYrFN91QC0KdvDw=; b=kktkyN+ywv85ObhtRY1LOixakP
+	SQUBLexIe25yOaArDoOgrQqoNBYZq7SE2ssEChfcxtM8hezq1RDhDvhSPJTFMu8Z11r5naFImeeR7
+	ZAaJmmOxJ2NICgcUUNyJ3YzllZh474kKu3c3Z0415YBsbeBZ4j7YRZ6kUbI7qhq75wCYkUcRn+I5o
+	biJQ2fqfh/XU5XdPILTv3ykx8HQQDm55P+40jCNt3rl70Eo44qbuqA9oXf1/VjM8k986cSMstBsRV
+	2ThbdVbp6NlwmMLvY/z55n4QRMHuWURJZqQUv19M8rLZEqy+vv4dgZjru86PzvHa/7C6joZlA3NHY
+	zEYCsNmw==;
+Received: from [194.136.85.206] (port=46774 helo=eldfell)
+	by whm50.louhi.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.1)
+	(envelope-from <pekka.paalanen@haloniitty.fi>)
+	id 1u5KN3-000000003hT-41C7;
+	Thu, 17 Apr 2025 11:13:17 +0300
+Date: Thu, 17 Apr 2025 11:13:15 +0300
+From: Pekka Paalanen <pekka.paalanen@haloniitty.fi>
+To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Laurent Pinchart
+ <laurent.pinchart@ideasonboard.com>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>, Vishal Sagar
+ <vishal.sagar@amd.com>, Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+ <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
+ <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Michal Simek
+ <michal.simek@amd.com>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Dmitry
+ Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Subject: Re: [PATCH v4 03/11] drm/fourcc: Add DRM_FORMAT_Y8
+Message-ID: <20250417111315.62a749e5@eldfell>
+In-Reply-To: <73bd6628-374d-417f-a30f-88a4b1d157bb@ideasonboard.com>
+References: <20250326-xilinx-formats-v4-0-322a300c6d72@ideasonboard.com>
+	<20250326-xilinx-formats-v4-3-322a300c6d72@ideasonboard.com>
+	<CAMuHMdXM1B1c=62EpcuUdpdpaBRZSJLXb1GBB0egzp7Fyeo5-w@mail.gmail.com>
+	<b195971c-52e6-463e-a440-83dde4346e65@ideasonboard.com>
+	<20250327112009.6b4dc430@eldfell>
+	<b5cf15a4-7c65-4718-9c39-a4c86179ba4c@ideasonboard.com>
+	<20250327175842.130c0386@eldfell>
+	<CAMuHMdVEpTVWmwrYt+G-QSWucT91goUcFor9qbo5rZ+X2jnRog@mail.gmail.com>
+	<20250331105446.098f0fbe@eldfell>
+	<20250331082135.GB13690@pendragon.ideasonboard.com>
+	<20250331135337.61934003@eldfell>
+	<20250401162732.731ef774@eldfell>
+	<73bd6628-374d-417f-a30f-88a4b1d157bb@ideasonboard.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-References: <20250403183638.3386628-1-korneld@google.com> <38049b58-a504-4223-9f6d-537609931fb4@arm.com>
- <CACF_fqnevOo9NSRwDAh7KVQZTHTkP0pc2NKEXrWFapMYLf0Wkw@mail.gmail.com> <6f1af7bf-a354-4b90-bf82-edc8cc6e71fe@arm.com>
-In-Reply-To: <6f1af7bf-a354-4b90-bf82-edc8cc6e71fe@arm.com>
-From: =?UTF-8?Q?Kornel_Dul=C4=99ba?= <korneld@google.com>
-Date: Thu, 17 Apr 2025 10:08:27 +0200
-X-Gm-Features: ATxdqUHWXjxt6FKkLeRswNUzasHECz8dNyCr3yjMNkHFGcVaT-gsxFCFilKbj7I
-Message-ID: <CACF_fq=yFLUO2P0qrZFizUJe8J2FGYUK7w3DykKL3x7_R87UQA@mail.gmail.com>
-Subject: Re: [PATCH] arm64: Support ARM64_VA_BITS=52 when setting ARCH_MMAP_RND_BITS_MAX
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Steve Capper <steve.capper@arm.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, ssradjacoumar@google.com, 
-	chromeos-krk-upstreaming@google.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; boundary="Sig_/_w01jp+4xY4YrTdLuzFgaip";
+ protocol="application/pgp-signature"; micalg=pgp-sha256
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - whm50.louhi.net
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - haloniitty.fi
+X-Get-Message-Sender-Via: whm50.louhi.net: authenticated_id: pekka.paalanen@haloniitty.fi
+X-Authenticated-Sender: whm50.louhi.net: pekka.paalanen@haloniitty.fi
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_010842_285681_D70134F5 
-X-CRM114-Status: GOOD (  35.13  )
+X-CRM114-CacheID: sfid-20250417_011323_605037_53365861 
+X-CRM114-Status: GOOD (  43.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,106 +104,233 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 17, 2025 at 7:15=E2=80=AFAM Anshuman Khandual
-<anshuman.khandual@arm.com> wrote:
->
->
->
-> On 4/4/25 22:16, Kornel Dul=C4=99ba wrote:
-> > On Thu, Apr 3, 2025 at 11:46=E2=80=AFPM Anshuman Khandual
-> > <anshuman.khandual@arm.com> wrote:
-> >>
-> >>
-> >>
-> >> On 4/4/25 00:06, Kornel Dul=C4=99ba wrote:
-> >>> When the 52-bit virtual addressing was enabled the select like
-> >>> ARCH_MMAP_RND_BITS_MAX logic was never updated to account for it.
-> >>> Because of that the rnd max bits would be set to the default value of
-> >>> 18 when ARM64_VA_BITS=3D52.
-> >>> Fix this by setting ARCH_MMAP_RND_BITS_MAX to the same value that wou=
-ld
-> >>> be used if 48-bit addressing was used. That's because the 52-bit
-> >>> addressing is used only if the caller provides a hint to mmap, with a
-> >>> fallback to 48-bit addressing.
-> >>
-> >> Why should ARCH_MMAP_RND_BITS_MAX value be same for both 48 bits and 5=
-2
-> >> bits VA in case the user does request for 52 bit VA via mmap() hint an=
-d
-> >> the HW supports it ?
-> >
-> > Two reasons really.
-> > 1. The whole behavior is controlled through a global knob -
-> > /proc/sys/vm/mmap_rnd_bits. ARCH_MMAP_RND_BITS_MAX is used as an upper
-> > bound for the value that can be set to that knob.
-> > So we have a single setting for all processes. Some might want 52 bit
-> > addressing, others will stick with 48.
-> > 2. Quoting the documentation for this knob:
-> >
-> > """
-> > mmap_rnd_bits
-> > This value can be used to select the number of bits to use to
-> > determine the random offset to the base address of vma regions
-> > resulting from mmap allocations on architectures which support tuning
-> > address space randomization. This value will be bounded by the
-> > architecture=E2=80=99s minimum and maximum supported values.
-> > """
-> >
-> > I suppose that it's legal for some calls to mmap from the same process
-> > to request a 52 bit VA, while other calls will want only 48 bits.
-> > Because of that the random offset can't be larger than what would work
-> > for the 48 bit case.
->
-> Agreed but should not this rationale also be added in the commit
-> message as well ?
+--Sig_/_w01jp+4xY4YrTdLuzFgaip
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-Sure, I will update this in v2.
->
->
-> >
-> >>
+On Wed, 16 Apr 2025 11:59:43 +0300
+Tomi Valkeinen <tomi.valkeinen@ideasonboard.com> wrote:
+
+> Hi,
+>=20
+> On 01/04/2025 16:27, Pekka Paalanen wrote:
+> > On Mon, 31 Mar 2025 13:53:37 +0300
+> > Pekka Paalanen <pekka.paalanen@haloniitty.fi> wrote:
+> >  =20
+> >> On Mon, 31 Mar 2025 11:21:35 +0300
+> >> Laurent Pinchart <laurent.pinchart@ideasonboard.com> wrote:
+> >> =20
+> >>> On Mon, Mar 31, 2025 at 10:54:46AM +0300, Pekka Paalanen wrote: =20
+> >>>> On Thu, 27 Mar 2025 17:35:39 +0100
+> >>>> Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> >>>>       =20
+> >>>>> Hi Pekka,
+> >>>>>
+> >>>>> On Thu, 27 Mar 2025 at 16:59, Pekka Paalanen
+> >>>>> <pekka.paalanen@haloniitty.fi> wrote: =20
+> >>>>>> On Thu, 27 Mar 2025 16:21:16 +0200
+> >>>>>> Tomi Valkeinen <tomi.valkeinen@ideasonboard.com> wrote: =20
+> >>>>>>> On 27/03/2025 11:20, Pekka Paalanen wrote: =20
+> >>>>>>>> On Wed, 26 Mar 2025 15:55:18 +0200
+> >>>>>>>> Tomi Valkeinen <tomi.valkeinen@ideasonboard.com> wrote: =20
+> >>>>>>>>> On 26/03/2025 15:52, Geert Uytterhoeven wrote: =20
+> >>>>>>>>>> On Wed, 26 Mar 2025 at 14:23, Tomi Valkeinen
+> >>>>>>>>>> <tomi.valkeinen@ideasonboard.com> wrote: =20
+> >>>>>>>>>>> Add greyscale Y8 format.
+> >>>>>>>>>>>
+> >>>>>>>>>>> Acked-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> >>>>>>>>>>> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.co=
+m> =20
+> >>>>>>>>>>
+> >>>>>>>>>> Thanks for your patch!
+> >>>>>>>>>>        =20
+> >>>>>>>>>>> --- a/include/uapi/drm/drm_fourcc.h
+> >>>>>>>>>>> +++ b/include/uapi/drm/drm_fourcc.h
+> >>>>>>>>>>> @@ -405,6 +405,9 @@ extern "C" {
+> >>>>>>>>>>>     #define DRM_FORMAT_YUV444      fourcc_code('Y', 'U', '2',=
+ '4') /* non-subsampled Cb (1) and Cr (2) planes */
+> >>>>>>>>>>>     #define DRM_FORMAT_YVU444      fourcc_code('Y', 'V', '2',=
+ '4') /* non-subsampled Cr (1) and Cb (2) planes */
+> >>>>>>>>>>>
+> >>>>>>>>>>> +/* Greyscale formats */
+> >>>>>>>>>>> +
+> >>>>>>>>>>> +#define DRM_FORMAT_Y8          fourcc_code('G', 'R', 'E', 'Y=
+')  /* 8-bit Y-only */ =20
+> >>>>>>>>>>
+> >>>>>>>>>> This format differs from e.g. DRM_FORMAT_R8, which encodes
+> >>>>>>>>>> the number of bits in the FOURCC format. What do you envision
+> >>>>>>>>>> for e.g. DRM_FORMAT_Y16? fourcc_code('G', 'R', '1', '6')? =20
+> >>>>>>>>>
+> >>>>>>>>> I wanted to use the same fourcc as on V4L2 side. Strictly speak=
+ing it's
+> >>>>>>>>> not required, but different fourccs for the same formats do con=
+fuse.
+> >>>>>>>>>
+> >>>>>>>>> So, generally speaking, I'd pick an existing fourcc from v4l2 s=
+ide if
+> >>>>>>>>> possible, and if not, invent a new one. =20
+> >>>>>>>>
+> >>>>>>>> what's the actual difference between DRM_FORMAT_R8 and DRM_FORMA=
+T_Y8?
+> >>>>>>>>
+> >>>>>>>> Is the difference that when R8 gets expanded to RGB, it becomes =
+(R, 0,
+> >>>>>>>> 0), but Y8 gets expanded to (c1 * Y, c2 * Y, c3 * Y) where c1..c=
+3 are
+> >>>>>>>> defined by MatrixCoefficients (H.273 terminology)?
+> >>>>>>>>
+> >>>>>>>> That would be my intuitive assumption following how YCbCr is han=
+dled.
+> >>>>>>>> Is it obvious enough, or should there be a comment to that effec=
+t? =20
+> >>>>>>>
+> >>>>>>> You raise an interesting point. Is it defined how a display drive=
+r, that
+> >>>>>>> supports R8 as a format, shows R8 on screen? I came into this in =
+the
+> >>>>>>> context of grayscale formats, so I thought R8 would be handled as=
+ (R, R,
+> >>>>>>> R) in RGB. But you say (R, 0, 0), which... also makes sense. =20
+> >>>>>>
+> >>>>>> That is a good question too. I based my assumption on OpenGL behav=
+ior
+> >>>>>> of R8.
+> >>>>>>
+> >>>>>> Single channel displays do exist I believe, but being single-chann=
+el,
+> >>>>>> expansion on the other channels is likely meaningless. Hm, but for=
+ the
+> >>>>>> KMS color pipeline, it would be meaningful, like with a CTM.
+> >>>>>> Interesting.
+> >>>>>>
+> >>>>>> I don't know. Maybe Geert does? =20
+> >>>>>
+> >>>>> I did some digging, and was a bit surprised that it was you who told
+> >>>>> me to use R8 instead of Y8?
+> >>>>> https://lore.kernel.org/all/20220202111954.6ee9a10c@eldfell =20
+> >>>>
+> >>>> Hi Geert,
+> >>>>
+> >>>> indeed I did. I never thought of the question of expansion to R,G,B
+> >>>> before. Maybe that expansion is what spells R8 and Y8 apart?
+> >>>>
+> >>>> I do think that expansion needs to be specified, so that the KMS col=
+or
+> >>>> pipeline computations are defined. There is a big difference between
+> >>>> multiplying these with an arbitrary 3x3 matrix (e.g. CTM):
+> >>>>
+> >>>> - (R, 0, 0)
+> >>>> - (R, R, R)
+> >>>> - (c1 * Y, c2 * Y, c3 * Y) =20
 > >>>
-> >>> Fixes: b6d00d47e81a ("arm64: mm: Introduce 52-bit Kernel VAs")
->
-> Correct commit to be attributed for this fix.
+> >>> I'd be very surprised by an YUV to RGB conversion matrix where the fi=
+rst
+> >>> column would contain different values. What we need to take into acco=
+unt
+> >>> though is quantization (full vs. limited range). =20
+> >=20
+> > Quantization range is indeed good to note. R8 would be always full
+> > range, but Y8 would follow COLOR_RANGE property.
+> >  =20
+> >> That makes Y8 produce (Y, Y, Y), and we have our answer: R8 should be
+> >> (R, 0, 0), so we have both variants.
+> >>
+> >> Can we specify Y, R, G and B be nominal values in the range 0.0 - 1.0
+> >> in the KMS color processing? =20
+> >=20
+> > I think this 0.0 - 1.0 nominal range definition for the abstract KMS
+> > color processing is necessary.
+> >=20
+> > It also means that limited range Y8 data, when containing values 0-15
+> > or 240-255, would produce negative and greater than 1.0 values,
+> > respectively. They might get immediately clamped to 0.0 - 1.0 with the
+> > first color operation they face, though, but the concept seems
+> > important and carrying over to the new color pipelines UAPI which might
+> > choose not to clamp. =20
+>=20
+> Is the behavior of values outside the limited range something that needs=
+=20
+> to be defined? We can't know how each piece of HW behaves with=20
+> "undefined" input, so should we not just define the behavior as platform=
+=20
+> specific?
 
-What commit would you like me to point at? I selected b6d00d47e81a,
-because it introduced "ARM64_VA_BITS=3D52".
-Looking at git blame, ARCH_MMAP_RND_BITS_MAX logic was introduced back
-in 2016 in 8f0d3aa9de57 ("arm64: mm: support ARCH_MMAP_RND_BITS"),
-which is before "ARM64_VA_BITS=3D52" was a thing.
-I suppose that there's also 3cb7e662a930 ("arm64: Kconfig: Fix
-indentation and add comments"), but that's just some whitespace
-adjustments.
+Hi Tomi,
 
->
->
-> >>> Signed-off-by: Kornel Dul=C4=99ba <korneld@google.com>
-> >>> ---
-> >>>  arch/arm64/Kconfig | 6 +++---
-> >>>  1 file changed, 3 insertions(+), 3 deletions(-)
-> >>>
-> >>> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> >>> index 748c34dc953c..38e0bac567f5 100644
-> >>> --- a/arch/arm64/Kconfig
-> >>> +++ b/arch/arm64/Kconfig
-> >>> @@ -332,9 +332,9 @@ config ARCH_MMAP_RND_BITS_MAX
-> >>>       default 24 if ARM64_VA_BITS=3D39
-> >>>       default 27 if ARM64_VA_BITS=3D42
-> >>>       default 30 if ARM64_VA_BITS=3D47
-> >>> -     default 29 if ARM64_VA_BITS=3D48 && ARM64_64K_PAGES
-> >>> -     default 31 if ARM64_VA_BITS=3D48 && ARM64_16K_PAGES
-> >>> -     default 33 if ARM64_VA_BITS=3D48
-> >>> +     default 29 if (ARM64_VA_BITS=3D48 || ARM64_VA_BITS=3D52) && ARM=
-64_64K_PAGES
-> >>> +     default 31 if (ARM64_VA_BITS=3D48 || ARM64_VA_BITS=3D52) && ARM=
-64_16K_PAGES
-> >>> +     default 33 if (ARM64_VA_BITS=3D48 || ARM64_VA_BITS=3D52)
-> >>>       default 14 if ARM64_64K_PAGES
-> >>>       default 16 if ARM64_16K_PAGES
-> >>>       default 18
->
-> Otherwise LGTM.
->
-> Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+it's not undefined nor illegal input in general. The so-called
+sub-black and super-white ranges exist for a reason, and they are
+intended to be used in video processing to avoid clipping in
+intermediate processing steps when a filter overshoots a bit. There are
+also practices that depend on them, like PLUGE calibration with
+traditional signals on a display: https://www.itu.int/rec/R-REC-BT.814
+
+I think it would be really good to have defined behaviour if at all
+possible.
+
+> In any case: I can't say I fully understood all the discussions wrt.=20
+> color spaces. But my immediate interest is, of course, this series =3D).=
+=20
+> So is there something that you think should be improved here?
+
+Right, the range discussion is a tangent and applies to all YUV
+formats, so it's not a new question.
+
+> My understanding is that the Y-only pixel formats behave in a well=20
+> defined way (or, as well defined as the YUV formats), and there's=20
+> nothing more to add here. Is that right?
+
+There are two things:
+
+- Y8 follows COLOR_RANGE property, just like all other YUV formats.
+- Y8 implies that Cb and Cr are both neutral (0.0 in nominal values).
+
+I'd like these explicitly written down, so that they become obvious to
+everyone. I suspect either one might be easy to forget when writing
+code and taking shortcuts without thinking.
+
+
+Laurent,
+
+I did find a case where (Y', neutral, neutral) does *not* seem to expand
+to RGB=3D(Y, Y, Y): ICtCp. The conversion from ICtCp to L'M'S' does
+produce (Y', Y', Y'), but the LMS-to-RGB matrix scrambles it.
+
+I didn't dig through BT.2020 constant-luminance Y'C'bcC'rc, but I
+wouldn't be surprised if it scrambled too.
+
+Of course, both of the above are not just one matrix. They require two
+matrices and the transfer characteristic each to compute. KMS color
+operations cannot implement those today, but with the colorop pipelines
+they will if the hardware does it.
+
+That's why I think it's important to document the assumption of Cb and
+Cr when not part of the pixel format, and not write down a specific
+expansion to RGB like (Y, Y, Y).
+
+
+Thanks,
+pq
+
+--Sig_/_w01jp+4xY4YrTdLuzFgaip
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEEJQjwWQChkWOYOIONI1/ltBGqqqcFAmgAuBsACgkQI1/ltBGq
+qqc7nRAAmXge9COzSkIFtwVdgB1I3C03S98MlzQzBngg1OeV2HlqEvQxgGog4RS5
+H/m+1Uhp/eSwmHd/awb1g/xBRphN8PaWaTAgEqhBvD5wqOU8yA11jXUUEdqay9fT
+R/pG07ULjMoDuQQhaXhEKk/Nbb/sLpfLQ5/LX2pnFNcamVon8RtBB1hgtXIuqp+k
+219fhUX5R9aaL/miyDUv9qn2PJiTMWEssS3rC/e7t4Iw18Hcvvbc49DEVJZqC/Al
+4BU8jsVm8fyCIiv/fCKLg8SmaU6vBJjNo/HTmjE2VE2/0v5qoRrVolBy+CSycpVQ
+im/O0YSbgR/M8AbZJgYGa10J1aUq3Gj+R8AdpywS2AvGT3JuA8ngdQ72crGbjcck
+978rhpkUTU9wksIsbYvoCldB41AVqYZ5+/YnREDxckY0+OnkrU+rwy9Kg1yXp7qS
+UnjWsrBUDmK8wqGR6fFSwKb5NHIY9lc6nc9hd0T9IIOwsgiRSlW/F27i+qctnOKM
+1sMfqvRrC0BH4uCmCyoSI8z42IGbhhO1UnJO/m7nciEdOMsc0hI74KbT3H6FSlPV
+EoknbNWsduAwAFfpetlJujy6mGPqAlYFoeZn4NNBQ1BZns6MambRrT5kvPYs2TkK
+GS+27Zw1M95eextSNVCIWJ+JWF5xq1jlQcWmml2DoeZE6JIGm7g=
+=uYMo
+-----END PGP SIGNATURE-----
+
+--Sig_/_w01jp+4xY4YrTdLuzFgaip--
 
