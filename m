@@ -4,144 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44F4DC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 16:41:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34978C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 16:43:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VWlajyrKhq2ZhjdhB/AiFuN7J0cES8P2c9bpY8UBhro=; b=wOgFoeZ5+wQLABez+8Yn1es5Cj
-	VkjzjCpyOqBWEk2fXC07tC34jK0wPVEtqKn7OTj8fd1jSibMeX8iigBkCE9tE22iwtnRfXHcWKrNY
-	Ne3z+WB5mq2dm+zI1f/yIlq84sUtXJJcQjvLJJv99y2sqeAXaQ812osKZe8N5peLoxNPelwievQvM
-	skrgJc82EigBf7j0RF1fGbK1r1hYgVHxcpVhdpgcOmrgQ/vFfQhgZdQ0OTx29a2/e1L6W/YoB/gm5
-	Cqn18xy5ni/OiGTAbuNKVnMa+e0mcD9HoaKktMlaW6/RYC9ZoJnUdzL4tb9CMOF8dQNatk8wmnCAC
-	nrd2BQpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f5cCZAWKDm6+Qeuwa/9YylW4qKECvxAC2UN1OjNfOxQ=; b=rMyu3/Mf+bQFb70mOTlsln5vnx
+	LMmzbWBt/HsS8Jp5LP2+GDy9WIP2eVkF0/KiqPzMMEwUCFHcC+/u4RJN7OZYJAMSGBdhgoVbx+mjX
+	akEDWpw2rrv3b3xO0JdC6bElN+FknISTI5N2AohrIwdOotWzQ6+DSMJjv7iPt729zWG2DrbkgYXLU
+	2sMCdFuOwZB7W3dFbTvPXBGCkBoHBc12XW0hMyqm14VxhPzgMm7bKnZFZg7W6Zm8ER1XdMEsN02J1
+	1yjYifph7HHfD4rQxULFPG/On52EWBa9xbAwv8nolrImOzXPl6mPyO4lCsTirueK1FOSlDaFENdqM
+	4M/eglfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5SIp-0000000DhZx-2N1L;
-	Thu, 17 Apr 2025 16:41:27 +0000
-Received: from mail-dm6nam12on20617.outbound.protection.outlook.com ([2a01:111:f403:2417::617] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	id 1u5SKf-0000000DhxY-2XiG;
+	Thu, 17 Apr 2025 16:43:21 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5S4Q-0000000DfIn-2n3G
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 16:26:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=x4x7NXaacVuSVUhEQW9HBW+g6g0dk26B+zBOBxZ7aE3U23yDniZiAr3JigiK2jih37yHRRFRtAeV6ScS0XHF9lGMBq9liJOOrnH8oTIMqGgP0zKdzIv3m6TDO0m1Q8OQA0VuUXi6PMHfpg+G/PLX3BIuhx0BaqU5Rd2GMW+Qj7LElc4Uk7YCEDANByc4YRtEcBjGTObGPbhVaaCWi5hzkNgU64AIufFXZaXF0d+1/VNWBizFXnxoeOap/kS6iIVNOAqUyh8gF3NCdcK/zPoDhq1XwREJjf5soArpL/ldp07gKXDZcdEUKpKK4vpvCvkEhyOXSX7dZpc7OWtgLd+DTA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VWlajyrKhq2ZhjdhB/AiFuN7J0cES8P2c9bpY8UBhro=;
- b=m3/dzwPY2aXXYDwq72C06sG2YNuxdNWJM/mFrkvveRwuqzpalQza5cr/TuP13gLe+WaS9NCWGGAa3AWkuQph1FZAZUGVUHPA+3Q3a0n+8NHWAzgQF9+oqF4uKr2juD9cE2IB8/FV8GdpZ8Rj12JJI6TTTShSnCfLic0EoP39RX25b0jPWfZjU7xFxC71CiSNROGqrb0bEIMsj4XErb798ly1/Dq6lrPiat/7oZaLeFYETkrhtUbm/Wqrwx2oxZ+4feyzqh75c64VKtKd+DC5wYP+gM8R7GikqL1++hIpzhiBjOAMy65+FMfZiIUNaoEKkRd/ZIU6tJ58u/sK2U7Y9A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VWlajyrKhq2ZhjdhB/AiFuN7J0cES8P2c9bpY8UBhro=;
- b=jig0oK7tveOXDPrIH5zHqo/nyht7hUXkISE68E3r+lMjwwZiC361WGPmzrvqZMQqWmro/I179lf+nt4wTUfaexp43rLgiE5k5ClheSt3CFoCR08+wg0JNhyYxuTrntFyGrJrfeChY1rzowfQgerOy9aM+ianP78UkMAH3rYS1Awlm6uuwYTF07H3lFM+kGiRKz/e6zNPyZCEEP1ZlHl8gP6hNjj+SzvkH7MIhfqp+2Qa3KxtOPBOR55s0x8/w4mDyIFlPYx6q30Fe0dXhgvGT2xvwVc9IqXp6i8cUnqiLsxw3FYmMK3lgHg01eaI38EzXMmen062LYEc4xAsZn8C2g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by CH3PR12MB8211.namprd12.prod.outlook.com (2603:10b6:610:125::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.48; Thu, 17 Apr
- 2025 16:26:18 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8632.030; Thu, 17 Apr 2025
- 16:26:18 +0000
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Will Deacon <will@kernel.org>
-Cc: patches@lists.linux.dev
-Subject: [PATCH] arm: Add missing includes for mem_encrypt
-Date: Thu, 17 Apr 2025 13:26:16 -0300
-Message-ID: <0-v1-47aadfbd64cd+25795-arm_memenc_h_jgg@nvidia.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: BN8PR12CA0010.namprd12.prod.outlook.com
- (2603:10b6:408:60::23) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1u5Rls-0000000DcAu-0bOL;
+	Thu, 17 Apr 2025 16:07:25 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.98.2)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1u5Ra5-000000001zt-0Tra;
+	Thu, 17 Apr 2025 15:57:51 +0000
+Date: Thu, 17 Apr 2025 16:57:48 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Florian Fainelli <f.fainelli@gmail.com>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net v2 5/5] net: ethernet: mtk_eth_soc: convert cap_bit
+ in mtk_eth_muxc struct to u64
+Message-ID: <aAEk_J9JCi3lkuGD@makrotopia.org>
+References: <8ab7381447e6cdcb317d5b5a6ddd90a1734efcb0.1744764277.git.daniel@makrotopia.org>
+ <99177094f957c7ad66116aba0ef877df42590dec.1744764277.git.daniel@makrotopia.org>
+ <20250417081325.0e0345ee@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CH3PR12MB8211:EE_
-X-MS-Office365-Filtering-Correlation-Id: 75bcd62d-9b35-4fbf-2646-08dd7dcc94c4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?cbjXz+BmevjdNTvpbjWL0jR17AlAq1McflL6yAWkDYgjdpvFDh+KSAp20qXH?=
- =?us-ascii?Q?E034Zx0uNEJTf3jvH0FwBQYcE7ZZYfaGTCicR2WQ81TcxdXU93jtZ1cX6Y16?=
- =?us-ascii?Q?iVjZRmH+ylqlkDGqFxL2ZnuLRshrR5GFa+XX6M0f64IL6Y1qUj8WU3bfa6eo?=
- =?us-ascii?Q?NfOk5rrAigv5fxgBV/IpgmHWuJmvS3y2YYtMlfPYVNy6Hv7wvUrzcmGC/GZp?=
- =?us-ascii?Q?RHVUhiq13Un5IuR6yqM1m0OsAUgHF/uUkdVeWX3FSm4Ng8e/HkzPU6GZe39S?=
- =?us-ascii?Q?V8ENhkju1dLWPG++lL8097MDCaPCIBg6xVpBc0tPub7ocPpKLb7Zyt9VHklQ?=
- =?us-ascii?Q?un81LYjk0d5/VrjkcTjQALzjm/uVXgJlWVdm5y8T8F/gluLYd/gkP+EJjxwx?=
- =?us-ascii?Q?rSVy/GrmIe48kMupFVkEzG/1BtbridW3FRAKAPxD9t6ZEygScF5r9m5T/Rhh?=
- =?us-ascii?Q?3OQN4WHodKh8xNyv0XaQMPZqVnoDZi4orargImkh77XjcA6oH6YZrDJmMFHl?=
- =?us-ascii?Q?qzc2T3qugxr5vSgDnQwUy2whdHBCZ0raaWSk56mZvDt0zrjFZH8mYQcNp0Xh?=
- =?us-ascii?Q?meHeFpjeoqgYdihvOI5ekEglUV2x/enf9rZHW/2SlHJvHxfWjDvKemYM6RM/?=
- =?us-ascii?Q?kADztBcjNC7tiz+F4EJytj91zU3xExEgw6xzGHuQzBkBR+c2vgRSeW4CEk0m?=
- =?us-ascii?Q?bFd8hDmoP0SJvf0HnGOb5IUGCyVF5noljWwmWFH17mcSpoj0UQzjAVaubFUx?=
- =?us-ascii?Q?GrrGewvpVZxH3WceGrc5gGOWhhqW5wN4PoyiP3kHmuG7Iv964JnGTndwYoBw?=
- =?us-ascii?Q?HTOElTSAT22h6z+O8qjp/RmYj+2O/ikL7BwUd8QVgeWweDzZRLX+EKUx72YY?=
- =?us-ascii?Q?OYHmq73mG3Ub/8uP1kmdM4cRAMnjwCofa+GO300rucm5YW/ajFTx1jzpIPrE?=
- =?us-ascii?Q?GFujyVNq4+j3nwfV57VbMxl5LY3uhFAuOhG7SdsHk7Bm6qJaHuqVh0hEzPRU?=
- =?us-ascii?Q?yIiIToM6X9DXMynecEpQCCNZcKPHGx4PL/2S74s8kGtgu4xo40nndYWlHOqR?=
- =?us-ascii?Q?4kQJYUdyH8NByJTOuJ3GC7zI8y5sX5x/OhgJPayJQFpctoEcEygL1YhIqH1d?=
- =?us-ascii?Q?J0PvFyBBSYOlws9fYHgdUUTMrO/Hq9faAUf4t16b86+xBt+3FY+UOeKeFfMu?=
- =?us-ascii?Q?9NbfO4O+Zk957OkfBV1b8+U7N6c2wna+4uKKxiHmca0GDuGdCzhd21Y96qq1?=
- =?us-ascii?Q?/hDj0sKjd/Av5OrxnFmhj9wodzLCT+Ku65Xhwdbo68dqC1PkQbvpNeA3RQQd?=
- =?us-ascii?Q?hWRfox+eLQ7iaC+8yOwNrX55IP31G+yh8LhDwJFlbLVDAfuY3pS9C016bYTz?=
- =?us-ascii?Q?BZ+9/2VZ1WTmluAdQOVtjbGLVCZ5KQLEcmPAX79+SdEUwoNUnS3jd2NnloMV?=
- =?us-ascii?Q?/8VposeWRHo=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Hq3gymlO7R9ZzkjrmYnoLBrTJgyToI/DP1kc86taCoG22SK6TGD2hGIZLwLm?=
- =?us-ascii?Q?1Rymf/roQmKH8XWfP1BjPMRUW1zHYYffQdmlQXOX/1AGQrS9WS2i8adGkjMf?=
- =?us-ascii?Q?Eo2er+YXWaE0TZTMrXXcxUWwI4TjN/N/KnYT0oJ8U701u65SMpiHZgu+8PFT?=
- =?us-ascii?Q?Io9uOVLYeh7blr5RKcwUseTBaiMfuNZo8IQOxQfco8TfiGufNc2+NQ6IJzoF?=
- =?us-ascii?Q?wF4AtOe5ZTEuqFSBBsGBGXxhteP25Hj51KR5sU57/Ab+tvLwOt5zkJpoIZBy?=
- =?us-ascii?Q?wU2OhModJqJuk5H1GWLTAT9sHvDPNZcps5GpDoVz9+fXRCJ7+iwWlcH2C8eW?=
- =?us-ascii?Q?HDpA+lKJ6n3RO17c29bqnyLhonYQgCl2GM4fCGOfTwNoxJgHmhcd0cE0GtLC?=
- =?us-ascii?Q?yWmro17oanHjpf8wjiGuC4BwJrk9UaxhYvdtWw2QdW+iOxkpXLdTqyk2OoLm?=
- =?us-ascii?Q?cQ9h6m2gxBTTKsLNdVPyFQd7c6ipZGPrb0AfLfo3fJpnCP/Rsk4O5b+zSJ07?=
- =?us-ascii?Q?xR3e3npfkjieAA2Zz6LwF25jKrUKoo7QvhXNJR6h1mF2BKLoxoucyELAMKEh?=
- =?us-ascii?Q?0PmD9GALHd5Xe+Ch4+FlWgyS+5BbKEp9y1C+nS1cRg39m52zrGdHjQEPQLe2?=
- =?us-ascii?Q?4YyQqRP+nWnAqSGJ428r82k6cpDYZJ9aTLLyccdNdQS+K2RJKF7oQJXCV4TG?=
- =?us-ascii?Q?xbOkCErZvxfEcbOhPtalBrnC6zkHrV0LDVkFot6hwvmikDwE+kxYTsOQbam3?=
- =?us-ascii?Q?Wgt9AchAaOnCaPpQw8rIRISvyqlqxOvYHzQv8twoMTxkiPzXfzMee8Fkaeuw?=
- =?us-ascii?Q?9Sw/5kCeJvpDEx5/pJSkDamNMRosazkFsr0PuxusAUg6MyEoINsw+zgV+eCt?=
- =?us-ascii?Q?BbKFNIRfuBa5Qp+cAoqefUUpq0vGH0nd/UXa9A0exZ7IYczI+myPwyVWRZik?=
- =?us-ascii?Q?kYLoT8cYTI30d5Dxtxbx0Jck9DKWsccybfe0ALF6QwUarWLnM7jHK6aEfSKR?=
- =?us-ascii?Q?0MolcpdmWlfNAbhOzaZIyRLooTCz0DZ7HmR6kJIWUUAp141QnYzGfY2n/nnk?=
- =?us-ascii?Q?E79QuLZ4k6XZgBnFwt+F1fMxQH4zykhrEFnr2OE8HvDL4LvjZMTzQoh5SR+1?=
- =?us-ascii?Q?mqhYTntKqFjz9wN1nnKctU1R8ArMcf08Ur+DRqiPMrIBlay6Yde4i4zV7Y8X?=
- =?us-ascii?Q?eqlBH9mtXmdLC8cbRrNtnS7S+dlETDFQ94x9l3DKR/UN6xo7cscbHdLV28OE?=
- =?us-ascii?Q?UnIa9JYAyaO96i4d4IHJpKisTO3jrcxLdvWmMycRt71ov/VEgi8XBLJtSToj?=
- =?us-ascii?Q?fbeEyhLOmylYKFMiU0vY3w+uTm2ufXwfZC2sDkZXGY0RY9J7P9HCzysZeFvz?=
- =?us-ascii?Q?o86RcbRNWbaUJfOxdbvgP0NnI84YiIm9DO+yNdjTUAsBvCmEZyDwGknhzeT0?=
- =?us-ascii?Q?DEckWurpsnh3jbaWNUGm3g1I4e+j5iouIS2WIxw4MIJEnzQ2YTitA0yCf/e+?=
- =?us-ascii?Q?QuWi/CARvWGcstuzw3ku3FhjX919YrWyApS6vWhgzNZNLw3pfM87kZONMAKX?=
- =?us-ascii?Q?h2rr2Au6dG+v2tEHxZqSf7tfI+qU8xtN9SElf6pS?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 75bcd62d-9b35-4fbf-2646-08dd7dcc94c4
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Apr 2025 16:26:18.1626
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /zcYvkK59eNrbmCJRjwpsc4ogDvEBp0uqKxjYTtXxbNMLekKU5zEtbd32iPDSM/f
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8211
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250417081325.0e0345ee@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_092634_712363_CC210463 
-X-CRM114-Status: UNSURE (   9.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250417_090724_180428_005C8B16 
+X-CRM114-Status: GOOD (  20.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,60 +72,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Doing:
- #include <linux/mem_encrypt.h>
+On Thu, Apr 17, 2025 at 08:13:25AM -0700, Jakub Kicinski wrote:
+> On Wed, 16 Apr 2025 01:52:03 +0100 Daniel Golle wrote:
+> > The capabilities bitfield was converted to a 64-bit value, but a cap_bit
+> > in struct mtk_eth_muxc which is used to store a full bitfield (rather
+> > than the bit number, as the name would suggest) still holds only a
+> > 32-bit value.
+> > 
+> > Change the type of cap_bit to u64 in order to avoid truncating the
+> > bitfield which results in path selection to not work with capabilities
+> > above the 32-bit limit.
+> 
+> Could you please be more specific and name a bit or a field that goes
+> over 32b? Since this is a fix ideally we'd also have impact to the user
+> described in the commit message. But having enough info for the reviewer
+> to quickly validate the change is the bare minimum.
 
-Causes a bunch of compiler failures due to missing implicit includes that
-don't happen on x86:
+I reckon it's too late to include that information in the commit
+description. However, let me still illustrate the problem here now:
 
-../arch/arm64/include/asm/rsi_cmds.h:117:2: error: call to undeclared library function 'memcpy' with type 'void *(void *, const void *, unsigned long)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-  117 |         memcpy(&regs.a1, challenge, size);
+In mtk_eth_soc.h:
 
-../arch/arm64/include/asm/mem_encrypt.h:19:49: warning: declaration of 'struct device' will not be visible outside of this function [-Wvisibility]
-   19 | static inline bool force_dma_unencrypted(struct device *dev)
+enum mkt_eth_capabilities {
+	MTK_RGMII_BIT = 0,
+	MTK_TRGMII_BIT,
+	MTK_SGMII_BIT,
+	MTK_USXGMII_BIT,
+	MTK_2P5GPHY_BIT,
+	MTK_ESW_BIT,
+	MTK_GEPHY_BIT,
+	MTK_MUX_BIT,
+	MTK_INFRA_BIT,
+	MTK_SHARED_SGMII_BIT,
+	MTK_HWLRO_BIT,
+	MTK_RSS_BIT,
+	MTK_SHARED_INT_BIT,
+	MTK_PDMA_INT_BIT,
+	MTK_TRGMII_MT7621_CLK_BIT,
+	MTK_QDMA_BIT,
+	MTK_SOC_MT7628_BIT,
+	MTK_RSTCTRL_PPE1_BIT,
+	MTK_RSTCTRL_PPE2_BIT,
+	MTK_U3_COPHY_V2_BIT,
+	MTK_SRAM_BIT,
+	MTK_36BIT_DMA_BIT,
 
-../arch/arm64/include/asm/rsi_cmds.h:44:38: error: call to undeclared function 'virt_to_phys'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-   44 |         arm_smccc_smc(SMC_RSI_REALM_CONFIG, virt_to_phys(cfg),
+	/* MUX BITS*/
+	MTK_ETH_MUX_GDM1_TO_GMAC1_ESW_BIT,
+	MTK_ETH_MUX_GMAC2_GMAC0_TO_GEPHY_BIT,
+	MTK_ETH_MUX_U3_GMAC2_TO_QPHY_BIT,
+	MTK_ETH_MUX_GMAC2_TO_2P5GPHY_BIT,
+	MTK_ETH_MUX_GMAC1_GMAC2_TO_SGMII_RGMII_BIT,
+	MTK_ETH_MUX_GMAC12_TO_GEPHY_SGMII_BIT,
+	MTK_ETH_MUX_GMAC123_TO_GEPHY_SGMII_BIT,
+	MTK_ETH_MUX_GMAC123_TO_USXGMII_BIT,
 
-Add the missing includes to the arch/arm headers to avoid this.
+	/* PATH BITS */
+	MTK_ETH_PATH_GMAC1_RGMII_BIT,
+	MTK_ETH_PATH_GMAC1_TRGMII_BIT,
+	MTK_ETH_PATH_GMAC1_SGMII_BIT,
+	MTK_ETH_PATH_GMAC2_RGMII_BIT,
+	MTK_ETH_PATH_GMAC2_SGMII_BIT,
+	MTK_ETH_PATH_GMAC2_2P5GPHY_BIT,
+	MTK_ETH_PATH_GMAC2_GEPHY_BIT,
+	MTK_ETH_PATH_GMAC3_SGMII_BIT,
+	MTK_ETH_PATH_GDM1_ESW_BIT,
+	MTK_ETH_PATH_GMAC1_USXGMII_BIT,
+	MTK_ETH_PATH_GMAC2_USXGMII_BIT,
+	MTK_ETH_PATH_GMAC3_USXGMII_BIT,
+};
 
-Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
----
- arch/arm64/include/asm/mem_encrypt.h | 2 ++
- arch/arm64/include/asm/rsi_cmds.h    | 2 ++
- 2 files changed, 4 insertions(+)
+...
 
-I ran into this while working on a new series that uses mem_encrypt.h
+#define MTK_ETH_MUX_GDM1_TO_GMAC1_ESW		\
+	BIT_ULL(MTK_ETH_MUX_GDM1_TO_GMAC1_ESW_BIT)
+#define MTK_ETH_MUX_GMAC2_GMAC0_TO_GEPHY	\
+	BIT_ULL(MTK_ETH_MUX_GMAC2_GMAC0_TO_GEPHY_BIT)
+#define MTK_ETH_MUX_U3_GMAC2_TO_QPHY		\
+	BIT_ULL(MTK_ETH_MUX_U3_GMAC2_TO_QPHY_BIT)
+#define MTK_ETH_MUX_GMAC2_TO_2P5GPHY		\
+	BIT_ULL(MTK_ETH_MUX_GMAC2_TO_2P5GPHY_BIT)
+#define MTK_ETH_MUX_GMAC1_GMAC2_TO_SGMII_RGMII	\
+	BIT_ULL(MTK_ETH_MUX_GMAC1_GMAC2_TO_SGMII_RGMII_BIT)
+#define MTK_ETH_MUX_GMAC12_TO_GEPHY_SGMII	\
+	BIT_ULL(MTK_ETH_MUX_GMAC12_TO_GEPHY_SGMII_BIT)
+#define MTK_ETH_MUX_GMAC123_TO_GEPHY_SGMII	\
+	BIT_ULL(MTK_ETH_MUX_GMAC123_TO_GEPHY_SGMII_BIT)
+#define MTK_ETH_MUX_GMAC123_TO_USXGMII	\
+	BIT_ULL(MTK_ETH_MUX_GMAC123_TO_USXGMII_BIT)
 
-diff --git a/arch/arm64/include/asm/mem_encrypt.h b/arch/arm64/include/asm/mem_encrypt.h
-index a2a1eeb36d4b50..314b2b52025f87 100644
---- a/arch/arm64/include/asm/mem_encrypt.h
-+++ b/arch/arm64/include/asm/mem_encrypt.h
-@@ -4,6 +4,8 @@
- 
- #include <asm/rsi.h>
- 
-+struct device;
-+
- struct arm64_mem_crypt_ops {
- 	int (*encrypt)(unsigned long addr, int numpages);
- 	int (*decrypt)(unsigned long addr, int numpages);
-diff --git a/arch/arm64/include/asm/rsi_cmds.h b/arch/arm64/include/asm/rsi_cmds.h
-index e6a211001bd38e..2c8763876dfb77 100644
---- a/arch/arm64/include/asm/rsi_cmds.h
-+++ b/arch/arm64/include/asm/rsi_cmds.h
-@@ -7,6 +7,8 @@
- #define __ASM_RSI_CMDS_H
- 
- #include <linux/arm-smccc.h>
-+#include <linux/string.h>
-+#include <asm/memory.h>
- 
- #include <asm/rsi_smc.h>
- 
+The above MTK_ETH_MUX_* macros are the ones used as values for cap_bit in
+mtk_eth_path.c.
+So technically MTK_ETH_MUX_GMAC123_TO_USXGMII == BIT_ULL(29)
+which is still fine for a 32-bit value, but never the less BIT_ULL returns
+a 64-bit type and hence using a 32-bit type to store the result is at
+least misleading.
 
-base-commit: 6a94d74b67461c203bce8090d677c6c110f67245
--- 
-2.43.0
-
+However, you are right that with the currently supported SoCs this doesn't
+result in an actual bug (but it will with the upcoming addition of newer SoC
+like MT7987).
 
