@@ -4,78 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 369F6C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 07:03:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F287AC369C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 07:05:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Ww4hpp+z6fgi+nJK6FyaJfCKTs87q137A6aiYcfvEc=; b=lfKG6J8ukfzWa2Iwn5tU8eiAny
-	wr0Z5FO814oaJ/Sdebo1UoV53nI+wAblWlahHHvORNsDFMHYoS++f8yPeWOmkDyS46+ba+KDbEi62
-	Uc7YOwF6+hsE+CYzCPvRkjBgst/zaG+CJ0UD1of3OM7M6nE7IH+OtxLo8xoT3N6gCOThi4VlybPFz
-	TIXWmSb2GVgpLj6b/iV/WLqP/WC+eDA1ukZmePRRY8H8Ox3QrGis9IdrV3Dbptvp9arvK77+5QK2d
-	wNVAAFSyeWJGwxli87cZLdo8Di62+8AII8xXgSne7JJWd4EfwJqbE9bYLKQXm6TGWmqqyRgPgWzHQ
-	IARUswNg==;
+	bh=PcA7pDgKK+U5Mz+haHQ3MkuxkQ95GUlYHJO8P+FhVRM=; b=qWmTZ5l+GPRDkyAMYBGEsONFVd
+	DhHE72A3riaBavpS7RnGEZt0tJcEKDcNDhuFxhvNQgjAkuXtXXM6o+34Xa48lU8U0hNVe1UX6mtyN
+	MKU+aZJxqXf9UZzB7GNpApdQrPkDK8YN3IDES7xZLErWET5Wo91vOphF14NUKcXnumhe2RxVMD8iM
+	a/+yARLxXUCUX+HjGCoEAEgoxjIQp/idqlys5yo8tONxpR5H2B29v4g+3i1kLH1lSXsjrFv5R+FeK
+	285GMuMPoki02OQ6MJWvblIr465pX0yxpaT08ZJtRFYPd6qxEWzsSctIErVDBgK4H4SFD3RyO7kL+
+	Sd/NP0nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5JHm-0000000C16t-3xyW;
-	Thu, 17 Apr 2025 07:03:46 +0000
-Received: from p-west1-cluster4-host4-snip4-10.eps.apple.com ([57.103.65.211] helo=outbound.pv.icloud.com)
+	id 1u5JJb-0000000C1Ud-2vW4;
+	Thu, 17 Apr 2025 07:05:39 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5JCV-0000000BzVG-2fFH
+	id 1u5JCv-0000000Bzdd-1HOf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 06:58:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=etehtsea.me; s=sig1;
-	bh=2Ww4hpp+z6fgi+nJK6FyaJfCKTs87q137A6aiYcfvEc=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version:x-icloud-hme;
-	b=kRJLB/2rV6qKWhiRvYq1W/QRIhp8ThfVUSEGHb4sbhgLpFogsuV79f38wqoxC3nl+
-	 N1ajnwRaBAa8fh546L8DmgWtTsTGrQvav5+FqGlUnCujhi1jYOgDmun5QphkvnjztC
-	 NiIBQ0rdP5Q5l9FRQran2dkkW8Z7YOHPwtWh2j3J2N+WNA712vSB5bfaUwGCBgdG9z
-	 OOS8xi97GDWJRP3bfQLWv/GjIb1BIZMwSR1mutQiLaS6B6TRl5dyxjJQUT9wt19qWl
-	 Y5O2TLQLMf1dzqaxU8OpY39+3oEiYf15dpplEtI+VOvB5q0/iKCz+Q/YyMjHeDVdam
-	 Op7XbW3b9j9aA==
-Received: from localhost (pv-asmtp-me-k8s.p00.prod.me.com [17.56.9.36])
-	by outbound.pv.icloud.com (Postfix) with ESMTPSA id 9762B18001FD;
-	Thu, 17 Apr 2025 06:58:08 +0000 (UTC)
-From: Konstantin Shabanov <mail@etehtsea.me>
-To: Sandy Huang <hjc@rock-chips.com>,
-	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>
-Cc: Konstantin Shabanov <mail@etehtsea.me>,
-	Daniel Stone <daniel@fooishbar.org>,
-	Andy Yan <andyshrk@163.com>,
-	Dan Callaghan <djc@djc.id.au>,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v4] drm/rockchip: Disable AFBC for res >2560 on rk3399
-Date: Thu, 17 Apr 2025 06:57:58 +0000
-Message-ID: <20250417065759.5948-1-mail@etehtsea.me>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250414095332.9674-1-mail@etehtsea.me>
-References: <20250414095332.9674-1-mail@etehtsea.me>
+	Thu, 17 Apr 2025 06:58:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 43D41A4B19A;
+	Thu, 17 Apr 2025 06:53:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EE74C4CEE4;
+	Thu, 17 Apr 2025 06:58:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744873124;
+	bh=M8uhNaUfmeUfmXvJOijmkV9Vyu1HDRBd4RGQBNHkCwc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=NdOtQtMA1jsQ37MWkDC+nxveJNU226XU5TVyph3Esd5oOMolljHxa8HGtmzToKw78
+	 R4Ta5snFJPGUhPuPIP5vPzlLg+T89NMzWdKXMVNhUe6/sr1P9jh3IyCSYbbLYebhnX
+	 SBM+/KzTeu0mIyxvtiT4boW+ftgywy1g667fugvJJ+1Ddq6q6ihG5365+29wpK1udj
+	 fwzL/S/Db0kvZoV6RxE0ntD+4R+KbLgdodeAdlwljlVRsn5oD9lLcq+wvjFOHEEqXj
+	 LmrN2rKUB9F0Gc/LjcTwR+Wuj042TExn5I1eGp6mqqrl7RXij0LEnReKV4U4ZqlDv4
+	 4GsLC/qj24RLw==
+Message-ID: <b90c05e9-feb7-4569-b79a-b623e535c1d0@kernel.org>
+Date: Thu, 17 Apr 2025 08:58:36 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-GUID: rwAzO9rQriuU_yzyVXMfa2RlWH8B6Ckm
-X-Proofpoint-ORIG-GUID: rwAzO9rQriuU_yzyVXMfa2RlWH8B6Ckm
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-17_01,2025-04-15_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxscore=0 spamscore=0 bulkscore=0
- malwarescore=0 adultscore=0 suspectscore=0 phishscore=0 mlxlogscore=999
- clxscore=1030 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2308100000 definitions=main-2504170053
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 09/10] arm64: dts: cix: add initial CIX P1(SKY1) dts
+ support
+To: Peter Chen <peter.chen@cixtech.com>
+Cc: soc@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de,
+ jassisinghbrar@gmail.com, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ cix-kernel-upstream@cixtech.com, maz@kernel.org, kajetan.puchalski@arm.com,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Fugang Duan <fugang.duan@cixtech.com>, Guomin Chen
+ <Guomin.Chen@cixtech.com>, Gary Yang <gary.yang@cixtech.com>
+References: <20250415072724.3565533-1-peter.chen@cixtech.com>
+ <20250415072724.3565533-10-peter.chen@cixtech.com>
+ <74b9fc25-0815-4ece-845a-5f730c87fe78@kernel.org>
+ <aAChkWPn4ThMx44A@nchen-desktop>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <aAChkWPn4ThMx44A@nchen-desktop>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_235819_703426_A0E075B6 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20250416_235845_475570_7F60023B 
+X-CRM114-Status: GOOD (  10.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,73 +126,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As it isn't supported by hardware. At least, RK3399 doesn't support
-it. From the datasheet[1]
-("1.2.10 Video IN/OUT", "Display Interface", p. 17):
+On 17/04/2025 08:37, Peter Chen wrote:
+> On 25-04-17 08:18:44, Krzysztof Kozlowski wrote:
+>> EXTERNAL EMAIL
+>>
+>> On 15/04/2025 09:27, Peter Chen wrote:
+>>> +
+>>> +             mbox_ap2pm: mailbox@6590080 {
+>>> +                     compatible = "cix,sky1-mbox";
+>>> +                     reg = <0x0 0x06590080 0x0 0xff80>;
+>>> +                     interrupts = <GIC_SPI 363 IRQ_TYPE_LEVEL_HIGH 0>;
+>>> +                     #mbox-cells = <1>;
+>>> +                     cix,mbox-dir = "tx";
+>>> +             };
+>>> +
+>>> +             pm2ap_scmi_mem: pm2ap-shmem@65a0000 {
+>>> +                     compatible = "arm,scmi-shmem";
+>>> +                     #address-cells = <2>;
+>>> +                     #size-cells = <2>;
+>>> +                     reg-io-width = <4>;
+>>> +                     reg = <0x0 0x065a0000 0x0 0x80>;
+>>
+>> Messed order of properties. Keep it consistent (see DTS conding style).
+>> Other nodes also have oddly placed reg.
+> 
+> Thanks for your reviewing, Krzysztof.
+> 
+> All the nodes mailbox and shmem (in mailbox) are on the same bus, so
+> I keep it by unit address in ascending order like DTS coding sytle
+> says. I think below rules are two options, isn't it?
 
-  Support AFBC function co-operation with GPU
-    * support 2560x1600 UI
+You speak about nodes I wrote about properties. I don't understand how
+your question is relevant to my comment.
 
-Manually tested on RockPro64 (rk3399):
-- ARM_AFBC modifier is used for 1920x1080
-- DRM_FORMAT_MOD_LINEAR modifier us used for 3840x2160
-- No noise on the screen when sway is running in 4k
-- Dynamic resolution switching works correctly in sway
 
-Signed-off-by: Konstantin Shabanov <mail@etehtsea.me>
-Cc: Daniel Stone <daniel@fooishbar.org>
-Cc: Andy Yan <andyshrk@163.com>
-Reported-by: Dan Callaghan <djc@djc.id.au>
-Closes: https://gitlab.freedesktop.org/mesa/mesa/-/issues/7968
-
-[1]: https://opensource.rock-chips.com/images/d/d7/Rockchip_RK3399_Datasheet_V2.1-20200323.pdf
----
-V3 -> V4: Correct redundant header inclusion
-V2 -> V3: Run check only on rk3399
-V1 -> V2: Move the check to the fb_create callback
-
- drivers/gpu/drm/rockchip/rockchip_drm_fb.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
-
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_fb.c b/drivers/gpu/drm/rockchip/rockchip_drm_fb.c
-index dcc1f07632c3..45e1619b5c97 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_fb.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_fb.c
-@@ -5,6 +5,7 @@
-  */
-
- #include <linux/kernel.h>
-+#include <linux/of.h>
-
- #include <drm/drm.h>
- #include <drm/drm_atomic.h>
-@@ -18,6 +19,8 @@
- #include "rockchip_drm_fb.h"
- #include "rockchip_drm_gem.h"
-
-+#define RK3399_AFBC_MAX_WIDTH		2560
-+
- static const struct drm_framebuffer_funcs rockchip_drm_fb_funcs = {
- 	.destroy       = drm_gem_fb_destroy,
- 	.create_handle = drm_gem_fb_create_handle,
-@@ -52,6 +55,15 @@ rockchip_fb_create(struct drm_device *dev, struct drm_file *file,
- 	}
-
- 	if (drm_is_afbc(mode_cmd->modifier[0])) {
-+		if (of_machine_is_compatible("rockchip,rk3399")) {
-+			if (mode_cmd->width > RK3399_AFBC_MAX_WIDTH) {
-+				DRM_DEBUG_KMS("AFBC is not supported for the width %d (max %d)\n",
-+					      mode_cmd->width,
-+					      RK3399_AFBC_MAX_WIDTH);
-+				return ERR_PTR(-EINVAL);
-+			};
-+		}
-+
- 		int ret, i;
-
- 		ret = drm_gem_fb_afbc_init(dev, mode_cmd, afbc_fb);
-
-base-commit: 4890d68db651562ea80250f2c93205a5c0327a6a
---
-2.48.1
+Best regards,
+Krzysztof
 
