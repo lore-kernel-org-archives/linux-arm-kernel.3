@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83170C369CA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 18:50:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB571C369C9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 18:52:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q1OkdsfczKfuuMwdp5evoONWBl+wnTUoP+ZyM/DXJYg=; b=nCn1IahtPIP0cENEy3xnK7ji/z
-	GMy2mIPln/BvKRXqxf7ZNjWVgfeyaWwQw7o/gZkkIhHFSY6PR6wlJXr5MJvTJJ/tsKFbH8K+awAdy
-	tc2+9Z/Q/ho9P1ptK3ROsN2Y/2g5ttBLE5gwr4ua7J1WMtweUT6vw0b3yxEloBqUUQ0NexzemlM28
-	TyKhy3jMnKgIlSB/JKE+opjtyQKssOivsW1n5jJ/MPYrQu6mZ45TCnN+ZW7elL6HTVxLevGe/jGcn
-	YZFHXTTWgTTAgWCJMpBSE04aruRkLa+35wdK8yeNEFH1Zx2fDYePhccTxt0rvfFh0v+emk7izBc5S
-	szV+euaA==;
+	bh=SGhhnSeoLCx/00kAS9xXk9l1talnKFNbxWOJczh/i88=; b=XEDPAE3ejMvrGPp15Ro5Ml/hgd
+	aXIhk6xz+iuTFT4fSw0rsmCOXphelZNarw/TUm+E4507e4rAjw4ddvEdz8O1zOhqF5tGrPBzRRLfD
+	FUlVIt1XyqF11sHYfoT2/lAwGGDzqyfO2+uJWTDPSABekGnzUXTIC3QnM1OSZWw1CrcEGLmHLtCYh
+	q3Kdwe6M77Akx5HN2cQucN8p9bDVfW998i9iOdBSAeOSv5Y8DrgrRu7O69j1WcYOVDPu/YPxD0/E6
+	K3Kf+VeHEzYrbuyaJon8L6l2jMzyJimiHyLTSEsaQdzmcBn5/CSt+1qQ49/vzamLTI/5DZX2ndva3
+	NtpCHL9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5UJp-0000000E6Sx-2jgW;
-	Thu, 17 Apr 2025 18:50:37 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1u5ULf-0000000E6ml-1gWW;
+	Thu, 17 Apr 2025 18:52:31 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5TxD-0000000E2Lf-3aUc;
+	id 1u5TxF-0000000E2MC-2aU3;
 	Thu, 17 Apr 2025 18:27:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 503C55C587E;
-	Thu, 17 Apr 2025 18:24:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4949CC4CEEC;
-	Thu, 17 Apr 2025 18:27:14 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D61446846C;
+	Thu, 17 Apr 2025 18:26:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A3CDC4CEEF;
+	Thu, 17 Apr 2025 18:27:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744914435;
-	bh=wTYOYOEcD2tS5YApzAw5JpRPXQeBTl3cVi6SPyyOu+g=;
+	s=k20201202; t=1744914436;
+	bh=jEsTNJdzPnRM1dU4ObaR6WAFA9yoz0tNEUtaftTE+C8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=XbNidi6AtUqg9ISmFMuBJvftddFhJ2bcWeL+ejDz2zW4ZErEzBHzZYDummTru8tmW
-	 y4GOfnNa09S9itz1MfWA23c6oDCpNd7uqxbv1F/9JdCV0B2Db+8HsWek8EzVZdO+vO
-	 +sRYZ5pucJykN1CDLhm35tsJPBJYshSIF25x70GuEHXa11iNNqyuO1DDOcDJ2EkRza
-	 xWWwnzzSLvJGFi/kjZWECMXrYXrGklDMeY0x2rXJWAIFC+B6H8ACWQ5kPnlU+4xN3i
-	 mkhVtPkRCj5RRVowUKtQFtRaTZhi7MCmpNj8shK6yD8mqvrdNNF7TxpMUYCJ9d3FwO
-	 qcCdh5Ka8LHMQ==
+	b=Zf/SNP76t/G/paguvsYhDIVWHj9ewjGgJLi81Fw7TtrTUfkN0rNws9WMp+2Bmlu7n
+	 w0prgRoqwnI7M3CynoV/zcl52moIT5+fks1E6kdi1txpvpi/jofHwn867VeYqruiAJ
+	 8sfGYjWcMFg+5lgVFbZEoY+zuTPdI+XO/eWL8PSXIO275GDA9SurtK45MLci+d0Q6u
+	 96iZAMlD/95t2ZoihXPKUtWR/dCSklp3BqmRWZl5ltq+Z87G9xI6L+dLzhHlP8CKYn
+	 rsh9KOnfE3xGXv2iuTdVIpSXfFngwoVmTdNYeSuAaQ4uS9kPkSDMKlYQMvV6k5JttH
+	 13H760ZFL6vfA==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-arch@vger.kernel.org,
@@ -55,18 +55,14 @@ Cc: linux-arch@vger.kernel.org,
 	x86@kernel.org,
 	"Jason A . Donenfeld " <Jason@zx2c4.com>,
 	Ard Biesheuvel <ardb@kernel.org>
-Subject: [PATCH 10/15] crypto: s390 - remove CRYPTO dependency of library functions
-Date: Thu, 17 Apr 2025 11:26:18 -0700
-Message-ID: <20250417182623.67808-11-ebiggers@kernel.org>
+Subject: [PATCH 12/15] crypto: x86 - drop redundant dependencies on X86
+Date: Thu, 17 Apr 2025 11:26:20 -0700
+Message-ID: <20250417182623.67808-13-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250417182623.67808-1-ebiggers@kernel.org>
 References: <20250417182623.67808-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_112715_984500_5AB9C00D 
-X-CRM114-Status: UNSURE (   9.53  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,162 +79,443 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Eric Biggers <ebiggers@google.com>
 
-Continue disentangling the crypto library functions from the generic
-crypto infrastructure by removing the unnecessary CRYPTO dependency of
-CRYPTO_CHACHA_S390.  To do this, make arch/s390/crypto/Kconfig be
-sourced regardless of CRYPTO, and explicitly list the CRYPTO dependency
-in the symbols that do need it.
+arch/x86/crypto/Kconfig is sourced only when CONFIG_X86=y, so there is
+no need for the symbols defined inside it to depend on X86.
+
+In the case of CRYPTO_TWOFISH_586 and CRYPTO_TWOFISH_X86_64, the
+dependency was actually on '(X86 || UML_X86)', which suggests that these
+two symbols were intended to be available under user-mode Linux as well.
+Yet, again these symbols were defined only when CONFIG_X86=y, so that
+was not the case.  Just remove this redundant dependency.
 
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- arch/s390/Kconfig        | 4 ++++
- arch/s390/crypto/Kconfig | 9 +++++++++
- crypto/Kconfig           | 3 ---
- 3 files changed, 13 insertions(+), 3 deletions(-)
+ arch/x86/crypto/Kconfig | 67 ++++++++++++++++++++---------------------
+ 1 file changed, 33 insertions(+), 34 deletions(-)
 
-diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
-index db8161ebb43c..2f32d51e8a73 100644
---- a/arch/s390/Kconfig
-+++ b/arch/s390/Kconfig
-@@ -679,10 +679,14 @@ config KERNEL_IMAGE_BASE
+diff --git a/arch/x86/crypto/Kconfig b/arch/x86/crypto/Kconfig
+index 9a3cade49f63..b4df6cf37e0e 100644
+--- a/arch/x86/crypto/Kconfig
++++ b/arch/x86/crypto/Kconfig
+@@ -2,11 +2,11 @@
  
- 	  If the value of this option leads to the kernel image overlapping
- 	  the virtual memory where other data structures are located, this
- 	  option is ignored and the image is loaded above the structures.
+ menu "Accelerated Cryptographic Algorithms for CPU (x86)"
  
-+if !KMSAN # avoid false positives from assembly
-+source "arch/s390/crypto/Kconfig"
-+endif
-+
- endmenu
- 
- menu "Memory setup"
- 
- config ARCH_SPARSEMEM_ENABLE
-diff --git a/arch/s390/crypto/Kconfig b/arch/s390/crypto/Kconfig
-index e88d9cd256ef..a2e6efd8aed8 100644
---- a/arch/s390/crypto/Kconfig
-+++ b/arch/s390/crypto/Kconfig
-@@ -2,70 +2,77 @@
- 
- menu "Accelerated Cryptographic Algorithms for CPU (s390)"
- 
- config CRYPTO_SHA512_S390
- 	tristate "Hash functions: SHA-384 and SHA-512"
-+	depends on CRYPTO
- 	select CRYPTO_HASH
+ config CRYPTO_CURVE25519_X86
+ 	tristate
+-	depends on X86 && 64BIT
++	depends on 64BIT
+ 	select CRYPTO_KPP
+ 	select CRYPTO_LIB_CURVE25519_GENERIC
+ 	select CRYPTO_ARCH_HAVE_LIB_CURVE25519
+ 	default CRYPTO_LIB_CURVE25519_INTERNAL
  	help
- 	  SHA-384 and SHA-512 secure hash algorithms (FIPS 180)
+@@ -15,11 +15,10 @@ config CRYPTO_CURVE25519_X86
+ 	  Architecture: x86_64 using:
+ 	  - ADX (large integer arithmetic)
  
- 	  Architecture: s390
+ config CRYPTO_AES_NI_INTEL
+ 	tristate "Ciphers: AES, modes: ECB, CBC, CTS, CTR, XCTR, XTS, GCM (AES-NI/VAES)"
+-	depends on X86
+ 	select CRYPTO_AEAD
+ 	select CRYPTO_LIB_AES
+ 	select CRYPTO_LIB_GF128MUL
+ 	select CRYPTO_ALGAPI
+ 	select CRYPTO_SKCIPHER
+@@ -35,11 +34,11 @@ config CRYPTO_AES_NI_INTEL
+ 	  Some algorithm implementations are supported only in 64-bit builds,
+ 	  and some have additional prerequisites such as AVX2 or AVX512.
  
- 	  It is available as of z10.
+ config CRYPTO_BLOWFISH_X86_64
+ 	tristate "Ciphers: Blowfish, modes: ECB, CBC"
+-	depends on X86 && 64BIT
++	depends on 64BIT
+ 	select CRYPTO_SKCIPHER
+ 	select CRYPTO_BLOWFISH_COMMON
+ 	imply CRYPTO_CTR
+ 	help
+ 	  Block cipher: Blowfish cipher algorithm
+@@ -47,22 +46,22 @@ config CRYPTO_BLOWFISH_X86_64
  
- config CRYPTO_SHA1_S390
- 	tristate "Hash functions: SHA-1"
-+	depends on CRYPTO
+ 	  Architecture: x86_64
+ 
+ config CRYPTO_CAMELLIA_X86_64
+ 	tristate "Ciphers: Camellia with modes: ECB, CBC"
+-	depends on X86 && 64BIT
++	depends on 64BIT
+ 	select CRYPTO_SKCIPHER
+ 	imply CRYPTO_CTR
+ 	help
+ 	  Block cipher: Camellia cipher algorithms
+ 	  Length-preserving ciphers: Camellia with ECB and CBC modes
+ 
+ 	  Architecture: x86_64
+ 
+ config CRYPTO_CAMELLIA_AESNI_AVX_X86_64
+ 	tristate "Ciphers: Camellia with modes: ECB, CBC (AES-NI/AVX)"
+-	depends on X86 && 64BIT
++	depends on 64BIT
+ 	select CRYPTO_SKCIPHER
+ 	select CRYPTO_CAMELLIA_X86_64
+ 	imply CRYPTO_XTS
+ 	help
+ 	  Length-preserving ciphers: Camellia with ECB and CBC modes
+@@ -71,22 +70,22 @@ config CRYPTO_CAMELLIA_AESNI_AVX_X86_64
+ 	  - AES-NI (AES New Instructions)
+ 	  - AVX (Advanced Vector Extensions)
+ 
+ config CRYPTO_CAMELLIA_AESNI_AVX2_X86_64
+ 	tristate "Ciphers: Camellia with modes: ECB, CBC (AES-NI/AVX2)"
+-	depends on X86 && 64BIT
++	depends on 64BIT
+ 	select CRYPTO_CAMELLIA_AESNI_AVX_X86_64
+ 	help
+ 	  Length-preserving ciphers: Camellia with ECB and CBC modes
+ 
+ 	  Architecture: x86_64 using:
+ 	  - AES-NI (AES New Instructions)
+ 	  - AVX2 (Advanced Vector Extensions 2)
+ 
+ config CRYPTO_CAST5_AVX_X86_64
+ 	tristate "Ciphers: CAST5 with modes: ECB, CBC (AVX)"
+-	depends on X86 && 64BIT
++	depends on 64BIT
+ 	select CRYPTO_SKCIPHER
+ 	select CRYPTO_CAST5
+ 	select CRYPTO_CAST_COMMON
+ 	imply CRYPTO_CTR
+ 	help
+@@ -98,11 +97,11 @@ config CRYPTO_CAST5_AVX_X86_64
+ 
+ 	  Processes 16 blocks in parallel.
+ 
+ config CRYPTO_CAST6_AVX_X86_64
+ 	tristate "Ciphers: CAST6 with modes: ECB, CBC (AVX)"
+-	depends on X86 && 64BIT
++	depends on 64BIT
+ 	select CRYPTO_SKCIPHER
+ 	select CRYPTO_CAST6
+ 	select CRYPTO_CAST_COMMON
+ 	imply CRYPTO_XTS
+ 	imply CRYPTO_CTR
+@@ -115,11 +114,11 @@ config CRYPTO_CAST6_AVX_X86_64
+ 
+ 	  Processes eight blocks in parallel.
+ 
+ config CRYPTO_DES3_EDE_X86_64
+ 	tristate "Ciphers: Triple DES EDE with modes: ECB, CBC"
+-	depends on X86 && 64BIT
++	depends on 64BIT
+ 	select CRYPTO_SKCIPHER
+ 	select CRYPTO_LIB_DES
+ 	imply CRYPTO_CTR
+ 	help
+ 	  Block cipher: Triple DES EDE (FIPS 46-3) cipher algorithm
+@@ -129,11 +128,11 @@ config CRYPTO_DES3_EDE_X86_64
+ 
+ 	  Processes one or three blocks in parallel.
+ 
+ config CRYPTO_SERPENT_SSE2_X86_64
+ 	tristate "Ciphers: Serpent with modes: ECB, CBC (SSE2)"
+-	depends on X86 && 64BIT
++	depends on 64BIT
+ 	select CRYPTO_SKCIPHER
+ 	select CRYPTO_SERPENT
+ 	imply CRYPTO_CTR
+ 	help
+ 	  Length-preserving ciphers: Serpent cipher algorithm
+@@ -144,11 +143,11 @@ config CRYPTO_SERPENT_SSE2_X86_64
+ 
+ 	  Processes eight blocks in parallel.
+ 
+ config CRYPTO_SERPENT_SSE2_586
+ 	tristate "Ciphers: Serpent with modes: ECB, CBC (32-bit with SSE2)"
+-	depends on X86 && !64BIT
++	depends on !64BIT
+ 	select CRYPTO_SKCIPHER
+ 	select CRYPTO_SERPENT
+ 	imply CRYPTO_CTR
+ 	help
+ 	  Length-preserving ciphers: Serpent cipher algorithm
+@@ -159,11 +158,11 @@ config CRYPTO_SERPENT_SSE2_586
+ 
+ 	  Processes four blocks in parallel.
+ 
+ config CRYPTO_SERPENT_AVX_X86_64
+ 	tristate "Ciphers: Serpent with modes: ECB, CBC (AVX)"
+-	depends on X86 && 64BIT
++	depends on 64BIT
+ 	select CRYPTO_SKCIPHER
+ 	select CRYPTO_SERPENT
+ 	imply CRYPTO_XTS
+ 	imply CRYPTO_CTR
+ 	help
+@@ -175,11 +174,11 @@ config CRYPTO_SERPENT_AVX_X86_64
+ 
+ 	  Processes eight blocks in parallel.
+ 
+ config CRYPTO_SERPENT_AVX2_X86_64
+ 	tristate "Ciphers: Serpent with modes: ECB, CBC (AVX2)"
+-	depends on X86 && 64BIT
++	depends on 64BIT
+ 	select CRYPTO_SERPENT_AVX_X86_64
+ 	help
+ 	  Length-preserving ciphers: Serpent cipher algorithm
+ 	  with ECB and CBC modes
+ 
+@@ -188,11 +187,11 @@ config CRYPTO_SERPENT_AVX2_X86_64
+ 
+ 	  Processes 16 blocks in parallel.
+ 
+ config CRYPTO_SM4_AESNI_AVX_X86_64
+ 	tristate "Ciphers: SM4 with modes: ECB, CBC, CTR (AES-NI/AVX)"
+-	depends on X86 && 64BIT
++	depends on 64BIT
+ 	select CRYPTO_SKCIPHER
+ 	select CRYPTO_ALGAPI
+ 	select CRYPTO_SM4
+ 	help
+ 	  Length-preserving ciphers: SM4 cipher algorithms
+@@ -208,11 +207,11 @@ config CRYPTO_SM4_AESNI_AVX_X86_64
+ 
+ 	  If unsure, say N.
+ 
+ config CRYPTO_SM4_AESNI_AVX2_X86_64
+ 	tristate "Ciphers: SM4 with modes: ECB, CBC, CTR (AES-NI/AVX2)"
+-	depends on X86 && 64BIT
++	depends on 64BIT
+ 	select CRYPTO_SKCIPHER
+ 	select CRYPTO_ALGAPI
+ 	select CRYPTO_SM4
+ 	select CRYPTO_SM4_AESNI_AVX_X86_64
+ 	help
+@@ -229,33 +228,33 @@ config CRYPTO_SM4_AESNI_AVX2_X86_64
+ 
+ 	  If unsure, say N.
+ 
+ config CRYPTO_TWOFISH_586
+ 	tristate "Ciphers: Twofish (32-bit)"
+-	depends on (X86 || UML_X86) && !64BIT
++	depends on !64BIT
+ 	select CRYPTO_ALGAPI
+ 	select CRYPTO_TWOFISH_COMMON
+ 	imply CRYPTO_CTR
+ 	help
+ 	  Block cipher: Twofish cipher algorithm
+ 
+ 	  Architecture: x86 (32-bit)
+ 
+ config CRYPTO_TWOFISH_X86_64
+ 	tristate "Ciphers: Twofish"
+-	depends on (X86 || UML_X86) && 64BIT
++	depends on 64BIT
+ 	select CRYPTO_ALGAPI
+ 	select CRYPTO_TWOFISH_COMMON
+ 	imply CRYPTO_CTR
+ 	help
+ 	  Block cipher: Twofish cipher algorithm
+ 
+ 	  Architecture: x86_64
+ 
+ config CRYPTO_TWOFISH_X86_64_3WAY
+ 	tristate "Ciphers: Twofish with modes: ECB, CBC (3-way parallel)"
+-	depends on X86 && 64BIT
++	depends on 64BIT
+ 	select CRYPTO_SKCIPHER
+ 	select CRYPTO_TWOFISH_COMMON
+ 	select CRYPTO_TWOFISH_X86_64
+ 	help
+ 	  Length-preserving cipher: Twofish cipher algorithm
+@@ -266,11 +265,11 @@ config CRYPTO_TWOFISH_X86_64_3WAY
+ 	  Processes three blocks in parallel, better utilizing resources of
+ 	  out-of-order CPUs.
+ 
+ config CRYPTO_TWOFISH_AVX_X86_64
+ 	tristate "Ciphers: Twofish with modes: ECB, CBC (AVX)"
+-	depends on X86 && 64BIT
++	depends on 64BIT
+ 	select CRYPTO_SKCIPHER
+ 	select CRYPTO_TWOFISH_COMMON
+ 	select CRYPTO_TWOFISH_X86_64
+ 	select CRYPTO_TWOFISH_X86_64_3WAY
+ 	imply CRYPTO_XTS
+@@ -283,11 +282,11 @@ config CRYPTO_TWOFISH_AVX_X86_64
+ 
+ 	  Processes eight blocks in parallel.
+ 
+ config CRYPTO_ARIA_AESNI_AVX_X86_64
+ 	tristate "Ciphers: ARIA with modes: ECB, CTR (AES-NI/AVX/GFNI)"
+-	depends on X86 && 64BIT
++	depends on 64BIT
+ 	select CRYPTO_SKCIPHER
+ 	select CRYPTO_ALGAPI
+ 	select CRYPTO_ARIA
+ 	help
+ 	  Length-preserving cipher: ARIA cipher algorithms
+@@ -300,11 +299,11 @@ config CRYPTO_ARIA_AESNI_AVX_X86_64
+ 
+ 	  Processes 16 blocks in parallel.
+ 
+ config CRYPTO_ARIA_AESNI_AVX2_X86_64
+ 	tristate "Ciphers: ARIA with modes: ECB, CTR (AES-NI/AVX2/GFNI)"
+-	depends on X86 && 64BIT
++	depends on 64BIT
+ 	select CRYPTO_SKCIPHER
+ 	select CRYPTO_ALGAPI
+ 	select CRYPTO_ARIA
+ 	select CRYPTO_ARIA_AESNI_AVX_X86_64
+ 	help
+@@ -318,11 +317,11 @@ config CRYPTO_ARIA_AESNI_AVX2_X86_64
+ 
+ 	  Processes 32 blocks in parallel.
+ 
+ config CRYPTO_ARIA_GFNI_AVX512_X86_64
+ 	tristate "Ciphers: ARIA with modes: ECB, CTR (AVX512/GFNI)"
+-	depends on X86 && 64BIT && AS_GFNI
++	depends on 64BIT && AS_GFNI
+ 	select CRYPTO_SKCIPHER
+ 	select CRYPTO_ALGAPI
+ 	select CRYPTO_ARIA
+ 	select CRYPTO_ARIA_AESNI_AVX_X86_64
+ 	select CRYPTO_ARIA_AESNI_AVX2_X86_64
+@@ -336,49 +335,49 @@ config CRYPTO_ARIA_GFNI_AVX512_X86_64
+ 
+ 	  Processes 64 blocks in parallel.
+ 
+ config CRYPTO_CHACHA20_X86_64
+ 	tristate
+-	depends on X86 && 64BIT
++	depends on 64BIT
+ 	select CRYPTO_LIB_CHACHA_GENERIC
+ 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
+ 	default CRYPTO_LIB_CHACHA_INTERNAL
+ 
+ config CRYPTO_AEGIS128_AESNI_SSE2
+ 	tristate "AEAD ciphers: AEGIS-128 (AES-NI/SSE4.1)"
+-	depends on X86 && 64BIT
++	depends on 64BIT
+ 	select CRYPTO_AEAD
+ 	help
+ 	  AEGIS-128 AEAD algorithm
+ 
+ 	  Architecture: x86_64 using:
+ 	  - AES-NI (AES New Instructions)
+ 	  - SSE4.1 (Streaming SIMD Extensions 4.1)
+ 
+ config CRYPTO_NHPOLY1305_SSE2
+ 	tristate "Hash functions: NHPoly1305 (SSE2)"
+-	depends on X86 && 64BIT
++	depends on 64BIT
+ 	select CRYPTO_NHPOLY1305
+ 	help
+ 	  NHPoly1305 hash function for Adiantum
+ 
+ 	  Architecture: x86_64 using:
+ 	  - SSE2 (Streaming SIMD Extensions 2)
+ 
+ config CRYPTO_NHPOLY1305_AVX2
+ 	tristate "Hash functions: NHPoly1305 (AVX2)"
+-	depends on X86 && 64BIT
++	depends on 64BIT
+ 	select CRYPTO_NHPOLY1305
+ 	help
+ 	  NHPoly1305 hash function for Adiantum
+ 
+ 	  Architecture: x86_64 using:
+ 	  - AVX2 (Advanced Vector Extensions 2)
+ 
+ config CRYPTO_BLAKE2S_X86
+ 	bool "Hash functions: BLAKE2s (SSSE3/AVX-512)"
+-	depends on X86 && 64BIT
++	depends on 64BIT
+ 	select CRYPTO_LIB_BLAKE2S_GENERIC
+ 	select CRYPTO_ARCH_HAVE_LIB_BLAKE2S
+ 	help
+ 	  BLAKE2s cryptographic hash function (RFC 7693)
+ 
+@@ -386,27 +385,27 @@ config CRYPTO_BLAKE2S_X86
+ 	  - SSSE3 (Supplemental SSE3)
+ 	  - AVX-512 (Advanced Vector Extensions-512)
+ 
+ config CRYPTO_POLYVAL_CLMUL_NI
+ 	tristate "Hash functions: POLYVAL (CLMUL-NI)"
+-	depends on X86 && 64BIT
++	depends on 64BIT
+ 	select CRYPTO_POLYVAL
+ 	help
+ 	  POLYVAL hash function for HCTR2
+ 
+ 	  Architecture: x86_64 using:
+ 	  - CLMUL-NI (carry-less multiplication new instructions)
+ 
+ config CRYPTO_POLY1305_X86_64
+ 	tristate
+-	depends on X86 && 64BIT
++	depends on 64BIT
+ 	select CRYPTO_ARCH_HAVE_LIB_POLY1305
+ 	default CRYPTO_LIB_POLY1305_INTERNAL
+ 
+ config CRYPTO_SHA1_SSSE3
+ 	tristate "Hash functions: SHA-1 (SSSE3/AVX/AVX2/SHA-NI)"
+-	depends on X86 && 64BIT
++	depends on 64BIT
+ 	select CRYPTO_SHA1
  	select CRYPTO_HASH
  	help
  	  SHA-1 secure hash algorithm (FIPS 180)
  
- 	  Architecture: s390
+@@ -416,11 +415,11 @@ config CRYPTO_SHA1_SSSE3
+ 	  - AVX2 (Advanced Vector Extensions 2)
+ 	  - SHA-NI (SHA Extensions New Instructions)
  
- 	  It is available as of z990.
- 
- config CRYPTO_SHA256_S390
- 	tristate "Hash functions: SHA-224 and SHA-256"
-+	depends on CRYPTO
+ config CRYPTO_SHA256_SSSE3
+ 	tristate "Hash functions: SHA-224 and SHA-256 (SSSE3/AVX/AVX2/SHA-NI)"
+-	depends on X86 && 64BIT
++	depends on 64BIT
+ 	select CRYPTO_SHA256
  	select CRYPTO_HASH
  	help
  	  SHA-224 and SHA-256 secure hash algorithms (FIPS 180)
  
- 	  Architecture: s390
+@@ -430,11 +429,11 @@ config CRYPTO_SHA256_SSSE3
+ 	  - AVX2 (Advanced Vector Extensions 2)
+ 	  - SHA-NI (SHA Extensions New Instructions)
  
- 	  It is available as of z9.
- 
- config CRYPTO_SHA3_256_S390
- 	tristate "Hash functions: SHA3-224 and SHA3-256"
-+	depends on CRYPTO
+ config CRYPTO_SHA512_SSSE3
+ 	tristate "Hash functions: SHA-384 and SHA-512 (SSSE3/AVX/AVX2)"
+-	depends on X86 && 64BIT
++	depends on 64BIT
+ 	select CRYPTO_SHA512
  	select CRYPTO_HASH
  	help
- 	  SHA3-224 and SHA3-256 secure hash algorithms (FIPS 202)
+ 	  SHA-384 and SHA-512 secure hash algorithms (FIPS 180)
  
- 	  Architecture: s390
+@@ -443,11 +442,11 @@ config CRYPTO_SHA512_SSSE3
+ 	  - AVX (Advanced Vector Extensions)
+ 	  - AVX2 (Advanced Vector Extensions 2)
  
- 	  It is available as of z14.
- 
- config CRYPTO_SHA3_512_S390
- 	tristate "Hash functions: SHA3-384 and SHA3-512"
-+	depends on CRYPTO
+ config CRYPTO_SM3_AVX_X86_64
+ 	tristate "Hash functions: SM3 (AVX)"
+-	depends on X86 && 64BIT
++	depends on 64BIT
  	select CRYPTO_HASH
+ 	select CRYPTO_LIB_SM3
  	help
- 	  SHA3-384 and SHA3-512 secure hash algorithms (FIPS 202)
+ 	  SM3 secure hash function as defined by OSCCA GM/T 0004-2012 SM3
  
- 	  Architecture: s390
+@@ -456,11 +455,11 @@ config CRYPTO_SM3_AVX_X86_64
  
- 	  It is available as of z14.
+ 	  If unsure, say N.
  
- config CRYPTO_GHASH_S390
- 	tristate "Hash functions: GHASH"
-+	depends on CRYPTO
- 	select CRYPTO_HASH
+ config CRYPTO_GHASH_CLMUL_NI_INTEL
+ 	tristate "Hash functions: GHASH (CLMUL-NI)"
+-	depends on X86 && 64BIT
++	depends on 64BIT
+ 	select CRYPTO_CRYPTD
  	help
  	  GCM GHASH hash function (NIST SP800-38D)
  
- 	  Architecture: s390
- 
- 	  It is available as of z196.
- 
- config CRYPTO_AES_S390
- 	tristate "Ciphers: AES, modes: ECB, CBC, CTR, XTS, GCM"
-+	depends on CRYPTO
- 	select CRYPTO_ALGAPI
- 	select CRYPTO_SKCIPHER
- 	help
- 	  Block cipher: AES cipher algorithms (FIPS 197)
- 	  AEAD cipher: AES with GCM
-@@ -83,10 +90,11 @@ config CRYPTO_AES_S390
- 	  key sizes and XTS mode is hardware accelerated for 256 and
- 	  512 bit keys.
- 
- config CRYPTO_DES_S390
- 	tristate "Ciphers: DES and Triple DES EDE, modes: ECB, CBC, CTR"
-+	depends on CRYPTO
- 	select CRYPTO_ALGAPI
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_LIB_DES
- 	help
- 	  Block ciphers: DES (FIPS 46-2) cipher algorithm
-@@ -105,10 +113,11 @@ config CRYPTO_CHACHA_S390
- 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
- 	default CRYPTO_LIB_CHACHA_INTERNAL
- 
- config CRYPTO_HMAC_S390
- 	tristate "Keyed-hash message authentication code: HMAC"
-+	depends on CRYPTO
- 	select CRYPTO_HASH
- 	help
- 	  s390 specific HMAC hardware support for SHA224, SHA256, SHA384 and
- 	  SHA512.
- 
-diff --git a/crypto/Kconfig b/crypto/Kconfig
-index 8c334c9f2081..78e83ce576ed 100644
---- a/crypto/Kconfig
-+++ b/crypto/Kconfig
-@@ -1424,13 +1424,10 @@ endmenu
- 
- config CRYPTO_HASH_INFO
- 	bool
- 
- if !KMSAN # avoid false positives from assembly
--if S390
--source "arch/s390/crypto/Kconfig"
--endif
- if SPARC
- source "arch/sparc/crypto/Kconfig"
- endif
- if X86
- source "arch/x86/crypto/Kconfig"
+ 	  Architecture: x86_64 using:
 -- 
 2.49.0
 
