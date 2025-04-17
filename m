@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC559C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 13:19:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84AC7C369D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 13:20:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a49fxGq1XoHyE2U3x1UJ5ixWz+1/3CcS+lXQ+ObVx0s=; b=GGKgkInw0iFseBIBRqGf9fTjBU
-	4wm205EcnDiPyyoo55U8cyGu2oQl2gsBOkfiMM9eyF9pVFOQOxVL3q80Mi0kos9UgZneEWOwNXP+j
-	5/zPRK4bcj5DB0sIh/+DckX1XACzBSG1ujs8oRJd3pOK/RtvsbAEB8N8Wp0Dzk2otELRGj2vac5uz
-	IzwciigQcnMMvDwLVPqUllDHsMjnGm/ypYNaZadAn/NL0sD1vBt5HFII5g2ri2otMtMzdldSSqAxx
-	WLLP60tXJ7kmSxRZv6qWgpL6hSmzsrbvqpDvJsHGL+Hhw3BAq4uiWcoveNwc8rMO24Boupopu+Q3b
-	cSze+NYw==;
+	bh=NqfmpbjW7riguud7DMBTVyGF+ZF1AdVA9f8c2C7hnLI=; b=yoRmF8OS4z5lfBFerLOO4nXL28
+	WBox8dcHHnOMcB9EbzY96yGDsH552jpmjCNtcTJC8W2RDbbikecHHRPsyf7CzIWAB2/d4/4hddv4W
+	LXQ06UaLAfnSyvlyWcB9cn4BF5J47j/3x5KX7x6fApsz4B7jd9cDGkByjva0IonJwE5KJ0SuPh1Y3
+	8yqVRpev9eRPvNf1voYO124DQNxFpX7jc6N9njJhrtPWvUMbOaMUdPdnUy79rBthSu8tC5JT2m7xe
+	H0yQkvhD1h6AePIUtoL26IMAFS629JRmmNm+J7HyKOexzYqcgDBwn14nr0JFpxb3tx7AmsccwSLcn
+	yhyWeqmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5P8o-0000000D74a-3aAG;
-	Thu, 17 Apr 2025 13:18:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u5PAd-0000000D7ME-2AYK;
+	Thu, 17 Apr 2025 13:20:47 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5P0s-0000000D5hE-3fBW
+	id 1u5P6J-0000000D6mE-0Vm3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 13:10:42 +0000
+	Thu, 17 Apr 2025 13:16:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2EEA668436;
-	Thu, 17 Apr 2025 13:10:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16539C4CEE4;
-	Thu, 17 Apr 2025 13:10:40 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id E7021A4B394;
+	Thu, 17 Apr 2025 13:10:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55B78C4CEE4;
+	Thu, 17 Apr 2025 13:16:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744895441;
-	bh=UX5aCpiFPWHDn5y5lBqZg3C21rUMdQGu9cwtYACqRIY=;
+	s=k20201202; t=1744895777;
+	bh=JOB3Kk/EM3/vcVbO0LHbslX6iAjbGgIXo4UEDu68gq8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jQVhPpVgwjufYHxGJpES7G6EpaKPVUoh06ZvwZmLlTYAC+vceHN+5dH1EA5pdas5d
-	 47tCETUmeOH9XJMp1YCNKlYdN6LZpIkEngGIzw99nIjo0KAwxLZ59LGxlJcihXoNcR
-	 AafOC2sU9MAE0Dhsf41hhdjLI3D5xrmORZyfVZTmybLfZ8TUUiLybwJ3Yw71W/MP22
-	 tMHTB3P1vubgOdPMt3PgvOzq+ia+xfWJQ3gIBGP2svj0kP+iq7FeCTjxXnJ+viR5fT
-	 JT7/n5/p0gCbfMOQQ+NtM5m9n3rxdnwPODhXv/zB6LL9lkUwFKycInnA8q5pivCllq
-	 tYdpSPxfWrioQ==
-Date: Thu, 17 Apr 2025 15:10:37 +0200
+	b=t6ThyFqA8noKENc0TRm+jM7qkIhPqeNxxbNYDgUD1uF9by0kXywDqsDo5p/U9cuUE
+	 YMMXm+EIDwh/MlXQbHRpZ9VAGvonfTIZLAeUM17+YAoAeFQkD0daIYSj0c5M23Y7ac
+	 +gDbFX3ebm+od/yhd3ry9t3/q7ZjF0g+wWbfK8kmuIuE/+F9xPKuBJxd4pCCdSB/IH
+	 Jep+YB1r1DIuhn2zqURutMz2MEm9klog/jRzeE+UjsmL16RwrkJal5yz131LSvZFiM
+	 v+o2Pkyd3L8UbSkMr/tVN2Ctnkunw2kkSI//U6DYbmnbUXcetX6NZJxstjwNAtsdoV
+	 knXwfFuq+hi5A==
+Date: Thu, 17 Apr 2025 15:16:14 +0200
 From: Andi Shyti <andi.shyti@kernel.org>
 To: Sven Peter <sven@svenpeter.dev>
 Cc: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
@@ -50,15 +50,19 @@ Cc: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
 	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
 	Naveen N Rao <naveen@kernel.org>, Neal Gompa <neal@gompa.dev>, Hector Martin <marcan@marcan.st>, 
 	linuxppc-dev@lists.ozlabs.org, asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 6/6] i2c: pasemi: Log bus reset causes
-Message-ID: <yxzzpnf2eprgaoaghuptj2izxyuu3rzdldm6emsob7asrsxbrk@kzrlellx3qim>
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Andy Shevchenko <andy.shevchenko@gmail.com>
+Subject: Re: [PATCH v2 0/6] Apple/PASemi i2c error recovery fixes
+Message-ID: <kw3iierscam5stq7igwxpj2std6hwc36y2xbbqliheorbaouxn@zspp5ltjxrus>
 References: <20250415-pasemi-fixes-v2-0-c543bf53151a@svenpeter.dev>
- <20250415-pasemi-fixes-v2-6-c543bf53151a@svenpeter.dev>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250415-pasemi-fixes-v2-6-c543bf53151a@svenpeter.dev>
+In-Reply-To: <20250415-pasemi-fixes-v2-0-c543bf53151a@svenpeter.dev>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250417_061619_231963_844B8EBF 
+X-CRM114-Status: UNSURE (   6.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,34 +79,21 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Sven,
 
-...
+> Hector Martin (3):
+>       i2c: pasemi: Improve error recovery
+>       i2c: pasemi: Enable the unjam machine
+>       i2c: pasemi: Log bus reset causes
+> 
+> Sven Peter (3):
+>       i2c: pasemi: Use correct bits.h include
+>       i2c: pasemi: Sort includes alphabetically
 
->  static int pasemi_smb_clear(struct pasemi_smbus *smbus)
->  {
-> -	unsigned int status;
-> +	unsigned int status, xfstatus;
+I applied in i2c/i2c-host the two patches above, so that you can
+start from patch 3 as there were a few little notes.
 
-Let's declare the variables in the innermost scope where they are
-used.
+I didn't see necessary the Fixes tag in the bits.h patch so that
+I removed it.
 
+Thanks,
 Andi
-
->  	int ret;
->  
->  	/* First wait for the bus to go idle */
-> @@ -98,7 +99,9 @@ static int pasemi_smb_clear(struct pasemi_smbus *smbus)
->  				 USEC_PER_MSEC, USEC_PER_MSEC * TRANSFER_TIMEOUT_MS);
->  
->  	if (ret < 0) {
-> -		dev_err(smbus->dev, "Bus is still stuck (status 0x%08x)\n", status);
-> +		xfstatus = reg_read(smbus, REG_XFSTA);
-> +		dev_err(smbus->dev, "Bus is still stuck (status 0x%08x xfstatus 0x%08x)\n",
-> +			 status, xfstatus);
->  		return -EIO;
->  	}
->  
-> 
-> -- 
-> 2.34.1
-> 
 
