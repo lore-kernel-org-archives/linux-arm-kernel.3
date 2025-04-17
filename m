@@ -4,135 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E8C9C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 08:27:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80EEAC369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 08:42:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A0+3axhg6wpwFtwVrZK4tPqjbKFcgPMltM/8+QVmRwk=; b=PlWiX1v4dSVz4CimP+Jb7xXQjW
-	gfWDUUUzJ7xvHhJ/vNB+jE3keRzW3lwmCWmw0LTqK/6ff9auU62tjV8hvuMGxvk7E6b+vlbMuWFZv
-	gsqFc5f4c/BI1unWiNhNph+ALnHp2vjHbynCcoJWWrAarAErjaRic+aj2amrThW4gvvo88II+DvUX
-	k1FddeFHN6DG3vEl6/uX9vs+AikSHUj2rODCJPYkDgEXv7ESKjJCKul52w5516lQM9SPEkviJg1JD
-	zCPpDsipfFu/L5Gezvn3kPd+QsxGA3woPD1pnqB7U2cC20gjU5qAGS7nKms68PWZ8lRWr8X35UHRz
-	QU9CEfZQ==;
+	bh=qm3e2vl0D67OULbMQ9hRKDjA0GFGhhzN4QyTNiBFMV8=; b=VhaUvpQrVL7xKE0sjC8osDy6U+
+	bAmL+4N7Mt5WBTGrZ5pdY/343xm4Yo04bcyRbWCT4Fh0a0ht7+dZBwcrlFrnUKEspgUf/heGC3m+c
+	7ctTHG4qPz+tbAA4XVwmIi37z60om0lBttL5PK63AVUYq14DFu9XFT8Rl/v92X1K82NMqBSTHfhFa
+	gZ/LH+gdXTIyAGNqT/MSW4JqKXY6Xx4HUPsSE1jJK81cF8CI+kJeIeicNs3L6uOucb37nbK6L9Wpl
+	15pWdmAWcKdr8Uoaeyic56sn0XLD+SptObAXqOk8s8bYbFhTsnGF6rsrwnUyjvx43NdDmpDQHgtbX
+	qlTJSByg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5KaE-0000000CGvc-1wkc;
-	Thu, 17 Apr 2025 08:26:54 +0000
-Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1u5Kof-0000000CIq2-3MTF;
+	Thu, 17 Apr 2025 08:41:49 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5KYN-0000000CGgH-2eNc
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 08:25:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nHsq+OKE1svzvzcFlg7+yovHYlUbImDCHGyMhvLFpgDzNoZq00w0uSCg5MSeP2fzWvXvfpbjjpfZxruktDzf7wbwHpZlMPVUajAL+Oc0qXZ3FO8CtIfQVk+FK67VouHv8IohXNLkGZ9mv4cFuOryg5n+cRIdQtD8vU+/TwL8Q4J3jsYvk4JQn8nHsYWJ9CN8MMJUwmrIJZa9U6gVcfq1KM89us/j5qa54rPx5RSk6A+xAb8Gb/HvIlr2JZITtXvNAhRtQrxivGfqxbWesdSFi/uAV6+fA8SQk0E51DhdxTKes859CGM9ZX/Fv4+h4OvWIEroQAxHCIMN5MXD/HVPtw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=A0+3axhg6wpwFtwVrZK4tPqjbKFcgPMltM/8+QVmRwk=;
- b=kSbIBdJou/fHppeBHfV1FIEAJvqLLxr+znt2Ku3+OOyGg+6psf+230RpEihvhjx9exf8Wf9MQU/gHXhLIvPcbZdVi3iOY1dKBEN7zKBipPhmo+kjFTPtS4w/z7ih/CY0Ar4OYD3coOmBMjTSQZ6UhGtTJemDKunGjk2dJ4SnPiAXdaHYl0J9rK5aHpitrsSz4Wu/Jz1aWs0LdbIC3Dx/8NDjtrGMV3mdgLXd8JBzfIfGBcUlJgyZvXi52s2PeXuNcy6aszWrXEf68xVQ/2N8ziH+P9UWcgCVYvJb/1uuuhPn5hnXPzZ1HIc5vtjeNu1m0+wvMtYtTnUDaWgPvhp7kA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SL2P216CA0205.KORP216.PROD.OUTLOOK.COM (2603:1096:101:19::15)
- by TYSPR06MB7297.apcprd06.prod.outlook.com (2603:1096:405:96::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.22; Thu, 17 Apr
- 2025 08:24:11 +0000
-Received: from HK3PEPF0000021A.apcprd03.prod.outlook.com
- (2603:1096:101:19:cafe::7d) by SL2P216CA0205.outlook.office365.com
- (2603:1096:101:19::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.22 via Frontend Transport; Thu,
- 17 Apr 2025 08:24:10 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- HK3PEPF0000021A.mail.protection.outlook.com (10.167.8.36) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8655.12 via Frontend Transport; Thu, 17 Apr 2025 08:24:10 +0000
-Received: from nchen-desktop (unknown [172.16.64.25])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 206804160CA0;
-	Thu, 17 Apr 2025 16:24:09 +0800 (CST)
-Date: Thu, 17 Apr 2025 16:24:08 +0800
-From: Peter Chen <peter.chen@cixtech.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: soc@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org,
-	arnd@arndb.de, jassisinghbrar@gmail.com,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
-	maz@kernel.org, kajetan.puchalski@arm.com,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Fugang Duan <fugang.duan@cixtech.com>,
-	Guomin Chen <Guomin.Chen@cixtech.com>,
-	Gary Yang <gary.yang@cixtech.com>
-Subject: Re: [PATCH v6 09/10] arm64: dts: cix: add initial CIX P1(SKY1) dts
- support
-Message-ID: <aAC6qM1LnNZnHrCI@nchen-desktop>
-References: <20250415072724.3565533-1-peter.chen@cixtech.com>
- <20250415072724.3565533-10-peter.chen@cixtech.com>
- <74b9fc25-0815-4ece-845a-5f730c87fe78@kernel.org>
- <aAChkWPn4ThMx44A@nchen-desktop>
- <b90c05e9-feb7-4569-b79a-b623e535c1d0@kernel.org>
+	id 1u5Kmp-0000000CIXS-0ouO;
+	Thu, 17 Apr 2025 08:39:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7008A5C480F;
+	Thu, 17 Apr 2025 08:37:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79DD9C4CEE4;
+	Thu, 17 Apr 2025 08:39:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744879194;
+	bh=E2pUwIa3M2j8+TwNI8zdHacoOXOQYH/elMF2JStWijg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fHW40nqIuGIijzpwiC5akHwMbGFOSJ1+jL/+ZngNMd+K4bT8s12plZRNkkJxe3Ye2
+	 T8B6niULHBTtrEf6UmCUUM9/KWJyOZWnA/XdG7sNqBRJ8hbHfaWeoh+XiQ/vjjhlYm
+	 rcXjSzZOhJ4M69YByAp+kWgKcOYvTxrXM987mgY5aldRHWUfVwHQRX5W/JVNON68vW
+	 zxTzKQBI6cJGk9lvviHSrZuaAOoOLckcMA0zHmuqnS1jJxNrMWvODO86eQYnvmmcqN
+	 n79/wMFaQsyb2BOlxWf8PPRZGH/6e2Kn9L7QppLIT6z7DEuM3T23odCLaNxggvv/8b
+	 akXryhkCD7z7w==
+Date: Thu, 17 Apr 2025 10:39:49 +0200
+From: Niklas Cassel <cassel@kernel.org>
+To: Hans Zhang <18255117159@163.com>
+Cc: Shawn Lin <shawn.lin@rock-chips.com>, lpieralisi@kernel.org,
+	kw@linux.com, bhelgaas@google.com, heiko@sntech.de,
+	manivannan.sadhasivam@linaro.org, robh@kernel.org,
+	jingoohan1@gmail.com, thomas.richard@bootlin.com,
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH] PCI: dw-rockchip: Configure max payload size on host init
+Message-ID: <aAC-VTqJpCqcz6NK@ryzen>
+References: <20250416151926.140202-1-18255117159@163.com>
+ <aACoEpueUHBLjgbb@ryzen>
+ <85643fe4-c7df-4d64-e852-60b66892470a@rock-chips.com>
+ <aACsJPkSDOHbRAJM@ryzen>
+ <ca283065-a48c-3b39-e70d-03d4c6c8a956@rock-chips.com>
+ <aACyRp8S9c8azlw9@ryzen>
+ <52a2f6dc-1e13-4473-80f2-989379df4e95@163.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <b90c05e9-feb7-4569-b79a-b623e535c1d0@kernel.org>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: HK3PEPF0000021A:EE_|TYSPR06MB7297:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6fd984ca-5243-4fd4-7cd3-08dd7d893aa7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|1800799024|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?W/nS0gD6qWTNMcUx34FXSjpsO5mvTDHwbcdstuqs+Wd0QQv/du9hztrueHWW?=
- =?us-ascii?Q?NpxpYkyyGHmqZltmMYTDDa4uxR8twlMUiyuCQ/KC/aIM0BAPmrWC9DhkzED1?=
- =?us-ascii?Q?ceTpyemU3wZ+PttaBOOwzs1ekZjkt6pSJOr4FMi61WvKbdhOPJ5IRswTAlCC?=
- =?us-ascii?Q?vB2xWBuIFx+aefDfQ3BYHFqbgnAP7t4wfGXzz3UciKdyNS37S08GM7Xnp4tI?=
- =?us-ascii?Q?T4H1tba/c/YTt/ugWm+NqNsqo8pr6zP6eItjjTmIGhGi4xdmfPY3eqEM6PcU?=
- =?us-ascii?Q?HaG+JbsRcXW/N1Q86tGfWM2URfVFTvF543+c1cdxjmeXqgWdHnwA/vZwj6N+?=
- =?us-ascii?Q?hFjqYefd59XORKmTUf0+LFGU3qsIDoslqoy/u9bpWpdnJNBor4FV4K8DJbDC?=
- =?us-ascii?Q?CuE4lFpsb0WiJNwOuB13cfzIF35BmV+WE0wb7JzbHIgRDQqlYgc+nQ2vq6X3?=
- =?us-ascii?Q?puNDgZ2dUBosU8+qijdXY6q1r+N8LLU7Xs16nk2Odh3an1MdyFS1ojawP7Ce?=
- =?us-ascii?Q?NvFY8yWJkP8cikqrwqZS+QVxlJk4ic0OqT0u7nd1deT0RWUXgFAzTmpJhgkX?=
- =?us-ascii?Q?27I+Pa2om6zLyyZgx8IGkaqBL8oB4Ua5uPXXtqCTawHeSXJ7lCR2PYzFVQdm?=
- =?us-ascii?Q?ZuX2ZRCA/SPU3MZ39RIa5aw/4rWWbTm5lVMAKAFwwVT2C9vnRivtqtUbvPX9?=
- =?us-ascii?Q?nLFO/hRtOSyI3f2dJ5z1W9q5ei+l5zOMDz3G36ora4kTQQy1spyq2jQaVXk7?=
- =?us-ascii?Q?PTFPvSr8sHTlVD+VqLkOUj2Unj6hEiH5IVIpxAizg4jTIQV/IHRx+tTsucyP?=
- =?us-ascii?Q?VrWcltg7NYMqrUBC5WkjLV3NtroWddpLG16LPXEAg5IFQ88AREnobeZvj4Lq?=
- =?us-ascii?Q?2hup36Ctz1+St0Jmlzdgu3qcBdri6q1b0jN2LDkaucBhQL88AtH66zYuAl3k?=
- =?us-ascii?Q?QA7GUaXzjlVes2jchk9f9dn8Ns3MymaXgQC7NcZADTcNOpwo+MItpJBbLfpz?=
- =?us-ascii?Q?XU/iJ/AkEPVW43hTc347ttotWK4r4FTSniZ2JJpWLWqF1g+GIEEJqkjJydOz?=
- =?us-ascii?Q?zbYQ2YnwqkQ9sdaDy/jabvYmyEYxAJxqYk42bcWmIMsHYKJGebzfoxFUaLvU?=
- =?us-ascii?Q?slfZJd0fHpCnxKaa9znEpOshc8nErJRmi6KVpii2Z9h7ds0+hrUU0So3dqn7?=
- =?us-ascii?Q?ZXoOSJHVgTdnnYKmjWEsCVgmQspKGEmF07V55Ix+/aki/PlAP9n/WGAnZwGY?=
- =?us-ascii?Q?NhpjFKyYW0nEXHIDjiyfwhsWwebEW8JeDGAzbuVa7GNdALd+RNqFC/Y4QQac?=
- =?us-ascii?Q?b1wcfTRN8NHIiJGh/uZofUqlbDr15xY6SUJg3kwEJUckGGaY2p5t7/Cj0w0w?=
- =?us-ascii?Q?YS73eK+cFnhU6DAibAG5MgsmV15hwDDJDuN9+0H/nPwRAP94V7EJatw/fAtW?=
- =?us-ascii?Q?y/KsVl9ExxpYfv1Ue3yvjZ2oJ7u4aJKUJ0z0zg59sXSB7kqWWD8l50R1mVdz?=
- =?us-ascii?Q?GsNZcBWy4LiMzUkpnFouIFP2SwLfDJNABx9m?=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(1800799024)(36860700013);DIR:OUT;SFP:1102;
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Apr 2025 08:24:10.0462
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6fd984ca-5243-4fd4-7cd3-08dd7d893aa7
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: HK3PEPF0000021A.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR06MB7297
+In-Reply-To: <52a2f6dc-1e13-4473-80f2-989379df4e95@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_012459_668315_EDBE56CA 
-X-CRM114-Status: GOOD (  14.41  )
+X-CRM114-CacheID: sfid-20250417_013955_273732_A2680379 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,42 +81,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> >>
-> >> On 15/04/2025 09:27, Peter Chen wrote:
-> >>> +
-> >>> +             mbox_ap2pm: mailbox@6590080 {
-> >>> +                     compatible = "cix,sky1-mbox";
-> >>> +                     reg = <0x0 0x06590080 0x0 0xff80>;
-> >>> +                     interrupts = <GIC_SPI 363 IRQ_TYPE_LEVEL_HIGH 0>;
-> >>> +                     #mbox-cells = <1>;
-> >>> +                     cix,mbox-dir = "tx";
-> >>> +             };
-> >>> +
-> >>> +             pm2ap_scmi_mem: pm2ap-shmem@65a0000 {
-> >>> +                     compatible = "arm,scmi-shmem";
-> >>> +                     #address-cells = <2>;
-> >>> +                     #size-cells = <2>;
-> >>> +                     reg-io-width = <4>;
-> >>> +                     reg = <0x0 0x065a0000 0x0 0x80>;
-> >>
-> >> Messed order of properties. Keep it consistent (see DTS conding style).
-> >> Other nodes also have oddly placed reg.
-> >
-> > Thanks for your reviewing, Krzysztof.
-> >
-> > All the nodes mailbox and shmem (in mailbox) are on the same bus, so
-> > I keep it by unit address in ascending order like DTS coding sytle
-> > says. I think below rules are two options, isn't it?
+On Thu, Apr 17, 2025 at 04:07:51PM +0800, Hans Zhang wrote:
+> On 2025/4/17 15:48, Niklas Cassel wrote:
 > 
-> You speak about nodes I wrote about properties. I don't understand how
-> your question is relevant to my comment.
+> Hi Niklas and Shawn,
 > 
+> Thank you very much for your discussion and reply.
 > 
+> I tested it on RK3588 and our platform. By setting pci=pcie_bus_safe, the
+> maximum MPS will be automatically matched in the end.
+> 
+> So is my patch no longer needed? For RK3588, does the customer have to
+> configure CONFIG_PCIE_BUS_SAFE or pci=pcie_bus_safe?
+> 
+> Also, for pci-meson.c, can the meson_set_max_payload be deleted?
 
-Sorry, we will update the sequence of properties in node.
+I think the only reason why this works is because
+pcie_bus_configure_settings(), in the case of
+pcie_bus_config == PCIE_BUS_SAFE, will walk the bus and set MPS in
+the bridge to the lowest of the downstream devices:
+https://github.com/torvalds/linux/blob/v6.15-rc2/drivers/pci/probe.c#L2994-L2999
 
--- 
 
-Best regards,
-Peter
+So Hans, if you look at lspci for the other RCs/bridges that don't
+have any downstream devices connected, do they also show DevCtl.MPS 256B
+or do they still show 128B ?
+
+
+One could argue that for all policies (execept for maybe PCIE_BUS_TUNE_OFF),
+pcie_bus_configure_settings() should start off by initializing DevCtl.MPS to
+DevCap.MPS (for the bridge itself), and after that pcie_bus_configure_settings()
+can override it depending on policy, e.g. set MPS to 128B in case of
+pcie_bus_config == PCIE_BUS_PEER2PEER, or walk the bus in case of
+pcie_bus_config == PCIE_BUS_SAFE.
+
+That way, we should be able to remove the setting for pci-meson.c as well.
+
+Bjorn, thoughts?
+
+
+Kind regards,
+Niklas
 
