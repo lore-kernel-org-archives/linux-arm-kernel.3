@@ -4,56 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C66AFC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 05:21:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBDEBC369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 05:36:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tkpJMYarkN+OQvNp3CmKlfv8YOYC6TqpeCoEf3RQfho=; b=IQlhNHERnEWXYcdhbeiFPDJUj2
-	A9DdS0xKZ8xu25KsOatn1fIDusE06e9q/jesilKiNZEbQvpQYkv37/KQ5uhddKFCLJxp8LLkuCMWW
-	vBG/Wo02YHYrLLNqFxnoE9LrD5nwwLV0HO7trYAFNVDKqvXN0c2ZgGa8F3+SJRwE6zLdQCatN8r4Q
-	UWk4CjdwriLLVG7wquaTC51Ja1qockbSdyGZ2+c6SjKMEf9C5nLnTzzNAewuZpN5mBoho8GBuDpbm
-	vh/fwCYyi7i3pibywsaS4kle8is8+6VJazlG4iCYDP9mXOkncAae6I/MzWF1dvR4o9evaHKIvtENv
-	4Dg5iGRw==;
+	bh=3TXP0nSfY/fIk4YV3r0NKwPlljvWX79anbmEF0UEyO8=; b=l2Qae4NjWQvklRpJICgsxB/0EL
+	jCvxzP7ZXk7F+ls9ytsHLO4ZCgbgCFiQhrnT+WA+cppPge76INSNz1qgB/ZKe7J5qz8UpvVOvvWL5
+	pgXrd8snFDjVhUIRq+sHBNFkxg1u/UsuKIB02fJjpDUzCfsnvnllrQqJuzM5sMg0eAfmFCp0NbDzy
+	5hGAv1EwMdP6+Ugj4wf/xu+/PjSpQOC0ZJ6phsTzSORnTmx13QS1sm9AhUyKf3YRvKA3XkrGofzuu
+	opoKM2njVzNGYBM2m2+QZi5wGWPy4q/ZAdH/YCF6h+AfoIQrvOVlO2j6PBRVEtlPyBzuapc3kjVlj
+	IKdXiNmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Hgx-0000000BlZM-1btP;
-	Thu, 17 Apr 2025 05:21:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u5Hv2-0000000BmqC-49JT;
+	Thu, 17 Apr 2025 05:36:12 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Hf7-0000000BlKG-0Sg4
+	id 1u5HtE-0000000BmdD-0eg7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 05:19:45 +0000
+	Thu, 17 Apr 2025 05:34:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 584766842A;
-	Thu, 17 Apr 2025 05:19:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17BA2C4CEE4;
-	Thu, 17 Apr 2025 05:19:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BF96F68430;
+	Thu, 17 Apr 2025 05:34:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6B97C4CEE4;
+	Thu, 17 Apr 2025 05:34:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744867182;
-	bh=QPxSx4yidprMLvv54dKHSCW92kEUm/y+VzKczOa8+DQ=;
+	s=k20201202; t=1744868058;
+	bh=zyJNg9uFmfkUUAFiN7I/bWvyZM4TumdpS5tAIZnJYBY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RTTqQuX8MAlG5fiQIEpIiMaVd9qZzzuWgGbcP04UgVT6tyAqaT7GjcIkIIIfcp69P
-	 wRNAX4Y5d6ixlzyJarpB720VDTKNZlq0VHJ9tcIfrIR4nFzEbIraSz/NshNh/EBBnY
-	 byj6phy+ef0gnzHTQLhZ7S+XNO7cv0Ip79Zm67f3Ef/pG7w4n7fiSbkqeEhNNn4IGL
-	 vLf31Ap7hBqlY3+ABcQ5u2bf6xmSjdToZyJGgdAH+HrV0xPQTl2/O+yyn8acx62gHM
-	 EiGhBS3GxQDc4jwq5QZj1AnOry9yKiwtR6cG8+HAk+9u/16N4nScKrWSb8URsFGiQS
-	 uK5xkARF5JqBg==
-Message-ID: <d350841c-3560-4511-a866-9490737e48f7@kernel.org>
-Date: Thu, 17 Apr 2025 07:19:34 +0200
+	b=pY51bz0vJT44hG2BCVrlTQNlRl2zbbQ2Ls87R6m1/+ew6dJsL9SrZ4UW8Ne4NYYec
+	 O/CuBpZuLev7XSemR8/yUPZDVkIAlj/QeXd5aLekzqGT0jq0mzp13siwGtTSxlPu4D
+	 sEYaLUA1ar2fcMH3l16Voxt9TvhnVLp+qiNKiShW2t7tV0RrDX/XkGzgqZ5f9cGDkF
+	 Mjl+1ODl+GussYybJERu3UH+Mj3kxVg+3UyfDVfQrOVzZHO1ZIkVmm3ADERFsirjng
+	 rzIi+NqBi0OqP9KUPzvoU9SOt2bp4jFQOEtWBL/32Qq8NanewwBi4aaCQvvpILDysI
+	 2SrPZbY8HZRUQ==
+Message-ID: <209070b3-4758-416e-a408-480b2a8e4fbc@kernel.org>
+Date: Thu, 17 Apr 2025 07:34:11 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] tty: serial: samsung_tty: support 18 uart ports
-To: Faraz Ata <faraz.ata@samsung.com>, alim.akhtar@samsung.com,
- gregkh@linuxfoundation.org, jirislaby@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
- dev.tailor@samsung.com, rosa.pila@samsung.com
-References: <CGME20250417042427epcas5p2df3d35803adcb24da7d83e5df586380d@epcas5p2.samsung.com>
- <20250417043427.1205626-1-faraz.ata@samsung.com>
+Subject: Re: [PATCH 10/13] ARM: dts: vt8500: Use generic compatibles for EHCI
+To: Alexey Charkov <alchark@gmail.com>, Andi Shyti <andi.shyti@kernel.org>,
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Ulf Hansson <ulf.hansson@linaro.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-mmc@vger.kernel.org, netdev@vger.kernel.org, linux-pwm@vger.kernel.org
+References: <20250416-wmt-updates-v1-0-f9af689cdfc2@gmail.com>
+ <20250416-wmt-updates-v1-10-f9af689cdfc2@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -99,7 +106,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250417043427.1205626-1-faraz.ata@samsung.com>
+In-Reply-To: <20250416-wmt-updates-v1-10-f9af689cdfc2@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -116,17 +123,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/04/2025 06:34, Faraz Ata wrote:
-> ExynosAutov920 SoC supports 18 UART ports, update
-> the value of UART_NR to accommodate the same.
+On 16/04/2025 10:21, Alexey Charkov wrote:
+> VIA/WonderMedia SoCs don't have anything special about their EHCI
+> controllers: in fact, vendor provided kernels just use the
+
+It does not have to do anything special - dedicated compatible properly
+describes the hardware.
+
+> generic PCI driver by emulating a virtual PCI bus with fixed MMIO
+
+PCI? But this is USB.
+
+> mappings just to bind the existing driver as-is. So switch to the
+> generic compatible to save further additions to bindings.
 > 
-> Signed-off-by: Faraz Ata <faraz.ata@samsung.com>
-> ---
-> Changes in v3:
-> - Fixed review comments from Krzysztof
+> Note that these devices have only ever supported appended-DTB boot,
+> so changing the compatible should not affect any existing users.
 
-Which ones? What changed?
+And other users of the DTS?
 
+I don't see benefits in this patch.
 
 Best regards,
 Krzysztof
