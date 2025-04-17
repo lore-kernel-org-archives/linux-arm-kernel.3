@@ -4,155 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66BE3C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 12:13:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FAC5C369C9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 12:15:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=PKowtDavVfKREwWGjK1WwAT+qARDiyUoQ6OrYsHyPRg=; b=SZr5TLt/BUIFIi
-	llwAK4Ll7Xb83tubnMUJEHEnUVlGiGiAsE4I8HYRU6Hupq9qcLOqZOV7CRd9JTNbGbqGFda5MENrk
-	MMzvtYljEm9s9OyOwQy+svOKHafEgAguyCm+tiu/HLhSdCjFFRwG+fsqpi+hpBIstY0Vlg/Ix5Z8x
-	4ZemeLTlY7BwVQ8T7UA6IK8VL1Jt1Jh2CA1UIgYRE3ftjKkjcHsc2goo45e8e+/Jl2sl1suxUMwG/
-	xpfTm9UO22Y8KrwkIVBsOi/Oqqmqx+VH+a3l064uRGJqFWkUwfLIK2UnKHvn98+aCRigbr3lxD6qW
-	8Zl5HEJbS62DjQYTHrSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GnjZpyM1QP3pXGdllhKPi2IVd9GOA9XUE25++9zTLCQ=; b=PWySYVZYnTylJxITNsz7O9fbHP
+	CI9N5fYCupYv5BdDuOHfyDASNeqo5yYwmWmG8OtmTYoL+I0+gRP+9OyJ40OMu10Oy6WBnRXb1XwM2
+	qvdusqvva9fKqTrAyjlcWiXLRlu3lSbJmqJhVhGy1T0bCCzRGkbhcr28JIE8AcQ/ktEm6Nx2sWZmV
+	s6YbqZaeYRhyIJMO8UPhrh09VDWCr6d/aJsVqKDx/JVWKzij36WXAc+j5N0PzN0CbpmbmcsJuP4G7
+	1QxGc43kRkNSbIJdUJODF1rZTI+diP4zwPONmlUAbIzYaN2EHJPDEww/RAIdoaiq50pqi5taAhRGW
+	MtylJD7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5O7P-0000000CtiZ-3Y1a;
-	Thu, 17 Apr 2025 12:13:23 +0000
-Received: from mail-am0eur02on20703.outbound.protection.outlook.com ([2a01:111:f403:2606::703] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
+	id 1u5O9E-0000000Ctx4-2ibD;
+	Thu, 17 Apr 2025 12:15:16 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5NwQ-0000000Cr9b-1nAX
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 12:02:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nFcqSKWti7yE+lG1TgkursS9e1f0P91s/+TxYN2WpSao3YsJ8IPvF+kDqKQb9HY/03dO3CzZk5Cjmsn0KzrSLHQeEEGp5gIawSV5RC1ezTtliVwagK+HUsawdDNKQwrxYHjj4vJ2HSlMzI8DNynkQE8P3d0kmfInrNKJrc7AEFVC+BCbjegpmJcIBux9gFyaKgdz/3F1hzQqv5f8c8uZ6PYnnmJuGEzjVPZZbLz9jR4ksxoakh1mW01ruIAwdjoWzXzrZSVv7ykfjPuOVi0pH5vmrP7BeQvrTb+lsEIu55yYaAmVUTwiYTSGx8bFORtB5U1Y8LRJDRz1jDud3MMYIg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PKowtDavVfKREwWGjK1WwAT+qARDiyUoQ6OrYsHyPRg=;
- b=sc59cjmTTngVFRO9sUwkCcWwjeBCWzGDnBzZcipsgvjQ7fWXaRmyhGHQQdcCQluAVyNlKlkj06+Od+IT7RjzGOoKH3x8DGgEMrNAUM8jJAAU5Ui+ncEJbLnkiCLoCceP6/RBaw7XtgYJvaXBVPkrnYnE242v1y8KuD2zz/qNEdShtO70a4G5VbNqtfvNqOlBclPwX3U6BPbsPf5UWFmuOWE8un4XtB7iJuR113jlpf0Q8Y6fw8GhY/rQrutmw2G4argpmD3+EjjVBKqzL0kaE7ymwXJfcGo+N2c2R9+ekPRMvlWzFlfHSUMhvwvXHZ0IwSHgkdXFeheb4YnkoM0LCQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
- is 91.26.50.189) smtp.rcpttodomain=pengutronix.de smtp.mailfrom=phytec.de;
- dmarc=fail (p=quarantine sp=quarantine pct=100) action=quarantine
- header.from=phytec.de; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PKowtDavVfKREwWGjK1WwAT+qARDiyUoQ6OrYsHyPRg=;
- b=qAY4Nm6gZE4r08512WqmoG8LePuTirbC/siO9go2n6QMXCZtBBhRNPRET7iaBlXFM6jNlR+z7LgeLkK0EzsRV8gou9GvE+LwRONo6OxgABuDq5QXEkIXtIWVwGnDZStMMoikNfdY6EQZY/Z9AqYwca/+utW54XT31YX5pikBB/LaNZYMcRA+daZoSWbQXgELIWXrpmXhX1lZeprsis2Lz5Fbbj+Ea9PtDdVzrAGsuA0AMzSxi23hCQmR7X0xV6ibi5RCRDJIyXEwCWGgflgYx858GpNbTRUNNZxsyijtTIxk54m+iF8/0OiEV6IxlRfesmmzlvbdc3yaQnXJ2PVK6Q==
-Received: from DB6PR0301CA0087.eurprd03.prod.outlook.com (2603:10a6:6:30::34)
- by AM8P195MB0899.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:1e8::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.22; Thu, 17 Apr
- 2025 12:01:49 +0000
-Received: from DB5PEPF00014B90.eurprd02.prod.outlook.com
- (2603:10a6:6:30:cafe::78) by DB6PR0301CA0087.outlook.office365.com
- (2603:10a6:6:30::34) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8632.35 via Frontend Transport; Thu,
- 17 Apr 2025 12:01:49 +0000
-X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
- smtp.mailfrom=phytec.de; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=phytec.de;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- phytec.de discourages use of 91.26.50.189 as permitted sender)
-Received: from Diagnostix.phytec.de (91.26.50.189) by
- DB5PEPF00014B90.mail.protection.outlook.com (10.167.8.228) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8655.12 via Frontend Transport; Thu, 17 Apr 2025 12:01:48 +0000
-Received: from Florix.phytec.de (172.25.0.13) by Diagnostix.phytec.de
- (172.25.0.14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Thu, 17 Apr
- 2025 14:01:48 +0200
-Received: from llp-moog.phytec.de (172.25.32.59) by Florix.phytec.de
- (172.25.0.13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Thu, 17 Apr
- 2025 14:01:48 +0200
-From: Yannic Moog <y.moog@phytec.de>
-Subject: [PATCH v3 0/3] Add new imx imx8mp-libra-rdk-fpsc SBC
-Date: Thu, 17 Apr 2025 14:01:11 +0200
-Message-ID: <20250417-wip-y-moog-phytec-de-imx8mp-phycore-fpsc-v3-0-ccb885b38ffd@phytec.de>
+	id 1u5NwW-0000000CrCn-1hQ1;
+	Thu, 17 Apr 2025 12:02:10 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 0DAD825DB0;
+	Thu, 17 Apr 2025 14:02:07 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id Al1Luu8f9c42; Thu, 17 Apr 2025 14:02:06 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1744891326; bh=WVUl5TJqOF4iM4ohSNDgaQTgAIPG8NeRelFthy8N2R8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=HNN6S2PMTA66w5dH7hKgrlnTk55qDret6b0aa3NHUxFwOsoilX0nrqt5SHa2We4+N
+	 NTcT/n9xXlHbX6runkpD3Ztm9g01YWb1tZTyj1SzmnydvLePX9l1y8ycBEb07GeuWX
+	 tr4ub0qRn+9ElRpOZRi/qy35vrT/vmCr9PGcuM6ELkm81nuW1X5yePOYkeKUWz1aoR
+	 pT/p8X+VcdhFglCuD4XxFXbwtQq7pneQ0a3sZcgwnR8RbutJUN2Gnn85FVN74F1SBf
+	 cU3SXo8vosrmOFvyEaEZUys8aT1Z/0jTIp/sLtO/UQihcD1VmDnTNG6nZ4xASmy3x4
+	 8xgRUk09Z41LQ==
+From: Yao Zi <ziyao@disroot.org>
+To: Heiko Stuebner <heiko@sntech.de>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Yao Zi <ziyao@disroot.org>,
+	Chukun Pan <amadeus@jmu.edu.cn>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-i2c@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 2/3] arm64: dts: rockchip: Add I2C controllers for RK3528
+Date: Thu, 17 Apr 2025 12:01:18 +0000
+Message-ID: <20250417120118.17610-5-ziyao@disroot.org>
+In-Reply-To: <20250417120118.17610-3-ziyao@disroot.org>
+References: <20250417120118.17610-3-ziyao@disroot.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAIftAGgC/5WOwW7DIBBEfyXi3K2WxXZoTv2Pqgd3WWIODggiN
- 1bkfy+4h+bYHGc0em/uqkgOUtTpcFdZllBCvNRgXg6Kp/FyFgiuZkVInSaN8B0SrDDHeIY0rVd
- hcHUz3+ycWsExC/hUGJiOBqkfLHlSFZey+HDbVR+fNU+hXGNed/OiW9skPWrd/V+yaEDoEcV9v
- WnhQd5/969OmnMHGrJPAska6vjorfbjA7C9XujvaYfmCTBVMKMj8X6wZuRH8LZtPxH3/lWKAQA
- A
-X-Change-ID: 20241210-wip-y-moog-phytec-de-imx8mp-phycore-fpsc-c273025682f2
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, "Sascha
- Hauer" <s.hauer@pengutronix.de>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
-CC: <upstream@lists.phytec.de>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <imx@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, Benjamin Hahn <b.hahn@phytec.de>,
-	"Jan Remmet" <j.remmet@phytec.de>, Teresa Remmet <t.remmet@phytec.de>,
-	"Yashwanth Varakala" <y.varakala@phytec.de>, Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>, Yannic Moog <y.moog@phytec.de>
-X-Mailer: b4 0.14.2
-X-Originating-IP: [172.25.32.59]
-X-ClientProxiedBy: Diagnostix.phytec.de (172.25.0.14) To Florix.phytec.de
- (172.25.0.13)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB5PEPF00014B90:EE_|AM8P195MB0899:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4c02a934-2305-4738-72ac-08dd7da7a1fc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|7416014|1800799024|82310400026;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?cjY0SEFncmlleGthdTlqaFhEdFBIajd2czMxL1psU1p6bzJiY3U0bmtIS2FF?=
- =?utf-8?B?a0JrN3FlaWxXbGZyQTVneElxMWdxMkVNM2haaGlCYXFtbnZjT213K1Q3c1Ji?=
- =?utf-8?B?eUFBQ1pkUHdVVS9pclFDSm51cEdHbkhHR1M3RmFDaW9JM0JnS3AyYlNYMFdG?=
- =?utf-8?B?ZjRKVWVOS3Q0Ujgzeng1dkdlUjQxTzNhMEVLd1RTSVRkYmlPamthaXZlNk5T?=
- =?utf-8?B?UTc2UFIvSlFoeE91bUZYZ1JGcEZSVEIwZTI0NG5vOWxrbklzTFVUZGVxOXNU?=
- =?utf-8?B?RTVvMnNpakQrcDdzWU9HSkhQa1lKd3J6OG10NEZ0VGJGR0RwZmEwcGF5VjBa?=
- =?utf-8?B?MHA5WWlka21FUTVDRzJ1cjhwQTI1dzBIZkcwTzNIaU1MU1VjNlEyeGtCYXlq?=
- =?utf-8?B?Ump4ODkxYmpHUUQrbUx4T25wMXFXaVdIUnlQNnBHdEEreHlvTDArMjJlSHhT?=
- =?utf-8?B?RTF2bUM0aTdiaWhEMTJaVkZmMHE5WmZ6aFlReUtDcng4K1lyQUg0YXZqMFFt?=
- =?utf-8?B?SjdMMEpsc1NlODlBVjk2c0hnZnpVN3RKSWxna1o3OGJuVkQwSmZMSWJ4WXZF?=
- =?utf-8?B?MHoweXdWRG5DODFqYTFzTzNSQ3RIQlJ6OE0xMmtoU3BsTWpvS3p3aTYvU1dQ?=
- =?utf-8?B?eXB3STdrWjhWRllGdWZaOWF1OXdvc0Q2YkRmLzN1MVE1a3FVYzJ6eWtlcEdK?=
- =?utf-8?B?eFViS0VFcEdyRG1nN3J3R1hpSk80ZS9UTi8rSlpOL0RNaTFHeGk2STRyMm9U?=
- =?utf-8?B?UnUwWEpNWkd3amwrU2JqVDNpWU1qOHRtQ0RKbEpBZFpidEt4UDZsOEJqempH?=
- =?utf-8?B?eWdvRi9NUWJEc0o1aDI1RFVvbmlselFmZi9ENTFoMUNLV0toVjFtbXBnVU9C?=
- =?utf-8?B?Z1MxSHhYNHBzeUZhZE5VQ2R3VTQvZ2VlVTBTbWF5T3dQL2gybWplYk5FWEdL?=
- =?utf-8?B?bnBGWkU3VXFJOUhnVTVXeExHWm1TUytBNXh2NnNQR3E2U1NkUVRjUXhidHhO?=
- =?utf-8?B?ZWJ2VmMrM1Z1OEJ6N2xOZmFkMmZveFd6a1d1WDhUeGdGbVlBcHhjcmFJVmw5?=
- =?utf-8?B?ZTVSUVREYXF4dG1ZOEJ5ZGlYYUFqNnVQL3gxc1dRbTUyVmlIWmMyMEQ3Q2lo?=
- =?utf-8?B?VWZXd3NnNllPWmhoWEF2R3dRR3NuNzhjeGJtODlLbGcxVC91aUJHS042b2dZ?=
- =?utf-8?B?aDNEWDBjUElQZTJSbWYwQ2Y4Rm1YRDdOMnNIS1IrUDhjenRCYjJidVBPcUd4?=
- =?utf-8?B?UE11aUxVcExqeU9HNmpCWFovSjlEYStac0E0MXRZYllUSTFJdjJMVU9lTmZv?=
- =?utf-8?B?K050elByN1p2dzZBS1hqUnZYZlYxUC9QUWdRamtYV1lQTHZCMzJEUkJSSmpG?=
- =?utf-8?B?NTBTTjdvcTEzcER4RFc5c2lqaVlkaU5DN0NKSGNHUVprd016MHB4ZEN0TlBz?=
- =?utf-8?B?d3pEVkh4RmtjZ0xVSDdqUVdRQytpVEZDbDcyb0srRVVLSkk1aXRCdFZzMDAy?=
- =?utf-8?B?K1MwWlRiRUJBeit5Sm5xOGU4dzQycDE3Qi9XQ29UMzFkZEdHNi9nUjZIVWZL?=
- =?utf-8?B?QnFhZXBabS91MkdSZWp6VDY1QUs0UVp4eDA0TnlhcUVXMkJPeStQVUNTY25o?=
- =?utf-8?B?bXFUWld3Y1lLTWxseHRNaEZ6YjlVR21WeE1rQXUyL0xsY3BIdUU2M1pld1RF?=
- =?utf-8?B?Y1ZHZnhoUm4zVXdGNm8rQWlRR3A5aHduZkhocE9ySUFJY05iYUl3a3VMNUkv?=
- =?utf-8?B?YUx1azF5eWpTU3d6TmVUOE9pWDJiMGk0V21NdFFhMVdwclcrTk1sVXova0ow?=
- =?utf-8?B?NzFWVnF0M291MHpWMDBhOU1sU1cyRlZ3OWZQYVFabjJmWFUvZGVFNU15YjFN?=
- =?utf-8?B?azJMK21LVkJ5bDBnWmdMYjBCamxLVFliRENDT3YrWU9iN1ZNaDhwUVArdEJw?=
- =?utf-8?B?c0RmTmE2MDBVTnRjNythUldzWDJYMndMcHN4aENiMTNXNzZwQVRsRmYzWG5w?=
- =?utf-8?B?MW94blcyYUZLY3RtaGRMelJ0YXVGNDBxSHQxRFIvcFlnVVhmTmtjU0lwR3Bt?=
- =?utf-8?B?ckZqUWRSQ3RDY0dTb1lLZEtuWktNa2oxb3FYQT09?=
-X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:Diagnostix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(376014)(7416014)(1800799024)(82310400026);DIR:OUT;SFP:1102;
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Apr 2025 12:01:48.6466
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4c02a934-2305-4738-72ac-08dd7da7a1fc
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Diagnostix.phytec.de]
-X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B90.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8P195MB0899
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_050202_468988_6C3B65E2 
-X-CRM114-Status: UNSURE (   7.68  )
+X-CRM114-CacheID: sfid-20250417_050208_707167_0EBBE246 
+X-CRM114-Status: UNSURE (   7.30  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -168,42 +81,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Libra i.MX 8M Plus is a SBC that consists of the Libra base board
-and the phyCORE i.MX 8M Plus FPSC SoM.
-This series adds its binding and device trees. In addition add an
-overlay for an LVDS display that may optionally be connected to the
-Libra board.
+Describe I2C controllers shipped by RK3528 in devicetree. For I2C-2,
+I2C-4 and I2C-7 which come with only a set of possible pins, a default
+pin configuration is included.
 
+Signed-off-by: Yao Zi <ziyao@disroot.org>
 ---
-Changes in v3:
-- Add FPSC prefix to inline comments
-- improve commit description(s)
-- Link to v2: https://lore.kernel.org/r/20250403-wip-y-moog-phytec-de-imx8mp-phycore-fpsc-v2-0-c0d2eff683ac@phytec.de
+ arch/arm64/boot/dts/rockchip/rk3528.dtsi | 110 +++++++++++++++++++++++
+ 1 file changed, 110 insertions(+)
 
-Changes in v2:
-- reorder device tree nodes of SoM and board device trees according to https://github.com/lznuaa/dt-format
-- fix typo in reg: regulator-12v0 -> regulator-vdd-12v0
-- add to binding commit description the difference between phycore-som and phycore-fpsc
-- Link to v1: https://lore.kernel.org/r/20250328-wip-y-moog-phytec-de-imx8mp-phycore-fpsc-v1-0-28324c7f81fa@phytec.de
-
----
-Yannic Moog (3):
-      dt-bindings: add imx8mp-libra-rdk-fpsc
-      arm64: dts: add imx8mp-libra-rdk-fpsc board
-      arm64: dts: add imx8mp-libra-rdk-fpsc LVDS panel overlay
-
- Documentation/devicetree/bindings/arm/fsl.yaml     |   7 +
- arch/arm64/boot/dts/freescale/Makefile             |   3 +
- .../imx8mp-libra-rdk-fpsc-lvds-etml1010g3dra.dtso  |  44 ++
- .../boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts   | 290 ++++++++
- .../boot/dts/freescale/imx8mp-phycore-fpsc.dtsi    | 796 +++++++++++++++++++++
- 5 files changed, 1140 insertions(+)
----
-base-commit: 90453dc4dee29b96b9162895f45776bc25526e07
-change-id: 20241210-wip-y-moog-phytec-de-imx8mp-phycore-fpsc-c273025682f2
-
-Best regards,
+diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+index 826f9be0be19..2c9780069af9 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+@@ -24,6 +24,14 @@ aliases {
+ 		gpio2 = &gpio2;
+ 		gpio3 = &gpio3;
+ 		gpio4 = &gpio4;
++		i2c0 = &i2c0;
++		i2c1 = &i2c1;
++		i2c2 = &i2c2;
++		i2c3 = &i2c3;
++		i2c4 = &i2c4;
++		i2c5 = &i2c5;
++		i2c6 = &i2c6;
++		i2c7 = &i2c7;
+ 		serial0 = &uart0;
+ 		serial1 = &uart1;
+ 		serial2 = &uart2;
+@@ -465,6 +473,108 @@ uart7: serial@ffa28000 {
+ 			status = "disabled";
+ 		};
+ 
++		i2c0: i2c@ffa50000 {
++			compatible = "rockchip,rk3528-i2c",
++				     "rockchip,rk3399-i2c";
++			reg = <0x0 0xffa50000 0x0 0x1000>;
++			clocks = <&cru CLK_I2C0>, <&cru PCLK_I2C0>;
++			clock-names = "i2c", "pclk";
++			interrupts = <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		i2c1: i2c@ffa58000 {
++			compatible = "rockchip,rk3528-i2c",
++				     "rockchip,rk3399-i2c";
++			reg = <0x0 0xffa58000 0x0 0x1000>;
++			clocks = <&cru CLK_I2C1>, <&cru PCLK_I2C1>;
++			clock-names = "i2c", "pclk";
++			interrupts = <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		i2c2: i2c@ffa60000 {
++			compatible = "rockchip,rk3528-i2c",
++				     "rockchip,rk3399-i2c";
++			reg = <0x0 0xffa60000 0x0 0x1000>;
++			clocks = <&cru CLK_I2C2>, <&cru PCLK_I2C2>;
++			clock-names = "i2c", "pclk";
++			interrupts = <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>;
++			pinctrl-names = "default";
++			pinctrl-0 = <&i2c2m1_xfer>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		i2c3: i2c@ffa68000 {
++			compatible = "rockchip,rk3528-i2c",
++				     "rockchip,rk3399-i2c";
++			reg = <0x0 0xffa68000 0x0 0x1000>;
++			clocks = <&cru CLK_I2C3>, <&cru PCLK_I2C3>;
++			clock-names = "i2c", "pclk";
++			interrupts = <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		i2c4: i2c@ffa70000 {
++			compatible = "rockchip,rk3528-i2c",
++				     "rockchip,rk3399-i2c";
++			reg = <0x0 0xffa70000 0x0 0x1000>;
++			clocks = <&cru CLK_I2C4>, <&cru PCLK_I2C4>;
++			clock-names = "i2c", "pclk";
++			interrupts = <GIC_SPI 65 IRQ_TYPE_LEVEL_HIGH>;
++			pinctrl-names = "default";
++			pinctrl-0 = <&i2c4_xfer>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		i2c5: i2c@ffa78000 {
++			compatible = "rockchip,rk3528-i2c",
++				     "rockchip,rk3399-i2c";
++			reg = <0x0 0xffa78000 0x0 0x1000>;
++			clocks = <&cru CLK_I2C5>, <&cru PCLK_I2C5>;
++			clock-names = "i2c", "pclk";
++			interrupts = <GIC_SPI 66 IRQ_TYPE_LEVEL_HIGH>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		i2c6: i2c@ffa80000 {
++			compatible = "rockchip,rk3528-i2c",
++				     "rockchip,rk3399-i2c";
++			reg = <0x0 0xffa80000 0x0 0x1000>;
++			clocks = <&cru CLK_I2C6>, <&cru PCLK_I2C6>;
++			clock-names = "i2c", "pclk";
++			interrupts = <GIC_SPI 67 IRQ_TYPE_LEVEL_HIGH>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		i2c7: i2c@ffa88000 {
++			compatible = "rockchip,rk3528-i2c",
++				     "rockchip,rk3399-i2c";
++			reg = <0x0 0xffa88000 0x0 0x1000>;
++			clocks = <&cru CLK_I2C7>, <&cru PCLK_I2C7>;
++			clock-names = "i2c", "pclk";
++			interrupts = <GIC_SPI 68 IRQ_TYPE_LEVEL_HIGH>;
++			pinctrl-names = "default";
++			pinctrl-0 = <&i2c7_xfer>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
+ 		saradc: adc@ffae0000 {
+ 			compatible = "rockchip,rk3528-saradc";
+ 			reg = <0x0 0xffae0000 0x0 0x10000>;
 -- 
-Yannic Moog <y.moog@phytec.de>
+2.49.0
 
 
