@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1EA1C369BD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 01:02:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33011C369BD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 01:04:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LwS7jX+13bQzyUxCrsSH5C/7bKj/SolJzfLvpOyzA94=; b=BbTQB7Eot3rPdZ6RqN1YYmG0uj
-	0EtEOinBEo5qCjwdxg0o4+Sq2ZW4HLR2bfGM8bnjAsSgTXvUALtOSYdblRAsgyqpIG221hopd+Hlf
-	Ojao+jPt80e8uduj9IZZaL/m0i7ByrFiAr75yOspmjuhuwUqtEPgBBMsN3x/Y5Eu/hOwv+cCrH9dZ
-	t6P7WCPquctd0WjDdWBJ3qCrkabcgDnINROuKPNihSndTw8Ok3GU2owyjr20+1zQ3Ygg1vTutdd0x
-	J1evd9dpufmeube25qGJ+kD3NINoh71NCXdgUJzAb72gzeXEavPWOMqxtWbxaGb5ITzjY/B/wS/Yx
-	RfhoX9Kg==;
+	bh=3XpubcDJNCn2/knVN0OUqvGBE9VDF3lHvgMz0DGE5UY=; b=sueN9c5chPcqvWEDCWhh2+9CGb
+	VUj7SFB/X7QswHrqjyylDkCfY+twbO8B8E+fP9tLy81KD1CLLv1ML9k4CLlvrnclhUgP+EpKuVo3w
+	Hzf6N637oOHLrbW0qGMBI4dKVrK5E7CT+OT7aD6h7HpprC4Js6rWiv2fX+8QvV0/qdNz2TkqpkJF/
+	+QHcHgRgPesbbmXv4qdp+CfcXIKwqZC3FCrX1PKLHN0IbQpCCnUNqAvlVT+5T79VmA7HDR4BYbL5A
+	qLgVmMo+GFAkWnoAN+Id0aP99OpubK5ZTO3v9wh2LbxqDzEeXngZvOnw8BNuf9KYR6a63n8yfLgVx
+	8M3V+gXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5DeN-0000000BO4z-3w23;
-	Thu, 17 Apr 2025 01:02:43 +0000
+	id 1u5DgE-0000000BOFS-2hFf;
+	Thu, 17 Apr 2025 01:04:38 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5D5f-0000000BH8C-4Agx
+	id 1u5D5j-0000000BH9a-2am7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 00:26:52 +0000
+	Thu, 17 Apr 2025 00:26:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 254E468430;
-	Thu, 17 Apr 2025 00:26:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB72FC4CEE2;
-	Thu, 17 Apr 2025 00:26:47 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BFEA468434;
+	Thu, 17 Apr 2025 00:26:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82884C4CEEA;
+	Thu, 17 Apr 2025 00:26:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744849611;
-	bh=ZrPgsgXSIivggYmWYF/84mM6YJZOxWoZ6RzbVIJK9/Y=;
+	s=k20201202; t=1744849614;
+	bh=eko0M/1IoNzmkVmBa1f5aR4hGKuIltnrGwhCOTIwAnI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=oaIpOfTifIpb87JvInv5ApYLwwz9fS+exnLzQnp+688OwFXZV2RWnhzM4lrlo9IGk
-	 K+E0XItIpgdqsfJYsgMIcUXVoDX56+ypaAXT/ypHQashqN/+GWGCSTvcsB6U4XWrZd
-	 /Ghz98Z0W3ClA2DZrovXrSY+fqv6MLIkK6wPtmAU2OAdtXlooGrTt2sHz0tCcTwMbv
-	 vmpC8MuUk57SDpa9Mvr4/KLhtRrd5aty6wbdrXZUa8u9TL+dA2bpKtDtJUbwyqBZTo
-	 OXetP4Eqs0UltsJN7/FJD0V2TYe/pFZ4PegrqldQfwnYyjcNfXwlxt/Hq8Tg6R8rG3
-	 iU55Lqr5iCmiA==
+	b=BX0Mw45vSTx342fI8cvZFKX1P7nSBn+kZ8V5lb526uVn1eu9Th/J3GvbKm3+Jkt85
+	 pX9ts+Ej/303cnQG7OUm+LqJCvDgc+au9ATQQkK2K2IjCwgiZcPELtktCyZBGqsrsz
+	 Hgqf+fWgPoP7gKOE0jCMI3hTBi8UBxWOW/rATZMx3EkmLxyl9WMDROSd1LWOJhXFMs
+	 BZpDZXmpxb9Illk0EM0hdgEVppuX8Pfm1BiAWGDeHo6lYoWPEms6dve79EJ8uJX2rC
+	 d/jUa3Xt6cwsqP4x1RT/7kFRZpfb/+4fvXjsK4IURp++D807XUwi59UkPI150at/er
+	 DETHI6Z09zFpg==
 From: Mark Brown <broonie@kernel.org>
-Date: Thu, 17 Apr 2025 01:25:22 +0100
-Subject: [PATCH v5 18/28] KVM: arm64: Support SME priority registers
+Date: Thu, 17 Apr 2025 01:25:23 +0100
+Subject: [PATCH v5 19/28] KVM: arm64: Provide assembly for SME register
+ access
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250417-kvm-arm64-sme-v5-18-f469a2d5f574@kernel.org>
+Message-Id: <20250417-kvm-arm64-sme-v5-19-f469a2d5f574@kernel.org>
 References: <20250417-kvm-arm64-sme-v5-0-f469a2d5f574@kernel.org>
 In-Reply-To: <20250417-kvm-arm64-sme-v5-0-f469a2d5f574@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
@@ -62,15 +63,15 @@ Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>,
  linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
  Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-c25d1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5358; i=broonie@kernel.org;
- h=from:subject:message-id; bh=ZrPgsgXSIivggYmWYF/84mM6YJZOxWoZ6RzbVIJK9/Y=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBoAEp9ewW5gcC4zICag7nMF6f54qxeJJD/Z8gn6AuP
- 7o2NuM+JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaABKfQAKCRAk1otyXVSH0AwXB/
- 44tQOzGsFLO8SpHn06+delWlSd84N7zCg/+Xlo5wsB6oP3wgrait5WX4bMRsYrZpME9RzuSJZMx3It
- dwpKtNmXrTo9Zlm7MQGT+r5PeN/p6ogQXGiH6dXV2c5daHlrIQ5cUFU1cSDXCx6R4gaecR9DHAm4f2
- la/ohVTT/mP2uub924VHtsfBwp0uHAahgU8xPbgf8lVQzgI0KqtdOHhPFhFivr8hUqoO2/O2LISa2i
- Ip5ywZP3+0D8fH6DMioPEkOaXmWsK6J0U5dKcneemvS9+dhApkVdRVMVlVJ78ybutbPCqR75lP8viK
- vJ1uP1H9tXU6cX3iq/BMDfh/FWmsbc
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1851; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=eko0M/1IoNzmkVmBa1f5aR4hGKuIltnrGwhCOTIwAnI=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBoAEp9Drn0eyy5meekv9Nerff2giIQZ4JCURh9L+K+
+ 3E1uyEOJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaABKfQAKCRAk1otyXVSH0K9TB/
+ 9WaiHu5mQZtI6uD/X6tcGxe7I+BWnfa+auZ3VgiXZdzBAssAtuZ7ADLJl/0ddCvf1iPW5C6uP0n7Sk
+ T7Ki6zBA1VQQOxlkANbuyRM3mu9T9NkHQqA6xrZJTyjN3pzBd9gze/ysepVx2dkuO9jFOU06gID4MV
+ prq3xFABE4wAFYqYzEAURgZGKzVkgFVlT1IyrlHF6gB8im8BMEneZtq1TWM8OnaVDFmfVJiG2KJFry
+ OOHQablltXo8j1I0BUCM2B03tblLOTZHoEk5ra42+WwTorWdfKtdqMGp7iqqKWc5EL2RFqEDUklfiT
+ Fdx5Ydse/LX/kJbXZOX+JcTdG26lMb
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -87,134 +88,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SME has optional support for configuring the relative priorities of PEs
-in systems where they share a single SME hardware block, known as a
-SMCU. Currently we do not have any support for this in Linux and will
-also hide it from KVM guests, pending experience with practical
-implementations. The interface for configuring priority support is via
-two new system registers, these registers are always defined when SME is
-available.
-
-The register SMPRI_EL1 allows control of SME execution priorities. Since
-we disable SME priority support for guests this register is RES0, define
-it as such and enable fine grained traps for SMPRI_EL1 to ensure that
-guests can't write to it even if the hardware supports priorites.  We
-could with some adjustment to the generic FGT code allow untrapped reads
-but since we don't currently advertise priority support to guests there
-should be no reason for frequent accesses.
-
-There is also an EL2 register SMPRIMAP_EL2 for virtualisation of
-priorities, this is RES0 when priority configuration is not supported
-but has no specific traps available.
+Provide versions of the SME state save and restore functions for the
+hypervisor to allow it to restore ZA and ZT for guests.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/include/asm/kvm_host.h     |  2 ++
- arch/arm64/include/asm/vncr_mapping.h |  1 +
- arch/arm64/kvm/sys_regs.c             | 30 +++++++++++++++++++++++++-----
- 3 files changed, 28 insertions(+), 5 deletions(-)
+ arch/arm64/include/asm/kvm_hyp.h |  3 +++
+ arch/arm64/kvm/hyp/fpsimd.S      | 26 ++++++++++++++++++++++++++
+ 2 files changed, 29 insertions(+)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index d86396b1b1e7..09351c14032f 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -485,6 +485,7 @@ enum vcpu_sysreg {
- 	SVCR,
- 	FPMR,
- 	SMIDR_EL1,	/* Streaming Mode Identification Register */
-+	SMPRI_EL1,	/* Streaming Mode Priority Register */
+diff --git a/arch/arm64/include/asm/kvm_hyp.h b/arch/arm64/include/asm/kvm_hyp.h
+index 0ad5a66e0d25..1c31d8b26aa9 100644
+--- a/arch/arm64/include/asm/kvm_hyp.h
++++ b/arch/arm64/include/asm/kvm_hyp.h
+@@ -115,6 +115,9 @@ void __fpsimd_save_state(struct user_fpsimd_state *fp_regs);
+ void __fpsimd_restore_state(struct user_fpsimd_state *fp_regs);
+ void __sve_save_state(void *sve_pffr, u32 *fpsr, int save_ffr);
+ void __sve_restore_state(void *sve_pffr, u32 *fpsr, int restore_ffr);
++int __sve_get_vl(void);
++void __sme_save_state(void const *state, bool restore_zt);
++void __sme_restore_state(void const *state, bool restore_zt);
  
- 	/* 32bit specific registers. */
- 	DACR32_EL2,	/* Domain Access Control Register */
-@@ -537,6 +538,7 @@ enum vcpu_sysreg {
- 	VNCR(CPACR_EL1),/* Coprocessor Access Control */
- 	VNCR(ZCR_EL1),	/* SVE Control */
- 	VNCR(SMCR_EL1),	/* SME Control */
-+	VNCR(SMPRIMAP_EL2),	/* Streaming Mode Priority Mapping Register */
- 	VNCR(TTBR0_EL1),/* Translation Table Base Register 0 */
- 	VNCR(TTBR1_EL1),/* Translation Table Base Register 1 */
- 	VNCR(TCR_EL1),	/* Translation Control Register */
-diff --git a/arch/arm64/include/asm/vncr_mapping.h b/arch/arm64/include/asm/vncr_mapping.h
-index 74fc7400efbc..1685df741294 100644
---- a/arch/arm64/include/asm/vncr_mapping.h
-+++ b/arch/arm64/include/asm/vncr_mapping.h
-@@ -43,6 +43,7 @@
- #define VNCR_ZCR_EL1            0x1E0
- #define VNCR_HAFGRTR_EL2	0x1E8
- #define VNCR_SMCR_EL1		0x1F0
-+#define VNCR_SMPRIMAP_EL2	0x1F0
- #define VNCR_TTBR0_EL1          0x200
- #define VNCR_TTBR1_EL1          0x210
- #define VNCR_FAR_EL1            0x220
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 96888554fef5..7cfc0c2801ed 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -1826,6 +1826,15 @@ static unsigned int fp8_visibility(const struct kvm_vcpu *vcpu,
- 	return REG_HIDDEN;
- }
+ u64 __guest_enter(struct kvm_vcpu *vcpu);
  
-+static unsigned int sme_raz_visibility(const struct kvm_vcpu *vcpu,
-+				       const struct sys_reg_desc *rd)
-+{
-+	if (vcpu_has_sme(vcpu))
-+		return REG_RAZ;
+diff --git a/arch/arm64/kvm/hyp/fpsimd.S b/arch/arm64/kvm/hyp/fpsimd.S
+index 6e16cbfc5df2..44a1b0a483da 100644
+--- a/arch/arm64/kvm/hyp/fpsimd.S
++++ b/arch/arm64/kvm/hyp/fpsimd.S
+@@ -29,3 +29,29 @@ SYM_FUNC_START(__sve_save_state)
+ 	sve_save 0, x1, x2, 3
+ 	ret
+ SYM_FUNC_END(__sve_save_state)
 +
-+	return REG_HIDDEN;
-+}
++SYM_FUNC_START(__sve_get_vl)
++	_sve_rdvl	0, 1
++	ret
++SYM_FUNC_END(__sve_get_vl)
 +
- static u64 sanitise_id_aa64pfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
- {
- 	if (!vcpu_has_sve(vcpu))
-@@ -2970,7 +2979,14 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 
- 	{ SYS_DESC(SYS_ZCR_EL1), NULL, reset_val, ZCR_EL1, 0, .visibility = sve_visibility },
- 	{ SYS_DESC(SYS_TRFCR_EL1), undef_access },
--	{ SYS_DESC(SYS_SMPRI_EL1), undef_access },
++SYM_FUNC_START(__sme_save_state)
++	_sme_rdsvl	2, 1		// x2 = VL/8
++	sme_save_za 0, x2, 12		// Leaves x0 pointing to the end of ZA
 +
-+	/*
-+	 * SMPRI_EL1 is UNDEF when SME is disabled, the UNDEF is
-+	 * handled via FGU which is handled without consulting this
-+	 * table.
-+	 */
-+	{ SYS_DESC(SYS_SMPRI_EL1), trap_raz_wi, .visibility = sme_raz_visibility },
++	cbz	x1, 1f
++	_str_zt 0
++1:
++	ret
++SYM_FUNC_END(__sme_save_state)
 +
- 	{ SYS_DESC(SYS_SMCR_EL1), NULL, reset_val, SMCR_EL1, 0, .visibility = sme_visibility },
- 	{ SYS_DESC(SYS_TTBR0_EL1), access_vm_reg, reset_unknown, TTBR0_EL1 },
- 	{ SYS_DESC(SYS_TTBR1_EL1), access_vm_reg, reset_unknown, TTBR1_EL1 },
-@@ -3327,6 +3343,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 
- 	EL2_REG_VNCR(HCRX_EL2, reset_val, 0),
- 
-+	EL2_REG_FILTERED(SMPRIMAP_EL2, trap_raz_wi, reset_val, 0,
-+			 sme_el2_visibility),
- 	EL2_REG_FILTERED(SMCR_EL2, access_smcr_el2, reset_val, 0,
- 			 sme_el2_visibility),
- 
-@@ -5224,8 +5242,7 @@ void kvm_calculate_traps(struct kvm_vcpu *vcpu)
- 	kvm->arch.fgu[HFGxTR_GROUP] = (HFGxTR_EL2_nAMAIR2_EL1		|
- 				       HFGxTR_EL2_nMAIR2_EL1		|
- 				       HFGxTR_EL2_nS2POR_EL1		|
--				       HFGxTR_EL2_nACCDATA_EL1		|
--				       HFGxTR_EL2_nSMPRI_EL1_MASK);
-+				       HFGxTR_EL2_nACCDATA_EL1);
- 
- 	if (!kvm_has_feat(kvm, ID_AA64ISAR0_EL1, TLB, OS))
- 		kvm->arch.fgu[HFGITR_GROUP] |= (HFGITR_EL2_TLBIRVAALE1OS|
-@@ -5280,8 +5297,11 @@ void kvm_calculate_traps(struct kvm_vcpu *vcpu)
- 						HFGITR_EL2_nBRBIALL);
- 	}
- 
--	if (!kvm_has_feat(kvm, ID_AA64PFR1_EL1, SME, IMP))
--		kvm->arch.fgu[HFGxTR_GROUP] |= HFGxTR_EL2_nTPIDR2_EL0;
-+	if (kvm_has_feat(kvm, ID_AA64PFR1_EL1, SME, IMP))
-+		kvm->arch.fgt[HFGxTR_GROUP] |= HFGxTR_EL2_nSMPRI_EL1_MASK;
-+	else
-+		kvm->arch.fgu[HFGxTR_GROUP] |= (HFGxTR_EL2_nTPIDR2_EL0 |
-+						HFGxTR_EL2_nSMPRI_EL1_MASK);
- 
- 	set_bit(KVM_ARCH_FLAG_FGU_INITIALIZED, &kvm->arch.flags);
- out:
++SYM_FUNC_START(__sme_restore_state)
++	_sme_rdsvl	2, 1		// x2 = VL/8
++	sme_load_za	0, x2, 12	// Leaves x0 pointing to end of ZA
++
++	cbz	x1, 1f
++	_ldr_zt 0
++
++1:
++	ret
++SYM_FUNC_END(__sme_restore_state)
 
 -- 
 2.39.5
