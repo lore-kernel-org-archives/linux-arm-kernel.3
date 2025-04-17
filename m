@@ -4,90 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE527C369CA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 17:51:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A5DEC369C9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 17:53:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HZpJTXu9rw+4Naa31u9dBEKwArcUw9L/z9Cw75N04mA=; b=4Q9W0uMBfXvne7ymWZwQYO4LDV
-	n77YHNmCdhH24m3hzKekCB3w8mq3vXw/q/vmFg4pYgwQQMyBayetEzSQBSibZkpEiRFh1CjGPW2aL
-	lwvrX80WgBnSw5UEYvtq3hUWmiImRhgmBLA5dHv5M4hVFpCDjvfggbVZl7PxT+gdVOzFkIDQLy4Rh
-	BM+K6AmajSxSKS8WvaEgZyUeQdMJouX5pr55BXwGrVWcp/liz+puGnZHkNfPfnZaslw4KmmkfMemE
-	UcOXm+nHJ7WIkDO5Dbd9Gp0rUbimtuCbc02t+nzappqZcJToMa2+tAdTDjWivrmQMEtzgytX8t7Ps
-	FtqvFjoQ==;
+	bh=NgF74Y1x7cdnEZ6zTA2j/Rn/3r7hmq1Fkr3Xk5+i6o0=; b=LF79B69bJ37X+q926ArHjCGf5B
+	DcnB/MdKL9067Lh7s2JmIisZJ3ZkkmPlkH7UUbilbqBHNOMWwR1qYXERdPRT4S782WtgqRo8RRhQc
+	nfslAgSjWxNNEw2CcgrR42pXhfChI6xsYyna8Barfstxq8fCxHhjfRmLW/YSGdqqFyM+HMNTir1Wb
+	uRp1QWQYexkAnkWZvF5t665u3QQPXGc7gxVBcGi6Fr7sBabyP/4gyjBUwb1XlKQZTj5xi2+53VfSl
+	mpx0Yn1wePxej/9v0S6Q3QLtu9qo/mbgsCrEC89OD34paST47sCpuuoVyGDpvu/weRqEnDJcW1kjk
+	ymPIkZMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5TOj-0000000DvCF-1Y5h;
-	Thu, 17 Apr 2025 17:51:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u5TQX-0000000DvRP-3ucB;
+	Thu, 17 Apr 2025 17:53:29 +0000
+Received: from mail-ot1-x32e.google.com ([2607:f8b0:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Sqs-0000000Do82-1fnW;
-	Thu, 17 Apr 2025 17:16:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 652E74A52F;
-	Thu, 17 Apr 2025 17:16:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 37A41C4AF18;
-	Thu, 17 Apr 2025 17:16:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744910197;
-	bh=KCV1iT8WMRH+l5LBGG+rXSmP2tVeZLWG6EnkHpY31/A=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=NCpR/Ca4drOZO/oB/h5cd0gecR61NjHWVfGlKtC354DYmLj/h0zKIozoB+tHYcI9s
-	 ACmhKqN4hqdPSefK/9gHVfYGOAvzXE4E0XegZh4FYoUYKqOrf3nRbjcZ32SvYTzrN+
-	 HESbSb7KdwuKmm6cjRMoj/KJQj8C4ixJvDVdEKfSvZQzMjjGANOzVuyo72AhexLsqx
-	 HOq23Z036bOiKuPbUOG6JeFhbmmIoXSnJVFoxNp/SmPkTjcpur8HPz34dCCk0V1eL/
-	 i+Y+rsTB7UQLeVIJ59rI/mi77IH36m0DlJhki+nGATV5iSKxbgHjg4Q6bltkv1Z43P
-	 kJlnQ5n9T2kfQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2C107C369CF;
-	Thu, 17 Apr 2025 17:16:37 +0000 (UTC)
-From: Manivannan Sadhasivam via B4 Relay <devnull+manivannan.sadhasivam.linaro.org@kernel.org>
-Date: Thu, 17 Apr 2025 22:46:31 +0530
-Subject: [PATCH v3 5/5] PCI: qcom: Add support for resetting the slot due
- to link down event
+	id 1u5Sr9-0000000DoDa-33nb
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Apr 2025 17:16:57 +0000
+Received: by mail-ot1-x32e.google.com with SMTP id 46e09a7af769-727388e8f6cso618197a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Apr 2025 10:16:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1744910214; x=1745515014; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=NgF74Y1x7cdnEZ6zTA2j/Rn/3r7hmq1Fkr3Xk5+i6o0=;
+        b=z1G0j5N610mfJPCmlZoNBXDZzgpxLs5q+Mi1rCuFmYGwg8z/S/1PoYN3Lu7uL7Ed5S
+         Q30xRVk1btr00u7xKY16Hrciuv9cllDXI827K/J49YhlPjzSdpn+f0ulwh9c0ezw0AL4
+         88C8ux1AKd10I9NzeMlSZhD2QgrzXwBxwVtwXydm7Uu3XLMGG+Dsq5YwHk7Smg1xC+gk
+         r7FGS208xdCx4RM5myt3sSPTT3YGoSQa0ttyCS72KG8M22sm3QV2eAopkt+8Alcg+EWx
+         kRauAURVTK00g57YnLaVmSGR92rWbbWvXjI6+wIRyJr4nX4tFI+j3TYio3DAaglXPDG+
+         IHEg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744910214; x=1745515014;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=NgF74Y1x7cdnEZ6zTA2j/Rn/3r7hmq1Fkr3Xk5+i6o0=;
+        b=R/5rq2ItatCKg8776iyTMorFyytWJmJDmttnSqGE8neRIj8zsxS3GgJnW7FLgndC2E
+         UvOT0JpJsDgaAEncIBLdZMsIIcYQKv+qQ8x3RaBtFH3L7biPIjfCVTQXZ8xEDV+yNuwm
+         xg3WVaOpPnYZDobk3orYQ1V1JsotzQwxH2AtLCjdTgklke4XXbsQ2dE3VZUMKwk9UEC8
+         zNpoxAs6RcYoCoa7H3yZ1vW3UBvJS5Sw0Pzhh6DeGiW0PWi5XaF6Gm0wse2cvHMpb9Vv
+         2JzGjwhARVFielHYPFgbW4hjV1/6smMUNN794bXDuBwqPKzICpk66Sjc4bVm2KyvRThu
+         vcOQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXvrVzmVcQER8gIvIICsIqoEKx/f3fMsAv/FHmo+Jasvvam76g/aoohW+PDYQJIdlKEASzb0dSHJaW6oRGM5v5d@lists.infradead.org
+X-Gm-Message-State: AOJu0YyquB88DNbP1mHvtIUVe53OCjtU5X2HoCoD6fvt7Ro0EfgYSO8h
+	ML3vQLhNJLS3feIJTKJm+D7m4O8r5PgWU4liw2SYekjrccrR2ZaXsINjBfaiZGw=
+X-Gm-Gg: ASbGnctN+71CZSnEF0i1Q+MShlrAOzyRHXUDthfMCHo5EuRhu/tdzjsR+MlSJKT3wjp
+	EVf+GVY8LpSPRSiRflLTUhCj8PFDrGreSHVES4Du2z8eQpxdlNmnVAdA05HCZmQcTYWuzBHYKMF
+	2dNXxqlqBuvd6vvFB5bopXEIcgdHV8WmGEW6EVFZSCp58N/SlVA+9reApOEL/Eqp+mSHcFnPCbD
+	35/1J2s6aTjAmQXCpZ4yEO+EtpP6btM/BQJIMwHdsk/O8xsdiaDkggRbG76NTB/eeDV3X6uJziM
+	FdNHkIJzqbkpkGfzVZp9z7J0NifarX6Fa0iYuW/leWNUmNB6hI2xXRj2sMyOHuMsSd3Nrhk+YQu
+	Y0H8qXBvlSL/ry8Sg2g==
+X-Google-Smtp-Source: AGHT+IG2ya+SWKqWkEWn8r9JpbAOf9gOHMhtRFWZIjuKx4wF7uh2Oa75D8nMaKP4BJF4mMuOP+61ew==
+X-Received: by 2002:a05:6830:61cc:b0:727:3f3e:53bb with SMTP id 46e09a7af769-72ec6d200d9mr4250103a34.24.1744910214661;
+        Thu, 17 Apr 2025 10:16:54 -0700 (PDT)
+Received: from ?IPV6:2600:8803:e7e4:1d00:c91b:eea3:7afd:2dee? ([2600:8803:e7e4:1d00:c91b:eea3:7afd:2dee])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-730047caf24sm22509a34.38.2025.04.17.10.16.53
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 17 Apr 2025 10:16:54 -0700 (PDT)
+Message-ID: <6ff6e3be-6193-4977-977b-24de89c09153@baylibre.com>
+Date: Thu, 17 Apr 2025 12:16:53 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/8] iio: more timestamp alignment
+To: Andy Shevchenko <andy@kernel.org>
+Cc: Jonathan Cameron <jic23@kernel.org>, =?UTF-8?Q?Nuno_S=C3=A1?=
+ <nuno.sa@analog.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Lars-Peter Clausen <lars@metafoo.de>,
+ Michael Hennerich <Michael.Hennerich@analog.com>,
+ Cosmin Tanislav <cosmin.tanislav@analog.com>,
+ Tomasz Duszynski <tduszyns@gmail.com>,
+ Jean-Baptiste Maneyrol <jean-baptiste.maneyrol@tdk.com>,
+ Andreas Klinger <ak@it-klinger.de>, Petre Rodan
+ <petre.rodan@subdimension.ro>, linux-iio@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20250417-iio-more-timestamp-alignment-v1-0-eafac1e22318@baylibre.com>
+ <aAEz2ZD0Ipd1Xuy6@smile.fi.intel.com>
+From: David Lechner <dlechner@baylibre.com>
+Content-Language: en-US
+In-Reply-To: <aAEz2ZD0Ipd1Xuy6@smile.fi.intel.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250417-pcie-reset-slot-v3-5-59a10811c962@linaro.org>
-References: <20250417-pcie-reset-slot-v3-0-59a10811c962@linaro.org>
-In-Reply-To: <20250417-pcie-reset-slot-v3-0-59a10811c962@linaro.org>
-To: Mahesh J Salgaonkar <mahesh@linux.ibm.com>, 
- Oliver O'Halloran <oohall@gmail.com>, Bjorn Helgaas <bhelgaas@google.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
- Rob Herring <robh@kernel.org>, Zhou Wang <wangzhou1@hisilicon.com>, 
- Will Deacon <will@kernel.org>, Robert Richter <rric@kernel.org>, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Marc Zyngier <maz@kernel.org>, 
- Conor Dooley <conor.dooley@microchip.com>, 
- Daire McNamara <daire.mcnamara@microchip.com>
-Cc: dingwei@marvell.com, cassel@kernel.org, Lukas Wunner <lukas@wunner.de>, 
- Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
- linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6894;
- i=manivannan.sadhasivam@linaro.org; h=from:subject:message-id;
- bh=F8rjzuhgErigDd+67mYFhyxszrxpDL8l0bnIc6Ml+ng=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBoATdxsG341Wf5dBlOsI8tJmdXDVYFgFqoRpofL
- CEHKYEUUJmJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCaAE3cQAKCRBVnxHm/pHO
- 9ZrfB/42ORiF/Z6dza/s1zud3oUewjLIhKQXIvAaBQGTZ596+MFN4a6uCB2TjBxdHj+d5oY3FQa
- Qrgl7Kxh18wo27x0w998SmXalgBL6rpA1kWD748rFI8JITVoGofp3h6v/ltYvEZdoNWUiZ7NqtS
- u5RibOHN1cvIGFcDKOx0DlYs37iTjr6+oV3WRYOm/K/Ts20aqGdnOVQMepiai4J4T0XEejbSg/C
- Ox3WiPW79vr8Uh6fv4Hvt2nx4gPGGFhfDpO38jMTbubnHYJw8o0bmgGpbjK4+hxBrxeRIW6w6pc
- 2MT0Q149ejvN8avjAc0arW8Ue/QDOODzKESk7WYbwcQF4kKq
-X-Developer-Key: i=manivannan.sadhasivam@linaro.org; a=openpgp;
- fpr=C668AEC3C3188E4C611465E7488550E901166008
-X-Endpoint-Received: by B4 Relay for
- manivannan.sadhasivam@linaro.org/default with auth_id=185
-X-Original-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_101638_551107_AD947F3D 
-X-CRM114-Status: GOOD (  27.09  )
+X-CRM114-CacheID: sfid-20250417_101655_766790_1ED16D5A 
+X-CRM114-Status: GOOD (  10.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,223 +108,30 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: manivannan.sadhasivam@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+On 4/17/25 12:01 PM, Andy Shevchenko wrote:
+> On Thu, Apr 17, 2025 at 11:52:32AM -0500, David Lechner wrote:
+>> Wile reviewing [1], I noticed a few more cases where we can use
+>> aligned_s64 or need __aligned(8) on data structures used with
+>> iio_push_to_buffers_with_timestamp().
+>>
+>> [1]: https://lore.kernel.org/linux-iio/20250413103443.2420727-1-jic23@kernel.org/
+> 
+> 
+> Link: URL [1] :-)
+> 
+> This will help to maintainer with b4 as it manages tags.
 
-The PCIe link can go down under circumstances such as the device firmware
-crash, link instability, etc... When that happens, the PCIe slot needs to
-be reset to make it operational again. Currently, the driver is not
-handling the link down event, due to which the users have to restart the
-machine to make PCIe link operational again. So fix it by detecting the
-link down event and resetting the slot.
+In this case, I don't want b4 to add this Link: to all patches, it is just
+context for the cover letter and not so useful long-term.
 
-Since the Qcom PCIe controllers report the link down event through the
-'global' IRQ, enable the link down event by setting PARF_INT_ALL_LINK_DOWN
-bit in PARF_INT_ALL_MASK register.
-
-Then in the case of the event, call pci_host_handle_link_down() API
-in the handler to let the PCI core handle the link down condition.
-
-The API will internally call, 'pci_host_bridge::reset_slot()' callback to
-reset the slot in a platform specific way. So implement the callback to
-reset the slot by first resetting the PCIe core, followed by reinitializing
-the resources and then finally starting the link again.
-
-Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
----
- drivers/pci/controller/dwc/Kconfig     |  1 +
- drivers/pci/controller/dwc/pcie-qcom.c | 90 +++++++++++++++++++++++++++++++++-
- 2 files changed, 89 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
-index d9f0386396edf66ad0e514a0f545ed24d89fcb6c..ce04ee6fbd99cbcce5d2f3a75ebd72a17070b7b7 100644
---- a/drivers/pci/controller/dwc/Kconfig
-+++ b/drivers/pci/controller/dwc/Kconfig
-@@ -296,6 +296,7 @@ config PCIE_QCOM
- 	select PCIE_DW_HOST
- 	select CRC8
- 	select PCIE_QCOM_COMMON
-+	select PCI_HOST_COMMON
- 	help
- 	  Say Y here to enable PCIe controller support on Qualcomm SoCs. The
- 	  PCIe controller uses the DesignWare core plus Qualcomm-specific
-diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
-index dc98ae63362db0422384b1879a2b9a7dc564d091..6b18a2775e7fcde1d634b3f58327ecc7d028e4ec 100644
---- a/drivers/pci/controller/dwc/pcie-qcom.c
-+++ b/drivers/pci/controller/dwc/pcie-qcom.c
-@@ -34,6 +34,7 @@
- #include <linux/units.h>
- 
- #include "../../pci.h"
-+#include "../pci-host-common.h"
- #include "pcie-designware.h"
- #include "pcie-qcom-common.h"
- 
-@@ -55,6 +56,7 @@
- #define PARF_INT_ALL_STATUS			0x224
- #define PARF_INT_ALL_CLEAR			0x228
- #define PARF_INT_ALL_MASK			0x22c
-+#define PARF_STATUS				0x230
- #define PARF_SID_OFFSET				0x234
- #define PARF_BDF_TRANSLATE_CFG			0x24c
- #define PARF_DBI_BASE_ADDR_V2			0x350
-@@ -130,8 +132,11 @@
- 
- /* PARF_LTSSM register fields */
- #define LTSSM_EN				BIT(8)
-+#define SW_CLEAR_FLUSH_MODE			BIT(10)
-+#define FLUSH_MODE				BIT(11)
- 
- /* PARF_INT_ALL_{STATUS/CLEAR/MASK} register fields */
-+#define PARF_INT_ALL_LINK_DOWN			BIT(1)
- #define PARF_INT_ALL_LINK_UP			BIT(13)
- #define PARF_INT_MSI_DEV_0_7			GENMASK(30, 23)
- 
-@@ -145,6 +150,9 @@
- /* PARF_BDF_TO_SID_CFG fields */
- #define BDF_TO_SID_BYPASS			BIT(0)
- 
-+/* PARF_STATUS fields */
-+#define FLUSH_COMPLETED				BIT(8)
-+
- /* ELBI_SYS_CTRL register fields */
- #define ELBI_SYS_CTRL_LT_ENABLE			BIT(0)
- 
-@@ -169,6 +177,7 @@
- 						PCIE_CAP_SLOT_POWER_LIMIT_SCALE)
- 
- #define PERST_DELAY_US				1000
-+#define FLUSH_TIMEOUT_US			100
- 
- #define QCOM_PCIE_CRC8_POLYNOMIAL		(BIT(2) | BIT(1) | BIT(0))
- 
-@@ -274,11 +283,14 @@ struct qcom_pcie {
- 	struct icc_path *icc_cpu;
- 	const struct qcom_pcie_cfg *cfg;
- 	struct dentry *debugfs;
-+	int global_irq;
- 	bool suspended;
- 	bool use_pm_opp;
- };
- 
- #define to_qcom_pcie(x)		dev_get_drvdata((x)->dev)
-+static int qcom_pcie_reset_slot(struct pci_host_bridge *bridge,
-+				  struct pci_dev *pdev);
- 
- static void qcom_ep_reset_assert(struct qcom_pcie *pcie)
- {
-@@ -1263,6 +1275,8 @@ static int qcom_pcie_host_init(struct dw_pcie_rp *pp)
- 			goto err_assert_reset;
- 	}
- 
-+	pp->bridge->reset_slot = qcom_pcie_reset_slot;
-+
- 	return 0;
- 
- err_assert_reset:
-@@ -1300,6 +1314,73 @@ static const struct dw_pcie_host_ops qcom_pcie_dw_ops = {
- 	.post_init	= qcom_pcie_host_post_init,
- };
- 
-+static int qcom_pcie_reset_slot(struct pci_host_bridge *bridge,
-+				  struct pci_dev *pdev)
-+{
-+	struct pci_bus *bus = bridge->bus;
-+	struct dw_pcie_rp *pp = bus->sysdata;
-+	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-+	struct qcom_pcie *pcie = to_qcom_pcie(pci);
-+	struct device *dev = pcie->pci->dev;
-+	u32 val;
-+	int ret;
-+
-+	/* Wait for the pending transactions to be completed */
-+	ret = readl_relaxed_poll_timeout(pcie->parf + PARF_STATUS, val,
-+					 val & FLUSH_COMPLETED, 10,
-+					 FLUSH_TIMEOUT_US);
-+	if (ret) {
-+		dev_err(dev, "Flush completion failed: %d\n", ret);
-+		goto err_host_deinit;
-+	}
-+
-+	/* Clear the FLUSH_MODE to allow the core to be reset */
-+	val = readl(pcie->parf + PARF_LTSSM);
-+	val |= SW_CLEAR_FLUSH_MODE;
-+	writel(val, pcie->parf + PARF_LTSSM);
-+
-+	/* Wait for the FLUSH_MODE to clear */
-+	ret = readl_relaxed_poll_timeout(pcie->parf + PARF_LTSSM, val,
-+					 !(val & FLUSH_MODE), 10,
-+					 FLUSH_TIMEOUT_US);
-+	if (ret) {
-+		dev_err(dev, "Flush mode clear failed: %d\n", ret);
-+		goto err_host_deinit;
-+	}
-+
-+	qcom_pcie_host_deinit(pp);
-+
-+	ret = qcom_pcie_host_init(pp);
-+	if (ret) {
-+		dev_err(dev, "Host init failed\n");
-+		return ret;
-+	}
-+
-+	ret = dw_pcie_setup_rc(pp);
-+	if (ret)
-+		goto err_host_deinit;
-+
-+	/*
-+	 * Re-enable global IRQ events as the PARF_INT_ALL_MASK register is
-+	 * non-sticky.
-+	 */
-+	if (pcie->global_irq)
-+		writel_relaxed(PARF_INT_ALL_LINK_UP | PARF_INT_ALL_LINK_DOWN |
-+			       PARF_INT_MSI_DEV_0_7, pcie->parf + PARF_INT_ALL_MASK);
-+
-+	qcom_pcie_start_link(pci);
-+	dw_pcie_wait_for_link(pci);
-+
-+	dev_dbg(dev, "Slot reset completed\n");
-+
-+	return 0;
-+
-+err_host_deinit:
-+	qcom_pcie_host_deinit(pp);
-+
-+	return ret;
-+}
-+
- /* Qcom IP rev.: 2.1.0	Synopsys IP rev.: 4.01a */
- static const struct qcom_pcie_ops ops_2_1_0 = {
- 	.get_resources = qcom_pcie_get_resources_2_1_0,
-@@ -1571,6 +1652,9 @@ static irqreturn_t qcom_pcie_global_irq_thread(int irq, void *data)
- 		pci_unlock_rescan_remove();
- 
- 		qcom_pcie_icc_opp_update(pcie);
-+	} else if (FIELD_GET(PARF_INT_ALL_LINK_DOWN, status)) {
-+		dev_dbg(dev, "Received Link down event\n");
-+		pci_host_handle_link_down(pp->bridge);
- 	} else {
- 		dev_WARN_ONCE(dev, 1, "Received unknown event. INT_STATUS: 0x%08x\n",
- 			      status);
-@@ -1732,8 +1816,10 @@ static int qcom_pcie_probe(struct platform_device *pdev)
- 			goto err_host_deinit;
- 		}
- 
--		writel_relaxed(PARF_INT_ALL_LINK_UP | PARF_INT_MSI_DEV_0_7,
--			       pcie->parf + PARF_INT_ALL_MASK);
-+		writel_relaxed(PARF_INT_ALL_LINK_UP | PARF_INT_ALL_LINK_DOWN |
-+			       PARF_INT_MSI_DEV_0_7, pcie->parf + PARF_INT_ALL_MASK);
-+
-+		pcie->global_irq = irq;
- 	}
- 
- 	qcom_pcie_icc_opp_update(pcie);
-
--- 
-2.43.0
-
+> 
+>> Signed-off-by: David Lechner <dlechner@baylibre.com>
+> 
+> Reviewed-by: Andy Shevchenko <andy@kernel.org>
+> for non-commented patches.
+> 
 
 
