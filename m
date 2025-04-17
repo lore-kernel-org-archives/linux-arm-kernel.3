@@ -4,157 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 460ACC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 14:03:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48E5EC369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 14:05:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MTadlREVAtDlTXlQEavUPnMW+7Dw3YGbE4B1InqhbzY=; b=xnyMYORlDv7JcOvyile2G78nxE
-	Ihy6/5V9sklVK6lnIP0+YuFFLlAe83HIN+fmYdXKS1ifVY45gFFW56BCCZvtNysviGyX8EkkDrAZr
-	hhz764adobgpESyDx9ycmR6kBvJk1cakTw3c+IHE/PLz8wkY23iiiHMUBL0VGGQFRWiLbdG2H2led
-	BrXMdGGp3B0nL9rAoiY/nrFQod7b5Jr9IKsN+J8pDNSyIbr9oo9YBjtvp7k7Zn+11X2yJY4Bp4f7o
-	dMYiO0H2eEwW4LZiOh9M4lnhYAKJSS45qhtMWS6Ayn9TPOhV8DcMKGfDq/O+3oNfRc4qdyC+SY/pA
-	WOKM0C7Q==;
+	bh=naL7lB1xrvC1SAmPVR+GgUPQENH3vsgdA5teHZGXgj8=; b=4qkKQSKgOeADtICFl8Rea+9ovN
+	JfwP312fVYwzBksjUuPqesLLXZdl4KXbIys/TBLROHOgjS7EBDPHHgHbbgtK8kcRvPHGvuuZVfej9
+	RqDbMCpy47KC7zZIFmLCLUEDzVtVsleaMO4jvqn0M4lpuJqp6mRm7fCSmAsDuIa+Q6hBO0N9tsNzB
+	W233jo5QRqQ0oK4j/+Dje9ptuwaw7RvHI9gxuVKgRoPxJyduUNMnyId3KfKp+B21d3XMpcCZ69/dz
+	6T3m0DkWsdMpVmhi+6Q0grW86Yxq6aOZdQZYWt6lJ6qq+oQWtTdxbN/xZOIyW5v69/7/i/cubVfLQ
+	ieFFKJDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Ppq-0000000DFQ7-3X2g;
-	Thu, 17 Apr 2025 14:03:22 +0000
-Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
+	id 1u5Prg-0000000DFjb-2kqP;
+	Thu, 17 Apr 2025 14:05:16 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5PnH-0000000DEfu-1X2z
+	id 1u5PoP-0000000DEzB-41Bm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 14:00:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AizU2uS88PDE32jX5LslpFJDcTquSQ8+XdDVOXloXg51SN1spzPXdNC6mUnAlRron+fO15wLtJryq92+/UrRIShhSyW+DFOHd9+/c78Qjbkfy07JiX4oMuCZxwRzwWNvPqOJgECfr7i5E5w24Dk5P3BTN6sLabWH+LGnISw/7yR/ojfa4jmDQo+BNhgiaUOKgsGUojiYewz62OrzNaeOBqsLVauEXpGnaM/V9IsyZCohY+lsB3d75qyVB4Ot+uVKzigw+MjfvR8bakl8KNgBDCzh8OltuBfF/zpvzsARFY9adnC7ffWBZDrtXLzF64R1RzTMLwyh4JLdFOzesGLfbw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MTadlREVAtDlTXlQEavUPnMW+7Dw3YGbE4B1InqhbzY=;
- b=SGeOwCsH9PcHlThBnUbNBxvFKpmHT0fiXgBuDu64u/nKvl6yHTu1gX+s3KZg8DTN29R4Keo7OpzdSwk56tQfmf5CmK980mFz7yHkyHyEJehcElu76TYtJL79Ha/9HZp7Yh1VSc4yKcqD0R7YzgMnmGEz+QSGt70VTKtpUUzSID0E5wIE2It5nOM/134J1ww9lwV0MXF+28xePvEgZapj4Rg3jVTd0YPztx08nu727FizYSkPawB7xInkbH7WNGT0HIXANJAz13bF66Qrd7/C7A/V1a6KpeLbNmXVgBv7yNLItf0c2wO/0CaciHSpyVI59t3YdqZnw0cbFTD2D2NEBQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mt.com; dmarc=pass action=none header.from=mt.com; dkim=pass
- header.d=mt.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mt.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MTadlREVAtDlTXlQEavUPnMW+7Dw3YGbE4B1InqhbzY=;
- b=o4u+0lVL0DFRgzLXdtxM+5TNy/m2SNUVaIjgAAIjTHbFMyNLELyvkArDr8FaXdaml05MGL0POsXos7oH8BkFQ5EhVYXg8RUwOKR4N/5721cvuypEbBHqWOtkiCGI2jro+bdyL4fj1KNsw6ByzfKCHxgT3STlm43zDjkBbK8cNZjwBbvblyNq0gNv0Mk/IHy2CrExLp7/oy3dQJXN06mpWAw/+I2sgcMLLGRDzQMMyNeT7XnjLTIh2Or/QldvpXyjg5L+xGy7TdWw5cYNDxAgY2UdnW/DkmSa3lUHx1jlC9sYAuipidn3sWB2+hZFGHLqA/JPnOs49+1l7NVOqQ3n0Q==
-Received: from AM6PR0302MB3413.eurprd03.prod.outlook.com
- (2603:10a6:209:24::15) by DBBPR03MB6793.eurprd03.prod.outlook.com
- (2603:10a6:10:20d::21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.22; Thu, 17 Apr
- 2025 14:00:30 +0000
-Received: from AM6PR0302MB3413.eurprd03.prod.outlook.com
- ([fe80::fd5:7b7c:3b2:8d1f]) by AM6PR0302MB3413.eurprd03.prod.outlook.com
- ([fe80::fd5:7b7c:3b2:8d1f%7]) with mapi id 15.20.8632.030; Thu, 17 Apr 2025
- 14:00:30 +0000
-From: Dubowik Wojciech LCPF-CH <Wojciech.Dubowik@mt.com>
-To: Francesco Dolcini <francesco@dolcini.it>
-CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
-	<s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "stable@vger.kernel.org"
-	<stable@vger.kernel.org>
-Subject: Re: [PATCH] arm64: dts: imx8mm-verdin: Link reg_nvcc_sd to usdhc2
-Thread-Topic: [PATCH] arm64: dts: imx8mm-verdin: Link reg_nvcc_sd to usdhc2
-Thread-Index: AQHbr6EUj3f9HCPDJ0SZlVgPZmR1jw==
-Date: Thu, 17 Apr 2025 14:00:30 +0000
-Message-ID: <AM6PR0302MB3413754B446FA2ED83578463FDBC2@AM6PR0302MB3413.eurprd03.prod.outlook.com>
-References: <20250417112012.785420-1-Wojciech.Dubowik@mt.com>
- <20250417130342.GA18817@francesco-nb>
-In-Reply-To: <20250417130342.GA18817@francesco-nb>
-Accept-Language: en-CH, de-CH, de-DE, en-US
-Content-Language: aa
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_af615ef3-aa90-4fa2-9d66-c4f70f9fc413_Enabled=True;MSIP_Label_af615ef3-aa90-4fa2-9d66-c4f70f9fc413_SiteId=fb4c0aee-6cd2-482f-a1a5-717e7c02496b;MSIP_Label_af615ef3-aa90-4fa2-9d66-c4f70f9fc413_SetDate=2025-04-17T14:00:29.774Z;MSIP_Label_af615ef3-aa90-4fa2-9d66-c4f70f9fc413_Name=Confidential;MSIP_Label_af615ef3-aa90-4fa2-9d66-c4f70f9fc413_ContentBits=0;MSIP_Label_af615ef3-aa90-4fa2-9d66-c4f70f9fc413_Method=Standard;
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mt.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AM6PR0302MB3413:EE_|DBBPR03MB6793:EE_
-x-ms-office365-filtering-correlation-id: 2434cb64-439b-4755-eef1-08dd7db836b9
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016|38070700018;
-x-microsoft-antispam-message-info: =?iso-8859-1?Q?V0T2A/jrCI75DfF+DiEc4K2Og6MZlRv3jRnVaw91NmevEqjkqVA1sBqE6S?=
- =?iso-8859-1?Q?Ty+aJndfRo9GuyygwUpqZSyVUbkaCMPVhD+VtqfSSb+jCjdnL/rpSexfUg?=
- =?iso-8859-1?Q?da4DF9Bx6G7x7BYRicH6olYhSntYXgaHi7EnNFSgZ494np4+6KPrMPbIvB?=
- =?iso-8859-1?Q?pDeynFGiZ+Z0Ky5H67S0MswO6cS4rwQk9U6BURBZrww8LWUauAtp03QCp9?=
- =?iso-8859-1?Q?9EIBHth1gl1qPW2s2ahBETOTmU0aP9n3IFisREDHBbAlFpSEP9lql/YXGT?=
- =?iso-8859-1?Q?HqS+v1N3LlPuVYgWN6wqHLn88+obtkMLSENbRfYU9z2ORW0yHFeZ/VGlY5?=
- =?iso-8859-1?Q?d39hArH4PHpb7Kv86dXTCik+EtB9aC8H23LPi7abQLCK5ebNI+emxeSdaS?=
- =?iso-8859-1?Q?okSzErHjCg4L2dUk/dVu540BaTrDI0FeRvAYcjIsMHZ8uE+UpqXocOIH6z?=
- =?iso-8859-1?Q?F/EwBZSjhXC2vQdtnjccIkKzZ9FH+Tecs5wBWiw86+8kK0++wY87x4XB05?=
- =?iso-8859-1?Q?esXMBV111mSkjsiVCBbo5dYfBl0baXWtGa5IgKjgnyLkgeVdq+jPCBB/1a?=
- =?iso-8859-1?Q?sMCUK6n2Ll5EyzF2mf1DB3lIOI3YdzGjLsyQ/OFylTf9v4VkLqlXqKEraR?=
- =?iso-8859-1?Q?rFtCIpbIBmjYB27V/VHnetpO3ZrcGELZuyD4bM9gw6mRuiJvwFAb/U+IyH?=
- =?iso-8859-1?Q?OlPknAOoZgnF5qIOL4dNFirOaCMtUp0EjFx8/bULLLJxOBD0ARUEaubMBZ?=
- =?iso-8859-1?Q?lKPXmrkuPctiJCwx7VvdyxflX4nBG8KFEDDmtSxeQUqwELZ1j0w7VvZ1D9?=
- =?iso-8859-1?Q?J0ig802g66IFkVsJwx861O8nzEK4KqnuQBDjIEvSeGfHhhIo8aFH2lUSDf?=
- =?iso-8859-1?Q?1Rufm7vGitq+c3/GwF/SAd7cgFnVai385sWh683bN6GT28BJxhhJmOwdjW?=
- =?iso-8859-1?Q?cJjthMP82eEnc7fscRgOMshmOHXCSe178ZMFif1m55kQQlkNbq9FH18TGz?=
- =?iso-8859-1?Q?jt0CUgoWhSMmHRZGMEXH8mjDxS2tVy5BPHMoxLcXBbCDwyaLUBIzrBggEp?=
- =?iso-8859-1?Q?GZPln/00XndF0Pu3l95GcXjta6jDkiVfbqI8UkjQ9H0tgmIjfGcKy/BnN3?=
- =?iso-8859-1?Q?6WBskySeFJE28XbKh3zq80PTYKanN/ZGVCkLTP3fNOLyeaME+EDBynLZD5?=
- =?iso-8859-1?Q?Q+rPr19+omoYRbUA5wSZ4fraKxNYlOlZb1Sm6LZzSwv+e+8eKRaI8705uk?=
- =?iso-8859-1?Q?5l5cPLbIfFlkwqaVkoHD2KeUazbO0Gife0C5oLdH6ypAAbZRBPAV/v3i80?=
- =?iso-8859-1?Q?joPMdnGC9YB9d1buhlPHRpjKenMlC2RNsEDrflL/zqfJYMZmWY1oPbVvtT?=
- =?iso-8859-1?Q?SKVf7TUoF+yjOwRTUW4zeKlbv7E9eqA6SgLp2ml2n2/yrfKeEiVsJydFZg?=
- =?iso-8859-1?Q?pSwrGJ6KEXOntyWqRJUbqfprT3Z54stPK6BiobUMC0E8g/gCQQRFiKGAjB?=
- =?iso-8859-1?Q?Q=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM6PR0302MB3413.eurprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?+LpFOYA4PpqIzaZcM+0w47WTT6AvxLjQpMxqABcsowYOXU3EHTyKhSFJFg?=
- =?iso-8859-1?Q?d8W0wb8XBxaJtR6UyBcYTZOvg4/uuHao/6s1KVsYOtWW/t2UvTjGxTbYIn?=
- =?iso-8859-1?Q?GRWveB5Qtlep7XKAnVQz7hnR2VgKkrW3RTo7Q3UyU/h+tjXst4gq8ZZczr?=
- =?iso-8859-1?Q?tJstphDnSF3veX3Udkeo3njfuCkgcjGl0CL5x9dsu3oVhZcEf25C4gDse4?=
- =?iso-8859-1?Q?TwA+hXhG7GHRcNp/QPdoyVX02MoI1omp2rZyjZbbdmX4QWHqp5Tz87QKx1?=
- =?iso-8859-1?Q?xFSHC+5IriHqoj1S3ajUSiBQ8NLOrFyI+ZS72fKS3UPjnmXZklyMxy2V2x?=
- =?iso-8859-1?Q?vT7fjYlMpLr5ZTVHlA4FfP5qJP6Hn/ZmjH86+oK/1zPKvYNYgAXxwCdDA/?=
- =?iso-8859-1?Q?Kl6ILsqx6tm7+7xBlav6Nk3qlvtDqrSGvVTraINhhid6aODFRKQSyqcz0k?=
- =?iso-8859-1?Q?0exOxxcC72YOuFMcrHLPjbT888rXybPmiEzXjPLsraM7Mbet376N7nWge0?=
- =?iso-8859-1?Q?tb6nOFP5GWDhcCp0cM/NaTaKstbVdGhAx14mj7igNupf0nC29vIh02haEp?=
- =?iso-8859-1?Q?2PXf8ehKxqDTFq0R/VahDWzgL/THC7hHj6IXuvCUej/x/1dPihgl93i5Qf?=
- =?iso-8859-1?Q?TxSm2vWQ24QUoeMO2DJO/l24imIrXHLHqabGc/aP33GiV95DQm9Vhy0TuF?=
- =?iso-8859-1?Q?VbRN7TQC1LiHu4TCHHCNC9vRpZqmKfkp7mlnaxxdjOkS94UF4uWoWS5cPg?=
- =?iso-8859-1?Q?H7usahk2+hOzO4sKAJc92IBdubwhI5yHQXsXkCW4E0c8oOBpq7js8P5Rzu?=
- =?iso-8859-1?Q?4Oer3Yc/2GLD7sXDr7b68Eje6/anjH1CWJ1SXnMOqi+L5P88MQr5zwJ1E6?=
- =?iso-8859-1?Q?+snxiyTuba4aMh7hmqlFmy1ryHErxEcbvcRJwy41bBVmDyYGffcS7vSZ1V?=
- =?iso-8859-1?Q?+jbYg4JhZPy2J8pOjeGZcI6yWpEmpMqh3mv/Pq7ygYLVF2HlFrL4NXLhrn?=
- =?iso-8859-1?Q?/K7Z231K4nKuiqbAwjFgnrqMXdVGXDby2edLAjt4VONp3QyjU1jgkbCwUH?=
- =?iso-8859-1?Q?3TDoWZmwQo9mc1lAwpp9Fk2IB9XJH78KNLi/3G3Dy4g20BF8eKIsVVgEAF?=
- =?iso-8859-1?Q?9lqgI9wt070hWN5g5CVHCU6LDGX2IPFGI9oXxmbvTi9wzJcTnVdaDDYE9C?=
- =?iso-8859-1?Q?s7PBvhZJRtmr/lpoUmn+eE80nz6R8jne9XlFWkfiEwadmbSueLE9Q2utSv?=
- =?iso-8859-1?Q?Vrk75432Bf8hj1oa5OBmrNCZtMPb/7r1ZC0ypI/NwM85ftSqSnhEXdRExV?=
- =?iso-8859-1?Q?Zsa+T6us+9QB4aF+UgqAQf7hyKddQI6LDLAVwO4f55p/5CTlAAyuX5+9dE?=
- =?iso-8859-1?Q?nHpU1d2YHoqy/Rmz1flpp0eNgpTq875CsO/TE4ZZXuMXLJovl0UWxlGAUg?=
- =?iso-8859-1?Q?g4YyePtYkZtznzU24j2CKaT3Jamsg0JjN1suucV1n6/XW77YKTqQreWXo2?=
- =?iso-8859-1?Q?uCKRIZbb6gkUNT5RSbsvQTfHXJUHIYE51NdmAt710oGG2xmUsvHoV1Dxw6?=
- =?iso-8859-1?Q?ujgREVxr9CpQ+LPYsgU6O40rzGFVwKob5BLbaTlKblX9UGkLNNRkdGLnUg?=
- =?iso-8859-1?Q?6ocng5CJR3NJoMSUz4WIcJJaYQj1u4Y6iA?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 17 Apr 2025 14:01:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3228C5C548D;
+	Thu, 17 Apr 2025 13:59:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 922ABC4CEE4;
+	Thu, 17 Apr 2025 14:01:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744898512;
+	bh=3xdgWL9BKZ5VadvNoLxSAhmUejSLg6O3MJWTTyYsSOo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=G++VQaD7jw3OMS5E8HEUmfYc98bJHaUmmQ1qOlNrlUq2yLKlTYcAmDVB2I/q3iABG
+	 z4bxahr+sds/BQWJxPAc1VADMfe+X5aoANVMVeogzzHbT/BSh0R+/wbf7IqoUcFUia
+	 T/duQmQyLQjHaK4YXPiQC45Axry+bydvLoKn7iYQPYX8IwANI9DWzHAzZVfyQasH6P
+	 qrp+uGkFQKPtJZ93McqdOnVNNxdyM0Lvq12G3ASVTkRN8SeGTw2rLm4QbFww180Ttb
+	 EnZHq9u/l/MBCBRklxqYO2SgdSeE3oZDdliSB3gZOXUED8dWq/sOvRUqR8A9qd6Pfr
+	 pn/bee+NmaVPQ==
+Date: Thu, 17 Apr 2025 15:01:48 +0100
+From: Will Deacon <will@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Subject: Re: [PATCH] arm64: Remove checks for broken Cavium HW from the PI
+ code
+Message-ID: <20250417140147.GA13109@willie-the-truck>
+References: <20250416123534.1108220-1-maz@kernel.org>
 MIME-Version: 1.0
-X-OriginatorOrg: mt.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AM6PR0302MB3413.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2434cb64-439b-4755-eef1-08dd7db836b9
-X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Apr 2025 14:00:30.2053
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: fb4c0aee-6cd2-482f-a1a5-717e7c02496b
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 0m+2TZ235l9SJ1Gz9BSjolbIf/pekcOOmr6Ga/NSRHGt4ZvV+LYSchcs3P+m8RyZMdJApp35NpIkNLf8ixdhtA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR03MB6793
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250416123534.1108220-1-maz@kernel.org>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_070043_403322_A8DD3208 
-X-CRM114-Status: GOOD (  13.59  )
+X-CRM114-CacheID: sfid-20250417_070154_081118_7BD74B84 
+X-CRM114-Status: GOOD (  31.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,75 +69,110 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Oliver Upton <oliver.upton@linux.dev>, Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> From:=A0Francesco Dolcini <francesco@dolcini.it>=0A=
-> Sent:=A0Thursday, 17 April 2025 15:03=0A=
-> To:=A0Dubowik Wojciech LCPF-CH <Wojciech.Dubowik@mt.com>=0A=
-> Cc:=A0linux-kernel@vger.kernel.org <linux-kernel@vger.kernel.org>; Rob He=
-rring <robh@kernel.org>; Krzysztof Kozlowski <krzk+dt@kernel.org>; Conor Do=
-oley <conor+dt@kernel.org>; Shawn Guo <shawnguo@kernel.org>; Sascha Hauer <=
-s.hauer@pengutronix.de>; Pengutronix Kernel Team > <kernel@pengutronix.de>;=
- Fabio Estevam <festevam@gmail.com>; devicetree@vger.kernel.org <devicetree=
-@vger.kernel.org>; imx@lists.linux.dev <imx@lists.linux.dev>; linux-arm-ker=
-nel@lists.infradead.org <linux-arm-kernel@lists.infradead.org>; stable@vger=
-.kernel.org <stable@vger.kernel.org>=0A=
-> Subject:=A0Re: EXTERNAL - [PATCH] arm64: dts: imx8mm-verdin: Link reg_nvc=
-c_sd to usdhc2=0A=
-=A0=0A=
-> Hello Wojciech,=0A=
-> thanks very much for your patch.=0A=
-=0A=
-> On Thu, Apr 17, 2025 at 01:20:11PM +0200, Wojciech Dubowik wrote:=0A=
->> Link LDO5 labeled reg_nvcc_sd from PMIC to align with=0A=
->> hardware configuration specified in the datasheet.=0A=
->>=0A=
->> Without this definition LDO5 will be powered down, disabling=0A=
->> SD card after bootup. This has been introduced in commit=0A=
->> f5aab0438ef1 (regulator: pca9450: Fix enable register for LDO5).=0A=
->>=0A=
->> Fixes: f5aab0438ef1 (regulator: pca9450: Fix enable register for LDO5)=
-=0A=
->> Cc: stable@vger.kernel.org=0A=
->>=0A=
->> Signed-off-by: Wojciech Dubowik <Wojciech.Dubowik@mt.com>=0A=
->> ---=0A=
->>=A0 arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi | 1 +=0A=
->>=A0 1 file changed, 1 insertion(+)=0A=
->>=0A=
->> diff --git a/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi b/arch/arm=
-64/boot/dts/freescale/imx8mm-verdin.dtsi=0A=
->> index 7251ad3a0017..6307c5caf3bc 100644=0A=
->> --- a/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi=0A=
->> +++ b/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi=0A=
->> @@ -785,6 +785,7 @@ &usdhc2 {=0A=
->>=A0=A0=A0=A0=A0=A0=A0 pinctrl-2 =3D <&pinctrl_usdhc2_200mhz>, <&pinctrl_u=
-sdhc2_cd>;=0A=
->>=A0=A0=A0=A0=A0=A0=A0 pinctrl-3 =3D <&pinctrl_usdhc2_sleep>, <&pinctrl_us=
-dhc2_cd_sleep>;=0A=
->>=A0=A0=A0=A0=A0=A0=A0 vmmc-supply =3D <&reg_usdhc2_vmmc>;=0A=
->> +=A0=A0=A0=A0 vqmmc-supply =3D <&reg_nvcc_sd>;=0A=
->=0A=
->I am worried just doing this will have some side effects.=0A=
->=0A=
->Before this patch, the switch between 1v8 and 3v3 was done because we=0A=
->have a GPIO, connected to the PMIC, controlled by the USDHC2 instance=0A=
->(MX8MM_IOMUXC_GPIO1_IO04_USDHC2_VSELECT, see pinctrl_usdhc2).=0A=
->=0A=
->With your change both the PMIC will be programmed with a different=0A=
->voltage over i2c and the GPIO will also toggle. It does not sound like=0A=
->what we want to do.=0A=
->=0A=
->Maybe we should have a "regulator-gpio" with vin-supply =3D=0A=
-><&reg_nvcc_sd>, as we recently did here=0A=
->https://lore.kernel.org/all/20250414123827.428339-1-ivitro@gmail.com/T/#m2=
-964f1126a6732a66a6e704812f2b786e8237354=0A=
->?=0A=
-=0A=
->Francesco=0A=
-I will have a look at your suggestion and try to test them on verdin. I won=
-'t have access to HW over Eastern so the patch will have to wait.=0A=
-=0A=
-Wojtek=
+On Wed, Apr 16, 2025 at 01:35:34PM +0100, Marc Zyngier wrote:
+> Calling into the MIDR checking framework from the PI code has recently
+> become much harder, due to the new fancy "multi-MIDR" support that
+> relies on tables being populated at boot time, but not that early that
+> they are available to the PI code. There are additional issues with
+> this framework, as the code really isn't position independend *at all*.
+> 
+> This leads to some ugly breakages, as reported by Ada.
+> 
+> It so appears that the only reason for the PI code to call into the
+> MIDR checking code is to cope with The Most Broken ARM64 System Ever,
+> aka Cavium ThunderX, which cannot deal with nG attributes that result
+> of the combination of KASLR and KPTI as a consequence of Erratum 27456.
+> 
+> Rather than adding extra complexity for something that is actually
+> a very dead horse, let's simply drop that check. On my own machine,
+> the firmware doesn't provide a KASLR seed, preventing the pathological
+> case to show up.
+> 
+> And if someone does have a broken box that passes a seed to the kernel,
+> "nokaslr" on the command-line is an easy enough workaround.
+> 
+> Fixes: c8c2647e69bed ("arm64: Make  _midr_in_range_list() an exported function")
+> Reported-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> Link: https://lore.kernel.org/r/3d97e45a-23cf-419b-9b6f-140b4d88de7b@arm.com
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
+> Cc: Oliver Upton <oliver.upton@linux.dev>
+> ---
+>  arch/arm64/include/asm/mmu.h   | 11 -----------
+>  arch/arm64/kernel/cpu_errata.c |  2 +-
+>  arch/arm64/kernel/image-vars.h |  4 ----
+>  3 files changed, 1 insertion(+), 16 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
+> index 30a29e88994ba..6e8aa8e726015 100644
+> --- a/arch/arm64/include/asm/mmu.h
+> +++ b/arch/arm64/include/asm/mmu.h
+> @@ -94,17 +94,6 @@ static inline bool kaslr_requires_kpti(void)
+>  			return false;
+>  	}
+>  
+> -	/*
+> -	 * Systems affected by Cavium erratum 24756 are incompatible
+> -	 * with KPTI.
+> -	 */
+> -	if (IS_ENABLED(CONFIG_CAVIUM_ERRATUM_27456)) {
+> -		extern const struct midr_range cavium_erratum_27456_cpus[];
+> -
+> -		if (is_midr_in_range_list(cavium_erratum_27456_cpus))
+> -			return false;
+> -	}
+> -
+>  	return true;
+>  }
+>  
+> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+> index b55f5f7057502..6b0ad5070d3e0 100644
+> --- a/arch/arm64/kernel/cpu_errata.c
+> +++ b/arch/arm64/kernel/cpu_errata.c
+> @@ -335,7 +335,7 @@ static const struct midr_range cavium_erratum_23154_cpus[] = {
+>  #endif
+>  
+>  #ifdef CONFIG_CAVIUM_ERRATUM_27456
+> -const struct midr_range cavium_erratum_27456_cpus[] = {
+> +static const struct midr_range cavium_erratum_27456_cpus[] = {
+>  	/* Cavium ThunderX, T88 pass 1.x - 2.1 */
+>  	MIDR_RANGE(MIDR_THUNDERX, 0, 0, 1, 1),
+>  	/* Cavium ThunderX, T81 pass 1.0 */
+> diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
+> index 5e3c4b58f2790..2004b4f41ade6 100644
+> --- a/arch/arm64/kernel/image-vars.h
+> +++ b/arch/arm64/kernel/image-vars.h
+> @@ -47,10 +47,6 @@ PROVIDE(__pi_id_aa64smfr0_override	= id_aa64smfr0_override);
+>  PROVIDE(__pi_id_aa64zfr0_override	= id_aa64zfr0_override);
+>  PROVIDE(__pi_arm64_sw_feature_override	= arm64_sw_feature_override);
+>  PROVIDE(__pi_arm64_use_ng_mappings	= arm64_use_ng_mappings);
+> -#ifdef CONFIG_CAVIUM_ERRATUM_27456
+> -PROVIDE(__pi_cavium_erratum_27456_cpus	= cavium_erratum_27456_cpus);
+> -PROVIDE(__pi_is_midr_in_range_list	= is_midr_in_range_list);
+> -#endif
+
+Hmm, I'm not really sure about this as it seems to be punishing the poor
+user of the box who really hasn't done anything wrong. The firmware might
+not be passing a KASLR seed to the host, but what about guest VMs? It's
+pretty easy for the VMM to stuff a seed into the DT, so if somebody was
+running VMs on TX1 with kaslr before c8c2647e69bed ("arm64: Make
+_midr_in_range_list() an exported function") and things worked, I don't
+think we should be breaking that so that it crashes in weird ways.
+
+Could we just read MIDR_EL1 (read_cpuid_id()) in the PI code to detect
+ThunderX that way? I'm less fussed about the multi-MIDR code working on
+this machine as it's a new feature (and we could disable the new
+hypercalls here if we really cared).
+
+Alternatively, we could properly rip out the TX1 support and fail to boot
+if we detect it. At least that's deterministic and we could have a useful
+error message about the thing being unsupported.
+
+Will
 
