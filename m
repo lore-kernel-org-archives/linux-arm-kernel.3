@@ -4,110 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F00C5C369C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 08:51:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0C19C369CA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 08:53:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TBtNXmS8qjturrEwGtpAmFAuM6DgmNGXr8LZo+XU2no=; b=1zYmxUvJEFTHw2wEWR/vSopxV8
-	fqqN/oRl+jcIl2WTVz3Ly5pqyQ3rXUkdI7nDQ4t6Dc6evMcBpTPk81x0h1VvmZcxliqPcOVTYo3gQ
-	3Lb2j3IwDXnWs4JyVC5z0R2zADLG1TrG99DWORq6r+EfW8sZ6tzuT22BsB4OOaBJ7/T1w88GLlvS+
-	gJqUYCex7X3xrB98WCSpjl5kvALorQ/D3FtWAcghwDoK7MWWHeap/r6wJyO02CtH3ba/bkQEWIZw7
-	CiOpSXRp/f4FV8LSoQW/ZZh9V0u2n+AcSNZi8nZWvw2usxGQJYT7Y6fyQVDWKQSmz/p6j8Hc3u884
-	TZiQ24Fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J48PnJQNA9AsUd2AP1V+sjTsrszPFucbM5pFiijF4DM=; b=biuMvTtGSLqmeapLhScqdJFRvi
+	kEKTJ9IDN11Hf8mnt83GyOeN5CAHDawPxfuUEktBrwIPt3uA+fDVrKUjHtO/lcmZlRCWS/nqKBIbd
+	pvU+XAPlZs+LsnxllMewD3SXCzJvV6g1sy3zl88wf+XxY3b+jhDexvN5caGw2t5FPuy09kcA6EN8Q
+	OKIIpJ+dZ4s8fe4CZ4n2F7AZEBY6KwAec2jNEH+ttZT2rnVK8fr6JIYETnk8yoVsX8cbaIQW4El+B
+	er6uLpcWuS25GXe0IuuGLs4LTm8SEfVzuUkxcXWJ+hmOHoA+YxnGRMPY9FWjMX6OBQJugVA8/adcX
+	YU9oMcYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Kxy-0000000CKxP-082y;
-	Thu, 17 Apr 2025 08:51:26 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1u5Kzm-0000000CLM4-2IWL;
+	Thu, 17 Apr 2025 08:53:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Kou-0000000CIum-460G
+	id 1u5KrB-0000000CJa4-42hE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 08:42:06 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-43d0359b1fcso3398195e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Apr 2025 01:42:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744879323; x=1745484123; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TBtNXmS8qjturrEwGtpAmFAuM6DgmNGXr8LZo+XU2no=;
-        b=nnmlTYo+jI1yVN7M0zzbq6xle3/2zk4WYiUVghgRvalEwbsoyseZrloAQv2xtVyWAZ
-         gnnKerIt8laXyCJTwwoiB2ow+WiUgdrp5mkCDjQBYlTE+vzkL4TmxEOBYHUhWZ6Sn9gY
-         VWIoDWt/yvKjBuqelfSEriRfGG0v7Zm3h9qCIOFmcvrHx9vODESd9RmVJAVMCbAHFSZU
-         y8C5bmrXJTzlReX8kK30JdA3GEn+can/Er0tOwAuMfvh5Z33aBkpSief1kczdwUiwxT9
-         GUIUC47HRwGVxMIYPj6V/Em56j3gM+/GLayEH+T7rvTC7BPpmZf12OAcFJHgcX35Dl7H
-         MVGw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744879323; x=1745484123;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TBtNXmS8qjturrEwGtpAmFAuM6DgmNGXr8LZo+XU2no=;
-        b=E4Z6pmuRgZHhfExh0lLeFhSrhJ7MCH5Oq7sHzM/cNp0XyWn/FfiMu5jM+kpS/99mN5
-         /TUaOAXPkU1MO3Nv7DLgW5CketDLMNZkR25iNfX9qrbVDF+23L/Y1D1x83n+moUaNkyl
-         o9zNwL+ad82o9js9sEQIcwdaKjnh1csk9wqKCF76/5fZskY6881hCxcRHBeLM8LZ4go+
-         3QTfYOHe/OCK58PiVQXFUVYaVK6CgcXnUqB2P3xqSzpEjAd1FZ4ohXyMNl59S0jt/RNn
-         lO4pI/LsfT9NVrJBN5LOcDt7OnXGdyxYFq5AAM8OsGyYPjKe4uXWwI5pgNxE7LpPFxO1
-         yUbw==
-X-Forwarded-Encrypted: i=1; AJvYcCXWzHQQNV9IEbdWj0TrclZokQQEKcRXgo1AhJYHta8HsPw6ZPx3g24RTU8Yn3MYP2SpZtqrUbyf/NO4JFcJhTcr@lists.infradead.org
-X-Gm-Message-State: AOJu0YxqsffF3tcZEWJLhwTBZ6mXLEEWOa2CGPaljeW6uYzH05ssxXfx
-	goNVRKV6PcADXfJikJdGKt7SExj2pZTfJSLQhohYO/5aigLjv6nv
-X-Gm-Gg: ASbGncvCEEbYY/tabwTG09G/a4BSiEohSFaqA3rf6254uE0YEJ84r/sLivaftUKPDm4
-	/BaY5y8t+4OndUxpfh/vns1IL1q2ZScK2ClIt7F9kZ06KxAcRAUCHqjEWFhl4rkHD3NsrTpxsgA
-	d2Viv/7vyAegl77l0nCTM4aZFcLMGHp+ixPUJqqaelCl2AUIPVGx9TAgmCtnaJ4S4XIvkN6Ozy/
-	yW6iAcbN3iB50P3Qksy+70mD4ehECIM9Ri69ZkJUMOZc8O2jsYjj8ryoQBtJ1jm+Be0fE2N9ixF
-	U3o6CIzN4kL8r3dmsK0Q/BgaSI9KHEhnosr8Kbm1X2oI/J0Upev3WIoxWDXCbOae
-X-Google-Smtp-Source: AGHT+IFhbogSv22y1O3lHsGjfla1/G8RQGwFtOudU0ddZpLH9ImE2NvEPhJVSxI+e+uL8StCh9oEEA==
-X-Received: by 2002:a05:600c:8711:b0:439:8490:d1e5 with SMTP id 5b1f17b1804b1-440634ad300mr16770745e9.4.1744879323027;
-        Thu, 17 Apr 2025 01:42:03 -0700 (PDT)
-Received: from iku.Home ([2a06:5906:61b:2d00:3f0f:d684:f4a:34e6])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39eae96cf1asm19657712f8f.39.2025.04.17.01.42.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 17 Apr 2025 01:42:02 -0700 (PDT)
-From: Prabhakar <prabhakar.csengg@gmail.com>
-X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>
-Cc: netdev@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Prabhakar <prabhakar.csengg@gmail.com>,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH net-next v8 4/4] MAINTAINERS: Add entry for Renesas RZ/V2H(P) DWMAC GBETH glue layer driver
-Date: Thu, 17 Apr 2025 09:40:15 +0100
-Message-ID: <20250417084015.74154-5-prabhakar.mahadev-lad.rj@bp.renesas.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250417084015.74154-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-References: <20250417084015.74154-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	Thu, 17 Apr 2025 08:44:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8CC5C6842A;
+	Thu, 17 Apr 2025 08:44:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB73EC4CEE4;
+	Thu, 17 Apr 2025 08:44:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744879464;
+	bh=A9Faa6Hi06Qb+FMxB+xHx14Tv/SX93t05l35ho7ZmuU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=N+KQFRw0/kn8KZrGZh2+3SvkvdkVsh3YQgjbvbIMID2194SEhzy5tJwwcadGkgjyQ
+	 h4u33pTtYqlqrPwvt5l2l13hs+wu8TUkn9gnITtPrW6almo9xbnF9NdZSiYSJ94j2s
+	 yb4FPaO2fpWJHRkBYu+zSAXKEPpxB75JAUuUMSBRoOunyYM0ncdt+e61gQRWGo/yD3
+	 a2IUbCqey4ePsOGn/ByP5xOVJSL9m8gZ+kFKbSfZ5M9ViDRNofhKDQMyef3/+jBhdF
+	 2t5pcwFHDZhObOAxf8IzV86b5pTgTiTeCFv1Rmly0HCCUhIEiywIoPkIqnZPmeGq2Y
+	 UAC1wYop90Qqg==
+Received: from johan by xi.lan with local (Exim 4.97.1)
+	(envelope-from <johan@kernel.org>)
+	id 1u5KrA-000000001ZO-0bIc;
+	Thu, 17 Apr 2025 10:44:24 +0200
+Date: Thu, 17 Apr 2025 10:44:24 +0200
+From: Johan Hovold <johan@kernel.org>
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, sudeep.holla@arm.com,
+	james.quinlan@broadcom.com, f.fainelli@gmail.com,
+	vincent.guittot@linaro.org, peng.fan@oss.nxp.com,
+	michal.simek@amd.com, quic_sibis@quicinc.com,
+	dan.carpenter@linaro.org, maz@kernel.org
+Subject: Re: [PATCH 2/4] firmware: arm_scmi: Add Quirks framework
+Message-ID: <aAC_aPHD4Ik-DW0x@hovoldconsulting.com>
+References: <20250415142933.1746249-1-cristian.marussi@arm.com>
+ <20250415142933.1746249-3-cristian.marussi@arm.com>
+ <Z__UJUKaMRoFLYLc@hovoldconsulting.com>
+ <Z__cuT5IW0Sbjqpg@pluto>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_014205_007110_DCC1FC0F 
-X-CRM114-Status: GOOD (  10.35  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z__cuT5IW0Sbjqpg@pluto>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,36 +79,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+On Wed, Apr 16, 2025 at 05:37:13PM +0100, Cristian Marussi wrote:
+> On Wed, Apr 16, 2025 at 06:00:37PM +0200, Johan Hovold wrote:
+> > On Tue, Apr 15, 2025 at 03:29:31PM +0100, Cristian Marussi wrote:
 
-Add a new MAINTAINERS entry for the Renesas RZ/V2H(P) DWMAC GBETH
-glue layer driver.
+> > > +static void scmi_enable_matching_quirks(struct scmi_info *info)
+> > > +{
+> > > +	struct scmi_revision_info *rev = &info->version;
+> > > +	const char *compatible = NULL;
+> > > +	struct device_node *root;
+> > > +
+> > > +	root = of_find_node_by_path("/");
+> > > +	if (root) {
+> > > +		of_property_read_string(root, "compatible", &compatible);
+> > 
+> > Looks like you still only allow matching on the most specific compatible
+> > string.
+> > 
+> > As we discussed in the RFC thread, this will result in one quirk entry
+> > for each machine in a SoC family in case the issue is not machine
+> > specific.
+> 
+> Well, yes but the solution would be to add multiple compatible on the
+> same quirk line, which is definitely less cumbersome than adding
+> multiple quirk defs for the same quirk but does NOT scale anyway....
+> 
+> ...anyway I will add that possibility..or I am missing something more ?
 
-Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
----
- MAINTAINERS | 8 ++++++++
- 1 file changed, 8 insertions(+)
+I was referring to the need to match on other compatible strings than
+the most specific one. For the ThinkPad T14s the strings are:
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 1248443035f4..f5141da4d509 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -20606,6 +20606,14 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/usb/renesas,rzn1-usbf.yaml
- F:	drivers/usb/gadget/udc/renesas_usbf.c
+	"lenovo,thinkpad-t14s-lcd", "lenovo,thinkpad-t14s",
+	"qcom,x1e78100", "qcom,x1e80100"
+
+Here you most certainly would not want to match on
+"lenovo,thinkpad-t14s-lcd" but rather on "lenovo,thinkpad-t14s" or one
+of the SoC compatibles.
+
+For the FC quirk we may have to match on compatible and then a single
+SoC entry could cover tens of machines (and their SKU variants).
+
+of_machine_is_compatible() can be used to match on any compatible
+string, but not sure if that fits with your current implementation.
  
-+RENESAS RZ/V2H(P) DWMAC GBETH GLUE LAYER DRIVER
-+M:	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-+L:	netdev@vger.kernel.org
-+L:	linux-renesas-soc@vger.kernel.org
-+S:	Supported
-+F:	Documentation/devicetree/bindings/net/renesas,r9a09g057-gbeth.yaml
-+F:	drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
-+
- RENESAS RZ/V2M I2C DRIVER
- M:	Fabrizio Castro <fabrizio.castro.jz@renesas.com>
- L:	linux-i2c@vger.kernel.org
--- 
-2.49.0
+> > > +		of_node_put(root);
+> > > +	}
+> > > +
+> > > +	/* Enable applicable quirks */
+> > > +	scmi_quirks_enable(info->dev, compatible,
+> > > +			   rev->vendor_id, rev->sub_vendor_id, rev->impl_ver);
+> > > +}
 
+Johan
 
