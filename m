@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE43EC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 07:24:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA4C3C369C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 07:27:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RzqP7Yl5tziBRehIHygQPOzt4W+nYsdx+tIOVpIyPaY=; b=fpSKQViWY11Iw7o5GNd6irFNh1
-	JKEpZfFjS6k2bjkBQWPeSewaF6sn2NmvzWavxSf3ju7d2eqrKZXNJ5T9v8SgeUGgjM7GVl/tB/Y2H
-	G4KJp7J6fLfs+mPmflSnhRO5+ZJ+CTtZ8His8Oytcvr90PpBpofJcBvpJOZPZMI1z2e3Nsry+0BhH
-	YZ2ykRVNptGGM82tWxYQcwLXgHvLR1ouf1Ulx5wV0dFeIjy2A+JdkQrrVxWExZZXhcOawb8Hoe6Y1
-	xs1UjbpZv1Wu3NYXV4a9L8nizl8FFNXdaQAzK3m/JXBp3BL/yYH3vt2xlO7twko4cLAx4f1Sg67Nc
-	cjmM84JA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B6iTx3Lr3Y/E/h3fgZVym20bL7MC/yae8ZyHNmoM91E=; b=DgbADGYex7Jlsp6ojkyarFJl4a
+	C6WS2f5Xv7qRvfYkMXxVz2QHGHTCkcsaPjF9eKScWesqVDq6Oeff1dpMQtlyI4fnsiYFmSa3rLPeT
+	cB6D4/AMHhPOJxtoEDG1AtS0TSFLS7qcbjl6gjPDuI22ZLI6D+19Xptpibrz/EdBAvLWalpCufA0X
+	rmzso3l9uk0aowWth/dvQjmwBzSmyYrcmATq8qfIb/BMoZe5mYJs5LEFJ29n1+jD6wjak0DCy6elv
+	dTt9nBC1T3g/anh4PMe3IHvMB2vMACpt/T0lK8KSZe86TsmZbG6yMWJu5d5E08v/K+Lf4yfWDYl1D
+	NtXY1F/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Jba-0000000C4w2-2IOP;
-	Thu, 17 Apr 2025 07:24:14 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1u5Jex-0000000C5g2-0faq;
+	Thu, 17 Apr 2025 07:27:43 +0000
+Received: from mail-m19731108.qiye.163.com ([220.197.31.108])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5JZi-0000000C4QE-3NSN;
-	Thu, 17 Apr 2025 07:22:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1B0845C038E;
-	Thu, 17 Apr 2025 07:20:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F4F0C4CEE4;
-	Thu, 17 Apr 2025 07:22:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744874537;
-	bh=njd0Ctie5/NJ/u0nIFo0b6CFaL7VXTbcT9S6B/AcLZ8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NpvjqSLwnO5P4oov6RnrAJXFvg5T2B5X5w7SVvL3sYujMH5bf0IpFDTcWNfIXY8sH
-	 ISYUjs240LTbyzWxSlvk3SclXPnsjL3106pN+tJLAWjKmn3VHFF7Dkv7sLwEFGnaQL
-	 jbPsZicrvOsj6AzaMl8u9RifyRNNSY+vQLaAqOVjKE6IaSyVRqwQKv1FBYREQLvizv
-	 6Qlexqzlh8L17ECPL6ZfzNikEUw2Vq+xekJevwisVsuJUZ75bXsBYkN4RMqBao9HPu
-	 XjXV4gJprVmX3DLafD6kKfmLB3oyRheCLo9FBevmpnsY5IZ2zaxzsMPIxv3HYCxZNi
-	 xjti22U8Axj/Q==
-Date: Thu, 17 Apr 2025 09:22:12 +0200
-From: Niklas Cassel <cassel@kernel.org>
-To: Shawn Lin <shawn.lin@rock-chips.com>
-Cc: Hans Zhang <18255117159@163.com>, lpieralisi@kernel.org, kw@linux.com,
-	bhelgaas@google.com, heiko@sntech.de,
-	manivannan.sadhasivam@linaro.org, robh@kernel.org,
-	jingoohan1@gmail.com, thomas.richard@bootlin.com,
-	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
+	id 1u5Jd5-0000000C5EU-1DFC;
+	Thu, 17 Apr 2025 07:25:49 +0000
+Received: from [172.16.12.129] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 1233a2cdc;
+	Thu, 17 Apr 2025 15:25:41 +0800 (GMT+08:00)
+Message-ID: <ca283065-a48c-3b39-e70d-03d4c6c8a956@rock-chips.com>
+Date: Thu, 17 Apr 2025 15:25:06 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.15.1
+Cc: shawn.lin@rock-chips.com, lpieralisi@kernel.org, kw@linux.com,
+ bhelgaas@google.com, heiko@sntech.de, manivannan.sadhasivam@linaro.org,
+ robh@kernel.org, jingoohan1@gmail.com, thomas.richard@bootlin.com,
+ linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ Niklas Cassel <cassel@kernel.org>
 Subject: Re: [PATCH] PCI: dw-rockchip: Configure max payload size on host init
-Message-ID: <aACsJPkSDOHbRAJM@ryzen>
+To: Hans Zhang <18255117159@163.com>
 References: <20250416151926.140202-1-18255117159@163.com>
  <aACoEpueUHBLjgbb@ryzen>
  <85643fe4-c7df-4d64-e852-60b66892470a@rock-chips.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+ <aACsJPkSDOHbRAJM@ryzen>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <aACsJPkSDOHbRAJM@ryzen>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <85643fe4-c7df-4d64-e852-60b66892470a@rock-chips.com>
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGkkfT1YYGh0YQ0tPThpJQ0NWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+X-HM-Tid: 0a9642a3a11e09cckunm1233a2cdc
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NRg6EAw*LjJCHhAsNQ8ZDjkt
+	VisKFDJVSlVKTE9PQ0xPTE9IQ09PVTMWGhIXVQgTGgwVVRcSFTsJFBgQVhgTEgsIVRgUFkVZV1kS
+	C1lBWU5DVUlJVUxVSkpPWVdZCAFZQUhMTEM3Bg++
+DKIM-Signature: a=rsa-sha256;
+	b=ItIT98LNpFdr+LN3qpvVBueCPohPToRuA3M+VFYxIN+pTgbAm25/vWhApyWFMy6oxAlqpC5i2wsE8inB6fXgXukULBFpKhVNw/hwUlSwtJdC2pnQ4CGrv6rga/mrw18V1sF3k2TDLCkgFJgGpv1q2IgXyb84yN8ZCw95ludXhfI=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=B6iTx3Lr3Y/E/h3fgZVym20bL7MC/yae8ZyHNmoM91E=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_002218_932667_942D9BED 
-X-CRM114-Status: GOOD (  20.77  )
+X-CRM114-CacheID: sfid-20250417_002547_498799_A63BF2ED 
+X-CRM114-Status: GOOD (  12.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,66 +80,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 17, 2025 at 03:08:34PM +0800, Shawn Lin wrote:
-> 在 2025/04/17 星期四 15:04, Niklas Cassel 写道:
-> > Hello Hans,
-> > 
-> > On Wed, Apr 16, 2025 at 11:19:26PM +0800, Hans Zhang wrote:
-> > > The RK3588's PCIe controller defaults to a 128-byte max payload size,
-> > > but its hardware capability actually supports 256 bytes. This results
-> > > in suboptimal performance with devices that support larger payloads.
-> > 
-> > Patch looks good to me, but please always reference the TRM when you can.
-> > 
-> > Before this patch:
-> > 		DevCap: MaxPayload 256 bytes
-> > 		DevCtl: MaxPayload 128 bytes
-> > 
-> > 
-> > As per rk3588 TRM, section "11.4.3.8 DSP_PCIE_CAP Detail Registers Description"
-> > 
-> > DevCap is per the register description of DSP_PCIE_CAP_DEVICE_CAPABILITIES_REG,
-> > field PCIE_CAP_MAX_PAYLOAD_SIZE.
-> > Which claims that the value after reset is 0x1 (256B).
-> > 
-> > DevCtl is per the register description of
-> > DSP_PCIE_CAP_DEVICE_CONTROL_DEVICE_STATUS, field PCIE_CAP_MAX_PAYLOAD_SIZE_CS.
-> > Which claims that the reset value is 0x0 (128B).
-> > 
-> > Both of these match the values above.
-> > 
-> > As per the description of PCIE_CAP_MAX_PAYLOAD_SIZE_CS:
-> > "Permissible values that
-> > can be programmed are indicated by the Max_Payload_Size
-> > Supported field (PCIE_CAP_MAX_PAYLOAD_SIZE) in the Device
-> > Capabilities (DEVICE_CAPABILITIES_REG) register (for more
-> > details, see section 7.5.3.3 of PCI Express Base Specification)."
-> > 
-> > So your patch looks good.
-> > 
-> > I guess I'm mostly surprised that the e.g. pci_configure_mps() does not
-> > already set DevCtl to the max(DevCap.MPS of the host, DevCap.MPS of the
-> > endpoint).
-> > 
-> > Apparently pci_configure_mps() only decreases MPS from the reset values?
-> > It never increases it?
-> > 
+在 2025/04/17 星期四 15:22, Niklas Cassel 写道:
+> On Thu, Apr 17, 2025 at 03:08:34PM +0800, Shawn Lin wrote:
+>> 在 2025/04/17 星期四 15:04, Niklas Cassel 写道:
+>>> Hello Hans,
+>>>
+>>> On Wed, Apr 16, 2025 at 11:19:26PM +0800, Hans Zhang wrote:
+>>>> The RK3588's PCIe controller defaults to a 128-byte max payload size,
+>>>> but its hardware capability actually supports 256 bytes. This results
+>>>> in suboptimal performance with devices that support larger payloads.
+>>>
+>>> Patch looks good to me, but please always reference the TRM when you can.
+>>>
+>>> Before this patch:
+>>> 		DevCap: MaxPayload 256 bytes
+>>> 		DevCtl: MaxPayload 128 bytes
+>>>
+>>>
+>>> As per rk3588 TRM, section "11.4.3.8 DSP_PCIE_CAP Detail Registers Description"
+>>>
+>>> DevCap is per the register description of DSP_PCIE_CAP_DEVICE_CAPABILITIES_REG,
+>>> field PCIE_CAP_MAX_PAYLOAD_SIZE.
+>>> Which claims that the value after reset is 0x1 (256B).
+>>>
+>>> DevCtl is per the register description of
+>>> DSP_PCIE_CAP_DEVICE_CONTROL_DEVICE_STATUS, field PCIE_CAP_MAX_PAYLOAD_SIZE_CS.
+>>> Which claims that the reset value is 0x0 (128B).
+>>>
+>>> Both of these match the values above.
+>>>
+>>> As per the description of PCIE_CAP_MAX_PAYLOAD_SIZE_CS:
+>>> "Permissible values that
+>>> can be programmed are indicated by the Max_Payload_Size
+>>> Supported field (PCIE_CAP_MAX_PAYLOAD_SIZE) in the Device
+>>> Capabilities (DEVICE_CAPABILITIES_REG) register (for more
+>>> details, see section 7.5.3.3 of PCI Express Base Specification)."
+>>>
+>>> So your patch looks good.
+>>>
+>>> I guess I'm mostly surprised that the e.g. pci_configure_mps() does not
+>>> already set DevCtl to the max(DevCap.MPS of the host, DevCap.MPS of the
+>>> endpoint).
+>>>
+>>> Apparently pci_configure_mps() only decreases MPS from the reset values?
+>>> It never increases it?
+>>>
+>>
+>> Actually it does:
+>>
+>> https://github.com/torvalds/linux/blob/master/Documentation/admin-guide/kernel-parameters.txt#L4757
 > 
-> Actually it does:
+> If that is the case, then explain the before/after with Hans lspci output here:
+> https://lore.kernel.org/linux-pci/bb40385c-6839-484c-90b2-d6c7ecb95ba9@163.com/
 > 
-> https://github.com/torvalds/linux/blob/master/Documentation/admin-guide/kernel-parameters.txt#L4757
+> His patch changes the default value of DevCtl.MPS (from 128B to 256B), but if
+> pci_configure_mps() can bump DevCtl.MPS to a higher value, his patch should not
+> be needed, since the EP (an NVMe SSD in his case) has DevCap.MPS 512B, and the
+> RC itself has DevCap.MPS 256B.
+> 
+> Seems like we are missing something here.
 
-If that is the case, then explain the before/after with Hans lspci output here:
-https://lore.kernel.org/linux-pci/bb40385c-6839-484c-90b2-d6c7ecb95ba9@163.com/
+So Hans, could you please help set pci=pcie_bus_safe or
+pci=pcie_bus_perf in your cmdline, and see how lspci dump different
+without your patch?
 
-His patch changes the default value of DevCtl.MPS (from 128B to 256B), but if
-pci_configure_mps() can bump DevCtl.MPS to a higher value, his patch should not
-be needed, since the EP (an NVMe SSD in his case) has DevCap.MPS 512B, and the
-RC itself has DevCap.MPS 256B.
-
-Seems like we are missing something here.
-
-
-Kind regards,
-Niklas
+> 
+> 
+> Kind regards,
+> Niklas
+> 
+> 
 
