@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 185B8C369C9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 14:58:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 498FAC369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 15:00:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oOZm8LuJ9j8wv1ex5ZmVij+gKWRSKaw75Pqo3DQ2ob0=; b=xS1yKX+f8Jk5LSDhJ/UaF0XULx
-	NphniHvPciwf9vHEnf6yIHOLYE1d2Hm9J5JhQC4FqjwJBITw621Uuhukk9+KLRM7SW/upqJOrMoi9
-	yao/cBmmI6slB9KFwaSQJQKjxSvT59zuAj5GXhKWV+WXlv6XYGCobcXxanyVjy3QmSeX0xFNndcs+
-	r7wkE+yNumLSESmhzJjUMhZBB4PSD6kgmE3397WWrXs1Tfn8fWNEuHxC+WFpVjJbcWhCmoCa1ykwk
-	QHbI1i4PuPuBnvswD/VJ3d13GNUeyu1BKrSUwf9Zp2gB2GIoZD85VBMxN5LqTOGK7u5w/QQGG6WWX
-	8NQ6gpcw==;
+	bh=G7VFxEo4h8XULL/fbpqxLzHoxKM6AEEkI/t83unvoeA=; b=J9A27rk4Ofn+DA0l69JZ5zQbVo
+	cbkAXhIdFfNqqS/EmTIqyJnLZXeyhmzKQ2cMzN48VQy+ixJsjLvNW0ePd5QyhU3SfXuaxG4LLdIby
+	mCPF5sVPdePl/yfqqENzFWHRm1LcljGGzvbNkyHR4puT2pTvsCa6gh6oY+8ABy6980VY8Drm8/LOl
+	5R5DUrOAyncsWTO7yugN2acTGQhcZaLw00H2xfRBARHhJiOfYK/bYpY85Oqoz4S8j7vaJEV4VZT8y
+	jiuoTzhAP0BMd/qR10Du5GK6ZrysOf8/QpjL2gr35lu0OWtFTgoyL3l9xnPALGQKPgeYn1dc6yyKI
+	PqvBFhig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5QhL-0000000DPIk-1cwp;
-	Thu, 17 Apr 2025 14:58:39 +0000
+	id 1u5QjB-0000000DPlP-2Oc1;
+	Thu, 17 Apr 2025 15:00:33 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5QDR-0000000DJID-0PpM
+	id 1u5QDU-0000000DJJC-0Tv3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 14:27:46 +0000
+	Thu, 17 Apr 2025 14:27:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A3CEF4A1C3;
-	Thu, 17 Apr 2025 14:27:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7991C4CEEB;
-	Thu, 17 Apr 2025 14:27:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A29544A081;
+	Thu, 17 Apr 2025 14:27:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 321ABC4CEEA;
+	Thu, 17 Apr 2025 14:27:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744900064;
-	bh=nu5w+lI6jf2LoOP/AZC8IFj/m0okyWNkNm6LHYmTWbo=;
+	s=k20201202; t=1744900067;
+	bh=nXPVCryDxtAn6n/w1ELFDJIKepg5llxRHEpDLLve16E=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=eRZsqjoNt7FUSi7OB/LX0T0PhgWMozBEV+mdFBszNlYUE7tCZDLO0XpU9r8LoBlBc
-	 jPEQqoOxuwbutl4BRzaulT/csCqprOlgOEocxIKEX3QOJUUSdmDKtAJvMYx+C9CTJ6
-	 ANadM/2Y0QtyaYEYmXhgAabpmfJmYPBuj8xr0UC/TRruALpCkdOYAOea327Shjvfhl
-	 SkUWcnbnnaE5nV8/5LlnsX56Hultn5K6KGkf12b4z97WTwGGf/9EICTJVxkUP2qol7
-	 rladiWdLrHyDcKLl2mf7Gu0to6awHMTJr0quhMMp+N1l0kk10VUB3suh1oi0pca9N6
-	 yrxKE6AGVATzA==
+	b=MJNx3SfEtkcZpSWEw91YForzmo/avlAyghRcO6mnzhiUHqJ3oAnSRtJVqhpUER13g
+	 vZdxgy8swv28AsqkpyrVU55StNGBYo5q6VrRQXzakVRlPWXoHMM0GvBQ3oKLARYfO4
+	 4vyXHvlmR+3zidGDs8DeDKR7kTjIusOiUPskl5yEEYSJNNMfLuTlg1Wj6S/QlDeXls
+	 NkERlLI1wkg0moGufLGJyw588M7uVxz1/pWMSnkVJ2SVHXfxl94QqHYABLbV67VYL1
+	 VFEPYih+o5aQuvLjRsqPxL+Bf6C+sd8Q5gPR0vy/ILOxmNyntRvD24YryVVLRYCPHp
+	 Yu9EK8oHBQ2Bg==
 From: Will Deacon <will@kernel.org>
-To: robin.murphy@arm.com,
-	Hongbo Yao <andy.xu@hj-micro.com>
+To: iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	allen.wang@hj-micro.com,
-	peter.du@hj-micro.com
-Subject: Re: [PATCH v3] perf: arm-ni: Unregister PMUs on probe failure
-Date: Thu, 17 Apr 2025 15:27:24 +0100
-Message-Id: <174489608350.2694212.5228130661148329110.b4-ty@kernel.org>
+	robin.murphy@arm.com,
+	jgg@ziepe.ca,
+	nicolinc@nvidia.com,
+	jsnitsel@redhat.com,
+	praan@google.com,
+	kevin.tian@intel.com,
+	ddutile@redhat.com
+Subject: Re: [PATCH] iommu/arm-smmu-v3: Add missing S2FWB feature detection
+Date: Thu, 17 Apr 2025 15:27:25 +0100
+Message-Id: <174488913548.907912.11019680533308808678.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20250403070918.4153839-1-andy.xu@hj-micro.com>
-References: <20250403070918.4153839-1-andy.xu@hj-micro.com>
+In-Reply-To: <20250408033351.1012411-1-aneesh.kumar@kernel.org>
+References: <20250408033351.1012411-1-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_072745_154680_7027097F 
-X-CRM114-Status: UNSURE (   9.10  )
+X-CRM114-CacheID: sfid-20250417_072748_169409_79788794 
+X-CRM114-Status: UNSURE (   7.06  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,45 +84,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 03 Apr 2025 15:09:18 +0800, Hongbo Yao wrote:
-> When a resource allocation fails in one clock domain of an NI device,
-> we need to properly roll back all previously registered perf PMUs in
-> other clock domains of the same device.
+On Tue, 08 Apr 2025 09:03:51 +0530, Aneesh Kumar K.V (Arm) wrote:
+> Commit 67e4fe398513 ("iommu/arm-smmu-v3: Use S2FWB for NESTED domains")
+> introduced S2FWB usage but omitted the corresponding feature detection.
+> As a result, vIOMMU allocation fails on FVP in arm_vsmmu_alloc(), due to
+> the following check:
 > 
-> Otherwise, it can lead to kernel panics.
-> 
-> Calling arm_ni_init+0x0/0xff8 [arm_ni] @ 2374
-> arm-ni ARMHCB70:00: Failed to request PMU region 0x1f3c13000
-> arm-ni ARMHCB70:00: probe with driver arm-ni failed with error -16
-> list_add corruption: next->prev should be prev (fffffd01e9698a18),
-> but was 0000000000000000. (next=ffff10001a0decc8).
-> pstate: 6340009 (nZCv daif +PAN -UAO +TCO +DIT -SSBS BTYPE=--)
-> pc : list_add_valid_or_report+0x7c/0xb8
-> lr : list_add_valid_or_report+0x7c/0xb8
-> Call trace:
->  __list_add_valid_or_report+0x7c/0xb8
->  perf_pmu_register+0x22c/0x3a0
->  arm_ni_probe+0x554/0x70c [arm_ni]
->  platform_probe+0x70/0xe8
->  really_probe+0xc6/0x4d8
->  driver_probe_device+0x48/0x170
->  __driver_attach+0x8e/0x1c0
->  bus_for_each_dev+0x64/0xf0
->  driver_add+0x138/0x260
->  bus_add_driver+0x68/0x138
->  __platform_driver_register+0x2c/0x40
->  arm_ni_init+0x14/0x2a [arm_ni]
->  do_init_module+0x36/0x298
-> ---[ end trace 0000000000000000 ]---
-> Kernel panic - not syncing: Oops - BUG: Fatal exception
-> SMP: stopping secondary CPUs
+> 	if (!arm_smmu_master_canwbs(master) &&
+> 	    !(smmu->features & ARM_SMMU_FEAT_S2FWB))
+> 		return ERR_PTR(-EOPNOTSUPP);
 > 
 > [...]
 
-Applied to will (for-next/perf), thanks!
+Applied to iommu (arm/smmu/fixes), thanks!
 
-[1/1] perf: arm-ni: Unregister PMUs on probe failure
-      https://git.kernel.org/will/c/7f57afde6a44
+[1/1] iommu/arm-smmu-v3: Add missing S2FWB feature detection
+      https://git.kernel.org/iommu/c/45e00e367189
 
 Cheers,
 -- 
