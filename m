@@ -4,115 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF7B6C369C9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 14:13:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B635FC369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 14:13:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zjC36ZPf50aHqfa2Se7VHPLUpGAe6Mh0Hz/kXCMF/9A=; b=in09HxhMyvkse6VF1Y/Zq2xAdy
-	OBls809PJer3SH6H3xhBNd8G5lECI5DDFpkOOKfJzhaKaGs6ZFNpS86Taj8Fd9uS6hRosaBYQgW+F
-	ZkxU8DHWkmpYj+bCzu8P79x9PFamJbP22l9hq1qXQ5gzkq8zPbQ2PtEEvdCydRUaYo+bLsKgOM+3F
-	9/fuqiJDfhA3Ma8W+RTh4ozgago+lKofUBU03uVhmYHW2yWIAgKZaj5uewnBbAnADUaw3GWeliy3x
-	/QsZTsXgdfaZd4lkzqrnu/PSN6ARnG2GFWH6GH5rnbk9H97ZS1tvKruMcjDfi56T6mZ7i2s04k+hd
-	iipsyZXg==;
+	bh=SARyRxrKg3qek/4+8wUuOEhGgsOEF3Uaa//5s3TbaH0=; b=KfrszF4C/7FUqGCTZFiFaoRZSF
+	3LN66RKRoCIjb0V28VsL7/Y8XDjtrHPidPOVPAtUgkADP6dWbDQBu06DzsKchh+Bf24U+5UuncWwk
+	WjvOhht8jCx3SYVLZv7hnQ9kapzbsa7IV/6EF6FiL8VuVz/dMvHyGqz9OYfhPlAOjitW5LnnzDZp1
+	FP4H8L/wIVGU277dY0XZpiVJzchENn/Q6Dkc0lmdGZ2KGP5p/UMvDLp7YTOtf9Pq+BNr0RHTVuUjY
+	7AjxwQXuASfgva/nRt9MiuuYavBlle7PMMzKDtSyinbE0e1L8P0mD+mRnBRLCIjMR23NTx5ePGvjg
+	m7Hj/m2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Pzi-0000000DGgZ-1iwS;
-	Thu, 17 Apr 2025 14:13:34 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1u5Pzi-0000000DGgw-41Fs;
+	Thu, 17 Apr 2025 14:13:35 +0000
+Received: from mail-vi1eur03on2071a.outbound.protection.outlook.com ([2a01:111:f403:260c::71a] helo=EUR03-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Ok4-0000000D3FU-2i8Z
+	id 1u5Oqv-0000000D46D-2F7G
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 12:53:21 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-39c1ef4ae3aso480315f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Apr 2025 05:53:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1744894399; x=1745499199; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=zjC36ZPf50aHqfa2Se7VHPLUpGAe6Mh0Hz/kXCMF/9A=;
-        b=K/reDJl0n2+2P39z5mncR/mZ/SytQDgp+/C5a5DiJYgZGhJxMA4raQeiE6G3Ej7I1O
-         tBfYlHrNf4pQykKUN2OsMM9xGKtSLFjXAlo0Efxg4vfEnWcYjxrC05a34dY7ozUl5rvq
-         zmg1+SeobeFz/0biiooUhkeVYqWx+LVHcHOKsloO/n/ScCSn+p/rY+j7Ui9bWF5it4Ik
-         vM0hYtfcZO1vytMpZNC94++NZ67kw3RVyCa0pxIIT3y86Ag7xpvfss8Q419hElza3vYP
-         QRNnUBe6orBTD6WiIkihwG7oS7SsOiE62TF/0csD7Hn3biLANsttJ2L7hdV5n3RWdbEN
-         l4iw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744894399; x=1745499199;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zjC36ZPf50aHqfa2Se7VHPLUpGAe6Mh0Hz/kXCMF/9A=;
-        b=VLCcg3h0WZkDPyy5Hh+Rwshi6LL59YJ0xa/TdRkORCFl+3B7IHpzoAmLZ3+DjV5Lwp
-         uNPvaNGjr+sWH07QZyBSv++FNLxaA6F7Mx+B/N34fQ7THm21+mPzYM1rlVxC9TYWgwqj
-         0tg1PRKs/Pw/fBdwoJcKt/eujhmNcoCfksPmO6G5ot87M7l5xZuOU8TQzO6OMF77UTEn
-         HBqaP+HF99U65ApYlz1FCqy/VcYo1IRG+u04VK4V2Nm5Wfi7ELuiWSIVv7HAzHRGaUo4
-         9l/pddykBIilhEFAOtxsKHoTVi8WGhfuSJI066T8jg5l2efxpG1EX7mkJhsjzCjSt6ip
-         AoTA==
-X-Forwarded-Encrypted: i=1; AJvYcCXPTHN1wrAb5Ssq4OOm1x3Lgt3JZEYt12n9JkV9nrsm2vJTLbU3QmlAL+XjJxWevkC1MyOCz4/H83rqw8YTHv/0@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw5CtCfApp84eHK0pBb4RGekF4IFJF1dQbU635Q3dUTy5OmNxvt
-	kpDCNBly3J9JDmQ7k32krCU+vAuH+0m/2eA5yYS1FeIvEeYFuJ0NU5ENI3xTB2E=
-X-Gm-Gg: ASbGnctBsxzmSUiy7T3O/kscuIcOc7ZKCBFGVzeOAuJqwI/sPerVLoaNR5Fy1uAkSeU
-	a+bDUOsu5GzoP1262hn0WRvklhA1MQXPP7sh7ROKSLG7tEwm1bngeV6Ct25cPnsFiTsU7SVMP0T
-	DjenJuUr9FmdMt9wgsRB7ZrAaTG+fqvN6z4l4d1dg4vpLeX2QutBFlgPjqeEMANOhc47Ns516cM
-	d++eMYKsgZFhACafyCCRJHSmVJuGyOauSGgmNc573260Ubh8oiayUolORV+PjZpjctgQr+t3YyV
-	ysgN7pDdjC28OQrGfgEwP6Fxp5N8R83MmiMBL9IkiW+9hEkcAPEnkH4hCUcESsKoG1jRj+k=
-X-Google-Smtp-Source: AGHT+IHj3kvQNQuwygBClqqZbgOyKaiMJWyTf63buy+7wpnebSi6rnr/xD4tdoeaaLdERbXgJbSGpw==
-X-Received: by 2002:a5d:47a9:0:b0:39c:30d8:32a4 with SMTP id ffacd0b85a97d-39eea30b9e0mr2135444f8f.26.1744894398838;
-        Thu, 17 Apr 2025 05:53:18 -0700 (PDT)
-Received: from localhost (93-44-188-26.ip98.fastwebnet.it. [93.44.188.26])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39eaf447914sm20097393f8f.97.2025.04.17.05.53.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 17 Apr 2025 05:53:18 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Thu, 17 Apr 2025 14:54:41 +0200
-To: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Cc: Andrea della Porta <andrea.porta@suse.com>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Wilczynski <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-gpio@vger.kernel.org, Masahiro Yamada <masahiroy@kernel.org>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>, Phil Elwell <phil@raspberrypi.com>,
-	kernel-list@raspberrypi.com
-Subject: Re: [PATCH v8 05/13] clk: rp1: Add support for clocks provided by RP1
-Message-ID: <aAD6EXrav161J0vS@apocalypse>
-References: <cover.1742418429.git.andrea.porta@suse.com>
- <370137263691f4fc14928e4b378b27f75bfd0826.1742418429.git.andrea.porta@suse.com>
- <23ac3d05-5fb7-4cd8-bb87-cf1f3eab521d@gmx.net>
- <Z__alTyVJOwu_1gR@apocalypse>
- <CAPY8ntD2W5xAHGCD+uBL-0QgyYNj6k9MExns=DFvxU1WGYtO5g@mail.gmail.com>
+	Thu, 17 Apr 2025 13:00:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uXxnCeDKXFYRmEu2l5vNlOYKc9wbRHPogxU0pdw0M6Du78t2Cad+DOAdR/cxXQ0VDG5j3NdM9o6QFe6jCSX590JQq3P7B5ldvKZW4SNS4Zug+uUPi9ZfNc+BwTlcUgQKqYfaME/X7UOrR7fdU3hiccmc5OHKflt6/5Do3lOcLL4b8xWTllWffDAQ1d1fF+oVZjVJEX6dOociopX+LF/BKGiPgZSvV1HKhs3be8QdP3Xm+vFy2F5o8d8bDjpgOhtTmQ4nL85qRUJ0vUQCo1AJE5KAGrvl4dA7KEwgLDIl9YKQATuivkxw2JK1WUOttDXwN18jQmHAocYzrkhcRJy5eg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=SARyRxrKg3qek/4+8wUuOEhGgsOEF3Uaa//5s3TbaH0=;
+ b=XVmmBr62jJbpQEOFJX9SjpVpQLUgZHo4pB2MI4Sgh9Bt6mNetoRV3BXCutwK8P5IDNucgsPhBBMFQBhR0cIfu9PU1xBQUJ+cJob9Kfi3+epXbJF6K944H5w9WcgZuiUwUUekdGM/u7ZgcJ5J2HkG0TY8EpQk5bl2Fj12ROo6CpbfB5+PfggOzrUy4LGoj6uvu6ZLBzd+Aa5CoGF0AUM/EzQvbQxjEuR2Bda+m+2NPukjQsDMsgp0DMOxqN7z3dDc2NWtgXM3RYRM5LJCeEcz5drz6yVnnH5nwKzCeSd93XaedWSwO8ZsUzgdI0SlwFZWjF2Z9RtQtrvoZcfAVYyz6A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
+ is 91.26.50.189) smtp.rcpttodomain=kernel.org smtp.mailfrom=phytec.de;
+ dmarc=fail (p=quarantine sp=quarantine pct=100) action=quarantine
+ header.from=phytec.de; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=SARyRxrKg3qek/4+8wUuOEhGgsOEF3Uaa//5s3TbaH0=;
+ b=uLQQOK0iTuW/Dt7D5IxqLKInpw+1ZXzwz2sdu9GEoQPgaiQuw1YfEWIliX2i0M+lWgoaCIfx4biaWfLE4j2PAp9Z2KU5XFLYONcn7haeY/HIP5jOurvYyVlaJF07mTHUjEFYjRl55LOH9QMbaDEtXsgJFlxmnXSk9jPlD9aURkm44Y3hSprIk/9zHGbDG2x4m5gx9xxP7C3wqDzg1IYMunpzrIPbHenxucneMrn8uorZDG/YRr6ZJ3weCbjJOFkJon3HnL38HqSUIqcjjuATbiQHs/f12xZ0VFk/PA6R5+N3jYLew7tOR8Lfy3B5tzxZdNF3M3BRr30WiYsqsHfWKw==
+Received: from AS4PR10CA0003.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:5dc::16)
+ by DB9P195MB1354.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:295::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.22; Thu, 17 Apr
+ 2025 13:00:17 +0000
+Received: from AMS0EPF00000197.eurprd05.prod.outlook.com
+ (2603:10a6:20b:5dc:cafe::62) by AS4PR10CA0003.outlook.office365.com
+ (2603:10a6:20b:5dc::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.18 via Frontend Transport; Thu,
+ 17 Apr 2025 13:00:17 +0000
+X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
+ smtp.mailfrom=phytec.de; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=quarantine header.from=phytec.de;
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ phytec.de discourages use of 91.26.50.189 as permitted sender)
+Received: from Diagnostix.phytec.de (91.26.50.189) by
+ AMS0EPF00000197.mail.protection.outlook.com (10.167.16.219) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.8655.12 via Frontend Transport; Thu, 17 Apr 2025 13:00:17 +0000
+Received: from Florix.phytec.de (172.25.0.13) by Diagnostix.phytec.de
+ (172.25.0.14) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Thu, 17 Apr
+ 2025 15:00:15 +0200
+Received: from lws-haller.phytec.de (172.25.32.139) by Florix.phytec.de
+ (172.25.0.13) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Thu, 17 Apr
+ 2025 15:00:15 +0200
+From: Dominik Haller <d.haller@phytec.de>
+To: <robh@kernel.org>, <kristo@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <vigneshr@ti.com>, <nm@ti.com>, <m-chawdhry@ti.com>
+CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<upstream@lists.phytec.de>
+Subject: [PATCH v3 3/3] arm64: defconfig: Enable TMP102 as module
+Date: Thu, 17 Apr 2025 14:59:21 +0200
+Message-ID: <20250417125921.100580-3-d.haller@phytec.de>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250417125921.100580-1-d.haller@phytec.de>
+References: <20250417125921.100580-1-d.haller@phytec.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAPY8ntD2W5xAHGCD+uBL-0QgyYNj6k9MExns=DFvxU1WGYtO5g@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [172.25.32.139]
+X-ClientProxiedBy: Diagnostix.phytec.de (172.25.0.14) To Florix.phytec.de
+ (172.25.0.13)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AMS0EPF00000197:EE_|DB9P195MB1354:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5c6be577-f9e7-4716-f7f8-08dd7dafcd23
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|1800799024|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?OGCFZdTCgLuZaviXHbX0Cx1F47zGLTvZzErdgTEdo78gU6ijRoOnbv1JNEWY?=
+ =?us-ascii?Q?rxpOZo1nZfS3yb2x0yVlxEv9j0wUG/BKm/Q06Om19QV7xoOMKVlsFO9NzjVh?=
+ =?us-ascii?Q?XI136tFBvYbYJRzETf4aSUroAed9FYX7eokU+jpw9o/4dJBeE+LJ8uAd2W2n?=
+ =?us-ascii?Q?9PvlMVy3fvY6h/ZKN8zyJclQsxIIbu4DDQzNDUab24BUB9Sl9ypeM4U2SM0Y?=
+ =?us-ascii?Q?3/ZSVxjjwYNtr29G3LBYdLsSGx7JTEbmUgG9JSc3/drj0gHfBPaIDrryFKEF?=
+ =?us-ascii?Q?NR9tYSas3j8//Q3kLF6UvMJw7YJU9fKoE7QQjHMZOQAHXomKpQAoiQyf/KWU?=
+ =?us-ascii?Q?2VTjgKSxWPPoMOL4yho6PWmc7hodkHOdEkXutvjGbOI2YUSk6kMEZ2pVjqnI?=
+ =?us-ascii?Q?JRHVyoOxWWhbYiGSFWzmhKzryOfTKpAbDRbcYCoE2T9IzlG1gxBH6p/Opc8F?=
+ =?us-ascii?Q?Hx8jpEnbiDca7MEC+FUdMkm1oY6V997ky90CeEutd0BjDyUX0UINLoQSZNmM?=
+ =?us-ascii?Q?789C9vXb4ugxJQoppluQrOP+65zj1ath6+DI4Ah67DdpXJ84fg5jzR4BDiSZ?=
+ =?us-ascii?Q?0JJOuinImmUvYhckLXg6RW1BLYEMSRIHTD4UHk+IFa4wRKuzKjph1lTrHCXc?=
+ =?us-ascii?Q?Q/KyOhNvli6M3t3CIyFT32iFe4XI9POyID9V2NKeHrL7JmcizJz7vrW++nt4?=
+ =?us-ascii?Q?oNRILqhy/3KOipioY+kGJu/L3XobgDrAO4MmEyfDAKet/q61U1EezD8iPGVG?=
+ =?us-ascii?Q?H8LQD4t4YJlFIPKLCe29EBTYTyrEjHSDSc1q5RMUFohPmE54s1YG+zBEcov3?=
+ =?us-ascii?Q?pS2gZMr5pb7J2yq8sPAAFtms9Bkqg1mDIjOzX5eaTpOPP3ckdGDiCzQqbXrR?=
+ =?us-ascii?Q?M7+GJQfWgZuAtsMS6x+9BS+4cPPduuI3MJ3n8BrvPD6cVGEStrJWPfxOBm9l?=
+ =?us-ascii?Q?LJwZLpapoRaRAN8OiaNIupuZCp6xBb/yVMUBniXWL1DAIVaO960CtG+K4Tc4?=
+ =?us-ascii?Q?C4LMwQ/6OYM2BQ9VlzI+NRiDU8U3mcZl6dDoia4XJpdcfEL6Pc13AolLb2VC?=
+ =?us-ascii?Q?8LaxaNY1lGQ3Q4Z8u7QK7DchIJbsiPgpBYgLGu1eSp8BBYfacOKDIZ5WRoNd?=
+ =?us-ascii?Q?Wdr5aes4GkOUevD51cPrCalaxKFwiorebmBuayjvBfpcrHtuK0f8JTumTXJt?=
+ =?us-ascii?Q?u0mg3UmGS3q25MTC38PCA8AlDJlAnxe7eH/M5d1bg+FdSASsU63AZb7bBZS9?=
+ =?us-ascii?Q?zTZuBvnXN5ML7TtJjJdFdSnTcor7Bmy3TDrVcqrTxzFI4Jw6Ya/Nc25uI1TK?=
+ =?us-ascii?Q?G/QDV293lhOZ7+1Os97kx9jEIm/aC6DjU2sp8mltiPxQOlAII6iO8GLgnuTr?=
+ =?us-ascii?Q?qn8sA6fwDKWPSNHcnO4/cJttNrE/HL7fHlcQEQtwNZBcxqHX2C6kAZlrfMYO?=
+ =?us-ascii?Q?RpcvGL8ZLPJUckMkQErULqhyi7u3WTZfpA62gY/8TqmoontPIPgKnVCuDmK1?=
+ =?us-ascii?Q?0QeweSVwEcorVQlqJFfNZESX3pypXqyqYmnQ?=
+X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:Diagnostix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(376014)(1800799024)(82310400026);DIR:OUT;SFP:1102;
+X-OriginatorOrg: phytec.de
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Apr 2025 13:00:17.0601
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5c6be577-f9e7-4716-f7f8-08dd7dafcd23
+X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Diagnostix.phytec.de]
+X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF00000197.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9P195MB1354
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_055320_686565_8C558C63 
-X-CRM114-Status: GOOD (  36.93  )
+X-CRM114-CacheID: sfid-20250417_060025_577389_AF914097 
+X-CRM114-Status: UNSURE (   8.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,152 +149,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dave,
+Enable the driver for the TI TMP102 temperature sensors used on the Phytec
+phyCORE-AM68x/TDA4x and the phyGATE-Tauri-L-iMX8MM.
 
-On 11:48 Thu 17 Apr     , Dave Stevenson wrote:
-> Hi Andrea & Stefan.
-> 
-> On Wed, 16 Apr 2025 at 17:26, Andrea della Porta <andrea.porta@suse.com> wrote:
-> >
-> > Hi Stefan,
-> >
-> > On 14:09 Mon 14 Apr     , Stefan Wahren wrote:
-> > > Hi Andrea,
-> > >
-> > > Am 19.03.25 um 22:52 schrieb Andrea della Porta:
-> > > > RaspberryPi RP1 is an MFD providing, among other peripherals, several
-> > > > clock generators and PLLs that drives the sub-peripherals.
-> > > > Add the driver to support the clock providers.
-> > > >
-> > > > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> > > > ---
-> > > >   MAINTAINERS           |    5 +
-> > > >   drivers/clk/Kconfig   |    9 +
-> > > >   drivers/clk/Makefile  |    1 +
-> > > >   drivers/clk/clk-rp1.c | 1512 +++++++++++++++++++++++++++++++++++++++++
-> > > >   4 files changed, 1527 insertions(+)
-> > > >   create mode 100644 drivers/clk/clk-rp1.c
-> > > >
-> > > > diff --git a/MAINTAINERS b/MAINTAINERS
-> > > > index 896a307fa065..75263700370d 100644
-> > > > --- a/MAINTAINERS
-> > > > +++ b/MAINTAINERS
-> > > > @@ -19748,6 +19748,11 @@ S: Maintained
-> > > >   F:        Documentation/devicetree/bindings/media/raspberrypi,rp1-cfe.yaml
-> > > >   F:        drivers/media/platform/raspberrypi/rp1-cfe/
-> > > >
-> > > > +RASPBERRY PI RP1 PCI DRIVER
-> > > > +M: Andrea della Porta <andrea.porta@suse.com>
-> > > > +S: Maintained
-> > > > +F: drivers/clk/clk-rp1.c
-> > > > +
-> > > >   RC-CORE / LIRC FRAMEWORK
-> > > >   M:        Sean Young <sean@mess.org>
-> > > >   L:        linux-media@vger.kernel.org
-> > > > diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
-> > > > index 713573b6c86c..cff90de71409 100644
-> > > > --- a/drivers/clk/Kconfig
-> > > > +++ b/drivers/clk/Kconfig
-> > > > @@ -88,6 +88,15 @@ config COMMON_CLK_RK808
-> > > >       These multi-function devices have two fixed-rate oscillators, clocked at 32KHz each.
-> > > >       Clkout1 is always on, Clkout2 can off by control register.
-> > > >
-> > > > +config COMMON_CLK_RP1
-> > > > +   tristate "Raspberry Pi RP1-based clock support"
-> > > > +   depends on MISC_RP1 || COMPILE_TEST
-> > > > +   default MISC_RP1
-> > > > +   help
-> > > > +     Enable common clock framework support for Raspberry Pi RP1.
-> > > > +     This multi-function device has 3 main PLLs and several clock
-> > > > +     generators to drive the internal sub-peripherals.
-> > > > +
-> > > >   config COMMON_CLK_HI655X
-> > > >     tristate "Clock driver for Hi655x" if EXPERT
-> > > >     depends on (MFD_HI655X_PMIC || COMPILE_TEST)
-> > > > diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
-> > > > index bf4bd45adc3a..ff3993ed7e09 100644
-> > > > --- a/drivers/clk/Makefile
-> > > > +++ b/drivers/clk/Makefile
-> > > > @@ -84,6 +84,7 @@ obj-$(CONFIG_CLK_LS1028A_PLLDIG)  += clk-plldig.o
-> > > >   obj-$(CONFIG_COMMON_CLK_PWM)              += clk-pwm.o
-> > > >   obj-$(CONFIG_CLK_QORIQ)                   += clk-qoriq.o
-> > > >   obj-$(CONFIG_COMMON_CLK_RK808)            += clk-rk808.o
-> > > > +obj-$(CONFIG_COMMON_CLK_RP1)            += clk-rp1.o
-> > > >   obj-$(CONFIG_COMMON_CLK_HI655X)           += clk-hi655x.o
-> > > >   obj-$(CONFIG_COMMON_CLK_S2MPS11)  += clk-s2mps11.o
-> > > >   obj-$(CONFIG_COMMON_CLK_SCMI)           += clk-scmi.o
-> > > > diff --git a/drivers/clk/clk-rp1.c b/drivers/clk/clk-rp1.c
-> > > > new file mode 100644
-> > > > index 000000000000..72c74e344c1d
-> > > > --- /dev/null
-> > > > +++ b/drivers/clk/clk-rp1.c
-> > > > @@ -0,0 +1,1512 @@
-> > > > +// SPDX-License-Identifier: GPL-2.0
-> > > ...
-> > > > +
-> > > > +static int rp1_pll_divider_set_rate(struct clk_hw *hw,
-> > > > +                               unsigned long rate,
-> > > > +                               unsigned long parent_rate)
-> > > > +{
-> > > > +   struct rp1_clk_desc *divider = container_of(hw, struct rp1_clk_desc, div.hw);
-> > > > +   struct rp1_clockman *clockman = divider->clockman;
-> > > > +   const struct rp1_pll_data *data = divider->data;
-> > > > +   u32 div, sec;
-> > > > +
-> > > > +   div = DIV_ROUND_UP_ULL(parent_rate, rate);
-> > > > +   div = clamp(div, 8u, 19u);
-> > > > +
-> > > > +   spin_lock(&clockman->regs_lock);
-> > > > +   sec = clockman_read(clockman, data->ctrl_reg);
-> > > > +   sec &= ~PLL_SEC_DIV_MASK;
-> > > > +   sec |= FIELD_PREP(PLL_SEC_DIV_MASK, div);
-> > > > +
-> > > > +   /* Must keep the divider in reset to change the value. */
-> > > > +   sec |= PLL_SEC_RST;
-> > > > +   clockman_write(clockman, data->ctrl_reg, sec);
-> > > > +
-> > > > +   /* TODO: must sleep 10 pll vco cycles */
-> > > Is it possible to implement this with some kind of xsleep or xdelay?
-> >
-> > I guess so... unless anyone knows a better method such as checking
-> > for some undocumented register flag which reveals when the clock is stable
-> > so it can be enabled (Phil, Dave, please feel free to step in with advice
-> > if you have any), I think this line could solve the issue:
-> >
-> > ndelay (10 * div * NSEC_PER_SEC / parent_rate);
-> 
-> I've checked with those involved in the hardware side.
-> There's no hardware flag that the clock is stable, so the ndelay is
-> probably the best option. The VCO can go as low as 600MHz, so the max
-> delay would be 166ns.
+Signed-off-by: Dominik Haller <d.haller@phytec.de>
+---
 
-Perfect, I'll use ndelay then. However, shouldn't this be 16ns max?
-I think this formula should give a good estimate:
+Notes:
+    Changes in v3:
+    - no changes
+    
+    Changes in v2:
+    - new patch in series
 
-10ULL * div * NSEC_PER_SEC / parent_rate
+ arch/arm64/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-and has the advantage of not depending on hard coded values.
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 5bb8f09422a2..54e6705f9752 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -702,6 +702,7 @@ CONFIG_SENSORS_RASPBERRYPI_HWMON=m
+ CONFIG_SENSORS_SL28CPLD=m
+ CONFIG_SENSORS_INA2XX=m
+ CONFIG_SENSORS_INA3221=m
++CONFIG_SENSORS_TMP102=m
+ CONFIG_THERMAL_GOV_POWER_ALLOCATOR=y
+ CONFIG_CPU_THERMAL=y
+ CONFIG_DEVFREQ_THERMAL=y
+-- 
+2.43.0
 
-> 
-> Thanks for your continuing work on this.
-
-Thank you for checking.
-
-Regards,
-Andrea
-
-> 
->   Dave
-> 
-> > Many thanks,
-> > Andrea
-> >
-> > > > +   sec &= ~PLL_SEC_RST;
-> > > > +   clockman_write(clockman, data->ctrl_reg, sec);
-> > > > +   spin_unlock(&clockman->regs_lock);
-> > > > +
-> > > > +   return 0;
-> > > > +}
-> > > > +
-> > > >
 
