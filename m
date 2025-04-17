@@ -4,66 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8DCEC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 16:18:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D12AEC369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 16:20:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RDZAUrd6NRutmlohcpBajtWgWqhY6Z8CRqs5nInrP0k=; b=OmlAvDT/S5JNgtgxlUnjmFyun1
-	uJas5E3mVNBWscEHotn9C+B6iyrOGiEUfS0jV37KeqJnAU5exY4YImY1HddN084W6feji+NS9gDpi
-	+O+6LpeH5US6egaaUu4PT9jI6med60DcAcdt4z05nn8UEHzWfMjhcXh/cNO3gZ/CT8ojwwGpw/BZn
-	OB8tGgw4F24PZbbb4vxqy8h22gn34zGi8LOZMRE/9mA/YST6Kh7Srk/jj1zLYHANy96C7TxdfQzVg
-	++V5hhOpGW3TDqWkGRJVL9HB/vYWv6Tc6irh1rdApbPKa5Aee+K84+HktwwVjtjw/nd6eSbr44tYL
-	kQC8KF5w==;
+	bh=G+Z5tO3GODKfqrnPsiikglYSIdtJzrzy+9eK4sw+PJo=; b=2WgLfXWnCEXDZwvmwnlcZ07Tbs
+	+F86NrVi/qhk6aATyvMV9U2rpPajaVqNUP5CrXYL/WiAO48JhjYIGYfJ7Wl4GuAcMOu5oE7g9fMQT
+	lP/Z4VO1SABKv2XozSENL4GXIAZMcIhR0VDRbHdueBDTlDGJs4bUU+3sUmFVqN0aAbKCocd+BdiX4
+	H3KHIBbfQcgv1/VaMCQ7oAj/JXOr6pOP38/B0RRkMdjc508XSFODeXFbGOZu5RVMBjk6YtMU1eZ7P
+	KOCu733CMMhLrB+D0Rrj/S7sczRvRYiePXwjNWs06dCzmOjsbnWOTJalJQIdjhwuh4cdr3nui0oa3
+	sNqHp/Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5RwN-0000000Ddtl-3xVR;
-	Thu, 17 Apr 2025 16:18:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u5RyD-0000000DeFL-0ve5;
+	Thu, 17 Apr 2025 16:20:09 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5RC3-0000000DWTn-1cFd;
-	Thu, 17 Apr 2025 15:30:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E290E44557;
-	Thu, 17 Apr 2025 15:30:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E67DEC4CEE4;
-	Thu, 17 Apr 2025 15:30:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744903823;
-	bh=iIwq3SepiLZOW3+bHC9Ee86Ar1qvIl3ZCPXcm+Gnlxs=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=duBEkN2dyHx6WeI6lWcGRUk+VJbfJ9TusBkSmL0/DqZyPtXuwuOyRI3ldPAOk76/i
-	 FpU2MNJsPf2EYmm13g+MjUWTt1x9VF96ROOr+szjwtj9zmEpO0lQvzysJ5OiPxbJjh
-	 aSPHSbR0J0lR2JrBv8nopXjiuIe/HGeIvP+Q4yT1tqqpgLkSCugkjvmAzJai9EAJWd
-	 dGHvsQzMW/LgmAcdTbMfy4j8RHqNfSg7QyL/CYMv7kH7E1KrnrjreAHuFsuydK1Y1r
-	 nX0X7499t3/a6siu49RylwDl5hk1KX+fmE8NdeABD94VA1q7XQ2b9YVd7LKazr9O5K
-	 eI5tMLEqtBlnw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33E47380664C;
-	Thu, 17 Apr 2025 15:31:02 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1u5RMv-0000000DYGU-2DIf
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Apr 2025 15:41:38 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-54b10594812so1011647e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Apr 2025 08:41:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1744904495; x=1745509295; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=G+Z5tO3GODKfqrnPsiikglYSIdtJzrzy+9eK4sw+PJo=;
+        b=qmRntqcFpGk0yOceVjGsmk7jUXIROyqUNp68pqbNdNJHET9cJ0GjSUpqkAk/uTFKCg
+         3IcEjltJWOydTKNMezPQ6f2g9OFtzFzf1cXngxBgrarNcFpdF4GvpYSD+F1uuA3KYPxq
+         n/Fh6EADBC6zwgHQS4FqG5Xo86a5HF/VnqHoAGhLHh482mD1BOwG83IeL011vriqwXJz
+         KJtraSPQvmHyIrpSKq20BxWCopw6lCSahFY5fKIyTvyaOa5s8FD3iFyF2glZERwR2YpZ
+         Zk6PVeFtj/fgdJ1lFcO7qS0BA8jKFr+8XTWHIroKKXUV94PgbomsLCt0gCx8aTeeIIiF
+         yWtA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744904495; x=1745509295;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=G+Z5tO3GODKfqrnPsiikglYSIdtJzrzy+9eK4sw+PJo=;
+        b=jnvUz65p8Vvna3EGDPEqHtVkjS3mstf5YqRA2VVo3vwPSXTzd3VPWrYWEqow/RohUE
+         BWhbLJolrRp2rChFrqe4waiTIRxUCQmMWn/SbvK1AnNVZEiL/UV4abfqiNNAzMXHj7tB
+         jRzAa0KJ2dVvhFVOlDN4x3Ct8MiWz/LqmsdApeIk9nrvINi+6xtn6UM4+JonYh3gKsdD
+         Xgm36cprCW6JwtawYQWAHKiCggpyCWvRI6v5MZjAyeTDhb7v/g7/quZHZYDkOUSULE4h
+         zm207ZZ3nQiTAgZ78aTevkVuJsulrBZG6McB30IoHKRZ+G9/n79EAijHNVfIyAKSDWgr
+         LPnA==
+X-Forwarded-Encrypted: i=1; AJvYcCXdB7rv9ImqTtJO/r0an92vIAxtd3lK7APpTma3a/4USRBb7J4KSLZ7spR2iSpvNFWBPtQxNZdVu1Q6es+/63+C@lists.infradead.org
+X-Gm-Message-State: AOJu0YztnhSbUTgm1kXLcpoEmXTUNZwgPNVzZyRVAug1cxN0T0eHHJMN
+	YwyNMVIsx5HuWH6AIuM2jF+dyvb3U2xjZD828L2nhVsD97eqRUBlKflVP6YJbpZGM0Ah/ujrIyb
+	3
+X-Gm-Gg: ASbGncv/744+wgZwfZwofgF+HvALVssfXEKM+sSmvNHXORpUunXemHVxUxf8USMlRtW
+	argGFiaw+m9/6AQMclBoR2U3AJF/3k0mBQFFWBNqJLUVOeHDEVSes2KVIuTenWi66eGQ+BkMYc0
+	c9T82ZpScyil922nM/VJ7Dpq3Sx3DzK3Fu8KYYcseZrYQVomKc1/PWW4PgDeWdHFeCR7yJX/T+/
+	GwylFdrnyaUAYOfjZI0iQokpfDhCYnX/D8cgox9jimB/LD1RNz9xAuvKmkVDdumzV++e33aVPCH
+	dm4K3i5+ijFSXeGPN/4Ai3kBV8kAuWdorF/dZ0l3CN1tT32h1SEiI0JBCQ8wz68pXSw=
+X-Google-Smtp-Source: AGHT+IFZYzUX82Ksuo0S1uAg+PqHG6T59fFdOzMPnqwGCV02MTZaP2xSEO83gicXA+9vGukmp3V9xw==
+X-Received: by 2002:a05:6000:4014:b0:391:3aab:a7d0 with SMTP id ffacd0b85a97d-39ee5b19f5cmr4872897f8f.19.1744903009074;
+        Thu, 17 Apr 2025 08:16:49 -0700 (PDT)
+Received: from mai.. (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39eaf445315sm20528346f8f.82.2025.04.17.08.16.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Apr 2025 08:16:48 -0700 (PDT)
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+To: daniel.lezcano@linaro.org,
+	tglx@linutronix.de
+Cc: linux-kernel@vger.kernel.org,
+	thomas.fossati@linaro.org,
+	Larisa.Grigore@nxp.com,
+	ghennadi.procopciuc@nxp.com,
+	krzysztof.kozlowski@linaro.org,
+	S32@nxp.com,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STM32 ARCHITECTURE)
+Subject: [PATCH v5 1/2] dt-bindings: timer: Add NXP System Timer Module
+Date: Thu, 17 Apr 2025 17:16:18 +0200
+Message-ID: <20250417151623.121109-2-daniel.lezcano@linaro.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250417151623.121109-1-daniel.lezcano@linaro.org>
+References: <20250417151623.121109-1-daniel.lezcano@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v2 1/5] net: ethernet: mtk_eth_soc: reapply mdc divider
- on reset
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <174490386075.4117078.7252062901146226930.git-patchwork-notify@kernel.org>
-Date: Thu, 17 Apr 2025 15:31:00 +0000
-References: <8ab7381447e6cdcb317d5b5a6ddd90a1734efcb0.1744764277.git.daniel@makrotopia.org>
-In-Reply-To: <8ab7381447e6cdcb317d5b5a6ddd90a1734efcb0.1744764277.git.daniel@makrotopia.org>
-To: Daniel Golle <daniel@makrotopia.org>
-Cc: nbd@nbd.name, sean.wang@mediatek.com, lorenzo@kernel.org,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, f.fainelli@gmail.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_083023_447063_95BFBCC2 
-X-CRM114-Status: GOOD (  10.01  )
+X-CRM114-CacheID: sfid-20250417_084137_562790_C4B64759 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,40 +112,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Add the System Timer Module description found on the NXP s32 platform
+and the compatible for the s32g2 variant.
 
-This series was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Cc: Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
+Cc: Thomas Fossati <thomas.fossati@linaro.org>
+Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
+---
+ .../bindings/timer/nxp,s32g2-stm.yaml         | 64 +++++++++++++++++++
+ 1 file changed, 64 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/timer/nxp,s32g2-stm.yaml
 
-On Wed, 16 Apr 2025 01:50:46 +0100 you wrote:
-> From: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
-> 
-> In the current method, the MDC divider was reset to the default setting
-> of 2.5MHz after the NETSYS SER. Therefore, we need to reapply the MDC
-> divider configuration function in mtk_hw_init() after reset.
-> 
-> Fixes: c0a440031d431 ("net: ethernet: mtk_eth_soc: set MDIO bus clock frequency")
-> Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
-> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
-> 
-> [...]
-
-Here is the summary with links:
-  - [net,v2,1/5] net: ethernet: mtk_eth_soc: reapply mdc divider on reset
-    https://git.kernel.org/netdev/net/c/6bc2b6c6f16d
-  - [net,v2,2/5] net: ethernet: mtk_eth_soc: correct the max weight of the queue limit for 100Mbps
-    https://git.kernel.org/netdev/net/c/6b02eb372c67
-  - [net,v2,3/5] net: ethernet: mtk_eth_soc: revise QDMA packet scheduler settings
-    https://git.kernel.org/netdev/net/c/1b66124135f5
-  - [net,v2,4/5] net: ethernet: mtk_eth_soc: net: revise NETSYSv3 hardware configuration
-    (no matching commit)
-  - [net,v2,5/5] net: ethernet: mtk_eth_soc: convert cap_bit in mtk_eth_muxc struct to u64
-    (no matching commit)
-
-You are awesome, thank you!
+diff --git a/Documentation/devicetree/bindings/timer/nxp,s32g2-stm.yaml b/Documentation/devicetree/bindings/timer/nxp,s32g2-stm.yaml
+new file mode 100644
+index 000000000000..b44b9794bb85
+--- /dev/null
++++ b/Documentation/devicetree/bindings/timer/nxp,s32g2-stm.yaml
+@@ -0,0 +1,64 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/timer/nxp,s32g2-stm.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: NXP System Timer Module (STM)
++
++maintainers:
++  - Daniel Lezcano <daniel.lezcano@kernel.org>
++
++description:
++  The System Timer Module supports commonly required system and application
++  software timing functions. STM includes a 32-bit count-up timer and four
++  32-bit compare channels with a separate interrupt source for each channel.
++  The timer is driven by the STM module clock divided by an 8-bit prescale
++  value.
++
++properties:
++  compatible:
++    oneOf:
++      - const: nxp,s32g2-stm
++      - items:
++          - const: nxp,s32g3-stm
++          - const: nxp,s32g2-stm
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: Counter clock
++      - description: Module clock
++      - description: Register clock
++
++  clock-names:
++    items:
++      - const: counter
++      - const: module
++      - const: register
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - clock-names
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++
++    timer@4011c000 {
++        compatible = "nxp,s32g2-stm";
++        reg = <0x4011c000 0x3000>;
++        interrupts = <GIC_SPI 24 IRQ_TYPE_LEVEL_HIGH>;
++        clocks = <&clks 0x3b>, <&clks 0x3c>, <&clks 0x3c>;
++        clock-names = "counter", "module", "register";
++    };
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.43.0
 
 
