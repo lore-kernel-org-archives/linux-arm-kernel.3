@@ -4,69 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80EEAC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 08:42:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BFF1C369C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 08:44:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qm3e2vl0D67OULbMQ9hRKDjA0GFGhhzN4QyTNiBFMV8=; b=VhaUvpQrVL7xKE0sjC8osDy6U+
-	bAmL+4N7Mt5WBTGrZ5pdY/343xm4Yo04bcyRbWCT4Fh0a0ht7+dZBwcrlFrnUKEspgUf/heGC3m+c
-	7ctTHG4qPz+tbAA4XVwmIi37z60om0lBttL5PK63AVUYq14DFu9XFT8Rl/v92X1K82NMqBSTHfhFa
-	gZ/LH+gdXTIyAGNqT/MSW4JqKXY6Xx4HUPsSE1jJK81cF8CI+kJeIeicNs3L6uOucb37nbK6L9Wpl
-	15pWdmAWcKdr8Uoaeyic56sn0XLD+SptObAXqOk8s8bYbFhTsnGF6rsrwnUyjvx43NdDmpDQHgtbX
-	qlTJSByg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DXozyqUJ9d4xtCCzMWxO4QOFhe8g2i4PdCmKZX1X/X4=; b=dRByNAFyPAlNoy0tpSuevD6TH3
+	4sPsXsVcSs+oT5DsD73ub31BGkTSQmvAl3UmtjvQoO7Oyim01BgkRqgYy0eGMJZs2QVy65IDsPwPr
+	v361GuaziuOb3w1dV7ST6b80tVPunS6dxfA7oIBVyLIr4Y73Vwa2dnhKQroezPlZTi/hGTClQsyPA
+	/MtDYNp5hPpORM/X19sxJN064OKKh1FhNE88jSvG0rPC56En2EI3qsSladVfD4QSuQ2oKxVpgLRaL
+	2sidSRGJYoSVVnnSWIWOgty2YgBT8qcH/Kf1mggBa+h65Au9AxLfUnDUa9rJT2/HgKwv3Uoi21xRk
+	h3++DFCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Kof-0000000CIq2-3MTF;
-	Thu, 17 Apr 2025 08:41:49 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1u5Kqg-0000000CJPc-0Cml;
+	Thu, 17 Apr 2025 08:43:54 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Kmp-0000000CIXS-0ouO;
-	Thu, 17 Apr 2025 08:39:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7008A5C480F;
-	Thu, 17 Apr 2025 08:37:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79DD9C4CEE4;
-	Thu, 17 Apr 2025 08:39:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744879194;
-	bh=E2pUwIa3M2j8+TwNI8zdHacoOXOQYH/elMF2JStWijg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fHW40nqIuGIijzpwiC5akHwMbGFOSJ1+jL/+ZngNMd+K4bT8s12plZRNkkJxe3Ye2
-	 T8B6niULHBTtrEf6UmCUUM9/KWJyOZWnA/XdG7sNqBRJ8hbHfaWeoh+XiQ/vjjhlYm
-	 rcXjSzZOhJ4M69YByAp+kWgKcOYvTxrXM987mgY5aldRHWUfVwHQRX5W/JVNON68vW
-	 zxTzKQBI6cJGk9lvviHSrZuaAOoOLckcMA0zHmuqnS1jJxNrMWvODO86eQYnvmmcqN
-	 n79/wMFaQsyb2BOlxWf8PPRZGH/6e2Kn9L7QppLIT6z7DEuM3T23odCLaNxggvv/8b
-	 akXryhkCD7z7w==
-Date: Thu, 17 Apr 2025 10:39:49 +0200
-From: Niklas Cassel <cassel@kernel.org>
-To: Hans Zhang <18255117159@163.com>
-Cc: Shawn Lin <shawn.lin@rock-chips.com>, lpieralisi@kernel.org,
-	kw@linux.com, bhelgaas@google.com, heiko@sntech.de,
-	manivannan.sadhasivam@linaro.org, robh@kernel.org,
-	jingoohan1@gmail.com, thomas.richard@bootlin.com,
-	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+	id 1u5Kop-0000000CIsE-0dnx
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Apr 2025 08:42:00 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-43cec5cd73bso3059095e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Apr 2025 01:41:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744879317; x=1745484117; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=DXozyqUJ9d4xtCCzMWxO4QOFhe8g2i4PdCmKZX1X/X4=;
+        b=nRDzH6B9qckv6odaCBC0GZR+Dzuhk8u0g93yHlEcbQtuWJmh5QQHCh/3Kcdcm5nNY2
+         cVI9dKfWMS1EFC2U/xd3bc5SQ+Qc1nddde4L/xa1agm7XmUT/77f9JU0szoTDFAcTq0R
+         fA1J7RMIRBQ7wVqND/BHukrstGpGfIEAsEGrgFTL/T5Jc1VMViJmR7rniQ9ixmDtZDgP
+         kbXziiHFv+5UhDazFXVOUNN6Un3Xp2DgvTvwV0/6aLUOKy+x13WE/7w3basYJdebjbqr
+         /g4A6h+AQiA2/6nQPCy3KgVvFB1pTfFbdikh8roD4Ag2ADW+98h9Adi4F3ddt7SYExpi
+         Kq8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744879317; x=1745484117;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=DXozyqUJ9d4xtCCzMWxO4QOFhe8g2i4PdCmKZX1X/X4=;
+        b=TntK2PDIrBTCRloYxa1bzdvQVLM695yzPu2mQ8yAAf/NKcHIydB4dgTtEWDjLVrdiX
+         CqEkngLMAWAgSvKnwQCBR7HPxoHyGw0BGgMNlKTYZjuq/nBAxB85r0ycIW/xO7dCbZBv
+         wL2UfwHgOrFApBhd439RopQdSc2iZKBTmJHtb8uMSRsQXqbntQJpQRu9Yn0iw/HBEpRS
+         YM3lj9mLz48RVR+fBG4CKKGpoYOrcPdR86GA45rvOQ5Q071eMPsmmsqUGcNCjbVlzixJ
+         1Q6m0I5VGM7XoJ9IJgKEfmuneXY7c6WOOer7D+uKiy4zgn3J/8a41XUb+ZJXTBeihVC1
+         tgMQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUG0+X7Opcx5DNw2Sb4Cz7VCQf3Hj6G9JGTAlgfUCaVHDkRKrzU/j4G+5H3J4iMA5Pqc0Fadt8+EZCQde1hbj+i@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRAS0Jhhm9ITik0NwJhGozdSLQByM3mH3HFeCL6q/sL1EoQaLv
+	g0bfbHYZelsmKxM9sHHRHZiVTMmVPnASmrJxY4hyXkdXLvma8ZwG
+X-Gm-Gg: ASbGncu/Dad6/+sXBmYVcNLNGpUvWh80gZhIY3E8ZFzEMmJTjUCvnZwAzkELRZ9SVgi
+	R9zmaH+36r3OUfhVTcgGJ2YNJ642b9M4d63NpJyJVihTxPLZdERYzFRkul05ZLDMfrk3PAzRcte
+	wxJxG0cL6Rv6d4/nEIjPk+pQb85PwsXSj4qzyNPQIHLIRNUgtvTDnEa+4WTVv36Bih1Pm0ooNio
+	KwwcmqHQMCuUiHZEQ7wKUgvy3vBxnz5Q1e3x81oHKeMsYut1IgkvUc6x5A6ytzhumoPgUbH2wH3
+	ysr6phrPYMHyMVWKIbB1SoEPyCKL9JJ8RkP2fBzmKxW8qtqegOiOBcJc0DqCochR
+X-Google-Smtp-Source: AGHT+IErRiAS0z3JNyUleWBdVl92EfrzdQ3pXN9rJF3OKf8o4ZU/wUUqjoSjXJtkv9PYKHE0yGdVDw==
+X-Received: by 2002:a05:600c:b8c:b0:43d:94:2d1e with SMTP id 5b1f17b1804b1-4405d61c914mr54409795e9.13.1744879316325;
+        Thu, 17 Apr 2025 01:41:56 -0700 (PDT)
+Received: from iku.Home ([2a06:5906:61b:2d00:3f0f:d684:f4a:34e6])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39eae96cf1asm19657712f8f.39.2025.04.17.01.41.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Apr 2025 01:41:55 -0700 (PDT)
+From: Prabhakar <prabhakar.csengg@gmail.com>
+X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>
+Cc: netdev@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH] PCI: dw-rockchip: Configure max payload size on host init
-Message-ID: <aAC-VTqJpCqcz6NK@ryzen>
-References: <20250416151926.140202-1-18255117159@163.com>
- <aACoEpueUHBLjgbb@ryzen>
- <85643fe4-c7df-4d64-e852-60b66892470a@rock-chips.com>
- <aACsJPkSDOHbRAJM@ryzen>
- <ca283065-a48c-3b39-e70d-03d4c6c8a956@rock-chips.com>
- <aACyRp8S9c8azlw9@ryzen>
- <52a2f6dc-1e13-4473-80f2-989379df4e95@163.com>
+	Prabhakar <prabhakar.csengg@gmail.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH net-next v8 0/4] Add GBETH glue layer driver for Renesas RZ/V2H(P) SoC
+Date: Thu, 17 Apr 2025 09:40:11 +0100
+Message-ID: <20250417084015.74154-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <52a2f6dc-1e13-4473-80f2-989379df4e95@163.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_013955_273732_A2680379 
-X-CRM114-Status: GOOD (  14.36  )
+X-CRM114-CacheID: sfid-20250417_014159_193827_70D8675B 
+X-CRM114-Status: GOOD (  17.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,45 +119,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 17, 2025 at 04:07:51PM +0800, Hans Zhang wrote:
-> On 2025/4/17 15:48, Niklas Cassel wrote:
-> 
-> Hi Niklas and Shawn,
-> 
-> Thank you very much for your discussion and reply.
-> 
-> I tested it on RK3588 and our platform. By setting pci=pcie_bus_safe, the
-> maximum MPS will be automatically matched in the end.
-> 
-> So is my patch no longer needed? For RK3588, does the customer have to
-> configure CONFIG_PCIE_BUS_SAFE or pci=pcie_bus_safe?
-> 
-> Also, for pci-meson.c, can the meson_set_max_payload be deleted?
+From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-I think the only reason why this works is because
-pcie_bus_configure_settings(), in the case of
-pcie_bus_config == PCIE_BUS_SAFE, will walk the bus and set MPS in
-the bridge to the lowest of the downstream devices:
-https://github.com/torvalds/linux/blob/v6.15-rc2/drivers/pci/probe.c#L2994-L2999
+Hi All,
 
+This patch series adds support for the GBETH (Gigabit Ethernet) glue layer
+driver for the Renesas RZ/V2H(P) SoC. The GBETH IP is integrated with
+the Synopsys DesignWare MAC (version 5.20). The changes include updating
+the device tree bindings, documenting the GBETH bindings, and adding the
+DWMAC glue layer for the Renesas GBETH.
 
-So Hans, if you look at lspci for the other RCs/bridges that don't
-have any downstream devices connected, do they also show DevCtl.MPS 256B
-or do they still show 128B ?
+v7->v8
+- Rebased the changes on net-next
+- Fixed return value in renesas_gbeth_init()
 
+v6->v7
+- Rebased the changes on net-next
+- Added Reviewed-by tag from Russell
+- Folded contenets of renesas_gbeth_clks_config()
+  in renesas_gbeth_init/exit() as suggested by Philipp
+- Dropped regs member from struct renesas_gbeth
 
-One could argue that for all policies (execept for maybe PCIE_BUS_TUNE_OFF),
-pcie_bus_configure_settings() should start off by initializing DevCtl.MPS to
-DevCap.MPS (for the bridge itself), and after that pcie_bus_configure_settings()
-can override it depending on policy, e.g. set MPS to 128B in case of
-pcie_bus_config == PCIE_BUS_PEER2PEER, or walk the bus in case of
-pcie_bus_config == PCIE_BUS_SAFE.
+v5->v6
+- stmmac_pltfr_find_clk() is now used to find the clocks
+- devm_stmmac_pltfr_probe() is now used to probe the platform device
+  and dropped remove callback
+- Switched to using init/exit callback to configure the clock
+  instead of using the clks_config callback
+- Dropped pm callback
+- Fixed checkpatch warnings
+- Added a new patch to update the MAINTAINERS file
 
-That way, we should be able to remove the setting for pci-meson.c as well.
+v4->v5
+- Rebased the changes on net-next
 
-Bjorn, thoughts?
+v3->v4
+- Fixed maxItems for interrupt-names property
+- Maintained reverse christmas tree order in renesas_gbeth_clks_config
+- Returned err in case of success in renesas_gbeth_probe()
 
+v2->v3
+- Fixed review comments from Rob and Russell
 
-Kind regards,
-Niklas
+v1->v2
+- Updated commit description for patch 2/3
+- Updated tx/rx queue completion interrupt names
+- Added clks_config callback
+
+v1:
+https://lore.kernel.org/all/20250302181808.728734-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
+
+Cheers,
+Prabhakar
+
+Lad Prabhakar (4):
+  dt-bindings: net: dwmac: Increase 'maxItems' for 'interrupts' and
+    'interrupt-names'
+  dt-bindings: net: Document support for Renesas RZ/V2H(P) GBETH
+  net: stmmac: Add DWMAC glue layer for Renesas GBETH
+  MAINTAINERS: Add entry for Renesas RZ/V2H(P) DWMAC GBETH glue layer
+    driver
+
+ .../bindings/net/renesas,r9a09g057-gbeth.yaml | 201 ++++++++++++++++++
+ .../devicetree/bindings/net/snps,dwmac.yaml   |  25 ++-
+ MAINTAINERS                                   |   8 +
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 +
+ drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+ .../stmicro/stmmac/dwmac-renesas-gbeth.c      | 146 +++++++++++++
+ 6 files changed, 383 insertions(+), 9 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/renesas,r9a09g057-gbeth.yaml
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
+
+-- 
+2.49.0
+
 
