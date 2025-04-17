@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF3ECC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 16:56:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2819AC369C9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 16:58:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=BMsi2WwJ6hjhub+TfZ/EQK2V+POxMxNiG2BzOtIkvYw=; b=35COyPFNE3ITbH
-	2p9f3Wf4Ffzfu4kNngTmL8ogSqOBfT5zhVmOt+pEMpV5HNcwnNdXPW51O02gGae4qvuGJhOq+jhMF
-	LHf9ZtjE+Sakm6Q+kEWIQh6plPFbvwf46U5IdwryBeH/ZJbveJ+Ih5zS0+eRlvwEau8K1Imqgivmn
-	tOQr14efGtWRJX3QUGcQ835j3n+NyTEtPcTgLbKsHZPSFBrUVPd30NTlonnqKZLYTL7jwW8VG8mIr
-	mAgcqZJyWLIDtwXtBXYbd+WQ4VYTsWATfcOhgNha7lNOSeKKAMqvKHGcubE+k0Dp6hXGKaCN5er+z
-	5Heco8mXViRRVbgjtYVA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Nu4943dg2Pk+bcmuLvvHqjkr3/0Uk0VMgvuphC7zY3o=; b=YxGF8iNxhLQlnqVyeJc9XfaoXT
+	TzRxAT/R+fagkhYXqA35EHBMnoRsKUOAD5H9nE2x7Q8L+Z4Usu1IUf7ey1TUgd9hFQf8coUTiL3bV
+	ccGyvhoJUPMZB9q+PSSZyKSddKkizqFPMbZW1ooKB2mZf1ivD6LyHyJ3OPpXQOO1i8dgpEiJJC/Ch
+	PfdvbVONkzB55iOeijo0pR/+M2kYjifesxFVXFkumICDaewdUluSVcEw8LBhfmQhLv8XUA6FgPzWn
+	6voDBOIqh0454RP1ZFWjn1Wk8kH1+omAFIC5XMNyEjc6UgOdW2bNg0pGNuf2nUmCK02IFbVylFXBE
+	tetfExOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5SX5-0000000DkLj-4B0V;
-	Thu, 17 Apr 2025 16:56:11 +0000
-Received: from mail-oa1-x2d.google.com ([2001:4860:4864:20::2d])
+	id 1u5SYw-0000000DkiV-0JgZ;
+	Thu, 17 Apr 2025 16:58:06 +0000
+Received: from mail-oa1-x2a.google.com ([2001:4860:4864:20::2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5SUa-0000000DjdB-3JAs
+	id 1u5SUe-0000000Djej-1CVj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 16:53:39 +0000
-Received: by mail-oa1-x2d.google.com with SMTP id 586e51a60fabf-2cc89c59cc0so1148406fac.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Apr 2025 09:53:35 -0700 (PDT)
+	Thu, 17 Apr 2025 16:53:41 +0000
+Received: by mail-oa1-x2a.google.com with SMTP id 586e51a60fabf-2c2ada8264aso516801fac.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Apr 2025 09:53:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1744908815; x=1745513615; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=BMsi2WwJ6hjhub+TfZ/EQK2V+POxMxNiG2BzOtIkvYw=;
-        b=UeF7sr/BCu34xyLxgV1JrubJ+8c2Pc3/WA1Eod8I7T0fMxVL7Kn3ce+AeVhT5DPqPs
-         aioPUEtYbIq7D5opIG141dymAFk+iJp5hume9MVDuzJEW4nicim/uNui3X1WirhtmJIX
-         tI34qpFyqd+XlxMMHjSNPcTR/+ZhbF1CPdvKETqjhXdRKOaSGaSTpW/XGCv+pNL+N29Q
-         vTnKjNdgnLzD7FYO/HyqEHg9YsT6J2c5RRkdW/IiGR1jx0SAi/81FD6k5gDaK03i8dw2
-         ssH6OYtl+KKeAikyOEn8wqAsrrpPrhdwRLsFDyfhKAobJlw+9vQbnYkA/6sG+mdglqfG
-         Ij5w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744908815; x=1745513615;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1744908819; x=1745513619; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=BMsi2WwJ6hjhub+TfZ/EQK2V+POxMxNiG2BzOtIkvYw=;
-        b=tY8Q7ELIk5HF611OoWoEJlrBK8iF17R/G4ywoong8hJeJFj59/+GZhEwH9DZrr9i6e
-         DBP0Li4s306WW4pZzcKDbr9L+rT5I9QPunOfP51LQiw4SxIfqJsWavG/BlRb9hO8V/Mt
-         TGbS80bZU+gE+qVSg4L9R0sDkISRYiEk4bULqiiond4FkgkcxY6lj5rkAkQ8kvkTuYxi
-         5KJHYkcpfYDfYv4pBELFJiJOf3I3PCqYtDPHaC0wS8JUmEp7MBEb7LPcKF6RaLtp6+ml
-         AmnPdaAf6dfsxvFhoCnRJd9lygJSYnkvi2jIKicawZ+NgYpZ/Xf5TqXLdMUM8IW73yWJ
-         SUCg==
-X-Forwarded-Encrypted: i=1; AJvYcCXA3UP7ZPKiO56guPDfnuHPIIKnxob7bpZGULWZpo5+MwOANr/hYI7ef0coZ1e2W3G8eqU1/s2E3xwt9k3a8zMq@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzh/W+tsAOaAdnq3RbxSTZh2sEFpJ86TD+4CV1b4D29+/vqyScG
-	zJPxTmPvlP5WZ+I7XYr/djJWXUtJcqXVYZPy5WkLtGGgNc3jD7pgaU2sB1a1X/Y=
-X-Gm-Gg: ASbGncujqRUkorNPMcBT2WbcHDFlJhNALQs1Q9MdmV9Sc9YuGy0FP6bN4Nbf+Dw5RNg
-	RV3ZQDwKPL5V9QLaLgRGKTyhRxnRXhanFA6jdwRnVuE3RS73smVN81daz6HUqa9vlnAsxkAAnt+
-	2DkTh+TL3l7inzWjAvCkeDXroSqfWc/uf/V61ogCMqLuJ4NEzJ9mlO/Quk57b0fEdS5cwGmBX8c
-	XrJhb7cOw2V/iEk5qZE/3wikLjngmrjucGGRTAPwYDtiRUuLp/OGU4RlIUpGOf0ystp4ICUhQBA
-	A0ewWfjpeYCYk6nLy/ZUeg4A1nDl9BYseoPv7xCZ6pZ3Ywg=
-X-Google-Smtp-Source: AGHT+IFY/vO7y8M2CG7Oo5TX+7MViwzoQKB+pziGqNMOOxstSmF5iwhAC/aDMXMw925f6TrhRA+Olw==
-X-Received: by 2002:a05:6871:71c1:b0:2cb:d32f:2f18 with SMTP id 586e51a60fabf-2d51df2a8f2mr362900fac.16.1744908815275;
-        Thu, 17 Apr 2025 09:53:35 -0700 (PDT)
+        bh=Nu4943dg2Pk+bcmuLvvHqjkr3/0Uk0VMgvuphC7zY3o=;
+        b=zqoNMdCW/tfbCXWEkJJh5u0EIzEo9xRn39/RHL37vhqvNN9sZ4HjF6l0/2UO9cfORk
+         wI38DDCmAWeDx/bWl0XDKYIkt7iUUtWjZ57kmRe7WRkE+IHb4vsNsx4hV3SCI4+ZVmg4
+         kZOkDnqSZzw6tWYrIQG1j1zvQMkl6RT7nCEFXOzD2FJwjLIp31Fb9oCISOLx7JXDV2qP
+         Pu4lrxtWgl6ImSf3nusmMcCXCtXflHddc8e6sHDkIGGpB7/6uM7BOcP9UH8OPbrZpHVW
+         ZGkNf78UApWle+Yf0YCiQ+do7neDpYlIPbrNV2upFqgy+jTsY/lLsjUHUErBibe/GDb/
+         9uRQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744908819; x=1745513619;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Nu4943dg2Pk+bcmuLvvHqjkr3/0Uk0VMgvuphC7zY3o=;
+        b=ZlCGzhVW1uXYCro0FQuEstTqSmNqa4VK+nmizNNU5e+Qkik+vhnAI3RPE5K8ALqn4H
+         eGwlrtAjA6AUCMqGNH13BsGh581sCrKcjeO/x76qvA+hTK4NhIOWLefmq7dDnsndIM82
+         WDVSsbpmodb0F8L09tKXe263Vutur39jyf5waF29P/oYG7uzniWEUjckKDBTrSFGnfhL
+         exnmDWuSpVgxiwX/8nn3nQ3LW/r/9U6sUxyOBGYg6mZJ+eHz6v9MfTzl5JU1jq54F0TC
+         Gv8MyKNZRJyBbY45quh2oJx0GLbfHobHtyBIgyGXMDhkhmxpP41+fJnE2I0zVVIYPjWI
+         L5zw==
+X-Forwarded-Encrypted: i=1; AJvYcCV/MdPhckOjxIeQPgiuefR73FxOEogZ7Sd2O7esv1naGcNDnJktlJ9PwJrc4qSvcocp4uhlQ0edS7bYQ0U49xye@lists.infradead.org
+X-Gm-Message-State: AOJu0YzpY4wQ1OiDWCCM1fXdh6CKIzmSnC1++vgr8tamjc0NBVJzBFb4
+	mB9czu5WiLwCtlZITpmBfl/PwTQoHLQ5i/ams3kMlVCWfJFrVMGOieEfY1uPX6g=
+X-Gm-Gg: ASbGncuTUIG+jKIzkObnZSvVXZSXDuiMlX6vT433ChUHEradsjxuldEbHomCgEu+J26
+	5VKRxYeY7Wp0TFWlqWMfAbGx81bpAUNXA5gOYTGjg+/PNNTZZQChPaVUmdBfkB+i5mS5LQcc6Oo
+	TzV6EWvtHLPqvBdya9b0w0dmZUHtG63DFhWxsZj8vtgekH9RvahWBWnc+oAg7v7ANFEWepbay2L
+	xn2pUjNMxd9Cm3H2ul0HTYOzHF0rP0Vv7nvRWZsxLRe0C/cIeHF/3fd01HZLjq9wuBEsuR2Jbsh
+	6kTosqB8ZRZcxvbzL1REheeNCfQSmoCLEOgWqe6tWMhFJ1FqJS29HL3MyQ==
+X-Google-Smtp-Source: AGHT+IGwEsmY3NyPkCPBCO1td4MKsKQCaHFkR6HGlUIvu5S2DBjcqDrjeSVGpeTxzrXMhy/9DDR21Q==
+X-Received: by 2002:a05:6871:d80a:b0:2c2:d2b8:e179 with SMTP id 586e51a60fabf-2d4d29cc3f6mr4240604fac.4.1744908819277;
+        Thu, 17 Apr 2025 09:53:39 -0700 (PDT)
 Received: from [127.0.1.1] ([2600:8803:e7e4:1d00:c91b:eea3:7afd:2dee])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2d5218248b7sm15812fac.47.2025.04.17.09.53.33
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2d5218248b7sm15812fac.47.2025.04.17.09.53.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 17 Apr 2025 09:53:33 -0700 (PDT)
+        Thu, 17 Apr 2025 09:53:37 -0700 (PDT)
 From: David Lechner <dlechner@baylibre.com>
-Subject: [PATCH 0/8] iio: more timestamp alignment
-Date: Thu, 17 Apr 2025 11:52:32 -0500
-Message-Id: <20250417-iio-more-timestamp-alignment-v1-0-eafac1e22318@baylibre.com>
+Date: Thu, 17 Apr 2025 11:52:34 -0500
+Subject: [PATCH 2/8] iio: adc: mt6360-adc: use aligned_s64 for timestamp
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIANAxAWgC/x3MwQqDMBBF0V+RWXdAxVrpr5QuRn21D0wiSSgF8
- d8Ncldnc3dJiESSZ7VLxI+JwRc0t0qmr/kFyrlY2rq9113TKxnUhQjNdEjZ3Ka2cvEOPms/lWx
- 4YJxNymKL+PB/7V/v4zgBSmlh324AAAA=
-X-Change-ID: 20250416-iio-more-timestamp-alignment-6c6c6a87ebda
+Message-Id: <20250417-iio-more-timestamp-alignment-v1-2-eafac1e22318@baylibre.com>
+References: <20250417-iio-more-timestamp-alignment-v1-0-eafac1e22318@baylibre.com>
+In-Reply-To: <20250417-iio-more-timestamp-alignment-v1-0-eafac1e22318@baylibre.com>
 To: Jonathan Cameron <jic23@kernel.org>, 
  =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
  Andy Shevchenko <andy@kernel.org>, 
@@ -94,21 +93,20 @@ Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
  David Lechner <dlechner@baylibre.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1521; i=dlechner@baylibre.com;
- h=from:subject:message-id; bh=Sz+7sWlyolxS4Zl/eEi8a9e44hyD2IGfO6dXn8EDJGw=;
- b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBoATHTMUD0F9owkDNUGccr2O9643S49NzTkqNd8
- qD0QXO+JF2JATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCaAEx0wAKCRDCzCAB/wGP
- wPrkB/44BUumGHVPTUE3N/as04EvFSkdabzEdJ+zuY8Gv7nu0W0unpkR8WIuN6freUelK+lDnsz
- aoZzHpnCJbmaP0oogKGJpWPhmUGK8+ubL5bCgkevBCpizO9+B2P7PmmH+QRI1YJYk/nTwR03+Be
- tys5+hxNRkMNHrz1Vi3ORz04S579JM0cyJnUMg2HcI0jYNC4YWvPBxy5UQTMUVcdmLshiV+seAv
- 6oSaxrXmLE0I55TicHv9sP3uNkJuRCZJMEjb7AM1yl3wpkStx0bTjU7SzSkI01INwxLmBRzuj5/
- 2u2+9LvXToRIZ5CF/BHCR3JX5yD4lKx41QwRgNWsXt06XUpE
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1019; i=dlechner@baylibre.com;
+ h=from:subject:message-id; bh=WBd+USN8oBva7x6dTXqEXzGbksHW+JPbiqt083CEvM0=;
+ b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBoATHgh/KpCPdMfDSZdZwO0twpeUH8w6Bp6mw27
+ yM9Paqb04yJATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCaAEx4AAKCRDCzCAB/wGP
+ wOBfB/4sAtaobNgfH0comXMtYx8J/ZbqnniJM6PBSi81wigpWaU6BQwSLvZ9apGiXVtqYlbncIG
+ y7Ip5Rezb3ea9YAeAHCbFjFHPww3jTaKbl9Pglw6HYss+9lIZkjHa9fsAJCb9nlDlWauj1gjBlR
+ uhE5aqLGU/KisOj4QWs8TV+EM+/MeutNaGWGrALoVUjG7PvXK525ug7W+N8E7P3cXksK/572yv3
+ RJp516+TKyALXADXXpnorGRvP+y5e9QW7JTQTB8gGxopm5ZxtGWVTHDvqosipIbiNH2hXzF+URT
+ TkDamo8F67AwrSBmKUadZJxl9wyzUrN4SQJQRHAZV+Pp4mU6
 X-Developer-Key: i=dlechner@baylibre.com; a=openpgp;
  fpr=8A73D82A6A1F509907F373881F8AF88C82F77C03
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_095336_833796_480630E1 
-X-CRM114-Status: UNSURE (   8.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250417_095340_340925_833F03DA 
+X-CRM114-Status: GOOD (  12.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,40 +121,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Wile reviewing [1], I noticed a few more cases where we can use
-aligned_s64 or need __aligned(8) on data structures used with
-iio_push_to_buffers_with_timestamp().
-
-[1]: https://lore.kernel.org/linux-iio/20250413103443.2420727-1-jic23@kernel.org/
+Follow the pattern of other drivers and use aligned_s64 for the
+timestamp. This will ensure that the timestamp is correctly aligned on
+all architectures. It also ensures that the struct itself it also 8-byte
+aligned so we can drop the explicit __aligned(8) attribute.
 
 Signed-off-by: David Lechner <dlechner@baylibre.com>
 ---
-David Lechner (8):
-      iio: adc: dln2-adc: use aligned_s64 for timestamp
-      iio: adc: mt6360-adc: use aligned_s64 for timestamp
-      iio: addac: ad74413r: use aligned_s64 for timestamp
-      iio: chemical: pms7003: use aligned_s64 for timestamp
-      iio: chemical: sps30: use aligned_s64 for timestamp
-      iio: imu: adis16550: align buffers for timestamp
-      iio: imu: inv_mpu6050: align buffer for timestamp
-      iio: pressure: mprls0025pa: use aligned_s64 for timestamp
+ drivers/iio/adc/mt6360-adc.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
- drivers/iio/accel/bmc150-accel.h           | 2 +-
- drivers/iio/adc/dln2-adc.c                 | 2 +-
- drivers/iio/adc/mt6360-adc.c               | 4 ++--
- drivers/iio/addac/ad74413r.c               | 5 +++--
- drivers/iio/chemical/pms7003.c             | 5 +++--
- drivers/iio/chemical/sps30.c               | 2 +-
- drivers/iio/imu/adis16550.c                | 2 +-
- drivers/iio/imu/inv_mpu6050/inv_mpu_ring.c | 2 +-
- drivers/iio/pressure/mprls0025pa.h         | 2 +-
- 9 files changed, 14 insertions(+), 12 deletions(-)
----
-base-commit: 3159d40a2ca0ae14e69e1cae8b12f04c933d0445
-change-id: 20250416-iio-more-timestamp-alignment-6c6c6a87ebda
+diff --git a/drivers/iio/adc/mt6360-adc.c b/drivers/iio/adc/mt6360-adc.c
+index 4eb2455d6ffacb8f09a404df4490b5a11e49660d..f8e98b6fa7e923c6b73bedf9ca1c466e7a9c3c47 100644
+--- a/drivers/iio/adc/mt6360-adc.c
++++ b/drivers/iio/adc/mt6360-adc.c
+@@ -263,8 +263,8 @@ static irqreturn_t mt6360_adc_trigger_handler(int irq, void *p)
+ 	struct mt6360_adc_data *mad = iio_priv(indio_dev);
+ 	struct {
+ 		u16 values[MT6360_CHAN_MAX];
+-		int64_t timestamp;
+-	} data __aligned(8);
++		aligned_s64 timestamp;
++	} data;
+ 	int i = 0, bit, val, ret;
+ 
+ 	memset(&data, 0, sizeof(data));
 
-Best regards,
 -- 
-David Lechner <dlechner@baylibre.com>
+2.43.0
 
 
