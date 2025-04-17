@@ -4,68 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D290C369C9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 18:20:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A965EC369CA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 18:22:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WQzclTKLI3van/CH/5ZiT8li8vzwRaoxSxml69VlxEw=; b=Z+yXkloxrkin1K3fmDeeYNznRB
-	323+96BFoiTWp0/8wz0q17H55g0IXZYfxtCAG01zdscBtJPvRd1tmrw1GNUlVTm1dNLCxQ8GqUo4w
-	Png4J9aYvkLP/0mN1TZR49DqZxHSLWsoBSG9Bva0nUEsFesml12hUVNzFoE09NCXGqTimq7ghRQkV
-	dJ51RMZ7tYn6Lkky8rs+ROK7+qD1MvrvP+uYVF/uDLc59Gf8DIRbjV88AJ9P52WkDDgWYzuBkwKV/
-	E32QP8HQ7OZe8gEMg1I4obPPAXzq1WoUGH0M2BZrujySGEKNvv9ZfsrCEbOyd03mudaQ7Hs5Gwgwl
-	THk2NDUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bSErsB4OWqx/9+Tbzvj7ylkAv0Sp5+vAreUi9Ph9D64=; b=ZhK5EnI7A1NH99WvPBp7iNAc70
+	cI7MCi9kcNZkFlPfo0w9mUDe8zaO3jwsFRke4gdBNrPhSRzzsW19GkZgie0Gb0YSy1t/QvvuOxz64
+	9MguEU6vA4qi1avJQyOPsMlRyFmM8tihMXQV6JpSkF4pPlKmUYLVwbGH3Dnqw31loT0rF9gpPoxNJ
+	Xq0gZHcTv0q1pLZd/tLDJDrXsa6I6gRIdoSVxdoysld5jmQccGYNgBWKtQFdUPgRompGmukpEsueA
+	uL4EMYmlILuxOoPyLDdOacJ24QIRGIBDDCzaEPZ9DAZLU7SI7haCoKFP9ZEKgpMI3xOwhzHmEdvMY
+	l1nt9vRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5TqC-0000000DzzA-2U83;
-	Thu, 17 Apr 2025 18:20:00 +0000
-Received: from mail.manjaro.org ([116.203.91.91])
+	id 1u5Ts1-0000000E0Kf-3qZL;
+	Thu, 17 Apr 2025 18:21:53 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5TT4-0000000Dvwn-05tx;
-	Thu, 17 Apr 2025 17:56:07 +0000
+	id 1u5TYh-0000000DxD3-1Q1c
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 17 Apr 2025 18:01:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=bSErsB4OWqx/9+Tbzvj7ylkAv0Sp5+vAreUi9Ph9D64=; b=QBpeIVb5CnzI15FJbl8ZFBvkxb
+	CCXOeIV8fOBwbDmVcLi7btX8tbZXLB+W3Tw17umj5ThdxGAQIIXz8c0VV4uAo2fitxAiUh2PLEyeo
+	J1OjNAi5R+zHMPHXRyIvT+W7bTvSDcFJZxAU5kAgH5BlNQKM3nwiITy8fsjRww1EA3ZFlrSxN/psg
+	nHI9w5Dnr+FFnQKhaTsscqFbEc+RgAu0ORy+AjPpOdlyAMHiitqPFFshktzV/Bbcb8tHvXaa39Rv2
+	P7Pg/zDVKpuUqz4lOhmOE2QQY70rv/Rftyx2qAG9YaVKSyhzyCLwZmCaJwDqOMqRDgZTmFuusWvY2
+	O/e/hG7g==;
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u5TYd-0000000ALun-2RoM
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Apr 2025 18:01:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=bSErsB4OWqx/9+Tbzvj7ylkAv0Sp5+vAreUi9Ph9D64=; b=Wt5nIaRktXy2a/MQ+85J/HIyW5
+	EBP4qm+0aHoDbUlDNPLw3qicQpVxQQqPDXJ82tQgayBWNfDMyAkjcAyWA+Osiy0TCZjn/qbgYituG
+	rtuO/JCsC7MU2JYeHIjUzJ5HHqO4nk5HklujYTixlTqSZstHXceCvpnZwf9uncmWZgKg=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1u5TYE-009oZl-Ss; Thu, 17 Apr 2025 20:01:26 +0200
+Date: Thu, 17 Apr 2025 20:01:26 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Prabhakar <prabhakar.csengg@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: Re: [PATCH net-next v8 4/4] MAINTAINERS: Add entry for Renesas
+ RZ/V2H(P) DWMAC GBETH glue layer driver
+Message-ID: <d53d4cc9-c1db-432c-8ab3-3c4c71e1b9ac@lunn.ch>
+References: <20250417084015.74154-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20250417084015.74154-5-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1744912563;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WQzclTKLI3van/CH/5ZiT8li8vzwRaoxSxml69VlxEw=;
-	b=hRLFZPO07cDgA65qQ6Ex8y4itgzRLJrCdRGXla7hzcdJ2bZtAl2K252nfYlMRrLC1CBaZ/
-	HSzqVO6xkyyOCsDUpv0m4jK60IlPyKwjwzyqIKBHEPhZHnQ8947c4rjoXGk5ZE2WQ4nxe+
-	GbdZ3O1gHH9pUyJ6WPVnblqXQhtRzE72NXorS+eLaZsWkOSUTT0NF03aPj2JKAquOFdr2M
-	cCxI3paLbEDVmylA0EkDCu9ogUg8txWgEtYOg2P7fUCJbfWwW6fp2tpXCXe8FXC8Nfhytt
-	SfXmXK+o/jXqiyfUY0v2ovkSGr5JDtH0wEEYYLclPWT49Y0ymKCKoj5fYW/cXQ==
-Date: Thu, 17 Apr 2025 19:56:02 +0200
-From: Dragan Simic <dsimic@manjaro.org>
-To: Diederik de Haas <didi.debian@cknow.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy?=
- =?UTF-8?Q?=C5=84ski?= <kw@linux.com>, Bjorn Helgaas <bhelgaas@google.com>,
- Heiko Stuebner <heiko@sntech.de>, Manivannan Sadhasivam
- <manivannan.sadhasivam@linaro.org>, Rob Herring <robh@kernel.org>, Shawn Lin
- <shawn.lin@rock-chips.com>, Niklas Cassel <cassel@kernel.org>,
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-Subject: Re: [PATCH] PCI: dw-rockchip: Fix function call sequence in
- rockchip_pcie_phy_deinit
-In-Reply-To: <D992W9V9ZH2J.2Z2OLK00N0FIU@cknow.org>
-References: <20250417142138.1377451-1-didi.debian@cknow.org>
- <3e000468679b4371a7942a3e07d99894@manjaro.org>
- <D992W9V9ZH2J.2Z2OLK00N0FIU@cknow.org>
-Message-ID: <ad4b2140f5a4bf20b199ab092f28def7@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250417084015.74154-5-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_105606_426246_B1460B4C 
-X-CRM114-Status: GOOD (  26.95  )
+X-CRM114-CacheID: sfid-20250417_190151_884340_1B8B2B3C 
+X-CRM114-Status: UNSURE (   7.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,76 +106,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-04-17 19:09, Diederik de Haas wrote:
-> On Thu Apr 17, 2025 at 6:20 PM CEST, Dragan Simic wrote:
->> On 2025-04-17 16:21, Diederik de Haas wrote:
->>> The documentation for the phy_power_off() function explicitly says
->>> 
->>>   Must be called before phy_exit().
->>> 
->>> So let's follow that instruction.
->>> 
->>> Fixes: 0e898eb8df4e ("PCI: rockchip-dwc: Add Rockchip RK356X host
->>> controller driver")
->>> Cc: stable@vger.kernel.org	# v5.15+
->>> Signed-off-by: Diederik de Haas <didi.debian@cknow.org>
->>> ---
->>>  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 2 +-
->>>  1 file changed, 1 insertion(+), 1 deletion(-)
->>> 
->>> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
->>> b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
->>> index c624b7ebd118..4f92639650e3 100644
->>> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
->>> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
->>> @@ -410,8 +410,8 @@ static int rockchip_pcie_phy_init(struct
->>> rockchip_pcie *rockchip)
->>> 
->>>  static void rockchip_pcie_phy_deinit(struct rockchip_pcie *rockchip)
->>>  {
->>> -	phy_exit(rockchip->phy);
->>>  	phy_power_off(rockchip->phy);
->>> +	phy_exit(rockchip->phy);
->>>  }
->>> 
->>>  static const struct dw_pcie_ops dw_pcie_ops = {
->> 
->> Thanks for the patch, it's looking good to me.  The current state
->> of the rockchip_pcie_phy_deinit() function might actually not cause
->> issues because the rockchip_pcie_phy_deinit() function is used only
->> in the error-handling path in the rockchip_pcie_probe() function,
->> so having no runtime errors leads to no possible issues.
->> 
->> However, it doesn't mean it shouldn't be fixed, and it would actually
->> be good to dissolve the rockchip_pcie_phy_deinit() function into the
->> above-mentioned error-handling path.  It's a short, two-line function
->> local to the compile unit, used in a single place only, so dissolving
->> it is safe and would actually improve the readability of the code.
+On Thu, Apr 17, 2025 at 09:40:15AM +0100, Prabhakar wrote:
+> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 > 
-> This patch came about while looking at [1] "PCI: dw-rockchip: Add 
-> system
-> PM support", which would be the 2nd consumer of the
-> rockchip_pcie_phy_deinit() function. That patch's commit message has 
-> the
-> following: "tries to reuse possible exist(ing) code"
+> Add a new MAINTAINERS entry for the Renesas RZ/V2H(P) DWMAC GBETH
+> glue layer driver.
 > 
-> Being a fan of the DRY principle, that sounds like an excellent idea 
-> :-)
-> 
-> So while you're right if there would only be 1 consumer, which is the
-> case *right now*, given that a 2nd consumer is in the works, I think
-> it's better to keep it as I've done it now.
-> Let me know if you disagree (including why).
-> 
-> [1] 
-> https://lore.kernel.org/linux-rockchip/1744352048-178994-1-git-send-email-shawn.lin@rock-chips.com/
+> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Ah yes, you're right, thanks for reminding me about that patch.  I saw
-it before, but I totally forgot about it for a moment.
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-I agree that keeping the rockchip_pcie_phy_deinit() function is the way
-to go.  Yes, it's a short function, but maybe we'll need to do something
-more in it at some point, which would then be propagated to all of its
-consumers, instead of having to change all of the "dissolved instances"
-individually.
+    Andrew
 
