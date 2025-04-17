@@ -4,62 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F5DAC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 16:39:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44F4DC369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 16:41:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xfwiCW7HBdl78z7Ugyo6Qh6eo4Sj03oSZPNdD3NKLtA=; b=E4dk1NTCRkLj8LGUYV+yHfO681
-	PT3xh8RuWCgFQtZ6q2dv1Zah7Fg92Yk9u4wnVVF64A1cE8t4JXUQED8rI04H96HhiGXYsp1D3Ve3D
-	x1FF6/oTXPpEeNhBeuxCLRYeyJzIpdrHWRS3sLb0yDzJzpzsWUPKA3MBsHftCjxtshYFCJFSLCqpW
-	WOrjwxDx88t1OzeujaEOSWkkpUTqGCt/i0xDONoHP8pwObP2XnZ2Zek+Xq3EgZZlZa3XgkVqtwzMg
-	gfVJSKad9Cnz0zcrGITNj2Va1SCKnNTKVqf2O+Qivivs/NFJHo0AQ1Xtqjw/khjDhe+/BW5Lpx1z2
-	q8JB2iyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VWlajyrKhq2ZhjdhB/AiFuN7J0cES8P2c9bpY8UBhro=; b=wOgFoeZ5+wQLABez+8Yn1es5Cj
+	VkjzjCpyOqBWEk2fXC07tC34jK0wPVEtqKn7OTj8fd1jSibMeX8iigBkCE9tE22iwtnRfXHcWKrNY
+	Ne3z+WB5mq2dm+zI1f/yIlq84sUtXJJcQjvLJJv99y2sqeAXaQ812osKZe8N5peLoxNPelwievQvM
+	skrgJc82EigBf7j0RF1fGbK1r1hYgVHxcpVhdpgcOmrgQ/vFfQhgZdQ0OTx29a2/e1L6W/YoB/gm5
+	Cqn18xy5ni/OiGTAbuNKVnMa+e0mcD9HoaKktMlaW6/RYC9ZoJnUdzL4tb9CMOF8dQNatk8wmnCAC
+	nrd2BQpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5SGz-0000000DhKp-3Bmr;
-	Thu, 17 Apr 2025 16:39:33 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u5SIp-0000000DhZx-2N1L;
+	Thu, 17 Apr 2025 16:41:27 +0000
+Received: from mail-dm6nam12on20617.outbound.protection.outlook.com ([2a01:111:f403:2417::617] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5S0A-0000000Deep-39ae
+	id 1u5S4Q-0000000DfIn-2n3G
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 16:22:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C8087A4B4ED;
-	Thu, 17 Apr 2025 16:16:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A355C4CEE4;
-	Thu, 17 Apr 2025 16:22:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744906929;
-	bh=+tJVKOIu+gBSCFEwwsnlu5dV6AI8KsV8zFpj108Zr4o=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=e7hcoEI1K2N7tr2pPvAvyGf9F2OS0j6PilDcGIYecuC+tWybN1PsAfR/i1HPUXMoV
-	 5dIH0NEUai+CFJeC5gkKpXo2g/WIqqkFRtSTEao/i/e28EpyWfGjY2V2QSIg1rMRof
-	 Ux/w/fbqIyvS+fTcFPDMAwOZwTqKwcMnPsUiywa5Q5mpASAY63CbgFMxf594yLjFRS
-	 kSxHLWbblcwy3YmhptglAY35iQ/TnzyvlEirtSpft+EEomL8naaEvil33ZvQExiwz0
-	 rxi4wWP8ocVY5/4dQXCV5SmGxIBQzXGDs4yCDmJld52zduHnvNSxUrsw8KxT45ZZUK
-	 Ep0J7+gOUDeJw==
-From: Mark Brown <broonie@kernel.org>
-To: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Tamura Dai <kirinode0@gmail.com>
-Cc: linux-spi@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20250417011700.14436-1-kirinode0@gmail.com>
-References: <20250417011700.14436-1-kirinode0@gmail.com>
-Subject: Re: [PATCH] spi: spi-imx: Add check for spi_imx_setupxfer()
-Message-Id: <174490692776.121478.4533295304176579175.b4-ty@kernel.org>
-Date: Thu, 17 Apr 2025 17:22:07 +0100
+	Thu, 17 Apr 2025 16:26:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=x4x7NXaacVuSVUhEQW9HBW+g6g0dk26B+zBOBxZ7aE3U23yDniZiAr3JigiK2jih37yHRRFRtAeV6ScS0XHF9lGMBq9liJOOrnH8oTIMqGgP0zKdzIv3m6TDO0m1Q8OQA0VuUXi6PMHfpg+G/PLX3BIuhx0BaqU5Rd2GMW+Qj7LElc4Uk7YCEDANByc4YRtEcBjGTObGPbhVaaCWi5hzkNgU64AIufFXZaXF0d+1/VNWBizFXnxoeOap/kS6iIVNOAqUyh8gF3NCdcK/zPoDhq1XwREJjf5soArpL/ldp07gKXDZcdEUKpKK4vpvCvkEhyOXSX7dZpc7OWtgLd+DTA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VWlajyrKhq2ZhjdhB/AiFuN7J0cES8P2c9bpY8UBhro=;
+ b=m3/dzwPY2aXXYDwq72C06sG2YNuxdNWJM/mFrkvveRwuqzpalQza5cr/TuP13gLe+WaS9NCWGGAa3AWkuQph1FZAZUGVUHPA+3Q3a0n+8NHWAzgQF9+oqF4uKr2juD9cE2IB8/FV8GdpZ8Rj12JJI6TTTShSnCfLic0EoP39RX25b0jPWfZjU7xFxC71CiSNROGqrb0bEIMsj4XErb798ly1/Dq6lrPiat/7oZaLeFYETkrhtUbm/Wqrwx2oxZ+4feyzqh75c64VKtKd+DC5wYP+gM8R7GikqL1++hIpzhiBjOAMy65+FMfZiIUNaoEKkRd/ZIU6tJ58u/sK2U7Y9A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VWlajyrKhq2ZhjdhB/AiFuN7J0cES8P2c9bpY8UBhro=;
+ b=jig0oK7tveOXDPrIH5zHqo/nyht7hUXkISE68E3r+lMjwwZiC361WGPmzrvqZMQqWmro/I179lf+nt4wTUfaexp43rLgiE5k5ClheSt3CFoCR08+wg0JNhyYxuTrntFyGrJrfeChY1rzowfQgerOy9aM+ianP78UkMAH3rYS1Awlm6uuwYTF07H3lFM+kGiRKz/e6zNPyZCEEP1ZlHl8gP6hNjj+SzvkH7MIhfqp+2Qa3KxtOPBOR55s0x8/w4mDyIFlPYx6q30Fe0dXhgvGT2xvwVc9IqXp6i8cUnqiLsxw3FYmMK3lgHg01eaI38EzXMmen062LYEc4xAsZn8C2g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by CH3PR12MB8211.namprd12.prod.outlook.com (2603:10b6:610:125::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.48; Thu, 17 Apr
+ 2025 16:26:18 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8632.030; Thu, 17 Apr 2025
+ 16:26:18 +0000
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Will Deacon <will@kernel.org>
+Cc: patches@lists.linux.dev
+Subject: [PATCH] arm: Add missing includes for mem_encrypt
+Date: Thu, 17 Apr 2025 13:26:16 -0300
+Message-ID: <0-v1-47aadfbd64cd+25795-arm_memenc_h_jgg@nvidia.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: BN8PR12CA0010.namprd12.prod.outlook.com
+ (2603:10b6:408:60::23) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-c25d1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CH3PR12MB8211:EE_
+X-MS-Office365-Filtering-Correlation-Id: 75bcd62d-9b35-4fbf-2646-08dd7dcc94c4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?cbjXz+BmevjdNTvpbjWL0jR17AlAq1McflL6yAWkDYgjdpvFDh+KSAp20qXH?=
+ =?us-ascii?Q?E034Zx0uNEJTf3jvH0FwBQYcE7ZZYfaGTCicR2WQ81TcxdXU93jtZ1cX6Y16?=
+ =?us-ascii?Q?iVjZRmH+ylqlkDGqFxL2ZnuLRshrR5GFa+XX6M0f64IL6Y1qUj8WU3bfa6eo?=
+ =?us-ascii?Q?NfOk5rrAigv5fxgBV/IpgmHWuJmvS3y2YYtMlfPYVNy6Hv7wvUrzcmGC/GZp?=
+ =?us-ascii?Q?RHVUhiq13Un5IuR6yqM1m0OsAUgHF/uUkdVeWX3FSm4Ng8e/HkzPU6GZe39S?=
+ =?us-ascii?Q?V8ENhkju1dLWPG++lL8097MDCaPCIBg6xVpBc0tPub7ocPpKLb7Zyt9VHklQ?=
+ =?us-ascii?Q?un81LYjk0d5/VrjkcTjQALzjm/uVXgJlWVdm5y8T8F/gluLYd/gkP+EJjxwx?=
+ =?us-ascii?Q?rSVy/GrmIe48kMupFVkEzG/1BtbridW3FRAKAPxD9t6ZEygScF5r9m5T/Rhh?=
+ =?us-ascii?Q?3OQN4WHodKh8xNyv0XaQMPZqVnoDZi4orargImkh77XjcA6oH6YZrDJmMFHl?=
+ =?us-ascii?Q?qzc2T3qugxr5vSgDnQwUy2whdHBCZ0raaWSk56mZvDt0zrjFZH8mYQcNp0Xh?=
+ =?us-ascii?Q?meHeFpjeoqgYdihvOI5ekEglUV2x/enf9rZHW/2SlHJvHxfWjDvKemYM6RM/?=
+ =?us-ascii?Q?kADztBcjNC7tiz+F4EJytj91zU3xExEgw6xzGHuQzBkBR+c2vgRSeW4CEk0m?=
+ =?us-ascii?Q?bFd8hDmoP0SJvf0HnGOb5IUGCyVF5noljWwmWFH17mcSpoj0UQzjAVaubFUx?=
+ =?us-ascii?Q?GrrGewvpVZxH3WceGrc5gGOWhhqW5wN4PoyiP3kHmuG7Iv964JnGTndwYoBw?=
+ =?us-ascii?Q?HTOElTSAT22h6z+O8qjp/RmYj+2O/ikL7BwUd8QVgeWweDzZRLX+EKUx72YY?=
+ =?us-ascii?Q?OYHmq73mG3Ub/8uP1kmdM4cRAMnjwCofa+GO300rucm5YW/ajFTx1jzpIPrE?=
+ =?us-ascii?Q?GFujyVNq4+j3nwfV57VbMxl5LY3uhFAuOhG7SdsHk7Bm6qJaHuqVh0hEzPRU?=
+ =?us-ascii?Q?yIiIToM6X9DXMynecEpQCCNZcKPHGx4PL/2S74s8kGtgu4xo40nndYWlHOqR?=
+ =?us-ascii?Q?4kQJYUdyH8NByJTOuJ3GC7zI8y5sX5x/OhgJPayJQFpctoEcEygL1YhIqH1d?=
+ =?us-ascii?Q?J0PvFyBBSYOlws9fYHgdUUTMrO/Hq9faAUf4t16b86+xBt+3FY+UOeKeFfMu?=
+ =?us-ascii?Q?9NbfO4O+Zk957OkfBV1b8+U7N6c2wna+4uKKxiHmca0GDuGdCzhd21Y96qq1?=
+ =?us-ascii?Q?/hDj0sKjd/Av5OrxnFmhj9wodzLCT+Ku65Xhwdbo68dqC1PkQbvpNeA3RQQd?=
+ =?us-ascii?Q?hWRfox+eLQ7iaC+8yOwNrX55IP31G+yh8LhDwJFlbLVDAfuY3pS9C016bYTz?=
+ =?us-ascii?Q?BZ+9/2VZ1WTmluAdQOVtjbGLVCZ5KQLEcmPAX79+SdEUwoNUnS3jd2NnloMV?=
+ =?us-ascii?Q?/8VposeWRHo=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Hq3gymlO7R9ZzkjrmYnoLBrTJgyToI/DP1kc86taCoG22SK6TGD2hGIZLwLm?=
+ =?us-ascii?Q?1Rymf/roQmKH8XWfP1BjPMRUW1zHYYffQdmlQXOX/1AGQrS9WS2i8adGkjMf?=
+ =?us-ascii?Q?Eo2er+YXWaE0TZTMrXXcxUWwI4TjN/N/KnYT0oJ8U701u65SMpiHZgu+8PFT?=
+ =?us-ascii?Q?Io9uOVLYeh7blr5RKcwUseTBaiMfuNZo8IQOxQfco8TfiGufNc2+NQ6IJzoF?=
+ =?us-ascii?Q?wF4AtOe5ZTEuqFSBBsGBGXxhteP25Hj51KR5sU57/Ab+tvLwOt5zkJpoIZBy?=
+ =?us-ascii?Q?wU2OhModJqJuk5H1GWLTAT9sHvDPNZcps5GpDoVz9+fXRCJ7+iwWlcH2C8eW?=
+ =?us-ascii?Q?HDpA+lKJ6n3RO17c29bqnyLhonYQgCl2GM4fCGOfTwNoxJgHmhcd0cE0GtLC?=
+ =?us-ascii?Q?yWmro17oanHjpf8wjiGuC4BwJrk9UaxhYvdtWw2QdW+iOxkpXLdTqyk2OoLm?=
+ =?us-ascii?Q?cQ9h6m2gxBTTKsLNdVPyFQd7c6ipZGPrb0AfLfo3fJpnCP/Rsk4O5b+zSJ07?=
+ =?us-ascii?Q?xR3e3npfkjieAA2Zz6LwF25jKrUKoo7QvhXNJR6h1mF2BKLoxoucyELAMKEh?=
+ =?us-ascii?Q?0PmD9GALHd5Xe+Ch4+FlWgyS+5BbKEp9y1C+nS1cRg39m52zrGdHjQEPQLe2?=
+ =?us-ascii?Q?4YyQqRP+nWnAqSGJ428r82k6cpDYZJ9aTLLyccdNdQS+K2RJKF7oQJXCV4TG?=
+ =?us-ascii?Q?xbOkCErZvxfEcbOhPtalBrnC6zkHrV0LDVkFot6hwvmikDwE+kxYTsOQbam3?=
+ =?us-ascii?Q?Wgt9AchAaOnCaPpQw8rIRISvyqlqxOvYHzQv8twoMTxkiPzXfzMee8Fkaeuw?=
+ =?us-ascii?Q?9Sw/5kCeJvpDEx5/pJSkDamNMRosazkFsr0PuxusAUg6MyEoINsw+zgV+eCt?=
+ =?us-ascii?Q?BbKFNIRfuBa5Qp+cAoqefUUpq0vGH0nd/UXa9A0exZ7IYczI+myPwyVWRZik?=
+ =?us-ascii?Q?kYLoT8cYTI30d5Dxtxbx0Jck9DKWsccybfe0ALF6QwUarWLnM7jHK6aEfSKR?=
+ =?us-ascii?Q?0MolcpdmWlfNAbhOzaZIyRLooTCz0DZ7HmR6kJIWUUAp141QnYzGfY2n/nnk?=
+ =?us-ascii?Q?E79QuLZ4k6XZgBnFwt+F1fMxQH4zykhrEFnr2OE8HvDL4LvjZMTzQoh5SR+1?=
+ =?us-ascii?Q?mqhYTntKqFjz9wN1nnKctU1R8ArMcf08Ur+DRqiPMrIBlay6Yde4i4zV7Y8X?=
+ =?us-ascii?Q?eqlBH9mtXmdLC8cbRrNtnS7S+dlETDFQ94x9l3DKR/UN6xo7cscbHdLV28OE?=
+ =?us-ascii?Q?UnIa9JYAyaO96i4d4IHJpKisTO3jrcxLdvWmMycRt71ov/VEgi8XBLJtSToj?=
+ =?us-ascii?Q?fbeEyhLOmylYKFMiU0vY3w+uTm2ufXwfZC2sDkZXGY0RY9J7P9HCzysZeFvz?=
+ =?us-ascii?Q?o86RcbRNWbaUJfOxdbvgP0NnI84YiIm9DO+yNdjTUAsBvCmEZyDwGknhzeT0?=
+ =?us-ascii?Q?DEckWurpsnh3jbaWNUGm3g1I4e+j5iouIS2WIxw4MIJEnzQ2YTitA0yCf/e+?=
+ =?us-ascii?Q?QuWi/CARvWGcstuzw3ku3FhjX919YrWyApS6vWhgzNZNLw3pfM87kZONMAKX?=
+ =?us-ascii?Q?h2rr2Au6dG+v2tEHxZqSf7tfI+qU8xtN9SElf6pS?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 75bcd62d-9b35-4fbf-2646-08dd7dcc94c4
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Apr 2025 16:26:18.1626
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /zcYvkK59eNrbmCJRjwpsc4ogDvEBp0uqKxjYTtXxbNMLekKU5zEtbd32iPDSM/f
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8211
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_092210_862863_E5B63D12 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20250417_092634_712363_CC210463 
+X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,49 +156,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 17 Apr 2025 10:16:05 +0900, Tamura Dai wrote:
-> Add check for the return value of spi_imx_setupxfer().
-> spi_imx->rx and spi_imx->tx function pointer can be NULL when
-> spi_imx_setupxfer() return error, and make NULL pointer dereference.
-> 
->  Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
->  Call trace:
->   0x0
->   spi_imx_pio_transfer+0x50/0xd8
->   spi_imx_transfer_one+0x18c/0x858
->   spi_transfer_one_message+0x43c/0x790
->   __spi_pump_transfer_message+0x238/0x5d4
->   __spi_sync+0x2b0/0x454
->   spi_write_then_read+0x11c/0x200
-> 
-> [...]
+Doing:
+ #include <linux/mem_encrypt.h>
 
-Applied to
+Causes a bunch of compiler failures due to missing implicit includes that
+don't happen on x86:
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+../arch/arm64/include/asm/rsi_cmds.h:117:2: error: call to undeclared library function 'memcpy' with type 'void *(void *, const void *, unsigned long)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  117 |         memcpy(&regs.a1, challenge, size);
 
-Thanks!
+../arch/arm64/include/asm/mem_encrypt.h:19:49: warning: declaration of 'struct device' will not be visible outside of this function [-Wvisibility]
+   19 | static inline bool force_dma_unencrypted(struct device *dev)
 
-[1/1] spi: spi-imx: Add check for spi_imx_setupxfer()
-      commit: 951a04ab3a2db4029debfa48d380ef834b93207e
+../arch/arm64/include/asm/rsi_cmds.h:44:38: error: call to undeclared function 'virt_to_phys'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   44 |         arm_smccc_smc(SMC_RSI_REALM_CONFIG, virt_to_phys(cfg),
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+Add the missing includes to the arch/arm headers to avoid this.
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+---
+ arch/arm64/include/asm/mem_encrypt.h | 2 ++
+ arch/arm64/include/asm/rsi_cmds.h    | 2 ++
+ 2 files changed, 4 insertions(+)
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+I ran into this while working on a new series that uses mem_encrypt.h
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+diff --git a/arch/arm64/include/asm/mem_encrypt.h b/arch/arm64/include/asm/mem_encrypt.h
+index a2a1eeb36d4b50..314b2b52025f87 100644
+--- a/arch/arm64/include/asm/mem_encrypt.h
++++ b/arch/arm64/include/asm/mem_encrypt.h
+@@ -4,6 +4,8 @@
+ 
+ #include <asm/rsi.h>
+ 
++struct device;
++
+ struct arm64_mem_crypt_ops {
+ 	int (*encrypt)(unsigned long addr, int numpages);
+ 	int (*decrypt)(unsigned long addr, int numpages);
+diff --git a/arch/arm64/include/asm/rsi_cmds.h b/arch/arm64/include/asm/rsi_cmds.h
+index e6a211001bd38e..2c8763876dfb77 100644
+--- a/arch/arm64/include/asm/rsi_cmds.h
++++ b/arch/arm64/include/asm/rsi_cmds.h
+@@ -7,6 +7,8 @@
+ #define __ASM_RSI_CMDS_H
+ 
+ #include <linux/arm-smccc.h>
++#include <linux/string.h>
++#include <asm/memory.h>
+ 
+ #include <asm/rsi_smc.h>
+ 
 
-Thanks,
-Mark
+base-commit: 6a94d74b67461c203bce8090d677c6c110f67245
+-- 
+2.43.0
 
 
