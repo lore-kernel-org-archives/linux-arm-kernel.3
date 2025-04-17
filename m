@@ -4,67 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0A1FC369C9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 17:23:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9A14C369CF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 17:25:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:Cc:To:From:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6U4ILFAnnROWvWpXm91/wKuzpauoiAfG10LJOtDhws0=; b=UAb/5Ezf+LlPC698TwHYpM8qhJ
-	EVxGRnEgol3UPWwlMyN3OEsvJX6Ir46udxW4p8Uw210VHqq7TgqQnAKhWtC52UtVTAlwzaVRWRkb6
-	hkU2GgA6W7f8XTcjlTZ9eKPnCTq2622iBiMrVcahrE6hJE0xeqpipuvwVf7zIxk2uBPAq12c8SCex
-	i6lVUJfOmPTkrz+ySV0i6oOBTo2M3OxMH/HlUiWWUybrboetsSEBBb2Xmey3dlx1T5u8zpgAW6jHT
-	rQJEDUpy2LG8QbtiEso+Ih+NawlepysuEQPrWpX4Cwoo/bMjvUOn8EYJzDHpYWhg3peER3foaq1yc
-	BCDQVVRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jQ2RDmpRxd/UlVEMitc8xfzDNE1izM57yeWpzmYqHf0=; b=FTCSVkkSdYuOY7BQGeymCcC3wC
+	+iF9mhbPt+N9ZYRhpEWCcMa52N9jSm9YMIX21bW2HILrHcPg18BtU4cIq9W/9qYhJjyizn0p0sxbm
+	wKTbVxfqbpmcWhKqNpaFn4P8wjnkfyGpyxeIoKNe/r5c23UKtQZv2wCmkSbalaX6bHgr1yRey9+6L
+	oQLUM/FWfqlFvxVmvqjjpMXIjS1pZLk+GU/8gUXSv0TkjgRF8O3m9MIuHVLXSZDW9q4Ksph83IOyi
+	v+2jAZQbRfRtebj10GttzQ26uuomuHOwXzascoSXANiQYwUjFKG+B8ROp93wYvtej6qvRE6ln1dIy
+	7Qi/+exw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5SxE-0000000Dph0-0DlY;
-	Thu, 17 Apr 2025 17:23:12 +0000
-Received: from out-177.mta0.migadu.com ([91.218.175.177])
+	id 1u5Sz2-0000000Dpzx-3Nfh;
+	Thu, 17 Apr 2025 17:25:04 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Skk-0000000DmrR-0oHU
+	id 1u5SlA-0000000DmVb-1cPM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 17:10:19 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1744909795;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=6U4ILFAnnROWvWpXm91/wKuzpauoiAfG10LJOtDhws0=;
-	b=xRrOkl+qGnYLA+AOqsbB9LjK1LWPYQy1oz8Y+rZWCD7iABshDYz1KUdZGcAdgbdurKya1R
-	CmI/fAI+abH5jKptTBlaXXuXzSzy6WA+8jcjmfT+qaoYMFx0A0F2590ib3Hghb/4DXHC1a
-	x++yxn2UC73tCT1BpT6bXu0j5HzYItmFsvENg9YCryIlHXRk6Fg7QnpXXpzvYxs6IxVc7W
-	c8sXsnDjKc4Bov2fkxDKx03WqPOEpfKUFS6Ak0zhV8nC0c2fEoLWUtuyP4rJPeFaeL0Hlf
-	VFVppXokdY6+zL3p+ey2gDqA+uAtsN12AQMFYGmk3QCLVkMdtAfVm2vN+mo5Tg==
-Content-Type: multipart/signed;
- boundary=9beec6f5477ababb2ae9d3e4220a4e06ab7f2fafa941ec7e9fa069b1c762;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Thu, 17 Apr 2025 19:09:46 +0200
-Message-Id: <D992W9V9ZH2J.2Z2OLK00N0FIU@cknow.org>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <didi.debian@cknow.org>
-To: "Dragan Simic" <dsimic@manjaro.org>
-Cc: "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, "Bjorn Helgaas"
- <bhelgaas@google.com>, "Heiko Stuebner" <heiko@sntech.de>, "Manivannan
- Sadhasivam" <manivannan.sadhasivam@linaro.org>, "Rob Herring"
- <robh@kernel.org>, "Shawn Lin" <shawn.lin@rock-chips.com>, "Niklas Cassel"
- <cassel@kernel.org>, <linux-pci@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <stable@vger.kernel.org>
-Subject: Re: [PATCH] PCI: dw-rockchip: Fix function call sequence in
- rockchip_pcie_phy_deinit
-References: <20250417142138.1377451-1-didi.debian@cknow.org>
- <3e000468679b4371a7942a3e07d99894@manjaro.org>
-In-Reply-To: <3e000468679b4371a7942a3e07d99894@manjaro.org>
-X-Migadu-Flow: FLOW_OUT
+	Thu, 17 Apr 2025 17:10:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
+	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
+	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=jQ2RDmpRxd/UlVEMitc8xfzDNE1izM57yeWpzmYqHf0=; b=Xx2JT3sPcKmxheT8VmOoRFY0SO
+	Z20onmT3xxDpfbYCjpMPkf6I7+S0PwdHWvboVfy+XgngP5vhKa7vq0BSA3ancFH6pWYmdNHP/+4Q9
+	eeTrddHNbC3o0eve5YljD8/Bd/ENrap542p4YdFB8OTinui5zGS47GHuPc0NRqmL3WB9z8HAsJ4US
+	G2DAoCAtABZ9Bb/7SVqTJIQnpazW64hslK9ng+NRCiosql4AzxfZ9/aStOVvVMgLBVG0+tiZNtT6s
+	aitgKGsq1izatjB5N1pLzOpnTYskaA4Wxif8wROjXzB4+YcJJce6XlQckF1TDQaYRv2Hjv1w69duS
+	WiL5crxw==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:52332 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1u5Sj2-0007fW-1E;
+	Thu, 17 Apr 2025 18:08:32 +0100
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1u5SiQ-001I0B-OQ; Thu, 17 Apr 2025 18:07:54 +0100
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	netdev@vger.kernel.org,
+	Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next v3] net: stmmac: visconti: convert to
+ set_clk_tx_rate() method
+MIME-Version: 1.0
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1u5SiQ-001I0B-OQ@rmk-PC.armlinux.org.uk>
+Date: Thu, 17 Apr 2025 18:07:54 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_101018_378617_A1C42DD1 
-X-CRM114-Status: GOOD (  24.94  )
+X-CRM114-CacheID: sfid-20250417_101044_416850_93385313 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,95 +87,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---9beec6f5477ababb2ae9d3e4220a4e06ab7f2fafa941ec7e9fa069b1c762
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+Convert visconti to use the set_clk_tx_rate() method. By doing so,
+the GMAC control register will already have been updated (unlike with
+the fix_mac_speed() method) so this code can be removed while porting
+to the set_clk_tx_rate() method.
 
-Hi Dragan,
+There is also no need for the spinlock, and has never been - neither
+fix_mac_speed() nor set_clk_tx_rate() can be called by more than one
+thread at a time, so the lock does nothing useful.
 
-On Thu Apr 17, 2025 at 6:20 PM CEST, Dragan Simic wrote:
-> On 2025-04-17 16:21, Diederik de Haas wrote:
->> The documentation for the phy_power_off() function explicitly says
->>=20
->>   Must be called before phy_exit().
->>=20
->> So let's follow that instruction.
->>=20
->> Fixes: 0e898eb8df4e ("PCI: rockchip-dwc: Add Rockchip RK356X host
->> controller driver")
->> Cc: stable@vger.kernel.org	# v5.15+
->> Signed-off-by: Diederik de Haas <didi.debian@cknow.org>
->> ---
->>  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 2 +-
->>  1 file changed, 1 insertion(+), 1 deletion(-)
->>=20
->> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
->> b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
->> index c624b7ebd118..4f92639650e3 100644
->> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
->> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
->> @@ -410,8 +410,8 @@ static int rockchip_pcie_phy_init(struct
->> rockchip_pcie *rockchip)
->>=20
->>  static void rockchip_pcie_phy_deinit(struct rockchip_pcie *rockchip)
->>  {
->> -	phy_exit(rockchip->phy);
->>  	phy_power_off(rockchip->phy);
->> +	phy_exit(rockchip->phy);
->>  }
->>=20
->>  static const struct dw_pcie_ops dw_pcie_ops =3D {
->
-> Thanks for the patch, it's looking good to me.  The current state
-> of the rockchip_pcie_phy_deinit() function might actually not cause
-> issues because the rockchip_pcie_phy_deinit() function is used only
-> in the error-handling path in the rockchip_pcie_probe() function,
-> so having no runtime errors leads to no possible issues.
->
-> However, it doesn't mean it shouldn't be fixed, and it would actually
-> be good to dissolve the rockchip_pcie_phy_deinit() function into the
-> above-mentioned error-handling path.  It's a short, two-line function
-> local to the compile unit, used in a single place only, so dissolving
-> it is safe and would actually improve the readability of the code.
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
+Acked-by: Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ .../ethernet/stmicro/stmmac/dwmac-visconti.c  | 25 +++++--------------
+ 1 file changed, 6 insertions(+), 19 deletions(-)
 
-This patch came about while looking at [1] "PCI: dw-rockchip: Add system
-PM support", which would be the 2nd consumer of the
-rockchip_pcie_phy_deinit() function. That patch's commit message has the
-following: "tries to reuse possible exist(ing) code"
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-visconti.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-visconti.c
+index 33cf99797df5..5e6ac82a89b9 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-visconti.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-visconti.c
+@@ -51,21 +51,14 @@ struct visconti_eth {
+ 	u32 phy_intf_sel;
+ 	struct clk *phy_ref_clk;
+ 	struct device *dev;
+-	spinlock_t lock; /* lock to protect register update */
+ };
+ 
+-static void visconti_eth_fix_mac_speed(void *priv, int speed, unsigned int mode)
++static int visconti_eth_set_clk_tx_rate(void *bsp_priv, struct clk *clk_tx_i,
++					phy_interface_t interface, int speed)
+ {
+-	struct visconti_eth *dwmac = priv;
++	struct visconti_eth *dwmac = bsp_priv;
+ 	struct net_device *netdev = dev_get_drvdata(dwmac->dev);
+ 	unsigned int val, clk_sel_val = 0;
+-	unsigned long flags;
+-
+-	spin_lock_irqsave(&dwmac->lock, flags);
+-
+-	/* adjust link */
+-	val = readl(dwmac->reg + MAC_CTRL_REG);
+-	val &= ~(GMAC_CONFIG_PS | GMAC_CONFIG_FES);
+ 
+ 	switch (speed) {
+ 	case SPEED_1000:
+@@ -77,24 +70,19 @@ static void visconti_eth_fix_mac_speed(void *priv, int speed, unsigned int mode)
+ 			clk_sel_val = ETHER_CLK_SEL_FREQ_SEL_25M;
+ 		if (dwmac->phy_intf_sel == ETHER_CONFIG_INTF_RMII)
+ 			clk_sel_val = ETHER_CLK_SEL_DIV_SEL_2;
+-		val |= GMAC_CONFIG_PS | GMAC_CONFIG_FES;
+ 		break;
+ 	case SPEED_10:
+ 		if (dwmac->phy_intf_sel == ETHER_CONFIG_INTF_RGMII)
+ 			clk_sel_val = ETHER_CLK_SEL_FREQ_SEL_2P5M;
+ 		if (dwmac->phy_intf_sel == ETHER_CONFIG_INTF_RMII)
+ 			clk_sel_val = ETHER_CLK_SEL_DIV_SEL_20;
+-		val |= GMAC_CONFIG_PS;
+ 		break;
+ 	default:
+ 		/* No bit control */
+ 		netdev_err(netdev, "Unsupported speed request (%d)", speed);
+-		spin_unlock_irqrestore(&dwmac->lock, flags);
+-		return;
++		return -EINVAL;
+ 	}
+ 
+-	writel(val, dwmac->reg + MAC_CTRL_REG);
+-
+ 	/* Stop internal clock */
+ 	val = readl(dwmac->reg + REG_ETHER_CLOCK_SEL);
+ 	val &= ~(ETHER_CLK_SEL_RMII_CLK_EN | ETHER_CLK_SEL_RX_TX_CLK_EN);
+@@ -136,7 +124,7 @@ static void visconti_eth_fix_mac_speed(void *priv, int speed, unsigned int mode)
+ 		break;
+ 	}
+ 
+-	spin_unlock_irqrestore(&dwmac->lock, flags);
++	return 0;
+ }
+ 
+ static int visconti_eth_init_hw(struct platform_device *pdev, struct plat_stmmacenet_data *plat_dat)
+@@ -228,11 +216,10 @@ static int visconti_eth_dwmac_probe(struct platform_device *pdev)
+ 	if (!dwmac)
+ 		return -ENOMEM;
+ 
+-	spin_lock_init(&dwmac->lock);
+ 	dwmac->reg = stmmac_res.addr;
+ 	dwmac->dev = &pdev->dev;
+ 	plat_dat->bsp_priv = dwmac;
+-	plat_dat->fix_mac_speed = visconti_eth_fix_mac_speed;
++	plat_dat->set_clk_tx_rate = visconti_eth_set_clk_tx_rate;
+ 
+ 	ret = visconti_eth_clock_probe(pdev, plat_dat);
+ 	if (ret)
+-- 
+2.30.2
 
-Being a fan of the DRY principle, that sounds like an excellent idea :-)
-
-So while you're right if there would only be 1 consumer, which is the
-case *right now*, given that a 2nd consumer is in the works, I think
-it's better to keep it as I've done it now.
-Let me know if you disagree (including why).
-
-[1] https://lore.kernel.org/linux-rockchip/1744352048-178994-1-git-send-ema=
-il-shawn.lin@rock-chips.com/
-
-> Thus, please feel free to include
->
-> Reviewed-by: Dragan Simic <dsimic@manjaro.org>
-
-Thanks :-)
-
-Cheers,
-  Diederik
-
-> and please consider dissolving the rockchip_pcie_phy_deinit() function
-> in the possible v2 of this patch, as suggested above.
-
-
---9beec6f5477ababb2ae9d3e4220a4e06ab7f2fafa941ec7e9fa069b1c762
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaAE13QAKCRDXblvOeH7b
-buluAQCEIjcEnqtZwClOAqM8s1LvfqUaaPSSbkWDSy6SYsLWAwEAofWwHxa8G5nC
-MgjHBOJT/8MsTjFkhLaeM2uzEV2YXQE=
-=VbT8
------END PGP SIGNATURE-----
-
---9beec6f5477ababb2ae9d3e4220a4e06ab7f2fafa941ec7e9fa069b1c762--
 
