@@ -4,125 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19321C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 10:11:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C40E5C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 10:16:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KboW8T0LwmdQHDzhaLO8y9T+QaLii17k/39YhKZ8oxI=; b=rLdIO0JtIJuwliwFLCKLqDn7eH
-	b8ByVG0HhaNugzyF8cEJJFX6rNdj/X/lnDgZk54K26Bpc4Z5PUFf34/rT0EWoYANNeXjBiBHsOb2v
-	cDwNU6dKsbDKRIHmJfe14ZBu6R7yLm74fbAfdDboo808dlbyRGZ5Ky+SsRjcqnZqTHP111J8rurSu
-	ZLikFLr/VsOTpu8ZFfqkky8xD903BfbFZeO1M8XRAuD4qL60dWlpJpYDH1jhpyvdPEb0680ZfshWU
-	ak6wiKrO3pFk9wwU2DKRABUCO49tXaxFEGuNqWcbt4wa/jZJ2h5vEdVTCLv+TjwJgUgjRJ07g+8ze
-	HeE2V3wQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nILETJDFy4huY9H9TAbEGX0RVfYIpLwSjHg6NVlgXkg=; b=RkwrvuVdvRrTvbuWB+0jv9z5UI
+	S/S1AMaLlgKmuZx6pIzg2cda26XAr15A8KjJ5ru0qFqhZkiKDuSBGlPdtX+0FchpKZmzDCX9qXMKF
+	9YJ9uP6zrWWHMUTCp+0gxnMYbLxRhANxVgIx08WqsYQnjPdjOihM15G9GI0nT1Rl6B4wk3ywEcEfb
+	1j+Jl7B46EiD3/vCe4J+MsGIusnqvNR6mFSH8Jcmaa5TB049IAWSKW2VFs4zu7Ep4fJrRU5vofmtk
+	aIdgUJTD2y1EZEjCpeP73rHWSUcKH8WyQhDqce90iqzBuTjvCgaaJy0G7GVqxIPIBEYWlcnY6xbx3
+	WvQf/fow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5MCw-0000000CZAK-19DT;
-	Thu, 17 Apr 2025 10:10:58 +0000
-Received: from mout.gmx.net ([212.227.15.18])
+	id 1u5MHw-0000000CbHN-0plC;
+	Thu, 17 Apr 2025 10:16:08 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5MB5-0000000CYx0-2dcg;
-	Thu, 17 Apr 2025 10:09:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1744884535; x=1745489335; i=wahrenst@gmx.net;
-	bh=KboW8T0LwmdQHDzhaLO8y9T+QaLii17k/39YhKZ8oxI=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=U8pl/SFwG4FteTqjHlyBNWNeoj/6Cg6bgUncQSCwQitCyBL4N0vL/R4jQtd26i3B
-	 GrTZeWZMwrVhLBkjd26/ClIUm5mfPDdzucSaOJLqZYY9yTrwl7NMwhmCYz1pn8QQE
-	 pnN9+6qDC79tO6JoI9YQ/uN1n04OfWwObfiGrPLaEWKLH9SyfjqNQG9GZ/7InCF7p
-	 R7a0BMcEBFFbvBQlnU5RDq27MqbypErqHZU1RdudZSSKwQ6/D4yS6/Ytd9G/b/ntG
-	 LeftBAqZ+8eeAinoLFMf2/b1tU76CNdvIVbICJuFQrFElfaxp4bNuFvwJcwut4K0d
-	 FZcmcLvkA+ScL4dNvg==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.107] ([37.4.251.153]) by mail.gmx.net (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1M5fIW-1uCUmL3Avy-009VWA; Thu, 17
- Apr 2025 12:08:55 +0200
-Message-ID: <14654c19-fa26-4d37-8f0f-9cf092982b67@gmx.net>
-Date: Thu, 17 Apr 2025 12:08:54 +0200
+	id 1u5MG3-0000000CaeA-1lcS
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Apr 2025 10:14:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id C7D26A4B0D8;
+	Thu, 17 Apr 2025 10:08:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B9806C4CEE4;
+	Thu, 17 Apr 2025 10:14:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744884849;
+	bh=OH7eZX54zgQCjVVOYI4sEIr2A+p5IQRMKEHQ5gWO4Vo=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=izOz1iOtENuLuSw9CLjDanuuvIB3V5jiQVKbGjuen6UaSZDHqzSL9tM3DqdQ2X4vm
+	 XHg4r4hM7AT+UaS2U2l4AHzSWoi6p4lcPT7M914rtWSAA/ctwdjzG4b5dOQjteqom4
+	 UAtTQ+V7Lqque7Grti0lWtfEOG/LqByuoOCquR6e/74JZqCLfb4AvMjHlDd6et+oZB
+	 phY/FqqVGLTcMVDRo8i4kGEEJXVRS+N/yEiWX+g/ynljgrt/Ii7xwaDZyKn+s44kdR
+	 L9XRxhjot8JB5u/obVu9YdD3MJ0LqDHDOCXXfRmIdpYy4A/nYCEZQ0JFkb2vN56wJ+
+	 /w+AkH9TQbm8Q==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A569CC369B2;
+	Thu, 17 Apr 2025 10:14:09 +0000 (UTC)
+From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
+Subject: [PATCH v6 0/8] arm64: dts: freescale: Add support for the
+ GOcontroll Moduline Display
+Date: Thu, 17 Apr 2025 12:14:01 +0200
+Message-Id: <20250417-initial_display-v6-0-3c6f6d24c7af@gocontroll.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] clk: bcm: rpi: Add NULL check in
- raspberrypi_clk_register()
-To: Henry Martin <bsdhenrymartin@gmail.com>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, florian.fainelli@broadcom.com,
- bcm-kernel-feedback-list@broadcom.com, popcornmix@gmail.com,
- mripard@kernel.org, u.kleine-koenig@baylibre.com, linux-clk@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, nathan@kernel.org,
- dave.stevenson@raspberrypi.com
-References: <CAPY8ntAFHW3kiqCnXjFtzL9FnRoQ69v8+3yJ+jR8_W8Bb+6d8A@mail.gmail.com>
- <20250402020513.42628-1-bsdhenrymartin@gmail.com>
-Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <20250402020513.42628-1-bsdhenrymartin@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:Vp3a+37uaw4BVeCxFEXatGI5F4P8nElZTeg0boA2hoAHEK14seC
- yQF09nylKm//RzK80Ccl1Nxq5xx+AXMmnju2sSrSL6/Xd0A3KTGWeA0gAcs0RGhEkhFZU79
- pKrs8ZnayWwIslZqi1R1HDP1936LRCb1l7TQJlsh0r9izdjT4kwqc1tudY2OAK1D+YIpe7r
- 6UZT+IMtS59ieG7LFSePw==
-UI-OutboundReport: notjunk:1;M01:P0:7FDxd8SGR7E=;gMwnoXSoReXFUKsr4zsYdoIONYG
- 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
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGnUAGgC/3XNzYrDIBSG4Vsprseix59oV72PMgzGaHsgE4uGM
+ KXk3sd204Lp8v3gPOdOSsgYCjns7iSHBQumqYb+2hF/cdM5UBxqE2CgGICkOOGMbvwZsFxHd6P
+ RGQBuAtNBkXp1zSHi31M8fde+YJlTvj0fLPyxfrYWThlV3vd91FwoKY7n5NM05zSOe59+yQNc4
+ B3RLQIVARFddFwww7tNRLwQAV2LiIrIYGxwXHfa9ZuIfCGSQYvIithorDHCOKPlJqLeEK5aRFU
+ kCladoePS2gZZ1/UfpAYd6scBAAA=
+X-Change-ID: 20250224-initial_display-fa82218e06e5
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Maud Spierings <maudspierings@gocontroll.com>, Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1744884848; l=3701;
+ i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
+ bh=OH7eZX54zgQCjVVOYI4sEIr2A+p5IQRMKEHQ5gWO4Vo=;
+ b=E5KfrkxKT4ITztZE9VHXJ1UMy+TBUFwiIVRtGdhi8AJLHgzFtO3Ti6Xk8d9b702xDuV1xwg5h
+ GkQi4hhLOy8DXbqlcFul8IeIjVDMQ1b8ruDaiEGXhckZivbPWmsZnbf
+X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
+ pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
+X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
+ with auth_id=341
+X-Original-From: Maud Spierings <maudspierings@gocontroll.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_030903_974875_C43F60C4 
-X-CRM114-Status: GOOD (  13.74  )
+X-CRM114-CacheID: sfid-20250417_031411_592797_55971D53 
+X-CRM114-Status: GOOD (  17.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,45 +92,88 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: maudspierings@gocontroll.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 02.04.25 um 04:05 schrieb Henry Martin:
-> devm_kasprintf() returns NULL when memory allocation fails. Currently,
-> raspberrypi_clk_register() does not check for this case, which results
-> in a NULL pointer dereference.
->
-> Add NULL check after devm_kasprintf() to prevent this issue.
->
-> Fixes: 93d2725affd6 ("clk: bcm: rpi: Discover the firmware clocks")
-> Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
-> Reviewed-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
+Add inital support for 2 variants of the Moduline Display controller.
+This system is powered by the Ka-Ro Electronics tx8p-ml81 COM, which
+features an imx8mp SoC.
 
-Just a note, please don't send new patch versions as a reply to older=20
-ones. This makes them harder to find.
+Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
+---
+Changes in v6:
+- Fix spi cs formatting in baseboard dts
+- Add model to baseboard dts
+- Fix commit typo in karo tx8p ml81 dtsi
+- Link to v5: https://lore.kernel.org/r/20250415-initial_display-v5-0-f309f8d71499@gocontroll.com
 
-Thanks
-> ---
-> V1 -> V2: Correct the commit hash in the Fixes: tag.
->
->   drivers/clk/bcm/clk-raspberrypi.c | 2 ++
->   1 file changed, 2 insertions(+)
->
-> diff --git a/drivers/clk/bcm/clk-raspberrypi.c b/drivers/clk/bcm/clk-ras=
-pberrypi.c
-> index 0e1fe3759530..720acc10f8aa 100644
-> --- a/drivers/clk/bcm/clk-raspberrypi.c
-> +++ b/drivers/clk/bcm/clk-raspberrypi.c
-> @@ -286,6 +286,8 @@ static struct clk_hw *raspberrypi_clk_register(struc=
-t raspberrypi_clk *rpi,
->   	init.name =3D devm_kasprintf(rpi->dev, GFP_KERNEL,
->   				   "fw-clk-%s",
->   				   rpi_firmware_clk_names[id]);
-> +	if (!init.name)
-> +		return ERR_PTR(-ENOMEM);
->   	init.ops =3D &raspberrypi_firmware_clk_ops;
->   	init.flags =3D CLK_GET_RATE_NOCACHE;
->  =20
+Changes in v5:
+- Merge the makefile patch into the two dtso patches
+- Fix references to the root node in the dtso patches
+- Enable the USB bus going to the adapter board in the mainboard dts
+- Fix some formatting issues in the mainboard dts
+- Fix some formatting issues in the COM dts
+- Change a clock as suggested in the COM dts
+- Fix the maintainers entries, remove devicetree list and imx list
+- Rebase on latest linux-next
+- Link to v4: https://lore.kernel.org/r/20250402-initial_display-v4-0-9f898838a864@gocontroll.com
+
+Changes in v4:
+- Add imx mailing list to ka-ro tx8p maintainer entry
+- Fix several small indentation and ordering issues in devicetrees
+- Change the two display adapter boards to overlays
+- Add the missing patch for the Makefile to actually be able to build
+  the new devicetrees
+- Link to v3: https://lore.kernel.org/r/20250327-initial_display-v3-0-4e89ea1676ab@gocontroll.com
+
+Changes in v3:
+- Set regulator-boot-on and always-on on LDO5 of the pmic, after 20 ish
+  seconds it auto disabled this LDO causing weird behaviour like
+  ethernet droping out, wifi not working anymore. This LDO can control
+  the IO voltage level of certain pins, just let it keep the u-boot
+  value.
+- Fix the comment style in imx8mp-pinfunc.h
+- Rebase on newest next tag
+- Link to v2: https://lore.kernel.org/r/20250226-initial_display-v2-0-23fafa130817@gocontroll.com
+
+Changes in v2:
+- Dropped the trivial-devices patch
+- Added a patch with bindings for the gocontroll,moduline-module-slot
+- Added a patch to spidev.c to enable the spidev driver for the module
+  slot
+- Added a missing usb-c connector in the av101hdt-a10 variant dts
+- Switched to the new bindings for the module slots in the base dts
+- Fixed some commit typos
+- Link to v1: https://lore.kernel.org/r/20250224-initial_display-v1-0-5ccbbf613543@gocontroll.com
+
+---
+Maud Spierings (8):
+      dt-bindings: arm: fsl: Add GOcontroll Moduline Display
+      arm64: dts: imx8mp: Add pinctrl config definitions
+      MAINTAINERS: add maintainer for the Ka-Ro tx8p-ml81 COM module
+      MAINTAINERS: add maintainer for the GOcontroll Moduline controllers
+      arm64: dts: freescale: add Ka-Ro Electronics tx8p-ml81 COM
+      arm64: dts: freescale: Add the GOcontroll Moduline Display baseboard
+      arm64: dts: freescale: Add the BOE av101hdt-a10 variant of the Moduline Display
+      arm64: dts: freescale: Add the BOE av123z7m-n17 variant of the Moduline Display
+
+ Documentation/devicetree/bindings/arm/fsl.yaml     |   1 +
+ MAINTAINERS                                        |  12 +
+ arch/arm64/boot/dts/freescale/Makefile             |   8 +
+ arch/arm64/boot/dts/freescale/imx8mp-pinfunc.h     |  33 ++
+ ...x8p-ml81-moduline-display-106-av101hdt-a10.dtso |  94 ++++
+ ...x8p-ml81-moduline-display-106-av123z7m-n17.dtso | 139 ++++++
+ .../imx8mp-tx8p-ml81-moduline-display-106.dts      | 526 ++++++++++++++++++++
+ .../arm64/boot/dts/freescale/imx8mp-tx8p-ml81.dtsi | 548 +++++++++++++++++++++
+ 8 files changed, 1361 insertions(+)
+---
+base-commit: fb44e19e78df2950877a9f7b4f24b58db790d293
+change-id: 20250224-initial_display-fa82218e06e5
+
+Best regards,
+-- 
+Maud Spierings <maudspierings@gocontroll.com>
+
 
 
