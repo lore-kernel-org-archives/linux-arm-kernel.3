@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE6F4C369C9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 20:24:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7EB2C369C9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 20:42:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qCVV96dJMcjv/QwI7jUJEJjXmkeeqGgfyHC8Tptyc9k=; b=C+KYs9nFUffYbZJZ49LC0Y6UGK
-	dRLsHRL6RK7ILgFXL4QtNW74O13DVh+DyA7awI7woVx+rtl4pcjJ0lrXcz5dHS76aab5PKHDU6iDA
-	g2+nhPByIhGxJWbTE3p9hmuAqQdpP/8EScD6983+J/bHkQ9uIG0DE2zqzr340unmy/g6XnkJYm18q
-	U+5ZzW51Ns01eWNNs5eCnCtNv1eL6aDCtxv/lbKhlxvOMop3Krssnf5GcyqTI0Ck225eKaUInCQ7B
-	osFVwh3KoZ/9EQ7UD25+lzho0xincu/U8Kf9wivWZtsvJWqwFONySEu5QV1JmVyJDx7Ee5TdotjXK
-	kR57A0kQ==;
+	bh=KzO6F4FFtyFyATTtMp481S5NCp9VVguPoo6SfeBb16I=; b=hY3kosPIRTtT+2acTSsWPvSfyh
+	hBw4ICG98IxCrs/PF3TxXdQ/DHxySTHrdCtKqf40Bz8rUb9kTUNoCMyHmrAZdGWiPBx23LqSk0Gbv
+	pp668BZDeGA2Rlxpvi/oAS9Jsn7b72rsIwdTQDT3CiKpo2cWAJOgTeAAF6zDzzozTj63WyO0daLAG
+	c3sgmnWPtQPSNzYH3i01Z86dBVn+lFxqHVlu3Z/01k+0MyK7HJPGdBdPLTsHZoj70VgL7eQe6d2ZD
+	EhKR7a99oxUGKOU9WwisJKEY+UH/CJHLlbJ8+3Q6A2UN1eww1Z21zhEhzN66SoyVfBwIzZh/u7AUq
+	W4Iz7XTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Vma-0000000EGs5-29J8;
-	Thu, 17 Apr 2025 20:24:24 +0000
-Received: from out-182.mta0.migadu.com ([91.218.175.182])
+	id 1u5W3f-0000000EJ0G-1ZwG;
+	Thu, 17 Apr 2025 20:42:03 +0000
+Received: from out-173.mta1.migadu.com ([95.215.58.173])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Vhy-0000000EGO7-1Tm4
+	id 1u5W1o-0000000EIiu-11w5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 20:19:40 +0000
-Date: Thu, 17 Apr 2025 16:19:26 -0400
+	Thu, 17 Apr 2025 20:40:10 +0000
+Date: Thu, 17 Apr 2025 16:39:56 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
-	s=key1; t=1744921171;
+	s=key1; t=1744922402;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=qCVV96dJMcjv/QwI7jUJEJjXmkeeqGgfyHC8Tptyc9k=;
-	b=VZVbwhMyzExCTdelmD+YtGEOvSYjnW94qIJ3pG2W3JLQ8FOVRrR4ubFu9p1SBbkBb3bHOI
-	72CiXjy8pRPnYrpbVMKw2llhwYBNGjdnvjj8kmQzA92Utxpfo4v1uCmjrQqbm90C32gLiR
-	vnva1vri38rkQMtWjqGyYcUHmNj5Of0RESc24jBRUpcVa0iWieZDkC9ZWpxOFlbuUTTXLy
-	wInaslIJH4dS+LIuzc3OqNkmLpWAir8C5x8IoymZVAIIzcs/duGvlM2Eg0pPfdelwgVVlv
-	m2E4UVTkTqXWwHzI6EnqQz5uiilcIycJPySG3zXZSX+trFpT53MB7d5x/IkWBQ==
+	bh=KzO6F4FFtyFyATTtMp481S5NCp9VVguPoo6SfeBb16I=;
+	b=xA3w6PLwfcpyZQZZB01hOMCyuCNSZM/ra0338yL62tabVvYiR8ZIHWf3u93ytA+/E6oQ+H
+	Qpb2g3PQUT6jdwikmih3GbHgixsbZ1UmmHTA/rdzehCD4/ngxBpdnY59FsrN/LFGgip1E7
+	beJnPlVDJhgsGiT46ix5O+jcN/LJNLjG2Ek5QEYAqsCaD10G7Gf94W2Fb7dSPqMGEGwAHD
+	IxQdmYmICQqckRwJweWEsOmY2W7q7AX0cZIiavg1vEY7LVGcSkkLWMPpxt6UlCXpiNKtTx
+	rLbz9xjrxtpDqJi1uVkm2UzDvdurKBoZhfb6DbTAmqoc79b7QRXhlfAEyNLOUA==
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
 To: fnkl.kernel@gmail.com
@@ -50,20 +50,20 @@ Cc: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/3] dt-bindings: spmi: Add generic SPMI NVMEM
-Message-ID: <aAFiTtkcJ8VM9tXo@blossom>
+	linux-kernel@vger.kernel.org, Hector Martin <marcan@marcan.st>
+Subject: Re: [PATCH v2 2/3] nvmem: Add spmi-nvmem driver
+Message-ID: <aAFnHNSQ_4Kvo6WR@blossom>
 References: <20250417-spmi-nvmem-v2-0-b88851e34afb@gmail.com>
- <20250417-spmi-nvmem-v2-1-b88851e34afb@gmail.com>
+ <20250417-spmi-nvmem-v2-2-b88851e34afb@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250417-spmi-nvmem-v2-1-b88851e34afb@gmail.com>
+In-Reply-To: <20250417-spmi-nvmem-v2-2-b88851e34afb@gmail.com>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_131938_919276_4864B76F 
-X-CRM114-Status: GOOD (  14.93  )
+X-CRM114-CacheID: sfid-20250417_134008_734615_29388936 
+X-CRM114-Status: GOOD (  27.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,89 +80,142 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Reviewed-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
 
-Le Thu , Apr 17, 2025 at 10:14:49PM +0200, Sasha Finkelstein via B4 Relay a écrit :
-> From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+Le Thu , Apr 17, 2025 at 10:14:50PM +0200, Sasha Finkelstein via B4 Relay a écrit :
+> From: Hector Martin <marcan@marcan.st>
 > 
-> Add bindings for exposing SPMI registers as NVMEM cells
+> This driver exposes a SPMI device as an NVMEM device.
+> It is intended to be used with e.g. PMUs/PMICs that are used to
+> hold power management configuration, such as used on Apple Silicon
+> Macs.
 > 
+> Reviewed-by: Neal Gompa <neal@gompa.dev>
+> Signed-off-by: Hector Martin <marcan@marcan.st>
+> Co-developed-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
 > Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
 > ---
->  .../devicetree/bindings/nvmem/spmi-nvmem.yaml      | 54 ++++++++++++++++++++++
->  MAINTAINERS                                        |  1 +
->  2 files changed, 55 insertions(+)
+>  MAINTAINERS                |  1 +
+>  drivers/nvmem/Kconfig      | 13 ++++++++++
+>  drivers/nvmem/Makefile     |  2 ++
+>  drivers/nvmem/spmi-nvmem.c | 62 ++++++++++++++++++++++++++++++++++++++++++++++
+>  4 files changed, 78 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/nvmem/spmi-nvmem.yaml b/Documentation/devicetree/bindings/nvmem/spmi-nvmem.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..d16b27128f97b5d38fb6ddb5109c70cda5e2ee15
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/nvmem/spmi-nvmem.yaml
-> @@ -0,0 +1,54 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/nvmem/spmi-nvmem.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Generic SPMI NVMEM
-> +
-> +description: Exports a series of SPMI registers as NVMEM cells
-> +
-> +maintainers:
-> +  - Sasha Finkelstein <fnkl.kernel@gmail.com>
-> +
-> +allOf:
-> +  - $ref: nvmem.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - enum:
-> +          - apple,maverick-pmic
-> +          - apple,sera-pmic
-> +          - apple,stowe-pmic
-> +      - const: spmi-nvmem
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/spmi/spmi.h>
-> +
-> +    pmic@f {
-> +        compatible = "apple,maverick-pmic", "spmi-nvmem";
-> +        reg = <0xf SPMI_USID>;
-> +
-> +        nvmem-layout {
-> +            compatible = "fixed-layout";
-> +            #address-cells = <1>;
-> +            #size-cells = <1>;
-> +
-> +            boot_stage: boot-stage@6001 {
-> +                reg = <0x6001 0x1>;
-> +            };
-> +        };
-> +    };
-> +
-> +...
 > diff --git a/MAINTAINERS b/MAINTAINERS
-> index 96b82704950184bd71623ff41fc4df31e4c7fe87..e7b2d0df81b387ba5398957131971588dc7b89dc 100644
+> index e7b2d0df81b387ba5398957131971588dc7b89dc..63c12f901aed1f3e6de8227d6db34af1bd046fe6 100644
 > --- a/MAINTAINERS
 > +++ b/MAINTAINERS
-> @@ -2277,6 +2277,7 @@ F:	Documentation/devicetree/bindings/mailbox/apple,mailbox.yaml
->  F:	Documentation/devicetree/bindings/net/bluetooth/brcm,bcm4377-bluetooth.yaml
->  F:	Documentation/devicetree/bindings/nvme/apple,nvme-ans.yaml
->  F:	Documentation/devicetree/bindings/nvmem/apple,efuses.yaml
-> +F:	Documentation/devicetree/bindings/nvmem/spmi-nvmem.yaml
->  F:	Documentation/devicetree/bindings/pci/apple,pcie.yaml
->  F:	Documentation/devicetree/bindings/pinctrl/apple,pinctrl.yaml
->  F:	Documentation/devicetree/bindings/power/apple*
+> @@ -2298,6 +2298,7 @@ F:	drivers/iommu/io-pgtable-dart.c
+>  F:	drivers/irqchip/irq-apple-aic.c
+>  F:	drivers/nvme/host/apple.c
+>  F:	drivers/nvmem/apple-efuses.c
+> +F:	drivers/nvmem/spmi-nvmem.c
+>  F:	drivers/pinctrl/pinctrl-apple-gpio.c
+>  F:	drivers/pwm/pwm-apple.c
+>  F:	drivers/soc/apple/*
+> diff --git a/drivers/nvmem/Kconfig b/drivers/nvmem/Kconfig
+> index 8671b7c974b933e147154bb40b5d41b5730518d2..c25c599fc79648e890ccc4e003224c9a218f393f 100644
+> --- a/drivers/nvmem/Kconfig
+> +++ b/drivers/nvmem/Kconfig
+> @@ -310,6 +310,19 @@ config NVMEM_SNVS_LPGPR
+>  	  This driver can also be built as a module. If so, the module
+>  	  will be called nvmem-snvs-lpgpr.
+>  
+> +config NVMEM_SPMI
+> +	tristate "Generic SPMI NVMEM"
+> +	depends on SPMI
+> +	select REGMAP_SPMI
+> +	help
+> +	  Say y here to build a generic driver to expose a SPMI device
+> +	  as a NVMEM provider. This can be used for PMIC/PMU devices which
+> +	  are used to store power and RTC-related settings on certain
+> +	  platforms, such as Apple Silicon Macs.
+> +
+> +	  This driver can also be built as a module. If so, the module
+> +	  will be called nvmem-spmi.
+> +
+>  config NVMEM_SPMI_SDAM
+>  	tristate "SPMI SDAM Support"
+>  	depends on SPMI
+> diff --git a/drivers/nvmem/Makefile b/drivers/nvmem/Makefile
+> index 5b77bbb6488bf89bfb305750a1cbf4a6731a0a58..b639f4284184db026bb27b11e04d54b8f7ff166f 100644
+> --- a/drivers/nvmem/Makefile
+> +++ b/drivers/nvmem/Makefile
+> @@ -64,6 +64,8 @@ obj-$(CONFIG_NVMEM_SC27XX_EFUSE)	+= nvmem-sc27xx-efuse.o
+>  nvmem-sc27xx-efuse-y			:= sc27xx-efuse.o
+>  obj-$(CONFIG_NVMEM_SNVS_LPGPR)		+= nvmem_snvs_lpgpr.o
+>  nvmem_snvs_lpgpr-y			:= snvs_lpgpr.o
+> +obj-$(CONFIG_NVMEM_SPMI)		+= nvmem_spmi.o
+> +nvmem_spmi-y				:= spmi-nvmem.o
+>  obj-$(CONFIG_NVMEM_SPMI_SDAM)		+= nvmem_qcom-spmi-sdam.o
+>  nvmem_qcom-spmi-sdam-y			+= qcom-spmi-sdam.o
+>  obj-$(CONFIG_NVMEM_SPRD_EFUSE)		+= nvmem_sprd_efuse.o
+> diff --git a/drivers/nvmem/spmi-nvmem.c b/drivers/nvmem/spmi-nvmem.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..fff6162cb22dd7ab45883f004f5b63ebae014698
+> --- /dev/null
+> +++ b/drivers/nvmem/spmi-nvmem.c
+> @@ -0,0 +1,62 @@
+> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
+> +/*
+> + * Generic SPMI NVMEM driver
+> + *
+> + * Copyright The Asahi Linux Contributors
+> + */
+> +
+> +#include <linux/kernel.h>
+> +#include <linux/module.h>
+> +#include <linux/nvmem-provider.h>
+> +#include <linux/of.h>
+> +#include <linux/spmi.h>
+> +#include <linux/regmap.h>
+> +
+> +static const struct regmap_config spmi_regmap_config = {
+> +	.reg_bits	= 16,
+> +	.val_bits	= 8,
+> +	.max_register	= 0xffff,
+> +};
+> +
+> +static int spmi_nvmem_probe(struct spmi_device *sdev)
+> +{
+> +	struct regmap *regmap;
+> +	struct nvmem_config nvmem_cfg = {
+> +		.dev = &sdev->dev,
+> +		.name = "spmi_nvmem",
+> +		.id = NVMEM_DEVID_AUTO,
+> +		.word_size = 1,
+> +		.stride = 1,
+> +		.size = 0xffff,
+> +		.reg_read = (void *)regmap_bulk_read,
+> +		.reg_write = (void *)regmap_bulk_write,
+> +	};
+> +
+> +	regmap = devm_regmap_init_spmi_ext(sdev, &spmi_regmap_config);
+> +	if (IS_ERR(regmap))
+> +		return PTR_ERR(regmap);
+> +
+> +	nvmem_cfg.priv = regmap;
+> +
+> +	return PTR_ERR_OR_ZERO(devm_nvmem_register(&sdev->dev, &nvmem_cfg));
+> +}
+> +
+> +static const struct of_device_id spmi_nvmem_id_table[] = {
+> +	{ .compatible = "spmi-nvmem" },
+> +	{ },
+> +};
+> +MODULE_DEVICE_TABLE(of, spmi_nvmem_id_table);
+> +
+> +static struct spmi_driver spmi_nvmem_driver = {
+> +	.probe = spmi_nvmem_probe,
+> +	.driver = {
+> +		.name = "spmi-nvmem",
+> +		.of_match_table	= spmi_nvmem_id_table,
+> +	},
+> +};
+> +
+> +module_spmi_driver(spmi_nvmem_driver);
+> +
+> +MODULE_LICENSE("Dual MIT/GPL");
+> +MODULE_AUTHOR("Hector Martin <marcan@marcan.st>");
+> +MODULE_DESCRIPTION("SPMI NVMEM driver");
 > 
 > -- 
 > 2.49.0
