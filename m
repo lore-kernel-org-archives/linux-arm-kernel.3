@@ -4,74 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3F6EC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 15:02:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DAF4C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 15:04:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OFcg3D+CQA9BR++mfH+p1kbaPcETQApGzTbRYTZmDno=; b=YjCzDRtuBNqsf04JUwkHuwvFvZ
-	rnY9pgMbVZHW1bPr/n9rIkO4WIwAyEVbNsp/EfDuW6A8D4TmNp5dRC+hOZhxNFNOFJQuZrIDg48JU
-	ypCVSmnUyTdpsc+Z+NhNtqpHOkzyrGg0NNLxkTnxSRiZal5tFtf/3d3LcCFSFEKJEmlVkiyWuvp2w
-	jHic6n5AVBmwcO73lHMo+jHlDaDRqfgwnAQUi3fOIw2pBftRuQLhCvaNKFe5He2b/LqFTqdIT9G6U
-	KhOxAv2/RTYAbK8QtdlRwZCtIEoVJhVXdEti25bVjZjlSonReQNmufLc2s5ukakQIUEWdYJsx2Q9Z
-	j5rcSPhw==;
+	bh=ijSP3IdW2jFgrVaxB1dX+pJFn9bKvd47Sxdf7jq7TwM=; b=zoJJEXr+mQ6rjUGa/HIrQ0Uyxn
+	TixMQUq1varWZJadvomQNml0b7nP4P0dMEnOP5b/jvqPfpUs+S0lpUwz01VhJKhpFHHXf0OsgHBrY
+	IBDxo5P/STuI3pC/aFMxC0JgtkdMgHMophlyhPeXulXK//lzrohE4iw3Z0g5h5YyMCF6UiG1d8obV
+	cZ1F8/fGWlSqiwr7eKTKRriQdswKdy47qy12CSsnGs5wqzfsyMJJ0Z1cIlNEfNZc7onM1aOOn6Ol9
+	ct+2V6Y3g3zR6T8RC+FMDf96f34v2wkVtl7cagly+m7xz0kEXscijL8P9Y7F6xi0ma7Rmf9Fbtixm
+	tSRYepFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Ql1-0000000DQFq-2kaN;
-	Thu, 17 Apr 2025 15:02:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u5Qmr-0000000DQSb-2qco;
+	Thu, 17 Apr 2025 15:04:21 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5QDb-0000000DJLe-3uam
+	id 1u5QDe-0000000DJMZ-3ykQ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 17 Apr 2025 14:27:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=ijSP3IdW2jFgrVaxB1dX+pJFn9bKvd47Sxdf7jq7TwM=; b=GRmP2Jvs9k2YCM7cpBW2hpG1Nn
+	8+3OsriEotFHXy0oNB1+wdeiH0oLAJFApjUPiHsDgLh4pP4+fHCAggv2sjFICHvzKiwo5sISG0Len
+	tyDLQhpWceJlF+U1yi7T2RNbYRXXwvdv8IbsxM9cHSq2J2LW5IzpiO430LWjz3wo4RpQzO+d6Cf9p
+	ezwGWbvTcleK88YtUHF1khRJv+TDqYhpwjYtYaZcB9yHicx8+gu+6afJ6+bbRW0uEybiIvsNhZ6j1
+	oiawIkEar6IeNXlb7S2PGEXiIrrGV/jHz/VSnQaZRHbLMKD/BXceAvecwptjUJuCI/ojeWnzW7Xg7
+	hjpVkuow==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u5QDb-0000000AJEO-225S
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 17 Apr 2025 14:27:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6BCD949B99;
-	Thu, 17 Apr 2025 14:27:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85066C4CEE4;
-	Thu, 17 Apr 2025 14:27:52 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 124C3A4B41C;
+	Thu, 17 Apr 2025 14:22:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77F17C4CEEA;
+	Thu, 17 Apr 2025 14:27:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744900075;
-	bh=m5ffm3GL0s490Ji0qAeVsgvxw9sdNIOdZU+SRNY4CGA=;
+	s=k20201202; t=1744900072;
+	bh=OPly8D2XQu2bxfiyA5S6Ib+YauTHnSi9SxZQPh7ctz0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=gALtF2FQhfhGku6VNrV78WL4sU7Eaw2X+uzxniSyNE3QKX6gRro2e6E/F3ZTnm82X
-	 UJz+4Al51eWjIIYLAtJiWlDtqo/FF60sQk8JBmp6V1HQQsHngygigVp34t7oGzecPG
-	 nTlAoDmMnaLz3dFNbWMzRaMAA4O6FPuan+cOtALnyhtGdygnsMXd+cfJ4wbVwCh5h0
-	 1pFGN7giho0jrnLdBYpuUKwxDZqK/j998Jr1FfrXCo8ooe4dd7FqDp29AY8Di/9xPf
-	 o2ZASfv839k+sGSCAyqomIfnBzdYgvHVN0jBbknOdSBSxkgecpy298loozyUGqvJH4
-	 +jBcPCqaSeqNQ==
+	b=rzrWfm7XoLjvVMKrTdk+TFsnQRA9SBfxaDwgJicMXGC2Xamdh3oUMB8EekTeP+Def
+	 bcAKZidsE0o3QbxoxDd65oR2vAFnubxqdTkaDE/wonU2wz6jgwepX2ErJd1SaHtFKr
+	 v6qQ2ueHfRXy0zJXSgbdbsmgyNpQ++Cnn4eGVedKZc7Av6B5OnGi/hCJSOvASeihcq
+	 Ht8K6YqRCpbhPgDZ19cV4fsRPqCw/f6FQRxxX2Sov91ldWY0NLb35UJikxLkibkBLi
+	 O2JxRYokwXR2is2t98A+nEacDNP2NrmuaIvzLihAM5yAyIfEb1+GjWq6c62HF/in4B
+	 gfpBREDoFUw8w==
 From: Will Deacon <will@kernel.org>
-To: robin.murphy@arm.com,
-	Nicolin Chen <nicolinc@nvidia.com>
+To: Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	joro@8bytes.org,
-	jsnitsel@redhat.com,
-	kevin.tian@intel.com,
-	praan@google.com,
-	zhukeqian1@huawei.com,
-	Jonathan.Cameron@huawei.com,
-	jean-philippe@linaro.org,
-	eric.auger@redhat.com,
-	linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Jason Gunthorpe <jgg@ziepe.ca>
-Subject: Re: [PATCH rc v2] iommu/arm-smmu-v3: Fix iommu_device_probe bug due to duplicated stream ids
-Date: Thu, 17 Apr 2025 15:27:28 +0100
-Message-Id: <174488987895.911007.3600084862328161208.b4-ty@kernel.org>
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH] perf: Do not enable by default during compile testing
+Date: Thu, 17 Apr 2025 15:27:27 +0100
+Message-Id: <174489653742.2697847.1079663986499485577.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20250415185620.504299-1-nicolinc@nvidia.com>
-References: <20250415185620.504299-1-nicolinc@nvidia.com>
+In-Reply-To: <20250417074650.81561-1-krzysztof.kozlowski@linaro.org>
+References: <20250417074650.81561-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_072756_123902_5D42949E 
-X-CRM114-Status: UNSURE (   5.68  )
+X-CRM114-CacheID: sfid-20250417_152755_737593_3654C8ED 
+X-CRM114-Status: UNSURE (   6.98  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,26 +93,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 15 Apr 2025 11:56:20 -0700, Nicolin Chen wrote:
-> ASPEED VGA card has two built-in devices:
->  0008:06:00.0 PCI bridge: ASPEED Technology, Inc. AST1150 PCI-to-PCI Bridge (rev 06)
->  0008:07:00.0 VGA compatible controller: ASPEED Technology, Inc. ASPEED Graphics Family (rev 52)
+On Thu, 17 Apr 2025 09:46:50 +0200, Krzysztof Kozlowski wrote:
+> Enabling the compile test should not cause automatic enabling of all
+> drivers, but only allow to choose to compile them.
 > 
-> Its toplogy looks like this:
->  +-[0008:00]---00.0-[01-09]--+-00.0-[02-09]--+-00.0-[03]----00.0  Sandisk Corp Device 5017
->                              |               +-01.0-[04]--
->                              |               +-02.0-[05]----00.0  NVIDIA Corporation Device
->                              |               +-03.0-[06-07]----00.0-[07]----00.0  ASPEED Technology, Inc. ASPEED Graphics Family
->                              |               +-04.0-[08]----00.0  Renesas Technology Corp. uPD720201 USB 3.0 Host Controller
->                              |               \-05.0-[09]----00.0  Realtek Semiconductor Co., Ltd. RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller
->                              \-00.1  PMC-Sierra Inc. Device 4028
 > 
-> [...]
 
-Applied to iommu (arm/smmu/fixes), thanks!
+Applied to will (for-next/perf), thanks!
 
-[1/1] iommu/arm-smmu-v3: Fix iommu_device_probe bug due to duplicated stream ids
-      https://git.kernel.org/iommu/c/b00d24997a11
+[1/1] perf: Do not enable by default during compile testing
+      https://git.kernel.org/will/c/70cbcb2850ec
 
 Cheers,
 -- 
