@@ -4,67 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0C19C369CA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 08:53:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7928C369C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 08:55:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J48PnJQNA9AsUd2AP1V+sjTsrszPFucbM5pFiijF4DM=; b=biuMvTtGSLqmeapLhScqdJFRvi
-	kEKTJ9IDN11Hf8mnt83GyOeN5CAHDawPxfuUEktBrwIPt3uA+fDVrKUjHtO/lcmZlRCWS/nqKBIbd
-	pvU+XAPlZs+LsnxllMewD3SXCzJvV6g1sy3zl88wf+XxY3b+jhDexvN5caGw2t5FPuy09kcA6EN8Q
-	OKIIpJ+dZ4s8fe4CZ4n2F7AZEBY6KwAec2jNEH+ttZT2rnVK8fr6JIYETnk8yoVsX8cbaIQW4El+B
-	er6uLpcWuS25GXe0IuuGLs4LTm8SEfVzuUkxcXWJ+hmOHoA+YxnGRMPY9FWjMX6OBQJugVA8/adcX
-	YU9oMcYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Pgz/ITbfkZSN0vK7zINoFs1WSTDtBwDQ4q5LKkyjsCc=; b=jzblD6DG+sivqx
+	debTEAu7Pa/3uerF+JePlWrIzn0yjNOQJl4WxJP7KZxK/hVoDiGeUYS2Cgn2IM+YHH3FUYqplSLfI
+	poESglapnwbU8c6zyZasNq9RB5d+WNk+jfMzuwwGo3o49c1QlzQKLPMl8KClsuJhHTqKAewYv/asO
+	P0Z+JKwttyJ2ptSIkvZuJGthAmKugfAUAKBXjCpNKeLgojChZiCFpV8NUf/r6V7Ebg0BbfYDnj1lX
+	47C7pRC88HYp340tp5Ad0Feh4TLiYJJ5wRPwwOKGHYEXi9btTs+UzjmgQVPv+tAe1h05BYow3KOba
+	RYC8WMJ8sY9bs6v2ezAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Kzm-0000000CLM4-2IWL;
-	Thu, 17 Apr 2025 08:53:18 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u5L1b-0000000CLgD-0ukp;
+	Thu, 17 Apr 2025 08:55:11 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5KrB-0000000CJa4-42hE
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 08:44:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8CC5C6842A;
-	Thu, 17 Apr 2025 08:44:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB73EC4CEE4;
-	Thu, 17 Apr 2025 08:44:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744879464;
-	bh=A9Faa6Hi06Qb+FMxB+xHx14Tv/SX93t05l35ho7ZmuU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=N+KQFRw0/kn8KZrGZh2+3SvkvdkVsh3YQgjbvbIMID2194SEhzy5tJwwcadGkgjyQ
-	 h4u33pTtYqlqrPwvt5l2l13hs+wu8TUkn9gnITtPrW6almo9xbnF9NdZSiYSJ94j2s
-	 yb4FPaO2fpWJHRkBYu+zSAXKEPpxB75JAUuUMSBRoOunyYM0ncdt+e61gQRWGo/yD3
-	 a2IUbCqey4ePsOGn/ByP5xOVJSL9m8gZ+kFKbSfZ5M9ViDRNofhKDQMyef3/+jBhdF
-	 2t5pcwFHDZhObOAxf8IzV86b5pTgTiTeCFv1Rmly0HCCUhIEiywIoPkIqnZPmeGq2Y
-	 UAC1wYop90Qqg==
-Received: from johan by xi.lan with local (Exim 4.97.1)
-	(envelope-from <johan@kernel.org>)
-	id 1u5KrA-000000001ZO-0bIc;
-	Thu, 17 Apr 2025 10:44:24 +0200
-Date: Thu, 17 Apr 2025 10:44:24 +0200
-From: Johan Hovold <johan@kernel.org>
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, sudeep.holla@arm.com,
-	james.quinlan@broadcom.com, f.fainelli@gmail.com,
-	vincent.guittot@linaro.org, peng.fan@oss.nxp.com,
-	michal.simek@amd.com, quic_sibis@quicinc.com,
-	dan.carpenter@linaro.org, maz@kernel.org
-Subject: Re: [PATCH 2/4] firmware: arm_scmi: Add Quirks framework
-Message-ID: <aAC_aPHD4Ik-DW0x@hovoldconsulting.com>
-References: <20250415142933.1746249-1-cristian.marussi@arm.com>
- <20250415142933.1746249-3-cristian.marussi@arm.com>
- <Z__UJUKaMRoFLYLc@hovoldconsulting.com>
- <Z__cuT5IW0Sbjqpg@pluto>
+	id 1u5KrN-0000000CJdS-3f8d;
+	Thu, 17 Apr 2025 08:44:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1744879475;
+	bh=oaWT++y0OSwcpZmlTIyBCOuZGKUE0+SBgo9PMt1ddV8=;
+	h=From:Subject:Date:To:Cc:From;
+	b=b9+tPYR8aGgbxYUPn0moeEHifiE7zSORuK2Yf9fXzymoNjorIS2ecYwnPGyQ93b4f
+	 +PwYbftaWJIX+e+UTbRXdp+e377R8x94BbilGEvdgxtsCIvvb/jOtX8cn5eO/Oekwt
+	 FnBDcvRNq5k5gQV95VKiDh/aohIOz16yewFotG7do+JxXmO0xtX9Fq4tXdI9yWKq1/
+	 xMEDRmlThS5IGYRbobFC49XGx1/n9afyA6ftJLxObZLwEisMGHts69IZMJFR+cHkO/
+	 E/Vbkamu0AwKyPxfklhMyHQPpF8acheWSxP9eh3vj3L0m5XBsfZ/YCje9+fn53UurL
+	 73R2cCXueTAkA==
+Received: from apertis-1.home (2a01cb0892F2d600c8f85Cf092d4af51.ipv6.abo.wanadoo.fr [IPv6:2a01:cb08:92f2:d600:c8f8:5cf0:92d4:af51])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: jmassot)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id ACE6317E0FA7;
+	Thu, 17 Apr 2025 10:44:34 +0200 (CEST)
+From: Julien Massot <julien.massot@collabora.com>
+Subject: [PATCH 0/6] ASoC: mt8195: Add support for MT8395 Radxa NIO 12L
+ with MT6359 codec
+Date: Thu, 17 Apr 2025 10:44:31 +0200
+Message-Id: <20250417-mt8395-audio-sof-v1-0-30587426e5dd@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z__cuT5IW0Sbjqpg@pluto>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAG+/AGgC/x3MTQqAIBBA4avErBsw7f8q0cJyrFmUoRWBdPek5
+ bd4L0IgzxSgzyJ4ujmw2xOKPIN51ftCyCYZpJCVKIsGt7NVXYX6MuwwOIuT1nKuZSuUsZCyw5P
+ l518O4/t+lwsrSGIAAAA=
+X-Change-ID: 20250417-mt8395-audio-sof-baa2c62803df
+To: kernel@collabora.com, Liam Girdwood <lgirdwood@gmail.com>, 
+ Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Trevor Wu <trevor.wu@mediatek.com>
+Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ devicetree@vger.kernel.org, Julien Massot <julien.massot@collabora.com>
+X-Mailer: b4 0.14.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250417_014438_065647_F533AB70 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,56 +82,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 16, 2025 at 05:37:13PM +0100, Cristian Marussi wrote:
-> On Wed, Apr 16, 2025 at 06:00:37PM +0200, Johan Hovold wrote:
-> > On Tue, Apr 15, 2025 at 03:29:31PM +0100, Cristian Marussi wrote:
+This patch series adds support for audio playback on the MT8395-based Radxa NIO 12L platform, which uses the integrated MT6359 codec via internal DAI links.
 
-> > > +static void scmi_enable_matching_quirks(struct scmi_info *info)
-> > > +{
-> > > +	struct scmi_revision_info *rev = &info->version;
-> > > +	const char *compatible = NULL;
-> > > +	struct device_node *root;
-> > > +
-> > > +	root = of_find_node_by_path("/");
-> > > +	if (root) {
-> > > +		of_property_read_string(root, "compatible", &compatible);
-> > 
-> > Looks like you still only allow matching on the most specific compatible
-> > string.
-> > 
-> > As we discussed in the RFC thread, this will result in one quirk entry
-> > for each machine in a SoC family in case the issue is not machine
-> > specific.
-> 
-> Well, yes but the solution would be to add multiple compatible on the
-> same quirk line, which is definitely less cumbersome than adding
-> multiple quirk defs for the same quirk but does NOT scale anyway....
-> 
-> ...anyway I will add that possibility..or I am missing something more ?
+Key additions:
+- Support for a new `mediatek,mt8195_mt6359` card configuration that does not rely on external codecs like rt5682.
+- Proper memory region declarations and pinctrl setup for the audio front-end (AFE) and audio DSP (ADSP).
+- A device tree sound node for headphone audio routing using `DL_SRC_BE` and `AIF1`.
+- Enhancements to the DT bindings to document the new compatible string, missing link-name, and additional audio routes (Headphone L/R).
 
-I was referring to the need to match on other compatible strings than
-the most specific one. For the ThinkPad T14s the strings are:
+Signed-off-by: Julien Massot <julien.massot@collabora.com>
+---
+Julien Massot (6):
+      ASoC: mediatek: mt8195: Move rt5682 specific dapm routes
+      ASoC: mediatek: mt8195: Set ETDM1/2 IN/OUT to COMP_DUMMY()
+      ASoC: mediatek: mt8195: Add mt8195-mt6359 card
+      ASoC: dt-bindings: mt8195: add compatible mt8195_mt6359
+      ASoC: dt-bindings: mt8195: add missing audio routing and link-name
+      mt8395-radxa-nio-12l: Add sound node for headphone
 
-	"lenovo,thinkpad-t14s-lcd", "lenovo,thinkpad-t14s",
-	"qcom,x1e78100", "qcom,x1e80100"
+ .../devicetree/bindings/sound/mt8195-mt6359.yaml   |  4 ++
+ .../boot/dts/mediatek/mt8395-radxa-nio-12l.dts     | 58 +++++++++++++++++++++-
+ sound/soc/mediatek/mt8195/mt8195-mt6359.c          | 39 ++++++++++++---
+ 3 files changed, 92 insertions(+), 9 deletions(-)
+---
+base-commit: f660850bc246fef15ba78c81f686860324396628
+change-id: 20250417-mt8395-audio-sof-baa2c62803df
 
-Here you most certainly would not want to match on
-"lenovo,thinkpad-t14s-lcd" but rather on "lenovo,thinkpad-t14s" or one
-of the SoC compatibles.
+Best regards,
+-- 
+Julien Massot <julien.massot@collabora.com>
 
-For the FC quirk we may have to match on compatible and then a single
-SoC entry could cover tens of machines (and their SKU variants).
-
-of_machine_is_compatible() can be used to match on any compatible
-string, but not sure if that fits with your current implementation.
- 
-> > > +		of_node_put(root);
-> > > +	}
-> > > +
-> > > +	/* Enable applicable quirks */
-> > > +	scmi_quirks_enable(info->dev, compatible,
-> > > +			   rev->vendor_id, rev->sub_vendor_id, rev->impl_ver);
-> > > +}
-
-Johan
 
