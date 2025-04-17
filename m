@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9796C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 11:27:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E85AC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 11:29:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Message-ID:Date:From:Cc:To:Subject:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QH+76bjkLlUGndRqAMlq8Stk+rrtjLjHXUx3Doqb0/I=; b=tQnYPLq8T3ZUr1wfzIqq0HYtJq
-	7EB6GY7t9G8Sww7ZqoauegAnhv7P1G+ZNx6wO5IDYprWxu9G6ZEvVMmpi3DproH7uAoYRyFcESnQL
-	1vZdAH1Ap/BubKeXW2S6pVVOPibVgZ2Cm7y+u7Wyq7lh0xH6nZvlorH2gQ+FZB2pDVUHYJfb8XnGt
-	rYz1dGH9Ol19VTwNHVF0VukNtM9Tl6QFNPE9ToTPomIbCut4jFzvFjqqRWEIYhz01/Cbq3LXBnL4p
-	5l8POgyR95ZaQhceKxKElFRGrzbbY1hL/D65vDe/8BgMHGORMYXmnGp1XwWOcCH+GAoZtbb0ZUlTL
-	KYXzLX0A==;
+	bh=c4N9AKJYboxDxC5q9MrhuVtQLnHpI3NC+HAWRo7UUwU=; b=kGNIgjKS3jNdTySmphSqGi+7VH
+	OjzposiwrwwiX06eglpccE5fHMH8vjJCnN9PE7JOf7NTcDwTDR5x9xyHi9F8iKG/iujrzagwd3yS9
+	Rsu7n3t4Jnzhn+Nc2SJlpKBqIOT6HApfxDKCF+quyXwxyW/gvFSynVL2ErhUV6Ch6CsMmdt4/BP1P
+	tSQ1N9MuV9GYdnHGQ1e8qoLaVAFCpuPh2CkvX73LhiOhKM7Y3ZdZatkvCv5Qmqc9aGaM3PGBvFZZM
+	H3+v2P2AIwPluZgEKQwhZg+C3KcqIfggtWGeHht9zoIF6Edi5LFEGTLW5z3bUs8oHSov9We1S9gU6
+	cpe4UPqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5NP2-0000000Cn5S-29sz;
-	Thu, 17 Apr 2025 11:27:32 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u5NRB-0000000CnZP-1Cmr;
+	Thu, 17 Apr 2025 11:29:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5NNA-0000000CmrA-1FQP
+	id 1u5NPJ-0000000CnAf-291W
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 11:25:37 +0000
+	Thu, 17 Apr 2025 11:27:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 0FBD5A4B302;
-	Thu, 17 Apr 2025 11:20:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE808C4CEE4;
-	Thu, 17 Apr 2025 11:25:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 197C24A1CB;
+	Thu, 17 Apr 2025 11:27:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FE79C4CEEB;
+	Thu, 17 Apr 2025 11:27:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1744889135;
-	bh=v6mh+azhxCn2r6qxPf6M7mbYgBekgsHmsd9tUIUtN6I=;
+	s=korg; t=1744889269;
+	bh=P+bjTY6f0myZ+6wPk5RyM6jAgsEe6k1Hl4zvwYqUHLs=;
 	h=Subject:To:Cc:From:Date:From;
-	b=JYEGiy9YbmIfLygAOkLw/8PMUf4l5nxMp6FtkR9rBG65KusMkRqw+00mdZnDyvc0S
-	 8EUGKGl14YsxdUhUB+IjHSXokT6EysLt8F9oQ+XZaPNVemhPe1qqJzWDr4XpJYki04
-	 cvHtOajrmCRGejWTYk7OcNJRerU6J2qFOhrk3Rgs=
-Subject: Patch "arm64: dts: exynos: gs101: disable pinctrl_gsacore node" has been added to the 5.15-stable tree
+	b=yraVlT4FVTO9KRIbOdsti3sgeShyfRcI5wTWd9Q1HR6ORCAehPG9xqNmYabFMktiQ
+	 IAJmT18j81zKYd/biI3d6UWGCBL+QZen6+MDTwoD0RHW2WV6+6N6kbkspTarmiww6I
+	 jSNzBBCNItx2BaLn9bSIwkXkXg70kNay3opJ8fP0=
+Subject: Patch "arm64: dts: exynos: gs101: disable pinctrl_gsacore node" has been added to the 6.12-stable tree
 To: alim.akhtar@samsung.com,andre.draszik@linaro.org,conor+dt@kernel.org,gregkh@linuxfoundation.org,kernel-team@android.com,krzk+dt@kernel.org,krzysztof.kozlowski@linaro.org,linux-arm-kernel@lists.infradead.org,peter.griffin@linaro.org,robh@kernel.org,tudor.ambarus@linaro.org,willmcvicker@google.com
 Cc: <stable-commits@vger.kernel.org>
 From: <gregkh@linuxfoundation.org>
-Date: Thu, 17 Apr 2025 13:15:05 +0200
-Message-ID: <2025041705-paltry-poncho-6369@gregkh>
+Date: Thu, 17 Apr 2025 13:15:41 +0200
+Message-ID: <2025041741-departed-gooey-2a79@gregkh>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=ANSI_X3.4-1968
 Content-Transfer-Encoding: 8bit
 X-stable: commit
 X-Patchwork-Hint: ignore 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_042536_514077_7AB9DD99 
-X-CRM114-Status: GOOD (  14.72  )
+X-CRM114-CacheID: sfid-20250417_042749_574139_13558A28 
+X-CRM114-Status: GOOD (  13.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,12 +72,12 @@ This is a note to let you know that I've just added the patch titled
 
     arm64: dts: exynos: gs101: disable pinctrl_gsacore node
 
-to the 5.15-stable tree which can be found at:
+to the 6.12-stable tree which can be found at:
     http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
 
 The filename of the patch is:
      arm64-dts-exynos-gs101-disable-pinctrl_gsacore-node.patch
-and it can be found in the queue-5.15 subdirectory.
+and it can be found in the queue-6.12 subdirectory.
 
 If you, or anyone else, feels it should not be added to the stable tree,
 please let <stable@vger.kernel.org> know about it.
@@ -117,14 +117,12 @@ Link: https://lore.kernel.org/r/20250106-contrib-pg-pinctrl_gsacore_disable-v1-1
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 ---
- arch/arm64/boot/dts/exynos/google/gs101.dtsi | 1 +
+ arch/arm64/boot/dts/exynos/google/gs101.dtsi |    1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/boot/dts/exynos/google/gs101.dtsi b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-index c5335dd59dfe..813f96089578 100644
 --- a/arch/arm64/boot/dts/exynos/google/gs101.dtsi
 +++ b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-@@ -1454,6 +1454,7 @@ pinctrl_gsacore: pinctrl@17a80000 {
+@@ -1451,6 +1451,7 @@
  			/* TODO: update once support for this CMU exists */
  			clocks = <0>;
  			clock-names = "pclk";
@@ -132,12 +130,9 @@ index c5335dd59dfe..813f96089578 100644
  		};
  
  		cmu_top: clock-controller@1e080000 {
--- 
-2.49.0
-
 
 
 Patches currently in stable-queue which might be from peter.griffin@linaro.org are
 
-queue-5.15/arm64-dts-exynos-gs101-disable-pinctrl_gsacore-node.patch
+queue-6.12/arm64-dts-exynos-gs101-disable-pinctrl_gsacore-node.patch
 
