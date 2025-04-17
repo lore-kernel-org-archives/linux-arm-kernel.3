@@ -4,100 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C768C369C9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 17:21:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0A1FC369C9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 17:23:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iJO4GXL7dOZjeP6V87YS4vJmfeGtcMABTZh3kn2uUsg=; b=FmuDsWqm7JPh7pQQZFAfvyeLGv
-	891tvhcF89uEz1ndQKxfMOIexCThcwyDwbdm5Ndr00+9GtZvxtiS4EABu9SUAE6pe5QA59QBkHhr8
-	4wIocHRBeLoHT21ElEQPZj2M1RGx2WZfVp5m06yshSIwUA7i02+FszdmhtbKolftkSE7zm5g9TBED
-	Qc9vF6RMsNKJ08r0+tU6840z1lXQu2LukyfLmRMnkU2BhOZEDmaCr8O0q/Ts6nLILDl2ttCmHnYuY
-	FjnC2/hYXo+QMC6Qi3qumjOwbI396rd/G53t6tYpe/OhdPMuM+eE0SpssqzQapJQTK1YUqZp8gkAC
-	2uFYi3jQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:Cc:To:From:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6U4ILFAnnROWvWpXm91/wKuzpauoiAfG10LJOtDhws0=; b=UAb/5Ezf+LlPC698TwHYpM8qhJ
+	EVxGRnEgol3UPWwlMyN3OEsvJX6Ir46udxW4p8Uw210VHqq7TgqQnAKhWtC52UtVTAlwzaVRWRkb6
+	hkU2GgA6W7f8XTcjlTZ9eKPnCTq2622iBiMrVcahrE6hJE0xeqpipuvwVf7zIxk2uBPAq12c8SCex
+	i6lVUJfOmPTkrz+ySV0i6oOBTo2M3OxMH/HlUiWWUybrboetsSEBBb2Xmey3dlx1T5u8zpgAW6jHT
+	rQJEDUpy2LG8QbtiEso+Ih+NawlepysuEQPrWpX4Cwoo/bMjvUOn8EYJzDHpYWhg3peER3foaq1yc
+	BCDQVVRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5SvO-0000000DpKB-1ytR;
-	Thu, 17 Apr 2025 17:21:18 +0000
-Received: from mail-oo1-xc30.google.com ([2607:f8b0:4864:20::c30])
+	id 1u5SxE-0000000Dph0-0DlY;
+	Thu, 17 Apr 2025 17:23:12 +0000
+Received: from out-177.mta0.migadu.com ([91.218.175.177])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5SiE-0000000DmMP-0EiQ
+	id 1u5Skk-0000000DmrR-0oHU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 17:07:43 +0000
-Received: by mail-oo1-xc30.google.com with SMTP id 006d021491bc7-605ff280d1fso35306eaf.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Apr 2025 10:07:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1744909661; x=1745514461; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=iJO4GXL7dOZjeP6V87YS4vJmfeGtcMABTZh3kn2uUsg=;
-        b=TMtlaQwFXTcfP8+ZqdcGGAN0q+8L1MrHDibYGk7fdrHWGaPkVdGJv/dx8qi6CakeM2
-         28c8tGCieel/bVW+P60nNzeTXbINx1YGT+dDNe7wKh/Ru96yuPh9IjMYayLbhueKaZ3w
-         OLiM55uRaXARpa9yAdRoLBx/5ibWRDvUrCcljKFBzPtwlPy+RLkF3MCcs3t39qLW30Vr
-         quRVuYd6eLpjk75dOAAsNPkB6gSdCjf3G4wSTV7VHl4TnQQP96Vv+vtIjkhSo5Qg7Xn0
-         jROIla6Ho1WsezzlSqRQQzyJXrIbgbjprfcK4EbG9/wrr+UZ84Wcgs/tlB8O5UsJztF5
-         OSwg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744909661; x=1745514461;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=iJO4GXL7dOZjeP6V87YS4vJmfeGtcMABTZh3kn2uUsg=;
-        b=FcIxjSLt1JOiQM2Mdw0LORc5KH0LAqjbID4cbIIKtg7w+wZBX1sAOkiH1u/dHbPsk6
-         1ccbioLdcXXpFWE/ppbTPeYpRglvmN0P0x47lzVM83F/DvSbiPbCOUmrqHAzDWjh/4iX
-         2fupNm/TZeWDQuH4nX7Yr5TdC1sy3b+7WMLJi1o01eAYSStnMJLAYqJIVTcQkP34bsqR
-         ohUKEspemJf0yKLbTaSUO0MQ6rrfyDsCFLmuVrZXz/5Czd0xMnj9nWJBSZ/+sceDHSQO
-         KjsLYtu6pvdZMM7gtYL3XmIgw4l+Vfs6uomx5OH7jF32F76Pkrq2lgrc7aeZIYkeats+
-         krNw==
-X-Forwarded-Encrypted: i=1; AJvYcCX/6JgGfXCwASM6Mel5PyBBKpvTXZiftIB2t6pRcfplqvMUkmy59tcgOmqif/bsGPhZ8YAKcCWhMgi261Nk+8c/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzeGSvpllOIeAt8iaOLbD87HHxUfwuUWgj8QXkB6TYqQQHTzPGy
-	EQfeQXcTZbnWvg6wC5G/pvfGdNXsrM8NJjKwrZH3/0qXnZ+ao5QjTPri8e+T0ZQ=
-X-Gm-Gg: ASbGncvw+tVS/McRrQZ7NPAAvjSKlnBpeOGJ4cGIzqaDbGsoyDLoPi5IQhrgAEu9ki7
-	/os37OPxrU9/GWxbejOlwslhrK3Qf+7M8KKpw+LfoQanqCq7J1dpaafczEq12Flh6BC8EPPdB8v
-	WuztCMTCEapzQeWcll5413Dn3F4oZ36EwMOIX7oPRnHWoT3RW6oU274+j536LtWu5ku2/yhWXBu
-	TQC6eeWVwOXm0uJO0bnRymzf9jmN6/039CgDKIXIgU9FTrPbq7w2eOgUBy7QcdKutz3kXcUa+vo
-	u7vWYTW/3WBWVaYsPdKWYRBhtTE1SMT9qvJomrompOYWL45fVoMQ/4Pafa85UB4qGv+MQAm2oLa
-	Xc5ysxwJ/TZygjhrdrg==
-X-Google-Smtp-Source: AGHT+IHbLABiWinLwjfZ0DTmEnAkfAixBYu8A7EcycIAgYoLkSVTlOq/Pw+F15KcRSPJ7k1qWk67rg==
-X-Received: by 2002:a05:6820:180c:b0:603:fada:ac47 with SMTP id 006d021491bc7-604a91e814cmr3847196eaf.1.1744909661228;
-        Thu, 17 Apr 2025 10:07:41 -0700 (PDT)
-Received: from ?IPV6:2600:8803:e7e4:1d00:c91b:eea3:7afd:2dee? ([2600:8803:e7e4:1d00:c91b:eea3:7afd:2dee])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-605ff5d8c40sm33099eaf.3.2025.04.17.10.07.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 17 Apr 2025 10:07:39 -0700 (PDT)
-Message-ID: <f4db1a95-106f-4fa4-9318-3ee172e29cdb@baylibre.com>
-Date: Thu, 17 Apr 2025 12:07:37 -0500
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6/8] iio: imu: adis16550: align buffers for timestamp
-To: Andy Shevchenko <andy@kernel.org>
-Cc: Jonathan Cameron <jic23@kernel.org>, =?UTF-8?Q?Nuno_S=C3=A1?=
- <nuno.sa@analog.com>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Lars-Peter Clausen <lars@metafoo.de>,
- Michael Hennerich <Michael.Hennerich@analog.com>,
- Cosmin Tanislav <cosmin.tanislav@analog.com>,
- Tomasz Duszynski <tduszyns@gmail.com>,
- Jean-Baptiste Maneyrol <jean-baptiste.maneyrol@tdk.com>,
- Andreas Klinger <ak@it-klinger.de>, Petre Rodan
- <petre.rodan@subdimension.ro>, linux-iio@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-References: <20250417-iio-more-timestamp-alignment-v1-0-eafac1e22318@baylibre.com>
- <20250417-iio-more-timestamp-alignment-v1-6-eafac1e22318@baylibre.com>
- <aAEzeY_p6a8Pr-zn@smile.fi.intel.com>
-From: David Lechner <dlechner@baylibre.com>
-Content-Language: en-US
-In-Reply-To: <aAEzeY_p6a8Pr-zn@smile.fi.intel.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Thu, 17 Apr 2025 17:10:19 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1744909795;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=6U4ILFAnnROWvWpXm91/wKuzpauoiAfG10LJOtDhws0=;
+	b=xRrOkl+qGnYLA+AOqsbB9LjK1LWPYQy1oz8Y+rZWCD7iABshDYz1KUdZGcAdgbdurKya1R
+	CmI/fAI+abH5jKptTBlaXXuXzSzy6WA+8jcjmfT+qaoYMFx0A0F2590ib3Hghb/4DXHC1a
+	x++yxn2UC73tCT1BpT6bXu0j5HzYItmFsvENg9YCryIlHXRk6Fg7QnpXXpzvYxs6IxVc7W
+	c8sXsnDjKc4Bov2fkxDKx03WqPOEpfKUFS6Ak0zhV8nC0c2fEoLWUtuyP4rJPeFaeL0Hlf
+	VFVppXokdY6+zL3p+ey2gDqA+uAtsN12AQMFYGmk3QCLVkMdtAfVm2vN+mo5Tg==
+Content-Type: multipart/signed;
+ boundary=9beec6f5477ababb2ae9d3e4220a4e06ab7f2fafa941ec7e9fa069b1c762;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Thu, 17 Apr 2025 19:09:46 +0200
+Message-Id: <D992W9V9ZH2J.2Z2OLK00N0FIU@cknow.org>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: "Dragan Simic" <dsimic@manjaro.org>
+Cc: "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, "Bjorn Helgaas"
+ <bhelgaas@google.com>, "Heiko Stuebner" <heiko@sntech.de>, "Manivannan
+ Sadhasivam" <manivannan.sadhasivam@linaro.org>, "Rob Herring"
+ <robh@kernel.org>, "Shawn Lin" <shawn.lin@rock-chips.com>, "Niklas Cassel"
+ <cassel@kernel.org>, <linux-pci@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <stable@vger.kernel.org>
+Subject: Re: [PATCH] PCI: dw-rockchip: Fix function call sequence in
+ rockchip_pcie_phy_deinit
+References: <20250417142138.1377451-1-didi.debian@cknow.org>
+ <3e000468679b4371a7942a3e07d99894@manjaro.org>
+In-Reply-To: <3e000468679b4371a7942a3e07d99894@manjaro.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_100742_099479_8AEA2537 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20250417_101018_378617_A1C42DD1 
+X-CRM114-Status: GOOD (  24.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,43 +79,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/17/25 11:59 AM, Andy Shevchenko wrote:
-> On Thu, Apr 17, 2025 at 11:52:38AM -0500, David Lechner wrote:
->> Align the buffers used with iio_push_to_buffers_with_timestamp() to
->> ensure the s64 timestamp is aligned to 8 bytes.
->>
->>  drivers/iio/accel/bmc150-accel.h | 2 +-
->>  drivers/iio/imu/adis16550.c      | 2 +-
-> 
-> Looks like a stray squash of the two independent commits.
+--9beec6f5477ababb2ae9d3e4220a4e06ab7f2fafa941ec7e9fa069b1c762
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Oops, sure enough.
+Hi Dragan,
 
-> 
-> ...
-> 
->>  	struct bmc150_accel_trigger triggers[BMC150_ACCEL_TRIGGERS];
->>  	struct mutex mutex;
->>  	u8 fifo_mode, watermark;
->> -	s16 buffer[8];
->> +	s16 buffer[8] __aligned(8);
-> 
-> As for the code, would it be possible to convert to actually use a sturcture
-> rather than an array?
+On Thu Apr 17, 2025 at 6:20 PM CEST, Dragan Simic wrote:
+> On 2025-04-17 16:21, Diederik de Haas wrote:
+>> The documentation for the phy_power_off() function explicitly says
+>>=20
+>>   Must be called before phy_exit().
+>>=20
+>> So let's follow that instruction.
+>>=20
+>> Fixes: 0e898eb8df4e ("PCI: rockchip-dwc: Add Rockchip RK356X host
+>> controller driver")
+>> Cc: stable@vger.kernel.org	# v5.15+
+>> Signed-off-by: Diederik de Haas <didi.debian@cknow.org>
+>> ---
+>>  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 2 +-
+>>  1 file changed, 1 insertion(+), 1 deletion(-)
+>>=20
+>> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+>> b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+>> index c624b7ebd118..4f92639650e3 100644
+>> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+>> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+>> @@ -410,8 +410,8 @@ static int rockchip_pcie_phy_init(struct
+>> rockchip_pcie *rockchip)
+>>=20
+>>  static void rockchip_pcie_phy_deinit(struct rockchip_pcie *rockchip)
+>>  {
+>> -	phy_exit(rockchip->phy);
+>>  	phy_power_off(rockchip->phy);
+>> +	phy_exit(rockchip->phy);
+>>  }
+>>=20
+>>  static const struct dw_pcie_ops dw_pcie_ops =3D {
+>
+> Thanks for the patch, it's looking good to me.  The current state
+> of the rockchip_pcie_phy_deinit() function might actually not cause
+> issues because the rockchip_pcie_phy_deinit() function is used only
+> in the error-handling path in the rockchip_pcie_probe() function,
+> so having no runtime errors leads to no possible issues.
+>
+> However, it doesn't mean it shouldn't be fixed, and it would actually
+> be good to dissolve the rockchip_pcie_phy_deinit() function into the
+> above-mentioned error-handling path.  It's a short, two-line function
+> local to the compile unit, used in a single place only, so dissolving
+> it is safe and would actually improve the readability of the code.
 
-I do personally prefer the struct pattern, but there are very many other drivers
-using this buffer pattern that I was not tempted to try to start converting them.
+This patch came about while looking at [1] "PCI: dw-rockchip: Add system
+PM support", which would be the 2nd consumer of the
+rockchip_pcie_phy_deinit() function. That patch's commit message has the
+following: "tries to reuse possible exist(ing) code"
 
-> 
-> ...
-> 
->>  	struct iio_poll_func *pf = p;
->> -	__be32 data[ADIS16550_MAX_SCAN_DATA];
->> +	__be32 data[ADIS16550_MAX_SCAN_DATA] __aligned(8);
->>  	struct iio_dev *indio_dev = pf->indio_dev;
->>  	struct adis16550 *st = iio_priv(indio_dev);
-> 
-> Ditto.
-> 
+Being a fan of the DRY principle, that sounds like an excellent idea :-)
 
+So while you're right if there would only be 1 consumer, which is the
+case *right now*, given that a 2nd consumer is in the works, I think
+it's better to keep it as I've done it now.
+Let me know if you disagree (including why).
+
+[1] https://lore.kernel.org/linux-rockchip/1744352048-178994-1-git-send-ema=
+il-shawn.lin@rock-chips.com/
+
+> Thus, please feel free to include
+>
+> Reviewed-by: Dragan Simic <dsimic@manjaro.org>
+
+Thanks :-)
+
+Cheers,
+  Diederik
+
+> and please consider dissolving the rockchip_pcie_phy_deinit() function
+> in the possible v2 of this patch, as suggested above.
+
+
+--9beec6f5477ababb2ae9d3e4220a4e06ab7f2fafa941ec7e9fa069b1c762
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaAE13QAKCRDXblvOeH7b
+buluAQCEIjcEnqtZwClOAqM8s1LvfqUaaPSSbkWDSy6SYsLWAwEAofWwHxa8G5nC
+MgjHBOJT/8MsTjFkhLaeM2uzEV2YXQE=
+=VbT8
+-----END PGP SIGNATURE-----
+
+--9beec6f5477ababb2ae9d3e4220a4e06ab7f2fafa941ec7e9fa069b1c762--
 
