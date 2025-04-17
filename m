@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 390C5C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 08:47:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54B21C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 08:49:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PYPY26UCzC6xpsXn5isIxKrrh9DoM4t2YOrxI8T2l/k=; b=odFJl2QUxJG7Q95+pjHWqrFwH/
-	6IKRs7AzM2v3G9BjA4L9FEoFjaIrr4uNJ6JICZ/3xe5E5rbElHGosvrtoiCR1D43jODWgK4kGMX2H
-	qHYq8XSjXm6NZAPJPEGjl6+X+urp9tU8eZzx1SPDICPggcn7eld3PbpFptdb+Hq2NqaSqcNOCLgRJ
-	GTCMPGGkrIpWkZfAOyhDUHSrZSr2tyXioncPtA0CSHQIvsBHlFGhsdKehmj3MtkjQLOMJoSpK1vcK
-	UIvgWbq3322JW46JjOCYd1MOHB+jZD/UsgPv5TrtCl0KxSAz7n0MbVm5iYw0lGkXQ3N8159vnRdLh
-	Hm+2QzNA==;
+	bh=D3UVmLbw05nY1bIJLdntt1cb4T+VHhtyOYBFetAFNM8=; b=gRkmsjEjGD+oSVHV0KzetjOPHB
+	PKWjcHl7JPEZici9WsIuijOnb3sEBNd/tb4mdHP3RtRX8mmYkg8hZfnMXqvZUUeyEAKDxGF+AyQeN
+	S8OYN/A9xze40q2blB5dHF4bmxYKckGso2jN6ZqDu385/mihG5aqHS0w/p9V0bjPJ3B32CflFRIYP
+	rlD/UJqVf2DECFGL9LLfTd9e0lvXN4PYwWwiwfrR/RH3i+WNhoOzzsmY81k9PdhXGAL7wPFPAn+pG
+	NKeF9uHm6AFjKVKsm4+7Y9mT6zyMg8kgA8Y1VtVkEd/5+w5Y/i4cPKAqTnJnUL0eVafTUpib5lKSs
+	IhFzh81g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5KuK-0000000CKMK-2J2b;
-	Thu, 17 Apr 2025 08:47:40 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1u5Kw9-0000000CKf4-0yFT;
+	Thu, 17 Apr 2025 08:49:33 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Kor-0000000CItG-3n1g
+	id 1u5Kot-0000000CIu6-24Ke
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 08:42:03 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-43cfa7e7f54so3265405e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Apr 2025 01:42:01 -0700 (PDT)
+	Thu, 17 Apr 2025 08:42:04 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43cfba466b2so4870725e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Apr 2025 01:42:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744879320; x=1745484120; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1744879322; x=1745484122; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=PYPY26UCzC6xpsXn5isIxKrrh9DoM4t2YOrxI8T2l/k=;
-        b=REjMfJCKpqtY7IXDi/t+Q7N9JHrB5+5yVpzK+eNGXutw2FfqR3DUip37NNOmXEASk1
-         8CtrAdXC4iKNAKE6FdhnG2yu+bvrbHTCPynikgrSgFGOkdezmJV7H96vBcccNk030DaQ
-         D8QyzYEA1DJ+B7p5WyVoYZbH9wizy2lEnej+fBuXKv33OknN25uucNtKmosk36jRwP7C
-         qVrjRi/ZDQ9WIzYbhaQOYo4CJx4tQoLuxQKDa/V1EVXrD4lTN9QjmV6v5NXd5WfoPwQz
-         NNhPTLgAsrviL7W/6sfl26nhgQJB3tbgJAzGWJklNO3ySI/gWkI3KbJFb53drNSBUnzX
-         qtTA==
+        bh=D3UVmLbw05nY1bIJLdntt1cb4T+VHhtyOYBFetAFNM8=;
+        b=cKFWmfY5hwUAPXLADWm/qNOZZ3aXAyVy5QFx7J4E3ZA1TqWtuKDJ4bI83fJrT4og4P
+         7O45E++nnzs9emY8QPDt1uYzyT5MRfNzMfQ8TmSxCfEPLEU+iyr49ncaZEAekkP8P8gA
+         z8UaRYavid52XO12pmnc/0/0SRXCExOHp/aoDevRf0NNSZL1zxbWXUn0ewn3jS6U6tqj
+         lJ+XJvh+8yhMViMsEhLz2XsYPrN0G5gtEdsPK8VxWapPCUuODw6ZKDm1ArIayma/X3O+
+         1tLs37Jc73SjC4TFgv0Dqk/HhWLR+pQyeH6RypdSA7TRGOP1PcBcaiQXq8HHBitjrdBJ
+         DWqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744879320; x=1745484120;
+        d=1e100.net; s=20230601; t=1744879322; x=1745484122;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=PYPY26UCzC6xpsXn5isIxKrrh9DoM4t2YOrxI8T2l/k=;
-        b=Go/UWjIhpK92eGkQOwrl0xbiaY8bAB7AUMdoVm/fD75voErEB+rPFEjxM/nurQOdsO
-         yEaFBJYoJUvAwJgSL+XYHkmtJnDLs2KQKdo+e33giojBE73/qpS5mDySqF0idlDZYY8r
-         lpVBI8grSMy4b89KOQMaoQ83gl3XVwHUkHQ8G88e0HpWHhkFmk8V+0Y67NzSnqywBaGi
-         2I+Swmc5DiQA4kxYx4lQP2WrswA2HkeTNfyAL1XC4ab2YYwJgcZ2qXc3yssTR65U6Wci
-         YEAxgFYmPp6CrSmQN9dRZ9w8zvEFzdb0Y6e70Fzk5fCWKh0LqBfQIq3FlqQaEzHyTCce
-         D5Fg==
-X-Forwarded-Encrypted: i=1; AJvYcCU0IF0GMemiFa+9xqnvITd2mWR2dD33xfTKMV0O8sK0VeVdrvscVk+Qj28xY3CyvKhUSD7/fRf0RMHSSDdfp7mR@lists.infradead.org
-X-Gm-Message-State: AOJu0YxL1kJhm0LXTMqZKF4OhxJ3S1zA3BJG6tqDhv/ZSI83/jYE09mJ
-	p8ySfXjrS25zcGJVqS2u+LUav5UM67ZvSzWD+hmETgxtbEFwAMAm
-X-Gm-Gg: ASbGncvt22s0+sJ0L+Z7c2D4vuomtT+F0dhKMrWHtRO5Lvr8aXcc09Ig6XNEpd91Gi7
-	ydK7oUFpxyTq69bIXGNBMSCp83FZl2qrM3G7ZiJLD8iykwgvFiBQ0CG1HtIG72WA7NB8GdFbVQE
-	R26vj3SkS6SjBu3x4UWpFBv0grZtMlNNOnKUkPeSpcUWSOeyiK3HkBDpBnvZ3Yb/PSE6Hx/DU0u
-	queaY1Gyc4TLrLObfQYqkZ9AglRiaCy57iQAegldtB85mqsPZBOok++V8wmB7VmI4QYT2ckPD3Z
-	ZaSSK3QG0CfigPxe7AHb8nl0t8o7t552NAA9ub8ybXZAaqQ5GKEg6ypT22+w3YiR
-X-Google-Smtp-Source: AGHT+IFynTYfa8X2xhRO7qXL/U/Mq8GTLpDvB1j+B2mrksvQzaj9ofIgmgKAy73wvJt2ta8KPY8URg==
-X-Received: by 2002:a05:600c:1912:b0:43d:b33:679c with SMTP id 5b1f17b1804b1-440636a4b0fmr12905845e9.14.1744879319941;
-        Thu, 17 Apr 2025 01:41:59 -0700 (PDT)
+        bh=D3UVmLbw05nY1bIJLdntt1cb4T+VHhtyOYBFetAFNM8=;
+        b=v32WO9OQ1sbXtB6eEaoKHXKOJLX+iJlns6tneqIn2QBhcnoXqmuo8nyKjHVf0ySRjI
+         kirsvqttFVjHA1IVjeQ1JLzSUkCUkLY3WWvci0vdqeNi5MBiME9o1CvH9qYkcH9RZr1W
+         iE2I0TvAtwBRlaN3wodFQn1sheReyKvjIyQSgpotua+GS5DlU7TpB333MO/HII5m5lq4
+         CvKMIqPGgtZR+Spy6W0iUTPCSxWFPYUCwlQkKd2gke5/yRU9Tn2VT/VdJ+EF/180w25s
+         LaJNwr4Mx2AiFEXV3Q+j13pmznOfas8DZF58nVOiOzUe/q0uaMxQBbcm30Y/pTgRQX1f
+         RotQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXveJnr2M5dvJiSUL0GNwjhYdLK6XgjpnXa4jvF1lrkvirgPa12/7MKvO9etfyDwXERmtAbALJv7f8PsjdEgqie@lists.infradead.org
+X-Gm-Message-State: AOJu0YzzEKNg8AsN88ANJZgsi70mbfDSTniEF1ro+UL9QiFsfJe5fn7a
+	KARXsJtbyPnoyugegyyMxmvxPy6ywpYekk5ZfREFirx4iICcvKbk
+X-Gm-Gg: ASbGnctQHVtb8PCV90EcR0icfPNlQOCHRl9hqnd5/Wnolpu496NEZCX9JAZfghqVSy7
+	hnhDQqXmmPDaF79fNtT456ORIl8VVhp0juk+VfSqhLBv1yxlq9LS1oJ/PQpyKm+3Wx9eOKHxYvx
+	nzrbCRWQpNPazTu/K1wivJrSeXmSEFocTkJ3duEPdJNH5V54llC6JkbgJPkFZAQhdVUsjw4Lx+j
+	+kFjHC/TI4gfVEH1E9myqDrF7N6DbJpkE/nrP1o4NeD686BJFTQb1xsIxdFn0sOl/vQQ860Ryq2
+	krGOs+mbLZIoC3dxdXjqaUY8AJfHwOKpA9bSu9lmGS8e89ZGXFyMwyXHLuWV5A/7XbAOxar6H/M
+	=
+X-Google-Smtp-Source: AGHT+IEKs+6jhZ985uIK+btCMwuIhDugVlaE5upqmp/6lm+E6MjhS8dGU3Cbrgnk209p7sVuYILBsg==
+X-Received: by 2002:a05:600c:a110:b0:43c:f87c:24ce with SMTP id 5b1f17b1804b1-4406815ee8cmr323245e9.21.1744879321536;
+        Thu, 17 Apr 2025 01:42:01 -0700 (PDT)
 Received: from iku.Home ([2a06:5906:61b:2d00:3f0f:d684:f4a:34e6])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39eae96cf1asm19657712f8f.39.2025.04.17.01.41.58
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39eae96cf1asm19657712f8f.39.2025.04.17.01.42.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 17 Apr 2025 01:41:58 -0700 (PDT)
+        Thu, 17 Apr 2025 01:42:00 -0700 (PDT)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -97,17 +98,17 @@ Cc: netdev@vger.kernel.org,
 	Biju Das <biju.das.jz@bp.renesas.com>,
 	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH net-next v8 2/4] dt-bindings: net: Document support for Renesas RZ/V2H(P) GBETH
-Date: Thu, 17 Apr 2025 09:40:13 +0100
-Message-ID: <20250417084015.74154-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH net-next v8 3/4] net: stmmac: Add DWMAC glue layer for Renesas GBETH
+Date: Thu, 17 Apr 2025 09:40:14 +0100
+Message-ID: <20250417084015.74154-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250417084015.74154-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 References: <20250417084015.74154-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_014201_944797_7542B66A 
-X-CRM114-Status: GOOD (  16.11  )
+X-CRM114-CacheID: sfid-20250417_014203_537603_0C823068 
+X-CRM114-Status: GOOD (  24.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,249 +125,204 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-GBETH IP on the Renesas RZ/V2H(P) SoC is integrated with Synopsys
-DesignWare MAC (version 5.20). Document the device tree bindings for
-the GBETH glue layer.
-
-Generic compatible string 'renesas,rzv2h-gbeth' is added since this
-module is identical on both the RZ/V2H(P) and RZ/G3E SoCs.
-
-The Rx/Tx clocks supplied for GBETH on the RZ/V2H(P) SoC is depicted
-below:
-
-                      Rx / Tx
--------+------------- on / off -------
-       |
-       |            Rx-180 / Tx-180
-       +---- not ---- on / off -------
+Add the DWMAC glue layer for the GBETH IP found in the Renesas RZ/V2H(P)
+SoC.
 
 Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- .../bindings/net/renesas,r9a09g057-gbeth.yaml | 201 ++++++++++++++++++
- .../devicetree/bindings/net/snps,dwmac.yaml   |   1 +
- 2 files changed, 202 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/net/renesas,r9a09g057-gbeth.yaml
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 ++
+ drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+ .../stmicro/stmmac/dwmac-renesas-gbeth.c      | 146 ++++++++++++++++++
+ 3 files changed, 158 insertions(+)
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
 
-diff --git a/Documentation/devicetree/bindings/net/renesas,r9a09g057-gbeth.yaml b/Documentation/devicetree/bindings/net/renesas,r9a09g057-gbeth.yaml
+diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+index 3c820ef56775..2c99b23f0faa 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
++++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+@@ -131,6 +131,17 @@ config DWMAC_QCOM_ETHQOS
+ 	  This selects the Qualcomm ETHQOS glue layer support for the
+ 	  stmmac device driver.
+ 
++config DWMAC_RENESAS_GBETH
++	tristate "Renesas RZ/V2H(P) GBETH support"
++	default ARCH_RENESAS
++	depends on OF && (ARCH_RENESAS || COMPILE_TEST)
++	help
++	  Support for Gigabit Ethernet Interface (GBETH) on Renesas
++	  RZ/V2H(P) SoCs.
++
++	  This selects the Renesas RZ/V2H(P) Soc specific glue layer support
++	  for the stmmac device driver.
++
+ config DWMAC_ROCKCHIP
+ 	tristate "Rockchip dwmac support"
+ 	default ARCH_ROCKCHIP
+diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
+index 594883fb4164..91050215511b 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/Makefile
++++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
+@@ -20,6 +20,7 @@ obj-$(CONFIG_DWMAC_LPC18XX)	+= dwmac-lpc18xx.o
+ obj-$(CONFIG_DWMAC_MEDIATEK)	+= dwmac-mediatek.o
+ obj-$(CONFIG_DWMAC_MESON)	+= dwmac-meson.o dwmac-meson8b.o
+ obj-$(CONFIG_DWMAC_QCOM_ETHQOS)	+= dwmac-qcom-ethqos.o
++obj-$(CONFIG_DWMAC_RENESAS_GBETH) += dwmac-renesas-gbeth.o
+ obj-$(CONFIG_DWMAC_ROCKCHIP)	+= dwmac-rk.o
+ obj-$(CONFIG_DWMAC_RZN1)	+= dwmac-rzn1.o
+ obj-$(CONFIG_DWMAC_S32)		+= dwmac-s32.o
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
 new file mode 100644
-index 000000000000..02a6793c26f5
+index 000000000000..9a774046455b
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/net/renesas,r9a09g057-gbeth.yaml
-@@ -0,0 +1,201 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/renesas,r9a09g057-gbeth.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
+@@ -0,0 +1,146 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * dwmac-renesas-gbeth.c - DWMAC Specific Glue layer for Renesas GBETH
++ *
++ * The Rx and Tx clocks are supplied as follows for the GBETH IP.
++ *
++ *                         Rx / Tx
++ *   -------+------------- on / off -------
++ *          |
++ *          |            Rx-180 / Tx-180
++ *          +---- not ---- on / off -------
++ *
++ * Copyright (C) 2025 Renesas Electronics Corporation
++ */
 +
-+title: GBETH glue layer for Renesas RZ/V2H(P) (and similar SoCs)
++#include <linux/clk.h>
++#include <linux/device.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/reset.h>
 +
-+maintainers:
-+  - Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
++#include "stmmac_platform.h"
 +
-+select:
-+  properties:
-+    compatible:
-+      contains:
-+        enum:
-+          - renesas,r9a09g057-gbeth
-+          - renesas,rzv2h-gbeth
-+  required:
-+    - compatible
++struct renesas_gbeth {
++	struct plat_stmmacenet_data *plat_dat;
++	struct reset_control *rstc;
++	struct device *dev;
++};
 +
-+properties:
-+  compatible:
-+    items:
-+      - enum:
-+          - renesas,r9a09g057-gbeth # RZ/V2H(P)
-+      - const: renesas,rzv2h-gbeth
-+      - const: snps,dwmac-5.20
++static const char *const renesas_gbeth_clks[] = {
++	"tx", "tx-180", "rx", "rx-180",
++};
 +
-+  reg:
-+    maxItems: 1
++static int renesas_gbeth_init(struct platform_device *pdev, void *priv)
++{
++	struct plat_stmmacenet_data *plat_dat;
++	struct renesas_gbeth *gbeth = priv;
++	int ret;
 +
-+  clocks:
-+    items:
-+      - description: CSR clock
-+      - description: AXI system clock
-+      - description: PTP clock
-+      - description: TX clock
-+      - description: RX clock
-+      - description: TX clock phase-shifted by 180 degrees
-+      - description: RX clock phase-shifted by 180 degrees
++	plat_dat = gbeth->plat_dat;
 +
-+  clock-names:
-+    items:
-+      - const: stmmaceth
-+      - const: pclk
-+      - const: ptp_ref
-+      - const: tx
-+      - const: rx
-+      - const: tx-180
-+      - const: rx-180
++	ret = reset_control_deassert(gbeth->rstc);
++	if (ret) {
++		dev_err(gbeth->dev, "Reset deassert failed\n");
++		return ret;
++	}
 +
-+  interrupts:
-+    minItems: 11
++	ret = clk_bulk_prepare_enable(plat_dat->num_clks,
++				      plat_dat->clks);
++	if (ret)
++		reset_control_assert(gbeth->rstc);
 +
-+  interrupt-names:
-+    items:
-+      - const: macirq
-+      - const: eth_wake_irq
-+      - const: eth_lpi
-+      - const: rx-queue-0
-+      - const: rx-queue-1
-+      - const: rx-queue-2
-+      - const: rx-queue-3
-+      - const: tx-queue-0
-+      - const: tx-queue-1
-+      - const: tx-queue-2
-+      - const: tx-queue-3
++	return ret;
++}
 +
-+  resets:
-+    items:
-+      - description: AXI power-on system reset
++static void renesas_gbeth_exit(struct platform_device *pdev, void *priv)
++{
++	struct plat_stmmacenet_data *plat_dat;
++	struct renesas_gbeth *gbeth = priv;
++	int ret;
 +
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - interrupts
-+  - interrupt-names
-+  - resets
++	plat_dat = gbeth->plat_dat;
 +
-+allOf:
-+  - $ref: snps,dwmac.yaml#
++	clk_bulk_disable_unprepare(plat_dat->num_clks, plat_dat->clks);
 +
-+unevaluatedProperties: false
++	ret = reset_control_assert(gbeth->rstc);
++	if (ret)
++		dev_err(gbeth->dev, "Reset assert failed\n");
++}
 +
-+examples:
-+  - |
-+    #include <dt-bindings/clock/renesas-cpg-mssr.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
++static int renesas_gbeth_probe(struct platform_device *pdev)
++{
++	struct plat_stmmacenet_data *plat_dat;
++	struct stmmac_resources stmmac_res;
++	struct device *dev = &pdev->dev;
++	struct renesas_gbeth *gbeth;
++	unsigned int i;
++	int err;
 +
-+    ethernet@15c30000 {
-+        compatible = "renesas,r9a09g057-gbeth", "renesas,rzv2h-gbeth", "snps,dwmac-5.20";
-+        reg = <0x15c30000 0x10000>;
-+        clocks =  <&cpg CPG_MOD 0xbd>, <&cpg CPG_MOD 0xbc>,
-+                  <&ptp_clock>, <&cpg CPG_MOD 0xb8>,
-+                  <&cpg CPG_MOD 0xb9>, <&cpg CPG_MOD 0xba>,
-+                  <&cpg CPG_MOD 0xbb>;
-+        clock-names = "stmmaceth", "pclk", "ptp_ref",
-+                      "tx", "rx", "tx-180", "rx-180";
-+        resets = <&cpg 0xb0>;
-+        interrupts = <GIC_SPI 765 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 767 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 766 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 772 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 773 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 774 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 745 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 768 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 769 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 770 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 771 IRQ_TYPE_LEVEL_HIGH>;
-+        interrupt-names = "macirq", "eth_wake_irq", "eth_lpi",
-+                          "rx-queue-0", "rx-queue-1", "rx-queue-2",
-+                          "rx-queue-3", "tx-queue-0", "tx-queue-1",
-+                          "tx-queue-2", "tx-queue-3";
-+        phy-mode = "rgmii-id";
-+        snps,multicast-filter-bins = <256>;
-+        snps,perfect-filter-entries = <128>;
-+        rx-fifo-depth = <8192>;
-+        tx-fifo-depth = <8192>;
-+        snps,fixed-burst;
-+        snps,force_thresh_dma_mode;
-+        snps,axi-config = <&stmmac_axi_setup>;
-+        snps,mtl-rx-config = <&mtl_rx_setup>;
-+        snps,mtl-tx-config = <&mtl_tx_setup>;
-+        snps,txpbl = <32>;
-+        snps,rxpbl = <32>;
-+        phy-handle = <&phy0>;
++	err = stmmac_get_platform_resources(pdev, &stmmac_res);
++	if (err)
++		return dev_err_probe(dev, err,
++				     "failed to get resources\n");
 +
-+        stmmac_axi_setup: stmmac-axi-config {
-+            snps,lpi_en;
-+            snps,wr_osr_lmt = <0xf>;
-+            snps,rd_osr_lmt = <0xf>;
-+            snps,blen = <16 8 4 0 0 0 0>;
-+        };
++	plat_dat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
++	if (IS_ERR(plat_dat))
++		return dev_err_probe(dev, PTR_ERR(plat_dat),
++				     "dt configuration failed\n");
 +
-+        mtl_rx_setup: rx-queues-config {
-+            snps,rx-queues-to-use = <4>;
-+            snps,rx-sched-sp;
++	gbeth = devm_kzalloc(dev, sizeof(*gbeth), GFP_KERNEL);
++	if (!gbeth)
++		return -ENOMEM;
 +
-+            queue0 {
-+                snps,dcb-algorithm;
-+                snps,priority = <0x1>;
-+                snps,map-to-dma-channel = <0>;
-+            };
++	plat_dat->num_clks = ARRAY_SIZE(renesas_gbeth_clks);
++	plat_dat->clks = devm_kcalloc(dev, plat_dat->num_clks,
++				      sizeof(*plat_dat->clks), GFP_KERNEL);
++	if (!plat_dat->clks)
++		return -ENOMEM;
 +
-+            queue1 {
-+                snps,dcb-algorithm;
-+                snps,priority = <0x2>;
-+                snps,map-to-dma-channel = <1>;
-+            };
++	for (i = 0; i < plat_dat->num_clks; i++)
++		plat_dat->clks[i].id = renesas_gbeth_clks[i];
 +
-+            queue2 {
-+                snps,dcb-algorithm;
-+                snps,priority = <0x4>;
-+                snps,map-to-dma-channel = <2>;
-+            };
++	err = devm_clk_bulk_get(dev, plat_dat->num_clks, plat_dat->clks);
++	if (err < 0)
++		return err;
 +
-+            queue3 {
-+                snps,dcb-algorithm;
-+                snps,priority = <0x8>;
-+                snps,map-to-dma-channel = <3>;
-+            };
-+        };
++	plat_dat->clk_tx_i = stmmac_pltfr_find_clk(plat_dat, "tx");
++	if (!plat_dat->clk_tx_i)
++		return dev_err_probe(dev, -EINVAL,
++				     "error finding tx clock\n");
 +
-+        mtl_tx_setup: tx-queues-config {
-+            snps,tx-queues-to-use = <4>;
++	gbeth->rstc = devm_reset_control_get_exclusive(dev, NULL);
++	if (IS_ERR(gbeth->rstc))
++		return PTR_ERR(gbeth->rstc);
 +
-+            queue0 {
-+                snps,dcb-algorithm;
-+                snps,priority = <0x1>;
-+            };
++	gbeth->dev = dev;
++	gbeth->plat_dat = plat_dat;
++	plat_dat->bsp_priv = gbeth;
++	plat_dat->set_clk_tx_rate = stmmac_set_clk_tx_rate;
++	plat_dat->init = renesas_gbeth_init;
++	plat_dat->exit = renesas_gbeth_exit;
++	plat_dat->flags |= STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY |
++			   STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP |
++			   STMMAC_FLAG_SPH_DISABLE;
 +
-+            queue1 {
-+                snps,dcb-algorithm;
-+                snps,priority = <0x2>;
-+            };
++	return devm_stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
++}
 +
-+            queue2 {
-+                snps,dcb-algorithm;
-+                snps,priority = <0x4>;
-+            };
++static const struct of_device_id renesas_gbeth_match[] = {
++	{ .compatible = "renesas,rzv2h-gbeth", },
++	{ /* Sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, renesas_gbeth_match);
 +
-+            queue3 {
-+                snps,dcb-algorithm;
-+                snps,priority = <0x1>;
-+            };
-+        };
++static struct platform_driver renesas_gbeth_driver = {
++	.probe  = renesas_gbeth_probe,
++	.driver = {
++		.name		= "renesas-gbeth",
++		.of_match_table	= renesas_gbeth_match,
++	},
++};
++module_platform_driver(renesas_gbeth_driver);
 +
-+        mdio {
-+            #address-cells = <1>;
-+            #size-cells = <0>;
-+            compatible = "snps,dwmac-mdio";
-+
-+            phy0: ethernet-phy@0 {
-+                reg = <0>;
-+            };
-+        };
-+    };
-diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-index 4d4fcaeca8a8..b525eca53850 100644
---- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-@@ -75,6 +75,7 @@ properties:
-         - qcom,sm8150-ethqos
-         - renesas,r9a06g032-gmac
-         - renesas,rzn1-gmac
-+        - renesas,rzv2h-gbeth
-         - rockchip,px30-gmac
-         - rockchip,rk3128-gmac
-         - rockchip,rk3228-gmac
++MODULE_AUTHOR("Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>");
++MODULE_DESCRIPTION("Renesas GBETH DWMAC Specific Glue layer");
++MODULE_LICENSE("GPL");
 -- 
 2.49.0
 
