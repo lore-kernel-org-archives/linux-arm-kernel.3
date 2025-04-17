@@ -4,69 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40A31C369CA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 18:06:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 164A5C369C9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 18:08:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9vYR1TcwvnTPht4v+OQXxn5wwuqMsvo/ScQAZ8XRdUY=; b=UOfPhlngFf3UowrsHWZnzMQbF3
-	KI7dq3VfP+xfy1hfDu4ll7yWnXlRkAMHbIYvWy9nWf2dlr5iAaO5ntRaxC8b23tEyyYxAVKQji3Yj
-	cSqDnyyjBXrej+4PwcJmdK9S+jgkyrr7SJTxE1gmV8sDTP4LUIaKXUYJ97VBjxTtkBqUqZUSmZyJu
-	1a3iXpdnxZjafzTLRgOrh9nn77OljFZD/tExe0mH/CfdMTpc734w/WriX8piRjmwWakHbTqD8qAto
-	QghnF74Y62z/Eia2EIz3N5SuyiZGwvuQSLDD+UQi725q5HHZIkXQTt8TxSDyHvA4jMDV7QoQVg38F
-	NAR8HVsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/2maWr5nKaUYZks392Yr7+st8n64TBj8pRfEW3etv/U=; b=cVJV00FD4vLK2q+VO4mNNPyFLG
+	VX4KX23T3M248UiAV7B2U/z3Z+C/D5+D4+mMKVSce3tnj2tYmRLTmhPUlhjYJfVY6ZytBehCZ7kP5
+	dKMCeCX6AUdOzMRyUibkWiGN8kOv8NiNUG1w1CekWzbFGmBE7VXPK1hS9hFJCc01JMlMGPNJj190w
+	b5zdVYjigIKNFyfN55lOrx6MuwYx8FdYEQOF3BB+PurCvYHYcFJ0apwcfj99rZsyysctawyXlFX3y
+	2CtB6+TOUCW/o1AfXjx78jGS3WZVcjLH9gmnwEDyDZWr1v1hawL5lAZC44dssTYOl5fhFs9NQHnbR
+	ylowh7Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5TdN-0000000Dy5O-3ZS1;
-	Thu, 17 Apr 2025 18:06:45 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1u5TfD-0000000DyLx-3aDv;
+	Thu, 17 Apr 2025 18:08:39 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5TI2-0000000Du0M-1NRp;
-	Thu, 17 Apr 2025 17:44:43 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4ZdlXZ0x45z67KPG;
-	Fri, 18 Apr 2025 01:40:14 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id BADD6140520;
-	Fri, 18 Apr 2025 01:44:31 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Thu, 17 Apr
- 2025 19:44:31 +0200
-Date: Thu, 17 Apr 2025 18:44:29 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: David Lechner <dlechner@baylibre.com>
-CC: Andy Shevchenko <andy@kernel.org>, Jonathan Cameron <jic23@kernel.org>,
-	Nuno =?ISO-8859-1?Q?S=E1?= <nuno.sa@analog.com>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Lars-Peter Clausen
-	<lars@metafoo.de>, Michael Hennerich <Michael.Hennerich@analog.com>, "Cosmin
- Tanislav" <cosmin.tanislav@analog.com>, Tomasz Duszynski
-	<tduszyns@gmail.com>, Jean-Baptiste Maneyrol
-	<jean-baptiste.maneyrol@tdk.com>, Andreas Klinger <ak@it-klinger.de>, "Petre
- Rodan" <petre.rodan@subdimension.ro>, <linux-iio@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>
-Subject: Re: [PATCH 6/8] iio: imu: adis16550: align buffers for timestamp
-Message-ID: <20250417184429.00002403@huawei.com>
-In-Reply-To: <f4db1a95-106f-4fa4-9318-3ee172e29cdb@baylibre.com>
-References: <20250417-iio-more-timestamp-alignment-v1-0-eafac1e22318@baylibre.com>
-	<20250417-iio-more-timestamp-alignment-v1-6-eafac1e22318@baylibre.com>
-	<aAEzeY_p6a8Pr-zn@smile.fi.intel.com>
-	<f4db1a95-106f-4fa4-9318-3ee172e29cdb@baylibre.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
-MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml500011.china.huawei.com (7.191.174.215) To
- frapeml500008.china.huawei.com (7.182.85.71)
+	id 1u5TIb-0000000Du6R-0I5Y
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Apr 2025 17:45:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 851D9450EC;
+	Thu, 17 Apr 2025 17:45:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87272C4CEE4;
+	Thu, 17 Apr 2025 17:45:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744911916;
+	bh=6HqrhZNro99W4hlfSawIZ3bq362Egs1uCP6Vd2PPZEo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Rg9yC7QlGIMHPKQ7WEUGcSXGLVG9wxf2u/ZQSNnkgiCyTxtBSESRPGDe+sRSX9zqE
+	 Yr6zKteWNfT21eUPrDzH3townbAbp+JNZoqjO8E9Btki0TkxaaNjeqnOFomOXxGsY9
+	 npxcqlAvOCfIOhiGpE7+KHL4yZ17Ea7yhnR7iLd/LuMwKNgaMfatKUoXU++iSE+yc4
+	 bCUeuLNT8zmRwNmWOd81ph5gMXXeKiDDW6+RZvyzte4ueYT3Dt2CGTpkNowMW9fKmZ
+	 kSD+ATjwqop+j6mDFplMVngOWwDoWMPy9UNGDtf1OWVrt4ZVExz07i9a69OinfacJU
+	 FCAJM3b+Ersgw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1u5TIY-006VUB-5A;
+	Thu, 17 Apr 2025 18:45:14 +0100
+Date: Thu, 17 Apr 2025 18:45:12 +0100
+Message-ID: <86mscek7h3.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Luo Jie <quic_luoj@quicinc.com>,
+	Yury Norov <yury.norov@gmail.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Julia Lawall <Julia.Lawall@inria.fr>,
+	Nicolas Palix <nicolas.palix@imag.fr>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-kernel@vger.kernel.org,
+	cocci@inria.fr,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	quic_kkumarcs@quicinc.com,
+	quic_linchen@quicinc.com,
+	quic_leiwei@quicinc.com,
+	quic_suruchia@quicinc.com,
+	quic_pavir@quicinc.com
+Subject: Re: [PATCH v3 0/6] Add FIELD_MODIFY() helper
+In-Reply-To: <0c97c659-bd28-45e0-8537-d9be2637cb22@lunn.ch>
+References: <20250417-field_modify-v3-0-6f7992aafcb7@quicinc.com>
+	<86sem7jb5t.wl-maz@kernel.org>
+	<0c97c659-bd28-45e0-8537-d9be2637cb22@lunn.ch>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: andrew@lunn.ch, quic_luoj@quicinc.com, yury.norov@gmail.com, linux@rasmusvillemoes.dk, Julia.Lawall@inria.fr, nicolas.palix@imag.fr, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-kernel@vger.kernel.org, cocci@inria.fr, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, quic_kkumarcs@quicinc.com, quic_linchen@quicinc.com, quic_leiwei@quicinc.com, quic_suruchia@quicinc.com, quic_pavir@quicinc.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_104442_512091_2C33F462 
-X-CRM114-Status: GOOD (  18.05  )
+X-CRM114-CacheID: sfid-20250417_104517_148943_A7760D9B 
+X-CRM114-Status: GOOD (  23.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,66 +103,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 17 Apr 2025 12:07:37 -0500
-David Lechner <dlechner@baylibre.com> wrote:
-
-> On 4/17/25 11:59 AM, Andy Shevchenko wrote:
-> > On Thu, Apr 17, 2025 at 11:52:38AM -0500, David Lechner wrote:  
-> >> Align the buffers used with iio_push_to_buffers_with_timestamp() to
-> >> ensure the s64 timestamp is aligned to 8 bytes.
-> >>
-> >>  drivers/iio/accel/bmc150-accel.h | 2 +-
-> >>  drivers/iio/imu/adis16550.c      | 2 +-  
+On Thu, 17 Apr 2025 18:22:29 +0100,
+Andrew Lunn <andrew@lunn.ch> wrote:
+> 
+> On Thu, Apr 17, 2025 at 12:10:54PM +0100, Marc Zyngier wrote:
+> > On Thu, 17 Apr 2025 11:47:07 +0100,
+> > Luo Jie <quic_luoj@quicinc.com> wrote:
+> > > 
+> > > Add the helper FIELD_MODIFY() to the FIELD_XXX family of bitfield
+> > > macros. It is functionally similar as xxx_replace_bits(), but adds
+> > > the compile time checking to catch incorrect parameter type errors.
+> > > 
+> > > This series also converts the four instances of opencoded FIELD_MODIFY()
+> > > that are found in the core kernel files, to instead use the new
+> > > FIELD_MODIFY() macro. This is achieved with Coccinelle, by adding
+> > > the script field_modify.cocci.
+> > > 
+> > > The changes are validated on IPQ9574 SoC which uses ARM64 architecture.
 > > 
-> > Looks like a stray squash of the two independent commits.  
-> 
-> Oops, sure enough.
-> 
+> > We already have the *_replace_bits() functions (see
+> > include/linux/bitfield.h).
 > > 
-> > ...
-> >   
-> >>  	struct bmc150_accel_trigger triggers[BMC150_ACCEL_TRIGGERS];
-> >>  	struct mutex mutex;
-> >>  	u8 fifo_mode, watermark;
-> >> -	s16 buffer[8];
-> >> +	s16 buffer[8] __aligned(8);  
-> > 
-> > As for the code, would it be possible to convert to actually use a sturcture
-> > rather than an array?  
+> > Why do we need extra helpers?
 > 
-> I do personally prefer the struct pattern, but there are very many other drivers
-> using this buffer pattern that I was not tempted to try to start converting them.
+> If you look at bitfield.h, the *_replace_bits() seem to be
+> undocumented internal macro magic, not something you are expected to
+> use. What you are expected to use in that file is however well
+> documented. The macro magic also means that cross referencing tools
+> don't find them.
 
-For drivers like this one where there is no room for the timestamp
-to sit earlier for minimal channels I think it is worth that conversion
-if we are touching them anyway. 
+$ git grep _replace_bits|  wc -l
+1514
 
-Jonathan
+I think a bunch of people have found them, tooling notwithstanding.
 
+As for the documentation, the commit message in 00b0c9b82663ac would
+be advantageously promoted to full-fledged kernel-doc.
 
-> 
-> > 
-> > ...
-> >   
-> >>  	struct iio_poll_func *pf = p;
-> >> -	__be32 data[ADIS16550_MAX_SCAN_DATA];
-> >> +	__be32 data[ADIS16550_MAX_SCAN_DATA] __aligned(8);
-This one is more complex as you need to take the
-available scan masks into account to figure out that it
-always has enough channels enabled to ensure the timestamp
-ends up in the 3rd 64 byte position.
+Thanks,
 
-We get 7 channels for each of the available scan masks.
-So fine, but hard to see that, so this one I'd be less tempted
-to change.
+	M.
 
-
-> >>  	struct iio_dev *indio_dev = pf->indio_dev;
-> >>  	struct adis16550 *st = iio_priv(indio_dev);  
-> > 
-> > Ditto.
-> >   
-> 
-> 
-
+-- 
+Without deviation from the norm, progress is not possible.
 
