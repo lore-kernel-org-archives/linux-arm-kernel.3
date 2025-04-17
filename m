@@ -4,133 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C4F4C369C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 09:17:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66DD1C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 09:19:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mN+bi0uLrdq8/TM2cxwFFBdomh+UYG70nbAOmAFCcdQ=; b=CkjgFF8hjDFt7i3RWixpJszPMw
-	SagVMXMCFHyfnAplrGJuLWaLgGbHiEJhoVRxvy/JeWC4SeCxr4aJIIfhF0Accinh/YyuNKNcCfoL9
-	PWdskCiN0HRCyPfMkFcut+W/Khoa0LpbMWM49Hz7P49Ojzy8CwJ5+uRTdM9SoKjWk54TLBrt0Y/uZ
-	kABZhYzeY6IJuabqnd36coFgSwgdCeZD6Ux3aN8WuN/EiIyca0uL0VxdvcmW1BsnZpOaEW8GyEDsY
-	7TLDBk3DKi89vn9R24UTISgUy0nUo/Gyhr7l057uCQjhNHC0bJq7+fiKKldxTxybkorf4HnFROWAo
-	7HtnNXuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=D+h2TZ9lOvg86CwKBD1NqPPfMjTY1kN80xOtNUeXHzc=; b=vvK7V4XVnUPSIo
+	Y6dvjQQtaquAf77+sAchpx/wv97Qiw+RgkwS45T9yX9s3dbkouMKYylrCK56wFjPnRs1Gb6h32cRm
+	Aj++K0sPG35lksGeB49/yrO0O+HERhPfQxig5+Od/VaSF+cSLrRrsE35talAyBpcbVImnvWmpO0pK
+	pfkutjwoAQZ8+uo/YM0VhD/ebIF+oIMHBgDKgIy6A3AkMAYeqwA5It1aRA+UwgrSGWsksOVA2KdI5
+	q6tdqdqiRhecLqT3EyTmjme23MdhrcOu6G7S1Md4R1XGF0Fy3zHWGanXjCAemEncPSkCXqT8psJKM
+	H8qMP7yNqnODc6rcmRFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5LNS-0000000CPgB-3qeE;
-	Thu, 17 Apr 2025 09:17:46 +0000
-Received: from mail-koreacentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c40f::7] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1u5LPI-0000000CQBJ-2cwI;
+	Thu, 17 Apr 2025 09:19:40 +0000
+Received: from mx07-00376f01.pphosted.com ([185.132.180.163])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5LEW-0000000COAk-3kjo
+	id 1u5LGJ-0000000COQ4-10re
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 09:08:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LfNwjknL7L+q5fw3UKSbuexAqs1nimnasvUolbFBxAwMBGDWpSm1YusML/xfM4DVjeBZ1ZJvdjXOzX4xAJNWacIQlJb6yiKCNiWuPnuFUUiqh4mpZCSefsy+b6CU9qMJDZ1g68ASjvOWbII6+ruRyYjo+m3shZwG7CxMg44NBeabc8xQh6MmPJ/s7AT3zcDBhNTl+KxDPqOZv1SG1Jc4t5FQf+oUhlnNr7KQy4wrPh7Gav0MY1Xh+1qE6ZZ3b/hlFDGx4I0dIhp4qJInvF2WfTv17q2STugaaQnJw8SY+YYyBxp9ox/jEqxEC5O3SpalrhdQ8XfdBYyk3ZKwaAcBJA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mN+bi0uLrdq8/TM2cxwFFBdomh+UYG70nbAOmAFCcdQ=;
- b=JuwI0uOr7CAWJnsJmSXorIP4rq2anfh4QrJsiQXgnjE0luP4IQ3aDQlO1H7eXrY5FkH9yPrEQvMLZNMgBeDC37dvYLGYDb+6nf39IYJigdhAz6rltmJuPl+JX6T6tGVWbHbzhPRW74Kz0ytcXB/s1hkZ93T0HOl4I3o0Ye14QHhi6aqL1BGloaII3XjAzZdGup9JAtdfWVf/U1wHX1sWmGlQ8JXQBP1NC5JtmzDpZ6PT6S98WDEFdEmiqXjDpeqVorSrysvZn0jrLUdNVXNAoZvPSP3DPR/hD+7aGKzik5zjHg2G2poQtP1YebEzZFt/yUh8LbI5tT6SOSm3DjuKIw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 58.252.5.68) smtp.rcpttodomain=google.com smtp.mailfrom=oppo.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=oppo.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oppo.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mN+bi0uLrdq8/TM2cxwFFBdomh+UYG70nbAOmAFCcdQ=;
- b=DSOccqmleG91gZsGIaht7K2dbEl/9Rmk9Qv6pvcW1djqkseASI/fWxZSY7V89tFbL7FRR8ZZWXhzKWkbdCa0oZJ87RuhAr84jTJMRfFFJDQBDFX0vij+XcehJpLc3LeRcHaMzR6xB9QATjHo1chJVHoeAD1fNUXi8dU8HXhbCBs=
-Received: from KU0P306CA0074.MYSP306.PROD.OUTLOOK.COM (2603:1096:d10:2b::12)
- by KL1PR02MB7450.apcprd02.prod.outlook.com (2603:1096:820:117::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.18; Thu, 17 Apr
- 2025 09:08:13 +0000
-Received: from HK2PEPF00006FB0.apcprd02.prod.outlook.com
- (2603:1096:d10:2b:cafe::d3) by KU0P306CA0074.outlook.office365.com
- (2603:1096:d10:2b::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.23 via Frontend Transport; Thu,
- 17 Apr 2025 09:08:12 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 58.252.5.68)
- smtp.mailfrom=oppo.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=oppo.com;
-Received-SPF: Pass (protection.outlook.com: domain of oppo.com designates
- 58.252.5.68 as permitted sender) receiver=protection.outlook.com;
- client-ip=58.252.5.68; helo=mail.oppo.com; pr=C
-Received: from mail.oppo.com (58.252.5.68) by
- HK2PEPF00006FB0.mail.protection.outlook.com (10.167.8.6) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8655.12 via Frontend Transport; Thu, 17 Apr 2025 09:08:12 +0000
-Received: from localhost.localdomain (172.16.40.118) by mailappw30.adc.com
- (172.16.56.197) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 17 Apr
- 2025 17:08:11 +0800
-From: Dao Huang <huangdao1@oppo.com>
-To: <samitolvanen@google.com>
-CC: <andrii@kernel.org>, <ast@kernel.org>, <bpf@vger.kernel.org>,
-	<catalin.marinas@arm.com>, <daniel@iogearbox.net>, <huangdao1@oppo.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<mark.rutland@arm.com>, <mbland@motorola.com>, <puranjay12@gmail.com>,
-	<will@kernel.org>
-Subject: Re: [PATCH bpf-next v8 1/2] cfi: add C CFI type macro
-Date: Thu, 17 Apr 2025 17:07:35 +0800
-Message-ID: <1744880855-497559-1-git-send-email-huangdao1@oppo.com>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <CABCJKufDbYVAMi23aF=+daNkZa-8YHOoZfnLGtZ4qCG3EzJtCw@mail.gmail.com>
-References: <CABCJKufDbYVAMi23aF=+daNkZa-8YHOoZfnLGtZ4qCG3EzJtCw@mail.gmail.com>
+	Thu, 17 Apr 2025 09:10:25 +0000
+Received: from pps.filterd (m0168889.ppops.net [127.0.0.1])
+	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53H503lJ018418;
+	Thu, 17 Apr 2025 10:10:16 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
+	:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=dk201812; bh=D+h2TZ9lOvg86CwKBD1NqPP
+	fMjTY1kN80xOtNUeXHzc=; b=Wxu0hpjuRqf0La5w+XDNluu+PEaBPV7DZ1s828k
+	mrAS0qqoCrnpf1IuQGXKyuyBgiBrnCQBh74sT3nySS4PNARI/bZgUktJAZcv+vcT
+	ANdQKmDH4rIvrKxo1uSujIo4c3X2POtG92oj6gy0sR1gpJwDuucg2UhJm6UWknPQ
+	2bZSZEA4QCg+9tpVXcEUG03OGxJM0ge0u29KzL15s18f8uN2EjxMBFLhr/W5eU0I
+	zohEkYw+aXRkJmgDton2U6Hw3hcwHwSgag7xZ87Wru0P1yv2G/Zu8QYDFLm8xp8x
+	EPOyzTuqH8N8VduUcaZ8/xuEzdYEBs8+Z+d65RkYYAmLQDg==
+Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
+	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 461y2mh4tg-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Thu, 17 Apr 2025 10:10:16 +0100 (BST)
+Received: from Matts-MacBook-Pro.local (172.25.7.98) by HHMAIL05.hh.imgtec.org
+ (10.100.10.120) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Thu, 17 Apr
+ 2025 10:10:15 +0100
+From: Matt Coster <matt.coster@imgtec.com>
+Subject: [PATCH v2 0/2] Imagination BXS-4-64 MC1 GPU support (DTS changes)
+Date: Thu, 17 Apr 2025 10:10:01 +0100
+Message-ID: <20250417-bxs-4-64-dts-v2-0-9f8c09233114@imgtec.com>
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Originating-IP: [172.16.40.118]
-X-ClientProxiedBy: mailappw30.adc.com (172.16.56.197) To mailappw30.adc.com
- (172.16.56.197)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: HK2PEPF00006FB0:EE_|KL1PR02MB7450:EE_
-X-MS-Office365-Filtering-Correlation-Id: d05ed7c7-5f56-4273-2f91-08dd7d8f618f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|7416014|1800799024|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?PKTM6b0qxg3W4AOkN1gvuMAxTjIh3sAvjDvalbaKahh/pcU1TNRXRcJ2pbIO?=
- =?us-ascii?Q?ED3PI6S8z8TDBnKoEfTpy0kQgHKwg+cMeT5gsyRIS40eWPdwj8UXPANTQBs3?=
- =?us-ascii?Q?ub/lNSjkWS2faWdgk6uMAvXPK3B8gOQhhoQ4X3ZGukkVkkQ6LMEO3gkJu1Ts?=
- =?us-ascii?Q?Ka/7h/cX6eBz3CvbzQrRMWTIK45mXnQBbCVPu+o+uMMhQM/53//nQSxTDvT8?=
- =?us-ascii?Q?anNAbmv9ft9ImqZm+7WAp19/xOZHGMLy+9cxs2li7w9vkH3SQALLpCsIwk9A?=
- =?us-ascii?Q?vAOQks25/SxX+cAbKMXqp53ZQEa9Vlt+8U6E+bLf4mmdVVgjniPa3f7sov8o?=
- =?us-ascii?Q?+cuXiGfS97DLEP9LEtNqN4d3RneiqI6j/C1NPEhGnYarqpjSeIRfjHGG1S16?=
- =?us-ascii?Q?JrSZmTiRsO4hiLI/VfPYboaImyTyLIz4rgZZUgMJNGqwv7pofZUjv8aU05gJ?=
- =?us-ascii?Q?qG5kXcvNfQaNc9LeS+XZS+6KcZgzTxmUCu1m5UL7GDvmUPET491HaBSLpIKq?=
- =?us-ascii?Q?qB7fKEaKxOFYjNLXVH4/Bf8Akd+Q6KHz04J9GIDnUPUd9OCSaJjaWJ3svfRN?=
- =?us-ascii?Q?kGYhSAp2tGHqCTUGjRlQg3E0vEzQg5p3NllhnnDRYruROuhM5/FMJKiC/xYs?=
- =?us-ascii?Q?CexvcleZs0Fq1HqY+UNhKAeR9s6BtBrl+X3nZdQwQgEMuMMhEsNCLiaGrWAh?=
- =?us-ascii?Q?zJVlnm5OFb1LUoYa+STtyaaB2DUvm//cs0ggXM+ouDdBsWRyw9Arx/TYDwNm?=
- =?us-ascii?Q?5wQI723Vh4EprKLpLXMCS9hmhNJNE4mq7Ka80mTbdOPgGm/n/mMrnS6KDo2E?=
- =?us-ascii?Q?e4uHiWV+PIMBXtLk2+fNcKC1FA3wcePj77oIP/3kJrgiDy4nhIR17dMGRs+v?=
- =?us-ascii?Q?6tTqb0DfUaRgDx314Ufp4qmD7ZnEhhdjQgbO4jkTe3IIFt+m3wYAgfw00y0e?=
- =?us-ascii?Q?2bbxSmWB7/yeADNmoyxjAZTn2HlzIk+cCPpGa7FBcjYkwOAkMZID4hOe4PHu?=
- =?us-ascii?Q?OEJiiGq/28BKR/jtxmkMUrVhf+nXQBlzy7zbpnG1yeg7vEoCTQonUR3cOYfN?=
- =?us-ascii?Q?ShOjO8pgAd9tcbcL5xX0qVDsD9zdWqnOWr/mpD6fxSzvGM3tVm8Viat5SY+w?=
- =?us-ascii?Q?yzllUdJf0U7u1AoUGSxIRWQuPbkk0KVxCmWdu8AiGXueMhGC/LtHJGWYPBQu?=
- =?us-ascii?Q?gVfxka/WZBvK15wOUnonwsyWehJw5ynzuQh8jUm3QDR9YRZYHxqntfVtndFk?=
- =?us-ascii?Q?A+3lc0NNgpSKZHkwKryvWp59P6Eca42U0YJ24f6c6u/erqaHnHcG3Kkw525A?=
- =?us-ascii?Q?5ZDFvDdbhJ73El/ClG8cHAxB6YRu8LOjYusOjD0bAU2yUc9Yb1aD1sYZypt5?=
- =?us-ascii?Q?ykXfoGSmZ/HTER22Ara0h3oC+nygI0GMIVWuhOJeVYTXISIbAWCjX44ChNzk?=
- =?us-ascii?Q?Fdt9XyyaOXJXqnQsOrN/+sQjH++LhtAfwIJVmP6mmjjHliHtjFLqkjpXaq0W?=
- =?us-ascii?Q?KmnftiUN2L6ZlmFvPMKObKNL0rqWl1VsxyKN?=
-X-Forefront-Antispam-Report: CIP:58.252.5.68;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.oppo.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(7416014)(1800799024)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: oppo.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Apr 2025 09:08:12.5328
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d05ed7c7-5f56-4273-2f91-08dd7d8f618f
-X-MS-Exchange-CrossTenant-Id: f1905eb1-c353-41c5-9516-62b4a54b5ee6
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f1905eb1-c353-41c5-9516-62b4a54b5ee6;Ip=[58.252.5.68];Helo=[mail.oppo.com]
-X-MS-Exchange-CrossTenant-AuthSource: HK2PEPF00006FB0.apcprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR02MB7450
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGnFAGgC/3XMSw7CIBSF4a00d+w1gECrI/dhOqg82jvoI0BIT
+ cPexc4d/ic53wHRBXIRHs0BwWWKtC41xKUBMw3L6JBsbRBMKCa5wvceUaKWaFNEc++kZV2rldJ
+ QL1twnvaTe/W1J4ppDZ9Tz/y3/oEyR4a+tTc/MK2Fsk+ax+TM1awz9KWUL/UfaZSpAAAA
+X-Change-ID: 20250415-bxs-4-64-dts-c984d0876556
+To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        "Tero
+ Kristo" <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Frank Binns <frank.binns@imgtec.com>,
+        "Alessio Belle" <alessio.belle@imgtec.com>,
+        Alexandru Dadu
+	<alexandru.dadu@imgtec.com>,
+        Luigi Santivetti <luigi.santivetti@imgtec.com>,
+        Randolph Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>,
+        Matt Coster
+	<matt.coster@imgtec.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1107;
+ i=matt.coster@imgtec.com; h=from:subject:message-id;
+ bh=KqHU+hq3HbsSzafDT7vxpU6Suxp8dH6jbuuVA8bGmtk=;
+ b=owGbwMvMwCFWuUfy8817WRsYT6slMWQwHC3bz3blnbad22vdG/PXqx/jbt42/XC34C7HmxMn9
+ 7geMt6s0FHKwiDGwSArpsiyY4XlCrU/aloSN34Vw8xhZQIZwsDFKQATWaTO8D/BRMtAI///OffC
+ W/s4f0XoqZ3ojNWfe85MTUtPKGnfXhaG/1nHojfeVlnRLttpFs/n5if7RekUo+ssgdXLVbi/fq6
+ ZwAgA
+X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
+ fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
+X-Originating-IP: [172.25.7.98]
+X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
+X-Authority-Analysis: v=2.4 cv=LbU86ifi c=1 sm=1 tr=0 ts=6800c578 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=6pm0VhuFVbIA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=sozttTNsAAAA:8
+ a=-EETvfFteC8Pj7O1jf4A:9 a=QEXdDO2ut3YA:10 a=t8nPyN_e6usw4ciXM-Pk:22
+X-Proofpoint-GUID: gBBFZuUz9O6x1AC4vTTdtQYDAkS9rPPi
+X-Proofpoint-ORIG-GUID: gBBFZuUz9O6x1AC4vTTdtQYDAkS9rPPi
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_020832_931552_D2A4D3AC 
-X-CRM114-Status: GOOD (  10.83  )
+X-CRM114-CacheID: sfid-20250417_021023_596308_85C4E979 
+X-CRM114-Status: UNSURE (   8.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,21 +107,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Hi,
-> 
-> On Mon, Apr 14, 2025 at 2:54=E2=80=AFAM Dao Huang <huangdao1@oppo.com> wrote:
-> >
-> > we oppo team have tested this patch on Mediatek DX-5(arm64)
-> > with a kernel based on android-16(kernel-6.12). It has been running
-> > fine for a week on both machines.
-> 
-> Great, thanks for testing! Can we add your Tested-by tag to the patches?
-> 
-> Sami
+Now that the binding and driver changes to support the Imagination
+BXS-4-64 [1] have landed in a DRM tree, here are the corresponding DTS
+changes without the [DO NOT MERGE] tag.
 
-Hi sami,
+This GPU is found in the TI AM68 family of SoCs, with initial support
+added to the k3-j721s2 devicetree and tested on a TI SK-AM68 board.
 
-yes, you can add Tested-by tag to the patches.
-	
-Tested-by: Dao Huang <huangdao1@oppo.com>
+[1]: https://lore.kernel.org/r/20250410-sets-bxs-4-64-patch-v1-v6-0-eda620c5865f@imgtec.com
+
+Reviewed-by: Randolph Sapp <rs@ti.com>
+Signed-off-by: Matt Coster <matt.coster@imgtec.com>
+
+---
+Changes in v2:
+- Add details of the source of the interrupt index
+- Add Randolph's Rb
+- Link to v1: https://lore.kernel.org/r/20250415-bxs-4-64-dts-v1-0-f7d3fa06625d@imgtec.com
+
+---
+Matt Coster (2):
+      arm64: dts: ti: k3-am62: New GPU binding details
+      arm64: dts: ti: k3-j721s2: Add GPU node
+
+ arch/arm64/boot/dts/ti/k3-am62-main.dtsi   |  4 +++-
+ arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi | 12 ++++++++++++
+ 2 files changed, 15 insertions(+), 1 deletion(-)
+---
+base-commit: d6fe216caf15d196e1bf76591440f8f17d58e7ee
+change-id: 20250415-bxs-4-64-dts-c984d0876556
+
 
