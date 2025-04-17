@@ -4,93 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 962C8C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 07:44:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFF84C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 07:48:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l9yxI+Mba9CUaTNrgCthTIf1TjoMCLU0SYdNd1ClZ+0=; b=3nOU0ttcXp5XOQg6WmBrfBTdol
-	3cX4vvCOMMq3dIdNiDnvz7CWcOvmcxuOJNeTzx++k7k9QPhmJl85NNDRni1yQZnZD+z6YAZnSKsN6
-	Kvmd0QgXKK1PpaWDLwEL67G0JTLEm6lEgCbLFokVXXqFvcNRM5WOkMAeiwk/KWjFz2hevjuiIvcy6
-	FGSI8grf2qzFBtm9iQiQpswS0Pf8VEQU0d/16ImlM5Q6UB5WY4vv4aE/3iR1KhWyIUhXvkG1oWuto
-	aQepcO8NqrFkuEeD1dgj5vv8+xORNdMxFLDRCuYzJpZQ+n5hZJ0tWZqLA/XlAqf+Vlsyy+eUKVK2E
-	LcPL9Y+A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iufXt7XGPWVnixx75DmjBxxr/EKI8vcJNq5OOoFoztM=; b=P6bdonrmDjpEoOLXoXhaxSwdB9
+	2Bw1g1S4YJuu2yWG9Gf9X9eNKWhMmYuqDWINdl3AshxtZQ9KjEtj1jKxyptlSW7ZZOqLEvwcp/q8s
+	ACzVRZlKUSzB1lOeHTGGdtAd/bIYKro+r9ssnnokOvZg/L9tbeL+ILkK2zbGPYfzhAvr6DC1yskxE
+	nTf5/wM1ip2kIf4nfC65E6xSLERDuHUpzKZ4O1ajCjApcmgOJMnjXprP4oMMlnRuJfV0pZLMHW/mE
+	SVfixqEZjyR3IbACc65LFy/ghbSqYODipcnKhyd7q/oHrRCYXLXH3FjRIJtPFE2+Clrx1owY9OAFr
+	D8zqK6oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Jv5-0000000C9NX-0RdE;
-	Thu, 17 Apr 2025 07:44:23 +0000
-Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
+	id 1u5JzI-0000000CAHM-3gqA;
+	Thu, 17 Apr 2025 07:48:44 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5JtE-0000000C9A9-0IvZ
+	id 1u5JxR-0000000C9qF-2DZo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 07:42:29 +0000
-Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-30db3f3c907so4345921fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Apr 2025 00:42:27 -0700 (PDT)
+	Thu, 17 Apr 2025 07:46:50 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3912622c9c0so74809f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Apr 2025 00:46:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744875746; x=1745480546; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=l9yxI+Mba9CUaTNrgCthTIf1TjoMCLU0SYdNd1ClZ+0=;
-        b=gNp9ipHUsWot6aFeTtt032914AYndjs1S2Ve1bXu/kafY/+0lkzRYbAEUoEJ+A5ceY
-         u8qCSjYUtRJjzcsWcBQdrePXwZmxEvepuOKeBbCP8Hx64ARAC5sQKenMheRpRtkmgGyj
-         ak1Fh47mF3e8f2L23EowxvzaN5PTWmjtqrAj1sGXRNtNbcHX2Qkuv2pzDjYatc/roFgE
-         iY1Zb0oG8+YAX+fcxAo9xyKP/3j8tBb6hpO+qWofHnchdARWMOPl8ka8BkmIhyX3QWot
-         FfmPjOGfJjpkyQ3hEEybTX4OdD6Ncw6rayfXzx+E+dj/gQVy4/OJuSOGgmoyoP0KFJFs
-         7wOw==
+        d=linaro.org; s=google; t=1744876007; x=1745480807; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=iufXt7XGPWVnixx75DmjBxxr/EKI8vcJNq5OOoFoztM=;
+        b=vFUs5gh3NSYbTYfq7SE/iTwTPCqsedSFkxzFPB10GV695yJfy3oEJSyvfdN+ScDMfL
+         VJEumRS0kjU8PQv506StD90kdVsmIus0AnDCaaEz5oy4Qc0gDuoE0bwMbJeqz/P/HNl2
+         /dfXEmPzLMzY6G7bzIVKkTs1z68iJuk0x/xK0yGruauf9LYhGRHRO8rn8wvjKW0d6Yrn
+         V43pDBiy4vNRTEXxgSuCe3it2jBx/nkDz5Gzl3IygoOUFIwN6YKk7MgQxAb9p7PSDKH2
+         YDUaR7sxBR79k7AxBcbtvW6gN/mEYJtOfxUxUHHbff4pgl5RC4ZuU9qYR4S0YKOIFOZm
+         jGpw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744875746; x=1745480546;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=l9yxI+Mba9CUaTNrgCthTIf1TjoMCLU0SYdNd1ClZ+0=;
-        b=oVUDOLuMNSPdov3Dp7pMO06S1HB1f2pSl5PA2RS4XKvjxsSsmQyXklzHMQ9iDEc6XJ
-         CmW4AorHbCNVLi2om4LNiuIGxxT157L+VwEV5fNOO0zADhLKJwWyYlWUqKJmgfTbv/cJ
-         rjPIaK/sy9x8dUr83eFEtnqgHgnvZ+lpo2qa605rRrnvuaQTuT+flAqimwLFFhKhfNJX
-         dCF3hmb59RJjooC1yys0Dcq4Y+dJkZQoJkK1rXSwMfGS+V1MnsUjM2obYtn6MKyU13Ao
-         zq/dntEAFKCaR1SpmqpwRBmUEwmKPMY584MhyAvq3jsxfT4DFRw6YM1wccCPsTM85jA3
-         JwwA==
-X-Forwarded-Encrypted: i=1; AJvYcCUNB+S/SGC90sCn7ktHqFh36BFhpTGl69FctH9EmBJRv+4KLDeKsHSzzLJpfQAgPZLtXQi8OV6ZbLPnMEscCXT3@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzhroy9YJmcMymSWzrcObC4qhXxTrPLOYNoEwehdPioH6PCq6E2
-	tTO/6wjg93iRV39SIQfM/k7NJcynh6ZoMt04p9cLzT4G3d5yl7UielYFCZ36TPSbiC01uAarAh3
-	EPryYFRc6WZm6eCCFqKcoVnB3FMfwkB+wGCD1Kg==
-X-Gm-Gg: ASbGnctsXRA3k6EKM9iKC2wZgmBVzCVWdmbsIbxSq3zefKZ4iMeZ0jFcHOuHy8Fmi8h
-	s9QXa7h7CAAI8jNwfKLDZilPCcbAhIHFzxyjRtt0cUBEnioUghSwQxsf0DSV05l93TuRx8OZjgU
-	Jl5WmyTS5KsfTpVI9wmbNRkw==
-X-Google-Smtp-Source: AGHT+IGS1IRdJZGaZOGBt2o7TAzE4ajC3kXe2lrY8hS5Zx1+HVIOORQPGpXWTLFIUHBjt1Qe5pOZPC9xWwoJZ+1T0rQ=
-X-Received: by 2002:a2e:ab19:0:b0:30b:a20b:eccc with SMTP id
- 38308e7fff4ca-3107f6bde0emr19717881fa.11.1744875746101; Thu, 17 Apr 2025
- 00:42:26 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1744876007; x=1745480807;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=iufXt7XGPWVnixx75DmjBxxr/EKI8vcJNq5OOoFoztM=;
+        b=v/0xVA+8h9lKWc96+utEbXvpdZiog+UmlHCKEinGVSitdgVEJ71FkI7V6jwMlKDTJN
+         hXNgztVqC+EszGKhrAItkvkJf/X3GJKtJRpot2+ppNKN2D4LEo4qUyk0SkpUd1FMqKBB
+         7fws24aYFKksbHA6JcerDJXWBYKBR7TBe/G8Y+XEj4haaXamHm2a7cpGNtOY1K/J3Ejz
+         CfYu5M36UFzrI5vzKl5Jp5obpRc8/I1eWurP/ZBMetvL+5XJrIkBZUj6Uw5VfH5hKEGa
+         amhYdm9A4iIiC3R4uzu097mwWkReKWaKt9rZFYitigATYC+EXWm8kEVFYKYuC+m90FmM
+         RQWg==
+X-Forwarded-Encrypted: i=1; AJvYcCWUBnAy4H+OwUeMv+NES/Qh8NcT733Hk9rEw1kOv2Jpms2AepDcTefxrMV6d0Kw68WTaGoenWoRziaHsgln+Dxd@lists.infradead.org
+X-Gm-Message-State: AOJu0YxIa/BiLMmhi2IG+/6d+gdWaZpj6y8iEGRVLAGCe24Gb553HSiV
+	AArbg56lrnAKz8eglgHwviFt3b8VXdWHUkzHsW2jHYDITcZ7um/TRRtW+8ZPzmo=
+X-Gm-Gg: ASbGncux0WCf17l2FYtRoOnIkAEM/bJmjb3YbRxigJNolbl1oUE4BR2XXFzOGZNLjT0
+	HyKXl9bBNNnfvInhHHi+7AUSNqzJDJjx5ymoFfyINniFZoz3pCH0zOv41f0j4nta0/SDohCxRT9
+	la7utO9gLc4x89Qj8ki06JYM64rWZ1iJgVxk6eJZPBtQuSVtL4c595W+DemPKqEWHMoB742QxZV
+	6FuErjG09tksE1kXAGcCQvlueQx1oMuWOyVYdi0CzABTm6gPbqMpA1fwaB+2fiNx+2K/wrhXd6O
+	AN3HX873JfQY9vgzEd1S3nraigppG98RqTqzImkd8cGEYd014O2h+w8cSlNzQx6T1DpTrR/jufd
+	RZ4h56g==
+X-Google-Smtp-Source: AGHT+IHN0gCWGlfh6M10BCj9GpPYoIMHd3DPtjGO5OnRlWIDylaeB61eTs5nJuHYx+5YI8rHxxIREA==
+X-Received: by 2002:a5d:584a:0:b0:39a:be16:9f1e with SMTP id ffacd0b85a97d-39ee8fd638cmr684683f8f.12.1744876007476;
+        Thu, 17 Apr 2025 00:46:47 -0700 (PDT)
+Received: from kuoka.. (46.150.74.144.lvv.nat.volia.net. [46.150.74.144])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4405b4d2ddfsm43130005e9.10.2025.04.17.00.46.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Apr 2025 00:46:47 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH] pmdomain: arm: Do not enable by default during compile testing
+Date: Thu, 17 Apr 2025 09:46:45 +0200
+Message-ID: <20250417074645.81480-1-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-References: <20250408-gpiochip-set-rv-pinctrl-part1-v1-0-c9d521d7c8c7@linaro.org>
- <20250408-gpiochip-set-rv-pinctrl-part1-v1-7-c9d521d7c8c7@linaro.org>
- <20250416223706.GA3230303@ax162> <CACMJSevPHdo9ZGaOyGV8rrhJHTN4+-0UB0+sz=Z5jc_eZybjcA@mail.gmail.com>
-In-Reply-To: <CACMJSevPHdo9ZGaOyGV8rrhJHTN4+-0UB0+sz=Z5jc_eZybjcA@mail.gmail.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Thu, 17 Apr 2025 09:42:14 +0200
-X-Gm-Features: ATxdqUEL04h0FlK145WkXx_Q9dTs068nZ1YOBn95bqrfuRW3dCGJeGM7IpJjU74
-Message-ID: <CACRpkdY5KJzCk1sfznG6DFMmX9T=pu=im_a6jTeAT68pO9SBAQ@mail.gmail.com>
-Subject: Re: [PATCH 07/10] pinctrl: sx150x: enable building modules with COMPILE_TEST=y
-To: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Cc: Nathan Chancellor <nathan@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>, 
-	Ludovic Desroches <ludovic.desroches@microchip.com>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
-	Xianwei Zhao <xianwei.zhao@amlogic.com>, Patrick Rudolph <patrick.rudolph@9elements.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_004228_112418_EEAF83B6 
-X-CRM114-Status: UNSURE (   7.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250417_004649_563618_3BE7234C 
+X-CRM114-Status: GOOD (  10.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,17 +100,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 17, 2025 at 8:42=E2=80=AFAM Bartosz Golaszewski
-<bartosz.golaszewski@linaro.org> wrote:
+Enabling the compile test should not cause automatic enabling of all
+drivers, but only allow to choose to compile them.
 
-> Makes sense. Linus: Can you just drop this or do you prefer a formal reve=
-rt?
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-I just dropped it, no problem.
+---
 
-I'm amazed there was not more fallout from the patches
-so all is good!
+For longer rationale:
+https://lore.kernel.org/all/191543a8-2e2e-4ac4-9b2b-d253820a0c9f@app.fastmail.com/
+---
+ drivers/pmdomain/arm/Kconfig | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-Yours,
-Linus Walleij
+diff --git a/drivers/pmdomain/arm/Kconfig b/drivers/pmdomain/arm/Kconfig
+index efa139c34e08..afed10d382ad 100644
+--- a/drivers/pmdomain/arm/Kconfig
++++ b/drivers/pmdomain/arm/Kconfig
+@@ -2,7 +2,7 @@
+ config ARM_SCMI_PERF_DOMAIN
+ 	tristate "SCMI performance domain driver"
+ 	depends on ARM_SCMI_PROTOCOL || (COMPILE_TEST && OF)
+-	default y
++	default ARM_SCMI_PROTOCOL
+ 	select PM_GENERIC_DOMAINS if PM
+ 	help
+ 	  This enables support for the SCMI performance domains which can be
+@@ -14,7 +14,7 @@ config ARM_SCMI_PERF_DOMAIN
+ config ARM_SCMI_POWER_DOMAIN
+ 	tristate "SCMI power domain driver"
+ 	depends on ARM_SCMI_PROTOCOL || (COMPILE_TEST && OF)
+-	default y
++	default ARM_SCMI_PROTOCOL
+ 	select PM_GENERIC_DOMAINS if PM
+ 	help
+ 	  This enables support for the SCMI power domains which can be
+@@ -27,7 +27,7 @@ config ARM_SCMI_POWER_DOMAIN
+ config ARM_SCPI_POWER_DOMAIN
+ 	tristate "SCPI power domain driver"
+ 	depends on ARM_SCPI_PROTOCOL || (COMPILE_TEST && OF)
+-	default y
++	default ARM_SCPI_PROTOCOL
+ 	select PM_GENERIC_DOMAINS if PM
+ 	help
+ 	  This enables support for the SCPI power domains which can be
+-- 
+2.45.2
+
 
