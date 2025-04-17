@@ -4,99 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9B0AC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 14:34:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1929BC369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 14:36:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LWK6OGQUPtJsrWaqiRqfJ/zsH5wseFrp650Wv3Bg60w=; b=vPiP5TidvtacOPXmtpKI6FPSHR
-	rfsisiMJL73kWgJPHrTUXIhR3QI7NTXSxVb1nSGwlMPXHAY7/FaRhzQ1osE0dCHVdBy59K2Wbanvv
-	q+dNt+FLrqWIvDQ6jhVoU2Ws6J3Vw1Tyw2k1Luwpl93enps4LkvR5D9R92zTf4Ionlhmy2cRQXwH3
-	99TxAep9XtRXTfBfh8FpO2vTPHib0CO8WU8ALlpK4NkenFr0dMX4WuGdFzOQ0sOxJL6jXErLaPIhX
-	F7MlCgnwbR+tng53TEWLRxjtIiAZ3FI7YyuFqBrL6oXDtLoP7f35d7f9vr7oXNuHMz5z8mRGpsJfA
-	dGLvQaFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kzJ4Wg24qzu6pyKtW142sYMQG0HMZpg+d5djsiZ4znE=; b=uw9XyZcZ6gOEXW4iksKkr36wae
+	l4P0WyiAhRkxrS0m4NoNI8/nyV0qmKG/smBnojnDTRFnVFTZh/rBx4S/dcdVztuFWFx20wjB2ShFe
+	7tGyiRXf27oBaSVHOyZx4m4SyM0xXZmP2Edl4P8bKKu7lOHdN57xIAd12A/II1uUnrR+xzLFo27tt
+	0+jiMm7aUxwN3YCd04KwH2lctuj+XH6/Wk7g3LuRiNtiglcuwRGT0phCEH6ouommMmZHMv77z7SAd
+	1NC5IMhcMfDfx37ZgcXFzMA44kg7t3gI8RsVIuEedo6DL5NGwuCX5QdWUvvX2Sg7oi2zoHMROkQF/
+	SJEo0+Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5QJU-0000000DKsj-2ckR;
-	Thu, 17 Apr 2025 14:34:00 +0000
-Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5QBN-0000000DIeL-3W5q
-	for linux-arm-kernel@lists.infradead.org;
+	id 1u5QLJ-0000000DLCL-1sCE;
+	Thu, 17 Apr 2025 14:35:53 +0000
+Received: from mail.8bytes.org ([85.214.250.239])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u5QBO-0000000DIdQ-0jC2;
 	Thu, 17 Apr 2025 14:25:39 +0000
-Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-5499c5d9691so1035003e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Apr 2025 07:25:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744899936; x=1745504736; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=LWK6OGQUPtJsrWaqiRqfJ/zsH5wseFrp650Wv3Bg60w=;
-        b=DiNOYqLhaXbc4RwliAQexoyur9W/GyKdeBt8/7affA5dtlZn0A0u5ySNL+EIqsGqhY
-         JvSPrOgWZewsPuqDwPLWR2QZ7h0O9K8uacg+EfB13iQtpBGTYc4rU1jStfW1XpGJQHmI
-         zAltg640B5WPK6lQCxWsxZRaCZy+fNXLBJi3WAvcfLZaQfcHsQaVaRNuR9JZVLMmrvpL
-         P8QFL0PIVkECX6gTX3nn10ZC4Hd991N5phlPCuo5N5SLIlhg8qEqpmZQJmwTzBpDAkny
-         vPCqkdGEVGYSgY8/wyUDV2BjerhDRTBACo+sIRR8V3583iJtXN1ud68IKRs5bnF+cr+n
-         gcwQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744899936; x=1745504736;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=LWK6OGQUPtJsrWaqiRqfJ/zsH5wseFrp650Wv3Bg60w=;
-        b=IHNOAY1cHqFeEmNju9ZjAWkoyYSWDLO275GURHyswx7XlX4welXJxLW1k63LNuBVc1
-         MDrbRW/mR0YSDXPfV1eWKadV2uVV/Wbl00q6NbvB2UKFOHTd9SWoncPW/8qit7cNaLl3
-         mws1wdyhNWJ63V91YZVPlRx0dXGUbbU5m/W8mLfjdQXz1KgacJ2dTDbxOEDyhYzKZKrW
-         kIEXphcqfWHbMG/d7LONoYbiVsgaJCMEyOELhwUgtK78xZ/1iZYLdG9OKVkItaVt9wwl
-         awOzZhk62OUt7zbki62ikdFYxFnSBngnZRvW6rbQrSX8M8AMVWoxsLMNA39MNjWNUQH7
-         qycg==
-X-Forwarded-Encrypted: i=1; AJvYcCWbKb/WY+MTn/v3USv7ECqmv+1Ml2fSSldH6njjw1Lgxq0zoVM6aTOPhOrSnqD+ntxVz7TZqwf92PTASUq/9Ner@lists.infradead.org
-X-Gm-Message-State: AOJu0YxjB2eSzdWIqaBtm4gLiB4cMwxr4KBgnWNLLzxT6+oECXd2tLWr
-	xHYm3ToeINPsJnH0tJmZkQBKtIIDPFNSEsmhCE+5ItmgPjs5g9VREh1n/aWBTFo=
-X-Gm-Gg: ASbGncukWXBHOZiQ1xKYl6oyX63j/IbKc9eM7y966Zf8U4RTDgCzvTfxx7BQrEBTTke
-	jPMyUNdcJ8MEv0g6PLy90AELqAJnCnPOdkw0UUpoGPzVGohBTL80dpLsFO2hXRb7mplu49kYodo
-	lVhaU2DfCEbnj3lvZCP7/uOXa2qzJ6Iu9VctAGnBlwJ6U4WNASJ0DkKuyf2Vvy0kpA33RSKiS+0
-	OoV6A3pGQiYiaJ5ribl+H+f1k7h4mhk3OYojzn9/lTX9EMQiU6Ea1nS5maXLGMU3JuZSD1Iq/Q4
-	75f5bnix8EQCx0JotZsqejLjyuNgWN6QkwOqQpzSS1RX1zAqkm14qSPj+vWMOMDS5lhQG417DwG
-	bwxnJdyID97LD3jg=
-X-Google-Smtp-Source: AGHT+IFMIMS9W78LDELYwj19yc/UbKsawjkHWp2lDcIWNSaSrbDAkmZeYKJckcObhsbeji26HeVx/Q==
-X-Received: by 2002:a05:6512:33d1:b0:549:91c6:96a8 with SMTP id 2adb3069b0e04-54d64a7b359mr1644875e87.7.1744899935896;
-        Thu, 17 Apr 2025 07:25:35 -0700 (PDT)
-Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54d65e43647sm370096e87.58.2025.04.17.07.25.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 17 Apr 2025 07:25:35 -0700 (PDT)
-From: Ulf Hansson <ulf.hansson@linaro.org>
-To: Saravana Kannan <saravanak@google.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	linux-pm@vger.kernel.org
-Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Michael Grzeschik <m.grzeschik@pengutronix.de>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Abel Vesa <abel.vesa@linaro.org>,
-	Devarsh Thakkar <devarsht@lewv0571a.ent.ti.com>,
-	Peng Fan <peng.fan@oss.nxp.com>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	Johan Hovold <johan@kernel.org>,
-	Maulik Shah <maulik.shah@oss.qualcomm.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
+Received: from 8bytes.org (p4ffe03ae.dip0.t-ipconnect.de [79.254.3.174])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.8bytes.org (Postfix) with ESMTPSA id E900D485FD;
+	Thu, 17 Apr 2025 16:25:30 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=8bytes.org;
+	s=default; t=1744899931;
+	bh=/HJPLJW7CBCK1J9D/Tt5sZhelJYUDsDIjSLUZbWv1OE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EuElz7+Qx317T37R6Xk86MhTtQwxCkmp7UHTFVuhPJMl9k8WUHkrpkhEHjiIIU05a
+	 HAzRnmkgmL+RUvIuZioUKw7Vlp9fZaCDnvU3iA4vVdaEZsHSVM/0fMzv6HIRkOKA1H
+	 chS5VzHsAK7xJzIE/CfhOd0QMQq1TCQw4LQUF9XGapf525Y1ufDPhOH9Vvq34bzNc5
+	 NoIPQRHmnCzb7eL4G8h21D64hMj6oM4CkSXYLdrD78OqxWTP5I/Jl8OmL36GnsK76B
+	 +iNsSxMcEukAqjZx3Ur+ZnLAflFKwuDuR6GXgtRCL8p4ZN1N1sjzsv0I5KMogrNGV2
+	 EkNWoKRqfm8Eg==
+Date: Thu, 17 Apr 2025 16:25:29 +0200
+From: Joerg Roedel <joro@8bytes.org>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Alim Akhtar <alim.akhtar@samsung.com>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
+	David Woodhouse <dwmw2@infradead.org>,
+	Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
+	Janne Grunau <j@jannau.net>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 03/11] pmdomain: core: Use genpd->opp_table to simplify error/remove path
-Date: Thu, 17 Apr 2025 16:25:01 +0200
-Message-ID: <20250417142513.312939-4-ulf.hansson@linaro.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250417142513.312939-1-ulf.hansson@linaro.org>
-References: <20250417142513.312939-1-ulf.hansson@linaro.org>
+	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
+	linux-tegra@vger.kernel.org,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Neal Gompa <neal@gompa.dev>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Sven Peter <sven@svenpeter.dev>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Tomasz Jeznach <tjeznach@rivosinc.com>,
+	Krishna Reddy <vdumpa@nvidia.com>, Chen-Yu Tsai <wens@csie.org>,
+	Will Deacon <will@kernel.org>,
+	Alejandro Jimenez <alejandro.j.jimenez@oracle.com>,
+	Bagas Sanjaya <bagasdotme@gmail.com>,
+	Lu Baolu <baolu.lu@linux.intel.com>, Joerg Roedel <jroedel@suse.de>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	David Rientjes <rientjes@google.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	Matthew Wilcox <willy@infradead.org>
+Subject: Re: [PATCH v4 00/23] iommu: Further abstract iommu-pages
+Message-ID: <aAEPWXaBocqgsvbR@8bytes.org>
+References: <0-v4-c8663abbb606+3f7-iommu_pages_jgg@nvidia.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <0-v4-c8663abbb606+3f7-iommu_pages_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_072537_876946_09077FD2 
-X-CRM114-Status: GOOD (  12.45  )
+X-CRM114-CacheID: sfid-20250417_072538_438764_B4B212DD 
+X-CRM114-Status: GOOD (  11.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,63 +101,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While we add an OF-provider we may, based upon a specific condition, also
-assign genpd->opp_table. Rather using the same specific condition in the
-error/remove path, let's check genpd->opp_table instead as it makes the
-code easier.
+> Jason Gunthorpe (23):
+>   iommu/terga: Do not use struct page as the handle for as->pd memory
+>   iommu/tegra: Do not use struct page as the handle for pts
+>   iommu/pages: Remove __iommu_alloc_pages()/__iommu_free_pages()
+>   iommu/pages: Make iommu_put_pages_list() work with high order
+>     allocations
+>   iommu/pages: Remove the order argument to iommu_free_pages()
+>   iommu/pages: Remove iommu_free_page()
+>   iommu/pages: De-inline the substantial functions
+>   iommu/pages: Formalize the freelist API
+>   iommu/riscv: Convert to use struct iommu_pages_list
+>   iommu/amd: Convert to use struct iommu_pages_list
+>   iommu: Change iommu_iotlb_gather to use iommu_page_list
+>   iommu/pages: Remove iommu_put_pages_list_old and the _Generic
+>   iommu/pages: Move from struct page to struct ioptdesc and folio
+>   iommu/pages: Move the __GFP_HIGHMEM checks into the common code
+>   iommu/pages: Allow sub page sizes to be passed into the allocator
+>   iommu/amd: Change rlookup, irq_lookup, and alias to use kvalloc()
+>   iommu/amd: Use roundup_pow_two() instead of get_order()
+>   iommu/riscv: Update to use iommu_alloc_pages_node_lg2()
+>   iommu: Update various drivers to pass in lg2sz instead of order to
+>     iommu pages
+>   iommu/pages: Remove iommu_alloc_page/pages()
+>   iommu/pages: Remove iommu_alloc_page_node()
+>   iommu/amd: Use iommu_alloc_pages_node_sz() for the IRT
+>   iommu/vtd: Remove iommu_alloc_pages_node()
 
-Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
----
- drivers/pmdomain/core.c | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
+Applied to the new iommu-pages branch. I think this has the potential to
+become a conflict nightmare, let's see how it goes in this cycle.
 
-diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
-index 34a85bf347ad..035b65563947 100644
---- a/drivers/pmdomain/core.c
-+++ b/drivers/pmdomain/core.c
-@@ -2343,6 +2343,7 @@ int pm_genpd_init(struct generic_pm_domain *genpd,
- 	genpd->provider = NULL;
- 	genpd->device_id = -ENXIO;
- 	genpd->has_provider = false;
-+	genpd->opp_table = NULL;
- 	genpd->accounting_time = ktime_get_mono_fast_ns();
- 	genpd->domain.ops.runtime_suspend = genpd_runtime_suspend;
- 	genpd->domain.ops.runtime_resume = genpd_runtime_resume;
-@@ -2617,7 +2618,7 @@ int of_genpd_add_provider_simple(struct device_node *np,
- 
- 	ret = genpd_add_provider(np, genpd_xlate_simple, genpd);
- 	if (ret) {
--		if (!genpd_is_opp_table_fw(genpd) && genpd->set_performance_state) {
-+		if (genpd->opp_table) {
- 			dev_pm_opp_put_opp_table(genpd->opp_table);
- 			dev_pm_opp_of_remove_table(&genpd->dev);
- 		}
-@@ -2697,7 +2698,7 @@ int of_genpd_add_provider_onecell(struct device_node *np,
- 		genpd->provider = NULL;
- 		genpd->has_provider = false;
- 
--		if (!genpd_is_opp_table_fw(genpd) && genpd->set_performance_state) {
-+		if (genpd->opp_table) {
- 			dev_pm_opp_put_opp_table(genpd->opp_table);
- 			dev_pm_opp_of_remove_table(&genpd->dev);
- 		}
-@@ -2729,11 +2730,10 @@ void of_genpd_del_provider(struct device_node *np)
- 				if (gpd->provider == &np->fwnode) {
- 					gpd->has_provider = false;
- 
--					if (genpd_is_opp_table_fw(gpd) || !gpd->set_performance_state)
--						continue;
--
--					dev_pm_opp_put_opp_table(gpd->opp_table);
--					dev_pm_opp_of_remove_table(&gpd->dev);
-+					if (gpd->opp_table) {
-+						dev_pm_opp_put_opp_table(gpd->opp_table);
-+						dev_pm_opp_of_remove_table(&gpd->dev);
-+					}
- 				}
- 			}
- 
--- 
-2.43.0
+ 	Joerg
 
 
