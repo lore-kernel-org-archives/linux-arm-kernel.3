@@ -4,85 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19763C369C9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C26B4C369B2
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 13:48:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IzV24CKy9+GByv4nV3URGiNxMvyLfi5b2XJFt9IvXeI=; b=SeadVYgkBn1BJXnkeRrNVc7FJ7
-	/2Nnjq+BX2rVvr7ndtKT0YkwlN882UIon2uLeRRsTQtAOJVfWhROOhIGtumnUd4gzBXsOX/4JYSVN
-	klrexpAIqdmo8jz1jpDvl3UsQ52UGRClZBvh/7nkR+T6KkmFzZcJOW6DYhu7VWFe/WHAXwDnkvIl4
-	9hEeq2/pOExysyLydYBlkNq1bS5xsN2uv34UQs5EmgR6gNX34BAhSaxX4ZuA22WicXT7GwJnTzXJp
-	BR1b4aVcm+tjoxQ9PU0mUaAMuP2Y3S6rVPwsmIzbGlAucLIGsrpSoJ3GgW07up9gI96x2bAhwK9fB
-	oy9zJKIQ==;
+	bh=ogWxuTjp5Nks1uF5KHNpor010g6lBRaJanaXYtzaBMA=; b=YtgyFAxev8PI9IgHKg2hYKlLkF
+	AdzIdIcmJEx6rK5+LZzHOedP/o3/2fpGoSOczhlpf+APDsTLd10c9xCmTygTDTvda14GltIJcQDOG
+	W8Mrm3AnjrEIJ+8ByQ0EMtr43PoDGohnXwi8m6/ixzEhhBv9tIcGHvXzmAn6APBR2Xb6ZZFngNeNj
+	YPeiilkbfjjgnyI2q+eZjrBG6lM4N+k+8SAUTmDEPDllz5E2GhbKcYlz1m5sndl5MMEIgYAI34r0r
+	6labmN4MV0nFMyxdjhVDDhlhJfAdacKbUl943ThW5OiLbkDX/S+fBLL7XWzVgZuWJqYmq7fPb0IG0
+	udoDP5OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5PbX-0000000DCHG-3Hji;
-	Thu, 17 Apr 2025 13:48:35 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93])
+	id 1u5Pbd-0000000DCMU-3D4L;
+	Thu, 17 Apr 2025 13:48:41 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5PBV-0000000D7yx-2X2r
+	id 1u5PFP-0000000D9B3-23fE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 13:21:43 +0000
-Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53HB3Woc009343;
-	Thu, 17 Apr 2025 15:21:13 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	IzV24CKy9+GByv4nV3URGiNxMvyLfi5b2XJFt9IvXeI=; b=DPBk8qOgGpHyROfX
-	1c8EKr0K7BeG+ESrIiz4M2Ar0pWmXwDOAy3cWOwCUe7G0xBiaNbIrOsUqEK/FEk9
-	5zCE4iQB+5kFlwIa1kPQD1gLRMG2rL5Kw1fKkivN3U9naY/cprOf78J5LtXWxeF+
-	eAHfigiKa+UciWOQgbwr4cvAIa3a+8wUOlxHvrTgKDNzUS0PWBlN3+E9TxzpVZt9
-	pZGPz+o3FTzvjvU11X8GU2vi2NMborTek6gCmEjO10VOK9BqToOoVWjHsKXpDCLJ
-	1pxxfMg9Y/AAhJsuWmEDM9cd3O2jTIuIUpH67SvUYt+KFYWPXUauTxiG2/HwqfKW
-	7fmEfQ==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46034ndvfb-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 17 Apr 2025 15:21:13 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 583014002D;
-	Thu, 17 Apr 2025 15:19:36 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id EDC209968D4;
-	Thu, 17 Apr 2025 15:18:48 +0200 (CEST)
-Received: from localhost (10.130.77.120) by SHFDAG1NODE3.st.com (10.75.129.71)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 17 Apr
- 2025 15:18:48 +0200
-From: Christian Bruel <christian.bruel@foss.st.com>
-To: <christian.bruel@foss.st.com>, <lpieralisi@kernel.org>, <kw@linux.com>,
-        <manivannan.sadhasivam@linaro.org>, <robh@kernel.org>,
-        <bhelgaas@google.com>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
-        <p.zabel@pengutronix.de>, <thippeswamy.havalige@amd.com>,
-        <shradha.t@samsung.com>, <quic_schintav@quicinc.com>,
-        <cassel@kernel.org>, <johan+linaro@kernel.org>
-CC: <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v6 1/9] dt-bindings: PCI: Add STM32MP25 PCIe Root Complex bindings
-Date: Thu, 17 Apr 2025 15:18:25 +0200
-Message-ID: <20250417131833.3427126-2-christian.bruel@foss.st.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250417131833.3427126-1-christian.bruel@foss.st.com>
-References: <20250417131833.3427126-1-christian.bruel@foss.st.com>
+	Thu, 17 Apr 2025 13:25:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id AF8535C04A3;
+	Thu, 17 Apr 2025 13:23:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3C28C4CEED;
+	Thu, 17 Apr 2025 13:25:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744896342;
+	bh=Drs94MUaxJbsVdM/zpcCB4DFPzpYU1vvnHCqfqX8EJA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=svKG27U0i8ZPd4YWJD+dQsdHbDu921JnCpGNZ/L2EtDdybbKCnQLp5AEa0vf0Nq4F
+	 vvbqao0DBlNINB4XZFl9lIJCj7PofcGV6AV/W+x85d0rb7SOIP35/HqZbcdWzAOOBN
+	 TB/ccEpGWxwMlE9i/tS06x6K02JieGNmsYzIZ/e8BbahMA/tx51PaOhyMwPgPis1pF
+	 IYr0CRFpeSHpI/VVOmWHvJsO50RvGsYQwWS0nbAusP0He4xVKPzlL/Py7bELrti3LV
+	 cWibMsDQh8IYLb5RmBiveiqadY9OFFC/LD/heCp7shCjK0RrwizQAhmG1TkLrdqWjS
+	 hFnnX9fhrzWcw==
+Date: Thu, 17 Apr 2025 14:25:37 +0100
+From: Will Deacon <will@kernel.org>
+To: Charles Han <hanchunchao@inspur.com>
+Cc: mark.rutland@arm.com, suzuki.poulose@arm.com,
+	Ganapatrao.Kulkarni@cavium.com, gkulkarni@marvell.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] drivers/perf: Add NULL check in thunderx2_pmu
+Message-ID: <20250417132536.GB12863@willie-the-truck>
+References: <20250410112027.80131-1-hanchunchao@inspur.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.130.77.120]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-17_03,2025-04-17_01,2024-11-22_01
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250410112027.80131-1-hanchunchao@inspur.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_062142_250050_6216735C 
-X-CRM114-Status: GOOD (  14.05  )
+X-CRM114-CacheID: sfid-20250417_062543_634903_065204B5 
+X-CRM114-Status: GOOD (  18.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,184 +74,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document the bindings for STM32MP25 PCIe Controller configured in
-root complex mode with one root port.
+On Thu, Apr 10, 2025 at 07:20:27PM +0800, Charles Han wrote:
+> devm_kasprintf() can return a NULL pointer on failure,but this
+> returned value in tx2_uncore_pmu_register() and
+> tx2_uncore_pmu_init_dev() is not checked.
+> Add NULL check in tx2_uncore_pmu_register() and
+> tx2_uncore_pmu_init_dev(), to handle kernel NULL
+> pointer dereference error.
+> 
+> Fixes: 69c32972d593 ("drivers/perf: Add Cavium ThunderX2 SoC UNCORE PMU driver")
+> Fixes: 5e2c27e833bb ("drivers/perf: Add CCPI2 PMU support in ThunderX2 UNCORE driver.")
+> Signed-off-by: Charles Han <hanchunchao@inspur.com>
+> ---
+>  drivers/perf/thunderx2_pmu.c | 17 +++++++++++++++++
+>  1 file changed, 17 insertions(+)
+> 
+> diff --git a/drivers/perf/thunderx2_pmu.c b/drivers/perf/thunderx2_pmu.c
+> index 6ed4707bd6bb..03dd297ff326 100644
+> --- a/drivers/perf/thunderx2_pmu.c
+> +++ b/drivers/perf/thunderx2_pmu.c
+> @@ -738,6 +738,8 @@ static int tx2_uncore_pmu_register(
+>  
+>  	tx2_pmu->pmu.name = devm_kasprintf(dev, GFP_KERNEL,
+>  			"%s", name);
+> +	if (!tx2_pmu->pmu.name)
+> +		return -ENOMEM;
 
-Supports 4 INTx and MSI interrupts from the ARM GICv2m controller.
+perf_pmu_register() rejects (and warns) for a NULL name, so I'm not sure
+we need to litter the drivers with extra checks.
 
-STM32 PCIe may be in a power domain which is the case for the STM32MP25
-based boards.
+>  	return perf_pmu_register(&tx2_pmu->pmu, tx2_pmu->pmu.name, -1);
+>  }
+> @@ -837,6 +839,11 @@ static struct tx2_uncore_pmu *tx2_uncore_pmu_init_dev(struct device *dev,
+>  		tx2_pmu->attr_groups = l3c_pmu_attr_groups;
+>  		tx2_pmu->name = devm_kasprintf(dev, GFP_KERNEL,
+>  				"uncore_l3c_%d", tx2_pmu->node);
+> +		if (!tx2_pmu->name) {
+> +			devm_kfree(dev, tx2_pmu);
+> +			return ERR_PTR(-ENOMEM);
+> +		}
+> +
+>  		tx2_pmu->init_cntr_base = init_cntr_base_l3c;
+>  		tx2_pmu->start_event = uncore_start_event_l3c;
+>  		tx2_pmu->stop_event = uncore_stop_event_l3c;
+> @@ -852,6 +859,11 @@ static struct tx2_uncore_pmu *tx2_uncore_pmu_init_dev(struct device *dev,
+>  		tx2_pmu->attr_groups = dmc_pmu_attr_groups;
+>  		tx2_pmu->name = devm_kasprintf(dev, GFP_KERNEL,
+>  				"uncore_dmc_%d", tx2_pmu->node);
+> +		if (!tx2_pmu->name) {
+> +			devm_kfree(dev, tx2_pmu);
+> +			return ERR_PTR(-ENOMEM);
+> +		}
+> +
+>  		tx2_pmu->init_cntr_base = init_cntr_base_dmc;
+>  		tx2_pmu->start_event = uncore_start_event_dmc;
+>  		tx2_pmu->stop_event = uncore_stop_event_dmc;
+> @@ -866,6 +878,11 @@ static struct tx2_uncore_pmu *tx2_uncore_pmu_init_dev(struct device *dev,
+>  		tx2_pmu->attr_groups = ccpi2_pmu_attr_groups;
+>  		tx2_pmu->name = devm_kasprintf(dev, GFP_KERNEL,
+>  				"uncore_ccpi2_%d", tx2_pmu->node);
+> +		if (!tx2_pmu->name) {
+> +			devm_kfree(dev, tx2_pmu);
+> +			return ERR_PTR(-ENOMEM);
+> +		}
 
-Supports WAKE# from wake-gpios
+Are any of these actually necessary? afaict, the vsprintf code will
+emit "(null)" for a NULL pointer.
 
-Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-Acked-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
----
- .../bindings/pci/st,stm32-pcie-common.yaml    |  33 ++++++
- .../bindings/pci/st,stm32-pcie-host.yaml      | 112 ++++++++++++++++++
- 2 files changed, 145 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml
- create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
-
-diff --git a/Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml b/Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml
-new file mode 100644
-index 000000000000..5adbff259204
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml
-@@ -0,0 +1,33 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pci/st,stm32-pcie-common.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: STM32MP25 PCIe RC/EP controller
-+
-+maintainers:
-+  - Christian Bruel <christian.bruel@foss.st.com>
-+
-+description:
-+  STM32MP25 PCIe RC/EP common properties
-+
-+properties:
-+  clocks:
-+    maxItems: 1
-+    description: PCIe system clock
-+
-+  resets:
-+    maxItems: 1
-+
-+  power-domains:
-+    maxItems: 1
-+
-+  access-controllers:
-+    maxItems: 1
-+
-+required:
-+  - clocks
-+  - resets
-+
-+additionalProperties: true
-diff --git a/Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml b/Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
-new file mode 100644
-index 000000000000..443bfe2cdc98
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
-@@ -0,0 +1,112 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pci/st,stm32-pcie-host.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: STMicroelectronics STM32MP25 PCIe Root Complex
-+
-+maintainers:
-+  - Christian Bruel <christian.bruel@foss.st.com>
-+
-+description:
-+  PCIe root complex controller based on the Synopsys DesignWare PCIe core.
-+
-+allOf:
-+  - $ref: /schemas/pci/snps,dw-pcie.yaml#
-+  - $ref: /schemas/pci/st,stm32-pcie-common.yaml#
-+
-+properties:
-+  compatible:
-+    const: st,stm32mp25-pcie-rc
-+
-+  reg:
-+    items:
-+      - description: Data Bus Interface (DBI) registers.
-+      - description: PCIe configuration registers.
-+
-+  reg-names:
-+    items:
-+      - const: dbi
-+      - const: config
-+
-+  msi-parent:
-+    maxItems: 1
-+
-+patternProperties:
-+  '^pcie@[0-2],0$':
-+    type: object
-+    $ref: /schemas/pci/pci-pci-bridge.yaml#
-+
-+    properties:
-+      reg:
-+        maxItems: 1
-+
-+      phys:
-+        maxItems: 1
-+
-+      reset-gpios:
-+        description: GPIO controlled connection to PERST# signal
-+        maxItems: 1
-+
-+      wake-gpios:
-+        description: GPIO used as WAKE# input signal
-+        maxItems: 1
-+
-+    required:
-+      - phys
-+      - ranges
-+
-+    unevaluatedProperties: false
-+
-+required:
-+  - interrupt-map
-+  - interrupt-map-mask
-+  - ranges
-+  - dma-ranges
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
-+    #include <dt-bindings/gpio/gpio.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/phy/phy.h>
-+    #include <dt-bindings/reset/st,stm32mp25-rcc.h>
-+
-+    pcie@48400000 {
-+        compatible = "st,stm32mp25-pcie-rc";
-+        device_type = "pci";
-+        reg = <0x48400000 0x400000>,
-+              <0x10000000 0x10000>;
-+        reg-names = "dbi", "config";
-+        #interrupt-cells = <1>;
-+        interrupt-map-mask = <0 0 0 7>;
-+        interrupt-map = <0 0 0 1 &intc 0 0 GIC_SPI 264 IRQ_TYPE_LEVEL_HIGH>,
-+                        <0 0 0 2 &intc 0 0 GIC_SPI 265 IRQ_TYPE_LEVEL_HIGH>,
-+                        <0 0 0 3 &intc 0 0 GIC_SPI 266 IRQ_TYPE_LEVEL_HIGH>,
-+                        <0 0 0 4 &intc 0 0 GIC_SPI 267 IRQ_TYPE_LEVEL_HIGH>;
-+        #address-cells = <3>;
-+        #size-cells = <2>;
-+        ranges = <0x01000000 0x0 0x00000000 0x10010000 0x0 0x10000>,
-+                 <0x02000000 0x0 0x10020000 0x10020000 0x0 0x7fe0000>,
-+                 <0x42000000 0x0 0x18000000 0x18000000 0x0 0x8000000>;
-+        dma-ranges = <0x42000000 0x0 0x80000000 0x80000000 0x0 0x80000000>;
-+        clocks = <&rcc CK_BUS_PCIE>;
-+        resets = <&rcc PCIE_R>;
-+        msi-parent = <&v2m0>;
-+        access-controllers = <&rifsc 68>;
-+        power-domains = <&CLUSTER_PD>;
-+
-+        pcie@0,0 {
-+            device_type = "pci";
-+            reg = <0x0 0x0 0x0 0x0 0x0>;
-+            phys = <&combophy PHY_TYPE_PCIE>;
-+            wake-gpios = <&gpioh 5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-+            reset-gpios = <&gpioj 8 GPIO_ACTIVE_LOW>;
-+            #address-cells = <3>;
-+            #size-cells = <2>;
-+            ranges;
-+        };
-+    };
--- 
-2.34.1
-
+Will
 
