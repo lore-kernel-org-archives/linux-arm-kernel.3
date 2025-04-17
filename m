@@ -4,75 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4F3AC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 17:15:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADCD3C369CA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 17:17:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QijNO2ZfnOjSWZjNpJ3nyzPtxrLlEgywLxU2b89Sce0=; b=zg/4vDgmXecvP5ex4awck6PyGn
-	mZMsb9olxnPyPnMi5zdU++IUjv4ZltZ6cn1ALuLv5tDoF/HNQhaRqC3qsf+lzsx+6N0QEJKpCpmrF
-	UIsKCb9m1yy32lzJ5GgEA7ND19i8rMUK6WnpAWwjC5GitW+2rvAUydb0EuI25bPdzczkn2+0elbDN
-	N0drx9ONJVYGshbQN83t34ohG8Fd8EbFUYXkayvXHFsCbvNcYa5y5PeKmeJqc5ide1HbCHwwgMIlF
-	BpiJN3Gqs3GJ6o9Io6a45iBnFvkvqkzCMcmZHq2Ksu3gSuLTgG8rtlhuPk+ioE8d4zcXsyoG4LNpf
-	BVqNy79w==;
+	bh=Qn/fKaJTQk9gq0OqOW5xdFT6LxZnTNELy3TrPms8KwQ=; b=IWQP3a3bzc5LCHJRjmjbI54Rht
+	ALJx+8+WGkNv6vaJ7DY+ToRFRsWsHG0/uH5P/6V1X8JUNfej82CwgK22uO919n65mtS5/cwydbT7e
+	+B9fEQmOpHery+LgQ48LUyzdB3zxSAPdrZvwpdjgRhl1REMyB5OBGn892RwLbHBuwQdZZET4XCSj4
+	gDe1b0z9SKhW1tJ9MP0cgrbfuGtgScAI2AU+ohlJSmw6Ph9JHA9vvmMiDPOVoUP2HblP01YCO65YO
+	lmy3lIgeyh8Ol9jMKVYMVO2UZRI94IiwzQwXxtQGud2wUIg812Mv6DR+jgf7vKT/n/HlBuCNbrchf
+	C+BJXjmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Sps-0000000DnrO-0dCb;
-	Thu, 17 Apr 2025 17:15:36 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1u5Sri-0000000DoSN-2tzK;
+	Thu, 17 Apr 2025 17:17:30 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5SeA-0000000DleI-2dLZ;
-	Thu, 17 Apr 2025 17:03:31 +0000
-X-CSE-ConnectionGUID: Rz4zmINwQCq+ytj8KAH4zA==
-X-CSE-MsgGUID: 35ogmEeZS+66BMzRZ7iFZQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11406"; a="45752722"
-X-IronPort-AV: E=Sophos;i="6.15,219,1739865600"; 
-   d="scan'208";a="45752722"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Apr 2025 10:01:20 -0700
-X-CSE-ConnectionGUID: qOifIojCTIq+nHVmW37Phw==
-X-CSE-MsgGUID: OZhLABtgTd29swPzawq8jg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,219,1739865600"; 
-   d="scan'208";a="131754336"
-Received: from smile.fi.intel.com ([10.237.72.58])
-  by fmviesa009.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Apr 2025 10:01:16 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andy@kernel.org>)
-	id 1u5Sbx-0000000DGCi-27qC;
-	Thu, 17 Apr 2025 20:01:13 +0300
-Date: Thu, 17 Apr 2025 20:01:13 +0300
-From: Andy Shevchenko <andy@kernel.org>
-To: David Lechner <dlechner@baylibre.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Michael Hennerich <Michael.Hennerich@analog.com>,
-	Cosmin Tanislav <cosmin.tanislav@analog.com>,
-	Tomasz Duszynski <tduszyns@gmail.com>,
-	Jean-Baptiste Maneyrol <jean-baptiste.maneyrol@tdk.com>,
-	Andreas Klinger <ak@it-klinger.de>,
-	Petre Rodan <petre.rodan@subdimension.ro>,
-	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 0/8] iio: more timestamp alignment
-Message-ID: <aAEz2ZD0Ipd1Xuy6@smile.fi.intel.com>
-References: <20250417-iio-more-timestamp-alignment-v1-0-eafac1e22318@baylibre.com>
+	id 1u5SfG-0000000DlnX-0biY
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Apr 2025 17:04:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1E3666845B;
+	Thu, 17 Apr 2025 17:04:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA99AC4CEE4;
+	Thu, 17 Apr 2025 17:04:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744909476;
+	bh=RAgSqwP6v8XUqd0sIEMCAhSCHpxuahOcrR/OC8vTJJE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ePQEbWRzWefj/7Ht6qipf1HfTKXla7WSlFH3FZCWrp5rKQ0SHVy2GG8StxLrYpQ1I
+	 2BUQIDKLUacHMfI6+P7WOkAgPMPYwCf6jPNEtr2fM86ilRrqWPxyw7xZg5Bmr2Yc3u
+	 uybZlR7iTPE4RCK2neY51RGaFtOQVdRwVQSb8N7CebOZa6gIhvOMJUevncWiwlpnH8
+	 IMMzQ4P4Bl6FovKQA7ryBkS8hWACCl35WC13H8TEebi8OP2S/hncJMqhYtkfrCAguR
+	 s4EVKqXvQSg34RVUOx5rj5jXTdKyhdnzvvedgk+wRjxVASn3LJh60S754Y3AHQvclW
+	 QU3DzGsaym3Sw==
+Received: from johan by xi.lan with local (Exim 4.97.1)
+	(envelope-from <johan@kernel.org>)
+	id 1u5SfF-000000005Ch-1biL;
+	Thu, 17 Apr 2025 19:04:37 +0200
+Date: Thu, 17 Apr 2025 19:04:37 +0200
+From: Johan Hovold <johan@kernel.org>
+To: quic_sibis@quicinc.com
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, sudeep.holla@arm.com,
+	james.quinlan@broadcom.com, f.fainelli@gmail.com,
+	vincent.guittot@linaro.org, peng.fan@oss.nxp.com,
+	michal.simek@amd.com, dan.carpenter@linaro.org, maz@kernel.org,
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: Re: [PATCH 4/4] [NOT FOR UPSTREAM] firmware: arm_scmi: quirk: Ignore
+ FC bit in attributes
+Message-ID: <aAE0peT-Fk7TZGGo@hovoldconsulting.com>
+References: <20250415142933.1746249-1-cristian.marussi@arm.com>
+ <20250415142933.1746249-5-cristian.marussi@arm.com>
+ <Z__WyYWhelFwt-rQ@hovoldconsulting.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250417-iio-more-timestamp-alignment-v1-0-eafac1e22318@baylibre.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_100330_671618_B73C3804 
-X-CRM114-Status: UNSURE (   8.36  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <Z__WyYWhelFwt-rQ@hovoldconsulting.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,26 +79,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 17, 2025 at 11:52:32AM -0500, David Lechner wrote:
-> Wile reviewing [1], I noticed a few more cases where we can use
-> aligned_s64 or need __aligned(8) on data structures used with
-> iio_push_to_buffers_with_timestamp().
+Hi Sibi,
+
+On Wed, Apr 16, 2025 at 06:11:54PM +0200, Johan Hovold wrote:
+
+> Interestingly, I'm no longer seeing the crash on x1e without the quirk
+> enabled with 6.14 and 6.15-rc2.
 > 
-> [1]: https://lore.kernel.org/linux-iio/20250413103443.2420727-1-jic23@kernel.org/
+> I still hit it immediately with 6.12 and 6.13 when accessing the cpufreq
+> sysfs attributes (with patch 1/4 applied):
+> 
+> 	[   30.663577] arm-scmi arm-scmi.0.auto: timed out in resp(caller: do_xfer+0x164/0x564)
+> 
+> So presumably something changed in 6.14 that masks the earlier issue
+> when falling back to regular messaging.
 
+I just realised that this was due to a local change in the 6.14 and
+6.15-rc trees I used for testing. Without it the crash still happens
+with 6.15-rc2.
 
-Link: URL [1] :-)
+Sorry about the noise.
 
-This will help to maintainer with b4 as it manages tags.
-
-> Signed-off-by: David Lechner <dlechner@baylibre.com>
-
-Reviewed-by: Andy Shevchenko <andy@kernel.org>
-for non-commented patches.
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+Johan
 
