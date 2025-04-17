@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C742DC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 14:39:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D1C6C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 14:41:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BsxBU0bGS5KqHJ803b5B2Fj0PSRviE9NZjBErJhiWF0=; b=YQDhMopktKP7nxa+Mapo3WHwbC
-	oKp2iAFV7jEACqU3/hELhoJlxQIRq0VtfMbQ9gbYNxSXPUqPDVfzhxbNF6rCrAwlUJa2lG9NusG0r
-	FdUgJmGPQBwd3A+KpVGZN0+32+oJ4D6Enq9fvjvZre46WkT38f8nRuWQf4zOJvjwOv2wUJaBwXmuu
-	dHV0MTPq1Pr3ytk1strh+iV1xDLDvQqr4E7UsSIqHWA9/Tpl1cE4GV4ApdbnLW2+a7w7i5dvZDzH3
-	VlNKqkyHNTKdBrT9FJKYT6YiSZEQ1scNJS4squPN2v7x1DAOZZtEfVG/ibf6I2x/22fZuIk7BrriS
-	NIE2jiiA==;
+	bh=IhCzeeuIRn9U4lLFeFB39wEFdroIdbbgBLNLNN654Y4=; b=O5GSjxPN7KMtFOYBCau+Le6w48
+	VCngmzjuP3pkPpP5jImWWn2TXHUGMYVQ1luNoank4TW82V64RQrd+NzesLZ6PMZc94WndHatLAJy2
+	B915H0LVSnDhCDSdB7wTLB7qgszur7pfixDoI4M0yzaDpXSE0vzDdeou7mx9Ak35vtW64DGtHbNRZ
+	6NDEwJL30OBRaMZPFGgN8H0Y6GOGPMqLA95954rV3EKapWXXbmqnVhoYaSFCstk7A3VDHQfVrodnd
+	TSDUjSnwFIO3lNNaPKopgzQ6Ri1O0lRhT0a28XZAcf28DJ44hQkOJrYKdDNcfiX41zvAKV3ghNBMR
+	kLovkAIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5QOz-0000000DLyv-3TRr;
-	Thu, 17 Apr 2025 14:39:41 +0000
-Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
+	id 1u5QQq-0000000DMJv-2LhH;
+	Thu, 17 Apr 2025 14:41:36 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5QBS-0000000DIgp-0OME
+	id 1u5QBT-0000000DIhY-31P1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 14:25:43 +0000
-Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-30bfed67e08so8823361fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Apr 2025 07:25:41 -0700 (PDT)
+	Thu, 17 Apr 2025 14:25:44 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-54954fa61c9so1118897e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Apr 2025 07:25:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744899940; x=1745504740; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1744899942; x=1745504742; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=BsxBU0bGS5KqHJ803b5B2Fj0PSRviE9NZjBErJhiWF0=;
-        b=HUfImGXvkjl+x3up6yFo5ZE3UPKCsFXICY/POdpA3hOxJ5YvpsQWR10QFqovlvGhd/
-         UhHLvDnqf4qnJEFL8sg+mHVgJSI/jzVDHmzUuazv/s3Uhdy6CX/DwLPOVZ/Vs/Ehu0Dh
-         +n06o4zapaUUziEWu8O0ggiALAPhoqQo3TnUpV20ykvgx26YD3beK1rQTb+KJsNKgLeP
-         S4DYns8q8lIM3bcQJ/kze5FQNXUvdvIk/OXlOv7323e8xi5itBiaYpwHhb8olk9F2WCT
-         fy/F9WdzWIZ+gT4EdXlb061olQa5EqZv1TMvaAytbS3oX0dlCJ2BTW4IRFl6KKazD+Gj
-         BDBw==
+        bh=IhCzeeuIRn9U4lLFeFB39wEFdroIdbbgBLNLNN654Y4=;
+        b=t3xzIMNTx2qY+SvQQT8vRGR796k7sAUUW1/ciENOA6as0GbMBCA1ZxMF9rI2qjVAJJ
+         mwUmkFeBln9480CbLTGI6j8TwYsnjDgmiXOVUk/n2spM8GqPc6wXybQtfwIb1ykJ1SZm
+         nMFQORTTaHzvkcr43EDdDZEJmOcgKWqxgSjtiUlJ46JPHaCUa8MBolgXjr5g2neVLSSW
+         vKBtakcFfzupl552rjWacpS8bbL2C847Q2yVYH9rmbEX4gHFxr1VHCVt1rVXn54tO4VQ
+         mlkSv3Ko8RcO/l3BZVwUbLS3/7zli1/o3bpjySAj5rMfOG1SyI8YZssJRg02qvSdmK0d
+         P8xA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744899940; x=1745504740;
+        d=1e100.net; s=20230601; t=1744899942; x=1745504742;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=BsxBU0bGS5KqHJ803b5B2Fj0PSRviE9NZjBErJhiWF0=;
-        b=YwLBBRqJZ+kZ0jXtpkx5iU7xWqP18zqxtovESAgCNFnXSYnX6jjUOvVjMnfL2zpmzZ
-         Y6hN5kxvWNHZ6R4AiFPG+YOwtiHuDDXpnoiw66g4xTjLqJ3EhSQVuPrya44jhkYltpJs
-         CdKt57u8amrcRsuCwu22pCbOQSIqIUQ0dhxAN6CfDcoqBmin5Wffq+ou2By8fZw5AFeS
-         AeYfzZjr2otjBbspGtVtM7m8Zq41nWQsukmyHgRVyWcdteD6nJq+nKh7yUJqAQBcfbEh
-         k6ugYMgU/qf3rf0utH1zXbUwvwLyjlmKIu9QWqq/fxeAtrKnIS+RvjAkqPEaeRkYSnL0
-         j9aQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXOTZUw/01sPHf/MInSc7gYruWBx7fMftR2bjaPCBGYN0hOgX4N2A75UnnnJh3/QRX8u96kWAzxN7cYc999nYXU@lists.infradead.org
-X-Gm-Message-State: AOJu0YycEbD9xxZsco8gO3+BRbwB3z+K+QUDS4VsupGzyE2P9VmpWLkM
-	wlNmaVynrQuq5kSGGYrvEOGr23tT38ht0HvpetYg9SI5hEl5FvwIeqcULjBwkNFPlcBxe6n60ys
-	Y
-X-Gm-Gg: ASbGncv1pLzGHBErqS4PSFpukMyG28vVtSrF+SXWWeZ459/XMfkSX6/pmL4U9hkRrsn
-	EZnTKnduTpKNZAjwi7IMlCrRWiGcCVsGZqGkCAiJFQPw+197d/bjWtqFVLmQjS5DGHbZsrKMfm/
-	1tSE3b7m0eRSfA6h0dvubsSMMGEArMldYKSBqFVK3eAqk/LTfH20M7ZGrHOOK2WiK8G4rUAyhdS
-	SMrpQUad5Kr+L/QycdFZ8wiLPpOrWHOtv4L7OEugy8e7xLOpCkxaRyZwJSEpa5HhGV8ZJeL7srH
-	LMhTKq2QIsIyq4hF/z5yQs6nxDpUod4j7Hv3BYQK9vVE8korwdY892y473jHsNA7M2ANIzRho23
-	ODr+802uiAIsVJ1w=
-X-Google-Smtp-Source: AGHT+IEWl4UhmNQk6NGrzL0Iqf0HFQV64z24gz6YKYgW7OTjKrIcQquUG8drUV+xQ2lv6sucMcxvpQ==
-X-Received: by 2002:a05:6512:304a:b0:549:8c86:9bf6 with SMTP id 2adb3069b0e04-54d64ae80e7mr2023094e87.39.1744899940189;
-        Thu, 17 Apr 2025 07:25:40 -0700 (PDT)
+        bh=IhCzeeuIRn9U4lLFeFB39wEFdroIdbbgBLNLNN654Y4=;
+        b=Pr8xLeTFzl4jCwfCtY0zQi9pqfwhnMgqQ0q6jfP98eMX7mmi7+yl5rCdgw8TmVcbtc
+         IpOTbugOwFTilDdl4p2tlxfHVPP2ibw8INg023sjEmzIhzp6Cs36atzkw33BWcbyEsy9
+         +FV6SUWRacYrP+x9HM6kNu7W1FMGKt1sBLnruTJpanURaJN7GrG+IVXHwPJG4xAuPy3k
+         Ngc08xaBpr7bnbO8aoHmxkhtkF1RpXwgHvTA2B/nI9MJDcCmp/g8mVjPcwlXoAbwNmmN
+         Bop4Of2kCuTv4Wd/uXpm/Cv/MVtv+6v4FuvxNyHKR6T73d6YQWOA+oyZGWH5WtWBlPP2
+         FIDQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUAQcrwG7ehDreJtWST06t0fNKqDJmdwdNZBsy7id5xLQu8IM7DVPbWJICrsirH0MoDKIIJkpHoR+yxKxfirF3Z@lists.infradead.org
+X-Gm-Message-State: AOJu0YwGKSuOTFSyh+TMaEqJt2FvNOPUtQiOtJAIThFe/BF7KjivNv2L
+	KYahx414SclT7XDjen3G4nv6qaIJjmsTR8JvoDT+HD14AkNoCZsqw2+QKbmrAUo=
+X-Gm-Gg: ASbGncsiLgd9MLdhHxaPoMBqXaV9rb++YBvBvel+6wPGYC/QXoMvr/aKxG9cdLeFzhz
+	sey5vydYZNZpN9v4Vlba1Qb0cgS/qeWMyCAerV34TL7xtgMuAA3g9nW/gQ4RSmQFCX9R3kG6tgx
+	upEKD+rnTXY0awVgIkdvW0zUAW2ylDa3UIC2JO7cDZHldvAbHA5glo7lfZ4sE3X43mVhomNFl19
+	71PPeImQaKC2h4A8XR2WmFC4FoLxCMv4/R62wIFK7ljEAyRUkJ4MhuFEu1BBkkufrjt1aOnuPFU
+	508bgXl9d5Ucly/6sG7rUzdO1KVlQQwxz87SZk484io35xfMSHaZ1DLRTCiGYJ87xjsx6a9qnAf
+	bl/PNOTuULRrjpx4=
+X-Google-Smtp-Source: AGHT+IEKg2sAljzc60RG1x7zQS31Y71/y6HRPvtwzajn+isSwZjg667wjhQKlzCNX2y4YKOKam9UjA==
+X-Received: by 2002:a05:6512:10d5:b0:549:8675:c388 with SMTP id 2adb3069b0e04-54d64af3fbbmr2088472e87.52.1744899942203;
+        Thu, 17 Apr 2025 07:25:42 -0700 (PDT)
 Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54d65e43647sm370096e87.58.2025.04.17.07.25.37
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54d65e43647sm370096e87.58.2025.04.17.07.25.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 17 Apr 2025 07:25:38 -0700 (PDT)
+        Thu, 17 Apr 2025 07:25:41 -0700 (PDT)
 From: Ulf Hansson <ulf.hansson@linaro.org>
 To: Saravana Kannan <saravanak@google.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -87,17 +86,17 @@ Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
 	Ulf Hansson <ulf.hansson@linaro.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 05/11] pmdomain: core: Use device_set_node() to assign the fwnode too
-Date: Thu, 17 Apr 2025 16:25:03 +0200
-Message-ID: <20250417142513.312939-6-ulf.hansson@linaro.org>
+Subject: [PATCH 06/11] pmdomain: core: Add the genpd->dev to the genpd provider bus
+Date: Thu, 17 Apr 2025 16:25:04 +0200
+Message-ID: <20250417142513.312939-7-ulf.hansson@linaro.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250417142513.312939-1-ulf.hansson@linaro.org>
 References: <20250417142513.312939-1-ulf.hansson@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_072542_130699_41DA2039 
-X-CRM114-Status: GOOD (  14.38  )
+X-CRM114-CacheID: sfid-20250417_072543_764680_9348B88D 
+X-CRM114-Status: GOOD (  14.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,81 +111,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rather than just assigning the dev->of_node for the genpd's device, let's
-use device_set_node() to make sure the fwnode gets assigned too. This is
-needed to allow fw_devlink to work correctly, for example.
+To take the next step for a more common handling of the genpd providers,
+let's add the genpd->dev to the genpd provider bus when registering a genpd
+OF provider.
+
+Beyond this, the corresponding genpd provider driver's ->probe(),
+->remove() and ->sync_state() callbacks starts to be invoked. However,
+let's leave those callbacks as empty functions for now. Instead, subsequent
+changes will implement them.
 
 Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
 ---
- drivers/pmdomain/core.c | 14 ++++++++++----
- 1 file changed, 10 insertions(+), 4 deletions(-)
+ drivers/pmdomain/core.c | 38 ++++++++++++++++++++++++++++----------
+ 1 file changed, 28 insertions(+), 10 deletions(-)
 
 diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
-index da51a61a974c..3911d3e96626 100644
+index 3911d3e96626..5aba66ac78f1 100644
 --- a/drivers/pmdomain/core.c
 +++ b/drivers/pmdomain/core.c
-@@ -2627,6 +2627,7 @@ static bool genpd_present(const struct generic_pm_domain *genpd)
- int of_genpd_add_provider_simple(struct device_node *np,
- 				 struct generic_pm_domain *genpd)
- {
-+	struct fwnode_handle *fwnode;
- 	int ret;
+@@ -2640,11 +2640,17 @@ int of_genpd_add_provider_simple(struct device_node *np,
  
- 	if (!np || !genpd)
-@@ -2635,7 +2636,9 @@ int of_genpd_add_provider_simple(struct device_node *np,
- 	if (!genpd_present(genpd))
- 		return -EINVAL;
+ 	device_set_node(&genpd->dev, fwnode);
  
--	genpd->dev.of_node = np;
-+	fwnode = &np->fwnode;
++	ret = device_add(&genpd->dev);
++	if (ret)
++		return ret;
 +
-+	device_set_node(&genpd->dev, fwnode);
- 
  	/* Parse genpd OPP table */
  	if (!genpd_is_opp_table_fw(genpd) && genpd->set_performance_state) {
-@@ -2661,7 +2664,7 @@ int of_genpd_add_provider_simple(struct device_node *np,
- 		return ret;
+ 		ret = dev_pm_opp_of_add_table(&genpd->dev);
+-		if (ret)
+-			return dev_err_probe(&genpd->dev, ret, "Failed to add OPP table\n");
++		if (ret) {
++			dev_err_probe(&genpd->dev, ret, "Failed to add OPP table\n");
++			goto err_del;
++		}
+ 
+ 		/*
+ 		 * Save table for faster processing while setting performance
+@@ -2655,19 +2661,22 @@ int of_genpd_add_provider_simple(struct device_node *np,
  	}
  
--	genpd->provider = &np->fwnode;
-+	genpd->provider = fwnode;
+ 	ret = genpd_add_provider(np, genpd_xlate_simple, genpd);
+-	if (ret) {
+-		if (genpd->opp_table) {
+-			dev_pm_opp_put_opp_table(genpd->opp_table);
+-			dev_pm_opp_of_remove_table(&genpd->dev);
+-		}
+-
+-		return ret;
+-	}
++	if (ret)
++		goto err_opp;
+ 
+ 	genpd->provider = fwnode;
  	genpd->has_provider = true;
  
  	return 0;
-@@ -2677,6 +2680,7 @@ int of_genpd_add_provider_onecell(struct device_node *np,
- 				  struct genpd_onecell_data *data)
- {
- 	struct generic_pm_domain *genpd;
-+	struct fwnode_handle *fwnode;
- 	unsigned int i;
- 	int ret = -EINVAL;
- 
-@@ -2686,6 +2690,8 @@ int of_genpd_add_provider_onecell(struct device_node *np,
- 	if (!data->xlate)
- 		data->xlate = genpd_xlate_onecell;
- 
-+	fwnode = &np->fwnode;
 +
- 	for (i = 0; i < data->num_domains; i++) {
- 		genpd = data->domains[i];
++err_opp:
++	if (genpd->opp_table) {
++		dev_pm_opp_put_opp_table(genpd->opp_table);
++		dev_pm_opp_of_remove_table(&genpd->dev);
++	}
++err_del:
++	device_del(&genpd->dev);
++	return ret;
+ }
+ EXPORT_SYMBOL_GPL(of_genpd_add_provider_simple);
  
-@@ -2694,7 +2700,7 @@ int of_genpd_add_provider_onecell(struct device_node *np,
- 		if (!genpd_present(genpd))
- 			goto error;
+@@ -2702,12 +2711,17 @@ int of_genpd_add_provider_onecell(struct device_node *np,
  
--		genpd->dev.of_node = np;
-+		device_set_node(&genpd->dev, fwnode);
+ 		device_set_node(&genpd->dev, fwnode);
  
++		ret = device_add(&genpd->dev);
++		if (ret)
++			goto error;
++
  		/* Parse genpd OPP table */
  		if (!genpd_is_opp_table_fw(genpd) && genpd->set_performance_state) {
-@@ -2713,7 +2719,7 @@ int of_genpd_add_provider_onecell(struct device_node *np,
- 			WARN_ON(IS_ERR(genpd->opp_table));
- 		}
+ 			ret = dev_pm_opp_of_add_table_indexed(&genpd->dev, i);
+ 			if (ret) {
+ 				dev_err_probe(&genpd->dev, ret,
+ 					      "Failed to add OPP table for index %d\n", i);
++				device_del(&genpd->dev);
+ 				goto error;
+ 			}
  
--		genpd->provider = &np->fwnode;
-+		genpd->provider = fwnode;
- 		genpd->has_provider = true;
+@@ -2743,6 +2757,8 @@ int of_genpd_add_provider_onecell(struct device_node *np,
+ 			dev_pm_opp_put_opp_table(genpd->opp_table);
+ 			dev_pm_opp_of_remove_table(&genpd->dev);
+ 		}
++
++		device_del(&genpd->dev);
  	}
+ 
+ 	return ret;
+@@ -2775,6 +2791,8 @@ void of_genpd_del_provider(struct device_node *np)
+ 						dev_pm_opp_put_opp_table(gpd->opp_table);
+ 						dev_pm_opp_of_remove_table(&gpd->dev);
+ 					}
++
++					device_del(&gpd->dev);
+ 				}
+ 			}
  
 -- 
 2.43.0
