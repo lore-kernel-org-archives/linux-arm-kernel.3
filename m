@@ -4,75 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC203C369C9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 17:29:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC20BC369C9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 17:30:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HNrVnGtuC3LrEMn6XDRLUaW+Rsg3fuSCjKORqLuvUyQ=; b=Go/Y+jLWJ5AdHBmj6dy9D3QYKq
-	Xf6G4luHjkEEKFhSjkYQiaL3Y4xWqrc3t0MSNMUHkmBz+N5CSo8A5X96qt6I14EAQc+oSceAiRneJ
-	4irhDrLKJS1uHn5UNjJ33PCVY1LjKDRiHchuHbOH+j9sP5oM9fQjpLWx3nimirLbKa6OXPNiZu7vz
-	ugJRuOsQtczFbena5XYlQt0mHmAZ1w6UK7aeWyHUIMOEKzI15tdZWBtDq+Vl9nw3GNUG3WSiymIiU
-	sk0Wh7QryPDZOh5I5VjMIglJCYpDU33BFqh2lhjDsVqOhYqo0CVXZZLmhAXiafQDY9nk0mG6DUxe0
-	n/WP5ghw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZomCEYUh4rjq0ptDxJtUhMsfqwCF7A2KJ07pH99EdY0=; b=ajFOwK/eqW1if18/jzxhOIYNP6
+	k2pH09HeMiyrXBfCSXWo45Af4yPSjVOqqqKjcHG9h68dPJ64/Ce/UNWPk1RbIfQYXNvKTsXDJ7x0o
+	iXZiA7woHeiCSm58M/Ak4D9/O2iw4te1+fn8vKI35nuf8ikILuhYgdiprXwy7/Xk6zD31YHI6dQa2
+	uOFeruWd63SfH4inTXy//lzsMc81x5LYqlpxHIOWrJ4kyoUf86u1E81IRWQhXRp07I4eWdOkzrz22
+	H5YYyI/Wyde8qQt39+zcOKXyzhUA1u0mtPu3DvmhdzSA6YWILEMAZPxMCBWI/UYrCV4+2pvsJFCuE
+	Mrd6pokA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5T2j-0000000DqgT-15Dc;
-	Thu, 17 Apr 2025 17:28:53 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1u5T4Y-0000000Dr31-44eB;
+	Thu, 17 Apr 2025 17:30:46 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Sao-0000000DkyR-0tLc;
-	Thu, 17 Apr 2025 17:00:03 +0000
-X-CSE-ConnectionGUID: 1Aw035HhSuKnQdYfCBui5Q==
-X-CSE-MsgGUID: NKqcvUjaTbKhh3Y/XLP4ZA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11406"; a="50319334"
-X-IronPort-AV: E=Sophos;i="6.15,219,1739865600"; 
-   d="scan'208";a="50319334"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Apr 2025 09:59:49 -0700
-X-CSE-ConnectionGUID: 7jhBxJh8R6SNFsGSuYbh8A==
-X-CSE-MsgGUID: tfqBq1xGRnqHLb9ZbCHoBw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,219,1739865600"; 
-   d="scan'208";a="131848343"
-Received: from smile.fi.intel.com ([10.237.72.58])
-  by orviesa008.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Apr 2025 09:59:41 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andy@kernel.org>)
-	id 1u5SaP-0000000DGBC-21Cu;
-	Thu, 17 Apr 2025 19:59:37 +0300
-Date: Thu, 17 Apr 2025 19:59:37 +0300
-From: Andy Shevchenko <andy@kernel.org>
-To: David Lechner <dlechner@baylibre.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Michael Hennerich <Michael.Hennerich@analog.com>,
-	Cosmin Tanislav <cosmin.tanislav@analog.com>,
-	Tomasz Duszynski <tduszyns@gmail.com>,
-	Jean-Baptiste Maneyrol <jean-baptiste.maneyrol@tdk.com>,
-	Andreas Klinger <ak@it-klinger.de>,
-	Petre Rodan <petre.rodan@subdimension.ro>,
-	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
+	id 1u5Snv-0000000DnN8-0ybO
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Apr 2025 17:13:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=ZomCEYUh4rjq0ptDxJtUhMsfqwCF7A2KJ07pH99EdY0=; b=izM0g8vSWwufEyG5SWarbIebxk
+	I/OVmx9UlBhZSqaYFVpr75u5SHUBGxBLliZuDD9PrCmsxFG92vJdIGxm1lAqnGQk17FSvtb9VuZBt
+	bSZgaTA66Zy8ctTAP6x/PJnquXVznkP1t38RN5Uz9HeE/llCGzoPoNU5O7+Ns0ysHJO2Ts/+biYRc
+	C2E9D5w0+SwC507xnfCM77aSmPnDTAZu4ZBWL16XCAfQ2ME1kANgnBr2/ok+BMX8XLA22dzP9rFwy
+	iQiKW8o6MM7Lr+SX0WQ+UVwg+cCn2jV+zNmtvs4JNwkGhTlNRiUQKdm35K7h33Q40xPyEyvK+cW1K
+	K1KabXbw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:48948)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1u5Sno-0007g2-2q;
+	Thu, 17 Apr 2025 18:13:28 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1u5Snk-0002cd-1C;
+	Thu, 17 Apr 2025 18:13:24 +0100
+Date: Thu, 17 Apr 2025 18:13:24 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 6/8] iio: imu: adis16550: align buffers for timestamp
-Message-ID: <aAEzeY_p6a8Pr-zn@smile.fi.intel.com>
-References: <20250417-iio-more-timestamp-alignment-v1-0-eafac1e22318@baylibre.com>
- <20250417-iio-more-timestamp-alignment-v1-6-eafac1e22318@baylibre.com>
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next v3 0/5] net: stmmac: socfpga: fix init ordering and
+ cleanups
+Message-ID: <aAE2tKlImhwKySq_@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250417-iio-more-timestamp-alignment-v1-6-eafac1e22318@baylibre.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_100002_319683_70BDB801 
-X-CRM114-Status: GOOD (  10.56  )
+X-CRM114-CacheID: sfid-20250417_101335_271438_746C1782 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,39 +85,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 17, 2025 at 11:52:38AM -0500, David Lechner wrote:
-> Align the buffers used with iio_push_to_buffers_with_timestamp() to
-> ensure the s64 timestamp is aligned to 8 bytes.
-> 
->  drivers/iio/accel/bmc150-accel.h | 2 +-
->  drivers/iio/imu/adis16550.c      | 2 +-
+Hi,
 
-Looks like a stray squash of the two independent commits.
+This series fixes the init ordering of the socfpga probe function.
+The standard rule is to do all setup before publishing any device,
+and socfpga violates that. I can see no reason for this, but these
+patches have not been tested on hardware.
 
-...
+Address this by moving the initialisation of dwmac->stmmac_rst
+along with all the other dwmac initialisers - there's no reason
+for this to be late as plat_dat->stmmac_rst has already been
+populated.
 
->  	struct bmc150_accel_trigger triggers[BMC150_ACCEL_TRIGGERS];
->  	struct mutex mutex;
->  	u8 fifo_mode, watermark;
-> -	s16 buffer[8];
-> +	s16 buffer[8] __aligned(8);
+Next, replace the call to ops->set_phy_mode() with an init function
+socfpga_dwmac_init() which will then be linked in to plat_dat->init.
 
-As for the code, would it be possible to convert to actually use a sturcture
-rather than an array?
+Then, add this to plat_dat->init, and switch to stmmac_pltfr_pm_ops
+from the private ops. The runtime suspend/resume socfpga implementations
+are identical to the platform ones, but misses the noirq versions
+which this will add.
 
-...
+Before we swap the order of socfpga_dwmac_init() and
+stmmac_dvr_probe(), we need to change the way the interface is
+obtained, as that uses driver data and the struct net_device which
+haven't been initialised. Save a pointer to plat_dat in the socfpga
+private data, and use that to get the interface mode. We can then swap
+the order of the init and probe functions.
 
->  	struct iio_poll_func *pf = p;
-> -	__be32 data[ADIS16550_MAX_SCAN_DATA];
-> +	__be32 data[ADIS16550_MAX_SCAN_DATA] __aligned(8);
->  	struct iio_dev *indio_dev = pf->indio_dev;
->  	struct adis16550 *st = iio_priv(indio_dev);
+Finally, convert to devm_stmmac_pltfr_probe() by moving the call
+to ops->set_phy_mode() into an init function appropriately populating
+plat_dat->init.
 
-Ditto.
+v2: fix oops when calling set_phy_mode() early.
+v3: fix unused variable warnings in patch 2, add Maxime's r-b and t-b
+    to all but patch 2.
+
+ .../net/ethernet/stmicro/stmmac/dwmac-socfpga.c    | 79 +++++-----------------
+ 1 file changed, 16 insertions(+), 63 deletions(-)
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
