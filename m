@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2B59C369C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 06:07:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 301E5C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 06:09:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UejbpIeO8kNL2qqGcFD2bXouBbJluMdNZFCwznesI7A=; b=ai7eEqmTlUGUBArc7uW/X5Fdrx
-	V64ZyfxvzjNYLQ73JAUsLvi5XDIWU5ndFWdA7owZc00fIjekoXUa1ZxNVzvFDmXKx9NoCNhOVmvEx
-	66zb+eK8+aQdkhwdbwwcKZjq3Y6XGliElzeX6NYSVtTSJfJs11XohMHncxIjZycvF/VNiNuQ3+juT
-	8jnfLeJohilBExSBTz1gkklU37xNaIA44Ns+SZCP+V9Al6CMnwcmbpp7GIpDIN2SgwaB3oYUo9a5V
-	Q4nb1aQeR33URYb/pyG9RFi1gVowUQwxHSzM5e/yirCIALfMpW5EnYwkGAgy7AJfecub8nPhGT+Za
-	SlCHQJag==;
+	bh=P51GTzmyhbtHBQu8kKC6hOcj1/ndhhPPSxtU1zgNBS4=; b=h4OI/87dWeqvURjA4E9aS0YvhV
+	kd2Wpv+cmz1WAYrzOS3smTblJ1BfT6KyFmd+ixwGOUFvELghsZfdJak/OOLOgPppiA0ZALfeY261k
+	ZJVbxj6SQOzDy5eHDTzDiRNvUMRVeBu3Cb/9j4cfEJrgChFFdSMm0xuSUsdeyScWhEoCr8XlsW3QY
+	bAoy4xEE4jKjqYfbLZS+DdyVGJvGWpeW5AVGCGTZSj4EWpYIViYzyz9ziYe0dLgmQX2XgsIWrH3nQ
+	vefJtecbdq0vNpy6ydoAW5gG3GoesBGQx5NeM2BfWVVZOE9Z6M0NzIUaDOWzEeL4727CuAmcnEvrB
+	fY3VXDzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5IPB-0000000Br2o-1F4s;
-	Thu, 17 Apr 2025 06:07:21 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u5IR0-0000000BrPA-0Dc1;
+	Thu, 17 Apr 2025 06:09:14 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5ILQ-0000000BqOR-1Git
+	id 1u5IMO-0000000BqaC-2jju
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 06:03:29 +0000
+	Thu, 17 Apr 2025 06:04:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E2EAD49C4E;
-	Thu, 17 Apr 2025 06:03:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72006C4CEE4;
-	Thu, 17 Apr 2025 06:03:26 +0000 (UTC)
-Date: Thu, 17 Apr 2025 08:03:22 +0200
+	by nyc.source.kernel.org (Postfix) with ESMTP id 78916A4B175;
+	Thu, 17 Apr 2025 05:58:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0F03C4CEE4;
+	Thu, 17 Apr 2025 06:04:26 +0000 (UTC)
+Date: Thu, 17 Apr 2025 08:04:21 +0200
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 Cc: Rob Clark <robdclark@gmail.com>, 
@@ -49,18 +49,17 @@ Cc: Rob Clark <robdclark@gmail.com>,
 	linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, 
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, iommu@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 01/10] dt-bindings: display/msm: dp-controller:
- describe SAR2130P
-Message-ID: <20250417-arboreal-turkey-of-acumen-e1e3da@shite>
+Subject: Re: [PATCH v4 05/10] dt-bindings: display/msm: Add Qualcomm SAR2130P
+Message-ID: <20250417-conscious-pygmy-hippo-b6cac8@shite>
 References: <20250417-sar2130p-display-v4-0-b91dd8a21b1a@oss.qualcomm.com>
- <20250417-sar2130p-display-v4-1-b91dd8a21b1a@oss.qualcomm.com>
+ <20250417-sar2130p-display-v4-5-b91dd8a21b1a@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250417-sar2130p-display-v4-1-b91dd8a21b1a@oss.qualcomm.com>
+In-Reply-To: <20250417-sar2130p-display-v4-5-b91dd8a21b1a@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_230328_355988_3C4FF584 
-X-CRM114-Status: UNSURE (   7.32  )
+X-CRM114-CacheID: sfid-20250416_230428_753871_638FFB76 
+X-CRM114-Status: UNSURE (   8.81  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,15 +75,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 17, 2025 at 02:16:31AM GMT, Dmitry Baryshkov wrote:
+On Thu, Apr 17, 2025 at 02:16:35AM GMT, Dmitry Baryshkov wrote:
 > From: Dmitry Baryshkov <lumag@kernel.org>
 > 
-> Describe DisplayPort controller present on Qualcomm SAR2130P platform.
+> Describe the Mobile Display SubSystem (MDSS) device present on the
+> Qualcomm SAR2130P platform. It looks pretty close to SM8550 on the
+> system level. SAR2130P features two DSI hosts and single DisplayPort
+> controller.
 > 
 > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 
-Addresses do not match. You re-authored the commit, so now everywhere is
-mess.
+All three possible identies...
 
 Best regards,
 Krzysztof
