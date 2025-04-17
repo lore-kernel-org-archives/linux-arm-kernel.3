@@ -4,68 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64D03C369C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 07:35:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 962C8C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 07:44:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u0xom2YM8lyIFaJb7oErSmb3c+ED4OylfqTb0GgwBno=; b=KQIg+Aot6bB/f2gDGm+crpfXFH
-	JnPA3HZYXo4IuqUz2cYz/2ICkWgcldXtqc7OVfCw0tVUdseVu5cksFWOAgy+9qpmXgbZf5imnO6lO
-	MnLHKzXQzoegmXITd+pD8L2sA8thLZEFxFu/nnVXH2fMVy1vwGRZC7x+lvtOXhEJTvhkwA2V2XZbe
-	KynFZUDo1Nc/7WSWA/17SyE3G+ffWZeSwvXkXaDIgNb+jOxFudfjZV3PDdl5YJewBq6S4YsOgIaOq
-	YAzsnAR0mi8NkPN8wxyxKKMAWQoUMRR8Yw1287Qy6Z4OoukEtmpCXxBRz7/ldgDfP4rvMDXyhfb/a
-	CtyIrLWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l9yxI+Mba9CUaTNrgCthTIf1TjoMCLU0SYdNd1ClZ+0=; b=3nOU0ttcXp5XOQg6WmBrfBTdol
+	3cX4vvCOMMq3dIdNiDnvz7CWcOvmcxuOJNeTzx++k7k9QPhmJl85NNDRni1yQZnZD+z6YAZnSKsN6
+	Kvmd0QgXKK1PpaWDLwEL67G0JTLEm6lEgCbLFokVXXqFvcNRM5WOkMAeiwk/KWjFz2hevjuiIvcy6
+	FGSI8grf2qzFBtm9iQiQpswS0Pf8VEQU0d/16ImlM5Q6UB5WY4vv4aE/3iR1KhWyIUhXvkG1oWuto
+	aQepcO8NqrFkuEeD1dgj5vv8+xORNdMxFLDRCuYzJpZQ+n5hZJ0tWZqLA/XlAqf+Vlsyy+eUKVK2E
+	LcPL9Y+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Jme-0000000C80P-2gal;
-	Thu, 17 Apr 2025 07:35:40 +0000
-Received: from mx.denx.de ([89.58.32.78])
+	id 1u5Jv5-0000000C9NX-0RdE;
+	Thu, 17 Apr 2025 07:44:23 +0000
+Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Jkn-0000000C7XV-14Pr
+	id 1u5JtE-0000000C9A9-0IvZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 07:33:46 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0B7671039EF2C;
-	Thu, 17 Apr 2025 09:33:39 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1744875222; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=u0xom2YM8lyIFaJb7oErSmb3c+ED4OylfqTb0GgwBno=;
-	b=CvG1tcL+b+zgb41GwvC6m4xQO6vjuPOzgoQvrY3Bfr/iRSLdc0WvXYEYX/csfLcpbI0Grp
-	vReiazhemuD55KwSeOpMUWTcwxQ4R/DRW5P9KfLigaANWxhDDauvPPAfbeYHgoqf9cjiIb
-	ZlKzSvJmhXXY2iHGQSFe8sufvWb5gOimRy3Va0qL0UvxGaSDP6BdBSh8PW9REt4d6KaqWn
-	2tvTZxQK8P6aM67FQVbQUkppSmvfBEXTaF2ScUJwOcKdf+po/vTAT5O18Ih1hA3egO1/h6
-	jW/72nVBQgjd9dped8D3rBLs9j3SwJmTkUuBT8yqCFfijlbtG+8oElzHaKOq4w==
-Date: Thu, 17 Apr 2025 09:33:38 +0200
-From: Lukasz Majewski <lukma@denx.de>
-To: Stefan Wahren <wahrenst@gmx.net>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
- <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
- <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Simon Horman
- <horms@kernel.org>
-Subject: Re: [net-next v5 5/6] ARM: mxs_defconfig: Update mxs_defconfig to
- 6.15-rc1
-Message-ID: <20250417093338.0990e37f@wsk>
-In-Reply-To: <41ea023e-d19d-40f1-b268-37292c9e15de@gmx.net>
-References: <20250414140128.390400-1-lukma@denx.de>
-	<20250414140128.390400-6-lukma@denx.de>
-	<41ea023e-d19d-40f1-b268-37292c9e15de@gmx.net>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Thu, 17 Apr 2025 07:42:29 +0000
+Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-30db3f3c907so4345921fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Apr 2025 00:42:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1744875746; x=1745480546; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=l9yxI+Mba9CUaTNrgCthTIf1TjoMCLU0SYdNd1ClZ+0=;
+        b=gNp9ipHUsWot6aFeTtt032914AYndjs1S2Ve1bXu/kafY/+0lkzRYbAEUoEJ+A5ceY
+         u8qCSjYUtRJjzcsWcBQdrePXwZmxEvepuOKeBbCP8Hx64ARAC5sQKenMheRpRtkmgGyj
+         ak1Fh47mF3e8f2L23EowxvzaN5PTWmjtqrAj1sGXRNtNbcHX2Qkuv2pzDjYatc/roFgE
+         iY1Zb0oG8+YAX+fcxAo9xyKP/3j8tBb6hpO+qWofHnchdARWMOPl8ka8BkmIhyX3QWot
+         FfmPjOGfJjpkyQ3hEEybTX4OdD6Ncw6rayfXzx+E+dj/gQVy4/OJuSOGgmoyoP0KFJFs
+         7wOw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744875746; x=1745480546;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=l9yxI+Mba9CUaTNrgCthTIf1TjoMCLU0SYdNd1ClZ+0=;
+        b=oVUDOLuMNSPdov3Dp7pMO06S1HB1f2pSl5PA2RS4XKvjxsSsmQyXklzHMQ9iDEc6XJ
+         CmW4AorHbCNVLi2om4LNiuIGxxT157L+VwEV5fNOO0zADhLKJwWyYlWUqKJmgfTbv/cJ
+         rjPIaK/sy9x8dUr83eFEtnqgHgnvZ+lpo2qa605rRrnvuaQTuT+flAqimwLFFhKhfNJX
+         dCF3hmb59RJjooC1yys0Dcq4Y+dJkZQoJkK1rXSwMfGS+V1MnsUjM2obYtn6MKyU13Ao
+         zq/dntEAFKCaR1SpmqpwRBmUEwmKPMY584MhyAvq3jsxfT4DFRw6YM1wccCPsTM85jA3
+         JwwA==
+X-Forwarded-Encrypted: i=1; AJvYcCUNB+S/SGC90sCn7ktHqFh36BFhpTGl69FctH9EmBJRv+4KLDeKsHSzzLJpfQAgPZLtXQi8OV6ZbLPnMEscCXT3@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzhroy9YJmcMymSWzrcObC4qhXxTrPLOYNoEwehdPioH6PCq6E2
+	tTO/6wjg93iRV39SIQfM/k7NJcynh6ZoMt04p9cLzT4G3d5yl7UielYFCZ36TPSbiC01uAarAh3
+	EPryYFRc6WZm6eCCFqKcoVnB3FMfwkB+wGCD1Kg==
+X-Gm-Gg: ASbGnctsXRA3k6EKM9iKC2wZgmBVzCVWdmbsIbxSq3zefKZ4iMeZ0jFcHOuHy8Fmi8h
+	s9QXa7h7CAAI8jNwfKLDZilPCcbAhIHFzxyjRtt0cUBEnioUghSwQxsf0DSV05l93TuRx8OZjgU
+	Jl5WmyTS5KsfTpVI9wmbNRkw==
+X-Google-Smtp-Source: AGHT+IGS1IRdJZGaZOGBt2o7TAzE4ajC3kXe2lrY8hS5Zx1+HVIOORQPGpXWTLFIUHBjt1Qe5pOZPC9xWwoJZ+1T0rQ=
+X-Received: by 2002:a2e:ab19:0:b0:30b:a20b:eccc with SMTP id
+ 38308e7fff4ca-3107f6bde0emr19717881fa.11.1744875746101; Thu, 17 Apr 2025
+ 00:42:26 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/a2Zuo_5mcQkE7xKuvovt9yS";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Last-TLS-Session-Version: TLSv1.3
+References: <20250408-gpiochip-set-rv-pinctrl-part1-v1-0-c9d521d7c8c7@linaro.org>
+ <20250408-gpiochip-set-rv-pinctrl-part1-v1-7-c9d521d7c8c7@linaro.org>
+ <20250416223706.GA3230303@ax162> <CACMJSevPHdo9ZGaOyGV8rrhJHTN4+-0UB0+sz=Z5jc_eZybjcA@mail.gmail.com>
+In-Reply-To: <CACMJSevPHdo9ZGaOyGV8rrhJHTN4+-0UB0+sz=Z5jc_eZybjcA@mail.gmail.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Thu, 17 Apr 2025 09:42:14 +0200
+X-Gm-Features: ATxdqUEL04h0FlK145WkXx_Q9dTs068nZ1YOBn95bqrfuRW3dCGJeGM7IpJjU74
+Message-ID: <CACRpkdY5KJzCk1sfznG6DFMmX9T=pu=im_a6jTeAT68pO9SBAQ@mail.gmail.com>
+Subject: Re: [PATCH 07/10] pinctrl: sx150x: enable building modules with COMPILE_TEST=y
+To: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Cc: Nathan Chancellor <nathan@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>, 
+	Ludovic Desroches <ludovic.desroches@microchip.com>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+	Xianwei Zhao <xianwei.zhao@amlogic.com>, Patrick Rudolph <patrick.rudolph@9elements.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_003345_580233_D567994A 
-X-CRM114-Status: GOOD (  29.27  )
+X-CRM114-CacheID: sfid-20250417_004228_112418_EEAF83B6 
+X-CRM114-Status: UNSURE (   7.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,131 +105,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/a2Zuo_5mcQkE7xKuvovt9yS
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+On Thu, Apr 17, 2025 at 8:42=E2=80=AFAM Bartosz Golaszewski
+<bartosz.golaszewski@linaro.org> wrote:
 
-Hi Stefan,
+> Makes sense. Linus: Can you just drop this or do you prefer a formal reve=
+rt?
 
-> Hi Lukasz,
->=20
-> Am 14.04.25 um 16:01 schrieb Lukasz Majewski:
-> > This file is the updated version of mxs_defconfig for the v6.15-rc1
-> > linux-next. =20
-> thanks for sending this as a separate patch. Unfortunately it's not
-> that simple by replacing the existing mxs_defconfig. We need to
-> double-check all changes to settings, which was enabled before. This
-> should also include a short note for every setting in the commit log,
-> otherwise every reviewer has to do this job. I'll help you here by
-> adding comments ...
-> >
-> > Signed-off-by: Lukasz Majewski <lukma@denx.de>
-> > ---
-> >
-> > Changes for v5:
-> > - New patch
-> > ---
-> >   arch/arm/configs/mxs_defconfig | 11 -----------
-> >   1 file changed, 11 deletions(-)
-> >
-> > diff --git a/arch/arm/configs/mxs_defconfig
-> > b/arch/arm/configs/mxs_defconfig index c76d66135abb..91723fdd3c04
-> > 100644 --- a/arch/arm/configs/mxs_defconfig
-> > +++ b/arch/arm/configs/mxs_defconfig
-> > @@ -32,9 +32,6 @@ CONFIG_INET=3Dy
-> >   CONFIG_IP_PNP=3Dy
-> >   CONFIG_IP_PNP_DHCP=3Dy
-> >   CONFIG_SYN_COOKIES=3Dy
-> > -# CONFIG_INET_XFRM_MODE_TRANSPORT is not set
-> > -# CONFIG_INET_XFRM_MODE_TUNNEL is not set
-> > -# CONFIG_INET_XFRM_MODE_BEET is not set
-> >   # CONFIG_INET_DIAG is not set
-> >   # CONFIG_IPV6 is not set
-> >   CONFIG_CAN=3Dm
-> > @@ -45,7 +42,6 @@ CONFIG_MTD=3Dy
-> >   CONFIG_MTD_CMDLINE_PARTS=3Dy
-> >   CONFIG_MTD_BLOCK=3Dy
-> >   CONFIG_MTD_DATAFLASH=3Dy
-> > -CONFIG_MTD_M25P80=3Dy =20
-> This is safe because it has been replaced MTD_SPI_NOR, which is still=20
-> enabled.
-> >   CONFIG_MTD_SST25L=3Dy
-> >   CONFIG_MTD_RAW_NAND=3Dy
-> >   CONFIG_MTD_NAND_GPMI_NAND=3Dy
-> > @@ -60,7 +56,6 @@ CONFIG_ENC28J60=3Dy
-> >   CONFIG_ICPLUS_PHY=3Dy
-> >   CONFIG_MICREL_PHY=3Dy
-> >   CONFIG_REALTEK_PHY=3Dy
-> > -CONFIG_SMSC_PHY=3Dy =20
-> This is okay, because it's enabled implicit by USB_NET_SMSC95XX.
-> >   CONFIG_CAN_FLEXCAN=3Dm
-> >   CONFIG_USB_USBNET=3Dy
-> >   CONFIG_USB_NET_SMSC95XX=3Dy
-> > @@ -77,13 +72,11 @@ CONFIG_SERIAL_AMBA_PL011=3Dy
-> >   CONFIG_SERIAL_AMBA_PL011_CONSOLE=3Dy
-> >   CONFIG_SERIAL_MXS_AUART=3Dy
-> >   # CONFIG_HW_RANDOM is not set
-> > -# CONFIG_I2C_COMPAT is not set
-> >   CONFIG_I2C_CHARDEV=3Dy
-> >   CONFIG_I2C_MXS=3Dy
-> >   CONFIG_SPI=3Dy
-> >   CONFIG_SPI_GPIO=3Dm
-> >   CONFIG_SPI_MXS=3Dy
-> > -CONFIG_GPIO_SYSFS=3Dy =20
-> This also okay, because it has been deprecated by moving to EXPERT
-> and its replacement GPIO_CDEV is enabled by default.
-> >   # CONFIG_HWMON is not set
-> >   CONFIG_WATCHDOG=3Dy
-> >   CONFIG_STMP3XXX_RTC_WATCHDOG=3Dy
-> > @@ -138,10 +131,6 @@ CONFIG_PWM_MXS=3Dy
-> >   CONFIG_NVMEM_MXS_OCOTP=3Dy
-> >   CONFIG_EXT4_FS=3Dy
-> >   # CONFIG_DNOTIFY is not set
-> > -CONFIG_NETFS_SUPPORT=3Dm
-> > -CONFIG_FSCACHE=3Dy
-> > -CONFIG_FSCACHE_STATS=3Dy
-> > -CONFIG_CACHEFILES=3Dm =20
-> This is unintended, even it's not your fault Lukasz. NETFS_SUPPORT
-> isn't user select-able anymore, so it's dropped. AFAIU this comes
-> from NFS support, so i think we need to enable CONFIG_NFS_FSCACHE
-> here. Otherwise this caching feature get lost. Since this is a
-> bugfix, this should be separate patch before the syncronization.
->=20
-> @Shawn @Fabio what's your opinion?
-> >   CONFIG_VFAT_FS=3Dy
-> >   CONFIG_TMPFS=3Dy
-> >   CONFIG_TMPFS_POSIX_ACL=3Dy =20
->=20
+I just dropped it, no problem.
 
-Stefan, I will add your comments in next version of this patch.
-Moreover, I'm going to introduce new patch with the NFS_FSCACHE enabled.
+I'm amazed there was not more fallout from the patches
+so all is good!
 
-
-Best regards,
-
-Lukasz Majewski
-
---
-
-DENX Software Engineering GmbH,      Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
-
---Sig_/a2Zuo_5mcQkE7xKuvovt9yS
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmgArtIACgkQAR8vZIA0
-zr0QsggA43pyZpG7jnH/6DRTCiYI+DqNL055w+1AQPvbmQvmW7/iJpPEJtFbRDJr
-dz30fj3dMp27htfUPT4jhtvhJRZ27lCO2aHDb7xzLQGzFpGe0/4UYuNyZ5oo9c8t
-HXVF/JWZhdQEiRIUomXaPcZaC9ZKHc71XSP/euaoM601NTRSp2emaLrukGklnWFB
-bd42VvXnntJ+7+8UBqfEv9PWibWtYJOIrEKN5wnQ4wG24TPZ5aJRk+fW/HitKVxy
-ZegQ6H3kTZa1CtLq9iXa9/9DC2CZvHZm0AVy3Yu4ARH6EpXK+/EKuFqIAevPBSra
-fsnhejZQdfkbg/ae/X11ConafcHPpg==
-=Ztk9
------END PGP SIGNATURE-----
-
---Sig_/a2Zuo_5mcQkE7xKuvovt9yS--
+Yours,
+Linus Walleij
 
