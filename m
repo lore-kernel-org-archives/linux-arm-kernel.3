@@ -4,82 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5876AC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 09:30:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D485C369C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 09:33:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mcotlRJEHULxAEHD6/dNnbZI6XTb1V+HX5P4fB+TNS4=; b=a0kDk1ZnS4wisJJ+CLuMMbM4VK
-	F7b1H17QaFNTHSs/+p25vIJ53vYyzNozmWTvqaDWFWpsY/CBoEQ2v/KtK2UjkPyHcQ4TYKicve4w8
-	VJFGm6s7xwrRJVTwjMMxpXIDnew5chJKzWNu2MR2tJFk+vZ1x6Bb7+n5UOrvjXjKhX1ykvZZK1Pus
-	9w4X+WK9/eegL9NQe0evsanwcKv4vE6sOQoYV7hX65MAHq6JTmVaXlZy62Jra64mPwYLdHni4MDbV
-	n5FvBf/71tbCXwdVXhSVvxtR2gPDybvs6YiqkRDqw0m6X3pjyC/KMuB3FSaTuoVFMYTq9dfUyQGvO
-	CTtKe4FA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7cHYrEJjBNkoqMq5ltY1yfata0jjTIBY3/KmQonvUjY=; b=qB/ZoPOJl8gLBgQsdm4swIFk+l
+	imAob/a8jrfFK6BVGxOhTJ5kMTgBWoIEvUgPBsHm1e+yKHtAWYiGyxXvL6qYnmh3yThD2xsauzrLo
+	1nsZVaZV31cZAi9md4updrIrUKCg/7lFUcSqRYZHe3rsz4YVXyWFouMeB6yNIY+oJNhbMbkqRn3UC
+	7mfjrpFuk5GrYnqt33qbeCYhnKqiYy52yhx4bhuC1Ur4oy2EpOcObIFhCRkZWca23YuKEz4/312WK
+	YUrfi9z/hxUv0ud6D5XIbl30bKcbDKv0vwpw4Z/LSw0AifmiMKj2dVrG57nVMkWZbx2/TnBtjv6p1
+	D0i5tfrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5LZc-0000000CSy6-2MOo;
-	Thu, 17 Apr 2025 09:30:20 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1u5LcI-0000000CTZx-13R8;
+	Thu, 17 Apr 2025 09:33:06 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5LQQ-0000000CQWf-2gEL
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 09:20:51 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1u5LPy-0004rU-Mc; Thu, 17 Apr 2025 11:20:22 +0200
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1u5LPu-000j5C-0z;
-	Thu, 17 Apr 2025 11:20:18 +0200
-Received: from pza by lupine with local (Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1u5LPu-0004Pq-0d;
-	Thu, 17 Apr 2025 11:20:18 +0200
-Message-ID: <aacb8b4cfccdc2131191829cd2630f5566365cd3.camel@pengutronix.de>
-Subject: Re: [PATCH net-next v8 3/4] net: stmmac: Add DWMAC glue layer for
- Renesas GBETH
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Prabhakar <prabhakar.csengg@gmail.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>,  "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo
- Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>,  Richard Cochran
- <richardcochran@gmail.com>, Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>, "Russell King (Oracle)"
- <rmk+kernel@armlinux.org.uk>,  Giuseppe Cavallaro <peppe.cavallaro@st.com>,
- Jose Abreu <joabreu@synopsys.com>
-Cc: netdev@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org,  Biju Das
- <biju.das.jz@bp.renesas.com>, Fabrizio Castro
- <fabrizio.castro.jz@renesas.com>, Lad Prabhakar
- <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Date: Thu, 17 Apr 2025 11:20:18 +0200
-In-Reply-To: <20250417084015.74154-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
-References: <20250417084015.74154-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-	 <20250417084015.74154-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	id 1u5LaR-0000000CTGa-0IUZ;
+	Thu, 17 Apr 2025 09:31:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id D8E81A4B26C;
+	Thu, 17 Apr 2025 09:25:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7AFEBC4CEE4;
+	Thu, 17 Apr 2025 09:31:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744882269;
+	bh=F9Y0DmU3wEHCJH5F3T95MiuKcenBBiSBi8gA0omO2Jw=;
+	h=From:Date:Subject:To:Cc:From;
+	b=hVycZnPzum4yr9YF4zE6ZoE1n4jiB7kwZGrvFjJoajF1H/89TXibD7P5tQp7F692c
+	 kmYIs1RFigJ3uAxAtUeaEEjSrwdWb8f00j6CdH17Kq/zBQzrkxRYw8K7SLd+rPtLa4
+	 VeVWaugCImE+1VDru/5y1tFAsTIGnQ1XoaGDhhVHQzF7drAEeq4K7sNxGCEZmt2yj0
+	 d6X4Mz2jfteqN5esQoC9TrE9IPoZEmphntToDgnM3XNd0IkHswztc2W2bRi9oXoxDu
+	 KIIEPuqEg25QybHDIoIH7vhNpbmUzhDthXgVups+MCSxb6Z1uCtzwipUElMg0OWfvi
+	 YNgabBdnzSMRA==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Thu, 17 Apr 2025 11:30:47 +0200
+Subject: [PATCH net-next v2] net: airoha: Add missing filed to
+ ppe_mbox_data struct
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250417-airoha-en7581-fix-ppe_mbox_data-v2-1-43433cfbe874@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAEbKAGgC/4WNQQqDMBBFryKz7pQkRE276j2KSNRRh7aJJCIW8
+ e5Nha67fJ/PextECkwRrtkGgRaO7F0CdcqgHa0bCLlLDEqoXGip0XLwo0VyZW4k9rziNFH9avx
+ ad3a2qHppjOhLbYoWkmUKlE5H4V4lHjnOPryP4CK/68+d/3UvEiVqLUxbiMZeCn17UHD0PPswQ
+ LXv+wcWwJXizwAAAA==
+X-Change-ID: 20250414-airoha-en7581-fix-ppe_mbox_data-2f1880f7486c
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
+ Simon Horman <horms@kernel.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_022050_675078_E726E262 
-X-CRM114-Status: UNSURE (   6.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250417_023111_181308_CBAD2B35 
+X-CRM114-Status: GOOD (  10.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,17 +79,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Do, 2025-04-17 at 09:40 +0100, Prabhakar wrote:
-> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
->=20
-> Add the DWMAC glue layer for the GBETH IP found in the Renesas RZ/V2H(P)
-> SoC.
->=20
-> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+The official Airoha EN7581 firmware requires adding max_packet filed in
+ppe_mbox_data struct while the unofficial one used to develop the Airoha
+EN7581 flowtable support does not require this field.
+This patch does not introduce any real backwards compatible issue since
+EN7581 fw is not publicly available in linux-firmware or other
+repositories (e.g. OpenWrt) yet and the official fw version will use this
+new layout. For this reason this change needs to be backported.
 
-Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
+Fixes: 23290c7bc190d ("net: airoha: Introduce Airoha NPU support")
+Reviewed-by: Simon Horman <horms@kernel.org>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+Changes in v2:
+- Add more details to commit log
+- Link to v1: https://lore.kernel.org/r/20250415-airoha-en7581-fix-ppe_mbox_data-v1-1-4408c60ba964@kernel.org
+---
+ drivers/net/ethernet/airoha/airoha_npu.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-regards
-Philipp
+diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ethernet/airoha/airoha_npu.c
+index 7a5710f9ccf6a4a4f555ab63d67cb6b318de9b52..16201b5ce9f27866896226c3611b4a154d19bc2c 100644
+--- a/drivers/net/ethernet/airoha/airoha_npu.c
++++ b/drivers/net/ethernet/airoha/airoha_npu.c
+@@ -104,6 +104,7 @@ struct ppe_mbox_data {
+ 			u8 xpon_hal_api;
+ 			u8 wan_xsi;
+ 			u8 ct_joyme4;
++			u8 max_packet;
+ 			int ppe_type;
+ 			int wan_mode;
+ 			int wan_sel;
+
+---
+base-commit: df8398fb7bb7a0e509200af56b79343aa133b7d6
+change-id: 20250414-airoha-en7581-fix-ppe_mbox_data-2f1880f7486c
+
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
+
 
