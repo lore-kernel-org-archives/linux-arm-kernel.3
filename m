@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4773AC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 06:21:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4D76C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 06:23:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zKVn2o4X8V9wg1D8bn62k8BMa1o6RktgjZVxv1OhHro=; b=0fTZhXWR5ZwX9+Xp5AhWQlpj4A
-	IfXeMXw4KtjIzZQXYit1g/9zrxArNieF29h3DIJvvQ5VQwmOu9kKWxz4Z0VytVk0EoVI7Z4kobXmP
-	OkUPBTCUcLqVVzPhD6tl0/Eyf6uXLU4RxYtVLceMM/UzEXeRw7XEjnR09blPzI15s8d3JxEpPffXL
-	0bpECy7MovDSnquiWwE3W/tqtqBBVus+Ea2Fs1ANcN1g9MUl1zgugbidaS3H+IOMM1n+MK0gmlA6L
-	H+KDulb2TkRcpVP5kHE5FKrxoKkUj9EspGea7wQpC5/3wNcs63pViNavRyezfuyz7L+bSPdJW4oZG
-	0jJ/jS/g==;
+	bh=ezqrEP4z7YNqis+jwdY/I5EPIV50Ti9Rj+ODcnFY+Nc=; b=m7QK4kAfnu0ZbHL/qGwJjItHoN
+	Auz9P+eJGkb3JlidhVM8aldhvZr25HvYMDATQsT6pZ/BFR75e5HRDiqvCkn1huSpfbecmsSB22G0L
+	yMoidHFkmt4+AvASvpYJ7dz9zDkOd57avUE7wT7nm1UWJv91+zlD8fY7W8qqNqWkj/M11svPyi2yL
+	NOs5DwrfjmVupBfh19ISXopWWohiR1qj3oxTjGkM8KgEAS2DrMJTvnp4ua14ZTlq3xTBKtqsafnv2
+	yVQTj4ukRBNOOv4CGTI5Ao3pYiq2NdCb1r3u0dnqDKlB6nXDd3xsKCvVy+qBD1hlRT1ULiCAVkFiT
+	wppb8KRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Id5-0000000BtGz-29ov;
-	Thu, 17 Apr 2025 06:21:43 +0000
+	id 1u5Iet-0000000BtTI-16eX;
+	Thu, 17 Apr 2025 06:23:35 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5IaI-0000000Bsqm-3xhT
+	id 1u5IbY-0000000Bt23-10lv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 06:18:51 +0000
+	Thu, 17 Apr 2025 06:20:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7A3FA6842A;
-	Thu, 17 Apr 2025 06:18:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC836C4CEE4;
-	Thu, 17 Apr 2025 06:18:45 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 39BC668434;
+	Thu, 17 Apr 2025 06:19:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BCC9C4CEE4;
+	Thu, 17 Apr 2025 06:20:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744870729;
-	bh=r8GtcWK3tridKFdZYvRzgMzTzOOLw37Wb47MgdLtIh8=;
+	s=k20201202; t=1744870806;
+	bh=VxT2po+NrQ8fXUrsS07RF7B08VPOX96rVFAn6InJZkY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=C3IwxctdMuWmUWdbEdhL/4DFwG5O15bDeY5U1G/ShvEB5cUuafzZ3vzFFPg85xx8u
-	 6eSLIRF5GQTDlGfIOw9P/OzT51dohdiVYMJt1NZGJx9sOoRXdE8RQlYjOQFVYFdQd4
-	 iNH0g2y71LbiF66Sv/fG9NJEoQR7lTTV5XwQ9pL/hUUI9nsYt6q9P06wc5LThLvwFX
-	 D0hla/u/Dxe7pU6ISRZDoC5DmEJxZPfMVwndiVEWQRgJzX5MxYttWhlynHUSyDqofN
-	 dXEVuHq1IYunIY4SR4eZNc9PGhu0GrJw02PP0083MJ235t8uAo/3QKttIPSjVCeIYZ
-	 tTw/p61tXgtAg==
-Message-ID: <74b9fc25-0815-4ece-845a-5f730c87fe78@kernel.org>
-Date: Thu, 17 Apr 2025 08:18:44 +0200
+	b=bD5bEvTOOBmNe2dEZDW+QRm1ApRTTLCQx2B4FxjwMtQ6pgWHQlAomv/5WQiPVL+Ve
+	 DW74XatObh8k6eqy9RP3IV7WHmWnXJtzjdKeKAYGd+UvOcjNEVb+i/taZlm5fhPDI3
+	 ORhW5Nx7/YkWOVXdtEOintxXHGpcAgr33iOaoDwBogHCG/qP9GH6nilAPgC7kpXSZQ
+	 0vvbWSGwHc4vjf9Rykpa47g/ZqdPCVFXwMyGOm3Gq2Qj6X+paPGP+wTJ+/7Vy3NUn0
+	 5uwzvAWZncF4xk0fPTRTHxoYFfvdCuN/l+cHwXvAsBUHt69Pwd4FRMPeFja5G1H2pG
+	 JGB7lnNLRhkrg==
+Message-ID: <cef48ecc-94b6-40a0-9f9c-a616814878fb@kernel.org>
+Date: Thu, 17 Apr 2025 08:19:59 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v6 09/10] arm64: dts: cix: add initial CIX P1(SKY1) dts
@@ -122,24 +122,24 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 15/04/2025 09:27, Peter Chen wrote:
-> +
-> +		mbox_ap2pm: mailbox@6590080 {
-> +			compatible = "cix,sky1-mbox";
-> +			reg = <0x0 0x06590080 0x0 0xff80>;
-> +			interrupts = <GIC_SPI 363 IRQ_TYPE_LEVEL_HIGH 0>;
-> +			#mbox-cells = <1>;
-> +			cix,mbox-dir = "tx";
-> +		};
-> +
-> +		pm2ap_scmi_mem: pm2ap-shmem@65a0000 {
-> +			compatible = "arm,scmi-shmem";
-> +			#address-cells = <2>;
-> +			#size-cells = <2>;
-> +			reg-io-width = <4>;
-> +			reg = <0x0 0x065a0000 0x0 0x80>;
+> CIX SKY1 SoC is high performance Armv9 SoC designed by Cixtech,
+> and Orion O6 is the motherboard launched by Radxa. See below for
+> detail:
+> https://docs.radxa.com/en/orion/o6/getting-started/introduction
+> 
+> In this commit, it adds sky1 base, mailbox, clock (scmi firmware baseed)
+> and uart, and the kernel could boot up to console.
+> 
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Messed order of properties. Keep it consistent (see DTS conding style).
-Other nodes also have oddly placed reg.
+You added several new device nodes, so obviously this is not true anymore.
+
+This is explained in submitting patches - you must drop the review when
+making substantial changes. Adding several nodes is a substantial change.
+
+> Acked-by: Fugang Duan <fugang.duan@cixtech.com>
+
+And this as well
 
 
 
