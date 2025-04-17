@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACEA3C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 14:28:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAB45C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 14:28:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LVIv+Euugq4tGgOroUBB26lcmJe4QB+yarX/KrXGKoU=; b=TuupTNnuTSNJcGjgp6CloHs9j1
-	HyalMMhtvH+I1BqxIRZoEpcRmwYsAuTd07xfP/BYAykFFQYTS738UVwJjUzxdVikB4FUMrrrf9e6e
-	B3NHo+VLHFpFPTBZH14Z94b0DwjIs9nuUvhPxhH+dZjoNnvHGOAATsGE5PpL3jUGmbjPhmgYIMQr1
-	ddc9dLCwXO6GIYvQ+17AWzJ/ZB+q79FJks/gt5KwUoKl5Y6wONI13pGpJrcuAwSguSaWLSR6PV0Qh
-	J3Q/yhwErSq+kQD3XC/H2a8CIHmFkztIUJHrQc1BX20zjfOx8XALxgfpKfFoZD9jnKZWRausAgizw
-	ZlbXPS0A==;
+	bh=EBbHta6iKokVfcc1bePIO7Nx8/nJkoOCsQta59zO56Q=; b=wSPTrwnbgsmY+BzF+Di4LdH/HW
+	AFnB75zrv4gUNQ4Bc14MQ/MQcWiTYXuXzMYgHqBY4gvEF1pmSWISsfG0RMFDr1KjMkKMOjTAM7WX3
+	ReLCrKJB5Iy0RgpZv1hxPrTjYh0o2PIYll4LXou0ci7qe9DEvuUCvI6xwTC/t7+f7QnSBoOPrNHVC
+	z5RAcU2tkWnIUT/s1yEulJ56OVgb/VcTFv6TKCUHnZTrAGwIZb3EwV4QT9LCDuTXaewdwdM1j/nO1
+	imQWFZ9vETFqyVKMja3JBaGp/YmdfU7ibPZ/H3Ww3uuqWe7Uol68tBpaQsau9LL3jr2/zTKzyuM77
+	Xq2+N8Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5QED-0000000DJVg-2ENX;
-	Thu, 17 Apr 2025 14:28:33 +0000
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	id 1u5QEE-0000000DJWa-3TXY;
+	Thu, 17 Apr 2025 14:28:34 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5OuK-0000000D4hV-17ck
+	id 1u5OyJ-0000000D5LM-1WGw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 13:03:58 +0000
-Received: from francesco-nb (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id B71961F91A;
-	Thu, 17 Apr 2025 15:03:47 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1744895028;
-	bh=LVIv+Euugq4tGgOroUBB26lcmJe4QB+yarX/KrXGKoU=; h=From:To:Subject;
-	b=KPzhyH1WrJIKuXn4iDgsC61lXzCe1axXYyM9GRAGE4fsHLHTnE1wAqWGZwfS71ft/
-	 nA0ZpkIoMNpVG8On6N+KDyb5ttYOEERQ4IWBTolo/A2cjwB/nhLdB/CGaqiQTlf2OM
-	 /gSGRJDD8Lr6PSKZjNK8AXLJc4ZqSVQL+V4GkMC53obPRlvHHWgipM4GR0I5+mSGbn
-	 KKWmuEsMXuXmzbktwZlDCWTdCsFzXyFe1GnOUP9uJpdLcctRzzgN5bxc/+20wDuU9Y
-	 vBNiWRRq3YA0jxNMExpISjRCEOFuqgp+vByQIX6uAk0qLQmmvjCyVM70p9tEU552pe
-	 wsPG/35PlJDAA==
-Date: Thu, 17 Apr 2025 15:03:42 +0200
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Wojciech Dubowik <Wojciech.Dubowik@mt.com>
-Cc: linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: imx8mm-verdin: Link reg_nvcc_sd to usdhc2
-Message-ID: <20250417130342.GA18817@francesco-nb>
-References: <20250417112012.785420-1-Wojciech.Dubowik@mt.com>
+	Thu, 17 Apr 2025 13:08:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D53285C100D;
+	Thu, 17 Apr 2025 13:05:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F24DC4CEE4;
+	Thu, 17 Apr 2025 13:08:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744895281;
+	bh=qXwSbKoa+3CLa3KQktU6eGBwQ/lN3JxTlgMWrtWYA4k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=s/aFT4KAzeo3foK4z0YCpKh70KkL/axv2rszxLiM/7DEfhxQfevMVARGd5oVb7ySp
+	 f53s/xg3FmPkXNdnvkuSopX2+5BJ97mWX2J+VpUnX+FKBe8DLy0OMfKCwgyIKqP9Xa
+	 Y944DXO1gMXLyeG8utxvdSDatJpGPMQl8xloeFrs/FwlJsQSztxK+8aPBIYJoMNhmb
+	 iPmLVgWQw72SlVGGuOBq6t1nKd630l50OMaVX24lpwpdUCIAUIp+VOeCrLk/HfnqCU
+	 QtwPtobCRC5i8G1j2hadf9La2MWbV7sja8SWxagGFV0YItyY2hG3osM4vanhx4qyiv
+	 p+xPtSl6yGXVQ==
+Date: Thu, 17 Apr 2025 15:07:56 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Sven Peter <sven@svenpeter.dev>
+Cc: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	Naveen N Rao <naveen@kernel.org>, Neal Gompa <neal@gompa.dev>, Hector Martin <marcan@marcan.st>, 
+	linuxppc-dev@lists.ozlabs.org, asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 4/6] i2c: pasemi: Improve error recovery
+Message-ID: <dtjvj34q4ojbci67akkxfiskpiro24xupagr5rl4dn3idd6vxh@2emtiwbvpvra>
+References: <20250415-pasemi-fixes-v2-0-c543bf53151a@svenpeter.dev>
+ <20250415-pasemi-fixes-v2-4-c543bf53151a@svenpeter.dev>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250417112012.785420-1-Wojciech.Dubowik@mt.com>
+In-Reply-To: <20250415-pasemi-fixes-v2-4-c543bf53151a@svenpeter.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_060357_211877_09B8DF2A 
-X-CRM114-Status: GOOD (  17.32  )
+X-CRM114-CacheID: sfid-20250417_060803_451363_B7720F95 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,50 +76,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Wojciech,
-thanks very much for your patch.
+Hi Sven, Hector,
 
-On Thu, Apr 17, 2025 at 01:20:11PM +0200, Wojciech Dubowik wrote:
-> Link LDO5 labeled reg_nvcc_sd from PMIC to align with
-> hardware configuration specified in the datasheet.
-> 
-> Without this definition LDO5 will be powered down, disabling
-> SD card after bootup. This has been introduced in commit
-> f5aab0438ef1 (regulator: pca9450: Fix enable register for LDO5).
-> 
-> Fixes: f5aab0438ef1 (regulator: pca9450: Fix enable register for LDO5)
-> Cc: stable@vger.kernel.org
-> 
-> Signed-off-by: Wojciech Dubowik <Wojciech.Dubowik@mt.com>
-> ---
->  arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
-> index 7251ad3a0017..6307c5caf3bc 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
-> @@ -785,6 +785,7 @@ &usdhc2 {
->  	pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_cd>;
->  	pinctrl-3 = <&pinctrl_usdhc2_sleep>, <&pinctrl_usdhc2_cd_sleep>;
->  	vmmc-supply = <&reg_usdhc2_vmmc>;
-> +	vqmmc-supply = <&reg_nvcc_sd>;
+...
 
-I am worried just doing this will have some side effects.
+> +/*
+> + * The hardware (supposedly) has a 25ms timeout for clock stretching, thus
+> + * use 100ms here which should be plenty.
+> + */
+> +#define TRANSFER_TIMEOUT_MS	100
 
-Before this patch, the switch between 1v8 and 3v3 was done because we
-have a GPIO, connected to the PMIC, controlled by the USDHC2 instance
-(MX8MM_IOMUXC_GPIO1_IO04_USDHC2_VSELECT, see pinctrl_usdhc2).
+Please use the PASEMI prefix here. TRANSFER_TIMEOUT_MS it's not a
+naming belonging to this driver.
 
-With your change both the PMIC will be programmed with a different
-voltage over i2c and the GPIO will also toggle. It does not sound like
-what we want to do.
+100ms looks a bit too much to me, but if you say it works, then
+it works.
 
-Maybe we should have a "regulator-gpio" with vin-supply =
-<&reg_nvcc_sd>, as we recently did here
-https://lore.kernel.org/all/20250414123827.428339-1-ivitro@gmail.com/T/#m2964f1126a6732a66a6e704812f2b786e8237354
-?
+> +
 
-Francesco
+...
 
+>  	unsigned int status;
+>  
+>  	if (smbus->use_irq) {
+>  		reinit_completion(&smbus->irq_completion);
+> -		reg_write(smbus, REG_IMASK, SMSTA_XEN | SMSTA_MTN);
+> -		ret = wait_for_completion_timeout(&smbus->irq_completion, msecs_to_jiffies(100));
+> +		/* XEN should be set when a transaction terminates, whether due to error or not */
+> +		reg_write(smbus, REG_IMASK, SMSTA_XEN);
+> +		ret = wait_for_completion_timeout(&smbus->irq_completion,
+> +						  msecs_to_jiffies(timeout));
+>  		reg_write(smbus, REG_IMASK, 0);
+>  		status = reg_read(smbus, REG_SMSTA);
+>  
+> @@ -123,9 +150,35 @@ static int pasemi_smb_waitready(struct pasemi_smbus *smbus)
+>  		}
+>  	}
+>  
+> +	/* Controller timeout? */
+> +	if (status & SMSTA_TOM) {
+> +		dev_warn(smbus->dev, "Controller timeout, status 0x%08x\n", status);
+> +		return -EIO;
+
+as before, these warnings are treated as errors. Can we just
+print error?
+
+The rest looks good.
+
+Andi
+
+> +	}
+> +
+> +	/* Peripheral timeout? */
+> +	if (status & SMSTA_MTO) {
+> +		dev_warn(smbus->dev, "Peripheral timeout, status 0x%08x\n", status);
+> +		return -ETIME;
+> +	}
+
+...
 
