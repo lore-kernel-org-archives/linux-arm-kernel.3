@@ -4,55 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8866AC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 10:56:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AB89C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 10:58:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oZViGq4NtdrLT6duhdj0vbM1P8sJWdoW1XZ6rcIC618=; b=qYT4oYtlxfGVJ/6qosYdX+oUlL
-	OBatDVK3EQs05jVaBFHwFu2xOs+VN/wrSejmGOmcJtniyxbB92t20x7ajjsyjnLNuwqYKpqIY74zA
-	T7pMsY2zpPixHOKvN8pp2gaqQnQIBwUFfsegauo1Bv+HWpD/WnzKKMW0u/QwE/Ffw0gxSMiKTx152
-	AUtaYizvx1vDiRt+57eu8nvYRC/ApKLlq2JwUNV0lvg7FHmX2s6VYccw3aKezyKNJdhKWSmFhmVDL
-	TZCiE3j9P7i6vkDHzYqpn09WXna6TdMzrJrXxt1Utn4DAmQhFU896oOveYhHHsip8PhCjlO2OkB4I
-	PvNdbEgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=LRMHmsRiXieBj8psfApOLY0gCKvwS9nBg3+ZVQMAHlQ=; b=WwoOOdnmI2hc0P
+	WOZ/3Fyru9t1uf9lMVmQdGdSNW/2bawugJLECdhhcg0P4C8eLX+Qtwx1LB2N0G9SYJQGHCIIrwlHm
+	8xCfHprZUAo8DaUCb78zEjYlrtK2OFZ+1lZ7qEsQhQ6Hqg0QyjMpjl8v1XpJN/yeF7+K3jHISm3+T
+	HtEqIhtujPjHzn/aCzwwf1Wl2isNYcJOATb2XeF+Bf1J0Bq/HodI1SOqqBGVdb1UMQ8pwOz2eSsZ4
+	ZPX+Z4lboJUNpztadS7FL5Nh8Mm2+hfx1IXSfStX4jouxW5Jo0HsB/vfpyDoFQa1aLtyOlHwDNIm3
+	Y98dIiyWXB/ZPJH+pmew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Mv6-0000000Ci3R-1Z2u;
-	Thu, 17 Apr 2025 10:56:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Mcz-0000000Cf6S-1nc3
+	id 1u5Mwv-0000000CiHZ-0f6W;
+	Thu, 17 Apr 2025 10:58:29 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u5MmX-0000000CgJw-3e8a
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 10:37:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DB92D1515;
-	Thu, 17 Apr 2025 03:37:49 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 292163F694;
-	Thu, 17 Apr 2025 03:37:51 -0700 (PDT)
-Date: Thu, 17 Apr 2025 11:37:44 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] pmdomain: arm: Do not enable by default during compile
- testing
-Message-ID: <aADZ-EKpQ2Sd5KV2@pluto>
-References: <20250417074645.81480-1-krzysztof.kozlowski@linaro.org>
+	Thu, 17 Apr 2025 10:47:47 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53H5l7QW003036;
+	Thu, 17 Apr 2025 10:47:23 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=LRMHmsRiXieBj8psfApOLY
+	0gCKvwS9nBg3+ZVQMAHlQ=; b=JRdC/+Ito+q1oHGhzzSVYYd8uvr0eiRG7HqYhu
+	RkXq1ET6mbVzecWa30fNAS03efvXsIsjc9VX4odMxk1PJgIrKJMPv0JejYk3Z+Nl
+	vTmnqgzfZ3je6kS1l0pINMfvfhOiwAeVJoqNeJg3iBKd0J2oQDRhNGE9u8LcdOBf
+	BmSSIBdIzq0+4vcHsnsIe3rp3M4JPhGhpVsqFKNJ7kz3eGX7vVZIEMu0+E0xJ7J+
+	Q3bkfCY1M0vD9IAM3V0DyHlOlE6YpkLoDItLgeKfwgn2gU9lOvr2LuqQCwCAS00C
+	Glz5JtL2DBxFLKR3MjBlSb+HbxpZB2gA8U9j96r4kYGaMKAg==
+Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45ygxk6fm9-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 17 Apr 2025 10:47:22 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53HAlMZp013519
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 17 Apr 2025 10:47:22 GMT
+Received: from nsssdc-sh01-lnx.ap.qualcomm.com (10.80.80.8) by
+ nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Thu, 17 Apr 2025 03:47:17 -0700
+From: Luo Jie <quic_luoj@quicinc.com>
+Subject: [PATCH v3 0/6] Add FIELD_MODIFY() helper
+Date: Thu, 17 Apr 2025 18:47:07 +0800
+Message-ID: <20250417-field_modify-v3-0-6f7992aafcb7@quicinc.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250417074645.81480-1-krzysztof.kozlowski@linaro.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIACvcAGgC/x2MwQ6DIBAFf8XsuTSCYKCn/kdjGoGlblLFQmtqj
+ P9e6nHey8wGGRNhhku1QcKFMsWpQHOqwA399EBGvjCIWqhacs4C4dPfx+gprEw3VmlvjSkvFGV
+ OGOh75G5d4YHyO6b1qC/8v4JXAdHolnHlWiZlj8zW2jIt0HApFRohrq8POZrc2cURun3ff+MRm
+ DKnAAAA
+To: Yury Norov <yury.norov@gmail.com>,
+        Rasmus Villemoes
+	<linux@rasmusvillemoes.dk>,
+        Julia Lawall <Julia.Lawall@inria.fr>,
+        "Nicolas
+ Palix" <nicolas.palix@imag.fr>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+        Oliver Upton
+	<oliver.upton@linux.dev>,
+        Joey Gouly <joey.gouly@arm.com>,
+        Suzuki K Poulose
+	<suzuki.poulose@arm.com>,
+        Zenghui Yu <yuzenghui@huawei.com>
+CC: <linux-kernel@vger.kernel.org>, <cocci@inria.fr>,
+        <linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+        <andrew@lunn.ch>, <quic_kkumarcs@quicinc.com>,
+        <quic_linchen@quicinc.com>, <quic_leiwei@quicinc.com>,
+        <quic_suruchia@quicinc.com>, <quic_pavir@quicinc.com>,
+        Luo Jie <quic_luoj@quicinc.com>
+X-Mailer: b4 0.14.1
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1744886837; l=2029;
+ i=quic_luoj@quicinc.com; s=20250209; h=from:subject:message-id;
+ bh=sNPOlKWxoa2d3Xd6pXHYvrfVZgt6hORR+j95PnalnKo=;
+ b=BHLO3JJmTWuhCBY6yr0kCXOSkZrQy9MK+KEJ1RAfExjyoxi7m7VCsE4uEpkPi53uqWpWVhD3v
+ 5WdVAxpbsIxCWjcCqsroD9l/TllAID7lBKVr2cQoznmU2MXZ/n8MGbP
+X-Developer-Key: i=quic_luoj@quicinc.com; a=ed25519;
+ pk=pzwy8bU5tJZ5UKGTv28n+QOuktaWuriznGmriA9Qkfc=
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Authority-Analysis: v=2.4 cv=WecMa1hX c=1 sm=1 tr=0 ts=6800dc3a cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=VwQbUJbxAAAA:8 a=COk6AnOGAAAA:8 a=cHbbWd92-npjkAukGjkA:9
+ a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-GUID: -f_gB-2QlCjIYT6UaquToRoAO_Mpl07q
+X-Proofpoint-ORIG-GUID: -f_gB-2QlCjIYT6UaquToRoAO_Mpl07q
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-17_03,2025-04-15_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 suspectscore=0
+ adultscore=0 clxscore=1011 lowpriorityscore=0 phishscore=0 mlxscore=0
+ impostorscore=0 mlxlogscore=999 spamscore=0 malwarescore=0
+ priorityscore=1501 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2504170080
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_033753_506283_AA60BD2B 
-X-CRM114-Status: UNSURE (   6.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250417_034745_940897_8EDDB291 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,14 +125,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 17, 2025 at 09:46:45AM +0200, Krzysztof Kozlowski wrote:
-> Enabling the compile test should not cause automatic enabling of all
-> drivers, but only allow to choose to compile them.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Add the helper FIELD_MODIFY() to the FIELD_XXX family of bitfield
+macros. It is functionally similar as xxx_replace_bits(), but adds
+the compile time checking to catch incorrect parameter type errors.
 
-Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
+This series also converts the four instances of opencoded FIELD_MODIFY()
+that are found in the core kernel files, to instead use the new
+FIELD_MODIFY() macro. This is achieved with Coccinelle, by adding
+the script field_modify.cocci.
 
-Thanks,
-Cristian
+The changes are validated on IPQ9574 SoC which uses ARM64 architecture.
+
+Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
+---
+Changes in v3:
+- Correct the order of header files included.
+- Add the Coccinelle script field_modify.cocci..
+- Convert the opencoded FIELD_MODIFY() variants inside arm64 directory,
+  identified by field_modify.cocci.
+- Link to v2: https://lore.kernel.org/all/20250410131048.2054791-1-quic_luoj@quicinc.com/
+
+Changes in v2:
+- Update the documented example for FIELD_MODIFY().
+- Improve the commit message to describe the need for the change.
+- Link to v1: https://lore.kernel.org/all/20250318071526.1836194-1-quic_luoj@quicinc.com/
+
+---
+Luo Jie (6):
+      bitfield: Add FIELD_MODIFY() helper
+      coccinelle: misc: Add field_modify script
+      arm64: tlb: Convert the opencoded field modify
+      arm64: nvhe: Convert the opencoded field modify
+      arm64: kvm: Convert the opencoded field modify
+      arm64: mm: Convert the opencoded field modify
+
+ arch/arm64/include/asm/tlbflush.h          |  3 +--
+ arch/arm64/kvm/hyp/include/nvhe/memory.h   |  3 +--
+ arch/arm64/kvm/vgic/vgic-mmio-v3.c         |  6 ++----
+ arch/arm64/mm/context.c                    |  3 +--
+ include/linux/bitfield.h                   | 21 +++++++++++++++++++--
+ scripts/coccinelle/misc/field_modify.cocci | 24 ++++++++++++++++++++++++
+ 6 files changed, 48 insertions(+), 12 deletions(-)
+---
+base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
+change-id: 20250411-field_modify-83b58db99025
+
+Best regards,
+-- 
+Luo Jie <quic_luoj@quicinc.com>
+
 
