@@ -4,92 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EA26C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 15:33:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBB8FC369C9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 15:34:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/wzWuo5un/VoEiUbJIqgpO6MbHgKyRnpdAXSEcODxI0=; b=YLB4ivwFpgzySLdmI2TEB2oQUO
-	5xV3mxiGy63429NSIcfuQsMay7684C4lV+bAt1Rmiph26PcW/RmU9jtsRwhlxXmL+WJKB4rierT+A
-	5jjun2kXBgPXxePO8w+deGf5HxV4mgtlmo4CiglveNBR68KyO6jp7QyL8SIxgPhYPuwupHfdoeT9y
-	+Lu+rFf6/4J9egeLPnSWUfjVPASs9wQwVA+m0L5WPRh7OymjLEx9qjW/gkJlr6xCCDtpvNGOdZ1k3
-	Mhh2/xZLzQn6mBOD99xOYtttxwg6qczj+zaCt5cX78WnFGeaUzVpJuYIRvQnERAqGdXg806Bj8dON
-	yT1Pe1og==;
+	bh=EzPpkd7fGwIRjZRAoG5yJ4Ndb/6L/1LmPkoxW6u5lRw=; b=b055fMswLYVcvhrG+QNJHcWDi2
+	3jABagKS37lI2AfHevKoEnS7yhmnNZOS1NwbUscW/avfvIIAbSLIBc838nR7rl3MLg0Af75SaSqxe
+	fkRh2Fg4KGo/OXzLHVgdHiZO0VnQAR1fFEt27y4cBlSs3SxDDdpAHxMlhKhFhXyiEj8etzv3unefO
+	Cn6LENfhjRfE433SdbJt2O66Ko7TqThBJOHQLVE/Xli7vJa7PGU5htUnYpVxqvTsPCp7671A2FLs5
+	qtNHHx5/FOBv0ZR4iV2vmy41bUgGhtrnF1cpemBM2lUE58zyLmNtPUu9yrUjnRGjBv51jCSZ50Twl
+	YxuFypXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5REP-0000000DWzB-17JQ;
-	Thu, 17 Apr 2025 15:32:49 +0000
-Received: from mail.8bytes.org ([85.214.250.239])
+	id 1u5RGD-0000000DXOA-48i2;
+	Thu, 17 Apr 2025 15:34:41 +0000
+Received: from mail.8bytes.org ([2a01:238:42d9:3f00:e505:6202:4f0c:f051])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5QPu-0000000DMAW-2UR7;
-	Thu, 17 Apr 2025 14:40:39 +0000
+	id 1u5QQu-0000000DMKp-3z2w;
+	Thu, 17 Apr 2025 14:41:42 +0000
 Received: from 8bytes.org (p4ffe03ae.dip0.t-ipconnect.de [79.254.3.174])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail.8bytes.org (Postfix) with ESMTPSA id 06A4448658;
-	Thu, 17 Apr 2025 16:40:36 +0200 (CEST)
+	by mail.8bytes.org (Postfix) with ESMTPSA id 27BAA48658;
+	Thu, 17 Apr 2025 16:41:40 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=8bytes.org;
-	s=default; t=1744900837;
-	bh=ZkCqmSbXt1v3PVfUXnyy4jP63qsdkBbj3FBpkdPeHH8=;
+	s=default; t=1744900900;
+	bh=nkD3Ai6sPz5TId+HbEZ4D9DCKviA/qssHMxlH8W2gus=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=3uWpx2LX4TTFi1PE/0XADmLNcMTSSgp6V32+y7Jg9w1nRQrdFpRAshKO/MlaYKmzl
-	 Kttyj0sv2jvWQoOp8zotVwqMMlAQCKmYCNbPML6UF1D5se9TmoU4CvIYYUB7WJ29Hh
-	 YCuyKsNnf2Mmo3OXZNrQmDlvgN/8GOUwV5PxfpzWW4NZ7ojBC28SJ+XuDZZa64pU9V
-	 LdeFxt+6nerOumveCriRC80bM6PcRXDa7RXPSV0aZTjN7pRdclEJwA0TMtL9zXx/XR
-	 PfZwVAfOpjAzu7vbS5fzJ8u/XVNitcdYRjWNcN+VNsc8QUkdsVvI5kkKABr62vC1De
-	 GOaeG/ITg6e7w==
-Date: Thu, 17 Apr 2025 16:40:35 +0200
+	b=mJ1C4mMExs/+iMj/0PL47U2PCET7Lrv1LMiNjzWbVOBN49hZ4phcYRRCLj7idVIW1
+	 +z6O3QEoGeg5dpfa9orG1FqGULOe7JmiR53JRPKnDnyrfTJS50JRrK1DQwB/lHNGe9
+	 BcaZ1qX7mObOJh83jIgXLF/UjUzd57nF2ARQ2Yp1eTNNR4lnBfWHiPGp4p+JT2GOuw
+	 JzSrnu28992HH0TH72xQQbF6TO6yWWdvEuvLM33oZ99GT+0k803ZHbrNz5FGXGoytF
+	 mkHXsjH1CnifDZpMUT1oVZkST9EmTLnWYXWQsz8m07tHjAjIrEoY7IeCTNHhlGAJpH
+	 IGgIIHdC8iK6w==
+Date: Thu, 17 Apr 2025 16:41:39 +0200
 From: Joerg Roedel <joro@8bytes.org>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Alim Akhtar <alim.akhtar@samsung.com>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
-	David Woodhouse <dwmw2@infradead.org>,
-	Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
-	Janne Grunau <j@jannau.net>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Neal Gompa <neal@gompa.dev>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Sven Peter <sven@svenpeter.dev>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Tomasz Jeznach <tjeznach@rivosinc.com>,
-	Krishna Reddy <vdumpa@nvidia.com>, Chen-Yu Tsai <wens@csie.org>,
-	Will Deacon <will@kernel.org>,
-	Alejandro Jimenez <alejandro.j.jimenez@oracle.com>,
-	Bagas Sanjaya <bagasdotme@gmail.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>, Joerg Roedel <jroedel@suse.de>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	David Rientjes <rientjes@google.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Matthew Wilcox <willy@infradead.org>
-Subject: Re: [PATCH v4 00/23] iommu: Further abstract iommu-pages
-Message-ID: <aAES47w6yaRDFsLg@8bytes.org>
-References: <0-v4-c8663abbb606+3f7-iommu_pages_jgg@nvidia.com>
- <aAEPWXaBocqgsvbR@8bytes.org>
- <20250417142752.GH823903@nvidia.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: yong.wu@mediatek.com, will@kernel.org, robin.murphy@arm.com,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	matthias.bgg@gmail.com, iommu@lists.linux.dev,
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kernel@collabora.com
+Subject: Re: [PATCH v1 0/2] MediaTek Dimensity 1200 - Add IOMMU support
+Message-ID: <aAETI0hrOiQZDKh2@8bytes.org>
+References: <20250410144008.475888-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250417142752.GH823903@nvidia.com>
+In-Reply-To: <20250410144008.475888-1-angelogioacchino.delregno@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_074038_770963_092F0355 
-X-CRM114-Status: UNSURE (   7.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250417_074141_213380_E9F5352F 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,14 +75,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 17, 2025 at 11:27:52AM -0300, Jason Gunthorpe wrote:
-> I haven't had much trouble rebasing it, so fingers crossed, thanks
+On Thu, Apr 10, 2025 at 04:40:06PM +0200, AngeloGioacchino Del Regno wrote:
+> In preparation for adding basic support for the OnePlus Nord 2 5G
+> DN2103 smartphone, this series adds support for the IOMMU found in
+> the MediaTek Dimensity 1200 (MT6893) SoC.
+> 
+> AngeloGioacchino Del Regno (2):
+>   dt-bindings: iommu: mediatek: Add binding for MT6893 MM IOMMU
+>   iommu/mediatek: Add support for Dimensity 1200 MT6893 MM IOMMU
+> 
+>  .../bindings/iommu/mediatek,iommu.yaml        |   4 +
+>  drivers/iommu/mtk_iommu.c                     |  37 ++-
+>  .../memory/mediatek,mt6893-memory-port.h      | 288 ++++++++++++++++++
+>  3 files changed, 318 insertions(+), 11 deletions(-)
+>  create mode 100644 include/dt-bindings/memory/mediatek,mt6893-memory-port.h
 
-Forget the iommu-pages branch, this just makes it worse. I put it
-directly into the core branch now for everyone to rebase on in case of
-conflicts. This should avoid some of the potential trouble :)
-
-Regards,
-
-	Joerg
+Applied, thanks.
 
