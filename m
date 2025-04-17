@@ -4,88 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F9DFC369BD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 03:31:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6B9DC369C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 04:23:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZybCaegNwM4Mhdme7ie8tDG2/MD9+wEJuMfumqWYcxs=; b=kWf1MjvvNcQF5iXwUMW8+yLPTC
-	5thEW6Gkf4UiiErU4nAeBn6LZkEHLVO/mam9BFCEwG2m/4StKYExYTprBAzxsZXZbUSVAklrV7LCh
-	PGPYEDYQxV/8f+ejW3EHAOHxMBYtgI0eHzBSSpywDQw+AmmNHfxEPN/tbns9JhQm6KnAi0ELvkCvw
-	aGyxxhTK0K/SGRzTMk0Mt1QIf2pwEU3h+gqFmMKn+ilF/MPzbgbMihiOHITdgkBkM2j6WLZWcfY3F
-	QcP6QaI89/7P1d1+gykgNoRjrhEXFSepbDEkvhetk+FGD4aLA3yc8lET8hTI7KDg4lPAetbd2IVz/
-	sHEyCNCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s8Ze0YrAsRvM56Guf/YtrV37Q0EOqSVlsBXfjoOyn44=; b=YIlorjbANgemfXQW2aunbBMqgV
+	bem/QwA+ULtP/MHrRteIfcu62Kemf7F55ZNYdb8jJkP7cOYVQS8B+szRmXp+PlzjDYebmpybbit72
+	qrToxfBJ6KJWR16zldQ43n3mWyzouy4rnScPQFIkllBhxUQ3VreGVq8weLpFUYI0tg4hWbyU3hOap
+	docqDjrLgZOEsFE/Isuat482yx2T+J3JHSqHsH2yekGNMz5X685I6f5rs8MFsDD5QrI0jJbFLiYVE
+	/W1lwcakz2fHJXqZui3zG4g9s+/ycf+qMsO7n90inLkLok09FW4uGPFmiLwz2P+eh8qI7RQPaixzM
+	Iq6aYbtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5FyM-0000000BcKf-2XPX;
-	Thu, 17 Apr 2025 03:31:30 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1u5Gme-0000000BfqG-01Lr;
+	Thu, 17 Apr 2025 04:23:28 +0000
+Received: from p-west1-cluster1-host6-snip6-8.eps.apple.com ([2a01:b747:3003:200::3d] helo=outbound.pv.icloud.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5FwV-0000000Bc8d-1t58
+	id 1u5Gkn-0000000BfiE-2Gla
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 03:29:37 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53H3TR952971983
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 16 Apr 2025 22:29:27 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744860567;
-	bh=ZybCaegNwM4Mhdme7ie8tDG2/MD9+wEJuMfumqWYcxs=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=Oh77/Ta1cA2spSYlOCajSt7iUrBWGPh3XMG/daGR1vFMikEl7Ynu9xTRsREyAOP3M
-	 0+NcpyWw+E0aSppYTFBMCKkQN5dKfhABz+RyDSg7F5gsGqjw+/5XnHIhSmKh9Mg6Si
-	 JrLixEMXhsoynS5aJ8mBhw/KnFeZLe9y9ZC5iCns=
-Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53H3TRud019651
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 16 Apr 2025 22:29:27 -0500
-Received: from DLEE111.ent.ti.com (157.170.170.22) by DLEE109.ent.ti.com
- (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 16
- Apr 2025 22:29:27 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE111.ent.ti.com
- (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 16 Apr 2025 22:29:27 -0500
-Received: from localhost (bb.dhcp.ti.com [128.247.81.12])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53H3TRMV044506;
-	Wed, 16 Apr 2025 22:29:27 -0500
-Date: Wed, 16 Apr 2025 22:29:26 -0500
-From: Bryan Brattlof <bb@ti.com>
-To: Robert Nelson <robertcnelson@gmail.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, Rob Herring <robh@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        "Vignesh
- Raghavendra" <vigneshr@ti.com>, Nishanth Menon <nm@ti.com>,
-        Andrew Davis
-	<afd@ti.com>, Roger Quadros <rogerq@kernel.org>,
-        Siddharth Vadapalli
-	<s-vadapalli@ti.com>, Judith Mendez <jm@ti.com>,
-        Andrei Aldea
-	<a-aldea@ti.com>, Dhruva Gole <d-gole@ti.com>,
-        Jason Kridner
-	<jkridner@beagleboard.org>,
-        Deepak Khatri <lorforlinux@beagleboard.org>,
-        Ayush Singh <ayush@beagleboard.org>
-Subject: Re: [PATCH v3 2/2] arm64: dts: ti: Add k3-am62-pocketbeagle2
-Message-ID: <20250417032926.xamsafgue2ryj7sa@bryanbrattlof.com>
-X-PGP-Fingerprint: D3D1 77E4 0A38 DF4D 1853 FEEF 41B9 0D5D 71D5 6CE0
-References: <20250415225940.3899486-1-robertcnelson@gmail.com>
- <20250415225940.3899486-2-robertcnelson@gmail.com>
+	Thu, 17 Apr 2025 04:21:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=etehtsea.me; s=sig1;
+	bh=s8Ze0YrAsRvM56Guf/YtrV37Q0EOqSVlsBXfjoOyn44=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version:x-icloud-hme;
+	b=vhp8GUSLBS9mDgmUKnWpMptHb4zydL8N8Q+yPOxVFS09PTXCud15z3gPBzO3dX0tR
+	 D4wVQlPUv8ekGnXXgWTPArmYE6P2Y6kszaQHor1oci2Z/C9hnySBVEzGfLk3hBNe8q
+	 AC/QsW4+2F4JhMYw+Eu6KJIeJMpHTfz0x62ti+hy4zjPqqwxNXEXVpiReEFhK15o4j
+	 FkDWrllt0iUyfxzUfxKthOgXrLhnmgvdJb0pxbfuuzh5af/kGWDmqem406WC+lW6rJ
+	 GNjjuiW/KPBzFldVR55+nCT0DHzALxy5khBU+U60TmdYsBtoB0PkifETVNBABr2GmB
+	 EmaixC3zjIU5Q==
+Received: from localhost (pv-asmtp-me-k8s.p00.prod.me.com [17.56.9.36])
+	by outbound.pv.icloud.com (Postfix) with ESMTPSA id CF1A418000AF;
+	Thu, 17 Apr 2025 04:21:18 +0000 (UTC)
+From: Konstantin Shabanov <mail@etehtsea.me>
+To: Sandy Huang <hjc@rock-chips.com>,
+	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>
+Cc: Konstantin Shabanov <mail@etehtsea.me>,
+	Daniel Stone <daniel@fooishbar.org>,
+	Andy Yan <andyshrk@163.com>,
+	Dan Callaghan <djc@djc.id.au>,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3] drm/rockchip: Disable AFBC for res >2560 on rk3399
+Date: Thu, 17 Apr 2025 04:20:08 +0000
+Message-ID: <20250417042008.28536-1-mail@etehtsea.me>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250414095332.9674-1-mail@etehtsea.me>
+References: <20250414095332.9674-1-mail@etehtsea.me>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Disposition: inline
-In-Reply-To: <20250415225940.3899486-2-robertcnelson@gmail.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-GUID: MXRK0RV78ZYYop4SgACsYfnc7XchLLpL
+X-Proofpoint-ORIG-GUID: MXRK0RV78ZYYop4SgACsYfnc7XchLLpL
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.272,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-17_01,2025-04-15_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 phishscore=0 suspectscore=0
+ mlxlogscore=999 clxscore=1030 spamscore=0 malwarescore=0 mlxscore=0
+ bulkscore=0 adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2308100000 definitions=main-2504170032
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_202935_619615_DBD36778 
-X-CRM114-Status: GOOD (  12.46  )
+X-CRM114-CacheID: sfid-20250416_212133_615363_C98C3A95 
+X-CRM114-Status: GOOD (  13.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,61 +90,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On April 15, 2025 thus sayeth Robert Nelson:
-> BeagleBoard.org PocketBeagle 2 is an upgraded version of the popular
-> PocketBeagle.  It is based on Texas Instruments AM6232 or AM6254 SoC.
-> Its dual or quad A53 cores can provide higher performance than classic
-> PocketBeagle. The new design comes with pre-soldered headers, a 3-pin
-> JST-SH 1.00mm UART debug port, a USB-C port, Texas Instruments
-> MSPM0L1105 Cortex-M0+ MCU for ADC, 512MB RAM, and a LiPo Battery charger.
-> 
-> MSPM0L1105 firmware source: https://openbeagle.org/pocketbeagle/mspm0-adc-eeprom
-> * EEPROM 24c32 emulation
-> * ADC ad7291 emulation
-> 
-> https://www.beagleboard.org/boards/pocketbeagle-2
-> https://openbeagle.org/pocketbeagle/pocketbeagle-2
-> 
-> Signed-off-by: Robert Nelson <robertcnelson@gmail.com>
-> CC: Rob Herring <robh@kernel.org>
-> CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> CC: Conor Dooley <conor+dt@kernel.org>
-> CC: Vignesh Raghavendra <vigneshr@ti.com>
-> CC: Nishanth Menon <nm@ti.com>
-> CC: Andrew Davis <afd@ti.com>
-> CC: Roger Quadros <rogerq@kernel.org>
-> CC: Siddharth Vadapalli <s-vadapalli@ti.com>
-> CC: Judith Mendez <jm@ti.com>
-> CC: Andrei Aldea <a-aldea@ti.com>
-> CC: Dhruva Gole <d-gole@ti.com>
-> CC: Jason Kridner <jkridner@beagleboard.org>
-> CC: Deepak Khatri <lorforlinux@beagleboard.org>
-> CC: Ayush Singh <ayush@beagleboard.org>
-> ---
-> Changes since v2:
->  - cleanup unused serial aliases
->  - cleanup unused sdhci0 (un-populated) aliases
->  - cleanup unused main_i2c1 (un-populated) aliases
->  - add missing main_i2c0 aliases
->  - fix bootph, function, color, gpios order in leds nodes
->  - drop local cpsw disable, needs to be moved to k3-am62-main
->  - MSPM0L1105 add firmware source and note where emulated
->  - usb0 add note about Type-C connector, but only wired for USB 2.0
->  - usb1 add compatible note with original PocketBeagle expansion boards
-> Changes since v1:
->  - fix '_' in main-i2c2-default-pins
->  - aliases i2c match original pocketbeagle
->  - add mcu_m4fss with reseved memory and mailbox
->  - drop unused main_gpio0_pins_default pinmux
->  - drop unused main_gpio1_pins_default pinmux
->  - drop unused main_spi2_pins_gpio pinmux
->  - Reserve 128MiB of global CMA
-> ---
+As it isn't supported by hardware. At least, RK3399 doesn't support
+it. From the datasheet[1]
+("1.2.10 Video IN/OUT", "Display Interface", p. 17):
 
-I must say this is a fun little board! Excited to see all the carrier 
-boards people will make :)
+  Support AFBC function co-operation with GPU
+    * support 2560x1600 UI
 
-Reviewed-by: Bryan Brattlof <bb@ti.com>
+Manually tested on RockPro64 (rk3399):
+- ARM_AFBC modifier is used for 1920x1080
+- DRM_FORMAT_MOD_LINEAR modifier us used for 3840x2160
+- No noise on the screen when sway is running in 4k
+- Dynamic resolution switching works correctly in sway
 
-~Bryan
+Signed-off-by: Konstantin Shabanov <mail@etehtsea.me>
+Cc: Daniel Stone <daniel@fooishbar.org>
+Cc: Andy Yan <andyshrk@163.com>
+Reported-by: Dan Callaghan <djc@djc.id.au>
+Closes: https://gitlab.freedesktop.org/mesa/mesa/-/issues/7968
+
+[1]: https://opensource.rock-chips.com/images/d/d7/Rockchip_RK3399_Datasheet_V2.1-20200323.pdf
+---
+V2 -> V3: Run check only on rk3399
+V1 -> V2: Move the check to the fb_create callback
+
+Hi Andy and Daniel!
+Thank you for the review!
+
+Best wishes,
+Konstantin
+
+ drivers/gpu/drm/rockchip/rockchip_drm_fb.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_fb.c b/drivers/gpu/drm/rockchip/rockchip_drm_fb.c
+index dcc1f07632c3..6ca757f80a30 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_fb.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_fb.c
+@@ -5,6 +5,7 @@
+  */
+
+ #include <linux/kernel.h>
++#include <linux/of.h>
+
+ #include <drm/drm.h>
+ #include <drm/drm_atomic.h>
+@@ -17,6 +18,9 @@
+ #include "rockchip_drm_drv.h"
+ #include "rockchip_drm_fb.h"
+ #include "rockchip_drm_gem.h"
++#include "rockchip_drm_vop.h"
++
++#define RK3399_AFBC_MAX_WIDTH		2560
+
+ static const struct drm_framebuffer_funcs rockchip_drm_fb_funcs = {
+ 	.destroy       = drm_gem_fb_destroy,
+@@ -52,6 +56,15 @@ rockchip_fb_create(struct drm_device *dev, struct drm_file *file,
+ 	}
+
+ 	if (drm_is_afbc(mode_cmd->modifier[0])) {
++		if (of_machine_is_compatible("rockchip,rk3399")) {
++			if (mode_cmd->width > RK3399_AFBC_MAX_WIDTH) {
++				DRM_DEBUG_KMS("AFBC is not supported for the width %d (max %d)\n",
++					      mode_cmd->width,
++					      RK3399_AFBC_MAX_WIDTH);
++				return ERR_PTR(-EINVAL);
++			};
++		}
++
+ 		int ret, i;
+
+ 		ret = drm_gem_fb_afbc_init(dev, mode_cmd, afbc_fb);
+
+base-commit: 4890d68db651562ea80250f2c93205a5c0327a6a
+--
+2.48.1
 
