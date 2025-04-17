@@ -4,109 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4D76C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 06:23:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C2B1C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 06:28:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ezqrEP4z7YNqis+jwdY/I5EPIV50Ti9Rj+ODcnFY+Nc=; b=m7QK4kAfnu0ZbHL/qGwJjItHoN
-	Auz9P+eJGkb3JlidhVM8aldhvZr25HvYMDATQsT6pZ/BFR75e5HRDiqvCkn1huSpfbecmsSB22G0L
-	yMoidHFkmt4+AvASvpYJ7dz9zDkOd57avUE7wT7nm1UWJv91+zlD8fY7W8qqNqWkj/M11svPyi2yL
-	NOs5DwrfjmVupBfh19ISXopWWohiR1qj3oxTjGkM8KgEAS2DrMJTvnp4ua14ZTlq3xTBKtqsafnv2
-	yVQTj4ukRBNOOv4CGTI5Ao3pYiq2NdCb1r3u0dnqDKlB6nXDd3xsKCvVy+qBD1hlRT1ULiCAVkFiT
-	wppb8KRA==;
+	bh=ZST5O+ENabbKZFG4u9ZlHE3mu44ycA1WpCteAX/mCTI=; b=yxd7VUp77BQhwlO0m3URiNk6Pg
+	YsSqdy0R4RV+H1HTgJDKjBax30J9X8jXKZsdV+ZQmtI2a2DREib+G5VMRFN78BL0XARGmgyWaaTmG
+	9mXjMV4I+zPSWeU5ZMCubScgYj+lMu9SIEazjp4j1e7o1Au90LPBz7ULZ6wGSgyT03y2pyC/DfSrS
+	KR9FxX7YnW1KMs5urrYbVjLjhtrqco/C18Ck/XVD5DOS6wH++yUvZVFLyF0TeqBoN+QsxtRRz8Dww
+	6/Rez0UazcDkVrA+EPYTFKbrkAavp5IiuX1nceSORwcpwL4ncd0Bcf4Nbak5j5+82MzxhGY188JFZ
+	3yGogAwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Iet-0000000BtTI-16eX;
-	Thu, 17 Apr 2025 06:23:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u5Ij2-0000000BuFF-3gRk;
+	Thu, 17 Apr 2025 06:27:52 +0000
+Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5IbY-0000000Bt23-10lv
+	id 1u5IhC-0000000Btyp-1twH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 06:20:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 39BC668434;
-	Thu, 17 Apr 2025 06:19:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BCC9C4CEE4;
-	Thu, 17 Apr 2025 06:20:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744870806;
-	bh=VxT2po+NrQ8fXUrsS07RF7B08VPOX96rVFAn6InJZkY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=bD5bEvTOOBmNe2dEZDW+QRm1ApRTTLCQx2B4FxjwMtQ6pgWHQlAomv/5WQiPVL+Ve
-	 DW74XatObh8k6eqy9RP3IV7WHmWnXJtzjdKeKAYGd+UvOcjNEVb+i/taZlm5fhPDI3
-	 ORhW5Nx7/YkWOVXdtEOintxXHGpcAgr33iOaoDwBogHCG/qP9GH6nilAPgC7kpXSZQ
-	 0vvbWSGwHc4vjf9Rykpa47g/ZqdPCVFXwMyGOm3Gq2Qj6X+paPGP+wTJ+/7Vy3NUn0
-	 5uwzvAWZncF4xk0fPTRTHxoYFfvdCuN/l+cHwXvAsBUHt69Pwd4FRMPeFja5G1H2pG
-	 JGB7lnNLRhkrg==
-Message-ID: <cef48ecc-94b6-40a0-9f9c-a616814878fb@kernel.org>
-Date: Thu, 17 Apr 2025 08:19:59 +0200
+	Thu, 17 Apr 2025 06:26:00 +0000
+Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-7c592764e24so50262785a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 23:25:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744871157; x=1745475957; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZST5O+ENabbKZFG4u9ZlHE3mu44ycA1WpCteAX/mCTI=;
+        b=GNrO7rCjUKML+iv/ssXAuWFhMHWuZ5Wwrspy9yhf0D5KQewjgkhNsNS0l1ZvkdFIvC
+         n+qFiQvnKRC7hhG2OLR1bgSheBAhIBiiyF/hR5brthVKOrRGpfW5NHX17aNbM6fsJWcV
+         Bi07YJPECW/Izy+sRywHyeTOVJRrct0Wow8oazzeBy7/rhSVyAW4h7CjXlpusmsZWBYt
+         skWR2XA9zO8UhVsLwF8Twb1ibNEWOYYDSKW2MQL8Rh/TPu+FcEvIhcsJQE5huUuJx6an
+         HIPOsFNUyYyDNpHKI2KZ24HgETJXUmpSjZss8ZCVugYYgVRiW4Nzta879WR/C/iuVZtl
+         NhFQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744871157; x=1745475957;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ZST5O+ENabbKZFG4u9ZlHE3mu44ycA1WpCteAX/mCTI=;
+        b=dubsoY6yCffpPFf17oxGePi3Ed+CviuRTU3H3MMdKOQhcZ4/m3kQ+od9DHwiVf7/Fi
+         GzjrOdX0k4ho4PotUnYLiUMJiw4E4D5pZAdqjCPFQ5T5E2r5C8XOYzFAhqG0LSNennOo
+         qCVMvoummOgzqB3fONs6Qgsddi9Ni5jc0dg3vv2HtER0hqUds5A3YgBqIp0dLaE6rc4y
+         6m5D+cb/QROI15HIzF9ibIffhI4EkZHyKQSQFkuLFptmt/Yvmz7Jj7NXnWVnp6o7LIty
+         HG5gaIX2xyztv0e5LkO48Uih1Y3Dt/9j74SvkXF4Alp3nK0koaSUS9kUfXHJnlEdZwR1
+         V07g==
+X-Forwarded-Encrypted: i=1; AJvYcCVo8pUyJFrYRd470UzLohf1F0EuSHGkFWL8NK5XmidWg0Pu+VSCxIsrtxij1frWaOLvCINSF/Lqhz46IS5Fhoeb@lists.infradead.org
+X-Gm-Message-State: AOJu0YygUFhiauDe36lC6GA4V6Xhy2GY98xrnwbzPYlBFETsXyX3SQgi
+	/Gd+PdOVE8nL0lH5ZpOtrXo7Xf+d8ET+NTqF9sMQ8npQ0Xyl8kdCzKEVC4/FJmbxBZXTGzh+j/W
+	0Es1aYiFsXLy7+Pps+dS0JeygTOg=
+X-Gm-Gg: ASbGncsTdOY5yF5RZfllT/KqOQg/DVzYDiBzpMK5uzcO96EHPS0iYGckJy1SgRbzl+2
+	WwJSMbEKX7b7tePBwKqOrPO4fpMrauGWgBRwmVcgf5LNY9TJBp440aMLvkTc4Yn/kLLXPnmuloV
+	PqcuLPW8va/KkhjIb7l+cqH0m8OOy8ti3lNt4JurtwpmS6HrliP9rSKOM=
+X-Google-Smtp-Source: AGHT+IEUG2qKwwAEec639Bxod8wzMz7dx75qAc7U0rBWKEyq4yVPfHNSFLQqm7Sf3Cgg0Jwvm52KKhOAOvEG7cdfGyE=
+X-Received: by 2002:a05:620a:172b:b0:7c5:3b8d:9f2f with SMTP id
+ af79cd13be357-7c91e2440bbmr275101085a.17.1744871157183; Wed, 16 Apr 2025
+ 23:25:57 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 09/10] arm64: dts: cix: add initial CIX P1(SKY1) dts
- support
-To: Peter Chen <peter.chen@cixtech.com>, soc@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, catalin.marinas@arm.com,
- will@kernel.org, arnd@arndb.de, jassisinghbrar@gmail.com
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
- maz@kernel.org, kajetan.puchalski@arm.com,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Fugang Duan <fugang.duan@cixtech.com>, Guomin Chen
- <Guomin.Chen@cixtech.com>, Gary Yang <gary.yang@cixtech.com>
-References: <20250415072724.3565533-1-peter.chen@cixtech.com>
- <20250415072724.3565533-10-peter.chen@cixtech.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250415072724.3565533-10-peter.chen@cixtech.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250416-wmt-updates-v1-0-f9af689cdfc2@gmail.com>
+ <20250416-wmt-updates-v1-3-f9af689cdfc2@gmail.com> <20250416201407.GC3811555-robh@kernel.org>
+In-Reply-To: <20250416201407.GC3811555-robh@kernel.org>
+From: Alexey Charkov <alchark@gmail.com>
+Date: Thu, 17 Apr 2025 10:25:51 +0400
+X-Gm-Features: ATxdqUFKu43OJ9xK0QSQwijmtHN6PzWQ7tNDf-5s79MH0fFlMz0UJN-MS1W5jhg
+Message-ID: <CABjd4YyTKquLcYC+DVg_koi3p7AhqwBNiazCiC713DQKjCaBSA@mail.gmail.com>
+Subject: Re: [PATCH 03/13] dt-bindings: mmc: vt8500-sdmmc: Convert to YAML
+To: Rob Herring <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, 
+	Daniel Lezcano <daniel.lezcano@linaro.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org, 
+	netdev@vger.kernel.org, linux-pwm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250416_232558_492164_7D1CB1B4 
+X-CRM114-Status: GOOD (  23.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,28 +103,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/04/2025 09:27, Peter Chen wrote:
-> CIX SKY1 SoC is high performance Armv9 SoC designed by Cixtech,
-> and Orion O6 is the motherboard launched by Radxa. See below for
-> detail:
-> https://docs.radxa.com/en/orion/o6/getting-started/introduction
-> 
-> In this commit, it adds sky1 base, mailbox, clock (scmi firmware baseed)
-> and uart, and the kernel could boot up to console.
-> 
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+On Thu, Apr 17, 2025 at 12:14=E2=80=AFAM Rob Herring <robh@kernel.org> wrot=
+e:
+>
+> On Wed, Apr 16, 2025 at 12:21:28PM +0400, Alexey Charkov wrote:
+> > Rewrite the textual description for the WonderMedia SDMMC controller
+> > as YAML schema, and switch the filename to follow the compatible
+> > string.
+> >
+> > Signed-off-by: Alexey Charkov <alchark@gmail.com>
+> > ---
+> >  .../devicetree/bindings/mmc/vt8500-sdmmc.txt       | 23 --------
+> >  .../devicetree/bindings/mmc/wm,wm8505-sdhc.yaml    | 61 ++++++++++++++=
+++++++++
+> >  MAINTAINERS                                        |  1 +
+> >  3 files changed, 62 insertions(+), 23 deletions(-)
+> >
+> > diff --git a/Documentation/devicetree/bindings/mmc/vt8500-sdmmc.txt b/D=
+ocumentation/devicetree/bindings/mmc/vt8500-sdmmc.txt
+> > deleted file mode 100644
+> > index d7fb6abb3eb8c87e698ca4f30270c949878f3cbf..00000000000000000000000=
+00000000000000000
+> > --- a/Documentation/devicetree/bindings/mmc/vt8500-sdmmc.txt
+> > +++ /dev/null
+> > @@ -1,23 +0,0 @@
+> > -* Wondermedia WM8505/WM8650 SD/MMC Host Controller
+> > -
+> > -This file documents differences between the core properties described
+> > -by mmc.txt and the properties used by the wmt-sdmmc driver.
+> > -
+> > -Required properties:
+> > -- compatible: Should be "wm,wm8505-sdhc".
+> > -- interrupts: Two interrupts are required - regular irq and dma irq.
+> > -
+> > -Optional properties:
+> > -- sdon-inverted: SD_ON bit is inverted on the controller
+> > -
+> > -Examples:
+> > -
+> > -sdhc@d800a000 {
+> > -     compatible =3D "wm,wm8505-sdhc";
+> > -     reg =3D <0xd800a000 0x1000>;
+> > -     interrupts =3D <20 21>;
+> > -     clocks =3D <&sdhc>;
+> > -     bus-width =3D <4>;
+> > -     sdon-inverted;
+> > -};
+> > -
+> > diff --git a/Documentation/devicetree/bindings/mmc/wm,wm8505-sdhc.yaml =
+b/Documentation/devicetree/bindings/mmc/wm,wm8505-sdhc.yaml
+> > new file mode 100644
+> > index 0000000000000000000000000000000000000000..a7d962bc13c7ff70b504482=
+01b0416efc7f787af
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/mmc/wm,wm8505-sdhc.yaml
+> > @@ -0,0 +1,61 @@
+> > +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/mmc/wm,wm8505-sdhc.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: WonderMedia SOC SoC SDHCI Controller
+> > +
+> > +maintainers:
+> > +  - Alexey Charkov <alchark@gmail.com>
+> > +
+> > +allOf:
+> > +  - $ref: mmc-controller.yaml#
+> > +
+> > +properties:
+> > +  compatible:
+> > +    oneOf:
+> > +      - const: wm,wm8505-sdhc
+> > +      - items:
+> > +          - const: wm,wm8650-sdhc
+> > +          - const: wm,wm8505-sdhc
+> > +      - items:
+> > +          - const: wm,wm8750-sdhc
+> > +          - const: wm,wm8505-sdhc
+> > +      - items:
+> > +          - const: wm,wm8850-sdhc
+> > +          - const: wm,wm8505-sdhc
+>
+> Combine the last 3 entries into 1 using 'enum' for the 1st compatible.
 
-You added several new device nodes, so obviously this is not true anymore.
+Fair enough, will do.
 
-This is explained in submitting patches - you must drop the review when
-making substantial changes. Adding several nodes is a substantial change.
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +  clocks:
+> > +    maxItems: 1
+> > +
+> > +  interrupts:
+> > +    items:
+> > +      - description: SDMMC controller interrupt
+> > +      - description: SDMMC controller DMA interrupt
+> > +
+> > +  sdon-inverted:
+> > +    type: boolean
+> > +    description: SD_ON bit is inverted on the controller
+>
+> This implies I know what the non-inverted state is. If you know, please
+> state that here.
 
-> Acked-by: Fugang Duan <fugang.duan@cixtech.com>
+This is a tricky one. The only answer I have is "it's inverted in
+later versions vs. the first version I saw in the wild, and I'm not
+sure if it's board related or IP version related - nor if the original
+was active low or high". No docs, no schematics, no vendor left around
+to chase for answers.
 
-And this as well
-
-
+Will dig around some more and update the description if I succeed in
+uncovering any further clues :)
 
 Best regards,
-Krzysztof
+Alexey
 
