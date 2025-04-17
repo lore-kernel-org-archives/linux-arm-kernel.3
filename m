@@ -4,93 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A965EC369CA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 18:22:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF3B5C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 18:23:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bSErsB4OWqx/9+Tbzvj7ylkAv0Sp5+vAreUi9Ph9D64=; b=ZhK5EnI7A1NH99WvPBp7iNAc70
-	cI7MCi9kcNZkFlPfo0w9mUDe8zaO3jwsFRke4gdBNrPhSRzzsW19GkZgie0Gb0YSy1t/QvvuOxz64
-	9MguEU6vA4qi1avJQyOPsMlRyFmM8tihMXQV6JpSkF4pPlKmUYLVwbGH3Dnqw31loT0rF9gpPoxNJ
-	Xq0gZHcTv0q1pLZd/tLDJDrXsa6I6gRIdoSVxdoysld5jmQccGYNgBWKtQFdUPgRompGmukpEsueA
-	uL4EMYmlILuxOoPyLDdOacJ24QIRGIBDDCzaEPZ9DAZLU7SI7haCoKFP9ZEKgpMI3xOwhzHmEdvMY
-	l1nt9vRw==;
+	bh=CKwH9BCEUQQC9ap3fQ+jGRNao9+Qm1VoxkvEg/LrTU4=; b=yetRjdurPENKqbFjv3b/0yhIHj
+	ESFOK7HIofpazCICk/douJv25+fEV8/QaG2IcJp8hTYtNHW0FB1qaP/PD5trgghzAnxcqY/z3KaRc
+	xXlLP73SheVFag1FGLXiRQanM68R82PjILyG9/XM/JJRS3wpocy01cuMSH5JAlrWMsJQL+9zfKBFH
+	hL9MYtZIybBdEegx9QB+KSLyWAbbMzWdTTC7AwtyUddnAC8wzCxJnLK9b4IKeKxSZ2m00bB153WIM
+	xaRjrr9ClbL2ij8i5GL+5QvXa5SEz94ZcaT7DMgUYMdBlJaMUOVUBTRR3umm6HJR3uVQojhxxfkxw
+	C7pCgwfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Ts1-0000000E0Kf-3qZL;
-	Thu, 17 Apr 2025 18:21:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u5Ttr-0000000E0h5-2wjT;
+	Thu, 17 Apr 2025 18:23:47 +0000
+Received: from mgamail.intel.com ([198.175.65.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5TYh-0000000DxD3-1Q1c
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 17 Apr 2025 18:01:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=bSErsB4OWqx/9+Tbzvj7ylkAv0Sp5+vAreUi9Ph9D64=; b=QBpeIVb5CnzI15FJbl8ZFBvkxb
-	CCXOeIV8fOBwbDmVcLi7btX8tbZXLB+W3Tw17umj5ThdxGAQIIXz8c0VV4uAo2fitxAiUh2PLEyeo
-	J1OjNAi5R+zHMPHXRyIvT+W7bTvSDcFJZxAU5kAgH5BlNQKM3nwiITy8fsjRww1EA3ZFlrSxN/psg
-	nHI9w5Dnr+FFnQKhaTsscqFbEc+RgAu0ORy+AjPpOdlyAMHiitqPFFshktzV/Bbcb8tHvXaa39Rv2
-	P7Pg/zDVKpuUqz4lOhmOE2QQY70rv/Rftyx2qAG9YaVKSyhzyCLwZmCaJwDqOMqRDgZTmFuusWvY2
-	O/e/hG7g==;
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u5TYd-0000000ALun-2RoM
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 18:01:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=bSErsB4OWqx/9+Tbzvj7ylkAv0Sp5+vAreUi9Ph9D64=; b=Wt5nIaRktXy2a/MQ+85J/HIyW5
-	EBP4qm+0aHoDbUlDNPLw3qicQpVxQQqPDXJ82tQgayBWNfDMyAkjcAyWA+Osiy0TCZjn/qbgYituG
-	rtuO/JCsC7MU2JYeHIjUzJ5HHqO4nk5HklujYTixlTqSZstHXceCvpnZwf9uncmWZgKg=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1u5TYE-009oZl-Ss; Thu, 17 Apr 2025 20:01:26 +0200
-Date: Thu, 17 Apr 2025 20:01:26 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Prabhakar <prabhakar.csengg@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	id 1u5TcS-0000000DxwN-28B3;
+	Thu, 17 Apr 2025 18:05:49 +0000
+X-CSE-ConnectionGUID: nyF5fpmqReqk/jcL5/Tq4A==
+X-CSE-MsgGUID: 3015vVe1S6CZmp22k8LufA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11406"; a="46532038"
+X-IronPort-AV: E=Sophos;i="6.15,219,1739865600"; 
+   d="scan'208";a="46532038"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Apr 2025 11:05:47 -0700
+X-CSE-ConnectionGUID: jvbAVVcRTyWpNKwlXETWVg==
+X-CSE-MsgGUID: tE0oBpFAQhGv3V7jEkqq3A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,219,1739865600"; 
+   d="scan'208";a="130658952"
+Received: from smile.fi.intel.com ([10.237.72.58])
+  by orviesa009.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Apr 2025 11:05:44 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andy@kernel.org>)
+	id 1u5TcK-0000000DH8g-0xU8;
+	Thu, 17 Apr 2025 21:05:40 +0300
+Date: Thu, 17 Apr 2025 21:05:40 +0300
+From: Andy Shevchenko <andy@kernel.org>
+To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Cc: David Lechner <dlechner@baylibre.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	Michael Hennerich <Michael.Hennerich@analog.com>,
+	Cosmin Tanislav <cosmin.tanislav@analog.com>,
+	Tomasz Duszynski <tduszyns@gmail.com>,
+	Jean-Baptiste Maneyrol <jean-baptiste.maneyrol@tdk.com>,
+	Andreas Klinger <ak@it-klinger.de>,
+	Petre Rodan <petre.rodan@subdimension.ro>,
+	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: Re: [PATCH net-next v8 4/4] MAINTAINERS: Add entry for Renesas
- RZ/V2H(P) DWMAC GBETH glue layer driver
-Message-ID: <d53d4cc9-c1db-432c-8ab3-3c4c71e1b9ac@lunn.ch>
-References: <20250417084015.74154-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20250417084015.74154-5-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH 0/8] iio: more timestamp alignment
+Message-ID: <aAFC9FsTRNya6eDU@smile.fi.intel.com>
+References: <20250417-iio-more-timestamp-alignment-v1-0-eafac1e22318@baylibre.com>
+ <aAEz2ZD0Ipd1Xuy6@smile.fi.intel.com>
+ <20250417184716.000044bb@huawei.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250417084015.74154-5-prabhakar.mahadev-lad.rj@bp.renesas.com>
+In-Reply-To: <20250417184716.000044bb@huawei.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_190151_884340_1B8B2B3C 
-X-CRM114-Status: UNSURE (   7.44  )
+X-CRM114-CacheID: sfid-20250417_110548_578619_169AD28E 
+X-CRM114-Status: UNSURE (   9.46  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,15 +90,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 17, 2025 at 09:40:15AM +0100, Prabhakar wrote:
-> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> 
-> Add a new MAINTAINERS entry for the Renesas RZ/V2H(P) DWMAC GBETH
-> glue layer driver.
-> 
-> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+On Thu, Apr 17, 2025 at 06:47:16PM +0100, Jonathan Cameron wrote:
+> On Thu, 17 Apr 2025 20:01:13 +0300
+> Andy Shevchenko <andy@kernel.org> wrote:
+> > On Thu, Apr 17, 2025 at 11:52:32AM -0500, David Lechner wrote:
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+...
 
-    Andrew
+> > > Signed-off-by: David Lechner <dlechner@baylibre.com>  
+> Also no need to sign off on cover letters as they don't end up in git.
+
+It depends if you use `b4 shazam` or not. I like that feature.
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
