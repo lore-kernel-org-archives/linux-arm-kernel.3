@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3413EC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 11:08:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBBD5C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 11:09:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lGVJzGhFhsynORmsNgO0Ufap8ukTTN1je4VdDXycQzk=; b=XRHT48/XaiN055ILjEHgRGy646
-	+wDW11R8mhOJ0B0vVMY4G+SWDZ4TsCeerpBfCalM75yCTJrc+eiDGkhM2pNoMHXbzzBqqGEbXvru6
-	KfYlKGMS3SVxkZKtvyoSxon4zpIJ5qdjfu8DZXuUt5ZSXDlDqC4Q3Z3ABSlIeqeZvCraOTiyRiIGN
-	L/S++V0Prv6LeEv579dE2X14caIFyiRFBZ/PqC5ZQJDJ16a0qfShHY27j3h1Je79mggLlCeB8ikbV
-	bich5YtUXJyv9wJtTMhlsgU5Lsk3Fp8Xx1yjVNHFXpTbULEfEc3WmecJHgzNMIX1MwnlwpM5AFjrb
-	f6C6yqQg==;
+	bh=dTr8jPcJDG1ssEC02tHjuO+8nyj5jMrX7M1nMqoPipQ=; b=CaweEnuIBLJqsyXwlO28PpCOIU
+	pYGjc7QjPk6rMn1EzYEDpHU26cJjoKXy/hGPH7DPcQCSrphLnlOOgHp0IFnGE9cwoiMwmibd9wmVi
+	37zQsdFjqGAvfIMe2GZkgwRZRfAkiT3+NGoO5+NbzYbuLZmSjwl/Pzr/5wz8tIL3HlwwZx+0Ze6Bi
+	8m+fa8TMGY6jRnQSrnbkFtNTYyxKiTyJaAG3x40JZpDMQrDIIfni/joqpHO3DxS4EQJjUb6GEkMsh
+	CLNygmO60+y2nbSJjLHQBXR43WVa6K/mI0nQCZXrAfeMOVfre62ci20j4aUYp662yapYR3W7H0I3Y
+	gT2LEB2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5N62-0000000CjOs-07Rl;
-	Thu, 17 Apr 2025 11:07:54 +0000
+	id 1u5N7r-0000000Cjnw-3MXB;
+	Thu, 17 Apr 2025 11:09:47 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Mmw-0000000CgPU-3sbC
+	id 1u5Mnc-0000000CgZj-0jif
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 10:48:12 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53H5lcYN003944;
-	Thu, 17 Apr 2025 10:47:50 GMT
+	Thu, 17 Apr 2025 10:48:53 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53H5l5Ml009309;
+	Thu, 17 Apr 2025 10:47:36 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	lGVJzGhFhsynORmsNgO0Ufap8ukTTN1je4VdDXycQzk=; b=gH9MjxeQoPvaQ8KH
-	oPbcGbrJN4thAdsH/2k7VfBD1g+tdRBaFuNLAkBmckTnWPft5ene9vNIVJkLCQgM
-	9T9Yf/yj8+EGUMFY/XE615241x74H7gLCk2YSrZbXhVs9u5PuxvBEEjKef+lDBry
-	LYJTOIAsBmkZDyFZvkIudLhOBXwSxujk0Lk3y5D9HMgOA14BZpvtiPWpdnr2BWAl
-	NIy4OdiwoGnUWkhuoqL22ruYpv26bvflRWPGQMJH0KtTLdg6V1SqodGsKf/4f++I
-	EfjI+PGrSlMSoYKFQzzLjB+3CHjnTaP5NklhGp2UW4WDR05GAOxnaUN7AH3Nd1dQ
-	jxjG2g==
-Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45ygxk6fn7-1
+	dTr8jPcJDG1ssEC02tHjuO+8nyj5jMrX7M1nMqoPipQ=; b=dmx5oJ6JtpYkEYa/
+	L0Vyz/KnttUzx2cqqWQYLeTWaUVL4XmR58nnaXOAePWW/gdcYyg6h3EUnPCmjkBv
+	R7s6G1p3W9uZuCobNfASQi2UgwC686Ds9UK1bpo2iffENDzgTH7U88JppoWaQy2j
+	XtF/S64aYGs1bf2wOGjlw6kcP8M1o8Wpt2UtE/etIJDBhGYDoid9GXAC8itkgk2e
+	cPjaCNM1MbsmZ5wDkoogdYJWQcBJi6F8bQEPDDH8plelucItKSZuw02n0Mc14DDf
+	CcILIbR5SjsRr/BHFie+zFcb9xTc6n5DcLXKN3kwklyvPE6aRDX5CaZEWq60DP75
+	LGg5fw==
+Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4628rvbuw0-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 17 Apr 2025 10:47:49 +0000 (GMT)
+	Thu, 17 Apr 2025 10:47:36 +0000 (GMT)
 Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53HAlnYJ019982
+	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53HAlZHQ011208
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 17 Apr 2025 10:47:49 GMT
+	Thu, 17 Apr 2025 10:47:35 GMT
 Received: from nsssdc-sh01-lnx.ap.qualcomm.com (10.80.80.8) by
  nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Thu, 17 Apr 2025 03:47:44 -0700
+ 15.2.1544.9; Thu, 17 Apr 2025 03:47:31 -0700
 From: Luo Jie <quic_luoj@quicinc.com>
-Date: Thu, 17 Apr 2025 18:47:13 +0800
-Subject: [PATCH v3 6/6] arm64: mm: Convert the opencoded field modify
+Date: Thu, 17 Apr 2025 18:47:10 +0800
+Subject: [PATCH v3 3/6] arm64: tlb: Convert the opencoded field modify
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250417-field_modify-v3-6-6f7992aafcb7@quicinc.com>
+Message-ID: <20250417-field_modify-v3-3-6f7992aafcb7@quicinc.com>
 References: <20250417-field_modify-v3-0-6f7992aafcb7@quicinc.com>
 In-Reply-To: <20250417-field_modify-v3-0-6f7992aafcb7@quicinc.com>
 To: Yury Norov <yury.norov@gmail.com>,
@@ -82,11 +82,11 @@ CC: <linux-kernel@vger.kernel.org>, <cocci@inria.fr>,
         <quic_suruchia@quicinc.com>, <quic_pavir@quicinc.com>,
         Luo Jie <quic_luoj@quicinc.com>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1744886837; l=1033;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1744886837; l=1071;
  i=quic_luoj@quicinc.com; s=20250209; h=from:subject:message-id;
- bh=xpPeM78AeyqXzMwrmF8QDTx6un/IOmdC2J/f9RaIfLg=;
- b=PovyH1yn6CXrPEB8yE8i6Rq7KANbmp7tfi2kcTCp1H73IAAf+83n1NFGWDqg4gqVeGsr9aufS
- P7DuOUkQd0PDv1BUaLL+/x4PnkP/yg+Cnzrn5gq9Lomp5wV/P2DcQuE
+ bh=gqGzOX65dgUloUXBiDM2uUofMMrXchcJwN/9t+iSb7k=;
+ b=sxhXTdsE+Z/QAYZZpILNncmv9BD3WHP8C30/OyBTr9mtTkJJhDV22A9VJlIMxz87/nnKD69Ta
+ SFmrL05AyupA38N88nqL6ZzChWDnb8DsQhi7Z9hD9tVAMrP2JnglnZT
 X-Developer-Key: i=quic_luoj@quicinc.com; a=ed25519;
  pk=pzwy8bU5tJZ5UKGTv28n+QOuktaWuriznGmriA9Qkfc=
 X-Originating-IP: [10.80.80.8]
@@ -94,22 +94,22 @@ X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
  nasanex01b.na.qualcomm.com (10.46.141.250)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=WecMa1hX c=1 sm=1 tr=0 ts=6800dc55 cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=ZOzjf2MOAAAA:8 a=COk6AnOGAAAA:8 a=7DCMZFnr-hN-Ju-LsH8A:9
+X-Proofpoint-ORIG-GUID: AtLGZHnrWsYSQEjPsUo0tJffbaXJLcWr
+X-Authority-Analysis: v=2.4 cv=RbSQC0tv c=1 sm=1 tr=0 ts=6800dc48 cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=ZOzjf2MOAAAA:8 a=COk6AnOGAAAA:8 a=C2vL1j-_i977Atbg1qQA:9
  a=QEXdDO2ut3YA:10 a=1Mhi-5-LkjG4w5oc0yAU:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: X5Cpp14XJ6JiT4u5RFYLsXdjNIPLMfKb
-X-Proofpoint-ORIG-GUID: X5Cpp14XJ6JiT4u5RFYLsXdjNIPLMfKb
+X-Proofpoint-GUID: AtLGZHnrWsYSQEjPsUo0tJffbaXJLcWr
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-04-17_03,2025-04-15_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 suspectscore=0
- adultscore=0 clxscore=1015 lowpriorityscore=0 phishscore=0 mlxscore=0
- impostorscore=0 mlxlogscore=596 spamscore=0 malwarescore=0
- priorityscore=1501 classifier=spam authscore=0 authtc=n/a authcc=
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=542
+ suspectscore=0 adultscore=0 impostorscore=0 clxscore=1015 bulkscore=0
+ phishscore=0 priorityscore=1501 spamscore=0 mlxscore=0 lowpriorityscore=0
+ malwarescore=0 classifier=spam authscore=0 authtc=n/a authcc=
  route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
  definitions=main-2504170080
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_034810_988502_C67B7035 
-X-CRM114-Status: GOOD (  11.43  )
+X-CRM114-CacheID: sfid-20250417_034852_222928_A3ED7DC4 
+X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,23 +135,23 @@ https://coccinelle.gitlabpages.inria.fr/website
 
 Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
 ---
- arch/arm64/mm/context.c | 3 +--
+ arch/arm64/include/asm/tlbflush.h | 3 +--
  1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
-index b2ac06246327..4fbac8e74149 100644
---- a/arch/arm64/mm/context.c
-+++ b/arch/arm64/mm/context.c
-@@ -361,8 +361,7 @@ void cpu_do_switch_mm(phys_addr_t pgd_phys, struct mm_struct *mm)
- 		ttbr0 |= FIELD_PREP(TTBR_ASID_MASK, asid);
- 
- 	/* Set ASID in TTBR1 since TCR.A1 is set */
--	ttbr1 &= ~TTBR_ASID_MASK;
--	ttbr1 |= FIELD_PREP(TTBR_ASID_MASK, asid);
-+	FIELD_MODIFY(TTBR_ASID_MASK, &ttbr1, asid);
- 
- 	cpu_set_reserved_ttbr0_nosync();
- 	write_sysreg(ttbr1, ttbr1_el1);
+diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+index eba1a98657f1..0d250ef4161c 100644
+--- a/arch/arm64/include/asm/tlbflush.h
++++ b/arch/arm64/include/asm/tlbflush.h
+@@ -112,8 +112,7 @@ static inline unsigned long get_trans_granule(void)
+ 	    level >= 0 && level <= 3) {					\
+ 		u64 ttl = level & 3;					\
+ 		ttl |= get_trans_granule() << 2;			\
+-		arg &= ~TLBI_TTL_MASK;					\
+-		arg |= FIELD_PREP(TLBI_TTL_MASK, ttl);			\
++		FIELD_MODIFY(TLBI_TTL_MASK, &arg, ttl);			\
+ 	}								\
+ 									\
+ 	__tlbi(op, arg);						\
 
 -- 
 2.34.1
