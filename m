@@ -4,62 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5336C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 15:15:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2D44C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 15:17:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UepZ9qHDTZtcPl1OdJB223JS88RarKR1+gtYzuLI6nQ=; b=ymksf+Y/saf3VCafnCbCP/CloK
-	72qqJCd/Skb7+sEKUzTZxnYD7n+z0aq3h5on/mjg7e6c9PkIf6R4GZi4rgzt1l7htaWJFZu/T6nuc
-	3WOQZwBomm5HVo6/+NgDZMnhbHLTeb2BvVjzv+WArKcdwkGMfP4iNXRbY0wNYdtZouFHsrukftqJ3
-	v/ttLqzgmCcW2yk6SZGUAnqhsS+LtPeKlWnh1ZgAzAVS+EJuECA4Ul/mZuODxmw2rLfEZpvSrV7RW
-	WGe5M0PHOpjBUJQM0rqC8cEEeJ4q0uCsXXSRkWfh1UulsyDfrxLRFUE22EOOXw/Hn2XGtO4WLj8Cp
-	2jnaDFfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YW9uytZx9gMNMgHjHyPEwG8zNezqY4SzQUfD8/7rqgY=; b=ibla8REV9wSfEtWMan/lst05d+
+	/N6z6wzA3p6yIFYDKupUiaGwYm0SPfCOx7a+9ub1B2IFnXWk24Y8tK8r6Diw9NmDpD6v/epmZdxc5
+	teJg7Mfblqwfol5Jeh1B+WhIBif5YknUk/vZ3BiQaMO/ioI30OG0CFimpNarS3e3X2UH1wvq+9tD+
+	QGeJHjlOmiSxdubknp1frVsB9Wwn3/2lLtB+EV7/jf3OalvAg70AVKtvmGWgsEkZVzexWGiKufYGC
+	hFFJ4AWPQVR8WnvszWlp82VRTLkC0oWGPEn23nlOvQ5sfuuWRxpSHjrmWIymk9ABYnGCHEu5zrSzU
+	bTRbtq1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Qxs-0000000DSzJ-1mcz;
-	Thu, 17 Apr 2025 15:15:44 +0000
-Received: from mail.8bytes.org ([2a01:238:42d9:3f00:e505:6202:4f0c:f051])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5QK8-0000000DKyI-0FLA
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 14:34:41 +0000
-Received: from 8bytes.org (p4ffe03ae.dip0.t-ipconnect.de [79.254.3.174])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.8bytes.org (Postfix) with ESMTPSA id 1BDC248667;
-	Thu, 17 Apr 2025 16:34:39 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=8bytes.org;
-	s=default; t=1744900479;
-	bh=OIjh00Q5M3izE+JeNh+4wVsx4UdS0lS3tDduRZ4tyUA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Fn/7eJRtsDZpOsqKkvQ0jGZgM4n/w8ehBx/2XEF65xYsooLXW4chP8HTzrwO5HTpv
-	 cbyX+8cHOuA87BQ//0Ezc73p6FjItjqBK529cnhzDkYrWl1OFPQmtnqdSlQzCDrrFm
-	 jASwu4AYAdnVIgK6YOrML5P+38tC2ukA4Lf4pzvqTL0G8frxU7rbakGD1XUTFO7TOj
-	 OwuLVSVm4oAsUxWY3hns4Fp8wXRe47GkUnaMnutTYC9gYxdVIjVUjJIi3G8cFwj+LE
-	 9s1HD/TRn3TegIH+d8nrLYvr0rWctKCGkgKbTLPW5a02V5In00GkOlr6Bs2hXes0X5
-	 kIQgp/BwW9NmQ==
-Date: Thu, 17 Apr 2025 16:34:37 +0200
-From: Joerg Roedel <joro@8bytes.org>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: will@kernel.org, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: Re: [PATCH] iommu: Split out and tidy up Arm Kconfig
-Message-ID: <aAERfYNxHvezN5XC@8bytes.org>
-References: <a614ec86ba78c09cd16e348f633f6bb38793391f.1742480488.git.robin.murphy@arm.com>
+	id 1u5Qzh-0000000DTMp-2xET;
+	Thu, 17 Apr 2025 15:17:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u5QLs-0000000DLLj-18Ph;
+	Thu, 17 Apr 2025 14:36:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8317E45016;
+	Thu, 17 Apr 2025 14:36:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F77EC4CEE4;
+	Thu, 17 Apr 2025 14:36:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744900587;
+	bh=SBvQ73WYivvfdzl3CJZHVlcNEi0joPRJF/v4trctjCU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=U47VK4s2ZLew93JI7p+xs+UYJC7O9l2oKkXj/dF+84H5ZIdRl+s5L+fGRGn3cPnpm
+	 20PraA0E0V/8SWFpgKmIW8a/BluR0EShkgjGNq887euZwD+gN1UU5O5JZGhkH3TVuu
+	 TBy45c1Bo+EogU8RTAY3Ot/WRKRFHq8LGeWZ17YmPDmntGkJnuohmGu2nPm6s0uvhB
+	 yIaEsbIgAANXe2eteArELeqvf9rjPi/4icHcF/P7mWUBAHGoEBf/hv4f4wewlbIKVh
+	 vcGiyjnIPIcZPYqVNbUOxNv3TJ1zzWUlXtGH8l4k1vWxVc3LnNQK/76fyIIc9qnKRY
+	 2k/B64gxl/T6g==
+Message-ID: <ff583eb3-d01d-4850-9f9b-f6b15ddaf137@kernel.org>
+Date: Thu, 17 Apr 2025 16:36:18 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <a614ec86ba78c09cd16e348f633f6bb38793391f.1742480488.git.robin.murphy@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/3] arm64: dts: rockchip: Add I2C controllers for
+ RK3528
+To: Yao Zi <ziyao@disroot.org>, Heiko Stuebner <heiko@sntech.de>,
+ Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
+ Chukun Pan <amadeus@jmu.edu.cn>
+Cc: linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20250417120118.17610-3-ziyao@disroot.org>
+ <20250417120118.17610-5-ziyao@disroot.org>
+Content-Language: en-US
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250417120118.17610-5-ziyao@disroot.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_073440_337772_D9A95A89 
-X-CRM114-Status: UNSURE (   5.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250417_073628_354846_BFE0E62E 
+X-CRM114-Status: GOOD (  11.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,11 +122,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 20, 2025 at 02:21:28PM +0000, Robin Murphy wrote:
->  drivers/iommu/Kconfig     | 157 +-------------------------------------
->  drivers/iommu/arm/Kconfig | 144 ++++++++++++++++++++++++++++++++++
->  2 files changed, 145 insertions(+), 156 deletions(-)
->  create mode 100644 drivers/iommu/arm/Kconfig
+On 17/04/2025 14:01, Yao Zi wrote:
+> Describe I2C controllers shipped by RK3528 in devicetree. For I2C-2,
+> I2C-4 and I2C-7 which come with only a set of possible pins, a default
+> pin configuration is included.
+> 
+> Signed-off-by: Yao Zi <ziyao@disroot.org>
+> ---
+>  arch/arm64/boot/dts/rockchip/rk3528.dtsi | 110 +++++++++++++++++++++++
+>  1 file changed, 110 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> index 826f9be0be19..2c9780069af9 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> @@ -24,6 +24,14 @@ aliases {
+>  		gpio2 = &gpio2;
+>  		gpio3 = &gpio3;
+>  		gpio4 = &gpio4;
+> +		i2c0 = &i2c0;
+> +		i2c1 = &i2c1;
+> +		i2c2 = &i2c2;
+> +		i2c3 = &i2c3;
+> +		i2c4 = &i2c4;
+> +		i2c5 = &i2c5;
+> +		i2c6 = &i2c6;
+> +		i2c7 = &i2c7;
+Aliases are not properties of the SoC but boards.
 
-Applied, thanks.
+Best regards,
+Krzysztof
 
