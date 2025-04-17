@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECAC0C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 16:35:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC6A1C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 16:37:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jy2VD4whmMy3I5b19h40sBNvZxMXt8NVw/R9fRE1Af8=; b=CKhi7w+yH9w1GXbiYvOfP9nMN7
-	8Z7wtVYWTGrQVQs+JEXMqr6hKe/tnD9QtFvIOGtfdMi3arY0Dg239ieQEF3P5vZuAgq6kJReeKDzY
-	IWZ1jnbCmNOluSUxhhYRVBf5VdC9zjcLkJLijUIbzDk40uT2qwTyRpZFYwAHXdkxOEFeaQQraSIGy
-	a3x2XuakHptKToncJLdBLDWEQlQi6XzWHk2U/xBI6FCia2QJ+pfOmWWYS90bKQQjOTQKsybaGca9y
-	KAVSNlYM56YjVyTFJGY8c3Xjj0oIkwLcSnRGVik8ZV+Ekm9rBlr8DYPxcTobNsLDjOKC8LF+8ZH8C
-	2BebUz3Q==;
+	bh=iVsgJT5RhEgV3Eqa+I0I3zR0WygrWSAY69sId6E4QFg=; b=38A5DDNdUBLcXX7AoyT8aEYfTQ
+	Yo2HALR3WXxBt/YBMBmy7laFNcrYJlGZbrPpWHWjuZtT2JRlTy/MTmmuCoMhQ3o+gxDnqP/Wkqs1J
+	c6JpE7y+zByofpp6QedKOiAokckLcX/crMNzNXLlaNbWhjHRcDYyZg6FEnXlhIrPV9b8gCV7TPwHS
+	/ZaqPZEdLi2q7bYiYcsYAhBNpLm0ifcx7ngYbFuXicDyzuhhLVb/OrNktjtDBHgxIR7jumqeRbmzk
+	8YvOV/4ULyAUXl6aoQZJRk485I+eWtllpP82+RrJ5jLnQostaWDkkDBdBrQq2dgxCztLO87NRtsTC
+	kwRkvxWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5SDL-0000000Dgni-0oQd;
-	Thu, 17 Apr 2025 16:35:47 +0000
-Received: from mail.manjaro.org ([2a01:4f8:c0c:51f3::1])
+	id 1u5SF9-0000000Dh6F-48ZA;
+	Thu, 17 Apr 2025 16:37:39 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Rz5-0000000DePn-3Dfp;
-	Thu, 17 Apr 2025 16:21:08 +0000
+	id 1u5Rzx-0000000DebV-2pJG;
+	Thu, 17 Apr 2025 16:21:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id B9E32A4A525;
+	Thu, 17 Apr 2025 16:16:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A666EC4CEE4;
+	Thu, 17 Apr 2025 16:21:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744906916;
+	bh=2x+9YZNT7bxe9lhwnR1Ay+d7g2a7nS8Raa3g1b8LHR4=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=YuC1nQ5T76pPqq8GWl13jmGTwr47Mj8+GpH3kmE6f4v3O5Yc+akjec0zYM/Ev2dqT
+	 +oSXklOdzj0yzfjqwV1tgWDSdhj41uB2ztP1vLv/3jC6zujqSuzANknWto+onfFPo6
+	 4IR1MvDJNDhwo/JKLEEfEfN5McvGsuzGnag9zll7Bh/+1ob5UZbljLKfPmPt5QzWHS
+	 ve6GbOFdwmwM1Gi4/X82ZdL4BD7shouDCxSAcI2nTIchzDok+1z5YFDT13BdHD6ua8
+	 8YVTT6gHFd+Nw3Njoo91BhpBadfWYdGd564PauQzRdqq91oDFbyUGKCMo0xEfTCF/Z
+	 Iz0AH2gsw1Gmg==
+From: Mark Brown <broonie@kernel.org>
+To: kernel@collabora.com, Liam Girdwood <lgirdwood@gmail.com>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Trevor Wu <trevor.wu@mediatek.com>, 
+ Julien Massot <julien.massot@collabora.com>
+Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ devicetree@vger.kernel.org
+In-Reply-To: <20250417-mt8395-audio-sof-v1-0-30587426e5dd@collabora.com>
+References: <20250417-mt8395-audio-sof-v1-0-30587426e5dd@collabora.com>
+Subject: Re: (subset) [PATCH 0/6] ASoC: mt8195: Add support for MT8395
+ Radxa NIO 12L with MT6359 codec
+Message-Id: <174490691335.121189.17592023292811582537.b4-ty@kernel.org>
+Date: Thu, 17 Apr 2025 17:21:53 +0100
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1744906855;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Jy2VD4whmMy3I5b19h40sBNvZxMXt8NVw/R9fRE1Af8=;
-	b=kucmAJQrSj8aUR00+fmsRWYFWXrdis+l+pkpy7eT+bl5PW6okRBsgCADav+upAPx4S45Y1
-	tYW7KOY+/bYi5K/Zum3EHUBzuo+UUY5OfhFzZYHPWbreCDulpkssrW2F97Ntm4wEtZR5TF
-	TXZkPLvb5jCQpShxvhmYug0jRjCBF9uMhzRBZnX46krzzo+tV1ICtyvpzF5oWG0Zjvoi40
-	kb+a4AH2paAwi9GFeL9VhedE46AbQOYl8EJLXZL6LldB154YqoCZmbfQIEWn1ci6th90EU
-	JxzIVwGlVolMa57URgVAmnnXd1OKhHPXI8NVuCkalXnOScMy1wr2FM3m5LTZKg==
-Date: Thu, 17 Apr 2025 18:20:54 +0200
-From: Dragan Simic <dsimic@manjaro.org>
-To: Diederik de Haas <didi.debian@cknow.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy?=
- =?UTF-8?Q?=C5=84ski?= <kw@linux.com>, Bjorn Helgaas <bhelgaas@google.com>,
- Heiko Stuebner <heiko@sntech.de>, Manivannan Sadhasivam
- <manivannan.sadhasivam@linaro.org>, Rob Herring <robh@kernel.org>, Shawn Lin
- <shawn.lin@rock-chips.com>, Niklas Cassel <cassel@kernel.org>,
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-Subject: Re: [PATCH] PCI: dw-rockchip: Fix function call sequence in
- rockchip_pcie_phy_deinit
-In-Reply-To: <20250417142138.1377451-1-didi.debian@cknow.org>
-References: <20250417142138.1377451-1-didi.debian@cknow.org>
-Message-ID: <3e000468679b4371a7942a3e07d99894@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+X-Mailer: b4 0.15-dev-c25d1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_092104_037559_CE3B483A 
-X-CRM114-Status: GOOD (  19.71  )
+X-CRM114-CacheID: sfid-20250417_092157_842848_01EA5998 
+X-CRM114-Status: GOOD (  15.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,56 +79,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Diederik,
-
-On 2025-04-17 16:21, Diederik de Haas wrote:
-> The documentation for the phy_power_off() function explicitly says
+On Thu, 17 Apr 2025 10:44:31 +0200, Julien Massot wrote:
+> This patch series adds support for audio playback on the MT8395-based Radxa NIO 12L platform, which uses the integrated MT6359 codec via internal DAI links.
 > 
->   Must be called before phy_exit().
+> Key additions:
+> - Support for a new `mediatek,mt8195_mt6359` card configuration that does not rely on external codecs like rt5682.
+> - Proper memory region declarations and pinctrl setup for the audio front-end (AFE) and audio DSP (ADSP).
+> - A device tree sound node for headphone audio routing using `DL_SRC_BE` and `AIF1`.
+> - Enhancements to the DT bindings to document the new compatible string, missing link-name, and additional audio routes (Headphone L/R).
 > 
-> So let's follow that instruction.
-> 
-> Fixes: 0e898eb8df4e ("PCI: rockchip-dwc: Add Rockchip RK356X host
-> controller driver")
-> Cc: stable@vger.kernel.org	# v5.15+
-> Signed-off-by: Diederik de Haas <didi.debian@cknow.org>
-> ---
->  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> index c624b7ebd118..4f92639650e3 100644
-> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> @@ -410,8 +410,8 @@ static int rockchip_pcie_phy_init(struct
-> rockchip_pcie *rockchip)
-> 
->  static void rockchip_pcie_phy_deinit(struct rockchip_pcie *rockchip)
->  {
-> -	phy_exit(rockchip->phy);
->  	phy_power_off(rockchip->phy);
-> +	phy_exit(rockchip->phy);
->  }
-> 
->  static const struct dw_pcie_ops dw_pcie_ops = {
+> [...]
 
-Thanks for the patch, it's looking good to me.  The current state
-of the rockchip_pcie_phy_deinit() function might actually not cause
-issues because the rockchip_pcie_phy_deinit() function is used only
-in the error-handling path in the rockchip_pcie_probe() function,
-so having no runtime errors leads to no possible issues.
+Applied to
 
-However, it doesn't mean it shouldn't be fixed, and it would actually
-be good to dissolve the rockchip_pcie_phy_deinit() function into the
-above-mentioned error-handling path.  It's a short, two-line function
-local to the compile unit, used in a single place only, so dissolving
-it is safe and would actually improve the readability of the code.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
 
-Thus, please feel free to include
+Thanks!
 
-Reviewed-by: Dragan Simic <dsimic@manjaro.org>
+[1/6] ASoC: mediatek: mt8195: Move rt5682 specific dapm routes
+      commit: 0cb1975c717528b662f096b2874e4dae8a9a2d2e
+[2/6] ASoC: mediatek: mt8195: Set ETDM1/2 IN/OUT to COMP_DUMMY()
+      commit: 7af317f7faaab09d5a78f24605057d11f5955115
+[3/6] ASoC: mediatek: mt8195: Add mt8195-mt6359 card
+      commit: 3046e16d0605765ff0c5b99f1fa13fa35312eae9
+[4/6] ASoC: dt-bindings: mt8195: add compatible mt8195_mt6359
+      commit: 95f6208b20e4d0b427d32e5881be4257a3aab3c8
+[5/6] ASoC: dt-bindings: mt8195: add missing audio routing and link-name
+      commit: 5b974f53424d16165b606e2e2f9208d450a5723c
 
-and please consider dissolving the rockchip_pcie_phy_deinit() function
-in the possible v2 of this patch, as suggested above.
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
