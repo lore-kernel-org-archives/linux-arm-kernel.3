@@ -4,62 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91FAAC369C9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 16:34:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECAC0C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 16:35:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F74nRVGkd2m8J5KZtzQY737upkU+XgKU1j7nwBIitzA=; b=4xdZk3ciqqGneucF5IX5i8+qBt
-	IKT5LMfs0wZBlgDvUT4PWoQ5Apbf+OuEIq2kx+/WQDM0fWWAyvEEBXXIZgaRARtLfc+6j+XdAeKzw
-	4P5dJ2VeePdRxdMU5GVrPNm1sPbwaR5TrTqX05wfhG8BXM7aC+JpJK5Cy+F3M+TquY/Qkh5orFRUN
-	02TpVhm0RxMX4G8IWMyY/UpM56ncsQO1rbTPY48vRhf5j3jQ22EigYaWUU6B12Dt11j07ff8WLcOy
-	ujjYu1QUjkLN0b8GiOQXqrW5+//mvNYSVzXevRJuhCXnkUSkHpHSUSKxeys4R3xHORlAWawpS2D3c
-	XQeAAKLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Jy2VD4whmMy3I5b19h40sBNvZxMXt8NVw/R9fRE1Af8=; b=CKhi7w+yH9w1GXbiYvOfP9nMN7
+	8Z7wtVYWTGrQVQs+JEXMqr6hKe/tnD9QtFvIOGtfdMi3arY0Dg239ieQEF3P5vZuAgq6kJReeKDzY
+	IWZ1jnbCmNOluSUxhhYRVBf5VdC9zjcLkJLijUIbzDk40uT2qwTyRpZFYwAHXdkxOEFeaQQraSIGy
+	a3x2XuakHptKToncJLdBLDWEQlQi6XzWHk2U/xBI6FCia2QJ+pfOmWWYS90bKQQjOTQKsybaGca9y
+	KAVSNlYM56YjVyTFJGY8c3Xjj0oIkwLcSnRGVik8ZV+Ekm9rBlr8DYPxcTobNsLDjOKC8LF+8ZH8C
+	2BebUz3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5SBV-0000000DgWb-2C8k;
-	Thu, 17 Apr 2025 16:33:53 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1u5SDL-0000000Dgni-0oQd;
+	Thu, 17 Apr 2025 16:35:47 +0000
+Received: from mail.manjaro.org ([2a01:4f8:c0c:51f3::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Rv7-0000000Ddij-2rjF;
-	Thu, 17 Apr 2025 16:16:58 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.98.2)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1u5RsR-000000002Q4-0DCF;
-	Thu, 17 Apr 2025 16:16:49 +0000
-Date: Thu, 17 Apr 2025 17:16:45 +0100
-From: Daniel Golle <daniel@makrotopia.org>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Florian Fainelli <f.fainelli@gmail.com>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net v2 4/5] net: ethernet: mtk_eth_soc: net: revise
- NETSYSv3 hardware configuration
-Message-ID: <aAEpbV-IvbfaPwwL@makrotopia.org>
-References: <8ab7381447e6cdcb317d5b5a6ddd90a1734efcb0.1744764277.git.daniel@makrotopia.org>
- <28929b5bb2bfd45e040a07c0efefb29e57a77513.1744764277.git.daniel@makrotopia.org>
- <20250417081055.1bda2ff6@kernel.org>
- <aAEiCjdJdsqH6EAU@makrotopia.org>
- <20250417085948.35b0ec5a@kernel.org>
+	id 1u5Rz5-0000000DePn-3Dfp;
+	Thu, 17 Apr 2025 16:21:08 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250417085948.35b0ec5a@kernel.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1744906855;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Jy2VD4whmMy3I5b19h40sBNvZxMXt8NVw/R9fRE1Af8=;
+	b=kucmAJQrSj8aUR00+fmsRWYFWXrdis+l+pkpy7eT+bl5PW6okRBsgCADav+upAPx4S45Y1
+	tYW7KOY+/bYi5K/Zum3EHUBzuo+UUY5OfhFzZYHPWbreCDulpkssrW2F97Ntm4wEtZR5TF
+	TXZkPLvb5jCQpShxvhmYug0jRjCBF9uMhzRBZnX46krzzo+tV1ICtyvpzF5oWG0Zjvoi40
+	kb+a4AH2paAwi9GFeL9VhedE46AbQOYl8EJLXZL6LldB154YqoCZmbfQIEWn1ci6th90EU
+	JxzIVwGlVolMa57URgVAmnnXd1OKhHPXI8NVuCkalXnOScMy1wr2FM3m5LTZKg==
+Date: Thu, 17 Apr 2025 18:20:54 +0200
+From: Dragan Simic <dsimic@manjaro.org>
+To: Diederik de Haas <didi.debian@cknow.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy?=
+ =?UTF-8?Q?=C5=84ski?= <kw@linux.com>, Bjorn Helgaas <bhelgaas@google.com>,
+ Heiko Stuebner <heiko@sntech.de>, Manivannan Sadhasivam
+ <manivannan.sadhasivam@linaro.org>, Rob Herring <robh@kernel.org>, Shawn Lin
+ <shawn.lin@rock-chips.com>, Niklas Cassel <cassel@kernel.org>,
+ linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+Subject: Re: [PATCH] PCI: dw-rockchip: Fix function call sequence in
+ rockchip_pcie_phy_deinit
+In-Reply-To: <20250417142138.1377451-1-didi.debian@cknow.org>
+References: <20250417142138.1377451-1-didi.debian@cknow.org>
+Message-ID: <3e000468679b4371a7942a3e07d99894@manjaro.org>
+X-Sender: dsimic@manjaro.org
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_091657_722295_CCAEDB97 
-X-CRM114-Status: GOOD (  22.63  )
+X-CRM114-CacheID: sfid-20250417_092104_037559_CE3B483A 
+X-CRM114-Status: GOOD (  19.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,51 +78,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 17, 2025 at 08:59:48AM -0700, Jakub Kicinski wrote:
-> On Thu, 17 Apr 2025 16:45:14 +0100 Daniel Golle wrote:
-> > On Thu, Apr 17, 2025 at 08:10:55AM -0700, Jakub Kicinski wrote:
-> > > On Wed, 16 Apr 2025 01:51:42 +0100 Daniel Golle wrote:  
-> > > > +		/* PSE should not drop port8, port9 and port13 packets from WDMA Tx */
-> > > > +		mtk_w32(eth, 0x00002300, PSE_DROP_CFG);
-> > > > +
-> > > > +		/* PSE should drop packets to port8, port9 and port13 on WDMA Rx ring full */  
-> > > 
-> > > nit: please try to wrap at 80 chars. There's really no need to go over
-> > > on comments. Some of us stick to 80 char terminals.   
-> > 
-> > Too late now to send another revision...
+Hello Diederik,
+
+On 2025-04-17 16:21, Diederik de Haas wrote:
+> The documentation for the phy_power_off() function explicitly says
 > 
-> I only applied the first 3 :)
-
-Perfect, so I'll roll up the remaining two with the changes suggested.
-
+>   Must be called before phy_exit().
 > 
-> > > > [...]
-> > > > diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.h b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
-> > > > index 39709649ea8d1..eaa96c8483b70 100644
-> > > > --- a/drivers/net/ethernet/mediatek/mtk_eth_soc.h
-> > > > +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
-> > > > @@ -151,7 +151,12 @@
-> > > >  #define PSE_FQFC_CFG1		0x100
-> > > >  #define PSE_FQFC_CFG2		0x104
-> > > >  #define PSE_DROP_CFG		0x108
-> > > > -#define PSE_PPE0_DROP		0x110
-> > > > +#define PSE_PPE_DROP(x)		(0x110 + ((x) * 0x4))
-> > > > +
-> > > > +/* PSE Last FreeQ Page Request Control */
-> > > > +#define PSE_DUMY_REQ		0x10C  
-> > > 
-> > > This really looks like misspelling of DUMMY, is it really supposed 
-> > > to have one 'M' ?  
-> > 
-> > I also thought that when I first saw that and have told MediaTek engineers
-> > about it, they told me that the register is called like that also in their
-> > datasheet and hence they want the name to be consistent in the driver.
+> So let's follow that instruction.
 > 
-> Hm, maybe add a comment ? It confused both of us, probably going 
-> to confuse most people later on
+> Fixes: 0e898eb8df4e ("PCI: rockchip-dwc: Add Rockchip RK356X host
+> controller driver")
+> Cc: stable@vger.kernel.org	# v5.15+
+> Signed-off-by: Diederik de Haas <didi.debian@cknow.org>
+> ---
+>  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> index c624b7ebd118..4f92639650e3 100644
+> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> @@ -410,8 +410,8 @@ static int rockchip_pcie_phy_init(struct
+> rockchip_pcie *rockchip)
+> 
+>  static void rockchip_pcie_phy_deinit(struct rockchip_pcie *rockchip)
+>  {
+> -	phy_exit(rockchip->phy);
+>  	phy_power_off(rockchip->phy);
+> +	phy_exit(rockchip->phy);
+>  }
+> 
+>  static const struct dw_pcie_ops dw_pcie_ops = {
 
-Ok, will do and send v3.
+Thanks for the patch, it's looking good to me.  The current state
+of the rockchip_pcie_phy_deinit() function might actually not cause
+issues because the rockchip_pcie_phy_deinit() function is used only
+in the error-handling path in the rockchip_pcie_probe() function,
+so having no runtime errors leads to no possible issues.
 
-Thank you!
+However, it doesn't mean it shouldn't be fixed, and it would actually
+be good to dissolve the rockchip_pcie_phy_deinit() function into the
+above-mentioned error-handling path.  It's a short, two-line function
+local to the compile unit, used in a single place only, so dissolving
+it is safe and would actually improve the readability of the code.
+
+Thus, please feel free to include
+
+Reviewed-by: Dragan Simic <dsimic@manjaro.org>
+
+and please consider dissolving the rockchip_pcie_phy_deinit() function
+in the possible v2 of this patch, as suggested above.
 
