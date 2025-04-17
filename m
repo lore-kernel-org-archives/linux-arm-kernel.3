@@ -4,91 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 148CFC369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 06:37:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3A52C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 06:39:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=djrKksg0US7wjpYKbjxhKXGkwEFNIq44MXbCORg+NoM=; b=TDZxbL5Fsv9kVr//k7idh9xTV5
-	ZiIu9Dyvx2are3jRqglT1P1WtQaqkilp7W+jnS0e968FmYCzku9SQYz7WjBgXiLSpdl4WpxDC7QGX
-	0v3SOkF8ynfsGFeGswsGsSV/vJO4+VFFX3NT2zPp92PRdSxywKoGPqzjpZfF5L4eq2aGv5hrm9Y9p
-	zunacxAjUEY9ob/AzQsAYLDhq/P3biCG6T4x4BOmTzOPhF8j4FDnuVLInY4dIDnjtDcuimUJvxIfm
-	oRy/VIQKqV5abfsdo74HWhCMGQdcRWqPGx99B1nRyyH1sMl3TXfmrHz0HMfhZ31uxUxA7vW4M2V2O
-	Uv4dYcLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MHwCLJyDeuWx/JjQt62OR0Vto9JTS8LaVyPorlwv61A=; b=LVtlEepTD6e4HX9v91obR1pxVD
+	ACZ0jf0didWZxHaxpDYpJTyOb6K2JjwiNFVad1a3tVUAK03dTzcCZ0eB3fokMzpM32Yus8zaSyQVu
+	TyKjafwjGZpdKROk5ZFO9YSO21KKm0tOzYJCuAPqs2ApfofweTNvidnzpCPPyTVNERnYs5lGaKANl
+	t34db/T7nqKp0nVhZGkGzoURwpznBLwPCQQ1Cl2yapb2p6yg7VTJ5hazcK8tzHwI7C/MiSmxOyz0b
+	IDd6QmABOz7u71NpAJba4qLGQZfNl3VPm0bANBmT3AS1YSv6U8Xcumdz/k5QbsVWj2U3nmaEY/HZD
+	08Jxnp6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5IsN-0000000BvS4-21oE;
-	Thu, 17 Apr 2025 06:37:31 +0000
-Received: from mail-qk1-x72d.google.com ([2607:f8b0:4864:20::72d])
+	id 1u5IuC-0000000BvlU-0sPR;
+	Thu, 17 Apr 2025 06:39:24 +0000
+Received: from mx.denx.de ([89.58.32.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Ipe-0000000Bv2r-0PZ0
+	id 1u5IrJ-0000000BvHh-2f9t
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 06:34:43 +0000
-Received: by mail-qk1-x72d.google.com with SMTP id af79cd13be357-7c5e39d1db2so19941185a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Apr 2025 23:34:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744871681; x=1745476481; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=djrKksg0US7wjpYKbjxhKXGkwEFNIq44MXbCORg+NoM=;
-        b=SdDJz4bRFtN3B4pEFO2MVC5237yCOlIEDYOQVuNTHYDYkAKHKoPmNP9MXEcIvqc65t
-         AFWrlB60y95LI2FHUd/YO7Zp3sBU3rulBOQcoQiQ3lOYeXyQxbFU96HDyZ0fFUp4T6yw
-         ctFTsFTzbXX3sXktRpXLHfdnac6Ke1BdctpHGp8EJP6EQdf+uOHr68t0nIxfh3i1O5Cw
-         J63aLRVXJGRQq2b6O6RDyAcBRnNwsgTJ9GrAM/zk/9enabfBCIKcZjRTXjgeP/3E7oRb
-         xAKWfys2jm30GK4uDNyuozRy5YMMWFUerLk88BQUFpeHl1aNdbVo+D5xW8MAwtVG45kF
-         4yWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744871681; x=1745476481;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=djrKksg0US7wjpYKbjxhKXGkwEFNIq44MXbCORg+NoM=;
-        b=aLwFLpmss90gd3K2rjdGjP4K4wAwWBVCyRkqRC7DMclRkfSMC+avc1PFXvdBORN6wa
-         sQRCKiD904AAhx3Npp88VuCY78+22yFVlkTGXv5joWCG1Jb57FXRtizBq4DpBcbCK+Bj
-         rS/B+c7P2LDhXmBtWFUXt1/JgqfavlAF5zc9Z2bbS/VsoCuDEw2l4pRDTylS8yYorf+T
-         OXXEXa+/0NvyoqMWUOr6nCsIPkTP4ChntSQwsmY0jUrFDq4HEYOL7j4rEKZl9V0Je/eG
-         kUL3zTyAAjVezLwSOB9geBiNPDbhWG2Xtp4HyVTKzJLWZQJvaVvkeXM48iJU+w5ZBXIR
-         gymQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXt9O+CG3+pg2chFDDVpB0XNVapnhoaSqIMr5856anV5mGYBOZaBlxfu0onxGPrQ1ImKF6qwi+J2AFq3Yd1IsnO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz0VL9dERgwUcSCPFhkDGC9WkPd2Qf3eldjU0EATfPvT7d9Jl4B
-	gVRwcOce4W/4ORaxfrR6Erzc+p4mvqwuYmzbpsv6g/mMNBI7aA8f2hTT+TYAWqyCKAPKtL6DxQ0
-	EoE5smYr8UqlUEIT0r5H4Fo5D3LE=
-X-Gm-Gg: ASbGncv5lmZa6mlghQZmBWmmC/nDXMiX64j+okU99Rn1x3ebgdt0zoqnOf1iBTFaFHz
-	6JbTBrOca8Jervzc821geKpLFTZIBH+Wp2ML/3Kjdkn1RxUJjHzu7jgNbg3WdSoQFC8p1lK5ppV
-	VUtaLc/vPW11MqUBEk1GWw9lyejNwAZiMNYvTEY/NkvGWGT9bK9F9c8mQ=
-X-Google-Smtp-Source: AGHT+IHgsGgJmwmxEKpnhc3KaUBpTUWHrt6Vox1Gn3UnUAAe0PK/gYXRZtPTbixswh+oM9dFXyzr2ky1IWWsAGRzgTE=
-X-Received: by 2002:a05:622a:1984:b0:476:9b40:c2cd with SMTP id
- d75a77b69052e-47ad8166f80mr66686231cf.47.1744871681175; Wed, 16 Apr 2025
- 23:34:41 -0700 (PDT)
+	Thu, 17 Apr 2025 06:36:27 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 44F5A1039EF2D;
+	Thu, 17 Apr 2025 08:36:21 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1744871783; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=MHwCLJyDeuWx/JjQt62OR0Vto9JTS8LaVyPorlwv61A=;
+	b=CM81Wz43G51dxJmGWG9E5VZzgOMqy4v5uVBHebc1PWgR3tHIRJsqZDPs6Ru/+Nn6K3N4eq
+	778byT4teaB7knzj39mpJEAmHTEzPQlc+ZlRGVNB7SincnzMDsbjOIUMMQV35fCD08jmev
+	OlG5jmPXKJ/qhY/9/9AhFUHGThrWc/5ADIa4t2rHhKYDzfEWNdYEm45+r5Mok+hF/V7OLv
+	pki+AWGnMrJe1xoBEYrdazf/AMGQx/tiUN4kD/zEC6kyzWbW3NufDoGuyb0wbZ3DAkoaZK
+	XQgao5QjAYa5hGeo+DQwuY0DDh3A2zqRC9Dbb/zI/Gb681FIfC4ghL0l3QA68w==
+Date: Thu, 17 Apr 2025 08:36:20 +0200
+From: Lukasz Majewski <lukma@denx.de>
+To: Stefan Wahren <wahrenst@gmx.net>
+Cc: Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+ <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Richard Cochran
+ <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Simon Horman
+ <horms@kernel.org>
+Subject: Re: [net-next v5 2/6] ARM: dts: nxp: mxs: Adjust the imx28.dtsi L2
+ switch description
+Message-ID: <20250417083620.6322d9a7@wsk>
+In-Reply-To: <6511c88d-7876-4f69-81f1-1206056d061a@gmx.net>
+References: <20250414140128.390400-1-lukma@denx.de>
+	<20250414140128.390400-3-lukma@denx.de>
+	<06c21281-565a-4a2e-a209-9f811409fbaf@gmx.net>
+	<2c9a5438-40f1-4196-ada9-bfb572052122@lunn.ch>
+	<6511c88d-7876-4f69-81f1-1206056d061a@gmx.net>
+Organization: denx.de
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-References: <20250416-wmt-updates-v1-0-f9af689cdfc2@gmail.com>
- <20250416-wmt-updates-v1-6-f9af689cdfc2@gmail.com> <20250416201606.GE3811555-robh@kernel.org>
-In-Reply-To: <20250416201606.GE3811555-robh@kernel.org>
-From: Alexey Charkov <alchark@gmail.com>
-Date: Thu, 17 Apr 2025 10:34:36 +0400
-X-Gm-Features: ATxdqUEmV2dRyfh29pPC1NXM6TzAsbkslAEtgKdCvmLjQOkkOfZg9YZfF61iss4
-Message-ID: <CABjd4YxKe0cb9qwS-ZHxuYmq3exD8TUPrY-9ZLsT5tCEdvPzWQ@mail.gmail.com>
-Subject: Re: [PATCH 06/13] dt-bindings: timer: via,vt8500-timer: Convert to YAML
-To: Rob Herring <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, 
-	Daniel Lezcano <daniel.lezcano@linaro.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org, 
-	netdev@vger.kernel.org, linux-pwm@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; boundary="Sig_/OP3qBt+f/mJ28tgoAZOMfOc";
+ protocol="application/pgp-signature"; micalg=pgp-sha512
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_233442_135996_2845CAB2 
-X-CRM114-Status: GOOD (  20.04  )
+X-CRM114-CacheID: sfid-20250416_233625_965674_489211E3 
+X-CRM114-Status: GOOD (  34.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,88 +83,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 17, 2025 at 12:16=E2=80=AFAM Rob Herring <robh@kernel.org> wrot=
-e:
->
-> On Wed, Apr 16, 2025 at 12:21:31PM +0400, Alexey Charkov wrote:
-> > Rewrite the textual description for the VIA/WonderMedia timer
-> > as YAML schema.
-> >
-> > The IP can generate up to four interrupts from four respective match
-> > registers, so reflect that in the schema.
-> >
-> > Signed-off-by: Alexey Charkov <alchark@gmail.com>
-> > ---
-> >  .../devicetree/bindings/timer/via,vt8500-timer.txt | 15 ---------
-> >  .../bindings/timer/via,vt8500-timer.yaml           | 36 ++++++++++++++=
-++++++++
-> >  MAINTAINERS                                        |  1 +
-> >  3 files changed, 37 insertions(+), 15 deletions(-)
-> >
-> > diff --git a/Documentation/devicetree/bindings/timer/via,vt8500-timer.t=
-xt b/Documentation/devicetree/bindings/timer/via,vt8500-timer.txt
-> > deleted file mode 100644
-> > index 901c73f0d8ef05fb54d517b807d04f80eef2e736..00000000000000000000000=
-00000000000000000
-> > --- a/Documentation/devicetree/bindings/timer/via,vt8500-timer.txt
-> > +++ /dev/null
-> > @@ -1,15 +0,0 @@
-> > -VIA/Wondermedia VT8500 Timer
-> > ------------------------------------------------------
-> > -
-> > -Required properties:
-> > -- compatible : "via,vt8500-timer"
-> > -- reg : Should contain 1 register ranges(address and length)
-> > -- interrupts : interrupt for the timer
-> > -
-> > -Example:
-> > -
-> > -     timer@d8130100 {
-> > -             compatible =3D "via,vt8500-timer";
-> > -             reg =3D <0xd8130100 0x28>;
-> > -             interrupts =3D <36>;
-> > -     };
-> > diff --git a/Documentation/devicetree/bindings/timer/via,vt8500-timer.y=
-aml b/Documentation/devicetree/bindings/timer/via,vt8500-timer.yaml
-> > new file mode 100644
-> > index 0000000000000000000000000000000000000000..7d9dc93b708823de9594d20=
-ef6b7e0367c5a36f1
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/timer/via,vt8500-timer.yaml
-> > @@ -0,0 +1,36 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/timer/via,vt8500-timer.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: VIA/Wondermedia VT8500 Timer
-> > +
-> > +maintainers:
-> > +  - Alexey Charkov <alchark@gmail.com>
-> > +
-> > +properties:
-> > +  compatible:
-> > +    const: via,vt8500-timer
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +
-> > +  interrupts:
-> > +    minItems: 1
-> > +    maxItems: 4
->
-> Need to define what each entry is.
+--Sig_/OP3qBt+f/mJ28tgoAZOMfOc
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-Will do, thanks.
+Hi Stefan,
 
-These are OS Timer Channel 0~3 Match, respectively. The hardware has a
-single 32-bit counter running at 3 MHz and four match registers, each
-of which is associated with a dedicated match interrupt, and the first
-of which can also serve as the system watchdog (if watchdog function
-is enabled, it will reset the system upon match instead of triggering
-its respective interrupt).
+> Hi Andrew,
+>=20
+> Am 16.04.25 um 23:58 schrieb Andrew Lunn:
+> >>> -		eth_switch: switch@800f8000 {
+> >>> -			reg =3D <0x800f8000 0x8000>;
+> >>> +		eth_switch: switch@800f0000 {
+> >>> +			compatible =3D "nxp,imx28-mtip-switch";
+> >>> +			reg =3D <0x800f0000 0x20000>;
+> >>> +			interrupts =3D <100>, <101>, <102>;
+> >>> +			clocks =3D <&clks 57>, <&clks 57>, <&clks
+> >>> 64>, <&clks 35>;
+> >>> +			clock-names =3D "ipg", "ahb", "enet_out",
+> >>> "ptp"; status =3D "disabled"; =20
+> >> from my understanding of device tree this file should describe the
+> >> hardware, not the software implementation. After this change the
+> >> switch memory region overlaps the existing mac0 and mac1 nodes.
+> >>
+> >> Definition in the i.MX28 reference manual:
+> >> ENET MAC0 ENET 0x800F0000 - 0x800F3FFF 16KB
+> >> ENET MAC1 ENET 0x800F4000 - 0x800F7FFF 16KB
+> >> ENT Switch SWITCH 0x800F8000 - 0x800FFFFF 32KB
+> >>
+> >> I'm not the expert how to solve this properly. Maybe two node
+> >> references to mac0 and mac1 under eth_switch in order to allocate
+> >> the memory regions separately. =20
+> > I get what you are saying about describing the hardware, but...
+> >
+> > The hardware can be used in two different ways.
+> >
+> > 1) Two FEC devices, and the switch it left unused.
+> >
+> > For this, it makes sense that each FEC has its own memory range,
+> > there are two entries, and each has a compatible, since there are
+> > two devices.
+> >
+> > 2) A switch and MAC conglomerate device, which makes use of all
+> > three blocks in a single driver.
+> >
+> > The three hardware blocks have to be used as one consistent whole,
+> > by a single driver. There is one compatible for the whole. Given the
+> > ranges are contiguous, it makes little sense to map them
+> > individually, it would just make the driver needlessly more complex.
+> >
+> > It should also be noted that 1) and 2) are mutually exclusive, so i
+> > don't think it matters the address ranges overlap. Bad things are
+> > going to happen independent of this if you enable both at once.
+> >
+> >        Andrew =20
+> i wasn't aware how critical possible overlapping memory regions are.
+> I was just surprised because it wasn't mention in the commit message.
+> As long as everyone is fine with this approach, please ignore my last
+> comment.
+>=20
+
+Just for the record - there was an attempt to "re-use" FEC enet driver
+in switch [1], but this approach has been rejected as one not very
+robust and "clear by design" (i.e. similar to cpsw_new.c driver).
+
+And I do agree with Andrew - that approach presented in this patch set
+is the correct one.
+
+Links:
+[1] -
+https://source.denx.de/linux/linux-imx28-l2switch/-/commits/imx28-v5.12-L2-=
+upstream-switchdev-RFC_v1
+
+> Regards
+>=20
+
+
+
 
 Best regards,
-Alexey
+
+Lukasz Majewski
+
+--
+
+DENX Software Engineering GmbH,      Managing Director: Erika Unter
+HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
+
+--Sig_/OP3qBt+f/mJ28tgoAZOMfOc
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmgAoWQACgkQAR8vZIA0
+zr3Z0AgAjNWeG5547C9lxo+unXs8/onbMnCfQDJ3YSeCUfVD1VDsiEa2t0Mo/Fog
+nX9eR7DL85CJOQE3xlThujPztb/8w18Kf8J1ABg53mDanqEvgcABhF0fxyBOlWsP
+gSJ3fWaVflKSf43uvylKO0OoEU6Dzy26YRX3CaM3nHcBJL3YatBiXxZH/m/lGS5S
+2qqjLyTj1751iu1Q0euhZkxric47TZkMqDh1oARuNu4LjMX3n1/RkoZPuHH+AS8E
+8tmfzKYa3GDNF15Kkv2sx2QnljPfEA9kVLNrXB/adUESTwgVhH22GdIbSF7wYwus
+6QupQoOBSRICo3cnVGDHkY4J6nSz7w==
+=4Q3t
+-----END PGP SIGNATURE-----
+
+--Sig_/OP3qBt+f/mJ28tgoAZOMfOc--
 
