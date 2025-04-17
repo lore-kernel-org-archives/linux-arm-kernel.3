@@ -4,87 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1177C369C9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 18:29:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B333AC369CA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 18:31:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RMBZuLcEi1BVATpyEBDSQRvEoX2RBDn8k/CK1srt6Gg=; b=ItdprBWSJMh6sJERYORm3WTqOL
-	MQBppYECBuerOabF2nFPuGmEgsP5DnBhyk4bTipfgLtVRUXp1FX6nxl+Bz+DcNcCwsZ+bx3LHuH9g
-	uMGw0rhVufFZKUKJ85v21FFvhlUoxdT6L3CJtbY06vgDVAsUjrW+IqzkCf2AetWDjUldsFT3wmxB5
-	NJ1Bv9sIOsKlCzqNBtyi0gzWGH/v6PsA3KYqeRk0Otx+0KPMVydCikIOgcFeEqIinP4moOGElf3lX
-	wQzHZD4moUleHkG0OpndkehgFdOdweqLMiZ3T0IZPeNpmcXXS/ErClfGuvSLdwx7GNa6n/nSaN9eM
-	y3nCBqag==;
+	bh=zkygNKKSJ6A/yCBu0e02gVkBmVl2/XwjeTtPr2xnTyU=; b=luD10TKva+VNECYNN4ACx+B7JY
+	ZJhGuJI4pZH18xAPLSlTYCdy7Ks87VY56d6Cyfe74sTHJg0dUzj5ev6iLopxflXCXk5VyyUd8vTpv
+	/7EtdkzQggBmUqiI/8jg30lBvF2mKKTlqV2Uwgmbj0XGdmbAHk+kT5I3pXGjUUCgVDRVMemAHvW72
+	AkpqX/LMcPpYUtYhCsNHQhlmVE32En+tDes/lk7XrYJQFv7iihcqCk9RkePK/V9mSivMVzdc0Z059
+	pxsb+Tk5CA8GVxdZyUxxCA6ZpH+GPHPr8O76xtsBbu/Ixa5rbiPFe48ir37gH45jDTcE4SXviRoNm
+	u889laKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5TzM-0000000E30f-1qje;
-	Thu, 17 Apr 2025 18:29:28 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1u5U1C-0000000E3Jc-0sm2;
+	Thu, 17 Apr 2025 18:31:22 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Tvu-0000000E1O3-2x7f
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 18:25:55 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-39ee57c0b8cso1102706f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Apr 2025 11:25:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744914353; x=1745519153; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=RMBZuLcEi1BVATpyEBDSQRvEoX2RBDn8k/CK1srt6Gg=;
-        b=N3SB78LmdTUydcB1r+Vda+vGiOG1dBelZBhAnTF5u1Tsarh20dTznklLgxI98a4PgA
-         3WY5Pmd7bV26aJo68anv5FaXdxKVWvy3ecoNRNCtAKafo0FH0XxPVAlCIu6+dfONrew1
-         U8hCbPBwm3uLz6AY2yJuywOnGHjddIVocBvHCgowWlheAkPJBhMc5OvLoRygFkjlvTQr
-         oZie+GP/2pdnLkkkK/2ZHN5aQjHx8X3kFt+xrL1cAbyEZKNeJ9Aagpv0Sfi8ZBpONTTT
-         ejqFLhU679MJpk9rUmgBisEn4jCP7+QJ4x4YP6EUWdt/uesYTvbhfWNg37ahtqJof6xs
-         SVow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744914353; x=1745519153;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=RMBZuLcEi1BVATpyEBDSQRvEoX2RBDn8k/CK1srt6Gg=;
-        b=H3gnozOHukwdJ5Tkk+m4wPIrOj03FefllgABHUdPB696nk88hgs+vVBTM7se8ZJ3BC
-         suB1Qj8UnhW4Sv1vvSGdx1u+BHrW+9AuiZWbeFqtJScqvdRdB3h3LVzyVM83LtePn5tk
-         FEHhQ326XhbK8iBw3a67k1vqlYYnUtDDWzWpDkUiDGfjePnJnC+PlGaAIjO3SEnnYEhK
-         rP9/aJzsV2eml74wl0HYwsUuOX+Fu2/OYvgdnw9tJlg+VmvL00OJUIMuenDoDj9tk7qK
-         wdtVxV689T8CJCGd19ncJ6baj7z4Eyoi6E6ByU4E7K4kMT5PaZebSRMzdMDF1Sn0O9dI
-         Z+9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCU9VGW9vJGgIlh9d/tEMZScGOaax+IDmDsA4YH/HsxnJ/SJOZhEpbZN13ICGx4GHqEokyBkcPQQkc9tKlODRJW9@lists.infradead.org
-X-Gm-Message-State: AOJu0YxFa6NBmxvOxrzn8F2q9q9z3rbLBpHlLziQyeLD2oyh9ZZVOc8N
-	skYTJ5t7gm30s1UnOIsW0cR+ysE+f7imn3A9BbM4MrjL/0TGzMUu
-X-Gm-Gg: ASbGncsUQLcqBYS10DvqqvM81yQKz2UTWO8N/xArs+maRj46SisTrpvdyGRhvgpjtWD
-	+9sshRQvN1+hS7SEwBIyGp6e9ouPP3Zwsl45bLQNwj8qx2uthR0UY/Z6IbDwY0n8Lm+OIg1vmr4
-	z35G3x+FJckZtp2t003cLh1FVpGQDIJ3SWlHbaAnxTmiR4IEdL5+kkeForgwfJYbw7aC7jfBHgQ
-	/N68woSc+rb9oD3KJ7Tz5PSaY8D8cKJRnCNR2wjiHAs/h5AU5bqCTsgPhvHC+h3AoXqjQJKwvn9
-	WNJfpsb4OiizGVh6vIoEIMTARKcskYC91hAyGG+2
-X-Google-Smtp-Source: AGHT+IHWFOtrF+N20ECOnSfV+42jDn6aqmV44/diJP2+K061uVC6Elbk2/PzNB0QPE9GirlcymnYfA==
-X-Received: by 2002:a05:6000:2203:b0:39c:30f9:1e57 with SMTP id ffacd0b85a97d-39efba3ce78mr4300f8f.18.1744914352430;
-        Thu, 17 Apr 2025 11:25:52 -0700 (PDT)
-Received: from qasdev.Home ([2a02:c7c:6696:8300:1efa:2230:869a:758])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4405b58cc0csm64908185e9.32.2025.04.17.11.25.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 17 Apr 2025 11:25:52 -0700 (PDT)
-From: Qasim Ijaz <qasdev00@gmail.com>
-To: jikos@kernel.org,
-	bentiss@kernel.org,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com
-Cc: linux-input@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	id 1u5Tx4-0000000E2GF-2CTR;
+	Thu, 17 Apr 2025 18:27:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C3C9149E43;
+	Thu, 17 Apr 2025 18:27:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 241E8C4CEEC;
+	Thu, 17 Apr 2025 18:27:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744914425;
+	bh=eYlw8AhwDiKSQwbJxBZMP6nL7U7/odFuPU2SW3GNcIs=;
+	h=From:To:Cc:Subject:Date:From;
+	b=OIGe0C4HhyE/SwSQmKx2rHmtBTJv+C//vsUPyHQ9nBNZ7SM70FI5kAjNOXx0SiPAT
+	 oAV2RDvW3y7SexpSfNzDbW3E0WnI97wnBu7vd0ixGUtDVT++ajf0iwHpYPkfRoPvP9
+	 dT4SFF4LmjWuyS23J7I28QPr2BOEobjN9OeNUvVqomFKSjPZoUnpDk/aJjRQhRsRIa
+	 2jmz2BHEDWHCJM4wvqlkIeqwkGTdW4f9UXQwxbXtBHS8en8Ihmr+5OuGxO4m0tt2DT
+	 hAvSXPNfuhibOtdvN7de1S4/+B2pChejRWcf0/OP2SYlBqQ90ckVcnffrq7XEP05h7
+	 kOgQb7+Go6l8A==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH RESEND] HID: thrustmaster: fix memory leak in thrustmaster_interrupts()
-Date: Thu, 17 Apr 2025 19:25:49 +0100
-Message-Id: <20250417182549.36268-1-qasdev00@gmail.com>
-X-Mailer: git-send-email 2.39.5
+	loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org,
+	"Jason A . Donenfeld " <Jason@zx2c4.com>,
+	Ard Biesheuvel <ardb@kernel.org>
+Subject: [PATCH 00/15] Finish disentangling ChaCha, Poly1305, and BLAKE2s from CRYPTO
+Date: Thu, 17 Apr 2025 11:26:08 -0700
+Message-ID: <20250417182623.67808-1-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_112554_740886_FFC25FD7 
-X-CRM114-Status: UNSURE (   9.73  )
+X-CRM114-CacheID: sfid-20250417_112706_585331_713CD3CC 
+X-CRM114-Status: UNSURE (   8.21  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -100,32 +79,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In thrustmaster_interrupts(), the allocated send_buf is not 
-freed if the usb_check_int_endpoints() check fails, leading 
-to a memory leak. 
+This series removes the unnecessary dependency of the ChaCha, Poly1305,
+and BLAKE2s library functions on the generic crypto infrastructure, i.e.
+CONFIG_CRYPTO.  To do this, it moves arch/*/crypto/Kconfig from a
+submenu of crypto/Kconfig to a submenu of arch/*/Kconfig, then re-adds
+the CRYPTO dependency to the symbols that actually need it.
 
-Fix this by ensuring send_buf is freed before returning in 
-the error path.
+Patches 14-15 then simplify the ChaCha and Poly1305 symbols by removing
+the unneeded "internal" symbols.
 
-Fixes: 50420d7c79c3 ("HID: hid-thrustmaster: Fix warning in thrustmaster_probe by adding endpoint check")
-Signed-off-by: Qasim Ijaz <qasdev00@gmail.com>
----
- drivers/hid/hid-thrustmaster.c | 1 +
- 1 file changed, 1 insertion(+)
+Note that Curve25519 is still entangled.  Later patches will fix that.
 
-diff --git a/drivers/hid/hid-thrustmaster.c b/drivers/hid/hid-thrustmaster.c
-index 3b81468a1df2..0bf70664c35e 100644
---- a/drivers/hid/hid-thrustmaster.c
-+++ b/drivers/hid/hid-thrustmaster.c
-@@ -174,6 +174,7 @@ static void thrustmaster_interrupts(struct hid_device *hdev)
- 	u8 ep_addr[2] = {b_ep, 0};
- 
- 	if (!usb_check_int_endpoints(usbif, ep_addr)) {
-+		kfree(send_buf);
- 		hid_err(hdev, "Unexpected non-int endpoint\n");
- 		return;
- 	}
+Eric Biggers (15):
+  crypto: arm - remove CRYPTO dependency of library functions
+  crypto: arm64 - drop redundant dependencies on ARM64
+  crypto: arm64 - remove CRYPTO dependency of library functions
+  crypto: loongarch - source arch/loongarch/crypto/Kconfig without
+    CRYPTO
+  crypto: mips - remove CRYPTO dependency of library functions
+  crypto: powerpc - drop redundant dependencies on PPC
+  crypto: powerpc - remove CRYPTO dependency of library functions
+  crypto: riscv - remove CRYPTO dependency of library functions
+  crypto: s390 - drop redundant dependencies on S390
+  crypto: s390 - remove CRYPTO dependency of library functions
+  crypto: sparc - source arch/sparc/crypto/Kconfig without CRYPTO
+  crypto: x86 - drop redundant dependencies on X86
+  crypto: x86 - remove CRYPTO dependency of library functions
+  crypto: lib/chacha - remove INTERNAL symbol and selection of CRYPTO
+  crypto: lib/poly1305 - remove INTERNAL symbol and selection of CRYPTO
+
+ arch/arm/Kconfig            |  2 ++
+ arch/arm/crypto/Kconfig     | 28 ++++++++-------
+ arch/arm64/Kconfig          |  3 +-
+ arch/arm64/crypto/Kconfig   | 45 ++++++++++++-----------
+ arch/loongarch/Kconfig      |  1 +
+ arch/mips/Kconfig           |  2 ++
+ arch/mips/crypto/Kconfig    | 12 +++----
+ arch/powerpc/Kconfig        |  2 ++
+ arch/powerpc/crypto/Kconfig | 22 ++++++------
+ arch/riscv/Kconfig          |  2 ++
+ arch/riscv/crypto/Kconfig   | 14 ++++----
+ arch/s390/Kconfig           |  4 +++
+ arch/s390/crypto/Kconfig    | 21 ++++++-----
+ arch/sparc/Kconfig          |  2 ++
+ arch/sparc/crypto/Kconfig   | 14 ++++----
+ arch/x86/Kconfig            |  4 +++
+ arch/x86/crypto/Kconfig     | 72 ++++++++++++++++++-------------------
+ crypto/Kconfig              | 34 ++----------------
+ lib/crypto/Kconfig          | 32 ++++++-----------
+ 19 files changed, 149 insertions(+), 167 deletions(-)
+
+
+base-commit: da4cb617bc7d827946cbb368034940b379a1de90
 -- 
-2.39.5
+2.49.0
 
 
