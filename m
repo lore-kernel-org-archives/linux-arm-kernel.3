@@ -4,81 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5F28C369C9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 21:28:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0D63C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 21:40:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CxvYpumBEozSHV1DnKr6eE5OC/BNJCiIXETzkliOdRU=; b=Qyix1hxSzvUCY6D+t5xbBwBmiW
-	dsuj2/HP71VkKGLGj6Ps376mcYvvKEq9dI5SEUasw1DswKDgptxkgFcGCTNe6+8JPvUn6cnUOLFGD
-	KHnrAU+WX0ucFO5Ecghgcn38+YE7zIU8GhXC1W7ifw2+kkGh/ulnYbfQ2vSijpuhMxosIdk12cHK5
-	GN+DXhcPe/fMJhQZkqhGtxTgwgajzYuPfMR4liGKNx6u03Gizwh4KfSKIrgHonQ0vfTmp5NO8GLRK
-	nJ+/z7L3fqLtZm2DLiMgSOM5fXuvVeioJVHdLQmAQYHPeU79hjmfbW9s7zNdf1NqoD0j676SIVGKc
-	k46Ze2Bw==;
+	bh=vBj2/kJjZAc0LTczWIyJjP2mbls9GBj8W8skvT1H2Do=; b=J24EEjMxtmZf+Iu4j0Y0wbKHvh
+	yN7EskrXtFavFY5VkVsiH5UEvQvelHmnstSqFcve1cAWhQR/en6aZejKw2M2W6iwoCA4pBxqqSzMu
+	LNjrMIBwQTEs3btmtzoxus2fUPTQRtndRgMX6ic+nKW0bsJbCccUaOekYW3ResdCNeX2uvsN1m0+6
+	nURSSS1wSjFuc7TvYbz3D1wjR0IuqkTQSHQZ/hihB9AcAW7g/b7Lav59UqHt7DUglVFNhPszD6nVq
+	DmP+9QX6aiHVF/JSAVbLO3cKFTpKkhGHUwd71vto6zerObiGvKxkoeiORYUZTmKkzP4A6EYtTsLWq
+	vujtSPIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Wmj-0000000ENgV-41KA;
-	Thu, 17 Apr 2025 21:28:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u5Wxg-0000000EP73-38Nl;
+	Thu, 17 Apr 2025 21:39:56 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Vj4-0000000EGWT-3SNj
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 17 Apr 2025 20:20:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=CxvYpumBEozSHV1DnKr6eE5OC/BNJCiIXETzkliOdRU=; b=fRSDY3jl8ZyhdPjkOrtOwtL2wc
-	q2vwV1pB0sg2nQyepFwZ4PsaxA+ObQD4+BVEfLSGxrgelRmz2jbNJIjonD+EzeTtLxlYPEa/KEVaj
-	28SqEUcE4JbJfB9WzrBn5Sctcz/dI+TMYLWR3fCONtTL6LF6CjfcrQe5anr0jJ4HjRYD5A/ObeSQI
-	tGqnY9cVZGB5PswKYIyy+g55HaZu2jJyZEXXZwg8p+2mOMW8fB2PfFP6DHT7xfHBUdb0ybDlfJogF
-	QHM6QaTza9qOxDHY5FTpRu9w40fF6K8yqCXFMXGhUgpItazqnum+Too/1sHNDDzCnvBhB+lBush85
-	9m08pccw==;
-Received: from out-178.mta1.migadu.com ([2001:41d0:203:375::b2])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u5Viz-0000000AOut-2AKo
+	id 1u5Wvp-0000000EOra-1Ukg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 20:20:45 +0000
-Date: Thu, 17 Apr 2025 16:20:07 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
-	s=key1; t=1744921215;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CxvYpumBEozSHV1DnKr6eE5OC/BNJCiIXETzkliOdRU=;
-	b=UOHhvVBmkAgd9WPNP7A5w8ORvh53ti6pcpvBWVConhhHfLt9Ugsr6o2Shy84/azCIHLw1H
-	QSOBOqgRmlbhVRoAWfjInC3LY0E5a3xRx/YlDLiu4fAQvviI9yuq+UrItgYhjZDKwU9WBD
-	u7wtaDjpDbEdmPpjOdVMZGei9lVtmNQNYoAFWuL+ia9uUMCRV1qsa2B0Zk641GEs+Aciti
-	MHt0M3lJcZFRv3ooqkdF6Enc3Q9K4jr7oYbbP3ZmThFVP4FtLwpmxV9LYZUkcqRVlUmiI4
-	r3dndD7W7iKWfdN0JEfPv54uFOM9UDEZRLxIvND4WJg+0QhnqAUuvSXf/jqczQ==
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-To: fnkl.kernel@gmail.com
-Cc: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>,
-	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Hector Martin <marcan@marcan.st>
-Subject: Re: [PATCH v2 3/3] arm64: dts: apple: Add PMU NVMEM
-Message-ID: <aAFid7N3XiERXTbl@blossom>
-References: <20250417-spmi-nvmem-v2-0-b88851e34afb@gmail.com>
- <20250417-spmi-nvmem-v2-3-b88851e34afb@gmail.com>
+	Thu, 17 Apr 2025 21:38:02 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-22423adf751so16575465ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Apr 2025 14:38:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744925880; x=1745530680; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=vBj2/kJjZAc0LTczWIyJjP2mbls9GBj8W8skvT1H2Do=;
+        b=ShXglKLGOxCuIET6p+quEOMDUF3bMOQYAKILqftIhpYgsL+75Yld+KmLRJAUSUos0p
+         ZdPLwZGA2ZrK7zZ+OJZU5uBVfyi64y334EsFOMobeCfz1mhmpanX8r1uakNoXKAqAzyQ
+         17IVSZTypcCAIuPYT1JDXo1nfNG4vA7BgJUkP+JAhYRmkjpXvZxdXbmloj+yR8ykyK0v
+         vOP40B9GyZNU+qARicnhvv+fCbpHeMttlYVyWMY+00uWXUNtPSyWGZRKS87wOXGI13DN
+         irjN9rIF3vtYNNn1RwySO1RHu7RE4O/qgdkmpxOBP2EoqjBtaq6PcZOeqZqrPnmqeQVq
+         pH0w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744925880; x=1745530680;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vBj2/kJjZAc0LTczWIyJjP2mbls9GBj8W8skvT1H2Do=;
+        b=qh29dN65JsVQy54CITTfr62WIQdM3mFW8CsnMTOR27mYl+W13OlJf1lKtVZp3jOFq4
+         L0z/QiUMq514wcG+EhvbWWNRP7uro+JgyN8aw3bHYk6PPfg7GcxBz19FezLieXFDOYr4
+         IRf7MVN81lqFlqLBFKVEUVD9qbuSIc8oeDcWQ+lQTG17+tT7mENUxLrcFBI+0HKnLbKJ
+         cH1YcyGsiRiqTg1Vpj5Tk7dux4/qvnVuXT+hbbZpZkAugyRzVjSZUezRChwvkSMOHE6h
+         mpt0snymr90hxaC7aBhT7R22skXTFq4SMzZliCKK7O5JDXO92bhRIiu1ca/9ow0PbEIY
+         odyA==
+X-Forwarded-Encrypted: i=1; AJvYcCW4WiJTeVNvjzw3PLFIQegbJnGYXs9kIiXWL8OfsC+NELy9gtKiyA7s06GeLlNiWyH2h0RAvvwt09IQws96viEX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxj2SJfuXxKnvDOeM5OgTCQSRarPsapcsNbpOzn2dRuvd90kXmb
+	AwBa6Ky7ZKwJT95N4F2DBwBqE+fglwmofKhouYWvDyMoc+f5TI80
+X-Gm-Gg: ASbGnctipA0fHPgEIIpO9JQsxqgIGVTkzK+smH/6aNks+bv19yPg8bmPCzK7SQzt/g5
+	NcNB/VcE/rj6cs+OCKD88PGbyR0GBzOzdSDSESy1knf0o3aaFqoT/PjwlFdLWC/9H3RUvcf5X5P
+	jcNIuDXNeT3/JJCW0mLf+Gby6uDhhHnRB7whLhsBuUt5ro76nXUtsJoH8aw/qx0z8KuqNqwGrEO
+	XNjAxBSybtNfMqMOdj4Vg6Q+bFRy3gbOZ1ee3+bPouQyiIG6110gd2xlLL6bdfutcGUY1ZptmQg
+	N14VyiT939/wdYso2dMsZleTMB2W4LWKKAb9RSQY
+X-Google-Smtp-Source: AGHT+IEj4cKNj6pZzHTBWAFPlLteT9Jrfl++FjZLlHoITXPgnwrKfG3J44foQntdOLt/7QC3M9XG2g==
+X-Received: by 2002:a17:903:3c6b:b0:223:fb3a:8631 with SMTP id d9443c01a7336-22c535b45b5mr8403775ad.24.1744925880317;
+        Thu, 17 Apr 2025 14:38:00 -0700 (PDT)
+Received: from hiago-nb ([2804:1b3:a7c3:a964:24cf:3c01:baa2:fe97])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3087bb53b4esm189024a91.17.2025.04.17.14.37.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Apr 2025 14:37:59 -0700 (PDT)
+Date: Thu, 17 Apr 2025 18:37:55 -0300
+From: Hiago De Franco <hiagofranco@gmail.com>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"regressions@lists.linux.dev" <regressions@lists.linux.dev>,
+	Hiago De Franco <hiago.franco@toradex.com>
+Subject: Re: [REGRESSION] Kernel reboots unexpectdely on i.MX8X when
+ Cortex-M4 is running and it was started by U-Boot bootaux
+Message-ID: <20250417213755.zqimyf7sqsypydpz@hiago-nb>
+References: <20250411125024.i2pib4hyeq4g6ffw@hiago-nb>
+ <PAXPR04MB8459ED6CE869173D4051257088B62@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <20250411162328.y2kchvdb4v4xi2lj@hiago-nb>
+ <PAXPR04MB8459ED33238AA790252E730988B32@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <20250414224452.gk4ccniqtumfbjth@hiago-nb>
+ <PAXPR04MB84591C4D560C0D3D64F927FC88B22@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <20250415184009.2fvtn7tbe6uzwiyg@hiago-nb>
+ <PAXPR04MB84596E1E47CDE57ADCE9B40F88BD2@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <20250416215744.6c57a3oqgt6zkeew@hiago-nb>
+ <PAXPR04MB8459C8C64D90F1224C1C189088BC2@PAXPR04MB8459.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250417-spmi-nvmem-v2-3-b88851e34afb@gmail.com>
-X-Migadu-Flow: FLOW_OUT
+In-Reply-To: <PAXPR04MB8459C8C64D90F1224C1C189088BC2@PAXPR04MB8459.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_212042_520616_E2DD1F39 
-X-CRM114-Status: GOOD (  13.11  )
+X-CRM114-CacheID: sfid-20250417_143801_403061_8E7001BD 
+X-CRM114-Status: GOOD (  55.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,234 +112,224 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reviewed-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+Hi Peng,
 
-Le Thu , Apr 17, 2025 at 10:14:51PM +0200, Sasha Finkelstein via B4 Relay a écrit :
-> From: Hector Martin <marcan@marcan.st>
-> 
-> Add device tree entries for NVMEM cells present on the PMU
-> 
-> Signed-off-by: Hector Martin <marcan@marcan.st>
-> Co-developed-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
-> Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
-> ---
->  arch/arm64/boot/dts/apple/t6001.dtsi      |  1 +
->  arch/arm64/boot/dts/apple/t6002.dtsi      |  1 +
->  arch/arm64/boot/dts/apple/t600x-die0.dtsi | 50 +++++++++++++++++++++++++++++++
->  arch/arm64/boot/dts/apple/t8103.dtsi      | 50 +++++++++++++++++++++++++++++++
->  arch/arm64/boot/dts/apple/t8112.dtsi      | 50 +++++++++++++++++++++++++++++++
->  5 files changed, 152 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/apple/t6001.dtsi b/arch/arm64/boot/dts/apple/t6001.dtsi
-> index 620b17e4031f069874aaabadbf06b7b29ec4031e..d2cf81926f284ccf7627701cc82edff31d4d72d6 100644
-> --- a/arch/arm64/boot/dts/apple/t6001.dtsi
-> +++ b/arch/arm64/boot/dts/apple/t6001.dtsi
-> @@ -11,6 +11,7 @@
->  #include <dt-bindings/interrupt-controller/apple-aic.h>
->  #include <dt-bindings/interrupt-controller/irq.h>
->  #include <dt-bindings/pinctrl/apple.h>
-> +#include <dt-bindings/spmi/spmi.h>
->  
->  #include "multi-die-cpp.h"
->  
-> diff --git a/arch/arm64/boot/dts/apple/t6002.dtsi b/arch/arm64/boot/dts/apple/t6002.dtsi
-> index a963a5011799a0480f88688fb4372a31f0bbf806..e36f422d257d8fe3a62bfa6e0f0e0dc6c34608a4 100644
-> --- a/arch/arm64/boot/dts/apple/t6002.dtsi
-> +++ b/arch/arm64/boot/dts/apple/t6002.dtsi
-> @@ -11,6 +11,7 @@
->  #include <dt-bindings/interrupt-controller/apple-aic.h>
->  #include <dt-bindings/interrupt-controller/irq.h>
->  #include <dt-bindings/pinctrl/apple.h>
-> +#include <dt-bindings/spmi/spmi.h>
->  
->  #include "multi-die-cpp.h"
->  
-> diff --git a/arch/arm64/boot/dts/apple/t600x-die0.dtsi b/arch/arm64/boot/dts/apple/t600x-die0.dtsi
-> index 4c224e686ffe5602329f7f394d3354559c4130ab..fba01727ee8bd67990cb001a5727d5dd2d01e2ee 100644
-> --- a/arch/arm64/boot/dts/apple/t600x-die0.dtsi
-> +++ b/arch/arm64/boot/dts/apple/t600x-die0.dtsi
-> @@ -50,6 +50,56 @@ nub_spmi0: spmi@2920a1300 {
->  		reg = <0x2 0x920a1300 0x0 0x100>;
->  		#address-cells = <2>;
->  		#size-cells = <0>;
-> +
-> +		pmic1: pmic@f {
-> +			compatible = "apple,maverick-pmic", "spmi-nvmem";
-> +			reg = <0xf SPMI_USID>;
-> +
-> +			nvmem-layout {
-> +				compatible = "fixed-layout";
-> +				#address-cells = <1>;
-> +				#size-cells = <1>;
-> +
-> +				pm_setting: pm-setting@1405 {
-> +					reg = <0x1405 0x1>;
-> +				};
-> +
-> +				rtc_offset: rtc-offset@1411 {
-> +					reg = <0x1411 0x6>;
-> +				};
-> +
-> +				boot_stage: boot-stage@6001 {
-> +					reg = <0x6001 0x1>;
-> +				};
-> +
-> +				boot_error_count: boot-error-count@6002 {
-> +					reg = <0x6002 0x1>;
-> +					bits = <0 4>;
-> +				};
-> +
-> +				panic_count: panic-count@6002 {
-> +					reg = <0x6002 0x1>;
-> +					bits = <4 4>;
-> +				};
-> +
-> +				boot_error_stage: boot-error-stage@6003 {
-> +					reg = <0x6003 0x1>;
-> +				};
-> +
-> +				shutdown_flag: shutdown-flag@600f {
-> +					reg = <0x600f 0x1>;
-> +					bits = <3 1>;
-> +				};
-> +
-> +				fault_shadow: fault-shadow@867b {
-> +					reg = <0x867b 0x10>;
-> +				};
-> +
-> +				socd: socd@8b00 {
-> +					reg = <0x8b00 0x400>;
-> +				};
-> +			};
-> +		};
->  	};
->  
->  	wdt: watchdog@2922b0000 {
-> diff --git a/arch/arm64/boot/dts/apple/t8103.dtsi b/arch/arm64/boot/dts/apple/t8103.dtsi
-> index bdb1cb9e406a441e458b1c735359b0148146e91b..3892fbe6a955513cad2ae836acc3e83009ab7cc5 100644
-> --- a/arch/arm64/boot/dts/apple/t8103.dtsi
-> +++ b/arch/arm64/boot/dts/apple/t8103.dtsi
-> @@ -747,6 +747,56 @@ nub_spmi: spmi@23d0d9300 {
->  			reg = <0x2 0x3d0d9300 0x0 0x100>;
->  			#address-cells = <2>;
->  			#size-cells = <0>;
-> +
-> +			pmic1: pmic@f {
-> +				compatible = "apple,sera-pmic", "spmi-nvmem";
-> +				reg = <0xf SPMI_USID>;
-> +
-> +				nvmem-layout {
-> +					compatible = "fixed-layout";
-> +					#address-cells = <1>;
-> +					#size-cells = <1>;
-> +
-> +					boot_stage: boot-stage@9f01 {
-> +						reg = <0x9f01 0x1>;
-> +					};
-> +
-> +					boot_error_count: boot-error-count@9f02 {
-> +						reg = <0x9f02 0x1>;
-> +						bits = <0 4>;
-> +					};
-> +
-> +					panic_count: panic-count@9f02 {
-> +						reg = <0x9f02 0x1>;
-> +						bits = <4 4>;
-> +					};
-> +
-> +					boot_error_stage: boot-error-stage@9f03 {
-> +						reg = <0x9f03 0x1>;
-> +					};
-> +
-> +					shutdown_flag: shutdown-flag@9f0f {
-> +						reg = <0x9f0f 0x1>;
-> +						bits = <3 1>;
-> +					};
-> +
-> +					fault_shadow: fault-shadow@a67b {
-> +						reg = <0xa67b 0x10>;
-> +					};
-> +
-> +					socd: socd@ab00 {
-> +						reg = <0xab00 0x400>;
-> +					};
-> +
-> +					pm_setting: pm-setting@d001 {
-> +						reg = <0xd001 0x1>;
-> +					};
-> +
-> +					rtc_offset: rtc-offset@d100 {
-> +						reg = <0xd100 0x6>;
-> +					};
-> +				};
-> +			};
->  		};
->  
->  		pinctrl_nub: pinctrl@23d1f0000 {
-> diff --git a/arch/arm64/boot/dts/apple/t8112.dtsi b/arch/arm64/boot/dts/apple/t8112.dtsi
-> index 950d1f906ba3023c1d118179207a2099345aae94..325e2ac22b3c88d863b2270c39a0a05d625e3f10 100644
-> --- a/arch/arm64/boot/dts/apple/t8112.dtsi
-> +++ b/arch/arm64/boot/dts/apple/t8112.dtsi
-> @@ -787,6 +787,56 @@ nub_spmi: spmi@23d714000 {
->  			reg = <0x2 0x3d714000 0x0 0x100>;
->  			#address-cells = <2>;
->  			#size-cells = <0>;
-> +
-> +			pmic1: pmic@e {
-> +				compatible = "apple,stowe-pmic", "spmi-nvmem";
-> +				reg = <0xe SPMI_USID>;
-> +
-> +				nvmem-layout {
-> +					compatible = "fixed-layout";
-> +					#address-cells = <1>;
-> +					#size-cells = <1>;
-> +
-> +					fault_shadow: fault-shadow@867b {
-> +						reg = <0x867b 0x10>;
-> +					};
-> +
-> +					socd: socd@8b00 {
-> +						reg = <0x8b00 0x400>;
-> +					};
-> +
-> +					boot_stage: boot-stage@f701 {
-> +						reg = <0xf701 0x1>;
-> +					};
-> +
-> +					boot_error_count: boot-error-count@f702 {
-> +						reg = <0xf702 0x1>;
-> +						bits = <0 4>;
-> +					};
-> +
-> +					panic_count: panic-count@f702 {
-> +						reg = <0xf702 0x1>;
-> +						bits = <4 4>;
-> +					};
-> +
-> +					boot_error_stage: boot-error-stage@f703 {
-> +						reg = <0xf703 0x1>;
-> +					};
-> +
-> +					shutdown_flag: shutdown-flag@f70f {
-> +						reg = <0xf70f 0x1>;
-> +						bits = <3 1>;
-> +					};
-> +
-> +					pm_setting: pm-setting@f801 {
-> +						reg = <0xf801 0x1>;
-> +					};
-> +
-> +					rtc_offset: rtc-offset@f900 {
-> +						reg = <0xf900 0x6>;
-> +					};
-> +				};
-> +			};
->  		};
->  
->  		pinctrl_smc: pinctrl@23e820000 {
-> 
-> -- 
-> 2.49.0
-> 
-> 
+On Thu, Apr 17, 2025 at 02:46:46AM +0000, Peng Fan wrote:
+> > Subject: Re: [REGRESSION] Kernel reboots unexpectdely on i.MX8X
+> > when Cortex-M4 is running and it was started by U-Boot bootaux
+> >
+> > Hi Peng,
+> >
+> > On Wed, Apr 16, 2025 at 08:19:27AM +0000, Peng Fan wrote:
+> > > > Got it, I was able to make it work with the downstream pingpong
+> > > > driver and the MCUXpresso demo. I can launch the firmware using
+> > the
+> > > > remoteproc and exchange data between the two cores.
+> > > >
+> > > > There is something I noticed, when I start the pingpong demo with
+> > U-
+> > > > Boot, it does not work. I run the pingpong modprobe on Linux but
+> > the
+> > > > name service is never annouced. It only works if I start with the
+> > > > remoteproc on Linux, not U-Boot. Is this because of Linux not being
+> > > > able to control the M4?
+> > >
+> > > No. In you case, you could start using remoteproc, that means Linux
+> > > could control M4.
+> > >
+> > > >
+> > > > If I start the binary using U-Boot, the "state" always report as
+> > "offline"
+> > > > by the remoteproc driver.
+> > >
+> > > In drivers/remoteproc/imx_rproc.c,  imx_rproc_detect_mode case
+> > > IMX_RPROC_SCU_API is used for detect mode of M4 for i.MX8Q/X
+> > platform.
+> > > Please give a look where it returns.
+> > >
+> > > For U-Boot start m4, linux should remote state: "attached"
+> >
+> > Ok, in this case looks its does not work. I start the firmware with U-
+> > Boot and state is always "offline". Inside the IMX_RPROC_SCU_API case,
+> > the function returns at this point:
+> >
+> > 		...
+> > 		/*
+> > 		 * If Mcore resource is not owned by Acore partition, It
+> > is kicked by ROM,
+> > 		 * and Linux could only do IPC with Mcore and
+> > nothing else.
+> > 		 */
+> > 		if (imx_sc_rm_is_resource_owned(priv->ipc_handle,
+> > priv->rsrc_id)) {
+> > 			if (of_property_read_u32(dev->of_node,
+> > "fsl,entry-address", &priv->entry))
+> > 				return -EINVAL;
+> >
+> > 			return imx_rproc_attach_pd(priv); // <--
+> > Returns here
+> > 		...
+> >
+> > And this function, imx_rproc_attach_pd, returns 0 at the end:
+> >
+> > 	...
+> > 	return 0; // <-- Returns here at the end
+>
+>         ret = dev_pm_domain_attach_list(dev, &pd_data, &priv->pd_list);
+>         return ret < 0 ? ret : 0;
+>
+> It should return with ret as 0.
+> Because you mentioned you added two entries.
+> 		power-domains = <&pd IMX_SC_R_M4_0_PID0>,
+> 				<&pd IMX_SC_R_M4_0_MU_1A>;
+>
+> https://lore.kernel.org/all/20250411162328.y2kchvdb4v4xi2lj@hiago-nb/
+>
+>
+> >
+> > detach_pd:
+> > 	while (--i >= 0) {
+> > 	...
+>
+> It should not runs into detach_pd, where it fails?
+>
+> >
+> > So looks like in this case the partition is *not* owned by the A core, it
+> > is still being owned by the Mcore and I can not attach.
+>
+> No. It is owned, because imx_sc_rm_is_resource_owned returns
+> true from what you said above.
+>
+> >
+> > For debugging purposes, I did the following patch, inverting the logic:
+> >
+> > diff --git a/drivers/remoteproc/imx_rproc.c
+> > b/drivers/remoteproc/imx_rproc.c index 592a34cfa75e..2fcc9086e916
+> > 100644
+> > --- a/drivers/remoteproc/imx_rproc.c
+> > +++ b/drivers/remoteproc/imx_rproc.c
+> > @@ -1072,7 +1072,7 @@ static int imx_rproc_detect_mode(struct
+> > imx_rproc *priv)
+> >                  * If Mcore resource is not owned by Acore partition, It is
+> > kicked by ROM,
+> >                  * and Linux could only do IPC with Mcore and nothing else.
+> >                  */
+> > -               if (imx_sc_rm_is_resource_owned(priv->ipc_handle, priv-
+> > >rsrc_id)) {
+> > +               if (!imx_sc_rm_is_resource_owned(priv->ipc_handle,
+> > + priv->rsrc_id)) {
+> >                         if (of_property_read_u32(dev->of_node, "fsl,entry-
+> > address", &priv->entry))
+> >                                 return -EINVAL;
+>
+> Please no.
+>
+> >
+> > And now the remoteproc driver attaches to the MCore succesfully,
+> > which is exactly what I want. However less than one second later the
+> > kernel reboot with the "SCFW fault reset" again.
+>
+> The resources used by M4 are unexpectedly shutdown by Linux,
+> as I understand.
+>
+> Please check imx_rproc_attach_pd, it should return success
+> with dev_pm_domain_attach_list return 0.
+
+I was able to debug this issue further. The issue is not with the power
+domains and the clock, these were solved by using the correct device
+tree and by using the optional clk api:
+
+@@ -1033,7 +1034,7 @@ static int imx_rproc_clk_enable(struct imx_rproc *priv)
+        if (dcfg->method == IMX_RPROC_NONE)
+                return 0;
+
+-       priv->clk = devm_clk_get(dev, NULL);
++       priv->clk = devm_clk_get_optional(dev, NULL);
+        if (IS_ERR(priv->clk)) {
+                dev_err(dev, "Failed to get clock\n");
+                return PTR_ERR(priv->clk);
+
+And the device tree node:
+
+	imx8x-cm4 {
+		compatible = "fsl,imx8qxp-cm4";
+		mbox-names = "tx", "rx", "rxdb";
+		mboxes = <&lsio_mu5 0 1
+			  &lsio_mu5 1 1
+			  &lsio_mu5 3 1>;
+		memory-region = <&vdev0buffer>, <&vdev0vring0>, <&vdev0vring1>,
+				<&vdev1vring0>, <&vdev1vring1>, <&rsc_table>;
+		power-domains = <&pd IMX_SC_R_M4_0_PID0>,
+				<&pd IMX_SC_R_M4_0_MU_1A>;
+		fsl,entry-address = <0x34fe0000>;
+		fsl,resource-id = <IMX_SC_R_M4_0_PID0>;
+	};
+
+The issue is: the .attach callback is never called when then code was
+started by U-Boot bootaux. It should be called inside rproc_validate()
+function from remoteproc_core.c. However, the rproc->state when we reach
+this function is RPROC_OFFLINE, which causes the state to be always
+(obviously) offline.
+
+In imx_rproc.c driver, imx_rproc_detect_mode() returns at
+
+		/*
+		 * If Mcore resource is not owned by Acore partition, It is kicked by ROM,
+		 * and Linux could only do IPC with Mcore and nothing else.
+		 */
+		if (imx_sc_rm_is_resource_owned(priv->ipc_handle, priv->rsrc_id)) {
+			if (of_property_read_u32(dev->of_node, "fsl,entry-address", &priv->entry))
+				return -EINVAL;
+
+			return imx_rproc_attach_pd(priv);
+		}
+
+imx_sc_rm_is_resource_owned() returns 1, as M4 is owned by Linux, and
+imx_rproc_attach_pd() returns 0, as both power domains are set. This
+happens _before_ "priv->rproc->state = RPROC_DETACHED" is set one line
+below, which causes the state to be always offline and the .attach
+callback not called. For debugging, this patch solves this issue:
+
+diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+index 74299af1d7f1..b5af44a5d542 100644
+--- a/drivers/remoteproc/imx_rproc.c
++++ b/drivers/remoteproc/imx_rproc.c
+@@ -949,6 +949,7 @@ static int imx_rproc_detect_mode(struct imx_rproc *priv)
+                        if (of_property_read_u32(dev->of_node, "fsl,entry-address", &priv->entry))
+                                return -EINVAL;
+
++                       priv->rproc->state = RPROC_DETACHED;
+                        return imx_rproc_attach_pd(priv);
+                }
+
+With that, the running M4 is attached succesfully:
+
+root@colibri-imx8x-07308754:~# dmesg | grep remote
+[    0.481561] remoteproc remoteproc0: imx-rproc is available
+[    0.481656] remoteproc remoteproc0: attaching to imx-rproc
+[    0.481743] remoteproc remoteproc0: remote processor imx-rproc is now attached
+
+But as you know, this is not the correct solution, because this will
+also attach when the M4 is _not_ running, since it will be owned by
+Linux without any code running, which I think is wrong... I think this
+"if" statement is not fully correct, there must be a way to attach to
+the running M4. Any ideas or suggestions to fix this part?
+
+>
+> Regards,
+> Peng
+>
+> >
+> > Do you know what could be the issue in this case? Maybe the
+> > partitions are not yet correct?
+> >
+> > >
+> > > Regards,
+> > > Peng.
+> >
+> > Cheers,
+> > Hiago.
+
+Cheers,
+Hiago.
 
