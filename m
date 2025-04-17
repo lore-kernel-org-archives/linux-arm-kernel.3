@@ -4,94 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4906C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 09:23:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AC54C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 09:25:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ELe99BKXENcZ9wZk2F+L28C/1qfBK7p9NsOPyMp2prs=; b=aWd6YLVaHMXLVsu/QMBVsDCHhR
-	xnALkWNYdFcKyZQ2M9B/R5dlQ/Z2/UoCYkggFkKsKb/81GI4rsxwdsoll7s+U17DncXNYVMliLBQZ
-	W6p7UkP+RwNwgFdyFuIJ2vFEL8kQMNJIFmp5PtWrjLYGZkV5DwCuqyKUiOjW1gEWEtIQYQcWX0vuv
-	Y7WbKxqJ0esz9muIrPR2FDmS/apOzWAGugee/1BFO4zweAYenSlBwOdh1LTThtflbrYZdU1v90apb
-	TdAT3ZRPzYC7PbnGuXg3ayYwq5rIiKV8dj7JFTq1NoXDk/yAwGb+wEUQYOA01PG1iIANWpIDVdvVi
-	t6PgMyGg==;
+	bh=vTGzoo+jwwIa4vhDbzzqp28Av2O/B79ZMnl3txb9+EI=; b=fXAEX56vN9/5w/FUk/lX8CpTuJ
+	9kOqrhsxq3oYWAfq53qnaiVyo8l/Cno9VIJwP3fB4jkPw+vVtqfCt7KJTBZG4AGnCZGMMXPmDciUA
+	GFISjqTA2BLlkdtt5JL8FgMMndRwSAcUyhNYWedgqJBjSqsFVi6TbdMh9LzjrvpzrJ5+5AKgoJTHa
+	0892ze4a/I9FswqHwUZOD0F51/HJeVPKreylCE6Zwv+N6d24iXxMCaCi55c3BlAVww6J9qvFzp8ak
+	+6TBInNOr9slGkArlCmiA2MUqC5PcMJFB54q53hTv/ooanFJmkPmiz+6BP6aEF3VpHwxtBJwCYXNf
+	CCvOBCUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5LSy-0000000CRNM-0ZRo;
-	Thu, 17 Apr 2025 09:23:28 +0000
-Received: from mx07-00376f01.pphosted.com ([185.132.180.163])
+	id 1u5LUn-0000000CRuV-3ZoP;
+	Thu, 17 Apr 2025 09:25:22 +0000
+Received: from mailout1.samsung.com ([203.254.224.24])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5LGK-0000000COQG-00vz
+	id 1u5LNL-0000000CPcc-1hFp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 09:10:26 +0000
-Received: from pps.filterd (m0168889.ppops.net [127.0.0.1])
-	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53H503lK018418;
-	Thu, 17 Apr 2025 10:10:17 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=dk201812; bh=E
-	Le99BKXENcZ9wZk2F+L28C/1qfBK7p9NsOPyMp2prs=; b=MOAqAk0UKud02hI1e
-	8OZsOGjJ+X4v9I3tWEfarWdqXchsbqJEUCWlO1U9c6rzg6o+o7A3MN432bSRENaZ
-	AetGuAqSg6typ+XTbQH22LnVOHl8PuEvLM53p4VtbuGQyd8VhqX/bcgcnBgYz5Rv
-	r0MbZua3e+2GFKaLox4ZdhAKpR1kBJCgJFgKObysxpLllrM4rsBclIX9CGdh0oAQ
-	2d/hmHkzB3Z6bjB5svFWTR/Hb5HStY/pFbQSF0jc8ZpNgShQE7mv1wi/2bTepcbR
-	lkf6OOObEkHT5Qao4MFv15ozByTFMEV0TSh1pJFj/gAO7gat6GYYDujpL2ZZH7lx
-	hxirA==
-Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
-	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 461y2mh4tg-2
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Thu, 17 Apr 2025 10:10:17 +0100 (BST)
-Received: from Matts-MacBook-Pro.local (172.25.7.98) by HHMAIL05.hh.imgtec.org
- (10.100.10.120) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Thu, 17 Apr
- 2025 10:10:15 +0100
-From: Matt Coster <matt.coster@imgtec.com>
-Date: Thu, 17 Apr 2025 10:10:02 +0100
-Subject: [PATCH v2 1/2] arm64: dts: ti: k3-am62: New GPU binding details
+	Thu, 17 Apr 2025 09:17:42 +0000
+Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250417091732epoutp01c24b31eb22d4ab7e8016fc9ef6a9e291~3EG_Yx53_3208232082epoutp01E
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Apr 2025 09:17:32 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250417091732epoutp01c24b31eb22d4ab7e8016fc9ef6a9e291~3EG_Yx53_3208232082epoutp01E
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1744881452;
+	bh=vTGzoo+jwwIa4vhDbzzqp28Av2O/B79ZMnl3txb9+EI=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=tXvJB1hL+77XVy6X4oCeju6K2EfekGSn/Bqg5dh5W4I74VERLz3kwrCmlDeme2wn7
+	 bSTHRJu2ebzLk0nG/Cb1PjR0xKGAoOhBBsIDrfzMIwgsBM/9zrrksrK2urA/wvh+pn
+	 chijUJzsMMo6+01WoKKN3yc+5kVeuRrF7rmh/EAY=
+Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
+	20250417091731epcas5p30f62b25725ddc0e7d1bb574d56365a6a~3EG9_eMkR2653126531epcas5p3-;
+	Thu, 17 Apr 2025 09:17:31 +0000 (GMT)
+Received: from epsmgec5p1-new.samsung.com (unknown [182.195.38.181]) by
+	epsnrtp01.localdomain (Postfix) with ESMTP id 4ZdXNT27w6z6B9m4; Thu, 17 Apr
+	2025 09:17:29 +0000 (GMT)
+Received: from epcas5p1.samsung.com ( [182.195.41.39]) by
+	epsmgec5p1-new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	07.80.19608.927C0086; Thu, 17 Apr 2025 18:17:29 +0900 (KST)
+Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250417050330epcas5p296757d6cf79352bfdbcd38695c6f8f3d~3ApLjNhDf2151521515epcas5p2V;
+	Thu, 17 Apr 2025 05:03:30 +0000 (GMT)
+Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
+	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20250417050330epsmtrp2bba4a97f42c7d4047c8ae4e36902ae5c~3ApLieM6h2966829668epsmtrp2J;
+	Thu, 17 Apr 2025 05:03:30 +0000 (GMT)
+X-AuditID: b6c32a50-225fa70000004c98-87-6800c7296980
+Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
+	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
+	23.F0.19478.2AB80086; Thu, 17 Apr 2025 14:03:30 +0900 (KST)
+Received: from INBRO000519 (unknown [107.122.1.150]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250417050328epsmtip129419b78204c6004c161bfd7be41e3d4~3ApJ0Oo7E3037630376epsmtip1j;
+	Thu, 17 Apr 2025 05:03:28 +0000 (GMT)
+From: "Faraz Ata" <faraz.ata@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, <alim.akhtar@samsung.com>,
+	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+Cc: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-samsung-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<rosa.pila@samsung.com>, <dev.tailor@samsung.com>,
+	<suyash.bitti@samsung.com>
+In-Reply-To: <a52969f2-8ea2-41e5-b4c8-8a03220cbf51@kernel.org>
+Subject: RE: [PATCH v2] arm64: dts: exynos: Add DT node for all UART ports
+Date: Thu, 17 Apr 2025 10:33:12 +0530
+Message-ID: <06b501dbaf56$0fab3b90$2f01b2b0$@samsung.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQIiLJ9Qel8GAkpX5i6PIbvAaC3kAAM/bP3AAeJrQQMCHSEhZgHUtyXcstGu3fA=
+Content-Language: en-us
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrFJsWRmVeSWpSXmKPExsWy7bCmuq7mcYYMg99TuC0ezNvGZrFm7zkm
+	i3s7lrFbzD9yjtXi5ax7bBbnz29gt9j0+BqrxeVdc9gsZpzfx2Txf88OdosvPx8wW8yeX+PA
+	47FpVSebx+Yl9R59W1YxenzeJBfAEpVtk5GamJJapJCal5yfkpmXbqvkHRzvHG9qZmCoa2hp
+	Ya6kkJeYm2qr5OIToOuWmQN0mJJCWWJOKVAoILG4WEnfzqYov7QkVSEjv7jEVim1ICWnwKRA
+	rzgxt7g0L10vL7XEytDAwMgUqDAhO2PhXe2CLv6KZ6tfMTcwLuPpYuTkkBAwkWhbeouti5GL
+	Q0hgD6NEx/U9bCAJIYFPjBLd06ohEkD2lr17mGA6Jl/fyAxRtJNRYsblWIiil4wSx44cYAVJ
+	sAloStz5/JQJJCEi0MUosfPBZFYQh1ngEaPEgU//WECqOAXsJH70/WIHsYUFvCT6mm4xdjFy
+	cLAIqEq8644ECfMKWEpM27aPCcIWlDg58wlYK7OAtsSyha+ZIS5SkPj5dBkrSKuIgJ/Evc1u
+	ECXiEi+PHmGHKFnLIXHqVCqE7SLxa8J9VghbWOLV8S1QNVISn9/tZYOwfSQmH/0Gdo2EQIbE
+	nbUiEGF7idULzoBtYgZ6cf0ufYiwrMTUU+uYILbySfT+fgINKl6JHfNgbGWJk3v2QG2VlDh0
+	+wXrBEalWUj+moXkr1lIHpiFsG0BI8sqRqnUguLc9NRk0wJD3bzUcnhsJ+fnbmIEJ1qtgB2M
+	qzf81TvEyMTBeIhRgoNZSYT3nPm/dCHelMTKqtSi/Pii0pzU4kOMpsDAnsgsJZqcD0z1eSXx
+	hiaWBiZmZmYmlsZmhkrivM07W9KFBNITS1KzU1MLUotg+pg4OKUamPJCq5Uc+os8XKL15J2m
+	RxjfKlCrkDg656VmhMBl/YdBb0qtepNMQxy+LM89LWa99z5H69Lvv+utlod4Tk20ftmxcuPu
+	C4/ez2ZeqtzcEnyYp0Jrs3r6S1kuW73yyM9T1rCV8UxTtF8vq9tqoTo/Z/1NsWkPVp184xl0
+	S/HT7/ysmPz5WZxCUy+GR34U/Jcgvr4uSTJlblRN2rtpkfIq12zzFqwtbxXfYm40/fKRP7v8
+	75lvb/C6WaGz/s7nDxm15jzWIiLPIr4u6ejgfLXBtGx2XsfutVOrOBd88G9T/c7mERvvufxk
+	+EOR8xc1eFc//a3Vc3t2fFXslD9Lrv6QPlq1agnbipwawTNuNcFnlViKMxINtZiLihMBpqyx
+	sj0EAAA=
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprEIsWRmVeSWpSXmKPExsWy7bCSnO6iboYMg7nTxS0ezNvGZrFm7zkm
+	i3s7lrFbzD9yjtXi5ax7bBbnz29gt9j0+BqrxeVdc9gsZpzfx2Txf88OdosvPx8wW8yeX+PA
+	47FpVSebx+Yl9R59W1YxenzeJBfAEsVlk5Kak1mWWqRvl8CVseLkKqaCD3wV079/Z25gbOHp
+	YuTkkBAwkZh8fSNzFyMXh5DAdkaJpubrTBAJSYnDT++yQtjCEiv/PWeHKHrOKPH5xjJmkASb
+	gKbEnc9PmUASIgITGCWmbNkI5jALvGCUeLLgBCtEywImiaWH1oLN5RSwk/jR94sdxBYW8JLo
+	a7rF2MXIwcEioCrxrjsSJMwrYCkxbds+JghbUOLkzCcsIDazgLbE05tP4exlC18zQ5ynIPHz
+	6TJWkDEiAn4S9za7QZSIS7w8eoR9AqPwLCSTZiGZNAvJpFlIWhYwsqxiFE0tKM5Nz00uMNQr
+	TswtLs1L10vOz93ECI42raAdjMvW/9U7xMjEwXiIUYKDWUmE95z5v3Qh3pTEyqrUovz4otKc
+	1OJDjNIcLErivMo5nSlCAumJJanZqakFqUUwWSYOTqkGJpeEmylPJjp/fr8+/qvY9qzX3m7e
+	l1lDJGPaf7685/v2lcC3XXd/Hq/+NuFUtMti4xcrJ519+qOj5GWZxgGNpIVaRoFPjDtXbNaZ
+	6lrUfdA66XKceqTGXZWSU8kC9eXbXprExBi4hBVkb5T0fCgvdCy3V3GG2Px2z/aEvTzy05sv
+	buxfGXH2YKn9zDVK1fa8Pm7nt5QK/z9ZNStsX4bY89CP3DPfLF9Umfv/kFnQqzw2Z9njlpaB
+	jKsYepd/+CjSrRSfslfjvPyxw4YngzgZRR3fR1Z/SZham+ry+Grk7No/xo63NmldcRZeJCTD
+	E7D6SCnD6j03NdiTVfbteZZqLb0jYOLt6r1rFCYXZ9blK7EUZyQaajEXFScCALtXOuclAwAA
+X-CMS-MailID: 20250417050330epcas5p296757d6cf79352bfdbcd38695c6f8f3d
+X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250417-bxs-4-64-dts-v2-1-9f8c09233114@imgtec.com>
-References: <20250417-bxs-4-64-dts-v2-0-9f8c09233114@imgtec.com>
-In-Reply-To: <20250417-bxs-4-64-dts-v2-0-9f8c09233114@imgtec.com>
-To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        "Tero
- Kristo" <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Frank Binns <frank.binns@imgtec.com>,
-        "Alessio Belle" <alessio.belle@imgtec.com>,
-        Alexandru Dadu
-	<alexandru.dadu@imgtec.com>,
-        Luigi Santivetti <luigi.santivetti@imgtec.com>,
-        Randolph Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>,
-        Matt Coster
-	<matt.coster@imgtec.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1523;
- i=matt.coster@imgtec.com; h=from:subject:message-id;
- bh=3r7y3b8Luv0eeOkRRzaZ75c+tHSjaJh1LrOYZ2uktyE=;
- b=owGbwMvMwCFWuUfy8817WRsYT6slMWQwHC37virhgzOPNesCbZZGdWUvbaH0emY/tralClftp
- 2R01BzqKGVhEONgkBVTZNmxwnKF2h81LYkbv4ph5rAygQxh4OIUgIlY6zD8T9u/rnvlrlt2UQem
- mEz7mpo+5Yu46b/kpiKJrlclIXbxXxkZ3ot8rJgjX8D3uT7YVlzRwloz69O7JFmvrEyD0sqzZlN
- ZAA==
-X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
- fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
-X-Originating-IP: [172.25.7.98]
-X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
-X-Authority-Analysis: v=2.4 cv=LbU86ifi c=1 sm=1 tr=0 ts=6800c579 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=6pm0VhuFVbIA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=sozttTNsAAAA:8
- a=PTNHAAa5d5l9TNYsNX4A:9 a=QEXdDO2ut3YA:10 a=t8nPyN_e6usw4ciXM-Pk:22
-X-Proofpoint-GUID: LNR63gzqXsreji4_y9QwzcMq42PoZCP4
-X-Proofpoint-ORIG-GUID: LNR63gzqXsreji4_y9QwzcMq42PoZCP4
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250318074801epcas5p3de68627a3e64ebc2a95ed33a3f485e80
+References: <CGME20250318074801epcas5p3de68627a3e64ebc2a95ed33a3f485e80@epcas5p3.samsung.com>
+	<20250318075635.3372599-1-faraz.ata@samsung.com>
+	<befe7d30-1727-4540-9072-f21ef96ea504@kernel.org>
+	<03e501dbaab0$65bb47a0$3131d6e0$@samsung.com>
+	<a52969f2-8ea2-41e5-b4c8-8a03220cbf51@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_021024_351590_FAA795C8 
-X-CRM114-Status: UNSURE (   9.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250417_021740_872161_E39E06A3 
+X-CRM114-Status: GOOD (  24.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,47 +143,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the new compatible string and power domain name as introduced in
-commit 2c01d9099859 ("dt-bindings: gpu: img: Future-proofing
-enhancements")[1].
+Hello Krzysztof
 
-[1]: https://lore.kernel.org/r/20250410-sets-bxs-4-64-patch-v1-v6-1-eda620c5865f@imgtec.com
-
-Reviewed-by: Randolph Sapp <rs@ti.com>
-Signed-off-by: Matt Coster <matt.coster@imgtec.com>
----
-Changes in v2:
-- Add Randolph's Rb
-- Link to v1: https://lore.kernel.org/r/20250415-bxs-4-64-dts-v1-1-f7d3fa06625d@imgtec.com
-
-This patch was previously sent as [DO NOT MERGE]:
-https://lore.kernel.org/r/20250410-sets-bxs-4-64-patch-v1-v6-17-eda620c5865f@imgtec.com
----
- arch/arm64/boot/dts/ti/k3-am62-main.dtsi | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
-index 7d355aa73ea2116723735f70b9351cefcd8bc118..d17b25cae196b08d24adbe7c913ccaba7eed37eb 100644
---- a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
-@@ -691,12 +691,14 @@ ospi0: spi@fc40000 {
- 	};
- 
- 	gpu: gpu@fd00000 {
--		compatible = "ti,am62-gpu", "img,img-axe";
-+		compatible = "ti,am62-gpu", "img,img-axe-1-16m", "img,img-axe",
-+			     "img,img-rogue";
- 		reg = <0x00 0x0fd00000 0x00 0x20000>;
- 		clocks = <&k3_clks 187 0>;
- 		clock-names = "core";
- 		interrupts = <GIC_SPI 86 IRQ_TYPE_LEVEL_HIGH>;
- 		power-domains = <&k3_pds 187 TI_SCI_PD_EXCLUSIVE>;
-+		power-domain-names = "a";
- 	};
- 
- 	cpsw3g: ethernet@8000000 {
-
--- 
-2.49.0
+> -----Original Message-----
+> From: Krzysztof Kozlowski <krzk=40kernel.org>
+> Sent: Saturday, April 12, 2025 3:41 PM
+> To: Faraz Ata <faraz.ata=40samsung.com>; alim.akhtar=40samsung.com;
+> robh=40kernel.org; krzk+dt=40kernel.org; conor+dt=40kernel.org
+> Cc: devicetree=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org;=
+ linux-
+> samsung-soc=40vger.kernel.org; linux-kernel=40vger.kernel.org;
+> rosa.pila=40samsung.com; dev.tailor=40samsung.com;
+> suyash.bitti=40samsung.com
+> Subject: Re: =5BPATCH v2=5D arm64: dts: exynos: Add DT node for all UART =
+ports
+>=20
+> On 11/04/2025 09:07, Faraz Ata wrote:
+> > Hello Krzysztof
+> >
+> >> Subject: Re: =5BPATCH v2=5D arm64: dts: exynos: Add DT node for all UA=
+RT
+> >> ports
+> >>
+> >> On 18/03/2025 08:56, Faraz Ata wrote:
+> >>> +
+> >>> +		usi_17: usi=4010d800c0 =7B
+> >>
+> >> Messed order. Keep nodes sorted by unit address (see DTS coding style)=
+.
+> >>
+> >>
+> > Thanks for your review
+> > Based on the DTS coding style, it is acceptable to group nodes of the
+> > same type together, even if it breaks the unit address ordering.
+>=20
+> That's accepted alternative because some subsystems do that way. I don't
+> think we ever applied such rule to Samsung? Do you have any prior
+> reference about this? I accepted mess in the past, but that does not mean
+> that mess is the rule.
+>=20
+> > https://docs.kernel.org/6.12/devicetree/bindings/dts-coding-style.html
+> > Please let me know your opinion on this.
+> > Do you mean I should move all the USI_ node after pwm node?
+>=20
+> Please it according to sorting by unit address.
+>=20
+USI is spread across two blocks BLK_PERIC0 and BLK_PERIC1,
+USI00 to USI08 fall under BLK_PERIC0
+USI09 to USI17 fall under BLK_PERIC1.
+Will send another version with USI nodes sorted by unit address with respec=
+t to BLK_PERIC0 and BLK_PERIC1.
+>=20
+> Best regards,
+> Krzysztof
 
 
