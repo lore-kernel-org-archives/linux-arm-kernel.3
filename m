@@ -4,65 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2FE1C369B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 13:51:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 676F4C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 13:58:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3qb5qcUkVqoqTANb8er0vsrSQ+//z69cq30K77YtSYw=; b=FvEBYn0nir5PAFymfDJsMabrWN
-	0pRflyOdzGTH+e7PTkzuVuOBkfGfXyZlNTEddnZEC6DRojL5iPIZGp242Ee8LIA4FLd7oscBoH6Pg
-	gQU9wC5sIz62KpkY8j3phcXPfgP3G1BXf78pXWEyXQzxBQ9iNqFXGKu67GwKItGHVapqVZKrAWHtA
-	2EP3FAxQH+KBtQ7SyDEMC44kX0iTNfRbHNRIFcnzoQqErIbcegxotp2OfJbm/u8ScVFjC9RXjQj7v
-	SPbHgpTtoONYtiALkqCRDDlpHdlYVlpahyhXwK1vQFymaI/hc95CY8LCz1X3yn+tL0dQEcDQ+fkJK
-	xe4mTGzw==;
+	bh=agOmMDGyX+AHfGFpR6U+k5uDlDebQriePJ9/mg+Opxk=; b=qNicET7i/PZbhE5XeZ6SowfYhf
+	2FwMKKAzPx79Dt2weuAvlVuC4mkrG2/gUQmFKZz0wHs3cDLBCFPBNtWDXvOKSVH6CWG6dZGHjQyvt
+	PJgjIjjE3bfFjVialWzxzDNaeegWvQJqRhKOBhXaYoP4YP8vYWda+l0KA33KZKvuz6B4/wu1B6qJD
+	wyGmeHvMMPnnzTMHSy4DPRPdj7vmiUA7ry1Bn9aaeGiH6t7R3BtPoIfLTZUl8tmYQC49WlFeVDDjE
+	TOlz/9a2lW3UFkQ33y42KwiQCB2XkHXzLorVQ2MzW6ufx8+gba671/HlsmLRWky0shRTK5D0xeBDb
+	EQauHkww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5PeQ-0000000DDUR-1kjv;
-	Thu, 17 Apr 2025 13:51:34 +0000
-Received: from out-183.mta1.migadu.com ([95.215.58.183])
+	id 1u5PlA-0000000DEFd-27IK;
+	Thu, 17 Apr 2025 13:58:32 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5PcY-0000000DD8X-1lOY
+	id 1u5OQR-0000000Cy33-2vUx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 13:49:40 +0000
-Date: Thu, 17 Apr 2025 09:49:28 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
-	s=key1; t=1744897775;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3qb5qcUkVqoqTANb8er0vsrSQ+//z69cq30K77YtSYw=;
-	b=0cHKdrEI6AjJ3/G+2nZkkSZ3jBm8hhaDffU2CmEbFtCZ81mgvivxImAmK19WY+8e+r8lkr
-	4O2shhmntrbpDYGuyL+OWBKeIWZqc6+rdHdPn0gyfVu1lB9NMvJxuqsTNiWUgNxwpX1OyB
-	wp4aDIPzWecyklVAmjJIthheS3yPnr/KTpywWeRjPsJ9He2x2ItR6JJOVNH6W+0Bi4aBPU
-	+kjCbYqVjUAwv2oYopj5mUZyPH4R+jHqc9v4oBGzPYgMdrg3rp0YnBrPvkjjAPcwEKgWhr
-	01Pyy1vvTOAR/yVegEBIVzWMX2XXXNlIhWElSswXbN0PDUqZA9eV+Dx/AzXHTw==
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-To: Srinivas Kandagatla <srini@kernel.org>
-Cc: fnkl.kernel@gmail.com, Sven Peter <sven@svenpeter.dev>,
-	Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Hector Martin <marcan@marcan.st>
-Subject: Re: [PATCH 2/3] nvmem: Add spmi-nvmem driver
-Message-ID: <aAEG6D2hjtVOlhS4@blossom>
-References: <20250415-spmi-nvmem-v1-0-22067be253cf@gmail.com>
- <20250415-spmi-nvmem-v1-2-22067be253cf@gmail.com>
- <81fb1290-fb39-40b7-9d79-f147fae5b269@kernel.org>
+	Thu, 17 Apr 2025 12:33:05 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53HCWxfi691237
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 17 Apr 2025 07:32:59 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1744893179;
+	bh=agOmMDGyX+AHfGFpR6U+k5uDlDebQriePJ9/mg+Opxk=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=FLoWsdlu6LDrDvSkmCFFjmaetgueMKhbcOTIuu4q8QjrA2ngt9IXwuC9KjHId5Gm8
+	 2ngoIo/HiTCLIxo8BEF8dLARkAtp3e3iENEq5XCR+LLWnr1eXW6ovVmuFrSUtffd7M
+	 W6CjoXz6u0RIY0TlNoHKACF9uuVlMK5oSFid+2DU=
+Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53HCWxpt094092
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 17 Apr 2025 07:32:59 -0500
+Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 17
+ Apr 2025 07:32:59 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Thu, 17 Apr 2025 07:32:59 -0500
+Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.72.113])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53HCWkMQ038275;
+	Thu, 17 Apr 2025 07:32:55 -0500
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <rogerq@kernel.org>,
+        <u-kumar1@ti.com>
+CC: <stable@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <srk@ti.com>, <s-vadapalli@ti.com>
+Subject: [PATCH v3 2/4] arm64: dts: ti: k3-j722s-main: Disable "serdes_wiz0" and "serdes_wiz1"
+Date: Thu, 17 Apr 2025 18:02:44 +0530
+Message-ID: <20250417123246.2733923-3-s-vadapalli@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250417123246.2733923-1-s-vadapalli@ti.com>
+References: <20250417123246.2733923-1-s-vadapalli@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <81fb1290-fb39-40b7-9d79-f147fae5b269@kernel.org>
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_064938_935879_6BB0928D 
-X-CRM114-Status: UNSURE (   8.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250417_053303_826599_F426A8C4 
+X-CRM114-Status: GOOD (  12.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,15 +87,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > +config NVMEM_SPMI
-> > +	tristate "Generic SPMI NVMEM"
-> > +	default ARCH_APPLE
-> Why default is set to ARCH_APPLE?
-> 
-> This will endup with y in arm64 defconfig, means increasing the size of
-> kernel.
+Since "serdes0" and "serdes1" which are the sub-nodes of "serdes_wiz0"
+and "serdes_wiz1" respectively, have been disabled in the SoC file already,
+and, given that these sub-nodes will only be enabled in a board file if the
+board utilizes any of the SERDES instances and the peripherals bound to
+them, we end up in a situation where the board file doesn't explicitly
+disable "serdes_wiz0" and "serdes_wiz1". As a consequence of this, the
+following errors show up when booting Linux:
 
-I mean, eventually I think we /do/ want M1 properly supported in the
-arm64 defconfig, no? I'm not sure what the criteria is for any other
-driver to be defconfig or not, though.
+  wiz bus@f0000:phy@f000000: probe with driver wiz failed with error -12
+  ...
+  wiz bus@f0000:phy@f010000: probe with driver wiz failed with error -12
+
+To not only fix the above, but also, in order to follow the convention of
+disabling device-tree nodes in the SoC file and enabling them in the board
+files for those boards which require them, disable "serdes_wiz0" and
+"serdes_wiz1" device-tree nodes.
+
+Fixes: 628e0a0118e6 ("arm64: dts: ti: k3-j722s-main: Add SERDES and PCIe support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+Reviewed-by: Udit Kumar <u-kumar1@ti.com>
+---
+
+v2 of this patch is at:
+https://lore.kernel.org/r/20250408103606.3679505-3-s-vadapalli@ti.com/
+Changes since v2:
+- Collected Reviewed-by tags from Udit Kumar <u-kumar1@ti.com>.
+
+Regards,
+Siddharth.
+
+ arch/arm64/boot/dts/ti/k3-j722s-main.dtsi | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
+index 6850f50530f1..beda9e40e931 100644
+--- a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
+@@ -32,6 +32,8 @@ serdes_wiz0: phy@f000000 {
+ 		assigned-clocks = <&k3_clks 279 1>;
+ 		assigned-clock-parents = <&k3_clks 279 5>;
+ 
++		status = "disabled";
++
+ 		serdes0: serdes@f000000 {
+ 			compatible = "ti,j721e-serdes-10g";
+ 			reg = <0x0f000000 0x00010000>;
+@@ -70,6 +72,8 @@ serdes_wiz1: phy@f010000 {
+ 		assigned-clocks = <&k3_clks 280 1>;
+ 		assigned-clock-parents = <&k3_clks 280 5>;
+ 
++		status = "disabled";
++
+ 		serdes1: serdes@f010000 {
+ 			compatible = "ti,j721e-serdes-10g";
+ 			reg = <0x0f010000 0x00010000>;
+-- 
+2.34.1
+
 
