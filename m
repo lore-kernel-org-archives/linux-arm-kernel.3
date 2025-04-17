@@ -4,59 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D77ECC369C9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 17:49:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE527C369CA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 17:51:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XP3MEViUYz1R6vXibcxQcr19dmD06YCcMbAkvej5Xzg=; b=I+KZlR++AdGqbO0I7ZRTGUUF8F
-	PzPNdddsxkdRTlWP+LcWdLLuiUoBXrp9XKiyQqp3zAnEFjQd1XSvn+5tJ6ZMJydQeAsKsYCGVarj2
-	KNl9VEZBJjp27Tly1w62DiZYiam1f2ZqHVy3X5fSRxhDVFNx7tLGH9UaWYHmE+VuHRGqbX5/B6MGa
-	5+91KMTdCoxzaZULcLGc64p+sBR1AZhiyp0kB1/GJdI9jYwuwQZckSsVbwA6jCKzPYob6MSEpNn+8
-	V7ozdSP883rIUalocb60sSoSPkG+6MU7/VG4lWesvTZulNUyFcyjEVpfuvZnl4lAB/Ml6cAt9lYwB
-	6K24BSvw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HZpJTXu9rw+4Naa31u9dBEKwArcUw9L/z9Cw75N04mA=; b=4Q9W0uMBfXvne7ymWZwQYO4LDV
+	n77YHNmCdhH24m3hzKekCB3w8mq3vXw/q/vmFg4pYgwQQMyBayetEzSQBSibZkpEiRFh1CjGPW2aL
+	lwvrX80WgBnSw5UEYvtq3hUWmiImRhgmBLA5dHv5M4hVFpCDjvfggbVZl7PxT+gdVOzFkIDQLy4Rh
+	BM+K6AmajSxSKS8WvaEgZyUeQdMJouX5pr55BXwGrVWcp/liz+puGnZHkNfPfnZaslw4KmmkfMemE
+	UcOXm+nHJ7WIkDO5Dbd9Gp0rUbimtuCbc02t+nzappqZcJToMa2+tAdTDjWivrmQMEtzgytX8t7Ps
+	FtqvFjoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5TMt-0000000DurU-0CQ3;
-	Thu, 17 Apr 2025 17:49:43 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u5TOj-0000000DvCF-1Y5h;
+	Thu, 17 Apr 2025 17:51:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Sqs-0000000Do7z-18CE;
-	Thu, 17 Apr 2025 17:16:40 +0000
+	id 1u5Sqs-0000000Do82-1fnW;
+	Thu, 17 Apr 2025 17:16:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id EA2ABA474BD;
-	Thu, 17 Apr 2025 17:11:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D8B20C4CEE4;
+	by sea.source.kernel.org (Postfix) with ESMTP id 652E74A52F;
 	Thu, 17 Apr 2025 17:16:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 37A41C4AF18;
+	Thu, 17 Apr 2025 17:16:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744910196;
-	bh=PvCdeV/T71+XdJMLiE0kUIteJDGjHav14JPcDUzEWbk=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=WJUH06SvY8Ksr0nzZ7DCUDo5Di7SQoeF6dFkQW3NemsP8cvNAqoOA2s91iIo/YvyP
-	 k8PRMNjQcOKH/9qx1cGBSCmXEy1AkfKAbY9p/1EFc6OibXdq3cS8C1N4jR0U22F9B7
-	 W0Mq3sdRJb3z+Ug37awsk8cybqi79w5JHv/3aZx3JoDqMr61t0D6KO0Wj564qRrpb8
-	 d6MynBi239RebUcYGwk4k5O8IYV9nKdcGVEFQV4eSqmexy4cCSx1u9MLtbSnyQjjQa
-	 cAzceTCkgC5T+uLRuBJ/nqlefijOwNmjG2C/HENazcMKuxN0vsjHcJ/4VWqsqsOw/4
-	 3XVhPEI7Vg37g==
+	s=k20201202; t=1744910197;
+	bh=KCV1iT8WMRH+l5LBGG+rXSmP2tVeZLWG6EnkHpY31/A=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=NCpR/Ca4drOZO/oB/h5cd0gecR61NjHWVfGlKtC354DYmLj/h0zKIozoB+tHYcI9s
+	 ACmhKqN4hqdPSefK/9gHVfYGOAvzXE4E0XegZh4FYoUYKqOrf3nRbjcZ32SvYTzrN+
+	 HESbSb7KdwuKmm6cjRMoj/KJQj8C4ixJvDVdEKfSvZQzMjjGANOzVuyo72AhexLsqx
+	 HOq23Z036bOiKuPbUOG6JeFhbmmIoXSnJVFoxNp/SmPkTjcpur8HPz34dCCk0V1eL/
+	 i+Y+rsTB7UQLeVIJ59rI/mi77IH36m0DlJhki+nGATV5iSKxbgHjg4Q6bltkv1Z43P
+	 kJlnQ5n9T2kfQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C4343C369C9;
-	Thu, 17 Apr 2025 17:16:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2C107C369CF;
+	Thu, 17 Apr 2025 17:16:37 +0000 (UTC)
 From: Manivannan Sadhasivam via B4 Relay <devnull+manivannan.sadhasivam.linaro.org@kernel.org>
-Subject: [PATCH v3 0/5] PCI: Add support for resetting the slots in a
- platform specific way
-Date: Thu, 17 Apr 2025 22:46:26 +0530
-Message-Id: <20250417-pcie-reset-slot-v3-0-59a10811c962@linaro.org>
+Date: Thu, 17 Apr 2025 22:46:31 +0530
+Subject: [PATCH v3 5/5] PCI: qcom: Add support for resetting the slot due
+ to link down event
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAGo3AWgC/3XNzQrDIAzA8VcpnudQ+2Hdae8xdrAutoFSSyyyU
- frusz1tjB3/IfllZREIIbJLsTKChBHDlKM8FcwNduqB4yM3U0LVohIVnx0CJ4iw8DiGhetSdN5
- qafMGy1czgcfnId7uuQeMS6DX8SDJffrfSpILblpTKyPbzhtxHXGyFM6BerZjSX0AsvkFVAbAg
- 246pVsnv4Ft2977FJM68AAAAA==
-X-Change-ID: 20250404-pcie-reset-slot-730bfa71a202
+Message-Id: <20250417-pcie-reset-slot-v3-5-59a10811c962@linaro.org>
+References: <20250417-pcie-reset-slot-v3-0-59a10811c962@linaro.org>
+In-Reply-To: <20250417-pcie-reset-slot-v3-0-59a10811c962@linaro.org>
 To: Mahesh J Salgaonkar <mahesh@linux.ibm.com>, 
  Oliver O'Halloran <oohall@gmail.com>, Bjorn Helgaas <bhelgaas@google.com>, 
  Lorenzo Pieralisi <lpieralisi@kernel.org>, 
@@ -73,24 +70,24 @@ Cc: dingwei@marvell.com, cassel@kernel.org, Lukas Wunner <lukas@wunner.de>,
  linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
  Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4498;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6894;
  i=manivannan.sadhasivam@linaro.org; h=from:subject:message-id;
- bh=PvCdeV/T71+XdJMLiE0kUIteJDGjHav14JPcDUzEWbk=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBoATdtxd9VXuCzJQXALX9GONRBJRZvlq1rHHO2E
- vixk5tx8BOJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCaAE3bQAKCRBVnxHm/pHO
- 9SGZB/9wO83g2WQiJXUe+pmJAGWUVZyOgslNdIVc+RJ1hJtslE2h7Sab5a93Ifm+nv6wpK569OR
- i1gjAn8JYIjUYRKqe549owUx0d61b6uUI9aqgk5KorUfpMWpCuCwZlALyUoR58nsedoG1u105el
- 9BQX6K3r57OIC5YGIdFwZu+126TXcX02ygDt7e+aG1XmFJRjKOD3ir8NJRHge2Lweh1AkFMZ+by
- ApXkVlkdI1rqHa9ZDPwn/4UTjM2scyba3TkffP72FPsDzVQd7lhe65j6UpqS7AsaDkpkDAim/3z
- zqhI1xMxVGFaNU4cJ0tX3GrjjkOBQ8njtMdysDf6f6fkzXyf
+ bh=F8rjzuhgErigDd+67mYFhyxszrxpDL8l0bnIc6Ml+ng=;
+ b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBoATdxsG341Wf5dBlOsI8tJmdXDVYFgFqoRpofL
+ CEHKYEUUJmJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCaAE3cQAKCRBVnxHm/pHO
+ 9ZrfB/42ORiF/Z6dza/s1zud3oUewjLIhKQXIvAaBQGTZ596+MFN4a6uCB2TjBxdHj+d5oY3FQa
+ Qrgl7Kxh18wo27x0w998SmXalgBL6rpA1kWD748rFI8JITVoGofp3h6v/ltYvEZdoNWUiZ7NqtS
+ u5RibOHN1cvIGFcDKOx0DlYs37iTjr6+oV3WRYOm/K/Ts20aqGdnOVQMepiai4J4T0XEejbSg/C
+ Ox3WiPW79vr8Uh6fv4Hvt2nx4gPGGFhfDpO38jMTbubnHYJw8o0bmgGpbjK4+hxBrxeRIW6w6pc
+ 2MT0Q149ejvN8avjAc0arW8Ue/QDOODzKESk7WYbwcQF4kKq
 X-Developer-Key: i=manivannan.sadhasivam@linaro.org; a=openpgp;
  fpr=C668AEC3C3188E4C611465E7488550E901166008
 X-Endpoint-Received: by B4 Relay for
  manivannan.sadhasivam@linaro.org/default with auth_id=185
 X-Original-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_101638_484399_664B9B35 
-X-CRM114-Status: GOOD (  19.22  )
+X-CRM114-CacheID: sfid-20250417_101638_551107_AD947F3D 
+X-CRM114-Status: GOOD (  27.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,95 +103,219 @@ Reply-To: manivannan.sadhasivam@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 
-Currently, in the event of AER/DPC, PCI core will try to reset the slot and its
-subordinate devices by invoking bridge control reset and FLR. But in some
-cases like AER Fatal error, it might be necessary to reset the slots using the
-PCI host bridge drivers in a platform specific way (as indicated by the TODO in
-the pcie_do_recovery() function in drivers/pci/pcie/err.c). Otherwise, the PCI
-link won't be recovered successfully.
+The PCIe link can go down under circumstances such as the device firmware
+crash, link instability, etc... When that happens, the PCIe slot needs to
+be reset to make it operational again. Currently, the driver is not
+handling the link down event, due to which the users have to restart the
+machine to make PCIe link operational again. So fix it by detecting the
+link down event and resetting the slot.
 
-So this series adds a new callback 'pci_host_bridge::reset_slot' for the host
-bridge drivers to reset the slot when a fatal error happens.
+Since the Qcom PCIe controllers report the link down event through the
+'global' IRQ, enable the link down event by setting PARF_INT_ALL_LINK_DOWN
+bit in PARF_INT_ALL_MASK register.
 
-Also, this series allows the host bridge drivers to handle PCI link down event
-by resetting the slots and recovering the bus. This is accomplished by the
-help of a new API 'pci_host_handle_link_down()'. Host bridge drivers are
-expected to call this API (preferrably from a threaded IRQ handler) when a link
-down event is detected. The API will reuse the pcie_do_recovery() function to
-recover the link if AER support is enabled, otherwise it will directly call the
-reset_slot() callback of the host bridge driver (if exists).
+Then in the case of the event, call pci_host_handle_link_down() API
+in the handler to let the PCI core handle the link down condition.
 
-For reference, I've modified the pcie-qcom driver to call
-pci_host_handle_link_down() after receiving LINK_DOWN global_irq event and
-populated the 'pci_host_bridge::reset_slot()' callback to reset the controller
-(there by slots). Since the Qcom PCIe controllers support only a single root
-port (slot) per controller instance, reset_slot() callback is going to be
-invoked only once. For multi root port controllers, this callback is supposed to
-identify the slots using the supplied 'pci_dev' pointer and reset them.
-
-NOTE
-====
-
-This series is a reworked version of the earlier series [1] that I submitted for
-handling PCI link down event. In this series, I've made use of the AER helpers
-to recover the link as it allows notifying the device drivers and also
-allows saving/restoring the config space.
-
-Testing
-=======
-
-This series is tested on Qcom RB5 and SA8775p Ride boards by triggering the link
-down event manually by writing to LTSSM register. For the error recovery to
-succeed (if AER is enabled), all the drivers in the bridge hierarchy should have
-the 'err_handlers' populated. Otherwise, the link recovery will fail.
-
-[1] https://lore.kernel.org/linux-pci/20250221172309.120009-1-manivannan.sadhasivam@linaro.org
+The API will internally call, 'pci_host_bridge::reset_slot()' callback to
+reset the slot in a platform specific way. So implement the callback to
+reset the slot by first resetting the PCIe core, followed by reinitializing
+the resources and then finally starting the link again.
 
 Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 ---
-Changes in v3:
-- Made the pci-host-common driver as a common library for host controller
-  drivers
-- Moved the reset slot code to pci-host-common library
-- Link to v2: https://lore.kernel.org/r/20250416-pcie-reset-slot-v2-0-efe76b278c10@linaro.org
+ drivers/pci/controller/dwc/Kconfig     |  1 +
+ drivers/pci/controller/dwc/pcie-qcom.c | 90 +++++++++++++++++++++++++++++++++-
+ 2 files changed, 89 insertions(+), 2 deletions(-)
 
-Changes in v2:
-- Moved calling reset_slot() callback from pcie_do_recovery() to pcibios_reset_secondary_bus()
-- Link to v1: https://lore.kernel.org/r/20250404-pcie-reset-slot-v1-0-98952918bf90@linaro.org
+diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
+index d9f0386396edf66ad0e514a0f545ed24d89fcb6c..ce04ee6fbd99cbcce5d2f3a75ebd72a17070b7b7 100644
+--- a/drivers/pci/controller/dwc/Kconfig
++++ b/drivers/pci/controller/dwc/Kconfig
+@@ -296,6 +296,7 @@ config PCIE_QCOM
+ 	select PCIE_DW_HOST
+ 	select CRC8
+ 	select PCIE_QCOM_COMMON
++	select PCI_HOST_COMMON
+ 	help
+ 	  Say Y here to enable PCIe controller support on Qualcomm SoCs. The
+ 	  PCIe controller uses the DesignWare core plus Qualcomm-specific
+diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
+index dc98ae63362db0422384b1879a2b9a7dc564d091..6b18a2775e7fcde1d634b3f58327ecc7d028e4ec 100644
+--- a/drivers/pci/controller/dwc/pcie-qcom.c
++++ b/drivers/pci/controller/dwc/pcie-qcom.c
+@@ -34,6 +34,7 @@
+ #include <linux/units.h>
+ 
+ #include "../../pci.h"
++#include "../pci-host-common.h"
+ #include "pcie-designware.h"
+ #include "pcie-qcom-common.h"
+ 
+@@ -55,6 +56,7 @@
+ #define PARF_INT_ALL_STATUS			0x224
+ #define PARF_INT_ALL_CLEAR			0x228
+ #define PARF_INT_ALL_MASK			0x22c
++#define PARF_STATUS				0x230
+ #define PARF_SID_OFFSET				0x234
+ #define PARF_BDF_TRANSLATE_CFG			0x24c
+ #define PARF_DBI_BASE_ADDR_V2			0x350
+@@ -130,8 +132,11 @@
+ 
+ /* PARF_LTSSM register fields */
+ #define LTSSM_EN				BIT(8)
++#define SW_CLEAR_FLUSH_MODE			BIT(10)
++#define FLUSH_MODE				BIT(11)
+ 
+ /* PARF_INT_ALL_{STATUS/CLEAR/MASK} register fields */
++#define PARF_INT_ALL_LINK_DOWN			BIT(1)
+ #define PARF_INT_ALL_LINK_UP			BIT(13)
+ #define PARF_INT_MSI_DEV_0_7			GENMASK(30, 23)
+ 
+@@ -145,6 +150,9 @@
+ /* PARF_BDF_TO_SID_CFG fields */
+ #define BDF_TO_SID_BYPASS			BIT(0)
+ 
++/* PARF_STATUS fields */
++#define FLUSH_COMPLETED				BIT(8)
++
+ /* ELBI_SYS_CTRL register fields */
+ #define ELBI_SYS_CTRL_LT_ENABLE			BIT(0)
+ 
+@@ -169,6 +177,7 @@
+ 						PCIE_CAP_SLOT_POWER_LIMIT_SCALE)
+ 
+ #define PERST_DELAY_US				1000
++#define FLUSH_TIMEOUT_US			100
+ 
+ #define QCOM_PCIE_CRC8_POLYNOMIAL		(BIT(2) | BIT(1) | BIT(0))
+ 
+@@ -274,11 +283,14 @@ struct qcom_pcie {
+ 	struct icc_path *icc_cpu;
+ 	const struct qcom_pcie_cfg *cfg;
+ 	struct dentry *debugfs;
++	int global_irq;
+ 	bool suspended;
+ 	bool use_pm_opp;
+ };
+ 
+ #define to_qcom_pcie(x)		dev_get_drvdata((x)->dev)
++static int qcom_pcie_reset_slot(struct pci_host_bridge *bridge,
++				  struct pci_dev *pdev);
+ 
+ static void qcom_ep_reset_assert(struct qcom_pcie *pcie)
+ {
+@@ -1263,6 +1275,8 @@ static int qcom_pcie_host_init(struct dw_pcie_rp *pp)
+ 			goto err_assert_reset;
+ 	}
+ 
++	pp->bridge->reset_slot = qcom_pcie_reset_slot;
++
+ 	return 0;
+ 
+ err_assert_reset:
+@@ -1300,6 +1314,73 @@ static const struct dw_pcie_host_ops qcom_pcie_dw_ops = {
+ 	.post_init	= qcom_pcie_host_post_init,
+ };
+ 
++static int qcom_pcie_reset_slot(struct pci_host_bridge *bridge,
++				  struct pci_dev *pdev)
++{
++	struct pci_bus *bus = bridge->bus;
++	struct dw_pcie_rp *pp = bus->sysdata;
++	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
++	struct qcom_pcie *pcie = to_qcom_pcie(pci);
++	struct device *dev = pcie->pci->dev;
++	u32 val;
++	int ret;
++
++	/* Wait for the pending transactions to be completed */
++	ret = readl_relaxed_poll_timeout(pcie->parf + PARF_STATUS, val,
++					 val & FLUSH_COMPLETED, 10,
++					 FLUSH_TIMEOUT_US);
++	if (ret) {
++		dev_err(dev, "Flush completion failed: %d\n", ret);
++		goto err_host_deinit;
++	}
++
++	/* Clear the FLUSH_MODE to allow the core to be reset */
++	val = readl(pcie->parf + PARF_LTSSM);
++	val |= SW_CLEAR_FLUSH_MODE;
++	writel(val, pcie->parf + PARF_LTSSM);
++
++	/* Wait for the FLUSH_MODE to clear */
++	ret = readl_relaxed_poll_timeout(pcie->parf + PARF_LTSSM, val,
++					 !(val & FLUSH_MODE), 10,
++					 FLUSH_TIMEOUT_US);
++	if (ret) {
++		dev_err(dev, "Flush mode clear failed: %d\n", ret);
++		goto err_host_deinit;
++	}
++
++	qcom_pcie_host_deinit(pp);
++
++	ret = qcom_pcie_host_init(pp);
++	if (ret) {
++		dev_err(dev, "Host init failed\n");
++		return ret;
++	}
++
++	ret = dw_pcie_setup_rc(pp);
++	if (ret)
++		goto err_host_deinit;
++
++	/*
++	 * Re-enable global IRQ events as the PARF_INT_ALL_MASK register is
++	 * non-sticky.
++	 */
++	if (pcie->global_irq)
++		writel_relaxed(PARF_INT_ALL_LINK_UP | PARF_INT_ALL_LINK_DOWN |
++			       PARF_INT_MSI_DEV_0_7, pcie->parf + PARF_INT_ALL_MASK);
++
++	qcom_pcie_start_link(pci);
++	dw_pcie_wait_for_link(pci);
++
++	dev_dbg(dev, "Slot reset completed\n");
++
++	return 0;
++
++err_host_deinit:
++	qcom_pcie_host_deinit(pp);
++
++	return ret;
++}
++
+ /* Qcom IP rev.: 2.1.0	Synopsys IP rev.: 4.01a */
+ static const struct qcom_pcie_ops ops_2_1_0 = {
+ 	.get_resources = qcom_pcie_get_resources_2_1_0,
+@@ -1571,6 +1652,9 @@ static irqreturn_t qcom_pcie_global_irq_thread(int irq, void *data)
+ 		pci_unlock_rescan_remove();
+ 
+ 		qcom_pcie_icc_opp_update(pcie);
++	} else if (FIELD_GET(PARF_INT_ALL_LINK_DOWN, status)) {
++		dev_dbg(dev, "Received Link down event\n");
++		pci_host_handle_link_down(pp->bridge);
+ 	} else {
+ 		dev_WARN_ONCE(dev, 1, "Received unknown event. INT_STATUS: 0x%08x\n",
+ 			      status);
+@@ -1732,8 +1816,10 @@ static int qcom_pcie_probe(struct platform_device *pdev)
+ 			goto err_host_deinit;
+ 		}
+ 
+-		writel_relaxed(PARF_INT_ALL_LINK_UP | PARF_INT_MSI_DEV_0_7,
+-			       pcie->parf + PARF_INT_ALL_MASK);
++		writel_relaxed(PARF_INT_ALL_LINK_UP | PARF_INT_ALL_LINK_DOWN |
++			       PARF_INT_MSI_DEV_0_7, pcie->parf + PARF_INT_ALL_MASK);
++
++		pcie->global_irq = irq;
+ 	}
+ 
+ 	qcom_pcie_icc_opp_update(pcie);
 
----
-Manivannan Sadhasivam (5):
-      PCI/ERR: Remove misleading TODO regarding kernel panic
-      PCI/ERR: Add support for resetting the slots in a platform specific way
-      PCI: host-common: Make the driver as a common library for host controller drivers
-      PCI: host-common: Add link down handling for host bridges
-      PCI: qcom: Add support for resetting the slot due to link down event
-
- drivers/pci/controller/Kconfig                    |  8 +-
- drivers/pci/controller/dwc/Kconfig                |  1 +
- drivers/pci/controller/dwc/pcie-hisi.c            |  1 +
- drivers/pci/controller/dwc/pcie-qcom.c            | 90 ++++++++++++++++++++++-
- drivers/pci/controller/pci-host-common.c          | 64 +++++++++++++++-
- drivers/pci/controller/pci-host-common.h          | 17 +++++
- drivers/pci/controller/pci-host-generic.c         |  2 +
- drivers/pci/controller/pci-thunder-ecam.c         |  2 +
- drivers/pci/controller/pci-thunder-pem.c          |  1 +
- drivers/pci/controller/pcie-apple.c               |  2 +
- drivers/pci/controller/plda/pcie-microchip-host.c |  1 +
- drivers/pci/pci.c                                 | 13 ++++
- drivers/pci/pcie/err.c                            |  7 +-
- include/linux/pci-ecam.h                          |  6 --
- include/linux/pci.h                               |  1 +
- 15 files changed, 196 insertions(+), 20 deletions(-)
----
-base-commit: 08733088b566b58283f0f12fb73f5db6a9a9de30
-change-id: 20250404-pcie-reset-slot-730bfa71a202
-
-Best regards,
 -- 
-Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+2.43.0
 
 
 
