@@ -4,56 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2761C369C9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 16:51:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66882C369CA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 16:51:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tkue/4+hu0S9ZaDD6fCJs7PwlF+zNqiChA9SYC0EsVc=; b=Uu9w8Av+vjHm7XSXgneD3uhs0W
-	n3PyRgNP34dP9Lm0ssPccTljpmIhojhf+EOGoyv9f58hnfYvptCMTx+N12f3qM/42NNtuPXs0XGMB
-	RYxrWrz7OTp+v9mm5Fiu3A4N1BeizBmfiCsulKKRuNX5eZBavtXZC3iVqubqpRLFzcsj4ieyLCG7n
-	miMKDCnrP2JykioR3zKKluqvq2Njl3Rvo+P3klBpoS5cuyMnlXiDbLWAoDU0dl+Brg9/WwahTwD2L
-	G75NLTnXHQtiSmjUjVrkLyL0M7NzsQFlXGG4QtDLyXkNkExnKX0dPtS+7qXHNKvXRW2kw8cY4HSxs
-	e1ZQ6dyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RNAGyo4QatSSjd/kuguPeWaWMANIHPspSV5qqHWdlS0=; b=dUcWNKbFH/JIjlMSKJ8o+2VPdd
+	N4P2ek8EuOU1Wi35+LXwqCdIQ/JZEFRht24lr3j5n6GrB+rdpW7pwM/kNFRGQJ1PHrJ1d02oplekn
+	TyAqwMom98gDVErMDoWGy0r4x2M2JKSdX0FvEMDEQfUftbYuVzBt25o1lV4IDAvGFNoodpaO7UQn8
+	xcRBsbkTmOn0mFHTAKbWMI9z5JgvM5wQsysBGfsLak4xDnA09Lo6wlaKw15QwHm1PKyX7vkCKipWd
+	EBV3kG9PBeEee07URZlO8kCdTRvqWVPEiD7Vq4xyRr2C/Uv1GaTBg/hHquzayzIYpkYLoV0Udn1bz
+	n3BXn8gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5SSX-0000000Dj9O-2CqD;
-	Thu, 17 Apr 2025 16:51:29 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1u5SSV-0000000Dj8K-2gcH;
+	Thu, 17 Apr 2025 16:51:27 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5SJk-0000000DhiN-1Id5;
-	Thu, 17 Apr 2025 16:42:25 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.98.2)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1u5SH7-000000002ZV-1ibD;
-	Thu, 17 Apr 2025 16:42:19 +0000
-Date: Thu, 17 Apr 2025 17:42:16 +0100
-From: Daniel Golle <daniel@makrotopia.org>
-To: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Daniel Golle <daniel@makrotopia.org>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH net-next v3] net: ethernet: mtk_eth_soc: convert cap_bit in
-  mtk_eth_muxc struct to u64
-Message-ID: <d6d3f9421baa85cdb7ff56cd06a9fc97ba0a77f9.1744907886.git.daniel@makrotopia.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+	id 1u5Rrk-0000000Dd6E-1qlg
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Apr 2025 16:13:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id C6AF85C5560;
+	Thu, 17 Apr 2025 16:11:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F49BC4CEEA;
+	Thu, 17 Apr 2025 16:13:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744906407;
+	bh=B2jx6RLRF1IkGKeilRDgu5BJ5hcrH20ogEfV5LNYn+4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=UxaLAkcpBpFYZB41WTPpqXXc+KpvKi9sfsG8Kkr5Jo+QD+Hx1Fdmwh0HoerQYDcPb
+	 NWAWipXBTWmihgJkq+ZoTX/0cAaLO1TA3qFbauX1gGg3+O/Bi5X1hwHOk6uDxUuRLt
+	 +PVUOTq9eetFMY1WXx24MuNGjVPQt4dqhNeVgoSWYfIIwsU3ZQUmzTxILCw0NsQO8e
+	 2Q1q1D3uzTWpScVjJNwBPyYL4U5qUBQUpruZqpQgvAwiZKpbqsUH1vzx1woyO8xwSO
+	 xuP37ozwYvL3XxLuQ2Yx4W5rXRqEFiqitHwXV2gX+dmFv0b6CQj5Qn4GVaVUhv39XO
+	 hdKuUUh1/aOXA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1u5Rrf-006Tml-PF;
+	Thu, 17 Apr 2025 17:13:24 +0100
+Date: Thu, 17 Apr 2025 17:13:23 +0100
+Message-ID: <86plhakbq4.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: D Scott Phillips <scott@os.amperecomputing.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Joey Gouly
+ <joey.gouly@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K
+ Poulose <suzuki.poulose@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Zenghui
+ Yu <yuzenghui@huawei.com>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] KVM: arm64: fix config.hcr used uninitialized in __kvm_at_s1e01_fast
+In-Reply-To: <86sem7yanc.fsf@scott-ph-mail.amperecomputing.com>
+References: <20250415154656.1698522-1-scott@os.amperecomputing.com>
+	<8634e9l1y8.wl-maz@kernel.org>
+	<86sem7yanc.fsf@scott-ph-mail.amperecomputing.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: scott@os.amperecomputing.com, catalin.marinas@arm.com, joey.gouly@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, will@kernel.org, yuzenghui@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_094224_357445_562188E4 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20250417_091328_567701_5E6411F0 
+X-CRM114-Status: GOOD (  39.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,60 +96,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
+On Thu, 17 Apr 2025 00:00:39 +0100,
+D Scott Phillips <scott@os.amperecomputing.com> wrote:
+>=20
+> Marc Zyngier <maz@kernel.org> writes:
+>=20
+> > On Tue, 15 Apr 2025 16:46:55 +0100,
+> > D Scott Phillips <scott@os.amperecomputing.com> wrote:
+> >>=20
+> >> In the skip_mmu_switch case, config.hcr was used uninitialized. On my
+> >> machine that caused garbage to be written to HCR_EL2 and then the CPU
+> >> got stuck at the synchronous exception handler. Also, the restore of
+> >> HCR_EL2 was missing at the end of the function in the same case.
+> >
+> > Huh, how embarrassing. Thanks for spotting this one.
+> >
+> >>=20
+> >> In skip_mmu_switch case, initialize config.hcr with HCR_HOST_VHE_FLAGS.
+> >>=20
+> >> Signed-off-by: D Scott Phillips <scott@os.amperecomputing.com>
+> >> ---
+> >>  arch/arm64/kvm/at.c | 8 ++++++--
+> >>  1 file changed, 6 insertions(+), 2 deletions(-)
+> >>=20
+> >> diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
+> >> index f74a66ce3064b..ff4b06ce661af 100644
+> >> --- a/arch/arm64/kvm/at.c
+> >> +++ b/arch/arm64/kvm/at.c
+> >> @@ -1233,8 +1233,10 @@ static u64 __kvm_at_s1e01_fast(struct kvm_vcpu =
+*vcpu, u32 op, u64 vaddr)
+> >>  	 * the right one (as we trapped from vEL2). If not, save the
+> >>  	 * full MMU context.
+> >>  	 */
+> >> -	if (vcpu_el2_e2h_is_set(vcpu) && vcpu_el2_tge_is_set(vcpu))
+> >> +	if (vcpu_el2_e2h_is_set(vcpu) && vcpu_el2_tge_is_set(vcpu)) {
+> >> +		config.hcr =3D read_sysreg(hcr_el2);
+> >>  		goto skip_mmu_switch;
+> >> +	}
+> >> =20
+> >>  	/*
+> >>  	 * Obtaining the S2 MMU for a L2 is horribly racy, and we may not
+> >> @@ -1299,7 +1301,9 @@ static u64 __kvm_at_s1e01_fast(struct kvm_vcpu *=
+vcpu, u32 op, u64 vaddr)
+> >>  	if (!fail)
+> >>  		par =3D read_sysreg_par();
+> >> =20
+> >> -	if (!(vcpu_el2_e2h_is_set(vcpu) && vcpu_el2_tge_is_set(vcpu)))
+> >> +	if (vcpu_el2_e2h_is_set(vcpu) && vcpu_el2_tge_is_set(vcpu))
+> >> +		write_sysreg(config.hcr, hcr_el2);
+> >> +	else
+> >>  		__mmu_config_restore(&config);
+> >> =20
+> >>  	return par;
+> >
+> > I think the diff below should do the trick (and incidently matches
+> > your commit message).
+>=20
+> Looks good Marc, thanks
+>=20
+> Reviewed-by: D Scott Phillips <scott@os.amperecomputing.com>
 
-The capabilities bitfield was converted to a 64-bit value, but a cap_bit
-in struct mtk_eth_muxc which is used to store a full bitfield (rather
-than the bit number, as the name would suggest) still holds only a
-32-bit value.
+Actually, we can do much better, because the more I look at this, the
+more I find it silly. How about the patch below? It also fixes a
+latent issue where HCR_PTW was never set... I quickly tested it on my
+Q box, and nothing exploded. But at the same time, nothing exploded
+with the buggy code...
 
-Change the type of cap_bit to u64 in order to avoid truncating the
-bitfield which results in path selection to not work with capabilities
-above the 32-bit limit.
+Thanks,
 
-The values currently stored in the cap_bit field are
-MTK_ETH_MUX_GDM1_TO_GMAC1_ESW:
- BIT_ULL(18) | BIT_ULL(5)
+	M.
 
-MTK_ETH_MUX_GMAC2_GMAC0_TO_GEPHY:
- BIT_ULL(19) | BIT_ULL(5) | BIT_ULL(6)
+=46rom 0191a6dfbeb52b41b2c8aa81edf7812b56a3612f Mon Sep 17 00:00:00 2001
+From: Marc Zyngier <maz@kernel.org>
+Date: Thu, 17 Apr 2025 16:24:29 +0100
+Subject: [PATCH] KVM: arm64: Don't feed uninitialised data to HCR_EL2
 
-MTK_ETH_MUX_U3_GMAC2_TO_QPHY:
- BIT_ULL(20) | BIT_ULL(5) | BIT_ULL(6)
+When the guest executes an AT S1E{0,1} from EL2, and that its
+HCR_EL2.{E2H,TGE}=3D=3D{1,1}, then this is a pure S1 translation
+that doesn't involve a guest-supplied S2, and the full S1
+context is already in place. This allows us to take a shortcut
+and avoid save/restoring a bunch of registers.
 
-MTK_ETH_MUX_GMAC1_GMAC2_TO_SGMII_RGMII:
- BIT_ULL(20) | BIT_ULL(5) | BIT_ULL(7)
+However, we set HCR_EL2 to a value suitable for the use of AT
+in guest context. And we do so by using the value that we saved.
+Or not. In the case described above, we restore whatever junk
+was on the stack, and carry on with it until the next entry.
 
-MTK_ETH_MUX_GMAC12_TO_GEPHY_SGMII:
- BIT_ULL(21) | BIT_ULL(5)
+Needless to say, this is completely broken.
 
-While all those values are currently still within 32-bit boundaries,
-the addition of new capabilities of MT7988 as well as future SoC's
-like MT7987 will exceed them. Also, the use of a 32-bit 'int' type to
-store the result of a BIT_ULL(...) is misleading.
+But this also triggers the realisation that saving HCR_EL2 is
+a bit pointless. We are always in host context at the point where
+reach this code, and what we program to enter the guest is a known
+value (vcpu->arch.hcr_el2).
 
-Fixes: 51a4df60db5c2 ("net: ethernet: mtk_eth_soc: convert caps in mtk_soc_data struct to u64")
-Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
-Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+Drop the pointless save/restore, and wrap the AT operations with
+writes that switch between guest and host values for HCR_EL2.
+
+Reported-by: D Scott Phillips <scott@os.amperecomputing.com>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
-v3: improve commit message, target net-next instead of net tree
+ arch/arm64/kvm/at.c | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
 
- drivers/net/ethernet/mediatek/mtk_eth_path.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/net/ethernet/mediatek/mtk_eth_path.c b/drivers/net/ethernet/mediatek/mtk_eth_path.c
-index 7c27a19c4d8f4..6fbfb16438a51 100644
---- a/drivers/net/ethernet/mediatek/mtk_eth_path.c
-+++ b/drivers/net/ethernet/mediatek/mtk_eth_path.c
-@@ -14,7 +14,7 @@
- 
- struct mtk_eth_muxc {
- 	const char	*name;
--	int		cap_bit;
-+	u64		cap_bit;
- 	int		(*set_path)(struct mtk_eth *eth, u64 path);
+diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
+index ea497ffbd1b19..da5359668b9c9 100644
+--- a/arch/arm64/kvm/at.c
++++ b/arch/arm64/kvm/at.c
+@@ -464,7 +464,6 @@ struct mmu_config {
+ 	u64	sctlr;
+ 	u64	vttbr;
+ 	u64	vtcr;
+-	u64	hcr;
  };
- 
--- 
-2.49.0
+=20
+ static void __mmu_config_save(struct mmu_config *config)
+@@ -487,13 +486,10 @@ static void __mmu_config_save(struct mmu_config *conf=
+ig)
+ 	config->sctlr	=3D read_sysreg_el1(SYS_SCTLR);
+ 	config->vttbr	=3D read_sysreg(vttbr_el2);
+ 	config->vtcr	=3D read_sysreg(vtcr_el2);
+-	config->hcr	=3D read_sysreg(hcr_el2);
+ }
+=20
+ static void __mmu_config_restore(struct mmu_config *config)
+ {
+-	write_sysreg(config->hcr,	hcr_el2);
+-
+ 	/*
+ 	 * ARM errata 1165522 and 1530923 require TGE to be 1 before
+ 	 * we update the guest state.
+@@ -1248,8 +1244,8 @@ static u64 __kvm_at_s1e01_fast(struct kvm_vcpu *vcpu,=
+ u32 op, u64 vaddr)
+ 	__load_stage2(mmu, mmu->arch);
+=20
+ skip_mmu_switch:
+-	/* Clear TGE, enable S2 translation, we're rolling */
+-	write_sysreg((config.hcr & ~HCR_TGE) | HCR_VM,	hcr_el2);
++	/* Temporarily switch back to guest context */
++	write_sysreg(vcpu->arch.hcr_el2, hcr_el2);
+ 	isb();
+=20
+ 	switch (op) {
+@@ -1281,6 +1277,8 @@ static u64 __kvm_at_s1e01_fast(struct kvm_vcpu *vcpu,=
+ u32 op, u64 vaddr)
+ 	if (!fail)
+ 		par =3D read_sysreg_par();
+=20
++	write_sysreg(HCR_HOST_VHE_FLAGS, hcr_el2);
++
+ 	if (!(vcpu_el2_e2h_is_set(vcpu) && vcpu_el2_tge_is_set(vcpu)))
+ 		__mmu_config_restore(&config);
+=20
+--=20
+2.39.2
+
+
+--=20
+Without deviation from the norm, progress is not possible.
 
