@@ -4,99 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B023C369CF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 07:59:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96C11C369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 07:59:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E6kfTTUe2SJkB4ocesJpwtBEmUKPSMD3W1XeWivw2/I=; b=WSoWl3IQmv7fqF52rkaa7l/h3L
-	f8bvnKW/7qMT5UcSCRbfKjcjPQovJD1a26Fm3hMmL2ix6IMFgD3F6YZuAGSzsnmMle8keanVyGBMh
-	jGaymob9/d4enIoc/h23MgDxdAdz+0/3arw1zHBbafjW1KCvZUn+CpJvDwfClh1X3i1esU7DS5Itl
-	gv8do1ZrArQG+Lw4u04BJTYM2Zrj4xsS/Fb2M6t2E4HLq9S88IB8A7cNxNBFD3DBT/Zc5R3dmLas+
-	SgXRoHDqejeaSPP3BMp5quRxCnRXOGuXzgzbSYGI6gjOVfgDqbuZ42v3UBQ8HGaRpCengEsd1PU48
-	kNaCemHA==;
+	bh=8Fv+1SPiZIDJMfYYyVTz9JfiGK8xQsdvl6qvFoYBv9E=; b=pQPECuKSA69tSvdc9Cb+diysR2
+	9YXQakvasaipp70cgqPvQiQ6+/exV55oDbJw+fQzrK+3y59v+AZOjUcR13Jq1Au4HYxH2E4f6+Lza
+	ryXoSzWHsJGI/QjEDAuSJK1b9oWc2uRVgCFZe6NUvx1lbOTKIggFWUjQLEk5NmZk7kgqGEAbq9iYq
+	DiHCrx7Hc2Dhkg54fvQgzcVUdKZMvYjf2rZlz2FajwqebHX7AoK3xiV57IF2zKYviMU8/xxS2d+dU
+	oZPT7GcoJ6UqOUWvD9rqnMJdMEMSvek5gTXVmUv5ZcXDeKD/6od37iuuukkEh3DvNvx6as9xm9Nwh
+	kObVPwXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5gdO-0000000FXk3-0mst;
-	Fri, 18 Apr 2025 07:59:38 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1u5gdN-0000000FXjR-2duJ;
+	Fri, 18 Apr 2025 07:59:37 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5gA0-0000000FTPU-1klC
+	id 1u5g7M-0000000FT3V-24ug
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 07:29:17 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53I1f3mY001224;
-	Fri, 18 Apr 2025 07:29:05 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	E6kfTTUe2SJkB4ocesJpwtBEmUKPSMD3W1XeWivw2/I=; b=nmF1F4xIxhQm0hyJ
-	XbY1M3Sad6aol6BszePs/4QkBJCG9tNCfMhZcpEK8ffckihH00Vtb9Oz11HiWCm7
-	YQSMP149nsPcu/6VMvQIXqz/a03PASFoVwIw6S4uHnfEBWNnDBBOwrvbhla7Ivca
-	OFwpLbWJzhyn3hcXLD6cg9dRNqCzwl+PMFKvHEReioOsGq3nSY1RXJFj8ZFlcNwy
-	Jm9T6XfaoEekrO6zP4m7d+m8pxT94037+Tk7kyp6DEm8lDW/j0YoNjNm8rtpkRBv
-	e102n4bghR289babDy+ndzt/6nIjowoQDzW0tfx5eeYtUQfgZhUXnxBqlHAtePfC
-	/LllWA==
-Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45ydvjhjth-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 18 Apr 2025 07:29:05 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53I7T4e7024662
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 18 Apr 2025 07:29:04 GMT
-Received: from [10.216.47.89] (10.80.80.8) by nasanex01b.na.qualcomm.com
- (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Fri, 18 Apr
- 2025 00:28:57 -0700
-Message-ID: <7fd92093-3efc-4f24-967d-7e267162b26d@quicinc.com>
-Date: Fri, 18 Apr 2025 12:58:53 +0530
+	Fri, 18 Apr 2025 07:26:33 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-54ac9b3ddf6so1614524e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 00:26:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1744961190; x=1745565990; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8Fv+1SPiZIDJMfYYyVTz9JfiGK8xQsdvl6qvFoYBv9E=;
+        b=CuON+oXQ3lJmjxreafF+5HXE/GhM2MGNsYhtdLrridjYS0/AOxvTkXLuruYaMISOts
+         2hE692il5vQk+JKnsaeP2H3/nNtgsn0Poa5bripkV/9Se6DhojrXdlP9K48h6l6S6B4a
+         4ALehNTexL0sxMBTkbGOyV+/JLSfNiZw56aR1xoEL9HSGhBK+JB8jVjyIpbYObA6Uh2b
+         yabytoDbCzGL/yFmWpvfeP6wZgxLdEcj0Zhme69HIZ7pUOU7Q6yYYBFbGMAontgfHJ98
+         vIvna2raofxSU95gIVbH6dD7kYURD1hQTpu6Ppse+w25ijsnvsa2I725R7TIv2rNtdPs
+         8T9A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744961190; x=1745565990;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=8Fv+1SPiZIDJMfYYyVTz9JfiGK8xQsdvl6qvFoYBv9E=;
+        b=gED6dpcA4etGB+oxdmyIkMvxRIkr1SABz1WQHlakAth9C+A0n3l1fD/CEK09xmG9t3
+         z2rgUWSn838744z0AOK7YfW1k+FfFn8m/C1W4ra1gIsWAysioEku/7w/Rg6d+xsLaYwJ
+         zjySUeEkj8WZDnyqy5o7GUodio2DMS0xc7iA3sFGlCdyy0bFfBWpRQS7dyPH2enDXDbB
+         U3Hz+a7TEuwnU+LJa7YPjUyQp++1fXuxoSkmN15noRJBmvlAdefZ0nARqgkQE3LaxL3l
+         ih9t5lJYEV/PFzXRMP8GI97fl14odnYGffRPB8mz7D+hkbC2NP8p25NuDSoaDZRVqHNT
+         zauQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUWtvfGl8KyhQWr/WAA1f328AoA1CXeEOPOPxigFzMPfReNuNUDs4p4aJhgvAmbaKnniW5Td/E9NnkAsS5pswnN@lists.infradead.org
+X-Gm-Message-State: AOJu0YxCcgd5zV5GhaDS3fym2ZIpG9ipzWdW+exLjk3ZsjRawiebUaX6
+	60PiV3uyf+4bjEeUulfaiMRfpYZT8t0I66rNVftP6Wc3dwebcDhSfMwRYDDsr7fk59ycWDTBt+f
+	erUw7Nh98QJnXYP5dHBd2uqzLjtJpojY25arMebRhnxfKQMZZ/XG/
+X-Gm-Gg: ASbGncvxBSnoXlSkRah6HALDMmJY1/sASbEB7kwst19Vb17cE1c+6e6os7r1ZJaDkRh
+	DZXPdiJyoOca6ri3/ShvcDiHKptxXyiBxIzJV0bu7Fkj9Cc0fCamNWyE9EPAYdAHf0T3zd+kgg0
+	9xBwgJQgxriqYo1MxEvlAWToouTfCzS3kV4jCt5r0R6I70NUKC/w==
+X-Google-Smtp-Source: AGHT+IF0A2qLak23h90FXemjjq1QSkYxyUlJpX0SxLY+jGfQkwpWy77tDR0Zm8B6OSQfWtCedekDAXvMVmWnr/eLmso=
+X-Received: by 2002:a05:6512:15aa:b0:545:576:cbca with SMTP id
+ 2adb3069b0e04-54d6e61d361mr87421e87.8.1744923382449; Thu, 17 Apr 2025
+ 13:56:22 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 2/2] arm64: dts: qcom: sa8775p: Add support for camss
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, <rfoss@kernel.org>,
-        <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
-        <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <andersson@kernel.org>,
-        <konradybcio@kernel.org>, <hverkuil-cisco@xs4all.nl>,
-        <cros-qcom-dts-watchers@chromium.org>, <catalin.marinas@arm.com>,
-        <will@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-media@vger.kernel.org>,
-        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>,
-        Suresh Vankadara <quic_svankada@quicinc.com>
-References: <20250210155605.575367-1-quic_vikramsa@quicinc.com>
- <20250210155605.575367-3-quic_vikramsa@quicinc.com>
- <65663927-cc11-4810-8714-7600786f299b@oss.qualcomm.com>
-Content-Language: en-US
-From: Vikram Sharma <quic_vikramsa@quicinc.com>
-In-Reply-To: <65663927-cc11-4810-8714-7600786f299b@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=ZIrXmW7b c=1 sm=1 tr=0 ts=6801ff41 cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=7gLDDzRWUVhiidtGMTcA:9 a=3ZKOabzyN94A:10
- a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: NFa8SKs0Fzf1ME-yH9sPgRCfNjok_44g
-X-Proofpoint-ORIG-GUID: NFa8SKs0Fzf1ME-yH9sPgRCfNjok_44g
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-18_02,2025-04-17_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 suspectscore=0
- clxscore=1015 priorityscore=1501 bulkscore=0 phishscore=0 mlxlogscore=936
- spamscore=0 impostorscore=0 malwarescore=0 mlxscore=0 lowpriorityscore=0
- classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2504180053
+References: <20250417142513.312939-1-ulf.hansson@linaro.org> <20250417142513.312939-6-ulf.hansson@linaro.org>
+In-Reply-To: <20250417142513.312939-6-ulf.hansson@linaro.org>
+From: Saravana Kannan <saravanak@google.com>
+Date: Thu, 17 Apr 2025 13:55:46 -0700
+X-Gm-Features: ATxdqUFg-9XKLQu-Jp_yqmPhQEY6HN_legQJia2_mCP7a2s8KIX0565-yrMa0hQ
+Message-ID: <CAGETcx9bHGuJ_J6yF14x0NJJXGWgoDn_X_ScBKaGdD4aTBvo5w@mail.gmail.com>
+Subject: Re: [PATCH 05/11] pmdomain: core: Use device_set_node() to assign the
+ fwnode too
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Stephen Boyd <sboyd@kernel.org>, linux-pm@vger.kernel.org, 
+	"Rafael J . Wysocki" <rafael@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Michael Grzeschik <m.grzeschik@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, 
+	Abel Vesa <abel.vesa@linaro.org>, Devarsh Thakkar <devarsht@lewv0571a.ent.ti.com>, 
+	Peng Fan <peng.fan@oss.nxp.com>, Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+	Johan Hovold <johan@kernel.org>, Maulik Shah <maulik.shah@oss.qualcomm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_002916_472123_A7DDC35C 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20250418_002632_554116_A6050722 
+X-CRM114-Status: GOOD (  19.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,68 +100,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On 4/14/2025 7:18 PM, Konrad Dybcio wrote:
-> On 2/10/25 4:56 PM, Vikram Sharma wrote:
->> Add changes to support the camera subsystem on the SA8775P.
->>
->> Co-developed-by: Suresh Vankadara <quic_svankada@quicinc.com>
->> Signed-off-by: Suresh Vankadara <quic_svankada@quicinc.com>
->> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
->> ---
-> [...]
+On Thu, Apr 17, 2025 at 7:25=E2=80=AFAM Ulf Hansson <ulf.hansson@linaro.org=
+> wrote:
 >
->> +			interrupts = <GIC_SPI 565 IRQ_TYPE_EDGE_RISING>,
->> +				     <GIC_SPI 564 IRQ_TYPE_EDGE_RISING>,
->> +				     <GIC_SPI 468 IRQ_TYPE_EDGE_RISING>,
->> +				     <GIC_SPI 359 IRQ_TYPE_EDGE_RISING>,
->> +				     <GIC_SPI 759 IRQ_TYPE_EDGE_RISING>,
-> 760> +				     <GIC_SPI 758 IRQ_TYPE_EDGE_RISING>,
-
-Hi Konrad,
-
-We cross checked internal documents to confirm IRQ number for 
-csid_lite2/3 and vfe_lite2/3
-Calculation for IRQ number is done with respect to vector number as
-irq_num = (vector - 32).
-csid_lite2 vector -> 791
-csid_lite3 vector -> 790
-vfe_lite2  vector -> 793
-vfe_lite3  vector -> 792
-
-thus irqs are as
-csid_lite2 -> 759
-csid_lite3 -> 758
-vfe_lite2  -> 761
-vfe_lite3  -> 760
-
-Please let me know if this looks fine to you?
-
+> Rather than just assigning the dev->of_node for the genpd's device, let's
+> use device_set_node() to make sure the fwnode gets assigned too. This is
+> needed to allow fw_devlink to work correctly, for example.
 >
-> 759
+> Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+> ---
+>  drivers/pmdomain/core.c | 14 ++++++++++----
+>  1 file changed, 10 insertions(+), 4 deletions(-)
 >
->> +				     <GIC_SPI 604 IRQ_TYPE_EDGE_RISING>,
->> +				     <GIC_SPI 477 IRQ_TYPE_EDGE_RISING>,
->> +				     <GIC_SPI 478 IRQ_TYPE_EDGE_RISING>,
->> +				     <GIC_SPI 479 IRQ_TYPE_EDGE_RISING>,
->> +				     <GIC_SPI 448 IRQ_TYPE_EDGE_RISING>,
->> +				     <GIC_SPI 545 IRQ_TYPE_EDGE_RISING>,
->> +				     <GIC_SPI 546 IRQ_TYPE_EDGE_RISING>,
->> +				     <GIC_SPI 547 IRQ_TYPE_EDGE_RISING>,
->> +				     <GIC_SPI 465 IRQ_TYPE_EDGE_RISING>,
->> +				     <GIC_SPI 467 IRQ_TYPE_EDGE_RISING>,
->> +				     <GIC_SPI 469 IRQ_TYPE_EDGE_RISING>,
->> +				     <GIC_SPI 360 IRQ_TYPE_EDGE_RISING>,
->> +				     <GIC_SPI 761 IRQ_TYPE_EDGE_RISING>,
-> 762
+> diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
+> index da51a61a974c..3911d3e96626 100644
+> --- a/drivers/pmdomain/core.c
+> +++ b/drivers/pmdomain/core.c
+> @@ -2627,6 +2627,7 @@ static bool genpd_present(const struct generic_pm_d=
+omain *genpd)
+>  int of_genpd_add_provider_simple(struct device_node *np,
+>                                  struct generic_pm_domain *genpd)
+>  {
+> +       struct fwnode_handle *fwnode;
+>         int ret;
 >
->> +				     <GIC_SPI 760 IRQ_TYPE_EDGE_RISING>,
-> 761
+>         if (!np || !genpd)
+> @@ -2635,7 +2636,9 @@ int of_genpd_add_provider_simple(struct device_node=
+ *np,
+>         if (!genpd_present(genpd))
+>                 return -EINVAL;
 >
-> Konrad
+> -       genpd->dev.of_node =3D np;
+> +       fwnode =3D &np->fwnode;
 
-Best Regards,
+Use of_fwnode_handle() please.
 
-Vikram
+> +
+> +       device_set_node(&genpd->dev, fwnode);
+>
+>         /* Parse genpd OPP table */
+>         if (!genpd_is_opp_table_fw(genpd) && genpd->set_performance_state=
+) {
+> @@ -2661,7 +2664,7 @@ int of_genpd_add_provider_simple(struct device_node=
+ *np,
+>                 return ret;
+>         }
+>
+> -       genpd->provider =3D &np->fwnode;
+> +       genpd->provider =3D fwnode;
+>         genpd->has_provider =3D true;
+>
+>         return 0;
+> @@ -2677,6 +2680,7 @@ int of_genpd_add_provider_onecell(struct device_nod=
+e *np,
+>                                   struct genpd_onecell_data *data)
+>  {
+>         struct generic_pm_domain *genpd;
+> +       struct fwnode_handle *fwnode;
+>         unsigned int i;
+>         int ret =3D -EINVAL;
+>
+> @@ -2686,6 +2690,8 @@ int of_genpd_add_provider_onecell(struct device_nod=
+e *np,
+>         if (!data->xlate)
+>                 data->xlate =3D genpd_xlate_onecell;
+>
+> +       fwnode =3D &np->fwnode;
+> +
 
+Use of_fwnode_handle() please.
+
+-Saravana
+
+>         for (i =3D 0; i < data->num_domains; i++) {
+>                 genpd =3D data->domains[i];
+>
+> @@ -2694,7 +2700,7 @@ int of_genpd_add_provider_onecell(struct device_nod=
+e *np,
+>                 if (!genpd_present(genpd))
+>                         goto error;
+>
+> -               genpd->dev.of_node =3D np;
+> +               device_set_node(&genpd->dev, fwnode);
+>
+>                 /* Parse genpd OPP table */
+>                 if (!genpd_is_opp_table_fw(genpd) && genpd->set_performan=
+ce_state) {
+> @@ -2713,7 +2719,7 @@ int of_genpd_add_provider_onecell(struct device_nod=
+e *np,
+>                         WARN_ON(IS_ERR(genpd->opp_table));
+>                 }
+>
+> -               genpd->provider =3D &np->fwnode;
+> +               genpd->provider =3D fwnode;
+>                 genpd->has_provider =3D true;
+>         }
+>
+> --
+> 2.43.0
+>
 
