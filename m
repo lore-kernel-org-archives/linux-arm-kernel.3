@@ -4,112 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBBD5C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 11:09:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D561C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 11:11:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dTr8jPcJDG1ssEC02tHjuO+8nyj5jMrX7M1nMqoPipQ=; b=CaweEnuIBLJqsyXwlO28PpCOIU
-	pYGjc7QjPk6rMn1EzYEDpHU26cJjoKXy/hGPH7DPcQCSrphLnlOOgHp0IFnGE9cwoiMwmibd9wmVi
-	37zQsdFjqGAvfIMe2GZkgwRZRfAkiT3+NGoO5+NbzYbuLZmSjwl/Pzr/5wz8tIL3HlwwZx+0Ze6Bi
-	8m+fa8TMGY6jRnQSrnbkFtNTYyxKiTyJaAG3x40JZpDMQrDIIfni/joqpHO3DxS4EQJjUb6GEkMsh
-	CLNygmO60+y2nbSJjLHQBXR43WVa6K/mI0nQCZXrAfeMOVfre62ci20j4aUYp662yapYR3W7H0I3Y
-	gT2LEB2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3FQmq6mPm5BcVKIvGNINkYwYP9M0N7suMdJCV/VEqS4=; b=QQtB8moSuKG+LjEXnuSWzK8gAR
+	E8kEfaP+m4P0VJ3wmvQb1aQoPKiaRHMYmnL6HtMsQMAHu7x4JI0/juV/0UnT6JEaytabez/sqengD
+	txwXlyuJn+JOT7jggG30gv8pi6ye/RLX0QE94C0mj9EJbD7Go6lAZa578fPcI5Brt2c4rcOaUYweq
+	ObHGyTxJQHm8IChbz2DPhK88r0vRNtTOTjbl2G2qY6pNOcgM/LVqHwEUXRywM9HWDMamFm7ZSW3JE
+	kMPkMpP2+BHFIpPEJJYtjsq2dUHF7YjygjJEC9W6crFLjB4YQbf/BrhmqxVOYJ/JCBw7N2QBVsndS
+	aWCKhLpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5N7r-0000000Cjnw-3MXB;
-	Thu, 17 Apr 2025 11:09:47 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1u5N9h-0000000CkC0-294D;
+	Thu, 17 Apr 2025 11:11:41 +0000
+Received: from mail-yw1-x1131.google.com ([2607:f8b0:4864:20::1131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Mnc-0000000CgZj-0jif
+	id 1u5Mne-0000000CgaK-2s8i
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 10:48:53 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53H5l5Ml009309;
-	Thu, 17 Apr 2025 10:47:36 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	dTr8jPcJDG1ssEC02tHjuO+8nyj5jMrX7M1nMqoPipQ=; b=dmx5oJ6JtpYkEYa/
-	L0Vyz/KnttUzx2cqqWQYLeTWaUVL4XmR58nnaXOAePWW/gdcYyg6h3EUnPCmjkBv
-	R7s6G1p3W9uZuCobNfASQi2UgwC686Ds9UK1bpo2iffENDzgTH7U88JppoWaQy2j
-	XtF/S64aYGs1bf2wOGjlw6kcP8M1o8Wpt2UtE/etIJDBhGYDoid9GXAC8itkgk2e
-	cPjaCNM1MbsmZ5wDkoogdYJWQcBJi6F8bQEPDDH8plelucItKSZuw02n0Mc14DDf
-	CcILIbR5SjsRr/BHFie+zFcb9xTc6n5DcLXKN3kwklyvPE6aRDX5CaZEWq60DP75
-	LGg5fw==
-Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4628rvbuw0-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 17 Apr 2025 10:47:36 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53HAlZHQ011208
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 17 Apr 2025 10:47:35 GMT
-Received: from nsssdc-sh01-lnx.ap.qualcomm.com (10.80.80.8) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Thu, 17 Apr 2025 03:47:31 -0700
-From: Luo Jie <quic_luoj@quicinc.com>
-Date: Thu, 17 Apr 2025 18:47:10 +0800
-Subject: [PATCH v3 3/6] arm64: tlb: Convert the opencoded field modify
+	Thu, 17 Apr 2025 10:48:56 +0000
+Received: by mail-yw1-x1131.google.com with SMTP id 00721157ae682-6fda22908d9so4034017b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Apr 2025 03:48:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=raspberrypi.com; s=google; t=1744886933; x=1745491733; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=3FQmq6mPm5BcVKIvGNINkYwYP9M0N7suMdJCV/VEqS4=;
+        b=NRA17MUmsJVbP+7lzH1FWPej8dudij7um14jyBP2+amWPhWRR15FupRPS/DFTdNAtm
+         403V6iqiL/jx8kZaPv9JqCwKI5GVJcMtsqZzVhX6cpltX7z8vN91eXKGLbJFPPCiU1WB
+         YthFVM6RTlnzgsND2szwbizQA/I+D/dF8NORovlWZhmTJ0KkWwQUqRPcT7NDVnbxncxe
+         QtcAf7VKFa0AiyuM+lz20Fqv9Alyvc6s193Le1Tk9Ubj9l54MCGXqOZ1rjxK/ZlNlvO9
+         H3fZtj1V507p0VlfOZLI7gEm6kiac4lVUKX3uts/O2VpxT58DGqMUPS23Ynrl09kSMEw
+         dU4w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744886933; x=1745491733;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=3FQmq6mPm5BcVKIvGNINkYwYP9M0N7suMdJCV/VEqS4=;
+        b=Ctj0L4vs+H9XNU3te9zMm8FHvx5S9gcD0RG9XFOt4sdOMuSHE85J2ekOxop1GFnM2g
+         DTwp91Lr0VbRPz1Rmht17Hr6oDdEVmPHcdhCaKOFCNZv6RnSbh6fkzmjdMFF43Zzemeo
+         BzZngWOU44D31zn/wpg+3yAr85Gbc3fZ2QIEkzw6BkaHf6DnjIJTZ+Y+SkjAgXQ6XLyl
+         5SdDBtpOOTnlWBQZqISvwrdRQCKESDbtDZIiKOtgqyPOsHYT4R/Nz0vAsO6uG7qJpby5
+         MRs5bPdERPRaJflHGi38Y1gf5ZeYGLSaSi1ETDyac6Q+5rzp0qBO11fD7Pvqw4ESvChX
+         2mkw==
+X-Forwarded-Encrypted: i=1; AJvYcCWoDL+W0O+a9RwkDg6Goy2LWpGWjz5J33R7aUyddv/qaYS/0ssl6SIqR5M2lee0k3rWOaDdyQjqKv3sLeh3LQgl@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzt3lnI34jNOPmvQnXjh+6iGzd+2QUXnV+GTOCfNznsqwznqJdn
+	YIW5rsGBe4r9gU0rQpTj1tQNuWIfWBPV7fe/m/fGcZeBeh53u826CSaiL0k2vw3Y9IywF3mzYCV
+	6r1i9XJSaexoMF0D/wfg1vbfi6ffudDcAUsETSw==
+X-Gm-Gg: ASbGncslJrpoSp2kqkoOifsefupQrjF/k4mk6mDUypA/WsYZD+nEyZvjyXnMmW8twpl
+	Lyv5fowtwWp6NM+QUklm827NmtURHmN1N/ITcmwhSG0D0uO2mPYbYJ7oBYO2xZi1shSej5Fq3nC
+	g8u8rFRK5mUcfmg/Worc7k/qs3FUrKl+foOLMtQaTPBGPy5ONy3TlNig==
+X-Google-Smtp-Source: AGHT+IGLKmF80adLXuj1efSVNgIqhTYlmIxxyWRh7p0wE2BMSJ0PxoGhtbuAHVljmhe5c9jUioDN6HwA2xV5k59yvpc=
+X-Received: by 2002:a05:690c:670c:b0:700:b389:9246 with SMTP id
+ 00721157ae682-706b3392ea3mr77881107b3.38.1744886933054; Thu, 17 Apr 2025
+ 03:48:53 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250417-field_modify-v3-3-6f7992aafcb7@quicinc.com>
-References: <20250417-field_modify-v3-0-6f7992aafcb7@quicinc.com>
-In-Reply-To: <20250417-field_modify-v3-0-6f7992aafcb7@quicinc.com>
-To: Yury Norov <yury.norov@gmail.com>,
-        Rasmus Villemoes
-	<linux@rasmusvillemoes.dk>,
-        Julia Lawall <Julia.Lawall@inria.fr>,
-        "Nicolas
- Palix" <nicolas.palix@imag.fr>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-        Oliver Upton
-	<oliver.upton@linux.dev>,
-        Joey Gouly <joey.gouly@arm.com>,
-        Suzuki K Poulose
-	<suzuki.poulose@arm.com>,
-        Zenghui Yu <yuzenghui@huawei.com>
-CC: <linux-kernel@vger.kernel.org>, <cocci@inria.fr>,
-        <linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-        <andrew@lunn.ch>, <quic_kkumarcs@quicinc.com>,
-        <quic_linchen@quicinc.com>, <quic_leiwei@quicinc.com>,
-        <quic_suruchia@quicinc.com>, <quic_pavir@quicinc.com>,
-        Luo Jie <quic_luoj@quicinc.com>
-X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1744886837; l=1071;
- i=quic_luoj@quicinc.com; s=20250209; h=from:subject:message-id;
- bh=gqGzOX65dgUloUXBiDM2uUofMMrXchcJwN/9t+iSb7k=;
- b=sxhXTdsE+Z/QAYZZpILNncmv9BD3WHP8C30/OyBTr9mtTkJJhDV22A9VJlIMxz87/nnKD69Ta
- SFmrL05AyupA38N88nqL6ZzChWDnb8DsQhi7Z9hD9tVAMrP2JnglnZT
-X-Developer-Key: i=quic_luoj@quicinc.com; a=ed25519;
- pk=pzwy8bU5tJZ5UKGTv28n+QOuktaWuriznGmriA9Qkfc=
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: AtLGZHnrWsYSQEjPsUo0tJffbaXJLcWr
-X-Authority-Analysis: v=2.4 cv=RbSQC0tv c=1 sm=1 tr=0 ts=6800dc48 cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=ZOzjf2MOAAAA:8 a=COk6AnOGAAAA:8 a=C2vL1j-_i977Atbg1qQA:9
- a=QEXdDO2ut3YA:10 a=1Mhi-5-LkjG4w5oc0yAU:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: AtLGZHnrWsYSQEjPsUo0tJffbaXJLcWr
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-17_03,2025-04-15_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=542
- suspectscore=0 adultscore=0 impostorscore=0 clxscore=1015 bulkscore=0
- phishscore=0 priorityscore=1501 spamscore=0 mlxscore=0 lowpriorityscore=0
- malwarescore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2504170080
+References: <cover.1742418429.git.andrea.porta@suse.com> <370137263691f4fc14928e4b378b27f75bfd0826.1742418429.git.andrea.porta@suse.com>
+ <23ac3d05-5fb7-4cd8-bb87-cf1f3eab521d@gmx.net> <Z__alTyVJOwu_1gR@apocalypse>
+In-Reply-To: <Z__alTyVJOwu_1gR@apocalypse>
+From: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Date: Thu, 17 Apr 2025 11:48:34 +0100
+X-Gm-Features: ATxdqUEMIuDD2WyNd1OQ61A-4i5J24ssAwpI3St8SjdqbRIE5I7kKrXYJo4vPvA
+Message-ID: <CAPY8ntD2W5xAHGCD+uBL-0QgyYNj6k9MExns=DFvxU1WGYtO5g@mail.gmail.com>
+Subject: Re: [PATCH v8 05/13] clk: rp1: Add support for clocks provided by RP1
+To: Andrea della Porta <andrea.porta@suse.com>
+Cc: Stefan Wahren <wahrenst@gmx.net>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof Wilczynski <kw@linux.com>, 
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Linus Walleij <linus.walleij@linaro.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Derek Kiernan <derek.kiernan@amd.com>, 
+	Dragan Cvetic <dragan.cvetic@amd.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Saravana Kannan <saravanak@google.com>, 
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	Masahiro Yamada <masahiroy@kernel.org>, Herve Codina <herve.codina@bootlin.com>, 
+	Luca Ceresoli <luca.ceresoli@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	Andrew Lunn <andrew@lunn.ch>, Phil Elwell <phil@raspberrypi.com>, kernel-list@raspberrypi.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_034852_222928_A3ED7DC4 
-X-CRM114-Status: GOOD (  12.08  )
+X-CRM114-CacheID: sfid-20250417_034854_898634_9B0BB96D 
+X-CRM114-Status: GOOD (  32.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,36 +108,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replaced below code with the wrapper FIELD_MODIFY(MASK, &reg, val)
-- reg &= ~MASK;
-- reg |= FIELD_PREP(MASK, val);
-The semantic patch that makes this change is available
-in scripts/coccinelle/misc/field_modify.cocci.
+Hi Andrea & Stefan.
 
-More information about semantic patching is available at
-https://coccinelle.gitlabpages.inria.fr/website
+On Wed, 16 Apr 2025 at 17:26, Andrea della Porta <andrea.porta@suse.com> wrote:
+>
+> Hi Stefan,
+>
+> On 14:09 Mon 14 Apr     , Stefan Wahren wrote:
+> > Hi Andrea,
+> >
+> > Am 19.03.25 um 22:52 schrieb Andrea della Porta:
+> > > RaspberryPi RP1 is an MFD providing, among other peripherals, several
+> > > clock generators and PLLs that drives the sub-peripherals.
+> > > Add the driver to support the clock providers.
+> > >
+> > > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> > > ---
+> > >   MAINTAINERS           |    5 +
+> > >   drivers/clk/Kconfig   |    9 +
+> > >   drivers/clk/Makefile  |    1 +
+> > >   drivers/clk/clk-rp1.c | 1512 +++++++++++++++++++++++++++++++++++++++++
+> > >   4 files changed, 1527 insertions(+)
+> > >   create mode 100644 drivers/clk/clk-rp1.c
+> > >
+> > > diff --git a/MAINTAINERS b/MAINTAINERS
+> > > index 896a307fa065..75263700370d 100644
+> > > --- a/MAINTAINERS
+> > > +++ b/MAINTAINERS
+> > > @@ -19748,6 +19748,11 @@ S: Maintained
+> > >   F:        Documentation/devicetree/bindings/media/raspberrypi,rp1-cfe.yaml
+> > >   F:        drivers/media/platform/raspberrypi/rp1-cfe/
+> > >
+> > > +RASPBERRY PI RP1 PCI DRIVER
+> > > +M: Andrea della Porta <andrea.porta@suse.com>
+> > > +S: Maintained
+> > > +F: drivers/clk/clk-rp1.c
+> > > +
+> > >   RC-CORE / LIRC FRAMEWORK
+> > >   M:        Sean Young <sean@mess.org>
+> > >   L:        linux-media@vger.kernel.org
+> > > diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
+> > > index 713573b6c86c..cff90de71409 100644
+> > > --- a/drivers/clk/Kconfig
+> > > +++ b/drivers/clk/Kconfig
+> > > @@ -88,6 +88,15 @@ config COMMON_CLK_RK808
+> > >       These multi-function devices have two fixed-rate oscillators, clocked at 32KHz each.
+> > >       Clkout1 is always on, Clkout2 can off by control register.
+> > >
+> > > +config COMMON_CLK_RP1
+> > > +   tristate "Raspberry Pi RP1-based clock support"
+> > > +   depends on MISC_RP1 || COMPILE_TEST
+> > > +   default MISC_RP1
+> > > +   help
+> > > +     Enable common clock framework support for Raspberry Pi RP1.
+> > > +     This multi-function device has 3 main PLLs and several clock
+> > > +     generators to drive the internal sub-peripherals.
+> > > +
+> > >   config COMMON_CLK_HI655X
+> > >     tristate "Clock driver for Hi655x" if EXPERT
+> > >     depends on (MFD_HI655X_PMIC || COMPILE_TEST)
+> > > diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
+> > > index bf4bd45adc3a..ff3993ed7e09 100644
+> > > --- a/drivers/clk/Makefile
+> > > +++ b/drivers/clk/Makefile
+> > > @@ -84,6 +84,7 @@ obj-$(CONFIG_CLK_LS1028A_PLLDIG)  += clk-plldig.o
+> > >   obj-$(CONFIG_COMMON_CLK_PWM)              += clk-pwm.o
+> > >   obj-$(CONFIG_CLK_QORIQ)                   += clk-qoriq.o
+> > >   obj-$(CONFIG_COMMON_CLK_RK808)            += clk-rk808.o
+> > > +obj-$(CONFIG_COMMON_CLK_RP1)            += clk-rp1.o
+> > >   obj-$(CONFIG_COMMON_CLK_HI655X)           += clk-hi655x.o
+> > >   obj-$(CONFIG_COMMON_CLK_S2MPS11)  += clk-s2mps11.o
+> > >   obj-$(CONFIG_COMMON_CLK_SCMI)           += clk-scmi.o
+> > > diff --git a/drivers/clk/clk-rp1.c b/drivers/clk/clk-rp1.c
+> > > new file mode 100644
+> > > index 000000000000..72c74e344c1d
+> > > --- /dev/null
+> > > +++ b/drivers/clk/clk-rp1.c
+> > > @@ -0,0 +1,1512 @@
+> > > +// SPDX-License-Identifier: GPL-2.0
+> > ...
+> > > +
+> > > +static int rp1_pll_divider_set_rate(struct clk_hw *hw,
+> > > +                               unsigned long rate,
+> > > +                               unsigned long parent_rate)
+> > > +{
+> > > +   struct rp1_clk_desc *divider = container_of(hw, struct rp1_clk_desc, div.hw);
+> > > +   struct rp1_clockman *clockman = divider->clockman;
+> > > +   const struct rp1_pll_data *data = divider->data;
+> > > +   u32 div, sec;
+> > > +
+> > > +   div = DIV_ROUND_UP_ULL(parent_rate, rate);
+> > > +   div = clamp(div, 8u, 19u);
+> > > +
+> > > +   spin_lock(&clockman->regs_lock);
+> > > +   sec = clockman_read(clockman, data->ctrl_reg);
+> > > +   sec &= ~PLL_SEC_DIV_MASK;
+> > > +   sec |= FIELD_PREP(PLL_SEC_DIV_MASK, div);
+> > > +
+> > > +   /* Must keep the divider in reset to change the value. */
+> > > +   sec |= PLL_SEC_RST;
+> > > +   clockman_write(clockman, data->ctrl_reg, sec);
+> > > +
+> > > +   /* TODO: must sleep 10 pll vco cycles */
+> > Is it possible to implement this with some kind of xsleep or xdelay?
+>
+> I guess so... unless anyone knows a better method such as checking
+> for some undocumented register flag which reveals when the clock is stable
+> so it can be enabled (Phil, Dave, please feel free to step in with advice
+> if you have any), I think this line could solve the issue:
+>
+> ndelay (10 * div * NSEC_PER_SEC / parent_rate);
 
-Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
----
- arch/arm64/include/asm/tlbflush.h | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+I've checked with those involved in the hardware side.
+There's no hardware flag that the clock is stable, so the ndelay is
+probably the best option. The VCO can go as low as 600MHz, so the max
+delay would be 166ns.
 
-diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-index eba1a98657f1..0d250ef4161c 100644
---- a/arch/arm64/include/asm/tlbflush.h
-+++ b/arch/arm64/include/asm/tlbflush.h
-@@ -112,8 +112,7 @@ static inline unsigned long get_trans_granule(void)
- 	    level >= 0 && level <= 3) {					\
- 		u64 ttl = level & 3;					\
- 		ttl |= get_trans_granule() << 2;			\
--		arg &= ~TLBI_TTL_MASK;					\
--		arg |= FIELD_PREP(TLBI_TTL_MASK, ttl);			\
-+		FIELD_MODIFY(TLBI_TTL_MASK, &arg, ttl);			\
- 	}								\
- 									\
- 	__tlbi(op, arg);						\
+Thanks for your continuing work on this.
 
--- 
-2.34.1
+  Dave
 
+> Many thanks,
+> Andrea
+>
+> > > +   sec &= ~PLL_SEC_RST;
+> > > +   clockman_write(clockman, data->ctrl_reg, sec);
+> > > +   spin_unlock(&clockman->regs_lock);
+> > > +
+> > > +   return 0;
+> > > +}
+> > > +
+> > >
 
