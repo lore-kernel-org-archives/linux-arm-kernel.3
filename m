@@ -4,91 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 164A5C369C9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 18:08:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9CC2C369CA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 18:10:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/2maWr5nKaUYZks392Yr7+st8n64TBj8pRfEW3etv/U=; b=cVJV00FD4vLK2q+VO4mNNPyFLG
-	VX4KX23T3M248UiAV7B2U/z3Z+C/D5+D4+mMKVSce3tnj2tYmRLTmhPUlhjYJfVY6ZytBehCZ7kP5
-	dKMCeCX6AUdOzMRyUibkWiGN8kOv8NiNUG1w1CekWzbFGmBE7VXPK1hS9hFJCc01JMlMGPNJj190w
-	b5zdVYjigIKNFyfN55lOrx6MuwYx8FdYEQOF3BB+PurCvYHYcFJ0apwcfj99rZsyysctawyXlFX3y
-	2CtB6+TOUCW/o1AfXjx78jGS3WZVcjLH9gmnwEDyDZWr1v1hawL5lAZC44dssTYOl5fhFs9NQHnbR
-	ylowh7Dw==;
+	bh=fWFVgupzA3WcXLT+BN9IkoTUzlpVNJIm/ZYe94t2FFM=; b=iit2dqEx1zxizLTG+MGcNGEYmq
+	2QJcu7euliL9opF4wwGACMlJTAj4E0OLkdjhUZ+XfEGPweWD5/34WcQTYrbcuyuPA/G6eGCGFBdaA
+	/frZq4o+7PkpGIDzWMqnpNjMfNSewtFAMnDYF4yPNpIgf/Gf8mhH1Zi/SieKTmhjvAJqW9KsQMhLh
+	gMoYJdQELE61mJgxTMXq8xXZKgGwmiZp3vsmf1Q2EQ0zjUCDPLZpigxt2Clj3cSygTvN5Uxn3fsyT
+	p+yQEe3l42fk2hndBzKmv05CeQaqV12pvgt9GrtFYGoLVaEUgvDIYfcriwQLRzsukOBZZyOarVUJT
+	K/rZVsDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5TfD-0000000DyLx-3aDv;
-	Thu, 17 Apr 2025 18:08:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u5Th3-0000000Dybc-2EzU;
+	Thu, 17 Apr 2025 18:10:33 +0000
+Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5TIb-0000000Du6R-0I5Y
+	id 1u5TJi-0000000DuIJ-31P7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 17:45:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 851D9450EC;
-	Thu, 17 Apr 2025 17:45:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87272C4CEE4;
-	Thu, 17 Apr 2025 17:45:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744911916;
-	bh=6HqrhZNro99W4hlfSawIZ3bq362Egs1uCP6Vd2PPZEo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Rg9yC7QlGIMHPKQ7WEUGcSXGLVG9wxf2u/ZQSNnkgiCyTxtBSESRPGDe+sRSX9zqE
-	 Yr6zKteWNfT21eUPrDzH3townbAbp+JNZoqjO8E9Btki0TkxaaNjeqnOFomOXxGsY9
-	 npxcqlAvOCfIOhiGpE7+KHL4yZ17Ea7yhnR7iLd/LuMwKNgaMfatKUoXU++iSE+yc4
-	 bCUeuLNT8zmRwNmWOd81ph5gMXXeKiDDW6+RZvyzte4ueYT3Dt2CGTpkNowMW9fKmZ
-	 kSD+ATjwqop+j6mDFplMVngOWwDoWMPy9UNGDtf1OWVrt4ZVExz07i9a69OinfacJU
-	 FCAJM3b+Ersgw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1u5TIY-006VUB-5A;
-	Thu, 17 Apr 2025 18:45:14 +0100
-Date: Thu, 17 Apr 2025 18:45:12 +0100
-Message-ID: <86mscek7h3.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Luo Jie <quic_luoj@quicinc.com>,
-	Yury Norov <yury.norov@gmail.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	Julia Lawall <Julia.Lawall@inria.fr>,
-	Nicolas Palix <nicolas.palix@imag.fr>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-kernel@vger.kernel.org,
-	cocci@inria.fr,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	quic_kkumarcs@quicinc.com,
-	quic_linchen@quicinc.com,
-	quic_leiwei@quicinc.com,
-	quic_suruchia@quicinc.com,
-	quic_pavir@quicinc.com
-Subject: Re: [PATCH v3 0/6] Add FIELD_MODIFY() helper
-In-Reply-To: <0c97c659-bd28-45e0-8537-d9be2637cb22@lunn.ch>
-References: <20250417-field_modify-v3-0-6f7992aafcb7@quicinc.com>
-	<86sem7jb5t.wl-maz@kernel.org>
-	<0c97c659-bd28-45e0-8537-d9be2637cb22@lunn.ch>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: andrew@lunn.ch, quic_luoj@quicinc.com, yury.norov@gmail.com, linux@rasmusvillemoes.dk, Julia.Lawall@inria.fr, nicolas.palix@imag.fr, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-kernel@vger.kernel.org, cocci@inria.fr, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, quic_kkumarcs@quicinc.com, quic_linchen@quicinc.com, quic_leiwei@quicinc.com, quic_suruchia@quicinc.com, quic_pavir@quicinc.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Thu, 17 Apr 2025 17:46:28 +0000
+Received: by mail-yw1-x1130.google.com with SMTP id 00721157ae682-7053f85f059so9249377b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Apr 2025 10:46:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=raspberrypi.com; s=google; t=1744911985; x=1745516785; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=fWFVgupzA3WcXLT+BN9IkoTUzlpVNJIm/ZYe94t2FFM=;
+        b=bdSPzDrxCgJBJwF82SrTv437hEvz3hsrjyGV+WQuSjXL7jJl+zWmBZel15wcIG+9N2
+         uxJNyT6H7ySf7cLvRAoeh7gwgNNitaQpk0otg4K81WNhYx9K+KT+IWZTIhL6L8GtMqFc
+         eLYq8dz+VyRt+P1ZNzUr3bzTWzItyFrZC5G8vCweeR9CXlgMrRgABaQmbqdu4+/AKwDd
+         dHfNAO1ys5OK7hTNgHRfPm/pa86bT8HIcJEMebfyG1BC1J9F7Z+u4QPuKY8Vm7yeiUCb
+         9WJCXTf2LSPoO0PtUfP/6qZYz2V/eS92w33rxcpjXmjcBGiE6muxXFsRPC9W4ggU/L5Q
+         tUyg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744911985; x=1745516785;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=fWFVgupzA3WcXLT+BN9IkoTUzlpVNJIm/ZYe94t2FFM=;
+        b=t8HqUQpqLBQKb9vNV/451b5aaDyzQjh0SZDHspFODFXEiFcolpCcTOVTiEfnkgAb1R
+         pJ3Ypgs0Q0lOwAeyph4uJcRgLQXvzmp0hrTY8vs1RtxZyrWQ57SshfHprA8qycr3sbi2
+         LzOWJf2kw2spnk1MI8R/Ny3pK2kcWgexuyZ0DXnRBt15vvEJ8mRB73oG4MixkExLcNBE
+         bTJKvEqmjwRBlBE0lwkf+wSOC1p057amuFK9nhgzaYbPh/ITQAPZUvKW/Cuekx+yQ+Kt
+         wGsJMPV7f9mTBKFVwFpPCMGkrKXuyouooBkpJkISPBOqrf6Kw7w18D/6UwZqa1NE5PJS
+         ZyqA==
+X-Forwarded-Encrypted: i=1; AJvYcCV3CYN4o8djbSNmb6rIwBTENorSCMswxSuXCDPoG6Du7rcs84cngBq3c5rqgw+oBzVoXauRsn011gou/aD/kcQh@lists.infradead.org
+X-Gm-Message-State: AOJu0YyYoPirKgHy0LOFeR5cQy/F36OdJXNZIUweaDGEidfjybhPwnT2
+	482tXaEKfrphws5W9HUDC7PH2bN7kupAf6qh7cqiCJngfl3CS1zOvVrdC84+taJ17tBWKwxECob
+	E+oqC+UCfgul3c+8zBBVT6OmutJSszNkdd1SwoA==
+X-Gm-Gg: ASbGncv+6iAW5XK7DNLLh+rmlM6OgyafGeEqZzZBVu9nPWPvbLiwdobEFP/sA4ovnpO
+	AOnFYgSeBun7bsjHP8QbEF1Gkhtej9/qecJxwgoQ5mtMLKvDWLXM4RUbSg+2f3SvJsBF7kgawVp
+	JrXfGNHhO29UbFHhj6dSzAQfLQOQOTPVCYbd0X0y6Rw4x0sTd2E+YHuw==
+X-Google-Smtp-Source: AGHT+IFyC6HYs9e80CmN73xlBJt/HpImaly70LEZmj35WGtDtklY8rBjCjjco5A8WQ2lGInHkA6lzygUfa3Emej99Gg=
+X-Received: by 2002:a05:690c:3506:b0:6fe:c040:8eda with SMTP id
+ 00721157ae682-706b325d56amr97201527b3.4.1744911985301; Thu, 17 Apr 2025
+ 10:46:25 -0700 (PDT)
+MIME-Version: 1.0
+References: <cover.1742418429.git.andrea.porta@suse.com> <370137263691f4fc14928e4b378b27f75bfd0826.1742418429.git.andrea.porta@suse.com>
+ <23ac3d05-5fb7-4cd8-bb87-cf1f3eab521d@gmx.net> <Z__alTyVJOwu_1gR@apocalypse>
+ <CAPY8ntD2W5xAHGCD+uBL-0QgyYNj6k9MExns=DFvxU1WGYtO5g@mail.gmail.com> <aAD6EXrav161J0vS@apocalypse>
+In-Reply-To: <aAD6EXrav161J0vS@apocalypse>
+From: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Date: Thu, 17 Apr 2025 18:46:02 +0100
+X-Gm-Features: ATxdqUHcDbWr8xBnLCzFc0eo6fLOV6JX6u0K_scOh1zjVezR0S_9IzHQVsjXicM
+Message-ID: <CAPY8ntBMJUONss_0nCYRPNJ1vTMWMu0Ga3w-r_1jboM+aShH7w@mail.gmail.com>
+Subject: Re: [PATCH v8 05/13] clk: rp1: Add support for clocks provided by RP1
+To: Andrea della Porta <andrea.porta@suse.com>
+Cc: Stefan Wahren <wahrenst@gmx.net>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof Wilczynski <kw@linux.com>, 
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Linus Walleij <linus.walleij@linaro.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Derek Kiernan <derek.kiernan@amd.com>, 
+	Dragan Cvetic <dragan.cvetic@amd.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Saravana Kannan <saravanak@google.com>, 
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	Masahiro Yamada <masahiroy@kernel.org>, Herve Codina <herve.codina@bootlin.com>, 
+	Luca Ceresoli <luca.ceresoli@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	Andrew Lunn <andrew@lunn.ch>, Phil Elwell <phil@raspberrypi.com>, kernel-list@raspberrypi.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_104517_148943_A7760D9B 
-X-CRM114-Status: GOOD (  23.39  )
+X-CRM114-CacheID: sfid-20250417_104626_936734_411B2496 
+X-CRM114-Status: GOOD (  42.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,47 +109,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 17 Apr 2025 18:22:29 +0100,
-Andrew Lunn <andrew@lunn.ch> wrote:
-> 
-> On Thu, Apr 17, 2025 at 12:10:54PM +0100, Marc Zyngier wrote:
-> > On Thu, 17 Apr 2025 11:47:07 +0100,
-> > Luo Jie <quic_luoj@quicinc.com> wrote:
-> > > 
-> > > Add the helper FIELD_MODIFY() to the FIELD_XXX family of bitfield
-> > > macros. It is functionally similar as xxx_replace_bits(), but adds
-> > > the compile time checking to catch incorrect parameter type errors.
-> > > 
-> > > This series also converts the four instances of opencoded FIELD_MODIFY()
-> > > that are found in the core kernel files, to instead use the new
-> > > FIELD_MODIFY() macro. This is achieved with Coccinelle, by adding
-> > > the script field_modify.cocci.
-> > > 
-> > > The changes are validated on IPQ9574 SoC which uses ARM64 architecture.
-> > 
-> > We already have the *_replace_bits() functions (see
-> > include/linux/bitfield.h).
-> > 
-> > Why do we need extra helpers?
-> 
-> If you look at bitfield.h, the *_replace_bits() seem to be
-> undocumented internal macro magic, not something you are expected to
-> use. What you are expected to use in that file is however well
-> documented. The macro magic also means that cross referencing tools
-> don't find them.
+On Thu, 17 Apr 2025 at 13:53, Andrea della Porta <andrea.porta@suse.com> wrote:
+>
+> Hi Dave,
+>
+> On 11:48 Thu 17 Apr     , Dave Stevenson wrote:
+> > Hi Andrea & Stefan.
+> >
+> > On Wed, 16 Apr 2025 at 17:26, Andrea della Porta <andrea.porta@suse.com> wrote:
+> > >
+> > > Hi Stefan,
+> > >
+> > > On 14:09 Mon 14 Apr     , Stefan Wahren wrote:
+> > > > Hi Andrea,
+> > > >
+> > > > Am 19.03.25 um 22:52 schrieb Andrea della Porta:
+> > > > > RaspberryPi RP1 is an MFD providing, among other peripherals, several
+> > > > > clock generators and PLLs that drives the sub-peripherals.
+> > > > > Add the driver to support the clock providers.
+> > > > >
+> > > > > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> > > > > ---
+> > > > >   MAINTAINERS           |    5 +
+> > > > >   drivers/clk/Kconfig   |    9 +
+> > > > >   drivers/clk/Makefile  |    1 +
+> > > > >   drivers/clk/clk-rp1.c | 1512 +++++++++++++++++++++++++++++++++++++++++
+> > > > >   4 files changed, 1527 insertions(+)
+> > > > >   create mode 100644 drivers/clk/clk-rp1.c
+> > > > >
+> > > > > diff --git a/MAINTAINERS b/MAINTAINERS
+> > > > > index 896a307fa065..75263700370d 100644
+> > > > > --- a/MAINTAINERS
+> > > > > +++ b/MAINTAINERS
+> > > > > @@ -19748,6 +19748,11 @@ S: Maintained
+> > > > >   F:        Documentation/devicetree/bindings/media/raspberrypi,rp1-cfe.yaml
+> > > > >   F:        drivers/media/platform/raspberrypi/rp1-cfe/
+> > > > >
+> > > > > +RASPBERRY PI RP1 PCI DRIVER
+> > > > > +M: Andrea della Porta <andrea.porta@suse.com>
+> > > > > +S: Maintained
+> > > > > +F: drivers/clk/clk-rp1.c
+> > > > > +
+> > > > >   RC-CORE / LIRC FRAMEWORK
+> > > > >   M:        Sean Young <sean@mess.org>
+> > > > >   L:        linux-media@vger.kernel.org
+> > > > > diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
+> > > > > index 713573b6c86c..cff90de71409 100644
+> > > > > --- a/drivers/clk/Kconfig
+> > > > > +++ b/drivers/clk/Kconfig
+> > > > > @@ -88,6 +88,15 @@ config COMMON_CLK_RK808
+> > > > >       These multi-function devices have two fixed-rate oscillators, clocked at 32KHz each.
+> > > > >       Clkout1 is always on, Clkout2 can off by control register.
+> > > > >
+> > > > > +config COMMON_CLK_RP1
+> > > > > +   tristate "Raspberry Pi RP1-based clock support"
+> > > > > +   depends on MISC_RP1 || COMPILE_TEST
+> > > > > +   default MISC_RP1
+> > > > > +   help
+> > > > > +     Enable common clock framework support for Raspberry Pi RP1.
+> > > > > +     This multi-function device has 3 main PLLs and several clock
+> > > > > +     generators to drive the internal sub-peripherals.
+> > > > > +
+> > > > >   config COMMON_CLK_HI655X
+> > > > >     tristate "Clock driver for Hi655x" if EXPERT
+> > > > >     depends on (MFD_HI655X_PMIC || COMPILE_TEST)
+> > > > > diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
+> > > > > index bf4bd45adc3a..ff3993ed7e09 100644
+> > > > > --- a/drivers/clk/Makefile
+> > > > > +++ b/drivers/clk/Makefile
+> > > > > @@ -84,6 +84,7 @@ obj-$(CONFIG_CLK_LS1028A_PLLDIG)  += clk-plldig.o
+> > > > >   obj-$(CONFIG_COMMON_CLK_PWM)              += clk-pwm.o
+> > > > >   obj-$(CONFIG_CLK_QORIQ)                   += clk-qoriq.o
+> > > > >   obj-$(CONFIG_COMMON_CLK_RK808)            += clk-rk808.o
+> > > > > +obj-$(CONFIG_COMMON_CLK_RP1)            += clk-rp1.o
+> > > > >   obj-$(CONFIG_COMMON_CLK_HI655X)           += clk-hi655x.o
+> > > > >   obj-$(CONFIG_COMMON_CLK_S2MPS11)  += clk-s2mps11.o
+> > > > >   obj-$(CONFIG_COMMON_CLK_SCMI)           += clk-scmi.o
+> > > > > diff --git a/drivers/clk/clk-rp1.c b/drivers/clk/clk-rp1.c
+> > > > > new file mode 100644
+> > > > > index 000000000000..72c74e344c1d
+> > > > > --- /dev/null
+> > > > > +++ b/drivers/clk/clk-rp1.c
+> > > > > @@ -0,0 +1,1512 @@
+> > > > > +// SPDX-License-Identifier: GPL-2.0
+> > > > ...
+> > > > > +
+> > > > > +static int rp1_pll_divider_set_rate(struct clk_hw *hw,
+> > > > > +                               unsigned long rate,
+> > > > > +                               unsigned long parent_rate)
+> > > > > +{
+> > > > > +   struct rp1_clk_desc *divider = container_of(hw, struct rp1_clk_desc, div.hw);
+> > > > > +   struct rp1_clockman *clockman = divider->clockman;
+> > > > > +   const struct rp1_pll_data *data = divider->data;
+> > > > > +   u32 div, sec;
+> > > > > +
+> > > > > +   div = DIV_ROUND_UP_ULL(parent_rate, rate);
+> > > > > +   div = clamp(div, 8u, 19u);
+> > > > > +
+> > > > > +   spin_lock(&clockman->regs_lock);
+> > > > > +   sec = clockman_read(clockman, data->ctrl_reg);
+> > > > > +   sec &= ~PLL_SEC_DIV_MASK;
+> > > > > +   sec |= FIELD_PREP(PLL_SEC_DIV_MASK, div);
+> > > > > +
+> > > > > +   /* Must keep the divider in reset to change the value. */
+> > > > > +   sec |= PLL_SEC_RST;
+> > > > > +   clockman_write(clockman, data->ctrl_reg, sec);
+> > > > > +
+> > > > > +   /* TODO: must sleep 10 pll vco cycles */
+> > > > Is it possible to implement this with some kind of xsleep or xdelay?
+> > >
+> > > I guess so... unless anyone knows a better method such as checking
+> > > for some undocumented register flag which reveals when the clock is stable
+> > > so it can be enabled (Phil, Dave, please feel free to step in with advice
+> > > if you have any), I think this line could solve the issue:
+> > >
+> > > ndelay (10 * div * NSEC_PER_SEC / parent_rate);
+> >
+> > I've checked with those involved in the hardware side.
+> > There's no hardware flag that the clock is stable, so the ndelay is
+> > probably the best option. The VCO can go as low as 600MHz, so the max
+> > delay would be 166ns.
+>
+> Perfect, I'll use ndelay then. However, shouldn't this be 16ns max?
+> I think this formula should give a good estimate:
+>
+> 10ULL * div * NSEC_PER_SEC / parent_rate
+>
+> and has the advantage of not depending on hard coded values.
 
-$ git grep _replace_bits|  wc -l
-1514
+I'd copied the number my colleague had given :-) He's now left for the
+Easter weekend, but I can hassle him again on Tuesday.
 
-I think a bunch of people have found them, tooling notwithstanding.
+I was expecting a computation rather than hard coded value, but was
+giving the maximum as significant delays aren't very friendly.
+The fact that we haven't noticed any issues with no delay at all
+implies to me that this delay may only be a level of polishing rather
+than anything critical. Although there is also the possibility that
+they haven't been reconfigured on a regular basis either.
 
-As for the documentation, the commit message in 00b0c9b82663ac would
-be advantageously promoted to full-fledged kernel-doc.
+  Dave
 
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+> >
+> > Thanks for your continuing work on this.
+>
+> Thank you for checking.
+>
+> Regards,
+> Andrea
+>
+> >
+> >   Dave
+> >
+> > > Many thanks,
+> > > Andrea
+> > >
+> > > > > +   sec &= ~PLL_SEC_RST;
+> > > > > +   clockman_write(clockman, data->ctrl_reg, sec);
+> > > > > +   spin_unlock(&clockman->regs_lock);
+> > > > > +
+> > > > > +   return 0;
+> > > > > +}
+> > > > > +
+> > > > >
 
