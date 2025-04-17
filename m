@@ -4,83 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43247C369C9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 20:13:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D33C0C369C9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 20:16:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GglmGMo3XxC+rAVj+FTFIkjR4kCGh3nBmH8sRWucZDw=; b=qXus8RTMTPeJP0gVjB9r/i4LQ/
-	6ulsSLEAXe3q5cIYBDB3p63Vgir8eOkmFfjXnneHa8FggXQFrwHhLRBiOnLBPY9aMXItXr00G6ul0
-	fvQ+X9FLHoxpx3N2QNdLpa8Oh0wyYJcintWsbBY7ZwG7SnYzGs5yxzpg/KrOT0McUEfONC/z0blDB
-	R1+BTue0DRTPmh+4iE820PTsps7o0Fckdtnspv4HSZao4/3ww86xSLsJOmFJRvM0XhDNjXAvk1oBL
-	l2v9M0svuaGIAaEdBlx0cW/VpZkG/S3dsdMEIaDsEI5ZBnBJbsZ+9XEkVNFhK8X9c7Wu2ZHG0UU0Y
-	qEsWTAEA==;
+	bh=vqfxeWiL5mg3eLlMpj6Ixu2GTI5vaS9FIG9KJTJ9PHM=; b=PZWzY+vWlmim1uplTBwmm24HP2
+	dxQU2zFBp/XH9YKnGM58tV7c1Y/ny8FbDrsU1Me/Tinm17EjrC6RPBGdz9JpkodnSCU+qdQRJ5/vD
+	6QYIl7lNm8DvImKwVuA+eLqPBB1sSvpzpTrRoyh+mM7zbc3YWkhspAupTQsyhNEqLg9g5z4z77Ols
+	tMM882fYfD4lSjGbyOtBiMiYlUohbzlyPJdcz0b3eqaEAqtQ4vyHuJRl5RPZ01z+0LVH+T+q1MogQ
+	Lp4AShuzsSxfTqGJt1q/9X3QaWsIDctuWELtn/KAZWrTFYZrLDSZdrUsBipnL5+X9lvcjfltIdj7e
+	oNXomRiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Vc9-0000000EFYs-1VtT;
-	Thu, 17 Apr 2025 20:13:37 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u5VfG-0000000EG4y-1edS;
+	Thu, 17 Apr 2025 20:16:50 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5TxK-0000000E2Oe-2Hrm;
-	Thu, 17 Apr 2025 18:27:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=GglmGMo3XxC+rAVj+FTFIkjR4kCGh3nBmH8sRWucZDw=; b=i6xvENCTptFcf7LjTDVpsHk/rb
-	GbO7wmVN6Oz+AomB0zC2AS7z5iipxyB35/rEUX4FmXzse1zD8xqV55do2/aGQF6SO137loRrn2KOB
-	zfNKKus+B3/B/BcXW9sgm8oyRQ8wGV8sXUcZ2Fp77LnLFLUW81LCdC1ys1fD516Wt15nFWXFJ29/x
-	XwyQg7wvZG3FHgyu21FA1kp3ed3XusgmutFKKELG8v4LCRg6t00LOpsFR4t/i2kWujWc7F1bSpGOF
-	w5wj+4ZWsg2mooIn7jXnieBbNo+qEqdHWg7CyDnua1xFKevO+8DVYylisyxxxyOVrFQQync6FoUrB
-	7F1lETdQ==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u5TxH-0000000AMKP-0zMN;
-	Thu, 17 Apr 2025 18:27:21 +0000
+	id 1u5VdO-0000000EFoO-3udy
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Apr 2025 20:14:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CEB2FA4A40B;
-	Thu, 17 Apr 2025 18:21:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06218C4CEE7;
-	Thu, 17 Apr 2025 18:27:16 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BC0EC68472;
+	Thu, 17 Apr 2025 20:14:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 9D49EC4CEEA;
+	Thu, 17 Apr 2025 20:14:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744914437;
-	bh=3nfdu4R/mPq9aAzKFy77Vd824jpabdJRCARw42m5B3E=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=MeW0NneqVCQj7DYVVEg1zpY/h1tmZM6P32rJRZQ6YxrpYlXnaxEpLEk1Au1Uadeww
-	 9l9Sp5j7rrCKmQFDwjauWm/MrJAAWSILclhc1uGnQxXQb26q6RtlF1lisvj7bIsDJr
-	 O9gmn0l4jTjfWZUhx8ejLkUCSlEOa/rcTDxvg1GMqEv1DCjCYypX/j9prOqeSF9CAp
-	 zP+dG8u65oa2fijCqHzQq98k8aHe2/AqMMtjC0NyybcRriVdygBLZ80gw/7GKOViSh
-	 T3LQEa5jFjZxYoFZv9b9wA8GNTwskt6oqzI7EFUi28I4G8OEoSyTsnlqYDi4JppUuB
-	 ruUD7Fk48RLDQ==
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org,
-	"Jason A . Donenfeld " <Jason@zx2c4.com>,
-	Ard Biesheuvel <ardb@kernel.org>
-Subject: [PATCH 13/15] crypto: x86 - remove CRYPTO dependency of library functions
-Date: Thu, 17 Apr 2025 11:26:21 -0700
-Message-ID: <20250417182623.67808-14-ebiggers@kernel.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250417182623.67808-1-ebiggers@kernel.org>
-References: <20250417182623.67808-1-ebiggers@kernel.org>
+	s=k20201202; t=1744920893;
+	bh=aMdEh0YzLhR0ClRxPLS5MigjInPEcB5sd9INEKNsS88=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=EIx9DsuhfuFuwmHju7KgUg3LgdojFfQ6201BXFB78CUJ3NVL1Mw0QxfQMq3tMPgUC
+	 aJXjFcGZhU5GQI71AcIVlJaEvCjX8Y87c/OkjrOfnvcy3DJ+EwlWuf/mSKeYPFuNzI
+	 q0jVrTPWG0K+GHHNKoiCqpSD0jMbK+uh3nVCFbmgDo14JzpIqM66U3nkFWpxxjYlGx
+	 tQcsDZs+8DTQo0d29sg41oterajbSFdplWu4KDStMoIn6XmR0Xg8HM80Q9PC+Qf8VG
+	 W4zj8MSlQgBQmhGdpCR2z4Gp3fBo0OcTTOElM8Q3LlI64Kg8Ypzw8LVf5bYnnAYVJ2
+	 7DcT2DdwNqL9Q==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 83CFCC369CA;
+	Thu, 17 Apr 2025 20:14:53 +0000 (UTC)
+From: Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>
+Date: Thu, 17 Apr 2025 22:14:49 +0200
+Subject: [PATCH v2 1/3] dt-bindings: spmi: Add generic SPMI NVMEM
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_192719_554942_F4805D54 
-X-CRM114-Status: UNSURE (   9.46  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250417-spmi-nvmem-v2-1-b88851e34afb@gmail.com>
+References: <20250417-spmi-nvmem-v2-0-b88851e34afb@gmail.com>
+In-Reply-To: <20250417-spmi-nvmem-v2-0-b88851e34afb@gmail.com>
+To: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, 
+ Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Sasha Finkelstein <fnkl.kernel@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1744920892; l=2493;
+ i=fnkl.kernel@gmail.com; s=20241124; h=from:subject:message-id;
+ bh=qFT9kwFfU2f7bD/dtTWCsGgokdHWxW+ICVtDXhupydE=;
+ b=7IzgqtLCTQW165We2ILZabYySsAbC1WMcO6dkhnI7toHak+Agj/KAjWbRRLLMVuRpw6guwkRE
+ oiqh8S7uXCKAe+ZjaHXP/rZjUDEKFY1nnujyaguKlLQa72zBDU45qgE
+X-Developer-Key: i=fnkl.kernel@gmail.com; a=ed25519;
+ pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
+X-Endpoint-Received: by B4 Relay for fnkl.kernel@gmail.com/20241124 with
+ auth_id=283
+X-Original-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,465 +84,95 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: fnkl.kernel@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Eric Biggers <ebiggers@google.com>
+From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 
-Continue disentangling the crypto library functions from the generic
-crypto infrastructure by removing the unnecessary CRYPTO dependency of
-CRYPTO_BLAKE2S_X86, CRYPTO_CHACHA20_X86_64, and CRYPTO_POLY1305_X86_64.
-To do this, make arch/x86/crypto/Kconfig be sourced regardless of
-CRYPTO, and explicitly list the CRYPTO dependency in the symbols that do
-need it.
+Add bindings for exposing SPMI registers as NVMEM cells
 
-Signed-off-by: Eric Biggers <ebiggers@google.com>
+Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
 ---
- arch/x86/Kconfig        |  4 +++
- arch/x86/crypto/Kconfig | 61 +++++++++++++++++++++--------------------
- crypto/Kconfig          |  6 ----
- 3 files changed, 35 insertions(+), 36 deletions(-)
+ .../devicetree/bindings/nvmem/spmi-nvmem.yaml      | 54 ++++++++++++++++++++++
+ MAINTAINERS                                        |  1 +
+ 2 files changed, 55 insertions(+)
 
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index 4b9f378e05f6..24346944439a 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -2382,10 +2382,14 @@ config X86_BUS_LOCK_DETECT
- 	default y
- 	help
- 	  Enable Split Lock Detect and Bus Lock Detect functionalities.
- 	  See <file:Documentation/arch/x86/buslock.rst> for more information.
- 
-+if !KMSAN # avoid false positives from assembly
-+source "arch/x86/crypto/Kconfig"
-+endif
+diff --git a/Documentation/devicetree/bindings/nvmem/spmi-nvmem.yaml b/Documentation/devicetree/bindings/nvmem/spmi-nvmem.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..d16b27128f97b5d38fb6ddb5109c70cda5e2ee15
+--- /dev/null
++++ b/Documentation/devicetree/bindings/nvmem/spmi-nvmem.yaml
+@@ -0,0 +1,54 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/nvmem/spmi-nvmem.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
- endmenu
- 
- config CC_HAS_NAMED_AS
- 	def_bool $(success,echo 'int __seg_fs fs; int __seg_gs gs;' | $(CC) -x c - -S -o /dev/null)
- 	depends on CC_IS_GCC
-diff --git a/arch/x86/crypto/Kconfig b/arch/x86/crypto/Kconfig
-index b4df6cf37e0e..daa168e37b59 100644
---- a/arch/x86/crypto/Kconfig
-+++ b/arch/x86/crypto/Kconfig
-@@ -2,11 +2,11 @@
- 
- menu "Accelerated Cryptographic Algorithms for CPU (x86)"
- 
- config CRYPTO_CURVE25519_X86
- 	tristate
--	depends on 64BIT
-+	depends on CRYPTO && 64BIT
- 	select CRYPTO_KPP
- 	select CRYPTO_LIB_CURVE25519_GENERIC
- 	select CRYPTO_ARCH_HAVE_LIB_CURVE25519
- 	default CRYPTO_LIB_CURVE25519_INTERNAL
- 	help
-@@ -15,10 +15,11 @@ config CRYPTO_CURVE25519_X86
- 	  Architecture: x86_64 using:
- 	  - ADX (large integer arithmetic)
- 
- config CRYPTO_AES_NI_INTEL
- 	tristate "Ciphers: AES, modes: ECB, CBC, CTS, CTR, XCTR, XTS, GCM (AES-NI/VAES)"
-+	depends on CRYPTO
- 	select CRYPTO_AEAD
- 	select CRYPTO_LIB_AES
- 	select CRYPTO_LIB_GF128MUL
- 	select CRYPTO_ALGAPI
- 	select CRYPTO_SKCIPHER
-@@ -34,11 +35,11 @@ config CRYPTO_AES_NI_INTEL
- 	  Some algorithm implementations are supported only in 64-bit builds,
- 	  and some have additional prerequisites such as AVX2 or AVX512.
- 
- config CRYPTO_BLOWFISH_X86_64
- 	tristate "Ciphers: Blowfish, modes: ECB, CBC"
--	depends on 64BIT
-+	depends on CRYPTO && 64BIT
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_BLOWFISH_COMMON
- 	imply CRYPTO_CTR
- 	help
- 	  Block cipher: Blowfish cipher algorithm
-@@ -46,22 +47,22 @@ config CRYPTO_BLOWFISH_X86_64
- 
- 	  Architecture: x86_64
- 
- config CRYPTO_CAMELLIA_X86_64
- 	tristate "Ciphers: Camellia with modes: ECB, CBC"
--	depends on 64BIT
-+	depends on CRYPTO && 64BIT
- 	select CRYPTO_SKCIPHER
- 	imply CRYPTO_CTR
- 	help
- 	  Block cipher: Camellia cipher algorithms
- 	  Length-preserving ciphers: Camellia with ECB and CBC modes
- 
- 	  Architecture: x86_64
- 
- config CRYPTO_CAMELLIA_AESNI_AVX_X86_64
- 	tristate "Ciphers: Camellia with modes: ECB, CBC (AES-NI/AVX)"
--	depends on 64BIT
-+	depends on CRYPTO && 64BIT
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_CAMELLIA_X86_64
- 	imply CRYPTO_XTS
- 	help
- 	  Length-preserving ciphers: Camellia with ECB and CBC modes
-@@ -70,22 +71,22 @@ config CRYPTO_CAMELLIA_AESNI_AVX_X86_64
- 	  - AES-NI (AES New Instructions)
- 	  - AVX (Advanced Vector Extensions)
- 
- config CRYPTO_CAMELLIA_AESNI_AVX2_X86_64
- 	tristate "Ciphers: Camellia with modes: ECB, CBC (AES-NI/AVX2)"
--	depends on 64BIT
-+	depends on CRYPTO && 64BIT
- 	select CRYPTO_CAMELLIA_AESNI_AVX_X86_64
- 	help
- 	  Length-preserving ciphers: Camellia with ECB and CBC modes
- 
- 	  Architecture: x86_64 using:
- 	  - AES-NI (AES New Instructions)
- 	  - AVX2 (Advanced Vector Extensions 2)
- 
- config CRYPTO_CAST5_AVX_X86_64
- 	tristate "Ciphers: CAST5 with modes: ECB, CBC (AVX)"
--	depends on 64BIT
-+	depends on CRYPTO && 64BIT
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_CAST5
- 	select CRYPTO_CAST_COMMON
- 	imply CRYPTO_CTR
- 	help
-@@ -97,11 +98,11 @@ config CRYPTO_CAST5_AVX_X86_64
- 
- 	  Processes 16 blocks in parallel.
- 
- config CRYPTO_CAST6_AVX_X86_64
- 	tristate "Ciphers: CAST6 with modes: ECB, CBC (AVX)"
--	depends on 64BIT
-+	depends on CRYPTO && 64BIT
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_CAST6
- 	select CRYPTO_CAST_COMMON
- 	imply CRYPTO_XTS
- 	imply CRYPTO_CTR
-@@ -114,11 +115,11 @@ config CRYPTO_CAST6_AVX_X86_64
- 
- 	  Processes eight blocks in parallel.
- 
- config CRYPTO_DES3_EDE_X86_64
- 	tristate "Ciphers: Triple DES EDE with modes: ECB, CBC"
--	depends on 64BIT
-+	depends on CRYPTO && 64BIT
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_LIB_DES
- 	imply CRYPTO_CTR
- 	help
- 	  Block cipher: Triple DES EDE (FIPS 46-3) cipher algorithm
-@@ -128,11 +129,11 @@ config CRYPTO_DES3_EDE_X86_64
- 
- 	  Processes one or three blocks in parallel.
- 
- config CRYPTO_SERPENT_SSE2_X86_64
- 	tristate "Ciphers: Serpent with modes: ECB, CBC (SSE2)"
--	depends on 64BIT
-+	depends on CRYPTO && 64BIT
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_SERPENT
- 	imply CRYPTO_CTR
- 	help
- 	  Length-preserving ciphers: Serpent cipher algorithm
-@@ -143,11 +144,11 @@ config CRYPTO_SERPENT_SSE2_X86_64
- 
- 	  Processes eight blocks in parallel.
- 
- config CRYPTO_SERPENT_SSE2_586
- 	tristate "Ciphers: Serpent with modes: ECB, CBC (32-bit with SSE2)"
--	depends on !64BIT
-+	depends on CRYPTO && !64BIT
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_SERPENT
- 	imply CRYPTO_CTR
- 	help
- 	  Length-preserving ciphers: Serpent cipher algorithm
-@@ -158,11 +159,11 @@ config CRYPTO_SERPENT_SSE2_586
- 
- 	  Processes four blocks in parallel.
- 
- config CRYPTO_SERPENT_AVX_X86_64
- 	tristate "Ciphers: Serpent with modes: ECB, CBC (AVX)"
--	depends on 64BIT
-+	depends on CRYPTO && 64BIT
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_SERPENT
- 	imply CRYPTO_XTS
- 	imply CRYPTO_CTR
- 	help
-@@ -174,11 +175,11 @@ config CRYPTO_SERPENT_AVX_X86_64
- 
- 	  Processes eight blocks in parallel.
- 
- config CRYPTO_SERPENT_AVX2_X86_64
- 	tristate "Ciphers: Serpent with modes: ECB, CBC (AVX2)"
--	depends on 64BIT
-+	depends on CRYPTO && 64BIT
- 	select CRYPTO_SERPENT_AVX_X86_64
- 	help
- 	  Length-preserving ciphers: Serpent cipher algorithm
- 	  with ECB and CBC modes
- 
-@@ -187,11 +188,11 @@ config CRYPTO_SERPENT_AVX2_X86_64
- 
- 	  Processes 16 blocks in parallel.
- 
- config CRYPTO_SM4_AESNI_AVX_X86_64
- 	tristate "Ciphers: SM4 with modes: ECB, CBC, CTR (AES-NI/AVX)"
--	depends on 64BIT
-+	depends on CRYPTO && 64BIT
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_ALGAPI
- 	select CRYPTO_SM4
- 	help
- 	  Length-preserving ciphers: SM4 cipher algorithms
-@@ -207,11 +208,11 @@ config CRYPTO_SM4_AESNI_AVX_X86_64
- 
- 	  If unsure, say N.
- 
- config CRYPTO_SM4_AESNI_AVX2_X86_64
- 	tristate "Ciphers: SM4 with modes: ECB, CBC, CTR (AES-NI/AVX2)"
--	depends on 64BIT
-+	depends on CRYPTO && 64BIT
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_ALGAPI
- 	select CRYPTO_SM4
- 	select CRYPTO_SM4_AESNI_AVX_X86_64
- 	help
-@@ -228,33 +229,33 @@ config CRYPTO_SM4_AESNI_AVX2_X86_64
- 
- 	  If unsure, say N.
- 
- config CRYPTO_TWOFISH_586
- 	tristate "Ciphers: Twofish (32-bit)"
--	depends on !64BIT
-+	depends on CRYPTO && !64BIT
- 	select CRYPTO_ALGAPI
- 	select CRYPTO_TWOFISH_COMMON
- 	imply CRYPTO_CTR
- 	help
- 	  Block cipher: Twofish cipher algorithm
- 
- 	  Architecture: x86 (32-bit)
- 
- config CRYPTO_TWOFISH_X86_64
- 	tristate "Ciphers: Twofish"
--	depends on 64BIT
-+	depends on CRYPTO && 64BIT
- 	select CRYPTO_ALGAPI
- 	select CRYPTO_TWOFISH_COMMON
- 	imply CRYPTO_CTR
- 	help
- 	  Block cipher: Twofish cipher algorithm
- 
- 	  Architecture: x86_64
- 
- config CRYPTO_TWOFISH_X86_64_3WAY
- 	tristate "Ciphers: Twofish with modes: ECB, CBC (3-way parallel)"
--	depends on 64BIT
-+	depends on CRYPTO && 64BIT
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_TWOFISH_COMMON
- 	select CRYPTO_TWOFISH_X86_64
- 	help
- 	  Length-preserving cipher: Twofish cipher algorithm
-@@ -265,11 +266,11 @@ config CRYPTO_TWOFISH_X86_64_3WAY
- 	  Processes three blocks in parallel, better utilizing resources of
- 	  out-of-order CPUs.
- 
- config CRYPTO_TWOFISH_AVX_X86_64
- 	tristate "Ciphers: Twofish with modes: ECB, CBC (AVX)"
--	depends on 64BIT
-+	depends on CRYPTO && 64BIT
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_TWOFISH_COMMON
- 	select CRYPTO_TWOFISH_X86_64
- 	select CRYPTO_TWOFISH_X86_64_3WAY
- 	imply CRYPTO_XTS
-@@ -282,11 +283,11 @@ config CRYPTO_TWOFISH_AVX_X86_64
- 
- 	  Processes eight blocks in parallel.
- 
- config CRYPTO_ARIA_AESNI_AVX_X86_64
- 	tristate "Ciphers: ARIA with modes: ECB, CTR (AES-NI/AVX/GFNI)"
--	depends on 64BIT
-+	depends on CRYPTO && 64BIT
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_ALGAPI
- 	select CRYPTO_ARIA
- 	help
- 	  Length-preserving cipher: ARIA cipher algorithms
-@@ -299,11 +300,11 @@ config CRYPTO_ARIA_AESNI_AVX_X86_64
- 
- 	  Processes 16 blocks in parallel.
- 
- config CRYPTO_ARIA_AESNI_AVX2_X86_64
- 	tristate "Ciphers: ARIA with modes: ECB, CTR (AES-NI/AVX2/GFNI)"
--	depends on 64BIT
-+	depends on CRYPTO && 64BIT
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_ALGAPI
- 	select CRYPTO_ARIA
- 	select CRYPTO_ARIA_AESNI_AVX_X86_64
- 	help
-@@ -317,11 +318,11 @@ config CRYPTO_ARIA_AESNI_AVX2_X86_64
- 
- 	  Processes 32 blocks in parallel.
- 
- config CRYPTO_ARIA_GFNI_AVX512_X86_64
- 	tristate "Ciphers: ARIA with modes: ECB, CTR (AVX512/GFNI)"
--	depends on 64BIT && AS_GFNI
-+	depends on CRYPTO && 64BIT && AS_GFNI
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_ALGAPI
- 	select CRYPTO_ARIA
- 	select CRYPTO_ARIA_AESNI_AVX_X86_64
- 	select CRYPTO_ARIA_AESNI_AVX2_X86_64
-@@ -342,32 +343,32 @@ config CRYPTO_CHACHA20_X86_64
- 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
- 	default CRYPTO_LIB_CHACHA_INTERNAL
- 
- config CRYPTO_AEGIS128_AESNI_SSE2
- 	tristate "AEAD ciphers: AEGIS-128 (AES-NI/SSE4.1)"
--	depends on 64BIT
-+	depends on CRYPTO && 64BIT
- 	select CRYPTO_AEAD
- 	help
- 	  AEGIS-128 AEAD algorithm
- 
- 	  Architecture: x86_64 using:
- 	  - AES-NI (AES New Instructions)
- 	  - SSE4.1 (Streaming SIMD Extensions 4.1)
- 
- config CRYPTO_NHPOLY1305_SSE2
- 	tristate "Hash functions: NHPoly1305 (SSE2)"
--	depends on 64BIT
-+	depends on CRYPTO && 64BIT
- 	select CRYPTO_NHPOLY1305
- 	help
- 	  NHPoly1305 hash function for Adiantum
- 
- 	  Architecture: x86_64 using:
- 	  - SSE2 (Streaming SIMD Extensions 2)
- 
- config CRYPTO_NHPOLY1305_AVX2
- 	tristate "Hash functions: NHPoly1305 (AVX2)"
--	depends on 64BIT
-+	depends on CRYPTO && 64BIT
- 	select CRYPTO_NHPOLY1305
- 	help
- 	  NHPoly1305 hash function for Adiantum
- 
- 	  Architecture: x86_64 using:
-@@ -385,11 +386,11 @@ config CRYPTO_BLAKE2S_X86
- 	  - SSSE3 (Supplemental SSE3)
- 	  - AVX-512 (Advanced Vector Extensions-512)
- 
- config CRYPTO_POLYVAL_CLMUL_NI
- 	tristate "Hash functions: POLYVAL (CLMUL-NI)"
--	depends on 64BIT
-+	depends on CRYPTO && 64BIT
- 	select CRYPTO_POLYVAL
- 	help
- 	  POLYVAL hash function for HCTR2
- 
- 	  Architecture: x86_64 using:
-@@ -401,11 +402,11 @@ config CRYPTO_POLY1305_X86_64
- 	select CRYPTO_ARCH_HAVE_LIB_POLY1305
- 	default CRYPTO_LIB_POLY1305_INTERNAL
- 
- config CRYPTO_SHA1_SSSE3
- 	tristate "Hash functions: SHA-1 (SSSE3/AVX/AVX2/SHA-NI)"
--	depends on 64BIT
-+	depends on CRYPTO && 64BIT
- 	select CRYPTO_SHA1
- 	select CRYPTO_HASH
- 	help
- 	  SHA-1 secure hash algorithm (FIPS 180)
- 
-@@ -415,11 +416,11 @@ config CRYPTO_SHA1_SSSE3
- 	  - AVX2 (Advanced Vector Extensions 2)
- 	  - SHA-NI (SHA Extensions New Instructions)
- 
- config CRYPTO_SHA256_SSSE3
- 	tristate "Hash functions: SHA-224 and SHA-256 (SSSE3/AVX/AVX2/SHA-NI)"
--	depends on 64BIT
-+	depends on CRYPTO && 64BIT
- 	select CRYPTO_SHA256
- 	select CRYPTO_HASH
- 	help
- 	  SHA-224 and SHA-256 secure hash algorithms (FIPS 180)
- 
-@@ -429,11 +430,11 @@ config CRYPTO_SHA256_SSSE3
- 	  - AVX2 (Advanced Vector Extensions 2)
- 	  - SHA-NI (SHA Extensions New Instructions)
- 
- config CRYPTO_SHA512_SSSE3
- 	tristate "Hash functions: SHA-384 and SHA-512 (SSSE3/AVX/AVX2)"
--	depends on 64BIT
-+	depends on CRYPTO && 64BIT
- 	select CRYPTO_SHA512
- 	select CRYPTO_HASH
- 	help
- 	  SHA-384 and SHA-512 secure hash algorithms (FIPS 180)
- 
-@@ -442,11 +443,11 @@ config CRYPTO_SHA512_SSSE3
- 	  - AVX (Advanced Vector Extensions)
- 	  - AVX2 (Advanced Vector Extensions 2)
- 
- config CRYPTO_SM3_AVX_X86_64
- 	tristate "Hash functions: SM3 (AVX)"
--	depends on 64BIT
-+	depends on CRYPTO && 64BIT
- 	select CRYPTO_HASH
- 	select CRYPTO_LIB_SM3
- 	help
- 	  SM3 secure hash function as defined by OSCCA GM/T 0004-2012 SM3
- 
-@@ -455,11 +456,11 @@ config CRYPTO_SM3_AVX_X86_64
- 
- 	  If unsure, say N.
- 
- config CRYPTO_GHASH_CLMUL_NI_INTEL
- 	tristate "Hash functions: GHASH (CLMUL-NI)"
--	depends on 64BIT
-+	depends on CRYPTO && 64BIT
- 	select CRYPTO_CRYPTD
- 	help
- 	  GCM GHASH hash function (NIST SP800-38D)
- 
- 	  Architecture: x86_64 using:
-diff --git a/crypto/Kconfig b/crypto/Kconfig
-index c0906bb4f844..7e207f3d3eca 100644
---- a/crypto/Kconfig
-+++ b/crypto/Kconfig
-@@ -1423,16 +1423,10 @@ config CRYPTO_USER_API_ENABLE_OBSOLETE
- endmenu
- 
- config CRYPTO_HASH_INFO
- 	bool
- 
--if !KMSAN # avoid false positives from assembly
--if X86
--source "arch/x86/crypto/Kconfig"
--endif
--endif
--
- source "drivers/crypto/Kconfig"
- source "crypto/asymmetric_keys/Kconfig"
- source "certs/Kconfig"
- source "crypto/krb5/Kconfig"
- 
++title: Generic SPMI NVMEM
++
++description: Exports a series of SPMI registers as NVMEM cells
++
++maintainers:
++  - Sasha Finkelstein <fnkl.kernel@gmail.com>
++
++allOf:
++  - $ref: nvmem.yaml#
++
++properties:
++  compatible:
++    items:
++      - enum:
++          - apple,maverick-pmic
++          - apple,sera-pmic
++          - apple,stowe-pmic
++      - const: spmi-nvmem
++
++  reg:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/spmi/spmi.h>
++
++    pmic@f {
++        compatible = "apple,maverick-pmic", "spmi-nvmem";
++        reg = <0xf SPMI_USID>;
++
++        nvmem-layout {
++            compatible = "fixed-layout";
++            #address-cells = <1>;
++            #size-cells = <1>;
++
++            boot_stage: boot-stage@6001 {
++                reg = <0x6001 0x1>;
++            };
++        };
++    };
++
++...
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 96b82704950184bd71623ff41fc4df31e4c7fe87..e7b2d0df81b387ba5398957131971588dc7b89dc 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2277,6 +2277,7 @@ F:	Documentation/devicetree/bindings/mailbox/apple,mailbox.yaml
+ F:	Documentation/devicetree/bindings/net/bluetooth/brcm,bcm4377-bluetooth.yaml
+ F:	Documentation/devicetree/bindings/nvme/apple,nvme-ans.yaml
+ F:	Documentation/devicetree/bindings/nvmem/apple,efuses.yaml
++F:	Documentation/devicetree/bindings/nvmem/spmi-nvmem.yaml
+ F:	Documentation/devicetree/bindings/pci/apple,pcie.yaml
+ F:	Documentation/devicetree/bindings/pinctrl/apple,pinctrl.yaml
+ F:	Documentation/devicetree/bindings/power/apple*
+
 -- 
 2.49.0
+
 
 
