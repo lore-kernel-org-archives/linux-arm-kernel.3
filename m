@@ -4,71 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38320C369C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 09:51:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80777C369B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 09:56:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hL2lxyNLK9Lw4I33AnMedhe2Sg2bxSiO1M7Cg/oEGJ4=; b=rxoindYrtX3VXyLnNUZpN/5w8Z
-	lUyP54GrNcY6Iz/Ft6DWwl6ax3vk+Av8vZ7H+6zZh2X/zz6LCxDJ6uBT8xht0qVwIwyPpQwvYbxA0
-	MUQ+RdNj2B9Bp925ZoLGmi/nxrV/TwPmvVa1HQdE3Xvz3q4s6QvL8KvTZx9VGMqJPKJfCSpt3uUVP
-	RGWaLQairjyGsX73zwzETUxG6RdIVxTP25AHaI1LiuVMny6p3GNcLn6zyYMMHdJ8kEcGQyQWcmpGJ
-	AViIqz6hATw8H8A6llxE92BP5piMoiLR4SE9dacS7SuoxJRQ32KXzWaMmETAajGpFSVQunx8CWdJv
-	iQlcwbkQ==;
+	bh=8frcNR3d7ivP4NC+vlhr7MJ2cYU39BpSTQEOAw1o4aU=; b=39jp5qns30N36qnZShKa1OgErv
+	ozjIO1xVb+w7OUVA+MjdhyyE+x5VfslrIWs4wCb6yQCdM2Reyszoj5KYYqd0reSZWq5zLn3CWyfQu
+	NrxGULsRGFjvD+MqeYEBGVQUDxZPnc1r9JUMlHuwJXKJbi1AHol4z255oQzotoYzwE+IHuDFWPTl5
+	QTI85UbafSIdOYIgyyzuhFvN4j+GlIDRF3rheQrib1nI/nD8Z/XFaVl67rkZ1TuQrdYu7p4SqvRTA
+	sTCV8yvDrtClbLPo+H/VASZQbdKAWsFh2+2M0Rb8KJ2xLGSAmuN+n6v+s7tZxZ2TE+8E6zuBNgyyk
+	2eTRMMFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5LtZ-0000000CWGb-3Vu9;
-	Thu, 17 Apr 2025 09:50:57 +0000
-Received: from m16.mail.163.com ([117.135.210.4])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Lri-0000000CVz0-2Yx0;
-	Thu, 17 Apr 2025 09:49:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:From:
-	Content-Type; bh=hL2lxyNLK9Lw4I33AnMedhe2Sg2bxSiO1M7Cg/oEGJ4=;
-	b=iCgWg4Nl0Gcm7cXFrN1Rp8Xwwn2SKnMrvwUHYk/cEwmHbwPOl6cpJKmFwMZJPs
-	lyn4MS/HYP+bHx8pgmz3s/HnqwSp3dQz91/nhA4eD9y6O4n5byZAtdZLLkYcwGvx
-	x9LJt2GB+AsfDZF0frdf66ZWReyiHBUXXD1I8I8Es9FAk=
-Received: from [192.168.142.52] (unknown [])
-	by gzga-smtp-mtada-g1-4 (Coremail) with SMTP id _____wD3_+lVzgBo48jBAQ--.33700S2;
-	Thu, 17 Apr 2025 17:48:07 +0800 (CST)
-Message-ID: <4c2a94b4-e483-426f-b7d8-ed98ac474c63@163.com>
-Date: Thu, 17 Apr 2025 17:48:04 +0800
+	id 1u5LyZ-0000000CXB5-0ERS;
+	Thu, 17 Apr 2025 09:56:07 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u5Lwh-0000000CWjb-3lWq
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Apr 2025 09:54:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1744883651;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8frcNR3d7ivP4NC+vlhr7MJ2cYU39BpSTQEOAw1o4aU=;
+	b=KXbZFsthThQX4mdeM6M9gnvzKTAN4Z6puPrCfRnD1BfkpUY0tjWqu6hKuRM9Qi4wZARzQr
+	7r+WjvYl6DqDYkUr9iJt98U0jKngQrpHM4WFhMlwxHrCDFCScaNq+at9XV48ATTWtHI1u4
+	z86gBxoTE9YyE5DpyXHfCademR0alqI=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-478-R6OHmNHvOQeF1J1w-fWjzA-1; Thu, 17 Apr 2025 05:54:07 -0400
+X-MC-Unique: R6OHmNHvOQeF1J1w-fWjzA-1
+X-Mimecast-MFC-AGG-ID: R6OHmNHvOQeF1J1w-fWjzA_1744883646
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-39979ad285bso297944f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Apr 2025 02:54:07 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744883646; x=1745488446;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=8frcNR3d7ivP4NC+vlhr7MJ2cYU39BpSTQEOAw1o4aU=;
+        b=M7o+yEFySToLmh/tRtdeAZetDzdpuZLG07EQIBDRe4TSg56Ns1D4P9jT3YMeqnxG58
+         mAMvMvIjDa5kP2PiEElqOgx441py2sGuICipZhO6eeFlul1BVwiWPAPPdOx/Ylb9ICbP
+         swhVuLNMvMJpn/ysktJ48X1h0N39KcSvKJ1MoWPgxeFGURj/oNmR/cx8s+QHiOTppzgE
+         HCzKTLJCwOJFtPuzl5EbboWh91TKqTwxG+tWckriweROeJ06E5K6MDMiCJrgrw1rtWGO
+         Q71aSBy0uW93Da8W2GPD3KAHiW4dc0dKsyshNrm7a9eiFFJmNTwLdetU4WdfJDjrEpxn
+         q2Ew==
+X-Forwarded-Encrypted: i=1; AJvYcCU58OyX+qbkEzkTT5WjQNULhVJxU1UqMIwM1BPsOHrwA1N3OBM9wDP5TUmX3v3RC2bU/CQgh8JUJl9aWmEBaQ9+@lists.infradead.org
+X-Gm-Message-State: AOJu0YyDURBH7c5zLZgC58NAV8og4goV77umntV0u7dD2zixUt7lArtd
+	kFreEuKxaQB4t1SZlgYzu0xOPP+E8f9qxdJrO6amvubbpn/9cbSpdx5i9CZymSSA9/YDuINuQP8
+	OiQY435mjucRntHoydxH3BRRG3LgMvztuxGadFB7iyMKEjancroWGri1EoAWt0nd+dZ28ExyOEd
+	BsdcKjck645y976xfzEwyf2jcsnF4EDSf/Hao7g01GT7LBNNQ=
+X-Gm-Gg: ASbGncsHysnJ2varBlYyc1Tm+RXUg1ZfoWYib7GXh0zOj2dE75RgOE8xfCdyI2Mo4ei
+	l/keLtJpwmuvNUs34Hp/4GJIMWZvzCqIdxwdU9rwNpPDDpieVqB8VIAhLaRYuDKA/q4WDpA==
+X-Received: by 2002:a05:6000:40c7:b0:398:fd9b:b935 with SMTP id ffacd0b85a97d-39ee5b9ff8fmr4783280f8f.53.1744883646452;
+        Thu, 17 Apr 2025 02:54:06 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGaUAX5A8zAgw7el/T3YwRV3GZLvfWnuHeaTHfLO1ACdU3siatVem4dbx0XtRNKUnrmhQD+B5DLQ7edX2knUB0=
+X-Received: by 2002:a05:6000:40c7:b0:398:fd9b:b935 with SMTP id
+ ffacd0b85a97d-39ee5b9ff8fmr4783241f8f.53.1744883646039; Thu, 17 Apr 2025
+ 02:54:06 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] PCI: dw-rockchip: Configure max payload size on host init
-To: Niklas Cassel <cassel@kernel.org>
-Cc: Shawn Lin <shawn.lin@rock-chips.com>, lpieralisi@kernel.org,
- kw@linux.com, bhelgaas@google.com, heiko@sntech.de,
- manivannan.sadhasivam@linaro.org, robh@kernel.org, jingoohan1@gmail.com,
- thomas.richard@bootlin.com, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-References: <20250416151926.140202-1-18255117159@163.com>
- <aACoEpueUHBLjgbb@ryzen>
- <85643fe4-c7df-4d64-e852-60b66892470a@rock-chips.com>
- <aACsJPkSDOHbRAJM@ryzen>
- <ca283065-a48c-3b39-e70d-03d4c6c8a956@rock-chips.com>
- <aACyRp8S9c8azlw9@ryzen> <52a2f6dc-1e13-4473-80f2-989379df4e95@163.com>
- <aAC-VTqJpCqcz6NK@ryzen>
-Content-Language: en-US
-From: Hans Zhang <18255117159@163.com>
-In-Reply-To: <aAC-VTqJpCqcz6NK@ryzen>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: _____wD3_+lVzgBo48jBAQ--.33700S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxGrykWF1rZrWrAryDGr1rZwb_yoW5uFy7pF
-	Z0gF45Kr48XayIgr4kAa18KFyUtr9xAFWaqr98W3yqvw17uryrKryq9a90ya4Uurn3Ja4f
-	ArWkZrWYqF15AaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07Uf739UUUUU=
-X-Originating-IP: [222.71.101.198]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/1tbiWxoyo2gAxuH92gAAs4
+References: <20250409014136.2816971-1-mlevitsk@redhat.com> <20250409014136.2816971-3-mlevitsk@redhat.com>
+ <20250410081640.GX9833@noisy.programming.kicks-ass.net> <60b7607b-8ada-447d-9dcb-034d93b9abe8@redhat.com>
+ <20250416185001.GA38216@noisy.programming.kicks-ass.net>
+In-Reply-To: <20250416185001.GA38216@noisy.programming.kicks-ass.net>
+From: Paolo Bonzini <pbonzini@redhat.com>
+Date: Thu, 17 Apr 2025 11:53:54 +0200
+X-Gm-Features: ATxdqUE3EOhyuH0suu9pJLVTpoJVqiaHW5bjmzNK_nqhnV7Z7kL2fl3XehvCGu8
+Message-ID: <CABgObfbH6JAh0Puu6gTKfkLd+e5uqSyHHP5i86W-=G6x5zr1wg@mail.gmail.com>
+Subject: Re: [PATCH v2 2/4] KVM: x86: move sev_lock/unlock_vcpus_for_migration
+ to kvm_main.c
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Maxim Levitsky <mlevitsk@redhat.com>, kvm@vger.kernel.org, 
+	Alexander Potapenko <glider@google.com>, "H. Peter Anvin" <hpa@zytor.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, kvm-riscv@lists.infradead.org, 
+	Oliver Upton <oliver.upton@linux.dev>, Dave Hansen <dave.hansen@linux.intel.com>, 
+	Jing Zhang <jingzhangos@google.com>, Waiman Long <longman@redhat.com>, x86@kernel.org, 
+	Kunkun Jiang <jiangkunkun@huawei.com>, Boqun Feng <boqun.feng@gmail.com>, 
+	Anup Patel <anup@brainfault.org>, Albert Ou <aou@eecs.berkeley.edu>, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Zenghui Yu <yuzenghui@huawei.com>, 
+	Borislav Petkov <bp@alien8.de>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Keisuke Nishimura <keisuke.nishimura@inria.fr>, Sebastian Ott <sebott@redhat.com>, 
+	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Randy Dunlap <rdunlap@infradead.org>, Will Deacon <will@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, 
+	Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	Joey Gouly <joey.gouly@arm.com>, Ingo Molnar <mingo@redhat.com>, 
+	Andre Przywara <andre.przywara@arm.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Sean Christopherson <seanjc@google.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Bjorn Helgaas <bhelgaas@google.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: a86N8Tv1gYyo8UL0f95Y7Ny5ISLYapdt1C4zwk-2sKA_1744883646
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_024903_038558_519E00B3 
-X-CRM114-Status: GOOD (  19.72  )
+X-CRM114-CacheID: sfid-20250417_025412_001770_E8E74F44 
+X-CRM114-Status: GOOD (  12.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,95 +122,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Apr 16, 2025 at 8:50=E2=80=AFPM Peter Zijlstra <peterz@infradead.or=
+g> wrote:
+> > For the ARM case, which is the actual buggy one (it was complaining
+> > about too high a depth) it still needs mutex_trylock_nest_lock();
+> > the nest_lock is needed to avoid bumping the depth on every
+> > mutex_trylock().
+>
+> Got a link to the ARM code in question ?
 
+lock_all_vcpus() in arch/arm64/kvm/arm.c:
 
-On 2025/4/17 16:39, Niklas Cassel wrote:
-> On Thu, Apr 17, 2025 at 04:07:51PM +0800, Hans Zhang wrote:
->> On 2025/4/17 15:48, Niklas Cassel wrote:
->>
->> Hi Niklas and Shawn,
->>
->> Thank you very much for your discussion and reply.
->>
->> I tested it on RK3588 and our platform. By setting pci=pcie_bus_safe, the
->> maximum MPS will be automatically matched in the end.
->>
->> So is my patch no longer needed? For RK3588, does the customer have to
->> configure CONFIG_PCIE_BUS_SAFE or pci=pcie_bus_safe?
->>
->> Also, for pci-meson.c, can the meson_set_max_payload be deleted?
-> 
-> I think the only reason why this works is because
-> pcie_bus_configure_settings(), in the case of
-> pcie_bus_config == PCIE_BUS_SAFE, will walk the bus and set MPS in
-> the bridge to the lowest of the downstream devices:
-> https://github.com/torvalds/linux/blob/v6.15-rc2/drivers/pci/probe.c#L2994-L2999
-> 
-> 
-> So Hans, if you look at lspci for the other RCs/bridges that don't
-> have any downstream devices connected, do they also show DevCtl.MPS 256B
-> or do they still show 128B ?
-> 
+        lockdep_assert_held(&kvm->lock);
+        kvm_for_each_vcpu(c, tmp_vcpu, kvm) {
+                if (!mutex_trylock(&tmp_vcpu->mutex)) {
+                        unlock_vcpus(kvm, c - 1);
+                        return false;
+                }
+        }
 
-Hi Niklas,
+> And I'm assuming you're talking about task_struct::lockdep_depth ?
+> The nest lock annotation does not in fact increment depth beyond
+> one of each type. It does a refcount like thing.
 
-It will show DevCtl.MPS 256B.
+Yes, exactly - mutex_trylock_nest_lock() is needed so that the
+code above counts per-lock instead of using the per-task depth.
 
-
-oot@firefly:~# lspci
-00:00.0 PCI bridge: Fuzhou Rockchip Electronics Co., Ltd Device 3588 
-(rev 01)
-root@firefly:~# lspci -vvv
-00:00.0 PCI bridge: Fuzhou Rockchip Electronics Co., Ltd Device 3588 
-(rev 01) (prog-if 00 [Normal decode])
-         Control: I/O+ Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- 
-ParErr- Stepping- SERR+ FastB2B- DisINTx+
-         Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- 
-<TAbort- <MAbort- >SERR- <PERR- INTx-
-         Latency: 0
-         Interrupt: pin A routed to IRQ 79
-         Bus: primary=00, secondary=01, subordinate=ff, sec-latency=0
-         I/O behind bridge: 0000f000-00000fff [disabled]
-         Memory behind bridge: fff00000-000fffff [disabled]
-         Prefetchable memory behind bridge: 
-00000000fff00000-00000000000fffff [disabled]
-         Secondary status: 66MHz- FastB2B- ParErr- DEVSEL=fast >TAbort- 
-<TAbort- <MAbort- <SERR- <PERR-
-         Expansion ROM at f0200000 [virtual] [disabled] [size=64K]
-         BridgeCtl: Parity- SERR+ NoISA- VGA- VGA16- MAbort- >Reset- 
-FastB2B-
-                 PriDiscTmr- SecDiscTmr- DiscTmrStat- DiscTmrSERREn-
-         Capabilities: [40] Power Management version 3
-                 Flags: PMEClk- DSI- D1+ D2+ AuxCurrent=375mA 
-PME(D0+,D1+,D2-,D3hot+,D3cold-)
-                 Status: D0 NoSoftRst+ PME-Enable- DSel=0 DScale=0 PME-
-         Capabilities: [50] MSI: Enable+ Count=16/32 Maskable+ 64bit+
-                 Address: 00000000fe670040  Data: 0000
-                 Masking: fffffeff  Pending: 00000000
-         Capabilities: [70] Express (v2) Root Port (Slot-), MSI 08
-                 DevCap: MaxPayload 256 bytes, PhantFunc 0
-                         ExtTag+ RBE+
-                 DevCtl: CorrErr- NonFatalErr- FatalErr- UnsupReq-
-                         RlxdOrd+ ExtTag+ PhantFunc- AuxPwr- NoSnoop-
-                         MaxPayload 256 bytes, MaxReadReq 512 bytes
-
-Best regards,
-Hans
-
-> 
-> One could argue that for all policies (execept for maybe PCIE_BUS_TUNE_OFF),
-> pcie_bus_configure_settings() should start off by initializing DevCtl.MPS to
-> DevCap.MPS (for the bridge itself), and after that pcie_bus_configure_settings()
-> can override it depending on policy, e.g. set MPS to 128B in case of
-> pcie_bus_config == PCIE_BUS_PEER2PEER, or walk the bus in case of
-> pcie_bus_config == PCIE_BUS_SAFE.
-> 
-> That way, we should be able to remove the setting for pci-meson.c as well.
-> 
-> Bjorn, thoughts?
-> 
-> 
-> Kind regards,
-> Niklas
+Paolo
 
 
