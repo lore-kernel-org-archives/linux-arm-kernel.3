@@ -4,99 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A5DEC369C9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 17:53:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52101C369C9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 17:55:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NgF74Y1x7cdnEZ6zTA2j/Rn/3r7hmq1Fkr3Xk5+i6o0=; b=LF79B69bJ37X+q926ArHjCGf5B
-	DcnB/MdKL9067Lh7s2JmIisZJ3ZkkmPlkH7UUbilbqBHNOMWwR1qYXERdPRT4S782WtgqRo8RRhQc
-	nfslAgSjWxNNEw2CcgrR42pXhfChI6xsYyna8Barfstxq8fCxHhjfRmLW/YSGdqqFyM+HMNTir1Wb
-	uRp1QWQYexkAnkWZvF5t665u3QQPXGc7gxVBcGi6Fr7sBabyP/4gyjBUwb1XlKQZTj5xi2+53VfSl
-	mpx0Yn1wePxej/9v0S6Q3QLtu9qo/mbgsCrEC89OD34paST47sCpuuoVyGDpvu/weRqEnDJcW1kjk
-	ymPIkZMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rUgcReSeERaYjdCHY/S65QNcDRKyKTJVSUifM/SqTHw=; b=bp/v5xrWN+74/K6HJQGHl9f6g9
+	cMjlNsdfaik+aAtXc3sweVshDjoO0b+zTTZOiUONrOZPzJILxOKqVVT4JiNtuEVjwhgiq2MpBKRyH
+	gQwbZdXr8kNuJw8uzEsm7Fe8I0c/Lm7o6irAVbyWuQpOhAw8r5+RDmTs+o151+ATMUq0megWAfL3o
+	yypiRrY6CBTCHxfHIJyNQz1uoHG5zg84yCKUmZszrIcbuIJHMrVA5dElLn+pwZCbP9mZyYF8WBQIp
+	sAgumAD2cE3VUkGmusR3zTiMkuE6r4YQz/s8SKozGpYDuADmt1wfo2Mhsrl3a8M3xsvst3IkT1Llc
+	4mgeQKhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5TQX-0000000DvRP-3ucB;
-	Thu, 17 Apr 2025 17:53:29 +0000
-Received: from mail-ot1-x32e.google.com ([2607:f8b0:4864:20::32e])
+	id 1u5TSN-0000000DvnC-34x7;
+	Thu, 17 Apr 2025 17:55:23 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Sr9-0000000DoDa-33nb
+	id 1u5Swv-0000000Dpd9-14O4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Apr 2025 17:16:57 +0000
-Received: by mail-ot1-x32e.google.com with SMTP id 46e09a7af769-727388e8f6cso618197a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Apr 2025 10:16:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1744910214; x=1745515014; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=NgF74Y1x7cdnEZ6zTA2j/Rn/3r7hmq1Fkr3Xk5+i6o0=;
-        b=z1G0j5N610mfJPCmlZoNBXDZzgpxLs5q+Mi1rCuFmYGwg8z/S/1PoYN3Lu7uL7Ed5S
-         Q30xRVk1btr00u7xKY16Hrciuv9cllDXI827K/J49YhlPjzSdpn+f0ulwh9c0ezw0AL4
-         88C8ux1AKd10I9NzeMlSZhD2QgrzXwBxwVtwXydm7Uu3XLMGG+Dsq5YwHk7Smg1xC+gk
-         r7FGS208xdCx4RM5myt3sSPTT3YGoSQa0ttyCS72KG8M22sm3QV2eAopkt+8Alcg+EWx
-         kRauAURVTK00g57YnLaVmSGR92rWbbWvXjI6+wIRyJr4nX4tFI+j3TYio3DAaglXPDG+
-         IHEg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744910214; x=1745515014;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=NgF74Y1x7cdnEZ6zTA2j/Rn/3r7hmq1Fkr3Xk5+i6o0=;
-        b=R/5rq2ItatCKg8776iyTMorFyytWJmJDmttnSqGE8neRIj8zsxS3GgJnW7FLgndC2E
-         UvOT0JpJsDgaAEncIBLdZMsIIcYQKv+qQ8x3RaBtFH3L7biPIjfCVTQXZ8xEDV+yNuwm
-         xg3WVaOpPnYZDobk3orYQ1V1JsotzQwxH2AtLCjdTgklke4XXbsQ2dE3VZUMKwk9UEC8
-         zNpoxAs6RcYoCoa7H3yZ1vW3UBvJS5Sw0Pzhh6DeGiW0PWi5XaF6Gm0wse2cvHMpb9Vv
-         2JzGjwhARVFielHYPFgbW4hjV1/6smMUNN794bXDuBwqPKzICpk66Sjc4bVm2KyvRThu
-         vcOQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXvrVzmVcQER8gIvIICsIqoEKx/f3fMsAv/FHmo+Jasvvam76g/aoohW+PDYQJIdlKEASzb0dSHJaW6oRGM5v5d@lists.infradead.org
-X-Gm-Message-State: AOJu0YyquB88DNbP1mHvtIUVe53OCjtU5X2HoCoD6fvt7Ro0EfgYSO8h
-	ML3vQLhNJLS3feIJTKJm+D7m4O8r5PgWU4liw2SYekjrccrR2ZaXsINjBfaiZGw=
-X-Gm-Gg: ASbGnctN+71CZSnEF0i1Q+MShlrAOzyRHXUDthfMCHo5EuRhu/tdzjsR+MlSJKT3wjp
-	EVf+GVY8LpSPRSiRflLTUhCj8PFDrGreSHVES4Du2z8eQpxdlNmnVAdA05HCZmQcTYWuzBHYKMF
-	2dNXxqlqBuvd6vvFB5bopXEIcgdHV8WmGEW6EVFZSCp58N/SlVA+9reApOEL/Eqp+mSHcFnPCbD
-	35/1J2s6aTjAmQXCpZ4yEO+EtpP6btM/BQJIMwHdsk/O8xsdiaDkggRbG76NTB/eeDV3X6uJziM
-	FdNHkIJzqbkpkGfzVZp9z7J0NifarX6Fa0iYuW/leWNUmNB6hI2xXRj2sMyOHuMsSd3Nrhk+YQu
-	Y0H8qXBvlSL/ry8Sg2g==
-X-Google-Smtp-Source: AGHT+IG2ya+SWKqWkEWn8r9JpbAOf9gOHMhtRFWZIjuKx4wF7uh2Oa75D8nMaKP4BJF4mMuOP+61ew==
-X-Received: by 2002:a05:6830:61cc:b0:727:3f3e:53bb with SMTP id 46e09a7af769-72ec6d200d9mr4250103a34.24.1744910214661;
-        Thu, 17 Apr 2025 10:16:54 -0700 (PDT)
-Received: from ?IPV6:2600:8803:e7e4:1d00:c91b:eea3:7afd:2dee? ([2600:8803:e7e4:1d00:c91b:eea3:7afd:2dee])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-730047caf24sm22509a34.38.2025.04.17.10.16.53
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 17 Apr 2025 10:16:54 -0700 (PDT)
-Message-ID: <6ff6e3be-6193-4977-977b-24de89c09153@baylibre.com>
-Date: Thu, 17 Apr 2025 12:16:53 -0500
+	Thu, 17 Apr 2025 17:22:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=rUgcReSeERaYjdCHY/S65QNcDRKyKTJVSUifM/SqTHw=; b=nNhyFVrHTOlSrXjfJ7WcbfgeDz
+	yngeaH3pmyxCVI63fr1I6g9oKwTQbDRIG2W/USafgFWZx+MTv1JOFQGgsDQZP3SUGj4KZ2a0RVDwK
+	YTzliV8jwsvbqwGaC7f0x8l7qjpImJw2o4nQTjzI/dzvQwJe6EvZ23voS+PYm4uqjBQk=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1u5SwX-009oI0-Lw; Thu, 17 Apr 2025 19:22:29 +0200
+Date: Thu, 17 Apr 2025 19:22:29 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Luo Jie <quic_luoj@quicinc.com>, Yury Norov <yury.norov@gmail.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Julia Lawall <Julia.Lawall@inria.fr>,
+	Nicolas Palix <nicolas.palix@imag.fr>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>, linux-kernel@vger.kernel.org,
+	cocci@inria.fr, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, quic_kkumarcs@quicinc.com,
+	quic_linchen@quicinc.com, quic_leiwei@quicinc.com,
+	quic_suruchia@quicinc.com, quic_pavir@quicinc.com
+Subject: Re: [PATCH v3 0/6] Add FIELD_MODIFY() helper
+Message-ID: <0c97c659-bd28-45e0-8537-d9be2637cb22@lunn.ch>
+References: <20250417-field_modify-v3-0-6f7992aafcb7@quicinc.com>
+ <86sem7jb5t.wl-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/8] iio: more timestamp alignment
-To: Andy Shevchenko <andy@kernel.org>
-Cc: Jonathan Cameron <jic23@kernel.org>, =?UTF-8?Q?Nuno_S=C3=A1?=
- <nuno.sa@analog.com>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Lars-Peter Clausen <lars@metafoo.de>,
- Michael Hennerich <Michael.Hennerich@analog.com>,
- Cosmin Tanislav <cosmin.tanislav@analog.com>,
- Tomasz Duszynski <tduszyns@gmail.com>,
- Jean-Baptiste Maneyrol <jean-baptiste.maneyrol@tdk.com>,
- Andreas Klinger <ak@it-klinger.de>, Petre Rodan
- <petre.rodan@subdimension.ro>, linux-iio@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-References: <20250417-iio-more-timestamp-alignment-v1-0-eafac1e22318@baylibre.com>
- <aAEz2ZD0Ipd1Xuy6@smile.fi.intel.com>
-From: David Lechner <dlechner@baylibre.com>
-Content-Language: en-US
-In-Reply-To: <aAEz2ZD0Ipd1Xuy6@smile.fi.intel.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86sem7jb5t.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_101655_766790_1ED16D5A 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20250417_102253_292661_01F7AAAD 
+X-CRM114-Status: GOOD (  16.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,27 +80,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/17/25 12:01 PM, Andy Shevchenko wrote:
-> On Thu, Apr 17, 2025 at 11:52:32AM -0500, David Lechner wrote:
->> Wile reviewing [1], I noticed a few more cases where we can use
->> aligned_s64 or need __aligned(8) on data structures used with
->> iio_push_to_buffers_with_timestamp().
->>
->> [1]: https://lore.kernel.org/linux-iio/20250413103443.2420727-1-jic23@kernel.org/
+On Thu, Apr 17, 2025 at 12:10:54PM +0100, Marc Zyngier wrote:
+> On Thu, 17 Apr 2025 11:47:07 +0100,
+> Luo Jie <quic_luoj@quicinc.com> wrote:
+> > 
+> > Add the helper FIELD_MODIFY() to the FIELD_XXX family of bitfield
+> > macros. It is functionally similar as xxx_replace_bits(), but adds
+> > the compile time checking to catch incorrect parameter type errors.
+> > 
+> > This series also converts the four instances of opencoded FIELD_MODIFY()
+> > that are found in the core kernel files, to instead use the new
+> > FIELD_MODIFY() macro. This is achieved with Coccinelle, by adding
+> > the script field_modify.cocci.
+> > 
+> > The changes are validated on IPQ9574 SoC which uses ARM64 architecture.
 > 
+> We already have the *_replace_bits() functions (see
+> include/linux/bitfield.h).
 > 
-> Link: URL [1] :-)
-> 
-> This will help to maintainer with b4 as it manages tags.
+> Why do we need extra helpers?
 
-In this case, I don't want b4 to add this Link: to all patches, it is just
-context for the cover letter and not so useful long-term.
+If you look at bitfield.h, the *_replace_bits() seem to be
+undocumented internal macro magic, not something you are expected to
+use. What you are expected to use in that file is however well
+documented. The macro magic also means that cross referencing tools
+don't find them.
 
-> 
->> Signed-off-by: David Lechner <dlechner@baylibre.com>
-> 
-> Reviewed-by: Andy Shevchenko <andy@kernel.org>
-> for non-commented patches.
-> 
+I think this is a useful additional to bitfield.h.
 
+	Andrew
 
