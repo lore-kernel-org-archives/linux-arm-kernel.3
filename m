@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDCFDC369CA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 17:59:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03C11C369C9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Apr 2025 18:01:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3eZBGF+VWpYQsOO3No7qlDnw3UtZvDcd5qZhhh+jPCE=; b=GgKTd/yWVBwiUnknrEPFMUF0X7
-	3x334//oYtD4Ejmt7fWejPI96BBZOs2knCRVw199myw8ZbJqdyTJqjAtPdmgYpGvZkBDAJKS9AI5D
-	cUYNoDfYc4ZssWzpfABKnN0PfEBqgvbOEKKvhAczJ0GiSbDjmtjVce8FCyERcsIyhZSjCSbWdLG1D
-	NNcftsIfCp1VNBwsCqZFc+sDPh9ZpsO/QU2Gc0GXRXmcEYO+HruZ94E064NxErpiJ5EzhfPjsZLlQ
-	YxxKtJDEUrtxb7cOLeOzWUDQ+06G45xGBk4ZhRwqWkDT5r1tfCY92thwhYzvFLOgiQKRWkAtD32vr
-	GdlcjjzQ==;
+	bh=Ecnj2zDTOiyy1RfeybYhp0dG+5dokwfjlp6yCchtpCw=; b=1kPb7b8/t1PBbhTeQvd1fJPV0J
+	6i37J1yA1vRPimWLzYSzyFiIgApNXf+RTczn83nyAbVk+LwoHSku4rXAU4i3qOEA8cYXwWELzraZb
+	hFhegFjcR+JPhHGZR3OF/lyR/XU13xPrY8VN+3GvajoUd8IqpPoY4z4NoCOxTf2XmWewwU6iQsJxi
+	q1rzV1poj0UwEkVlwuqR3ZBOcJI9fIUtr5kkXECTZ9MpMRzMMlVwxKC9cva25jHfnCBdMdIlblG9C
+	9+FtZw4uXNSeSAQnWanGg4GzLfXF1iijs2b+7lDVBkMtlQasopsHrgCSNH1V+hNjPVyFUfHsL4PHs
+	iUpX1eVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5TW3-0000000DwXe-2004;
-	Thu, 17 Apr 2025 17:59:11 +0000
+	id 1u5TXs-0000000DwxK-2VzK;
+	Thu, 17 Apr 2025 18:01:04 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5T3A-0000000Dqlw-3o4O;
-	Thu, 17 Apr 2025 17:29:22 +0000
+	id 1u5T4j-0000000DrBs-3nPx;
+	Thu, 17 Apr 2025 17:30:59 +0000
 Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4ZdlBd67RWz6K8r4;
-	Fri, 18 Apr 2025 01:24:41 +0800 (CST)
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4ZdlF70NSvz6M4gh;
+	Fri, 18 Apr 2025 01:26:51 +0800 (CST)
 Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 71D3D140145;
-	Fri, 18 Apr 2025 01:28:59 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id C9D32140595;
+	Fri, 18 Apr 2025 01:30:51 +0800 (CST)
 Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
  (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Thu, 17 Apr
- 2025 19:28:58 +0200
-Date: Thu, 17 Apr 2025 18:28:57 +0100
+ 2025 19:30:51 +0200
+Date: Thu, 17 Apr 2025 18:30:49 +0100
 From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 To: David Lechner <dlechner@baylibre.com>
 CC: Jonathan Cameron <jic23@kernel.org>, Nuno =?ISO-8859-1?Q?S=E1?=
@@ -50,11 +50,10 @@ CC: Jonathan Cameron <jic23@kernel.org>, Nuno =?ISO-8859-1?Q?S=E1?=
  Rodan" <petre.rodan@subdimension.ro>, <linux-iio@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-mediatek@lists.infradead.org>
-Subject: Re: [PATCH 1/8] iio: adc: dln2-adc: use aligned_s64 for timestamp
-Message-ID: <20250417182857.00002561@huawei.com>
-In-Reply-To: <20250417-iio-more-timestamp-alignment-v1-1-eafac1e22318@baylibre.com>
+Subject: Re: [PATCH 0/8] iio: more timestamp alignment
+Message-ID: <20250417183049.0000336c@huawei.com>
+In-Reply-To: <20250417-iio-more-timestamp-alignment-v1-0-eafac1e22318@baylibre.com>
 References: <20250417-iio-more-timestamp-alignment-v1-0-eafac1e22318@baylibre.com>
-	<20250417-iio-more-timestamp-alignment-v1-1-eafac1e22318@baylibre.com>
 X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="US-ASCII"
@@ -63,8 +62,8 @@ X-Originating-IP: [10.203.177.66]
 X-ClientProxiedBy: lhrpeml500011.china.huawei.com (7.191.174.215) To
  frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_102921_093064_34FA66C6 
-X-CRM114-Status: GOOD (  14.62  )
+X-CRM114-CacheID: sfid-20250417_103058_087194_67A6A9C7 
+X-CRM114-Status: GOOD (  11.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,33 +78,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 17 Apr 2025 11:52:33 -0500
+On Thu, 17 Apr 2025 11:52:32 -0500
 David Lechner <dlechner@baylibre.com> wrote:
 
-> Follow the pattern of other drivers and use aligned_s64 for the
-> timestamp. This will ensure the struct itself it also 8-byte aligned.
+> Wile reviewing [1], I noticed a few more cases where we can use
+> aligned_s64 or need __aligned(8) on data structures used with
+> iio_push_to_buffers_with_timestamp().
+> 
+> [1]: https://lore.kernel.org/linux-iio/20250413103443.2420727-1-jic23@kernel.org/
 > 
 > Signed-off-by: David Lechner <dlechner@baylibre.com>
-> ---
->  drivers/iio/adc/dln2-adc.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/iio/adc/dln2-adc.c b/drivers/iio/adc/dln2-adc.c
-> index a1e48a756a7b519105393f77c4aebde1f2f85d50..359e26e3f5bcfe16d723f621bdfc01df2dfcf6a9 100644
-> --- a/drivers/iio/adc/dln2-adc.c
-> +++ b/drivers/iio/adc/dln2-adc.c
-> @@ -466,7 +466,7 @@ static irqreturn_t dln2_adc_trigger_h(int irq, void *p)
->  	struct iio_dev *indio_dev = pf->indio_dev;
->  	struct {
->  		__le16 values[DLN2_ADC_MAX_CHANNELS];
-> -		int64_t timestamp_space;
-> +		aligned_s64 timestamp_space;
-Bug :( So needs a fixes tag ideally.  Fine to just reply with one
-(or I might go digging if I get time).
 
->  	} data;
->  	struct dln2_adc_get_all_vals dev_data;
->  	struct dln2_adc *dln2 = iio_priv(indio_dev);
+I have a bunch of these in a 'too hard before sending that patch
+pile' as well.  Hopefully you've covered many of those :) There
+were definitely more bugs than I expected to see when I started that
+effort!  I thought we'd tracked all these down long ago :(
+
+Jonathan
+
+> ---
+> David Lechner (8):
+>       iio: adc: dln2-adc: use aligned_s64 for timestamp
+>       iio: adc: mt6360-adc: use aligned_s64 for timestamp
+>       iio: addac: ad74413r: use aligned_s64 for timestamp
+>       iio: chemical: pms7003: use aligned_s64 for timestamp
+>       iio: chemical: sps30: use aligned_s64 for timestamp
+>       iio: imu: adis16550: align buffers for timestamp
+>       iio: imu: inv_mpu6050: align buffer for timestamp
+>       iio: pressure: mprls0025pa: use aligned_s64 for timestamp
 > 
+>  drivers/iio/accel/bmc150-accel.h           | 2 +-
+>  drivers/iio/adc/dln2-adc.c                 | 2 +-
+>  drivers/iio/adc/mt6360-adc.c               | 4 ++--
+>  drivers/iio/addac/ad74413r.c               | 5 +++--
+>  drivers/iio/chemical/pms7003.c             | 5 +++--
+>  drivers/iio/chemical/sps30.c               | 2 +-
+>  drivers/iio/imu/adis16550.c                | 2 +-
+>  drivers/iio/imu/inv_mpu6050/inv_mpu_ring.c | 2 +-
+>  drivers/iio/pressure/mprls0025pa.h         | 2 +-
+>  9 files changed, 14 insertions(+), 12 deletions(-)
+> ---
+> base-commit: 3159d40a2ca0ae14e69e1cae8b12f04c933d0445
+> change-id: 20250416-iio-more-timestamp-alignment-6c6c6a87ebda
+> 
+> Best regards,
 
 
