@@ -4,132 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82F1AC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 09:11:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE063C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 09:13:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5FZc7ijLzZ2awcKizBx2RPk4e1oOriMZYbJpema2nnI=; b=miEavL+jzuq2/hh1VO+thr3c2+
-	1e+58St1hjkBRktI2BnBo4/Hbm6whRl4jrzobFUtZnQXwaZKmkhdqOwwz+GmCoKgMXV3IRWITsF1g
-	L8jcqFn+pdRte1VNlqKrE+VmkoxJ8po/zHBB/24AQlxPb8/own/XTJVEZ+BqDZAPLd6Z575ld/Qos
-	Gs5JhXUfKvfz4qZ2kojE/1axQuJFcLlqjr+nqkXxHbM7LWhtt6W6URFGc4vj9UAjbFCx3D6vMwxn/
-	rli/hwO09GMzxHnWe9IQLNmNYmXBOcW4Q7Ze6Pw5JMPDMCERq1LnexvX7ZIKrE5Wek9lh98aRFljE
-	p8X+qFlA==;
+	bh=9dFyqdmuwsvDInRXdL06B5S8jaxZJkHZabllnIYlmYY=; b=4y9ImtBZpTSXCPU7WgLPyBMEWt
+	OeOhXSKu3k6ezufCk+LZXnQUuqamIslEQEFdtKt4aL7hu7yTt86qkMg6nKME0GzM7sOf6gs8exsIO
+	2ZVZMQu4wr4D3SwLXYnx9EQeCI5eiuwhfsQZvgzLAqtfN7xgD3CJp15odL/wkw6XLhZuiG3c38lOe
+	EAbrVfRpK9mgv4Mc/tTtwoXBesNPyBuPY6NgPYb7BzF5Jt0181XekZ8pYngE2mc8SFO9qiNviCtrw
+	9cjkhWPGGTk2e0FYO/AQoV+7BuHAsnRgaGIYGcOGwoQeDxCFIhGrG6rvHEvhJWgDOOFVVD1QvWtMY
+	C0QkfZ+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5hl2-0000000Fj5X-05NU;
-	Fri, 18 Apr 2025 09:11:36 +0000
-Received: from mout.gmx.net ([212.227.17.21])
+	id 1u5hmq-0000000FjI2-3Iu6;
+	Fri, 18 Apr 2025 09:13:28 +0000
+Received: from mail-vi1eur03on2062a.outbound.protection.outlook.com ([2a01:111:f403:260c::62a] helo=EUR03-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5hiS-0000000FifY-1oXH
+	id 1u5hjU-0000000Fits-0HAj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 09:08:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1744967327; x=1745572127; i=wahrenst@gmx.net;
-	bh=5FZc7ijLzZ2awcKizBx2RPk4e1oOriMZYbJpema2nnI=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=eczCAv+abhgWdoxy1Mix0q/m/ZnqSJ0yy6kYtW0DccEKlpMK1bIQxK4g+eVhjayf
-	 92IyDLfb5bm9U2b2SQtyQ9UkMq5QkhOZ7+vLRk8d0Yn10wQgUEmWwV/W3Toucp1EA
-	 2hN51ishKi3DY/mp9cTF8sg8H0ZmakW2gvxNTNtY765ty4bg1a4RQivEFNzhctToK
-	 EyaiEIvlZc0paBssbqDFoY0lauA79cZ+e01T9SGMM1FePAfxQPOsW5QxyKLD+Rlz2
-	 Kx/51ajcHnp5eMWp92Scf3rQMpmV/4p+Szny+M7JzuspZybzUfjG8l2epaxmkvRT/
-	 Sb26sbd94gt/0AgIhQ==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.107] ([37.4.251.153]) by mail.gmx.net (mrgmx105
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1N7zBb-1v9eAv3w8p-011UvF; Fri, 18
- Apr 2025 11:08:47 +0200
-Message-ID: <a137daef-8a09-4899-a6e2-380b8ed6061f@gmx.net>
-Date: Fri, 18 Apr 2025 11:08:43 +0200
+	Fri, 18 Apr 2025 09:10:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yOQJomdeImXoIc2h/+nX9u/+LHiHJx28JczTDV5CylikG1cdx5uOoaMSfl3m5jYACDTHub6lMAybiDHbm3ESlC6BiJ2UDjNe6/8o3chU6qT+Mg2TUiWb9o6pkuZZ65SwB7qkitn6Pfaaivh46cckeL4gwJPoZh9fgAYeTzwvEjmhCyx+/NzNid4VDZcj3oBg3vzOFYHn8rmg0D6OJODaiIPp7rlBACUcIJYp7h/hT4Tsoq3B2oP2uY7PLNbrBXqfJM93NIFHeve3xoLeD2VeX160uIWknhe7W3BlV7YOQ8r92rVKtUf47F8NwKj00ElVwH0bLrF2SKqSOoy9K0sy7Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9dFyqdmuwsvDInRXdL06B5S8jaxZJkHZabllnIYlmYY=;
+ b=tpYR17Zj2e5xAtzbEyeu/EHqN/x8WP1zz7DwbaAC7722vSgVCbpyCAumWtfygaFGOAxENekgb4pvvnV/PJacBDe1AGkMq7StHYzSwopRtEA+RbRkrI8QSY36dcVJ6YlPJ/LEhiRApNh0pQOTg+GcoA7z0aWber1kjyuu0esuPAN7n+V8zc/yH6wABN9tnSi45fzGev6bwwcXEruyqurGXHROEdJTrvYpq61F/tGtnh7rOZotzy1BR9XzhHpj/BrJv2ZMmzC5OroTvxxaYPldnjEevnKXNK1myKcZKaGp9ah2kYhVjHojzsnvKn1jmBrdfN0DEkyuMYDf5FjAx6IQuw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9dFyqdmuwsvDInRXdL06B5S8jaxZJkHZabllnIYlmYY=;
+ b=V8pECoWh2hoPyAvEwNAOsxUqmxlIHGHeuuT1zOrHgpqgzo9BNUN9harU/GI7ytX+JGi9s/3ZnBVMbVGGjbxvhZjiQeewIliJIdvKmCVcoyOBjbQ+L3Io22qW9Q/KjZayKuMTzAfO4u+JPkn51RKHbtjhsopOfkk3WKR0hAYuB7H3JE9UbtsjWZGtdzOmyYwhP3rYKgDslxMzEPu2XGGbjnjVFX/2w0GodXdt4JKgMZVZSUg8UcTa4m1v6ABTw5WWlY57EAiSKQqhZu/Ltrh6fmG5jWAhc1bvn+Oa49oe8OKeMUA0QP8S1vmxVFqHrUSNZTBunI2iAFu18ixJUUZMsg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
+ by VI0PR04MB10638.eurprd04.prod.outlook.com (2603:10a6:800:268::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.22; Fri, 18 Apr
+ 2025 08:55:20 +0000
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::2755:55ac:5d6f:4f87%4]) with mapi id 15.20.8655.022; Fri, 18 Apr 2025
+ 08:55:20 +0000
+From: ming.qian@oss.nxp.com
+To: mchehab@kernel.org,
+	hverkuil-cisco@xs4all.nl
+Cc: nicolas@ndufresne.ca,
+	sebastian.fricke@collabora.com,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	linux-imx@nxp.com,
+	xiahong.bao@nxp.com,
+	eagle.zhou@nxp.com,
+	imx@lists.linux.dev,
+	linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v3 4/4] media: amphion: Trigger source change if colorspace chagned
+Date: Fri, 18 Apr 2025 16:54:19 +0800
+Message-ID: <20250418085422.193-4-ming.qian@oss.nxp.com>
+X-Mailer: git-send-email 2.48.1.windows.1
+In-Reply-To: <20250418085422.193-1-ming.qian@oss.nxp.com>
+References: <20250418085422.193-1-ming.qian@oss.nxp.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SG2PR03CA0130.apcprd03.prod.outlook.com
+ (2603:1096:4:91::34) To PAXPR04MB8254.eurprd04.prod.outlook.com
+ (2603:10a6:102:1cd::24)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [net-next v6 4/7] net: mtip: The L2 switch driver for imx287
-To: Lukasz Majewski <lukma@denx.de>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- Simon Horman <horms@kernel.org>
-References: <20250418060716.3498031-1-lukma@denx.de>
- <20250418060716.3498031-5-lukma@denx.de>
- <38f36d00-e461-4fc5-a98b-9b2d94d93c69@gmx.net> <20250418110223.594f586f@wsk>
-Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <20250418110223.594f586f@wsk>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Provags-ID: V03:K1:kS0UagTK8PoQnNEVtIOjGWpVgZgAq2O+D9TGo1zAnTtvyzwaiH3
- uXUWIVLE7mVrJZO5stgbME0xxiVaagxiUFgghMEOc652iRQVo6TbQzDTSheldbiAGvPYXVM
- Q68wyqYDoilc6hLfJlHs62mANwnTN/aJrTbb2PIOGaFpy9B7FsBS5Oq2fSaexxnykKfkLze
- 5FdSTbke3PNpnmINhv1PA==
-UI-OutboundReport: notjunk:1;M01:P0:3NBNlW/Hmh0=;wauUYAffRTWEjRv+TI+uG33zAoU
- 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
- L0d1fZBtYNknfs24UweW9fZU+vTOKmU=
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|VI0PR04MB10638:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4a6df9eb-266f-44ff-af8e-08dd7e56beb6
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|52116014|376014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ZaBhHLQl+oSdsFaLahgrkBNul6J+18zaBa84kXYwQwADRfjCJ5R6z5ORABJ4?=
+ =?us-ascii?Q?GnwDb3Fr2JhxxDLEDrpMYHRQqTmXjIs6Ri4CJ2P1zbFAo3L+xJTLSGiie6xr?=
+ =?us-ascii?Q?oHk5fiwCrZ2ZQg4kBv/WuCNcFmQHPP898SJLJouQJJVqJ3gJhNAf6/EwZjyi?=
+ =?us-ascii?Q?nMMFSAUgwVvcW9znhvW0/onJKIO32QV44mSCWv3+v/3byl9JP+RODd4dCuEY?=
+ =?us-ascii?Q?5i737XxcOCCw+pS5vra1AGs+ud6U8zfj75PJ0w7yT1QI1p86yYKKSQwR1zrI?=
+ =?us-ascii?Q?t1nJ1Va7oC9nblpmZ/tKKy8p466lbt4D4CMTPsM3cQU5eA2H/WYG0OyWyc6r?=
+ =?us-ascii?Q?TtjT6X3xnoJjrGBfDuNT2EkT1ovFX65KRtuZ97pKv7s13mZIDqhMrwj3PSaL?=
+ =?us-ascii?Q?+xHZsPwCKRCaQeR/5hMPQY1FGDyd2pG8D7c9VRHNbZzI64IFiJ2oWWlZGfOW?=
+ =?us-ascii?Q?6uJYmzHJ7sSQsr2VNS008IeM+oavdyD9GkoxAaNcCIXlMq3nVAIb+5sXID14?=
+ =?us-ascii?Q?BwhmZNZyyfJefzhakixnlCzndjEb6nkXdeaEM6byXICzRgXPBtuK1ZCaL4Y4?=
+ =?us-ascii?Q?DT6lUj5yu5LQlkFYm56t4EZkHIcW6/AgjBwecuSsZnAp2xYqr4QYrmYfeBG9?=
+ =?us-ascii?Q?KV8nSIKwKasJuIQkIRmO0mfOb7e7PQdW8O5PVJ2T+cFvLDKd6hqYTrNq6DCQ?=
+ =?us-ascii?Q?mbpDc9YIrRIpC24be7wvKSR5p1u6giP936qKytnNpDfGdNgy6hbT2bvlw7nh?=
+ =?us-ascii?Q?Ky/Z3Og1kcVFf579/SowKTwtHy586MXJxenkr5igceW9hnSImPUVqqrcaMQ8?=
+ =?us-ascii?Q?glZLy+OkElgMPTXUX8GTKoZRdOkG/EBPV9a21pb2iQaHDZr21awq25g8bisf?=
+ =?us-ascii?Q?hphLeRGyV81LIvHbuJKZzMLSLkz2zBT8IMumKvXhy+a+KuzxfUij+ROmeT7A?=
+ =?us-ascii?Q?lDSlyquuQuGj34n5xKfjDPCH2iPXq+IMOp3kFT7L3QiAI3mkkHIUetAB+n6N?=
+ =?us-ascii?Q?bUKZD3VhI3DX3JFtgEv2ogp62s8MuzZuAlQXYJpY72o6+LpW8ozFu6UvqrwW?=
+ =?us-ascii?Q?PlwWjqkNorqlSQW0ZnMO6qFornypukYx3nDkRW+7g/csFTmTJJokivHitZeb?=
+ =?us-ascii?Q?3JoDqROWzyx7HWDBnJI6uXBfgXuO9l3NcifcLku7vPXSX8eDTkT1W0PiRGtS?=
+ =?us-ascii?Q?YFhs29j92QDjPFLflzcYdvtHmcMOFCHOb6DFFbXDYVU736Ze2cnbOGRDkzb5?=
+ =?us-ascii?Q?+X3XG9ywf9IvAka7UIsdJPZt8abA+jIdCVS7sna4lZGg1n+djX4+nY01rtZg?=
+ =?us-ascii?Q?N6JwVyc/+wYymfqU7qAL1sUY9X2DRyQs0rFqk3vA8XGkCFxpWAY56QjBTnHY?=
+ =?us-ascii?Q?pRGz23SARTK8wbjpTGrna3cJZKs8vJjct1ygAkZhGfETOn1lBB5DDspGzGOv?=
+ =?us-ascii?Q?NVeV7IV6S0816ZQ9BfWZWxI1N+nH0YZB3jvjgoORy5oeiGYVnap7OFrFsjI1?=
+ =?us-ascii?Q?/dLxV/pt7ds5gBs=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(52116014)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?E3j1ZGu0UJdN1aZl5Wg6QaK3vvTNLTwN71SNRtP7RBpmLu7QF+uYFu7eaL48?=
+ =?us-ascii?Q?N/h5aX2jImlZC25njeRs3nNb4cGhQRoaGgr03uCrSG1pVM2jkQjvsPKZ9cjI?=
+ =?us-ascii?Q?rbGYqiFlEJpFqN6SvCnLA0u9Tj5tlbvps5lKtKVf10eS3POZwu5IDyI7aK1z?=
+ =?us-ascii?Q?/6VM2bDZFul8QjcofT2opmSsekhYxNSIPh+N6d2LMHH6r1m9AVJPQCoyc36e?=
+ =?us-ascii?Q?YXKP/IdwS6ZGHt8bKCMF/DgRXVBIxzXKeH3ZIjp9OfVn84+Tl9ux2n39C9dn?=
+ =?us-ascii?Q?hRkkF11tn/ocNMhkt440yNnBurxug40CA0Z6GKmvIGBSRcKz+TVMdauoUehn?=
+ =?us-ascii?Q?k2jlY0hWenfYvWEiUk0RQBi/qMaqCqD0Awj0h1DVQ07DIDKzdOoNE9ZBqElT?=
+ =?us-ascii?Q?V3Stu7FSmBRYMJRoNlDrVh45QD5Bh+hxYABKHHEIYZpWN8WoiZekFn2Jxs68?=
+ =?us-ascii?Q?u1LstQbCBbj8pldH6V79AQEXVl4oCedhGENkQBtouFdBPewehGY87w7iAOC9?=
+ =?us-ascii?Q?x8WUC31I2U3UWqZGMQd5DvgkkCmiUxpFnAoOeuHOUk3KpCKLJvA+6mYJuqxt?=
+ =?us-ascii?Q?TfTqVu3O10eWw+PtuPh28/gzzwZDLm+9m3HzbQ6nEbsio0Yfzrms5AtGIde2?=
+ =?us-ascii?Q?+C1cXb99VQBM/pD/L/v05X0c2I9+nLHmnMXx8YsS0zirq3C1WrG4pB2Nl7Lo?=
+ =?us-ascii?Q?wg6kiX48OrmCAlO+e5SFdENnin/Il3+Fq4VdagHyGycTFsOaV8JhaUTZMHlr?=
+ =?us-ascii?Q?jpJck76Z0AZIvZ0c/IwdXpneFuWu+nyiwmX+zWiderqDNRb707Wnpnkh/wub?=
+ =?us-ascii?Q?EAA5MVs1jvML6I3b3C6DrkD5W1go5Yt6TKxWQJI/NG+4ov41IxQ9P27+OZ2J?=
+ =?us-ascii?Q?gM5Kb37w7Cp9PnE8nA5MUVwduxd2wvbSQp/QcYAlobLqBFLjRXAq7+oUrDjZ?=
+ =?us-ascii?Q?VelU/9QwRS53nmRftsbuhg18W2jlnIzmrjRf4vtqd1ZZoAqAJte6azgtRx6b?=
+ =?us-ascii?Q?P4E5MzLHk+IRY6cnAd/OJ/URWisHkfCNFYMIZ+k3fpYm6EcGLMmuFLDAK6Lb?=
+ =?us-ascii?Q?BfdStHM93cmeWWmqiWrdtRd3II+q8N8jvh5JNGI+tyUlySB/k6BsY4G0378Q?=
+ =?us-ascii?Q?aKxGSiQhfrmpkhi2aW0YWOXZAmPbAcgYrWPNN+ehfMDlJXy2sxvYsg2QDGmr?=
+ =?us-ascii?Q?NhQjw9LQ5ykY/6AQ9rCaCuf/wMEFFvc8E/EIS+My+FCqD5Xm/SNvTkNBF7/R?=
+ =?us-ascii?Q?je8zB6ve691VjhQeD5I/xgTaoXrAC9Z/sgT8MgKNl9laO0U/lwBNT0tmHdmA?=
+ =?us-ascii?Q?Y42AF5SQuCuKxV8d8mCHG3YlleOosjCWLzS5IrLxmQf9oj54iLNEsTAMpt59?=
+ =?us-ascii?Q?f6ShLm0NxuFHU5nPZrfPwREqi48f62li6j5gvUEO59I2jxLzhxhfX97twx8n?=
+ =?us-ascii?Q?9z2WkyxQuyLbQcXCK+kx51+pMVBgjcW4FWf8YVFjAQ7vjeSPVNzHouDaLOdZ?=
+ =?us-ascii?Q?AlpsRd6VMrQBxAiQXVHe+unf70uZ1hBO1mFVhMeJjhosuPrW3OTvjWQzHnEG?=
+ =?us-ascii?Q?W1Bb6ip1eQLPDBj4DcVpuIaJl+qHakOvtfQPNoGY?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4a6df9eb-266f-44ff-af8e-08dd7e56beb6
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Apr 2025 08:55:20.1064
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: OLXWdzzNw5BBaEbXzksZepjpYu88Xb3liPFjTlOWQS3Oau7slu/AMMbFj3gp7Q1LQWKhin1C8dYYlYoVb4kyrQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10638
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_020856_787242_B53C06CE 
-X-CRM114-Status: GOOD (  17.48  )
+X-CRM114-CacheID: sfid-20250418_021000_267182_B2E3FF0F 
+X-CRM114-Status: GOOD (  14.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,48 +172,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 18.04.25 um 11:02 schrieb Lukasz Majewski:
-> Hi Stefan,
->
->> Am 18.04.25 um 08:07 schrieb Lukasz Majewski:
->>> This patch series provides support for More Than IP L2 switch
->>> embedded in the imx287 SoC.
->>>
->>> This is a two port switch (placed between uDMA[01] and MAC-NET[01]),
->>> which can be used for offloading the network traffic.
->>>
->>> It can be used interchangeably with current FEC driver - to be more
->>> specific: one can use either of it, depending on the requirements.
->>>
->>> The biggest difference is the usage of DMA - when FEC is used,
->>> separate DMAs are available for each ENET-MAC block.
->>> However, with switch enabled - only the DMA0 is used to
->>> send/receive data to/form switch (and then switch sends them to
->>> respecitive ports).
->>>
->>> Signed-off-by: Lukasz Majewski <lukma@denx.de>
->> After changing the IRQ name part mention in patch 1, you can add
->>
->> Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
->>
-> Shall I add RoB tag to all patches?
-In case you mean Reviewed-by: yes
->
-> I will wait for ACK from at least Andrew and then reset the v7 with all
-> tags collected.
->
->> Thanks
->
->
->
-> Best regards,
->
-> Lukasz Majewski
->
-> --
->
-> DENX Software Engineering GmbH,      Managing Director: Erika Unter
-> HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-> Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
+From: Ming Qian <ming.qian@oss.nxp.com>
+
+After encountering a colorspace change in the stream, the decoder
+sends a V4L2_EVENT_SOURCE_CHANGE event with changes set to
+V4L2_EVENT_SRC_CH_COLORSPACE.
+
+Then the client can handle the colorspace change without any buffer
+reallocation
+
+Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+---
+ drivers/media/platform/amphion/vdec.c     | 89 +++++++++++++++--------
+ drivers/media/platform/amphion/vpu.h      |  1 +
+ drivers/media/platform/amphion/vpu_v4l2.c |  7 +-
+ 3 files changed, 63 insertions(+), 34 deletions(-)
+
+diff --git a/drivers/media/platform/amphion/vdec.c b/drivers/media/platform/amphion/vdec.c
+index ee0a7572ed15..f4979d537b97 100644
+--- a/drivers/media/platform/amphion/vdec.c
++++ b/drivers/media/platform/amphion/vdec.c
+@@ -369,12 +369,16 @@ static void vdec_handle_resolution_change(struct vpu_inst *inst)
+ 	if (!vdec->source_change)
+ 		return;
+ 
++	if (inst->changes) {
++		vpu_notify_source_change(inst);
++		inst->changes = 0;
++	}
++
+ 	q = v4l2_m2m_get_dst_vq(inst->fh.m2m_ctx);
+ 	if (!list_empty(&q->done_list))
+ 		return;
+ 
+ 	vdec->source_change--;
+-	vpu_notify_source_change(inst);
+ 	vpu_set_last_buffer_dequeued(inst, false);
+ }
+ 
+@@ -954,10 +958,11 @@ static void vdec_stop_done(struct vpu_inst *inst)
+ 	vpu_inst_unlock(inst);
+ }
+ 
+-static bool vdec_check_source_change(struct vpu_inst *inst)
++static bool vdec_check_source_change(struct vpu_inst *inst, struct vpu_dec_codec_info *hdr)
+ {
+ 	struct vdec_t *vdec = inst->priv;
+ 	const struct vpu_format *sibling;
++	u32 changes = 0;
+ 
+ 	if (!inst->fh.m2m_ctx)
+ 		return false;
+@@ -966,27 +971,41 @@ static bool vdec_check_source_change(struct vpu_inst *inst)
+ 		return false;
+ 
+ 	sibling = vpu_helper_find_sibling(inst, inst->cap_format.type, inst->cap_format.pixfmt);
+-	if (sibling && vdec->codec_info.pixfmt == sibling->pixfmt)
+-		vdec->codec_info.pixfmt = inst->cap_format.pixfmt;
++	if (sibling && hdr->pixfmt == sibling->pixfmt)
++		hdr->pixfmt = inst->cap_format.pixfmt;
+ 
+ 	if (!vb2_is_streaming(v4l2_m2m_get_dst_vq(inst->fh.m2m_ctx)))
+-		return true;
+-	if (inst->cap_format.pixfmt != vdec->codec_info.pixfmt)
+-		return true;
+-	if (inst->cap_format.width != vdec->codec_info.decoded_width)
+-		return true;
+-	if (inst->cap_format.height != vdec->codec_info.decoded_height)
+-		return true;
++		changes |= V4L2_EVENT_SRC_CH_RESOLUTION;
++	if (inst->cap_format.pixfmt != hdr->pixfmt)
++		changes |= V4L2_EVENT_SRC_CH_RESOLUTION;
++	if (inst->cap_format.width != hdr->decoded_width)
++		changes |= V4L2_EVENT_SRC_CH_RESOLUTION;
++	if (inst->cap_format.height != hdr->decoded_height)
++		changes |= V4L2_EVENT_SRC_CH_RESOLUTION;
+ 	if (vpu_get_num_buffers(inst, inst->cap_format.type) < inst->min_buffer_cap)
++		changes |= V4L2_EVENT_SRC_CH_RESOLUTION;
++	if (inst->crop.left != hdr->offset_x)
++		changes |= V4L2_EVENT_SRC_CH_RESOLUTION;
++	if (inst->crop.top != hdr->offset_y)
++		changes |= V4L2_EVENT_SRC_CH_RESOLUTION;
++	if (inst->crop.width != hdr->width)
++		changes |= V4L2_EVENT_SRC_CH_RESOLUTION;
++	if (inst->crop.height != hdr->height)
++		changes |= V4L2_EVENT_SRC_CH_RESOLUTION;
++	if (!hdr->progressive)
++		changes |= V4L2_EVENT_SRC_CH_RESOLUTION;
++
++	if (vdec->seq_hdr_found &&
++	    (hdr->color_primaries != vdec->codec_info.color_primaries ||
++	     hdr->transfer_chars != vdec->codec_info.transfer_chars ||
++	     hdr->matrix_coeffs != vdec->codec_info.matrix_coeffs ||
++	     hdr->full_range != vdec->codec_info.full_range))
++		changes |= V4L2_EVENT_SRC_CH_COLORSPACE;
++
++	if (changes) {
++		inst->changes |= changes;
+ 		return true;
+-	if (inst->crop.left != vdec->codec_info.offset_x)
+-		return true;
+-	if (inst->crop.top != vdec->codec_info.offset_y)
+-		return true;
+-	if (inst->crop.width != vdec->codec_info.width)
+-		return true;
+-	if (inst->crop.height != vdec->codec_info.height)
+-		return true;
++	}
+ 
+ 	return false;
+ }
+@@ -1337,20 +1356,25 @@ static void vdec_event_seq_hdr(struct vpu_inst *inst, struct vpu_dec_codec_info
+ 	struct vdec_t *vdec = inst->priv;
+ 
+ 	vpu_inst_lock(inst);
+-	memcpy(&vdec->codec_info, hdr, sizeof(vdec->codec_info));
+ 
+-	vpu_trace(inst->dev, "[%d] %d x %d, crop : (%d, %d) %d x %d, %d, %d\n",
++	vpu_trace(inst->dev,
++		  "[%d] %d x %d, crop : (%d, %d) %d x %d, %d, %d, colorspace: %d, %d, %d, %d\n",
+ 		  inst->id,
+-		  vdec->codec_info.decoded_width,
+-		  vdec->codec_info.decoded_height,
+-		  vdec->codec_info.offset_x,
+-		  vdec->codec_info.offset_y,
+-		  vdec->codec_info.width,
+-		  vdec->codec_info.height,
++		  hdr->decoded_width,
++		  hdr->decoded_height,
++		  hdr->offset_x,
++		  hdr->offset_y,
++		  hdr->width,
++		  hdr->height,
+ 		  hdr->num_ref_frms,
+-		  hdr->num_dpb_frms);
++		  hdr->num_dpb_frms,
++		  hdr->color_primaries,
++		  hdr->transfer_chars,
++		  hdr->matrix_coeffs,
++		  hdr->full_range);
+ 	inst->min_buffer_cap = hdr->num_ref_frms + hdr->num_dpb_frms;
+-	vdec->is_source_changed = vdec_check_source_change(inst);
++	vdec->is_source_changed = vdec_check_source_change(inst, hdr);
++	memcpy(&vdec->codec_info, hdr, sizeof(vdec->codec_info));
+ 	vdec_init_fmt(inst);
+ 	vdec_init_crop(inst);
+ 	vdec_init_mbi(inst);
+@@ -1379,7 +1403,12 @@ static void vdec_event_resolution_change(struct vpu_inst *inst)
+ {
+ 	struct vdec_t *vdec = inst->priv;
+ 
+-	vpu_trace(inst->dev, "[%d]\n", inst->id);
++	vpu_trace(inst->dev, "[%d] input : %d, decoded : %d, display : %d, sequence : %d\n",
++		  inst->id,
++		  vdec->params.frame_count,
++		  vdec->decoded_frame_count,
++		  vdec->display_frame_count,
++		  vdec->sequence);
+ 	vpu_inst_lock(inst);
+ 	vdec->seq_tag = vdec->codec_info.tag;
+ 	vdec_clear_fs(&vdec->mbi);
+diff --git a/drivers/media/platform/amphion/vpu.h b/drivers/media/platform/amphion/vpu.h
+index 76bfd6b26170..d8100da160d1 100644
+--- a/drivers/media/platform/amphion/vpu.h
++++ b/drivers/media/platform/amphion/vpu.h
+@@ -272,6 +272,7 @@ struct vpu_inst {
+ 	u8 xfer_func;
+ 	u32 sequence;
+ 	u32 extra_size;
++	u32 changes;
+ 
+ 	u32 flows[16];
+ 	u32 flow_idx;
+diff --git a/drivers/media/platform/amphion/vpu_v4l2.c b/drivers/media/platform/amphion/vpu_v4l2.c
+index 74668fa362e2..37ef706c29dd 100644
+--- a/drivers/media/platform/amphion/vpu_v4l2.c
++++ b/drivers/media/platform/amphion/vpu_v4l2.c
+@@ -96,13 +96,12 @@ int vpu_notify_eos(struct vpu_inst *inst)
+ 
+ int vpu_notify_source_change(struct vpu_inst *inst)
+ {
+-	static const struct v4l2_event ev = {
+-		.id = 0,
++	const struct v4l2_event ev = {
+ 		.type = V4L2_EVENT_SOURCE_CHANGE,
+-		.u.src_change.changes = V4L2_EVENT_SRC_CH_RESOLUTION
++		.u.src_change.changes = inst->changes
+ 	};
+ 
+-	vpu_trace(inst->dev, "[%d]\n", inst->id);
++	vpu_trace(inst->dev, "[%d] source change 0x%x\n", inst->id, inst->changes);
+ 	v4l2_event_queue_fh(&inst->fh, &ev);
+ 	return 0;
+ }
+-- 
+2.43.0-rc1
 
 
