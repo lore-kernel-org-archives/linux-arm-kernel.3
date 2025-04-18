@@ -4,72 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 790F7C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 07:09:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAF1BC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 07:10:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8kXg7h5ibQHAv0aq8+Kplnd8Fmsvni+vugX6wdZt9Uc=; b=VjIXrqiZMlxwKDj4QBz/YKU3q1
-	HahEDapfublqVt/erwOVJPpz3ZWYrydNdD5KtsWuxrv0nbTsgWFD74D+NUtimo9s9fzurbG5sHzFu
-	eQkUTQ+vPGyw3s7tC/LzwDoBzBmMr0VjHjD1yqYt/vJQeNqer2mcCxRquSiW6+4L3KooVJMJTaQ56
-	fD6s2u+aRM+rnlEXYa8gS/+JiJz2jZHaOEu8me3ra2FpuFoEpoXKf+i4uAdOhDmTFo6DyQoAkS/78
-	zelr/By7BmB7ajuscbt58wvE9f8HdC/2KgIMg8IE9HqeKdbPE1M4xk950wQQs3HjS34P3xcEB8Ran
-	8TWKrW2g==;
+	bh=ZJZ9/2LTXaosBvqhgXGtFoXMiGALopKAYRwsPTF6+U8=; b=qPhdayMGibAQLTlI/fdgtYgKNj
+	fPym7Pdh+66bP8FcWc/byOP/g69pp8INP7H74lmuMW8CY8j/Tc2OT1k4KEx7lG+/Zopa6sPRbd49q
+	iSeqcPZ2Q2hzoww19KyQfeOMATbJewWkdSCZi4X/C+z1pwQAPBLSciW7catJMCtArQ5KCK28StCuk
+	Ouuo2gkS5ShW0tnvT1aT4E+1aw/T8gQ+uSOmYbd/rM7pz038EXNWrXOpsKTO4wsYXp8nhS/BHwNn2
+	j4T+aPu4oTucJBrhVkLDJ27kXNQ9KP0io3SI+76OKf9TMwcUJE+j7gsp1KcG5mQB6Z3Azp9Df1UnB
+	9qmVlzDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5fqF-0000000FQXh-1FcM;
-	Fri, 18 Apr 2025 07:08:51 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u5fs4-0000000FR31-46QX;
+	Fri, 18 Apr 2025 07:10:44 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5fjX-0000000FOqx-1uGx
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 07:01:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 16280A4B266
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 06:56:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08AB4C4CEED
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 07:01:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744959714;
-	bh=SbxhvwW/dI2cwkKwqXns6VqYn5IUb1s1Pg95tBOSVRs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=faTowbcCXfekvtxTs5wDEv+FPToczT88KM1QepQ3DlFozwDJiz69/AT8bQircR1Am
-	 P4TBruU9R32eJPYNSKRPiIq+DlvvsslSaGNzBwEc6yY2Vzg/FxGuHZrkEgJBvUQ/q7
-	 LEapjdmD6u+I33rdbiE6KkWCePu3qLP0IxDxSHEm0Ag8AI/sYhafrzUwKcBq6CAqUM
-	 RF0Bw2mYHFLU7OoEa7fVPOkD7inCjOYl8Ghhq3ctPHslYmHmJJoGJrGvr2SIH4M2lO
-	 mvYdcF3z6k+YCH7reyHG2n2NaEVbM3sJSMxWrSV8g/brPfNTPW2i0PhJOOOns9MPs5
-	 FcYuDU8c9yalA==
-Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-30bfed67e08so16461891fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 00:01:53 -0700 (PDT)
-X-Gm-Message-State: AOJu0Yz4UqAfKYuuwWOtVB9lBo8NDGoqEYlzA1l+FREtO54y66yYUgM/
-	ntdMtxwpON38g6WCHjXQCj8CxIibqiVUNO5Y0/ZMky0hCFQWJ4AtI9oLG5+lATyg6+5mMDMBr8c
-	BuI4hvw0wtZ0kquhPymYDDnH2304=
-X-Google-Smtp-Source: AGHT+IGQK4ZLrqBwmxUgeBqAOhDO8nVJNTTnpza7A5c9ARC3B7hZoNQyqaunqOT+wxFz9n2VblnRB0s5lfrbFJxX5Vk=
-X-Received: by 2002:a05:651c:510:b0:30b:c96a:74c with SMTP id
- 38308e7fff4ca-310904b8523mr5819201fa.1.1744959712354; Fri, 18 Apr 2025
- 00:01:52 -0700 (PDT)
+	id 1u5fbM-0000000FLbY-2kSR;
+	Fri, 18 Apr 2025 06:53:29 +0000
+X-UUID: d1f0d8121c2111f0a1e849db4cc18d44-20250417
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=ZJZ9/2LTXaosBvqhgXGtFoXMiGALopKAYRwsPTF6+U8=;
+	b=MqFUuWsah2GDZJUfO74lFA492zkmJ7rZins2i7ixMW5qF5BJMEn8JC9Uvel7ZGv1wh87qPe30NeCKAKa+SNNblLgo9L+9tflF5scaUB/X2W+DZmnYpne6cywKcx+S//OZd+zfhE6dDs2r+oYI6h8e0Ugf9JObin4pMimMBQ01oE=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.1,REQID:a03a5a64-169a-482d-b219-0611b5907978,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:0ef645f,CLOUDID:6a99b9c7-16da-468a-87f7-8ca8d6b3b9f7,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
+	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
+	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: d1f0d8121c2111f0a1e849db4cc18d44-20250417
+Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw02.mediatek.com
+	(envelope-from <bincai.liu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1854857825; Thu, 17 Apr 2025 23:53:23 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Fri, 18 Apr 2025 14:53:19 +0800
+Received: from mszsdhlt06.gcn.mediatek.inc (10.16.6.206) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Fri, 18 Apr 2025 14:53:19 +0800
+From: Bincai Liu <bincai.liu@mediatek.com>
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel
+	<p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>, Simona Vetter
+	<simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Chunfeng Yun
+	<chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, "Kishon Vijay
+ Abraham I" <kishon@kernel.org>, Jitao shi <jitao.shi@mediatek.com>, CK Hu
+	<ck.hu@mediatek.com>
+CC: <dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-phy@lists.infradead.org>,
+	Bincai Liu <bincai.liu@mediatek.com>
+Subject: [PATCH 1/5] dt-bindings: eDP: mediatek: add eDP yaml for mt8196
+Date: Fri, 18 Apr 2025 14:52:28 +0800
+Message-ID: <20250418065313.8972-2-bincai.liu@mediatek.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250418065313.8972-1-bincai.liu@mediatek.com>
+References: <20250418065313.8972-1-bincai.liu@mediatek.com>
 MIME-Version: 1.0
-References: <20250416035604.2717188-1-anshuman.khandual@arm.com>
-In-Reply-To: <20250416035604.2717188-1-anshuman.khandual@arm.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Fri, 18 Apr 2025 09:01:40 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXGbJ4q1rchCbDp35rdWRyzuG-nZnQ2KgE46FtkPUg-+SQ@mail.gmail.com>
-X-Gm-Features: ATxdqUFTI04jZnPSrI5f53pfqrNAWo1abGiP_x_hkRRGXb35DQgpl2R0nSQWmIE
-Message-ID: <CAMj1kXGbJ4q1rchCbDp35rdWRyzuG-nZnQ2KgE46FtkPUg-+SQ@mail.gmail.com>
-Subject: Re: [PATCH V2] arm64/mm: Re-organise setting up FEAT_S1PIE registers
- PIRE0_EL1 and PIR_EL1
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Ryan Roberts <ryan.roberts@arm.com>, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_000155_619992_BA7B69D5 
-X-CRM114-Status: GOOD (  17.48  )
+X-CRM114-CacheID: sfid-20250417_235328_697436_34800C17 
+X-CRM114-Status: UNSURE (   8.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,48 +96,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 16 Apr 2025 at 05:56, Anshuman Khandual
-<anshuman.khandual@arm.com> wrote:
->
-> mov_q cannot really move PIE_E[0|1] macros into a general purpose register
-> as expected if those macro constants contain some 128 bit layout elements,
-> that are required for D128 page tables. The primary issue is that for D128,
-> PIE_E[0|1] are defined in terms of 128-bit types with shifting and masking,
-> which the assembler can't accommodate.
->
-> Instead pre-calculate these PIRE0_EL1/PIR_EL1 constants into asm-offsets.h
-> based PIE_E0_ASM/PIE_E1_ASM which can then be used in arch/arm64/mm/proc.S.
->
-> While here also move PTE_MAYBE_NG/PTE_MAYBE_SHARED assembly overrides into
-> arch/arm64/kernel/asm-offsets.c to ensure PIRE0_EL1/PIR_EL1 are calculated
-> in assembly without arm64_use_ng_mappings and lpa2_is_enabled() symbols
-> being accessible. Also move the corresponding comment as well.
->
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Ard Biesheuvel <ardb@kernel.org>
-> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> ---
-> This patch applies on v6.15-rc2
->
-> Changes in V2:
->
-> - Added asm-offsets.c based PIE_E0_ASM and PIE_E1_ASM symbols as per Ard
-> - Moved PTE_MAYBE_NG and PTE_MAYBE_SHARED overrides inside asm-offsets.c
->   along with the corresponding comment as per Ard
->
-> Changes in V1:
->
-> https://lore.kernel.org/linux-arm-kernel/20250410074024.1545768-1-anshuman.khandual@arm.com/
->
->  arch/arm64/kernel/asm-offsets.c | 16 ++++++++++++++++
->  arch/arm64/mm/proc.S            | 19 ++-----------------
->  2 files changed, 18 insertions(+), 17 deletions(-)
->
+Add compatible string to support eDP for MT8196.
 
-Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
+Signed-off-by: Bincai Liu <bincai.liu@mediatek.com>
+---
+ .../devicetree/bindings/display/mediatek/mediatek,dp.yaml       | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml
+index 75ce92f4a5fd..26997feba66b 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml
+@@ -25,6 +25,7 @@ properties:
+       - mediatek,mt8188-edp-tx
+       - mediatek,mt8195-dp-tx
+       - mediatek,mt8195-edp-tx
++      - mediatek,mt8196-edp-tx
+ 
+   reg:
+     maxItems: 1
+@@ -98,6 +99,7 @@ allOf:
+               enum:
+                 - mediatek,mt8188-dp-tx
+                 - mediatek,mt8195-dp-tx
++                - mediatek,mt8196-edp-tx
+     then:
+       properties:
+         '#sound-dai-cells': false
+-- 
+2.45.2
+
 
