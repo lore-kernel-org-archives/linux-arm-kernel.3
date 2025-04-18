@@ -4,93 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E50E4C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 13:28:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DE79C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 13:34:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pVpxnI/29mpkrDRARmH1s8IOVcoXlXa8dMGnnZK1EKQ=; b=3skn8LmJUROQ879WzYeytfUX7E
-	Fn4VR8qtPhk7W11c0BABItzYYzdX4GT7Yfe6/IL1G4j6Hb1zhZU9GhJijqw2aUioMgiHbdOHG4TVy
-	VpgiakC/3RyEanC5T5QZQT6R0r0VMsI//If3z7CHDZ36K7OoH+zNrtrtEQJ8LDArQKzuGNFrXvt9T
-	v1cX2XQB1Z2xuw1EJ56UbC/B7xagzvBzz523BKizRm9+xdenX13T7h4iB2gYg4fjhMFILq8NivjqI
-	aPG3lWCH8i3F1iAUMmSeCXZvgKYgqXKRsBFQAP2Ohz/PIiGwDwK+ykVXQzGA8DyxYu8bQfg+o7UME
-	pok7e5jQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VW/r+Xskypu97YYD6KF6jc5zwux2QZnn2gKuuTUWqVE=; b=vBEYlT3sl7VkcvDYFnPAgCHlIw
+	kXQhTEIms027lnDiRf4ClLDCFgbS54vLqlJgk20a6CcD8/TRWoflcD0x1NQXe8f6fedsbiEZXxAh7
+	n7xqpxJiAD49rl7y7L9IpYHUkMxz/WZeDv4qcVP4hpJPm+UWSvUluNMqSxtLRNpgEmOg5Lxk2Ri+U
+	gYq5aXkjSNQWAXuja6uMj6OmNPKQFdL7ir/F20mGCJ3XtTPyB6Kdxy+c4tl7p0/cmZ4yz7AbPM8HF
+	9wBt8W83lsgw92vQy9qUOymOUky+6oi36FXm/+WMyJ4KGBmvdDON5nhHeuYtATXZV1hrryKUttFhF
+	N+SGtgJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5llu-0000000GEem-2DRR;
-	Fri, 18 Apr 2025 13:28:46 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1u5lqo-0000000GFZA-3LQZ;
+	Fri, 18 Apr 2025 13:33:50 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5liX-0000000GDoA-1xJj
+	id 1u5loq-0000000GFAy-3db2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 13:25:18 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5ebf57360b6so242116a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 06:25:16 -0700 (PDT)
+	Fri, 18 Apr 2025 13:31:50 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-5f62ef3c383so73309a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 06:31:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744982715; x=1745587515; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=pVpxnI/29mpkrDRARmH1s8IOVcoXlXa8dMGnnZK1EKQ=;
-        b=CTVEjmi/aQOSHMjcYT7XRgrlzNpetlylFAM0vgoTeYpKyk3cSrCmaAG/iDQ1lV06ca
-         uxw0bzd+sJ87UE3sHcDAE4gkECroEYcE6QmrtTd/px0szy5mtkXGiiNa0fJMNvSvXjAE
-         MzqXVJI5z1YjrJN1mg8kePX9cryzzn0cWkLwcKtgV3IT9gynaJF+zbQxReBxPg+DFVlk
-         2qpvNSmiLlZVCfHsuODa3iGOz8hDXdLFoRqFYapDpCdyXGCrRquxXpK7aR8xSXO8SQW7
-         fJMsX3iPGjc1Ipg5W3umd/1v8sHSgO+aJcDRKZAAwGKuImnjrvGx6dKth6Gsrdy8dY7A
-         1zhA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744982715; x=1745587515;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1744983107; x=1745587907; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=pVpxnI/29mpkrDRARmH1s8IOVcoXlXa8dMGnnZK1EKQ=;
-        b=W+SUtK2IQGBTNq0uwH4V1ThEROYfUnIOmfFQNWSlkYdQ+yIwB3TBiF7UP7XYrvJ7iW
-         jtL/kPM95N54qwY19VfRrqEF048SclESm4R6hH+xIMHuUa8Q78ooKurmiqpRU2s/zWCE
-         T+61lRo2g89ODHSd6QZdlrxaDSfuFVotuBNzUzscZ1r9/0IWFBYooz6msf7//LxYCb/t
-         mA8pbNET1aDDVdCZ73PQgYYZ7Lw1ihADRZ1zuBLJYkQQkIozjlUZjHs3llddLiytpg4l
-         8A8v8ks/dx01csuQUMND0bNVV7wFWC8yJUPfuGUhJuO3VDOXkNj77swbk+T7Nk4yfdpm
-         850w==
-X-Forwarded-Encrypted: i=1; AJvYcCVeoJ27uCKMpKc4lE40tC/uqoDoOT+VLWPCjFfKk1Qo9ejT9nYcXpe1r7EDmUhDYok9CF3kLO/KsmCfeb5Fubh/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyw8h07lNrwShXFkFPim4EX4HCnflVxvqHqUIHOhlh/JdXC3Oj7
-	XzdNBRT8WxsA0TlOqBPM/PuqTLxmF1O/PuOOBP+pXTRth/gpxBWN
-X-Gm-Gg: ASbGncsHcEtyedYA83swyZx0nyJvJRtaWSQ5tHXQxp2JdoPIVxCajunmcoY/eWnsYp0
-	BwDMYuZ9GPXVej+hrpwoyckjmCrdh3KQruy+ZodbFa5Djv9aACQfqIxTEBKnsSNJKG6c7INubrQ
-	vAK8XUMAiOnB0zhW4xLnpCCS/B0+W4T6sjoI66A1bfR06sPasJp4qLPkXWqQpB0NIHISAd/OXA6
-	DL+sVjaRzb+S37tBK0a+PZ8G5HkNeE00B4eQjxxDr2pwJktlOqb7zw21yEM9pXUucWA2N7QhvSf
-	/d4W7/jt2SYloWsykfd1VuTs37Rr
-X-Google-Smtp-Source: AGHT+IHY8YYl+gLe7z4XbImJlTJtfNKJ64WGJaDAJCdf8mISh7qKy9awk9jjoRAY+BWRqWp8cGMOBA==
-X-Received: by 2002:a05:6402:350f:b0:5f4:5dfa:992c with SMTP id 4fb4d7f45d1cf-5f628536df7mr802836a12.3.1744982714460;
-        Fri, 18 Apr 2025 06:25:14 -0700 (PDT)
-Received: from skbuf ([188.25.50.178])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-acb6ef45779sm118202566b.127.2025.04.18.06.25.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Apr 2025 06:25:13 -0700 (PDT)
-Date: Fri, 18 Apr 2025 16:25:11 +0300
-From: Vladimir Oltean <olteanv@gmail.com>
-To: Wei Fang <wei.fang@nxp.com>
-Cc: claudiu.manoil@nxp.com, vladimir.oltean@nxp.com, xiaoning.wang@nxp.com,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, christophe.leroy@csgroup.eu,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v5 net-next 02/14] net: enetc: add command BD ring
- support for i.MX95 ENETC
-Message-ID: <20250418132511.azibvntwzh6odqvx@skbuf>
-References: <20250411095752.3072696-1-wei.fang@nxp.com>
- <20250411095752.3072696-1-wei.fang@nxp.com>
- <20250411095752.3072696-3-wei.fang@nxp.com>
- <20250411095752.3072696-3-wei.fang@nxp.com>
+        bh=VW/r+Xskypu97YYD6KF6jc5zwux2QZnn2gKuuTUWqVE=;
+        b=JsCPcV+P2DCypotZ6ebxcGoJHQAgcSEwoarH7v38nsFzgLTWldpIguK2uZ1AZ/F4qs
+         E/5dmw0bWk3hw9Cx0h1fb9pWwDs5BiquY0+0aws2RmZJej/lBnouKhlzl7mQhuQH2Ic+
+         OqXvk0gtuH1PDdFh9M5VLHs0bwzeMlzYgzA1NuF09vuALJMKbL29efFdtg3jrs+A8zEq
+         jaDL3cACllHsneHK9J/qpuzD+Af9zyz2BnTanQMVWo7SizqA/iSO9B2k0Nyx8BufMycP
+         ubz11FJqrR/C1lTwEfeSorQgF3Gy1fGsi+9sE7V+lXQUD+TV7M6QtProChhSBN8gutmA
+         Zoxg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744983107; x=1745587907;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=VW/r+Xskypu97YYD6KF6jc5zwux2QZnn2gKuuTUWqVE=;
+        b=R8LyU+Oyk3rpyFdYZUfgVyuS7qkJIlluieJ/+UBjLwuoCbYl0sXzan2gv85B+EPcxs
+         KUxDK+bjqKWA/HrxIhoxTdzlaqohpgXU2vc5w7GgsqfVPmlxa6H+JgS06yWo1PtJ+ll7
+         uQ6ob0QW3R0FiFQTnhdYqUgJPzaT1LjqWeASPEEg5UMGo0olIvsyw8MwXS9BXQwNm3Gr
+         /pQ2kEgH1YervUG4KdoKx960TC7+sd5sa49fbMg7v0EyE9HyKT+gd8T7Jfv1M7YMB/6M
+         vlPxJn4iFI4g+DGTliNL6pp7Lm/yzjbTzxiFKfGUoM8aqJB9qS21DKBxP5Vs47N5oDeI
+         WUgw==
+X-Forwarded-Encrypted: i=1; AJvYcCVEmeSyOxpw8oJqanIR8DcREfkFHQfzCv8/Jp1hptFk/zdDhpA8gP/kqVpgfJ8ORU5ReYtGlXRIC6EQGxU5Xyzr@lists.infradead.org
+X-Gm-Message-State: AOJu0Yww0lbJM4I4jEtc3Ffbey2arFxTXKglbuWamTii+I4s0mdDIfD1
+	APnO4Zxu4ZSBH0jWVh3sYekxuNPybNEZOrmehdM60IpdJ+KlZl8cxE7lHBwvNfZEIGAMgU6l9St
+	2lmXdA89LGAAL54kbbI/WieMugis=
+X-Gm-Gg: ASbGnctRW54SwDn+8wuNy4iy7bJEuu7Av6jJZE2IE949pI4ouuAy5x9JwyBSSPhatTj
+	g7AC2j7EaK9h/cm6KRwYEVlX/9Az4ng+jBdwaN/1DHIaEo4hCIXW09krD3Mti4WOg/Q/KIRjp9l
+	8AyOOH4Cc9kc5ktKFGsl3D
+X-Google-Smtp-Source: AGHT+IE+R7I4dVbYwOWf8/dydNM3ras0vM8Hcd1dtJhxh5iLeMMP4/GOg7s0W+7aCQ1EW35HU9YjtmFodyE+MqjWPmY=
+X-Received: by 2002:a17:906:e208:b0:acb:85f2:f032 with SMTP id
+ a640c23a62f3a-acb85f31115mr5753166b.13.1744983106327; Fri, 18 Apr 2025
+ 06:31:46 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250411095752.3072696-3-wei.fang@nxp.com>
- <20250411095752.3072696-3-wei.fang@nxp.com>
+References: <20250410063754.5483-1-linux.amoon@gmail.com> <20250410063754.5483-2-linux.amoon@gmail.com>
+ <aAIIH7H1oQH8cf-6@mai.linaro.org>
+In-Reply-To: <aAIIH7H1oQH8cf-6@mai.linaro.org>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Fri, 18 Apr 2025 19:01:29 +0530
+X-Gm-Features: ATxdqUEh1pZaqB8ipWBIif6O9726dyogwx9y_IR39XM-ncpaQF8skGDo78Oz4mw
+Message-ID: <CANAwSgS_OnEv=r7S4CetLkW4vo-QdFAKTbqRK9H-Q0dq5VDYLA@mail.gmail.com>
+Subject: Re: [PATCH v5 1/3] drivers/thermal/exynos: Refactor clk_sec
+ initialization inside SOC-specific case
+To: Daniel Lezcano <daniel.lezcano@linaro.org>
+Cc: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
+	Lukasz Luba <lukasz.luba@arm.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+	"open list:SAMSUNG THERMAL DRIVER" <linux-pm@vger.kernel.org>, 
+	"open list:SAMSUNG THERMAL DRIVER" <linux-samsung-soc@vger.kernel.org>, 
+	"moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>, 
+	"open list:CLANG/LLVM BUILD SUPPORT:Keyword:b(?i:clang|llvm)b" <llvm@lists.linux.dev>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_062517_520269_3F64038F 
-X-CRM114-Status: GOOD (  17.29  )
+X-CRM114-CacheID: sfid-20250418_063148_909529_E301D480 
+X-CRM114-Status: GOOD (  31.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,74 +104,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 11, 2025 at 05:57:40PM +0800, Wei Fang wrote:
-> diff --git a/drivers/net/ethernet/freescale/enetc/enetc_cbdr.c b/drivers/net/ethernet/freescale/enetc/enetc_cbdr.c
-> index 20bfdf7fb4b4..ecb571e5ea50 100644
-> --- a/drivers/net/ethernet/freescale/enetc/enetc_cbdr.c
-> +++ b/drivers/net/ethernet/freescale/enetc/enetc_cbdr.c
-> @@ -60,6 +60,45 @@ void enetc_teardown_cbdr(struct enetc_cbdr *cbdr)
->  }
->  EXPORT_SYMBOL_GPL(enetc_teardown_cbdr);
->  
-> +int enetc4_setup_cbdr(struct enetc_si *si)
-> +{
-> +	struct ntmp_user *user = &si->ntmp_user;
-> +	struct device *dev = &si->pdev->dev;
-> +	struct enetc_hw *hw = &si->hw;
-> +	struct netc_cbdr_regs regs;
-> +
-> +	user->cbdr_num = 1;
-> +	user->cbdr_size = NETC_CBDR_BD_NUM;
-> +	user->dev = dev;
-> +	user->ring = devm_kcalloc(dev, user->cbdr_num,
-> +				  sizeof(struct netc_cbdr), GFP_KERNEL);
-> +	if (!user->ring)
-> +		return -ENOMEM;
-> +
-> +	/* set CBDR cache attributes */
-> +	enetc_wr(hw, ENETC_SICAR2,
-> +		 ENETC_SICAR_RD_COHERENT | ENETC_SICAR_WR_COHERENT);
-> +
-> +	regs.pir = hw->reg + ENETC_SICBDRPIR;
-> +	regs.cir = hw->reg + ENETC_SICBDRCIR;
-> +	regs.mr = hw->reg + ENETC_SICBDRMR;
-> +	regs.bar0 = hw->reg + ENETC_SICBDRBAR0;
-> +	regs.bar1 = hw->reg + ENETC_SICBDRBAR1;
-> +	regs.lenr = hw->reg + ENETC_SICBDRLENR;
-> +
-> +	return netc_setup_cbdr(dev, user->cbdr_size, &regs, user->ring);
-> +}
-> +EXPORT_SYMBOL_GPL(enetc4_setup_cbdr);
-> +
-> +void enetc4_teardown_cbdr(struct enetc_si *si)
-> +{
-> +	struct ntmp_user *user = &si->ntmp_user;
-> +
-> +	netc_teardown_cbdr(user->dev, user->ring);
-> +	user->dev = NULL;
-> +}
-> +EXPORT_SYMBOL_GPL(enetc4_teardown_cbdr);
+Hi Daniel,
 
-I wanted to ask why isn't netc_setup_cbdr() merged into enetc4_setup_cbdr()
-(and likewise for teardown_cbdr), because they sound very similar, and
-they operate on the same data - one is literally a continuation of the
-other. Then I looked downstream where the netc_switch is another API
-user of netc_setup_cbdr() and netc_teardown_cbdr().
+On Fri, 18 Apr 2025 at 13:36, Daniel Lezcano <daniel.lezcano@linaro.org> wr=
+ote:
+>
+> On Thu, Apr 10, 2025 at 12:07:48PM +0530, Anand Moon wrote:
+> > Refactor the initialization of the clk_sec clock to be inside the
+> > SOC_ARCH_EXYNOS5420_TRIMINFO case. It ensures that the clk_sec clock
+> > is only initialized for the specified SOC and not for other SOCs,
+> > thereby simplifying the code. The clk_sec clock is used by the TMU
+> > for GPU on the Exynos 542x platform.
+> >
+> > Removed redundant IS_ERR() checks for the clk_sec clock since error
+> > handling is already managed internally by clk_unprepare() functions.
+> >
+> > Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+> > ---
+> > v5: None
+> > v4: Fix the aligment of code clk for clk_prepare in proper if/else bloc=
+k.
+> >     update the commit for clk_sec used.
+> >     checked to goto clean up all the clks are proper.
+> >     drop IS_ERR() check for clk_sec.
+> > v3: improve the commit message.
+> > ---
+> >  drivers/thermal/samsung/exynos_tmu.c | 37 ++++++++++++++--------------
+> >  1 file changed, 18 insertions(+), 19 deletions(-)
+> >
+> > diff --git a/drivers/thermal/samsung/exynos_tmu.c b/drivers/thermal/sam=
+sung/exynos_tmu.c
+> > index 47a99b3c5395..3657920de000 100644
+> > --- a/drivers/thermal/samsung/exynos_tmu.c
+> > +++ b/drivers/thermal/samsung/exynos_tmu.c
+> > @@ -1037,29 +1037,30 @@ static int exynos_tmu_probe(struct platform_dev=
+ice *pdev)
+> >               return ret;
+> >
+> >       data->clk =3D devm_clk_get(dev, "tmu_apbif");
+> > -     if (IS_ERR(data->clk))
+> > +     if (IS_ERR(data->clk)) {
+> >               return dev_err_probe(dev, PTR_ERR(data->clk), "Failed to =
+get clock\n");
+>
+> As this branch returns, the else block can be removed.
+>
+>         if (IS_ERR(data->clk))
+>                 return dev_err_probe(dev, PTR_ERR(data->clk), "Failed to =
+get clock\n");
+>
+>         ret =3D clk_prepare(data->clk);
+>         if (ret) {
+>                 ...
+>         }
+>
+Earlier I got this review comment on this.
+[0] https://patchwork.kernel.org/project/linux-samsung-soc/patch/2025021619=
+5850.5352-2-linux.amoon@gmail.com/
+I will try to fix this in next vrsion.
 
-Do you think you could rename netc_setup_cbdr() into something like below:
+> May be worth to group both calls with devm_clk_get_enabled()
 
-struct ntmp_user *ntmp_user_create(struct device *dev, size_t num_cbdr,
-				   const struct netc_cbdr_regs *regs);
-void ntmp_user_destroy(struct ntmp_user *user);
+Earlier, I attempted to change the clock ABI, but it didn't work.
 
-From a data encapsulation perspective, it would be great if the outside
-world only worked with an opaque struct ntmp_user * pointer.
+[1] https://lore.kernel.org/all/20220515064126.1424-2-linux.amoon@gmail.com=
+/
+If you're okay with changing this, I'll update it in the next version.
 
-Hide NETC_CBDR_BD_NUM from include/linux/fsl/ntmp.h if API users don't
-need to customize it, and let ntmp_user_create() set it.
+> > -
+> > -     data->clk_sec =3D devm_clk_get(dev, "tmu_triminfo_apbif");
+> > -     if (IS_ERR(data->clk_sec)) {
+> > -             if (data->soc =3D=3D SOC_ARCH_EXYNOS5420_TRIMINFO)
+> > -                     return dev_err_probe(dev, PTR_ERR(data->clk_sec),
+> > -                                          "Failed to get triminfo cloc=
+k\n");
+> >       } else {
+> > -             ret =3D clk_prepare(data->clk_sec);
+> > +             ret =3D clk_prepare(data->clk);
+> >               if (ret) {
+> >                       dev_err(dev, "Failed to get clock\n");
+> >                       return ret;
+> >               }
+> >       }
+> >
+> > -     ret =3D clk_prepare(data->clk);
+> > -     if (ret) {
+> > -             dev_err(dev, "Failed to get clock\n");
+> > -             goto err_clk_sec;
+> > -     }
+> > -
+> >       switch (data->soc) {
+> > +     case SOC_ARCH_EXYNOS5420_TRIMINFO:
+> > +             data->clk_sec =3D devm_clk_get(dev, "tmu_triminfo_apbif")=
+;
+> > +             if (IS_ERR(data->clk_sec)) {
+> > +                     ret =3D dev_err_probe(dev, PTR_ERR(data->clk_sec)=
+,
+> > +                                         "Failed to get clk_sec clock\=
+n");
+> > +                     goto err_clk;
+> > +             }
+> > +             ret =3D clk_prepare(data->clk_sec);
+>
+> Same comment, devm_clk_get_enabled()
+If you're okay with changing this, I'll update it in the next version.
+>
+> > +             if (ret) {
+> > +                     dev_err(dev, "Failed to prepare clk_sec clock\n")=
+;
+> > +                     goto err_clk_sec;
+> > +             }
+> > +             break;
+> >       case SOC_ARCH_EXYNOS5433:
+> >       case SOC_ARCH_EXYNOS7:
+> >               data->sclk =3D devm_clk_get(dev, "tmu_sclk");
+> > @@ -1112,11 +1113,10 @@ static int exynos_tmu_probe(struct platform_dev=
+ice *pdev)
+> >
+> >  err_sclk:
+> >       clk_disable_unprepare(data->sclk);
+> > +err_clk_sec:
+> > +     clk_unprepare(data->clk_sec);
+> >  err_clk:
+> >       clk_unprepare(data->clk);
+> > -err_clk_sec:
+> > -     if (!IS_ERR(data->clk_sec))
+> > -             clk_unprepare(data->clk_sec);
+>
+> With devm_ variant those labels should go away
+Correct.
 
-Move even more initialization into ntmp_user_create(), like the
-allocation of "user->ring", and reduce the number of arguments.
-
-In my opinion this would be a more natural organization of the code.
+Thanks
+-Anand
+>
+> >       return ret;
+> >  }
+> >
+> > @@ -1128,8 +1128,7 @@ static void exynos_tmu_remove(struct platform_dev=
+ice *pdev)
+> >
+> >       clk_disable_unprepare(data->sclk);
+> >       clk_unprepare(data->clk);
+> > -     if (!IS_ERR(data->clk_sec))
+> > -             clk_unprepare(data->clk_sec);
+> > +     clk_unprepare(data->clk_sec);
+> >  }
+> >
+> >  #ifdef CONFIG_PM_SLEEP
+> > --
+> > 2.49.0
+> >
+>
+> --
+>
+>  <http://www.linaro.org/> Linaro.org =E2=94=82 Open source software for A=
+RM SoCs
+>
+> Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+> <http://twitter.com/#!/linaroorg> Twitter |
+> <http://www.linaro.org/linaro-blog/> Blog
 
