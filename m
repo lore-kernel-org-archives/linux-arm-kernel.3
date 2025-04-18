@@ -4,161 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22CE6C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 09:04:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0629CC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 09:06:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PIQSkq+wDta2lUmn0nqSCSFiu7vaB1pMOxPo4BOLauQ=; b=edFbNo1u/YAn17T/kYyqw96wD5
-	uBk2CSRm02cZkqfgyXeJm2+bWT6mXHAHQ5oF2gfkcMXD5L1eshsC21of+STuovFndouuqun1I+tOf
-	vkHyDEc7GrsNKLiVzP+ttuZfI5SjPk02eC8U6QMvQFlypwT3Ft3QzogzEN1PdCxo8Vyb2GPUnuw5F
-	td73kOwECxK7OFs+jhIr1Lm8ZreLwyl+JJFP92zszpLzR7gu87/7zDsE+GbPhYl7H53jRXKJuxHMB
-	2kicTkPW9ToZH7KsDJ0RpG/ZD1TX4i7N5gnUjYxgB/RRohkLAof9jlORz+t+1UUqZhyQWy3+zGZLi
-	ps8Au4og==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1LODpW59RyDH7h3ZIvqn9KHid7mkClVKSG/86SmQNPw=; b=a0i62lFsZhNdLbXtmNbYhc4KNb
+	W/S+vXHArygoqQpeZF2MFdMi5loay4lcKax6uy9XR5nejZjL5R0Lej6xkaDgoN8obLFqYv/Y4jJIi
+	1gQY/WH+KHHecL0e38izTQsBfWUsJeUZjWXJkflwOl4vM+ZIdruN7Syf7XAGpo71bxqQLwRHLHXZG
+	brAa+QcMD0ltTwtpKYy5qqlEgmK9rvEHJPiH1Iz5qUe5v4VHpRufWX2FPCGmam++Awbhwe+MRyfba
+	jnUskcQeyzeNrYQf5nq0cmQOm8uQw5PCeJOtFPwF55OJ3cpFGQTOv1jXVJYR+P1Y7D9KMU5Cu3PL4
+	HIzFTqZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5hdf-0000000Fi0i-3W8F;
-	Fri, 18 Apr 2025 09:03:59 +0000
-Received: from mail-dbaeur03on20627.outbound.protection.outlook.com ([2a01:111:f403:260d::627] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
+	id 1u5hfV-0000000FiGc-28Za;
+	Fri, 18 Apr 2025 09:05:53 +0000
+Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5hVH-0000000FgZZ-19Pe
+	id 1u5hbC-0000000FhVb-1KRO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 08:55:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=btmfuVCKKtRntykH4xrfSRIzr1pPxQNiEx0FEuqgLzQ+53yvx2/1J+bkU1+LvbqcObeXzDP9j5YBVF0CZ+SHhSstL/e3MjVYi61yN5exp+JfNAwiRj5KNS/+fgdj9ROE7y7sjj46FbAM6OlYnPMSEruIwv75OXMbeUKDU4Pt1cArBczYv2OzF2/LNXp9zjK1c6YR15w13DCpRcX3I9L/nLoB31d8oYi8jUWwI85rV2h3VC2HSC+8AGTRXd0GDu9JxBdUVBmkh9DyrE8dEiwHZZM8up83tUgmFeJ8ZykbqWI8IGOy2jhcvxbKzpRiMcv9dqBVzts0Lq4YDs6gxu/Wvg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PIQSkq+wDta2lUmn0nqSCSFiu7vaB1pMOxPo4BOLauQ=;
- b=ipUsIbnH1lBw9N5w/gED5VtjRAY0f0qPhuW982qTDWaZmZyQzYF3Jq5Aelt/BTe4HgoiDMxqHdg8tgq+E8e2p1jaUNL35SzjTnIWvqLf5QyOORuTBf1TAfCVSONKmZQ3ra6cYuvjeCJ1p0INckJ0n44+0gFQOLWgXRefdVMCO/Qp777xcsIc4QHj1r+XrnGxtbcGalux96hC2d69LtF3O+4ltOGJRQGS2KHXaaVSSOkkj+hEWllTLh89L6NEDFwIgxK8Aed1kd0DWZXdA03fkSOkFBshuOGSPX+4uczRzDWT7EfIPBfIqSfKLUejLBy95wLx+lKri9qckZktbwovzQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PIQSkq+wDta2lUmn0nqSCSFiu7vaB1pMOxPo4BOLauQ=;
- b=rcAF4KVyd1awYN92oNVM/1fYMhMyurWgvPzpZL6+4lqxUoKm14NMeQfV4q+ozvsNbXlz7Yr09UuugJLtA9wu00MfdzV56K8az04FQDNQBP1cVQjr6vsap97j/9CGF1SchgRuDxxQFQbGq58Ss/XHOjN7qK6r7m1uFaU9tnaXFxfLSWxCPIWSQDarQkHiS11peZTr/P0Zwu607ZJ2m39Rrtpwcs4nO+c30v4cuW1g6lOLPue7Eo0CWODwNBxNZLlb9cW21CJaO+XYYeSsXJ70b3vmq+BcpLUCHKzeEVeGXc+EMseAwNeJrxzJgVc2bMxf/9rG5bGbbBbOhY1w6jHFTQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
- by VI0PR04MB10638.eurprd04.prod.outlook.com (2603:10a6:800:268::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.22; Fri, 18 Apr
- 2025 08:55:13 +0000
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87%4]) with mapi id 15.20.8655.022; Fri, 18 Apr 2025
- 08:55:13 +0000
-From: ming.qian@oss.nxp.com
-To: mchehab@kernel.org,
-	hverkuil-cisco@xs4all.nl
-Cc: nicolas@ndufresne.ca,
-	sebastian.fricke@collabora.com,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	linux-imx@nxp.com,
-	xiahong.bao@nxp.com,
-	eagle.zhou@nxp.com,
-	imx@lists.linux.dev,
-	linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 3/4] media: amphion: Clear last_buffer_dequeued flag for DEC_CMD_START
-Date: Fri, 18 Apr 2025 16:54:18 +0800
-Message-ID: <20250418085422.193-3-ming.qian@oss.nxp.com>
-X-Mailer: git-send-email 2.48.1.windows.1
-In-Reply-To: <20250418085422.193-1-ming.qian@oss.nxp.com>
-References: <20250418085422.193-1-ming.qian@oss.nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR03CA0130.apcprd03.prod.outlook.com
- (2603:1096:4:91::34) To PAXPR04MB8254.eurprd04.prod.outlook.com
- (2603:10a6:102:1cd::24)
+	Fri, 18 Apr 2025 09:01:27 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CC642102E6336;
+	Fri, 18 Apr 2025 11:01:19 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1744966883; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=1LODpW59RyDH7h3ZIvqn9KHid7mkClVKSG/86SmQNPw=;
+	b=Otj7vOEpjjF7gWOeUvYT1YhAkKogTqAUbZdCbz62wihYTh0G1+htCizqDjtD5l/wA6yWZw
+	i+Lm8tgSc5pSWuiQF3ZQgNltEVT5zIBdXPyJA7Af+K95AU9E9/ASQowpQCQ58SS1GJXH9T
+	8qWnFlvHL6xy9H/OC8+QM/w/qKzt3jjhf17x9ll2ZUy5vTekLuTo465TaCratUX2C3Ziqf
+	y/MkDqzka0RKet4E8beVgWdCL9lr1qLfB/1ZGMdplySu0yj2LGrkbVh5QQ8DpQt/+K1ZxW
+	SDWxHoE+sGX9OyxdC2rZHHzgF/FDlNtayIw+NvLxrs5CAI9pzTLPG0pkrm3LYw==
+Date: Fri, 18 Apr 2025 11:01:16 +0200
+From: Lukasz Majewski <lukma@denx.de>
+To: Stefan Wahren <wahrenst@gmx.net>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
+ <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Simon Horman
+ <horms@kernel.org>
+Subject: Re: [net-next v6 1/7] dt-bindings: net: Add MTIP L2 switch
+ description
+Message-ID: <20250418110116.6179d8b5@wsk>
+In-Reply-To: <e4c7662f-4d10-4d45-843d-0a0f3c893a1f@gmx.net>
+References: <20250418060716.3498031-1-lukma@denx.de>
+	<20250418060716.3498031-2-lukma@denx.de>
+	<e4c7662f-4d10-4d45-843d-0a0f3c893a1f@gmx.net>
+Organization: denx.de
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|VI0PR04MB10638:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4ccb4815-0f74-45c2-3034-08dd7e56bae3
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|52116014|376014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Srd9ywzGX+mO+oXr9trvg0pz4pd0Q/cNWuB6xy2KBdoNpclctN2L+IU7T2kc?=
- =?us-ascii?Q?ATGhY2Jkf8uwKspH/AKWoQjN6wRhD9mCNTUlK5kaibWKQW1Be0JLZJV69VWP?=
- =?us-ascii?Q?iH++RLm+6Iuc3KKVQe/TjmzBPdEPGxow2GySssq9rUuSy1Guq14zly1S2qZA?=
- =?us-ascii?Q?I3TDIzD1PhHKW/56pNF5Z7OB4olkDdgXUQaq9bgx9JgJjQdWutawJg2EG2Ho?=
- =?us-ascii?Q?kCWZyR51iIZWdZS1IGdg6TfrY3lSNy34wUeOE5RxNkjdT+rXXulaba3J8keI?=
- =?us-ascii?Q?em8BR0OsO+3I8R8NyA0NItm7lCAM1xxnhxAIGzqVoTf97Sh4SaoMBE2zNr5A?=
- =?us-ascii?Q?fgv4g5CWxtGrzq3X9TiLphH9JMpYti/jdprvUdJGYHZCuQYsu51VawXPwdUz?=
- =?us-ascii?Q?YZSKnybVyCLHBuYGBUic2AcnOIbU9EgqWMqE5hBMWT4Yvw1gi6L/uaLatS6C?=
- =?us-ascii?Q?1+oYiMuOdvO/ux8b/VJxQxT0ydkaKpYO0rBIrwvPfm28hIwd4uwIVugbX38D?=
- =?us-ascii?Q?lLsgVLolkb29MYcD/AbKtDXNiZNj0bP8MvWE61od6/f9dwcgEsO9rYqxcQTD?=
- =?us-ascii?Q?NGwWrG6JNxhaF5pAIIOjRzfYrDs/AqKwHT87DnZOTFrDL/UAqmYroaGbKnAW?=
- =?us-ascii?Q?bfryokba4akf/ZvuNFkQN9h5GISps/mxJ2vRVNoqMdOg0DJh21173Zsu472i?=
- =?us-ascii?Q?MeGhSHVXKsFtFndeaApraALI26gGiPy6X+qf+R+sLA4U0wLQkPHvJLDuENtz?=
- =?us-ascii?Q?91Sc6ZKWslZLQ6Fog8iYAv1l7TjD8ZRAnl5bpF6rBk2d+rN8mxGYFfP30Z2c?=
- =?us-ascii?Q?TqucKdFnLY7GpidK6i/+cYJeUe8838W5CiRFVkQhulCKHDKOmofrA5efrUJ+?=
- =?us-ascii?Q?DBPPudNobERRvDeaw7sHIUqotdsMl0eLzhMby601HBgEjQY0TGRM0V4z0kKF?=
- =?us-ascii?Q?1nBrTBD+F6qNF+2zZNSMXdh8i9NM7e/FOhS5+NmB/dWOtidGrE7xV7V1dXLS?=
- =?us-ascii?Q?rvVeCOshE5IJLuyJSQdnw1SwTDZugfGwax21ByepPtqwTkQoezkSdn4HrYSF?=
- =?us-ascii?Q?jhviqeNPRLuxxW082NDjFdnfLIAcLONjFvCq7fnWYS5xU9zstTUkLxqKJqjO?=
- =?us-ascii?Q?SGq4Wqwgj+95bXGIHpEzC6X2ey4zYgAgpXmYETAizXVm83cbP1ECFPvdCVdG?=
- =?us-ascii?Q?Mk/+YCZi2uehVUU8Zekm4ESzLGBLsZN3xDiXWJGiCI2lUz44cD5lr4xvbetC?=
- =?us-ascii?Q?d5s6feN6JHLwjBj/NDEhZi1DtNUzj8eNzShGQuQFLoylOv1R/oLGFC5cRvGW?=
- =?us-ascii?Q?WytmF+Ik3wQ7GALFXV0ADvq8/zsqC+c1rIdfvd3pMRFFCedvneJDpzayHIFW?=
- =?us-ascii?Q?drMotoR/dRNtjCzEWXN5kAH1raPEvUWiiqJYmdNYK+Aoc5VlsyPZvrgBLZb5?=
- =?us-ascii?Q?uFzCAiR6p9k0Qw5IpObzDMMgfPpz1WhcKVh4pi1Xj5rQ1l6tdL+OWBN8AE/c?=
- =?us-ascii?Q?Cru31Y5EuQCSmcM=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(52116014)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7xVc+UOzxoRe5vJ0d+MtfGhKtnyWc0dppT0w+YSdE+9XrJBHHmfCbWnNy4pO?=
- =?us-ascii?Q?kMiP7BR/wjlaO/mcRGvMwH9H0Xi/rgbsrzzM3gT07sn7XSqz1QUMFWU7U6Ki?=
- =?us-ascii?Q?Lg2c06sZhn+ZgYeGg9qNX2C1llnn5aXfzwNj3scJw1J1EWs/XJ43bqugtxBL?=
- =?us-ascii?Q?Z50O5xPc77hEChU7QJtdfDtAU2q0aAtM7O13aVTiBtM8rTuai1wLxDX/bSxE?=
- =?us-ascii?Q?CXnYq6uXCA5YsfvPY0o/c7hRCGHtGc+risHETkxM5AvmQTy8noRI0ZzokGaV?=
- =?us-ascii?Q?psSfrW4JQSpLlsgqZ8a3rR4VIZ7PY28tS+g4T+/z0JKckM+hVS9HnoFxKaG3?=
- =?us-ascii?Q?P+oo5ZNQh+yxTjQo6BcvW2FRXGCMZ5XYjuZrK8vg1odQ8g+794rhdaTl4IDg?=
- =?us-ascii?Q?qj9i4hZUCpYj7m/qZ2hW0wLDBevwWFEOmZhH1emIyZNFN/ou7pzwuySU0fA6?=
- =?us-ascii?Q?BAT627HMru2zEZxKXMfzNhPiRsUuHGIHU0ZgnPeVi19WZRy/vZUOtrLsyO8y?=
- =?us-ascii?Q?kdNJN4eorZDNLxhbOYJ0/ura4ytvJNx+BrVS5427X/U5B4D4c8Wca3wmDMVK?=
- =?us-ascii?Q?m6dN2/wUTSkgJrYaFHcMdcSEMQOoA4UepNbcYynRZBc+Bt4Lu1Bu5OQF8uwg?=
- =?us-ascii?Q?vA59Cv4iXb3O2S3xr6j599pKVwxNGzzdBHzi1V74dHsOwTQbSDkGVUWsJMk9?=
- =?us-ascii?Q?tcchNtQMzF1L5M3u8dxkVuW2wkesipIjHjWO1sj6GATJyTY5Jlm+iUfnjryR?=
- =?us-ascii?Q?7i6mpMEE5Fam8B07jCf6V1X9VJDK8lkq4KTB6sRhh8tSJgGokGlv2deDGLVV?=
- =?us-ascii?Q?k6XBSbFSf8//twl12sRVl3KAiYnDHZhraB5XNQ3Ttsg/hNcQhuawVj+i59uu?=
- =?us-ascii?Q?pqAp5gY/HpTt/vduJs6mmqrZiMnNMVuseIMAz77ROPizKHq8lin9znvWE//C?=
- =?us-ascii?Q?jGG7hGlpIwI4jqiVvCbFgATBEkFEds15IwHyLZl6PCu4Os28TdsTM3vtTb8t?=
- =?us-ascii?Q?IIyaXEruqPf17nlnTaeWMgKTO0Dkc94hVEdsOzXR+5UdqzpOyeV578PIz8pg?=
- =?us-ascii?Q?P03bMQt7vja4gnn7Chzbrtb9sQZKcsSn56q2req6dK0gnZ20N44BdpICsPgS?=
- =?us-ascii?Q?GbJl4FCifWTN3sMqnJohui6pnDUC9HICfSIeT6YrJtBx8cO6nQCrB/YI3zNK?=
- =?us-ascii?Q?uCNnCvPwKrums6ze4wfzEp7ImuhD80Y2O15S+bWZGXtafZac8O462//k/mZA?=
- =?us-ascii?Q?KkwPngXgeKr0aDirTjRyCewhKjN8VRpoON5LH1wrCM1ND5+9koi2980mm3be?=
- =?us-ascii?Q?pWoEpsHUbZTEI+ACmKpZfvzPynOccEmHTd9pvFXXpMhghe7OuZdslEmKZd3G?=
- =?us-ascii?Q?f8LvIZnFV7nRgUQGog0SvnUOCBOs5KrISylAOIjsEmywMUpLIYOpO9zDTsVB?=
- =?us-ascii?Q?K7nkj1O/61rdRsTT8HqXFm9ZJPPNINUoaY+2g4QikmId8oEjua40UYHiaZjv?=
- =?us-ascii?Q?iafA0lbMv3ZPMwH5HM/r68a6fmYrFDNfpWmmNkErFQdh6cGonrbP5x4V47YV?=
- =?us-ascii?Q?VYtC29IpLlv1XVg1miI6C9nSZMXCyNaHLbk1BoEN?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4ccb4815-0f74-45c2-3034-08dd7e56bae3
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Apr 2025 08:55:13.3406
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: KGiCOcFb198UTkwdkWqlA269rklYlCjCNwmwMDONPZZFNOpIhXYlRy704bQK0ql9oAWmVW+2BLOan0t6BEdfjQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10638
+Content-Type: multipart/signed; boundary="Sig_/7vFZWx1R8BN07Jfliry9yAD";
+ protocol="application/pgp-signature"; micalg=pgp-sha512
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_015519_312619_30528239 
-X-CRM114-Status: UNSURE (   9.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250418_020126_661639_3C940051 
+X-CRM114-Status: GOOD (  28.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,31 +80,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ming Qian <ming.qian@oss.nxp.com>
+--Sig_/7vFZWx1R8BN07Jfliry9yAD
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-The V4L2_DEC_CMD_START command may be used to handle the dynamic source
-change, which will triggers an implicit decoder drain.
-The last_buffer_dequeued flag is set in the implicit decoder drain,
-so driver need to clear it to continue the following decoding flow.
+Hi Stefan,
 
-Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
----
- drivers/media/platform/amphion/vdec.c | 1 +
- 1 file changed, 1 insertion(+)
+> Am 18.04.25 um 08:07 schrieb Lukasz Majewski:
+> > This patch provides description of the MTIP L2 switch available in
+> > some NXP's SOCs - e.g. imx287.
+> >
+> > Signed-off-by: Lukasz Majewski <lukma@denx.de>
+> > ---
+> > Changes for v2:
+> > - Rename the file to match exactly the compatible
+> >    (nxp,imx287-mtip-switch)
+> >
+> > Changes for v3:
+> > - Remove '-' from const:'nxp,imx287-mtip-switch'
+> > - Use '^port@[12]+$' for port patternProperties
+> > - Drop status =3D "okay";
+> > - Provide proper indentation for 'example' binding (replace 8
+> >    spaces with 4 spaces)
+> > - Remove smsc,disable-energy-detect; property
+> > - Remove interrupt-parent and interrupts properties as not required
+> > - Remove #address-cells and #size-cells from required properties
+> > check
+> > - remove description from reg:
+> > - Add $ref: ethernet-switch.yaml#
+> >
+> > Changes for v4:
+> > - Use $ref: ethernet-switch.yaml#/$defs/ethernet-ports and remove
+> > already referenced properties
+> > - Rename file to nxp,imx28-mtip-switch.yaml
+> >
+> > Changes for v5:
+> > - Provide proper description for 'ethernet-port' node
+> >
+> > Changes for v6:
+> > - Proper usage of
+> >    $ref:
+> > ethernet-switch.yaml#/$defs/ethernet-ports/patternProperties when
+> > specifying the 'ethernet-ports' property
+> > - Add description and check for interrupt-names property
+> > ---
+> >   .../bindings/net/nxp,imx28-mtip-switch.yaml   | 148
+> > ++++++++++++++++++ 1 file changed, 148 insertions(+)
+> >   create mode 100644
+> > Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
+> >
+> > diff --git
+> > a/Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
+> > b/Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
+> > new file mode 100644 index 000000000000..3e2d724074d5 --- /dev/null
+> > +++
+> > b/Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
+> > @@ -0,0 +1,148 @@ +# SPDX-License-Identifier: (GPL-2.0-only OR
+> > BSD-2-Clause) +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/net/nxp,imx28-mtip-switch.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: NXP SoC Ethernet Switch Controller (L2 MoreThanIP switch)
+> > +
+> > +maintainers:
+> > +  - Lukasz Majewski <lukma@denx.de>
+> > +
+> > +description:
+> > +  The 2-port switch ethernet subsystem provides ethernet packet
+> > (L2)
+> > +  communication and can be configured as an ethernet switch. It
+> > provides the
+> > +  reduced media independent interface (RMII), the management data
+> > input
+> > +  output (MDIO) for physical layer device (PHY) management.
+> > +
+> > +properties:
+> > +  compatible:
+> > +    const: nxp,imx28-mtip-switch
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +  phy-supply:
+> > +    description:
+> > +      Regulator that powers Ethernet PHYs.
+> > +
+> > +  clocks:
+> > +    items:
+> > +      - description: Register accessing clock
+> > +      - description: Bus access clock
+> > +      - description: Output clock for external device - e.g. PHY
+> > source clock
+> > +      - description: IEEE1588 timer clock
+> > +
+> > +  clock-names:
+> > +    items:
+> > +      - const: ipg
+> > +      - const: ahb
+> > +      - const: enet_out
+> > +      - const: ptp
+> > +
+> > +  interrupts:
+> > +    items:
+> > +      - description: Switch interrupt
+> > +      - description: ENET0 interrupt
+> > +      - description: ENET1 interrupt
+> > +
+> > +  interrupt-names:
+> > +    items:
+> > +      - const: mtipl2sw =20
+> Sorry for nitpicking, but could we name it similiar to something from=20
+> the i.MX28 reference manual like "switch" or "enet_switch"
 
-diff --git a/drivers/media/platform/amphion/vdec.c b/drivers/media/platform/amphion/vdec.c
-index d812b86f001e..ee0a7572ed15 100644
---- a/drivers/media/platform/amphion/vdec.c
-+++ b/drivers/media/platform/amphion/vdec.c
-@@ -728,6 +728,7 @@ static int vdec_decoder_cmd(struct file *file, void *fh, struct v4l2_decoder_cmd
- 	switch (cmd->cmd) {
- 	case V4L2_DEC_CMD_START:
- 		vdec_cmd_start(inst);
-+		vb2_clear_last_buffer_dequeued(v4l2_m2m_get_dst_vq(inst->fh.m2m_ctx));
- 		break;
- 	case V4L2_DEC_CMD_STOP:
- 		vdec_cmd_stop(inst);
--- 
-2.43.0-rc1
+I think that "enet_switch" may be OK.
 
+
+Best regards,
+
+Lukasz Majewski
+
+--
+
+DENX Software Engineering GmbH,      Managing Director: Erika Unter
+HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
+
+--Sig_/7vFZWx1R8BN07Jfliry9yAD
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmgCFNwACgkQAR8vZIA0
+zr2puQgAkx2OqWOU6OUJqUpgOxkCPyyhhTyvDgEGBINxAqRunRFKsHsGk3C0lYAA
+EO1xkhxuaMaN5IwB8G70geq9Dw5xGv5jMqZUaGjMtIz7aKehInA5220pz5uLO+Es
+qQYwOaQ5yXnK6qq41NbN990K23S3wUPn4rr/B1UifLFpFe1LRM4yA3pKVaYYumVa
+T8bOyyzzpLVshGJU01x5xmRvg4Za3CaxRGiR0vHS6CjnDCz6zcpRIUdi36oW/22C
+Cp4XZbAvi+3ckxwmMaRW6wSVpEUMb7GXvQFdT5nIxm82990Lh5JA2drKt5SF49me
+95Xspq3uyD4oESdTyNhRYoPY07KRZA==
+=UHBk
+-----END PGP SIGNATURE-----
+
+--Sig_/7vFZWx1R8BN07Jfliry9yAD--
 
