@@ -4,58 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C6C4C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 05:54:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DDA7C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 06:06:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=K4adI7ccpTdRfN3HSGkuNWOP+075nSqil0uuYEAUuVI=; b=WuRUg2Yv6MkKwxWqZhMGZkr6sL
-	gBkUrhoogq5QumDXA8FjgEsop184Y1r6fIm2ZCSfRDg89K/fRpAp89aJeRVB5WkhWNkLPPMKiHAqB
-	j/RKiIMMkj1+KJivuYn9MBkHgkdoIDebMcP+3neFVvXGBgJ7cpQLB0m9/cGGbJieh6XhR06cjKefx
-	+kVEU/Cv7yMzt63mWbiJioWfzfSE2uZQl0517ciDuP1fQINSQnXChqHcXXw4sy/iFebb/QmGLfcVh
-	BeYsdG/F+JDOuqtrx+ewcbsgOwoEiUO8Kw4CofOUJ6TDBAaRYgz7H0U2XK3Y4Nri6OaomUQj7DYOc
-	a56ONOHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iCIeL9VP9PtdwjpqC+mzYNHTCW0rGQHjH2ISPxqjKJ4=; b=jdbDGoZy2R4NvizbHX5j/u1gt3
+	RZ7MRtbRn6dJcSGuZM56mUiUHx9rku8pN6pdr776mTdlJR7C9bcN4TGEWMRtvw763gvwgQt9ZZC5o
+	fUYoDS/1aguuMnrWMyIUq4KufYB2sKCpWQn0zCOlunQza/DRk1JoQnJpbtMtAZEX4nuwkwu4xwcw3
+	UX7rBU3l/VbgpnNvL2XOeRggJE4E24OOVku4gib1DrZxdlnmSxVTYqO+DIxGf1/4a8pmDXeOqJkAF
+	36FbSYeXevPWsuhJyX8E3fny5bsAOSv94B464aU/H/ENc7WB1hys7/g3nOLrQwII5F8TDsSlLVFon
+	bofD2DyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5efq-0000000FC4w-2j4B;
-	Fri, 18 Apr 2025 05:54:02 +0000
-Received: from m16.mail.163.com ([117.135.210.2])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5ec6-0000000FBll-2Exv
+	id 1u5es8-0000000FD2B-0eKq;
+	Fri, 18 Apr 2025 06:06:44 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u5eqG-0000000FCjX-1rIj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 05:50:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=K4adI
-	7ccpTdRfN3HSGkuNWOP+075nSqil0uuYEAUuVI=; b=NiRpihx+WrSnQ0gVx8mQU
-	6xaRUwEJSZnsh0r36jVLpU5RCqE6uhJ52PWJU5s8wzCWpJsFQpbKMVXNIDbLdMED
-	qsgSsJWHX6CmCKY50dnRNicHCkHdlH1tm96KbocDbUOyJnXTuG83UGY0gWuZWDF9
-	PP96lrO+51LNYD7SCKD5H4=
-Received: from node-1.domain.tld (unknown [])
-	by gzga-smtp-mtada-g0-0 (Coremail) with SMTP id _____wBHS2cE6AFodXCPAw--.34969S2;
-	Fri, 18 Apr 2025 13:49:57 +0800 (CST)
-From: Jiayuan <ljykernel@163.com>
-To: kvm@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	marc.zyngier@arm.com
-Subject: [Question] arm64: KVM: Optimizing cache flush during MMU enable to single vCPU
-Date: Fri, 18 Apr 2025 13:49:55 +0800
-Message-ID: <20250418054955.1883037-1-ljykernel@163.com>
-X-Mailer: git-send-email 2.43.0
+	Fri, 18 Apr 2025 06:04:50 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.163])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4Zf43N1ZN5z2TS2b;
+	Fri, 18 Apr 2025 14:04:32 +0800 (CST)
+Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
+	by mail.maildlp.com (Postfix) with ESMTPS id 2B5A318001B;
+	Fri, 18 Apr 2025 14:04:42 +0800 (CST)
+Received: from kwepemn500004.china.huawei.com (7.202.194.145) by
+ dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 18 Apr 2025 14:04:41 +0800
+Received: from localhost.localdomain (10.90.30.45) by
+ kwepemn500004.china.huawei.com (7.202.194.145) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 18 Apr 2025 14:04:41 +0800
+From: Junhao He <hejunhao3@huawei.com>
+To: <suzuki.poulose@arm.com>, <james.clark@arm.com>,
+	<anshuman.khandual@arm.com>, <mike.leach@linaro.org>, <leo.yan@arm.com>
+CC: <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linuxarm@huawei.com>,
+	<jonathan.cameron@huawei.com>, <yangyicong@huawei.com>,
+	<hejunhao3@huawei.com>
+Subject: [PATCH 1/4] coresight: tmc: Add missing doc of tmc_drvdata::reading
+Date: Fri, 18 Apr 2025 13:58:17 +0800
+Message-ID: <20250418055820.3689408-2-hejunhao3@huawei.com>
+X-Mailer: git-send-email 2.30.0
+In-Reply-To: <20250418055820.3689408-1-hejunhao3@huawei.com>
+References: <20250418055820.3689408-1-hejunhao3@huawei.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wBHS2cE6AFodXCPAw--.34969S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7WFy7JF1DXFW8tFW8uFyfJFb_yoW5Jr4fpF
-	Z7CF15tw4vgryIkanrtw48tr1FqrWkJF12q3s8Gw1Fvw15ZFn7WrykCrW8XFyDurs5Aa13
-	Ga129FyDZr4DX3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UpuWJUUUUU=
-X-Originating-IP: [211.103.135.98]
-X-CM-SenderInfo: 5om1yvhuqhzqqrwthudrp/1tbiSg8zbmgB5iM5+QAAs0
+Content-Type: text/plain
+X-Originating-IP: [10.90.30.45]
+X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
+ kwepemn500004.china.huawei.com (7.202.194.145)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_225010_959024_175A7DAA 
-X-CRM114-Status: UNSURE (   8.74  )
+X-CRM114-CacheID: sfid-20250417_230448_688963_4150E521 
+X-CRM114-Status: UNSURE (   9.42  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -71,75 +78,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Yicong Yang <yangyicong@hisilicon.com>
 
-I'm investigating the cache flush behavior in the ARM64 KVM implementation, 
-specifically regarding the commit 9d218a1fcf4c6b759d442ef702842fae92e1ea61 by 
-Marc Zyngier that addresses cache flushing when guests enable caches.
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/arch/arm/kvm/mmu.c?id=9d218a1fcf4c6b759d442ef702842fae92e1ea61
+tmc_drvdata::reading is used to indicate whether a reading process
+is performed through /dev/xyz.tmc. Document it.
 
-In the current implementation, the function kvm_toggle_cache() in arch/arm/kvm/mmu.c 
-flushes the entire VM's stage2 page tables when any vCPU toggles its cache state:
+Reviewed-by: James Clark <james.clark@linaro.org>
+Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+Signed-off-by: Junhao He <hejunhao3@huawei.com>
+---
+ drivers/hwtracing/coresight/coresight-tmc.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-void kvm_toggle_cache(struct kvm_vcpu *vcpu, bool was_enabled)
-{
-	bool now_enabled = vcpu_has_cache_enabled(vcpu);
-
-	/*
-	 * If switching the MMU+caches on, need to invalidate the caches.
-	 * If switching it off, need to clean the caches.
-	 * Clean + invalidate does the trick always.
-	 */
-	if (now_enabled != was_enabled)
-		stage2_flush_vm(vcpu->kvm);
-
-	/* Caches are now on, stop trapping VM ops (until a S/W op) */
-	if (now_enabled)
-		*vcpu_hcr(vcpu) &= ~HCR_TVM;
-
-	trace_kvm_toggle_cache(*vcpu_pc(vcpu), was_enabled, now_enabled);
-}
-
-I'm wondering if it would be feasible to optimize this by only performing the 
-flush on the first vCPU (vcpu0) that enables caches? My reasoning is:
-
-1. During guest boot, typically vcpu0 is the first to enable caches
-2. Other vCPUs would follow after vcpu0 has already flushed the caches
-3. This could potentially reduce redundant cache flushes in multi-vCPU guests
-
-Specifically, I'm considering a change like this:
-
-void kvm_toggle_cache(struct kvm_vcpu *vcpu, bool was_enabled)
-{
-	bool now_enabled = vcpu_has_cache_enabled(vcpu);
-
-	/*
-	 * If switching the MMU+caches on, need to invalidate the caches.
-	 * If switching it off, need to clean the caches.
-	 * Clean + invalidate does the trick always.
-	 */
-	if (now_enabled != was_enabled) {
-		if (vcpu->vcpu_id == 0)
-			stage2_flush_vm(vcpu->kvm);
-	}
-
-	/* Caches are now on, stop trapping VM ops (until a S/W op) */
-	if (now_enabled)
-		*vcpu_hcr(vcpu) &= ~HCR_TVM;
-
-	trace_kvm_toggle_cache(*vcpu_pc(vcpu), was_enabled, now_enabled);
-}
-
-Would such an optimization be correct from a cache coherency perspective? 
-Are there scenarios where each vCPU needs to perform its own flush when 
-enabling caches?
-
-I'm working on optimizing KVM performance for ARM64 systems and noticed this 
-potential area for improvement.
-
-Thank you for your insights.
-
-Best regards,
-Jiayuan Liang
+diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
+index 2671926be62a..fdf7955e7350 100644
+--- a/drivers/hwtracing/coresight/coresight-tmc.h
++++ b/drivers/hwtracing/coresight/coresight-tmc.h
+@@ -174,6 +174,7 @@ struct etr_buf {
+  * @pid:	Process ID of the process that owns the session that is using
+  *		this component. For example this would be the pid of the Perf
+  *		process.
++ * @reading:	buffer's in the reading through "/dev/xyz.tmc" entry
+  * @buf:	Snapshot of the trace data for ETF/ETB.
+  * @etr_buf:	details of buffer used in TMC-ETR
+  * @len:	size of the available trace for ETF/ETB.
+-- 
+2.33.0
 
 
