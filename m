@@ -4,125 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12506C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 00:05:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50BF3C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 00:19:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jJkocawK74IHVR8GG2dYux9LW2UbP5wOCkAP2RU5Rpw=; b=FX1oETpUTayMr5OmORC6oPGEPM
-	Hrx+tEsaX4fakFYtXMkeUCE0cFoPFX3Xvh+emiAejKuto1xnLmO0Red5IZzQMY9AdyLJwAReoBNe7
-	5pF+/eTgWuoa356LZ9rxqQXqNoNlT+ciKOZVbw5P5nTU9o0mSS7PjEBg6NBwq+N6zJdd3HBKLQ6e2
-	j66+ImQas3wWpyXqElwmnm/3U+mYi4+z56Yttdw4dFxs5fSvrZD17gnCOV6CluXGkOdl5wfEjQrWt
-	4cxiYsqjGG72mFu5eQQApCm7XvRc+SMnvDuXQrdwvRh7ZA9x8OLXxR1aMRcupIS62+35rPcmdTEMZ
-	YXShHEHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9rWNM+qD+qZAOvGwbeuMLkw3Csee6ucWshMZJqwF6yE=; b=Atq9WC5RrxuN5SzTlynZaUNqn9
+	oTubViUxXc/ZQ+lLTTbcLPKJLRwfnACg2Wz7Sj38/itpw29sEBMsv+eMsYpd2jXI6H5HsjoO0txFw
+	gmoccZqXaYQA1zRBcF0wQkIqv0AvnGUfxMWw49VXn8vxJN3ZrwVFczTw+IVmez5uVYga0jpmv93Fs
+	eH2gcnj3h/PuevzCJdhlYXt3pGup1tEc6FqJ+t4LvkkEj6Fnpcbz/R1clZCImqbpEadrR8c2x2bYh
+	kETOoFkkTLBvmkW0idkG1BNGNepD3F/TEAIR+gMm2LWEImAGVBMEt9z/IzfvdGXuKTJtrZQglbZOI
+	u2k6rDXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5ZEP-0000000EeO3-27nE;
-	Fri, 18 Apr 2025 00:05:21 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5ZCY-0000000EeHF-0n9d
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 00:03:27 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53HCliB1008910
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 00:03:24 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=jJkocawK74IHVR8GG2dYux9L
-	W2UbP5wOCkAP2RU5Rpw=; b=bWHSHncbmPt6gikdLZmn1hyrWc0tm9hKLyenD2UF
-	lshwKyh6ufPC+1ezDuhAOcXZGnfhOwo4CLMtQYAgU2kV4ShVqCSvCfYXW7A/2LyW
-	BYWops45xStt4Yaps3vvBnmr6ciPF/LhixIctgQt5yuQuk3fSp/tkzzUkh/Nuiiv
-	65w0RYSnkd+axqZpjNY6fdNgixFPYnOwjuU7HIzkix8V6U1ovIMvW/StzfNPbS9+
-	g8YHOu/E5M3qFYlin/30kFNT5G3S2adUtLQeeqF9P8Opx/lGo5Z+PUCg+/Oj0YKP
-	lYF+icWgyV/SFO73vVd1dawj1d3l095re5/ow88nxFm4qA==
-Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45ygxk8cms-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 00:03:24 +0000 (GMT)
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-2ff581215f7so905209a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Apr 2025 17:03:23 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744934603; x=1745539403;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=jJkocawK74IHVR8GG2dYux9LW2UbP5wOCkAP2RU5Rpw=;
-        b=LDkckG1er/cDUcvYjRfJLAPQqWgtImFx0VwXrC+zXL7tCnp/Uc528CfDLaH2R+1w7e
-         PKZ//f2x3DWbKqqqJj6MH/JKs08bFiQWrbi+TDPBz4ZFM1oudKXQwNOUBPISTRnuFPrY
-         8hzxKecCj3PKgprHy714DJ9fjS9fvJ37ASbqdLktWUtu81fEW5t1OkK4Oqwx8/ZeLGaC
-         Lt59u/Kl6GNJbH7SOc7wkpVBDS8kPbpUCVUu4hGsiemPAMStrSTV6qSmM+P93Znd5GJu
-         YdfxwzzPb7myPd1EAdrIE3nwY2N6Aq4O6HavPQwLByeDVNWKKFJcAuc2BvNokSz+rBxF
-         RSWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWmR9dr2d5zowUijBZqImb1545AzLPy/U6Yng9s2ItZhN5+S2CKgy7mS6ygdUrjR80K5fRfLBzjWEEJ/o31tYH6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5whX0kB5wJsvzuFChGlJc02kTZPsRWQC+rkxCDXDFDCiDkgD8
-	3J5+kKJnPTPKOmcLESJ8eqMcF9/J8i3yYAYG9tsUxfj5KlMcDGn3AgD/CRTnPHm6azncjadj2pd
-	Erb7KKCtFOequceXWltItdIwEMu4HFXn80016qx3NOKMQ5/S4JG43ZBPCNnTZ5Uyu5SnpVmo26K
-	mei/mbhtRTPkYpavt7IBEK7+CKkLa0hP8o4YJ26pAH2+OIsdMI
-X-Gm-Gg: ASbGncvNC9LMOAz9iyNxMxZ8GhKeKFG2d8LlMaWI7SyeB1z2edns20XLDJhgizOpdV+
-	iroE9cXgS/J/ccJUE/c2v0FOmuCRpo6KeNSoflVsY2QXxnXL1VBctXcJ+FusNgYMZ0/7w8hXpy6
-	1tS7sNyeSlTQTZfR0F/2bXXboYLQ==
-X-Received: by 2002:a17:90b:2807:b0:2ee:ee5e:42fb with SMTP id 98e67ed59e1d1-3087bb4d0bbmr1348846a91.13.1744934603066;
-        Thu, 17 Apr 2025 17:03:23 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHt3zEHzT/caZi4wnZ175L8zlXV3e1qMB/QyXjcrkOHqa4wh1gNr+1LZYEHvAQ/csu/mkfLj9QPTnPMCwx+vTk=
-X-Received: by 2002:a17:90b:2807:b0:2ee:ee5e:42fb with SMTP id
- 98e67ed59e1d1-3087bb4d0bbmr1348781a91.13.1744934602616; Thu, 17 Apr 2025
- 17:03:22 -0700 (PDT)
+	id 1u5ZRu-0000000EfPy-2Rwm;
+	Fri, 18 Apr 2025 00:19:18 +0000
+Received: from m16.mail.163.com ([220.197.31.2])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u5ZQ3-0000000EfJg-2RZK;
+	Fri, 18 Apr 2025 00:17:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=ACoMjeqQEK5QbJmghOEEcrUjtymI5asACgjcWs598NQ=; b=O
+	KIOo5KHOR64c/8UirzmT5CgdF5UgcdDCpO+iHZkeqW+oIiHSaxkhd8X66jBfmIKL
+	49bD6AZ2R5tAtRDB0iI8RSLsk0em5BcxtOK5O8gNFFR+pVs8GhplAsh8/1WZCj73
+	0cOsaOPhovHRVT0AKtxSOg1YZpsPW2GWr9Q5r/W4Ic=
+Received: from andyshrk$163.com ( [58.22.7.114] ) by
+ ajax-webmail-wmsvr-40-120 (Coremail) ; Fri, 18 Apr 2025 08:16:11 +0800
+ (CST)
+X-Originating-IP: [58.22.7.114]
+Date: Fri, 18 Apr 2025 08:16:11 +0800 (CST)
+From: "Andy Yan" <andyshrk@163.com>
+To: "Konstantin Shabanov" <mail@etehtsea.me>
+Cc: "Sandy Huang" <hjc@rock-chips.com>,
+	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+	"Andy Yan" <andy.yan@rock-chips.com>,
+	"Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
+	"Maxime Ripard" <mripard@kernel.org>,
+	"Thomas Zimmermann" <tzimmermann@suse.de>,
+	"David Airlie" <airlied@gmail.com>,
+	"Simona Vetter" <simona@ffwll.ch>,
+	"Daniel Stone" <daniel@fooishbar.org>,
+	"Dan Callaghan" <djc@djc.id.au>, dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re:[PATCH v4] drm/rockchip: Disable AFBC for res >2560 on rk3399
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20240801(9da12a7b)
+ Copyright (c) 2002-2025 www.mailtech.cn 163com
+In-Reply-To: <20250417065759.5948-1-mail@etehtsea.me>
+References: <20250414095332.9674-1-mail@etehtsea.me>
+ <20250417065759.5948-1-mail@etehtsea.me>
+X-NTES-SC: AL_Qu2fBvWYukss5yeaYukfmkcVgOw9UcO5v/Qk3oZXOJF8jDLp/j0HdmVSAWfk9OO0GyOzmgmGQhZw7+16UYtfUYcQ2sF/6GvOriIdCw400ymGgg==
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 MIME-Version: 1.0
-References: <20250417-sar2130p-display-v4-0-b91dd8a21b1a@oss.qualcomm.com>
- <20250417-sar2130p-display-v4-1-b91dd8a21b1a@oss.qualcomm.com>
- <20250417-arboreal-turkey-of-acumen-e1e3da@shite> <7b559f03-f131-435e-95de-b5faee37b4d5@oss.qualcomm.com>
- <a8f7f571-e81a-49d6-a40d-895960165039@linaro.org>
-In-Reply-To: <a8f7f571-e81a-49d6-a40d-895960165039@linaro.org>
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Date: Fri, 18 Apr 2025 03:03:11 +0300
-X-Gm-Features: ATxdqUHUTgGLYvTODPooo91SkskG-gwTNA2jG92kWlujJbztIUTMTuUwe0XuE_s
-Message-ID: <CAO9ioeWgtsTtMmqm4w4KTYYSVOWpj1Sgb6D4oy+54wBHU_DZ8g@mail.gmail.com>
-Subject: Re: [PATCH v4 01/10] dt-bindings: display/msm: dp-controller:
- describe SAR2130P
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Rob Clark <robdclark@gmail.com>,
-        Abhinav Kumar <quic_abhinavk@quicinc.com>,
-        Dmitry Baryshkov <lumag@kernel.org>, Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Kuogee Hsieh <quic_khsieh@quicinc.com>,
-        Krishna Manikandan <quic_mkrishn@quicinc.com>,
-        Jonathan Marek <jonathan@marek.ca>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        Joerg Roedel <joro@8bytes.org>, Konrad Dybcio <konradybcio@kernel.org>,
-        linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
-        freedreno@lists.freedesktop.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-X-Authority-Analysis: v=2.4 cv=WecMa1hX c=1 sm=1 tr=0 ts=680196cc cx=c_pps a=RP+M6JBNLl+fLTcSJhASfg==:117 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=KKAkSRfTAAAA:8 a=VwQbUJbxAAAA:8 a=hD80L64hAAAA:8 a=ni2JVXtQXpgTILOyzusA:9 a=QEXdDO2ut3YA:10
- a=iS9zxrgQBfv6-_F4QbHw:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-GUID: wAXDvDzpdCHDE7desQS96LgbjAda623Q
-X-Proofpoint-ORIG-GUID: wAXDvDzpdCHDE7desQS96LgbjAda623Q
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-17_07,2025-04-17_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 suspectscore=0
- adultscore=0 clxscore=1015 lowpriorityscore=0 phishscore=0 mlxscore=0
- impostorscore=0 mlxlogscore=637 spamscore=0 malwarescore=0
- priorityscore=1501 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2504170177
+Message-ID: <17402f2e.360.1964640c3d3.Coremail.andyshrk@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: eCgvCgCnzPPLmQFoYdSZAA--.47571W
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbBkBQzXmgBloInMwAEsE
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_170326_248198_1367C827 
-X-CRM114-Status: GOOD (  18.89  )
+X-CRM114-CacheID: sfid-20250417_171723_918849_1153B3D1 
+X-CRM114-Status: GOOD (  10.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,37 +84,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 17 Apr 2025 at 15:04, Krzysztof Kozlowski
-<krzysztof.kozlowski@linaro.org> wrote:
->
-> On 17/04/2025 13:12, Konrad Dybcio wrote:
-> > On 4/17/25 8:03 AM, Krzysztof Kozlowski wrote:
-> >> On Thu, Apr 17, 2025 at 02:16:31AM GMT, Dmitry Baryshkov wrote:
-> >>> From: Dmitry Baryshkov <lumag@kernel.org>
-> >>>
-> >>> Describe DisplayPort controller present on Qualcomm SAR2130P platform.
-> >>>
-> >>> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> >>
-> >> Addresses do not match. You re-authored the commit, so now everywhere is
-> >> mess.
-> >
-> > It's git's fault with replacing the linaro address based on .mailmap
-> No. You can easily see:
-> $ git show 51a6256b00008a3c520f6f31bcd62cd15cb05960
-> top author is like you say - mailmapped, but Sob is my @samsung.com
->
-> $ git format-patch 51a6256b00008a3c520f6f31bcd62cd15cb05960 -1
-> What is in "From" field? Samsung, not mailmapped.
->
-> I believe that's a known problem in b4, already reported. I don't
-> remember if this was fixed, but till it is - you need to use some sort
-> of workaround.
-
-No worries, I will resend.
-
-
--- 
-With best wishes
-Dmitry
+CgpIaSBLb25zdGFudGluLAoKQXQgMjAyNS0wNC0xNyAxNDo1Nzo1OCwgIktvbnN0YW50aW4gU2hh
+YmFub3YiIDxtYWlsQGV0ZWh0c2VhLm1lPiB3cm90ZToKPkFzIGl0IGlzbid0IHN1cHBvcnRlZCBi
+eSBoYXJkd2FyZS4gQXQgbGVhc3QsIFJLMzM5OSBkb2Vzbid0IHN1cHBvcnQKPml0LiBGcm9tIHRo
+ZSBkYXRhc2hlZXRbMV0KPigiMS4yLjEwIFZpZGVvIElOL09VVCIsICJEaXNwbGF5IEludGVyZmFj
+ZSIsIHAuIDE3KToKPgo+ICBTdXBwb3J0IEFGQkMgZnVuY3Rpb24gY28tb3BlcmF0aW9uIHdpdGgg
+R1BVCj4gICAgKiBzdXBwb3J0IDI1NjB4MTYwMCBVSQo+Cj5NYW51YWxseSB0ZXN0ZWQgb24gUm9j
+a1BybzY0IChyazMzOTkpOgo+LSBBUk1fQUZCQyBtb2RpZmllciBpcyB1c2VkIGZvciAxOTIweDEw
+ODAKPi0gRFJNX0ZPUk1BVF9NT0RfTElORUFSIG1vZGlmaWVyIHVzIHVzZWQgZm9yIDM4NDB4MjE2
+MAo+LSBObyBub2lzZSBvbiB0aGUgc2NyZWVuIHdoZW4gc3dheSBpcyBydW5uaW5nIGluIDRrCj4t
+IER5bmFtaWMgcmVzb2x1dGlvbiBzd2l0Y2hpbmcgd29ya3MgY29ycmVjdGx5IGluIHN3YXkKPgo+
+U2lnbmVkLW9mZi1ieTogS29uc3RhbnRpbiBTaGFiYW5vdiA8bWFpbEBldGVodHNlYS5tZT4KPkNj
+OiBEYW5pZWwgU3RvbmUgPGRhbmllbEBmb29pc2hiYXIub3JnPgo+Q2M6IEFuZHkgWWFuIDxhbmR5
+c2hya0AxNjMuY29tPgo+UmVwb3J0ZWQtYnk6IERhbiBDYWxsYWdoYW4gPGRqY0BkamMuaWQuYXU+
+Cj5DbG9zZXM6IGh0dHBzOi8vZ2l0bGFiLmZyZWVkZXNrdG9wLm9yZy9tZXNhL21lc2EvLS9pc3N1
+ZXMvNzk2OAo+Cj5bMV06IGh0dHBzOi8vb3BlbnNvdXJjZS5yb2NrLWNoaXBzLmNvbS9pbWFnZXMv
+ZC9kNy9Sb2NrY2hpcF9SSzMzOTlfRGF0YXNoZWV0X1YyLjEtMjAyMDAzMjMucGRmCj4tLS0KPlYz
+IC0+IFY0OiBDb3JyZWN0IHJlZHVuZGFudCBoZWFkZXIgaW5jbHVzaW9uCj5WMiAtPiBWMzogUnVu
+IGNoZWNrIG9ubHkgb24gcmszMzk5Cj5WMSAtPiBWMjogTW92ZSB0aGUgY2hlY2sgdG8gdGhlIGZi
+X2NyZWF0ZSBjYWxsYmFjawo+Cj4gZHJpdmVycy9ncHUvZHJtL3JvY2tjaGlwL3JvY2tjaGlwX2Ry
+bV9mYi5jIHwgMTIgKysrKysrKysrKysrCj4gMSBmaWxlIGNoYW5nZWQsIDEyIGluc2VydGlvbnMo
+KykKPgo+ZGlmZiAtLWdpdCBhL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1f
+ZmIuYyBiL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1fZmIuYwo+aW5kZXgg
+ZGNjMWYwNzYzMmMzLi40NWUxNjE5YjVjOTcgMTAwNjQ0Cj4tLS0gYS9kcml2ZXJzL2dwdS9kcm0v
+cm9ja2NoaXAvcm9ja2NoaXBfZHJtX2ZiLmMKPisrKyBiL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hp
+cC9yb2NrY2hpcF9kcm1fZmIuYwo+QEAgLTUsNiArNSw3IEBACj4gICovCj4KPiAjaW5jbHVkZSA8
+bGludXgva2VybmVsLmg+Cj4rI2luY2x1ZGUgPGxpbnV4L29mLmg+Cj4KPiAjaW5jbHVkZSA8ZHJt
+L2RybS5oPgo+ICNpbmNsdWRlIDxkcm0vZHJtX2F0b21pYy5oPgo+QEAgLTE4LDYgKzE5LDggQEAK
+PiAjaW5jbHVkZSAicm9ja2NoaXBfZHJtX2ZiLmgiCj4gI2luY2x1ZGUgInJvY2tjaGlwX2RybV9n
+ZW0uaCIKPgo+KyNkZWZpbmUgUkszMzk5X0FGQkNfTUFYX1dJRFRICQkyNTYwCj4rCj4gc3RhdGlj
+IGNvbnN0IHN0cnVjdCBkcm1fZnJhbWVidWZmZXJfZnVuY3Mgcm9ja2NoaXBfZHJtX2ZiX2Z1bmNz
+ID0gewo+IAkuZGVzdHJveSAgICAgICA9IGRybV9nZW1fZmJfZGVzdHJveSwKPiAJLmNyZWF0ZV9o
+YW5kbGUgPSBkcm1fZ2VtX2ZiX2NyZWF0ZV9oYW5kbGUsCj5AQCAtNTIsNiArNTUsMTUgQEAgcm9j
+a2NoaXBfZmJfY3JlYXRlKHN0cnVjdCBkcm1fZGV2aWNlICpkZXYsIHN0cnVjdCBkcm1fZmlsZSAq
+ZmlsZSwKPiAJfQo+Cj4gCWlmIChkcm1faXNfYWZiYyhtb2RlX2NtZC0+bW9kaWZpZXJbMF0pKSB7
+Cj4rCQlpZiAob2ZfbWFjaGluZV9pc19jb21wYXRpYmxlKCJyb2NrY2hpcCxyazMzOTkiKSkgewo+
+KwkJCWlmIChtb2RlX2NtZC0+d2lkdGggPiBSSzMzOTlfQUZCQ19NQVhfV0lEVEgpIHsKPisJCQkJ
+RFJNX0RFQlVHX0tNUygiQUZCQyBpcyBub3Qgc3VwcG9ydGVkIGZvciB0aGUgd2lkdGggJWQgKG1h
+eCAlZClcbiIsCj4rCQkJCQkgICAgICBtb2RlX2NtZC0+d2lkdGgsCj4rCQkJCQkgICAgICBSSzMz
+OTlfQUZCQ19NQVhfV0lEVEgpOwo+KwkJCQlyZXR1cm4gRVJSX1BUUigtRUlOVkFMKTsKPisJCQl9
+Owo+KwkJfQo+KwoKCkkgcHJlZmVyIHRoZSBWMSB2ZXJzaW9uIFBBVENIWzBdLiBUaGlzIGlzIGJl
+Y2F1c2Ugd2UgZG8gbm90IGRlYWwgd2l0aCBoYXJkd2FyZS1yZWxhdGVkCmRpZmZlcmVuY2VzIGF0
+IHRoaXMgbGV2ZWwuICBJdCBpbnZvbHZlcyBhIFZPUC1yZWxhdGVkIHJlc3RyaWN0aW9uIGFuZCB3
+ZSBhbHdheXMgIGhhbmRsZQpsaW1pdGlhdGlvbiBsaWtlIHRoaXMgIHdpdGhpbiB0aGUgVk9QIGRy
+aXZlciAuIAoKWzBdIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2RyaS1kZXZlbC8yMDI1MDQwMjEy
+NTMyMC4yMTgzNi0xLW1haWxAZXRlaHRzZWEubWUvCgoKPiAJCWludCByZXQsIGk7Cj4KPiAJCXJl
+dCA9IGRybV9nZW1fZmJfYWZiY19pbml0KGRldiwgbW9kZV9jbWQsIGFmYmNfZmIpOwo+Cj5iYXNl
+LWNvbW1pdDogNDg5MGQ2OGRiNjUxNTYyZWE4MDI1MGYyYzkzMjA1YTVjMDMyN2E2YQo+LS0KPjIu
+NDguMQo=
 
