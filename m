@@ -4,74 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5123FC369C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 18:57:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17786C369C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 18:59:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XF5UFEiPpcoG4EPoQ5tbuqNRT1AiCobPXUiSYtdTDLo=; b=gDmXAtJ8FcQvRK2JKHc1Bql7P0
-	K3v/32pmrhIuJ1gPRAyPtOO5Q5KQzeA3LzCpUXqzSAadaMBWN8uvnVc0F1O8oVa8dmUvPaqWC4G9l
-	FOKP2S4Wrw9XiIL/G/EjPsTlUT2NmZdjWiWibcsKUUyyLLFnTVz+yarbOYXuWv4nYqXQ1eDBBDT25
-	jwLcm5YIVyU8Fo7+8BDoYrzOMKaeAiz6W4dSQphRp6BQjWwaohgnPYYbyH5ai+fSnkyhObzp/NedF
-	KsJvNUqHV2B0BDdBORVfY9SWRGG12quI+vmI2jqgpdpbMEd2yzy8BgY/SKlK/ocZbaAekjWamhilN
-	WmDVp0KA==;
+	bh=tcrNxE+0JGcCoKsLbE+QviBfNrctHLlmF8zwyaLUIlQ=; b=xa2EQRnVvRCnC/OYCHEj41lgx2
+	RQBBSCam+HvPglL7eB3pv4+1g6hKmLj9Uis5SZN+fO6j91PLGn3TWut3YCUjABW46qKHeqI651yqM
+	j0Ry+ib8HcxCUq4EBsqnhwhKRuXtdsg32Nd58PumYrPppxWFWsUPM3XjP627yxq7zl9lftAjfzXxR
+	17EoKwsftVhNKGyRT+9MiwNZ1DbUSkX7ETKtrCXq0lPBBwD3TSJu89cKWtN5L3I94KKWmhyK05sXG
+	gYuPRm/el07oVXsCPoYhcx5P2ykOC0VO8bk9yjZx0eLkJg39UCK6yoE6IM1dyi2koQJ+bt2OPODj8
+	zfwrlllg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5qti-0000000HWuQ-1jrt;
-	Fri, 18 Apr 2025 18:57:10 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1u5qvc-0000000HXQ1-2FOi;
+	Fri, 18 Apr 2025 18:59:08 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5qqh-0000000HWXn-2cEU
+	id 1u5qtY-0000000HWsG-3pqF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 18:54:05 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53IIrxXn1000830
+	Fri, 18 Apr 2025 18:57:02 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53IIuvaS1061144
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 18 Apr 2025 13:53:59 -0500
+	Fri, 18 Apr 2025 13:56:58 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745002439;
-	bh=XF5UFEiPpcoG4EPoQ5tbuqNRT1AiCobPXUiSYtdTDLo=;
+	s=ti-com-17Q1; t=1745002618;
+	bh=tcrNxE+0JGcCoKsLbE+QviBfNrctHLlmF8zwyaLUIlQ=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=J3Eiw7ZGqetox3+539+LJ9Ptm8Fa+kitgTEhEX7da25TwqN35flJI2M/QNcCzSvT1
-	 vx6/n51iaEMRlkEifLeVadjT7o4QVFYtsE5fD0ZSuSY20sBXX8y0Xgp3+DEm7u07Fa
-	 jiepfgJKOcXHJm7PMtpU8Pf5zcpBbYwfBSAI6b5s=
-Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53IIrxJf077947
+	b=mLJWMsWc4stQvTtBi9jK5QAkx4VF2Ik1jqVIEvb2KhZhfb2G0wLWQfsrtkg5Daz+m
+	 LnoOJ/nx9fj6FrIqhiO1MwcGn2pMCPM6pU71YbeT31oNf+UTRkbvsRddYok/n8vwqh
+	 rZD0WAXMGq4/rdKmGNwT0ycANWlV4G273bzbZm3g=
+Received: from DLEE102.ent.ti.com (dlee102.ent.ti.com [157.170.170.32])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53IIuvuR108580
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 18 Apr 2025 13:53:59 -0500
-Received: from DLEE109.ent.ti.com (157.170.170.41) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+	Fri, 18 Apr 2025 13:56:57 -0500
+Received: from DLEE102.ent.ti.com (157.170.170.32) by DLEE102.ent.ti.com
+ (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 18
- Apr 2025 13:53:59 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE109.ent.ti.com
- (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
+ Apr 2025 13:56:57 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE102.ent.ti.com
+ (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 18 Apr 2025 13:53:59 -0500
+ Frontend Transport; Fri, 18 Apr 2025 13:56:57 -0500
 Received: from localhost ([10.249.36.23])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53IIrxDq114058;
-	Fri, 18 Apr 2025 13:53:59 -0500
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53IIuv9T116986;
+	Fri, 18 Apr 2025 13:56:57 -0500
 From: Nishanth Menon <nm@ti.com>
-To: <shao.mingyin@zte.com.cn>
-CC: Nishanth Menon <nm@ti.com>, <yang.yang29@zte.com.cn>,
-        <xu.xin16@zte.com.cn>, <ye.xingchen@zte.com.cn>, <ssantosh@kernel.org>,
+To: <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        Siddharth Vadapalli
+	<s-vadapalli@ti.com>
+CC: Nishanth Menon <nm@ti.com>, <devicetree@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <tang.dongxing@zte.com.cn>
-Subject: Re: [PATCH] soc: ti: k3-ringacc: Use device_match_of_node()
-Date: Fri, 18 Apr 2025 13:53:57 -0500
-Message-ID: <174500239091.94267.5561449667206494033.b4-ty@ti.com>
+        <srk@ti.com>
+Subject: Re: [PATCH] arm64: dts: ti: k3-j784s4-evm-usxgmii-exp1-exp2: drop pinctrl-names
+Date: Fri, 18 Apr 2025 13:56:56 -0500
+Message-ID: <174500258303.95192.1919212906702588939.b4-ty@ti.com>
 X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250331201425296l4h98bZjxHzs08fdvHrGO@zte.com.cn>
-References: <20250331201425296l4h98bZjxHzs08fdvHrGO@zte.com.cn>
+In-Reply-To: <20250411061425.640718-1-s-vadapalli@ti.com>
+References: <20250411061425.640718-1-s-vadapalli@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_115403_712474_03D31A61 
-X-CRM114-Status: GOOD (  12.78  )
+X-CRM114-CacheID: sfid-20250418_115701_047680_740C9231 
+X-CRM114-Status: GOOD (  13.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,18 +88,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi shao.mingyin@zte.com.cn,
+Hi Siddharth Vadapalli,
 
-On Mon, 31 Mar 2025 20:14:25 +0800, shao.mingyin@zte.com.cn wrote:
-> Replace the open-code with device_match_of_node().
+On Fri, 11 Apr 2025 11:44:25 +0530, Siddharth Vadapalli wrote:
+> The "pinctrl-names" property is not required since it doesn't have an
+> associated pinctrl configuration. Hence, drop it.
 > 
 > 
 
-I have applied the following to branch ti-drivers-soc-next on [1].
+I have applied the following to branch ti-k3-dts-next on [1].
 Thank you!
 
-[1/1] soc: ti: k3-ringacc: Use device_match_of_node()
-      commit: ae9c0b68089d5412bb252c4adbeff122017557c3
+[1/1] arm64: dts: ti: k3-j784s4-evm-usxgmii-exp1-exp2: drop pinctrl-names
+      commit: 5e5da30f2e255f14c3098723fe171e6aec8d7db0
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent up the chain during
