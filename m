@@ -4,79 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BBECC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 19:09:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6B65C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 19:11:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X2G5/5/aAisSzKjyV7EBV8zGEk7A9T5kYyHgWCioKnw=; b=MUgpo5PsGY/B9+U0nVUogOImtQ
-	i1G2eKUQzU4/qau0I2lPimAUp9MqhnRuS4CXvCvQRB8poi84emhq3cnODiWprzfFbZf3fYbDlF+vK
-	XULJl0jFEQ6vtDt6nAsr922N1nvTCVNowx8UldRVrfSERbv8AXlDaV+9nDvwvh+situRaffiv3Pj2
-	rQJXlIki42U/lhdf4dFvSc/zrkBPBH4zRlM9yUhdlce2ZgWvhqdVmY1dzkgnHeIW0Z/O0+ZZ/MI3s
-	XG7dvp1X4mMI5Q2euBlV1VPI5HRO+PPFzDzXxtivuCKYicOif8q1Y7+bQVCUIUItS9djHCkigd8Ns
-	P8uNx68w==;
+	bh=AOMCPCVH5mFNR9+7E9QB2UW9eCxznsJSzMrjdheXjNA=; b=IHpi++ZT5WDlgNzQ1SDqkb+QBx
+	dtzQ5IccE3hMzQtWjwBBeRcdU0/42xYI2pXZWR2RIUcuzAmnaD9NvQ5oxsU/EuC7WsAjj+A9lOMxk
+	WuPQHth1Em5gJJhj0TlYdVwqYrL6n/fcD7Ge0RGlUSfKJ7sJryKxf77tIwmYRXjxmKOrhjAWo6CTq
+	73EnZPHF5bjaATZeIxmA2se4VNA0gVhyqMgIZsqkVUJJUWGxrg1eiuJSSRAV21Es5YiZiXfvEAvVp
+	oWlrXf3EDWskur+IJVt2XpRsbBCI0ekuS6rHGs8X6A2JfJfbuK4oCBkxwYTdkWMWrctNRUEwv3+LZ
+	1gVelbCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5r56-0000000HYrT-04uU;
-	Fri, 18 Apr 2025 19:08:56 +0000
+	id 1u5r6z-0000000HZ7E-3VFN;
+	Fri, 18 Apr 2025 19:10:53 +0000
 Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5qvk-0000000HXSw-1rlm
+	id 1u5qwn-0000000HXgB-3Dxk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 18:59:17 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53IIx7qB1061303
+	Fri, 18 Apr 2025 19:00:23 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53IJ0C2j1061682
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 18 Apr 2025 13:59:07 -0500
+	Fri, 18 Apr 2025 14:00:12 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745002747;
-	bh=X2G5/5/aAisSzKjyV7EBV8zGEk7A9T5kYyHgWCioKnw=;
+	s=ti-com-17Q1; t=1745002812;
+	bh=AOMCPCVH5mFNR9+7E9QB2UW9eCxznsJSzMrjdheXjNA=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=B3dClyDw+NuDZ5IZDB+Nihcgfzhe2TwJI2iGr0Ufs7mhe9cTmguLbyV8ti9E+k4lq
-	 ZojyIoSva6bArPI1DnCathw9cXqnwOEXfoXBeBlN9ST1m6teD3FE70Oz0qINYf6e1e
-	 VK/W2dSDjdGLRDYTK8jg2YhKdgVCYIlxakENEx4s=
-Received: from DFLE109.ent.ti.com (dfle109.ent.ti.com [10.64.6.30])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53IIx7Rw114102
+	b=GDueWkKAplp3xSed2AeDL9KGQk9PjCwJ8ZOM0dZp3oL5z4XNaFxzRt7ViscW6dxTq
+	 /lw/eGMnwGyZVO54YmxeJmzvzcKRzP8qfecuynkhgG8+CD/fnQndU8qeMyz08qy8Od
+	 yOT63BXsjMLce9Refs76emj9Tj1SKwI8u0yU113o=
+Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53IJ0BpT111217
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 18 Apr 2025 13:59:07 -0500
-Received: from DFLE112.ent.ti.com (10.64.6.33) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
+	Fri, 18 Apr 2025 14:00:12 -0500
+Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE114.ent.ti.com
+ (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 18
- Apr 2025 13:59:07 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+ Apr 2025 14:00:11 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 18 Apr 2025 13:59:07 -0500
+ Frontend Transport; Fri, 18 Apr 2025 14:00:11 -0500
 Received: from localhost ([10.249.36.23])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53IIx7Du118597;
-	Fri, 18 Apr 2025 13:59:07 -0500
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53IJ0Buc121849;
+	Fri, 18 Apr 2025 14:00:11 -0500
 From: Nishanth Menon <nm@ti.com>
-To: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Francesco Dolcini <francesco@dolcini.it>
-CC: Nishanth Menon <nm@ti.com>,
-        Francesco Dolcini
-	<francesco.dolcini@toradex.com>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v1] arm64: dts: ti: k3-am625-verdin: Add EEPROM compatible fallback
-Date: Fri, 18 Apr 2025 13:59:05 -0500
-Message-ID: <174500273668.95966.9173410184787875475.b4-ty@ti.com>
+To: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, Robert Nelson <robertcnelson@gmail.com>
+CC: Nishanth Menon <nm@ti.com>, Conor Dooley <conor.dooley@microchip.com>,
+        Dhruva Gole <d-gole@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        "Tero
+ Kristo" <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Andrew Davis <afd@ti.com>,
+        Andrei Aldea
+	<a-aldea@ti.com>,
+        Jason Kridner <jkridner@beagleboard.org>,
+        Deepak Khatri
+	<lorforlinux@beagleboard.org>,
+        Ayush Singh <ayush@beagleboard.org>
+Subject: Re: [PATCH v3 1/2] dt-bindings: arm: ti: Add PocketBeagle2
+Date: Fri, 18 Apr 2025 14:00:09 -0500
+Message-ID: <174500275378.96085.17582484120065140121.b4-ty@ti.com>
 X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250408202655.6329-1-francesco@dolcini.it>
-References: <20250408202655.6329-1-francesco@dolcini.it>
+In-Reply-To: <20250415225940.3899486-1-robertcnelson@gmail.com>
+References: <20250415225940.3899486-1-robertcnelson@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_115916_574395_9D2697AA 
-X-CRM114-Status: GOOD (  13.26  )
+X-CRM114-CacheID: sfid-20250418_120021_898092_7BDAC8B3 
+X-CRM114-Status: GOOD (  14.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,23 +95,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Francesco Dolcini,
+Hi Robert Nelson,
 
-On Tue, 08 Apr 2025 22:26:55 +0200, Francesco Dolcini wrote:
-> According to the AT24 EEPROM bindings the compatible string should
-> contain first the actual manufacturer, and second the corresponding
-> atmel model.
+On Tue, 15 Apr 2025 17:59:39 -0500, Robert Nelson wrote:
+> This board is based on ti,am625 family using the am6232 and am6254 variations.
 > 
-> Add the atmel compatible fallback accordingly.
+> https://www.beagleboard.org/boards/pocketbeagle-2
+> https://openbeagle.org/pocketbeagle/pocketbeagle-2
 > 
 > 
-> [...]
 
 I have applied the following to branch ti-k3-dts-next on [1].
+
+I have dropped the Cc list as Krystoff pointed out this time around when I
+applies the patch, but, please take care of this from the next series on.
+
 Thank you!
 
-[1/1] arm64: dts: ti: k3-am625-verdin: Add EEPROM compatible fallback
-      commit: c026c5e6ed9323304b88bbb2feb6f039eca114d0
+[1/2] dt-bindings: arm: ti: Add PocketBeagle2
+      commit: 3a5ff313ac521ff034f07ea6687ffb3f2229d62a
+[2/2] arm64: dts: ti: Add k3-am62-pocketbeagle2
+      commit: 92d8c028aa924286f10ac75b7f9e8edfc9ed432b
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent up the chain during
