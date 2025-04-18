@@ -4,87 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF73EC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 08:24:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC06CC369C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 08:26:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1sUbM2SvyfVJOsSLSsKL5IhU1OYw0ytKP1s5wBNpq2E=; b=mNd35eGyiACvGY17ibvNYojzW3
-	W5l+jBhlG+klZEJuvI2ryhcMt5lA6GrQ94xxifXt2ZeMv9fQXczwoHM/6uGZoR4PyH9izhM/4T2Yx
-	Ks3yziEFH18fLdx5EsXiLeBM6xI7uQnbck7SMymrdyy3/+0pGMGh5a34PEOe/bFfrohxMu8pjqEFk
-	3bg92y1Qa484++oePWwd/S+dhYbQIXmY4kkIaySuDJsXjbNmaYdnh0CrX1Z8/2jfl/g1IPYezL46z
-	3c6erZNbsC0X12yXjMrIcAAom//C5vCyRskAMfIszrSs0AubmiPtNFuNgPUsnNRhB9s1aenPiEYhV
-	XE2QFgYg==;
+	bh=0qVY1mYqI07xxwOPaaEJN9uMuf5jLViwP+ENDWkNYnk=; b=oWvJxvfjshDMAlXLbMg7yD9jcn
+	LwvW5mSeHyvEN+wWvOOulgz/p2jMtUl362Sv/ABHozX0GvZwmUvVf/xy28K8SUwChgWW05I0gK3yC
+	OyI62KL6/NDVqJBmCD2qB19twU/5BrEL75IpO+8AYTnH2uBTbiFkS8e+c4F31Wd4hroBIOjNj96s4
+	7XMwS+WEdBamkip1rt2+O9nlOgUq9UFiC3LbbbA74MTOum4V4sLcs6XFSy5m3xLUpUlZmyerDi358
+	2VICg8BzgDyDTnwJ6Y3wv8IEaWFHKy+oxWyvmpbzVn+KslZHe7pyRRfj31zPXBIz5KwtONtkMPVvc
+	fcGK9bQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5h11-0000000Fby1-3T8H;
-	Fri, 18 Apr 2025 08:24:03 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1u5h2r-0000000FcGp-2OuS;
+	Fri, 18 Apr 2025 08:25:57 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5gUH-0000000FWGy-3z7L
+	id 1u5gUJ-0000000FWHg-0DAD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 07:50:15 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53I20jTR013024
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 07:50:13 GMT
+	Fri, 18 Apr 2025 07:50:16 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53I2IXb9015277
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 07:50:14 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	1sUbM2SvyfVJOsSLSsKL5IhU1OYw0ytKP1s5wBNpq2E=; b=MeO2gFzXRM/1qgc2
-	088GA21FyY0pcR1WgNxIP6UMPwfRcHw8aP8v1ofylvYOCea67wl+WQh8oAT3j2Nm
-	h6hrpivXV1wL/npZy2ZHIgSyMtNh7barq1Da7VYa6QGMtOUSjMroJeEzCEVEOxOX
-	4gdSeFvV0J3JuUUFDJPT/zfWEg9Bg1FpRJPwjAf0E5Q4qqmovJeCFUzEi+O91DBU
-	1CCRPBIL2LoU6stEqAmEV6h5cwPr97Eom9emQzXaGRfVnz5onHxpZjHN/4PjCihN
-	2k07iCi/JaOfFHCnqIKUb6gcw0OEW0WENm7dFfh1ASiPIOLymizlS8XNNXIMj9Tb
-	/s/KrA==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45yfgjs84c-1
+	0qVY1mYqI07xxwOPaaEJN9uMuf5jLViwP+ENDWkNYnk=; b=VzZuxaapLeJoz3Og
+	9KdLyHV/uWxalvCpQqOvwlN+WYGa+6049WoEievtDZ+jSacVClLOM0tZYO9zzo1L
+	gUwdtKGunzgE4EDJOTk5ahXyj9Kg+iYIccBNqoFsFHVx6EPDs/O1g4t0NAUDp0Nt
+	XwxoNHZe8LSxJ1Hf7W8JTBafnxMoWXKzdts5fXiaq4UfRpRizJB6ilGF9qscHdZ3
+	JRdioIMVYJMPTVfl7SGxhwv+ezrnvYFTKRA2zC21YBAx/Ut/47G1KXbDQF+JA8rf
+	NYSm/ukIWE567ygyc7gPg66lBaZ+tdb0IknpsbPLt1iA+mm1h64nljVbwjF+l2p5
+	CvdHJQ==
+Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com [209.85.219.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45ygd6seyr-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 07:50:12 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-7c572339444so235463285a.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 00:50:12 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 07:50:14 +0000 (GMT)
+Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-6e8ed78717eso23738146d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 00:50:14 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744962612; x=1745567412;
+        d=1e100.net; s=20230601; t=1744962613; x=1745567413;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=1sUbM2SvyfVJOsSLSsKL5IhU1OYw0ytKP1s5wBNpq2E=;
-        b=hoy6XKECTl0+oJpmcUUE8/l5kaLZ2rrsQGLiEZA9/b5G9SB8Ov1eJ2kD7cb9ehHWPO
-         O8ILuOtEvrD7FwCXTcQDFYdfaihq2m3CZxbbZcK6GryoDzIAULNMHQ1Gm2DB2rzyFnNA
-         4Vf3Wl0+aFSnnjlzs62JV1VdZ+iBRTmtnZ23OTe41ppi8MZm7blALUCfnkkYvWg2kRSI
-         9bqvVySPJB777uYFGoAbAGJ7Wr3f/QXsEiZ61C9cU7FYQZhBYGCV+JD+bkC2IoMCX6j7
-         RK/yA+tGWAqL5zHcTSFQ2t/L7/gZJ8cflywmkvpF34/L9Wi87Du6C7/WcwAoH21yGPA0
-         07ag==
-X-Forwarded-Encrypted: i=1; AJvYcCVUnbZ+9DeNAPINvT72qzhUk9LtLeoVqJ/yCsGtKE3iAGLz7Thc9v6WH/6j3j7HqCfvzCJkxtOfJ7KhTDdQ09F5@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy4s1uDOIu6StYchb0Kqh36APcwdLAHllq9o/mBiwrmMPGsoXXn
-	6tKuoujddHa5q7z1MQxiVGx+iHZu7dFDX9BtLhKExBAeYM1qQDySBuFymYDNhqhZfBJ4KwVJsBh
-	TrAOWYAC+MeUGS8EjmWcc6qsM7E/NGyrcWw2kQLmCQEdeDnlkGpPUpfQcAoBbHtemWmUasmoNqQ
+        bh=0qVY1mYqI07xxwOPaaEJN9uMuf5jLViwP+ENDWkNYnk=;
+        b=lbqoqm9OQewDmUlhK8JStgzS7kF5oU0O7p3vUht28NAxiAIoc4pbR5ZHe54DBvgaCJ
+         9GNRCSa76wo5OByhhz9MSFflYfBzJCngdZUry3bvDQIZay4UcBEIcNqeZITWhH0Cw7Id
+         05Z99f9p30N3X86Uyql0bZc9kWhFvJxJIxfR4C94xnplhEqiTLT7Qnu8uN6FM8K8EO3I
+         /yHMHtLnsMKyc1JcYUZwFBPvv0xgPebjJdmwroGL87ZvcQZgCFyKHzYwe9jAcrsXC2ul
+         I9/I+Zm6YHnKE+y1X6MY3/toZbn4eXritctSj6iADgC2nOO5ScmI+OKXB9QBrS73DHXh
+         235Q==
+X-Forwarded-Encrypted: i=1; AJvYcCU1KQMdCxmnqJIBvFuh8wozJkh/eN9guv3E8zD0vpQh//2ZnLCwzE/fZcMBzSukqlYQsMU1vc4pxPNY/jbuHxeM@lists.infradead.org
+X-Gm-Message-State: AOJu0YxP+jTXIYi3KMiJV3o7LmD5MENQGq8gu0O6hLvsVx0NE004N84o
+	KT+bbYALrgXlqocJSbrnpJTUkOyEl4sNp9JbDwGDxW+y5HOluvmLPPeGpm/gjYkebl47fooyyPh
+	eqWwz86CPbz3rLVdiIwwTnn4AfYRaTkJrO8iYwLobzNlSKlNFj++KLlIcHYgPMK1tNTHI/5nDsA
 	==
-X-Gm-Gg: ASbGnctIfRvQ/cew9un1HLDIpUVy3tK1vmCPHAhEnA5Lt07UAejpoortxyXY3MJaLGX
-	g7FjyHChm7OvsutgFj9VHrOM3Sj7Qy1IfmSb1JcWG+g0O+1rgGsSL9mbElZ5jNShZexvsRqlzdx
-	aTPG+a8ZjprKC7a6guT1xWR2UFrthKzouUjmJDcZ7bKUEF71Cd1SqTZH7O7y4CWQWzbw5UYk/jD
-	KDlMqQAuqaf6/T9XubXZZsg6MBm6vnNQD8amZsZ/w9OL+rdbhomgDS2YTLka8edQqf8Y/w7YChc
-	IvGxmxjsULSwqU3y1iXfXZ6ChWcV2wuw1adVGkvlMrFIssQ0Htt7r+dVwL7E2e0ZLQLBl1OULLU
-	xwmJxZIw88rONo0PSpJQFEcII
-X-Received: by 2002:a05:620a:4001:b0:7c5:3d60:7f8f with SMTP id af79cd13be357-7c927f87cc8mr307513585a.18.1744962611794;
-        Fri, 18 Apr 2025 00:50:11 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEzFp3CaJje8pO1ewnerxkzmE/eRJ8vARd+xc36dvLHKRXi/r8FV5/kEcMiJ5lRnKAFvzDHUw==
-X-Received: by 2002:a05:620a:4001:b0:7c5:3d60:7f8f with SMTP id af79cd13be357-7c927f87cc8mr307510985a.18.1744962611335;
-        Fri, 18 Apr 2025 00:50:11 -0700 (PDT)
+X-Gm-Gg: ASbGncsNpAYDZdvY821CpfFauZqebctz5UE2/YWeUpbrYsAaagDA7bMcXzZY6W6mqgr
+	WhjKrbZm15M2Z2JJbDpJC4SJpt/MTKTtf8x6ReCBF/H1U3xLN5dRspVqC5Adgs07baloe5yd0xg
+	3QXjks5vS9gBO+EG8flYjpsB+8w0pM4KVw5M9oICBLYtnJflSUVEPFr+Hy6RcEoYIablSWIee3Q
+	l/bDsAQGzjoFfO1B3ng3LcA6ul7tm8dPsaVygvw4Kl4/o5o6TQ5UsO+hLS/jG8ZaaAtKNgwJ2M/
+	yiKAGZDyotD8fYUAkiZdc2OsLWW9rBJ9COt3Dk5FyZIyrB1B2Z7BZZLfFo5zk5+S3lAfiBah3fm
+	yLrrAwPdNm9sXMhOFkTtAbM3l
+X-Received: by 2002:a05:6214:d65:b0:6f2:b06f:fb0d with SMTP id 6a1803df08f44-6f2c450a7e2mr29664966d6.5.1744962613362;
+        Fri, 18 Apr 2025 00:50:13 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGEFBKxjNRvAZuYCsZzZoBOXQ5GZ7V5fEmfAkthh/uU8RIOKGlrBZIGmI/H7A/leQUzYmjvVg==
+X-Received: by 2002:a05:6214:d65:b0:6f2:b06f:fb0d with SMTP id 6a1803df08f44-6f2c450a7e2mr29664716d6.5.1744962613053;
+        Fri, 18 Apr 2025 00:50:13 -0700 (PDT)
 Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-31090863bd0sm1649061fa.113.2025.04.18.00.50.10
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-31090863bd0sm1649061fa.113.2025.04.18.00.50.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Apr 2025 00:50:10 -0700 (PDT)
+        Fri, 18 Apr 2025 00:50:11 -0700 (PDT)
 From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Date: Fri, 18 Apr 2025 10:50:00 +0300
-Subject: [PATCH v5 05/10] dt-bindings: display/msm: Add Qualcomm SAR2130P
+Date: Fri, 18 Apr 2025 10:50:01 +0300
+Subject: [PATCH v5 06/10] drm/msm/mdss: add SAR2130P device configuration
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250418-sar2130p-display-v5-5-442c905cb3a4@oss.qualcomm.com>
+Message-Id: <20250418-sar2130p-display-v5-6-442c905cb3a4@oss.qualcomm.com>
 References: <20250418-sar2130p-display-v5-0-442c905cb3a4@oss.qualcomm.com>
 In-Reply-To: <20250418-sar2130p-display-v5-0-442c905cb3a4@oss.qualcomm.com>
 To: Rob Clark <robdclark@gmail.com>, Abhinav Kumar <quic_abhinavk@quicinc.com>,
@@ -107,37 +107,36 @@ Cc: linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
         freedreno@lists.freedesktop.org, devicetree@vger.kernel.org,
         linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
         linux-arm-kernel@lists.infradead.org,
-        Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-        Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+        Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=14907;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1520;
  i=dmitry.baryshkov@oss.qualcomm.com; h=from:subject:message-id;
- bh=mhVUBuasCeOBkqrxG/5PgGqIfKxDHldHx8QOIkjyyg4=;
- b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBoAgQp/M3vkQHUqGvfN+Qa/6jPWoCqf40m5u/qe
- mcdAHV2b+uJATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCaAIEKQAKCRCLPIo+Aiko
- 1WxtB/47YFTtzbbLeJCuvd+Nr+HhEO5Tn+uh6C3h4bBZuDRcV/AR78kDL10XexpNCPW4z6DArC3
- dwQo5xXlF0TmqCHGvz6DifuEAtpo/nhk+ANw5gtzBUdVKbcfuUspffEGWmyhF8BJFFm9k7FqSyy
- 32Cu7qyvEWs8pkl4vNh4x53CpyqA9ley7orGDcGn82TW3AQzR7QiDpppofUf7DUOw4fT/e7hzV/
- hURdvfeTB6fMgDiL9e5xTBuFYVB633emOMxbCDzPeVvwOujLFvuQATA1Rn3mmeKj0qIXtltWIbO
- I1LqcFybSU9nDCuP8zx0zzPSwv6lUt5aqIxnQGyptq+E/fe2
+ bh=/w/74iYrKtAn6Ezwjelu2gFTZwiy2nDMAwTnc7sQiaY=;
+ b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBoAgQpHqG0APamLD8Y8TOI43B0nFr0BQVi/h0uy
+ g93F+tmYXKJATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCaAIEKQAKCRCLPIo+Aiko
+ 1SNSB/9iRh03V1205EUwD++qfE6m1Mb38kuXYdQt+HHZJMWzHNaEcpeT4/k/11kXAjeFLU7FrQY
+ 9G5A/J4nhNmdaD2Xxp1pUtSb6B666EBA5OeqQ1UGCwrtJEKyqoa3b8cCLPHoi7RQnsbhVkbaFQD
+ Nia8Vlrzz2oXwAFp34S2WR1jzRqRZ06W/NKceDg3zkX/x+Tvej1iOnwfjEwPtkMeqZIzau/pZUg
+ fZscEVOtmz7SlrWKzLtP27s9i1tZG+1o5OyoZRnXKWNxnRgglPlOIN0zOma6RCH1djI07cpltmq
+ wkzyOliMjAEziWGI3xR5SdbXiyz5idlUyqgWmyOlBji7ZOVs
 X-Developer-Key: i=dmitry.baryshkov@oss.qualcomm.com; a=openpgp;
  fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
-X-Proofpoint-GUID: xeaQP7jfisJxRH6IulHR4ipdwMy3CcVX
-X-Proofpoint-ORIG-GUID: xeaQP7jfisJxRH6IulHR4ipdwMy3CcVX
-X-Authority-Analysis: v=2.4 cv=Cve/cm4D c=1 sm=1 tr=0 ts=68020434 cx=c_pps a=qKBjSQ1v91RyAK45QCPf5w==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=gEfo2CItAAAA:8 a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8 a=VwQbUJbxAAAA:8 a=-YBHemuPtO_JcOlGpNkA:9
- a=QEXdDO2ut3YA:10 a=NFOGd7dJGGMPyQGDc5-O:22 a=sptkURWiP4Gy88Gu7hUp:22 a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-ORIG-GUID: 1mM39g4zP7CPhIls-Rmdt4E1sbX4_SG6
+X-Proofpoint-GUID: 1mM39g4zP7CPhIls-Rmdt4E1sbX4_SG6
+X-Authority-Analysis: v=2.4 cv=ANaQCy7k c=1 sm=1 tr=0 ts=68020436 cx=c_pps a=UgVkIMxJMSkC9lv97toC5g==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=KKAkSRfTAAAA:8 a=PM8Rf7rFGDq3tjJTke0A:9 a=QEXdDO2ut3YA:10 a=1HOtulTD9v-eNWfpl4qZ:22
+ a=cvBusfyB2V15izCimMoJ:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-04-18_02,2025-04-17_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 clxscore=1015
- malwarescore=0 lowpriorityscore=0 bulkscore=0 spamscore=0 phishscore=0
- suspectscore=0 impostorscore=0 mlxlogscore=999 mlxscore=0
- priorityscore=1501 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 adultscore=0
+ mlxlogscore=999 suspectscore=0 clxscore=1015 lowpriorityscore=0
+ phishscore=0 impostorscore=0 spamscore=0 priorityscore=1501 malwarescore=0
+ bulkscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
  definitions=main-2504180056
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_005014_120722_16FE3917 
-X-CRM114-Status: GOOD (  15.49  )
+X-CRM114-CacheID: sfid-20250418_005015_094585_55906555 
+X-CRM114-Status: GOOD (  14.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,463 +153,43 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 
-Describe the Mobile Display SubSystem (MDSS) device present on the
-Qualcomm SAR2130P platform. It looks pretty close to SM8550 on the
-system level. SAR2130P features two DSI hosts and single DisplayPort
-controller.
+Add compatible and device configuration for the Qualcomm SAR2130P
+platform.
 
 Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 ---
- .../bindings/display/msm/qcom,sar2130p-mdss.yaml   | 439 +++++++++++++++++++++
- 1 file changed, 439 insertions(+)
+ drivers/gpu/drm/msm/msm_mdss.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/display/msm/qcom,sar2130p-mdss.yaml b/Documentation/devicetree/bindings/display/msm/qcom,sar2130p-mdss.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..870144b53cec9d3e0892276e14b49b745d021879
---- /dev/null
-+++ b/Documentation/devicetree/bindings/display/msm/qcom,sar2130p-mdss.yaml
-@@ -0,0 +1,439 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/msm/qcom,sar2130p-mdss.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Qualcomm SAR2130P Display MDSS
-+
-+maintainers:
-+  - Dmitry Baryshkov <lumag@kernel.org>
-+
-+description:
-+  SAR2310P MSM Mobile Display Subsystem(MDSS), which encapsulates sub-blocks like
-+  DPU display controller, DSI and DP interfaces etc.
-+
-+$ref: /schemas/display/msm/mdss-common.yaml#
-+
-+properties:
-+  compatible:
-+    const: qcom,sar2130p-mdss
-+
-+  clocks:
-+    items:
-+      - description: Display MDSS AHB
-+      - description: Display AHB
-+      - description: Display hf AXI
-+      - description: Display core
-+
-+  iommus:
-+    maxItems: 1
-+
-+  interconnects:
-+    items:
-+      - description: Interconnect path from mdp0 port to the data bus
-+      - description: Interconnect path from CPU to the reg bus
-+
-+  interconnect-names:
-+    items:
-+      - const: mdp0-mem
-+      - const: cpu-cfg
-+
-+patternProperties:
-+  "^display-controller@[0-9a-f]+$":
-+    type: object
-+    additionalProperties: true
-+    properties:
-+      compatible:
-+        const: qcom,sar2130p-dpu
-+
-+  "^displayport-controller@[0-9a-f]+$":
-+    type: object
-+    additionalProperties: true
-+    properties:
-+      compatible:
-+        contains:
-+          const: qcom,sar2130p-dp
-+
-+  "^dsi@[0-9a-f]+$":
-+    type: object
-+    additionalProperties: true
-+    properties:
-+      compatible:
-+        contains:
-+          const: qcom,sar2130p-dsi-ctrl
-+
-+  "^phy@[0-9a-f]+$":
-+    type: object
-+    additionalProperties: true
-+    properties:
-+      compatible:
-+        const: qcom,sar2130p-dsi-phy-5nm
-+
-+required:
-+  - compatible
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/power/qcom,rpmhpd.h>
-+    #include <dt-bindings/phy/phy-qcom-qmp.h>
-+
-+    display-subsystem@ae00000 {
-+        compatible = "qcom,sar2130p-mdss";
-+        reg = <0x0ae00000 0x1000>;
-+        reg-names = "mdss";
-+
-+        interconnects = <&mmss_noc_master_mdp &mc_virt_slave_ebi1>,
-+                        <&gem_noc_master_appss_proc &config_noc_slave_display_cfg>;
-+        interconnect-names = "mdp0-mem", "cpu-cfg";
-+
-+        resets = <&dispcc_disp_cc_mdss_core_bcr>;
-+
-+        power-domains = <&dispcc_mdss_gdsc>;
-+
-+        clocks = <&dispcc_disp_cc_mdss_ahb_clk>,
-+                 <&gcc_gcc_disp_ahb_clk>,
-+                 <&gcc_gcc_disp_hf_axi_clk>,
-+                 <&dispcc_disp_cc_mdss_mdp_clk>;
-+        clock-names = "iface", "bus", "nrt_bus", "core";
-+
-+        interrupts = <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>;
-+        interrupt-controller;
-+        #interrupt-cells = <1>;
-+
-+        iommus = <&apps_smmu 0x1c00 0x2>;
-+
-+        #address-cells = <1>;
-+        #size-cells = <1>;
-+        ranges;
-+
-+        display-controller@ae01000 {
-+            compatible = "qcom,sar2130p-dpu";
-+            reg = <0x0ae01000 0x8f000>,
-+                  <0x0aeb0000 0x2008>;
-+            reg-names = "mdp", "vbif";
-+
-+            clocks = <&gcc_gcc_disp_ahb_clk>,
-+                     <&gcc_gcc_disp_hf_axi_clk>,
-+                     <&dispcc_disp_cc_mdss_ahb_clk>,
-+                     <&dispcc_disp_cc_mdss_mdp_lut_clk>,
-+                     <&dispcc_disp_cc_mdss_mdp_clk>,
-+                     <&dispcc_disp_cc_mdss_vsync_clk>;
-+            clock-names = "bus",
-+                          "nrt_bus",
-+                          "iface",
-+                          "lut",
-+                          "core",
-+                          "vsync";
-+
-+            assigned-clocks = <&dispcc_disp_cc_mdss_vsync_clk>;
-+            assigned-clock-rates = <19200000>;
-+
-+            operating-points-v2 = <&mdp_opp_table>;
-+            power-domains = <&rpmhpd RPMHPD_MMCX>;
-+
-+            interrupt-parent = <&mdss>;
-+            interrupts = <0>;
-+
-+            ports {
-+                #address-cells = <1>;
-+                #size-cells = <0>;
-+
-+                port@0 {
-+                    reg = <0>;
-+
-+                    dpu_intf0_out: endpoint {
-+                        remote-endpoint = <&mdss_dp0_in>;
-+                    };
-+                };
-+
-+                port@1 {
-+                    reg = <1>;
-+
-+                    dpu_intf1_out: endpoint {
-+                        remote-endpoint = <&mdss_dsi0_in>;
-+                    };
-+                };
-+
-+                port@2 {
-+                    reg = <2>;
-+
-+                    dpu_intf2_out: endpoint {
-+                        remote-endpoint = <&mdss_dsi1_in>;
-+                    };
-+                };
-+            };
-+
-+            mdp_opp_table: opp-table {
-+                compatible = "operating-points-v2";
-+
-+                opp-200000000 {
-+                    opp-hz = /bits/ 64 <200000000>;
-+                    required-opps = <&rpmhpd_opp_low_svs>;
-+                };
-+
-+                opp-325000000 {
-+                    opp-hz = /bits/ 64 <325000000>;
-+                    required-opps = <&rpmhpd_opp_svs>;
-+                };
-+
-+                opp-375000000 {
-+                    opp-hz = /bits/ 64 <375000000>;
-+                    required-opps = <&rpmhpd_opp_svs_l1>;
-+                };
-+
-+                opp-514000000 {
-+                    opp-hz = /bits/ 64 <514000000>;
-+                    required-opps = <&rpmhpd_opp_nom>;
-+                };
-+            };
-+        };
-+
-+        displayport-controller@ae90000 {
-+            compatible = "qcom,sar2130p-dp",
-+                         "qcom,sm8350-dp";
-+            reg = <0xae90000 0x200>,
-+                  <0xae90200 0x200>,
-+                  <0xae90400 0xc00>,
-+                  <0xae91000 0x400>,
-+                  <0xae91400 0x400>;
-+
-+            interrupt-parent = <&mdss>;
-+            interrupts = <12>;
-+            clocks = <&dispcc_disp_cc_mdss_ahb_clk>,
-+                     <&dispcc_disp_cc_mdss_dptx0_aux_clk>,
-+                     <&dispcc_disp_cc_mdss_dptx0_link_clk>,
-+                     <&dispcc_disp_cc_mdss_dptx0_link_intf_clk>,
-+                     <&dispcc_disp_cc_mdss_dptx0_pixel0_clk>;
-+            clock-names = "core_iface",
-+                          "core_aux",
-+                          "ctrl_link",
-+                          "ctrl_link_iface",
-+                          "stream_pixel";
-+
-+            assigned-clocks = <&dispcc_disp_cc_mdss_dptx0_link_clk_src>,
-+                              <&dispcc_disp_cc_mdss_dptx0_pixel0_clk_src>;
-+            assigned-clock-parents = <&usb_dp_qmpphy_QMP_USB43DP_DP_LINK_CLK>,
-+                                     <&usb_dp_qmpphy_QMP_USB43DP_DP_VCO_DIV_CLK>;
-+
-+            phys = <&usb_dp_qmpphy QMP_USB43DP_DP_PHY>;
-+            phy-names = "dp";
-+
-+            #sound-dai-cells = <0>;
-+
-+            operating-points-v2 = <&dp_opp_table>;
-+            power-domains = <&rpmhpd RPMHPD_MMCX>;
-+
-+            ports {
-+                #address-cells = <1>;
-+                #size-cells = <0>;
-+
-+                port@0 {
-+                    reg = <0>;
-+                    mdss_dp0_in: endpoint {
-+                        remote-endpoint = <&dpu_intf0_out>;
-+                    };
-+                };
-+
-+                port@1 {
-+                    reg = <1>;
-+                    mdss_dp0_out: endpoint {
-+                        remote-endpoint = <&usb_dp_qmpphy_dp_in>;
-+                    };
-+                };
-+        };
-+
-+        dp_opp_table: opp-table {
-+                compatible = "operating-points-v2";
-+
-+                opp-162000000 {
-+                    opp-hz = /bits/ 64 <162000000>;
-+                    required-opps = <&rpmhpd_opp_low_svs_d1>;
-+                };
-+
-+                opp-270000000 {
-+                    opp-hz = /bits/ 64 <270000000>;
-+                    required-opps = <&rpmhpd_opp_low_svs>;
-+                };
-+
-+                opp-540000000 {
-+                    opp-hz = /bits/ 64 <540000000>;
-+                    required-opps = <&rpmhpd_opp_svs_l1>;
-+                };
-+
-+                opp-810000000 {
-+                    opp-hz = /bits/ 64 <810000000>;
-+                    required-opps = <&rpmhpd_opp_nom>;
-+                };
-+            };
-+        };
-+
-+        dsi@ae94000 {
-+            compatible = "qcom,sar2130p-dsi-ctrl",
-+                         "qcom,mdss-dsi-ctrl";
-+            reg = <0x0ae94000 0x400>;
-+            reg-names = "dsi_ctrl";
-+
-+            interrupt-parent = <&mdss>;
-+            interrupts = <4>;
-+
-+            clocks = <&dispcc_disp_cc_mdss_byte0_clk>,
-+                     <&dispcc_disp_cc_mdss_byte0_intf_clk>,
-+                     <&dispcc_disp_cc_mdss_pclk0_clk>,
-+                     <&dispcc_disp_cc_mdss_esc0_clk>,
-+                     <&dispcc_disp_cc_mdss_ahb_clk>,
-+                     <&gcc_gcc_disp_hf_axi_clk>;
-+            clock-names = "byte",
-+                          "byte_intf",
-+                          "pixel",
-+                          "core",
-+                          "iface",
-+                          "bus";
-+
-+            assigned-clocks = <&dispcc_disp_cc_mdss_byte0_clk_src>,
-+                              <&dispcc_disp_cc_mdss_pclk0_clk_src>;
-+            assigned-clock-parents = <&mdss_dsi0_phy 0>, <&mdss_dsi0_phy 1>;
-+
-+            operating-points-v2 = <&dsi_opp_table>;
-+            power-domains = <&rpmhpd RPMHPD_MMCX>;
-+
-+            phys = <&mdss_dsi0_phy>;
-+            phy-names = "dsi";
-+
-+            #address-cells = <1>;
-+            #size-cells = <0>;
-+
-+            ports {
-+                #address-cells = <1>;
-+                #size-cells = <0>;
-+
-+                port@0 {
-+                    reg = <0>;
-+
-+                    mdss_dsi0_in: endpoint {
-+                        remote-endpoint = <&dpu_intf1_out>;
-+                    };
-+                };
-+
-+                port@1 {
-+                    reg = <1>;
-+
-+                    mdss_dsi0_out: endpoint {
-+                    };
-+                };
-+            };
-+
-+            dsi_opp_table: opp-table {
-+                compatible = "operating-points-v2";
-+
-+                opp-187500000 {
-+                    opp-hz = /bits/ 64 <187500000>;
-+                    required-opps = <&rpmhpd_opp_low_svs>;
-+                };
-+
-+                opp-300000000 {
-+                    opp-hz = /bits/ 64 <300000000>;
-+                    required-opps = <&rpmhpd_opp_svs>;
-+                };
-+
-+                opp-358000000 {
-+                    opp-hz = /bits/ 64 <358000000>;
-+                    required-opps = <&rpmhpd_opp_svs_l1>;
-+                };
-+            };
-+        };
-+
-+        mdss_dsi0_phy: phy@ae94400 {
-+            compatible = "qcom,sar2130p-dsi-phy-5nm";
-+            reg = <0x0ae95000 0x200>,
-+                  <0x0ae95200 0x280>,
-+                  <0x0ae95500 0x400>;
-+            reg-names = "dsi_phy",
-+                        "dsi_phy_lane",
-+                        "dsi_pll";
-+
-+            #clock-cells = <1>;
-+            #phy-cells = <0>;
-+
-+            clocks = <&dispcc_disp_cc_mdss_ahb_clk>,
-+                     <&rpmhcc_rpmh_cxo_clk>;
-+            clock-names = "iface", "ref";
-+        };
-+
-+        dsi@ae96000 {
-+            compatible = "qcom,sar2130p-dsi-ctrl",
-+                         "qcom,mdss-dsi-ctrl";
-+            reg = <0x0ae96000 0x400>;
-+            reg-names = "dsi_ctrl";
-+
-+            interrupt-parent = <&mdss>;
-+            interrupts = <5>;
-+
-+            clocks = <&dispcc_disp_cc_mdss_byte1_clk>,
-+                     <&dispcc_disp_cc_mdss_byte1_intf_clk>,
-+                     <&dispcc_disp_cc_mdss_pclk1_clk>,
-+                     <&dispcc_disp_cc_mdss_esc1_clk>,
-+                     <&dispcc_disp_cc_mdss_ahb_clk>,
-+                     <&gcc_gcc_disp_hf_axi_clk>;
-+            clock-names = "byte",
-+                          "byte_intf",
-+                          "pixel",
-+                          "core",
-+                          "iface",
-+                          "bus";
-+
-+            assigned-clocks = <&dispcc_disp_cc_mdss_byte1_clk_src>,
-+                              <&dispcc_disp_cc_mdss_pclk1_clk_src>;
-+            assigned-clock-parents = <&mdss_dsi1_phy 0>, <&mdss_dsi1_phy 1>;
-+
-+            operating-points-v2 = <&dsi_opp_table>;
-+            power-domains = <&rpmhpd RPMHPD_MMCX>;
-+
-+            phys = <&mdss_dsi1_phy>;
-+            phy-names = "dsi";
-+
-+            #address-cells = <1>;
-+            #size-cells = <0>;
-+
-+            ports {
-+                #address-cells = <1>;
-+                #size-cells = <0>;
-+
-+                port@0 {
-+                    reg = <0>;
-+
-+                    mdss_dsi1_in: endpoint {
-+                        remote-endpoint = <&dpu_intf2_out>;
-+                    };
-+                };
-+
-+                port@1 {
-+                    reg = <1>;
-+
-+                    mdss_dsi1_out: endpoint {
-+                    };
-+                };
-+            };
-+        };
-+
-+        mdss_dsi1_phy: phy@ae97000 {
-+            compatible = "qcom,sar2130p-dsi-phy-5nm";
-+            reg = <0x0ae97000 0x200>,
-+                  <0x0ae97200 0x280>,
-+                  <0x0ae97500 0x400>;
-+            reg-names = "dsi_phy",
-+                        "dsi_phy_lane",
-+                        "dsi_pll";
-+
-+            #clock-cells = <1>;
-+            #phy-cells = <0>;
-+
-+            clocks = <&dispcc_disp_cc_mdss_ahb_clk>,
-+                     <&rpmhcc_rpmh_cxo_clk>;
-+            clock-names = "iface", "ref";
-+        };
-+    };
-+...
+diff --git a/drivers/gpu/drm/msm/msm_mdss.c b/drivers/gpu/drm/msm/msm_mdss.c
+index dcb49fd30402b80edd2cb5971f95a78eaad6081f..f706e44231a9c360ac4abe26e4050e416d8c3940 100644
+--- a/drivers/gpu/drm/msm/msm_mdss.c
++++ b/drivers/gpu/drm/msm/msm_mdss.c
+@@ -592,6 +592,16 @@ static const struct msm_mdss_data sa8775p_data = {
+ 	.reg_bus_bw = 74000,
+ };
+ 
++static const struct msm_mdss_data sar2130p_data = {
++	.ubwc_enc_version = UBWC_3_0, /* 4.0.2 in hw */
++	.ubwc_dec_version = UBWC_4_3,
++	.ubwc_swizzle = 6,
++	.ubwc_bank_spread = true,
++	.highest_bank_bit = 0,
++	.macrotile_mode = 1,
++	.reg_bus_bw = 74000,
++};
++
+ static const struct msm_mdss_data sc7180_data = {
+ 	.ubwc_enc_version = UBWC_2_0,
+ 	.ubwc_dec_version = UBWC_2_0,
+@@ -738,6 +748,7 @@ static const struct of_device_id mdss_dt_match[] = {
+ 	{ .compatible = "qcom,msm8998-mdss", .data = &msm8998_data },
+ 	{ .compatible = "qcom,qcm2290-mdss", .data = &qcm2290_data },
+ 	{ .compatible = "qcom,sa8775p-mdss", .data = &sa8775p_data },
++	{ .compatible = "qcom,sar2130p-mdss", .data = &sar2130p_data },
+ 	{ .compatible = "qcom,sdm670-mdss", .data = &sdm670_data },
+ 	{ .compatible = "qcom,sdm845-mdss", .data = &sdm845_data },
+ 	{ .compatible = "qcom,sc7180-mdss", .data = &sc7180_data },
 
 -- 
 2.39.5
