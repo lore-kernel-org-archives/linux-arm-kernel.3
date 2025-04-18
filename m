@@ -4,69 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DC12C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 00:46:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6DABC369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 01:50:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lcb43dSZS3+Y/L9GUNHVrV5chNZ/V2WVLs/FwGaCc1s=; b=IRtMCkqoTejdcgT/agG3yQQqLg
-	6MNxkclaZXLU/62OEE5af+7lA3RtkulfsbvrSwfyNl6x3VUr++uk9y2HG4T3s9kYoxYSo2NukJFhV
-	nbV7qUHZerN5FfCQ9cmE6D0ixD36U27dPSm0MF6KYvG+/K2qGvh9Myy0CJcaL3RcorjB0bSYi3M9C
-	z7KDef3PlT8C2D4zaVlr06Wnrhpjv/8+YBuV7ziANr6O0ZhoKJyepYE5rsMZlQ5baypWoVpGHsGvr
-	Zmcq6v5iSEGn2GSQZLl9kpE1G/uSd8Jc5eyMkh/UpQW+0V2RshJGHzxU9NpbU2bYAzhfZQb/rDCBS
-	WyqDXwEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DhDxwg9jkPh9PfPU4lAhRk0j/dF1GG0oWPrwgbW7iGg=; b=yA4D0QMLdsI8O2OaTRakX/HOzj
+	KJmFjnPQCOte6CVUWtNvqRW1C9y6vBm0YEdLY1JiQlRnpnFyABDxNYwd1G5wvgeEtX/a3si+GsKmC
+	AYCFMrYRbx8ogBNfgtKF4LUfSZTW46OdrHrMbyjXwMNzgEa6Z4eeyCl114BgNjlb97D8tASeBQ0+P
+	8LNQBj7Poaezy19MIP36nkeaQZadIPYf7GsBjRdbQWk4qsK9/svFTPIaCsQ4FULhtVhCWO22XCWns
+	NssA3UW04f9bctbfD+0wOJbUL25Ij/BZd9EdbiRzO8UXFfxFGIwbU0HsZBGEKpb2yL6xd2oXltleI
+	jRakKeVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5ZsM-0000000EiYb-2XRP;
-	Fri, 18 Apr 2025 00:46:38 +0000
-Received: from mail-m1973178.qiye.163.com ([220.197.31.78])
+	id 1u5asH-0000000Enjg-2xV4;
+	Fri, 18 Apr 2025 01:50:37 +0000
+Received: from smtpbg154.qq.com ([15.184.224.54])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5ZqU-0000000EiOo-3Cvb;
-	Fri, 18 Apr 2025 00:44:44 +0000
-Received: from [172.16.12.129] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 12477934f;
-	Fri, 18 Apr 2025 08:44:31 +0800 (GMT+08:00)
-Message-ID: <c70cef1b-9f37-5a73-faf3-4d1cac6bcdde@rock-chips.com>
-Date: Fri, 18 Apr 2025 08:43:54 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.15.1
-Cc: shawn.lin@rock-chips.com, Detlev Casanova
- <detlev.casanova@collabora.com>, linux-pm@vger.kernel.org,
- linux-mmc@vger.kernel.org,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- kernel@collabora.com, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2] mmc: sdhci-of-dwcmshc: add PD workaround on RK3576
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Ulf Hansson <ulf.hansson@linaro.org>, Heiko Stuebner <heiko@sntech.de>,
- Elaine Zhang <zhangqing@rock-chips.com>,
- Finley Xiao <finley.xiao@rock-chips.com>,
- Adrian Hunter <adrian.hunter@intel.com>
-References: <20250412-rk3576-emmc-fix-v2-1-830e653ad4f0@collabora.com>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <20250412-rk3576-emmc-fix-v2-1-830e653ad4f0@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQkpITlZNGk9PHRhKT0hNH05WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-X-HM-Tid: 0a96465ab30c09cckunm12477934f
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NiI6Tio5GjJNFhU4Mg8fS0ks
-	NTUwCRBVSlVKTE9PQkhMS0xJQ09IVTMWGhIXVQgTGgwVVRcSFTsJFBgQVhgTEgsIVRgUFkVZV1kS
-	C1lBWU5DVUlJVUxVSkpPWVdZCAFZQU1KTkk3Bg++
-DKIM-Signature: a=rsa-sha256;
-	b=Tk//MLA56Ghww08hBdr9vFuE8XaqrrlB+sMy2CcuqZJ3Ion+u7E9rGD/rlImMVOzl/RJ1cGe5d/e6fGfqh5LKM5ABl2DSUs6liUiPPBhBSXaeBm77NSls+uwEOj4zX9UlsU1xyrp7rIE+06HHojiLnttWKb5J/whbh7OB6+Tfs0=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=Lcb43dSZS3+Y/L9GUNHVrV5chNZ/V2WVLs/FwGaCc1s=;
-	h=date:mime-version:subject:message-id:from;
+	id 1u5aqO-0000000EnT6-0AmM;
+	Fri, 18 Apr 2025 01:48:42 +0000
+X-QQ-mid: izesmtp80t1744940890t33e52999
+X-QQ-Originating-IP: xxYq8I7Tn0LYbD/zhGkQUHqaOq+30P2WCr1qDmsQs4c=
+Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 18 Apr 2025 09:48:08 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 12449981161467156277
+EX-QQ-RecipientCnt: 20
+From: Chaoyi Chen <kernel@airkyi.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Jianfeng Liu <liujianfeng1994@gmail.com>,
+	Dragan Simic <dsimic@manjaro.org>,
+	Jimmy Hon <honyuenkwun@gmail.com>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	FUKAUMI Naoki <naoki@radxa.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Alexey Charkov <alchark@gmail.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/2] Add support for RK3588 EVB2 board
+Date: Fri, 18 Apr 2025 09:47:55 +0800
+Message-Id: <20250418014757.336-1-kernel@airkyi.com>
+X-Mailer: git-send-email 2.17.1
+X-QQ-SENDSIZE: 520
+Feedback-ID: izesmtp:airkyi.com:qybglogicsvrsz:qybglogicsvrsz4a-0
+X-QQ-XMAILINFO: N7MSp95pYuqVdt5Ada0qswa5Q85vZDVGKwMX0tgjkJInZHvrW3t2kIpT
+	OabEc/IShIOWW3qSfCsOgAEefqUTTq/dAPi02SD1iVVe+rS2fdmg/5CYwuKVHzMCW4eCdsn
+	4036/i/hYgy9bNJHpSrFvj0mqUUtdn2YXPbxLrGzBhB+OMbORGxv+KL4vvlEPInj9Wolx4B
+	kFj7Tng+HkPScXFqjTmLtPpyv2i15aAGK/097QUG2k9sPQKStbu6mvmfDviP7/zSWpwYosy
+	ylzNndWfRELk8wFjC6833Yn8whG1OFYfz9Ty9GgAwihNFukwpQjOvLw5nhGMQ+2tYp59EhB
+	G/Zrm8AsxXs+t1NgKX9WATZH+GA0Qc+1kkcpHuV+BwIA25xTKpKEt65UNySiY4CEmp9vpmf
+	MjjzqvYAgDJuP0ZMQ3xlxd4cQSp+8uzZwBfSltgFhf3RxKh+7qRCbvBfIXQYyY1jz3nMLvL
+	Kb2b44Xlbt6l2KJ+4bmcI8YI7CkE0yZSRtez1D8j9/hv2qg5+vmu6asg1iNBSVwBR4y4JN+
+	a1i0XNvmYAM2luKuwzAPpPxQL8JA/JDBHQfukP6YG+mz6mb74XJLpWSHSH5+JsSGCIfhB8y
+	tLlNnpvpyVDdXDlrp5Tje6D6HItrtPV25zOpXWRnateo7J+oKXoPKKwGz5T9DElh7zSNBUJ
+	ZifqHDfVPZl0IdW1W/S/t/LnK6bo+vpWJUKYj7cx53Bu33VLYCPNfUSbspZx/nUE5nnN0xs
+	dVIhhoLwiK4YMiZYdsi+jlhq6HsaG9otNhlLJQBMt8lrVoIeWtJE0yGFR+9g05xytoWVi2y
+	aROrv2f/3c3qH9e9PBDCszgiU34dTtGEabd8Ln3rMTlJMBbaMgfrrlNUBJFm45raCY3zkl1
+	9u6mE0qLHjnKM+/N9YOPQsmuqO6hyQlamx+4J+N7OlDwlGT+oaN6YSvWfiWFjevg+4DzeTc
+	TOgdlpI37bx+B9ShpZV1LS6d9+Xc4u4o8B0bVlkHtczBoi9vrLSQ40AKrJ9MQwUp+wmm+Pc
+	ujswug52tnXc06RgCOnSTRM0ZM7L/xuWgMXUol7A==
+X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_174443_275770_727BE24C 
-X-CRM114-Status: GOOD (  34.81  )
+X-CRM114-CacheID: sfid-20250417_184840_702619_D1E0CD2F 
+X-CRM114-Status: UNSURE (   9.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,122 +98,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolas,
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-在 2025/04/13 星期日 4:45, Nicolas Frattaroli 写道:
-> RK3576's power domains have a peculiar problem where the PD_NVM
-> power domain, of which the sdhci controller is a part, seemingly does
-> not have idempotent disable/enable. The end effect is that if PD_NVM
-> gets turned off by the generic power domain logic because all the
-> devices depending on it are suspended, then the next time the sdhci
-> device is unsuspended, it'll hang the SoC as soon as it tries accessing
-> the CQHCI registers.
-> 
-> RK3576's UFS support needed a new dev_pm_genpd_rpm_always_on function
-> added to the generic power domains API to handle what appears to be a
-> similar hardware issue.
-> 
-> Use this new function to ask for the same treatment in the sdhci
-> controller by giving rk3576 its own platform data with its own postinit
-> function. The benefit of doing this instead of marking the power domains
-> always on in the power domain core is that we only do this if we know
-> the platform we're running on actually uses the sdhci controller. For
-> others, keeping PD_NVM always on would be a waste, as they won't run
-> into this specific issue. The only other IP in PD_NVM that could be
-> affected is FSPI0. If it gets a mainline driver, it will probably want
-> to do the same thing.
-> 
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> ---
-> Changes in v2:
-> - Rewrite patch to use dev_pm_genpd_rpm_always_on in sdhci driver
->    instead, after Ulf Hansson made me aware of its existence
-> - Link to v1: https://lore.kernel.org/r/20250408-rk3576-emmc-fix-v1-1-3009828b1b31@collabora.com
-> ---
->   drivers/mmc/host/sdhci-of-dwcmshc.c | 39 +++++++++++++++++++++++++++++++++++++
->   1 file changed, 39 insertions(+)
-> 
-> diff --git a/drivers/mmc/host/sdhci-of-dwcmshc.c b/drivers/mmc/host/sdhci-of-dwcmshc.c
-> index 09b9ab15e4995f0bddf57dd309c010c849be40d9..a00aec05eff2da8197cc64690ba9665be756e54a 100644
-> --- a/drivers/mmc/host/sdhci-of-dwcmshc.c
-> +++ b/drivers/mmc/host/sdhci-of-dwcmshc.c
-> @@ -17,6 +17,7 @@
->   #include <linux/module.h>
->   #include <linux/of.h>
->   #include <linux/platform_device.h>
-> +#include <linux/pm_domain.h>
->   #include <linux/pm_runtime.h>
->   #include <linux/reset.h>
->   #include <linux/sizes.h>
-> @@ -745,6 +746,28 @@ static void dwcmshc_rk35xx_postinit(struct sdhci_host *host, struct dwcmshc_priv
->   	}
->   }
->   
-> +static void dwcmshc_rk3576_postinit(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv)
-> +{
-> +	struct device *dev = mmc_dev(host->mmc);
-> +	int ret;
-> +
-> +	/*
-> +	 * This works around what appears to be a silicon bug, which makes the
+General features for rk3588 evb2 board:
+- Rockchip RK3588
+- LPDDR4/4X
+- eMMC5.1
+- RK806-2x2pcs + DiscretePower
+- 1x HDMI2.1 TX / HDMI2.0 RX
+- 1x full size DisplayPort
+- 3x USB3.0 Host
+- 1x USB2.0 Host
+- WIFI/BT
 
-After discussion with Finley, we agree with this patch which is
-basically the same way we handle it on vendor tree. But it's not a
-silicon bug to us, so maybe the comments need a bit of adjustment.
+v2:
+- Fix wrong indentation in dt bindings
 
+Chaoyi Chen (2):
+  dt-bindings: arm: rockchip: Add rk3588 evb2 board
+  arm64: dts: rockchip: Add rk3588 evb2 board
 
-> +	 * PD_NVM power domain, which the sdhci controller on the RK3576 is in,
-> +	 * never come back the same way once it's turned off once. This can
-> +	 * happen during early kernel boot if no driver is using either PD_NVM
-> +	 * or its child power domain PD_SDGMAC for a short moment, leading to it
-> +	 * being turned off to save power. By keeping it on, sdhci suspending
-> +	 * won't lead to PD_NVM becoming a candidate for getting turned off.
-> +	 */
-> +	ret = dev_pm_genpd_rpm_always_on(dev, true);
-> +	if (ret && ret != -EOPNOTSUPP)
-> +		dev_warn(dev, "failed to set PD rpm always on, SoC may hang later: %pe\n",
-> +			 ERR_PTR(ret));
-> +
-> +	dwcmshc_rk35xx_postinit(host, dwc_priv);
-> +}
-> +
->   static int th1520_execute_tuning(struct sdhci_host *host, u32 opcode)
->   {
->   	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> @@ -1176,6 +1199,18 @@ static const struct dwcmshc_pltfm_data sdhci_dwcmshc_rk35xx_pdata = {
->   	.postinit = dwcmshc_rk35xx_postinit,
->   };
->   
-> +static const struct dwcmshc_pltfm_data sdhci_dwcmshc_rk3576_pdata = {
-> +	.pdata = {
-> +		.ops = &sdhci_dwcmshc_rk35xx_ops,
-> +		.quirks = SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN |
-> +			  SDHCI_QUIRK_BROKEN_TIMEOUT_VAL,
-> +		.quirks2 = SDHCI_QUIRK2_PRESET_VALUE_BROKEN |
-> +			   SDHCI_QUIRK2_CLOCK_DIV_ZERO_BROKEN,
-> +	},
-> +	.init = dwcmshc_rk35xx_init,
-> +	.postinit = dwcmshc_rk3576_postinit,
-> +};
-> +
->   static const struct dwcmshc_pltfm_data sdhci_dwcmshc_th1520_pdata = {
->   	.pdata = {
->   		.ops = &sdhci_dwcmshc_th1520_ops,
-> @@ -1274,6 +1309,10 @@ static const struct of_device_id sdhci_dwcmshc_dt_ids[] = {
->   		.compatible = "rockchip,rk3588-dwcmshc",
->   		.data = &sdhci_dwcmshc_rk35xx_pdata,
->   	},
-> +	{
-> +		.compatible = "rockchip,rk3576-dwcmshc",
-> +		.data = &sdhci_dwcmshc_rk3576_pdata,
-> +	},
->   	{
->   		.compatible = "rockchip,rk3568-dwcmshc",
->   		.data = &sdhci_dwcmshc_rk35xx_pdata,
-> 
-> ---
-> base-commit: 64e9fdfc89a76fed38d8ddeed72d42ec71957ed9
-> change-id: 20250317-rk3576-emmc-fix-7dc81a627422
-> 
-> Best regards,
+ .../devicetree/bindings/arm/rockchip.yaml     |   4 +-
+ arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+ .../boot/dts/rockchip/rk3588-evb2-v10.dts     | 931 ++++++++++++++++++
+ 3 files changed, 935 insertions(+), 1 deletion(-)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-evb2-v10.dts
+
+--
+2.49.0
+
 
