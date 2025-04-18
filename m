@@ -4,75 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 880CBC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 19:03:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8851FC369C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 19:05:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4B+kMbheGPM4KNTv8XPLuJ0eMWorUwyuLFrUknty9MY=; b=ElaySBUsWhRZ3DSfJajkVLOqPd
-	AJAX0uj76Qm/HBx/nKJMb8vp5x8pleb2+n10dxCwUUcjIc8GAiDqivJeWAMX0IADurbEA0MnxN1LB
-	GNLsXVUgws/PvuS8ACINgdBGby7VLaWHRhxL7M4CnPmMvZXyE6Keo+k4w0zUFndLWzlah46g1Irlt
-	hLRbKexItheZpFDKhEn/whH/7Pvgfi9uhbyBuww16TVuYQDG40cPaZ1X3NR5CCG9bBYoXep1Yr8mc
-	Z2Fa+foeoKwZXHKuWBuoweoKncBYtqwZkLGjUHOHo24j/1qUHyPshXvILWjtEZVf8+BLDiXjHAaGF
-	H1TQmGfQ==;
+	bh=koIG3q1ehnIUu1mOFG9wlRR2uVGmetxb/4Hrt+f0vjE=; b=JX/sP1yXZDeChl3jS8m8jOma5t
+	7BPuT9v9jCEcn0FTE4V08/pudV9lUN6mg03ErnIUJ5QZsNBP0HLWd917qqUXi1l3d0ckUgop57wRP
+	UM3yXu87P8ASs+q1elHrwN4JalwYu23bqkeuVWtNZUeyx6AwzuWZ1vky/kFc5OXRUSET3Y5wMnG8U
+	DETk3DrLqi0vmS1Ulf6TO0LpnknULGqOAlW3OdszsCYjpqFGcO615Xov0J0ot9TZO+PcBaM286mSV
+	cE2cIg72tu/xWv8jN1kIhdJSGSQy5VfD9XIx4heGqquD7WZO7TNBxf7/38TJuCVBcTJRXnlIZdN4Z
+	OEqnhTCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5qzP-0000000HY2I-3T8P;
-	Fri, 18 Apr 2025 19:03:03 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1u5r1K-0000000HYMz-2EC6;
+	Fri, 18 Apr 2025 19:05:02 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5quT-0000000HXA0-2iKL
+	id 1u5qur-0000000HXHV-1r5w
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 18:57:59 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53IIvqU01001118
+	Fri, 18 Apr 2025 18:58:22 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53IIwG6K1061259
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 18 Apr 2025 13:57:52 -0500
+	Fri, 18 Apr 2025 13:58:16 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745002672;
-	bh=4B+kMbheGPM4KNTv8XPLuJ0eMWorUwyuLFrUknty9MY=;
+	s=ti-com-17Q1; t=1745002696;
+	bh=koIG3q1ehnIUu1mOFG9wlRR2uVGmetxb/4Hrt+f0vjE=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=MhInK9Amd8dP2fop1tuGqjlvD9gwnSo2mFwCJdxRduGAgTIoVX31Bee1H8iN8TeF+
-	 17ySwd3L9fryHK8giOJneRk7kdpUFOdyJ+q8JYtusEmOlFDsYQNoxMsTVx3ZLxUTD+
-	 iceTdip84mVSp6uc+V0vsuHYZ+VWo55JuzqczBNE=
-Received: from DFLE111.ent.ti.com (dfle111.ent.ti.com [10.64.6.32])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53IIvqcl113576
+	b=saFxAaazS5q5cZ3rM7LdACryY4fnZ9gCBLNyQkp7R2oXloo4zPGN2Hm8Dok79FhKa
+	 qs/FHBg3vS5Xm2miiLM/E8Hxt6ZqwsJs0msYEvG3SXFOP6FuXa9E528nt+mHbSzaN9
+	 CYsLkd/D/cROThTxBIP+olVg3Lvl0NtTmC9EBECw=
+Received: from DFLE107.ent.ti.com (dfle107.ent.ti.com [10.64.6.28])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53IIwGRk015374
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 18 Apr 2025 13:57:52 -0500
-Received: from DFLE106.ent.ti.com (10.64.6.27) by DFLE111.ent.ti.com
- (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
+	Fri, 18 Apr 2025 13:58:16 -0500
+Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE107.ent.ti.com
+ (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 18
- Apr 2025 13:57:52 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE106.ent.ti.com
- (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
+ Apr 2025 13:58:15 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 18 Apr 2025 13:57:52 -0500
+ Frontend Transport; Fri, 18 Apr 2025 13:58:15 -0500
 Received: from localhost ([10.249.36.23])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53IIvq9j117628;
-	Fri, 18 Apr 2025 13:57:52 -0500
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53IIwF4f117732;
+	Fri, 18 Apr 2025 13:58:15 -0500
 From: Nishanth Menon <nm@ti.com>
-To: <vigneshr@ti.com>, Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
-CC: Nishanth Menon <nm@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <vaishnav.a@ti.com>,
-        <jai.luthra@linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
-        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>
-Subject: Re: [PATCH v3 0/7] Fix dtbs_check warnings in CSI overlays
-Date: Fri, 18 Apr 2025 13:57:50 -0500
-Message-ID: <174500265898.95535.4453778649749724956.b4-ty@ti.com>
+To: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Udit Kumar <u-kumar1@ti.com>,
+        Michael
+ Walle <mwalle@kernel.org>
+CC: Nishanth Menon <nm@ti.com>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2] arm64: dts: ti: k3-am62p-j722s: add rng node
+Date: Fri, 18 Apr 2025 13:58:13 -0500
+Message-ID: <174500267952.95667.4169202047923911096.b4-ty@ti.com>
 X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250415111328.3847502-1-y-abhilashchandra@ti.com>
-References: <20250415111328.3847502-1-y-abhilashchandra@ti.com>
+In-Reply-To: <20250401083246.3228964-1-mwalle@kernel.org>
+References: <20250401083246.3228964-1-mwalle@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_115757_783118_DA7CA86D 
-X-CRM114-Status: GOOD (  15.82  )
+X-CRM114-CacheID: sfid-20250418_115821_571353_3B70A380 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,35 +89,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yemike Abhilash Chandra,
+Hi Michael Walle,
 
-On Tue, 15 Apr 2025 16:43:21 +0530, Yemike Abhilash Chandra wrote:
-> There are a bunch of new warnings generated using CONFIG_OF_ALL_DTBS.
-> This configuration applies DTB and overlay together to generate test DTBs,
-> which are then validated using dtbs_check.
+On Tue, 01 Apr 2025 10:32:46 +0200, Michael Walle wrote:
+> Add the node for the random number generator inside the crypto module.
 > 
-> This patch series fixes all warnings related to sensor overlays on
-> jacinto platforms and a few minor warnings on sitara as well.
 > 
-> [...]
 
 I have applied the following to branch ti-k3-dts-next on [1].
 Thank you!
 
-[1/7] arm64: dts: ti: j721e-sk: Add DT nodes for power regulators
-      commit: 97b67cc102dc2cc8aa39a569c22a196e21af5a21
-[2/7] arm64: dts: ti: am68-sk: Fix regulator hierarchy
-      commit: 7edf0a4d3bb7f5cd84f172b76c380c4259bb4ef8
-[3/7] arm64: dts: ti: k3-j721e-sk: Remove clock-names property from IMX219 overlay
-      commit: 24ab76e55ef15450c6681a2b5db4d78f45200939
-[4/7] arm64: dts: ti: k3-j721e-sk: Add requiried voltage supplies for IMX219
-      commit: c6a20a250200da6fcaf80fe945b7b92cba8cfe0f
-[5/7] arm64: dts: ti: k3-am62x: Remove clock-names property from IMX219 overlay
-      commit: c68ab54a89a8c935732589a35ea2596e2329f167
-[6/7] arm64: dts: ti: k3-am62x: Rename I2C switch to I2C mux in IMX219 overlay
-      commit: 7b75dd2029ee01a8c11fcf4d97f3ccebbef9f8eb
-[7/7] arm64: dts: ti: k3-am62x: Rename I2C switch to I2C mux in OV5640 overlay
-      commit: b22cc402d38774ccc552d18e762c25dde02f7be0
+[1/1] arm64: dts: ti: k3-am62p-j722s: add rng node
+      commit: bdd158389dac25ff36e041ff28591aca769f403c
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent up the chain during
