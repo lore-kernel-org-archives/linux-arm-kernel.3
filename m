@@ -4,162 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09AF3C369C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 09:09:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82F1AC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 09:11:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pgNZO51cE073xhtN1qRfxG5f9g5dtcyayw6TrvoJFrk=; b=LpHp7UeK4zHtuZ5SFjYGe4uu0o
-	aWEfj7/YmcAe1E7TruaEUwKSsf4XDDr99CXw3mJgUlFyQmAVokRnU7/FJt/cUSU6FFSccI1jDkNFP
-	yF3ojv3fk5ZLWC6aVUw1PJsXth6OAjtyDElOQywF1elJ8vFNIZTFWbzXD0EBwxFjk71O6IINvxcpz
-	/uYuo75v+P5IER4fQy5kY4v//zlXREC/2XbzwAwXHxMUyrqw3lOTau/MpMT7/jQoqHXUDTI2t0XaM
-	xSdbLYESwO61k7r0XSowTBvBGCvqz9b7ElfaFmqlAVdKQ6s4YHEWDJiXqLr5Eo1qUUSSgtl4X/4nh
-	eueggoyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5FZc7ijLzZ2awcKizBx2RPk4e1oOriMZYbJpema2nnI=; b=miEavL+jzuq2/hh1VO+thr3c2+
+	1e+58St1hjkBRktI2BnBo4/Hbm6whRl4jrzobFUtZnQXwaZKmkhdqOwwz+GmCoKgMXV3IRWITsF1g
+	L8jcqFn+pdRte1VNlqKrE+VmkoxJ8po/zHBB/24AQlxPb8/own/XTJVEZ+BqDZAPLd6Z575ld/Qos
+	Gs5JhXUfKvfz4qZ2kojE/1axQuJFcLlqjr+nqkXxHbM7LWhtt6W6URFGc4vj9UAjbFCx3D6vMwxn/
+	rli/hwO09GMzxHnWe9IQLNmNYmXBOcW4Q7Ze6Pw5JMPDMCERq1LnexvX7ZIKrE5Wek9lh98aRFljE
+	p8X+qFlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5hjB-0000000Fioo-07RP;
-	Fri, 18 Apr 2025 09:09:41 +0000
-Received: from mail-dm6nam04on2060c.outbound.protection.outlook.com ([2a01:111:f403:2409::60c] helo=NAM04-DM6-obe.outbound.protection.outlook.com)
+	id 1u5hl2-0000000Fj5X-05NU;
+	Fri, 18 Apr 2025 09:11:36 +0000
+Received: from mout.gmx.net ([212.227.17.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5heJ-0000000Fi70-1EeN
+	id 1u5hiS-0000000FifY-1oXH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 09:04:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ePRCgIHqRd8axIN8vCdj/31h7Fps6f5mJ3siwj+GNQQUxAtdBMFmjT7fzdAgBNK5H/+9md8BSr86xuaSKd5x8STzD2cjb8F5uMZSmtYV60LQrXYqiJw2f4mD9YQr/iZibhYtP+ivfayFWc0BUvgid2tKx8lcsoOibokLpLiFv74oAqhkwFsWbljmyYzpeK625OdHxMPQmbXIn6OUthnm3weeCUgp5L/rRQzFSLnptd0HmRn+02V7371/IG8WtPKMeQ89+nRkbLzjuO39UbYvpswt6+YinDhQxwPsxE0zTrXxuIKaQLslMuR2USLVNFBh9WfWsSeEJyUpcO2FeOJWvg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pgNZO51cE073xhtN1qRfxG5f9g5dtcyayw6TrvoJFrk=;
- b=AbsVwpR7ZTfVP0w/SOxT5P7gjVKPqKlyT4DcX2rKnbRJPky5xcwAP4y1ZJis2W8pwOqS4gz0+ZnnlA+BHZGMPgxdunYeeLmq7hTg6nclA+AndBy2Zo9gvEGim4x15q6+z86/8sOrTuMeToLk3nyk4wLsL0YM3PiTXDYnQDbkCMm3h/5PH/L5H7bFJknO/IuWBJ90uyQkwdM848CAge6LeIGVqhlQFTiHTdR05QNv3EkcGG3GIyK/YqlScsLkrUZfAL5hFGRKI/sQ3VRR+2FJZXfdFI9X+7W3ZxNbCul93GHyuyHWiyu6j3Sa+EiaYEUbNoY7eILEG+tbNYav6tx4wA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pgNZO51cE073xhtN1qRfxG5f9g5dtcyayw6TrvoJFrk=;
- b=gVdBAYHafoESh0eP2kTJKBnSjOf55bxBCSjHCsSFoHk5Zib1xUp/qi/rDhXYcs8ZjvISZGMlqIavKTOwqPa7tv5wFWgKpQ55pCXY6V3cHPBW7On7iJ/QI6g7cy6qxOk7g5XHQVeP15L4RYKvPhCvBoBnySYTMtq2gnv/JGN7JmI=
-Received: from BL3PR12MB6571.namprd12.prod.outlook.com (2603:10b6:208:38e::18)
- by DM6PR12MB4090.namprd12.prod.outlook.com (2603:10b6:5:217::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.22; Fri, 18 Apr
- 2025 09:04:35 +0000
-Received: from BL3PR12MB6571.namprd12.prod.outlook.com
- ([fe80::4cf2:5ba9:4228:82a6]) by BL3PR12MB6571.namprd12.prod.outlook.com
- ([fe80::4cf2:5ba9:4228:82a6%4]) with mapi id 15.20.8655.025; Fri, 18 Apr 2025
- 09:04:34 +0000
-From: "Gupta, Suraj" <Suraj.Gupta2@amd.com>
-To: Sean Anderson <sean.anderson@linux.dev>, "netdev@vger.kernel.org"
-	<netdev@vger.kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S .
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub
- Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Russell King
-	<linux@armlinux.org.uk>
-CC: "upstream@airoha.com" <upstream@airoha.com>, Christian Marangi
-	<ansuelsmth@gmail.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Kory Maincent <kory.maincent@bootlin.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>, "Simek, Michal"
-	<michal.simek@amd.com>, "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>,
-	Robert Hancock <robert.hancock@calian.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: RE: [net-next PATCH v3 08/11] net: axienet: Convert to use PCS
- subsystem
-Thread-Topic: [net-next PATCH v3 08/11] net: axienet: Convert to use PCS
- subsystem
-Thread-Index: AQHbrj1bMM94Lp9E+ki+Dl54jkuffLOpI3Pg
-Date: Fri, 18 Apr 2025 09:04:34 +0000
-Message-ID: <BL3PR12MB6571383CDE95A1E40597CE78C9BF2@BL3PR12MB6571.namprd12.prod.outlook.com>
-References: <20250415193323.2794214-1-sean.anderson@linux.dev>
- <20250415193323.2794214-9-sean.anderson@linux.dev>
-In-Reply-To: <20250415193323.2794214-9-sean.anderson@linux.dev>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_ActionId=09d05ed7-7c47-4e46-a3c7-915e52a0cbfa;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_ContentBits=0;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Enabled=true;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Method=Standard;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Name=AMD
- Internal Distribution
- Only;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SetDate=2025-04-18T08:57:51Z;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Tag=10,
- 3, 0, 1;
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BL3PR12MB6571:EE_|DM6PR12MB4090:EE_
-x-ms-office365-filtering-correlation-id: 2c8a5e6c-2ec7-4632-629e-08dd7e580a1e
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?EZfBrhkJBCKnsd5RzVWa+DSNH12DWe/uGDPt0gkt+AQ0A9O9zPZj+Y3kN64I?=
- =?us-ascii?Q?ATkUUGGZhDVXMS28cnoM7LZ/qCf7mKzcVMB2UeE+C8liytZmG1nbPTDytBIb?=
- =?us-ascii?Q?8YukPYvCEDqmumrxEttVhOnYTENMjWw4BgTYh1YycR7500eNnxcIn1r6GMaU?=
- =?us-ascii?Q?XT6qTgiQtc7GLMtQ5gqHsqfPvtOBqIYtkjlG9quNuIRAiS3EbtSt5lBY89x0?=
- =?us-ascii?Q?ts0MjlyIQax20MeRkcWrABj+WdQhVbOfv0KOtx1pa5SUK/g3/ERulPEIEO1r?=
- =?us-ascii?Q?+ErZFVUbrhPitwsZZGy/qHuj6URihIUi0a4WS0N1nQ3lfSnCguor8Vs3t0s7?=
- =?us-ascii?Q?K13hanOJtFWZVeja4XeH+f0NYnel1SUMHLmd6UYKdn8uGQQsH7FFz7wIb+ya?=
- =?us-ascii?Q?vUm8/OAP97nOVwHP9v1ueon1aTtyTCllMRQhCzrYnvxKdg/fzDLs2EK9AWsF?=
- =?us-ascii?Q?WqPp/kZRC92PSyOJ10VSffKMxVKrViROd1pLeAP4uWnX25RS+f2kY6GJz4Tw?=
- =?us-ascii?Q?HAEfro9zrPGC6S18EoEo0XSF26N2Ftzi+yMFtoCEg6oZL9m6qs2jUuhmRzA7?=
- =?us-ascii?Q?XnozZWgjaqKUlE6TN1t0lDx4ZjUodZqnAkd/dteYIe04Y5QCQhOTc1KCeBzB?=
- =?us-ascii?Q?2fWShhFhckHMIWV0NsxtVz9zcfYk3Uw5SHHQiwEWeG2TBRc8RYVjPnFMDvqr?=
- =?us-ascii?Q?pD9b8PX5lI3oGz3b5y1h82o9M1j7yBqA19T+YjX0ulrRxoorQKrNREC1K/nY?=
- =?us-ascii?Q?pZT2jNdux9OzNL4Q8OCtaX4Xwe8vi91d7WYoiiOsbXP0kpUUWLlIfwhkGXlt?=
- =?us-ascii?Q?2wOQG8bKqLWbOXgUalXb2Vx1dHcemzICfpV9fI6suazuy3IFcQTk0MfqQK7+?=
- =?us-ascii?Q?MMndamJdqCEOzMGha7dBPX7gZ+HB6dsdDnySEhgc+AJ9afQ59pYdVnUU5APo?=
- =?us-ascii?Q?jg2ov4bWSVruUjzBYJDC1TM8s/ikXyFFOI+N7agF2O4tVGg9+GE1jVv3u4wB?=
- =?us-ascii?Q?AuPFIDHGgc0yurLxxoW0kWvDj53O4vbkc8M5QX3QpzCJWcJo00kgG49RlRvr?=
- =?us-ascii?Q?bY5tJOdkyC882hbrj7jD2yGe0OIJpmHi8dIDOvoJG/TIH+O9yV7O/lYamI8m?=
- =?us-ascii?Q?v35AV01NKAVEhx7LUKXKYOK3CiLoI7IFDl6iuzOK5XP4yczqIhQ9YCAc3Bhl?=
- =?us-ascii?Q?SKCq+RI2TBAq6kvgZrE0trkEg+/tPv2RYdqZKfUAc5u3eQANMVMBy2aQp3nH?=
- =?us-ascii?Q?UkiPANKOqBZyyf2emx7mtQ4LzgSaCXUPrVxOuV8rrZHcmTQIFNjuGMLbHlat?=
- =?us-ascii?Q?vrESF5pQ7yOAkV7Ou3KE7p+FdpO4S5Y/aCOBgGauXbgAAZHqUweJHi1KixMR?=
- =?us-ascii?Q?1hRjdKN34Lodo8R4qBQK1OrUXzyt4sBw/1WXQeY2ZmLOjhugNZtAYkkLLash?=
- =?us-ascii?Q?/co/p6WNZnZNFC2tl5ZomwrXj3UVpqFgvDP9yyGfwW+vqTITKsVFLQ=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL3PR12MB6571.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?SpO6xl4KWByUHz1ArVHselsfK6rUhjRybah/Z/L2L1izP6s70afgb9uy6cQL?=
- =?us-ascii?Q?HENepiGu4SUoB9yzOjHKye1nBeamREoqVV5Xn2d+t0FYnbLpuzcATob1n212?=
- =?us-ascii?Q?twzj3Di7aX3D8GZWeOQ5ymTp8SxyUpz3gfT6v582Fh6AbuDJcuZvYYtFiq5s?=
- =?us-ascii?Q?oujjW5zZtesZpoH8lGilbFn6QLiv4CsAcTC/8sIiybNO0+wcombcIuqDH6Pm?=
- =?us-ascii?Q?1d9pxDnF5hGRyEW60nn1F9T/J66+Dx8soiL/TyUEVeInUxhgcMr/otJIBWBa?=
- =?us-ascii?Q?ONoTGwau4wVM4Emxe2ua26bHTEXVVOQx8j8Z70tFHCSi6wwfqZ3TZn1peeim?=
- =?us-ascii?Q?aU6RD6oY7XzYrYPlgPAYoiUlNGepP9u9MGDgRjBeABO9zoEe+GxSa3PvO4SP?=
- =?us-ascii?Q?6usQBNAC5fM2HdqqK8Psz5H5EvGHW8w7lCMR4weN7BE9xTxc7bClOAMakO+n?=
- =?us-ascii?Q?4nQwOyJTZ4FIuE6Iwci9KHAGUmn9Z0KiIIaAqQWuvQ3RGf/4AZxCTc+eWMzT?=
- =?us-ascii?Q?jMuoiZo/Lwbf2UQMiUK+Tzoz4viMa0O9/c2vEjeXdKpCTJHuVKzXvhjEQMsq?=
- =?us-ascii?Q?UrUf0eyxx58ZzTWuu0sVNXjNkUMFCsgj71o6zXroruX7knfmvMj/MkI7T2Ju?=
- =?us-ascii?Q?CbAGSISBp0i+iUJ1hG44hV8+3ZU3diq0MqwHNStyf6QsR1XluZ3orIRAK5Aj?=
- =?us-ascii?Q?LsqgQNMDcOwmkWJ4+/nN2Yjh9qAufBuBZYlEZJHZBu7XmC24+tusIGLXwHXO?=
- =?us-ascii?Q?q09kYYegS0ynMuNAaBtIaYFEkFzMjf7m75YJlSVoNd803v8n42Qbchlo7PnW?=
- =?us-ascii?Q?u4AIcobk8FwL9tbMZifQzfa5tdSyqTDDkjvS4BYylf6RRiQejKfz5QKzqC9J?=
- =?us-ascii?Q?+L1Ph0JNnMRjCvqOjtOjOrtgAp+u15jYBDLDgLekRntXf2rjxMiPQzOnKcxR?=
- =?us-ascii?Q?tAIqqteeuKUh6wEX96GrJcoWru6WZ2v5S2fm0G97ZlVhONFzyemalY/MUIz/?=
- =?us-ascii?Q?e8mc9KrUaM/DwcwlJRT4Yw866xaMPX8GeURPmyxQbhQgryhi6zp+5R35tGRU?=
- =?us-ascii?Q?i9sCHhaYDvOJJBEei7uxVYVEXvWarTG+LNVh86H/UJOFanuBaWtsxmXThNvX?=
- =?us-ascii?Q?D7q8R5l/HQYvySboSY7RYdTCDXDijoEOeZfjMQxWpai+tUq2jrjrVeaAjPrP?=
- =?us-ascii?Q?bofdSrVqzJm2j8+Tui9RtDvueEKkh8ue4R1c4kOH5AupIR3eYEzAP+Aekwaf?=
- =?us-ascii?Q?aVqJI8PxXxzDqr5Ggc/mzvi3/sCa+7QQjY3Beo8WAyahAcu/2kr4i8i9mEyn?=
- =?us-ascii?Q?kSBmO33wwvgms7XjPrR3InwudM3IBNaC8QihhnWtafaoMU56WLnbzkP2fUin?=
- =?us-ascii?Q?bF3Z5vbUdQtS1Pe1sXm87ASoPROGgQ6Timg6JQmBGu4zQwwaWdgd2SLtRlKj?=
- =?us-ascii?Q?EeuLiEES85OsmVngDjn9ycLILZakTKPFFg4WsTdGEWR6sYiM1+e3eweu32nn?=
- =?us-ascii?Q?sESF0xkA9ML3zfVEyKWRk3kd3vRXrEmCjjhjnE6Uik86WV7HCKDseHJXQrNb?=
- =?us-ascii?Q?WjkDcoQGSKItZE1L6yM=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 18 Apr 2025 09:08:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1744967327; x=1745572127; i=wahrenst@gmx.net;
+	bh=5FZc7ijLzZ2awcKizBx2RPk4e1oOriMZYbJpema2nnI=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=eczCAv+abhgWdoxy1Mix0q/m/ZnqSJ0yy6kYtW0DccEKlpMK1bIQxK4g+eVhjayf
+	 92IyDLfb5bm9U2b2SQtyQ9UkMq5QkhOZ7+vLRk8d0Yn10wQgUEmWwV/W3Toucp1EA
+	 2hN51ishKi3DY/mp9cTF8sg8H0ZmakW2gvxNTNtY765ty4bg1a4RQivEFNzhctToK
+	 EyaiEIvlZc0paBssbqDFoY0lauA79cZ+e01T9SGMM1FePAfxQPOsW5QxyKLD+Rlz2
+	 Kx/51ajcHnp5eMWp92Scf3rQMpmV/4p+Szny+M7JzuspZybzUfjG8l2epaxmkvRT/
+	 Sb26sbd94gt/0AgIhQ==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.107] ([37.4.251.153]) by mail.gmx.net (mrgmx105
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1N7zBb-1v9eAv3w8p-011UvF; Fri, 18
+ Apr 2025 11:08:47 +0200
+Message-ID: <a137daef-8a09-4899-a6e2-380b8ed6061f@gmx.net>
+Date: Fri, 18 Apr 2025 11:08:43 +0200
 MIME-Version: 1.0
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BL3PR12MB6571.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2c8a5e6c-2ec7-4632-629e-08dd7e580a1e
-X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Apr 2025 09:04:34.8092
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: aGati5mhNxnE9alSpEpRUr3REhUbMaiXG3gptxus+NMImoseVQQRVyqx5HXIUk9ujv3HuRXcfb2/WqP/2r24zQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4090
+User-Agent: Mozilla Thunderbird
+Subject: Re: [net-next v6 4/7] net: mtip: The L2 switch driver for imx287
+To: Lukasz Majewski <lukma@denx.de>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ Simon Horman <horms@kernel.org>
+References: <20250418060716.3498031-1-lukma@denx.de>
+ <20250418060716.3498031-5-lukma@denx.de>
+ <38f36d00-e461-4fc5-a98b-9b2d94d93c69@gmx.net> <20250418110223.594f586f@wsk>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <20250418110223.594f586f@wsk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Provags-ID: V03:K1:kS0UagTK8PoQnNEVtIOjGWpVgZgAq2O+D9TGo1zAnTtvyzwaiH3
+ uXUWIVLE7mVrJZO5stgbME0xxiVaagxiUFgghMEOc652iRQVo6TbQzDTSheldbiAGvPYXVM
+ Q68wyqYDoilc6hLfJlHs62mANwnTN/aJrTbb2PIOGaFpy9B7FsBS5Oq2fSaexxnykKfkLze
+ 5FdSTbke3PNpnmINhv1PA==
+UI-OutboundReport: notjunk:1;M01:P0:3NBNlW/Hmh0=;wauUYAffRTWEjRv+TI+uG33zAoU
+ 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
+ L0d1fZBtYNknfs24UweW9fZU+vTOKmU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_020439_429251_48AAC5F0 
-X-CRM114-Status: GOOD (  23.18  )
+X-CRM114-CacheID: sfid-20250418_020856_787242_B53C06CE 
+X-CRM114-Status: GOOD (  17.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,276 +144,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[AMD Official Use Only - AMD Internal Distribution Only]
-
-> -----Original Message-----
-> From: Sean Anderson <sean.anderson@linux.dev>
-> Sent: Wednesday, April 16, 2025 1:03 AM
-> To: netdev@vger.kernel.org; Andrew Lunn <andrew+netdev@lunn.ch>; David S =
-.
-> Miller <davem@davemloft.net>; Eric Dumazet <edumazet@google.com>; Jakub
-> Kicinski <kuba@kernel.org>; Paolo Abeni <pabeni@redhat.com>; Russell King
-> <linux@armlinux.org.uk>
-> Cc: upstream@airoha.com; Christian Marangi <ansuelsmth@gmail.com>; linux-
-> kernel@vger.kernel.org; Kory Maincent <kory.maincent@bootlin.com>; Heiner
-> Kallweit <hkallweit1@gmail.com>; Sean Anderson <sean.anderson@linux.dev>;
-> Gupta, Suraj <Suraj.Gupta2@amd.com>; Simek, Michal
-> <michal.simek@amd.com>; Pandey, Radhey Shyam
-> <radhey.shyam.pandey@amd.com>; Robert Hancock
-> <robert.hancock@calian.com>; linux-arm-kernel@lists.infradead.org
-> Subject: [net-next PATCH v3 08/11] net: axienet: Convert to use PCS subsy=
-stem
+Am 18.04.25 um 11:02 schrieb Lukasz Majewski:
+> Hi Stefan,
 >
-> Caution: This message originated from an External Source. Use proper caut=
-ion
-> when opening attachments, clicking links, or responding.
+>> Am 18.04.25 um 08:07 schrieb Lukasz Majewski:
+>>> This patch series provides support for More Than IP L2 switch
+>>> embedded in the imx287 SoC.
+>>>
+>>> This is a two port switch (placed between uDMA[01] and MAC-NET[01]),
+>>> which can be used for offloading the network traffic.
+>>>
+>>> It can be used interchangeably with current FEC driver - to be more
+>>> specific: one can use either of it, depending on the requirements.
+>>>
+>>> The biggest difference is the usage of DMA - when FEC is used,
+>>> separate DMAs are available for each ENET-MAC block.
+>>> However, with switch enabled - only the DMA0 is used to
+>>> send/receive data to/form switch (and then switch sends them to
+>>> respecitive ports).
+>>>
+>>> Signed-off-by: Lukasz Majewski <lukma@denx.de>
+>> After changing the IRQ name part mention in patch 1, you can add
+>>
+>> Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
+>>
+> Shall I add RoB tag to all patches?
+In case you mean Reviewed-by: yes
+>
+> I will wait for ACK from at least Andrew and then reset the v7 with all
+> tags collected.
+>
+>> Thanks
 >
 >
-> Convert the AXI Ethernet driver to use the PCS subsystem, including the n=
-ew Xilinx
-> PCA/PMA driver. Unfortunately, we must use a helper to work with bare MDI=
-O nodes
-> without a compatible.
 >
-> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
-> Reviewed-by: Suraj Gupta <suraj.gupta2@amd.com>
+> Best regards,
 >
-
-Tested with ZynqMP AXI 1G ethernet design. Ping works fine, and netperf num=
-bers are as expected.
-
-Tested-by: Suraj Gupta <suraj.gupta2@amd.com>
-
-> ---
+> Lukasz Majewski
 >
-> Changes in v3:
-> - Select PCS_XILINX unconditionally
->
->  drivers/net/ethernet/xilinx/Kconfig           |   7 ++
->  drivers/net/ethernet/xilinx/xilinx_axienet.h  |   4 +-
->  .../net/ethernet/xilinx/xilinx_axienet_main.c | 104 ++++--------------
->  3 files changed, 28 insertions(+), 87 deletions(-)
->
-> diff --git a/drivers/net/ethernet/xilinx/Kconfig b/drivers/net/ethernet/x=
-ilinx/Kconfig
-> index 7502214cc7d5..9f130376e1eb 100644
-> --- a/drivers/net/ethernet/xilinx/Kconfig
-> +++ b/drivers/net/ethernet/xilinx/Kconfig
-> @@ -25,8 +25,15 @@ config XILINX_EMACLITE
->
->  config XILINX_AXI_EMAC
->         tristate "Xilinx 10/100/1000 AXI Ethernet support"
-> +       depends on COMMON_CLK
-> +       depends on GPIOLIB
->         depends on HAS_IOMEM
-> +       depends on OF
-> +       depends on PCS
->         depends on XILINX_DMA
-> +       select MDIO_DEVICE
-> +       select OF_DYNAMIC
-> +       select PCS_XILINX
->         select PHYLINK
->         select DIMLIB
->         help
-> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet.h
-> b/drivers/net/ethernet/xilinx/xilinx_axienet.h
-> index 5ff742103beb..f46e862245eb 100644
-> --- a/drivers/net/ethernet/xilinx/xilinx_axienet.h
-> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet.h
-> @@ -473,7 +473,6 @@ struct skbuf_dma_descriptor {
->   * @dev:       Pointer to device structure
->   * @phylink:   Pointer to phylink instance
->   * @phylink_config: phylink configuration settings
-> - * @pcs_phy:   Reference to PCS/PMA PHY if used
->   * @pcs:       phylink pcs structure for PCS PHY
->   * @switch_x_sgmii: Whether switchable 1000BaseX/SGMII mode is enabled i=
-n the
-> core
->   * @axi_clk:   AXI4-Lite bus clock
-> @@ -553,8 +552,7 @@ struct axienet_local {
->         struct phylink *phylink;
->         struct phylink_config phylink_config;
->
-> -       struct mdio_device *pcs_phy;
-> -       struct phylink_pcs pcs;
-> +       struct phylink_pcs *pcs;
->
->         bool switch_x_sgmii;
->
-> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> index 054abf283ab3..07487c4b2141 100644
-> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> @@ -35,6 +35,8 @@
->  #include <linux/platform_device.h>
->  #include <linux/skbuff.h>
->  #include <linux/math64.h>
-> +#include <linux/pcs.h>
-> +#include <linux/pcs-xilinx.h>
->  #include <linux/phy.h>
->  #include <linux/mii.h>
->  #include <linux/ethtool.h>
-> @@ -2519,63 +2521,6 @@ static const struct ethtool_ops axienet_ethtool_op=
-s =3D {
->         .get_rmon_stats =3D axienet_ethtool_get_rmon_stats,  };
->
-> -static struct axienet_local *pcs_to_axienet_local(struct phylink_pcs *pc=
-s) -{
-> -       return container_of(pcs, struct axienet_local, pcs);
-> -}
-> -
-> -static void axienet_pcs_get_state(struct phylink_pcs *pcs,
-> -                                 unsigned int neg_mode,
-> -                                 struct phylink_link_state *state)
-> -{
-> -       struct mdio_device *pcs_phy =3D pcs_to_axienet_local(pcs)->pcs_ph=
-y;
-> -
-> -       phylink_mii_c22_pcs_get_state(pcs_phy, neg_mode, state);
-> -}
-> -
-> -static void axienet_pcs_an_restart(struct phylink_pcs *pcs) -{
-> -       struct mdio_device *pcs_phy =3D pcs_to_axienet_local(pcs)->pcs_ph=
-y;
-> -
-> -       phylink_mii_c22_pcs_an_restart(pcs_phy);
-> -}
-> -
-> -static int axienet_pcs_config(struct phylink_pcs *pcs, unsigned int neg_=
-mode,
-> -                             phy_interface_t interface,
-> -                             const unsigned long *advertising,
-> -                             bool permit_pause_to_mac)
-> -{
-> -       struct mdio_device *pcs_phy =3D pcs_to_axienet_local(pcs)->pcs_ph=
-y;
-> -       struct net_device *ndev =3D pcs_to_axienet_local(pcs)->ndev;
-> -       struct axienet_local *lp =3D netdev_priv(ndev);
-> -       int ret;
-> -
-> -       if (lp->switch_x_sgmii) {
-> -               ret =3D mdiodev_write(pcs_phy, XLNX_MII_STD_SELECT_REG,
-> -                                   interface =3D=3D PHY_INTERFACE_MODE_S=
-GMII ?
-> -                                       XLNX_MII_STD_SELECT_SGMII : 0);
-> -               if (ret < 0) {
-> -                       netdev_warn(ndev,
-> -                                   "Failed to switch PHY interface: %d\n=
-",
-> -                                   ret);
-> -                       return ret;
-> -               }
-> -       }
-> -
-> -       ret =3D phylink_mii_c22_pcs_config(pcs_phy, interface, advertisin=
-g,
-> -                                        neg_mode);
-> -       if (ret < 0)
-> -               netdev_warn(ndev, "Failed to configure PCS: %d\n", ret);
-> -
-> -       return ret;
-> -}
-> -
-> -static const struct phylink_pcs_ops axienet_pcs_ops =3D {
-> -       .pcs_get_state =3D axienet_pcs_get_state,
-> -       .pcs_config =3D axienet_pcs_config,
-> -       .pcs_an_restart =3D axienet_pcs_an_restart,
-> -};
-> -
->  static struct phylink_pcs *axienet_mac_select_pcs(struct phylink_config =
-*config,
->                                                   phy_interface_t interfa=
-ce)  { @@ -2583,8 +2528,8
-> @@ static struct phylink_pcs *axienet_mac_select_pcs(struct phylink_confi=
-g
-> *config,
->         struct axienet_local *lp =3D netdev_priv(ndev);
->
->         if (interface =3D=3D PHY_INTERFACE_MODE_1000BASEX ||
-> -           interface =3D=3D  PHY_INTERFACE_MODE_SGMII)
-> -               return &lp->pcs;
-> +           interface =3D=3D PHY_INTERFACE_MODE_SGMII)
-> +               return lp->pcs;
->
->         return NULL;
->  }
-> @@ -3056,28 +3001,23 @@ static int axienet_probe(struct platform_device *=
-pdev)
->
->         if (lp->phy_mode =3D=3D PHY_INTERFACE_MODE_SGMII ||
->             lp->phy_mode =3D=3D PHY_INTERFACE_MODE_1000BASEX) {
-> -               np =3D of_parse_phandle(pdev->dev.of_node, "pcs-handle", =
-0);
-> -               if (!np) {
-> -                       /* Deprecated: Always use "pcs-handle" for pcs_ph=
-y.
-> -                        * Falling back to "phy-handle" here is only for
-> -                        * backward compatibility with old device trees.
-> -                        */
-> -                       np =3D of_parse_phandle(pdev->dev.of_node, "phy-h=
-andle", 0);
-> -               }
-> -               if (!np) {
-> -                       dev_err(&pdev->dev, "pcs-handle (preferred) or ph=
-y-handle required
-> for 1000BaseX/SGMII\n");
-> -                       ret =3D -EINVAL;
-> -                       goto cleanup_mdio;
-> -               }
-> -               lp->pcs_phy =3D of_mdio_find_device(np);
-> -               if (!lp->pcs_phy) {
-> -                       ret =3D -EPROBE_DEFER;
-> -                       of_node_put(np);
-> +               DECLARE_PHY_INTERFACE_MASK(interfaces);
-> +
-> +               phy_interface_zero(interfaces);
-> +               if (lp->switch_x_sgmii ||
-> +                   lp->phy_mode =3D=3D PHY_INTERFACE_MODE_SGMII)
-> +                       __set_bit(PHY_INTERFACE_MODE_SGMII, interfaces);
-> +               if (lp->switch_x_sgmii ||
-> +                   lp->phy_mode =3D=3D PHY_INTERFACE_MODE_1000BASEX)
-> +                       __set_bit(PHY_INTERFACE_MODE_1000BASEX,
-> + interfaces);
-> +
-> +               lp->pcs =3D axienet_xilinx_pcs_get(&pdev->dev, interfaces=
-);
-> +               if (IS_ERR(lp->pcs)) {
-> +                       ret =3D PTR_ERR(lp->pcs);
-> +                       dev_err_probe(&pdev->dev, ret,
-> +                                     "could not get PCS for
-> + 1000BASE-X/SGMII\n");
->                         goto cleanup_mdio;
->                 }
-> -               of_node_put(np);
-> -               lp->pcs.ops =3D &axienet_pcs_ops;
-> -               lp->pcs.poll =3D true;
->         }
->
->         lp->phylink_config.dev =3D &ndev->dev; @@ -3115,8 +3055,6 @@ stat=
-ic int
-> axienet_probe(struct platform_device *pdev)
->         phylink_destroy(lp->phylink);
->
->  cleanup_mdio:
-> -       if (lp->pcs_phy)
-> -               put_device(&lp->pcs_phy->dev);
->         if (lp->mii_bus)
->                 axienet_mdio_teardown(lp);
->  cleanup_clk:
-> @@ -3139,9 +3077,7 @@ static void axienet_remove(struct platform_device *=
-pdev)
->         if (lp->phylink)
->                 phylink_destroy(lp->phylink);
->
-> -       if (lp->pcs_phy)
-> -               put_device(&lp->pcs_phy->dev);
-> -
-> +       pcs_put(&pdev->dev, lp->pcs);
->         axienet_mdio_teardown(lp);
->
->         clk_bulk_disable_unprepare(XAE_NUM_MISC_CLOCKS, lp->misc_clks);
 > --
-> 2.35.1.1320.gc452695387.dirty
+>
+> DENX Software Engineering GmbH,      Managing Director: Erika Unter
+> HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+> Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
 
 
