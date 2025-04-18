@@ -4,119 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED967C369C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 09:53:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D046C369C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 09:55:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rA3sdyVQ16H8kPttRg91Jt1G7uDSj/gcw6eTTAKQB5c=; b=0xr7MFVkddZG/8cRoju9AlJIPS
-	RDLdIv194CEgZmb/XjonDEIwhdiKo7xp6N1g0p1RSwm86Fk5bBHcZRXZgKsVDppBr1hSdUB54sRUn
-	04zUk2bmyKhpCoxwpFh8c8BIdu5hZ4PqtR805DxeisG+OIIj1VAS0TNtkdMRHwIEqinBqqNPVltjd
-	GOFaQVo5Qqv3mcLijTI/MUFS8TK+6kJ8uO4lixfVp8gaEHSb94srG9wR/Pw3uYvnoD9cJfjkxKq1G
-	pQmDbf6vVx1pV4U2VpcE6DhjgRCUkS/b5EViSA8Z9zMs08C6MmL9dD8d3FW+SnenVrcJVtllvYEhR
-	G49Zf2vQ==;
+	bh=IjfZi31hmUptjdnNvZySV4nqA3Lhny6AX1T2Wc7MbAc=; b=tqG85kV9VMfraJU+YIv4vpH4HF
+	oO4RsAfr2li6+3oyDM+un7SuuvNYXIVtHZyg3AO5HDhTUOcL0182JIOAtQAeoA2AHEOZAejZtah2E
+	/l/horCgmi/ao9dvVrwf6bncgIVs3wsV2aBx/uIPJ0vVnLrVx4D/a+fv3lKFxZ5FHtilx71BFw3M+
+	dAt232BY8Mf+NsDOf62ofJvF3tGhxjQItXa1ltIX7qvUqvgYpRKi+AsJOkP9f77QQLDb7Eq1rg0fe
+	JCEgOcyEXt3M5S3J1FRIckLLdmniWb9FieRpv9NIBdXRdxfORBEToOxh86Fp1X0LuJgtczmRkTVtZ
+	C7NhvbxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5iPR-0000000FnoP-26j8;
-	Fri, 18 Apr 2025 09:53:21 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1u5iRG-0000000Fnz8-281J;
+	Fri, 18 Apr 2025 09:55:14 +0000
+Received: from mail-m15578.qiye.163.com ([101.71.155.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5iNZ-0000000FnVq-1Skt
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 09:51:26 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53I1xHYB013336
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 09:51:23 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	rA3sdyVQ16H8kPttRg91Jt1G7uDSj/gcw6eTTAKQB5c=; b=HwwhoVLEu9m/84c/
-	izpixz+E1FYpZpSYEhwGskeFb8/7o9N2GWSo62T5C4Diwsr/dxEMUQzCUklx4rg3
-	jnksSTFHQQo+UPXubMSkt914vvoRX317E3k/+WTh1V469h5y3QBBQnAkdMi6GALQ
-	avc036Vf/bnYej3fUw8Wjkc2piUyI75EhILfq4XKjRJ1kvnJX4b2X3TSDsxj35Rh
-	Du8dvHU4r+6wdK37romVDqsSMpbgUDAXLo9jGTg8owSAaAR4vjF/uLGi5N/EcC6d
-	1wL6M8Vqyp6wKUJCN67m88CLdrSCHb+PDt7d163csMLgtI0ccEQy1OaV/d6cN6Bc
-	vIiapw==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4628rvextw-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 09:51:23 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-7c54be4b03aso31753685a.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 02:51:23 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744969882; x=1745574682;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=rA3sdyVQ16H8kPttRg91Jt1G7uDSj/gcw6eTTAKQB5c=;
-        b=Igam/ap8f5C/SUEdzicuVMqucp+tpijzWi1vBNmMluL6XbrNe1NIvxMxAQ16u2STyO
-         vqvFOGNkZ4pLleLNUmXmrFqGn+9YJVgGUkgG8ReoJaRwFH9HctlACp6nVqxhUzU1I8ju
-         tYkUYhNrFfm94F6nSV+iXwkVWo/EAgZLLVwdKUh2sO490UE8k1y7BKDsvKyv1gXJ5wHn
-         X2clgCFVoMZQPIQBTDDShPN4w54I5fQbrGQcQbVIVRb/1SRSPgKSKpPk0AESUy46iBLz
-         kiHaJ3rn/1DhbnW2n9X6SEdS9/yd7/LIOqS2bUkBcHZgSIVa+iyCPFeOOBr54ej0yjez
-         ZWbA==
-X-Gm-Message-State: AOJu0YwvnS+kzAiHzHF7pC/5ImmLGaQQVBfLYP8Wk0+r9S8mFeIABh1U
-	CYdlAns7ifZH45I2q3I5s3t0v4dro0LzN8yeue3l5ZjgfrhFTbdWdE6clPnTaFNWzgwUHydMYvc
-	ektsQGIIPwcpLLY4kKoGtoVYC7o93qViSlqv6yjB4lwvHkLrpZ0bmTmRe9jxBogi6I39ihr8Z9w
-	==
-X-Gm-Gg: ASbGncv1LuacRJd+i31r0rsh8nrB5mwL2J5XUmzhpq+NKazH5aKDF0K+nQEjQxBnLPF
-	lIi3ufk6IxXFJ3aTrOVc/b/tVm5igmtiVeExk3ZM2RP45ljg30bmz9ohfCFgSTq72Vm0xpAk0QT
-	hfZLZ3kRtE+IAU8r5nJlHpomex61dujn5c4RPqXPQVKLWlmQlsx1m4Cytqkzf3zrWDezfspZgZX
-	JkD6WQgLp1nAPWYQ2y2vOScdpmIcT/8ALSv6eZe4Nir/z5h+CO9PeQV9jUnIsT7CS6SyBSe8HMZ
-	jF8kf28lMl6b8dmavf7vspKRqywGZDUZq2HqRerPMb4EuZQ7QNpar8k9Vey/VQ7+hA==
-X-Received: by 2002:a05:620a:2592:b0:7c5:8ece:8b56 with SMTP id af79cd13be357-7c927f9a9f9mr101648985a.4.1744969882148;
-        Fri, 18 Apr 2025 02:51:22 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGqDwroTCof2h7lnX1zVhtLN5ZBbsfi9HNceZCvlYWCbV0282LNM0+SsV1JAE41A/dMk5vamA==
-X-Received: by 2002:a05:620a:2592:b0:7c5:8ece:8b56 with SMTP id af79cd13be357-7c927f9a9f9mr101647585a.4.1744969881711;
-        Fri, 18 Apr 2025 02:51:21 -0700 (PDT)
-Received: from [192.168.65.58] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-acb6ec0c64csm102377266b.13.2025.04.18.02.51.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 18 Apr 2025 02:51:21 -0700 (PDT)
-Message-ID: <5e6a3c7e-4e58-4e42-ac31-3666f49d07f6@oss.qualcomm.com>
-Date: Fri, 18 Apr 2025 11:51:17 +0200
+	id 1u5iNa-0000000FnVk-3JH0;
+	Fri, 18 Apr 2025 09:51:28 +0000
+Received: from localhost.localdomain (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 125a9718e;
+	Fri, 18 Apr 2025 17:51:18 +0800 (GMT+08:00)
+From: Kever Yang <kever.yang@rock-chips.com>
+To: heiko@sntech.de
+Cc: linux-rockchip@lists.infradead.org,
+	David Wu <david.wu@rock-chips.com>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Jonas Karlman <jonas@kwiboo.se>,
+	"Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
+	netdev@vger.kernel.org,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	linux-kernel@vger.kernel.org,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Paolo Abeni <pabeni@redhat.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Eric Dumazet <edumazet@google.com>
+Subject: [PATCH v3 2/3] ethernet: stmmac: dwmac-rk: Add gmac support for rk3562
+Date: Fri, 18 Apr 2025 17:51:13 +0800
+Message-Id: <20250418095114.271562-2-kever.yang@rock-chips.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250418095114.271562-1-kever.yang@rock-chips.com>
+References: <20250418095114.271562-1-kever.yang@rock-chips.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 2/2] arm64: dts: qcom: sa8775p: Add support for camss
-To: Vikram Sharma <quic_vikramsa@quicinc.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, rfoss@kernel.org,
-        todor.too@gmail.com, bryan.odonoghue@linaro.org, mchehab@kernel.org,
-        robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-        andersson@kernel.org, konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
-        cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com,
-        will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org,
-        Suresh Vankadara <quic_svankada@quicinc.com>
-References: <20250210155605.575367-1-quic_vikramsa@quicinc.com>
- <20250210155605.575367-3-quic_vikramsa@quicinc.com>
- <65663927-cc11-4810-8714-7600786f299b@oss.qualcomm.com>
- <7fd92093-3efc-4f24-967d-7e267162b26d@quicinc.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <7fd92093-3efc-4f24-967d-7e267162b26d@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: xMePTa0D6oFHUgbyuVV2J3ZREx6GfKvb
-X-Authority-Analysis: v=2.4 cv=RbSQC0tv c=1 sm=1 tr=0 ts=6802209b cx=c_pps a=HLyN3IcIa5EE8TELMZ618Q==:117 a=FpWmc02/iXfjRdCD7H54yg==:17 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=-5tugLDAGQjhnTpWTo4A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=bTQJ7kPSJx9SKPbeHEYW:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: xMePTa0D6oFHUgbyuVV2J3ZREx6GfKvb
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-18_02,2025-04-17_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=999
- suspectscore=0 adultscore=0 impostorscore=0 clxscore=1015 bulkscore=0
- phishscore=0 priorityscore=1501 spamscore=0 mlxscore=0 lowpriorityscore=0
- malwarescore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2504180072
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGU1CHlYeTkIaSBpCSx9CTx1WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+X-HM-Tid: 0a96484f4d0f03afkunm125a9718e
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Nhw6TBw5AjJILAoqFE8BI01O
+	NxxPCVFVSlVKTE9PQk1CQ0NLT0pNVTMWGhIXVRAeDR4JVQIaFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFCSEtCNwY+
+DKIM-Signature: a=rsa-sha256;
+	b=gIX02F8h0RxLT/DTsz8UM4xkQV6oLzvmtElFFMRmrvjBlC9tLDkEx2CRPf2Yi5t8gpoFtiBkMJGT3089Y2RKyumZNGsjZCnEhvMSyrLRv96ytqTE7juPeZYmUozbdxRfgdY+cQ+uidM6M5yYyqitJF+rBJzL2f38eHiF5CE4sSQ=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=IjfZi31hmUptjdnNvZySV4nqA3Lhny6AX1T2Wc7MbAc=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_025125_412979_7C1E0E8F 
-X-CRM114-Status: GOOD (  17.41  )
+X-CRM114-CacheID: sfid-20250418_025127_416943_54CAD33B 
+X-CRM114-Status: GOOD (  14.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,47 +88,243 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/18/25 9:28 AM, Vikram Sharma wrote:
-> 
-> On 4/14/2025 7:18 PM, Konrad Dybcio wrote:
->> On 2/10/25 4:56 PM, Vikram Sharma wrote:
->>> Add changes to support the camera subsystem on the SA8775P.
->>>
->>> Co-developed-by: Suresh Vankadara <quic_svankada@quicinc.com>
->>> Signed-off-by: Suresh Vankadara <quic_svankada@quicinc.com>
->>> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
->>> ---
->> [...]
->>
->>> +            interrupts = <GIC_SPI 565 IRQ_TYPE_EDGE_RISING>,
->>> +                     <GIC_SPI 564 IRQ_TYPE_EDGE_RISING>,
->>> +                     <GIC_SPI 468 IRQ_TYPE_EDGE_RISING>,
->>> +                     <GIC_SPI 359 IRQ_TYPE_EDGE_RISING>,
->>> +                     <GIC_SPI 759 IRQ_TYPE_EDGE_RISING>,
->> 760> +                     <GIC_SPI 758 IRQ_TYPE_EDGE_RISING>,
-> 
-> Hi Konrad,
-> 
-> We cross checked internal documents to confirm IRQ number for csid_lite2/3 and vfe_lite2/3
-> Calculation for IRQ number is done with respect to vector number as
-> irq_num = (vector - 32).
-> csid_lite2 vector -> 791
-> csid_lite3 vector -> 790
-> vfe_lite2  vector -> 793
-> vfe_lite3  vector -> 792
-> 
-> thus irqs are as
-> csid_lite2 -> 759
-> csid_lite3 -> 758
-> vfe_lite2  -> 761
-> vfe_lite3  -> 760
-> 
-> Please let me know if this looks fine to you?
+From: David Wu <david.wu@rock-chips.com>
 
-We had a similar issue with qcs8300 - the reported vector id skipped a
-number at some point. In that case the SPI ports indices alongside
-them were advised to be used. Please check with the HW team, but I
-suppose this would be the case for this one too.
+Add constants and callback functions for the dwmac on RK3562 soc.
+As can be seen, the base structure is the same.
 
-Konrad
+Signed-off-by: David Wu <david.wu@rock-chips.com>
+Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
+---
+
+Changes in v3:
+- remove unreadable MACRO;
+- use two function for rmii and rgmii speed set;
+- don't check grf and php_grf in function call;
+- rebase on v6.15-rc1
+
+Changes in v2:
+- Collect review tag
+
+ .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 190 ++++++++++++++++++
+ 1 file changed, 190 insertions(+)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+index 700858ff6f7c..82174054644a 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+@@ -2,6 +2,7 @@
+ /**
+  * DOC: dwmac-rk.c - Rockchip RK3288 DWMAC specific glue layer
+  *
++ * Copyright (c) 2014 Rockchip Electronics Co., Ltd.
+  * Copyright (C) 2014 Chen-Zhi (Roger Chen)
+  *
+  * Chen-Zhi (Roger Chen)  <roger.chen@rock-chips.com>
+@@ -1048,6 +1049,194 @@ static const struct rk_gmac_ops rk3528_ops = {
+ 	},
+ };
+ 
++/* sys_grf */
++#define RK3562_GRF_SYS_SOC_CON0			0X0400
++#define RK3562_GRF_SYS_SOC_CON1			0X0404
++
++#define RK3562_GMAC0_CLK_RMII_MODE		GRF_BIT(5)
++#define RK3562_GMAC0_CLK_RGMII_MODE		GRF_CLR_BIT(5)
++
++#define RK3562_GMAC0_CLK_RMII_GATE		GRF_BIT(6)
++#define RK3562_GMAC0_CLK_RMII_NOGATE		GRF_CLR_BIT(6)
++
++#define RK3562_GMAC0_CLK_RMII_DIV2		GRF_BIT(7)
++#define RK3562_GMAC0_CLK_RMII_DIV20		GRF_CLR_BIT(7)
++
++#define RK3562_GMAC0_CLK_RGMII_DIV1		\
++				(GRF_CLR_BIT(7) | GRF_CLR_BIT(8))
++#define RK3562_GMAC0_CLK_RGMII_DIV5		\
++				(GRF_BIT(7) | GRF_BIT(8))
++#define RK3562_GMAC0_CLK_RGMII_DIV50		\
++				(GRF_CLR_BIT(7) | GRF_BIT(8))
++
++#define RK3562_GMAC0_CLK_RMII_DIV2		GRF_BIT(7)
++#define RK3562_GMAC0_CLK_RMII_DIV20		GRF_CLR_BIT(7)
++
++#define RK3562_GMAC0_CLK_SELET_CRU		GRF_CLR_BIT(9)
++#define RK3562_GMAC0_CLK_SELET_IO		GRF_BIT(9)
++
++#define RK3562_GMAC1_CLK_RMII_GATE		GRF_BIT(12)
++#define RK3562_GMAC1_CLK_RMII_NOGATE		GRF_CLR_BIT(12)
++
++#define RK3562_GMAC1_CLK_RMII_DIV2		GRF_BIT(13)
++#define RK3562_GMAC1_CLK_RMII_DIV20		GRF_CLR_BIT(13)
++
++#define RK3562_GMAC1_RMII_SPEED100		GRF_BIT(11)
++#define RK3562_GMAC1_RMII_SPEED10		GRF_CLR_BIT(11)
++
++#define RK3562_GMAC1_CLK_SELET_CRU		GRF_CLR_BIT(15)
++#define RK3562_GMAC1_CLK_SELET_IO		GRF_BIT(15)
++
++/* ioc_grf */
++#define RK3562_GRF_IOC_GMAC_IOFUNC0_CON0	0X10400
++#define RK3562_GRF_IOC_GMAC_IOFUNC0_CON1	0X10404
++#define RK3562_GRF_IOC_GMAC_IOFUNC1_CON0	0X00400
++#define RK3562_GRF_IOC_GMAC_IOFUNC1_CON1	0X00404
++
++#define RK3562_GMAC_RXCLK_DLY_ENABLE		GRF_BIT(1)
++#define RK3562_GMAC_RXCLK_DLY_DISABLE		GRF_CLR_BIT(1)
++#define RK3562_GMAC_TXCLK_DLY_ENABLE		GRF_BIT(0)
++#define RK3562_GMAC_TXCLK_DLY_DISABLE		GRF_CLR_BIT(0)
++
++#define RK3562_GMAC_CLK_RX_DL_CFG(val)		HIWORD_UPDATE(val, 0xFF, 8)
++#define RK3562_GMAC_CLK_TX_DL_CFG(val)		HIWORD_UPDATE(val, 0xFF, 0)
++
++#define RK3562_GMAC0_IO_EXTCLK_SELET_CRU	GRF_CLR_BIT(2)
++#define RK3562_GMAC0_IO_EXTCLK_SELET_IO		GRF_BIT(2)
++
++#define RK3562_GMAC1_IO_EXTCLK_SELET_CRU	GRF_CLR_BIT(3)
++#define RK3562_GMAC1_IO_EXTCLK_SELET_IO		GRF_BIT(3)
++
++static void rk3562_set_to_rgmii(struct rk_priv_data *bsp_priv,
++				int tx_delay, int rx_delay)
++{
++	regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON0,
++		     RK3562_GMAC0_CLK_RGMII_MODE);
++
++	regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC0_CON1,
++		     DELAY_ENABLE(RK3562, tx_delay, rx_delay));
++	regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC0_CON0,
++		     RK3562_GMAC_CLK_RX_DL_CFG(rx_delay) |
++		     RK3562_GMAC_CLK_TX_DL_CFG(tx_delay));
++
++	regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC1_CON1,
++		     DELAY_ENABLE(RK3562, tx_delay, rx_delay));
++	regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC1_CON0,
++		     RK3562_GMAC_CLK_RX_DL_CFG(rx_delay) |
++		     RK3562_GMAC_CLK_TX_DL_CFG(tx_delay));
++}
++
++static void rk3562_set_to_rmii(struct rk_priv_data *bsp_priv)
++{
++	if (!bsp_priv->id)
++		regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON0,
++			     RK3562_GMAC0_CLK_RMII_MODE);
++}
++
++static void rk3562_set_gmac_rgmii_speed(struct rk_priv_data *bsp_priv, int speed)
++{
++	struct device *dev = &bsp_priv->pdev->dev;
++	unsigned int val = 0;
++
++	switch (speed) {
++	case 10:
++		val = RK3562_GMAC0_CLK_RGMII_DIV50;
++		break;
++	case 100:
++		val = RK3562_GMAC0_CLK_RGMII_DIV5;
++		break;
++	case 1000:
++		val = RK3562_GMAC0_CLK_RGMII_DIV1;
++		break;
++	default:
++		goto err;
++	}
++
++	regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON0, val);
++	return;
++err:
++	dev_err(dev, "unknown speed value for GMAC speed=%d", speed);
++}
++
++static void rk3562_set_gmac_rmii_speed(struct rk_priv_data *bsp_priv, int speed)
++{
++	struct device *dev = &bsp_priv->pdev->dev;
++	unsigned int val = 0, offset;
++
++	switch (speed) {
++	case 10:
++		if (bsp_priv->id == 1) {
++			val = RK3562_GMAC1_CLK_RMII_DIV20;
++			regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON0,
++				     RK3562_GMAC1_RMII_SPEED10);
++		} else {
++			val = RK3562_GMAC0_CLK_RMII_DIV20;
++		}
++		break;
++	case 100:
++		if (bsp_priv->id == 1) {
++			val = RK3562_GMAC1_CLK_RMII_DIV2;
++			regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON0,
++				     RK3562_GMAC1_RMII_SPEED100);
++		} else {
++			val = RK3562_GMAC0_CLK_RMII_DIV2;
++		}
++		break;
++	default:
++		goto err;
++	}
++
++	offset = (bsp_priv->id == 1) ? RK3562_GRF_SYS_SOC_CON1 :
++				       RK3562_GRF_SYS_SOC_CON0;
++	regmap_write(bsp_priv->grf, offset, val);
++	return;
++err:
++	dev_err(dev, "unknown speed value for GMAC speed=%d", speed);
++}
++
++static void rk3562_set_clock_selection(struct rk_priv_data *bsp_priv, bool input,
++				       bool enable)
++{
++	struct device *dev = &bsp_priv->pdev->dev;
++	unsigned int value;
++
++	if (IS_ERR(bsp_priv->grf) || IS_ERR(bsp_priv->php_grf)) {
++		dev_err(dev, "Missing rockchip,grf or rockchip,php_grf property\n");
++		return;
++	}
++
++	if (!bsp_priv->id) {
++		value = input ? RK3562_GMAC0_CLK_SELET_IO :
++				RK3562_GMAC0_CLK_SELET_CRU;
++		value |= enable ? RK3562_GMAC0_CLK_RMII_NOGATE :
++				  RK3562_GMAC0_CLK_RMII_GATE;
++		regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON0, value);
++
++		value = input ? RK3562_GMAC0_IO_EXTCLK_SELET_IO :
++				RK3562_GMAC0_IO_EXTCLK_SELET_CRU;
++		regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC0_CON1, value);
++		regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC1_CON1, value);
++	} else {
++		value = input ? RK3562_GMAC1_CLK_SELET_IO :
++				RK3562_GMAC1_CLK_SELET_CRU;
++		value |= enable ? RK3562_GMAC1_CLK_RMII_NOGATE :
++				 RK3562_GMAC1_CLK_RMII_GATE;
++		regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON1, value);
++
++		value = input ? RK3562_GMAC1_IO_EXTCLK_SELET_IO :
++				RK3562_GMAC1_IO_EXTCLK_SELET_CRU;
++		regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC1_CON1, value);
++	}
++}
++
++static const struct rk_gmac_ops rk3562_ops = {
++	.set_to_rgmii = rk3562_set_to_rgmii,
++	.set_to_rmii = rk3562_set_to_rmii,
++	.set_rgmii_speed = rk3562_set_gmac_rgmii_speed,
++	.set_rmii_speed = rk3562_set_gmac_rmii_speed,
++	.set_clock_selection = rk3562_set_clock_selection,
++};
++
+ #define RK3568_GRF_GMAC0_CON0		0x0380
+ #define RK3568_GRF_GMAC0_CON1		0x0384
+ #define RK3568_GRF_GMAC1_CON0		0x0388
+@@ -1996,6 +2185,7 @@ static const struct of_device_id rk_gmac_dwmac_match[] = {
+ 	{ .compatible = "rockchip,rk3368-gmac", .data = &rk3368_ops },
+ 	{ .compatible = "rockchip,rk3399-gmac", .data = &rk3399_ops },
+ 	{ .compatible = "rockchip,rk3528-gmac", .data = &rk3528_ops },
++	{ .compatible = "rockchip,rk3562-gmac", .data = &rk3562_ops },
+ 	{ .compatible = "rockchip,rk3568-gmac", .data = &rk3568_ops },
+ 	{ .compatible = "rockchip,rk3576-gmac", .data = &rk3576_ops },
+ 	{ .compatible = "rockchip,rk3588-gmac", .data = &rk3588_ops },
+-- 
+2.25.1
+
 
