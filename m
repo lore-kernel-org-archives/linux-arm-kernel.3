@@ -4,119 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 567CDC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 14:41:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50555C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 14:43:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5uFngoUCG3XAir1EPtcl6+IZoVnaLlu4FAagFZB/Fro=; b=jzTywGifgL4umVXatNfw4esge8
-	oCfYmRxTNeHQChClJmp852zabIR0nAS02YjC1YUTWZ2nML2jMaKKDAXoOfTYHFVuRAS48pQUXlSdH
-	9tdSH5Nv1r6dtkmkejM5yaV7kigC7ap1p/0Uwn9FLZavNF0RpCgWtp+wMMqyd4OIy+0fS/ButJYUV
-	p8vocUxC9uWXcGdEtWufCy1DvI2SNXW16/CMP/NbBWKC0K3mSDpUAuk7ZYi+5YPYi1FYDYCt9z7nL
-	ojEiBhqXq3xSHcJyxawatolPQO5tsxOndYICsuIavEOyPb6gAh97TlgeHztJlu1h2CeDAwBXmjhu4
-	b3/b2muA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7xWBrhMoZbugc1pyBrVITkVru2bavizkyHIBfAy50sk=; b=fqni4z64bGWJRzqsr8FAsqDmvL
+	6/tPPqycoLamNXR2HpYXCViYnflajcp6TolNHfd8tAQL4jJ9D/I0z2NJ1oGR+qzoxe53D4Se8V+MQ
+	G3BdTuZbeUWhb1STEWXcLkhWKtmeFC43ExrqzdfEwiQuRLEQlvpAjhcP+Ryk/Mkn8aG/ZWeXilOnX
+	YTjjKlB5Wl0bR/skY0LcAIgaQAekuQrNXHpgLdfEszZM/zkGbhEc6JIInrcj1xEwV8y+a+z+sdt2G
+	KCPkqats/OuCZrdc4c9tNNzAHfMs1HPVhNiulSn4OkQGtVm9ZxzNCbumtHrc5wmUN6Vem7aAUaThT
+	yYw2D2XQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5mtx-0000000GTY6-0QgY;
-	Fri, 18 Apr 2025 14:41:09 +0000
-Received: from mout.gmx.net ([212.227.15.18])
+	id 1u5mvq-0000000GTvN-3qzp;
+	Fri, 18 Apr 2025 14:43:06 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5mmN-0000000GRvu-468y
+	id 1u5mmm-0000000GS1k-2yFC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 14:33:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1744986792; x=1745591592; i=wahrenst@gmx.net;
-	bh=5uFngoUCG3XAir1EPtcl6+IZoVnaLlu4FAagFZB/Fro=;
-	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-Id:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=k3oB2NimC/dPFRqwNP2LKu+ERMf7gI7GcBDn7i7CX5x01IO4mB7yH4J7/NI7c3rG
-	 oVYMxffCIoqkrRwA7C2RTYMNbOHD9IrJBotOhaEkBWt6v5Af1Ib8BY32VIM5IuM6A
-	 BvuqysswRnMOia1Y/Maj3TYBJx91WIjV17LoPWEQytalX9OCo/NhW9NFUUsQBWIhS
-	 7fT6b0ibSACRG1uJ6UG7Ojbh5lGBdwTNT+s/+DvoTmEdM6BmCmKCSKUw23n7c/oAP
-	 0Ni5wTxaSyjttDIbdV1HwT+v6cUyFiiaCWRkIXbqwOPwTUpoGsNDYrqotuXyzUWdO
-	 eQsjfpVaYXQZOcQxow==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from stefanw-SCHENKER ([37.4.251.153]) by mail.gmx.net (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MRCK6-1uSpye2jZs-00TvdT; Fri, 18
- Apr 2025 16:33:12 +0200
-From: Stefan Wahren <wahrenst@gmx.net>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Andrea della Porta <andrea.porta@suse.com>,
-	linux-arm-kernel@lists.infradead.org,
-	bcm-kernel-feedback-list@broadcom.com,
-	kernel-list@raspberrypi.com,
-	devicetree@vger.kernel.org,
-	Stefan Wahren <wahrenst@gmx.net>
-Subject: [PATCH 1/3] dt-bindings: arm: bcm2835: Add Raspberry Pi 2 (2nd rev)
-Date: Fri, 18 Apr 2025 16:33:05 +0200
-Message-Id: <20250418143307.59235-2-wahrenst@gmx.net>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250418143307.59235-1-wahrenst@gmx.net>
-References: <20250418143307.59235-1-wahrenst@gmx.net>
+	Fri, 18 Apr 2025 14:33:46 +0000
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-5e5e8274a74so2915167a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 07:33:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744986823; x=1745591623; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=7xWBrhMoZbugc1pyBrVITkVru2bavizkyHIBfAy50sk=;
+        b=UpWbYd4pYRyJVCcODUcevGHfuhcy2uNWnxquJI0UvD990LTWXDlalJdFdMt3iUOEc8
+         hpcdq1Fq4Rco0CcMlfxFaEgm2S7BPzxVTE4s4/wT4Jetd3hUJkGtiJxLb2Mz0wXQi4g5
+         /n86oZ7oDUQhhgaR2Q/qeMN0q5YkanoAEaDOj/3NWlMuklBzY5C1gT/jn4S8gFFAx/2/
+         neH4kLxbKgOrq51gfyGWet+T2LyAgs/nelLPALqzoLBFMVMD1pZcDFpISoj0giTSuf6k
+         tOS59oPEQWj7Wh0IEvwD5k1vRpJl4jlHInWVgxGnVczSiyHkbi6hbAFwT2vvkOByYut7
+         pSGA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744986823; x=1745591623;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=7xWBrhMoZbugc1pyBrVITkVru2bavizkyHIBfAy50sk=;
+        b=v0bBCeWxY7ExWZL22XXON1P8UtW4/t41fEumF4P3cTwEGMtsHwMuO3uGaJWCYLCw5t
+         GDFL7Mi5lOMTAeMx0NaFI8bpGTpIVl8HCSgRE3zwXba5vZc2XEpNEy6pw5q61UjOuXpJ
+         MJ9W9BzRSL+RCHZKUlbgb2GXIbTmLuCSKq2kb3u4imAPcP/4zaoWYUEbeDQIXGbUviWu
+         eyAzchInwx8zFdKg/4CBVb0B4W+DnEhMyvk9wTBlfPBp/Cv3t40uvtyvhHkGO9+nrcYq
+         Q7xMSuKv4+kTMWNMny9rDD7+lnXk2mBOk5Pr1V7NvzUjQSSQoCimkTu6uXs0xJ/3R/9O
+         kn+g==
+X-Forwarded-Encrypted: i=1; AJvYcCUb7JesX3bVFLRaG2sXYSJRJVltwPMlFQ1964pbRR91/n3kVtg2VhNfy1v24SPDAxDiBT/wvRFx/ISJQkYBwzpj@lists.infradead.org
+X-Gm-Message-State: AOJu0YweWBk0PwwUyBh+OKjbJg+CnzF+j04WFVa4HV2+neEoKCNRg1Mr
+	g+N/HtLSKndgOs2Y5PK2WDQQ1uD4tgvMqWS7vmq6vaS2+CQmLm37
+X-Gm-Gg: ASbGnctkEPHHtHikd0291v6wpGCFwDG56f5i16CmsX8R2/RsggT/43kPJgBjDJ5kyvD
+	ue06z8tlpmD5b1zI8AfEMCAFMt/QLFr4VEbx74taKaVKqFDNhXgMS2junAWFMiMdQCtVjxb8oy/
+	SEXYrbfvkUXgVXvsShchsn1uL5pI5Dtp5oBQzOycihZS5xjRNo3ZC1mteTkkXISXmiTZ2LfKd3n
+	pMgMbLsJ9AgZjbxV3jLsoc9d7KhQE7Ei0aOAA22znzX248hAqIk0sBvxiIciNVNRz4sskGKasFj
+	nimxHYeDhV5uVm0sPl+tpykDk1ONWjpMVoGcGDAsdC7B4ZJWdIUn
+X-Google-Smtp-Source: AGHT+IEcnxUHY3/54G2wHOQst0KE+WrBA6XR3tiAQlrpS/18wB0AktIZqdCpGIWVrwq8J9kwLSsU2A==
+X-Received: by 2002:a17:907:2da4:b0:aca:cad6:458e with SMTP id a640c23a62f3a-acb74dd6021mr281005866b.43.1744986822447;
+        Fri, 18 Apr 2025 07:33:42 -0700 (PDT)
+Received: from NB-GIGA003.letovo.school ([5.194.95.139])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-acb6ec0b1e4sm127453666b.34.2025.04.18.07.33.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 18 Apr 2025 07:33:42 -0700 (PDT)
+From: Alexey Charkov <alchark@gmail.com>
+Date: Fri, 18 Apr 2025 18:33:45 +0400
+Subject: [PATCH v2] dt-bindings: timer: via,vt8500-timer: Convert to YAML
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:gpUw5xEoDWjUMHUOrFn60ujslafi+gh1KI+HgHhDszE5BjakI9J
- RD921Z8Har11q85KCmu2xSjO9GeDZ1ypuaIhROUscWhCbUz6JIDNbWcHhjQlA51fOVNsJry
- Yb6ZpK2Gs3XnW1IBtvZBfNZse3P44t3rKGqoIbgvraqWG2bjG8lPSLmGP4l2di6DsocOm33
- UsLopmOjjpOIxMcD+Fp/A==
-UI-OutboundReport: notjunk:1;M01:P0:Hf/Xq4uBt/M=;Rxi5gBTXo7tWBkPJTyaaGFQtpJF
- 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
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250418-via_vt8500_timer_binding-v2-1-3c125568f028@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAMhiAmgC/02O0YrCMBBFf6XMs4VkbNNpf0WkZJKpOw+NmmbLg
+ vjvBoXFx3Ph3nsesElW2WBqHpBl102vqQIeGgg/Pl2k1VgZ0GBvOkvtrn7eC/XGzEVXyTNripo
+ u7WjQchyoFzJQ67csi/69p0/nD2e5/9aH8gmB/SZtuK6rlqkxfsHFsVjukOyRenaWApPzceycR
+ ImGRh8Ivs2q6LeXphL+fQYZmZEcdoOddoTz8/kCohaAFO4AAAA=
+X-Change-ID: 20250418-via_vt8500_timer_binding-9021bd785e80
+To: Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Alexey Charkov <alchark@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1744986827; l=4470;
+ i=alchark@gmail.com; s=20250416; h=from:subject:message-id;
+ bh=8hvzQpevJpd8opdibOVe4+Ri5sQRV3J/5rabA+wMngg=;
+ b=WUeT1BUiZFwvLtY9348IfWL78Tc2LE+rMnaK205tuNUhTEf/IqweRGtmSetty1wwIDgqp9Nbc
+ 7AdZc/B/wnbAHr9/QUM2L6JrLq8215rVwD6vRpJu6XMuYG+ckRyVsge
+X-Developer-Key: i=alchark@gmail.com; a=ed25519;
+ pk=ltKbQzKLTJPiDgPtcHxdo+dzFthCCMtC3V9qf7+0rkc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_073320_161413_14E4AEA6 
-X-CRM114-Status: UNSURE (   8.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250418_073344_756242_E60CB141 
+X-CRM114-Status: GOOD (  19.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,27 +110,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the Raspberry Pi 2 (2nd rev) based on BCM2837 to DT schema.
+Rewrite the textual description for the VIA/WonderMedia timer
+as YAML schema.
 
-Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
-=2D--
- Documentation/devicetree/bindings/arm/bcm/bcm2835.yaml | 1 +
- 1 file changed, 1 insertion(+)
+The IP can generate up to four interrupts from four respective match
+registers, so reflect that in the schema.
 
-diff --git a/Documentation/devicetree/bindings/arm/bcm/bcm2835.yaml b/Docu=
-mentation/devicetree/bindings/arm/bcm/bcm2835.yaml
-index e4ff71f006b8..2729a542c4f3 100644
-=2D-- a/Documentation/devicetree/bindings/arm/bcm/bcm2835.yaml
-+++ b/Documentation/devicetree/bindings/arm/bcm/bcm2835.yaml
-@@ -52,6 +52,7 @@ properties:
-       - description: BCM2837 based Boards
-         items:
-           - enum:
-+              - raspberrypi,2-model-b-rev2
-               - raspberrypi,3-model-a-plus
-               - raspberrypi,3-model-b
-               - raspberrypi,3-model-b-plus
-=2D-=20
-2.34.1
+Signed-off-by: Alexey Charkov <alchark@gmail.com>
+---
+Split the series from v1 into separate bindings patches so as not to
+spam all the subsystems with unrelated changes, per Rob's suggestion
+
+Changes in v2:
+- added description for the four possible interrupts (thanks Rob)
+- added overall description of the IC block
+
+Link to v1: https://lore.kernel.org/all/20250416-wmt-updates-v1-6-f9af689cdfc2@gmail.com/
+---
+ .../devicetree/bindings/timer/via,vt8500-timer.txt | 15 -------
+ .../bindings/timer/via,vt8500-timer.yaml           | 51 ++++++++++++++++++++++
+ MAINTAINERS                                        |  2 +
+ 3 files changed, 53 insertions(+), 15 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/timer/via,vt8500-timer.txt b/Documentation/devicetree/bindings/timer/via,vt8500-timer.txt
+deleted file mode 100644
+index 901c73f0d8ef05fb54d517b807d04f80eef2e736..0000000000000000000000000000000000000000
+--- a/Documentation/devicetree/bindings/timer/via,vt8500-timer.txt
++++ /dev/null
+@@ -1,15 +0,0 @@
+-VIA/Wondermedia VT8500 Timer
+------------------------------------------------------
+-
+-Required properties:
+-- compatible : "via,vt8500-timer"
+-- reg : Should contain 1 register ranges(address and length)
+-- interrupts : interrupt for the timer
+-
+-Example:
+-
+-	timer@d8130100 {
+-		compatible = "via,vt8500-timer";
+-		reg = <0xd8130100 0x28>;
+-		interrupts = <36>;
+-	};
+diff --git a/Documentation/devicetree/bindings/timer/via,vt8500-timer.yaml b/Documentation/devicetree/bindings/timer/via,vt8500-timer.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..e748149948f3140d4a158f800b91e70bf9c4f042
+--- /dev/null
++++ b/Documentation/devicetree/bindings/timer/via,vt8500-timer.yaml
+@@ -0,0 +1,51 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/timer/via,vt8500-timer.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: VIA/Wondermedia VT8500 Timer
++
++description:
++  This is the timer block that is a standalone part of the system power
++  management controller on VIA/WonderMedia SoCs (VIA VT8500 and alike).
++  The hardware has a single 32-bit counter running at 3 MHz and four match
++  registers, each of which is associated with a dedicated match interrupt,
++  and the first of which can also serve as the system watchdog (if the
++  watchdog function is enabled, it will reset the system upon match instead
++  of triggering its respective interrupt)
++
++maintainers:
++  - Alexey Charkov <alchark@gmail.com>
++
++properties:
++  compatible:
++    const: via,vt8500-timer
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    minItems: 1
++    items:
++      - description: Channel 0 match. Note that if the watchdog function
++          is enabled, this interrupt will not fire and the system will
++          reboot instead once the counter reaches match register 0 value
++      - description: Channel 1 match
++      - description: Channel 2 match
++      - description: Channel 3 match
++
++required:
++  - compatible
++  - reg
++  - interrupts
++
++additionalProperties: false
++
++examples:
++  - |
++    timer@d8130100 {
++        compatible = "via,vt8500-timer";
++        reg = <0xd8130100 0x28>;
++        interrupts = <36>;
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 96b82704950184bd71623ff41fc4df31e4c7fe87..ed5d6ea34959d11624732ea7601e4d51ad19eac2 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -3428,6 +3428,8 @@ M:	Krzysztof Kozlowski <krzk@kernel.org>
+ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+ S:	Odd Fixes
+ F:	Documentation/devicetree/bindings/i2c/i2c-wmt.txt
++F:	Documentation/devicetree/bindings/interrupt-controller/via,vt8500-intc.yaml
++F:	Documentation/devicetree/bindings/timer/via,vt8500-timer.yaml
+ F:	arch/arm/boot/dts/vt8500/
+ F:	arch/arm/mach-vt8500/
+ F:	drivers/clocksource/timer-vt8500.c
+
+---
+base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
+change-id: 20250418-via_vt8500_timer_binding-9021bd785e80
+prerequisite-change-id: 20250418-via_intc_binding-7e9bb2862471:v2
+prerequisite-patch-id: c53a4f3be5edb497bb9ff8fcad6cdba382d07fc6
+
+Best regards,
+-- 
+Alexey Charkov <alchark@gmail.com>
 
 
