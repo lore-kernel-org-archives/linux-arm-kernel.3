@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B111EC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 16:40:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E57A7C369CA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 16:43:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=sNaKwX8Yr/4SjaDVprKM7coPLSLQd99kIB+9NbnIxCc=; b=hAmMCm4cb7/TAsiKq689LXprd+
-	oIlRgYczWvR9RGLutCZ39cydDpGjHM8z75pSD+pKtVdqTXA7XnM7Rxkvl0DVO2YL6Ddeu6ZEiDoNJ
-	BD1M0sYDUxHGYSJvcG0Hz6S2Fkon6kost0rsAFvHQjmQanGSTQehIJ689gLYrhgHv1+rtAq8WH10O
-	9B+iksEkluBMpJzocM9qkRCwWd5Hf+Phu0IlNgh8IbKFiu+SUa4Py5mysSzCQy1EJudOXV7D9YxmY
-	57e56quzn7iCuOOv9NRjJPMvnFMaZ75tXgP5AfKSaJmk7DPYZi85s/iobNhycxAN445Ciwu8AY4jK
-	jv1/tTTw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8ckJ2ikJpOlIPbQNWekZFPm6xQMztjRRL7IzWS/4VTc=; b=WsmJHUBP2kOwQf0KuQRfzksAXn
+	2SU/BXcyFwLHA5S070viY1B3v7y7HxgCU5CA6NmJmX6S69IIiin+rz8va5S5TDcDjzzExY/9rZoBH
+	qH5+pdZ3CPBYXMirkGnzIL539NiitEEOwE3VwAFprgkx1v61o15p1yVMhnVkAizsPvvrMf9qzSnf7
+	Xtcp0mgPOW3i2iZY6bCq1vtMYBZyLkNd2LKj6j1viwEHKTnthpnlbnqPIkF9wpbV0A7bOjTtfUj17
+	T8zWShf8muVSfXdAh1uoXTCaQegqtInNLalhAjURxcnGBiUsmDS6nTFeCgF9aGHen+YF3fXp0NaOa
+	op4KjA0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5olZ-0000000GzLP-0jB0;
-	Fri, 18 Apr 2025 16:40:37 +0000
+	id 1u5onv-0000000H0TP-3f6u;
+	Fri, 18 Apr 2025 16:43:03 +0000
 Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5ojb-0000000Gygc-2ddb
+	id 1u5ojb-0000000Gygf-2UYl
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 18 Apr 2025 16:38:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
   t=1744994316; x=1776530316;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=xqgpaY93D1rOJgzOV/8X2FRs9Z+GmQNa/gFVzslPY8c=;
-  b=ZFCMH9x3iadeVZRqWygqwPj03dMd32Zqztz088APQioQKgPHxP/RN9cQ
-   x2ZjKVNLhDinmzpLq+I8MSSnH0KHuW39DLVPH/wp9Gqv+4ZXH0YoLq/dz
-   kzdb4xs57Q/Yp9N4bi+sqvTgzWmCTx0pGUXi7/PAfMOiIRD3FI84FWbXe
-   COi+4L6GhPDpLSXBRERzgV8COwuedeU6wgnlsrHtsEcs8oI/ccYIUvkbL
-   MhWTGFfHHrTWH7VO5vsON1d6CjNSHCkBEjyElLaKTtAWcOvNvHkbosRmr
-   Q5gT1ur1ZGVWbKKjqRSxQsKrLTyV6bJ++tjBNX2V9KPc5jSv0ZkiHrXZ1
-   w==;
-X-CSE-ConnectionGUID: Dvp2Pi6RSZqFMMx2k3Kutg==
-X-CSE-MsgGUID: RtnwWBdNQNWyr7sI50VtdA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11407"; a="50454238"
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=LBEVVzl9AqXsVCeuCIZBkBF+uqNuleXQBotMixba0Y0=;
+  b=ERh4icUuGWhs9TB/gunAjldtzZUK+PBDigGSeKfXeRStR73FydrF4SLe
+   2rGxUMG+qp3OMNgRUh35NKLkISyXXDnMrKHtq+zeZzmHaxGXGZNrZOq72
+   AlLt8M290uarUlCk3WtKMOD9zDB8qit/xq08c/1xWZzddWxb+zkQ4surV
+   A1m8Z3xV3V13Ch2vW4Faal/kLZoTpUuTh3Q/IAMQLiHfBc5Sd7cGv4ORH
+   iygAojmtD6jjRYR19g7Day2QflXKjEIjja8DSAzxG4VBEsYkC3jMF2XvI
+   jWebqvRm7935POrmKumvcZcfmhpBjDndSn5P3Cd/grsDTRXTpCEbkLffX
+   g==;
+X-CSE-ConnectionGUID: VAnTwmh3Rr6iB5L4ksDt1w==
+X-CSE-MsgGUID: AihOZ9jaTX+VVuWrJA5a5g==
+X-IronPort-AV: E=McAfee;i="6700,10204,11407"; a="50454259"
 X-IronPort-AV: E=Sophos;i="6.15,222,1739865600"; 
-   d="scan'208";a="50454238"
+   d="scan'208";a="50454259"
 Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Apr 2025 09:38:32 -0700
-X-CSE-ConnectionGUID: +Tbp8mEFSiePHVO4giZG7g==
-X-CSE-MsgGUID: erEenTHARDWNKFJ8TG/WsQ==
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Apr 2025 09:38:33 -0700
+X-CSE-ConnectionGUID: PvzPpXi1TC29X9FFsJKjtA==
+X-CSE-MsgGUID: 2+PQ3pQOTYe7nr/OGXoxIg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.15,222,1739865600"; 
-   d="scan'208";a="130892216"
+   d="scan'208";a="130892221"
 Received: from anguy11-upstream.jf.intel.com ([10.166.9.133])
   by orviesa009.jf.intel.com with ESMTP; 18 Apr 2025 09:38:32 -0700
 From: Tony Nguyen <anthony.l.nguyen@intel.com>
@@ -61,8 +61,8 @@ To: davem@davemloft.net,
 	edumazet@google.com,
 	andrew+netdev@lunn.ch,
 	netdev@vger.kernel.org
-Cc: Tony Nguyen <anthony.l.nguyen@intel.com>,
-	faizal.abdul.rahim@linux.intel.com,
+Cc: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>,
+	anthony.l.nguyen@intel.com,
 	vinicius.gomes@intel.com,
 	vitaly.lifshits@intel.com,
 	dima.ruinskiy@intel.com,
@@ -91,15 +91,17 @@ Cc: Tony Nguyen <anthony.l.nguyen@intel.com>,
 	john.fastabend@gmail.com,
 	0x1207@gmail.com,
 	bpf@vger.kernel.org
-Subject: [PATCH net-next 00/14][pull request] igc: Add support for Frame Preemption
-Date: Fri, 18 Apr 2025 09:38:06 -0700
-Message-ID: <20250418163822.3519810-1-anthony.l.nguyen@intel.com>
+Subject: [PATCH net-next 01/14] net: stmmac: move frag_size handling out of spin_lock
+Date: Fri, 18 Apr 2025 09:38:07 -0700
+Message-ID: <20250418163822.3519810-2-anthony.l.nguyen@intel.com>
 X-Mailer: git-send-email 2.47.1
+In-Reply-To: <20250418163822.3519810-1-anthony.l.nguyen@intel.com>
+References: <20250418163822.3519810-1-anthony.l.nguyen@intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_093835_686864_3C1948C4 
-X-CRM114-Status: GOOD (  11.91  )
+X-CRM114-CacheID: sfid-20250418_093835_674664_DC028BDB 
+X-CRM114-Status: GOOD (  11.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,79 +116,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Faizal Rahim says:
+From: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
 
-Introduce support for the FPE feature in the IGC driver.
+The upcoming patch will extract verification logic into a new module,
+MMSV (MAC Merge Software Verification). MMSV will handle most FPE fields,
+except frag_size. It introduces its own lock (mmsv->lock), replacing
+fpe_cfg->lock.
 
-The patches aligns with the upstream FPE API:
-https://patchwork.kernel.org/project/netdevbpf/cover/20230220122343.1156614-1-vladimir.oltean@nxp.com/
-https://patchwork.kernel.org/project/netdevbpf/cover/20230119122705.73054-1-vladimir.oltean@nxp.com/
+Since frag_size handling remains in the driver, the existing rtnl_lock()
+is sufficient. Move frag_size handling out of spin_lock_irq_save() to keep
+the upcoming patch a pure refactoring without behavior changes.
 
-It builds upon earlier work:
-https://patchwork.kernel.org/project/netdevbpf/cover/20220520011538.1098888-1-vinicius.gomes@intel.com/
-
-The patch series adds the following functionalities to the IGC driver:
-a) Configure FPE using `ethtool --set-mm`.
-b) Display FPE settings via `ethtool --show-mm`.
-c) View FPE statistics using `ethtool --include-statistics --show-mm'.
-e) Block setting preemptible tc in taprio since it is not supported yet.
-   Existing code already blocks it in mqprio.
-
-Tested:
-Enabled CONFIG_PROVE_LOCKING, CONFIG_DEBUG_ATOMIC_SLEEP, CONFIG_DMA_API_DEBUG, and CONFIG_KASAN
-1) selftests
-2) netdev down/up cycles
-3) suspend/resume cycles
-4) fpe verification
-
-No bugs or unusual dmesg logs were observed.
-Ran 1), 2) and 3) with and without the patch series, compared dmesg and selftest logs - no differences found.
+Signed-off-by: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
+Reviewed-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+Reviewed-by: Furong Xu <0x1207@gmail.com>
+Signed-off-by: Tony Nguyen <anthony.l.nguyen@intel.com>
 ---
-IWL: https://lore.kernel.org/intel-wired-lan/20250318030742.2567080-1-faizal.abdul.rahim@linux.intel.com/
+ drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
 
-The following are changes since commit 8066e388be48f1ad62b0449dc1d31a25489fa12a:
-  net: add UAPI to the header guard in various network headers
-and are available in the git repository at:
-  git://git.kernel.org/pub/scm/linux/kernel/git/tnguy/next-queue 1GbE
-
-Faizal Rahim (13):
-  net: stmmac: move frag_size handling out of spin_lock
-  net: ethtool: mm: reset verification status when link is down
-  igc: rename xdp_get_tx_ring() for non-xdp usage
-  igc: rename I225_RXPBSIZE_DEFAULT and I225_TXPBSIZE_DEFAULT
-  igc: use FIELD_PREP and GENMASK for existing TX packet buffer size
-  igc: optimize TX packet buffer utilization for TSN mode
-  igc: use FIELD_PREP and GENMASK for existing RX packet buffer size
-  igc: set the RX packet buffer size for TSN mode
-  igc: add support for frame preemption verification
-  igc: add support to set tx-min-frag-size
-  igc: block setting preemptible traffic class in taprio
-  igc: add support to get MAC Merge data via ethtool
-  igc: add support to get frame preemption statistics via ethtool
-
-Vladimir Oltean (1):
-  net: ethtool: mm: extract stmmac verification logic into common
-    library
-
- drivers/net/ethernet/intel/Kconfig            |   1 +
- drivers/net/ethernet/intel/igc/igc.h          |  15 +-
- drivers/net/ethernet/intel/igc/igc_base.h     |   1 +
- drivers/net/ethernet/intel/igc/igc_defines.h  |  55 +++-
- drivers/net/ethernet/intel/igc/igc_ethtool.c  |  81 +++++
- drivers/net/ethernet/intel/igc/igc_main.c     |  69 ++++-
- drivers/net/ethernet/intel/igc/igc_regs.h     |  16 +
- drivers/net/ethernet/intel/igc/igc_tsn.c      | 210 ++++++++++++-
- drivers/net/ethernet/intel/igc/igc_tsn.h      |  52 ++++
- drivers/net/ethernet/stmicro/stmmac/Kconfig   |   1 +
- drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  16 +-
- .../ethernet/stmicro/stmmac/stmmac_ethtool.c  |  41 +--
- .../net/ethernet/stmicro/stmmac/stmmac_fpe.c  | 174 +++--------
- .../net/ethernet/stmicro/stmmac/stmmac_fpe.h  |   5 -
- .../net/ethernet/stmicro/stmmac/stmmac_main.c |   8 +-
- include/linux/ethtool.h                       |  73 +++++
- net/ethtool/mm.c                              | 279 +++++++++++++++++-
- 17 files changed, 876 insertions(+), 221 deletions(-)
-
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+index 844f7d516a40..53f51eebb746 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+@@ -1216,6 +1216,10 @@ static int stmmac_get_mm(struct net_device *ndev,
+ 	if (!stmmac_fpe_supported(priv))
+ 		return -EOPNOTSUPP;
+ 
++	state->rx_min_frag_size = ETH_ZLEN;
++	frag_size = stmmac_fpe_get_add_frag_size(priv);
++	state->tx_min_frag_size = ethtool_mm_frag_size_add_to_min(frag_size);
++
+ 	spin_lock_irqsave(&priv->fpe_cfg.lock, flags);
+ 
+ 	state->max_verify_time = STMMAC_FPE_MM_MAX_VERIFY_TIME_MS;
+@@ -1224,7 +1228,6 @@ static int stmmac_get_mm(struct net_device *ndev,
+ 	state->verify_time = priv->fpe_cfg.verify_time;
+ 	state->tx_enabled = priv->fpe_cfg.tx_enabled;
+ 	state->verify_status = priv->fpe_cfg.status;
+-	state->rx_min_frag_size = ETH_ZLEN;
+ 
+ 	/* FPE active if common tx_enabled and
+ 	 * (verification success or disabled(forced))
+@@ -1236,9 +1239,6 @@ static int stmmac_get_mm(struct net_device *ndev,
+ 	else
+ 		state->tx_active = false;
+ 
+-	frag_size = stmmac_fpe_get_add_frag_size(priv);
+-	state->tx_min_frag_size = ethtool_mm_frag_size_add_to_min(frag_size);
+-
+ 	spin_unlock_irqrestore(&priv->fpe_cfg.lock, flags);
+ 
+ 	return 0;
+@@ -1258,6 +1258,8 @@ static int stmmac_set_mm(struct net_device *ndev, struct ethtool_mm_cfg *cfg,
+ 	if (err)
+ 		return err;
+ 
++	stmmac_fpe_set_add_frag_size(priv, frag_size);
++
+ 	/* Wait for the verification that's currently in progress to finish */
+ 	timer_shutdown_sync(&fpe_cfg->verify_timer);
+ 
+@@ -1271,7 +1273,6 @@ static int stmmac_set_mm(struct net_device *ndev, struct ethtool_mm_cfg *cfg,
+ 	if (!cfg->verify_enabled)
+ 		fpe_cfg->status = ETHTOOL_MM_VERIFY_STATUS_DISABLED;
+ 
+-	stmmac_fpe_set_add_frag_size(priv, frag_size);
+ 	stmmac_fpe_apply(priv);
+ 
+ 	spin_unlock_irqrestore(&fpe_cfg->lock, flags);
 -- 
 2.47.1
 
