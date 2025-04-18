@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB151C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 06:39:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4231C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 06:40:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZM1mvqa4ajyuKSIc1N4rndazopwUD8UEQrno8FzsF40=; b=fmlkyNquf+l0cqGn0ZneBDYjj2
-	FJqDn15EG8S2SYy7v5paO2gnZgQnJLYm3kce8E6H03nhqXYp0w57x5Eh83ZNOa2+jFgwP2GnD3fl8
-	KTlYKkVio4WrrsVNS0t6H9q6K5uP2EV8MnHXgSJpFrOTS+shSEWboiStb9XORUAXQJ0b9PZgdy2XX
-	LB11mFa9D/bzpWCEF/xWhYlc2vm25Sbth87zBmHUYcZVKFQ+rLsxXutYfGwif7qtfRMFBC4L4/tye
-	LPn7NilqwuSCzdrqX8+reW/CjyRomcLhOqNqZ9rkh5bGHwcVCIkDaBid8rej8fWAkNYHXBM98q1BN
-	POI3L2xQ==;
+	bh=cSCTcvJ/f5LCH+fsJYEWM0YxPS9S7F+Hvdyj4UuikKE=; b=NZxOQgM4dud0ZruEmXUyjd6Iv0
+	Mmah9iCMlGHAlBs4sonJBmWjDbbuM6+8xdf/Ot7AQGMPbWu4aUy2omhV717PxcUCJaL4vyXAJ4sbp
+	ifeuB6B8X5lEa1AP8OLpeuczbrTCIt3K7Pkh33nd8Wu1x4XpZM5+6n8Bo7TRsC1Y073WcTUECD7Sq
+	Gh2hYkgdV5MndWT6XUgTbjLU5n23vYmun4JELcqkJE8ppNQMAQnsujdKx93I8XjoI526Nm1d9n0UB
+	Gl2BVsGSeq3ZggoLJy/0DfA///yucG2V42IIL11e7X6xboT32Cn+O3NoHcd7lHeO/q8kAH7okND+e
+	a1pA+eXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5fNF-0000000FI2e-1P4N;
-	Fri, 18 Apr 2025 06:38:53 +0000
+	id 1u5fP5-0000000FIJf-0QdG;
+	Fri, 18 Apr 2025 06:40:47 +0000
 Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5fFn-0000000FGeU-0j4t
+	id 1u5fFn-0000000FGeT-0eL3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 06:31:14 +0000
+	Fri, 18 Apr 2025 06:31:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
 	s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
 	List-Post:List-Owner:List-Archive;
-	bh=ZM1mvqa4ajyuKSIc1N4rndazopwUD8UEQrno8FzsF40=; b=pVxd4hlWwMroo6yUHzN9Zi6ZX4
-	NuzkRgqs6AQ8KL4J/vOgPYu1xjPwdN73nKySzyCDf1FhQY9jDM4l4iMPNytxxZ71pjOU/dGE7NxDw
-	3fjnNUIbGrm5fJOUlTsMQnJ6DuwMBFn10ZW0+m38+GxFcOy6rsGfSxrHA01mWg3JpM94W3Lj7SZDX
-	A+pwZ0UbacnKjii48CjXgl9/QKG65Md0qfbucAcHgxqDat3PZ5e9zEhoa8DpzNzL6kzIaiS1WaEcE
-	9baEXK7Gv1qRfPlSHk4WK+jO9aw51SEVnsGzZTicpMTOdZHqZdJvall2onY+z0Html5vZUsXw0Dss
-	xbgh+rdA==;
+	bh=cSCTcvJ/f5LCH+fsJYEWM0YxPS9S7F+Hvdyj4UuikKE=; b=h7s63zlCSmKIIfNfZaCWrj85+u
+	wsrpHEmTRAC+X/hDbzwA2WxSU33PGIYdiM4ETg+Gv7cGzHiTdlZ9V8YyBcLKnHrsOahjunwENZWp8
+	BNF7/KX+ygTZf0ac/TuoEDol3jJt4e5AGDAt80kPsyVCo9HLHdZY6xq+v/ofc9f/TGYxUfXKJINoI
+	hot8eTAwmIfC5q9Fc8AwE5m5JJY4ql12eXj56TDDnKVDvkEsVuyx9TLCSKP1Mz7GX0fzNOTUUraM6
+	s2fOoobvmAfVJb5uDhj+AIoOvDA5va8h7A89IcHm7H/hsRU0OBdWRdijvLubzvxvVBpIWg4srTngu
+	QwsJf6PA==;
 Received: from [89.212.21.243] (port=56446 helo=localhost.localdomain)
 	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <primoz.fiser@norik.com>)
-	id 1u5fFi-00AbM0-0D;
+	id 1u5fFh-00AbM0-3A;
 	Fri, 18 Apr 2025 08:31:05 +0200
 From: Primoz Fiser <primoz.fiser@norik.com>
 To: Rob Herring <robh@kernel.org>,
@@ -58,9 +58,9 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	upstream@lists.phytec.de
-Subject: [PATCH v3 02/15] arm64: dts: freescale: imx93-phycore-som: Add EEPROM support
-Date: Fri, 18 Apr 2025 08:30:51 +0200
-Message-Id: <20250418063104.2202085-3-primoz.fiser@norik.com>
+Subject: [PATCH v3 01/15] arm64: dts: freescale: imx93-phycore-som: Add PMIC support
+Date: Fri, 18 Apr 2025 08:30:50 +0200
+Message-Id: <20250418063104.2202085-2-primoz.fiser@norik.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250418063104.2202085-1-primoz.fiser@norik.com>
 References: <20250418063104.2202085-1-primoz.fiser@norik.com>
@@ -77,8 +77,8 @@ X-Source:
 X-Source-Args: 
 X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_233111_665348_0C56AD13 
-X-CRM114-Status: UNSURE (   6.71  )
+X-CRM114-CacheID: sfid-20250417_233111_682513_DD132446 
+X-CRM114-Status: UNSURE (   7.00  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,37 +94,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the EEPROM chip available on I2C3 bus (address 0x50),
-used for the PHYTEC SOM detection.
+PMIC driver for PCA9451A used on phyCORE-i.MX93 SOM is available since
+commit 5edeb7d31262 ("regulator: pca9450: add pca9451a support"). Add
+support for it in the SOM device-tree.
 
 Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
 Reviewed-by: Frank Li <Frank.Li@nxp.com>
 ---
 Changes in v3:
-- add Reviewed-by tag
+- no changes
 
- arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ .../boot/dts/freescale/imx93-phycore-som.dtsi | 97 +++++++++++++++++++
+ 1 file changed, 97 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
-index 507a71f9294b..0528e293c03d 100644
+index 88c2657b50e6..507a71f9294b 100644
 --- a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
 +++ b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
-@@ -154,6 +154,14 @@ ldo5: LDO5 {
- 			};
- 		};
+@@ -72,6 +72,90 @@ ethphy1: ethernet-phy@1 {
  	};
-+
-+	/* EEPROM */
-+	eeprom@50 {
-+		compatible = "atmel,24c32";
-+		reg = <0x50>;
-+		pagesize = <32>;
-+		vcc-supply = <&buck4>;
-+	};
  };
  
++/* I2C3 */
++&lpi2c3 {
++	clock-frequency = <400000>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_lpi2c3>;
++	status = "okay";
++
++	pmic@25 {
++		compatible = "nxp,pca9451a";
++		reg = <0x25>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_pmic>;
++		interrupt-parent = <&gpio4>;
++		interrupts = <27 IRQ_TYPE_LEVEL_LOW>;
++
++		regulators {
++			buck1: BUCK1 {
++				regulator-name = "VDD_SOC";
++				regulator-min-microvolt = <610000>;
++				regulator-max-microvolt = <950000>;
++				regulator-boot-on;
++				regulator-always-on;
++				regulator-ramp-delay = <3125>;
++			};
++
++			buck2: BUCK2 {
++				regulator-name = "VDDQ_0V6";
++				regulator-min-microvolt = <600000>;
++				regulator-max-microvolt = <600000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			buck4: BUCK4 {
++				regulator-name = "VDD_3V3_BUCK";
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			buck5: BUCK5 {
++				regulator-name = "VDD_1V8";
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			buck6: BUCK6 {
++				regulator-name = "VDD_1V1";
++				regulator-min-microvolt = <1100000>;
++				regulator-max-microvolt = <1100000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			ldo1: LDO1 {
++				regulator-name = "PMIC_SNVS_1V8";
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			ldo4: LDO4 {
++				regulator-name = "VDD_0V8";
++				regulator-min-microvolt = <800000>;
++				regulator-max-microvolt = <800000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			ldo5: LDO5 {
++				regulator-name = "NVCC_SD2";
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++		};
++	};
++};
++
  /* eMMC */
+ &usdhc1 {
+ 	pinctrl-names = "default";
+@@ -108,6 +192,19 @@ MX93_PAD_I2C1_SDA__GPIO1_IO01		0x31e
+ 		>;
+ 	};
+ 
++	pinctrl_lpi2c3: lpi2c3grp {
++		fsl,pins = <
++			MX93_PAD_GPIO_IO28__LPI2C3_SDA		0x40000b9e
++			MX93_PAD_GPIO_IO29__LPI2C3_SCL		0x40000b9e
++		>;
++	};
++
++	pinctrl_pmic: pmicgrp {
++		fsl,pins = <
++			MX93_PAD_ENET2_RD3__GPIO4_IO27		0x31e
++		>;
++	};
++
+ 	pinctrl_usdhc1: usdhc1grp {
+ 		fsl,pins = <
+ 			MX93_PAD_SD1_CLK__USDHC1_CLK		0x179e
 -- 
 2.34.1
 
