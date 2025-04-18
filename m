@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F195C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 02:12:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CEABC369CF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 02:13:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gUfulZ9YerLLuMfctIibYgz1agY7vbYGK+8zVCyBLQQ=; b=IFsiAY8XEKJ6zzh6k/tj3DGzrr
-	IWrsdm+VsnGED6w263evZm7X3PpHAdemtG9vRP/YaxZpCeo8tHyyRk5V+j8R9TcmOpvp+1MPtjXqX
-	KJMC28PTLaYrOOVIzdZ2RbFQwX+424nagn0AN24VMiUtMtddwJzABUScqGD3Hc57BN5psOoOFK5Co
-	qBrXNk+RSPXQL9dvFVcvjn8YwwZ8Y2Er2Af9xJ7VAvTGVTs7tEwrKHemAUuGoDLmLTMPJ+DpAmSwI
-	R0eJlW0ns9OKPLYJNNNRsdxc21pMnkw/R4+NvTqGMa/MXlEsxpfC8oz81w4xaEUEW0vpXl7vJKOYf
-	lLYpqVXQ==;
+	bh=kFHtaJodxwz1mx8bk60hMvbTvv3gKZ5tkOidz2SelHE=; b=BtlOuXNCBeeUE/zzg4LgcgQ682
+	FIrWtlOTdeDvBCE+DJHQo1kJGIf86WlCWmKCSMvPacN5vVUvGG7xeLp46LZ5c/YtMHcm86tr4gRkD
+	nCT/UQhrLK3f/sdIgefGkTOwn1wgfxMoFzipXgjbVBjCX9kLuVxZZ8rUPzX1tMJtc7MrLELl2ZbYz
+	d51Hz4yDrV57mOYjjjfwpYfKiUwZcNC21rUMNhmtQe2GrkwypMvyxm0rqVdny1Jqc0wvLFisOemw/
+	xvHSRynOdckXjGc5wOJLvdkwYDf+lmaxX7KB3WELnKK7/LhMEwo4EciqA9SifDK0yPdJKlMNshEwf
+	OtN/zDMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5bCv-0000000EqTP-1z1E;
-	Fri, 18 Apr 2025 02:11:57 +0000
+	id 1u5bEk-0000000EqaN-0Ufv;
+	Fri, 18 Apr 2025 02:13:50 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5bB3-0000000EqC3-2HAW
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 02:10:02 +0000
+	id 1u5bB4-0000000EqCc-33uD;
+	Fri, 18 Apr 2025 02:10:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AE7315C54AC;
-	Fri, 18 Apr 2025 02:07:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6481FC4CEE4;
-	Fri, 18 Apr 2025 02:10:00 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 25FE65C5876;
+	Fri, 18 Apr 2025 02:07:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D48ABC4CEEA;
+	Fri, 18 Apr 2025 02:10:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744942200;
-	bh=DojIOl1pVFu1mQqpy1zqyKE8kukp8trKGpMnSq9nMOI=;
+	s=k20201202; t=1744942201;
+	bh=GrNXNsg8thhryFhRIZCHfkYBELHVyUHwQRQ/n00IPGk=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=cdY7ayAd0nLdploAuNKyMPQR1mPvfrv2vaw+zphf9w5KDt4cM8xoDrhYr6N7Ch6QI
-	 ltqKkEr0FJCfjomWwQyRp629dAyrEq81h2JWM/xiRdTEohZmF9fnB8AYDJr5CUB8mZ
-	 OdkGLTrgkQW500tyK7uJDdKebeERTpHjRBuRA759cfC5DmNQgelrn66b6oUe9OfG+s
-	 A1TDjMScB6bQY6Hao9jPN5QTf/bo8KzkZxy6QWwSJdaG/eqq65wSWEVe614NWWcFou
-	 4h9Dpg0wLom6ddUUyfLXFLyEixtA0kOE7MLjcXtx7aj+zeeEdMZRhwulA2KRapQ0j+
-	 pn2PfFIKNJIDw==
+	b=rDLXCb100h//SVUpdcl4UQ585zMo4am7V5N+BpZ74niCtsqXgpOIRdxVwKJ6I7vq0
+	 ID1qTakmi412HtyqO4khIdD2v+RDbYJd1HHLHNM4e2P8eTrpyQxtjRmmFQobgclXua
+	 Vd3xzZGOURAN2wwZ74EfPc1YfDvROY1EG+VehMMrH/vgKBI0bQnbYVOAbcwujaUn5x
+	 XMFw0JNwHZojNHzr1sBN8FGQgnvhH3+mX7GkM1cKUBSEVNAPxqSrcs1KvoZ8gX8qEW
+	 pU2WLW0d3ZDSLWX2XPhQkerStPNLe27skPsbEjFzuCwa3KI931dhX3ykfcqsWbhTlz
+	 Oc4vnJcWlKMJg==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADEF0380AAEB;
-	Fri, 18 Apr 2025 02:10:39 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3483A380AAEB;
+	Fri, 18 Apr 2025 02:10:41 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next] net: stmmac: dwc-qos: use PHY clock-stop capability
+Subject: Re: [PATCH net-next] net: stmmac: mediatek: stop initialising
+ plat->mac_interface
 From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <174494223824.79616.1586155052116698470.git-patchwork-notify@kernel.org>
-Date: Fri, 18 Apr 2025 02:10:38 +0000
-References: <E1u4zi1-000xHh-57@rmk-PC.armlinux.org.uk>
-In-Reply-To: <E1u4zi1-000xHh-57@rmk-PC.armlinux.org.uk>
+Message-Id: <174494223974.79616.7693576407987445072.git-patchwork-notify@kernel.org>
+Date: Fri, 18 Apr 2025 02:10:39 +0000
+References: <E1u4zyh-000xVE-PG@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1u4zyh-000xVE-PG@rmk-PC.armlinux.org.uk>
 To: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, jonathanh@nvidia.com, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, mcoquelin.stm32@gmail.com,
- netdev@vger.kernel.org, pabeni@redhat.com, treding@nvidia.com
+ andrew+netdev@lunn.ch, angelogioacchino.delregno@collabora.com,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, matthias.bgg@gmail.com,
+ mcoquelin.stm32@gmail.com, netdev@vger.kernel.org, pabeni@redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_191001_628243_DB04C114 
-X-CRM114-Status: GOOD (  10.13  )
+X-CRM114-CacheID: sfid-20250417_191002_807988_518F1EF8 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,19 +84,19 @@ Hello:
 This patch was applied to netdev/net-next.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Wed, 16 Apr 2025 11:09:33 +0100 you wrote:
-> Use the PHY clock-stop capability when programming the MAC LPI mode,
-> which allows the transmit clock to the PHY to be gated. Tested on the
-> Jetson Xavier NX platform.
+On Wed, 16 Apr 2025 11:26:47 +0100 you wrote:
+> Mediatek doesn't make use of mac_interface, and none of the in-tree
+> DT files use the mac-mode property. Therefore, mac_interface already
+> follows phy_interface. Remove this unnecessary assignment.
 > 
 > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 > ---
->  drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c | 1 -
+>  1 file changed, 1 deletion(-)
 
 Here is the summary with links:
-  - [net-next] net: stmmac: dwc-qos: use PHY clock-stop capability
-    https://git.kernel.org/netdev/net-next/c/7c6cd70ffd0f
+  - [net-next] net: stmmac: mediatek: stop initialising plat->mac_interface
+    https://git.kernel.org/netdev/net-next/c/01be295b485a
 
 You are awesome, thank you!
 -- 
