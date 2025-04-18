@@ -4,72 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50BF3C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 00:19:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C38ECC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 00:27:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9rWNM+qD+qZAOvGwbeuMLkw3Csee6ucWshMZJqwF6yE=; b=Atq9WC5RrxuN5SzTlynZaUNqn9
-	oTubViUxXc/ZQ+lLTTbcLPKJLRwfnACg2Wz7Sj38/itpw29sEBMsv+eMsYpd2jXI6H5HsjoO0txFw
-	gmoccZqXaYQA1zRBcF0wQkIqv0AvnGUfxMWw49VXn8vxJN3ZrwVFczTw+IVmez5uVYga0jpmv93Fs
-	eH2gcnj3h/PuevzCJdhlYXt3pGup1tEc6FqJ+t4LvkkEj6Fnpcbz/R1clZCImqbpEadrR8c2x2bYh
-	kETOoFkkTLBvmkW0idkG1BNGNepD3F/TEAIR+gMm2LWEImAGVBMEt9z/IzfvdGXuKTJtrZQglbZOI
-	u2k6rDXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mJ4jcbq81h56GyVF6csHHKq2T3Y8+ueSpb7gECKDLyk=; b=rD5D+IhsTVtu55stkPRzwiRXSU
+	546hL0mhCmU2Mg+RZBPQYDi/ASuuP+UkJ4gEASfshqdYJ0SI0OcyfSqZFvT7fK6vke1UFyXGUNt+I
+	pcx8Y2boGGkiR1DSdNjdSJGaeCPmZcj1MPO0c6VnTVqFVGksHTCG4MpNAj0dsdj3i8as/q1D9HT5M
+	da06F03UahdumBvHQH8qyePLTxa9N+1zZktGm3ABV+x859s5f8TiaxADjQk9AlJym1QFOp1pzqeXp
+	qBwKem1fgj0U96/6lNWi8hcQ1jR44kjeuSK0e24nFYkAEms6wlnowWGJdEM4y6P3VsvqiUQ00MjmN
+	z3iMCbfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5ZRu-0000000EfPy-2Rwm;
-	Fri, 18 Apr 2025 00:19:18 +0000
-Received: from m16.mail.163.com ([220.197.31.2])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5ZQ3-0000000EfJg-2RZK;
-	Fri, 18 Apr 2025 00:17:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=ACoMjeqQEK5QbJmghOEEcrUjtymI5asACgjcWs598NQ=; b=O
-	KIOo5KHOR64c/8UirzmT5CgdF5UgcdDCpO+iHZkeqW+oIiHSaxkhd8X66jBfmIKL
-	49bD6AZ2R5tAtRDB0iI8RSLsk0em5BcxtOK5O8gNFFR+pVs8GhplAsh8/1WZCj73
-	0cOsaOPhovHRVT0AKtxSOg1YZpsPW2GWr9Q5r/W4Ic=
-Received: from andyshrk$163.com ( [58.22.7.114] ) by
- ajax-webmail-wmsvr-40-120 (Coremail) ; Fri, 18 Apr 2025 08:16:11 +0800
- (CST)
-X-Originating-IP: [58.22.7.114]
-Date: Fri, 18 Apr 2025 08:16:11 +0800 (CST)
-From: "Andy Yan" <andyshrk@163.com>
-To: "Konstantin Shabanov" <mail@etehtsea.me>
-Cc: "Sandy Huang" <hjc@rock-chips.com>,
-	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
-	"Andy Yan" <andy.yan@rock-chips.com>,
-	"Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
-	"Maxime Ripard" <mripard@kernel.org>,
-	"Thomas Zimmermann" <tzimmermann@suse.de>,
-	"David Airlie" <airlied@gmail.com>,
-	"Simona Vetter" <simona@ffwll.ch>,
-	"Daniel Stone" <daniel@fooishbar.org>,
-	"Dan Callaghan" <djc@djc.id.au>, dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re:[PATCH v4] drm/rockchip: Disable AFBC for res >2560 on rk3399
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20240801(9da12a7b)
- Copyright (c) 2002-2025 www.mailtech.cn 163com
-In-Reply-To: <20250417065759.5948-1-mail@etehtsea.me>
-References: <20250414095332.9674-1-mail@etehtsea.me>
- <20250417065759.5948-1-mail@etehtsea.me>
-X-NTES-SC: AL_Qu2fBvWYukss5yeaYukfmkcVgOw9UcO5v/Qk3oZXOJF8jDLp/j0HdmVSAWfk9OO0GyOzmgmGQhZw7+16UYtfUYcQ2sF/6GvOriIdCw400ymGgg==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	id 1u5Za7-0000000Eg8j-4BUg;
+	Fri, 18 Apr 2025 00:27:48 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u5ZYH-0000000Eg2U-1Tp2
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 18 Apr 2025 00:25:54 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-7394945d37eso1193387b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Apr 2025 17:25:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744935952; x=1745540752; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=mJ4jcbq81h56GyVF6csHHKq2T3Y8+ueSpb7gECKDLyk=;
+        b=V70TeNws4cwE14PcjnVetCfKYZEw2RprHq+FMluna/yoX9UQUphXd5e3ZHk2l/KUPr
+         4q7x+uIGz+D0FaEP5Ka36qM3gOYY8kkFjkjJJmtBx6q85vMReMMA1p/QCDXFiFJMAwNt
+         LtEup+YrIvE8MgCSxdJLiw7awhHO/KSV5TKUYXBTZk8DItkYFOSVHZQbmsp1NcOBre1l
+         lEnLUGGJJvrYRMUMYGIQH8wYsV8NbIpEpaBhRtZNRnE/2k1p2fBnvTGd+hzLvTYrbTBl
+         uPngDZS3i7WHoZ9sPs9NcIIxaX75PXfWMbrz6cPTCLUeKz8TofJjT2OaoG5ZyZhCJZz8
+         Qf4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744935952; x=1745540752;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mJ4jcbq81h56GyVF6csHHKq2T3Y8+ueSpb7gECKDLyk=;
+        b=Xu/uf+uraycjEPju+m/NQXYqDrksHt3Zz21OiTSVUhaLo7b19WmJfnYgNVd9nh2+5x
+         murwznhP7oOwJKCQwoAPxL2qCyAkRSsrmHSIMButdao/iYF2ipagm1YV7I7moApFFf6f
+         gniEkSUrNsnx1s3zHJjw33+KowgLZRxeHKpz/N2Pvac3Vn8XtTouloMmtx4MyYSJ7lOu
+         uUIV3wsZTcnvHXL8Ew4rBIsOOITYbIBAy1UQik7RCogzbz+xCb3ei56DuGQc404a/liM
+         oOjU8rSRWLBgTWHaulJU4nfOW5RiQDYKNNotZ5DPB0dQ0uMJXSAmq+m0FG0ZSPofpGFL
+         EqKw==
+X-Forwarded-Encrypted: i=1; AJvYcCVGSNRwhZ6z1D3USTNTXgKfHVNtKr48XroRQSZsoM9SUFGchAScgnlPGC1+CQOv8/SDsqBJ/9/EDf1OrQlAweAr@lists.infradead.org
+X-Gm-Message-State: AOJu0YzqbCqkgM+shsgS12J3UVSK+Wm3CrBYqJN3+JFWWKPh8y0gG0eg
+	E6qZppehjxn9itk+tbjQGxr5rQso6+uMSq0cqWlXvoqeQ7iIyzFl
+X-Gm-Gg: ASbGncu2QgItiy9W1Gwg5Q6FlnJTQ2zUyTNrr9tSTaMzEnWRQjZeaFlKIMNJL9SdfF7
+	nenmoRkC6d4XT4T7/QBZh86M/e0BWRUGATM26Hj+52YHg8t4fzmaJiXsEjTSVdCxUSWHmYvROrr
+	7Q6zM85d/uODJnkwBgj1j8flO7Vevhe4UIjndNV9QlFrhKyvUDzJfZBBpK12ohbkvglP9EgjHDl
+	W3nWd1CRNajsXg5VKkFaGC02Im3o2rIpm9r64vPKON5KTcSpFFQfP0mkiLbOrCdmxVTqCYr2R/R
+	QkQUAia8hLktQi8ymQ0zW/7vOG07tN3XA2e81ZZe
+X-Google-Smtp-Source: AGHT+IF457L/xS2LzcclamN9a4c8rRGh3s9KFJiJf6ANJjnjPyle4Gdaennd13gdRi6cAZltMYOXtA==
+X-Received: by 2002:a05:6a20:d485:b0:1f0:e42e:fb1d with SMTP id adf61e73a8af0-203cbd4513fmr1734877637.36.1744935951850;
+        Thu, 17 Apr 2025 17:25:51 -0700 (PDT)
+Received: from archie.me ([103.124.138.155])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b0db13cd491sm451435a12.46.2025.04.17.17.25.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Apr 2025 17:25:50 -0700 (PDT)
+Received: by archie.me (Postfix, from userid 1000)
+	id C1D224209E46; Fri, 18 Apr 2025 07:25:47 +0700 (WIB)
+Date: Fri, 18 Apr 2025 07:25:47 +0700
+From: Bagas Sanjaya <bagasdotme@gmail.com>
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+	linux-doc@vger.kernel.org
+Cc: Jonathan Corbet <corbet@lwn.net>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] documentation: Add nodebugmon for arm64 platforms
+Message-ID: <aAGcC2aKnoBmJSzf@archie.me>
+References: <20250416062706.2735563-1-anshuman.khandual@arm.com>
 MIME-Version: 1.0
-Message-ID: <17402f2e.360.1964640c3d3.Coremail.andyshrk@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: eCgvCgCnzPPLmQFoYdSZAA--.47571W
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbBkBQzXmgBloInMwAEsE
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="06WTJrvb1msiWFYT"
+Content-Disposition: inline
+In-Reply-To: <20250416062706.2735563-1-anshuman.khandual@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_171723_918849_1153B3D1 
-X-CRM114-Status: GOOD (  10.17  )
+X-CRM114-CacheID: sfid-20250417_172553_394178_A9CABE6D 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,52 +103,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CgpIaSBLb25zdGFudGluLAoKQXQgMjAyNS0wNC0xNyAxNDo1Nzo1OCwgIktvbnN0YW50aW4gU2hh
-YmFub3YiIDxtYWlsQGV0ZWh0c2VhLm1lPiB3cm90ZToKPkFzIGl0IGlzbid0IHN1cHBvcnRlZCBi
-eSBoYXJkd2FyZS4gQXQgbGVhc3QsIFJLMzM5OSBkb2Vzbid0IHN1cHBvcnQKPml0LiBGcm9tIHRo
-ZSBkYXRhc2hlZXRbMV0KPigiMS4yLjEwIFZpZGVvIElOL09VVCIsICJEaXNwbGF5IEludGVyZmFj
-ZSIsIHAuIDE3KToKPgo+ICBTdXBwb3J0IEFGQkMgZnVuY3Rpb24gY28tb3BlcmF0aW9uIHdpdGgg
-R1BVCj4gICAgKiBzdXBwb3J0IDI1NjB4MTYwMCBVSQo+Cj5NYW51YWxseSB0ZXN0ZWQgb24gUm9j
-a1BybzY0IChyazMzOTkpOgo+LSBBUk1fQUZCQyBtb2RpZmllciBpcyB1c2VkIGZvciAxOTIweDEw
-ODAKPi0gRFJNX0ZPUk1BVF9NT0RfTElORUFSIG1vZGlmaWVyIHVzIHVzZWQgZm9yIDM4NDB4MjE2
-MAo+LSBObyBub2lzZSBvbiB0aGUgc2NyZWVuIHdoZW4gc3dheSBpcyBydW5uaW5nIGluIDRrCj4t
-IER5bmFtaWMgcmVzb2x1dGlvbiBzd2l0Y2hpbmcgd29ya3MgY29ycmVjdGx5IGluIHN3YXkKPgo+
-U2lnbmVkLW9mZi1ieTogS29uc3RhbnRpbiBTaGFiYW5vdiA8bWFpbEBldGVodHNlYS5tZT4KPkNj
-OiBEYW5pZWwgU3RvbmUgPGRhbmllbEBmb29pc2hiYXIub3JnPgo+Q2M6IEFuZHkgWWFuIDxhbmR5
-c2hya0AxNjMuY29tPgo+UmVwb3J0ZWQtYnk6IERhbiBDYWxsYWdoYW4gPGRqY0BkamMuaWQuYXU+
-Cj5DbG9zZXM6IGh0dHBzOi8vZ2l0bGFiLmZyZWVkZXNrdG9wLm9yZy9tZXNhL21lc2EvLS9pc3N1
-ZXMvNzk2OAo+Cj5bMV06IGh0dHBzOi8vb3BlbnNvdXJjZS5yb2NrLWNoaXBzLmNvbS9pbWFnZXMv
-ZC9kNy9Sb2NrY2hpcF9SSzMzOTlfRGF0YXNoZWV0X1YyLjEtMjAyMDAzMjMucGRmCj4tLS0KPlYz
-IC0+IFY0OiBDb3JyZWN0IHJlZHVuZGFudCBoZWFkZXIgaW5jbHVzaW9uCj5WMiAtPiBWMzogUnVu
-IGNoZWNrIG9ubHkgb24gcmszMzk5Cj5WMSAtPiBWMjogTW92ZSB0aGUgY2hlY2sgdG8gdGhlIGZi
-X2NyZWF0ZSBjYWxsYmFjawo+Cj4gZHJpdmVycy9ncHUvZHJtL3JvY2tjaGlwL3JvY2tjaGlwX2Ry
-bV9mYi5jIHwgMTIgKysrKysrKysrKysrCj4gMSBmaWxlIGNoYW5nZWQsIDEyIGluc2VydGlvbnMo
-KykKPgo+ZGlmZiAtLWdpdCBhL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1f
-ZmIuYyBiL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1fZmIuYwo+aW5kZXgg
-ZGNjMWYwNzYzMmMzLi40NWUxNjE5YjVjOTcgMTAwNjQ0Cj4tLS0gYS9kcml2ZXJzL2dwdS9kcm0v
-cm9ja2NoaXAvcm9ja2NoaXBfZHJtX2ZiLmMKPisrKyBiL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hp
-cC9yb2NrY2hpcF9kcm1fZmIuYwo+QEAgLTUsNiArNSw3IEBACj4gICovCj4KPiAjaW5jbHVkZSA8
-bGludXgva2VybmVsLmg+Cj4rI2luY2x1ZGUgPGxpbnV4L29mLmg+Cj4KPiAjaW5jbHVkZSA8ZHJt
-L2RybS5oPgo+ICNpbmNsdWRlIDxkcm0vZHJtX2F0b21pYy5oPgo+QEAgLTE4LDYgKzE5LDggQEAK
-PiAjaW5jbHVkZSAicm9ja2NoaXBfZHJtX2ZiLmgiCj4gI2luY2x1ZGUgInJvY2tjaGlwX2RybV9n
-ZW0uaCIKPgo+KyNkZWZpbmUgUkszMzk5X0FGQkNfTUFYX1dJRFRICQkyNTYwCj4rCj4gc3RhdGlj
-IGNvbnN0IHN0cnVjdCBkcm1fZnJhbWVidWZmZXJfZnVuY3Mgcm9ja2NoaXBfZHJtX2ZiX2Z1bmNz
-ID0gewo+IAkuZGVzdHJveSAgICAgICA9IGRybV9nZW1fZmJfZGVzdHJveSwKPiAJLmNyZWF0ZV9o
-YW5kbGUgPSBkcm1fZ2VtX2ZiX2NyZWF0ZV9oYW5kbGUsCj5AQCAtNTIsNiArNTUsMTUgQEAgcm9j
-a2NoaXBfZmJfY3JlYXRlKHN0cnVjdCBkcm1fZGV2aWNlICpkZXYsIHN0cnVjdCBkcm1fZmlsZSAq
-ZmlsZSwKPiAJfQo+Cj4gCWlmIChkcm1faXNfYWZiYyhtb2RlX2NtZC0+bW9kaWZpZXJbMF0pKSB7
-Cj4rCQlpZiAob2ZfbWFjaGluZV9pc19jb21wYXRpYmxlKCJyb2NrY2hpcCxyazMzOTkiKSkgewo+
-KwkJCWlmIChtb2RlX2NtZC0+d2lkdGggPiBSSzMzOTlfQUZCQ19NQVhfV0lEVEgpIHsKPisJCQkJ
-RFJNX0RFQlVHX0tNUygiQUZCQyBpcyBub3Qgc3VwcG9ydGVkIGZvciB0aGUgd2lkdGggJWQgKG1h
-eCAlZClcbiIsCj4rCQkJCQkgICAgICBtb2RlX2NtZC0+d2lkdGgsCj4rCQkJCQkgICAgICBSSzMz
-OTlfQUZCQ19NQVhfV0lEVEgpOwo+KwkJCQlyZXR1cm4gRVJSX1BUUigtRUlOVkFMKTsKPisJCQl9
-Owo+KwkJfQo+KwoKCkkgcHJlZmVyIHRoZSBWMSB2ZXJzaW9uIFBBVENIWzBdLiBUaGlzIGlzIGJl
-Y2F1c2Ugd2UgZG8gbm90IGRlYWwgd2l0aCBoYXJkd2FyZS1yZWxhdGVkCmRpZmZlcmVuY2VzIGF0
-IHRoaXMgbGV2ZWwuICBJdCBpbnZvbHZlcyBhIFZPUC1yZWxhdGVkIHJlc3RyaWN0aW9uIGFuZCB3
-ZSBhbHdheXMgIGhhbmRsZQpsaW1pdGlhdGlvbiBsaWtlIHRoaXMgIHdpdGhpbiB0aGUgVk9QIGRy
-aXZlciAuIAoKWzBdIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2RyaS1kZXZlbC8yMDI1MDQwMjEy
-NTMyMC4yMTgzNi0xLW1haWxAZXRlaHRzZWEubWUvCgoKPiAJCWludCByZXQsIGk7Cj4KPiAJCXJl
-dCA9IGRybV9nZW1fZmJfYWZiY19pbml0KGRldiwgbW9kZV9jbWQsIGFmYmNfZmIpOwo+Cj5iYXNl
-LWNvbW1pdDogNDg5MGQ2OGRiNjUxNTYyZWE4MDI1MGYyYzkzMjA1YTVjMDMyN2E2YQo+LS0KPjIu
-NDguMQo=
+
+--06WTJrvb1msiWFYT
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Apr 16, 2025 at 11:57:06AM +0530, Anshuman Khandual wrote:
+> +	nodebugmon
+> +			[HW,ARM64] Disable debug monitor
+> +			Disables the debug monitor exception handling on the platform
+> +			regardless whether breakpoints and watchpoints are programmed
+> +			or not. This prevents debug exceptions from being enabled via
+> +			MDSCR_EL1 register.
+
+The wording looks good, thanks!
+
+Reviewed-by: Bagas Sanjaya <bagasdotme@gmail.com>
+
+--=20
+An old man doll... just what I always wanted! - Clara
+
+--06WTJrvb1msiWFYT
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQSSYQ6Cy7oyFNCHrUH2uYlJVVFOowUCaAGcBwAKCRD2uYlJVVFO
+o+yMAPkB2tMzZI6yUPnbdQHMmL28aSDRE05XrotDef+vGPPIDQEA7f+GBQOHjK2y
+myWpk48qlaeUUSbrp9IdgQcu8E02Wwc=
+=I9oe
+-----END PGP SIGNATURE-----
+
+--06WTJrvb1msiWFYT--
 
