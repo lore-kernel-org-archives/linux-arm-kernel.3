@@ -4,65 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D783C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 06:14:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8353C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 06:16:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CvC5/RVNNTFc51/M6C1WsPoNwnL7+dHcBpVIkiwAUSU=; b=kSY13yvrWSLGHlmjMVvspStM2b
-	049T0X6bSjSu5ntH/pEqLWMoLM3g0mONV0I8u5znu+6U3xCWwIeIhI6Sai+M4K5j3he03Lv8Llzkp
-	fhyXedANlsmw/i0L4rHYy1WNUvModDK8dRUsrYQm8DivdhF7Sp0arGzC+w7TKwU5WMb+AD7zkRIYX
-	rPCfdXRtqYXpd/+wx6sNcVW2YzAu3zgkwciuYxy0uNvlIcBXRX2tDUjgacMeE/LFcFu7UdHI035dg
-	bjE7x8qc313gS2VC0yucvhRm/142woseZQXIjm2Ald/P+7VN6a6QPkiXiN7fSKKAbrbZk75Qav/Ob
-	tzMNl/Og==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kvjT2AQfxdFmD9bmhbjX7G3FMB2UewEmBGLVIkkuwUE=; b=Ce9D3M9Xzbv0/ubItZ6/MOv8Ft
+	5kO4QdK8/gVN0jlQrVMDRIejKn6v38n0VpnoZaFJv3JrC2j1JelL1vGIRKnGpEOI0BBvQlJXKIwxZ
+	T6AmiUUfAdUx/cVqCYcyRqaMvZqsTPtgT+UqfxlHWtmCKIGLs+HrIvO2msv5uq6xWg/G/dwCeS+eb
+	H9duTmjxEacikSCxxe/k3DiCAZ6tvUJiW0QaBwcGKbTzYz+PZnLTJA8qnkWaVKEGIYkg0se2bHRHx
+	5cKLPNEcZ59qXTVzyanDk5LoaEG1frntP9of0Gc2gLTRehnAmEFSrRO62ZPx1Lfd/VIkDHUoE7a1+
+	MNfN+Edg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5ezR-0000000FEcs-4656;
-	Fri, 18 Apr 2025 06:14:17 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1u5f1H-0000000FEw9-2jLc;
+	Fri, 18 Apr 2025 06:16:11 +0000
+Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5eqJ-0000000FCk6-43tt
+	id 1u5et8-0000000FD7c-31Dq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 06:04:53 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.194])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4Zf3z96ydyz5vMm;
-	Fri, 18 Apr 2025 14:00:53 +0800 (CST)
-Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 092F6140258;
-	Fri, 18 Apr 2025 14:04:43 +0800 (CST)
-Received: from kwepemn500004.china.huawei.com (7.202.194.145) by
- dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 18 Apr 2025 14:04:42 +0800
-Received: from localhost.localdomain (10.90.30.45) by
- kwepemn500004.china.huawei.com (7.202.194.145) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 18 Apr 2025 14:04:42 +0800
-From: Junhao He <hejunhao3@huawei.com>
-To: <suzuki.poulose@arm.com>, <james.clark@arm.com>,
-	<anshuman.khandual@arm.com>, <mike.leach@linaro.org>, <leo.yan@arm.com>
-CC: <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linuxarm@huawei.com>,
-	<jonathan.cameron@huawei.com>, <yangyicong@huawei.com>,
-	<hejunhao3@huawei.com>
-Subject: [PATCH 3/4] coresight: tmc: refactor the tmc-etr mode setting
-Date: Fri, 18 Apr 2025 13:58:19 +0800
-Message-ID: <20250418055820.3689408-4-hejunhao3@huawei.com>
-X-Mailer: git-send-email 2.30.0
-In-Reply-To: <20250418055820.3689408-1-hejunhao3@huawei.com>
-References: <20250418055820.3689408-1-hejunhao3@huawei.com>
+	Fri, 18 Apr 2025 06:07:49 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1C61E1029338D;
+	Fri, 18 Apr 2025 08:07:37 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1744956462; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=kvjT2AQfxdFmD9bmhbjX7G3FMB2UewEmBGLVIkkuwUE=;
+	b=MxSWsDT0Jcfj/LJtBDs0279/V9e5lZr9Sib0rZLzlbTr5s+oSnzqIcU7uMEJKJoCbcrSbO
+	eCAaNJjfCe8sdoXsIyqOJTY+9NI9rJ5mYUishB5pDNKDLer9FZPF83hckeNXFodrwiWEbr
+	iphYdnRZtsPZc7mjy1n0XaUi6JNjEVbt/DZmk1cV7rZ/No+MTbaUggbavd83bBg0m09Qt9
+	87aK39i0NfkZT4G9IgkIQJu77VF9aXTziWF2maL61cFcBX9EU9kpZreJ4FO7vzik/hBXY7
+	275X5zphccSq1sT0AMuHqHVjTE7TGS6irFMIQSN46XA+LCPmp6yDNcvmCKeu4Q==
+From: Lukasz Majewski <lukma@denx.de>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Simon Horman <horms@kernel.org>,
+	Lukasz Majewski <lukma@denx.de>
+Subject: [net-next v6 0/7] net: mtip: Add support for MTIP imx287 L2 switch driver
+Date: Fri, 18 Apr 2025 08:07:09 +0200
+Message-Id: <20250418060716.3498031-1-lukma@denx.de>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.90.30.45]
-X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
- kwepemn500004.china.huawei.com (7.202.194.145)
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_230452_330826_1D3FD4BD 
-X-CRM114-Status: GOOD (  21.21  )
+X-CRM114-CacheID: sfid-20250417_230747_060980_A073E909 
+X-CRM114-Status: GOOD (  18.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,205 +83,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When trying to run perf and sysfs mode simultaneously, the WARN_ON()
-in tmc_etr_enable_hw() is triggered sometimes:
+This patch series adds support for More Than IP's L2 switch driver embedded
+in some NXP's SoCs. This one has been tested on imx287, but is also available
+in the vf610.
 
- WARNING: CPU: 42 PID: 3911571 at drivers/hwtracing/coresight/coresight-tmc-etr.c:1060 tmc_etr_enable_hw+0xc0/0xd8 [coresight_tmc]
- [..snip..]
- Call trace:
-  tmc_etr_enable_hw+0xc0/0xd8 [coresight_tmc] (P)
-  tmc_enable_etr_sink+0x11c/0x250 [coresight_tmc] (L)
-  tmc_enable_etr_sink+0x11c/0x250 [coresight_tmc]
-  coresight_enable_path+0x1c8/0x218 [coresight]
-  coresight_enable_sysfs+0xa4/0x228 [coresight]
-  enable_source_store+0x58/0xa8 [coresight]
-  dev_attr_store+0x20/0x40
-  sysfs_kf_write+0x4c/0x68
-  kernfs_fop_write_iter+0x120/0x1b8
-  vfs_write+0x2c8/0x388
-  ksys_write+0x74/0x108
-  __arm64_sys_write+0x24/0x38
-  el0_svc_common.constprop.0+0x64/0x148
-  do_el0_svc+0x24/0x38
-  el0_svc+0x3c/0x130
-  el0t_64_sync_handler+0xc8/0xd0
-  el0t_64_sync+0x1ac/0x1b0
- ---[ end trace 0000000000000000 ]---
+In the past there has been performed some attempts to upstream this driver:
 
-Since the sysfs buffer allocation and the hardware enablement is not
-in the same critical region, it's possible to race with the perf
+1. The 4.19-cip based one [1]
+2. DSA based one for 5.12 [2] - i.e. the switch itself was treat as a DSA switch
+   with NO tag appended.
+3. The extension for FEC driver for 5.12 [3] - the trick here was to fully reuse
+   FEC when the in-HW switching is disabled. When bridge offloading is enabled,
+   the driver uses already configured MAC and PHY to also configure PHY.
 
-mode:
-  [sysfs mode]                   [perf mode]
-  tmc_etr_get_sysfs_buffer()
-    spin_lock(&drvdata->spinlock)
-    [sysfs buffer allocation]
-    spin_unlock(&drvdata->spinlock)
-                                 spin_lock(&drvdata->spinlock)
-                                 tmc_etr_enable_hw()
-                                   drvdata->etr_buf = etr_perf->etr_buf
-                                 spin_unlock(&drvdata->spinlock)
- spin_lock(&drvdata->spinlock)
- tmc_etr_enable_hw()
-   WARN_ON(drvdata->etr_buf) // WARN sicne etr_buf initialized at
-                                the perf side
-  spin_unlock(&drvdata->spinlock)
+All three approaches were not accepted as eligible for upstreaming.
 
-To resolve this, configure the tmc-etr mode before invoking
-`enable_perf()` or sysfs interfaces. Prior to mode configuration,
-explicitly check if the tmc-etr sink is already enabled in a
-different mode to prevent race conditions between mode transitions.
-Furthermore, enforce spinlock protection around the critical
-sections to serialize concurrent accesses from sysfs and perf
-subsystems.
+The driver from this series has floowing features:
 
-Fixes: 296b01fd106e ("coresight: Refactor out buffer allocation function for ETR")
-Reported-by: Yicong Yang <yangyicong@hisilicon.com>
-Closes: https://lore.kernel.org/linux-arm-kernel/20241202092419.11777-2-yangyicong@huawei.com/
-Signed-off-by: Junhao He <hejunhao3@huawei.com>
----
- .../hwtracing/coresight/coresight-tmc-etr.c   | 77 +++++++++++--------
- 1 file changed, 47 insertions(+), 30 deletions(-)
+1. It is fully separated from fec_main - i.e. can be used interchangeable
+   with it. To be more specific - one can build them as modules and
+   if required switch between them when e.g. bridge offloading is required.
 
-diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-index a48bb85d0e7f..3d94d64cacaa 100644
---- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
-+++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-@@ -1190,11 +1190,6 @@ static struct etr_buf *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
- 		spin_lock_irqsave(&drvdata->spinlock, flags);
- 	}
- 
--	if (drvdata->reading || coresight_get_mode(csdev) == CS_MODE_PERF) {
--		ret = -EBUSY;
--		goto out;
--	}
--
- 	/*
- 	 * If we don't have a buffer or it doesn't match the requested size,
- 	 * use the buffer allocated above. Otherwise reuse the existing buffer.
-@@ -1205,7 +1200,6 @@ static struct etr_buf *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
- 		drvdata->sysfs_buf = new_buf;
- 	}
- 
--out:
- 	spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 
- 	/* Free memory outside the spinlock if need be */
-@@ -1216,7 +1210,7 @@ static struct etr_buf *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
- 
- static int tmc_enable_etr_sink_sysfs(struct coresight_device *csdev)
- {
--	int ret = 0;
-+	int ret;
- 	unsigned long flags;
- 	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
- 	struct etr_buf *sysfs_buf = tmc_etr_get_sysfs_buffer(csdev);
-@@ -1226,23 +1220,10 @@ static int tmc_enable_etr_sink_sysfs(struct coresight_device *csdev)
- 
- 	spin_lock_irqsave(&drvdata->spinlock, flags);
- 
--	/*
--	 * In sysFS mode we can have multiple writers per sink.  Since this
--	 * sink is already enabled no memory is needed and the HW need not be
--	 * touched, even if the buffer size has changed.
--	 */
--	if (coresight_get_mode(csdev) == CS_MODE_SYSFS) {
--		csdev->refcnt++;
--		goto out;
--	}
--
- 	ret = tmc_etr_enable_hw(drvdata, sysfs_buf);
--	if (!ret) {
--		coresight_set_mode(csdev, CS_MODE_SYSFS);
-+	if (!ret)
- 		csdev->refcnt++;
--	}
- 
--out:
- 	spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 
- 	if (!ret)
-@@ -1652,11 +1633,6 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev, void *data)
- 	struct etr_perf_buffer *etr_perf = etm_perf_sink_config(handle);
- 
- 	spin_lock_irqsave(&drvdata->spinlock, flags);
--	 /* Don't use this sink if it is already claimed by sysFS */
--	if (coresight_get_mode(csdev) == CS_MODE_SYSFS) {
--		rc = -EBUSY;
--		goto unlock_out;
--	}
- 
- 	if (WARN_ON(!etr_perf || !etr_perf->etr_buf)) {
- 		rc = -EINVAL;
-@@ -1685,7 +1661,6 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev, void *data)
- 	if (!rc) {
- 		/* Associate with monitored process. */
- 		drvdata->pid = pid;
--		coresight_set_mode(csdev, CS_MODE_PERF);
- 		drvdata->perf_buf = etr_perf->etr_buf;
- 		csdev->refcnt++;
- 	}
-@@ -1698,14 +1673,56 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev, void *data)
- static int tmc_enable_etr_sink(struct coresight_device *csdev,
- 			       enum cs_mode mode, void *data)
- {
-+	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-+	enum cs_mode old_mode;
-+	int rc;
-+
-+	scoped_guard(spinlock_irqsave, &drvdata->spinlock) {
-+		old_mode = coresight_get_mode(csdev);
-+		if (old_mode != CS_MODE_DISABLED && old_mode != mode)
-+			return -EBUSY;
-+
-+		if (drvdata->reading)
-+			return -EBUSY;
-+
-+		/*
-+		 * In sysFS mode we can have multiple writers per sink. Since this
-+		 * sink is already enabled no memory is needed and the HW need not be
-+		 * touched, even if the buffer size has changed.
-+		 */
-+		if (old_mode == CS_MODE_SYSFS) {
-+			csdev->refcnt++;
-+			return 0;
-+		}
-+
-+		/*
-+		 * minor note:
-+		 * When sysfs-task1 get locked, it setup the mode first. Then
-+		 * sysfs-task2 gets locked，it will directly return success even
-+		 * when the tmc-etr is not enabled at this moment. Ultimately,
-+		 * sysfs-task1 will still successfully enable tmc-etr.
-+		 * This is a transient state and does not cause an anomaly.
-+		 */
-+		coresight_set_mode(csdev, mode);
-+	}
-+
- 	switch (mode) {
- 	case CS_MODE_SYSFS:
--		return tmc_enable_etr_sink_sysfs(csdev);
-+		rc = tmc_enable_etr_sink_sysfs(csdev);
-+		break;
- 	case CS_MODE_PERF:
--		return tmc_enable_etr_sink_perf(csdev, data);
-+		rc = tmc_enable_etr_sink_perf(csdev, data);
-+		break;
- 	default:
--		return -EINVAL;
-+		rc = -EINVAL;
- 	}
-+
-+	scoped_guard(spinlock_irqsave, &drvdata->spinlock) {
-+		if (rc && old_mode != mode)
-+			coresight_set_mode(csdev, old_mode);
-+	}
-+
-+	return rc;
- }
- 
- static int tmc_disable_etr_sink(struct coresight_device *csdev)
+   To be more specific:
+        - Use FEC_MAIN: When one needs support for two ETH ports with separate
+          uDMAs used for both and bridging can be realized in SW.
+
+        - Use MTIPL2SW: When it is enough to support two ports with only uDMA0
+          attached to switch and bridging shall be offloaded to HW. 
+
+2. This driver uses MTIP's L2 switch internal VLAN feature to provide port
+   separation at boot time. Port separation is disabled when bridging is
+   required.
+
+3. Example usage:
+        Configuration:
+        ip link set lan0 up; sleep 1;
+        ip link set lan1 up; sleep 1;
+        ip link add name br0 type bridge;
+        ip link set br0 up; sleep 1;
+        ip link set lan0 master br0;
+        ip link set lan1 master br0;
+        bridge link;
+        ip addr add 192.168.2.17/24 dev br0;
+        ping -c 5 192.168.2.222
+
+        Removal:
+        ip link set br0 down;
+        ip link delete br0 type bridge;
+        ip link set dev lan1 down
+        ip link set dev lan0 down
+
+4. Limitations:
+        - Driver enables and disables switch operation with learning and ageing.
+        - Missing is the advanced configuration (e.g. adding entries to FBD). This is
+          on purpose, as up till now we didn't had consensus about how the driver
+          shall be added to Linux.
+
+Links:
+[1] - https://github.com/lmajewski/linux-imx28-l2switch/commits/master
+[2] - https://github.com/lmajewski/linux-imx28-l2switch/tree/imx28-v5.12-L2-upstream-RFC_v1
+[3] - https://source.denx.de/linux/linux-imx28-l2switch/-/tree/imx28-v5.12-L2-upstream-switchdev-RFC_v1?ref_type=heads
+
+Lukasz Majewski (7):
+  dt-bindings: net: Add MTIP L2 switch description
+  ARM: dts: nxp: mxs: Adjust the imx28.dtsi L2 switch description
+  ARM: dts: nxp: mxs: Adjust XEA board's DTS to support L2 switch
+  net: mtip: The L2 switch driver for imx287
+  ARM: mxs_defconfig: Enable CONFIG_NFS_FSCACHE
+  ARM: mxs_defconfig: Update mxs_defconfig to 6.15-rc1
+  ARM: mxs_defconfig: Enable CONFIG_FEC_MTIP_L2SW to support MTIP L2
+    switch
+
+ .../bindings/net/nxp,imx28-mtip-switch.yaml   |  148 ++
+ MAINTAINERS                                   |    7 +
+ arch/arm/boot/dts/nxp/mxs/imx28-xea.dts       |   56 +
+ arch/arm/boot/dts/nxp/mxs/imx28.dtsi          |    9 +-
+ arch/arm/configs/mxs_defconfig                |   13 +-
+ drivers/net/ethernet/freescale/Kconfig        |    1 +
+ drivers/net/ethernet/freescale/Makefile       |    1 +
+ drivers/net/ethernet/freescale/mtipsw/Kconfig |   13 +
+ .../net/ethernet/freescale/mtipsw/Makefile    |    3 +
+ .../net/ethernet/freescale/mtipsw/mtipl2sw.c  | 1989 +++++++++++++++++
+ .../net/ethernet/freescale/mtipsw/mtipl2sw.h  |  788 +++++++
+ .../ethernet/freescale/mtipsw/mtipl2sw_br.c   |  120 +
+ .../ethernet/freescale/mtipsw/mtipl2sw_mgnt.c |  449 ++++
+ 13 files changed, 3586 insertions(+), 11 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/Kconfig
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/Makefile
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw.h
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.c
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw_mgnt.c
+
 -- 
-2.33.0
+2.39.5
 
 
