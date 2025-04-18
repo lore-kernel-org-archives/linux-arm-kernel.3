@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7996FC369C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 20:17:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AC2AC369C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 20:19:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kwEV6MZFJIchPoMNTCpHkxpHxz93usoOxoRUm2ZA0bk=; b=dyGnWd2VrpXYuUC04VeKSqoIWw
-	JUedAkteVl+/FDvRctPVPkbHVMebFLEprupXj1Ud6ezyZztSG93VUupQQAeWWjCnRWZlOHP/MzcwJ
-	NxszTGPQk8wLn8RlB/eqGxSPOB8VXyCkZJHgjxT7TcsxZV80bPCqLZREdFchChFiB6eiNWqopYw71
-	40X05aytvbVmKw2r96ML537QlTBSQpLzLlLGwBcyAFs2lhUW0U8yalaaUnKtSVtF1zdw03o9Oxk8n
-	yXQHYP9BMnBuDpJTUHp/23jgRBgrTqX8usVh+0lzGutrfYHMLsbfx+w+SZNqG+EyKknRh3awNWkIv
-	byDGu0sg==;
+	bh=qDqqSLn17t5025nkyBHLLdQZLsyBrfKDeHjL9m8bNdc=; b=CQIZgN/VnTe2VFip3Y0VBx5VtT
+	gEYqQfJqRiIsbqxHkydfAK25d+pSwXzjjCjjbS7HzVCKmVGW/cHRzRvIDlV2IFKfjATgwyEKQ77Rp
+	Bse+vdz/D5zD7PAf8kO0N9f7eYDjGI76JzihE1JGHiQ0+my8hgVNbZvQY1hbINkCPZJfTeD9RPfkw
+	Vvi3n6ve44bSr3g8Mup+k3aD0Wpg0uhsRWRNNTIljSa+vjb2jfjPRG4zpR3fp94L5gLiYD9LXgPFj
+	HKSvZM5srOnGdbYXWGWJCtbN33HzcrvRHfQMDXenpeXZYOuDy7aVyU2ciuAlOe4RvqrliQMrVCox1
+	zqsPKCmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5s9R-0000000076v-4AVm;
-	Fri, 18 Apr 2025 20:17:29 +0000
-Received: from mail-oa1-x2a.google.com ([2001:4860:4864:20::2a])
+	id 1u5sBM-000000007dT-3HYH;
+	Fri, 18 Apr 2025 20:19:28 +0000
+Received: from mail-oa1-x34.google.com ([2001:4860:4864:20::34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5rsa-000000003zy-1zgG
+	id 1u5rsd-0000000040q-0Vos
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 20:00:05 +0000
-Received: by mail-oa1-x2a.google.com with SMTP id 586e51a60fabf-2c7f876b320so1360285fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 13:00:04 -0700 (PDT)
+	Fri, 18 Apr 2025 20:00:08 +0000
+Received: by mail-oa1-x34.google.com with SMTP id 586e51a60fabf-2cc82edcf49so551657fac.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 13:00:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1745006403; x=1745611203; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1745006406; x=1745611206; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=kwEV6MZFJIchPoMNTCpHkxpHxz93usoOxoRUm2ZA0bk=;
-        b=U2j4eVBjwGMvaUmWiXqNQ5YGQaop9lyJfnad4tIX7fNvcN+dgVQbDXMHVoafNiP2NX
-         S5Hujyz9cb2Pj1naMmVGpn5lI+zno/imHOGHZT7p+cwdeeVsba15sHUIPQuidbAoV0T3
-         vduNia12UuDnESxEwU+jgcCaxrJRHVzIv6Tqi6Gd8xnOv9Wah2d23mE+apUF4tr8s17r
-         AjxZngllHLxJjCrUYuVKd2Asp4q+NSX0/Z3zYFu8IUNX4sIBhz5rBuyXTJn3OIKjp9bw
-         b/OFF9Uvo0rJ4Xd/uZzeJZ19VA0O6+xWzvdDRCkESsmKMVM5luTfkqt/aEARA+Uj9zhU
-         0o4g==
+        bh=qDqqSLn17t5025nkyBHLLdQZLsyBrfKDeHjL9m8bNdc=;
+        b=oH6tb9J1KzGG/dDMznEeSVw6kr7pqR21YmfIYTod6u8fbvghqLkI8GYPamupxe6j4a
+         eQsJ91mEXCWAGCd6k6W58xzQzTUjn13VJEuezTpTy6Hp9ErHGOTZvNOgMqJc8QNRQTDH
+         403Dim2Ta1ETuYG99qYl42S5NOYMfWm+RG8yrhMKqC8ef48tY5m38BRViBOUESNpN2Fx
+         5DQCyAKZmC8GBMJ2cFJVdA0t8N0dHFUuY433i0LxevdIbqx4R3pSmxpPzR+/orW34fHq
+         V5iclw4uys3oRkbwFgAsqqd8rXizqgvOfrd2WYXR3oc5S4+TWFMkD4kH6ude2MrroHnd
+         MlAQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745006403; x=1745611203;
+        d=1e100.net; s=20230601; t=1745006406; x=1745611206;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=kwEV6MZFJIchPoMNTCpHkxpHxz93usoOxoRUm2ZA0bk=;
-        b=vbUY53X9lBemKTlmGQL5VOHJtUW60R/ikwZbu55JC1yac+ewvV7VHzG7TnCdAEnsYX
-         i/XhFZg1blR7kVznycaIKLdoDvXUzZvjW1A/A4s8U9EXzHKvf2V4CmRDAecKrfdh9VDR
-         ojTIYZDze64o/PJbMM6m19nZte6+6CeJAUmFy1BUTrE1Xf6ckZIJCutoB5gzjZ+gXF2J
-         xpoHZ0DDt1j/n+7ApXYuQqBlYLI2R6eSFwi/ibDGWebCHZ2+weAQKQXNu8IzRjMzkG4I
-         lzs3uGk2h7TmDacOPGOsJ7Wo81MZroNocHcmhisgEw6NpZ03J0A2iIYvSyWVd3+ANOmJ
-         T/ww==
-X-Forwarded-Encrypted: i=1; AJvYcCX6NHqshEiKoohZEx/d/tznbeV2cy2mebF4IZht2JScb3dxAynzI2rL+kgkPmX5lHu49AyCWN3Iu4+8YSTTkGPC@lists.infradead.org
-X-Gm-Message-State: AOJu0YznWt9TvCiXNHpTzyubBhNzp+9KqWwemgnHgAAFUZQ3lRoyvfl4
-	Kkpwi1geEwXMVH0Tf1iw5Jsim+xr3Jajq+2oenOHjgt5UsmvVwHP2wZI1piL0ck=
-X-Gm-Gg: ASbGncszRS04RrzkENwY0uwvMI4/Oizs1dcwFIEKwyyAIUYmjivLXOW4i1JkiP+RZmT
-	7va1rD72vLYEPjYmMqC508YPnMnBdAydefQub2oqdYsElt+CJCB4/UU1VtMFVHpxOS99njLpbXk
-	sSlkkwuBEFTzPRShUPhCIf1Ih8HTXk3PPTnOmLfn604mo8uYDiCJoFwUJz0czZjNNwPMY34FwTZ
-	6eE0tA2RJoLSkFR5uJaEux6bh7b6EhxAxFTGIYFpxc8VAEU9fbPbeAZdL1fMgDLb00eK6Qg+syg
-	cuMFIZ/LWmXnqVJ5s3BC38J5sOZXJHd2AOr9hZa0bnXfncs=
-X-Google-Smtp-Source: AGHT+IGOnbfbgHvkykmuoWWumpe/zQvoKx6ZttBWLA1bqT+37tvAXi4z2gJDa6nDw9JVR42V4KG3Zg==
-X-Received: by 2002:a05:6870:aa9a:b0:2c1:44a9:fc16 with SMTP id 586e51a60fabf-2d526ec9824mr2328947fac.38.1745006403477;
-        Fri, 18 Apr 2025 13:00:03 -0700 (PDT)
+        bh=qDqqSLn17t5025nkyBHLLdQZLsyBrfKDeHjL9m8bNdc=;
+        b=VtID+84s1LUcODs5fl1vfT8v6mHjojwzXE75DT7iyqiJpKx7qRhf8Km316kQph5v01
+         omXE7rbMne91CDzl0rvWpNMt2NgfdnZadd7GNDPPrMJvuixAY9/Vp1U5aUaNu6KZh52d
+         nH3OhI/HiFAgCV7jEd4ljykTKu1flnWoDGi9/qAMvyMRVdMmZNlNnIcfMfqMz9j8tE8T
+         hLLIR5dKZcynJ0naH6dUftH4dUa5O/SwnB2HOVaREpEySNzJ55X75/mKRRn0zHKO5FT6
+         sPVHZjsM8WpW4vhhxxm/DRRh0WifPokIPvYF/BSKxDWMg+nmN+1RYs75HItRKWtvRdaw
+         iCTQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW2IEOyRBCmfmruEBBNeJMZ80fVe57LzTjDKnTCwWtl+IKjN/hdDtOnHjQ8L2gTS1s1ssJYeo102mlpJ3eB2YKI@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJ9te784wg3YWEW6r2ycjrfnfKUl7XZfsbHz+uvgpn8jNCh4aj
+	PtVHgr4LgWkX+0Y4lydonT6U3+xu/nyHP+JxoUxDRZJinhRnQKw1EMbVt7bO/kE=
+X-Gm-Gg: ASbGncudT0HURJhPDSBBdLeGfktVvEOWME+PnW/eWYwjqtUeXCQzNkQejC30Q2Hc8yA
+	e2l9AqXEPBJz6awMdwjFw3hKq1ibXJLKBIphFfrH5Imqr40e21oNqh61oIiOx3Z1GkIPIh+P3eh
+	lHzqtn/ah2CfdBUPaE5/+PIUPkcnqcD4NeWFsJNBYT511Fej0o/arBNTl/Bn9jnnyXnMUgESwGK
+	3wYHldIbV4BeZH3BsN8JNrQ5Zb6OkCwNdIECc2VIeGHSCkbiqWGgot7GdJqsAvXKzClSaFFVOfA
+	J7F7d1fYsbNYk8g+t/4TeZ4MRNFUTVSdm+uXhBGzong2qcqI879c0wCXFQ==
+X-Google-Smtp-Source: AGHT+IGyvAhFlRCsX12Lhwr22tKkpHolc2Tt6LGi5+wwx4p3gTPOGLhHmLju7HF0T94FQvgvVlBiHw==
+X-Received: by 2002:a05:6870:4413:b0:29e:6547:bffa with SMTP id 586e51a60fabf-2d526af61c3mr1982271fac.21.1745006406486;
+        Fri, 18 Apr 2025 13:00:06 -0700 (PDT)
 Received: from [127.0.1.1] ([2600:8803:e7e4:1d00:dcdf:46e0:18e5:c279])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2d5213f8e4asm606941fac.23.2025.04.18.13.00.00
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2d5213f8e4asm606941fac.23.2025.04.18.13.00.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Apr 2025 13:00:02 -0700 (PDT)
+        Fri, 18 Apr 2025 13:00:05 -0700 (PDT)
 From: David Lechner <dlechner@baylibre.com>
-Date: Fri, 18 Apr 2025 14:58:27 -0500
-Subject: [PATCH 08/10] iio: adc: ti-ads124s08: use struct with aligned_s64
+Date: Fri, 18 Apr 2025 14:58:28 -0500
+Subject: [PATCH 09/10] iio: adc: ti-ads8688: use struct with aligned_s64
  timestamp
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250418-iio-prefer-aligned_s64-timestamp-v1-8-4c6080710516@baylibre.com>
+Message-Id: <20250418-iio-prefer-aligned_s64-timestamp-v1-9-4c6080710516@baylibre.com>
 References: <20250418-iio-prefer-aligned_s64-timestamp-v1-0-4c6080710516@baylibre.com>
 In-Reply-To: <20250418-iio-prefer-aligned_s64-timestamp-v1-0-4c6080710516@baylibre.com>
 To: Jonathan Cameron <jic23@kernel.org>, 
@@ -95,20 +95,20 @@ Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-stm32@st-md-mailman.stormreply.com, 
  David Lechner <dlechner@baylibre.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2005; i=dlechner@baylibre.com;
- h=from:subject:message-id; bh=SKCpF0rSJSY06g0qoJ4XgXpVJV0JPJb8oLvnwY1CUvQ=;
- b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBoAq8ZpjC92ceussgPgpBKBLXA1tO4DdY6Pfv+q
- jbN1Cv80eqJATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCaAKvGQAKCRDCzCAB/wGP
- wNhbB/419+xS1/MlezzwDnTGWqQSMnAh1Q2CLkNfdMRF68px0+3K710C9xuAgCWfWqc+HY4d/gd
- 0Z6Ek4aSyCx9NVF+d9REpdeTCbkAjzL0yt1UBHDq7hsMFQOylHBCYJFxtxStm16dSE9AByAHWcp
- ztS2vlc/Dgu77OXzBjdmjGD0dhTrhCxBJHEAVudLPfh/WAoVrFRmc5QXkl5E57hP1EQoHD1p8CV
- iob437dhuhV1doZeSuFDEMRKbhsa1awJs7IRtPIZywjnzRwZ9s4wgjSYJSr0o+bYCyQ6Y1y1JLq
- bo67Oufp7S8gpeHG7/yyq/tHcStfArgOiFqPlRhGWaoDoT8L
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1627; i=dlechner@baylibre.com;
+ h=from:subject:message-id; bh=ARIVPfAYjojNb4iBMLsUhX2LD/OFISQyTpJFmR/jUmA=;
+ b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBoAq8gnMqNGtdNT2ZIPYnYVdyTTiuNmSwk6ytsh
+ TVb3PrODfaJATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCaAKvIAAKCRDCzCAB/wGP
+ wBNxCACdVaOqC9XUOO3XNtkEYvq9VgXfioFD1KTARQagGK8F4RZ52Ql+vvMTIfwlpvJZ2gt1C6p
+ 2H95DFKR9LUWM73Oc2uor9X8qIw+B85vCeAZAV4Ux5UDRP16K0Q7Ick+F/d72GPdBKSM3cnPUAq
+ wNHPB/7otHliUHUsABIkKUC45xghvbM3+0JbwXMEuLAcC0xgu3XU2XGzKcuqbj39kBioJKPOLje
+ 7uhR6CGsgbp8xEjN+n3V/Q9CdEC0y1JBy7RPnbUXTJkQiccRgPr7kgv7T+7V2Qm3YGDkxz7YnDa
+ 0zhX+IsfH+cnM/RBIpCAFz6Fa+Uz/hbt5JnBiJfw2/EJvSyj
 X-Developer-Key: i=dlechner@baylibre.com; a=openpgp;
  fpr=8A73D82A6A1F509907F373881F8AF88C82F77C03
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_130004_523340_10A23E42 
-X-CRM114-Status: GOOD (  15.34  )
+X-CRM114-CacheID: sfid-20250418_130007_166328_934B5734 
+X-CRM114-Status: GOOD (  14.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,54 +127,44 @@ Use a struct with aligned s64_timestamp instead of a padded array for
 the buffer used for iio_push_to_buffers_with_ts(). This makes it easier
 to see the correctness of the size and alignment of the buffer.
 
+Changed from struct initializer to memset() in case the size ever
+changes and there could be holes in the struct. The compiler generally
+optimizes calls to memset() anyway.
+
 Signed-off-by: David Lechner <dlechner@baylibre.com>
 ---
- drivers/iio/adc/ti-ads124s08.c | 18 +++++++-----------
- 1 file changed, 7 insertions(+), 11 deletions(-)
+ drivers/iio/adc/ti-ads8688.c | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/iio/adc/ti-ads124s08.c b/drivers/iio/adc/ti-ads124s08.c
-index 8ea1269f74db09427a4a8d434ba1d63e7c63d038..ecaffe83fcc911f99afbeae7ef51440d150bef73 100644
---- a/drivers/iio/adc/ti-ads124s08.c
-+++ b/drivers/iio/adc/ti-ads124s08.c
-@@ -98,14 +98,10 @@ struct ads124s_private {
- 	struct gpio_desc *reset_gpio;
- 	struct spi_device *spi;
- 	struct mutex lock;
--	/*
--	 * Used to correctly align data.
--	 * Ensure timestamp is naturally aligned.
--	 * Note that the full buffer length may not be needed if not
--	 * all channels are enabled, as long as the alignment of the
--	 * timestamp is maintained.
--	 */
--	u32 buffer[ADS124S08_MAX_CHANNELS + sizeof(s64)/sizeof(u32)] __aligned(8);
+diff --git a/drivers/iio/adc/ti-ads8688.c b/drivers/iio/adc/ti-ads8688.c
+index b0bf46cae0b69eb1fe8d7734c8a32ac642c5d0cd..2a9cb7d9bbfae4b282682d755992acd47fb88b99 100644
+--- a/drivers/iio/adc/ti-ads8688.c
++++ b/drivers/iio/adc/ti-ads8688.c
+@@ -380,16 +380,20 @@ static irqreturn_t ads8688_trigger_handler(int irq, void *p)
+ {
+ 	struct iio_poll_func *pf = p;
+ 	struct iio_dev *indio_dev = pf->indio_dev;
+-	/* Ensure naturally aligned timestamp */
+-	u16 buffer[ADS8688_MAX_CHANNELS + sizeof(s64)/sizeof(u16)] __aligned(8) = { };
 +	struct {
-+		u32 data[ADS124S08_MAX_CHANNELS];
++		u16 data[ADS8688_MAX_CHANNELS];
 +		aligned_s64 timestamp;
 +	} buffer;
- 	u8 data[5] __aligned(IIO_DMA_MINALIGN);
- };
+ 	int i, j = 0;
  
-@@ -289,7 +285,7 @@ static irqreturn_t ads124s_trigger_handler(int irq, void *p)
- 		if (ret)
- 			dev_err(&priv->spi->dev, "Start ADC conversions failed\n");
- 
--		priv->buffer[j] = ads124s_read(indio_dev);
-+		priv->buffer.data[j] = ads124s_read(indio_dev);
- 		ret = ads124s_write_cmd(indio_dev, ADS124S08_STOP_CONV);
- 		if (ret)
- 			dev_err(&priv->spi->dev, "Stop ADC conversions failed\n");
-@@ -297,8 +293,8 @@ static irqreturn_t ads124s_trigger_handler(int irq, void *p)
++	memset(&buffer, 0, sizeof(buffer));
++
+ 	iio_for_each_active_channel(indio_dev, i) {
+-		buffer[j] = ads8688_read(indio_dev, i);
++		buffer.data[j] = ads8688_read(indio_dev, i);
  		j++;
  	}
  
--	iio_push_to_buffers_with_ts(indio_dev, priv->buffer, sizeof(priv->buffer),
--				    pf->timestamp);
-+	iio_push_to_buffers_with_ts(indio_dev, &priv->buffer,
-+				    sizeof(priv->buffer), pf->timestamp);
+-	iio_push_to_buffers_with_ts(indio_dev, buffer, sizeof(buffer),
++	iio_push_to_buffers_with_ts(indio_dev, &buffer, sizeof(buffer),
+ 				    iio_get_time_ns(indio_dev));
  
  	iio_trigger_notify_done(indio_dev->trig);
- 
 
 -- 
 2.43.0
