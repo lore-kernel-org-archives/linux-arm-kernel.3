@@ -4,74 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D164C369C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 08:39:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 379DAC369C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 08:41:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c7v6a64FwreaJA0pCAKVOqC5CViB7StYRn/BcrMkSKM=; b=i6acEYTS8xwIcwE2FV+kIjysYu
-	fH8iFknwIP02IIXQ19xNZkaSenG6zciIbqk1QWkTSkyefNzFrFoZTK/oxr+kQ9G9X5K0CJcqtXHpr
-	0HwnvsFz1buro8DJuViFxPYG3re3exG37RcTIucLWjtE9e3P1JuCw4qHXYqmXTjfcbhJpCJ1Ls9j0
-	4vVpPY3vvsCukqZFCf0LQTrmI3o6jcsQ7ETdbPy75VYH/glzfawlRKOjHVtvvUHCH1G45XX3oqbqi
-	n4PAe078wnGO0twYakhik24wg0IMLj+TSnfehWU9ma6N9T2VfNAIk0IABNwj39izHfvee+RMV/P1D
-	yMZ4kfcA==;
+	bh=AxdkJLhGcvUSmWPi/UwEe1UXm3/QVMd4knaXbpwDxqg=; b=goG27iFdNkRTvOzno1dh5k/5C5
+	bdPsZYm+fXpN0H4Wxtq6qkEYFV6l8h30EMOr8fiw47aO+9hx6ZrsQyYiHCtLCSusSKVMYot9OoJ63
+	WzWFqXHcQ1ZwCUW5Xb2oTrolVyxfl0elZ1bALME9cKEAT5qfjttBE7lUQCq0l7rdv6SnTOu50ddVj
+	vqVStrxUowizkA+8oSt4Ra9cXtBhuCxlL8zw9zQ+RWdN2oju9iVpmIoyxYM6IJyMaOJi4yBHw+I84
+	leQHHndMRSzxdXRFSIKGU52IUXpq1m1jvddXA1+xXGZrbEzx5vNO0P0ra2GeQGEKaUG+Xx/RAqcGV
+	Ut0ZyzyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5hFk-0000000Fe11-0uOk;
-	Fri, 18 Apr 2025 08:39:16 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1u5hHZ-0000000FeJQ-2vHP;
+	Fri, 18 Apr 2025 08:41:09 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5got-0000000FaE5-2XUP
+	id 1u5gqm-0000000FaZn-3jn8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 08:11:32 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5e8be1c6ff8so2978977a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 01:11:31 -0700 (PDT)
+	Fri, 18 Apr 2025 08:13:30 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-5e677f59438so2343591a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 01:13:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1744963890; x=1745568690; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1744964007; x=1745568807; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=c7v6a64FwreaJA0pCAKVOqC5CViB7StYRn/BcrMkSKM=;
-        b=F3eQKHC7WiNBd/x1zagUviKiBVpdDCKalrTZnqALBx9L2mKwEDGgMRJVFi25GhEXY2
-         WzRr7MB23WBRjW4tN3mRF+jjuyy1UtbLnONpvfVLwe14WeC9khWIBHT7WUZFYQFdwcfR
-         paW2cZrvmKC8zfw4DgTmtN3rMyc7kmruCKGVMr5IYrR5Tw2jgQpnvyOMwE4JgRudjcZa
-         IVQa90aUtcJQyUzw5VnTddkfQXbXtvxXF1ent1r+ghKp5rLciTu3FlPg2r20Z1Gx6AHw
-         aDPgCIrMBH8bCrxuQ1tfGcbiVllWa2MzHfcJk77r/4Rwjl806qKN1/CfNT1kT4MLkPZd
-         ilMQ==
+        bh=AxdkJLhGcvUSmWPi/UwEe1UXm3/QVMd4knaXbpwDxqg=;
+        b=VRVeiHn7EuFjFc8r/BQ1QhyNb/dJTwgIGd/9XPCJDnZFmqOqPbqC2zUiqLs1mCA8OR
+         JcVghYantHo4+/MvNBuRiTUYjeOvOM3cnqjnZ6uTHO8SjcLj7HfLjUfjrj/S4fEc1t6V
+         uJl7IuQjqu6jYvjCD6OBVGpMV7SjkX8wb9m5tWed/PjdOeJmpJuskcehjufno+8Ibk5V
+         CbnpO74MC3truHuSfjID3jC8lgjI8DRdxT1BlfGSbNzqGHCTkxCjuIPQm0AdKlUSuD+y
+         ZZKm3/i3D7iDfkLr+g/vtPux5P7MiOcEh+bp/Qc0+usCCFMynW10GuwSTaNunc+s2jrL
+         7cjw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744963890; x=1745568690;
+        d=1e100.net; s=20230601; t=1744964007; x=1745568807;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=c7v6a64FwreaJA0pCAKVOqC5CViB7StYRn/BcrMkSKM=;
-        b=kQTbQOYdw0JmXozRHpaKUNpwhDdBpddAHWt3BaGXa2ILkhhA3C6p3HYMJsdqTs831Z
-         BWXCNpE4VujnS+AlvSch0hC/kwlzvQlmp8PBIQi8PBErUdp0l1jtyNbiPRV6XsisfjLz
-         ykNxhKe6CibxXuaeYJBmFcQ7fGBZpGpPaadfMYqMZP09o5Qwv3vfUyuzQ4hf7my+IrCr
-         Jw735GwsCJ5pdqBC1EgEkZNsovUCgoIabKU3lQupIFkErNk+bZOfWDJWTmxChwLG1wa6
-         V/SrpD+3QkdLYLgscaoBD3SOb1oXbTA6pl/XojCOAv7bP8JeeLws2oIHNWMNk+fknGt+
-         PcLw==
-X-Forwarded-Encrypted: i=1; AJvYcCW+nqIAun2ItJnHh2TIRi/zHenZm6xR4GZfSDaDAxHCvJH9diKqWDz2muSwloAWj13xNbTxGs+UrjOOaUH/wqUm@lists.infradead.org
-X-Gm-Message-State: AOJu0YwZof6pPWSfVEO1IxVoY3HRpaB9v1QlxcMRX79TuBi+vFghxZcq
-	AUACvcvfjHPoSlqBaSeMa/F3Dr4sFN+Fuk9xxwL6XURHXWGAZgEjgs/nGSdx2hDBdIRegDra507
-	dLLrAAGe2KaVIKG6uGITTHHDDeCTl46ThFAOC1B811ftO+T1nNg==
-X-Gm-Gg: ASbGncsEi6ThmQxhz3DzGpD46G7/XXP+Q6kPE+lHRtg3blVKBV9NBZDaQKuE09IY9F+
-	3jT2lMhnxSG7WSrYmUwsWYitNxZciFsDAtsiexLL0dzjrgN1LKXSq8qO0bI2vTV6o+attERjTwV
-	V+0lsEf3oyx8hFLlFSvQbajUM/9q7r4nLh6+a+87wTM2jKGGQ=
-X-Google-Smtp-Source: AGHT+IHUdZc5HDjrZYA8LWyh9msnR6W71lP04fz39bJlOI9JeLCz/9ra+wyxcFCuEbg77rntJwlmJg7XBKEi694wwtw=
-X-Received: by 2002:a05:6512:1045:b0:545:2d4d:36de with SMTP id
- 2adb3069b0e04-54d6e6352a2mr234675e87.31.1744937653242; Thu, 17 Apr 2025
- 17:54:13 -0700 (PDT)
+        bh=AxdkJLhGcvUSmWPi/UwEe1UXm3/QVMd4knaXbpwDxqg=;
+        b=EJxSwI3MEbJO+wHRkqBzHVLg7/0Pj6rRcdn2cHfJdQYqC+JH6+eD+xgGUIdoTzDDaZ
+         wzGSId/BH2S+yTyyv23mQ877/R0t6JNmMZyoKaS6/3AFI7ZTQXG9KsnZs7k++4LdGioq
+         N8X6+qXROLi7BNYydkcq5ZoKWiFTjIChKVEH0o9m1+vaXjE3Ts0+p++XjHeDOmq36cuX
+         IZmQ7tvcmAmQYUZpkswxnVAJeflrK1q4wc+6FZPgGu+13mM9IDXP2VeTgewM1E/+8sgr
+         Z/pfno5WuKAt201Xg2yPnkUchoyN9flA4oGyNHj+/6B+guUpvGwtM0+mDJdd8r7U9Knr
+         rKXg==
+X-Forwarded-Encrypted: i=1; AJvYcCU2mdzQU+BeRHvN4sMl+2PUd3zhk+Tte0+0tWcasWArkn64x/9XmvulUksT0Bv149SpaU9UTIF2FegTzog+aKQe@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/83AH59/pc0VPNj4GrpYYtYUcJNiOQwiHr+aQeDWUV0J4pvzB
+	r35OjqkBBzA3bxn+ENzGqBeoiG75NI7fdaGP7ba1sLad3Y8XgOWyzunoG8Gjk+NxGLLcvJXmNiu
+	tJlVV8cLT924sAbygdSKtlpwWFHkBwvmd3R/jpBXy/ZJKJHaYuA==
+X-Gm-Gg: ASbGncu36veuPyFKtnqV0bRFrH5c0S9dme9oD4OrIxC3lzjIWAeb6IPOqXG4N1I4cw9
+	gtT2Xm4p+jJ62X2y5bwrr4nyudQzy7cyqP5jMJemXyJa78avLa9qCr70qv75dqkflr75IEXOtP5
+	M2wgFpPTOaB7ZThKIB0YDmF/5+4Q4J/Gnmkj5DZf2VuNlmW6g=
+X-Google-Smtp-Source: AGHT+IHbH8IHfW1jco323IJ3I8ek87dCWx6djDQi1gr/CrsHWGERJ1m1etCKkq3catleN2NzR1ZFUNRCRNXLMeqhzx0=
+X-Received: by 2002:a05:6512:3b93:b0:54d:6dd3:614c with SMTP id
+ 2adb3069b0e04-54d6e62a372mr244799e87.14.1744935843910; Thu, 17 Apr 2025
+ 17:24:03 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250417142513.312939-1-ulf.hansson@linaro.org>
-In-Reply-To: <20250417142513.312939-1-ulf.hansson@linaro.org>
+References: <20250417142513.312939-1-ulf.hansson@linaro.org> <20250417142513.312939-9-ulf.hansson@linaro.org>
+In-Reply-To: <20250417142513.312939-9-ulf.hansson@linaro.org>
 From: Saravana Kannan <saravanak@google.com>
-Date: Thu, 17 Apr 2025 17:53:36 -0700
-X-Gm-Features: ATxdqUHzOUVh8E2tR73MoZ4FAVpBQN57AXnmN-9HADX6gA9CnvHoa6p8qDTye_I
-Message-ID: <CAGETcx_=hEuOs09=gRe58+34PFa0bfsYoAK9kYOn90FP5nDjmw@mail.gmail.com>
-Subject: Re: [PATCH 00/11] pmdomain: Add generic ->sync_state() support to genpd
+Date: Thu, 17 Apr 2025 17:23:27 -0700
+X-Gm-Features: ATxdqUG-wMFcs_RvfIR7wkSnVzQWMhX9qiYF5MQ0YXxTofWgLSd9q6dkFbXM67w
+Message-ID: <CAGETcx9rvTWPbDCnTLb+ToVk8BMipTa1Y14vpn=bPBkM=CjoZg@mail.gmail.com>
+Subject: Re: [PATCH 08/11] pmdomain: core: Add internal ->sync_state() support
+ for genpd providers
 To: Ulf Hansson <ulf.hansson@linaro.org>
 Cc: Stephen Boyd <sboyd@kernel.org>, linux-pm@vger.kernel.org, 
 	"Rafael J . Wysocki" <rafael@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
@@ -83,8 +84,8 @@ Cc: Stephen Boyd <sboyd@kernel.org>, linux-pm@vger.kernel.org,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_011131_644959_7AAD94DB 
-X-CRM114-Status: GOOD (  25.84  )
+X-CRM114-CacheID: sfid-20250418_011328_933665_8D2465AB 
+X-CRM114-Status: GOOD (  26.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,81 +103,165 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Thu, Apr 17, 2025 at 7:25=E2=80=AFAM Ulf Hansson <ulf.hansson@linaro.org=
 > wrote:
 >
-> If a PM domain (genpd) is powered-on during boot, there is probably a goo=
-d
-> reason for it. Therefore it's known to be a bad idea to allow such genpd =
-to be
-> powered-off before all of its consumer devices have been probed. This ser=
-ies
-> intends to fix this problem.
+> If the genpd provider's fwnode doesn't have an associated struct device
+> with it, we can make use of the generic genpd->dev and it corresponding
+> driver internally in genpd to manage ->sync_state().
 >
-> We have been discussing these issues at LKML and at various Linux-confere=
-nces
-> in the past. I have therefore tried to include the people I can recall be=
-ing
-> involved, but I may have forgotten some (my apologies), feel free to loop=
- them
-> in.
+> More precisely, while adding a genpd OF provider let's check if the fwnod=
+e
+> has a device and if not, make the preparation to handle ->sync_state()
+> internally through the genpd_provider_driver and the genpd_provider_bus.
 >
-> A few notes:
-> *)
-> Even if this looks good, the last patch can't go in without some addition=
-al
-> changes to a couple of existing genpd provider drivers. Typically genpd p=
-rovider
-> drivers that implements ->sync_state() need to call of_genpd_sync_state()=
-, but I
-> will fix this asap, if we think the series makes sense.
+> Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+> ---
+>  drivers/pmdomain/core.c   | 36 ++++++++++++++++++++++++++++++++++++
+>  include/linux/pm_domain.h |  7 +++++++
+>  2 files changed, 43 insertions(+)
 >
-> *)
-> Patch 1 -> 3 are just preparatory cleanups.
+> diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
+> index 512f89e6d302..9c5a77bf59d2 100644
+> --- a/drivers/pmdomain/core.c
+> +++ b/drivers/pmdomain/core.c
+> @@ -2374,6 +2374,7 @@ int pm_genpd_init(struct generic_pm_domain *genpd,
+>         INIT_WORK(&genpd->power_off_work, genpd_power_off_work_fn);
+>         atomic_set(&genpd->sd_count, 0);
+>         genpd->status =3D is_off ? GENPD_STATE_OFF : GENPD_STATE_ON;
+> +       genpd->sync_state =3D GENPD_SYNC_STATE_OFF;
+>         genpd->device_count =3D 0;
+>         genpd->provider =3D NULL;
+>         genpd->device_id =3D -ENXIO;
+> @@ -2656,6 +2657,7 @@ int of_genpd_add_provider_simple(struct device_node=
+ *np,
+>                                  struct generic_pm_domain *genpd)
+>  {
+>         struct fwnode_handle *fwnode;
+> +       struct device *dev;
+>         int ret;
 >
-> *)
-> I have tested this with QEMU with a bunch of local test-drivers and DT no=
-des.
-> Let me know if you want me to share this code too.
+>         if (!np || !genpd)
+> @@ -2665,6 +2667,10 @@ int of_genpd_add_provider_simple(struct device_nod=
+e *np,
+>                 return -EINVAL;
 >
->
-> Please help review and test!
-> Finally, a big thanks to Saravana for all the support!
+>         fwnode =3D &np->fwnode;
+> +       dev =3D fwnode->dev;
+> +
+> +       if (!dev)
+> +               genpd->sync_state =3D GENPD_SYNC_STATE_SIMPLE;
 
-You are welcome! Thank you for getting this series done! Happy to see
-sync_state() support being added to another framework.
+I don't want people directly poking into fwnode.
 
-I skimmed the series and at a high level it looks right. Not too
-familiar with power domain code, so I didn't go deep. Just reviewed
-the fw_devlink and driver core parts of it.
+Use get_device_from_fwnode() that's in drivers/base/core.c? Might need
+to move it to a header. Make sure to put_device() it back.
+
+Or ideally, figure it out using some other means like looking for
+#power-domain-cells number? (if that'll always give the right answer).
+Point being, the framework should know which type it's registering
+even if there was no fwnode/fw_devlink.
+
+>
+>         device_set_node(&genpd->dev, fwnode);
+>
+> @@ -2718,8 +2724,10 @@ int of_genpd_add_provider_onecell(struct device_no=
+de *np,
+>  {
+>         struct generic_pm_domain *genpd;
+>         struct fwnode_handle *fwnode;
+> +       struct device *dev;
+>         unsigned int i;
+>         int ret =3D -EINVAL;
+> +       bool sync_state =3D false;
+>
+>         if (!np || !data)
+>                 return -EINVAL;
+> @@ -2728,6 +2736,10 @@ int of_genpd_add_provider_onecell(struct device_no=
+de *np,
+>                 data->xlate =3D genpd_xlate_onecell;
+>
+>         fwnode =3D &np->fwnode;
+> +       dev =3D fwnode->dev;
+
+Can you do this some other way please? I really don't like this look up.
 
 -Saravana
 
+> +
+> +       if (!dev)
+> +               sync_state =3D true;
 >
-> Kind regards
-> Ulf Hansson
+>         for (i =3D 0; i < data->num_domains; i++) {
+>                 genpd =3D data->domains[i];
+> @@ -2737,6 +2749,11 @@ int of_genpd_add_provider_onecell(struct device_no=
+de *np,
+>                 if (!genpd_present(genpd))
+>                         goto error;
 >
+> +               if (sync_state) {
+> +                       genpd->sync_state =3D GENPD_SYNC_STATE_ONECELL;
+> +                       sync_state =3D false;
+> +               }
+> +
+>                 device_set_node(&genpd->dev, fwnode);
 >
-> Saravana Kannan (1):
->   driver core: Add dev_set_drv_sync_state()
+>                 ret =3D device_add(&genpd->dev);
+> @@ -3453,6 +3470,25 @@ static void genpd_provider_remove(struct device *d=
+ev)
 >
-> Ulf Hansson (10):
->   pmdomain: core: Convert genpd_power_off() to void
->   pmdomain: core: Simplify return statement in genpd_power_off()
->   pmdomain: core: Use genpd->opp_table to simplify error/remove path
->   pmdomain: core: Add a bus and a driver for genpd providers
->   pmdomain: core: Use device_set_node() to assign the fwnode too
->   pmdomain: core: Add the genpd->dev to the genpd provider bus
->   pmdomain: core: Export a common ->sync_state() helper for genpd
->     providers
->   pmdomain: core: Add internal ->sync_state() support for genpd
->     providers
->   pmdomain: core: Default to use of_genpd_sync_state() for genpd
->     providers
->   pmdomain: core: Leave powered-on genpds on until ->sync_state()
+>  static void genpd_provider_sync_state(struct device *dev)
+>  {
+> +       struct generic_pm_domain *genpd =3D container_of(dev, struct gene=
+ric_pm_domain, dev);
+> +
+> +       switch (genpd->sync_state) {
+> +       case GENPD_SYNC_STATE_OFF:
+> +               break;
+> +
+> +       case GENPD_SYNC_STATE_ONECELL:
+> +               of_genpd_sync_state(dev);
+> +               break;
+> +
+> +       case GENPD_SYNC_STATE_SIMPLE:
+> +               genpd_lock(genpd);
+> +               genpd_power_off(genpd, false, 0);
+> +               genpd_unlock(genpd);
+> +               break;
+> +
+> +       default:
+> +               break;
+> +       }
+>  }
 >
->  drivers/pmdomain/core.c   | 273 +++++++++++++++++++++++++++++++-------
->  include/linux/device.h    |  12 ++
->  include/linux/pm_domain.h |  11 ++
->  3 files changed, 249 insertions(+), 47 deletions(-)
+>  static struct genpd_provider_drv genpd_provider_drv =3D {
+> diff --git a/include/linux/pm_domain.h b/include/linux/pm_domain.h
+> index e9a1f8975c4f..2185ee9e4f7c 100644
+> --- a/include/linux/pm_domain.h
+> +++ b/include/linux/pm_domain.h
+> @@ -127,6 +127,12 @@ enum genpd_notication {
+>         GENPD_NOTIFY_ON,
+>  };
 >
+> +enum genpd_sync_state {
+> +       GENPD_SYNC_STATE_OFF =3D 0,
+> +       GENPD_SYNC_STATE_SIMPLE,
+> +       GENPD_SYNC_STATE_ONECELL,
+> +};
+> +
+>  struct dev_power_governor {
+>         bool (*power_down_ok)(struct dev_pm_domain *domain);
+>         bool (*suspend_ok)(struct device *dev);
+> @@ -187,6 +193,7 @@ struct generic_pm_domain {
+>         unsigned int performance_state; /* Aggregated max performance sta=
+te */
+>         cpumask_var_t cpus;             /* A cpumask of the attached CPUs=
+ */
+>         bool synced_poweroff;           /* A consumer needs a synced powe=
+roff */
+> +       enum genpd_sync_state sync_state; /* How sync_state is managed. *=
+/
+>         int (*power_off)(struct generic_pm_domain *domain);
+>         int (*power_on)(struct generic_pm_domain *domain);
+>         struct raw_notifier_head power_notifiers; /* Power on/off notifie=
+rs */
 > --
 > 2.43.0
 >
