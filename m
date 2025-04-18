@@ -4,90 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66C3EC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 15:43:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11A46C369CA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 16:13:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4/cWTo90FQUpqjGK8y/mmDlFDVu6Jy0NFCw7BclObhA=; b=X4N4zLfjczLLFYJewALCc041Fk
-	XATknoj+CKNDicIc+cPZANdFfaVtRf5Xt/BNXSdX+Fj4cYWl8cgstxwqrCKgLKo/a8YhuS7TZpqBQ
-	F7Ec01VF3hangDaAMSEDR9GZQJoHcNmBdKBzE0qSZWcxuYsVGV4K+JYUn8aU9M5Sl2kZ5KsUeBqeE
-	8wPRp9KeBqxnxBCJ9SnFUTmt3QPx1qoL63iB4Ca4AuEzoZ75xO+APTNZwHkvJY9JfYkznhc+daD/C
-	tWCJ5jvnntvTxFkR7PvjffcHih8pq+/kpUfDKW9yJU0Ga6ZHD61jJaRkroMHAUemQNTIZ9MKhahQe
-	y+jsz+kA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=alUgsH5oqgqePgoF/9tZ8EZruI/VR2Lka7gVu683YBo=; b=porgINsjwrbs/try+NpvdWLzpq
+	nU1R6EeMTs+++dRvBTLI8mVE7aGG4IyuACZ/+sSmiJ2qtK0j8kNIlqf5NjY7dB3MykaHiwqNcK3kP
+	dqVpghiWdjzUOSCHLK4w/ZXKP9r5d882DtxUDdxd8gFtIqmmnDNokrsuiAu9tjML5Gd9nqkIngk+r
+	Zg0tiCctyBs9boloswsnoImqYfyuGqSV4hq+P9glNMlaXSN5JDmUttBROPoWsjFUOmTQQZRzlGvZu
+	mujmIFWRWZX4Vz8HLrYkRWjIl1qjXJLMYKmQLLkPBONCdFV9dPEYdj/UMid0Sq7UrsCaBm8eSgus/
+	8jeJT8WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5nsA-0000000GlvZ-3deg;
-	Fri, 18 Apr 2025 15:43:22 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1u5oLX-0000000Grjh-2ocy;
+	Fri, 18 Apr 2025 16:13:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5nqE-0000000GlQQ-3HIB
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 15:41:24 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5edc468a7daso301151a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 08:41:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744990881; x=1745595681; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=4/cWTo90FQUpqjGK8y/mmDlFDVu6Jy0NFCw7BclObhA=;
-        b=LUg5voakiiC5GUNr9uw8SoRqUHG0NCW2LbOQqSrOYlUUhzNLanYOXoQYcLcVyyX4Sq
-         hBXmfHwhKpSlCG3InFe9McXjeQ1I0AwFo6H0SKkxHQ2iH8+1ylkRzktoa9L6zTIL2iTx
-         c/DzwSu3BEAqpqtv4kB5B3WANYRbN6MkVfNQJ4E8q7G/AfszgUAAHtHGNQXUs0DMyh6R
-         GYRBq20ivbBPUZPdDMvSGNG+2+1a5b1a1OZFKrKwGRtz3mBwPc6IVycpboZW7lbc1U+5
-         M2g8Vkx3AfIXQf0QSI0rv31jW+IixjVsaCamoHtpVvX1o+yiblThrdhPjPssdoJQc+DW
-         X2cA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744990881; x=1745595681;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4/cWTo90FQUpqjGK8y/mmDlFDVu6Jy0NFCw7BclObhA=;
-        b=CVF4MZfHCVII/ije8QmKjg/vSjKM98nIQbnPNxoSD4wU2a1vzmeBM1wImlAv/6JSrY
-         LbifBkXY88+r7Ym7SUf4uMfVmLiqSU6Ly+CB7SgdMa2i2aCJW7CeQHmiwCvpJwQdc/QI
-         Ai0gUKCocHQveaD0Rr7yDL/tfyKPVnNSeWAaN12JJn54XcX8Z5JYdt7oO2Xamqsfhaun
-         2UPU54KYxRsuC0hLtl44OYWJzp3t4cV2t3aE4htut2g62TmICblNzCn6yMbRi8i/vYkn
-         br04fS9FAZIkwob6Ayb6NzK7OAZ4SL0TQsyEUKq/8xFYwys6rsiYQSJ/oD4XdyYKbWzY
-         6n7w==
-X-Forwarded-Encrypted: i=1; AJvYcCXOfgyrObDunIxF34xrkTIAoCNrQ/G8OrU7KubK3RIt56fi9VUtBLA9J2WVjkveHDUuLCVBHRZ69qgB5leV4Z+7@lists.infradead.org
-X-Gm-Message-State: AOJu0YxN/U5Wyxl6UD68i4/ty4P4GNJigQaCVKBh3F6HQaK46a5EXRVH
-	7PtnX5FKLNb3gQcVUmnll6YKYYJVhVnEd7YUQiMxyLl39YMotDjc
-X-Gm-Gg: ASbGncvP/FJY/J6UBi3mgq9jpj0iF8WG2Ibfir9cv+qq9YXSphPvK1S3b1bpVAkbYtJ
-	outWSHsloZcmAL7JNAWFNr9pjWwMZgm7bu5Om/v8YCD2ql2IHYrqzd8BFp0UOxQqK7znNSqIxTY
-	QC+R1tgnbwydh5967xXUBigzbTrFbnKKPFOyqEZL5BQooP8WnPdE3MqU4KImE80J9WySgNNmCTJ
-	YGVEXjeehL+JLL8cDHpYBjfQ64SjvWuFoQFOJfu309S0AUV82pPPBRni0ruygaXbBigLk6Jl4JH
-	IySj1B3FI+7L/lNoalRpel8fSR30
-X-Google-Smtp-Source: AGHT+IEkRAOdwHdMRa6d2QlCY5Yrw6uQ9t0434Mw1NfnH0yIfWXjkcyamqR6CUsapH+iG9W1uhu/lw==
-X-Received: by 2002:a05:6402:4301:b0:5f4:ca86:916c with SMTP id 4fb4d7f45d1cf-5f628524a18mr946596a12.3.1744990880873;
-        Fri, 18 Apr 2025 08:41:20 -0700 (PDT)
-Received: from skbuf ([188.25.50.178])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5f625595590sm1128785a12.41.2025.04.18.08.41.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Apr 2025 08:41:19 -0700 (PDT)
-Date: Fri, 18 Apr 2025 18:41:17 +0300
-From: Vladimir Oltean <olteanv@gmail.com>
-To: Wei Fang <wei.fang@nxp.com>
-Cc: claudiu.manoil@nxp.com, vladimir.oltean@nxp.com, xiaoning.wang@nxp.com,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, christophe.leroy@csgroup.eu,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v5 net-next 04/14] net: enetc: add MAC filtering for
- i.MX95 ENETC PF
-Message-ID: <20250418154117.jcd6xxnwot4nmhek@skbuf>
-References: <20250411095752.3072696-1-wei.fang@nxp.com>
- <20250411095752.3072696-5-wei.fang@nxp.com>
+	id 1u5nEw-0000000GZQ5-3fgT;
+	Fri, 18 Apr 2025 15:02:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5AA0D4361A;
+	Fri, 18 Apr 2025 15:02:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0B5BC4CEE2;
+	Fri, 18 Apr 2025 15:02:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744988570;
+	bh=w2SpzO0xz6fx5J/fpntEEf1UqwhZaVfP36baHvy0z+4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=mEwhf/fzByQdSLeT3Cu00zEzaaOGeQnOsE8nqnjaQioNNFWBeo4YURAhkgXffpi2W
+	 hnT9ZrvKsEpJaQs4Q5p1UIU0nK/DHdfHyQQMWSbcg09goV0uTlBLCoRKXLgRPT3P1R
+	 8+ik9tBNd8aSreN+sX9TOb445OFww7oWo3ICiCCA3JBvgzkcMq8m6M0DC6zMGXwDbA
+	 WDU6SQo647rlTslsurH7D7xF029OAGqfTgH/Xm3V70F13gFetzh1C56cHqS+JX9djB
+	 A+0Eedl8HHYigtnzfgDJAYilMm777v0sKsD5fqvIqgJCm9THRSQ0XKMkHVBXMqGPnl
+	 wFZi67jUe48Gg==
+Date: Fri, 18 Apr 2025 16:02:38 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Jean-Baptiste Maneyrol <Jean-Baptiste.Maneyrol@tdk.com>
+Cc: Jonathan Cameron <Jonathan.Cameron@huawei.com>, Andy Shevchenko
+ <andy@kernel.org>, David Lechner <dlechner@baylibre.com>, Nuno
+ =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Matthias Brugger
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, Lars-Peter Clausen
+ <lars@metafoo.de>, Michael Hennerich <Michael.Hennerich@analog.com>, Cosmin
+ Tanislav <cosmin.tanislav@analog.com>, Tomasz Duszynski
+ <tduszyns@gmail.com>, Andreas Klinger <ak@it-klinger.de>, Petre Rodan
+ <petre.rodan@subdimension.ro>, "linux-iio@vger.kernel.org"
+ <linux-iio@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>
+Subject: Re: [PATCH 7/8] iio: imu: inv_mpu6050: align buffer for timestamp
+Message-ID: <20250418160238.204701e7@jic23-huawei>
+In-Reply-To: <FR3P281MB175712512B0A88FAC9DFA009CEBF2@FR3P281MB1757.DEUP281.PROD.OUTLOOK.COM>
+References: <20250417-iio-more-timestamp-alignment-v1-0-eafac1e22318@baylibre.com>
+	<20250417-iio-more-timestamp-alignment-v1-7-eafac1e22318@baylibre.com>
+	<aAEzlZoZTsQuWgZa@smile.fi.intel.com>
+	<20250417184620.00006ae6@huawei.com>
+	<FR3P281MB175712512B0A88FAC9DFA009CEBF2@FR3P281MB1757.DEUP281.PROD.OUTLOOK.COM>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250411095752.3072696-5-wei.fang@nxp.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_084122_820279_EAA7600D 
-X-CRM114-Status: GOOD (  17.09  )
+X-CRM114-CacheID: sfid-20250418_080250_958734_53238D3B 
+X-CRM114-Status: GOOD (  23.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,45 +86,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 11, 2025 at 05:57:42PM +0800, Wei Fang wrote:
->  static const struct enetc_pf_ops enetc4_pf_ops = {
->  	.set_si_primary_mac = enetc4_pf_set_si_primary_mac,
->  	.get_si_primary_mac = enetc4_pf_get_si_primary_mac,
-> @@ -303,12 +489,55 @@ static void enetc4_pf_free(struct enetc_pf *pf)
->  	enetc4_free_ntmp_user(pf->si);
->  }
->  
-> +static void enetc4_psi_do_set_rx_mode(struct work_struct *work)
-> +{
-> +	struct enetc_si *si = container_of(work, struct enetc_si, rx_mode_task);
-> +	struct enetc_pf *pf = enetc_si_priv(si);
-> +	struct net_device *ndev = si->ndev;
-> +	struct enetc_hw *hw = &si->hw;
-> +	bool uc_promisc = false;
-> +	bool mc_promisc = false;
-> +	int type = 0;
-> +
-> +	if (ndev->flags & IFF_PROMISC) {
-> +		uc_promisc = true;
-> +		mc_promisc = true;
-> +	} else if (ndev->flags & IFF_ALLMULTI) {
+On Fri, 18 Apr 2025 11:26:39 +0000
+Jean-Baptiste Maneyrol <Jean-Baptiste.Maneyrol@tdk.com> wrote:
 
-enetc4_psi_do_set_rx_mode() runs unlocked relative to changes made
-to ndev->flags, so could you at least read it just once to avoid
-inconsistencies?
+> On Thu, 17 Apr 2025 19:46:00, Jonathan Cameron wrote:
+> > On Thu, 17 Apr 2025 20:00:05 +0300
+> > Andy Shevchenko <andy@kernel.org> wrote:
+> >   
+> > > On Thu, Apr 17, 2025 at 11:52:39AM -0500, David Lechner wrote:  
+> > > > Align the buffer used with iio_push_to_buffers_with_timestamp() to
+> > > > ensure the s64 timestamp is aligned to 8 bytes.    
+> > > 
+> > > Same question as per previous patch.
+> > >   
+> > In this case I don't think we know the position of the timestamp
+> > so a structure would be misleading.
+> > 
+> > The comment above the define certainly suggests it is variable..  
+> 
+> I confirm timestamp position is changing depending on channels enabled. It
+> can be at address 8, 16 or 24.
+> 
+> If there is only 1 sensor enabled (6 bytes of data), timestamp is at address
+> 8. 2 sensors (12 bytes of data), timestamp will be at address 16. 3 sensors
+> for MPU-9xxx (19 bytes of data), timestamp will be at address 24.
+> 
+> If the buffer is aligned on 8 bytes, it will always work without any problem.
+> 
+> > 
+> > /*
+> >  * Maximum of 6 + 6 + 2 + 7 (for MPU9x50) = 21 round up to 24 and plus 8.
+> >  * May be less if fewer channels are enabled, as long as the timestamp
+> >  * remains 8 byte aligned
+> >  */
+> > #define INV_MPU6050_OUTPUT_DATA_SIZE         32  
+> 
+> Thanks,
+> JB
 
-Speaking of running unlocked: if I'm not mistaken, this code design
-might lose consecutive updates to ndev->flags, as well as to the address
-lists, if queue_work() is executed while si->rx_mode_task is still
-running. There is a difference between statically allocating and
-continuously queuing the same work item, vs allocating one work item
-per each ndo_set_rx_mode() call.
+I applied this one as it stands with fixes tag and +CC stable.
 
-In practice it might be hard to trigger an actual issue, because the
-call sites serialize under rtnl_lock() which is so bulky that
-si->rx_mode_task should have time to finish by the time ndo_set_rx_mode()
-has a chance to be called again.
+Fixes: 0829edc43e0a ("iio: imu: inv_mpu6050: read the full fifo when processing data")
 
-I can't tell you exactly how, but my gut feeling is that the combination
-of these 2 things is going to be problematic.
+I thought about seeing if all the cases that are fixes are separable enough
+to take through togreg-fixes whilst the with_ts() series goes through togreg
+in parallel.  I might see if that is doable easily.
+
+Jonathan
 
