@@ -4,71 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB527C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 14:21:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC9DAC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 14:32:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g1ASXE1XoNvo3/TalZt9jqQKX2TOoBOweyI40SQbKec=; b=pbLNUn0tkGfKHyUm8/QZnveSY3
-	mqYV2BKD9VsK+hzBohXqyhLprQ9FqHyN/vxvopBoyEmBY7mfsZApe+Zdhca5jizZHo8Tm4WESMPUW
-	tnFMYkRAoL9CsNasEEucv9Y1EV9oPFnqCaebuh9DZT1CdlLS2x4JihZ7tIx0d8G32feORZgM2Msp7
-	q2AcYe3qVc7JCniGz1uEPTDcLy9VbQfnyzDVD5mESSW3LhFb/WGVKPsX8mJCpJnb4g4b9NUqnNu6G
-	N+Nx2cL0QY56wu4h102E+B3u8Ny7i22MKY+RRGcE+9IHicHQxoSYB282u66T0XENY5qnX/9rMw+lr
-	q4lHRfuQ==;
+	bh=jEb+3qqZQ6y0qknhmyqZMe7sYP4AQ+xYtScn/gz9NwM=; b=vtg02jQcMMdFiTLxnKCkDa4DIU
+	1Cd8mk5SfllY8dMgDeWjkcOMWC1lQhE57tEzZteW+j4azgEZQicbtoryNL52HBhbtLHCkuNzIYMf6
+	kbMaxSL2Ub0WbO/0py2CE6+Shf+PSdxeESgncq7KeaPCuhldKJ8vT8a3PcAN02gvYgxI8xoGspT7w
+	xftuwG1JlfIxkf/Iwt/KWNwoGznxgUp6EyX7ZbPEfigkpTc9SgRDYbB/j/Vyd8CJb+yqrHv5Y47pp
+	WEMxX0V1bo6mkFvVgVRmgN2ULCShEoNFCu2eQETfFUp6FucE3qdqsQEfne3eo+7S/xDjbEQP/6afH
+	CKCiZZSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5may-0000000GP36-0wMy;
-	Fri, 18 Apr 2025 14:21:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u5mlA-0000000GRgT-0M5H;
+	Fri, 18 Apr 2025 14:32:04 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5mZ3-0000000GObK-16T2;
-	Fri, 18 Apr 2025 14:19:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DBDB661138;
-	Fri, 18 Apr 2025 14:19:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 508D8C4CEF0;
-	Fri, 18 Apr 2025 14:19:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744985972;
-	bh=om+Vna/2GFvSm09tdyvQMrH5gELgac15SstCZnvcK14=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=RRV/mjioS01PV47nXvZ0TWue3NIWYz4g3TvMtcGSc9SzDjv5ENiZxjjzbX9r29B3r
-	 9/rQJy4n6bGeoy4ykbB+W4/4F7W0D3C9D3cINHvpgD0y02oiSDkrEm5G7Vf1UOSJNB
-	 RQpnb5utZNxuqYFRuG86JaRbyR2LQdUMJyr2qEc11qUB69jHurGTthMhKqWn9Y9PcS
-	 Nzl/cYyfucM8in2jji8Q98Ls2NeNC3pWDwx+RpeSSgWLOWSWmRB1nmRVItasiBs5Oy
-	 j4ge2AaFjDu59Ljk0ccoDDlfXsh5ZyrSwgoTZOaXCcDebHhf0VadkqEJMQ5k7pZQjU
-	 NX/2hSLrgVIsw==
-Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-3105ef2a071so21961481fa.1;
-        Fri, 18 Apr 2025 07:19:32 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUq1IE5wkqdfq0nOCQZmD5KpOScRTcP+I3UzcQYfR2sAX+TLJeT0sTvNArNPV4NqTf3uW7gccrRhfyp7Oo=@lists.infradead.org, AJvYcCXsun07PzZ57UCQ2/IcUJCp4LGpcXKRJM8TJ0zLyNwfmcXogIc8T4mfWoYb8FTJgRZKD4Lrdt9cffNrC5y2ocOL@lists.infradead.org
-X-Gm-Message-State: AOJu0YyXQ4+SmQhvVwl8CqhDuP2Beu942c651VuiEEABYwqi/k9jMaiG
-	uQrwr2y4sChnuUWwr8kdckHrihR5sFnw/e3UOagBZwOWqGXvgShSlTmoxblyf/SqAmWQ0n4BAO4
-	VW9JcjdRTxOOv7xYl5NHuYm00nnU=
-X-Google-Smtp-Source: AGHT+IFnh+q+URrFYgeso0knkjqFFZnTfGmXzWjvKWHdUWW3YHckdLRG/cd76/RqwZUrPe+JG12yfp7YED1LQQgVI5I=
-X-Received: by 2002:a05:651c:241:b0:310:779b:9ef1 with SMTP id
- 38308e7fff4ca-310904d4972mr9346751fa.13.1744985970634; Fri, 18 Apr 2025
- 07:19:30 -0700 (PDT)
+	id 1u5mjD-0000000GR8E-2VwF
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 18 Apr 2025 14:30:04 +0000
+Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-ac73228ea73so18816266b.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 07:30:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744986602; x=1745591402; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=jEb+3qqZQ6y0qknhmyqZMe7sYP4AQ+xYtScn/gz9NwM=;
+        b=Z80VX/LmyF9nM0+5JP6cFkCeC6UgE/xAHNDUaB02H6qTJrXm1Y+no6SxB+Fb1MJicR
+         G4ZyVzboQ3H/JvBEQy45mP7qBnSe0kDwJziUVDGyzp2Z4u0pD3tR1V/fXY7or9Nm3+wI
+         CQuZRNTLGxJNOHyU2lfvhyGVr0hRGCaN/IJbvwGgxl5s6/oTApuP48nc2WW2jCADRNGc
+         9w9T1+AZKM+ojlfxA2zzEBXdx3XZI0S/0guMOHqd5NzBmPaiWT5ipnRYZZa3idtRWmA0
+         TcHtL0Bw9geuqDc3BRbQmuyopTDXGpzCTgdL3mz/bxxT46YFV3aTpnjjVQpE/OFA5eWx
+         z/Pw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744986602; x=1745591402;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=jEb+3qqZQ6y0qknhmyqZMe7sYP4AQ+xYtScn/gz9NwM=;
+        b=wYD97vG5lqtJckUrpwnzKBSQX2ICU1s9Jb/gUo8iJ4CplZnpJ69XSNXPDJOi111Ulh
+         +DLBP8L8aJo7czLDtySgcjTiVHxmjLehrmvDt4NnyZl8uRRVR4CQGPTyaVudiWHymFRH
+         YNHi83skObmmTxfHrQEhpj0MO2All+015JqjqC4MVT9t80gWoZ0RUePb6TLkJepWHxFB
+         NA4sV8oQoTiUgDnE1U3uXHgbM4FPV6djQsp4HfiLEd9gT/u1OgLYC2rw10vJ3XzGCll/
+         fBrVrq9fZfoeW1dame6bHTZzuJg3NN6+7dHAbEoDFkKMk0jQMHsFRShKbg9dILnBQ122
+         lXmg==
+X-Forwarded-Encrypted: i=1; AJvYcCW7ZEOeD9oje1YNOKc6+j2aj1OkRgL+XQq4S4B8UBBuRwQ6q+9Y2wH5+skolQKmFMo8tyz5zYLljXzWxNNOlWzF@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywq+unYDS2kMwVh9QHr5NADEAUqjuXWxj4LePpRUUxxguifqBE9
+	vnqvhwxwFAx2/PVJv5acVKG1HxtsLNftievMqWs3uxml1p0VjQ2a
+X-Gm-Gg: ASbGnctrEYoyh5uBLc93wI8eKuli+7LtiNcWQeZiKHDY4cq5omQp9IaOgvgOtwKKG/o
+	EQccfKZJSQ8QAY23b0yZtPvtEu5S0qbazX1xbrWEHR839Zzx3tgayk6BWwiLPzlbgzffpPLhih4
+	feGu+BQofpqgUhDJ/sRsEa00MJYCdkXJ72Nan44yNZjir6G0y/OjK1MEueTKKoMn/tv62jC1UtX
+	mv7TNIR8mVqFRutUPfrPNLvUWPNZbXiKIjJ9fk90wX4PV3tNyAO6pKzOMslGg5yQyBR3AtOMnTd
+	cWnFWedd14zjyatpzBnHFRhisWOk
+X-Google-Smtp-Source: AGHT+IGdnYDFhquPDANBW/t8s+v17pRTpxTdgVNlSSlgqLevLyFnxfpZxlTzVSiFWuujrFYTqz760Q==
+X-Received: by 2002:a17:907:6e8d:b0:ac7:2aa7:5ba6 with SMTP id a640c23a62f3a-acb74b2d23emr92002066b.5.1744986601569;
+        Fri, 18 Apr 2025 07:30:01 -0700 (PDT)
+Received: from skbuf ([188.25.50.178])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-acb6ef41605sm123261366b.124.2025.04.18.07.30.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 18 Apr 2025 07:30:00 -0700 (PDT)
+Date: Fri, 18 Apr 2025 17:29:58 +0300
+From: Vladimir Oltean <olteanv@gmail.com>
+To: Wei Fang <wei.fang@nxp.com>
+Cc: Jakub Kicinski <kuba@kernel.org>,
+	Claudiu Manoil <claudiu.manoil@nxp.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Clark Wang <xiaoning.wang@nxp.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
+	"davem@davemloft.net" <davem@davemloft.net>,
+	"edumazet@google.com" <edumazet@google.com>,
+	"pabeni@redhat.com" <pabeni@redhat.com>,
+	"christophe.leroy@csgroup.eu" <christophe.leroy@csgroup.eu>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v5 net-next 04/14] net: enetc: add MAC filtering for
+ i.MX95 ENETC PF
+Message-ID: <20250418142958.6ews5uuoqayc7lof@skbuf>
+References: <20250411095752.3072696-1-wei.fang@nxp.com>
+ <20250411095752.3072696-5-wei.fang@nxp.com>
+ <20250415204238.4e0634f8@kernel.org>
+ <PAXPR04MB85100BB81C6B25BFC69B32B588BD2@PAXPR04MB8510.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-References: <20250417182623.67808-1-ebiggers@kernel.org>
-In-Reply-To: <20250417182623.67808-1-ebiggers@kernel.org>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Fri, 18 Apr 2025 16:19:19 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXE4T4p7iCkfo=4RoMeU4sHh47EZyBUSdWv7HTqdAY2oCA@mail.gmail.com>
-X-Gm-Features: ATxdqUG3NGrAHvWSlyQ9Wx2CgTU0VxdHzlcc8yhyIdwCb_viAAYGMbAHFukqzA8
-Message-ID: <CAMj1kXE4T4p7iCkfo=4RoMeU4sHh47EZyBUSdWv7HTqdAY2oCA@mail.gmail.com>
-Subject: Re: [PATCH 00/15] Finish disentangling ChaCha, Poly1305, and BLAKE2s
- from CRYPTO
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-arch@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, x86@kernel.org, 
-	"Jason A . Donenfeld" <Jason@zx2c4.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <PAXPR04MB85100BB81C6B25BFC69B32B588BD2@PAXPR04MB8510.eurprd04.prod.outlook.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250418_073003_640099_EB087E8E 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,39 +114,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 17 Apr 2025 at 20:27, Eric Biggers <ebiggers@kernel.org> wrote:
->
-> This series removes the unnecessary dependency of the ChaCha, Poly1305,
-> and BLAKE2s library functions on the generic crypto infrastructure, i.e.
-> CONFIG_CRYPTO.  To do this, it moves arch/*/crypto/Kconfig from a
-> submenu of crypto/Kconfig to a submenu of arch/*/Kconfig, then re-adds
-> the CRYPTO dependency to the symbols that actually need it.
->
-> Patches 14-15 then simplify the ChaCha and Poly1305 symbols by removing
-> the unneeded "internal" symbols.
->
-> Note that Curve25519 is still entangled.  Later patches will fix that.
->
-> Eric Biggers (15):
->   crypto: arm - remove CRYPTO dependency of library functions
->   crypto: arm64 - drop redundant dependencies on ARM64
->   crypto: arm64 - remove CRYPTO dependency of library functions
->   crypto: loongarch - source arch/loongarch/crypto/Kconfig without
->     CRYPTO
->   crypto: mips - remove CRYPTO dependency of library functions
->   crypto: powerpc - drop redundant dependencies on PPC
->   crypto: powerpc - remove CRYPTO dependency of library functions
->   crypto: riscv - remove CRYPTO dependency of library functions
->   crypto: s390 - drop redundant dependencies on S390
->   crypto: s390 - remove CRYPTO dependency of library functions
->   crypto: sparc - source arch/sparc/crypto/Kconfig without CRYPTO
->   crypto: x86 - drop redundant dependencies on X86
->   crypto: x86 - remove CRYPTO dependency of library functions
->   crypto: lib/chacha - remove INTERNAL symbol and selection of CRYPTO
->   crypto: lib/poly1305 - remove INTERNAL symbol and selection of CRYPTO
->
+On Wed, Apr 16, 2025 at 05:16:15AM +0000, Wei Fang wrote:
+> > -----Original Message-----
+> > From: Jakub Kicinski <kuba@kernel.org>
+> > Sent: 2025年4月16日 11:43
+> > To: Wei Fang <wei.fang@nxp.com>
+> > Cc: Claudiu Manoil <claudiu.manoil@nxp.com>; Vladimir Oltean
+> > <vladimir.oltean@nxp.com>; Clark Wang <xiaoning.wang@nxp.com>;
+> > andrew+netdev@lunn.ch; davem@davemloft.net; edumazet@google.com;
+> > pabeni@redhat.com; christophe.leroy@csgroup.eu; netdev@vger.kernel.org;
+> > linux-kernel@vger.kernel.org; imx@lists.linux.dev; linuxppc-dev@lists.ozlabs.org;
+> > linux-arm-kernel@lists.infradead.org
+> > Subject: Re: [PATCH v5 net-next 04/14] net: enetc: add MAC filtering for i.MX95
+> > ENETC PF
+> > 
+> > On Fri, 11 Apr 2025 17:57:42 +0800 Wei Fang wrote:
+> > >  	enetc4_pf_netdev_destroy(si);
+> > >  	enetc4_pf_free(pf);
+> > > +	destroy_workqueue(si->workqueue);
+> > 
+> > I think that you need to flush or cancel the work after unregistering
+> > the netdev but before freeing it? The work may access netdev after its
+> > freed.
+> 
+> Yes, you are right, I will improve it. thanks.
 
-This seems like a good idea.
-
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
+I think the workqueue creation needs to be handled in
+enetc4_pf_netdev_create() somewhere in between alloc_etherdev_mqs() and
+register_netdev(), so that the workqueue is available as soon as the
+interface is registered, but also so that the workqueue teardown takes
+places naturally where Jakub indicated.
 
