@@ -4,104 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE44BC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 06:35:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12A4CC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 06:37:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	bh=6h9dI2xNKAVU9ayEQC7yd3NFHx4xgdVSrC1Zk4zAmFg=; b=RUlLxEODqeKSuQhqbgHCehJsTU
-	XA3kvhHsA3JETXupbnM5bDK91xXXXMUEyjJB1a6SEl8E4cVeRuOzxzQQVmkEmFeoFe+8oi1ZqSTDt
-	seYI31YcbalguzIz+7L+WHmVhnU2JfZHXJvjetghaGnBNEHkMDbGDM6SPrtCCS224ompuE+0jm48U
-	mIrx3rsvVhoDouIrSPi9K5ummeVHoWLKDc5samx8f6oKDqFfzrUXYfUwzZIARokTjsbLzIEyRLlfn
-	HQWxIr/vSj4KXW7F3+Jf5iRjLAw7rBBkQ/oNMkHlsrJHxT75d3YUARllX7Bwgvtm9q3XNm7DmbSEi
-	wUsisMMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mqRoswbCU2PmZaM2YpiQHIcOlqwDnelfkfYWs64Uy74=; b=yuv9GV8AeGBz95vuyNuT9P0iGQ
+	I2eTyJzi5fY5DnZrFqVy/EI2ka3Akll1U+8Ar7+e9DNexFuS2ssL+D/2zejIegdWTKVvqTAKZwL6f
+	bjxE2bgu/W86WN9D6IVitjFbkGjtavb5jANGaGU96TPAWhT8jo2ldg6uP5lzTJ0pFROawjaeBwzHX
+	jwSpwx1ngpOVliESwjNY8kn/ziat7Qg6s2tDHkvOkc0JT05c1nqgXspUbvpxxSbUzwDC720G08fLo
+	ij+wypEvg3XnwEJb7VIGCbHPdxuS4L76P8E8pZeEe6tEc/WoB/IiuC2qZdiRcC0DXepl59BOfX1GB
+	q9OGbwWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5fJa-0000000FHcP-1Ooa;
-	Fri, 18 Apr 2025 06:35:06 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1u5fLP-0000000FHqO-2jdh;
+	Fri, 18 Apr 2025 06:36:59 +0000
+Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5f0W-0000000FEjR-1xWk
+	id 1u5fFn-0000000FGeV-0ilK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 06:15:27 +0000
-Received: from epcas2p4.samsung.com (unknown [182.195.41.56])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250418061516epoutp01ce3c85b537ad53c2b5e43c5e0494baa4~3VRIHPDd01280312803epoutp01d
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 06:15:16 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250418061516epoutp01ce3c85b537ad53c2b5e43c5e0494baa4~3VRIHPDd01280312803epoutp01d
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1744956916;
-	bh=6h9dI2xNKAVU9ayEQC7yd3NFHx4xgdVSrC1Zk4zAmFg=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=QJpKZIpdnK6QpLYEQk6gjaoSef91WeIMFr8pbmk+zGtt6Yy+gu8BzPq5Go5C8gIaP
-	 oY/CQSSbYEWz4J6QYbcCHekZtlpnB16YRNbrSSJHxx5ldOUZ3Quv86chZE+157bTG8
-	 b0QRmmrzPNUzcrQoqVLtPQJSM83XxvZnzTpfVghM=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas2p1.samsung.com (KnoxPortal) with ESMTPS id
-	20250418061516epcas2p1d60aa5bd2deed796faf38616d4214444~3VRHq7bpu0446704467epcas2p1V;
-	Fri, 18 Apr 2025 06:15:16 +0000 (GMT)
-Received: from epcas2p4.samsung.com (unknown [182.195.36.90]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4Zf4Hl54Cwz3hhTJ; Fri, 18 Apr
-	2025 06:15:15 +0000 (GMT)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
-	epcas2p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250418061515epcas2p1ddd9ec01dd5de8b238c77dcef14d745a~3VRGwpX213220332203epcas2p1x;
-	Fri, 18 Apr 2025 06:15:15 +0000 (GMT)
-Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
-	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250418061515epsmtrp19a4ca320f19c2c8a6c64dd74d5ca5541~3VRGv4R8r2614626146epsmtrp13;
-	Fri, 18 Apr 2025 06:15:15 +0000 (GMT)
-X-AuditID: b6c32a52-40bff70000004c16-28-6801edf2e90e
-Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
-	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
-	E1.69.19478.2FDE1086; Fri, 18 Apr 2025 15:15:14 +0900 (KST)
-Received: from localhost.localdomain (unknown [10.229.9.60]) by
-	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250418061514epsmtip185f7e329d7b91ba951f2374a4c1c8ded~3VRGcJJv_0412804128epsmtip1T;
-	Fri, 18 Apr 2025 06:15:14 +0000 (GMT)
-From: Shin Son <shin.son@samsung.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Sylwester Nawrocki
-	<s.nawrocki@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar
-	<alim.akhtar@samsung.com>, Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Sunyeal Hong <sunyeal.hong@samsung.com>
-Cc: Shin Son <shin.son@samsung.com>, linux-samsung-soc@vger.kernel.org,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH 0/3] add CPUCL0 clock support for exynosauto v920 SoC
-Date: Fri, 18 Apr 2025 15:14:57 +0900
-Message-ID: <20250418061500.1629200-1-shin.son@samsung.com>
-X-Mailer: git-send-email 2.49.0
+	Fri, 18 Apr 2025 06:31:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
+	s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=mqRoswbCU2PmZaM2YpiQHIcOlqwDnelfkfYWs64Uy74=; b=CuvAIVttemxXUump81vBKO2aPJ
+	cf52lX0sY/Hz8Udd/aHmG9/68XlIg2cxw/rvh59dmlV9iyTlvqNpgV9q3d9aG97wvRn1LaaH/70dz
+	QpBLW/89VZqg52L416scwGQo8i+0blS0QyjK53Z02tooMmuKqW9K1xda+uivA3m6ibgwljzs6yrco
+	CjT/cgM5gvXjdbf0nY9GuaupYTbYRaPeBHB4zx0ypJufMBCywXIup9rNslncVbsM42ULNtzWOPIPQ
+	W48xnmSNUeV8tq0BRSaVy8XMt45j0wAxcfoTh5FdpDEJEzut/1Q7ByeRKGZ/R5AGsdVLDvfYstMY2
+	L+q8CC5g==;
+Received: from [89.212.21.243] (port=56446 helo=localhost.localdomain)
+	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <primoz.fiser@norik.com>)
+	id 1u5fFi-00AbM0-0T;
+	Fri, 18 Apr 2025 08:31:05 +0200
+From: Primoz Fiser <primoz.fiser@norik.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	upstream@lists.phytec.de
+Subject: [PATCH v3 03/15] arm64: dts: freescale: imx93-phycore-som: Disable LED pull-up
+Date: Fri, 18 Apr 2025 08:30:52 +0200
+Message-Id: <20250418063104.2202085-4-primoz.fiser@norik.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250418063104.2202085-1-primoz.fiser@norik.com>
+References: <20250418063104.2202085-1-primoz.fiser@norik.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFrrALMWRmVeSWpSXmKPExsWy7bCSnO6nt4wZBuu/WVg8mLeNzWLN3nNM
-	Fte/PGe1mH/kHKvF+fMb2C02Pb7GavGx5x6rxeVdc9gsZpzfx2Rx8ZSrxf89O9gtDr9pZ7X4
-	d20ji8Xk42tZLZqWrWdy4Pd4f6OV3WPTqk42j81L6j36tqxi9Pi8SS6ANYrLJiU1J7MstUjf
-	LoEro2/yVJaC/SwVC/Z1sjUwnmfuYuTkkBAwkVh/6TJLFyMXh5DAdkaJw7uPMEEkJCQOz5jA
-	CGELS9xvOcIKUfSeUeLt0w6gDg4ONgFViU2/5UHiIgJvmSSW/z8A1swscJpRYucZGRBbWMBV
-	4un+p2wgNgtQ/eTn81hAbF4Ba4kTW5sZQeZICMhL9HdIQIQFJU7OfMICMUZeonnrbOYJjHyz
-	kKRmIUktYGRaxSiaWlCcm56bXGCoV5yYW1yal66XnJ+7iREc6FpBOxiXrf+rd4iRiYPxEKME
-	B7OSCO8583/pQrwpiZVVqUX58UWlOanFhxilOViUxHmVczpThATSE0tSs1NTC1KLYLJMHJxS
-	DUyluzp/fHzxM71ZaeaxidtWRwZ953J9oy7Zqa0hOM3WUSyZXXunW/c9r1m751t5Gam3tBd7
-	qs9akfV64eppyefKd9SEhqd0pFnXzbFvZRDJ4n9buiXKxuvtr/S3N/rYrs2eWGLS3tu88sGt
-	3QeFy79abJkm1HLF/bKicdGxjVvfHwvU7Pr1aue0oxPWnWq2lZKte5gvzDn9EnPJDFaRkPmf
-	sv7pVEtp6jxcunbGA3ezx88kqh/d4lL7evS5wd5qD9Yth4ptp76o5/uuIFcv5y0iPudmwIyq
-	abu9NbfN2X5/Gr/n7/wvUyXqLieHOP1/+aH08NklV2ubnhQ01q8Rcdm6f6pqYbTGYvdLTHNk
-	ldWUWIozEg21mIuKEwEo/UOd4wIAAA==
-X-CMS-MailID: 20250418061515epcas2p1ddd9ec01dd5de8b238c77dcef14d745a
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: AUTO_CONFIDENTIAL
-CMS-TYPE: 102P
-cpgsPolicy: CPGSC10-234,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250418061515epcas2p1ddd9ec01dd5de8b238c77dcef14d745a
-References: <CGME20250418061515epcas2p1ddd9ec01dd5de8b238c77dcef14d745a@epcas2p1.samsung.com>
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cpanel.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: primoz.fiser@norik.com
+X-Authenticated-Sender: cpanel.siel.si: primoz.fiser@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_231525_249294_3A49D1E8 
-X-CRM114-Status: GOOD (  14.72  )
+X-CRM114-CacheID: sfid-20250417_233111_667877_04EAA1B4 
+X-CRM114-Status: UNSURE (   7.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,20 +94,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patchset adds the CMU_CPUCL0 block to support exynosauto v920 SoC
+There is already an external pull-down resistor on the LED output line.
+It makes no sense to have both pull-down and pull-up resistors enabled
+at the same time. Thus disable the internal pull-down.
 
-Shin Son (3):
-  dt-bindings: clock: exynosautov920: add cpucl0 clock definitions
-  clk: samsung: exynosautov920: add cpucl0 clock support
-  arm64: dts: exynosautov920: add cpucl0 clock DT nodes
+Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+---
+Changes in v3:
+- no changes
 
- .../clock/samsung,exynosautov920-clock.yaml   |  25 ++++
- .../arm64/boot/dts/exynos/exynosautov920.dtsi |  15 ++
- drivers/clk/samsung/clk-exynosautov920.c      | 129 ++++++++++++++++++
- .../clock/samsung,exynosautov920.h            |  19 +++
- 4 files changed, 188 insertions(+)
+ arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+index 0528e293c03d..06a9e674e338 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+@@ -196,7 +196,7 @@ MX93_PAD_ENET2_TD2__ENET1_TX_CLK		0x4000050e
+ 
+ 	pinctrl_leds: ledsgrp {
+ 		fsl,pins = <
+-			MX93_PAD_I2C1_SDA__GPIO1_IO01		0x31e
++			MX93_PAD_I2C1_SDA__GPIO1_IO01		0x11e
+ 		>;
+ 	};
+ 
 -- 
-2.49.0
+2.34.1
 
 
