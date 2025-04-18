@@ -4,132 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9E3DC369C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 08:54:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D932C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 08:56:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bJ/hT/ZT80TdjjDAggi4sJ5+WqriSpJ1jG8o55EVs90=; b=MG7i54fnkENkOWf48ANdlm3Nwu
-	QVkjoinm9r6GbR0BSQAUB+ISJP9yf9t0hJqge3wLRsRy0w51x27G4/rgNwZljLLB1HICSP8UZxDRQ
-	GrXQuTDmWJjdy/xMf69Dx7ptdmvEBbqebZdGlKV6yeR48cIwKKdBg0X59/hMTKMIoXWOj9R2g1V0P
-	CMTF3iri8yvyKL2lzEk3gNtfwADCeiA6ALbUbLDVGQle1AhhMF6jRnTPvj34Mvdvp8yQxLo5xVBaw
-	7XNwHSy4m8565t8EuTZmWxyU/b6K9fYawxGe9TVxthIHv5y1ocdtfTbs+zodQs9c1qLcgJk1+r0/i
-	hMLBTS6g==;
+	bh=RKRGYbvX0d8/wCVSDrSUcwio1ED2W9cDRKkduf+/Jp4=; b=0Nw1o0iEln0T0C1ff0rE9p3T8s
+	YGs1eGyXVMK2Flmwtnr2MOyYdQ3f+qBcHh7OEXnTj5uFiOKYBoo35zU7qEqmgEcXtq9RUoRUn6ZFZ
+	b9UAIqVxVWHy/SdD5nl3ihOLUtct+n7eB/Izyjoe/+s/UTRHgMhYibzZoF7eeRMWSFP6AmOhfjzWB
+	XnpGtMa7+Ji/kwJkivhKK+wJylQ3V18TiwbSol7/RuRThWyM032yRX6NndZJPqJTV2ZJJow8CTERg
+	EwXXn31pGtig3vAr9IxjSrwX9ZWC4sHdp52GJWD9Cmt+Oe2HWb1BABf+hEa+QhEDThlDr6RKGuH/D
+	4p05VFsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5hUS-0000000FgPt-3ukJ;
-	Fri, 18 Apr 2025 08:54:28 +0000
-Received: from mout.gmx.net ([212.227.15.18])
+	id 1u5hWJ-0000000Fglz-2zji;
+	Fri, 18 Apr 2025 08:56:23 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5hId-0000000FeV2-0UQY
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 08:42:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1744965714; x=1745570514; i=wahrenst@gmx.net;
-	bh=bJ/hT/ZT80TdjjDAggi4sJ5+WqriSpJ1jG8o55EVs90=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=m7ymcOlGLY4LffBB2dk7fhesz0jWScNmd8z6l4/oX4H8omR/yeZOGh9jLFqDbuCV
-	 ZUqlk7GhI5mtAItRk3r/EaayIOL9W7TK0ljnf7ZHIXMFc/bqEQwpcMM8mGJGiKTRQ
-	 uYt3ShTItIYdeh9TvwLuzPAplH2U8jiz+23wMnYFQ2TBtK+3RjC6ztWLA2NJoz3wb
-	 WtlVBrzGppOyluHeSQXEcUi6nt1r1K6orvWJrFM57lf91xUXIv4Kh7kYQBqrw8y7f
-	 /F9+TZvw4xjWeAXzHfHAsys34Hhn2L2dSeLv1hWX/6QSVqg0ef9H4d/HLOPxIClBf
-	 udCCp+ogl90khyrdgA==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.107] ([37.4.251.153]) by mail.gmx.net (mrgmx005
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1N4QwW-1v65gq0gsg-00z3Di; Fri, 18
- Apr 2025 10:41:54 +0200
-Message-ID: <e4c7662f-4d10-4d45-843d-0a0f3c893a1f@gmx.net>
-Date: Fri, 18 Apr 2025 10:41:49 +0200
+	id 1u5hK0-0000000Fei7-11wF;
+	Fri, 18 Apr 2025 08:43:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1744965817;
+	bh=rM5eZAwM+lkgkoP5sejzA3v4JK1mhsyQHalBXqeI3fQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=bv68wFqySxgo/O774W4jNvf7YUlx0ykynSscT4gIZ1ZthGNwIorfkkTgWRyJ1mNqC
+	 EmUt1SJUT1zNQ1B7i1KAWNnBsx2l6LwpasSop2nEWLwoSGsebuSjaP7wgeB5U/Xb9l
+	 uEy8jVOpj2OhBWnlRg5ufQqWdHpo0nzKqFS3jVUVETATfoahWg419LtagdN7bckgD5
+	 2BJr/6zDJFtm22ukPDVuZ9Bqe8vk2LvrKixWCH+UEdNr82sQUb+Y0nbqVj5Ztn2fV4
+	 85/F/zyHkK3lMvcSTcIbI0cS1vj0ZSZs4y50KEV7DzSL+RhzYXkAa6xIWr9pxw2hh0
+	 VDbZtFhagJJcw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 25C6517E08E3;
+	Fri, 18 Apr 2025 10:43:37 +0200 (CEST)
+Message-ID: <e783eced-114f-4fae-8ec4-fd665b40f837@collabora.com>
+Date: Fri, 18 Apr 2025 10:43:36 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [net-next v6 1/7] dt-bindings: net: Add MTIP L2 switch
- description
-To: Lukasz Majewski <lukma@denx.de>, Andrew Lunn <andrew+netdev@lunn.ch>,
- davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- Simon Horman <horms@kernel.org>
-References: <20250418060716.3498031-1-lukma@denx.de>
- <20250418060716.3498031-2-lukma@denx.de>
+Subject: Re: [PATCH 1/4] dt-bindings: remoteproc: mediatek: Add missing
+ minItems for 8192/8195
+To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Tinghan Shen <tinghan.shen@mediatek.com>,
+ Olivia Wen <olivia.wen@mediatek.com>, kernel@collabora.com,
+ linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20250318-scp-dual-core-mt8390-v1-0-8733e192cc73@collabora.com>
+ <20250318-scp-dual-core-mt8390-v1-1-8733e192cc73@collabora.com>
+ <3fa1573d-e3b4-434c-867d-38fa69ad3a8e@linaro.org>
+ <7ab084b8-e77a-4881-a6a6-057b89613fb4@notapiano>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <20250418060716.3498031-2-lukma@denx.de>
+In-Reply-To: <7ab084b8-e77a-4881-a6a6-057b89613fb4@notapiano>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:puRbuHuDJUL4UBAwlEbPoCXrO7wrkqYvVnLveMrv4XVBg2CsJ0I
- Fe83jHvHdG8+q9ttRnOffxOpndWldPV5J8JikhvcuWXSKzHJ8jiJseqbXb0MrAqCfD8+i4c
- YKBDrV7XY8dHoxPleVsn7CV0q6pkw/cnnFFouzX+DwKpVbvtcFhHOfhnVw+xB9+IzxaLz8s
- sUS9ijySaFcCRt4ncOZsw==
-UI-OutboundReport: notjunk:1;M01:P0:IZ4aqZRe2YY=;zw9fIkzZW/AM236HsrvLO0zuy63
- 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
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_014215_537670_5F4D268B 
-X-CRM114-Status: GOOD (  20.55  )
+X-CRM114-CacheID: sfid-20250418_014340_433707_B919C5CB 
+X-CRM114-Status: GOOD (  15.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,108 +86,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 18.04.25 um 08:07 schrieb Lukasz Majewski:
-> This patch provides description of the MTIP L2 switch available in some
-> NXP's SOCs - e.g. imx287.
->
-> Signed-off-by: Lukasz Majewski <lukma@denx.de>
-> ---
-> Changes for v2:
-> - Rename the file to match exactly the compatible
->    (nxp,imx287-mtip-switch)
->
-> Changes for v3:
-> - Remove '-' from const:'nxp,imx287-mtip-switch'
-> - Use '^port@[12]+$' for port patternProperties
-> - Drop status =3D "okay";
-> - Provide proper indentation for 'example' binding (replace 8
->    spaces with 4 spaces)
-> - Remove smsc,disable-energy-detect; property
-> - Remove interrupt-parent and interrupts properties as not required
-> - Remove #address-cells and #size-cells from required properties check
-> - remove description from reg:
-> - Add $ref: ethernet-switch.yaml#
->
-> Changes for v4:
-> - Use $ref: ethernet-switch.yaml#/$defs/ethernet-ports and remove alread=
-y
->    referenced properties
-> - Rename file to nxp,imx28-mtip-switch.yaml
->
-> Changes for v5:
-> - Provide proper description for 'ethernet-port' node
->
-> Changes for v6:
-> - Proper usage of
->    $ref: ethernet-switch.yaml#/$defs/ethernet-ports/patternProperties
->    when specifying the 'ethernet-ports' property
-> - Add description and check for interrupt-names property
-> ---
->   .../bindings/net/nxp,imx28-mtip-switch.yaml   | 148 ++++++++++++++++++
->   1 file changed, 148 insertions(+)
->   create mode 100644 Documentation/devicetree/bindings/net/nxp,imx28-mti=
-p-switch.yaml
->
-> diff --git a/Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch=
-.yaml b/Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
-> new file mode 100644
-> index 000000000000..3e2d724074d5
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
-> @@ -0,0 +1,148 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/net/nxp,imx28-mtip-switch.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: NXP SoC Ethernet Switch Controller (L2 MoreThanIP switch)
-> +
-> +maintainers:
-> +  - Lukasz Majewski <lukma@denx.de>
-> +
-> +description:
-> +  The 2-port switch ethernet subsystem provides ethernet packet (L2)
-> +  communication and can be configured as an ethernet switch. It provide=
-s the
-> +  reduced media independent interface (RMII), the management data input
-> +  output (MDIO) for physical layer device (PHY) management.
-> +
-> +properties:
-> +  compatible:
-> +    const: nxp,imx28-mtip-switch
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  phy-supply:
-> +    description:
-> +      Regulator that powers Ethernet PHYs.
-> +
-> +  clocks:
-> +    items:
-> +      - description: Register accessing clock
-> +      - description: Bus access clock
-> +      - description: Output clock for external device - e.g. PHY source=
- clock
-> +      - description: IEEE1588 timer clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: ipg
-> +      - const: ahb
-> +      - const: enet_out
-> +      - const: ptp
-> +
-> +  interrupts:
-> +    items:
-> +      - description: Switch interrupt
-> +      - description: ENET0 interrupt
-> +      - description: ENET1 interrupt
-> +
-> +  interrupt-names:
-> +    items:
-> +      - const: mtipl2sw
-Sorry for nitpicking, but could we name it similiar to something from=20
-the i.MX28 reference manual like "switch" or "enet_switch"
+Il 19/03/25 15:25, Nícolas F. R. A. Prado ha scritto:
+> On Wed, Mar 19, 2025 at 08:16:37AM +0100, Krzysztof Kozlowski wrote:
+>> On 18/03/2025 23:22, Nícolas F. R. A. Prado wrote:
+>>> Both MT8192 and MT8195 have an L1TCM memory, so it should be described
+>>> in reg, and therefore reg's minItems should be 3, as is already implicit
+>>> by reg-names. Override minItems to 3 for MT8192 and MT8195.
+>>
+>> I think that was the original intention already, because reg-names are
+>> expecting min 3 items. Basically you just correct the missing lower
+>> constraint.
+> 
+> Yes, exactly, that's what I meant by "is already implicit by reg-names".
+> 
+
+Nicolas, any way you can respin this patch so that we can get SCP for MT8188
+in this merge window, please?
+
+If you cannot do that, I can respin it on my own, no problem.
+
+Thanks,
+Angelo
+
+>>
+>>>
+>>> Fixes: 6b55b1e2fd7f ("dt-bindings: remoteproc: mediatek: Support MT8195 dual-core SCP")
+>>> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+>>> ---
+>>>   Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml | 1 +
+>>>   1 file changed, 1 insertion(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml b/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
+>>> index adc6b3f36fde49eb3fa7ed3f08b0fa9e7f331162..ee33c233e44f3d51f0851b35697a24208c87f68a 100644
+>>> --- a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
+>>> +++ b/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
+>>> @@ -185,6 +185,7 @@ allOf:
+>>>       then:
+>>>         properties:
+>>>           reg:
+>>> +          minItems: 3
+>>>             maxItems: 3
+>>
+>> maxItems can be dropped.
+> 
+> Sure, I can send a patch for that in the next version.
+> 
+> Thanks,
+> Nícolas
+
+
 
