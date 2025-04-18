@@ -4,27 +4,27 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B3A5C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 07:03:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31C0CC369CF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 07:05:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=759BT16GeVELagkUCkvhmhAR2ZnlXpPZ5Yu7sTegWZ4=; b=oDtvn0CU+G84JEQFvvUD0xcM0X
-	5/HXCnWBWDqRAYpZAj3togMEKsmS1JvnN3i210vLvieJzVfF6f2haxSZuKeePxLxnG/gaHNZrIUXO
-	cUgSjQeGa23WMk+USIIaDBVC+u5w5uLBA/FLbMgUIATaS5vcW8/yAV4q8qNcxuCbpqUjNZ2Db1Odw
-	6AlDstNk17al542+KX4qfs7PHPmRHhPERKW+lfEAzErOpTWpuDaYwNiVEKnrlhUTVpU3WdOR3YJHc
-	qdI/9Sykxqt+y7HHwaM7fErS+yMJx/kLrZCRLn1fVWk7V3JgkfWc778+S7poc57g0SQC64Kz2DElX
-	Ip6WJ9tA==;
+	bh=oTg5xlBMV3ZpioVnQMKMCNtn41a6TiUkCbtv/ticY0Q=; b=odVODGnWreMV7XDivw1Uhcaq9T
+	K45Y91x5M0Nrm+NYA4wXCRkS+KeZai6U26yPR+5E4Iqmd9nHZWKX8OfFSa6oFhiEf7dnOJZ10aNvb
+	xrlVSenMMZxROuTZT5snD5xszibrkJyNZRsa6OXqO2d86b/D5MJoNBhu5RBQD9UVH07OjBgUOCLPS
+	6Spe8aOIOcHL4cBfV297rIaO2sG0bZ5ZPlux9mP7SogKvYyUb66L/aPSjEaoFspJLOA2iZ6w5oML0
+	G2ltYs7W4U72ZvUUUZOrhtmrGGyHuhAQc+nZ+9uITlJFvf0DdlYMYNHE1NCw5gB4pNXuceK43IaFT
+	zaJmxjBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5flA-0000000FPGG-3gw6;
-	Fri, 18 Apr 2025 07:03:37 +0000
+	id 1u5fn0-0000000FPlT-34gg;
+	Fri, 18 Apr 2025 07:05:30 +0000
 Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5fG1-0000000FGkR-2686
+	id 1u5fG1-0000000FGkS-2Oux
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 18 Apr 2025 06:31:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
@@ -33,17 +33,17 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
 	List-Post:List-Owner:List-Archive;
-	bh=759BT16GeVELagkUCkvhmhAR2ZnlXpPZ5Yu7sTegWZ4=; b=Grow0JbuewNI5GGpb0UyrOlb3h
-	YRum+PWbfbUCPdldU2eq5jF1T6v2g+A4ClZnvBL9x8N20dKuxCVDz2+0Td8cZFZl4WzGX7c2Ds36o
-	tQ5wtvr9xU4/Jc/gRTbPdLXfFkNmY8Iw+F3eUD7OLv+JXXBW3/4grsHGCWqP35juHaHBLs7FFNH0L
-	fzfcbK26exbuiHzdD2keWjux5K87+7uCCTVHWTNxltPzn0i4QKbFD3kdRB48z9o1Z8dLQ2yhbJ58N
-	Wl2CZGPFdJdOXujB7v9tUGh4Brg1O8sEHm1CWPSZoAgBLto988j8WJHtOZ/2gcIG/6UW2E3YFC2SD
-	1+tmu2+Q==;
+	bh=oTg5xlBMV3ZpioVnQMKMCNtn41a6TiUkCbtv/ticY0Q=; b=cKH8Jjz3UhDIikWoDUs9Pr6GlI
+	Mmz/6GL+pGzQYRY4NUFxkPQ1reeW+aRqBnalYDxz5Cs/EBek0U2vd9bYn3wnMVO9bcz7K6nvF8a8y
+	vZ03y5b1HiShBsMyWEt/U56nCsO4sNA2kIgj17dyWhsUnjVS0Lug+UUFVqVMkWM+vgi9oHHr1CpC3
+	u/PxqDkEA+4KxZd1OM8JjV0tL7PKohBHdlAp7guW4A9Dh4Ii6FkbCo1ybIlEqu9YT73lbykd/uyPq
+	6lgqy2uq2Pj9oAYd1IP0qumexjCyfEGGNJtKkWmG7S+eMaVoK9mq5Pp93074AtyBlQDRSkxrgG5fz
+	SV6z8cgw==;
 Received: from [89.212.21.243] (port=56446 helo=localhost.localdomain)
 	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <primoz.fiser@norik.com>)
-	id 1u5fG0-00AbM0-1K;
+	id 1u5fG0-00AbM0-1a;
 	Fri, 18 Apr 2025 08:31:24 +0200
 From: Primoz Fiser <primoz.fiser@norik.com>
 To: Rob Herring <robh@kernel.org>,
@@ -58,9 +58,9 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	upstream@lists.phytec.de
-Subject: [PATCH v3 14/15] arm64: dts: freescale: imx93-phyboard-segin: Add EQOS Ethernet
-Date: Fri, 18 Apr 2025 08:31:03 +0200
-Message-Id: <20250418063104.2202085-15-primoz.fiser@norik.com>
+Subject: [PATCH v3 15/15] arm64: dts: freescale: imx93-phyboard-segin: Order node alphabetically
+Date: Fri, 18 Apr 2025 08:31:04 +0200
+Message-Id: <20250418063104.2202085-16-primoz.fiser@norik.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250418063104.2202085-1-primoz.fiser@norik.com>
 References: <20250418063104.2202085-1-primoz.fiser@norik.com>
@@ -77,8 +77,8 @@ X-Source:
 X-Source-Args: 
 X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_233125_703782_B1026376 
-X-CRM114-Status: UNSURE (   6.80  )
+X-CRM114-CacheID: sfid-20250417_233125_768659_40481424 
+X-CRM114-Status: UNSURE (   5.61  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,72 +94,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the carrier-board Micrel KSZ8081 Ethernet PHY. This is a
-10/100Mbit PHY connected to the EQOS interface and shares MDIO bus with
-the Ethernet PHY located on the SoM (FEC interface).
+Move pinctrl_uart1 to keep nodes in alphabetical order. No functional
+changes.
 
 Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
 Reviewed-by: Frank Li <Frank.Li@nxp.com>
 ---
 Changes in v3:
-- no changes
+- add Reviewed-by tag
 
- .../dts/freescale/imx93-phyboard-segin.dts    | 35 +++++++++++++++++++
- 1 file changed, 35 insertions(+)
+ .../boot/dts/freescale/imx93-phyboard-segin.dts    | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-index 54e084e69706..c62cc06fad4b 100644
+index c62cc06fad4b..0c55b749c834 100644
 --- a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
 +++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-@@ -89,6 +89,28 @@ dailink_master: simple-audio-card,codec {
+@@ -228,13 +228,6 @@ MX93_PAD_I2C2_SDA__LPI2C2_SDA		0x40000b9e
+ 		>;
  	};
- };
  
-+/* Ethernet */
-+&eqos {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_eqos>;
-+	phy-mode = "rmii";
-+	phy-handle = <&ethphy2>;
-+	assigned-clock-parents = <&clk IMX93_CLK_SYS_PLL_PFD1_DIV2>,
-+				 <&clk IMX93_CLK_SYS_PLL_PFD1_DIV2>;
-+	assigned-clock-rates = <100000000>, <50000000>;
-+	status = "okay";
-+};
-+
-+&mdio {
-+	ethphy2: ethernet-phy@2 {
-+		compatible = "ethernet-phy-id0022.1561";
-+		reg = <2>;
-+		clocks = <&clk IMX93_CLK_ENET_REF_PHY>;
-+		clock-names = "rmii-ref";
-+		micrel,led-mode = <1>;
-+	};
-+};
-+
- /* CAN */
- &flexcan1 {
- 	pinctrl-names = "default";
-@@ -173,6 +195,19 @@ &usdhc2 {
- };
+-	pinctrl_uart1: uart1grp {
+-		fsl,pins = <
+-			MX93_PAD_UART1_RXD__LPUART1_RX		0x31e
+-			MX93_PAD_UART1_TXD__LPUART1_TX		0x30e
+-		>;
+-	};
+-
+ 	pinctrl_reg_usdhc2_vmmc: regusdhc2vmmcgrp {
+ 		fsl,pins = <
+ 			MX93_PAD_SD2_RESET_B__GPIO3_IO07	0x31e
+@@ -257,6 +250,13 @@ MX93_PAD_SAI1_RXD0__SAI1_RX_DATA00	0x1402
+ 		>;
+ 	};
  
- &iomuxc {
-+	pinctrl_eqos: eqosgrp {
++	pinctrl_uart1: uart1grp {
 +		fsl,pins = <
-+			MX93_PAD_ENET1_TD2__CCM_ENET_QOS_CLOCK_GENERATE_REF_CLK	0x4000050e
-+			MX93_PAD_ENET1_RD0__ENET_QOS_RGMII_RD0		0x57e
-+			MX93_PAD_ENET1_RD1__ENET_QOS_RGMII_RD1		0x57e
-+			MX93_PAD_ENET1_TD0__ENET_QOS_RGMII_TD0		0x50e
-+			MX93_PAD_ENET1_TD1__ENET_QOS_RGMII_TD1		0x50e
-+			MX93_PAD_ENET1_RX_CTL__ENET_QOS_RGMII_RX_CTL	0x57e
-+			MX93_PAD_ENET1_TX_CTL__ENET_QOS_RGMII_TX_CTL	0x50e
-+			MX93_PAD_ENET1_RXC__ENET_QOS_RX_ER		0x57e
++			MX93_PAD_UART1_RXD__LPUART1_RX		0x31e
++			MX93_PAD_UART1_TXD__LPUART1_TX		0x30e
 +		>;
 +	};
 +
- 	pinctrl_flexcan1: flexcan1grp {
+ 	pinctrl_usdhc2_cd: usdhc2cdgrp {
  		fsl,pins = <
- 			MX93_PAD_PDM_BIT_STREAM0__CAN1_RX	0x139e
+ 			MX93_PAD_SD2_CD_B__GPIO3_IO00		0x31e
 -- 
 2.34.1
 
