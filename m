@@ -4,98 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50555C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 14:43:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11AD2C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 14:46:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7xWBrhMoZbugc1pyBrVITkVru2bavizkyHIBfAy50sk=; b=fqni4z64bGWJRzqsr8FAsqDmvL
-	6/tPPqycoLamNXR2HpYXCViYnflajcp6TolNHfd8tAQL4jJ9D/I0z2NJ1oGR+qzoxe53D4Se8V+MQ
-	G3BdTuZbeUWhb1STEWXcLkhWKtmeFC43ExrqzdfEwiQuRLEQlvpAjhcP+Ryk/Mkn8aG/ZWeXilOnX
-	YTjjKlB5Wl0bR/skY0LcAIgaQAekuQrNXHpgLdfEszZM/zkGbhEc6JIInrcj1xEwV8y+a+z+sdt2G
-	KCPkqats/OuCZrdc4c9tNNzAHfMs1HPVhNiulSn4OkQGtVm9ZxzNCbumtHrc5wmUN6Vem7aAUaThT
-	yYw2D2XQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+WzkG2kKql2JBYpjgx7Vm7J6WiEa1PdHkKVsK+3LgxU=; b=XoVaoAwTC/eb1gG6+GYvdZXeTu
+	jd0qcZJUryOJMtNVLFkd6VxFi+Po6wXJwYJpc73G3hHgvt3UFguCSR58eoqTxRDzRRNfopcKEaBFe
+	zvInwAVOd6Kf+xXrr7CyvK2xd7SC641sDIasHH01aaRWhnwNlSIFptWaq2zN5DaoxFEX8AE3S8K/W
+	5m0sYSCeMsMP/uVm82K5jFh14C02VUTgMhKTxuujYBKScDo5A3iK115lCeFOCEFMndV+0l6pnCINo
+	NpSSFImc5m5JelO6dsqNl6SL0oy3S/4C1XS9odFOk+PODOpAWW4+GCB52z0INIQTp2CsRTm2E7nQH
+	LrXZylVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5mvq-0000000GTvN-3qzp;
-	Fri, 18 Apr 2025 14:43:06 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1u5myv-0000000GUby-31Oi;
+	Fri, 18 Apr 2025 14:46:17 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5mmm-0000000GS1k-2yFC
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 14:33:46 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-5e5e8274a74so2915167a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 07:33:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744986823; x=1745591623; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=7xWBrhMoZbugc1pyBrVITkVru2bavizkyHIBfAy50sk=;
-        b=UpWbYd4pYRyJVCcODUcevGHfuhcy2uNWnxquJI0UvD990LTWXDlalJdFdMt3iUOEc8
-         hpcdq1Fq4Rco0CcMlfxFaEgm2S7BPzxVTE4s4/wT4Jetd3hUJkGtiJxLb2Mz0wXQi4g5
-         /n86oZ7oDUQhhgaR2Q/qeMN0q5YkanoAEaDOj/3NWlMuklBzY5C1gT/jn4S8gFFAx/2/
-         neH4kLxbKgOrq51gfyGWet+T2LyAgs/nelLPALqzoLBFMVMD1pZcDFpISoj0giTSuf6k
-         tOS59oPEQWj7Wh0IEvwD5k1vRpJl4jlHInWVgxGnVczSiyHkbi6hbAFwT2vvkOByYut7
-         pSGA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744986823; x=1745591623;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=7xWBrhMoZbugc1pyBrVITkVru2bavizkyHIBfAy50sk=;
-        b=v0bBCeWxY7ExWZL22XXON1P8UtW4/t41fEumF4P3cTwEGMtsHwMuO3uGaJWCYLCw5t
-         GDFL7Mi5lOMTAeMx0NaFI8bpGTpIVl8HCSgRE3zwXba5vZc2XEpNEy6pw5q61UjOuXpJ
-         MJ9W9BzRSL+RCHZKUlbgb2GXIbTmLuCSKq2kb3u4imAPcP/4zaoWYUEbeDQIXGbUviWu
-         eyAzchInwx8zFdKg/4CBVb0B4W+DnEhMyvk9wTBlfPBp/Cv3t40uvtyvhHkGO9+nrcYq
-         Q7xMSuKv4+kTMWNMny9rDD7+lnXk2mBOk5Pr1V7NvzUjQSSQoCimkTu6uXs0xJ/3R/9O
-         kn+g==
-X-Forwarded-Encrypted: i=1; AJvYcCUb7JesX3bVFLRaG2sXYSJRJVltwPMlFQ1964pbRR91/n3kVtg2VhNfy1v24SPDAxDiBT/wvRFx/ISJQkYBwzpj@lists.infradead.org
-X-Gm-Message-State: AOJu0YweWBk0PwwUyBh+OKjbJg+CnzF+j04WFVa4HV2+neEoKCNRg1Mr
-	g+N/HtLSKndgOs2Y5PK2WDQQ1uD4tgvMqWS7vmq6vaS2+CQmLm37
-X-Gm-Gg: ASbGnctkEPHHtHikd0291v6wpGCFwDG56f5i16CmsX8R2/RsggT/43kPJgBjDJ5kyvD
-	ue06z8tlpmD5b1zI8AfEMCAFMt/QLFr4VEbx74taKaVKqFDNhXgMS2junAWFMiMdQCtVjxb8oy/
-	SEXYrbfvkUXgVXvsShchsn1uL5pI5Dtp5oBQzOycihZS5xjRNo3ZC1mteTkkXISXmiTZ2LfKd3n
-	pMgMbLsJ9AgZjbxV3jLsoc9d7KhQE7Ei0aOAA22znzX248hAqIk0sBvxiIciNVNRz4sskGKasFj
-	nimxHYeDhV5uVm0sPl+tpykDk1ONWjpMVoGcGDAsdC7B4ZJWdIUn
-X-Google-Smtp-Source: AGHT+IEcnxUHY3/54G2wHOQst0KE+WrBA6XR3tiAQlrpS/18wB0AktIZqdCpGIWVrwq8J9kwLSsU2A==
-X-Received: by 2002:a17:907:2da4:b0:aca:cad6:458e with SMTP id a640c23a62f3a-acb74dd6021mr281005866b.43.1744986822447;
-        Fri, 18 Apr 2025 07:33:42 -0700 (PDT)
-Received: from NB-GIGA003.letovo.school ([5.194.95.139])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-acb6ec0b1e4sm127453666b.34.2025.04.18.07.33.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Apr 2025 07:33:42 -0700 (PDT)
-From: Alexey Charkov <alchark@gmail.com>
-Date: Fri, 18 Apr 2025 18:33:45 +0400
-Subject: [PATCH v2] dt-bindings: timer: via,vt8500-timer: Convert to YAML
+	id 1u5mwz-0000000GUBQ-4BS3;
+	Fri, 18 Apr 2025 14:44:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D387B5C110F;
+	Fri, 18 Apr 2025 14:41:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7C04C4CEE2;
+	Fri, 18 Apr 2025 14:44:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744987455;
+	bh=GNhKko1seFHw18Ma89S0NH7KnQgIl9H3ALOI3HIBnDA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=IRBvSKczkNaeWa3oymabOo6nGXxglDbWbUFLfXy2Std4DBWNzRKIbXG/ciAKTygh8
+	 eiN7QKXLBKziiyvYWnHvYOuKFglauFwqaBzx12mt6yqKLHOFJe8rb1VUB8y2Kl74M3
+	 vBfaCgGHE8N7BqEJwlVcH+GN3EOZaogxv9aU18hLG3jgvCIvZ1+JOn7HZE9DaBgloU
+	 oRlAFoBnbwDoqVo/XzofwhLs+fMI0eP+eD4A1zpMiws/8CmdHGopykOEcuVCyzBG6M
+	 9ZYLR7iEB3IlZDuIS9gvpveNkyxaDkIRHxXIytxKhqFU3xHkz5C9du8AsDLJ9pUojM
+	 rXJTYcPEi0SoQ==
+Date: Fri, 18 Apr 2025 15:44:07 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Nuno =?UTF-8?B?U8Oh?= <noname.nuno@gmail.com>
+Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, Lars-Peter Clausen
+ <lars@metafoo.de>, Michael Hennerich <Michael.Hennerich@analog.com>, Cosmin
+ Tanislav <cosmin.tanislav@analog.com>, Tomasz Duszynski
+ <tduszyns@gmail.com>, Jean-Baptiste Maneyrol
+ <jean-baptiste.maneyrol@tdk.com>, Andreas Klinger <ak@it-klinger.de>, Petre
+ Rodan <petre.rodan@subdimension.ro>, linux-iio@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH 1/8] iio: adc: dln2-adc: use aligned_s64 for timestamp
+Message-ID: <20250418154407.622af22e@jic23-huawei>
+In-Reply-To: <494ee0cc5be01cb6a4db29d7f1a11dcee22850d6.camel@gmail.com>
+References: <20250417-iio-more-timestamp-alignment-v1-0-eafac1e22318@baylibre.com>
+	<20250417-iio-more-timestamp-alignment-v1-1-eafac1e22318@baylibre.com>
+	<494ee0cc5be01cb6a4db29d7f1a11dcee22850d6.camel@gmail.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250418-via_vt8500_timer_binding-v2-1-3c125568f028@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAMhiAmgC/02O0YrCMBBFf6XMs4VkbNNpf0WkZJKpOw+NmmbLg
- vjvBoXFx3Ph3nsesElW2WBqHpBl102vqQIeGgg/Pl2k1VgZ0GBvOkvtrn7eC/XGzEVXyTNripo
- u7WjQchyoFzJQ67csi/69p0/nD2e5/9aH8gmB/SZtuK6rlqkxfsHFsVjukOyRenaWApPzceycR
- ImGRh8Ivs2q6LeXphL+fQYZmZEcdoOddoTz8/kCohaAFO4AAAA=
-X-Change-ID: 20250418-via_vt8500_timer_binding-9021bd785e80
-To: Daniel Lezcano <daniel.lezcano@linaro.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Alexey Charkov <alchark@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1744986827; l=4470;
- i=alchark@gmail.com; s=20250416; h=from:subject:message-id;
- bh=8hvzQpevJpd8opdibOVe4+Ri5sQRV3J/5rabA+wMngg=;
- b=WUeT1BUiZFwvLtY9348IfWL78Tc2LE+rMnaK205tuNUhTEf/IqweRGtmSetty1wwIDgqp9Nbc
- 7AdZc/B/wnbAHr9/QUM2L6JrLq8215rVwD6vRpJu6XMuYG+ckRyVsge
-X-Developer-Key: i=alchark@gmail.com; a=ed25519;
- pk=ltKbQzKLTJPiDgPtcHxdo+dzFthCCMtC3V9qf7+0rkc=
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_073344_756242_E60CB141 
-X-CRM114-Status: GOOD (  19.72  )
+X-CRM114-CacheID: sfid-20250418_074418_090526_125DFF4D 
+X-CRM114-Status: GOOD (  17.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,128 +82,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rewrite the textual description for the VIA/WonderMedia timer
-as YAML schema.
+On Fri, 18 Apr 2025 09:58:04 +0100
+Nuno S=C3=A1 <noname.nuno@gmail.com> wrote:
 
-The IP can generate up to four interrupts from four respective match
-registers, so reflect that in the schema.
+> On Thu, 2025-04-17 at 11:52 -0500, David Lechner wrote:
+> > Follow the pattern of other drivers and use aligned_s64 for the
+> > timestamp. This will ensure the struct itself it also 8-byte aligned.
+> >=20
+> > Signed-off-by: David Lechner <dlechner@baylibre.com>
+> > --- =20
+>=20
+> With the fixes tag:
+>=20
+> Reviewed-by: Nuno S=C3=A1 <nuno.sa@analog.com>
+This one was in my series... Admittedly without a fixes tag.  :(
 
-Signed-off-by: Alexey Charkov <alchark@gmail.com>
----
-Split the series from v1 into separate bindings patches so as not to
-spam all the subsystems with unrelated changes, per Rob's suggestion
+I've added a tag to that patch given I'd not pushed it out yet.
+Fixes: 7c0299e879dd ("iio: adc: Add support for DLN2 ADC")
 
-Changes in v2:
-- added description for the four possible interrupts (thanks Rob)
-- added overall description of the IC block
-
-Link to v1: https://lore.kernel.org/all/20250416-wmt-updates-v1-6-f9af689cdfc2@gmail.com/
----
- .../devicetree/bindings/timer/via,vt8500-timer.txt | 15 -------
- .../bindings/timer/via,vt8500-timer.yaml           | 51 ++++++++++++++++++++++
- MAINTAINERS                                        |  2 +
- 3 files changed, 53 insertions(+), 15 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/timer/via,vt8500-timer.txt b/Documentation/devicetree/bindings/timer/via,vt8500-timer.txt
-deleted file mode 100644
-index 901c73f0d8ef05fb54d517b807d04f80eef2e736..0000000000000000000000000000000000000000
---- a/Documentation/devicetree/bindings/timer/via,vt8500-timer.txt
-+++ /dev/null
-@@ -1,15 +0,0 @@
--VIA/Wondermedia VT8500 Timer
-------------------------------------------------------
--
--Required properties:
--- compatible : "via,vt8500-timer"
--- reg : Should contain 1 register ranges(address and length)
--- interrupts : interrupt for the timer
--
--Example:
--
--	timer@d8130100 {
--		compatible = "via,vt8500-timer";
--		reg = <0xd8130100 0x28>;
--		interrupts = <36>;
--	};
-diff --git a/Documentation/devicetree/bindings/timer/via,vt8500-timer.yaml b/Documentation/devicetree/bindings/timer/via,vt8500-timer.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..e748149948f3140d4a158f800b91e70bf9c4f042
---- /dev/null
-+++ b/Documentation/devicetree/bindings/timer/via,vt8500-timer.yaml
-@@ -0,0 +1,51 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/timer/via,vt8500-timer.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: VIA/Wondermedia VT8500 Timer
-+
-+description:
-+  This is the timer block that is a standalone part of the system power
-+  management controller on VIA/WonderMedia SoCs (VIA VT8500 and alike).
-+  The hardware has a single 32-bit counter running at 3 MHz and four match
-+  registers, each of which is associated with a dedicated match interrupt,
-+  and the first of which can also serve as the system watchdog (if the
-+  watchdog function is enabled, it will reset the system upon match instead
-+  of triggering its respective interrupt)
-+
-+maintainers:
-+  - Alexey Charkov <alchark@gmail.com>
-+
-+properties:
-+  compatible:
-+    const: via,vt8500-timer
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    minItems: 1
-+    items:
-+      - description: Channel 0 match. Note that if the watchdog function
-+          is enabled, this interrupt will not fire and the system will
-+          reboot instead once the counter reaches match register 0 value
-+      - description: Channel 1 match
-+      - description: Channel 2 match
-+      - description: Channel 3 match
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    timer@d8130100 {
-+        compatible = "via,vt8500-timer";
-+        reg = <0xd8130100 0x28>;
-+        interrupts = <36>;
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 96b82704950184bd71623ff41fc4df31e4c7fe87..ed5d6ea34959d11624732ea7601e4d51ad19eac2 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3428,6 +3428,8 @@ M:	Krzysztof Kozlowski <krzk@kernel.org>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- S:	Odd Fixes
- F:	Documentation/devicetree/bindings/i2c/i2c-wmt.txt
-+F:	Documentation/devicetree/bindings/interrupt-controller/via,vt8500-intc.yaml
-+F:	Documentation/devicetree/bindings/timer/via,vt8500-timer.yaml
- F:	arch/arm/boot/dts/vt8500/
- F:	arch/arm/mach-vt8500/
- F:	drivers/clocksource/timer-vt8500.c
-
----
-base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
-change-id: 20250418-via_vt8500_timer_binding-9021bd785e80
-prerequisite-change-id: 20250418-via_intc_binding-7e9bb2862471:v2
-prerequisite-patch-id: c53a4f3be5edb497bb9ff8fcad6cdba382d07fc6
-
-Best regards,
--- 
-Alexey Charkov <alchark@gmail.com>
+>=20
+> > =C2=A0drivers/iio/adc/dln2-adc.c | 2 +-
+> > =C2=A01 file changed, 1 insertion(+), 1 deletion(-)
+> >=20
+> > diff --git a/drivers/iio/adc/dln2-adc.c b/drivers/iio/adc/dln2-adc.c
+> > index
+> > a1e48a756a7b519105393f77c4aebde1f2f85d50..359e26e3f5bcfe16d723f621bdfc0=
+1df2dfcf6a9
+> > 100644
+> > --- a/drivers/iio/adc/dln2-adc.c
+> > +++ b/drivers/iio/adc/dln2-adc.c
+> > @@ -466,7 +466,7 @@ static irqreturn_t dln2_adc_trigger_h(int irq, void=
+ *p)
+> > =C2=A0	struct iio_dev *indio_dev =3D pf->indio_dev;
+> > =C2=A0	struct {
+> > =C2=A0		__le16 values[DLN2_ADC_MAX_CHANNELS];
+> > -		int64_t timestamp_space;
+> > +		aligned_s64 timestamp_space;
+> > =C2=A0	} data;
+> > =C2=A0	struct dln2_adc_get_all_vals dev_data;
+> > =C2=A0	struct dln2_adc *dln2 =3D iio_priv(indio_dev);
+> >  =20
+>=20
 
 
