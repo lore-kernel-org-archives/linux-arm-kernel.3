@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5FBEC369D2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8C59C369D3
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 07:59:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,33 +12,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oH4biYNRIXbUPcZJxbqF385p1W7crfHf3KjlM5z89+Q=; b=duC+SY4ccXlJ3Md1nDZqECpoyO
-	VvozAT/Sku4d67f89gkRjpZsFvDVG6pLcef0vZ7rStP8oY1EXp6f6upBcx7BqsRpyDi1uQ4OWz3Tr
-	QB56g3QANNJg5xZE97YWFLgiPZfbWPzTY+rwWx7p1vtjeR7fHYfSVmrViq4OmJUQ5c6BIvka2YL8p
-	h7D9tb9BF7plrryCidvAbuPIrlTzuQzz6knGzgYZF2TjXUJmiXqb/EVstNEBTuf4bSkXKrAt2sIu9
-	/Zup3KZ7GtgbE6GOdT61hfJ4PkajEgCroDI9stkoTf+kguFYivaYfGELgZH3F31cFwKLqzOxYlLfm
-	2qKbbPMg==;
+	bh=7Bm7s0x8m0xotm+8whhHLpDbeWch2/Mvszm5ppknXlk=; b=b3tIGf3aDLdHW3Q8Mmwgxt1+QT
+	xAmCMdNnylRpjc4A6h6pv82JyRRfuD9ON4yfSe+N64x9OWnPJu5rMbo0fOcagzfXaHxk5Z3py4vgl
+	/X5JiFQy0tqTZYDYE08T9MN5LymqRusezx+7kkHAd9ZmarjSf1M7Yh26pgpMwIfFLn5sk3xdlMmu+
+	DUDGg/lkhsRs4XsJa/nknvUD0SCF7S3iuq5Yt3VvT6vufuOphgArMkWmM4HM5jcbtruOWU1Ipewd5
+	Q6POXtbLD7exws2B3vLXygNd0sqdaw+h1Ka+1NlvZg9occSBlWbtXTHRgjfVLKHR96VVxjyJ6wq3N
+	thZjNTGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5gdQ-0000000FXlz-2pZy;
-	Fri, 18 Apr 2025 07:59:41 +0000
+	id 1u5gdO-0000000FXkO-38pa;
+	Fri, 18 Apr 2025 07:59:39 +0000
 Received: from mta-65-227.siemens.flowmailer.net ([185.136.65.227])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5gBb-0000000FTZP-49BA
+	id 1u5gBW-0000000FTZP-2jjq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 07:30:57 +0000
-Received: by mta-65-227.siemens.flowmailer.net with ESMTPSA id 20250418073054cb2dfdfa99db0467da
+	Fri, 18 Apr 2025 07:30:52 +0000
+Received: by mta-65-227.siemens.flowmailer.net with ESMTPSA id 202504180730456dbd4aaa4f97a5a6dd
         for <linux-arm-kernel@lists.infradead.org>;
-        Fri, 18 Apr 2025 09:30:54 +0200
+        Fri, 18 Apr 2025 09:30:45 +0200
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; s=fm2;
  d=siemens.com; i=huaqian.li@siemens.com;
  h=Date:From:Subject:To:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Cc:References:In-Reply-To;
- bh=oH4biYNRIXbUPcZJxbqF385p1W7crfHf3KjlM5z89+Q=;
- b=MhmmKpvoP1mPw44HiJ3RiLjiBHPih8+nD719nw0Vzna9NCuV7EelAKVqIMbH+lNlFxORhA
- F8FQfuwx+0RLYO37/Ra8wUhhDiIMx9mpNeiLFlD2vc7MVpXCF5+yGYoV0AsRQE7C2Aaq1ZPN
- mFNr9UvXSxBBfUqWvVTewLklwni0K0z7WnnU+y+MrEdkcJcH0SkOl3+P0B2Vi3gw0Xn+qUv/
- lqc3kS2IG/87OK3rO10HxXHWSPzR4xOkofnUjJLYHECLoJbgVA9UBeKkfthk24spiSKPYYWB
- Qv/Cujl+Dj93idJ186UvK4IxIYV0ChXQzfpKjybyPzU8dyDmy1i+vS3Q==;
+ bh=7Bm7s0x8m0xotm+8whhHLpDbeWch2/Mvszm5ppknXlk=;
+ b=eLkDR0MkESiN1rZ99/QJB8Fet6JhgMZHVTes3IMqMLf4cLxYAiG838DZ3h91WyUIKuf/Do
+ UhLvTgh8UvbzL01eIqh2j5ejB01+jjdetmhyVzhZkvZX8aMPqWNUBTMZpSGYhLIv8VIS4Ygi
+ b0Itn9GAegOodXYlaBm+PbghGP5NccKktmtVbD7g70UAMFYj2T/Qspd35VxU0lpFTfi6kaBe
+ qjeLmQ3Af17LpkK8CSz9YJbSocAzHHDEaBMJlKvIXk5e59n2tP3GgbFOFaOkaan7vr3/6Zt+
+ 0/nMqHLnneFqJHHS5HNHiW0/7JhDpxRg5zbuV/RY70KgCVpOOPY1kJZg==;
 From: huaqian.li@siemens.com
 To: helgaas@kernel.org,
 	m.szyprowski@samsung.com,
@@ -62,21 +62,19 @@ Cc: baocheng.su@siemens.com,
 	s-vadapalli@ti.com,
 	ssantosh@kernel.org,
 	vigneshr@ti.com,
-	iommu@lists.linux.dev,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v7 1/8] dt-bindings: soc: ti: Add AM65 peripheral virtualization unit
-Date: Fri, 18 Apr 2025 15:30:19 +0800
-Message-Id: <20250418073026.2418728-2-huaqian.li@siemens.com>
-In-Reply-To: <20250418073026.2418728-1-huaqian.li@siemens.com>
+	iommu@lists.linux.dev
+Subject: [PATCH v7 0/8] soc: ti: Add and use PVU on K3-AM65 for DMA isolation
+Date: Fri, 18 Apr 2025 15:30:18 +0800
+Message-Id: <20250418073026.2418728-1-huaqian.li@siemens.com>
+In-Reply-To: <20241030205703.GA1219329@bhelgaas>
 References: <20241030205703.GA1219329@bhelgaas>
- <20250418073026.2418728-1-huaqian.li@siemens.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Flowmailer-Platform: Siemens
 Feedback-ID: 519:519-959203:519-21489:flowmailer
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_003056_165408_4E8A0AEE 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20250418_003051_366977_7734F027 
+X-CRM114-Status: GOOD (  18.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,77 +89,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jan Kiszka <jan.kiszka@siemens.com>
+From: Li Hua Qian <huaqian.li@siemens.com>
 
-The PVU allows to define a limited set of mappings for incoming DMA
-requests to the system memory. It is not a real IOMMU, thus hooked up
-under the TI SoC bindings.
+Changes in v7:
+ - add schema expressing dependency as suggested on pci-host bindings
+ - resolve review comments on pci-keystone driver
+ - add a new patch to make IO_TLB_SEGSIZE configurable
+ - improve patches based on checkpath.pl
 
-Signed-off-by: Jan Kiszka <jan.kiszka@siemens.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Li Hua Qian <huaqian.li@siemens.com>
----
- .../bindings/soc/ti/ti,am654-pvu.yaml         | 51 +++++++++++++++++++
- 1 file changed, 51 insertions(+)
+Changes in v6:
+ - make restricted DMA memory-region available to all pci-keystone
+   devices, moving property to unconditional section (patch 2)
+
+Changes in v5:
+ - resolve review comments on pci-host bindings
+ - reduce DMA memory regions to 1 - swiotlb does not support more
+ - move activation into overlay (controlled via firmware)
+ - use ks_init_vmap helper instead of loop in
+   rework ks_init_restricted_dma
+ - add more comments to pci-keystone
+ - use 2 chained TLBs of PVU to support maximum of swiotlb (320 MB)
+
+Changes in v4:
+ - reorder patch queue, moving all DTS changes to the back
+ - limit activation to IOT2050 Advanced variants
+ - move DMA pool to allow firmware-based expansion it up to 512M
+
+Changes in v3:
+ - fix ti,am654-pvu.yaml according to review comments
+ - address review comments on ti,am65-pci-host.yaml
+ - differentiate between different compatibles in ti,am65-pci-host.yaml
+ - move pvu nodes to k3-am65-main.dtsi
+ - reorder patch series, pulling bindings and generic DT bits to the front
+
+Changes in v2:
+ - fix dt_bindings_check issues (patch 1)
+ - address first review comments (patch 2)
+ - extend ti,am65-pci-host bindings for PVU (new patch 3)
+
+Only few of the K3 SoCs have an IOMMU and, thus, can isolate the system
+against DMA-based attacks of external PCI devices. The AM65 is without
+an IOMMU, but it comes with something close to it: the Peripheral
+Virtualization Unit (PVU).
+
+The PVU was originally designed to establish static compartments via a
+hypervisor, isolate those DMA-wise against each other and the host and
+even allow remapping of guest-physical addresses. But it only provides
+a static translation region, not page-granular mappings. Thus, it cannot
+be handled transparently like an IOMMU.
+
+Now, to use the PVU for the purpose of isolated PCI devices from the
+Linux host, this series takes a different approach. It defines a
+restricted-dma-pool for the PCI host, using swiotlb to map all DMA
+buffers from a static memory carve-out. And to enforce that the devices
+actually follow this, a special PVU soc driver is introduced. The driver
+permits access to the GIC ITS and otherwise waits for other drivers that
+detect devices with constrained DMA to register pools with the PVU.
+
+For the AM65, the first (and possibly only) driver where this is
+introduced is the pci-keystone host controller. Finally, this series
+provides a DT overlay for the IOT2050 Advanced devices (all have
+MiniPCIe or M.2 extension slots) to make use of this protection scheme.
+Application of this overlay will be handled by firmware.
+
+Due to the cross-cutting nature of these changes, multiple subsystems
+are affected. However, I wanted to present the whole thing in one series
+to allow everyone to review with the complete picture in hands. If
+preferred, I can also split the series up, of course.
+
+Jan
+
+
+Jan Kiszka (7):
+  dt-bindings: soc: ti: Add AM65 peripheral virtualization unit
+  dt-bindings: PCI: ti,am65: Extend for use with PVU
+  soc: ti: Add IOMMU-like PVU driver
+  PCI: keystone: Add support for PVU-based DMA isolation on AM654
+  arm64: dts: ti: k3-am65-main: Add PVU nodes
+  arm64: dts: ti: k3-am65-main: Add VMAP registers to PCI root complexes
+  arm64: dts: ti: iot2050: Add overlay for DMA isolation for devices
+    behind PCI RC
+
+Li Hua Qian (1):
+  swiotlb: Make IO_TLB_SEGSIZE configurable
+
+ .../bindings/pci/ti,am65-pci-host.yaml        |  34 +-
+ .../bindings/soc/ti/ti,am654-pvu.yaml         |  51 ++
+ arch/arm64/boot/dts/ti/Makefile               |   5 +
+ arch/arm64/boot/dts/ti/k3-am65-main.dtsi      |  38 +-
+ ...am6548-iot2050-advanced-dma-isolation.dtso |  33 ++
+ drivers/pci/controller/dwc/pci-keystone.c     | 106 ++++
+ drivers/soc/ti/Kconfig                        |   4 +
+ drivers/soc/ti/Makefile                       |   1 +
+ drivers/soc/ti/ti-pvu.c                       | 500 ++++++++++++++++++
+ include/linux/swiotlb.h                       |   2 +-
+ include/linux/ti-pvu.h                        |  28 +
+ kernel/dma/Kconfig                            |   7 +
+ 12 files changed, 801 insertions(+), 8 deletions(-)
  create mode 100644 Documentation/devicetree/bindings/soc/ti/ti,am654-pvu.yaml
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-dma-isolation.dtso
+ create mode 100644 drivers/soc/ti/ti-pvu.c
+ create mode 100644 include/linux/ti-pvu.h
 
-diff --git a/Documentation/devicetree/bindings/soc/ti/ti,am654-pvu.yaml b/Documentation/devicetree/bindings/soc/ti/ti,am654-pvu.yaml
-new file mode 100644
-index 000000000000..e4a5fc47d674
---- /dev/null
-+++ b/Documentation/devicetree/bindings/soc/ti/ti,am654-pvu.yaml
-@@ -0,0 +1,51 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+# Copyright (c) Siemens AG, 2024
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/soc/ti/ti,am654-pvu.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: TI AM654 Peripheral Virtualization Unit
-+
-+maintainers:
-+  - Jan Kiszka <jan.kiszka@siemens.com>
-+
-+properties:
-+  compatible:
-+    enum:
-+      - ti,am654-pvu
-+
-+  reg:
-+    maxItems: 2
-+
-+  reg-names:
-+    items:
-+      - const: cfg
-+      - const: tlbif
-+
-+  interrupts:
-+    items:
-+      - description: fault interrupt
-+
-+  interrupt-names:
-+    items:
-+      - const: pvu
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - interrupt-names
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    iommu@30f80000 {
-+        compatible = "ti,am654-pvu";
-+        reg = <0x30f80000 0x1000>,
-+              <0x36000000 0x100000>;
-+        reg-names = "cfg", "tlbif";
-+        interrupts-extended = <&intr_main_navss 390>;
-+        interrupt-names = "pvu";
-+    };
 -- 
 2.34.1
 
