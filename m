@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19D24C369C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 07:59:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02623C369D0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 07:59:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m+k4R1ykPx7LroqQFw7M5Rgek5SdYdedbJKCoZJkpKk=; b=sc90lM/rGvNmaj6BtTwb3XkXPK
-	a8x5TUD8bpOK+P7JQHt3ElLrORbDv3krTUw09UN82KY6hsi7Xuw9UhPwacBlSb5TDGHDpKSvP5UWs
-	gVoF5drgHMHs5hFVs3kTWwUFyW/unqiFsmGzeQ34GoGkRSoeeIuKO5yNhFipr4M4wCzY5n589Ebzj
-	4QeHtsRK5UAYXUiTXnNAQdIOzTOnTzgmY7q+QJPb9CMRKKFRrPz6rOWjL7BLzmhhG2cQCjEnh5g7M
-	HRhPwn02Eyko4SImAVFlUpximgucFh/yGjlnmYQroU+6Z0lpU2a1Y5eTNil6VohC7wQ6BWiLpHeqD
-	K6jQ1szg==;
+	bh=81MJsMNbogkYe+Rx2MtdDb/7nc44T96h+II7KVTEBl0=; b=p053B3R6b2a1+lnCos/0LAkrLI
+	ipvFU2Sl01pERfGD34nnGCsFTcg1ed6+roejXBia8WMXWKaoAYepPo06DIS9EboLIbR7Vsvh8Ty48
+	GqZXtFgFsvxTwqDVrCOzpBtGbbNteNtGEh4Ny+rzI4bd4ImsW5nN/taNG5oZQsscvQBmcyIve/sbZ
+	GaC1ooMRsdExN982AjpdyVE2EFEPZCEuQUUDDs3YLdNe5u6jknoVhFV533Pr6BmOdZ14pAbIKIB8X
+	snbEICGOY/ZZvmV8XaTZ4eKjfxwXtUj3eaYyuDNZJZB6AXhXN+tnBxWJiqAwaUpPLeBcfIoeTLMJz
+	8kjCBRvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5gdS-0000000FXoE-32ot;
-	Fri, 18 Apr 2025 07:59:42 +0000
-Received: from mta-64-226.siemens.flowmailer.net ([185.136.64.226])
+	id 1u5gdR-0000000FXn3-3ugy;
+	Fri, 18 Apr 2025 07:59:41 +0000
+Received: from mta-65-226.siemens.flowmailer.net ([185.136.65.226])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5gCW-0000000FTpb-1FZT
+	id 1u5gBn-0000000FTdJ-3lHz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 07:31:53 +0000
-Received: by mta-64-226.siemens.flowmailer.net with ESMTPSA id 2025041807314967128b3cef671f29ee
+	Fri, 18 Apr 2025 07:31:09 +0000
+Received: by mta-65-226.siemens.flowmailer.net with ESMTPSA id 202504180731033ab4ef576fbac4016c
         for <linux-arm-kernel@lists.infradead.org>;
-        Fri, 18 Apr 2025 09:31:49 +0200
+        Fri, 18 Apr 2025 09:31:04 +0200
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; s=fm2;
  d=siemens.com; i=huaqian.li@siemens.com;
  h=Date:From:Subject:To:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Cc:References:In-Reply-To;
- bh=m+k4R1ykPx7LroqQFw7M5Rgek5SdYdedbJKCoZJkpKk=;
- b=YigeYwTKjkeSxtx9YodG5RKCSWtJiIEUz8YfaybPNH/sFrgI8/Fo1QhW0geKNDcxOf7IpS
- tzrDpnzi55+F9vrInLlk/TFJavFk3UCpkz8gIc+B04JtTk5F1xugnJ0lBmw21a6/LwvwrKkV
- fSlxG77wcyXxxOLQ9iJm1+UGX+R3PbBVwOwN/y75tX33pdIORoR+UzW2YEa/asonPoV8uuwA
- 2P5SSYo/zYjADl+a8pqSOtA5YmPnKlxTItZXsxtiZ1zB8peTR90UcRtsY4Z3+cUkoLx+DLgp
- +zYPmD3odsXBxL4yeqPJWSECw0S1arfOsbh0cQEyh6MjzZ9FTCWUzTXA==;
+ bh=81MJsMNbogkYe+Rx2MtdDb/7nc44T96h+II7KVTEBl0=;
+ b=IsWipH/wzFhscWMIqwaXxolbV74wP/+NY7hss/R3C8wsYGt41Hiphe3S7tzd1EJ/pwe9jG
+ GsTEZz5Mtv5Iv9mtDwJoxrj3OXcHZK7qq8eLaBaD0rXMOxS3PyberjS4K1ag2nG5uwkL3JhG
+ 1VJGW/XUT3L/K+PFrZYvYxWbVMrGJypFBwO8z2Q3TIXm6c4y0vXxDGybeiqAlbmFBY3Yi4b2
+ ChcqgcTmdNbqqyWVOhoq7uG/ajQr95j8kHJzxg6q43ePGEp1Ndhk4I3vsdg1KdsfPOYe6PF2
+ DVzbZo0lapcKtHfs/OMQ5yQa8hpqz+fgrm/D9SDJPpGttz+6+c7yNLug==;
 From: huaqian.li@siemens.com
 To: helgaas@kernel.org,
 	m.szyprowski@samsung.com,
@@ -62,10 +62,11 @@ Cc: baocheng.su@siemens.com,
 	s-vadapalli@ti.com,
 	ssantosh@kernel.org,
 	vigneshr@ti.com,
-	iommu@lists.linux.dev
-Subject: [PATCH v7 7/8] arm64: dts: ti: iot2050: Add overlay for DMA isolation for devices behind PCI RC
-Date: Fri, 18 Apr 2025 15:30:25 +0800
-Message-Id: <20250418073026.2418728-8-huaqian.li@siemens.com>
+	iommu@lists.linux.dev,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v7 2/8] dt-bindings: PCI: ti,am65: Extend for use with PVU
+Date: Fri, 18 Apr 2025 15:30:20 +0800
+Message-Id: <20250418073026.2418728-3-huaqian.li@siemens.com>
 In-Reply-To: <20250418073026.2418728-1-huaqian.li@siemens.com>
 References: <20241030205703.GA1219329@bhelgaas>
  <20250418073026.2418728-1-huaqian.li@siemens.com>
@@ -74,8 +75,8 @@ Content-Transfer-Encoding: 8bit
 X-Flowmailer-Platform: Siemens
 Feedback-ID: 519:519-959203:519-21489:flowmailer
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_003152_475521_C16A08ED 
-X-CRM114-Status: GOOD (  12.61  )
+X-CRM114-CacheID: sfid-20250418_003108_071869_9BBD04B2 
+X-CRM114-Status: GOOD (  12.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,90 +93,96 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Jan Kiszka <jan.kiszka@siemens.com>
 
-Reserve a 64M memory region and ensure that all PCI devices do their DMA
-only inside that region. This is configured via a restricted-dma-pool
-and enforced with the help of the first PVU.
+The PVU on the AM65 SoC is capable of restricting DMA from PCIe devices
+to specific regions of host memory. Add the optional property
+"memory-regions" to point to such regions of memory when PVU is used.
 
-Applying this isolation is not totally free in terms of overhead and
-memory consumption. It  makes only sense for variants that support
-secure booting, and generally only when this is actually enable.
-Therefore model it as overlay that can be activated on demand. The
-firmware will take care of this via DT fixup during boot and will also
-provide a way to adjust the pool size.
+Since the PVU deals with system physical addresses, utilizing the PVU
+with PCIe devices also requires setting up the VMAP registers to map the
+Requester ID of the PCIe device to the CBA Virtual ID, which in turn is
+mapped to the system physical address. Hence, describe the VMAP
+registers which are optional unless the PVU shall be used for PCIe.
 
 Signed-off-by: Jan Kiszka <jan.kiszka@siemens.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Signed-off-by: Li Hua Qian <huaqian.li@siemens.com>
 ---
- arch/arm64/boot/dts/ti/Makefile               |  5 +++
- ...am6548-iot2050-advanced-dma-isolation.dtso | 33 +++++++++++++++++++
- 2 files changed, 38 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-dma-isolation.dtso
+ .../bindings/pci/ti,am65-pci-host.yaml        | 34 +++++++++++++++++--
+ 1 file changed, 31 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-index 03d4cecfc001..12c2cee955f2 100644
---- a/arch/arm64/boot/dts/ti/Makefile
-+++ b/arch/arm64/boot/dts/ti/Makefile
-@@ -73,8 +73,10 @@ k3-am654-gp-evm-dtbs := k3-am654-base-board.dtb \
- k3-am654-evm-dtbs := k3-am654-base-board.dtb k3-am654-icssg2.dtbo
- k3-am654-idk-dtbs := k3-am654-evm.dtb k3-am654-idk.dtbo k3-am654-pcie-usb2.dtbo
- k3-am6548-iot2050-advanced-m2-bkey-ekey-pcie-dtbs := k3-am6548-iot2050-advanced-m2.dtb \
-+	k3-am6548-iot2050-advanced-dma-isolation.dtbo \
- 	k3-am6548-iot2050-advanced-m2-bkey-ekey-pcie.dtbo
- k3-am6548-iot2050-advanced-m2-bkey-usb3-dtbs := k3-am6548-iot2050-advanced-m2.dtb \
-+	k3-am6548-iot2050-advanced-dma-isolation.dtbo \
- 	k3-am6548-iot2050-advanced-m2-bkey-usb3.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am6528-iot2050-basic.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am6528-iot2050-basic-pg2.dtb
-@@ -261,7 +263,10 @@ DTC_FLAGS_k3-am62p5-sk += -@
- DTC_FLAGS_k3-am642-evm += -@
- DTC_FLAGS_k3-am642-phyboard-electra-rdk += -@
- DTC_FLAGS_k3-am642-tqma64xxl-mbax4xxl += -@
-+DTC_FLAGS_k3-am6548-iot2050-advanced += -@
- DTC_FLAGS_k3-am6548-iot2050-advanced-m2 += -@
-+DTC_FLAGS_k3-am6548-iot2050-advanced-pg2 += -@
-+DTC_FLAGS_k3-am6548-iot2050-advanced-sm += -@
- DTC_FLAGS_k3-am68-sk-base-board += -@
- DTC_FLAGS_k3-am69-sk += -@
- DTC_FLAGS_k3-j7200-common-proc-board += -@
-diff --git a/arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-dma-isolation.dtso b/arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-dma-isolation.dtso
-new file mode 100644
-index 000000000000..dfd75d2dc245
---- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-dma-isolation.dtso
-@@ -0,0 +1,33 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * IOT2050, overlay for isolating DMA requests via PVU
-+ * Copyright (c) Siemens AG, 2024
-+ *
-+ * Authors:
-+ *   Jan Kiszka <jan.kiszka@siemens.com>
-+ */
+diff --git a/Documentation/devicetree/bindings/pci/ti,am65-pci-host.yaml b/Documentation/devicetree/bindings/pci/ti,am65-pci-host.yaml
+index 0a9d10532cc8..7916325e0b39 100644
+--- a/Documentation/devicetree/bindings/pci/ti,am65-pci-host.yaml
++++ b/Documentation/devicetree/bindings/pci/ti,am65-pci-host.yaml
+@@ -20,14 +20,18 @@ properties:
+       - ti,keystone-pcie
+ 
+   reg:
+-    maxItems: 4
++    minItems: 4
++    maxItems: 6
+ 
+   reg-names:
++    minItems: 4
+     items:
+       - const: app
+       - const: dbics
+       - const: config
+       - const: atu
++      - const: vmap_lp
++      - const: vmap_hp
+ 
+   interrupts:
+     maxItems: 1
+@@ -69,6 +73,15 @@ properties:
+     items:
+       pattern: '^pcie-phy[0-1]$'
+ 
++  memory-region:
++    maxItems: 1
++    description: |
++      phandle to a restricted DMA pool to be used for all devices behind
++      this controller. The regions should be defined according to
++      reserved-memory/shared-dma-pool.yaml.
++      Note that enforcement via the PVU will only be available to
++      ti,am654-pcie-rc devices.
 +
-+/dts-v1/;
-+/plugin/;
+ required:
+   - compatible
+   - reg
+@@ -89,6 +102,19 @@ then:
+     - power-domains
+     - msi-map
+     - num-viewport
++    - memory-region
++  properties:
++    reg:
++      minItems: 6
++    reg-names:
++      minItems: 6
++else:
++  properties:
++    reg:
++      maxItems: 4
 +
-+&{/reserved-memory} {
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+
-+	pci_restricted_dma_region: restricted-dma@c0000000 {
-+		compatible = "restricted-dma-pool";
-+		reg = <0 0xc0000000 0 0x4000000>;
-+	};
-+};
-+
-+&pcie0_rc {
-+	memory-region = <&pci_restricted_dma_region>;
-+};
-+
-+&pcie1_rc {
-+	memory-region = <&pci_restricted_dma_region>;
-+};
-+
-+&ti_pvu0 {
-+	status = "okay";
-+};
++    reg-names:
++      maxItems: 4
+ 
+ unevaluatedProperties: false
+ 
+@@ -104,8 +130,10 @@ examples:
+         reg =  <0x5500000 0x1000>,
+                <0x5501000 0x1000>,
+                <0x10000000 0x2000>,
+-               <0x5506000 0x1000>;
+-        reg-names = "app", "dbics", "config", "atu";
++               <0x5506000 0x1000>,
++               <0x2900000 0x1000>,
++               <0x2908000 0x1000>;
++        reg-names = "app", "dbics", "config", "atu", "vmap_lp", "vmap_hp";
+         power-domains = <&k3_pds 120 TI_SCI_PD_EXCLUSIVE>;
+         #address-cells = <3>;
+         #size-cells = <2>;
 -- 
 2.34.1
 
