@@ -4,77 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 240A9C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 15:11:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94F16C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 15:13:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YvFJvGG4okhAh4ZzeiEtpd9T2TUuyeMrkIjC3ug+0NE=; b=ezD27ABpqP2mwqgi4lb9Kh0pND
-	Ow3IunhythEUeTqKIxxoq22oqM5C2lL+edtwcMGiRT8T8qAGq3G2NCguDE+M5e/NyZfKNQ+upghYg
-	YWIXceQC1eDiogPrZpIYFY0qu6NWOHqm0wglMVPb1RY/8BnXZSSkOus1gg1IW+Eah1c88LfFimixq
-	cf1sRQ/AAwHetbQGYMOFAbbY2xpC6ea+83mUEDagbIilYiyWyoVPFPFgkO5u9wEqRJr+PjvoebYwZ
-	GeUsuhFoOuY2Yo4fedVnHnO8ZLSboV/qVbBdpFh+kazh6EF6zMLHwRSkCgReG3ywr+V/MMDYQVIGq
-	d4s9GXWQ==;
+	bh=xXrHi2dDhsHjFRrFFlLx3951AzAuiByzthX8mF+kPRc=; b=LlZknJBYyuJv5G1ImCWZX1fQ4N
+	e+J/iAOOWA5nebNPzRosn3NH3fXfjVAkyDkm2qc4TY1bd4CBXwhDzyD6yUzwlN4MAL/jns/AUY0gV
+	Duw6G862iQojY8vqgurQz0A4V8SYHC4wXmGhv+udNHPA0Xe2NiAGKYEfwZFnGDgCzaCqitQrYFadA
+	WHt/b6lsYSrXkAAfFRBM3GesMbWfhBOJNWzrU0ZsT5uB940WfkgJXgZAv97tEEmYmCimZohqacRD6
+	uDoJKagzPmFSYW7DTjbOZAMfEYgh+e2XNM+GPjWzjZh32evsRW+Co3n2vOVrK8PULkWfftw5eGMER
+	s0CTPruw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5nNU-0000000GbHF-2UV3;
-	Fri, 18 Apr 2025 15:11:40 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1u5nPP-0000000Gbpf-1YJ6;
+	Fri, 18 Apr 2025 15:13:39 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5nHZ-0000000GZzH-3eKi
+	id 1u5nKd-0000000Gafg-0wmK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 15:05:35 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53IF5TH6326863
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 18 Apr 2025 10:05:29 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744988729;
-	bh=YvFJvGG4okhAh4ZzeiEtpd9T2TUuyeMrkIjC3ug+0NE=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=BbWy1GfDHWFrXxEugsYwPHi9Ko8HzFq40FtbD41WlPpl+yzMV8nKfiJz/33eQVFny
-	 mPlREOxVlTkMqPZ1yhiI9a3O9clrTl4sBUvbkaIP7K9r+PTNCTWLi9Ecb8m965dA+F
-	 LPZxkNth+BqtP6WLoM2+yWpvzZsXx8UTFZl+fTbI=
-Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53IF5TXY095548
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 18 Apr 2025 10:05:29 -0500
-Received: from DLEE113.ent.ti.com (157.170.170.24) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 18
- Apr 2025 10:05:29 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 18 Apr 2025 10:05:28 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53IF5SmU009009;
-	Fri, 18 Apr 2025 10:05:28 -0500
-Date: Fri, 18 Apr 2025 10:05:28 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Chintan Vankar <c-vankar@ti.com>
-CC: Conor Dooley <conor+dt@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Rob Herring <robh@kernel.org>, Tero Kristo
-	<kristo@kernel.org>,
-        Vignesh Raghavendra <vigneshr@ti.com>, <linux-kernel@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <s-vadapalli@ti.com>, <srk@ti.com>
-Subject: Re: [PATCH v4 0/2] Add support for CPSW3G port 2 on AM62A7-SK
-Message-ID: <20250418150528.ukbbqf7vtoof5fhg@splashed>
-References: <20250211182134.1500867-1-c-vankar@ti.com>
+	Fri, 18 Apr 2025 15:08:44 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-227d6b530d8so21265395ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 08:08:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744988922; x=1745593722; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=xXrHi2dDhsHjFRrFFlLx3951AzAuiByzthX8mF+kPRc=;
+        b=eEkqOfJoAbu5Xx1nkkiB0iE+GT7SmQqsjVlTouk216StW/kAESC64TqdfQXnLOmWfk
+         jErlf3FJM0Lp51aZZzx8nPBPXfAVKX34u4dXo3hT/jK+Wi86Ov2NHON3AYCk1kabyzGC
+         IUUD6zWMhgsvfnKnlZ07JVhN5e1rLUOi1uS0kAuKQ1d8iQE31nWdhtRxaBjqDN7hxKVP
+         dPRb6PhcwLNEJ5LQurP2bAgXwbE1qXe9VrlJYAqxTxCWL4BYxKHt77ae2o0h/6KfHZPx
+         4x/8Y9eb1EQYFFUCnYealw3QzQywN5TT10z1cdZKyCRiXI21vVifrZ35SGJUeyMLbEJx
+         qqcg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744988922; x=1745593722;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xXrHi2dDhsHjFRrFFlLx3951AzAuiByzthX8mF+kPRc=;
+        b=lbKgqipXE1ms/T9wKQ4hqnyDbdxm8sYHGDc7f9dSyQvEFWBS6LpVdBqhrcKzhE56IB
+         PlMyhpdkI+Z1koawS+0P1fgLElYGEVfzRGFtiXKWq2SxXbfMm34oWkE/75XybVEqqXBw
+         0lV47mn02mJdUUdxEeqhEa6hyQUXf4RJAihhd9Yz1yRl0kN/hKQSy7Y+qmXhpwOvXbco
+         tECk+SHLSt5ZOIG11z6sSYyJSG7N5WrC8wEJMumkBGpgL5hWUzYxS2sFyR19nBeniv7w
+         XmcTB0OHen/Te6gmf7w2eCcpg1PrNZkKry1OtLL2V+UUokgbtotyWPpukuape837b18e
+         YXnA==
+X-Forwarded-Encrypted: i=1; AJvYcCVrmOjnHpzfDC5u9b9rAt+hdYUXAyUFIgU/vTWJROR+eN40ZaYvaeRGjcz4uj35FcylWeTDxrHdC0zxpqPhsDtA@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQwAiOJjOUjMFKywlR7O3ZL3vWCy0N6A2kZ3FykSpb3enHWw3s
+	P6S1kO3ZVQBSFCV3XiZ6B85c9WD9BUkRw10EVJ+qrp722wOl7CHf
+X-Gm-Gg: ASbGncv4G4HXTMd5NeSBy5lp8TdHTE7eTogViaXypgOufJAvnzlup1V6JKHtgWC4wqy
+	r8/lK2J2sAW8u/c9UdeZgyf0aXs4J1y85ZRCx3MB0pOmTpfVW7/Ue/dKenoZ66fqch/q4vtfCJX
+	cvpUh5UhEV7nSEhiUSoNFhr5Q6J8iWuu71jlBF3jGRWbMG+dWxhegsaW7fZ4Navgvb6Izq7KywY
+	TuIyvq0lmJ2YGVL3mP9uj7fUu0a5GpzmeZd8tVaLtWmxjyaUVMHJc3UAgzV8zGVP/4kxvI2Vn34
+	bJT4xK0Qb3cja+CXHop5A7XOfGDWObZdpoQVu7vs
+X-Google-Smtp-Source: AGHT+IFgyjtFyh0D1cewNDh4KCf3omEopwXw/CgC9qM37WkDXknCiuMsdR9x6yE6lYdQVJp7loAorg==
+X-Received: by 2002:a17:903:3202:b0:224:c47:cbd with SMTP id d9443c01a7336-22c530bc965mr45650025ad.0.1744988921670;
+        Fri, 18 Apr 2025 08:08:41 -0700 (PDT)
+Received: from localhost ([216.228.127.131])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22c50bf3fcbsm18016695ad.78.2025.04.18.08.08.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 18 Apr 2025 08:08:40 -0700 (PDT)
+Date: Fri, 18 Apr 2025 11:08:38 -0400
+From: Yury Norov <yury.norov@gmail.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Andrew Lunn <andrew@lunn.ch>, Luo Jie <quic_luoj@quicinc.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Julia Lawall <Julia.Lawall@inria.fr>,
+	Nicolas Palix <nicolas.palix@imag.fr>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>, linux-kernel@vger.kernel.org,
+	cocci@inria.fr, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, quic_kkumarcs@quicinc.com,
+	quic_linchen@quicinc.com, quic_leiwei@quicinc.com,
+	quic_suruchia@quicinc.com, quic_pavir@quicinc.com
+Subject: Re: [PATCH v3 0/6] Add FIELD_MODIFY() helper
+Message-ID: <aAJq9mGswYsnAOS8@yury>
+References: <20250417-field_modify-v3-0-6f7992aafcb7@quicinc.com>
+ <86sem7jb5t.wl-maz@kernel.org>
+ <0c97c659-bd28-45e0-8537-d9be2637cb22@lunn.ch>
+ <86mscek7h3.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250211182134.1500867-1-c-vankar@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+In-Reply-To: <86mscek7h3.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_080534_004373_C0B74949 
-X-CRM114-Status: GOOD (  16.87  )
+X-CRM114-CacheID: sfid-20250418_080843_273429_8CC853D9 
+X-CRM114-Status: GOOD (  24.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,35 +111,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23:51-20250211, Chintan Vankar wrote:
-> This series adds support for CPSW3G MAC port 2 with the SK-Ethernet-DC01
-> Add-On daughtercard. Also, the missing alias for CPSW3G MAC Port 1 is
-> added to the am62a7-sk board file in order to allow kernel to fetch MAC
-> address populated by U-Boot for CPSW3G MAC Port 1.
+On Thu, Apr 17, 2025 at 06:45:12PM +0100, Marc Zyngier wrote:
+> On Thu, 17 Apr 2025 18:22:29 +0100,
+> Andrew Lunn <andrew@lunn.ch> wrote:
+> > 
+> > On Thu, Apr 17, 2025 at 12:10:54PM +0100, Marc Zyngier wrote:
+> > > On Thu, 17 Apr 2025 11:47:07 +0100,
+> > > Luo Jie <quic_luoj@quicinc.com> wrote:
+> > > > 
+> > > > Add the helper FIELD_MODIFY() to the FIELD_XXX family of bitfield
+> > > > macros. It is functionally similar as xxx_replace_bits(), but adds
+> > > > the compile time checking to catch incorrect parameter type errors.
+> > > > 
+> > > > This series also converts the four instances of opencoded FIELD_MODIFY()
+> > > > that are found in the core kernel files, to instead use the new
+> > > > FIELD_MODIFY() macro. This is achieved with Coccinelle, by adding
+> > > > the script field_modify.cocci.
+> > > > 
+> > > > The changes are validated on IPQ9574 SoC which uses ARM64 architecture.
+> > > 
+> > > We already have the *_replace_bits() functions (see
+> > > include/linux/bitfield.h).
+> > > 
+> > > Why do we need extra helpers?
+> > 
+> > If you look at bitfield.h, the *_replace_bits() seem to be
+> > undocumented internal macro magic, not something you are expected to
+> > use. What you are expected to use in that file is however well
+> > documented. The macro magic also means that cross referencing tools
+> > don't find them.
 > 
-> This series is based on linux-next tagged next-20250210.
-> 
-> Link to v3:
-> https://lore.kernel.org/r/20240429101739.2770090-1-c-vankar@ti.com/
-> 
-> Changes from v3 to v4:
-> - No changes, rebased the series on top of latest linux-next branch.
-> 
-> Siddharth Vadapalli (2):
->   arm64: dts: ti: k3-am62a7-sk: Add alias for CPSW3G MAC port 1
->   arm64: dts: ti: k3-am62a7: Add overlay for second CPSW3G Port
-> 
->  arch/arm64/boot/dts/ti/Makefile               |  3 +
->  .../dts/ti/k3-am62a7-sk-ethernet-dc01.dtso    | 62 +++++++++++++++++++
->  arch/arm64/boot/dts/ti/k3-am62a7-sk.dts       |  1 +
->  3 files changed, 66 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/ti/k3-am62a7-sk-ethernet-dc01.dtso
-> 
+> $ git grep _replace_bits|  wc -l
+> 1514
 
-please re-send this series, series no longer applies.
+FIELD_PREP() only is used 10 times more.
+ 
+> I think a bunch of people have found them, tooling notwithstanding.
+> 
+> As for the documentation, the commit message in 00b0c9b82663ac would
+> be advantageously promoted to full-fledged kernel-doc.
 
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+The FIELD_MODIFY() and uxx_replace_bits() are simply different things.
+
+FIELD_MODIFY() employs __BF_FIELD_CHECK(), which allows strict
+parameters checking at compile time. And people like it. See
+recent fixed-size GENMASK() series:
+
+https://patchwork.kernel.org/comment/26283604/
+
+The _replace_bits() functions return fixed-width values, and intended
+for: "manipulating bitfields both in host- and fixed-endian", as the
+very first line in the commit message says.
+
+Those using _replace_bits() for something else abuse the API, and
+should switch to FIELD_MODIFY().
 
