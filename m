@@ -4,50 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCFCAC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 10:48:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BF28C369C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 10:50:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MNWqPgFTlSq4VbTabGJnHUVdvha5jS6OkPshKlCh4Ac=; b=tKq0owSm2pQVZOf4n5n3dhCBTZ
-	lzE/2p9MrECGeT6YOvR8p5WCYeZxLY3/CUTgXsXgPugvoD1Unp84OCXhLYMlIhMLX1ydmORmP2MUT
-	KsNaqfQmgpkkk3e5Jq8GOl6X/wHDsKSfV++SAOdEPXW6uby9jkitpBXKEmyfBwdppkLibdHqhQ1eN
-	1oQ5LKQ6/zRSbs/pVpd6NMvHLrP5rxpa1spoWHcWx/687BSDqRF15nlf2qa8L1s7eX4XP4sLtwaFC
-	RMS4FzFjZavuNsKhPLjzv588PJq/TUBMUFapeTGzyhKTV58+65LWLLLcINkf4fdqHOnEJz9tcAs3i
-	O1h3xRpA==;
+	bh=rE9ppjFAGXqyDmEhVPpCWp9zNcVYCl+k5h5ZaihDEKI=; b=iAu0oBX5mYco/NI2heMjDQrj5e
+	TNGsgCWAOM0Te4tJaRz/suZBIySdEmEkv3bW5NVaFNkOTqYQQ6oQh2aSPjT8IwT3T71QmtGvZR3Dr
+	CkkMuTi2ZN9RcjI2V6uqwSvFbo9tVyk9JbPU1MKowKctpoayiywYJP+nJa8ZATD2TB+Qm+3mEzj5t
+	+BhnG3B8hSJYlXE3WsyDE0UCa9j9mDApGcrYgGv/axJPdScdtjbOZWXHfS/oxvgB38P9IQG/3ro7o
+	MsiOei/BBdgIv2uBBvECNBUL6INhvR71aevEIjyGtT/aIAzSNmH1SCNI6/BRVEn8bP/rZPLK1urmZ
+	Mnal7M8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5jGM-0000000Fu6x-0xuY;
-	Fri, 18 Apr 2025 10:48:02 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u5jIB-0000000FuGZ-25QV;
+	Fri, 18 Apr 2025 10:49:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5j9p-0000000FtSf-3rhv;
-	Fri, 18 Apr 2025 10:41:19 +0000
+	id 1u5j9t-0000000FtTE-07AO;
+	Fri, 18 Apr 2025 10:41:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C4A68A4B3F8;
-	Fri, 18 Apr 2025 10:35:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6822FC4CEE2;
-	Fri, 18 Apr 2025 10:41:16 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 77833439AA;
+	Fri, 18 Apr 2025 10:41:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41B9DC4CEE2;
+	Fri, 18 Apr 2025 10:41:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744972876;
-	bh=uBaJ+y7RySKtcwtyANcpaQx2ruucaM16ol7dsI1Zh40=;
+	s=k20201202; t=1744972879;
+	bh=6CSqkYBs0ku/IURUjoEsbxPNqET4/QcwtmbqgmRe4D4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=efrsB+clnDYvHKXNt9PoMX2LIczBGTKnnDTcvWncDqrHJWG5F9fsghpyRiAXO5tti
-	 IothoC87KhwLy4oq38Mje+9n/W5DWupwZUjPo2GdANHbjNt+4Q46rcSoNSPlbg9s5a
-	 GlaqdXn3bNTrFkBb1XPPbUozwbDnzP1bstKX9dFy61jEVfkdEhr3SIfx8w1xtmRfI0
-	 5s2sob1NFv89JmTiBYkIGEou0HToBoeoFryJHQUmGXEuE8BelGQg2s4UY53wUAehDC
-	 1cVIewtE6R3sk35V9sv2JEL10tGVbB5iOLmoKBZzYg1bVo29OkJclO+EjKaJJeDF17
-	 uH5latrdcUA/w==
+	b=sgGANalLnDV5AM3jV6TkDcRjt85e6mxDqt1pvABJ4MldnhhhocexxcGMh2BE5GYpV
+	 TU5Jv75b2DMpx0fodbBd7siqOfGJqEBAo74QJeY+ZRfZ4LYjW00UvTIXAMBykXc6F+
+	 OwEkTZxILZqRLp6gKkL1aR+u7is1k1PaGHvGsNC6nlzgmvO5KmQA8WUpAnHD2cy+vf
+	 qxW70KW0FMeaSzkEIhbDcvY6l/4e8BQZuAe7uwxWLtiuHIAb8iRSfqQZwu3KyLfmzx
+	 O2d4cGt3daO2qsj/VM8Bco9H7UAvQQjf4R2KUZKinmA9w+b29haqdNMk64n6Myrz4H
+	 61+OfXWpa17jQ==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Fri, 18 Apr 2025 12:40:49 +0200
-Subject: [PATCH net-next 1/2] net: airoha: Introduce airoha_irq_bank struct
+Date: Fri, 18 Apr 2025 12:40:50 +0200
+Subject: [PATCH net-next 2/2] net: airoha: Enable multiple IRQ lines
+ support in airoha_eth driver.
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250418-airoha-eth-multi-irq-v1-1-1ab0083ca3c1@kernel.org>
+Message-Id: <20250418-airoha-eth-multi-irq-v1-2-1ab0083ca3c1@kernel.org>
 References: <20250418-airoha-eth-multi-irq-v1-0-1ab0083ca3c1@kernel.org>
 In-Reply-To: <20250418-airoha-eth-multi-irq-v1-0-1ab0083ca3c1@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -58,8 +59,8 @@ Cc: linux-arm-kernel@lists.infradead.org,
  Lorenzo Bianconi <lorenzo@kernel.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_034118_100263_90F80ACF 
-X-CRM114-Status: GOOD (  19.75  )
+X-CRM114-CacheID: sfid-20250418_034121_113958_8EF2169A 
+X-CRM114-Status: GOOD (  17.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,297 +75,383 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-EN7581 ethernet SoC supports 4 programmable IRQ lines each one composed
-by 4 IRQ configuration registers. Add airoha_irq_bank struct as a
-container for independent IRQ lines info (e.g. IRQ number, enabled source
-interrupts, ecc). This is a preliminary patch to support multiple IRQ lines
-in airoha_eth driver.
+EN7581 ethernet SoC supports 4 programmable IRQ lines for Tx and Rx
+interrupts. Enable multiple IRQ lines support. Map Rx/Tx queues to the
+available IRQ lines using the default scheme used in the vendor SDK:
+
+- IRQ0: rx queues [0-4],[7-9],15
+- IRQ1: rx queues [21-30]
+- IRQ2: rx queues 5
+- IRQ3: rx queues 6
+
+Tx queues interrupts are managed by IRQ0.
 
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/net/ethernet/airoha/airoha_eth.c  | 106 ++++++++++++++++++++----------
- drivers/net/ethernet/airoha/airoha_eth.h  |  13 +++-
- drivers/net/ethernet/airoha/airoha_regs.h |  11 ++--
- 3 files changed, 86 insertions(+), 44 deletions(-)
+ drivers/net/ethernet/airoha/airoha_eth.c  |  67 +++++++----
+ drivers/net/ethernet/airoha/airoha_eth.h  |  13 ++-
+ drivers/net/ethernet/airoha/airoha_regs.h | 185 ++++++++++++++++++++++++------
+ 3 files changed, 206 insertions(+), 59 deletions(-)
 
 diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index c773b5ea9c051ab40ddd5c9ba5a1795ed36e6820..e1c1cf965c2f16e3fb4ad17f5299b27d9615da3f 100644
+index e1c1cf965c2f16e3fb4ad17f5299b27d9615da3f..16c7896f931fd9532aa3b8cc78f41afc676aa117 100644
 --- a/drivers/net/ethernet/airoha/airoha_eth.c
 +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -34,37 +34,40 @@ u32 airoha_rmw(void __iomem *base, u32 offset, u32 mask, u32 val)
- 	return val;
- }
- 
--static void airoha_qdma_set_irqmask(struct airoha_qdma *qdma, int index,
--				    u32 clear, u32 set)
-+static void airoha_qdma_set_irqmask(struct airoha_irq_bank *irq_bank,
-+				    int index, u32 clear, u32 set)
- {
-+	struct airoha_qdma *qdma = irq_bank->qdma;
-+	int bank = irq_bank - &qdma->irq_banks[0];
- 	unsigned long flags;
- 
--	if (WARN_ON_ONCE(index >= ARRAY_SIZE(qdma->irqmask)))
-+	if (WARN_ON_ONCE(index >= ARRAY_SIZE(irq_bank->irqmask)))
- 		return;
- 
--	spin_lock_irqsave(&qdma->irq_lock, flags);
-+	spin_lock_irqsave(&irq_bank->irq_lock, flags);
- 
--	qdma->irqmask[index] &= ~clear;
--	qdma->irqmask[index] |= set;
--	airoha_qdma_wr(qdma, REG_INT_ENABLE(index), qdma->irqmask[index]);
-+	irq_bank->irqmask[index] &= ~clear;
-+	irq_bank->irqmask[index] |= set;
-+	airoha_qdma_wr(qdma, REG_INT_ENABLE(bank, index),
-+		       irq_bank->irqmask[index]);
- 	/* Read irq_enable register in order to guarantee the update above
- 	 * completes in the spinlock critical section.
- 	 */
--	airoha_qdma_rr(qdma, REG_INT_ENABLE(index));
-+	airoha_qdma_rr(qdma, REG_INT_ENABLE(bank, index));
- 
--	spin_unlock_irqrestore(&qdma->irq_lock, flags);
-+	spin_unlock_irqrestore(&irq_bank->irq_lock, flags);
- }
- 
--static void airoha_qdma_irq_enable(struct airoha_qdma *qdma, int index,
--				   u32 mask)
-+static void airoha_qdma_irq_enable(struct airoha_irq_bank *irq_bank,
-+				   int index, u32 mask)
- {
--	airoha_qdma_set_irqmask(qdma, index, 0, mask);
-+	airoha_qdma_set_irqmask(irq_bank, index, 0, mask);
- }
- 
--static void airoha_qdma_irq_disable(struct airoha_qdma *qdma, int index,
--				    u32 mask)
-+static void airoha_qdma_irq_disable(struct airoha_irq_bank *irq_bank,
-+				    int index, u32 mask)
- {
--	airoha_qdma_set_irqmask(qdma, index, mask, 0);
-+	airoha_qdma_set_irqmask(irq_bank, index, mask, 0);
- }
- 
- static bool airhoa_is_lan_gdm_port(struct airoha_gdm_port *port)
-@@ -732,6 +735,7 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
+@@ -735,7 +735,6 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
  static int airoha_qdma_rx_napi_poll(struct napi_struct *napi, int budget)
  {
  	struct airoha_queue *q = container_of(napi, struct airoha_queue, napi);
-+	struct airoha_irq_bank *irq_bank = &q->qdma->irq_banks[0];
+-	struct airoha_irq_bank *irq_bank = &q->qdma->irq_banks[0];
  	int cur, done = 0;
  
  	do {
-@@ -740,7 +744,7 @@ static int airoha_qdma_rx_napi_poll(struct napi_struct *napi, int budget)
+@@ -743,9 +742,20 @@ static int airoha_qdma_rx_napi_poll(struct napi_struct *napi, int budget)
+ 		done += cur;
  	} while (cur && done < budget);
  
- 	if (done < budget && napi_complete(napi))
--		airoha_qdma_irq_enable(q->qdma, QDMA_INT_REG_IDX1,
-+		airoha_qdma_irq_enable(irq_bank, QDMA_INT_REG_IDX1,
- 				       RX_DONE_INT_MASK);
+-	if (done < budget && napi_complete(napi))
+-		airoha_qdma_irq_enable(irq_bank, QDMA_INT_REG_IDX1,
+-				       RX_DONE_INT_MASK);
++	if (done < budget && napi_complete(napi)) {
++		struct airoha_qdma *qdma = q->qdma;
++		int i, qid = q - &qdma->q_rx[0];
++		int intr_reg = qid < RX_DONE_HIGH_OFFSET ? QDMA_INT_REG_IDX1
++							 : QDMA_INT_REG_IDX2;
++
++		for (i = 0; i < ARRAY_SIZE(qdma->irq_banks); i++) {
++			if (!(BIT(qid) & RX_IRQ_BANK_PIN_MASK(i)))
++				continue;
++
++			airoha_qdma_irq_enable(&qdma->irq_banks[i], intr_reg,
++					       BIT(qid % RX_DONE_HIGH_OFFSET));
++		}
++	}
  
  	return done;
-@@ -944,7 +948,7 @@ static int airoha_qdma_tx_napi_poll(struct napi_struct *napi, int budget)
- 	}
- 
- 	if (done < budget && napi_complete(napi))
--		airoha_qdma_irq_enable(qdma, QDMA_INT_REG_IDX0,
-+		airoha_qdma_irq_enable(&qdma->irq_banks[0], QDMA_INT_REG_IDX0,
- 				       TX_DONE_INT_MASK(id));
- 
- 	return done;
-@@ -1175,13 +1179,16 @@ static int airoha_qdma_hw_init(struct airoha_qdma *qdma)
+ }
+@@ -1178,17 +1188,24 @@ static int airoha_qdma_hw_init(struct airoha_qdma *qdma)
+ {
  	int i;
  
- 	/* clear pending irqs */
--	for (i = 0; i < ARRAY_SIZE(qdma->irqmask); i++)
-+	for (i = 0; i < ARRAY_SIZE(qdma->irq_banks[0].irqmask); i++)
+-	/* clear pending irqs */
+-	for (i = 0; i < ARRAY_SIZE(qdma->irq_banks[0].irqmask); i++)
++	for (i = 0; i < ARRAY_SIZE(qdma->irq_banks); i++) {
++		/* clear pending irqs */
  		airoha_qdma_wr(qdma, REG_INT_STATUS(i), 0xffffffff);
- 
- 	/* setup irqs */
--	airoha_qdma_irq_enable(qdma, QDMA_INT_REG_IDX0, INT_IDX0_MASK);
--	airoha_qdma_irq_enable(qdma, QDMA_INT_REG_IDX1, INT_IDX1_MASK);
--	airoha_qdma_irq_enable(qdma, QDMA_INT_REG_IDX4, INT_IDX4_MASK);
-+	airoha_qdma_irq_enable(&qdma->irq_banks[0], QDMA_INT_REG_IDX0,
-+			       INT_IDX0_MASK);
-+	airoha_qdma_irq_enable(&qdma->irq_banks[0], QDMA_INT_REG_IDX1,
-+			       INT_IDX1_MASK);
-+	airoha_qdma_irq_enable(&qdma->irq_banks[0], QDMA_INT_REG_IDX4,
-+			       INT_IDX4_MASK);
+-
+-	/* setup irqs */
++		/* setup rx irqs */
++		airoha_qdma_irq_enable(&qdma->irq_banks[i], QDMA_INT_REG_IDX0,
++				       INT_RX0_MASK(RX_IRQ_BANK_PIN_MASK(i)));
++		airoha_qdma_irq_enable(&qdma->irq_banks[i], QDMA_INT_REG_IDX1,
++				       INT_RX1_MASK(RX_IRQ_BANK_PIN_MASK(i)));
++		airoha_qdma_irq_enable(&qdma->irq_banks[i], QDMA_INT_REG_IDX2,
++				       INT_RX2_MASK(RX_IRQ_BANK_PIN_MASK(i)));
++		airoha_qdma_irq_enable(&qdma->irq_banks[i], QDMA_INT_REG_IDX3,
++				       INT_RX3_MASK(RX_IRQ_BANK_PIN_MASK(i)));
++	}
++	/* setup tx irqs */
+ 	airoha_qdma_irq_enable(&qdma->irq_banks[0], QDMA_INT_REG_IDX0,
+-			       INT_IDX0_MASK);
+-	airoha_qdma_irq_enable(&qdma->irq_banks[0], QDMA_INT_REG_IDX1,
+-			       INT_IDX1_MASK);
++			       TX_COHERENT_LOW_INT_MASK | INT_TX_MASK);
+ 	airoha_qdma_irq_enable(&qdma->irq_banks[0], QDMA_INT_REG_IDX4,
+-			       INT_IDX4_MASK);
++			       TX_COHERENT_HIGH_INT_MASK);
  
  	/* setup irq binding */
  	for (i = 0; i < ARRAY_SIZE(qdma->q_tx); i++) {
-@@ -1226,13 +1233,14 @@ static int airoha_qdma_hw_init(struct airoha_qdma *qdma)
- 
- static irqreturn_t airoha_irq_handler(int irq, void *dev_instance)
+@@ -1235,6 +1252,7 @@ static irqreturn_t airoha_irq_handler(int irq, void *dev_instance)
  {
--	struct airoha_qdma *qdma = dev_instance;
--	u32 intr[ARRAY_SIZE(qdma->irqmask)];
-+	struct airoha_irq_bank *irq_bank = dev_instance;
-+	struct airoha_qdma *qdma = irq_bank->qdma;
-+	u32 intr[ARRAY_SIZE(irq_bank->irqmask)];
+ 	struct airoha_irq_bank *irq_bank = dev_instance;
+ 	struct airoha_qdma *qdma = irq_bank->qdma;
++	u32 rx_intr_mask = 0, rx_intr1, rx_intr2;
+ 	u32 intr[ARRAY_SIZE(irq_bank->irqmask)];
  	int i;
  
--	for (i = 0; i < ARRAY_SIZE(qdma->irqmask); i++) {
-+	for (i = 0; i < ARRAY_SIZE(intr); i++) {
- 		intr[i] = airoha_qdma_rr(qdma, REG_INT_STATUS(i));
--		intr[i] &= qdma->irqmask[i];
-+		intr[i] &= irq_bank->irqmask[i];
- 		airoha_qdma_wr(qdma, REG_INT_STATUS(i), intr[i]);
- 	}
- 
-@@ -1240,7 +1248,7 @@ static irqreturn_t airoha_irq_handler(int irq, void *dev_instance)
+@@ -1247,17 +1265,24 @@ static irqreturn_t airoha_irq_handler(int irq, void *dev_instance)
+ 	if (!test_bit(DEV_STATE_INITIALIZED, &qdma->eth->state))
  		return IRQ_NONE;
  
- 	if (intr[1] & RX_DONE_INT_MASK) {
--		airoha_qdma_irq_disable(qdma, QDMA_INT_REG_IDX1,
-+		airoha_qdma_irq_disable(irq_bank, QDMA_INT_REG_IDX1,
- 					RX_DONE_INT_MASK);
- 
- 		for (i = 0; i < ARRAY_SIZE(qdma->q_rx); i++) {
-@@ -1257,7 +1265,7 @@ static irqreturn_t airoha_irq_handler(int irq, void *dev_instance)
- 			if (!(intr[0] & TX_DONE_INT_MASK(i)))
- 				continue;
- 
--			airoha_qdma_irq_disable(qdma, QDMA_INT_REG_IDX0,
-+			airoha_qdma_irq_disable(irq_bank, QDMA_INT_REG_IDX0,
- 						TX_DONE_INT_MASK(i));
- 			napi_schedule(&qdma->q_tx_irq[i].napi);
- 		}
-@@ -1266,6 +1274,39 @@ static irqreturn_t airoha_irq_handler(int irq, void *dev_instance)
- 	return IRQ_HANDLED;
- }
- 
-+static int airoha_qdma_init_irq_banks(struct platform_device *pdev,
-+				      struct airoha_qdma *qdma)
-+{
-+	struct airoha_eth *eth = qdma->eth;
-+	int i, id = qdma - &eth->qdma[0];
-+
-+	for (i = 0; i < ARRAY_SIZE(qdma->irq_banks); i++) {
-+		struct airoha_irq_bank *irq_bank = &qdma->irq_banks[i];
-+		int err, irq_index = 4 * id + i;
-+		const char *name;
-+
-+		spin_lock_init(&irq_bank->irq_lock);
-+		irq_bank->qdma = qdma;
-+
-+		irq_bank->irq = platform_get_irq(pdev, irq_index);
-+		if (irq_bank->irq < 0)
-+			return irq_bank->irq;
-+
-+		name = devm_kasprintf(eth->dev, GFP_KERNEL,
-+				      KBUILD_MODNAME ".%d", irq_index);
-+		if (!name)
-+			return -ENOMEM;
-+
-+		err = devm_request_irq(eth->dev, irq_bank->irq,
-+				       airoha_irq_handler, IRQF_SHARED, name,
-+				       irq_bank);
-+		if (err)
-+			return err;
+-	if (intr[1] & RX_DONE_INT_MASK) {
+-		airoha_qdma_irq_disable(irq_bank, QDMA_INT_REG_IDX1,
+-					RX_DONE_INT_MASK);
++	rx_intr1 = intr[1] & RX_DONE_LOW_INT_MASK;
++	if (rx_intr1) {
++		airoha_qdma_irq_disable(irq_bank, QDMA_INT_REG_IDX1, rx_intr1);
++		rx_intr_mask |= rx_intr1;
 +	}
+ 
+-		for (i = 0; i < ARRAY_SIZE(qdma->q_rx); i++) {
+-			if (!qdma->q_rx[i].ndesc)
+-				continue;
++	rx_intr2 = intr[2] & RX_DONE_HIGH_INT_MASK;
++	if (rx_intr2) {
++		airoha_qdma_irq_disable(irq_bank, QDMA_INT_REG_IDX2, rx_intr2);
++		rx_intr_mask |= (rx_intr2 << 16);
++	}
+ 
+-			if (intr[1] & BIT(i))
+-				napi_schedule(&qdma->q_rx[i].napi);
+-		}
++	for (i = 0; rx_intr_mask && i < ARRAY_SIZE(qdma->q_rx); i++) {
++		if (!qdma->q_rx[i].ndesc)
++			continue;
 +
-+	return 0;
-+}
-+
- static int airoha_qdma_init(struct platform_device *pdev,
- 			    struct airoha_eth *eth,
- 			    struct airoha_qdma *qdma)
-@@ -1273,9 +1314,7 @@ static int airoha_qdma_init(struct platform_device *pdev,
- 	int err, id = qdma - &eth->qdma[0];
- 	const char *res;
++		if (rx_intr_mask & BIT(i))
++			napi_schedule(&qdma->q_rx[i].napi);
+ 	}
  
--	spin_lock_init(&qdma->irq_lock);
- 	qdma->eth = eth;
--
- 	res = devm_kasprintf(eth->dev, GFP_KERNEL, "qdma%d", id);
- 	if (!res)
- 		return -ENOMEM;
-@@ -1285,12 +1324,7 @@ static int airoha_qdma_init(struct platform_device *pdev,
- 		return dev_err_probe(eth->dev, PTR_ERR(qdma->regs),
- 				     "failed to iomap qdma%d regs\n", id);
- 
--	qdma->irq = platform_get_irq(pdev, 4 * id);
--	if (qdma->irq < 0)
--		return qdma->irq;
--
--	err = devm_request_irq(eth->dev, qdma->irq, airoha_irq_handler,
--			       IRQF_SHARED, KBUILD_MODNAME, qdma);
-+	err = airoha_qdma_init_irq_banks(pdev, qdma);
- 	if (err)
- 		return err;
- 
-@@ -2784,7 +2818,7 @@ static int airoha_alloc_gdm_port(struct airoha_eth *eth,
- 	dev->features |= dev->hw_features;
- 	dev->vlan_features = dev->hw_features;
- 	dev->dev.of_node = np;
--	dev->irq = qdma->irq;
-+	dev->irq = qdma->irq_banks[0].irq;
- 	SET_NETDEV_DEV(dev, eth->dev);
- 
- 	/* reserve hw queues for HTB offloading */
+ 	if (intr[0] & INT_TX_MASK) {
 diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index da5371bcd14732afdeb2430e24bcbddaf9c479f7..af263203d488e1246f4ff16921684a2532645fa4 100644
+index af263203d488e1246f4ff16921684a2532645fa4..53f39083a8b05f365056f5d063f801c03e777953 100644
 --- a/drivers/net/ethernet/airoha/airoha_eth.h
 +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -17,6 +17,7 @@
+@@ -17,7 +17,7 @@
  
  #define AIROHA_MAX_NUM_GDM_PORTS	4
  #define AIROHA_MAX_NUM_QDMA		2
-+#define AIROHA_MAX_NUM_IRQ_BANKS	1
+-#define AIROHA_MAX_NUM_IRQ_BANKS	1
++#define AIROHA_MAX_NUM_IRQ_BANKS	4
  #define AIROHA_MAX_DSA_PORTS		7
  #define AIROHA_MAX_NUM_RSTS		3
  #define AIROHA_MAX_NUM_XSI_RSTS		5
-@@ -452,17 +453,23 @@ struct airoha_flow_table_entry {
+@@ -453,6 +453,17 @@ struct airoha_flow_table_entry {
  	unsigned long cookie;
  };
  
--struct airoha_qdma {
--	struct airoha_eth *eth;
--	void __iomem *regs;
-+struct airoha_irq_bank {
-+	struct airoha_qdma *qdma;
- 
- 	/* protect concurrent irqmask accesses */
- 	spinlock_t irq_lock;
- 	u32 irqmask[QDMA_INT_REG_MAX];
- 	int irq;
-+};
++/* RX queue to IRQ mapping: BIT(q) in IRQ(n) */
++#define RX_IRQ0_BANK_PIN_MASK			0x839f
++#define RX_IRQ1_BANK_PIN_MASK			0x7fe00000
++#define RX_IRQ2_BANK_PIN_MASK			0x20
++#define RX_IRQ3_BANK_PIN_MASK			0x40
++#define RX_IRQ_BANK_PIN_MASK(_n)		\
++	(((_n) == 3) ? RX_IRQ3_BANK_PIN_MASK :	\
++	 ((_n) == 2) ? RX_IRQ2_BANK_PIN_MASK :	\
++	 ((_n) == 1) ? RX_IRQ1_BANK_PIN_MASK :	\
++	 RX_IRQ0_BANK_PIN_MASK)
 +
-+struct airoha_qdma {
-+	struct airoha_eth *eth;
-+	void __iomem *regs;
+ struct airoha_irq_bank {
+ 	struct airoha_qdma *qdma;
  
- 	atomic_t users;
- 
-+	struct airoha_irq_bank irq_banks[AIROHA_MAX_NUM_IRQ_BANKS];
-+
- 	struct airoha_tx_irq_queue q_tx_irq[AIROHA_NUM_TX_IRQ];
- 
- 	struct airoha_queue q_tx[AIROHA_NUM_TX_RING];
 diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethernet/airoha/airoha_regs.h
-index 29c8f046b9910c371ab4edc34b01f58d7383ae8d..1d99fe9f81124441e3f8fda77df4e04eee0e131b 100644
+index 1d99fe9f81124441e3f8fda77df4e04eee0e131b..d931530fc96fb00ada36a6ad37fa295865a6f0a8 100644
 --- a/drivers/net/ethernet/airoha/airoha_regs.h
 +++ b/drivers/net/ethernet/airoha/airoha_regs.h
-@@ -423,11 +423,12 @@
- 	 ((_n) == 2) ? 0x0720 :		\
- 	 ((_n) == 1) ? 0x0024 : 0x0020)
+@@ -463,6 +463,26 @@
+ #define IRQ0_FULL_INT_MASK		BIT(1)
+ #define IRQ0_INT_MASK			BIT(0)
  
--#define REG_INT_ENABLE(_n)		\
--	(((_n) == 4) ? 0x0750 :		\
--	 ((_n) == 3) ? 0x0744 :		\
--	 ((_n) == 2) ? 0x0740 :		\
--	 ((_n) == 1) ? 0x002c : 0x0028)
-+#define REG_INT_ENABLE(_b, _n)		\
-+	(((_n) == 4) ? 0x0750 + ((_b) << 5) :	\
-+	 ((_n) == 3) ? 0x0744 + ((_b) << 5) :	\
-+	 ((_n) == 2) ? 0x0740 + ((_b) << 5) :	\
-+	 ((_n) == 1) ? 0x002c + ((_b) << 3) :	\
-+		       0x0028 + ((_b) << 3))
++#define RX_COHERENT_LOW_INT_MASK				\
++	(RX15_COHERENT_INT_MASK | RX14_COHERENT_INT_MASK |	\
++	 RX13_COHERENT_INT_MASK | RX12_COHERENT_INT_MASK |	\
++	 RX11_COHERENT_INT_MASK | RX10_COHERENT_INT_MASK |	\
++	 RX9_COHERENT_INT_MASK | RX8_COHERENT_INT_MASK |	\
++	 RX7_COHERENT_INT_MASK | RX6_COHERENT_INT_MASK |	\
++	 RX5_COHERENT_INT_MASK | RX4_COHERENT_INT_MASK |	\
++	 RX3_COHERENT_INT_MASK | RX2_COHERENT_INT_MASK |	\
++	 RX1_COHERENT_INT_MASK | RX0_COHERENT_INT_MASK)
++
++#define RX_COHERENT_LOW_OFFSET	__ffs(RX_COHERENT_LOW_INT_MASK)
++#define INT_RX0_MASK(_n)					\
++	(((_n) << RX_COHERENT_LOW_OFFSET) & RX_COHERENT_LOW_INT_MASK)
++
++#define TX_COHERENT_LOW_INT_MASK				\
++	(TX7_COHERENT_INT_MASK | TX6_COHERENT_INT_MASK |	\
++	 TX5_COHERENT_INT_MASK | TX4_COHERENT_INT_MASK |	\
++	 TX3_COHERENT_INT_MASK | TX2_COHERENT_INT_MASK |	\
++	 TX1_COHERENT_INT_MASK | TX0_COHERENT_INT_MASK)
++
+ #define TX_DONE_INT_MASK(_n)					\
+ 	((_n) ? IRQ1_INT_MASK | IRQ1_FULL_INT_MASK		\
+ 	      : IRQ0_INT_MASK | IRQ0_FULL_INT_MASK)
+@@ -471,17 +491,6 @@
+ 	(IRQ1_INT_MASK | IRQ1_FULL_INT_MASK |			\
+ 	 IRQ0_INT_MASK | IRQ0_FULL_INT_MASK)
  
- /* QDMA_CSR_INT_ENABLE1 */
- #define RX15_COHERENT_INT_MASK		BIT(31)
+-#define INT_IDX0_MASK						\
+-	(TX0_COHERENT_INT_MASK | TX1_COHERENT_INT_MASK |	\
+-	 TX2_COHERENT_INT_MASK | TX3_COHERENT_INT_MASK |	\
+-	 TX4_COHERENT_INT_MASK | TX5_COHERENT_INT_MASK |	\
+-	 TX6_COHERENT_INT_MASK | TX7_COHERENT_INT_MASK |	\
+-	 RX0_COHERENT_INT_MASK | RX1_COHERENT_INT_MASK |	\
+-	 RX2_COHERENT_INT_MASK | RX3_COHERENT_INT_MASK |	\
+-	 RX4_COHERENT_INT_MASK | RX7_COHERENT_INT_MASK |	\
+-	 RX8_COHERENT_INT_MASK | RX9_COHERENT_INT_MASK |	\
+-	 RX15_COHERENT_INT_MASK | INT_TX_MASK)
+-
+ /* QDMA_CSR_INT_ENABLE2 */
+ #define RX15_NO_CPU_DSCP_INT_MASK	BIT(31)
+ #define RX14_NO_CPU_DSCP_INT_MASK	BIT(30)
+@@ -516,19 +525,121 @@
+ #define RX1_DONE_INT_MASK		BIT(1)
+ #define RX0_DONE_INT_MASK		BIT(0)
+ 
+-#define RX_DONE_INT_MASK					\
+-	(RX0_DONE_INT_MASK | RX1_DONE_INT_MASK |		\
+-	 RX2_DONE_INT_MASK | RX3_DONE_INT_MASK |		\
+-	 RX4_DONE_INT_MASK | RX7_DONE_INT_MASK |		\
+-	 RX8_DONE_INT_MASK | RX9_DONE_INT_MASK |		\
+-	 RX15_DONE_INT_MASK)
+-#define INT_IDX1_MASK						\
+-	(RX_DONE_INT_MASK |					\
+-	 RX0_NO_CPU_DSCP_INT_MASK | RX1_NO_CPU_DSCP_INT_MASK |	\
+-	 RX2_NO_CPU_DSCP_INT_MASK | RX3_NO_CPU_DSCP_INT_MASK |	\
+-	 RX4_NO_CPU_DSCP_INT_MASK | RX7_NO_CPU_DSCP_INT_MASK |	\
+-	 RX8_NO_CPU_DSCP_INT_MASK | RX9_NO_CPU_DSCP_INT_MASK |	\
+-	 RX15_NO_CPU_DSCP_INT_MASK)
++#define RX_NO_CPU_DSCP_LOW_INT_MASK					\
++	(RX15_NO_CPU_DSCP_INT_MASK | RX14_NO_CPU_DSCP_INT_MASK |	\
++	 RX13_NO_CPU_DSCP_INT_MASK | RX12_NO_CPU_DSCP_INT_MASK |	\
++	 RX11_NO_CPU_DSCP_INT_MASK | RX10_NO_CPU_DSCP_INT_MASK |	\
++	 RX9_NO_CPU_DSCP_INT_MASK | RX8_NO_CPU_DSCP_INT_MASK |		\
++	 RX7_NO_CPU_DSCP_INT_MASK | RX6_NO_CPU_DSCP_INT_MASK |		\
++	 RX5_NO_CPU_DSCP_INT_MASK | RX4_NO_CPU_DSCP_INT_MASK |		\
++	 RX3_NO_CPU_DSCP_INT_MASK | RX2_NO_CPU_DSCP_INT_MASK |		\
++	 RX1_NO_CPU_DSCP_INT_MASK | RX0_NO_CPU_DSCP_INT_MASK)
++
++#define RX_DONE_LOW_INT_MASK				\
++	(RX15_DONE_INT_MASK | RX14_DONE_INT_MASK |	\
++	 RX13_DONE_INT_MASK | RX12_DONE_INT_MASK |	\
++	 RX11_DONE_INT_MASK | RX10_DONE_INT_MASK |	\
++	 RX9_DONE_INT_MASK | RX8_DONE_INT_MASK |	\
++	 RX7_DONE_INT_MASK | RX6_DONE_INT_MASK |	\
++	 RX5_DONE_INT_MASK | RX4_DONE_INT_MASK |	\
++	 RX3_DONE_INT_MASK | RX2_DONE_INT_MASK |	\
++	 RX1_DONE_INT_MASK | RX0_DONE_INT_MASK)
++
++#define RX_NO_CPU_DSCP_LOW_OFFSET	__ffs(RX_NO_CPU_DSCP_LOW_INT_MASK)
++#define INT_RX1_MASK(_n)							\
++	((((_n) << RX_NO_CPU_DSCP_LOW_OFFSET) & RX_NO_CPU_DSCP_LOW_INT_MASK) |	\
++	 (RX_DONE_LOW_INT_MASK & (_n)))
++
++/* QDMA_CSR_INT_ENABLE3 */
++#define RX31_NO_CPU_DSCP_INT_MASK	BIT(31)
++#define RX30_NO_CPU_DSCP_INT_MASK	BIT(30)
++#define RX29_NO_CPU_DSCP_INT_MASK	BIT(29)
++#define RX28_NO_CPU_DSCP_INT_MASK	BIT(28)
++#define RX27_NO_CPU_DSCP_INT_MASK	BIT(27)
++#define RX26_NO_CPU_DSCP_INT_MASK	BIT(26)
++#define RX25_NO_CPU_DSCP_INT_MASK	BIT(25)
++#define RX24_NO_CPU_DSCP_INT_MASK	BIT(24)
++#define RX23_NO_CPU_DSCP_INT_MASK	BIT(23)
++#define RX22_NO_CPU_DSCP_INT_MASK	BIT(22)
++#define RX21_NO_CPU_DSCP_INT_MASK	BIT(21)
++#define RX20_NO_CPU_DSCP_INT_MASK	BIT(20)
++#define RX19_NO_CPU_DSCP_INT_MASK	BIT(19)
++#define RX18_NO_CPU_DSCP_INT_MASK	BIT(18)
++#define RX17_NO_CPU_DSCP_INT_MASK	BIT(17)
++#define RX16_NO_CPU_DSCP_INT_MASK	BIT(16)
++#define RX31_DONE_INT_MASK		BIT(15)
++#define RX30_DONE_INT_MASK		BIT(14)
++#define RX29_DONE_INT_MASK		BIT(13)
++#define RX28_DONE_INT_MASK		BIT(12)
++#define RX27_DONE_INT_MASK		BIT(11)
++#define RX26_DONE_INT_MASK		BIT(10)
++#define RX25_DONE_INT_MASK		BIT(9)
++#define RX24_DONE_INT_MASK		BIT(8)
++#define RX23_DONE_INT_MASK		BIT(7)
++#define RX22_DONE_INT_MASK		BIT(6)
++#define RX21_DONE_INT_MASK		BIT(5)
++#define RX20_DONE_INT_MASK		BIT(4)
++#define RX19_DONE_INT_MASK		BIT(3)
++#define RX18_DONE_INT_MASK		BIT(2)
++#define RX17_DONE_INT_MASK		BIT(1)
++#define RX16_DONE_INT_MASK		BIT(0)
++
++#define RX_NO_CPU_DSCP_HIGH_INT_MASK					\
++	(RX31_NO_CPU_DSCP_INT_MASK | RX30_NO_CPU_DSCP_INT_MASK |	\
++	 RX29_NO_CPU_DSCP_INT_MASK | RX28_NO_CPU_DSCP_INT_MASK |	\
++	 RX27_NO_CPU_DSCP_INT_MASK | RX26_NO_CPU_DSCP_INT_MASK |	\
++	 RX25_NO_CPU_DSCP_INT_MASK | RX24_NO_CPU_DSCP_INT_MASK |	\
++	 RX23_NO_CPU_DSCP_INT_MASK | RX22_NO_CPU_DSCP_INT_MASK |	\
++	 RX21_NO_CPU_DSCP_INT_MASK | RX20_NO_CPU_DSCP_INT_MASK |	\
++	 RX19_NO_CPU_DSCP_INT_MASK | RX18_NO_CPU_DSCP_INT_MASK |	\
++	 RX17_NO_CPU_DSCP_INT_MASK | RX16_NO_CPU_DSCP_INT_MASK)
++
++#define RX_DONE_HIGH_INT_MASK				\
++	(RX31_DONE_INT_MASK | RX30_DONE_INT_MASK |	\
++	 RX29_DONE_INT_MASK | RX28_DONE_INT_MASK |	\
++	 RX27_DONE_INT_MASK | RX26_DONE_INT_MASK |	\
++	 RX25_DONE_INT_MASK | RX24_DONE_INT_MASK |	\
++	 RX23_DONE_INT_MASK | RX22_DONE_INT_MASK |	\
++	 RX21_DONE_INT_MASK | RX20_DONE_INT_MASK |	\
++	 RX19_DONE_INT_MASK | RX18_DONE_INT_MASK |	\
++	 RX17_DONE_INT_MASK | RX16_DONE_INT_MASK)
++
++#define RX_DONE_INT_MASK	(RX_DONE_HIGH_INT_MASK | RX_DONE_LOW_INT_MASK)
++#define RX_DONE_HIGH_OFFSET	fls(RX_DONE_HIGH_INT_MASK)
++
++#define INT_RX2_MASK(_n)				\
++	((RX_NO_CPU_DSCP_HIGH_INT_MASK & (_n)) |	\
++	 (((_n) >> RX_DONE_HIGH_OFFSET) & RX_DONE_HIGH_INT_MASK))
++
++/* QDMA_CSR_INT_ENABLE4 */
++#define RX31_COHERENT_INT_MASK		BIT(31)
++#define RX30_COHERENT_INT_MASK		BIT(30)
++#define RX29_COHERENT_INT_MASK		BIT(29)
++#define RX28_COHERENT_INT_MASK		BIT(28)
++#define RX27_COHERENT_INT_MASK		BIT(27)
++#define RX26_COHERENT_INT_MASK		BIT(26)
++#define RX25_COHERENT_INT_MASK		BIT(25)
++#define RX24_COHERENT_INT_MASK		BIT(24)
++#define RX23_COHERENT_INT_MASK		BIT(23)
++#define RX22_COHERENT_INT_MASK		BIT(22)
++#define RX21_COHERENT_INT_MASK		BIT(21)
++#define RX20_COHERENT_INT_MASK		BIT(20)
++#define RX19_COHERENT_INT_MASK		BIT(19)
++#define RX18_COHERENT_INT_MASK		BIT(18)
++#define RX17_COHERENT_INT_MASK		BIT(17)
++#define RX16_COHERENT_INT_MASK		BIT(16)
++
++#define RX_COHERENT_HIGH_INT_MASK				\
++	(RX31_COHERENT_INT_MASK | RX30_COHERENT_INT_MASK |	\
++	 RX29_COHERENT_INT_MASK | RX28_COHERENT_INT_MASK |	\
++	 RX27_COHERENT_INT_MASK | RX26_COHERENT_INT_MASK |	\
++	 RX25_COHERENT_INT_MASK | RX24_COHERENT_INT_MASK |	\
++	 RX23_COHERENT_INT_MASK | RX22_COHERENT_INT_MASK |	\
++	 RX21_COHERENT_INT_MASK | RX20_COHERENT_INT_MASK |	\
++	 RX19_COHERENT_INT_MASK | RX18_COHERENT_INT_MASK |	\
++	 RX17_COHERENT_INT_MASK | RX16_COHERENT_INT_MASK)
++
++#define INT_RX3_MASK(_n)	(RX_COHERENT_HIGH_INT_MASK & (_n))
+ 
+ /* QDMA_CSR_INT_ENABLE5 */
+ #define TX31_COHERENT_INT_MASK		BIT(31)
+@@ -556,19 +667,19 @@
+ #define TX9_COHERENT_INT_MASK		BIT(9)
+ #define TX8_COHERENT_INT_MASK		BIT(8)
+ 
+-#define INT_IDX4_MASK						\
+-	(TX8_COHERENT_INT_MASK | TX9_COHERENT_INT_MASK |	\
+-	 TX10_COHERENT_INT_MASK | TX11_COHERENT_INT_MASK |	\
+-	 TX12_COHERENT_INT_MASK | TX13_COHERENT_INT_MASK |	\
+-	 TX14_COHERENT_INT_MASK | TX15_COHERENT_INT_MASK |	\
+-	 TX16_COHERENT_INT_MASK | TX17_COHERENT_INT_MASK |	\
+-	 TX18_COHERENT_INT_MASK | TX19_COHERENT_INT_MASK |	\
+-	 TX20_COHERENT_INT_MASK | TX21_COHERENT_INT_MASK |	\
+-	 TX22_COHERENT_INT_MASK | TX23_COHERENT_INT_MASK |	\
+-	 TX24_COHERENT_INT_MASK | TX25_COHERENT_INT_MASK |	\
+-	 TX26_COHERENT_INT_MASK | TX27_COHERENT_INT_MASK |	\
+-	 TX28_COHERENT_INT_MASK | TX29_COHERENT_INT_MASK |	\
+-	 TX30_COHERENT_INT_MASK | TX31_COHERENT_INT_MASK)
++#define TX_COHERENT_HIGH_INT_MASK				\
++	(TX31_COHERENT_INT_MASK | TX30_COHERENT_INT_MASK |	\
++	 TX29_COHERENT_INT_MASK | TX28_COHERENT_INT_MASK |	\
++	 TX27_COHERENT_INT_MASK | TX26_COHERENT_INT_MASK |	\
++	 TX25_COHERENT_INT_MASK | TX24_COHERENT_INT_MASK |	\
++	 TX23_COHERENT_INT_MASK | TX22_COHERENT_INT_MASK |	\
++	 TX21_COHERENT_INT_MASK | TX20_COHERENT_INT_MASK |	\
++	 TX19_COHERENT_INT_MASK | TX18_COHERENT_INT_MASK |	\
++	 TX17_COHERENT_INT_MASK | TX16_COHERENT_INT_MASK |	\
++	 TX15_COHERENT_INT_MASK | TX14_COHERENT_INT_MASK |	\
++	 TX13_COHERENT_INT_MASK | TX12_COHERENT_INT_MASK |	\
++	 TX11_COHERENT_INT_MASK | TX10_COHERENT_INT_MASK |	\
++	 TX9_COHERENT_INT_MASK | TX8_COHERENT_INT_MASK)
+ 
+ #define REG_TX_IRQ_BASE(_n)		((_n) ? 0x0048 : 0x0050)
+ 
 
 -- 
 2.49.0
