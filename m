@@ -4,93 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 471E6C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 15:38:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66C3EC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 15:43:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nFgOrlNyb8Ejkb43D/yIyVFJ/IzoXYakXUeU5QoZiuU=; b=3Zi2Qu0LxrWmCGC9YlftcFpScX
-	6oxRbqCMunt742NwAKDsH038agplaTsmz4c08eiY+IEbg+q9PvlXvydc4tpPxVhI3Fj+DcZgZmM/b
-	NBPkPxry4UWnXyoTGvsC1Oteq9JGPia1kjU8Khq34BITQtvGJeohm8DMWZoO8mj+uT/wUs35uZy7s
-	H06JknUG6y2H7DdGLHOQJhK9Dgx7FON7w8CHgqC14fa2keMJBD2+hJVuX5oHVYauxCdvpyW5HW7w0
-	hoNr3rNAfvi2iDzZcaKYzh2FY1baph5KGjMAu57WxVwyGx1YNHFzXJETnhirLbNCJ6dfiyOxUQZ6w
-	xtrduAow==;
+	bh=4/cWTo90FQUpqjGK8y/mmDlFDVu6Jy0NFCw7BclObhA=; b=X4N4zLfjczLLFYJewALCc041Fk
+	XATknoj+CKNDicIc+cPZANdFfaVtRf5Xt/BNXSdX+Fj4cYWl8cgstxwqrCKgLKo/a8YhuS7TZpqBQ
+	F7Ec01VF3hangDaAMSEDR9GZQJoHcNmBdKBzE0qSZWcxuYsVGV4K+JYUn8aU9M5Sl2kZ5KsUeBqeE
+	8wPRp9KeBqxnxBCJ9SnFUTmt3QPx1qoL63iB4Ca4AuEzoZ75xO+APTNZwHkvJY9JfYkznhc+daD/C
+	tWCJ5jvnntvTxFkR7PvjffcHih8pq+/kpUfDKW9yJU0Ga6ZHD61jJaRkroMHAUemQNTIZ9MKhahQe
+	y+jsz+kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5nnI-0000000GkSq-3ev4;
-	Fri, 18 Apr 2025 15:38:20 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u5nsA-0000000GlvZ-3deg;
+	Fri, 18 Apr 2025 15:43:22 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5nkN-0000000GjfB-0bhZ
+	id 1u5nqE-0000000GlQQ-3HIB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 15:35:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 3920EA4B520;
-	Fri, 18 Apr 2025 15:29:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1863CC4CEEA;
-	Fri, 18 Apr 2025 15:35:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744990518;
-	bh=7NHab62RZtPj0Np+h3D9F3dxP/sVC+/JnFk6D/PUpPQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=uqzjTsEnt9rDe+ksBBlT3BLXDvD6oHj/oGnFMl4wzPOE/y7OsfkdibxQnus0m3BAT
-	 +Z2qaFSGhZq07whzJPZjt5WArxUXWXyOeLky4XMAa6ay+xm5WOX/17eKfxr4cxsuEX
-	 JaJTxU+shymgO6NAmDcbCDNuZZparjTo6TcQRUt+Sb6pylRsSYd1lK97CI4B93LuVb
-	 3wxLctZljW/x2jALr2c/dFwan9BRHFdFT+eNLM/5Uv+63xjEL/CVdzt4hRIOCvcGvi
-	 7ZeABxWyYURO/vSJMWJE1tAx4ebji6fO4/FNg7uqS7KtaVU7TgmWnY3r2xP107RcjZ
-	 kJ8+DBdQdreQA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1u5nkJ-006krU-QT;
-	Fri, 18 Apr 2025 16:35:15 +0100
-Date: Fri, 18 Apr 2025 16:35:22 +0100
-Message-ID: <87plh9xz2d.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Yury Norov <yury.norov@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>,
-	Luo Jie <quic_luoj@quicinc.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	Julia Lawall <Julia.Lawall@inria.fr>,
-	Nicolas Palix <nicolas.palix@imag.fr>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-kernel@vger.kernel.org,
-	cocci@inria.fr,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	quic_kkumarcs@quicinc.com,
-	quic_linchen@quicinc.com,
-	quic_leiwei@quicinc.com,
-	quic_suruchia@quicinc.com,
-	quic_pavir@quicinc.com
-Subject: Re: [PATCH v3 0/6] Add FIELD_MODIFY() helper
-In-Reply-To: <aAJq9mGswYsnAOS8@yury>
-References: <20250417-field_modify-v3-0-6f7992aafcb7@quicinc.com>
-	<86sem7jb5t.wl-maz@kernel.org>
-	<0c97c659-bd28-45e0-8537-d9be2637cb22@lunn.ch>
-	<86mscek7h3.wl-maz@kernel.org>
-	<aAJq9mGswYsnAOS8@yury>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: yury.norov@gmail.com, andrew@lunn.ch, quic_luoj@quicinc.com, linux@rasmusvillemoes.dk, Julia.Lawall@inria.fr, nicolas.palix@imag.fr, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-kernel@vger.kernel.org, cocci@inria.fr, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, quic_kkumarcs@quicinc.com, quic_linchen@quicinc.com, quic_leiwei@quicinc.com, quic_suruchia@quicinc.com, quic_pavir@quicinc.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Fri, 18 Apr 2025 15:41:24 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5edc468a7daso301151a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 08:41:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744990881; x=1745595681; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=4/cWTo90FQUpqjGK8y/mmDlFDVu6Jy0NFCw7BclObhA=;
+        b=LUg5voakiiC5GUNr9uw8SoRqUHG0NCW2LbOQqSrOYlUUhzNLanYOXoQYcLcVyyX4Sq
+         hBXmfHwhKpSlCG3InFe9McXjeQ1I0AwFo6H0SKkxHQ2iH8+1ylkRzktoa9L6zTIL2iTx
+         c/DzwSu3BEAqpqtv4kB5B3WANYRbN6MkVfNQJ4E8q7G/AfszgUAAHtHGNQXUs0DMyh6R
+         GYRBq20ivbBPUZPdDMvSGNG+2+1a5b1a1OZFKrKwGRtz3mBwPc6IVycpboZW7lbc1U+5
+         M2g8Vkx3AfIXQf0QSI0rv31jW+IixjVsaCamoHtpVvX1o+yiblThrdhPjPssdoJQc+DW
+         X2cA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744990881; x=1745595681;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4/cWTo90FQUpqjGK8y/mmDlFDVu6Jy0NFCw7BclObhA=;
+        b=CVF4MZfHCVII/ije8QmKjg/vSjKM98nIQbnPNxoSD4wU2a1vzmeBM1wImlAv/6JSrY
+         LbifBkXY88+r7Ym7SUf4uMfVmLiqSU6Ly+CB7SgdMa2i2aCJW7CeQHmiwCvpJwQdc/QI
+         Ai0gUKCocHQveaD0Rr7yDL/tfyKPVnNSeWAaN12JJn54XcX8Z5JYdt7oO2Xamqsfhaun
+         2UPU54KYxRsuC0hLtl44OYWJzp3t4cV2t3aE4htut2g62TmICblNzCn6yMbRi8i/vYkn
+         br04fS9FAZIkwob6Ayb6NzK7OAZ4SL0TQsyEUKq/8xFYwys6rsiYQSJ/oD4XdyYKbWzY
+         6n7w==
+X-Forwarded-Encrypted: i=1; AJvYcCXOfgyrObDunIxF34xrkTIAoCNrQ/G8OrU7KubK3RIt56fi9VUtBLA9J2WVjkveHDUuLCVBHRZ69qgB5leV4Z+7@lists.infradead.org
+X-Gm-Message-State: AOJu0YxN/U5Wyxl6UD68i4/ty4P4GNJigQaCVKBh3F6HQaK46a5EXRVH
+	7PtnX5FKLNb3gQcVUmnll6YKYYJVhVnEd7YUQiMxyLl39YMotDjc
+X-Gm-Gg: ASbGncvP/FJY/J6UBi3mgq9jpj0iF8WG2Ibfir9cv+qq9YXSphPvK1S3b1bpVAkbYtJ
+	outWSHsloZcmAL7JNAWFNr9pjWwMZgm7bu5Om/v8YCD2ql2IHYrqzd8BFp0UOxQqK7znNSqIxTY
+	QC+R1tgnbwydh5967xXUBigzbTrFbnKKPFOyqEZL5BQooP8WnPdE3MqU4KImE80J9WySgNNmCTJ
+	YGVEXjeehL+JLL8cDHpYBjfQ64SjvWuFoQFOJfu309S0AUV82pPPBRni0ruygaXbBigLk6Jl4JH
+	IySj1B3FI+7L/lNoalRpel8fSR30
+X-Google-Smtp-Source: AGHT+IEkRAOdwHdMRa6d2QlCY5Yrw6uQ9t0434Mw1NfnH0yIfWXjkcyamqR6CUsapH+iG9W1uhu/lw==
+X-Received: by 2002:a05:6402:4301:b0:5f4:ca86:916c with SMTP id 4fb4d7f45d1cf-5f628524a18mr946596a12.3.1744990880873;
+        Fri, 18 Apr 2025 08:41:20 -0700 (PDT)
+Received: from skbuf ([188.25.50.178])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5f625595590sm1128785a12.41.2025.04.18.08.41.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 18 Apr 2025 08:41:19 -0700 (PDT)
+Date: Fri, 18 Apr 2025 18:41:17 +0300
+From: Vladimir Oltean <olteanv@gmail.com>
+To: Wei Fang <wei.fang@nxp.com>
+Cc: claudiu.manoil@nxp.com, vladimir.oltean@nxp.com, xiaoning.wang@nxp.com,
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, christophe.leroy@csgroup.eu,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v5 net-next 04/14] net: enetc: add MAC filtering for
+ i.MX95 ENETC PF
+Message-ID: <20250418154117.jcd6xxnwot4nmhek@skbuf>
+References: <20250411095752.3072696-1-wei.fang@nxp.com>
+ <20250411095752.3072696-5-wei.fang@nxp.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250411095752.3072696-5-wei.fang@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_083519_316406_4602C740 
-X-CRM114-Status: GOOD (  33.22  )
+X-CRM114-CacheID: sfid-20250418_084122_820279_EAA7600D 
+X-CRM114-Status: GOOD (  17.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,75 +102,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 18 Apr 2025 16:08:38 +0100,
-Yury Norov <yury.norov@gmail.com> wrote:
-> 
-> On Thu, Apr 17, 2025 at 06:45:12PM +0100, Marc Zyngier wrote:
-> > On Thu, 17 Apr 2025 18:22:29 +0100,
-> > Andrew Lunn <andrew@lunn.ch> wrote:
-> > > 
-> > > On Thu, Apr 17, 2025 at 12:10:54PM +0100, Marc Zyngier wrote:
-> > > > On Thu, 17 Apr 2025 11:47:07 +0100,
-> > > > Luo Jie <quic_luoj@quicinc.com> wrote:
-> > > > > 
-> > > > > Add the helper FIELD_MODIFY() to the FIELD_XXX family of bitfield
-> > > > > macros. It is functionally similar as xxx_replace_bits(), but adds
-> > > > > the compile time checking to catch incorrect parameter type errors.
-> > > > > 
-> > > > > This series also converts the four instances of opencoded FIELD_MODIFY()
-> > > > > that are found in the core kernel files, to instead use the new
-> > > > > FIELD_MODIFY() macro. This is achieved with Coccinelle, by adding
-> > > > > the script field_modify.cocci.
-> > > > > 
-> > > > > The changes are validated on IPQ9574 SoC which uses ARM64 architecture.
-> > > > 
-> > > > We already have the *_replace_bits() functions (see
-> > > > include/linux/bitfield.h).
-> > > > 
-> > > > Why do we need extra helpers?
-> > > 
-> > > If you look at bitfield.h, the *_replace_bits() seem to be
-> > > undocumented internal macro magic, not something you are expected to
-> > > use. What you are expected to use in that file is however well
-> > > documented. The macro magic also means that cross referencing tools
-> > > don't find them.
-> > 
-> > $ git grep _replace_bits|  wc -l
-> > 1514
-> 
-> FIELD_PREP() only is used 10 times more.
-
-And? I'm sure that if you count "+", you'll find it to be yet a few
-order of magnitudes more.
-
+On Fri, Apr 11, 2025 at 05:57:42PM +0800, Wei Fang wrote:
+>  static const struct enetc_pf_ops enetc4_pf_ops = {
+>  	.set_si_primary_mac = enetc4_pf_set_si_primary_mac,
+>  	.get_si_primary_mac = enetc4_pf_get_si_primary_mac,
+> @@ -303,12 +489,55 @@ static void enetc4_pf_free(struct enetc_pf *pf)
+>  	enetc4_free_ntmp_user(pf->si);
+>  }
 >  
-> > I think a bunch of people have found them, tooling notwithstanding.
-> > 
-> > As for the documentation, the commit message in 00b0c9b82663ac would
-> > be advantageously promoted to full-fledged kernel-doc.
-> 
-> The FIELD_MODIFY() and uxx_replace_bits() are simply different things.
-> 
-> FIELD_MODIFY() employs __BF_FIELD_CHECK(), which allows strict
-> parameters checking at compile time. And people like it. See
-> recent fixed-size GENMASK() series:
-> 
-> https://patchwork.kernel.org/comment/26283604/
+> +static void enetc4_psi_do_set_rx_mode(struct work_struct *work)
+> +{
+> +	struct enetc_si *si = container_of(work, struct enetc_si, rx_mode_task);
+> +	struct enetc_pf *pf = enetc_si_priv(si);
+> +	struct net_device *ndev = si->ndev;
+> +	struct enetc_hw *hw = &si->hw;
+> +	bool uc_promisc = false;
+> +	bool mc_promisc = false;
+> +	int type = 0;
+> +
+> +	if (ndev->flags & IFF_PROMISC) {
+> +		uc_promisc = true;
+> +		mc_promisc = true;
+> +	} else if (ndev->flags & IFF_ALLMULTI) {
 
-I don't care much for what people like or not. I don't see this
-FIELD_MODIFY() as a particular improvement on *_replace_bits().
+enetc4_psi_do_set_rx_mode() runs unlocked relative to changes made
+to ndev->flags, so could you at least read it just once to avoid
+inconsistencies?
 
-> The _replace_bits() functions return fixed-width values, and intended
-> for: "manipulating bitfields both in host- and fixed-endian", as the
-> very first line in the commit message says.
-> 
-> Those using _replace_bits() for something else abuse the API, and
-> should switch to FIELD_MODIFY().
+Speaking of running unlocked: if I'm not mistaken, this code design
+might lose consecutive updates to ndev->flags, as well as to the address
+lists, if queue_work() is executed while si->rx_mode_task is still
+running. There is a difference between statically allocating and
+continuously queuing the same work item, vs allocating one work item
+per each ndo_set_rx_mode() call.
 
-Or not.
+In practice it might be hard to trigger an actual issue, because the
+call sites serialize under rtnl_lock() which is so bulky that
+si->rx_mode_task should have time to finish by the time ndo_set_rx_mode()
+has a chance to be called again.
 
-	M.
-
--- 
-Jazz isn't dead. It just smells funny.
+I can't tell you exactly how, but my gut feeling is that the combination
+of these 2 things is going to be problematic.
 
