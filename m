@@ -4,101 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 574C4C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 08:52:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9E3DC369C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 08:54:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gaYe4zy0Ou27FvsmHa5NmILaWl1zdTnktRLAnBaEUHo=; b=ti0cGazsuKSjolibeV7PxCeaOe
-	mnzeHvSTAKW6rR4YBw0/xnqTw4hvfzYm+gF3wwQ85wmT425qO0bvK6GA+hddqBCxKqx8mh7ah5OFs
-	mSKHK/pZYglHcjEuUmFXI0VgFb0NO22WJEe8GlodGXwB3iSyeYs6ZoNsTLvwe4jYfsqpeZvHmodWX
-	STTYd2Hu+pYz4tuiwJPjY+xw7AFIZfWBtR4PL9nX0e+8inI/tJirAwU/QAhohuOkmNfm42LQPe2ov
-	884+mVRF7CRkiZkSERS80yzsXCPIgMI30EniNqoQaLim5wtbyVWjoWBQ5OPva0VAYvGeaFON+CxU+
-	bPJl0DwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bJ/hT/ZT80TdjjDAggi4sJ5+WqriSpJ1jG8o55EVs90=; b=MG7i54fnkENkOWf48ANdlm3Nwu
+	QVkjoinm9r6GbR0BSQAUB+ISJP9yf9t0hJqge3wLRsRy0w51x27G4/rgNwZljLLB1HICSP8UZxDRQ
+	GrXQuTDmWJjdy/xMf69Dx7ptdmvEBbqebZdGlKV6yeR48cIwKKdBg0X59/hMTKMIoXWOj9R2g1V0P
+	CMTF3iri8yvyKL2lzEk3gNtfwADCeiA6ALbUbLDVGQle1AhhMF6jRnTPvj34Mvdvp8yQxLo5xVBaw
+	7XNwHSy4m8565t8EuTZmWxyU/b6K9fYawxGe9TVxthIHv5y1ocdtfTbs+zodQs9c1qLcgJk1+r0/i
+	hMLBTS6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5hSd-0000000FgBp-0zxS;
-	Fri, 18 Apr 2025 08:52:35 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1u5hUS-0000000FgPt-3ukJ;
+	Fri, 18 Apr 2025 08:54:28 +0000
+Received: from mout.gmx.net ([212.227.15.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5hI2-0000000FePp-3gT7
+	id 1u5hId-0000000FeV2-0UQY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 08:41:40 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-39bf44be22fso1127926f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 01:41:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744965697; x=1745570497; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=gaYe4zy0Ou27FvsmHa5NmILaWl1zdTnktRLAnBaEUHo=;
-        b=VBSX0YTFJQJfiamNSaKYp7iuGRpotD4bfgjd3rItcBm7iGLHBgOblU1KWstCmOSTWa
-         ZQHKY+snX7/Y0aPBvVpPMShW0C2XHoQjKX28z72X/gx21cxHD8fKS74qDKVOar0YD7gq
-         bKzvY7ndnnMlemuuTV1Nvu2w/jz/90NyWISanLZYwM/D9F0lm/rAqR+3CRFwU3jpDFLI
-         bgAAP//RV+4n5AhPSPjQm3XvBye3TTPgj5YiqLQkwsnEKRXAsRmbLeRQC8WQiGaFrRyO
-         Q1VS3JTUi5hb6tlz1DAzza1uZ3jBpjO3mw+RBgRXZFNgYyyu6qbu0YcYrSNBKVaq0csa
-         /IFw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744965697; x=1745570497;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=gaYe4zy0Ou27FvsmHa5NmILaWl1zdTnktRLAnBaEUHo=;
-        b=dEfw5hH+L64qDFkA7+Hy/816NvC3pDj4RwOw56Oqu++Ab65DYnjCVhynPFCgNBYtdw
-         D7SEjXchb2zBKEn00SPd8/Pv9Xl3LzF5WsLLOHHCkDiGFbxEwUfaMtgwonWxt4ZS/gen
-         xTPF7zf/FRWHrLIhhmUVtCGgjq8j7U8s1bjU1ldIwqAYyS63NbYDWMoZ5QYb2asNjHS1
-         iisa14CGNIgPBUrx6l9gVw/7vPqx0tJU+6w3fmFZoyeJbESS7Ndbz7hs9wd2PeOxRF8n
-         y3BKv+pAPQjrlLHiqXuII0axSoaXdatUmJnIYUcp5JGIUJrtdZkNJOmfJ0LQX2lkm4CV
-         IUdQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXcPoR9VncTB90zgsn/DQ5SzWmkMoecGQ/orvYc6USnbhCzL+R3cLo8lB7eA2z0Blpi7q5cvqxXM0w48Fu5emCD@lists.infradead.org
-X-Gm-Message-State: AOJu0YyGwlVI3KRg2TqXWSRK+mMDjquXVWqWFiHteCuwRudXdNssOG1/
-	Z6WXtmM8E5S2CJ7dHXLVMGePmJjm6UKXwB2SBWgdUJlHl0Kuc3EAUxjGaEoZJ6E=
-X-Gm-Gg: ASbGncvlUQDcpqPRPq8OYo0+nk87r/TYkrNIPF3JDbBzqdoAoB2Zhg6oByK973dOgPX
-	1x9n9yPp4I9Z2vmtWR85U8Y/M41o5IKs1za/m8mUY87lpBhQfUbOqC+ARn7mhbKHQXGllMvdCdf
-	Sl5P0Pz887/tL8ZDyq4+WRcBOmosvUJ3f8ZZ6XgzD9KEdywtu1qdbOr7tEwVKUkofyDtVeQNId1
-	KhHFM9g74mBOLOS+ll5hYuxouw92vzRLi+hxJdpZ6hpE8N9cJahQ0xXuXLMkY7iQqd+b7fM5Z2g
-	aXBVTA734g+PGL+x5I9Ut0BIWQFB62FDWcKMoPbO+vPapvpdMH/tE2y8NDJl9GkDMbj+cwV3TyT
-	WXCM=
-X-Google-Smtp-Source: AGHT+IE3GyLzZUyelI40gS2vTuDQpSNMhcJ1TL+LpOT3j005P7cUJ4VklepZjvjFsXXu1LyMWnIBEQ==
-X-Received: by 2002:a05:6000:18a2:b0:39a:c9ac:cd58 with SMTP id ffacd0b85a97d-39efba5af80mr1425563f8f.29.1744965696999;
-        Fri, 18 Apr 2025 01:41:36 -0700 (PDT)
-Received: from mai.linaro.org (146725694.box.freepro.com. [130.180.211.218])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39efa4a5150sm2039295f8f.82.2025.04.18.01.41.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Apr 2025 01:41:36 -0700 (PDT)
-Date: Fri, 18 Apr 2025 10:41:34 +0200
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-To: iuncuim <iuncuim@gmail.com>
-Cc: Vasily Khoruzhick <anarsoul@gmail.com>,
-	Yangtao Li <tiny.windzz@gmail.com>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Andre Przywara <andre.przywara@arm.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
-Subject: Re: [PATCH 3/6] thermal/drivers/sun8i: Add support for A523 THS0/1
- controllers
-Message-ID: <aAIQPtxCDuT2e7vE@mai.linaro.org>
-References: <20250411003827.782544-1-iuncuim@gmail.com>
- <20250411003827.782544-4-iuncuim@gmail.com>
+	Fri, 18 Apr 2025 08:42:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1744965714; x=1745570514; i=wahrenst@gmx.net;
+	bh=bJ/hT/ZT80TdjjDAggi4sJ5+WqriSpJ1jG8o55EVs90=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=m7ymcOlGLY4LffBB2dk7fhesz0jWScNmd8z6l4/oX4H8omR/yeZOGh9jLFqDbuCV
+	 ZUqlk7GhI5mtAItRk3r/EaayIOL9W7TK0ljnf7ZHIXMFc/bqEQwpcMM8mGJGiKTRQ
+	 uYt3ShTItIYdeh9TvwLuzPAplH2U8jiz+23wMnYFQ2TBtK+3RjC6ztWLA2NJoz3wb
+	 WtlVBrzGppOyluHeSQXEcUi6nt1r1K6orvWJrFM57lf91xUXIv4Kh7kYQBqrw8y7f
+	 /F9+TZvw4xjWeAXzHfHAsys34Hhn2L2dSeLv1hWX/6QSVqg0ef9H4d/HLOPxIClBf
+	 udCCp+ogl90khyrdgA==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.107] ([37.4.251.153]) by mail.gmx.net (mrgmx005
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1N4QwW-1v65gq0gsg-00z3Di; Fri, 18
+ Apr 2025 10:41:54 +0200
+Message-ID: <e4c7662f-4d10-4d45-843d-0a0f3c893a1f@gmx.net>
+Date: Fri, 18 Apr 2025 10:41:49 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250411003827.782544-4-iuncuim@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [net-next v6 1/7] dt-bindings: net: Add MTIP L2 switch
+ description
+To: Lukasz Majewski <lukma@denx.de>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ Simon Horman <horms@kernel.org>
+References: <20250418060716.3498031-1-lukma@denx.de>
+ <20250418060716.3498031-2-lukma@denx.de>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <20250418060716.3498031-2-lukma@denx.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:puRbuHuDJUL4UBAwlEbPoCXrO7wrkqYvVnLveMrv4XVBg2CsJ0I
+ Fe83jHvHdG8+q9ttRnOffxOpndWldPV5J8JikhvcuWXSKzHJ8jiJseqbXb0MrAqCfD8+i4c
+ YKBDrV7XY8dHoxPleVsn7CV0q6pkw/cnnFFouzX+DwKpVbvtcFhHOfhnVw+xB9+IzxaLz8s
+ sUS9ijySaFcCRt4ncOZsw==
+UI-OutboundReport: notjunk:1;M01:P0:IZ4aqZRe2YY=;zw9fIkzZW/AM236HsrvLO0zuy63
+ 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_014138_923978_2AACC7B5 
-X-CRM114-Status: GOOD (  41.57  )
+X-CRM114-CacheID: sfid-20250418_014215_537670_5F4D268B 
+X-CRM114-Status: GOOD (  20.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,205 +144,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 11, 2025 at 08:38:23AM +0800, Mikhail Kalashnikov wrote:
-> From: Mikhail Kalashnikov <iuncuim@gmail.com>
-> 
-> The A523 processor has two temperature controllers, THS0 and THS1.
-> THS0 has only one temperature sensor, which is located in the DRAM.
-> 
-> THS1 does have 3 sensors:
-> ths1_0 - "big" cores
-> ths1_1 - "little" cores
-> ths1_2 - gpu
-> 
-> The datasheet mentions a fourth sensor in the NPU, but lacks any registers
-> for operation other than calibration registers. The vendor code reads the
-> value from ths1_2, but uses separate calibration data, so we get two
-> different values from real one.
-> 
-> Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
+Am 18.04.25 um 08:07 schrieb Lukasz Majewski:
+> This patch provides description of the MTIP L2 switch available in some
+> NXP's SOCs - e.g. imx287.
+>
+> Signed-off-by: Lukasz Majewski <lukma@denx.de>
 > ---
->  drivers/thermal/sun8i_thermal.c | 134 ++++++++++++++++++++++++++++++++
->  1 file changed, 134 insertions(+)
-> 
-> diff --git a/drivers/thermal/sun8i_thermal.c b/drivers/thermal/sun8i_thermal.c
-> index dc4055c9c..919b05a96 100644
-> --- a/drivers/thermal/sun8i_thermal.c
-> +++ b/drivers/thermal/sun8i_thermal.c
-> @@ -116,6 +116,15 @@ static int sun50i_h5_calc_temp(struct ths_device *tmdev,
->  		return -1590 * reg / 10 + 276000;
->  }
->  
-> +static int sun55i_a523_calc_temp(struct ths_device *tmdev,
-> +					int id, int reg)
-> +{
-> +	if (reg >= 0x7c8)
-> +		return tmdev->chip->scale * (tmdev->chip->offset - reg);
-> +	else
-> +		return 65 * (2825 - reg);
-> +}
-
-Please use macro instead of litterals
-
+> Changes for v2:
+> - Rename the file to match exactly the compatible
+>    (nxp,imx287-mtip-switch)
+>
+> Changes for v3:
+> - Remove '-' from const:'nxp,imx287-mtip-switch'
+> - Use '^port@[12]+$' for port patternProperties
+> - Drop status =3D "okay";
+> - Provide proper indentation for 'example' binding (replace 8
+>    spaces with 4 spaces)
+> - Remove smsc,disable-energy-detect; property
+> - Remove interrupt-parent and interrupts properties as not required
+> - Remove #address-cells and #size-cells from required properties check
+> - remove description from reg:
+> - Add $ref: ethernet-switch.yaml#
+>
+> Changes for v4:
+> - Use $ref: ethernet-switch.yaml#/$defs/ethernet-ports and remove alread=
+y
+>    referenced properties
+> - Rename file to nxp,imx28-mtip-switch.yaml
+>
+> Changes for v5:
+> - Provide proper description for 'ethernet-port' node
+>
+> Changes for v6:
+> - Proper usage of
+>    $ref: ethernet-switch.yaml#/$defs/ethernet-ports/patternProperties
+>    when specifying the 'ethernet-ports' property
+> - Add description and check for interrupt-names property
+> ---
+>   .../bindings/net/nxp,imx28-mtip-switch.yaml   | 148 ++++++++++++++++++
+>   1 file changed, 148 insertions(+)
+>   create mode 100644 Documentation/devicetree/bindings/net/nxp,imx28-mti=
+p-switch.yaml
+>
+> diff --git a/Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch=
+.yaml b/Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
+> new file mode 100644
+> index 000000000000..3e2d724074d5
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
+> @@ -0,0 +1,148 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/net/nxp,imx28-mtip-switch.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
->  static int sun8i_ths_get_temp(struct thermal_zone_device *tz, int *temp)
->  {
->  	struct tsensor *s = thermal_zone_device_priv(tz);
-> @@ -208,6 +217,100 @@ static irqreturn_t sun8i_irq_thread(int irq, void *data)
->  	return IRQ_HANDLED;
->  }
->  
+> +title: NXP SoC Ethernet Switch Controller (L2 MoreThanIP switch)
 > +
-> +/*
-> + * The A523 nvmem calibration values. The ths1_3 is not used as it
-> + * doesn't have its own sensor and doesn't have any internal switch.
-> + * Instead, the value from the ths1_2 sensor is used, which gives the
-> + * illusion of an independent sensor for NPU and GPU when using
-> + * different calibration values.
-> + *
-> + * efuse layout 0x38-0x3F (caldata[0..3]):
-> + *     caldata[0]      caldata[1]      caldata[2]      caldata[3]
-> + * 0               16      24      32  36          48          60 64
-> + * +---------------+---------------+---------------+---------------+
-> + * |               |       |   temp    |  ths1_0   |  ths1_1   |   +
-> + * +---------------+---------------+---------------+---------------+
-> + *
-> + * efuse layout 0x40-0x43 (caldata[4..5]) - not in use
-> + *
-> + * efuse layout 0x44-0x4B (caldata[6..9]):
-> + *     caldata[6]      caldata[7]      caldata[8]      caldata[9]
-> + * 0           12  16      24      32  36          48             64
-> + * +---------------+---------------+---------------+---------------+
-> + * |  ths1_2   |  ths1_3   |  ths0_0   |           |               +
-> + * +---------------+---------------+---------------+---------------+
-> + */
-> +static int sun55i_a523_ths_calibrate(struct ths_device *tmdev,
-> +				   u16 *caldata, int callen)
-> +{
-> +	struct device *dev = tmdev->dev;
-> +	int i, ft_temp;
+> +maintainers:
+> +  - Lukasz Majewski <lukma@denx.de>
 > +
-> +	if (!caldata[0])
-> +		return -EINVAL;
+> +description:
+> +  The 2-port switch ethernet subsystem provides ethernet packet (L2)
+> +  communication and can be configured as an ethernet switch. It provide=
+s the
+> +  reduced media independent interface (RMII), the management data input
+> +  output (MDIO) for physical layer device (PHY) management.
 > +
-> +	ft_temp = (((caldata[2] << 8) | (caldata[1] >> 8)) & FT_TEMP_MASK) * 100;
+> +properties:
+> +  compatible:
+> +    const: nxp,imx28-mtip-switch
 > +
-> +	for (i = 0; i < tmdev->chip->sensor_num; i++) {
-> +		int sensor_reg, sensor_temp, cdata, offset;
-> +		/*
-> +		 * Chips ths0 and ths1 have common parameters for value
-> +		 * calibration. To separate them we can use the number of
-> +		 * temperature sensors on each chip.
-> +		 * For ths0 this value is 1.
-> +		 */
-> +		if (tmdev->chip->sensor_num == 1) {
-> +			sensor_reg = ((caldata[7] >> 8) | (caldata[8] << 8)) & TEMP_CALIB_MASK;
-> +		} else {
-> +			switch (i) {
-> +			case 0:
-> +				sensor_reg = (caldata[2] >> 4) & TEMP_CALIB_MASK;
-> +				break;
-> +			case 1:
-> +				sensor_reg = caldata[3] & TEMP_CALIB_MASK;
-> +				break;
-> +			case 2:
-> +				sensor_reg = caldata[6] & TEMP_CALIB_MASK;
-> +				break;
-> +			default:
-> +				sensor_reg = 0;
-> +				break;
-> +			}
-> +		}
+> +  reg:
+> +    maxItems: 1
 > +
-> +		sensor_temp = tmdev->chip->calc_temp(tmdev, i, sensor_reg);
+> +  phy-supply:
+> +    description:
+> +      Regulator that powers Ethernet PHYs.
 > +
-> +		/*
-> +		 * Calibration data is CALIBRATE_DEFAULT - (calculated
-> +		 * temperature from sensor reading at factory temperature
-> +		 * minus actual factory temperature) * X (scale from
-> +		 * temperature to register values)
-> +		 */
-> +		cdata = CALIBRATE_DEFAULT -
-> +			((sensor_temp - ft_temp) / tmdev->chip->scale);
+> +  clocks:
+> +    items:
+> +      - description: Register accessing clock
+> +      - description: Bus access clock
+> +      - description: Output clock for external device - e.g. PHY source=
+ clock
+> +      - description: IEEE1588 timer clock
 > +
-> +		if (cdata & ~TEMP_CALIB_MASK) {
-> +			/*
-> +			 * Calibration value more than 12-bit, but calibration
-> +			 * register is 12-bit. In this case, ths hardware can
-> +			 * still work without calibration, although the data
-> +			 * won't be so accurate.
-> +			 */
-> +			dev_warn(dev, "sensor%d is not calibrated.\n", i);
-> +			continue;
-> +		}
+> +  clock-names:
+> +    items:
+> +      - const: ipg
+> +      - const: ahb
+> +      - const: enet_out
+> +      - const: ptp
 > +
-> +		offset = (i % 2) * 16;
-> +		regmap_update_bits(tmdev->regmap,
-> +				   SUN50I_H6_THS_TEMP_CALIB + (i / 2 * 4),
-> +				   TEMP_CALIB_MASK << offset,
-> +				   cdata << offset);
-> +	}
+> +  interrupts:
+> +    items:
+> +      - description: Switch interrupt
+> +      - description: ENET0 interrupt
+> +      - description: ENET1 interrupt
 > +
-> +	return 0;
-> +}
-> +
->  static int sun8i_h3_ths_calibrate(struct ths_device *tmdev,
->  				  u16 *caldata, int callen)
->  {
-> @@ -721,6 +824,35 @@ static const struct ths_thermal_chip sun50i_h616_ths = {
->  	.calc_temp = sun8i_ths_calc_temp,
->  };
->  
-> +/* The A523 has a shared reset line for both chips */
-> +static const struct ths_thermal_chip sun55i_a523_ths0 = {
-> +	.sensor_num = 1,
-> +	.has_bus_clk_reset = true,
-> +	.has_gpadc_clk = true,
-> +	.ft_deviation = 5000,
-> +	.offset = 2736,
-> +	.scale = 74,
-> +	.temp_data_base = SUN50I_H6_THS_TEMP_DATA,
-> +	.calibrate = sun55i_a523_ths_calibrate,
-> +	.init = sun50i_h6_thermal_init,
-> +	.irq_ack = sun50i_h6_irq_ack,
-> +	.calc_temp = sun55i_a523_calc_temp,
-> +};
-> +
-> +static const struct ths_thermal_chip sun55i_a523_ths1 = {
-> +	.sensor_num = 3,
-> +	.has_bus_clk_reset = true,
-> +	.has_gpadc_clk = true,
-> +	.ft_deviation = 5000,
-> +	.offset = 2736,
-> +	.scale = 74,
-> +	.temp_data_base = SUN50I_H6_THS_TEMP_DATA,
-> +	.calibrate = sun55i_a523_ths_calibrate,
-> +	.init = sun50i_h6_thermal_init,
-> +	.irq_ack = sun50i_h6_irq_ack,
-> +	.calc_temp = sun55i_a523_calc_temp,
-> +};
-> +
->  static const struct of_device_id of_ths_match[] = {
->  	{ .compatible = "allwinner,sun8i-a83t-ths", .data = &sun8i_a83t_ths },
->  	{ .compatible = "allwinner,sun8i-h3-ths", .data = &sun8i_h3_ths },
-> @@ -731,6 +863,8 @@ static const struct of_device_id of_ths_match[] = {
->  	{ .compatible = "allwinner,sun50i-h6-ths", .data = &sun50i_h6_ths },
->  	{ .compatible = "allwinner,sun20i-d1-ths", .data = &sun20i_d1_ths },
->  	{ .compatible = "allwinner,sun50i-h616-ths", .data = &sun50i_h616_ths },
-> +	{ .compatible = "allwinner,sun55i-a523-ths0", .data = &sun55i_a523_ths0 },
-> +	{ .compatible = "allwinner,sun55i-a523-ths1", .data = &sun55i_a523_ths1 },
->  	{ /* sentinel */ },
->  };
->  MODULE_DEVICE_TABLE(of, of_ths_match);
-> -- 
-> 2.49.0
-> 
-
--- 
-
- <http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
-
-Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
-<http://twitter.com/#!/linaroorg> Twitter |
-<http://www.linaro.org/linaro-blog/> Blog
+> +  interrupt-names:
+> +    items:
+> +      - const: mtipl2sw
+Sorry for nitpicking, but could we name it similiar to something from=20
+the i.MX28 reference manual like "switch" or "enet_switch"
 
