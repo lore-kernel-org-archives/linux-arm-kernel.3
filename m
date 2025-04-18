@@ -4,74 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D5CFC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 06:27:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C1F1C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 06:29:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m0VF+kM9OTbKnvQE6hc/9mZ+Q2P4CfCIFoAJparHrkA=; b=n2DCFAIJ7+QPLTvulf6whFYuaL
-	bH0nknhVwhR0JhHcSNzwlWxgknbhhdXRToCCrkFMxzu4x7EO+vjMFdje++xxD14O2qHYe/ZLVr+uv
-	pORUx5GD0Qu01/1xwkBvG/E4WJtic4FqnvqoDNfWADfaDezuTPixSX0NwXOpWMslQrmrfUqv2FbKx
-	J3Yy29HM6sRpbwgiwU555VC9nRq9n9MG1yzcZ/3tqcpOBd+7gKUMx4aq0xKSkqntEgb09MsVPhQbf
-	jStPC1UeLSdZAwdjRxTOqtAboPeLhFAHO5BSh0lAevgCZBxrTWk416fRFeHSmWbAPogR+dF6QUgo5
-	HwenVbFw==;
+	bh=xgncfsXMxq1UbW2oBNT5fRdmhvcqQjNCYqaHqXrv94Y=; b=HGoC7JrVjImP3saiZH0iD/ZSCl
+	vdm7Wz/FxxPRjQAS8icpGkLLN/7+YK8yWWUsFYfXWtMimk5XruiSJujk5mfpfwAPfI+z1JHHTcCfZ
+	BucCrvS8h5A/i+IvO1W9muc5cSP/N1dokhNuGYkSLM2DjMnoageVppPBGVL+wbQ386x+06i6InBG8
+	8krZZxMpjWQQVUVyAfZsyDSE/GR+NemYWUCQu4t7O+3j4lGRX5P+1ihJm9nzS3vkmjyD7Zac+xMZk
+	ATX+Gi+pFXbmgnObaz6WaWVigqVr+uf9+Sl0jDX9p1uA7eIptKP2bVJGt/5s4AD6hGUQe5E6hU94Z
+	3FmVveHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5fCE-0000000FG1p-45Mf;
-	Fri, 18 Apr 2025 06:27:30 +0000
-Received: from mx.denx.de ([89.58.32.78])
+	id 1u5fE3-0000000FGFV-3PI3;
+	Fri, 18 Apr 2025 06:29:24 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5etI-0000000FDAa-3KvE
+	id 1u5f0W-0000000FEjW-1xiy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 06:07:58 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B455E102933AA;
-	Fri, 18 Apr 2025 08:07:53 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1744956475; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=m0VF+kM9OTbKnvQE6hc/9mZ+Q2P4CfCIFoAJparHrkA=;
-	b=HWbwTmckQeuFXyh9j0TkDiY/+fWDN4W2SFMuuV2XWkhfiSXnG+XuaPx5USvt/Wvsy1vGCX
-	qVrE8ZsnPmL4HTjsWJAG5APN3HwHkrIdEtbnzqwO0z1QYS1fGf2ZDnQlyY3ePgj95ZXFlH
-	X3mV66xFNZV/Gi/8OMMkmPX5BDz4un2WhysDJjQFAavra7diJCoGMPzPj3xxHASt9AGJn4
-	CVdzDEURN0WXBbrEip8l1yVNNjvjBoryMsnSP4LgwpUpehc9QAKOnTlSTYAzFPtTdY6Zz3
-	JSPKO7a+7GAwz/aw7sznqLWOrqP+R0MDBy/MWaM3+L/wCZN+uOF8cjJsc/wplQ==
-From: Lukasz Majewski <lukma@denx.de>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Simon Horman <horms@kernel.org>,
-	Lukasz Majewski <lukma@denx.de>
-Subject: [net-next v6 7/7] ARM: mxs_defconfig: Enable CONFIG_FEC_MTIP_L2SW to support MTIP L2 switch
-Date: Fri, 18 Apr 2025 08:07:16 +0200
-Message-Id: <20250418060716.3498031-8-lukma@denx.de>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250418060716.3498031-1-lukma@denx.de>
-References: <20250418060716.3498031-1-lukma@denx.de>
+	Fri, 18 Apr 2025 06:15:26 +0000
+Received: from epcas2p3.samsung.com (unknown [182.195.41.55])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250418061517epoutp04168a384c710dee6d06f23f9cd524a4de~3VRIuCrZq2022620226epoutp04q
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 06:15:17 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250418061517epoutp04168a384c710dee6d06f23f9cd524a4de~3VRIuCrZq2022620226epoutp04q
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1744956917;
+	bh=xgncfsXMxq1UbW2oBNT5fRdmhvcqQjNCYqaHqXrv94Y=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=nQXHJLa/Q9+/ipB5NbrO2lsBvR3uUIiytSo7b+As00s2DStwbGpbW+UXBHUew/4e2
+	 BKB7wN3Qqaihqc/cdfaZbUM7ldNW3XpakAV4E6jEgMvfEKOuXhTb/FjW8an0JSbGix
+	 l5AJI/ELOpA0ML9fdzphrOd/dFfby4BGcH3x7KDQ=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas2p2.samsung.com (KnoxPortal) with ESMTPS id
+	20250418061516epcas2p2e37511d73b5602fc29c3acbfb2d0c82f~3VRHxn0zE2967429674epcas2p2A;
+	Fri, 18 Apr 2025 06:15:16 +0000 (GMT)
+Received: from epcas2p2.samsung.com (unknown [182.195.36.92]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4Zf4Hl5kVnz2SSKg; Fri, 18 Apr
+	2025 06:15:15 +0000 (GMT)
+Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
+	epcas2p3.samsung.com (KnoxPortal) with ESMTPA id
+	20250418061515epcas2p3d2dd703db7eb645f4866dcb01cc288fc~3VRG3Pxah1350013500epcas2p3x;
+	Fri, 18 Apr 2025 06:15:15 +0000 (GMT)
+Received: from epsmgms1p2new.samsung.com (unknown [182.195.42.42]) by
+	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20250418061515epsmtrp279335f4aa93070e078ce3c0c6d34dcd2~3VRG2YUnS0714207142epsmtrp23;
+	Fri, 18 Apr 2025 06:15:15 +0000 (GMT)
+X-AuditID: b6c32a2a-d57fe70000002265-d1-6801edf289e9
+Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
+	epsmgms1p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	B1.AE.08805.2FDE1086; Fri, 18 Apr 2025 15:15:15 +0900 (KST)
+Received: from localhost.localdomain (unknown [10.229.9.60]) by
+	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250418061514epsmtip1965d5c7ecebd25a400c904c7d312abec~3VRGkVuK60438204382epsmtip1O;
+	Fri, 18 Apr 2025 06:15:14 +0000 (GMT)
+From: Shin Son <shin.son@samsung.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Sylwester Nawrocki
+	<s.nawrocki@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar
+	<alim.akhtar@samsung.com>, Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Sunyeal Hong <sunyeal.hong@samsung.com>
+Cc: Shin Son <shin.son@samsung.com>, linux-samsung-soc@vger.kernel.org,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH 1/3] dt-bindings: clock: exynosautov920: add cpucl0 clock
+ definitions
+Date: Fri, 18 Apr 2025 15:14:58 +0900
+Message-ID: <20250418061500.1629200-2-shin.son@samsung.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250418061500.1629200-1-shin.son@samsung.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrFLMWRmVeSWpSXmKPExsWy7bCSnO7nt4wZBhvXslg8mLeNzWLN3nNM
+	Fte/PGe1mH/kHKvF+fMb2C02Pb7GavGx5x6rxeVdc9gsZpzfx2Rx8ZSrxf89O9gtDr9pZ7X4
+	d20ji8Xk42tZLZqWrWdy4Pd4f6OV3WPTqk42j81L6j36tqxi9Pi8SS6ANYrLJiU1J7MstUjf
+	LoEr4/uNNcwFH8Qr9iyfy9TAeF2oi5GDQ0LARGLjdoEuRi4OIYHdjBKndy1n7WLkBIpLSBye
+	MYERwhaWuN9yhBWi6D2jxMXl39hBmtkEVCU2/ZYHiYsIvGWSWP7/ABNIA7PAaUaJnWdkQGxh
+	gVCJLdumsYPYLED1N/Y3sYDYvALWEl83nWKGOEJeor9DAiTMKWAjsXTfLDaQsBBQycIXdRDV
+	ghInZz5hgZguL9G8dTbzBEaBWUhSs5CkFjAyrWKUTC0ozk3PLTYsMMpLLdcrTswtLs1L10vO
+	z93ECI4OLa0djHtWfdA7xMjEwXiIUYKDWUmE95z5v3Qh3pTEyqrUovz4otKc1OJDjNIcLEri
+	vN9e96YICaQnlqRmp6YWpBbBZJk4OKUamIxn8rhEHSr9ZPovQp9PPdH1ANfr4qm7T29QWncz
+	6Oatyqq6JXGmLJfXP/o8o+DPQu5tuoUKk313pM5y3OsbLM/mYfVkf/yf3RHGkf9/sX3JKolO
+	+bbdUzI3+cuN63LMJjL/Jb3WfsryrudpZ3I40v2IR2tq79KgBYna6xW63qwW3jJl5vdXOSem
+	Oee+ctnvvappV9OmvUdWt1xsXiKW8Hcyl+HHaD+j+7xthZePdb77817guPwKSX0rq93Cdcfv
+	v3mtYBl/kk/r6+pXd/bsyivI7Os49vLS5fNi/FFq190N2SMMkiJkd0y4+enTkpmXnuhNaXt/
+	o85p3oX30cdrw+oXbnp+/f0pizfxEzY9bmxWYinOSDTUYi4qTgQAgyanv/0CAAA=
+X-CMS-MailID: 20250418061515epcas2p3d2dd703db7eb645f4866dcb01cc288fc
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: AUTO_CONFIDENTIAL
+CMS-TYPE: 102P
+cpgsPolicy: CPGSC10-234,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250418061515epcas2p3d2dd703db7eb645f4866dcb01cc288fc
+References: <20250418061500.1629200-1-shin.son@samsung.com>
+	<CGME20250418061515epcas2p3d2dd703db7eb645f4866dcb01cc288fc@epcas2p3.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_230756_972185_3A64677E 
-X-CRM114-Status: GOOD (  10.17  )
+X-CRM114-CacheID: sfid-20250417_231525_235732_84F3A3DC 
+X-CRM114-Status: GOOD (  14.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,52 +119,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch enables support for More Than IP L2 switch available on some
-imx28[7] devices.
+Add cpucl0 clock definitions.
 
-Moreover, it also enables CONFIG_SWITCHDEV and CONFIG_BRIDGE required
-by this driver for correct operation.
-
-Signed-off-by: Lukasz Majewski <lukma@denx.de>
-Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
+Signed-off-by: Shin Son <shin.son@samsung.com>
 ---
-Changes for v4:
-- New patch
+ .../clock/samsung,exynosautov920-clock.yaml   | 25 +++++++++++++++++++
+ .../clock/samsung,exynosautov920.h            | 19 ++++++++++++++
+ 2 files changed, 44 insertions(+)
 
-Changes for v5:
-- Apply this patch on top of patch, which updates mxs_defconfig to
-  v6.15-rc1
-- Add more verbose commit message with explanation why SWITCHDEV and
-  BRIDGE must be enabled as well
-
-Changes for v6:
-- None
----
- arch/arm/configs/mxs_defconfig | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/arch/arm/configs/mxs_defconfig b/arch/arm/configs/mxs_defconfig
-index b1a31cb914c8..ef4556222274 100644
---- a/arch/arm/configs/mxs_defconfig
-+++ b/arch/arm/configs/mxs_defconfig
-@@ -34,6 +34,8 @@ CONFIG_IP_PNP_DHCP=y
- CONFIG_SYN_COOKIES=y
- # CONFIG_INET_DIAG is not set
- # CONFIG_IPV6 is not set
-+CONFIG_BRIDGE=y
-+CONFIG_NET_SWITCHDEV=y
- CONFIG_CAN=m
- # CONFIG_WIRELESS is not set
- CONFIG_DEVTMPFS=y
-@@ -52,6 +54,7 @@ CONFIG_EEPROM_AT24=y
- CONFIG_SCSI=y
- CONFIG_BLK_DEV_SD=y
- CONFIG_NETDEVICES=y
-+CONFIG_FEC_MTIP_L2SW=y
- CONFIG_ENC28J60=y
- CONFIG_ICPLUS_PHY=y
- CONFIG_MICREL_PHY=y
+diff --git a/Documentation/devicetree/bindings/clock/samsung,exynosautov920-clock.yaml b/Documentation/devicetree/bindings/clock/samsung,exynosautov920-clock.yaml
+index 3330b2727474..d12b17c177df 100644
+--- a/Documentation/devicetree/bindings/clock/samsung,exynosautov920-clock.yaml
++++ b/Documentation/devicetree/bindings/clock/samsung,exynosautov920-clock.yaml
+@@ -8,6 +8,7 @@ title: Samsung ExynosAuto v920 SoC clock controller
+ 
+ maintainers:
+   - Sunyeal Hong <sunyeal.hong@samsung.com>
++  - Shin Son <shin.son@samsung.com>
+   - Chanwoo Choi <cw00.choi@samsung.com>
+   - Krzysztof Kozlowski <krzk@kernel.org>
+   - Sylwester Nawrocki <s.nawrocki@samsung.com>
+@@ -32,6 +33,7 @@ properties:
+   compatible:
+     enum:
+       - samsung,exynosautov920-cmu-top
++      - samsung,exynosautov920-cmu-cpucl0
+       - samsung,exynosautov920-cmu-peric0
+       - samsung,exynosautov920-cmu-peric1
+       - samsung,exynosautov920-cmu-misc
+@@ -69,6 +71,29 @@ allOf:
+           items:
+             - const: oscclk
+ 
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - samsung,exynosautov920-cmu-cpucl0
++
++    then:
++      properties:
++        clocks:
++          items:
++            - description: External reference clock (38.4 MHz)
++            - description: CMU_CPUCL0 SWITCH clock (from CMU_TOP)
++            - description: CMU_CPUCL0 CLUSTER clock (from CMU_TOP)
++            - description: CMU_CPUCL0 DBG clock (from CMU_TOP)
++
++        clock-names:
++          items:
++            - const: oscclk
++            - const: switch
++            - const: cluster
++            - const: dbg
++
+   - if:
+       properties:
+         compatible:
+diff --git a/include/dt-bindings/clock/samsung,exynosautov920.h b/include/dt-bindings/clock/samsung,exynosautov920.h
+index 0c681f2ba3d0..c57a1d749700 100644
+--- a/include/dt-bindings/clock/samsung,exynosautov920.h
++++ b/include/dt-bindings/clock/samsung,exynosautov920.h
+@@ -162,6 +162,25 @@
+ #define DOUT_CLKCMU_TAA_NOC		146
+ #define DOUT_TCXO_DIV2			147
+ 
++/* CMU_CPUCL0 */
++#define CLK_FOUT_CPUCL0_PLL		1
++
++#define CLK_MOUT_PLL_CPUCL0		2
++#define CLK_MOUT_CPUCL0_CLUSTER_USER	3
++#define CLK_MOUT_CPUCL0_DBG_USER	4
++#define CLK_MOUT_CPUCL0_SWITCH_USER	5
++#define CLK_MOUT_CPUCL0_CLUSTER		6
++#define CLK_MOUT_CPUCL0_CORE		7
++
++#define CLK_DOUT_CLUSTER0_ACLK		8
++#define CLK_DOUT_CLUSTER0_ATCLK		9
++#define CLK_DOUT_CLUSTER0_MPCLK		10
++#define CLK_DOUT_CLUSTER0_PCLK		11
++#define CLK_DOUT_CLUSTER0_PERIPHCLK	12
++#define CLK_DOUT_CPUCL0_DBG_NOC		13
++#define CLK_DOUT_CPUCL0_DBG_PCLKDBG	14
++#define CLK_DOUT_CPUCL0_NOCP		15
++
+ /* CMU_PERIC0 */
+ #define CLK_MOUT_PERIC0_IP_USER		1
+ #define CLK_MOUT_PERIC0_NOC_USER	2
 -- 
-2.39.5
+2.49.0
 
 
