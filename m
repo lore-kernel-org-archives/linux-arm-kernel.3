@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86B64C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 08:50:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 574C4C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 08:52:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H338YpIXIN0Gvnxx0CNTxMSFWd6J6lOzxWOZLc2fN3E=; b=WpyWdrIMWHmDegyCT3ZmOg1+lB
-	2jCgi518mksesrhGLA+CxKvYjlTI9oz9jXQT3ki9Q9KiWkdqKoldAcbtOmcj2mjrMzd0Uz3QUBnHo
-	nXetvVqelFGRRtUm1KLCKL2d8VSLiFgqxsWMhKaRfz4G/6pfatjenYoImfwkbhs12iQm09Zzr4rwS
-	2UArrIOyKTJjHupKU/5Gx8UfZCMtEz+/N/Oegx+E8RM//2aDsBFZZWyAWetYQ/2QkXCs43A3dQViP
-	A0bFR2PPF7rya14TxaI+c4ht9uDxGLYbrWTMaKz15KmV4CZoak1SKn4cj0LKvq6EfeKnMIZEydjHX
-	C4Gq8F6w==;
+	bh=gaYe4zy0Ou27FvsmHa5NmILaWl1zdTnktRLAnBaEUHo=; b=ti0cGazsuKSjolibeV7PxCeaOe
+	mnzeHvSTAKW6rR4YBw0/xnqTw4hvfzYm+gF3wwQ85wmT425qO0bvK6GA+hddqBCxKqx8mh7ah5OFs
+	mSKHK/pZYglHcjEuUmFXI0VgFb0NO22WJEe8GlodGXwB3iSyeYs6ZoNsTLvwe4jYfsqpeZvHmodWX
+	STTYd2Hu+pYz4tuiwJPjY+xw7AFIZfWBtR4PL9nX0e+8inI/tJirAwU/QAhohuOkmNfm42LQPe2ov
+	884+mVRF7CRkiZkSERS80yzsXCPIgMI30EniNqoQaLim5wtbyVWjoWBQ5OPva0VAYvGeaFON+CxU+
+	bPJl0DwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5hQn-0000000Ffwi-2GzP;
-	Fri, 18 Apr 2025 08:50:41 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1u5hSd-0000000FgBp-0zxS;
+	Fri, 18 Apr 2025 08:52:35 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5hEE-0000000FdsE-2PTA
+	id 1u5hI2-0000000FePp-3gT7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 08:37:43 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-43ede096d73so11374625e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 01:37:42 -0700 (PDT)
+	Fri, 18 Apr 2025 08:41:40 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-39bf44be22fso1127926f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 01:41:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744965461; x=1745570261; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1744965697; x=1745570497; darn=lists.infradead.org;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=H338YpIXIN0Gvnxx0CNTxMSFWd6J6lOzxWOZLc2fN3E=;
-        b=Mmgr1SK760oaxWXqUp/6CAWKiqr6K+lDMaMDt5ieCcuyVEw2AhkJ/nzqunrPeISydK
-         m2bX1J1Ia63itmJ573y67KmeV7j0YKJGSsZW+ALamP24nh8fGIMO/+EgnWyS2ZBQuFLq
-         h+99OoaFDBaaRJsCR/OlMw+JZ4ee2ADs2MPpEf+B3ocPnjMmdDB5yGMAtHoPfnn1fOW9
-         oBYvWv9qqox9UcSkHP3Cnl84YTLjHgmc5G4DDI1juk7D+wo7g83oQtVcV8kDpA2QmZ3V
-         i/MyJGNsBmcQel7ZkEtYVfq29TfWwkt2QXWjFD4Sc8Y5T+YTrF5Jk1l1poJLiusph+Aq
-         WyzQ==
+        bh=gaYe4zy0Ou27FvsmHa5NmILaWl1zdTnktRLAnBaEUHo=;
+        b=VBSX0YTFJQJfiamNSaKYp7iuGRpotD4bfgjd3rItcBm7iGLHBgOblU1KWstCmOSTWa
+         ZQHKY+snX7/Y0aPBvVpPMShW0C2XHoQjKX28z72X/gx21cxHD8fKS74qDKVOar0YD7gq
+         bKzvY7ndnnMlemuuTV1Nvu2w/jz/90NyWISanLZYwM/D9F0lm/rAqR+3CRFwU3jpDFLI
+         bgAAP//RV+4n5AhPSPjQm3XvBye3TTPgj5YiqLQkwsnEKRXAsRmbLeRQC8WQiGaFrRyO
+         Q1VS3JTUi5hb6tlz1DAzza1uZ3jBpjO3mw+RBgRXZFNgYyyu6qbu0YcYrSNBKVaq0csa
+         /IFw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744965461; x=1745570261;
+        d=1e100.net; s=20230601; t=1744965697; x=1745570497;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=H338YpIXIN0Gvnxx0CNTxMSFWd6J6lOzxWOZLc2fN3E=;
-        b=IRqnBR4IW4j6XJ8N/H8Db7MO+9o71rywbmmVUsk97JZCo7bIZ34o+r6U+xiN5qJJgK
-         RoNOd0YjgHxYhNNY60peumkm2Yqs49GONXtYAYRZBryAuw7pQC5a/uZBUmNuqiuhKIFm
-         kMzj+Nk9II3jh61bZuD7i1UPSPkab+bXHAtTarVIhWifKTS+T2TXAWevzg+M3gZezYI9
-         0rF6ci7PJ6DCLCBhiB4gEzbGPLwnj1CuW00OBCd8GHMhVeWdEa6e4VWHV4jIK7qwrueL
-         QMTAxgBqm1pYZGhCgZ8bHG6oW0jhcUeL8CUNkmCc8KK5z+xdXeRMtBnt5E3PaD1u+QJW
-         TWpw==
-X-Forwarded-Encrypted: i=1; AJvYcCUJuLbIYyCt4bhZrx5WCRUvu+G5/ENtKgC04tVGAOK6KNS0DTolaFeKqgeN3k13AcQ698T1KKlI6XpYyKJv+AdH@lists.infradead.org
-X-Gm-Message-State: AOJu0YxkotqE+R6NHJVKhtLA8Hwk+UzYMHRnXOecwEdOfgZn6ZC6qqwP
-	4l+NwKZGEa71Ll6Xh2SsYxn0NCAjufOsfAbqXNnenfA0boiPWLE+CWm8x0Q+V20=
-X-Gm-Gg: ASbGncuqyjUx6LeayoEF/gq4A8MWlOMTRII7WevN6muKRoVnmTCTDSy5J9F/+1BJe08
-	uR9xur0YAvv0d87KT8v2AkE1UnMQKhf9G07VG5G4S5ssN8ZmQAv6VCSBERQfKE3sovGhEyICVDW
-	sYONc5UkS1hSX7d9+CHArH0zq7CkSci/og7cXKVyUkY/uoGf7G/Q4XrS3zKqN1TDzeHAuhM1PWD
-	3inhYktsgNf4LjXCnD6y4eOZs7/8cMk4UnwOhtrljTtek52j/KvGgtOyl/EGFvnkDcP+GuvHSBK
-	cfn6bTSUrYSK9WrYQ7rrx8ZQe5wDeAsQwDay8sBjH79g0h7TukzXF1ufZ2oQYt3V/eKE3X1fzq1
-	qfek=
-X-Google-Smtp-Source: AGHT+IHiLpagTJs2SbpQ7T/yPM+PTl/lUYMdfib3CeXF6j4CoViiiMG4uhTpPH8XNuL/o5PBHm8qrg==
-X-Received: by 2002:a05:600c:54c7:b0:43d:683:8caa with SMTP id 5b1f17b1804b1-4407076031dmr2922635e9.15.1744965460792;
-        Fri, 18 Apr 2025 01:37:40 -0700 (PDT)
+        bh=gaYe4zy0Ou27FvsmHa5NmILaWl1zdTnktRLAnBaEUHo=;
+        b=dEfw5hH+L64qDFkA7+Hy/816NvC3pDj4RwOw56Oqu++Ab65DYnjCVhynPFCgNBYtdw
+         D7SEjXchb2zBKEn00SPd8/Pv9Xl3LzF5WsLLOHHCkDiGFbxEwUfaMtgwonWxt4ZS/gen
+         xTPF7zf/FRWHrLIhhmUVtCGgjq8j7U8s1bjU1ldIwqAYyS63NbYDWMoZ5QYb2asNjHS1
+         iisa14CGNIgPBUrx6l9gVw/7vPqx0tJU+6w3fmFZoyeJbESS7Ndbz7hs9wd2PeOxRF8n
+         y3BKv+pAPQjrlLHiqXuII0axSoaXdatUmJnIYUcp5JGIUJrtdZkNJOmfJ0LQX2lkm4CV
+         IUdQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXcPoR9VncTB90zgsn/DQ5SzWmkMoecGQ/orvYc6USnbhCzL+R3cLo8lB7eA2z0Blpi7q5cvqxXM0w48Fu5emCD@lists.infradead.org
+X-Gm-Message-State: AOJu0YyGwlVI3KRg2TqXWSRK+mMDjquXVWqWFiHteCuwRudXdNssOG1/
+	Z6WXtmM8E5S2CJ7dHXLVMGePmJjm6UKXwB2SBWgdUJlHl0Kuc3EAUxjGaEoZJ6E=
+X-Gm-Gg: ASbGncvlUQDcpqPRPq8OYo0+nk87r/TYkrNIPF3JDbBzqdoAoB2Zhg6oByK973dOgPX
+	1x9n9yPp4I9Z2vmtWR85U8Y/M41o5IKs1za/m8mUY87lpBhQfUbOqC+ARn7mhbKHQXGllMvdCdf
+	Sl5P0Pz887/tL8ZDyq4+WRcBOmosvUJ3f8ZZ6XgzD9KEdywtu1qdbOr7tEwVKUkofyDtVeQNId1
+	KhHFM9g74mBOLOS+ll5hYuxouw92vzRLi+hxJdpZ6hpE8N9cJahQ0xXuXLMkY7iQqd+b7fM5Z2g
+	aXBVTA734g+PGL+x5I9Ut0BIWQFB62FDWcKMoPbO+vPapvpdMH/tE2y8NDJl9GkDMbj+cwV3TyT
+	WXCM=
+X-Google-Smtp-Source: AGHT+IE3GyLzZUyelI40gS2vTuDQpSNMhcJ1TL+LpOT3j005P7cUJ4VklepZjvjFsXXu1LyMWnIBEQ==
+X-Received: by 2002:a05:6000:18a2:b0:39a:c9ac:cd58 with SMTP id ffacd0b85a97d-39efba5af80mr1425563f8f.29.1744965696999;
+        Fri, 18 Apr 2025 01:41:36 -0700 (PDT)
 Received: from mai.linaro.org (146725694.box.freepro.com. [130.180.211.218])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4406d5acec8sm13487175e9.16.2025.04.18.01.37.39
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39efa4a5150sm2039295f8f.82.2025.04.18.01.41.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Apr 2025 01:37:40 -0700 (PDT)
-Date: Fri, 18 Apr 2025 10:37:37 +0200
+        Fri, 18 Apr 2025 01:41:36 -0700 (PDT)
+Date: Fri, 18 Apr 2025 10:41:34 +0200
 From: Daniel Lezcano <daniel.lezcano@linaro.org>
 To: iuncuim <iuncuim@gmail.com>
 Cc: Vasily Khoruzhick <anarsoul@gmail.com>,
@@ -86,18 +86,19 @@ Cc: Vasily Khoruzhick <anarsoul@gmail.com>,
 	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
 	Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
-Subject: Re: [PATCH 1/6] thermal/drivers/sun8i: add gpadc clock
-Message-ID: <aAIPUcS_cNRHoxwq@mai.linaro.org>
+Subject: Re: [PATCH 3/6] thermal/drivers/sun8i: Add support for A523 THS0/1
+ controllers
+Message-ID: <aAIQPtxCDuT2e7vE@mai.linaro.org>
 References: <20250411003827.782544-1-iuncuim@gmail.com>
- <20250411003827.782544-2-iuncuim@gmail.com>
+ <20250411003827.782544-4-iuncuim@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250411003827.782544-2-iuncuim@gmail.com>
+In-Reply-To: <20250411003827.782544-4-iuncuim@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_013742_619616_3A6EF460 
-X-CRM114-Status: GOOD (  19.96  )
+X-CRM114-CacheID: sfid-20250418_014138_923978_2AACC7B5 
+X-CRM114-Status: GOOD (  41.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,66 +113,196 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 11, 2025 at 08:38:21AM +0800, Mikhail Kalashnikov wrote:
+On Fri, Apr 11, 2025 at 08:38:23AM +0800, Mikhail Kalashnikov wrote:
 > From: Mikhail Kalashnikov <iuncuim@gmail.com>
 > 
-> Some processors (e.g. Allwinner A523) require GPADC clocking activation for
-> temperature sensors to work. So let's add support for enabling it.
+> The A523 processor has two temperature controllers, THS0 and THS1.
+> THS0 has only one temperature sensor, which is located in the DRAM.
+> 
+> THS1 does have 3 sensors:
+> ths1_0 - "big" cores
+> ths1_1 - "little" cores
+> ths1_2 - gpu
+> 
+> The datasheet mentions a fourth sensor in the NPU, but lacks any registers
+> for operation other than calibration registers. The vendor code reads the
+> value from ths1_2, but uses separate calibration data, so we get two
+> different values from real one.
 > 
 > Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
 > ---
->  drivers/thermal/sun8i_thermal.c | 18 +++++++++++++++---
->  1 file changed, 15 insertions(+), 3 deletions(-)
+>  drivers/thermal/sun8i_thermal.c | 134 ++++++++++++++++++++++++++++++++
+>  1 file changed, 134 insertions(+)
 > 
 > diff --git a/drivers/thermal/sun8i_thermal.c b/drivers/thermal/sun8i_thermal.c
-> index 226747906..1f3908a60 100644
+> index dc4055c9c..919b05a96 100644
 > --- a/drivers/thermal/sun8i_thermal.c
 > +++ b/drivers/thermal/sun8i_thermal.c
-> @@ -66,8 +66,9 @@ struct tsensor {
->  };
+> @@ -116,6 +116,15 @@ static int sun50i_h5_calc_temp(struct ths_device *tmdev,
+>  		return -1590 * reg / 10 + 276000;
+>  }
 >  
->  struct ths_thermal_chip {
-> -	bool            has_mod_clk;
-> -	bool            has_bus_clk_reset;
-> +	bool		has_gpadc_clk;
-> +	bool		has_mod_clk;
-> +	bool		has_bus_clk_reset;
->  	bool		needs_sram;
->  	int		sensor_num;
->  	int		offset;
-> @@ -89,7 +90,8 @@ struct ths_device {
->  	struct regmap_field			*sram_regmap_field;
->  	struct reset_control			*reset;
->  	struct clk				*bus_clk;
-> -	struct clk                              *mod_clk;
-> +	struct clk				*mod_clk;
-> +	struct clk				*gpadc_clk;
->  	struct tsensor				sensor[MAX_SENSOR_NUM];
->  };
->  
-> @@ -417,6 +419,16 @@ static int sun8i_ths_resource_init(struct ths_device *tmdev)
->  	if (ret)
->  		return ret;
->  
-> +	if (tmdev->chip->has_gpadc_clk) {
-> +		tmdev->gpadc_clk = devm_clk_get_enabled(&pdev->dev, "gpadc");
-> +		if (IS_ERR(tmdev->gpadc_clk))
-> +			return PTR_ERR(tmdev->gpadc_clk);
+> +static int sun55i_a523_calc_temp(struct ths_device *tmdev,
+> +					int id, int reg)
+> +{
+> +	if (reg >= 0x7c8)
+> +		return tmdev->chip->scale * (tmdev->chip->offset - reg);
+> +	else
+> +		return 65 * (2825 - reg);
+> +}
 
-			return dev_err_probe();
+Please use macro instead of litterals
 
+> +
+>  static int sun8i_ths_get_temp(struct thermal_zone_device *tz, int *temp)
+>  {
+>  	struct tsensor *s = thermal_zone_device_priv(tz);
+> @@ -208,6 +217,100 @@ static irqreturn_t sun8i_irq_thread(int irq, void *data)
+>  	return IRQ_HANDLED;
+>  }
+>  
+> +
+> +/*
+> + * The A523 nvmem calibration values. The ths1_3 is not used as it
+> + * doesn't have its own sensor and doesn't have any internal switch.
+> + * Instead, the value from the ths1_2 sensor is used, which gives the
+> + * illusion of an independent sensor for NPU and GPU when using
+> + * different calibration values.
+> + *
+> + * efuse layout 0x38-0x3F (caldata[0..3]):
+> + *     caldata[0]      caldata[1]      caldata[2]      caldata[3]
+> + * 0               16      24      32  36          48          60 64
+> + * +---------------+---------------+---------------+---------------+
+> + * |               |       |   temp    |  ths1_0   |  ths1_1   |   +
+> + * +---------------+---------------+---------------+---------------+
+> + *
+> + * efuse layout 0x40-0x43 (caldata[4..5]) - not in use
+> + *
+> + * efuse layout 0x44-0x4B (caldata[6..9]):
+> + *     caldata[6]      caldata[7]      caldata[8]      caldata[9]
+> + * 0           12  16      24      32  36          48             64
+> + * +---------------+---------------+---------------+---------------+
+> + * |  ths1_2   |  ths1_3   |  ths0_0   |           |               +
+> + * +---------------+---------------+---------------+---------------+
+> + */
+> +static int sun55i_a523_ths_calibrate(struct ths_device *tmdev,
+> +				   u16 *caldata, int callen)
+> +{
+> +	struct device *dev = tmdev->dev;
+> +	int i, ft_temp;
+> +
+> +	if (!caldata[0])
+> +		return -EINVAL;
+> +
+> +	ft_temp = (((caldata[2] << 8) | (caldata[1] >> 8)) & FT_TEMP_MASK) * 100;
+> +
+> +	for (i = 0; i < tmdev->chip->sensor_num; i++) {
+> +		int sensor_reg, sensor_temp, cdata, offset;
+> +		/*
+> +		 * Chips ths0 and ths1 have common parameters for value
+> +		 * calibration. To separate them we can use the number of
+> +		 * temperature sensors on each chip.
+> +		 * For ths0 this value is 1.
+> +		 */
+> +		if (tmdev->chip->sensor_num == 1) {
+> +			sensor_reg = ((caldata[7] >> 8) | (caldata[8] << 8)) & TEMP_CALIB_MASK;
+> +		} else {
+> +			switch (i) {
+> +			case 0:
+> +				sensor_reg = (caldata[2] >> 4) & TEMP_CALIB_MASK;
+> +				break;
+> +			case 1:
+> +				sensor_reg = caldata[3] & TEMP_CALIB_MASK;
+> +				break;
+> +			case 2:
+> +				sensor_reg = caldata[6] & TEMP_CALIB_MASK;
+> +				break;
+> +			default:
+> +				sensor_reg = 0;
+> +				break;
+> +			}
+> +		}
+> +
+> +		sensor_temp = tmdev->chip->calc_temp(tmdev, i, sensor_reg);
+> +
+> +		/*
+> +		 * Calibration data is CALIBRATE_DEFAULT - (calculated
+> +		 * temperature from sensor reading at factory temperature
+> +		 * minus actual factory temperature) * X (scale from
+> +		 * temperature to register values)
+> +		 */
+> +		cdata = CALIBRATE_DEFAULT -
+> +			((sensor_temp - ft_temp) / tmdev->chip->scale);
+> +
+> +		if (cdata & ~TEMP_CALIB_MASK) {
+> +			/*
+> +			 * Calibration value more than 12-bit, but calibration
+> +			 * register is 12-bit. In this case, ths hardware can
+> +			 * still work without calibration, although the data
+> +			 * won't be so accurate.
+> +			 */
+> +			dev_warn(dev, "sensor%d is not calibrated.\n", i);
+> +			continue;
+> +		}
+> +
+> +		offset = (i % 2) * 16;
+> +		regmap_update_bits(tmdev->regmap,
+> +				   SUN50I_H6_THS_TEMP_CALIB + (i / 2 * 4),
+> +				   TEMP_CALIB_MASK << offset,
+> +				   cdata << offset);
 > +	}
 > +
-> +	ret = clk_prepare_enable(tmdev->gpadc_clk);
-> +	if (ret)
-> +		return ret;
+> +	return 0;
+> +}
 > +
-
-Why calling clk_prepare_enable() ? devm_clk_get_enabled() did the job no ?
-
->  	if (tmdev->chip->needs_sram) {
->  		struct regmap *regmap;
+>  static int sun8i_h3_ths_calibrate(struct ths_device *tmdev,
+>  				  u16 *caldata, int callen)
+>  {
+> @@ -721,6 +824,35 @@ static const struct ths_thermal_chip sun50i_h616_ths = {
+>  	.calc_temp = sun8i_ths_calc_temp,
+>  };
 >  
+> +/* The A523 has a shared reset line for both chips */
+> +static const struct ths_thermal_chip sun55i_a523_ths0 = {
+> +	.sensor_num = 1,
+> +	.has_bus_clk_reset = true,
+> +	.has_gpadc_clk = true,
+> +	.ft_deviation = 5000,
+> +	.offset = 2736,
+> +	.scale = 74,
+> +	.temp_data_base = SUN50I_H6_THS_TEMP_DATA,
+> +	.calibrate = sun55i_a523_ths_calibrate,
+> +	.init = sun50i_h6_thermal_init,
+> +	.irq_ack = sun50i_h6_irq_ack,
+> +	.calc_temp = sun55i_a523_calc_temp,
+> +};
+> +
+> +static const struct ths_thermal_chip sun55i_a523_ths1 = {
+> +	.sensor_num = 3,
+> +	.has_bus_clk_reset = true,
+> +	.has_gpadc_clk = true,
+> +	.ft_deviation = 5000,
+> +	.offset = 2736,
+> +	.scale = 74,
+> +	.temp_data_base = SUN50I_H6_THS_TEMP_DATA,
+> +	.calibrate = sun55i_a523_ths_calibrate,
+> +	.init = sun50i_h6_thermal_init,
+> +	.irq_ack = sun50i_h6_irq_ack,
+> +	.calc_temp = sun55i_a523_calc_temp,
+> +};
+> +
+>  static const struct of_device_id of_ths_match[] = {
+>  	{ .compatible = "allwinner,sun8i-a83t-ths", .data = &sun8i_a83t_ths },
+>  	{ .compatible = "allwinner,sun8i-h3-ths", .data = &sun8i_h3_ths },
+> @@ -731,6 +863,8 @@ static const struct of_device_id of_ths_match[] = {
+>  	{ .compatible = "allwinner,sun50i-h6-ths", .data = &sun50i_h6_ths },
+>  	{ .compatible = "allwinner,sun20i-d1-ths", .data = &sun20i_d1_ths },
+>  	{ .compatible = "allwinner,sun50i-h616-ths", .data = &sun50i_h616_ths },
+> +	{ .compatible = "allwinner,sun55i-a523-ths0", .data = &sun55i_a523_ths0 },
+> +	{ .compatible = "allwinner,sun55i-a523-ths1", .data = &sun55i_a523_ths1 },
+>  	{ /* sentinel */ },
+>  };
+>  MODULE_DEVICE_TABLE(of, of_ths_match);
 > -- 
 > 2.49.0
 > 
