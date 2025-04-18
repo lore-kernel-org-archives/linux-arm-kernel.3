@@ -4,70 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C37AEC369CF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 08:48:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86B64C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 08:50:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hlkg+5jDRBY5wNNnTe1hqoMZ0WqQC2CXlXJOinsVxyU=; b=s9C/O2496VXbOZRMAx0Q6kJimy
-	oFLuu5O5GRjiVk9rvePHXTtzw/Wi3348Isb8w+qWXBa2EyY9iAc/T1PaJsnmMOsjCD9BsHQaOyprE
-	25JjPKU4iM+wmVi3gehc12B3zHee9YLYehtVhM2beU65/OmonMu36iwgSmk4ugPJrrJtUvtJBkX//
-	T3kdzD5MymD6oMY1ScfCo+s7i3cZB5zNXT5xZd1cgD7FwaVDeF3NJf5Xfk/mMTj++ULTyGvpM1c9F
-	LMXDJi6OBetnssQT5gI+cQBFStzCuKiES36RuaYq7bO1Z7wcsF33OB0PNbJUaVk6nneaMt84bTEPr
-	W9YS0O1A==;
+	bh=H338YpIXIN0Gvnxx0CNTxMSFWd6J6lOzxWOZLc2fN3E=; b=WpyWdrIMWHmDegyCT3ZmOg1+lB
+	2jCgi518mksesrhGLA+CxKvYjlTI9oz9jXQT3ki9Q9KiWkdqKoldAcbtOmcj2mjrMzd0Uz3QUBnHo
+	nXetvVqelFGRRtUm1KLCKL2d8VSLiFgqxsWMhKaRfz4G/6pfatjenYoImfwkbhs12iQm09Zzr4rwS
+	2UArrIOyKTJjHupKU/5Gx8UfZCMtEz+/N/Oegx+E8RM//2aDsBFZZWyAWetYQ/2QkXCs43A3dQViP
+	A0bFR2PPF7rya14TxaI+c4ht9uDxGLYbrWTMaKz15KmV4CZoak1SKn4cj0LKvq6EfeKnMIZEydjHX
+	C4Gq8F6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5hOw-0000000FffE-0mZc;
-	Fri, 18 Apr 2025 08:48:46 +0000
-Received: from abb.hmeau.com ([144.6.53.87])
+	id 1u5hQn-0000000Ffwi-2GzP;
+	Fri, 18 Apr 2025 08:50:41 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5h2j-0000000FcDg-069W;
-	Fri, 18 Apr 2025 08:25:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
-	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=hlkg+5jDRBY5wNNnTe1hqoMZ0WqQC2CXlXJOinsVxyU=; b=kpcJ1aZefOCOmEslLOYgO5//QM
-	Ln6pMr5koiDKWOj7at3DmuXW/+yNTQNemE32nJCw0tUBk2lSSos3j+agdtU8LJ1QmGrITb33TVv2P
-	ax7x7ihD9o/9/iRWIG6o5huDo+sjBvBM8N/+4rmITe3RGNDZD3kJRIZDt9wM6vSrDQAsM8CtmlaSX
-	oieCkebA9MArb2/oiKMgpHGYdSRIx5EULaGWGCnkwKjcIqfjRnqi6KVnMh+uDMtW/pKGRh9+DYB8j
-	6L7OlrJk5uGTHv5eg8RoWUkRMy9N+wd4fu7ENI0N1H5rEEfkOX/zcPw1G7vGUetKFspJKMJxaHYWr
-	x44+Tchg==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1u5h2a-00GhP1-29;
-	Fri, 18 Apr 2025 16:25:41 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 18 Apr 2025 16:25:40 +0800
-Date: Fri, 18 Apr 2025 16:25:40 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
-	x86@kernel.org, Jason@zx2c4.com, ardb@kernel.org
-Subject: Re: [PATCH 01/15] crypto: arm - remove CRYPTO dependency of library
- functions
-Message-ID: <aAIMhLD3UMM41JkT@gondor.apana.org.au>
-References: <20250417182623.67808-2-ebiggers@kernel.org>
- <aAHDIRlSNLsYYZmW@gondor.apana.org.au>
- <20250418033236.GB38960@quark.localdomain>
- <aAHJRszwcQ4UyQ2e@gondor.apana.org.au>
- <20250418040931.GD38960@quark.localdomain>
+	id 1u5hEE-0000000FdsE-2PTA
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 18 Apr 2025 08:37:43 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-43ede096d73so11374625e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 01:37:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1744965461; x=1745570261; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=H338YpIXIN0Gvnxx0CNTxMSFWd6J6lOzxWOZLc2fN3E=;
+        b=Mmgr1SK760oaxWXqUp/6CAWKiqr6K+lDMaMDt5ieCcuyVEw2AhkJ/nzqunrPeISydK
+         m2bX1J1Ia63itmJ573y67KmeV7j0YKJGSsZW+ALamP24nh8fGIMO/+EgnWyS2ZBQuFLq
+         h+99OoaFDBaaRJsCR/OlMw+JZ4ee2ADs2MPpEf+B3ocPnjMmdDB5yGMAtHoPfnn1fOW9
+         oBYvWv9qqox9UcSkHP3Cnl84YTLjHgmc5G4DDI1juk7D+wo7g83oQtVcV8kDpA2QmZ3V
+         i/MyJGNsBmcQel7ZkEtYVfq29TfWwkt2QXWjFD4Sc8Y5T+YTrF5Jk1l1poJLiusph+Aq
+         WyzQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744965461; x=1745570261;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=H338YpIXIN0Gvnxx0CNTxMSFWd6J6lOzxWOZLc2fN3E=;
+        b=IRqnBR4IW4j6XJ8N/H8Db7MO+9o71rywbmmVUsk97JZCo7bIZ34o+r6U+xiN5qJJgK
+         RoNOd0YjgHxYhNNY60peumkm2Yqs49GONXtYAYRZBryAuw7pQC5a/uZBUmNuqiuhKIFm
+         kMzj+Nk9II3jh61bZuD7i1UPSPkab+bXHAtTarVIhWifKTS+T2TXAWevzg+M3gZezYI9
+         0rF6ci7PJ6DCLCBhiB4gEzbGPLwnj1CuW00OBCd8GHMhVeWdEa6e4VWHV4jIK7qwrueL
+         QMTAxgBqm1pYZGhCgZ8bHG6oW0jhcUeL8CUNkmCc8KK5z+xdXeRMtBnt5E3PaD1u+QJW
+         TWpw==
+X-Forwarded-Encrypted: i=1; AJvYcCUJuLbIYyCt4bhZrx5WCRUvu+G5/ENtKgC04tVGAOK6KNS0DTolaFeKqgeN3k13AcQ698T1KKlI6XpYyKJv+AdH@lists.infradead.org
+X-Gm-Message-State: AOJu0YxkotqE+R6NHJVKhtLA8Hwk+UzYMHRnXOecwEdOfgZn6ZC6qqwP
+	4l+NwKZGEa71Ll6Xh2SsYxn0NCAjufOsfAbqXNnenfA0boiPWLE+CWm8x0Q+V20=
+X-Gm-Gg: ASbGncuqyjUx6LeayoEF/gq4A8MWlOMTRII7WevN6muKRoVnmTCTDSy5J9F/+1BJe08
+	uR9xur0YAvv0d87KT8v2AkE1UnMQKhf9G07VG5G4S5ssN8ZmQAv6VCSBERQfKE3sovGhEyICVDW
+	sYONc5UkS1hSX7d9+CHArH0zq7CkSci/og7cXKVyUkY/uoGf7G/Q4XrS3zKqN1TDzeHAuhM1PWD
+	3inhYktsgNf4LjXCnD6y4eOZs7/8cMk4UnwOhtrljTtek52j/KvGgtOyl/EGFvnkDcP+GuvHSBK
+	cfn6bTSUrYSK9WrYQ7rrx8ZQe5wDeAsQwDay8sBjH79g0h7TukzXF1ufZ2oQYt3V/eKE3X1fzq1
+	qfek=
+X-Google-Smtp-Source: AGHT+IHiLpagTJs2SbpQ7T/yPM+PTl/lUYMdfib3CeXF6j4CoViiiMG4uhTpPH8XNuL/o5PBHm8qrg==
+X-Received: by 2002:a05:600c:54c7:b0:43d:683:8caa with SMTP id 5b1f17b1804b1-4407076031dmr2922635e9.15.1744965460792;
+        Fri, 18 Apr 2025 01:37:40 -0700 (PDT)
+Received: from mai.linaro.org (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4406d5acec8sm13487175e9.16.2025.04.18.01.37.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 18 Apr 2025 01:37:40 -0700 (PDT)
+Date: Fri, 18 Apr 2025 10:37:37 +0200
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+To: iuncuim <iuncuim@gmail.com>
+Cc: Vasily Khoruzhick <anarsoul@gmail.com>,
+	Yangtao Li <tiny.windzz@gmail.com>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Andre Przywara <andre.przywara@arm.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
+Subject: Re: [PATCH 1/6] thermal/drivers/sun8i: add gpadc clock
+Message-ID: <aAIPUcS_cNRHoxwq@mai.linaro.org>
+References: <20250411003827.782544-1-iuncuim@gmail.com>
+ <20250411003827.782544-2-iuncuim@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250418040931.GD38960@quark.localdomain>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250411003827.782544-2-iuncuim@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_012549_062597_AD777AFB 
-X-CRM114-Status: UNSURE (   6.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250418_013742_619616_3A6EF460 
+X-CRM114-Status: GOOD (  19.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,17 +112,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 17, 2025 at 09:09:31PM -0700, Eric Biggers wrote:
->
-> arch/$ARCH/lib/crypto/ is the "right" way to do it, mirroring lib/crypto/.  I
-> was just hoping to avoid a 4-deep directory.  But we can do it.
+On Fri, Apr 11, 2025 at 08:38:21AM +0800, Mikhail Kalashnikov wrote:
+> From: Mikhail Kalashnikov <iuncuim@gmail.com>
+> 
+> Some processors (e.g. Allwinner A523) require GPADC clocking activation for
+> temperature sensors to work. So let's add support for enabling it.
+> 
+> Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
+> ---
+>  drivers/thermal/sun8i_thermal.c | 18 +++++++++++++++---
+>  1 file changed, 15 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/thermal/sun8i_thermal.c b/drivers/thermal/sun8i_thermal.c
+> index 226747906..1f3908a60 100644
+> --- a/drivers/thermal/sun8i_thermal.c
+> +++ b/drivers/thermal/sun8i_thermal.c
+> @@ -66,8 +66,9 @@ struct tsensor {
+>  };
+>  
+>  struct ths_thermal_chip {
+> -	bool            has_mod_clk;
+> -	bool            has_bus_clk_reset;
+> +	bool		has_gpadc_clk;
+> +	bool		has_mod_clk;
+> +	bool		has_bus_clk_reset;
+>  	bool		needs_sram;
+>  	int		sensor_num;
+>  	int		offset;
+> @@ -89,7 +90,8 @@ struct ths_device {
+>  	struct regmap_field			*sram_regmap_field;
+>  	struct reset_control			*reset;
+>  	struct clk				*bus_clk;
+> -	struct clk                              *mod_clk;
+> +	struct clk				*mod_clk;
+> +	struct clk				*gpadc_clk;
+>  	struct tsensor				sensor[MAX_SENSOR_NUM];
+>  };
+>  
+> @@ -417,6 +419,16 @@ static int sun8i_ths_resource_init(struct ths_device *tmdev)
+>  	if (ret)
+>  		return ret;
+>  
+> +	if (tmdev->chip->has_gpadc_clk) {
+> +		tmdev->gpadc_clk = devm_clk_get_enabled(&pdev->dev, "gpadc");
+> +		if (IS_ERR(tmdev->gpadc_clk))
+> +			return PTR_ERR(tmdev->gpadc_clk);
 
-You can do that in a follow-up, assuming nothing else pops for this
-series.
+			return dev_err_probe();
 
-Cheers,
+> +	}
+> +
+> +	ret = clk_prepare_enable(tmdev->gpadc_clk);
+> +	if (ret)
+> +		return ret;
+> +
+
+Why calling clk_prepare_enable() ? devm_clk_get_enabled() did the job no ?
+
+>  	if (tmdev->chip->needs_sram) {
+>  		struct regmap *regmap;
+>  
+> -- 
+> 2.49.0
+> 
+
 -- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+
+ <http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
+
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
