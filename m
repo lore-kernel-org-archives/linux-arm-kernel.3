@@ -4,159 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31F28C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 07:34:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FA2BC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 07:35:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JTKcG8iW662T7Nw0xvAA7Bh6amD+CcqUAcjWDySvSy8=; b=JEtCd3//pYGqiyTi02S4xSdorv
-	uP9BEyAFf3px6A00jv/G8teZilIBZSu9mSNmRvpDB5wJOcsCQ0hezPS7wIzKWW579IQtMguJdQr7z
-	TAM4rufRzMA16Z/2Ka+Mr5X58jz0TZ5MrX8iO3Amc9uF9xaVqf4df8qivDzIGPBxA4e2n8ENEZN5Q
-	jsl8kDpNRvegTbIny06LjOJhbS1Y+KBaPBtJ6ziZQiFnILcz0n770UU0akOw4QPds2LSgJd3LTAq8
-	SAaexfBBb6H0KBNmWi4kyCalc3lGaqgyUUNQBH31wxgX9HmHvBV2GR8lsrSWU7UcO7esUsJuWz/56
-	3qRuKzkQ==;
+	bh=F4GPwa3rOttTjk9BhltNeomN5VRSP0W6yj5JFw3g3/w=; b=0H5p7MdPvohW7HPUqqv1u/hrr6
+	Sl8C0P2hXOVXuLG3Y5ryz5K4DiymmPXAkM0tQYbsXvsHwRv9tZ2oN4aEAlnQC7VXnWStetog+t+xO
+	zQ+maKCCvW1J4baoZ8N/szdhyuUi0B2C3uOSRIaXWJigvFrnwdbRDb8RI27Elo66Lic55QoXUL/WP
+	nI4fW7Fa2RVC1GkFIlRRYLQZWRhDuHxUIpcsqmU0Ga1eXW+a8+OQ2zufA4LsRUi8hlH22aEIDqDgw
+	RDkKop0ex1kedG11yURuqeIjCN6/ECXwDLMZgRm3KaYYeUO3jfdKhl3Ogm0xQzFzNgQp0y+FMNIWJ
+	ZlJBZ8yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5gET-0000000FUHG-07pu;
-	Fri, 18 Apr 2025 07:33:53 +0000
-Received: from mail-vi1eur02on20630.outbound.protection.outlook.com ([2a01:111:f403:2607::630] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
+	id 1u5gGI-0000000FUTG-2zEl;
+	Fri, 18 Apr 2025 07:35:46 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5frH-0000000FQre-0KPK
+	id 1u5fts-0000000FRD0-2kHS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 07:09:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=A21DwvnORobb0Grt+C9x4iZpoIU1Sisvj7q89ZR6AGWgbc2ylFPsdQApBvKETuCI4La5llDAjsJUCqrEl1x56YpWp99fdy6VVs0kS56450qQDtv9AxzLhnuwaQbf2EuxlcATfKGB66JT3XU/UkUC6zZdSm9k0EPH3evHJTEaUH/3afhCn/MuH+Mgu2s/1QJdL+EwnEuI5lupKw9SFqpRUboNRRKqKIV8/IdfeH3RrtO1W5To6fdX8AZqx99oSgcku6nYefHfPxwWR0Lv3AXBkN03JSjIaotXnBY3vrmKwux2Tm+oI8+M9/a6CVMqnpY9YzfuAP7Z4lb6oK/EUN6klg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JTKcG8iW662T7Nw0xvAA7Bh6amD+CcqUAcjWDySvSy8=;
- b=fpJloIIJ+OlwrG2rN5sryGe6TKLEdScZHCNSYKOGcr57nq/iQu7R+hZPzrnk/RBif35ZbspriGPqtfZBcs/L5b32OHhjENO/23HYu1qL6ozlAsit9LLcJmmw7BYvPwTiRJUMneWUKER6Am+wOi8eGYcdAPca1Fa2hd0zzlp1D42LSWKF69hFEZRa4KOszOzXG9Y7yTo0fn5H3Y0U3ZJTDVjv0VW76akaYXukYUcoVkiZwbx8uthLuvw5ElG3ZWYxVx2Yqpmu+mFlAt25984JvueAr0AMyqzRXNEAtZ0yU5z/nTMXbOeoGBeVimEEos5H8UNo+u12RP5MSYZlOvbBpw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JTKcG8iW662T7Nw0xvAA7Bh6amD+CcqUAcjWDySvSy8=;
- b=uIrBuJ41Uj2gjWZJreNGKuEVWtdSNb5kPcZGe76KND6qxzgmUqoX1QxdDNpYcfxgPCyiF+vthb8qiAJNJ80NjRCIz4t3DcDozYQHL7qZbiuELSM8HGA4pomSV/3T1V3HGoLEYFz+hcBIIp2Ga/uxSatCmM/+CbH/7Nh5c/j5VJ3jJNT4I7//EtsWUP1a8macju0Plg8LtHTvhmgFx5TPscaEsQ/2tKRbQvJMGqrI3YGgZ/LjAiNk6tK5cRLU6jKDIqDteSFT6BwdUdqmJq4qzOPtFCeFs3lMmOKUELHqUfacRmXeTR6HklXJCOvwwvcTnD6ZixLZe9y5qwozUC2xMw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
- by PA2PR04MB10160.eurprd04.prod.outlook.com (2603:10a6:102:407::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.34; Fri, 18 Apr
- 2025 07:09:51 +0000
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87%4]) with mapi id 15.20.8655.022; Fri, 18 Apr 2025
- 07:09:50 +0000
-From: ming.qian@oss.nxp.com
-To: mchehab@kernel.org,
-	hverkuil-cisco@xs4all.nl,
-	mirela.rabulea@oss.nxp.com
-Cc: shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	xiahong.bao@nxp.com,
-	eagle.zhou@nxp.com,
-	linux-imx@nxp.com,
-	imx@lists.linux.dev,
-	linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v5 5/5] media: imx-jpeg: Check decoding is ongoing for motion-jpeg
-Date: Fri, 18 Apr 2025 15:08:21 +0800
-Message-ID: <20250418070826.141-6-ming.qian@oss.nxp.com>
-X-Mailer: git-send-email 2.48.1.windows.1
-In-Reply-To: <20250418070826.141-1-ming.qian@oss.nxp.com>
-References: <20250418070826.141-1-ming.qian@oss.nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR01CA0174.apcprd01.prod.exchangelabs.com
- (2603:1096:4:28::30) To PAXPR04MB8254.eurprd04.prod.outlook.com
- (2603:10a6:102:1cd::24)
+	Fri, 18 Apr 2025 07:12:38 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53I2I1Qw013186
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 07:12:35 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	F4GPwa3rOttTjk9BhltNeomN5VRSP0W6yj5JFw3g3/w=; b=ifdn8eeg1HQnWbe+
+	mitXYyUEkdIuSXtSuZl/qlf26yYNAMrJVzUk1LmkCTAK3G87160vT8zdJJ68bxgS
+	fTfEOQ1aW13v1Ge8nwhWcJcxAsuwgNvntR6Bz5ppSQfIxcwL6ZQTuhkTwOWY2dqb
+	3Qh/njb9HVwgobuy/ZLYKw3Xqi5SSuQvfAfxsEpTpy/143xM9/2I0V3jUkgqaZ+A
+	/3mtmkxXv+7lyuGal4UZMOMsXFtSgSXx93Y1MwB8lO0ssXeCts61iFnvW90Tq3p4
+	p8vFxJP3AC0gkCE1fgMTlMfp0+x4+tfseIqekSEXpQXqwdiSj643O2gq9a2ru5fb
+	JNEtZw==
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45yfgjs5mm-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 07:12:34 +0000 (GMT)
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2254bdd4982so26279485ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 00:12:34 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744960353; x=1745565153;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=F4GPwa3rOttTjk9BhltNeomN5VRSP0W6yj5JFw3g3/w=;
+        b=eGHGwUDoOg+LWeTUuqSXHyyfyuaE0Eu63p55subCX+EvSQTsmpZzRDA8+s+J9hgiLB
+         87xYhdVUqZYGCOl2SiSznPiQ1TCRibJq+M4RBkbOFV6AGJWP+bh1YPu0cXxOxxlfH9XI
+         7zTcqtp7ex+rkuit7RYrejy4W5NYczSwQi3Bvt9IsBhdxc93tgFKoYQjaZE//Qovk8/N
+         /SmJveRs5ruawQSD8+DsDAs9t8ZXv+djifZULARgB7YEQoUav+hJrS1yEyNk+pFO8lwN
+         uD4fOHJQ/NPHqm4UqeMqz2M0Z/wDVIrkqlBCd5HvjRxE04Cs9TSk1lxohrxd801KtHCY
+         H/hg==
+X-Forwarded-Encrypted: i=1; AJvYcCUQ4JLQ/cCdCoEY9ghVQiYKjYFKq6ZFKrXspYUdNr+kU7DTIP/bzo6uvCV9r0fxb9ZQ+SQ7q4qnYRZjwynFig0p@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUdPpOq4r8WFSJTYuN7Rfw4aqcUawToOjHi39WbC1K8tcsuI5d
+	zJD+d7xv3d6rUq+SpooNTeWX3Ej8j2EdCESyzR+17QrK6yXBSppC61jLIuPgzeBbGj4ah1d0G9v
+	zcRtT7WA9vEv9nYNSenMjvrdzDTjk6MUc/5zJhDUm3EMxbMz+RjHeOFwboPnZwx2OKIyKWoR+Ap
+	X+bSsHBQ==
+X-Gm-Gg: ASbGncvXxiAaT4pywRpVUymAqHEab15+7GomZSk2GmClWeW8xunDirQH2A5uvEpIh+m
+	3vlKUoYWs/AGsV8Rhi8uFUWMIDYYj1S2HHFm04koIbnn7aOaYuv4rfc8cIL9pDNLYCUsgBZXZW4
+	DT0jI6uux9R7oGQexIjJzZDZgruOYYQ+04cVkX7Qj+zBhwfb/Cu3qTc0X79wwhW5XcuFuaNpvIb
+	3b7qyyR7SBN2tv9zbEwub8gLuZnFOTtPhIlyyizrBoUpfk9XnVFJC+FGutCwr0TnHshp68eX/pJ
+	5aVcrNneTW6AEkmWzBqyeQJL4bV4MCRsJA5WwM6mwxbBdGisTB03AAmkT3ppS4uA2C7KwSaF
+X-Received: by 2002:a17:902:d4cd:b0:224:910:23f0 with SMTP id d9443c01a7336-22c53642323mr24544065ad.49.1744960353059;
+        Fri, 18 Apr 2025 00:12:33 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHK3BDrDi2+yGoZkhPK1RtGGnjlU2PeSWcXGdwchHAFw25hNGVJt7YK9kn7mNxItQvr5s+TCA==
+X-Received: by 2002:a17:902:d4cd:b0:224:910:23f0 with SMTP id d9443c01a7336-22c53642323mr24543745ad.49.1744960352534;
+        Fri, 18 Apr 2025 00:12:32 -0700 (PDT)
+Received: from [10.133.33.166] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22c50bf3ebcsm11150885ad.83.2025.04.18.00.12.28
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 18 Apr 2025 00:12:31 -0700 (PDT)
+Message-ID: <49992acc-076d-429d-ac07-092d2fffbcb8@oss.qualcomm.com>
+Date: Fri, 18 Apr 2025 15:12:26 +0800
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|PA2PR04MB10160:EE_
-X-MS-Office365-Filtering-Correlation-Id: 74789385-34f2-4960-9c4c-08dd7e48028d
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|52116014|7416014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?EBXfid9TWBGlaMI9dxCtlGr5dr+LGX8gRTpfdyOdfYtnZRj1Lqjx5KLBleuO?=
- =?us-ascii?Q?rWk1no2iqyHQPuhrjp1lDFMJWoNQ+3Gh+Jt4uk90pSRl1mQKnzfdvVSRPVV8?=
- =?us-ascii?Q?XXHAm2Uzd5Ubmvuurfy8y15IjBZ5h0LGvHyGFeM/uWlw32sFmFc3HAlsOAFB?=
- =?us-ascii?Q?+iymDf3O1ttDSB7Rv1AHJTLmdTpteboyzyTxxGB4UxZA6kWc5n8iz8r2fUHy?=
- =?us-ascii?Q?BIBDQs8Ng++AF1C7T5MKFh8VkoijAGe7c8dHTOPLrS0o0tRviF8biSQTR+im?=
- =?us-ascii?Q?EswKqUjjrmYbm0IhkpWbtG3VvIuHiD/CRWLKhj4VMOIVQycEr/96uRmM0rGh?=
- =?us-ascii?Q?TpKaxG16MWmXncugZcw9QQ3YTyP9HrhX1zQj5A1FFrcu4lixX9x5Djz2hhKv?=
- =?us-ascii?Q?URrMgOI152pXKQiAGQrpxsCvE3mc6uUJpAf6Xzz+HhnusTlcU6d5GS4/j1yj?=
- =?us-ascii?Q?TKBrzv+VXjaCGpd8dBrOovdfilDyIAOeKRsNqIMPpcsiniiaRe+PyrHxU0/i?=
- =?us-ascii?Q?QS4n7l93dY7OFnNRjP4M0gLjCbeksvGczJ2SMIdHNoyPfJlJVEvREp4CyY1j?=
- =?us-ascii?Q?3K/jmeJOkiavr21LOVkGHR2ZWKdygLWCBi3YJWuPu7i+os5Ua2VJMB9PJWct?=
- =?us-ascii?Q?RiD2LdTJQ4HkJQuWrMQuZaTl2hG9Rftc30fm8wmFtyNwDTijuBMKprsjSjO5?=
- =?us-ascii?Q?mp9b0Te0h7PNbUYuD6/cdoU+QRL5AyRu0cydull/nZuALxzi201BLyahHdsv?=
- =?us-ascii?Q?jUqjZ+bxE5TnKWrkNuxOfByeql1ZskqHSJ3ODIo1qK9A9WqzY8NvjE+6gU/A?=
- =?us-ascii?Q?tD5U4xyjF2Gec9ilEciLhZADCMC/783SNYEv31a1UpGHVM7wzWtyTsh6Or/T?=
- =?us-ascii?Q?/xWTAYFlCl0haTE/La4MIq6cj+HlMnKyu5RFOMegQEEDfRcJCYDgi4SzsiC6?=
- =?us-ascii?Q?0QGxTIjdCcnhgpFHipcKySQFO/0BHuY4BFsH8jXFW+nI0sraPyytRoVt8hb7?=
- =?us-ascii?Q?405WsorqvOUkb0jDAGSwzsEpZGTm7pHKGvLZXM2YZ7a+jY/0psfwPJsLpHD+?=
- =?us-ascii?Q?AY5kzyLse2qNGMPO6mZl+tJATi8edaMqhn/VyvwueQ6CORy1MjqBlt/K/cF0?=
- =?us-ascii?Q?c+mvHxV2HMpm5prew+U92KujPPpcDQbZ3ZoxPKBJasVdV4gP32zXIf6T7hEr?=
- =?us-ascii?Q?ws6J6G+K6Y7QNOwkybvIsYj3Ovosb70qZfqMDx1raKQuLgaGt/5tedF9W0PI?=
- =?us-ascii?Q?7tmuLiLudtolltlcWgez6IKlRH20YY0GuK7RS+KtRuLFXxpxnAwpPgcbChwG?=
- =?us-ascii?Q?KTw4uGSvd1Pwt4DqXZgpFM+i7zXcfwc2jLK+9kQNWRiqJjpJx7OD/T994IKm?=
- =?us-ascii?Q?YCLdrUGyTrVjpOW1gABR7uak7Geo88vwcu8wlkEALWB+kfXPtz7evrw240Bb?=
- =?us-ascii?Q?W+ASueePU6ZVvEB3XQpEh2GHOl8A8KXSk/G4Vw7DxWAbxx/F8Av0ptuOoRTx?=
- =?us-ascii?Q?aBKk1ICAg+VX6KM=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(52116014)(7416014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Xn9EMfxRr41WW5eZxL7x4yiAT1mkjhVgcmo3FhLtp6cyGbi70c7zxRNdIF1D?=
- =?us-ascii?Q?323jzmDxJY3C4wmYm/Ah0KDBOZ2xjsqtqmIie3CuwTIri09RVv9lXXOCkHoO?=
- =?us-ascii?Q?/ZFbhFc2CkmN8GOhSSvV9J2XeWESrkJsg07d5sg7F0r+2ke2axeJ3nR9CJ0Y?=
- =?us-ascii?Q?dKiP0IImepQp9IRApJqaGk5nVtqRHeAeVjqXWwDbCPXG99Z1M3rxWziZVfzG?=
- =?us-ascii?Q?uLH4eyXJLEHHlYFdPEwu/jBVZQ8ENSL8EIzRziG79sESjC40RiOdXgdO3xm2?=
- =?us-ascii?Q?GHstVdIdGUFRQk84v+0VTo1nJmV1nwIHxJLL3oks57Z7nyshR/lhBY91KKKj?=
- =?us-ascii?Q?eSZZGm2Z8vG9Tgrvh3yMq7LOIelVpqmykny5BZQ+2B2NXmiRRbMZU887V0VT?=
- =?us-ascii?Q?lKGShfi9ZJffLDENa9cqcmWIQXDNwf2rgNVzdBEgm1vRvvheqe80Ngunxqk1?=
- =?us-ascii?Q?GhUD5YtVj2PHRxdi3YcX219pxVS0f+awuOhlj8RiLRRlACXQehncEzyPeaXd?=
- =?us-ascii?Q?jFIDtZLwJ3brTx4hKFEnf6k/QyizXGi6OPEN6oEcZ/yeZP0xUop6Mrvdp7lx?=
- =?us-ascii?Q?Ieffo8Zw5zrxbYdQ3TBZw6FJKnTYIvJVkESvoHCDiPWgoH52YAQPPGBurAHX?=
- =?us-ascii?Q?OFME86sbbIKtwHtRMyqBVo8aRw1OP4DUeHcvak0NqW08LxIXBitZ48W85Qaw?=
- =?us-ascii?Q?9/zlWWm3AuW9U0OuJdw2r2+29T4DjfHa42PnpKCiuHubHUz8IU0z3RsoXKlc?=
- =?us-ascii?Q?1BcfOb3NxZRQCecpWQkhX+YAfsNYKYGaDunG1PDt7NDF7U/mlhehMDNA+R81?=
- =?us-ascii?Q?vv/hLczGxqdBTOq73RjUtHYQRGPH3mt2qCZWwy7z+o2SFZM/SXIz+C0o1Qp/?=
- =?us-ascii?Q?xJOZlRHeWubZvHq3ADEwF40PBi6Jx3uEMKMU6PVgx/X+R6fKC7nbdyBHdOfv?=
- =?us-ascii?Q?hRaeZ7v4gb2RpWxxbDMGd5L5UpgNrIK4JRTCOAa9lZgL6wo5RZQTTdZsJcVv?=
- =?us-ascii?Q?EmttPBjE6gvGQbL+k6WVAWFIKpmPH9EnVq8gAiE2T9iXg7VAHFg17F57Ae2y?=
- =?us-ascii?Q?tDzfmOcXBVO2sh1jjvxeXrc4lPPgbSXidsN8U+iad4u1SNSf/32bdurosDbz?=
- =?us-ascii?Q?PGCLn1btFqnkAbi67VMd+7S0d5H9uaC1HVgFLFUkLhJcooCE7t8qVKS5ZLb/?=
- =?us-ascii?Q?cX+lNo0SZA29IRf1AO3tVKG70xMUsNK5XYJxsgJ/JqJCrE8ihjQTrklIfOeg?=
- =?us-ascii?Q?sl/8He9N7uepk2WY2BS/MLux/hbURQyQ/8hEW/SCeC4Zlms8+XohN3NPtysv?=
- =?us-ascii?Q?okyLZ1duktFOBhqXwx+QKRbzXg9JsgwE4s/fy1Fy7pVXmi+561xKItBqLLxc?=
- =?us-ascii?Q?tbU1F4kPBFwpQ64wLnPUHJx2IiUQeLska1w74OZs/BVAxqB/Pautr12ioaas?=
- =?us-ascii?Q?HnV2TE1mcMKvgFnqBEzMJBXYoB+zrRtSv2S6EOlduaPkRoVhsMFSpXs8WSuw?=
- =?us-ascii?Q?3oghALLeWfxQ4FHn84QS01jyx238nGyI38DCpsDQptzZDEbmT2P3kC/SdvpF?=
- =?us-ascii?Q?YFtmbePIgxVVeiUfQ9DRIuXvRxuTUOkD5+mIJnff?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 74789385-34f2-4960-9c4c-08dd7e48028d
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Apr 2025 07:09:50.6616
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: araD+uNq12O9zZGdlVVR4t8FHRKviySF/Qzr4zYuGB2CGBSDItQB/evRTeOdBJgvw36aQ8Tfnz0v6Sn+Y0waMQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10160
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] coresight: tmc: refactor the tmc-etr mode setting
+To: Junhao He <hejunhao3@huawei.com>, suzuki.poulose@arm.com,
+        james.clark@arm.com, anshuman.khandual@arm.com, mike.leach@linaro.org,
+        leo.yan@arm.com
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linuxarm@huawei.com,
+        jonathan.cameron@huawei.com, yangyicong@huawei.com
+References: <20250418055820.3689408-1-hejunhao3@huawei.com>
+ <20250418055820.3689408-4-hejunhao3@huawei.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <20250418055820.3689408-4-hejunhao3@huawei.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-GUID: b0UX-kdbjTNQEx4IvRZcAg6GYvd4EKiY
+X-Proofpoint-ORIG-GUID: b0UX-kdbjTNQEx4IvRZcAg6GYvd4EKiY
+X-Authority-Analysis: v=2.4 cv=Cve/cm4D c=1 sm=1 tr=0 ts=6801fb62 cx=c_pps a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=VwQbUJbxAAAA:8 a=i0EeH86SAAAA:8 a=BTeA3XvPAAAA:8 a=AXOI0KVg4ztHe0c8KJwA:9
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=GvdueXVYPmCkWapjIL-Q:22 a=tafbbOV3vt1XuEhzTjGK:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-18_02,2025-04-17_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 clxscore=1015
+ malwarescore=0 lowpriorityscore=0 bulkscore=0 spamscore=0 phishscore=0
+ suspectscore=0 impostorscore=0 mlxlogscore=999 mlxscore=0
+ priorityscore=1501 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2504180051
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_000955_132709_25E9A3AF 
-X-CRM114-Status: GOOD (  20.39  )
+X-CRM114-CacheID: sfid-20250418_001236_833371_7214FED2 
+X-CRM114-Status: GOOD (  34.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,112 +125,217 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ming Qian <ming.qian@oss.nxp.com>
 
-As the first frame in "repeat-mode" is the pattern, the pattern done
-interrupt is ignored by the driver. With small resolution bitstreams,
-the interrupts might fire too quickly and hardware combine two irqs to
-once because irq handle have latency. Thus the driver might miss the
-frame decode done interrupt from the first actual frame.
 
-In order to avoid the driver wait for the frame done interrupt that has
-been combined to the pattern done interrupt and been ignored, driver
-will check the curr_desc and slot_status registers to figure out if the
-decoding of actual frame is finished or not.
+On 4/18/2025 1:58 PM, Junhao He wrote:
+> When trying to run perf and sysfs mode simultaneously, the WARN_ON()
+> in tmc_etr_enable_hw() is triggered sometimes:
+> 
+>   WARNING: CPU: 42 PID: 3911571 at drivers/hwtracing/coresight/coresight-tmc-etr.c:1060 tmc_etr_enable_hw+0xc0/0xd8 [coresight_tmc]
+>   [..snip..]
+>   Call trace:
+>    tmc_etr_enable_hw+0xc0/0xd8 [coresight_tmc] (P)
+>    tmc_enable_etr_sink+0x11c/0x250 [coresight_tmc] (L)
+>    tmc_enable_etr_sink+0x11c/0x250 [coresight_tmc]
+>    coresight_enable_path+0x1c8/0x218 [coresight]
+>    coresight_enable_sysfs+0xa4/0x228 [coresight]
+>    enable_source_store+0x58/0xa8 [coresight]
+>    dev_attr_store+0x20/0x40
+>    sysfs_kf_write+0x4c/0x68
+>    kernfs_fop_write_iter+0x120/0x1b8
+>    vfs_write+0x2c8/0x388
+>    ksys_write+0x74/0x108
+>    __arm64_sys_write+0x24/0x38
+>    el0_svc_common.constprop.0+0x64/0x148
+>    do_el0_svc+0x24/0x38
+>    el0_svc+0x3c/0x130
+>    el0t_64_sync_handler+0xc8/0xd0
+>    el0t_64_sync+0x1ac/0x1b0
+>   ---[ end trace 0000000000000000 ]---
+> 
+> Since the sysfs buffer allocation and the hardware enablement is not
+> in the same critical region, it's possible to race with the perf
+> 
+> mode:
+>    [sysfs mode]                   [perf mode]
+>    tmc_etr_get_sysfs_buffer()
+>      spin_lock(&drvdata->spinlock)
+>      [sysfs buffer allocation]
+>      spin_unlock(&drvdata->spinlock)
+>                                   spin_lock(&drvdata->spinlock)
+>                                   tmc_etr_enable_hw()
+>                                     drvdata->etr_buf = etr_perf->etr_buf
+>                                   spin_unlock(&drvdata->spinlock)
+>   spin_lock(&drvdata->spinlock)
+>   tmc_etr_enable_hw()
+>     WARN_ON(drvdata->etr_buf) // WARN sicne etr_buf initialized at
+>                                  the perf side
+>    spin_unlock(&drvdata->spinlock)
+> 
+> To resolve this, configure the tmc-etr mode before invoking
+> `enable_perf()` or sysfs interfaces. Prior to mode configuration,
+> explicitly check if the tmc-etr sink is already enabled in a
+> different mode to prevent race conditions between mode transitions.
+> Furthermore, enforce spinlock protection around the critical
+> sections to serialize concurrent accesses from sysfs and perf
+> subsystems.
 
-Firstly we check the curr_desc register,
-- if it is still pointing to the pattern descriptor, the second actual
-frame is not started, we can wait for its frame-done interrupt.
-- if the curr_desc has pointed to the frame descriptor, then we check the
-ongoing bit of slot_status register.
-- if the ongoing bit is set to 1, the decoding of the actual frame is not
-finished, we can wait for its frame-done interrupt.
-- if the ongoing bit is set to 0, the decoding of the actual frame is
-finished, we can't wait for the second interrupt, but mark it as done.
+Is any issue observed during this race condition?
 
-But there is still a small problem, that the curr_desc and slot_status
-registers are not synchronous. curr_desc is updated when the
-next_descpt_ptr is loaded, but the ongoing bit of slot_status is set
-after the 32 bytes descriptor is loaded, there will be a short time
-interval in between, which may cause fake false. Consider read register
-is quite slow compared with IP read 32byte from memory, read twice
-slot_status can avoid this situation.
+The etr_buf is checked before assign it to sysfs_buf or perf_buf.
+In my understanding, the warning raised to indicate the etr already 
+enabled with sysfs mode or perf mode, so terminate current enable 
+session, right?
 
-Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
-v4
-- Improve commit message
-v3
-- Read the slot_status register twice
-- Improve commit message
+Thanks,
+Jie
 
- .../media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h |  1 +
- .../media/platform/nxp/imx-jpeg/mxc-jpeg.c    | 31 ++++++++++++++++++-
- 2 files changed, 31 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h
-index d579c804b047..adb93e977be9 100644
---- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h
-+++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h
-@@ -89,6 +89,7 @@
- /* SLOT_STATUS fields for slots 0..3 */
- #define SLOT_STATUS_FRMDONE			(0x1 << 3)
- #define SLOT_STATUS_ENC_CONFIG_ERR		(0x1 << 8)
-+#define SLOT_STATUS_ONGOING			(0x1 << 31)
- 
- /* SLOT_IRQ_EN fields TBD */
- 
-diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-index 45705c606769..4346dcdc9697 100644
---- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-+++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-@@ -910,6 +910,34 @@ static u32 mxc_jpeg_get_plane_size(struct mxc_jpeg_q_data *q_data, u32 plane_no)
- 	return size;
- }
- 
-+static bool mxc_dec_is_ongoing(struct mxc_jpeg_ctx *ctx)
-+{
-+	struct mxc_jpeg_dev *jpeg = ctx->mxc_jpeg;
-+	u32 curr_desc;
-+	u32 slot_status;
-+
-+	curr_desc = readl(jpeg->base_reg + MXC_SLOT_OFFSET(ctx->slot, SLOT_CUR_DESCPT_PTR));
-+	if (curr_desc == jpeg->slot_data.cfg_desc_handle)
-+		return true;
-+
-+	slot_status = readl(jpeg->base_reg + MXC_SLOT_OFFSET(ctx->slot, SLOT_STATUS));
-+	if (slot_status & SLOT_STATUS_ONGOING)
-+		return true;
-+
-+	/*
-+	 * The curr_desc register is updated when next_descpt_ptr is loaded,
-+	 * the ongoing bit of slot_status is set when the 32 bytes descriptor is loaded.
-+	 * So there will be a short time interval in between, which may cause fake false.
-+	 * Consider read register is quite slow compared with IP read 32byte from memory,
-+	 * read twice slot_status can avoid this situation.
-+	 */
-+	slot_status = readl(jpeg->base_reg + MXC_SLOT_OFFSET(ctx->slot, SLOT_STATUS));
-+	if (slot_status & SLOT_STATUS_ONGOING)
-+		return true;
-+
-+	return false;
-+}
-+
- static irqreturn_t mxc_jpeg_dec_irq(int irq, void *priv)
- {
- 	struct mxc_jpeg_dev *jpeg = priv;
-@@ -979,7 +1007,8 @@ static irqreturn_t mxc_jpeg_dec_irq(int irq, void *priv)
- 		mxc_jpeg_enc_mode_go(dev, reg, mxc_jpeg_is_extended_sequential(q_data->fmt));
- 		goto job_unlock;
- 	}
--	if (jpeg->mode == MXC_JPEG_DECODE && jpeg_src_buf->dht_needed) {
-+	if (jpeg->mode == MXC_JPEG_DECODE && jpeg_src_buf->dht_needed &&
-+	    mxc_dec_is_ongoing(ctx)) {
- 		jpeg_src_buf->dht_needed = false;
- 		dev_dbg(dev, "Decoder DHT cfg finished. Start decoding...\n");
- 		goto job_unlock;
--- 
-2.43.0-rc1
+> 
+> Fixes: 296b01fd106e ("coresight: Refactor out buffer allocation function for ETR")
+> Reported-by: Yicong Yang <yangyicong@hisilicon.com>
+> Closes: https://lore.kernel.org/linux-arm-kernel/20241202092419.11777-2-yangyicong@huawei.com/
+> Signed-off-by: Junhao He <hejunhao3@huawei.com>
+> ---
+>   .../hwtracing/coresight/coresight-tmc-etr.c   | 77 +++++++++++--------
+>   1 file changed, 47 insertions(+), 30 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+> index a48bb85d0e7f..3d94d64cacaa 100644
+> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
+> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+> @@ -1190,11 +1190,6 @@ static struct etr_buf *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
+>   		spin_lock_irqsave(&drvdata->spinlock, flags);
+>   	}
+>   
+> -	if (drvdata->reading || coresight_get_mode(csdev) == CS_MODE_PERF) {
+> -		ret = -EBUSY;
+> -		goto out;
+> -	}
+> -
+>   	/*
+>   	 * If we don't have a buffer or it doesn't match the requested size,
+>   	 * use the buffer allocated above. Otherwise reuse the existing buffer.
+> @@ -1205,7 +1200,6 @@ static struct etr_buf *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
+>   		drvdata->sysfs_buf = new_buf;
+>   	}
+>   
+> -out:
+>   	spin_unlock_irqrestore(&drvdata->spinlock, flags);
+>   
+>   	/* Free memory outside the spinlock if need be */
+> @@ -1216,7 +1210,7 @@ static struct etr_buf *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
+>   
+>   static int tmc_enable_etr_sink_sysfs(struct coresight_device *csdev)
+>   {
+> -	int ret = 0;
+> +	int ret;
+>   	unsigned long flags;
+>   	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+>   	struct etr_buf *sysfs_buf = tmc_etr_get_sysfs_buffer(csdev);
+> @@ -1226,23 +1220,10 @@ static int tmc_enable_etr_sink_sysfs(struct coresight_device *csdev)
+>   
+>   	spin_lock_irqsave(&drvdata->spinlock, flags);
+>   
+> -	/*
+> -	 * In sysFS mode we can have multiple writers per sink.  Since this
+> -	 * sink is already enabled no memory is needed and the HW need not be
+> -	 * touched, even if the buffer size has changed.
+> -	 */
+> -	if (coresight_get_mode(csdev) == CS_MODE_SYSFS) {
+> -		csdev->refcnt++;
+> -		goto out;
+> -	}
+> -
+>   	ret = tmc_etr_enable_hw(drvdata, sysfs_buf);
+> -	if (!ret) {
+> -		coresight_set_mode(csdev, CS_MODE_SYSFS);
+> +	if (!ret)
+>   		csdev->refcnt++;
+> -	}
+>   
+> -out:
+>   	spin_unlock_irqrestore(&drvdata->spinlock, flags);
+>   
+>   	if (!ret)
+> @@ -1652,11 +1633,6 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev, void *data)
+>   	struct etr_perf_buffer *etr_perf = etm_perf_sink_config(handle);
+>   
+>   	spin_lock_irqsave(&drvdata->spinlock, flags);
+> -	 /* Don't use this sink if it is already claimed by sysFS */
+> -	if (coresight_get_mode(csdev) == CS_MODE_SYSFS) {
+> -		rc = -EBUSY;
+> -		goto unlock_out;
+> -	}
+>   
+>   	if (WARN_ON(!etr_perf || !etr_perf->etr_buf)) {
+>   		rc = -EINVAL;
+> @@ -1685,7 +1661,6 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev, void *data)
+>   	if (!rc) {
+>   		/* Associate with monitored process. */
+>   		drvdata->pid = pid;
+> -		coresight_set_mode(csdev, CS_MODE_PERF);
+>   		drvdata->perf_buf = etr_perf->etr_buf;
+>   		csdev->refcnt++;
+>   	}
+> @@ -1698,14 +1673,56 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev, void *data)
+>   static int tmc_enable_etr_sink(struct coresight_device *csdev,
+>   			       enum cs_mode mode, void *data)
+>   {
+> +	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+> +	enum cs_mode old_mode;
+> +	int rc;
+> +
+> +	scoped_guard(spinlock_irqsave, &drvdata->spinlock) {
+> +		old_mode = coresight_get_mode(csdev);
+> +		if (old_mode != CS_MODE_DISABLED && old_mode != mode)
+> +			return -EBUSY;
+> +
+> +		if (drvdata->reading)
+> +			return -EBUSY;
+> +
+> +		/*
+> +		 * In sysFS mode we can have multiple writers per sink. Since this
+> +		 * sink is already enabled no memory is needed and the HW need not be
+> +		 * touched, even if the buffer size has changed.
+> +		 */
+> +		if (old_mode == CS_MODE_SYSFS) {
+> +			csdev->refcnt++;
+> +			return 0;
+> +		}
+> +
+> +		/*
+> +		 * minor note:
+> +		 * When sysfs-task1 get locked, it setup the mode first. Then
+> +		 * sysfs-task2 gets locked，it will directly return success even
+> +		 * when the tmc-etr is not enabled at this moment. Ultimately,
+> +		 * sysfs-task1 will still successfully enable tmc-etr.
+> +		 * This is a transient state and does not cause an anomaly.
+> +		 */
+> +		coresight_set_mode(csdev, mode);
+> +	}
+> +
+>   	switch (mode) {
+>   	case CS_MODE_SYSFS:
+> -		return tmc_enable_etr_sink_sysfs(csdev);
+> +		rc = tmc_enable_etr_sink_sysfs(csdev);
+> +		break;
+>   	case CS_MODE_PERF:
+> -		return tmc_enable_etr_sink_perf(csdev, data);
+> +		rc = tmc_enable_etr_sink_perf(csdev, data);
+> +		break;
+>   	default:
+> -		return -EINVAL;
+> +		rc = -EINVAL;
+>   	}
+> +
+> +	scoped_guard(spinlock_irqsave, &drvdata->spinlock) {
+> +		if (rc && old_mode != mode)
+> +			coresight_set_mode(csdev, old_mode);
+> +	}
+> +
+> +	return rc;
+>   }
+>   
+>   static int tmc_disable_etr_sink(struct coresight_device *csdev)
 
 
