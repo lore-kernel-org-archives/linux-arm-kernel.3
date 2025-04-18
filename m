@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1368C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 06:23:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92E7FC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 06:25:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GJBeU/rnFZPjbhJxcQ6V2MkB/H8xOWywLoSrGR8U0x4=; b=OCZ+w6TCxR7dJGOX2vuHtjZqTZ
-	aIecTJp3WrXkvjx79/ZCCTdycgD4bMDdVlfvS/j62aUl0HxVRnjR7GfoHfw6CLnXeuJIBA+//kEah
-	geqSmnfIgkcqv/zJ7j7GIFBW3GQSAvd3GtgcwFAmKqO+uKOtGzyorsHtibPBraHiWH7vNioeWlXy3
-	CyiCmrtuoCQHxr4wttxauwYiYgdZXEtFqwcnzDxLU9NoonKjOYx8RhB8bU7M5Q9XuM3/HhhtkOpLU
-	kD0GlYreHGkT2zZtys5foAA045kEr3M6FHHUqnyd8y0pvfsY6xJgQSxsxE/JoxXarW4xXjgHJyT85
-	m8gIA60A==;
+	bh=1bc/l8RQ6IGv08DVD+8pR8yhxUHNhK0UV4UbPtwrrso=; b=vAfmS/T4HtCo84gzGXmCpYQ8iN
+	3nXvLlHl27w7Vx3GNHGxiJdtjRzDVYNo3AzK7EdU332I/gDJmmzN2cQ1onloBC66tGKGvoHdqE+0M
+	VcQTDuIV6yPhZbujssQHzjT/FRszABgf6Cs2pEA5ZJ67H9vFc7WOQfoUXMxiboUtK8lnqU2HepQRq
+	HO1Cir+enkdFM1VrFmynWTZ3xLwyPWju4cWOAfDwkcchAU02kMLIFNfEJ8qlMsgrb+FNx8QCrUPET
+	oQ2aGKrdLpMbl2of3cGom8xM726wswiYvy9E8uK31pFIP0H+D7pi0cCD3fuRbRSfuDOw77bbLN3oo
+	pajCeBcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5f8a-0000000FFee-2Xm5;
-	Fri, 18 Apr 2025 06:23:44 +0000
+	id 1u5fAP-0000000FFoV-1J4e;
+	Fri, 18 Apr 2025 06:25:37 +0000
 Received: from mx.denx.de ([89.58.32.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5etF-0000000FD9O-14G2
+	id 1u5etG-0000000FD9g-3uXy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 06:07:54 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 51D23102933A6;
-	Fri, 18 Apr 2025 08:07:50 +0200 (CEST)
+	Fri, 18 Apr 2025 06:07:56 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 00430102933A4;
+	Fri, 18 Apr 2025 08:07:51 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1744956471; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1744956473; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=GJBeU/rnFZPjbhJxcQ6V2MkB/H8xOWywLoSrGR8U0x4=;
-	b=du4o32VbQcfzuFrgKrCkupQ/Oaalh2xlIM4LSIM6yTC+MyPD/Ms4X7dKpFCRZKlXoCspiP
-	bdYN7zfutFReylcrlieiTObQj90odwIj/li5AfOjsXfhKYXwZ8PKHlD5rl+E7EjJAdq6tf
-	dqmPvVYXTxdwZ8iKcyHZP7r5v4OSQ4n1DkKhnPN8/rupf5dTA/qxoHb+JUna3i3lFAt2OP
-	VyAeG5WKZHrVdMKUtJz7yqRJgZc8O3EzHaLKPszxFda5WZsifGTA7AWRIJKn+rupGmGhwM
-	boflQlI1irbxY8ihrnRJM3qtevelbw5+9RSNpbh1IQfx6BhY0KA+rm0tZp9DJQ==
+	bh=1bc/l8RQ6IGv08DVD+8pR8yhxUHNhK0UV4UbPtwrrso=;
+	b=Ek7dy+uCROq3uBXGZqhiYWttFIVtr48dwyzQEV4uP5/BgFTMu6C70AAks3jidNgZ8FHk2g
+	17cenalX+bwluCLMTZK4cZPsx1+y/5WtSZdTTJFGEijfDzF27+q3X178uii2pfd8Nt8SRJ
+	YvKnDKIIZDIpt62sWvVBKptBZ45KjWG13HaXumqmuPRgm/3vKr/S219tUETmAJ0Fw+xyfp
+	nud4UvICV1zWYyTpZyGbP6pvQroePfXMHmwsjr0a3Oa+tKVl+j8eO3vMKdwUV1/Xo1LIec
+	W4YAjbYBYNPbmDym9ZzTOpWmp7AY3jDr3L1vwinNOeDWyOPOiIqO0mz4jxZx9g==
 From: Lukasz Majewski <lukma@denx.de>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	davem@davemloft.net,
@@ -60,9 +60,9 @@ Cc: Sascha Hauer <s.hauer@pengutronix.de>,
 	Stefan Wahren <wahrenst@gmx.net>,
 	Simon Horman <horms@kernel.org>,
 	Lukasz Majewski <lukma@denx.de>
-Subject: [net-next v6 5/7] ARM: mxs_defconfig: Enable CONFIG_NFS_FSCACHE
-Date: Fri, 18 Apr 2025 08:07:14 +0200
-Message-Id: <20250418060716.3498031-6-lukma@denx.de>
+Subject: [net-next v6 6/7] ARM: mxs_defconfig: Update mxs_defconfig to 6.15-rc1
+Date: Fri, 18 Apr 2025 08:07:15 +0200
+Message-Id: <20250418060716.3498031-7-lukma@denx.de>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250418060716.3498031-1-lukma@denx.de>
 References: <20250418060716.3498031-1-lukma@denx.de>
@@ -70,8 +70,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_230753_431080_9C887512 
-X-CRM114-Status: UNSURE (   9.35  )
+X-CRM114-CacheID: sfid-20250417_230755_109270_50457674 
+X-CRM114-Status: UNSURE (   9.90  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,42 +87,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It is not possible to enable by user the CONFIG_NETFS_SUPPORT anymore and
-hence it depends on CONFIG_NFS_FSCACHE being enabled.
+This file is the updated version of mxs_defconfig for the v6.15-rc1
+linux-next.
 
-This patch fixes potential performance regression for NFS on the mxs
-devices.
+Detailed description of removed configuration entries:
+-CONFIG_MTD_M25P80=y -> it has been replaced MTD_SPI_NOR (which is enabled)
+-CONFIG_SMSC_PHY=y -> is enabled implicit by USB_NET_SMSC95XX
+-CONFIG_GPIO_SYSFS=y -> it has been deprecated by moving to EXPERT and
+                        its replacement GPIO_CDEV is enabled by default
 
 Signed-off-by: Lukasz Majewski <lukma@denx.de>
 Suggested-by: Stefan Wahren <wahrenst@gmx.net>
 ---
-Changes for v6:
+Changes for v5:
 - New patch
+
+Changes for v6:
+- Add detailed description on the removed configuration options
+  after update
 ---
- arch/arm/configs/mxs_defconfig | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ arch/arm/configs/mxs_defconfig | 7 -------
+ 1 file changed, 7 deletions(-)
 
 diff --git a/arch/arm/configs/mxs_defconfig b/arch/arm/configs/mxs_defconfig
-index c76d66135abb..22f7639f61fe 100644
+index 22f7639f61fe..b1a31cb914c8 100644
 --- a/arch/arm/configs/mxs_defconfig
 +++ b/arch/arm/configs/mxs_defconfig
-@@ -138,8 +138,6 @@ CONFIG_PWM_MXS=y
- CONFIG_NVMEM_MXS_OCOTP=y
- CONFIG_EXT4_FS=y
- # CONFIG_DNOTIFY is not set
--CONFIG_NETFS_SUPPORT=m
--CONFIG_FSCACHE=y
- CONFIG_FSCACHE_STATS=y
- CONFIG_CACHEFILES=m
- CONFIG_VFAT_FS=y
-@@ -155,6 +153,7 @@ CONFIG_NFS_FS=y
- CONFIG_NFS_V3_ACL=y
- CONFIG_NFS_V4=y
- CONFIG_ROOT_NFS=y
-+CONFIG_NFS_FSCACHE=y
- CONFIG_NLS_CODEPAGE_437=y
- CONFIG_NLS_CODEPAGE_850=y
- CONFIG_NLS_ISO8859_1=y
+@@ -32,9 +32,6 @@ CONFIG_INET=y
+ CONFIG_IP_PNP=y
+ CONFIG_IP_PNP_DHCP=y
+ CONFIG_SYN_COOKIES=y
+-# CONFIG_INET_XFRM_MODE_TRANSPORT is not set
+-# CONFIG_INET_XFRM_MODE_TUNNEL is not set
+-# CONFIG_INET_XFRM_MODE_BEET is not set
+ # CONFIG_INET_DIAG is not set
+ # CONFIG_IPV6 is not set
+ CONFIG_CAN=m
+@@ -45,7 +42,6 @@ CONFIG_MTD=y
+ CONFIG_MTD_CMDLINE_PARTS=y
+ CONFIG_MTD_BLOCK=y
+ CONFIG_MTD_DATAFLASH=y
+-CONFIG_MTD_M25P80=y
+ CONFIG_MTD_SST25L=y
+ CONFIG_MTD_RAW_NAND=y
+ CONFIG_MTD_NAND_GPMI_NAND=y
+@@ -60,7 +56,6 @@ CONFIG_ENC28J60=y
+ CONFIG_ICPLUS_PHY=y
+ CONFIG_MICREL_PHY=y
+ CONFIG_REALTEK_PHY=y
+-CONFIG_SMSC_PHY=y
+ CONFIG_CAN_FLEXCAN=m
+ CONFIG_USB_USBNET=y
+ CONFIG_USB_NET_SMSC95XX=y
+@@ -77,13 +72,11 @@ CONFIG_SERIAL_AMBA_PL011=y
+ CONFIG_SERIAL_AMBA_PL011_CONSOLE=y
+ CONFIG_SERIAL_MXS_AUART=y
+ # CONFIG_HW_RANDOM is not set
+-# CONFIG_I2C_COMPAT is not set
+ CONFIG_I2C_CHARDEV=y
+ CONFIG_I2C_MXS=y
+ CONFIG_SPI=y
+ CONFIG_SPI_GPIO=m
+ CONFIG_SPI_MXS=y
+-CONFIG_GPIO_SYSFS=y
+ # CONFIG_HWMON is not set
+ CONFIG_WATCHDOG=y
+ CONFIG_STMP3XXX_RTC_WATCHDOG=y
 -- 
 2.39.5
 
