@@ -4,68 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C482C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 07:43:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F9EEC369C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 07:59:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0mcMQ2oGagnC/uNT9nLM8G+rqymCiLzm7cQpQWF3Cy0=; b=UBJAUahF8McPQPtbXudxE0nzv0
-	ww+70WFBfgKbGiYDPMlPgppMA9uReggTihaYm74s3uFMHNQafdY7zp+Byh4lExJW+3bjqEplmJ26T
-	UHRbCNneDi5Z5KhshbzlSQ9pIpFIa1L8bQYBnL7gOzA/V/Xr9MK0iPt9nZxt7p9MKJGbqlygn7zF5
-	FsI1CkmOMZTb0cuY32CwLxzXnmNNbJkaWWod+PyqkghhdiPg47uGT6Xc2fSoYZLn0SfUX4eDoPmto
-	njaXNvGsY6Jc+WpBXVkYn5JR/8LG//RkhH898FWZWkCBRwf+mJ+lCe/8+bXIoUZVkBOm4S0UBeESV
-	JAq9Sc6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iMmL27bnm1Scohl4V+bV95IB9bqNz+0Dqo98Wv3R2Gw=; b=FPF+T1nrhsDoE+S6Bfq7rSfZGm
+	KT93970AV8GMBt2ID5vaBq8u1RMcqptWO/UpGKSBT3sPcJm0SVxMjQBuDxO1khyDsH8cz78HRtWcr
+	6UUxC+Urc7YmqfwGGwKaxvVev7jGE1e1fMIDRrvOc0l8wTDl6F58x07FTwPvz3WOEumHuqhsn96dz
+	LSsAL1jOwFNeOxDDGRp3QgNiKlDSg2KnS48eEJxR164mZLGDkEBlBYFzSMTF9CxwXFlQrw4E7RJHR
+	uEL+zvDwtxOK56yUOcQdZxfcZO1djPXXF1mr1tNynwWNXkEcPWMAuTbDyuJC0sa3RzpZfgHaohkzD
+	G15Xj6rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5gNc-0000000FVS3-2VST;
-	Fri, 18 Apr 2025 07:43:20 +0000
-Received: from szxga08-in.huawei.com ([45.249.212.255])
+	id 1u5gdB-0000000FXig-0PAK;
+	Fri, 18 Apr 2025 07:59:37 +0000
+Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5fvy-0000000FRXB-0ThU
+	id 1u5fFn-0000000FGeS-0eTp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 07:14:48 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.48])
-	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4Zf5bC47Ynz1DKZJ;
-	Fri, 18 Apr 2025 15:13:43 +0800 (CST)
-Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id CBCD718006C;
-	Fri, 18 Apr 2025 15:14:35 +0800 (CST)
-Received: from kwepemn500004.china.huawei.com (7.202.194.145) by
- dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 18 Apr 2025 15:14:35 +0800
-Received: from localhost.localdomain (10.90.30.45) by
- kwepemn500004.china.huawei.com (7.202.194.145) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 18 Apr 2025 15:14:34 +0800
-From: Junhao He <hejunhao3@huawei.com>
-To: <peterz@infradead.org>, <mingo@redhat.com>, <acme@kernel.org>,
-	<namhyung@kernel.org>, <mark.rutland@arm.com>,
-	<alexander.shishkin@linux.intel.com>, <jolsa@kernel.org>,
-	<irogers@google.com>, <james.clark@linaro.org>, <leo.yan@arm.com>,
-	<john.g.garry@oracle.com>, <will@kernel.org>, <mike.leach@linaro.org>,
-	<yangyicong@hisilicon.com>, <jonathan.cameron@huawei.com>
-CC: <linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linuxarm@huawei.com>, <hejunhao3@huawei.com>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH v2 2/3] perf vendor events arm64: Drop hip08 PublicDescription if same as BriefDescription
-Date: Fri, 18 Apr 2025 15:08:11 +0800
-Message-ID: <20250418070812.3771441-3-hejunhao3@huawei.com>
-X-Mailer: git-send-email 2.30.0
-In-Reply-To: <20250418070812.3771441-1-hejunhao3@huawei.com>
-References: <20250418070812.3771441-1-hejunhao3@huawei.com>
+	Fri, 18 Apr 2025 06:31:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
+	s=default; h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:
+	Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=iMmL27bnm1Scohl4V+bV95IB9bqNz+0Dqo98Wv3R2Gw=; b=S+8QWJsdNaTmih/DaybGYWKw/h
+	wAUIAErbIMFPFqvVu+7/cWJ7O+IvU+pSk7jy/fqlb0MyIKLQxBmk1UTEnPg9uGgvXfklhEPyXYibh
+	g+8WsHvGKO6OHzvx/uulVIKHwAn8kl9+TI70ilqvmXQcwPCZeqiPi+rHIN0eT74QGo8eciJ+uICEG
+	Rc+Ur1EkxoBqfrQgwrCj9NYpiknEZ+yozzbl1uX2K+nedtEKQZCumMGEtrJ5rgNZfLW5io4HRILNv
+	iHX/HB3Qg2ITw3iBIKjBYpR3ussXwlk3Wh6spSlP2NE4D4lA65PN3bIFE1NRpVCkqB7djNK9kFN6X
+	jqlsR/EQ==;
+Received: from [89.212.21.243] (port=56446 helo=localhost.localdomain)
+	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <primoz.fiser@norik.com>)
+	id 1u5fFh-00AbM0-2s;
+	Fri, 18 Apr 2025 08:31:05 +0200
+From: Primoz Fiser <primoz.fiser@norik.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	upstream@lists.phytec.de
+Subject: [PATCH v3 00/15] Update PHYTEC i.MX93 DTS
+Date: Fri, 18 Apr 2025 08:30:49 +0200
+Message-Id: <20250418063104.2202085-1-primoz.fiser@norik.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.90.30.45]
-X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
- kwepemn500004.china.huawei.com (7.202.194.145)
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cpanel.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: primoz.fiser@norik.com
+X-Authenticated-Sender: cpanel.siel.si: primoz.fiser@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_001446_614389_336BE81D 
-X-CRM114-Status: UNSURE (   9.23  )
+X-CRM114-CacheID: sfid-20250417_233111_664949_7851CF51 
+X-CRM114-Status: UNSURE (   5.10  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,251 +92,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If BriefDescription and PublicDescription are the same, only
-BriefDescription is needed. It will be used for both long and
-short format outputs.
+Update i.MX93 device-tree sources in mainline for phyCORE-i.MX93 SoM and
+phyBOARD-Segin-i.MX93 board with changes from the downstream kernel.
 
-Signed-off-by: Junhao He <hejunhao3@huawei.com>
----
- .../arch/arm64/hisilicon/hip08/uncore-ddrc.json     |  8 --------
- .../arch/arm64/hisilicon/hip08/uncore-hha.json      | 10 ----------
- .../arch/arm64/hisilicon/hip08/uncore-l3c.json      | 13 -------------
- 3 files changed, 31 deletions(-)
+New SoM features:
+ - PMIC support
+ - EEPROM support
+ - enhanced eMMC support
+ - fix eMMC for ERR052021
 
-diff --git a/tools/perf/pmu-events/arch/arm64/hisilicon/hip08/uncore-ddrc.json b/tools/perf/pmu-events/arch/arm64/hisilicon/hip08/uncore-ddrc.json
-index 2b3cb55df288..014454d78293 100644
---- a/tools/perf/pmu-events/arch/arm64/hisilicon/hip08/uncore-ddrc.json
-+++ b/tools/perf/pmu-events/arch/arm64/hisilicon/hip08/uncore-ddrc.json
-@@ -3,56 +3,48 @@
- 	    "ConfigCode": "0x00",
- 	    "EventName": "flux_wr",
- 	    "BriefDescription": "DDRC total write operations",
--	    "PublicDescription": "DDRC total write operations",
- 	    "Unit": "hisi_sccl,ddrc"
-    },
-    {
- 	    "ConfigCode": "0x01",
- 	    "EventName": "flux_rd",
- 	    "BriefDescription": "DDRC total read operations",
--	    "PublicDescription": "DDRC total read operations",
- 	    "Unit": "hisi_sccl,ddrc"
-    },
-    {
- 	    "ConfigCode": "0x02",
- 	    "EventName": "flux_wcmd",
- 	    "BriefDescription": "DDRC write commands",
--	    "PublicDescription": "DDRC write commands",
- 	    "Unit": "hisi_sccl,ddrc"
-    },
-    {
- 	    "ConfigCode": "0x03",
- 	    "EventName": "flux_rcmd",
- 	    "BriefDescription": "DDRC read commands",
--	    "PublicDescription": "DDRC read commands",
- 	    "Unit": "hisi_sccl,ddrc"
-    },
-    {
- 	    "ConfigCode": "0x04",
- 	    "EventName": "pre_cmd",
- 	    "BriefDescription": "DDRC precharge commands",
--	    "PublicDescription": "DDRC precharge commands",
- 	    "Unit": "hisi_sccl,ddrc"
-    },
-    {
- 	    "ConfigCode": "0x05",
- 	    "EventName": "act_cmd",
- 	    "BriefDescription": "DDRC active commands",
--	    "PublicDescription": "DDRC active commands",
- 	    "Unit": "hisi_sccl,ddrc"
-    },
-    {
- 	    "ConfigCode": "0x06",
- 	    "EventName": "rnk_chg",
- 	    "BriefDescription": "DDRC rank commands",
--	    "PublicDescription": "DDRC rank commands",
- 	    "Unit": "hisi_sccl,ddrc"
-    },
-    {
- 	    "ConfigCode": "0x07",
- 	    "EventName": "rw_chg",
- 	    "BriefDescription": "DDRC read and write changes",
--	    "PublicDescription": "DDRC read and write changes",
- 	    "Unit": "hisi_sccl,ddrc"
-    }
- ]
-diff --git a/tools/perf/pmu-events/arch/arm64/hisilicon/hip08/uncore-hha.json b/tools/perf/pmu-events/arch/arm64/hisilicon/hip08/uncore-hha.json
-index b52f056d0255..b2b895fa670e 100644
---- a/tools/perf/pmu-events/arch/arm64/hisilicon/hip08/uncore-hha.json
-+++ b/tools/perf/pmu-events/arch/arm64/hisilicon/hip08/uncore-hha.json
-@@ -3,28 +3,24 @@
- 	    "ConfigCode": "0x00",
- 	    "EventName": "rx_ops_num",
- 	    "BriefDescription": "The number of all operations received by the HHA",
--	    "PublicDescription": "The number of all operations received by the HHA",
- 	    "Unit": "hisi_sccl,hha"
-    },
-    {
- 	    "ConfigCode": "0x01",
- 	    "EventName": "rx_outer",
- 	    "BriefDescription": "The number of all operations received by the HHA from another socket",
--	    "PublicDescription": "The number of all operations received by the HHA from another socket",
- 	    "Unit": "hisi_sccl,hha"
-    },
-    {
- 	    "ConfigCode": "0x02",
- 	    "EventName": "rx_sccl",
- 	    "BriefDescription": "The number of all operations received by the HHA from another SCCL in this socket",
--	    "PublicDescription": "The number of all operations received by the HHA from another SCCL in this socket",
- 	    "Unit": "hisi_sccl,hha"
-    },
-    {
- 	    "ConfigCode": "0x03",
- 	    "EventName": "rx_ccix",
- 	    "BriefDescription": "Count of the number of operations that HHA has received from CCIX",
--	    "PublicDescription": "Count of the number of operations that HHA has received from CCIX",
- 	    "Unit": "hisi_sccl,hha"
-    },
-    {
-@@ -49,42 +45,36 @@
- 	    "ConfigCode": "0x1c",
- 	    "EventName": "rd_ddr_64b",
- 	    "BriefDescription": "The number of read operations sent by HHA to DDRC which size is 64 bytes",
--	    "PublicDescription": "The number of read operations sent by HHA to DDRC which size is 64bytes",
- 	    "Unit": "hisi_sccl,hha"
-    },
-    {
- 	    "ConfigCode": "0x1d",
- 	    "EventName": "wr_ddr_64b",
- 	    "BriefDescription": "The number of write operations sent by HHA to DDRC which size is 64 bytes",
--	    "PublicDescription": "The number of write operations sent by HHA to DDRC which size is 64 bytes",
- 	    "Unit": "hisi_sccl,hha"
-    },
-    {
- 	    "ConfigCode": "0x1e",
- 	    "EventName": "rd_ddr_128b",
- 	    "BriefDescription": "The number of read operations sent by HHA to DDRC which size is 128 bytes",
--	    "PublicDescription": "The number of read operations sent by HHA to DDRC which size is 128 bytes",
- 	    "Unit": "hisi_sccl,hha"
-    },
-    {
- 	    "ConfigCode": "0x1f",
- 	    "EventName": "wr_ddr_128b",
- 	    "BriefDescription": "The number of write operations sent by HHA to DDRC which size is 128 bytes",
--	    "PublicDescription": "The number of write operations sent by HHA to DDRC which size is 128 bytes",
- 	    "Unit": "hisi_sccl,hha"
-    },
-    {
- 	    "ConfigCode": "0x20",
- 	    "EventName": "spill_num",
- 	    "BriefDescription": "Count of the number of spill operations that the HHA has sent",
--	    "PublicDescription": "Count of the number of spill operations that the HHA has sent",
- 	    "Unit": "hisi_sccl,hha"
-    },
-    {
- 	    "ConfigCode": "0x21",
- 	    "EventName": "spill_success",
- 	    "BriefDescription": "Count of the number of successful spill operations that the HHA has sent",
--	    "PublicDescription": "Count of the number of successful spill operations that the HHA has sent",
- 	    "Unit": "hisi_sccl,hha"
-    },
-    {
-diff --git a/tools/perf/pmu-events/arch/arm64/hisilicon/hip08/uncore-l3c.json b/tools/perf/pmu-events/arch/arm64/hisilicon/hip08/uncore-l3c.json
-index e3479b65be9a..d83c22eb1d15 100644
---- a/tools/perf/pmu-events/arch/arm64/hisilicon/hip08/uncore-l3c.json
-+++ b/tools/perf/pmu-events/arch/arm64/hisilicon/hip08/uncore-l3c.json
-@@ -3,91 +3,78 @@
- 	    "ConfigCode": "0x00",
- 	    "EventName": "rd_cpipe",
- 	    "BriefDescription": "Total read accesses",
--	    "PublicDescription": "Total read accesses",
- 	    "Unit": "hisi_sccl,l3c"
-    },
-    {
- 	    "ConfigCode": "0x01",
- 	    "EventName": "wr_cpipe",
- 	    "BriefDescription": "Total write accesses",
--	    "PublicDescription": "Total write accesses",
- 	    "Unit": "hisi_sccl,l3c"
-    },
-    {
- 	    "ConfigCode": "0x02",
- 	    "EventName": "rd_hit_cpipe",
- 	    "BriefDescription": "Total read hits",
--	    "PublicDescription": "Total read hits",
- 	    "Unit": "hisi_sccl,l3c"
-    },
-    {
- 	    "ConfigCode": "0x03",
- 	    "EventName": "wr_hit_cpipe",
- 	    "BriefDescription": "Total write hits",
--	    "PublicDescription": "Total write hits",
- 	    "Unit": "hisi_sccl,l3c"
-    },
-    {
- 	    "ConfigCode": "0x04",
- 	    "EventName": "victim_num",
- 	    "BriefDescription": "l3c precharge commands",
--	    "PublicDescription": "l3c precharge commands",
- 	    "Unit": "hisi_sccl,l3c"
-    },
-    {
- 	    "ConfigCode": "0x20",
- 	    "EventName": "rd_spipe",
- 	    "BriefDescription": "Count of the number of read lines that come from this cluster of CPU core in spipe",
--	    "PublicDescription": "Count of the number of read lines that come from this cluster of CPU core in spipe",
- 	    "Unit": "hisi_sccl,l3c"
-    },
-    {
- 	    "ConfigCode": "0x21",
- 	    "EventName": "wr_spipe",
- 	    "BriefDescription": "Count of the number of write lines that come from this cluster of CPU core in spipe",
--	    "PublicDescription": "Count of the number of write lines that come from this cluster of CPU core in spipe",
- 	    "Unit": "hisi_sccl,l3c"
-    },
-    {
- 	    "ConfigCode": "0x22",
- 	    "EventName": "rd_hit_spipe",
- 	    "BriefDescription": "Count of the number of read lines that hits in spipe of this L3C",
--	    "PublicDescription": "Count of the number of read lines that hits in spipe of this L3C",
- 	    "Unit": "hisi_sccl,l3c"
-    },
-    {
- 	    "ConfigCode": "0x23",
- 	    "EventName": "wr_hit_spipe",
- 	    "BriefDescription": "Count of the number of write lines that hits in spipe of this L3C",
--	    "PublicDescription": "Count of the number of write lines that hits in spipe of this L3C",
- 	    "Unit": "hisi_sccl,l3c"
-    },
-    {
- 	    "ConfigCode": "0x29",
- 	    "EventName": "back_invalid",
- 	    "BriefDescription": "Count of the number of L3C back invalid operations",
--	    "PublicDescription": "Count of the number of L3C back invalid operations",
- 	    "Unit": "hisi_sccl,l3c"
-    },
-    {
- 	    "ConfigCode": "0x40",
- 	    "EventName": "retry_cpu",
- 	    "BriefDescription": "Count of the number of retry that L3C suppresses the CPU operations",
--	    "PublicDescription": "Count of the number of retry that L3C suppresses the CPU operations",
- 	    "Unit": "hisi_sccl,l3c"
-    },
-    {
- 	    "ConfigCode": "0x41",
- 	    "EventName": "retry_ring",
- 	    "BriefDescription": "Count of the number of retry that L3C suppresses the ring operations",
--	    "PublicDescription": "Count of the number of retry that L3C suppresses the ring operations",
- 	    "Unit": "hisi_sccl,l3c"
-    },
-    {
- 	    "ConfigCode": "0x42",
- 	    "EventName": "prefetch_drop",
- 	    "BriefDescription": "Count of the number of prefetch drops from this L3C",
--	    "PublicDescription": "Count of the number of prefetch drops from this L3C",
- 	    "Unit": "hisi_sccl,l3c"
-    }
- ]
+New board features:
+ - RTC support
+ - CAN support
+ - USB support
+ - I2S audio support
+ - 2nd Ethernet (EQOS interface)
+ - enhanced SD-card support
+ - fix SD-card for ERR052021
+
+Link to v2: https://lore.kernel.org/all/20250415043311.3385835-1-primoz.fiser@norik.com/
+
+Changes in v3:
+
+Patch #1:
+- no changes
+
+Patch #2:
+- add Reviewed-by tag
+
+Patch #3:
+- no changes
+
+Patch #4:
+- no changes
+
+Patch #5:
+- no changes
+
+Patch #6:
+- no changes
+
+Patch #7:
+- add Reviewed-by tag
+
+Patch #8:
+- add Reviewed-by tag
+
+Patch #9:
+- reword commit subject
+- add 2 char indention
+
+Patch #10:
+- no changes
+
+Patch #11:
+- add Reviewed-by tag
+
+Patch #12:
+- add Reviewed-by tag
+
+Patch #13:
+- add Reviewed-by tag
+
+Patch #14:
+- no changes
+
+Patch #15:
+- add Reviewed-by tag
+
+Primoz Fiser (15):
+  arm64: dts: freescale: imx93-phycore-som: Add PMIC support
+  arm64: dts: freescale: imx93-phycore-som: Add EEPROM support
+  arm64: dts: freescale: imx93-phycore-som: Disable LED pull-up
+  arm64: dts: freescale: imx93-phycore-som: Enhance eMMC pinctrl
+  arm64: dts: freescale: imx93-phycore-som: Add eMMC no-1-8-v by default
+  arm64: dts: freescale: imx93-phyboard-segin: Drop eMMC no-1-8-v flag
+  arm64: dts: freescale: imx93-phyboard-segin: Disable SD-card
+    write-protect
+  arm64: dts: freescale: imx93-phyboard-segin: Fix SD-card pinctrl
+  arm64: dts: freescale: imx93-phyboard-segin: Set CMD/DATA SION bit to
+    fix ERR052021
+  arm64: dts: freescale: imx93-phyboard-segin: Add RTC support
+  arm64: dts: freescale: imx93-phyboard-segin: Add CAN support
+  arm64: dts: freescale: imx93-phyboard-segin: Add USB support
+  arm64: dts: freescale: imx93-phyboard-segin: Add I2S audio
+  arm64: dts: freescale: imx93-phyboard-segin: Add EQOS Ethernet
+  arm64: dts: freescale: imx93-phyboard-segin: Order node alphabetically
+
+ .../dts/freescale/imx93-phyboard-segin.dts    | 243 ++++++++++++++++--
+ .../boot/dts/freescale/imx93-phycore-som.dtsi | 165 +++++++++++-
+ 2 files changed, 369 insertions(+), 39 deletions(-)
+
 -- 
-2.33.0
+2.34.1
 
 
