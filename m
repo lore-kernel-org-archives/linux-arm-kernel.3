@@ -4,73 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3D3CC369C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 10:36:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6EE0C369CF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 10:38:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
 	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4gwDHlLSyfOGZDhUdR7viQRsWnq+WUz3dBSvyyL/oTI=; b=RZRC4b6CkOfH52KNT/1Huz4U1E
-	QU1ch+/wtL0eJ3yk/KQ/j9wNlanfoNayOATyowIypuVo4pS8SWufTVlpp0B95r8rfZoZNP/fRQLXg
-	6bHEoA9fXjO/EQql4OyGYnEIZN2aJUvjYKxZ8RTuzubxwO8/7x073qVt60auK5UJ0bjt3uWweTOly
-	7XJOuPutUoMY1ytSK3T3pW1/vtvkVwfHpC5lWpcmbKSV9m1EKN6wUSyOdfYhQm2IRWpJQF8JzShWc
-	tG7pLLmlVnqyGWVZXUmww6nmxD/runrGTrQoQ/YvkhvpD+9pTYob+abuRBzNfMjwOo5lB9H9/yUpy
-	z4yt/dUA==;
+	bh=BuylGPJH0FQEuO6ffp6MdCHfZcakh7pCNzkLK5eiPsM=; b=ckBT5Isx5THGU5JNjc9ot3W5v5
+	xbwTxuAA06gIlq9hN9A+0zSr5Q5eaGFQETWQiA4ZlrSpXHBEFGJhko6GOYklCp68exGjdwQgj71v5
+	R1yvyhLG9CigBqja6yQ+s2gBpU9IIak4iYlEjawdXU5g//RQDjcPyj0Eopc+vl9zd4rmIa6mMNV6A
+	KEIlWSbwyAUDBR4qxBcUATWy862Dq/7dZib85O5SrI/T6Rsd6ZaR1wunB3IFxLOMJd+s5b/F5ZSj8
+	uwF1ZJAEBL4RJoVzOUKok2K7nBRfKHb8vp1PlghmNbrAPPeuw6Tnzr8gOXAJSIrMwG1dSmwAkyNQi
+	Xysc6PSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5j5N-0000000FsmE-2jks;
-	Fri, 18 Apr 2025 10:36:41 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1u5j7C-0000000Ft0u-3vmJ;
+	Fri, 18 Apr 2025 10:38:34 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5ixp-0000000Frvs-0mPz;
-	Fri, 18 Apr 2025 10:28:54 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-43ea40a6e98so14605535e9.1;
-        Fri, 18 Apr 2025 03:28:52 -0700 (PDT)
+	id 1u5iyw-0000000Fs5J-0Apm;
+	Fri, 18 Apr 2025 10:30:03 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-5e5bc066283so2703531a12.0;
+        Fri, 18 Apr 2025 03:30:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744972131; x=1745576931; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1744972199; x=1745576999; darn=lists.infradead.org;
         h=mime-version:user-agent:content-transfer-encoding:references
          :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=4gwDHlLSyfOGZDhUdR7viQRsWnq+WUz3dBSvyyL/oTI=;
-        b=KsPRja+slpQWnRRJP12TiVabcqiA6AZMh4xXOiUxqZRbXvkxyNzfVG7VwKhC3/Yb9n
-         uDMatME98Vu62fKR43uMbxtLPfZEW9okePiD8NDef23sqZxP9DEjKqrzbDcctQiyq8IG
-         mLE7KJfAIttEDD4XEFwxIrnMQvwiK4FBtwJCRr4hQ6h9EH946kdo3WlIgQqRVIJKqu1m
-         aDlxx/e/i0tdB40Xb/wiAGvwz19y052NDbc9GpmBLxN0Wa+IUbd9OtkVpLpuv/EX9rtf
-         +DHNLF51FtfScazytP+IEay8u2S/IZUQ0/tipNPmWPrN8HlOgQp+fRS9lAGP4cARLirR
-         9O+g==
+        bh=BuylGPJH0FQEuO6ffp6MdCHfZcakh7pCNzkLK5eiPsM=;
+        b=cguUiYu/C+F2fnrazH2Q8d5sZptfZ+ZZRZVTIpwpVLzyOYDTZ3DG7fRMkXqk84a9BR
+         CpIPemqob8h5wl6mS90WysRtnQ+fwxCyU1n2/sNd/fTdJZTkqtzHdGhCS97LjNgRDAv2
+         GjzFrpVhgfPihmD91DOp3XdN4r2lKSBzp5DUtPMPP2DQ823eIEHb2CUwC8IRypm3F0eC
+         0FMedm4jyn9bgi5z1wW7KIIkyQPA2RuNrMC7bP9gioWqW1yTae9j+Qe3jUrN8wzfCRqG
+         ifc0yCQ2frMoMzq7loQiXYR+lJsSN8FY2eU5rdn+R1/u/S9oNjpE3Eqcd0bk944BMdWb
+         TPwA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744972131; x=1745576931;
+        d=1e100.net; s=20230601; t=1744972199; x=1745576999;
         h=mime-version:user-agent:content-transfer-encoding:references
          :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=4gwDHlLSyfOGZDhUdR7viQRsWnq+WUz3dBSvyyL/oTI=;
-        b=WPn1s/dSpI1111zdmf3UIMZ4N1mhJfOIEOF6MTMdcRouQQmEiKsx0WuRLh8hchrvMM
-         16vHeIyDR/QHG7IqGeTu3wLYmYlZzdjLn21UP6WUgiaosaDVOhc2NX/mOIqJP35tukJA
-         NvdUjMMjhAqYWhh0SgMJ7TUNnxu3o8TdwbFlvVtn5EHLddJWHiPEm/+TczTHDFu/Jh+z
-         EAdATXa6goTgm6PJxf1bCFeAgJkb0uL8+6TQpfENXrNxt5ptH1l/8KNJgJpxDBqYWzCN
-         +HI+Km0D/RURzHplmwBGvYGkZbIl4RntaMDZblyxQUZcO90tvsXdj5WMFOKnpZThOnp7
-         8THg==
-X-Forwarded-Encrypted: i=1; AJvYcCVzQFAaw85qUuZpW0zPSrrZdval05bT5A1HpgoPltZoW1tB4aWZ/z5FvSRA+XIyiB839wcWOOqkLepV6hrdEa8=@lists.infradead.org, AJvYcCXElbiGgxf/c8GapH78S0RvARJMBk7GgUv5AnzEtSpYeT0+FA0HU+ZQYleb/FXUccXvAwXyKJIhwpRlHqEgjPvj@lists.infradead.org
-X-Gm-Message-State: AOJu0YzBokLp5rar9V3Nm/AipYkBOay82HYeAfIwuk8KDCg/2HYwg70p
-	H72zBygySDee3Re1N3UC0aleyFau9bkhePmZsaA6mxqWN3RSSzr5ylL7Wm1ms0M=
-X-Gm-Gg: ASbGncsRPSR5GxPcgSnFcvahsFFJkauOGjADtvaxBQFDCXWnmtSMy/O7qA6FA3ZcVks
-	ebDVbKCC2DjV6s/z1eGOUyzGy0QvvDNH9eRjIoicoHp1NMXNWcDi/BgFU5YpXS1bjUZGxh979io
-	x/hfsxZsZBCMPd5jDFQbi+OoXhHJNV9gpQ4gOuMF0kAaUF42Hc1yLriadd4Bzfl50aW7NluRnSP
-	rP0fBYiyY9fkd376TC50gzRDlKRWgE8vncBvnLjk7qwaMeK0+5YXrwrfrrud2SQ23zp78WQgIqa
-	I0AiFWd9x6ChkXFrYSu0Jj+hb52dDBF0k5woxWWBstodckigBEFMSHV1WjFhfF2KqmprqETfQz7
-	cx+WMXMgsHzXeziw=
-X-Google-Smtp-Source: AGHT+IHzSil2G3YGnRzD5cowRm+z9RfTcSJoozpe7ba6NO1ln0LD3onqnxF8VbnwQ0vVLMFjQbwCSw==
-X-Received: by 2002:a05:600c:b98:b0:43b:c0fa:f9cd with SMTP id 5b1f17b1804b1-4406ab7ff23mr17936375e9.7.1744970385090;
-        Fri, 18 Apr 2025 02:59:45 -0700 (PDT)
+        bh=BuylGPJH0FQEuO6ffp6MdCHfZcakh7pCNzkLK5eiPsM=;
+        b=NZKVLpDz+WJyXQWfTgSp6vr8wcVE1KFqmB78EjqyXhifWBP41OO2ZvmxAy2p8aTgEs
+         tLe5SA73u3RMtSzEKbgp3K+GE63933Me0CKbFH91IgHiAneOQ73mH+aCbSqx8CsWQK5L
+         0T/s7134W4T9mEkwAefvSuavN/VZISwPPCMxcKkxROf5GtooTm4/Z38V42asGHZhh7RU
+         CrS61bhWQMCJMSvVV+o0enaXrYp5ogUPWGLHyGoy6UMwnaZERT18J56BPk0CQlUKTVE+
+         qLSsNdNxSKIcUTfHDQr7kkdZGhrrEaDwBPlMltKBa5M/yAGou5JgPfJCiz/K9/Vf7Xsg
+         23kA==
+X-Forwarded-Encrypted: i=1; AJvYcCUs28V8RMC9m/ZQrQY1/nsucc/c4Sf7YDrhEtWwOM9YFthSyIBcxaF1tok47II5ghJhKz8M8Mp2JFpiET67/K9q@lists.infradead.org, AJvYcCX6El0iWhB1GNRJazglbB7+eWZSGOJdTfb6R9pINty1/JtMup0jryZl7X3UlXodNnntvbJbezcumkXVSbAnXmM=@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjQcN74qhkXtTgxW33NfMI1OXxw/m7qQRQw4MZuRVKJuo/Lt7z
+	tJ78jZpFEAWJhfsX7q7/oaaTDmB0vLOa4vmNX/CPXAx93YxvBuBRM1vnWv+TRDM=
+X-Gm-Gg: ASbGncs7+UCNRZKoHZGgEIy9CepIDbTAeNL/3BuSL2xyDdV5gli3kOCFmsWq7I7Odk2
+	3jsFR6RaMla9CIQbm1wOr2DmV9w3DoSQc9Ki2Pb4g0oipLDuEgAN44i8uB4GufKbqtZFBanVyug
+	QlrUNPNiw9Oy6S8M8c8tjwHyKZvL7/7ow2ZwLKTianJnevd8SPRpcdiPOOxosvUXDrC6rM17Kn8
+	peS+/P/ONn8y5rnQD4SYKZkcPToVsrKz6grJQS0ctOHZjJMOKK/Nn3XIjzqjGbAjMuwRs6TYcNu
+	6rwtfGSwWM29/6e1A6pF96Is2rdkWfq6SbfVWcmPH766Oj7SBE8Rn8OboFWRCy1ff1il92xigcm
+	y895gtQb5VQiDK2/VizP6Yt0pqw==
+X-Google-Smtp-Source: AGHT+IFFL9Q3YUQ1X3zksYfj9ZDiuJHQL5VFIR5ge5yRFXTRl0FOW98z5ZFqj6TYHynzQ6zvhG2EbQ==
+X-Received: by 2002:a05:600c:3d96:b0:43c:f895:cb4e with SMTP id 5b1f17b1804b1-4406aba6809mr18289345e9.17.1744970307554;
+        Fri, 18 Apr 2025 02:58:27 -0700 (PDT)
 Received: from ?IPv6:2001:818:ea56:d000:56e0:ceba:7da4:6673? ([2001:818:ea56:d000:56e0:ceba:7da4:6673])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39efa43bef1sm2245637f8f.49.2025.04.18.02.59.43
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4406d5a9e43sm15984235e9.5.2025.04.18.02.58.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Apr 2025 02:59:44 -0700 (PDT)
-Message-ID: <c3399884bcd18ff730855103897f39081f409296.camel@gmail.com>
-Subject: Re: [PATCH 8/8] iio: pressure: mprls0025pa: use aligned_s64 for
- timestamp
+        Fri, 18 Apr 2025 02:58:27 -0700 (PDT)
+Message-ID: <ee8a81f72734851fae6fcb2364cbc280469a25a4.camel@gmail.com>
+Subject: Re: [PATCH 5/8] iio: chemical: sps30: use aligned_s64 for timestamp
 From: Nuno =?ISO-8859-1?Q?S=E1?= <noname.nuno@gmail.com>
 To: David Lechner <dlechner@baylibre.com>, Jonathan Cameron
  <jic23@kernel.org>,  Nuno =?ISO-8859-1?Q?S=E1?= <nuno.sa@analog.com>, Andy
@@ -83,17 +82,17 @@ To: David Lechner <dlechner@baylibre.com>, Jonathan Cameron
  <ak@it-klinger.de>, Petre Rodan <petre.rodan@subdimension.ro>
 Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Date: Fri, 18 Apr 2025 10:00:05 +0100
-In-Reply-To: <20250417-iio-more-timestamp-alignment-v1-8-eafac1e22318@baylibre.com>
+Date: Fri, 18 Apr 2025 09:58:48 +0100
+In-Reply-To: <20250417-iio-more-timestamp-alignment-v1-5-eafac1e22318@baylibre.com>
 References: <20250417-iio-more-timestamp-alignment-v1-0-eafac1e22318@baylibre.com>
-	 <20250417-iio-more-timestamp-alignment-v1-8-eafac1e22318@baylibre.com>
+	 <20250417-iio-more-timestamp-alignment-v1-5-eafac1e22318@baylibre.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 User-Agent: Evolution 3.52.4 (3.52.4-2.fc40) 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_032853_216847_FBEBDB5B 
-X-CRM114-Status: GOOD (  12.57  )
+X-CRM114-CacheID: sfid-20250418_033002_076117_262AE755 
+X-CRM114-Status: GOOD (  13.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,7 +109,8 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 On Thu, 2025-04-17 at 11:52 -0500, David Lechner wrote:
 > Follow the pattern of other drivers and use aligned_s64 for the
-> timestamp. This will ensure the struct itself it also 8-byte aligned.
+> timestamp. This will ensure that the timestamp is correctly aligned on
+> all architectures.
 >=20
 > Signed-off-by: David Lechner <dlechner@baylibre.com>
 > ---
@@ -119,26 +119,26 @@ ditto
 
 Reviewed-by: Nuno S=C3=A1 <nuno.sa@analog.com>
 
-> =C2=A0drivers/iio/pressure/mprls0025pa.h | 2 +-
+> =C2=A0drivers/iio/chemical/sps30.c | 2 +-
 > =C2=A01 file changed, 1 insertion(+), 1 deletion(-)
 >=20
-> diff --git a/drivers/iio/pressure/mprls0025pa.h
-> b/drivers/iio/pressure/mprls0025pa.h
+> diff --git a/drivers/iio/chemical/sps30.c b/drivers/iio/chemical/sps30.c
 > index
-> 9d5c30afa9d69a6a606662aa7906a76347329cef..9fe9eb35e79d992b2a576e5d0af7111=
-3c6c47400
+> 6f4f2ba2c09d5e691df13bc11ca9e3a910d98dc8..a7888146188d09ddbf376b398ee24da=
+b7f0e2611
 > 100644
-> --- a/drivers/iio/pressure/mprls0025pa.h
-> +++ b/drivers/iio/pressure/mprls0025pa.h
-> @@ -41,7 +41,7 @@ struct mpr_ops;
-> =C2=A0 */
-> =C2=A0struct mpr_chan {
-> =C2=A0	s32 pres;
-> -	s64 ts;
-> +	aligned_s64 ts;
-> =C2=A0};
+> --- a/drivers/iio/chemical/sps30.c
+> +++ b/drivers/iio/chemical/sps30.c
+> @@ -108,7 +108,7 @@ static irqreturn_t sps30_trigger_handler(int irq, voi=
+d *p)
+> =C2=A0	int ret;
+> =C2=A0	struct {
+> =C2=A0		s32 data[4]; /* PM1, PM2P5, PM4, PM10 */
+> -		s64 ts;
+> +		aligned_s64 ts;
+> =C2=A0	} scan;
 > =C2=A0
-> =C2=A0enum mpr_func_id {
+> =C2=A0	mutex_lock(&state->lock);
 >=20
 
 
