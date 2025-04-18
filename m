@@ -4,87 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81C29C369CF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 09:45:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED967C369C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 09:53:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kFpo5oEBW5stbppkFOY++LlhDbuxsd6jJIOfBbyrv08=; b=wVYmy/2crGhoIoye+UUY7uoUy2
-	E1EJoF0HKG4tUWzMcjpnIX7Gm4yh/0DFvegEawKJfA8A+Blv+ohLa3Z4hgLdRNmugY5omU9OKPjOM
-	iZhiQm0ZTbNMZXS/9dWPskrxBQTgBpJ7jrHwLlP3U+w4ok1to25SMmX46pAXh7600M/aJz4SVmmAO
-	h2vPv6IFA0gwcEdM3sJkj/3gQCTP2JgTKGttyXFHwVXPlh8YLBrd/4vYCXRk7/vLqFg9jGIpLmP34
-	cYyNgZjbHeWJga2SvTtC5wlxQDSX5g2z9SbvBVOcuyezulixSMkI32HcTmqsSu5ySp346l6GeyKjf
-	FgCoa1SQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rA3sdyVQ16H8kPttRg91Jt1G7uDSj/gcw6eTTAKQB5c=; b=0xr7MFVkddZG/8cRoju9AlJIPS
+	RDLdIv194CEgZmb/XjonDEIwhdiKo7xp6N1g0p1RSwm86Fk5bBHcZRXZgKsVDppBr1hSdUB54sRUn
+	04zUk2bmyKhpCoxwpFh8c8BIdu5hZ4PqtR805DxeisG+OIIj1VAS0TNtkdMRHwIEqinBqqNPVltjd
+	GOFaQVo5Qqv3mcLijTI/MUFS8TK+6kJ8uO4lixfVp8gaEHSb94srG9wR/Pw3uYvnoD9cJfjkxKq1G
+	pQmDbf6vVx1pV4U2VpcE6DhjgRCUkS/b5EViSA8Z9zMs08C6MmL9dD8d3FW+SnenVrcJVtllvYEhR
+	G49Zf2vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5iHo-0000000FmYC-43Fc;
-	Fri, 18 Apr 2025 09:45:28 +0000
-Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
+	id 1u5iPR-0000000FnoP-26j8;
+	Fri, 18 Apr 2025 09:53:21 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5iFw-0000000FmNi-1Jnw
+	id 1u5iNZ-0000000FnVq-1Skt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 09:43:33 +0000
-Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-47686580529so18680291cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 02:43:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=fooishbar.org; s=google; t=1744969410; x=1745574210; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=kFpo5oEBW5stbppkFOY++LlhDbuxsd6jJIOfBbyrv08=;
-        b=XLl6E963cOHxUsh0/urNbRilqU0UosY1P18ujE/ZDq9MXVGyw3wKtgT7fBDi2NRrUT
-         Vqs/MNO7u5/bRTNZBeOwEuJ0cjAvOUpS6jC/rot6dcPyOL8riG2EXie+We55n/htY8Jw
-         8bFiEnRI8YAcf00uOybDeLlkW22KPoGTgAdLvNxvOXzHEWKgdy8pukRmKpKad1Y7Ql4V
-         a2xFJgu8dpMIxPV3zZiVj8wxtbgfRjB3UEP7S1XpB/wUZmLoiS4HssO+VxC/M7xDut0G
-         1ta96akGH8NYF1baFMXCxaHxFlvPfQ/tKFpioGoygI3rihyvT0Yu1qw78WHYc+0qeNMh
-         ed1A==
+	Fri, 18 Apr 2025 09:51:26 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53I1xHYB013336
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 09:51:23 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	rA3sdyVQ16H8kPttRg91Jt1G7uDSj/gcw6eTTAKQB5c=; b=HwwhoVLEu9m/84c/
+	izpixz+E1FYpZpSYEhwGskeFb8/7o9N2GWSo62T5C4Diwsr/dxEMUQzCUklx4rg3
+	jnksSTFHQQo+UPXubMSkt914vvoRX317E3k/+WTh1V469h5y3QBBQnAkdMi6GALQ
+	avc036Vf/bnYej3fUw8Wjkc2piUyI75EhILfq4XKjRJ1kvnJX4b2X3TSDsxj35Rh
+	Du8dvHU4r+6wdK37romVDqsSMpbgUDAXLo9jGTg8owSAaAR4vjF/uLGi5N/EcC6d
+	1wL6M8Vqyp6wKUJCN67m88CLdrSCHb+PDt7d163csMLgtI0ccEQy1OaV/d6cN6Bc
+	vIiapw==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4628rvextw-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 09:51:23 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-7c54be4b03aso31753685a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 02:51:23 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744969410; x=1745574210;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=kFpo5oEBW5stbppkFOY++LlhDbuxsd6jJIOfBbyrv08=;
-        b=bd+IqJpw+nfLyosa5faWXoFgK1m0wYqtCGOhogTkowsh9OcrpoUMEajbrPLo0aU2cX
-         0ZPCNfbQo0E0IlxlpqkbR6n3/GNjjND8iq/D9XXa6iXO2clRaGKkmjPGyoqsiTKwUr2y
-         7IWRMxfNDvaiebSiR3Lb1FrId1O6IxOb9mBtctQYGlo+dnJXZoSLEwl+3GDRnmKDU8kI
-         FwOyx/8HpNHW4XtldowT2rk2QkisE417P60oKvN63mszdUmCQkEKUTS/+tj2GHlL5DMV
-         o0rVmUh5FX8yyaIxYFZwAckVXTd0lMG9qBtX7KcwHZ/Ljkks7sb1BgFEtLriI+tzUDuS
-         nljw==
-X-Forwarded-Encrypted: i=1; AJvYcCU2T3z09VrVMF20l8H7YRBi+XIoCsop3ZaZYC2fc7PLWuV/Le94Max7q/oYOVvwPNZm2GtCBDy+9h+5GO8kdPvD@lists.infradead.org
-X-Gm-Message-State: AOJu0YxjlORhny/Y1FWnSj1lvMXqRjV5OePJI07rAQFaKADDvziRMs6L
-	n7kK8H5sGbkVGIMXimsTkfOTDQbN3y13gMu6Kf1kIgyk/DmEwHmFrBcN3AgoqfyshBuPnQy8m3T
-	ir3Ygi+DMKwm3EBPzRzgH6QjFj0QoXF3K4rdC7g==
-X-Gm-Gg: ASbGnct7QEUTtI2ii3FHvEAMb6XQk8tweRWduPqq5Nlnak2m/gsFGfW4JBzpKX6EYz8
-	iHVETSzYltK5L0/k7XOZ5zPpxT07UxccPMdQ316Xfe9y0LLFych94O2c3vmwAdi3zHmxI1YJb/C
-	8a92Tp0+SkH4M201ZIbpCV3/jIn0rj2A==
-X-Google-Smtp-Source: AGHT+IELNPez3z5hE7XPdAn+/JmuPm4/LRceRqb1tqN8GldH7aTJ6b0D5paprWRXm4NnYwwtrill8wPC4uiDxVjoiEM=
-X-Received: by 2002:a05:622a:1a95:b0:47a:e53a:5762 with SMTP id
- d75a77b69052e-47aec394ccdmr27568231cf.22.1744969410714; Fri, 18 Apr 2025
- 02:43:30 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1744969882; x=1745574682;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=rA3sdyVQ16H8kPttRg91Jt1G7uDSj/gcw6eTTAKQB5c=;
+        b=Igam/ap8f5C/SUEdzicuVMqucp+tpijzWi1vBNmMluL6XbrNe1NIvxMxAQ16u2STyO
+         vqvFOGNkZ4pLleLNUmXmrFqGn+9YJVgGUkgG8ReoJaRwFH9HctlACp6nVqxhUzU1I8ju
+         tYkUYhNrFfm94F6nSV+iXwkVWo/EAgZLLVwdKUh2sO490UE8k1y7BKDsvKyv1gXJ5wHn
+         X2clgCFVoMZQPIQBTDDShPN4w54I5fQbrGQcQbVIVRb/1SRSPgKSKpPk0AESUy46iBLz
+         kiHaJ3rn/1DhbnW2n9X6SEdS9/yd7/LIOqS2bUkBcHZgSIVa+iyCPFeOOBr54ej0yjez
+         ZWbA==
+X-Gm-Message-State: AOJu0YwvnS+kzAiHzHF7pC/5ImmLGaQQVBfLYP8Wk0+r9S8mFeIABh1U
+	CYdlAns7ifZH45I2q3I5s3t0v4dro0LzN8yeue3l5ZjgfrhFTbdWdE6clPnTaFNWzgwUHydMYvc
+	ektsQGIIPwcpLLY4kKoGtoVYC7o93qViSlqv6yjB4lwvHkLrpZ0bmTmRe9jxBogi6I39ihr8Z9w
+	==
+X-Gm-Gg: ASbGncv1LuacRJd+i31r0rsh8nrB5mwL2J5XUmzhpq+NKazH5aKDF0K+nQEjQxBnLPF
+	lIi3ufk6IxXFJ3aTrOVc/b/tVm5igmtiVeExk3ZM2RP45ljg30bmz9ohfCFgSTq72Vm0xpAk0QT
+	hfZLZ3kRtE+IAU8r5nJlHpomex61dujn5c4RPqXPQVKLWlmQlsx1m4Cytqkzf3zrWDezfspZgZX
+	JkD6WQgLp1nAPWYQ2y2vOScdpmIcT/8ALSv6eZe4Nir/z5h+CO9PeQV9jUnIsT7CS6SyBSe8HMZ
+	jF8kf28lMl6b8dmavf7vspKRqywGZDUZq2HqRerPMb4EuZQ7QNpar8k9Vey/VQ7+hA==
+X-Received: by 2002:a05:620a:2592:b0:7c5:8ece:8b56 with SMTP id af79cd13be357-7c927f9a9f9mr101648985a.4.1744969882148;
+        Fri, 18 Apr 2025 02:51:22 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGqDwroTCof2h7lnX1zVhtLN5ZBbsfi9HNceZCvlYWCbV0282LNM0+SsV1JAE41A/dMk5vamA==
+X-Received: by 2002:a05:620a:2592:b0:7c5:8ece:8b56 with SMTP id af79cd13be357-7c927f9a9f9mr101647585a.4.1744969881711;
+        Fri, 18 Apr 2025 02:51:21 -0700 (PDT)
+Received: from [192.168.65.58] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-acb6ec0c64csm102377266b.13.2025.04.18.02.51.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 18 Apr 2025 02:51:21 -0700 (PDT)
+Message-ID: <5e6a3c7e-4e58-4e42-ac31-3666f49d07f6@oss.qualcomm.com>
+Date: Fri, 18 Apr 2025 11:51:17 +0200
 MIME-Version: 1.0
-References: <20250414095332.9674-1-mail@etehtsea.me> <20250417065759.5948-1-mail@etehtsea.me>
- <17402f2e.360.1964640c3d3.Coremail.andyshrk@163.com>
-In-Reply-To: <17402f2e.360.1964640c3d3.Coremail.andyshrk@163.com>
-From: Daniel Stone <daniel@fooishbar.org>
-Date: Fri, 18 Apr 2025 10:43:19 +0100
-X-Gm-Features: ATxdqUGMyPtODmDTih2v_sR4LqFZ8n_GN4IoaxZBEb6HaOtqp6Dx3gQ7MviTVqg
-Message-ID: <CAPj87rNDsyBfy=P=0SzTm7u6Na6BpeZSpEt1mRPhLCd6rHXzTA@mail.gmail.com>
-Subject: Re: [PATCH v4] drm/rockchip: Disable AFBC for res >2560 on rk3399
-To: Andy Yan <andyshrk@163.com>
-Cc: Konstantin Shabanov <mail@etehtsea.me>, Sandy Huang <hjc@rock-chips.com>, 
-	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
-	Andy Yan <andy.yan@rock-chips.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Dan Callaghan <djc@djc.id.au>, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 2/2] arm64: dts: qcom: sa8775p: Add support for camss
+To: Vikram Sharma <quic_vikramsa@quicinc.com>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, rfoss@kernel.org,
+        todor.too@gmail.com, bryan.odonoghue@linaro.org, mchehab@kernel.org,
+        robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+        andersson@kernel.org, konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
+        cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com,
+        will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org,
+        Suresh Vankadara <quic_svankada@quicinc.com>
+References: <20250210155605.575367-1-quic_vikramsa@quicinc.com>
+ <20250210155605.575367-3-quic_vikramsa@quicinc.com>
+ <65663927-cc11-4810-8714-7600786f299b@oss.qualcomm.com>
+ <7fd92093-3efc-4f24-967d-7e267162b26d@quicinc.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <7fd92093-3efc-4f24-967d-7e267162b26d@quicinc.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-ORIG-GUID: xMePTa0D6oFHUgbyuVV2J3ZREx6GfKvb
+X-Authority-Analysis: v=2.4 cv=RbSQC0tv c=1 sm=1 tr=0 ts=6802209b cx=c_pps a=HLyN3IcIa5EE8TELMZ618Q==:117 a=FpWmc02/iXfjRdCD7H54yg==:17 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=-5tugLDAGQjhnTpWTo4A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=bTQJ7kPSJx9SKPbeHEYW:22 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-GUID: xMePTa0D6oFHUgbyuVV2J3ZREx6GfKvb
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-18_02,2025-04-17_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=999
+ suspectscore=0 adultscore=0 impostorscore=0 clxscore=1015 bulkscore=0
+ phishscore=0 priorityscore=1501 spamscore=0 mlxscore=0 lowpriorityscore=0
+ malwarescore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2504180072
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_024332_456972_20F094D5 
-X-CRM114-Status: GOOD (  10.16  )
+X-CRM114-CacheID: sfid-20250418_025125_412979_7C1E0E8F 
+X-CRM114-Status: GOOD (  17.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,24 +131,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
+On 4/18/25 9:28 AM, Vikram Sharma wrote:
+> 
+> On 4/14/2025 7:18 PM, Konrad Dybcio wrote:
+>> On 2/10/25 4:56 PM, Vikram Sharma wrote:
+>>> Add changes to support the camera subsystem on the SA8775P.
+>>>
+>>> Co-developed-by: Suresh Vankadara <quic_svankada@quicinc.com>
+>>> Signed-off-by: Suresh Vankadara <quic_svankada@quicinc.com>
+>>> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
+>>> ---
+>> [...]
+>>
+>>> +            interrupts = <GIC_SPI 565 IRQ_TYPE_EDGE_RISING>,
+>>> +                     <GIC_SPI 564 IRQ_TYPE_EDGE_RISING>,
+>>> +                     <GIC_SPI 468 IRQ_TYPE_EDGE_RISING>,
+>>> +                     <GIC_SPI 359 IRQ_TYPE_EDGE_RISING>,
+>>> +                     <GIC_SPI 759 IRQ_TYPE_EDGE_RISING>,
+>> 760> +                     <GIC_SPI 758 IRQ_TYPE_EDGE_RISING>,
+> 
+> Hi Konrad,
+> 
+> We cross checked internal documents to confirm IRQ number for csid_lite2/3 and vfe_lite2/3
+> Calculation for IRQ number is done with respect to vector number as
+> irq_num = (vector - 32).
+> csid_lite2 vector -> 791
+> csid_lite3 vector -> 790
+> vfe_lite2  vector -> 793
+> vfe_lite3  vector -> 792
+> 
+> thus irqs are as
+> csid_lite2 -> 759
+> csid_lite3 -> 758
+> vfe_lite2  -> 761
+> vfe_lite3  -> 760
+> 
+> Please let me know if this looks fine to you?
 
-On Fri, 18 Apr 2025 at 01:16, Andy Yan <andyshrk@163.com> wrote:
-> I prefer the V1 version PATCH[0]. This is because we do not deal with hardware-related
-> differences at this level.  It involves a VOP-related restriction and we always  handle
-> limitiation like this  within the VOP driver .
+We had a similar issue with qcs8300 - the reported vector id skipped a
+number at some point. In that case the SPI ports indices alongside
+them were advised to be used. Please check with the HW team, but I
+suppose this would be the case for this one too.
 
-As said in the review for v1, this is not enough for generic userspace.
-
-If drmModeAddFB2WithModifiers() fails, userspace knows that the buffer
-can never work in that configuration, and it should fall back. If
-drmModeAtomicCommit(DRM_MODE_ATOMIC_TEST_ONLY) fails, userspace does
-not know that the buffer can _never_ work, because the failure may be
-transient or due to a combination of things.
-
-Returning the more localised error saves userspace a lot of work and
-enables a more optimal system.
-
-Cheers,
-Daniel
+Konrad
 
