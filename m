@@ -4,77 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8851FC369C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 19:05:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29AABC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 19:07:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=koIG3q1ehnIUu1mOFG9wlRR2uVGmetxb/4Hrt+f0vjE=; b=JX/sP1yXZDeChl3jS8m8jOma5t
-	7BPuT9v9jCEcn0FTE4V08/pudV9lUN6mg03ErnIUJ5QZsNBP0HLWd917qqUXi1l3d0ckUgop57wRP
-	UM3yXu87P8ASs+q1elHrwN4JalwYu23bqkeuVWtNZUeyx6AwzuWZ1vky/kFc5OXRUSET3Y5wMnG8U
-	DETk3DrLqi0vmS1Ulf6TO0LpnknULGqOAlW3OdszsCYjpqFGcO615Xov0J0ot9TZO+PcBaM286mSV
-	cE2cIg72tu/xWv8jN1kIhdJSGSQy5VfD9XIx4heGqquD7WZO7TNBxf7/38TJuCVBcTJRXnlIZdN4Z
-	OEqnhTCg==;
+	bh=BoM7ULPRXxvEhaz8Qsa4lQ8+BS5GV8aAbL3gGtEsmHk=; b=b6Tfai1rD5mtdQvNvdWcse5Ja0
+	yzdIGj+12GjS1jkSFW5LYErN+miy5zB9fbNDitsMaH2EIrREks6gBubDIyM/m3Zy3mEyL7iKND/Ii
+	vQJ3NtnqeZJeVC1IKR/fkzoYHHTWB8lB8C2vpCsHaWhapuEZuJ0as7+oVAMrbjIvcJtX1yIDPQLq1
+	tuJ2zctjpaNAqn205cyUSj39otiT+rLDxiFVfMlQJ/hjOW/oXP5CF8xNR1O0fWpQWdv7akg4dANy7
+	eLl8xrZFqW0+J2qPjAHVtk4N24LZdJRBQq8sxQwywW+ZRpj1qYtfwG/7CcpBn/QjqPJpDGESRyimm
+	nnibwZtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5r1K-0000000HYMz-2EC6;
-	Fri, 18 Apr 2025 19:05:02 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1u5r3D-0000000HYcN-1MLL;
+	Fri, 18 Apr 2025 19:06:59 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5qur-0000000HXHV-1r5w
+	id 1u5qvP-0000000HXOS-1QTV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 18:58:22 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53IIwG6K1061259
+	Fri, 18 Apr 2025 18:58:56 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53IIwqub1001453
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 18 Apr 2025 13:58:16 -0500
+	Fri, 18 Apr 2025 13:58:52 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745002696;
-	bh=koIG3q1ehnIUu1mOFG9wlRR2uVGmetxb/4Hrt+f0vjE=;
+	s=ti-com-17Q1; t=1745002732;
+	bh=BoM7ULPRXxvEhaz8Qsa4lQ8+BS5GV8aAbL3gGtEsmHk=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=saFxAaazS5q5cZ3rM7LdACryY4fnZ9gCBLNyQkp7R2oXloo4zPGN2Hm8Dok79FhKa
-	 qs/FHBg3vS5Xm2miiLM/E8Hxt6ZqwsJs0msYEvG3SXFOP6FuXa9E528nt+mHbSzaN9
-	 CYsLkd/D/cROThTxBIP+olVg3Lvl0NtTmC9EBECw=
-Received: from DFLE107.ent.ti.com (dfle107.ent.ti.com [10.64.6.28])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53IIwGRk015374
+	b=BdXu6Ip3IjSFxVGeg/FKqxxuOaRSiLQcVbRxZEB2V9aE8UHDLo7c+vQmYOey/fw3s
+	 V0OySXk3pmCBsGuFumZl6Xta/LaBBQ9hu9ZZheZOx408z8BG0YZJe5jNWtGDnn/PZh
+	 MGhqQ0qUaNkUDxDBYAb26dPI+RBW4Z9MLmHopLUw=
+Received: from DFLE106.ent.ti.com (dfle106.ent.ti.com [10.64.6.27])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53IIwqkN113954
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 18 Apr 2025 13:58:16 -0500
-Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE107.ent.ti.com
- (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
+	Fri, 18 Apr 2025 13:58:52 -0500
+Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE106.ent.ti.com
+ (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 18
- Apr 2025 13:58:15 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE113.ent.ti.com
- (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ Apr 2025 13:58:51 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE107.ent.ti.com
+ (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 18 Apr 2025 13:58:15 -0500
+ Frontend Transport; Fri, 18 Apr 2025 13:58:51 -0500
 Received: from localhost ([10.249.36.23])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53IIwF4f117732;
-	Fri, 18 Apr 2025 13:58:15 -0500
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53IIwpfs118120;
+	Fri, 18 Apr 2025 13:58:51 -0500
 From: Nishanth Menon <nm@ti.com>
-To: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Udit Kumar <u-kumar1@ti.com>,
-        Michael
- Walle <mwalle@kernel.org>
-CC: Nishanth Menon <nm@ti.com>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2] arm64: dts: ti: k3-am62p-j722s: add rng node
-Date: Fri, 18 Apr 2025 13:58:13 -0500
-Message-ID: <174500267952.95667.4169202047923911096.b4-ty@ti.com>
+To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <vigneshr@ti.com>, <afd@ti.com>, <s-vadapalli@ti.com>,
+        <linux-kernel@vger.kernel.org>, Jayesh Choudhary <j-choudhary@ti.com>
+CC: Nishanth Menon <nm@ti.com>, <kristo@kernel.org>, <rogerq@kernel.org>,
+        <kishon@kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v2 0/5] Use ti,j784s4-pcie-ctrl for PCIe CTRL spaces
+Date: Fri, 18 Apr 2025 13:58:50 -0500
+Message-ID: <174500270525.95799.12263001003103973109.b4-ty@ti.com>
 X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250401083246.3228964-1-mwalle@kernel.org>
-References: <20250401083246.3228964-1-mwalle@kernel.org>
+In-Reply-To: <20250402113201.151195-1-j-choudhary@ti.com>
+References: <20250402113201.151195-1-j-choudhary@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_115821_571353_3B70A380 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20250418_115855_471404_D767441D 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,18 +87,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Michael Walle,
+Hi Jayesh Choudhary,
 
-On Tue, 01 Apr 2025 10:32:46 +0200, Michael Walle wrote:
-> Add the node for the random number generator inside the crypto module.
+On Wed, 02 Apr 2025 17:01:56 +0530, Jayesh Choudhary wrote:
+> Now that we have ti,j784s4-pcie-ctrl[0] let's use it. This makes these
+> K3 SoCs all match what is already done for J784s4.
 > 
+> No functional change, DT changes are fully backwards and forwards
+> compatible.
 > 
+> [0]: commit cc1965b02d6c ("dt-bindings: mfd: syscon: Add ti,j784s4-pcie-ctrl compatible")
+> <https://lore.kernel.org/all/20240204090336.3209063-1-s-vadapalli@ti.com/>
+> 
+> [...]
 
 I have applied the following to branch ti-k3-dts-next on [1].
 Thank you!
 
-[1/1] arm64: dts: ti: k3-am62p-j722s: add rng node
-      commit: bdd158389dac25ff36e041ff28591aca769f403c
+[1/5] dt-bindings: soc: ti: ti,j721e-system-controller: Add PCIe ctrl property
+      commit: c574db0b68a600f9548f0ef7bcba723562713587
+[2/5] arm64: dts: ti: k3-j721e: Add PCIe ctrl node to scm_conf region
+      commit: df2210b2da139e3a733bd7bd1406cd74d39d59a7
+[3/5] arm64: dts: ti: k3-j7200: Add PCIe ctrl node to scm_conf region
+      commit: 1f326fb84a6074772f01dc63ed4d3eb791682479
+[4/5] arm64: dts: ti: k3-j721s2: Add PCIe ctrl node to scm_conf region
+      commit: 755e47a71f9dbfbdb33fc18d20a74b7804a20acf
+[5/5] arm64: dts: ti: k3-am64: Add PCIe ctrl node to main_conf region
+      commit: 4e7ad3b4464571d7bec6869944151b27cce44435
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent up the chain during
