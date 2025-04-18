@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 809C4C369CA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 14:39:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 567CDC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 14:41:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cvwob2Kb8gXyKg36Nh6z9XqX/lokgGWDJCODrEsWX94=; b=XEQUy0xtjEcVDvmSYfdHxjtW7v
-	PkY0G6Cc0m0BWRneLyuJMGwE4fJbTA7H4RisBPW/S0WbcyoUjoeskD4D6oQWCtZGrJxsfccTnnMPW
-	Bxb3HrOBAAykLYKl/N8c0SLDamXQsVt7AcXaUaYKOMZw2lej1DDRrI9dU/PZmM9nPdv57/E6gwCub
-	bMmlbI9p0wyspvUxoQUbbTFaOD+8OAclTNRMw9OeMd2z6dTJ7Xv5a4pJnhB3Q5Kk9DVt69ThLxOei
-	i5zsJH5ocQUWitS1Ke50AxOLAr/3BgPzy8g2nQdN8E0n/DPhBINB9YdNb2+4uS3KEPbydj2o2tjDW
-	sxw2zRQA==;
+	bh=5uFngoUCG3XAir1EPtcl6+IZoVnaLlu4FAagFZB/Fro=; b=jzTywGifgL4umVXatNfw4esge8
+	oCfYmRxTNeHQChClJmp852zabIR0nAS02YjC1YUTWZ2nML2jMaKKDAXoOfTYHFVuRAS48pQUXlSdH
+	9tdSH5Nv1r6dtkmkejM5yaV7kigC7ap1p/0Uwn9FLZavNF0RpCgWtp+wMMqyd4OIy+0fS/ButJYUV
+	p8vocUxC9uWXcGdEtWufCy1DvI2SNXW16/CMP/NbBWKC0K3mSDpUAuk7ZYi+5YPYi1FYDYCt9z7nL
+	ojEiBhqXq3xSHcJyxawatolPQO5tsxOndYICsuIavEOyPb6gAh97TlgeHztJlu1h2CeDAwBXmjhu4
+	b3/b2muA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5ms3-0000000GTBs-1gFs;
-	Fri, 18 Apr 2025 14:39:11 +0000
-Received: from mout.gmx.net ([212.227.15.19])
+	id 1u5mtx-0000000GTY6-0QgY;
+	Fri, 18 Apr 2025 14:41:09 +0000
+Received: from mout.gmx.net ([212.227.15.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5mmJ-0000000GRu9-2X2F
+	id 1u5mmN-0000000GRvu-468y
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 14:33:17 +0000
+	Fri, 18 Apr 2025 14:33:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1744986793; x=1745591593; i=wahrenst@gmx.net;
-	bh=cvwob2Kb8gXyKg36Nh6z9XqX/lokgGWDJCODrEsWX94=;
+	s=s31663417; t=1744986792; x=1745591592; i=wahrenst@gmx.net;
+	bh=5uFngoUCG3XAir1EPtcl6+IZoVnaLlu4FAagFZB/Fro=;
 	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-Id:In-Reply-To:
 	 References:MIME-Version:Content-Transfer-Encoding:cc:
 	 content-transfer-encoding:content-type:date:from:message-id:
 	 mime-version:reply-to:subject:to;
-	b=POAZK0UXx6wSCp+KYwVrOkidKcNUwx4+jSIntkgzfGIy1dW1Sv7GkTADMQiwCESj
-	 4OJMilU3Jd1fBczVesZCC3A6X2WK7uUTOf3OUQHueK/1RT7aAiGzcy4PfmiTmnMH8
-	 Lyk4l8leTrsuDJNrynklIoJ+cAOOgxHe+M/v94lkMjQULLTkCDuGkLbj2L02XGize
-	 RaFvuDiANrDu5r5BXa35gPDbOJ6e36RtYcrvOuWj9SfYcN2AEiGwR+qY4n1M131Zo
-	 5Hiz2diX+Qu2ioN4tWSBpjHgD5a4BcKM16eJHNHmh1Olq/075E84JMG25cZiZ9sbq
-	 oBhbYJvFFhXYotNcTA==
+	b=k3oB2NimC/dPFRqwNP2LKu+ERMf7gI7GcBDn7i7CX5x01IO4mB7yH4J7/NI7c3rG
+	 oVYMxffCIoqkrRwA7C2RTYMNbOHD9IrJBotOhaEkBWt6v5Af1Ib8BY32VIM5IuM6A
+	 BvuqysswRnMOia1Y/Maj3TYBJx91WIjV17LoPWEQytalX9OCo/NhW9NFUUsQBWIhS
+	 7fT6b0ibSACRG1uJ6UG7Ojbh5lGBdwTNT+s/+DvoTmEdM6BmCmKCSKUw23n7c/oAP
+	 0Ni5wTxaSyjttDIbdV1HwT+v6cUyFiiaCWRkIXbqwOPwTUpoGsNDYrqotuXyzUWdO
+	 eQsjfpVaYXQZOcQxow==
 X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
 Received: from stefanw-SCHENKER ([37.4.251.153]) by mail.gmx.net (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MhU9Z-1ujGGY2ZCl-00l2Ro; Fri, 18
- Apr 2025 16:33:13 +0200
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MRCK6-1uSpye2jZs-00TvdT; Fri, 18
+ Apr 2025 16:33:12 +0200
 From: Stefan Wahren <wahrenst@gmx.net>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -57,65 +57,66 @@ Cc: Ray Jui <rjui@broadcom.com>,
 	kernel-list@raspberrypi.com,
 	devicetree@vger.kernel.org,
 	Stefan Wahren <wahrenst@gmx.net>
-Subject: [PATCH 3/3] arm64: dts: bcm: Add reference to RPi 2 (2nd rev)
-Date: Fri, 18 Apr 2025 16:33:07 +0200
-Message-Id: <20250418143307.59235-4-wahrenst@gmx.net>
+Subject: [PATCH 1/3] dt-bindings: arm: bcm2835: Add Raspberry Pi 2 (2nd rev)
+Date: Fri, 18 Apr 2025 16:33:05 +0200
+Message-Id: <20250418143307.59235-2-wahrenst@gmx.net>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250418143307.59235-1-wahrenst@gmx.net>
 References: <20250418143307.59235-1-wahrenst@gmx.net>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:yC1oGAsOqhIPcLlzaT65AWaVWLWqwjaKHgHdIwkT1u2ymciZ2i6
- Lx1FzMG33NqwNMY5MAvc8UV1djfPb9elVG6sf1WSIPbiGTxT+58X7P+MOhhfBW5Z8eHInmj
- Be3rTKFqNpeHwUnO1R50aQC+KZqGQq6k+doI08SRpOe/Pda871O+EQDr0YF0sJw4sSl+0nU
- i8GFgyTavG2FjrT7aDSNw==
-UI-OutboundReport: notjunk:1;M01:P0:OF+lGlJnBxA=;X4Q89FamiQ+Elp1zApsHvvxXy46
- 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
+X-Provags-ID: V03:K1:gpUw5xEoDWjUMHUOrFn60ujslafi+gh1KI+HgHhDszE5BjakI9J
+ RD921Z8Har11q85KCmu2xSjO9GeDZ1ypuaIhROUscWhCbUz6JIDNbWcHhjQlA51fOVNsJry
+ Yb6ZpK2Gs3XnW1IBtvZBfNZse3P44t3rKGqoIbgvraqWG2bjG8lPSLmGP4l2di6DsocOm33
+ UsLopmOjjpOIxMcD+Fp/A==
+UI-OutboundReport: notjunk:1;M01:P0:Hf/Xq4uBt/M=;Rxi5gBTXo7tWBkPJTyaaGFQtpJF
+ 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_073315_946355_76598AA0 
-X-CRM114-Status: GOOD (  11.87  )
+X-CRM114-CacheID: sfid-20250418_073320_161413_14E4AEA6 
+X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,38 +131,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds a reference to the dts of the Raspberry Pi 2 (2nd rev),
-so we don't need to maintain the content in arm64.
+Add the Raspberry Pi 2 (2nd rev) based on BCM2837 to DT schema.
 
 Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
 =2D--
- arch/arm64/boot/dts/broadcom/Makefile            | 1 +
- arch/arm64/boot/dts/broadcom/bcm2837-rpi-2-b.dts | 2 ++
- 2 files changed, 3 insertions(+)
- create mode 100644 arch/arm64/boot/dts/broadcom/bcm2837-rpi-2-b.dts
+ Documentation/devicetree/bindings/arm/bcm/bcm2835.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/boot/dts/broadcom/Makefile b/arch/arm64/boot/dts/b=
-roadcom/Makefile
-index 3d0efb93b06d..01ecfa304184 100644
-=2D-- a/arch/arm64/boot/dts/broadcom/Makefile
-+++ b/arch/arm64/boot/dts/broadcom/Makefile
-@@ -8,6 +8,7 @@ dtb-$(CONFIG_ARCH_BCM2835) +=3D bcm2711-rpi-400.dtb \
- 			      bcm2711-rpi-cm4-io.dtb \
- 			      bcm2712-rpi-5-b.dtb \
- 			      bcm2712-d-rpi-5-b.dtb \
-+			      bcm2837-rpi-2-b.dtb \
- 			      bcm2837-rpi-3-a-plus.dtb \
- 			      bcm2837-rpi-3-b.dtb \
- 			      bcm2837-rpi-3-b-plus.dtb \
-diff --git a/arch/arm64/boot/dts/broadcom/bcm2837-rpi-2-b.dts b/arch/arm64=
-/boot/dts/broadcom/bcm2837-rpi-2-b.dts
-new file mode 100644
-index 000000000000..57742ed40049
-=2D-- /dev/null
-+++ b/arch/arm64/boot/dts/broadcom/bcm2837-rpi-2-b.dts
-@@ -0,0 +1,2 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include "arm/broadcom/bcm2837-rpi-2-b.dts"
+diff --git a/Documentation/devicetree/bindings/arm/bcm/bcm2835.yaml b/Docu=
+mentation/devicetree/bindings/arm/bcm/bcm2835.yaml
+index e4ff71f006b8..2729a542c4f3 100644
+=2D-- a/Documentation/devicetree/bindings/arm/bcm/bcm2835.yaml
++++ b/Documentation/devicetree/bindings/arm/bcm/bcm2835.yaml
+@@ -52,6 +52,7 @@ properties:
+       - description: BCM2837 based Boards
+         items:
+           - enum:
++              - raspberrypi,2-model-b-rev2
+               - raspberrypi,3-model-a-plus
+               - raspberrypi,3-model-b
+               - raspberrypi,3-model-b-plus
 =2D-=20
 2.34.1
 
