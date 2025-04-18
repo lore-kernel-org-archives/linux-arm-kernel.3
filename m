@@ -4,83 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3AF3C369C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 18:13:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B75FC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 18:21:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9Jc22vPjDGeO+zr+AJ2vzRyryOfSK27EryZ/lo0anPI=; b=pi/e3A7R9BOAmH5hH+7TEDHDkI
-	u7/UwDPbHfqAhzmOQ45ZkPf3reQFav4rl0CPlVQoJxgRSxvb1rM3bzAzLWE0PRqVbTylD3t29uoBr
-	b7a8jrW8l5QDcTMhjA+qZeAKGNGGWcw/DnIGrUMAiBRKsB6WTNRIElxqYaCY4pv0zTdGFVT29K0iJ
-	OcjtJ39LY8Oz45XZQ/ZFlPXBU7KDv5onb9v3XpV3sT+EV3mBTC83V7QWpXMvgSBfPbCkr36R80FTn
-	h7pRNhQquPKg6aBiIWPtqFpJYMq2lk4s32eFRV/kNJDlZq7Bxci3djG61nLG4naNtemPXGNQxhtBb
-	QvBs8luA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d22YnNj2bvvH91hnPGqpeN3Ca1vvKu4PX7YmTnLd3BI=; b=zRplDhMfCr5/1JIsuIvzy4ocHJ
+	/i0gHKx6aOg/3UjTUSEyIgIxndVyAi3nBd8TRYmDoE5Gib9UAQuaUu0qVXcPqXn1DpDDIcY2yLoKo
+	en82oKtMdYvSOHKraNcu9Vwv2TKheJzWutledqN8DcU1EHgsIt2fiT9jh0Oiyrg9pw2Xl700mvY6a
+	mie9NyJq8+UqEHBQhnCgG4GqqRjQesIyv++1lojlpjf2vxzt2yDMAFCW/EtH5OVJlq+XNgxsNalzC
+	EkQaS153vrNKHrN3x2kOohb+F6WBQldwqrrWEqGYK6WbpUnNFHpzp4pIa5uuFds+hFRz5UCVKRuxx
+	dmwLTTmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5qDg-0000000HQ9s-1q3E;
-	Fri, 18 Apr 2025 18:13:44 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1u5qKo-0000000HRPX-0rYh;
+	Fri, 18 Apr 2025 18:21:06 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5ovw-0000000H5V6-1AQz
+	id 1u5qIs-0000000HR9U-3WF2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 16:51:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1744995076;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=9Jc22vPjDGeO+zr+AJ2vzRyryOfSK27EryZ/lo0anPI=;
-	b=Wh5NbyQr+/tK8y/3U/SYE3KJ5D0/cwhORguWg/0NbfVGA+VJ47KK/lOy1ibcxd2e0c5TIE
-	sixkEy6F8TL7oMbjcL84UY892PmgdOTyPfC273ugXp5b3gQZ5xDiaIbYqvLmSk3yh7PlAR
-	5+sn14IeYNfFrFbnDoN8YIW1TLyJNZ0=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-562-J4wB9MzXMvi_sdC6eLbTQw-1; Fri,
- 18 Apr 2025 12:51:12 -0400
-X-MC-Unique: J4wB9MzXMvi_sdC6eLbTQw-1
-X-Mimecast-MFC-AGG-ID: J4wB9MzXMvi_sdC6eLbTQw_1744995070
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id DE98B1800370;
-	Fri, 18 Apr 2025 16:51:09 +0000 (UTC)
-Received: from hydra.redhat.com (unknown [10.45.226.83])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id AA7701800D9E;
-	Fri, 18 Apr 2025 16:51:03 +0000 (UTC)
-From: Jocelyn Falempe <jfalempe@redhat.com>
-To: Miguel Ojeda <ojeda@kernel.org>,
-	Christian Schrefl <chrisi.schrefl@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Russell King <linux@armlinux.org.uk>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	rust-for-linux <rust-for-linux@vger.kernel.org>,
-	Linux ARM <linux-arm-kernel@lists.infradead.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Javier Martinez Canillas <javierm@redhat.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	dri-devel@lists.freedesktop.org
-Cc: Jocelyn Falempe <jfalempe@redhat.com>
-Subject: [PATCH] drm/panic: Use a decimal fifo to avoid u64 by u64 divide
-Date: Fri, 18 Apr 2025 18:48:16 +0200
-Message-ID: <20250418165059.560503-1-jfalempe@redhat.com>
+	Fri, 18 Apr 2025 18:19:08 +0000
+Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-b0459668101so267570a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 11:19:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1745000346; x=1745605146; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=d22YnNj2bvvH91hnPGqpeN3Ca1vvKu4PX7YmTnLd3BI=;
+        b=T4hvZ4DPii9Y6lsS4tUn5AvOH62AGeu/XJMuaQOoRz8xnw33cZNtKkTkZU4IU7kYXq
+         751md8fAizLQ6FMJVNd1oaaWib4w803n2kcL6HeX3i9eVxRFH1vGrLZTn+Vm75s8HHwy
+         K7Rgz2eDqJLoteqSqQEn5to5DUgs5gQwIqZSXs4WFjm1QCoHXoe48NcDohGqZli503sp
+         ocBFuo2FLB+tWCsCXgTJR6wXeL8VpSq7sgbyYjYPFrJFgadBb68fjxiI+vfw2p4O7zlH
+         IrDlpqhyWBxvm/WhgmFlicd5/dF5hmzDub4/gNb8GfTqEoORD5va7a9cCg/8USs08lHz
+         H5xw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745000346; x=1745605146;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=d22YnNj2bvvH91hnPGqpeN3Ca1vvKu4PX7YmTnLd3BI=;
+        b=lKhOhLGSuN1+kL+heqMl3dkKLZWRZMFI4/0e6VdPpCXmHvKKurF7nM1GyPY6B6Blbr
+         3r7OlBe3AlHZKtxUmFZF/iFulHz4VV57gnyFA9t9raqjDXOXGxuf1hE1dcB9RJW/Y5ea
+         EQYmo/pHDap1PdTYgMaS7gG3PPworDnOyYc8XnAjD9U/54WkTecwBQts8zhS1XawEIDD
+         tDzTwEtB7iiubF5+vw5cR3FrDBeNhwEW5UuBTljXsphBs9Bh+0AirU5f5ymahGd9CA7e
+         ISVEOQtfoXUmMu0c/crAO86fSQlRm5PSP70MF1CPAuwAelyZEQ03C2x40QGIcebL7dl8
+         dTEw==
+X-Forwarded-Encrypted: i=1; AJvYcCWJrCmT+Z9Q/7SVLxyYA0a/L8BlYlvVr3Nd4l4zn7U6uj7EXVbvm7TKPmgXDp7V3LOAAeZ3VHNiCrH2aa53w1FD@lists.infradead.org
+X-Gm-Message-State: AOJu0YyWrTDkqHagsv0ddO/gk5ISBbtLplFZztK5FzKqv2NFYhAJGtpV
+	dVwSQFMUmiRv7Fa5AIMLvV+4EVzhWwZOqVwe3VFGncz9ft+ezVjOR75snqYvZqo/vXiQC184O0F
+	9KN3F4vocq/hWol4KOEYOzwVnerw=
+X-Gm-Gg: ASbGncsPkB32ROJ1wTn3IY/xepqv9yHNl3GERSMK1AV3MdcYzyaLTxK/rSPoRK1d1lS
+	l1cbBjaMrr6SEQq0sSdaicLG6YyliKJ2IUzTk7+Rr9LHxMDBDpPmY5fleQnGS7gFhU7mwjcCSZb
+	uRPPgGhMCKzNyVnH65V2I2oQ==
+X-Google-Smtp-Source: AGHT+IFV4p50Y316WvC6L326TQ06DuzofFaE8ATLtfwiWvN0aeHQqLZuaNb8xpXTzoUb4z2FpJVX3YSLno6jad/7bKA=
+X-Received: by 2002:a17:90b:3b8d:b0:2ee:acea:9ec4 with SMTP id
+ 98e67ed59e1d1-3087bbad9edmr2033817a91.3.1745000345670; Fri, 18 Apr 2025
+ 11:19:05 -0700 (PDT)
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: NkCRxYnpvnyIyhIBz-CMWsG39bIBoxf-CaANgpCY4Rk_1744995070
-X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 8bit
-content-type: text/plain; charset="US-ASCII"; x-default=true
+References: <20250418165059.560503-1-jfalempe@redhat.com>
+In-Reply-To: <20250418165059.560503-1-jfalempe@redhat.com>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Fri, 18 Apr 2025 20:18:52 +0200
+X-Gm-Features: ATxdqUFNvn4gbPVQIz8Iq_5t6yfACtcQqcpNAlWXdLLoUUoWOhcu7yBY9nNqBOM
+Message-ID: <CANiq72neXsmmYQXQOYxndFWkyp1NKa=x3skekZZJOVE-wMZeuQ@mail.gmail.com>
+Subject: Re: [PATCH] drm/panic: Use a decimal fifo to avoid u64 by u64 divide
+To: Jocelyn Falempe <jfalempe@redhat.com>
+Cc: Miguel Ojeda <ojeda@kernel.org>, Christian Schrefl <chrisi.schrefl@gmail.com>, 
+	Arnd Bergmann <arnd@arndb.de>, Russell King <linux@armlinux.org.uk>, 
+	Paolo Bonzini <pbonzini@redhat.com>, rust-for-linux <rust-for-linux@vger.kernel.org>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Javier Martinez Canillas <javierm@redhat.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_095120_389789_C334D9D7 
-X-CRM114-Status: GOOD (  14.96  )
+X-CRM114-CacheID: sfid-20250418_111906_874613_FF436BDA 
+X-CRM114-Status: UNSURE (   8.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,121 +100,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 32bits ARM, u64/u64 is not supported [1], so change the algorithm
-to use a simple fifo with decimal digits as u8 instead.
-This is slower but should compile on all architecture.
+On Fri, Apr 18, 2025 at 6:51=E2=80=AFPM Jocelyn Falempe <jfalempe@redhat.co=
+m> wrote:
+>
+> Link: https://lore.kernel.org/dri-devel/CANiq72ke45eOwckMhWHvmwxc03dxr4rn=
+xxKvx+HvWdBLopZfrQ@mail.gmail.com/ [1]
 
-Link: https://lore.kernel.org/dri-devel/CANiq72ke45eOwckMhWHvmwxc03dxr4rnxxKvx+HvWdBLopZfrQ@mail.gmail.com/ [1]
-Signed-off-by: Jocelyn Falempe <jfalempe@redhat.com>
----
- drivers/gpu/drm/drm_panic_qr.rs | 71 ++++++++++++++++++++++-----------
- 1 file changed, 48 insertions(+), 23 deletions(-)
+Thanks for fixing that -- some tags for your consideration:
 
-diff --git a/drivers/gpu/drm/drm_panic_qr.rs b/drivers/gpu/drm/drm_panic_qr.rs
-index 6025a705530e..dd55b1cb764d 100644
---- a/drivers/gpu/drm/drm_panic_qr.rs
-+++ b/drivers/gpu/drm/drm_panic_qr.rs
-@@ -366,8 +366,48 @@ fn iter(&self) -> SegmentIterator<'_> {
-         SegmentIterator {
-             segment: self,
-             offset: 0,
--            carry: 0,
--            carry_len: 0,
-+            decfifo: Default::default(),
-+        }
-+    }
-+}
-+
-+/// Max fifo size is 17 (max push) + 2 (max remaining)
-+const MAX_FIFO_SIZE: usize = 19;
-+
-+/// A simple Decimal digit FIFO
-+#[derive(Default)]
-+struct DecFifo {
-+    decimals: [u8; MAX_FIFO_SIZE],
-+    len: usize,
-+}
-+
-+impl DecFifo {
-+    fn push(&mut self, data: u64, len: usize) {
-+        let mut chunk = data;
-+        for i in (0..self.len).rev() {
-+            self.decimals[i + len] = self.decimals[i];
-+        }
-+        for i in 0..len {
-+            self.decimals[i] = (chunk % 10) as u8;
-+            chunk /= 10;
-+        }
-+        self.len += len;
-+    }
-+
-+    /// Pop 3 decimal digits from the FIFO
-+    fn pop3(&mut self) -> Option<(u16, usize)> {
-+        if self.len == 0 {
-+            None
-+        } else {
-+            let poplen = 3.min(self.len);
-+            self.len -= poplen;
-+            let mut out = 0;
-+            let mut exp = 1;
-+            for i in 0..poplen {
-+                out += self.decimals[self.len + i] as u16 * exp;
-+                exp *= 10;
-+            }
-+            Some((out, NUM_CHARS_BITS[poplen]))
-         }
-     }
- }
-@@ -375,8 +415,7 @@ fn iter(&self) -> SegmentIterator<'_> {
- struct SegmentIterator<'a> {
-     segment: &'a Segment<'a>,
-     offset: usize,
--    carry: u64,
--    carry_len: usize,
-+    decfifo: DecFifo,
- }
- 
- impl Iterator for SegmentIterator<'_> {
-@@ -394,31 +433,17 @@ fn next(&mut self) -> Option<Self::Item> {
-                 }
-             }
-             Segment::Numeric(data) => {
--                if self.carry_len < 3 && self.offset < data.len() {
--                    // If there are less than 3 decimal digits in the carry,
--                    // take the next 7 bytes of input, and add them to the carry.
-+                if self.decfifo.len < 3 && self.offset < data.len() {
-+                    // If there are less than 3 decimal digits in the fifo,
-+                    // take the next 7 bytes of input, and push them to the fifo.
-                     let mut buf = [0u8; 8];
-                     let len = 7.min(data.len() - self.offset);
-                     buf[..len].copy_from_slice(&data[self.offset..self.offset + len]);
-                     let chunk = u64::from_le_bytes(buf);
--                    let pow = u64::pow(10, BYTES_TO_DIGITS[len] as u32);
--                    self.carry = chunk + self.carry * pow;
-+                    self.decfifo.push(chunk, BYTES_TO_DIGITS[len]);
-                     self.offset += len;
--                    self.carry_len += BYTES_TO_DIGITS[len];
--                }
--                match self.carry_len {
--                    0 => None,
--                    len => {
--                        // take the next 3 decimal digits of the carry
--                        // and return 10bits of numeric data.
--                        let out_len = 3.min(len);
--                        self.carry_len -= out_len;
--                        let pow = u64::pow(10, self.carry_len as u32);
--                        let out = (self.carry / pow) as u16;
--                        self.carry %= pow;
--                        Some((out, NUM_CHARS_BITS[out_len]))
--                    }
-                 }
-+                self.decfifo.pop3()
-             }
-         }
-     }
+Reported-by: Miguel Ojeda <ojeda@kernel.org>
+Closes: https://lore.kernel.org/dri-devel/CANiq72ke45eOwckMhWHvmwxc03dxr4rn=
+xxKvx+HvWdBLopZfrQ@mail.gmail.com/
+Fixes: ccb8ce526807 ("ARM: 9441/1: rust: Enable Rust support for ARMv7")
 
-base-commit: 74757ad1c105c8fc00b4cac0b7918fe3262cdb18
--- 
-2.49.0
-
+Cheers,
+Miguel
 
