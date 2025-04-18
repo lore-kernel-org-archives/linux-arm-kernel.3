@@ -4,101 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28A36C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 08:37:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D164C369C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 08:39:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hBAVQUSIG8/FVcTA2w6Be8v3FlriNZP6ZHZpLpZIhIc=; b=ZRsKM+mS2go/VqkN+kq9lHhGYq
-	39j86CvizjKGehAN2e/5WY6GIqWD0u10iUcFvyha4NXFU2tThdT/J66FsG/10USG7LrNztt2IEQoO
-	I2pa88+lnxRIiutspETkCfw2Z0jsfcMJoFeo3+zEGOq5CNLnosV3G+jwLiyoR86bx3DMQvYgmYhs8
-	Bln8gt2lsMf9VPoSsbZy+WyQjInj0/+6lWgzbmJuEUXdgiyMUJV1/FP0S7v8K3BNVgFoRHrsahha+
-	b+YKiWXDJPj0EyVBpUXDkt+Q77QhrJs56xzNAhcd7J6j4Z6oVHreD1yukcKmrp/IxQRw0z+QYf6KB
-	LoSTG8Zw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c7v6a64FwreaJA0pCAKVOqC5CViB7StYRn/BcrMkSKM=; b=i6acEYTS8xwIcwE2FV+kIjysYu
+	fH8iFknwIP02IIXQ19xNZkaSenG6zciIbqk1QWkTSkyefNzFrFoZTK/oxr+kQ9G9X5K0CJcqtXHpr
+	0HwnvsFz1buro8DJuViFxPYG3re3exG37RcTIucLWjtE9e3P1JuCw4qHXYqmXTjfcbhJpCJ1Ls9j0
+	4vVpPY3vvsCukqZFCf0LQTrmI3o6jcsQ7ETdbPy75VYH/glzfawlRKOjHVtvvUHCH1G45XX3oqbqi
+	n4PAe078wnGO0twYakhik24wg0IMLj+TSnfehWU9ma6N9T2VfNAIk0IABNwj39izHfvee+RMV/P1D
+	yMZ4kfcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5hDu-0000000FdpI-1r1A;
-	Fri, 18 Apr 2025 08:37:22 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1u5hFk-0000000Fe11-0uOk;
+	Fri, 18 Apr 2025 08:39:16 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5goi-0000000FaAt-0jvc
+	id 1u5got-0000000FaE5-2XUP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 08:11:21 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43d0618746bso11574425e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 01:11:19 -0700 (PDT)
+	Fri, 18 Apr 2025 08:11:32 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5e8be1c6ff8so2978977a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 01:11:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744963878; x=1745568678; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=hBAVQUSIG8/FVcTA2w6Be8v3FlriNZP6ZHZpLpZIhIc=;
-        b=DLwHJf0hKkFcebVIoSoMTVgZWQlaouAqAqMtTyofdFHT/l1NIcUvAgPZKiLUSYW2CR
-         LWb2FomurGeJkfE3i2PflTIEoo3cVZp5lWJmp72q2HTI8fconBH3zXNYZ1rDjx/UNxsA
-         CefbbEBrgufsy16q++XLcjPvMp/KrHqbkVhPbRKADuAF44OZffji1Wv/qzRTpSs84IV/
-         ttaKSvs94nZmprO3UjB0Qel6pSzwBL0KOi6NdsZ2u3gUP8jwjX4K8y/Ci79mfQkEZ/3e
-         0Vp2en7J44pJRRicVy4iRG/ufTIYdpXPYm0lN1Q6NXxCpCuu9qORZESScvwgo9e3qpNO
-         /0+w==
+        d=google.com; s=20230601; t=1744963890; x=1745568690; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=c7v6a64FwreaJA0pCAKVOqC5CViB7StYRn/BcrMkSKM=;
+        b=F3eQKHC7WiNBd/x1zagUviKiBVpdDCKalrTZnqALBx9L2mKwEDGgMRJVFi25GhEXY2
+         WzRr7MB23WBRjW4tN3mRF+jjuyy1UtbLnONpvfVLwe14WeC9khWIBHT7WUZFYQFdwcfR
+         paW2cZrvmKC8zfw4DgTmtN3rMyc7kmruCKGVMr5IYrR5Tw2jgQpnvyOMwE4JgRudjcZa
+         IVQa90aUtcJQyUzw5VnTddkfQXbXtvxXF1ent1r+ghKp5rLciTu3FlPg2r20Z1Gx6AHw
+         aDPgCIrMBH8bCrxuQ1tfGcbiVllWa2MzHfcJk77r/4Rwjl806qKN1/CfNT1kT4MLkPZd
+         ilMQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744963878; x=1745568678;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=hBAVQUSIG8/FVcTA2w6Be8v3FlriNZP6ZHZpLpZIhIc=;
-        b=jKnJl5ZZk88GwQ4H+d1060vCUov3pQiqEbiPZNo+nmLyVLtD8GbJG3+fOPBSaGw0GP
-         6HjIz2dpNOCQkrldktVatXMMOz0G0oS6XLIR+K1XgBNYIMx9w2Qr2wGt0TwEZZf3IoMU
-         EnBZX8szdCx4iGj4RKeacrSztH1dnJQp6ojAwtLguCrG3zDN3aBV/w4U2MAOQWtl0sHN
-         1FsYC872HpzHK4H4mW+grcwO009M33WUIVT2zoWcEzlZQoJTmuNmp4IZOXQrUnfrI18f
-         oVjUOiolp44jkAw4uxAHodtH2yz2SJvVuS/Nd1RNSHLhwAS6yitP5P+dX6qs4FnPmvYX
-         m68Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUs7R/OAg8pygghtACpgWwaenrG8zOwBysXVRG00yk54UdyRSmlu+8nIqcWCSF7JkZ8L/nHeIY1lbH+SG4yEUBs@lists.infradead.org
-X-Gm-Message-State: AOJu0Yysf+Abd/do21Zy/wdrK3FHEIWCxHnPmJyGEDCZuxJBJiZOrKeM
-	P/HukANzk/XhO6J/CDwITudfZVdjbWs2LMPccqW/7TjK8B8dEmgoM2AUzeiqGP4=
-X-Gm-Gg: ASbGnctBk7WrHy/FbAucIU+anmLxpGxEzVL/BLm7hFO3f7JdknWQCRRfJJZf9urG5VU
-	UlfjN8eSXP9fDSJ9BWyUwEqNot9W3R0ON8nG56/fqBH5s/r7lSn+/F/ZoVbn8ClCxCvrsGnclI8
-	6+YktoKtAo1E4tNsm1r3IEDHaTj3zrg5CHpMe0HqDbiv2xCzRX0XY7GoBCLm5z4ZFb/TwszGOex
-	C5ZTrlaQc3jBRGXfzkDK6i651AkPohhIzPL3cKQS3BN4XPB2KiGhJrZIcLqihrGGs2zwAwewN/l
-	4xwib+XAvGe6poGT/ifEat5E4n0WOpTW0CrzpB5xu3X+DBiOMG5j3GxtZq/YEve3k4q3zYgtZcQ
-	kuBz1K7rxbZfL8Q==
-X-Google-Smtp-Source: AGHT+IEqy72HPc2JLxk7cwyoLf4zIk+ZCEFJN86qbQUa/AJZooBD3mTTOHD22C31nQiUieXQmKAm3g==
-X-Received: by 2002:a05:600c:4ecc:b0:43c:eeee:b70a with SMTP id 5b1f17b1804b1-4406ac0aec8mr10500975e9.22.1744963878336;
-        Fri, 18 Apr 2025 01:11:18 -0700 (PDT)
-Received: from mai.linaro.org (146725694.box.freepro.com. [130.180.211.218])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4406d5bbd12sm12743035e9.20.2025.04.18.01.11.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Apr 2025 01:11:17 -0700 (PDT)
-Date: Fri, 18 Apr 2025 10:11:16 +0200
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-To: Anand Moon <linux.amoon@gmail.com>
-Cc: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	"open list:SAMSUNG THERMAL DRIVER" <linux-pm@vger.kernel.org>,
-	"open list:SAMSUNG THERMAL DRIVER" <linux-samsung-soc@vger.kernel.org>,
-	"moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	"open list:CLANG/LLVM BUILD SUPPORT:Keyword:b(?i:clang|llvm)b" <llvm@lists.linux.dev>
-Subject: Re: [PATCH v5 2/3] drivers/thermal/exymos: Remove redundant IS_ERR()
- checks for clk_sec clock
-Message-ID: <aAIJJKGif3i3-97g@mai.linaro.org>
-References: <20250410063754.5483-1-linux.amoon@gmail.com>
- <20250410063754.5483-3-linux.amoon@gmail.com>
+        d=1e100.net; s=20230601; t=1744963890; x=1745568690;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=c7v6a64FwreaJA0pCAKVOqC5CViB7StYRn/BcrMkSKM=;
+        b=kQTbQOYdw0JmXozRHpaKUNpwhDdBpddAHWt3BaGXa2ILkhhA3C6p3HYMJsdqTs831Z
+         BWXCNpE4VujnS+AlvSch0hC/kwlzvQlmp8PBIQi8PBErUdp0l1jtyNbiPRV6XsisfjLz
+         ykNxhKe6CibxXuaeYJBmFcQ7fGBZpGpPaadfMYqMZP09o5Qwv3vfUyuzQ4hf7my+IrCr
+         Jw735GwsCJ5pdqBC1EgEkZNsovUCgoIabKU3lQupIFkErNk+bZOfWDJWTmxChwLG1wa6
+         V/SrpD+3QkdLYLgscaoBD3SOb1oXbTA6pl/XojCOAv7bP8JeeLws2oIHNWMNk+fknGt+
+         PcLw==
+X-Forwarded-Encrypted: i=1; AJvYcCW+nqIAun2ItJnHh2TIRi/zHenZm6xR4GZfSDaDAxHCvJH9diKqWDz2muSwloAWj13xNbTxGs+UrjOOaUH/wqUm@lists.infradead.org
+X-Gm-Message-State: AOJu0YwZof6pPWSfVEO1IxVoY3HRpaB9v1QlxcMRX79TuBi+vFghxZcq
+	AUACvcvfjHPoSlqBaSeMa/F3Dr4sFN+Fuk9xxwL6XURHXWGAZgEjgs/nGSdx2hDBdIRegDra507
+	dLLrAAGe2KaVIKG6uGITTHHDDeCTl46ThFAOC1B811ftO+T1nNg==
+X-Gm-Gg: ASbGncsEi6ThmQxhz3DzGpD46G7/XXP+Q6kPE+lHRtg3blVKBV9NBZDaQKuE09IY9F+
+	3jT2lMhnxSG7WSrYmUwsWYitNxZciFsDAtsiexLL0dzjrgN1LKXSq8qO0bI2vTV6o+attERjTwV
+	V+0lsEf3oyx8hFLlFSvQbajUM/9q7r4nLh6+a+87wTM2jKGGQ=
+X-Google-Smtp-Source: AGHT+IHUdZc5HDjrZYA8LWyh9msnR6W71lP04fz39bJlOI9JeLCz/9ra+wyxcFCuEbg77rntJwlmJg7XBKEi694wwtw=
+X-Received: by 2002:a05:6512:1045:b0:545:2d4d:36de with SMTP id
+ 2adb3069b0e04-54d6e6352a2mr234675e87.31.1744937653242; Thu, 17 Apr 2025
+ 17:54:13 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250410063754.5483-3-linux.amoon@gmail.com>
+References: <20250417142513.312939-1-ulf.hansson@linaro.org>
+In-Reply-To: <20250417142513.312939-1-ulf.hansson@linaro.org>
+From: Saravana Kannan <saravanak@google.com>
+Date: Thu, 17 Apr 2025 17:53:36 -0700
+X-Gm-Features: ATxdqUHzOUVh8E2tR73MoZ4FAVpBQN57AXnmN-9HADX6gA9CnvHoa6p8qDTye_I
+Message-ID: <CAGETcx_=hEuOs09=gRe58+34PFa0bfsYoAK9kYOn90FP5nDjmw@mail.gmail.com>
+Subject: Re: [PATCH 00/11] pmdomain: Add generic ->sync_state() support to genpd
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Stephen Boyd <sboyd@kernel.org>, linux-pm@vger.kernel.org, 
+	"Rafael J . Wysocki" <rafael@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Michael Grzeschik <m.grzeschik@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, 
+	Abel Vesa <abel.vesa@linaro.org>, Devarsh Thakkar <devarsht@lewv0571a.ent.ti.com>, 
+	Peng Fan <peng.fan@oss.nxp.com>, Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+	Johan Hovold <johan@kernel.org>, Maulik Shah <maulik.shah@oss.qualcomm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_011120_223669_A3191977 
-X-CRM114-Status: GOOD (  19.58  )
+X-CRM114-CacheID: sfid-20250418_011131_644959_7AAD94DB 
+X-CRM114-Status: GOOD (  25.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,60 +99,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 10, 2025 at 12:07:49PM +0530, Anand Moon wrote:
-> Remove unnecessary IS_ERR() checks for the clk_sec clock,
-> the clk_enable() and clk_disable() functions can handle NULL clock
-> pointers, so the additional checks are redundant and have been removed
-> to simplify the code.
-> 
-> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+On Thu, Apr 17, 2025 at 7:25=E2=80=AFAM Ulf Hansson <ulf.hansson@linaro.org=
+> wrote:
+>
+> If a PM domain (genpd) is powered-on during boot, there is probably a goo=
+d
+> reason for it. Therefore it's known to be a bad idea to allow such genpd =
+to be
+> powered-off before all of its consumer devices have been probed. This ser=
+ies
+> intends to fix this problem.
+>
+> We have been discussing these issues at LKML and at various Linux-confere=
+nces
+> in the past. I have therefore tried to include the people I can recall be=
+ing
+> involved, but I may have forgotten some (my apologies), feel free to loop=
+ them
+> in.
+>
+> A few notes:
+> *)
+> Even if this looks good, the last patch can't go in without some addition=
+al
+> changes to a couple of existing genpd provider drivers. Typically genpd p=
+rovider
+> drivers that implements ->sync_state() need to call of_genpd_sync_state()=
+, but I
+> will fix this asap, if we think the series makes sense.
+>
+> *)
+> Patch 1 -> 3 are just preparatory cleanups.
+>
+> *)
+> I have tested this with QEMU with a bunch of local test-drivers and DT no=
+des.
+> Let me know if you want me to share this code too.
+>
+>
+> Please help review and test!
+> Finally, a big thanks to Saravana for all the support!
 
-Typo in the subject: s/exymos/exynos/
+You are welcome! Thank you for getting this series done! Happy to see
+sync_state() support being added to another framework.
 
-> ---
-> v5: None
-> v4: drop IE_ERR() for clk_unprepare() as its handle in earlier code.
-> v3: improve the commit message.
-> ---
->  drivers/thermal/samsung/exynos_tmu.c | 6 ++----
->  1 file changed, 2 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/thermal/samsung/exynos_tmu.c b/drivers/thermal/samsung/exynos_tmu.c
-> index 3657920de000..ac3b9d2c900c 100644
-> --- a/drivers/thermal/samsung/exynos_tmu.c
-> +++ b/drivers/thermal/samsung/exynos_tmu.c
-> @@ -258,8 +258,7 @@ static int exynos_tmu_initialize(struct platform_device *pdev)
->  
->  	mutex_lock(&data->lock);
->  	clk_enable(data->clk);
-> -	if (!IS_ERR(data->clk_sec))
-> -		clk_enable(data->clk_sec);
-> +	clk_enable(data->clk_sec);
->  
->  	status = readb(data->base + EXYNOS_TMU_REG_STATUS);
->  	if (!status) {
-> @@ -269,8 +268,7 @@ static int exynos_tmu_initialize(struct platform_device *pdev)
->  		data->tmu_clear_irqs(data);
->  	}
->  
-> -	if (!IS_ERR(data->clk_sec))
-> -		clk_disable(data->clk_sec);
-> +	clk_disable(data->clk_sec);
->  	clk_disable(data->clk);
->  	mutex_unlock(&data->lock);
+I skimmed the series and at a high level it looks right. Not too
+familiar with power domain code, so I didn't go deep. Just reviewed
+the fw_devlink and driver core parts of it.
 
-To be replaced by devm_clk_get_enabled() ?
+-Saravana
 
->  
-> -- 
-> 2.49.0
-> 
-
--- 
-
- <http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
-
-Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
-<http://twitter.com/#!/linaroorg> Twitter |
-<http://www.linaro.org/linaro-blog/> Blog
+>
+> Kind regards
+> Ulf Hansson
+>
+>
+> Saravana Kannan (1):
+>   driver core: Add dev_set_drv_sync_state()
+>
+> Ulf Hansson (10):
+>   pmdomain: core: Convert genpd_power_off() to void
+>   pmdomain: core: Simplify return statement in genpd_power_off()
+>   pmdomain: core: Use genpd->opp_table to simplify error/remove path
+>   pmdomain: core: Add a bus and a driver for genpd providers
+>   pmdomain: core: Use device_set_node() to assign the fwnode too
+>   pmdomain: core: Add the genpd->dev to the genpd provider bus
+>   pmdomain: core: Export a common ->sync_state() helper for genpd
+>     providers
+>   pmdomain: core: Add internal ->sync_state() support for genpd
+>     providers
+>   pmdomain: core: Default to use of_genpd_sync_state() for genpd
+>     providers
+>   pmdomain: core: Leave powered-on genpds on until ->sync_state()
+>
+>  drivers/pmdomain/core.c   | 273 +++++++++++++++++++++++++++++++-------
+>  include/linux/device.h    |  12 ++
+>  include/linux/pm_domain.h |  11 ++
+>  3 files changed, 249 insertions(+), 47 deletions(-)
+>
+> --
+> 2.43.0
+>
 
