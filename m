@@ -4,67 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFE60C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 11:31:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B312CC369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 11:33:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RhKKzOTavQSyVncFCb3AgWCcG0eXDV8j6b9vH+lBEeA=; b=rUP04ampI6g+n49pkjZJmr9WqW
-	vV63R3jlhk3TNIGHy5C8M734ji20GHU1t4dy3NizTE9cgbU2Qbu4PJ/nirL+PLPt6y76gQb5TVbaj
-	/aaB5bajBZWAlFINorYKUUXKFLl/sznLm61EDegx49nw2Yv9uo660DgIFJwdHTPxZolPeend18GM/
-	3vQNQDr+AN+Bh4+WQwgB+qAFaD5ViXOuVMsXuwL22TD9jNQCGfkDEskfL2gW56XJRz2IsbKKoi2Gq
-	DtOCQVJ60l5E5BVylZmYbGIgkSudMjOKngYXFM4wgwyUZ8EIa2M6SACo1WGJRIr7ouedeB6CnjbNm
-	iWk6Tgug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+qDFrSAF6YSEJAVtxHNB6hoXiW3GZBDKsUgobKo37Dc=; b=GA5PGiq5NtBhAMy+3yBcHqxUkp
+	JQIhIsBBccbLoMzjDvmRIhv25kvDWk5Rr9EoaJ9yWa+lqIEsrf0yo7Gk7XjTX5XHarNkHIdIxki13
+	x68AOxFnBVx3i+oaAPa8r/BooyKRKF1N+2SVvsbYhEy7Ba4x18oZVtb44OCV2zMcgxRUvtyVStSJO
+	+wA6P+vdPYur6TNDp0nEgBbahMhb3sf4WzMPAqQ6TUjW0dTKgVlqniK+UDIa7p9rv2qewX4qoICOh
+	/VPPdXOEOBR9JZTIsE24OOeXu+nKeR/QhmKvLG9qkNMQwMeg+/QmHYAWR9KIXChFzVZQyyX53KyAL
+	EcyqSmUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5jw8-0000000Fypw-3k89;
-	Fri, 18 Apr 2025 11:31:12 +0000
-Received: from smtp-18.smtpout.orange.fr ([80.12.242.18] helo=smtp.smtpout.orange.fr)
+	id 1u5jxz-0000000Fz2j-31lR;
+	Fri, 18 Apr 2025 11:33:07 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5jt9-0000000FySm-3pqh
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 11:28:10 +0000
-Received: from localhost.localdomain ([90.11.132.44])
-	by smtp.orange.fr with ESMTPA
-	id 5jt3uIpWSETiN5jt6uVhXy; Fri, 18 Apr 2025 13:28:04 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1744975684;
-	bh=RhKKzOTavQSyVncFCb3AgWCcG0eXDV8j6b9vH+lBEeA=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=VMdEVWS2hqlZxDo0TKNCxl3joZjhxZ5dBS7jxMf3Ig2oLFcedqURf035X+Jw176ZQ
-	 QcsWaiXrLT8X5xmmDrjRQYF2ImTuhZ+VMWlUGkk/Mwl7ck6Gv7cp8wiTan9TvMxRWk
-	 ERm0gI5Vrr/96HQVBSu44t5mHNziyqFa4Jg5ddIW69TfzUTgddT8Ju8VD/okA5wfv6
-	 4gZlT5pA6eIbzwrR0wG7RNeWSL9Uze7pujd56A3Mur39GyaOsqWIE99ykQ5N08Hfs3
-	 Wv4hg3yq+TMbTHpEnLoIPgPWakRcLRKzS1ytgYg4Tr9o9LURl4djvDBVsZJICso9yW
-	 4AhmuJ7XVYN7Q==
-X-ME-Helo: localhost.localdomain
-X-ME-Auth: Y2hyaXN0b3BoZS5qYWlsbGV0QHdhbmFkb28uZnI=
-X-ME-Date: Fri, 18 Apr 2025 13:28:04 +0200
-X-ME-IP: 90.11.132.44
-From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-To: Mark Brown <broonie@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Patrice Chotard <patrice.chotard@foss.st.com>
-Cc: linux-kernel@vger.kernel.org,
-	kernel-janitors@vger.kernel.org,
-	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
-	linux-spi@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] spi: stm32-ospi: Fix an error handling path in stm32_ospi_probe()
-Date: Fri, 18 Apr 2025 13:27:53 +0200
-Message-ID: <2674c8df1d05ab312826b69bfe9559f81d125a0b.1744975624.git.christophe.jaillet@wanadoo.fr>
-X-Mailer: git-send-email 2.49.0
+	id 1u5jvE-0000000FygZ-1gkd;
+	Fri, 18 Apr 2025 11:30:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 39B5CA4B402;
+	Fri, 18 Apr 2025 11:24:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63B3DC4CEE2;
+	Fri, 18 Apr 2025 11:30:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744975815;
+	bh=yNO/Vv11a/JNX5B7+Pdq/at6wgGWnlT9+n3hN8pOBzo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BiByg55Xfnr4eelEkmxAH7NdKKRQ+cA8HY7+HclMeCvg7c7jkhguGTwVHzS+y++mN
+	 Ash4JUtwAqWDVUlc5IDef0bax1HCRFiHdeqsORE0LUnWFtNdD80VwqGBuoUm85o6G9
+	 MRsJ8QpXNlACPP1U0xaJ2bmCt9zzkxBJnLkArVgjcNdspWw3BPr4EKu2mwnBmQP+A0
+	 yVv4OcBb97VgmQptxtouEwwP24vjwNsP5MFAUd6IXzURc/YDTRJQtniSTuQemduv1A
+	 oGYJpzDJGH2BsXFF8m1h3Gd7ISbC/4UsF6BIbDzLyrTyQkjKqBpUwJ1epVKd1yc91T
+	 RPJx3aEzYhetQ==
+Date: Fri, 18 Apr 2025 17:00:10 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: Bincai Liu <bincai.liu@mediatek.com>
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Chunfeng Yun <chunfeng.yun@mediatek.com>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Jitao shi <jitao.shi@mediatek.com>, CK Hu <ck.hu@mediatek.com>,
+	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org
+Subject: Re: [PATCH 5/5] drm/mediatek: Add eDP phy driver for mt8196
+Message-ID: <aAI3wkJmNH6ZcdfO@vaman>
+References: <20250418065313.8972-1-bincai.liu@mediatek.com>
+ <20250418065313.8972-6-bincai.liu@mediatek.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250418065313.8972-6-bincai.liu@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_042809_157407_E7B81B41 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250418_043016_573172_889D2431 
+X-CRM114-Status: GOOD (  19.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,34 +86,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If an error occurs after a successful stm32_ospi_dma_setup() call, some
-dma_release_channel() calls are needed to release some resources, as
-already done in the remove function.
+On 18-04-25, 14:52, Bincai Liu wrote:
+> Add code to support eDP phy for mt8196.
 
-Fixes: 79b8a705e26c ("spi: stm32: Add OSPI driver")
-Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
----
-Compile tested-only
----
- drivers/spi/spi-stm32-ospi.c | 4 ++++
- 1 file changed, 4 insertions(+)
+Why is the patch title not "phy: add eDP phy...." why is this tagged
+drm? 
 
-diff --git a/drivers/spi/spi-stm32-ospi.c b/drivers/spi/spi-stm32-ospi.c
-index 668022098b1e..9ec9823409cc 100644
---- a/drivers/spi/spi-stm32-ospi.c
-+++ b/drivers/spi/spi-stm32-ospi.c
-@@ -960,6 +960,10 @@ static int stm32_ospi_probe(struct platform_device *pdev)
- err_pm_enable:
- 	pm_runtime_force_suspend(ospi->dev);
- 	mutex_destroy(&ospi->lock);
-+	if (ospi->dma_chtx)
-+		dma_release_channel(ospi->dma_chtx);
-+	if (ospi->dma_chrx)
-+		dma_release_channel(ospi->dma_chrx);
- 
- 	return ret;
- }
+> 
+> Signed-off-by: Bincai Liu <bincai.liu@mediatek.com>
+> ---
+>  drivers/phy/mediatek/Makefile      |   1 +
+>  drivers/phy/mediatek/phy-mtk-edp.c | 262 +++++++++++++++++++++++++++++
+>  2 files changed, 263 insertions(+)
+>  create mode 100644 drivers/phy/mediatek/phy-mtk-edp.c
+> 
+> diff --git a/drivers/phy/mediatek/Makefile b/drivers/phy/mediatek/Makefile
+> index 1b8088df71e8..49d9ea42497a 100644
+> --- a/drivers/phy/mediatek/Makefile
+> +++ b/drivers/phy/mediatek/Makefile
+> @@ -4,6 +4,7 @@
+>  #
+>  
+>  obj-$(CONFIG_PHY_MTK_DP)		+= phy-mtk-dp.o
+> +obj-$(CONFIG_PHY_MTK_DP)		+= phy-mtk-edp.o
+>  obj-$(CONFIG_PHY_MTK_PCIE)		+= phy-mtk-pcie.o
+>  obj-$(CONFIG_PHY_MTK_TPHY)		+= phy-mtk-tphy.o
+>  obj-$(CONFIG_PHY_MTK_UFS)		+= phy-mtk-ufs.o
+> diff --git a/drivers/phy/mediatek/phy-mtk-edp.c b/drivers/phy/mediatek/phy-mtk-edp.c
+> new file mode 100644
+> index 000000000000..fadcbda55b70
+> --- /dev/null
+> +++ b/drivers/phy/mediatek/phy-mtk-edp.c
+> @@ -0,0 +1,262 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (c) 2019-2022 MediaTek Inc.
+> + * Copyright (c) 2022 BayLibre
+> + */
+> +
+> +#include <linux/delay.h>
+> +#include <linux/io.h>
+> +#include <linux/mfd/syscon.h>
+> +#include <linux/of.h>
+> +#include <linux/phy/phy.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/regmap.h>
+> +
+> +#define PHYD_OFFSET			0x0000
+> +#define PHYD_DIG_LAN0_OFFSET		0x1000
+> +#define PHYD_DIG_LAN1_OFFSET		0x1100
+> +#define PHYD_DIG_LAN2_OFFSET		0x1200
+> +#define PHYD_DIG_LAN3_OFFSET		0x1300
+> +#define PHYD_DIG_GLB_OFFSET		0x1400
+> +
+> +#define DP_PHY_DIG_PLL_CTL_0		(PHYD_DIG_GLB_OFFSET + 0x10)
+> +#define FORCE_PWORE_STATE_FLDMASK		GENMASK(2, 0)
+> +#define FORCE_PWORE_STATE_VALUE			0x7
+> +
+> +#define IPMUX_CONTROL			(PHYD_DIG_GLB_OFFSET + 0x98)
+> +#define EDPTX_DSI_PHYD_SEL_FLDMASK		0x1
+> +#define EDPTX_DSI_PHYD_SEL_FLDMASK_POS		0
+> +
+> +#define DP_PHY_DIG_TX_CTL_0		(PHYD_DIG_GLB_OFFSET + 0x74)
+> +#define TX_LN_EN_FLDMASK			0xf
+> +
+> +#define mtk_edp_PHY_DIG_PLL_CTL_1	(PHYD_DIG_GLB_OFFSET + 0x14)
+> +#define TPLL_SSC_EN				BIT(8)
+> +
+> +#define mtk_edp_PHY_DIG_BIT_RATE		(PHYD_DIG_GLB_OFFSET + 0x3C)
+> +#define BIT_RATE_RBR				0x1
+> +#define BIT_RATE_HBR				0x4
+> +#define BIT_RATE_HBR2				0x7
+> +#define BIT_RATE_HBR3				0x9
+> +
+> +#define mtk_edp_PHY_DIG_SW_RST		(PHYD_DIG_GLB_OFFSET + 0x38)
+> +#define DP_GLB_SW_RST_PHYD			BIT(0)
+> +#define DP_GLB_SW_RST_PHYD_MASK			BIT(0)
+> +
+> +#define DRIVING_FORCE			0x30
+> +#define EDP_TX_LN_VOLT_SWING_VAL_FLDMASK	0x6
+> +#define EDP_TX_LN_VOLT_SWING_VAL_FLDMASK_POS	1
+> +#define EDP_TX_LN_PRE_EMPH_VAL_FLDMASK		0x18
+> +#define EDP_TX_LN_PRE_EMPH_VAL_FLDMASK_POS	3
+> +
+> +struct mtk_edp_phy {
+> +	struct regmap *regs;
+> +};
+> +
+> +enum DPTX_LANE_NUM {
+> +	DPTX_LANE0 = 0x0,
+> +	DPTX_LANE1 = 0x1,
+> +	DPTX_LANE2 = 0x2,
+> +	DPTX_LANE3 = 0x3,
+> +	DPTX_LANE_MAX,
+> +};
+> +
+> +enum DPTX_LANE_COUNT {
+> +	DPTX_LANE_COUNT1 = 0x1,
+> +	DPTX_LANE_COUNT2 = 0x2,
+> +	DPTX_LANE_COUNT4 = 0x4,
+> +};
+> +
+> +static void mtk_edptx_phyd_reset_swing_pre(struct mtk_edp_phy *edp_phy)
+> +{
+> +	regmap_update_bits(edp_phy->regs, PHYD_DIG_LAN0_OFFSET + DRIVING_FORCE,
+> +			   EDP_TX_LN_VOLT_SWING_VAL_FLDMASK |
+> +			   EDP_TX_LN_PRE_EMPH_VAL_FLDMASK, 0x0);
+> +	regmap_update_bits(edp_phy->regs, PHYD_DIG_LAN1_OFFSET + DRIVING_FORCE,
+> +			   EDP_TX_LN_VOLT_SWING_VAL_FLDMASK |
+> +			   EDP_TX_LN_PRE_EMPH_VAL_FLDMASK, 0x0);
+> +	regmap_update_bits(edp_phy->regs, PHYD_DIG_LAN2_OFFSET + DRIVING_FORCE,
+> +			   EDP_TX_LN_VOLT_SWING_VAL_FLDMASK |
+> +			   EDP_TX_LN_PRE_EMPH_VAL_FLDMASK, 0x0);
+> +	regmap_update_bits(edp_phy->regs, PHYD_DIG_LAN3_OFFSET + DRIVING_FORCE,
+> +			   EDP_TX_LN_VOLT_SWING_VAL_FLDMASK |
+> +			   EDP_TX_LN_PRE_EMPH_VAL_FLDMASK, 0x0);
+> +}
+> +
+> +static int mtk_edp_phy_init(struct phy *phy)
+> +{
+> +	struct mtk_edp_phy *edp_phy = phy_get_drvdata(phy);
+> +
+> +	regmap_update_bits(edp_phy->regs, IPMUX_CONTROL, 0,
+> +			   EDPTX_DSI_PHYD_SEL_FLDMASK);
+> +
+> +	regmap_update_bits(edp_phy->regs, DP_PHY_DIG_PLL_CTL_0,
+> +			   FORCE_PWORE_STATE_VALUE,
+> +			   FORCE_PWORE_STATE_FLDMASK);
+> +
+> +	return 0;
+
+consider making this void return type
+
 -- 
-2.49.0
-
+~Vinod
 
