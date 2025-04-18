@@ -4,88 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96C11C369D1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19D24C369C9
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 07:59:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8Fv+1SPiZIDJMfYYyVTz9JfiGK8xQsdvl6qvFoYBv9E=; b=pQPECuKSA69tSvdc9Cb+diysR2
-	9YXQakvasaipp70cgqPvQiQ6+/exV55oDbJw+fQzrK+3y59v+AZOjUcR13Jq1Au4HYxH2E4f6+Lza
-	ryXoSzWHsJGI/QjEDAuSJK1b9oWc2uRVgCFZe6NUvx1lbOTKIggFWUjQLEk5NmZk7kgqGEAbq9iYq
-	DiHCrx7Hc2Dhkg54fvQgzcVUdKZMvYjf2rZlz2FajwqebHX7AoK3xiV57IF2zKYviMU8/xxS2d+dU
-	oZPT7GcoJ6UqOUWvD9rqnMJdMEMSvek5gTXVmUv5ZcXDeKD/6od37iuuukkEh3DvNvx6as9xm9Nwh
-	kObVPwXA==;
+	bh=m+k4R1ykPx7LroqQFw7M5Rgek5SdYdedbJKCoZJkpKk=; b=sc90lM/rGvNmaj6BtTwb3XkXPK
+	a8x5TUD8bpOK+P7JQHt3ElLrORbDv3krTUw09UN82KY6hsi7Xuw9UhPwacBlSb5TDGHDpKSvP5UWs
+	gVoF5drgHMHs5hFVs3kTWwUFyW/unqiFsmGzeQ34GoGkRSoeeIuKO5yNhFipr4M4wCzY5n589Ebzj
+	4QeHtsRK5UAYXUiTXnNAQdIOzTOnTzgmY7q+QJPb9CMRKKFRrPz6rOWjL7BLzmhhG2cQCjEnh5g7M
+	HRhPwn02Eyko4SImAVFlUpximgucFh/yGjlnmYQroU+6Z0lpU2a1Y5eTNil6VohC7wQ6BWiLpHeqD
+	K6jQ1szg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5gdN-0000000FXjR-2duJ;
-	Fri, 18 Apr 2025 07:59:37 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1u5gdS-0000000FXoE-32ot;
+	Fri, 18 Apr 2025 07:59:42 +0000
+Received: from mta-64-226.siemens.flowmailer.net ([185.136.64.226])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5g7M-0000000FT3V-24ug
+	id 1u5gCW-0000000FTpb-1FZT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 07:26:33 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-54ac9b3ddf6so1614524e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 00:26:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1744961190; x=1745565990; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8Fv+1SPiZIDJMfYYyVTz9JfiGK8xQsdvl6qvFoYBv9E=;
-        b=CuON+oXQ3lJmjxreafF+5HXE/GhM2MGNsYhtdLrridjYS0/AOxvTkXLuruYaMISOts
-         2hE692il5vQk+JKnsaeP2H3/nNtgsn0Poa5bripkV/9Se6DhojrXdlP9K48h6l6S6B4a
-         4ALehNTexL0sxMBTkbGOyV+/JLSfNiZw56aR1xoEL9HSGhBK+JB8jVjyIpbYObA6Uh2b
-         yabytoDbCzGL/yFmWpvfeP6wZgxLdEcj0Zhme69HIZ7pUOU7Q6yYYBFbGMAontgfHJ98
-         vIvna2raofxSU95gIVbH6dD7kYURD1hQTpu6Ppse+w25ijsnvsa2I725R7TIv2rNtdPs
-         8T9A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744961190; x=1745565990;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=8Fv+1SPiZIDJMfYYyVTz9JfiGK8xQsdvl6qvFoYBv9E=;
-        b=gED6dpcA4etGB+oxdmyIkMvxRIkr1SABz1WQHlakAth9C+A0n3l1fD/CEK09xmG9t3
-         z2rgUWSn838744z0AOK7YfW1k+FfFn8m/C1W4ra1gIsWAysioEku/7w/Rg6d+xsLaYwJ
-         zjySUeEkj8WZDnyqy5o7GUodio2DMS0xc7iA3sFGlCdyy0bFfBWpRQS7dyPH2enDXDbB
-         U3Hz+a7TEuwnU+LJa7YPjUyQp++1fXuxoSkmN15noRJBmvlAdefZ0nARqgkQE3LaxL3l
-         ih9t5lJYEV/PFzXRMP8GI97fl14odnYGffRPB8mz7D+hkbC2NP8p25NuDSoaDZRVqHNT
-         zauQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUWtvfGl8KyhQWr/WAA1f328AoA1CXeEOPOPxigFzMPfReNuNUDs4p4aJhgvAmbaKnniW5Td/E9NnkAsS5pswnN@lists.infradead.org
-X-Gm-Message-State: AOJu0YxCcgd5zV5GhaDS3fym2ZIpG9ipzWdW+exLjk3ZsjRawiebUaX6
-	60PiV3uyf+4bjEeUulfaiMRfpYZT8t0I66rNVftP6Wc3dwebcDhSfMwRYDDsr7fk59ycWDTBt+f
-	erUw7Nh98QJnXYP5dHBd2uqzLjtJpojY25arMebRhnxfKQMZZ/XG/
-X-Gm-Gg: ASbGncvxBSnoXlSkRah6HALDMmJY1/sASbEB7kwst19Vb17cE1c+6e6os7r1ZJaDkRh
-	DZXPdiJyoOca6ri3/ShvcDiHKptxXyiBxIzJV0bu7Fkj9Cc0fCamNWyE9EPAYdAHf0T3zd+kgg0
-	9xBwgJQgxriqYo1MxEvlAWToouTfCzS3kV4jCt5r0R6I70NUKC/w==
-X-Google-Smtp-Source: AGHT+IF0A2qLak23h90FXemjjq1QSkYxyUlJpX0SxLY+jGfQkwpWy77tDR0Zm8B6OSQfWtCedekDAXvMVmWnr/eLmso=
-X-Received: by 2002:a05:6512:15aa:b0:545:576:cbca with SMTP id
- 2adb3069b0e04-54d6e61d361mr87421e87.8.1744923382449; Thu, 17 Apr 2025
- 13:56:22 -0700 (PDT)
+	Fri, 18 Apr 2025 07:31:53 +0000
+Received: by mta-64-226.siemens.flowmailer.net with ESMTPSA id 2025041807314967128b3cef671f29ee
+        for <linux-arm-kernel@lists.infradead.org>;
+        Fri, 18 Apr 2025 09:31:49 +0200
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; s=fm2;
+ d=siemens.com; i=huaqian.li@siemens.com;
+ h=Date:From:Subject:To:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Cc:References:In-Reply-To;
+ bh=m+k4R1ykPx7LroqQFw7M5Rgek5SdYdedbJKCoZJkpKk=;
+ b=YigeYwTKjkeSxtx9YodG5RKCSWtJiIEUz8YfaybPNH/sFrgI8/Fo1QhW0geKNDcxOf7IpS
+ tzrDpnzi55+F9vrInLlk/TFJavFk3UCpkz8gIc+B04JtTk5F1xugnJ0lBmw21a6/LwvwrKkV
+ fSlxG77wcyXxxOLQ9iJm1+UGX+R3PbBVwOwN/y75tX33pdIORoR+UzW2YEa/asonPoV8uuwA
+ 2P5SSYo/zYjADl+a8pqSOtA5YmPnKlxTItZXsxtiZ1zB8peTR90UcRtsY4Z3+cUkoLx+DLgp
+ +zYPmD3odsXBxL4yeqPJWSECw0S1arfOsbh0cQEyh6MjzZ9FTCWUzTXA==;
+From: huaqian.li@siemens.com
+To: helgaas@kernel.org,
+	m.szyprowski@samsung.com,
+	robin.murphy@arm.com
+Cc: baocheng.su@siemens.com,
+	bhelgaas@google.com,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	diogo.ivo@siemens.com,
+	huaqian.li@siemens.com,
+	jan.kiszka@siemens.com,
+	kristo@kernel.org,
+	krzk+dt@kernel.org,
+	kw@linux.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	lpieralisi@kernel.org,
+	nm@ti.com,
+	robh@kernel.org,
+	s-vadapalli@ti.com,
+	ssantosh@kernel.org,
+	vigneshr@ti.com,
+	iommu@lists.linux.dev
+Subject: [PATCH v7 7/8] arm64: dts: ti: iot2050: Add overlay for DMA isolation for devices behind PCI RC
+Date: Fri, 18 Apr 2025 15:30:25 +0800
+Message-Id: <20250418073026.2418728-8-huaqian.li@siemens.com>
+In-Reply-To: <20250418073026.2418728-1-huaqian.li@siemens.com>
+References: <20241030205703.GA1219329@bhelgaas>
+ <20250418073026.2418728-1-huaqian.li@siemens.com>
 MIME-Version: 1.0
-References: <20250417142513.312939-1-ulf.hansson@linaro.org> <20250417142513.312939-6-ulf.hansson@linaro.org>
-In-Reply-To: <20250417142513.312939-6-ulf.hansson@linaro.org>
-From: Saravana Kannan <saravanak@google.com>
-Date: Thu, 17 Apr 2025 13:55:46 -0700
-X-Gm-Features: ATxdqUFg-9XKLQu-Jp_yqmPhQEY6HN_legQJia2_mCP7a2s8KIX0565-yrMa0hQ
-Message-ID: <CAGETcx9bHGuJ_J6yF14x0NJJXGWgoDn_X_ScBKaGdD4aTBvo5w@mail.gmail.com>
-Subject: Re: [PATCH 05/11] pmdomain: core: Use device_set_node() to assign the
- fwnode too
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Stephen Boyd <sboyd@kernel.org>, linux-pm@vger.kernel.org, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Michael Grzeschik <m.grzeschik@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, 
-	Abel Vesa <abel.vesa@linaro.org>, Devarsh Thakkar <devarsht@lewv0571a.ent.ti.com>, 
-	Peng Fan <peng.fan@oss.nxp.com>, Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
-	Johan Hovold <johan@kernel.org>, Maulik Shah <maulik.shah@oss.qualcomm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-Flowmailer-Platform: Siemens
+Feedback-ID: 519:519-959203:519-21489:flowmailer
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_002632_554116_A6050722 
-X-CRM114-Status: GOOD (  19.38  )
+X-CRM114-CacheID: sfid-20250418_003152_475521_C16A08ED 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,103 +90,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 17, 2025 at 7:25=E2=80=AFAM Ulf Hansson <ulf.hansson@linaro.org=
-> wrote:
->
-> Rather than just assigning the dev->of_node for the genpd's device, let's
-> use device_set_node() to make sure the fwnode gets assigned too. This is
-> needed to allow fw_devlink to work correctly, for example.
->
-> Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
-> ---
->  drivers/pmdomain/core.c | 14 ++++++++++----
->  1 file changed, 10 insertions(+), 4 deletions(-)
->
-> diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
-> index da51a61a974c..3911d3e96626 100644
-> --- a/drivers/pmdomain/core.c
-> +++ b/drivers/pmdomain/core.c
-> @@ -2627,6 +2627,7 @@ static bool genpd_present(const struct generic_pm_d=
-omain *genpd)
->  int of_genpd_add_provider_simple(struct device_node *np,
->                                  struct generic_pm_domain *genpd)
->  {
-> +       struct fwnode_handle *fwnode;
->         int ret;
->
->         if (!np || !genpd)
-> @@ -2635,7 +2636,9 @@ int of_genpd_add_provider_simple(struct device_node=
- *np,
->         if (!genpd_present(genpd))
->                 return -EINVAL;
->
-> -       genpd->dev.of_node =3D np;
-> +       fwnode =3D &np->fwnode;
+From: Jan Kiszka <jan.kiszka@siemens.com>
 
-Use of_fwnode_handle() please.
+Reserve a 64M memory region and ensure that all PCI devices do their DMA
+only inside that region. This is configured via a restricted-dma-pool
+and enforced with the help of the first PVU.
 
-> +
-> +       device_set_node(&genpd->dev, fwnode);
->
->         /* Parse genpd OPP table */
->         if (!genpd_is_opp_table_fw(genpd) && genpd->set_performance_state=
-) {
-> @@ -2661,7 +2664,7 @@ int of_genpd_add_provider_simple(struct device_node=
- *np,
->                 return ret;
->         }
->
-> -       genpd->provider =3D &np->fwnode;
-> +       genpd->provider =3D fwnode;
->         genpd->has_provider =3D true;
->
->         return 0;
-> @@ -2677,6 +2680,7 @@ int of_genpd_add_provider_onecell(struct device_nod=
-e *np,
->                                   struct genpd_onecell_data *data)
->  {
->         struct generic_pm_domain *genpd;
-> +       struct fwnode_handle *fwnode;
->         unsigned int i;
->         int ret =3D -EINVAL;
->
-> @@ -2686,6 +2690,8 @@ int of_genpd_add_provider_onecell(struct device_nod=
-e *np,
->         if (!data->xlate)
->                 data->xlate =3D genpd_xlate_onecell;
->
-> +       fwnode =3D &np->fwnode;
-> +
+Applying this isolation is not totally free in terms of overhead and
+memory consumption. It  makes only sense for variants that support
+secure booting, and generally only when this is actually enable.
+Therefore model it as overlay that can be activated on demand. The
+firmware will take care of this via DT fixup during boot and will also
+provide a way to adjust the pool size.
 
-Use of_fwnode_handle() please.
+Signed-off-by: Jan Kiszka <jan.kiszka@siemens.com>
+Signed-off-by: Li Hua Qian <huaqian.li@siemens.com>
+---
+ arch/arm64/boot/dts/ti/Makefile               |  5 +++
+ ...am6548-iot2050-advanced-dma-isolation.dtso | 33 +++++++++++++++++++
+ 2 files changed, 38 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-dma-isolation.dtso
 
--Saravana
+diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+index 03d4cecfc001..12c2cee955f2 100644
+--- a/arch/arm64/boot/dts/ti/Makefile
++++ b/arch/arm64/boot/dts/ti/Makefile
+@@ -73,8 +73,10 @@ k3-am654-gp-evm-dtbs := k3-am654-base-board.dtb \
+ k3-am654-evm-dtbs := k3-am654-base-board.dtb k3-am654-icssg2.dtbo
+ k3-am654-idk-dtbs := k3-am654-evm.dtb k3-am654-idk.dtbo k3-am654-pcie-usb2.dtbo
+ k3-am6548-iot2050-advanced-m2-bkey-ekey-pcie-dtbs := k3-am6548-iot2050-advanced-m2.dtb \
++	k3-am6548-iot2050-advanced-dma-isolation.dtbo \
+ 	k3-am6548-iot2050-advanced-m2-bkey-ekey-pcie.dtbo
+ k3-am6548-iot2050-advanced-m2-bkey-usb3-dtbs := k3-am6548-iot2050-advanced-m2.dtb \
++	k3-am6548-iot2050-advanced-dma-isolation.dtbo \
+ 	k3-am6548-iot2050-advanced-m2-bkey-usb3.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-am6528-iot2050-basic.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am6528-iot2050-basic-pg2.dtb
+@@ -261,7 +263,10 @@ DTC_FLAGS_k3-am62p5-sk += -@
+ DTC_FLAGS_k3-am642-evm += -@
+ DTC_FLAGS_k3-am642-phyboard-electra-rdk += -@
+ DTC_FLAGS_k3-am642-tqma64xxl-mbax4xxl += -@
++DTC_FLAGS_k3-am6548-iot2050-advanced += -@
+ DTC_FLAGS_k3-am6548-iot2050-advanced-m2 += -@
++DTC_FLAGS_k3-am6548-iot2050-advanced-pg2 += -@
++DTC_FLAGS_k3-am6548-iot2050-advanced-sm += -@
+ DTC_FLAGS_k3-am68-sk-base-board += -@
+ DTC_FLAGS_k3-am69-sk += -@
+ DTC_FLAGS_k3-j7200-common-proc-board += -@
+diff --git a/arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-dma-isolation.dtso b/arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-dma-isolation.dtso
+new file mode 100644
+index 000000000000..dfd75d2dc245
+--- /dev/null
++++ b/arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-dma-isolation.dtso
+@@ -0,0 +1,33 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * IOT2050, overlay for isolating DMA requests via PVU
++ * Copyright (c) Siemens AG, 2024
++ *
++ * Authors:
++ *   Jan Kiszka <jan.kiszka@siemens.com>
++ */
++
++/dts-v1/;
++/plugin/;
++
++&{/reserved-memory} {
++	#address-cells = <2>;
++	#size-cells = <2>;
++
++	pci_restricted_dma_region: restricted-dma@c0000000 {
++		compatible = "restricted-dma-pool";
++		reg = <0 0xc0000000 0 0x4000000>;
++	};
++};
++
++&pcie0_rc {
++	memory-region = <&pci_restricted_dma_region>;
++};
++
++&pcie1_rc {
++	memory-region = <&pci_restricted_dma_region>;
++};
++
++&ti_pvu0 {
++	status = "okay";
++};
+-- 
+2.34.1
 
->         for (i =3D 0; i < data->num_domains; i++) {
->                 genpd =3D data->domains[i];
->
-> @@ -2694,7 +2700,7 @@ int of_genpd_add_provider_onecell(struct device_nod=
-e *np,
->                 if (!genpd_present(genpd))
->                         goto error;
->
-> -               genpd->dev.of_node =3D np;
-> +               device_set_node(&genpd->dev, fwnode);
->
->                 /* Parse genpd OPP table */
->                 if (!genpd_is_opp_table_fw(genpd) && genpd->set_performan=
-ce_state) {
-> @@ -2713,7 +2719,7 @@ int of_genpd_add_provider_onecell(struct device_nod=
-e *np,
->                         WARN_ON(IS_ERR(genpd->opp_table));
->                 }
->
-> -               genpd->provider =3D &np->fwnode;
-> +               genpd->provider =3D fwnode;
->                 genpd->has_provider =3D true;
->         }
->
-> --
-> 2.43.0
->
 
