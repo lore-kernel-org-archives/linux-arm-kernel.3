@@ -4,82 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31C0CC369CF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 07:05:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 790F7C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 07:09:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oTg5xlBMV3ZpioVnQMKMCNtn41a6TiUkCbtv/ticY0Q=; b=odVODGnWreMV7XDivw1Uhcaq9T
-	K45Y91x5M0Nrm+NYA4wXCRkS+KeZai6U26yPR+5E4Iqmd9nHZWKX8OfFSa6oFhiEf7dnOJZ10aNvb
-	xrlVSenMMZxROuTZT5snD5xszibrkJyNZRsa6OXqO2d86b/D5MJoNBhu5RBQD9UVH07OjBgUOCLPS
-	6Spe8aOIOcHL4cBfV297rIaO2sG0bZ5ZPlux9mP7SogKvYyUb66L/aPSjEaoFspJLOA2iZ6w5oML0
-	G2ltYs7W4U72ZvUUUZOrhtmrGGyHuhAQc+nZ+9uITlJFvf0DdlYMYNHE1NCw5gB4pNXuceK43IaFT
-	zaJmxjBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8kXg7h5ibQHAv0aq8+Kplnd8Fmsvni+vugX6wdZt9Uc=; b=VjIXrqiZMlxwKDj4QBz/YKU3q1
+	HahEDapfublqVt/erwOVJPpz3ZWYrydNdD5KtsWuxrv0nbTsgWFD74D+NUtimo9s9fzurbG5sHzFu
+	eQkUTQ+vPGyw3s7tC/LzwDoBzBmMr0VjHjD1yqYt/vJQeNqer2mcCxRquSiW6+4L3KooVJMJTaQ56
+	fD6s2u+aRM+rnlEXYa8gS/+JiJz2jZHaOEu8me3ra2FpuFoEpoXKf+i4uAdOhDmTFo6DyQoAkS/78
+	zelr/By7BmB7ajuscbt58wvE9f8HdC/2KgIMg8IE9HqeKdbPE1M4xk950wQQs3HjS34P3xcEB8Ran
+	8TWKrW2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5fn0-0000000FPlT-34gg;
-	Fri, 18 Apr 2025 07:05:30 +0000
-Received: from cpanel.siel.si ([46.19.9.99])
+	id 1u5fqF-0000000FQXh-1FcM;
+	Fri, 18 Apr 2025 07:08:51 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5fG1-0000000FGkS-2Oux
+	id 1u5fjX-0000000FOqx-1uGx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 06:31:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
-	s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=oTg5xlBMV3ZpioVnQMKMCNtn41a6TiUkCbtv/ticY0Q=; b=cKH8Jjz3UhDIikWoDUs9Pr6GlI
-	Mmz/6GL+pGzQYRY4NUFxkPQ1reeW+aRqBnalYDxz5Cs/EBek0U2vd9bYn3wnMVO9bcz7K6nvF8a8y
-	vZ03y5b1HiShBsMyWEt/U56nCsO4sNA2kIgj17dyWhsUnjVS0Lug+UUFVqVMkWM+vgi9oHHr1CpC3
-	u/PxqDkEA+4KxZd1OM8JjV0tL7PKohBHdlAp7guW4A9Dh4Ii6FkbCo1ybIlEqu9YT73lbykd/uyPq
-	6lgqy2uq2Pj9oAYd1IP0qumexjCyfEGGNJtKkWmG7S+eMaVoK9mq5Pp93074AtyBlQDRSkxrgG5fz
-	SV6z8cgw==;
-Received: from [89.212.21.243] (port=56446 helo=localhost.localdomain)
-	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <primoz.fiser@norik.com>)
-	id 1u5fG0-00AbM0-1a;
-	Fri, 18 Apr 2025 08:31:24 +0200
-From: Primoz Fiser <primoz.fiser@norik.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	upstream@lists.phytec.de
-Subject: [PATCH v3 15/15] arm64: dts: freescale: imx93-phyboard-segin: Order node alphabetically
-Date: Fri, 18 Apr 2025 08:31:04 +0200
-Message-Id: <20250418063104.2202085-16-primoz.fiser@norik.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250418063104.2202085-1-primoz.fiser@norik.com>
-References: <20250418063104.2202085-1-primoz.fiser@norik.com>
+	Fri, 18 Apr 2025 07:01:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 16280A4B266
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 06:56:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08AB4C4CEED
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 07:01:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744959714;
+	bh=SbxhvwW/dI2cwkKwqXns6VqYn5IUb1s1Pg95tBOSVRs=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=faTowbcCXfekvtxTs5wDEv+FPToczT88KM1QepQ3DlFozwDJiz69/AT8bQircR1Am
+	 P4TBruU9R32eJPYNSKRPiIq+DlvvsslSaGNzBwEc6yY2Vzg/FxGuHZrkEgJBvUQ/q7
+	 LEapjdmD6u+I33rdbiE6KkWCePu3qLP0IxDxSHEm0Ag8AI/sYhafrzUwKcBq6CAqUM
+	 RF0Bw2mYHFLU7OoEa7fVPOkD7inCjOYl8Ghhq3ctPHslYmHmJJoGJrGvr2SIH4M2lO
+	 mvYdcF3z6k+YCH7reyHG2n2NaEVbM3sJSMxWrSV8g/brPfNTPW2i0PhJOOOns9MPs5
+	 FcYuDU8c9yalA==
+Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-30bfed67e08so16461891fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 00:01:53 -0700 (PDT)
+X-Gm-Message-State: AOJu0Yz4UqAfKYuuwWOtVB9lBo8NDGoqEYlzA1l+FREtO54y66yYUgM/
+	ntdMtxwpON38g6WCHjXQCj8CxIibqiVUNO5Y0/ZMky0hCFQWJ4AtI9oLG5+lATyg6+5mMDMBr8c
+	BuI4hvw0wtZ0kquhPymYDDnH2304=
+X-Google-Smtp-Source: AGHT+IGQK4ZLrqBwmxUgeBqAOhDO8nVJNTTnpza7A5c9ARC3B7hZoNQyqaunqOT+wxFz9n2VblnRB0s5lfrbFJxX5Vk=
+X-Received: by 2002:a05:651c:510:b0:30b:c96a:74c with SMTP id
+ 38308e7fff4ca-310904b8523mr5819201fa.1.1744959712354; Fri, 18 Apr 2025
+ 00:01:52 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - cpanel.siel.si
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - norik.com
-X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: primoz.fiser@norik.com
-X-Authenticated-Sender: cpanel.siel.si: primoz.fiser@norik.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+References: <20250416035604.2717188-1-anshuman.khandual@arm.com>
+In-Reply-To: <20250416035604.2717188-1-anshuman.khandual@arm.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Fri, 18 Apr 2025 09:01:40 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXGbJ4q1rchCbDp35rdWRyzuG-nZnQ2KgE46FtkPUg-+SQ@mail.gmail.com>
+X-Gm-Features: ATxdqUFTI04jZnPSrI5f53pfqrNAWo1abGiP_x_hkRRGXb35DQgpl2R0nSQWmIE
+Message-ID: <CAMj1kXGbJ4q1rchCbDp35rdWRyzuG-nZnQ2KgE46FtkPUg-+SQ@mail.gmail.com>
+Subject: Re: [PATCH V2] arm64/mm: Re-organise setting up FEAT_S1PIE registers
+ PIRE0_EL1 and PIR_EL1
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Ryan Roberts <ryan.roberts@arm.com>, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_233125_768659_40481424 
-X-CRM114-Status: UNSURE (   5.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250418_000155_619992_BA7B69D5 
+X-CRM114-Status: GOOD (  17.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,51 +84,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move pinctrl_uart1 to keep nodes in alphabetical order. No functional
-changes.
+On Wed, 16 Apr 2025 at 05:56, Anshuman Khandual
+<anshuman.khandual@arm.com> wrote:
+>
+> mov_q cannot really move PIE_E[0|1] macros into a general purpose register
+> as expected if those macro constants contain some 128 bit layout elements,
+> that are required for D128 page tables. The primary issue is that for D128,
+> PIE_E[0|1] are defined in terms of 128-bit types with shifting and masking,
+> which the assembler can't accommodate.
+>
+> Instead pre-calculate these PIRE0_EL1/PIR_EL1 constants into asm-offsets.h
+> based PIE_E0_ASM/PIE_E1_ASM which can then be used in arch/arm64/mm/proc.S.
+>
+> While here also move PTE_MAYBE_NG/PTE_MAYBE_SHARED assembly overrides into
+> arch/arm64/kernel/asm-offsets.c to ensure PIRE0_EL1/PIR_EL1 are calculated
+> in assembly without arm64_use_ng_mappings and lpa2_is_enabled() symbols
+> being accessible. Also move the corresponding comment as well.
+>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Ard Biesheuvel <ardb@kernel.org>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> ---
+> This patch applies on v6.15-rc2
+>
+> Changes in V2:
+>
+> - Added asm-offsets.c based PIE_E0_ASM and PIE_E1_ASM symbols as per Ard
+> - Moved PTE_MAYBE_NG and PTE_MAYBE_SHARED overrides inside asm-offsets.c
+>   along with the corresponding comment as per Ard
+>
+> Changes in V1:
+>
+> https://lore.kernel.org/linux-arm-kernel/20250410074024.1545768-1-anshuman.khandual@arm.com/
+>
+>  arch/arm64/kernel/asm-offsets.c | 16 ++++++++++++++++
+>  arch/arm64/mm/proc.S            | 19 ++-----------------
+>  2 files changed, 18 insertions(+), 17 deletions(-)
+>
 
-Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
-Changes in v3:
-- add Reviewed-by tag
-
- .../boot/dts/freescale/imx93-phyboard-segin.dts    | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-index c62cc06fad4b..0c55b749c834 100644
---- a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-+++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-@@ -228,13 +228,6 @@ MX93_PAD_I2C2_SDA__LPI2C2_SDA		0x40000b9e
- 		>;
- 	};
- 
--	pinctrl_uart1: uart1grp {
--		fsl,pins = <
--			MX93_PAD_UART1_RXD__LPUART1_RX		0x31e
--			MX93_PAD_UART1_TXD__LPUART1_TX		0x30e
--		>;
--	};
--
- 	pinctrl_reg_usdhc2_vmmc: regusdhc2vmmcgrp {
- 		fsl,pins = <
- 			MX93_PAD_SD2_RESET_B__GPIO3_IO07	0x31e
-@@ -257,6 +250,13 @@ MX93_PAD_SAI1_RXD0__SAI1_RX_DATA00	0x1402
- 		>;
- 	};
- 
-+	pinctrl_uart1: uart1grp {
-+		fsl,pins = <
-+			MX93_PAD_UART1_RXD__LPUART1_RX		0x31e
-+			MX93_PAD_UART1_TXD__LPUART1_TX		0x30e
-+		>;
-+	};
-+
- 	pinctrl_usdhc2_cd: usdhc2cdgrp {
- 		fsl,pins = <
- 			MX93_PAD_SD2_CD_B__GPIO3_IO00		0x31e
--- 
-2.34.1
-
+Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
 
