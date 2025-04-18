@@ -4,72 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 332DDC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 04:43:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A17CC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 04:56:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=InrEQrVqp3K1hemQqa6thTPxGOdQwWfEnlDdHiKCcgk=; b=LrL7uiLzKkv21Z8vic1gOKMDBf
-	UVgDbymXplKAXWAI3jHqRGevAdWgGBVTuBdU1DfFsPHA/NioiJQYfIrI1Dp2yFtXioSg2NIc/dFeI
-	2dZVNAJN5yCs70zIK3jC19MDdIYAX33R89wSIrC08fP+f0rT/gvqd1dR3grAthLkzKONrqaTbhKam
-	zrAdaNXn2YOMGuZ1cH34nVSwL11aG08h4l0LNqweoSupjlU5VcSr2RhswuEr1Lvsm3bBNeLkdlAnV
-	0sjOGlntHogKstu6NxrzjX+aa+KUjLI5ppsJToQ67SoJ60Dy3rmrYR70EbPu4MNsRmo0Kyl0ON++f
-	IaYtBQ0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=miGWfcaPFFeXZKyL4q8RKZf6XsZtwS2QXeSpQEPB9j8=; b=mq/CHqFJV4ViF0rvzcJm/mte0F
+	tDrTAiSplYnb13ZwgdXhIlfLI6tj6K+tUEyznaWQq+1YH7ngalsnbIzmGW2/RL5gRKtb3wFsG6RqN
+	IEAArwjAJD4ytwaGqbviTLbrmqpHDiDlHUAox+I3DikPpDSLLQMPO2HyQmR2XchHcP8n2dlyDuPSz
+	El02cyiUSGFk5IQEePGXT3cKGamMDVjWMW+f626hM6yStx4yu/xMxaj0HtqWg+mPoGOFOBhonVhIl
+	4e6XNfLg8bES1GBSfOts0CkYu4d7oyXdO2BQztvNO05fRfs/kmr/l6xs2UJnYOP7lACnv3XSdabph
+	mP+T5Rrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5dZj-0000000F63w-2IZT;
-	Fri, 18 Apr 2025 04:43:39 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1u5dmA-0000000F6y8-12ZA;
+	Fri, 18 Apr 2025 04:56:30 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5cNJ-0000000EyT9-0xkS;
-	Fri, 18 Apr 2025 03:26:46 +0000
-X-UUID: f1b6f2161c0411f0a1e849db4cc18d44-20250417
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=InrEQrVqp3K1hemQqa6thTPxGOdQwWfEnlDdHiKCcgk=;
-	b=tCNXBx7a67tEHKvYIOGq4zeCeeWKHsQ6bqfOhUiCSFeJfhIzDeuYggwiOwdFB11UJ8d/hxU3Xg3HSHve+qi8D4uWRCz2HyV0pzaRBIkQKnTkG4egdORkjF5LxorgGeFmbAwRMTzx99k/KVuU0LIoboa8RAzpKbBzPwJz2u6Jwig=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:5001f935-5cdf-456b-9b05-bfd29f6ebfdf,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:688138a6-c619-47e3-a41b-90eedbf5b947,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
-	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
-	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: f1b6f2161c0411f0a1e849db4cc18d44-20250417
-Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw02.mediatek.com
-	(envelope-from <jianhua.lin@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1081741198; Thu, 17 Apr 2025 20:26:40 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Fri, 18 Apr 2025 11:26:38 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Fri, 18 Apr 2025 11:26:37 +0800
-From: Jianhua Lin <jianhua.lin@mediatek.com>
-To: <mchehab@kernel.org>, <matthias.bgg@gmail.com>,
-	<angelogioacchino.delregno@collabora.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>, jianhua.lin
-	<jianhua.lin@mediatek.com>
-Subject: [PATCH 1/1] media: mediatek: jpeg: fix buffer alignment
-Date: Fri, 18 Apr 2025 11:25:59 +0800
-Message-ID: <20250418032559.31043-1-jianhua.lin@mediatek.com>
-X-Mailer: git-send-email 2.46.0
+	id 1u5dkI-0000000F6ph-3lN0
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 18 Apr 2025 04:54:35 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-224100e9a5cso19110645ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Apr 2025 21:54:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744952073; x=1745556873; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=miGWfcaPFFeXZKyL4q8RKZf6XsZtwS2QXeSpQEPB9j8=;
+        b=D6qpotn2Ia5ZulBhTLtvC58UUzEJUW9eVPI+/J6LESZlh7ASr/+kxvE+jxYpSkJR3/
+         ZZpJOGFqI4UKEhkVNJyYIo78GfgDgl0qGHgFgYSHHhaUjWwWpcGN/30nEZ3dm/YoO7yG
+         G7ou09qhEWT1OVe+0Oj0MWKIusIfNADIDYSBTIijvaTxIyEB3vXUXmr2cDcbEAqCK4MF
+         FpUXyCbebYYTNyEX8LgYD41WHspQccMwnEZoWRF9HVVx2E4LmFKYAZo5rYMe57zp09qg
+         b08KcG/O/KozsfYi7a4D7w+eMVqVZer9bmc1/hVRQ84b2C1IYan9oUc+0TQTfvU5e0yS
+         SQQA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744952073; x=1745556873;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=miGWfcaPFFeXZKyL4q8RKZf6XsZtwS2QXeSpQEPB9j8=;
+        b=d3vPHG1l+XYZoFhp+auMczDeH9BIlgoCeDFVjjfrr2X83RbjOl/twfRBomUutTW96R
+         Gg/2IrUHF//ZbWWH4CqepFljdmhMQs2w1x93wG6LFGDv5Ix4+GUaLfynrB6KDiFA5Z/V
+         oXKCqSmAY6cNLSf/U7qRcCusTA7gVoarGD/VBEVLfVDdzhYfyFwHkHpL/Q8xhQICYANX
+         YRwnpIfO3TW5ZYcxC0OHob3P/aGPfA7+B8kTyoWamidDwzgV/VwlG2CqipowX6C8+hJa
+         2mamsoSIQkSiHmCaJLyFseT4CKLF01TT7C3f1+BsJN6yDw+BjoorOe2YjG5Dn0vwED8S
+         l4YA==
+X-Forwarded-Encrypted: i=1; AJvYcCXUEuhNsjIpHcSpzjwmT6jAU85HGm131i0oUBhYNzR3w/NJwYCtZpdTH2sCJFMIMKtNyKspEDtcuILC9DFW1OXJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxzOp7dijZxTwWQ+OPignzU5p/Giz1DKvY8vH3LKuYeA7HISPZM
+	y6wpNf3KhOzaUS7sTdExoMEi4Loqq2sX4wSRNLq/Q/oEGX0CZkKT
+X-Gm-Gg: ASbGnctH4Hg2dwsTusyjLBcm5ewh9g/9ce4Q+atSGgA/BWqcpbL4VvgtyjbzKHary4c
+	KSss3zSWmfTqkyyo2qqJPGJFnhDr+B5rG8nJy361Wg3BDNbqoV5Ndr/gcG6kEyto7S/y3Bv8gL8
+	oXjseEGxYMQJJyBgklpiF8FQFtFVBNlnKNKNO4WhgUf+X/EejQpOLbFojB67hHlc8Y0XHCwGCxm
+	9s/yunGUAFtSh42Gf/nAWZuSew/AYIV6srwQvxRSZpoTD9URUXS/l8wLDlcjlnbrZJpocns6ECb
+	3hd3UEp9MOD7jJ6qRVQIhZ1aj5TDsGhXp2BLSRMvNZ7Ggp/k5hkQj0JKSec9zw+F2QEGkg==
+X-Google-Smtp-Source: AGHT+IGV/fWbJMmWtA4WBhTr5NRFS7XNEqC6SndfF5cUfWSxSGh8GbNlHBkKJARuTfoFoRcRWxs5jw==
+X-Received: by 2002:a17:902:f708:b0:224:ab0:9b00 with SMTP id d9443c01a7336-22c535ac5d7mr21475505ad.27.1744952073304;
+        Thu, 17 Apr 2025 21:54:33 -0700 (PDT)
+Received: from [192.168.0.101] ([59.188.211.160])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22c50bf1424sm9178635ad.53.2025.04.17.21.54.30
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 17 Apr 2025 21:54:32 -0700 (PDT)
+Message-ID: <06b513ac-1734-452c-a967-de3c178ce80c@gmail.com>
+Date: Fri, 18 Apr 2025 12:54:29 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/3] arm64: dts: apple: Add PMU NVMEM
+To: fnkl.kernel@gmail.com, Sven Peter <sven@svenpeter.dev>,
+ Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+ Neal Gompa <neal@gompa.dev>,
+ Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Hector Martin <marcan@marcan.st>
+References: <20250417-spmi-nvmem-v2-0-b88851e34afb@gmail.com>
+ <20250417-spmi-nvmem-v2-3-b88851e34afb@gmail.com>
+Content-Language: en-US
+From: Nick Chan <towinchenmi@gmail.com>
+In-Reply-To: <20250417-spmi-nvmem-v2-3-b88851e34afb@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_202645_288035_385A246F 
-X-CRM114-Status: GOOD (  10.13  )
+X-CRM114-CacheID: sfid-20250417_215434_936058_2E8F7E13 
+X-CRM114-Status: UNSURE (   6.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,92 +107,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "jianhua.lin" <jianhua.lin@mediatek.com>
 
-The JPEG encoder image stride register must be MCU aligned.
-For YUV422, it's 32-byte aligned, and for YUV420, it's
-16-byte aligned.
+Sasha Finkelstein via B4 Relay 於 2025/4/18 凌晨4:14 寫道:
+> From: Hector Martin <marcan@marcan.st>
+>
+> Add device tree entries for NVMEM cells present on the PMU
+The commit message should say PMIC instead of PMU.
+With that in mind,
+Reviewed-by: Nick Chan <towinchenmi@gmail.com>
+[...]
 
-The minimal DCT block size is 8x8, so the vertical buffer
-alignment for YUV422 is 8-byte aligned, and for YUV420,
-it's 16-byte aligned.
-
-Signed-off-by: jianhua.lin <jianhua.lin@mediatek.com>
----
- .../platform/mediatek/jpeg/mtk_jpeg_core.c    | 24 +++++++++----------
- 1 file changed, 12 insertions(+), 12 deletions(-)
-
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-index 834d2a354692..7dd652e5b6d4 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-@@ -40,8 +40,8 @@ static struct mtk_jpeg_fmt mtk_jpeg_enc_formats[] = {
- 		.h_sample	= {4, 4},
- 		.v_sample	= {4, 2},
- 		.colplanes	= 2,
--		.h_align	= 4,
--		.v_align	= 4,
-+		.h_align	= 16,
-+		.v_align	= 16,
- 		.flags		= MTK_JPEG_FMT_FLAG_OUTPUT,
- 	},
- 	{
-@@ -50,8 +50,8 @@ static struct mtk_jpeg_fmt mtk_jpeg_enc_formats[] = {
- 		.h_sample	= {4, 4},
- 		.v_sample	= {4, 2},
- 		.colplanes	= 2,
--		.h_align	= 4,
--		.v_align	= 4,
-+		.h_align	= 16,
-+		.v_align	= 16,
- 		.flags		= MTK_JPEG_FMT_FLAG_OUTPUT,
- 	},
- 	{
-@@ -60,8 +60,8 @@ static struct mtk_jpeg_fmt mtk_jpeg_enc_formats[] = {
- 		.h_sample	= {8},
- 		.v_sample	= {4},
- 		.colplanes	= 1,
--		.h_align	= 5,
--		.v_align	= 3,
-+		.h_align	= 32,
-+		.v_align	= 8,
- 		.flags		= MTK_JPEG_FMT_FLAG_OUTPUT,
- 	},
- 	{
-@@ -70,8 +70,8 @@ static struct mtk_jpeg_fmt mtk_jpeg_enc_formats[] = {
- 		.h_sample	= {8},
- 		.v_sample	= {4},
- 		.colplanes	= 1,
--		.h_align	= 5,
--		.v_align	= 3,
-+		.h_align	= 32,
-+		.v_align	= 8,
- 		.flags		= MTK_JPEG_FMT_FLAG_OUTPUT,
- 	},
- };
-@@ -87,8 +87,8 @@ static struct mtk_jpeg_fmt mtk_jpeg_dec_formats[] = {
- 		.h_sample	= {4, 2, 2},
- 		.v_sample	= {4, 2, 2},
- 		.colplanes	= 3,
--		.h_align	= 5,
--		.v_align	= 4,
-+		.h_align	= 16,
-+		.v_align	= 16,
- 		.flags		= MTK_JPEG_FMT_FLAG_CAPTURE,
- 	},
- 	{
-@@ -96,8 +96,8 @@ static struct mtk_jpeg_fmt mtk_jpeg_dec_formats[] = {
- 		.h_sample	= {4, 2, 2},
- 		.v_sample	= {4, 4, 4},
- 		.colplanes	= 3,
--		.h_align	= 5,
--		.v_align	= 3,
-+		.h_align	= 32,
-+		.v_align	= 8,
- 		.flags		= MTK_JPEG_FMT_FLAG_CAPTURE,
- 	},
- };
--- 
-2.46.0
-
+Nick Chan
 
