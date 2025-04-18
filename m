@@ -4,55 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D47DAC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 15:36:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 471E6C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 15:38:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3APNRWr/PhWBp/BuRBBE8YHfXq0Hacp6pVtnjq8DSTU=; b=1OPNqBPL7jEIYGd3EKM7tamAb6
-	+xNCsJRMXGUv274rvXaH0ZxAFKjntq3wX70jLwX/d6OWfyCapx8ei4lcsr4fDyiz1QlcvJzgFoDVT
-	E31FyKgfcrshFId1LarP/hIKq3UvvAnBXmu6wTdixf2+NuCBgXADVpTyQvPIwchP56FmhEAN4y1K4
-	DK2eTxdhxySCR/ry3Ite85Cs3WB/hqOpdypOVJmIi6rZvc89JgLoVKaKb+LbA92J3+Gpuu5LFRweE
-	hjovLIupZnSb2tr03xoLGDXkMwAw9SmiM+EzrH/s/yXKMtDTdHF9ZOTxSfN1ALeNJ30G6D3kigUWT
-	USdqwwzQ==;
+	bh=nFgOrlNyb8Ejkb43D/yIyVFJ/IzoXYakXUeU5QoZiuU=; b=3Zi2Qu0LxrWmCGC9YlftcFpScX
+	6oxRbqCMunt742NwAKDsH038agplaTsmz4c08eiY+IEbg+q9PvlXvydc4tpPxVhI3Fj+DcZgZmM/b
+	NBPkPxry4UWnXyoTGvsC1Oteq9JGPia1kjU8Khq34BITQtvGJeohm8DMWZoO8mj+uT/wUs35uZy7s
+	H06JknUG6y2H7DdGLHOQJhK9Dgx7FON7w8CHgqC14fa2keMJBD2+hJVuX5oHVYauxCdvpyW5HW7w0
+	hoNr3rNAfvi2iDzZcaKYzh2FY1baph5KGjMAu57WxVwyGx1YNHFzXJETnhirLbNCJ6dfiyOxUQZ6w
+	xtrduAow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5nlP-0000000GjtZ-0l9e;
-	Fri, 18 Apr 2025 15:36:23 +0000
+	id 1u5nnI-0000000GkSq-3ev4;
+	Fri, 18 Apr 2025 15:38:20 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5njR-0000000GjRr-2yYt
+	id 1u5nkN-0000000GjfB-0bhZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 15:34:23 +0000
+	Fri, 18 Apr 2025 15:35:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 82C52A49308;
-	Fri, 18 Apr 2025 15:28:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 144EBC4CEE2;
-	Fri, 18 Apr 2025 15:34:20 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3920EA4B520;
+	Fri, 18 Apr 2025 15:29:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1863CC4CEEA;
+	Fri, 18 Apr 2025 15:35:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744990460;
-	bh=IqfrOwyWG1N8zLTNAckQ4CesOQiehJPTCr+QzFBVjGs=;
+	s=k20201202; t=1744990518;
+	bh=7NHab62RZtPj0Np+h3D9F3dxP/sVC+/JnFk6D/PUpPQ=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=et66A57SS/IazT+ZIFZOnE/SV7kXE0YSB2A+AgbN9eawLOkguleCnHto3In11sj3+
-	 Hb1KRy+Ae4atyNjU6LAQxacjh2MUf1Bboc57G7MhdWEoUVSUdzAhw0fFu8+dgl2b8N
-	 7+BHnalydI97FgNGAhkVKjmB0O/INXiH9gh4c1s+63FZVasjjSpu8w5Hd0upTj66s3
-	 VrWUql5C1aMU0cjSxjD1XGXkwEwvc3oTLEjAYj7GcL6oIIz6HNR5U1PdPzbFPooCvL
-	 rtps9pNwW0ENOXP1ibttsWT8Ki1qBzrcsbqmL+zdIjb6t8ySHyeDGbCcc+ufCehoeO
-	 w4fjuKis6mpew==
+	b=uqzjTsEnt9rDe+ksBBlT3BLXDvD6oHj/oGnFMl4wzPOE/y7OsfkdibxQnus0m3BAT
+	 +Z2qaFSGhZq07whzJPZjt5WArxUXWXyOeLky4XMAa6ay+xm5WOX/17eKfxr4cxsuEX
+	 JaJTxU+shymgO6NAmDcbCDNuZZparjTo6TcQRUt+Sb6pylRsSYd1lK97CI4B93LuVb
+	 3wxLctZljW/x2jALr2c/dFwan9BRHFdFT+eNLM/5Uv+63xjEL/CVdzt4hRIOCvcGvi
+	 7ZeABxWyYURO/vSJMWJE1tAx4ebji6fO4/FNg7uqS7KtaVU7TgmWnY3r2xP107RcjZ
+	 kJ8+DBdQdreQA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1u5njN-006kqc-IK;
-	Fri, 18 Apr 2025 16:34:17 +0100
-Date: Fri, 18 Apr 2025 16:34:24 +0100
-Message-ID: <87r01pxz3z.wl-maz@kernel.org>
+	id 1u5nkJ-006krU-QT;
+	Fri, 18 Apr 2025 16:35:15 +0100
+Date: Fri, 18 Apr 2025 16:35:22 +0100
+Message-ID: <87plh9xz2d.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Yury Norov <yury.norov@gmail.com>
-Cc: Luo Jie <quic_luoj@quicinc.com>,
+Cc: Andrew Lunn <andrew@lunn.ch>,
+	Luo Jie <quic_luoj@quicinc.com>,
 	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
 	Julia Lawall <Julia.Lawall@inria.fr>,
 	Nicolas Palix <nicolas.palix@imag.fr>,
@@ -66,30 +67,30 @@ Cc: Luo Jie <quic_luoj@quicinc.com>,
 	cocci@inria.fr,
 	linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
-	andrew@lunn.ch,
 	quic_kkumarcs@quicinc.com,
 	quic_linchen@quicinc.com,
 	quic_leiwei@quicinc.com,
 	quic_suruchia@quicinc.com,
 	quic_pavir@quicinc.com
-Subject: Re: [PATCH v3 4/6] arm64: nvhe: Convert the opencoded field modify
-In-Reply-To: <aAJsaNdznnz-1qap@yury>
+Subject: Re: [PATCH v3 0/6] Add FIELD_MODIFY() helper
+In-Reply-To: <aAJq9mGswYsnAOS8@yury>
 References: <20250417-field_modify-v3-0-6f7992aafcb7@quicinc.com>
-	<20250417-field_modify-v3-4-6f7992aafcb7@quicinc.com>
-	<86r01rjald.wl-maz@kernel.org>
-	<aAJsaNdznnz-1qap@yury>
+	<86sem7jb5t.wl-maz@kernel.org>
+	<0c97c659-bd28-45e0-8537-d9be2637cb22@lunn.ch>
+	<86mscek7h3.wl-maz@kernel.org>
+	<aAJq9mGswYsnAOS8@yury>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: yury.norov@gmail.com, quic_luoj@quicinc.com, linux@rasmusvillemoes.dk, Julia.Lawall@inria.fr, nicolas.palix@imag.fr, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-kernel@vger.kernel.org, cocci@inria.fr, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, andrew@lunn.ch, quic_kkumarcs@quicinc.com, quic_linchen@quicinc.com, quic_leiwei@quicinc.com, quic_suruchia@quicinc.com, quic_pavir@quicinc.com
+X-SA-Exim-Rcpt-To: yury.norov@gmail.com, andrew@lunn.ch, quic_luoj@quicinc.com, linux@rasmusvillemoes.dk, Julia.Lawall@inria.fr, nicolas.palix@imag.fr, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-kernel@vger.kernel.org, cocci@inria.fr, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, quic_kkumarcs@quicinc.com, quic_linchen@quicinc.com, quic_leiwei@quicinc.com, quic_suruchia@quicinc.com, quic_pavir@quicinc.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_083421_880491_881961F6 
-X-CRM114-Status: GOOD (  24.16  )
+X-CRM114-CacheID: sfid-20250418_083519_316406_4602C740 
+X-CRM114-Status: GOOD (  33.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,62 +105,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 18 Apr 2025 16:14:48 +0100,
+On Fri, 18 Apr 2025 16:08:38 +0100,
 Yury Norov <yury.norov@gmail.com> wrote:
 > 
-> On Thu, Apr 17, 2025 at 12:23:10PM +0100, Marc Zyngier wrote:
-> > On Thu, 17 Apr 2025 11:47:11 +0100,
-> > Luo Jie <quic_luoj@quicinc.com> wrote:
+> On Thu, Apr 17, 2025 at 06:45:12PM +0100, Marc Zyngier wrote:
+> > On Thu, 17 Apr 2025 18:22:29 +0100,
+> > Andrew Lunn <andrew@lunn.ch> wrote:
 > > > 
-> > > Replaced below code with the wrapper FIELD_MODIFY(MASK, &reg, val)
-> > > - reg &= ~MASK;
-> > > - reg |= FIELD_PREP(MASK, val);
-> > > The semantic patch that makes this change is available
-> > > in scripts/coccinelle/misc/field_modify.cocci.
+> > > On Thu, Apr 17, 2025 at 12:10:54PM +0100, Marc Zyngier wrote:
+> > > > On Thu, 17 Apr 2025 11:47:07 +0100,
+> > > > Luo Jie <quic_luoj@quicinc.com> wrote:
+> > > > > 
+> > > > > Add the helper FIELD_MODIFY() to the FIELD_XXX family of bitfield
+> > > > > macros. It is functionally similar as xxx_replace_bits(), but adds
+> > > > > the compile time checking to catch incorrect parameter type errors.
+> > > > > 
+> > > > > This series also converts the four instances of opencoded FIELD_MODIFY()
+> > > > > that are found in the core kernel files, to instead use the new
+> > > > > FIELD_MODIFY() macro. This is achieved with Coccinelle, by adding
+> > > > > the script field_modify.cocci.
+> > > > > 
+> > > > > The changes are validated on IPQ9574 SoC which uses ARM64 architecture.
+> > > > 
+> > > > We already have the *_replace_bits() functions (see
+> > > > include/linux/bitfield.h).
+> > > > 
+> > > > Why do we need extra helpers?
 > > > 
-> > > More information about semantic patching is available at
-> > > https://coccinelle.gitlabpages.inria.fr/website
-> > > 
-> > > Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
-> > > ---
-> > >  arch/arm64/kvm/hyp/include/nvhe/memory.h | 3 +--
-> > >  1 file changed, 1 insertion(+), 2 deletions(-)
-> > > 
-> > > diff --git a/arch/arm64/kvm/hyp/include/nvhe/memory.h b/arch/arm64/kvm/hyp/include/nvhe/memory.h
-> > > index 34233d586060..b2af748964d0 100644
-> > > --- a/arch/arm64/kvm/hyp/include/nvhe/memory.h
-> > > +++ b/arch/arm64/kvm/hyp/include/nvhe/memory.h
-> > > @@ -30,8 +30,7 @@ enum pkvm_page_state {
-> > >  static inline enum kvm_pgtable_prot pkvm_mkstate(enum kvm_pgtable_prot prot,
-> > >  						 enum pkvm_page_state state)
-> > >  {
-> > > -	prot &= ~PKVM_PAGE_STATE_PROT_MASK;
-> > > -	prot |= FIELD_PREP(PKVM_PAGE_STATE_PROT_MASK, state);
-> > > +	FIELD_MODIFY(PKVM_PAGE_STATE_PROT_MASK, &prot, state);
-> > >  	return prot;
-> > >  }
+> > > If you look at bitfield.h, the *_replace_bits() seem to be
+> > > undocumented internal macro magic, not something you are expected to
+> > > use. What you are expected to use in that file is however well
+> > > documented. The macro magic also means that cross referencing tools
+> > > don't find them.
 > > 
-> > Following up on my suggestion to *not* add anything new, this patch
-> > could be written as:
-> > 
-> > diff --git a/arch/arm64/kvm/hyp/include/nvhe/memory.h b/arch/arm64/kvm/hyp/include/nvhe/memory.h
-> > index 34233d5860607..08cb6ba0e0716 100644
-> > --- a/arch/arm64/kvm/hyp/include/nvhe/memory.h
-> > +++ b/arch/arm64/kvm/hyp/include/nvhe/memory.h
-> > @@ -30,9 +30,8 @@ enum pkvm_page_state {
-> >  static inline enum kvm_pgtable_prot pkvm_mkstate(enum kvm_pgtable_prot prot,
-> >  						 enum pkvm_page_state state)
-> >  {
-> > -	prot &= ~PKVM_PAGE_STATE_PROT_MASK;
-> > -	prot |= FIELD_PREP(PKVM_PAGE_STATE_PROT_MASK, state);
-> > -	return prot;
-> > +	u64 p = prot;
-> > +	return u64_replace_bits(p, state, PKVM_PAGE_STATE_PROT_MASK);
-> >  }
+> > $ git grep _replace_bits|  wc -l
+> > 1514
 > 
-> This is a great example where u64_replace_bit() should NOT be used. 
+> FIELD_PREP() only is used 10 times more.
 
-Well, I'll like well it enough.
+And? I'm sure that if you count "+", you'll find it to be yet a few
+order of magnitudes more.
+
+>  
+> > I think a bunch of people have found them, tooling notwithstanding.
+> > 
+> > As for the documentation, the commit message in 00b0c9b82663ac would
+> > be advantageously promoted to full-fledged kernel-doc.
+> 
+> The FIELD_MODIFY() and uxx_replace_bits() are simply different things.
+> 
+> FIELD_MODIFY() employs __BF_FIELD_CHECK(), which allows strict
+> parameters checking at compile time. And people like it. See
+> recent fixed-size GENMASK() series:
+> 
+> https://patchwork.kernel.org/comment/26283604/
+
+I don't care much for what people like or not. I don't see this
+FIELD_MODIFY() as a particular improvement on *_replace_bits().
+
+> The _replace_bits() functions return fixed-width values, and intended
+> for: "manipulating bitfields both in host- and fixed-endian", as the
+> very first line in the commit message says.
+> 
+> Those using _replace_bits() for something else abuse the API, and
+> should switch to FIELD_MODIFY().
+
+Or not.
 
 	M.
 
