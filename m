@@ -4,140 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 140FBC369C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 08:33:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D4F4C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 08:35:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o61jgAXBIB6TLox8uZMJX9xm1mkkrZN19RxeAVyCmG8=; b=gCdN3sgMuCwCMTlJkYI0/scQCW
-	fcoPkqAKkoG3IWu5x1p/XfxhtYYzSXWyDODUCu7D7aNAIcvVbxhHLmc+2oOxSrk8YFCXrL8MMvsWd
-	sDfRuWBBSbQi+bFgqc/JrvWlsQVij9e0ALw7IUGwOS3Unl2qWACvbXORC5n6kHsVZlqiRJEUuM9jE
-	+BvqqmDDo2WiYpwMXSgPsJkrGtxRARAdPIF3/42HKE0CympbcZqgt0AZ3Srxx8jOVkgB4rZX3vPm9
-	pnc54GTBcJhy7HLNWpMi/b0rIqWlLuFSgWaCW8KQTNzStCdfJqUsIKuXH+0GK3H2/UQjayIgE2tkW
-	yAwvSZ+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8R7Qp36puqcIKgf+lMIiPQAk3WNF5lMseB0RPPm+UOE=; b=PTANgqqIYSa2URhkVgrGplg8JC
+	W5TMRn9edHLCGgYlMIRlzfMaPi0YJivKtXMmyMq1l3BfeK4GG6hRvey8xGY3ryMbhVQ0air+7taVy
+	rZdCk138Q9yjiyPnc1ra+k8Tr1qO3UxT+RIYQ95CIFkeHXcLd1FtH+rYeBiUxZeTAJBQ7lzq2+k3l
+	szAy3lPFN9YlLo3Hrq6E/E9W+tdIcbnBBUXRKS/l3rxuzV+9g+eQXMfrTi86nvKiTn4mwq12DUHZ6
+	k8Um8lQrWYLRUNKiGp0jMzUpQGwIukvyI87cltwfxfilNgqPq2yKt1nqjaRlg+hgEtx9DZ4+UkGoc
+	iF3kzSsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5hAD-0000000FdBD-2HfN;
-	Fri, 18 Apr 2025 08:33:33 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1u5hC4-0000000Fdd0-2n0d;
+	Fri, 18 Apr 2025 08:35:28 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5gUS-0000000FWN5-0jMs
+	id 1u5gkW-0000000FZef-0PSv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 07:50:25 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53I2BhBG008166
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 07:50:24 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	o61jgAXBIB6TLox8uZMJX9xm1mkkrZN19RxeAVyCmG8=; b=EnrqwOYMrkH60VpB
-	h5EyJdncIKSLibSus2wWDPEGHbniPJkJO4anbuPSP3KZ5AW3q3bl+lOZuwm5Y7qy
-	OP43ZEWhK4mirj9BE9eCaqJw6I81Rr30bOk2azkeFT+OeIIkaDTnQm1giHc/j2g4
-	senr8e1xXTTC2IFKbGogyYc0lc4itXQPYe9G6Rk/O8y2nCrWIUnhcP+nBJx57QkY
-	RxPREA9NQFWFZ4hEoblK2EAwsTIu0Wrmof/ePAt8s+lhsWdWb8xFhNbf3OHe6lWt
-	/tqpme9KqIS7o2bv9H4i/bJb4TP4w2OJ0pfOCoRzooLDB7QXbGP3H1IdbSfI8eSI
-	Vmk+TQ==
-Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com [209.85.219.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45ygxk97nm-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 07:50:23 +0000 (GMT)
-Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-6f2c7056506so6117786d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 00:50:23 -0700 (PDT)
+	Fri, 18 Apr 2025 08:07:01 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-3914aba1ce4so1190386f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 01:06:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1744963618; x=1745568418; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=8R7Qp36puqcIKgf+lMIiPQAk3WNF5lMseB0RPPm+UOE=;
+        b=oN8JHDzmqJO8XK2CWpR4G3YC0eZGeLOoGJqhl8GV/4aZLeX1R9FuqGjBo3SVbFBWAk
+         S3lJdhedKXVFIdaczVyiD0xK5ILr8+kQWIh5NyFMncAPlfQ+VQg0Z1ewrc59BM4zA8N/
+         YwJk8eVayj6zg9mLfgr/s5E+XZ+vfXYzdibX2JNen4UqEnwI3RfmMzfym5fs8m3ZZ8tn
+         j9WD4UGlEu4wYKmnqDLd5TEhN34sf4jf5dMRomM/HtjJ2Sx/6pP8EWMBfNCHErF9onCf
+         3+eLOCvhYoKBGIbMhQs2wUKirmm+73Fwizy6Bh5AJkrMQQ8vEQ/ARDg8Cc7J8zl4OVEz
+         euYA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744962620; x=1745567420;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=o61jgAXBIB6TLox8uZMJX9xm1mkkrZN19RxeAVyCmG8=;
-        b=JTJ+20xz8KfvS6M8ucsBd8quHMZ2reQ0gZfbS1AnpQY1ifGVi5mtOIusu8lpxlbhWL
-         oXTuMPX6gSKBWdNkFVqtcIMWfUFKsb8jUU/C81vKGE10Nq1GhLNrOOl7v5rMqrMbMLHU
-         snp/nYdu4aDNW5Qbhw4MxC1fegkL7dpwtTZvr9jzqpoTUfWYnuDn8Wo962LkDxl5e6Hw
-         l5DWrEmMUJnq/smIG6iapkRIjyi77A//IIKBuq1AIM1rE/Ld+XsGUlZpjISoegEQMPZl
-         mXuNjlIrAEHJa/a2IldlkP+QIfw5LAnsGCOmB1SD2efaNZuNWZNIVBwOa8QuznGORF1m
-         rEWw==
-X-Forwarded-Encrypted: i=1; AJvYcCUH/prQHPrBk/2ipKlosdg5yzUfxGk7A7OhNMMvXxBSdWhZelz+WYydG7k+ZtV7mqubym6nWcPW/3r3WHWKTdOK@lists.infradead.org
-X-Gm-Message-State: AOJu0YxuTYmY1SOBjGAETRYxFnY4YhoRP2rixAPCX5y5q+35s0vBXUJD
-	Od+tGd0chJswdt3DrUvdOw8HthsN1ckFzVcw7CivrvGhdTGiYEEHNEmpzRlNWAUmyGJPZkSur+U
-	ioOXNQysil6ej/dIeX+9tivkJhS22Ay6DXE3i5eTeCU2mnLwF2FZgJK+jNsuZ1ABlTQhuz8jQSw
-	==
-X-Gm-Gg: ASbGncuC8qw8qppZycyU7AQYM0W2Lr3h2oQvvtZ3pOTReh/RuY3e65Bhia+13yTIrfB
-	YYpB/2F5aXnyGJ0DtvJuM1V3xnXLEwtWZBXzWzkp3Xlv7nn3gbPwbjaqH1OFG6wWatP9x4jxEFe
-	FzvhspVKG3R1xTk9u4O9kTyblml8Y9xcDIBHOyhsLRdqDoxkjj/UePGQOr1E7tyX1X85ZJCQvIE
-	pgQTGYV1rzaCPg56MfVpjVtptC0f0X6R1Olmc2Q97A5Vb+Myyo4S9CXLjM1sdyNqnu1LcIZWg0X
-	76lofCeQPiPupp65UdYKcfGZ/VIhIfMII0g/l8J4ini7xVL08Hay3cmo2nB5FJnoudlbMK5XggI
-	waH9Hii0KuXdyI08uhuVcObqR
-X-Received: by 2002:a05:6214:212e:b0:6d8:ada3:26c9 with SMTP id 6a1803df08f44-6f2c4553366mr39799276d6.10.1744962619560;
-        Fri, 18 Apr 2025 00:50:19 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFsY6j9lNzrOSvZFlDSPTK+BYJ37/5fwFjea2BM+tPM3t560RgbxayaHg0KKy5bxKgCJai+rg==
-X-Received: by 2002:a05:6214:212e:b0:6d8:ada3:26c9 with SMTP id 6a1803df08f44-6f2c4553366mr39798896d6.10.1744962619175;
-        Fri, 18 Apr 2025 00:50:19 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-31090863bd0sm1649061fa.113.2025.04.18.00.50.17
+        d=1e100.net; s=20230601; t=1744963618; x=1745568418;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=8R7Qp36puqcIKgf+lMIiPQAk3WNF5lMseB0RPPm+UOE=;
+        b=nwl581rGLPNfOqQpkfeaGK6ZM+5R3ATM0ZfUbbugDtVzKrxz56sd+z7d+5i5XHPCqX
+         LyyOF2UW62Tdv1BSEgxalKP1ZyTb56/vlUjwkXx2gHy2fVjhma9lwDjn1kHSlF23Cu4J
+         kuTUSFFV4yuwX3BBFVx5PqLMMVFwclMviCkuzJqjzh+4nAy3h9ATqikmJCp2fFtQg7Y0
+         us/0Ud9Bct9dZLzQjsVf9AcCpMyncJHmRhOnJ0c+0BzlSHNVzasxaY1TYKeXkW4DXyB0
+         Q3p5NzAMIrYZPGP3QRRb9i11X10bLTxVCty/JEY67uQaeuSzfMRA1bnJTdCjsYOByWQf
+         hmxA==
+X-Forwarded-Encrypted: i=1; AJvYcCVv2KnCUZy7dMIyMLHoESOGfrfJIZTJbSGFavR5y0JJPudP7Z255ng+mnnEfN39pCKR61i6+vWsKvwsEBT2KS6M@lists.infradead.org
+X-Gm-Message-State: AOJu0YzTWIpI6WrnaoyQf3kG0AtlfnzZ9a4HYpoqRYLlB4hvxwMG5/2K
+	1XsqZdgWPQpRosHyeTDrCE7ll8b5B/fG6JVZTRVlQ/sfLo2y+aVAEYMsCnyoopI=
+X-Gm-Gg: ASbGnctK4o5ALp53+z3mGCAHvSa2a9z3J/oL5K5gciC9hjSJI+ax293F91AkRZ37c5W
+	7d1wKDuM0DytdA1+ItMJ008qCk+ignHSCOEuNbW0sZ0sIh8M2hSTAShjkbf+mkzfr0mfmJt+Eph
+	XQTzqPpaeJddn3AvZEI6hoIOtV9gMV9youiGwlWe4DDgfIazDh8Q81+VxzyQ9q3q9Yd1NTn/twL
+	bUB2JKkDhjGJjJYStBHltBQY36JS4+/j32b6AuG5h48LbHZ2cCLHacRzUoCL7ojvb8C/KSX40uo
+	hDgA8cHhS72Q6ms1ebVtUVjgShcf5uCx/+fBh/MUsSS3CfycjwJ3xKKY3pRNjHV7ErCowIm773U
+	DXfQ=
+X-Google-Smtp-Source: AGHT+IGroX56fUpTWu8kdLamlS3WqtQ3AvZMCdPeD85f7x29lyEmfTuKBJbY/GKTp63EX5l2l7D2JQ==
+X-Received: by 2002:a05:6000:458f:b0:399:7f43:b3a4 with SMTP id ffacd0b85a97d-39efba46366mr1072505f8f.24.1744963618329;
+        Fri, 18 Apr 2025 01:06:58 -0700 (PDT)
+Received: from mai.linaro.org (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4406e0056c0sm7725435e9.0.2025.04.18.01.06.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Apr 2025 00:50:18 -0700 (PDT)
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Date: Fri, 18 Apr 2025 10:50:05 +0300
-Subject: [PATCH v5 10/10] arm64: dts: qcom: sar2130p: add display nodes
+        Fri, 18 Apr 2025 01:06:57 -0700 (PDT)
+Date: Fri, 18 Apr 2025 10:06:55 +0200
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+To: Anand Moon <linux.amoon@gmail.com>
+Cc: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	"open list:SAMSUNG THERMAL DRIVER" <linux-pm@vger.kernel.org>,
+	"open list:SAMSUNG THERMAL DRIVER" <linux-samsung-soc@vger.kernel.org>,
+	"moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"open list:CLANG/LLVM BUILD SUPPORT:Keyword:b(?i:clang|llvm)b" <llvm@lists.linux.dev>
+Subject: Re: [PATCH v5 1/3] drivers/thermal/exynos: Refactor clk_sec
+ initialization inside SOC-specific case
+Message-ID: <aAIIH7H1oQH8cf-6@mai.linaro.org>
+References: <20250410063754.5483-1-linux.amoon@gmail.com>
+ <20250410063754.5483-2-linux.amoon@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250418-sar2130p-display-v5-10-442c905cb3a4@oss.qualcomm.com>
-References: <20250418-sar2130p-display-v5-0-442c905cb3a4@oss.qualcomm.com>
-In-Reply-To: <20250418-sar2130p-display-v5-0-442c905cb3a4@oss.qualcomm.com>
-To: Rob Clark <robdclark@gmail.com>, Abhinav Kumar <quic_abhinavk@quicinc.com>,
-        Dmitry Baryshkov <lumag@kernel.org>, Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Kuogee Hsieh <quic_khsieh@quicinc.com>,
-        Krishna Manikandan <quic_mkrishn@quicinc.com>,
-        Jonathan Marek <jonathan@marek.ca>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        Joerg Roedel <joro@8bytes.org>, Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
-        freedreno@lists.freedesktop.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org,
-        Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=11555;
- i=dmitry.baryshkov@oss.qualcomm.com; h=from:subject:message-id;
- bh=sFRN57agjH0j7OcYrkWP/Ch9l5OmUHSzbhBJ88iL2Ng=;
- b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBoAgQqEL1aIxG/pRJ/llwJmj8xtrFN1UG6xzLVC
- f5A8xsA5JGJATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCaAIEKgAKCRCLPIo+Aiko
- 1ba4B/9GzYqk4NVE5+I13FShQwG4wf8MCeULFvN5/riDeRQubRPXAszFMaS/jWn45/jE+WYjj4e
- pYfA+c/usNR3gmdn1SAyljWanROFbqg5sTasFnkBELFD7U9m6ycMyiAPI4iqMx6+BwmVIv8uFnq
- qlW9vZOWnSK6/bs/Cof2kgUYAIVMQ7mcL0MR+ZQELJvtuX866dC4O4a7M27Uk0o7ZK8CKdu04/x
- KVBBsFkHAE5OXy8QPRWYTIWm3cW6zYxJ3uUxOaqCMm1AwQORn6AvF7c1y4blu7JcyYBg44MrCB6
- vcxYgsTODGTqsNn+d4xMQpHDtMeGJytiNlV3ZhK6asD5pncW
-X-Developer-Key: i=dmitry.baryshkov@oss.qualcomm.com; a=openpgp;
- fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
-X-Authority-Analysis: v=2.4 cv=WecMa1hX c=1 sm=1 tr=0 ts=6802043f cx=c_pps a=UgVkIMxJMSkC9lv97toC5g==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8 a=qobt-ayf5lTqXTu-rvoA:9 a=AIif5W2CIEg7SbQQ:21
- a=QEXdDO2ut3YA:10 a=1HOtulTD9v-eNWfpl4qZ:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-GUID: KlmwjqZQfwkieVkxGzxUKn6WTWAJFE7J
-X-Proofpoint-ORIG-GUID: KlmwjqZQfwkieVkxGzxUKn6WTWAJFE7J
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-18_02,2025-04-17_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 suspectscore=0
- adultscore=0 clxscore=1015 lowpriorityscore=0 phishscore=0 mlxscore=0
- impostorscore=0 mlxlogscore=999 spamscore=0 malwarescore=0
- priorityscore=1501 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2504180056
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250410063754.5483-2-linux.amoon@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_005024_234261_A3970FDB 
-X-CRM114-Status: GOOD (  12.75  )
+X-CRM114-CacheID: sfid-20250418_010700_142773_9374F16D 
+X-CRM114-Status: GOOD (  26.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,443 +113,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+On Thu, Apr 10, 2025 at 12:07:48PM +0530, Anand Moon wrote:
+> Refactor the initialization of the clk_sec clock to be inside the
+> SOC_ARCH_EXYNOS5420_TRIMINFO case. It ensures that the clk_sec clock
+> is only initialized for the specified SOC and not for other SOCs,
+> thereby simplifying the code. The clk_sec clock is used by the TMU
+> for GPU on the Exynos 542x platform.
+> 
+> Removed redundant IS_ERR() checks for the clk_sec clock since error
+> handling is already managed internally by clk_unprepare() functions.
+> 
+> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+> ---
+> v5: None
+> v4: Fix the aligment of code clk for clk_prepare in proper if/else block.
+>     update the commit for clk_sec used.
+>     checked to goto clean up all the clks are proper.
+>     drop IS_ERR() check for clk_sec.
+> v3: improve the commit message.
+> ---
+>  drivers/thermal/samsung/exynos_tmu.c | 37 ++++++++++++++--------------
+>  1 file changed, 18 insertions(+), 19 deletions(-)
+> 
+> diff --git a/drivers/thermal/samsung/exynos_tmu.c b/drivers/thermal/samsung/exynos_tmu.c
+> index 47a99b3c5395..3657920de000 100644
+> --- a/drivers/thermal/samsung/exynos_tmu.c
+> +++ b/drivers/thermal/samsung/exynos_tmu.c
+> @@ -1037,29 +1037,30 @@ static int exynos_tmu_probe(struct platform_device *pdev)
+>  		return ret;
+>  
+>  	data->clk = devm_clk_get(dev, "tmu_apbif");
+> -	if (IS_ERR(data->clk))
+> +	if (IS_ERR(data->clk)) {
+>  		return dev_err_probe(dev, PTR_ERR(data->clk), "Failed to get clock\n");
 
-Add display controller, two DSI hosts, two DSI PHYs and a single DP
-controller. Link DP to the QMP Combo PHY.
+As this branch returns, the else block can be removed.
 
-Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
----
- arch/arm64/boot/dts/qcom/sar2130p.dtsi | 395 +++++++++++++++++++++++++++++++++
- 1 file changed, 395 insertions(+)
+	if (IS_ERR(data->clk))
+		return dev_err_probe(dev, PTR_ERR(data->clk), "Failed to get clock\n");
 
-diff --git a/arch/arm64/boot/dts/qcom/sar2130p.dtsi b/arch/arm64/boot/dts/qcom/sar2130p.dtsi
-index b45e9e2ae0357bd0c7d719eaf4fc1faa1cf913f2..b97da07bbfb4127afda7826394787a9dda4c4886 100644
---- a/arch/arm64/boot/dts/qcom/sar2130p.dtsi
-+++ b/arch/arm64/boot/dts/qcom/sar2130p.dtsi
-@@ -3,9 +3,11 @@
-  * Copyright (c) 2024, Linaro Limited
-  */
- 
-+#include <dt-bindings/clock/qcom,dsi-phy-28nm.h>
- #include <dt-bindings/clock/qcom,rpmh.h>
- #include <dt-bindings/clock/qcom,sar2130p-gcc.h>
- #include <dt-bindings/clock/qcom,sar2130p-gpucc.h>
-+#include <dt-bindings/clock/qcom,sm8550-dispcc.h>
- #include <dt-bindings/clock/qcom,sm8550-tcsr.h>
- #include <dt-bindings/dma/qcom-gpi.h>
- #include <dt-bindings/interconnect/qcom,icc.h>
-@@ -1915,6 +1917,7 @@ port@2 {
- 					reg = <2>;
- 
- 					usb_dp_qmpphy_dp_in: endpoint {
-+						remote-endpoint = <&mdss_dp0_out>;
- 					};
- 				};
- 			};
-@@ -2012,6 +2015,398 @@ usb_1_dwc3_ss: endpoint {
- 			};
- 		};
- 
-+		mdss: display-subsystem@ae00000 {
-+			compatible = "qcom,sar2130p-mdss";
-+			reg = <0x0 0x0ae00000 0x0 0x1000>;
-+			reg-names = "mdss";
-+
-+			interrupts = <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-controller;
-+			#interrupt-cells = <1>;
-+
-+			clocks = <&dispcc DISP_CC_MDSS_AHB_CLK>,
-+				 <&gcc GCC_DISP_AHB_CLK>,
-+				 <&gcc GCC_DISP_HF_AXI_CLK>,
-+				 <&dispcc DISP_CC_MDSS_MDP_CLK>;
-+
-+			resets = <&dispcc DISP_CC_MDSS_CORE_BCR>;
-+
-+			power-domains = <&dispcc MDSS_GDSC>;
-+
-+			interconnects = <&mmss_noc MASTER_MDP QCOM_ICC_TAG_ALWAYS
-+					 &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>,
-+					<&gem_noc MASTER_APPSS_PROC QCOM_ICC_TAG_ACTIVE_ONLY
-+					 &config_noc SLAVE_DISPLAY_CFG QCOM_ICC_TAG_ACTIVE_ONLY>;
-+			interconnect-names = "mdp0-mem", "cpu-cfg";
-+
-+			iommus = <&apps_smmu 0x2000 0x402>;
-+
-+			#address-cells = <2>;
-+			#size-cells = <2>;
-+			ranges;
-+
-+			status = "disabled";
-+
-+			mdss_mdp: display-controller@ae01000 {
-+				compatible = "qcom,sar2130p-dpu";
-+				reg = <0x0 0x0ae01000 0x0 0x8f000>,
-+				      <0x0 0x0aeb0000 0x0 0x3000>;
-+				reg-names = "mdp",
-+					    "vbif";
-+
-+				interrupt-parent = <&mdss>;
-+				interrupts = <0>;
-+
-+				clocks = <&gcc GCC_DISP_AHB_CLK>,
-+					 <&gcc GCC_DISP_HF_AXI_CLK>,
-+					 <&dispcc DISP_CC_MDSS_AHB_CLK>,
-+					 <&dispcc DISP_CC_MDSS_MDP_LUT_CLK>,
-+					 <&dispcc DISP_CC_MDSS_MDP_CLK>,
-+					 <&dispcc DISP_CC_MDSS_VSYNC_CLK>;
-+				clock-names = "bus",
-+					      "nrt_bus",
-+					      "iface",
-+					      "lut",
-+					      "core",
-+					      "vsync";
-+
-+				power-domains = <&rpmhpd RPMHPD_MMCX>;
-+
-+				assigned-clocks = <&dispcc DISP_CC_MDSS_VSYNC_CLK>;
-+				assigned-clock-rates = <19200000>;
-+
-+				operating-points-v2 = <&mdp_opp_table>;
-+
-+				ports {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					port@0 {
-+						reg = <0>;
-+
-+						dpu_intf1_out: endpoint {
-+							remote-endpoint = <&mdss_dsi0_in>;
-+						};
-+					};
-+
-+					port@1 {
-+						reg = <1>;
-+
-+						dpu_intf2_out: endpoint {
-+							remote-endpoint = <&mdss_dsi1_in>;
-+						};
-+					};
-+
-+					port@2 {
-+						reg = <2>;
-+
-+						dpu_intf0_out: endpoint {
-+							remote-endpoint = <&mdss_dp0_in>;
-+						};
-+					};
-+				};
-+
-+				mdp_opp_table: opp-table {
-+					compatible = "operating-points-v2";
-+
-+					opp-200000000 {
-+						opp-hz = /bits/ 64 <200000000>;
-+						required-opps = <&rpmhpd_opp_low_svs>;
-+					};
-+
-+					opp-325000000 {
-+						opp-hz = /bits/ 64 <325000000>;
-+						required-opps = <&rpmhpd_opp_svs>;
-+					};
-+
-+					opp-514000000 {
-+						opp-hz = /bits/ 64 <514000000>;
-+						required-opps = <&rpmhpd_opp_turbo>;
-+					};
-+				};
-+			};
-+
-+			mdss_dp0: displayport-controller@ae90000 {
-+				compatible = "qcom,sar2130p-dp",
-+					     "qcom,sm8350-dp";
-+				reg = <0x0 0xae90000 0x0 0x200>,
-+				      <0x0 0xae90200 0x0 0x200>,
-+				      <0x0 0xae90400 0x0 0xc00>,
-+				      <0x0 0xae91000 0x0 0x400>,
-+				      <0x0 0xae91400 0x0 0x400>;
-+				interrupt-parent = <&mdss>;
-+				interrupts = <12>;
-+				clocks = <&dispcc DISP_CC_MDSS_AHB_CLK>,
-+					 <&dispcc DISP_CC_MDSS_DPTX0_AUX_CLK>,
-+					 <&dispcc DISP_CC_MDSS_DPTX0_LINK_CLK>,
-+					 <&dispcc DISP_CC_MDSS_DPTX0_LINK_INTF_CLK>,
-+					 <&dispcc DISP_CC_MDSS_DPTX0_PIXEL0_CLK>;
-+				clock-names = "core_iface",
-+					      "core_aux",
-+					      "ctrl_link",
-+					      "ctrl_link_iface",
-+					      "stream_pixel";
-+
-+				assigned-clocks = <&dispcc DISP_CC_MDSS_DPTX0_LINK_CLK_SRC>,
-+						  <&dispcc DISP_CC_MDSS_DPTX0_PIXEL0_CLK_SRC>;
-+				assigned-clock-parents = <&usb_dp_qmpphy QMP_USB43DP_DP_LINK_CLK>,
-+							 <&usb_dp_qmpphy QMP_USB43DP_DP_VCO_DIV_CLK>;
-+
-+				phys = <&usb_dp_qmpphy QMP_USB43DP_DP_PHY>;
-+				phy-names = "dp";
-+
-+				#sound-dai-cells = <0>;
-+
-+				operating-points-v2 = <&dp_opp_table>;
-+				power-domains = <&rpmhpd RPMHPD_MMCX>;
-+
-+				status = "disabled";
-+
-+				ports {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					port@0 {
-+						reg = <0>;
-+
-+						mdss_dp0_in: endpoint {
-+							remote-endpoint = <&dpu_intf0_out>;
-+						};
-+					};
-+
-+					port@1 {
-+						reg = <1>;
-+
-+						mdss_dp0_out: endpoint {
-+							remote-endpoint = <&usb_dp_qmpphy_dp_in>;
-+						};
-+					};
-+				};
-+
-+				dp_opp_table: opp-table {
-+					compatible = "operating-points-v2";
-+
-+					opp-162000000 {
-+						opp-hz = /bits/ 64 <162000000>;
-+						required-opps = <&rpmhpd_opp_low_svs_d1>;
-+					};
-+
-+					opp-270000000 {
-+						opp-hz = /bits/ 64 <270000000>;
-+						required-opps = <&rpmhpd_opp_low_svs>;
-+					};
-+
-+					opp-540000000 {
-+						opp-hz = /bits/ 64 <540000000>;
-+						required-opps = <&rpmhpd_opp_svs_l1>;
-+					};
-+
-+					opp-810000000 {
-+						opp-hz = /bits/ 64 <810000000>;
-+						required-opps = <&rpmhpd_opp_nom>;
-+					};
-+				};
-+			};
-+
-+			mdss_dsi0: dsi@ae94000 {
-+				compatible = "qcom,sar2130p-dsi-ctrl",
-+					     "qcom,mdss-dsi-ctrl";
-+				reg = <0x0 0x0ae94000 0x0 0x400>;
-+				reg-names = "dsi_ctrl";
-+
-+				interrupt-parent = <&mdss>;
-+				interrupts = <4>;
-+
-+				clocks = <&dispcc DISP_CC_MDSS_BYTE0_CLK>,
-+					 <&dispcc DISP_CC_MDSS_BYTE0_INTF_CLK>,
-+					 <&dispcc DISP_CC_MDSS_PCLK0_CLK>,
-+					 <&dispcc DISP_CC_MDSS_ESC0_CLK>,
-+					 <&dispcc DISP_CC_MDSS_AHB_CLK>,
-+					 <&gcc GCC_DISP_HF_AXI_CLK>;
-+				clock-names = "byte",
-+					      "byte_intf",
-+					      "pixel",
-+					      "core",
-+					      "iface",
-+					      "bus";
-+
-+				power-domains = <&rpmhpd RPMHPD_MMCX>;
-+
-+				assigned-clocks = <&dispcc DISP_CC_MDSS_BYTE0_CLK_SRC>,
-+						  <&dispcc DISP_CC_MDSS_PCLK0_CLK_SRC>;
-+				assigned-clock-parents = <&mdss_dsi0_phy DSI_BYTE_PLL_CLK>,
-+							 <&mdss_dsi0_phy DSI_PIXEL_PLL_CLK>;
-+
-+				operating-points-v2 = <&mdss_dsi_opp_table>;
-+
-+				phys = <&mdss_dsi0_phy>;
-+				phy-names = "dsi";
-+
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				status = "disabled";
-+
-+				ports {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					port@0 {
-+						reg = <0>;
-+						mdss_dsi0_in: endpoint {
-+							remote-endpoint = <&dpu_intf1_out>;
-+						};
-+					};
-+
-+					port@1 {
-+						reg = <1>;
-+						mdss_dsi0_out: endpoint {
-+						};
-+					};
-+				};
-+
-+				mdss_dsi_opp_table: opp-table {
-+					compatible = "operating-points-v2";
-+
-+					opp-187500000 {
-+						opp-hz = /bits/ 64 <187500000>;
-+						required-opps = <&rpmhpd_opp_low_svs>;
-+					};
-+
-+					opp-300000000 {
-+						opp-hz = /bits/ 64 <300000000>;
-+						required-opps = <&rpmhpd_opp_svs>;
-+					};
-+
-+					opp-358000000 {
-+						opp-hz = /bits/ 64 <358000000>;
-+						required-opps = <&rpmhpd_opp_nom>;
-+					};
-+				};
-+			};
-+
-+			mdss_dsi0_phy: phy@ae95000 {
-+				compatible = "qcom,sar2130p-dsi-phy-5nm";
-+				reg = <0x0 0x0ae95000 0x0 0x200>,
-+				      <0x0 0x0ae95200 0x0 0x280>,
-+				      <0x0 0x0ae95500 0x0 0x400>;
-+				reg-names = "dsi_phy",
-+					    "dsi_phy_lane",
-+					    "dsi_pll";
-+
-+				clocks = <&dispcc DISP_CC_MDSS_AHB_CLK>,
-+					 <&rpmhcc RPMH_CXO_CLK>;
-+				clock-names = "iface", "ref";
-+
-+				#clock-cells = <1>;
-+				#phy-cells = <0>;
-+
-+				status = "disabled";
-+			};
-+
-+			mdss_dsi1: dsi@ae96000 {
-+				compatible = "qcom,sar2130p-dsi-ctrl",
-+					     "qcom,mdss-dsi-ctrl";
-+				reg = <0x0 0x0ae96000 0x0 0x400>;
-+				reg-names = "dsi_ctrl";
-+
-+				interrupt-parent = <&mdss>;
-+				interrupts = <5>;
-+
-+				clocks = <&dispcc DISP_CC_MDSS_BYTE1_CLK>,
-+					 <&dispcc DISP_CC_MDSS_BYTE1_INTF_CLK>,
-+					 <&dispcc DISP_CC_MDSS_PCLK1_CLK>,
-+					 <&dispcc DISP_CC_MDSS_ESC1_CLK>,
-+					 <&dispcc DISP_CC_MDSS_AHB_CLK>,
-+					 <&gcc GCC_DISP_HF_AXI_CLK>;
-+				clock-names = "byte",
-+					      "byte_intf",
-+					      "pixel",
-+					      "core",
-+					      "iface",
-+					      "bus";
-+
-+				power-domains = <&rpmhpd RPMHPD_MMCX>;
-+
-+				assigned-clocks = <&dispcc DISP_CC_MDSS_BYTE1_CLK_SRC>,
-+						  <&dispcc DISP_CC_MDSS_PCLK1_CLK_SRC>;
-+				assigned-clock-parents = <&mdss_dsi1_phy 0>,
-+							 <&mdss_dsi1_phy 1>;
-+
-+				operating-points-v2 = <&mdss_dsi_opp_table>;
-+
-+				phys = <&mdss_dsi1_phy>;
-+				phy-names = "dsi";
-+
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				status = "disabled";
-+
-+				ports {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					port@0 {
-+						reg = <0>;
-+						mdss_dsi1_in: endpoint {
-+							remote-endpoint = <&dpu_intf2_out>;
-+						};
-+					};
-+
-+					port@1 {
-+						reg = <1>;
-+						mdss_dsi1_out: endpoint {
-+						};
-+					};
-+				};
-+			};
-+
-+			mdss_dsi1_phy: phy@ae97000 {
-+				compatible = "qcom,sar2130p-dsi-phy-5nm";
-+				reg = <0x0 0x0ae97000 0x0 0x200>,
-+				      <0x0 0x0ae97200 0x0 0x280>,
-+				      <0x0 0x0ae97500 0x0 0x400>;
-+				reg-names = "dsi_phy",
-+					    "dsi_phy_lane",
-+					    "dsi_pll";
-+
-+				clocks = <&dispcc DISP_CC_MDSS_AHB_CLK>,
-+					 <&rpmhcc RPMH_CXO_CLK>;
-+				clock-names = "iface", "ref";
-+
-+				#clock-cells = <1>;
-+				#phy-cells = <0>;
-+
-+				status = "disabled";
-+			};
-+		};
-+
-+		dispcc: clock-controller@af00000 {
-+			compatible = "qcom,sar2130p-dispcc";
-+			reg = <0x0 0x0af00000 0x0 0x20000>;
-+			clocks = <&rpmhcc RPMH_CXO_CLK>,
-+				 <&rpmhcc RPMH_CXO_CLK_A>,
-+				 <&gcc GCC_DISP_AHB_CLK>,
-+				 <&sleep_clk>,
-+				 <&mdss_dsi0_phy DSI_BYTE_PLL_CLK>,
-+				 <&mdss_dsi0_phy DSI_PIXEL_PLL_CLK>,
-+				 <&mdss_dsi1_phy DSI_BYTE_PLL_CLK>,
-+				 <&mdss_dsi1_phy DSI_PIXEL_PLL_CLK>,
-+				 <&usb_dp_qmpphy QMP_USB43DP_DP_LINK_CLK>,
-+				 <&usb_dp_qmpphy QMP_USB43DP_DP_VCO_DIV_CLK>,
-+				 <0>, /* dp1 */
-+				 <0>,
-+				 <0>, /* dp2 */
-+				 <0>,
-+				 <0>, /* dp3 */
-+				 <0>;
-+			power-domains = <&rpmhpd RPMHPD_MMCX>;
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+			#power-domain-cells = <1>;
-+		};
-+
- 		pdc: interrupt-controller@b220000 {
- 			compatible = "qcom,sar2130p-pdc", "qcom,pdc";
- 			reg = <0x0 0x0b220000 0x0 0x30000>, <0x0 0x174000f0 0x0 0x64>;
+	ret = clk_prepare(data->clk);
+	if (ret) {
+		...
+	}
+
+May be worth to group both calls with devm_clk_get_enabled()
+
+> -
+> -	data->clk_sec = devm_clk_get(dev, "tmu_triminfo_apbif");
+> -	if (IS_ERR(data->clk_sec)) {
+> -		if (data->soc == SOC_ARCH_EXYNOS5420_TRIMINFO)
+> -			return dev_err_probe(dev, PTR_ERR(data->clk_sec),
+> -					     "Failed to get triminfo clock\n");
+>  	} else {
+> -		ret = clk_prepare(data->clk_sec);
+> +		ret = clk_prepare(data->clk);
+>  		if (ret) {
+>  			dev_err(dev, "Failed to get clock\n");
+>  			return ret;
+>  		}
+>  	}
+>  
+> -	ret = clk_prepare(data->clk);
+> -	if (ret) {
+> -		dev_err(dev, "Failed to get clock\n");
+> -		goto err_clk_sec;
+> -	}
+> -
+>  	switch (data->soc) {
+> +	case SOC_ARCH_EXYNOS5420_TRIMINFO:
+> +		data->clk_sec = devm_clk_get(dev, "tmu_triminfo_apbif");
+> +		if (IS_ERR(data->clk_sec)) {
+> +			ret = dev_err_probe(dev, PTR_ERR(data->clk_sec),
+> +					    "Failed to get clk_sec clock\n");
+> +			goto err_clk;
+> +		}
+> +		ret = clk_prepare(data->clk_sec);
+
+Same comment, devm_clk_get_enabled()
+
+> +		if (ret) {
+> +			dev_err(dev, "Failed to prepare clk_sec clock\n");
+> +			goto err_clk_sec;
+> +		}
+> +		break;
+>  	case SOC_ARCH_EXYNOS5433:
+>  	case SOC_ARCH_EXYNOS7:
+>  		data->sclk = devm_clk_get(dev, "tmu_sclk");
+> @@ -1112,11 +1113,10 @@ static int exynos_tmu_probe(struct platform_device *pdev)
+>  
+>  err_sclk:
+>  	clk_disable_unprepare(data->sclk);
+> +err_clk_sec:
+> +	clk_unprepare(data->clk_sec);
+>  err_clk:
+>  	clk_unprepare(data->clk);
+> -err_clk_sec:
+> -	if (!IS_ERR(data->clk_sec))
+> -		clk_unprepare(data->clk_sec);
+
+With devm_ variant those labels should go away
+
+>  	return ret;
+>  }
+>  
+> @@ -1128,8 +1128,7 @@ static void exynos_tmu_remove(struct platform_device *pdev)
+>  
+>  	clk_disable_unprepare(data->sclk);
+>  	clk_unprepare(data->clk);
+> -	if (!IS_ERR(data->clk_sec))
+> -		clk_unprepare(data->clk_sec);
+> +	clk_unprepare(data->clk_sec);
+>  }
+>  
+>  #ifdef CONFIG_PM_SLEEP
+> -- 
+> 2.49.0
+> 
 
 -- 
-2.39.5
 
+ <http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
+
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
