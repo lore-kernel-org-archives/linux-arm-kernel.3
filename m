@@ -4,78 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FD3FC369CA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Apr 2025 18:12:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 501ECC369CA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Apr 2025 18:27:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VY17ZoztUK1pT2AXyZLmBdvwKx3peOWAZrkwlCco0uU=; b=RbuvxCsgoe11kLQt7JGaKi7v8O
-	2BvZV0F63NUgubQvkBBCqvW/h4sRi9ceUTYAwGzdYohulgCTJ6qk/tEB+iz4oPTCnK8XmBMwv0K19
-	Hgdwkw+Il/Err7R5OIn/si4XGVbOoE6Xjtn/rrY+Zo2dSiR/wWD4ArHtAo92fbPpk45yf00YeI0ho
-	0R9IA+3G9RLKHBNHZrRp6MCg7nHoqz8XOvjSmnVq2ttFRAbOkQHMug8A9GNtkKwJSlrJGm+lh6jqs
-	LqOGT8p0YJ1l8GCKkBXS0QGw4BahNpqjnsJyGoaTkb8rOfsej5d3m2SXdzs0Dw39Hum/F9S9OTeBZ
-	PFWDK9og==;
+	bh=b/Yf3GYBLMjcbsQjmUcazNuprLTTnJ8iv6nWe+Zhemk=; b=Dl6UvYSKkAP5ZUCyY27SQeGEM3
+	5+a5Va7IVs17lyAV2NdUnH52kseYQIQUUhZ0W3ASUXvaKdR70g1eJbPh1+Rt+q3wTH07NlGCYRvqo
+	lPwJ8uK8PJUmBPFfwbt1NnhiRhkUiTZBGt9RDcHbW+yP/N2WOVxPE7jhnzRF38i4JB4qLqw2+QdK6
+	xf6LD2crs6irs+jrwxZVcenbpd5yPcTRIKi299NaWXUbtsNnmPG3ikcJfztt5QUU67FHGuEkoszA1
+	n7hiZ4r3P4nRuEZmW4s4HWxFHLElOiOARIe68MX1uUxDBUAO7Q+k7pKAKSqeunjWIF95xmXqWbiHZ
+	IX2DQ/Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6Cfi-00000001em0-45W4;
-	Sat, 19 Apr 2025 18:12:10 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1u6CuU-00000001fYF-2XIz;
+	Sat, 19 Apr 2025 18:27:26 +0000
+Received: from mail.manjaro.org ([116.203.91.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6Cdh-00000001eZu-18tj
+	id 1u6Csb-00000001fRH-2xG8
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Apr 2025 18:10:06 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53JIA2NU1243663
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Sat, 19 Apr 2025 13:10:02 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745086202;
-	bh=VY17ZoztUK1pT2AXyZLmBdvwKx3peOWAZrkwlCco0uU=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=YhqxFwNbNXQkPfqJXbR4q6CJmrabNNr657kRZobA205KRF53mUgOHFlecDuzOO44+
-	 Cq3wEZ6d9yxKeHo2ndqHRdrTTzNd8uQk6hsuW0IObJQLwJGsscghRLJnFEh/4BngRM
-	 E6hL/ifdchctkF92VCqwzxSKTJ4OyiwpE3r+pIGw=
-Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53JIA2Ac003447
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Sat, 19 Apr 2025 13:10:02 -0500
-Received: from DLEE109.ent.ti.com (157.170.170.41) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Sat, 19
- Apr 2025 13:10:01 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE109.ent.ti.com
- (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Sat, 19 Apr 2025 13:10:01 -0500
-Received: from [10.249.141.75] ([10.249.141.75])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53JI9uIZ071610;
-	Sat, 19 Apr 2025 13:09:57 -0500
-Message-ID: <f9cb52e2-d211-47b1-9536-3aa81db916c7@ti.com>
-Date: Sat, 19 Apr 2025 23:39:55 +0530
+	Sat, 19 Apr 2025 18:25:31 +0000
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/7] arm64: dts: ti: k3-j721e: add ranges for PCIe0 DAT1
- and PCIe1 DAT1
-To: Siddharth Vadapalli <s-vadapalli@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
-        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        <u-kumar1@ti.com>
-References: <20250417120407.2646929-1-s-vadapalli@ti.com>
- <20250417120407.2646929-4-s-vadapalli@ti.com>
-Content-Language: en-US
-From: "Kumar, Udit" <u-kumar1@ti.com>
-In-Reply-To: <20250417120407.2646929-4-s-vadapalli@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1745087127;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=b/Yf3GYBLMjcbsQjmUcazNuprLTTnJ8iv6nWe+Zhemk=;
+	b=Gxm3iyXAzq9C3ct3zpb2lzTWXFZxRey/272QctC48Hj97wwL6ExDUnrKgHs4aHpsBzBYdM
+	HAXA/EQIjPmpgrG2oQYhjkE35YnlB6XptMLChG7leM8UAE7Ywv0itH0gI6bbr3I8fbenIo
+	orWdBoasjHC52OSN5AZNnD3BLRn25pZfKdukQF0OLvQ6pIGjq0vAj1Ck810xsRnMyLCqZS
+	4FrOXrJaEb1YLbdBYy9i4ot+83TykofTvSwrU22sfOR6WVoHvqSCchbaLWp7P2paISozP3
+	SzG398V79rxHJLx4PYJnK0kvaiFbxLrIC3SXKvIblb0IVDQMVMVKDHcvEs1i9Q==
+Date: Sat, 19 Apr 2025 20:25:27 +0200
+From: Dragan Simic <dsimic@manjaro.org>
+To: Peter Robinson <pbrobinson@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej
+ Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v3 1/2] arm64: dts: allwinner: a64: Add WiFi/BT header on
+ Pine64
+In-Reply-To: <20250419160051.677485-2-pbrobinson@gmail.com>
+References: <20250419160051.677485-1-pbrobinson@gmail.com>
+ <20250419160051.677485-2-pbrobinson@gmail.com>
+Message-ID: <17c65a34625b328efad258a2ffc7a688@manjaro.org>
+X-Sender: dsimic@manjaro.org
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
 Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250419_111005_413511_77084B2B 
-X-CRM114-Status: GOOD (  13.06  )
+X-CRM114-CacheID: sfid-20250419_112529_929980_C97632A9 
+X-CRM114-Status: GOOD (  17.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,32 +77,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello Peter,
 
-On 4/17/2025 5:34 PM, Siddharth Vadapalli wrote:
-> The PCIe0 DAT1 and PCIe1 DAT1 are 4 GB address regions in the 64-bit
-> address space of the respective PCIe Controllers. Hence, update the
-> ranges to include them.
->
-> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+On 2025-04-19 18:00, Peter Robinson wrote:
+> This adds all the pin mappings on the WiFi/BT header on
+> the original Pine64. They're disabled by default as the
+> modules don't ship by default. This includes, where they
+> haven't been already, UART1 for BT and mmc1 for WiFi.
+> 
+> Signed-off-by: Peter Robinson <pbrobinson@gmail.com>
 > ---
->   arch/arm64/boot/dts/ti/k3-j721e.dtsi | 2 ++
->   1 file changed, 2 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/ti/k3-j721e.dtsi b/arch/arm64/boot/dts/ti/k3-j721e.dtsi
-> index a7f2f52f42f7..4f5d277c97a4 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j721e.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j721e.dtsi
-> @@ -126,6 +126,8 @@ cbass_main: bus@100000 {
->   			 <0x00 0x10000000 0x00 0x10000000 0x00 0x10000000>, /* PCIe DAT */
->   			 <0x00 0x64800000 0x00 0x64800000 0x00 0x00800000>, /* C71 */
->   			 <0x00 0x6f000000 0x00 0x6f000000 0x00 0x00310000>, /* A72 PERIPHBASE */
-> +			 <0x40 0x00000000 0x40 0x00000000 0x00 0x08000000>, /* PCIe0 DAT1 */
-> +			 <0x41 0x00000000 0x41 0x00000000 0x00 0x08000000>, /* PCIe1 DAT1 */
+>  .../boot/dts/allwinner/sun50i-a64-pine64.dts   | 18 ++++++++++++++++++
+>  1 file changed, 18 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a64-pine64.dts
+> b/arch/arm64/boot/dts/allwinner/sun50i-a64-pine64.dts
+> index 09e71fd60785..764fb191107a 100644
+> --- a/arch/arm64/boot/dts/allwinner/sun50i-a64-pine64.dts
+> +++ b/arch/arm64/boot/dts/allwinner/sun50i-a64-pine64.dts
+> @@ -35,6 +35,11 @@ hdmi_con_in: endpoint {
+>  			};
+>  		};
+>  	};
+> +
+> +	wifi_pwrseq: pwrseq {
+> +		compatible = "mmc-pwrseq-simple";
+> +		reset-gpios = <&r_pio 0 2 GPIO_ACTIVE_LOW>; /* PL2 */
+> +	};
 
-Do you want to map whole 4GB or just 128M ?
+Is there a reason why the status of this node isn't set to
+"disabled"?  Or even better, why don't we move this node
+entirely into the proposed DT overlay?
 
+The required reset procedure actually depends on what's
+found on the add-on module, so it should belong to the DT
+overlay that defines the add-on module.
 
->   			 <0x44 0x00000000 0x44 0x00000000 0x00 0x08000000>, /* PCIe2 DAT */
->   			 <0x44 0x10000000 0x44 0x10000000 0x00 0x08000000>, /* PCIe3 DAT */
->   			 <0x4d 0x80800000 0x4d 0x80800000 0x00 0x00800000>, /* C66_0 */
+>  };
+> 
+>  &codec {
+> @@ -124,6 +129,18 @@ &mmc0 {
+>  	status = "okay";
+>  };
+> 
+> +/* On Wifi/BT connector */
+> +&mmc1 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&mmc1_pins>;
+> +	vmmc-supply = <&reg_dldo4>;
+> +	vqmmc-supply = <&reg_eldo1>;
+> +	mmc-pwrseq = <&wifi_pwrseq>;
+
+Of course, the "mmc-pwrseq" property would then also be moved
+to the DT overlay that defines the add-on module.
+
+> +	bus-width = <4>;
+> +	non-removable;
+> +	status = "disabled";
+> +};
+> +
+>  &ohci0 {
+>  	status = "okay";
+>  };
+> @@ -286,6 +303,7 @@ &uart0 {
+>  &uart1 {
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&uart1_pins>, <&uart1_rts_cts_pins>;
+> +	uart-has-rtscts;
+>  	status = "disabled";
+>  };
 
