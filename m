@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12598C369BD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Apr 2025 09:26:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0D1CC369BD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Apr 2025 09:32:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Us1OPcT95pYq6Zs+MqELVB/1+jFKO5SGLPxS8Hzr2No=; b=tF/s3oXxzLJ3G3w1CT2zSydWFO
-	Z+DbRSa6iKHvCQhu6K3nMDAc+z/59IhP6BoHE/DSwdupcn40ttkTOoObSrENjcjvThtFU0RHdJ2Ho
-	Bqvjr9JQSQTiTPDahZWAfvlKuTofGxthdCtfxGXBLGaXk6vYRgaoobXt3p0F1aHlPX91/5H2TH1g1
-	3hqKI09kPiH5AxTLB0BibVGXyLwKjNWCm02AN+sqFCGKGN/eSq7S40skvwJSjB+vG3bX8T8zcq3V3
-	MHg92pJtU5BPPpzjqB4R0O2EHirf8jejTmZXxt6srq8XLTNK4SDshQAR5fE439OOj3HpBJnSJvAxp
-	MVlVFfTw==;
+	bh=tUoEpxJAPpePFUnYzadpeX3o71EYpvH2B9GUgZ/Ia3g=; b=cKAssGDknmad386RsNoh8j4rpD
+	n23ZbazVJe9JdLiMUY4wXl8K6qrfbUD7aucYh3F7EeF0P9ivmEaNP0OVT2d6+blQFLvPeKkTId64w
+	xz+CDKq9x2aEaUiWHzbN/chpQSQf1mKsqGLHPZOt3S8Zq6Alur0GUvwz/EIwWCTwu7WVO4U03y9lE
+	BiPdacbW8uW45rs3QiuWL5rHTI4r0FQIx64T8ylpEiXtiqI1JahNsOfMzA1YiufNyqCMqf4GKCPjK
+	ACAURGRq/dL2H7zGnqDGbxmVd07r9QZSYNJulZpJ/zrJ4yvO5FZ02NmyRT2zOYF/+v0B4nafFzI3p
+	JF7j/cNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u64SK-000000015G3-1i5I;
-	Sat, 19 Apr 2025 09:25:48 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1u64YK-000000015iP-1pVC;
+	Sat, 19 Apr 2025 09:32:00 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u64QQ-0000000158o-0jgb
+	id 1u64WP-000000015b8-1zdu
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Apr 2025 09:23:51 +0000
+	Sat, 19 Apr 2025 09:30:02 +0000
 Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53J9NkGq467719
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53J9TpKA473892
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Sat, 19 Apr 2025 04:23:46 -0500
+	Sat, 19 Apr 2025 04:29:51 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745054626;
-	bh=Us1OPcT95pYq6Zs+MqELVB/1+jFKO5SGLPxS8Hzr2No=;
+	s=ti-com-17Q1; t=1745054991;
+	bh=tUoEpxJAPpePFUnYzadpeX3o71EYpvH2B9GUgZ/Ia3g=;
 	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=DtpOHdcpz1VGX4Ip/XrqrqmLvNjnw7B4R30mGpLAoTgjc6skbLjzEMEuT90916WF+
-	 OdQzVRIkwYDMqH1FaMjNPSiYH1CJjzp/8txIpb6j6PY+uHl76+oaIpJp3UBg6zMNYk
-	 P9ejHC1MGQ8Bgjler7jLp7Kqpmf4jWQ42InDWntc=
-Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53J9NkSO110970
+	b=qK8qWIVT8IVJlD91hhub8378U7hhcJ0sKLPzsaNs2sMq9pTMRrqxsKMzOAeF66Iha
+	 Czf1mSeFsYns282PK+m2ZxYlKNX8XX3cDwrzZuDC2uu1v4RpHNT8ftL9tdkhOMiUuf
+	 bY0MeDfka0/dlHPQlCWTrQ1a/xPbObjSYxeoo2g0=
+Received: from DLEE111.ent.ti.com (dlee111.ent.ti.com [157.170.170.22])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53J9TpoW113705
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Sat, 19 Apr 2025 04:23:46 -0500
-Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE104.ent.ti.com
- (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
+	Sat, 19 Apr 2025 04:29:51 -0500
+Received: from DLEE102.ent.ti.com (157.170.170.32) by DLEE111.ent.ti.com
+ (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Sat, 19
- Apr 2025 04:23:45 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE107.ent.ti.com
- (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
+ Apr 2025 04:29:51 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE102.ent.ti.com
+ (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Sat, 19 Apr 2025 04:23:45 -0500
+ Frontend Transport; Sat, 19 Apr 2025 04:29:51 -0500
 Received: from [10.249.141.75] ([10.249.141.75])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53J9NgGE070413;
-	Sat, 19 Apr 2025 04:23:42 -0500
-Message-ID: <ab27873e-cada-4135-a617-5d4567a4eaa5@ti.com>
-Date: Sat, 19 Apr 2025 14:53:41 +0530
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53J9TlrM075765;
+	Sat, 19 Apr 2025 04:29:48 -0500
+Message-ID: <945e0247-a971-48de-adb1-60a1e7fe5f24@ti.com>
+Date: Sat, 19 Apr 2025 14:59:47 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/7] arm64: dts: ti: k3-j721s2-common-proc-board: Add
- main_i2c4 instance
+Subject: Re: [PATCH 6/7] arm64: dts: ti: k3-j721s2-common-proc-board: Enable
+ DisplayPort-1
 To: Jayesh Choudhary <j-choudhary@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
         <devarsht@ti.com>, <linux-kernel@vger.kernel.org>
 CC: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
         <kristo@kernel.org>, <devicetree@vger.kernel.org>,
         <linux-arm-kernel@lists.infradead.org>, <u-kumar1@ti.com>
 References: <20250411105155.303657-1-j-choudhary@ti.com>
- <20250411105155.303657-5-j-choudhary@ti.com>
+ <20250411105155.303657-7-j-choudhary@ti.com>
 Content-Language: en-US
 From: "Kumar, Udit" <u-kumar1@ti.com>
-In-Reply-To: <20250411105155.303657-5-j-choudhary@ti.com>
+In-Reply-To: <20250411105155.303657-7-j-choudhary@ti.com>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250419_022350_314180_F99E6202 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20250419_023001_604471_902088CB 
+X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,55 +91,44 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 On 4/11/2025 4:21 PM, Jayesh Choudhary wrote:
-> Add dt node for main_i2c4 instance along with required pinmuxing.
-> Also add the gpio expander 'exp4' required by display connector.
+> Enable DSI display for J721S2 EVM.
+>
+> Add the endpoint nodes to describe connection from:
+> DSS => DSI Bridge => DSI to eDP bridge => DisplayPort-1
+>
+> Set status for all required nodes for DisplayPort-1 as 'okay'.
 >
 > Signed-off-by: Jayesh Choudhary <j-choudhary@ti.com>
 > ---
->   .../dts/ti/k3-j721s2-common-proc-board.dts    | 21 +++++++++++++++++++
->   1 file changed, 21 insertions(+)
+>   .../dts/ti/k3-j721s2-common-proc-board.dts    | 95 +++++++++++++++++++
+>   1 file changed, 95 insertions(+)
 >
 > diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts b/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts
-> index e2fc1288ed07..f691ae4c19e6 100644
+> index f691ae4c19e6..15a7d9b813d3 100644
 > --- a/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts
 > +++ b/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts
-> @@ -148,6 +148,13 @@ J721S2_IOPAD(0x060, PIN_INPUT_PULLUP, 13) /* (AC27) MCASP2_AXR1.I2C3_SDA */
->   		>;
+> @@ -93,6 +93,29 @@ vdd_sd_dv: gpio-regulator-TLV71033 {
+>   			 <3300000 0x1>;
 >   	};
 >   
-> +	main_i2c4_pins_default: main-i2c4-default-pins {
-> +		pinctrl-single,pins = <
-> +			J721S2_IOPAD(0x014, PIN_INPUT_PULLUP, 8) /* (AD25) I2C4_SCL */
-> +			J721S2_IOPAD(0x010, PIN_INPUT_PULLUP, 8) /* (AF28) I2C4_SDA */
-> +		>;
-> +	};
+> [..]
 > +
->   	main_i2c5_pins_default: main-i2c5-default-pins {
->   		pinctrl-single,pins = <
->   			J721S2_IOPAD(0x01c, PIN_INPUT, 8) /* (Y24) MCAN15_TX.I2C5_SCL */
-> @@ -370,6 +377,20 @@ exp2: gpio@22 {
->   	};
->   };
->   
-> +&main_i2c4 {
+> +&dss {
+> +	/*
+> +	 * These clock assignments are chosen to enable the following outputs:
+> +	 *
+> +	 * VP0 - DisplayPort SST
+> +	 * VP1 - DPI0
+> +	 * VP2 - DSI
+> +	 * VP3 - DPI1
+> +	 */
+
+Sorry for basic question,  In this series , you are enabling only DSI 
+interface.
+
+why you need clocking for other interfaces ?
+
+
 > +	status = "okay";
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&main_i2c4_pins_default>;
-> +	clock-frequency = <400000>;
-> +
-> +	exp4: gpio@20 {
-> +		compatible = "ti,tca6408";
-> +		reg = <0x20>;
-> +		gpio-controller;
-> +		#gpio-cells = <2>;
-
-I suggest to add, gpio-line-names as well for this gpio expander.
-
-
-> +	};
-> +};
-> +
->   &main_i2c5 {
->   	pinctrl-names = "default";
->   	pinctrl-0 = <&main_i2c5_pins_default>;
+> [..]
 
