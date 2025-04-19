@@ -4,76 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F014DC369C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Apr 2025 23:12:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34D78C369C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Apr 2025 23:14:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CJ2CAOyyO+hXIbzI5viafcwpFofTGSFRrqZLvi/3aBA=; b=1l65r5g048S69JZxb0T5ZU8PXS
-	bnz7LRLPXUSvLHrAgAm5ovQvLtxKIv65afkcGH4GLMIOa3X5uoYorodNh6qqgczkuqWsbxD4M8grc
-	pCAoVQNH0rE7qwNL9XU22ONOiq9UiJ0uhGhWOW9RyUItJD6dc65a/NnfQ4HR5Ni49ShA/ogtLvEen
-	uwfw1XDOsaNjg4Mu8fZ66/h1L9gD3FGYb/mR8Kbru2qo/FBYnbSZ+X9tZimKi8l9sfVge2cHte6na
-	dOIQ6OxQz58J0cUmVaUFGvuj7NNt0+mS51SHpcCcAHMQEzYPeKQuBGhzMqOU7EbU9IG/nuIeYOLs4
-	aH+waq6g==;
+	bh=smP6wtuEPxGQlG+yx8YbiPVrmm7vWSzlxcMcUy2wQgU=; b=3JyVlCrDAQbByak81AKTa+1KB4
+	ntm0zO0UnKLhohUny90xsogQasLGNfwqjNbMv9jqyhJKfpJ6sePUhIVmcYUcqC/0iqoylGNWA7ngA
+	pU0khSf63RHcC/ox0FUHp7VQmklqL5dGB6nthXodYHYw4VCVNWoLLWls4SC1y/bPOtGQCbDvNmk+D
+	2UV8h1uMpwIEC1+CnTNwb751uPrEna7a8xM6z7eYUFdEJfzJeZI/sR2WPyZMBRcgv9Iqu6VGfWis/
+	fogPUKeFNWBx2E/5Tx/uW7PAswW7RQe8IXYU2lxt0Phk9hGMQnkA7Pthw2dePlbH/Oi+jk64yX+H9
+	uTbmF51Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6HMR-00000001wMR-45SS;
-	Sat, 19 Apr 2025 23:12:35 +0000
+	id 1u6HOI-00000001wUI-2sg6;
+	Sat, 19 Apr 2025 23:14:30 +0000
 Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6GnO-00000001sog-085Z
+	id 1u6GnP-00000001spd-0H0C
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Apr 2025 22:36:23 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-54d65eb26b2so2640722e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 19 Apr 2025 15:36:21 -0700 (PDT)
+	Sat, 19 Apr 2025 22:36:24 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-54c090fc7adso3177117e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 19 Apr 2025 15:36:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745102180; x=1745706980; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1745102181; x=1745706981; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=CJ2CAOyyO+hXIbzI5viafcwpFofTGSFRrqZLvi/3aBA=;
-        b=MrmiQQdbwUSGwaC5bSy+REKvRPtKaikYs5PFUeOcx4p89IcYQjTrOMQMEeY7Kvy4g2
-         2d30R/GZl800vO+SsArQvdcMIOTyqi66sIX46D1IGao+GVDO7EdeZhbp3iu4ZI+EEDuA
-         HETzKU/JjImkhiyq5toC8AJEgEhvAtKC6333uRGGj+vsqAkCwt3O3SxhW9AXR0VHTySB
-         n9FhSsEFOfaTzjukPe1CjotO8dIQAOsfgtNotKAEZNCToMhEKqgBFqLDEQE6ROJ77tnE
-         vFkQGgpvm9HcBWBUjFgN+FyC6U9CbhHIL1QJrBzFvWpqVj8Ta4Rwg8CIRoneszDrklMg
-         VWAA==
+        bh=smP6wtuEPxGQlG+yx8YbiPVrmm7vWSzlxcMcUy2wQgU=;
+        b=UgGUSWoZLVSrv4WKRfCKEF302N/0ulpRM9st8T5wD3rB0rJ/aY0tFXov+WbypiPRO1
+         glq3fM3/xXafVOBgR3a8nXPxXKkqPDBrP/oAmceY3GhyJj2jvkD6cYKuj8gBODceGNGu
+         3cWeYb5op4OPZwCIXQ/Q9REG3RbIyF0x+SKfaTq07jQHHsKnT6vFuPSnz+NydxlxNgPZ
+         xLbRPmG8dh1X6JJ03FXixxgsE/WLdi/2lo+P9S0ftfgtPNc/eOYOsb2KpBFy8l1ijqX8
+         bUeNaVFHI2v8Tv9rM4XbNmSy7WaMgkjyTQt6r9oOdX8PDnc6BMSofZn6MYoh27QS/su0
+         BG5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745102180; x=1745706980;
+        d=1e100.net; s=20230601; t=1745102181; x=1745706981;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=CJ2CAOyyO+hXIbzI5viafcwpFofTGSFRrqZLvi/3aBA=;
-        b=dJlPm02QqbUU00Gw+Y2FCxlDWBwKdaLLJDReyGciQXovQuYS72ztYVI8d3912Lgcso
-         Wi8/998hGfysf/ujgz/hsJ1DbNwZq7F8lb5z+pICdHHZQV00s6XDLpeq9j4cE9RxT3Fh
-         dvdz9A4kOqx2nZkEKrjaadZcTxXvM/woan3PERMjQiL6ybVhRgwX7bURR2seH/BTmjPT
-         PT/MuW4derugsdMksLd374mkcW0IlEugucjZR41rv2fuQD2PG6ZdujV8PMPfC38JPRtu
-         kEPjDYn+BEVa/TCIxO8yrpwgKT0ir/An0kah0fHwjBAWleXbmQHcN8AnKnYXiZX+Bkso
-         vZAg==
-X-Gm-Message-State: AOJu0YxjJ4G21/KIu5JCzIM1kW7v+0FsLcKhjHMhIZWI2RTQK79ZCRlZ
-	IexvNqwzdmXc7Lh83Bi52w6fe7vCpWBPwWWlJWFeDoYhq9XMClBU/83ePo6Gyus=
-X-Gm-Gg: ASbGncviaOh1tXoW8vmwFepuN0PFSRbK04aN0T0O3rd5rwsbD9DfPj1cjveAV6v/k7W
-	t217980fUSxbzI/n0tl43uS2xUQycVw+3Fjw3fgwiwx9knNthersAqp2t5celYCxczZSHHnBL7G
-	SRSb2f2p2CxNpnHPwKU7gax+4GbuznBtfERLf2sAFLtKP8aTF1gEomDcnYA60ssz4Pgju1L6V1A
-	Zx0KPx20jW2FUWe5xAxc7dQ8k87aD/k1w0gVvjGMtqPTBcp07Yo6aCxxR2NqVRp8VWUJ/bUwG83
-	aDjKCPNq5loWYR513timcJ6KUUIkLOticiXlXtgCQHEVFNJE3FI=
-X-Google-Smtp-Source: AGHT+IFy8jjdgLjfaCOyW2gFGBs7/pfMPh1k6HYrKZA70Zav8DUkJktP7H7VAxHF4ELxWlpTqUqLsg==
-X-Received: by 2002:a05:6512:12d0:b0:546:2f7a:38c4 with SMTP id 2adb3069b0e04-54d6e62b86amr1840188e87.13.1745102180032;
-        Sat, 19 Apr 2025 15:36:20 -0700 (PDT)
+        bh=smP6wtuEPxGQlG+yx8YbiPVrmm7vWSzlxcMcUy2wQgU=;
+        b=L79UApsqapBOcbvN81UEL3tzqiHD+eq7JZxbDX0zp3FO8XO+1inIs2bWGCG9dEzRKT
+         zSMunEo7h1aEJ6w99qV61XAhPIoWYAtKQuediWO+GfTkjkh0TNWM0Vbr2rVy0gmtDmr6
+         jG1H6ovSF4/2IaSQ77/500yYzpn7QW6q1nu1tBEkuC261ySE+dHgArsN5koliHLLJOUu
+         KNkc1dl2QzDHtV6qdI6Rlo4wIuFKrM0iyz4japiqQ9f9z9Z+4udcrAk1VHrks4MUqeK5
+         SPj/zK4KnR7zh3eEJGFzq+/PtlmajrfnGsJ63iKImBcifGQgqGIkOdccITw11SYHrMtx
+         +TIQ==
+X-Gm-Message-State: AOJu0YwbUJxcgeoSn19eonQm4IjmmtkpyqB5NTXZmxRnd5DUcIEFXNH/
+	lbMuzBvVTS4zMFQI2bPgqnewmuzHuUlwuSTgRb6fyk6UeW8Lfg1TKBxzlJyXLIg=
+X-Gm-Gg: ASbGncu3RpDrCBqbxEws0CBItTAz162C4u0dxe/tPI2+Ty2/4Z06Kqr47DgPMevC8Q/
+	W8Dlr1n7Gl7lW3x0ye5QKo/GHsTqzRwgKZM0l9egtkITLtVyTP5i9ei+eW5NTq7Kn6jXoamg4Wt
+	dMrWwm/oyBezQ6wt0dgOcq44M+JK/joz5uKYY7mPdN5EEJvbRfbjgnz0TdpJPmUGpHIxKXA2alK
+	sB+a5dGbiXb4sOfl1BluYfTtT5TJ2cn8mg4XYvlpeY9oOSbueGyQd7vZWgKOSfSU4UthIW6kPbK
+	CQyTp18LD1RfabOUi6c94IVLbljk1iuUgxGhhoowvuwXay++vPs=
+X-Google-Smtp-Source: AGHT+IEXHVxk/ZPzizZxk/wtdsPQEkeFJ8rWxX8XwR/1XQy0SnPGf2l5NdkpLMSSJywv9IZRutxODg==
+X-Received: by 2002:a05:6512:1106:b0:549:38d2:f630 with SMTP id 2adb3069b0e04-54d6e62b9damr2006675e87.24.1745102181592;
+        Sat, 19 Apr 2025 15:36:21 -0700 (PDT)
 Received: from [192.168.1.140] ([85.235.12.238])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54d6e540daesm535322e87.79.2025.04.19.15.36.19
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54d6e540daesm535322e87.79.2025.04.19.15.36.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 19 Apr 2025 15:36:19 -0700 (PDT)
+        Sat, 19 Apr 2025 15:36:20 -0700 (PDT)
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Sun, 20 Apr 2025 00:36:05 +0200
-Subject: [PATCH v6 18/31] ARM: entry: Drop the superfast ret_fast_syscall
+Date: Sun, 20 Apr 2025 00:36:06 +0200
+Subject: [PATCH v6 19/31] ARM: entry: Remove fast and offset register
+ restore
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250420-arm-generic-entry-v6-18-95f1fcdfeeb2@linaro.org>
+Message-Id: <20250420-arm-generic-entry-v6-19-95f1fcdfeeb2@linaro.org>
 References: <20250420-arm-generic-entry-v6-0-95f1fcdfeeb2@linaro.org>
 In-Reply-To: <20250420-arm-generic-entry-v6-0-95f1fcdfeeb2@linaro.org>
 To: Dmitry Vyukov <dvyukov@google.com>, Oleg Nesterov <oleg@redhat.com>, 
@@ -88,8 +89,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Thomas Gleixner <tglx@linutronix.de>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250419_153622_073137_BA590CD1 
-X-CRM114-Status: GOOD (  15.56  )
+X-CRM114-CacheID: sfid-20250419_153623_124643_E1BE6BE4 
+X-CRM114-Status: GOOD (  14.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,72 +105,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When not using any irqflags tracing, context tracking or rseq
-debugging, the ARM kernel uses a "superfast" ret_fast_syscall
-with a very few assembly instructions.
-
-With generic entry, such local optimizations are not really
-possible, we need to call C unconditionally and take the
-(hopefully small) overhead.
-
-With generic entry in C, most of the tracing (etc) calls are
-replaced by stubs and optimized out by the compiler.
+Now all remaining invocations of restore_user_regs has
+fast = 0 and offset = 0 set, so drop these parameters
+to the macro.
 
 Acked-by: Thomas Gleixner <tglx@linutronix.de>
 Acked-by: Paul E. McKenney <paulmck@kernel.org>
 Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- arch/arm/kernel/entry-common.S | 29 +----------------------------
- 1 file changed, 1 insertion(+), 28 deletions(-)
+ arch/arm/kernel/entry-armv.S   |  2 +-
+ arch/arm/kernel/entry-common.S |  2 +-
+ arch/arm/kernel/entry-header.S | 29 +++++++++--------------------
+ 3 files changed, 11 insertions(+), 22 deletions(-)
 
+diff --git a/arch/arm/kernel/entry-armv.S b/arch/arm/kernel/entry-armv.S
+index 460aa92c3c1f50de905550acf363c58f509bfe0a..3cd5a80b47758867d1db6c3971030370bca1551a 100644
+--- a/arch/arm/kernel/entry-armv.S
++++ b/arch/arm/kernel/entry-armv.S
+@@ -497,7 +497,7 @@ __fiq_usr:
+ 	mov	r0, sp				@ struct pt_regs *regs
+ 	bl	handle_fiq_as_nmi
+ 	get_thread_info tsk
+-	restore_user_regs fast = 0, offset = 0
++	restore_user_regs
+  UNWIND(.fnend		)
+ ENDPROC(__fiq_usr)
+ 
 diff --git a/arch/arm/kernel/entry-common.S b/arch/arm/kernel/entry-common.S
-index 3559e0a9f5e079f1af91392bf000d39f9b45906c..dddbd6ba1eb9fcbc2c0d81f24e1a9b3231558d7f 100644
+index dddbd6ba1eb9fcbc2c0d81f24e1a9b3231558d7f..d27e34d7e97a079d62e7b778cf7cf97c302e4763 100644
 --- a/arch/arm/kernel/entry-common.S
 +++ b/arch/arm/kernel/entry-common.S
-@@ -30,34 +30,8 @@ saved_pc	.req	lr
+@@ -81,7 +81,7 @@ no_work_pending:
+ #ifdef CONFIG_GCC_PLUGIN_STACKLEAK
+ 	bl	stackleak_erase_on_task_stack
+ #endif
+-	restore_user_regs fast = 0, offset = 0
++	restore_user_regs
+ ENDPROC(ret_to_user_from_irq)
+ ENDPROC(ret_to_user)
  
- 	.section .entry.text,"ax",%progbits
- 	.align	5
--#if !(IS_ENABLED(CONFIG_TRACE_IRQFLAGS) || IS_ENABLED(CONFIG_CONTEXT_TRACKING_USER) || \
--	IS_ENABLED(CONFIG_DEBUG_RSEQ))
- /*
-- * This is the fast syscall return path.  We do as little as possible here,
-- * such as avoiding writing r0 to the stack.  We only use this path if we
-- * have tracing, context tracking and rseq debug disabled - the overheads
-- * from those features make this path too inefficient.
-- */
--ret_fast_syscall:
-- UNWIND(.fnstart	)
-- UNWIND(.cantunwind	)
--	disable_irq_notrace			@ disable interrupts
--	ldr	r1, [tsk, #TI_FLAGS]		@ re-check for syscall tracing
--	movs	r1, r1, lsl #16
--	bne	fast_work_pending
--
--	restore_user_regs fast = 0, offset = S_OFF
-- UNWIND(.fnend		)
--ENDPROC(ret_fast_syscall)
--
--	/* Ok, we need to do extra processing, enter the slow path. */
--fast_work_pending:
--	add	sp, sp, #(S_R0 + S_OFF)
--	/* fall through to work_pending */
--#else
--/*
-- * The "replacement" ret_fast_syscall for when tracing, context tracking,
-- * or rseq debug is enabled.  As we will need to call out to some C functions,
-+ * As we will need to call out to some C functions,
-  * we save r0 first to avoid needing to save registers around each C function
-  * call.
-  */
-@@ -75,7 +49,6 @@ ret_fast_syscall:
- ENDPROC(ret_fast_syscall)
+diff --git a/arch/arm/kernel/entry-header.S b/arch/arm/kernel/entry-header.S
+index 50c0b55adc7421e7be123c9d00f94b1ebb93ff9e..51c7f93c1ded1db56f173c7aaed8094ef011ff5a 100644
+--- a/arch/arm/kernel/entry-header.S
++++ b/arch/arm/kernel/entry-header.S
+@@ -290,7 +290,7 @@
+ 	.endm
  
- 	/* Slower path - fall through to work_pending */
--#endif
  
- 	tst	r1, #_TIF_SYSCALL_WORK
- 	beq	slow_work_pending
+-	.macro	restore_user_regs, fast = 0, offset = 0
++	.macro	restore_user_regs
+ #if defined(CONFIG_CPU_32v6K) && \
+     (!defined(CONFIG_CPU_V6) || defined(CONFIG_SMP))
+ #ifdef CONFIG_CPU_V6
+@@ -309,8 +309,8 @@ ALT_UP_B(.L1_\@)
+ #ifndef CONFIG_THUMB2_KERNEL
+ 	@ ARM mode restore
+ 	mov	r2, sp
+-	ldr	r1, [r2, #\offset + S_PSR]	@ get calling cpsr
+-	ldr	lr, [r2, #\offset + S_PC]!	@ get pc
++	ldr	r1, [r2, S_PSR]			@ get calling cpsr
++	ldr	lr, [r2, S_PC]!			@ get pc
+ 	tst	r1, #PSR_I_BIT | 0x0f
+ 	bne	1f
+ 	msr	spsr_cxsf, r1			@ save in spsr_svc
+@@ -318,31 +318,24 @@ ALT_UP_B(.L1_\@)
+ 	@ We must avoid clrex due to Cortex-A15 erratum #830321
+ 	strex	r1, r2, [r2]			@ clear the exclusive monitor
+ #endif
+-	.if	\fast
+-	ldmdb	r2, {r1 - lr}^			@ get calling r1 - lr
+-	.else
+ 	ldmdb	r2, {r0 - lr}^			@ get calling r0 - lr
+-	.endif
+ 	mov	r0, r0				@ ARMv5T and earlier require a nop
+ 						@ after ldm {}^
+-	add	sp, sp, #\offset + PT_REGS_SIZE
++	add	sp, sp, #PT_REGS_SIZE
+ 	movs	pc, lr				@ return & move spsr_svc into cpsr
+ 1:	bug	"Returning to usermode but unexpected PSR bits set?", \@
+ #elif defined(CONFIG_CPU_V7M)
+ 	@ V7M restore.
+ 	@ Note that we don't need to do clrex here as clearing the local
+ 	@ monitor is part of the exception entry and exit sequence.
+-	.if	\offset
+-	add	sp, #\offset
+-	.endif
+-	v7m_exception_slow_exit ret_r0 = \fast
++	v7m_exception_slow_exit ret_r0 = 0
+ #else
+ 	@ Thumb mode restore
+ 	mov	r2, sp
+-	load_user_sp_lr r2, r3, \offset + S_SP	@ calling sp, lr
+-	ldr	r1, [sp, #\offset + S_PSR]	@ get calling cpsr
+-	ldr	lr, [sp, #\offset + S_PC]	@ get pc
+-	add	sp, sp, #\offset + S_SP
++	load_user_sp_lr r2, r3, S_SP		@ calling sp, lr
++	ldr	r1, [sp, S_PSR]			@ get calling cpsr
++	ldr	lr, [sp, S_PC]			@ get pc
++	add	sp, sp, S_SP
+ 	tst	r1, #PSR_I_BIT | 0x0f
+ 	bne	1f
+ 	msr	spsr_cxsf, r1			@ save in spsr_svc
+@@ -350,11 +343,7 @@ ALT_UP_B(.L1_\@)
+ 	@ We must avoid clrex due to Cortex-A15 erratum #830321
+ 	strex	r1, r2, [sp]			@ clear the exclusive monitor
+ 
+-	.if	\fast
+-	ldmdb	sp, {r1 - r12}			@ get calling r1 - r12
+-	.else
+ 	ldmdb	sp, {r0 - r12}			@ get calling r0 - r12
+-	.endif
+ 	add	sp, sp, #PT_REGS_SIZE - S_SP
+ 	movs	pc, lr				@ return & move spsr_svc into cpsr
+ 1:	bug	"Returning to usermode but unexpected PSR bits set?", \@
 
 -- 
 2.49.0
