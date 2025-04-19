@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82281C369BD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Apr 2025 12:16:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E5C4C369BD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Apr 2025 12:17:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=teQTKm+rcwhjm2Bk78ja69kS52/A0csVlkW7wMTfnQk=; b=utFdNTwAm+pXF7TY6hAAdqJGiE
-	r7H+HXjGjKpBZbT4lW1os9SCHHFqE7PAxzIzG7dv/7/os7YhpjO2HCGg0mOOKp5L1QbeRBwedDq72
-	FPlEXO7lFJ4tdzGAwsHdNCfI5tEv4AT1tvTtvDSt+UNqEG5EW6xqcXdIn9E5TtqJwab/K1lOtakLD
-	hn4affb+o11OD83ZAOYgX2hyw7vzIVCghMteP/I16CRuXKXUgsIGhp0AFndteKq+ZyA+OMS45ppNn
-	cv6cOh0U4xwHMLYxY+yfPIG0ekbBmNJmjx7po3fbHnflwPw63hNlZTZg82QvDONINunu3IGxRU2l0
-	V2R7LK4A==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7yijT+gdpaYs2r1XU6nJ4ndIOkwOZMdtGf1e/aQOrxU=; b=2YdgoWly7XkkjqsasxWQ05vyO+
+	luJ34GeD6saSLponYw+TTW8Vxb8LjHMiN3zRFujv+UttOsPEqaBB/naBrEJGMS4Y52eJON2bflON7
+	H4diJ/W+3agINQdWUmoimcdMxQRGXDx+XjkYv+ari6/JuPIiCaRFonf52IupD3hBoVBqg194QpIUP
+	GZ5eicbO5kCnvjAR0uTObIgN4svQKLd7Y/1rTKWNu51x/DUyLmcboLVuPV7x2hiNxPLVZxmmAJTWw
+	CqYdmlDWG/4UQEV04LgkZpTDqlYove/ZJM28MXvm4yjcIHfjvs6NFbxqJv87s65FcKRKeEh5fO57e
+	6qj7z/ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u676w-00000001HR9-3SIF;
-	Sat, 19 Apr 2025 12:15:54 +0000
-Received: from m16.mail.163.com ([117.135.210.5])
+	id 1u678p-00000001HYq-233O;
+	Sat, 19 Apr 2025 12:17:51 +0000
+Received: from m16.mail.163.com ([220.197.31.3])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6751-00000001HFn-0neO
+	id 1u6751-00000001HFp-3AVm
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Apr 2025 12:13:56 +0000
+	Sat, 19 Apr 2025 12:13:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=teQTK
-	m+rcwhjm2Bk78ja69kS52/A0csVlkW7wMTfnQk=; b=Y3UdCjWJuUtFsvrK9Xzqt
-	3mC2KAPycB6Q6QJDc/4J/C+4sP48dQARc/BT5UEk9nfoc5s5K3OyKP9l2IaxuTQP
-	jKCQALgS8zWumbX+3Oo7UwoE/WUA8ERysK3mRmFBzmL0JzlOA3Ybwnh/OA0S2Jvx
-	6HlTwx8GfJbvW79qnCVZJg=
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=7yijT
+	+gdpaYs2r1XU6nJ4ndIOkwOZMdtGf1e/aQOrxU=; b=pw8xGmfA246B8PoU43Nkq
+	/kWzzId4XKkEVU6HT/eWAGqBru+wsa51ut1jACxiJJiC2uDYLoxrirc9m6E/sDK2
+	jdt1yIN0t6Wpf4qu8mgg2RLfG0Fyw39jnkgqlBqijeGaHIp6FqeBKBQIqpqhdoIc
+	Cy1pyx+7SptNP0rivelTtE=
 Received: from ProDesk.. (unknown [])
-	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wBn3XtnkwNoWWZ+BA--.31074S2;
-	Sat, 19 Apr 2025 20:13:31 +0800 (CST)
+	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wBn3XtnkwNoWWZ+BA--.31074S4;
+	Sat, 19 Apr 2025 20:13:32 +0800 (CST)
 From: Andy Yan <andyshrk@163.com>
 To: heiko@sntech.de
 Cc: krzk+dt@kernel.org,
@@ -46,22 +46,24 @@ Cc: krzk+dt@kernel.org,
 	linux-kernel@vger.kernel.org,
 	inux-rockchip@lists.infradead.org,
 	Andy Yan <andyshrk@163.com>
-Subject: [PATCH 1/3] arm64: dts: rockchip: Rename hdmi-con to hdmi0-con for Cool Pi CM5 EVB
-Date: Sat, 19 Apr 2025 20:13:16 +0800
-Message-ID: <20250419121326.388298-1-andyshrk@163.com>
+Subject: [PATCH 3/3] arm64: dts: rockchip: Enable HDMI audio outputs for Cool Pi CM5 EVB
+Date: Sat, 19 Apr 2025 20:13:18 +0800
+Message-ID: <20250419121326.388298-3-andyshrk@163.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250419121326.388298-1-andyshrk@163.com>
+References: <20250419121326.388298-1-andyshrk@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wBn3XtnkwNoWWZ+BA--.31074S2
-X-Coremail-Antispam: 1Uf129KBjvdXoW7Xryrur1fKF18KrW5KrWrGrg_yoWkGwcEya
-	4Ig3WrCF4fAFyDu3srJa15Gwn2g39I9F1xKFyYqF1xAF98A39rJF45tan2qwnrCF4a9F4f
-	AwsrAF1fAw1jkjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7sR_g4ftUUUUU==
+X-CM-TRANSID: _____wBn3XtnkwNoWWZ+BA--.31074S4
+X-Coremail-Antispam: 1Uf129KBjvdXoWrZrWxJFy5try3ArW7JFyUtrb_yoWDtrc_ta
+	y7W3W0yFWfuF4UG3srJayUJrWxK397WFW5Ja4xZFWDCas5tanrJFWrJFW3Xw1DWFy29F4x
+	Aa1qyrn7CwnFkjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7sRJEf5UUUUUU==
 X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0h80XmgDkx0IOgAAsw
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqAE0XmgDj2JzwgABs1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250419_051355_653961_AD7C5760 
-X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-CacheID: sfid-20250419_051356_145707_5ADC229A 
+X-CRM114-Status: UNSURE (   8.59  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,44 +79,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There are two hdmi connector on Cool Pi CM5 EVB, the current supported
-is hdmi0, assign corresponding index to it. It will be convenient for
-us to add support for another one.
+Enable audio outputs for two HDMI ports on Cool Pi CM5 EVB
 
 Signed-off-by: Andy Yan <andyshrk@163.com>
 ---
 
- arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dts | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ .../boot/dts/rockchip/rk3588-coolpi-cm5-evb.dts  | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dts b/arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dts
-index 86744c53801f2..3beeb0616455e 100644
+index 4e1b05c698ded..d44c7329ccc73 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dts
-@@ -23,12 +23,12 @@ backlight: backlight {
- 		pwms = <&pwm2 0 25000 0>;
- 	};
+@@ -132,6 +132,10 @@ &hdmi0 {
+ 	status = "okay";
+ };
  
--	hdmi-con {
-+	hdmi0-con {
- 		compatible = "hdmi-connector";
- 		type = "a";
- 
- 		port {
--			hdmi_con_in: endpoint {
-+			hdmi0_con_in: endpoint {
- 				remote-endpoint = <&hdmi0_out_con>;
- 			};
- 		};
-@@ -129,7 +129,7 @@ hdmi0_in_vp0: endpoint {
- 
- &hdmi0_out {
- 	hdmi0_out_con: endpoint {
--		remote-endpoint = <&hdmi_con_in>;
-+		remote-endpoint = <&hdmi0_con_in>;
++&hdmi0_sound {
++	status = "okay";
++};
++
+ &hdmi0_in {
+ 	hdmi0_in_vp0: endpoint {
+ 		remote-endpoint = <&vp0_out_hdmi0>;
+@@ -162,6 +166,10 @@ hdmi1_out_con: endpoint {
  	};
  };
  
++&hdmi1_sound {
++	status = "okay";
++};
++
+ &hdptxphy0 {
+ 	status = "okay";
+ };
+@@ -170,6 +178,14 @@ &hdptxphy1 {
+ 	status = "okay";
+ };
+ 
++&i2s5_8ch {
++	status = "okay";
++};
++
++&i2s6_8ch {
++	status = "okay";
++};
++
+ /* M.2 E-Key */
+ &pcie2x1l1 {
+ 	reset-gpios = <&gpio4 RK_PA2 GPIO_ACTIVE_HIGH>;
 -- 
 2.43.0
 
