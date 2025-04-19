@@ -4,80 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80771C369BD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Apr 2025 13:08:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AA56C369BD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Apr 2025 13:10:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NDMxDpRQHUH5DI5CJdXcKRFYNqO7HewMbVkgqrZvlZ0=; b=S7IUhPdQsPVYrilMIj+iBpPbXf
-	esU5BarMLRK5rq8qSmxTtkR4GKkHQzxam3cg+VVSpQijd0osX46cHb940LcIrJIBzCQks09m9UqaB
-	Kkxspf4TSLcKcHX3EVFjqCx/J/30v25pqxHQRz1ouvQbi9C6t+I/2ucuPPKEyadFZ1dbMkuWwUW3y
-	d+XuFoVubLv1DEx6BnixAUKUtkCl7VQfXUkJ/QwFjXmaFKoPfwRPZ/6bX+VZDy/lsaD3ecLBQeVn9
-	Ce4u6WfvFo8JsqMk7Br0p/5fB6qgREabvuY9pcwcrewRiDCT74/UKjHDmBI3Btf2w1jSfYthyzY/g
-	BW3FeUpQ==;
+	bh=XwEMlnTnv0lV+xni/6CjZLizXvcalTTI8wO/LpF/GOc=; b=jMU5d52FzYrJ2OtW1AggUAcFSM
+	7f1tezlORG7oNE0CtmZxnAgKopyC5W6jQ8DTTzwSMZBbGLB3ea+FJ+2AZJE9RHorrVFkLlVvQ1FtA
+	Ml/nc/R9uxpZmBo4fIOj879ov59LpwFrNAEZH1/AWVUZciaphHk1+KOqWEqPplhVNvotNtIGnjyNW
+	peyq65TOdOrGp26/5POKw9qZxHAsJS/LC0C+pxQKvHLuxHyZgZKXjEV5kEtrfggnQwlCwtE8M9Ffw
+	zvSJQvZhgwBADLu6uR4VUk3wb/4kmFR6fbbP0I9qZHJWx1fbvHX1PZY2NYbobNrnDWhLnCi6n+Df0
+	r9u4bkfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u67vJ-00000001KLY-0DA3;
-	Sat, 19 Apr 2025 13:07:57 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1u67xO-00000001Ka2-36qJ;
+	Sat, 19 Apr 2025 13:10:06 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u67tQ-00000001KGt-43IA
+	id 1u67vW-00000001KN3-10Y1
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Apr 2025 13:06:02 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53JD5qGT1203396
+	Sat, 19 Apr 2025 13:08:11 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53JD85Co502312
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Sat, 19 Apr 2025 08:05:52 -0500
+	Sat, 19 Apr 2025 08:08:05 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745067952;
-	bh=NDMxDpRQHUH5DI5CJdXcKRFYNqO7HewMbVkgqrZvlZ0=;
+	s=ti-com-17Q1; t=1745068085;
+	bh=XwEMlnTnv0lV+xni/6CjZLizXvcalTTI8wO/LpF/GOc=;
 	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=PooUg6JDPmaoIajrPX1J0OWWh7IuZ6WfK3uYde+1Tc498kL8NWoHLknvaEYoJY4+F
-	 SnEG6ltf0qrfxbUWGlb0RpNPVWgrn8hIA5C2l1RN/agfaR6HLjT5/yg7XbZCA0cSxO
-	 ioDTYG+kY5QHWe+fqf8AZjVy2UmWrnSRV1tNgt5o=
-Received: from DLEE101.ent.ti.com (dlee101.ent.ti.com [157.170.170.31])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53JD5qQ3079017
+	b=hwUTTBePzeMsJkq6SC3wu8CD91AhSqRw7J5ODT4Xa/Seg1prFx2rIUad3k0A8BBa8
+	 U0/RmVRPSlY/g+X5RKJGPjLWvDUrx7DNQtFn8+c7Lvz1d3fPhtNoE8ZRpc/9boZz5W
+	 xJdEb6rrglevSIPp2Ouug9zEBO12jBb8J/nU+02c=
+Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53JD85JE008025
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Sat, 19 Apr 2025 08:05:52 -0500
-Received: from DLEE109.ent.ti.com (157.170.170.41) by DLEE101.ent.ti.com
- (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
+	Sat, 19 Apr 2025 08:08:05 -0500
+Received: from DLEE103.ent.ti.com (157.170.170.33) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Sat, 19
- Apr 2025 08:05:51 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE109.ent.ti.com
- (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
+ Apr 2025 08:08:04 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE103.ent.ti.com
+ (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Sat, 19 Apr 2025 08:05:51 -0500
+ Frontend Transport; Sat, 19 Apr 2025 08:08:04 -0500
 Received: from [10.249.141.75] ([10.249.141.75])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53JD5jhA027840;
-	Sat, 19 Apr 2025 08:05:46 -0500
-Message-ID: <98b6208c-4cfd-4746-9e49-4f5596f8cf3e@ti.com>
-Date: Sat, 19 Apr 2025 18:35:47 +0530
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53JD80JA029258;
+	Sat, 19 Apr 2025 08:08:00 -0500
+Message-ID: <7da470c6-5426-48bf-838a-bc7a5b5dc5db@ti.com>
+Date: Sat, 19 Apr 2025 18:38:00 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: ti: k3-am62a7-sk: Describe the SPI NAND
-To: Miquel Raynal <miquel.raynal@bootlin.com>, Nishanth Menon <nm@ti.com>,
-        Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>
-CC: Rob Herring <robh+dt@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Thomas
- Petazzoni <thomas.petazzoni@bootlin.com>,
-        Steam Lin <stlin2@winbond.com>, <u-kumar1@ti.com>
-References: <20250401135822.244402-1-miquel.raynal@bootlin.com>
+Subject: Re: [PATCH v2] arm64: dts: ti: k3-j784s4-main: Enable ACSPCIE outputs
+ for PCIe interfaces
+To: Parth Pancholi <parth105105@gmail.com>, Nishanth Menon <nm@ti.com>,
+        Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
+        Rob
+ Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor
+ Dooley <conor+dt@kernel.org>,
+        Siddharth Vadapalli <s-vadapalli@ti.com>
+CC: Parth Pancholi <parth.pancholi@toradex.com>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>
+References: <20250404101234.2671147-1-parth105105@gmail.com>
 Content-Language: en-US
 From: "Kumar, Udit" <u-kumar1@ti.com>
-In-Reply-To: <20250401135822.244402-1-miquel.raynal@bootlin.com>
+In-Reply-To: <20250404101234.2671147-1-parth105105@gmail.com>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250419_060601_173469_BB75D118 
-X-CRM114-Status: GOOD (  16.49  )
+X-CRM114-CacheID: sfid-20250419_060810_376042_A5D57A86 
+X-CRM114-Status: GOOD (  15.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,96 +94,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks for patch Miquel
+Thanks for patch, Parth
 
-On 4/1/2025 7:28 PM, Miquel Raynal wrote:
-> Describe the octal SPI NAND available on the low-power starter kit.
+On 4/4/2025 3:42 PM, Parth Pancholi wrote:
+> From: Parth Pancholi <parth.pancholi@toradex.com>
 >
-> The pinctrl configuration comes from TI fork.
+> TI J784S4-based devices, such as the AM69 SoC, provide PCIE_REFCLK outputs
+> from the SoC, which can be used to clock external PCIe endpoint devices.
+> Each PCIE_REFCLK output is enabled via the corresponding ACSPCIE clock
+> buffer, with each buffer supporting two PADs to provide reference clocks
+> for two associated PCIe instances. The mappings are as follows:
+>          - PCIe0 -> ACSPCIE1 PAD0
+>          - PCIe1 -> ACSPCIE0 PAD0
+>          - PCIe2 -> ACSPCIE1 PAD1
+>          - PCIe3 -> ACSPCIE0 PAD1
 >
-> With the current mainline tree, we currently get the following
-> performances:
+> This patch enables each ACSPCIE module and its corresponding PADs to ensure
+> that all PCIE_REFCLK outputs are functional.
 >
-> eraseblock write speed is 7507 KiB/s
-> eraseblock read speed is 15802 KiB/s
-> page write speed is 7551 KiB/s
-> page read speed is 15609 KiB/s
-> 2 page write speed is 7551 KiB/s
-> 2 page read speed is 15609 KiB/s
-> erase speed is 284444 KiB/s
-> 2x multi-block erase speed is 512000 KiB/s
->
-> Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+> This change have been tested on an AM69-based custom hardware platform,
+> where all four PCIe instances (PCIe0, PCIe1, PCIe2, and PCIe3) with the
+> internal PCIE_REFCLK are utilized with various endpoint devices such as
+> a WiFi card, NVMe SSD, and PCIe-to-USB bridge.
+
+You can enabling REFCLK to be out as default.
+
+There are few boards, on which this clock is either terminated at test 
+point or not connected at all
+
+Example AM69 board
+
+PCIE_REFCLK2_P_OUT is not connected and PCIE_REFCLK0_P_OUT is terminated 
+at test points.
+
+
+IMO, this clock to be enabled where this can be connected to PCIe EP.
+
+Let Siddharth also share his comment, where to enable these clocks board 
+file or SOC file.
+
+Regards
+
+Udit
+
+> Link: https://e2e.ti.com/support/processors-group/processors/f/processors-forum/1484211/am69-pcie-refclk-out-and-acspcie-mappings
+> Signed-off-by: Parth Pancholi <parth.pancholi@toradex.com>
 > ---
->   arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 40 +++++++++++++++++++++++++
->   1 file changed, 40 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-> index a6f0d87a50d8..6cc950f6dbe3 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-> @@ -737,3 +737,43 @@ dpi1_out: endpoint {
->   		};
->   	};
->   };
-> +
-> +&fss {
-> +	status = "okay";
-> +};
-> +
-> +&ospi0 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&ospi0_pins_default>;
-> +
-> +	flash@0 {
-> +		compatible = "spi-nand";
-
-Since this is boot flash, so please add booth-all property as well
-
-
-> +		reg = <0>;
-> +		spi-tx-bus-width = <8>;
-> +		spi-rx-bus-width = <8>;
-> +		spi-max-frequency = <25000000>;
-> +		cdns,tshsl-ns = <60>;
-> +		cdns,tsd2d-ns = <60>;
-> +		cdns,tchsh-ns = <60>;
-> +		cdns,tslch-ns = <60>;
-> +		cdns,read-delay = <2>;
-
-Since this flash is used as boot device, I suggest if you can add 
-partitions of flash as well .
-
-you can take reference from downstream version [0]
-
-> +	};
-> +};
-> +
-> +&main_pmx0 {
-> +	ospi0_pins_default: ospi0-default-pins {
-
-please add booth-all property as well
-
-
-> +		pinctrl-single,pins = <
-> +			AM62AX_IOPAD(0x000, PIN_OUTPUT, 0) /* (H24) OSPI0_CLK */
-> +			AM62AX_IOPAD(0x02c, PIN_OUTPUT, 0) /* (F23) OSPI0_CSn0 */
-> +			AM62AX_IOPAD(0x00c, PIN_INPUT, 0) /* (E25) OSPI0_D0 */
-> +			AM62AX_IOPAD(0x010, PIN_INPUT, 0) /* (G24) OSPI0_D1 */
-> +			AM62AX_IOPAD(0x014, PIN_INPUT, 0) /* (F25) OSPI0_D2 */
-> +			AM62AX_IOPAD(0x018, PIN_INPUT, 0) /* (F24) OSPI0_D3 */
-> +			AM62AX_IOPAD(0x01c, PIN_INPUT, 0) /* (J23) OSPI0_D4 */
-> +			AM62AX_IOPAD(0x020, PIN_INPUT, 0) /* (J25) OSPI0_D5 */
-> +			AM62AX_IOPAD(0x024, PIN_INPUT, 0) /* (H25) OSPI0_D6 */
-> +			AM62AX_IOPAD(0x028, PIN_INPUT, 0) /* (J22) OSPI0_D7 */
-> +			AM62AX_IOPAD(0x008, PIN_INPUT, 0) /* (J24) OSPI0_DQS */
-> +		>;
-> +	};
-> +};
-
-[0] 
-https://git.ti.com/cgit/ti-linux-kernel/ti-linux-kernel/tree/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts?h=ti-linux-6.12.y-cicd#n798 
-
-
-
+> This change depends on https://lore.kernel.org/all/20241209085157.1203168-1-s-vadapalli@ti.com/
+> v2: set ti,syscon-acspcie-proxy-ctrl mask to 0x3 for all PCIe instances to prevent unintended overrides.
+> v1: https://lore.kernel.org/all/20250320122259.525613-1-parth105105@gmail.com/
+> ---
+>   .../boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi    | 12 +++++++++---
+>   arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi           | 10 ++++++----
+>   2 files changed, 15 insertions(+), 7 deletions(-)
+> [..]
 
