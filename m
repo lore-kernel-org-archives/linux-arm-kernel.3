@@ -4,116 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FD8BC369BD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Apr 2025 10:42:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94001C369C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Apr 2025 11:54:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zZZUE7lDwTEz2N4r/fX75wAzeLWxw2u+R07S3BlIwfA=; b=iso4W2bn/i7srPwQMlKdnb1mdn
-	xjRiN9/jtn/VsYLB/m33Z3fWDbfBv9qSWA6B9ZqQC6ElYYydACIlnogEitIeBIo1ostpp3tAEfAqu
-	6f1mCKZRp44cZdbrU3X70qDTEGfdpiCIudvduld/XvOAXR09zZBXlT1lMwiiH5VIPg1qz9z7HQm8W
-	LPv6tHX+fskVeeSvoAd3orcDJOBYC9+QniKM0slYy0BZp2FDUQZKDMbweD6GsPGnMLQvFMwhK/OJ+
-	HlyAyGw4XDdWqIrrcMHQImi1LdTptiAsqv7csA+zCkKzwFhvTguDLyN/QM2uRgTLTvNkBTc0h+B5l
-	gNdnNjkg==;
+	bh=px0hPaEeyRW/CvDRRPztfyMotj+Xv6y6UjJ57CxB080=; b=jP5S1AgEF0oNwlTVGMeztsqLQN
+	K7owj4SpEaUSlpgDwTPETL7RGYKjoe0wOVKak7ous6lv330Kh4lbLFPOybdsSlNaHKDDu1WXJgyTn
+	87gbXt7VkSrteZE/y4eNlnMvrGGVaz2Da9zPM1g6jQPklcbH48ZAgWdZ4uwG6dcpRJliBcb2G/KPX
+	CWQxthhxfhzhEjOi0Ji2ika5jH6LhDvpaBDmnIW+4KIBB9RBlcWUt+AvKnnP/RXPBkpEVxRcml6hB
+	tUBn2EBvsY8XFaDcmQR2tPQgVWoxmRslGM13N4qy6tLAriL/+lZ0wa1UxjogD0vW0WQ1OZol8PPb9
+	3aTSTjzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u65eE-00000001BU7-0xd1;
-	Sat, 19 Apr 2025 10:42:10 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1u66mE-00000001GGj-1w3Y;
+	Sat, 19 Apr 2025 11:54:30 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u65cG-00000001B99-3jU6
+	id 1u66kK-00000001GAC-1Mt9
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Apr 2025 10:40:11 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-301918a4e3bso2829447a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 19 Apr 2025 03:40:08 -0700 (PDT)
+	Sat, 19 Apr 2025 11:52:33 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-2ff6e91cff5so2561810a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 19 Apr 2025 04:52:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745059208; x=1745664008; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1745063551; x=1745668351; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=zZZUE7lDwTEz2N4r/fX75wAzeLWxw2u+R07S3BlIwfA=;
-        b=lF8YbG0UYTkfwsEuEPe7nBvVnpNL8lknF1F1GKz1/IJQA9ar4bvC0wed492q2OBBlE
-         tCmrkUo85hRef8KXQ5Cbv0e5rHb976Z2yLizuj5w2zM3X2fjZo9kohVay3/bznzFp3BH
-         xXdifIaAFDcDiOH1wNMfI0Ztknc0BcELDwOCn981aqOV7TPEShYuwPsC4vPIGc8H6ddD
-         5W+rOOZ//ysY43A+DZspLUZ3+xikJzBMuyAknGd0qyiLNmvERT+7MSOv1pDEr+k9xFgG
-         zRg8u+bT77B/TGfNZAxZmPnN1hoovs883hiaLu8uXx429/AZY0O6HYMyPPAx4gmuJtHN
-         qn/w==
+        bh=px0hPaEeyRW/CvDRRPztfyMotj+Xv6y6UjJ57CxB080=;
+        b=mjqI5C1QJTdQ/rZUo59SNQXSiDeXzVftK1hw2i3cpizkSLF27f4f2Jt98URAOM/f0k
+         o+eSCF79/oWiCdPc5p1XCS3Es+Z1nfakGt6j+auJ43+5stJqEf5gn0u3Rew2BL2eoRjK
+         x2rcBiHA8VOE8K0/FU7A0ccD1OyfFTyDWLMVrmTZ6ClbALPB0Xw+iDXmTf/WXIK8OF2z
+         /QJ7r4SJqpt/BIxzl+2cn0n8WJiQ+QwO3SkP3oH+JPz4cnk5hjMRCEMH5dOXBSXRGQl6
+         TL9CoQbAU/I2CjdxgtcVML4I5cBgHLG1ZfEDQnHSCy4O6WGO50StF5xujQDPRA+f/j0A
+         BwqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745059208; x=1745664008;
+        d=1e100.net; s=20230601; t=1745063551; x=1745668351;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=zZZUE7lDwTEz2N4r/fX75wAzeLWxw2u+R07S3BlIwfA=;
-        b=s2gEoSvaD6jcaqZUSJk8Gzi5tRoqmZ6UsG1BeEHE/RCsWM7KLdKyNglWdi7tl4hP6e
-         V3Go0H/R9SvvQj6Wb+ZPgGVumzV6NysFNd8HILhrbqx21U+L7zbaRENFjlsfQS6Zr45p
-         wJcPuxWSYecCEXZctrh5Zdn85kzzJEyJHX/v4xcAGsNsBtZcJTUZcKaq9btIvkcMtUXA
-         577yPGVXz4GJY2yOD1ot7Vf3qXGDCuIe4enUTreijB2MocgvTEB0EE0mJRCNCqdQ7lZh
-         nbUiBAclXrEY2KmdFbqPen2xuQYzkd4iTFrNj3bk0AbY6O0PMuBHisM4X0CGbaLmjseQ
-         jeUQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUCsLjtaEceU2Efiy/ht2gaGarYUoPnQisX/gHSQ69z8zJ8No2M09GmWH5lWnDQIkbZU+u31XCjVrwqKWz/OsQp@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx21oI3hHqr85OEDJXuRWtndvibfQSN1X3qAPtVfp0/T4puB/T4
-	E5QQX5GOsKbhr6H6VvBEFTRtF885rpQ+x5iMBVc+jOklh4VYEE7sQBm8GumbXA==
-X-Gm-Gg: ASbGncu1dOXv3Ev+XEhxIZlA6ueMI1FV2vzRJufLvMIciFH9jYsNF34qkYBiczvNKeB
-	So/f0qUqD5o1qhNzBDutn+0NMAZC5ltWG0yEjTTAHVX0LP9sCt7JS7wLth1DCayMMVeT5HYHdnz
-	lWICYXGmyo52W3pNAdRpOb+5v7sbaVbjWwO+rePyNRRGC9YGr71F8kVW6pM+tQ5dYURiRwvNAzb
-	/CfUOhujbTx3ZBzORmNkEb/cFtcEgn4oIeSaZo7yAsU9Oi5M416Lr8zIoC8VXgCFFQPFjAXbRo3
-	FpkQx0ezb4LmP+XxisHaZgoBcdyBROLeveyJLSpjCsHb27u5IlOIF7Id+RfZ8J8i
-X-Google-Smtp-Source: AGHT+IG48rfT7dO1+AZbhGTz/iIYddl71I2wayyAJZkp73FfKaGBUzoje28Z41u2PE9+dTi/GMGgcg==
-X-Received: by 2002:a17:90b:57e6:b0:2ff:5016:7fd2 with SMTP id 98e67ed59e1d1-3087bbbfcb1mr8635818a91.24.1745059207952;
-        Sat, 19 Apr 2025 03:40:07 -0700 (PDT)
+        bh=px0hPaEeyRW/CvDRRPztfyMotj+Xv6y6UjJ57CxB080=;
+        b=mAlkoxWiclKg5LnBIAVDqsNea7M1GrZvgCFMQwSmvln3Xevlrg9XYx0hIkUu8pr72j
+         Q7sBwkEb+BmFLRxYiZcarOxt9wNM4I8R4wOpDjBhUtNpijlqBe30YZShJlCs1KTJrXbN
+         PvFFp/X/XlBXBv3it5QvxMjE23hIS2oZiGyCk577mJSjhkVafaPn71WFQAVtyVQgMu0G
+         6wyVzBjAn35Mf1gYo1QFluszZQix260QoJFcvyWscmEGaBmTkRFsJuZLmY5R4P6wZOx/
+         T5tZ4Mk9qVuvGoiKFnayMJYMz5iCrxJnvmC43Bp/v6J8UZ1XsoPgAD2HwWyfh9oWAuMy
+         +8Fg==
+X-Forwarded-Encrypted: i=1; AJvYcCWI3DS2RREPS7g8GP1zE0qqd1TgzlK3lwnOMBojjV2He0+JnvnipDiDoBhJo+2vPkchLqoUoySCbOE7/Xb99r+y@lists.infradead.org
+X-Gm-Message-State: AOJu0YwnOl7CVMRDq6aOtp2ckeGnFyJO41qrc2lbZx0dR/r3l8rUmCEW
+	R53XkyDPF473B/eirO0DKs2sbwd0p9azBsXU3hDYrSiGDwLN+D1WHQO7Qwaa7A==
+X-Gm-Gg: ASbGncsV8IP7MrK2+wyaO1rRbH5kbIxKTrK21n7xaE9tlIUS24ydOljfWmhz/YmKKCR
+	DmIsRjEz+YLW2du9SZEFldyTO5PHbtUpcNi+ajCio8guJhxIvEmJQVBSdGTZS2W8ciygu266iKC
+	7W92vKNLqOdmNczZiHFIPoNxv4MHBizzqryAyqM0YLNc92eee/UHUlBDtFr8gE7UySwdbhLvKmF
+	xi0w0qj13Hjn5VU+lUtOmpnMmmylN9vFw0wD/lTMZRCLCM6V6nBGlB+Abp2YbXmjJ49bYYzyBI9
+	6pZOc0arpb2SiS9tUlCaIP1TvEoSqLcTwdnn0M9naTMLbaqR/oxugw==
+X-Google-Smtp-Source: AGHT+IGxohOcrVLT2HpkDYi9xceN2Uhz9oDZW+ezY0LfwsFn53P6RbFmjao2TeMC0K8cXhOK65CtbQ==
+X-Received: by 2002:a17:90a:d010:b0:2fe:7f40:420a with SMTP id 98e67ed59e1d1-3087bb69218mr9255068a91.17.1745063551225;
+        Sat, 19 Apr 2025 04:52:31 -0700 (PDT)
 Received: from thinkpad.. ([36.255.17.167])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22c50ed23e3sm30785155ad.194.2025.04.19.03.39.59
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22c50ece2f8sm32069075ad.189.2025.04.19.04.52.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 19 Apr 2025 03:40:07 -0700 (PDT)
+        Sat, 19 Apr 2025 04:52:30 -0700 (PDT)
 From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Jim Quinlan <jim2101024@gmail.com>,
-	Nicolas Saenz Julienne <nsaenz@kernel.org>,
+To: Shawn Lin <shawn.lin@rock-chips.com>,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
 	Rob Herring <robh@kernel.org>,
 	Bjorn Helgaas <bhelgaas@google.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Srikanth Thokala <srikanth.thokala@intel.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Marek Vasut <marek.vasut+renesas@gmail.com>,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Greentime Hu <greentime.hu@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Bharat Kumar Gogada <bharat.kumar.gogada@amd.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Tom Joseph <tjoseph@cadence.com>,
-	Ahmad Zainie <wan.ahmad.zainie.wan.mohamad@intel.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
+	Heiko Stuebner <heiko@sntech.de>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Anand Moon <linux.amoon@gmail.com>,
+	Jensen Huang <jensenhuang@friendlyarm.com>
+Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
 	linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Subject: Re: [PATCH 1/2] dt-bindings: PCI: Correct indentation and style in DTS example
-Date: Sat, 19 Apr 2025 16:09:44 +0530
-Message-ID: <174505916020.32700.15920085651288867306.b4-ty@linaro.org>
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] PCI: rockchip: Fix order of rockchip_pci_core_rsts
+Date: Sat, 19 Apr 2025 17:22:22 +0530
+Message-ID: <174506353387.39503.4719676281195371261.b4-ty@linaro.org>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250324125202.81986-1-krzysztof.kozlowski@linaro.org>
-References: <20250324125202.81986-1-krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20250328105822.3946767-1-jensenhuang@friendlyarm.com>
+References: <20250328105822.3946767-1-jensenhuang@friendlyarm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250419_034008_936286_57DFD0F5 
-X-CRM114-Status: GOOD (  10.35  )
+X-CRM114-CacheID: sfid-20250419_045232_370873_1F37F285 
+X-CRM114-Status: UNSURE (   9.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,22 +112,20 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 24 Mar 2025 13:52:01 +0100, Krzysztof Kozlowski wrote:
-> DTS example in the bindings should be indented with 2- or 4-spaces and
-> aligned with opening '- |', so correct any differences like 3-spaces or
-> mixtures 2- and 4-spaces in one binding.
+On Fri, 28 Mar 2025 18:58:22 +0800, Jensen Huang wrote:
+> The order of rockchip_pci_core_rsts follows the previous comments suggesting
+> to avoid reordering. However, reset_control_bulk_deassert() applies resets in
+> reverse, which may lead to the link downgrading to 2.5 GT/s.
 > 
-> No functional changes here, but saves some comments during reviews of
-> new patches built on existing code.
+> This patch restores the deassert order and comments for core_rsts, introduced in
+> commit 58c6990c5ee7 ("PCI: rockchip: Improve the deassert sequence of four reset pins").
 > 
 > [...]
 
 Applied, thanks!
 
-[1/2] dt-bindings: PCI: Correct indentation and style in DTS example
-      commit: 37b52f92334c522d41c44ee4446e2a74cd830419
-[2/2] dt-bindings: PCI: sifive,fu740-pcie: Fix include placement in DTS example
-      commit: b3274b553aac4daddad998f426995b2388c8abb3
+[1/1] PCI: rockchip: Fix order of rockchip_pci_core_rsts
+      commit: 84d79f3304645d6e87b936d2bf8b8310798efec2
 
 Best regards,
 -- 
