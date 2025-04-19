@@ -4,113 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23ECEC369BD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Apr 2025 06:44:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0F70C369BD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Apr 2025 07:06:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zjt7NfBTzseQQMbU4/Y8LSDbLij1PLqZaamI7Qx/jKQ=; b=A/g+NPuxLgG9xfIIb60LP8GYTj
-	QWWNSPmtBZWCoSIZnPxL3vitGzuXeJ/FRxj/d4s31oMceO5tpwoj05p8AiSrF9+7rkvs4UfoBtpOH
-	qr56XLpm2e53ADCg3AevMJLOQUbgK8EEjSwzbppr/L0cc2FOG39DRNGZ2YcUo3IYS/tJ3FME3BY/a
-	evKZtxXagcGzjfLcxBC3lHIeheEmr2/I9lHSMpd7lNG/Scoo2AGbPlbwHAeGocIa3sRkhR4kGMru6
-	bokbis4PxqbtBtxcvX8mE4/B5iMxdoBQpZwTZEfD6eHHab9xb1zKsOdA1kVlkiHckhOeqDc6IIeZ/
-	eSO47TKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VxmoZd8tuxVE49iYjKSAq5OITTMUkOXotBj4O53s0Vk=; b=e18eab+P9xdFTPOcklGkQSR2l8
+	7P7CGaiwjK5483ibPiLuOQ36ESFtLoP+FfUKZ7aYG2+yLgkGOz2EJtd4D+8qbD7CTOSh/QyEFHu85
+	hFf3vafa8axHX21rx+I6YPqoa4zcJ0u+eqwWf5qlYu6Qo0uns1sL92CFA5SBqfbEyOt26oE/ARCQv
+	jN/hlk2SiYYm4tctbEN62U5X4H20U6YWYObAKcedTca0DIzRpxxZSyNArjTCqyrRyzv8jnL111Qf0
+	Jiyveb78GuuvR+t6PHQLPIe8TmnYeqjWy5ONFmP4D/K7jYHOwvy4V37W+kOGydk70TNkWkxc8B+2/
+	PsxiOymA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u61wT-00000000wdQ-2by3;
-	Sat, 19 Apr 2025 06:44:45 +0000
-Received: from fhigh-b3-smtp.messagingengine.com ([202.12.124.154])
+	id 1u62Hh-00000000xqo-2lcO;
+	Sat, 19 Apr 2025 07:06:41 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u61uY-00000000wXD-1ny3
+	id 1u62Fm-00000000xk1-3Vga
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Apr 2025 06:42:48 +0000
-Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 417362540395;
-	Sat, 19 Apr 2025 02:42:42 -0400 (EDT)
-Received: from phl-mailfrontend-02 ([10.202.2.163])
-  by phl-compute-05.internal (MEProxy); Sat, 19 Apr 2025 02:42:42 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=svenpeter.dev;
-	 h=cc:cc:content-transfer-encoding:content-type:content-type
-	:date:date:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=fm3;
-	 t=1745044962; x=1745131362; bh=zjt7NfBTzseQQMbU4/Y8LSDbLij1PLqZ
-	aamI7Qx/jKQ=; b=Oh9mfdsplZ7i20GBTkOnAnIP3l43QK4SIe0Oew6G5Vn8rjDH
-	Jkzx6Xdgkqau6Tr9sg6fdh9RdZmVngGuaEtFU+s91KEFO1/Ty6LBUjLiSCsSTO+W
-	GZUMjhe0t0VDHHH4Furz/W2aUTkg7Noicw1E/u+ICm+7VtCRR2bSyTQo6D5KIxzv
-	5Gdaf/gtacF04VHSEJetuAZdz2DPbURnQqQY9l6yvu/anIX2QYfdJUkLJFHfvD9N
-	p2lS4e1nW0I5t1UEAXUW86f+FRXwslbZdodOAweJLz09CVm71WKWsfQal8RDNNaY
-	m9PboVUhZQ9IUGx7Mkhh9f6rfkJKDV8bFwRjkQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1745044962; x=
-	1745131362; bh=zjt7NfBTzseQQMbU4/Y8LSDbLij1PLqZaamI7Qx/jKQ=; b=U
-	frNYTHneRJPrz+u2FZYVGWYEb/oJPDEkfkJmCemiKjDbphzYsj9to3yvXzqDuxND
-	tma2eP3q2rFbCngaSqNEd6mxezuQLYb004rM+y059La1SvmTz2fYdUAPv/cfOIMe
-	be/oRvTS9uSnHx4ievbR4ahwaPunb5Ok+ozS4/D+5seBOuGDwk8N373HI7xHfUEl
-	PJ+0Qbbt/XeG63phsDUHo9ewLubEpHlrgq0OkkksMMv4oz5xn14av/fCLhgEJ7Re
-	9b99upCdxMZS2xgcaSdNSS7eglKr8zz3wY5f0fSW2L7BchEEkPsYSUufwD/mjmhn
-	5V5b6/qyr376NoM1kmwhg==
-X-ME-Sender: <xms:4UUDaIs5Ny7GF38C8WnUn0nR48lDcMXrwqpGX9IZvw4kHNogcGPeCg>
-    <xme:4UUDaFd-UCklpb-X5bxoUNiEQd1yoiR1mFOE-qv1BXUD2Msvrk52lW0Va2AwT_WIQ
-    SSLTAS7LANOosagsDA>
-X-ME-Received: <xmr:4UUDaDxNXMpVP_b_QdrhZ0KjRd8enuK4YtIXq1wjQXK2gaAdwkm2dtBbLia8TL4IOoVX>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvfeegfeefucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
-    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
-    gvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgjfhggtgfgsehtkeertder
-    tdejnecuhfhrohhmpefuvhgvnhcurfgvthgvrhcuoehsvhgvnhesshhvvghnphgvthgvrh
-    druggvvheqnecuggftrfgrthhtvghrnhepleetudehlefgteduffeijeehfeduudekhffg
-    fedvueekvedvveeuhefgieetgfegnecuffhomhgrihhnpehgihhthhhusgdrtghomhenuc
-    evlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehsvhgvnhes
-    shhvvghnphgvthgvrhdruggvvhdpnhgspghrtghpthhtohepudefpdhmohguvgepshhmth
-    hpohhuthdprhgtphhtthhopegrlhihshhsrgesrhhoshgvnhiifigvihhgrdhiohdprhgt
-    phhtthhopehnvggrlhesghhomhhprgdruggvvhdprhgtphhtthhopehrohgshheskhgvrh
-    hnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhr
-    tghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehtoh
-    ifihhntghhvghnmhhisehgmhgrihhlrdgtohhmpdhrtghpthhtohepfhhnkhhlrdhkvghr
-    nhgvlhesghhmrghilhdrtghomhdprhgtphhtthhopehjsehjrghnnhgruhdrnhgvthdprh
-    gtphhtthhopehsvhgvnhesshhvvghnphgvthgvrhdruggvvh
-X-ME-Proxy: <xmx:4UUDaLM25JbRuYmCuFzy8hpuXXbZDn8mw_IgxhT6pDJw7zQAJYqThA>
-    <xmx:4UUDaI_glysPJGPj2VfOhzjRGHrEa_5Fl9_Nfw8Ome00AyJKkUJYJQ>
-    <xmx:4UUDaDWzJYoLb2zfyJ7NEkkQxLixy39eC_5VqQ-DtSKcTfpushl5vQ>
-    <xmx:4UUDaBd9iE4KcB8v0v61cUf9HSWGj1B7fI-2B5x15ZE04mZsHfdHxQ>
-    <xmx:4kUDaILQRmgzG8Z9BoOLGaiybrwn3SiiHE4Ym-YYn-dMGZdocIVv0jJR>
-Feedback-ID: i51094778:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
- 19 Apr 2025 02:42:39 -0400 (EDT)
-From: Sven Peter <sven@svenpeter.dev>
-To: Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Neal Gompa <neal@gompa.dev>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Nick Chan <towinchenmi@gmail.com>,
-	Sasha Finkelstein <fnkl.kernel@gmail.com>,
-	Janne Grunau <j@jannau.net>
-Cc: Sven Peter <sven@svenpeter.dev>,
-	asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: apple: touchbar: Mark ps_dispdfr_be as always-on
-Date: Sat, 19 Apr 2025 08:42:34 +0200
-Message-Id: <174504490666.63781.1711699267217097502.b4-ty@svenpeter.dev>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
-In-Reply-To: <20250416-arm64_dts_apple_touchbar-v1-1-e1c0b53b9125@jannau.net>
-References: <20250416-arm64_dts_apple_touchbar-v1-1-e1c0b53b9125@jannau.net>
+	Sat, 19 Apr 2025 07:04:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 04CFC5C046B;
+	Sat, 19 Apr 2025 07:02:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E642EC4CEE7;
+	Sat, 19 Apr 2025 07:04:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745046280;
+	bh=6nJRP5dGfMS/bA/MMLA00BdyVnpxROp+uQSPSKS5EPs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tDWsZxoBS7ca6U3nIhX18IAbq2/5Hh9njLLAseXAOWRi0Oa+VdpjIzPek/nvV34IQ
+	 aTtcDUJ7JdszDFCCczHQy3ANFaYSsi6+zkoxCoWg9kG8WnOh0E252jNjpQw7jxkKaW
+	 M6YrWSo7bxWV1gMpkHdRHFPsi3Shl6nf3Jysrvrm2Qmqpjud6Jj/yMgXwqxpAk/ehS
+	 RhonrsXe+D8vylx35w+0bDOpBNAPwFW1R8vqLk9moL3iMRBX1BdJWb67DXaMjXsz+a
+	 vEuf4umWbpa6HcMe0/SqCneGusokl7XlUiv81xP8z3hNx6W+AzvYPPwoemkikvwj/L
+	 T080eoZjTWN5w==
+Date: Sat, 19 Apr 2025 10:04:34 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Ross Stutterheim <ross.sweng@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Ross Stutterheim <ross.stutterheim@garmin.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Mike Rapoport <rppt@linux.ibm.com>,
+	Linus Walleij <linus.walleij@linaro.org>
+Subject: Re: [PATCH v2] arm/memremap: fix arch_memremap_can_ram_remap()
+Message-ID: <aANLAonc_0X0PnK9@kernel.org>
+References: <20250414133219.107455-1-ross.stutterheim@garmin.com>
+ <20250414142140.131756-1-ross.stutterheim@garmin.com>
+ <Z_-B5fAhZzShX34I@arm.com>
+ <c7db6fda-bf4e-4d6b-8cca-db82c40ce1b6@gmail.com>
+ <Z__RNhf5CJrbv5yb@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z__RNhf5CJrbv5yb@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_234246_991451_23757A05 
-X-CRM114-Status: UNSURE (   8.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250419_000442_938257_BF8688D5 
+X-CRM114-Status: GOOD (  18.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,21 +79,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 16 Apr 2025 20:06:18 +0200, Janne Grunau wrote:
-> The driver depends on boot loader initialized state which resets when the
-> ps_dispdfr_be power-domain is powered off. This happens on suspend or
-> when the driver is missing during boot.
-> Mark the domain as always on until the driver can handle this.
+On Wed, Apr 16, 2025 at 04:48:06PM +0100, Russell King (Oracle) wrote:
+> On Wed, Apr 16, 2025 at 08:57:09AM -0500, Ross Stutterheim wrote:
+> > On 4/16/25 05:09, Catalin Marinas wrote:
+> > > > Fixes: 260364d112bc ("arm[64]/memremap: don't abuse pfn_valid() to ensure presence of linear map")
+> > > > Signed-off-by: Ross Stutterheim <ross.stutterheim@garmin.com>
+> > > 
+> > > I think you could also add:
+> > > 
+> > > Cc: <stable@vger.kernel.org>
+> > Done. I also added some other Cc: entries on V3 along with Reviewed-by:
+> > lines . I'm new here, so I'm not sure I've used those 100% properly.
+> > 
+> > > Not sure how Russell picks patches up these days (I used to send them to
+> > > the patch system -
+> > > https://www.arm.linux.org.uk/developer/patches/info.php).
+> > > 
+> > > It might be simpler with git send-email (that's the alias I had):
+> > > 
+> > >    git send-email --add-header="KernelVersion: $(git describe --abbrev=0)" --no-thread --suppress-cc=all --to="patches@armlinux.org.uk"
+> > > 
+> > Thanks. I created an account there and submitted V3 through the web
+> > interface (to avoid my SMTP server appending more stuff on the end).
 > 
+> Thanks, seems all good, applied and pushed out. I'll send it to Linus
+> tomorrow as it's certainly a serious regression.
 > 
+> I'm surprised Mike hasn't responded...
 
-Applied to git@github.com:AsahiLinux/linux.git (asahi-soc/fixes), thanks!
+Passover vacation :)
+ 
+> -- 
+> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
-[1/1] arm64: dts: apple: touchbar: Mark ps_dispdfr_be as always-on
-      https://github.com/AsahiLinux/linux/commit/dc5befecbe26
-
-Best regards,
 -- 
-Sven Peter <sven@svenpeter.dev>
-
+Sincerely yours,
+Mike.
 
