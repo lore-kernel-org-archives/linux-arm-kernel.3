@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07C7AC369C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Apr 2025 22:41:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C563C369C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Apr 2025 22:43:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xa+6PSlNL4t/65YhlpxeyjZxsZsxKfkQGqf+kwb8SlM=; b=4+kjw2IllRrqeqOyNCFHA7sM4A
-	eh9rQ0VHYP7f6fRZSPffCXX9E2VLQFABSwK9mga4vK4uD29soOcxLBdwdmHU3aKP731jZlAGrbdc0
-	ye3NQLGVQKwJyuENGtDGmQjbH0tpa1oSLfP84jr3As4Qx+q5X9eRe0wWyJrt6srGvqIPCTjM92dVi
-	Xg12aveFn5hFkJ+xLFOx4OpDka6Fnj09nx3240VVQ7xTwwtmrFjhOnopGTwxIFMRrZp0Lxd/eOLAu
-	rzYNcE6RiHuuKKl0RttK5pXB6Iz6vExtFkc+dZUugyrDLSJXTHMBaBBdRE23IibgkX+JGUHPGlBu0
-	P2lFwm7w==;
+	bh=TzY2xOh4ktNlX/Hf1UnvL25R4SqMvTbsJsIcKtlm9vA=; b=bURewL835vNxFy7vznAZmVF25T
+	0zRsVS9cOPDGB7+/RYCklPID+4AFcPh/x7P1hKDhCgeGTeiuLuuCN3WxCK1XFycJT2VyVI9MkmJFn
+	DdB65zCjsvl2jx6Bh3ShRIdlNkStg0jcN4EJX+7BRpGwpLai/FQTC0DKGfslzyEKF0AixFYZKXzEm
+	EG9cjAQmp/FdEzId7RaM9eCUVrfSOoE7RRssS9AUkNfAA9HJOs/96wM2I7YIS2ILDeVPJ2ppW5ItO
+	yRrdatOMkeJabF/HRxPnoqYwNVLbZ9lCjmvMzRBns7hwVQyJXnb5proBpPeNalTHhpBeG8JN+sWLv
+	icdeYFmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6Gsf-00000001u8l-3QO4;
-	Sat, 19 Apr 2025 22:41:49 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1u6GuW-00000001uFQ-2P68;
+	Sat, 19 Apr 2025 22:43:44 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6Gn2-00000001sgE-3xWO
+	id 1u6Gn4-00000001sgr-1rhj
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Apr 2025 22:36:02 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-54ac9b3ddf6so2761741e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 19 Apr 2025 15:36:00 -0700 (PDT)
+	Sat, 19 Apr 2025 22:36:03 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-54d3ee30af1so3101508e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 19 Apr 2025 15:36:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745102159; x=1745706959; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1745102160; x=1745706960; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Xa+6PSlNL4t/65YhlpxeyjZxsZsxKfkQGqf+kwb8SlM=;
-        b=onxIR5mWP99rwpj7+kRPtgx/sz2utrLQ/irjZpA5lvARAvNyin4hq1FrFC8kBf9YjF
-         YFZ9+hT2XVEkht/OPnqZVy3JBCc6ccNC2nqwqj+eXFcCSegdKFatd51xNqUjwtiJmUht
-         1zicTcwVww+OVWU0zOvIavm2eQWc2jBvGk1IL/gVmm+rvjbJPSAsTn/Rersv1K5uuQGB
-         Bx6G1agC86L7NmDacxkbi7ZttlCRF9BRvO5SdPkm2XMXwLD7GwzDrS/Q75XS17rDp3aJ
-         qNLpJWihL+CAvczsE9iNGpybDOx5mNFnbRwWe/HNMCLrrGUk68YF7WvQxkCJe1lNhNtD
-         vKLQ==
+        bh=TzY2xOh4ktNlX/Hf1UnvL25R4SqMvTbsJsIcKtlm9vA=;
+        b=orh6UHGswfoXwFWu6EocA7FdlA5dtWPyUo7CZE8D2DoOQvlbC2UbyCxQuV3iXj7sbd
+         /Sby6k+TuVDMDF0agNyGhd7qJuijZ58fkT+iobHX9NbUcQDYVgDfLSmPW4gYP9Hfxrxe
+         tUZwhYz331tgTyzF+qJlBPcs6GwppE74rR3aqBzT0h2kfaIlrL9aztcDTUnhjeSwIlos
+         L9nNQUJY/R1nlk19BzyZy6lNwsl+TdYzeHroergyt3lGaBxWUqPnDixzzsrmwPdGw0rO
+         Xo0c9Wy6eB3n5GIWwLbuOIY4N7nXT3b5rKTOwJBal2y1DgyVRvQb8o8xiibcEttkc9z+
+         wlfQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745102159; x=1745706959;
+        d=1e100.net; s=20230601; t=1745102160; x=1745706960;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Xa+6PSlNL4t/65YhlpxeyjZxsZsxKfkQGqf+kwb8SlM=;
-        b=wVA0tXHtYVJZLWYs/WCn15Lfc1nQGAzcA4hALJ1cJbLDqkr3KhQPXmuET8LuBXm3k8
-         4AJZ4PSjTp5dYRrsdk31GIl/KN+M9pEU8A9hYNAfAs7jHskHn9Qxi4G5JijeyyLSOdHC
-         O/nyQzA9oOna4d23G/Aob346lCBVT84ToyKfCUKAJTeisGrfa6E+jvqecSbMvtkcOUR4
-         CinS30msltjSEUpm8bL7k8IIEGSadoEHn4VAscHYJo8uGE8x2snxtPOhpt1OxdL3ZGYX
-         Wiz+R4cTTgQLTY2QiiJNhPDPBYTLqDQpxj6c5/Atuk05o/3IfwiOBR0eqmOZvp+xX8E9
-         Tv3g==
-X-Gm-Message-State: AOJu0Yx224JIIOyxGnH1L7EjxEKc9nwy/VZq3XmOpSoSmXVkwjKDjAMZ
-	uNprbHSvoqG3qr7YUMYMZ/CkqP2yuQZ00Ha479B2v9zozweecDglu3vkHROmBOI=
-X-Gm-Gg: ASbGncu2FsV6hw0NgLpdR0KA1gucnaSi5XsrkI+0tZfV00soskDpgpV0erRn+HevFqd
-	Kw92KhCgvw3PtH400pzDJHQ6xROZWFwriORJ+W9TsuyAOPnTPV5iMQEz/LKgk4byKYQG+YvxYzj
-	09ZZdVXzNNvCaZsBMrJVnxcYaY3UW34v2zNzhhXM4hLNFGHJ3CmqhwV6VAdcCYQYmx1QDHswHKe
-	YIa/LYGjBs/++P5gvsElvEhIq31yMH/JlKBP5ZH+KcwZBSaV/KsBtchTwj1+J5R3OUDsCiJWf9I
-	y04MVzpK2mfvYCta3VCimZbXAMrEdjCmzpy0Bxaj8TO9sHEuH2A=
-X-Google-Smtp-Source: AGHT+IFxQdlR3XbwN3+K/S07VkZdxfUuHrjaKg+XbMlUjDGQX29Og6QcKArMltGpAQ4oZl3D4gBdWQ==
-X-Received: by 2002:a05:6512:b06:b0:549:5769:6ae3 with SMTP id 2adb3069b0e04-54d6e61c9c7mr2111296e87.6.1745102159063;
-        Sat, 19 Apr 2025 15:35:59 -0700 (PDT)
+        bh=TzY2xOh4ktNlX/Hf1UnvL25R4SqMvTbsJsIcKtlm9vA=;
+        b=YkOhiRIYfDBqC3vdNaycj5L6NIt1K20vEQOAWs1p1Tn445cEb9NNLEQbYe/Ma8C2Er
+         YusTK2XS2+4tbPrO/UsP0w1UCx1FdWu8rNsnDfzkeNm/B4N3B9aQpGkJQUBbfgRKl1vx
+         8EUQE07OB2Z2NyLwaKevFgtL4TseJoYf12gq9cQ4JJMSopIa/V2eysIpXcII+nCK6qxm
+         bTqB4bX1jtJeIxaWFknYPjINrki7RXOuziX8fSeJzYUSBMf7La7MUCI1ptP8xzZRgk72
+         wHQkZwpsNTORqNMJkQaKqPRZgyZKJehFV0pKxvA9WtW4ZJdbpqNZVweX19TtvtVqij43
+         oGmw==
+X-Gm-Message-State: AOJu0YwQ+guvRWstuM3Qm1bufIJ8yN6DYy/N8M3KSN1JA6yJJX/ewtWZ
+	+UObNKRaqeZPmDSjEZfZgE9TvcWiO9qHltZHlDbS2Gut96lcBOvvxBgC3bh3Clc=
+X-Gm-Gg: ASbGncto0muEdM/4CU5z6Scl3PFCARdCjt6dV3tTnO3nNIajVs1ib2nYMOqHjlLIQg+
+	RFYjvXhuYTYK4xoNN73cQkoj7fZxBGwpgwtBf29TK7qRRKoU2gNEA5FIR269zhabR3nRfS8O1Sc
+	keuuUw2y4w23e4BaOgLaSlR3sZKtjV42aewT91pQ4qGX/3HA++7dhhSBGWkLVUyTfMZ9G7a73PY
+	7IN6RZ2n1mLDwwK8qGks+cLEH9Jw9dDKLuTYes4dEypwZkdM8YoZOmGLDi0APFRNCN6pQyhuguS
+	w/vL4gN+01GE19bfjygSxmoc4/6kWcqNeEKOxxjqWdbBKQpIsYM=
+X-Google-Smtp-Source: AGHT+IFH9xGcTNIlSs+IadMVQj6+iIYdg0THeCQHNZBemp4bp++lCg0nA15nRYVihEO1x52fF5YrhA==
+X-Received: by 2002:a05:6512:318b:b0:54a:f757:f8ac with SMTP id 2adb3069b0e04-54d6e61c168mr1950777e87.8.1745102160571;
+        Sat, 19 Apr 2025 15:36:00 -0700 (PDT)
 Received: from [192.168.1.140] ([85.235.12.238])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54d6e540daesm535322e87.79.2025.04.19.15.35.58
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54d6e540daesm535322e87.79.2025.04.19.15.35.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 19 Apr 2025 15:35:58 -0700 (PDT)
+        Sat, 19 Apr 2025 15:35:59 -0700 (PDT)
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Sun, 20 Apr 2025 00:35:49 +0200
-Subject: [PATCH v6 02/31] ARM: ptrace: Split report_syscall()
+Date: Sun, 20 Apr 2025 00:35:50 +0200
+Subject: [PATCH v6 03/31] ARM: entry: Skip ret_slow_syscall label
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250420-arm-generic-entry-v6-2-95f1fcdfeeb2@linaro.org>
+Message-Id: <20250420-arm-generic-entry-v6-3-95f1fcdfeeb2@linaro.org>
 References: <20250420-arm-generic-entry-v6-0-95f1fcdfeeb2@linaro.org>
 In-Reply-To: <20250420-arm-generic-entry-v6-0-95f1fcdfeeb2@linaro.org>
 To: Dmitry Vyukov <dvyukov@google.com>, Oleg Nesterov <oleg@redhat.com>, 
@@ -88,8 +88,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Thomas Gleixner <tglx@linutronix.de>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250419_153600_990590_CA825DD3 
-X-CRM114-Status: GOOD (  15.08  )
+X-CRM114-CacheID: sfid-20250419_153602_489108_7BE6C3DB 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,81 +104,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The generic entry code requires that report_syscall() be provided
-in two parts: report_syscall_enter() and report_syscall_exit()
-so split the combined function in two.
+Don't introduce this extra label anymore now that we have
+a clearly defined entry point for ret_to_user.
 
 Acked-by: Thomas Gleixner <tglx@linutronix.de>
 Acked-by: Paul E. McKenney <paulmck@kernel.org>
 Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- arch/arm/kernel/ptrace.c | 30 ++++++++++++++++++++++--------
- 1 file changed, 22 insertions(+), 8 deletions(-)
+ arch/arm/kernel/entry-common.S | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm/kernel/ptrace.c b/arch/arm/kernel/ptrace.c
-index c421a899fc84c476a672cbfe1c8ece8355d8512d..07b0daf47441f1f76a8af416acc74fa5ed770403 100644
---- a/arch/arm/kernel/ptrace.c
-+++ b/arch/arm/kernel/ptrace.c
-@@ -827,31 +827,45 @@ enum ptrace_syscall_dir {
- 	PTRACE_SYSCALL_EXIT,
- };
+diff --git a/arch/arm/kernel/entry-common.S b/arch/arm/kernel/entry-common.S
+index f379c852dcb72fa5e960bba5621cc2152f0df0d3..2f93c2f6d5b8fdf6aaf3dda0192bde144fcf238d 100644
+--- a/arch/arm/kernel/entry-common.S
++++ b/arch/arm/kernel/entry-common.S
+@@ -102,7 +102,6 @@ ENDPROC(ret_fast_syscall)
+  * do_work_pending() will update this state if necessary.
+  */
+ ENTRY(ret_to_user)
+-ret_slow_syscall:
+ #if IS_ENABLED(CONFIG_DEBUG_RSEQ)
+ 	/* do_rseq_syscall needs interrupts enabled. */
+ 	enable_irq_notrace			@ enable interrupts
+@@ -136,7 +135,7 @@ ENTRY(ret_from_fork)
+ 	badrne	lr, 1f
+ 	retne	r5
+ 1:	get_thread_info tsk
+-	b	ret_slow_syscall
++	b	ret_to_user
+ ENDPROC(ret_from_fork)
  
--static void report_syscall(struct pt_regs *regs, enum ptrace_syscall_dir dir)
-+static void report_syscall_enter(struct pt_regs *regs)
- {
- 	unsigned long ip;
+ /*=============================================================================
+@@ -310,13 +309,13 @@ __sys_trace_return_nosave:
+ 	enable_irq_notrace
+ 	mov	r0, sp
+ 	bl	syscall_trace_exit
+-	b	ret_slow_syscall
++	b	ret_to_user
  
- 	/*
- 	 * IP is used to denote syscall entry/exit:
--	 * IP = 0 -> entry, =1 -> exit
-+	 * IP = 0 -> entry
- 	 */
- 	ip = regs->ARM_ip;
--	regs->ARM_ip = dir;
-+	regs->ARM_ip = PTRACE_SYSCALL_ENTER;
+ __sys_trace_return:
+ 	str	r0, [sp, #S_R0 + S_OFF]!	@ save returned r0
+ 	mov	r0, sp
+ 	bl	syscall_trace_exit
+-	b	ret_slow_syscall
++	b	ret_to_user
  
--	if (dir == PTRACE_SYSCALL_EXIT)
--		ptrace_report_syscall_exit(regs, 0);
--	else if (ptrace_report_syscall_entry(regs))
-+	if (ptrace_report_syscall_entry(regs))
- 		current_thread_info()->abi_syscall = -1;
- 
- 	regs->ARM_ip = ip;
- }
- 
-+static void report_syscall_exit(struct pt_regs *regs)
-+{
-+	unsigned long ip;
-+
-+	/*
-+	 * IP is used to denote syscall entry/exit:
-+	 * IP = 1 -> exit
-+	 */
-+	ip = regs->ARM_ip;
-+	regs->ARM_ip = PTRACE_SYSCALL_EXIT;
-+
-+	ptrace_report_syscall_exit(regs, 0);
-+
-+	regs->ARM_ip = ip;
-+}
-+
- asmlinkage int syscall_trace_enter(struct pt_regs *regs)
- {
- 	int scno;
- 
- 	if (test_thread_flag(TIF_SYSCALL_TRACE))
--		report_syscall(regs, PTRACE_SYSCALL_ENTER);
-+		report_syscall_enter(regs);
- 
- 	/* Do seccomp after ptrace; syscall may have changed. */
- #ifdef CONFIG_HAVE_ARCH_SECCOMP_FILTER
-@@ -892,5 +906,5 @@ asmlinkage void syscall_trace_exit(struct pt_regs *regs)
- 		trace_sys_exit(regs, regs_return_value(regs));
- 
- 	if (test_thread_flag(TIF_SYSCALL_TRACE))
--		report_syscall(regs, PTRACE_SYSCALL_EXIT);
-+		report_syscall_exit(regs);
- }
+ 	.macro	syscall_table_start, sym
+ 	.equ	__sys_nr, 0
 
 -- 
 2.49.0
