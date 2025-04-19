@@ -4,85 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9167DC369BD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Apr 2025 15:07:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3396EC369BD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Apr 2025 15:33:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YZi3aRqovSBiCU2ni0veKe9QUcmpB/gRS81ieaxuMGc=; b=KI5Jx1pHSF4duv/4nm4YJ6+4cy
-	GiJFRQxS9z5zRiedX5fDAgDJXv6TbZd/DHNmrDzKOo7jhBPAPBhhsTG4AjTKCznHfJKUn++xz157v
-	WuiGcePdIzRySzdaCCkImBk6w4G0JMfAlqhfI7EunP+M8biY5LBPgmHCd/FeknW4ad3qJtmyhdtQ+
-	ACv2bCUmTNzFkDbdMJfi4sUd1UsP5uAcBftOjjA4rRxOuQOHjVNfkDBdl5t+29ZikiXAKAPYu36K7
-	bcKfFSegqZa8Y8ydp0xIRrwCUCf3DaNn9Xceq3L0yakOC64sm1BgmdAzmvALoAqRjwNb2/YRtwoKy
-	AiQ1wy9Q==;
+	bh=ysDu9eF8Eh897/ioHX0hcuYeCiy+ssb61wS3Sg/rCWU=; b=h90IKP+397LcxOV8umo3MvyiPa
+	C/p/TwdYB+6uKIz18Xi+c9+lVz8nLxCR1QBL+SggYfGpG61XNOjNeHXyQUdJsr8/LBn86knyjB8gC
+	Jwx1zGns9bTR/BLroWKmFK91Lvwx3ICnYrPkROCS2UVpRAYmgW6WOj2eX6uAc/HLxiRC7DLjoOYGG
+	uhCLWrnyT9SEO+5JoOnxSW+XXsKrkBLqnK4Q6Wyj65oDM7Cl74dRe7X1q6qLszWIWuoCNs1OCldfa
+	icHSo61ObIGvf5IC8cJvKgeOSMIP31P2LAJhwtG8LVeca2OC1V47pEkz6MicleJfZEgph0X5g4JCd
+	ywODi2zQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u69mU-00000001S0W-0oRV;
-	Sat, 19 Apr 2025 15:06:58 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1u6ABS-00000001TMn-3CxC;
+	Sat, 19 Apr 2025 15:32:46 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u69kc-00000001Ru4-21AN
+	id 1u6A9a-00000001TG5-40vN
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Apr 2025 15:05:03 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53JF4pdn1163692
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Sat, 19 Apr 2025 10:04:51 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745075091;
-	bh=YZi3aRqovSBiCU2ni0veKe9QUcmpB/gRS81ieaxuMGc=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=ZhxSbp1Jao/FmrWgP8kr0092Ms5IAQSn1hsIknCYGGssfwr3snl1aogedd7/0duVf
-	 U0mYKQ2Vy/nZGUC4jsrOca41OlV0zWSWBLfsta++ufqwkrcOkVfy645ag64MznTlsX
-	 xADdtKOLva+tdK+qIiccvKahmwadwJf5wtiNAN2k=
-Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53JF4pG2015624
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Sat, 19 Apr 2025 10:04:51 -0500
-Received: from DFLE101.ent.ti.com (10.64.6.22) by DFLE104.ent.ti.com
- (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Sat, 19
- Apr 2025 10:04:51 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE101.ent.ti.com
- (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Sat, 19 Apr 2025 10:04:51 -0500
-Received: from localhost (bb.dhcp.ti.com [128.247.81.12])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53JF4plT016844;
-	Sat, 19 Apr 2025 10:04:51 -0500
-Date: Sat, 19 Apr 2025 10:04:51 -0500
-From: Bryan Brattlof <bb@ti.com>
-To: Judith Mendez <jm@ti.com>
-CC: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Tero
- Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Hari Nagalla <hnagalla@ti.com>,
-        Beleswar
- Prasad <b-padhi@ti.com>, Andrew Davis <afd@ti.com>,
-        Markus Schneider-Pargmann
-	<msp@baylibre.com>,
-        Devarsh Thakkar <devarsht@lewv0571a.ent.ti.com>
-Subject: Re: [PATCH v7 06/11] arm64: dts: ti: k3-am62a7-sk: Enable IPC with
- remote processors
-Message-ID: <20250419150451.v3jgtgp4yisou65u@bryanbrattlof.com>
-X-PGP-Fingerprint: D3D1 77E4 0A38 DF4D 1853 FEEF 41B9 0D5D 71D5 6CE0
-References: <20250415153147.1844076-1-jm@ti.com>
- <20250415153147.1844076-7-jm@ti.com>
+	Sat, 19 Apr 2025 15:30:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1745076651; x=1776612651;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=EJY6VnbO/oorT+t/r51LBHIJCvd7pfE+OXcRXcdWp/Y=;
+  b=SrUtxw/VrGfDO35SuUl9JP/R5aEeHLwEB7GGTafArT1TJZoNJFjNZyN7
+   OcjNM0y9m6eqFsCz6wpt6GtfV39ECLvMVYmMKrbMD/kETaAiJdotvJ9O1
+   iC8pRAaksMbv5ODtkL/Xv11t5jat1uEwJxeAkwXSkWPPzQObG4R4oRi0y
+   T5BoV6Sb2FSLz3Ub+nAtOI/U11c8opWbgFAPtxXUeQJh9ug+P54hIDUg0
+   zzfdWyksOup/AbAMX7zR9xRdSblZWLT9QmMyj+mKIDFkyaqhGo9+K+dcZ
+   4EE8KROYMfqzHx6KXmFTsgL1bTjTxm4Gia8Waf6EmPNO3U4+gF0FVMp9A
+   A==;
+X-CSE-ConnectionGUID: r4TQJksFRsSiDu6hiKO9MA==
+X-CSE-MsgGUID: Nnnifr/9TZeuLciXrw08mw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11408"; a="46806649"
+X-IronPort-AV: E=Sophos;i="6.15,224,1739865600"; 
+   d="scan'208";a="46806649"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Apr 2025 08:30:44 -0700
+X-CSE-ConnectionGUID: CuoieLxUT1K3ksC/Kut48Q==
+X-CSE-MsgGUID: ZSJTu6nsQF+IEiTNRnHGnA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,224,1739865600"; 
+   d="scan'208";a="154517506"
+Received: from smile.fi.intel.com ([10.237.72.58])
+  by fmviesa002.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Apr 2025 08:30:35 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1u6A9I-0000000DqsB-0AwJ;
+	Sat, 19 Apr 2025 18:30:32 +0300
+Date: Sat, 19 Apr 2025 18:30:31 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Herve Codina <herve.codina@bootlin.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Peter Rosin <peda@axentia.se>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Mark Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>,
+	Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Wolfram Sang <wsa@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-spi@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
+	Allan Nielsen <allan.nielsen@microchip.com>,
+	Horatiu Vultur <horatiu.vultur@microchip.com>,
+	Steen Hegelund <steen.hegelund@microchip.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH 11/16] of: property: Allow fw_devlink device-tree support
+ for x86
+Message-ID: <aAPBl7qdbUizMQko@smile.fi.intel.com>
+References: <20250407145546.270683-1-herve.codina@bootlin.com>
+ <20250407145546.270683-12-herve.codina@bootlin.com>
+ <Z_Pw_MoPpVNwiEhc@smile.fi.intel.com>
+ <20250408154925.5653d506@bootlin.com>
+ <Z_U0DkSemHK0lrJW@smile.fi.intel.com>
+ <20250418151036.719f982b@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250415153147.1844076-7-jm@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250418151036.719f982b@bootlin.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250419_080502_612756_944326D7 
-X-CRM114-Status: GOOD (  21.57  )
+X-CRM114-CacheID: sfid-20250419_083051_040013_1635085D 
+X-CRM114-Status: GOOD (  45.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,161 +124,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On April 15, 2025 thus sayeth Judith Mendez:
-> From: Devarsh Thakkar <devarsht@ti.com>
+On Fri, Apr 18, 2025 at 03:10:36PM +0200, Herve Codina wrote:
+> On Tue, 8 Apr 2025 17:34:54 +0300
+> Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:
+> > On Tue, Apr 08, 2025 at 03:49:25PM +0200, Herve Codina wrote:
+> > > On Mon, 7 Apr 2025 18:36:28 +0300
+> > > Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:  
+> > > > On Mon, Apr 07, 2025 at 04:55:40PM +0200, Herve Codina wrote:  
+
+...
+
+> > > > This is incorrect, they never had ACPI to begin with. Also there is third
+> > > > platform that are using DT on x86 core — SpreadTrum based phones.  
+> > > 
+> > > I will rework the commit log to avoid 'mixing ACPI and device-tree'
+> > > 
+> > > For "SpreadTrum based phones", do you have an idea about the Kconfig symbol
+> > > I could use to filter our this x86 systems?  
+> > 
+> > Hmm... good question. I don't think it was anything. The Airmont core just
+> > works and doesn't require anything special to be set. And platform is x86 with
+> > the devices that are established on ARM, so nothing special in device tree
+> > either, I suppose. Basically any x86 platform with OF should be excluded,
+> > rather think of what should be included. But I see that as opposite
+> > requirements to the same function. I have no idea how to solve this. Perhaps
+> > find that SpreadTrum Intel Atom-based device? Would be really hard, I believe.
+> > Especially if we want to install a custom kernel there...
+> > 
+> > > Anything I find upstream related to SpreadTrum seems base on ARM cpus.
+> > > I probably miss something.  
+> > 
+> > There were two SoCs that were Intel Atom based [1]. And some patches [2] to x86
+> > DT code were made to support those cases.
+> > 
+> > > > And not sure about AMD stuff (Geode?).  
+> > > 
+> > > Same here, if some AMD devices need to be filtered out, is there a specific
+> > > Kconfig symbol I can use ?  
+> > 
+> > This is question to AMD people. I have no clue.
+> > 
+> > [1]: https://www.anandtech.com/show/11196/mwc-2017-spreadtrum-launches-8core-intel-airmontbased-soc-with-cat-7-lte-for-smartphones
+> > 
+> > [2]: 4e07db9c8db8 ("x86/devicetree: Use CPU description from Device Tree")
+> > and co. `git log --no-merges 4e07db9c8db8 -- arch/x86/kernel/devicetree.c
 > 
-> For each remote proc, reserve memory for IPC and bind the mailbox
-> assignments. Two memory regions are reserved for each remote processor.
-> The first region of 1MB of memory is used for Vring shared buffers
-> and the second region is used as external memory to the remote processor
-> for the resource table and for tracebuffer allocations.
+> I have tried to find a solution for this topic.
 > 
-> Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
-> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
-> Signed-off-by: Judith Mendez <jm@ti.com>
-> Acked-by: Andrew Davis <afd@ti.com>
-> Reviewed-by: Beleswar Padhi <b-padhi@ti.com>
-> Reviewed-by: Jai Luthra <jai.luthra@ideasonboard.com>
-> ---
->  arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 96 +++++++++++++++++++++++--
->  1 file changed, 90 insertions(+), 6 deletions(-)
+> Indeed, this patch enables fw_devlink based on device-tree on all x86
+> platform except OLPC and CE4100.
 > 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-> index 1c9d95696c839..7d817b447c1d0 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-> @@ -52,6 +52,42 @@ linux,cma {
->  			linux,cma-default;
->  		};
->  
-> +		c7x_0_dma_memory_region: c7x-dma-memory@99800000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x99800000 0x00 0x100000>;
-> +			no-map;
-> +		};
-> +
-> +		c7x_0_memory_region: c7x-memory@99900000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x99900000 0x00 0xf00000>;
-> +			no-map;
-> +		};
-> +
-
-I know this has been a push for our IPC and MCU+ teams for a couple 
-windows now, though I do want to point out that some AM62A devices 
-(AM62A12AQMSIAMBRQ1) will not even have a C7x. 
-
-It's relatively easy to cut nodes out that describe the hardware in the 
-bootloaders, but once we start configuring them to demo something it 
-becomes impossible to unwind that during boot.
-
-We can clam we only support the superset devices but I just wanted to 
-make this email so I could point people to it when they inevitably ask 
-why their parts do not work out of the box with Linux.
-
-Naked-by: Bryan Brattlof <bb@ti.com>
-
-~Bryan
-
-> +		mcu_r5fss0_core0_dma_memory_region: r5f-dma-memory@9b800000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9b800000 0x00 0x100000>;
-> +			no-map;
-> +		};
-> +
-> +		mcu_r5fss0_core0_memory_region: r5f-dma-memory@9b900000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9b900000 0x00 0xf00000>;
-> +			no-map;
-> +		};
-> +
-> +		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9c800000 0x00 0x100000>;
-> +			no-map;
-> +		};
-> +
-> +		wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9c900000 0x00 0xf00000>;
-> +			no-map;
-> +		};
-> +
->  		secure_tfa_ddr: tfa@9e780000 {
->  			reg = <0x00 0x9e780000 0x00 0x80000>;
->  			alignment = <0x1000>;
-> @@ -63,12 +99,6 @@ secure_ddr: optee@9e800000 {
->  			alignment = <0x1000>;
->  			no-map;
->  		};
-> -
-> -		wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
-> -			compatible = "shared-dma-pool";
-> -			reg = <0x00 0x9c900000 0x00 0x01e00000>;
-> -			no-map;
-> -		};
->  	};
->  
->  	opp-table {
-> @@ -741,3 +771,57 @@ dpi1_out: endpoint {
->  		};
->  	};
->  };
-> +
-> +&mailbox0_cluster0 {
-> +	status = "okay";
-> +
-> +	mbox_r5_0: mbox-r5-0 {
-> +		ti,mbox-rx = <0 0 0>;
-> +		ti,mbox-tx = <1 0 0>;
-> +	};
-> +};
-> +
-> +&mailbox0_cluster1 {
-> +	status = "okay";
-> +
-> +	mbox_c7x_0: mbox-c7x-0 {
-> +		ti,mbox-rx = <0 0 0>;
-> +		ti,mbox-tx = <1 0 0>;
-> +	};
-> +};
-> +
-> +&mailbox0_cluster2 {
-> +	status = "okay";
-> +
-> +	mbox_mcu_r5_0: mbox-mcu-r5-0 {
-> +		ti,mbox-rx = <0 0 0>;
-> +		ti,mbox-tx = <1 0 0>;
-> +	};
-> +};
-> +
-> +&wkup_r5fss0 {
-> +	status = "okay";
-> +};
-> +
-> +&wkup_r5fss0_core0 {
-> +	mboxes = <&mailbox0_cluster0>, <&mbox_r5_0>;
-> +	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
-> +			<&wkup_r5fss0_core0_memory_region>;
-> +};
-> +
-> +&mcu_r5fss0 {
-> +	status = "okay";
-> +};
-> +
-> +&mcu_r5fss0_core0 {
-> +	mboxes = <&mailbox0_cluster2>, <&mbox_mcu_r5_0>;
-> +	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
-> +			<&mcu_r5fss0_core0_memory_region>;
-> +};
-> +
-> +&c7x_0 {
-> +	mboxes = <&mailbox0_cluster1>, <&mbox_c7x_0>;
-> +	memory-region = <&c7x_0_dma_memory_region>,
-> +			<&c7x_0_memory_region>;
-> +	status = "okay";
-> +};
-> -- 
-> 2.49.0
+> You have mentioned some other x86 based system that could have issues with
+> fw_devlink and it seems to be hard to have a complete list of systems for
+> which we should not enable fw_devlink (potential issues and so regression
+> against current kernel behavior).
 > 
+> As you also proposed, we can thing on the opposite direction and enable
+> fw_devlink on x86 systems that need it.
+> 
+> We need it because we need the device-tree description over PCI device feature
+> (CONFIG_PCI_DYNAMIC_OF_NODES) on x86 in order to support the LAN966x use case.
+> 
+> What do you think about the following condition?
+> 
+> 	if (IS_ENABLED(CONFIG_X86) && !IS_ENABLED(CONFIG_PCI_DYNAMIC_OF_NODES))
+>  		return 0; /* Not enabled */
+> 
+> CONFIG_PCI_DYNAMIC_OF_NODES has already to set explicitly by the user.
+> 
+> Do you think it makes sense and could be a good alternative instead of
+> filtering out a list of x86 systems ?
+
+At least this won't break old platforms that won't set that configuration
+option. Ideally, of course, it would be nice to have some kind of detection
+at run-time...
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
