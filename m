@@ -4,98 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94001C369C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Apr 2025 11:54:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82281C369BD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Apr 2025 12:16:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=px0hPaEeyRW/CvDRRPztfyMotj+Xv6y6UjJ57CxB080=; b=jP5S1AgEF0oNwlTVGMeztsqLQN
-	K7owj4SpEaUSlpgDwTPETL7RGYKjoe0wOVKak7ous6lv330Kh4lbLFPOybdsSlNaHKDDu1WXJgyTn
-	87gbXt7VkSrteZE/y4eNlnMvrGGVaz2Da9zPM1g6jQPklcbH48ZAgWdZ4uwG6dcpRJliBcb2G/KPX
-	CWQxthhxfhzhEjOi0Ji2ika5jH6LhDvpaBDmnIW+4KIBB9RBlcWUt+AvKnnP/RXPBkpEVxRcml6hB
-	tUBn2EBvsY8XFaDcmQR2tPQgVWoxmRslGM13N4qy6tLAriL/+lZ0wa1UxjogD0vW0WQ1OZol8PPb9
-	3aTSTjzA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=teQTKm+rcwhjm2Bk78ja69kS52/A0csVlkW7wMTfnQk=; b=utFdNTwAm+pXF7TY6hAAdqJGiE
+	r7H+HXjGjKpBZbT4lW1os9SCHHFqE7PAxzIzG7dv/7/os7YhpjO2HCGg0mOOKp5L1QbeRBwedDq72
+	FPlEXO7lFJ4tdzGAwsHdNCfI5tEv4AT1tvTtvDSt+UNqEG5EW6xqcXdIn9E5TtqJwab/K1lOtakLD
+	hn4affb+o11OD83ZAOYgX2hyw7vzIVCghMteP/I16CRuXKXUgsIGhp0AFndteKq+ZyA+OMS45ppNn
+	cv6cOh0U4xwHMLYxY+yfPIG0ekbBmNJmjx7po3fbHnflwPw63hNlZTZg82QvDONINunu3IGxRU2l0
+	V2R7LK4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u66mE-00000001GGj-1w3Y;
-	Sat, 19 Apr 2025 11:54:30 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u66kK-00000001GAC-1Mt9
+	id 1u676w-00000001HR9-3SIF;
+	Sat, 19 Apr 2025 12:15:54 +0000
+Received: from m16.mail.163.com ([117.135.210.5])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u6751-00000001HFn-0neO
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Apr 2025 11:52:33 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-2ff6e91cff5so2561810a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 19 Apr 2025 04:52:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745063551; x=1745668351; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=px0hPaEeyRW/CvDRRPztfyMotj+Xv6y6UjJ57CxB080=;
-        b=mjqI5C1QJTdQ/rZUo59SNQXSiDeXzVftK1hw2i3cpizkSLF27f4f2Jt98URAOM/f0k
-         o+eSCF79/oWiCdPc5p1XCS3Es+Z1nfakGt6j+auJ43+5stJqEf5gn0u3Rew2BL2eoRjK
-         x2rcBiHA8VOE8K0/FU7A0ccD1OyfFTyDWLMVrmTZ6ClbALPB0Xw+iDXmTf/WXIK8OF2z
-         /QJ7r4SJqpt/BIxzl+2cn0n8WJiQ+QwO3SkP3oH+JPz4cnk5hjMRCEMH5dOXBSXRGQl6
-         TL9CoQbAU/I2CjdxgtcVML4I5cBgHLG1ZfEDQnHSCy4O6WGO50StF5xujQDPRA+f/j0A
-         BwqQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745063551; x=1745668351;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=px0hPaEeyRW/CvDRRPztfyMotj+Xv6y6UjJ57CxB080=;
-        b=mAlkoxWiclKg5LnBIAVDqsNea7M1GrZvgCFMQwSmvln3Xevlrg9XYx0hIkUu8pr72j
-         Q7sBwkEb+BmFLRxYiZcarOxt9wNM4I8R4wOpDjBhUtNpijlqBe30YZShJlCs1KTJrXbN
-         PvFFp/X/XlBXBv3it5QvxMjE23hIS2oZiGyCk577mJSjhkVafaPn71WFQAVtyVQgMu0G
-         6wyVzBjAn35Mf1gYo1QFluszZQix260QoJFcvyWscmEGaBmTkRFsJuZLmY5R4P6wZOx/
-         T5tZ4Mk9qVuvGoiKFnayMJYMz5iCrxJnvmC43Bp/v6J8UZ1XsoPgAD2HwWyfh9oWAuMy
-         +8Fg==
-X-Forwarded-Encrypted: i=1; AJvYcCWI3DS2RREPS7g8GP1zE0qqd1TgzlK3lwnOMBojjV2He0+JnvnipDiDoBhJo+2vPkchLqoUoySCbOE7/Xb99r+y@lists.infradead.org
-X-Gm-Message-State: AOJu0YwnOl7CVMRDq6aOtp2ckeGnFyJO41qrc2lbZx0dR/r3l8rUmCEW
-	R53XkyDPF473B/eirO0DKs2sbwd0p9azBsXU3hDYrSiGDwLN+D1WHQO7Qwaa7A==
-X-Gm-Gg: ASbGncsV8IP7MrK2+wyaO1rRbH5kbIxKTrK21n7xaE9tlIUS24ydOljfWmhz/YmKKCR
-	DmIsRjEz+YLW2du9SZEFldyTO5PHbtUpcNi+ajCio8guJhxIvEmJQVBSdGTZS2W8ciygu266iKC
-	7W92vKNLqOdmNczZiHFIPoNxv4MHBizzqryAyqM0YLNc92eee/UHUlBDtFr8gE7UySwdbhLvKmF
-	xi0w0qj13Hjn5VU+lUtOmpnMmmylN9vFw0wD/lTMZRCLCM6V6nBGlB+Abp2YbXmjJ49bYYzyBI9
-	6pZOc0arpb2SiS9tUlCaIP1TvEoSqLcTwdnn0M9naTMLbaqR/oxugw==
-X-Google-Smtp-Source: AGHT+IGxohOcrVLT2HpkDYi9xceN2Uhz9oDZW+ezY0LfwsFn53P6RbFmjao2TeMC0K8cXhOK65CtbQ==
-X-Received: by 2002:a17:90a:d010:b0:2fe:7f40:420a with SMTP id 98e67ed59e1d1-3087bb69218mr9255068a91.17.1745063551225;
-        Sat, 19 Apr 2025 04:52:31 -0700 (PDT)
-Received: from thinkpad.. ([36.255.17.167])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22c50ece2f8sm32069075ad.189.2025.04.19.04.52.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 19 Apr 2025 04:52:30 -0700 (PDT)
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Shawn Lin <shawn.lin@rock-chips.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Anand Moon <linux.amoon@gmail.com>,
-	Jensen Huang <jensenhuang@friendlyarm.com>
-Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	linux-pci@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
+	Sat, 19 Apr 2025 12:13:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=teQTK
+	m+rcwhjm2Bk78ja69kS52/A0csVlkW7wMTfnQk=; b=Y3UdCjWJuUtFsvrK9Xzqt
+	3mC2KAPycB6Q6QJDc/4J/C+4sP48dQARc/BT5UEk9nfoc5s5K3OyKP9l2IaxuTQP
+	jKCQALgS8zWumbX+3Oo7UwoE/WUA8ERysK3mRmFBzmL0JzlOA3Ybwnh/OA0S2Jvx
+	6HlTwx8GfJbvW79qnCVZJg=
+Received: from ProDesk.. (unknown [])
+	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wBn3XtnkwNoWWZ+BA--.31074S2;
+	Sat, 19 Apr 2025 20:13:31 +0800 (CST)
+From: Andy Yan <andyshrk@163.com>
+To: heiko@sntech.de
+Cc: krzk+dt@kernel.org,
+	robh@kernel.org,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] PCI: rockchip: Fix order of rockchip_pci_core_rsts
-Date: Sat, 19 Apr 2025 17:22:22 +0530
-Message-ID: <174506353387.39503.4719676281195371261.b4-ty@linaro.org>
+	linux-kernel@vger.kernel.org,
+	inux-rockchip@lists.infradead.org,
+	Andy Yan <andyshrk@163.com>
+Subject: [PATCH 1/3] arm64: dts: rockchip: Rename hdmi-con to hdmi0-con for Cool Pi CM5 EVB
+Date: Sat, 19 Apr 2025 20:13:16 +0800
+Message-ID: <20250419121326.388298-1-andyshrk@163.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250328105822.3946767-1-jensenhuang@friendlyarm.com>
-References: <20250328105822.3946767-1-jensenhuang@friendlyarm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wBn3XtnkwNoWWZ+BA--.31074S2
+X-Coremail-Antispam: 1Uf129KBjvdXoW7Xryrur1fKF18KrW5KrWrGrg_yoWkGwcEya
+	4Ig3WrCF4fAFyDu3srJa15Gwn2g39I9F1xKFyYqF1xAF98A39rJF45tan2qwnrCF4a9F4f
+	AwsrAF1fAw1jkjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7sR_g4ftUUUUU==
+X-Originating-IP: [58.22.7.114]
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0h80XmgDkx0IOgAAsw
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250419_045232_370873_1F37F285 
-X-CRM114-Status: UNSURE (   9.53  )
+X-CRM114-CacheID: sfid-20250419_051355_653961_AD7C5760 
+X-CRM114-Status: UNSURE (   9.98  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,23 +77,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+There are two hdmi connector on Cool Pi CM5 EVB, the current supported
+is hdmi0, assign corresponding index to it. It will be convenient for
+us to add support for another one.
 
-On Fri, 28 Mar 2025 18:58:22 +0800, Jensen Huang wrote:
-> The order of rockchip_pci_core_rsts follows the previous comments suggesting
-> to avoid reordering. However, reset_control_bulk_deassert() applies resets in
-> reverse, which may lead to the link downgrading to 2.5 GT/s.
-> 
-> This patch restores the deassert order and comments for core_rsts, introduced in
-> commit 58c6990c5ee7 ("PCI: rockchip: Improve the deassert sequence of four reset pins").
-> 
-> [...]
+Signed-off-by: Andy Yan <andyshrk@163.com>
+---
 
-Applied, thanks!
+ arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dts | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-[1/1] PCI: rockchip: Fix order of rockchip_pci_core_rsts
-      commit: 84d79f3304645d6e87b936d2bf8b8310798efec2
-
-Best regards,
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dts b/arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dts
+index 86744c53801f2..3beeb0616455e 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dts
+@@ -23,12 +23,12 @@ backlight: backlight {
+ 		pwms = <&pwm2 0 25000 0>;
+ 	};
+ 
+-	hdmi-con {
++	hdmi0-con {
+ 		compatible = "hdmi-connector";
+ 		type = "a";
+ 
+ 		port {
+-			hdmi_con_in: endpoint {
++			hdmi0_con_in: endpoint {
+ 				remote-endpoint = <&hdmi0_out_con>;
+ 			};
+ 		};
+@@ -129,7 +129,7 @@ hdmi0_in_vp0: endpoint {
+ 
+ &hdmi0_out {
+ 	hdmi0_out_con: endpoint {
+-		remote-endpoint = <&hdmi_con_in>;
++		remote-endpoint = <&hdmi0_con_in>;
+ 	};
+ };
+ 
 -- 
-Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+2.43.0
+
 
