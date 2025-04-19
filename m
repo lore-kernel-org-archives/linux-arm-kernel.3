@@ -4,112 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3396EC369BD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Apr 2025 15:33:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E362AC369CA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Apr 2025 16:03:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ysDu9eF8Eh897/ioHX0hcuYeCiy+ssb61wS3Sg/rCWU=; b=h90IKP+397LcxOV8umo3MvyiPa
-	C/p/TwdYB+6uKIz18Xi+c9+lVz8nLxCR1QBL+SggYfGpG61XNOjNeHXyQUdJsr8/LBn86knyjB8gC
-	Jwx1zGns9bTR/BLroWKmFK91Lvwx3ICnYrPkROCS2UVpRAYmgW6WOj2eX6uAc/HLxiRC7DLjoOYGG
-	uhCLWrnyT9SEO+5JoOnxSW+XXsKrkBLqnK4Q6Wyj65oDM7Cl74dRe7X1q6qLszWIWuoCNs1OCldfa
-	icHSo61ObIGvf5IC8cJvKgeOSMIP31P2LAJhwtG8LVeca2OC1V47pEkz6MicleJfZEgph0X5g4JCd
-	ywODi2zQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=W/fbFejZy4nIPoWrA0dBRfXvnbry7Fz4n31+Xfuj1TI=; b=HLuFDJ+CGKaCYSdyWsgPHjgnE9
+	eZpC3xBMkEhHcvVqbO1vNbfq2k+auDQms4Rgz1QjjsVvkxrFx+xU1dEy9hAENwbVO9H6EsmQoafTP
+	14KQuPZISQGLMXBwr4xQ68r5dz3f/kMam2OmUrH3Kj3rO74MiOGNJC+T1+i1CV5bPtXRhzhV0lkwE
+	mlEZy8S2KYIcXP9png6BJmVZGYtv12WgNCHg9t09k84Vtvj0yAXD7Ms2zGs3CZ5IQrUGBpiMah56J
+	hm+Z6RDSAjGXUUVwP9s+xKI/0BFScdPXzcYF/LR4ZRuk2Di1+9nrIKedZVJuFl5i6d4022EGNwn2y
+	RAZpNgvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6ABS-00000001TMn-3CxC;
-	Sat, 19 Apr 2025 15:32:46 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1u6Aeb-00000001VHF-3VOo;
+	Sat, 19 Apr 2025 16:02:53 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6A9a-00000001TG5-40vN
+	id 1u6Ack-00000001V8w-3YQr
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Apr 2025 15:30:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1745076651; x=1776612651;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=EJY6VnbO/oorT+t/r51LBHIJCvd7pfE+OXcRXcdWp/Y=;
-  b=SrUtxw/VrGfDO35SuUl9JP/R5aEeHLwEB7GGTafArT1TJZoNJFjNZyN7
-   OcjNM0y9m6eqFsCz6wpt6GtfV39ECLvMVYmMKrbMD/kETaAiJdotvJ9O1
-   iC8pRAaksMbv5ODtkL/Xv11t5jat1uEwJxeAkwXSkWPPzQObG4R4oRi0y
-   T5BoV6Sb2FSLz3Ub+nAtOI/U11c8opWbgFAPtxXUeQJh9ug+P54hIDUg0
-   zzfdWyksOup/AbAMX7zR9xRdSblZWLT9QmMyj+mKIDFkyaqhGo9+K+dcZ
-   4EE8KROYMfqzHx6KXmFTsgL1bTjTxm4Gia8Waf6EmPNO3U4+gF0FVMp9A
-   A==;
-X-CSE-ConnectionGUID: r4TQJksFRsSiDu6hiKO9MA==
-X-CSE-MsgGUID: Nnnifr/9TZeuLciXrw08mw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11408"; a="46806649"
-X-IronPort-AV: E=Sophos;i="6.15,224,1739865600"; 
-   d="scan'208";a="46806649"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Apr 2025 08:30:44 -0700
-X-CSE-ConnectionGUID: CuoieLxUT1K3ksC/Kut48Q==
-X-CSE-MsgGUID: ZSJTu6nsQF+IEiTNRnHGnA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,224,1739865600"; 
-   d="scan'208";a="154517506"
-Received: from smile.fi.intel.com ([10.237.72.58])
-  by fmviesa002.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Apr 2025 08:30:35 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1u6A9I-0000000DqsB-0AwJ;
-	Sat, 19 Apr 2025 18:30:32 +0300
-Date: Sat, 19 Apr 2025 18:30:31 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Herve Codina <herve.codina@bootlin.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Peter Rosin <peda@axentia.se>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Mark Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Wolfram Sang <wsa@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
-	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-spi@vger.kernel.org,
-	linux-acpi@vger.kernel.org,
-	Allan Nielsen <allan.nielsen@microchip.com>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	Steen Hegelund <steen.hegelund@microchip.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: Re: [PATCH 11/16] of: property: Allow fw_devlink device-tree support
- for x86
-Message-ID: <aAPBl7qdbUizMQko@smile.fi.intel.com>
-References: <20250407145546.270683-1-herve.codina@bootlin.com>
- <20250407145546.270683-12-herve.codina@bootlin.com>
- <Z_Pw_MoPpVNwiEhc@smile.fi.intel.com>
- <20250408154925.5653d506@bootlin.com>
- <Z_U0DkSemHK0lrJW@smile.fi.intel.com>
- <20250418151036.719f982b@bootlin.com>
+	Sat, 19 Apr 2025 16:00:59 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-43cebe06e9eso22818525e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 19 Apr 2025 09:00:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1745078456; x=1745683256; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=W/fbFejZy4nIPoWrA0dBRfXvnbry7Fz4n31+Xfuj1TI=;
+        b=ZWh/6wHWri4vR+X6IAILeDt+z9KBdVx97q8dlciP2Qq1G4l6oOakxHjfAJgkmJi6Ic
+         tRqwLiu+FwVv5ipcx/Ge90Z5A7BYjwesEQLVQH1MVAP/p0q8yhX205BZ9wg7l8BOcW2A
+         caH2kaTVZmqDQJBUzjpFBxcN975/fD9q7Z5B+Nm4VSFpEKUzp9WCck94TTfx7D5DW7pK
+         VDJzM6Gv0NKnfP+dPtfneH2Nl8ac9zqgtJJHDhCQEAqu7wXSN4Benw1ZDXky0+H7o08N
+         n5RaDDAkNuceWxCxD0xBqZg3NoAYrbUUD12GcF1Ib8xyznQxEV4mRjnEKBYq92JSKEKd
+         u4Mw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745078456; x=1745683256;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=W/fbFejZy4nIPoWrA0dBRfXvnbry7Fz4n31+Xfuj1TI=;
+        b=t9fy6S/mPcI7BMovz9YNS+9Epbsbi9RbvV8/LANaaR3MGHb0C9b+xguflW3HfPekT6
+         ls97njzbPwgeYkHcb8BABgRlRlGXjUbmjl5s7Odkjo044kyp3t/ep0px93/724dIDpkB
+         YTJFvzAwsPvnPk+GV4u6ASL/tJ0lEYlm+iZpnjK9xskMeaWbhAZgGpz54lSGls1tv/79
+         IuIp3DHAHACfsoJOCn3AgkZ9YSM2CH2NBEynK3dAgNnJI6Ycinmv/LzOInrUotw1VWhV
+         6dXlZ1VzvkP90a8ritzacEAJjaHcCJwj3PqZstHtdPWnC6oyHqfFreLhWP1am5GTBWJ9
+         I0KA==
+X-Forwarded-Encrypted: i=1; AJvYcCXvXOlfIC0OrqQ9carlfYXYn72gSnsLdpwHRdULPd4w1l5TPm7aDEQ1zTMlyfX/32xrWmmgQDx7F41ByDhW4srX@lists.infradead.org
+X-Gm-Message-State: AOJu0YxhkBFdyGu6xmJh09UqaIb9G31JROpGHSA5wb6FKHy0WxXxuzvc
+	eVNDvvxpWDr6q8PfrhRKVbQYL74Ovfb9OYcbGCJtxMZ8xWGHn5VC
+X-Gm-Gg: ASbGnct+cEQWIQ8X4UvePt4dfYfraXx5v23UmPdjZqaiFsoRJyaiE6SZJ38poqxQ61r
+	MMQOwNIYEwYcowH+VfPx931sLv43w3ZvJUgCP/NySWyFeNkT3OO6uf4oi/E4MvcC0TSrBWjKeIP
+	RruutKm8TXAaTByaZKpXzg7sQ/7n6Ph0YlVgK+gl4hv2ZCEePE2NeQ278K0Ey3gW/bJao5vd1H6
+	Ms4qH3H4/Q9kLPlZlE/UvUOxJwHjwvQJGNlCDsKnTq4SBs1hzNljlIZ8fTXk5UzC5FSYUE81BJP
+	5Fonl75JKb2SVMf9ySxHLNQ4DOfnlM5ZQ9yFPtv9diFlugGhTYu7YcBro8229iOckK/fR3IWGaj
+	KsMx4EC/4K0P1Ir5mA4MAYe1tTJuqJairbGq37LcJF6xMfQckjf78G6Swhnu4P0Kg6cMlRP0ey5
+	w=
+X-Google-Smtp-Source: AGHT+IGnC36Pr2Pwb4ykt7IfU37k/BXh1PqT9qkdlZ9ToWVt+IpsfmlkELLWVuksNL2ab2S/sOLkPA==
+X-Received: by 2002:a05:600c:1c07:b0:43c:f6c6:578c with SMTP id 5b1f17b1804b1-4406aba5a1amr65142375e9.15.1745078455985;
+        Sat, 19 Apr 2025 09:00:55 -0700 (PDT)
+Received: from cypher.home.roving-it.com (2.c.4.1.7.3.6.4.2.a.a.3.0.f.c.2.1.8.6.2.1.1.b.f.0.b.8.0.1.0.0.2.ip6.arpa. [2001:8b0:fb11:2681:2cf0:3aa2:4637:14c2])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4406d5acdd4sm65136215e9.14.2025.04.19.09.00.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 19 Apr 2025 09:00:55 -0700 (PDT)
+From: Peter Robinson <pbrobinson@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev
+Cc: Peter Robinson <pbrobinson@gmail.com>
+Subject: [PATCH v3 0/2] Add support for WiFi/BT header on Pine64 A64
+Date: Sat, 19 Apr 2025 17:00:45 +0100
+Message-ID: <20250419160051.677485-1-pbrobinson@gmail.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250418151036.719f982b@bootlin.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250419_083051_040013_1635085D 
-X-CRM114-Status: GOOD (  45.56  )
+X-CRM114-CacheID: sfid-20250419_090058_904274_DE7C58BD 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,84 +103,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 18, 2025 at 03:10:36PM +0200, Herve Codina wrote:
-> On Tue, 8 Apr 2025 17:34:54 +0300
-> Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:
-> > On Tue, Apr 08, 2025 at 03:49:25PM +0200, Herve Codina wrote:
-> > > On Mon, 7 Apr 2025 18:36:28 +0300
-> > > Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:  
-> > > > On Mon, Apr 07, 2025 at 04:55:40PM +0200, Herve Codina wrote:  
+Add the BT and WiFi pins on the WiFi/BT header on the Pine64/Sopine
+boards.
 
-...
+Changes in v3:
+- Explicitly disable mmc WiFi section in DT even though it's already
+  disabled in the SoC DT.
 
-> > > > This is incorrect, they never had ACPI to begin with. Also there is third
-> > > > platform that are using DT on x86 core — SpreadTrum based phones.  
-> > > 
-> > > I will rework the commit log to avoid 'mixing ACPI and device-tree'
-> > > 
-> > > For "SpreadTrum based phones", do you have an idea about the Kconfig symbol
-> > > I could use to filter our this x86 systems?  
-> > 
-> > Hmm... good question. I don't think it was anything. The Airmont core just
-> > works and doesn't require anything special to be set. And platform is x86 with
-> > the devices that are established on ARM, so nothing special in device tree
-> > either, I suppose. Basically any x86 platform with OF should be excluded,
-> > rather think of what should be included. But I see that as opposite
-> > requirements to the same function. I have no idea how to solve this. Perhaps
-> > find that SpreadTrum Intel Atom-based device? Would be really hard, I believe.
-> > Especially if we want to install a custom kernel there...
-> > 
-> > > Anything I find upstream related to SpreadTrum seems base on ARM cpus.
-> > > I probably miss something.  
-> > 
-> > There were two SoCs that were Intel Atom based [1]. And some patches [2] to x86
-> > DT code were made to support those cases.
-> > 
-> > > > And not sure about AMD stuff (Geode?).  
-> > > 
-> > > Same here, if some AMD devices need to be filtered out, is there a specific
-> > > Kconfig symbol I can use ?  
-> > 
-> > This is question to AMD people. I have no clue.
-> > 
-> > [1]: https://www.anandtech.com/show/11196/mwc-2017-spreadtrum-launches-8core-intel-airmontbased-soc-with-cat-7-lte-for-smartphones
-> > 
-> > [2]: 4e07db9c8db8 ("x86/devicetree: Use CPU description from Device Tree")
-> > and co. `git log --no-merges 4e07db9c8db8 -- arch/x86/kernel/devicetree.c
-> 
-> I have tried to find a solution for this topic.
-> 
-> Indeed, this patch enables fw_devlink based on device-tree on all x86
-> platform except OLPC and CE4100.
-> 
-> You have mentioned some other x86 based system that could have issues with
-> fw_devlink and it seems to be hard to have a complete list of systems for
-> which we should not enable fw_devlink (potential issues and so regression
-> against current kernel behavior).
-> 
-> As you also proposed, we can thing on the opposite direction and enable
-> fw_devlink on x86 systems that need it.
-> 
-> We need it because we need the device-tree description over PCI device feature
-> (CONFIG_PCI_DYNAMIC_OF_NODES) on x86 in order to support the LAN966x use case.
-> 
-> What do you think about the following condition?
-> 
-> 	if (IS_ENABLED(CONFIG_X86) && !IS_ENABLED(CONFIG_PCI_DYNAMIC_OF_NODES))
->  		return 0; /* Not enabled */
-> 
-> CONFIG_PCI_DYNAMIC_OF_NODES has already to set explicitly by the user.
-> 
-> Do you think it makes sense and could be a good alternative instead of
-> filtering out a list of x86 systems ?
+Changes in v2:
+- drop patch that enables the WiFi module, it'll move to a overlay later
 
-At least this won't break old platforms that won't set that configuration
-option. Ideally, of course, it would be nice to have some kind of detection
-at run-time...
+Peter Robinson (2):
+  arm64: dts: allwinner: a64: Add WiFi/BT header on Pine64
+  arm64: dts: allwinner: a64: Add WiFi/BT header on SoPine
+
+ .../boot/dts/allwinner/sun50i-a64-pine64.dts  | 18 +++++++++++++
+ .../allwinner/sun50i-a64-sopine-baseboard.dts | 25 +++++++++++++++++++
+ 2 files changed, 43 insertions(+)
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.49.0
 
 
