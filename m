@@ -4,71 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05FC8C369CF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Apr 2025 02:43:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99144C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Apr 2025 02:57:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N71ulJFC7EzRy4IJC7JSkf+9aBSGBV5BXmKIuPUJx7U=; b=B9xgdR9m97yKWNNZgRfmQeFNio
-	ZabQzvSPbxoXc7AiJO8+YIC0QeroXUSIB2MBcteZRvsgT67WvuKFz+Bc6tP1TSgkVNlDfWwrbmxTk
-	rslAq0mAg2cdyEwekqBn8Ger1lBiYlPSX4grFofR3/S5PB9Yu32rHa0oj4Z62Eqnpwp4kJOnIeUKF
-	Ck+4zIULCDz16xRFWvxvdzNdPx4QoTd7gM4A8nlT6U4/qlZcHHwEVKR0vh8wJanPdAH7+xk3V7AcH
-	c0RcAYo1b1WjteiwCVg+iEb8pIuy4Ip+nKvy8U+795cFsfrilY+r1/YN8o7gRSWM6FtiFzFJvpKR0
-	QmaViBzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=509KQPGQIr3wARpO0voQQWEHesmQ91+o+xtJTGAi9GM=; b=zXkhkKGQKMbEV3vlJj6l83d5fC
+	GlHiLMveoPaqQmx6iqoBym8e4UEuJYOEgGY56fWH1sJZzzBSNJbGnObQ6v13Cx3d3PSgrPnGQrzYk
+	jMuUeHpgwQsS+5X7dmJDok3hlC+N2KYc1CUl8Bty+msWbjAjnQVW8UzTYipBDsfZHFdli/dbGmQeX
+	e+07pDUuKyvRnmdDxTLm394nuMAiq+/JqpfHbMIM9kFeVe/kFuQM91LkC71uqsDc+laeDUwVG5dMU
+	nrPJ8SDkQpk8gkOfmtW9KQieXihgJJj9yKxgv4gx9b+6HVFNXNhR1olHwkRbXAuDWKeTqXEJ798fz
+	qJRpEtxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5yAZ-00000000jIN-47jc;
-	Sat, 19 Apr 2025 02:43:03 +0000
-Received: from abb.hmeau.com ([144.6.53.87])
+	id 1u5yOK-00000000kRZ-1uj7;
+	Sat, 19 Apr 2025 02:57:16 +0000
+Received: from out-170.mta0.migadu.com ([91.218.175.170])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5y8i-00000000jAV-0Tzz;
-	Sat, 19 Apr 2025 02:41:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
-	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=N71ulJFC7EzRy4IJC7JSkf+9aBSGBV5BXmKIuPUJx7U=; b=rmQd0n5Ffd7wgXc5CRfMsYvfej
-	vy0M0uiUROHxK3PxU1ELCUZ55bqRS7IKOzdkIx2x/h3kf6i7ueq2uF2iXk+esRyER676Vn8nn6HPl
-	/EUIRrt1qKRpgU7dPHA+0/rAdhZq8SqQqgwdPs18fXqmj5Vc6DfqBTMqCH2VeKeOqjtpsk1uVQdTB
-	7C97E7AWZ+VRMuouNeTm66I/v/5mhb++Kjp8acKAz23ZX1T1sTBZddTZjuWyEHiOyEpxbSEZiqzYd
-	8FLG2KSwbrYBgiH88lXTv2vFiWUXkF2HqN7hW+YAXzbLMgU3rYK+eiYH+SBvpg8M1ru6r24TM8ix6
-	GC1QefCQ==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1u5y8W-00Gtuw-1E;
-	Sat, 19 Apr 2025 10:40:57 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Sat, 19 Apr 2025 10:40:56 +0800
-Date: Sat, 19 Apr 2025 10:40:56 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
-	x86@kernel.org, Jason@zx2c4.com, ardb@kernel.org
-Subject: Re: [PATCH 01/15] crypto: arm - remove CRYPTO dependency of library
- functions
-Message-ID: <aAMNOJa-xcxLrmgX@gondor.apana.org.au>
-References: <20250417182623.67808-2-ebiggers@kernel.org>
- <aAHDIRlSNLsYYZmW@gondor.apana.org.au>
- <20250418033236.GB38960@quark.localdomain>
- <aAHJRszwcQ4UyQ2e@gondor.apana.org.au>
- <20250418040931.GD38960@quark.localdomain>
- <aAIMhLD3UMM41JkT@gondor.apana.org.au>
- <20250418150149.GB1890@quark.localdomain>
+	id 1u5yMS-00000000kGv-1l7h
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 19 Apr 2025 02:55:21 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1745031305;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=509KQPGQIr3wARpO0voQQWEHesmQ91+o+xtJTGAi9GM=;
+	b=dQcVhoNNESuBOAZ++LX43Y1EWUIxYlO3e26/l2k/JMP8/JOpNALyIBtwdopsC0F7h8Zd2X
+	1kvyqk70Zb7QZKPoSKCieESNsPOdbEMBRe4SxfruTiFFBUVUP0wPnJi2UMrPRwPdT3yYRJ
+	LStkwjFk/rKFjWZBQA+fJIqWJPO5coo=
+From: sunliming@linux.dev
+To: nbd@nbd.name,
+	lorenzo@kernel.org,
+	ryder.lee@mediatek.com,
+	shayne.chen@mediatek.com,
+	sean.wang@mediatek.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	chui-hao.chiu@mediatek.com,
+	Bo.Jiao@mediatek.com,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: sunliming <sunliming@kylinos.cn>,
+	kernel test robot <lkp@intel.com>,
+	Dan Carpenter <error27@gmail.com>
+Subject: [PATCH] wifi: mt76: mt7996: fix variable dereferenced before check warning
+Date: Sat, 19 Apr 2025 10:54:17 +0800
+Message-Id: <20250419025417.2066787-1-sunliming@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250418150149.GB1890@quark.localdomain>
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_194108_150417_6D5916BA 
-X-CRM114-Status: UNSURE (   6.91  )
+X-CRM114-CacheID: sfid-20250418_195520_602464_8F4D9EB5 
+X-CRM114-Status: UNSURE (   8.33  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,15 +78,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 18, 2025 at 08:01:49AM -0700, Eric Biggers wrote:
->
-> Doing it as a follow-up when this series hasn't been merged yet would be kind of
-> silly, since it would undo a lot of this series.  I'll just send out a v2 of
-> this series.
+From: sunliming <sunliming@kylinos.cn>
 
-OK that's fine too of course.
+Fix below smatch warnings:
+drivers/net/wireless/mediatek/mt76/mt7996/main.c:73 mt7996_stop_phy() warn:
+variable dereferenced before check 'phy' (see line 71)
+drivers/net/wireless/mediatek/mt76/mt7996/main.c:360 mt7996_set_monitor() warn:
+variable dereferenced before check 'phy' (see line 358)
+
+Reported-by: kernel test robot <lkp@intel.com>
+Reported-by: Dan Carpenter <error27@gmail.com>
+Closes: https://lore.kernel.org/r/202504101051.1ya4Z4va-lkp@intel.com/
+Signed-off-by: sunliming <sunliming@kylinos.cn>
+---
+ drivers/net/wireless/mediatek/mt76/mt7996/main.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+index 91c64e3a0860..cc6bb4544c2a 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+@@ -68,11 +68,13 @@ static int mt7996_start(struct ieee80211_hw *hw)
+ 
+ static void mt7996_stop_phy(struct mt7996_phy *phy)
+ {
+-	struct mt7996_dev *dev = phy->dev;
++	struct mt7996_dev *dev;
+ 
+ 	if (!phy || !test_bit(MT76_STATE_RUNNING, &phy->mt76->state))
+ 		return;
+ 
++	dev = phy->dev;
++
+ 	cancel_delayed_work_sync(&phy->mt76->mac_work);
+ 
+ 	mutex_lock(&dev->mt76.mutex);
+@@ -414,11 +416,13 @@ static void mt7996_phy_set_rxfilter(struct mt7996_phy *phy)
+ 
+ static void mt7996_set_monitor(struct mt7996_phy *phy, bool enabled)
+ {
+-	struct mt7996_dev *dev = phy->dev;
++	struct mt7996_dev *dev;
+ 
+ 	if (!phy)
+ 		return;
+ 
++	dev = phy->dev;
++
+ 	if (enabled == !(phy->rxfilter & MT_WF_RFCR_DROP_OTHER_UC))
+ 		return;
+ 
 -- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+2.25.1
+
 
