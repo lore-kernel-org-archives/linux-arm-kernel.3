@@ -4,75 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D12BCC369BD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Apr 2025 08:56:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12598C369BD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Apr 2025 09:26:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I7H05z7jucR/EtRAv3/7u/jdhZGjnuRYvP/7J7BdyYQ=; b=IVU2BfPNkwq//Z5BEftZAy7QMD
-	TMcefL/UyF30DIv/7eY/KAswcIw4F8B5JnL1Z8SOKCMzZBHAc7MMh48nFmrO+ppR9UJeyw8D3hNMT
-	NBg54AS3Fyp0sL5yhjZlR5IB1WoIPKUSAC1Q5zHr7om1rkJbjlA/YHdAumO5Dr4ssKu0gBd9QHHrO
-	HVRPZR0yb04xeXYt5qhi6HO2zEwBMGvbqnpvhSyd+KIjCPhw5yEsMChWT6syIuvGAhrbW2EfK55ci
-	q3LnN3ldgqzSTqid8ybZlhdwWr3yfAkfWvf/h2tJRWsHHSEiC6ryTGqQbZcjfA0+AP7YQeczbNR4L
-	Q+a5RoOQ==;
+	bh=Us1OPcT95pYq6Zs+MqELVB/1+jFKO5SGLPxS8Hzr2No=; b=tF/s3oXxzLJ3G3w1CT2zSydWFO
+	Z+DbRSa6iKHvCQhu6K3nMDAc+z/59IhP6BoHE/DSwdupcn40ttkTOoObSrENjcjvThtFU0RHdJ2Ho
+	Bqvjr9JQSQTiTPDahZWAfvlKuTofGxthdCtfxGXBLGaXk6vYRgaoobXt3p0F1aHlPX91/5H2TH1g1
+	3hqKI09kPiH5AxTLB0BibVGXyLwKjNWCm02AN+sqFCGKGN/eSq7S40skvwJSjB+vG3bX8T8zcq3V3
+	MHg92pJtU5BPPpzjqB4R0O2EHirf8jejTmZXxt6srq8XLTNK4SDshQAR5fE439OOj3HpBJnSJvAxp
+	MVlVFfTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u63zh-000000013cN-3T7F;
-	Sat, 19 Apr 2025 08:56:13 +0000
+	id 1u64SK-000000015G3-1i5I;
+	Sat, 19 Apr 2025 09:25:48 +0000
 Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u63xn-000000013VW-1tGp
+	id 1u64QQ-0000000158o-0jgb
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Apr 2025 08:54:16 +0000
+	Sat, 19 Apr 2025 09:23:51 +0000
 Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53J8s4K6463776
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53J9NkGq467719
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Sat, 19 Apr 2025 03:54:04 -0500
+	Sat, 19 Apr 2025 04:23:46 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745052844;
-	bh=I7H05z7jucR/EtRAv3/7u/jdhZGjnuRYvP/7J7BdyYQ=;
+	s=ti-com-17Q1; t=1745054626;
+	bh=Us1OPcT95pYq6Zs+MqELVB/1+jFKO5SGLPxS8Hzr2No=;
 	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=CDngH0LP6iWrIm4xwCRueRHYVp5sJ2QABV3bFAxxaAUlZD6uKswwxPhxNGouxLTGJ
-	 raO445F56FsjfEt+fxGp8U0fuxWZkppDOa+qsN3lqpXmSOi79XlQhrSls/kMWt9ndj
-	 xqs5TDQXnzIJCdccRF9bS6/ibtJnsOv3r8WkTcPo=
-Received: from DFLE113.ent.ti.com (dfle113.ent.ti.com [10.64.6.34])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53J8s4Xn088680
+	b=DtpOHdcpz1VGX4Ip/XrqrqmLvNjnw7B4R30mGpLAoTgjc6skbLjzEMEuT90916WF+
+	 OdQzVRIkwYDMqH1FaMjNPSiYH1CJjzp/8txIpb6j6PY+uHl76+oaIpJp3UBg6zMNYk
+	 P9ejHC1MGQ8Bgjler7jLp7Kqpmf4jWQ42InDWntc=
+Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53J9NkSO110970
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Sat, 19 Apr 2025 03:54:04 -0500
-Received: from DFLE103.ent.ti.com (10.64.6.24) by DFLE113.ent.ti.com
- (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+	Sat, 19 Apr 2025 04:23:46 -0500
+Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE104.ent.ti.com
+ (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Sat, 19
- Apr 2025 03:54:03 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE103.ent.ti.com
- (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
+ Apr 2025 04:23:45 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE107.ent.ti.com
+ (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Sat, 19 Apr 2025 03:54:04 -0500
+ Frontend Transport; Sat, 19 Apr 2025 04:23:45 -0500
 Received: from [10.249.141.75] ([10.249.141.75])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53J8rVQn040142;
-	Sat, 19 Apr 2025 03:53:32 -0500
-Message-ID: <02f1912f-0a05-4446-923a-7935ed305cb3@ti.com>
-Date: Sat, 19 Apr 2025 14:23:31 +0530
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53J9NgGE070413;
+	Sat, 19 Apr 2025 04:23:42 -0500
+Message-ID: <ab27873e-cada-4135-a617-5d4567a4eaa5@ti.com>
+Date: Sat, 19 Apr 2025 14:53:41 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/7] Add DSI display support for TI's Jacinto platforms
+Subject: Re: [PATCH 4/7] arm64: dts: ti: k3-j721s2-common-proc-board: Add
+ main_i2c4 instance
 To: Jayesh Choudhary <j-choudhary@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
         <devarsht@ti.com>, <linux-kernel@vger.kernel.org>
 CC: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
         <kristo@kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>
+        <linux-arm-kernel@lists.infradead.org>, <u-kumar1@ti.com>
 References: <20250411105155.303657-1-j-choudhary@ti.com>
+ <20250411105155.303657-5-j-choudhary@ti.com>
 Content-Language: en-US
 From: "Kumar, Udit" <u-kumar1@ti.com>
-In-Reply-To: <20250411105155.303657-1-j-choudhary@ti.com>
+In-Reply-To: <20250411105155.303657-5-j-choudhary@ti.com>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250419_015415_655531_9919185E 
-X-CRM114-Status: GOOD (  12.23  )
+X-CRM114-CacheID: sfid-20250419_022350_314180_F99E6202 
+X-CRM114-Status: GOOD (  12.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,42 +91,55 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 On 4/11/2025 4:21 PM, Jayesh Choudhary wrote:
-> Hello All,
+> Add dt node for main_i2c4 instance along with required pinmuxing.
+> Also add the gpio expander 'exp4' required by display connector.
 >
-> This series adds the dts support to enable DSI on 3 platforms for TI SoCs:
-> - J784S4-EVM
-> - J721S2-EVM
-> - AM68-SK
+> Signed-off-by: Jayesh Choudhary <j-choudhary@ti.com>
+> ---
+>   .../dts/ti/k3-j721s2-common-proc-board.dts    | 21 +++++++++++++++++++
+>   1 file changed, 21 insertions(+)
 >
-> [..]
->
-> NOTE: For higher resolutions, we need bigger CMA region.
-> But for validation, the default value is enough.
+> diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts b/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts
+> index e2fc1288ed07..f691ae4c19e6 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts
+> @@ -148,6 +148,13 @@ J721S2_IOPAD(0x060, PIN_INPUT_PULLUP, 13) /* (AC27) MCASP2_AXR1.I2C3_SDA */
+>   		>;
+>   	};
+>   
+> +	main_i2c4_pins_default: main-i2c4-default-pins {
+> +		pinctrl-single,pins = <
+> +			J721S2_IOPAD(0x014, PIN_INPUT_PULLUP, 8) /* (AD25) I2C4_SCL */
+> +			J721S2_IOPAD(0x010, PIN_INPUT_PULLUP, 8) /* (AF28) I2C4_SDA */
+> +		>;
+> +	};
+> +
+>   	main_i2c5_pins_default: main-i2c5-default-pins {
+>   		pinctrl-single,pins = <
+>   			J721S2_IOPAD(0x01c, PIN_INPUT, 8) /* (Y24) MCAN15_TX.I2C5_SCL */
+> @@ -370,6 +377,20 @@ exp2: gpio@22 {
+>   	};
+>   };
+>   
+> +&main_i2c4 {
+> +	status = "okay";
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&main_i2c4_pins_default>;
+> +	clock-frequency = <400000>;
+> +
+> +	exp4: gpio@20 {
+> +		compatible = "ti,tca6408";
+> +		reg = <0x20>;
+> +		gpio-controller;
+> +		#gpio-cells = <2>;
 
-I am not sure , how DSS uses CMA region
+I suggest to add, gpio-line-names as well for this gpio expander.
 
 
-> I am posting another series to add CMA region to Jacinto platforms
-> similar to Sitara family soon:
-> <https://lore.kernel.org/all/20240613150902.2173582-1-devarsht@ti.com/>
->
-> Jayesh Choudhary (5):
->    arm64: dts: ti: k3-j784s4-j742s2-main-common: add DSI & DSI PHY
->    arm64: dts: ti: k3-j784s4-j742s2-evm-common: Enable DisplayPort-1
->    arm64: dts: ti: k3-j721s2-common-proc-board: Add main_i2c4 instance
->    arm64: dts: ti: k3-j721s2-common-proc-board: Enable DisplayPort-1
->    arm64: dts: ti: k3-am68-sk: Enable DSI on DisplayPort-0
->
-> Rahul T R (2):
->    arm64: dts: ti: k3-j721s2-main: add DSI & DSI PHY
->    arm64: dts: ti: k3-j721s2-som-p0: add DSI to eDP
->
->   .../boot/dts/ti/k3-am68-sk-base-board.dts     |  96 ++++++++++++++
->   .../dts/ti/k3-j721s2-common-proc-board.dts    | 116 +++++++++++++++++
->   arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi    |  37 ++++++
->   arch/arm64/boot/dts/ti/k3-j721s2-som-p0.dtsi  |  52 ++++++++
->   .../dts/ti/k3-j784s4-j742s2-evm-common.dtsi   | 117 +++++++++++++++++-
->   .../dts/ti/k3-j784s4-j742s2-main-common.dtsi  |  37 ++++++
->   6 files changed, 454 insertions(+), 1 deletion(-)
->
+> +	};
+> +};
+> +
+>   &main_i2c5 {
+>   	pinctrl-names = "default";
+>   	pinctrl-0 = <&main_i2c5_pins_default>;
 
