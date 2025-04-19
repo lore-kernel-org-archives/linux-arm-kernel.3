@@ -4,101 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FFABC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Apr 2025 23:07:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 365DEC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Apr 2025 02:39:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=atnsX2Ib1Wv1iIZ+2HRhddbg893c8+OuKKzqJdxz9N0=; b=Y01yXCCoJSFUXOgoDpbXcIn8qj
-	YugU2sUwSDG94Em9BNgOCK6U2itzowhGMdVKawiAcEC/TyllND/rciy+DV3fQbppKct3blsO8o41u
-	IfXjtJJ7tE5e5Cfmb2+8APTCDrSqjnYosorkdhKGTZ6Y2UCgcIInPmSKHd4YFl81LpJhPHNzlPrrX
-	Cb4mg5pk624BjK4Z7h/t+CYAK1YWubvVD9XjxWVXjTgG0eoiGj6SPyUdowpXAEGB2CyLtCzoCTBiU
-	i66rFeVrz2MiD7u6tUodmc0qiJFCRQUm/XHhtupj9kNcMbSgfUg39uFOZGhlmw1U3F7oecIh8qeLo
-	FkzBEalw==;
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=z5xMW6JQzRFC3RypkMpl7HC+Ok1HS+DBoXUN4t3IzPg=; b=idW8RKlvegfyJkVtTty4lnIdDF
+	OioQEPC4vqRAouHe7kGG6i7W8AWV93Hqlde+RRwPDegGLsJhEwzdm/YtrOg9r+Q7EeOxRDRVi4787
+	F4/+CugeYo0ZnDixZm8RxNmUxw4kPjC8gaf/nc/IZ8lVlb29z7IKqOSVCLw9jnwMT79nIUXVXRIUE
+	Zy12fA9wqZysE6+5nYA14tOYcQK0qIivGPOFQF6lPp01yU0f4rNgw1kUza6/BZ2ktftPjhbl0dNeG
+	/q6VNYoT1MCrlql005zNuv8UbQbfIUYP7f8lAN3jgOK0i0WOEpEqzK3Q7LRBVStnpFKzeMEf+7lyO
+	Pcu3/uKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5uoB-00000000WBZ-2quZ;
-	Fri, 18 Apr 2025 23:07:43 +0000
-Received: from mail-ot1-x32a.google.com ([2607:f8b0:4864:20::32a])
+	id 1u5y6v-00000000izX-3Yif;
+	Sat, 19 Apr 2025 02:39:17 +0000
+Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5umH-00000000VwD-1VtD
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Apr 2025 23:05:47 +0000
-Received: by mail-ot1-x32a.google.com with SMTP id 46e09a7af769-72c1818c394so1375122a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 16:05:44 -0700 (PDT)
+	id 1u5y54-00000000isi-0JWx;
+	Sat, 19 Apr 2025 02:37:23 +0000
+Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-7c5c815f8efso211791385a.2;
+        Fri, 18 Apr 2025 19:37:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1745017544; x=1745622344; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=atnsX2Ib1Wv1iIZ+2HRhddbg893c8+OuKKzqJdxz9N0=;
-        b=oV4jYXcXMFo3ty3tFDK3XZw75zQC0COOkHfS/oQhNHRWBy7R5xSOTkSAI16hKvq3RR
-         gaKWqopYuRFNfkVvFEysGFvuVE05Okzc/tGU5rXcckBs7mlX00cSbBMsXTlza79ifgxG
-         rMiUTEVTvu4aba+Wut6miYoUBY3asLUJZ+ZF0FUKONXzT/viKIIvw3rYpaMzzg9zp5if
-         0UmAkzyBB8RoDSzbKEzYp6DkbL6P54/F2fDViZTKB0XTINBekVRvTPQPht7oCnnVxQ5L
-         UQN4BCy0bIUBNl6iOZLSczxnwzrkQfHmMieUU9C92PhfpgpWZPqenfxrd0bnBuHjdHGf
-         A4sg==
+        d=gmail.com; s=20230601; t=1745030240; x=1745635040; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=z5xMW6JQzRFC3RypkMpl7HC+Ok1HS+DBoXUN4t3IzPg=;
+        b=jcQSNzOq5NL67DyGwux9NWN+Q3OQ/tInykB+C1e+30dkJScYSIiE6+PlIbWNmrHvz6
+         A9wC9tjIXk9+I3esrEQno5XPqnFopIVA97yAG+cHQpDs9qBgFAW9szCGGkMXu8vYITTt
+         YJmYxD+2kX4OOTVtfCpTZFTEwNe+dqbrmHs+s4rzPmTyxQyEnGsQqBcFLxpqbhwUjaKF
+         UVLokVzA4UJrolD8g+bBupXF7ST1Vecu8IvJslTejxKl0giS6fl9xFhige0H3Wfrdc1D
+         BlNPPZ8FTmapxBsp7jGhTcmiH1xhWoKz1+Fi+2ZLgJdUnBZVsiBQOX0MGC6txPDuOmW0
+         rP7w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745017544; x=1745622344;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=atnsX2Ib1Wv1iIZ+2HRhddbg893c8+OuKKzqJdxz9N0=;
-        b=ZGhtZp3mAQAqFfqScuvAMJvqba3TE64+mXR5w1rbdX/JdfBDjo3I/aZ0+EiB1d0TpH
-         ZHA+TGTv7OZE7X6R/oZx8jdZXW3QFbJamZfc6f63nOVxdmsCqe42tz4fRi2nmXgz7QgV
-         8w/FQaiPZwcJduaT2464XUJIPf73B7douoTVOUB270wI98GNQO5LOu8xsWkpWio0uUUY
-         umxu9vSP9j1VKzEvewfw2NTWfx2KMp5cMJBbqr13d7VFbrz7CEO544tvETH29ALFHdrd
-         RbYTjAUMGh/7YTpgQmqI4uj6jJUVsF1WMfWbfWC+F9F32BLJ72lLfzkG/WaiIkw6H/aR
-         +XCA==
-X-Forwarded-Encrypted: i=1; AJvYcCVYFyxxjT2vgwDz9CB9SGMb3WgdLEI3PC1jHcaQYZF0bnHM27WDTfIlk3gsbn+2Tm8HfqgQBBSsowYzcLIv9ETb@lists.infradead.org
-X-Gm-Message-State: AOJu0YxoYYQtijUurd4s2tPXjlsgvgS5NdPGE7rg2W6iUbpqNifLIXtH
-	lP6LZR3XJoJUoEi0M+yLLGyPjWRnLjyckoty1D5VRsgc5aYghbG9Ihp8IPqvJwDpk+ADp3xO6dl
-	cals=
-X-Gm-Gg: ASbGnct7rZRQQJgzC9+RDnDJR4FyXOjTMR2dJfQjKV4Cbg93xd08nyf0+j7Za4hri8N
-	bQAtFGqFEctJ217eQrVnv9Dpzw5/t7hoVkCZY6sxppEuCFHCOv1HbuhFA6c8SzGlZ/gMArq8uIl
-	EYQbt/DpXeN/lHoj/rYpaPAMNnGbhHaD7Q81Z8amSPg6UmZKBTPh5OMVGaa2MvkacrRw/sPQUpl
-	alJcRq5CDb4m0XrxBOXasKriJAIwinoqxcFLmZWM/SROn0JtrLo+Glgw2iyFSn7i/qDDrVeRidb
-	cprsAv2GdPPyyLMMzzVUFX2+GSy9QabB7V777drc357/6AYmnmm7eKKlKc8xAM4tsDk/D4OmIC1
-	8/buPwsJ10N/RH8mSIRx5Dl5mhtbx
-X-Google-Smtp-Source: AGHT+IFo3+CGCCjL/MDLKOL98VKpPnk7r+cnqZ8GYDV87Srf78OvwPE2vbzd7+9ZcA062oFaVEN0Pw==
-X-Received: by 2002:a05:6830:3693:b0:72b:9316:d596 with SMTP id 46e09a7af769-730061f15a7mr2627791a34.3.1745017544135;
-        Fri, 18 Apr 2025 16:05:44 -0700 (PDT)
-Received: from ?IPV6:2600:8803:e7e4:1d00:dcdf:46e0:18e5:c279? ([2600:8803:e7e4:1d00:dcdf:46e0:18e5:c279])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7300489c6e7sm502383a34.65.2025.04.18.16.05.43
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 18 Apr 2025 16:05:43 -0700 (PDT)
-Message-ID: <abe0db44-b27f-4cea-9edc-862e4096f80c@baylibre.com>
-Date: Fri, 18 Apr 2025 18:05:42 -0500
+        d=1e100.net; s=20230601; t=1745030240; x=1745635040;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=z5xMW6JQzRFC3RypkMpl7HC+Ok1HS+DBoXUN4t3IzPg=;
+        b=HVu7gO9+IzNaXRnpkOcQ1P0Xop5DLmoNABTFfor2phnRCY4ya6i2hU2W/24wqWrF7m
+         ztwfRMrNqnNksNVaz1UVFuDYFmh0vOlrfM1tcRKWBoE282a0DfEhxLgfkURozVUaKpKa
+         EgkE4/EVcgEigq6SUNDVz1F4OTq0F3IDaWVwPfcRheWNrqtgGtq/FJDzLuffWqJmbggT
+         Ohq8SG/N+em1RcB9/2U36Nnzs3gQ6HbiVMH+2ffVc5MTNiQjeOle02YQkgZAH50+jAAE
+         /UWZj2X3o+3ppE2XU2692aSKSIhhDIRRR9wLG7HM4l4N+jx3/hYWzQx50ozqe27Ycl7O
+         5utA==
+X-Forwarded-Encrypted: i=1; AJvYcCW3EaU4C6lud6NFTNul5qFztaydhHDnnAtOSaStkyHttCj4+leiFhypnP8BV4s54DTh70flYcpVtGXcul40IIw=@lists.infradead.org, AJvYcCWieN/Y4OsmRWQkBYr6SfT5FbDCMwmkrzby0vo6nzRCuJafAtMBYzB5OvvhQ+RyVWdOmwNQzlNNwq4CQaOZdMHT@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRemWoEcBroIJH+fOAi7SzvhQaKCvCvOJkZB7sQqYlhok3R9Xk
+	zXfZGqlZQzYrcLZS6kRzsGbITxbrrwbgrFPx6s7nscEj0Opzyp0B
+X-Gm-Gg: ASbGncu7ztT15zPgRiKjcxzRbj/B3UIBBz3Meilkf2DmBkF6EY1V5b3OQS/63FQiVwI
+	WoUqpvNdFFppANeblN2CTlVjzud2d8LWkIwwQrkBm2pnk3q2OmfEiXgCu2kvGYBJr0vNhXsRv4L
+	sPr6YV67SEUuqCU2alFhabECpX2mNfkbckLV7giIGLikE6mUjE0HzpQ5uv93a0vEwRpZqmnuklj
+	2RMvk5JL4P3AFzCCUAZWpL9Xe8P4CK6MxynA9g50RKJ3GWkjmcXuxDlbk4uWMFouwaHVCLtjy3s
+	WtbTDWYm75fQ/1kbv03ej/UVM1Z+PkhsZu00dDTELCzZvNZ/XRvj
+X-Google-Smtp-Source: AGHT+IHye/ATWWxQYKG94Z32CtV6NgziY9q4KsfM+OTqg+TdECswRmqN026PmdK91mfchx0mVjT56Q==
+X-Received: by 2002:a05:620a:4413:b0:7c5:5e9f:eb2d with SMTP id af79cd13be357-7c92803945fmr784446185a.44.1745030240096;
+        Fri, 18 Apr 2025 19:37:20 -0700 (PDT)
+Received: from localhost.localdomain ([216.237.233.165])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c925b4ddb2sm169612985a.88.2025.04.18.19.37.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 18 Apr 2025 19:37:19 -0700 (PDT)
+From: John Clark <inindev@gmail.com>
+To: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Marcin Juszkiewicz <mjuszkiewicz@redhat.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	John Clark <inindev@gmail.com>
+Subject: [PATCH] arm64: dts: rockchip: rk3588-nanopc-t6: fix usb-c port functionality
+Date: Fri, 18 Apr 2025 22:37:15 -0400
+Message-Id: <20250419023715.16811-1-inindev@gmail.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/10] iio: prefer aligned_s64 timestamp (round 1)
-To: Jonathan Cameron <jic23@kernel.org>, =?UTF-8?Q?Nuno_S=C3=A1?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- Eugen Hristev <eugen.hristev@linaro.org>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, Andreas Klinger
- <ak@it-klinger.de>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
- linux-stm32@st-md-mailman.stormreply.com
-References: <20250418-iio-prefer-aligned_s64-timestamp-v1-0-4c6080710516@baylibre.com>
-From: David Lechner <dlechner@baylibre.com>
-Content-Language: en-US
-In-Reply-To: <20250418-iio-prefer-aligned_s64-timestamp-v1-0-4c6080710516@baylibre.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_160545_407009_60C5B8C5 
-X-CRM114-Status: GOOD (  19.48  )
+X-CRM114-CacheID: sfid-20250418_193722_119041_7B0439C1 
+X-CRM114-Status: GOOD (  15.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,36 +103,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/18/25 2:58 PM, David Lechner wrote:
-> While reviewing the recent conversion to iio_push_to_buffers_with_ts(),
-> I found it very time-consuming to check the correctness of the buffers
-> passed to that function when they used an array with extra room at the
-> end for a timestamp. And we still managed find a few that were wrongly
-> sized or not properly aligned despite several efforts in the past to
-> audit these for correctness already.
-> 
-> Even though these ones look to be correct, it will still be easier for
-> future readers of the code if we follow the pattern of using a struct
-> with the array and timestamp instead.
-> 
-> For example, it is much easier to see that:
-> 
-> struct {
-> 	__be32 data[3];
-> 	aligned_s64 timestamp;
-> } buffer;
-> 
-After sending [1], I realized that some (perhaps many) of these would actually
-be a better candidate for the proposed IIO_DECLARE_BUFFER_WITH_TS macro rather
-that converting to the struct style as above.
+The USB-C port on the NanoPC-T6 was not providing VBUS (vbus5v0_typec
+regulator disabled, gpio-58 out lo) due to misconfiguration. The
+original setup with regulator-always-on and regulator-boot-on forced
+the port on, masking the issue, but removing these properties revealed
+that the fusb302 driver was not enabling the regulator dynamically.
 
-Case in point: if the driver using that struct allows reading only one channel,
-then the offset of the timestamp when doing iio_push_to_buffers_with_ts() would
-be 8 bytes, not 16, so the struct would not always be the correct layout.
+Changes:
+- Removed regulator-always-on and regulator-boot-on from vbus5v0_typec
+  and vbus5v0_usb to allow driver control.
+- Changed power-role from "source" to "dual" in the usb-c-connector
+  to support OTG functionality.
+- Add pd-revision = /bits/ 8 <0x2 0x0 0x1 0x2>; to the FUSB302MPX node
+  to specify USB Power Delivery (PD) Revision 2.0, Version 1.2,
+  ensuring the driver correctly advertises PD capabilities and
+  negotiates power roles (source/sink) per the FUSB302MPX’s supported
+  PD protocol.
+- Added op-sink-microwatt and sink-pdos for proper sink mode
+  configuration (1w min, 15w max).
+- Add typec-power-opmode = "3.0A"; to enable 3.0A (15W) fallback for
+  non-PD USB-C devices with the FUSB302MPX.
+- Set try-power-role to "source" to prioritize VBUS enablement.
+- Adjusted usb_host0_xhci dr_mode from "host" to "otg" and added
+  usb-role-switch for dual-role support.
 
-As long as the driver doesn't access the timestamp member of the struct, it
-doesn't really matter, but this could be a bit misleading to anyone who might
-unknowing try to use it in the future.
+Testing:
+- Verified VBUS (5V) delivery to a sink device (USB thumb drive).
+- Confirmed USB host mode with lsusb detecting connected devices.
+- Validated USB device mode with adb devices when connected to a PC.
+- Tested dual-role (OTG) functionality with try-power-role set to
+  "source" and "sink"; "source" prioritizes faster VBUS activation.
+- Validated functionality with a mobile device, including USB Power
+  Delivery, file transfer, USB tethering, MIDI, and image transfer.
+- Tested USB-C Ethernet adapter compatibility, ensuring proper
+  operation in host mode.
+- Tested USB-C hub compatibility, ensuring proper operation in host mode.
 
-[1]: https://lore.kernel.org/linux-iio/20250418-iio-introduce-iio_declare_buffer_with_ts-v1-0-ee0c62a33a0f@baylibre.com/
+Signed-off-by: John Clark <inindev@gmail.com>
+---
+ .../boot/dts/rockchip/rk3588-nanopc-t6.dtsi   | 21 ++++++++++---------
+ 1 file changed, 11 insertions(+), 10 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+index cecfb788bf9e..8f2bd30786d9 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+@@ -174,8 +174,6 @@ vbus5v0_typec: regulator-vbus5v0-typec {
+ 		gpio = <&gpio1 RK_PD2 GPIO_ACTIVE_HIGH>;
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&typec5v_pwren>;
+-		regulator-always-on;
+-		regulator-boot-on;
+ 		regulator-name = "vbus5v0_typec";
+ 		regulator-min-microvolt = <5000000>;
+ 		regulator-max-microvolt = <5000000>;
+@@ -188,8 +186,6 @@ vbus5v0_usb: regulator-vbus5v0-usb {
+ 		gpio = <&gpio4 RK_PB0 GPIO_ACTIVE_HIGH>;
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&usb5v_pwren>;
+-		regulator-always-on;
+-		regulator-boot-on;
+ 		regulator-name = "vbus5v0_usb";
+ 		regulator-min-microvolt = <5000000>;
+ 		regulator-max-microvolt = <5000000>;
+@@ -465,24 +461,30 @@ regulator-state-mem {
+ };
+ 
+ &i2c6 {
+-	clock-frequency = <200000>;
+ 	status = "okay";
+ 
+-	fusb302: typec-portc@22 {
++	usbc0: usb-typec@22 {
+ 		compatible = "fcs,fusb302";
+ 		reg = <0x22>;
+ 		interrupt-parent = <&gpio0>;
+ 		interrupts = <RK_PD3 IRQ_TYPE_LEVEL_LOW>;
+-		pinctrl-0 = <&usbc0_int>;
+ 		pinctrl-names = "default";
++		pinctrl-0 = <&usbc0_int>;
+ 		vbus-supply = <&vbus5v0_typec>;
++		status = "okay";
+ 
+ 		connector {
+ 			compatible = "usb-c-connector";
+ 			data-role = "dual";
+ 			label = "USB-C";
+-			power-role = "source";
++			/* fusb302 supports PD Rev 2.0 Ver 1.2 */
++			pd-revision = /bits/ 8 <0x2 0x0 0x1 0x2>;
++			power-role = "dual";
++			op-sink-microwatt = <1000000>;
++			sink-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
+ 			source-pdos = <PDO_FIXED(5000, 2000, PDO_FIXED_USB_COMM)>;
++			try-power-role = "source";
++			typec-power-opmode = "3.0A";
+ 
+ 			ports {
+ 				#address-cells = <1>;
+@@ -1135,9 +1137,8 @@ &usb_host0_ohci {
+ };
+ 
+ &usb_host0_xhci {
+-	dr_mode = "host";
+-	status = "okay";
+ 	usb-role-switch;
++	status = "okay";
+ 
+ 	port {
+ 		usb_host0_xhci_drd_sw: endpoint {
+-- 
+2.39.5
+
 
