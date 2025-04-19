@@ -4,75 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B065EC369BD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Apr 2025 04:01:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3623C369BD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Apr 2025 06:06:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OxIm5BWYRHWRtfm3BI4yfvGxCISf/AMNRZprOku6zEE=; b=ZtPVwqBj2awmtLa8FW+/oGmpmB
-	VuYopGj8lr5wZsr52NjguIBLobAVcb3zNfCS9QYkymkcKMswmeYBh5wgf7XIEdUTS+ONElhQnKO2E
-	BkUc7cvEEiPy2ejfwjq8EUV2tsM99IAJuxnHiU6MQ9O5Oj5Q3idkqs8dRGNowUW33WS71NWHnfpq0
-	7UllWURoLmxF5ougEz4T6gDXgCbaHbkoA+bv1/XY14JidcIJkxM3kHFCAEbumX3eLcy9ImNIcoEYK
-	mhyAmP5lnS0JhwsPz+BKHqY9ma9ppUV87VI8oC/O0zeyZrRQ6P9l7lFUJS0BWvhQbT/9yuNJGFwD1
-	+YTDld6g==;
+	bh=2lTgQTvZYqN0TLCj43/V6Q2NyHBYHePk/+H2FCWatKs=; b=wqW+FYs59jvTvn5S1CgIjSSstj
+	UNy0q+w+MFdaEgtzlaiP+xKczsg8vTQWTMvV8jRaKWbSog/vzQMi8UOZBL6VYpfcD3NuGbsv8LnOT
+	D7+12MkfzcZgKwCibtLJrjAXBIUQAF6N7NP4we/ukdgnPWSNrBBN7yLieLXY43MT1ZgtmpTa+B71A
+	hYMzv4CWRfUziX6LAfxB/j3u/NuL1/nxBE4ze612B1LusdCgd21/x0yC0+ysHbdQs7CiX1+wM45ln
+	ObT0lLGk3HJJVhNx61A5gevuxSLKaAoQ2cqBOpgUbvzNfG9ky/l9ZIe5Vn2H/pQin6eyamK7E0/k4
+	RwKHEngA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5zO7-00000000o03-1cZr;
-	Sat, 19 Apr 2025 04:01:07 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1u61Kl-00000000uMt-25vF;
+	Sat, 19 Apr 2025 06:05:47 +0000
+Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5zMC-00000000nrT-0aLl
+	id 1u61Iq-00000000u83-1ehM
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Apr 2025 03:59:09 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53J3x1jV1073856
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 18 Apr 2025 22:59:01 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745035141;
-	bh=OxIm5BWYRHWRtfm3BI4yfvGxCISf/AMNRZprOku6zEE=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=UtdRLOIu0pJM/6XS5NGxLt3cnLdiygCDXQ/ujxTPjbsX+mBNG/QBs2WHXto0YAQZL
-	 QThe7bTqs19acGe17QtazFNyPc5lbM5uyEi2z7qus6Izdy7sAouZQIiL4SrAJJJ87J
-	 OOQsZeQy+LZ4UlN+sZPtfRMx2/LFe+O/hFviUXsQ=
-Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53J3x1fX045034
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 18 Apr 2025 22:59:01 -0500
-Received: from DFLE102.ent.ti.com (10.64.6.23) by DFLE104.ent.ti.com
- (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 18
- Apr 2025 22:59:01 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE102.ent.ti.com
- (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 18 Apr 2025 22:59:01 -0500
-Received: from [10.249.141.75] ([10.249.141.75])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53J3wwhQ128798;
-	Fri, 18 Apr 2025 22:58:59 -0500
-Message-ID: <80b5867b-958a-41ff-854a-6a3173ddbdc0@ti.com>
-Date: Sat, 19 Apr 2025 09:28:57 +0530
+	Sat, 19 Apr 2025 06:03:49 +0000
+Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-af19b9f4c8cso1529165a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Apr 2025 23:03:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1745042627; x=1745647427; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2lTgQTvZYqN0TLCj43/V6Q2NyHBYHePk/+H2FCWatKs=;
+        b=BIan4GlcbBUMsc3rq2ddp8JtsjP16M7329jPqbRMkasDEwMth/UCaKmbYOeJvBUotw
+         ndYVxX3QIC9hqwTfv/Nn9ys1mjN1mqd7W8D+ed7f/Yz/JUHmjL8vsue7ZgmV80ogmhvJ
+         CQ/v4voAr3Svwkulhm1fA2O7HO4UQkXhAnpL+4cfr4uVKt7JA1HQgusDaBPpIm3NjCUK
+         E0/sYtZOhcu7FmytT7uj7BPnaZApdc8mCCvOSBiaLgFnTiIT5mtAcrBShsFDNd96HQ5Y
+         DOKmxFd/SHOF4w8Wwov4cKGK75w6RgsvdlRGzitEAl77Chye7QYMnLXGPOcKMHcH7W+n
+         lrzw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745042627; x=1745647427;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2lTgQTvZYqN0TLCj43/V6Q2NyHBYHePk/+H2FCWatKs=;
+        b=KbTqVmg4oBDn2vHwgwTPdYpfAWZvOwwXGRTxCrvzsEzdflELjPv3MGtH40nhNSAudg
+         UdEnBowcloxVFWflBkmA/J9x1bV+Q7lgA8jDAEaSGosW/rBqEFfXGRLZsTxbDhRpXDat
+         o+iYCIDw0fTp4MDmoK9tCm7Il7HfqBZQB/9GVZdMoA7c/kuaUikUzibDegHkzBf+3Ru5
+         4+zzV8woShwdhIhtzEtZURvur9PyuqtUIZ/2yrghZixzKGAcAQhTMdAJjGeg4horhQ+s
+         uKRNdTagBV2zPC+mjZVOFT2g/m8p8bMot8HXqi/k7eIYUGao3/tah2/0YOoaD8fPtTfs
+         M+Yw==
+X-Forwarded-Encrypted: i=1; AJvYcCWmmUEOVud+8mnB0HPONGoJ4BWZhhl7K8hVzvV2kBFfMompGS9eh/LCJCU81QeKkOQTdfbnZRqaaKwg4BDviYD9@lists.infradead.org
+X-Gm-Message-State: AOJu0YwUtJpNvubHSGt1MgMyKWiGTCJHj7ulLf3g+lY6vUrp+mCMBjkE
+	He3oyP7tQT2DmO5X1rkNGXo0MqEq0QXlxL4r7pI9XjOZFIIc+ABnfOEDbMwRXg==
+X-Gm-Gg: ASbGncv47y/vNJioDw0trD/iFbxg5J7jQ823dWRZnj2cGHF9Cx5dvLPJZKAII958AsB
+	Y73C+XYv2puxnkMqp4m9AneN0Ojn88Mp8ZPZu/mZ9Howef/GhWDDFz4rWJxiAux01f36oyMlDmR
+	l0AJ9HMnM0zmUn/p3N+anKzAIEMDkQhpjAgXU9xpyIoGU9G3YXG0tnQfaFn1OcX9vcXWhuMlUn9
+	6Nb9W46BEr2/R1bsVUFKyw18ttqD8Iu0PvtA72jXOnqI9QzUNFFELmYHVeFtK2ZrlVOCCOIx3Fr
+	huk+HC25umD2GvLKYggPdiv39FAwOi811osCzY6/H9ehYEoy+XZqNEZzXKmo+K1b
+X-Google-Smtp-Source: AGHT+IHe7z+mwljypPJwxHYQDW6Or2SxhxqJIzdabeYhZVRypfM4toLH9er4he0mUfYtnDMuCNfesQ==
+X-Received: by 2002:a17:902:e546:b0:21a:8300:b9d5 with SMTP id d9443c01a7336-22c535a7ec7mr65152705ad.23.1745042626951;
+        Fri, 18 Apr 2025 23:03:46 -0700 (PDT)
+Received: from thinkpad.. ([36.255.17.167])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73dbf8bf7ecsm2609173b3a.31.2025.04.18.23.03.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 18 Apr 2025 23:03:46 -0700 (PDT)
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	=?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	"Rob Herring (Arm)" <robh@kernel.org>
+Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] PCI: mvebu: Use for_each_of_range() iterator for parsing "ranges"
+Date: Sat, 19 Apr 2025 11:33:32 +0530
+Message-ID: <174504243663.11666.13632057141942882562.b4-ty@linaro.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20241107153255.2740610-1-robh@kernel.org>
+References: <20241107153255.2740610-1-robh@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: ti: k3-j721e-common-proc-board: Add
- bootph-all to HBMC nodes
-To: Anurag Dutta <a-dutta@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
-        <kristo@kernel.org>
-CC: <vaishnav.a@ti.com>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-References: <20250411082637.2271746-1-a-dutta@ti.com>
-Content-Language: en-US
-From: "Kumar, Udit" <u-kumar1@ti.com>
-In-Reply-To: <20250411082637.2271746-1-a-dutta@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_205908_319317_CEBE57D5 
-X-CRM114-Status: GOOD (  13.99  )
+X-CRM114-CacheID: sfid-20250418_230348_447206_8EB38F44 
+X-CRM114-Status: UNSURE (   9.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,49 +107,20 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On 4/11/2025 1:56 PM, Anurag Dutta wrote:
-> Add bootph-all to HBMC controller and hyperflash nodes for successful
-> hyperflash boot on j721e-evm.
->
-> Signed-off-by: Anurag Dutta <a-dutta@ti.com>
-> ---
->
-> Test logs : https://gist.github.com/anuragdutta731/90a492589557c2ec2881e1de50a62006
->
->   arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts | 7 +++++++
->   1 file changed, 7 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts b/arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts
-> index 4421852161dd..9ada749f16ba 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts
-> @@ -570,6 +570,13 @@ &usb1 {
->   	maximum-speed = "high-speed";
->   };
->   
-> +&hbmc {
-> +	bootph-all;
-> +	flash@0,0 {
-> +		bootph-all;
-> +	};
-> +};
+On Thu, 07 Nov 2024 09:32:55 -0600, Rob Herring (Arm) wrote:
+> The mvebu "ranges" is a bit unusual with its own encoding of addresses,
+> but it's still just normal "ranges" as far as parsing is concerned.
+> Convert mvebu_get_tgt_attr() to use the for_each_of_range() iterator
+> instead of open coding the parsing.
+> 
+> 
 
-Could you check once , if this is duplicated
+Applied to controller/mvebu, thanks!
 
-commit fbdb8aa4eab84 "arm64: dts: ti: k3-j721e-evm*: Add bootph-* 
-properties"
+[1/1] PCI: mvebu: Use for_each_of_range() iterator for parsing "ranges"
+      commit: 506d34571e2f204c991aefe3f1300175907594e3
 
-adds bootph-all in arch/arm64/boot/dts/ti/k3-j721e-som-p0.dtsi file for 
-flash.
-
-AFAIK, parent node should inherit property of child for bootph.
-
-In case you are not getting in u-boot then u-boot shall fix this[0]
-
-[0] : https://lore.kernel.org/all/20250327080642.2269856-1-m-shah@ti.com/
-
-> +
->   &ospi1 {
->   	pinctrl-names = "default";
->   	pinctrl-0 = <&mcu_fss0_ospi1_pins_default>;
+Best regards,
+-- 
+Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 
