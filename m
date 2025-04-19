@@ -4,66 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B65CC369CA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Apr 2025 03:18:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B065EC369BD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Apr 2025 04:01:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HEB3Gu0mmtCLHoo7vWAwYwONR42w2RB1PSaApMMRgZ0=; b=Dw9LaswKaHVw8g4ict61vfqI99
-	FpvTpCueyrE1e37SwTxifu0ODj/dwc3A63f62EdMa1/IwMn7Nh5WqKFvGMpwXHz0QMLEFCUhpuk/I
-	VLqi9PUCBlCUSTMBm7vwE2pKb1kJ4WXKfQZ7jwaw3qOdoBTjChCSAw+1bNLrCMIhopbMGh/BTV4Hb
-	HFvXde9GirWtdOkjANKKprM28BpcRIKR70vqKzHLMvw9Jczd+znxrjxECXZp+iszcO/UEZVyZvuvM
-	P4CXIlUBBX4spUezUtvo5d9es/o0tNX42ftokcmj1CvAkyQKPrOR2B6+3a91+SdlmDvlObylrgA6B
-	G1QE6E5Q==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OxIm5BWYRHWRtfm3BI4yfvGxCISf/AMNRZprOku6zEE=; b=ZtPVwqBj2awmtLa8FW+/oGmpmB
+	VuYopGj8lr5wZsr52NjguIBLobAVcb3zNfCS9QYkymkcKMswmeYBh5wgf7XIEdUTS+ONElhQnKO2E
+	BkUc7cvEEiPy2ejfwjq8EUV2tsM99IAJuxnHiU6MQ9O5Oj5Q3idkqs8dRGNowUW33WS71NWHnfpq0
+	7UllWURoLmxF5ougEz4T6gDXgCbaHbkoA+bv1/XY14JidcIJkxM3kHFCAEbumX3eLcy9ImNIcoEYK
+	mhyAmP5lnS0JhwsPz+BKHqY9ma9ppUV87VI8oC/O0zeyZrRQ6P9l7lFUJS0BWvhQbT/9yuNJGFwD1
+	+YTDld6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5yiX-00000000lKU-24bP;
-	Sat, 19 Apr 2025 03:18:09 +0000
-Received: from out-173.mta0.migadu.com ([91.218.175.173])
+	id 1u5zO7-00000000o03-1cZr;
+	Sat, 19 Apr 2025 04:01:07 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5ygf-00000000lEF-2MCY
+	id 1u5zMC-00000000nrT-0aLl
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Apr 2025 03:16:15 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1745032569;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=HEB3Gu0mmtCLHoo7vWAwYwONR42w2RB1PSaApMMRgZ0=;
-	b=UD8N6BD3tYDGzkmMJbDeZEkO8JXQY5pN24SwGdbUgaaIaUgiuZAwtjzpkfiVKXTqzoDVjl
-	8ZJQ0OXXBIKd1g47WPLE+obP9bjFP1tERbEtDmJIaBHFvFVw+CvhGgSdKiCICYh0cGeHvc
-	AokjfPoZ966kJE8y4FIVKnneZH4aFt0=
-From: sunliming@linux.dev
-To: nbd@nbd.name,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
-	shayne.chen@mediatek.com,
-	sean.wang@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	chui-hao.chiu@mediatek.com,
-	Bo.Jiao@mediatek.com,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Cc: sunliming <sunliming@kylinos.cn>,
-	kernel test robot <lkp@intel.com>,
-	Dan Carpenter <error27@gmail.com>
-Subject: [PATCH] wifi: mt76: mt7996: fix uninitialized symbol warning
-Date: Sat, 19 Apr 2025 11:15:28 +0800
-Message-Id: <20250419031528.2073892-1-sunliming@linux.dev>
+	Sat, 19 Apr 2025 03:59:09 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53J3x1jV1073856
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 18 Apr 2025 22:59:01 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1745035141;
+	bh=OxIm5BWYRHWRtfm3BI4yfvGxCISf/AMNRZprOku6zEE=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=UtdRLOIu0pJM/6XS5NGxLt3cnLdiygCDXQ/ujxTPjbsX+mBNG/QBs2WHXto0YAQZL
+	 QThe7bTqs19acGe17QtazFNyPc5lbM5uyEi2z7qus6Izdy7sAouZQIiL4SrAJJJ87J
+	 OOQsZeQy+LZ4UlN+sZPtfRMx2/LFe+O/hFviUXsQ=
+Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53J3x1fX045034
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 18 Apr 2025 22:59:01 -0500
+Received: from DFLE102.ent.ti.com (10.64.6.23) by DFLE104.ent.ti.com
+ (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 18
+ Apr 2025 22:59:01 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE102.ent.ti.com
+ (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 18 Apr 2025 22:59:01 -0500
+Received: from [10.249.141.75] ([10.249.141.75])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53J3wwhQ128798;
+	Fri, 18 Apr 2025 22:58:59 -0500
+Message-ID: <80b5867b-958a-41ff-854a-6a3173ddbdc0@ti.com>
+Date: Sat, 19 Apr 2025 09:28:57 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: ti: k3-j721e-common-proc-board: Add
+ bootph-all to HBMC nodes
+To: Anurag Dutta <a-dutta@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
+        <kristo@kernel.org>
+CC: <vaishnav.a@ti.com>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+References: <20250411082637.2271746-1-a-dutta@ti.com>
+Content-Language: en-US
+From: "Kumar, Udit" <u-kumar1@ti.com>
+In-Reply-To: <20250411082637.2271746-1-a-dutta@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_201613_811071_E969FFE8 
-X-CRM114-Status: UNSURE (   9.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250418_205908_319317_CEBE57D5 
+X-CRM114-Status: GOOD (  13.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,45 +87,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: sunliming <sunliming@kylinos.cn>
 
-Fix below smatch warnings:
-drivers/net/wireless/mediatek/mt76/mt7996/main.c:952 mt7996_mac_sta_add_links()
-error: uninitialized symbol 'err'.
-drivers/net/wireless/mediatek/mt76/mt7996/main.c:1133 mt7996_set_rts_threshold()
-error: uninitialized symbol 'ret'.
+On 4/11/2025 1:56 PM, Anurag Dutta wrote:
+> Add bootph-all to HBMC controller and hyperflash nodes for successful
+> hyperflash boot on j721e-evm.
+>
+> Signed-off-by: Anurag Dutta <a-dutta@ti.com>
+> ---
+>
+> Test logs : https://gist.github.com/anuragdutta731/90a492589557c2ec2881e1de50a62006
+>
+>   arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts | 7 +++++++
+>   1 file changed, 7 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts b/arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts
+> index 4421852161dd..9ada749f16ba 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts
+> @@ -570,6 +570,13 @@ &usb1 {
+>   	maximum-speed = "high-speed";
+>   };
+>   
+> +&hbmc {
+> +	bootph-all;
+> +	flash@0,0 {
+> +		bootph-all;
+> +	};
+> +};
 
-Reported-by: kernel test robot <lkp@intel.com>
-Reported-by: Dan Carpenter <error27@gmail.com>
-Closes: https://lore.kernel.org/r/202504101051.1ya4Z4va-lkp@intel.com/
-Signed-off-by: sunliming <sunliming@kylinos.cn>
----
- drivers/net/wireless/mediatek/mt76/mt7996/main.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Could you check once , if this is duplicated
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-index cc6bb4544c2a..7c7c4b5a28b9 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-@@ -991,7 +991,7 @@ mt7996_mac_sta_add_links(struct mt7996_dev *dev, struct ieee80211_vif *vif,
- {
- 	struct mt7996_sta *msta = (struct mt7996_sta *)sta->drv_priv;
- 	unsigned int link_id;
--	int err;
-+	int err = 0;
- 
- 	for_each_set_bit(link_id, &new_links, IEEE80211_MLD_MAX_NUM_LINKS) {
- 		struct ieee80211_bss_conf *link_conf;
-@@ -1248,7 +1248,7 @@ static void mt7996_tx(struct ieee80211_hw *hw,
- static int mt7996_set_rts_threshold(struct ieee80211_hw *hw, u32 val)
- {
- 	struct mt7996_dev *dev = mt7996_hw_dev(hw);
--	int i, ret;
-+	int i, ret = 0;
- 
- 	mutex_lock(&dev->mt76.mutex);
- 
--- 
-2.25.1
+commit fbdb8aa4eab84 "arm64: dts: ti: k3-j721e-evm*: Add bootph-* 
+properties"
 
+adds bootph-all in arch/arm64/boot/dts/ti/k3-j721e-som-p0.dtsi file for 
+flash.
+
+AFAIK, parent node should inherit property of child for bootph.
+
+In case you are not getting in u-boot then u-boot shall fix this[0]
+
+[0] : https://lore.kernel.org/all/20250327080642.2269856-1-m-shah@ti.com/
+
+> +
+>   &ospi1 {
+>   	pinctrl-names = "default";
+>   	pinctrl-0 = <&mcu_fss0_ospi1_pins_default>;
 
