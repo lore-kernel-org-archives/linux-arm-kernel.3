@@ -4,84 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1CC7C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Apr 2025 18:34:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55BD0C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Apr 2025 19:04:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KHMwCYxqYB4K3bjOqiaSP4Irh07mGm4NozXsP5GfdHY=; b=xMfgkSZ26t8+2sF/tkuf79YUKD
-	LnBP/IKwaXLzsdr1c2OZlX134mTuFHT4vPlDvLAbL91Og4o/T/DskVIDfnZ073APOFsR7DOoGS9Cb
-	KUF46TtLMJtrYQrGXjUCi1vAqJy1ypShji/DRtdMnOhaT41XusEGTC4I30BQg9u5D1Co4V5qktNUp
-	o/FeLUNKT2wfW+rqoqxIwWUWufFK/yuxQaFm9jrHX/mWeUq5yLnrl0/slQZP8jI2Wss9IDCIhO4LM
-	xBiu+B+6MNec7+bv9V4bBX+iZ46LKEB7BGsYvkx96yy+7oLWTInB7gzWI7uPdvhvdiX1OjMK7x19D
-	Hq33ZgTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9F3w1wj5lwECO6+dgeoOcLcV0Kj69fefEp1TnFQUvTc=; b=ZpYZMpEsX1RmMiBx+rpVBFwi8c
+	NQ4c+sQszKcYYizltxsFaOmIORtQsyquQpXQJGVZxN64NSYhkCyFRbOQZLP2S0WpLPzZ6sn1xPWxW
+	6a5hd0X+gQ/xzyuSLvLzKTsawhDt4w+BpzhG8k9OzSecRfwaR39EZxbc0qirm/BJPUFuQ+xD7C2Qe
+	qv+xOfdpBI4Wu24tDUHHddj2QK4rSQZLRYIk0lYAFNj60/hEsUcBVWZwJJFVEI9JUBKRkFmP4y3tt
+	gVjDR9wdetgvb051ZpsecjYiaLsA1eIC2pxIIb4cLy/DeXpUTy1Mw/xOq9tTenfUbrpEIgi1pjp4L
+	/p2qeZ7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6ZUq-00000002tcG-0uVa;
-	Sun, 20 Apr 2025 18:34:28 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1u6ZxK-00000002uje-0Big;
+	Sun, 20 Apr 2025 19:03:54 +0000
+Received: from sendmail.purelymail.com ([34.202.193.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6ZSw-00000002tVP-3mGv;
-	Sun, 20 Apr 2025 18:32:32 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5edc07c777eso4419905a12.3;
-        Sun, 20 Apr 2025 11:32:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745173948; x=1745778748; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=KHMwCYxqYB4K3bjOqiaSP4Irh07mGm4NozXsP5GfdHY=;
-        b=U3bCztutF1TJifRL+EUc3JB6bCJJ9yQfc4++a0lH6Yhhg458Ry5ErggmFW/D2XNedX
-         zpxRPxz1TNCd1I2OEGeDfS7CBJ4PCHZyd5tiYBFwYZ2CuLDWMt6jSEEBdLDsRivd3QDk
-         QpjqehM+d0oDx0ksaLGx3/YCcfeIBygOar2bXtw18TmUPIolq6tCqKnGHFo9s0xozDPO
-         4sC1EpVT8EPxn2Vx4y7dRF4GrGqNFbEFDMZzT0ockbE/b52n43uoOHlIdEhycSmKzE/L
-         mGGoZSyMLWIiYcH+bPOzVnw0GMrEOdnbJo3JqvfDdRc44rxLae05rpw4Inzig5AWh0pA
-         +U1w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745173948; x=1745778748;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=KHMwCYxqYB4K3bjOqiaSP4Irh07mGm4NozXsP5GfdHY=;
-        b=O77K+GkMh2aKfYvHeXnVGuCLaKRJLV2rjuJ1e0/zbk2tR1lssw619DqZ8+0Tir5Sy/
-         0VtDVpTlGYFIIMWq+yz5hE36WWHDhov4tLNPbFvFXyQ5IT11w1xn8cr7aHeCsp24dek5
-         BR4CoywdkATSHvI5SuKDLbg/YaRXuCbZmqonH4G/Ogg06KDSXLE2VuolnyI5k3GaX5rv
-         Zwe/hmhb9nEYuIQqWLmV50F5X5bmh1za3s4Ayl6QQ26a7c66t8esGoAn6PWut77cHGT1
-         hNUx+5TgzIR8ZWwyzUdILGwMbTKJyy6VYugzTBivtUwgelJwy97wjgNPiQSVPjb2BMGI
-         8Jaw==
-X-Forwarded-Encrypted: i=1; AJvYcCV2ttAuMPGuHJjHGrrYyK9LFqwd5O6h4qynZOjAJpwxwYsIuMQsEhXheU6c91tSAg9aDGIL5yO2MgTOabUSY7EC@lists.infradead.org, AJvYcCWbLQarqdDbrprS5Y5WWKah2f1nAEso0S9PQ5ZKjcaOl+ZdQdPd7a1q7CkKmjA1pnwpwdqyk/4J9yBzPKlEZzA=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy9wWxJ2BHskbjbj+9fRjHABUIgeZw+y8aRm6IH/HNHasFWkArT
-	PJx6Ls199fi3M9lsBrTIcq1+mhtIvfbQc+2S7V73b3/ZzzQNoHdP5EqRIomiemxCNrsiBPXHPj3
-	K8x+GK6ZMuzS516xJSL6VCRl/PVw=
-X-Gm-Gg: ASbGncvEtSR1dVxwZBSSqTnQj0FHU+vDBs5NOlcQRlEJcz++fG108XjSkgsXEEozmoM
-	mmllGypNPdKvg+BR9U5tcZOXBviRoN596FvH1OQ5fZE1ODmQVtVrBnj1HNsUpy1qzLqUCxfCV0B
-	FzW2BK0KLo4f7+3l9OT6vE
-X-Google-Smtp-Source: AGHT+IEPnmkH31oj51s5hozVKGyKY4kHpuP56H8iCYA0KDxboPaUS8t/fzUA+hf4uNYOr4Ph2UvpcAYZ+IX+97nC6gs=
-X-Received: by 2002:a17:906:d555:b0:aca:b72b:4576 with SMTP id
- a640c23a62f3a-acb74b8e573mr850451066b.33.1745173948216; Sun, 20 Apr 2025
- 11:32:28 -0700 (PDT)
+	id 1u6Zul-00000002uaF-1rqp
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 20 Apr 2025 19:01:17 +0000
+Authentication-Results: purelymail.com; auth=pass
+DKIM-Signature: a=rsa-sha256; b=rx3eCw78qPhYWNuVRMoyRSAjmJCKBcAPF4akoG2OB04SC+117kpMAyYjYQjgz3+wlNUKgYTEPiQVPlNL8Bxp/e0nYcBG7SBQL+oCU2Utc+SRmhAN5N/UAW4w45WSoM81Xwz+V6MEXgkeU+vmy6OoJfBC4hUZ+v6my8fbZnKa3cJgV8jGD5j9YPBvlVIYPCpW+sQZanK9OYteZt/E2FC0sf087Lp1gAVCt1cu13TL4OVqKrjmzZb6amia3ZIbqmP6hoz+ur483/NXy857405jj7fGvUVIaORu023lUGeL8U1xGeIeG5uGGlCJziV+nonN4IRSGDXQe/Pyuz8zeq+gWw==; s=purelymail3; d=purelymail.com; v=1; bh=Fxg61Yte1UPz7xtMEapmFGrdMeVN/z75TtaNETL9lu4=; h=Feedback-ID:Received:From:Date:Subject:To;
+Feedback-ID: 68247:10037:null:purelymail
+X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 1640089901;
+          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
+          Sun, 20 Apr 2025 19:00:45 +0000 (UTC)
+From: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+Date: Sun, 20 Apr 2025 21:00:39 +0200
+Subject: [PATCH 2/2] watchdog: s3c2410_wdt: Add exynos990-wdt compatible
+ data
 MIME-Version: 1.0
-References: <20250328105822.3946767-1-jensenhuang@friendlyarm.com>
-In-Reply-To: <20250328105822.3946767-1-jensenhuang@friendlyarm.com>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Mon, 21 Apr 2025 00:02:10 +0530
-X-Gm-Features: ATxdqUG-QxcvLxPfRs54ioB0-541ISnYj4P0uxPpXHd3OZ6wOWJhvsW_PVi29sk
-Message-ID: <CANAwSgTmmqkphvu=S8Li=O=oGNr2T7Eo8ocZpTx3kNix_CyX2w@mail.gmail.com>
-Subject: Re: [PATCH] PCI: rockchip: Fix order of rockchip_pci_core_rsts
-To: Jensen Huang <jensenhuang@friendlyarm.com>
-Cc: Shawn Lin <shawn.lin@rock-chips.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Rob Herring <robh@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	linux-pci@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250420-wdt-resends-april-v1-2-f58639673959@mentallysanemainliners.org>
+References: <20250420-wdt-resends-april-v1-0-f58639673959@mentallysanemainliners.org>
+In-Reply-To: <20250420-wdt-resends-april-v1-0-f58639673959@mentallysanemainliners.org>
+To: Wim Van Sebroeck <wim@linux-watchdog.org>, 
+ Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-watchdog@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ Igor Belwon <igor.belwon@mentallysanemainliners.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1745175638; l=3556;
+ i=igor.belwon@mentallysanemainliners.org; s=20241206;
+ h=from:subject:message-id; bh=Fxg61Yte1UPz7xtMEapmFGrdMeVN/z75TtaNETL9lu4=;
+ b=JS2lGNZDyaaVkljswDbu0dXHW1KjOUlEXMzWb1hi1S0JfSb0OvEezHI/eSl5ZSjQDddueAUxa
+ mC7O1cSh3l1D1Da+z7cGPy79Iul+5yUJOh1EurlCLDM9Vu0H/B8bbrF
+X-Developer-Key: i=igor.belwon@mentallysanemainliners.org; a=ed25519;
+ pk=qKAuSTWKTaGQM0vwBxV0p6hPKMN4vh0CwZ+bozrG5lY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250420_113231_034699_06979AA6 
-X-CRM114-Status: GOOD (  19.55  )
+X-CRM114-CacheID: sfid-20250420_120115_562625_03610677 
+X-CRM114-Status: GOOD (  13.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,51 +78,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jensen,
+The Exynos990 has two watchdog clusters - cl0 and cl2. Add new
+driver data for these two clusters, making it possible to use the
+watchdog timer on this SoC.
 
-On Fri, 28 Mar 2025 at 16:29, Jensen Huang <jensenhuang@friendlyarm.com> wrote:
->
-> The order of rockchip_pci_core_rsts follows the previous comments suggesting
-> to avoid reordering. However, reset_control_bulk_deassert() applies resets in
-> reverse, which may lead to the link downgrading to 2.5 GT/s.
->
-> This patch restores the deassert order and comments for core_rsts, introduced in
-> commit 58c6990c5ee7 ("PCI: rockchip: Improve the deassert sequence of four reset pins").
->
-> Tested on NanoPC-T4 with Samsung 970 Pro.
->
-> Fixes: 18715931a5c0 ("PCI: rockchip: Simplify reset control handling by using reset_control_bulk*() function")
-> Signed-off-by: Jensen Huang <jensenhuang@friendlyarm.com>
-> ---
->  drivers/pci/controller/pcie-rockchip.h | 10 +++++++---
->  1 file changed, 7 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/pci/controller/pcie-rockchip.h b/drivers/pci/controller/pcie-rockchip.h
-> index 11def598534b..4f63a03d535c 100644
-> --- a/drivers/pci/controller/pcie-rockchip.h
-> +++ b/drivers/pci/controller/pcie-rockchip.h
-> @@ -320,11 +320,15 @@ static const char * const rockchip_pci_pm_rsts[] = {
->         "aclk",
->  };
->
-> +/*
-> + * Please don't reorder the deassert sequence of the following
-> + * four reset pins.
-> + */
->  static const char * const rockchip_pci_core_rsts[] = {
-> -       "mgmt-sticky",
-> -       "core",
-> -       "mgmt",
->         "pipe",
-> +       "mgmt",
-> +       "core",
-> +       "mgmt-sticky",
->  };
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+---
+ drivers/watchdog/s3c2410_wdt.c | 39 ++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 38 insertions(+), 1 deletion(-)
 
-Thanks for this Fix. Could you add my if you can?
+diff --git a/drivers/watchdog/s3c2410_wdt.c b/drivers/watchdog/s3c2410_wdt.c
+index bdd81d8074b2496d68c2b0f086f477dc8652e452..40901bdac42613458f93c09654353190785ff072 100644
+--- a/drivers/watchdog/s3c2410_wdt.c
++++ b/drivers/watchdog/s3c2410_wdt.c
+@@ -82,6 +82,10 @@
+ #define GS_CLUSTER2_NONCPU_INT_EN		0x1644
+ #define GS_RST_STAT_REG_OFFSET			0x3B44
+ 
++#define EXYNOS990_CLUSTER2_NONCPU_OUT		0x1620
++#define EXYNOS990_CLUSTER2_NONCPU_INT_EN	0x1644
++#define EXYNOS990_CLUSTER2_WDTRESET_BIT		23
++
+ /**
+  * DOC: Quirk flags for different Samsung watchdog IP-cores
+  *
+@@ -259,6 +263,32 @@ static const struct s3c2410_wdt_variant drv_data_exynos850_cl1 = {
+ 		  QUIRK_HAS_PMU_RST_STAT | QUIRK_HAS_PMU_CNT_EN,
+ };
+ 
++static const struct s3c2410_wdt_variant drv_data_exynos990_cl0 = {
++	.mask_reset_reg = GS_CLUSTER0_NONCPU_INT_EN,
++	.mask_bit = 2,
++	.mask_reset_inv = true,
++	.rst_stat_reg = EXYNOS5_RST_STAT_REG_OFFSET,
++	.rst_stat_bit = EXYNOS850_CLUSTER0_WDTRESET_BIT,
++	.cnt_en_reg = EXYNOSAUTOV920_CLUSTER0_NONCPU_OUT,
++	.cnt_en_bit = 7,
++	.quirks = QUIRK_HAS_WTCLRINT_REG | QUIRK_HAS_PMU_MASK_RESET |
++		  QUIRK_HAS_PMU_RST_STAT | QUIRK_HAS_PMU_CNT_EN |
++		  QUIRK_HAS_DBGACK_BIT,
++};
++
++static const struct s3c2410_wdt_variant drv_data_exynos990_cl2 = {
++	.mask_reset_reg = EXYNOS990_CLUSTER2_NONCPU_INT_EN,
++	.mask_bit = 2,
++	.mask_reset_inv = true,
++	.rst_stat_reg = EXYNOS5_RST_STAT_REG_OFFSET,
++	.rst_stat_bit = EXYNOS990_CLUSTER2_WDTRESET_BIT,
++	.cnt_en_reg = EXYNOS990_CLUSTER2_NONCPU_OUT,
++	.cnt_en_bit = 7,
++	.quirks = QUIRK_HAS_WTCLRINT_REG | QUIRK_HAS_PMU_MASK_RESET |
++		  QUIRK_HAS_PMU_RST_STAT | QUIRK_HAS_PMU_CNT_EN |
++		  QUIRK_HAS_DBGACK_BIT,
++};
++
+ static const struct s3c2410_wdt_variant drv_data_exynosautov9_cl0 = {
+ 	.mask_reset_reg = EXYNOS850_CLUSTER0_NONCPU_INT_EN,
+ 	.mask_bit = 2,
+@@ -350,6 +380,8 @@ static const struct of_device_id s3c2410_wdt_match[] = {
+ 	  .data = &drv_data_exynos7 },
+ 	{ .compatible = "samsung,exynos850-wdt",
+ 	  .data = &drv_data_exynos850_cl0 },
++	{ .compatible = "samsung,exynos990-wdt",
++	  .data = &drv_data_exynos990_cl0 },
+ 	{ .compatible = "samsung,exynosautov9-wdt",
+ 	  .data = &drv_data_exynosautov9_cl0 },
+ 	{ .compatible = "samsung,exynosautov920-wdt",
+@@ -678,7 +710,8 @@ s3c2410_get_wdt_drv_data(struct platform_device *pdev, struct s3c2410_wdt *wdt)
+ 	if (variant == &drv_data_exynos850_cl0 ||
+ 	    variant == &drv_data_exynosautov9_cl0 ||
+ 	    variant == &drv_data_gs101_cl0 ||
+-	    variant == &drv_data_exynosautov920_cl0) {
++	    variant == &drv_data_exynosautov920_cl0 ||
++	    variant == &drv_data_exynos990_cl0) {
+ 		u32 index;
+ 		int err;
+ 
+@@ -700,6 +733,10 @@ s3c2410_get_wdt_drv_data(struct platform_device *pdev, struct s3c2410_wdt *wdt)
+ 			else if (variant == &drv_data_exynosautov920_cl0)
+ 				variant = &drv_data_exynosautov920_cl1;
+ 			break;
++		case 2:
++			if (variant == &drv_data_exynos990_cl0)
++				variant = &drv_data_exynos990_cl2;
++			break;
+ 		default:
+ 			return dev_err_probe(dev, -EINVAL, "wrong cluster index: %u\n", index);
+ 		}
 
-Reviewed-by: Anand Moon <linux.amoon@gmail.com>
+-- 
+2.47.2
 
-Thanks
--Anand
 
