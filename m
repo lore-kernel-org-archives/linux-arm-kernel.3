@@ -4,66 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0F51C369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Apr 2025 19:53:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A75D1C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Apr 2025 19:55:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NyrSXK4N/TeJRsf0ttgTDe+kW4IxU5iAuhNFucX6GMM=; b=QQA19puE64aAzHxWZ5ModYR26A
-	53N/Za99YLPn8NfB/kiJF1e90LaLuB7o63qITa8FlrTB67XK1xMAY0X9BevmRj7OT7Sr4B5bNFxdX
-	u1sYf456r08bDRt95FF3ThnmS2S5C+QLWKkKxtyNuJGy/2j48m8c2cSC0dLWLZYFH6+moiHJskimu
-	xwaWRBbFpd7JZZLIl/zPuswttFU0ZtLaWXb9u9mXroqDKP7evnhetYlOoDBqZ0673wSWaUpussGq7
-	0jdZ/fswFpAoRUEMeKZyT49en52ZaVkZYNgBelrciGxBi90u1H/cYMr4Tpx1xiCULRJ4gjoRks4yK
-	3s5htofw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=xcxogDrk4fjzO62bpnTRD3XF3xkPLQHeL/c+vaHKOzw=; b=c6/CPzZRMC2aD9
+	qsMdMR54PuUMS8pbf9v/8J9JIsGkVBz5p8jThEfUIRMEYv+KqIi+UiUZZjFvCvsReLFy1Q0/zJqVc
+	xYclAKYZrHQhovL+lKHRMNEDYIOo2Ri/tW34DTVY1QPCcQ3hcEvlgrAntT2f9tErNG4EytCIQM7lv
+	3w5w53eA0Z4AGB4E4C/D1+Fh9SupUG7LxJpAmFzW+CquSVZYntBz4UBlXHbONjXy06UkL1bD9No6I
+	CA7sHGFEQp2jmNGo2i0gUd/bZ1yO/gLIZZinnnxo5A4cYQ/Is6WD0vPGfXG1A1TeUO8SGPenb8fmO
+	2H0iefwVzCkchJziO+bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6aix-00000002zqQ-2fne;
-	Sun, 20 Apr 2025 19:53:07 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1u6akp-0000000303B-0vtB;
+	Sun, 20 Apr 2025 19:55:03 +0000
+Received: from sendmail.purelymail.com ([34.202.193.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6aKN-00000002vlh-2t5A;
-	Sun, 20 Apr 2025 19:27:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E6A1C5C56E4;
-	Sun, 20 Apr 2025 19:25:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 596DBC4CEF1;
-	Sun, 20 Apr 2025 19:27:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745177262;
-	bh=l+8LTIVco+dbh9d8ET+f2v59CbKZfxOmGWJmTr+W3Z8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=C7diKfMKGIqUI0dWG9OEthRgl4xcAHQPbzwEdXQkdDAw6iapoPkjDnIuTov4CMDbf
-	 8Vwl2j6tHk2PMNcXfxndslqk9VHQe/lmTNOy2KUJKZgHQfcsIQkJdbbUc8Wgi35DRy
-	 XIu40aBLPKz8UKcmvCVfnzMBEy+CgEYJfQDmu4TgOG2xmzOHMh7LMQG8uFCYL0ahnv
-	 +dV1o6A58RMw2lO1o1iYi+RTHaqfzSISd9BzwRgOpGCneZcEI+ChZIoO+U+QFA3p/1
-	 rerVCNXTtPw6jpiLaEVRabfe/lpWZsv8HOB8UoDj/aKhJbFm529B1bk01VVVE0xIlC
-	 oNbRlfOqmegWA==
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	x86@kernel.org,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Ard Biesheuvel <ardb@kernel.org>
-Subject: [PATCH v2 12/13] crypto: lib/chacha - remove INTERNAL symbol and selection of CRYPTO
-Date: Sun, 20 Apr 2025 12:26:08 -0700
-Message-ID: <20250420192609.295075-13-ebiggers@kernel.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250420192609.295075-1-ebiggers@kernel.org>
-References: <20250420192609.295075-1-ebiggers@kernel.org>
+	id 1u6aLk-00000002wJy-20RC
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 20 Apr 2025 19:29:09 +0000
+Authentication-Results: purelymail.com; auth=pass
+DKIM-Signature: a=rsa-sha256; b=kC6Om7iFg7lgKg7K5cMA+4Pbk0/FtwzWNG+TTZqCGTBYZp8n2i084deJ+iC5ktCHwblTxMyIvxEqWwfsCjqmEKnLoAQ+IMKQmlXU6GIWitrnVOE+HsaglWd9z3rKOfOoB0MbEMTRNhbS5/WYkvJvKrxGcdjVVL9CcGaeGSyQF7FBIb8/ZYXdnX8uATmvnjHBAnXpGRk3pwltGO2Ze0QaOnIcDIYMdpu/DRZidKYFOyB1h/nWbW/Gb3Okg0wK5bii/6vEjcnL7VhHD1JMhdEk5kEDsfE4z/IZQaX8ndyZDurZLkG9UMIhWkSROzJ/C5JeCTGkvFChDUHr3/RxJ5zSVA==; s=purelymail3; d=purelymail.com; v=1; bh=yhkfGEEcnbf9CwY/Rpk+yRBtiyW3R/ZeFCf3WAeNpmw=; h=Feedback-ID:Received:From:Subject:Date:To;
+Feedback-ID: 68247:10037:null:purelymail
+X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 1149203934;
+          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
+          Sun, 20 Apr 2025 19:28:42 +0000 (UTC)
+From: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+Subject: [PATCH v2 0/2] USB PHY support for Exynos990 SoCs
+Date: Sun, 20 Apr 2025 21:28:20 +0200
+Message-Id: <20250420-usb-resends-april-v2-0-25dc7d2e6dd4@mentallysanemainliners.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIANRKBWgC/x3MzQpAUBBA4VfRrE3dxk/yKrLADKZ0aSZS8u5ul
+ t/inAdcTMWhzR4wudR1jwmUZzCtQ1wElZOBAlWhpICnj2jiEtlxOEw3LOuJuBgbDlxD6g6TWe/
+ /2fXv+wEXGZFoYwAAAA==
+X-Change-ID: 20250420-usb-resends-april-46c2d3b8d0d6
+To: Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-phy@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ Igor Belwon <igor.belwon@mentallysanemainliners.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1745177319; l=1365;
+ i=igor.belwon@mentallysanemainliners.org; s=20241206;
+ h=from:subject:message-id; bh=yhkfGEEcnbf9CwY/Rpk+yRBtiyW3R/ZeFCf3WAeNpmw=;
+ b=YakDTBXcfdEyDqqwA7lSGKU4ju4xj728i4uc7zQTWyGqm86FxAyUgW2/dQ/+HWaqf+z1E5oeE
+ ael57tIvXlEA0pcobeavz05qm1KdMVsR1Hbk0M6OdVIhinscYz2/ML1
+X-Developer-Key: i=igor.belwon@mentallysanemainliners.org; a=ed25519;
+ pk=qKAuSTWKTaGQM0vwBxV0p6hPKMN4vh0CwZ+bozrG5lY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250420_122743_848997_FBF4547B 
-X-CRM114-Status: GOOD (  13.54  )
+X-CRM114-CacheID: sfid-20250420_122908_583546_78258A2B 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,197 +83,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Eric Biggers <ebiggers@google.com>
+Hi all!
 
-Now that the architecture-optimized ChaCha kconfig symbols are visible
-without CRYPTO, there is no need for CRYPTO_LIB_CHACHA to select CRYPTO.
-So, remove that.  This makes the indirection through the
-CRYPTO_LIB_CHACHA_INTERNAL symbol unnecessary, so get rid of that and
-just use CRYPTO_LIB_CHACHA directly.  Finally, make the fallback to the
-generic implementation use a default value instead of a select; this
-makes it consistent with how the arch-optimized code gets enabled and
-also with how CRYPTO_LIB_BLAKE2S_GENERIC gets enabled.
+This patchset adds support for the USB 2.0 PHY of the Exynos990 SoC.
+This SoC has a combo PHY that supports highspeed, superspeed USB and
+DisplayPort, however due to my inability to test the superspeed part of
+the combo phy (device always enumerated as high-speed, even on the
+vendor kernels/bootloaders) only the highspeed part is brought up.
 
-Signed-off-by: Eric Biggers <ebiggers@google.com>
+These changes have been tested and confirmed working (with the USB_ETH
+gadget and telnet/ssh in a ramdisk) on a device from the hubble family
+(x1s) and also a device from the canvas family (c1s).
+
+Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
 ---
- arch/arm/lib/crypto/Kconfig     |  2 +-
- arch/arm64/lib/crypto/Kconfig   |  2 +-
- arch/mips/lib/crypto/Kconfig    |  2 +-
- arch/powerpc/lib/crypto/Kconfig |  2 +-
- arch/riscv/lib/crypto/Kconfig   |  2 +-
- arch/s390/lib/crypto/Kconfig    |  2 +-
- arch/x86/lib/crypto/Kconfig     |  2 +-
- crypto/Kconfig                  |  2 +-
- lib/crypto/Kconfig              | 16 +++++-----------
- 9 files changed, 13 insertions(+), 19 deletions(-)
+Changes in v2:
+- rebase patch to apply cleanly after Exynos7870 merge
+- collect Reviewed-by tags by Krzysztof Kozlowski (thanks!)
 
-diff --git a/arch/arm/lib/crypto/Kconfig b/arch/arm/lib/crypto/Kconfig
-index 181f138d563b6..5d10bd13fc8df 100644
---- a/arch/arm/lib/crypto/Kconfig
-+++ b/arch/arm/lib/crypto/Kconfig
-@@ -13,11 +13,11 @@ config CRYPTO_BLAKE2S_ARM
- 	  There is no NEON implementation of BLAKE2s, since NEON doesn't
- 	  really help with it.
- 
- config CRYPTO_CHACHA20_NEON
- 	tristate
--	default CRYPTO_LIB_CHACHA_INTERNAL
-+	default CRYPTO_LIB_CHACHA
- 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
- 
- config CRYPTO_POLY1305_ARM
- 	tristate
- 	default CRYPTO_LIB_POLY1305_INTERNAL
-diff --git a/arch/arm64/lib/crypto/Kconfig b/arch/arm64/lib/crypto/Kconfig
-index 169311547efe3..2a8ff7cfc08d3 100644
---- a/arch/arm64/lib/crypto/Kconfig
-+++ b/arch/arm64/lib/crypto/Kconfig
-@@ -1,11 +1,11 @@
- # SPDX-License-Identifier: GPL-2.0-only
- 
- config CRYPTO_CHACHA20_NEON
- 	tristate
- 	depends on KERNEL_MODE_NEON
--	default CRYPTO_LIB_CHACHA_INTERNAL
-+	default CRYPTO_LIB_CHACHA
- 	select CRYPTO_LIB_CHACHA_GENERIC
- 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
- 
- config CRYPTO_POLY1305_NEON
- 	tristate
-diff --git a/arch/mips/lib/crypto/Kconfig b/arch/mips/lib/crypto/Kconfig
-index 5b82ba753c55c..454354e30d76c 100644
---- a/arch/mips/lib/crypto/Kconfig
-+++ b/arch/mips/lib/crypto/Kconfig
-@@ -1,11 +1,11 @@
- # SPDX-License-Identifier: GPL-2.0-only
- 
- config CRYPTO_CHACHA_MIPS
- 	tristate
- 	depends on CPU_MIPS32_R2
--	default CRYPTO_LIB_CHACHA_INTERNAL
-+	default CRYPTO_LIB_CHACHA
- 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
- 
- config CRYPTO_POLY1305_MIPS
- 	tristate
- 	default CRYPTO_LIB_POLY1305_INTERNAL
-diff --git a/arch/powerpc/lib/crypto/Kconfig b/arch/powerpc/lib/crypto/Kconfig
-index 3f52610e45eb4..6627d28cd24e0 100644
---- a/arch/powerpc/lib/crypto/Kconfig
-+++ b/arch/powerpc/lib/crypto/Kconfig
-@@ -1,11 +1,11 @@
- # SPDX-License-Identifier: GPL-2.0-only
- 
- config CRYPTO_CHACHA20_P10
- 	tristate
- 	depends on PPC64 && CPU_LITTLE_ENDIAN && VSX
--	default CRYPTO_LIB_CHACHA_INTERNAL
-+	default CRYPTO_LIB_CHACHA
- 	select CRYPTO_LIB_CHACHA_GENERIC
- 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
- 
- config CRYPTO_POLY1305_P10
- 	tristate
-diff --git a/arch/riscv/lib/crypto/Kconfig b/arch/riscv/lib/crypto/Kconfig
-index 46ce2a7ac1f2c..bc7a43f33eb3a 100644
---- a/arch/riscv/lib/crypto/Kconfig
-+++ b/arch/riscv/lib/crypto/Kconfig
-@@ -1,8 +1,8 @@
- # SPDX-License-Identifier: GPL-2.0-only
- 
- config CRYPTO_CHACHA_RISCV64
- 	tristate
- 	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
--	default CRYPTO_LIB_CHACHA_INTERNAL
-+	default CRYPTO_LIB_CHACHA
- 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
- 	select CRYPTO_LIB_CHACHA_GENERIC
-diff --git a/arch/s390/lib/crypto/Kconfig b/arch/s390/lib/crypto/Kconfig
-index b79fd91af9fe1..069b355fe51aa 100644
---- a/arch/s390/lib/crypto/Kconfig
-+++ b/arch/s390/lib/crypto/Kconfig
-@@ -1,7 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0-only
- 
- config CRYPTO_CHACHA_S390
- 	tristate
--	default CRYPTO_LIB_CHACHA_INTERNAL
-+	default CRYPTO_LIB_CHACHA
- 	select CRYPTO_LIB_CHACHA_GENERIC
- 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
-diff --git a/arch/x86/lib/crypto/Kconfig b/arch/x86/lib/crypto/Kconfig
-index f83aa51dd9129..e44403d9677f5 100644
---- a/arch/x86/lib/crypto/Kconfig
-+++ b/arch/x86/lib/crypto/Kconfig
-@@ -13,11 +13,11 @@ config CRYPTO_BLAKE2S_X86
- 	  - AVX-512 (Advanced Vector Extensions-512)
- 
- config CRYPTO_CHACHA20_X86_64
- 	tristate
- 	depends on 64BIT
--	default CRYPTO_LIB_CHACHA_INTERNAL
-+	default CRYPTO_LIB_CHACHA
- 	select CRYPTO_LIB_CHACHA_GENERIC
- 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
- 
- config CRYPTO_POLY1305_X86_64
- 	tristate
-diff --git a/crypto/Kconfig b/crypto/Kconfig
-index 9322e42e562de..832af6363951f 100644
---- a/crypto/Kconfig
-+++ b/crypto/Kconfig
-@@ -632,12 +632,12 @@ config CRYPTO_ARC4
- 	  WEP, but it should not be for other purposes because of the
- 	  weakness of the algorithm.
- 
- config CRYPTO_CHACHA20
- 	tristate "ChaCha"
-+	select CRYPTO_LIB_CHACHA
- 	select CRYPTO_LIB_CHACHA_GENERIC
--	select CRYPTO_LIB_CHACHA_INTERNAL
- 	select CRYPTO_SKCIPHER
- 	help
- 	  The ChaCha20, XChaCha20, and XChaCha12 stream cipher algorithms
- 
- 	  ChaCha20 is a 256-bit high-speed stream cipher designed by Daniel J.
-diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
-index f321fe1a8681b..c6ab724c1dbd9 100644
---- a/lib/crypto/Kconfig
-+++ b/lib/crypto/Kconfig
-@@ -48,26 +48,20 @@ config CRYPTO_ARCH_HAVE_LIB_CHACHA
- 	  accelerated implementation of the ChaCha library interface,
- 	  either builtin or as a module.
- 
- config CRYPTO_LIB_CHACHA_GENERIC
- 	tristate
-+	default CRYPTO_LIB_CHACHA if !CRYPTO_ARCH_HAVE_LIB_CHACHA
- 	select CRYPTO_LIB_UTILS
- 	help
--	  This symbol can be depended upon by arch implementations of the
--	  ChaCha library interface that require the generic code as a
--	  fallback, e.g., for SIMD implementations. If no arch specific
--	  implementation is enabled, this implementation serves the users
--	  of CRYPTO_LIB_CHACHA.
--
--config CRYPTO_LIB_CHACHA_INTERNAL
--	tristate
--	select CRYPTO_LIB_CHACHA_GENERIC if CRYPTO_ARCH_HAVE_LIB_CHACHA=n
-+	  This symbol can be selected by arch implementations of the ChaCha
-+	  library interface that require the generic code as a fallback, e.g.,
-+	  for SIMD implementations. If no arch specific implementation is
-+	  enabled, this implementation serves the users of CRYPTO_LIB_CHACHA.
- 
- config CRYPTO_LIB_CHACHA
- 	tristate
--	select CRYPTO
--	select CRYPTO_LIB_CHACHA_INTERNAL
- 	help
- 	  Enable the ChaCha library interface. This interface may be fulfilled
- 	  by either the generic implementation or an arch-specific one, if one
- 	  is available and enabled.
- 
+---
+Igor Belwon (2):
+      dt-bindings: phy: samsung,usb3-drd-phy: Add exynos990 compatible
+      phy: exynos5-usbdrd: Add support for the Exynos990 usbdrd phy
+
+ .../bindings/phy/samsung,usb3-drd-phy.yaml         |  2 ++
+ drivers/phy/samsung/phy-exynos5-usbdrd.c           | 32 ++++++++++++++++++++++
+ include/linux/soc/samsung/exynos-regs-pmu.h        |  3 ++
+ 3 files changed, 37 insertions(+)
+---
+base-commit: bc8aa6cdadcc00862f2b5720e5de2e17f696a081
+change-id: 20250420-usb-resends-april-46c2d3b8d0d6
+
+Best regards,
 -- 
-2.49.0
+Igor Belwon <igor.belwon@mentallysanemainliners.org>
 
 
