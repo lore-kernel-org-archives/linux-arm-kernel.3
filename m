@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CFC9C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Apr 2025 09:54:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E01AC369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Apr 2025 09:54:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MV1KL0B4Ol1zLYcOywJS50VMsEVaOjK36lDCk5xYJ8U=; b=rpO5pZYb8dlbxqEaFtuffgVI4U
-	7x/DQnwRIO6WR0/gq8XzpJKeTsuIhAGAjk41Gp4ATi/z9FEQhAgT+hbjazRLMDM2NrF/44kk2Yn0c
-	fbnG4Uu7cq3hz637Vabth9793ukomeNZnVrPahxReM1xY/3MOlxUcS3uuiDhzqe1z5dgH2m0XsH7+
-	DH/rAVrkNdoLn/PmE38hK6pTy2w4evWgPtAxzsM8rlOg6cNJCz3o1Hd/zYK34Bumi3WD9P9W9onLV
-	J4Mpu+fHMaEDQ66g8zk3qkLIe+f6OdktQKLf7vpe3v1CTnPtWk5T8ZqZBWwIrdM9p9B8vzaX0Yv8S
-	WhKT9GSA==;
+	bh=J70zSIsICNkhe0luW48bZRB0FNJW9CojZ7pnZGLzqis=; b=Vfr+XAy8N5WNUThRk6yXhuLOLc
+	HM3xP6NvsHPeEgR8pJcvnmrgTx4guyFwEpEKKcJzmit3VrJRlM3gref/k4QIZrCZlSwSd67hQAoZd
+	S3+TXK7ah1iE/+nTprtSKKfIIxeobLevtJQ4ejjf38itEjMWBSSjUFxQGxgDnXBTOHoLymNuLs3OG
+	uqCpEOZP4qkTxssRx4xjcQQYaCmO4e3TK7Co5c25d6E1ADyBYs0dTrLaSxVQxP2uUQRlYHKzbdDLS
+	W1rNfKnEzBWqI62Urkrxb5dxREm7YPIlZkZYo+BYwPT+frfFkYB6BfW7zLfhG8gtj1xNx/KR6No41
+	X4IyzFQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6RNZ-00000002Q9n-1fg7;
-	Sun, 20 Apr 2025 09:54:25 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1u6RNY-00000002Q9W-3gBo;
+	Sun, 20 Apr 2025 09:54:24 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6RHs-00000002Psc-0xnD
+	id 1u6RHr-00000002PsY-35BO
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Apr 2025 09:48:33 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-43cf257158fso21051305e9.2
+	Sun, 20 Apr 2025 09:48:32 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-43edecbfb46so23052815e9.0
         for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Apr 2025 02:48:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20230601; t=1745142510; x=1745747310; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=MV1KL0B4Ol1zLYcOywJS50VMsEVaOjK36lDCk5xYJ8U=;
-        b=ZSOKizD8ukxiBbwY+5I3AaX5TgXa5ie34KMXjZfvRlmiDXBLTL4Ml7DG8bB1K+Kpir
-         EfGeW5rcOvHiFf/54xGK2zfygyL2nBCRHfSBttnOpGKlPP/b0iAnzH/oCwyDYhrPh18v
-         KPVCS0JndaUEc4cNUh3wpjGzuohnkQskke+SbhjLuWP3OfLedBChForex0Tz9YqTUIwS
-         RVt9HC92w22z2AlhbYV5h1m1Fshusoi0KPwJOEchTtFVWleB+wxcKE/K9sXp1d8ZPK22
-         zo4FCOkWaZ82V+MSjuaV6vA+PeGjh6kLRKp5eo5ndGjoqiCISl+yLZ7Z98Q7rrjrcFD1
-         PFfw==
+        bh=J70zSIsICNkhe0luW48bZRB0FNJW9CojZ7pnZGLzqis=;
+        b=TYkAjPcS4qrIpvI5rPXvHgG44b/fx9BM18qinfV3cnDqq2hHJ7BOwu8FMeF2j8nqIH
+         mY5Jy8EP7we2P4k947fHYUyuRQQOt0GJdZI3w8y/deMh8Ffq42wMs7rJno53gzbRtQ3g
+         QMbgxHGATt9hgQuV1R+rl/SLh6Kn80/cwAtFjOip8lguKIMsM+0oYRtJ3jCNnSFq4AMq
+         lcQJJsZ8qA+d94LNd7iIFQIvZs/QxD7bMntq6uOsn555TmP7aVP8l7BZl3Xgw7Uc+g63
+         7Ds5ZChtPO6oEnU2YOH/t9RuZnyALmV9fwiWX0Tjr+iBM9ePhcHkeV2Vvt7HOPH9vrG7
+         jxlQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20230601; t=1745142510; x=1745747310;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=MV1KL0B4Ol1zLYcOywJS50VMsEVaOjK36lDCk5xYJ8U=;
-        b=KXiI714cV0XXWm/N9lrhY86uW8FLbf9gsZjy2y0hAU39ivRcSx/JdfHCNBpfun6Erk
-         RJBUB6lonX7GxIUE4/ku3XFSQJumsoACyNOgn1t/ERD7CysH6xmHcoqV+iEi4ZUSACAO
-         SXKKzS2Ypu9SotQHw/lcyGNzKzblFWRZ/F7O8ElmIFI5hied37wWqu30FMR6eHrOkS4h
-         cebIXeUuJ/c/1n1JByA/X+8VG+tE7WOUfNyqZyVvTTgL5j9ju9O8vyAcZDX9wC95Wb01
-         lbF2c604UxNvW7jQIDmesl5Tb92mxOGpmOV7UiY77smxH5gEfKbgRgjMCPnmfQeaH69F
-         tecw==
-X-Forwarded-Encrypted: i=1; AJvYcCVWSJNbrDpkEppwp7oQ2qXuR7K7gG2H63ZwTV8NlFlr/w63p1xEJ9EjtAjMbvCbk0ih4WCniOVMxKvcyaDktgKY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw2fVXKwJWsBQpCtE71Lahntk6WeRVPUwncuLjy6tYmDaZj/CaB
-	WzNW89oVqW+zXnWqEJHvQPnHHtNCbCsB5SnewygupCw0UW3Ffx6e
-X-Gm-Gg: ASbGncsd+yHfux639Y29kpjs0ELHcD1IdkzS0p1z1vCsNNgqNOChrMerA3YaOLTE0Tj
-	ATiVwv+567OTwL/y0cYolsDhThctApczjoZywZ0WzsC6XZ8D1BtyU757ex2G1XWGGXOZPc4y6jj
-	kacznVMXtDnn6SfaxcORYE5YGpc0WIX0uJMDmTymugLeT+KElL85j674LZ1Zxb6ICpGl6HY84U5
-	KYDsm/PBtW4VJpqqymT+S2EZrO2G86ivpdHzZBpPE4d9mGJUyhMxz/6IVw09HeEl6FZtCSZnJuX
-	IMZN7MgfRmRC890ITP6yKZLDE+0iv1fi6P70ADLJRYe3cNreOgHKC5yTqszG2TOvVgdeq5P42Y5
-	eIAurcgn77E76IAQPpUHS14R6ohEsIm0iHjAgvuv87WWi5H1nxKAXO5aofvz3ep4x7fR2fIr8WY
-	A=
-X-Google-Smtp-Source: AGHT+IGLhlzrje0W/99vHutqnqraxOZnv9q3niHg6lZbOoS4HG8LPSq62S6s1AF4Tg3e6WlI1VcYEA==
-X-Received: by 2002:a05:600c:c0db:b0:43d:10a:1b90 with SMTP id 5b1f17b1804b1-44072c7f6fbmr44810305e9.16.1745142510468;
-        Sun, 20 Apr 2025 02:48:30 -0700 (PDT)
+        bh=J70zSIsICNkhe0luW48bZRB0FNJW9CojZ7pnZGLzqis=;
+        b=mlHivtBdgPSB7jb8E0W4NNUWfUMyVQLai/MuizO9jv5AOolWIXziHZIo/OiDGytn/O
+         seObC/eHo+FqmdoPxuuEo/hHyoRT03U9T2G9YGUJwvbHPvpWfcyRi5R9abYXdfO2YpnN
+         IrLY8Ndb8oYzL+s4hI8KMIEeojmkqKy3+qb1ufjoupCuG6uCTuNrCmbaAJQnY7Vyd8Mw
+         /vocpEwe7zZGJxl7HpbUrLzKdzMYPJ4uccgd93FV0wNhcNaY4JWI6o7GZlJoeUORk5Gu
+         pTzjwREqz5HKrXo90mYbej9RM9ojS+Bb0I3ol2ubnpAra6dp/GzTQIj5LaEEVljEt1Ct
+         fF3g==
+X-Forwarded-Encrypted: i=1; AJvYcCUkwV3nAYlN7srhsQIoZVU7grhZoPyndFFAIF23iqjzB9wRIDLk+9vOQmZ7R7psZTS33/sYz37mwUo8U4NYOdj0@lists.infradead.org
+X-Gm-Message-State: AOJu0YxLb3w+orDIsK1m+6o6E+9O56LTIzqQJuWSieHhDAMHA57gsiVE
+	o7tqyStm7BjVwOwC6g1OvHEbD4vxJG9bp88XVARNDQj5xV8KR20N
+X-Gm-Gg: ASbGnctdlkv5GdDR+Y9gKotbpbpg9Q3LETeH0/Smkbb+albRe+yMW9dMwA2z8k/Yk2V
+	Oi2IwWiEsRzL1Y6HydKob/1NLYQwwlw6hW0a7ZMEZbFn+bEA6BeLO6itou6d0KeqehwQfU79aaR
+	V1XQCYbOT596ot4EO9wOTiZaI8fK+ssTRtR4IK/7rUXl5QmQ8sIC06tA0s53m1OXLA7gODMtYks
+	wiaaugl/uSKyl+RUyN9shr1tQBIdOrb2HGQRwG6XSIpbmKfwME8BDAGmPM/sObphjsxTklsPq8l
+	PXNktnW/199TYCmY81Tabty5QM0UzHjKmJ/Ir3ODR+xAfASTTYp7MNC/EdPnw+L0dBHP8Jq+H+i
+	HF0LY5oadr+EonN+7CiAvycI9zS9se0LWuXrhg1eT3sh/s4VTJH5evaFV8ocJyojrOilb3SbBYz
+	g=
+X-Google-Smtp-Source: AGHT+IF9o36sHCpVLQh3u/uS8Mj0MuecjMIiXN/dsX6wb8zysslgsszsD29TtXQILSnoqleCJeVPxg==
+X-Received: by 2002:a05:600c:8711:b0:43d:934:ea97 with SMTP id 5b1f17b1804b1-4406ac0f82bmr69263145e9.27.1745142509826;
+        Sun, 20 Apr 2025 02:48:29 -0700 (PDT)
 Received: from cypher.home.roving-it.com (2.c.4.1.7.3.6.4.2.a.a.3.0.f.c.2.1.8.6.2.1.1.b.f.0.b.8.0.1.0.0.2.ip6.arpa. [2001:8b0:fb11:2681:2cf0:3aa2:4637:14c2])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-39efa43bef1sm8273712f8f.49.2025.04.20.02.48.29
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-39efa43bef1sm8273712f8f.49.2025.04.20.02.48.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 20 Apr 2025 02:48:30 -0700 (PDT)
+        Sun, 20 Apr 2025 02:48:29 -0700 (PDT)
 From: Peter Robinson <pbrobinson@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -82,17 +82,17 @@ To: Rob Herring <robh@kernel.org>,
 	linux-sunxi@lists.linux.dev,
 	Dragan Simic <dsimic@manjaro.org>
 Cc: Peter Robinson <pbrobinson@gmail.com>
-Subject: [PATCH v4 2/2] arm64: dts: allwinner: a64: Add WiFi/BT header on SOPINE Baseboard
-Date: Sun, 20 Apr 2025 10:48:05 +0100
-Message-ID: <20250420094823.954073-3-pbrobinson@gmail.com>
+Subject: [PATCH v4 1/2] arm64: dts: allwinner: a64: Add WiFi/BT header on PINE A64
+Date: Sun, 20 Apr 2025 10:48:04 +0100
+Message-ID: <20250420094823.954073-2-pbrobinson@gmail.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250420094823.954073-1-pbrobinson@gmail.com>
 References: <20250420094823.954073-1-pbrobinson@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250420_024832_269748_B322EED7 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20250420_024831_771433_913CD6E1 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,21 +108,21 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 This adds all the pin mappings on the WiFi/BT header on
-the SOPINE Baseboard/A64-LTS. They're disabled by default
-as the modules don't ship by default. This includes, where
-they haven't been already, UART1 for BT and mmc1 for WiFi.
+the original Pine64. They're disabled by default as the
+modules don't ship by default. This includes, where they
+haven't been already, UART1 for BT and mmc1 for WiFi.
 
 Signed-off-by: Peter Robinson <pbrobinson@gmail.com>
 ---
- .../allwinner/sun50i-a64-sopine-baseboard.dts | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
+ arch/arm64/boot/dts/allwinner/sun50i-a64-pine64.dts | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a64-sopine-baseboard.dts b/arch/arm64/boot/dts/allwinner/sun50i-a64-sopine-baseboard.dts
-index be2347c8f267..231e652cab67 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-a64-sopine-baseboard.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-a64-sopine-baseboard.dts
-@@ -103,6 +103,17 @@ ext_rgmii_phy: ethernet-phy@1 {
- 	};
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a64-pine64.dts b/arch/arm64/boot/dts/allwinner/sun50i-a64-pine64.dts
+index 09e71fd60785..3256acec1ff9 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-a64-pine64.dts
++++ b/arch/arm64/boot/dts/allwinner/sun50i-a64-pine64.dts
+@@ -124,6 +124,17 @@ &mmc0 {
+ 	status = "okay";
  };
  
 +/* On Wifi/BT connector */
@@ -136,24 +136,17 @@ index be2347c8f267..231e652cab67 100644
 +	status = "disabled";
 +};
 +
- &mmc2 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&mmc2_pins>;
-@@ -175,6 +186,14 @@ &uart0 {
+ &ohci0 {
  	status = "okay";
  };
- 
-+/* On Wifi/BT connector, with RTS/CTS */
-+&uart1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart1_pins>, <&uart1_rts_cts_pins>;
-+	uart-has-rtscts;
-+	status = "disabled";
-+};
-+
- /* On Pi-2 connector */
- &uart2 {
+@@ -286,6 +297,7 @@ &uart0 {
+ &uart1 {
  	pinctrl-names = "default";
+ 	pinctrl-0 = <&uart1_pins>, <&uart1_rts_cts_pins>;
++	uart-has-rtscts;
+ 	status = "disabled";
+ };
+ 
 -- 
 2.49.0
 
