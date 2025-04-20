@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8F11C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Apr 2025 04:50:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76C0FC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Apr 2025 08:35:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z1G2Dm6rKu7rk3z89zZGg6Bjh+jtTMP51Qd7TFFiGvA=; b=IZ7Jcqtpo3bTue4U5VOqAOoUE6
-	JLZWeEH9cVH48Zm42s8EW9VBhFF7lW0imLRIJuX6mHIIN+0mBsblKGiUv7SW0e3lGkTdW5X//i3PS
-	gPd1NHiLbrMaeH5MwPgScl/mQJBMhdcsqjrejfc6O4Jylgse+kzBcQZd0OPS8fGJ5SNVAGz+UQX0y
-	4MaRBsRY57WBnKEj/njiPSfxDMZUowTLA+WQz8tc+xqIevX/8TkAM3YoRkVViPwJOQGKDLymJo9/B
-	9U/g6rShSfulzTZZUisxg4kYRWkAu2Sb0kwcX9cCAxX8Tq6NrurEsrFK08cDeWiXh5Z2yXYIp987i
-	Zha2JTpQ==;
+	bh=O6sRao24T5NMDYQzrO24ScZHs2OAYhD3pljdxfPJbSU=; b=BTe/VlgU7l+dqGOTl/IahMPX/k
+	wdsdkI64REB3/Eq3/Y8KpmskBVn+9uTa7lkFvXYz/5EM70JudIIxdcNeAtvMMT5dNQLrjayuAZxOl
+	mtNKZmc7TIfh0WvsNSTFX30Tvy8zMQQFX/qmdvvXn91RDSnn2tqUi2J8MRtb2CsAS5z3BGZgcQG1i
+	cdZ0Gzp66diljUl9bXxx0dfL2ncy66mGe1IeGvYWVgAu88q0lpwwsp7bOybB+dSeTAqkW63h+ZVkG
+	cOXPopF9s9bSsLEH+lyZppYOp2VKil3jo/33hLAJXnX+0s3NhX73ChCODR89odPrNQ0d23Zvj6Bnl
+	yOSeQRwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6Mcv-00000002CdD-17WD;
-	Sun, 20 Apr 2025 04:49:57 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1u6Q8V-00000002MmK-1GtI;
+	Sun, 20 Apr 2025 08:34:47 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6May-00000002CWr-2fku
+	id 1u6Q6b-00000002MXW-21y4
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Apr 2025 04:47:58 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53K4lptF615628
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Sat, 19 Apr 2025 23:47:51 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745124471;
-	bh=z1G2Dm6rKu7rk3z89zZGg6Bjh+jtTMP51Qd7TFFiGvA=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=HzykAtYYc+nFeyg7SIAkjlXVhpd6T/vUwe7F4OWs/Wvzm5TlS70ksZNWVnvUvWgUv
-	 hPA9ixZqrIUO9dU+OV3Ui5I1zY59KOc6Ig+h/7D2EJ7KHNkbI7Qj45ShrniOB+h6aX
-	 hccCBMBO58ylZ1RsLHSnygENwbFoFMDPbfpoLRXY=
-Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53K4lpRC006239
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Sat, 19 Apr 2025 23:47:51 -0500
-Received: from DLEE104.ent.ti.com (157.170.170.34) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Sat, 19
- Apr 2025 23:47:51 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE104.ent.ti.com
- (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Sat, 19 Apr 2025 23:47:50 -0500
-Received: from [10.249.141.75] ([10.249.141.75])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53K4ll1h026498;
-	Sat, 19 Apr 2025 23:47:47 -0500
-Message-ID: <d517b2bb-2bf2-44ec-8509-6281c5566972@ti.com>
-Date: Sun, 20 Apr 2025 10:17:46 +0530
+	Sun, 20 Apr 2025 08:32:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id D48FDA46DE2;
+	Sun, 20 Apr 2025 08:27:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A49FBC4CEE9;
+	Sun, 20 Apr 2025 08:32:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745137967;
+	bh=kAmsi9vTZz9AUiyiRwQ3MR3WqPY6jashPoegxjXEDQY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=DKEcs2kwrzlBJsO7VUvTe2aQA8KXyJjyftpIOqKWU/GiO6ixfYLiIaZ94DYhOXl6g
+	 Cu1rr4/wtzqQF9dDHu7oD1FAuQgfJIXpOkR8dXg9b6Rh6YPwCYHTh8Y8mHVaKjTBwN
+	 8Nfzv8vp+dvRQeq533NVdSbKCI5OoHG6oU4vNmOWmMkVE4ty7r/GV8HfYKgs/9iztA
+	 /MARa+CxO/Xt4icMksK9Cpp0y6q0fWB6FiqCDaYVokMf6DKzQVfCNqTtG43QbHDdtr
+	 s4ehE/IvoAj8Ia2eXXnFMD3ROPv2FCo/rjGg2C4DtpxxhWz/VCW96yTd19CnUKsCvB
+	 HH6WVi/McvbzQ==
+Received: from disco-boy.misterjones.org ([217.182.43.188] helo=www.loen.fr)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1u6Q6X-0075f9-1p;
+	Sun, 20 Apr 2025 09:32:45 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/7] arm64: dts: ti: k3-j7200-main: switch to 64-bit
- address space for PCIe1
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-CC: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        <u-kumar1@ti.com>
-References: <20250417120407.2646929-1-s-vadapalli@ti.com>
- <20250417120407.2646929-3-s-vadapalli@ti.com>
- <8b707fbc-9d82-48d0-a227-366d4e83e8a7@ti.com>
- <231e009e-0dc2-4876-b052-d11b64ee5a0a@ti.com>
-Content-Language: en-US
-From: "Kumar, Udit" <u-kumar1@ti.com>
-In-Reply-To: <231e009e-0dc2-4876-b052-d11b64ee5a0a@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Date: Sun, 20 Apr 2025 09:32:44 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ asahi@lists.linux.dev, Alyssa Rosenzweig <alyssa@rosenzweig.io>, Janne
+ Grunau <j@jannau.net>, Hector Martin <marcan@marcan.st>, Sven Peter
+ <sven@svenpeter.dev>, Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi
+ <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?=
+ <kw@linux.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Mark Kettenis <mark.kettenis@xs4all.nl>
+Subject: Re: [PATCH v3 00/13] PCI: apple: Add support for t6020
+In-Reply-To: <174507447951.53343.12422475035572217541.b4-ty@linaro.org>
+References: <20250401091713.2765724-1-maz@kernel.org>
+ <174507447951.53343.12422475035572217541.b4-ty@linaro.org>
+User-Agent: Roundcube Webmail/1.4.15
+Message-ID: <8be207b47f7e0f2d5e6381c74b0f4a6c@kernel.org>
+X-Sender: maz@kernel.org
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 217.182.43.188
+X-SA-Exim-Rcpt-To: manivannan.sadhasivam@linaro.org, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, asahi@lists.linux.dev, alyssa@rosenzweig.io, j@jannau.net, marcan@marcan.st, sven@svenpeter.dev, bhelgaas@google.com, lpieralisi@kernel.org, kw@linux.com, robh@kernel.org, krzk+dt@kernel.org, mark.kettenis@xs4all.nl
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250419_214756_775221_901F4BB7 
-X-CRM114-Status: GOOD (  20.70  )
+X-CRM114-CacheID: sfid-20250420_013249_658962_0AF26A54 
+X-CRM114-Status: GOOD (  16.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,100 +91,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Siddharth
+On 2025-04-19 15:59, Manivannan Sadhasivam wrote:
+> On Tue, 01 Apr 2025 10:17:00 +0100, Marc Zyngier wrote:
+>> As Alyssa didn't have the bandwidth to deal with this series, I have
+>> taken it over. All bugs are therefore mine.
+>> 
+>> The initial series [1] stated:
+>> 
+>> "This series adds T6020 support to the Apple PCIe controller. Mostly
+>>  Apple shuffled registers around (presumably to accommodate the larger
+>>  configurations on those machines). So there's a bit of churn here but
+>>  not too much in the way of functional changes."
+>> 
+>> [...]
+> 
+> Applied, thanks!
+> 
+> [01/13] PCI: apple: Set only available ports up
+>         commit: 751bec089c4eed486578994abd2c5395f08d0302
+> [02/13] dt-bindings: pci: apple,pcie: Add t6020 compatible string
+>         commit: 6b7f49be74758a60b760d6c19a48f65a23511dbe
+> [03/13] PCI: host-generic: Extract an ecam bridge creation helper from
+> pci_host_common_probe()
+>         commit: 03d6077605a24f6097681f7938820ac93068115e
+> [04/13] PCI: ecam: Allow cfg->priv to be pre-populated from the root 
+> port device
+>         commit: f998e79b80da3d4f1756d3289f63289fb833f860
+> [05/13] PCI: apple: Move over to standalone probing
+>         commit: cf3120fe852f5a5ff896aa3b2b6a0dfd9676ac31
+> [06/13] PCI: apple: Dynamically allocate RID-to_SID bitmap
+>         commit: d5d64a71ec55235810b4ef8256c7f400b24d7ce8
+> [07/13] PCI: apple: Move away from INTMSK{SET,CLR} for INTx and
+> private interrupts
+>         commit: 0dcb32f3e12e56f5f3bc659195e5691acbfb299d
+> [08/13] PCI: apple: Fix missing OF node reference in 
+> apple_pcie_setup_port
+>         commit: 02a982baee109180da03bb8e7e89cf63f0232f93
+> [09/13] PCI: apple: Move port PHY registers to their own reg items
+>         commit: 5da38e665ad59b15e4b8788d4c695c64f13a53e7
+> [10/13] PCI: apple: Drop poll for CORE_RC_PHYIF_STAT_REFCLK
+>         commit: 3add0420d2574344fc2b29d70cfde25bd9d67d47
+> [11/13] PCI: apple: Use gpiod_set_value_cansleep in probe flow
+>         commit: 484af093984c35773ee01067b8cea440c5d7e78c
+> [12/13] PCI: apple: Abstract register offsets via a SoC-specific 
+> structure
+>         commit: 0643c963ed0f902e94b813fdcbf97cbea48a6d1a
+> [13/13] PCI: apple: Add T602x PCIe support
+>         commit: f80bfbf4f11758c9e1817f543cd97e66c449d1b4
+> 
+> I've fixed some trivial conflicts while applying. But please check the 
+> end
+> result to make sure I didn't mess up:
+> 
+> https://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git/log/?h=controller/apple
 
-On 4/20/2025 8:33 AM, Siddharth Vadapalli wrote:
-> On Sat, Apr 19, 2025 at 11:35:50PM +0530, Kumar, Udit wrote:
->
-> Hello Udit,
->
->> On 4/17/2025 5:34 PM, Siddharth Vadapalli wrote:
->>> The PCIe0 instance of PCIe in J7200 SoC supports:
->>> 1. 128 MB address region in the 32-bit address space
->>> 2. 4 GB address region in the 64-bit address space
->>>
->>> The default configuration is that of a 128 MB address region in the
->>> 32-bit address space. While this might be sufficient for most use-cases,
->>> it is insufficient for supporting use-cases which require larger address
->>> spaces. Therefore, switch to using the 64-bit address space with a 4 GB
->>> address region.
->>>
->>> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
->>> ---
->>>    arch/arm64/boot/dts/ti/k3-j7200-main.dtsi | 7 ++++---
->>>    1 file changed, 4 insertions(+), 3 deletions(-)
->>>
->>> diff --git a/arch/arm64/boot/dts/ti/k3-j7200-main.dtsi b/arch/arm64/boot/dts/ti/k3-j7200-main.dtsi
->>> index 5ab510a0605f..e898dffdebbe 100644
->>> --- a/arch/arm64/boot/dts/ti/k3-j7200-main.dtsi
->>> +++ b/arch/arm64/boot/dts/ti/k3-j7200-main.dtsi
->>> @@ -759,7 +759,7 @@ pcie1_rc: pcie@2910000 {
->>>    		reg = <0x00 0x02910000 0x00 0x1000>,
->>>    		      <0x00 0x02917000 0x00 0x400>,
->>>    		      <0x00 0x0d800000 0x00 0x00800000>,
->>> -		      <0x00 0x18000000 0x00 0x00001000>;
->>> +		      <0x41 0x00000000 0x00 0x00001000>;
->>>    		reg-names = "intd_cfg", "user_cfg", "reg", "cfg";
->>>    		interrupt-names = "link_state";
->>>    		interrupts = <GIC_SPI 330 IRQ_TYPE_EDGE_RISING>;
->>> @@ -778,8 +778,9 @@ pcie1_rc: pcie@2910000 {
->>>    		device-id = <0xb00f>;
->>>    		msi-map = <0x0 &gic_its 0x0 0x10000>;
->>>    		dma-coherent;
->>> -		ranges = <0x01000000 0x0 0x18001000  0x00 0x18001000  0x0 0x0010000>,
->>> -			 <0x02000000 0x0 0x18011000  0x00 0x18011000  0x0 0x7fef000>;
->>> +		ranges = <0x01000000 0x00 0x00001000 0x41 0x00001000 0x00 0x00100000>, /* IO (1 MB) */
->>> +			 <0x02000000 0x00 0x00101000 0x41 0x00101000 0x00 0x08000000>, /* 32-bit Non-Prefetchable MEM (128 MB) */
->>> +			 <0x43000000 0x41 0x08101000 0x41 0x08101000 0x00 0xf7eff000>; /* 64-bit Prefetchable MEM (4 GB - (129 MB + 4 KB)) */
->> Sorry for novice question,
->>
->> with this change,  How do you see  old EP working which supports 32 bit
->> addressing,
->>
->> or some translation is possible ?
->>
->> 0x43000000 0x41 0x08101000 0x41 0x08101000 0x00 0xf7eff000>
->>
->> to
->>
->> 0x63000000 0x00 0x08101000 0x41 0x08101000 0x00 0xf7eff000>
-> I didn't understand the question completely, but I shall try to explain
-> the changes being made which might possibly answer your question.
+I did my own rebase and came up with similar resolutions. The result
+booted on my M2-pro mini without issue, so it looks OK to me.
 
-If I understood well then what you are doing here
+Thanks,
 
-0x43000000 0x41 0x08101000 0x41 0x08101000 0x00 0xf7eff000>
-
-PCIe address
-0x43000000 0x41 0x08101000 -->
-Property 0x43
-0x43 as npt000ss ->relocatable, prefetch and 64 Bit memory space PCIe Bus address  0x41 0x08101000
-CPU address space 0x41 0x08101000
-This will work fine, if EP supports 64 bit addressing scheme.
-
-In case, we want to work with EP of 32 Bit, Then do you see , we need to relocate PCIe (lower 32 bits) to CPU address (64 bits)
-
-
-
-> The ranges property for PCIe is different from the one for other
-> peripherals and is defined as described at:
-> https://elinux.org/Device_Tree_Usage#PCI_Address_Translation
->
-> With this patch series, the PCIe downstream devices - Switches, Endpoints -
-> will be assigned IO/Mem regions within the 64-bit CPU address space.
->
-> IO and 32-bit Non-Prefetchable MEM regions have the same PCIe Bus
-> Addresses as before which fall in the 32-bit PCIe Bus Address space.
-> It is only the newly added 64-bit Prefetchable MEM region that falls in
-> the 64-bit PCIe Bus Address space.
->
-> Please let me know if you require further clarification.
-
-
-Sure, will ping you :)
-
-
->
-> Regards,
-> Siddharth.
+         M.
+-- 
+Jazz is not dead. It just smells funny...
 
