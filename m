@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BEECC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Apr 2025 19:41:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6679C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Apr 2025 19:43:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZL3xL18OqBepeI2rMRy6I/9dIf6929xtLwXTLCkttl8=; b=v3l3A3BdZ+HEzI04WHAyOScVet
-	TX9/xpW+S8MgVSLd+fOAZ/cXajjHuiK2BrWghvm6/idy13OiY1Du7dK8LwCIaZAnWkzhrDY4QZULz
-	nRpES/7t1vhFUYYODBIcqsgMW3dZMdyd0DynAL8w0lyQLhO7/DSku//O1QbdIOS4PWiHnJgWsTv1T
-	cB91qbg8p/Wj281JF8x+LhAQaFgqs3DQq34nThQmQONaw7173FDxPeWGvDM80zUPObsc6D0Zi6I5o
-	n6VZR2l0P1J1lY0NlXVVH4DEMczy471QNrP7yyJtLH1tZTGU9XQNf7G/vsT5Qli1WBYqs7Lp6RDdA
-	jzcKbcIA==;
+	bh=JTbO3bkLwy7G2nJqTkGEYXUtBveaaxyR2UC7H7HLcoU=; b=ym0j3TPmGgouCIsmI4VLoqvC7l
+	B+z1ZO7+tF5FjrLWkb2KgPg7RucfzxIXu4FRr/ejTjClc3iPinf0j7X4JTRonC7gVHyK6S/rf4ruG
+	dxpLbycJHmn7BAg5jrLaDX8GhKnVePl/o88DLwZJrD2nS0GbrIyrgpvgB9yrYJGefjfNQCqj7AFom
+	208znejbTxLZy9B2VGdgTlzHjeR2lNeWVcoUML8sxMQ7ReufvtXkoeVHQ2DJ0cn/+INgms9UbEzqW
+	9fQX+kRJQ+/3X7hxaXjc8aCgYYQwu5iBcBx4LWCyRytWseuou0ZGo6rUsO8yd7G2Rx+EfF0+Bd6tH
+	l4MkIOTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6aXl-00000002yQY-0Di2;
-	Sun, 20 Apr 2025 19:41:33 +0000
+	id 1u6aZd-00000002yoL-1tj8;
+	Sun, 20 Apr 2025 19:43:29 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6aKL-00000002vh3-0mR7;
-	Sun, 20 Apr 2025 19:27:43 +0000
+	id 1u6aKL-00000002viB-2rDt;
+	Sun, 20 Apr 2025 19:27:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 184C94A70B;
-	Sun, 20 Apr 2025 19:27:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10A2BC4CEE2;
+	by sea.source.kernel.org (Postfix) with ESMTP id 0A5E74A6E8;
+	Sun, 20 Apr 2025 19:27:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F183DC4CEED;
 	Sun, 20 Apr 2025 19:27:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745177260;
-	bh=qN/B6X2mvQN94BK3RyJeOZTVFWohKhnnWgVazqat/cI=;
+	s=k20201202; t=1745177261;
+	bh=JceMeyvHZFS3hU3osMnM8DtDXrhU/UjeqoFMt/NCYhM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=h6dG+ABppE74ITCWwKY1e/iBpLDE6OAQ81JEKnxMExRPfYAeK3DLvhs5iwtqB9Pal
-	 sifuLdiw3iJu7jDMC3pUAV1Ce/ByP37RI2Ua+WKCCHExfJk+szUnY8WQjS+htLskcx
-	 HNBMnxUcR1OuQLJckDCjDkcDuxfl2XJWRSjRBz/TllBOPlh6JPYqZMliw2q7/RDVzU
-	 ehTb7IR4X3rA59pQygK7EIkZMPyyPedmoSQ3I8QXR7+iTVoiRuk557p9LGmzW9tuEE
-	 UH/zTjCTTke5kYyHItZNEx3NKHULyaC3ePouNyZK2maqgtd0D2RPu/gtkYLxcEpdCp
-	 EiAaUdsAIGLqg==
+	b=ZCkUDe2S72itq2OYuxxdcNB38pxf0twZvxcIytZW+K9b6WjYA0TAIwlMai/eahJAx
+	 w8hnWfFuUPwQIEWcmraLbu+8LuMqAmesx2H0tNclifUpqnw3RlSCtQJQXl7qosnV2B
+	 X9dfT634nEyucjsrsXXn2P/ZQhmdjtoJhC5zA8zcTDZzetaY0MekSgwZdqf1NxO2DG
+	 rGjDYkc5mRCzY0avNxgFZx69VsIWcl/xjeGBuZUOG9mWyOjDRjtgn9xGXhXEkHed9d
+	 0Qkk02QD/yLL5xsi23VAlR3hd1WRfL/GqaURyDQikpiyFjKT3o0P20ZHdJC6pdJW+2
+	 BorTK//xE0hgg==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-arch@vger.kernel.org,
@@ -53,17 +53,17 @@ Cc: linux-arch@vger.kernel.org,
 	x86@kernel.org,
 	"Jason A . Donenfeld" <Jason@zx2c4.com>,
 	Ard Biesheuvel <ardb@kernel.org>
-Subject: [PATCH v2 07/13] crypto: mips - move library functions to arch/mips/lib/crypto/
-Date: Sun, 20 Apr 2025 12:26:03 -0700
-Message-ID: <20250420192609.295075-8-ebiggers@kernel.org>
+Subject: [PATCH v2 09/13] crypto: riscv - move library functions to arch/riscv/lib/crypto/
+Date: Sun, 20 Apr 2025 12:26:05 -0700
+Message-ID: <20250420192609.295075-10-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250420192609.295075-1-ebiggers@kernel.org>
 References: <20250420192609.295075-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250420_122741_330012_9A3F3AEA 
-X-CRM114-Status: GOOD (  14.31  )
+X-CRM114-CacheID: sfid-20250420_122741_782274_9F387EBA 
+X-CRM114-Status: GOOD (  15.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,188 +81,122 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 From: Eric Biggers <ebiggers@google.com>
 
 Continue disentangling the crypto library functions from the generic
-crypto infrastructure by moving the mips ChaCha and Poly1305 library
-functions into a new directory arch/mips/lib/crypto/ that does not
-depend on CRYPTO.  This mirrors the distinction between crypto/ and
-lib/crypto/.
+crypto infrastructure by moving the riscv ChaCha library functions into
+a new directory arch/riscv/lib/crypto/ that does not depend on CRYPTO.
+This mirrors the distinction between crypto/ and lib/crypto/.
 
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- arch/mips/crypto/Kconfig                    | 11 -----------
- arch/mips/crypto/Makefile                   | 17 -----------------
- arch/mips/lib/Makefile                      |  2 ++
- arch/mips/lib/crypto/.gitignore             |  2 ++
- arch/mips/lib/crypto/Kconfig                | 12 ++++++++++++
- arch/mips/lib/crypto/Makefile               | 19 +++++++++++++++++++
- arch/mips/{ => lib}/crypto/chacha-core.S    |  0
- arch/mips/{ => lib}/crypto/chacha-glue.c    |  0
- arch/mips/{ => lib}/crypto/poly1305-glue.c  |  0
- arch/mips/{ => lib}/crypto/poly1305-mips.pl |  0
- lib/crypto/Kconfig                          |  3 +++
- 11 files changed, 38 insertions(+), 28 deletions(-)
- create mode 100644 arch/mips/lib/crypto/.gitignore
- create mode 100644 arch/mips/lib/crypto/Kconfig
- create mode 100644 arch/mips/lib/crypto/Makefile
- rename arch/mips/{ => lib}/crypto/chacha-core.S (100%)
- rename arch/mips/{ => lib}/crypto/chacha-glue.c (100%)
- rename arch/mips/{ => lib}/crypto/poly1305-glue.c (100%)
- rename arch/mips/{ => lib}/crypto/poly1305-mips.pl (100%)
+ arch/riscv/crypto/Kconfig                         | 7 -------
+ arch/riscv/crypto/Makefile                        | 3 ---
+ arch/riscv/lib/Makefile                           | 1 +
+ arch/riscv/lib/crypto/Kconfig                     | 8 ++++++++
+ arch/riscv/lib/crypto/Makefile                    | 4 ++++
+ arch/riscv/{ => lib}/crypto/chacha-riscv64-glue.c | 0
+ arch/riscv/{ => lib}/crypto/chacha-riscv64-zvkb.S | 0
+ lib/crypto/Kconfig                                | 3 +++
+ 8 files changed, 16 insertions(+), 10 deletions(-)
+ create mode 100644 arch/riscv/lib/crypto/Kconfig
+ create mode 100644 arch/riscv/lib/crypto/Makefile
+ rename arch/riscv/{ => lib}/crypto/chacha-riscv64-glue.c (100%)
+ rename arch/riscv/{ => lib}/crypto/chacha-riscv64-zvkb.S (100%)
 
-diff --git a/arch/mips/crypto/Kconfig b/arch/mips/crypto/Kconfig
-index 8283664a1f24b..9db1fd6d9f0e0 100644
---- a/arch/mips/crypto/Kconfig
-+++ b/arch/mips/crypto/Kconfig
-@@ -1,14 +1,9 @@
- # SPDX-License-Identifier: GPL-2.0
+diff --git a/arch/riscv/crypto/Kconfig b/arch/riscv/crypto/Kconfig
+index 27a1f26d41bde..4863be2a4ec2f 100644
+--- a/arch/riscv/crypto/Kconfig
++++ b/arch/riscv/crypto/Kconfig
+@@ -16,17 +16,10 @@ config CRYPTO_AES_RISCV64
+ 	  - Zvkned vector crypto extension
+ 	  - Zvbb vector extension (XTS)
+ 	  - Zvkb vector crypto extension (CTR)
+ 	  - Zvkg vector crypto extension (XTS)
  
- menu "Accelerated Cryptographic Algorithms for CPU (mips)"
- 
--config CRYPTO_POLY1305_MIPS
+-config CRYPTO_CHACHA_RISCV64
 -	tristate
--	select CRYPTO_ARCH_HAVE_LIB_POLY1305
--	default CRYPTO_LIB_POLY1305_INTERNAL
--
- config CRYPTO_MD5_OCTEON
- 	tristate "Digests: MD5 (OCTEON)"
- 	depends on CPU_CAVIUM_OCTEON
- 	select CRYPTO_MD5
- 	select CRYPTO_HASH
-@@ -45,12 +40,6 @@ config CRYPTO_SHA512_OCTEON
- 	help
- 	  SHA-384 and SHA-512 secure hash algorithms (FIPS 180)
- 
- 	  Architecture: mips OCTEON using crypto instructions, when available
- 
--config CRYPTO_CHACHA_MIPS
--	tristate
--	depends on CPU_MIPS32_R2
+-	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
 -	select CRYPTO_ARCH_HAVE_LIB_CHACHA
+-	select CRYPTO_LIB_CHACHA_GENERIC
 -	default CRYPTO_LIB_CHACHA_INTERNAL
 -
- endmenu
-diff --git a/arch/mips/crypto/Makefile b/arch/mips/crypto/Makefile
-index fddc882814123..5adb631a69c18 100644
---- a/arch/mips/crypto/Makefile
-+++ b/arch/mips/crypto/Makefile
-@@ -1,22 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0
- #
- # Makefile for MIPS crypto files..
- #
+ config CRYPTO_GHASH_RISCV64
+ 	tristate "Hash functions: GHASH"
+ 	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
+ 	select CRYPTO_GCM
+ 	help
+diff --git a/arch/riscv/crypto/Makefile b/arch/riscv/crypto/Makefile
+index 247c7bc7288ce..4ae9bf762e907 100644
+--- a/arch/riscv/crypto/Makefile
++++ b/arch/riscv/crypto/Makefile
+@@ -2,13 +2,10 @@
  
--obj-$(CONFIG_CRYPTO_CHACHA_MIPS) += chacha-mips.o
--chacha-mips-y := chacha-core.o chacha-glue.o
--AFLAGS_chacha-core.o += -O2 # needed to fill branch delay slots
--
--obj-$(CONFIG_CRYPTO_POLY1305_MIPS) += poly1305-mips.o
--poly1305-mips-y := poly1305-core.o poly1305-glue.o
--
--perlasm-flavour-$(CONFIG_32BIT) := o32
--perlasm-flavour-$(CONFIG_64BIT) := 64
--
--quiet_cmd_perlasm = PERLASM $@
--      cmd_perlasm = $(PERL) $(<) $(perlasm-flavour-y) $(@)
--
--$(obj)/poly1305-core.S: $(src)/poly1305-mips.pl FORCE
--	$(call if_changed,perlasm)
--
--targets += poly1305-core.S
-diff --git a/arch/mips/lib/Makefile b/arch/mips/lib/Makefile
-index 9c024e6d5e54c..9d75845ef78e1 100644
---- a/arch/mips/lib/Makefile
-+++ b/arch/mips/lib/Makefile
-@@ -1,10 +1,12 @@
- # SPDX-License-Identifier: GPL-2.0
- #
- # Makefile for MIPS-specific library files..
- #
+ obj-$(CONFIG_CRYPTO_AES_RISCV64) += aes-riscv64.o
+ aes-riscv64-y := aes-riscv64-glue.o aes-riscv64-zvkned.o \
+ 		 aes-riscv64-zvkned-zvbb-zvkg.o aes-riscv64-zvkned-zvkb.o
  
-+obj-y	+= crypto/
-+
- lib-y	+= bitops.o csum_partial.o delay.o memcpy.o memset.o \
- 	   mips-atomic.o strncpy_user.o \
- 	   strnlen_user.o uncached.o
+-obj-$(CONFIG_CRYPTO_CHACHA_RISCV64) += chacha-riscv64.o
+-chacha-riscv64-y := chacha-riscv64-glue.o chacha-riscv64-zvkb.o
+-
+ obj-$(CONFIG_CRYPTO_GHASH_RISCV64) += ghash-riscv64.o
+ ghash-riscv64-y := ghash-riscv64-glue.o ghash-riscv64-zvkg.o
  
- obj-y			+= iomap_copy.o
-diff --git a/arch/mips/lib/crypto/.gitignore b/arch/mips/lib/crypto/.gitignore
+ obj-$(CONFIG_CRYPTO_SHA256_RISCV64) += sha256-riscv64.o
+ sha256-riscv64-y := sha256-riscv64-glue.o sha256-riscv64-zvknha_or_zvknhb-zvkb.o
+diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+index b1c46153606a6..0baec92d2f55b 100644
+--- a/arch/riscv/lib/Makefile
++++ b/arch/riscv/lib/Makefile
+@@ -1,6 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0-only
++obj-y			+= crypto/
+ lib-y			+= delay.o
+ lib-y			+= memcpy.o
+ lib-y			+= memset.o
+ lib-y			+= memmove.o
+ ifeq ($(CONFIG_KASAN_GENERIC)$(CONFIG_KASAN_SW_TAGS),)
+diff --git a/arch/riscv/lib/crypto/Kconfig b/arch/riscv/lib/crypto/Kconfig
 new file mode 100644
-index 0000000000000..0d47d4f21c6de
+index 0000000000000..46ce2a7ac1f2c
 --- /dev/null
-+++ b/arch/mips/lib/crypto/.gitignore
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+poly1305-core.S
-diff --git a/arch/mips/lib/crypto/Kconfig b/arch/mips/lib/crypto/Kconfig
-new file mode 100644
-index 0000000000000..5b82ba753c55c
---- /dev/null
-+++ b/arch/mips/lib/crypto/Kconfig
-@@ -0,0 +1,12 @@
++++ b/arch/riscv/lib/crypto/Kconfig
+@@ -0,0 +1,8 @@
 +# SPDX-License-Identifier: GPL-2.0-only
 +
-+config CRYPTO_CHACHA_MIPS
++config CRYPTO_CHACHA_RISCV64
 +	tristate
-+	depends on CPU_MIPS32_R2
++	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
 +	default CRYPTO_LIB_CHACHA_INTERNAL
 +	select CRYPTO_ARCH_HAVE_LIB_CHACHA
-+
-+config CRYPTO_POLY1305_MIPS
-+	tristate
-+	default CRYPTO_LIB_POLY1305_INTERNAL
-+	select CRYPTO_ARCH_HAVE_LIB_POLY1305
-diff --git a/arch/mips/lib/crypto/Makefile b/arch/mips/lib/crypto/Makefile
++	select CRYPTO_LIB_CHACHA_GENERIC
+diff --git a/arch/riscv/lib/crypto/Makefile b/arch/riscv/lib/crypto/Makefile
 new file mode 100644
-index 0000000000000..804488c7adedc
+index 0000000000000..e27b78f317fc8
 --- /dev/null
-+++ b/arch/mips/lib/crypto/Makefile
-@@ -0,0 +1,19 @@
++++ b/arch/riscv/lib/crypto/Makefile
+@@ -0,0 +1,4 @@
 +# SPDX-License-Identifier: GPL-2.0-only
 +
-+obj-$(CONFIG_CRYPTO_CHACHA_MIPS) += chacha-mips.o
-+chacha-mips-y := chacha-core.o chacha-glue.o
-+AFLAGS_chacha-core.o += -O2 # needed to fill branch delay slots
-+
-+obj-$(CONFIG_CRYPTO_POLY1305_MIPS) += poly1305-mips.o
-+poly1305-mips-y := poly1305-core.o poly1305-glue.o
-+
-+perlasm-flavour-$(CONFIG_32BIT) := o32
-+perlasm-flavour-$(CONFIG_64BIT) := 64
-+
-+quiet_cmd_perlasm = PERLASM $@
-+      cmd_perlasm = $(PERL) $(<) $(perlasm-flavour-y) $(@)
-+
-+$(obj)/poly1305-core.S: $(src)/poly1305-mips.pl FORCE
-+	$(call if_changed,perlasm)
-+
-+targets += poly1305-core.S
-diff --git a/arch/mips/crypto/chacha-core.S b/arch/mips/lib/crypto/chacha-core.S
++obj-$(CONFIG_CRYPTO_CHACHA_RISCV64) += chacha-riscv64.o
++chacha-riscv64-y := chacha-riscv64-glue.o chacha-riscv64-zvkb.o
+diff --git a/arch/riscv/crypto/chacha-riscv64-glue.c b/arch/riscv/lib/crypto/chacha-riscv64-glue.c
 similarity index 100%
-rename from arch/mips/crypto/chacha-core.S
-rename to arch/mips/lib/crypto/chacha-core.S
-diff --git a/arch/mips/crypto/chacha-glue.c b/arch/mips/lib/crypto/chacha-glue.c
+rename from arch/riscv/crypto/chacha-riscv64-glue.c
+rename to arch/riscv/lib/crypto/chacha-riscv64-glue.c
+diff --git a/arch/riscv/crypto/chacha-riscv64-zvkb.S b/arch/riscv/lib/crypto/chacha-riscv64-zvkb.S
 similarity index 100%
-rename from arch/mips/crypto/chacha-glue.c
-rename to arch/mips/lib/crypto/chacha-glue.c
-diff --git a/arch/mips/crypto/poly1305-glue.c b/arch/mips/lib/crypto/poly1305-glue.c
-similarity index 100%
-rename from arch/mips/crypto/poly1305-glue.c
-rename to arch/mips/lib/crypto/poly1305-glue.c
-diff --git a/arch/mips/crypto/poly1305-mips.pl b/arch/mips/lib/crypto/poly1305-mips.pl
-similarity index 100%
-rename from arch/mips/crypto/poly1305-mips.pl
-rename to arch/mips/lib/crypto/poly1305-mips.pl
+rename from arch/riscv/crypto/chacha-riscv64-zvkb.S
+rename to arch/riscv/lib/crypto/chacha-riscv64-zvkb.S
 diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
-index 7395234d654b7..c5c01bc3569d5 100644
+index 4b3e94ed84bb6..0b06c25eb38a5 100644
 --- a/lib/crypto/Kconfig
 +++ b/lib/crypto/Kconfig
-@@ -160,8 +160,11 @@ if ARM
- source "arch/arm/lib/crypto/Kconfig"
+@@ -166,8 +166,11 @@ if MIPS
+ source "arch/mips/lib/crypto/Kconfig"
  endif
- if ARM64
- source "arch/arm64/lib/crypto/Kconfig"
+ if PPC
+ source "arch/powerpc/lib/crypto/Kconfig"
  endif
-+if MIPS
-+source "arch/mips/lib/crypto/Kconfig"
++if RISCV
++source "arch/riscv/lib/crypto/Kconfig"
 +endif
  endif
  
