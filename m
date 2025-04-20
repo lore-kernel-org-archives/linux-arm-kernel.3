@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6679C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Apr 2025 19:43:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E90CC369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Apr 2025 19:45:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JTbO3bkLwy7G2nJqTkGEYXUtBveaaxyR2UC7H7HLcoU=; b=ym0j3TPmGgouCIsmI4VLoqvC7l
-	B+z1ZO7+tF5FjrLWkb2KgPg7RucfzxIXu4FRr/ejTjClc3iPinf0j7X4JTRonC7gVHyK6S/rf4ruG
-	dxpLbycJHmn7BAg5jrLaDX8GhKnVePl/o88DLwZJrD2nS0GbrIyrgpvgB9yrYJGefjfNQCqj7AFom
-	208znejbTxLZy9B2VGdgTlzHjeR2lNeWVcoUML8sxMQ7ReufvtXkoeVHQ2DJ0cn/+INgms9UbEzqW
-	9fQX+kRJQ+/3X7hxaXjc8aCgYYQwu5iBcBx4LWCyRytWseuou0ZGo6rUsO8yd7G2Rx+EfF0+Bd6tH
-	l4MkIOTw==;
+	bh=bB/n0tuy5MXIwOkt9tAaesxs0ng5wAqNy5T0xn6i1nA=; b=TB2D0vmSGwf73auqCPLcgXccMo
+	veRAy/97Wo4XbTNPXCrswP/pMSvkscv2fXp98Nfl/J3mbc/F+P5WFuIrp5rkI2XFou7K5ZElLbC8t
+	DVKBBjSSF/fwYPXAh7qKuJ92tQa9YmsQTp+iMBWCY7lalPpLId+vnkXDfRYylOFeOwXscXM8tkYcq
+	KxrNkuti1U7LyyJMYoda/S3shCb54WdNaZAvWuGyV9o6DyXGBlcKMfNdwLla01e+6Ar6eseKCzp8R
+	sQNXJBig/VKhQC2NwRAgfkTHK2NabsVAooegv1M/9PKKRqrCIZqlYezIklVzFOJeisCALvd6Gg7QU
+	6Dpzep1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6aZd-00000002yoL-1tj8;
-	Sun, 20 Apr 2025 19:43:29 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u6abV-00000002yvu-0iEE;
+	Sun, 20 Apr 2025 19:45:25 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6aKL-00000002viB-2rDt;
+	id 1u6aKO-00000002vlp-0LTk;
 	Sun, 20 Apr 2025 19:27:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0A5E74A6E8;
-	Sun, 20 Apr 2025 19:27:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F183DC4CEED;
-	Sun, 20 Apr 2025 19:27:40 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C49B961164;
+	Sun, 20 Apr 2025 19:27:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C88C2C4CEED;
+	Sun, 20 Apr 2025 19:27:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745177261;
-	bh=JceMeyvHZFS3hU3osMnM8DtDXrhU/UjeqoFMt/NCYhM=;
+	s=k20201202; t=1745177263;
+	bh=HMSzkB91c7IREkKSrVwmdHo1uPEnRz+uSzHzcQq/qGI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ZCkUDe2S72itq2OYuxxdcNB38pxf0twZvxcIytZW+K9b6WjYA0TAIwlMai/eahJAx
-	 w8hnWfFuUPwQIEWcmraLbu+8LuMqAmesx2H0tNclifUpqnw3RlSCtQJQXl7qosnV2B
-	 X9dfT634nEyucjsrsXXn2P/ZQhmdjtoJhC5zA8zcTDZzetaY0MekSgwZdqf1NxO2DG
-	 rGjDYkc5mRCzY0avNxgFZx69VsIWcl/xjeGBuZUOG9mWyOjDRjtgn9xGXhXEkHed9d
-	 0Qkk02QD/yLL5xsi23VAlR3hd1WRfL/GqaURyDQikpiyFjKT3o0P20ZHdJC6pdJW+2
-	 BorTK//xE0hgg==
+	b=d4LM7CNbFNHSY9hnaV2d6rZrucqFS5jA0FMbMBdwQhTnV7B6CFjDepHfolH+jxCrh
+	 5XrCpkEXF1CKL3Wv+meg+/WDdpWDdzMR6d0YTyx/HMTSK39QvEDQeB71H5T3OYMhbQ
+	 5VulWkvXdM9Xy1c1JPSKPDoyxWJdCE7DGFYzgLOZ3vzo4owv5FqfvufKOKkpiWf6ak
+	 UXWhl2RLrqSHRmi1NhZJ+h6oMbe+HEnlebNSYSvOQn5oR2L7vVspR7zZJYQhFQjLyp
+	 PtqZ72j6asn+SwPhNngp7lPFqIHWEE/AUUj4NuLpX4GKx59STfPOQ4Q/f6vEY1VZeM
+	 Yzu6bjYzg4QGw==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-arch@vger.kernel.org,
@@ -53,17 +53,14 @@ Cc: linux-arch@vger.kernel.org,
 	x86@kernel.org,
 	"Jason A . Donenfeld" <Jason@zx2c4.com>,
 	Ard Biesheuvel <ardb@kernel.org>
-Subject: [PATCH v2 09/13] crypto: riscv - move library functions to arch/riscv/lib/crypto/
-Date: Sun, 20 Apr 2025 12:26:05 -0700
-Message-ID: <20250420192609.295075-10-ebiggers@kernel.org>
+Subject: [PATCH v2 13/13] crypto: lib/poly1305 - remove INTERNAL symbol and selection of CRYPTO
+Date: Sun, 20 Apr 2025 12:26:09 -0700
+Message-ID: <20250420192609.295075-14-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250420192609.295075-1-ebiggers@kernel.org>
 References: <20250420192609.295075-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250420_122741_782274_9F387EBA 
-X-CRM114-Status: GOOD (  15.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,127 +77,145 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Eric Biggers <ebiggers@google.com>
 
-Continue disentangling the crypto library functions from the generic
-crypto infrastructure by moving the riscv ChaCha library functions into
-a new directory arch/riscv/lib/crypto/ that does not depend on CRYPTO.
-This mirrors the distinction between crypto/ and lib/crypto/.
+Now that the architecture-optimized Poly1305 kconfig symbols are visible
+without CRYPTO, there is no need for CRYPTO_LIB_POLY1305 to select
+CRYPTO.  So, remove that.  This makes the indirection through the
+CRYPTO_LIB_POLY1305_INTERNAL symbol unnecessary, so get rid of that and
+just use CRYPTO_LIB_POLY1305 directly.  Finally, make the fallback to
+the generic implementation use a default value instead of a select; this
+makes it consistent with how the arch-optimized code gets enabled and
+also with how CRYPTO_LIB_BLAKE2S_GENERIC gets enabled.
 
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- arch/riscv/crypto/Kconfig                         | 7 -------
- arch/riscv/crypto/Makefile                        | 3 ---
- arch/riscv/lib/Makefile                           | 1 +
- arch/riscv/lib/crypto/Kconfig                     | 8 ++++++++
- arch/riscv/lib/crypto/Makefile                    | 4 ++++
- arch/riscv/{ => lib}/crypto/chacha-riscv64-glue.c | 0
- arch/riscv/{ => lib}/crypto/chacha-riscv64-zvkb.S | 0
- lib/crypto/Kconfig                                | 3 +++
- 8 files changed, 16 insertions(+), 10 deletions(-)
- create mode 100644 arch/riscv/lib/crypto/Kconfig
- create mode 100644 arch/riscv/lib/crypto/Makefile
- rename arch/riscv/{ => lib}/crypto/chacha-riscv64-glue.c (100%)
- rename arch/riscv/{ => lib}/crypto/chacha-riscv64-zvkb.S (100%)
+ arch/arm/lib/crypto/Kconfig     |  2 +-
+ arch/arm64/lib/crypto/Kconfig   |  2 +-
+ arch/mips/lib/crypto/Kconfig    |  2 +-
+ arch/powerpc/lib/crypto/Kconfig |  2 +-
+ arch/x86/lib/crypto/Kconfig     |  2 +-
+ crypto/Kconfig                  |  2 +-
+ lib/crypto/Kconfig              | 16 +++++-----------
+ 7 files changed, 11 insertions(+), 17 deletions(-)
 
-diff --git a/arch/riscv/crypto/Kconfig b/arch/riscv/crypto/Kconfig
-index 27a1f26d41bde..4863be2a4ec2f 100644
---- a/arch/riscv/crypto/Kconfig
-+++ b/arch/riscv/crypto/Kconfig
-@@ -16,17 +16,10 @@ config CRYPTO_AES_RISCV64
- 	  - Zvkned vector crypto extension
- 	  - Zvbb vector extension (XTS)
- 	  - Zvkb vector crypto extension (CTR)
- 	  - Zvkg vector crypto extension (XTS)
+diff --git a/arch/arm/lib/crypto/Kconfig b/arch/arm/lib/crypto/Kconfig
+index 5d10bd13fc8df..e8444fd0aae30 100644
+--- a/arch/arm/lib/crypto/Kconfig
++++ b/arch/arm/lib/crypto/Kconfig
+@@ -18,7 +18,7 @@ config CRYPTO_CHACHA20_NEON
+ 	default CRYPTO_LIB_CHACHA
+ 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
  
--config CRYPTO_CHACHA_RISCV64
--	tristate
--	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
--	select CRYPTO_ARCH_HAVE_LIB_CHACHA
--	select CRYPTO_LIB_CHACHA_GENERIC
--	default CRYPTO_LIB_CHACHA_INTERNAL
--
- config CRYPTO_GHASH_RISCV64
- 	tristate "Hash functions: GHASH"
- 	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
- 	select CRYPTO_GCM
+ config CRYPTO_POLY1305_ARM
+ 	tristate
+-	default CRYPTO_LIB_POLY1305_INTERNAL
++	default CRYPTO_LIB_POLY1305
+ 	select CRYPTO_ARCH_HAVE_LIB_POLY1305
+diff --git a/arch/arm64/lib/crypto/Kconfig b/arch/arm64/lib/crypto/Kconfig
+index 2a8ff7cfc08d3..0b903ef524d85 100644
+--- a/arch/arm64/lib/crypto/Kconfig
++++ b/arch/arm64/lib/crypto/Kconfig
+@@ -8,7 +8,7 @@ config CRYPTO_CHACHA20_NEON
+ 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
+ 
+ config CRYPTO_POLY1305_NEON
+ 	tristate
+ 	depends on KERNEL_MODE_NEON
+-	default CRYPTO_LIB_POLY1305_INTERNAL
++	default CRYPTO_LIB_POLY1305
+ 	select CRYPTO_ARCH_HAVE_LIB_POLY1305
+diff --git a/arch/mips/lib/crypto/Kconfig b/arch/mips/lib/crypto/Kconfig
+index 454354e30d76c..0670a170c1be0 100644
+--- a/arch/mips/lib/crypto/Kconfig
++++ b/arch/mips/lib/crypto/Kconfig
+@@ -6,7 +6,7 @@ config CRYPTO_CHACHA_MIPS
+ 	default CRYPTO_LIB_CHACHA
+ 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
+ 
+ config CRYPTO_POLY1305_MIPS
+ 	tristate
+-	default CRYPTO_LIB_POLY1305_INTERNAL
++	default CRYPTO_LIB_POLY1305
+ 	select CRYPTO_ARCH_HAVE_LIB_POLY1305
+diff --git a/arch/powerpc/lib/crypto/Kconfig b/arch/powerpc/lib/crypto/Kconfig
+index 6627d28cd24e0..bf6d0ab22c27d 100644
+--- a/arch/powerpc/lib/crypto/Kconfig
++++ b/arch/powerpc/lib/crypto/Kconfig
+@@ -8,8 +8,8 @@ config CRYPTO_CHACHA20_P10
+ 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
+ 
+ config CRYPTO_POLY1305_P10
+ 	tristate
+ 	depends on PPC64 && CPU_LITTLE_ENDIAN && VSX
+-	default CRYPTO_LIB_POLY1305_INTERNAL
++	default CRYPTO_LIB_POLY1305
+ 	select CRYPTO_ARCH_HAVE_LIB_POLY1305
+ 	select CRYPTO_LIB_POLY1305_GENERIC
+diff --git a/arch/x86/lib/crypto/Kconfig b/arch/x86/lib/crypto/Kconfig
+index e44403d9677f5..546fe2afe0b51 100644
+--- a/arch/x86/lib/crypto/Kconfig
++++ b/arch/x86/lib/crypto/Kconfig
+@@ -20,7 +20,7 @@ config CRYPTO_CHACHA20_X86_64
+ 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
+ 
+ config CRYPTO_POLY1305_X86_64
+ 	tristate
+ 	depends on 64BIT
+-	default CRYPTO_LIB_POLY1305_INTERNAL
++	default CRYPTO_LIB_POLY1305
+ 	select CRYPTO_ARCH_HAVE_LIB_POLY1305
+diff --git a/crypto/Kconfig b/crypto/Kconfig
+index 832af6363951f..9878286d1d683 100644
+--- a/crypto/Kconfig
++++ b/crypto/Kconfig
+@@ -954,12 +954,12 @@ config CRYPTO_POLYVAL
+ 	  cryptographic hash function.
+ 
+ config CRYPTO_POLY1305
+ 	tristate "Poly1305"
+ 	select CRYPTO_HASH
++	select CRYPTO_LIB_POLY1305
+ 	select CRYPTO_LIB_POLY1305_GENERIC
+-	select CRYPTO_LIB_POLY1305_INTERNAL
  	help
-diff --git a/arch/riscv/crypto/Makefile b/arch/riscv/crypto/Makefile
-index 247c7bc7288ce..4ae9bf762e907 100644
---- a/arch/riscv/crypto/Makefile
-+++ b/arch/riscv/crypto/Makefile
-@@ -2,13 +2,10 @@
+ 	  Poly1305 authenticator algorithm (RFC7539)
  
- obj-$(CONFIG_CRYPTO_AES_RISCV64) += aes-riscv64.o
- aes-riscv64-y := aes-riscv64-glue.o aes-riscv64-zvkned.o \
- 		 aes-riscv64-zvkned-zvbb-zvkg.o aes-riscv64-zvkned-zvkb.o
- 
--obj-$(CONFIG_CRYPTO_CHACHA_RISCV64) += chacha-riscv64.o
--chacha-riscv64-y := chacha-riscv64-glue.o chacha-riscv64-zvkb.o
--
- obj-$(CONFIG_CRYPTO_GHASH_RISCV64) += ghash-riscv64.o
- ghash-riscv64-y := ghash-riscv64-glue.o ghash-riscv64-zvkg.o
- 
- obj-$(CONFIG_CRYPTO_SHA256_RISCV64) += sha256-riscv64.o
- sha256-riscv64-y := sha256-riscv64-glue.o sha256-riscv64-zvknha_or_zvknhb-zvkb.o
-diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-index b1c46153606a6..0baec92d2f55b 100644
---- a/arch/riscv/lib/Makefile
-+++ b/arch/riscv/lib/Makefile
-@@ -1,6 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0-only
-+obj-y			+= crypto/
- lib-y			+= delay.o
- lib-y			+= memcpy.o
- lib-y			+= memset.o
- lib-y			+= memmove.o
- ifeq ($(CONFIG_KASAN_GENERIC)$(CONFIG_KASAN_SW_TAGS),)
-diff --git a/arch/riscv/lib/crypto/Kconfig b/arch/riscv/lib/crypto/Kconfig
-new file mode 100644
-index 0000000000000..46ce2a7ac1f2c
---- /dev/null
-+++ b/arch/riscv/lib/crypto/Kconfig
-@@ -0,0 +1,8 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+config CRYPTO_CHACHA_RISCV64
-+	tristate
-+	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
-+	default CRYPTO_LIB_CHACHA_INTERNAL
-+	select CRYPTO_ARCH_HAVE_LIB_CHACHA
-+	select CRYPTO_LIB_CHACHA_GENERIC
-diff --git a/arch/riscv/lib/crypto/Makefile b/arch/riscv/lib/crypto/Makefile
-new file mode 100644
-index 0000000000000..e27b78f317fc8
---- /dev/null
-+++ b/arch/riscv/lib/crypto/Makefile
-@@ -0,0 +1,4 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+obj-$(CONFIG_CRYPTO_CHACHA_RISCV64) += chacha-riscv64.o
-+chacha-riscv64-y := chacha-riscv64-glue.o chacha-riscv64-zvkb.o
-diff --git a/arch/riscv/crypto/chacha-riscv64-glue.c b/arch/riscv/lib/crypto/chacha-riscv64-glue.c
-similarity index 100%
-rename from arch/riscv/crypto/chacha-riscv64-glue.c
-rename to arch/riscv/lib/crypto/chacha-riscv64-glue.c
-diff --git a/arch/riscv/crypto/chacha-riscv64-zvkb.S b/arch/riscv/lib/crypto/chacha-riscv64-zvkb.S
-similarity index 100%
-rename from arch/riscv/crypto/chacha-riscv64-zvkb.S
-rename to arch/riscv/lib/crypto/chacha-riscv64-zvkb.S
+ 	  Poly1305 is an authenticator algorithm designed by Daniel J. Bernstein.
+ 	  It is used for the ChaCha20-Poly1305 AEAD, specified in RFC7539 for use
 diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
-index 4b3e94ed84bb6..0b06c25eb38a5 100644
+index c6ab724c1dbd9..af2368799579f 100644
 --- a/lib/crypto/Kconfig
 +++ b/lib/crypto/Kconfig
-@@ -166,8 +166,11 @@ if MIPS
- source "arch/mips/lib/crypto/Kconfig"
- endif
- if PPC
- source "arch/powerpc/lib/crypto/Kconfig"
- endif
-+if RISCV
-+source "arch/riscv/lib/crypto/Kconfig"
-+endif
- endif
+@@ -112,25 +112,19 @@ config CRYPTO_ARCH_HAVE_LIB_POLY1305
+ 	  accelerated implementation of the Poly1305 library interface,
+ 	  either builtin or as a module.
  
- endmenu
+ config CRYPTO_LIB_POLY1305_GENERIC
+ 	tristate
++	default CRYPTO_LIB_POLY1305 if !CRYPTO_ARCH_HAVE_LIB_POLY1305
+ 	help
+-	  This symbol can be depended upon by arch implementations of the
+-	  Poly1305 library interface that require the generic code as a
+-	  fallback, e.g., for SIMD implementations. If no arch specific
+-	  implementation is enabled, this implementation serves the users
+-	  of CRYPTO_LIB_POLY1305.
+-
+-config CRYPTO_LIB_POLY1305_INTERNAL
+-	tristate
+-	select CRYPTO_LIB_POLY1305_GENERIC if CRYPTO_ARCH_HAVE_LIB_POLY1305=n
++	  This symbol can be selected by arch implementations of the Poly1305
++	  library interface that require the generic code as a fallback, e.g.,
++	  for SIMD implementations. If no arch specific implementation is
++	  enabled, this implementation serves the users of CRYPTO_LIB_POLY1305.
+ 
+ config CRYPTO_LIB_POLY1305
+ 	tristate
+-	select CRYPTO
+-	select CRYPTO_LIB_POLY1305_INTERNAL
+ 	help
+ 	  Enable the Poly1305 library interface. This interface may be fulfilled
+ 	  by either the generic implementation or an arch-specific one, if one
+ 	  is available and enabled.
+ 
 -- 
 2.49.0
 
