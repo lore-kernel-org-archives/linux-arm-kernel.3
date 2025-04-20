@@ -4,85 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62A40C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Apr 2025 16:05:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDDB3C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Apr 2025 16:50:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Mime-Version:Content-Transfer-Encoding:To:From:Subject:Cc:Message-Id:Date:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u/70UOSCWyv3wSRrnsWxaHKu2UYedV9SAR2KFYDLoLE=; b=kBglr2eZljTPZL8s5TNwzcmItM
-	qr6L0t6WVRnCohUF+GRc7HfNkJR1MejNsxsuHs8E8nBI48AHNgFKkqmIRdgsGP9cqMwblJW2zC1Hm
-	KBkkAMyKrJtcOn553EOb/87QZLdh5xdZ2Ljb8Sw2dzQ6jMkQjRLvq5NH2QX8RkgIb8d2gt8+JsXEY
-	aaXuMx7MBbUJ/PPXlLxBz+GGETHgehzyYmrWBgSCidtYVtlQ7cLu6xOD/W8JwfYikvfxLnrFCdP6b
-	hA87sJIiWt71wB3vQZkZKaD8TfAwpIFmS+gIMkc17BPYPJhKKLIaVD4DVecE25Mpl+/Cw8VK+/8kC
-	EHLBDIwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EEGw4ei1ltPqT9EdfPygnEz1mrR7+WwPBOwxKSKXcf4=; b=nOFxbgT8NKnqwT0pVIP/PSX4Xw
+	36QONHGAjdp6Q5B23mn6czYDH5F7JyimdJecZytXSk/P9X7witj3hlxsYxJJQrGgg0Ro9/masmHX+
+	qvAm0R1m8HXQBLzesXbM9LLI8tme386ODR8lD7wj/ZdwXBWxF/J6wQUVTfz9lcMu5PdBDf/PsgkEn
+	/j/92BVPeoC9/xuzIXDpIE+v3VoL3KffJ1yiTmavbGfm6NkZMvpGrvwWSjgZ0DP34bZgIcjKyRtJz
+	JefZkJl7epHZ8dDw3DnOtD0R5N2doTlcUZyTpKNRJyfgo1fVYxGGfadO/RuscYuudmjDW6hT1bYIS
+	RxWPT9ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6XA2-00000002keP-00j4;
-	Sun, 20 Apr 2025 16:04:50 +0000
-Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
+	id 1u6Xs6-00000002nIc-1lVx;
+	Sun, 20 Apr 2025 16:50:22 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6X87-00000002kVC-0tOv
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Apr 2025 16:02:53 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 32A874395F;
-	Sun, 20 Apr 2025 16:02:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1745164965;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=u/70UOSCWyv3wSRrnsWxaHKu2UYedV9SAR2KFYDLoLE=;
-	b=HXBdcwxedYm/XKxEcj0DuL/5+TCm68ve5D/oVE6pwjOqxK40e8lNcQ7eNSvbKqpVb3VAzd
-	24HDvQz6xW+VHvn5FmW4KuvleT41VPH2YHkaEpu24C1c0JbkJeeGivNGnkHNzStBwVIY43
-	sC34A0QgJPQMlNiNBIBdx5q+22/YJHQMvt4IrJefm0aJZ2bg+1jooAlkI3EzMapTvDIwGx
-	8rPuX1x4w438R8M9+FjumkIuS7PTC5ZfWBonqAelTEWd78ZZYPzc3Yu7qycOlmrvO52h8k
-	Jdzvgj4xaIwHxvxL4xGi1DgprftAxSw0D1b10tOynMyeOi3ArZir2Vose5pLAw==
-Content-Type: text/plain; charset=UTF-8
-Date: Sun, 20 Apr 2025 18:02:42 +0200
-Message-Id: <D9BLCJSCHE9A.1IKHK3XBPF8MU@bootlin.com>
-Cc: "Alexei Starovoitov" <ast@kernel.org>, "Daniel Borkmann"
- <daniel@iogearbox.net>, "John Fastabend" <john.fastabend@gmail.com>,
- "Andrii Nakryiko" <andrii@kernel.org>, "Martin KaFai Lau"
- <martin.lau@linux.dev>, "Eduard Zingerman" <eddyz87@gmail.com>, "Song Liu"
- <song@kernel.org>, "Yonghong Song" <yonghong.song@linux.dev>, "KP Singh"
- <kpsingh@kernel.org>, "Stanislav Fomichev" <sdf@fomichev.me>, "Hao Luo"
- <haoluo@google.com>, "Jiri Olsa" <jolsa@kernel.org>, "Puranjay Mohan"
- <puranjay@kernel.org>, "Catalin Marinas" <catalin.marinas@arm.com>, "Will
- Deacon" <will@kernel.org>, "Mykola Lysenko" <mykolal@fb.com>, "Shuah Khan"
- <shuah@kernel.org>, "Maxime Coquelin" <mcoquelin.stm32@gmail.com>,
- "Alexandre Torgue" <alexandre.torgue@foss.st.com>, "Florent Revest"
- <revest@chromium.org>, "Bastien Curutchet" <bastien.curutchet@bootlin.com>,
- <ebpf@linuxfoundation.org>, "Thomas Petazzoni"
- <thomas.petazzoni@bootlin.com>, <bpf@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kselftest@vger.kernel.org>,
- <linux-stm32@st-md-mailman.stormreply.com>
-Subject: Re: [PATCH RFC bpf-next 1/4] bpf: add struct largest member size in
- func model
-From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
-To: "Xu Kuohai" <xukuohai@huaweicloud.com>, "Andrii Nakryiko"
- <andrii.nakryiko@gmail.com>
-Content-Transfer-Encoding: quoted-printable
-Mime-Version: 1.0
-X-Mailer: aerc 0.20.1-0-g2ecb8770224a
-References: <20250411-many_args_arm64-v1-0-0a32fe72339e@bootlin.com>
- <20250411-many_args_arm64-v1-1-0a32fe72339e@bootlin.com>
- <CAEf4Bzbn6BdXTOb0dTcsQmOMZpp5=DzGS2hHHQ3+dwcja=gv+w@mail.gmail.com>
- <D98Q8BRNUVS9.11J60C67L1ALR@bootlin.com>
- <9da88811-cce0-41df-8069-2e8b67541c39@huaweicloud.com>
-In-Reply-To: <9da88811-cce0-41df-8069-2e8b67541c39@huaweicloud.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvfeekfeehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpegtfffkvefuhffvgfggofhfjgesthhqredtredtjeenucfhrhhomheptehlvgigihhsucfnohhthhhorhoruceorghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeiffegveeihfelgfelveeihfetueeuueekieetheeftefhjeelveehffdvgeevudenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtddvmeekgedvkeemfhelgegtmegvtddtmeemfhekheenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtvdemkeegvdekmehfleegtgemvgdttdemmehfkeehpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedtpdhrtghpthhtohepgihukhhuohhhrghisehhuhgrfigvihgtlhhouhgurdgtohhmpdhrtghpthhtoheprghnughrihhirdhnrghkrhihihhkohesghhmrghilhdrtghomhdprhgtphhtthhopegrshhtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegurghnihgvlhesihhoghgvr
- ghrsghogidrnhgvthdprhgtphhtthhopehjohhhnhdrfhgrshhtrggsvghnugesghhmrghilhdrtghomhdprhgtphhtthhopegrnhgurhhiiheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepmhgrrhhtihhnrdhlrghusehlihhnuhigrdguvghvpdhrtghpthhtohepvgguugihiiekjeesghhmrghilhdrtghomh
-X-GND-Sasl: alexis.lothore@bootlin.com
+	id 1u6XqC-00000002n1d-0pfa;
+	Sun, 20 Apr 2025 16:48:25 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-ac2dfdf3c38so591556566b.3;
+        Sun, 20 Apr 2025 09:48:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlemail.com; s=20230601; t=1745167702; x=1745772502; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=EEGw4ei1ltPqT9EdfPygnEz1mrR7+WwPBOwxKSKXcf4=;
+        b=Y5H4cpGSHBcjr7tICj8zOTnyUfXx+SLKXDY/8X6lAcTpqecXSD5QxtP0A7ZETHsJCr
+         alcauBlq615+/NZ0iTd73cgRo/LGcYiHnlY4AB3MY8jHd95/W4cFZR/2AzXGrHRvvUS5
+         nxialK0SZ4qFsmflPNLygdJjYGLQyyem9hEczdP4b1cVFpRDbJQsXQN8dESufffud4t+
+         HiuYkDkIlVJDzF4E7N6rxOh+UFsM+BfJNnToi2nNSptRLq4rmna7s2CtdnKOaod0vryc
+         Y3AQ4e+jN5G9imOZYU5Loh8mfY9ByInm/ZOSsJg1Mmvkzek9nzVwlvb7OdMNsN94rvKo
+         amyA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745167702; x=1745772502;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=EEGw4ei1ltPqT9EdfPygnEz1mrR7+WwPBOwxKSKXcf4=;
+        b=LvLjlT9cvzd2Q041XZ142yWC2wCPXeCejQLSehyLbcboRDpa1RqjY9FFI+jna6Tj0Q
+         eJQLfEmnLaQK4bN+slijhRVTHr80nw3cONTYLAihHxoQCTcgpmKS/9Bojx1QVb/djzCr
+         xe0ukTUq8f3zbouqCigRE1SJZC6JlI4rv8MS1nPiaosgRbLemceVcD/4pMmG4eveHntj
+         qmhzKhhN4JRwkt5FU6ZqsL9ntrbDV+IIFbT/eFsMx0FzjpIGEbd3Cm10xiR2aFrY93kf
+         Jt86nQRsEQ602u0rb3ZRFcqhoT6wnDM8GNUwt/snqpRc98Dlc7+XaXIYpWoRwB51tUDa
+         DoCQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVIepph2aeV/DLnK+RtZq7gDKdGn+P502J8V+i9YFHmPeXgcCan9rfjftP/IxTY7v96cZBqjbDvRYWLAB60Qh2X@lists.infradead.org
+X-Gm-Message-State: AOJu0YyWiHiqP0hI9CRW53msNOSzIuZGVAC7rJths6bjxTLc1tJqCAoo
+	fTRMzI/KTvAA0CfrM+/JP7JPoBe7e8YEznLBYwFePMM7mg5e6aCKtt92/g==
+X-Gm-Gg: ASbGncuxY75b+i1oT4sVlUqlox6KjfJKMDtOszbDv0xWjoDD1+uYvteD5gmw7VMTS5i
+	Uf+kBIzbyKW4QSY77H/Hoszr9flAKPVqlc3yhEWIKvr1pIiGELYdAX9EgiU3iqpHZsHZpUyhchi
+	2VXhQTjX1eJNaoCdc0+BE7aCPY3nFkYIc4QDZ4POEnHF38NmR1YcX/OzPc9ECVxR3FBZ2mSZZbC
+	M+N2Jwe5EnP1gqI3LypkorwyG42amO7ISHwXifcAmSksnU3sWtV+eReUdXhfXzitvTfIhRQpLZE
+	Aud/bcoOcH4jQMDY097sd8FCFIHtKN2HmCoibOrP1qBITDx3XNmnNIW/4TeSLyaGYlKip7Kq+jj
+	48r0ooBxBrIUwXZ9Zybrq7TZbvore/PgKUaPV6fGciSLuv9JK/HfCvCPl+J/psnNElw==
+X-Google-Smtp-Source: AGHT+IE3PsQolxVL2KiqFnBgslOuRCqoai4HIDr8cg10JY7uGcdQOpXmUPJ3NaFiU0N/NqtaE0v6vQ==
+X-Received: by 2002:a17:907:7207:b0:acb:168e:c257 with SMTP id a640c23a62f3a-acb74b7f3c5mr939128866b.26.1745167701617;
+        Sun, 20 Apr 2025 09:48:21 -0700 (PDT)
+Received: from localhost.localdomain (dynamic-2a02-3100-9ddb-f900-0000-0000-0000-0e63.310.pool.telefonica.de. [2a02:3100:9ddb:f900::e63])
+        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-acb6ef48e5csm416142366b.148.2025.04.20.09.48.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 20 Apr 2025 09:48:21 -0700 (PDT)
+From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+To: linux-amlogic@lists.infradead.org
+Cc: neil.armstrong@linaro.org,
+	jbrunet@baylibre.com,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	christianshewitt@gmail.com,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Subject: [PATCH v1 0/4] dts: amlogic: fix FCLK{3,4} clocks for new PWM controller binding
+Date: Sun, 20 Apr 2025 18:47:57 +0200
+Message-ID: <20250420164801.330505-1-martin.blumenstingl@googlemail.com>
+X-Mailer: git-send-email 2.49.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250420_090251_931870_EB9D72A7 
-X-CRM114-Status: GOOD (  23.35  )
+X-CRM114-CacheID: sfid-20250420_094824_259716_61EB7E7E 
+X-CRM114-Status: GOOD (  11.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,105 +99,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Xu,
+Christian has reported Bluetooth issues on some of his boards, for
+example on a (GXBB) WeTek Play 2:
+  # dmesg | grep -i blue
+  Bluetooth: Core ver 2.22
+  NET: Registered PF_BLUETOOTH protocol family
+  Bluetooth: HCI device and connection manager initialized
+  Bluetooth: HCI socket layer initialized
+  Bluetooth: L2CAP socket layer initialized
+  Bluetooth: SCO socket layer initialized
+  Bluetooth: HCI UART driver ver 2.3
+  Bluetooth: HCI UART protocol H4 registered
+  Bluetooth: HCI UART protocol Three-wire (H5) registered
+  Bluetooth: HCI UART protocol Broadcom registered
+  Bluetooth: HCI UART protocol QCA registered
+  Bluetooth: HCI UART protocol AML registered
+  Bluetooth: null: hu 0000000023fa9791
+  Bluetooth: hci0: hu 0000000023fa9791
+  Bluetooth: hci0: hu 0000000023fa9791 skb 000000003f7acf2f
+  Bluetooth: hci0: command 0x0c03 tx timeout
+  Bluetooth: hci0: BCM: Reset failed (-110)
+  Bluetooth: hci0: hu 0000000023fa9791
+  Bluetooth: hci0: hu 0000000023fa9791
 
-On Thu Apr 17, 2025 at 4:10 PM CEST, Xu Kuohai wrote:
-> On 4/17/2025 3:14 PM, Alexis Lothor=C3=A9 wrote:
->> Hi Andrii,
->>=20
->> On Wed Apr 16, 2025 at 11:24 PM CEST, Andrii Nakryiko wrote:
->>> On Fri, Apr 11, 2025 at 1:32=E2=80=AFPM Alexis Lothor=C3=A9 (eBPF Found=
-ation)
->>> <alexis.lothore@bootlin.com> wrote:
+It turns out there's a typo in the references to the untested/unknown
+clock input that made it into the already applied series
+"dts: amlogic: switch to the new PWM controller binding" [0]
 
-[...]
+The original goal was to skip this input. This can be achieved by
+specifying a clock input as <0> (which this series does). When using
+<> (note the lack of 0) the clock is completely ignored when parsing
+the .dtb, resulting in a shift in index of the FCLK DIV4 / DIV3 inputs.
+This then results in the PWM controller driver calculating the
+frequencies for a different clock compared to what the actual hardware
+uses.
 
->>> I might be missing something, but how can the *size* of the field be
->>> used to calculate that argument's *alignment*? i.e., I don't
->>> understand why arg_largest_member_size needs to be calculated instead
->>> of arg_largest_member_alignment...
->>=20
->> Indeed I initially checked whether I could return directly some alignmen=
-t
->> info from btf, but it then involves the alignment computation in the btf
->> module. Since there could be minor differences between architectures abo=
-ut
->> alignment requirements, I though it would be better to in fact keep alig=
-nment
->> computation out of the btf module. For example, I see that 128 bits valu=
-es
->> are aligned on 16 bytes on ARM64, while being aligned on 8 bytes on S390=
-.
->>=20
->> And since for ARM64, all needed alignments are somehow derived from size
->> (it is either directly size for fundamental types, or alignment of the
->> largest member for structs, which is then size of largest member),
->> returning the size seems to be enough to allow the JIT side to compute
->> alignments.
->>
->
-> Not exactly. The compiler's "packed" and "alignment" attributes cause a
-> structure to be aligned differently from its natural alignment.
->
-> For example, with the following three structures:
->
-> struct s0 {
->      __int128 x;
-> };
->
-> struct s1 {
->      __int128 x;
-> } __attribute__((packed));
->
-> struct s2 {
->      __int128 x;
-> } __attribute__((aligned(64)));
->
-> Even though the largest member size is the same, s0 will be aligned to 16
-> bytes, s1 and s2 are not aligned the same way. s1 has no alignment due to
-> the "packed" attribute, while s2 will be aligned to 64 bytes.
->
-> When these three structures are passed as function arguments, they will b=
-e
-> located on different positions on the stack.
->
-> For the following three functions:
->
-> int f0(__int128 a, __int128 b, __int128 c, int64_t d, __int128 e, int64_t=
- f, struct s0 g);
-> int f1(__int128 a, __int128 b, __int128 c, int64_t d, __int128 e, int64_t=
- f, struct s1 g);
-> int f2(__int128 a, __int128 b, __int128 c, int64_t d, __int128 e, int64_t=
- f, struct s2 g);
->
-> g will be located at sp+32 in f0, sp + 24 in f1, and some 64-byte aligned
-> stack address in f2.
+Neil, please apply this as a fix for the next 6.15-rc.
 
-Ah, thanks for those clear examples, I completely overlooked this
-possibility. And now that you mention it, I feel a bit dumb because I now
-remember that you mentioned this in Puranjay's series...
 
-I took a quick look at the x86 JIT compiler for reference, and saw no code
-related to this specific case neither. So I searched in the kernel for
-actual functions taking struct arguments by value AND being declared with s=
-ome
-packed or aligned attribute. I only found a handful of those, and none
-seems to take enough arguments to have the corresponding struct passed on t=
-he
-stack. So rather than supporting this very specific case, I am tempted
-to just return an error for now during trampoline creation if we detect suc=
-h
-structure (and then the JIT compiler can keep using data size to compute
-alignment, now that it is sure not to receive custom alignments). Or am I
-missing some actual cases involving those very specific alignments ?
+[0] https://lore.kernel.org/linux-amlogic/20241227212514.1376682-1-martin.blumenstingl@googlemail.com/
 
-Thanks,
 
-Alexis
+Martin Blumenstingl (4):
+  ARM: dts: amlogic: meson8: fix reference to unknown/untested PWM clock
+  ARM: dts: amlogic: meson8b: fix reference to unknown/untested PWM
+    clock
+  arm64: dts: amlogic: gx: fix reference to unknown/untested PWM clock
+  arm64: dts: amlogic: g12: fix reference to unknown/untested PWM clock
 
---=20
-Alexis Lothor=C3=A9, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+ arch/arm/boot/dts/amlogic/meson8.dtsi             | 6 +++---
+ arch/arm/boot/dts/amlogic/meson8b.dtsi            | 6 +++---
+ arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi | 6 +++---
+ arch/arm64/boot/dts/amlogic/meson-gxbb.dtsi       | 6 +++---
+ arch/arm64/boot/dts/amlogic/meson-gxl.dtsi        | 6 +++---
+ 5 files changed, 15 insertions(+), 15 deletions(-)
+
+-- 
+2.49.0
 
 
