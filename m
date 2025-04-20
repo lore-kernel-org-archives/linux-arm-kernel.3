@@ -4,69 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83CE4C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Apr 2025 19:59:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD36EC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Apr 2025 20:01:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GeiSKCM6FQ6lLYldMKz6/NKa/fiPGdkSM1iB19WOOxQ=; b=PiGMJ8T7aHT7wlO4mo0SpJGtBu
-	h0ZLtQbX42ibIhkMS89LZ+XWSfothK/pbdOa+Rn/ZWHYS1Srzpg8fsVhvBKUdvI75CaueZlgl+oJN
-	LRBW33xQCoSrZvhVF4YaVVqLx4bPRb9Tpd4wQw6tW9LCb/CKs5cunYs4AzdIgKFvqTvq22xBAYhKG
-	7NANTtUDCRb0HbgF/oN3fBQ/oKsC09mVdaOL8WhekelZs7qe8G2aMIrsjoIQjgO401EvqsMhrUeYc
-	1VLOqAV25LPrvtPYWMYExfsS/YlRq/xvHOROopbERP8h6+ME3qmTU4AL/RGbSPSTOnfoUm98Ij36L
-	8qIQXyIw==;
+	bh=4DMhBpbB5hVtdCMSWSFlZWSE/3ga1+hDYBx7vs5k7hE=; b=i/VNwE0MCBJ1wTxJ6sRQUCQJSf
+	ccAm31TdX9hGU90QzacxpA9j+z5Ru71q9hYPOzorFU7PYd9WpnjV5pHMsgbTYQAgIy8NteShLlpq+
+	XWMWtYidiDOgEGGLQg7Tc86otOLH3GWDEhMn5I4UTQ98nUs0w9xEu0SeH64bcbci4Rcfy7cc/9kCG
+	1eQecgUSPa6WeszOqHPpl3YJrzwQAndsFlGUtmuK9iaGuBiF/zUA6oF18zLzcwCn9he+wOIZO0V6O
+	E4EUVdQHBGcd7ySE4lsBUze4qalUr4wX7JZ+PnJ76j1LRukzcwEgOp0+EuwQSB2gZmZKxFU16gVpj
+	Kwx2D6pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6aoZ-000000030OG-1BGc;
-	Sun, 20 Apr 2025 19:58:55 +0000
-Received: from sendmail.purelymail.com ([34.202.193.197])
+	id 1u6aqR-000000030WI-01hy;
+	Sun, 20 Apr 2025 20:00:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6aLo-00000002wLr-3eOx
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Apr 2025 19:29:14 +0000
-Authentication-Results: purelymail.com; auth=pass
-DKIM-Signature: a=rsa-sha256; b=PGBIyvILbohuCAWqhewyirZ6/1kG9gjQTvrRJgClORzU6fw/s6+Kw18RTM8iTnh4os4gjOejDlPs1F8IH+mlBjgSDCoAcshxqThKU3oOR8bZ0OZFxXSC9ul0C91tMjM84sc0DRkd7QLt75CQ6QDCYfXQVsEovA1OpoREWfHuhyEwzGQkkILJtlrsf6pDI3IbnR+eX3raXweGA3fLX/Jh9aYrQg1KrTxgamb8j1cRiy56SQNh5/1TR3oJZYH+B82keLvIOp0EQBpjVG9pI2+zIc0nviGpK2NIomvSx5f3wMergPN0I2/m3HgbPwZmjFKjkiUiYrqmg2BfgXPZKS5CIw==; s=purelymail3; d=purelymail.com; v=1; bh=EwXfegid+u0rfimMuzEv2fMKlM7NHYAdAaD9YvLtoeY=; h=Feedback-ID:Received:From:Date:Subject:To;
-Feedback-ID: 68247:10037:null:purelymail
-X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 1149203934;
-          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-          Sun, 20 Apr 2025 19:28:46 +0000 (UTC)
-From: Igor Belwon <igor.belwon@mentallysanemainliners.org>
-Date: Sun, 20 Apr 2025 21:28:22 +0200
-Subject: [PATCH v2 2/2] phy: exynos5-usbdrd: Add support for the Exynos990
- usbdrd phy
+	id 1u6aKJ-00000002vfW-3MMp;
+	Sun, 20 Apr 2025 19:27:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3AB664A6EF;
+	Sun, 20 Apr 2025 19:27:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33055C4CEEE;
+	Sun, 20 Apr 2025 19:27:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745177258;
+	bh=0fs52xVhkpJgVpZDJvGbv9MYJ3m4Z5mmmYA6A5muSpI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=ON5X492w+kvxjKlQGY1gmSPr8/Hxy60CHAUGMEaz8iqN0VdupswwTrEU3HYeUCg5Z
+	 5GJLBCXqOiiQrxCIHvIYezKn4U42k58ZGeCszwfVdI8S2q7JO0cniv//wN59z8bv2p
+	 98yiJ6Yle3+6SKiSyDh44QrfGrJ/q5eR5t6lgdPmYKSNRJ+qjaTeVyrhrxtxcTIlcX
+	 XZ8t2zcLjAS+ULJyANYBgtEq97FVrcWSBRv1A93pslXJRjex560Sdhlx/3Mudr32bM
+	 83lkDLrLPMvyXK5hBL7LahqNgYSuQMpuGTX7npIGAFTlZKMdRjBQc9UJoM/MvMuLVX
+	 GwzmCso2fYWEg==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	x86@kernel.org,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Ard Biesheuvel <ardb@kernel.org>
+Subject: [PATCH v2 03/13] crypto: s390 - drop redundant dependencies on S390
+Date: Sun, 20 Apr 2025 12:25:59 -0700
+Message-ID: <20250420192609.295075-4-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250420192609.295075-1-ebiggers@kernel.org>
+References: <20250420192609.295075-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250420-usb-resends-april-v2-2-25dc7d2e6dd4@mentallysanemainliners.org>
-References: <20250420-usb-resends-april-v2-0-25dc7d2e6dd4@mentallysanemainliners.org>
-In-Reply-To: <20250420-usb-resends-april-v2-0-25dc7d2e6dd4@mentallysanemainliners.org>
-To: Vinod Koul <vkoul@kernel.org>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-phy@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- Igor Belwon <igor.belwon@mentallysanemainliners.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1745177319; l=3128;
- i=igor.belwon@mentallysanemainliners.org; s=20241206;
- h=from:subject:message-id; bh=EwXfegid+u0rfimMuzEv2fMKlM7NHYAdAaD9YvLtoeY=;
- b=JlbNghL1+PYBIxXzPse73+kyh9UkqLqOxD7lCM4/ZvRIGZkEIQ9YzWpzhGBOPQhONcqzcmBSU
- 2z73GgxFaajBEwg/5WdrZHz8Ld68NiUJPkTmNnVgVXinwRppeDb9JTD
-X-Developer-Key: i=igor.belwon@mentallysanemainliners.org; a=ed25519;
- pk=qKAuSTWKTaGQM0vwBxV0p6hPKMN4vh0CwZ+bozrG5lY=
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250420_122913_036444_57B410E5 
-X-CRM114-Status: GOOD (  11.16  )
+X-CRM114-CacheID: sfid-20250420_122739_879685_58EBA727 
+X-CRM114-Status: UNSURE (   9.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,82 +79,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Exynos990 usbdrd PHY is a combo PHY which supports USB SS, HS and
-DisplayPort outputs. This commit adds support only for UTMI+ (USB HS).
+From: Eric Biggers <ebiggers@google.com>
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+arch/s390/crypto/Kconfig is sourced only when CONFIG_S390=y, so there is
+no need for the symbols defined inside it to depend on S390.
+
+Acked-by: Ard Biesheuvel <ardb@kernel.org>
+Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- drivers/phy/samsung/phy-exynos5-usbdrd.c    | 32 +++++++++++++++++++++++++++++
- include/linux/soc/samsung/exynos-regs-pmu.h |  3 +++
- 2 files changed, 35 insertions(+)
+ arch/s390/crypto/Kconfig | 10 ----------
+ 1 file changed, 10 deletions(-)
 
-diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-index 634c4310c660a50e5d0869645506ab1b64fffd4b..9136752ab15f034059069b2607e47c5f72c04e2a 100644
---- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
-+++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-@@ -1847,6 +1847,35 @@ static const struct exynos5_usbdrd_phy_drvdata exynos850_usbdrd_phy = {
- 	.n_regulators		= ARRAY_SIZE(exynos5_regulator_names),
- };
+diff --git a/arch/s390/crypto/Kconfig b/arch/s390/crypto/Kconfig
+index 055b08f259ab2..e88d9cd256ef5 100644
+--- a/arch/s390/crypto/Kconfig
++++ b/arch/s390/crypto/Kconfig
+@@ -2,77 +2,70 @@
  
-+static const struct exynos5_usbdrd_phy_tuning exynos990_tunes_utmi_postinit[] = {
-+	PHY_TUNING_ENTRY_PHY(EXYNOS850_DRD_HSPPARACON,
-+			     (HSPPARACON_TXVREF |
-+			      HSPPARACON_TXPREEMPAMP | HSPPARACON_SQRX |
-+			      HSPPARACON_COMPDIS),
-+			     (FIELD_PREP_CONST(HSPPARACON_TXVREF, 7) |
-+			      FIELD_PREP_CONST(HSPPARACON_TXPREEMPAMP, 3) |
-+			      FIELD_PREP_CONST(HSPPARACON_SQRX, 5) |
-+			      FIELD_PREP_CONST(HSPPARACON_COMPDIS, 7))),
-+	PHY_TUNING_ENTRY_LAST
-+};
-+
-+static const struct exynos5_usbdrd_phy_tuning *exynos990_tunes[PTS_MAX] = {
-+	[PTS_UTMI_POSTINIT] = exynos990_tunes_utmi_postinit,
-+};
-+
-+static const struct exynos5_usbdrd_phy_drvdata exynos990_usbdrd_phy = {
-+	.phy_cfg		= phy_cfg_exynos850,
-+	.phy_ops		= &exynos850_usbdrd_phy_ops,
-+	.phy_tunes		= exynos990_tunes,
-+	.pmu_offset_usbdrd0_phy	= EXYNOS990_PHY_CTRL_USB20,
-+	.clk_names		= exynos5_clk_names,
-+	.n_clks			= ARRAY_SIZE(exynos5_clk_names),
-+	.core_clk_names		= exynos5_core_clk_names,
-+	.n_core_clks		= ARRAY_SIZE(exynos5_core_clk_names),
-+	.regulator_names	= exynos5_regulator_names,
-+	.n_regulators		= ARRAY_SIZE(exynos5_regulator_names),
-+};
-+
- static const struct exynos5_usbdrd_phy_config phy_cfg_gs101[] = {
- 	{
- 		.id		= EXYNOS5_DRDPHY_UTMI,
-@@ -2047,6 +2076,9 @@ static const struct of_device_id exynos5_usbdrd_phy_of_match[] = {
- 	}, {
- 		.compatible = "samsung,exynos850-usbdrd-phy",
- 		.data = &exynos850_usbdrd_phy
-+	}, {
-+		.compatible = "samsung,exynos990-usbdrd-phy",
-+		.data = &exynos990_usbdrd_phy
- 	},
- 	{ },
- };
-diff --git a/include/linux/soc/samsung/exynos-regs-pmu.h b/include/linux/soc/samsung/exynos-regs-pmu.h
-index cde299a85384a70d04dae49ee9a4e2daa88fbbf6..6a1f50c2a2942ea3d14fdc779feb2e3ecabc84ea 100644
---- a/include/linux/soc/samsung/exynos-regs-pmu.h
-+++ b/include/linux/soc/samsung/exynos-regs-pmu.h
-@@ -659,6 +659,9 @@
- #define EXYNOS5433_PAD_RETENTION_UFS_OPTION			(0x3268)
- #define EXYNOS5433_PAD_RETENTION_FSYSGENIO_OPTION		(0x32A8)
+ menu "Accelerated Cryptographic Algorithms for CPU (s390)"
  
-+/* For Exynos990 */
-+#define EXYNOS990_PHY_CTRL_USB20				(0x72C)
-+
- /* For Tensor GS101 */
- #define GS101_SYSIP_DAT0					(0x810)
- #define GS101_SYSTEM_CONFIGURATION				(0x3A00)
-
+ config CRYPTO_SHA512_S390
+ 	tristate "Hash functions: SHA-384 and SHA-512"
+-	depends on S390
+ 	select CRYPTO_HASH
+ 	help
+ 	  SHA-384 and SHA-512 secure hash algorithms (FIPS 180)
+ 
+ 	  Architecture: s390
+ 
+ 	  It is available as of z10.
+ 
+ config CRYPTO_SHA1_S390
+ 	tristate "Hash functions: SHA-1"
+-	depends on S390
+ 	select CRYPTO_HASH
+ 	help
+ 	  SHA-1 secure hash algorithm (FIPS 180)
+ 
+ 	  Architecture: s390
+ 
+ 	  It is available as of z990.
+ 
+ config CRYPTO_SHA256_S390
+ 	tristate "Hash functions: SHA-224 and SHA-256"
+-	depends on S390
+ 	select CRYPTO_HASH
+ 	help
+ 	  SHA-224 and SHA-256 secure hash algorithms (FIPS 180)
+ 
+ 	  Architecture: s390
+ 
+ 	  It is available as of z9.
+ 
+ config CRYPTO_SHA3_256_S390
+ 	tristate "Hash functions: SHA3-224 and SHA3-256"
+-	depends on S390
+ 	select CRYPTO_HASH
+ 	help
+ 	  SHA3-224 and SHA3-256 secure hash algorithms (FIPS 202)
+ 
+ 	  Architecture: s390
+ 
+ 	  It is available as of z14.
+ 
+ config CRYPTO_SHA3_512_S390
+ 	tristate "Hash functions: SHA3-384 and SHA3-512"
+-	depends on S390
+ 	select CRYPTO_HASH
+ 	help
+ 	  SHA3-384 and SHA3-512 secure hash algorithms (FIPS 202)
+ 
+ 	  Architecture: s390
+ 
+ 	  It is available as of z14.
+ 
+ config CRYPTO_GHASH_S390
+ 	tristate "Hash functions: GHASH"
+-	depends on S390
+ 	select CRYPTO_HASH
+ 	help
+ 	  GCM GHASH hash function (NIST SP800-38D)
+ 
+ 	  Architecture: s390
+ 
+ 	  It is available as of z196.
+ 
+ config CRYPTO_AES_S390
+ 	tristate "Ciphers: AES, modes: ECB, CBC, CTR, XTS, GCM"
+-	depends on S390
+ 	select CRYPTO_ALGAPI
+ 	select CRYPTO_SKCIPHER
+ 	help
+ 	  Block cipher: AES cipher algorithms (FIPS 197)
+ 	  AEAD cipher: AES with GCM
+@@ -90,11 +83,10 @@ config CRYPTO_AES_S390
+ 	  key sizes and XTS mode is hardware accelerated for 256 and
+ 	  512 bit keys.
+ 
+ config CRYPTO_DES_S390
+ 	tristate "Ciphers: DES and Triple DES EDE, modes: ECB, CBC, CTR"
+-	depends on S390
+ 	select CRYPTO_ALGAPI
+ 	select CRYPTO_SKCIPHER
+ 	select CRYPTO_LIB_DES
+ 	help
+ 	  Block ciphers: DES (FIPS 46-2) cipher algorithm
+@@ -107,18 +99,16 @@ config CRYPTO_DES_S390
+ 	  As of z990 the ECB and CBC mode are hardware accelerated.
+ 	  As of z196 the CTR mode is hardware accelerated.
+ 
+ config CRYPTO_CHACHA_S390
+ 	tristate
+-	depends on S390
+ 	select CRYPTO_LIB_CHACHA_GENERIC
+ 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
+ 	default CRYPTO_LIB_CHACHA_INTERNAL
+ 
+ config CRYPTO_HMAC_S390
+ 	tristate "Keyed-hash message authentication code: HMAC"
+-	depends on S390
+ 	select CRYPTO_HASH
+ 	help
+ 	  s390 specific HMAC hardware support for SHA224, SHA256, SHA384 and
+ 	  SHA512.
+ 
 -- 
-2.47.2
+2.49.0
 
 
