@@ -4,70 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71D5BC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Apr 2025 21:06:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B791C369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Apr 2025 21:44:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hVJWWaSd+uGf0MzPBXFFVs35PhBwozxoHR3GhvODwbQ=; b=xGuZub6VnliicV0efDxX2jQ+By
-	RrwMCZiszA0qrPSjxm5WGEb8esWrw/RyZiJ6MgGmQ4mk0oN7S6x53Jx/Q/boWU83Iax2VrMfm1Tfo
-	bj3tnVZzH3sKQRyHuJNo8p8jujUQwDe99HMiNjMbogR84UjZZV4xUTLj205B8CTT6jNwPCnyK00EY
-	uTa0RQSRhR7HstyQDi5PJEVCCMX7aLU3eWPTSynX5qEzOl7ATJQhePc7d4z8XtiRXgMZJ9OrsW8nO
-	CuI6glcHDoqipYV9CywTba+wIBtReUTw8A/PQJ+pDtKPGBu10MEqELlSTpxnSmYoYEQYKKtQ3anAG
-	sBLR7kng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S9zrrDOxME57GBJZTg9k9R5znLyd2GM1hIcVvK4ssio=; b=01cZcB+L5NawlLv14MhunrtBng
+	q7i+q6yhZeIyf+zc2352wvyNWWX9JOEQgLPgM6wwiMAwpwJ5SGoHAYhb7lE7hN/y4kdBQf9e78ofD
+	ZpkxuukmNKacU4++m2sF9WoAVWkQJgZAbYbERKbJ085Llg6X2AuMpf4/XTqA4oN9FfyKz5t9biT6j
+	uRlYdgAlvBjPj1vhO5jVwf1Rtp7U4waJilsRrsgIW2jI/l52U2DyXGHerAn7/JIygqtj3LegY6drh
+	eUuSl2BD5TyxQENFY0PxkNTiHYx3O+PwDpi5qS+epoExfjYQs/8DxDhqfs1ZnBn9nL582LJ5Bc8UZ
+	ARkUp/Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6bsG-000000033xd-30Hh;
-	Sun, 20 Apr 2025 21:06:48 +0000
-Received: from sendmail.purelymail.com ([34.202.193.197])
+	id 1u6cSi-000000035Rp-04Vj;
+	Sun, 20 Apr 2025 21:44:28 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6aLl-00000002wKS-0stF
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Apr 2025 19:29:10 +0000
-Authentication-Results: purelymail.com; auth=pass
-DKIM-Signature: a=rsa-sha256; b=qm2M5DXPtCKo1Glxkprzegx2dOakQczkJvbAJaxCH229JSjefyB1/6NIQWouVY/x1IMjuD50SfqHCyLIMMiT/7O2WvapNYAhaCQQNc1mtGQM8tuof5Xa6RCBz/ljUvaFGmfM7Ky9AzH9FafQB0sC4wEEwvo5U5QK5j7ELEPKJ0TRiIG0k5ZHNe6vlDcXaTKMdmwnJ53s6yRi3HZ08qOVqnB8C0ZXj0AGGq6anuBkBYukbyTk9W0NUwVhPZ8CyT0zVv6p+Tls4xCwJdGS/j0liwSPOAnFK9+Ojf6dRLs2qwwg8rq/bool3OlC6ctzn+xN/roTsnwFASufDdTzSlXc9A==; s=purelymail3; d=purelymail.com; v=1; bh=QOd6z6A83o0QZNnyI/ifSdk4jGhOOwca01N1b/7gQPA=; h=Feedback-ID:Received:From:Date:Subject:To;
-Feedback-ID: 68247:10037:null:purelymail
-X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 1149203934;
-          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-          Sun, 20 Apr 2025 19:28:44 +0000 (UTC)
-From: Igor Belwon <igor.belwon@mentallysanemainliners.org>
-Date: Sun, 20 Apr 2025 21:28:21 +0200
-Subject: [PATCH v2 1/2] dt-bindings: phy: samsung,usb3-drd-phy: Add
- exynos990 compatible
+	id 1u6cQn-000000035JR-3B7l;
+	Sun, 20 Apr 2025 21:42:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E51BA61127;
+	Sun, 20 Apr 2025 21:42:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E842BC4CEE2;
+	Sun, 20 Apr 2025 21:42:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745185348;
+	bh=o3lK09+otg6DgvlTkRd0uEq2A+YS26/sGwIIKbHBcag=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=V14kX5gVKJQ4TKr1kjqcj4uB/vdwkcoBtAzqAd6oYHr/0UFPi5Xb4XNt2bgobpadx
+	 fHLW4TYVRN58fg+nvS5iX8RxLw4WD2uHHLtRHXM8Fdzq0zf/m9Jea3Dw9SN4//RZic
+	 ATxeSy8c398InEkzqu0EoYWWLNR9+5n7gOY+jzhg+foAWNabfgvGsLuAiv1wAU1p5q
+	 gEJO9Hc83boZUsPd9mdUX74gegIaxXpsyScNdEd5NPpa5d0+pAveQwe+GXHrNRv35O
+	 JZfCuQ5QtXX/qaeCAd7eOiMQFvnuGssZ557aDkUuMoDftndQ6sqUI8SdS8WUi74F4v
+	 27V1otuThl43w==
+Date: Sun, 20 Apr 2025 14:42:26 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, x86@kernel.org,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Ard Biesheuvel <ardb@kernel.org>
+Subject: Re: [PATCH v2 05/13] crypto: arm - move library functions to
+ arch/arm/lib/crypto/
+Message-ID: <20250420214226.GA14633@sol.localdomain>
+References: <20250420192609.295075-1-ebiggers@kernel.org>
+ <20250420192609.295075-6-ebiggers@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250420-usb-resends-april-v2-1-25dc7d2e6dd4@mentallysanemainliners.org>
-References: <20250420-usb-resends-april-v2-0-25dc7d2e6dd4@mentallysanemainliners.org>
-In-Reply-To: <20250420-usb-resends-april-v2-0-25dc7d2e6dd4@mentallysanemainliners.org>
-To: Vinod Koul <vkoul@kernel.org>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-phy@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- Igor Belwon <igor.belwon@mentallysanemainliners.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1745177319; l=1286;
- i=igor.belwon@mentallysanemainliners.org; s=20241206;
- h=from:subject:message-id; bh=QOd6z6A83o0QZNnyI/ifSdk4jGhOOwca01N1b/7gQPA=;
- b=2rOhwRtKIKC1Z2fHwV7rvy28V9+d3GYFQSW3KYruUkmRkeQ+jcbN3WSqq8YKLQGUsXsMHzLw5
- v52B2SKFmxkDd/JMv1JLXoNgfGWcxS/mv/JbF3ZgmcJCaQJpY0Y7eIY
-X-Developer-Key: i=igor.belwon@mentallysanemainliners.org; a=ed25519;
- pk=qKAuSTWKTaGQM0vwBxV0p6hPKMN4vh0CwZ+bozrG5lY=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250420_122909_314003_737D801D 
-X-CRM114-Status: UNSURE (   8.48  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250420192609.295075-6-ebiggers@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,37 +73,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a compatible for the exynos990-usbdrd-phy. The PHY is compatible with
-the older exynos5420 design (two clocks) when running in highspeed mode.
+On Sun, Apr 20, 2025 at 12:26:01PM -0700, Eric Biggers wrote:
+> diff --git a/arch/arm/lib/crypto/Makefile b/arch/arm/lib/crypto/Makefile
+> new file mode 100644
+> index 0000000000000..dbdf376e25336
+> --- /dev/null
+> +++ b/arch/arm/lib/crypto/Makefile
+> @@ -0,0 +1,24 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +
+> +obj-$(CONFIG_CRYPTO_BLAKE2S_ARM) += libblake2s-arm.o
+> +libblake2s-arm-y:= blake2s-core.o blake2s-glue.o
+> +
+> +obj-$(CONFIG_CRYPTO_CHACHA20_NEON) += chacha-neon.o
+> +chacha-neon-y := chacha-scalar-core.o chacha-glue.o
+> +chacha-neon-$(CONFIG_KERNEL_MODE_NEON) += chacha-neon-core.o
+> +
+> +obj-$(CONFIG_CRYPTO_POLY1305_ARM) += poly1305-arm.o
+> +poly1305-arm-y := poly1305-core.o poly1305-glue.o
+> +
+> +quiet_cmd_perl = PERL    $@
+> +      cmd_perl = $(PERL) $(<) > $(@)
+> +
+> +$(obj)/%-core.S: $(src)/%-armv4.pl
+> +	$(call cmd,perl)
+> +
+> +clean-files += poly1305-core.S
+> +
+> +# massage the perlasm code a bit so we only get the NEON routine if we need it
+> +poly1305-aflags-$(CONFIG_CPU_V7) := -U__LINUX_ARM_ARCH__ -D__LINUX_ARM_ARCH__=5
+> +poly1305-aflags-$(CONFIG_KERNEL_MODE_NEON) := -U__LINUX_ARM_ARCH__ -D__LINUX_ARM_ARCH__=7
+> +AFLAGS_poly1305-core.o += $(poly1305-aflags-y) $(aflags-thumb2-y)
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
----
- Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+As noticed by kernel test robot
+(https://lore.kernel.org/oe-kbuild-all/202504210545.llc4JaKQ-lkp@intel.com), I
+forgot to include the following line here:
 
-diff --git a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
-index fdddddc7d611364ce17870b5b8963b5a0c0c9668..5b240fc761c38b49fa4f673ea4fff0609470b414 100644
---- a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
-+++ b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
-@@ -32,6 +32,7 @@ properties:
-       - samsung,exynos7-usbdrd-phy
-       - samsung,exynos7870-usbdrd-phy
-       - samsung,exynos850-usbdrd-phy
-+      - samsung,exynos990-usbdrd-phy
- 
-   clocks:
-     minItems: 2
-@@ -187,6 +188,7 @@ allOf:
-               - samsung,exynos5420-usbdrd-phy
-               - samsung,exynos7870-usbdrd-phy
-               - samsung,exynos850-usbdrd-phy
-+              - samsung,exynos990-usbdrd-phy
-     then:
-       properties:
-         clocks:
-
--- 
-2.47.2
-
+    aflags-thumb2-$(CONFIG_THUMB2_KERNEL) := -U__thumb2__ -D__thumb2__=1
 
