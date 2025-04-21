@@ -4,119 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0B6AC369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Apr 2025 22:38:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 658ECC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 02:17:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yWToxAdnI6Aa9yCRFIPR9W7z9KJYBd0BVcFA7/xQZy0=; b=E6wXQFbRnhm/TUKJBxuF+jVIsY
-	bfnORSlLGHR1YCkfUtO7xOjpUD9HQkk7PcBk0NDle+9wtAShc48OsLYKDCgiOnUQ3NH77IRghxK/O
-	56NKUDGNblER47jNSYcofoux1M+43gl7W6uAIUgL33YFSaRTznF9bmGfOiPKFrzpL32a+GmTD5Bui
-	6nGYxgmgkfD63Owv9XG8vNRp/b6zbE5yMLlmwHHkjWQu+eJrbpR5n5lNJNULtNtXyCpHW745lYuC2
-	3fltyfyCP6CS4y94Ij8GO64UdbOKkuRqKsj70S7jkrahvSzyn3S/nhl8ppYorW6EsUo3QcFynIho2
-	W938E71g==;
+	bh=ln+VsoO9KPDNvwVmf9j44KpIUAfprGCpmnU9QOz5Oo4=; b=pHsNX2hvfCkHyfTwsEBujfNEBa
+	Zh1QIsGSLDAhhqiKg5Hi7QMGSM37bUdq8tid3U66fcVC2v6NAM4TrSiwngzlhC9o57wHbUv39aIv5
+	EiRgBwjaXyYTI6td9sI0DDmESLP49ddpyiy65FJex+N9ZizJwETJpNiYIJxI8yegBemCNg2hYa5Z2
+	DpCXH/QJMhe8Oc/uMic0u9zzlSfRlPeOUAus58kvukHPOuPiFMMaZaIAsEC9U4bLHnkB+UDJNFTLF
+	QgYzd6hzP2a++FSNUxQiXg3FRPrlAhmdxBxRu/CG1nbOc4LKbxj7GoYN3uh8ZounsxhbzzrP5XE3W
+	eTbRoucw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6dIR-000000037mQ-133i;
-	Sun, 20 Apr 2025 22:37:55 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1u6giL-00000003P9w-0kHU;
+	Mon, 21 Apr 2025 02:16:53 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6dGT-000000037fa-3EaH
+	id 1u6ggT-00000003P0b-1nvj
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Apr 2025 22:35:55 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53KML6VO018296
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Apr 2025 22:35:51 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	yWToxAdnI6Aa9yCRFIPR9W7z9KJYBd0BVcFA7/xQZy0=; b=VETGHU7ZdMmSPg1u
-	mm6xJoxzR7diITNxdHOrVBiOWOsUjmYfdOv5dBArLmnkkTpXpazh41iBZ+6r3O78
-	XoMjEw0sAZk06VoWWyMoi29CbaHKibMZZyvR+ESTeylwvDCKLuS0I3DXv+CsnDWL
-	1BWeCOexNAveWvKhWNCr3xUNnM7EpNyR5OR3CRAAFcxPl5vY/v5CCNatdTdTY50s
-	+6Voa1veAjLBGzoSYAAlt9CK9sWSYpFslAZ0rf3NiMoW9kJl4ckf5RTTJk4dORt8
-	TT9f3y9b3/JVyC8DGlq4xi99+1CUA91D57lvEb2yi5gqg8A172g1luA4OpSb+J3m
-	tEoeZw==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4642u9ajf8-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Apr 2025 22:35:51 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-7c5d9d8890fso792343585a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Apr 2025 15:35:51 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745188549; x=1745793349;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=yWToxAdnI6Aa9yCRFIPR9W7z9KJYBd0BVcFA7/xQZy0=;
-        b=ZlGL6QWUkmanImviz7+wC8tTbrVBag0tmjOVCp4Bbvw3FuZHbP9NXy+6TZh9Wmbdxs
-         71P1+2k+1rTDbmcaSo/5Dx3jVXTELXBgAlLlRSaPee785xlk9mAqkow6u1IYzTBkM+T/
-         4JvFq+ne1/O4/23FosKn8zcZdGqLKl1cAmHmtajVJwG6A6j8Ck94PsPaFSYiqU6zR1P/
-         mvuVUH54XbgxWnqCMfrQ+wxFk100RefbJg/b5NCqt4DR+IdduE058oBZSTd7QhPqnpvW
-         HDGmCQRovzbCzfGH6Bcmmn/qLlvtU4+pUsxATR7ZsfBiAXv/YuLCUBfjhLVCCZRJ1FtN
-         KHYw==
-X-Forwarded-Encrypted: i=1; AJvYcCVAZkziPNUcUCWDNlHzQoEY4GB8Yt3A98OtH8ojny8lqQIefZv87fKddbVFSrssbAKAIyse7OTwawEkqCSA5WSQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyADGlsEkumPTdl2SgYBLn+0MpCfYytCvL8AklW9vulhwF2rXCR
-	WjHZwkCQeOfXggGsBmJO1HWP/XMBt6H07LVmO+mQMzZu4ewf2/w24k5W13fwivq8CTEPqY6KH76
-	c2yptw1rpW/8ijaeFjjWyNUw4FCvRYKG5WtDJu7Y2/GWr7uRq1gDuun7VDnXRg15rf4pldVC4Yg
-	==
-X-Gm-Gg: ASbGncsKzXLQGGcGc2WQh9pLMA8O78Uxc6dL0zWN2nXFzymIeuakpUXtonufkeZcNk0
-	SeWvnmtRcSdJdFLisFb262pOsnmfYw8ixUfqCVfSv8ijWUh1BermCcx8OAOyR5gElDDXchOiFOx
-	4lc8RjEmZ7Z7UMGLwQn4c64U/SQJjjC5DXprBAr2FgVR9NSE2fuI1t7P5P5dYlf4VeS4LCWk53D
-	09VbBWeIbh76F9wD02TxbaTM8y8imre//yFXqyvNOjKD6NYrCdmVgwfo0swDK7jgH+oN6pV2nWr
-	LR/UFZatyFDpZimqWl0IIHM8W/rbrnUxPj4PUKG9PFVyfysQ5d9kKvVkcAKho/hmdsHYbb4OwpA
-	=
-X-Received: by 2002:a05:620a:17a1:b0:7c5:93bd:fbf2 with SMTP id af79cd13be357-7c9257ef5e5mr1664104485a.19.1745188549544;
-        Sun, 20 Apr 2025 15:35:49 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFBIsV9h73etG5RMWOHPnVmCLLh+xKK8HOQ3zsl0XthtAmLfRYE2wnVV4KjY87RqdCOwW2XyA==
-X-Received: by 2002:a05:620a:17a1:b0:7c5:93bd:fbf2 with SMTP id af79cd13be357-7c9257ef5e5mr1664102385a.19.1745188549177;
-        Sun, 20 Apr 2025 15:35:49 -0700 (PDT)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-31090782facsm9022941fa.33.2025.04.20.15.35.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 20 Apr 2025 15:35:48 -0700 (PDT)
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: heiko@sntech.de, Damon Ding <damon.ding@rock-chips.com>
-Cc: andy.yan@rock-chips.com, hjc@rock-chips.com,
-        maarten.lankhorst@linux.intel.com, mripard@kernel.org,
-        tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
-        robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-        andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
-        Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
-        jernej.skrabec@gmail.com, dianders@chromium.org,
-        sebastian.reichel@collabora.com, cristian.ciocaltea@collabora.com,
-        boris.brezillon@collabora.com, l.stach@pengutronix.de,
-        dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Dmitry Baryshkov <lumag@kernel.org>
-In-Reply-To: <20250310104114.2608063-1-damon.ding@rock-chips.com>
-References: <20250310104114.2608063-1-damon.ding@rock-chips.com>
-Subject: Re: (subset) [PATCH v8 00/13] Add eDP support for RK3588
-Message-Id: <174518854674.614969.14581984196577762340.b4-ty@oss.qualcomm.com>
-Date: Mon, 21 Apr 2025 01:35:46 +0300
+	Mon, 21 Apr 2025 02:14:59 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.216])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4ZgppM6MTzz4f3mJ5
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Apr 2025 10:14:19 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.75])
+	by mail.maildlp.com (Postfix) with ESMTP id 4AA7B1A158A
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Apr 2025 10:14:45 +0800 (CST)
+Received: from [10.67.111.192] (unknown [10.67.111.192])
+	by APP2 (Coremail) with SMTP id Syh0CgDX4WQTqgVo5dAZKA--.45218S2;
+	Mon, 21 Apr 2025 10:14:44 +0800 (CST)
+Message-ID: <8b800c09-eade-4dcf-90f6-2f5a78170bc4@huaweicloud.com>
+Date: Mon, 21 Apr 2025 10:14:43 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
-X-Authority-Analysis: v=2.4 cv=TYaWtQQh c=1 sm=1 tr=0 ts=680576c7 cx=c_pps a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=VwQbUJbxAAAA:8 a=XGKhw0KbdVzlZrVxzTIA:9 a=QEXdDO2ut3YA:10 a=PEH46H7Ffwr30OY-TuGO:22
-X-Proofpoint-ORIG-GUID: CqrsDR3jU_lY5L0O99guUzrKatI66tDe
-X-Proofpoint-GUID: CqrsDR3jU_lY5L0O99guUzrKatI66tDe
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-20_10,2025-04-17_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
- bulkscore=0 suspectscore=0 adultscore=0 clxscore=1015 priorityscore=1501
- mlxlogscore=999 mlxscore=0 malwarescore=0 spamscore=0 impostorscore=0
- phishscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2504200187
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC bpf-next 1/4] bpf: add struct largest member size in
+ func model
+Content-Language: en-US
+To: =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+ Xu Kuohai <xukuohai@huaweicloud.com>,
+ Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Cc: Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
+ <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>,
+ Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>,
+ KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>,
+ Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
+ Puranjay Mohan <puranjay@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Florent Revest <revest@chromium.org>,
+ Bastien Curutchet <bastien.curutchet@bootlin.com>, ebpf@linuxfoundation.org,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, bpf@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kselftest@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
+References: <20250411-many_args_arm64-v1-0-0a32fe72339e@bootlin.com>
+ <20250411-many_args_arm64-v1-1-0a32fe72339e@bootlin.com>
+ <CAEf4Bzbn6BdXTOb0dTcsQmOMZpp5=DzGS2hHHQ3+dwcja=gv+w@mail.gmail.com>
+ <D98Q8BRNUVS9.11J60C67L1ALR@bootlin.com>
+ <9da88811-cce0-41df-8069-2e8b67541c39@huaweicloud.com>
+ <D9BLCJSCHE9A.1IKHK3XBPF8MU@bootlin.com>
+From: Xu Kuohai <xukuohai@huaweicloud.com>
+In-Reply-To: <D9BLCJSCHE9A.1IKHK3XBPF8MU@bootlin.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: Syh0CgDX4WQTqgVo5dAZKA--.45218S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxWrW3JryUGw4rWryDXr4fZrb_yoWrJw18pF
+	ZxX3Z8tF4kJr1xZa1qy3yxZrWSq348KryUCrW5tw13trn8GF1xJFW2gF4Y9Fy5Gr1kG3W2
+	vF1jqFy3Za4fZFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvE14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvEwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka
+	0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7
+	v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF
+	1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIx
+	AIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI
+	42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWI
+	evJa73UjIFyTuYvjTRM6wCDUUUU
+X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250420_153554_231495_D52051F1 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20250420_191457_820531_579E9861 
+X-CRM114-Status: GOOD (  27.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,46 +109,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Mar 2025 18:41:01 +0800, Damon Ding wrote:
-> Picked from:
-> https://patchwork.kernel.org/project/linux-rockchip/list/?series=936932
+On 4/21/2025 12:02 AM, Alexis Lothoré wrote:
+> Hi Xu,
 > 
-> These patchs have been tested with a 1536x2048p60 eDP panel on
-> RK3588S EVB1 board, and HDMI 1080P/4K display also has been verified
-> on RK3588 EVB1 board. Furthermore, the eDP display has been rechecked
-> on RK3399 sapphire excavator board.
+> On Thu Apr 17, 2025 at 4:10 PM CEST, Xu Kuohai wrote:
+>> On 4/17/2025 3:14 PM, Alexis Lothoré wrote:
+>>> Hi Andrii,
+>>>
+>>> On Wed Apr 16, 2025 at 11:24 PM CEST, Andrii Nakryiko wrote:
+>>>> On Fri, Apr 11, 2025 at 1:32 PM Alexis Lothoré (eBPF Foundation)
+>>>> <alexis.lothore@bootlin.com> wrote:
 > 
 > [...]
+> 
+>>>> I might be missing something, but how can the *size* of the field be
+>>>> used to calculate that argument's *alignment*? i.e., I don't
+>>>> understand why arg_largest_member_size needs to be calculated instead
+>>>> of arg_largest_member_alignment...
+>>>
+>>> Indeed I initially checked whether I could return directly some alignment
+>>> info from btf, but it then involves the alignment computation in the btf
+>>> module. Since there could be minor differences between architectures about
+>>> alignment requirements, I though it would be better to in fact keep alignment
+>>> computation out of the btf module. For example, I see that 128 bits values
+>>> are aligned on 16 bytes on ARM64, while being aligned on 8 bytes on S390.
+>>>
+>>> And since for ARM64, all needed alignments are somehow derived from size
+>>> (it is either directly size for fundamental types, or alignment of the
+>>> largest member for structs, which is then size of largest member),
+>>> returning the size seems to be enough to allow the JIT side to compute
+>>> alignments.
+>>>
+>>
+>> Not exactly. The compiler's "packed" and "alignment" attributes cause a
+>> structure to be aligned differently from its natural alignment.
+>>
+>> For example, with the following three structures:
+>>
+>> struct s0 {
+>>       __int128 x;
+>> };
+>>
+>> struct s1 {
+>>       __int128 x;
+>> } __attribute__((packed));
+>>
+>> struct s2 {
+>>       __int128 x;
+>> } __attribute__((aligned(64)));
+>>
+>> Even though the largest member size is the same, s0 will be aligned to 16
+>> bytes, s1 and s2 are not aligned the same way. s1 has no alignment due to
+>> the "packed" attribute, while s2 will be aligned to 64 bytes.
+>>
+>> When these three structures are passed as function arguments, they will be
+>> located on different positions on the stack.
+>>
+>> For the following three functions:
+>>
+>> int f0(__int128 a, __int128 b, __int128 c, int64_t d, __int128 e, int64_t f, struct s0 g);
+>> int f1(__int128 a, __int128 b, __int128 c, int64_t d, __int128 e, int64_t f, struct s1 g);
+>> int f2(__int128 a, __int128 b, __int128 c, int64_t d, __int128 e, int64_t f, struct s2 g);
+>>
+>> g will be located at sp+32 in f0, sp + 24 in f1, and some 64-byte aligned
+>> stack address in f2.
+> 
+> Ah, thanks for those clear examples, I completely overlooked this
+> possibility. And now that you mention it, I feel a bit dumb because I now
+> remember that you mentioned this in Puranjay's series...
+> 
+> I took a quick look at the x86 JIT compiler for reference, and saw no code
+> related to this specific case neither. So I searched in the kernel for
+> actual functions taking struct arguments by value AND being declared with some
+> packed or aligned attribute. I only found a handful of those, and none
+> seems to take enough arguments to have the corresponding struct passed on the
+> stack. So rather than supporting this very specific case, I am tempted
+> to just return an error for now during trampoline creation if we detect such
+> structure (and then the JIT compiler can keep using data size to compute
+> alignment, now that it is sure not to receive custom alignments). Or am I
+> missing some actual cases involving those very specific alignments ?
+> 
 
-Applied to drm-misc-next, thanks!
+How can we reliably 'detect' the case? If a function has such a parameter
+but we fail to detect it, the BPF trampoline will pass an incorrect value
+to the function, which is also unacceptable.
 
-[01/13] drm/bridge: analogix_dp: Add irq flag IRQF_NO_AUTOEN instead of calling disable_irq()
-        commit: efab13e7d13a641a22c7508cde6e1a5285161944
-[02/13] drm/bridge: analogix_dp: Remove CONFIG_PM related check in analogix_dp_bind()/analogix_dp_unbind()
-        commit: c71db051142a74b255cb61b84d8fedae3b70952f
-[03/13] drm/bridge: analogix_dp: Add support for phy configuration.
-        commit: 2c0883459ed62ac65784289e9236d673102eee68
-[04/13] dt-bindings: display: rockchip: analogix-dp: Add support to get panel from the DP AUX bus
-        commit: 46b0caaad3a5aed817a02b239d4cb4392c2a5dea
-[05/13] drm/bridge: analogix_dp: Support to get &analogix_dp_device.plat_data and &analogix_dp_device.aux
-        commit: fd073dffef041d6a2d11f00cd6cbd8ff46083396
-[06/13] drm/bridge: analogix_dp: Add support to get panel from the DP AUX bus
-        commit: e5e9fa9f7aad4ad7eedb6359baea9193531bf4ac
-[07/13] drm/bridge: analogix_dp: Add support for &drm_dp_aux.wait_hpd_asserted()
-        commit: c8f0b7cb01eadef03558b21245357683409da438
-[08/13] drm/rockchip: analogix_dp: Add support to get panel from the DP AUX bus
-        commit: d7b4936b2bc0987ccea125d9653381a1a0038d6d
-[09/13] dt-bindings: display: rockchip: analogix-dp: Add support for RK3588
-        commit: f855146263b14abadd8d5bd0e280e54fbab3bd18
-[10/13] drm/bridge: analogix_dp: Add support for RK3588
-        commit: 0e8b86b6df143662c631dee8bb3b1fff368aa18a
-[11/13] drm/rockchip: analogix_dp: Add support for RK3588
-        commit: 729f8eefdcadaff98606931e691910f17d8d59d6
-
-Best regards,
--- 
-With best wishes
-Dmitry
-
+> Thanks,
+> 
+> Alexis
+> 
 
 
