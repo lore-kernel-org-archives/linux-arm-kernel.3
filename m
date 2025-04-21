@@ -4,76 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7128C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 13:03:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2367FC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 13:41:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pRIvYDrbBIMegIb2a73iF08b9k9S3I/O0j1QXWOEqPI=; b=gTD1irpFh3rR6gen1V6SDKGDCJ
-	s6at6T0KXHG9I9YDhBJfZ4fnA95s3gLzgQqe2FgKuhDtzx19XbQPQbaw5+1zHtag7qNnUpOqyHG4u
-	Z1z1QeIU81SmyJAO/dLIlB/0qOhLdsFhzfAqjxV5LC1hCDzJr22sgyY2tUrGdDDO2ZzxqUaCWkj1X
-	tOg5cHl931wV8Y9b8NGrovNlhrkOj4gb3UJLe2CTCDcUPj1v05BsdYlUYql6J4a0gQ+Lpz/Sw+iw9
-	4AnODoP4KbEgjG0gQqB0ZUAb6l7n1JcBAsvkinLdvZPGt/PmHnC7mi+D2qD1DT1VOTuQfe4QRGdl2
-	+HC1CImg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nsCVpY7/Uvm0yDYeDIAoS8Xqn+DAacrFu0NfOVTRztk=; b=usGvXSFEK6m57oypY85GYN03zR
+	NdFdBPE6NEJ8Dozztrk8NpbsjuDAgeKjsXgCvoZwgEV6plETHSPYCkaZo8T7ubi3xq766UCsv9hVr
+	TrBWrC5UlpbvR3386pYRGYK6MR1HxgXaFL8n2tKmd3/WwcW2OzL62xTAXz1EHT5cyFKdXx1wpWcyK
+	96lbCIQGmM0yQnwyBU0w3qvdkTvBcl/y0xX0l3l5GZzOn6m9fuqLz9/UJ9qKKTstxRyPB7fgo2Py9
+	m2/HhFizW7W3HA8YBWShbTwZyVgYkSoa6hMZa16Qjai1LEJow/PihFOZlNzl3Bnrznh8aJkNATtP+
+	d6voGK5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6qni-00000004JBi-48oz;
-	Mon, 21 Apr 2025 13:03:06 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1u6rOM-00000004MS5-19yd;
+	Mon, 21 Apr 2025 13:40:58 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6qjG-00000004IeN-2SjO
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Apr 2025 12:58:32 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53LCwR8A1558209
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 21 Apr 2025 07:58:27 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745240307;
-	bh=pRIvYDrbBIMegIb2a73iF08b9k9S3I/O0j1QXWOEqPI=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=LtaP1hoB9HnBZUb0lyBSuVOGggjgu8N/9WbQ9WGfCl8Cnt3P6haTfguAjkIDTph7L
-	 74uBDPH/w/kKZUcD3CtVhzHEhgK3rv55Sp1+qqMiqdXuGePKfGfPauxZ6ge06VfP/W
-	 nFYvIxcYSMK5oQXod1mc/XUpPEQL8CuUoWgTk8mg=
-Received: from DFLE111.ent.ti.com (dfle111.ent.ti.com [10.64.6.32])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53LCwRxO022708
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 21 Apr 2025 07:58:27 -0500
-Received: from DFLE104.ent.ti.com (10.64.6.25) by DFLE111.ent.ti.com
- (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 21
- Apr 2025 07:58:27 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE104.ent.ti.com
- (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 21 Apr 2025 07:58:27 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53LCwRrv076149;
-	Mon, 21 Apr 2025 07:58:27 -0500
-From: Nishanth Menon <nm@ti.com>
-To: <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        Siddharth Vadapalli
-	<s-vadapalli@ti.com>
-CC: Nishanth Menon <nm@ti.com>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <srk@ti.com>
-Subject: Re: [PATCH v3] arm64: dts: ti: k3-j784s4-j742s2-evm: Add overlay to enable USB0 Type-A
-Date: Mon, 21 Apr 2025 07:58:25 -0500
-Message-ID: <174524029452.1976053.2871896353066358083.b4-ty@ti.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250409100853.4179934-1-s-vadapalli@ti.com>
-References: <20250409100853.4179934-1-s-vadapalli@ti.com>
+	id 1u6rMS-00000004M1Q-2LtZ;
+	Mon, 21 Apr 2025 13:39:01 +0000
+X-UUID: f8e4c74e1eb511f0b1a74d0c5e11a509-20250421
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=nsCVpY7/Uvm0yDYeDIAoS8Xqn+DAacrFu0NfOVTRztk=;
+	b=jEPkEK14Zdjq3d7j2XOtyPBbsEpG7gxk3/pPWB+GdBEE1lEIVBThGg0Urp2ghFtsBBsPHF64mbotPUmBI+jksqU1BtpcwFbVqt9O/6OKRiT1K93i9+yETjFxNRFk1zR5+gE7rI60+3Co/02AF0OWfXkE8TlRqxT9KGaUF+fkStA=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.1,REQID:483d94f5-c283-4cbf-adf7-fddb383c9ab0,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:0ef645f,CLOUDID:1424808b-0afe-4897-949e-8174746b1932,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
+	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
+	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: f8e4c74e1eb511f0b1a74d0c5e11a509-20250421
+Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
+	(envelope-from <sunny.shen@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1822537042; Mon, 21 Apr 2025 06:38:56 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Mon, 21 Apr 2025 21:38:53 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Mon, 21 Apr 2025 21:38:53 +0800
+From: Sunny Shen <sunny.shen@mediatek.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+CC: Matthias Brugger <matthias.bgg@gmail.com>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Fei Shao <fshao@chromium.org>, Pin-yen Lin
+	<treapking@chromium.org>, "Jason-JH . Lin" <jason-jh.lin@mediatek.com>, Nancy
+ Lin <nancy.lin@mediatek.com>, Singo Chang <singo.chang@mediatek.com>, "Paul
+ Chen --cc=devicetree @ vger . kernel . org" <paul-pl.chen@mediatek.com>,
+	<linux-kernel@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+	<linux-mediatek@lists.infradead.org>, <linux-arm-kernel@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Sunny Shen
+	<sunny.shen@mediatek.com>, CK Hu <ck.hu@mediatek.com>
+Subject: [PATCH v2 5/5] drm/mediatek: Change main display path to support PQ for MT8196
+Date: Mon, 21 Apr 2025 21:38:32 +0800
+Message-ID: <20250421133835.508863-6-sunny.shen@mediatek.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250421133835.508863-1-sunny.shen@mediatek.com>
+References: <20250421133835.508863-1-sunny.shen@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_055830_715391_9792E44D 
-X-CRM114-Status: GOOD (  16.60  )
+X-CRM114-CacheID: sfid-20250421_063900_597641_9AC8257E 
+X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,47 +93,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Siddharth Vadapalli,
+Due to the path mux design of the MT8196, the following components
+need to be added to support Picture Quality (PQ) in the main display
+path: CCORR0, CCORR1, DITHER0, GAMMA0, MDP_RSZ0, POSTMASK0, TDSHP0.
 
-On Wed, 09 Apr 2025 15:38:53 +0530, Siddharth Vadapalli wrote:
-> The USB0 instance of the USB controller on both the J742S2 EVM and the
-> J784S4 EVM supports a single USB interface at a time among the following:
-> 1. USB3.1 Gen1 Type C interface
-> 2. Two USB2.0 Type A interfaces via an on-board USB Hub.
-> 
-> By default, the USB3.1 Gen1 Type C interface is supported on both of the
-> EVMs. Enable the USB2.0 Type A interface by configuring the USB2.0_MUX_SEL
-> mux. Additionally, set the Dual-Role Mode to Host since a Type-A interface
-> is only associated with the Host Mode of operation.
-> 
-> [...]
+Signed-off-by: Sunny Shen <sunny.shen@mediatek.com>
+Reviewed-by: CK Hu <ck.hu@mediatek.com>
+---
+The method of using OF graph for display path is still under investigation.
+---
+ drivers/gpu/drm/mediatek/mtk_drm_drv.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-I have applied the following to branch ti-k3-dts-next on [1].
-Thank you!
-
-[1/1] arm64: dts: ti: k3-j784s4-j742s2-evm: Add overlay to enable USB0 Type-A
-      commit: bcbc3d40dc62dd616e409b8b18c13d5b55fca6af
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent up the chain during
-the next merge window (or sooner if it is a relevant bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
+diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+index aa7eec1fc7e6..5ca2b9badbe0 100644
+--- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
++++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+@@ -242,6 +242,13 @@ static const unsigned int mt8196_mtk_ddp_ovl0_main[] = {
+ 
+ static const unsigned int mt8196_mtk_ddp_disp0_main[] = {
+ 	DDP_COMPONENT_DLI_ASYNC0,
++	DDP_COMPONENT_MDP_RSZ0,
++	DDP_COMPONENT_TDSHP0,
++	DDP_COMPONENT_CCORR0,
++	DDP_COMPONENT_CCORR1,
++	DDP_COMPONENT_GAMMA0,
++	DDP_COMPONENT_POSTMASK0,
++	DDP_COMPONENT_DITHER0,
+ 	DDP_COMPONENT_DLO_ASYNC1,
+ };
+ 
 -- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+2.45.2
 
 
