@@ -4,156 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DEB7C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 06:21:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E43B7C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 06:32:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pNix5Z3TsWH81mds03ZacywtycmA+p8EAUsjLA/aMtg=; b=HZc1aoSOZmkFbzWmJlApJ+EeN4
-	kmUxLUwHwJ8TkYlbcio/0XUrRy8jn/+lQqHLWva5Bp59uQs8B43zt/0+xhchs4qUtAbpcgKFLW+Qw
-	KcndiQQZf3KhB8w7uoYIldhtNpyLQNyMdWNsIhPC4g8FJkw/zpyy4nNsLQShyIVn2RpXM887B7AAS
-	acHgW7STynviFjC1cGE3//p7wdq3gaWj6frqu2u9HxbT0FlGXaqjJC7EGYFV2DOod7v1MUK5ARLB6
-	gwSpT+l7oJfIgQkTTpuZaC/c+HJZx7y9PB/S9x2Z9baJ2IK8F1ZCqCzcA7LwfCvE6uObjoxGHZVND
-	Ve0z6fKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vqp0Y/G2tP+nSwZEwE+f+zgxbcufOym801RvAvKV8aE=; b=COUb/V3MmBkFF0t+zqWMqdYady
+	9AdmuWmKqIEtHTsy5O16s1sqJavHsCaYnW2AZpLWDJLurWEyalsLuXGtaovtckkosMwVF2MM6agJn
+	FrV0Rg7ioinIGdmtRhVskf2TS0DiNiB5CoumiiN9EKePnbovxFz00NZWU9hoHe3ofK8h8fCczVu3p
+	4JFYaLWjPgk5TzsrF7ZmZzYwFSZE0SWEkYu9bmaIwl6KMAhI1oiaT2WmesJ24CmyB38NNzllvb+rD
+	nBSadFax+GKxmsgOiXOdYohwk9DPwPInfC0yXK2gAio97YEpUGP/a6fcDfYmOsvpdOqnMVgGjSjqY
+	PmvIeXQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6kWc-00000003hH7-0Fmr;
-	Mon, 21 Apr 2025 06:21:02 +0000
-Received: from mail-northeuropeazlp170130004.outbound.protection.outlook.com ([2a01:111:f403:c200::4] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1u6kh9-00000003iZ0-1Cxu;
+	Mon, 21 Apr 2025 06:31:55 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6kUk-00000003h7N-3slm;
-	Mon, 21 Apr 2025 06:19:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yxhIHd0C3DYAw6P73EtL1CH4+rqC9sQunE9xoqh5FE9qIVLbLpM0wn+tGxP21cw1lxME//8vKh/RfQswwahVa00c+4N9rC7tH2Obhr3kzaoKbSermtcIirCA1Ow0O/PJnROdpke5tguzBLPJ3Wc07C8bbGbu/8sndcvyPe1ia2Hm+B4kbBoM3aKBDft6CGxtOwh1xnhQQAiVDYzKRcw/xRxGRUJJbEdxKADVpDnbW3xnCWDFo4WnGqDCIwAAVBpdNWSSmBZhUrdqAuz00mq2QdeAW0HOje2tKsw9fMsSLzP6bccgen+Zoqnn0QEKlr3W/uzPMoHSAmihjKkzSHaBPQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pNix5Z3TsWH81mds03ZacywtycmA+p8EAUsjLA/aMtg=;
- b=yEXJjgHXfnEyvOFk5b10p3i0dJcGGI+P0d9axOBtHow0PBJ2nF/8ItclRjnKg0C0jFt8/Y309n74ZxXuhfGhXeHeg9LksfvS0Bhd55Qrz69FkwHY71NkYCHoyCM68gsXTkDefe8TFhQ7Ud4BRvFEA/9ht5u/rVF39HG5y3EZfUWoD+vaO/VdYRSJ9Ge5UbrfEAJZc9bWd5uN0h0oG2h9NBHLqHABlQIfjaRtdLXp8hZoxNCaBm8Md4OU3QKz48BV1RAIvKtmP5WykodhDdR6b7UVwjOhc2jlgwvKL0TOI997plX/V/IVzFOyw38CgQi9nSDtBYC8co9pUUtjTVZMFQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pNix5Z3TsWH81mds03ZacywtycmA+p8EAUsjLA/aMtg=;
- b=GY26I6x+0rfE9yPniel9OPXEJgI8UGj9PY4GobNqnWgbwEz5MZq6Z2vlOnlod0OrZ+Gy4hdV7IaFKk6Z79r8LZMWGgFbF98IloutYFs0E19CQCFkIuk86xzNflaIGI2EPckAg0UK65OWMoB0J8ymoYDFRRb6+De8Bki3Mi3YVWI8CFB+0RH+BWD1a8PyJFZKqTF5OSOiavUXzjlLNlftgCnfr/oKttutJ2CM87EN6wdlvDUhiPWLjszElIQ0d/6krkE3ZWnXc1rDNdH5MocXeckK8S7VH79YgxSqvFEAJSW/fC349Fm17vWvm2URigWkU/sgnZpv1TurI+Vs+DgHTA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
- (2603:10a6:800:293::14) by PA4PR04MB7646.eurprd04.prod.outlook.com
- (2603:10a6:102:f3::18) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.35; Mon, 21 Apr
- 2025 06:04:41 +0000
-Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
- ([fe80::75ad:fac7:cfe7:b687]) by VI2PR04MB11147.eurprd04.prod.outlook.com
- ([fe80::75ad:fac7:cfe7:b687%7]) with mapi id 15.20.8655.031; Mon, 21 Apr 2025
- 06:04:41 +0000
-From: carlos.song@nxp.com
-To: miquel.raynal@bootlin.com,
-	Frank.Li@nxp.com,
-	alexandre.belloni@bootlin.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	conor.culhane@silvaco.com
-Cc: linux-i3c@lists.infradead.org,
-	imx@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 2/3] i3c: master: svc: switch to bulk clk API for flexible clock support
-Date: Mon, 21 Apr 2025 14:15:43 +0800
-Message-Id: <20250421061544.2471379-3-carlos.song@nxp.com>
+	id 1u6kfH-00000003iRI-1Gug
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 21 Apr 2025 06:30:01 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.235])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4ZgwSh2kNXz4f3m6s
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Apr 2025 14:29:24 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.128])
+	by mail.maildlp.com (Postfix) with ESMTP id C53801A058E
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Apr 2025 14:29:49 +0800 (CST)
+Received: from huaweicloud.com (unknown [10.175.101.107])
+	by APP4 (Coremail) with SMTP id gCh0CgBHq1_b5QVohzd1KA--.58933S4;
+	Mon, 21 Apr 2025 14:29:49 +0800 (CST)
+From: Ye Bin <yebin@huaweicloud.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org,
+	broonie@kernel.org,
+	joey.gouly@arm.com,
+	maz@kernel.org,
+	huangxiaojia2@huawei.com,
+	james.morse@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	yebin@huaweicloud.com,
+	yebin10@huawei.com
+Subject: [PATCH] arm64/cpuinfo: only show one cpu's info in c_show()
+Date: Mon, 21 Apr 2025 14:29:47 +0800
+Message-Id: <20250421062947.4072855-1-yebin@huaweicloud.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250421061544.2471379-1-carlos.song@nxp.com>
-References: <20250421061544.2471379-1-carlos.song@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR04CA0165.apcprd04.prod.outlook.com (2603:1096:4::27)
- To VI2PR04MB11147.eurprd04.prod.outlook.com (2603:10a6:800:293::14)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI2PR04MB11147:EE_|PA4PR04MB7646:EE_
-X-MS-Office365-Filtering-Correlation-Id: e2bc8b05-6818-4643-87d7-08dd809a6816
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|7416014|376014|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?8hvCXDlUKhjJ9FwahP7kI0Ad81Ku76DICHL5uFoTArNqawzLOQE6MOZBm7uL?=
- =?us-ascii?Q?ROBliyJLAdPW4oS/KoSE95te7iryhp/5EcBh5dzCHAcG9WKsESA10kRraXlS?=
- =?us-ascii?Q?f+h8OuGe19dOzwDK5qiXmSVo4eFEINYSe4YJKH3P9hvJnx5d4fO8w9mQfJiS?=
- =?us-ascii?Q?igZY89/LkWn4JaEkkkzeWL7AsAXZRpSa27x8gWAOCWPw1iKdNCfOK9EI1GTm?=
- =?us-ascii?Q?Bev6vh/5a6AhMBI5fGlIw0fGWzNTT1dvgx3CzMWVzmESwnpgcJfAMXZgSsRs?=
- =?us-ascii?Q?nApPd3ZQIjLcBezzHlz6ooNAbdjHZO7b93E9gwtayG2FE8QMJdWsD5x5WZ/D?=
- =?us-ascii?Q?jwsre/Nu27YH/m+KKOEXI+31OGB6uYmuzfHdoeo9MpvvLHmpwIk+/YJlmc5X?=
- =?us-ascii?Q?KlB3fBWL+waq+Xo5myCU5p6jM+bbEZ18y9gXZGnQm71f0F+JMtlfContseZX?=
- =?us-ascii?Q?hvXI4InQM5Fm5NvaF+54slzpwDFfeZd4i8rsGWzT0+NjZAGQqpiCvKSKIZC3?=
- =?us-ascii?Q?fcAYrWiEG9mL6bkis9RLA/uwGJ+UVDYKF/TCbbXiKGc264aG44NJnd5Ee4ex?=
- =?us-ascii?Q?HcCKCFuNBmDEfGwdSqQEPg5LotGJ8aBPxBei0Z5f2O/8ufOXFzVQe+q5IpqS?=
- =?us-ascii?Q?+UaZ1uSDmqDhot3RBzt5YAfpKjeRF+lfqh5nfY+qABlPp38bUK+cKxg2D536?=
- =?us-ascii?Q?HfjpBgYb4J9nB46v7xpWiC4JawsmCuf7Qr8iUot8wDEJa/mhjBKOedxqnj0Y?=
- =?us-ascii?Q?QaiFJEeLR4GU1nc4c5bhZRkyfmCThmAZGeUjdN07Hie6f61TfVCHgp1rlPBo?=
- =?us-ascii?Q?sVgM9ttxysZtRIhkzgbgDC4p9fxy66tncNm8KoFuhOErORd47+sW20vN4sCu?=
- =?us-ascii?Q?pCh6sD00HrlfMYQPItM53pyOXDpQBM+TI86uSipCUgi1p3LMgJbMAUOSutKh?=
- =?us-ascii?Q?hhkRcwxwfggr6kdPqykkIzpx0Snm+RrD/Sibm8NpOPHBBg5oP68IAkXn6rF+?=
- =?us-ascii?Q?Jy/UP/TXxse7dr0v5HY5IJ4AEt4fcgzQek2vucsKsybulH+CA1tzLahvUi+y?=
- =?us-ascii?Q?VlgtJF4hFInVvIH9VyfgQ2jdchZnOamzbHKKU5OubUjMUnJR4+sTJqS3ywZh?=
- =?us-ascii?Q?8lHP9I3UxZYBmewDySQxFAjlOY7EEvtNwANhfKUlGbmgqPmNKZCHZeCAOkxz?=
- =?us-ascii?Q?nlQbw8sVIcjnp3R7Sll2mhCL2CUWBj0PPRt39pDaUMWh60FLmTFB8dloLS9C?=
- =?us-ascii?Q?ch1IXfiOdJh30JjZnEEDj7JGAaiburavpSjqgUq7DW+tSMj796jhWbuYA3ym?=
- =?us-ascii?Q?fi2L2KSAswu6EQTmq0i5qcgJD9W/1aJDufHh9I5wOlgU9uDgFF/ZogqwAI9e?=
- =?us-ascii?Q?HIiyKPnMjW3CFRHFJFOcpSLP+8aKwmd+W6hLn7NCqCuGWlMnlOZnI3Rsnq33?=
- =?us-ascii?Q?KWXQzZtwyWIcMst9MscNZ2GZT0GBT6qXdLJxtdN2R0zSqqlhFgzqCynNcd6s?=
- =?us-ascii?Q?mCEhUIfVhdTqpzo=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2PR04MB11147.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(7416014)(376014)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hb6POLx9e8n90nopS2SsJ5sQlAMhN6/YXqemgSr5/yW7yswZMkelmBa+cqjN?=
- =?us-ascii?Q?XG14vgtIzl711qYxHkKj2SmGoUSYjtQWJ/R3tbcvsOmyeyeSfMEooxCdc/MS?=
- =?us-ascii?Q?QP8IFAp07vSuNOxDvb84z7/6mkfCu25PYFz2iY6EBflK8VOyNtC237hM6Z/d?=
- =?us-ascii?Q?xDpxvisWIAV53+a6HoRXFRmZTGcdTLoYgp0QvVK4vHkK4poxEaF3OFwncGlU?=
- =?us-ascii?Q?Rws4eyu/EB5IrKzctzHL/2pPunZycIbyi1yvSV1Qwb5VQni/enpaELRkllAD?=
- =?us-ascii?Q?rAlJME8pg63V+Do+nJkuTp+84IErmnbLqBbfQbwY7GWxkQmgYWHpXaILmtrd?=
- =?us-ascii?Q?OaoJlX1XpIPahewc+CUxnVrqFl4n6IzECZgoMdCUzyoTxYd+KoGDN4bECnyG?=
- =?us-ascii?Q?LbnWrsgTIYzPFLeFbIIt3hHVDrUqV0R8PgmgJ42EjKdotPTiYmEHsC8BYIjN?=
- =?us-ascii?Q?9a34OwArcSUvmwinriwj076JTc1q4fMi580WOuWrK8i+EcVxxDfOxwpXXa1S?=
- =?us-ascii?Q?DPrDvfdGDaRMPhtiMnDWOCArwQtdUtjeozf63NpfYxuZ9q4VaxUzoK0W8RVm?=
- =?us-ascii?Q?FnTC4y5CCTUTJ+EeuMLjWajdpdui0hFbRTVewv30BHNZK9Lmnu36hV4kSVO0?=
- =?us-ascii?Q?yNxbG53LIlJYxgSCAC72pS97d4HYNDm/D7jM8sa7m02fdqdpl52zlQf+7tLi?=
- =?us-ascii?Q?temtg3ctPCFD8r1Sgoo0xxHPoEkvyDuzl217Krva0lFe+aiJqHD9knRB0SG8?=
- =?us-ascii?Q?jcl9lvgLsmpTA9u49pC4SaaTak/icWTcB0ipJpRsEm04EO/HNTAPGbBCl9K5?=
- =?us-ascii?Q?hIOjZvNgcobJ8Smf2Mr5tY4D2oZYkDZjskRw0Oen3ESakxpTHYMb2j16TfLl?=
- =?us-ascii?Q?6YH6O8En43wIXLd2V98gsxB1MDv/PrVIQB6y5zLR58D39zqtXHVr+lmtJUml?=
- =?us-ascii?Q?vG3tmlh2MJ29UWd+iRcaiHtVWNZPqBtpZ30H1A9ycHE02Pa0eeugDq0M3r1t?=
- =?us-ascii?Q?TXnxh/5WqFQPD14/ge9Jf5/P89P84Ft3e7Kk7camcTCs3uKGGlPu/PeMWXPv?=
- =?us-ascii?Q?GNIeyAVagTiBPb+j09l2WnQslNoctVRWuHm2wC7/mgW448ldC/b1WkVH3Vaf?=
- =?us-ascii?Q?vLSm8mMOCLi5gfM54/O6aXdF0s17g0zPB3bIJq1I4Cw8WbG7Cb9xS2A3bNtG?=
- =?us-ascii?Q?ZpdzRWOXdbTG+be3XyLzPESwedaPS0lxJf+jOpNA82DwSSskRPxDHEH+RENS?=
- =?us-ascii?Q?xA47EGgioQsoTVmpxDetMtlxtuwYFat2WdqJKcQ2JDBOiKTIjGDFl+ipJcdG?=
- =?us-ascii?Q?amju0/OGRRfozmojVsIGyDUTZz7H/EZz9AKv/9LaTy2W6CZWdCQooebg8XjD?=
- =?us-ascii?Q?I/6LIVwJ0yAjWhF8FGGoWx1RVa3bgHXVImhPo7UG87rctOKu6u4sjONo8/4B?=
- =?us-ascii?Q?b9VCkkDiydPJbWJjYTM45I+1O2wKme24+YmhIBxIjMxVVoBb14UiLXbJv5on?=
- =?us-ascii?Q?AnZCYy7v8uiE4R3uPG18wJN6XLb8GRM+t+FaTlp+iYOQaSZlqCHK0kszAwY3?=
- =?us-ascii?Q?URiEw4NSEG0njAhiu96zKRO6kb9RNce40oA2Yxws?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e2bc8b05-6818-4643-87d7-08dd809a6816
-X-MS-Exchange-CrossTenant-AuthSource: VI2PR04MB11147.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Apr 2025 06:04:41.8566
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 4UzouaHA5r9qpCAqYabdvr5La3wHSrpO3wkoBnRJdyivxN8WWZsRx6ctacCS6GIEo6xyTcVk+dWR4d+jVPdM2Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7646
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: gCh0CgBHq1_b5QVohzd1KA--.58933S4
+X-Coremail-Antispam: 1UD129KBjvJXoW3WFy5JryUWrW3Zr48tryfXrb_yoW7GF45pF
+	1fC3W7Jw4rZ3Wft397JFs293Z0kan3X3W7Wrn7JwnYyF15JrZFgr1jkF1SyFsrWF1ftw4S
+	9Fs09ryakFyDZa7anT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9Y14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
+	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
+	zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF
+	4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWU
+	CwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCT
+	nIWIevJa73UjIFyTuYvjfUonmRUUUUU
+X-CM-SenderInfo: p1hex046kxt4xhlfz01xgou0bp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250420_231906_962505_0857C6A0 
-X-CRM114-Status: GOOD (  17.23  )
+X-CRM114-CacheID: sfid-20250420_232959_736573_2C00949C 
+X-CRM114-Status: GOOD (  15.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,164 +88,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Carlos Song <carlos.song@nxp.com>
+From: Ye Bin <yebin10@huawei.com>
 
-Use the clk_bulk API to handle clocks, so the code can support different
-numbers of clocks more easily. Make the code cleaner and more flexible.
+Currently, when ARM64 displays CPU information, every call to c_show()
+assembles all CPU information. However, as the number of CPUs increases,
+this can lead to insufficient buffer space due to excessive assembly in
+a single call, causing repeated expansion and multiple calls to c_show().
 
-No change in functionality.
+To prevent this invalid c_show() call, only one CPU's information is
+assembled each time c_show() is called.
 
-Signed-off-by: Carlos Song <carlos.song@nxp.com>
+Signed-off-by: Ye Bin <yebin10@huawei.com>
 ---
- drivers/i3c/master/svc-i3c-master.c | 74 ++++++++++-------------------
- 1 file changed, 25 insertions(+), 49 deletions(-)
+ arch/arm64/kernel/cpuinfo.c | 107 ++++++++++++++++++------------------
+ 1 file changed, 53 insertions(+), 54 deletions(-)
 
-diff --git a/drivers/i3c/master/svc-i3c-master.c b/drivers/i3c/master/svc-i3c-master.c
-index 85e16de208d3..47031aa54f11 100644
---- a/drivers/i3c/master/svc-i3c-master.c
-+++ b/drivers/i3c/master/svc-i3c-master.c
-@@ -203,9 +203,9 @@ struct svc_i3c_drvdata {
-  * @hj_work: Hot-join work
-  * @ibi_work: IBI work
-  * @irq: Main interrupt
-- * @pclk: System clock
-+ * @num_clks: I3C clock number
-  * @fclk: Fast clock (bus)
-- * @sclk: Slow clock (other events)
-+ * @clks: I3C clock array
-  * @xferqueue: Transfer queue structure
-  * @xferqueue.list: List member
-  * @xferqueue.cur: Current ongoing transfer
-@@ -231,9 +231,9 @@ struct svc_i3c_master {
- 	struct work_struct hj_work;
- 	struct work_struct ibi_work;
- 	int irq;
--	struct clk *pclk;
-+	int num_clks;
- 	struct clk *fclk;
--	struct clk *sclk;
-+	struct clk_bulk_data *clks;
- 	struct {
- 		struct list_head list;
- 		struct svc_i3c_xfer *cur;
-@@ -1875,42 +1875,11 @@ static const struct i3c_master_controller_ops svc_i3c_master_ops = {
- 	.set_speed = svc_i3c_master_set_speed,
- };
+diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
+index 285d7d538342..750864d0165b 100644
+--- a/arch/arm64/kernel/cpuinfo.c
++++ b/arch/arm64/kernel/cpuinfo.c
+@@ -209,80 +209,79 @@ static const char *const compat_hwcap2_str[] = {
  
--static int svc_i3c_master_prepare_clks(struct svc_i3c_master *master)
--{
--	int ret = 0;
--
--	ret = clk_prepare_enable(master->pclk);
--	if (ret)
--		return ret;
--
--	ret = clk_prepare_enable(master->fclk);
--	if (ret) {
--		clk_disable_unprepare(master->pclk);
--		return ret;
--	}
--
--	ret = clk_prepare_enable(master->sclk);
--	if (ret) {
--		clk_disable_unprepare(master->pclk);
--		clk_disable_unprepare(master->fclk);
--		return ret;
--	}
--
--	return 0;
--}
--
--static void svc_i3c_master_unprepare_clks(struct svc_i3c_master *master)
--{
--	clk_disable_unprepare(master->pclk);
--	clk_disable_unprepare(master->fclk);
--	clk_disable_unprepare(master->sclk);
--}
--
- static int svc_i3c_master_probe(struct platform_device *pdev)
+ static int c_show(struct seq_file *m, void *v)
  {
- 	struct device *dev = &pdev->dev;
- 	struct svc_i3c_master *master;
--	int ret;
-+	int ret, i;
+-	int i, j;
++	int j;
++	int cpu = m->index;
+ 	bool compat = personality(current->personality) == PER_LINUX32;
++	struct cpuinfo_arm64 *cpuinfo = v;
++	u32 midr = cpuinfo->reg_midr;
  
- 	master = devm_kzalloc(dev, sizeof(*master), GFP_KERNEL);
- 	if (!master)
-@@ -1924,27 +1893,31 @@ static int svc_i3c_master_probe(struct platform_device *pdev)
- 	if (IS_ERR(master->regs))
- 		return PTR_ERR(master->regs);
- 
--	master->pclk = devm_clk_get(dev, "pclk");
--	if (IS_ERR(master->pclk))
--		return PTR_ERR(master->pclk);
-+	master->num_clks = devm_clk_bulk_get_all(dev, &master->clks);
-+	if (master->num_clks < 0)
-+		return dev_err_probe(dev, ret, "can't get I3C clocks\n");
-+
-+	for (i = 0; i < master->num_clks; i++) {
-+		if (!strcmp(master->clks[i].id, "fast_clk"))
-+			break;
-+	}
-+
-+	if (i == master->num_clks)
-+		return dev_err_probe(dev, -EINVAL,
-+				     "can't get I3C peripheral clock\n");
- 
- 	master->fclk = devm_clk_get(dev, "fast_clk");
- 	if (IS_ERR(master->fclk))
- 		return PTR_ERR(master->fclk);
- 
--	master->sclk = devm_clk_get(dev, "slow_clk");
--	if (IS_ERR(master->sclk))
--		return PTR_ERR(master->sclk);
+-	for_each_online_cpu(i) {
+-		struct cpuinfo_arm64 *cpuinfo = &per_cpu(cpu_data, i);
+-		u32 midr = cpuinfo->reg_midr;
 -
- 	master->irq = platform_get_irq(pdev, 0);
- 	if (master->irq < 0)
- 		return master->irq;
+-		/*
+-		 * glibc reads /proc/cpuinfo to determine the number of
+-		 * online processors, looking for lines beginning with
+-		 * "processor".  Give glibc what it expects.
+-		 */
+-		seq_printf(m, "processor\t: %d\n", i);
+-		if (compat)
+-			seq_printf(m, "model name\t: ARMv8 Processor rev %d (%s)\n",
+-				   MIDR_REVISION(midr), COMPAT_ELF_PLATFORM);
++	/*
++	 * glibc reads /proc/cpuinfo to determine the number of
++	 * online processors, looking for lines beginning with
++	 * "processor".  Give glibc what it expects.
++	 */
++	seq_printf(m, "processor\t: %d\n", cpu);
++	if (compat)
++		seq_printf(m, "model name\t: ARMv8 Processor rev %d (%s)\n",
++			   MIDR_REVISION(midr), COMPAT_ELF_PLATFORM);
  
- 	master->dev = dev;
+-		seq_printf(m, "BogoMIPS\t: %lu.%02lu\n",
+-			   loops_per_jiffy / (500000UL/HZ),
+-			   loops_per_jiffy / (5000UL/HZ) % 100);
++	seq_printf(m, "BogoMIPS\t: %lu.%02lu\n",
++		   loops_per_jiffy / (500000UL/HZ),
++		   loops_per_jiffy / (5000UL/HZ) % 100);
+ 
+-		/*
+-		 * Dump out the common processor features in a single line.
+-		 * Userspace should read the hwcaps with getauxval(AT_HWCAP)
+-		 * rather than attempting to parse this, but there's a body of
+-		 * software which does already (at least for 32-bit).
+-		 */
+-		seq_puts(m, "Features\t:");
+-		if (compat) {
++	/*
++	 * Dump out the common processor features in a single line.
++	 * Userspace should read the hwcaps with getauxval(AT_HWCAP)
++	 * rather than attempting to parse this, but there's a body of
++	 * software which does already (at least for 32-bit).
++	 */
++	seq_puts(m, "Features\t:");
++	if (compat) {
+ #ifdef CONFIG_COMPAT
+-			for (j = 0; j < ARRAY_SIZE(compat_hwcap_str); j++) {
+-				if (compat_elf_hwcap & (1 << j)) {
+-					/*
+-					 * Warn once if any feature should not
+-					 * have been present on arm64 platform.
+-					 */
+-					if (WARN_ON_ONCE(!compat_hwcap_str[j]))
+-						continue;
 -
--	ret = svc_i3c_master_prepare_clks(master);
-+	ret = clk_bulk_prepare_enable(master->num_clks, master->clks);
- 	if (ret)
--		return ret;
-+		return dev_err_probe(dev, ret, "can't enable I3C clocks\n");
+-					seq_printf(m, " %s", compat_hwcap_str[j]);
+-				}
++		for (j = 0; j < ARRAY_SIZE(compat_hwcap_str); j++) {
++			if (compat_elf_hwcap & (1 << j)) {
++				/*
++				 * Warn once if any feature should not
++				 * have been present on arm64 platform.
++				 */
++				if (WARN_ON_ONCE(!compat_hwcap_str[j]))
++					continue;
++
++				seq_printf(m, " %s", compat_hwcap_str[j]);
+ 			}
++		}
  
- 	INIT_WORK(&master->hj_work, svc_i3c_master_hj_work);
- 	INIT_WORK(&master->ibi_work, svc_i3c_master_ibi_work);
-@@ -1998,7 +1971,7 @@ static int svc_i3c_master_probe(struct platform_device *pdev)
- 	pm_runtime_set_suspended(&pdev->dev);
- 
- err_disable_clks:
--	svc_i3c_master_unprepare_clks(master);
-+	clk_bulk_disable_unprepare(master->num_clks, master->clks);
- 
- 	return ret;
- }
-@@ -2036,7 +2009,7 @@ static int __maybe_unused svc_i3c_runtime_suspend(struct device *dev)
- 	struct svc_i3c_master *master = dev_get_drvdata(dev);
- 
- 	svc_i3c_save_regs(master);
--	svc_i3c_master_unprepare_clks(master);
-+	clk_bulk_disable_unprepare(master->num_clks, master->clks);
- 	pinctrl_pm_select_sleep_state(dev);
+-			for (j = 0; j < ARRAY_SIZE(compat_hwcap2_str); j++)
+-				if (compat_elf_hwcap2 & (1 << j))
+-					seq_printf(m, " %s", compat_hwcap2_str[j]);
++		for (j = 0; j < ARRAY_SIZE(compat_hwcap2_str); j++)
++			if (compat_elf_hwcap2 & (1 << j))
++				seq_printf(m, " %s", compat_hwcap2_str[j]);
+ #endif /* CONFIG_COMPAT */
+-		} else {
+-			for (j = 0; j < ARRAY_SIZE(hwcap_str); j++)
+-				if (cpu_have_feature(j))
+-					seq_printf(m, " %s", hwcap_str[j]);
+-		}
+-		seq_puts(m, "\n");
+-
+-		seq_printf(m, "CPU implementer\t: 0x%02x\n",
+-			   MIDR_IMPLEMENTOR(midr));
+-		seq_printf(m, "CPU architecture: 8\n");
+-		seq_printf(m, "CPU variant\t: 0x%x\n", MIDR_VARIANT(midr));
+-		seq_printf(m, "CPU part\t: 0x%03x\n", MIDR_PARTNUM(midr));
+-		seq_printf(m, "CPU revision\t: %d\n\n", MIDR_REVISION(midr));
++	} else {
++		for (j = 0; j < ARRAY_SIZE(hwcap_str); j++)
++			if (cpu_have_feature(j))
++				seq_printf(m, " %s", hwcap_str[j]);
+ 	}
++	seq_puts(m, "\n");
++
++	seq_printf(m, "CPU implementer\t: 0x%02x\n",
++		   MIDR_IMPLEMENTOR(midr));
++	seq_puts(m, "CPU architecture: 8\n");
++	seq_printf(m, "CPU variant\t: 0x%x\n", MIDR_VARIANT(midr));
++	seq_printf(m, "CPU part\t: 0x%03x\n", MIDR_PARTNUM(midr));
++	seq_printf(m, "CPU revision\t: %d\n\n", MIDR_REVISION(midr));
  
  	return 0;
-@@ -2045,9 +2018,12 @@ static int __maybe_unused svc_i3c_runtime_suspend(struct device *dev)
- static int __maybe_unused svc_i3c_runtime_resume(struct device *dev)
+ }
+ 
+ static void *c_start(struct seq_file *m, loff_t *pos)
  {
- 	struct svc_i3c_master *master = dev_get_drvdata(dev);
-+	int ret;
+-	return *pos < 1 ? (void *)1 : NULL;
++	*pos = cpumask_next(*pos - 1, cpu_online_mask);
++	return *pos < nr_cpu_ids ? &per_cpu(cpu_data, *pos) : NULL;
+ }
  
- 	pinctrl_pm_select_default_state(dev);
--	svc_i3c_master_prepare_clks(master);
-+	ret = clk_bulk_prepare_enable(master->num_clks, master->clks);
-+	if (ret)
-+		return ret;
+ static void *c_next(struct seq_file *m, void *v, loff_t *pos)
+ {
+ 	++*pos;
+-	return NULL;
++	return c_start(m, pos);
+ }
  
- 	svc_i3c_restore_regs(master);
- 
+ static void c_stop(struct seq_file *m, void *v)
 -- 
 2.34.1
 
