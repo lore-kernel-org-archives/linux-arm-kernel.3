@@ -4,166 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00AF6C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 16:54:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F4DCC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 17:01:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zfz2/veScDfDLBwUqQ1JWWS3to4F5DXP7VMv9td8joQ=; b=NxtpggeTNzQherWGOcoz8Cpngs
-	1y4TsVhAcb2hC2YjmC3ajB8EAzwViuUpnNc2q0p1PRlY/lpn3GWNEsGzhB6F9MYkpJvNAeuB5Rc+8
-	8uHBjMOzGo5I3Ae1Wht1tJnlgPeFF0uTxy9F+2UpXLGyDij2Qhlim0fxzxx5+xbzn+bN1hf+0hZTz
-	JbuDRjgIaUVrq0twHHVhImIh2l1iDjY99PH0O5v66e1jp2tIXJ6pgP/znyEKSHLjt4ioa+dn2iff0
-	av2qNXjj54JWmginu2RYse6doMiq9jSYwvk87V03gNmltr56b4IEfOTFL955rSg7w/p7lbytOxIIo
-	dUlmq5ww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tmMMVh9ut/6pECDrXwuZNSGIOc+pxyHd/3NaqPyvhi0=; b=4OMxrmAS56TvVea4dPb26cyUxH
+	3AMS/uSRqY5vP8HUa9iBh2iyHi0RIrkv10ZbsyG/kST17D9MNWiPGqtcA+kxR5W1dDVHQ5bsdbh3f
+	QNPOb+xlQz1dSpYjEYSonHazwL8S9oaMYUbIfULBd5IDbF0AAOGCMD8N5ROFQmrFGTPRGdSlq9sxf
+	luYNifqvKnYPYuaWhcWqIzUGlpha0hG2c15xkIXoRHeASLfylx+OyjwhzSZDI1UwIjxY2c4WRBeih
+	fcQ9rjh+K+plEWqNjD5KkDo5fXnjMsZmxIBxqSSv0ngq5agQdJs2OeRzE/szaQHg251JwYuUeR+tk
+	zM11ykjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6uPN-00000004mSb-0I3V;
-	Mon, 21 Apr 2025 16:54:13 +0000
-Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1u6uWC-00000004nIV-31pI;
+	Mon, 21 Apr 2025 17:01:16 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6uNV-00000004mKV-24nQ
+	id 1u6uUG-00000004nAW-0qRw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Apr 2025 16:52:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ny5RsBKyy6wKr/DltF3KZKPHs8KDYv6zSLw97G2giioCQy4RxLSfP1yThHh+jS9Ukf30dJmuFfAJ++qB24LExy6UfOPorO+rQ31bQgKh9uFi5vJDEo7uYiRhn70hwnMBxjH3zx6rxHdVKuQOYbSt2+AJIZAq5EZbBcU6kS7ZW4OPLt6jW9eiu+MQyNEz0XZl4eZ2+9MVBF3FahiP33rBI9DNGl9qWbrjKbo+zo5uRQvVzs2Kg4oeDW5oSKWChns8MV3LquFB41aqgF8I4wW/oR/9lcCcBjWBSYpV62TGtdSxPAmL2uDulkG69w9fTGYMyBwjLPgf9bT2eZbIrz0pUg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Zfz2/veScDfDLBwUqQ1JWWS3to4F5DXP7VMv9td8joQ=;
- b=yaVTJT4wF3w7yQfK53BiW86Y0CHptxxM/12doruvG18GdumJkKIjGvIuqpNUwsp/HkRtZy88Mym3yRCfh0gITi6IkOcuVb42dfyCuTjuz61lbP2hXrbNgAEo8PU7NLzvzF8mVdsj14z9jfQL72psvY3vizmq00cB9kj+ympHk8u5AjmcyoWZ3UsqO6mIM/OoAW9eGUSb7KiLt28h8cpzcZekygfBQdsSm+2gxamOSAAubych1MXqkyr81sqz/BIECEt3TeZycxrhT2PEO33/DJGma9OG1a8LoATY7dZAUDY9z+ToQlvh4ubwbHDxNsWTm+5nd/OrW4J2/1J8Ie+Ypw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
- dkim=pass header.d=altera.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Zfz2/veScDfDLBwUqQ1JWWS3to4F5DXP7VMv9td8joQ=;
- b=EwqSq4hpBMHc8NbC5EwvtoAL+c1aSVJoRgfh112h1fd2U/BL1LZkpQX/ReDoQ8ru/UzNa2SIk23JDagnpxI8nE+ZQBygFHzqUsATjl53JIy8h/8L18Aqx5GU9TrYwKE355r+7S2O1HcacZrrM1NhqOs1i/57nTZQZqzhE95y3shK/wXyYUx8iS+w+JzfYKR7PzRlQEnTwA2XT6k85r2BrWes3fko84WpGiDmOl/mOgCrzyaZbvaqEXOeNqFRZHLEb821QyGhltUc6KONlwYO+iOCZXxxIS36eZeeyMi/+8t8DjC/V6tNjTUf9IG3cfI9EZvgYnp0vJhEYZPvi9tVfw==
-Received: from BN8PR03MB5073.namprd03.prod.outlook.com (2603:10b6:408:dc::21)
- by CO1PR03MB7818.namprd03.prod.outlook.com (2603:10b6:303:274::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.33; Mon, 21 Apr
- 2025 16:52:13 +0000
-Received: from BN8PR03MB5073.namprd03.prod.outlook.com
- ([fe80::7483:7886:9e3d:f62a]) by BN8PR03MB5073.namprd03.prod.outlook.com
- ([fe80::7483:7886:9e3d:f62a%3]) with mapi id 15.20.8655.033; Mon, 21 Apr 2025
- 16:52:12 +0000
-From: "Ng, Boon Khai" <boon.khai.ng@altera.com>
-To: Simon Horman <horms@kernel.org>, Furong Xu <0x1207@gmail.com>
-CC: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-stm32@st-md-mailman.stormreply.com"
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "bpf@vger.kernel.org" <bpf@vger.kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Russell King <linux@armlinux.org.uk>, Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>, Jesper Dangaard Brouer
-	<hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>, "Gerlach,
- Matthew" <matthew.gerlach@altera.com>, "Ang, Tien Sung"
-	<tien.sung.ang@altera.com>, "Tham, Mun Yew" <mun.yew.tham@altera.com>, "G
- Thomas, Rohan" <rohan.g.thomas@altera.com>
-Subject: RE: [PATCH net-next v3 1/2] net: stmmac: Refactor VLAN implementation
-Thread-Topic: [PATCH net-next v3 1/2] net: stmmac: Refactor VLAN
- implementation
-Thread-Index: AQHbqF534FzGLRNwp0yA1XNTHIr18LOckb0AgAIaqQCAD7zwIA==
-Date: Mon, 21 Apr 2025 16:52:12 +0000
-Message-ID: <BN8PR03MB5073FDF1D834404244D50790B4B82@BN8PR03MB5073.namprd03.prod.outlook.com>
-References: <20250408081354.25881-1-boon.khai.ng@altera.com>
- <20250408081354.25881-2-boon.khai.ng@altera.com>
- <20250410161912.0000168a@gmail.com>
- <20250411162708.GL395307@horms.kernel.org>
-In-Reply-To: <20250411162708.GL395307@horms.kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=altera.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BN8PR03MB5073:EE_|CO1PR03MB7818:EE_
-x-ms-office365-filtering-correlation-id: 5a4952ac-61ea-485a-35c3-08dd80f4dd4b
-x-ms-exchange-atpmessageproperties: SA
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?w6kug9EK2InvDx21TiOrzFX208cvblQrN4SEVxK7eVRY0xKdzrI/9EweBiMp?=
- =?us-ascii?Q?J0avKnDLUePpJ3a0uOj0OXUAn+tMPgQWvPYYahybMcHDmFhR1BUWR0gWhU/S?=
- =?us-ascii?Q?5hT07CYhy7WT2KaCcWYx1UbQt9Y2uMEzJ9symawZ0SCwQAEvxYiWmNVKbWje?=
- =?us-ascii?Q?yrQ3dz/g7Cf2Y4kLmSKdrJydB7voSE3JJtuKFkWikxQr8WuHus/JMVIhvNO1?=
- =?us-ascii?Q?gDrlD/fDbDgmWDuStMKpOVuPYCloGYxRbbXzjk2oZzFEm9IHOqAoRV2fcFF5?=
- =?us-ascii?Q?MPX+KLjbpFu45ru300+duwmxRsA0Sm4BOaLUrRB6A2LoP7iqXF10GzZimcoX?=
- =?us-ascii?Q?nnQruemkq2a8xnlJXHgSYkhV9dHjLbZzhmvP4fi+xy4HUZeqqAf2FgI0ZusY?=
- =?us-ascii?Q?b0LJsTgn0+eflzKD0efmtOqXylYHLn3DQbpXfDNkTsLIFcDOY3MlArnjwp1n?=
- =?us-ascii?Q?eluBj3Hbgc+cw4qhAHpUso7j7STsKp68zlqI3Wrbc28YjZTZle45+YFPmRLg?=
- =?us-ascii?Q?C6ppnPYqmOWp/BReV/+aBei/8eKtj5oHRGurex/FFFw0CuW+f2QaTNcpRP9U?=
- =?us-ascii?Q?TjffMq0I/t1OMMArFT1gPPeFUUGFEdWUAGxVwtRqHq9e/C5V67proy/iOg9z?=
- =?us-ascii?Q?ixVzLL3Vd2qns2DlXN8hWmaF2S2a/O6PVA1NvPyPgTePuc0qlfI6Cz3jmIN0?=
- =?us-ascii?Q?ougPdj8fCSaGpxQ8uOJUHQ6NRyDUy6QQm5WroTcFKLm2KuRxHl4bXfpez/Nf?=
- =?us-ascii?Q?/tyc3yq7dVo3qDKr+VGE2VnJl9cH//HE5Dm/QKj3OETxZxkok5caYq00yXY3?=
- =?us-ascii?Q?Fu0EJGNthiiJ7Y15FWTEjPu71PsfbijdWdEFIr+DxEHZnblimNnf7B6l0Fxx?=
- =?us-ascii?Q?I5Dhw7ryCejpReHzNJzIfrqQycqRri94CR4b3IaqA7nznCY3vmTcWL04fD7W?=
- =?us-ascii?Q?6Vtti96Krv15Iv6gT5pmObULZKsg4N4SdK1hQlsob5r3wW6mwvdtIPQVW5g3?=
- =?us-ascii?Q?2f0DzLdaJmFdAOHW+lLj6yB4vtNbhYDxr2LFF4iA49UMrQGrfifRsrhXyUrc?=
- =?us-ascii?Q?gqcm2YMKWsnBSwdMKdnnFZDaG4VsY4k2rKmJvAtXhSm7bkqKJ9J0xDcLuecE?=
- =?us-ascii?Q?NyPInWh/ep56FtuY535dIYZjMhLfAASK5Oka4WkiVyptW+KgN7izE1/BFS0y?=
- =?us-ascii?Q?QDwj6hcihPj/Brb/uHfmj+sM7xnF8EoIg19BQ6aVbToSa+W6GG28H29lMMfS?=
- =?us-ascii?Q?0E7atrJpX69eDfyhJyDEGDr3srJuwM7b0YDVXJ2cJUYlCD+YC/Natia5B/Wn?=
- =?us-ascii?Q?2P+tnVjpusIgRgr3+a5hFPMu/T56FPdGyz1Cscd8qfcrIZXYN8VHoaNKUSkk?=
- =?us-ascii?Q?mosOMHj5BaCgA0wj4HNi12Vu/5dhc2wFHUCvtwkVCzsnnfHEahDXDdWHoSNW?=
- =?us-ascii?Q?i8961BBSKbJvQ4XC+NWUYa2XxPICWc6rECN1cVmHQPFtEkgNvK9Atg=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN8PR03MB5073.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?4Kj8ETH7qqNi1+Bq8EzONfIDwVzMrwTf1UMQrorHUoem0LvSc6CtExcuWVds?=
- =?us-ascii?Q?65XcQGbGQDVsl/KdLxf+i7wKCCnzbA++B0EVqh5xjUewBUyjPSAl47VB+ah8?=
- =?us-ascii?Q?VW/ci0Z97BMHfD7l1c1UZREWh2OhoO25fWRoPOPUfGaVpRnSHOlQECZFzQM8?=
- =?us-ascii?Q?NH7fgoM54h5vrLRM8eqE2UiDE9RtFVSSWyEzVsO98cGnzv0+0N+dDC4XEKW0?=
- =?us-ascii?Q?Igdu6OK1LEhyVeAh26h1488r65FlLunTxAx9u+r3R26i5MFgC7IeZ6BY66Wc?=
- =?us-ascii?Q?pkdIJ8Bn30/Yx2PneolOwbiyWmNQuAdYqnPeP3UCshoIqyJWggb28RlnAxM7?=
- =?us-ascii?Q?+/2HbgxZWOTsKBitATElu6jNPhcRk0oVxukUSHH6MA03qPhGkIRgu+ZAZ36P?=
- =?us-ascii?Q?HeGhxWFjOR3CW0dD92ynpqm252oN4mHkJ7JSmTpM5Sqy+Wh0n4EoHLVKP/ci?=
- =?us-ascii?Q?zaPQUS+Q/jgqfPENXZiQ5xvT1n/KIRu+jEjwDDej3BTpmc9t2vtoqdljYAro?=
- =?us-ascii?Q?VONt4oFdy8AFU7wetf2qujDfIgt6AG9OIDAo6iqvqMIrttRMou/yd0a0UYZ+?=
- =?us-ascii?Q?Zm1dSp5TdMs6B6eojeT98NTN1GUEFTrSvtzMmlh4yp52cfjBjLfNYYCvhBPo?=
- =?us-ascii?Q?0L55cI5aZKQ6o4HU6pUvBlL7iPyT83D/ADQK9uNpoOI7Gj/f3MI+bFEY1HwU?=
- =?us-ascii?Q?2k6kETGvA/imWOJke7Fi+bjsoXgTo91x5+4Lpo3DyD8A8qVhPqKIDnHly6f1?=
- =?us-ascii?Q?HP0Y1OHJG08EKb8lY31znhrjcjB4kZGvq2p1RUpLD5Gvqw/yvFweRaPhVGob?=
- =?us-ascii?Q?p+sKUniyNZRR+tj0x1Z7HkJjtHevyYyQMnlpZer2mF4hxee4mKbngn9F6zpU?=
- =?us-ascii?Q?g3iwWpLYANdXym/zmNKXOmOZYmynQuL7NOd6KHCvMg/OQE6p72gCDyTQTFTo?=
- =?us-ascii?Q?9rRMfzX5SuMR7QfiBXFagxYhM71S6KzFB0Rln2b7a9eOq0YAZtRi0HqIC4IU?=
- =?us-ascii?Q?oaJ02azuMjQ5TMO9CBzdGLX0DQ/82Jhg6c2J49p52wD7gwiqeeBcHq6UD2Ax?=
- =?us-ascii?Q?km+nH7p36Kkh5kOrXiMcV1yQsR5i/XJRfLGn4XThBd2PyKmslOwBNzjGaMD7?=
- =?us-ascii?Q?ssI1tjQYYChV1e/ty60nA2klHZE82qbMTVDobxAq0ES0XRKMzqKANe8v8QFq?=
- =?us-ascii?Q?4FrcVbNRu6+UkOOpnLKU7L9JIb5LpCvFvofNEpk+FEikoYUY3wS50675DQsD?=
- =?us-ascii?Q?L1RAmG+HH7AHub0AddoFxQcmyHr42ch+oAutCS5FoIANRbl+FvrBvWQOgRvR?=
- =?us-ascii?Q?aUzJXLQEAcHP5a+p+qRprrasdUIZB+ONCNEjQ8TOO+/r27881JprDyj1DYFY?=
- =?us-ascii?Q?vyHIM7dOtzfY7N62CFH38CUR/a54F053e33xs9LkHr3SGQoGl0RdIpS1pSY8?=
- =?us-ascii?Q?h1oNOL+uLtVvUM85lZQYFO0wmFt8Q73KjGRUyoXE1SHc22FiZ+aJoWIec5NL?=
- =?us-ascii?Q?P4YaGrrXQMHm8PjDqw6vT4mGpH7TnYVpI7bVJRvA0YHOMIhMX61nJZgFb3ov?=
- =?us-ascii?Q?ek8j4LEmOQiRNQ+3DBPKvq6wjn6OucJXVY6iVpUJ?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Mon, 21 Apr 2025 16:59:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1745254754;
+ bh=tmMMVh9ut/6pECDrXwuZNSGIOc+pxyHd/3NaqPyvhi0=;
+ b=TonvQxTBSPVEYKkmhDhvO3jNwWCUBegh8ZF+X4pzYXQ3vNtETUhp5nna55W1R2mLL4WqWbmNJ
+ 8jiGMVfOoaoBhyhi8vp1aJs6b2rmuCt4jg6RYoCTiyCEMqsp5vQzYJELXf60TYHHbd0lsh3WcCM
+ KgU4oTrkDHfrZga584Jp5y3tILaD1rXrUTRpvzy1GRntMeIXm5PG2WDOhPVDOcnPsqwpWrbITVs
+ hD9vV5S2ignuIwWTu3OtgNiLHOja5+aoFvSt8NyoCVXiCgroAHWuOj4L8XAjO0rQMj8bhzFh/w8
+ e9uFLiDUYp3HbSehxOyI16j86th2HFEYfB6WgJf0S28g==
+X-Forward-Email-ID: 680676c88a5cda485177da7b
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 1.0.2
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <afc99921-d9ba-4f6e-b828-bc880d55955c@kwiboo.se>
+Date: Mon, 21 Apr 2025 18:48:03 +0200
 MIME-Version: 1.0
-X-OriginatorOrg: altera.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BN8PR03MB5073.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5a4952ac-61ea-485a-35c3-08dd80f4dd4b
-X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Apr 2025 16:52:12.9400
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: fbd72e03-d4a5-4110-adce-614d51f2077a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: KuyAkAz1EkrvPl5oM/EHg0or3q1EAR3nkRC0obZWw611NCfTf6wOSEpnNDMLbTcnBAu2w1M8lt86DR0akfWEQw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR03MB7818
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/3] ethernet: stmmac: dwmac-rk: Add gmac support for
+ rk3562
+To: Kever Yang <kever.yang@rock-chips.com>, heiko@sntech.de
+Cc: linux-rockchip@lists.infradead.org, David Wu <david.wu@rock-chips.com>,
+ linux-arm-kernel@lists.infradead.org,
+ "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>, netdev@vger.kernel.org,
+ Detlev Casanova <detlev.casanova@collabora.com>,
+ linux-kernel@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
+ Jakub Kicinski <kuba@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ Paolo Abeni <pabeni@redhat.com>,
+ "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, Chen-Yu Tsai
+ <wens@csie.org>, linux-stm32@st-md-mailman.stormreply.com,
+ Eric Dumazet <edumazet@google.com>
+References: <20250418095114.271562-1-kever.yang@rock-chips.com>
+ <20250418095114.271562-2-kever.yang@rock-chips.com>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <20250418095114.271562-2-kever.yang@rock-chips.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_095217_532673_EC7B6F7D 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20250421_095916_276373_34B03DE8 
+X-CRM114-Status: GOOD (  25.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,22 +88,269 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > I can confirm that 802.1ad (QinQ) has been broken on stmmac for years,
-> > and it will be so nice if this refactoring includes some fixes for
-> > QinQ
->=20
-> FWIIW, please be sure that fixes are separate patches from refactoring.
+Hi Kever,
 
-Hi Furong, Simon,
+On 2025-04-18 11:51, Kever Yang wrote:
+> From: David Wu <david.wu@rock-chips.com>
+> 
+> Add constants and callback functions for the dwmac on RK3562 soc.
+> As can be seen, the base structure is the same.
+> 
+> Signed-off-by: David Wu <david.wu@rock-chips.com>
+> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
+> ---
+> 
+> Changes in v3:
+> - remove unreadable MACRO;
+> - use two function for rmii and rgmii speed set;
+> - don't check grf and php_grf in function call;
+> - rebase on v6.15-rc1
+> 
+> Changes in v2:
+> - Collect review tag
+> 
+>  .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 190 ++++++++++++++++++
+>  1 file changed, 190 insertions(+)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> index 700858ff6f7c..82174054644a 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> @@ -2,6 +2,7 @@
+>  /**
+>   * DOC: dwmac-rk.c - Rockchip RK3288 DWMAC specific glue layer
+>   *
+> + * Copyright (c) 2014 Rockchip Electronics Co., Ltd.
+>   * Copyright (C) 2014 Chen-Zhi (Roger Chen)
+>   *
+>   * Chen-Zhi (Roger Chen)  <roger.chen@rock-chips.com>
+> @@ -1048,6 +1049,194 @@ static const struct rk_gmac_ops rk3528_ops = {
+>  	},
+>  };
+>  
+> +/* sys_grf */
+> +#define RK3562_GRF_SYS_SOC_CON0			0X0400
+> +#define RK3562_GRF_SYS_SOC_CON1			0X0404
+> +
+> +#define RK3562_GMAC0_CLK_RMII_MODE		GRF_BIT(5)
+> +#define RK3562_GMAC0_CLK_RGMII_MODE		GRF_CLR_BIT(5)
+> +
+> +#define RK3562_GMAC0_CLK_RMII_GATE		GRF_BIT(6)
+> +#define RK3562_GMAC0_CLK_RMII_NOGATE		GRF_CLR_BIT(6)
+> +
+> +#define RK3562_GMAC0_CLK_RMII_DIV2		GRF_BIT(7)
+> +#define RK3562_GMAC0_CLK_RMII_DIV20		GRF_CLR_BIT(7)
+> +
+> +#define RK3562_GMAC0_CLK_RGMII_DIV1		\
+> +				(GRF_CLR_BIT(7) | GRF_CLR_BIT(8))
+> +#define RK3562_GMAC0_CLK_RGMII_DIV5		\
+> +				(GRF_BIT(7) | GRF_BIT(8))
+> +#define RK3562_GMAC0_CLK_RGMII_DIV50		\
+> +				(GRF_CLR_BIT(7) | GRF_BIT(8))
+> +
+> +#define RK3562_GMAC0_CLK_RMII_DIV2		GRF_BIT(7)
+> +#define RK3562_GMAC0_CLK_RMII_DIV20		GRF_CLR_BIT(7)
+> +
+> +#define RK3562_GMAC0_CLK_SELET_CRU		GRF_CLR_BIT(9)
+> +#define RK3562_GMAC0_CLK_SELET_IO		GRF_BIT(9)
 
-This refactor is intended to combine the VLAN driver for dwmac4 and=20
-dwxgmac2. From our perspective, on our board, we do not actually
-use the QinQ feature of the xgmac2 IP.
+This is probably a typo, SELET, should probably be SELECT?
 
-However, I agree with Simon that the fixes should be separate from
-the refactoring process
+> +
+> +#define RK3562_GMAC1_CLK_RMII_GATE		GRF_BIT(12)
+> +#define RK3562_GMAC1_CLK_RMII_NOGATE		GRF_CLR_BIT(12)
+> +
+> +#define RK3562_GMAC1_CLK_RMII_DIV2		GRF_BIT(13)
+> +#define RK3562_GMAC1_CLK_RMII_DIV20		GRF_CLR_BIT(13)
+> +
+> +#define RK3562_GMAC1_RMII_SPEED100		GRF_BIT(11)
+> +#define RK3562_GMAC1_RMII_SPEED10		GRF_CLR_BIT(11)
+> +
+> +#define RK3562_GMAC1_CLK_SELET_CRU		GRF_CLR_BIT(15)
+> +#define RK3562_GMAC1_CLK_SELET_IO		GRF_BIT(15)
+
+Same here.
+
+> +
+> +/* ioc_grf */
+> +#define RK3562_GRF_IOC_GMAC_IOFUNC0_CON0	0X10400
+> +#define RK3562_GRF_IOC_GMAC_IOFUNC0_CON1	0X10404
+> +#define RK3562_GRF_IOC_GMAC_IOFUNC1_CON0	0X00400
+> +#define RK3562_GRF_IOC_GMAC_IOFUNC1_CON1	0X00404
+> +
+> +#define RK3562_GMAC_RXCLK_DLY_ENABLE		GRF_BIT(1)
+> +#define RK3562_GMAC_RXCLK_DLY_DISABLE		GRF_CLR_BIT(1)
+> +#define RK3562_GMAC_TXCLK_DLY_ENABLE		GRF_BIT(0)
+> +#define RK3562_GMAC_TXCLK_DLY_DISABLE		GRF_CLR_BIT(0)
+> +
+> +#define RK3562_GMAC_CLK_RX_DL_CFG(val)		HIWORD_UPDATE(val, 0xFF, 8)
+> +#define RK3562_GMAC_CLK_TX_DL_CFG(val)		HIWORD_UPDATE(val, 0xFF, 0)
+> +
+> +#define RK3562_GMAC0_IO_EXTCLK_SELET_CRU	GRF_CLR_BIT(2)
+> +#define RK3562_GMAC0_IO_EXTCLK_SELET_IO		GRF_BIT(2)
+
+Same here.
+
+> +
+> +#define RK3562_GMAC1_IO_EXTCLK_SELET_CRU	GRF_CLR_BIT(3)
+> +#define RK3562_GMAC1_IO_EXTCLK_SELET_IO		GRF_BIT(3)
+
+And here.
+
+> +
+> +static void rk3562_set_to_rgmii(struct rk_priv_data *bsp_priv,
+> +				int tx_delay, int rx_delay)
+> +{
+> +	regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON0,
+> +		     RK3562_GMAC0_CLK_RGMII_MODE);
+> +
+> +	regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC0_CON1,
+> +		     DELAY_ENABLE(RK3562, tx_delay, rx_delay));
+> +	regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC0_CON0,
+> +		     RK3562_GMAC_CLK_RX_DL_CFG(rx_delay) |
+> +		     RK3562_GMAC_CLK_TX_DL_CFG(tx_delay));
+> +
+> +	regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC1_CON1,
+> +		     DELAY_ENABLE(RK3562, tx_delay, rx_delay));
+> +	regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC1_CON0,
+> +		     RK3562_GMAC_CLK_RX_DL_CFG(rx_delay) |
+> +		     RK3562_GMAC_CLK_TX_DL_CFG(tx_delay));
+> +}
+> +
+> +static void rk3562_set_to_rmii(struct rk_priv_data *bsp_priv)
+> +{
+> +	if (!bsp_priv->id)
+> +		regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON0,
+> +			     RK3562_GMAC0_CLK_RMII_MODE);
+> +}
+> +
+> +static void rk3562_set_gmac_rgmii_speed(struct rk_priv_data *bsp_priv, int speed)
+> +{
+> +	struct device *dev = &bsp_priv->pdev->dev;
+> +	unsigned int val = 0;
+> +
+> +	switch (speed) {
+> +	case 10:
+> +		val = RK3562_GMAC0_CLK_RGMII_DIV50;
+> +		break;
+> +	case 100:
+> +		val = RK3562_GMAC0_CLK_RGMII_DIV5;
+> +		break;
+> +	case 1000:
+> +		val = RK3562_GMAC0_CLK_RGMII_DIV1;
+> +		break;
+> +	default:
+> +		goto err;
+> +	}
+> +
+> +	regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON0, val);
+> +	return;
+> +err:
+> +	dev_err(dev, "unknown speed value for GMAC speed=%d", speed);
+> +}
+> +
+> +static void rk3562_set_gmac_rmii_speed(struct rk_priv_data *bsp_priv, int speed)
+> +{
+> +	struct device *dev = &bsp_priv->pdev->dev;
+> +	unsigned int val = 0, offset;
+> +
+> +	switch (speed) {
+> +	case 10:
+> +		if (bsp_priv->id == 1) {
+> +			val = RK3562_GMAC1_CLK_RMII_DIV20;
+> +			regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON0,
+> +				     RK3562_GMAC1_RMII_SPEED10);
+> +		} else {
+> +			val = RK3562_GMAC0_CLK_RMII_DIV20;
+> +		}
+> +		break;
+> +	case 100:
+> +		if (bsp_priv->id == 1) {
+> +			val = RK3562_GMAC1_CLK_RMII_DIV2;
+> +			regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON0,
+> +				     RK3562_GMAC1_RMII_SPEED100);
+> +		} else {
+> +			val = RK3562_GMAC0_CLK_RMII_DIV2;
+> +		}
+> +		break;
+> +	default:
+> +		goto err;
+> +	}
+> +
+> +	offset = (bsp_priv->id == 1) ? RK3562_GRF_SYS_SOC_CON1 :
+> +				       RK3562_GRF_SYS_SOC_CON0;
+> +	regmap_write(bsp_priv->grf, offset, val);
+> +	return;
+> +err:
+> +	dev_err(dev, "unknown speed value for GMAC speed=%d", speed);
+> +}
+> +
+> +static void rk3562_set_clock_selection(struct rk_priv_data *bsp_priv, bool input,
+> +				       bool enable)
+> +{
+> +	struct device *dev = &bsp_priv->pdev->dev;
+> +	unsigned int value;
+> +
+> +	if (IS_ERR(bsp_priv->grf) || IS_ERR(bsp_priv->php_grf)) {
+> +		dev_err(dev, "Missing rockchip,grf or rockchip,php_grf property\n");
+> +		return;
+> +	}
+
+This should not be needed after the commit 247e84f66a3d ("net: stmmac:
+dwmac-rk: Validate GRF and peripheral GRF during probe") and the use of
+php_grf_required=true below.
+
+> +
+> +	if (!bsp_priv->id) {
+> +		value = input ? RK3562_GMAC0_CLK_SELET_IO :
+> +				RK3562_GMAC0_CLK_SELET_CRU;
+> +		value |= enable ? RK3562_GMAC0_CLK_RMII_NOGATE :
+> +				  RK3562_GMAC0_CLK_RMII_GATE;
+> +		regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON0, value);
+> +
+> +		value = input ? RK3562_GMAC0_IO_EXTCLK_SELET_IO :
+> +				RK3562_GMAC0_IO_EXTCLK_SELET_CRU;
+> +		regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC0_CON1, value);
+> +		regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC1_CON1, value);
+> +	} else {
+> +		value = input ? RK3562_GMAC1_CLK_SELET_IO :
+> +				RK3562_GMAC1_CLK_SELET_CRU;
+> +		value |= enable ? RK3562_GMAC1_CLK_RMII_NOGATE :
+> +				 RK3562_GMAC1_CLK_RMII_GATE;
+> +		regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON1, value);
+> +
+> +		value = input ? RK3562_GMAC1_IO_EXTCLK_SELET_IO :
+> +				RK3562_GMAC1_IO_EXTCLK_SELET_CRU;
+> +		regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC1_CON1, value);
+> +	}
+> +}
+> +
+> +static const struct rk_gmac_ops rk3562_ops = {
+> +	.set_to_rgmii = rk3562_set_to_rgmii,
+> +	.set_to_rmii = rk3562_set_to_rmii,
+> +	.set_rgmii_speed = rk3562_set_gmac_rgmii_speed,
+> +	.set_rmii_speed = rk3562_set_gmac_rmii_speed,
+> +	.set_clock_selection = rk3562_set_clock_selection,
+
+This is missing the recently added:
+
+	.php_grf_required = true,
 
 Regards,
-Boon Khai.
+Jonas
+
+> +};
+> +
+>  #define RK3568_GRF_GMAC0_CON0		0x0380
+>  #define RK3568_GRF_GMAC0_CON1		0x0384
+>  #define RK3568_GRF_GMAC1_CON0		0x0388
+> @@ -1996,6 +2185,7 @@ static const struct of_device_id rk_gmac_dwmac_match[] = {
+>  	{ .compatible = "rockchip,rk3368-gmac", .data = &rk3368_ops },
+>  	{ .compatible = "rockchip,rk3399-gmac", .data = &rk3399_ops },
+>  	{ .compatible = "rockchip,rk3528-gmac", .data = &rk3528_ops },
+> +	{ .compatible = "rockchip,rk3562-gmac", .data = &rk3562_ops },
+>  	{ .compatible = "rockchip,rk3568-gmac", .data = &rk3568_ops },
+>  	{ .compatible = "rockchip,rk3576-gmac", .data = &rk3576_ops },
+>  	{ .compatible = "rockchip,rk3588-gmac", .data = &rk3588_ops },
 
 
