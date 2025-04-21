@@ -4,81 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 467B2C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 13:01:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7128C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 13:03:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MGl6wj1twMafrqAJ2Ap7n/PE7X+QSY313AzQP/HONtY=; b=lQV1xA61dEzutBpYNyaYyW1z2X
-	8WiIUBO62wi3MwZTzAZc47YB8nGyx/fbrDi+s5QJlH2Gf2MlQMjIkJJppCPMUe5IUPBD4MfDM/mq2
-	uRTAqiWB/4fMxsd6JfvqECkLh9IvhiqGaz4onmegmQJBd5/ymFDStcCWkVhdADnIPK/KaPyhgbKAK
-	VJesMeWKT5uesudlIFK+MICUFIFYLihv/GsmbLLV7LIJ5zxjwxW0RVjsY9T7LUJ5MAAVkuyAKjf0m
-	Gr/LkZaa/TCNovA5v9ln7LdSuXh+sjiHA49tpQPs57R48OYZ6jBSvWIKS46/9CQbYhFEkCcbaDNH5
-	FuamgJGQ==;
+	bh=pRIvYDrbBIMegIb2a73iF08b9k9S3I/O0j1QXWOEqPI=; b=gTD1irpFh3rR6gen1V6SDKGDCJ
+	s6at6T0KXHG9I9YDhBJfZ4fnA95s3gLzgQqe2FgKuhDtzx19XbQPQbaw5+1zHtag7qNnUpOqyHG4u
+	Z1z1QeIU81SmyJAO/dLIlB/0qOhLdsFhzfAqjxV5LC1hCDzJr22sgyY2tUrGdDDO2ZzxqUaCWkj1X
+	tOg5cHl931wV8Y9b8NGrovNlhrkOj4gb3UJLe2CTCDcUPj1v05BsdYlUYql6J4a0gQ+Lpz/Sw+iw9
+	4AnODoP4KbEgjG0gQqB0ZUAb6l7n1JcBAsvkinLdvZPGt/PmHnC7mi+D2qD1DT1VOTuQfe4QRGdl2
+	+HC1CImg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6qlt-00000004IwC-1Idb;
-	Mon, 21 Apr 2025 13:01:13 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1u6qni-00000004JBi-48oz;
+	Mon, 21 Apr 2025 13:03:06 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6qiz-00000004Ic8-0L0W
+	id 1u6qjG-00000004IeN-2SjO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Apr 2025 12:58:14 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53LCw9RD919322
+	Mon, 21 Apr 2025 12:58:32 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53LCwR8A1558209
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 21 Apr 2025 07:58:09 -0500
+	Mon, 21 Apr 2025 07:58:27 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745240289;
-	bh=MGl6wj1twMafrqAJ2Ap7n/PE7X+QSY313AzQP/HONtY=;
+	s=ti-com-17Q1; t=1745240307;
+	bh=pRIvYDrbBIMegIb2a73iF08b9k9S3I/O0j1QXWOEqPI=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=F0+d1xv58ycA9lNCvOmeLd8kmTng4Jk9EMYvwDXZGiq1Y6+dRa/CaR7IGCmiS7GFB
-	 qS60ZHPAo6VLRX9nByzeT9H9vfJ5BEqF7vqPhro2PHQzhXfsua59XisHBupH45i6PA
-	 AgPMdoifeiDSn3VgpSRLdc/AYFJ7C5rJ81sDUWWM=
-Received: from DFLE108.ent.ti.com (dfle108.ent.ti.com [10.64.6.29])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53LCw9XL083520
+	b=LtaP1hoB9HnBZUb0lyBSuVOGggjgu8N/9WbQ9WGfCl8Cnt3P6haTfguAjkIDTph7L
+	 74uBDPH/w/kKZUcD3CtVhzHEhgK3rv55Sp1+qqMiqdXuGePKfGfPauxZ6ge06VfP/W
+	 nFYvIxcYSMK5oQXod1mc/XUpPEQL8CuUoWgTk8mg=
+Received: from DFLE111.ent.ti.com (dfle111.ent.ti.com [10.64.6.32])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53LCwRxO022708
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 21 Apr 2025 07:58:09 -0500
-Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE108.ent.ti.com
- (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
+	Mon, 21 Apr 2025 07:58:27 -0500
+Received: from DFLE104.ent.ti.com (10.64.6.25) by DFLE111.ent.ti.com
+ (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 21
- Apr 2025 07:58:09 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE113.ent.ti.com
- (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ Apr 2025 07:58:27 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE104.ent.ti.com
+ (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 21 Apr 2025 07:58:09 -0500
+ Frontend Transport; Mon, 21 Apr 2025 07:58:27 -0500
 Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53LCw9bV083581;
-	Mon, 21 Apr 2025 07:58:09 -0500
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53LCwRrv076149;
+	Mon, 21 Apr 2025 07:58:27 -0500
 From: Nishanth Menon <nm@ti.com>
-To: Jared McArthur <j-mcarthur@ti.com>,
-        Robert Nelson
-	<robertcnelson@gmail.com>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Rob Herring <robh@kernel.org>, Nishanth Menon
-	<nm@ti.com>
-CC: Roger Quadros <rogerq@kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>,
-        <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Tero Kristo <kristo@kernel.org>
-Subject: Re: [PATCH] arm64: dts: ti: k3-am67a-beagley-ai: Add bootph for main_gpio1
-Date: Mon, 21 Apr 2025 07:58:07 -0500
-Message-ID: <174524025290.1975926.6373479464630602638.b4-ty@ti.com>
+To: <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        Siddharth Vadapalli
+	<s-vadapalli@ti.com>
+CC: Nishanth Menon <nm@ti.com>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <srk@ti.com>
+Subject: Re: [PATCH v3] arm64: dts: ti: k3-j784s4-j742s2-evm: Add overlay to enable USB0 Type-A
+Date: Mon, 21 Apr 2025 07:58:25 -0500
+Message-ID: <174524029452.1976053.2871896353066358083.b4-ty@ti.com>
 X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250411203950.2859356-1-nm@ti.com>
-References: <20250411203950.2859356-1-nm@ti.com>
+In-Reply-To: <20250409100853.4179934-1-s-vadapalli@ti.com>
+References: <20250409100853.4179934-1-s-vadapalli@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_055813_210569_62ED8FB5 
-X-CRM114-Status: GOOD (  14.95  )
+X-CRM114-CacheID: sfid-20250421_055830_715391_9792E44D 
+X-CRM114-Status: GOOD (  16.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,22 +88,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nishanth Menon,
+Hi Siddharth Vadapalli,
 
-On Fri, 11 Apr 2025 15:39:50 -0500, Nishanth Menon wrote:
-> main_gpio1 controls the voltage for the SDcard from 3.3v to 1.8v.
-> This is required for proper operation of SDcard through various boot
-> stages.
+On Wed, 09 Apr 2025 15:38:53 +0530, Siddharth Vadapalli wrote:
+> The USB0 instance of the USB controller on both the J742S2 EVM and the
+> J784S4 EVM supports a single USB interface at a time among the following:
+> 1. USB3.1 Gen1 Type C interface
+> 2. Two USB2.0 Type A interfaces via an on-board USB Hub.
 > 
+> By default, the USB3.1 Gen1 Type C interface is supported on both of the
+> EVMs. Enable the USB2.0 Type A interface by configuring the USB2.0_MUX_SEL
+> mux. Additionally, set the Dual-Role Mode to Host since a Type-A interface
+> is only associated with the Host Mode of operation.
 > 
+> [...]
 
 I have applied the following to branch ti-k3-dts-next on [1].
-I have dropped the Fixes tag as it is not impacting the linux kernel.
-
 Thank you!
 
-[1/1] arm64: dts: ti: k3-am67a-beagley-ai: Add bootph for main_gpio1
-      commit: 6a7023118fd7901d8b7967388923604d5d646cca
+[1/1] arm64: dts: ti: k3-j784s4-j742s2-evm: Add overlay to enable USB0 Type-A
+      commit: bcbc3d40dc62dd616e409b8b18c13d5b55fca6af
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent up the chain during
