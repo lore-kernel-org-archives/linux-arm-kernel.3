@@ -4,149 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BA08C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 18:07:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC145C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 18:15:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AAOSh5axxPk1MBvECcnYeGeeK/VQNx6d+iqJIWBJmTc=; b=vPrkzCZgNo2jP/BDqzmces1xbR
-	RdK5WoOoLsFxKjXCapvqb9iLNx916Rpr840TS/7VvafublqRA3BsUrbtV1iU4oMUk9ilIS5WVMXpD
-	sVcFjjzww38B/PQMnKJfiZQxBRmN+FMcZRCgLIXOAl83PmagSrtqHlvprOJhKKYCJz+18j6AMjDYm
-	DXmO68xjRyiyBu9Zsy2q0bNVlXL+H4xUaJkQWfwTrzFBMHr0UsxzEkirRjuvPm1RE6k8T/nDhoNvg
-	GxOYB6ez40WX2OISkv8N8hzRhfkCMR2kzEmY/R1oYL5pL/k5Ng7R5sdfWBGOZO/tTwcDelIzDk2pA
-	/0swBOUg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nUHC2Qb5xYe+Qn65pY/uNHSuzDSEWkf4jVl1yug7i3U=; b=UqDp4WbksRoWgkYnfIhpj88wiE
+	aNet6Q1aWbtgY1j9WpIarNYPi7BNJkh6FhccvKtxB80ealFotqmoLB/2RV063XbkPmnyBLPErtyBA
+	nSthSwTLWMkhTrbXtsx9SsDOkDKB5n/BNgztgALFu5wDyKpoQcH34zytXUBs3MD5e5b/XG/hO6jGt
+	ZAGvd4/eYkTWHbQh1VhT0h/bENsMKv5rio3I33rmSJAQYAkwWgJXXOHeO/dmX1DtcXag2f8am6BGV
+	M6giIEJ2Vuv152s5jRIZGqoEP4W3FmvspIt34oHcnt12+ig09RI61j+yNomQxYCQwmYV5XNtDM5HS
+	BXPuO53A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6vY8-00000004sre-3enz;
-	Mon, 21 Apr 2025 18:07:20 +0000
-Received: from mail-northeuropeazlp170110001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1u6vgL-00000004tgs-2tox;
+	Mon, 21 Apr 2025 18:15:49 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6vWH-00000004siL-1SC9
+	id 1u6veT-00000004tH6-1xRr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Apr 2025 18:05:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Un+NK6bzTKY5UQgC9hiTxiAoBVuh9PZHRjYvaVa9wXyWWJUcU7Kf2TgX1fbaABwySM7ycuY+ecMvXYuZOvewPmGGIs4EfwS0X/qMRvro6iOKQi9ogAcOrBVA34iLX+SEoq54JudQxfwvN/MCsLAfWx9AtGI79DO9dp8vMXaz0lFKdwFx0vyBsVgFq2Sao9tG/ikC3vo8eLdxV1bGjrwJwBwZXiITe7RVTkit+olDerzozqeBR4kpOykcUILmK6FSb+ai2BDye7pDDsO3tfzMD4xK03MsUQi95+8LUdCgfhFDnljQOk2REm2MVO2Nc8J4VDa6u9ZlqvC4NHpvb32XBg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AAOSh5axxPk1MBvECcnYeGeeK/VQNx6d+iqJIWBJmTc=;
- b=wkizSnYBCthcHu3ZQ0q73FXFnRam0ZMF/vPl0ZJi3XosfXt98A5vMVaTLzEbbCf/EeVixWTKOj7JE9S6TlkWtvFY+AHXO60h3KQGU7N8Ym+zoa43PEX0ecneKV8aSdmzhLYlMESljk53cXH/gjYXt14TU8vNAYyeEXL0XuRuhYuuylHwUx/7xOZM53eU8Ipowo24sd2mEqQ3SQ9mGeCGvDgB1hTtWzHuQRiRQzvN40nWAU3hTMPznN5zm+qh5+y+NfXhgp3qrmVqcP3A2Mn3xkglOkHUh0M1Lse5lEMuXFz69J1UTnyuZ5IFDe1mzmMeScbv4TqZG6i12CjDiB8Lfg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AAOSh5axxPk1MBvECcnYeGeeK/VQNx6d+iqJIWBJmTc=;
- b=fjDHturEQH/c5czGYnex73lC3HmN5lz0tcUh6/3Ul7Obp6so1WcN2ZkRfubO+qamsWr5zAkIJXjfjf3fIFODXS1wPC78I+jtPxAR9TG8aTcCfwV8seQtdXGnVXaP2NS17nZJ8cx/Y+j4tSqRZNnQT4pVOJJHGgBmhvsSlCqcMq8uEDi8pIS/9RkDPHVWnXLgwryJa1xQsmVQb75OEK5jNEAH3YrsydeWMXlSR6EaSkVsIu/3JWmbY4jy6xyLh+NDqGFf5tABG1/QVxPuGD/s8+Ht5QWkDivtxeNxe2yIj8sBAVDU4XoYMkMqhy/BJ0X1TIJ3QmiYheRRiHTmRsyPsg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AS5PR04MB9856.eurprd04.prod.outlook.com (2603:10a6:20b:678::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.33; Mon, 21 Apr
- 2025 18:05:22 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8655.025; Mon, 21 Apr 2025
- 18:05:21 +0000
-Date: Mon, 21 Apr 2025 14:05:14 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Troy Mitchell <troymitchell988@gmail.com>
-Cc: Oleksij Rempel <o.rempel@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Andi Shyti <andi.shyti@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-i2c@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Yongchao Jia <jyc0019@gmail.com>
-Subject: Re: [PATCH 1/2] i2c: imx: use guard to take spinlock
-Message-ID: <aAaI2gCLTh+5YfJ8@lizhi-Precision-Tower-5810>
-References: <20250421-i2c-imx-update-v1-0-1137f1f353d5@gmail.com>
- <20250421-i2c-imx-update-v1-1-1137f1f353d5@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250421-i2c-imx-update-v1-1-1137f1f353d5@gmail.com>
-X-ClientProxiedBy: SJ0PR03CA0196.namprd03.prod.outlook.com
- (2603:10b6:a03:2ef::21) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Mon, 21 Apr 2025 18:13:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B511561164;
+	Mon, 21 Apr 2025 18:13:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 5CA89C4AF0C;
+	Mon, 21 Apr 2025 18:13:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745259232;
+	bh=wQyUeSMEJH3kxxBnB719wTNt8wGUOd00qdhNudybJVw=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=HSQpJ7A3+w/MZXqTxnu/G225UdqIKtvbNE82PK21uUHOjlxsdm7fttrqJVQXJW1Ss
+	 eJFPnahHuXffdaZV1mjwzAwPLJj40gqRYNCF2gJjAR93oWXEAUorhsRGNKVxMBQYXO
+	 HZiTtGm8s32iclV1CICPqTMrY0odlaSqYDITsXPdOfr32tFT+4iErVTocZs6A3in6/
+	 zIKyj0+UkaiRDEan8wL9Yu0/nV4BlzNirVw0+NNdmZGMYKdIKDJPwwZSWm2tdMcGOe
+	 7GXZzxZrREwN4bVpbMaq27POB9KKvbnnE1WOuzGotko0+2uwW9yvU+1fqRF6RRw86v
+	 s2OYpWQ75ZkCg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4EC8BC369D7;
+	Mon, 21 Apr 2025 18:13:52 +0000 (UTC)
+From: Thomas Antoine via B4 Relay <devnull+t.antoine.uclouvain.be@kernel.org>
+Date: Mon, 21 Apr 2025 20:13:33 +0200
+Subject: [PATCH v3 2/5] power: supply: add support for max77759 fuel gauge
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS5PR04MB9856:EE_
-X-MS-Office365-Filtering-Correlation-Id: 847da3e4-4b32-4eab-759e-08dd80ff1531
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|376014|7416014|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?PtNCrcJprN/fjGhwj1KXiV1jpDa9u+tuU1r8VGld+k0BAMw/M99zVwc5IwQu?=
- =?us-ascii?Q?wrE+SfXPLmS9duYIxw5INIp5dhSD3dCgXzkvAjqV08TlO25RV18kycnSdILO?=
- =?us-ascii?Q?ksPwUoYqK+US2ZQMqaiHeVA/HyzJrPQCisP1uym5aGZcvTRkMrJJ6ZWU/NBP?=
- =?us-ascii?Q?ZPW/tAPIqTBjIxNWPMdF05auP3FXrWtfblvlfMEtGwh4+2R86k5bSXkegimJ?=
- =?us-ascii?Q?gxt7TFY0y5hj+jablKQLXWHquLk9wlnkU4ve6AAjdokiolYvSQpl36Qi0123?=
- =?us-ascii?Q?M13kB8DsJF8LPYFfzifemJZOMmoetr6htB/shVMeyCtEALCwtbxekPfIIR/2?=
- =?us-ascii?Q?DfnHTatpvvCMm9ZRImHTdqwRXywPUiOFUCKTHVuoLkY93zy8LYJYrl2rBG9X?=
- =?us-ascii?Q?6YpFwrcX98U0UAW/VHXq/RC0t/T48U33tfKr+9jlSG81Bv+/ViGlgYmy/kG8?=
- =?us-ascii?Q?EtBRXoRE1FqaHnpM8QsxVyD4LATydrU6C5ZEYnLdHyDSgpBfC6pAtYzjiLbg?=
- =?us-ascii?Q?pYswj8Q3SvrDyCtjaBJ0c9KTF/GQAsB7kWXCsHIqh1b0xQMUdw9zG4GJdn4W?=
- =?us-ascii?Q?Igag3k7tMoWwJg5DiRfpt1NDo4Qz08woQqm744hJ52QBXbijuK0qTykzwCcI?=
- =?us-ascii?Q?t7OhJ8MskTmSR2Q1PuL9c/qph0/eyLXfe9m7DLB9HtrLazu5cfLhex71ESPx?=
- =?us-ascii?Q?bKuKSjweHvpiMx+6Bl4wtgytGWukZ+K08+6X880rTHapfsEwgx9IccVXqhmK?=
- =?us-ascii?Q?JrwPbUNKPveiV0amRFtTiLNoLd7YMQJZYyCcbBUa+LKDAC0FaeAEsddNghiy?=
- =?us-ascii?Q?5TyPwIwIhNpK6A15lGsu5AWjQWMTrJ+aAcMXnChU3yx6e3YCia76NW+ulArn?=
- =?us-ascii?Q?kfzOSTOLUvue1wdoGMJXLLBAfRogMKnEfK8/4C2ab8KYiDCUBw1LL+ToWft/?=
- =?us-ascii?Q?beLtgjPTh2CghsvghJABN3Atw4xsAgLp/Df41nzmBo/JwuIpKL3M0vbV8RJ5?=
- =?us-ascii?Q?5TI8EI7kJ9XRSdQ1YmAo1P51+GLG56W6gVdHz8QarkCRGi97n4cTmOiHL/mZ?=
- =?us-ascii?Q?1vjSeYf5lr4ydN5q7XOQXghWrmiiDxzWIWnwdf+JqxVi5hQ72Cm0ppNrx9+5?=
- =?us-ascii?Q?JwHAdc2776GHqOATSXoPPgJhy/RStL60yYpm5X/mFA45UUgzbKCIklKtvm1d?=
- =?us-ascii?Q?pEjviJaX5gTPUBbZluiGPjyEWCj7xJj2y0ioBpoOy0I9tfqn/Nc+MMfyh4Xl?=
- =?us-ascii?Q?Zwx4RKQVE0H+O3YH1QB8LiIoeQ/bU0zBtMljIe0ITO3K8jH/ehhJRZzXynsY?=
- =?us-ascii?Q?jiwSw3voDTjhpNue+TtfTTM23Ffg7w9zaZv7rdQsX+mVGfQsqbU3wprg+/G9?=
- =?us-ascii?Q?rHIIGANRYvIlpU80cvbwPV9fclDj5x9NGo0B8HRLYeF7PyjO4jNuM1CmIuv3?=
- =?us-ascii?Q?emi6RfIzU01orsuQVBWWITxtpsvEg+yd/zfXo6IET2wgWGHVBKryNA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(376014)(7416014)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?rE3FNa0ILOhGjl8fRYKXjjcjharenonKrEW/cvbQ3Rpz3i8zGy6GawQSn8w0?=
- =?us-ascii?Q?h+affGfXcWh94xcq+SNt1nc4B+aa2xfQI/SppuDoCEaJyHTAomPwORNyjshM?=
- =?us-ascii?Q?bJtRAHPMlaMbqDJdl8l7Vd8d/O9wgncPIxCx2EMdWY+CAuqtz9ZI+QXBSwI5?=
- =?us-ascii?Q?425SHnJZ8Xt2Aftq7ns7Q3ZW/gc0cxt9WMG/NGcPSljfXRj+Z4MOGeoxwfmD?=
- =?us-ascii?Q?YPd+dfWEOtSssZiyc0UZ9ZiMbxXoFAWaHEvdblA+QhNL/4ivKZeyUVOEtiiR?=
- =?us-ascii?Q?wrJeuSqmpQgvrAukRx0EEUica7quWBCzlT2+n68Y4yXRraGK5ODAm0fgXf4H?=
- =?us-ascii?Q?lhGXECN+24/ZbWfmYGQJaG/P17FNN1xV5W7zDvt5vCjO0LIIE9+xkeCIMKWz?=
- =?us-ascii?Q?2QUzsVHkBTYbtrm2NQvcQj9VorrIlxcY6NxTf9XKOpeAoZERmOdBQDaitYey?=
- =?us-ascii?Q?dyYSPk241F/KGDNahGtdndnDsysxgKe5zwv+pkB67Zj49VwHtj2T0DDUqWSY?=
- =?us-ascii?Q?gqfkhUVNJEQSdGyg4/dJnUMi1Dyw3lwF0BbvosS5GHYPqA8Qcq5ATDWSanKY?=
- =?us-ascii?Q?J8UIOXJ91Jvtboy8WujezNzEROn8uSOn5Xhdt6KjOFQX3DvYSxgeVsG4bKH9?=
- =?us-ascii?Q?s+8KBCGzEcR1UC5H/i8rKPvxo8j1Ui53CTCCOqSjKlGtmuWuvtUjfO5KIqw9?=
- =?us-ascii?Q?7FcIuwXvWL1tu78XOSevWIMDhJQOrKK3dYgYacw15/geT+eyhGjAjd87uzxC?=
- =?us-ascii?Q?f+dDWkHKShiBjD3s2caE+h0GCSOMywCEpKgKnQZ9F8rMgni60ymu69Y2pjbx?=
- =?us-ascii?Q?oV2Ixb79x03lQ/rgZiSLPOQn5aUpw/IQWJr+fOMQ15ZDM/69HuK+pt9zlsgb?=
- =?us-ascii?Q?BTtAOLGj6aPSdkR+baMqkS+o8XpHNfRwE7tR8BX3A5xuy/5k/Q+ym56FK98G?=
- =?us-ascii?Q?rS5qdhNttG3x6VDuQd4kII9BvDbGqFM3m1Vq4Ib6A/O0+v7HAkQiwWftw84i?=
- =?us-ascii?Q?ntfp6mqTzQLjHcS/INz2BypZc8FnqbDRK3BGAXNnBEhByueamhhK6CxdSaul?=
- =?us-ascii?Q?TQ4eRbwyZgA6MVqqQHJGCGYixE/pmzn3f0or2jKjUMQJBYk6xjZil4tdJGNY?=
- =?us-ascii?Q?T7nf3aiIisIFXmo+nnpZwkYDqRgCotaMXRPEY0fFdPL3fjOhExF3iNz9fRLl?=
- =?us-ascii?Q?c6bYFrIV/7CFybe4RtsqRq+NzjU5N5bj6HoMlfc73khGmoO9mBpQdPyM2Ho9?=
- =?us-ascii?Q?wqAPMWwDot8B74UXJ09gVOf+W2RqbausiELet/YhDgtjXDKt6MfTNDiYgebI?=
- =?us-ascii?Q?b0jGdPYKOQrkOmNdDUGpzGXLxqOu93DmDYeRBmPx/oLScWP41SiGJk7venSo?=
- =?us-ascii?Q?FDdQ8w85lSBcNk3AwAqcuFwCSAco5+seooT9DllL197eOdO5tIFaVjcZDnc+?=
- =?us-ascii?Q?nrKAOuV/mtwFqzHoQqWO3z0ho/LKkTAC33n8jcOJLvKL8LoKDdB3R7+mEqpc?=
- =?us-ascii?Q?VavCWCU/lE6ZlsIggAZc9fy3L3vqQ/NJbWlvL05VImKgP/m2opqvVlYBYpv2?=
- =?us-ascii?Q?pm/JkNyw1vSX9cgmaQ+cD/PtDzOpR2Nm+hgmskXa?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 847da3e4-4b32-4eab-759e-08dd80ff1531
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Apr 2025 18:05:21.8822
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: poOVAKjqJBPV7NxMu6/mFGQ1TX5vqucTcyCPoY9jKoFz/g5PYleU4jSwVbFABx9sSrMIiSiSXgFuss4DcWz85Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB9856
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_110525_384556_B813365C 
-X-CRM114-Status: GOOD (  18.49  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250421-b4-gs101_max77759_fg-v3-2-50cd8caf9017@uclouvain.be>
+References: <20250421-b4-gs101_max77759_fg-v3-0-50cd8caf9017@uclouvain.be>
+In-Reply-To: <20250421-b4-gs101_max77759_fg-v3-0-50cd8caf9017@uclouvain.be>
+To: Rob Herring <robh@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Sebastian Reichel <sre@kernel.org>, Dimitri Fedrau <dima.fedrau@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-pm@vger.kernel.org, Thomas Antoine <t.antoine@uclouvain.be>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1745259219; l=14313;
+ i=t.antoine@uclouvain.be; s=20241202; h=from:subject:message-id;
+ bh=ZbjNDwSRJFEoYuWbXrVTfeLtbZ5Ur0LIUfGXzuDBmv8=;
+ b=tuTXi5j9wW62WtK/AN7rdXeNwkj/KbvJn0+/ufudihjw8p5z1B4o/rzXOPoGfY+EnlnwtwWfi
+ RsyuHKiYll4BoD79HJDp8o+tJj9W6auIPU94lfAhA/MwabYyJGTYpsy
+X-Developer-Key: i=t.antoine@uclouvain.be; a=ed25519;
+ pk=sw7UYl31W1LTpgWRiX4xIF5x6ok7YWZ6XZnHqy/d3dY=
+X-Endpoint-Received: by B4 Relay for t.antoine@uclouvain.be/20241202 with
+ auth_id=289
+X-Original-From: Thomas Antoine <t.antoine@uclouvain.be>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,91 +86,450 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: t.antoine@uclouvain.be
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 21, 2025 at 01:36:38PM +0800, Troy Mitchell wrote:
-> Use guard to automatically release the lock after going out of scope
-> instead of calling it manually.
->
-> Co-developed-by: Yongchao Jia <jyc0019@gmail.com>
-> Signed-off-by: Yongchao Jia <jyc0019@gmail.com>
-> Signed-off-by: Troy Mitchell <troymitchell988@gmail.com>
+From: Thomas Antoine <t.antoine@uclouvain.be>
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+The interface of the Maxim MAX77759 fuel gauge has a lot of common with the
+Maxim MAX1720x. A major difference is the lack of non-volatile memory
+slave address. No slave is available at address 0xb of the i2c bus, which
+is coherent with the following driver from google: line 5836 disables
+non-volatile memory for m5 gauge.
 
-> ---
->  drivers/i2c/busses/i2c-imx.c | 22 ++++++++++------------
->  1 file changed, 10 insertions(+), 12 deletions(-)
->
-> diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
-> index 9e5d454d8318..cb96a57df4a0 100644
-> --- a/drivers/i2c/busses/i2c-imx.c
-> +++ b/drivers/i2c/busses/i2c-imx.c
-> @@ -23,6 +23,7 @@
->
->  #include <linux/acpi.h>
->  #include <linux/clk.h>
-> +#include <linux/cleanup.h>
->  #include <linux/completion.h>
->  #include <linux/delay.h>
->  #include <linux/dma-mapping.h>
-> @@ -891,13 +892,13 @@ static enum hrtimer_restart i2c_imx_slave_timeout(struct hrtimer *t)
->  	struct imx_i2c_struct *i2c_imx = container_of(t, struct imx_i2c_struct,
->  						      slave_timer);
->  	unsigned int ctl, status;
-> -	unsigned long flags;
->
-> -	spin_lock_irqsave(&i2c_imx->slave_lock, flags);
-> +	guard(spinlock_irqsave)(&i2c_imx->slave_lock);
-> +
->  	status = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2SR);
->  	ctl = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2CR);
->  	i2c_imx_slave_handle(i2c_imx, status, ctl);
-> -	spin_unlock_irqrestore(&i2c_imx->slave_lock, flags);
-> +
->  	return HRTIMER_NORESTART;
->  }
->
-> @@ -1125,30 +1126,27 @@ static irqreturn_t i2c_imx_isr(int irq, void *dev_id)
->  {
->  	struct imx_i2c_struct *i2c_imx = dev_id;
->  	unsigned int ctl, status;
-> -	unsigned long flags;
->
-> -	spin_lock_irqsave(&i2c_imx->slave_lock, flags);
-> +	guard(spinlock_irqsave)(&i2c_imx->slave_lock);
-> +
->  	status = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2SR);
->  	ctl = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2CR);
->
->  	if (status & I2SR_IIF) {
->  		i2c_imx_clear_irq(i2c_imx, I2SR_IIF);
-> +
->  		if (i2c_imx->slave) {
->  			if (!(ctl & I2CR_MSTA)) {
->  				irqreturn_t ret;
->
-> -				ret = i2c_imx_slave_handle(i2c_imx,
-> -							   status, ctl);
-> -				spin_unlock_irqrestore(&i2c_imx->slave_lock,
-> -						       flags);
-> -				return ret;
-> +				return i2c_imx_slave_handle(i2c_imx,
-> +							    status, ctl);
->  			}
->  			i2c_imx_slave_finish_op(i2c_imx);
->  		}
-> -		spin_unlock_irqrestore(&i2c_imx->slave_lock, flags);
-> +
->  		return i2c_imx_master_isr(i2c_imx, status);
->  	}
-> -	spin_unlock_irqrestore(&i2c_imx->slave_lock, flags);
->
->  	return IRQ_NONE;
->  }
->
-> --
-> 2.34.1
->
+Link: https://android.googlesource.com/kernel/google-modules/bms/+/1a68c36bef474573cc8629cc1d121eb6a81ab68c/max1720x_battery.c
+
+Other differences include the lack of V_BATT register to read the battery
+level. The voltage must instead be read from V_CELL, the lowest voltage of
+all cells. The mask to identify the chip is different. The computation of
+the charge must also be changed to take into account TASKPERIOD, which
+can add a factor 2 to the result.
+
+Add support for the MAX77759 by taking into account all of those
+differences based on chip type.
+
+Do not advertise temp probes using the non-volatile memory as those are
+not available.
+
+The regmap was proposed by André Draszik in
+
+Link: https://lore.kernel.org/all/d1bade77b5281c1de6b2ddcb4dbbd033e455a116.camel@linaro.org/
+
+Signed-off-by: Thomas Antoine <t.antoine@uclouvain.be>
+---
+ drivers/power/supply/max1720x_battery.c | 270 ++++++++++++++++++++++++++++----
+ 1 file changed, 237 insertions(+), 33 deletions(-)
+
+diff --git a/drivers/power/supply/max1720x_battery.c b/drivers/power/supply/max1720x_battery.c
+index cca5f8b5071fb731f9b60420239ea03d46cb1bf3..969d3a7c2baa7e1d23c5175942d975b277c8554c 100644
+--- a/drivers/power/supply/max1720x_battery.c
++++ b/drivers/power/supply/max1720x_battery.c
+@@ -37,6 +37,7 @@
+ #define MAX172XX_REPCAP			0x05	/* Average capacity */
+ #define MAX172XX_REPSOC			0x06	/* Percentage of charge */
+ #define MAX172XX_TEMP			0x08	/* Temperature */
++#define MAX172XX_VCELL			0x09	/* Lowest cell voltage */
+ #define MAX172XX_CURRENT		0x0A	/* Actual current */
+ #define MAX172XX_AVG_CURRENT		0x0B	/* Average current */
+ #define MAX172XX_FULL_CAP		0x10	/* Calculated full capacity */
+@@ -50,19 +51,32 @@
+ #define MAX172XX_DEV_NAME_TYPE_MASK	GENMASK(3, 0)
+ #define MAX172XX_DEV_NAME_TYPE_MAX17201	BIT(0)
+ #define MAX172XX_DEV_NAME_TYPE_MAX17205	(BIT(0) | BIT(2))
++#define MAX77759_DEV_NAME_TYPE_MASK	GENMASK(15, 9)
++#define MAX77759_DEV_NAME_TYPE_MAX77759	0x31
+ #define MAX172XX_QR_TABLE10		0x22
++#define MAX77759_TASKPERIOD		0x3C
++#define MAX77759_TASKPERIOD_175MS	0x1680
++#define MAX77759_TASKPERIOD_351MS	0x2D00
+ #define MAX172XX_BATT			0xDA	/* Battery voltage */
+ #define MAX172XX_ATAVCAP		0xDF
+ 
+ static const char *const max1720x_manufacturer = "Maxim Integrated";
+ static const char *const max17201_model = "MAX17201";
+ static const char *const max17205_model = "MAX17205";
++static const char *const max77759_model = "MAX77759";
++
++enum chip_id {
++	MAX1720X_ID,
++	MAX77759_ID,
++};
+ 
+ struct max1720x_device_info {
+ 	struct regmap *regmap;
+ 	struct regmap *regmap_nv;
+ 	struct i2c_client *ancillary;
+ 	int rsense;
++	int charge_full_design;
++	enum chip_id id;
+ };
+ 
+ /*
+@@ -271,6 +285,80 @@ static const enum power_supply_property max1720x_battery_props[] = {
+ 	POWER_SUPPLY_PROP_MANUFACTURER,
+ };
+ 
++/*
++ * Registers 0x80 up to 0xaf which contain the model for the fuel gauge
++ * algorithm (stored in nvmem for the max1720x) are locked. They can
++ * be unlocked by writing 0x59 to 0x62 and 0xc4 to 0x63. They should be
++ * enabled in the regmap if the driver is extended to manage the model.
++ */
++static const struct regmap_range max77759_registers[] = {
++	regmap_reg_range(0x00, 0x4f),
++	regmap_reg_range(0xb0, 0xbf),
++	regmap_reg_range(0xd0, 0xd0),
++	regmap_reg_range(0xdc, 0xdf),
++	regmap_reg_range(0xfb, 0xfb),
++	regmap_reg_range(0xff, 0xff),
++};
++
++static const struct regmap_range max77759_ro_registers[] = {
++	regmap_reg_range(0x3d, 0x3d),
++	regmap_reg_range(0xfb, 0xfb),
++	regmap_reg_range(0xff, 0xff),
++};
++
++static const struct regmap_access_table max77759_write_table = {
++	.no_ranges = max77759_ro_registers,
++	.n_no_ranges = ARRAY_SIZE(max77759_ro_registers),
++};
++
++static const struct regmap_access_table max77759_rd_table = {
++	.yes_ranges = max77759_registers,
++	.n_yes_ranges = ARRAY_SIZE(max77759_registers),
++};
++
++static const struct regmap_config max77759_regmap_cfg = {
++	.reg_bits = 8,
++	.val_bits = 16,
++	.max_register = 0xff,
++	.wr_table = &max77759_write_table,
++	.rd_table = &max77759_rd_table,
++	.val_format_endian = REGMAP_ENDIAN_LITTLE,
++	.cache_type = REGCACHE_NONE,
++};
++
++static const enum power_supply_property max77759_battery_props[] = {
++	POWER_SUPPLY_PROP_PRESENT,
++	POWER_SUPPLY_PROP_CAPACITY,
++	POWER_SUPPLY_PROP_VOLTAGE_NOW,
++	POWER_SUPPLY_PROP_CHARGE_FULL,
++	POWER_SUPPLY_PROP_CHARGE_FULL_DESIGN,
++	POWER_SUPPLY_PROP_CHARGE_AVG,
++	POWER_SUPPLY_PROP_TEMP,
++	POWER_SUPPLY_PROP_CURRENT_NOW,
++	POWER_SUPPLY_PROP_CURRENT_AVG,
++	POWER_SUPPLY_PROP_MODEL_NAME,
++	POWER_SUPPLY_PROP_MANUFACTURER,
++};
++
++
++struct chip_data {
++	bool has_nvmem;
++	const struct regmap_config *regmap_cfg;
++	enum chip_id id;
++};
++
++static const struct chip_data max1720x_data  = {
++	.has_nvmem = true,
++	.regmap_cfg = &max1720x_regmap_cfg,
++	.id = MAX1720X_ID,
++};
++
++static const struct chip_data max77759_data = {
++	.has_nvmem = false,
++	.regmap_cfg = &max77759_regmap_cfg,
++	.id = MAX77759_ID,
++};
++
+ /* Convert regs value to power_supply units */
+ 
+ static int max172xx_time_to_ps(unsigned int reg)
+@@ -288,10 +376,36 @@ static int max172xx_voltage_to_ps(unsigned int reg)
+ 	return reg * 1250;	/* in uV */
+ }
+ 
++static int max172xx_cell_voltage_to_ps(unsigned int reg)
++{
++	return reg * 625 / 8;	/* in uV */
++}
++
+ static int max172xx_capacity_to_ps(unsigned int reg,
+-				   struct max1720x_device_info *info)
++				   struct max1720x_device_info *info,
++				   int *intval)
+ {
+-	return reg * (500000 / info->rsense);	/* in uAh */
++	int lsb = 1;
++	int reg_val;
++	int ret;
++
++	if (info->id == MAX77759_ID) {
++		ret = regmap_read(info->regmap, MAX77759_TASKPERIOD, &reg_val);
++		if (ret)
++			return ret;
++
++		switch (reg_val) {
++		case MAX77759_TASKPERIOD_175MS:
++			break;
++		case MAX77759_TASKPERIOD_351MS:
++			lsb = 2;
++			break;
++		default:
++			return -ENODEV;
++		}
++	}
++	*intval = reg * (500000 / info->rsense) * lsb;	/* in uAh */
++	return 0;
+ }
+ 
+ /*
+@@ -306,6 +420,28 @@ static int max172xx_temperature_to_ps(unsigned int reg)
+ 	return val * 10 / 256; /* in tenths of deg. C */
+ }
+ 
++static const char *max1720x_devname_to_model(unsigned int reg_val,
++					     union power_supply_propval *val,
++					     struct max1720x_device_info *info)
++{
++	switch (info->id) {
++	case MAX1720X_ID:
++		reg_val = FIELD_GET(MAX172XX_DEV_NAME_TYPE_MASK, reg_val);
++		if (reg_val == MAX172XX_DEV_NAME_TYPE_MAX17201)
++			return max17201_model;
++		else if (reg_val == MAX172XX_DEV_NAME_TYPE_MAX17205)
++			return max17205_model;
++		return NULL;
++	case MAX77759_ID:
++		reg_val = FIELD_GET(MAX77759_DEV_NAME_TYPE_MASK, reg_val);
++		if (reg_val == MAX77759_DEV_NAME_TYPE_MAX77759)
++			return max77759_model;
++		return NULL;
++	default:
++		return NULL;
++	}
++}
++
+ /*
+  * Calculating current registers resolution:
+  *
+@@ -390,19 +526,31 @@ static int max1720x_battery_get_property(struct power_supply *psy,
+ 		val->intval = max172xx_percent_to_ps(reg_val);
+ 		break;
+ 	case POWER_SUPPLY_PROP_VOLTAGE_NOW:
+-		ret = regmap_read(info->regmap, MAX172XX_BATT, &reg_val);
+-		val->intval = max172xx_voltage_to_ps(reg_val);
++		if (info->id == MAX1720X_ID) {
++			ret = regmap_read(info->regmap, MAX172XX_BATT, &reg_val);
++			val->intval = max172xx_voltage_to_ps(reg_val);
++		} else if (info->id == MAX77759_ID) {
++			ret = regmap_read(info->regmap, MAX172XX_VCELL, &reg_val);
++			val->intval = max172xx_cell_voltage_to_ps(reg_val);
++		} else
++			return -ENODEV;
+ 		break;
+ 	case POWER_SUPPLY_PROP_CHARGE_FULL_DESIGN:
+ 		ret = regmap_read(info->regmap, MAX172XX_DESIGN_CAP, &reg_val);
+-		val->intval = max172xx_capacity_to_ps(reg_val);
++		if (ret)
++			break;
++		ret = max172xx_capacity_to_ps(reg_val, info, &val->intval);
+ 		break;
+ 	case POWER_SUPPLY_PROP_CHARGE_AVG:
+ 		ret = regmap_read(info->regmap, MAX172XX_REPCAP, &reg_val);
+-		val->intval = max172xx_capacity_to_ps(reg_val);
++		if (ret)
++			break;
++
++		ret = max172xx_capacity_to_ps(reg_val, info, &val->intval);
+ 		break;
+ 	case POWER_SUPPLY_PROP_TIME_TO_EMPTY_AVG:
+ 		ret = regmap_read(info->regmap, MAX172XX_TTE, &reg_val);
++		pr_info("RAW TTE: %d", reg_val);
+ 		val->intval = max172xx_time_to_ps(reg_val);
+ 		break;
+ 	case POWER_SUPPLY_PROP_TIME_TO_FULL_AVG:
+@@ -423,17 +571,15 @@ static int max1720x_battery_get_property(struct power_supply *psy,
+ 		break;
+ 	case POWER_SUPPLY_PROP_CHARGE_FULL:
+ 		ret = regmap_read(info->regmap, MAX172XX_FULL_CAP, &reg_val);
+-		val->intval = max172xx_capacity_to_ps(reg_val);
++		if (ret)
++			break;
++		ret = max172xx_capacity_to_ps(reg_val, info, &val->intval);
+ 		break;
+ 	case POWER_SUPPLY_PROP_MODEL_NAME:
+ 		ret = regmap_read(info->regmap, MAX172XX_DEV_NAME, &reg_val);
+-		reg_val = FIELD_GET(MAX172XX_DEV_NAME_TYPE_MASK, reg_val);
+-		if (reg_val == MAX172XX_DEV_NAME_TYPE_MAX17201)
+-			val->strval = max17201_model;
+-		else if (reg_val == MAX172XX_DEV_NAME_TYPE_MAX17205)
+-			val->strval = max17205_model;
+-		else
+-			return -ENODEV;
++		val->strval = max1720x_devname_to_model(reg_val, val, info);
++		if (!val->strval)
++			ret = -ENODEV;
+ 		break;
+ 	case POWER_SUPPLY_PROP_MANUFACTURER:
+ 		val->strval = max1720x_manufacturer;
+@@ -527,7 +673,6 @@ static int max1720x_probe_nvmem(struct i2c_client *client,
+ 		.priv = info,
+ 	};
+ 	struct nvmem_device *nvmem;
+-	unsigned int val;
+ 	int ret;
+ 
+ 	info->ancillary = i2c_new_ancillary_device(client, "nvmem", 0xb);
+@@ -549,18 +694,6 @@ static int max1720x_probe_nvmem(struct i2c_client *client,
+ 		return PTR_ERR(info->regmap_nv);
+ 	}
+ 
+-	ret = regmap_read(info->regmap_nv, MAX1720X_NRSENSE, &val);
+-	if (ret < 0) {
+-		dev_err(dev, "Failed to read sense resistor value\n");
+-		return ret;
+-	}
+-
+-	info->rsense = val;
+-	if (!info->rsense) {
+-		dev_warn(dev, "RSense not calibrated, set 10 mOhms!\n");
+-		info->rsense = 1000; /* in regs in 10^-5 */
+-	}
+-
+ 	nvmem = devm_nvmem_register(dev, &nvmem_config);
+ 	if (IS_ERR(nvmem)) {
+ 		dev_err(dev, "Could not register nvmem!");
+@@ -570,6 +703,38 @@ static int max1720x_probe_nvmem(struct i2c_client *client,
+ 	return 0;
+ }
+ 
++static int max1720x_get_rsense(struct device *dev,
++			       struct max1720x_device_info *info,
++			       const struct chip_data *data)
++{
++	unsigned int val;
++	int ret;
++
++	if (data->has_nvmem) {
++		ret = regmap_read(info->regmap_nv, MAX1720X_NRSENSE, &val);
++		if (ret < 0) {
++			dev_err(dev, "Failed to read RSense from nvmem\n");
++			return ret;
++		}
++
++		info->rsense = val;
++		if (!info->rsense) {
++			dev_warn(dev, "RSense not calibrated, set 10 mOhms!\n");
++			info->rsense = 1000; /* in regs in 10^-5 */
++		}
++	} else {
++		ret = of_property_read_u32(dev->of_node,
++					   "shunt-resistor-micro-ohms", &val);
++		if (ret) {
++			dev_err(dev, "Failed to read RSense from devicetree\n");
++			return ret;
++		}
++		info->rsense = val/10;
++	}
++
++	return 0;
++}
++
+ static const struct power_supply_desc max1720x_bat_desc = {
+ 	.name = "max1720x",
+ 	.no_thermal = true,
+@@ -579,32 +744,70 @@ static const struct power_supply_desc max1720x_bat_desc = {
+ 	.get_property = max1720x_battery_get_property,
+ };
+ 
++static const struct power_supply_desc max77759_bat_desc = {
++	.name = "max77759-fg",
++	.no_thermal = true,
++	.type = POWER_SUPPLY_TYPE_BATTERY,
++	.properties = max77759_battery_props,
++	.num_properties = ARRAY_SIZE(max77759_battery_props),
++	.get_property = max1720x_battery_get_property,
++};
++
+ static int max1720x_probe(struct i2c_client *client)
+ {
+ 	struct power_supply_config psy_cfg = {};
+ 	struct device *dev = &client->dev;
+ 	struct max1720x_device_info *info;
+ 	struct power_supply *bat;
++	const struct chip_data *data;
++	const struct power_supply_desc *bat_desc;
+ 	int ret;
+ 
+ 	info = devm_kzalloc(dev, sizeof(*info), GFP_KERNEL);
+ 	if (!info)
+ 		return -ENOMEM;
+ 
++	data = device_get_match_data(dev);
++	if (!data)
++		return dev_err_probe(dev, -EINVAL, "Failed to get chip data\n");
++
+ 	psy_cfg.drv_data = info;
+ 	psy_cfg.fwnode = dev_fwnode(dev);
+-	psy_cfg.attr_grp = max1720x_groups;
++	switch (data->id) {
++	case MAX1720X_ID:
++		psy_cfg.attr_grp = max1720x_groups;
++		bat_desc = &max1720x_bat_desc;
++		break;
++	case MAX77759_ID:
++		bat_desc = &max77759_bat_desc;
++		break;
++	default:
++		return dev_err_probe(dev, -EINVAL, "Unsupported chip\n");
++	}
+ 	i2c_set_clientdata(client, info);
+-	info->regmap = devm_regmap_init_i2c(client, &max1720x_regmap_cfg);
++
++	info->id = data->id;
++	info->regmap = devm_regmap_init_i2c(client, data->regmap_cfg);
+ 	if (IS_ERR(info->regmap))
+ 		return dev_err_probe(dev, PTR_ERR(info->regmap),
+ 				     "regmap initialization failed\n");
+ 
+-	ret = max1720x_probe_nvmem(client, info);
++	if (data->has_nvmem) {
++		ret = max1720x_probe_nvmem(client, info);
++		if (ret)
++			return dev_err_probe(dev, ret, "Failed to probe nvmem\n");
++	}
++
++	ret = of_property_read_u32(dev->of_node,
++				   "charge-full-design-microamp-hours", &info->charge_full_design);
++	if (ret)
++		info->charge_full_design = 0;
++
++	ret = max1720x_get_rsense(dev, info, data);
+ 	if (ret)
+-		return dev_err_probe(dev, ret, "Failed to probe nvmem\n");
++		return dev_err_probe(dev, ret, "Failed to get RSense\n");
+ 
+-	bat = devm_power_supply_register(dev, &max1720x_bat_desc, &psy_cfg);
++	bat = devm_power_supply_register(dev, bat_desc, &psy_cfg);
+ 	if (IS_ERR(bat))
+ 		return dev_err_probe(dev, PTR_ERR(bat),
+ 				     "Failed to register power supply\n");
+@@ -613,7 +816,8 @@ static int max1720x_probe(struct i2c_client *client)
+ }
+ 
+ static const struct of_device_id max1720x_of_match[] = {
+-	{ .compatible = "maxim,max17201" },
++	{ .compatible = "maxim,max17201", .data = (void *) &max1720x_data },
++	{ .compatible = "maxim,max77759-fg", .data = (void *) &max77759_data },
+ 	{}
+ };
+ MODULE_DEVICE_TABLE(of, max1720x_of_match);
+
+-- 
+2.49.0
+
+
 
