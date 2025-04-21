@@ -4,69 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE51BC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 18:52:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20221C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 19:04:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=apiZD2MHe0pEihsryLo9DY3yMjFctlM1u7cKb+3+eHk=; b=jKD2lgLF95TsDnCDG3R7/1RDvP
-	vFbETpQ8l+xuU2Tmo4W6ArP63PJChOD1KtwsJK5sEgJoBeWapUbY6ZvrQ6fy9UvZF0LwfAYAhMxJc
-	E8ozWdXz5gNvSRSiGQoQBncgYPNSFMp4phA5MxQDwfnjFDlM76K6pJrGIQKj7a6/dMDBXSF70McAH
-	7r0JaXjqsAhA8pl0VIwu0XiJQfBc2FKz/AThARsoeufWzicfNZVRBUCRudGGiaeCTGINrhrJZ2f5+
-	mNK3v4GE+q3ay+L9GmNcWGPNDS8AGewcn07JYUvU5S47i4oTFM1Y6/QQESMSezcp9tKfngQgdhIM0
-	wEs7fB1Q==;
+	bh=IEN033baaB4ogGADBJMQL9poprZr/OOuFaTb+kBE3qw=; b=wneTw1S1NFPZwgV9JWcxwAzCNS
+	VGHZt6XwyOGCMgHjy8YvTXTLgVYGRkfL9eQagRdnUoPB1LIDv+xhE+T52tek6EumLu5tHsvw+PXJV
+	dDAJMipEbjPFKdEQTlm6jXqugd3x9AW+n4BTEpxYnOLLqHPzjdUAEJd1+XaRxM4AJ6sz1tmjS5I+b
+	bR539BcygzoDGseyJjScrYONoC/XLJ53ZclEsdc9CuBAPZVhssejxDWhnchhu/+FJdZshC/IljoER
+	nglD3GdF3ah2nHrAYSqfqdgwQCaXqZJ0JNEUqX13leTR6RAbi+Nz6wjtCH2A9wBzsre+9JTFHW6Np
+	duWDU5RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6wFb-00000004x4D-34PD;
-	Mon, 21 Apr 2025 18:52:15 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u6wRT-00000004zD5-35vo;
+	Mon, 21 Apr 2025 19:04:31 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6wBx-00000004wj4-0vWg
+	id 1u6wPa-00000004yfl-2K8V
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Apr 2025 18:48:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E93705C58B9;
-	Mon, 21 Apr 2025 18:46:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F51EC4CEE4;
-	Mon, 21 Apr 2025 18:48:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745261307;
-	bh=Ijp7OoJM/SjB6q2/JnLqH5xk2mnKjD6u6f/PtjXw0Ok=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tO9jNT0GXs+9AfF7VttwbdUVOSuc8TE9HieRsrqdAvjZJGCauWzD6Jcp3PTIhDB1T
-	 2jFghVVcKbNU8nZPuX1B5oiS17mWCsKtNI6KL9gSMPhkspTWRJT/AVsYWUPolatrhv
-	 cs5EW0f1iNLJ5Li/nW+Zkmf2WDgWfqqcR9ccoGKqMu37/8xnpkWbk3AYv+8Jtr8Gny
-	 8R+Da2XRcbWUEbYkj0qBmlblSl2XhpfV54B93RsGQ1UXtufeyd51lrv4EK5se4PjBc
-	 1jQKL3B4mf5WG1st5UD6v+I2qaGwYbHZDBfoJFcX+n+26HtBSUkCVwBJ+Pk1wNmOsV
-	 UxfoREzuuUg4w==
-Date: Mon, 21 Apr 2025 13:48:25 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
+	Mon, 21 Apr 2025 19:02:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=IEN033baaB4ogGADBJMQL9poprZr/OOuFaTb+kBE3qw=; b=zfsFMbWg6CK6J4o+6YCkUph4VD
+	G8rRxLGFNmj1yc8SuXsCdmeBXLFsKmo+pQU/YmDEj6XuVLWOZBctb/wT3kZhd9jkwHP7nDLX7j/5S
+	cBWBX9FWMs4jPDwKAQR/ZY0NkKDBxSI7VpltWeIOoCafynDuzUQ8BsVTGMHO4nxq3AQZ990XL7OmZ
+	KI9dlW7Oa7niv5zhxM7BpQnNsx2RyizT3XdHdAfas9Qpz6L+UBfQCAeBZGXVzxjTDZ6QBCLv03l7G
+	wG2uSezrrzpzhsb+ULzwEsAOe1f5hzufGywh/IeMMcpc4kNcbIXvQheVPTZOzqV+xQomlb7Sx8I/j
+	DAhQts3A==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:59916)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1u6wNB-0003FY-0i;
+	Mon, 21 Apr 2025 20:00:05 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1u6wN3-0006g3-2g;
+	Mon, 21 Apr 2025 19:59:57 +0100
+Date: Mon, 21 Apr 2025 19:59:57 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Biju Das <biju.das.jz@bp.renesas.com>
+Cc: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Markus Niebel <Markus.Niebel@tq-group.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Magnus Damm <magnus.damm@gmail.com>, linux@ew.tq-group.com,
-	linux-renesas-soc@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>, imx@lists.linux.dev
-Subject: Re: [PATCH 1/2] dt-bindings: arm: add TQMa8XxS boards
-Message-ID: <174526130447.2607883.13343591293403394303.robh@kernel.org>
-References: <20250415133301.443511-1-alexander.stein@ew.tq-group.com>
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-stm32@st-md-mailman.stormreply.com" <linux-stm32@st-md-mailman.stormreply.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+	Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: Re: [PATCH net-next v5 3/3] net: stmmac: Add DWMAC glue layer for
+ Renesas GBETH
+Message-ID: <aAaVrVFql3vSktrT@shell.armlinux.org.uk>
+References: <20250407120317.127056-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20250407120317.127056-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <Z_0-iH91A4Sexlzj@shell.armlinux.org.uk>
+ <CA+V-a8sS0TtS-TEdkQ8MB5F4JtzV9358Y9fmKe5MggGU+wP=4Q@mail.gmail.com>
+ <CA+V-a8tbW2Zs6op20yRTcihSm1bcMC2dYnRXVCKRf=q4fymZyg@mail.gmail.com>
+ <TY3PR01MB1134633A8CB82788BB98C6E6286B82@TY3PR01MB11346.jpnprd01.prod.outlook.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250415133301.443511-1-alexander.stein@ew.tq-group.com>
+In-Reply-To: <TY3PR01MB1134633A8CB82788BB98C6E6286B82@TY3PR01MB11346.jpnprd01.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_114829_313306_FFE609E1 
-X-CRM114-Status: UNSURE (   9.51  )
+X-CRM114-CacheID: sfid-20250421_120234_590589_25652C83 
+X-CRM114-Status: UNSURE (   9.77  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,21 +107,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Apr 21, 2025 at 01:45:50PM +0000, Biju Das wrote:
+> Hi All,
+> FYI, On RZ/G3E, for STR to work with mainline, we need to reinitialize the PHY.
 
-On Tue, 15 Apr 2025 15:32:58 +0200, Alexander Stein wrote:
-> From: Markus Niebel <Markus.Niebel@tq-group.com>
-> 
-> TQMa8XxS is a SOM series featuring NXP i.MX8X SoC.
-> They are called TQMa8XQPS and TQMa8XDPS respectively.
-> MB-SMARC-2 is a carrier reference design.
-> 
-> Signed-off-by: Markus Niebel <Markus.Niebel@tq-group.com>
-> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> ---
->  Documentation/devicetree/bindings/arm/fsl.yaml | 16 ++++++++++++++++
->  1 file changed, 16 insertions(+)
-> 
+Which "mainline" are you using?
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Reading your emails, I suspect v6.14 rather than something post-dating
+v6.15-rc1, since your latest email suggests that the PHY driver's
+->resume method is not being called early in stmmac's resume. However,
+commits 367f1854d442 and ef43e5132895 made this happen, which were
+merged during the merge window, and are thus in v6.15-rc1.
 
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
