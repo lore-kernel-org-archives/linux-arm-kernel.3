@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8156EC369D2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 08:27:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1FC6C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 08:29:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w5wGQV4Z9YSZObQBq40LO1nvdGO5KA96Wt8dBuQPd2o=; b=jbOYb8OMcTDqm9hRRwSueWtmec
-	nWR517IUOwueQGdIMHoIqXu3L6mV3iV9WmkCtdL1g/tv9yGdttAhSFwGsn4TPZW9uOxKdhv+Rt02M
-	XDc3TAz8y4FvM3RU2ZX6pdTdRIrDXzor6D/GaMmFbJLhCpYQUOB3TyAdl7z2oGpMc1iFsMk4Ho/0R
-	bzabWjPKpKjsbMLlQBDxeqj/zSlzTN1eXk+yjlXAoVBWEWub+yy/F2FJLiRYVZRxN3GYNbPIer8uS
-	mTvjnEJiSaKPTAiNbXDoMHwE/b1sAP+N7kazmKgHupp1nIJ61YXMRm6rBzejac6a1fgbCLDfWUW46
-	iGWIaYLg==;
+	bh=f/d2kV+gEVUtasqwptmg8OTaBsbS+gUd48Di1IsK5O4=; b=mzZsFZuOIcIw0ak1mRuSF9+qXP
+	XlNtrMg73iCqJVjep2yy1khd1MK5iSAUs2rotqQFM3JXZMmtn8jstR8OhVVYBS0ecF7kg2hiIdw4O
+	jkd7tZ9/omjpwgq5tOthXoszL3Q3xup7m9grI4FaPa3+3JhhEnrC582Lfz/BCE2z1WshZM6bI//d1
+	ssn1b/G6ETYKKg1fLtJjb0//Ck21lxhLbtZyqQsq3bwbMn3QTrR9zOa7v6TYwmkXYlr/Ebi4RHlxE
+	I8gwH3jMohD0b/k1ThtCi90I9b1SYKp1nNlNdpW76QrhoOX6pAdf3v+sdKykMUuz2h+6GZzIXr4Q6
+	/OtgS/gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6mUc-00000003u2Z-0WG9;
-	Mon, 21 Apr 2025 08:27:06 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1u6mWQ-00000003uG3-3JQk;
+	Mon, 21 Apr 2025 08:28:58 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6mJF-00000003sAQ-0STc
+	id 1u6mJG-00000003sB9-1Lxc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Apr 2025 08:15:22 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-ac339f53df9so657622066b.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Apr 2025 01:15:20 -0700 (PDT)
+	Mon, 21 Apr 2025 08:15:24 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-ac29fd22163so569527766b.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Apr 2025 01:15:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1745223319; x=1745828119; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1745223321; x=1745828121; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=w5wGQV4Z9YSZObQBq40LO1nvdGO5KA96Wt8dBuQPd2o=;
-        b=2YbEJqUeJdlZaNEFbfgdwERAtU1bpKL34gFotXd5v79D8pXeOEqDxsrqIH7mWwszul
-         GUSvMM6qHWzxqoYq38GLhPun/czAly8pSUo0XrdTJWFW+E4+PIU08eSOPbDbkD2hWLZZ
-         Y/NJMfBEoXhuRUv/mP9mObZcKdgwsr8z4eZzogSLbbUW7lnlQHfLMS340gC+ipeF/6JN
-         18IEPeYBzF123MB/eLDuaG/BJ+Qb3o0xlMy0RZnUjkIC9NVo2r194xbJ5Obur0HBIhLP
-         uAS8BxwKY8mUFI9iWX5irc/g6q2Qn+S0QgAPq9JFde6atUaBy/F2mGMdyQoEq0/cEHmK
-         KPQA==
+        bh=f/d2kV+gEVUtasqwptmg8OTaBsbS+gUd48Di1IsK5O4=;
+        b=jFyG7xN7EuiktLOwLy6raeatO61pwi5lEyjjUXux1LP1LogR84vU9CiBqI3oKsEQrb
+         shFWDDF1W97Vt2kUFHFIQq41IdKajaadPVdckjlXwNV/KUK9hRhC9Qumq9TqFDeo4cqs
+         phAhkfLPkhmC340aDMDVQyA+Co5ged67WNKM9k1JCvqDpN2YRFE9VTnV4FNNJ7H6elJJ
+         HRPqisl75MxQsHyAnpsjDCIzG6SsAmf2qlRzUX8ot3392VH8eNB73QKsHyyQTWACQ4fu
+         2pBEWT02KKt3kyNOp3igSlZTsqzm9R/TlMlXvTnexuO1x0TLJYxsO6bYaoWa2uFe6feP
+         Usag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745223319; x=1745828119;
+        d=1e100.net; s=20230601; t=1745223321; x=1745828121;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=w5wGQV4Z9YSZObQBq40LO1nvdGO5KA96Wt8dBuQPd2o=;
-        b=RT+w3XLnx79uuU9MIICVZf0bJfdiWp3e3pVgtBAC5PnwyI01vd4ObwUk24Cn8v9Ucw
-         iDVGs5D5Rel/pbu4Tra4tGo4byKpLb++SN1t9QdM+59nVTgFipeo1IsP+PG5gE58HofS
-         phxVVx0Aa6s29WN6kbv0Y46s3lHOmBNP9jD3d5jx7eUuuKzOprvqXZLNkrKsntxndmih
-         TMV/Z7KoCO2G/M1iUGWRTDZpCYHHtP/FUJWz9aQB/N5Rw6Kn7BsvBfWG9IoogHkt2hZd
-         9D3voigHrDo06N/O1PwsdNJuMb7rO3NZ8Fu3TBzL2htOebrF9WbzUet4malRKIyIdwA9
-         cqoQ==
-X-Gm-Message-State: AOJu0YycxSZZrbsP4ODzNkxQeSRidBkqfYRDVtQUAzq76m6Rf97jDRsC
-	1w0r3eZvXIOyssco2veZ3UR/PJun3jiVzNuAPtkesmG5EuA122q7PWKNQZw+KYM=
-X-Gm-Gg: ASbGncuX1A2kK3B8Fao3ObGZESQOJIJ8AMj2lBvg+MDqN1kFFEiqQ+SJPMpbYRvr7fV
-	OmPJTwz6hbfczKjnPP+56YvSWj/jWJZAWBaFO1BCJDKuF+3ElaXedEaJjSyBimIvPRH0DKJZPNH
-	yxVli43bskzuZmryKqdFbXSmyH59S5hDGfgjSaEvDI5UlvGO0H7402UUm5P03S6O615DkADFuYZ
-	o4wgmIQiEHovgdJquFjLZf9Kx6BpwCqMedd2Iwy5xg4g/UjbJ7K/3asWF8F3DKJB3gjR9cvphb7
-	4+ySAi297wVOclOsR8ZkD9ABKWgAHUwoud0=
-X-Google-Smtp-Source: AGHT+IGWxtJdLJ36kRSbbl0qSFEd4pxHtkyAsGGiL1QRyNFjb0PyfwMRQI9DRuA/PGHaxCu6K5MuIA==
-X-Received: by 2002:a17:907:720f:b0:ac7:4f1:65c5 with SMTP id a640c23a62f3a-acb74e19df7mr1007221066b.54.1745223319351;
-        Mon, 21 Apr 2025 01:15:19 -0700 (PDT)
+        bh=f/d2kV+gEVUtasqwptmg8OTaBsbS+gUd48Di1IsK5O4=;
+        b=nZ91+Dv/2BFosU7RritTJq555eowYNthNiTGE6Kg5JDPdRbOQIn8HqypaOuae+GIAk
+         1qvSGwUWhrQD8Jmg6/1IwjYZaJOu9XIyhlMnqUpWcWVPm+3x1orOS3iheeue9tAyjuIY
+         criEKac01jRNmdciw6XxwMONnOxlX0YMyUikOnfoXGhIvyDyKT8wq9HNIwj/25irK0F2
+         MUJzWaPfhlt6olB6/N6Kb3K6+BZyMd1cntlynH/6NEgYjvKaAsn8lKWOn3T0tW0mEv+E
+         zyHYMK07wvizq2gcidx88yqD/DuHpvbHMXMQiTDYEk5tKc6VYnsqP7fwuXipIMJyMN1H
+         gAAg==
+X-Gm-Message-State: AOJu0YwU10cA4q9+NGcjVVvsDoruk8tlFcEgqWRoRpWkG9vXnCsxZXh6
+	F5XI/mcOleipy5wTYSjVg0tlkJkBjtN3PWzU0TLY/dyJ8y6As8BpftP/Yoc1GzM=
+X-Gm-Gg: ASbGncsdQC18b0Z+V8eyqrIjNeQ8Qxr0P1zvJP07y15zOBRO0UijVb9NF4SavGeoLV/
+	waW3m+QvMsdxGU7CfKafp7E4mjEgSiuiHd4MZujpvJ61z5ficuJzQk5f3hh+jdj6zw7Pp0eRCn9
+	9zyJlagChEsba0Is5v4oIWgjl3OPQOihYDe7lrma90qhZQCCP30otlBVFtJj14YEvTn2fDY5I1r
+	4WbxFQrn8fUbzBLar2BCOMx456dEh2h1hOaSMXP7F5EGCZA8PhnUx7WmtkGYhvSGwnwujivlDcT
+	O7SWsqGaOxqth27kOypH9vBjuPIflFEf2ywY1u9y7o6zwQ==
+X-Google-Smtp-Source: AGHT+IH8dCmUUiIYwe6aBK5gZa6nt1qsDCGB6UIqEQKGd3SsYK3y8ADeVEtN0scYBIBP9If0pfXvNw==
+X-Received: by 2002:a17:907:7247:b0:acb:1908:6873 with SMTP id a640c23a62f3a-acb74d65b95mr1067470266b.48.1745223320580;
+        Mon, 21 Apr 2025 01:15:20 -0700 (PDT)
 Received: from localhost ([2001:4091:a245:826e:c0c:4cef:7dd:26bd])
-        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-acb6ec90a95sm477907966b.76.2025.04.21.01.15.18
+        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-acb6ec502bcsm482604866b.66.2025.04.21.01.15.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Apr 2025 01:15:19 -0700 (PDT)
+        Mon, 21 Apr 2025 01:15:20 -0700 (PDT)
 From: Markus Schneider-Pargmann <msp@baylibre.com>
-Date: Mon, 21 Apr 2025 10:14:19 +0200
-Subject: [PATCH 1/7] arm64: dts: ti: k3-pinctrl: Add WKUP_EN flag
+Date: Mon, 21 Apr 2025 10:14:20 +0200
+Subject: [PATCH 2/7] arm64: dts: ti: k3-am62: Define possible system states
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250421-topic-am62-dt-partialio-v6-15-v1-1-6ced30aafddb@baylibre.com>
+Message-Id: <20250421-topic-am62-dt-partialio-v6-15-v1-2-6ced30aafddb@baylibre.com>
 References: <20250421-topic-am62-dt-partialio-v6-15-v1-0-6ced30aafddb@baylibre.com>
 In-Reply-To: <20250421-topic-am62-dt-partialio-v6-15-v1-0-6ced30aafddb@baylibre.com>
 To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
@@ -87,17 +87,18 @@ Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
  Akashdeep Kaur <a-kaur@ti.com>, 
  Markus Schneider-Pargmann <msp@baylibre.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1123; i=msp@baylibre.com;
- h=from:subject:message-id; bh=Lg9Ur2LsdAksm9MvChH0YvjPgYCv48epeyaeMJJx+vc=;
- b=owGbwMvMwCXWejAsc4KoVzDjabUkhgzWfzklOvJsljNe1e0TO+a5bJntVQthsZBj2bOfO6Yfm
- bfImm9bRykLgxgXg6yYIktnYmjaf/mdx5IXLdsMM4eVCWQIAxenAEyE5REjw16z1I2rv4S3vl5U
- GqJ0Ntfvrpf+gWUOcmmMjUXffuyKXMfwv/agiMEtqRMZmg9jEl+GRe9S3TepR7Fwqn2ydMZPvca
- F/AA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1207; i=msp@baylibre.com;
+ h=from:subject:message-id; bh=i2du4lVmWLuvWRHG2K/1O3Jp+NBJz3qmMwCQlIhmr/o=;
+ b=owGbwMvMwCXWejAsc4KoVzDjabUkhgzWf4W3NinxJ3hYPDvnfu9vz8oY3gccaxbM3H+3/N+7s
+ i/aIpvlOkpZGMS4GGTFFFk6E0PT/svvPJa8aNlmmDmsTCBDGLg4BWAinn6MDFvY/hkm3Cr68rTg
+ 7qM5hWZxf+aWTr/PKfZr2urecJVru/kYGVbv/qxS4Vk4h38S80nWHbNV52sx252bP2OX37wiiQm
+ b33ECAA==
 X-Developer-Key: i=msp@baylibre.com; a=openpgp;
  fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_011521_167953_75D704D4 
-X-CRM114-Status: GOOD (  10.17  )
+X-CRM114-CacheID: sfid-20250421_011522_381569_960E484A 
+X-CRM114-Status: UNSURE (   9.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,34 +113,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-WKUP_EN is a flag to enable pin wakeup. Any activity will wakeup the SoC
-in that case.
+Add the system states that are available on am62 SoCs.
 
 Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
 ---
- arch/arm64/boot/dts/ti/k3-pinctrl.h | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/arm64/boot/dts/ti/k3-am62.dtsi | 22 ++++++++++++++++++++++
+ 1 file changed, 22 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-pinctrl.h b/arch/arm64/boot/dts/ti/k3-pinctrl.h
-index cac7cccc111212eba520454396c8cc5c9fcba9b1..79a9f54fa0095c4e3864872bc06ef3d033215b2b 100644
---- a/arch/arm64/boot/dts/ti/k3-pinctrl.h
-+++ b/arch/arm64/boot/dts/ti/k3-pinctrl.h
-@@ -18,6 +18,7 @@
- #define DS_OUT_VAL_SHIFT	(26)
- #define DS_PULLUD_EN_SHIFT	(27)
- #define DS_PULLTYPE_SEL_SHIFT	(28)
-+#define WKUP_EN_SHIFT		(29)
+diff --git a/arch/arm64/boot/dts/ti/k3-am62.dtsi b/arch/arm64/boot/dts/ti/k3-am62.dtsi
+index bfb55ca113239be4367a1cf8edf219187fafa8a0..acc8cbc7e57bc5712ada8b4b225e302ffc368e26 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62.dtsi
+@@ -46,6 +46,28 @@ pmu: pmu {
+ 		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH>;
+ 	};
  
- #define PULL_DISABLE		(1 << PULLUDEN_SHIFT)
- #define PULL_ENABLE		(0 << PULLUDEN_SHIFT)
-@@ -56,6 +57,7 @@
- #define PIN_DS_PULLUD_DISABLE		(1 << DS_PULLUD_EN_SHIFT)
- #define PIN_DS_PULL_DOWN		(0 << DS_PULLTYPE_SEL_SHIFT)
- #define PIN_DS_PULL_UP			(1 << DS_PULLTYPE_SEL_SHIFT)
-+#define WKUP_EN				(1 << WKUP_EN_SHIFT)
- 
- /* Default mux configuration for gpio-ranges to use with pinctrl */
- #define PIN_GPIO_RANGE_IOPAD	(PIN_INPUT | 7)
++	system-idle-states {
++		system_partial_io: system-partial-io {
++			compatible = "system-idle-state";
++			idle-state-name = "Partial-IO";
++		};
++
++		system_deep_sleep: system-deep-sleep {
++			compatible = "system-idle-state";
++			idle-state-name = "DeepSleep";
++		};
++
++		system_mcu_only: system-mcu-only {
++			compatible = "system-idle-state";
++			idle-state-name = "MCU Only";
++		};
++
++		system_standby: system-standby {
++			compatible = "system-idle-state";
++			idle-state-name = "Standby";
++		};
++	};
++
+ 	cbass_main: bus@f0000 {
+ 		bootph-all;
+ 		compatible = "simple-bus";
 
 -- 
 2.49.0
