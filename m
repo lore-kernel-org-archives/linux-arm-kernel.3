@@ -4,71 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41266C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 11:13:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2678C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 11:15:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sggaySWQolZV5IOMG2CbSowHGN8SAplpIWm3hu6GyRg=; b=qMQDPDXMQc0ZZj6BOPwU3o5IIg
-	dTJKNs2G+/oBHthHCozbnFONpAUl32n8MJGhavesW/WgMz2A1qFZyLYzQEbLBV+gDHSLT3Yr18LPr
-	MmmAQNTI+wtTSobpUNabyUG3MYJDLnVuyICE/jP907Zf/3L1CNlE6CK4RGsXoTtPpXIsyzuZ2crNH
-	lcScDY9WE8gNQSfhF5VhULijz/h6wXTSNaMCXUmndYEs0PnhkMBDhRg7EkbfSxjdhDF/KJHJbO9Hz
-	8c6EjPJLrEPwd0/P2IR0r2YKSwg5s1MGXEzRLH+2ITH8dlAbSfVtWSPk4IDXjPybPM82CXA3H9G+b
-	5ZknujBA==;
+	bh=tuPWyJnLJOkoKStv0ngupFsN+aI9E4hZpqsmAX/lmT8=; b=Gf2fyc2gw/s4Mt/p5rCJEzdvpG
+	3mlPs8U0ZnLBpyxeNjyyI1jWgjcRKUYc2OHoBh0GkP1d6k/uIo3ZGHbN3ri4h4wJv1bMaq5wsUOsW
+	4LKc9AUGELLUMVx+Hb4Gm02oNXAwAVNMpcBCG8HaUzbrF8hb9xK8XJZulu0+c+ImtdgNVwP1+ue1I
+	+ytzDb7ewGsXSNZrLAsx85Cxx0bDBfgkri9Y8IY5YD0+pYtCBagZxVt9SK+ATut7yuAfGMRMc/BhI
+	dxrs8lK/TUbJNwIo5zfwMA4wDGgoESDykt4idOM6njREV5GYw97lo+gAvGXGXCwfybUviltztDMTe
+	Jpt3whIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6p5Q-00000004AmL-0G82;
-	Mon, 21 Apr 2025 11:13:16 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u6p7F-00000004B2G-3Cau;
+	Mon, 21 Apr 2025 11:15:09 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6p2k-00000004AR0-1V7M
+	id 1u6p39-00000004AUZ-144z
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Apr 2025 11:10:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 332A444D6D;
-	Mon, 21 Apr 2025 11:10:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDE7AC4CEE4;
-	Mon, 21 Apr 2025 11:10:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745233828;
-	bh=qBNeYTCCeJLPNODBt8loEIk8Uz5A8LZFmdC8vvl9rQM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=i0/qTr8hB4VUINlgBBJ+1dH9hr0Bfy6rW8xEjEnkBFICRaT5N5K3To9a48uuNl602
-	 9Fg7MzxfZyF9nlnJMdZ+rsTUzGYm6wEv0IKfKKgciN9GGdr35379JMNRQ/ps9pA73J
-	 Jt9qKTv953bM922uwYv6HBi5yEsY3i6zMBGkWkYz9/cKegiPxelGIfbRutEu58cwuP
-	 qUhnf2uytx6KmLFQd+aVD+zLKJKamHqrcxpr5cQq9S3KtbuWB0z26VFUaKHhkiV+UO
-	 OTmJr9/4U3csWp5ky5iPWBko0Fc/TOCWtynTBcyHLa+Dy3k62Fhca/Q5Aa5x9V9BT6
-	 3kDgzPC0jJrgQ==
-Date: Mon, 21 Apr 2025 12:10:18 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: David Lechner <dlechner@baylibre.com>
-Cc: Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko
- <andy@kernel.org>, Eugen Hristev <eugen.hristev@linaro.org>, Nicolas Ferre
- <nicolas.ferre@microchip.com>, Alexandre Belloni
- <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- Andreas Klinger <ak@it-klinger.de>, Shawn Guo <shawnguo@kernel.org>, Sascha
- Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
- <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, linux-iio@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH 02/10] iio: adc: at91-sama5d2_adc: use struct with
- aligned_s64 timestamp
-Message-ID: <20250421121018.5b09ea21@jic23-huawei>
-In-Reply-To: <20250418-iio-prefer-aligned_s64-timestamp-v1-2-4c6080710516@baylibre.com>
-References: <20250418-iio-prefer-aligned_s64-timestamp-v1-0-4c6080710516@baylibre.com>
-	<20250418-iio-prefer-aligned_s64-timestamp-v1-2-4c6080710516@baylibre.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
+	Mon, 21 Apr 2025 11:10:56 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53LBAoZo904775
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 21 Apr 2025 06:10:50 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1745233850;
+	bh=tuPWyJnLJOkoKStv0ngupFsN+aI9E4hZpqsmAX/lmT8=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=heu0xSpkuG8Vwua+hGBSIxFBY2MjVTpMN+I/8e1CA9NhEFV01pE/y01l4kGa2V/CB
+	 XZKpNbICrf9co5x3xECsrcmlgiunh6N8kztNfx3nYtkyAZecPl4//kq6IXnKFaed/T
+	 vLsRCcqLiT6i+jh7E12rX0Ry2el0Er74j+VmGsDc=
+Received: from DFLE109.ent.ti.com (dfle109.ent.ti.com [10.64.6.30])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53LBAonq024891
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 21 Apr 2025 06:10:50 -0500
+Received: from DFLE101.ent.ti.com (10.64.6.22) by DFLE109.ent.ti.com
+ (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 21
+ Apr 2025 06:10:50 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE101.ent.ti.com
+ (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 21 Apr 2025 06:10:50 -0500
+Received: from [10.24.72.182] (jayesh-hp-z2-tower-g5-workstation.dhcp.ti.com [10.24.72.182])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53LBAkPi080763;
+	Mon, 21 Apr 2025 06:10:47 -0500
+Message-ID: <cdeb1f80-a959-423d-9cba-dc1af760fe75@ti.com>
+Date: Mon, 21 Apr 2025 16:40:46 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 7/7] arm64: dts: ti: k3-am68-sk: Enable DSI on
+ DisplayPort-0
+To: "Kumar, Udit" <u-kumar1@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
+        <devarsht@ti.com>, <linux-kernel@vger.kernel.org>
+CC: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <kristo@kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20250411105155.303657-1-j-choudhary@ti.com>
+ <20250411105155.303657-8-j-choudhary@ti.com>
+ <4144abf5-82aa-49db-82d7-c1429c12292e@ti.com>
+Content-Language: en-US
+From: Jayesh Choudhary <j-choudhary@ti.com>
+In-Reply-To: <4144abf5-82aa-49db-82d7-c1429c12292e@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_041030_445849_A597D671 
-X-CRM114-Status: GOOD (  23.41  )
+X-CRM114-CacheID: sfid-20250421_041055_550914_2154F2DF 
+X-CRM114-Status: GOOD (  15.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,101 +90,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 18 Apr 2025 14:58:21 -0500
-David Lechner <dlechner@baylibre.com> wrote:
+Hello Udit,
 
-> Use a struct with aligned s64 timestamp_instead of a padded array for
-> the buffer used for iio_push_to_buffers_with_ts(). This makes it easier
-> to see the correctness of the size and alignment of the buffer.
+On 19/04/25 15:04, Kumar, Udit wrote:
 > 
-> Signed-off-by: David Lechner <dlechner@baylibre.com>
-> ---
->  drivers/iio/adc/at91-sama5d2_adc.c | 25 ++++++++++---------------
->  1 file changed, 10 insertions(+), 15 deletions(-)
+> On 4/11/2025 4:21 PM, Jayesh Choudhary wrote:
+>> Enable DSI support for AM68-SK platform.
+>>
+>> Add DT node for DSI2eDP bridge. The DSI to eDP bridge is sn65dsi86
+>> on the board.
+>>
+>> Add the endpoint nodes to describe connection from:
+>> DSS => DSI => SN65DSI86 bridge => DisplayPort-0
+>>
+>> Set status for all required nodes for DisplayPort-0 as 'okay'.
+>>
+>> Signed-off-by: Jayesh Choudhary <j-choudhary@ti.com>
+>> ---
+>>   .../boot/dts/ti/k3-am68-sk-base-board.dts     | 96 +++++++++++++++++++
+>>   1 file changed, 96 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts 
+>> b/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
+>> index 11522b36e0ce..df54de2d8236 100644
+>> --- a/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
+>> +++ b/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
+>> @@ -124,6 +124,35 @@ transceiver4: can-phy3 {
+>>           max-bitrate = <5000000>;
+>>       };
+>> +    edp0_refclk: clock-edp0-refclk {
+>> +        #clock-cells = <0>;
+>> +        compatible = "fixed-clock";
+>> +        clock-frequency = <19200000>;
+>> +    };
 > 
-> diff --git a/drivers/iio/adc/at91-sama5d2_adc.c b/drivers/iio/adc/at91-sama5d2_adc.c
-> index 414610afcb2c4128a63cf76767803c32cb01ac5e..07ced924f7a6ae36fe538021a45adbf7d76c2e69 100644
-> --- a/drivers/iio/adc/at91-sama5d2_adc.c
-> +++ b/drivers/iio/adc/at91-sama5d2_adc.c
-> @@ -21,6 +21,7 @@
->  #include <linux/platform_device.h>
->  #include <linux/property.h>
->  #include <linux/sched.h>
-> +#include <linux/types.h>
->  #include <linux/units.h>
->  #include <linux/wait.h>
->  #include <linux/iio/iio.h>
-> @@ -586,15 +587,6 @@ struct at91_adc_temp {
->  	u16				saved_oversampling;
->  };
->  
-> -/*
-> - * Buffer size requirements:
-> - * No channels * bytes_per_channel(2) + timestamp bytes (8)
-> - * Divided by 2 because we need half words.
-> - * We assume 32 channels for now, has to be increased if needed.
-> - * Nobody minds a buffer being too big.
-> - */
-> -#define AT91_BUFFER_MAX_HWORDS ((32 * 2 + 8) / 2)
-> -
->  struct at91_adc_state {
->  	void __iomem			*base;
->  	int				irq;
-> @@ -617,7 +609,10 @@ struct at91_adc_state {
->  	struct iio_dev			*indio_dev;
->  	struct device			*dev;
->  	/* Ensure naturally aligned timestamp */
-> -	u16				buffer[AT91_BUFFER_MAX_HWORDS] __aligned(8);
-> +	struct {
-> +		u16 data[32];
-
-When you rework this into the large buffer scheme, can you add a define
-or some other means to establish where that 32 comes from!
-We've lost the comment as a result of this refactor so need to put that
-info back somehow.
-
-
-> +		aligned_s64 timestamp;
-> +	} buffer;
->  	/*
->  	 * lock to prevent concurrent 'single conversion' requests through
->  	 * sysfs.
-> @@ -1481,14 +1476,14 @@ static void at91_adc_trigger_handler_nodma(struct iio_dev *indio_dev,
->  		if (chan->type == IIO_VOLTAGE) {
->  			val = at91_adc_read_chan(st, chan->address);
->  			at91_adc_adjust_val_osr(st, &val);
-> -			st->buffer[i] = val;
-> +			st->buffer.data[i] = val;
->  		} else {
-> -			st->buffer[i] = 0;
-> +			st->buffer.data[i] = 0;
->  			WARN(true, "This trigger cannot handle this type of channel");
->  		}
->  		i++;
->  	}
-> -	iio_push_to_buffers_with_timestamp(indio_dev, st->buffer,
-> +	iio_push_to_buffers_with_timestamp(indio_dev, &st->buffer,
->  					   pf->timestamp);
->  }
->  
-> @@ -1643,7 +1638,7 @@ static void at91_adc_touch_data_handler(struct iio_dev *indio_dev)
->  			at91_adc_read_pressure(st, chan->channel, &val);
->  		else
->  			continue;
-> -		st->buffer[i] = val;
-> +		st->buffer.data[i] = val;
->  		i++;
->  	}
->  	/*
-> @@ -1691,7 +1686,7 @@ static void at91_adc_workq_handler(struct work_struct *workq)
->  					struct at91_adc_state, touch_st);
->  	struct iio_dev *indio_dev = st->indio_dev;
->  
-> -	iio_push_to_buffers(indio_dev, st->buffer);
-> +	iio_push_to_buffers(indio_dev, st->buffer.data);
->  }
->  
->  static irqreturn_t at91_adc_interrupt(int irq, void *private)
+> I assume on this board and through out series, display is DP not eDP.
+> 
+> do you see possibility to change wording from eDP to DP
 > 
 
+Yes, the display is DP.
+But this is the refclk consumed by SN65DSI86 bridge (DSI-to-eDP bridge)
+Hence the naming.
+
+> 
+>> +
+>> +    dp0_pwr_3v3: fixedregulator-dp0-pwr {
+>> +        compatible = "regulator-fixed";
+>> +        regulator-name = "dp0-pwr";
+>> +        regulator-min-microvolt = <3300000>;
+>> +        regulator-max-microvolt = <3300000>;
+>> +        gpio = <&exp2 2 GPIO_ACTIVE_HIGH>;     /*P0 - DP0_3V3 _EN */
+>> +        enable-active-high;
+>> +        regulator-always-on;
+>> +    };
+>> +
+>> [..]
+
+Thanks,
+Jayesh
 
