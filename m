@@ -4,70 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E3BDC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 15:08:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FB5FC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 15:10:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lDiD6i5z74Svk8ayjFfG3byf2okiGeHcsi0aPvSYhp4=; b=eqHmuQtrhL+ZN35eoiY0cDkZcO
-	idgbkNqY639x6qkhX52RrHokaGqzfs+qHsWd+sjIOrDwIO0WOGpmYnGddA1gd+hWi3fVodcPBJCjC
-	WkTu7y1QotPtC8XPTSVCidh3S+TasvRKJDPiQxykGZD8p2eZplO5BMWSw4xtP5Pdml0UGiM/hCv0n
-	8+aca7OtAHcNtgy9lQGPP6bf3IKd3FbobzxJWVKFsbKBG26KzV+HiMUfrU3gyWJktlzaOti8lbCaX
-	G+pDCcqm9jwdat53CDHB1hg4Dyu+04UeKN4DanZNuJMyzWTx24GoOQAqomdabK1UTuP3ta8o6tuFs
-	IfBalqcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TpFOejZYvkL+cjv9a1n8k3k7i+YuLOPzcyevYLigHeM=; b=FdPbMv0D3F5m/BlZL2YSLS/5ya
+	ntWDbtvS300XdQa4bh8RDyIECkBFSVuQmczw/yljRk0zUo4zDsT8Ts0G4GIvwzkmDj7RwF5OcrlW6
+	4iOo2OTLyLGxVyGlrAvACRvEAaAcuw7+nIATGrfdOKZkpI/GZ+e9DOXrz2NJ1RWhMMh9bs3MaSi5D
+	LILfui63VF35dpfzPwaHf/KzB2xOTf4qzLLo3p49FNHrFEzCpQySAmWXetC665b2R4jklnByqP3y3
+	/9Kc7QrqBaUmef6OAlwGsSwfR9Ywb2XE4gmzT6UCHCBwuIJE5/ZrYA4uPc4p1DA9ax2upIDVR99Y8
+	dMT/G7Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6slI-00000004YLw-0Axl;
-	Mon, 21 Apr 2025 15:08:44 +0000
-Received: from smtp-20.smtpout.orange.fr ([80.12.242.20] helo=smtp.smtpout.orange.fr)
+	id 1u6sn7-00000004Ykv-36pa;
+	Mon, 21 Apr 2025 15:10:37 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6sdp-00000004WS6-3k7J
+	id 1u6sk7-00000004Y1T-3O5p
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Apr 2025 15:01:03 +0000
-Received: from localhost.localdomain ([90.11.132.44])
-	by smtp.orange.fr with ESMTPA
-	id 6sdZuvbDkiSFB6sdouVInx; Mon, 21 Apr 2025 17:01:00 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1745247660;
-	bh=lDiD6i5z74Svk8ayjFfG3byf2okiGeHcsi0aPvSYhp4=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=TMDdinCevHrGlNSotraIExhYUUGQae64ddIrEp6bd0XSCA1+Jk0m7bu3F9FznLspd
-	 y22+b3pTuyNWNdACISmjM9k3ZUa3BF0OP1kK5PQJ9Bcq8EKricbp/p1aM6WMKiAAtg
-	 XTfdIlF+Vz7/Zj48lwAl4z1ZjfH6Y8wbpGGBQFQhmSiXMaR9f9bSPjyoDmMC4Ow7Cf
-	 CGxOamH4eLNFL84D/KzE+HXEqAhDgMBh9RW9DPnEkzcuQgMja6tk68ORJc8iX7qoer
-	 ozv6aqr3iIBSAcibvCrDYp0/C8TYO+8d/HShNSpC2xz/+fAhKotH/kNBQG1xWHYD+O
-	 PECPhzQemEurQ==
-X-ME-Helo: localhost.localdomain
-X-ME-Auth: Y2hyaXN0b3BoZS5qYWlsbGV0QHdhbmFkb28uZnI=
-X-ME-Date: Mon, 21 Apr 2025 17:01:00 +0200
-X-ME-IP: 90.11.132.44
-From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-To: lee@kernel.org,
-	krzk@kernel.org,
-	alim.akhtar@samsung.com,
-	s.nawrocki@samsung.com,
-	m.szyprowski@samsung.com,
-	ideal.song@samsung.com,
-	beomho.seo@samsung.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	kernel-janitors@vger.kernel.org,
-	Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Subject: [PATCH v2 3/3] mfd: exynos-lpass: Fix another error handling path in exynos_lpass_probe()
-Date: Mon, 21 Apr 2025 17:00:35 +0200
-Message-ID: <69471e839efc0249a504492a8de3497fcdb6a009.1745247209.git.christophe.jaillet@wanadoo.fr>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <cover.1745247209.git.christophe.jaillet@wanadoo.fr>
-References: <cover.1745247209.git.christophe.jaillet@wanadoo.fr>
-MIME-Version: 1.0
+	Mon, 21 Apr 2025 15:07:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id B19575C0324;
+	Mon, 21 Apr 2025 15:05:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C44CC4CEE4;
+	Mon, 21 Apr 2025 15:07:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745248050;
+	bh=po7Jc+hppAfgmCAjsxpSgRbNiUij6SS676p735sVSTg=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=lJBMGDNVO4uBX9LI1VO13H154IJ7lr6SHJlYGRo6ifKVh/jTu3cda20YLccPpQT/Z
+	 39LJfcGcsQIh1ieQeTOzWSGyz/IqvTnwvmkpIz+j5wycCU6cB++33OvxUcRRIR58MS
+	 XTkUR250eMUAbK4E/SY0HsErnxC+Gf55Kcmd3dvPF6Y8UGRKOuNebNivoh5v26ILZi
+	 nJzDGuRVPch994rFyDfXipqrb6XzroPj2RUW0Oom11qx45goH6Op/VdlOledHISwV+
+	 fudK0Tf7Vzga2GtiK2KAKFz5pyV10MmCDFK2Bk1ZtKDPQClSYl6K2K2y8Vmd6Km7Q9
+	 9yD8P07nFXXQw==
+Date: Mon, 21 Apr 2025 10:07:28 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: helgaas@kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, vigneshr@ti.com, devicetree@vger.kernel.org, 
+ kw@linux.com, iommu@lists.linux.dev, nm@ti.com, bhelgaas@google.com, 
+ baocheng.su@siemens.com, jan.kiszka@siemens.com, conor+dt@kernel.org, 
+ lpieralisi@kernel.org, diogo.ivo@siemens.com, kristo@kernel.org, 
+ m.szyprowski@samsung.com, robin.murphy@arm.com, ssantosh@kernel.org, 
+ s-vadapalli@ti.com, krzk+dt@kernel.org, linux-pci@vger.kernel.org
+To: huaqian.li@siemens.com
+In-Reply-To: <20250418073026.2418728-1-huaqian.li@siemens.com>
+References: <20241030205703.GA1219329@bhelgaas>
+ <20250418073026.2418728-1-huaqian.li@siemens.com>
+Message-Id: <174524751981.2425537.9075012529757899431.robh@kernel.org>
+Subject: Re: [PATCH v7 0/8] soc: ti: Add and use PVU on K3-AM65 for DMA
+ isolation
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_080102_066635_26ABBF64 
-X-CRM114-Status: GOOD (  16.58  )
+X-CRM114-CacheID: sfid-20250421_080731_931533_8E7B53D1 
+X-CRM114-Status: GOOD (  33.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,84 +78,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If devm_of_platform_populate() fails, some clean-up needs to be done, as
-already done in the remove function.
 
-Add a new devm_add_action_or_reset() to fix the leak in the probe and
-remove the need of a remove function.
+On Fri, 18 Apr 2025 15:30:18 +0800, huaqian.li@siemens.com wrote:
+> From: Li Hua Qian <huaqian.li@siemens.com>
+> 
+> Changes in v7:
+>  - add schema expressing dependency as suggested on pci-host bindings
+>  - resolve review comments on pci-keystone driver
+>  - add a new patch to make IO_TLB_SEGSIZE configurable
+>  - improve patches based on checkpath.pl
+> 
+> Changes in v6:
+>  - make restricted DMA memory-region available to all pci-keystone
+>    devices, moving property to unconditional section (patch 2)
+> 
+> Changes in v5:
+>  - resolve review comments on pci-host bindings
+>  - reduce DMA memory regions to 1 - swiotlb does not support more
+>  - move activation into overlay (controlled via firmware)
+>  - use ks_init_vmap helper instead of loop in
+>    rework ks_init_restricted_dma
+>  - add more comments to pci-keystone
+>  - use 2 chained TLBs of PVU to support maximum of swiotlb (320 MB)
+> 
+> Changes in v4:
+>  - reorder patch queue, moving all DTS changes to the back
+>  - limit activation to IOT2050 Advanced variants
+>  - move DMA pool to allow firmware-based expansion it up to 512M
+> 
+> Changes in v3:
+>  - fix ti,am654-pvu.yaml according to review comments
+>  - address review comments on ti,am65-pci-host.yaml
+>  - differentiate between different compatibles in ti,am65-pci-host.yaml
+>  - move pvu nodes to k3-am65-main.dtsi
+>  - reorder patch series, pulling bindings and generic DT bits to the front
+> 
+> Changes in v2:
+>  - fix dt_bindings_check issues (patch 1)
+>  - address first review comments (patch 2)
+>  - extend ti,am65-pci-host bindings for PVU (new patch 3)
+> 
+> Only few of the K3 SoCs have an IOMMU and, thus, can isolate the system
+> against DMA-based attacks of external PCI devices. The AM65 is without
+> an IOMMU, but it comes with something close to it: the Peripheral
+> Virtualization Unit (PVU).
+> 
+> The PVU was originally designed to establish static compartments via a
+> hypervisor, isolate those DMA-wise against each other and the host and
+> even allow remapping of guest-physical addresses. But it only provides
+> a static translation region, not page-granular mappings. Thus, it cannot
+> be handled transparently like an IOMMU.
+> 
+> Now, to use the PVU for the purpose of isolated PCI devices from the
+> Linux host, this series takes a different approach. It defines a
+> restricted-dma-pool for the PCI host, using swiotlb to map all DMA
+> buffers from a static memory carve-out. And to enforce that the devices
+> actually follow this, a special PVU soc driver is introduced. The driver
+> permits access to the GIC ITS and otherwise waits for other drivers that
+> detect devices with constrained DMA to register pools with the PVU.
+> 
+> For the AM65, the first (and possibly only) driver where this is
+> introduced is the pci-keystone host controller. Finally, this series
+> provides a DT overlay for the IOT2050 Advanced devices (all have
+> MiniPCIe or M.2 extension slots) to make use of this protection scheme.
+> Application of this overlay will be handled by firmware.
+> 
+> Due to the cross-cutting nature of these changes, multiple subsystems
+> are affected. However, I wanted to present the whole thing in one series
+> to allow everyone to review with the complete picture in hands. If
+> preferred, I can also split the series up, of course.
+> 
+> Jan
+> 
+> 
+> Jan Kiszka (7):
+>   dt-bindings: soc: ti: Add AM65 peripheral virtualization unit
+>   dt-bindings: PCI: ti,am65: Extend for use with PVU
+>   soc: ti: Add IOMMU-like PVU driver
+>   PCI: keystone: Add support for PVU-based DMA isolation on AM654
+>   arm64: dts: ti: k3-am65-main: Add PVU nodes
+>   arm64: dts: ti: k3-am65-main: Add VMAP registers to PCI root complexes
+>   arm64: dts: ti: iot2050: Add overlay for DMA isolation for devices
+>     behind PCI RC
+> 
+> Li Hua Qian (1):
+>   swiotlb: Make IO_TLB_SEGSIZE configurable
+> 
+>  .../bindings/pci/ti,am65-pci-host.yaml        |  34 +-
+>  .../bindings/soc/ti/ti,am654-pvu.yaml         |  51 ++
+>  arch/arm64/boot/dts/ti/Makefile               |   5 +
+>  arch/arm64/boot/dts/ti/k3-am65-main.dtsi      |  38 +-
+>  ...am6548-iot2050-advanced-dma-isolation.dtso |  33 ++
+>  drivers/pci/controller/dwc/pci-keystone.c     | 106 ++++
+>  drivers/soc/ti/Kconfig                        |   4 +
+>  drivers/soc/ti/Makefile                       |   1 +
+>  drivers/soc/ti/ti-pvu.c                       | 500 ++++++++++++++++++
+>  include/linux/swiotlb.h                       |   2 +-
+>  include/linux/ti-pvu.h                        |  28 +
+>  kernel/dma/Kconfig                            |   7 +
+>  12 files changed, 801 insertions(+), 8 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/soc/ti/ti,am654-pvu.yaml
+>  create mode 100644 arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-dma-isolation.dtso
+>  create mode 100644 drivers/soc/ti/ti-pvu.c
+>  create mode 100644 include/linux/ti-pvu.h
+> 
+> --
+> 2.34.1
+> 
+> 
+> 
 
-Fixes: c695abab2429 ("mfd: Add Samsung Exynos Low Power Audio Subsystem driver")
-Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
----
-Compile tested only.
 
-Changes in v2:
-  - Use a new devm_add_action_or_reset() to fix the leak in the probe
-    and remove the need of a remove function.
-  - Update the commit description accordingly
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
-v1: https://lore.kernel.org/all/d224865a16b50498279b044a819e1e187d01bb28.1743231856.git.christophe.jaillet@wanadoo.fr/
----
- drivers/mfd/exynos-lpass.c | 25 +++++++++++++++----------
- 1 file changed, 15 insertions(+), 10 deletions(-)
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
 
-diff --git a/drivers/mfd/exynos-lpass.c b/drivers/mfd/exynos-lpass.c
-index a2785ceea8bf..44797001a432 100644
---- a/drivers/mfd/exynos-lpass.c
-+++ b/drivers/mfd/exynos-lpass.c
-@@ -104,11 +104,22 @@ static const struct regmap_config exynos_lpass_reg_conf = {
- 	.fast_io	= true,
- };
- 
-+static void exynos_lpass_disable_lpass(void *data)
-+{
-+	struct platform_device *pdev = data;
-+	struct exynos_lpass *lpass = platform_get_drvdata(pdev);
-+
-+	pm_runtime_disable(&pdev->dev);
-+	if (!pm_runtime_status_suspended(&pdev->dev))
-+		exynos_lpass_disable(lpass);
-+}
-+
- static int exynos_lpass_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
- 	struct exynos_lpass *lpass;
- 	void __iomem *base_top;
-+	int ret;
- 
- 	lpass = devm_kzalloc(dev, sizeof(*lpass), GFP_KERNEL);
- 	if (!lpass)
-@@ -134,16 +145,11 @@ static int exynos_lpass_probe(struct platform_device *pdev)
- 	pm_runtime_enable(dev);
- 	exynos_lpass_enable(lpass);
- 
--	return devm_of_platform_populate(dev);
--}
--
--static void exynos_lpass_remove(struct platform_device *pdev)
--{
--	struct exynos_lpass *lpass = platform_get_drvdata(pdev);
-+	ret = devm_add_action_or_reset(dev, exynos_lpass_disable_lpass, pdev);
-+	if (ret)
-+		return ret;
- 
--	pm_runtime_disable(&pdev->dev);
--	if (!pm_runtime_status_suspended(&pdev->dev))
--		exynos_lpass_disable(lpass);
-+	return devm_of_platform_populate(dev);
- }
- 
- static int __maybe_unused exynos_lpass_suspend(struct device *dev)
-@@ -183,7 +189,6 @@ static struct platform_driver exynos_lpass_driver = {
- 		.of_match_table	= exynos_lpass_of_match,
- 	},
- 	.probe	= exynos_lpass_probe,
--	.remove	= exynos_lpass_remove,
- };
- module_platform_driver(exynos_lpass_driver);
- 
--- 
-2.49.0
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: attempting to guess base-commit...
+ Base: tags/next-20250417 (exact match)
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/ti/' for 20250418073026.2418728-1-huaqian.li@siemens.com:
+
+arch/arm64/boot/dts/ti/k3-am6528-iot2050-basic-pg2.dtb: pcie@5600000 (ti,am654-pcie-rc): 'memory-region' is a required property
+	from schema $id: http://devicetree.org/schemas/pci/ti,am65-pci-host.yaml#
+arch/arm64/boot/dts/ti/k3-am6528-iot2050-basic.dtb: pcie@5600000 (ti,am654-pcie-rc): 'memory-region' is a required property
+	from schema $id: http://devicetree.org/schemas/pci/ti,am65-pci-host.yaml#
+arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-m2.dtb: pcie@5500000 (ti,am654-pcie-rc): 'memory-region' is a required property
+	from schema $id: http://devicetree.org/schemas/pci/ti,am65-pci-host.yaml#
+arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced.dtb: pcie@5600000 (ti,am654-pcie-rc): 'memory-region' is a required property
+	from schema $id: http://devicetree.org/schemas/pci/ti,am65-pci-host.yaml#
+arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-pg2.dtb: pcie@5600000 (ti,am654-pcie-rc): 'memory-region' is a required property
+	from schema $id: http://devicetree.org/schemas/pci/ti,am65-pci-host.yaml#
+arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-sm.dtb: pcie@5500000 (ti,am654-pcie-rc): 'memory-region' is a required property
+	from schema $id: http://devicetree.org/schemas/pci/ti,am65-pci-host.yaml#
+
+
+
+
 
 
