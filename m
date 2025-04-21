@@ -4,175 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A26D8C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 14:52:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 804FAC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 14:54:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+bvsynq4FBD8uRxE93WsyVhicjxaeBnekpatyqxZXw8=; b=ehmshSPKbbJXhuyngHaAGRAUk+
-	f+8szuYdjtMGNeC70rMqJNCU7Uyq8yON9CJpMcgY7+yq11uLP2Ionwe7Jc3pxfLXY5c910t3Vv3ZM
-	xhLMEbPf3Ja7fAX49A8nkfjYYNVqcJZjxnbJ3J3V9Mp5ZnMqmDu8FGO8HH3KgubeCjPJsbS4xffmk
-	HBnttZAzh1gtPTzz55vD3vy/B0JzQmhy5XyKavtRTs3Udhl3KnfI6hVZaB+FiLy62ffX2v0uiWluq
-	R3clfSgyoFnIB1I3P778e3CKpTavqWjEWiYSR258vH7c4qKuVPGpmEYClLXAwi68WqtXdRb3E1nYy
-	4LEs7stA==;
+	bh=vRxBkRx+VPQiXyzZ9zT06pjl9rhClu+67af03FIFO4s=; b=j+3YV9BzOKCNW7Qgfzp1lOblaJ
+	aIAswXVoTOXtfoO+bHFrqVJPV3W8dqQi1iRVdRSK/zcxSbfYL+LVEx1NREKrp6RHct3m3mKaycmvb
+	y6TMUZcfy/zbMFIIBk6PYeNwC23qTce7Bx8UKJ2iSBGHEt2C+TTwkCPhFXfBSqsaGgu+4tOBtRUqc
+	lrNZ0LvcBjpK8h0w5393d72ZCwA54TaPVGu6cbxyPBY/H2Mo1b3YpneVUHTQfq80b43/mBnsw7RdR
+	B9fpcptKwV0TymKkqOJJAO6GobzqG+8dchIP7BnHQ8DMsVTaTQHdlHkVzwrUyTQTLo5gUktoWCyBQ
+	+dsWxw8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6sVZ-00000004VIh-2trc;
-	Mon, 21 Apr 2025 14:52:29 +0000
-Received: from mail-japaneastazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c405::1] helo=TY3P286CU002.outbound.protection.outlook.com)
+	id 1u6sXP-00000004VbQ-47Dm;
+	Mon, 21 Apr 2025 14:54:23 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6sSW-00000004Uhr-1Rzl
+	id 1u6sU0-00000004V1X-3epO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Apr 2025 14:49:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Zoc3n+zYtkP673Bi8Ukp033jAz/6rV95sVTbBATSZbEqwoG0bmnvufQgYW5FMqAMj6MhiuvvVfpKXriVZCpqC7i1/WRC6Ze7bu6XHT2Ox5pc6REhijuXLwJEdjaznm3BNDx07/ovUWGEBfHG+BDR4kyQZyj4Z49EggL07KX0myGRfjZzfoBv9zhNk0UGr0TyBEaLRAO2e8o+XpzLpXS80CQ/DvconJbMnKZGzdDPEOKDstCtgh0HjsL22O6pE9bA5SlkACPItnqEF4h8/k69qvrAcgWiPA/ciMKcN31vHAErJhtTTlPbVRnFQnPTS9NLfEagmTXETiXCi+1IK7zz3Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+bvsynq4FBD8uRxE93WsyVhicjxaeBnekpatyqxZXw8=;
- b=KWgXsBB9z5MjHPm8OAgKcWB8DYeK2CFEimoIab5vIEODbR0lfgGpPWWq665d0V3SV9X1aPFLhmACZhQZAPSyrwGU4aw91ji5PjaPQJahx9WHgOKiv4inzreCk90RHuvQDwBA2c/3iFGeX4otdioPmtzjevNMdO/01Zk0xf8sQJVQViBaunHX/foObSmB+RJVegXKqeXHbMUSwFTwo3weccG7JCb4KHrLZg8LcEWwwtj9a5V+eEBumc30VQIAUVA+MhVDRoP88VCNROv3YARTHaZSHBf7iwyIkaPIVlVKETH0e9QxPg6mJ/PWkSO0qOJlHYO2Sv4baVwKFI07kT1mIw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
- header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+bvsynq4FBD8uRxE93WsyVhicjxaeBnekpatyqxZXw8=;
- b=Yh3mHjhcgxY6lTxYJAeIVL4Hnk/Iwh7lyp0Icp+U6TF0nDvIWAMgWoSQEeHpPJ1SKEK0py8HbVrsJ/pKUTPNW8Woum2jhHThv0EXn6cNJkdPF3jMwc09DSxPvrW5qhRPlN9kqYNx+fc8lQk/o50jPkJCwrjyccNWERHwPilP17Y=
-Received: from TY3PR01MB11346.jpnprd01.prod.outlook.com (2603:1096:400:3d0::7)
- by TYYPR01MB15188.jpnprd01.prod.outlook.com (2603:1096:405:27c::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.22; Mon, 21 Apr
- 2025 14:49:09 +0000
-Received: from TY3PR01MB11346.jpnprd01.prod.outlook.com
- ([fe80::86ef:ca98:234d:60e1]) by TY3PR01MB11346.jpnprd01.prod.outlook.com
- ([fe80::86ef:ca98:234d:60e1%4]) with mapi id 15.20.8655.031; Mon, 21 Apr 2025
- 14:49:09 +0000
-From: Biju Das <biju.das.jz@bp.renesas.com>
-To: Andrew Lunn <andrew@lunn.ch>
-CC: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>, "Russell King (Oracle)"
-	<linux@armlinux.org.uk>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub
- Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre
- Torgue <alexandre.torgue@foss.st.com>, Richard Cochran
-	<richardcochran@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>, Geert
- Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu
-	<joabreu@synopsys.com>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-stm32@st-md-mailman.stormreply.com"
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-renesas-soc@vger.kernel.org"
-	<linux-renesas-soc@vger.kernel.org>, Fabrizio Castro
-	<fabrizio.castro.jz@renesas.com>, Prabhakar Mahadev Lad
-	<prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: RE: [PATCH net-next v5 3/3] net: stmmac: Add DWMAC glue layer for
- Renesas GBETH
-Thread-Topic: [PATCH net-next v5 3/3] net: stmmac: Add DWMAC glue layer for
- Renesas GBETH
-Thread-Index: AQHbp7UXRdTsn2oCYUWD5qYhUQGHu7OjbUQAgAAVgQCAATLSgIAJgP8QgAAGBICAAAvXcA==
-Date: Mon, 21 Apr 2025 14:49:09 +0000
-Message-ID: <TY3PR01MB1134679B1CB5780C3D1AB648786B82@TY3PR01MB11346.jpnprd01.prod.outlook.com>
-References: <20250407120317.127056-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20250407120317.127056-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <Z_0-iH91A4Sexlzj@shell.armlinux.org.uk>
- <CA+V-a8sS0TtS-TEdkQ8MB5F4JtzV9358Y9fmKe5MggGU+wP=4Q@mail.gmail.com>
- <CA+V-a8tbW2Zs6op20yRTcihSm1bcMC2dYnRXVCKRf=q4fymZyg@mail.gmail.com>
- <TY3PR01MB1134633A8CB82788BB98C6E6286B82@TY3PR01MB11346.jpnprd01.prod.outlook.com>
- <f27b0531-11dd-4074-9c79-172953d28292@lunn.ch>
-In-Reply-To: <f27b0531-11dd-4074-9c79-172953d28292@lunn.ch>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=bp.renesas.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TY3PR01MB11346:EE_|TYYPR01MB15188:EE_
-x-ms-office365-filtering-correlation-id: 956d2d31-0986-4dc9-8750-08dd80e3ac39
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|366016|1800799024|376014|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?5z4z8Uer3oGDIbM1+X2c/4cTvBA/CZo3fS0qLutxOTkrxQDEUB8EbelOsjac?=
- =?us-ascii?Q?WKoDA68CyB9FmY2EnT9MwKfa6n0ohd79RO5SX9f4ZgjnjTe15l0WFFORRxhT?=
- =?us-ascii?Q?IewEX1XQMk3S8vdmwOGqWZVD74JSXfPoqDi1ML2STQ+nWlc6P0b91sp7N+8r?=
- =?us-ascii?Q?joaU1GwnN47JWjVJ1N5HDX+u5XyiVo3IwS/+Cn0dLOOL+HHHKDXm+4ZzLmx8?=
- =?us-ascii?Q?RPjvOzusdhRSKxmRpq5IiycDbMy8pnuRZ1tdwJkXA6nEax/gGMmds2px5xki?=
- =?us-ascii?Q?RCpBR2r4IFGNRHlqbqrecoUYj3ZANf4sDc+J3lLbv5cFBP3nPCxr46DPjdQW?=
- =?us-ascii?Q?pcK7WvGaEKLLagJ8z+JVev67GzYrCCVv75Hmxjv8Mf4o8Z5pry0ol5LKLApX?=
- =?us-ascii?Q?FLT7evFxfPRSID7E9RILXihi9y9mt9GSuRuS3OmKprel1U4XouGekwIIMjFB?=
- =?us-ascii?Q?vTdUXDrKOPdG7uyNmKSZy2MNDKCUqqbVUQ8XRaJgoSrxj6XQ8Lq2EokNsQLb?=
- =?us-ascii?Q?3NdlqZIs5Eqdu7Pq8CoPlOoy9sa1VmLok6fpC0J4/RP4c9mHc3cBqfRIFtqn?=
- =?us-ascii?Q?3pCsL4ifVoaCo999xJsNhpZ04ZgTd6e+Cd/beCBuMNClrcQWmLmfv/aat2zg?=
- =?us-ascii?Q?JMCxaPBkPVyg8ukGdxs8nyur1m7FoA6hv8sfBf4REZD94ehPoMHw0tXa5mLg?=
- =?us-ascii?Q?s2MD6ict7oq/5U0wUMsR6wr6oqVwEOjW5herQhlWF1GNuBjtcQBTHqw777+0?=
- =?us-ascii?Q?XbrIJobCEVWSiPxR8ooyo/wTdH9ap9f7KKUI10mPwLMhzpRHhLUfV+2pGGkq?=
- =?us-ascii?Q?E+m9M+CYt+owv8iJxUb1YDa2LE3tltYUPY/ZtokHH72iy6YvKdM7VniJV4wu?=
- =?us-ascii?Q?8CteCueear+v2/pWdVgZ9bs1SfgrcYTovSsrD3caC6JfNhFc3UKLCu4SRif5?=
- =?us-ascii?Q?qgnPEao/jkVD+cLJIeKv0S9i42rjAE+AMCkZvKjIPZ2/UQfruU1NEHzxTTQf?=
- =?us-ascii?Q?/kr37nXWsDGdiClNEP031BO2Rjl6XAEzCjwSjBLdjQolzwsUvJiEqKy6hcAL?=
- =?us-ascii?Q?wNXmrekW7c+x7hCmoaJclS3424pJ7NiT9EWKXGfzQGEREIKP5NJTNFjBl9Uz?=
- =?us-ascii?Q?uHd3znflPbr7NdJBboWy+OQJ3rgNdOz00VuPglQIZlcHkuLSOKfQ27XvgK+p?=
- =?us-ascii?Q?DnHN83zcfbHGhuRABrl1eHEZRMRe6ZWhIhGrHiRTXm1BB1kgOgatGJHlTVOW?=
- =?us-ascii?Q?35YqW/d8vFyz272FPvlRlxsNxuX1dp5CzxJFZ4qJ9LuEx0ljIHl9/Lbbu5Zr?=
- =?us-ascii?Q?izTFZXPWVuMb9zWyCi9LOaZxmbZUVPsKouAhJKVoN4hRmqFXjabaHy5vxFru?=
- =?us-ascii?Q?hJFh9/MEnMQhOBbCpWEHcQ0ZKBW4cp48scUFgAsZVME5YMPltb+wk0YLbnnn?=
- =?us-ascii?Q?tCp8KY0F0cgVDpLv52Yb3vIwQZvly6AEpwIHw5VSsv2pKM9W2NXWRgoIa3bZ?=
- =?us-ascii?Q?4kRF0iJPQc0MGX8=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY3PR01MB11346.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(1800799024)(376014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?hobzI7qxxGqqTgwdkh7NhI4sU9chJYsy4aO5tEjXFkHXJiDZ9blR1appf4Op?=
- =?us-ascii?Q?whVeJ1V61fX3gjBiMI8MoBdulPBHPiaEzcNKkmleefvlMfOqbJYbzbV3amKo?=
- =?us-ascii?Q?uB4pafe6PNtP7xhgeWzXCnCbkp6/JaNJzLQ7yb1SePAqOaGnrEPhU3oOrCLT?=
- =?us-ascii?Q?2fiDlx8MQTk2ZquQRUk37UdscYK4LPATIZ3/lpht/vVfZtstv8b42PHRqwHU?=
- =?us-ascii?Q?GD5M9ekS0pu8M+ibhiOefdfto5wQTO9uM4dfJP5Vu5WEwChvN3qkRo0aGqIz?=
- =?us-ascii?Q?Hp2heETprQVn9X7DyFVpBPpTZgwdbF7SDtFLuzgLsO2JGmpQAaH9jwB7lyrp?=
- =?us-ascii?Q?rG1R92d7w7+k+Wd1OsJhjqnlK1N82Y99UpnuS9i9WYcbxPN/j3FlOYJdtxjJ?=
- =?us-ascii?Q?tKM6qjDEYtR4IyjQLOIh8QjSs6tLmNubI7PFwct9HcMOGoJvbrNLfuIxOo0T?=
- =?us-ascii?Q?H+P5wbDb7b+SHYBx4VNJCvO1skYOIzSSZ91kH5qp9/wTLlmCK1SD+URoymNB?=
- =?us-ascii?Q?C+I6RlIKgFeuVUh4S2OJp1mqGgukqNj+kZEcwWAw8oXicKExhob3pwiC8Qmc?=
- =?us-ascii?Q?0oFJ3uMbxg+Tc2LYVDNoGD2IN9K+TPbm85HGTHF8wQshGviUM4CnNtgKlcqZ?=
- =?us-ascii?Q?p/xhYyeMRWgMA+idGlS3BV7CMR17HFL7nE62Rqm4ay9m98DYFp7rxlKtp9sG?=
- =?us-ascii?Q?HsLnlrLlVzzy74L0MSqNHYUc19V2MrmDa94/3oPzgNEA3FdxtJMlD3HpTin5?=
- =?us-ascii?Q?z7ShEfRP9Im3g9lh0Ngsz5lIBbtWc0zCOValH0MqXGc4udd3yNmxI5LffQ3y?=
- =?us-ascii?Q?adWsGDN05/ggCYAXRcZzwKdd+bo15PpukRK99sdpjT9ujaQ2v2PkuEasX+3b?=
- =?us-ascii?Q?fz2KxwZyzJQiAURc2sw+OvCQGZsYAZtpPQHleg8jXQW36cL4O7RCK36OE8lu?=
- =?us-ascii?Q?tdjbqGUVRLBsK30RKDaTJpZdv5xsc59TXM7e1JrKBkR+QNeGmUPmzQBql91w?=
- =?us-ascii?Q?sEovLB+r471XtG5eTmo5Fntni28Q+kIKG+o8rhu7uRC8i0UM+JSBucdpsanZ?=
- =?us-ascii?Q?WvGA4KcijT5cxlBYifweN0IojqRvvQy4gOt2P3OvfgNQPQttPcLLlFj4LR7C?=
- =?us-ascii?Q?tA3UOFUelxd7OetY3imvVJsmls75GiNTDiRnFLaCQ6rt814xCk9et6fZFOTO?=
- =?us-ascii?Q?H7F01eEtsHbA6e8RLX3oMWXHJFsm3Bqd2O5MZim0FQMbiWPxAEAUXFiCiaga?=
- =?us-ascii?Q?TK+eFY5rmvo6ZIKANiPunitpBaLvqxXtr7WhRou5mEoeUO6+LqXyWuUbZhNW?=
- =?us-ascii?Q?rpIQIaHezI+eiFbJGCuK9SGw+9tGExmz28HPuqTTbbxXANOo8L/dGGftgfwK?=
- =?us-ascii?Q?eZhNeDLofpOpL3ElyD/85N6x+ufCfDR+3y7Bpox40Ys2qrSHow3hTMwOCQH/?=
- =?us-ascii?Q?FBeLz43cREMNZB59G6LFvlBiZAWFvVwTeQWg8t94I07V5r/RKtLnqaNjjEek?=
- =?us-ascii?Q?m4fGBNvmXQJxxWzdYy+gDZ6nLzM2/gzazfWXAiATmzJPbEOEoU1713ZlVaao?=
- =?us-ascii?Q?bY136A7Cyx3H/SpduK+k7s/FGI1Je9cAIMT1Jfv7mIcrw3GO/ag5JEj6g/8n?=
- =?us-ascii?Q?tw=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Mon, 21 Apr 2025 14:50:54 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 73DB856D;
+	Mon, 21 Apr 2025 16:48:37 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1745246917;
+	bh=AYPiDAdFdvMcbSHtvlruYFEjRQl5VIn15bf/moyKBUA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GSIQ5Lpjzz6evdC+AHZ2y/ana0vtKDnFhv1h2+ocK8ioR/ZjveUiPtY3YIDSzh7qP
+	 N+4qS15MxwxzjBRTu2d4nvY0w3ipjX0giXstZnBSt8ilraM0TB5ZGXnZyuuvzBpWsa
+	 Y4WNGxNN5JfnXcR9OLG6qsrmrMP5AxpMub+Cyxlg=
+Date: Mon, 21 Apr 2025 17:50:39 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Pekka Paalanen <pekka.paalanen@haloniitty.fi>
+Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Vishal Sagar <vishal.sagar@amd.com>,
+	Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Michal Simek <michal.simek@amd.com>,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Subject: Re: [PATCH v4 03/11] drm/fourcc: Add DRM_FORMAT_Y8
+Message-ID: <20250421145039.GA19213@pendragon.ideasonboard.com>
+References: <20250327112009.6b4dc430@eldfell>
+ <b5cf15a4-7c65-4718-9c39-a4c86179ba4c@ideasonboard.com>
+ <20250327175842.130c0386@eldfell>
+ <CAMuHMdVEpTVWmwrYt+G-QSWucT91goUcFor9qbo5rZ+X2jnRog@mail.gmail.com>
+ <20250331105446.098f0fbe@eldfell>
+ <20250331082135.GB13690@pendragon.ideasonboard.com>
+ <20250331135337.61934003@eldfell>
+ <20250401162732.731ef774@eldfell>
+ <73bd6628-374d-417f-a30f-88a4b1d157bb@ideasonboard.com>
+ <20250417111315.62a749e5@eldfell>
 MIME-Version: 1.0
-X-OriginatorOrg: bp.renesas.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TY3PR01MB11346.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 956d2d31-0986-4dc9-8750-08dd80e3ac39
-X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Apr 2025 14:49:09.1636
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: Jih3wWAi6mPgRKy6VAbPjzr7WSvzRhxz5N0hp2SIFW/qUxWk1gs0jQxec9qQxkE71UMkuAXxOL51GfnKIKOtVtqOVI6MFz6IAFKqgqpjs88=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYYPR01MB15188
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250417111315.62a749e5@eldfell>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_074920_620646_F1BB4F26 
-X-CRM114-Status: GOOD (  16.00  )
+X-CRM114-CacheID: sfid-20250421_075053_058772_BAF98658 
+X-CRM114-Status: GOOD (  54.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,101 +85,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+Hi Pekka,
 
-> -----Original Message-----
-> From: Andrew Lunn <andrew@lunn.ch>
-> Sent: 21 April 2025 15:02
-> Subject: Re: [PATCH net-next v5 3/3] net: stmmac: Add DWMAC glue layer fo=
-r Renesas GBETH
->=20
-> > > On the RZ/G3E, the upstream support for testing S2R is not yet in a
-> > > usable state. So for now, I'll switch to using init/exit callbacks an=
-d drop the PM callback.
-> >
-> > FYI, On RZ/G3E, for STR to work with mainline, we need to reinitialize =
-the PHY.
-> > I have done below changes on top of [1] to make STR working.
->=20
-> Can you explain why you need to reinitialise the PHY? The MAC driver shou=
-ld not need to do this, so
-> something is wrong somewhere. If we understand the 'Why?' we can probably=
- tell you a better way to do
-> this.
+On Thu, Apr 17, 2025 at 11:13:15AM +0300, Pekka Paalanen wrote:
+> On Wed, 16 Apr 2025 11:59:43 +0300 Tomi Valkeinen wrote:
+> > On 01/04/2025 16:27, Pekka Paalanen wrote:
+> > > On Mon, 31 Mar 2025 13:53:37 +0300 Pekka Paalanen wrote:
+> > >> On Mon, 31 Mar 2025 11:21:35 +0300 Laurent Pinchart wrote:
+> > >>> On Mon, Mar 31, 2025 at 10:54:46AM +0300, Pekka Paalanen wrote:
+> > >>>> On Thu, 27 Mar 2025 17:35:39 +0100 Geert Uytterhoeven wrote:
+> > >>>>> On Thu, 27 Mar 2025 at 16:59, Pekka Paalanen wrote:
+> > >>>>>> On Thu, 27 Mar 2025 16:21:16 +0200 Tomi Valkeinen wrote:
+> > >>>>>>> On 27/03/2025 11:20, Pekka Paalanen wrote:
+> > >>>>>>>> On Wed, 26 Mar 2025 15:55:18 +0200 Tomi Valkeinen wrote:
+> > >>>>>>>>> On 26/03/2025 15:52, Geert Uytterhoeven wrote:
+> > >>>>>>>>>> On Wed, 26 Mar 2025 at 14:23, Tomi Valkeinen wrote:
+> > >>>>>>>>>>> Add greyscale Y8 format.
+> > >>>>>>>>>>>
+> > >>>>>>>>>>> Acked-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> > >>>>>>>>>>> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>  
+> > >>>>>>>>>>
+> > >>>>>>>>>> Thanks for your patch!
+> > >>>>>>>>>>         
+> > >>>>>>>>>>> --- a/include/uapi/drm/drm_fourcc.h
+> > >>>>>>>>>>> +++ b/include/uapi/drm/drm_fourcc.h
+> > >>>>>>>>>>> @@ -405,6 +405,9 @@ extern "C" {
+> > >>>>>>>>>>>     #define DRM_FORMAT_YUV444      fourcc_code('Y', 'U', '2', '4') /* non-subsampled Cb (1) and Cr (2) planes */
+> > >>>>>>>>>>>     #define DRM_FORMAT_YVU444      fourcc_code('Y', 'V', '2', '4') /* non-subsampled Cr (1) and Cb (2) planes */
+> > >>>>>>>>>>>
+> > >>>>>>>>>>> +/* Greyscale formats */
+> > >>>>>>>>>>> +
+> > >>>>>>>>>>> +#define DRM_FORMAT_Y8          fourcc_code('G', 'R', 'E', 'Y')  /* 8-bit Y-only */  
+> > >>>>>>>>>>
+> > >>>>>>>>>> This format differs from e.g. DRM_FORMAT_R8, which encodes
+> > >>>>>>>>>> the number of bits in the FOURCC format. What do you envision
+> > >>>>>>>>>> for e.g. DRM_FORMAT_Y16? fourcc_code('G', 'R', '1', '6')?  
+> > >>>>>>>>>
+> > >>>>>>>>> I wanted to use the same fourcc as on V4L2 side. Strictly speaking it's
+> > >>>>>>>>> not required, but different fourccs for the same formats do confuse.
+> > >>>>>>>>>
+> > >>>>>>>>> So, generally speaking, I'd pick an existing fourcc from v4l2 side if
+> > >>>>>>>>> possible, and if not, invent a new one.  
+> > >>>>>>>>
+> > >>>>>>>> what's the actual difference between DRM_FORMAT_R8 and DRM_FORMAT_Y8?
+> > >>>>>>>>
+> > >>>>>>>> Is the difference that when R8 gets expanded to RGB, it becomes (R, 0,
+> > >>>>>>>> 0), but Y8 gets expanded to (c1 * Y, c2 * Y, c3 * Y) where c1..c3 are
+> > >>>>>>>> defined by MatrixCoefficients (H.273 terminology)?
+> > >>>>>>>>
+> > >>>>>>>> That would be my intuitive assumption following how YCbCr is handled.
+> > >>>>>>>> Is it obvious enough, or should there be a comment to that effect?  
+> > >>>>>>>
+> > >>>>>>> You raise an interesting point. Is it defined how a display driver, that
+> > >>>>>>> supports R8 as a format, shows R8 on screen? I came into this in the
+> > >>>>>>> context of grayscale formats, so I thought R8 would be handled as (R, R,
+> > >>>>>>> R) in RGB. But you say (R, 0, 0), which... also makes sense.  
+> > >>>>>>
+> > >>>>>> That is a good question too. I based my assumption on OpenGL behavior
+> > >>>>>> of R8.
+> > >>>>>>
+> > >>>>>> Single channel displays do exist I believe, but being single-channel,
+> > >>>>>> expansion on the other channels is likely meaningless. Hm, but for the
+> > >>>>>> KMS color pipeline, it would be meaningful, like with a CTM.
+> > >>>>>> Interesting.
+> > >>>>>>
+> > >>>>>> I don't know. Maybe Geert does?  
+> > >>>>>
+> > >>>>> I did some digging, and was a bit surprised that it was you who told
+> > >>>>> me to use R8 instead of Y8?
+> > >>>>> https://lore.kernel.org/all/20220202111954.6ee9a10c@eldfell  
+> > >>>>
+> > >>>> Hi Geert,
+> > >>>>
+> > >>>> indeed I did. I never thought of the question of expansion to R,G,B
+> > >>>> before. Maybe that expansion is what spells R8 and Y8 apart?
+> > >>>>
+> > >>>> I do think that expansion needs to be specified, so that the KMS color
+> > >>>> pipeline computations are defined. There is a big difference between
+> > >>>> multiplying these with an arbitrary 3x3 matrix (e.g. CTM):
+> > >>>>
+> > >>>> - (R, 0, 0)
+> > >>>> - (R, R, R)
+> > >>>> - (c1 * Y, c2 * Y, c3 * Y)  
+> > >>>
+> > >>> I'd be very surprised by an YUV to RGB conversion matrix where the first
+> > >>> column would contain different values. What we need to take into account
+> > >>> though is quantization (full vs. limited range).  
+> > > 
+> > > Quantization range is indeed good to note. R8 would be always full
+> > > range, but Y8 would follow COLOR_RANGE property.
+> > >   
+> > >> That makes Y8 produce (Y, Y, Y), and we have our answer: R8 should be
+> > >> (R, 0, 0), so we have both variants.
+> > >>
+> > >> Can we specify Y, R, G and B be nominal values in the range 0.0 - 1.0
+> > >> in the KMS color processing?  
+> > > 
+> > > I think this 0.0 - 1.0 nominal range definition for the abstract KMS
+> > > color processing is necessary.
+> > > 
+> > > It also means that limited range Y8 data, when containing values 0-15
+> > > or 240-255, would produce negative and greater than 1.0 values,
+> > > respectively. They might get immediately clamped to 0.0 - 1.0 with the
+> > > first color operation they face, though, but the concept seems
+> > > important and carrying over to the new color pipelines UAPI which might
+> > > choose not to clamp.  
+> > 
+> > Is the behavior of values outside the limited range something that needs 
+> > to be defined? We can't know how each piece of HW behaves with 
+> > "undefined" input, so should we not just define the behavior as platform 
+> > specific?
+> 
+> Hi Tomi,
+> 
+> it's not undefined nor illegal input in general. The so-called
+> sub-black and super-white ranges exist for a reason, and they are
+> intended to be used in video processing to avoid clipping in
+> intermediate processing steps when a filter overshoots a bit. There are
+> also practices that depend on them, like PLUGE calibration with
+> traditional signals on a display: https://www.itu.int/rec/R-REC-BT.814
+> 
+> I think it would be really good to have defined behaviour if at all
+> possible.
+> 
+> > In any case: I can't say I fully understood all the discussions wrt. 
+> > color spaces. But my immediate interest is, of course, this series =). 
+> > So is there something that you think should be improved here?
+> 
+> Right, the range discussion is a tangent and applies to all YUV
+> formats, so it's not a new question.
+> 
+> > My understanding is that the Y-only pixel formats behave in a well 
+> > defined way (or, as well defined as the YUV formats), and there's 
+> > nothing more to add here. Is that right?
+> 
+> There are two things:
+> 
+> - Y8 follows COLOR_RANGE property, just like all other YUV formats.
+> - Y8 implies that Cb and Cr are both neutral (0.0 in nominal values).
+> 
+> I'd like these explicitly written down, so that they become obvious to
+> everyone. I suspect either one might be easy to forget when writing
+> code and taking shortcuts without thinking.
+> 
+> 
+> Laurent,
+> 
+> I did find a case where (Y', neutral, neutral) does *not* seem to expand
+> to RGB=(Y, Y, Y): ICtCp. The conversion from ICtCp to L'M'S' does
+> produce (Y', Y', Y'), but the LMS-to-RGB matrix scrambles it.
+> 
+> I didn't dig through BT.2020 constant-luminance Y'C'bcC'rc, but I
+> wouldn't be surprised if it scrambled too.
+> 
+> Of course, both of the above are not just one matrix. They require two
+> matrices and the transfer characteristic each to compute. KMS color
+> operations cannot implement those today, but with the colorop pipelines
+> they will if the hardware does it.
+> 
+> That's why I think it's important to document the assumption of Cb and
+> Cr when not part of the pixel format, and not write down a specific
+> expansion to RGB like (Y, Y, Y).
 
-You are right, reinitialization of PHY is not required.
+Every time I discuss color spaces, the scopes of "RGB" and "YUV" seem to
+expand more and more. This makes me wonder how we define those two
+concepts. Taking the conversion from RGB to ICtCp as an example, would
+you consider LMS and L'M'S' as "RGB" formats, and ICtCp as a "YUV"
+format ?
 
-I can confirm STR works only by adding just [1] + Restoring the direction (=
-MII/RGMII) of IO block for
-ET0/1_TXC_TXCLK (IO attribute) in the pinctrl driver.
+-- 
+Regards,
 
-[1]:
-+		.pm		=3D &stmmac_pltfr_pm_ops,
-
-
-Logs:
-  34.081297] PM: suspend entry (deep)
-[   34.086010] Filesystems sync: 0.000 seconds
-[   34.094746] Freezing user space processes
-[   34.101104] Freezing user space processes completed (elapsed 0.002 secon=
-ds)
-[   34.108164] OOM killer disabled.
-[   34.111468] Freezing remaining freezable tasks
-[   34.117478] Freezing remaining freezable tasks completed (elapsed 0.001 =
-seconds)
-[   34.124888] printk: Suspending console(s) (use no_console_suspend to deb=
-ug)
-NOTICE:  BL2: v2.10.5(release):9aa8ec5-dirty
-NOTICE:  BL2: Built : 14:47:04, Feb  7 2025
-NOTICE:  BL2: SYS_LSI_MODE: 0x13e06
-NOTICE:  BL2: SYS_LSI_DEVID: 0x8679447
-NOTICE:  BL2: SYS_LSI_PRR: 0x0
-NOTICE:  BL2: Booting BL31
-[   34.202183] renesas-gbeth 15c30000.ethernet eth0: Link is Down
-[   34.328938] Disabling non-boot CPUs ...
-[   34.338285] psci: CPU3 killed (polled 4 ms)
-[   34.352108] psci: CPU2 killed (polled 0 ms)
-[   34.368492] psci: CPU1 killed (polled 0 ms)
-[   34.378137] Enabling non-boot CPUs ...
-[   34.378137] Detected VIPT I-cache on CPU1
-[   34.378137] GICv3: CPU1: found redistributor 100 region 0:0x000000001496=
-0000
-[   34.378137] CPU1: Booted secondary processor 0x0000000100 [0x412fd050]
-[   34.378137] CPU1 is up
-[   34.378137] Detected VIPT I-cache on CPU2
-[   34.378137] GICv3: CPU2: found redistributor 200 region 0:0x000000001498=
-0000
-[   34.378137] CPU2: Booted secondary processor 0x0000000200 [0x412fd050]
-[   34.378137] CPU2 is up
-[   34.378137] Detected VIPT I-cache on CPU3
-[   34.378137] GICv3: CPU3: found redistributor 300 region 0:0x00000000149a=
-0000
-[   34.378137] CPU3: Booted secondary processor 0x0000000300 [0x412fd050]
-[   34.378137] CPU3 is up
-[   34.378137] dwmac4: Master AXI performs fixed burst length
-[   34.378137] renesas-gbeth 15c30000.ethernet eth0: No Safety Features sup=
-port found
-[   34.378137] renesas-gbeth 15c30000.ethernet eth0: IEEE 1588-2008 Advance=
-d Timestamp supported
-[   34.378137] renesas-gbeth 15c30000.ethernet eth0: configuring for phy/rg=
-mii-id link mode
-[   34.378137] OOM killer enabled.
-[   34.378137] Restarting tasks ... done.
-[   34.378137] random: crng reseeded on system resumption
-[   34.378137] PM: suspend exit
-
-root@smarc-rzg3e:~# ping[   34.378137] renesas-gbeth 15c30000.ethernet eth0=
-: Link is Up - 1Gbps/Full - flow control rx/tx
- [   34.378137] mmc2: Skipping voltage switch
-
-root@smarc-rzg3e:~# ping 192.168.10.1
-PING 192.168.10.1 (192.168.10.1) 56(84) bytes of data.
-64 bytes from 192.168.10.1: icmp_seq=3D1 ttl=3D64 time=3D0.751 ms
-64 bytes from 192.168.10.1: icmp_seq=3D2 ttl=3D64 time=3D0.858 ms
-^C
---- 192.168.10.1 ping statistics ---
-2 packets transmitted, 2 received, 0% packet loss,
-
-Cheers,
-Biju
+Laurent Pinchart
 
