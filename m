@@ -4,97 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 658ECC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 02:17:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 786FFC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 03:17:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ln+VsoO9KPDNvwVmf9j44KpIUAfprGCpmnU9QOz5Oo4=; b=pHsNX2hvfCkHyfTwsEBujfNEBa
-	Zh1QIsGSLDAhhqiKg5Hi7QMGSM37bUdq8tid3U66fcVC2v6NAM4TrSiwngzlhC9o57wHbUv39aIv5
-	EiRgBwjaXyYTI6td9sI0DDmESLP49ddpyiy65FJex+N9ZizJwETJpNiYIJxI8yegBemCNg2hYa5Z2
-	DpCXH/QJMhe8Oc/uMic0u9zzlSfRlPeOUAus58kvukHPOuPiFMMaZaIAsEC9U4bLHnkB+UDJNFTLF
-	QgYzd6hzP2a++FSNUxQiXg3FRPrlAhmdxBxRu/CG1nbOc4LKbxj7GoYN3uh8ZounsxhbzzrP5XE3W
-	eTbRoucw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HJSpcGPS1gw/n+iUWK1xktR6XEgqwq5ISKtQlb02BPk=; b=Hu/vhmIucub6bBOXGvQG5Y2cHC
+	r/HxsPDJjyJwAiIPdJ77y7wbvrvkS78zBgsSMkubyC8lkcfAkFZ5+LJKGX2DrUJnkDATTQy272nek
+	59z/Bs3ilxF//sYWCJs0+QJovyhXDY08ixnFL+HAIvwhnaDDoHKKKQgSBih35s5iijqL4f/Hh7yC0
+	JdWZ0amF05dv6LfK2w7xSUmCr4tGg1wpb+46XtNRUGPuEuUwsOgq3WiW1uDFDWkaan4OgYPm1Eme1
+	mdC+SQJTEwKUF0XQCBkRlsEI3Tlt7nMjejmiyPi6djhlErP/c0fZIG4bTwuQtl3zKATjIifj1hrJe
+	irtVLfIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6giL-00000003P9w-0kHU;
-	Mon, 21 Apr 2025 02:16:53 +0000
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
+	id 1u6hec-00000003VFK-0p0x;
+	Mon, 21 Apr 2025 03:17:06 +0000
+Received: from mail-vi1eur05on20617.outbound.protection.outlook.com ([2a01:111:f403:2613::617] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6ggT-00000003P0b-1nvj
+	id 1u6hcl-00000003V5R-1cbi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Apr 2025 02:14:59 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.216])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4ZgppM6MTzz4f3mJ5
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Apr 2025 10:14:19 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.75])
-	by mail.maildlp.com (Postfix) with ESMTP id 4AA7B1A158A
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Apr 2025 10:14:45 +0800 (CST)
-Received: from [10.67.111.192] (unknown [10.67.111.192])
-	by APP2 (Coremail) with SMTP id Syh0CgDX4WQTqgVo5dAZKA--.45218S2;
-	Mon, 21 Apr 2025 10:14:44 +0800 (CST)
-Message-ID: <8b800c09-eade-4dcf-90f6-2f5a78170bc4@huaweicloud.com>
-Date: Mon, 21 Apr 2025 10:14:43 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC bpf-next 1/4] bpf: add struct largest member size in
- func model
+	Mon, 21 Apr 2025 03:15:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CRzqkZ/hNqsPhkOp+Svaq/8LdJQygbMunNpWope4iELc7yBbbyY0Yv8HBtWFNbQ8HWjJeC2B9OyJ19Jyo0EdZwxGpfmJ+xvNMUl2SF6K1RhUMlbMgQbtSy7GdDX7wXyPgkpVY+1OmQjqvppk75I4nPYNA+RZgm5oZIuq+oytpHhtIwj1RBfYugvrvVFQfmJ1ZsmtdvogpEsRkU49hTLTRHuClxokA/NG+Y0SwRQc1JBoNcOhzTRuAn6UzOzDPmm9NNmP1XQTFYSvXaBaJSPiAJ3NrV7H9nXrRxZf8jvJboSDMY42OAA+fEVXi2K//6TdD+q7uFSM+kUw689zSZYb7w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HJSpcGPS1gw/n+iUWK1xktR6XEgqwq5ISKtQlb02BPk=;
+ b=Vf41CW3z0cMzWFFArsRxSRuh8FQiV4EO6FI8ohBfSE7YEYp3Qi2+Kbtbi+sAdOSNrZvN8QTmzm/LkZCkOqbGZQOfxwmdLVW94kjHrVHWMBi09D5t6Hq0YVjYXjrq/kvbRw3RRqlqwVP6Rxarv30FFAyUuWQYLH0ldZ/vORM/Xd60un0Ts2gBhTWU5ksz9B9ITZRnF+Kij8/9GULhjCy2pO2YVEV8jOC0xmojbdiJD76+AXPNG8CYlBZHgXYw1RE1wdwlKWpvsjj7jecf5rOFYdoYJAnTqY/voFBrU2EwPj0PPe9Y88i7+M0OUduGGRtx6N7j4unGMsYgK8luDYGQ2A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HJSpcGPS1gw/n+iUWK1xktR6XEgqwq5ISKtQlb02BPk=;
+ b=IxIgUHCpWj8EzQ5IF1WvxTJyxn3WdR4Tj65oJAAEwP6i30ow+ndWz/6x+7uYqbNj0GDQwpkZH+8jR94vacrplkpKmxu/Aj2uJaRW4FRc174FTXb8bAd0qvCBv/VC2e4/SxzPEXn8A+4filTdW0eshxuAVnRSerrYWfY4RwLAirxIZWuH61xbZ2AAyyBH/31EqkftCzxkNuof1urWk6zsEnsB3TVfZm3hfsXTIZ5XL3LBYsOxBtuoKAqKiMQ7ZcOA8dNJhdp+5w6CmdiIHpy3G6hRSu1Jfqzj1fzSzeXj3V/RIiXfU2xRc41JwtkNUq4LIfNjaBb6hf1vGspA+1Ym7g==
+Received: from PAXPR04MB8510.eurprd04.prod.outlook.com (2603:10a6:102:211::7)
+ by AM0PR04MB6948.eurprd04.prod.outlook.com (2603:10a6:208:187::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.35; Mon, 21 Apr
+ 2025 03:14:56 +0000
+Received: from PAXPR04MB8510.eurprd04.prod.outlook.com
+ ([fe80::a7c2:e2fa:8e04:40db]) by PAXPR04MB8510.eurprd04.prod.outlook.com
+ ([fe80::a7c2:e2fa:8e04:40db%4]) with mapi id 15.20.8655.033; Mon, 21 Apr 2025
+ 03:14:56 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: Vladimir Oltean <olteanv@gmail.com>
+CC: Claudiu Manoil <claudiu.manoil@nxp.com>, Vladimir Oltean
+	<vladimir.oltean@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
+	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
+	"kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
+	"christophe.leroy@csgroup.eu" <christophe.leroy@csgroup.eu>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>, "linuxppc-dev@lists.ozlabs.org"
+	<linuxppc-dev@lists.ozlabs.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>
+Subject: RE: [PATCH v5 net-next 04/14] net: enetc: add MAC filtering for
+ i.MX95 ENETC PF
+Thread-Topic: [PATCH v5 net-next 04/14] net: enetc: add MAC filtering for
+ i.MX95 ENETC PF
+Thread-Index: AQHbqsrnhddQYwLh8EmRihJXUf5Sm7Opmw+AgAPeiwA=
+Date: Mon, 21 Apr 2025 03:14:56 +0000
+Message-ID: <PAXPR04MB85107B19F79BA40F70950FE188B82@PAXPR04MB8510.eurprd04.prod.outlook.com>
+References: <20250411095752.3072696-1-wei.fang@nxp.com>
+ <20250411095752.3072696-5-wei.fang@nxp.com>
+ <20250418154117.jcd6xxnwot4nmhek@skbuf>
+In-Reply-To: <20250418154117.jcd6xxnwot4nmhek@skbuf>
+Accept-Language: en-US
 Content-Language: en-US
-To: =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
- Xu Kuohai <xukuohai@huaweicloud.com>,
- Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Cc: Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>,
- John Fastabend <john.fastabend@gmail.com>,
- Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
- <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>,
- Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>,
- KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>,
- Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
- Puranjay Mohan <puranjay@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Florent Revest <revest@chromium.org>,
- Bastien Curutchet <bastien.curutchet@bootlin.com>, ebpf@linuxfoundation.org,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, bpf@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kselftest@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
-References: <20250411-many_args_arm64-v1-0-0a32fe72339e@bootlin.com>
- <20250411-many_args_arm64-v1-1-0a32fe72339e@bootlin.com>
- <CAEf4Bzbn6BdXTOb0dTcsQmOMZpp5=DzGS2hHHQ3+dwcja=gv+w@mail.gmail.com>
- <D98Q8BRNUVS9.11J60C67L1ALR@bootlin.com>
- <9da88811-cce0-41df-8069-2e8b67541c39@huaweicloud.com>
- <D9BLCJSCHE9A.1IKHK3XBPF8MU@bootlin.com>
-From: Xu Kuohai <xukuohai@huaweicloud.com>
-In-Reply-To: <D9BLCJSCHE9A.1IKHK3XBPF8MU@bootlin.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: Syh0CgDX4WQTqgVo5dAZKA--.45218S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxWrW3JryUGw4rWryDXr4fZrb_yoWrJw18pF
-	ZxX3Z8tF4kJr1xZa1qy3yxZrWSq348KryUCrW5tw13trn8GF1xJFW2gF4Y9Fy5Gr1kG3W2
-	vF1jqFy3Za4fZFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvE14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
-	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvEwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka
-	0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7
-	v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF
-	1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIx
-	AIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI
-	42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWI
-	evJa73UjIFyTuYvjTRM6wCDUUUU
-X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8510:EE_|AM0PR04MB6948:EE_
+x-ms-office365-filtering-correlation-id: 42f8ebbf-2c3b-41e8-6400-08dd8082b154
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?xDSR8D533SYqsd8MN0FNHhY/IsFPjUXjhtG5wSXeRcGOhLFA1v97rSdvBk6S?=
+ =?us-ascii?Q?IhIDQrXyWYOjdUSli2nVnYQM3UcK4ffSWPVjQW2E0x1OFnW8no0Q/Kb6Lxy+?=
+ =?us-ascii?Q?T312cKVB+Pt+mEOTXM0Ql3yds8ml/iwWyPre5En416EUyvp5imbaVF9NAcyt?=
+ =?us-ascii?Q?V9YF24+KnpjGJ7PYn2uwal4sxJHNBG7y+mr474DcT7q9xqRTEv7Jr+nMbak4?=
+ =?us-ascii?Q?q5/s0x0GZ2m+AI115y9oGTY3RiW8qinZhqiOfABS/eclLl/VcGMTuA8wDPm1?=
+ =?us-ascii?Q?EtbC262ACXIzj1xXk6Ot/f3HP44WClD9Wu0QXdNWpfASyVkcL//3Hps/6pDm?=
+ =?us-ascii?Q?TQTt3J3BqKqG+dCrqQQLH8ALvA54Gors1Ln0TzFgvGm9rp5EavnUL6ndopMf?=
+ =?us-ascii?Q?mgd4QvJ883v1MJMLgXSLFWdCzQKNg9uIa83uqZtG5VPeRHsa8NuaDxUhhT+D?=
+ =?us-ascii?Q?T+vF7f0Rsn4XDcKuwAnDDXBMejOmJsxuKMB1Zir91dGjR2ZAIT1poG9/st9X?=
+ =?us-ascii?Q?ZurCRjh5uZl0UuxccM9H7p9+fjhCDy2h6v9SXMbjeJVzC8NgnYsPHvh6Wy4+?=
+ =?us-ascii?Q?936H538T1ii/JCi7PYnPCtA9bvbojw3yehDEpyEhlh44Fl2ui/LJHkAYO+nE?=
+ =?us-ascii?Q?MN1krxAmXHXfpvGvB/uwExOtWFFXkn4sXNmOh2WxrKwWqxIuHF8XsOPhG7MB?=
+ =?us-ascii?Q?AtH3aXBF0Au9cdAKRLk7L3RL/bGw3+DmpTLXP4NiWgN6pzKly6J/Yz+HRsCk?=
+ =?us-ascii?Q?khDUA7sSrYtjQ52VZoc3pAX2WrRQsqWFHNWwbCJyeUrQIrcgZQhd/Z0gHGJx?=
+ =?us-ascii?Q?sVtfzalGb60bCsis+xF5snWLEEkJWZvLwe0z3uhtwvOzDmRKBFofkGIPPFrs?=
+ =?us-ascii?Q?EYZGX2YEXrLENeZvri48RqD9fwrx4nu8K0aFCtcBu9PhuKG4ZttCXqmnhNqx?=
+ =?us-ascii?Q?aPDrecFtmFucGPGz+Qffzh9fWH1zxa6HrdvNaH/4e3ge+FZ6lq8steK6cb3h?=
+ =?us-ascii?Q?sGe3BiRVpfnNUTJ9J3eHHNMe2TZEAMSZG0ZZqDkt8ExQp8D0wZc7BYq8EcSm?=
+ =?us-ascii?Q?iMtsS+Vd0lrJbiwBZcxqaLdj2sUewMjwn81QnJ5xg1pXW6wGyllCMDrm5Y9x?=
+ =?us-ascii?Q?wnbNVeX9PnDSWhle7kDGUTvN0KzrzJvFU4qM+RxUA0i65Bz9g22XzeL9snmR?=
+ =?us-ascii?Q?Q47Fvc3c7vwcKr/b/EMEeBgCSoruGOsbyF4fpfm/vc72z7qfTAP09f/VdTIV?=
+ =?us-ascii?Q?iO5dZqGSA4Obu4EMqOxlSpvtK+LLDmrVmjGJNo8QHdJH1EASiqUYBaTVeTGX?=
+ =?us-ascii?Q?oI9ZkseRu2Q7atnL1SSmm7zfvn64/xL3t68gum9Yib9UHtWKjbBXsqCul2+H?=
+ =?us-ascii?Q?U5ac0WXQR83aTVAI5zuLJ6grWf4+xZQ8U6ATghAcpeXIcvtK8WdeiFo4VYXe?=
+ =?us-ascii?Q?/GWdTgDQCWtiAE4m8wNvW3sDJK3E6wUF2t2m3Dm/s1FzeuhBd1A+OpbKRxSL?=
+ =?us-ascii?Q?q0POKrKtrloVnCs=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8510.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?JiVl7ob0YqT9Tow83z0xc8MOVr0RqJ+iya3WHg6xGE647RZzh9ppzMF+z9ft?=
+ =?us-ascii?Q?byty4CY/V2K0QkraP4/QCi/uzxV29pRwb6ApcNTynzcNFMLJu+4Bm9DaRfww?=
+ =?us-ascii?Q?PJhcu8TplY1bPp5e8j2YGqZkSwIiO2cs2+zn5olEEjPadOD36CEUX+1OzBv+?=
+ =?us-ascii?Q?Ml6HuD/k8xwqYje+BsF3Mzng0oJMVOfazcq1Q68QG4WqcPvd2EdidXH2Aii1?=
+ =?us-ascii?Q?yYOUVp7NYq0S4Jk0ewPlMo3XHLPGkDKGu6uwnW0qUbO+6UACQQlgxx6jd5gd?=
+ =?us-ascii?Q?9zudcfKoR3OyJPTCnCirUqHgeW8dE/HrUnen2Cjb8git1/ITIszAMplMBqYe?=
+ =?us-ascii?Q?xRN31VqurYvTOhdWmt+/ybxrLntM5OYcVBAE4u0bBwWXc07o4YJEAm+CAJIq?=
+ =?us-ascii?Q?l+K+v64CX2/5pkAAvZb3/lssgKtYOYo5XJ99uQ7atnTfPMmsUMeLLoTQCoTi?=
+ =?us-ascii?Q?myR/pMFzN+EvwueS+uA8L8xx8LBZRuk5i/1EplFqRKnf2Y5uePmqjk85gU8D?=
+ =?us-ascii?Q?dkwhERYAoOrWDWsmRnbu5f0xVX/cmCBACpinnqtz+nw4QFfo4gJrUlidTy+m?=
+ =?us-ascii?Q?rX5wHTTPnQYc4hrePtX7q5j0v27N44HPIJGkY1Oc5kv8Gk8+EqINBmfJw5Vu?=
+ =?us-ascii?Q?0myuo2hq6irRwPeI9sA5us9Nb/EAcgj0xiFHhT6bJmOlT7T9dCaoEGy1T+4J?=
+ =?us-ascii?Q?W5xpIifxzA2U1Ox94eF8pld4rB8mNkPqsja0G56ucZl6uFdcNHLOHXaiLFRI?=
+ =?us-ascii?Q?cLxcx6B1tcvHQefSwIDNnD5y3z070DoVrgBhUB2gmw6IOV+srote9FB9k2of?=
+ =?us-ascii?Q?4+jvRWXcPqHvJPhVKMSZWpSEDsLMaCbE9a7ZFn2ZTHu88B8AFW00DM8mI448?=
+ =?us-ascii?Q?GrcsYIRa7oVWwWDYSMVsU5Xm3ZA/ku22oa2kgEgvnWV2fnGwiEgMabbBj8OG?=
+ =?us-ascii?Q?xnhE8RuzUYPGAMM1JsuDdW/eBViDJ8h6CwYxLFln4FpN83SW1v8PMZ6IM2Uc?=
+ =?us-ascii?Q?UOMg2RMKhIn+DARE4qtq22D5zOkVRF3PIc9ubr/F1TmRtSczGfD1+x3vgych?=
+ =?us-ascii?Q?9eZC9gDwLuCpodHKKC/EaFNK9y35lpiIhH71oml8HLIjNZOxhbIjrGR1TP9S?=
+ =?us-ascii?Q?aecPKrv1E3Gk9Sazz+K3Ev/Sp40qkBZdvu8vTGKXu1eBXB51cJwWaMKjYiNz?=
+ =?us-ascii?Q?mk7/yXjIhaZ1i4mazKpA19zCc/EpkdaCa6ODvfTRkd8uveruRP+7Ds0agRyN?=
+ =?us-ascii?Q?n6SPWJPI0jDIpjghGQFt62t2rtYImxJy7eHvRfrfQQXB8CsZAU7EwV3kCto+?=
+ =?us-ascii?Q?I8Io/e+AWwOzAg2ciXzET+Y/0hpKhPfPxRfhVsqko7TobPBAxVjPcQHq66tR?=
+ =?us-ascii?Q?Ym8WmeFP3gKawRq2oDD37XoYkRgg+dXB5Ff35O8935FnG4ZQvzDhQsbzUNkO?=
+ =?us-ascii?Q?nWqkVSRw/JOKQmWQwoqv9xrf2dzIlnPMQ7yyh+Te3oM5J6OJkfzFYJhZGz/x?=
+ =?us-ascii?Q?OB1Mm1WiAL15v2Dnw9sH2KEcvC18WOVtwNEUTCq3zgZbOEhVfYXd1nVvK4bd?=
+ =?us-ascii?Q?V/wQrb7ClamFO/PbPxg=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8510.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 42f8ebbf-2c3b-41e8-6400-08dd8082b154
+X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Apr 2025 03:14:56.5478
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: HuLKEFHn8Rb4uDRhHU5LaZ/oSeMkA8B/R/HNfOCczTtYTr4hnKJFFv2UOYUb+ZS8aTk87wHv29VQcMl7G12k7g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6948
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250420_191457_820531_579E9861 
-X-CRM114-Status: GOOD (  27.03  )
+X-CRM114-CacheID: sfid-20250420_201511_426758_59385059 
+X-CRM114-Status: GOOD (  23.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,94 +172,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/21/2025 12:02 AM, Alexis Lothoré wrote:
-> Hi Xu,
-> 
-> On Thu Apr 17, 2025 at 4:10 PM CEST, Xu Kuohai wrote:
->> On 4/17/2025 3:14 PM, Alexis Lothoré wrote:
->>> Hi Andrii,
->>>
->>> On Wed Apr 16, 2025 at 11:24 PM CEST, Andrii Nakryiko wrote:
->>>> On Fri, Apr 11, 2025 at 1:32 PM Alexis Lothoré (eBPF Foundation)
->>>> <alexis.lothore@bootlin.com> wrote:
-> 
-> [...]
-> 
->>>> I might be missing something, but how can the *size* of the field be
->>>> used to calculate that argument's *alignment*? i.e., I don't
->>>> understand why arg_largest_member_size needs to be calculated instead
->>>> of arg_largest_member_alignment...
->>>
->>> Indeed I initially checked whether I could return directly some alignment
->>> info from btf, but it then involves the alignment computation in the btf
->>> module. Since there could be minor differences between architectures about
->>> alignment requirements, I though it would be better to in fact keep alignment
->>> computation out of the btf module. For example, I see that 128 bits values
->>> are aligned on 16 bytes on ARM64, while being aligned on 8 bytes on S390.
->>>
->>> And since for ARM64, all needed alignments are somehow derived from size
->>> (it is either directly size for fundamental types, or alignment of the
->>> largest member for structs, which is then size of largest member),
->>> returning the size seems to be enough to allow the JIT side to compute
->>> alignments.
->>>
->>
->> Not exactly. The compiler's "packed" and "alignment" attributes cause a
->> structure to be aligned differently from its natural alignment.
->>
->> For example, with the following three structures:
->>
->> struct s0 {
->>       __int128 x;
->> };
->>
->> struct s1 {
->>       __int128 x;
->> } __attribute__((packed));
->>
->> struct s2 {
->>       __int128 x;
->> } __attribute__((aligned(64)));
->>
->> Even though the largest member size is the same, s0 will be aligned to 16
->> bytes, s1 and s2 are not aligned the same way. s1 has no alignment due to
->> the "packed" attribute, while s2 will be aligned to 64 bytes.
->>
->> When these three structures are passed as function arguments, they will be
->> located on different positions on the stack.
->>
->> For the following three functions:
->>
->> int f0(__int128 a, __int128 b, __int128 c, int64_t d, __int128 e, int64_t f, struct s0 g);
->> int f1(__int128 a, __int128 b, __int128 c, int64_t d, __int128 e, int64_t f, struct s1 g);
->> int f2(__int128 a, __int128 b, __int128 c, int64_t d, __int128 e, int64_t f, struct s2 g);
->>
->> g will be located at sp+32 in f0, sp + 24 in f1, and some 64-byte aligned
->> stack address in f2.
-> 
-> Ah, thanks for those clear examples, I completely overlooked this
-> possibility. And now that you mention it, I feel a bit dumb because I now
-> remember that you mentioned this in Puranjay's series...
-> 
-> I took a quick look at the x86 JIT compiler for reference, and saw no code
-> related to this specific case neither. So I searched in the kernel for
-> actual functions taking struct arguments by value AND being declared with some
-> packed or aligned attribute. I only found a handful of those, and none
-> seems to take enough arguments to have the corresponding struct passed on the
-> stack. So rather than supporting this very specific case, I am tempted
-> to just return an error for now during trampoline creation if we detect such
-> structure (and then the JIT compiler can keep using data size to compute
-> alignment, now that it is sure not to receive custom alignments). Or am I
-> missing some actual cases involving those very specific alignments ?
-> 
+> On Fri, Apr 11, 2025 at 05:57:42PM +0800, Wei Fang wrote:
+> >  static const struct enetc_pf_ops enetc4_pf_ops =3D {
+> >  	.set_si_primary_mac =3D enetc4_pf_set_si_primary_mac,
+> >  	.get_si_primary_mac =3D enetc4_pf_get_si_primary_mac,
+> > @@ -303,12 +489,55 @@ static void enetc4_pf_free(struct enetc_pf *pf)
+> >  	enetc4_free_ntmp_user(pf->si);
+> >  }
+> >
+> > +static void enetc4_psi_do_set_rx_mode(struct work_struct *work)
+> > +{
+> > +	struct enetc_si *si =3D container_of(work, struct enetc_si, rx_mode_t=
+ask);
+> > +	struct enetc_pf *pf =3D enetc_si_priv(si);
+> > +	struct net_device *ndev =3D si->ndev;
+> > +	struct enetc_hw *hw =3D &si->hw;
+> > +	bool uc_promisc =3D false;
+> > +	bool mc_promisc =3D false;
+> > +	int type =3D 0;
+> > +
+> > +	if (ndev->flags & IFF_PROMISC) {
+> > +		uc_promisc =3D true;
+> > +		mc_promisc =3D true;
+> > +	} else if (ndev->flags & IFF_ALLMULTI) {
+>=20
+> enetc4_psi_do_set_rx_mode() runs unlocked relative to changes made
+> to ndev->flags, so could you at least read it just once to avoid
+> inconsistencies?
+>=20
+> Speaking of running unlocked: if I'm not mistaken, this code design
+> might lose consecutive updates to ndev->flags, as well as to the address
+> lists, if queue_work() is executed while si->rx_mode_task is still
+> running. There is a difference between statically allocating and
+> continuously queuing the same work item, vs allocating one work item
+> per each ndo_set_rx_mode() call.
+>=20
+> In practice it might be hard to trigger an actual issue, because the
+> call sites serialize under rtnl_lock() which is so bulky that
+> si->rx_mode_task should have time to finish by the time ndo_set_rx_mode()
+> has a chance to be called again.
+>=20
+> I can't tell you exactly how, but my gut feeling is that the combination
+> of these 2 things is going to be problematic.
 
-How can we reliably 'detect' the case? If a function has such a parameter
-but we fail to detect it, the BPF trampoline will pass an incorrect value
-to the function, which is also unacceptable.
+I think we can add rtnl_lock() to enetc4_psi_do_set_rx_mode() to keep
+consistency, as shown below.
 
-> Thanks,
-> 
-> Alexis
-> 
+--- a/drivers/net/ethernet/freescale/enetc/enetc4_pf.c
++++ b/drivers/net/ethernet/freescale/enetc/enetc4_pf.c
+@@ -497,6 +497,8 @@ static void enetc4_psi_do_set_rx_mode(struct work_struc=
+t *work)
+        bool mc_promisc =3D false;
+        int type =3D 0;
 
++       rtnl_lock();
++
+        if (ndev->flags & IFF_PROMISC) {
+                uc_promisc =3D true;
+                mc_promisc =3D true;
+@@ -519,6 +521,8 @@ static void enetc4_psi_do_set_rx_mode(struct work_struc=
+t *work)
+
+        /* Set new MAC filter */
+        enetc4_pf_set_mac_filter(pf, type);
++
++       rtnl_unlock();
+ }
 
