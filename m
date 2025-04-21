@@ -4,99 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22EE0C369D2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 08:46:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE2C0C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 08:48:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+A2XVkaABk6k2gV2bYWae9UXmDaob74U/u+QQ0sSsqE=; b=dixSnAhhIvorDA22euSuLiAMdA
-	n7+nxLfUyRZ1oiG06NdFH7qrwJp2zHFz1sOpF0TbfAkv9D32Rzm8nW9TBGAgPn6OxkAYZFFHrcCXz
-	mSikbBcLGJaHJo+PsmxQIt3fve9hIyBtPq2a2gYZvo0r2k+j/RDcU/tKKgkNdNHOYG/VsSKZuyr6T
-	ePL1csUPxSYnmsebdhniABhdcHrftFWGJTP7WC6dS1AX6RIN9upy1qFKdQzkx46lgM92fmfg9Y4ks
-	Ff9zBVowUW2l07GyR5Hn/xAL8DzhhQ8PNrETj4/w756AW5J3Y7PWByvKDJihkjz3EGHrb86G6cia6
-	9kR11oAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GMCfkXGgjqsflgdpKzRM3hAtgWDJ+u+groMyTButPK0=; b=WxdBcws44Z0Ez/Q1Wv99/OxrJ2
+	l9+4Pj86bRaTfWfxN3OHhU8VdAQ+bGVdPEgNn5d6yApNM2vvNWiVrUJOgLc7/dS/O7rN6beqAvMi6
+	kz+h2LQ/A0pOz42ZzMH64AAlxIWWDSx6zYSWubtICq/wek6ldOxhk4ReIRICuFz/Zckg7wA8FMQZy
+	SmayJuyxjeuqU3JXXjpYm1pEH0IVOaB+Y2kqp4ahTULTkUG4IUuhhXPuv79CjGvU/OxXiiAM+ACkR
+	QsBWuFlsB4bCat0XgA8YzQKWKb5FUrM93KXY6te96Tga+aqAqtxSDGaEPq01wRsDx8hQ789YYRmWZ
+	041aL24A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6mmu-00000003vwB-3gBP;
-	Mon, 21 Apr 2025 08:46:00 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1u6moj-00000003wGM-3l7d;
+	Mon, 21 Apr 2025 08:47:53 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6mOB-00000003t8G-3Xb5
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Apr 2025 08:20:29 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-ac2aeada833so718849166b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Apr 2025 01:20:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1745223626; x=1745828426; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=+A2XVkaABk6k2gV2bYWae9UXmDaob74U/u+QQ0sSsqE=;
-        b=ncAr8Dae34RuMEHcQZjOy3VBUt4g3gzSks1b5xw5lQ4e4a1K3oXu00f7mcAKoHh40f
-         vmtOJnlHN2UviiYiTNvROyrn5GOADpw02hBOiHFvFDPoSSOtlSYkOV7QLWcCHeYLl+vk
-         wYiPnbEosXgSYksxHgcNfOGe1EoXbR2VrRB4D4EQgGgPK77i1aeccwJyYLDraTRlUkzy
-         BxYqw8lhJgWNHavcEYP84SulvCuil3jxLLAdiawvM2La/c8WA3K8HauTv1G/MsGal2En
-         KsPZ+RXzyMhBK1JB0IY8y9UJkZStkKvngmpFfdIIIYH3eXLUuCqNCmH/12FZ+Vgsissx
-         WZPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745223626; x=1745828426;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+A2XVkaABk6k2gV2bYWae9UXmDaob74U/u+QQ0sSsqE=;
-        b=aa2du9VBles+aNvaH3NELBrdI3E3AKBC3YAUd+is/hDQy6VShRqxgbiggbrhjeUawp
-         ktl9jUPYDqmb84SPqzHp983OAcVyk6yaN8/jys1dw6ZMB5t6nkZVbcWSnaFc2n0Iw3zL
-         6txHX8OjiB8sMEVAEJQHX2frHUkiQTce8XaTe0znhWy+QFOIWiVhAZ+FmsmaejOdRbmk
-         3pDRwbjk3kWXrolY8G9Y8ZkJmNg6eSuE7ldXxX1G029coK5LTf4VpfKZIswxA223x645
-         4dDxbcVHtmhmdw98xwAdJgG1H19HHapHYMCPDdjUjcUxEOnxScp4y6q3tTyyCcaVh+Cy
-         MK+Q==
-X-Forwarded-Encrypted: i=1; AJvYcCV/I8weKp/CMS7tvZ1xKzHpL7LsA7TZ9yrlIoWzq8Qv3G32fUL84LTAPRodRH2Eqtguguqx3fF5DLqkqkUrKwnU@lists.infradead.org
-X-Gm-Message-State: AOJu0YyxknijCYdEw/N7t3YhPMW5eLbh68GEDs17WK5/1kJp0nuMnS46
-	n7XSst7tDYAmohgbkVLrK7mB6IVXRtwK/riCOCnfuQV1nBPmYs+k2C9RbBYhBqiliHFG8pF7tJJ
-	f
-X-Gm-Gg: ASbGncvu+9rpEqOrqdaBNY057cpEdK1mpVXD6ZzSBNT6dLUgoA5oC6os8/4LWN3eLnp
-	MucQMvupJD+aR8SeD0ZcWpojZ7WTOYwk37W9PztBW8TwM7lBiJssgVxgilVk/H/+w/Wx24LGs9U
-	wXhrpPSR2IyHxY6/+MIiEmUoMMpzPH7EzS7RwM6zCmuB4RHmHDNGEVCJ2GIa0ISg4dMEsgI9shx
-	twQ0H6ZFbP+DPTvVRqRwashDC9jys/vGmhGVfR1LraKkUXtO9kNQkXDpF6F5/I7jrr0hEr0UcEA
-	WL1hO0AAgJoprEspSrC6zvHc78m/1lOarbo=
-X-Google-Smtp-Source: AGHT+IG7DwQNOM8/nS3tnvxMTIy0guROVEv0SAKM9SSU92HIJl6hk3tL2HdbhZGR0Tr72dfDZsIpQA==
-X-Received: by 2002:a17:907:868b:b0:ac1:dde7:b57f with SMTP id a640c23a62f3a-acb75346dbemr876034066b.23.1745223626357;
-        Mon, 21 Apr 2025 01:20:26 -0700 (PDT)
-Received: from localhost ([2001:4091:a245:826e:c0c:4cef:7dd:26bd])
-        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-acb6ec0b1e4sm477393466b.34.2025.04.21.01.20.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Apr 2025 01:20:26 -0700 (PDT)
-From: Markus Schneider-Pargmann <msp@baylibre.com>
-Date: Mon, 21 Apr 2025 10:20:00 +0200
-Subject: [PATCH v6 2/2] firmware: ti_sci: Partial-IO support
+	id 1u6mPG-00000003tNU-43lR;
+	Mon, 21 Apr 2025 08:21:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1745223695; x=1776759695;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=C7Yr9B85WuyxzW/DyvbRmztxW7xiL896fdLQzr9xw6o=;
+  b=RsDsV07ivdgo6uqXDoy27QtqsfrnMl2GxWq8hpGo7QJbkz4J93SGsYNg
+   E4sWyjjLbXTYdBaDQBvzjRVZOxK1/DF4JZ9Wh0ut3p6BBOUMzEFzhN2C/
+   HFXFp617vmUkNb86hv/GqxqhlNUvwMWhlqTg1o4zKlWfEAbfJquL9MdNy
+   VvPdOMGc7HLZ4ioB5szPtap/k7X8iJ8giqHwPT6aSvBGUNfGet63/kWyi
+   D6YkGgihMm/IcLNkiD+HsaSdjV37IUXjgg8FOgbozrCIJC38Q5D3PD7Xg
+   5RNcs3tBIaOTo8ufBmoo0FEX/9+Fg1eSUOOGQzbdDJcBugIi2soFP1LLf
+   g==;
+X-CSE-ConnectionGUID: SYinnB67QQuOzTKyR+oVEQ==
+X-CSE-MsgGUID: WW4CH8/ASDakLZlkuB6fsg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11409"; a="46635720"
+X-IronPort-AV: E=Sophos;i="6.15,227,1739865600"; 
+   d="scan'208";a="46635720"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Apr 2025 01:21:31 -0700
+X-CSE-ConnectionGUID: 9zpDJSyeTBKPkrXoSj84vw==
+X-CSE-MsgGUID: s+znY0pVR464Y46mObjRPA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,227,1739865600"; 
+   d="scan'208";a="168862263"
+Received: from lkp-server01.sh.intel.com (HELO 9c2f37e2d822) ([10.239.97.150])
+  by orviesa001.jf.intel.com with ESMTP; 21 Apr 2025 01:21:27 -0700
+Received: from kbuild by 9c2f37e2d822 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1u6mP6-0000H1-2v;
+	Mon, 21 Apr 2025 08:21:24 +0000
+Date: Mon, 21 Apr 2025 16:20:44 +0800
+From: kernel test robot <lkp@intel.com>
+To: carlos.song@nxp.com, miquel.raynal@bootlin.com, Frank.Li@nxp.com,
+	alexandre.belloni@bootlin.com, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com,
+	conor.culhane@silvaco.com
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-i3c@lists.infradead.org, imx@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/3] i3c: master: svc: switch to bulk clk API for
+ flexible clock support
+Message-ID: <202504211643.FJsMtmVl-lkp@intel.com>
+References: <20250421061544.2471379-3-carlos.song@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250421-topic-am62-partialio-v6-12-b4-v6-2-3b5cefab1339@baylibre.com>
-References: <20250421-topic-am62-partialio-v6-12-b4-v6-0-3b5cefab1339@baylibre.com>
-In-Reply-To: <20250421-topic-am62-partialio-v6-12-b4-v6-0-3b5cefab1339@baylibre.com>
-To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, 
- Santosh Shilimkar <ssantosh@kernel.org>
-Cc: Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>, 
- Dhruva Gole <d-gole@ti.com>, Sebin Francis <sebin.francis@ti.com>, 
- Kendall Willis <k-willis@ti.com>, Akashdeep Kaur <a-kaur@ti.com>, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Markus Schneider-Pargmann <msp@baylibre.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6749; i=msp@baylibre.com;
- h=from:subject:message-id; bh=BP54PvuJU1VeE402pgOF/BnVPOACRE86oaDOc2e5kvk=;
- b=owGbwMvMwCXWejAsc4KoVzDjabUkhgzW/wf1076oXJumEn+603nbGYXAo7rdOgo35S/8XLCkg
- 7N08oaNHaUsDGJcDLJiiiydiaFp/+V3HktetGwzzBxWJpAhDFycAjCRUysY/pl5LTHhLXHzs58x
- b3bGir/7Tq8NvLZr2t2sut3SDietHaYxMszzlX8cGH7e+fK6Z3WPim7G3v8e8eSzacmE4JcMleE
- cCxkA
-X-Developer-Key: i=msp@baylibre.com; a=openpgp;
- fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250421061544.2471379-3-carlos.song@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_012027_889862_F60816D3 
-X-CRM114-Status: GOOD (  26.42  )
+X-CRM114-CacheID: sfid-20250421_012135_020936_7B4E69A1 
+X-CRM114-Status: GOOD (  15.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,215 +93,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for Partial-IO poweroff. In Partial-IO pins of a few
-hardware units can generate system wakeups while DDR memory is not
-powered resulting in a fresh boot of the system. These hardware units in
-the SoC are always powered so that some logic can detect pin activity.
+Hi,
 
-If the system supports Partial-IO as described in the fw capabilities, a
-sys_off handler is added. This sys_off handler decides if the poweroff
-is executed by entering normal poweroff or Partial-IO instead. The
-decision is made by checking if wakeup is enabled on all devices that
-may wake up the SoC from Partial-IO.
+kernel test robot noticed the following build warnings:
 
-The possible wakeup devices are found by checking which devices
-reference a "Partial-IO" system state in the list of wakeup-source
-system states. Only devices that are actually enabled by the user will
-be considered as an active wakeup source. If none of the wakeup sources
-is enabled the system will do a normal poweroff. If at least one wakeup
-source is enabled it will instead send a TI_SCI_MSG_PREPARE_SLEEP
-message from the sys_off handler. Sending this message will result in an
-immediate shutdown of the system. No execution is expected after this
-point. The code will wait for 5s and do an emergency_restart afterwards
-if Partial-IO wasn't entered at that point.
+[auto build test WARNING on robh/for-next]
+[also build test WARNING on linus/master v6.15-rc3 next-20250417]
+[cannot apply to shawnguo/for-next]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-A short documentation about Partial-IO can be found in section 6.2.4.5
-of the TRM at
-  https://www.ti.com/lit/pdf/spruiv7
+url:    https://github.com/intel-lab-lkp/linux/commits/carlos-song-nxp-com/dt-bindings-i3c-silvaco-i3c-master-add-i-MX94-and-i-MX95-I3C/20250421-140716
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
+patch link:    https://lore.kernel.org/r/20250421061544.2471379-3-carlos.song%40nxp.com
+patch subject: [PATCH 2/3] i3c: master: svc: switch to bulk clk API for flexible clock support
+config: arm-randconfig-001-20250421 (https://download.01.org/0day-ci/archive/20250421/202504211643.FJsMtmVl-lkp@intel.com/config)
+compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project f819f46284f2a79790038e1f6649172789734ae8)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250421/202504211643.FJsMtmVl-lkp@intel.com/reproduce)
 
-Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
----
- drivers/firmware/ti_sci.c | 127 +++++++++++++++++++++++++++++++++++++++++++++-
- drivers/firmware/ti_sci.h |   5 ++
- 2 files changed, 131 insertions(+), 1 deletion(-)
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202504211643.FJsMtmVl-lkp@intel.com/
 
-diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
-index 09d11e75e14e6a6a82f6d99ab1852c142aeb7e5f..a4b7869134779c58f4ef381a940455dea1f86153 100644
---- a/drivers/firmware/ti_sci.c
-+++ b/drivers/firmware/ti_sci.c
-@@ -6,6 +6,7 @@
-  *	Nishanth Menon
-  */
- 
-+#include "linux/stddef.h"
- #define pr_fmt(fmt) "%s: " fmt, __func__
- 
- #include <linux/bitmap.h>
-@@ -3742,6 +3743,111 @@ static const struct dev_pm_ops ti_sci_pm_ops = {
- #endif
- };
- 
-+/*
-+ * Enter Partial-IO, which disables everything including DDR with only a small
-+ * logic being active for wakeup.
-+ */
-+static int ti_sci_enter_partial_io(struct ti_sci_info *info)
-+{
-+	struct ti_sci_msg_req_prepare_sleep *req;
-+	struct ti_sci_xfer *xfer;
-+	struct device *dev = info->dev;
-+	int ret = 0;
-+
-+	xfer = ti_sci_get_one_xfer(info, TI_SCI_MSG_PREPARE_SLEEP,
-+				   TI_SCI_FLAG_REQ_GENERIC_NORESPONSE,
-+				   sizeof(*req), sizeof(struct ti_sci_msg_hdr));
-+	if (IS_ERR(xfer)) {
-+		ret = PTR_ERR(xfer);
-+		dev_err(dev, "Message alloc failed(%d)\n", ret);
-+		return ret;
-+	}
-+
-+	req = (struct ti_sci_msg_req_prepare_sleep *)xfer->xfer_buf;
-+	req->mode = TISCI_MSG_VALUE_SLEEP_MODE_PARTIAL_IO;
-+	req->ctx_lo = 0;
-+	req->ctx_hi = 0;
-+	req->debug_flags = 0;
-+
-+	dev_info(dev, "Entering Partial-IO because a powered wakeup-enabled device was found.\n");
-+
-+	ret = ti_sci_do_xfer(info, xfer);
-+	if (ret) {
-+		dev_err(dev, "Mbox send fail %d\n", ret);
-+		goto fail;
-+	}
-+
-+fail:
-+	ti_sci_put_one_xfer(&info->minfo, xfer);
-+
-+	return ret;
-+}
-+
-+/*
-+ * Iterate all device nodes that have a wakeup-source property and check if one
-+ * of the possible phandles points to a Partial-IO system state. If it
-+ * does resolve the device node to an actual device and check if wakeup is
-+ * enabled.
-+ */
-+static bool ti_sci_partial_io_wakeup_enabled(struct ti_sci_info *info)
-+{
-+	struct device_node *wakeup_node = NULL;
-+
-+	for_each_node_with_property(wakeup_node, "wakeup-source") {
-+		struct of_phandle_iterator it;
-+		int err;
-+
-+		of_for_each_phandle(&it, err, wakeup_node, "wakeup-source", NULL, 0) {
-+			struct platform_device *pdev;
-+			bool may_wakeup;
-+
-+			if (of_property_match_string(it.node, "idle-state-name", "Partial-IO"))
-+				continue;
-+
-+			pdev = of_find_device_by_node(wakeup_node);
-+			if (!pdev)
-+				continue;
-+
-+			may_wakeup = device_may_wakeup(&pdev->dev);
-+			put_device(&pdev->dev);
-+
-+			if (may_wakeup) {
-+				dev_dbg(info->dev, "%pOF identified as wakeup source for Partial-IO\n",
-+					wakeup_node);
-+				of_node_put(it.node);
-+				of_node_put(wakeup_node);
-+				return true;
-+			}
-+		}
-+	}
-+
-+	return false;
-+}
-+
-+static int ti_sci_sys_off_handler(struct sys_off_data *data)
-+{
-+	struct ti_sci_info *info = data->cb_data;
-+	bool enter_partial_io = ti_sci_partial_io_wakeup_enabled(info);
-+	int ret;
-+
-+	if (!enter_partial_io)
-+		return NOTIFY_DONE;
-+
-+	ret = ti_sci_enter_partial_io(info);
-+
-+	if (ret) {
-+		dev_err(info->dev,
-+			"Failed to enter Partial-IO %pe, trying to do an emergency restart\n",
-+			ERR_PTR(ret));
-+		emergency_restart();
-+	}
-+
-+	mdelay(5000);
-+	emergency_restart();
-+
-+	return NOTIFY_DONE;
-+}
-+
- /* Description for K2G */
- static const struct ti_sci_desc ti_sci_pmmc_k2g_desc = {
- 	.default_host_id = 2,
-@@ -3885,6 +3991,19 @@ static int ti_sci_probe(struct platform_device *pdev)
- 		goto out;
- 	}
- 
-+	if (info->fw_caps & MSG_FLAG_CAPS_LPM_PARTIAL_IO) {
-+		ret = devm_register_sys_off_handler(dev,
-+						    SYS_OFF_MODE_POWER_OFF,
-+						    SYS_OFF_PRIO_FIRMWARE,
-+						    ti_sci_sys_off_handler,
-+						    info);
-+		if (ret) {
-+			dev_err(dev, "Failed to register sys_off_handler %pe\n",
-+				ERR_PTR(ret));
-+			goto out;
-+		}
-+	}
-+
- 	dev_info(dev, "ABI: %d.%d (firmware rev 0x%04x '%s')\n",
- 		 info->handle.version.abi_major, info->handle.version.abi_minor,
- 		 info->handle.version.firmware_revision,
-@@ -3894,7 +4013,13 @@ static int ti_sci_probe(struct platform_device *pdev)
- 	list_add_tail(&info->node, &ti_sci_list);
- 	mutex_unlock(&ti_sci_list_mutex);
- 
--	return of_platform_populate(dev->of_node, NULL, NULL, dev);
-+	ret = of_platform_populate(dev->of_node, NULL, NULL, dev);
-+	if (ret) {
-+		dev_err(dev, "platform_populate failed %pe\n", ERR_PTR(ret));
-+		goto out;
-+	}
-+	return 0;
-+
- out:
- 	if (!IS_ERR(info->chan_tx))
- 		mbox_free_channel(info->chan_tx);
-diff --git a/drivers/firmware/ti_sci.h b/drivers/firmware/ti_sci.h
-index 053387d7baa064498e6a208daa7f70040ef87281..dec9e20cbe5da8f6d9393d56bb9a1e73cb083a42 100644
---- a/drivers/firmware/ti_sci.h
-+++ b/drivers/firmware/ti_sci.h
-@@ -592,6 +592,11 @@ struct ti_sci_msg_resp_get_clock_freq {
- struct ti_sci_msg_req_prepare_sleep {
- 	struct ti_sci_msg_hdr	hdr;
- 
-+/*
-+ * When sending perpare_sleep with MODE_PARTIAL_IO no response will be sent,
-+ * no further steps are required.
-+ */
-+#define TISCI_MSG_VALUE_SLEEP_MODE_PARTIAL_IO				0x03
- #define TISCI_MSG_VALUE_SLEEP_MODE_DM_MANAGED				0xfd
- 	u8			mode;
- 	u32			ctx_lo;
+All warnings (new ones prefixed by >>):
+
+>> drivers/i3c/master/svc-i3c-master.c:1898:29: warning: variable 'ret' is uninitialized when used here [-Wuninitialized]
+    1898 |                 return dev_err_probe(dev, ret, "can't get I3C clocks\n");
+         |                                           ^~~
+   drivers/i3c/master/svc-i3c-master.c:1882:9: note: initialize the variable 'ret' to silence this warning
+    1882 |         int ret, i;
+         |                ^
+         |                 = 0
+   1 warning generated.
+
+
+vim +/ret +1898 drivers/i3c/master/svc-i3c-master.c
+
+  1877	
+  1878	static int svc_i3c_master_probe(struct platform_device *pdev)
+  1879	{
+  1880		struct device *dev = &pdev->dev;
+  1881		struct svc_i3c_master *master;
+  1882		int ret, i;
+  1883	
+  1884		master = devm_kzalloc(dev, sizeof(*master), GFP_KERNEL);
+  1885		if (!master)
+  1886			return -ENOMEM;
+  1887	
+  1888		master->drvdata = of_device_get_match_data(dev);
+  1889		if (!master->drvdata)
+  1890			return -EINVAL;
+  1891	
+  1892		master->regs = devm_platform_ioremap_resource(pdev, 0);
+  1893		if (IS_ERR(master->regs))
+  1894			return PTR_ERR(master->regs);
+  1895	
+  1896		master->num_clks = devm_clk_bulk_get_all(dev, &master->clks);
+  1897		if (master->num_clks < 0)
+> 1898			return dev_err_probe(dev, ret, "can't get I3C clocks\n");
+  1899	
+  1900		for (i = 0; i < master->num_clks; i++) {
+  1901			if (!strcmp(master->clks[i].id, "fast_clk"))
+  1902				break;
+  1903		}
+  1904	
+  1905		if (i == master->num_clks)
+  1906			return dev_err_probe(dev, -EINVAL,
+  1907					     "can't get I3C peripheral clock\n");
+  1908	
+  1909		master->fclk = devm_clk_get(dev, "fast_clk");
+  1910		if (IS_ERR(master->fclk))
+  1911			return PTR_ERR(master->fclk);
+  1912	
+  1913		master->irq = platform_get_irq(pdev, 0);
+  1914		if (master->irq < 0)
+  1915			return master->irq;
+  1916	
+  1917		master->dev = dev;
+  1918		ret = clk_bulk_prepare_enable(master->num_clks, master->clks);
+  1919		if (ret)
+  1920			return dev_err_probe(dev, ret, "can't enable I3C clocks\n");
+  1921	
+  1922		INIT_WORK(&master->hj_work, svc_i3c_master_hj_work);
+  1923		INIT_WORK(&master->ibi_work, svc_i3c_master_ibi_work);
+  1924		mutex_init(&master->lock);
+  1925	
+  1926		ret = devm_request_irq(dev, master->irq, svc_i3c_master_irq_handler,
+  1927				       IRQF_NO_SUSPEND, "svc-i3c-irq", master);
+  1928		if (ret)
+  1929			goto err_disable_clks;
+  1930	
+  1931		master->free_slots = GENMASK(SVC_I3C_MAX_DEVS - 1, 0);
+  1932	
+  1933		spin_lock_init(&master->xferqueue.lock);
+  1934		INIT_LIST_HEAD(&master->xferqueue.list);
+  1935	
+  1936		spin_lock_init(&master->ibi.lock);
+  1937		master->ibi.num_slots = SVC_I3C_MAX_DEVS;
+  1938		master->ibi.slots = devm_kcalloc(&pdev->dev, master->ibi.num_slots,
+  1939						 sizeof(*master->ibi.slots),
+  1940						 GFP_KERNEL);
+  1941		if (!master->ibi.slots) {
+  1942			ret = -ENOMEM;
+  1943			goto err_disable_clks;
+  1944		}
+  1945	
+  1946		platform_set_drvdata(pdev, master);
+  1947	
+  1948		pm_runtime_set_autosuspend_delay(&pdev->dev, SVC_I3C_PM_TIMEOUT_MS);
+  1949		pm_runtime_use_autosuspend(&pdev->dev);
+  1950		pm_runtime_get_noresume(&pdev->dev);
+  1951		pm_runtime_set_active(&pdev->dev);
+  1952		pm_runtime_enable(&pdev->dev);
+  1953	
+  1954		svc_i3c_master_reset(master);
+  1955	
+  1956		/* Register the master */
+  1957		ret = i3c_master_register(&master->base, &pdev->dev,
+  1958					  &svc_i3c_master_ops, false);
+  1959		if (ret)
+  1960			goto rpm_disable;
+  1961	
+  1962		pm_runtime_mark_last_busy(&pdev->dev);
+  1963		pm_runtime_put_autosuspend(&pdev->dev);
+  1964	
+  1965		return 0;
+  1966	
+  1967	rpm_disable:
+  1968		pm_runtime_dont_use_autosuspend(&pdev->dev);
+  1969		pm_runtime_put_noidle(&pdev->dev);
+  1970		pm_runtime_disable(&pdev->dev);
+  1971		pm_runtime_set_suspended(&pdev->dev);
+  1972	
+  1973	err_disable_clks:
+  1974		clk_bulk_disable_unprepare(master->num_clks, master->clks);
+  1975	
+  1976		return ret;
+  1977	}
+  1978	
 
 -- 
-2.49.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
