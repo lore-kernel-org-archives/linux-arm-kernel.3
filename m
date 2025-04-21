@@ -4,107 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 369DCC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 09:56:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B2A3C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 09:58:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M6SlcB7avZDd+J/3syrPS0F9RsnPBXVsCWz4nLp28do=; b=FO4S4Fa80txOU9CMxYmonLyUh3
-	S1efsHyy+GRSkhOLrYxgMbMVPO/U+U+HbHgWQbOLEmZL6QmEPteBj7ithLOG/s2h+l5bLrvllZagG
-	pI4VQw6Ek0u13taJUto4etVHMDOS6KOMSkXJJdkrsW1MTeczRnHNJT5rhNE+rMccyIAjpfrYtuIqa
-	4z8Yk5a5XTIlGifB8f6QWLZpSc3BXJI2WqzR3RItVp1YOFvmZaTWtYWpBojEMn0+4jvW07QUOcwuY
-	6dDGy4sqOphSDTjtIDwRU7Isae3jZOnKce7iA2DnZ+CKV4sKN7YmroASHInVwJcqyJTAXYntN7WUS
-	lcQcGIWQ==;
+	bh=A4FzbJRoFIpdnPZJqvb8bY8EBkO0P8Qao2ti8QKPVRg=; b=xdZvxrhHQaT6tEaWzcuF7geLAf
+	9YkF5JK0kzxOXkettZ8IeWcOU4Vz1UVDfHduKEvwuK4XsP8XoxdD+rXTIEZSHnGBvDSB2kfZVZzKc
+	lzr+fG+WIPtIvS63Is2spnGlyk6nzmznaa/3yI2dxs/2LEKJEbVZiwawAowMxjPeokR3GB34qdmb9
+	25WYfULWVeUWiRe/zYc9gs5Nl8ueXUTNDgn0Fn0C1UmUSJ26ziVcDYBJe6HOYzgjuk5MuqioXTmTi
+	72Lp8rawQNT4qRXbdsXAdzWOqXSWBuYsuP1OH6d8bqkUTxLkMhq3l/lg8Eu7jC9xFLA1oImdTwcs5
+	l/lJOPzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6nso-000000042i7-3ax5;
-	Mon, 21 Apr 2025 09:56:10 +0000
-Received: from mx-rz-1.rrze.uni-erlangen.de ([131.188.11.20])
+	id 1u6nue-000000042v3-27au;
+	Mon, 21 Apr 2025 09:58:04 +0000
+Received: from mail-m1973192.qiye.163.com ([220.197.31.92])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6nqx-000000042aL-1FBo
+	id 1u6nrN-000000042d9-0N8D
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Apr 2025 09:54:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fau.de; s=fau-2021;
-	t=1745229253; bh=M6SlcB7avZDd+J/3syrPS0F9RsnPBXVsCWz4nLp28do=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From:To:CC:
-	 Subject;
-	b=FmoeyPFHIVK2HT7So63JnWXVoEOlP5X4jWvvMPaFcZYCbcFcPC6reRfSbUJIZWmaX
-	 EX0JEjg7HSEOqbyAmzztmbQn8+AsLyXQCPaXYm8ppn3xFx1LnelD6L6dLR1MQtQ8yE
-	 qlS6lsUhJJa8acyMRODP5/5gxauu95XGq41Kf2CvN9T+PfWdWts/3xxcNszw7uSzHs
-	 rGW8xids7ZQUcv9rIjkSwlFQfMecK+U2t/Gg79yYRWHNh0RtBHMMsznd/1lYFCMD0u
-	 wHRuq4nn717GjLihA8legNWnpN47OQnIuBrlk9U1rjBY1ayRgDva3f2FWGO4mKcc92
-	 NeC50vSdYJK5Q==
-Received: from mx-rz-smart.rrze.uni-erlangen.de (mx-rz-smart.rrze.uni-erlangen.de [IPv6:2001:638:a000:1025::1e])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-rz-1.rrze.uni-erlangen.de (Postfix) with ESMTPS id 4Zh1113gNyz8syk;
-	Mon, 21 Apr 2025 11:54:13 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at boeck5.rrze.uni-erlangen.de (RRZE)
-X-RRZE-Flag: Not-Spam
-X-RRZE-Submit-IP: 2001:9e8:3600:7e00:5b67:6b9c:caeb:75c
-Received: from luis-tp.fritz.box (unknown [IPv6:2001:9e8:3600:7e00:5b67:6b9c:caeb:75c])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: U2FsdGVkX1+ek67R2sSwJhlHDH3iNjZTWMHvdQkVmBs=)
-	by smtp-auth.uni-erlangen.de (Postfix) with ESMTPSA id 4Zh10x2lSXz8sv4;
-	Mon, 21 Apr 2025 11:54:09 +0200 (CEST)
-From: Luis Gerhorst <luis.gerhorst@fau.de>
-To: Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Hao Luo <haoluo@google.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Xu Kuohai <xukuohai@huaweicloud.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Hari Bathini <hbathini@linux.ibm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Naveen N Rao <naveen@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Mykola Lysenko <mykolal@fb.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Luis Gerhorst <luis.gerhorst@fau.de>,
-	Henriette Herzog <henriette.herzog@rub.de>,
-	Saket Kumar Bhaskar <skb99@linux.ibm.com>,
-	Cupertino Miranda <cupertino.miranda@oracle.com>,
-	Jiayuan Chen <mrpre@163.com>,
-	Matan Shachnai <m.shachnai@gmail.com>,
-	Dimitar Kanaliev <dimitar.kanaliev@siteground.com>,
-	Shung-Hsi Yu <shung-hsi.yu@suse.com>,
-	Daniel Xu <dxu@dxuuu.xyz>,
-	bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-kselftest@vger.kernel.org
-Cc: Maximilian Ott <ott@cs.fau.de>,
-	Milan Stephan <milan.stephan@fau.de>
-Subject: [PATCH bpf-next v2 10/11] bpf: Allow nospec-protected var-offset stack access
-Date: Mon, 21 Apr 2025 11:18:01 +0200
-Message-ID: <20250421091802.3234859-11-luis.gerhorst@fau.de>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250421091802.3234859-1-luis.gerhorst@fau.de>
-References: <20250421091802.3234859-1-luis.gerhorst@fau.de>
+	Mon, 21 Apr 2025 09:54:44 +0000
+Received: from [127.0.0.1] (unknown [122.224.241.34])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 1295c5899;
+	Mon, 21 Apr 2025 17:54:29 +0800 (GMT+08:00)
+Message-ID: <e473bba6-a9ad-45fa-a9d0-3cabbc162966@hj-micro.com>
+Date: Mon, 21 Apr 2025 17:54:22 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] perf:arm-ni: support PMUs to share IRQs for different
+ clock domains
+To: Robin Murphy <robin.murphy@arm.com>, will@kernel.org
+Cc: mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, peter.du@hj-micro.com, andy.xu@hj-micro.com
+References: <20250410114214.1599777-1-allen.wang@hj-micro.com>
+ <20250410114214.1599777-3-allen.wang@hj-micro.com>
+ <4e25536e-459b-4376-9422-4a7d0156234d@arm.com>
+Content-Language: en-US
+From: Shouping Wang <allen.wang@hj-micro.com>
+In-Reply-To: <4e25536e-459b-4376-9422-4a7d0156234d@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDS0pCVk1OSUNNGU5IGkNMSFYVFAkWGhdVEwETFh
+	oSFyQUDg9ZV1kYEgtZQVlKSUlVSUlPVUlPSlVIT1lXWRYaDxIVHRRZQVlPS0hVSktJT09PSFVKS0
+	tVSkJLS1kG
+X-HM-Tid: 0a9657c548a709d9kunm1295c5899
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PjI6Fzo4PDJNHgIINAghMD1C
+	PVYwCktVSlVKTE9OSUlCSUxLS09CVTMWGhIXVRoXFx4VVQwaFRw7ExFWFhIYCRRVGBQWRVlXWRIL
+	WUFZSklJVUlJT1VJT0pVSE9ZV1kIAVlBQ0lKTjcG
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_025415_483959_3784546E 
-X-CRM114-Status: GOOD (  17.06  )
+X-CRM114-CacheID: sfid-20250421_025441_282313_95F53452 
+X-CRM114-Status: GOOD (  25.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,94 +73,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Insert a nospec before the access to prevent it from ever using an index
-that is subject to speculative scalar-confusion.
+For the same NI700 device, different CDs share a PMU interrupt. The
+cd->cpu is set to the first CPU in the NUMA node associated with the
+device, meaning all CDs share the same cd->cpu value. During event_init,
+event->cpu is assigned to cd->cpu, resulting in all CD PMUs sharing the
+interrupt being bound to the same CPU context. if the CPU goes offline,
+the PMU context on that CPU is migrated to a target CPU, and the
+interrupt is rebound to the target CPU. My understanding is that the CPU
+affinity and hotplug operations can remain synchronized. Could you
+confirm if there are any misunderstandings in this logic?
 
-The access itself can either happen directly in the BPF program (reads
-only, check_stack_read_var_off()) or in a helper (read/write,
-check_helper_mem_access()).
-
-This relies on the fact that the speculative scalar confusion that leads
-to the variable-stack access going OOBs must stem from a prior
-speculative store or branch bypass. Adding a nospec before the
-variable-stack access will force all previously bypassed stores/branches
-to complete and cause the stack access to only ever go to the stack slot
-that is accessed architecturally.
-
-Alternatively, the variable-offset stack access might be a write that
-can itself be subject to speculative store bypass (this can happen in
-theory even if this code adds a nospec /before/ the variable-offset
-write). Only indirect writes by helpers might be affected here (e.g.,
-those taking ARG_PTR_TO_MAP_VALUE). (Because check_stack_write_var_off()
-does not use check_stack_range_initialized(), in-program variable-offset
-writes are not affected.) If the in-helper write can be subject to
-Spectre v4 and the helper writes/overwrites pointers on the BPF stack,
-they are already a problem for fixed-offset stack accesses and should be
-subject to Spectre v4 sanitization.
-
-Signed-off-by: Luis Gerhorst <luis.gerhorst@fau.de>
-Acked-by: Henriette Herzog <henriette.herzog@rub.de>
-Cc: Maximilian Ott <ott@cs.fau.de>
-Cc: Milan Stephan <milan.stephan@fau.de>
----
- kernel/bpf/verifier.c | 24 ++++++++++++------------
- 1 file changed, 12 insertions(+), 12 deletions(-)
-
-diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
-index 92490964eb3b..2cd925b915e0 100644
---- a/kernel/bpf/verifier.c
-+++ b/kernel/bpf/verifier.c
-@@ -7894,6 +7894,11 @@ static int check_atomic(struct bpf_verifier_env *env, struct bpf_insn *insn)
- 	}
- }
- 
-+static struct bpf_insn_aux_data *cur_aux(const struct bpf_verifier_env *env)
-+{
-+	return &env->insn_aux_data[env->insn_idx];
-+}
-+
- /* When register 'regno' is used to read the stack (either directly or through
-  * a helper function) make sure that it's within stack boundary and, depending
-  * on the access type and privileges, that all elements of the stack are
-@@ -7933,18 +7938,18 @@ static int check_stack_range_initialized(
- 	if (tnum_is_const(reg->var_off)) {
- 		min_off = max_off = reg->var_off.value + off;
- 	} else {
--		/* Variable offset is prohibited for unprivileged mode for
-+		/* Variable offset requires a nospec for unprivileged mode for
- 		 * simplicity since it requires corresponding support in
- 		 * Spectre masking for stack ALU.
- 		 * See also retrieve_ptr_limit().
- 		 */
- 		if (!env->bypass_spec_v1) {
--			char tn_buf[48];
--
--			tnum_strn(tn_buf, sizeof(tn_buf), reg->var_off);
--			verbose(env, "R%d variable offset stack access prohibited for !root, var_off=%s\n",
--				regno, tn_buf);
--			return -EACCES;
-+			/* Allow the access, but prevent it from using a
-+			 * speculative offset using a nospec before the
-+			 * dereference op.
-+			 */
-+			cur_aux(env)->nospec = true;
-+			WARN_ON_ONCE(cur_aux(env)->alu_state);
- 		}
- 		/* Only initialized buffer on stack is allowed to be accessed
- 		 * with variable offset. With uninitialized buffer it's hard to
-@@ -11172,11 +11177,6 @@ static int check_get_func_ip(struct bpf_verifier_env *env)
- 	return -ENOTSUPP;
- }
- 
--static struct bpf_insn_aux_data *cur_aux(const struct bpf_verifier_env *env)
--{
--	return &env->insn_aux_data[env->insn_idx];
--}
--
- static bool loop_flag_is_zero(struct bpf_verifier_env *env)
- {
- 	struct bpf_reg_state *regs = cur_regs(env);
--- 
-2.49.0
+On 4/17/2025 10:41 PM, Robin Murphy wrote:
+> On 10/04/2025 12:42 pm, Shouping Wang wrote:
+>> The ARM NI700 contains multiple clock domains, each with a PMU.
+>> In some hardware implementations, these PMUs under the same device
+>> share a common interrupt line. The current codes implementation
+>> only supports requesting a separate IRQ for each clock domain's PMU.
+>>
+>> Here, a single interrupt handler is registered for shared interrupt.
+>> Within this handler, the interrupt status of all PMUs sharing the
+>> interrupt is checked.
+> 
+> Unfortunately this isn't sufficient for sharing an IRQ between multiple
+> PMUs - the CPU affinity and hotplug context migration must be kept in
+> sync as well.
+> 
+> I guess I really should get back to my old plan to factor out a common
+> helper library for all this stuff - that was the main reason I left
+> combined IRQ support out of the initial version here rather than do
+> another copy-paste of the arm_dmc620 design again...
+> 
+> Thanks,
+> Robin.
+> 
+>> Signed-off-by: Shouping Wang <allen.wang@hj-micro.com>
+>> ---
+>>   drivers/perf/arm-ni.c | 77 +++++++++++++++++++++++++++++--------------
+>>   1 file changed, 53 insertions(+), 24 deletions(-)
+>>
+>> diff --git a/drivers/perf/arm-ni.c b/drivers/perf/arm-ni.c
+>> index 3f3d2e0f91fa..611085e89436 100644
+>> --- a/drivers/perf/arm-ni.c
+>> +++ b/drivers/perf/arm-ni.c
+>> @@ -104,6 +104,7 @@ struct arm_ni_cd {
+>>       u16 id;
+>>       int num_units;
+>>       int irq;
+>> +    s8 irq_friend;
+>>       int cpu;
+>>       struct hlist_node cpuhp_node;
+>>       struct pmu pmu;
+>> @@ -446,26 +447,31 @@ static irqreturn_t arm_ni_handle_irq(int irq,
+>> void *dev_id)
+>>   {
+>>       struct arm_ni_cd *cd = dev_id;
+>>       irqreturn_t ret = IRQ_NONE;
+>> -    u32 reg = readl_relaxed(cd->pmu_base + NI_PMOVSCLR);
+>> +    u32 reg;
+>>   -    if (reg & (1U << NI_CCNT_IDX)) {
+>> -        ret = IRQ_HANDLED;
+>> -        if (!(WARN_ON(!cd->ccnt))) {
+>> -            arm_ni_event_read(cd->ccnt);
+>> -            arm_ni_init_ccnt(cd);
+>> +    for (;;) {
+>> +        reg = readl_relaxed(cd->pmu_base + NI_PMOVSCLR);
+>> +        if (reg & (1U << NI_CCNT_IDX)) {
+>> +            ret = IRQ_HANDLED;
+>> +            if (!(WARN_ON(!cd->ccnt))) {
+>> +                arm_ni_event_read(cd->ccnt);
+>> +                arm_ni_init_ccnt(cd);
+>> +            }
+>>           }
+>> -    }
+>> -    for (int i = 0; i < NI_NUM_COUNTERS; i++) {
+>> -        if (!(reg & (1U << i)))
+>> -            continue;
+>> -        ret = IRQ_HANDLED;
+>> -        if (!(WARN_ON(!cd->evcnt[i]))) {
+>> -            arm_ni_event_read(cd->evcnt[i]);
+>> -            arm_ni_init_evcnt(cd, i);
+>> +        for (int i = 0; i < NI_NUM_COUNTERS; i++) {
+>> +            if (!(reg & (1U << i)))
+>> +                continue;
+>> +            ret = IRQ_HANDLED;
+>> +            if (!(WARN_ON(!cd->evcnt[i]))) {
+>> +                arm_ni_event_read(cd->evcnt[i]);
+>> +                arm_ni_init_evcnt(cd, i);
+>> +            }
+>>           }
+>> +        writel_relaxed(reg, cd->pmu_base + NI_PMOVSCLR);
+>> +        if (!cd->irq_friend)
+>> +            return ret;
+>> +        cd += cd->irq_friend;
+>>       }
+>> -    writel_relaxed(reg, cd->pmu_base + NI_PMOVSCLR);
+>> -    return ret;
+>>   }
+>>     static int arm_ni_init_cd(struct arm_ni *ni, struct arm_ni_node
+>> *node, u64 res_start)
+>> @@ -538,12 +544,6 @@ static int arm_ni_init_cd(struct arm_ni *ni,
+>> struct arm_ni_node *node, u64 res_s
+>>       if (cd->irq < 0)
+>>           return cd->irq;
+>>   -    err = devm_request_irq(ni->dev, cd->irq, arm_ni_handle_irq,
+>> -                   IRQF_NOBALANCING | IRQF_NO_THREAD,
+>> -                   dev_name(ni->dev), cd);
+>> -    if (err)
+>> -        return err;
+>> -
+>>       cd->cpu = cpumask_local_spread(0, dev_to_node(ni->dev));
+>>       cd->pmu = (struct pmu) {
+>>           .module = THIS_MODULE,
+>> @@ -603,6 +603,30 @@ static void arm_ni_probe_domain(void __iomem
+>> *base, struct arm_ni_node *node)
+>>       node->num_components = readl_relaxed(base + NI_CHILD_NODE_INFO);
+>>   }
+>>   +static int arm_ni_irq_init(struct arm_ni *ni)
+>> +{
+>> +    int irq;
+>> +    int err = 0;
+>> +
+>> +    for (int i = 0; i < ni->num_cds; i++) {
+>> +        irq = ni->cds[i].irq;
+>> +        for (int j = i; j--; ) {
+>> +            if (ni->cds[j].irq == irq) {
+>> +                ni->cds[j].irq_friend = i-j;
+>> +                goto next;
+>> +            }
+>> +        }
+>> +        err =  devm_request_irq(ni->dev, irq, arm_ni_handle_irq,
+>> +                    IRQF_NOBALANCING | IRQF_NO_THREAD,
+>> +                     dev_name(ni->dev), &ni->cds[i]);
+>> +        if (err)
+>> +            return err;
+>> +next:
+>> +        ;
+>> +    }
+>> +    return 0;
+>> +}
+>> +
+>>   static int arm_ni_probe(struct platform_device *pdev)
+>>   {
+>>       struct arm_ni_node cfg, vd, pd, cd;
+>> @@ -611,6 +635,7 @@ static int arm_ni_probe(struct platform_device *pdev)
+>>       void __iomem *base;
+>>       static atomic_t id;
+>>       int num_cds;
+>> +    int ret;
+>>       u32 reg, part;
+>>         /*
+>> @@ -669,8 +694,6 @@ static int arm_ni_probe(struct platform_device *pdev)
+>>               reg = readl_relaxed(vd.base + NI_CHILD_PTR(p));
+>>               arm_ni_probe_domain(base + reg, &pd);
+>>               for (int c = 0; c < pd.num_components; c++) {
+>> -                int ret;
+>> -
+>>                   reg = readl_relaxed(pd.base + NI_CHILD_PTR(c));
+>>                   arm_ni_probe_domain(base + reg, &cd);
+>>                   ret = arm_ni_init_cd(ni, &cd, res->start);
+>> @@ -683,6 +706,12 @@ static int arm_ni_probe(struct platform_device
+>> *pdev)
+>>           }
+>>       }
+>>   +    ret = arm_ni_irq_init(ni);
+>> +    if (ret) {
+>> +        arm_ni_remove(pdev);
+>> +        return ret;
+>> +    }
+>> +
+>>       return 0;
+>>   }
+>>   
+> 
+> 
 
 
