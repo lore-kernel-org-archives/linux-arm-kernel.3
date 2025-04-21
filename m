@@ -4,198 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E0DEC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 08:40:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE6C7C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 08:42:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bDBMHG87SNgbeNS+75u7Bw2JttxQJBHzmDml3SjG0Go=; b=G0Csp5Zt3MauDv9ShQRUN/x5AF
-	dseVJn6p4kz+KqiWh93Qgaj48FgjlTSfc7KUXzye6UeU/OnlHX4KNfLIOhKsovXlsgPlUJxL1UOK2
-	T5TLb/12nmZ2TBcnuAKNaIY0nusg+DVg3ONLx2Br60VyCqewkODikVL+R+CLMNb6tTHB0nWR1ErzF
-	+/NHtqxLESedoq/Ox77nsEkUaJcCSDewfstSFEL93eRqMazP13xsvfkR4tgK40aSlE5I+t4QLq9bz
-	b/H1BNTm6hPdLcbbFrWa81FSmHr0ClOObR1q0xop31SuRMP+U5uRd1TrABaFd1efTeW9pxs4+vStF
-	fDwdlc9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Y2//hknri4hGBDD1e8OM0em/ek5dr9hJzLJ9p8JI8FM=; b=whm9Pu9d5K2owW
+	KCwODMkOulIqymU2XkCNIwwFPitKkn7AFwMfQrQOyc99UOHYOUBQ+65UZ36qToYn205MPu1MRUSE3
+	KEx/OEByTDsKGDNQfPNKAhMRhGJOWT3FaLEhmS+riGCMFv5pLLDHhNL3DxJ6vzx5k0/npguUo3hvn
+	cmVHvriIDsqNONuJ1PpXD+Z6imNWjTHGOMigjSaNJNTg52G/BXFRgUJSqG0gX/6vxO4hR7qzmQxLP
+	sa5P9oTTOBccXBb/ttsEXXjy6zvO0Z/Z8vMaigAlyIabnn4Ua4xDMsA0a1d7mCQk25RjF6a4iWsRu
+	7rEgRgI8HpPyJ64I16Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6mhP-00000003vXL-4AbE;
-	Mon, 21 Apr 2025 08:40:19 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1u6mjF-00000003vep-3pOJ;
+	Mon, 21 Apr 2025 08:42:13 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6mKu-00000003scb-3Ad0
+	id 1u6mO9-00000003t7L-2l9O
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Apr 2025 08:17:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1745223424; x=1776759424;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=xt2O6HcYK7PZCT3vB1hbbFAs9H9W7avbSFy4HatpZWE=;
-  b=Lmno5zVq04ot9Caumpnymd59WYO0ekN0JAt5ucWYsFYkImHsmznOPikm
-   c5fY0vGUVITM/73aq56T65LXkkxgymuQx18wq2eRyVvu+/5k0jy6m8LBe
-   F1Pbfx0N05pMnhNG/2e1WM91jIJeyPrYkbS5NELqBfQo2BZKmH0UodR3+
-   9oY/SO6AX9d5m+X0xHgoALZJn2aocd3fUSj5e4btk7g96AaL/Rgef0DKq
-   rBZvKAsFQLqyb9jYuaFO09fn0fla48PwEtt3r6RbW4gDn5LN3GJiHbtVx
-   Aj51v8ow2MyS17H6KWYely9TCCtbM/yBEm+cruLI1Dkv67hArQJdHv3Zf
-   A==;
-X-CSE-ConnectionGUID: YceTgND2SGiQHI4GwHc+zQ==
-X-CSE-MsgGUID: 5LIN8nqGQKKLitdOqCByug==
-X-IronPort-AV: E=McAfee;i="6700,10204,11409"; a="46924510"
-X-IronPort-AV: E=Sophos;i="6.15,227,1739865600"; 
-   d="scan'208";a="46924510"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Apr 2025 01:17:04 -0700
-X-CSE-ConnectionGUID: U3+S+r7PQdKNq3/N+j7lZw==
-X-CSE-MsgGUID: BX0xEz10Qtyk1scxe4u9Qg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,227,1739865600"; 
-   d="scan'208";a="135745233"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by fmviesa003.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Apr 2025 01:17:03 -0700
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Mon, 21 Apr 2025 01:17:03 -0700
-Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14 via Frontend Transport; Mon, 21 Apr 2025 01:17:03 -0700
-Received: from NAM12-DM6-obe.outbound.protection.outlook.com (104.47.59.176)
- by edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.44; Mon, 21 Apr 2025 01:17:01 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ndpt+5NCMzEIA9i6v3f3MykUgJbWoWorNtpxC/GGoRRDxBVVZzFnE84Ck6wCD47ifxv0O4hRxYNtxac+vlCLYA88Hv0vJQTAZ4pDlysEUsiA1LT61BxsxEPBTP/vAv9eawrxBxnxnwVcH1PfRN8NX1v4o+tqWUS5Eag/Knd47E55glc9l8kLGrfySR42g0LFbB7mksXHWtxKgqjHk3pWPjqnQo4LGFMgno+eWPGRLhrgszpm7ZPyrADv1o59/Z11ImVt+fBe2mMHoZIC7QwNZhwUXyfx5jL5S4t/0rh5EnLPVZfmdAO83AsIoQ9S1UaXvZCZl0N5u6dfUi3ZfLL0iA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bDBMHG87SNgbeNS+75u7Bw2JttxQJBHzmDml3SjG0Go=;
- b=ZGGD4ZkEOvXUS09ie4Bv8MUpSehDizzNVzFpJqL89h3KAQAXOzs3k3W41T5t5YChuAWlnmtPakbFiwgDMMqphDXbkqQM3chpf3zknlTDksVFO3/JoFGdgdmN3CNp3gHqQ8MHxB9rOROtc4LYQNpdM1gFE4QJrx4YzThNblbftCV2KLKoQ6ieYSuZMTrK6ZDAmSwPiVkgeyFsxoetvkZg6dnNjFXjFh0wuQmyFRhrntVcUBFQraGCtWWimUVtGgkNfzEW4OhUU+fWePGvbmOm8R5yoVFqciAnC/e5EwagBgS5FhJpjyGmOgLq3P1K5et+69SVhsZuxDEQh2JTvG45bg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
- by CH3PR11MB8704.namprd11.prod.outlook.com (2603:10b6:610:1c7::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.36; Mon, 21 Apr
- 2025 08:16:54 +0000
-Received: from BN9PR11MB5276.namprd11.prod.outlook.com
- ([fe80::b576:d3bd:c8e0:4bc1]) by BN9PR11MB5276.namprd11.prod.outlook.com
- ([fe80::b576:d3bd:c8e0:4bc1%6]) with mapi id 15.20.8655.033; Mon, 21 Apr 2025
- 08:16:54 +0000
-From: "Tian, Kevin" <kevin.tian@intel.com>
-To: Nicolin Chen <nicolinc@nvidia.com>, "jgg@nvidia.com" <jgg@nvidia.com>,
-	"corbet@lwn.net" <corbet@lwn.net>, "will@kernel.org" <will@kernel.org>
-CC: "robin.murphy@arm.com" <robin.murphy@arm.com>, "joro@8bytes.org"
-	<joro@8bytes.org>, "thierry.reding@gmail.com" <thierry.reding@gmail.com>,
-	"vdumpa@nvidia.com" <vdumpa@nvidia.com>, "jonathanh@nvidia.com"
-	<jonathanh@nvidia.com>, "shuah@kernel.org" <shuah@kernel.org>,
-	"praan@google.com" <praan@google.com>, "nathan@kernel.org"
-	<nathan@kernel.org>, "peterz@infradead.org" <peterz@infradead.org>, "Liu, Yi
- L" <yi.l.liu@intel.com>, "jsnitsel@redhat.com" <jsnitsel@redhat.com>,
-	"mshavit@google.com" <mshavit@google.com>, "zhangzekun11@huawei.com"
-	<zhangzekun11@huawei.com>, "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-tegra@vger.kernel.org"
-	<linux-tegra@vger.kernel.org>, "linux-kselftest@vger.kernel.org"
-	<linux-kselftest@vger.kernel.org>, "patches@lists.linux.dev"
-	<patches@lists.linux.dev>
-Subject: RE: [PATCH v1 10/16] iommufd: Add mmap interface
-Thread-Topic: [PATCH v1 10/16] iommufd: Add mmap interface
-Thread-Index: AQHbqqxlzY98j96PHky6lQu+3U84hbOt0zIQ
-Date: Mon, 21 Apr 2025 08:16:54 +0000
-Message-ID: <BN9PR11MB527664BDB7933FA0B7981EE68CB82@BN9PR11MB5276.namprd11.prod.outlook.com>
-References: <cover.1744353300.git.nicolinc@nvidia.com>
- <c332a8701959c098f747dd8e8fa083ceda2bf2c3.1744353300.git.nicolinc@nvidia.com>
-In-Reply-To: <c332a8701959c098f747dd8e8fa083ceda2bf2c3.1744353300.git.nicolinc@nvidia.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|CH3PR11MB8704:EE_
-x-ms-office365-filtering-correlation-id: 729fe7bb-369d-4baa-301e-08dd80ace099
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?7cGfDptY0CKbJL0dA6JixtOGZhGJ++dgDMlx53PTuLMWxcB6CMqiAwrAH6c6?=
- =?us-ascii?Q?DJUNX6tZNHy4pFDIgnZa+RAX2obGnLFkiG1rlcz1K+x4/PmHX7KVXo2itqvZ?=
- =?us-ascii?Q?oOGKrDx/+f/nvqt16rVvB7+E3mN0RW6D/Rv8Xxo6IAE3utxrv+IFpLSo9/Md?=
- =?us-ascii?Q?orIGebiqfPNo6Q95sPO9aQhVee0BIUrm5vMM/RbD54sTVfhPBx6/psfJb06o?=
- =?us-ascii?Q?RV/vKyJe9qN4AkyDuNmyl3VP+0qXLMu3pinYdvivCv23KZkz3fwwD9MRLX+v?=
- =?us-ascii?Q?r63htFBB6gsM97zSNybCwfh5YzzTMaKWCAKIbykJi7WqscCuqos+JUmRAISP?=
- =?us-ascii?Q?/ufFm5vhWC30Dz8IiL1ZVXkoVtat8sj+fucPDysN27V0xJJ73SpxIuj7Lq6J?=
- =?us-ascii?Q?EwJ9hUa6ZTGSr/8f5HFSWp69WxxrPo93MgHEyyGEzs9KTxQLJZstuvTBLJYM?=
- =?us-ascii?Q?c5OBRKgmHRi0qt05t3KpsmShPm48KEXzBgS7pW6cAW9MIknuEPgxPKk21erI?=
- =?us-ascii?Q?CEpVGSRYCsiXg6HIgAoMUZaSgg7HU9/933GnkxRsSpvfjqPVGuG+WMi0OcZo?=
- =?us-ascii?Q?AU0AYbFtlHGlSCkzbOp1fFXs9olpDdac3V5NlJFFbxoBSIS+BOsZi8KNtgoP?=
- =?us-ascii?Q?GqCl3ZidTTt13GGi7fVG/LAHjwJKvynADgZyYZWm51mPNpGLEVt5gKlWTOXj?=
- =?us-ascii?Q?wiBk+JrTqy672vhT/SYl2wglLJiTXP3cmBloRaJxfLPWUCAM9trDLXhJazha?=
- =?us-ascii?Q?fnt167pITLzJPtD/KI5C6fQ4ezpd5B2+8jS4RHmw2R86mvkdgQi8XBVBpwc3?=
- =?us-ascii?Q?Sq6axrOY5FxeIoJhBzPNn1MYNgmr5nUF4oF+OXTsnp87fA3AUjL3Tg2kco3k?=
- =?us-ascii?Q?0EMjPVBMUMp3bQwVVd//hYvIHqXvDWverDTHE8gPeoY+p7NmbSMPELVnyubl?=
- =?us-ascii?Q?T3RRVFVgRlMTlnn84Fb+Bh5znml0bnVgz1weIVHNXKGQKnQTmE1eEAx8uBOo?=
- =?us-ascii?Q?rdReRzOEzcworHZ2LzhY4ryoamDGRWfyU7aZ9W8Tu4BUAyH6wV+xrPbm8W6R?=
- =?us-ascii?Q?pXX8Ki5Q/J9HR9hZhfxzwawVKeHHiiu/xU8eU+s5WxfBM4p3BjUAJVfofBGO?=
- =?us-ascii?Q?+5QlZgVDZ9Y91XD6WB2Ba1PlD6TxFentsW2jw3rGBS2TdvhXcuzDsn9hfeOS?=
- =?us-ascii?Q?3433MPC7HGxBBoF8A0P10VdajtA1q7iYeZQWZIS4i0DmF4lMmMAiiAOY00bm?=
- =?us-ascii?Q?KdzclMroQb5ghCxMlHnQp26e7NqQ4XU8s89R/5ULXpcARGtxUNa2J8dkXa4Z?=
- =?us-ascii?Q?bMFoNlRKpLIrRuTgQVlwu0+tF+7RfuRxuUDCM0dmZPwMgXRWhzoq8ONqY29G?=
- =?us-ascii?Q?ijWoFQ8O1Yrntqc3lejSnW7yDYBdBshCQ3Xlsr0oHcl4kPu5Om/L7XavgPgV?=
- =?us-ascii?Q?+5pKySV8hPBI97aXKVkxm7r1cy6ySM5C5o/Y5YkLAliHDU+6sCfRSA4xSW2i?=
- =?us-ascii?Q?RaTbJjzODUlxxGg=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?hQZiLeAks98PmLVBNR1iYv/JhynY/am5efZPp1KRfl63d0JEJ2IPbHRQQHgq?=
- =?us-ascii?Q?l4N3CbiBaT/7jV0Bg01sw1Bhbm5Lx9Q9XzSlN/exHbSQWib1++cf1p3UYJFD?=
- =?us-ascii?Q?0nE3dWiOqRvj4ctQSfu0F7NJTNoVPb8pQHUGSakcbr5X7qpYRcTcPrzvFpdd?=
- =?us-ascii?Q?9JYCRkS+pWPWJ5UieoAMmuRA8cGTvlAi44HhjAWV0/NFbpnZgmHUh3+mWreg?=
- =?us-ascii?Q?ypUpTnXIydwLFYgJKH+aMmI3F81HlhJnxaRqO7MQA2nQ+9MhtJAglkBm577Z?=
- =?us-ascii?Q?r5Oyk/+4OlgLGDdc7aW657+Y4gGVvIO+1d9BZQzps6/0Z8KoiyK4o/umjawT?=
- =?us-ascii?Q?kJArZUGKE473Yv9mCw1L0aBD6fmH+NtCO3kZ9lSJ5z2le1ol8dNU+5+aFBTF?=
- =?us-ascii?Q?1tYEjnajaIBRzs7OQmS62da1wUNhIsKRDwilA3HB2ne/yBmefzwyETLatn4t?=
- =?us-ascii?Q?XdYzzQY0GJxwLUyQpKJ39FgbpwnkVoMJmZCHI81buijVNHm7ZauiAieKeNDB?=
- =?us-ascii?Q?V8X6yyLvSBdcbbeyjnOc9HYRZVpHoXz64f8B5cLvChP7nXXe3Cy5KWD+8KsN?=
- =?us-ascii?Q?unxiyCKdCWgAMVKmj2/tLxWrt0bqxyr4Uw7HugG6PtCAX6crU6tN0/vjwI7M?=
- =?us-ascii?Q?L/OaI9/L7EZLcoGJq7eP5DXatRn3A00Mgrtrp5cwX0uycD4nn4qiKirp9v9U?=
- =?us-ascii?Q?IiCrcHNUPUQsBjeumQy3c0MCYFsGJ1CLFyYiy+9H4ZZHXMaBT2HKNrxs2aA2?=
- =?us-ascii?Q?Stu1fIovmgflOT8zjKtNeXcyVFUsYyaygQLFzkBU9gIQIzWawgG4pkN5g1W0?=
- =?us-ascii?Q?bTJ4zI0sPthSsbb71Itr61TnDxCYzcGHJAVqdYMQk48IRqwg/A66ikyKYAdy?=
- =?us-ascii?Q?oxGy2qCTPI2988IJJKXYc3jnwHqj3eZzAIE2K61wV+LL79ZlJzc6aoq0oNzb?=
- =?us-ascii?Q?NzTw1OTTbGE+FBa/cCRBw8d5xACVWR2Vi5WSwfL3IJHZicuU0x2xhDonVWLk?=
- =?us-ascii?Q?00VZwbYN2xHPZwidFqINJNFGiS2eJngIoU+Kum29gnvws0Gu05ZYggmrHjzS?=
- =?us-ascii?Q?Jl7Spai3qU8z2Ps+kMtD+rkgElEVhLMJwaxnF/7juk0xzhURNqOyaEu+VSHq?=
- =?us-ascii?Q?4PPwp77xkLR+8a4Py3B5NAvXQLUfV6eV6D/UKItD9d1yXf0tTPOdZgRwW0r+?=
- =?us-ascii?Q?UV/65kcEEy4NgMEOltau1p2I9uQcDIbqkoDMQAeNTmJMZQmif+dnf/LhWZ4M?=
- =?us-ascii?Q?KhmHtMZb8aN+9hOQcCyNRjFUobH49lEXieEVRp6H9Bw6tF4+0AB6IlvGCKVe?=
- =?us-ascii?Q?d4EJj4bTyKAfq/k+8/iI3gD9oFOZXYR+Hnhfz2wT2dwbXIVh2143af2DDjgc?=
- =?us-ascii?Q?27JKTzcZaKwYlvsth/UoZ3buaCXUkQj+pbh0XBt/20IB22jkFYNBW83m2Zyr?=
- =?us-ascii?Q?5zYNKF8rF9Kad1bYg1og3ozEOjV8/THTZ4ElcqUB/RarkZyQC04jQYR4gS12?=
- =?us-ascii?Q?EwWGFt+df8oms/szD4/SpmlAxjpwRQBoSBjynKrINrOTaiMh+d8KGte+Az2/?=
- =?us-ascii?Q?wJQY/S1vBxoCa/FIIpKWrU4sTH/pjL02UvS64SED?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Mon, 21 Apr 2025 08:20:27 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-5f624291db6so4431525a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Apr 2025 01:20:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1745223624; x=1745828424; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Y2//hknri4hGBDD1e8OM0em/ek5dr9hJzLJ9p8JI8FM=;
+        b=2JY3HAB40JUDrQ1KdS7OIA9azzrgn6uedrNlbLKqvGR2/gf5p5X1FgMJVZB980aqPF
+         arTny9c+BB2Sjnsda6WSjNUeJVhjmyGeAVr8u/helxk+rI5TcoWaLmPk+xX6PJd5oD0p
+         Pk5MMCgx3LbxY7Pf7YUBG7RVbQonHEekwJEsQWmr6vv+9KW62z/caPLSibHSt4u4xTbr
+         E2onsBjVOQ1MQPxwRxzBNRSDNI3Px37M2JPMKwL+o1uuZLxKBAp2eVi42MXs2PKO1KFI
+         +SspKSMQJy+4CqyzUjabx1TTdRmK8XSDNc6tmYtK7XSO8JSEyWyN3PTYytwZF672djSe
+         RKJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745223624; x=1745828424;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Y2//hknri4hGBDD1e8OM0em/ek5dr9hJzLJ9p8JI8FM=;
+        b=m1Uh9GGKVYqhvp7G6HAvjogevgcw9Tg2MQ9ZDlrijjrkRhyJBM6OWyjCOJOf2PUkGZ
+         18/NjxA1amkInit7B+SHXLbB4KN1YznSf5+a5/Hg4uG8I3a5q2NkJkauMKmlNut7mDXR
+         RCNEiBGIb5imXTlUVWNFWxWatiEsjh1Tpg5gCY1BdY+PQ++46X0S++8lzhV9SXWt18Yl
+         G0VnNAaiKIz62hd9bn+8PN9Ojztyh7Zev6bYdi30CFIawzt23oJr+hoOki9R8GYt9Fuo
+         vKt1dwBb4SHvo/zdPie+AkcFlu/XNKEYaiQ0y8zQDPuaKzUmvfi4Uf0mDPdIDaOn2pqZ
+         Q6qw==
+X-Forwarded-Encrypted: i=1; AJvYcCUk54/gM7S1WN61+RtzDzVKa+Hfq57maZwjjgqpqgn79SknKvebXsGfdWpiT4vQ+XGkesl46D0uWFuX3f91bzum@lists.infradead.org
+X-Gm-Message-State: AOJu0YzMVTgD4RA61uYCp1n6pgK3eEJ0EE3ZsrBJ/jxWe8lWEbESoyq0
+	ZoTJsiloEtuEsY1WvkC3K+V/uifLPeorNx5nCjL72gPEevyVEeVjCbXPebXfaq6bM0WoXRetGD0
+	F
+X-Gm-Gg: ASbGncvr5+UjEWov0gpcSwe+PD7QHOkB2sC9ST5QMlF1DgoCxqjlKt7OQk5ry4EvWDl
+	wjHA8QrIFpHD/8Ksup3Tv73dUyg7HW8YtzBOgjoOMHvORsURw1jE7VN94hzCOVokwQT0bE+YZtG
+	cV9AF13TGdUyUjJp/uCShuC5DCneTjJpmPC1+2AhlBb/29hsoTtlZCc5eYKREgZKACiFbhXiBRc
+	Yv7Y0oaGdjQtnRdroeki3IELLVuPO19h+7XNYN0ibw/Au7PWG4prAehNtrMeoTTWfSmtIzVgeMh
+	3PAZIzxoeAAzqns8pXQzIZNpXF4+I5PH+O0=
+X-Google-Smtp-Source: AGHT+IHN4I6voe9MkaTbYNinvZPCG6UdoeCoQlcmMWrevtcqkaDTbIA+2EU2iRfYT2fL8Xsk7lmQfw==
+X-Received: by 2002:a05:6402:26d2:b0:5f6:23b1:ab43 with SMTP id 4fb4d7f45d1cf-5f627c1e07fmr9366958a12.0.1745223624010;
+        Mon, 21 Apr 2025 01:20:24 -0700 (PDT)
+Received: from localhost ([2001:4091:a245:826e:c0c:4cef:7dd:26bd])
+        by smtp.gmail.com with UTF8SMTPSA id 4fb4d7f45d1cf-5f62559cb7fsm4313239a12.48.2025.04.21.01.20.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 21 Apr 2025 01:20:23 -0700 (PDT)
+From: Markus Schneider-Pargmann <msp@baylibre.com>
+Subject: [PATCH v6 0/2] firmware: ti_sci: Partial-IO support
+Date: Mon, 21 Apr 2025 10:19:58 +0200
+Message-Id: <20250421-topic-am62-partialio-v6-12-b4-v6-0-3b5cefab1339@baylibre.com>
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 729fe7bb-369d-4baa-301e-08dd80ace099
-X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Apr 2025 08:16:54.6894
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: Sgosn73dU3WG9JaID9NqC0yt5akyK1fVPNJFL9YAWFWLg/yriIhoJWELRjA1O9kz/yRoYcSqOalBxFZuI2OQTA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR11MB8704
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAK//BWgC/4WQyU7DMBRFfyXymld5ip1kxX8gFp5CLZqhTmKoq
+ vw7zoCoCqLL+xbn3PuuaHDBuwFV2RUFF/3guzYF8ZQhc1TtmwNvU0YUU04wLmDsem9ANYJCr8L
+ o1cl3EAUQCpqDoZLVWhnOuUSJ0QdX+8+V//K65eDOU9KM2xFpNTgwXdP4scqiOJAcgiHo1l9lu
+ 73c7Y1RLXyodzf1MHRTMG5vUBhiRVkyom1RRfmbkmOeBDcb7Hg3IwdGpbWkrom0qooELb2Pfhi
+ 7cFnfFNlafOuUpP9/JDLAUEsjlteUoiDPWl1OXgd3SKtXeOQ/QErKR0CegMTowiltOZbuD2D+D
+ cwxw+IRMF8alowyyyTnit4B53n+Ao18HI4nAgAA
+X-Change-ID: 20241008-topic-am62-partialio-v6-12-b4-c273fbac4447
+To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, 
+ Santosh Shilimkar <ssantosh@kernel.org>
+Cc: Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>, 
+ Dhruva Gole <d-gole@ti.com>, Sebin Francis <sebin.francis@ti.com>, 
+ Kendall Willis <k-willis@ti.com>, Akashdeep Kaur <a-kaur@ti.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Markus Schneider-Pargmann <msp@baylibre.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7595; i=msp@baylibre.com;
+ h=from:subject:message-id; bh=6MkfKz38ObeZcfyCkcrYqFfAXaeX4E8lYjZjUkcJ/Tc=;
+ b=owGbwMvMwCXWejAsc4KoVzDjabUkhgzW/9uk3H4ELrsV4jnLxbwhpctv0sXjwgnJj0M+lOdt8
+ i/rlrnQUcrCIMbFICumyNKZGJr2X37nseRFyzbDzGFlAhnCwMUpABMJk2L47yFx7M3l9bUbBa16
+ NPi99z5lsc2J+F2tsTPgiePFHdc3WDP89/216P2hmZIXHqgwVHDe1Ht4Y58Vs/iLmKNK09bpmlZ
+ EcwEA
+X-Developer-Key: i=msp@baylibre.com; a=openpgp;
+ fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_011704_810093_C81AB35A 
-X-CRM114-Status: GOOD (  20.06  )
+X-CRM114-CacheID: sfid-20250421_012025_712521_11B49649 
+X-CRM114-Status: GOOD (  23.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -210,66 +115,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> From: Nicolin Chen <nicolinc@nvidia.com>
-> Sent: Friday, April 11, 2025 2:38 PM
->=20
-> For vIOMMU passing through HW resources to user space (VMs), add an
-> mmap
-> infrastructure to map a region of hardware MMIO pages. The addr and size
-> should be given previously via a prior IOMMU_VIOMMU_ALLOC ioctl in some
-> output fields of the structure.
+Hi,
 
-According to the code the addr must be the immap_id given by previous
-alloc but size can be any as long as it doesn't exceed the physical length.
+This series adds support for Partial-IO to the ti-sci driver, implementing the
+firmware interface necessary to enter this low power state. It processes the
+wakeup-source properties from the devicetree and communicates with the system
+firmware to enter Partial-IO mode when appropriate wakeup sources are enabled.
 
->=20
-> +/* Entry for iommufd_ctx::mt_mmap */
-> +struct iommufd_mmap {
-> +	unsigned long pfn_start;
-> +	unsigned long pfn_end;
-> +	bool is_io;
-> +};
+Partial-IO Overview
+------------------
+Partial-IO is a low power system state in which nearly everything is
+turned off except the pins of the CANUART group (mcu_mcan0, mcu_mcan1,
+wkup_uart0 and mcu_uart0). These devices can trigger a wakeup of the system
+on pin activity. Note that this does not resume the system as the DDR is
+off as well. So this state can be considered a power-off state with wakeup
+capabilities.
 
-what is the point of 'is_io' here? Do you intend to allow userspace to
-mmap anonymous memory via iommufd?
+A documentation can also be found in section 6.2.4 in the TRM:
+  https://www.ti.com/lit/pdf/spruiv7
 
-anyway for now the only user in this series always sets it to true.
+Implementation Details
+----------------------
+The complete Partial-IO feature requires three coordinated series, each handling
+a different aspect of the implementation:
 
-I'd suggest to remove it until there is a real need.
+1. m_can driver series: Implements device-specific wakeup functionality
+   for m_can devices, allowing them to be set as wakeup sources.
+   https://gitlab.baylibre.com/msp8/linux/-/tree/topic/mcan-wakeup-source/v6.15?ref_type=heads
+   https://lore.kernel.org/r/20250421-topic-mcan-wakeup-source-v6-12-v7-0-1b7b916c9832@baylibre.com
 
->=20
-> +/*
-> + * The pfn and size carried in @vma from the user space mmap call should
-> be
+2. Devicetree series: Defines system states and wakeup sources in the
+   devicetree for am62, am62a and am62p.
+   https://gitlab.baylibre.com/msp8/linux/-/tree/topic/am62-dt-partialio/v6.15?ref_type=heads
+   https://lore.kernel.org/r/20250421-topic-am62-dt-partialio-v6-15-v1-0-6ced30aafddb@baylibre.com
 
-there is no 'pfn' carried in the mmap call. It's vm_pgoff.
+3. This series (TI-SCI firmware): Implements the firmware interface to enter
+   Partial-IO mode when appropriate wakeup sources are enabled.
 
-> + * previously given to user space via a prior ioctl output.
-> + */
-> +static int iommufd_fops_mmap(struct file *filp, struct vm_area_struct *v=
-ma)
-> +{
-> +	struct iommufd_ctx *ictx =3D filp->private_data;
-> +	size_t size =3D vma->vm_end - vma->vm_start;
-> +	struct iommufd_mmap *immap;
-> +
-> +	if (size & ~PAGE_MASK)
-> +		return -EINVAL;
-> +	if (!(vma->vm_flags & VM_SHARED))
-> +		return -EINVAL;
-> +	if (vma->vm_flags & VM_EXEC)
-> +		return -EPERM;
-> +
-> +	/* vm_pgoff carries an index of an mtree entry/immap */
-> +	immap =3D mtree_load(&ictx->mt_mmap, vma->vm_pgoff);
-> +	if (!immap)
-> +		return -EINVAL;
-> +	if (size >> PAGE_SHIFT > immap->pfn_end - immap->pfn_start + 1)
-> +		return -EINVAL;
+Devicetree Bindings
+-------------------
+This series depends on the dt-schema pull request that adds bindings for
+system-idle-states and updates the binding for wakeup-source:
+  https://github.com/devicetree-org/dt-schema/pull/150
 
-Do we want to document in uAPI that iommufd mmap allows to map
-a sub-region (starting from offset zero) of the reported size from earlier
-alloc ioctl, but not from random offset (of course impossible by forcing
-vm_pgoff to be a mtree index)?
+These new bindings allow the ti-sci driver to identify devices that can
+act as wakeup sources for specific system states like Partial-IO.
+
+Testing
+-------
+A test branch is available here that includes all patches required to
+test Partial-IO:
+
+https://gitlab.baylibre.com/msp8/linux/-/tree/integration/am62-partialio/v6.15?ref_type=heads
+
+After enabling Wake-on-LAN the system can be powered off and will enter
+the Partial-IO state in which it can be woken up by activity on the
+specific pins:
+    ethtool -s can0 wol p
+    ethtool -s can1 wol p
+    poweroff
+
+These patches are tested on am62-lp-sk.
+
+Best,
+Markus
+
+Previous versions "firmware: ti_sci: Partial-IO support":
+ v1: https://lore.kernel.org/lkml/20240523080225.1288617-1-msp@baylibre.com/
+ v2: https://lore.kernel.org/lkml/20240729080101.3859701-1-msp@baylibre.com/
+ v3: https://lore.kernel.org/r/20241012-topic-am62-partialio-v6-13-b4-v3-0-f7c6c2739681@baylibre.com
+ v4: https://lore.kernel.org/r/20241219-topic-am62-partialio-v6-12-b4-v4-0-1cb8eabd407e@baylibre.com
+ v5: https://lore.kernel.org/r/20250306-topic-am62-partialio-v6-12-b4-v5-0-f9323d3744a2@baylibre.com
+
+Previous versions "can: m_can: Add am62 wakeup support":
+ v1: https://lore.kernel.org/lkml/20240523075347.1282395-1-msp@baylibre.com/
+ v2: https://lore.kernel.org/lkml/20240729074135.3850634-1-msp@baylibre.com/
+ v3: https://lore.kernel.org/lkml/20241011-topic-mcan-wakeup-source-v6-12-v3-0-9752c714ad12@baylibre.com
+ v4: https://lore.kernel.org/r/20241015-topic-mcan-wakeup-source-v6-12-v4-0-fdac1d1e7aa6@baylibre.com
+ v5: https://lore.kernel.org/r/20241028-topic-mcan-wakeup-source-v6-12-v5-0-33edc0aba629@baylibre.com
+ v6: https://lore.kernel.org/r/20241219-topic-mcan-wakeup-source-v6-12-v6-0-1356c7f7cfda@baylibre.com
+
+Changes in v6:
+ - Narrowed down the wakeup-source binding to phandle lists
+ - Split off the mcan and DT changes into separate series
+
+Changes in v5:
+ - Rebased to v6.14-rc1
+ - Merged m_can and ti_sci series to avoid conflicts and show
+   dependencies more easily
+ - Added definitions of system-states for am62/am62a/am62p
+ - Moved wakeup-source definitions into board dts files as they require
+   a bit of support on the board.
+ - Updated ti_sci support to walk through the wakeup-source phandle
+   lists
+ - Added pinctrl settings for mcu_mcan0/1 on all boards
+ - Minor style updates for ti_sci support for transfers without response
+ - Update and move the dt-binding for wakeup-source from the m_can
+   binding to the dt-schema repository
+
+Changes in v4:
+ - Rebased to v6.13-rc1
+ - Removed all regulator related structures from patches and implemented
+   the wakeup-source property use instead.
+
+Changes in v3:
+ - Remove other modes declared for PREPARE_SLEEP as they probably won't
+   ever be used in upstream.
+ - Replace the wait loop after sending PREPARE_SLEEP with msleep and do
+   an emergency_restart if it exits
+ - Remove uarts from DT wakeup sources
+ - Split no response handling in ti_sci_do_xfer() into a separate patch
+   and use goto instead of if ()
+ - Remove DT binding parital-io-wakeup-sources. Instead I am modeling
+   the devices that are in the relevant group that are powered during
+   Partial-IO with the power supplies that are externally provided to
+   the SoC. In this case they are provided through 'vddshv_canuart'. All
+   devices using this regulator can be considered a potential wakeup
+   source if they are wakeup capable and wakeup enabled.
+ - Added devicetree patches adding vcc_3v3_sys regulator and
+   vddshv_canuart for am62-lp-sk
+ - Add pinctrl entries for am62-lp-sk to add WKUP_EN for mcu_mcan0 and
+   mcu_mcan1
+
+Changes in v2:
+ - Rebase to v6.11-rc1
+ - dt-binding:
+    - Update commit message
+    - Add more verbose description of the new binding for a better
+      explanation.
+ - ti_sci driver:
+    - Combine ti_sci_do_send() into ti_sci_do_xfer and only wait on a
+      response if a flag is set.
+    - On failure to enter Partial-IO, do emergency_restart()
+    - Add comments
+    - Fix small things
+
+Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
+---
+Markus Schneider-Pargmann (2):
+      firmware: ti_sci: Support transfers without response
+      firmware: ti_sci: Partial-IO support
+
+ drivers/firmware/ti_sci.c | 134 ++++++++++++++++++++++++++++++++++++++++++++--
+ drivers/firmware/ti_sci.h |   5 ++
+ 2 files changed, 136 insertions(+), 3 deletions(-)
+---
+base-commit: 64e9fdfc89a76fed38d8ddeed72d42ec71957ed9
+change-id: 20241008-topic-am62-partialio-v6-12-b4-c273fbac4447
+prerequisite-change-id: 20241009-topic-mcan-wakeup-source-v6-12-8c1d69931bd8:v7
+prerequisite-patch-id: 02b7142f56c849c9a3faab2d2871805febd647aa
+prerequisite-patch-id: 830b339ea452edd750b04f719da91e721be630cb
+prerequisite-patch-id: 56fd0aae20e82eb2dfb48f1b7088d62311a11f05
+prerequisite-patch-id: 41f55b96c0428240d74d488e3c788c09842a1753
+prerequisite-change-id: 20250415-topic-am62-dt-partialio-v6-15-327dd1ff17da:v1
+prerequisite-patch-id: 74d50dae2d453ec9a3e72c89df40e97df2ebed9b
+prerequisite-patch-id: b68c32a3053c71bc0c3e301dc0b6b4f54546f789
+prerequisite-patch-id: 6fe934ea35357712bb07ada84c157769418704d1
+prerequisite-patch-id: 993138fcd8edcedf0d7ba033df7bf9ed3d45d40f
+prerequisite-patch-id: e0330ef081affbe91e02b2e9b5a76ebab59e6ea6
+prerequisite-patch-id: 864092d43dff594e8be7812a80a3e4a1739ee038
+prerequisite-patch-id: b4f982c7015f03acc41285195aff0f3a44b027c2
+
+Best regards,
+-- 
+Markus Schneider-Pargmann <msp@baylibre.com>
 
 
