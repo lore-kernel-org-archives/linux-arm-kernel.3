@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D980C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 22:00:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14695C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 22:02:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lGttv+NBrT9eqq/71c1noEG3ZN3neG1td+1SdEjXLm0=; b=h49/LgV2rSxK2E9/5gN0CXF63j
-	9twyx4yHx1umz7bkIBWgVflTWMM1Tsfjkj2phmKvUKOuPVVCClCYoejex6WwHvTXloxsIzl0fC4jY
-	RbeIqxzPGsxNXe01fWcaoDn4ZGBScQBbmmbqfewe9q9tgrcIex9nl2sG2KBsFAhWVNqtixHVXsfR2
-	aEWGth2IsDYPG7Jj+JRtb16AlXQUj/XzBsuLCwTHHA/7FO6dD1FnAgyJKgUDg0u+/T3KnbkpBMQRR
-	cF1DAfqA4VQjzN+DBH0+viCu+nDpKsI0pZ2YgQ5BRHS2vEF8qfnrGEo3TkvBO8LI1LW8ZSO1sgWcF
-	0+rmT/HQ==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8XIxO7QqZCfXEMacDLpemlFTOjp51ap9NkRRGgC2z+0=; b=uXQo7H9VnoG3ivzdXp2E+Q/6Y6
+	LIfH4iSS5eZfCIvmI+1C4HyV9iNHCKMM72XLhN0Z0uOcrYhWyZXMeRhv7rb2fvYXehzLn4+tZn0nW
+	L/I84QhWhDgg4EGvd887lCvmFMBglZHP+avsZkzsLgfu9EYnSiAags5ls8GptjctuuoGyO5u0kyEV
+	4jdKOvHBMDIUluCjQsk4A63QGLrPOVgA0paUBTJaViFAYkb7Und2yecqp/nFlV7ZjW6eIgiVCI+qa
+	nptiAW4SgMIydWUSnV+zusYItvHrWtSZJ7p0xbc0gU9rKKgZ4FYCx3sNniaOAFJ/RkC5RADst6FF5
+	jqLrnmpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6zBv-00000005GaR-0nvj;
-	Mon, 21 Apr 2025 22:00:39 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1u6zDm-00000005H8f-02zN;
+	Mon, 21 Apr 2025 22:02:34 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6yyB-00000005DOi-1dm1
+	id 1u6yyF-00000005DRS-2Y0F
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Apr 2025 21:46:29 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53LLkN3H1015468
+	Mon, 21 Apr 2025 21:46:33 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53LLkMxC1749650
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 21 Apr 2025 16:46:23 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745271983;
-	bh=lGttv+NBrT9eqq/71c1noEG3ZN3neG1td+1SdEjXLm0=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=aWJRR4Y7YhjWDfCvYM4HA1PzHuj9NOxiKvIhPP4Fb5NS/5Lu6g/tF/KzZT/c5Mvs9
-	 qU1OBcQ10TwrAYqf+sO/DIW7FSk2mQu0OdJUrcv8lq9rgVMo6yT4LHR0//MnD4Iraw
-	 K+ywypdNQyjX4ay8/+DThEF2Le+IFkFLlfFn5bwI=
-Received: from DLEE107.ent.ti.com (dlee107.ent.ti.com [157.170.170.37])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53LLkNVD118850
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 21 Apr 2025 16:46:23 -0500
-Received: from DLEE101.ent.ti.com (157.170.170.31) by DLEE107.ent.ti.com
- (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 21
- Apr 2025 16:46:22 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE101.ent.ti.com
- (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 21 Apr 2025 16:46:22 -0500
-Received: from lelvsmtp6.itg.ti.com ([10.249.42.149])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53LLkLqM038764;
 	Mon, 21 Apr 2025 16:46:22 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1745271982;
+	bh=8XIxO7QqZCfXEMacDLpemlFTOjp51ap9NkRRGgC2z+0=;
+	h=From:To:CC:Subject:Date;
+	b=c+4Hg52AMs7/eJ//ndrQq0M5JdYHCshUhQsT3Fo649frsLnc5R56wZ7YzBI4PiW7l
+	 WX7u+grHeaVGufROD6xGQq+CKH0lM1m8Vm1uUALw/8bS16ETXVbtqLsWmdDGFgEMnq
+	 b70T8PeLvI97mJ2ff77OpGQjp6/I7IofHT34Xt58=
+Received: from DFLE106.ent.ti.com (dfle106.ent.ti.com [10.64.6.27])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53LLkMsP020838
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 21 Apr 2025 16:46:22 -0500
+Received: from DFLE106.ent.ti.com (10.64.6.27) by DFLE106.ent.ti.com
+ (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 21
+ Apr 2025 16:46:21 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE106.ent.ti.com
+ (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 21 Apr 2025 16:46:21 -0500
+Received: from lelvsmtp6.itg.ti.com ([10.249.42.149])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53LLkLqK038764;
+	Mon, 21 Apr 2025 16:46:21 -0500
 From: Andrew Davis <afd@ti.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
         Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
@@ -62,19 +62,17 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	<jan.kiszka@siemens.com>
 CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
         <linux-kernel@vger.kernel.org>, Andrew Davis <afd@ti.com>
-Subject: [PATCH 2/3] arm64: dts: ti: k3-am65-main: add system controller compatible
-Date: Mon, 21 Apr 2025 16:46:19 -0500
-Message-ID: <20250421214620.3770172-3-afd@ti.com>
+Subject: [PATCH 0/3] Fix remaining TI K3 CHECK_DTBS warnings
+Date: Mon, 21 Apr 2025 16:46:17 -0500
+Message-ID: <20250421214620.3770172-1-afd@ti.com>
 X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250421214620.3770172-1-afd@ti.com>
-References: <20250421214620.3770172-1-afd@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_144627_493502_769FA552 
-X-CRM114-Status: GOOD (  12.45  )
+X-CRM114-CacheID: sfid-20250421_144631_690915_168C32EA 
+X-CRM114-Status: GOOD (  10.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,32 +87,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jan Kiszka <jan.kiszka@siemens.com>
+Hello all,
 
-Now that the TI K3 AM654 system controller bindings also cover the usage
-in the main domain, add its compatible to address dtbs_check complaints:
+Until we resolve this thread[0] we do not have a set direction for
+modeling our device's controller devices. For now as the AM654 MAIN
+domain controller region is already one of the messy combination
+syscon + child device containing nodes, no harm in silencing this last
+DT check warning in the meantime.
 
-  k3-am654-base-board.dtb: scm-conf@100000: compatible: ['syscon', 'simple-mfd'] is too short
+Depending on the outcome of [0], this series can be safely unwound in
+a couple ways without any backwards nor forwards compatibility breaks.
+So no need to wait on the outcome there to take this series.
 
-Signed-off-by: Jan Kiszka <jan.kiszka@siemens.com>
-Signed-off-by: Andrew Davis <afd@ti.com>
----
- arch/arm64/boot/dts/ti/k3-am65-main.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+The last patch should take care of the last CHECK_DTBS warning for K3.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am65-main.dtsi b/arch/arm64/boot/dts/ti/k3-am65-main.dtsi
-index 94a812a1355ba..6d3c467d7038c 100644
---- a/arch/arm64/boot/dts/ti/k3-am65-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am65-main.dtsi
-@@ -479,7 +479,7 @@ sdhci1: mmc@4fa0000 {
- 	};
- 
- 	scm_conf: scm-conf@100000 {
--		compatible = "syscon", "simple-mfd";
-+		compatible = "ti,am654-system-controller", "syscon", "simple-mfd";
- 		reg = <0 0x00100000 0 0x1c000>;
- 		#address-cells = <1>;
- 		#size-cells = <1>;
+Thanks,
+Andrew
+
+[0] https://lore.kernel.org/lkml/6241ff00-27e6-45ab-808e-f04e39854753@ti.com/
+
+Andrew Davis (2):
+  dt-bindings: mfd: ti,j721e-system-controller: Add compatible string
+    for AM654
+  arm64: dts: ti: am65x: Add missing power-supply for Rocktech-rk101
+    panel
+
+Jan Kiszka (1):
+  arm64: dts: ti: k3-am65-main: add system controller compatible
+
+ .../bindings/soc/ti/ti,j721e-system-controller.yaml | 13 +++++++++++++
+ arch/arm64/boot/dts/ti/k3-am65-main.dtsi            |  2 +-
+ .../k3-am654-base-board-rocktech-rk101-panel.dtso   | 12 ++++++++++++
+ 3 files changed, 26 insertions(+), 1 deletion(-)
+
 -- 
 2.39.2
 
