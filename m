@@ -4,76 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F4DCC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 17:01:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C356C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 17:05:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tmMMVh9ut/6pECDrXwuZNSGIOc+pxyHd/3NaqPyvhi0=; b=4OMxrmAS56TvVea4dPb26cyUxH
-	3AMS/uSRqY5vP8HUa9iBh2iyHi0RIrkv10ZbsyG/kST17D9MNWiPGqtcA+kxR5W1dDVHQ5bsdbh3f
-	QNPOb+xlQz1dSpYjEYSonHazwL8S9oaMYUbIfULBd5IDbF0AAOGCMD8N5ROFQmrFGTPRGdSlq9sxf
-	luYNifqvKnYPYuaWhcWqIzUGlpha0hG2c15xkIXoRHeASLfylx+OyjwhzSZDI1UwIjxY2c4WRBeih
-	fcQ9rjh+K+plEWqNjD5KkDo5fXnjMsZmxIBxqSSv0ngq5agQdJs2OeRzE/szaQHg251JwYuUeR+tk
-	zM11ykjA==;
+	bh=UHFfKBVtmQ9cLWyCnu/zSQRBEYxq2/KCU52MqnF0ShQ=; b=MBuyP00uiI9rkImyuWprAko4qA
+	rkGbEOol8OR1CzHxBnlHEPb64Q10LEn0O7t73hCnXJHakBfBm/RxUOIoXszdA8LQ0QuJhlMtKJEfV
+	YlR7NQDan1WGUA0p0tpDTzpeLvyK0W11lzmMVN0z39SusgAa+09C9YSp2hupH3cZeMqo0ld3r2GfS
+	GKEcw4HshK3Y+eUKpJsolfBAl/123idji+ODXvLc4o9XUTRWy9a07il3WnsepzevA+LTASdNF16qh
+	rQyfu48Lzx1SMy6TrZt6ZJn7jrLn8BfYID4MPCO+ZMgYEtxvpz8ttHpF8FTCHe6kRI7WTULKpbCqx
+	bplbPwcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6uWC-00000004nIV-31pI;
-	Mon, 21 Apr 2025 17:01:16 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1u6uaM-00000004nYw-2IKK;
+	Mon, 21 Apr 2025 17:05:34 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6uUG-00000004nAW-0qRw
+	id 1u6uYU-00000004nS1-3sXO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Apr 2025 16:59:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1745254754;
- bh=tmMMVh9ut/6pECDrXwuZNSGIOc+pxyHd/3NaqPyvhi0=;
- b=TonvQxTBSPVEYKkmhDhvO3jNwWCUBegh8ZF+X4pzYXQ3vNtETUhp5nna55W1R2mLL4WqWbmNJ
- 8jiGMVfOoaoBhyhi8vp1aJs6b2rmuCt4jg6RYoCTiyCEMqsp5vQzYJELXf60TYHHbd0lsh3WcCM
- KgU4oTrkDHfrZga584Jp5y3tILaD1rXrUTRpvzy1GRntMeIXm5PG2WDOhPVDOcnPsqwpWrbITVs
- hD9vV5S2ignuIwWTu3OtgNiLHOja5+aoFvSt8NyoCVXiCgroAHWuOj4L8XAjO0rQMj8bhzFh/w8
- e9uFLiDUYp3HbSehxOyI16j86th2HFEYfB6WgJf0S28g==
-X-Forward-Email-ID: 680676c88a5cda485177da7b
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 1.0.2
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <afc99921-d9ba-4f6e-b828-bc880d55955c@kwiboo.se>
-Date: Mon, 21 Apr 2025 18:48:03 +0200
+	Mon, 21 Apr 2025 17:03:40 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53LH3WIK982210
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 21 Apr 2025 12:03:32 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1745255012;
+	bh=UHFfKBVtmQ9cLWyCnu/zSQRBEYxq2/KCU52MqnF0ShQ=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=fEArDoivfE9xqX15M7RDilroaj0Xz/va2NKV6oCsjcK/FtmbQoX1uHO6tr9s1Ssuk
+	 uOopwbH7vnD/86CvjiHv/6TF1BJg/5Pn2rBk+uI9z6iTVtQj8wUF+6K2x2asx5yMyL
+	 Mp9yVVqtsuqrqoQQwZrEGrgaTu8sX1w6sch/feTs=
+Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53LH3WeG108292
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 21 Apr 2025 12:03:32 -0500
+Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 21
+ Apr 2025 12:03:31 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 21 Apr 2025 12:03:31 -0500
+Received: from [10.249.42.149] ([10.249.42.149])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53LH3VXs121488;
+	Mon, 21 Apr 2025 12:03:31 -0500
+Message-ID: <6241ff00-27e6-45ab-808e-f04e39854753@ti.com>
+Date: Mon, 21 Apr 2025 12:03:31 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/3] ethernet: stmmac: dwmac-rk: Add gmac support for
- rk3562
-To: Kever Yang <kever.yang@rock-chips.com>, heiko@sntech.de
-Cc: linux-rockchip@lists.infradead.org, David Wu <david.wu@rock-chips.com>,
- linux-arm-kernel@lists.infradead.org,
- "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>, netdev@vger.kernel.org,
- Detlev Casanova <detlev.casanova@collabora.com>,
- linux-kernel@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
- Jakub Kicinski <kuba@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- Paolo Abeni <pabeni@redhat.com>,
- "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Chen-Yu Tsai
- <wens@csie.org>, linux-stm32@st-md-mailman.stormreply.com,
- Eric Dumazet <edumazet@google.com>
-References: <20250418095114.271562-1-kever.yang@rock-chips.com>
- <20250418095114.271562-2-kever.yang@rock-chips.com>
+Subject: Re: [PATCH 2/5] dt-bindings: mfd: syscon: Add ti,am62-ddr-pmctrl
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+        Markus
+ Schneider-Pargmann <msp@baylibre.com>
+CC: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Siddharth
+ Vadapalli <s-vadapalli@ti.com>, Nishanth Menon <nm@ti.com>,
+        Vignesh
+ Raghavendra <vigneshr@ti.com>,
+        Tero Kristo <kristo@kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+References: <20250122-topic-am62-dt-syscon-v6-13-v1-0-515d56edc35e@baylibre.com>
+ <20250122-topic-am62-dt-syscon-v6-13-v1-2-515d56edc35e@baylibre.com>
+ <20250124-heavy-jaybird-of-vitality-4cbe24@krzk-bin>
+ <20250124-able-beagle-of-prowess-f5eb7a@krzk-bin>
+ <mocfnpebc67xegcis6tx3ekhsjcsqnvhwtipufycrtq2be4nbh@pmxhir5gmkos>
+ <639b4e3a-3f68-4fba-aa33-c46dcb6fc88f@linaro.org>
+ <d6252b73-0bcc-4724-8144-d6a98c8980f8@ti.com>
+ <74ee6d9b-fd78-4d8a-a94f-b2c4dc794b60@linaro.org>
+ <ebsbaaxyatrcikoem75t2blkhhceuidq3wnj3r2hbezfcmtc3u@ptffexrigbff>
+ <f9a2247e-e0eb-4e22-8626-80e87afa9386@linaro.org>
+ <qjwlppsq4eorzepvjsgjjyyaddouo5w2rjguu5c2mqesd6luwp@f426xeghy2ht>
+ <2130b439-74d0-475d-8429-1a1b4d9738aa@linaro.org>
+ <b7f6570f-3b80-4fc1-8201-d44f5692867f@ti.com>
+ <07bf9f93-deb8-48a1-aae9-a8a053680cc9@linaro.org>
 Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20250418095114.271562-2-kever.yang@rock-chips.com>
-Content-Type: text/plain; charset=UTF-8
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <07bf9f93-deb8-48a1-aae9-a8a053680cc9@linaro.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_095916_276373_34B03DE8 
-X-CRM114-Status: GOOD (  25.71  )
+X-CRM114-CacheID: sfid-20250421_100339_065543_D1460612 
+X-CRM114-Status: GOOD (  47.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,269 +108,261 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kever,
-
-On 2025-04-18 11:51, Kever Yang wrote:
-> From: David Wu <david.wu@rock-chips.com>
+On 4/15/25 12:17 AM, Krzysztof Kozlowski wrote:
+> On 09/04/2025 19:39, Andrew Davis wrote:
+>> On 2/12/25 1:35 PM, Krzysztof Kozlowski wrote:
+>>> On 10/02/2025 11:35, Markus Schneider-Pargmann wrote:
+>>>> On Sun, Feb 09, 2025 at 01:21:27PM +0100, Krzysztof Kozlowski wrote:
+>>>>> On 07/02/2025 15:40, Markus Schneider-Pargmann wrote:
+>>>>>> Hi Krzysztof,
+>>>>>>
+>>>>>> On Mon, Jan 27, 2025 at 01:09:49PM +0100, Krzysztof Kozlowski wrote:
+>>>>>>> On 24/01/2025 23:35, Andrew Davis wrote:
+>>>>>>>> On 1/24/25 10:48 AM, Krzysztof Kozlowski wrote:
+>>>>>>>>> On 24/01/2025 17:05, Markus Schneider-Pargmann wrote:
+>>>>>>>>>> Hi Krzysztof,
+>>>>>>>>>>
+>>>>>>>>>> On Fri, Jan 24, 2025 at 09:22:54AM +0100, Krzysztof Kozlowski wrote:
+>>>>>>>>>>> On Fri, Jan 24, 2025 at 09:19:49AM +0100, Krzysztof Kozlowski wrote:
+>>>>>>>>>>>> On Wed, Jan 22, 2025 at 11:24:33AM +0100, Markus Schneider-Pargmann wrote:
+>>>>>>>>>>>>> Add compatible for ti,am62-ddr-pmctrl to the list. There is a DDR pmctrl
+>>>>>>>>>>>>> register in the wkup-conf register space of am62a and am62p. This
+>>>>>>>>>>>>> register controls DDR power management.
+>>>>>>>>>>>>>
+>>>>>>>>>>>>> Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
+>>>>>>>>>>>>> ---
+>>>>>>>>>>>>>     Documentation/devicetree/bindings/mfd/syscon.yaml | 2 ++
+>>>>>>>>>>>>>     1 file changed, 2 insertions(+)
+>>>>>>>>>>>>
+>>>>>>>>>>>> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>>>>>>>>>>>
+>>>>>>>>>>> Un-acked, I missed the point that you really speak in commit msg about
+>>>>>>>>>>> register and you really treat one register is a device. I assumed you
+>>>>>>>>>>> only need that register from this device, but no. That obviously is not
+>>>>>>>>>>> what this device is. Device is not a single register among 10000 others.
+>>>>>>>>>>> IOW, You do not have 10000 devices there.
+>>>>>>>>>>
+>>>>>>>>>> Do I understand you correctly that the whole register range of the
+>>>>>>>>>> wkup_conf node as seen in arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi
+>>>>>>>>>> should be considered a single syscon device?
+>>>>>>>>>
+>>>>>>>>> I don't have the datasheets (and not my task to actually check this),
+>>>>>>>>> but you should probably follow datasheet. I assume it describes what is
+>>>>>>>>> the device, more or less.
+>>>>>>>>>
+>>>>>>>>> I assume entire wkup_conf is considered a device.
+>>>>>>>>>
+>>>>>>>>>>
+>>>>>>>>>> Unfortunately wkup_conf is modeled as a simple-bus with currently 5
+>>>>>>>>>> subnodes defined of which 4 of them consist of a single register. Most
+>>>>>>>>>> of them are syscon as well. So I think I can't change the simple-bus
+>>>>>>>>>> back to syscon.
+>>>>>>>>>
+>>>>>>>>> Huh... Maybe TI folks will help us understand why such design was chosen.
+>>>>>>>>>
+>>>>>>>>
+>>>>>>>> Many of the devices inside the wkup_conf are already modeled as such.
+>>>>>>>> Clocks and muxes for instance already have drivers and bindings, this
+>>>>>>>> is nothing new to TI.
+>>>>>>>>
+>>>>>>>> If we just use a blank "syscon" over the entire region we would end up
+>>>>>>>> with drivers that use phandles to the top level wkup_conf node and
+>>>>>>>> poke directly the registers they need from that space.
+>>>>>>>>
+>>>>>>>> Would you rather have
+>>>>>>>>
+>>>>>>>> some-device {
+>>>>>>>> 	ti,epwm_tbclk = <&wkup_conf>;
+>>>>>>>> }
+>>>>>>>>
+>>>>>>>> or
+>>>>>>>>
+>>>>>>>> some-device {
+>>>>>>>> 	clocks = <&epwm_tbclk 0>;
+>>>>>>>> }
+>>>>>>>
+>>>>>>> How is this comparable? These are clocks. You would have clocks property
+>>>>>>> in both cases.
+>>>>>>>
+>>>>>>>
+>>>>>>>>
+>>>>>>>> with that epwm_tbclk being a proper clock node inside wkup_conf?
+>>>>>>>> I would much prefer the second, even though the clock node
+>>>>>>>> only uses a single register. And in the first case, we would need
+>>>>>>>> to have the offset into the wkup_conf space hard-coded in the
+>>>>>>>> driver for each new SoC. Eventually all that data would need to be
+>>>>>>>> put in tables and we end up back to machine board files..
+>>>>>>>>
+>>>>>>>> I'm not saying every magic number in all drivers should
+>>>>>>>> be offloaded into DT, but there is a line somewhere between
+>>>>>>>> that and having the DT simply contain the SoC's name compatible
+>>>>>>>
+>>>>>>> That's not the question here.
+>>>>>>>
+>>>>>>>> and all other data going into the kernel. That line might be a
+>>>>>>>> personal preference, so my question back is: what is wrong
+>>>>>>>> if we do want "1000 new syscons per each register" for our
+>>>>>>>> SoCs DT?
+>>>>>>>
+>>>>>>> Because it is false representation of hardware. You do not have 1000
+>>>>>>> devices. You have only one device.
+>>>>>>>
+>>>>>>>
+>>>>>>>>
+>>>>>>>> (and the number is not 1000, scanning the kernel I can see
+>>>>>>>> the largest wkup_conf region node we have today has a grand
+>>>>>>>> total number sub-nodes of 6)
+>>>>>>>
+>>>>>>> But what is being added here is device per each register, not per feature.
+>>>>>>
+>>>>>> The register layout is like this:
+>>>>>
+>>>>> The register layout of what? How is the device called? Is datasheet
+>>>>> available anywhere?
+>>>>
+>>>> Yes, it is available here: https://www.ti.com/de/lit/pdf/spruj16
+>>>>
+>>>> 14 Registers
+>>>> 14.2 Device Configuration Registers
+>>>> 14.2.1 CTRL_MMR Registers
+>>>> 14.2.1.1 General Purpose Control Registers
+>>>> 14.2.1.1.3 WKUP_CTRL_MMR0 Registers
+>>>>
+>>>> Each domain has their own set of general purpose control registers,
+>>>> CTRL_MMR for the main domain, MCU_CTRL_MMR0 for the MCU domain,
+>>>> WKUP_CTRL_MMR0 for the wakeup domain.
+>>>
+>>>
+>>> So according to the doc you have only one device - CTRL_MMR. All other
+>>> splits are superficial.
+>>>
+>>
+>> It is not one device, it is a collection of devices under one labeled
+>> bus range. Some items here are full normal devices, already modeled by DT
+>> as stand-alone devices, for instance our chipid, efuse, clock controller,
+>> etc. even our pinmux is part of this bus range.
+>>
+>> They are grouped as we have one set for each domain (MAIN, WKUP, MCU).
+>>
+>> All other splits are not superficial, if we go down that path then
+>> the whole SoC is one "device". We could simply have the whole address
+>> bus be one node and have Linux hard-code offsets in the drivers, we
+>> end up back at board files..
+>>
+>> DT should break things into logically distinct and reusable units
+>> so we don't have to store that in the kernel. That is what we do
+>> here, even if some units end up being very small.
+>>
+>>>>
+>>>> So I understand this to just be a collection of general purpose control
+>>>> registers. If you go by feature, then many of the registers can be
+>>>> grouped into units with a specific purpose or controlling a specific
+>>>> device which are also grouped by the offsets they represent. I assume
+>>>
+>>> It could work if you have distinctive groups, but here:
+>>> 1. You do not have this grouped, you just judge by yourself "oh, that's
+>>> group A, that's B".
+>>> 2. Group per one register is not that.
+>>>
+>>> For me this is one big block and even CLKSEL is spread all over so
+>>> cannot be really made distinctive.
+>>>
+>>>> this is why the other nodes in this wkup_conf node were created. Also in
+>>>
+>>> The other nodes represent some sort of fake or totally arbitrary
+>>> grouping. That's abuse of the syscon.
+>>>
+>>
+>> They are grouped by function.
 > 
-> Add constants and callback functions for the dwmac on RK3562 soc.
-> As can be seen, the base structure is the same.
+> Not really - other DTS sent just few days ago created each entry per one
+> register.
 > 
-> Signed-off-by: David Wu <david.wu@rock-chips.com>
-> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
-> ---
+>>
+>>>> my opinion this makes the relation between the original device and this
+>>>> general purpose control registers better understandable.
+>>>>
+>>>> For this patch the ddr-pmctrl regsiter is just a single register, but it
+>>>> has the purpose of controlling the DDR device power management.
+>>>
+>>> Sure, but that is NOT syscon. One register of entire block is not system
+>>> controller. The entire block is system controller.
+>>>
+>>
+>> The whole block cannot be a system controller as there are regular
+>> devices inside this range. If we made the whole region a syscon and
 > 
-> Changes in v3:
-> - remove unreadable MACRO;
-> - use two function for rmii and rgmii speed set;
-> - don't check grf and php_grf in function call;
-> - rebase on v6.15-rc1
+> That's still system controller. It's nothing special here.
 > 
-> Changes in v2:
-> - Collect review tag
+>> also left the device nodes inside, then we would have overlapping
+>> register owners, one register would be controlled by two or more
 > 
->  .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 190 ++++++++++++++++++
->  1 file changed, 190 insertions(+)
+> No, owner is the parent device always.
+
+Which parent device? That is my point, if the top level node for the
+whole CTRL_MMR region is made into one big syscon, then a big regmap
+is made that covers the whole region. All the child devices also make
+regmaps covering their device range. Now these registers under the child
+device belong to two different regmaps. No synchronization is done as
+these are not the same regmap, regmap only handles this for multiple
+access to registers within the same regmap.
+
+Let's take a real example, here is part of AM62A CTRL_MMR node.
+
+main_conf: bus@100000 {
+	compatible = "simple-bus";
+	#address-cells = <1>;
+	#size-cells = <1>;
+	ranges = <0x00 0x00 0x00100000 0x20000>;
+
+	phy_gmii_sel: phy@4044 {
+		compatible = "ti,am654-phy-gmii-sel";
+		reg = <0x4044 0x8>;
+		#phy-cells = <1>;
+	};
+
+	...
+};
+
+If we turn "main_conf" into a syscon, then who "owns" 0x4044?
+Both the top level syscon and phy_gmii_sel nodes would build
+a different regmap instance that contains those same registers.
+
+Bit of back story, this is actually how I got involved in sorting
+out this "syscon" stuff for our devices. I built a checker into
+the regmap framework core that would detect when multiple regmaps
+are created that contain overlapping registers.
+
+I found several bugs this way and want to push the check upstream at
+some point. But first I wanted to fix the biggest cause of warnings,
+which was from syscon being used as described above.
+
 > 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> index 700858ff6f7c..82174054644a 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> @@ -2,6 +2,7 @@
->  /**
->   * DOC: dwmac-rk.c - Rockchip RK3288 DWMAC specific glue layer
->   *
-> + * Copyright (c) 2014 Rockchip Electronics Co., Ltd.
->   * Copyright (C) 2014 Chen-Zhi (Roger Chen)
->   *
->   * Chen-Zhi (Roger Chen)  <roger.chen@rock-chips.com>
-> @@ -1048,6 +1049,194 @@ static const struct rk_gmac_ops rk3528_ops = {
->  	},
->  };
->  
-> +/* sys_grf */
-> +#define RK3562_GRF_SYS_SOC_CON0			0X0400
-> +#define RK3562_GRF_SYS_SOC_CON1			0X0404
-> +
-> +#define RK3562_GMAC0_CLK_RMII_MODE		GRF_BIT(5)
-> +#define RK3562_GMAC0_CLK_RGMII_MODE		GRF_CLR_BIT(5)
-> +
-> +#define RK3562_GMAC0_CLK_RMII_GATE		GRF_BIT(6)
-> +#define RK3562_GMAC0_CLK_RMII_NOGATE		GRF_CLR_BIT(6)
-> +
-> +#define RK3562_GMAC0_CLK_RMII_DIV2		GRF_BIT(7)
-> +#define RK3562_GMAC0_CLK_RMII_DIV20		GRF_CLR_BIT(7)
-> +
-> +#define RK3562_GMAC0_CLK_RGMII_DIV1		\
-> +				(GRF_CLR_BIT(7) | GRF_CLR_BIT(8))
-> +#define RK3562_GMAC0_CLK_RGMII_DIV5		\
-> +				(GRF_BIT(7) | GRF_BIT(8))
-> +#define RK3562_GMAC0_CLK_RGMII_DIV50		\
-> +				(GRF_CLR_BIT(7) | GRF_BIT(8))
-> +
-> +#define RK3562_GMAC0_CLK_RMII_DIV2		GRF_BIT(7)
-> +#define RK3562_GMAC0_CLK_RMII_DIV20		GRF_CLR_BIT(7)
-> +
-> +#define RK3562_GMAC0_CLK_SELET_CRU		GRF_CLR_BIT(9)
-> +#define RK3562_GMAC0_CLK_SELET_IO		GRF_BIT(9)
+>> drivers. How would we synchronize mappings, access, updates, etc.
+>> Any one register should belong to exactly one device.
+> 
+> regmap synchronizes everything. There is no problem here, at all.
+> 
+>>
+>> Is your issue the name "system controller", as yes I agree some of
+>> these regions are not "system controllers".
+>>
+>> Would it work better if we didn't call this "ti,am62-ddr-pmctrl"
+>> node a "syscon"? That can be done, we just would add a normal
+>> binding doc for it, instead of trying to reuse the generic
+>> bindings/mfd/syscon.yaml file.
+> 
+> You still do not have multiple subnodes, one per each register or even
+> few registers.
 
-This is probably a typo, SELET, should probably be SELECT?
+If this ddr-pmctrl device is not modeled as a syscon device, then who
+says it has to be more than a few (3?) registers in size? This seems like
+a rather arbitrary rule, and completely unfeasible for several whole
+classes of devices that only have/need a few registers to work them.
 
-> +
-> +#define RK3562_GMAC1_CLK_RMII_GATE		GRF_BIT(12)
-> +#define RK3562_GMAC1_CLK_RMII_NOGATE		GRF_CLR_BIT(12)
-> +
-> +#define RK3562_GMAC1_CLK_RMII_DIV2		GRF_BIT(13)
-> +#define RK3562_GMAC1_CLK_RMII_DIV20		GRF_CLR_BIT(13)
-> +
-> +#define RK3562_GMAC1_RMII_SPEED100		GRF_BIT(11)
-> +#define RK3562_GMAC1_RMII_SPEED10		GRF_CLR_BIT(11)
-> +
-> +#define RK3562_GMAC1_CLK_SELET_CRU		GRF_CLR_BIT(15)
-> +#define RK3562_GMAC1_CLK_SELET_IO		GRF_BIT(15)
+Andrew
 
-Same here.
-
-> +
-> +/* ioc_grf */
-> +#define RK3562_GRF_IOC_GMAC_IOFUNC0_CON0	0X10400
-> +#define RK3562_GRF_IOC_GMAC_IOFUNC0_CON1	0X10404
-> +#define RK3562_GRF_IOC_GMAC_IOFUNC1_CON0	0X00400
-> +#define RK3562_GRF_IOC_GMAC_IOFUNC1_CON1	0X00404
-> +
-> +#define RK3562_GMAC_RXCLK_DLY_ENABLE		GRF_BIT(1)
-> +#define RK3562_GMAC_RXCLK_DLY_DISABLE		GRF_CLR_BIT(1)
-> +#define RK3562_GMAC_TXCLK_DLY_ENABLE		GRF_BIT(0)
-> +#define RK3562_GMAC_TXCLK_DLY_DISABLE		GRF_CLR_BIT(0)
-> +
-> +#define RK3562_GMAC_CLK_RX_DL_CFG(val)		HIWORD_UPDATE(val, 0xFF, 8)
-> +#define RK3562_GMAC_CLK_TX_DL_CFG(val)		HIWORD_UPDATE(val, 0xFF, 0)
-> +
-> +#define RK3562_GMAC0_IO_EXTCLK_SELET_CRU	GRF_CLR_BIT(2)
-> +#define RK3562_GMAC0_IO_EXTCLK_SELET_IO		GRF_BIT(2)
-
-Same here.
-
-> +
-> +#define RK3562_GMAC1_IO_EXTCLK_SELET_CRU	GRF_CLR_BIT(3)
-> +#define RK3562_GMAC1_IO_EXTCLK_SELET_IO		GRF_BIT(3)
-
-And here.
-
-> +
-> +static void rk3562_set_to_rgmii(struct rk_priv_data *bsp_priv,
-> +				int tx_delay, int rx_delay)
-> +{
-> +	regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON0,
-> +		     RK3562_GMAC0_CLK_RGMII_MODE);
-> +
-> +	regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC0_CON1,
-> +		     DELAY_ENABLE(RK3562, tx_delay, rx_delay));
-> +	regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC0_CON0,
-> +		     RK3562_GMAC_CLK_RX_DL_CFG(rx_delay) |
-> +		     RK3562_GMAC_CLK_TX_DL_CFG(tx_delay));
-> +
-> +	regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC1_CON1,
-> +		     DELAY_ENABLE(RK3562, tx_delay, rx_delay));
-> +	regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC1_CON0,
-> +		     RK3562_GMAC_CLK_RX_DL_CFG(rx_delay) |
-> +		     RK3562_GMAC_CLK_TX_DL_CFG(tx_delay));
-> +}
-> +
-> +static void rk3562_set_to_rmii(struct rk_priv_data *bsp_priv)
-> +{
-> +	if (!bsp_priv->id)
-> +		regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON0,
-> +			     RK3562_GMAC0_CLK_RMII_MODE);
-> +}
-> +
-> +static void rk3562_set_gmac_rgmii_speed(struct rk_priv_data *bsp_priv, int speed)
-> +{
-> +	struct device *dev = &bsp_priv->pdev->dev;
-> +	unsigned int val = 0;
-> +
-> +	switch (speed) {
-> +	case 10:
-> +		val = RK3562_GMAC0_CLK_RGMII_DIV50;
-> +		break;
-> +	case 100:
-> +		val = RK3562_GMAC0_CLK_RGMII_DIV5;
-> +		break;
-> +	case 1000:
-> +		val = RK3562_GMAC0_CLK_RGMII_DIV1;
-> +		break;
-> +	default:
-> +		goto err;
-> +	}
-> +
-> +	regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON0, val);
-> +	return;
-> +err:
-> +	dev_err(dev, "unknown speed value for GMAC speed=%d", speed);
-> +}
-> +
-> +static void rk3562_set_gmac_rmii_speed(struct rk_priv_data *bsp_priv, int speed)
-> +{
-> +	struct device *dev = &bsp_priv->pdev->dev;
-> +	unsigned int val = 0, offset;
-> +
-> +	switch (speed) {
-> +	case 10:
-> +		if (bsp_priv->id == 1) {
-> +			val = RK3562_GMAC1_CLK_RMII_DIV20;
-> +			regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON0,
-> +				     RK3562_GMAC1_RMII_SPEED10);
-> +		} else {
-> +			val = RK3562_GMAC0_CLK_RMII_DIV20;
-> +		}
-> +		break;
-> +	case 100:
-> +		if (bsp_priv->id == 1) {
-> +			val = RK3562_GMAC1_CLK_RMII_DIV2;
-> +			regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON0,
-> +				     RK3562_GMAC1_RMII_SPEED100);
-> +		} else {
-> +			val = RK3562_GMAC0_CLK_RMII_DIV2;
-> +		}
-> +		break;
-> +	default:
-> +		goto err;
-> +	}
-> +
-> +	offset = (bsp_priv->id == 1) ? RK3562_GRF_SYS_SOC_CON1 :
-> +				       RK3562_GRF_SYS_SOC_CON0;
-> +	regmap_write(bsp_priv->grf, offset, val);
-> +	return;
-> +err:
-> +	dev_err(dev, "unknown speed value for GMAC speed=%d", speed);
-> +}
-> +
-> +static void rk3562_set_clock_selection(struct rk_priv_data *bsp_priv, bool input,
-> +				       bool enable)
-> +{
-> +	struct device *dev = &bsp_priv->pdev->dev;
-> +	unsigned int value;
-> +
-> +	if (IS_ERR(bsp_priv->grf) || IS_ERR(bsp_priv->php_grf)) {
-> +		dev_err(dev, "Missing rockchip,grf or rockchip,php_grf property\n");
-> +		return;
-> +	}
-
-This should not be needed after the commit 247e84f66a3d ("net: stmmac:
-dwmac-rk: Validate GRF and peripheral GRF during probe") and the use of
-php_grf_required=true below.
-
-> +
-> +	if (!bsp_priv->id) {
-> +		value = input ? RK3562_GMAC0_CLK_SELET_IO :
-> +				RK3562_GMAC0_CLK_SELET_CRU;
-> +		value |= enable ? RK3562_GMAC0_CLK_RMII_NOGATE :
-> +				  RK3562_GMAC0_CLK_RMII_GATE;
-> +		regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON0, value);
-> +
-> +		value = input ? RK3562_GMAC0_IO_EXTCLK_SELET_IO :
-> +				RK3562_GMAC0_IO_EXTCLK_SELET_CRU;
-> +		regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC0_CON1, value);
-> +		regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC1_CON1, value);
-> +	} else {
-> +		value = input ? RK3562_GMAC1_CLK_SELET_IO :
-> +				RK3562_GMAC1_CLK_SELET_CRU;
-> +		value |= enable ? RK3562_GMAC1_CLK_RMII_NOGATE :
-> +				 RK3562_GMAC1_CLK_RMII_GATE;
-> +		regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON1, value);
-> +
-> +		value = input ? RK3562_GMAC1_IO_EXTCLK_SELET_IO :
-> +				RK3562_GMAC1_IO_EXTCLK_SELET_CRU;
-> +		regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC1_CON1, value);
-> +	}
-> +}
-> +
-> +static const struct rk_gmac_ops rk3562_ops = {
-> +	.set_to_rgmii = rk3562_set_to_rgmii,
-> +	.set_to_rmii = rk3562_set_to_rmii,
-> +	.set_rgmii_speed = rk3562_set_gmac_rgmii_speed,
-> +	.set_rmii_speed = rk3562_set_gmac_rmii_speed,
-> +	.set_clock_selection = rk3562_set_clock_selection,
-
-This is missing the recently added:
-
-	.php_grf_required = true,
-
-Regards,
-Jonas
-
-> +};
-> +
->  #define RK3568_GRF_GMAC0_CON0		0x0380
->  #define RK3568_GRF_GMAC0_CON1		0x0384
->  #define RK3568_GRF_GMAC1_CON0		0x0388
-> @@ -1996,6 +2185,7 @@ static const struct of_device_id rk_gmac_dwmac_match[] = {
->  	{ .compatible = "rockchip,rk3368-gmac", .data = &rk3368_ops },
->  	{ .compatible = "rockchip,rk3399-gmac", .data = &rk3399_ops },
->  	{ .compatible = "rockchip,rk3528-gmac", .data = &rk3528_ops },
-> +	{ .compatible = "rockchip,rk3562-gmac", .data = &rk3562_ops },
->  	{ .compatible = "rockchip,rk3568-gmac", .data = &rk3568_ops },
->  	{ .compatible = "rockchip,rk3576-gmac", .data = &rk3576_ops },
->  	{ .compatible = "rockchip,rk3588-gmac", .data = &rk3588_ops },
-
+> 
+> Best regards,
+> Krzysztof
 
