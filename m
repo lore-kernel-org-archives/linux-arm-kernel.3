@@ -4,81 +4,198 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE2C0C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 08:48:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27F9FC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 08:49:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GMCfkXGgjqsflgdpKzRM3hAtgWDJ+u+groMyTButPK0=; b=WxdBcws44Z0Ez/Q1Wv99/OxrJ2
-	l9+4Pj86bRaTfWfxN3OHhU8VdAQ+bGVdPEgNn5d6yApNM2vvNWiVrUJOgLc7/dS/O7rN6beqAvMi6
-	kz+h2LQ/A0pOz42ZzMH64AAlxIWWDSx6zYSWubtICq/wek6ldOxhk4ReIRICuFz/Zckg7wA8FMQZy
-	SmayJuyxjeuqU3JXXjpYm1pEH0IVOaB+Y2kqp4ahTULTkUG4IUuhhXPuv79CjGvU/OxXiiAM+ACkR
-	QsBWuFlsB4bCat0XgA8YzQKWKb5FUrM93KXY6te96Tga+aqAqtxSDGaEPq01wRsDx8hQ789YYRmWZ
-	041aL24A==;
+	bh=g0d8DgnNb/UJbmZlnVoEd8wdRfe4w/fGilKqWutm4lA=; b=QBZiIrcBzqx/Qskyfw/81fikju
+	uHTc/5e5bx6LB7+DgzC9brqQtKLK/tC1fWWXJ0yhW0nZRgxsIILoigfY8Jrp68FSIiKkxmZMca32T
+	VFAG+EYRxg6JeRtjORssvIgi9NCZcdf5m2/8vFf+0K4BkPYta4pE6y8bLQOb+ymMmK727ZDXtDGlX
+	pCkq5w0u/PRiTwcUndqkzazvw8l5SLKpCcn+cyc3PXABgCVV0nJnQvTQUUKNVxJQi6+iN4xHwpG7Q
+	PQ+L4W7orNoqw9uh8z6j43SMKdDXKac+XIYq6riqMDkj7IcToZcyO7j7T5bBavZ6wXpjBR+sfvr1X
+	dB48aruQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6moj-00000003wGM-3l7d;
-	Mon, 21 Apr 2025 08:47:53 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+	id 1u6mqY-00000003wPq-2iA0;
+	Mon, 21 Apr 2025 08:49:46 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6mPG-00000003tNU-43lR;
-	Mon, 21 Apr 2025 08:21:36 +0000
+	id 1u6mSH-00000003thF-2E3L
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 21 Apr 2025 08:24:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1745223695; x=1776759695;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=C7Yr9B85WuyxzW/DyvbRmztxW7xiL896fdLQzr9xw6o=;
-  b=RsDsV07ivdgo6uqXDoy27QtqsfrnMl2GxWq8hpGo7QJbkz4J93SGsYNg
-   E4sWyjjLbXTYdBaDQBvzjRVZOxK1/DF4JZ9Wh0ut3p6BBOUMzEFzhN2C/
-   HFXFp617vmUkNb86hv/GqxqhlNUvwMWhlqTg1o4zKlWfEAbfJquL9MdNy
-   VvPdOMGc7HLZ4ioB5szPtap/k7X8iJ8giqHwPT6aSvBGUNfGet63/kWyi
-   D6YkGgihMm/IcLNkiD+HsaSdjV37IUXjgg8FOgbozrCIJC38Q5D3PD7Xg
-   5RNcs3tBIaOTo8ufBmoo0FEX/9+Fg1eSUOOGQzbdDJcBugIi2soFP1LLf
-   g==;
-X-CSE-ConnectionGUID: SYinnB67QQuOzTKyR+oVEQ==
-X-CSE-MsgGUID: WW4CH8/ASDakLZlkuB6fsg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11409"; a="46635720"
+  t=1745223882; x=1776759882;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=q6K6f9llB2KE0gnzrOQh/Q778mNvAI1i8NcmRUFhpLE=;
+  b=V7mh6VhPAQzXf36mUmcBS0S53RfWp0g7KAtb5KeVEPw+M40Qrkm+L9hC
+   k0QqHKmQ73isUNqnw1dl3geDttvbWTBrnLIkRsqCyMYzbhA8IFHR93+sb
+   ZbrXYY5Q42+Juap6q4DXRoEq6RK7v51OAMyjsptg+xe/j2aMkiUOKnZFn
+   /JY+1qIkJeH8zCzNVPUOTk6Xdym7rABbHOLf1tyemIfGvDahmUFR1zB6N
+   hir4HVnzLEMm6K15vR0Ijrv0/6UtkWdQHK7+qv31exfspUoavyMZHztav
+   AmFo9mLkdiA68+EAlg10SS5Ow//RJ7iTN6T/oXLneP8jBSxw1s2l1VlHe
+   Q==;
+X-CSE-ConnectionGUID: 6ZfghHQTT/ixzDq8QbLKCA==
+X-CSE-MsgGUID: pba3JpOFQ6mvB9xjTbsr8g==
+X-IronPort-AV: E=McAfee;i="6700,10204,11409"; a="64163716"
 X-IronPort-AV: E=Sophos;i="6.15,227,1739865600"; 
-   d="scan'208";a="46635720"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Apr 2025 01:21:31 -0700
-X-CSE-ConnectionGUID: 9zpDJSyeTBKPkrXoSj84vw==
-X-CSE-MsgGUID: s+znY0pVR464Y46mObjRPA==
+   d="scan'208";a="64163716"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Apr 2025 01:24:40 -0700
+X-CSE-ConnectionGUID: qOAyyg7HQjuol8uvl25ZpA==
+X-CSE-MsgGUID: I09v897pQmSVspAbh+KWBg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.15,227,1739865600"; 
-   d="scan'208";a="168862263"
-Received: from lkp-server01.sh.intel.com (HELO 9c2f37e2d822) ([10.239.97.150])
-  by orviesa001.jf.intel.com with ESMTP; 21 Apr 2025 01:21:27 -0700
-Received: from kbuild by 9c2f37e2d822 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1u6mP6-0000H1-2v;
-	Mon, 21 Apr 2025 08:21:24 +0000
-Date: Mon, 21 Apr 2025 16:20:44 +0800
-From: kernel test robot <lkp@intel.com>
-To: carlos.song@nxp.com, miquel.raynal@bootlin.com, Frank.Li@nxp.com,
-	alexandre.belloni@bootlin.com, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com,
-	conor.culhane@silvaco.com
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-i3c@lists.infradead.org, imx@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/3] i3c: master: svc: switch to bulk clk API for
- flexible clock support
-Message-ID: <202504211643.FJsMtmVl-lkp@intel.com>
-References: <20250421061544.2471379-3-carlos.song@nxp.com>
+   d="scan'208";a="131628995"
+Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
+  by orviesa006.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Apr 2025 01:24:40 -0700
+Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14; Mon, 21 Apr 2025 01:24:39 -0700
+Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14 via Frontend Transport; Mon, 21 Apr 2025 01:24:39 -0700
+Received: from NAM12-BN8-obe.outbound.protection.outlook.com (104.47.55.173)
+ by edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.44; Mon, 21 Apr 2025 01:24:39 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YqToa5bbiNgry7Xh+sNOjU72TVJ2z4Tt/ALi/osFmrUMHN9mWwKWP0SXVPhGcedKansXAQUYAxmyA6Crh/1Jws62zywil2It6RzQAL18A/8ETwTO5KZ99uDUyS7MuU5aqZ9MZrLzximgB2L+6qy80QMm7tQJOowuJc3hoyu+GDFw88rEHpoRxw+BeqSOhezSosWsxQy9zk/BWMuoej9vBOwCre4Iu5fuQqbFJqjYJE09X0mn54eA9/yBniejSHSx0uXV1xhRV4OtZ8PK4lf1QcCqYIbQvYnhdlqBVLCNFhi/0ch0txkkfS3ABstf9iz70cp16G10JCX5l+cLULUxcQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=g0d8DgnNb/UJbmZlnVoEd8wdRfe4w/fGilKqWutm4lA=;
+ b=zKl6zEGxx0DAuW05Kt0KpS6JpqLUwOqYHBbalBoxcPjZRdijzq7MM3RzONyqPTa2bNqfI89qQlcV1woToG2wRWrEE4Vq66xFFA/k6Ckf1bdPu8Hfm4gA4MxtPKtYU4QrPJGIBtzwNiqoB1k2JSBdVGpFxYfH+YyzLMKrFkyENXc+TL09kuS+KXuwTW6mt7DBlKL1N/XY5kjGDDQW6R0ZZjDrhr6+wbIpl/d3f0hmwdDENSvaupcTRg+LZHWZ9etc6VNzXrrvxBBlkYp+gSqfNGuDt2AhQOvG0/o38GGsjdu2sV6lZpmDfgjx0W4XGwRmmhQADF4U+kytlaLHTGtt5g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
+ by SJ0PR11MB5184.namprd11.prod.outlook.com (2603:10b6:a03:2d5::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.35; Mon, 21 Apr
+ 2025 08:23:50 +0000
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1]) by BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1%6]) with mapi id 15.20.8655.033; Mon, 21 Apr 2025
+ 08:23:50 +0000
+From: "Tian, Kevin" <kevin.tian@intel.com>
+To: Nicolin Chen <nicolinc@nvidia.com>, "jgg@nvidia.com" <jgg@nvidia.com>,
+	"corbet@lwn.net" <corbet@lwn.net>, "will@kernel.org" <will@kernel.org>
+CC: "robin.murphy@arm.com" <robin.murphy@arm.com>, "joro@8bytes.org"
+	<joro@8bytes.org>, "thierry.reding@gmail.com" <thierry.reding@gmail.com>,
+	"vdumpa@nvidia.com" <vdumpa@nvidia.com>, "jonathanh@nvidia.com"
+	<jonathanh@nvidia.com>, "shuah@kernel.org" <shuah@kernel.org>,
+	"praan@google.com" <praan@google.com>, "nathan@kernel.org"
+	<nathan@kernel.org>, "peterz@infradead.org" <peterz@infradead.org>, "Liu, Yi
+ L" <yi.l.liu@intel.com>, "jsnitsel@redhat.com" <jsnitsel@redhat.com>,
+	"mshavit@google.com" <mshavit@google.com>, "zhangzekun11@huawei.com"
+	<zhangzekun11@huawei.com>, "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-tegra@vger.kernel.org"
+	<linux-tegra@vger.kernel.org>, "linux-kselftest@vger.kernel.org"
+	<linux-kselftest@vger.kernel.org>, "patches@lists.linux.dev"
+	<patches@lists.linux.dev>
+Subject: RE: [PATCH v1 14/16] iommu/arm-smmu-v3: Add vsmmu_alloc impl op
+Thread-Topic: [PATCH v1 14/16] iommu/arm-smmu-v3: Add vsmmu_alloc impl op
+Thread-Index: AQHbqqxsv6Osn30sv0aA7Kn1RIMJ2LOt1jIA
+Date: Mon, 21 Apr 2025 08:23:50 +0000
+Message-ID: <BN9PR11MB5276C09E05B9BE8BC66ACE058CB82@BN9PR11MB5276.namprd11.prod.outlook.com>
+References: <cover.1744353300.git.nicolinc@nvidia.com>
+ <c5193cce7c23590b54e6d03e77fedfcb02037cef.1744353300.git.nicolinc@nvidia.com>
+In-Reply-To: <c5193cce7c23590b54e6d03e77fedfcb02037cef.1744353300.git.nicolinc@nvidia.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|SJ0PR11MB5184:EE_
+x-ms-office365-filtering-correlation-id: 2940bb58-b840-4df0-ee05-08dd80add836
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?noURl4iTgLjCt/nMjkmzdjH2T+J6HrrecxZpFa74O7+DjPq/dExYCMjGXVR5?=
+ =?us-ascii?Q?HvMH3l6ZHPvsR7gZIvhlMZRB8T6uIVYrq4V+6g0lPVbeJdRBAlcTfZRdXhiJ?=
+ =?us-ascii?Q?AQAzy92AAYikgPdpkTxqIEVCwVIuWPtd7GOwwQ/OC4gvLBpYV+xXzxTbjaO/?=
+ =?us-ascii?Q?H6FGJsjdcNIlP8/VxkBqAxn+zXZY//1nRhok5Bz0SVPv8la9xb4gzF3/0ThQ?=
+ =?us-ascii?Q?iW5XPFf59gWlKUbrVo7XqstyXXYmWlw/HMPgLFpWmthzzhrFJbTFl37rkQcM?=
+ =?us-ascii?Q?BH1ANJASvlcPZUaUhLsd/BqVSfAG8isY/1MenPuUWOH5X+Gx77ybUAMe2gcb?=
+ =?us-ascii?Q?6R2BSPAm0srFVINK8ka5D/hQdCj5JU28uBRl8iyp06PKt80b0wGzgAqXBVu3?=
+ =?us-ascii?Q?FkH3cNZm6tTafS86VaE0rdoGgSeS/HYWvJsY8WHlgN1MIxTDhAhTyVNfjXgP?=
+ =?us-ascii?Q?sAJd7ohBSPdyljFcgayifuzmbkKW017CU4RAO9mr0l6mCUXtvR3mkK7bVHjF?=
+ =?us-ascii?Q?Txq+jkIDVNijU9IHL954Jduc5zoXwU7GEwMXO4RxZL0X74zPo7l8fgHGbjuo?=
+ =?us-ascii?Q?HKMUXs74WBVrZczoHXxAdwvQEyc6NF5Xu1Jr/CD/Dn6W4cr1tiYH4juDSEda?=
+ =?us-ascii?Q?rUvxes3Ul6D52KASleM3ng/BEpBrWrQQ3E8sYeBKmEGAt20ZAZb8y4gxItkF?=
+ =?us-ascii?Q?o8yp4euvGVpr4TbiZGzIWGn+L/+npmx0bOBO9mDey3c+g9/Sh0z390Q49ZnT?=
+ =?us-ascii?Q?luDljAtJTJhS6UqJj4u1DMrLCXQyoMdqrwGAcgrNLBy05PPkq71xeEM/7LV8?=
+ =?us-ascii?Q?sx2hDB/oxpBY3/hueNgL7INijoleY/BKJGSxzhQ5Z75QPWvRTdE/N/3Fe06S?=
+ =?us-ascii?Q?iNdavzUcgp/dTwTgNiDQlgtJ5Qcpwbqh/3H04MsS9ke2qTWpE1fMtg/29F/0?=
+ =?us-ascii?Q?Ju07iXu9Co7YTFQL8+mwPOuYMwyqFg/0zpSQBjM/B17jy0cyMP+3o448ikax?=
+ =?us-ascii?Q?WgP9evboPiQddnytb/1Bk4ZTYmIJgZdFvePHspB+8AgnpkLDm3xmNN+v6Gvt?=
+ =?us-ascii?Q?kpXbmPtDtptgm3OT+glj6NAW+2X7dzZxDV9e3ISxIGj0My0Hmf+PaCkgLFZF?=
+ =?us-ascii?Q?er1DF0E9YaZzboGZrpTzV8kFynNNxjv7Il+fTOicXeeuESYbvClVtUStVdmi?=
+ =?us-ascii?Q?f7Dr2MK8+2KRaJ0rckh3pN3eRQRk135NZ6DJnW15eDccUtu9UmrTknIU3/AJ?=
+ =?us-ascii?Q?+6jXofRb8V1wiUT7Pqi0Ukbn+pMAeKsJmVqrbNHyRBIa3KP0LivciwhHtZLH?=
+ =?us-ascii?Q?9xhcQGFpaHLG/RI9iv70AhtSFYC4fwGCjq+VpXDQtKPcOb+hTtFaTljXO3xY?=
+ =?us-ascii?Q?w/XxXH5HYrx+K5sYZxhANp1uZ3OfhmAVNlBFb6xfoAgpvX0bCcFSs0RwO5Op?=
+ =?us-ascii?Q?x/zLmFXdJ+cJNJdfZ8HKGhj1KmzzG8goNo3p2C14uNGq9QaBKSAZptzM43Fb?=
+ =?us-ascii?Q?Q897ECUDthO1ddI=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?+zcyDKvbKzotCTYdWtS1zXRdVG8a7p47rkP9azrSqJH6Ts4oyeRd1O9nLTJj?=
+ =?us-ascii?Q?d5Q7lrRTu3NiqQQvBLnUheVCjRd91Ds7rvbE2RBSLwuWfW/RNJ9tYx/FDszB?=
+ =?us-ascii?Q?WkaYPch3NdorvVOwpmgSPrm9yr7+iS/ohIT/OkLGQ+gICKl4yxNULUq90dI4?=
+ =?us-ascii?Q?22Tsq1VC1MYDP1Y8tKcRAhNpoVRua3udiicEkRE2vdZifXbtZfgP2K1qvQZK?=
+ =?us-ascii?Q?KD8PyboSnv4BL9OL/ocHKmCOnHM/CVRZ2IaKzc4sFC7DgwwzUZXhkzb1DFIP?=
+ =?us-ascii?Q?IrrFHhBpKBChUmZduG72tRQPk+JGvu5Io/yzTk+Zrl5j6fcSHw2MKHJPbGL5?=
+ =?us-ascii?Q?QhzIBVjZXudaohK9y1zFZX8UUfHV3vBnfbiFB6F2/1aNTUKfhzWZmR0VqUx9?=
+ =?us-ascii?Q?Oy6cFJKSEkoeGpf0JW/jcpIlkGng7xWclKf/LyfhXKBWmPFV5Nby5eOx6xA6?=
+ =?us-ascii?Q?9rMq8STYu40rbedlcc8tZEclyZxr03GO49uu5FN3nqIwGaK17oPuW35Z2Q5N?=
+ =?us-ascii?Q?1BlZtXT4TUnf7MANAPtifD4BxWpn/MC2zubi5BQfE4dBp2YhGPeUvzcKBB+c?=
+ =?us-ascii?Q?mWCQIDCiqW4KvNSX7qD5SfFvDhJdnxHCRlJv/2+hAxsSQ50B9P0Cpfxu3mdw?=
+ =?us-ascii?Q?4EPhaMCcw7JJ7LzLOlBLKlFHKqU+YcEtOrmgh8f3shTZXQ8IyoFkVJXGUlzE?=
+ =?us-ascii?Q?VJNiYbtCAq+9O2MMvz/b/nd0I0shTqafvquU7NB2wZpTc3y6v2VKLa/hFqot?=
+ =?us-ascii?Q?hjWHylczhzxcmhvw3RQekjcEnPnUeb1G0YEDjFIyOL8epT/FE+hSwHXU9s7s?=
+ =?us-ascii?Q?g7ryYKfVSc31EixPMNH+wDRszgTyf3xR5IIv4W1aYfxp7Bg2p9ia+MnVdH+h?=
+ =?us-ascii?Q?ryvyxAdnC0l1QVmBeJZlrlVz85fpw5EbJIgnNXTLANwLbMyvkKtzbI2caD+1?=
+ =?us-ascii?Q?Dzn7wniKm1csRDBqMDQWfkF8nnuMHzJCRynSrjIoLYgVyOHoHzlZlnQfSHYu?=
+ =?us-ascii?Q?PvV0h58KRkdRs6k1427TFZ0eZyLMHswB/tbSL/3XMlSoZn7WVsiPbr/h9b+g?=
+ =?us-ascii?Q?OW+U49ZXnyIhTXEG5bVyV0+nzUzEjZA9/uPlorQp8NIxA7hdD+npCwLL+yCB?=
+ =?us-ascii?Q?MWp059m/yDJ4DfKCE+ltZn35oIeYVNJZjavVfk+ZQt9Rw3alt9eTDPs7TuJr?=
+ =?us-ascii?Q?RKNht+i4pyJTLqxJGO0UdCsDsasxRIHOK+HcfQUM32A9lH/Kt9fTKHOBYyd/?=
+ =?us-ascii?Q?0Jvf54CSiuwQpjV6VizkV51wTcmqytkVJ+E5iQyeHmCYQjmrT8f8n/F2TGTG?=
+ =?us-ascii?Q?qCYmTxsgtq6QJJyI0DxuV+jn3j7kz0i9ub/aCZhGwL8V5URlba+8jKxrxObi?=
+ =?us-ascii?Q?tu6qsjl3/kecxEIPzMhu3CrL8HfmrRjsXM4YskwpV5QQo4rdPb1TE6g3zIst?=
+ =?us-ascii?Q?PHrN7ym6U52iHrUd5NgGHt+VOVFdBNf6tRYij7Pw0PVkxg7GC4u2VFQZ4xJz?=
+ =?us-ascii?Q?aWLeBAXA6fc4QfPkS3Ma9m0vdtH5mke80gxlAVVFxheyP3p1JblCMq+aVtbN?=
+ =?us-ascii?Q?wMge01b/mInVT/gSgTJ3zGTP5NPPSbZcG1K0n/QZ?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250421061544.2471379-3-carlos.song@nxp.com>
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2940bb58-b840-4df0-ee05-08dd80add836
+X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Apr 2025 08:23:50.1143
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: xHFf9nxdseMpHbojY8RFOeHVZs25JWg3vr+qjtNxqYOvl2pNWNti7yOHgKpo6y1e8XwlfJCvy1VqxBjDdM0luA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR11MB5184
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_012135_020936_7B4E69A1 
-X-CRM114-Status: GOOD (  15.36  )
+X-CRM114-CacheID: sfid-20250421_012441_634392_316AD5A7 
+X-CRM114-Status: GOOD (  20.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,148 +210,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+> From: Nicolin Chen <nicolinc@nvidia.com>
+> Sent: Friday, April 11, 2025 2:38 PM
+>=20
+> An impl driver might support its own vIOMMU object, as the following patc=
+h
+> will add IOMMU_VIOMMU_TYPE_TEGRA241_CMDQV.
+>=20
+> Add a vsmmu_alloc op to give impl a try, upon failure fallback to standar=
+d
+> vsmmu allocation for IOMMU_VIOMMU_TYPE_ARM_SMMUV3.
+>=20
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> ---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h     |  6 ++++++
+>  .../iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c | 17 +++++++++++-
+> -----
+>  2 files changed, 17 insertions(+), 6 deletions(-)
+>=20
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> index 6b8f0d20dac3..a5835af72417 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> @@ -16,6 +16,7 @@
+>  #include <linux/sizes.h>
+>=20
+>  struct arm_smmu_device;
+> +struct arm_smmu_domain;
+>=20
+>  /* MMIO registers */
+>  #define ARM_SMMU_IDR0			0x0
+> @@ -720,6 +721,11 @@ struct arm_smmu_impl_ops {
+>  	int (*init_structures)(struct arm_smmu_device *smmu);
+>  	struct arm_smmu_cmdq *(*get_secondary_cmdq)(
+>  		struct arm_smmu_device *smmu, struct
+> arm_smmu_cmdq_ent *ent);
+> +	struct arm_vsmmu *(*vsmmu_alloc)(
+> +		struct arm_smmu_device *smmu,
+> +		struct arm_smmu_domain *smmu_domain, struct
+> iommufd_ctx *ictx,
+> +		unsigned int viommu_type,
+> +		const struct iommu_user_data *user_data);
+>  };
+>=20
+>  /* An SMMUv3 instance */
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+> b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+> index 66855cae775e..aa8653af50f2 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+> @@ -392,10 +392,7 @@ struct iommufd_viommu *arm_vsmmu_alloc(struct
+> device *dev,
+>  		iommu_get_iommu_dev(dev, struct arm_smmu_device,
+> iommu);
+>  	struct arm_smmu_master *master =3D dev_iommu_priv_get(dev);
+>  	struct arm_smmu_domain *s2_parent =3D to_smmu_domain(parent);
+> -	struct arm_vsmmu *vsmmu;
+> -
+> -	if (viommu_type !=3D IOMMU_VIOMMU_TYPE_ARM_SMMUV3)
+> -		return ERR_PTR(-EOPNOTSUPP);
+> +	struct arm_vsmmu *vsmmu =3D NULL;
+>=20
+>  	if (!(smmu->features & ARM_SMMU_FEAT_NESTING))
+>  		return ERR_PTR(-EOPNOTSUPP);
+> @@ -423,8 +420,16 @@ struct iommufd_viommu *arm_vsmmu_alloc(struct
+> device *dev,
+>  	    !(smmu->features & ARM_SMMU_FEAT_S2FWB))
+>  		return ERR_PTR(-EOPNOTSUPP);
+>=20
+> -	vsmmu =3D iommufd_viommu_alloc(ictx, struct arm_vsmmu, core,
+> -				     &arm_vsmmu_ops);
+> +	if (master->smmu->impl_ops && master->smmu->impl_ops-
+> >vsmmu_alloc)
+> +		vsmmu =3D master->smmu->impl_ops->vsmmu_alloc(
+> +			master->smmu, s2_parent, ictx, viommu_type,
+> user_data);
+> +	if (PTR_ERR(vsmmu) =3D=3D -EOPNOTSUPP) {
 
-kernel test robot noticed the following build warnings:
+did it work on standard SMMUv3 when there is no @vsmmu_alloc()
+and the variable 'vsmmu' is initialized to NULL?
 
-[auto build test WARNING on robh/for-next]
-[also build test WARNING on linus/master v6.15-rc3 next-20250417]
-[cannot apply to shawnguo/for-next]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> +		if (viommu_type !=3D IOMMU_VIOMMU_TYPE_ARM_SMMUV3)
+> +			return ERR_PTR(-EOPNOTSUPP);
+> +		/* Fallback to standard SMMUv3 type if viommu_type
+> matches */
+> +		vsmmu =3D iommufd_viommu_alloc(ictx, struct arm_vsmmu,
+> core,
+> +					     &arm_vsmmu_ops);
+> +	}
+>  	if (IS_ERR(vsmmu))
+>  		return ERR_CAST(vsmmu);
+>=20
+> --
+> 2.43.0
 
-url:    https://github.com/intel-lab-lkp/linux/commits/carlos-song-nxp-com/dt-bindings-i3c-silvaco-i3c-master-add-i-MX94-and-i-MX95-I3C/20250421-140716
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
-patch link:    https://lore.kernel.org/r/20250421061544.2471379-3-carlos.song%40nxp.com
-patch subject: [PATCH 2/3] i3c: master: svc: switch to bulk clk API for flexible clock support
-config: arm-randconfig-001-20250421 (https://download.01.org/0day-ci/archive/20250421/202504211643.FJsMtmVl-lkp@intel.com/config)
-compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project f819f46284f2a79790038e1f6649172789734ae8)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250421/202504211643.FJsMtmVl-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202504211643.FJsMtmVl-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> drivers/i3c/master/svc-i3c-master.c:1898:29: warning: variable 'ret' is uninitialized when used here [-Wuninitialized]
-    1898 |                 return dev_err_probe(dev, ret, "can't get I3C clocks\n");
-         |                                           ^~~
-   drivers/i3c/master/svc-i3c-master.c:1882:9: note: initialize the variable 'ret' to silence this warning
-    1882 |         int ret, i;
-         |                ^
-         |                 = 0
-   1 warning generated.
-
-
-vim +/ret +1898 drivers/i3c/master/svc-i3c-master.c
-
-  1877	
-  1878	static int svc_i3c_master_probe(struct platform_device *pdev)
-  1879	{
-  1880		struct device *dev = &pdev->dev;
-  1881		struct svc_i3c_master *master;
-  1882		int ret, i;
-  1883	
-  1884		master = devm_kzalloc(dev, sizeof(*master), GFP_KERNEL);
-  1885		if (!master)
-  1886			return -ENOMEM;
-  1887	
-  1888		master->drvdata = of_device_get_match_data(dev);
-  1889		if (!master->drvdata)
-  1890			return -EINVAL;
-  1891	
-  1892		master->regs = devm_platform_ioremap_resource(pdev, 0);
-  1893		if (IS_ERR(master->regs))
-  1894			return PTR_ERR(master->regs);
-  1895	
-  1896		master->num_clks = devm_clk_bulk_get_all(dev, &master->clks);
-  1897		if (master->num_clks < 0)
-> 1898			return dev_err_probe(dev, ret, "can't get I3C clocks\n");
-  1899	
-  1900		for (i = 0; i < master->num_clks; i++) {
-  1901			if (!strcmp(master->clks[i].id, "fast_clk"))
-  1902				break;
-  1903		}
-  1904	
-  1905		if (i == master->num_clks)
-  1906			return dev_err_probe(dev, -EINVAL,
-  1907					     "can't get I3C peripheral clock\n");
-  1908	
-  1909		master->fclk = devm_clk_get(dev, "fast_clk");
-  1910		if (IS_ERR(master->fclk))
-  1911			return PTR_ERR(master->fclk);
-  1912	
-  1913		master->irq = platform_get_irq(pdev, 0);
-  1914		if (master->irq < 0)
-  1915			return master->irq;
-  1916	
-  1917		master->dev = dev;
-  1918		ret = clk_bulk_prepare_enable(master->num_clks, master->clks);
-  1919		if (ret)
-  1920			return dev_err_probe(dev, ret, "can't enable I3C clocks\n");
-  1921	
-  1922		INIT_WORK(&master->hj_work, svc_i3c_master_hj_work);
-  1923		INIT_WORK(&master->ibi_work, svc_i3c_master_ibi_work);
-  1924		mutex_init(&master->lock);
-  1925	
-  1926		ret = devm_request_irq(dev, master->irq, svc_i3c_master_irq_handler,
-  1927				       IRQF_NO_SUSPEND, "svc-i3c-irq", master);
-  1928		if (ret)
-  1929			goto err_disable_clks;
-  1930	
-  1931		master->free_slots = GENMASK(SVC_I3C_MAX_DEVS - 1, 0);
-  1932	
-  1933		spin_lock_init(&master->xferqueue.lock);
-  1934		INIT_LIST_HEAD(&master->xferqueue.list);
-  1935	
-  1936		spin_lock_init(&master->ibi.lock);
-  1937		master->ibi.num_slots = SVC_I3C_MAX_DEVS;
-  1938		master->ibi.slots = devm_kcalloc(&pdev->dev, master->ibi.num_slots,
-  1939						 sizeof(*master->ibi.slots),
-  1940						 GFP_KERNEL);
-  1941		if (!master->ibi.slots) {
-  1942			ret = -ENOMEM;
-  1943			goto err_disable_clks;
-  1944		}
-  1945	
-  1946		platform_set_drvdata(pdev, master);
-  1947	
-  1948		pm_runtime_set_autosuspend_delay(&pdev->dev, SVC_I3C_PM_TIMEOUT_MS);
-  1949		pm_runtime_use_autosuspend(&pdev->dev);
-  1950		pm_runtime_get_noresume(&pdev->dev);
-  1951		pm_runtime_set_active(&pdev->dev);
-  1952		pm_runtime_enable(&pdev->dev);
-  1953	
-  1954		svc_i3c_master_reset(master);
-  1955	
-  1956		/* Register the master */
-  1957		ret = i3c_master_register(&master->base, &pdev->dev,
-  1958					  &svc_i3c_master_ops, false);
-  1959		if (ret)
-  1960			goto rpm_disable;
-  1961	
-  1962		pm_runtime_mark_last_busy(&pdev->dev);
-  1963		pm_runtime_put_autosuspend(&pdev->dev);
-  1964	
-  1965		return 0;
-  1966	
-  1967	rpm_disable:
-  1968		pm_runtime_dont_use_autosuspend(&pdev->dev);
-  1969		pm_runtime_put_noidle(&pdev->dev);
-  1970		pm_runtime_disable(&pdev->dev);
-  1971		pm_runtime_set_suspended(&pdev->dev);
-  1972	
-  1973	err_disable_clks:
-  1974		clk_bulk_disable_unprepare(master->num_clks, master->clks);
-  1975	
-  1976		return ret;
-  1977	}
-  1978	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
