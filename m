@@ -4,155 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F32CC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 15:45:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4DB5C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 16:02:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1TKqd7mWqqzRUirHIeediymt7eXLD2wLwsMa1eMtIac=; b=j1Hkb4GF8MUpCzP4WmQt//NwB7
-	g8WAXli2CGGYUHMPJuVV/JjTWKUedKICCyQGQeLQUYPBOBZdh+JkEl2ccCBe8LZ5udnknlY0260Ou
-	2Bzso6Biif0kYZ6lYVLmvurRYyyyLK6QnWczQgvc5syVSkFEyswP7tGXcoLabuKK7r3PYFqo8TBNq
-	cS/c8us/nvrIscqPFL6Rvt3LYPQg7utYfMkbw7biKa5hZaal7AtxgkxTctblGcl6a3wvtAlzKtzVj
-	fMckPPf9GFaZTTYXKHOBn/8amqJrttoTjoGB6Zz6AbMpFB6CwzrW8C6q/glhyMSdKDj/hz9wvxA9d
-	hJgicpJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IfwVcqZIdLYa6ESa9VFX4UZ+RIhl2xtGcB894nYNcAQ=; b=x5Gukm4rBS4ikHD/2o3JTsYE5I
+	yIKFLWhN0cc+/m+CfDxjvbgjCMzZv+WHviWLljvtibtpJVNnqStYQ7Wxn2vSR2hJAnRIIFIJn3z1r
+	NjsGPzT5ZUdj4YiFynqWhMm1gLsdV9wY4JnXwl0PCWnSTaeWq80KGx26vZBYAyJFai1Mjw2rwE9K8
+	hYX50j31+t5yQfLXCDL1N4jGgJ34+c8A5RB1Wb03Kk4qUZUUYGOJdyHCMXkwKUGiyKDUa4fhhqmTU
+	qUtuvZm2MKFMhWcTd0n8DhVaX/32for8x+FnV1NlAsTmBqAOXEbOg/xhhwsGUwSE5z/RN0wPWl3T0
+	1OaZ40Bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6tKW-00000004byp-3v7e;
-	Mon, 21 Apr 2025 15:45:08 +0000
-Received: from mail-dm6nam11on20606.outbound.protection.outlook.com ([2a01:111:f403:2415::606] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
+	id 1u6tb2-00000004d3h-1DjH;
+	Mon, 21 Apr 2025 16:02:12 +0000
+Received: from mail-japaneastazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c405::5] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6tIe-00000004bsM-3PYg
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Apr 2025 15:43:13 +0000
+	id 1u6tZ9-00000004cuf-1Kzz;
+	Mon, 21 Apr 2025 16:00:17 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UaaZPMVOULZFL6FLWjoTiQiVqhIII+uoaKba8BX9RNHp6OQIRiQvVvaN80IDI0zW9df1RI3t1Yah495cgdNTgl2YuV3rNxVTJzec5RIDlS5M9U7uxE60hsVSZIIF92UuBoueHpW1swZICAiy97YIvbfB7W5KxNLmEx5kTIOxj4kiSqJxfdX/P4Mfsn0mC3qJevi24pLAVf0gKeMneaXt5pSeuAuJreeO3PDDlLnneVn7VeUSwtpDgnSxtPASZPy/ogPyOpH27VE6f7PfLb1qDJBW6O56BP6j91CceWO6PEMFN0kyymchqMKKomk1QS/P5x/AyVlj94sBghgJirerXw==
+ b=lhJeSVCj5+5pax3Z3dHRhYbwV5UUs/2bcVB0Tw0zUO5IujlHlKtO7RARaFcd6lySQ+/gF6B9st1JLYr9+YHnS+GuA2fKzYxoBt+pxdDOKPq4NPQLnIcZ5Awcr+GjIX8jsnlpcVn7KoxamdoY+Ug3m4MDNHMMxgXIFcKYvZRM6VOettzcFkgRmfMvN66+CSBaYNV5q/GUZAInNwjYDOKMeL9owuFIOGGbvymrEemd7fZenOcDsZ1XdjC8v9zajrYL9pIpkmMBQXtHcb7zf4IhZfhMW+oZCA2qpSW9OjnXX6kqbDEuJYPlYpF+49a/NlzUdeqJMMzXs+2Y8x/JLOjvng==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1TKqd7mWqqzRUirHIeediymt7eXLD2wLwsMa1eMtIac=;
- b=ia5lFEflD2uSgeZJfRko+2GJKvEmnsyW1QC8PH7KPMs271kgcL3yW4MbYQvK6Mzq4+3qer06EXoiedmM9yWsutu8AfscfB2egDeFmAeUNU81SmpC1ea7uSHC16LbtRj+c+4YfBWpc/kTqgMJZdWE2EE2WXQSeVupWClGrVSpeSEOX2LOGnRUFZEo1/+Dy9ECXT07yLdkiia0kVo0ZpJv+Yhz3TYeMzsIpysHjjnV0MIXQV6gWi8zbFum6qc413ugs49Rs11BMm9wZJ32XnIBYd5ykJz9f8himzC3GIE5IA/Qrs9yE0y0wMg5IT5TZKZecwOTqs58gaK0OohkdsJ3xA==
+ bh=IfwVcqZIdLYa6ESa9VFX4UZ+RIhl2xtGcB894nYNcAQ=;
+ b=oxECZRWZa+e8FbJ7AaoQiN/jzLgTq9U15+iRHEFmXyMkjmO90I3n/5Zl45og6oo2hTLdX72vAoW4pjaV/l9JyY0TlljjFPz714imVgnR4dlQOlc2VX/5sCvGqtmVKdMIuhttjd0f2N+p6vOzL8nf41PNVdunQD5zEnPPcfZeKea75l7noZ8iWVmhfnmp71Rh3ay7w5u4ks4OoFgv93+8J9Y1zHYJaSMqftK3pCKBVOwtmjiqF2wI3Pg5M+iv6DhWhmqQf2/U+yb0ZJ4DRPSLrpGhw9u7SiQqPrIwFHWo5JDhQ/HxC6gWETqrMEkJIr9aFgzhtzs2qlu4jPLPGiczFg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1TKqd7mWqqzRUirHIeediymt7eXLD2wLwsMa1eMtIac=;
- b=LtI1DtnrwB356m+3C3pUgt+9SfyXIZPjlQsNcV2qv55yxV6xF1jAOLvSmqxsrwUy1C87vPGwj6ObyjiiuCCqd18RR/bUEzdogEXyVtxEU43S1Nvpy131MICcWWWcLntSikBGT3mgjfeMh9Y+CuucBofc/NlvQw4+7BknQT7BbXUOQBcERG65c6VeBKKMISYEkmK9SLbZBTXBqTnk9OKvbNQuSe1Q9FPv7ft19KPbPKREPGWg6eU76bNhH4QnavQLoVG/ved2mLpB5ojmFA7xrh0ab7sOZJVF5JbS+KNZAT23mWhhJrWFkSMFr7cDW+Kts4wMQxks7fci2b0WazVCFw==
-Received: from CH0PR03CA0217.namprd03.prod.outlook.com (2603:10b6:610:e7::12)
- by LV3PR12MB9332.namprd12.prod.outlook.com (2603:10b6:408:20f::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.31; Mon, 21 Apr
- 2025 15:43:05 +0000
-Received: from CH2PEPF00000143.namprd02.prod.outlook.com
- (2603:10b6:610:e7:cafe::bb) by CH0PR03CA0217.outlook.office365.com
- (2603:10b6:610:e7::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.36 via Frontend Transport; Mon,
- 21 Apr 2025 15:43:05 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- CH2PEPF00000143.mail.protection.outlook.com (10.167.244.100) with Microsoft
+ 222.71.101.198) smtp.rcpttodomain=163.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SL2P216CA0135.KORP216.PROD.OUTLOOK.COM (2603:1096:101:1::14) by
+ TY0PR06MB5593.apcprd06.prod.outlook.com (2603:1096:400:31e::9) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8655.12 via Frontend Transport; Mon, 21 Apr 2025 15:43:05 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 21 Apr
- 2025 08:42:54 -0700
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Mon, 21 Apr 2025 08:42:53 -0700
-Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com
- (10.126.190.181) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Mon, 21 Apr 2025 08:42:52 -0700
-Date: Mon, 21 Apr 2025 08:42:50 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: "Tian, Kevin" <kevin.tian@intel.com>
-CC: "jgg@nvidia.com" <jgg@nvidia.com>, "corbet@lwn.net" <corbet@lwn.net>,
-	"will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com"
-	<robin.murphy@arm.com>, "joro@8bytes.org" <joro@8bytes.org>,
-	"thierry.reding@gmail.com" <thierry.reding@gmail.com>, "vdumpa@nvidia.com"
-	<vdumpa@nvidia.com>, "jonathanh@nvidia.com" <jonathanh@nvidia.com>,
-	"shuah@kernel.org" <shuah@kernel.org>, "praan@google.com" <praan@google.com>,
-	"nathan@kernel.org" <nathan@kernel.org>, "peterz@infradead.org"
-	<peterz@infradead.org>, "Liu, Yi L" <yi.l.liu@intel.com>,
-	"jsnitsel@redhat.com" <jsnitsel@redhat.com>, "mshavit@google.com"
-	<mshavit@google.com>, "zhangzekun11@huawei.com" <zhangzekun11@huawei.com>,
-	"iommu@lists.linux.dev" <iommu@lists.linux.dev>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-tegra@vger.kernel.org"
-	<linux-tegra@vger.kernel.org>, "linux-kselftest@vger.kernel.org"
-	<linux-kselftest@vger.kernel.org>, "patches@lists.linux.dev"
-	<patches@lists.linux.dev>
-Subject: Re: [PATCH v1 09/16] iommufd/viommmu: Add IOMMUFD_CMD_VCMDQ_ALLOC
- ioctl
-Message-ID: <aAZnei9tnO8Pjy+d@Asurada-Nvidia>
-References: <cover.1744353300.git.nicolinc@nvidia.com>
- <5cd2c7c4d92c79baf0cfc59e2a6b3e1db4e86ab8.1744353300.git.nicolinc@nvidia.com>
- <BN9PR11MB5276F362FA971F6A5861BA418CB82@BN9PR11MB5276.namprd11.prod.outlook.com>
+ 15.20.8655.35; Mon, 21 Apr 2025 15:59:54 +0000
+Received: from HK3PEPF00000221.apcprd03.prod.outlook.com
+ (2603:1096:101:1:cafe::a) by SL2P216CA0135.outlook.office365.com
+ (2603:1096:101:1::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.25 via Frontend Transport; Mon,
+ 21 Apr 2025 15:59:54 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ HK3PEPF00000221.mail.protection.outlook.com (10.167.8.43) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8655.12 via Frontend Transport; Mon, 21 Apr 2025 15:59:53 +0000
+Received: from [172.16.64.208] (unknown [172.16.64.208])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 548CA41604FA;
+	Mon, 21 Apr 2025 23:59:52 +0800 (CST)
+Message-ID: <60a41564-43ed-41ea-af5c-eb8409b47ad1@cixtech.com>
+Date: Mon, 21 Apr 2025 23:59:48 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <BN9PR11MB5276F362FA971F6A5861BA418CB82@BN9PR11MB5276.namprd11.prod.outlook.com>
-X-NV-OnPremToCloud: AnonymousSubmission
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] PCI: dw-rockchip: Configure max payload size on host init
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ Hans Zhang <18255117159@163.com>
+Cc: Niklas Cassel <cassel@kernel.org>, Bjorn Helgaas <helgaas@kernel.org>,
+ Shawn Lin <shawn.lin@rock-chips.com>, lpieralisi@kernel.org, kw@linux.com,
+ bhelgaas@google.com, heiko@sntech.de, robh@kernel.org, jingoohan1@gmail.com,
+ thomas.richard@bootlin.com, linux-pci@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+References: <20250417165219.GA115235@bhelgaas>
+ <22720eef-f5a3-4e72-9c41-35335ec20f80@163.com>
+ <225CC628-432C-4E88-AF2B-17C948B3790B@kernel.org>
+ <8af8a418-b808-4a14-9969-1c6d549e1633@163.com>
+ <vc6z6pzgk2sjgkghnwfzlmj3dblrvpkfnsmnlb2nnkj2leju7t@uxy3kthse7g6>
+Content-Language: en-US
+From: Hans Zhang <hans.zhang@cixtech.com>
+In-Reply-To: <vc6z6pzgk2sjgkghnwfzlmj3dblrvpkfnsmnlb2nnkj2leju7t@uxy3kthse7g6>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF00000143:EE_|LV3PR12MB9332:EE_
-X-MS-Office365-Filtering-Correlation-Id: 175c7346-bf2a-45bd-a437-08dd80eb3548
+X-MS-TrafficTypeDiagnostic: HK3PEPF00000221:EE_|TY0PR06MB5593:EE_
+X-MS-Office365-Filtering-Correlation-Id: 348ec270-357c-425f-77e9-08dd80ed8e1d
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|376014|7416014|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?p/UYrMln642Rn3MqK76N0TXyosWYWo9WnVjbxLZEyCVhTgdxkv5jcrhzeBT2?=
- =?us-ascii?Q?FCbwZ+kVxAgJZYrPAA28YFUgkUIQP3IMaXUc5nkauwTjpmJ3+s92S/H1HUdh?=
- =?us-ascii?Q?uMuQjfujvP+acv+oWF6vPuci6XG1EwzYSHfhK36LG/BV5SeaGAtT84xxePNt?=
- =?us-ascii?Q?KaDab0SK/PaIOnTkHuvAR53+CeCczq6yLUSaWpb75wMAJzefekxsTpnbnGTY?=
- =?us-ascii?Q?6rt8iXwJJ55MZ63P4RrBvpDvICWep7RjA0wUhDXr6wqH0CpllIPoKqno/+bX?=
- =?us-ascii?Q?46JqFx46g/Rl7PXq8RtXfK0ta/+Jvz14uqbRelSQYVBNvRa25amchz6VvUSC?=
- =?us-ascii?Q?BxYQSn4rQEONPtpC+oEpPszPqTKNS8yXm4KFcLZrKZqmrgnmQiq0d+UnQxAU?=
- =?us-ascii?Q?VT8gMXo9LtPjMxkQTAW6tc4+jt9G/x0zt2VNYYvawGfqqnOIxMyLa9WiyMSI?=
- =?us-ascii?Q?WfuNkKnviI5PU8pVPRB8+rQrXgltntmxXWEZCV+SpCJF49AGBZTn4bHB48I+?=
- =?us-ascii?Q?vRA/ohEUnfgip6s77OZLedf/llr0cPfi7SIdlZYKjUzG18E5cFaKQOOPCqPR?=
- =?us-ascii?Q?m2qX6Egw8Iaky/pLXX7q+HvGpvczaMFG3s0olAM4cYKeB60dyFhpAMgwtqMo?=
- =?us-ascii?Q?IXeet8VX9prl0ge/1wKoFv3weBDR9qCI5RgoxuUR/oaAWOWrONeDVBJNH1k9?=
- =?us-ascii?Q?bZs1TzzqpFvqJMO8aMx3/0iYqCZJFyZkGcfuH5PoNB7j3GD81alP1CZIaWW3?=
- =?us-ascii?Q?Xr0PhQ+2Z4tZH1iSaudtu4KvgOtI0a8jfeY7Mr1YE21Zab+zkqaEWDGUlICf?=
- =?us-ascii?Q?MUH7BA3SFZEEHZsWsN50jjTGN2iWWKm7O4/Ba681/O+GcPhBvdlZrMi7N4Wr?=
- =?us-ascii?Q?C0tFENAdle0ThyBL+8Q4fm7OG4kHyS66CcBcFD6kE8uBLkakL3xp6rZeZVcL?=
- =?us-ascii?Q?r0vvIfeYWeYLdXaXLrTonFg8LYsuXjotqAlFAZEcp+dz6OAQRoHgdPIWVC2Q?=
- =?us-ascii?Q?fcmhz5NGyhUtZcpD4nSnArcvyZWX9f+zYOpaybyponBy7FTRKAe99vPetoxw?=
- =?us-ascii?Q?4g/9MYyKXRS50o0e0q2H1yDAriHSvcV6EeZE/UDNTRsnaDfVsHj+JDQgZQi3?=
- =?us-ascii?Q?/WQCcjTWU6o9S5p5elkiF3zmULczYm2Md0ZPZSLjVG2oJpwiEspIvtR1NCdg?=
- =?us-ascii?Q?/Bbidgs9WNmgtkG4OdyQTliQdUOksBRq9wuEuVi3+Q+bu6xINeyCdPjIPS1c?=
- =?us-ascii?Q?CueI4jzzictTiMIYgotYTY00/2pITYRx+iE87baszHH9nUS+0DfUzZO1ExJL?=
- =?us-ascii?Q?NLTujy3W9uq2/45QPCmXgr78M3ARdYhX39sQqkvAaILuPp+bFvUYXVDu5U6v?=
- =?us-ascii?Q?QU53LByfI13Ui3TxxaE9gPgoh7SkCWeWEBBL09j+5+sI4ecEDlAYP/iOZqD5?=
- =?us-ascii?Q?SIT3WtLDlM0jn9V6DbGSPOJvTBmO+0qAjJLl42p9S7xhkVzNZV1t5JcEBTSf?=
- =?us-ascii?Q?pdpcvtqNv55ycUs64ohopCGr7AnmdXV/NbWV?=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(7416014)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Apr 2025 15:43:05.4653
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|376014|82310400026;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?R3pUSzFYT1ZIMERMTCtwN3JDclhPaG1nVFRCMHlQS3JpSWw5K0J4alBqMUFj?=
+ =?utf-8?B?bkxHZHo3Y0YzZFlXUlRvT3RNdXFPZzBSazJZcDcyMkhuelErVHhqWkFSZGpa?=
+ =?utf-8?B?VUNaYS8wb1Y4M2tPdnc3NGxGWWc5OWhnYUVZUkI5WmpOTUVnL3loOUZzNFBM?=
+ =?utf-8?B?S3J4WmZXNzhKazM2VUJMeXUzcnllbG9IeVR4Q1g0OWVBSFZXSis0K0U3aUIz?=
+ =?utf-8?B?Wk5lWE44b2l3SWtWUUhMU3l3T1NwekptUDRxSVhPejVpMzUvVDR0WFBOc0pX?=
+ =?utf-8?B?WmJuT2M1ZFpPR0t2M0pYQk1rOUtkekJ4UXVTMUxoc2R0VVhCL2p5L244THNI?=
+ =?utf-8?B?UlFZRmVZaXQwUHVJN3lqb3BPN0RzVzRXQ3BwTXNkaEtrcHVlN1dlMzRDUnEw?=
+ =?utf-8?B?NThuZUFobXpaK0d5Wll6WDVoN0VFbzlvcUIrYlhjYVZWcEZLZXpjcnM1aGFp?=
+ =?utf-8?B?SkZyZmkwZExGUDJuaUl0Q1ZIa3E1MjQ3TTBsYVBEaEtQWDV2SllNNTdGZDFF?=
+ =?utf-8?B?c1FIUUhlaEtFazFTMldZaW9LRWNEVUlKamY2RVdxazVjQytkRll2OTF5ZVVG?=
+ =?utf-8?B?alZ6bFhRSHUxVy9uRThsV1lUbjFnOVd3cU1HZEpwRVl2L0hzN3AwV3o0dmxX?=
+ =?utf-8?B?Ykg2RGhVNW9yMTIzekZld2tBZEhISVBNbUNqS2s0amIvZzErQmJyZ0ZpT3Ft?=
+ =?utf-8?B?cHNXMER2cWx2RVpEUzRpVFNxdnE0ZEp6WnkwZEt6SVpNVElqVWEzbHNtVHEr?=
+ =?utf-8?B?azdqM25hTWZTSnNBN0tXV3pOdXdxbXErWnM4ODZnaVloeEZxWk1PWHRIWWYx?=
+ =?utf-8?B?Tk9tclQ1MThMT09Fc0d6MEt2NmxBd2JKaldSa3haTjZ6bnVaQkYrMlFSMTNz?=
+ =?utf-8?B?K29FRDdjRnV5QjZ6YzUzWUlVN1EwTFVPTmlPQ3pOQllaR0xEVkg1cFFJNFVw?=
+ =?utf-8?B?aGpQVEV4RW1xNFFYK0Nobm9pdFkxR1ZxK3pGNkg5S2dPekdiUDdiQ0doMkhN?=
+ =?utf-8?B?SCtVSWpGWW1SQnI1WEhJMHBpVktTZGVkNGNGZVo1cFhrVUtQcWwrVzFoNmRM?=
+ =?utf-8?B?YUZ2VG1kR0g3dFRmRFFScUhSL1NUQnJtQlhIZW95RTd1OWZybVN5VU45bHcx?=
+ =?utf-8?B?M3o4aXVyQ1VuMDV3TlNNbkJNWnQ5SEVmTk9sSVRra1FtMFVFL2tPT3JCZjBT?=
+ =?utf-8?B?eW1JNnk2UURGenJ3RXdpRUZKVWtheUMrYU5iaXhtcXpFTk5KSm1IeEh0d2Rt?=
+ =?utf-8?B?OFdRVEs1cFpweCtuUU5jbFVFaCtLMWlPUFNHa3JhNXhhb085RzQ4REY4OG1u?=
+ =?utf-8?B?cWxqOXRMR2xkTVUwclNCSitpbW0vQ3NhK3pnaGxNS0ZucmFHVURDZUFaQjlj?=
+ =?utf-8?B?T2VONjFobGJHWkpTWGFSZDI2b0VRekhkaW12RnNLaWpWOXU4QnZhL01IcElr?=
+ =?utf-8?B?NXJRYWZjbEpvY0x3ZnVrbG5OemUwVE1ZRDUrVGFqWm13UWxCYUJXU0IyN1Fy?=
+ =?utf-8?B?OVUvekJOOUowRDRLVUNYUnQwY2dQbXJJSTlpQmQrcDh2WlU3enhEZHMrZ052?=
+ =?utf-8?B?Y2RzRGpLcXc4d2xxWW4wejlKOFlwM3NVd2tkM292UWRPRzgyc3QxaEZqWklv?=
+ =?utf-8?B?RmRaVkxWN1RwYlZxc0w3aU1aSzYxN0x4QndZNlY4amdBcDN4OG9rMzZlN3ND?=
+ =?utf-8?B?bENDa0hxZ25DY3NsUU5IaEx4WldqTUsrNWlaeDM5MFdqdk9wNC9qUHJpUS81?=
+ =?utf-8?B?T29uc3NEbnJOOEhtaWloeUxEQ2JZMHU5V0JlRjNPZTdEY0RsbG9YQnBQQ3lk?=
+ =?utf-8?B?d2wrd3FySnJGaEY3V1E0Q1lpeWdkTzh0amxBUktUd1ZlNXlKVFRXbm55VXpG?=
+ =?utf-8?B?dExaSGNRd1J2b2NJd2FpaDJENENGa1cyRDFOOU9jZXRIUzY4eVowZG9oN1k5?=
+ =?utf-8?B?YlJmZGxUaW92RWpjclVaU243N1ZHUHJOTzV2aW1kaElsV2VSTFZlS1BFc1RZ?=
+ =?utf-8?B?cWs2cjRPeTh5aFVtNnN1UzE2SEdwZDJPMm9uZ1loZ0JIbk1vK0pNcFcwaG9w?=
+ =?utf-8?Q?ts+v+2?=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(376014)(82310400026);DIR:OUT;SFP:1102;
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Apr 2025 15:59:53.4035
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 175c7346-bf2a-45bd-a437-08dd80eb3548
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF00000143.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 348ec270-357c-425f-77e9-08dd80ed8e1d
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: HK3PEPF00000221.apcprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR12MB9332
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR06MB5593
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_084312_846727_049B6979 
-X-CRM114-Status: GOOD (  14.69  )
+X-CRM114-CacheID: sfid-20250421_090015_473764_D35B8A23 
+X-CRM114-Status: GOOD (  27.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,64 +152,219 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 21, 2025 at 08:05:40AM +0000, Tian, Kevin wrote:
-> > From: Nicolin Chen <nicolinc@nvidia.com>
-> > Sent: Friday, April 11, 2025 2:38 PM
-> > 
-> > +
-> > +/**
-> > + * enum iommu_vcmdq_type - Virtual Queue Type
-> 
-> "Virtual Command Queue Type"
-> 
-> > + * @IOMMU_VCMDQ_TYPE_DEFAULT: Reserved for future use
-> > + */
-> > +enum iommu_vcmdq_data_type {
-> > +	IOMMU_VCMDQ_TYPE_DEFAULT = 0,
-> > +};
-> > +
-> > +/**
-> > + * struct iommu_vcmdq_alloc - ioctl(IOMMU_VCMDQ_ALLOC)
-> > + * @size: sizeof(struct iommu_vcmdq_alloc)
-> > + * @flags: Must be 0
-> > + * @viommu_id: viommu ID to associate the virtual queue with
-> > + * @type: One of enum iommu_vcmdq_type
-> 
-> s/ iommu_vcmdq_type/ iommu_vcmdq_data_type/
-> 
-> > +int iommufd_vcmdq_alloc_ioctl(struct iommufd_ucmd *ucmd)
-> > +{
-> > +	struct iommu_vcmdq_alloc *cmd = ucmd->cmd;
-> > +	const struct iommu_user_data user_data = {
-> > +		.type = cmd->type,
-> > +		.uptr = u64_to_user_ptr(cmd->data_uptr),
-> > +		.len = cmd->data_len,
-> > +	};
-> > +	struct iommufd_vcmdq *vcmdq;
-> > +	struct iommufd_viommu *viommu;
-> > +	int rc;
-> > +
-> > +	if (cmd->flags || cmd->type == IOMMU_VCMDQ_TYPE_DEFAULT)
-> > +		return -EOPNOTSUPP;
-> > +	if (!cmd->data_len)
-> > +		return -EINVAL;
-> > +
-> > +	viommu = iommufd_get_viommu(ucmd, cmd->viommu_id);
-> > +	if (IS_ERR(viommu))
-> > +		return PTR_ERR(viommu);
-> > +
-> > +	if (!viommu->ops || !viommu->ops->vcmdq_alloc) {
-> > +		rc = -EOPNOTSUPP;
-> > +		goto out_put_viommu;
-> > +	}
-> > +
-> > +	vcmdq = viommu->ops->vcmdq_alloc(viommu,
-> > +					 user_data.len ? &user_data : NULL);
-> 
-> the length cannot be zero at this point due to earlier check.
 
-Yes. Will fix them all.
 
-Thanks!
-Nicolin
+On 2025/4/21 22:53, Manivannan Sadhasivam wrote:
+> EXTERNAL EMAIL
+> 
+> On Sat, Apr 19, 2025 at 01:21:54AM +0800, Hans Zhang wrote:
+>>
+>>
+>> On 2025/4/18 22:55, Niklas Cassel wrote:
+>>>
+>>>
+>>> On 18 April 2025 14:33:08 CEST, Hans Zhang <18255117159@163.com> wrote:
+>>>>
+>>>> Dear Bjorn,
+>>>>
+>>>> Thanks your for reply. Niklas and I attempted to modify the relevant logic in drivers/pci/probe.c and found that there was a lot of code judging the global variable pcie_bus_config. At present, there is no good method. I will keep trying.
+>>>>
+>>>> I wonder if you have any good suggestions? It seems that the code logic regarding pcie_bus_config is a little complicated and cannot be modified for the time being?
+>>>
+>>>
+>>> Hans,
+>>>
+>>> If:
+>>>
+>>> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
+>>> index 364fa2a514f8..2e1c92fdd577 100644
+>>> --- a/drivers/pci/probe.c
+>>> +++ b/drivers/pci/probe.c
+>>> @@ -2983,6 +2983,13 @@ void pcie_bus_configure_settings(struct pci_bus *bus)
+>>>            if (!pci_is_pcie(bus->self))
+>>>                    return;
+>>>     +       /*
+>>> +        * Start off with DevCtl.MPS == DevCap.MPS, unless PCIE_BUS_TUNE_OFF.
+>>> +        * This might get overriden by a MPS strategy below.
+>>> +        */
+>>> +       if (pcie_bus_config != PCIE_BUS_TUNE_OFF)
+>>> +               smpss = pcie_get_mps(bus->self);
+>>> +
+>>
+>> Dear Niklas,
+>>
+>> Thank you very much for your reply and thoughts.
+>>
+>> pcie_get_mps: Returns maximum payload size in bytes
+>>
+>> I guess you want to obtain the DevCap MPS. But the purpose of the smpss
+>> variable is to save the DevCtl MPS.
+>>
+>>>            /*
+>>>             * FIXME - Peer to peer DMA is possible, though the endpoint would need
+>>>             * to be aware of the MPS of the destination.  To work around this,
+>>>
+>>>
+>>>
+>>> does not work, can't you modify the code slightly so that it works?
+>>>
+>>> I haven't tried myself, but considering that it works when walking the bus, it seems that it should be possible to get something working.
+>>>
+>>
+>>
+>> After making the following modifications, my test shows that it is normal.
+>> If the consideration is not comprehensive. Could Bjorn and Niklas please
+>> review my revisions?
+>>
+>> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
+>> index 364fa2a514f8..5b54f1b0a91d 100644
+>> --- a/drivers/pci/probe.c
+>> +++ b/drivers/pci/probe.c
+>> @@ -2951,8 +2951,7 @@ static int pcie_bus_configure_set(struct pci_dev *dev,
+>> void *data)
+>>          if (!pci_is_pcie(dev))
+>>                  return 0;
+>>
+>> -       if (pcie_bus_config == PCIE_BUS_TUNE_OFF ||
+>> -           pcie_bus_config == PCIE_BUS_DEFAULT)
+>> +       if (pcie_bus_config == PCIE_BUS_TUNE_OFF)
+>>                  return 0;
+>>
+>>          mps = 128 << *(u8 *)data;
+>> @@ -2991,7 +2990,8 @@ void pcie_bus_configure_settings(struct pci_bus *bus)
+>>          if (pcie_bus_config == PCIE_BUS_PEER2PEER)
+>>                  smpss = 0;
+>>
+>> -       if (pcie_bus_config == PCIE_BUS_SAFE) {
+>> +       if ((pcie_bus_config == PCIE_BUS_SAFE) ||
+>> +           (pcie_bus_config != PCIE_BUS_TUNE_OFF)) {
+>>                  smpss = bus->self->pcie_mpss;
+>>
+>>                  pcie_find_smpss(bus->self, &smpss);
+>>
+>>
+> 
+> As I replied to Niklas, I'd like to limit the changes to platforms having
+> controller drivers. So here is my proposal:
+> 
+> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
+> index 364fa2a514f8..d32a0f90beb1 100644
+> --- a/drivers/pci/probe.c
+> +++ b/drivers/pci/probe.c
+> @@ -3228,6 +3228,17 @@ int pci_host_probe(struct pci_host_bridge *bridge)
+>           */
+>          pci_assign_unassigned_root_bus_resources(bus);
+> 
+> +       if (pcie_bus_config != PCIE_BUS_TUNE_OFF) {
+> +               /* Configure root ports MPS to be MPSS by default */
+> +               for_each_pci_bridge(dev, bus) {
+> +                       if (pci_pcie_type(dev) != PCI_EXP_TYPE_ROOT_PORT)
+> +                               continue;
+> +
+> +                       pcie_write_mps(dev, 128 << dev->pcie_mpss);
+> +                       pcie_write_mrrs(dev);
+> +               }
+> +       }
+> +
+
+Sorry. Since the reply just now was made by logging into the email 
+through the browser, there are some errors. I reply again as follows:
+[My personal computer is not at hand. I reply using the company email.]
+
+Hi Mani,
+
+Thank you very much for your reply and suggestions. The following is the 
+test on our platform and it works properly. I wonder if others have any 
+other opinions? If not, I will send the next version and then see 
+everyone's opinions.
+
+root@cix-localhost:~# cat /proc/version
+Linux version 6.15.0-rc2-00015-gced1536aaf04-dirty (hans@hans) ......
+root@cix-localhost:~# lspci
+0000:c0:00.0 PCI bridge: Device 1f6c:0001
+0000:c1:00.0 Non-Volatile memory controller: Samsung Electronics Co Ltd 
+NVMe SSD Controller S4LV008[Pascal]
+0001:90:00.0 PCI bridge: Device 1f6c:0001
+0001:91:00.0 Non-Volatile memory controller: Samsung Electronics Co Ltd 
+NVMe SSD Controller PM9A1/PM9A3/980PRO
+0003:30:00.0 PCI bridge: Device 1f6c:0001
+0003:31:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd. 
+RTL8125 2.5GbE Controller (rev 05)root@cix-localhost:~# lspci -vvv
+0000:c0:00.0 PCI bridge: Device 1f6c:0001 (prog-if 00 [Normal decode])
+         ......
+         Capabilities: [c0] Express (v2) Root Port (Slot-), MSI 00
+                 DevCap: MaxPayload 512 bytes, PhantFunc 0
+                         ExtTag+ RBE+
+                 DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
+                         RlxdOrd+ ExtTag+ PhantFunc- AuxPwr- NoSnoop+
+                         MaxPayload 512 bytes, MaxReadReq 1024 bytes
+		......
+0000:c1:00.0 Non-Volatile memory controller: Samsung Electronics Co Ltd 
+NVMe SSD Controller S4LV008[Pascal] (prog-if 02 [NVM Express])
+         ......
+         Capabilities: [70] Express (v2) Endpoint, MSI 00
+                 DevCap: MaxPayload 512 bytes, PhantFunc 0, Latency L0s 
+unlimited, L1 unlimited
+                         ExtTag+ AttnBtn- AttnInd- PwrInd- RBE+ FLReset+ 
+SlotPowerLimit 0W
+                 DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
+                         RlxdOrd+ ExtTag+ PhantFunc- AuxPwr- NoSnoop+ 
+FLReset-
+                         MaxPayload 512 bytes, MaxReadReq 512 bytes
+		......
+0001:90:00.0 PCI bridge: Device 1f6c:0001 (prog-if 00 [Normal decode])
+         ......
+         Capabilities: [c0] Express (v2) Root Port (Slot-), MSI 00
+                 DevCap: MaxPayload 512 bytes, PhantFunc 0
+                         ExtTag- RBE+
+                 DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
+                         RlxdOrd+ ExtTag- PhantFunc- AuxPwr- NoSnoop+
+                         MaxPayload 512 bytes, MaxReadReq 1024 bytes
+		......
+0001:91:00.0 Non-Volatile memory controller: Samsung Electronics Co Ltd 
+NVMe SSD Controller PM9A1/PM9A3/980PRO (prog-if 02 [NVM Express])
+         ......
+         Capabilities: [70] Express (v2) Endpoint, MSI 00
+                 DevCap: MaxPayload 256 bytes, PhantFunc 0, Latency L0s 
+unlimited, L1 unlimited
+                         ExtTag+ AttnBtn- AttnInd- PwrInd- RBE+ FLReset+ 
+SlotPowerLimit 0W
+                 DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
+                         RlxdOrd+ ExtTag+ PhantFunc- AuxPwr- NoSnoop+ 
+FLReset-
+                         MaxPayload 256 bytes, MaxReadReq 512 bytes
+		......
+0003:30:00.0 PCI bridge: Device 1f6c:0001 (prog-if 00 [Normal decode])
+         ......
+         Capabilities: [c0] Express (v2) Root Port (Slot-), MSI 00
+                 DevCap: MaxPayload 512 bytes, PhantFunc 0
+                         ExtTag- RBE+
+                 DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
+                         RlxdOrd+ ExtTag- PhantFunc- AuxPwr- NoSnoop+
+                         MaxPayload 512 bytes, MaxReadReq 1024 bytes
+		......
+0003:31:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd. 
+RTL8125 2.5GbE Controller (rev 05)
+         ......
+         Capabilities: [70] Express (v2) Endpoint, MSI 01
+                 DevCap: MaxPayload 256 bytes, PhantFunc 0, Latency L0s 
+<512ns, L1 <64us
+                         ExtTag- AttnBtn- AttnInd- PwrInd- RBE+ FLReset- 
+SlotPowerLimit 0W
+                 DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
+                         RlxdOrd+ ExtTag- PhantFunc- AuxPwr- NoSnoop-
+                         MaxPayload 256 bytes, MaxReadReq 4096 bytes
+         ......
+
+Best regards,
+Hans
+
+>          list_for_each_entry(child, &bus->children, node)
+>                  pcie_bus_configure_settings(child);
+> 
+> - Mani
+> 
+> --
+> மணிவண்ணன் சதாசிவம்
+> 
 
