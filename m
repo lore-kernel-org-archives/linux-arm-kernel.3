@@ -4,84 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0950C369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 09:12:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 914F3C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 09:21:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xw8UIDvZBCcr83U5CXKVA2bqzTMOFGkmm5WFSkBADIc=; b=VxWUOv6zov9KkKN2vEewJFgoWU
-	F1mCp6VD8/9tiE53e6TwZ/ZwjWfYv1c8CtO3vAJEGqRjPByH8wA571QP5d6JpWpqQI5P6P+sCEQ5F
-	zyIRRDGACpbakhgdJGwhreCvKo+1jyt/YK2NRoHj6QEnFuC/5Got8Ww1RxpPubeiHboFKz7So7sG0
-	iKRVDbTzF25BXXdSOZ3Ru8IG19svrzAI1T82l1i6r1hA5ZXzHRpzHyJl2G331zcAzAhVo5/Ac8CFJ
-	MBWOXIqsuY3FBK8jJ0d7PRJGcGvY1WsbUT7vonDnfh3obfVYoGAXChZpK15wtFMvrC0RNq7o15yEe
-	oDeZm74A==;
+	bh=H5mNs6wkUPpShHBjzWqPXg/CTZR+zhRcGli4jivScJg=; b=Zg5dhdutr8g6LxuW15CqFXtJNn
+	1XlnGFghAU/+yS6fyiP5RrUgKEq5UPdK3fpuJrcbmqpgk8z8hETNFRQM/tEU5CrPzPqSpN1pXdRgd
+	iAyEvhrpBjAwgF6BDtD5wDf5NRvReH9MHYaM0yQaO4FKcKa8PoPrlDbUgWWlinhtN92po9+TVj2RC
+	4Ec0RL7SQgGnFDSGo7+CdjrzdCY//PuR4QdSCGLz82VHnaueQZ+hczxRBn3agmQRl5dfFbRZ9mMyF
+	KCm6Hj9q3Pudd2Cr6vhE5MbmaPdR12NmXatLuXiKghlQABSvrRifEyYC/c/AqsSTUrb367XxosqT9
+	JlC7737g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6nBx-00000003y1n-1qCm;
-	Mon, 21 Apr 2025 09:11:53 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1u6nL3-00000003yiV-4C7o;
+	Mon, 21 Apr 2025 09:21:18 +0000
+Received: from mx-rz-2.rrze.uni-erlangen.de ([131.188.11.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6nA5-00000003xpF-21jW
+	id 1u6nJA-00000003yaq-3PFd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Apr 2025 09:09:58 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-224019ad9edso54102995ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Apr 2025 02:09:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1745226596; x=1745831396; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=xw8UIDvZBCcr83U5CXKVA2bqzTMOFGkmm5WFSkBADIc=;
-        b=JcP/wEkBUvTjAAq8x2ykkmhybpqiZcbbSlDco2OIPDF+6Wz5O0JAo+Szm7ot2EdR0Z
-         vi5h35loPl4NZyRngg6HrBYcaIfFErYOj7vMhq4/0CYJVZjdouJveinKD/6ASHTEIZDa
-         x2Jk715OV4xr/JTjrIj136F5IvvHygbqY0dn4=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745226596; x=1745831396;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=xw8UIDvZBCcr83U5CXKVA2bqzTMOFGkmm5WFSkBADIc=;
-        b=g2YOh1xnN2AMmBpRK32RdOwSz1+GFdIqCcSY4SnafCs7HSJ+dqItkHgijK3nFQNObg
-         yevaA7kq3V8QIPmM5yux9Pur4S64zCGVzOX6aiTmpSxHbXVDbxNTF4XApsgZhf2nebsx
-         8Dnv+c+KIyHc5b6kJP/jmoGZjs5Ap06Xm5xSvlDiRv8IITi+feJVo2Au4p3ZCL0y1CK1
-         NNO/CPdO1ytkft397CG8yAXD2zSFCrHZtdBm2jXA/1B8jlDRehxrK2HYQ5rCBox4Dvon
-         XUkZ/RQpyGrlN70ToLUwegu3SQZeEGEzEJubocxA8YU8juifzTdcEEPMCBaEu2Ov2UtV
-         FgJw==
-X-Forwarded-Encrypted: i=1; AJvYcCUaJod+P14JJBJm4M2TPfHsVKlGX0EikrTtBWC+3tJjtmTcGgXb+a2xGgwGQ5Eqvgmh9f0ljgptSw4eq1OiaV1T@lists.infradead.org
-X-Gm-Message-State: AOJu0YwGOJ38N50A5roDb8h3XcQQOyaLd/oFf1Av/qdWEZMVxRTbwJ2s
-	MO14S13nI34sZuAqYbh6/RWQ72XOhKVh4J0xZpw6KVZK8gNx8Dfea4MiiLo3Dw==
-X-Gm-Gg: ASbGncvpcGB0TAMVYBgKTdMFkrcW5vy0s+nFT18EoJpB6FSFBWw3U0jpu7I/N/hK1Br
-	XWieA3Y1twOd32qv4dxL4qWZDgzSLqjtXHqAek9xX9buwNFzse4A2T9PRDIYjqNdNZnFqEWwpLe
-	OAoK880pK0Hs5Vyf5MZ87a8Vmuiegj+1ukUfpLVRFuHMyWcUnJSEtwr0iO55Lg33YkY0TxqK2S2
-	S//IC6fotPUYgBE57X73cXhZRmvdNapwtsGkIbXHUXOoCFGxP3AmFowpgt0NVCG0dwu8hevcYYB
-	HjEt8E/uWl2OH61A2CWbf+fpdtr7U4Nvb6k3hCVtTctA9kYgMKMl59zY1vPLNMZkCXHLHQ==
-X-Google-Smtp-Source: AGHT+IHDl/Ex7FBzvgMFPAFFoh7YhHYfxUvKL5Gx49McL1TrmyCRhCWjmqZwJhpIy+Bel/jx902Q6g==
-X-Received: by 2002:a17:903:2ca:b0:224:1609:a747 with SMTP id d9443c01a7336-22c535cbfb0mr168110325ad.31.1745226596121;
-        Mon, 21 Apr 2025 02:09:56 -0700 (PDT)
-Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:7633:f42a:d31d:3f9c])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73dbf8e3d4asm6113079b3a.70.2025.04.21.02.09.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Apr 2025 02:09:55 -0700 (PDT)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Ulf Hansson <ulf.hansson@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	Mon, 21 Apr 2025 09:19:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fau.de; s=fau-2021;
+	t=1745227143; bh=H5mNs6wkUPpShHBjzWqPXg/CTZR+zhRcGli4jivScJg=;
+	h=From:To:Subject:Date:From:To:CC:Subject;
+	b=VS2mJam05lKtIllOSjFVKaKP3ybdRpz+6G2EQfijWxh8uPX27Pg7Lx9ratrCwrlas
+	 steviKZ5DXLYqbPR3hOyePjB6tGiMts/1oWt1cEuVuFHR2s6uC5hB5VCXZza86NeBz
+	 D+yEP9Aosf1auu2MNbYXJnTZx3+YZ5njcCN+Bk+xi8/LJXvpbL4Mo/B4QJSWC3NHtx
+	 5itFD5LxgDpELHbMkx2y9p5PjpaVc7rL4Db/rWWckdY0vXwXwR7oD7AVwCLUKgE1LC
+	 LTrqJFt4XxomA8Yc2kho4jXBDAPD34K6rJbMvF1nzm9sFKpeNtTmexJtzPr7YoAv+S
+	 bncuuSArgCbCA==
+Received: from mx-rz-smart.rrze.uni-erlangen.de (mx-rz-smart.rrze.uni-erlangen.de [IPv6:2001:638:a000:1025::1e])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-rz-2.rrze.uni-erlangen.de (Postfix) with ESMTPS id 4Zh0DR30XlzPkPh;
+	Mon, 21 Apr 2025 11:19:03 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at boeck4.rrze.uni-erlangen.de (RRZE)
+X-RRZE-Flag: Not-Spam
+X-RRZE-Submit-IP: 2001:9e8:3600:7e00:5b67:6b9c:caeb:75c
+Received: from luis-tp.fritz.box (unknown [IPv6:2001:9e8:3600:7e00:5b67:6b9c:caeb:75c])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: U2FsdGVkX18vbVa5xbc3cNKXhg/8u1S1T3dJ1m45p/M=)
+	by smtp-auth.uni-erlangen.de (Postfix) with ESMTPSA id 4Zh0DM2r9jzPk5q;
+	Mon, 21 Apr 2025 11:18:59 +0200 (CEST)
+From: Luis Gerhorst <luis.gerhorst@fau.de>
+To: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Hao Luo <haoluo@google.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Xu Kuohai <xukuohai@huaweicloud.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Hari Bathini <hbathini@linux.ibm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Mykola Lysenko <mykolal@fb.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Luis Gerhorst <luis.gerhorst@fau.de>,
+	Henriette Herzog <henriette.herzog@rub.de>,
+	Saket Kumar Bhaskar <skb99@linux.ibm.com>,
+	Cupertino Miranda <cupertino.miranda@oracle.com>,
+	Jiayuan Chen <mrpre@163.com>,
+	Matan Shachnai <m.shachnai@gmail.com>,
+	Dimitar Kanaliev <dimitar.kanaliev@siteground.com>,
+	Shung-Hsi Yu <shung-hsi.yu@suse.com>,
+	Daniel Xu <dxu@dxuuu.xyz>,
+	bpf@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH] pmdomain: mediatek: Add error messages for missing regmaps
-Date: Mon, 21 Apr 2025 17:09:50 +0800
-Message-ID: <20250421090951.395467-1-wenst@chromium.org>
-X-Mailer: git-send-email 2.49.0.805.g082f7c87e0-goog
+	linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-kselftest@vger.kernel.org
+Subject: [PATCH bpf-next v2 00/11] bpf: Mitigate Spectre v1 using barriers
+Date: Mon, 21 Apr 2025 11:17:51 +0200
+Message-ID: <20250421091802.3234859-1-luis.gerhorst@fau.de>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_020957_542919_B800C5FC 
-X-CRM114-Status: GOOD (  12.42  )
+X-CRM114-CacheID: sfid-20250421_021921_131836_198A7B71 
+X-CRM114-Status: GOOD (  19.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,54 +115,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A recent change to the syscon regmap API caused the MediaTek power
-controller drivers to fail, as the required regmap could no longer be
-retrieved. The error did not have an accompanying message, making the
-failure less obvious. The aforementioned change has since been reverted.
+This improves the expressiveness of unprivileged BPF by inserting
+speculation barriers instead of rejecting the programs.
 
-Add error messages to all the regmap retrievals, thereby making all
-error paths in scpsys_add_one_domain() have visible error messages.
+The approach was previously presented at LPC'24 [1] and RAID'24 [2].
 
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
----
- drivers/pmdomain/mediatek/mtk-pm-domains.c | 12 +++++++++---
- 1 file changed, 9 insertions(+), 3 deletions(-)
+To mitigate the Spectre v1 (PHT) vulnerability, the kernel rejects
+potentially-dangerous unprivileged BPF programs as of
+commit 9183671af6db ("bpf: Fix leakage under speculation on mispredicted
+branches"). In [2], we have analyzed 364 object files from open source
+projects (Linux Samples and Selftests, BCC, Loxilb, Cilium, libbpf
+Examples, Parca, and Prevail) and found that this affects 31% to 54% of
+programs.
 
-diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.c b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-index b866b006af69..22cdd34ed008 100644
---- a/drivers/pmdomain/mediatek/mtk-pm-domains.c
-+++ b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-@@ -397,20 +397,26 @@ generic_pm_domain *scpsys_add_one_domain(struct scpsys *scpsys, struct device_no
- 
- 	pd->infracfg = syscon_regmap_lookup_by_phandle_optional(node, "mediatek,infracfg");
- 	if (IS_ERR(pd->infracfg))
--		return ERR_CAST(pd->infracfg);
-+		return dev_err_cast_probe(scpsys->dev, pd->infracfg,
-+					  "%pOF: failed to get infracfg regmap\n",
-+					  node);
- 
- 	smi_node = of_parse_phandle(node, "mediatek,smi", 0);
- 	if (smi_node) {
- 		pd->smi = device_node_to_regmap(smi_node);
- 		of_node_put(smi_node);
- 		if (IS_ERR(pd->smi))
--			return ERR_CAST(pd->smi);
-+			return dev_err_cast_probe(scpsys->dev, pd->smi,
-+						  "%pOF: failed to get SMI regmap\n",
-+						  node);
- 	}
- 
- 	if (MTK_SCPD_CAPS(pd, MTK_SCPD_HAS_INFRA_NAO)) {
- 		pd->infracfg_nao = syscon_regmap_lookup_by_phandle(node, "mediatek,infracfg-nao");
- 		if (IS_ERR(pd->infracfg_nao))
--			return ERR_CAST(pd->infracfg_nao);
-+			return dev_err_cast_probe(scpsys->dev, pd->infracfg_nao,
-+						  "%pOF: failed to get infracfg-nao regmap\n",
-+						  node);
- 	} else {
- 		pd->infracfg_nao = NULL;
- 	}
+To resolve this in the majority of cases this patchset adds a fall-back
+for mitigating Spectre v1 using speculation barriers. The kernel still
+optimistically attempts to verify all speculative paths but uses
+speculation barriers against v1 when unsafe behavior is detected. This
+allows for more programs to be accepted without disabling the BPF
+Spectre mitigations (e.g., by setting cpu_mitigations_off()).
+
+For this, it relies on the fact that speculation barriers prevent all
+later instructions if the speculation was not correct:
+
+* On x86_64, lfence acts as full speculation barrier, not only as a
+  load fence [3]:
+
+	  An LFENCE instruction or a serializing instruction will ensure that
+	  no later instructions execute, even speculatively, until all prior
+	  instructions complete locally. [...] Inserting an LFENCE instruction
+	  after a bounds check prevents later operations from executing before
+	  the bound check completes.
+
+  This was experimentally confirmed in [4].
+
+* ARM's SB speculation barrier instruction also affects "any instruction
+  that appears later in the program order than the barrier" [5].
+
+In [1] we have measured the overhead of this approach relative to having
+mitigations off and including the upstream Spectre v4 mitigations. For
+event tracing and stack-sampling profilers, we found that mitigations
+increase BPF program execution time by 0% to 62%. For the Loxilb network
+load balancer, we have measured a 14% slowdown in SCTP performance but
+no significant slowdown for TCP. This overhead only applies to programs
+that were previously rejected.
+
+I reran the expressiveness-evaluation with v6.14 and made sure the main
+results still match those from [1] and [2] (which used v6.5).
+
+Main design decisions are:
+
+* Do not use separate bytecode insns for v1 and v4 barriers. This
+  simplifies the verifier significantly and has the only downside that
+  performance on PowerPC is not as high as it could be.
+
+* Allow archs to still disable v1/v4 mitigations separately by setting
+  bpf_jit_bypass_spec_v1/v4(). This has the benefit that archs can
+  benefit from improved BPF expressiveness / performance if they are not
+  vulnerable (e.g., ARM64 for v4 in the kernel).
+
+* Do not remove the empty BPF_NOSPEC implementation for backends for
+  which it is unknown whether they are vulnerable to Spectre v1.
+
+[1] https://lpc.events/event/18/contributions/1954/ ("Mitigating
+    Spectre-PHT using Speculation Barriers in Linux eBPF")
+[2] https://arxiv.org/pdf/2405.00078 ("VeriFence: Lightweight and
+    Precise Spectre Defenses for Untrusted Linux Kernel Extensions")
+[3] https://www.intel.com/content/www/us/en/developer/articles/technical/software-security-guidance/technical-documentation/runtime-speculative-side-channel-mitigations.html
+    ("Managed Runtime Speculative Execution Side Channel Mitigations")
+[4] https://dl.acm.org/doi/pdf/10.1145/3359789.3359837 ("Speculator: a
+    tool to analyze speculative execution attacks and mitigations" -
+    Section 4.6 "Stopping Speculative Execution")
+[5] https://developer.arm.com/documentation/ddi0597/2020-12/Base-Instructions/SB--Speculation-Barrier-
+    ("SB - Speculation Barrier - Arm Armv8-A A32/T32 Instruction Set Architecture (2020-12)")
+
+Changes:
+
+* v1 -> v2:
+  - Drop former commits 9 ("bpf: Return PTR_ERR from push_stack()") and 11
+    ("bpf: Fall back to nospec for spec path verification") as suggested
+    by Alexei. This series therefore no longer changes push_stack() to
+    return PTR_ERR.
+  - Add detailed explanation of how lfence works internally and how it
+    affects the algorithm.
+  - Add tests checking that nospec instructions are inserted in expected
+    locations using __xlated_unpriv as suggested by Eduard (also,
+    include a fix for __xlated_unpriv)
+  - Add a test for the mitigations from the description of
+    commit 9183671af6db ("bpf: Fix leakage under speculation on
+    mispredicted branches")
+  - Remove unused variables from do_check[_insn]() as suggested by
+    Eduard.
+  - Remove INSN_IDX_MODIFIED to improve readability as suggested by
+    Eduard. This also causes the nospec_result-check to run (and fail)
+    for jumping-ops. Add a warning to assert that this check must never
+    succeed in that case.
+  - Add details on the safety of patch 10 ("bpf: Allow nospec-protected
+    var-offset stack access") based on the feedback on v1.
+  - Rebase to bpf-next-250420
+  - Link to v1: https://lore.kernel.org/all/20250313172127.1098195-1-luis.gerhorst@fau.de/
+
+* RFC -> v1:
+  - rebase to bpf-next-250313
+  - tests: mark expected successes/new errors
+  - add bpt_jit_bypass_spec_v1/v4() to avoid #ifdef in
+    bpf_bypass_spec_v1/v4()
+  - ensure that nospec with v1-support is implemented for archs for
+    which GCC supports speculation barriers, except for MIPS
+  - arm64: emit speculation barrier
+  - powerpc: change nospec to include v1 barrier
+  - discuss potential security (archs that do not impl. BPF nospec) and
+    performance (only PowerPC) regressions
+  - Linkt to RFC: https://lore.kernel.org/bpf/20250224203619.594724-1-luis.gerhorst@fau.de/
+
+Luis Gerhorst (11):
+  selftests/bpf: Fix caps for __xlated/jited_unpriv
+  bpf: Move insn if/else into do_check_insn()
+  bpf: Return -EFAULT on misconfigurations
+  bpf: Return -EFAULT on internal errors
+  bpf, arm64, powerpc: Add bpf_jit_bypass_spec_v1/v4()
+  bpf, arm64, powerpc: Change nospec to include v1 barrier
+  bpf: Rename sanitize_stack_spill to nospec_result
+  bpf: Fall back to nospec for Spectre v1
+  selftests/bpf: Add test for Spectre v1 mitigation
+  bpf: Allow nospec-protected var-offset stack access
+  bpf: Fall back to nospec for sanitization-failures
+
+ arch/arm64/net/bpf_jit.h                      |   5 +
+ arch/arm64/net/bpf_jit_comp.c                 |  28 +-
+ arch/powerpc/net/bpf_jit_comp64.c             |  79 ++-
+ include/linux/bpf.h                           |  11 +-
+ include/linux/bpf_verifier.h                  |   3 +-
+ include/linux/filter.h                        |   2 +-
+ kernel/bpf/core.c                             |  32 +-
+ kernel/bpf/verifier.c                         | 648 ++++++++++--------
+ tools/testing/selftests/bpf/progs/bpf_misc.h  |   4 +
+ .../selftests/bpf/progs/verifier_and.c        |   8 +-
+ .../selftests/bpf/progs/verifier_bounds.c     |  66 +-
+ .../bpf/progs/verifier_bounds_deduction.c     |  45 +-
+ .../selftests/bpf/progs/verifier_map_ptr.c    |  20 +-
+ .../selftests/bpf/progs/verifier_movsx.c      |  16 +-
+ .../selftests/bpf/progs/verifier_unpriv.c     |  65 +-
+ .../bpf/progs/verifier_value_ptr_arith.c      | 101 ++-
+ tools/testing/selftests/bpf/test_loader.c     |  14 +-
+ .../selftests/bpf/verifier/dead_code.c        |   3 +-
+ tools/testing/selftests/bpf/verifier/jmp32.c  |  33 +-
+ tools/testing/selftests/bpf/verifier/jset.c   |  10 +-
+ 20 files changed, 765 insertions(+), 428 deletions(-)
+
+
+base-commit: 8582d9ab3efdebb88e0cd8beed8e0b9de76443e7
 -- 
-2.49.0.805.g082f7c87e0-goog
+2.49.0
 
 
