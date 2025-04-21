@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88746C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 15:06:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E3BDC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 15:08:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eQGxct6K/kcQfnhWWRbqYBef9aZOoyPtucqW7qysfzE=; b=O4NXLhOsbA6BZpKz0+Gfv1gC1G
-	2WM2+ZCctXePnqtGqhK2D3XpGWmzcSjzyX/1DWipqJTX//KRlbe7H2d/Y8zIxiFbrZOQpuqglHeeR
-	9AlEspXfQsCeeUNXvdOrHK80QgLkL+hoA/E6pp/lgihT42B3kU44JVuSKNftcnohct7/e18a1M7gs
-	4o56PynLGOpFqNXOyhKTheLPo8MBG8m9xNGsM35vzfpjjIJcjyPKk6x3SOGOw+HVBBSRt/KRf2qW9
-	qL/3xc8QbqZnCUeqIop61/bAiLYC1uvm932dwv6Vwp3ZNHZUS9ILojXW5FvRP/AMwVPlg7if6wUsj
-	DmBHnW2w==;
+	bh=lDiD6i5z74Svk8ayjFfG3byf2okiGeHcsi0aPvSYhp4=; b=eqHmuQtrhL+ZN35eoiY0cDkZcO
+	idgbkNqY639x6qkhX52RrHokaGqzfs+qHsWd+sjIOrDwIO0WOGpmYnGddA1gd+hWi3fVodcPBJCjC
+	WkTu7y1QotPtC8XPTSVCidh3S+TasvRKJDPiQxykGZD8p2eZplO5BMWSw4xtP5Pdml0UGiM/hCv0n
+	8+aca7OtAHcNtgy9lQGPP6bf3IKd3FbobzxJWVKFsbKBG26KzV+HiMUfrU3gyWJktlzaOti8lbCaX
+	G+pDCcqm9jwdat53CDHB1hg4Dyu+04UeKN4DanZNuJMyzWTx24GoOQAqomdabK1UTuP3ta8o6tuFs
+	IfBalqcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6sjR-00000004XsT-18zI;
-	Mon, 21 Apr 2025 15:06:49 +0000
-Received: from smtp-19.smtpout.orange.fr ([80.12.242.19] helo=smtp.smtpout.orange.fr)
+	id 1u6slI-00000004YLw-0Axl;
+	Mon, 21 Apr 2025 15:08:44 +0000
+Received: from smtp-20.smtpout.orange.fr ([80.12.242.20] helo=smtp.smtpout.orange.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6sdo-00000004WRi-3GhG
+	id 1u6sdp-00000004WS6-3k7J
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Apr 2025 15:01:02 +0000
+	Mon, 21 Apr 2025 15:01:03 +0000
 Received: from localhost.localdomain ([90.11.132.44])
 	by smtp.orange.fr with ESMTPA
-	id 6sdZuvbDkiSFB6sdnuVIhr; Mon, 21 Apr 2025 17:00:59 +0200
+	id 6sdZuvbDkiSFB6sdouVInx; Mon, 21 Apr 2025 17:01:00 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1745247659;
-	bh=eQGxct6K/kcQfnhWWRbqYBef9aZOoyPtucqW7qysfzE=;
+	s=t20230301; t=1745247660;
+	bh=lDiD6i5z74Svk8ayjFfG3byf2okiGeHcsi0aPvSYhp4=;
 	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=lanKLMiBzIxfxJmc7t6l6/EY6wAoIPabSGxj0Rr9WYgZ1DtW4LG5/yX6ZzxSPoewd
-	 S09Fb58NLEVqgY4HC8Bm2g1mgyf3hdRdwBVtBp5WwwattuEnmc577xr0XWlmhqKsZE
-	 OkDE5UxyqqDJh/3D6CMmlhntgaa3A0tWS6biYVZVU9wYbT5kwwdr1QaYHim7jFYdXQ
-	 DWI799IXkcymu4XLSVM8x38bXP/WgPivZtP7Ii+jeXM6+KANHyyIcF0Nu8rY7q8amR
-	 qWZBjOUnsI+2ideqHM/qbFkNeZTD2LMZo/eC1gtvgDSaAqPEv5RVdzsmqYrn64d8+V
-	 evUxhwiBt7ptQ==
+	b=TMDdinCevHrGlNSotraIExhYUUGQae64ddIrEp6bd0XSCA1+Jk0m7bu3F9FznLspd
+	 y22+b3pTuyNWNdACISmjM9k3ZUa3BF0OP1kK5PQJ9Bcq8EKricbp/p1aM6WMKiAAtg
+	 XTfdIlF+Vz7/Zj48lwAl4z1ZjfH6Y8wbpGGBQFQhmSiXMaR9f9bSPjyoDmMC4Ow7Cf
+	 CGxOamH4eLNFL84D/KzE+HXEqAhDgMBh9RW9DPnEkzcuQgMja6tk68ORJc8iX7qoer
+	 ozv6aqr3iIBSAcibvCrDYp0/C8TYO+8d/HShNSpC2xz/+fAhKotH/kNBQG1xWHYD+O
+	 PECPhzQemEurQ==
 X-ME-Helo: localhost.localdomain
 X-ME-Auth: Y2hyaXN0b3BoZS5qYWlsbGV0QHdhbmFkb28uZnI=
-X-ME-Date: Mon, 21 Apr 2025 17:00:59 +0200
+X-ME-Date: Mon, 21 Apr 2025 17:01:00 +0200
 X-ME-IP: 90.11.132.44
 From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
 To: lee@kernel.org,
@@ -56,20 +56,18 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-samsung-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	kernel-janitors@vger.kernel.org,
-	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v2 2/3] mfd: exynos-lpass: Avoid calling exynos_lpass_disable() twice in exynos_lpass_remove()
-Date: Mon, 21 Apr 2025 17:00:34 +0200
-Message-ID: <74d69e8de10308c9855db6d54155a3de4b11abfd.1745247209.git.christophe.jaillet@wanadoo.fr>
+	Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Subject: [PATCH v2 3/3] mfd: exynos-lpass: Fix another error handling path in exynos_lpass_probe()
+Date: Mon, 21 Apr 2025 17:00:35 +0200
+Message-ID: <69471e839efc0249a504492a8de3497fcdb6a009.1745247209.git.christophe.jaillet@wanadoo.fr>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <cover.1745247209.git.christophe.jaillet@wanadoo.fr>
 References: <cover.1745247209.git.christophe.jaillet@wanadoo.fr>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_080100_949893_D4A6BF66 
-X-CRM114-Status: UNSURE (   9.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250421_080102_066635_26ABBF64 
+X-CRM114-Status: GOOD (  16.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,35 +82,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-exynos_lpass_disable() is called twice in the remove function. Remove
-one of these calls.
+If devm_of_platform_populate() fails, some clean-up needs to be done, as
+already done in the remove function.
 
-Fixes: 90f447170c6f ("mfd: exynos-lpass: Add runtime PM support")
+Add a new devm_add_action_or_reset() to fix the leak in the probe and
+remove the need of a remove function.
+
+Fixes: c695abab2429 ("mfd: Add Samsung Exynos Low Power Audio Subsystem driver")
 Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
 Compile tested only.
 
 Changes in v2:
-  - Add R-b tag
+  - Use a new devm_add_action_or_reset() to fix the leak in the probe
+    and remove the need of a remove function.
+  - Update the commit description accordingly
 
-v1: https://lore.kernel.org/all/ee6241d024c4cb68622dde9d65d8712016f4205e.1743231856.git.christophe.jaillet@wanadoo.fr/
+v1: https://lore.kernel.org/all/d224865a16b50498279b044a819e1e187d01bb28.1743231856.git.christophe.jaillet@wanadoo.fr/
 ---
- drivers/mfd/exynos-lpass.c | 1 -
- 1 file changed, 1 deletion(-)
+ drivers/mfd/exynos-lpass.c | 25 +++++++++++++++----------
+ 1 file changed, 15 insertions(+), 10 deletions(-)
 
 diff --git a/drivers/mfd/exynos-lpass.c b/drivers/mfd/exynos-lpass.c
-index 6b95927e99be..a2785ceea8bf 100644
+index a2785ceea8bf..44797001a432 100644
 --- a/drivers/mfd/exynos-lpass.c
 +++ b/drivers/mfd/exynos-lpass.c
-@@ -141,7 +141,6 @@ static void exynos_lpass_remove(struct platform_device *pdev)
- {
- 	struct exynos_lpass *lpass = platform_get_drvdata(pdev);
+@@ -104,11 +104,22 @@ static const struct regmap_config exynos_lpass_reg_conf = {
+ 	.fast_io	= true,
+ };
  
--	exynos_lpass_disable(lpass);
- 	pm_runtime_disable(&pdev->dev);
- 	if (!pm_runtime_status_suspended(&pdev->dev))
- 		exynos_lpass_disable(lpass);
++static void exynos_lpass_disable_lpass(void *data)
++{
++	struct platform_device *pdev = data;
++	struct exynos_lpass *lpass = platform_get_drvdata(pdev);
++
++	pm_runtime_disable(&pdev->dev);
++	if (!pm_runtime_status_suspended(&pdev->dev))
++		exynos_lpass_disable(lpass);
++}
++
+ static int exynos_lpass_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+ 	struct exynos_lpass *lpass;
+ 	void __iomem *base_top;
++	int ret;
+ 
+ 	lpass = devm_kzalloc(dev, sizeof(*lpass), GFP_KERNEL);
+ 	if (!lpass)
+@@ -134,16 +145,11 @@ static int exynos_lpass_probe(struct platform_device *pdev)
+ 	pm_runtime_enable(dev);
+ 	exynos_lpass_enable(lpass);
+ 
+-	return devm_of_platform_populate(dev);
+-}
+-
+-static void exynos_lpass_remove(struct platform_device *pdev)
+-{
+-	struct exynos_lpass *lpass = platform_get_drvdata(pdev);
++	ret = devm_add_action_or_reset(dev, exynos_lpass_disable_lpass, pdev);
++	if (ret)
++		return ret;
+ 
+-	pm_runtime_disable(&pdev->dev);
+-	if (!pm_runtime_status_suspended(&pdev->dev))
+-		exynos_lpass_disable(lpass);
++	return devm_of_platform_populate(dev);
+ }
+ 
+ static int __maybe_unused exynos_lpass_suspend(struct device *dev)
+@@ -183,7 +189,6 @@ static struct platform_driver exynos_lpass_driver = {
+ 		.of_match_table	= exynos_lpass_of_match,
+ 	},
+ 	.probe	= exynos_lpass_probe,
+-	.remove	= exynos_lpass_remove,
+ };
+ module_platform_driver(exynos_lpass_driver);
+ 
 -- 
 2.49.0
 
