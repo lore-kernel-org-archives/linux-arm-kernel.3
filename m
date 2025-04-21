@@ -4,63 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D9B2C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 18:50:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE51BC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 18:52:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CuKtstebHl0iYXBW0+S3MZR7uDa4WhH3zGgyWOrf1Qk=; b=USNXPiR7mMHVG8s8pvueHr7zAh
-	ipmBCA10BIxRExRs2/okw2O8T1Lo74m6nOwHb75R8VxWOHv5f+XVwWTt2fzAWlzxa7O9JItSSJ2CY
-	FD1YkH4OHtjQAWzxX/gkOTSJwT2irXKAGKP/bGv/eCxkRjwTXN4Mns2qX1xL6vuKJRtxlWb2vlmWg
-	RYWj83hTfNNM6j4jB5BAq1dFYadjVtXIyUyEej+8yruVBpIaHZRwFJA6b0oh9hxO5qjjsXXQ+U12w
-	0CF6sE/YiHAO89OUke+Z29JOJUJm/e+PzHAjBiu0Z/JowdAJDUYjhrtnzqPIg3me4TBRJgoMbLVE3
-	6nrzkI1A==;
+	bh=apiZD2MHe0pEihsryLo9DY3yMjFctlM1u7cKb+3+eHk=; b=jKD2lgLF95TsDnCDG3R7/1RDvP
+	vFbETpQ8l+xuU2Tmo4W6ArP63PJChOD1KtwsJK5sEgJoBeWapUbY6ZvrQ6fy9UvZF0LwfAYAhMxJc
+	E8ozWdXz5gNvSRSiGQoQBncgYPNSFMp4phA5MxQDwfnjFDlM76K6pJrGIQKj7a6/dMDBXSF70McAH
+	7r0JaXjqsAhA8pl0VIwu0XiJQfBc2FKz/AThARsoeufWzicfNZVRBUCRudGGiaeCTGINrhrJZ2f5+
+	mNK3v4GE+q3ay+L9GmNcWGPNDS8AGewcn07JYUvU5S47i4oTFM1Y6/QQESMSezcp9tKfngQgdhIM0
+	wEs7fB1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6wDm-00000004wwp-3EJq;
-	Mon, 21 Apr 2025 18:50:22 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1u6wFb-00000004x4D-34PD;
+	Mon, 21 Apr 2025 18:52:15 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6w9D-00000004wSx-3VBE;
-	Mon, 21 Apr 2025 18:45:40 +0000
+	id 1u6wBx-00000004wj4-0vWg
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 21 Apr 2025 18:48:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 352775C5943;
-	Mon, 21 Apr 2025 18:43:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB978C4CEE4;
-	Mon, 21 Apr 2025 18:45:38 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id E93705C58B9;
+	Mon, 21 Apr 2025 18:46:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F51EC4CEE4;
+	Mon, 21 Apr 2025 18:48:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745261138;
-	bh=dCkTnUBLg+0/XJ/SASAZxMykW2757Adc+Od7Um/fspQ=;
+	s=k20201202; t=1745261307;
+	bh=Ijp7OoJM/SjB6q2/JnLqH5xk2mnKjD6u6f/PtjXw0Ok=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LK5uJYgZ/J/VPCthMipXYAI6HtkiqJ/uBDr9yBG7zqiyOrcP0y2gVi2Am2Nlj0cTn
-	 O4cZXCACC/we0XjQZSjbBQMx7QlVoTtyBn9REKSF6Clke7/MQA70il94yDnyfplhPk
-	 Gg3ODUTL6n9ZMjhcH6eixVwrG6IKzQz7BCbaCsexD6nHSE/2h+3Qz2x7eBtO8+7EYW
-	 Wf36jfsHzmNKLx17OH3TK81UtOAQoq3BYf6rXQ1s3AC+Wyf+pGjnoJHnrYasIz8vJR
-	 GFgagbgc35MvEtY8foP+Cop9b4LiKyIJ6DtdnW2GHUJ+fIY7m2vILBSY8mq9oHFy3n
-	 7C/nF7MYSYENw==
-Date: Mon, 21 Apr 2025 13:45:36 -0500
+	b=tO9jNT0GXs+9AfF7VttwbdUVOSuc8TE9HieRsrqdAvjZJGCauWzD6Jcp3PTIhDB1T
+	 2jFghVVcKbNU8nZPuX1B5oiS17mWCsKtNI6KL9gSMPhkspTWRJT/AVsYWUPolatrhv
+	 cs5EW0f1iNLJ5Li/nW+Zkmf2WDgWfqqcR9ccoGKqMu37/8xnpkWbk3AYv+8Jtr8Gny
+	 8R+Da2XRcbWUEbYkj0qBmlblSl2XhpfV54B93RsGQ1UXtufeyd51lrv4EK5se4PjBc
+	 1jQKL3B4mf5WG1st5UD6v+I2qaGwYbHZDBfoJFcX+n+26HtBSUkCVwBJ+Pk1wNmOsV
+	 UxfoREzuuUg4w==
+Date: Mon, 21 Apr 2025 13:48:25 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Kever Yang <kever.yang@rock-chips.com>
-Cc: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, heiko@sntech.de,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>
-Subject: Re: [PATCH v3 1/3] dt-bindings: nvmem: rockchip,otp: Add support for
- rk3562 and rk3568
-Message-ID: <174526113626.2604105.2555938938491872990.robh@kernel.org>
-References: <20250415103203.82972-1-kever.yang@rock-chips.com>
- <20250415103203.82972-2-kever.yang@rock-chips.com>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Markus Niebel <Markus.Niebel@tq-group.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>, linux@ew.tq-group.com,
+	linux-renesas-soc@vger.kernel.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>, imx@lists.linux.dev
+Subject: Re: [PATCH 1/2] dt-bindings: arm: add TQMa8XxS boards
+Message-ID: <174526130447.2607883.13343591293403394303.robh@kernel.org>
+References: <20250415133301.443511-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250415103203.82972-2-kever.yang@rock-chips.com>
+In-Reply-To: <20250415133301.443511-1-alexander.stein@ew.tq-group.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_114539_914540_008B88F6 
-X-CRM114-Status: GOOD (  11.65  )
+X-CRM114-CacheID: sfid-20250421_114829_313306_FFE609E1 
+X-CRM114-Status: UNSURE (   9.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,24 +83,20 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 15 Apr 2025 18:32:01 +0800, Kever Yang wrote:
-> Add compatible entry for the otp controller in rk3562 and rk3568, add schema
-> for different clock names for new entry.
+On Tue, 15 Apr 2025 15:32:58 +0200, Alexander Stein wrote:
+> From: Markus Niebel <Markus.Niebel@tq-group.com>
 > 
-> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
+> TQMa8XxS is a SOM series featuring NXP i.MX8X SoC.
+> They are called TQMa8XQPS and TQMa8XDPS respectively.
+> MB-SMARC-2 is a carrier reference design.
+> 
+> Signed-off-by: Markus Niebel <Markus.Niebel@tq-group.com>
+> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 > ---
-> 
-> Changes in v3:
-> - update the clock name from "usr" to "otp" and re-order to sync with
->  other soc.
-> 
-> Changes in v2:
-> - Update the commit message and add maxItems in schema.
-> 
->  .../bindings/nvmem/rockchip,otp.yaml          | 53 ++++++++++++++++---
->  1 file changed, 46 insertions(+), 7 deletions(-)
+>  Documentation/devicetree/bindings/arm/fsl.yaml | 16 ++++++++++++++++
+>  1 file changed, 16 insertions(+)
 > 
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
