@@ -4,151 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91F62C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 06:14:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47031C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 06:18:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4lGe0nxLKI7b9YDpPNtIuaOOr7GJGuQbNH3rKg8df50=; b=Qz0RHYq5PJRQwZa4QgNapL9DOZ
-	MUUVNh38C1uVdXOqb8GQrkwfjKLQtNcCfSAT+ehAfDN2PVqTPtice5a0P8Sps716oRdMpd3+AF3QK
-	indkyxrc6aGrBQy5KBA97sBRFoo70TzxpgNOErVAKMu3Up8id0jcEg2YusvTfsLxPPKoIDJ2vpclr
-	5yHisjBQYlOcwee1YHGEvTw+mEHJ67DXKKo76xO3TThD0I2tgGqzDh0iinkTv43FyIRMkdoFe3rrS
-	nkkSogP4jRmLu2E+5W2cBm2F4dVaXpSBO+bpJAPs7NVpMpDg3U+K2nDd0+yybT7EOeZuYc9TXIKDH
-	MI642wsg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=f38S9AhpgMTQ3QbKR8FFmsyRL7os9Le4hDnMslgtL44=; b=YG1BQHJSEOJ3ni
+	gav9C1eEtcgDmBjxdYBSwuO+nFSeVGD0gx+gM1XDDUHYRjNs6aKZsEGxcCMlEk+xGO6ejRwRQkYkW
+	7frgkhvg6PkoGfU/Ug29TDF1y/AUDFq6CLRf7q8auj4T3B1OgX7+/0sc6Ej9DvCXGwrR2bJhT7qdA
+	xuaueSn6FqvR1KK4KLK/qo713RxxSqamx3re7V6Mvl8NH3lJ3y2JGIcZWEYdzmMXpt0RUElkLw0xe
+	ULTKm9kPjDofnp6tvP/LRw10jr2X9VoJrGFl/hpRLluDT4/uz/MYgzKCfaHrMgW6UqB3DSRm5quso
+	Qt9wvqPfCjbR9UO8sYWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6kPu-00000003gkH-0ot2;
-	Mon, 21 Apr 2025 06:14:06 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6kO3-00000003geD-3Vfv
+	id 1u6kUP-00000003h4l-0Ows;
+	Mon, 21 Apr 2025 06:18:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u6kSY-00000003guj-2PUq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Apr 2025 06:12:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NdxWz5CL3JHDkoF36gIcxybWvd3TSetaPeV5J8Na0AAYYeCoA/9N1H+u3GilwNf59RJzDaDuxKgCj9JE7vhxlWTHrDkQTyP/PGzAtUNIXeo/4jI1w8hi6m8LU0BtJ73D63Xfq1aO6Do8vxrX+u/KSowAxy4APmfJIm3tznWz9TUyiFD/1QEDE40EYy49xYxaTEES+wYnm4yb0N1B6lw5sJiM2JSaGhzJzhCuR9l735NNH7a/JRQ/aTZq25kVq8YQ057oAcyr6bpaQGepjU5T0VxZxj6vlt/AURN1K05emShMx6jLiHffP6Nkci55EFT867siFp5tA4isVyS0zmuqdQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4lGe0nxLKI7b9YDpPNtIuaOOr7GJGuQbNH3rKg8df50=;
- b=CkBXHoOrD9+fps5wU1SMmFIZo4GtqOCMtQq1fOjOGKaE6g3HAfrfS/aDyfNkhotFgNGS8VZ3POpI1qTbVJf5UDFCjlHCyHTLWwR8HZIQU1w1QzxMJcME+BjI3I8yiL2DSWqZuWxLuBFRVEL431VqGMsM4HOxndDYktEZI8sy9iCXkBK6Fb/ahTC3fQx4aGHQSaVobK7LUIubV1gHaiGq8Kwha3Dnrn5Me7NHo/cdPSLkgLGNmaRCkld+3udwgtkje78GuNqMe3mxvkHOLR7ZU/CFZDDH/8SLqppMW++eJT0MHYNzeXpr/FHruHOKHLYc9XgoIviVA+x4Z3A2q034VA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4lGe0nxLKI7b9YDpPNtIuaOOr7GJGuQbNH3rKg8df50=;
- b=nFNcApig+zPDLXdDa2CmhvhhDqWkJe3YbUXBQTEDo1dGns8lfRBY0hl/xH0ctZrU1m7lY5IX6+TK8U+y4XKJoHReWgtXaCWHAzDdH8Jpu5PEUawsio9UBvgQyiHV2dfQhwZK77df/ULgk3areYrFKcxQzXd9agw0sBeH0kaJAmYIqVCXsdOZBSRx+tmLnbbR3w395cyI19x5GvHOzIUh7EJKcCKP9BCLcbGv3aLMEAG2N/IsNJDWhSaPADYo10jdwnmYvTYx8vUeLMSYeiuVkbk8d8XiHEsLAeA+FGKiuKzxnKI5jmtmd0jvvMkS9e8TPVGJLSrX17t1qchSKkNNeg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
- (2603:10a6:800:293::14) by AM9PR04MB9015.eurprd04.prod.outlook.com
- (2603:10a6:20b:40b::22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.35; Mon, 21 Apr
- 2025 06:12:08 +0000
-Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
- ([fe80::75ad:fac7:cfe7:b687]) by VI2PR04MB11147.eurprd04.prod.outlook.com
- ([fe80::75ad:fac7:cfe7:b687%7]) with mapi id 15.20.8655.031; Mon, 21 Apr 2025
- 06:12:08 +0000
-From: carlos.song@nxp.com
-To: aisheng.dong@nxp.com,
-	frank.li@nxp.com,
-	andi.shyti@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-i2c@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] i2c: imx-lpi2c: Fix clock count when probe defers
-Date: Mon, 21 Apr 2025 14:23:41 +0800
-Message-Id: <20250421062341.2471922-1-carlos.song@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR06CA0234.apcprd06.prod.outlook.com
- (2603:1096:4:ac::18) To VI2PR04MB11147.eurprd04.prod.outlook.com
- (2603:10a6:800:293::14)
+	Mon, 21 Apr 2025 06:16:51 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 89A291063;
+	Sun, 20 Apr 2025 23:16:45 -0700 (PDT)
+Received: from [10.162.16.49] (unknown [10.162.16.49])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7732F3F59E;
+	Sun, 20 Apr 2025 23:16:47 -0700 (PDT)
+Message-ID: <e703f1c9-2d71-4b27-8f29-f31a22e6e063@arm.com>
+Date: Mon, 21 Apr 2025 11:46:44 +0530
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI2PR04MB11147:EE_|AM9PR04MB9015:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6bfc686d-5c59-490f-1206-08dd809b7224
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|1800799024|376014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?h1/O6Fs/WftACnuOCRZ7ybOvL65eRktAc4w+yd4BKB7u/VgB8xkZRnh+s3+S?=
- =?us-ascii?Q?ynlh8Qm8PIV/MyxHHJkFzTOejUJyj4gkoJJomehEMeV8Vx8KxHl6pZMgMOaO?=
- =?us-ascii?Q?OBU0qv0YAu8GlxsU51F+527agoDOH10neUMJRrExIcS0iQrRqzTcg4XCB7xe?=
- =?us-ascii?Q?cIpeE5B/asQCodDIryoipPAHIG4CJ01cB9opSc6TXeNSN6IbAdFe2NZ0K+eT?=
- =?us-ascii?Q?kqe4sWDNqt3k7Io62EFDw0FRe509kLeEHTx7aoEaryxkLdXTNZS8h70axRRO?=
- =?us-ascii?Q?qXA3drme7IAgNHFc8K5u+4HhO8SKRTEFBa2772tXJAKIxtEz8yWn5S1/lQo8?=
- =?us-ascii?Q?JD0GhHabF2LfvBLI8fRUjrwohYlfCTwd9ACbsyx//Qc8pNlolsXYIkaItwQd?=
- =?us-ascii?Q?8jVZbflRS3oSadVtiQAXqFpAYAl7m8PqicRFD5cDCIiLnxktBGw1jhrart/k?=
- =?us-ascii?Q?eavAP2q2i5BN+BI6baIw5qqviYnC9EZjbcCyDVxq29qnMpCqdPqBjQfLwROa?=
- =?us-ascii?Q?+Ga81pbJw81wDDpINYG6jVbcBM3O8TCloj4pq0TuIW3HDTUYOmQoTYKU8jiL?=
- =?us-ascii?Q?m2oMgKqwPEa2GmJPq+TSJElsvh4vrYNnL9xSvDf4viJUOyHzAQjFY9adJXPo?=
- =?us-ascii?Q?omb7auftEdbAriOl2giqlVAJfBB44JT+HpADcy9nGgL/L9Mf1Uh1IRELF93m?=
- =?us-ascii?Q?mHIXNATbl94qgh7xc1Q8T8VX6wIJQZ/FYUO6T6iAr1o/Ba4RN5AxVu7Vq06c?=
- =?us-ascii?Q?Vaj97W0hK4crJIGgcuVW/V6uF/MabTNh7D2ir2Q70qopIQ1Lretjob2EI5ST?=
- =?us-ascii?Q?ItzSGvanqZ29NffgERwl8K/clBipJB/SXdYrnyQkH3ab2MuItSbzRIXJK5YU?=
- =?us-ascii?Q?7UgI3iPR4cd5/9ZrosoDuZEcCNbU3f1iznqDj5U4unOGZQjUhRcjDYsnqG/0?=
- =?us-ascii?Q?vS6gDpRAxC8bVmCB+URt8LprPzXeFp78fHrSCruspL5dywzKHyKa9Jsor7SW?=
- =?us-ascii?Q?H0zU2BYoDGQIx+bOUci/vAJAd1DR9Rfk2W2R7MI+22MHKNvmJosoho83p1vn?=
- =?us-ascii?Q?/qQSYytHpj0eGl9H+vnHtaLNR6rVLUKVwFaUqdIxiuHWdQAm3/cgjqOjA5pz?=
- =?us-ascii?Q?KS144m15rCxON1tc1PJ8woNmkpOCOkezJzxJz/fPEvpThTFPUPYM09hRcGts?=
- =?us-ascii?Q?2GsH6lU9YGjr0yRu3PvcnmgI4hEcwvWSn2Cbm38VNCpJpA9RGIGNMmro7WAE?=
- =?us-ascii?Q?w0IEjFy7CefzH+uK/9a51kEfv/74viqLykFrx+lvUJYWoTtORadLs0YbzOpA?=
- =?us-ascii?Q?uP53fKNmNZnGbG6Lp1IlzZmldo5zo1yeGWPrtbSwhn8C0EcgLBbBXnAqOfn9?=
- =?us-ascii?Q?rWFcxkGJGg+qh9IAQiqEyXT58qfQX80vsKWwwaDvjumx2lJGzytUVZqBEk6A?=
- =?us-ascii?Q?Pmc94xr9+ZG+AVWVQLIK8UUddHwcZoRL1gLgX3BPIR0vFdQprzVSNmOJg4Mi?=
- =?us-ascii?Q?GOmIe850V2sq3Hg=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2PR04MB11147.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(1800799024)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Rzr37+gUfJ2koXEVVM2JWVc6eWMpn/QEcRYPow0QppYc80L3ZIrJ/Vze1sfS?=
- =?us-ascii?Q?SKFq2h7E1nChmn9ogdhmJhx4PQCiZdVAJZAU3eqdZJuoqgVuGY3bbj+8KPso?=
- =?us-ascii?Q?yjyWQeM+zczuMKLh3u3d6dGh9AdHi4lEaheO4kwY4Co0ssI/DC4awM3D1FAT?=
- =?us-ascii?Q?XWTRpsPkXYurItJ2yoGsx6ILYum84H0aS9aUFn4ERu7gBfYqpBm/MpELZfJq?=
- =?us-ascii?Q?FBt0D3+HIj0hY+82QKoJgnNmU/9bpZ6Q5cOWtUQa1DAOFh4yG08qYjSp7UtC?=
- =?us-ascii?Q?/qLVMM/14ZisnsggM4Prid47ETsgu+ZPOl5ByRS6Y4IyKGQ9ODc82imaIBcH?=
- =?us-ascii?Q?HprC9eSbLKdN25Y0icA5mxXUXoiq5jRyvhzgC/mApf3IMJAhEhoQ/kEbvzFZ?=
- =?us-ascii?Q?GM2whShfHHM2mv9obqVGreiD0DS2/7IGEbPYmhzg2V73fGAEF8CW8zYN2Yip?=
- =?us-ascii?Q?BgDWIRIwGN9nGz2XYHe4GRJhHhqHJeKu1eO+KadjcXxuLle0vVDYwjPP/kRp?=
- =?us-ascii?Q?6DdgW/1wh4flT/XJ42aTjNffMif0MVWhFpkTyBZ6lpyoHWPh5qvESBo5jUBd?=
- =?us-ascii?Q?dOi/j3qus2hbFbZCZ5eBDYTR8cw8hyyDYLK5x3jQp34L5XXkBmtKTSsS8iup?=
- =?us-ascii?Q?G4yaaS440yIH+hHBeBu0AZ2Ks4UzbOlmxf0wGK/3HAfLdYXEOp18AqeyRN3M?=
- =?us-ascii?Q?dKjFybaZ75FMwI2ZQZge5pUrRX7DgdQZtsdAbm4HDErVPpHai1lVzyu4LQz+?=
- =?us-ascii?Q?3n7cEXzvPJj9mN4Iao2vYwt5AiRD1m9WUw6HBNultj8+J6i01dh0xkgwPa4x?=
- =?us-ascii?Q?qaCThSkpwfq63CSVtHmPcGfxPwVgSevMJzNSrw3NCf5dQZQYV18xRCTXNJzL?=
- =?us-ascii?Q?fPLWRSGqvtE66KOwKun+/CM14b9GeV2tz3uNMGHVPkaVERBR9Srpl+dYxI0v?=
- =?us-ascii?Q?YqhdwJIdZO67OUnQRshxjhHiFt3gmNzq4VDcP099m/V1R4EsUpLLxwQBqIjb?=
- =?us-ascii?Q?P03H0pR6wcZ4LGhRFk1XRZ8B2Twc0H+kXIak0SBkN6JK/IZit4T0pxCqgZRk?=
- =?us-ascii?Q?d3gKcjqRWrqo0wUEhur1CZ0mQmTgKaeWOQCDsYbebNCHFmtC48UftobnSbqu?=
- =?us-ascii?Q?zwr5vl1aVY7dy9EI8CibJqGrSNd3Vfan7V1u22dNwWrXkRgGcp2Lgw+EHXOF?=
- =?us-ascii?Q?Ti7PxwlPe9Gp83bzFexdDmKD+33PDVrSmTvr4ivi4pHj0VwISlqLh2vhjTNs?=
- =?us-ascii?Q?c0EnghwcnZ6Uh5lp0IHLFT5EkbeyGmrkpOiU4ce9zL9Anys0TD7zLcHN+UpF?=
- =?us-ascii?Q?ceXpYkNDdKDWbFDX6c5hhC4jqe4uQAUHA8JOhGAZr18Ikz58BT0idWaJYAQh?=
- =?us-ascii?Q?muN6KxkUQR4KtCxcbij6lXYt/8sOKok/pRCSHufH5MtrmIudCjJSVReYRLOt?=
- =?us-ascii?Q?JN1z5DvIEFLwTd+evb8+mYSF/dPLQcAvNPgXMwH+Bj+ctFg7INAGu5IuOrwm?=
- =?us-ascii?Q?GMhF0z+aTledWCGmK1lbNO6EWHsFmQbTHQ6qfEcziT5FmDYkMq+cYoTmA02o?=
- =?us-ascii?Q?j5B3qvz6Q0nZOy65IQ/WBS09GWB9ldd4gZUkPXna?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6bfc686d-5c59-490f-1206-08dd809b7224
-X-MS-Exchange-CrossTenant-AuthSource: VI2PR04MB11147.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Apr 2025 06:12:08.4126
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /KSLfqinVmCGRQl31n2NaSEO2n9p1PxdaIpE+CeSkynlM3th+P5Qn7oYp2gzJnlZTchCc/pFe92i9eWJM0tqTA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB9015
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64/debug: Drop redundant DBG_MDSCR_* macros
+To: inux-arm-kernel@lists.infradead.org,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+References: <20250417105253.3188976-1-anshuman.khandual@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20250417105253.3188976-1-anshuman.khandual@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250420_231211_875961_BE1A6F56 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20250420_231650_720558_C7B692A5 
+X-CRM114-Status: GOOD (  19.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,40 +60,177 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Clark Wang <xiaoning.wang@nxp.com>
++ linux-arm-kernel@lists.infradead.org
 
-Deferred probe with pm_runtime_put() may delay clock disable, causing
-incorrect clock usage count. Use pm_runtime_put_sync() to ensure the
-clock is disabled immediately.
+LAKML email address had a typo, just adding it back.
 
-Signed-off-by: Carlos Song <carlos.song@nxp.com>
-Signed-off-by: Clark Wang <xiaoning.wang@nxp.com>
-Signed-off-by: Jun Li <jun.li@nxp.com>
-Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
----
- drivers/i2c/busses/i2c-imx-lpi2c.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
-index 0d4b3935e687..342d47e67586 100644
---- a/drivers/i2c/busses/i2c-imx-lpi2c.c
-+++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
-@@ -1380,9 +1380,9 @@ static int lpi2c_imx_probe(struct platform_device *pdev)
- 	return 0;
- 
- rpm_disable:
--	pm_runtime_put(&pdev->dev);
--	pm_runtime_disable(&pdev->dev);
- 	pm_runtime_dont_use_autosuspend(&pdev->dev);
-+	pm_runtime_put_sync(&pdev->dev);
-+	pm_runtime_disable(&pdev->dev);
- 
- 	return ret;
- }
--- 
-2.34.1
-
+On 4/17/25 16:22, Anshuman Khandual wrote:
+> MDSCR_EL1 has already been defined in tools sysreg format and hence can be
+> used in all debug monitor related call paths. Subsequently all DBG_MDSCR_*
+> macros become redundant and hence can be dropped off completely. While here
+> convert all variables handling MDSCR_EL1 register as u64 which reflects its
+> true width as well.
+> 
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> ---
+> This patch applies on v6.15-rc2
+> 
+>  arch/arm64/include/asm/assembler.h      |  4 ++--
+>  arch/arm64/include/asm/debug-monitors.h |  6 ------
+>  arch/arm64/kernel/debug-monitors.c      | 22 +++++++++++-----------
+>  arch/arm64/kernel/entry-common.c        |  2 +-
+>  4 files changed, 14 insertions(+), 20 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
+> index ad63457a05c5..f229d96616e5 100644
+> --- a/arch/arm64/include/asm/assembler.h
+> +++ b/arch/arm64/include/asm/assembler.h
+> @@ -53,7 +53,7 @@
+>  	.macro	disable_step_tsk, flgs, tmp
+>  	tbz	\flgs, #TIF_SINGLESTEP, 9990f
+>  	mrs	\tmp, mdscr_el1
+> -	bic	\tmp, \tmp, #DBG_MDSCR_SS
+> +	bic	\tmp, \tmp, #MDSCR_EL1_SS
+>  	msr	mdscr_el1, \tmp
+>  	isb	// Take effect before a subsequent clear of DAIF.D
+>  9990:
+> @@ -63,7 +63,7 @@
+>  	.macro	enable_step_tsk, flgs, tmp
+>  	tbz	\flgs, #TIF_SINGLESTEP, 9990f
+>  	mrs	\tmp, mdscr_el1
+> -	orr	\tmp, \tmp, #DBG_MDSCR_SS
+> +	orr	\tmp, \tmp, #MDSCR_EL1_SS
+>  	msr	mdscr_el1, \tmp
+>  9990:
+>  	.endm
+> diff --git a/arch/arm64/include/asm/debug-monitors.h b/arch/arm64/include/asm/debug-monitors.h
+> index 8f6ba31b8658..1f37dd01482b 100644
+> --- a/arch/arm64/include/asm/debug-monitors.h
+> +++ b/arch/arm64/include/asm/debug-monitors.h
+> @@ -13,14 +13,8 @@
+>  #include <asm/ptrace.h>
+>  
+>  /* Low-level stepping controls. */
+> -#define DBG_MDSCR_SS		(1 << 0)
+>  #define DBG_SPSR_SS		(1 << 21)
+>  
+> -/* MDSCR_EL1 enabling bits */
+> -#define DBG_MDSCR_KDE		(1 << 13)
+> -#define DBG_MDSCR_MDE		(1 << 15)
+> -#define DBG_MDSCR_MASK		~(DBG_MDSCR_KDE | DBG_MDSCR_MDE)
+> -
+>  #define	DBG_ESR_EVT(x)		(((x) >> 27) & 0x7)
+>  
+>  /* AArch64 */
+> diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
+> index 58f047de3e1c..08f1d02507cd 100644
+> --- a/arch/arm64/kernel/debug-monitors.c
+> +++ b/arch/arm64/kernel/debug-monitors.c
+> @@ -34,7 +34,7 @@ u8 debug_monitors_arch(void)
+>  /*
+>   * MDSCR access routines.
+>   */
+> -static void mdscr_write(u32 mdscr)
+> +static void mdscr_write(u64 mdscr)
+>  {
+>  	unsigned long flags;
+>  	flags = local_daif_save();
+> @@ -43,7 +43,7 @@ static void mdscr_write(u32 mdscr)
+>  }
+>  NOKPROBE_SYMBOL(mdscr_write);
+>  
+> -static u32 mdscr_read(void)
+> +static u64 mdscr_read(void)
+>  {
+>  	return read_sysreg(mdscr_el1);
+>  }
+> @@ -79,16 +79,16 @@ static DEFINE_PER_CPU(int, kde_ref_count);
+>  
+>  void enable_debug_monitors(enum dbg_active_el el)
+>  {
+> -	u32 mdscr, enable = 0;
+> +	u64 mdscr, enable = 0;
+>  
+>  	WARN_ON(preemptible());
+>  
+>  	if (this_cpu_inc_return(mde_ref_count) == 1)
+> -		enable = DBG_MDSCR_MDE;
+> +		enable = MDSCR_EL1_MDE;
+>  
+>  	if (el == DBG_ACTIVE_EL1 &&
+>  	    this_cpu_inc_return(kde_ref_count) == 1)
+> -		enable |= DBG_MDSCR_KDE;
+> +		enable |= MDSCR_EL1_KDE;
+>  
+>  	if (enable && debug_enabled) {
+>  		mdscr = mdscr_read();
+> @@ -100,16 +100,16 @@ NOKPROBE_SYMBOL(enable_debug_monitors);
+>  
+>  void disable_debug_monitors(enum dbg_active_el el)
+>  {
+> -	u32 mdscr, disable = 0;
+> +	u64 mdscr, disable = 0;
+>  
+>  	WARN_ON(preemptible());
+>  
+>  	if (this_cpu_dec_return(mde_ref_count) == 0)
+> -		disable = ~DBG_MDSCR_MDE;
+> +		disable = ~MDSCR_EL1_MDE;
+>  
+>  	if (el == DBG_ACTIVE_EL1 &&
+>  	    this_cpu_dec_return(kde_ref_count) == 0)
+> -		disable &= ~DBG_MDSCR_KDE;
+> +		disable &= ~MDSCR_EL1_KDE;
+>  
+>  	if (disable) {
+>  		mdscr = mdscr_read();
+> @@ -415,7 +415,7 @@ void kernel_enable_single_step(struct pt_regs *regs)
+>  {
+>  	WARN_ON(!irqs_disabled());
+>  	set_regs_spsr_ss(regs);
+> -	mdscr_write(mdscr_read() | DBG_MDSCR_SS);
+> +	mdscr_write(mdscr_read() | MDSCR_EL1_SS);
+>  	enable_debug_monitors(DBG_ACTIVE_EL1);
+>  }
+>  NOKPROBE_SYMBOL(kernel_enable_single_step);
+> @@ -423,7 +423,7 @@ NOKPROBE_SYMBOL(kernel_enable_single_step);
+>  void kernel_disable_single_step(void)
+>  {
+>  	WARN_ON(!irqs_disabled());
+> -	mdscr_write(mdscr_read() & ~DBG_MDSCR_SS);
+> +	mdscr_write(mdscr_read() & ~MDSCR_EL1_SS);
+>  	disable_debug_monitors(DBG_ACTIVE_EL1);
+>  }
+>  NOKPROBE_SYMBOL(kernel_disable_single_step);
+> @@ -431,7 +431,7 @@ NOKPROBE_SYMBOL(kernel_disable_single_step);
+>  int kernel_active_single_step(void)
+>  {
+>  	WARN_ON(!irqs_disabled());
+> -	return mdscr_read() & DBG_MDSCR_SS;
+> +	return mdscr_read() & MDSCR_EL1_SS;
+>  }
+>  NOKPROBE_SYMBOL(kernel_active_single_step);
+>  
+> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+> index b260ddc4d3e9..6dbfc1008007 100644
+> --- a/arch/arm64/kernel/entry-common.c
+> +++ b/arch/arm64/kernel/entry-common.c
+> @@ -354,7 +354,7 @@ static void cortex_a76_erratum_1463225_svc_handler(void)
+>  
+>  	__this_cpu_write(__in_cortex_a76_erratum_1463225_wa, 1);
+>  	reg = read_sysreg(mdscr_el1);
+> -	val = reg | DBG_MDSCR_SS | DBG_MDSCR_KDE;
+> +	val = reg | MDSCR_EL1_SS | MDSCR_EL1_KDE;
+>  	write_sysreg(val, mdscr_el1);
+>  	asm volatile("msr daifclr, #8");
+>  	isb();
 
