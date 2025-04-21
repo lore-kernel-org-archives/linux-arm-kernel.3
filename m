@@ -4,140 +4,182 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4DB5C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 16:02:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DBD0C369D2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 16:06:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IfwVcqZIdLYa6ESa9VFX4UZ+RIhl2xtGcB894nYNcAQ=; b=x5Gukm4rBS4ikHD/2o3JTsYE5I
-	yIKFLWhN0cc+/m+CfDxjvbgjCMzZv+WHviWLljvtibtpJVNnqStYQ7Wxn2vSR2hJAnRIIFIJn3z1r
-	NjsGPzT5ZUdj4YiFynqWhMm1gLsdV9wY4JnXwl0PCWnSTaeWq80KGx26vZBYAyJFai1Mjw2rwE9K8
-	hYX50j31+t5yQfLXCDL1N4jGgJ34+c8A5RB1Wb03Kk4qUZUUYGOJdyHCMXkwKUGiyKDUa4fhhqmTU
-	qUtuvZm2MKFMhWcTd0n8DhVaX/32for8x+FnV1NlAsTmBqAOXEbOg/xhhwsGUwSE5z/RN0wPWl3T0
-	1OaZ40Bw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dstAmzE3wJ5S7ij8nmFqka3D0Sk4tLfsqblYmIOVGmE=; b=ss0dE/xlcDZPR+9D3pfGWCDT6m
+	fvxrNzZyP/0Cx8OjQ9mCB2Xi7Riv5O3RKhdrkYbzkYSeEH+5gt/7WFVpNjSrAPZUEBKb3NfIlItit
+	I3+NLuEj2HsigCmjh8VBx6WFPTqbpF3NnrTa4wdoKYVueS6K/6W/vCrf/ZfrYN3LCnVoyFzlJ8WNU
+	eBcga5Bu3eiYuCQQe9XhjG5aSBR7lnrGyxF8RIafx8+Io/LnuKCNkWHDhxI7MT/d8DaEhXA4DNLcL
+	/RdrtEsNTSoqF9J669j06SeD5+NPL43Cv+XkjUNo7F6eCBeakmlaoqSiX70LFT63yzFCXK2HODRsG
+	8W35ftbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6tb2-00000004d3h-1DjH;
-	Mon, 21 Apr 2025 16:02:12 +0000
-Received: from mail-japaneastazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c405::5] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	id 1u6teh-00000004dTC-1z0o;
+	Mon, 21 Apr 2025 16:05:59 +0000
+Received: from mail-dm6nam12on20621.outbound.protection.outlook.com ([2a01:111:f403:2417::621] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6tZ9-00000004cuf-1Kzz;
-	Mon, 21 Apr 2025 16:00:17 +0000
+	id 1u6tcp-00000004dGM-0vFp
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 21 Apr 2025 16:04:04 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lhJeSVCj5+5pax3Z3dHRhYbwV5UUs/2bcVB0Tw0zUO5IujlHlKtO7RARaFcd6lySQ+/gF6B9st1JLYr9+YHnS+GuA2fKzYxoBt+pxdDOKPq4NPQLnIcZ5Awcr+GjIX8jsnlpcVn7KoxamdoY+Ug3m4MDNHMMxgXIFcKYvZRM6VOettzcFkgRmfMvN66+CSBaYNV5q/GUZAInNwjYDOKMeL9owuFIOGGbvymrEemd7fZenOcDsZ1XdjC8v9zajrYL9pIpkmMBQXtHcb7zf4IhZfhMW+oZCA2qpSW9OjnXX6kqbDEuJYPlYpF+49a/NlzUdeqJMMzXs+2Y8x/JLOjvng==
+ b=ltstESWrI/s3Uqo+zvpVMyNbwD0Kg9tFqNwnF8piooX/o3rH3zy0YwMzoPOPGmikguDk//xoUD/R8J+6X0lBr1ScqgPKAKe4aQ6ohHVCSweuUHNapZRP420BuH2l6NyaCmJvYFeY6i9y7d68flZYptxMWyenpS+XBl4a58Y6WkCfPyIWrxUxdvbHRuNeie/XQhOn4XqIDHbVRy8yDPENZbhsQmFImI19OV+e9HIe7adqtlc1u4SMkajcCfTPTXajdr8oXKSgFPGkCubAx8vqd4tW2B+cxDRrAwmgRldSRtuKGPK1VAKbv0ZH8XYKQU2fcNnUaiq8bbDXTVi5YS45/g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IfwVcqZIdLYa6ESa9VFX4UZ+RIhl2xtGcB894nYNcAQ=;
- b=oxECZRWZa+e8FbJ7AaoQiN/jzLgTq9U15+iRHEFmXyMkjmO90I3n/5Zl45og6oo2hTLdX72vAoW4pjaV/l9JyY0TlljjFPz714imVgnR4dlQOlc2VX/5sCvGqtmVKdMIuhttjd0f2N+p6vOzL8nf41PNVdunQD5zEnPPcfZeKea75l7noZ8iWVmhfnmp71Rh3ay7w5u4ks4OoFgv93+8J9Y1zHYJaSMqftK3pCKBVOwtmjiqF2wI3Pg5M+iv6DhWhmqQf2/U+yb0ZJ4DRPSLrpGhw9u7SiQqPrIwFHWo5JDhQ/HxC6gWETqrMEkJIr9aFgzhtzs2qlu4jPLPGiczFg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=163.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SL2P216CA0135.KORP216.PROD.OUTLOOK.COM (2603:1096:101:1::14) by
- TY0PR06MB5593.apcprd06.prod.outlook.com (2603:1096:400:31e::9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8655.35; Mon, 21 Apr 2025 15:59:54 +0000
-Received: from HK3PEPF00000221.apcprd03.prod.outlook.com
- (2603:1096:101:1:cafe::a) by SL2P216CA0135.outlook.office365.com
- (2603:1096:101:1::14) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.25 via Frontend Transport; Mon,
- 21 Apr 2025 15:59:54 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- HK3PEPF00000221.mail.protection.outlook.com (10.167.8.43) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8655.12 via Frontend Transport; Mon, 21 Apr 2025 15:59:53 +0000
-Received: from [172.16.64.208] (unknown [172.16.64.208])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 548CA41604FA;
-	Mon, 21 Apr 2025 23:59:52 +0800 (CST)
-Message-ID: <60a41564-43ed-41ea-af5c-eb8409b47ad1@cixtech.com>
-Date: Mon, 21 Apr 2025 23:59:48 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] PCI: dw-rockchip: Configure max payload size on host init
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Hans Zhang <18255117159@163.com>
-Cc: Niklas Cassel <cassel@kernel.org>, Bjorn Helgaas <helgaas@kernel.org>,
- Shawn Lin <shawn.lin@rock-chips.com>, lpieralisi@kernel.org, kw@linux.com,
- bhelgaas@google.com, heiko@sntech.de, robh@kernel.org, jingoohan1@gmail.com,
- thomas.richard@bootlin.com, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-References: <20250417165219.GA115235@bhelgaas>
- <22720eef-f5a3-4e72-9c41-35335ec20f80@163.com>
- <225CC628-432C-4E88-AF2B-17C948B3790B@kernel.org>
- <8af8a418-b808-4a14-9969-1c6d549e1633@163.com>
- <vc6z6pzgk2sjgkghnwfzlmj3dblrvpkfnsmnlb2nnkj2leju7t@uxy3kthse7g6>
+ bh=dstAmzE3wJ5S7ij8nmFqka3D0Sk4tLfsqblYmIOVGmE=;
+ b=N4gHYiCI0cfs+S0erX85WCI+9fW2ZfF7A0kud3RJoIGHo1vi+FCW/UsaMjyy5At+CHOlH8ohRc1iMB2d1C5PslwTB+H9mHEAOg1/btzNLtaUIWYSPq1hrexCkiDOxhU8UnUvxyTXxyay/qFkjlGdoEYKvRiKCqpxmCTKVlCpgIgU0n7XVSUMbkDH1bFzDNeZ6F1/V1ND2SiG82iSf3VqDLwiOqgABiCZjvdW07bmuu4qdoxkIwNkAKO2w3JwsalSl/BXQNFIEclW86RkTAcdqveaKXkTyES+PZGXiJBFfS9lgvvdaWBJanZvNfOo1qjk5C1nIiJhgdKrOSNgkKbLMw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dstAmzE3wJ5S7ij8nmFqka3D0Sk4tLfsqblYmIOVGmE=;
+ b=tjwGuzPFP6yeGGpYkCTr17OPr1zO403ptQn2p/H7AV5uVVrdHI386G5DtQIZ099Rw20t/YVtTHvA6bz5XklxzZOf4Oz+AU6jwXqIitlvdu151h86Z4rQHao99v+KB5N1PR71lNkT3xXgZBsxaO+UuwRfi7dhtzqnZrrRlkcWIVk+729yC+eJu2YUAXtc7s0MJHDX5c59smPT2tvAH7aKd8rqYyKqf5K2nPRxhA3tpMVxDab9mvNjgVeXRDo67DYIabM01A5dKDI3j/VNOJ57Ve9LNGOrIPGN6WA1q+gOGF3WyGpxfAfTPhQknYJx/chnhidfO9xaKp6NSJ+W8Za/rw==
+Received: from SA1PR12MB7199.namprd12.prod.outlook.com (2603:10b6:806:2bc::21)
+ by PH7PR12MB5686.namprd12.prod.outlook.com (2603:10b6:510:13d::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.34; Mon, 21 Apr
+ 2025 16:03:55 +0000
+Received: from SA1PR12MB7199.namprd12.prod.outlook.com
+ ([fe80::ae1b:d89a:dfb6:37c2]) by SA1PR12MB7199.namprd12.prod.outlook.com
+ ([fe80::ae1b:d89a:dfb6:37c2%7]) with mapi id 15.20.8655.033; Mon, 21 Apr 2025
+ 16:03:54 +0000
+From: Ankit Agrawal <ankita@nvidia.com>
+To: Sean Christopherson <seanjc@google.com>, Jason Gunthorpe <jgg@nvidia.com>
+CC: Marc Zyngier <maz@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>, "joey.gouly@arm.com"
+	<joey.gouly@arm.com>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, "will@kernel.org"
+	<will@kernel.org>, "ryan.roberts@arm.com" <ryan.roberts@arm.com>,
+	"shahuang@redhat.com" <shahuang@redhat.com>, "lpieralisi@kernel.org"
+	<lpieralisi@kernel.org>, "david@redhat.com" <david@redhat.com>, Aniket Agashe
+	<aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>, Kirti Wankhede
+	<kwankhede@nvidia.com>, "Tarun Gupta (SW-GPU)" <targupta@nvidia.com>, Vikram
+ Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>, Alistair Popple
+	<apopple@nvidia.com>, John Hubbard <jhubbard@nvidia.com>, Dan Williams
+	<danw@nvidia.com>, Zhi Wang <zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>,
+	Uday Dhoke <udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
+	Krishnakant Jaju <kjaju@nvidia.com>, "alex.williamson@redhat.com"
+	<alex.williamson@redhat.com>, "sebastianene@google.com"
+	<sebastianene@google.com>, "coltonlewis@google.com" <coltonlewis@google.com>,
+	"kevin.tian@intel.com" <kevin.tian@intel.com>, "yi.l.liu@intel.com"
+	<yi.l.liu@intel.com>, "ardb@kernel.org" <ardb@kernel.org>,
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>, "gshan@redhat.com"
+	<gshan@redhat.com>, "linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"ddutile@redhat.com" <ddutile@redhat.com>, "tabba@google.com"
+	<tabba@google.com>, "qperret@google.com" <qperret@google.com>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v3 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
+ VMA flags
+Thread-Topic: [PATCH v3 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
+ VMA flags
+Thread-Index: AQHbkaduhEbbxySPq0WwO4LU4q6wXLNsQygAgAD/GeCAAIkeAIAAC14ggAFVjACAATjx0YAGtS0AgACvDoCAAOaHAIAANr+AgABucICAAD0IgIAAg/iAgACoeYCAABKYAIAAFAsAgAAouYCACiALVIAAbFcAgAANkACAAAgBgIAAHy6AgAAGMwCAB6GYgIALBt6AgAAPgwCAAAfeAIANn5WYgAhUlXQ=
+Date: Mon, 21 Apr 2025 16:03:54 +0000
+Message-ID: <SA1PR12MB71991540C9CF5ABCECD08212B0B82@SA1PR12MB7199.namprd12.prod.outlook.com>
+References: <Z9s7r2JocpoM_t-m@arm.com>
+ <SA1PR12MB7199C7BD48EB39F536DD34DBB0A62@SA1PR12MB7199.namprd12.prod.outlook.com>
+ <Z-QU7qJOf8sEA5R8@google.com> <86y0wrlrxt.wl-maz@kernel.org>
+ <Z-QnBcE1TKPChQay@google.com> <86wmcbllg2.wl-maz@kernel.org>
+ <Z-RGYO3QVj5JNjRB@google.com> <20250331145643.GF10839@nvidia.com>
+ <Z_PtKWnMPzwPb4sp@google.com> <20250407161540.GG1557073@nvidia.com>
+ <Z_QAxiEWEyMpfLgL@google.com>
+ <SA1PR12MB719976799AD7F9FC4407A5A9B0BD2@SA1PR12MB7199.namprd12.prod.outlook.com>
+In-Reply-To: <SA1PR12MB719976799AD7F9FC4407A5A9B0BD2@SA1PR12MB7199.namprd12.prod.outlook.com>
+Accept-Language: en-US
 Content-Language: en-US
-From: Hans Zhang <hans.zhang@cixtech.com>
-In-Reply-To: <vc6z6pzgk2sjgkghnwfzlmj3dblrvpkfnsmnlb2nnkj2leju7t@uxy3kthse7g6>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: HK3PEPF00000221:EE_|TY0PR06MB5593:EE_
-X-MS-Office365-Filtering-Correlation-Id: 348ec270-357c-425f-77e9-08dd80ed8e1d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|376014|82310400026;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?R3pUSzFYT1ZIMERMTCtwN3JDclhPaG1nVFRCMHlQS3JpSWw5K0J4alBqMUFj?=
- =?utf-8?B?bkxHZHo3Y0YzZFlXUlRvT3RNdXFPZzBSazJZcDcyMkhuelErVHhqWkFSZGpa?=
- =?utf-8?B?VUNaYS8wb1Y4M2tPdnc3NGxGWWc5OWhnYUVZUkI5WmpOTUVnL3loOUZzNFBM?=
- =?utf-8?B?S3J4WmZXNzhKazM2VUJMeXUzcnllbG9IeVR4Q1g0OWVBSFZXSis0K0U3aUIz?=
- =?utf-8?B?Wk5lWE44b2l3SWtWUUhMU3l3T1NwekptUDRxSVhPejVpMzUvVDR0WFBOc0pX?=
- =?utf-8?B?WmJuT2M1ZFpPR0t2M0pYQk1rOUtkekJ4UXVTMUxoc2R0VVhCL2p5L244THNI?=
- =?utf-8?B?UlFZRmVZaXQwUHVJN3lqb3BPN0RzVzRXQ3BwTXNkaEtrcHVlN1dlMzRDUnEw?=
- =?utf-8?B?NThuZUFobXpaK0d5Wll6WDVoN0VFbzlvcUIrYlhjYVZWcEZLZXpjcnM1aGFp?=
- =?utf-8?B?SkZyZmkwZExGUDJuaUl0Q1ZIa3E1MjQ3TTBsYVBEaEtQWDV2SllNNTdGZDFF?=
- =?utf-8?B?c1FIUUhlaEtFazFTMldZaW9LRWNEVUlKamY2RVdxazVjQytkRll2OTF5ZVVG?=
- =?utf-8?B?alZ6bFhRSHUxVy9uRThsV1lUbjFnOVd3cU1HZEpwRVl2L0hzN3AwV3o0dmxX?=
- =?utf-8?B?Ykg2RGhVNW9yMTIzekZld2tBZEhISVBNbUNqS2s0amIvZzErQmJyZ0ZpT3Ft?=
- =?utf-8?B?cHNXMER2cWx2RVpEUzRpVFNxdnE0ZEp6WnkwZEt6SVpNVElqVWEzbHNtVHEr?=
- =?utf-8?B?azdqM25hTWZTSnNBN0tXV3pOdXdxbXErWnM4ODZnaVloeEZxWk1PWHRIWWYx?=
- =?utf-8?B?Tk9tclQ1MThMT09Fc0d6MEt2NmxBd2JKaldSa3haTjZ6bnVaQkYrMlFSMTNz?=
- =?utf-8?B?K29FRDdjRnV5QjZ6YzUzWUlVN1EwTFVPTmlPQ3pOQllaR0xEVkg1cFFJNFVw?=
- =?utf-8?B?aGpQVEV4RW1xNFFYK0Nobm9pdFkxR1ZxK3pGNkg5S2dPekdiUDdiQ0doMkhN?=
- =?utf-8?B?SCtVSWpGWW1SQnI1WEhJMHBpVktTZGVkNGNGZVo1cFhrVUtQcWwrVzFoNmRM?=
- =?utf-8?B?YUZ2VG1kR0g3dFRmRFFScUhSL1NUQnJtQlhIZW95RTd1OWZybVN5VU45bHcx?=
- =?utf-8?B?M3o4aXVyQ1VuMDV3TlNNbkJNWnQ5SEVmTk9sSVRra1FtMFVFL2tPT3JCZjBT?=
- =?utf-8?B?eW1JNnk2UURGenJ3RXdpRUZKVWtheUMrYU5iaXhtcXpFTk5KSm1IeEh0d2Rt?=
- =?utf-8?B?OFdRVEs1cFpweCtuUU5jbFVFaCtLMWlPUFNHa3JhNXhhb085RzQ4REY4OG1u?=
- =?utf-8?B?cWxqOXRMR2xkTVUwclNCSitpbW0vQ3NhK3pnaGxNS0ZucmFHVURDZUFaQjlj?=
- =?utf-8?B?T2VONjFobGJHWkpTWGFSZDI2b0VRekhkaW12RnNLaWpWOXU4QnZhL01IcElr?=
- =?utf-8?B?NXJRYWZjbEpvY0x3ZnVrbG5OemUwVE1ZRDUrVGFqWm13UWxCYUJXU0IyN1Fy?=
- =?utf-8?B?OVUvekJOOUowRDRLVUNYUnQwY2dQbXJJSTlpQmQrcDh2WlU3enhEZHMrZ052?=
- =?utf-8?B?Y2RzRGpLcXc4d2xxWW4wejlKOFlwM3NVd2tkM292UWRPRzgyc3QxaEZqWklv?=
- =?utf-8?B?RmRaVkxWN1RwYlZxc0w3aU1aSzYxN0x4QndZNlY4amdBcDN4OG9rMzZlN3ND?=
- =?utf-8?B?bENDa0hxZ25DY3NsUU5IaEx4WldqTUsrNWlaeDM5MFdqdk9wNC9qUHJpUS81?=
- =?utf-8?B?T29uc3NEbnJOOEhtaWloeUxEQ2JZMHU5V0JlRjNPZTdEY0RsbG9YQnBQQ3lk?=
- =?utf-8?B?d2wrd3FySnJGaEY3V1E0Q1lpeWdkTzh0amxBUktUd1ZlNXlKVFRXbm55VXpG?=
- =?utf-8?B?dExaSGNRd1J2b2NJd2FpaDJENENGa1cyRDFOOU9jZXRIUzY4eVowZG9oN1k5?=
- =?utf-8?B?YlJmZGxUaW92RWpjclVaU243N1ZHUHJOTzV2aW1kaElsV2VSTFZlS1BFc1RZ?=
- =?utf-8?B?cWs2cjRPeTh5aFVtNnN1UzE2SEdwZDJPMm9uZ1loZ0JIbk1vK0pNcFcwaG9w?=
- =?utf-8?Q?ts+v+2?=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(376014)(82310400026);DIR:OUT;SFP:1102;
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Apr 2025 15:59:53.4035
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SA1PR12MB7199:EE_|PH7PR12MB5686:EE_
+x-ms-office365-filtering-correlation-id: 8b241cce-906c-452b-93be-08dd80ee1dad
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?iso-8859-1?Q?KucMiuuBXw/O50VG2IlxHe/3iU+CgRFr0JV2EZzfU5u4jz8fDj/ZTegHXc?=
+ =?iso-8859-1?Q?hRyKw5kbLHIbagQrjVFeh9fihq34oWx9NCdARz8KQlEKzInYphA8tSEGqO?=
+ =?iso-8859-1?Q?XNGkGFg3Rm0bEot2vHtzOZz0EC4K1Y1r5UU/RqJ3D+WH283SZoVHc0L0Lx?=
+ =?iso-8859-1?Q?Tv4VjEwKYsiuGZL7cs0wJD+n7JFUUv3vIOCRlGW2JDpWldw0iZWkLTE07w?=
+ =?iso-8859-1?Q?WfnOy4xTnu6WCPPNEwJ7pvro9Z5tzTu3hzQMlpgZAnPyiXgVV7UXL/Ycym?=
+ =?iso-8859-1?Q?IKbNw+8kk6kJp6YxXAPMZd/FM13GiFgv8Sgqs6tqlUFGCbk9wFWV/17Dwy?=
+ =?iso-8859-1?Q?ZkZk5l6/OLDMUJCgzJ/BMtpicqsbNP7jh53PUBuuFk/7t+UECdhwT1ZpAH?=
+ =?iso-8859-1?Q?TCoLDJFTFs/6MGN1Ao19KPrdv7zR1I0HqbOXSlp+lba/xjEmlKd8IZAgBm?=
+ =?iso-8859-1?Q?K7bSfVm3lHBcesprJpcYtaKxjQ0dIj5WND2Cz6xx3BLgUpXiHealB8U9OF?=
+ =?iso-8859-1?Q?RGmPnQraUCEsvDbtDF1gziuFIpzLCT/s2VQZfUaRQ7OkdvKVInBTinrDHV?=
+ =?iso-8859-1?Q?aFLQ3zFlmRlhm2FI78STzBWCsyOCMPNpJs/NywjMiSKfSDvJ0WoZkUybe8?=
+ =?iso-8859-1?Q?1c36VLyradxtgZ2G6w7hZtiq9EnxVPtxlcD9y3FOxWA8mJDxAp4HC5jDnw?=
+ =?iso-8859-1?Q?nthwqDGKaPHykVxxE/u1jR6Sx/xfv4U9Vcb7wbUJfnmr6KMjJ1egU9CoF4?=
+ =?iso-8859-1?Q?eoZBpIBaGv8hG07aFw0d2QQ68W6hsu5aRsimVMRagprxfFsF16WKVUj6mu?=
+ =?iso-8859-1?Q?3t9AR7Ohcdsv7i3e1pxwzNY7a3w5Zr5g2BKxq6a9PPcW3H8gvWYiHLwusV?=
+ =?iso-8859-1?Q?qgfvo5uL9EG2EACqyr+k+zYQ/ECZ82dTB2dgVksODtXdawBZmXgovdVdAj?=
+ =?iso-8859-1?Q?DJaldWetBv7u4yXdeyc2jgMw61GYEGeyENfh/XG0435ogOz46vpkBlIFwy?=
+ =?iso-8859-1?Q?a5yeG13qM/5f+Qlnrmx4fzc3cad5xmXnNLaYhzdZ/jRzD26kgD/HnPw5s2?=
+ =?iso-8859-1?Q?tzgM5WgnOtndeeXgwBmoFTBDWdvD8OoVelXZctOwNnEGSJMrNVq1V7C5mM?=
+ =?iso-8859-1?Q?LlW9LM2QQXA9vmC7P/V8RFzseN+rk+79JitnnBmqsn5Mi8CJITmC73GpOC?=
+ =?iso-8859-1?Q?EDYMlaKMsRgKsm+SqBkXoERpLt8F2BTOlCHWMxc2D+Kjq2htz3EUmebNx9?=
+ =?iso-8859-1?Q?jGohuAoo3qPCtGFwE3WFcR7c1tG50cREPXJ+pAcYJhl+e2OCWiVGOLD+/z?=
+ =?iso-8859-1?Q?H1b36zmQy78q6K5VGxxarexMJRze93xC+Tg8FWDOUdC7QL73GiSM9ljMWm?=
+ =?iso-8859-1?Q?0HtQxojMRK/uXzsZOdCGGX+v6XWCJH/FNXRH+1lIqvoXJZsoq/YNJqyjc6?=
+ =?iso-8859-1?Q?OFZ6IM/4Df9Cyu/CS+3atJv93hfM+ZojezCBDbzSxs78wn55INiqcEExIE?=
+ =?iso-8859-1?Q?gv97EpPTVtEtf/jJyJPkckHL53V4ypqfrRQ5vqishrrg=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB7199.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?oYhdRqtYy2ttO4vPLLAitzNMY59u2dUeFlomGCbT8Z5AyykCIL6pIrqKqL?=
+ =?iso-8859-1?Q?KuPKYUmYvfJfBYeIIVIPnnStzSslcAYiu089YxO3AEUJF7qYdlJdNWFl6Q?=
+ =?iso-8859-1?Q?g80HePVt4sKkmliTRabmlaBRsyHyogvViYuNn+aU65BDowOvxHYhXH2I/j?=
+ =?iso-8859-1?Q?v4YaG4kBJudwrQkK0LfE7p7auUe1+lYD21pL1QAooZ71msypMu5LNJR9AC?=
+ =?iso-8859-1?Q?KBdfZWX95hqR3mgvllp3G8xE2yH2u+29IZU5kraDzfXhB/fxeOdcYdzk6V?=
+ =?iso-8859-1?Q?tRVCKhImH2vmWh13gTJUtZe5/EtuohOc0b6Zgv/p3mlUM3UgMMlkxEVZWk?=
+ =?iso-8859-1?Q?SNNLR6NYV7CrBMb6HWUqG9WqmPHpPePzhjZgxL2XHr6dWZVaxajm9iEhGv?=
+ =?iso-8859-1?Q?RngSHHmpEm1kVQ9wTHTm9pG3eP9edsf0+ycmhiQMbDdcxSRVt1jVKvIVgS?=
+ =?iso-8859-1?Q?VWijnZBDXLUQ8EeS58d+fQJUWVj+y/Ho9CyEvB0siy+QiXCSDNk0K7ecRu?=
+ =?iso-8859-1?Q?H+sdN7vAR5Sz8qTNfFJ+3GQDb2aHGw7pMrQ77ZkA8nQDYaEKKCScaVk6f4?=
+ =?iso-8859-1?Q?MLn6QeL61BnttICfYEkXMVatoYChIjJisgyJTw81rm9nIvUVZAdEgSveta?=
+ =?iso-8859-1?Q?3EXVCsf1JEm3HbxNQXXXpVPRYmlbgjTpIzrXrnAUBchHIliLpwvTLJPUv4?=
+ =?iso-8859-1?Q?gUzJw7XSfvgU/ACSqIg3l7JOoEQPT1srW5Ov+75huw2OiyA7BvLPlJ+OlT?=
+ =?iso-8859-1?Q?/2KrSIAjh9GnjLDQKKrBMA15CV+KdFYBqnNI4+LsLqiv4bnMFjNYNmbHs6?=
+ =?iso-8859-1?Q?als0vFhtbOb1udQ5eADOV941nRrZL2jE1IMS5XxqLunldkSl1DP9Wxh//y?=
+ =?iso-8859-1?Q?cwfsLbTXB6GRWL1IAyhLdIhhiKRrbdPhu0t22SCWwC4Cdao0D0qN7Y6R0d?=
+ =?iso-8859-1?Q?t2BA/jkl/JtF0nuQgLFUE3KXi3xyqqYt9Nr24uIoWmb0oVRTfzmxHfFLxh?=
+ =?iso-8859-1?Q?bJObg6EAuvD9btvMQVFYsA+kKGphTQBjOAH9ULmF787I70jqLHvnXBSHT4?=
+ =?iso-8859-1?Q?wXISupH3XAmMIO7CZYfosCeL6YFDLRSbtQATkE9ak5fFd5VDrL75Hu6KXs?=
+ =?iso-8859-1?Q?UEEnkKMY1Y87b8ZVNjv9mV/zzvhg4F13C/JfSSXmBOk4ZzKHXuD9KWddrI?=
+ =?iso-8859-1?Q?Ok4VH2+LvAEedUt90M/dEZG0tGc+TFs7ZyhB2QpiO6FcIdP5ZsX3nmHa5K?=
+ =?iso-8859-1?Q?kcAsP8PctKoSRjIwFiGr00fiEN6VgTFPUjsUlX3vd2IMO9Wzj+tLs50+uc?=
+ =?iso-8859-1?Q?KTi8ZjDaF86OCNCh1ZAKIpGh4RaxnafkqhFpyJVl3gYKaipMYNhH/fT5jf?=
+ =?iso-8859-1?Q?kwv/vNyWY5xYBNJlhhOB4toNye+1d8HRb9YPP8JDOFhGjTVnlvTjCg3udh?=
+ =?iso-8859-1?Q?oLZJ2o2gUR7cNhCV585SCF7QoXFjE8PDU/zTaS2vBVUphhmNlLsOJcZu8h?=
+ =?iso-8859-1?Q?PS2wc2MuteRgC2GWvCYDz4J+WGmuSYgsiYxGFIlvULO3XM6bt/tTUAeC6K?=
+ =?iso-8859-1?Q?YA1IwelC3UM/xq/A33s0qToNlJWMsW0lzW+pJWY7DpvDjWAX/GUFPM1/D1?=
+ =?iso-8859-1?Q?Ug8mHD1CPdbww=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB7199.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8b241cce-906c-452b-93be-08dd80ee1dad
+X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Apr 2025 16:03:54.4462
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 348ec270-357c-425f-77e9-08dd80ed8e1d
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: HK3PEPF00000221.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR06MB5593
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: lC1+I7AiYryS8CUOGEvDFlu8KCQxLkpOZqg3nkRm0DNnLKZ961Hiyd0mDoRAFxn00g3cdB0f5irW2R2EqX5GXw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5686
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_090015_473764_D35B8A23 
-X-CRM114-Status: GOOD (  27.49  )
+X-CRM114-CacheID: sfid-20250421_090403_262479_864B79C8 
+X-CRM114-Status: GOOD (  19.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,219 +194,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2025/4/21 22:53, Manivannan Sadhasivam wrote:
-> EXTERNAL EMAIL
-> 
-> On Sat, Apr 19, 2025 at 01:21:54AM +0800, Hans Zhang wrote:
->>
->>
->> On 2025/4/18 22:55, Niklas Cassel wrote:
->>>
->>>
->>> On 18 April 2025 14:33:08 CEST, Hans Zhang <18255117159@163.com> wrote:
->>>>
->>>> Dear Bjorn,
->>>>
->>>> Thanks your for reply. Niklas and I attempted to modify the relevant logic in drivers/pci/probe.c and found that there was a lot of code judging the global variable pcie_bus_config. At present, there is no good method. I will keep trying.
->>>>
->>>> I wonder if you have any good suggestions? It seems that the code logic regarding pcie_bus_config is a little complicated and cannot be modified for the time being?
->>>
->>>
->>> Hans,
->>>
->>> If:
->>>
->>> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
->>> index 364fa2a514f8..2e1c92fdd577 100644
->>> --- a/drivers/pci/probe.c
->>> +++ b/drivers/pci/probe.c
->>> @@ -2983,6 +2983,13 @@ void pcie_bus_configure_settings(struct pci_bus *bus)
->>>            if (!pci_is_pcie(bus->self))
->>>                    return;
->>>     +       /*
->>> +        * Start off with DevCtl.MPS == DevCap.MPS, unless PCIE_BUS_TUNE_OFF.
->>> +        * This might get overriden by a MPS strategy below.
->>> +        */
->>> +       if (pcie_bus_config != PCIE_BUS_TUNE_OFF)
->>> +               smpss = pcie_get_mps(bus->self);
->>> +
->>
->> Dear Niklas,
->>
->> Thank you very much for your reply and thoughts.
->>
->> pcie_get_mps: Returns maximum payload size in bytes
->>
->> I guess you want to obtain the DevCap MPS. But the purpose of the smpss
->> variable is to save the DevCtl MPS.
->>
->>>            /*
->>>             * FIXME - Peer to peer DMA is possible, though the endpoint would need
->>>             * to be aware of the MPS of the destination.  To work around this,
->>>
->>>
->>>
->>> does not work, can't you modify the code slightly so that it works?
->>>
->>> I haven't tried myself, but considering that it works when walking the bus, it seems that it should be possible to get something working.
->>>
->>
->>
->> After making the following modifications, my test shows that it is normal.
->> If the consideration is not comprehensive. Could Bjorn and Niklas please
->> review my revisions?
->>
->> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
->> index 364fa2a514f8..5b54f1b0a91d 100644
->> --- a/drivers/pci/probe.c
->> +++ b/drivers/pci/probe.c
->> @@ -2951,8 +2951,7 @@ static int pcie_bus_configure_set(struct pci_dev *dev,
->> void *data)
->>          if (!pci_is_pcie(dev))
->>                  return 0;
->>
->> -       if (pcie_bus_config == PCIE_BUS_TUNE_OFF ||
->> -           pcie_bus_config == PCIE_BUS_DEFAULT)
->> +       if (pcie_bus_config == PCIE_BUS_TUNE_OFF)
->>                  return 0;
->>
->>          mps = 128 << *(u8 *)data;
->> @@ -2991,7 +2990,8 @@ void pcie_bus_configure_settings(struct pci_bus *bus)
->>          if (pcie_bus_config == PCIE_BUS_PEER2PEER)
->>                  smpss = 0;
->>
->> -       if (pcie_bus_config == PCIE_BUS_SAFE) {
->> +       if ((pcie_bus_config == PCIE_BUS_SAFE) ||
->> +           (pcie_bus_config != PCIE_BUS_TUNE_OFF)) {
->>                  smpss = bus->self->pcie_mpss;
->>
->>                  pcie_find_smpss(bus->self, &smpss);
->>
->>
-> 
-> As I replied to Niklas, I'd like to limit the changes to platforms having
-> controller drivers. So here is my proposal:
-> 
-> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
-> index 364fa2a514f8..d32a0f90beb1 100644
-> --- a/drivers/pci/probe.c
-> +++ b/drivers/pci/probe.c
-> @@ -3228,6 +3228,17 @@ int pci_host_probe(struct pci_host_bridge *bridge)
->           */
->          pci_assign_unassigned_root_bus_resources(bus);
-> 
-> +       if (pcie_bus_config != PCIE_BUS_TUNE_OFF) {
-> +               /* Configure root ports MPS to be MPSS by default */
-> +               for_each_pci_bridge(dev, bus) {
-> +                       if (pci_pcie_type(dev) != PCI_EXP_TYPE_ROOT_PORT)
-> +                               continue;
-> +
-> +                       pcie_write_mps(dev, 128 << dev->pcie_mpss);
-> +                       pcie_write_mrrs(dev);
-> +               }
-> +       }
-> +
-
-Sorry. Since the reply just now was made by logging into the email 
-through the browser, there are some errors. I reply again as follows:
-[My personal computer is not at hand. I reply using the company email.]
-
-Hi Mani,
-
-Thank you very much for your reply and suggestions. The following is the 
-test on our platform and it works properly. I wonder if others have any 
-other opinions? If not, I will send the next version and then see 
-everyone's opinions.
-
-root@cix-localhost:~# cat /proc/version
-Linux version 6.15.0-rc2-00015-gced1536aaf04-dirty (hans@hans) ......
-root@cix-localhost:~# lspci
-0000:c0:00.0 PCI bridge: Device 1f6c:0001
-0000:c1:00.0 Non-Volatile memory controller: Samsung Electronics Co Ltd 
-NVMe SSD Controller S4LV008[Pascal]
-0001:90:00.0 PCI bridge: Device 1f6c:0001
-0001:91:00.0 Non-Volatile memory controller: Samsung Electronics Co Ltd 
-NVMe SSD Controller PM9A1/PM9A3/980PRO
-0003:30:00.0 PCI bridge: Device 1f6c:0001
-0003:31:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd. 
-RTL8125 2.5GbE Controller (rev 05)root@cix-localhost:~# lspci -vvv
-0000:c0:00.0 PCI bridge: Device 1f6c:0001 (prog-if 00 [Normal decode])
-         ......
-         Capabilities: [c0] Express (v2) Root Port (Slot-), MSI 00
-                 DevCap: MaxPayload 512 bytes, PhantFunc 0
-                         ExtTag+ RBE+
-                 DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
-                         RlxdOrd+ ExtTag+ PhantFunc- AuxPwr- NoSnoop+
-                         MaxPayload 512 bytes, MaxReadReq 1024 bytes
-		......
-0000:c1:00.0 Non-Volatile memory controller: Samsung Electronics Co Ltd 
-NVMe SSD Controller S4LV008[Pascal] (prog-if 02 [NVM Express])
-         ......
-         Capabilities: [70] Express (v2) Endpoint, MSI 00
-                 DevCap: MaxPayload 512 bytes, PhantFunc 0, Latency L0s 
-unlimited, L1 unlimited
-                         ExtTag+ AttnBtn- AttnInd- PwrInd- RBE+ FLReset+ 
-SlotPowerLimit 0W
-                 DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
-                         RlxdOrd+ ExtTag+ PhantFunc- AuxPwr- NoSnoop+ 
-FLReset-
-                         MaxPayload 512 bytes, MaxReadReq 512 bytes
-		......
-0001:90:00.0 PCI bridge: Device 1f6c:0001 (prog-if 00 [Normal decode])
-         ......
-         Capabilities: [c0] Express (v2) Root Port (Slot-), MSI 00
-                 DevCap: MaxPayload 512 bytes, PhantFunc 0
-                         ExtTag- RBE+
-                 DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
-                         RlxdOrd+ ExtTag- PhantFunc- AuxPwr- NoSnoop+
-                         MaxPayload 512 bytes, MaxReadReq 1024 bytes
-		......
-0001:91:00.0 Non-Volatile memory controller: Samsung Electronics Co Ltd 
-NVMe SSD Controller PM9A1/PM9A3/980PRO (prog-if 02 [NVM Express])
-         ......
-         Capabilities: [70] Express (v2) Endpoint, MSI 00
-                 DevCap: MaxPayload 256 bytes, PhantFunc 0, Latency L0s 
-unlimited, L1 unlimited
-                         ExtTag+ AttnBtn- AttnInd- PwrInd- RBE+ FLReset+ 
-SlotPowerLimit 0W
-                 DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
-                         RlxdOrd+ ExtTag+ PhantFunc- AuxPwr- NoSnoop+ 
-FLReset-
-                         MaxPayload 256 bytes, MaxReadReq 512 bytes
-		......
-0003:30:00.0 PCI bridge: Device 1f6c:0001 (prog-if 00 [Normal decode])
-         ......
-         Capabilities: [c0] Express (v2) Root Port (Slot-), MSI 00
-                 DevCap: MaxPayload 512 bytes, PhantFunc 0
-                         ExtTag- RBE+
-                 DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
-                         RlxdOrd+ ExtTag- PhantFunc- AuxPwr- NoSnoop+
-                         MaxPayload 512 bytes, MaxReadReq 1024 bytes
-		......
-0003:31:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd. 
-RTL8125 2.5GbE Controller (rev 05)
-         ......
-         Capabilities: [70] Express (v2) Endpoint, MSI 01
-                 DevCap: MaxPayload 256 bytes, PhantFunc 0, Latency L0s 
-<512ns, L1 <64us
-                         ExtTag- AttnBtn- AttnInd- PwrInd- RBE+ FLReset- 
-SlotPowerLimit 0W
-                 DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
-                         RlxdOrd+ ExtTag- PhantFunc- AuxPwr- NoSnoop-
-                         MaxPayload 256 bytes, MaxReadReq 4096 bytes
-         ......
-
-Best regards,
-Hans
-
->          list_for_each_entry(child, &bus->children, node)
->                  pcie_bus_configure_settings(child);
-> 
-> - Mani
-> 
-> --
-> மணிவண்ணன் சதாசிவம்
-> 
+> Hi, summarizing the discussion so far and outlining the next steps. The k=
+ey points=0A=
+> are as follows:=0A=
+>=0A=
+> 1. KVM cap to expose whether the kernel supports mapping cacheable PFNMAP=
+:=0A=
+> If the host doesn't have FWB, then the capability doesn't exist. Jason, O=
+liver, Caitlin=0A=
+> and Sean points that this may not be required as userspace do not have=0A=
+> much choice anyways. KVM has to follow the PTEs and userspace cannot ask=
+=0A=
+> for something different. However, Marc points that enumerating FWB suppor=
+t=0A=
+> would allow userspace to discover the support and prevent live-migration=
+=0A=
+> across FWB and non-FWB hosts. Jason suggested that this may still be fine=
+ as=0A=
+> we have already built in VFIO side protection where a live migration can =
+be=0A=
+> attempted and then fail because of late-detected HW incompatibilities.=0A=
+>=0A=
+> 2. New memslot flag that VMM passes at memslot registration:=0A=
+> Discussion point that this is not necessary and KVM should just follow th=
+e=0A=
+> VMA pgprot.=0A=
+>=0A=
+> 3. Fallback path handling for PFNMAP when the FWB is not set:=0A=
+> Discussion points that there shouldn't be any fallback path and the memsl=
+ot=0A=
+> should just fail. i.e. KVM should not allow degrading cachable to non-cac=
+hable=0A=
+> when it can't do flushing. This is to prevent the potential security issu=
+e=0A=
+> pointed by Jason (S1 cacheable, S2 noncacheable).=0A=
+>=0A=
+> So AIU, the next step is to send out the updated series with the followin=
+g patches:=0A=
+> 1. Block cacheable PFN map in memslot creation (kvm_arch_prepare_memory_r=
+egion)=0A=
+> and during fault handling (user_mem_abort()).=0A=
+>=0A=
+> 2. Enable support for cacheable PFN maps if S2FWB is enabled by following=
+=0A=
+> the vma pgprot (this patch).=0A=
+>=0A=
+> 3. Add and expose the new KVM cap to expose cacheable PFNMAP (set to fals=
+e=0A=
+> for !FWB), pending maintainers' feedback on the necessity of this capabil=
+ity.=0A=
+=0A=
+Hi, just a humble reminder to take a look at the summary and next steps.=0A=
+=0A=
+Marc, will you be able to confirm if you still think we should have the=0A=
+"cacheable PFNMAP" KVM cap?=0A=
+=0A=
+If yes, I'll send out the series inclusive of that.=0A=
+=0A=
+> Please let me know if there are any inaccuracies.=0A=
+>=0A=
+> Thanks=0A=
+> Ankit Agrawal=0A=
 
