@@ -4,76 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D849C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 12:21:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EF25C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 12:59:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HRhwr6bsuUpHJokkn7OOYPwCV0G4EhNX1INeaCHd44E=; b=GVxayE7FGfdRhhF3PGByfhI0pc
-	HoU5ke9zRskogBy5MnCzk23kd3gZDeBB6sbRzYDffiyaOBNMhdKMevsIV6opZKQ/6gmaDu2S6wDVF
-	4cj/p21eSgQxviPlbepkiiTNCBzDp6bqI5TQq9BR07iohHjiLOhYBrYwhV/Ump970QDn4RloDWE7U
-	NMQx5451ZipqU1nI6dReJNAylH0Z6Y9S0TLs6Xu6b3RpIKTwUOIFbmpIQ0VlvuaBzOnhKAE4KnGSF
-	L0nj9nSTyT3OO+pCNNahss1gkz3wGh7LyCQv0OhaUIV2ZOngq9sgCFeKPZdnoZtXaC/VGFzs9MP0n
-	87B3Zp6g==;
+	bh=W5WjLcJsxArMu5HCfyLW+XnlGaOpGtRqSi+EyQMT4dc=; b=gKjHR8w704KLZviLbEH+d/6PwD
+	JnYOw9ycHbHTN0upP9a3pYMER2fP3NJUp8O2NCVb+155jJ+YAcsxSeRxxnXgzH/vrXuXQuNUJ3iZ2
+	nKKzeugy+9FocyQ07FETZGKJLKqFGLKsyD1O5XcIjFmjllkSKtchZM6gykJa2OQbNNxbP42Vx99hx
+	gw8X3neHBK2MHuT8OMfHZiO5eIbp53Vr0CzQP/2JJrV9MPMlKeNr6GUpsqDJLXF3Wgq8uU8r2VmuX
+	Xie0NQB5r1d5yQZv/0gvD3LGoBg8tsyQN+koC1i05IaeVJzBNid6L+qLiyNmvt+D2b8tPWW7Lh1cK
+	bee6EFiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6q8n-00000004G0i-3B4e;
-	Mon, 21 Apr 2025 12:20:49 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1u6qk2-00000004IlV-2ohm;
+	Mon, 21 Apr 2025 12:59:18 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6q6v-00000004FjK-0Mwf
+	id 1u6qiA-00000004IYL-3qfl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Apr 2025 12:18:54 +0000
+	Mon, 21 Apr 2025 12:57:24 +0000
 Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53LCImUA1545741
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53LCvIto907192
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 21 Apr 2025 07:18:48 -0500
+	Mon, 21 Apr 2025 07:57:18 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745237928;
-	bh=HRhwr6bsuUpHJokkn7OOYPwCV0G4EhNX1INeaCHd44E=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=BZKn1IcjY/qIX90o+ZurQTtKZqjPrgXf4wjt8S5Xx7qjZ5A8ejXuDw0A8qkoSAom3
-	 ENz+2z4Ak8AqrSSNbVO0nzfGcbStX1yWOGGClkkHz5FfQWb8GzwXK2jYIfn1xcv7v6
-	 bFrCTZKtFAuyIv28c1EtsMqvom3owEPl2ckMubHA=
-Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53LCImtg061686
+	s=ti-com-17Q1; t=1745240238;
+	bh=W5WjLcJsxArMu5HCfyLW+XnlGaOpGtRqSi+EyQMT4dc=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=y412E5xs7FjTMfsN3NMdDN26l9jNCxmOFuXv58BS7d2sieDBmEMem3m0JRy35Y2Vi
+	 LoiBij4MXT0hRNWfQoniTT/IdaDGGlMJ5PurtCIqGf2gB9grjha/1KRTreszWzB3P5
+	 0tmqTyGA2T+hlWPmxcZoyOQiOASDW0XZVsLA4gsU=
+Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53LCvIE3083231
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 21 Apr 2025 07:18:48 -0500
-Received: from DLEE102.ent.ti.com (157.170.170.32) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+	Mon, 21 Apr 2025 07:57:18 -0500
+Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE109.ent.ti.com
+ (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 21
- Apr 2025 07:18:47 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE102.ent.ti.com
- (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
+ Apr 2025 07:57:18 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 21 Apr 2025 07:18:47 -0500
-Received: from [10.24.72.182] (jayesh-hp-z2-tower-g5-workstation.dhcp.ti.com [10.24.72.182])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53LCIiHl032378;
-	Mon, 21 Apr 2025 07:18:45 -0500
-Message-ID: <94e79e4b-ff72-49ba-bcd7-ba69e2296d3b@ti.com>
-Date: Mon, 21 Apr 2025 17:48:43 +0530
+ Frontend Transport; Mon, 21 Apr 2025 07:57:18 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53LCvIC2075145;
+	Mon, 21 Apr 2025 07:57:18 -0500
+From: Nishanth Menon <nm@ti.com>
+To: Santosh Shilimkar <ssantosh@kernel.org>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>
+CC: Nishanth Menon <nm@ti.com>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <bb@ti.com>
+Subject: Re: [PATCH] soc: ti: k3-socinfo: Add JTAG ID for AM62LX
+Date: Mon, 21 Apr 2025 07:57:16 -0500
+Message-ID: <174524022451.1975791.7076192860299528764.b4-ty@ti.com>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20250417084904.2869369-1-vigneshr@ti.com>
+References: <20250417084904.2869369-1-vigneshr@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/7] Add DSI display support for TI's Jacinto platforms
-To: "Kumar, Udit" <u-kumar1@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
-        <devarsht@ti.com>, <linux-kernel@vger.kernel.org>
-CC: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <kristo@kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250411105155.303657-1-j-choudhary@ti.com>
- <02f1912f-0a05-4446-923a-7935ed305cb3@ti.com>
-Content-Language: en-US
-From: Jayesh Choudhary <j-choudhary@ti.com>
-In-Reply-To: <02f1912f-0a05-4446-923a-7935ed305cb3@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_051853_255911_5F5E7824 
-X-CRM114-Status: GOOD (  13.77  )
+X-CRM114-CacheID: sfid-20250421_055723_002316_5CD6D7B0 
+X-CRM114-Status: GOOD (  12.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,62 +86,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Udit,
+Hi Vignesh Raghavendra,
 
-On 19/04/25 14:23, Kumar, Udit wrote:
+On Thu, 17 Apr 2025 14:19:03 +0530, Vignesh Raghavendra wrote:
+> Add JTAG ID information for AM62Lx SoC so as to enable SoC detection in
+> kernel.
 > 
-> On 4/11/2025 4:21 PM, Jayesh Choudhary wrote:
->> Hello All,
->>
->> This series adds the dts support to enable DSI on 3 platforms for TI 
->> SoCs:
->> - J784S4-EVM
->> - J721S2-EVM
->> - AM68-SK
->>
->> [..]
->>
->> NOTE: For higher resolutions, we need bigger CMA region.
->> But for validation, the default value is enough.
-> 
-> I am not sure , how DSS uses CMA region
 > 
 
-The framebuffers for dss are allocated from cma-pool.
-By default the cma-region is of 32MiB that is shared by various peripherals.
+I have applied the following to branch ti-drivers-soc-next on [1].
+Thank you!
 
-1920x1080 requires ~16MiB of CMA but sometimes due to fragmentation,
-we cannot get even this much for framebuffer and memory is not allocated 
-resulting in display failures.
+[1/1] soc: ti: k3-socinfo: Add JTAG ID for AM62LX
+      commit: c62bc66d53de9a61154224f99c1b4ca68ed57208
 
-And large resolutions like 4k@60fps require ~64MiB straight away.
-So it is better to reserve appropriate CMA region.
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent up the chain during
+the next merge window (or sooner if it is a relevant bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-Thanks
-Jayesh
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-> 
->> I am posting another series to add CMA region to Jacinto platforms
->> similar to Sitara family soon:
->> <https://lore.kernel.org/all/20240613150902.2173582-1-devarsht@ti.com/>
->>
->> Jayesh Choudhary (5):
->>    arm64: dts: ti: k3-j784s4-j742s2-main-common: add DSI & DSI PHY
->>    arm64: dts: ti: k3-j784s4-j742s2-evm-common: Enable DisplayPort-1
->>    arm64: dts: ti: k3-j721s2-common-proc-board: Add main_i2c4 instance
->>    arm64: dts: ti: k3-j721s2-common-proc-board: Enable DisplayPort-1
->>    arm64: dts: ti: k3-am68-sk: Enable DSI on DisplayPort-0
->>
->> Rahul T R (2):
->>    arm64: dts: ti: k3-j721s2-main: add DSI & DSI PHY
->>    arm64: dts: ti: k3-j721s2-som-p0: add DSI to eDP
->>
->>   .../boot/dts/ti/k3-am68-sk-base-board.dts     |  96 ++++++++++++++
->>   .../dts/ti/k3-j721s2-common-proc-board.dts    | 116 +++++++++++++++++
->>   arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi    |  37 ++++++
->>   arch/arm64/boot/dts/ti/k3-j721s2-som-p0.dtsi  |  52 ++++++++
->>   .../dts/ti/k3-j784s4-j742s2-evm-common.dtsi   | 117 +++++++++++++++++-
->>   .../dts/ti/k3-j784s4-j742s2-main-common.dtsi  |  37 ++++++
->>   6 files changed, 454 insertions(+), 1 deletion(-)
->>
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
+-- 
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+
 
