@@ -4,70 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 586A7C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 11:24:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFB0DC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 11:28:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U8sYZyG1Q82B9mZMiuVdwGXhXA53NdDNooh74k3l2ls=; b=uHRyXvVNgWjZm4McYF95r1ZW8X
-	UrtfphJ67UKuevCP09sMWpWkHNujDAO2HDtWd7cEs5zZ92p9CE/DLxBOmO9ox3jm2FYrJnnVdPzih
-	o4fU+ERIQ57m3C/tGAUC2GZ4zJP3KpQu9bkrVRJ4ckkKZoii73r7F72Yo3M3o3/u2PluT6Ss6cLwV
-	b9ciBXJLMMYct4F9m5KnQYmke6mwejtDw7Zh5cs0G2nbti8zw6fxHQ3gdLGs5zbnXdpdQEDOXab1Y
-	7mVQPvIT6i76xInpGaKtQp6mwEOydmRSkfTZhmsMcFF1wzyiFD2OFOiPIJbrHvblio1A/mCU750sK
-	CwW2vcVA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DywDJj+TP6Fy0BegsYxCLBJnBZZmwEA8i9S4As70Fkc=; b=XLmP9UjTyrXzXrITipBgmnaUAs
+	5gBa10CwgTsdRmNgyXzURzoixBwB1XJA4OmNki8r/ZBzyGBxOV5T2iFs4PmEcXDXWWWuT5zLsM0Tq
+	993yhVl3kKAD7pmeq7DbO4cVq9+Qkb2RBhf4rRzDU4ghi6+CsmWeScLWqEdPenvht6VBcGGkG+HgP
+	esIOrv38HmpBT94773o1KA9+LAgCPfumgaUX1HxMFoL/HvgYwziQv+VyxHFGM0AwjSS1dcqRRACc1
+	/Je9gFNJ6MJJxOud5P9GONpBP0JO+66epqO+fmu/Rh4nz6FLufT8AmCFK96VJ+41bk04NsdResScx
+	u7fWDlPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6pGP-00000004BvU-17aS;
-	Mon, 21 Apr 2025 11:24:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u6pJi-00000004CEB-0TIO;
+	Mon, 21 Apr 2025 11:28:02 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6pA3-00000004BIq-3UcK
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Apr 2025 11:18:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D52684A58A;
-	Mon, 21 Apr 2025 11:18:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45781C4CEE4;
-	Mon, 21 Apr 2025 11:17:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745234283;
-	bh=USOlz+eqtQB3+FtKVUspdDKmHiwUiEaAqh+xoaci2Lo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=u+mQihMeljmxRToq4vLWJkTWNB90Va0fKqkBYzu8vYC/MxjJU+CG72R4LBbJjLo91
-	 BoCMnbHxkzQ4LOxaYbDmIgJ3nuQN1MPCHL8NgOEvFlsGvdRUSoWFv0CfMKT3FZVeL0
-	 IRECzDhQsSUeucp1L8AUQhNisZ3q6aICkBfUhTkIGIaHjWJFvNa/AAHnTMmqgJn/jO
-	 psgr+Q6iCj5qDorPs38PyrAyftZMpqSug/e2BC/U96v26UwTTTbEqbWdyW//8Tp143
-	 bSrG78Fde/w6848U8BZXQom1OxXevS9DAtMMEs8A0QXlLOfFyH8P74CUfbmzAfuOWF
-	 TkMaau80HEy7Q==
-Date: Mon, 21 Apr 2025 12:17:52 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: David Lechner <dlechner@baylibre.com>
-Cc: Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko
- <andy@kernel.org>, Eugen Hristev <eugen.hristev@linaro.org>, Nicolas Ferre
- <nicolas.ferre@microchip.com>, Alexandre Belloni
- <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- Andreas Klinger <ak@it-klinger.de>, Shawn Guo <shawnguo@kernel.org>, Sascha
- Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
- <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, linux-iio@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH 00/10] iio: prefer aligned_s64 timestamp (round 1)
-Message-ID: <20250421121752.5a7a178e@jic23-huawei>
-In-Reply-To: <abe0db44-b27f-4cea-9edc-862e4096f80c@baylibre.com>
-References: <20250418-iio-prefer-aligned_s64-timestamp-v1-0-4c6080710516@baylibre.com>
-	<abe0db44-b27f-4cea-9edc-862e4096f80c@baylibre.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
+	id 1u6pHp-00000004C2y-2wkS;
+	Mon, 21 Apr 2025 11:26:06 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43d2d952eb1so28703515e9.1;
+        Mon, 21 Apr 2025 04:26:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1745234764; x=1745839564; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=DywDJj+TP6Fy0BegsYxCLBJnBZZmwEA8i9S4As70Fkc=;
+        b=gyFXjXP2ExCOjKjuN+qzY3YoE88PxgWn8O38dzQclqBUgi2k9B/vFASSbrmBqevxEb
+         gaLGBocjdRCiANBkv68b9k8QegQZletgKSSOzODFcKTSft3mq7AWr03YeqB9/bFTrmGQ
+         gbjbw6IOx174VDqsKZky+EoiVLZqgsAS1bVB+tl2Iti4XA7Q57Soi4UIqiTs6YyUGNDF
+         P5podbwLaulldorLIXyeFksr4t78YySO1dz/m/QqxhOL7nTv2kjAIfFSgsXIWUjDxY6e
+         z0zpr6lGuwSx151CiE5S7guXFieGv/v+GDL5d4H/mAjHdeawFq2G4GXCCI7KDx8yIBps
+         qZig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745234764; x=1745839564;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=DywDJj+TP6Fy0BegsYxCLBJnBZZmwEA8i9S4As70Fkc=;
+        b=o13Hs+EvMTXl1TtDCTGZmV7FlLNkSGv6JLkf0L0t7OiqDCYWPFmVWsHTYib0QKnpr1
+         IrIAB+cLHRrQl3B8R0IIMDXCuSmXrtON9pQRb2HGvMjOMRfpOQUHcfm3zPcbLTItqQIN
+         QoXVcAtWYMeuUEN9+GIDlZfCIBMdcYNKFRZ+WqFBhRyNfc8+p4HnhBIy7HmhdBctrCNs
+         XY0oNIovdQkNOOfrrQ5Hg349OAYB/8PN1Tm0t4NVmijWTt6JMpPPi3nfKuCQ1pjx5pwu
+         fGAxC1ZvF9FsZBdm3+TNdM2EIjCxrJdLpxVd5/UjtBwGBt7hp1LRHjTzWRkFEB0Fko0V
+         lzjg==
+X-Forwarded-Encrypted: i=1; AJvYcCX4pKcVCg0gMBn9pAtzGWTn0Uo+WOyVixAIyMXhvFsg1bNw7neLaNUWfBwLDT8X7zmciR32ap5iAbmZyalQQ2k=@lists.infradead.org, AJvYcCXYXZvodh8VB8QmrWgAH0FNK0aIDekzUoYffbsxofq3FdC8BxnmgL/mBOwVx/Hq9dDDWvXdeFcULVhZcR49obVO@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy1RzJSi5HIBeILybeozmHMCx1ZKUjvsqBlHRX38pO8TTPkipSQ
+	toDDg2ZLS7gHGVOiShhoyzJjwZA9zL50dTn5ONrLUF8ioNIEJ4bs
+X-Gm-Gg: ASbGncshemuek858hf/urxMenvJy2IegGGUcXSXtYq7Em8ABYDZVk28sfOJL7tTsxcM
+	5yZXLgi/OCjOdbS3Kjeapo1+/0qAsS1Wvr0jrMFoPJ/yNQOSKlRZuzNTFLYTXlrD3Lv1BDjLkuR
+	33y7nm5W2jXeqqK/jH+H1XErvziUpjOHf87V2+69nCbYuhzt9qaSDCwtBuTzZCIwZCSvIHBBwky
+	wIllWO/cEkZQVhK71V+LeXc13CtAKwZ+xpr1ZZ2bWVD2uXpFvdQt2yWVlzfQM4C2mRABVZBlP/w
+	WsIJKiwTiVyPgmbwZfnvV4WjgSAMtz6X13kuPvQrsc1nwUaaOuaoZxG+6ODLQ6tAdA==
+X-Google-Smtp-Source: AGHT+IEyd/gCLe6uVv+NRUValpX0NFG/QctCP0805z/W9pjLxvuoIW7drtqziovnyPlzm17OYnq17g==
+X-Received: by 2002:a05:600c:1c8f:b0:43d:fa58:700e with SMTP id 5b1f17b1804b1-4406ac21897mr78319485e9.33.1745234763686;
+        Mon, 21 Apr 2025 04:26:03 -0700 (PDT)
+Received: from localhost.localdomain ([2a02:c7c:6696:8300:fc11:84a0:480d:20a0])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39efa4207e6sm11450879f8f.7.2025.04.21.04.26.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 21 Apr 2025 04:26:03 -0700 (PDT)
+From: Qasim Ijaz <qasdev00@gmail.com>
+To: nbd@nbd.name,
+	lorenzo@kernel.org,
+	ryder.lee@mediatek.com,
+	shayne.chen@mediatek.com,
+	sean.wang@mediatek.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	chui-hao.chiu@mediatek.com,
+	Bo.Jiao@mediatek.com
+Cc: linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH RESEND] wifi: mt76: mt7996: avoid NULL pointer dereference in mt7996_set_monitor()
+Date: Mon, 21 Apr 2025 12:25:44 +0100
+Message-Id: <20250421112544.13430-1-qasdev00@gmail.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_041803_920724_B7CCB9C0 
-X-CRM114-Status: GOOD (  25.76  )
+X-CRM114-CacheID: sfid-20250421_042605_739421_6B7A3E63 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,49 +103,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 18 Apr 2025 18:05:42 -0500
-David Lechner <dlechner@baylibre.com> wrote:
+The function mt7996_set_monitor() dereferences phy before
+the NULL sanity check.
 
-> On 4/18/25 2:58 PM, David Lechner wrote:
-> > While reviewing the recent conversion to iio_push_to_buffers_with_ts(),
-> > I found it very time-consuming to check the correctness of the buffers
-> > passed to that function when they used an array with extra room at the
-> > end for a timestamp. And we still managed find a few that were wrongly
-> > sized or not properly aligned despite several efforts in the past to
-> > audit these for correctness already.
-> > 
-> > Even though these ones look to be correct, it will still be easier for
-> > future readers of the code if we follow the pattern of using a struct
-> > with the array and timestamp instead.
-> > 
-> > For example, it is much easier to see that:
-> > 
-> > struct {
-> > 	__be32 data[3];
-> > 	aligned_s64 timestamp;
-> > } buffer;
-> >   
-> After sending [1], I realized that some (perhaps many) of these would actually
-> be a better candidate for the proposed IIO_DECLARE_BUFFER_WITH_TS macro rather
-> that converting to the struct style as above.
-> 
-> Case in point: if the driver using that struct allows reading only one channel,
-> then the offset of the timestamp when doing iio_push_to_buffers_with_ts() would
-> be 8 bytes, not 16, so the struct would not always be the correct layout.
-> 
-> As long as the driver doesn't access the timestamp member of the struct, it
-> doesn't really matter, but this could be a bit misleading to anyone who might
-> unknowing try to use it in the future.
-Agreed.  
+Fix this to avoid NULL pointer dereference by moving the
+dereference after the check.
 
-These timestamp inserting functions have always been a bit weird. I kind
-of regret not just leaving it as a per driver thing to do, but that ship
-long sailed.  I definitely want to keep the layout apparent in the drivers
-though so this approach only applied to 1 of the ones in this series.
+Fixes: 69d54ce7491d ("wifi: mt76: mt7996: switch to single multi-radio wiphy")
+Signed-off-by: Qasim Ijaz <qasdev00@gmail.com>
+---
+ drivers/net/wireless/mediatek/mt76/mt7996/main.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-Jonathan
-
-> 
-> [1]: https://lore.kernel.org/linux-iio/20250418-iio-introduce-iio_declare_buffer_with_ts-v1-0-ee0c62a33a0f@baylibre.com/
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+index 91c64e3a0860..32846da51cbc 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+@@ -414,11 +414,13 @@ static void mt7996_phy_set_rxfilter(struct mt7996_phy *phy)
+ 
+ static void mt7996_set_monitor(struct mt7996_phy *phy, bool enabled)
+ {
+-	struct mt7996_dev *dev = phy->dev;
++	struct mt7996_dev *dev;
+ 
+ 	if (!phy)
+ 		return;
+ 
++	dev = phy->dev;
++
+ 	if (enabled == !(phy->rxfilter & MT_WF_RFCR_DROP_OTHER_UC))
+ 		return;
+ 
+-- 
+2.39.5
 
 
