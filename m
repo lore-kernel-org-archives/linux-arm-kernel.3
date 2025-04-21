@@ -4,59 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AE0FC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 21:41:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA8DAC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 21:43:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wOsVK9WA4YOxrfCwYof4IVV5vtkbV5JYJmz6GFqIxVs=; b=IMGKtHvJ6evYeg4Ikbzu9NHtgn
-	cU+z5hKUKCzhO4Ck3zh5vtksmkIvbYbh/+XXmy7jfGuO8L5mgcWFR5SkrZ5vQpwVbJrLlJ0u4MwPP
-	WHT+ZSy7I+5kKkW8sWWDVxt1y6sm3qxpAtR8ZfhSIPVYT3aVqmxD/b30OIB1SGEYavi99D500GPjW
-	8Wc+UirJEFoqwqlA25UqdEHkE56TlL4sUCjqq2Y8IKY8kutkADHyXCh2cmfWGMkVCACrLUOVvrtyi
-	2n5pkQlHoZra/eRCqDgb6S5VjAPJ+TLcwhFH+roraUDirqBpi6hgk215fMm9+0BNwH7rC6WRr4t7B
-	JtPVMmjQ==;
+	bh=tWwWVbUibGLIJXdNXlh1LS3yR/JeJLEJ0HZ0lkwr/2w=; b=EaxSNhRI07gjtZ2Anhq4ADJrdy
+	xevAfrImzAFLp4UC5z4Oj2IANk03mD+45foKjTh9wRlHVNJGhh2xVamG9DXS+lC1ntFJIrCcw50Hv
+	1Ic3lBHlUg5bKeC36bK+qRMoxPlq9h9eeBn4QfbAspm0BgVbD8WeCs6psMD/s+EQGc7ix6rZisLLY
+	gEWoePrqQ+szsA8H+OAFFGusPQVgMkG6C1SDOu7CwHNsn48/xkOSgKHPK6FC7cZ/oCjg7QK3vRVff
+	HE7hn2+4nfuncc4Grzb1yFHWLZXfSWMnyD+U1lWEKI0cFIu6RZl6YnhU89sctLtt5QwGS2X9Y6Ob5
+	jZHJomGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6ytT-00000005CZ4-1otP;
-	Mon, 21 Apr 2025 21:41:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u6yvJ-00000005Cjm-1aJx;
+	Mon, 21 Apr 2025 21:43:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6yqa-00000005C7K-2eH3;
-	Mon, 21 Apr 2025 21:38:36 +0000
+	id 1u6yqs-00000005CB7-43lg;
+	Mon, 21 Apr 2025 21:38:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8A36E6115F;
-	Mon, 21 Apr 2025 21:38:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43AD3C4CEE4;
-	Mon, 21 Apr 2025 21:38:35 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0A5C14A393;
+	Mon, 21 Apr 2025 21:38:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20443C4CEE4;
+	Mon, 21 Apr 2025 21:38:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745271515;
-	bh=teUYICP7yxIXUdOVNrYCte8DQh1l8t6HHmNsrha758w=;
+	s=k20201202; t=1745271533;
+	bh=P6nmFQfl8tDNHNuZzm4b6tttJQZW4Sac0+eacXTdEPk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=brih1nJa/PjX5hVF83+YmG1qJS+oDhbzGboBmkmjVmmkWCf7VGmK7+sX/GaHn8RWQ
-	 WQcdc4fYLk7MF2rwQ3fnV5xIRtRs+zxHla5KLEswQuAPMkhd1du5EIFrKd3W2bWljJ
-	 oauBvw4tfteGbe/lF4yR7+ozUr91LXlJ9PwlCEzJyMt0BicuYfYQCEKXxBbI1nCleX
-	 9ZTNAig5mE7XglwCcA1oK9Awy8soREhYWX6UmcxJ5e5pMPXpMGFo83FdtlgVuDQvTU
-	 TLNcl37f/y4YbXWxQdjwHmHbXD0PFsXQpv6zwScJXbOHbfLqArW3wYuGFgt/MLIPFK
-	 UKRKEK4ZqjNag==
-Date: Mon, 21 Apr 2025 16:38:33 -0500
-From: Rob Herring <robh@kernel.org>
+	b=SqvlGE7AxRIVNM8q2NdMVuX1QDRm31fP5PW6Me/cYE8T24hhSJ+s9XcJ9Xj6NBehq
+	 Z4EJTSvJZWaFB9CLVrajvm++/uOVBw7FUS4OCI0pk1Aa1l3ZUV62B0Q4BGMID6IQYr
+	 APNMubOH9TEwCY2PS+7dINzSYC9XwzzzNF/6/95/HTWs1G6K9ArEMUOytYvKVSF5mf
+	 jcqT2RwfSVzOIMDUNK0LncWVGfPO40M8/ehb73KYh7ueiF2U5dMetgA4M4/KYRMu+Z
+	 xI5m0LhjqEc4bN0s2Kk0umYFpKpaHTShxw59p3hzfWT3Lc3vSzS2Llx8+z0q8SXYnK
+	 imSeilgUrOzCA==
+Date: Mon, 21 Apr 2025 16:38:51 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
 To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: jassisinghbrar@gmail.com, krzk+dt@kernel.org, conor+dt@kernel.org,
-	matthias.bgg@gmail.com, houlong.wei@mediatek.com,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, kernel@collabora.com
-Subject: Re: [PATCH] dt-bindings: mailbox: mediatek,gce-mailbox: Add support
- for MT6893
-Message-ID: <20250421213833.GA2966253-robh@kernel.org>
-References: <20250416120230.147844-1-angelogioacchino.delregno@collabora.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, andy@kernel.org,
+	dlechner@baylibre.com, matthias.bgg@gmail.com,
+	linux-kernel@vger.kernel.org, jic23@kernel.org,
+	devicetree@vger.kernel.org, krzk+dt@kernel.org, nuno.sa@analog.com,
+	conor+dt@kernel.org, linux-iio@vger.kernel.org,
+	zhiyong.tao@mediatek.com, kernel@collabora.com
+Subject: Re: [PATCH] dt-bindings: iio: adc: Add compatible for Dimensity 1200
+ MT6893
+Message-ID: <174527153072.2973088.9157423165074778113.robh@kernel.org>
+References: <20250416120235.147889-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250416120230.147844-1-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20250416120235.147889-1-angelogioacchino.delregno@collabora.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250421_143855_026162_BE0CB025 
+X-CRM114-Status: UNSURE (   8.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,44 +77,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 16, 2025 at 02:02:30PM +0200, AngeloGioacchino Del Regno wrote:
-> Add a compatible string for the MediaTek Dimensity 1200 (MT6893)
-> SoC using MT8195 as a fallback, and add a header for the GCE
-> mailbox found in MT6893.
-> 
-> Similarly to MT8195, this SoC has two GCE hardware instances, but
-> the event values are different (hence requiring its own header).
+
+On Wed, 16 Apr 2025 14:02:35 +0200, AngeloGioacchino Del Regno wrote:
+> Add a compatible for the Dimensity 1200 (MT6893) SoC; The AUXADC
+> IP in this chip is fully compatible with the one found in MT8173.
 > 
 > Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 > ---
->  .../mailbox/mediatek,gce-mailbox.yaml         |   4 +
->  include/dt-bindings/gce/mediatek,mt6893-gce.h | 312 ++++++++++++++++++
->  2 files changed, 316 insertions(+)
->  create mode 100644 include/dt-bindings/gce/mediatek,mt6893-gce.h
+>  .../devicetree/bindings/iio/adc/mediatek,mt2701-auxadc.yaml      | 1 +
+>  1 file changed, 1 insertion(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/mailbox/mediatek,gce-mailbox.yaml b/Documentation/devicetree/bindings/mailbox/mediatek,gce-mailbox.yaml
-> index 73d6db34d64a..277d290d852b 100644
-> --- a/Documentation/devicetree/bindings/mailbox/mediatek,gce-mailbox.yaml
-> +++ b/Documentation/devicetree/bindings/mailbox/mediatek,gce-mailbox.yaml
-> @@ -19,6 +19,7 @@ properties:
->      oneOf:
->        - enum:
->            - mediatek,mt6779-gce
-> +          - mediatek,mt6893-gce
->            - mediatek,mt8173-gce
->            - mediatek,mt8183-gce
->            - mediatek,mt8186-gce
-> @@ -29,6 +30,9 @@ properties:
->        - items:
->            - const: mediatek,mt6795-gce
->            - const: mediatek,mt8173-gce
-> +      - items:
-> +          - const: mediatek,mt6893-gce
-> +          - const: mediatek,mt8195-gce
 
-You shouldn't have with and without a fallback.
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
->  
->    "#mbox-cells":
->      const: 2
 
