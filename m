@@ -4,153 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCDEAC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 14:07:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02A52C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 14:11:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dRIsL7AuWochSBHQl19aNLtei9ojbuBN+CRI7MECEuY=; b=WoPs5AyWVn2wlmgqvelregMd/i
-	g+O55W1x/jy00LQ5QAUwKxroEb4pX2hZvnwbrm06V7+Qg8JoNldj81Q4NdHkw3M3jCN7bgZbMNQUd
-	DQv8ZLFSpZgEUDAVU8e7WQFxAjp9Q6v+qLo0ARFZuMLxTZt+2ZXthbWVqq0TvPlvIxev4G2lfHnV2
-	X2Rm/4BiRGuDKShpPdwICjxg+8wB/AuX9qQh1MASCpIEDi7+N6j0l4+rgzmKDs/vpX3UsRoASEIeh
-	JbiZkyIgzwNZwb8mKoYELRKJ8TmgWpD6EhJxYTNrLCfyBr68P524pQNFqA//5kdVhumpoQfhwf+Rz
-	PH3Vwnaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ubJM8MS7/gKS3ZsjfdQz7evp9hBJp3GB1TUeMn7GoGg=; b=vRKlPuNhydz2aerJPTq4IeePrB
+	jpp2dH5rOUcUJR7mm4h9BtpAsmamiq4c2QhLW78Qsi6JMNNRXANHoI3AdwHmsOlY5G0yVwevCjxQ8
+	TqWH37NoLTWB2BgC4TuH/Ia39N33IozBdfijs2K7Pe4oJkvp3fsJII24QHHE1pCMaeixzPcLpYXre
+	Y6HlRQTjxAG7yQCSWeZ5RpuYsH519qq5R1XGNOCR3KnmmpJBFtHJYI/TSDu58PegE0ESKaY/7HGmu
+	9HouQPI75A4WvO1FUIoxyEqny+7/iL9oDvNiDXXxCHCajIVAI0vE9tEb8Yq1HizCQRsLneB9+Otar
+	zqJVd2tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6rnq-00000004PuO-0yZv;
-	Mon, 21 Apr 2025 14:07:18 +0000
-Received: from mail-japanwestazolkn190110000.outbound.protection.outlook.com ([2a01:111:f403:d407::] helo=OS0P286CU010.outbound.protection.outlook.com)
+	id 1u6rrq-00000004QGu-0bDx;
+	Mon, 21 Apr 2025 14:11:26 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6rly-00000004PfV-0NF0;
-	Mon, 21 Apr 2025 14:05:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TtK1xgyidFVHwCMoYCfXmgLkspZHDYPgQNnGmO6j6kg731wMipH8D2aEUAFYYRngs6e8ne3aeFGc9GYkAxWx4LMJHlQR1KglpS3vwIWg/zFncYI0338Wn0vDsBGlOrAlto8VkI+BmJN+gq5bIjYXw8vMCaHiMQRmkuauY1370fRozttIltblUPezbRs1opI6ucW0YsBn3dqwuUvU02eNJAJIRRvImYVm7KwiNzZMfQy1ucLP92VUnJE2RB3J+svq6tAe0T8zkn4tnChHfrmol9okEINgJBg0F3QTVBaaY8Yj8mEzZ1zeMs923dMsWGCbiTcSHePAE3UYfXaV0aB2Hw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dRIsL7AuWochSBHQl19aNLtei9ojbuBN+CRI7MECEuY=;
- b=vOp2JDkAYm9hGgxagHEYmQ1uojxpjGS/QLVxw9vwM3hYG00WctrnMbe6lxhHe1NyekULZ5rKW1lEnWUVsl76px3nU21WK3tHfuCDSrEp5DCZU+G+wCeBcBQshR5e0R5Q6da6Dg680QsOY5ih8L5muLZlerFAoxkxzsqp7h/owDESgwacqryOyiwadN9JzRhGJIJdziy+qCfYK3myF1lwZPHpspfKh1VzbDODxlYIEDKDP/3IjL1ytHE1g6YQHa3qdDQWPWqot8NFiy6K2/beM0sfHwjDaVSzmkilR6WeyRxVcorrkJYqLjerNREVe7gZmJKH2v064TsKmONZBYXmxA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dRIsL7AuWochSBHQl19aNLtei9ojbuBN+CRI7MECEuY=;
- b=cdcRMQ1oTC2db/fH3rhahF7UMs1NW8uBydSlPXUYLp5AgJhrFg2cYfMMfvHJRbGSBRARh11EGfiKYZCdkUvCeD3TMbuY+dFpOMe9gJpVgyVvKcaVAyGiYMYm7DHaqHBQ+Fq5N+nG8w1htc4SpmoB5xaB4zg9L7vObpGgLYIvvnG6GYHquzw4sxlwz2W0Ys9GVAObyEgC+v76+eI0p6+11nWRzjBFzcnImEmHig1+jlX9BBuUWhElUMDrjCfRhmPVTCfKOPS1MoTg1r7lg9UDs6Hv9UjWHIEf2NNL1XAmr1HS2MQlaqDZ0dcxWPlKJ9WhYrKgFFe4LOqhBSEMdi59LA==
-Received: from OSZPR01MB8434.jpnprd01.prod.outlook.com (2603:1096:604:183::12)
- by TYYPR01MB15050.jpnprd01.prod.outlook.com (2603:1096:405:1a1::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.22; Mon, 21 Apr
- 2025 14:05:03 +0000
-Received: from OSZPR01MB8434.jpnprd01.prod.outlook.com
- ([fe80::7c3f:73bc:3c62:fe7]) by OSZPR01MB8434.jpnprd01.prod.outlook.com
- ([fe80::7c3f:73bc:3c62:fe7%5]) with mapi id 15.20.8655.022; Mon, 21 Apr 2025
- 14:05:03 +0000
-From: Shengyu Qu <wiagn233@outlook.com>
-To: nbd@nbd.name,
-	pkshih@realtek.com,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
-	shayne.chen@mediatek.com,
-	sean.wang@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	johannes.berg@intel.com,
-	miriam.rachel.korenblit@intel.com,
-	christophe.jaillet@wanadoo.fr,
-	greearb@candelatech.com,
-	howard-yh.hsu@mediatek.com,
-	StanleyYP.Wang@mediatek.com,
-	deren.wu@mediatek.com,
-	chui-hao.chiu@mediatek.com,
-	quic_adisi@quicinc.com,
-	gustavoars@kernel.org,
-	razvan.grigore@vampirebyte.ro,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Cc: Shengyu Qu <wiagn233@outlook.com>,
-	Sujuan Chen <sujuan.chen@mediatek.com>,
-	Bo Jiao <bo.jiao@mediatek.com>
-Subject: [PATCH v10 RESEND] wifi: mt76: mt7915: add wds support when wed is enabled
-Date: Mon, 21 Apr 2025 22:04:57 +0800
-Message-ID: <OSZPR01MB84342A0E21AAD111ED7AF6B198B82@OSZPR01MB8434.jpnprd01.prod.outlook.com>
-X-Mailer: git-send-email 2.43.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI1PR02CA0024.apcprd02.prod.outlook.com
- (2603:1096:4:1f4::12) To OSZPR01MB8434.jpnprd01.prod.outlook.com
- (2603:1096:604:183::12)
-X-Microsoft-Original-Message-ID: <20250421140457.1221-1-wiagn233@outlook.com>
+	id 1u6rpy-00000004Q5x-0xn4;
+	Mon, 21 Apr 2025 14:09:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id A7C82A4BCFC;
+	Mon, 21 Apr 2025 14:04:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7371CC4CEE4;
+	Mon, 21 Apr 2025 14:09:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745244568;
+	bh=WYXRdWWnpgKTBUjE3p3Mz4j6ZPQ5w+kSpIXksD6tN68=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=tKOto67RaYFfUzDqmXLJK8aJvIy6sKsvTmLnTsCMOs1O56tH9Vo7gIqyO4PVryOVx
+	 CEyJ+toAkHjPasJBv0Z3DXpxfFqHrbFljL43OR4d6crPNgIMej7BUXfdTN9WGaeZAN
+	 66LtIk5lebiXDOASN6aXc6yVX9HCcieeI/c0+urJtsyFl8MW75Tmkb344gDvsq2onb
+	 /RlUMqZTyMiy5nWzFScGFVrrB65pBBJdefuMoEtDx/XAQB3Fqo5GhQmRH7/v0K+XE5
+	 eU5M9RUToJ66L5zJz9u6nQkG+dTwd4P13vVRfpXEDEnDOMXDOYozSV6SYRg221jsi1
+	 KBRyzu4ByURVg==
+Received: by mail-pg1-f174.google.com with SMTP id 41be03b00d2f7-b00e3c87713so3300873a12.2;
+        Mon, 21 Apr 2025 07:09:28 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUcUvxZl9gLR3f+DfcT1PoLqf6AWOhWRBjoiAycX/d40Ubjz0W3zTPCMFxNdTUdM9l94V92TXSA5rC1eWFWJCuK@lists.infradead.org, AJvYcCXXET9vPbaBCObDLlQnpyb5v5FxjSDgCaOmNxqrlhpDdFVvuXN+dfRhR7fK9nBqTHjouB/iIS99YPFQiTZMCEo=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzmz3GydBoNheWUErDzqyiCcGd5RVKuuVFDjZ5+a0RzL8mj7RF9
+	8y3A3eAX2Rx0hjxzkt3rhms1yP7OLvWa76LGvoB89YN/w7qxPMIn2bRjuj5UwuN2aYGgb90j2z8
+	ltSthm3dW0man9M8JdFLl2eT1Wg==
+X-Google-Smtp-Source: AGHT+IGS9uz21hRPGhlJ4UMeP7sf9taxpboldIRO54ve55gM+l4Zm966plB6VQpw/Y3RbDZK4VoWG7AVra1mhRruBl4=
+X-Received: by 2002:a17:90b:248e:b0:309:cf0b:cb37 with SMTP id
+ 98e67ed59e1d1-309cf0bcb7amr532295a91.7.1745244568069; Mon, 21 Apr 2025
+ 07:09:28 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: OSZPR01MB8434:EE_|TYYPR01MB15050:EE_
-X-MS-Office365-Filtering-Correlation-Id: 97c28306-4c48-485f-c853-08dd80dd82aa
-X-Microsoft-Antispam: BCL:0;ARA:14566002|5072599009|19110799003|15080799006|7092599003|5062599005|8060799006|461199028|440099028|3412199025|12091999003|41001999003|26104999006|19111999003|1710799026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?jLN/at27f3ky2QZtSbLVK+zpGUbqFAUet9QWHmjNGZVnTPAcDJwPFOHNUoqB?=
- =?us-ascii?Q?H5yqE2OFvQY7mIvm6ih0cecwDWkk3hpcyswEJkLg1UgSB6FbjSQ1p/gb1bVD?=
- =?us-ascii?Q?3RPh1qTccIdFMaDbqg31G0iiKD+zjp/EQatVXyw8m7xqlt8Z6hk0JZQvHvTb?=
- =?us-ascii?Q?R63MfW4xCTsYBJAAjh8lQaeIpCIhuAM/BK2YQ/WDuFK7J++Oty4lxTIkomdX?=
- =?us-ascii?Q?vtbQ6M6C1qB9SkgtKhRxxlKAHeJCzM5A9corAHMqkSFADf70p/3MIhBFLi2+?=
- =?us-ascii?Q?DQeeMm+EpIW1FEoJ0mEgVIfqryWKeCYlHgxXTsaPlp1BYhLmxUmDbMGmrupZ?=
- =?us-ascii?Q?SKGCssz15KAFv0Gx6uleqzG52EinUTor6Wp4T8jD15q3P9DPLQv00OkogYGN?=
- =?us-ascii?Q?zm6lz9EdLRfWXZRbeQMo/Fn1MVIjahcooCZwnFIHo2FJQUdS9bsrHX99n5t3?=
- =?us-ascii?Q?XPwqZ9/EjV4dFUCY4SHr34u4igEJxgP/MwiIqKmyrVLCxnFKQgyR58ev63tB?=
- =?us-ascii?Q?SFu2nw8vePG7ylpxm2d4p3ZlqVR0CfUCEbv0oxV5KnccnAfljvj2FLDvozCw?=
- =?us-ascii?Q?6ehtXyh0DajMZaHuIEeniBu7pICKTJ2yID6KK2cvy861ZmaN5Oo9Dv0P9OtJ?=
- =?us-ascii?Q?01M2cB2uM3Me0qoVPbic6ajZDDyVOjPc07gJZJ06fTRGCZe9YIJN1sLggGhT?=
- =?us-ascii?Q?N7IS7AODXNIgwzKzFzkn+OOD+gLwT30K9Jundq/fbwyAtION/+tmQJXlgEMJ?=
- =?us-ascii?Q?zFXSDe4VPjior+j9vpIfrMeXXS4PodPguTtCL8VO9EBPP66B1jGBsIQOjPos?=
- =?us-ascii?Q?POfMsrsVaEbpERU6dQaorau74R3b+dnZkl1RLMXnA1ACeS864SOfrndYPkdc?=
- =?us-ascii?Q?2u2D/Ycs+AA0i9MMf6rtMrT28KIPNCQEoW7yvn9TY+C/s/NAar96HzvXAZT5?=
- =?us-ascii?Q?BV1Br/ItEKSzA1wddugjQoaMQ9oP2nw+GcW3xW1cW2cXdvm6DXBzV8enjgjk?=
- =?us-ascii?Q?6PK2jMO1qowGLhGOEv7Hr43kO9yU029w4ZRKuBe6TqYiW4gJ7aQVk595U4Fo?=
- =?us-ascii?Q?9Maoy4P7T52NaIE10Oq3qNZ8nWsWPLRCfwP6+IKA5XgrUq8N84EcVf8ULfuf?=
- =?us-ascii?Q?gekZYfHWOcfWnth/18EufbbLZ8NYQQjXIXu7xhEH3hd4WQwdZmiB6NQFKOmk?=
- =?us-ascii?Q?VongbHZKIch9+Wg7JIzFieJKT67EFU9WahGnL0UpfH9HUcMnpnVmpgul5i3K?=
- =?us-ascii?Q?b+atzXztSlN4egAzf+nL4JozrKUdMKR1V66+D6tncwbRamAHXsEOD5WeRY0w?=
- =?us-ascii?Q?ock=3D?=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?VRz+z1LZ74BG6OURyyp5bJv0m4v/J2eyUGZhweThrLvmaZC8MO8gb0+W0Hws?=
- =?us-ascii?Q?VOW4wjUWVfuWpi2CVor+7aBLMeu1eOhRVVCUKZGPEqxT/4Awvrt7ALAm7WXw?=
- =?us-ascii?Q?QIr/dVn2HHxwBnOSCa6j7zIFpdWjrF8ufz4K0pis8q8vXjSRadL4fEQ1e2Qf?=
- =?us-ascii?Q?Cl+SCK4xsF2Jwy73Qk5HlgxDW6hb2KUVR1V7VW1Vd8+jijcGmrb6lU0Fb1ml?=
- =?us-ascii?Q?XyZvHkhvOMLZR+lYTpChy7+XjomUalC7Cqka5hlRWKOCqpWxEBtLvcOuf2mD?=
- =?us-ascii?Q?5AxItbQFL6RXfluesLRz8RRleY7xThTH28vRYfoUnqH+8OsxPe9xaj3kXv9m?=
- =?us-ascii?Q?lxGqfT0kX0okD0tV1jNQUCEGJATCeGy2547Si1EZtgxUC7NfjayrT7ExS2vW?=
- =?us-ascii?Q?YNDZrrLnwPXtoeKrvLFGyONRnm9hlYUuVS0Oi38xHq/rMHutgpNcrOTlx3bR?=
- =?us-ascii?Q?XlPQCfKnt7+9rWrA8GUX5TKw4+8UZXpc99kWv/J+v7dRIs9GPk1RA0XJZuSt?=
- =?us-ascii?Q?3iTVSU59r6jemvAf5osRuelTw4cq8u2InLjxBmGsq3fNPfUgio2kgKwbjnfS?=
- =?us-ascii?Q?X2W+MoN7Jsz84EY9QfhoIjJ7/mevgHqx5iiaJgraDgAyh6aiJdRI30An+c6q?=
- =?us-ascii?Q?QgIcVB+XuFZ01bCLkGTGXR07lSeJm5hU6lPzYMMatYeQgtCnSP0qKtfOxWL6?=
- =?us-ascii?Q?zSA75l3ODXpLRg1p1sXmk6CSHvjX1YHzMsPbxoLfkmR0K6qiFTCf2dapjJbd?=
- =?us-ascii?Q?PxKnr1VUtRHAKuFr8iFE96KH60CXnMbDiAAUmP+TqT1omHuZQrhYcf7iJp8g?=
- =?us-ascii?Q?P5mQp80Ldu8tPxCK9UB74CnNrQVQS1x3Gp5b/4q2ha8vMr0czLP+d9acfnIs?=
- =?us-ascii?Q?Hd5fXEhvF3Z1jmAk8hkg5GIGAs/bz0NWU7DvRzZuDhVEb+kdIApZey4pSk1Q?=
- =?us-ascii?Q?T6mBAuFmwgSeGv/5eEtMlKOII3LFn08u2JkKF6gTSTRf6/23Vw/v+RLfweu4?=
- =?us-ascii?Q?GrRHIqAfYUDo3JwvMhfNW9MvkmRZO7gc9avQPi2ZoGsHqlSa+tPcFp1KqaLL?=
- =?us-ascii?Q?T819zWzYuTrtzLQdnAJKWkOnKR2DqobNEQsnkzWTYVJ9YLR8QoDv6uX8CrPO?=
- =?us-ascii?Q?V0ei3E3wZ0fYvPD14Z1ZqVhaSCABLjPncTOz4cbMCD1zOPibtvDyW7j0Oixc?=
- =?us-ascii?Q?x/VCS3/Klz2a3iVP5d/NW9r6TVlUVWGE86OF7B0KfUquu/1U7t0j1xPt5LM?=
- =?us-ascii?Q?=3D?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 97c28306-4c48-485f-c853-08dd80dd82aa
-X-MS-Exchange-CrossTenant-AuthSource: OSZPR01MB8434.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Apr 2025 14:05:02.9663
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYYPR01MB15050
+References: <20250415104321.51149-1-angelogioacchino.delregno@collabora.com> <20250415104321.51149-16-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20250415104321.51149-16-angelogioacchino.delregno@collabora.com>
+From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Date: Mon, 21 Apr 2025 22:10:25 +0800
+X-Gmail-Original-Message-ID: <CAAOTY__Tvrx2vfss16jecTQsQU2oSjEmTGoFZZq5ZJZmgyypqg@mail.gmail.com>
+X-Gm-Features: ATxdqUGktFaFTj-3L_NPDr-W-E9d8SqAjhcUgYMe9iV6oOSARNcqSrzlMtbkNXg
+Message-ID: <CAAOTY__Tvrx2vfss16jecTQsQU2oSjEmTGoFZZq5ZJZmgyypqg@mail.gmail.com>
+Subject: Re: [PATCH v9 15/23] drm/mediatek: mtk_hdmi: Improve
+ mtk_hdmi_get_all_clk() flexibility
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
+	simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
+	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	matthias.bgg@gmail.com, ck.hu@mediatek.com, jitao.shi@mediatek.com, 
+	jie.qiu@mediatek.com, junzhi.zhao@mediatek.com, 
+	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kernel@collabora.com, 
+	dmitry.baryshkov@linaro.org, lewis.liao@mediatek.com, 
+	ives.chenjh@mediatek.com, tommyyl.chen@mediatek.com, 
+	jason-jh.lin@mediatek.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_070522_258716_7FC1A133 
-X-CRM114-Status: GOOD (  18.90  )
+X-CRM114-CacheID: sfid-20250421_070930_411175_91597482 
+X-CRM114-Status: GOOD (  23.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,311 +92,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The current WED only supports 256 wcid, whereas mt7986 can support up to
-512 entries, so firmware provides a rule to get sta_info by DA when wcid
-is set to 0x3ff by txd. Also, WED provides a register to overwrite txd
-wcid, that is, wcid[9:8] can be overwritten by 0x3 and wcid[7:0] is set
-to 0xff by host driver.
+Hi, Angelo:
 
-However, firmware is unable to get sta_info from DA as DA != RA for
-4addr cases, so firmware and wifi host driver both use wcid (256 - 271)
-and (768 ~ 783) for sync up to get correct sta_info.
+AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com> =E6=96=
+=BC
+2025=E5=B9=B44=E6=9C=8815=E6=97=A5 =E9=80=B1=E4=BA=8C =E4=B8=8B=E5=8D=886:4=
+4=E5=AF=AB=E9=81=93=EF=BC=9A
+>
+> In preparation for splitting common bits of this driver and for
+> introducing a new version of the MediaTek HDMI Encoder IP, improve
+> the flexibility of function mtk_hdmi_get_all_clk() by adding a
+> pointer to the clock names array and size of it to its parameters.
+>
+> Also change the array of struct clock pointers in the mtk_hdmi
+> structure to be dynamically allocated, and allocate it in probe.
 
-Currently WDS+WED config is completely broken on MT7986/7981 devices if
-without this patch.
+Build error happen,
 
-Reviewed-by: Ping-Ke Shih <pkshih@realtek.com>
-Tested-by: Sujuan Chen <sujuan.chen@mediatek.com>
-Co-developed-by: Bo Jiao <bo.jiao@mediatek.com>
-Signed-off-by: Bo Jiao <bo.jiao@mediatek.com>
-Signed-off-by: Sujuan Chen <sujuan.chen@mediatek.com>
-Signed-off-by: Shengyu Qu <wiagn233@outlook.com>
----
-Changes since v1:
- - Drop duplicate setting in mmio
- - Reduce the patch size by redefining mt76_wcid_alloc
-Changes since v2:
- - Rework wds wcid getting flow
-Changes since v3:
- - Rebase to next-20240703
- - Sync with downstream patch
-Changes since v4:
- - Rebase to next-20240802
-Changes since v5:
- - Fixed build test error reported by robot
- - Rebase to next-20240805
-Changes since v6:
- - Fix potential race conditions on tx/rx packets during the transition
- - Rebase to Felix's newest codebase
-Changes since v7:
- - Fix build fail
-Changes since v8:
- - Changed code as Shih advised
-Changes since v9:
- - Changed code as Shih advised
- - Moved mt76_wcid_alloc to mt76.h
----
- drivers/net/wireless/mediatek/mt76/mt76.h     | 15 ++++++
- .../net/wireless/mediatek/mt76/mt7915/main.c  | 53 +++++++++++++++++--
- .../net/wireless/mediatek/mt76/mt7915/mcu.c   | 18 +++++--
- .../net/wireless/mediatek/mt76/mt7915/mcu.h   |  1 +
- drivers/net/wireless/mediatek/mt76/util.c     | 37 +++++++++++--
- drivers/net/wireless/mediatek/mt76/util.h     |  2 +-
- 6 files changed, 115 insertions(+), 11 deletions(-)
+../drivers/gpu/drm/mediatek/mtk_hdmi.c: In function
+\u2018mtk_hdmi_get_cec_dev\u2019:
+../drivers/gpu/drm/mediatek/mtk_hdmi.c:1353:15: error: too few
+arguments to function \u2018mtk_hdmi_get_all_clk\u2019
+ 1353 |         ret =3D mtk_hdmi_get_all_clk(hdmi, np);
+      |               ^~~~~~~~~~~~~~~~~~~~
+../drivers/gpu/drm/mediatek/mtk_hdmi.c:1075:12: note: declared here
+ 1075 | static int mtk_hdmi_get_all_clk(struct mtk_hdmi *hdmi, struct
+device_node *np,
+      |            ^~~~~~~~~~~~~~~~~~~~
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt76.h b/drivers/net/wireless/mediatek/mt76/mt76.h
-index d7cd467b812f..7f590854959e 100644
---- a/drivers/net/wireless/mediatek/mt76/mt76.h
-+++ b/drivers/net/wireless/mediatek/mt76/mt76.h
-@@ -28,6 +28,9 @@
- 
- #define MT76_TOKEN_FREE_THR	64
- 
-+#define MT76_WED_WDS_MIN    256
-+#define MT76_WED_WDS_MAX    272
-+
- #define MT_QFLAG_WED_RING	GENMASK(1, 0)
- #define MT_QFLAG_WED_TYPE	GENMASK(4, 2)
- #define MT_QFLAG_WED		BIT(5)
-@@ -73,6 +76,12 @@ enum mt76_wed_type {
- 	MT76_WED_RRO_Q_IND,
- };
- 
-+enum mt76_wed_state {
-+	MT76_WED_DEFAULT,
-+	MT76_WED_ACTIVE,
-+	MT76_WED_WDS_ACTIVE,
-+};
-+
- struct mt76_bus_ops {
- 	u32 (*rr)(struct mt76_dev *dev, u32 offset);
- 	void (*wr)(struct mt76_dev *dev, u32 offset, u32 val);
-@@ -1169,6 +1178,12 @@ void mt76_wed_dma_reset(struct mt76_dev *dev);
- int mt76_wed_net_setup_tc(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
- 			  struct net_device *netdev, enum tc_setup_type type,
- 			  void *type_data);
-+
-+static inline int mt76_wcid_alloc(u32 *mask, int size)
-+{
-+	return __mt76_wcid_alloc(mask, size, MT76_WED_DEFAULT);
-+}
-+
- #ifdef CONFIG_NET_MEDIATEK_SOC_WED
- u32 mt76_wed_init_rx_buf(struct mtk_wed_device *wed, int size);
- int mt76_wed_offload_enable(struct mtk_wed_device *wed);
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/main.c b/drivers/net/wireless/mediatek/mt76/mt7915/main.c
-index 3aa31c5cefa6..fcbf4f971026 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7915/main.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7915/main.c
-@@ -744,9 +744,16 @@ int mt7915_mac_sta_add(struct mt76_dev *mdev, struct ieee80211_vif *vif,
- 	struct mt7915_sta *msta = (struct mt7915_sta *)sta->drv_priv;
- 	struct mt7915_vif *mvif = (struct mt7915_vif *)vif->drv_priv;
- 	bool ext_phy = mvif->phy != &dev->phy;
-+	u8 flags = MT76_WED_DEFAULT;
- 	int idx;
- 
--	idx = mt76_wcid_alloc(dev->mt76.wcid_mask, MT7915_WTBL_STA);
-+	if (mtk_wed_device_active(&dev->mt76.mmio.wed) &&
-+	    !is_mt7915(&dev->mt76)) {
-+		flags = test_bit(MT_WCID_FLAG_4ADDR, &msta->wcid.flags) ?
-+		       MT76_WED_WDS_ACTIVE : MT76_WED_ACTIVE;
-+	}
-+
-+	idx = __mt76_wcid_alloc(mdev->wcid_mask, MT7915_WTBL_STA, flags);
- 	if (idx < 0)
- 		return -ENOSPC;
- 
-@@ -1271,6 +1278,11 @@ static void mt7915_sta_set_4addr(struct ieee80211_hw *hw,
- {
- 	struct mt7915_dev *dev = mt7915_hw_dev(hw);
- 	struct mt7915_sta *msta = (struct mt7915_sta *)sta->drv_priv;
-+	int min = MT76_WED_WDS_MIN, max = MT76_WED_WDS_MAX;
-+	struct ieee80211_sta *pre_sta;
-+	struct mt7915_sta *pre_msta;
-+	u8 flags = MT76_WED_DEFAULT;
-+	int tmp_idx;
- 
- 	if (enabled)
- 		set_bit(MT_WCID_FLAG_4ADDR, &msta->wcid.flags);
-@@ -1280,6 +1292,37 @@ static void mt7915_sta_set_4addr(struct ieee80211_hw *hw,
- 	if (!msta->wcid.sta)
- 		return;
- 
-+	if (mtk_wed_device_active(&dev->mt76.mmio.wed) &&
-+	    !is_mt7915(&dev->mt76) &&
-+	    (msta->wcid.idx < min || msta->wcid.idx > max - 1)) {
-+		pre_sta = kmemdup(sta, sizeof(*sta) + sizeof(*msta), GFP_KERNEL | __GFP_ZERO);
-+		if (!pre_sta)
-+			goto error_alloc;
-+		pre_msta = (struct mt7915_sta *)pre_sta->drv_priv;
-+
-+		flags = test_bit(MT_WCID_FLAG_4ADDR, &msta->wcid.flags) ?
-+			MT76_WED_WDS_ACTIVE : MT76_WED_ACTIVE;
-+
-+		tmp_idx = __mt76_wcid_alloc(dev->mt76.wcid_mask, MT7915_WTBL_STA, flags);
-+		if (tmp_idx < 0)
-+			goto error_wcid;
-+		pre_msta->wcid.idx = (u16)tmp_idx;
-+		mt7915_mac_sta_add(&dev->mt76, vif, pre_sta);
-+		rcu_assign_pointer(dev->mt76.wcid[tmp_idx], &msta->wcid);
-+
-+		tmp_idx = msta->wcid.idx;
-+		msta->wcid.idx = pre_msta->wcid.idx;
-+		pre_msta->wcid.idx = (u16)tmp_idx;
-+		rcu_assign_pointer(dev->mt76.wcid[tmp_idx], NULL);
-+
-+		synchronize_rcu();
-+		mt7915_mac_sta_remove(&dev->mt76, vif, pre_sta);
-+
-+error_wcid:
-+		kfree(pre_sta);
-+	}
-+
-+error_alloc:
- 	mt76_connac_mcu_wtbl_update_hdr_trans(&dev->mt76, vif, sta);
- }
- 
-@@ -1726,15 +1769,19 @@ mt7915_net_fill_forward_path(struct ieee80211_hw *hw,
- 	if (!mtk_wed_device_active(wed))
- 		return -ENODEV;
- 
--	if (msta->wcid.idx > 0xff)
-+	if (msta->wcid.idx > MT7915_WTBL_STA)
- 		return -EIO;
- 
- 	path->type = DEV_PATH_MTK_WDMA;
- 	path->dev = ctx->dev;
- 	path->mtk_wdma.wdma_idx = wed->wdma_idx;
- 	path->mtk_wdma.bss = mvif->mt76.idx;
--	path->mtk_wdma.wcid = is_mt7915(&dev->mt76) ? msta->wcid.idx : 0x3ff;
- 	path->mtk_wdma.queue = phy != &dev->phy;
-+	if (test_bit(MT_WCID_FLAG_4ADDR, &msta->wcid.flags) ||
-+	    is_mt7915(&dev->mt76))
-+		path->mtk_wdma.wcid = msta->wcid.idx;
-+	else
-+		path->mtk_wdma.wcid = 0x3ff;
- 
- 	ctx->dev = NULL;
- 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7915/mcu.c
-index 427542777abc..61a854d2c416 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7915/mcu.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7915/mcu.c
-@@ -2403,10 +2403,20 @@ int mt7915_mcu_init_firmware(struct mt7915_dev *dev)
- 
- 	mt76_connac_mcu_del_wtbl_all(&dev->mt76);
- 
--	if ((mtk_wed_device_active(&dev->mt76.mmio.wed) &&
--	     is_mt7915(&dev->mt76)) ||
--	    !mtk_wed_get_rx_capa(&dev->mt76.mmio.wed))
--		mt7915_mcu_wa_cmd(dev, MCU_WA_PARAM_CMD(CAPABILITY), 0, 0, 0);
-+#if IS_ENABLED(CONFIG_NET_MEDIATEK_SOC_WED)
-+	if (mtk_wed_device_active(&dev->mt76.mmio.wed)) {
-+		if (is_mt7915(&dev->mt76) ||
-+		    !mtk_wed_get_rx_capa(&dev->mt76.mmio.wed))
-+			ret = mt7915_mcu_wa_cmd(dev, MCU_WA_PARAM_CMD(CAPABILITY),
-+						0, 0, 0);
-+		else
-+			ret = mt7915_mcu_wa_cmd(dev, MCU_WA_PARAM_CMD(SET),
-+						MCU_WA_PARAM_WED_VERSION,
-+						dev->mt76.mmio.wed.rev_id, 0);
-+		if (ret)
-+			return ret;
-+	}
-+#endif
- 
- 	ret = mt7915_mcu_set_mwds(dev, 1);
- 	if (ret)
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/mcu.h b/drivers/net/wireless/mediatek/mt76/mt7915/mcu.h
-index 086ad89ecd91..989f24cb49eb 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7915/mcu.h
-+++ b/drivers/net/wireless/mediatek/mt76/mt7915/mcu.h
-@@ -278,6 +278,7 @@ enum {
- 	MCU_WA_PARAM_PDMA_RX = 0x04,
- 	MCU_WA_PARAM_CPU_UTIL = 0x0b,
- 	MCU_WA_PARAM_RED = 0x0e,
-+	MCU_WA_PARAM_WED_VERSION = 0x32,
- 	MCU_WA_PARAM_RED_SETTING = 0x40,
- };
- 
-diff --git a/drivers/net/wireless/mediatek/mt76/util.c b/drivers/net/wireless/mediatek/mt76/util.c
-index 95b3dc96e4c4..e80bef2b33a1 100644
---- a/drivers/net/wireless/mediatek/mt76/util.c
-+++ b/drivers/net/wireless/mediatek/mt76/util.c
-@@ -42,8 +42,10 @@ bool ____mt76_poll_msec(struct mt76_dev *dev, u32 offset, u32 mask, u32 val,
- }
- EXPORT_SYMBOL_GPL(____mt76_poll_msec);
- 
--int mt76_wcid_alloc(u32 *mask, int size)
-+int __mt76_wcid_alloc(u32 *mask, int size, u8 flag)
- {
-+	int max = MT76_WED_WDS_MAX;
-+	int min = MT76_WED_WDS_MIN;
- 	int i, idx = 0, cur;
- 
- 	for (i = 0; i < DIV_ROUND_UP(size, 32); i++) {
-@@ -53,16 +55,45 @@ int mt76_wcid_alloc(u32 *mask, int size)
- 
- 		idx--;
- 		cur = i * 32 + idx;
--		if (cur >= size)
-+
-+		switch (flag) {
-+		case MT76_WED_ACTIVE:
-+			if (cur >= min && cur < max)
-+				continue;
-+
-+			if (cur >= size) {
-+				u32 end = max - min - 1;
-+
-+				i = min / 32;
-+				idx = ffs(~mask[i] & GENMASK(end, 0));
-+				if (!idx)
-+					goto error;
-+				idx--;
-+				cur = min + idx;
-+			}
-+
- 			break;
-+		case MT76_WED_WDS_ACTIVE:
-+			if (cur < min)
-+				continue;
-+			if (cur >= max)
-+				goto error;
-+
-+			break;
-+		default:
-+			if (cur >= size)
-+				goto error;
-+			break;
-+		}
- 
- 		mask[i] |= BIT(idx);
- 		return cur;
- 	}
- 
-+error:
- 	return -1;
- }
--EXPORT_SYMBOL_GPL(mt76_wcid_alloc);
-+EXPORT_SYMBOL_GPL(__mt76_wcid_alloc);
- 
- int mt76_get_min_avg_rssi(struct mt76_dev *dev, u8 phy_idx)
- {
-diff --git a/drivers/net/wireless/mediatek/mt76/util.h b/drivers/net/wireless/mediatek/mt76/util.h
-index 260965dde94c..fe95a847182e 100644
---- a/drivers/net/wireless/mediatek/mt76/util.h
-+++ b/drivers/net/wireless/mediatek/mt76/util.h
-@@ -27,7 +27,7 @@ enum {
- #define MT76_INCR(_var, _size) \
- 	(_var = (((_var) + 1) % (_size)))
- 
--int mt76_wcid_alloc(u32 *mask, int size);
-+int __mt76_wcid_alloc(u32 *mask, int size, u8 flags);
- 
- static inline void
- mt76_wcid_mask_set(u32 *mask, int idx)
--- 
-2.43.0
+I've apply some patches of this series to mediatek-drm-next [1], and
+I've already fixed some build error.
+I wonder how many error would happen in rest patches,
+so please fix the build error in rest patches and resend patches.
 
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
+log/?h=3Dmediatek-drm-next
+
+Regards,
+Chun-Kuang.
+
+>
+> Reviewed-by: CK Hu <ck.hu@mediatek.com>
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
+abora.com>
+> ---
+>  drivers/gpu/drm/mediatek/mtk_hdmi.c | 26 ++++++++++++++++----------
+>  1 file changed, 16 insertions(+), 10 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediat=
+ek/mtk_hdmi.c
+> index b4fbd2e60089..b17f8df145eb 100644
+> --- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
+> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
+> @@ -159,7 +159,7 @@ struct mtk_hdmi {
+>         struct phy *phy;
+>         struct device *cec_dev;
+>         struct i2c_adapter *ddc_adpt;
+> -       struct clk *clk[MTK_HDMI_CLK_COUNT];
+> +       struct clk **clk;
+>         struct drm_display_mode mode;
+>         bool dvi_mode;
+>         struct regmap *sys_regmap;
+> @@ -1072,17 +1072,18 @@ static const char * const mtk_hdmi_clk_names[MTK_=
+HDMI_CLK_COUNT] =3D {
+>         [MTK_HDMI_CLK_AUD_SPDIF] =3D "spdif",
+>  };
+>
+> -static int mtk_hdmi_get_all_clk(struct mtk_hdmi *hdmi,
+> -                               struct device_node *np)
+> +static int mtk_hdmi_get_all_clk(struct mtk_hdmi *hdmi, struct device_nod=
+e *np,
+> +                               const char * const *clock_names, size_t n=
+um_clocks)
+>  {
+>         int i;
+>
+> -       for (i =3D 0; i < ARRAY_SIZE(mtk_hdmi_clk_names); i++) {
+> -               hdmi->clk[i] =3D of_clk_get_by_name(np,
+> -                                                 mtk_hdmi_clk_names[i]);
+> +       for (i =3D 0; i < num_clocks; i++) {
+> +               hdmi->clk[i] =3D of_clk_get_by_name(np, clock_names[i]);
+> +
+>                 if (IS_ERR(hdmi->clk[i]))
+>                         return PTR_ERR(hdmi->clk[i]);
+>         }
+> +
+>         return 0;
+>  }
+>
+> @@ -1377,15 +1378,15 @@ static int mtk_hdmi_get_cec_dev(struct mtk_hdmi *=
+hdmi, struct device *dev, struc
+>         return 0;
+>  }
+>
+> -static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
+> -                                  struct platform_device *pdev)
+> +static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi, struct platfor=
+m_device *pdev,
+> +                                  const char * const *clk_names, size_t =
+num_clocks)
+>  {
+>         struct device *dev =3D &pdev->dev;
+>         struct device_node *np =3D dev->of_node;
+>         struct device_node *remote, *i2c_np;
+>         int ret;
+>
+> -       ret =3D mtk_hdmi_get_all_clk(hdmi, np);
+> +       ret =3D mtk_hdmi_get_all_clk(hdmi, np, clk_names, num_clocks);
+>         if (ret)
+>                 return dev_err_probe(dev, ret, "Failed to get clocks\n");
+>
+> @@ -1634,6 +1635,7 @@ static int mtk_hdmi_probe(struct platform_device *p=
+dev)
+>  {
+>         struct mtk_hdmi *hdmi;
+>         struct device *dev =3D &pdev->dev;
+> +       const int num_clocks =3D MTK_HDMI_CLK_COUNT;
+>         int ret;
+>
+>         hdmi =3D devm_kzalloc(dev, sizeof(*hdmi), GFP_KERNEL);
+> @@ -1643,7 +1645,11 @@ static int mtk_hdmi_probe(struct platform_device *=
+pdev)
+>         hdmi->dev =3D dev;
+>         hdmi->conf =3D of_device_get_match_data(dev);
+>
+> -       ret =3D mtk_hdmi_dt_parse_pdata(hdmi, pdev);
+> +       hdmi->clk =3D devm_kcalloc(dev, num_clocks, sizeof(*hdmi->clk), G=
+FP_KERNEL);
+> +       if (!hdmi->clk)
+> +               return -ENOMEM;
+> +
+> +       ret =3D mtk_hdmi_dt_parse_pdata(hdmi, pdev, mtk_hdmi_clk_names, n=
+um_clocks);
+>         if (ret)
+>                 return ret;
+>
+> --
+> 2.49.0
+>
 
