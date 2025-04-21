@@ -4,129 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F36E5C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 22:34:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58648C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 22:36:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=63TelnMaZLywwjt0ZE9rQRxentiOmbDDz3cY3YJGWYQ=; b=1fF2oNc6wCOy0RVT1xnzolB3mV
-	p1oYgzm9gcXBVvrNce3iITgmBDDoYmBQeKGXjERosSi2Dnq/gzgIiV0Z7t9/RXus0t6eLWgVFnTeX
-	/cDYoinlO0QkKoP2I7G8kBDy3QqhmEu/2MaC/x2IE/BdbSqY4dRx3EG5BPzvxi8o/EI5vhNoomxr/
-	dTdbni6BMi3hOY0mPXly6D70JQ8r4dFjqMeZUNj/NobcMaQxHqTlSMB0UhVoABmqT+5O1YZZ2uXPZ
-	25wp7JAdBNwrXhhPJrQQZdgg6sEKESNFv/Yey++Os1KrzlqeteVcWRvQIQYzDr/JvQi0nTpe8r6va
-	21NNfsnQ==;
+	bh=Ze/KZBLQ8SAn7srsJbazi617+XiMAQ4PSnAV1iGpND0=; b=n4o52J3YkQ2HiX86ieu1OK8lNj
+	SzxE6gyvoyriOORTlc2nrRM90/eEV/MYZS+AUE1mqsLo/wYAHR+ILpemE3PFWPkbLOA1pg9tg3Ves
+	nMmOQQ63ffAxjqFcTHyjY54sblsO4Ok7+APhkPjw74WkFtLd4fQmU3JJuXIZKdssdiXmOd8fp/v4+
+	Zwv+FaahLLsbWdLZBsOlf49hO/85DhXN5QFxHIGfTyaucYaV6J3prMmAHGStnxkwtYID2XBnYW4Zp
+	jwBa6Oq+SNCiDkFP8Lus6Q317ZijJcZ0PWArtIaITG2JgQaKoI2c5XoYKUbmqgOX87CiR4vgoRRUr
+	4Vmhgv8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6ziz-00000005LZx-2it0;
-	Mon, 21 Apr 2025 22:34:49 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1u6zkq-00000005LjV-045u;
+	Mon, 21 Apr 2025 22:36:44 +0000
+Received: from mail-vk1-xa33.google.com ([2607:f8b0:4864:20::a33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6zC2-00000005GiT-3a0B
+	id 1u6zPO-00000005Il2-3zxK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Apr 2025 22:00:48 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53LK45am005757
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Apr 2025 22:00:46 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	63TelnMaZLywwjt0ZE9rQRxentiOmbDDz3cY3YJGWYQ=; b=nq1x+XVipYtvqB3h
-	gZ27ZxD3jPt40Swy7B2SBpIwfKJTLNJh4YSg8dUCt63Hv+BkWpq+9FGVqxB+uvvI
-	HC4H6B/vNKDOazTkgko0uXWTKiXfALHq19cEhhhVss8FlJKcxCxoH1LB77zf/l48
-	7YUD34nf9uQyupf5k5HjfP0+B4UbtFONYLvasdl8Bd2rxzbbNL936+nTUZp2leeK
-	jX2MwH0PEj+Y/AtUy0UQMMMjTh5s75UB6ZqSWccgsBHQprnTZD2daAIteVqQ1d6L
-	5UjUlFfezrpUnHvlRA8eozGrYUw/ZvORaDSsMmjt3NVhWSSvTU5a7ygeC2Bw9GhS
-	HIe98Q==
-Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4642u9der9-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Apr 2025 22:00:45 +0000 (GMT)
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-736b5f9279cso3664002b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Apr 2025 15:00:45 -0700 (PDT)
+	Mon, 21 Apr 2025 22:14:36 +0000
+Received: by mail-vk1-xa33.google.com with SMTP id 71dfb90a1353d-525b44ec88aso1993802e0c.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Apr 2025 15:14:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1745273673; x=1745878473; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ze/KZBLQ8SAn7srsJbazi617+XiMAQ4PSnAV1iGpND0=;
+        b=apEkHFc1THDt2LzpEtwNq3vN3qaY2Rj+6Cn7acwUAuyHgRIlI9bo+j9kjDIv1DJC0U
+         eLkNc21hEwM3x9k0Cy+JihOyXTR8enBjXv5ZQvkbVXhNzh+6xAfNZvvKhNWx+EOnhMpl
+         AmuD7pw8tQYEZuPTdWzsiMyYH512eW52ZnR6i5bxGnXL3F1cff1B/cOAEqglL8L+RQ4d
+         POnIeW3RPgYUn3ePlLMd96a4Ptb4cMGqeNJGmOpPSTTPlgj09oIdoABppNWtcKGlK2WF
+         2d+CixaR0XnSYoiZdABfEwMjIv9ZbnS3hSe0pZbgco3TPX1YdM6eVM5CwRPUzVSuoIzM
+         TzFw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745272829; x=1745877629;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1745273673; x=1745878473;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=63TelnMaZLywwjt0ZE9rQRxentiOmbDDz3cY3YJGWYQ=;
-        b=Oy3HH7KaftduFRFR9CCI9B0ihGeJv+s9AAmnQNuTTV1fXIrJp8SNcM9qtFWfthNxZb
-         i9nLZYuOWAdrBLhATWCcpikYCB06hCFjKNuaCdU1FrxWiahvTwcKad9d50qLGo4inY1s
-         6k6SkAWEe7OOQk6YN6t7LsVyw1T1JICf87HlRG1Um3lWkzCBs30nuZsmVCwWYwqfa4WG
-         iGhAIt3I1VWpcsYHIJgNiSUPCyB69/P70dVVCR+GTBDa58tQgWxdkozYFRGqSmolWl2U
-         YxLQutBnqr8poJ0vMpHrJToQgcMv+Bh0EV7waHlwZiFKfWvxL3DQA705qXReKM6JY21R
-         VeXQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVxHSJSneHbwH159TjU/H5wD/2hsfeWZR/B4S4bHEEurZIoIO4hpGeuaeMCj15XOpG+97+qaN9lrgR6aU4/EiHY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxdl5efUtuLLqvAQ1p+9kdqD5uDDw07IYvRJkZLjBRVByBrPGZP
-	aEsQ76fjYx+H0XjMGDyOt3yiORTcaoL6ZOUCOaeF13VktGx+5KwZ3K5hQqsh6y7KB4DwY12aREC
-	ybmbR0ixQK1yNlED6sVNIOKPKnKx5ZHMHNQYYzOMxGYJOKJFPHf9MXRtyr23xDEIQ1hEtmgfkww
-	==
-X-Gm-Gg: ASbGnct8KOwUWwxWVgwKxhtQucbuF0lJ/nlo9e1hEREyfBJQLz0HZgfc+MJ2nvQW7gm
-	4+xbey+Z7TfxMH7kDJkpiaXidgxbd5RYnqawV3NRKtFdcuXgerN3eQWHVAFrFythRjiQd+t7VZO
-	eryoiEl9WojW+5bqJ+Go6UwVv+ALvsQfaxOjlVCaRrFjcAyNgITz87bdKthXDjPV2q5QwQbsS8b
-	ssrBbQIpmejM/9WyFgEZ4QVVpDUMC2BZTM1Clfhq7mKGql42bifEOcgk59m64FwxejB/7gWsr9Q
-	9ifLQnRd9lWGHd8L/xJyAj44uvEd7Ang6bTnlbXnEXLTiM4GQ70idkMLTz8cnIbEFJE=
-X-Received: by 2002:a05:6a00:130e:b0:736:b402:533a with SMTP id d2e1a72fcca58-73dc14453bcmr16346765b3a.1.1745272828425;
-        Mon, 21 Apr 2025 15:00:28 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEG+M2qcme5yQCukoxMyaSAlmWYa2RdZuaZWi1bkdOq29qfFC4FEiaqTX/rJnAHa5HEtbsGtw==
-X-Received: by 2002:a05:6a00:130e:b0:736:b402:533a with SMTP id d2e1a72fcca58-73dc14453bcmr16346700b3a.1.1745272827980;
-        Mon, 21 Apr 2025 15:00:27 -0700 (PDT)
-Received: from hu-molvera-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73dbf8c04c5sm7107917b3a.24.2025.04.21.15.00.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Apr 2025 15:00:27 -0700 (PDT)
-From: Melody Olvera <melody.olvera@oss.qualcomm.com>
-Date: Mon, 21 Apr 2025 15:00:08 -0700
-Subject: [PATCH v5 01/10] dt-bindings: phy: qcom,sc8280xp-qmp-usb43dp-phy:
- Add SM8750 to QMP PHY
+        bh=Ze/KZBLQ8SAn7srsJbazi617+XiMAQ4PSnAV1iGpND0=;
+        b=knXMrhODuZTj9OKNla31yP64W3/dZq2cS7HFjRuXlXkrFFhAuQT1fBVmNeRnhXVjGb
+         pP86dM8Hhg8ERxtlTugscxrww6R23oTbKIPpYfbGI1JpzbFSELCNY1P7B1mTWEDSRB1/
+         R5eWMFiAiNz0+64JIZNK79OWozD/AgNEN2zDdCVpUXz5DgYCbJ6RZY9oeVouLvjc0DMV
+         CqWr5Blv8Vy/n5JlATvmTJNX634Zm1rVaTAKxKosq6eDx6XOUdE2uuGHq6XmwLKUiTkt
+         UqX7hzNKgXHNZh2x/KjF86cCJmOjE65cUlFA7i5SpqrdwGdE+lNtm5eXu5zr13oqLA4+
+         va5w==
+X-Gm-Message-State: AOJu0YxtWaVFJSQ1SU1GuSHS81PFSrjFTbK/j+JTxOWRy/fAbVdvKbDE
+	Vjmvaij6itoxXAzN+nDahLsrmb6BqkZKdhEHrTZWsifMIbR9GkSh7TKqliH3YmbgrU/m96rc5zC
+	YTGdS826zfEDmEADLVX4u7qCAIicW6cOgDR07
+X-Gm-Gg: ASbGncvODTQjLc1zf/H62/4gAs0BoJDFtc5VKsZgeU9s434vOTRbdukLbxRJpEpYQG+
+	zc718jiSJr+kf1Fh9X6chktHjq6FJrgi2hH1vfKI+NoBxFa/+YPJOdctGTndNGosbat15ko/DhH
+	+FQmPHRcRb39QlNv5Hrv+/6A==
+X-Google-Smtp-Source: AGHT+IFxHYOugr6C48wO68yTTOBk7oPHItPFJzeV9k+AVGrZNWzX1hubYeJVAkRQHrqSFyznWM7DLyj2iw3cza70BSU=
+X-Received: by 2002:ac5:c252:0:b0:529:2644:5eec with SMTP id
+ 71dfb90a1353d-5292644603fmr7360353e0c.8.1745273672851; Mon, 21 Apr 2025
+ 15:14:32 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250421-sm8750_usb_master-v5-1-25c79ed01d02@oss.qualcomm.com>
-References: <20250421-sm8750_usb_master-v5-0-25c79ed01d02@oss.qualcomm.com>
-In-Reply-To: <20250421-sm8750_usb_master-v5-0-25c79ed01d02@oss.qualcomm.com>
-To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Wesley Cheng <quic_wcheng@quicinc.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-        Melody Olvera <melody.olvera@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1745272824; l=1370;
- i=melody.olvera@oss.qualcomm.com; s=20241204; h=from:subject:message-id;
- bh=8DqyV8lJU3L/SgQ/5n/G4b54XOO0JVKsEdNPv+HKEao=;
- b=iztD2zVXDUPlkb2VzvABWkpEGUouCg6l0hBj4efv6tvZx/fXQq/d3jg4tWzRkC+RxycYWKOM6
- WUgksta4vSgD83ZiGs3JU+XpGlgYcvc1K97If3KS7uVnVzanamXocRx
-X-Developer-Key: i=melody.olvera@oss.qualcomm.com; a=ed25519;
- pk=1DGLp3zVYsHAWipMaNZZTHR321e8xK52C9vuAoeca5c=
-X-Authority-Analysis: v=2.4 cv=TYaWtQQh c=1 sm=1 tr=0 ts=6806c00d cx=c_pps a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8 a=bbY3M6C_flAL0yJJl3cA:9
- a=QEXdDO2ut3YA:10 a=zc0IvFSfCIW2DFIPzwfm:22 a=TjNXssC_j7lpFel5tvFf:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-ORIG-GUID: 4n75atB6gt-f73wbWcl72U_8TiMa07P_
-X-Proofpoint-GUID: 4n75atB6gt-f73wbWcl72U_8TiMa07P_
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-21_10,2025-04-21_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
- bulkscore=0 suspectscore=0 adultscore=0 clxscore=1015 priorityscore=1501
- mlxlogscore=935 mlxscore=0 malwarescore=0 spamscore=0 impostorscore=0
- phishscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2504210173
+References: <20250412010940.1686376-1-dylanbhatch@google.com> <20250412010940.1686376-2-dylanbhatch@google.com>
+In-Reply-To: <20250412010940.1686376-2-dylanbhatch@google.com>
+From: Dylan Hatch <dylanbhatch@google.com>
+Date: Mon, 21 Apr 2025 15:14:21 -0700
+X-Gm-Features: ATxdqUFzGJwrYp9hInlANxzcemcPCph2eSPtOYX9msHSoocZGM8q3RrkHGLCnhk
+Message-ID: <CADBMgpwh+9YxbGvyWwT3VjFLaAvdFFexHe-9yBmpOYsPsN-xrg@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] arm64: patching: Rename aarch64_insn_copy to text_poke.
+To: Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
+	Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, 
+	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
+	Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
+	Xu Kuohai <xukuohai@huaweicloud.com>, =?UTF-8?Q?Philippe_Mathieu=2DDaud=C3=A9?= <philmd@linaro.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	"Mike Rapoport (Microsoft)" <rppt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Luis Chamberlain <mcgrof@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Song Liu <song@kernel.org>, 
+	Ard Biesheuvel <ardb@kernel.org>, Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Roman Gushchin <roman.gushchin@linux.dev>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_150047_090227_E8CFF29A 
-X-CRM114-Status: GOOD (  13.35  )
+X-CRM114-CacheID: sfid-20250421_151434_991534_9B0A06C7 
+X-CRM114-Status: GOOD (  20.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,40 +103,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Wesley Cheng <quic_wcheng@quicinc.com>
+On Fri, Apr 11, 2025 at 6:10=E2=80=AFPM Dylan Hatch <dylanbhatch@google.com=
+> wrote:
+>
+> Match the name and signature of the equivalent in the x86 text-poke API.
+> Making the src pointer const also allows this function to be
+> interchangeable with memcpy().
+>
+> Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
+> ---
+>  arch/arm64/include/asm/text-patching.h |  2 +-
+>  arch/arm64/kernel/patching.c           | 12 ++++++------
+>  arch/arm64/net/bpf_jit_comp.c          |  2 +-
+>  3 files changed, 8 insertions(+), 8 deletions(-)
+>
+> diff --git a/arch/arm64/include/asm/text-patching.h b/arch/arm64/include/=
+asm/text-patching.h
+> index 587bdb91ab7a6..450d806d11109 100644
+> --- a/arch/arm64/include/asm/text-patching.h
+> +++ b/arch/arm64/include/asm/text-patching.h
+> @@ -9,7 +9,7 @@ int aarch64_insn_write(void *addr, u32 insn);
+>
+>  int aarch64_insn_write_literal_u64(void *addr, u64 val);
+>  void *aarch64_insn_set(void *dst, u32 insn, size_t len);
+> -void *aarch64_insn_copy(void *dst, void *src, size_t len);
+> +void *text_poke(void *dst, const void *src, size_t len);
+>
+>  int aarch64_insn_patch_text_nosync(void *addr, u32 insn);
+>  int aarch64_insn_patch_text(void *addrs[], u32 insns[], int cnt);
+> diff --git a/arch/arm64/kernel/patching.c b/arch/arm64/kernel/patching.c
+> index 1041bc67a3eee..e07dc32620053 100644
+> --- a/arch/arm64/kernel/patching.c
+> +++ b/arch/arm64/kernel/patching.c
+> @@ -102,9 +102,9 @@ noinstr int aarch64_insn_write_literal_u64(void *addr=
+, u64 val)
+>         return ret;
+>  }
+>
+> -typedef void text_poke_f(void *dst, void *src, size_t patched, size_t le=
+n);
+> +typedef void text_poke_f(void *dst, const void *src, size_t patched, siz=
+e_t len);
+>
+> -static void *__text_poke(text_poke_f func, void *addr, void *src, size_t=
+ len)
+> +static void *__text_poke(text_poke_f func, void *addr, const void *src, =
+size_t len)
+>  {
+>         unsigned long flags;
+>         size_t patched =3D 0;
+> @@ -132,12 +132,12 @@ static void *__text_poke(text_poke_f func, void *ad=
+dr, void *src, size_t len)
+>         return addr;
+>  }
+>
+> -static void text_poke_memcpy(void *dst, void *src, size_t patched, size_=
+t len)
+> +static void text_poke_memcpy(void *dst, const void *src, size_t patched,=
+ size_t len)
+>  {
+>         copy_to_kernel_nofault(dst, src + patched, len);
+>  }
+>
+> -static void text_poke_memset(void *dst, void *src, size_t patched, size_=
+t len)
+> +static void text_poke_memset(void *dst, const void *src, size_t patched,=
+ size_t len)
+>  {
+>         u32 c =3D *(u32 *)src;
+>
+> @@ -145,14 +145,14 @@ static void text_poke_memset(void *dst, void *src, =
+size_t patched, size_t len)
+>  }
+>
+>  /**
+> - * aarch64_insn_copy - Copy instructions into (an unused part of) RX mem=
+ory
+> + * text_poke - Copy instructions into (an unused part of) RX memory
+>   * @dst: address to modify
+>   * @src: source of the copy
+>   * @len: length to copy
+>   *
+>   * Useful for JITs to dump new code blocks into unused regions of RX mem=
+ory.
+>   */
+> -noinstr void *aarch64_insn_copy(void *dst, void *src, size_t len)
+> +noinstr void *text_poke(void *dst, const void *src, size_t len)
+>  {
+>         /* A64 instructions must be word aligned */
+>         if ((uintptr_t)dst & 0x3)
+> diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.=
+c
+> index 70d7c89d3ac90..b5be90edff410 100644
+> --- a/arch/arm64/net/bpf_jit_comp.c
+> +++ b/arch/arm64/net/bpf_jit_comp.c
+> @@ -2047,7 +2047,7 @@ bool bpf_jit_supports_kfunc_call(void)
+>
+>  void *bpf_arch_text_copy(void *dst, void *src, size_t len)
+>  {
+> -       if (!aarch64_insn_copy(dst, src, len))
+> +       if (!text_poke(dst, src, len))
+>                 return ERR_PTR(-EINVAL);
+>         return dst;
+>  }
+> --
+> 2.49.0.604.gff1f9ca942-goog
+>
 
-Add an entry to the compatible field for SM8750 for the QMP combo PHY.
-This handles the USB3 path for SM8750.
-
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Wesley Cheng <quic_wcheng@quicinc.com>
-Signed-off-by: Melody Olvera <melody.olvera@oss.qualcomm.com>
----
- .../devicetree/bindings/phy/qcom,sc8280xp-qmp-usb43dp-phy.yaml          | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/phy/qcom,sc8280xp-qmp-usb43dp-phy.yaml b/Documentation/devicetree/bindings/phy/qcom,sc8280xp-qmp-usb43dp-phy.yaml
-index 358a6736a951ca5db7cff7385b3657976a667358..38ce04c35d945d0d8d319191c241920810ee9005 100644
---- a/Documentation/devicetree/bindings/phy/qcom,sc8280xp-qmp-usb43dp-phy.yaml
-+++ b/Documentation/devicetree/bindings/phy/qcom,sc8280xp-qmp-usb43dp-phy.yaml
-@@ -29,6 +29,7 @@ properties:
-       - qcom,sm8450-qmp-usb3-dp-phy
-       - qcom,sm8550-qmp-usb3-dp-phy
-       - qcom,sm8650-qmp-usb3-dp-phy
-+      - qcom,sm8750-qmp-usb3-dp-phy
-       - qcom,x1e80100-qmp-usb3-dp-phy
- 
-   reg:
-@@ -133,6 +134,7 @@ allOf:
-             - qcom,sm6350-qmp-usb3-dp-phy
-             - qcom,sm8550-qmp-usb3-dp-phy
-             - qcom,sm8650-qmp-usb3-dp-phy
-+            - qcom,sm8750-qmp-usb3-dp-phy
-             - qcom,x1e80100-qmp-usb3-dp-phy
-     then:
-       required:
-
--- 
-2.48.1
-
+Friendly ping.
 
