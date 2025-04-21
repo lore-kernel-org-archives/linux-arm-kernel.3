@@ -4,175 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87940C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 14:32:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26A2AC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 14:38:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bMfQmIu4BJtmmZ2orqBz0cpraT3mI3qlPnGRhhHcHC8=; b=Gl+xpj53MMYvjTPhSoR+vgmO57
-	zHZIK5oJcNJam5BvP/XSBTblutkIs8iAvYY2I3FtSx0pNC7w5WTVI9ejMJfEvFRtaSrK2NQlXu2vQ
-	UZL/GcvHRKJR08RfdFxQNNr34EFb+rsyXKOavGsn69Yb/FHTYchEYfRFhw9BXeHogPaUoiKmRyrPt
-	s9I8m0ZjnfyJbddkYJfllt2/LPtIzgWgYJxEIrgAlxNrizd7C31Rfv4j2Ct8q4t6DZIeG1hEIMzZ/
-	w0iaxeYYD8Ntc7+80GahjhLyRYDNrKYqY1yjOFy1xFfLE2hEfqTPcvgo3pnMeHe1LvneTOwRKvqXk
-	m+psx7kg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o1W9mftwbolHHmlTfjC6lOdNljrRQ0/SgyP7qtHrY8k=; b=AysQdhv11V5WVBBHUE2U1mkWmm
+	CJ9ot3AxM8fkNqid62F00udpOkiWcFfxJerGtHTQ0BipLAF25Ch3ayPh/e5EHeghElOVkwHtnfhgy
+	vJ2iN3jTCMPjCcFhbof6RV5CUkxqrPZZW91afKDA3NSagMGMD/P8G9wrQmvm6m2XMfpYw4xBg+6qD
+	CKwulNxbuKyxkSqdmWOr33Hebmrt9abZz9lXfE0yELA8XZmjZ2Oo8qVTIjs62f2kpmRG89CDxivZN
+	9SyoLVUxZdTda8VxOG6gDUREQgP7S4bGFmsAc222sVDdNHrDx4zYpOS5eOp1aJ3OQsC88a0GwlWnT
+	jnnzLE1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6sCA-00000004T3O-19cR;
-	Mon, 21 Apr 2025 14:32:26 +0000
-Received: from mail-japaneastazlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c405::2] helo=TYVP286CU001.outbound.protection.outlook.com)
+	id 1u6sI3-00000004Tof-1HHz;
+	Mon, 21 Apr 2025 14:38:31 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6sAI-00000004SoX-2T29
+	id 1u6sGB-00000004Tas-0TRq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Apr 2025 14:30:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bOruU2AIMM8Vjql3rYcUAL2hBwMIZUsuOYxoyPBhLjCgWl4UIDytRGx2j18z5dBNv7sqWe1QiKhikApL4QgPyHlz+6I1IGuADnbbG+QLiLHqu+sy17PxP+ClZrNl49QETtAzuV8Kl8O0x51Z0SYjVXpUwF+NbtBkYOB5JbPgowcymwDgnBM2mjErVvbyjtX7jzGNYWT/TXANtz9xVD7ZZXunAqW/ea08qiy6Wl72nijXpqlJl95I7dPQkD5cd5jqXdNCi1pMkAjmALO3hwk5K2NLr9ViqD4f7m34gUDQ2ABK/wsud0avaViMZtovwji/l6s5+f8TGIJXnbBWfmDPuw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bMfQmIu4BJtmmZ2orqBz0cpraT3mI3qlPnGRhhHcHC8=;
- b=N8AvLOaWxkt6HT3u8tgIEj8gNYuKLOih4sbHddYxg16gvVGXynk7h3lqN9yflqgnFp2HHdwknrXcypVDdeGWh1+QVBbP/aOBAR9Rg8r/GX2o20/SNDQxslqK+eSTrm9FmatNIETDIlEZTdKeo3F3Ejn9+8T+nQenknis+iv4kZ8ZdFnvJqcHvuCiN58FK7udfG3aKNvYYD7um3pqWJYl2rhStHwgvIXYLS5BOMZPiaiZU08JqimeEQHREMGCRKbufANf5z1mjseDDhjRB0KtNE1kKFFjByL+vKTwF51PM6L+xWOaXan1XBLfFnRlwd0d/mHUG+1fQYPljoszlqb70g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
- header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bMfQmIu4BJtmmZ2orqBz0cpraT3mI3qlPnGRhhHcHC8=;
- b=ef7CMLD2VaPo1iWjzZPPz3L5SadmbW8EAFMmeAadPGcgHGSG62QTzx95y0ygxFtVnMgjNGoH0KV9hpOZwJxJDcVvw9odIeFlMfbwnGNs6s1w0gBHR+h7EQglCFpZu1xLSMJ37an2/6hXaznC07hzN570BNfBVJAlWWUn4wg4YbY=
-Received: from TY3PR01MB11346.jpnprd01.prod.outlook.com (2603:1096:400:3d0::7)
- by OS3PR01MB9771.jpnprd01.prod.outlook.com (2603:1096:604:1ed::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.35; Mon, 21 Apr
- 2025 14:30:20 +0000
-Received: from TY3PR01MB11346.jpnprd01.prod.outlook.com
- ([fe80::86ef:ca98:234d:60e1]) by TY3PR01MB11346.jpnprd01.prod.outlook.com
- ([fe80::86ef:ca98:234d:60e1%4]) with mapi id 15.20.8655.031; Mon, 21 Apr 2025
- 14:30:20 +0000
-From: Biju Das <biju.das.jz@bp.renesas.com>
-To: Biju Das <biju.das.jz@bp.renesas.com>, Andrew Lunn <andrew@lunn.ch>
-CC: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>, "Russell King (Oracle)"
-	<linux@armlinux.org.uk>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub
- Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre
- Torgue <alexandre.torgue@foss.st.com>, Richard Cochran
-	<richardcochran@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>, Geert
- Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu
-	<joabreu@synopsys.com>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-stm32@st-md-mailman.stormreply.com"
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-renesas-soc@vger.kernel.org"
-	<linux-renesas-soc@vger.kernel.org>, Fabrizio Castro
-	<fabrizio.castro.jz@renesas.com>, Prabhakar Mahadev Lad
-	<prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: RE: [PATCH net-next v5 3/3] net: stmmac: Add DWMAC glue layer for
- Renesas GBETH
-Thread-Topic: [PATCH net-next v5 3/3] net: stmmac: Add DWMAC glue layer for
- Renesas GBETH
-Thread-Index: AQHbp7UXRdTsn2oCYUWD5qYhUQGHu7OjbUQAgAAVgQCAATLSgIAJgP8QgAAGBICAAAEN4IAABoxg
-Date: Mon, 21 Apr 2025 14:30:19 +0000
-Message-ID: <TY3PR01MB11346DD203DEE8A30F1963DC886B82@TY3PR01MB11346.jpnprd01.prod.outlook.com>
-References: <20250407120317.127056-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20250407120317.127056-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <Z_0-iH91A4Sexlzj@shell.armlinux.org.uk>
- <CA+V-a8sS0TtS-TEdkQ8MB5F4JtzV9358Y9fmKe5MggGU+wP=4Q@mail.gmail.com>
- <CA+V-a8tbW2Zs6op20yRTcihSm1bcMC2dYnRXVCKRf=q4fymZyg@mail.gmail.com>
- <TY3PR01MB1134633A8CB82788BB98C6E6286B82@TY3PR01MB11346.jpnprd01.prod.outlook.com>
- <f27b0531-11dd-4074-9c79-172953d28292@lunn.ch>
- <TY3PR01MB11346FA4767B74B2CBB2CAFB786B82@TY3PR01MB11346.jpnprd01.prod.outlook.com>
-In-Reply-To: <TY3PR01MB11346FA4767B74B2CBB2CAFB786B82@TY3PR01MB11346.jpnprd01.prod.outlook.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=bp.renesas.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TY3PR01MB11346:EE_|OS3PR01MB9771:EE_
-x-ms-office365-filtering-correlation-id: da74ded4-e385-496f-815c-08dd80e10b2c
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?ZmcnMk0WeJbo1FsF8C1j0JqQ0jHzYhoZYnRevKI407eiC2BnMb2cagWBt9IS?=
- =?us-ascii?Q?QXCUYfFNkpViJ3Fuxawk94JxuEGN2rpytP4jxDy6Ls/qe4h9/tLlS8C+sF1h?=
- =?us-ascii?Q?lxh/E09iA43xV/vIIQ1oaeQ1HV4fwUYDJOTbRwRNFZntbIuS0bVI3CLplFYA?=
- =?us-ascii?Q?Yl0h462L8rIPGIHWIRKdVNj4lO3idRhrY3R53FNkTWdGX0udRPzmWaVgZwAv?=
- =?us-ascii?Q?MMe3Rvg7l7j3nPrJoqcZZ8kiteU1NMqLTeR950rUwKNBMPTlKMpY6lBs0on/?=
- =?us-ascii?Q?x2Jbc8WyMT2rxOLUmCpnOVkVJfRrkCgmLpYcFOt5RRnXrrlcs/oFRxXnZGsW?=
- =?us-ascii?Q?hvH14w8NFiHyclbKL4zr9bhIZ9HsreVRP/Gjp2H0Ul25mQvhFvLm8N3096i/?=
- =?us-ascii?Q?gVHHdwRJcZ78h3vm4QBbmQGvP+hc+V1glXv6w+6vmgCUqrQioX0qak901poN?=
- =?us-ascii?Q?01oiJXgW3tUj+DmtnX77kGOxI+UQ25X6elq8WdFfsr1NtasKRXYASZp1p5Uu?=
- =?us-ascii?Q?fdteJQ7j97U84gPbbgnzUDnSZgdvhdV0uoVZ5X5rJHjhruTCb7gJ7rDGzuRX?=
- =?us-ascii?Q?CWU4YNOLuHmTSdsDzBCmYX/zvoArLEi9DAX5YcNDRtrngkoObUEWcuWtLgs5?=
- =?us-ascii?Q?MGV8Dv6D8datIRwnRziv+hwIl04jNiUWl+2kUVm0hpFvQx6riFkFYgTYMqqP?=
- =?us-ascii?Q?nr3yHJe77QDm92ThNWxv9Fu4SopVMdpwOoPJg7b7f+AM1TKFtzqT/DA4x/Ra?=
- =?us-ascii?Q?VzxCBYTtjC7n+0/SDIwwPF9/e+WdFVnvRpDbNkaEcKn5z8NgSD8bHWd3R+zy?=
- =?us-ascii?Q?ZgJ9YjGgPbEHxuCqBXVjAFP87b3QDYSqKqLvHTQ/pC743KZ3Qr+GeqbAFCaW?=
- =?us-ascii?Q?KAmRWlzO9hhmiMHeVLhclM83DMuEPAbDuxFqjImZ/ZBotPmW0d/kvxDuirFo?=
- =?us-ascii?Q?QIkztObhoYTVDph8A+ZFhsFLiNkzHCdzu4b2GB5FyXY+N0RoR7ETpcuiGBU1?=
- =?us-ascii?Q?k70iP8wKt/+pEDwnQvWyMxSF4EKwSTr7MzjXIGJE6jSnEOWODLtwnTMX2qHY?=
- =?us-ascii?Q?ydmfz7c4rPtyvrR+sgwvq8MtzHdm3cNAvOgMxn7lkm+ArXw3EqwGEymQr5jy?=
- =?us-ascii?Q?vZrlWFUqO1HnQh0EdpHUkKRs21Z8LYFvTqCFeZLgCfivL2nUMjufYI5Atemg?=
- =?us-ascii?Q?kSfD6XUsxZOxVPqiSSh+9S2cGG2XRbw+45zM94sbnYVjjT09H1psq5q7PMvX?=
- =?us-ascii?Q?UQ90i6liAr7aOx7qQBZ0EBj4M8DT0LMJvGIhAxte6irDvvOnWMrsSCwABAeo?=
- =?us-ascii?Q?yqrDAqqFTY7OxQaBmym/8R9B1tg/fXZFLXLILd8dtkzDgJgipjn43zZewolj?=
- =?us-ascii?Q?gxaRmvAv2cmviSFUzn/bHjcNUSl3+V1PwrTcpcrK9x02f4Isot1apZcJ1ANY?=
- =?us-ascii?Q?Wyln479Cl/iojRvkgnW6Ahdv3iI+RH4z25/3+n1nEEtMFeqL51mfeQ=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY3PR01MB11346.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?71LcgRzd+w1FmcR6MhC22aC08B9qOv7lnRXHSXLg1WSv5g8I3iUWDYNzBBTn?=
- =?us-ascii?Q?BSRbPIDEsjjgjNGacgeyuOwRXn4cGl+taZXvQIenmKKfgvo9UiFNpbMDVLKZ?=
- =?us-ascii?Q?z9/JvauiMqbu2Er0yrd23fPvfi5+8DGArE/MQwhdL/zNddW97x7tZPLzrXeS?=
- =?us-ascii?Q?2S6cwaKYDT9ZSoJTNoaS0G7fwNyInkIjvzznaczZvLrDa/0QqwdAy66UMKpX?=
- =?us-ascii?Q?COpTmfs/edBU+5D6ADyTODUM/eZcXnfPgGhZnTWV0+Z/ZJ/4MUDAB16hjXVL?=
- =?us-ascii?Q?UvQmAUxypoI4oevRPvbaStx2QA0EftkLEI3Z9UWRG8xuXBo+TOGxp9T3jPWR?=
- =?us-ascii?Q?RDP8dhSDsbSBlet3NJq7sOI62T3zkJoNqKadivNJ70MCHcYVDyr1A5/qPQx/?=
- =?us-ascii?Q?YrzmNLfecS0+GzaPKzi2dB9geSQi15L6Taf4CkXI+tgSHBivPGEtdqjm2aiT?=
- =?us-ascii?Q?9EgoO2nDxlWyQyLZ0qxwUmDuQrw3C0/mgR5dW8HiUwzaNW+0tbsnkiDdOFgt?=
- =?us-ascii?Q?NA25kaoV/hZbapkn83ZZSXAkQJozzhAr4AHd7gIbPmHlCRXZOcQv7aAVNuKn?=
- =?us-ascii?Q?cPhFv5G+bzrKgoXbb8pCYX5Gicikz0DmWDL018wW5y2wTbSTUUGRG5CmaXWi?=
- =?us-ascii?Q?ekmN+56Rr7p/QbNHwyAjcGH9PXfWSxTKHuV2orEG2qFVOc0l4QFidCl1i+SY?=
- =?us-ascii?Q?VF9GDqCndNTyo0w8Rff8KfFRJv+yOsxvpBKmqHLMcWovoeUirauSf6/nkf/V?=
- =?us-ascii?Q?8jZWLHkeeCJgQXyYRjmvCaDAzFvkgO3UVgReY/MFVv694ViwZj7HaveHFePs?=
- =?us-ascii?Q?e4pM2RF/sPpj83p3uuQA3Osib8AIt50f6Ezkmuv2cSNevoI6Vx8KXmya6m5K?=
- =?us-ascii?Q?ioCGxwlGo7RnhI+J9AwiO1pMisvSN7x5p8f4hiCtaeGSPH7zE69Z5fpI7NX8?=
- =?us-ascii?Q?Z8aDqYwAj5vf1yHgF4qhD7+UXwn9htvibgqxhNzDMSXh0Xl/F0Nd4ULrTMff?=
- =?us-ascii?Q?7Zwl9cys+iTFr/tiqSP7egj+Doq4r9ZN4hRgqdd8tbnwmWW4WtrZePKu6WLy?=
- =?us-ascii?Q?TPF6jWNH8bS5UZH6FTQEZhIFxJFYh0Jl3FQ9pzUfReAePzHNcMzjoxv8uwa2?=
- =?us-ascii?Q?0KmhgXDBzDxBkTEQ04KRRQ+slyXOXGD5CcgkJ2GQaXyFOQulLj6h+9gBqHvO?=
- =?us-ascii?Q?Fhv1nZbrWubabScxhyemXxOwsmLdrvRUzzc10WOrv/nrXsALLz/zfMwj3bk/?=
- =?us-ascii?Q?9FtI4vVz3PHooEV2LlwjfS5744Wopv6nSxvz8GD4+nxkPo6r6enMvdm8hY9t?=
- =?us-ascii?Q?WGVHYKOS+3NOFAssMJrBU8YWU3ygEQtYTKiqBuP22nUvN45p5JDUy4ZomSwk?=
- =?us-ascii?Q?2j2TLwgPeEKnsM7Eje4j5DLrq/31IOIsyt5UQLKLmDNIKRjTkEoeRR63nr6o?=
- =?us-ascii?Q?WTGNlN9nzTQ/JyTHe4rYjqzQ2R19FvjJPO21mTfMPT2lwtmGYviTV1Xwzot9?=
- =?us-ascii?Q?QcMknAz8DPt3LeYY6HQ1Z8i5NQ8Pp0auKQT0FxHGFsDE396GNa7SboWX/tFv?=
- =?us-ascii?Q?BHqOxk9hMs2CB60LUZlnMuGwuwT6MelCDW7XLO8QmoPOZfhoTNrY819BD2tb?=
- =?us-ascii?Q?Yg=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Mon, 21 Apr 2025 14:36:36 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53LEaT6M1579788
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 21 Apr 2025 09:36:29 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1745246189;
+	bh=o1W9mftwbolHHmlTfjC6lOdNljrRQ0/SgyP7qtHrY8k=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=GL3NzM2I9vO6IZMJJIEmDlwM7rLfulOcXStPtQUGNVa1g09vqHXC2edRC05P2q/r7
+	 s47Er1z1ZK/dZ5MLMxhBKr4LxpZlX8T173Ou3toeGhtKW6BLRMs9QzG5AsrzS0Q0Lf
+	 QFe7Kjs/RMr+VZ8MGc3obGS3FwVHC2bo+WNzWh50=
+Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53LEaTkr030349
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 21 Apr 2025 09:36:29 -0500
+Received: from DLEE111.ent.ti.com (157.170.170.22) by DLEE105.ent.ti.com
+ (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 21
+ Apr 2025 09:36:28 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE111.ent.ti.com
+ (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 21 Apr 2025 09:36:29 -0500
+Received: from [128.247.81.105] (judy-hp.dhcp.ti.com [128.247.81.105])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53LEaSsx074451;
+	Mon, 21 Apr 2025 09:36:28 -0500
+Message-ID: <7bc92282-6ce3-4ae4-8eef-897df992487f@ti.com>
+Date: Mon, 21 Apr 2025 09:36:28 -0500
 MIME-Version: 1.0
-X-OriginatorOrg: bp.renesas.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TY3PR01MB11346.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: da74ded4-e385-496f-815c-08dd80e10b2c
-X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Apr 2025 14:30:19.9632
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: sCPSJjYo13nVGFsqWs2PEVIPb5kbbwUgeOQkBRVqglflf49HG/i4p2GzU128fKIt7qbseTqV/LHajTY9yN0m4mP5VraAx4a27/QWXUZhmVU=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS3PR01MB9771
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/5] arm64: dts: ti: k3-am6*: Set eMMC clock parents to
+ default
+To: "Kumar, Udit" <u-kumar1@ti.com>, Nishanth Menon <nm@ti.com>,
+        Vignesh
+ Raghavendra <vigneshr@ti.com>
+CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Moteen Shah <m-shah@ti.com>
+References: <20250417233040.3658761-1-jm@ti.com>
+ <20250417233040.3658761-2-jm@ti.com>
+ <8f9aad2c-8e51-409e-be90-21230a53a4cf@ti.com>
+Content-Language: en-US
+From: Judith Mendez <jm@ti.com>
+In-Reply-To: <8f9aad2c-8e51-409e-be90-21230a53a4cf@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_073030_744821_CEE1EB16 
-X-CRM114-Status: GOOD (  21.03  )
+X-CRM114-CacheID: sfid-20250421_073635_345605_4102562F 
+X-CRM114-Status: GOOD (  17.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,51 +94,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+Hi Udit,
 
-> -----Original Message-----
-> From: Biju Das <biju.das.jz@bp.renesas.com>
-> Sent: 21 April 2025 15:22
-> Subject: RE: [PATCH net-next v5 3/3] net: stmmac: Add DWMAC glue layer fo=
-r Renesas GBETH
->=20
-> Hi Andrew,
->=20
-> > -----Original Message-----
-> > From: Andrew Lunn <andrew@lunn.ch>
-> > Sent: 21 April 2025 15:02
-> > Subject: Re: [PATCH net-next v5 3/3] net: stmmac: Add DWMAC glue layer
-> > for Renesas GBETH
-> >
-> > > > On the RZ/G3E, the upstream support for testing S2R is not yet in
-> > > > a usable state. So for now, I'll switch to using init/exit callback=
-s and drop the PM callback.
-> > >
-> > > FYI, On RZ/G3E, for STR to work with mainline, we need to reinitializ=
-e the PHY.
-> > > I have done below changes on top of [1] to make STR working.
-> >
-> > Can you explain why you need to reinitialise the PHY? The MAC driver
-> > should not need to do this, so something is wrong somewhere. If we
-> > understand the 'Why?' we can probably tell you a better way to do this.
->=20
-> Without this change bind/unbind works. But for the STR case, without rein=
-itializing the PHY, even
-> though the IP link is UP, I am not able to talk the NFS server or ping th=
-e host properly.
->=20
-> I checked clock/reset before and after reset everything set as expected.
+On 4/19/25 10:00 AM, Kumar, Udit wrote:
+> 
+> On 4/18/2025 5:00 AM, Judith Mendez wrote:
+>> Set eMMC clock parents to the defaults which is MAIN_PLL0_HSDIV5_CLKOUT
+>> for eMMC. This change is necessary since DM is not implementing the
+>> correct procedure to switch PLL clock source for eMMC and we have a
+>> non-glich-free mux. To remove any potential issues, lets switch back to
+>> the defaults.
+> 
+> IMO, we need to fix DM  if not then documentation [0] .
 
-Typo 'after reset'->'after STR'
+DM cannot be fixed for only one IP and documentation says what clock
+parents are supported, it does not have to say what are the issues
+that come with using a specific clock parent.
 
->=20
-> Only change during STR is, on wakeup we need to restore direction (MII/RG=
-MII) of IO block for
-> ET0/1_TXC_TXCLK (IO attribute) in the pin control driver. After that look=
-s like PHY init is required
-> to talk to server.
->=20
-> Cheers,
-> Biju
+> 
+> Then only this patch is ok because as per document [0]
+> 
+> removed clock by this patch is valid parent for eMMC.
+
+The clock parent currently set is a valid parent, but we have non-
+glitch-free muxes and to avoid any potential issues with these, we
+should switch back to the defaults. It seems like we randomly switched
+from the default for no good reason and it has been copy paste per
+platforms since then, so we are switching back to the defaults now.
+
+~ Judith
+
+> 
+> [0] https://software-dl.ti.com/tisci/esd/latest/5_soc_doc/j722s/clocks.html
+> 
+> Thanks
+> 
+> Udit
+> 
+>>
+>> Fixes: c37c58fdeb8a ("arm64: dts: ti: k3-am62: Add more peripheral 
+>> nodes")
+>> Fixes: d3ae4e8d8b6a ("arm64: dts: ti: k3-am62a-main: Add sdhci0 
+>> instance")
+>> Fixes: b5080c7c1f7e ("arm64: dts: ti: k3-am62p: Add nodes for more IPs")
+>> Signed-off-by: Judith Mendez <jm@ti.com>
+>> ---
+>>   arch/arm64/boot/dts/ti/k3-am62-main.dtsi               | 2 --
+>>   arch/arm64/boot/dts/ti/k3-am62a-main.dtsi              | 2 --
+>>   arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi | 2 --
+>>   3 files changed, 6 deletions(-)
+>>
+>> [..]
 
 
