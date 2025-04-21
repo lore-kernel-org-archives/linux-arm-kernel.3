@@ -4,174 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACE20C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 14:24:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E649C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 14:26:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5DQBNFouXoPqHiI1+BX6PHC2RdOHPww6Di4Pym7eSYI=; b=jPFTivVEbGNvq1CbCoIMpZnmuc
-	vWIsuq+PDMJ5RvBIdUso3533/tF8Nt1XyD/BOp/desUTdwdT746Be2YTieGzPyMOGhgSO4R3V77fz
-	M1/xHXFeS1hukeawz7B9C9W0232312UMm+Kpwlwv7nofKiYeT/DNTNMjmzn1L5RQC6t90DnPCxXMp
-	/nKtS0+dPuWAPADOO+/ZVlPDoR3rYX7Bf4gfvsyqzsk9yyNZ6vGKJ82a1GIwdBXGs8Wq4lY+gPKwm
-	NrYTjH5MdaV5Bphz4hHpIHplVBlisKXg8eKqWusEHOmPenlEP/auYO44LtxSbanoUT0kOVVt6tN2i
-	jYYB70jA==;
+	bh=dHRKLKa57WaRcw3gsgSapFs5eoq+g/y962Gr8FAxtJ4=; b=zyQtdsnM2khHuXtNGFCnTiUbdS
+	VtGIomdn/vQ6KTubECPXYOdozLMhIyCn10tIBKc7aSt3LqutwtgIb3vyjxDV/BVrTcenTVkoXFnvY
+	lKprzLyY5OudWQzB3W9Am0SwtvlvGJ8Js7w8KPC5u6pgDpK5nf5ntPCThuTKrTdQzx+mPt5BFsuA0
+	UOQ0WnathbfGy2H0HyTlhy4j0bS1/byRLfciJyr9R9XOKd4IrQhdUFZNbiksQ4UZaStWYKa9SmMv9
+	h/kt26oj1b1aI1UyjokrHVRuleNWDAA0Ma6BzIGkNEgDPeZUDCdTBD7Zcxw28M3FArP5gNXIQxaUP
+	yxBKcwoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6s4F-00000004RVy-2lQd;
-	Mon, 21 Apr 2025 14:24:15 +0000
-Received: from mail-japanwestazlp170110001.outbound.protection.outlook.com ([2a01:111:f403:c407::1] helo=OS0P286CU010.outbound.protection.outlook.com)
+	id 1u6s66-00000004Rs0-1OvP;
+	Mon, 21 Apr 2025 14:26:10 +0000
+Received: from mx-rz-2.rrze.uni-erlangen.de ([2001:638:a000:1025::15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6s2M-00000004RIO-3aEf
+	id 1u6s39-00000004RPY-3viV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Apr 2025 14:22:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qRwnFS9mr7Vhlmfs8KDcefDOXw1fFR9KQRYyTK2OY/djdfbbBAY1Q6QFbXVCugw2mvMGJPKsP0x5Dfm7JlmfkpkA2zz41t+aMDW1SzQX+J5c5JGUs3vDXsuhWsc74ilTNy4XBt2dGYTIR+PhRHOOlayJZGMhzatpGbgWTp5k8o+KLmh1Ok8GoXqG1l7xHskeXzYrLpZBvFbe6hv8KkRYP3Z+7zCmFITF+VwAFr2YBMf09VxwmAunqntS0/samLh/db37B+SFMwMrUPD1d3PuxaMXxy0P8v0gloR2H0Yd2Xgp3AUS2zUNtwW/zcoBkHtnfrpHBEQI86NdiI2erJLZTA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5DQBNFouXoPqHiI1+BX6PHC2RdOHPww6Di4Pym7eSYI=;
- b=dMChlPrP0jqKpDbYuBZmEDrh1TTpPrPrPIA+9UDJ0+n0PoT3QszprAP/GqKrNekMKsHkUs5ltK0PVHfXMxtDP9cJpy51JiTlAtZplL+fRS/4r0N8G0fx5paby3isc3oX78qh8mxRQ5pMXNKCaCAx9GKIb5q/k8NJ5VGLAG5A3816vib0e+dEA8OKPLuVJ6i6JPQubbk9HSWUnfsRwyQrX2nHFz/ntRglLoexnOZtCOnXR787BGBq0/RIjn8phTfO6v08le3YfJ1ykfxsCQQvP/58zmOPArYwAbPCXRiZA99sUzWBtQ52vHAp/ZrIFijQw0jbSug2mwKuiiPPuXnkVw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
- header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5DQBNFouXoPqHiI1+BX6PHC2RdOHPww6Di4Pym7eSYI=;
- b=gQHGZDTcRzkKvCH75Rl47S+bCWVrloxBOC924G3zD7oyulamEXk8JoeJYPMAYB8b46usa4qY86hVGVt3flZhRnVDM42jkS+yf75kwV37I0/BsTaG2eDItr0JBkcZqtjnFblJPwTsZAn+etuTWJTwMDpcraYcmE14t2G6Wk1yYMA=
-Received: from TY3PR01MB11346.jpnprd01.prod.outlook.com (2603:1096:400:3d0::7)
- by TYCPR01MB11914.jpnprd01.prod.outlook.com (2603:1096:400:3e0::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.29; Mon, 21 Apr
- 2025 14:22:01 +0000
-Received: from TY3PR01MB11346.jpnprd01.prod.outlook.com
- ([fe80::86ef:ca98:234d:60e1]) by TY3PR01MB11346.jpnprd01.prod.outlook.com
- ([fe80::86ef:ca98:234d:60e1%4]) with mapi id 15.20.8655.031; Mon, 21 Apr 2025
- 14:22:01 +0000
-From: Biju Das <biju.das.jz@bp.renesas.com>
-To: Andrew Lunn <andrew@lunn.ch>
-CC: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>, "Russell King (Oracle)"
-	<linux@armlinux.org.uk>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub
- Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre
- Torgue <alexandre.torgue@foss.st.com>, Richard Cochran
-	<richardcochran@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>, Geert
- Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu
-	<joabreu@synopsys.com>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-stm32@st-md-mailman.stormreply.com"
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-renesas-soc@vger.kernel.org"
-	<linux-renesas-soc@vger.kernel.org>, Fabrizio Castro
-	<fabrizio.castro.jz@renesas.com>, Prabhakar Mahadev Lad
-	<prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: RE: [PATCH net-next v5 3/3] net: stmmac: Add DWMAC glue layer for
- Renesas GBETH
-Thread-Topic: [PATCH net-next v5 3/3] net: stmmac: Add DWMAC glue layer for
- Renesas GBETH
-Thread-Index: AQHbp7UXRdTsn2oCYUWD5qYhUQGHu7OjbUQAgAAVgQCAATLSgIAJgP8QgAAGBICAAAEN4A==
-Date: Mon, 21 Apr 2025 14:22:01 +0000
-Message-ID: <TY3PR01MB11346FA4767B74B2CBB2CAFB786B82@TY3PR01MB11346.jpnprd01.prod.outlook.com>
-References: <20250407120317.127056-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20250407120317.127056-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <Z_0-iH91A4Sexlzj@shell.armlinux.org.uk>
- <CA+V-a8sS0TtS-TEdkQ8MB5F4JtzV9358Y9fmKe5MggGU+wP=4Q@mail.gmail.com>
- <CA+V-a8tbW2Zs6op20yRTcihSm1bcMC2dYnRXVCKRf=q4fymZyg@mail.gmail.com>
- <TY3PR01MB1134633A8CB82788BB98C6E6286B82@TY3PR01MB11346.jpnprd01.prod.outlook.com>
- <f27b0531-11dd-4074-9c79-172953d28292@lunn.ch>
-In-Reply-To: <f27b0531-11dd-4074-9c79-172953d28292@lunn.ch>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=bp.renesas.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TY3PR01MB11346:EE_|TYCPR01MB11914:EE_
-x-ms-office365-filtering-correlation-id: 293f69b9-0e7d-403f-ac3b-08dd80dfe1cf
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|366016|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?yWjR7lC4CyHG1xZUrvUUl10eX1tNoRz2KuOIckbO1nNQC85CyHbDoZ8fs66D?=
- =?us-ascii?Q?WGDzWOugq1NIfoXgLb/ShBBNBTOxbuL3DBAiGYSJR1AMgpwdnZCVKh2Is8Ln?=
- =?us-ascii?Q?eW4OIpmoocVJXWankVwE/NJtP2kfv6Qz4LCtt10H2pYC4rRXyuvM1XUtt+hT?=
- =?us-ascii?Q?fyvmw3jDlp423xat8Ij7pXak7sRy56S4KJAOFwiBHeR6xkJY0H/w/kDH8vu7?=
- =?us-ascii?Q?rlN+tPmB6QudJW6I66PNVyF+1diUoFnz10D+/h4VvUXMG3veECW3dEZPHa+p?=
- =?us-ascii?Q?lZVRfHguAA5+bRHBjVl2V5GhSLjPajMJyNUcCtjhXcUa9WZKKy/8i7o7CdyQ?=
- =?us-ascii?Q?8wBD8e/WxY9fMXwf75GltZdxJPmQefcDXRVIBsDKYj1gI/pm9NYx1dQ2rBdB?=
- =?us-ascii?Q?0/jMOs5qwBXuv81BcBvuhy5CbbkpaODxj4mfqZ9qLlagPK7vkYigIonu+Cwb?=
- =?us-ascii?Q?oEPfRaL5SmP3s7JN6lK9gj2tZhaVe8VcnfI5f7pj4VY43RX8Ns4n4lR7hmeB?=
- =?us-ascii?Q?mhIdL3qRWa0DnECA7xjVMRme1xUanZi9Wpmq4r1qhbMxG03RRMYBoxHMHSNM?=
- =?us-ascii?Q?bb0y+m0MCP3Ib6ftew2F63vB3C+uaraTc0P7ss/b0feJrDsBiU0r5LUCqrC+?=
- =?us-ascii?Q?iEY11qQKDEC0oStWsUpYjLQbUQ7qBts+ZtRi8F9neWgx+fDX2R4REFbfxJQY?=
- =?us-ascii?Q?F2p+AUWCCrC6TORJb6K/Om1HNoNoFtYxuCr0MnOHPxwkq+4TT1qUuei5fOMs?=
- =?us-ascii?Q?gxzVV0Sa0FHgmAP9oICnIcXyY1XEL0OiR2Of84/PNHxf75dT3Ta3Qe/naqnQ?=
- =?us-ascii?Q?uy1arJuqO4BupjGZhBAYNswHAYHH1+AtcSrtyjrK8ipZkA6e25gJarhIjyPZ?=
- =?us-ascii?Q?gsp4Tk9oFRk5YGUNEaBwJEoHXQij5Y9GoziM/cuKFpnRK+IHrJ1WurP3ec9W?=
- =?us-ascii?Q?Nuja6gim2IuFipWmATON3Km5AG8r/EtDwsQIae7W8KYRjc2o1zMpjaQkogzh?=
- =?us-ascii?Q?JT6CckUZJ/VoYg7E27E7cNakuX8M8Q8HX4SXIekpb+TTMctvcdVxMvpHTQ1M?=
- =?us-ascii?Q?zs8GaASjoZGFzvmGnBsTJFuFe0ZbMv4e4j+d1I1iLxiMoVXrwhErQ8qr+S5J?=
- =?us-ascii?Q?Wh2OzuX+X8G+V4mqp8Zn8vcbDVDMlVnlxY9HdH+QQLipKSC3Y5UwW0nhnM/R?=
- =?us-ascii?Q?vZtupNqdkNYWTS/yIesJEvla5LVYy5dk8HDxQhKwjK/2CkjIjGfvfyusVMl9?=
- =?us-ascii?Q?H3RVOrWPG4+S4OanJQh0HNW8yToPJo+Y+li0oeyE8xnvYcd7N4PrxJmNPMcf?=
- =?us-ascii?Q?/Z5Qt3JBr/1bqhJz1EbDX33FiPiqj9juGSaUNVxBNq8o2LIHuf33gToiSqKw?=
- =?us-ascii?Q?dL70HD/FQe4NQXuLtV3o5BCz3ztnik8Tr4sYx6cxp+kPOBHKwh+1QKaVKPgl?=
- =?us-ascii?Q?AizUJJbL5claEdjg6iYatrYUwv6nk5R/8ucW+H641bQTsKxOZQ5r+A=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY3PR01MB11346.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?BPdtPHrTaJ2BCDlZs37u45L2lVWeovKnqAzKxGNE8wdVRTmIzg/povAZhXlJ?=
- =?us-ascii?Q?KC4zfsEQgZyLnQiUKfbEmAnnDPQYe6Rk/wwhGo0BMknsK1zaKDmi1zIKNLtv?=
- =?us-ascii?Q?70TZ/9AWxycz+mUbaXbD3ovT76xmwZnVWbfHoTHEcef52hRH77MPBPONntwj?=
- =?us-ascii?Q?wOH8XDeH1Lfiv/4EhKX7kzNwmmC9V5ukcsy+UEEt/2Vzoz1RZFNYeM1d8cbc?=
- =?us-ascii?Q?MpW6+DCnlljz5IqgHyBWa6g2qp6h4cR6QB8I/x6BKlqF6p+T+M6POHIzWW5D?=
- =?us-ascii?Q?Afcbes4ldt1NOKZ5qxSvUB6oYJHAmMtjRSRMkoPK1m7Tjp7ZmB3BK2aUHUfc?=
- =?us-ascii?Q?OlF9scfNK1GUfsMHQIo7rz5Fsc7rTQEqmKx0+LZpm86mWtFezv1Erw+xpaRe?=
- =?us-ascii?Q?mz3Y+d+SOahKLg062NJyfpZ/AjPimqq0z2A2VNvSqGC6riBFaS4oRctmZwB/?=
- =?us-ascii?Q?iKgaFP/HZrVCzqe2nxBNggv6XgANEzkmFGqmedNyMIleGXbd0rgY+oyxD3A5?=
- =?us-ascii?Q?uUV3aHCQVGfWclIjOFljS2al1j8/noynb+Pax7iuT/PHcb1aTPY080xgr2Ad?=
- =?us-ascii?Q?7ClqGdOsAP3TUbe/INkedqUZoosc8KsKRmzBfkQHQk2arVgfx3tbatl0+Gx1?=
- =?us-ascii?Q?CbTGIf8lgCzxSiahFurFB3AzilujEH3xaV6sF+3TCsGbglHn3wTlAGvHA5DI?=
- =?us-ascii?Q?i7NdLtIx1/bi7l/hzeX19aqUYkroijbicdeqnHnbySPWyTJkFjfh4chQfkF3?=
- =?us-ascii?Q?Z86uT+mzucKGh1A77MVCK18rnCCe6fIMUGSDi5rWmsceTiwf/fRsjbZq/8rF?=
- =?us-ascii?Q?ILxmBNnpejeq7vOKxBIyl4Uq9eezUSWIanp4qbRmQY+ilZ37G6S0eY6B3g0q?=
- =?us-ascii?Q?4dRaPX8QsZjuioKpe/yVGRZOEDeZk5CJCG+asPm3i4Tgsih1Rp4mQB06GcTO?=
- =?us-ascii?Q?cLV8+cJMoaXaED0kDin3MDSngXAkHfGIKriC6DeNPcLX3hFSq+dUUXJdZhtp?=
- =?us-ascii?Q?9Ti2Lc7RHUSxGIkcbxr9trBhaP80Szu3ncxhOZV2NwxI5wBvU6XFDxtB8ZFA?=
- =?us-ascii?Q?kC2ZoCYziROa6jCjPD5AIImB3Bz7r82f4hFcvvunSb2n3BAKAXFQ96ae64O4?=
- =?us-ascii?Q?0wkkvm4Dx1OvkAn1PKrk+W1xJcZRq7cq3/SqD00XVCM6FlgCtCzygwbtvWPh?=
- =?us-ascii?Q?bzOFtFV4czSLzcvkMsi9HWqFfMkOWaXWgkHjuhHwqbZMTC6Rf8GxRUDozVIm?=
- =?us-ascii?Q?1dJP11NqQyHu7gImIDrDZyN4RSI66kXSECQO/D18dsQfJ6g7HuLoDoaFnftn?=
- =?us-ascii?Q?WbbrdHrOt67uV7amHXr3fjswXQzKHBXPIXJbSCYraABJ8mvAD515Isq1eZW+?=
- =?us-ascii?Q?IPcMYTfczeBQRyTE/vxBg4kqGF/BOTN5Qg6t270SRyeRV90LBWqCK3S+S5cm?=
- =?us-ascii?Q?LY3y7P4AQgYaJH38jVD8GkJ1Vet5hdd2spKOOvyhzNHkGhTCxO0p4/sp4wqG?=
- =?us-ascii?Q?xwYgJ2skzRAW8CieAZDR2x3fvk+QXZSuOHrvAl2oNTiI0YsSKPAPIMyyY6BR?=
- =?us-ascii?Q?v559R5VNaRTuOPV1sWaF3iX1+RvJ9xLDUhAMPuq0VfEDMjD+1Fn16q3cv4o4?=
- =?us-ascii?Q?9g=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Mon, 21 Apr 2025 14:23:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fau.de; s=fau-2021;
+	t=1745245384; bh=dHRKLKa57WaRcw3gsgSapFs5eoq+g/y962Gr8FAxtJ4=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From:To:CC:
+	 Subject;
+	b=orBiie4cvNrHVv1JbBWkrpOyYmyGmifj9slSFQzZ0sJetOlRXTDNVGexBpdHSLlCj
+	 cIRmDtYCELKKpt25P9o50N7Y+j9jsWe+aLzGb7aUsWJA9N64p44PwD8KSuAJ4OjZJB
+	 XZ/ImmqlxC4T3CkcYfAZJBcM3JIzvolN8AqEG1ESQtwmvQXdXlF0t9Lnu4dsv8XVMd
+	 dOj+KKY125Rtr8bCcieX7+VlKdKSQWGglObQaut+Mmr0zxuF1dr3qH1s8G40zgEohX
+	 itn/AJJ+UntW48id29kZH/dXMJJNuSAKYM4NQG3NbSOJdhyEJRv3pYs07IFq2UTGT0
+	 zumuzse94SOdg==
+Received: from mx-rz-smart.rrze.uni-erlangen.de (mx-rz-smart.rrze.uni-erlangen.de [IPv6:2001:638:a000:1025::1e])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-rz-2.rrze.uni-erlangen.de (Postfix) with ESMTPS id 4Zh6zD2qDxzPjmG;
+	Mon, 21 Apr 2025 16:23:04 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at boeck5.rrze.uni-erlangen.de (RRZE)
+X-RRZE-Flag: Not-Spam
+X-RRZE-Submit-IP: 2001:9e8:3600:7e00:5b67:6b9c:caeb:75c
+Received: from localhost (unknown [IPv6:2001:9e8:3600:7e00:5b67:6b9c:caeb:75c])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: U2FsdGVkX1+yS0Gm16sXrv8zOrS9nARAtw0fhZkEU8I=)
+	by smtp-auth.uni-erlangen.de (Postfix) with ESMTPSA id 4Zh6yw2GKwzPjsn;
+	Mon, 21 Apr 2025 16:22:48 +0200 (CEST)
+From: Luis Gerhorst <luis.gerhorst@fau.de>
+To: kernel test robot <lkp@intel.com>
+Cc: Alexei Starovoitov <ast@kernel.org>,  Daniel Borkmann
+ <daniel@iogearbox.net>,  Andrii Nakryiko <andrii@kernel.org>,  Martin
+ KaFai Lau <martin.lau@linux.dev>,  Eduard Zingerman <eddyz87@gmail.com>,
+  Song Liu <song@kernel.org>,  Yonghong Song <yonghong.song@linux.dev>,
+  John Fastabend <john.fastabend@gmail.com>,  KP Singh
+ <kpsingh@kernel.org>,  Stanislav Fomichev <sdf@fomichev.me>,  Hao Luo
+ <haoluo@google.com>,  Jiri Olsa <jolsa@kernel.org>,  Puranjay Mohan
+ <puranjay@kernel.org>,  Xu Kuohai <xukuohai@huaweicloud.com>,  Catalin
+ Marinas <catalin.marinas@arm.com>,  Will Deacon <will@kernel.org>,  Hari
+ Bathini <hbathini@linux.ibm.com>,  Christophe Leroy
+ <christophe.leroy@csgroup.eu>,  Naveen N Rao <naveen@kernel.org>,
+  Madhavan Srinivasan <maddy@linux.ibm.com>,  Michael Ellerman
+ <mpe@ellerman.id.au>,  Nicholas Piggin <npiggin@gmail.com>,  Mykola
+ Lysenko <mykolal@fb.com>,  Shuah Khan <skhan@linuxfoundation.org>,
+  Henriette Herzog <henriette.herzog@rub.de>,  Saket Kumar Bhaskar
+ <skb99@linux.ibm.com>,  Cupertino Miranda <cupertino.miranda@oracle.com>,
+  Jiayuan Chen <mrpre@163.com>,  Matan Shachnai <m.shachnai@gmail.com>,
+  oe-kbuild-all@lists.linux.dev, bpf@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-kselftest@vger.kernel.org,
+ henriette.herzog@rub.de
+Subject: Re: [PATCH bpf-next v2 05/11] bpf, arm64, powerpc: Add
+ bpf_jit_bypass_spec_v1/v4()
+In-Reply-To: <202504212142.V3yjAcaI-lkp@intel.com> (kernel test robot's
+	message of "Mon, 21 Apr 2025 21:17:56 +0800")
+References: <20250421091802.3234859-6-luis.gerhorst@fau.de>
+	<202504212142.V3yjAcaI-lkp@intel.com>
+User-Agent: mu4e 1.12.8; emacs 29.4
+Date: Mon, 21 Apr 2025 16:22:47 +0200
+Message-ID: <87r01lzj9k.fsf@fau.de>
 MIME-Version: 1.0
-X-OriginatorOrg: bp.renesas.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TY3PR01MB11346.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 293f69b9-0e7d-403f-ac3b-08dd80dfe1cf
-X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Apr 2025 14:22:01.0917
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: CTBRZUQhVRGdbaVWgIMy6kJlUDo+LXSLe0rnA6q4+XDEbiKxNs56dmR+TgZssDIgtB1bt8TdtHU3Zv9jvoKvLkfoZIwwCX73t8srTXcEt+g=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYCPR01MB11914
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_072218_894370_72BBDB13 
-X-CRM114-Status: GOOD (  17.40  )
+X-CRM114-CacheID: sfid-20250421_072308_120204_D5460A99 
+X-CRM114-Status: UNSURE (   7.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,41 +105,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+kernel test robot <lkp@intel.com> writes:
 
-> -----Original Message-----
-> From: Andrew Lunn <andrew@lunn.ch>
-> Sent: 21 April 2025 15:02
-> Subject: Re: [PATCH net-next v5 3/3] net: stmmac: Add DWMAC glue layer fo=
-r Renesas GBETH
->=20
-> > > On the RZ/G3E, the upstream support for testing S2R is not yet in a
-> > > usable state. So for now, I'll switch to using init/exit callbacks an=
-d drop the PM callback.
-> >
-> > FYI, On RZ/G3E, for STR to work with mainline, we need to reinitialize =
-the PHY.
-> > I have done below changes on top of [1] to make STR working.
->=20
-> Can you explain why you need to reinitialise the PHY? The MAC driver shou=
-ld not need to do this, so
-> something is wrong somewhere. If we understand the 'Why?' we can probably=
- tell you a better way to do
-> this.
+> All warnings (new ones prefixed by >>):
+>
+>>> kernel/bpf/core.c:3037:13: warning: no previous prototype for 'bpf_jit_bypass_spec_v1' [-Wmissing-prototypes]
+>     3037 | bool __weak bpf_jit_bypass_spec_v1(void)
+>          |             ^~~~~~~~~~~~~~~~~~~~~~
+>>> kernel/bpf/core.c:3042:13: warning: no previous prototype for 'bpf_jit_bypass_spec_v4' [-Wmissing-prototypes]
+>     3042 | bool __weak bpf_jit_bypass_spec_v4(void)
+>          |             ^~~~~~~~~~~~~~~~~~~~~~
 
-Without this change bind/unbind works. But for the STR case, without reinit=
-ializing the PHY, even though
-the IP link is UP, I am not able to talk the NFS server or ping the host pr=
-operly.
-
-I checked clock/reset before and after reset everything set as expected.
-
-Only change during STR is, on wakeup we need to restore direction (MII/RGMI=
-I) of IO block=20
-for ET0/1_TXC_TXCLK (IO attribute) in the pin control driver. After that lo=
-oks like PHY init
-is required to talk to server.=20
-
-Cheers,
-Biju
+That's because the prototypes in include/linux/bpf.h were in the #ifdef
+CONFIG_BPF_SYSCALL. I fixed this for v3 by moving the prototypes out of
+the ifdef.
 
