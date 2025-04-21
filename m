@@ -4,72 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B19FC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 22:14:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C0F5C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 22:16:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=icCQGf7C4c2kShwGa6AQ4ux7zNrLbZgjso6+eN91hcA=; b=ELEzvp/sMy1yMwoEGwY3j7O9aC
-	IlWqOVMmqkXdDaOo/KPhFoFhTXLyElz+SfdnPM9uTq/s7XrwVYTsDBAsHct9fCZE4BofR2sa+P0Mm
-	ln9yHrGtOihchqSY9jwNccMC/9G8MGGKHfQsUnoFKlSArGJMd5wRqtovVYVrub1wdrRAsX9LgvGY4
-	lLSsm3XQhmQnGVas97w6PgiSPlkQa1yi1gtOSF7RQcjBF72V420+no5tZqaqiF5XPrWMz1GSnV3bv
-	Qz220A5zJFc1+Ys0uzxZ4ox0/HbrlQh52nh5JzAXr/Fs8K50b6KkYSOcs0zv2mTOBzjyk5m/3MU0e
-	lY3yLPVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HbjG2FLbfvHgmaqDIAfmrY3cSoYoDQzM0PpXrLPlZro=; b=u4V8bh+6nUTtj7NYKliJIqtgab
+	XT8xGHqx/SNMb9fD11WeNuTBhZT/j8IQKiv/6VH4sKH75NWU5QhTCMUVoyBtdF/GrMq2mo8DQ0qGI
+	UrqOOTc7e6M7Lzr0eerRYEH472Uvys4uNR71Px/k6uS94ZmDSQT3EtQCZ3V7cNUOFYbc8p3O9Pwll
+	srpTIe9QDMekiEtUQu6yv3JI8P0d7lBXwIdc++xh4cLBzk2kcGwRz78WA34pAumAolRP1XkAZ1vE1
+	2FoZDXgdKtgGAoaGRfh1g+svOeb0L4R1Sp9YSWToYXK8mpO0CbnDG1XJrd7cii10J833PwMgz96iZ
+	7U108Fsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6zOo-00000005Ifm-1fHo;
-	Mon, 21 Apr 2025 22:13:58 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1u6zQe-00000005Iru-1LGu;
+	Mon, 21 Apr 2025 22:15:52 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6zAI-00000005GJd-48yH
+	id 1u6zBt-00000005GZU-3T4q
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Apr 2025 21:59:00 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id CA24C6D6;
-	Mon, 21 Apr 2025 23:56:50 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1745272611;
-	bh=IhvTrBPT9MajnxD0h1Zm9/Y9wvCGsNsEcHqoA7mdQ5w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OOZbEV2UQiH6RcClkRuaM/ImkkkPeLr3TDOIT3KK/1+7lP1ed4pT0AC6SgUG5QQaZ
-	 +DLn7UJMiDqyQSgONrJdIbEeGliH86t+cm1ZWVSWIyvUrVAYPzmGoDZvfqIb6nUTuf
-	 zQhHoyomXTWl+XU/59/yMfXNHnPX3Xi1pHUGJE5U=
-Date: Tue, 22 Apr 2025 00:58:55 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rui Miguel Silva <rmfrfs@gmail.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
-	Robert Chiras <robert.chiras@nxp.com>,
-	"Guoniu.zhou" <guoniu.zhou@nxp.com>
-Subject: Re: [PATCH v3 03/12] media: dt-bindings: Add binding doc for
- i.MX8QXP and i.MX8QM ISI
-Message-ID: <20250421215855.GA31885@pendragon.ideasonboard.com>
-References: <20250210-8qxp_camera-v3-0-324f5105accc@nxp.com>
- <20250210-8qxp_camera-v3-3-324f5105accc@nxp.com>
- <20250327184425.GE4861@pendragon.ideasonboard.com>
- <Z+WzZDNxpPcYScYT@lizhi-Precision-Tower-5810>
+	Mon, 21 Apr 2025 22:00:40 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53LK5krl015759
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Apr 2025 22:00:37 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	HbjG2FLbfvHgmaqDIAfmrY3cSoYoDQzM0PpXrLPlZro=; b=UtVS6SXR4po9WOMK
+	HLes1Yvn0DkfnOkmhls0APM4qER08lQ3rtw8Qbx7zlqAcZogZQU8hroCMK/LhdPs
+	8/ao/l0OKZkl3JCwqDxH9JG9JDH+n+RwQNsVN+jdKjlAP8qyq0w/w1Gm4ZzfpD2M
+	n1uJei+l/uodlYbftkFFZSYrTOmnw4DlBMNWKx4sqrqKO4zc/3tcqx0p71/E2NnV
+	m+2HfOK5i3pCZ2h6woXCFjWFkYaz6YqxaMVyPHTlTOrUnU/Xm+6Nwn/bjT2/J/5s
+	AYTfSaUsMOjfwIhbBJQ4dQG1QaN+mwUs/uEZWy6LV5CZfCVxPnzFlpWgU6UlEQqg
+	Y3hB7w==
+Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 464426na4d-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Apr 2025 22:00:36 +0000 (GMT)
+Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-af5156fbe79so4719130a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Apr 2025 15:00:36 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745272833; x=1745877633;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=HbjG2FLbfvHgmaqDIAfmrY3cSoYoDQzM0PpXrLPlZro=;
+        b=QEVk9pqQNOaa2qXONnI9BvidLLVGAQPjzyZsZt6/Ykw7naLPT0DL55JzMlZ+uznjog
+         0+cqFSsVDsm8b0Qcaa6TjITExCZoBMuibMJTSb4Bln64CQiPy2SmqaPOjB7T4u+oNlmG
+         3D04txKySwj4dqKs4sFqmmAryttE6axwKwRYjuedAHw9AQKKP/iZ4z/71aSSa76hqOD4
+         rLDUQsIkEcLzAacfkcrjQWMR2DJEYVBKdj478U0Ml+nDFQkzW1p1OsZLCADnx6kL8Nav
+         bP8y1OSSII+q+1NnqrB1sWEUWHyx8qRg5JWRSWIhWrMorm6mBg8lSOw63bsbWyMTbghJ
+         XBYg==
+X-Forwarded-Encrypted: i=1; AJvYcCXcsYZ6nFnTvwd0CxAwtYvqs4J3Ep0gdrTEtKM+pV4EKmSzjjicgqIcki4zZylVMxg/PY3pX+3RzohUj2kCVcHz@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzcd7RVXBQrks9llEh4PvGBbsuazMX6JweVgLUFkOv1VHjZaBZq
+	DrdJ++d1bvt42wv1GjCcFNoG5GiePoNjMJTPf3ZiF5+xuW4Q5B7b/L43mK4fGSr4V1+YroeZPLj
+	3J9sd49Xl+xLgEmHYvKgr5/SNsfZNYL/rXGR/BG5xspBkN3CWE1c7qIp9KXEOdULL9dUwynhAEA
+	==
+X-Gm-Gg: ASbGncv3k4KSDS/Sm4vznM0UNjilzTdL2pPVlzLpvaa2qpQsQJnK3MARb5Bvu2hp7ZO
+	Ic8/nNp6HdIGN9as7QzwNEUbV8Hu91E6m0StVzhDKc6/e4NPz+S5sLoPqxiM6uqlhZ8RzlS5flw
+	U2kh03VDRAATTq95ODntNdVO112vtqFSS/dUJYc9/CIv6N0bfUjV3AlZr0vntWKKScflJEAFG7U
+	EpZ0dhwaZ4I3+l7+oLm6COfJieP0NQKg61ktHyb/grchUEdiL3lTeRbVKRyi40VrmTmxscx7iVI
+	OLeQ+DjybX9lCzlCr6ILeq3gnlno2uMOhJjbNdHImXVSR3VCha+a4X1PoWyBWlUmZYQ=
+X-Received: by 2002:a05:6a20:d49a:b0:1f5:7873:304b with SMTP id adf61e73a8af0-203cbd0ae7fmr17409791637.26.1745272833205;
+        Mon, 21 Apr 2025 15:00:33 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEcRbAV15d5ugeTLFEMfrR441nFXLk3JS4/cBhb7XOmyTfuy44UmvHynrqZGkwpyUTfmb8mnw==
+X-Received: by 2002:a05:6a20:d49a:b0:1f5:7873:304b with SMTP id adf61e73a8af0-203cbd0ae7fmr17409715637.26.1745272832579;
+        Mon, 21 Apr 2025 15:00:32 -0700 (PDT)
+Received: from hu-molvera-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73dbf8c04c5sm7107917b3a.24.2025.04.21.15.00.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 21 Apr 2025 15:00:32 -0700 (PDT)
+From: Melody Olvera <melody.olvera@oss.qualcomm.com>
+Date: Mon, 21 Apr 2025 15:00:11 -0700
+Subject: [PATCH v5 04/10] phy: qcom: qmp-combo: Add new PHY sequences for
+ SM8750
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <Z+WzZDNxpPcYScYT@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250421-sm8750_usb_master-v5-4-25c79ed01d02@oss.qualcomm.com>
+References: <20250421-sm8750_usb_master-v5-0-25c79ed01d02@oss.qualcomm.com>
+In-Reply-To: <20250421-sm8750_usb_master-v5-0-25c79ed01d02@oss.qualcomm.com>
+To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Wesley Cheng <quic_wcheng@quicinc.com>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        Melody Olvera <melody.olvera@oss.qualcomm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1745272824; l=24439;
+ i=melody.olvera@oss.qualcomm.com; s=20241204; h=from:subject:message-id;
+ bh=RYnzOfUNbf4TvIdty73DMBF6uLcKNx8zhOC30FclwdM=;
+ b=0aQ7mCA6Vx1Xo8CuJhq1uANlhk7M2fJEkNnLHhnbtdC3P0+gqArAQmpOlIcwp/ordMFk1/LBg
+ iS05WqMc6S5BzfdkRpjyyklp6EaNtGFwFfgC9vN8o9M4mpfqq/kz6w3
+X-Developer-Key: i=melody.olvera@oss.qualcomm.com; a=ed25519;
+ pk=1DGLp3zVYsHAWipMaNZZTHR321e8xK52C9vuAoeca5c=
+X-Proofpoint-ORIG-GUID: xZshqUoZOFQKbTWqmumulBFaFzyJiw9_
+X-Proofpoint-GUID: xZshqUoZOFQKbTWqmumulBFaFzyJiw9_
+X-Authority-Analysis: v=2.4 cv=IP8CChvG c=1 sm=1 tr=0 ts=6806c004 cx=c_pps a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=EUspDBNiAAAA:8 a=UZBd9ZQXIvJYZa1OSmIA:9 a=QEXdDO2ut3YA:10
+ a=_Vgx9l1VpLgwpw_dHYaR:22 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-21_10,2025-04-21_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=999 spamscore=0
+ mlxscore=0 malwarescore=0 clxscore=1015 priorityscore=1501 bulkscore=0
+ suspectscore=0 lowpriorityscore=0 phishscore=0 adultscore=0
+ impostorscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2504210173
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_145859_307635_712DD868 
-X-CRM114-Status: GOOD (  37.81  )
+X-CRM114-CacheID: sfid-20250421_150037_891227_6364419E 
+X-CRM114-Status: GOOD (  14.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,353 +140,542 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+From: Wesley Cheng <quic_wcheng@quicinc.com>
 
-On Thu, Mar 27, 2025 at 04:21:56PM -0400, Frank Li wrote:
-> On Thu, Mar 27, 2025 at 08:44:25PM +0200, Laurent Pinchart wrote:
-> > On Mon, Feb 10, 2025 at 03:59:22PM -0500, Frank Li wrote:
-> > > Add binding documentation for i.MX8QXP and i.MX8QM ISI. The clock-names,
-> > > power-domains, and ports differ significantly from the existing
-> > > nxp,imx8-isi.yaml. Create a new file to avoid complex if-else branches.
-> >
-> > Mixed feelings about having different bindings files for what is
-> > essentially the same IP, but I won't object.
-> 
-> Rob suggest split it at v1.
-> 
-> https://lore.kernel.org/all/20250203221659.GA130749-robh@kernel.org/
-> 
-> "I think this addition is borderline whether it should be its own schema
-> doc. The if/then schemas are larger than the main part. The ports are
-> not even the same."
-> 
-> >
-> > > Add new file to MAINTAINERS.
-> > >
-> > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > > ---
-> > > change from v2 to v3
-> > > - none
-> > > change from v1 to v2
-> > > - create new file for 8qm and 8qxp accroding rob's suggestion.
-> > > ---
-> > >  .../devicetree/bindings/media/fsl,imx8qm-isi.yaml  | 117 +++++++++++++++++++++
-> > >  .../devicetree/bindings/media/fsl,imx8qxp-isi.yaml | 103 ++++++++++++++++++
-> > >  MAINTAINERS                                        |   1 +
-> > >  3 files changed, 221 insertions(+)
-> > >
-> > > diff --git a/Documentation/devicetree/bindings/media/fsl,imx8qm-isi.yaml b/Documentation/devicetree/bindings/media/fsl,imx8qm-isi.yaml
-> > > new file mode 100644
-> > > index 0000000000000..61c551673e2a4
-> > > --- /dev/null
-> > > +++ b/Documentation/devicetree/bindings/media/fsl,imx8qm-isi.yaml
-> > > @@ -0,0 +1,117 @@
-> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > +%YAML 1.2
-> > > +---
-> > > +$id: http://devicetree.org/schemas/media/fsl,imx8qm-isi.yaml#
-> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > +
-> > > +title: i.MX8QM Image Sensing Interface
-> > > +
-> > > +maintainers:
-> > > +  - Frank Li <Frank.Li@nxp.com>
-> > > +
-> > > +description:
-> > > +  The Image Sensing Interface (ISI) combines image processing pipelines with
-> > > +  DMA engines to process and capture frames originating from a variety of
-> > > +  sources. The inputs to the ISI go through Pixel Link interfaces, and their
-> > > +  number and nature is SoC-dependent. They cover both capture interfaces (MIPI
-> > > +  CSI-2 RX, HDMI RX, ...) and display engine outputs for writeback support.
-> > > +
-> > > +properties:
-> > > +  compatible:
-> > > +    enum:
-> > > +      - fsl,imx8qm-isi
-> > > +
-> > > +  reg:
-> > > +    maxItems: 1
-> > > +
-> > > +  clocks:
-> > > +    maxItems: 8
-> > > +
-> > > +  clock-names:
-> > > +    items:
-> > > +      - const: per0
-> > > +      - const: per1
-> > > +      - const: per2
-> > > +      - const: per3
-> > > +      - const: per4
-> > > +      - const: per5
-> > > +      - const: per6
-> > > +      - const: per7
-> > > +
-> > > +  interrupts:
-> > > +    maxItems: 8
-> > > +
-> > > +  power-domains:
-> > > +    maxItems: 8
-> >
-> > This surprises me. The reference manual does list 8 clocks and
-> > interrupts, but only 6 channels in the ISI section (for instance in
-> > 15.6.1.1.4). Which one is wrong ?
-> 
-> Support 6 input, 8 output.
-> 
-> "The crossbar is a 6 input 8 output multiplexer where each output port can
-> be configured to connect to any of the 6 inputs."
+Add new register offsets and PHY values for SM8750. Some of the previous
+definitions can be leveraged from older PHY versions as offsets within
+registers have not changed. This also updates the PHY sequence that is
+recommended after running hardware characterization.
 
-Which version of the reference manual are you looking at ? The latest
-version I can find on the nxp.com website is "i.MX 8QuadMax Applications
-Processor Reference Manual, Rev. 1.1, 05/2024", and it states on page 
+Signed-off-by: Wesley Cheng <quic_wcheng@quicinc.com>
+Signed-off-by: Melody Olvera <melody.olvera@oss.qualcomm.com>
+---
+ drivers/phy/qualcomm/phy-qcom-qmp-combo.c          | 221 +++++++++++++++++++++
+ drivers/phy/qualcomm/phy-qcom-qmp-pcs-usb-v8.h     |  38 ++++
+ drivers/phy/qualcomm/phy-qcom-qmp-pcs-v8.h         |  32 +++
+ drivers/phy/qualcomm/phy-qcom-qmp-qserdes-com-v8.h |  64 ++++++
+ .../phy/qualcomm/phy-qcom-qmp-qserdes-txrx-v8.h    |  68 +++++++
+ drivers/phy/qualcomm/phy-qcom-qmp.h                |   5 +
+ 6 files changed, 428 insertions(+)
 
-    The crossbar is a 6 input, 6 output multiplexer where each output
-    port can be configured to connect to any of the 6 inputs.
-
-> 8 irq and clocks is for output dmac.
-> 
-> > > +
-> > > +  ports:
-> > > +    $ref: /schemas/graph.yaml#/properties/ports
-> > > +    properties:
-> > > +      port@2:
-> > > +        $ref: /schemas/graph.yaml#/properties/port
-> > > +        description: MIPI CSI-2 RX 0
-> > > +      port@3:
-> > > +        $ref: /schemas/graph.yaml#/properties/port
-> > > +        description: MIPI CSI-2 RX 1
-> > > +      port@4:
-> > > +        $ref: /schemas/graph.yaml#/properties/port
-> > > +        description: HDMI RX
-> >
-> > Figure 15-59 in the reference manual list MIPI CSI-2 RX 0 and RX 1 as
-> > connected to inputs 0 and 1 respectively.
-> 
-> Reference document should be wrong, I reference another internal document
-
-Ah, that answers my question above.
-
-Could you report this issue, to get it fixed in the next version of the
-reference manual ? Same for the QXP.
-
-> 0: display control 0
-> 1: display control 1
-> 2: csi2 rx0
-> 3: csi2 rx1
-> 4: hdmi rx
-
-I assume you've tested the driver, so I'll trust those values more than
-the ones from the reference manual.
-
-> > > +
-> > > +required:
-> > > +  - compatible
-> > > +  - reg
-> > > +  - clocks
-> > > +  - clock-names
-> > > +  - interrupts
-> > > +  - power-domains
-> > > +  - ports
-> > > +
-> > > +additionalProperties: false
-> > > +
-> > > +examples:
-> > > +  - |
-> > > +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> > > +    #include <dt-bindings/interrupt-controller/irq.h>
-> > > +    #include <dt-bindings/clock/imx8-clock.h>
-> > > +    #include <dt-bindings/clock/imx8-lpcg.h>
-> > > +    #include <dt-bindings/firmware/imx/rsrc.h>
-> > > +
-> > > +    image-controller@58100000 {
-> > > +        compatible = "fsl,imx8qm-isi";
-> > > +        reg = <0x58100000 0x90000>;
-> >
-> > The memory map in the reference manual lists the "Pixel DMA" region as
-> > ending at 0x5817ffff. Shouldn't the length of the region be 0x80000 ?
-> 
-> Yes, it should be 0x80000.
-> 
-> > > +        interrupts = <GIC_SPI 297 IRQ_TYPE_LEVEL_HIGH>,
-> > > +                     <GIC_SPI 298 IRQ_TYPE_LEVEL_HIGH>,
-> > > +                     <GIC_SPI 299 IRQ_TYPE_LEVEL_HIGH>,
-> > > +                     <GIC_SPI 300 IRQ_TYPE_LEVEL_HIGH>,
-> > > +                     <GIC_SPI 301 IRQ_TYPE_LEVEL_HIGH>,
-> > > +                     <GIC_SPI 302 IRQ_TYPE_LEVEL_HIGH>,
-> > > +                     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH>,
-> > > +                     <GIC_SPI 304 IRQ_TYPE_LEVEL_HIGH>;
-> > > +        clocks = <&pdma0_lpcg IMX_LPCG_CLK_0>,
-> > > +                 <&pdma1_lpcg IMX_LPCG_CLK_0>,
-> > > +                 <&pdma2_lpcg IMX_LPCG_CLK_0>,
-> > > +                 <&pdma3_lpcg IMX_LPCG_CLK_0>,
-> > > +                 <&pdma4_lpcg IMX_LPCG_CLK_0>,
-> > > +                 <&pdma5_lpcg IMX_LPCG_CLK_0>,
-> > > +                 <&pdma6_lpcg IMX_LPCG_CLK_0>,
-> > > +                 <&pdma7_lpcg IMX_LPCG_CLK_0>;
-> > > +        clock-names = "per0", "per1", "per2", "per3",
-> > > +                      "per4", "per5", "per6", "per7";
-> > > +        power-domains = <&pd IMX_SC_R_ISI_CH0>, <&pd IMX_SC_R_ISI_CH1>,
-> > > +                        <&pd IMX_SC_R_ISI_CH2>, <&pd IMX_SC_R_ISI_CH3>,
-> > > +                        <&pd IMX_SC_R_ISI_CH4>, <&pd IMX_SC_R_ISI_CH5>,
-> > > +                        <&pd IMX_SC_R_ISI_CH6>, <&pd IMX_SC_R_ISI_CH7>;
-> > > +
-> > > +        ports {
-> > > +            #address-cells = <1>;
-> > > +            #size-cells = <0>;
-> > > +
-> > > +            port@2 {
-> > > +                reg = <2>;
-> > > +                endpoint {
-> > > +                    remote-endpoint = <&mipi_csi0_out>;
-> > > +                };
-> > > +            };
-> > > +        };
-> > > +    };
-> > > +...
-> > > diff --git a/Documentation/devicetree/bindings/media/fsl,imx8qxp-isi.yaml b/Documentation/devicetree/bindings/media/fsl,imx8qxp-isi.yaml
-> > > new file mode 100644
-> > > index 0000000000000..818fea0e4679f
-> > > --- /dev/null
-> > > +++ b/Documentation/devicetree/bindings/media/fsl,imx8qxp-isi.yaml
-> > > @@ -0,0 +1,103 @@
-> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > +%YAML 1.2
-> > > +---
-> > > +$id: http://devicetree.org/schemas/media/fsl,imx8qxp-isi.yaml#
-> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > +
-> > > +title: i.MX8QXP Image Sensing Interface
-> > > +
-> > > +maintainers:
-> > > +  - Frank Li <Frank.Li@nxp.com>
-> > > +
-> > > +description:
-> > > +  The Image Sensing Interface (ISI) combines image processing pipelines with
-> > > +  DMA engines to process and capture frames originating from a variety of
-> > > +  sources. The inputs to the ISI go through Pixel Link interfaces, and their
-> > > +  number and nature is SoC-dependent. They cover both capture interfaces (MIPI
-> > > +  CSI-2 RX, HDMI RX, ...) and display engine outputs for writeback support.
-> > > +
-> > > +properties:
-> > > +  compatible:
-> > > +    enum:
-> > > +      - fsl,imx8qxp-isi
-> > > +
-> > > +  reg:
-> > > +    maxItems: 1
-> > > +
-> > > +  clocks:
-> > > +    maxItems: 5
-> > > +
-> > > +  clock-names:
-> > > +    items:
-> > > +      - const: per0
-> > > +      - const: per4
-> > > +      - const: per5
-> > > +      - const: per6
-> > > +      - const: per7
-> > > +
-> > > +  interrupts:
-> > > +    maxItems: 5
-> > > +
-> > > +  power-domains:
-> > > +    maxItems: 5
-> >
-> > Here you have 5 channels, while the reference manual lists 8 interrupts
-> > and 6 channels in the ISI documentation.
-> 
-> QXP should only have 5 irqs and clocks. QM have 8, see above reply.
-> 
-> > > +
-> > > +  ports:
-> > > +    $ref: /schemas/graph.yaml#/properties/ports
-> > > +    properties:
-> > > +      port@2:
-> > > +        $ref: /schemas/graph.yaml#/properties/port
-> > > +        description: MIPI CSI-2 RX 0
-> > > +      port@6:
-> > > +        $ref: /schemas/graph.yaml#/properties/port
-> > > +        description: CSI-2 Parallel RX
-> >
-> > Table 15-6 in the reference manual lists the parallel port as input 4.
-> 
-> Reference manual is wrong.
-> 
-> > > +
-> > > +required:
-> > > +  - compatible
-> > > +  - reg
-> > > +  - clocks
-> > > +  - clock-names
-> > > +  - interrupts
-> > > +  - power-domains
-> > > +  - ports
-> > > +
-> > > +additionalProperties: false
-> > > +
-> > > +examples:
-> > > +  - |
-> > > +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> > > +    #include <dt-bindings/interrupt-controller/irq.h>
-> > > +    #include <dt-bindings/clock/imx8-clock.h>
-> > > +    #include <dt-bindings/clock/imx8-lpcg.h>
-> > > +    #include <dt-bindings/firmware/imx/rsrc.h>
-> > > +
-> > > +    image-controller@58100000 {
-> > > +        compatible = "fsl,imx8qxp-isi";
-> > > +        reg = <0x58100000 0x90000>;
-> >
-> > Same comment here about the registers range.
-> >
-> > > +        interrupts = <GIC_SPI 297 IRQ_TYPE_LEVEL_HIGH>,
-> > > +                     <GIC_SPI 301 IRQ_TYPE_LEVEL_HIGH>,
-> > > +                     <GIC_SPI 302 IRQ_TYPE_LEVEL_HIGH>,
-> > > +                     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH>,
-> > > +                     <GIC_SPI 304 IRQ_TYPE_LEVEL_HIGH>;
-> > > +        clocks = <&pdma0_lpcg IMX_LPCG_CLK_0>,
-> > > +                 <&pdma4_lpcg IMX_LPCG_CLK_0>,
-> > > +                 <&pdma5_lpcg IMX_LPCG_CLK_0>,
-> > > +                 <&pdma6_lpcg IMX_LPCG_CLK_0>,
-> > > +                 <&pdma7_lpcg IMX_LPCG_CLK_0>;
-> > > +        clock-names = "per0", "per4", "per5", "per6", "per7";
-> > > +        power-domains = <&pd IMX_SC_R_ISI_CH0>, <&pd IMX_SC_R_ISI_CH4>,
-> > > +                        <&pd IMX_SC_R_ISI_CH5>, <&pd IMX_SC_R_ISI_CH6>,
-> > > +                        <&pd IMX_SC_R_ISI_CH7>;
-> > > +
-> > > +        ports {
-> > > +            #address-cells = <1>;
-> > > +            #size-cells = <0>;
-> > > +
-> > > +            port@2 {
-> > > +                reg = <2>;
-> > > +                endpoint {
-> > > +                    remote-endpoint = <&mipi_csi0_out>;
-> > > +                };
-> > > +            };
-> > > +        };
-> > > +    };
-> > > +...
-> > > diff --git a/MAINTAINERS b/MAINTAINERS
-> > > index 40d1b7ec30fde..f243257ef7653 100644
-> > > --- a/MAINTAINERS
-> > > +++ b/MAINTAINERS
-> > > @@ -17000,6 +17000,7 @@ NXP i.MX 8M ISI DRIVER
-> > >  M:	Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> > >  L:	linux-media@vger.kernel.org
-> > >  S:	Maintained
-> > > +F:	Documentation/devicetree/bindings/media/fsl,imx8*-isi.yaml
-> > >  F:	Documentation/devicetree/bindings/media/nxp,imx8-isi.yaml
-> >
-> > Should nxp,imx8-isi.yaml be renamed to fsl,imx8-isi.yaml ?
-> 
-> Suppose yes, it should match one of compatible string name. This patch
-> have not touch nxp,imx8-isi.yaml. we may rename it later
-> 
-> > >  F:	drivers/media/platform/nxp/imx8-isi/
-> > >
+diff --git a/drivers/phy/qualcomm/phy-qcom-qmp-combo.c b/drivers/phy/qualcomm/phy-qcom-qmp-combo.c
+index b09fa00e9fe7db8d97b7179ee15d3f07fe578b0c..8b9710a9654ab1acf8419e7f87188cbc98f8714a 100644
+--- a/drivers/phy/qualcomm/phy-qcom-qmp-combo.c
++++ b/drivers/phy/qualcomm/phy-qcom-qmp-combo.c
+@@ -32,6 +32,7 @@
+ #include "phy-qcom-qmp-pcs-usb-v4.h"
+ #include "phy-qcom-qmp-pcs-usb-v5.h"
+ #include "phy-qcom-qmp-pcs-usb-v6.h"
++#include "phy-qcom-qmp-pcs-usb-v8.h"
+ 
+ #include "phy-qcom-qmp-dp-com-v3.h"
+ 
+@@ -212,6 +213,28 @@ static const unsigned int qmp_v6_n4_usb3phy_regs_layout[QPHY_LAYOUT_SIZE] = {
+ 	[QPHY_TX_TRANSCEIVER_BIAS_EN]	= QSERDES_V6_N4_TX_TRANSCEIVER_BIAS_EN,
+ };
+ 
++static const unsigned int qmp_v8_usb3phy_regs_layout[QPHY_LAYOUT_SIZE] = {
++	[QPHY_SW_RESET]			= QPHY_V8_PCS_SW_RESET,
++	[QPHY_START_CTRL]		= QPHY_V8_PCS_START_CONTROL,
++	[QPHY_PCS_STATUS]		= QPHY_V8_PCS_PCS_STATUS1,
++	[QPHY_PCS_POWER_DOWN_CONTROL]	= QPHY_V8_PCS_POWER_DOWN_CONTROL,
++
++	/* In PCS_USB */
++	[QPHY_PCS_AUTONOMOUS_MODE_CTRL]	= QPHY_V8_PCS_USB_AUTONOMOUS_MODE_CTRL,
++	[QPHY_PCS_LFPS_RXTERM_IRQ_CLEAR] = QPHY_V8_PCS_USB_LFPS_RXTERM_IRQ_CLEAR,
++
++	[QPHY_COM_RESETSM_CNTRL]	= QSERDES_V8_COM_RESETSM_CNTRL,
++	[QPHY_COM_C_READY_STATUS]	= QSERDES_V8_COM_C_READY_STATUS,
++	[QPHY_COM_CMN_STATUS]		= QSERDES_V8_COM_CMN_STATUS,
++	[QPHY_COM_BIAS_EN_CLKBUFLR_EN]	= QSERDES_V8_COM_BIAS_EN_CLKBUFLR_EN,
++
++	[QPHY_TX_TX_POL_INV]		= QSERDES_V8_TX_TX_POL_INV,
++	[QPHY_TX_TX_DRV_LVL]		= QSERDES_V8_TX_TX_DRV_LVL,
++	[QPHY_TX_TX_EMP_POST1_LVL]	= QSERDES_V8_TX_TX_EMP_POST1_LVL,
++	[QPHY_TX_HIGHZ_DRVR_EN]		= QSERDES_V8_TX_HIGHZ_DRVR_EN,
++	[QPHY_TX_TRANSCEIVER_BIAS_EN]	= QSERDES_V8_TX_TRANSCEIVER_BIAS_EN,
++};
++
+ static const struct qmp_phy_init_tbl qmp_v3_usb3_serdes_tbl[] = {
+ 	QMP_PHY_INIT_CFG(QSERDES_V3_COM_PLL_IVCO, 0x07),
+ 	QMP_PHY_INIT_CFG(QSERDES_V3_COM_SYSCLK_EN_SEL, 0x14),
+@@ -1471,6 +1494,139 @@ static const struct qmp_phy_init_tbl x1e80100_usb43dp_pcs_tbl[] = {
+ 	QMP_PHY_INIT_CFG(QPHY_V6_N4_PCS_EQ_CONFIG5, 0x10),
+ };
+ 
++static const struct qmp_phy_init_tbl sm8750_usb3_serdes_tbl[] = {
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_SSC_STEP_SIZE1_MODE1, 0xc0),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_SSC_STEP_SIZE2_MODE1, 0x01),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_CP_CTRL_MODE1, 0x02),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_PLL_RCTRL_MODE1, 0x16),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_PLL_CCTRL_MODE1, 0x36),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_CORECLK_DIV_MODE1, 0x04),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_LOCK_CMP1_MODE1, 0x16),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_LOCK_CMP2_MODE1, 0x41),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_DEC_START_MODE1, 0x41),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_DEC_START_MSB_MODE1, 0x00),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_DIV_FRAC_START1_MODE1, 0x55),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_DIV_FRAC_START2_MODE1, 0x75),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_DIV_FRAC_START3_MODE1, 0x01),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_HSCLK_SEL_1, 0x01),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_VCO_TUNE1_MODE1, 0x25),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_VCO_TUNE2_MODE1, 0x02),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_BIN_VCOCAL_CMP_CODE1_MODE1, 0x5c),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_BIN_VCOCAL_CMP_CODE2_MODE1, 0x0f),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_BIN_VCOCAL_CMP_CODE1_MODE0, 0x5c),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_BIN_VCOCAL_CMP_CODE2_MODE0, 0x0f),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_SSC_STEP_SIZE1_MODE0, 0xc0),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_SSC_STEP_SIZE2_MODE0, 0x01),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_CP_CTRL_MODE0, 0x02),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_PLL_RCTRL_MODE0, 0x16),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_PLL_CCTRL_MODE0, 0x36),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_LOCK_CMP1_MODE0, 0x08),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_LOCK_CMP2_MODE0, 0x1a),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_DEC_START_MODE0, 0x41),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_DEC_START_MSB_MODE0, 0x00),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_DIV_FRAC_START1_MODE0, 0x55),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_DIV_FRAC_START2_MODE0, 0x75),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_DIV_FRAC_START3_MODE0, 0x01),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_VCO_TUNE1_MODE0, 0x25),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_VCO_TUNE2_MODE0, 0x02),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_BG_TIMER, 0x0a),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_SSC_EN_CENTER, 0x01),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_SSC_PER1, 0x62),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_SSC_PER2, 0x02),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_SYSCLK_BUF_ENABLE, 0x0c),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_SYSCLK_EN_SEL, 0x1a),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_LOCK_CMP_CFG, 0x14),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_VCO_TUNE_MAP, 0x04),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_CORE_CLK_EN, 0x20),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_CMN_CONFIG_1, 0x16),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_AUTO_GAIN_ADJ_CTRL_1, 0xb6),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_AUTO_GAIN_ADJ_CTRL_2, 0x4a),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_AUTO_GAIN_ADJ_CTRL_3, 0x36),
++	QMP_PHY_INIT_CFG(QSERDES_V8_COM_ADDITIONAL_MISC, 0x0c),
++};
++
++static const struct qmp_phy_init_tbl sm8750_usb3_tx_tbl[] = {
++	QMP_PHY_INIT_CFG(QSERDES_V8_TX_RES_CODE_LANE_TX, 0x00),
++	QMP_PHY_INIT_CFG(QSERDES_V8_TX_RES_CODE_LANE_RX, 0x00),
++	QMP_PHY_INIT_CFG(QSERDES_V8_TX_RES_CODE_LANE_OFFSET_TX, 0x1f),
++	QMP_PHY_INIT_CFG(QSERDES_V8_TX_RES_CODE_LANE_OFFSET_RX, 0x09),
++	QMP_PHY_INIT_CFG(QSERDES_V8_TX_LANE_MODE_1, 0xf5),
++	QMP_PHY_INIT_CFG(QSERDES_V8_TX_LANE_MODE_3, 0x11),
++	QMP_PHY_INIT_CFG(QSERDES_V8_TX_LANE_MODE_4, 0x31),
++	QMP_PHY_INIT_CFG(QSERDES_V8_TX_LANE_MODE_5, 0x5f),
++	QMP_PHY_INIT_CFG(QSERDES_V8_TX_RCV_DETECT_LVL_2, 0x12),
++	QMP_PHY_INIT_CFG_LANE(QSERDES_V8_TX_PI_QEC_CTRL, 0x21, 1),
++	QMP_PHY_INIT_CFG_LANE(QSERDES_V8_TX_PI_QEC_CTRL, 0x05, 2),
++};
++
++static const struct qmp_phy_init_tbl sm8750_usb3_rx_tbl[] = {
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_UCDR_FO_GAIN, 0x0a),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_UCDR_SO_GAIN, 0x06),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_UCDR_FASTLOCK_FO_GAIN, 0x2f),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_UCDR_SO_SATURATION_AND_ENABLE, 0x7f),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_UCDR_FASTLOCK_COUNT_LOW, 0xff),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_UCDR_FASTLOCK_COUNT_HIGH, 0x0f),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_UCDR_PI_CONTROLS, 0x99),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_UCDR_SB2_THRESH1, 0x08),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_UCDR_SB2_THRESH2, 0x08),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_UCDR_SB2_GAIN1, 0x00),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_UCDR_SB2_GAIN2, 0x0a),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_AUX_DATA_TCOARSE_TFINE, 0x20),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_VGA_CAL_CNTRL1, 0x54),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_VGA_CAL_CNTRL2, 0x0f),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_GM_CAL, 0x13),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_RX_EQU_ADAPTOR_CNTRL2, 0x0e),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_RX_EQU_ADAPTOR_CNTRL3, 0x4a),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_RX_EQU_ADAPTOR_CNTRL4, 0x0a),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_RX_IDAC_TSETTLE_LOW, 0x07),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_RX_IDAC_TSETTLE_HIGH, 0x00),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_RX_EQ_OFFSET_ADAPTOR_CNTRL1, 0x27),
++
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_SIGDET_ENABLES, 0x0c),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_SIGDET_CNTRL, 0x04),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_SIGDET_DEGLITCH_CNTRL, 0x0e),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_RX_MODE_00_LOW, 0x3f),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_RX_MODE_00_HIGH, 0xbf),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_RX_MODE_00_HIGH2, 0xff),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_RX_MODE_00_HIGH3, 0xdf),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_RX_MODE_00_HIGH4, 0xed),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_RX_MODE_01_LOW, 0x19),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_RX_MODE_01_HIGH, 0x09),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_RX_MODE_01_HIGH2, 0x91),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_RX_MODE_01_HIGH3, 0xb7),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_RX_MODE_01_HIGH4, 0xaa),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_DFE_EN_TIMER, 0x04),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_DFE_CTLE_POST_CAL_OFFSET, 0x38),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_DCC_CTRL1, 0x0c),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_VTH_CODE, 0x10),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_SIGDET_CAL_CTRL1, 0x14),
++	QMP_PHY_INIT_CFG(QSERDES_V8_RX_SIGDET_CAL_TRIM, 0x08),
++};
++
++static const struct qmp_phy_init_tbl sm8750_usb3_pcs_tbl[] = {
++	QMP_PHY_INIT_CFG(QPHY_V8_PCS_LOCK_DETECT_CONFIG1, 0xc4),
++	QMP_PHY_INIT_CFG(QPHY_V8_PCS_LOCK_DETECT_CONFIG2, 0x89),
++	QMP_PHY_INIT_CFG(QPHY_V8_PCS_LOCK_DETECT_CONFIG3, 0x20),
++	QMP_PHY_INIT_CFG(QPHY_V8_PCS_LOCK_DETECT_CONFIG6, 0x13),
++	QMP_PHY_INIT_CFG(QPHY_V8_PCS_REFGEN_REQ_CONFIG1, 0x21),
++	QMP_PHY_INIT_CFG(QPHY_V8_PCS_RX_SIGDET_LVL, 0x55),
++	QMP_PHY_INIT_CFG(QPHY_V8_PCS_RCVR_DTCT_DLY_P1U2_L, 0xe7),
++	QMP_PHY_INIT_CFG(QPHY_V8_PCS_RCVR_DTCT_DLY_P1U2_H, 0x03),
++	QMP_PHY_INIT_CFG(QPHY_V8_PCS_CDR_RESET_TIME, 0x0a),
++	QMP_PHY_INIT_CFG(QPHY_V8_PCS_ALIGN_DETECT_CONFIG1, 0x88),
++	QMP_PHY_INIT_CFG(QPHY_V8_PCS_ALIGN_DETECT_CONFIG2, 0x13),
++	QMP_PHY_INIT_CFG(QPHY_V8_PCS_PCS_TX_RX_CONFIG, 0x0c),
++	QMP_PHY_INIT_CFG(QPHY_V8_PCS_EQ_CONFIG1, 0x4b),
++	QMP_PHY_INIT_CFG(QPHY_V8_PCS_EQ_CONFIG5, 0x10),
++};
++
++static const struct qmp_phy_init_tbl sm8750_usb3_pcs_usb_tbl[] = {
++	QMP_PHY_INIT_CFG(QPHY_V8_PCS_USB_LFPS_DET_HIGH_COUNT_VAL, 0xf8),
++	QMP_PHY_INIT_CFG(QPHY_V8_PCS_USB_RXEQTRAINING_DFE_TIME_S2, 0x07),
++	QMP_PHY_INIT_CFG(QPHY_V8_PCS_USB_RCVR_DTCT_DLY_U3_L, 0x40),
++	QMP_PHY_INIT_CFG(QPHY_V8_PCS_USB_RCVR_DTCT_DLY_U3_H, 0x00),
++};
++
+ static const struct qmp_phy_init_tbl x1e80100_usb43dp_pcs_usb_tbl[] = {
+ 	QMP_PHY_INIT_CFG(QPHY_V6_PCS_USB3_LFPS_DET_HIGH_COUNT_VAL, 0xf8),
+ 	QMP_PHY_INIT_CFG(QPHY_V6_PCS_USB3_RXEQTRAINING_DFE_TIME_S2, 0x07),
+@@ -1781,6 +1937,22 @@ static const struct qmp_combo_offsets qmp_combo_offsets_v5 = {
+ 	.dp_dp_phy	= 0x2200,
+ };
+ 
++static const struct qmp_combo_offsets qmp_combo_offsets_v8 = {
++	.com		= 0x0000,
++	.txa		= 0x1400,
++	.rxa		= 0x1600,
++	.txb		= 0x1800,
++	.rxb		= 0x1a00,
++	.usb3_serdes	= 0x1000,
++	.usb3_pcs_misc	= 0x1c00,
++	.usb3_pcs	= 0x1e00,
++	.usb3_pcs_usb	= 0x2100,
++	.dp_serdes	= 0x3000,
++	.dp_txa		= 0x3400,
++	.dp_txb		= 0x3800,
++	.dp_dp_phy	= 0x3c00,
++};
++
+ static const struct qmp_phy_cfg sar2130p_usb3dpphy_cfg = {
+ 	.offsets		= &qmp_combo_offsets_v3,
+ 
+@@ -2280,6 +2452,51 @@ static const struct qmp_phy_cfg sm8650_usb3dpphy_cfg = {
+ 	.num_vregs		= ARRAY_SIZE(qmp_phy_vreg_l),
+ };
+ 
++static const struct qmp_phy_cfg sm8750_usb3dpphy_cfg = {
++	.offsets		= &qmp_combo_offsets_v8,
++
++	.serdes_tbl		= sm8750_usb3_serdes_tbl,
++	.serdes_tbl_num		= ARRAY_SIZE(sm8750_usb3_serdes_tbl),
++	.tx_tbl			= sm8750_usb3_tx_tbl,
++	.tx_tbl_num		= ARRAY_SIZE(sm8750_usb3_tx_tbl),
++	.rx_tbl			= sm8750_usb3_rx_tbl,
++	.rx_tbl_num		= ARRAY_SIZE(sm8750_usb3_rx_tbl),
++	.pcs_tbl		= sm8750_usb3_pcs_tbl,
++	.pcs_tbl_num		= ARRAY_SIZE(sm8750_usb3_pcs_tbl),
++	.pcs_usb_tbl		= sm8750_usb3_pcs_usb_tbl,
++	.pcs_usb_tbl_num	= ARRAY_SIZE(sm8750_usb3_pcs_usb_tbl),
++
++	.dp_serdes_tbl		= qmp_v6_dp_serdes_tbl,
++	.dp_serdes_tbl_num	= ARRAY_SIZE(qmp_v6_dp_serdes_tbl),
++	.dp_tx_tbl		= qmp_v6_dp_tx_tbl,
++	.dp_tx_tbl_num		= ARRAY_SIZE(qmp_v6_dp_tx_tbl),
++
++	.serdes_tbl_rbr		= qmp_v6_dp_serdes_tbl_rbr,
++	.serdes_tbl_rbr_num	= ARRAY_SIZE(qmp_v6_dp_serdes_tbl_rbr),
++	.serdes_tbl_hbr		= qmp_v6_dp_serdes_tbl_hbr,
++	.serdes_tbl_hbr_num	= ARRAY_SIZE(qmp_v6_dp_serdes_tbl_hbr),
++	.serdes_tbl_hbr2	= qmp_v6_dp_serdes_tbl_hbr2,
++	.serdes_tbl_hbr2_num	= ARRAY_SIZE(qmp_v6_dp_serdes_tbl_hbr2),
++	.serdes_tbl_hbr3	= qmp_v6_dp_serdes_tbl_hbr3,
++	.serdes_tbl_hbr3_num	= ARRAY_SIZE(qmp_v6_dp_serdes_tbl_hbr3),
++
++	.swing_hbr_rbr		= &qmp_dp_v6_voltage_swing_hbr_rbr,
++	.pre_emphasis_hbr_rbr	= &qmp_dp_v6_pre_emphasis_hbr_rbr,
++	.swing_hbr3_hbr2	= &qmp_dp_v5_voltage_swing_hbr3_hbr2,
++	.pre_emphasis_hbr3_hbr2 = &qmp_dp_v5_pre_emphasis_hbr3_hbr2,
++
++	.dp_aux_init		= qmp_v4_dp_aux_init,
++	.configure_dp_tx	= qmp_v4_configure_dp_tx,
++	.configure_dp_phy	= qmp_v4_configure_dp_phy,
++	.calibrate_dp_phy	= qmp_v4_calibrate_dp_phy,
++
++	.regs			= qmp_v8_usb3phy_regs_layout,
++	.reset_list		= msm8996_usb3phy_reset_l,
++	.num_resets		= ARRAY_SIZE(msm8996_usb3phy_reset_l),
++	.vreg_list		= qmp_phy_vreg_l,
++	.num_vregs		= ARRAY_SIZE(qmp_phy_vreg_l),
++};
++
+ static int qmp_combo_dp_serdes_init(struct qmp_combo *qmp)
+ {
+ 	const struct qmp_phy_cfg *cfg = qmp->cfg;
+@@ -3915,6 +4132,10 @@ static const struct of_device_id qmp_combo_of_match_table[] = {
+ 		.compatible = "qcom,sm8650-qmp-usb3-dp-phy",
+ 		.data = &sm8650_usb3dpphy_cfg,
+ 	},
++	{
++		.compatible = "qcom,sm8750-qmp-usb3-dp-phy",
++		.data = &sm8750_usb3dpphy_cfg,
++	},
+ 	{
+ 		.compatible = "qcom,x1e80100-qmp-usb3-dp-phy",
+ 		.data = &x1e80100_usb3dpphy_cfg,
+diff --git a/drivers/phy/qualcomm/phy-qcom-qmp-pcs-usb-v8.h b/drivers/phy/qualcomm/phy-qcom-qmp-pcs-usb-v8.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..89ace8024bc0bde55b5a590f67d906b893c197a1
+--- /dev/null
++++ b/drivers/phy/qualcomm/phy-qcom-qmp-pcs-usb-v8.h
+@@ -0,0 +1,38 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (c) 2025 Qualcomm Innovation Center, Inc. All rights reserved.
++ */
++
++#ifndef QCOM_PHY_QMP_PCS_USB_V8_H_
++#define QCOM_PHY_QMP_PCS_USB_V8_H_
++
++#define QPHY_V8_PCS_USB_POWER_STATE_CONFIG1		0x00
++#define QPHY_V8_PCS_USB_AUTONOMOUS_MODE_STATUS		0x04
++#define QPHY_V8_PCS_USB_AUTONOMOUS_MODE_CTRL		0x08
++#define QPHY_V8_PCS_USB_AUTONOMOUS_MODE_CTRL2		0x0c
++#define QPHY_V8_PCS_USB_LFPS_RXTERM_IRQ_SOURCE_STATUS	0x10
++#define QPHY_V8_PCS_USB_LFPS_RXTERM_IRQ_CLEAR		0x14
++#define QPHY_V8_PCS_USB_LFPS_DET_HIGH_COUNT_VAL		0x18
++#define QPHY_V8_PCS_USB_LFPS_TX_ECSTART			0x1c
++#define QPHY_V8_PCS_USB_LFPS_PER_TIMER_VAL		0x20
++#define QPHY_V8_PCS_USB_LFPS_TX_END_CNT_U3_START	0x24
++#define QPHY_V8_PCS_USB_LFPS_CONFIG1			0x28
++#define QPHY_V8_PCS_USB_RXEQTRAINING_LOCK_TIME		0x2c
++#define QPHY_V8_PCS_USB_RXEQTRAINING_WAIT_TIME		0x30
++#define QPHY_V8_PCS_USB_RXEQTRAINING_CTLE_TIME		0x34
++#define QPHY_V8_PCS_USB_RXEQTRAINING_WAIT_TIME_S2	0x38
++#define QPHY_V8_PCS_USB_RXEQTRAINING_DFE_TIME_S2	0x3c
++#define QPHY_V8_PCS_USB_RCVR_DTCT_DLY_U3_L		0x40
++#define QPHY_V8_PCS_USB_RCVR_DTCT_DLY_U3_H		0x44
++#define QPHY_V8_PCS_USB_ARCVR_DTCT_EN_PERIOD		0x48
++#define QPHY_V8_PCS_USB_ARCVR_DTCT_CM_DLY		0x4c
++#define QPHY_V8_PCS_USB_TXONESZEROS_RUN_LENGTH		0x50
++#define QPHY_V8_PCS_USB_ALFPS_DEGLITCH_VAL		0x54
++#define QPHY_V8_PCS_USB_SIGDET_STARTUP_TIMER_VAL	0x58
++#define QPHY_V8_PCS_USB_TEST_CONTROL			0x5c
++#define QPHY_V8_PCS_USB_RXTERMINATION_DLY_SEL		0x60
++#define QPHY_V8_PCS_USB_POWER_STATE_CONFIG2		0x64
++#define QPHY_V8_PCS_USB_POWER_STATE_CONFIG3		0x68
++#define QPHY_V8_PCS_USB_POWER_STATE_CONFIG4		0x6c
++
++#endif
+diff --git a/drivers/phy/qualcomm/phy-qcom-qmp-pcs-v8.h b/drivers/phy/qualcomm/phy-qcom-qmp-pcs-v8.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..169fd5de74747c8c9a833a629d8000875168a6ff
+--- /dev/null
++++ b/drivers/phy/qualcomm/phy-qcom-qmp-pcs-v8.h
+@@ -0,0 +1,32 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (c) 2025 Qualcomm Innovation Center, Inc. All rights reserved.
++ */
++
++#ifndef QCOM_PHY_QMP_PCS_V8_H_
++#define QCOM_PHY_QMP_PCS_V8_H_
++
++/* Only for QMP V8 PHY - USB/PCIe PCS registers */
++#define QPHY_V8_PCS_SW_RESET			0x000
++#define QPHY_V8_PCS_PCS_STATUS1			0x014
++#define QPHY_V8_PCS_POWER_DOWN_CONTROL		0x040
++#define QPHY_V8_PCS_START_CONTROL		0x044
++#define QPHY_V8_PCS_POWER_STATE_CONFIG1		0x090
++#define QPHY_V8_PCS_LOCK_DETECT_CONFIG1		0x0c4
++#define QPHY_V8_PCS_LOCK_DETECT_CONFIG2		0x0c8
++#define QPHY_V8_PCS_LOCK_DETECT_CONFIG3		0x0cc
++#define QPHY_V8_PCS_LOCK_DETECT_CONFIG6		0x0d8
++#define QPHY_V8_PCS_REFGEN_REQ_CONFIG1		0x0dc
++#define QPHY_V8_PCS_RX_SIGDET_LVL		0x188
++#define QPHY_V8_PCS_RCVR_DTCT_DLY_P1U2_L	0x190
++#define QPHY_V8_PCS_RCVR_DTCT_DLY_P1U2_H	0x194
++#define QPHY_V8_PCS_RATE_SLEW_CNTRL1		0x198
++#define QPHY_V8_PCS_CDR_RESET_TIME		0x1b0
++#define QPHY_V8_PCS_ALIGN_DETECT_CONFIG1	0x1c0
++#define QPHY_V8_PCS_ALIGN_DETECT_CONFIG2	0x1c4
++#define QPHY_V8_PCS_PCS_TX_RX_CONFIG		0x1d0
++#define QPHY_V8_PCS_EQ_CONFIG1			0x1dc
++#define QPHY_V8_PCS_EQ_CONFIG2			0x1e0
++#define QPHY_V8_PCS_EQ_CONFIG5			0x1ec
++
++#endif
+diff --git a/drivers/phy/qualcomm/phy-qcom-qmp-qserdes-com-v8.h b/drivers/phy/qualcomm/phy-qcom-qmp-qserdes-com-v8.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..d3b2292257bc521cb66562a5b6bfae8dc8c92cc1
+--- /dev/null
++++ b/drivers/phy/qualcomm/phy-qcom-qmp-qserdes-com-v8.h
+@@ -0,0 +1,64 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (c) 2025 Qualcomm Innovation Center, Inc. All rights reserved.
++ */
++
++#ifndef QCOM_PHY_QMP_QSERDES_COM_V8_H_
++#define QCOM_PHY_QMP_QSERDES_COM_V8_H_
++
++/* Only for QMP V8 PHY - QSERDES COM registers */
++#define QSERDES_V8_COM_SSC_STEP_SIZE1_MODE1		0x000
++#define QSERDES_V8_COM_SSC_STEP_SIZE2_MODE1		0x004
++#define QSERDES_V8_COM_SSC_STEP_SIZE3_MODE1		0x008
++#define QSERDES_V8_COM_CP_CTRL_MODE1			0x010
++#define QSERDES_V8_COM_PLL_RCTRL_MODE1			0x014
++#define QSERDES_V8_COM_PLL_CCTRL_MODE1			0x018
++#define QSERDES_V8_COM_CORECLK_DIV_MODE1		0x01c
++#define QSERDES_V8_COM_LOCK_CMP1_MODE1			0x020
++#define QSERDES_V8_COM_LOCK_CMP2_MODE1			0x024
++#define QSERDES_V8_COM_DEC_START_MODE1			0x028
++#define QSERDES_V8_COM_DEC_START_MSB_MODE1		0x02c
++#define QSERDES_V8_COM_DIV_FRAC_START1_MODE1		0x030
++#define QSERDES_V8_COM_DIV_FRAC_START2_MODE1		0x034
++#define QSERDES_V8_COM_DIV_FRAC_START3_MODE1		0x038
++#define QSERDES_V8_COM_HSCLK_SEL_1			0x03c
++#define QSERDES_V8_COM_VCO_TUNE1_MODE1			0x048
++#define QSERDES_V8_COM_VCO_TUNE2_MODE1			0x04c
++#define QSERDES_V8_COM_BIN_VCOCAL_CMP_CODE1_MODE1	0x050
++#define QSERDES_V8_COM_BIN_VCOCAL_CMP_CODE2_MODE1	0x054
++#define QSERDES_V8_COM_BIN_VCOCAL_CMP_CODE1_MODE0	0x058
++#define QSERDES_V8_COM_BIN_VCOCAL_CMP_CODE2_MODE0	0x05c
++#define QSERDES_V8_COM_SSC_STEP_SIZE1_MODE0		0x060
++#define QSERDES_V8_COM_SSC_STEP_SIZE2_MODE0		0x064
++#define QSERDES_V8_COM_CP_CTRL_MODE0			0x070
++#define QSERDES_V8_COM_PLL_RCTRL_MODE0			0x074
++#define QSERDES_V8_COM_PLL_CCTRL_MODE0			0x078
++#define QSERDES_V8_COM_LOCK_CMP1_MODE0			0x080
++#define QSERDES_V8_COM_LOCK_CMP2_MODE0			0x084
++#define QSERDES_V8_COM_DEC_START_MODE0			0x088
++#define QSERDES_V8_COM_DEC_START_MSB_MODE0		0x08c
++#define QSERDES_V8_COM_DIV_FRAC_START1_MODE0		0x090
++#define QSERDES_V8_COM_DIV_FRAC_START2_MODE0		0x094
++#define QSERDES_V8_COM_DIV_FRAC_START3_MODE0		0x098
++#define QSERDES_V8_COM_VCO_TUNE1_MODE0			0x0a8
++#define QSERDES_V8_COM_VCO_TUNE2_MODE0			0x0ac
++#define QSERDES_V8_COM_BG_TIMER				0x0bc
++#define QSERDES_V8_COM_SSC_EN_CENTER			0x0c0
++#define QSERDES_V8_COM_SSC_PER1				0x0cc
++#define QSERDES_V8_COM_SSC_PER2				0x0d0
++#define QSERDES_V8_COM_BIAS_EN_CLKBUFLR_EN		0x0dc
++#define QSERDES_V8_COM_SYSCLK_BUF_ENABLE		0x0e8
++#define QSERDES_V8_COM_SYSCLK_EN_SEL			0x110
++#define QSERDES_V8_COM_RESETSM_CNTRL			0x118
++#define QSERDES_V8_COM_LOCK_CMP_CFG			0x124
++#define QSERDES_V8_COM_VCO_TUNE_MAP			0x140
++#define QSERDES_V8_COM_CORE_CLK_EN			0x170
++#define QSERDES_V8_COM_CMN_CONFIG_1			0x174
++#define QSERDES_V8_COM_AUTO_GAIN_ADJ_CTRL_1		0x1a4
++#define QSERDES_V8_COM_AUTO_GAIN_ADJ_CTRL_2		0x1a8
++#define QSERDES_V8_COM_AUTO_GAIN_ADJ_CTRL_3		0x1ac
++#define QSERDES_V8_COM_ADDITIONAL_MISC			0x1b4
++#define QSERDES_V8_COM_CMN_STATUS			0x2c8
++#define QSERDES_V8_COM_C_READY_STATUS			0x2f0
++
++#endif
+diff --git a/drivers/phy/qualcomm/phy-qcom-qmp-qserdes-txrx-v8.h b/drivers/phy/qualcomm/phy-qcom-qmp-qserdes-txrx-v8.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..4cb8b1708607ab35760fb15f3e524872334d9b40
+--- /dev/null
++++ b/drivers/phy/qualcomm/phy-qcom-qmp-qserdes-txrx-v8.h
+@@ -0,0 +1,68 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (c) 2025 Qualcomm Innovation Center, Inc. All rights reserved.
++ */
++
++#ifndef QCOM_PHY_QMP_QSERDES_TXRX_V8_H_
++#define QCOM_PHY_QMP_QSERDES_TXRX_V8_H_
++
++#define QSERDES_V8_TX_TX_EMP_POST1_LVL			0x00c
++#define QSERDES_V8_TX_TX_DRV_LVL			0x014
++#define QSERDES_V8_TX_RES_CODE_LANE_TX			0x034
++#define QSERDES_V8_TX_RES_CODE_LANE_RX			0x038
++#define QSERDES_V8_TX_RES_CODE_LANE_OFFSET_TX		0x03c
++#define QSERDES_V8_TX_RES_CODE_LANE_OFFSET_RX		0x040
++#define QSERDES_V8_TX_TRANSCEIVER_BIAS_EN		0x054
++#define QSERDES_V8_TX_HIGHZ_DRVR_EN			0x058
++#define QSERDES_V8_TX_TX_POL_INV			0x05c
++#define QSERDES_V8_TX_LANE_MODE_1			0x084
++#define QSERDES_V8_TX_LANE_MODE_2			0x088
++#define QSERDES_V8_TX_LANE_MODE_3			0x08c
++#define QSERDES_V8_TX_LANE_MODE_4			0x090
++#define QSERDES_V8_TX_LANE_MODE_5			0x094
++#define QSERDES_V8_TX_RCV_DETECT_LVL_2			0x0a4
++#define QSERDES_V8_TX_PI_QEC_CTRL			0x0e4
++
++#define QSERDES_V8_RX_UCDR_FO_GAIN			0x008
++#define QSERDES_V8_RX_UCDR_SO_GAIN			0x014
++#define QSERDES_V8_RX_UCDR_SVS_FO_GAIN			0x020
++#define QSERDES_V8_RX_UCDR_FASTLOCK_FO_GAIN		0x030
++#define QSERDES_V8_RX_UCDR_SO_SATURATION_AND_ENABLE	0x034
++#define QSERDES_V8_RX_UCDR_FASTLOCK_COUNT_LOW		0x03c
++#define QSERDES_V8_RX_UCDR_FASTLOCK_COUNT_HIGH		0x040
++#define QSERDES_V8_RX_UCDR_PI_CONTROLS			0x044
++#define QSERDES_V8_RX_UCDR_SB2_THRESH1			0x04c
++#define QSERDES_V8_RX_UCDR_SB2_THRESH2			0x050
++#define QSERDES_V8_RX_UCDR_SB2_GAIN1			0x054
++#define QSERDES_V8_RX_UCDR_SB2_GAIN2			0x058
++#define QSERDES_V8_RX_AUX_DATA_TCOARSE_TFINE		0x060
++#define QSERDES_V8_RX_VGA_CAL_CNTRL1			0x0d4
++#define QSERDES_V8_RX_VGA_CAL_CNTRL2			0x0d8
++#define QSERDES_V8_RX_GM_CAL				0x0dc
++#define QSERDES_V8_RX_RX_EQU_ADAPTOR_CNTRL2		0x0ec
++#define QSERDES_V8_RX_RX_EQU_ADAPTOR_CNTRL3		0x0f0
++#define QSERDES_V8_RX_RX_EQU_ADAPTOR_CNTRL4		0x0f4
++#define QSERDES_V8_RX_RX_IDAC_TSETTLE_LOW		0x0f8
++#define QSERDES_V8_RX_RX_IDAC_TSETTLE_HIGH		0x0fc
++#define QSERDES_V8_RX_RX_EQ_OFFSET_ADAPTOR_CNTRL1	0x110
++#define QSERDES_V8_RX_SIGDET_ENABLES			0x118
++#define QSERDES_V8_RX_SIGDET_CNTRL			0x11c
++#define QSERDES_V8_RX_SIGDET_DEGLITCH_CNTRL		0x124
++#define QSERDES_V8_RX_RX_MODE_00_LOW			0x15c
++#define QSERDES_V8_RX_RX_MODE_00_HIGH			0x160
++#define QSERDES_V8_RX_RX_MODE_00_HIGH2			0x164
++#define QSERDES_V8_RX_RX_MODE_00_HIGH3			0x168
++#define QSERDES_V8_RX_RX_MODE_00_HIGH4			0x16c
++#define QSERDES_V8_RX_RX_MODE_01_LOW			0x170
++#define QSERDES_V8_RX_RX_MODE_01_HIGH			0x174
++#define QSERDES_V8_RX_RX_MODE_01_HIGH2			0x178
++#define QSERDES_V8_RX_RX_MODE_01_HIGH3			0x17c
++#define QSERDES_V8_RX_RX_MODE_01_HIGH4			0x180
++#define QSERDES_V8_RX_DFE_EN_TIMER			0x1a0
++#define QSERDES_V8_RX_DFE_CTLE_POST_CAL_OFFSET		0x1a4
++#define QSERDES_V8_RX_DCC_CTRL1				0x1a8
++#define QSERDES_V8_RX_VTH_CODE				0x1b0
++#define QSERDES_V8_RX_SIGDET_CAL_CTRL1			0x1e4
++#define QSERDES_V8_RX_SIGDET_CAL_TRIM			0x1f8
++
++#endif
+diff --git a/drivers/phy/qualcomm/phy-qcom-qmp.h b/drivers/phy/qualcomm/phy-qcom-qmp.h
+index d0f41e4aaa855fc3ee088afc833b214277b7e2b0..8148853ff275b0526cb47a158d332af1d74e0abf 100644
+--- a/drivers/phy/qualcomm/phy-qcom-qmp.h
++++ b/drivers/phy/qualcomm/phy-qcom-qmp.h
+@@ -30,6 +30,9 @@
+ #include "phy-qcom-qmp-qserdes-com-v7.h"
+ #include "phy-qcom-qmp-qserdes-txrx-v7.h"
+ 
++#include "phy-qcom-qmp-qserdes-com-v8.h"
++#include "phy-qcom-qmp-qserdes-txrx-v8.h"
++
+ #include "phy-qcom-qmp-qserdes-pll.h"
+ 
+ #include "phy-qcom-qmp-pcs-v2.h"
+@@ -52,6 +55,8 @@
+ 
+ #include "phy-qcom-qmp-pcs-v7.h"
+ 
++#include "phy-qcom-qmp-pcs-v8.h"
++
+ /* QPHY_SW_RESET bit */
+ #define SW_RESET				BIT(0)
+ /* QPHY_POWER_DOWN_CONTROL */
 
 -- 
-Regards,
+2.48.1
 
-Laurent Pinchart
 
