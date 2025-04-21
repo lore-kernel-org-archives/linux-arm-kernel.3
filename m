@@ -4,98 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F309C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 07:33:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89B6DC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 07:42:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wo5wY1cvATyeeavf6eQ0ipBOO0tft+1YBbVluhD/UTE=; b=4JBn9oLwlIpDBPDg5l+XKQYrWC
-	weoFad1tOpNMthvICOBjoSAN2im8N8jbF4SZrWgFxd2mwx40qjbOuAKAUytQbKnnwsJy1wGVf46On
-	8FRFbkP8auRJurailk34gDs4/TijSs7M8HEpgdK187WTBdnZJAyb4vTNTRzp7Ut6eVrhwxAIiWEsh
-	bFAtYj1FcnG7TgVY7sQvGkt6MS20ltdykiEwSfsWjDHbdkiZzP8Iy41hQT30KGsvjk07DA72/Em1E
-	oMJ+5W+afQv6mao5seS+u49YJjTSGBzc7nwMX1Kc9CUmab/qgHZYhYRt9TphTAUYcCM5tOS0CHfqh
-	D2Qk+YDw==;
+	bh=utvtmBrKSHpwS1D2hE8oOEHOvnrmU7PnX27BvTcx6Hc=; b=YIgKV06a6OWD5p9cq/bVzZtlBL
+	ELbadedHPRNu//JKO0rTT3C8EOYSFU0dnvoF2IT5NyySu8JiZ2rIfokAAaEbOJIffKpd7me84malg
+	AoG/GQhceA0Jfv3ciM/eKOMY7oTEnmxqpEIWN1/ujhOk+gSsfWp0ZI3w6MECXtS9IwaCDE3XPrhz6
+	21PoFqaiHMQWJHTpNhmclCzPN26xQuua4yRNep9hruRq6QHemJTb3dpaiUTjr8/jAU/81PHulNDGU
+	RB3HD1CbITNnx13RUw01eWOUVCuMDJszojGufV8K+E5dq7netRfM7oxTINNSv22UouQE24FYYV3oG
+	fl1sMz9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6leP-00000003o51-3vsF;
-	Mon, 21 Apr 2025 07:33:09 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u6ln1-00000003osj-0b00;
+	Mon, 21 Apr 2025 07:42:03 +0000
+Received: from mail-vi1eur05on2061b.outbound.protection.outlook.com ([2a01:111:f403:2613::61b] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6lay-00000003nLy-45CE
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 21 Apr 2025 07:29:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Wo5wY1cvATyeeavf6eQ0ipBOO0tft+1YBbVluhD/UTE=; b=b7vV3A05+fDllqpKgFw/xvLs2e
-	GkBlhHHMmnq8rIL6FFzxKl3DSezVRiCcsbU27pDC7DhBIOHDQy1bz0jOKQCrwNk8feqkMGz8mreQ1
-	0goPqFPjrpVL6NUjd/EaEm3rF4P9qbPboDWOxpQaEuJhPGlCjbbcGQqZY30fWFVeMD6yt/GcZvs1w
-	l+4jlqTK3RKtZsTjahEyj7R8iWxoIkApm6aQjVqbhheXKaq/6AT3KTNJqWZTMPNqOE8kT+m8SxwkJ
-	9T1e2kMiu//aY7SKPsTSTLAQVRTI+jbqKlPpwBTLCfaoXsGrW1NbqUo30N2Qxuu8+DnGOzG2WZpqj
-	OS296xqg==;
-Received: from mgamail.intel.com ([198.175.65.20])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u6lau-0000000B0n2-1xA8
+	id 1u6llA-00000003oaQ-0RrV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Apr 2025 07:29:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1745220573; x=1776756573;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=01/f1NraBtWpGWUC221XvSWIgnjPGGgSGxblojkWilk=;
-  b=CjEcuDtvxJxcnBmgjgFZnU8v7wEuo9pT4k1H1XwrdXqEwfUkxPoMcmN2
-   mG0v0hzGAQhF9z0ni4Y7+slmL6Ga96kFzNzucHtH1n9I4K/PqnbaBCs+0
-   wfjjeXnurhq1OR9TFBx53QZj8hpf3tA72Io7br2gaGUVKckoKur6ZAFc8
-   aKKC9o0QbY5JnxVr4Utzx/zaLll6P7SewjvBt/WtB+JSe/9g4v9QCL4bg
-   PbRE7/PVu0H/InjWdH27zlj6O9jgXagnSNNDWEIN9KXQ72bCfNlZhofcP
-   h2eYf8xbwShmaJ3x0/nisbPFIfQMBxFZe3QBFhmv2L+NlkzM+auVKUneu
-   w==;
-X-CSE-ConnectionGUID: 4stEt9M0S1+9g5yDqY872w==
-X-CSE-MsgGUID: 1Xb2l67ZRCeBzXz0xoBuow==
-X-IronPort-AV: E=McAfee;i="6700,10204,11409"; a="46458362"
-X-IronPort-AV: E=Sophos;i="6.15,227,1739865600"; 
-   d="scan'208";a="46458362"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Apr 2025 00:29:26 -0700
-X-CSE-ConnectionGUID: oPu2/drdQy2zzZf0R09YaA==
-X-CSE-MsgGUID: jIHOrVRJS62KkkGTBy1ktQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,227,1739865600"; 
-   d="scan'208";a="131950489"
-Received: from lkp-server01.sh.intel.com (HELO 9c2f37e2d822) ([10.239.97.150])
-  by fmviesa008.fm.intel.com with ESMTP; 21 Apr 2025 00:29:23 -0700
-Received: from kbuild by 9c2f37e2d822 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1u6lai-0000Ep-1f;
-	Mon, 21 Apr 2025 07:29:20 +0000
-Date: Mon, 21 Apr 2025 15:28:48 +0800
-From: kernel test robot <lkp@intel.com>
-To: Troy Mitchell <troymitchell988@gmail.com>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Andi Shyti <andi.shyti@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-i2c@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Troy Mitchell <troymitchell988@gmail.com>,
-	Yongchao Jia <jyc0019@gmail.com>
-Subject: Re: [PATCH 1/2] i2c: imx: use guard to take spinlock
-Message-ID: <202504211501.MNwGdl5F-lkp@intel.com>
-References: <20250421-i2c-imx-update-v1-1-1137f1f353d5@gmail.com>
+	Mon, 21 Apr 2025 07:40:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=zCoT/XbgRr+pMbydjuDGx1ZqNsX9l0uV15OhJdCtTV45u7RYRQ/0APkRArwrz+hB+8l1bDwEI8WF+MLMCzpNafOdslCe5WdktcEwZjm7Rjksnzn/jOTI+AMiNr8UnnE4qrL7dGby2US8y1tGMo0Rr5fTHqG1fffHTj9lwtXqhoZkbEn0UIEBesNBow+Ui0NqPIsXqrNNsUsZQ6zKuRnH7l1WYTOZfnCLR98l7dvQYEWklOjD0A9udtqyU4SqhaUQO7dspfqoA/KZz+aJi8WkHOjU8PEn7vNAd9H+i7mCokKiuKSO/66IAzHXzB0eGM9MzduY66mBPZANP/xWy7pQoA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=utvtmBrKSHpwS1D2hE8oOEHOvnrmU7PnX27BvTcx6Hc=;
+ b=aW+71Kgl4rOAb2JRztSk+eChqPAL7cO/4wx9j2bbZwigpj2pznmxeYizICnObVvtB4twAPdkDtw6uXautpsQXf0wMn5dQNwPw/x3G08F6yLzswqTqlnenJcNngh2lsFXoskKCyfTc9ErXg9CfRQaw3iD+bGxTomXDgJ+EnrwHC3Be9qkaRmY1TaXLOLxll/E+bYoH3EhvowTG3jAUszKc0GtGijNSMgRAI2Il/gs2YquGkuP8mIl5yIqWy6bDD6vjB880ZUPpZeRbbSLcr8oOWaQr3diGh9B9jBjoe9LQ5Hn6XTq2gLc/mkAN4yV4k0m/QziP6+aMp6L6p0UcJt5og==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=utvtmBrKSHpwS1D2hE8oOEHOvnrmU7PnX27BvTcx6Hc=;
+ b=n50I6UCLMkAeIpLg3dvLSV95R3seuSbEvesjnwCFN/M2OfsNGtiiyQYz/R8e2Rtflchhl7mOUnStJPlAnpSG9GKO/xlN20minXwKHns94sF/UXBW8ZiE8RIs3lmXOUGwT8FGhWbRK2hI2ul29p3XR4FG6wn4lybCLIpOATFnuIi+hiwc9kZjAThS2ljbCJaijcpsNfqFiUzYZaZHwZlCMBILffS0aijovcjenDFlzFpmCMQ+Sm3RCRd8icVRvsbdpnSF+Cl8/cW92cKoerLJE+weZe5p5ekPneWjz/uQbHIZiWtz+ddPBRjXWptPkzXUo6T5Rr+sBAJg3MZARuSI3g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
+ by DBBPR04MB7675.eurprd04.prod.outlook.com (2603:10a6:10:207::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.22; Mon, 21 Apr
+ 2025 07:40:02 +0000
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::2755:55ac:5d6f:4f87%4]) with mapi id 15.20.8655.033; Mon, 21 Apr 2025
+ 07:40:02 +0000
+Message-ID: <34b8d290-4b33-4d26-86c4-b7da08a735a0@oss.nxp.com>
+Date: Mon, 21 Apr 2025 15:39:54 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/5] media: imx-jpeg: Reset slot data pointers when
+ free data
+To: Nicolas Dufresne <nicolas@ndufresne.ca>, mchehab@kernel.org,
+ hverkuil-cisco@xs4all.nl, mirela.rabulea@oss.nxp.com
+Cc: shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+ festevam@gmail.com, xiahong.bao@nxp.com, eagle.zhou@nxp.com,
+ linux-imx@nxp.com, imx@lists.linux.dev, linux-media@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20250418070826.141-1-ming.qian@oss.nxp.com>
+ <20250418070826.141-3-ming.qian@oss.nxp.com>
+ <22e43e927514ebfc20e97f2bfd5fd52899820627.camel@ndufresne.ca>
+From: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>
+In-Reply-To: <22e43e927514ebfc20e97f2bfd5fd52899820627.camel@ndufresne.ca>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SG2PR04CA0172.apcprd04.prod.outlook.com (2603:1096:4::34)
+ To PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250421-i2c-imx-update-v1-1-1137f1f353d5@gmail.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|DBBPR04MB7675:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9729135b-60b5-4e3e-e0fd-08dd80a7b9c7
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?WEdWSm13RW1UTGNmZjlUQ29rbFRWMm44TmNQY3NQSUtvMEYwSzlhbkpGYlVl?=
+ =?utf-8?B?SGxvZkUxZXFGTlhaYXYwTENMSFE3czZ5VDVndCtLWElSS0JCWEZyeWprQlAz?=
+ =?utf-8?B?NGNNTVdCVjVpd2NRVVdQc0RJR3QwZzdpbk5xSDVsalJCMHFjS1doanBXN1M5?=
+ =?utf-8?B?ZUtoTkxMRnNJeXNxeUl1S3hkWUxUek5iZnRyWUVxYXVJT1FDUmk3ajZyWk1X?=
+ =?utf-8?B?dlZ5WURJbW1MdGdKdUsxZXYzNDlBM2dOWkNuOW9Ld09FUys2MWd5SkhvTGVE?=
+ =?utf-8?B?ZWhlSEtWTnk1MWlQTG9sc1B4NGxnd3pGYWs1VjRGT2hHUGVteDFPcVljT3Z1?=
+ =?utf-8?B?Mms4SHpwV3NTMG82SFVYaGUrYmV0ZGZRZjFUc2ljNUtHNVhPWEQ3K1FJTVUy?=
+ =?utf-8?B?dk9Dc004K1Voa2lrT3lkblpBeGdXcm5hcmVZaUkzUGF4MThrZWtmT1I2UGpt?=
+ =?utf-8?B?Y2NORUdmTGMrSTZKcmFmVkpuQlRZWUFJaHVQdURvN3hmUm01ZXNGbTFPNlM0?=
+ =?utf-8?B?ZUgvQUlqM0RvTEIvTkpGZ083RGk5OUZjWWlHZFVJY1RIZ1VOOHFGcDMxeC9S?=
+ =?utf-8?B?WUY1WFNFWnNLaWlTVFlMcjhJdENaZU54WkZrbnhqQXJ6UXUzcEgxSUFKWHho?=
+ =?utf-8?B?UWVKbHFydkNGMXF2c1ZoQ1pzRFMzVUxOWHlQQlUyQlZjMzBVWkowRDdJeXN2?=
+ =?utf-8?B?a2E4WGdMMHlNNXBUOFBCWDFTUkVaMWk0Vy9nWjZZUWw2RHp6VTZlc3dqSW93?=
+ =?utf-8?B?ZkNmYU1aRERFc0xhUWdDU2k1cC9QanFZTkJqU1BnbWxnNUFIaWlPQ0xWS0ND?=
+ =?utf-8?B?N0loNUMzS0lKQUxTQTdDdkhhaVErSjdCaE5mQTZvNTlUMWtxeDFFOHJoYzBE?=
+ =?utf-8?B?eEtjNUxSS2xZM1lLdHMzOFl2d2l6R2dGTHVGVS96RW1tVUM1cGtFZStHNk9D?=
+ =?utf-8?B?dTVEYkJjQ1c2U001ZkM1WExhMkU2WERrUmNpVEp6TnRkUzc1TS96TjRaOWtj?=
+ =?utf-8?B?R0pCaDZRMFdzSjZPc2didkxXeHRqVGFtWm85Q2RWSUQ5VXZKMlFTcTAyTDZX?=
+ =?utf-8?B?cTZxZG5uQUt5TEs4SmpBY3c4SzVoWks5aDJrWDgyV3VKTHNjcTN4ZnJVVURr?=
+ =?utf-8?B?azJpMTkxL1pSU3hWZGt3dFYwUnRpM2VMM21SVm5CM1p1TFV0WHdoSDZ1czl2?=
+ =?utf-8?B?eVZkbXBDbHY2V2pJZElzRVpBbjFxNnBEb3NvdDltR0hYTnl2ek9EWTQvbDJt?=
+ =?utf-8?B?T3RvQy9FZndVc05DU2VxUlZxNVQzZnNBYTVFZmplNlFmdkJtZTR4OHREOFp0?=
+ =?utf-8?B?emxaaVYzRlBndzh6M0E1Vkh4NE9hemlmcjhwZG44Rm5aVHlNNmN5aktEZzFE?=
+ =?utf-8?B?T3RPSFhGY2Z2eEpmYWwzSXh3enhrekgzRW9Gc3N2eEp6MHJ0dVoxRWR3eFRY?=
+ =?utf-8?B?ejJ6cytPbTJiYjl3bk9zTFh4YW1HU2xINS9sMU40RFhVZ0lKNVlNdGNYaWFF?=
+ =?utf-8?B?a1UzcGFIWHpMZExDeXNJN3lBM2pNL0xiY3lkYk0zYjlRN1hJbjdvYmZOUGZr?=
+ =?utf-8?B?NExHK210bkxWZURxZTlzbXBZZ0QxR3JoeW9NWFVmdEVNNkRZRmlKdE1DVHNQ?=
+ =?utf-8?B?ck5DblNCSGtDRUVWbUlLV2lmVmtZMDQyMzQwMktzcFk1ZW9MWGVNaTIrZUNJ?=
+ =?utf-8?B?NXNIdERCMUNZaUJXKzQ3NHc4Tnh1WEUvZERBNVpucGRoUnFTcUxpZHl2THNr?=
+ =?utf-8?B?bXZjLzdWam41UTcvRlZXbCtHZjVwNmdCaUFYYXV1UU5zNmw2dkVUNGg0dzBD?=
+ =?utf-8?B?MU51aEpyVzdOa2tGaEZCVDNzOFMwOFZPK1E3SWI0YkJhakFhR0w5eUlUUHZO?=
+ =?utf-8?B?eUdaWitBR1FKRFNOZWxGS0V6c1ExMXZmQ2xYemxFRGg4ZktoSGtXcGVBMzlH?=
+ =?utf-8?Q?Zxwhhgu+NSo=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Mk40Q3NRdko3ekszdzdYNzd4ek56SHZseEk5eDFDcys3aVZudVVzWFVoRlZB?=
+ =?utf-8?B?ZDU2eG4zRlZCbW1ESkpReHlqR3ZRYnFIcm1CS1djenpIN1lBYjBTUGFaNFd4?=
+ =?utf-8?B?ckh1aVJqQmFrSkd4NDcrMHpSZ0FPYThoVFUwNGVzeVRpSUZwK2pNdTdLSUdL?=
+ =?utf-8?B?Um8reDZxa2hadmVxd2Nmd3NUZ1oyVy9jclJNWVpROUtYRkhrRDErRkdHWFRK?=
+ =?utf-8?B?SEFSUEdzdFZJVmVXZDl2THhUcW5jejErcldoUUFFR29GbmhPblNPdHJRMkV6?=
+ =?utf-8?B?SHppSlVFeXVzeThOdWs3NXJ6TFBlVUlueUlaQnRVSXNRcGtrUk5oMTBVODFT?=
+ =?utf-8?B?Zjl0UHJMTm04V0cwakk1Zm1LenhmWHhzN2wzamFvdDYyYTJ1eHlDTC9iUGE4?=
+ =?utf-8?B?QjBqM0hVL00rUDEzaVFLVnN2RDBUNk1DOFFCM2RrNkJIRGJ3NnNkUFR0VktH?=
+ =?utf-8?B?WmJucEdybjFiOEVhMjRLSkk5d0ZrVjZzR210ZEpGTmx3ZUxWYlN2UGhOaks5?=
+ =?utf-8?B?VjBGSmJGYVN6Q0QyeW1SUmxjRWc5SDJhcUdaeVI1QVFlQXR3UnRWNDlwMjYx?=
+ =?utf-8?B?YXU2b3dMQVl5dlRvdGV2bnRjMkIwU3B4cm52c0g1ZWhNSXdhaWlSek1hNVlX?=
+ =?utf-8?B?RWEwaTJTWmxHTW0zUURPWGRjVlFFNktRMVFZQjgveFd3dmNQZ0ZOeXgrUlNS?=
+ =?utf-8?B?UG9uZitiNmlzdHNQSGNqUnB3SUY2bHVlcFF4SUlZblFFOC83Rmkvc1F1S0F6?=
+ =?utf-8?B?RUJWQmJGTjhHL3h3VUZNdU5QS1RBd1dtek5rSVg0V3ZoUElpMm55MEh3MFVz?=
+ =?utf-8?B?UUZWdFREN3p3K05oaFhLN1JSa015OTVCOXVVcHJNSjEvcDcxckpCZ05KUlJx?=
+ =?utf-8?B?MnFrUDJFYVpyN3pWT2dvOEthWU1UUVM2cnEyUGF1MWpjY2xaRDJsVlNtcGhW?=
+ =?utf-8?B?MXdVWGU0T1p3QnpVd0pBY1NGSHY5TEhoNUtaanVIckx3MUdQU0Z5WUx0eXpL?=
+ =?utf-8?B?MDM3bWtQQkVTU1Z2WDI4ckh5cDRKSU5Ud01OU1UyRGdLV0o1aHMwQXhIZzRm?=
+ =?utf-8?B?V3U2My96QXRrOGdJYWo4eUxWWGpwTkkrU2ZvdFhUVUlyRjFlOFZ5bFg5VXl2?=
+ =?utf-8?B?L1N2SEkybEdQc2k0SHkrZExxR2ROU1FDbWkvazBWRW1zdnNtYkgyeERqZnVT?=
+ =?utf-8?B?YzNIMFFLVnJaR2xneXBnMlR3MFduZ2NTVk03Z3FSNVRySjlXdnBPZWhNK2g0?=
+ =?utf-8?B?Mlp0Z2NYN3dUdTZJcVN0d0NJWmdRc2JJaHZqcUFMRTN6ZzlDU2VvcFdlUEt5?=
+ =?utf-8?B?eTlkMURxUzB3SFQyY3Vwb3o2cUFFS3M1MGgvcjJmUWJaVXdqZXRKR2RsdDF2?=
+ =?utf-8?B?NmRnelZEL1BHVEk2c2lXRW42Uk04OWhTTTBZQjNPOEtBU01GZGZRZmVsWS94?=
+ =?utf-8?B?MjdSTjUrVlZ6bVppL1NCenZHUTU4UnBzb2pWYjBpWXh5aU96YlFNYVgxMlpu?=
+ =?utf-8?B?L1ZVVnpVR1lKUVFjWk1xY01FTkR3WkdJZUVxejVGdXZoK2ZsNFl1SnVqYXZD?=
+ =?utf-8?B?Sm1jT3hRMHJKQ0tld1Z6VVRPR2EzQ3lwa0puZllBWXY3ZUovakN2U3RRNFhF?=
+ =?utf-8?B?ZC8rZjJuVGRibDN5N0ZmOUY4REMwUldDN0hOVjVuVExYNWVnY25qMzhOeUVZ?=
+ =?utf-8?B?Tkl6SU5yVTJ1UHVHL2w4bzhETDZyTm1wVm1lT2ZNTDVSYW9vcGlaWUQ3WDBl?=
+ =?utf-8?B?Y2tLRjJSa3EvVlh2QTM0dE1nMDN3amNCTGJmNnZvYzVhQkthL1l5enhIcXl5?=
+ =?utf-8?B?eGx5RHNweVVFN0lDR05EZEkvZWcydHNtWWFUZHMwanBFejkwNjI2Y093RVNk?=
+ =?utf-8?B?TDFFSVlLZ1ZVMWFiaWxaSmo1aFQ2MlhpM2dXTHdxUDJOeUVQRHc1LzI2dVI5?=
+ =?utf-8?B?b2cybXo2VnlaUWxvYlBVaXVXb240YmxSbC9CdmVpRFJwazBQamNhZkZLeUxB?=
+ =?utf-8?B?ZmwzUDFuT0lRUjFJa3VCd1lTZkJ1N2d0dlAzbU5sLzlzN2pmdWRuaDlwV2Mz?=
+ =?utf-8?B?ZTJzKzliUkNHQnp2YnkzelZpWEFsS2psUmxLL2xhNmtzVm1JZkkyQTd2dDZw?=
+ =?utf-8?Q?LiF97BvdpJOCSO4rcH6SgZqcO?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9729135b-60b5-4e3e-e0fd-08dd80a7b9c7
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Apr 2025 07:40:02.4084
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: e5aPeRJMIZ+Ouko95gGCzT7TWkUc/LGgw9dbJlnR3NTzrEL79jaam99scDlhyxgR5RwXQqV6KUYRFb0qqEZTSw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7675
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_082933_066674_C3C806B8 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20250421_004008_153964_80760BE1 
+X-CRM114-Status: GOOD (  15.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,67 +181,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Troy,
+Hi Nicolas,
 
-kernel test robot noticed the following build warnings:
+On 2025/4/18 20:49, Nicolas Dufresne wrote:
+> Le vendredi 18 avril 2025 à 15:08 +0800, ming.qian@oss.nxp.com a écrit :
+>> From: Ming Qian <ming.qian@oss.nxp.com>
+>>
+>> To make the function mxc_jpeg_alloc_slot_data() and
+>> mxc_jpeg_free_slot_data() safe to be called multiple times. Ensure that
+>> the slot data pointers are reset to NULL and handles are set to 0 after
+>> freeing the coherent memory.
+> 
+> Perhaps:
+> 
+>     media: imx-jpeg: Reset slot data pointers when freed
+> 
+> 
+>     Ensure that the slot data pointers are reset to NULL and handles are
+>     set to 0 after freeing the coherent memory. This makes he function
+>     mxc_jpeg_alloc_slot_data() and mxc_jpeg_free_slot_data() safe to be
+>     called multiple times.
+> 
 
-[auto build test WARNING on 9d7a0577c9db35c4cc52db90bc415ea248446472]
+Thanks for help improve the commit message,
+I'll apply it and make a v6 patch
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Troy-Mitchell/i2c-imx-use-guard-to-take-spinlock/20250421-133753
-base:   9d7a0577c9db35c4cc52db90bc415ea248446472
-patch link:    https://lore.kernel.org/r/20250421-i2c-imx-update-v1-1-1137f1f353d5%40gmail.com
-patch subject: [PATCH 1/2] i2c: imx: use guard to take spinlock
-config: hexagon-randconfig-001-20250421 (https://download.01.org/0day-ci/archive/20250421/202504211501.MNwGdl5F-lkp@intel.com/config)
-compiler: clang version 16.0.6 (https://github.com/llvm/llvm-project 7cbf1a2591520c2491aa35339f227775f4d3adf6)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250421/202504211501.MNwGdl5F-lkp@intel.com/reproduce)
+Regards,
+Ming
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202504211501.MNwGdl5F-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> drivers/i2c/busses/i2c-imx.c:1140:17: warning: unused variable 'ret' [-Wunused-variable]
-                                   irqreturn_t ret;
-                                               ^
-   1 warning generated.
-
-
-vim +/ret +1140 drivers/i2c/busses/i2c-imx.c
-
-aa11e38ce6fe88 Darius Augulis     2009-01-30  1124  
-f7414cd6923fd7 Biwen Li           2020-11-11  1125  static irqreturn_t i2c_imx_isr(int irq, void *dev_id)
-f7414cd6923fd7 Biwen Li           2020-11-11  1126  {
-f7414cd6923fd7 Biwen Li           2020-11-11  1127  	struct imx_i2c_struct *i2c_imx = dev_id;
-f7414cd6923fd7 Biwen Li           2020-11-11  1128  	unsigned int ctl, status;
-f7414cd6923fd7 Biwen Li           2020-11-11  1129  
-d3973a577b8e10 Troy Mitchell      2025-04-21  1130  	guard(spinlock_irqsave)(&i2c_imx->slave_lock);
-d3973a577b8e10 Troy Mitchell      2025-04-21  1131  
-f7414cd6923fd7 Biwen Li           2020-11-11  1132  	status = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2SR);
-f7414cd6923fd7 Biwen Li           2020-11-11  1133  	ctl = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2CR);
-05ae60bc24f765 Kevin Paul Herbert 2020-12-22  1134  
-f7414cd6923fd7 Biwen Li           2020-11-11  1135  	if (status & I2SR_IIF) {
-f7414cd6923fd7 Biwen Li           2020-11-11  1136  		i2c_imx_clear_irq(i2c_imx, I2SR_IIF);
-d3973a577b8e10 Troy Mitchell      2025-04-21  1137  
-05ae60bc24f765 Kevin Paul Herbert 2020-12-22  1138  		if (i2c_imx->slave) {
-05ae60bc24f765 Kevin Paul Herbert 2020-12-22  1139  			if (!(ctl & I2CR_MSTA)) {
-f89bf95632b416 Corey Minyard      2021-11-12 @1140  				irqreturn_t ret;
-f89bf95632b416 Corey Minyard      2021-11-12  1141  
-d3973a577b8e10 Troy Mitchell      2025-04-21  1142  				return i2c_imx_slave_handle(i2c_imx,
-f89bf95632b416 Corey Minyard      2021-11-12  1143  							    status, ctl);
-05ae60bc24f765 Kevin Paul Herbert 2020-12-22  1144  			}
-f89bf95632b416 Corey Minyard      2021-11-12  1145  			i2c_imx_slave_finish_op(i2c_imx);
-05ae60bc24f765 Kevin Paul Herbert 2020-12-22  1146  		}
-d3973a577b8e10 Troy Mitchell      2025-04-21  1147  
-f7414cd6923fd7 Biwen Li           2020-11-11  1148  		return i2c_imx_master_isr(i2c_imx, status);
-f7414cd6923fd7 Biwen Li           2020-11-11  1149  	}
-f7414cd6923fd7 Biwen Li           2020-11-11  1150  
-aa11e38ce6fe88 Darius Augulis     2009-01-30  1151  	return IRQ_NONE;
-aa11e38ce6fe88 Darius Augulis     2009-01-30  1152  }
-aa11e38ce6fe88 Darius Augulis     2009-01-30  1153  
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+>>
+>> Fixes: 2db16c6ed72c ("media: imx-jpeg: Add V4L2 driver for i.MX8 JPEG Encoder/Decoder")
+>> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+>> ---
+>> v5
+>> - Make a single patch to reset the slot data pointers when free data
+>>
+>>   drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c | 6 ++++++
+>>   1 file changed, 6 insertions(+)
+>>
+>> diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+>> index 2f7ee5dfa93d..b2f7e9ad1885 100644
+>> --- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+>> +++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+>> @@ -758,16 +758,22 @@ static void mxc_jpeg_free_slot_data(struct mxc_jpeg_dev *jpeg)
+>>   	dma_free_coherent(jpeg->dev, sizeof(struct mxc_jpeg_desc),
+>>   			  jpeg->slot_data.desc,
+>>   			  jpeg->slot_data.desc_handle);
+>> +	jpeg->slot_data.desc = NULL;
+>> +	jpeg->slot_data.desc_handle = 0;
+>>   
+>>   	/* free descriptor for encoder configuration phase / decoder DHT */
+>>   	dma_free_coherent(jpeg->dev, sizeof(struct mxc_jpeg_desc),
+>>   			  jpeg->slot_data.cfg_desc,
+>>   			  jpeg->slot_data.cfg_desc_handle);
+>> +	jpeg->slot_data.cfg_desc_handle = 0;
+>> +	jpeg->slot_data.cfg_desc = NULL;
+>>   
+>>   	/* free configuration stream */
+>>   	dma_free_coherent(jpeg->dev, MXC_JPEG_MAX_CFG_STREAM,
+>>   			  jpeg->slot_data.cfg_stream_vaddr,
+>>   			  jpeg->slot_data.cfg_stream_handle);
+>> +	jpeg->slot_data.cfg_stream_vaddr = NULL;
+>> +	jpeg->slot_data.cfg_stream_handle = 0;
+>>   
+>>   	jpeg->slot_data.used = false;
+>>   }
+> 
+> Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
