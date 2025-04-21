@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A172C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 21:58:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D980C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 22:00:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vjypw+5SWKXj3fJsQevbLbIsP5kna9ij086B85mf7mc=; b=Bd56xesi4QApycZ2ZuB/jM/nBy
-	FY6SEl1/Rgm+plO2TVxEnqqFkFhkahLy94dK9NK6zlu4NSexrIKPDeS6EWcjUHMEfSAXZUuz46zuH
-	fnVUBqcLcXS5xaYq8ccIRpVeKLnU/0mP7EB/1WtSP/L4FCE474pVKVB6pgSAUcCNkvd3nKlAry2VX
-	gRU8No+sPleIC0THnQ4T7woXEXoHAQSR64CNHOhyXV1VRfpfcUN1HPxYSXR8+vyL8OpIt5IJCE5mP
-	WYmnEHS6gVkEteV1y3GME9duhP5HWbsQCq/mVodE9HiGKeJ9ephlHRyyqfdSj9SglT8UFPFmkBLUh
-	vK+UILXA==;
+	bh=lGttv+NBrT9eqq/71c1noEG3ZN3neG1td+1SdEjXLm0=; b=h49/LgV2rSxK2E9/5gN0CXF63j
+	9twyx4yHx1umz7bkIBWgVflTWMM1Tsfjkj2phmKvUKOuPVVCClCYoejex6WwHvTXloxsIzl0fC4jY
+	RbeIqxzPGsxNXe01fWcaoDn4ZGBScQBbmmbqfewe9q9tgrcIex9nl2sG2KBsFAhWVNqtixHVXsfR2
+	aEWGth2IsDYPG7Jj+JRtb16AlXQUj/XzBsuLCwTHHA/7FO6dD1FnAgyJKgUDg0u+/T3KnbkpBMQRR
+	cF1DAfqA4VQjzN+DBH0+viCu+nDpKsI0pZ2YgQ5BRHS2vEF8qfnrGEo3TkvBO8LI1LW8ZSO1sgWcF
+	0+rmT/HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6zA4-00000005GFJ-1sxS;
-	Mon, 21 Apr 2025 21:58:44 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1u6zBv-00000005GaR-0nvj;
+	Mon, 21 Apr 2025 22:00:39 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6yyB-00000005DOc-0wRu
+	id 1u6yyB-00000005DOi-1dm1
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 21 Apr 2025 21:46:29 +0000
 Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53LLkMYc1033928
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53LLkN3H1015468
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
 	Mon, 21 Apr 2025 16:46:23 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
 	s=ti-com-17Q1; t=1745271983;
-	bh=Vjypw+5SWKXj3fJsQevbLbIsP5kna9ij086B85mf7mc=;
+	bh=lGttv+NBrT9eqq/71c1noEG3ZN3neG1td+1SdEjXLm0=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=sHJ4i/aerLXl4mgaf97v2QF7266prQFMmObmPFUNFsxEsVfPjm+Dvt/EmA1D1l9aC
-	 qtlmaM4QCJfdklcFPQeteix5MVu5btNxwxTA9jxmM3pinR7AIeUV6p6l0tdxxdkDRx
-	 y+gQslRsuJ+G2lkV7DA/raanKt4wKCWnBOF15OOo=
-Received: from DFLE106.ent.ti.com (dfle106.ent.ti.com [10.64.6.27])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53LLkMdB118843
+	b=aWJRR4Y7YhjWDfCvYM4HA1PzHuj9NOxiKvIhPP4Fb5NS/5Lu6g/tF/KzZT/c5Mvs9
+	 qU1OBcQ10TwrAYqf+sO/DIW7FSk2mQu0OdJUrcv8lq9rgVMo6yT4LHR0//MnD4Iraw
+	 K+ywypdNQyjX4ay8/+DThEF2Le+IFkFLlfFn5bwI=
+Received: from DLEE107.ent.ti.com (dlee107.ent.ti.com [157.170.170.37])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53LLkNVD118850
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 21 Apr 2025 16:46:22 -0500
-Received: from DFLE112.ent.ti.com (10.64.6.33) by DFLE106.ent.ti.com
- (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
+	Mon, 21 Apr 2025 16:46:23 -0500
+Received: from DLEE101.ent.ti.com (157.170.170.31) by DLEE107.ent.ti.com
+ (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 21
  Apr 2025 16:46:22 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE101.ent.ti.com
+ (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
  Frontend Transport; Mon, 21 Apr 2025 16:46:22 -0500
 Received: from lelvsmtp6.itg.ti.com ([10.249.42.149])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53LLkLqL038764;
-	Mon, 21 Apr 2025 16:46:21 -0500
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53LLkLqM038764;
+	Mon, 21 Apr 2025 16:46:22 -0500
 From: Andrew Davis <afd@ti.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
         Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
@@ -62,9 +62,9 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	<jan.kiszka@siemens.com>
 CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
         <linux-kernel@vger.kernel.org>, Andrew Davis <afd@ti.com>
-Subject: [PATCH 1/3] dt-bindings: mfd: ti,j721e-system-controller: Add compatible string for AM654
-Date: Mon, 21 Apr 2025 16:46:18 -0500
-Message-ID: <20250421214620.3770172-2-afd@ti.com>
+Subject: [PATCH 2/3] arm64: dts: ti: k3-am65-main: add system controller compatible
+Date: Mon, 21 Apr 2025 16:46:19 -0500
+Message-ID: <20250421214620.3770172-3-afd@ti.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250421214620.3770172-1-afd@ti.com>
 References: <20250421214620.3770172-1-afd@ti.com>
@@ -73,8 +73,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_144627_446373_00CD531E 
-X-CRM114-Status: GOOD (  11.46  )
+X-CRM114-CacheID: sfid-20250421_144627_493502_769FA552 
+X-CRM114-Status: GOOD (  12.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,46 +89,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the child nodes that can be found under this node. Then as done for
-other similar devices (J7200 and J721s2) add support for the AM654 system
-controller to this binding.
+From: Jan Kiszka <jan.kiszka@siemens.com>
 
+Now that the TI K3 AM654 system controller bindings also cover the usage
+in the main domain, add its compatible to address dtbs_check complaints:
+
+  k3-am654-base-board.dtb: scm-conf@100000: compatible: ['syscon', 'simple-mfd'] is too short
+
+Signed-off-by: Jan Kiszka <jan.kiszka@siemens.com>
 Signed-off-by: Andrew Davis <afd@ti.com>
 ---
- .../bindings/soc/ti/ti,j721e-system-controller.yaml | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+ arch/arm64/boot/dts/ti/k3-am65-main.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml b/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
-index 13b6b6fa5dee7..f3bd0be3b279f 100644
---- a/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
-+++ b/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
-@@ -26,6 +26,7 @@ properties:
-   compatible:
-     items:
-       - enum:
-+          - ti,am654-system-controller
-           - ti,j7200-system-controller
-           - ti,j721e-system-controller
-           - ti,j721s2-system-controller
-@@ -73,6 +74,18 @@ patternProperties:
-     description:
-       The node corresponding to PCIe control register.
+diff --git a/arch/arm64/boot/dts/ti/k3-am65-main.dtsi b/arch/arm64/boot/dts/ti/k3-am65-main.dtsi
+index 94a812a1355ba..6d3c467d7038c 100644
+--- a/arch/arm64/boot/dts/ti/k3-am65-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am65-main.dtsi
+@@ -479,7 +479,7 @@ sdhci1: mmc@4fa0000 {
+ 	};
  
-+  "^clock@[0-9a-f]+$":
-+    type: object
-+    $ref: /schemas/soc/ti/ti,am654-serdes-ctrl.yaml#
-+    description:
-+      This is the Serdes Control region.
-+
-+  "^dss-oldi-io-ctrl@[0-9a-f]+$":
-+    type: object
-+    $ref: /schemas/mfd/syscon.yaml#
-+    description:
-+      This is the DSS OLDI CTRL region.
-+
- required:
-   - compatible
-   - reg
+ 	scm_conf: scm-conf@100000 {
+-		compatible = "syscon", "simple-mfd";
++		compatible = "ti,am654-system-controller", "syscon", "simple-mfd";
+ 		reg = <0 0x00100000 0 0x1c000>;
+ 		#address-cells = <1>;
+ 		#size-cells = <1>;
 -- 
 2.39.2
 
