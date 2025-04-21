@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C508EC369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 21:37:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3C26C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Apr 2025 21:39:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dhe+SbYbJp5claNB2JYrTv7+Uu5yfGVCEgLDmkNyFUo=; b=s8C8tF9chTYU90euTWkNq2+9zP
-	8SSDuZS/7nkR89NENqOllHIyftib5eByjnl2VD2CbngTp9MXoN1JTe/YwbFCNKBUiRVsfjJ5r9P0r
-	55XtyEBm8oKJVn4tJNRDagY95Zf42aQdD7EaH3KBAthcOYIvsZnjHSl2qK+5bP+Km9mcQKRpPAAqb
-	IWb1Vl4AxtyS5CXWj3oahVMWwWu4U6rlyCeqtmkbwf11p9SGdvFIKzF42+FEBtT2HGvR6Fi33vl9i
-	Ien7zeaJjePmT3mhHOZGhbjTAGKbfZEdYzMDRF3jaRDwikzYW5OzWmQPMDTiS4Of1pUmIV5exGH4a
-	HATe+50Q==;
+	bh=DuR57SLAInKxuzj5Jea/lasnCVNh6qfQg4ec2su7EHc=; b=a1kWfX7mW0g9Teah/ESvuKd7ra
+	OFXJHt/uB0ryTqiehf0g8BF60zDx5ciJBjALROM/g2ME+k0GHxl3dlu2j9fL1KNxFi0g4dM3ngbND
+	OxUNTKVCulLw8NBuRcGaSgoKZzN0IVAy9ZdK/SVIptv8GZtCNd5ekesNC3IRr+kNsPp3cTBhuGPG7
+	vIdA5plwOJaUZSWU20RmbgcD1thQkYl7V7eIVd192dViqDIHe2PfxFQ+p4ssSlPmahQjojt8xxOE9
+	nr+2rYGZsG95wIW4oRjPP8PnYjgltTXIDc/J0byWrXxYst0SVLCUpzYIem9AsRM/XBZpYKQ+H4ZCg
+	jhEoMjKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6ypn-00000005C21-36IZ;
-	Mon, 21 Apr 2025 21:37:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u6yrd-00000005CLd-068g;
+	Mon, 21 Apr 2025 21:39:41 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6ylW-00000005Bas-2SQh;
-	Mon, 21 Apr 2025 21:33:22 +0000
+	id 1u6ylr-00000005BeS-355P;
+	Mon, 21 Apr 2025 21:33:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 751F261364;
-	Mon, 21 Apr 2025 21:33:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33F67C4CEE4;
-	Mon, 21 Apr 2025 21:33:21 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id CE860A439C5;
+	Mon, 21 Apr 2025 21:28:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 763DCC4CEE4;
+	Mon, 21 Apr 2025 21:33:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745271201;
-	bh=Xx+6cpWE1kjaraijDBvdCNjbdF2zjzXih7eBRZD0yvs=;
+	s=k20201202; t=1745271222;
+	bh=eWQGFVOb67pwuM4hIzwD8j+qtic7xt7xLG1iErnbV80=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=k9pGxRxH/UgCZOvI4Zk6EjYMfXppgkIHmHzfoJwkNRNCrBdMyStejGKUfMBX+5fXq
-	 VCpxF1jSKykmzz5K0Sw/qysXNVzGRoVelDA2CKPHMsLuRCYCsJDEFBYmY5hEMGDKHJ
-	 lfk3nbi3MlnvM5TEPX0r1HD3EYwCGB6xKz/PiFTb92bS0JbC2+XrnKwv7ZUCyHJ8Xq
-	 0DDSU9KzunyA34JF8VqV9MI+jgg0yEQ4pky0afnTTCpZ1lCv8/rif5RTpByyHlaXaN
-	 3+7hq2j/kuLyBTqIeL0dT3vSLJOYAWUG/0thc9ZM8VH1mjFLEUtqm/JuZ3R34VlAIk
-	 Y4rXO++chZKyg==
-Date: Mon, 21 Apr 2025 16:33:19 -0500
+	b=WCAjD2ygtiAME3dvLC9OERSMi0Jt62PUQw+UiYuJddJJm6p+wa4wPNvpuRw27UNoO
+	 Z8fZ9QIXyDDiPidkqjeojtNyWk4/9+KjqCyhv/aHdrQ2jK6rxU36sw4bBi/pktY+aC
+	 bhnC/nG5sVxPjb2es8OJ8f4RHx/4aAGx0VrTnni9XL5AtXKuCOsMlH7DyRMu9jP1ik
+	 K9YjZV6qTqXH5Bd2qDyAVObzFiDY73aid1Zy5LxMqHMKcosGoRAehEYLmKkt9gH8Tj
+	 87Gf818rys1vlW2TimPTSq7NDn2KmRXsFPQFzR6/SpmXbq2o1u1PQ+G6Y0+TWNR4fx
+	 pV6fyLI7mADAA==
+Date: Mon, 21 Apr 2025 16:33:40 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: krzk+dt@kernel.org, devicetree@vger.kernel.org, kishon@kernel.org,
-	matthias.bgg@gmail.com, linux-arm-kernel@lists.infradead.org,
-	vkoul@kernel.org, linux-phy@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel@collabora.com, p.zabel@pengutronix.de,
-	chunkuang.hu@kernel.org, conor+dt@kernel.org,
-	chunfeng.yun@mediatek.com
-Subject: Re: [PATCH 2/2] dt-bindings: phy: mediatek,tphy: Add support for
- MT6893
-Message-ID: <174527119912.2965252.1352584821821232964.robh@kernel.org>
-References: <20250416120220.147798-1-angelogioacchino.delregno@collabora.com>
- <20250416120220.147798-2-angelogioacchino.delregno@collabora.com>
+Cc: lee@kernel.org, mandyjh.liu@mediatek.com, conor+dt@kernel.org,
+	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	kernel@collabora.com, krzk+dt@kernel.org, matthias.bgg@gmail.com
+Subject: Re: [PATCH] dt-bindings: mfd: mediatek,mt8195-scpsys: Add support
+ for MT6893
+Message-ID: <174527122027.2966032.17419699387190944980.robh@kernel.org>
+References: <20250416120225.147826-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250416120220.147798-2-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20250416120225.147826-1-angelogioacchino.delregno@collabora.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250421_143343_835064_174D0068 
+X-CRM114-Status: UNSURE (   8.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,13 +75,13 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 16 Apr 2025 14:02:20 +0200, AngeloGioacchino Del Regno wrote:
-> Add a compatible string for the MediaTek Dimensity 1200 (MT6893)
-> SoC: this chip integrates a MediaTek generic T-PHY version 2.
+On Wed, 16 Apr 2025 14:02:25 +0200, AngeloGioacchino Del Regno wrote:
+> Add a compatible string for the scpsys block found in the MediaTek
+> Dimensity 1200 (MT6893) SoC.
 > 
 > Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 > ---
->  Documentation/devicetree/bindings/phy/mediatek,tphy.yaml | 1 +
+>  .../devicetree/bindings/mfd/mediatek,mt8195-scpsys.yaml          | 1 +
 >  1 file changed, 1 insertion(+)
 > 
 
