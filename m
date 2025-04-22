@@ -4,164 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B2FEC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 05:24:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78999C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 05:47:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QRZdlQdHKE9kf5Y2A5dyZHugt6LrLEadC0t4Xd4vRM0=; b=nr1+RNjas9L0AUNDyiLnhThf1O
-	BsXTES1j40Vic17VIWZcWPlPl3oW14gKY9yZ3Apc4PSEn5rp26CiZd5s08kLw62UQExcR+KiKgYVR
-	hAFp5LiwhBEyW9OI2tbRpajMNSTWOkLV02i8dJByU000irg24z0o2Uq26s+nWFglU8r7rxLvYDWb0
-	jySYgprZV4cC/t1PG8wE+ojh3Xx7gtE+4qX2InWTilszL7PP11zgUyM/NJ93PpqgNl1TbT+UzMPG0
-	5hd6a30aASqCqt84/lcsPa2m5IsJ8qSRG4JOCpyxDOWOntFNjafx2TL6m2JZK08WEYRGRimnZ2YhE
-	xCU8rcAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7k9B+9VG6goHgGuB8w9jIN886n77aHGdXpjo78qH00A=; b=cxEakygF2XzS6OndgHlz8ZbbfH
+	pjjKIuyayiVvry6pO0N3xlHe7bf4y7AMrB1bLeOLQS3Vc7L0mH8jvHbehiu+bh4O1mpW3C/MTOkWn
+	Fbk3tif4LtNOVTT6AaqV1dpmnQ65/e7tz2E5ZRtP4Pzx7SokDeJXXCYa3xddUYk49727BAPj0qn4s
+	AnSvkbaNkVF+4urgCKfJYRaQSnDcjoJ+NWB6X4of2vrB38F3J/zkjuyAL4OvRoCXyrqeEiVg2PWDJ
+	NshHx2v1U7T8121szPdG6qa9jtjueN7p5YbGykd+WRyFVTwrbnMssTjYn/H14GgqtNw6bmLnZebLy
+	laIpvqfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u767B-00000005r0c-0rB0;
-	Tue, 22 Apr 2025 05:24:13 +0000
-Received: from mail-northeuropeazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1u76To-00000005tDN-3MJS;
+	Tue, 22 Apr 2025 05:47:36 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u765I-00000005qqC-1323
+	id 1u76Rw-00000005t65-3k6C
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 05:22:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WHl5mZSDQgBGaWJEqJ72bhea0QAalM376znNLSpk6yLO0EF6Mh8P3KfRJRhxiU/wIqINIrNWQRGhMntXoir+/1oYFq9B8xLFcLlgw2jijHqfzofBfFnAg7CaNUAGuuUZnfSwYa6uh2Pynh4VEs/gqi0h6dW+kWEGh6K4nXj3GHA5G01cyTpXUCn3mOcQjOr7uKfimbsugTAJ3eak7wVqZN3z8Bonvay782CIhU0Xu/kpkqTqOMYaFWNZvm55VGyZhyNyoSwzDvPTMq622ImdxYM7sfelnscz5WQnExLs+Sge/u8GSGurBAvmflbpwRcm2mYGEouQFn7LLnaStWNffA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QRZdlQdHKE9kf5Y2A5dyZHugt6LrLEadC0t4Xd4vRM0=;
- b=Z4zyjq+0MgrnK8pqLdJeS5mwXNlOi+AOLrocYNvRxK2a0gYPifegNFEvhFmPjilWm4wsWFF4//U5Qkdz4cl9K9nNp5GeWA7pXmAQEGv+DFrAs2YjRrfE7U6ndZyOKsQ1r388Do/mwxekTJpnw4tq7sAnvdXY2MLurNHEceUNTJaqfkE5Wi//+mURHdHDNFTlRnVScQLhc1DOxKex2NwbksCtcjMG2oGaSxB48e+J3kJkmUXpcNnGFWJ5Bn2Yow68pj3uHmBAhr93H3zrSrHjztE6cw9KeLtLh8VQQjwZD9SSMvE+lpfQajCvx8hlIbijeF4kPjM10TgUvi46/UwfuA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QRZdlQdHKE9kf5Y2A5dyZHugt6LrLEadC0t4Xd4vRM0=;
- b=LeFnk05GqCh++c2F5kq9aXnc/huHibNZSa3XbvaRdKULApoytCsf+D70kqc0FtXDn838m4rd5P7l/wzTRls63BrN4HoOdc3zftC++lkC7P4jcNLEcz28HKER+v6oWGMsTemlVJgwPhFYuTSLv+JWIJjdfEjPEdTakSHXycE/rbkXjfDuIF8ZIfgrxnjVeFYFDX++FljtfC+SEgUhXyrNL4Z4OyqQq4WrLl8mbBkxlM9sZ6NQtLtp2s/7ZzTpaSvcIpJ85GPed1RtSbOGgAqz8HxchJ7lPS+4XNkGShmO6/qgdtakFdjHh2Ov9mBETCbB5E9D2Q4CyvmAXixGbv4aMA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by PA4PR04MB9439.eurprd04.prod.outlook.com (2603:10a6:102:2ab::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.25; Tue, 22 Apr
- 2025 05:22:09 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8655.033; Tue, 22 Apr 2025
- 05:22:09 +0000
-Date: Tue, 22 Apr 2025 14:30:52 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Frieder Schrempf <frieder@fris.de>
-Cc: Peng Fan <peng.fan@nxp.com>, Pankaj Gupta <pankaj.gupta@nxp.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
-	Frieder Schrempf <frieder.schrempf@kontron.de>,
-	Arnd Bergmann <arnd@arndb.de>, Fabio Estevam <festevam@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>,
-	Shenwei Wang <shenwei.wang@nxp.com>, Xu Yang <xu.yang_2@nxp.com>,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
-Subject: Re: [RFC PATCH 0/5] Add NVMEM driver for i.MX93 OTP access through
- ELE
-Message-ID: <20250422043635.GA27670@nxa18884-linux>
-References: <20250416142715.1042363-1-frieder@fris.de>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250416142715.1042363-1-frieder@fris.de>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: SI1PR02CA0035.apcprd02.prod.outlook.com
- (2603:1096:4:1f6::8) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Tue, 22 Apr 2025 05:45:42 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53M5jZE01123398
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 22 Apr 2025 00:45:35 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1745300736;
+	bh=7k9B+9VG6goHgGuB8w9jIN886n77aHGdXpjo78qH00A=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=njpcIzaNgcqWHUrYQ4d5s3qjKRklC0Z2oj/Pn5bgUzOfhetqTbsl7bwmMwz4apiWk
+	 8+iPbYdbBJIwfub0Zx1Q5RxF6O890ZdYCadeqiN/u/lgQ6ZV/QLvGxLhxOfa1enO/A
+	 sKFZFV6esiqjtTjOVBx3oZVLRt9Z8NSzPFPw3JOo=
+Received: from DLEE103.ent.ti.com (dlee103.ent.ti.com [157.170.170.33])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53M5jZia051289
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 22 Apr 2025 00:45:35 -0500
+Received: from DLEE104.ent.ti.com (157.170.170.34) by DLEE103.ent.ti.com
+ (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 22
+ Apr 2025 00:45:35 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE104.ent.ti.com
+ (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 22 Apr 2025 00:45:35 -0500
+Received: from [172.24.227.136] (moteen-ubuntu-desk.dhcp.ti.com [172.24.227.136])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53M5jVcL048512;
+	Tue, 22 Apr 2025 00:45:32 -0500
+Message-ID: <c660f217-9bb1-4ba2-8d59-851f69b41042@ti.com>
+Date: Tue, 22 Apr 2025 11:15:31 +0530
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PA4PR04MB9439:EE_
-X-MS-Office365-Filtering-Correlation-Id: 28a667b8-5e80-4ace-9f0f-08dd815da12a
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?GOkbNqkC2IhYGQZj0WjdwNAzpqqDYDcDc1Mf6pz7JOlIN5K1gDFrljfMpz5g?=
- =?us-ascii?Q?zQzVNTq3ERJpEZvAyu5vLG0t4VbWmeS8Nl3KjkfCcq2hTIs2vRplg9UlPL1C?=
- =?us-ascii?Q?eIot5UnUld7/Keg0H+80SaXGYnh35PVWpjzvP2LA5QtNmxqlREE9bQ7+hG5r?=
- =?us-ascii?Q?GIQxZvRPV7PdqnjeY1kOCzHYtD4APT/RgHMSqXsH65DpKRWtsNctmYyS16sR?=
- =?us-ascii?Q?f+H+sZgnShIf0OLnun2/o3txFAP6+AVf/mFQXy1EHlaETqVDrupGM7Jwca8x?=
- =?us-ascii?Q?WPcOwE+N31hSedWKrtgKd1jKX3i0yD7rLk1teFDW4jTqgreIv2gsJF1tTsTc?=
- =?us-ascii?Q?+SmG0VLyJ1vhnlCw6Z6RKhfbyDmiQorCLGpgU0NCaLncrxrRxoPbBRYPbCsM?=
- =?us-ascii?Q?e08gOlkhQ5yyGMeaEeB2iP7ZvcQ1Qxttr2JooF7s9sf6hbeKXZKgaE+eO4M1?=
- =?us-ascii?Q?mFhtxAAFhOaiP6BwrkG4fvcO8xICRb+C5hvppTw9VIr70vowZjNtQtfXQIPA?=
- =?us-ascii?Q?/RhSOGdPgddN8eeJwY02ODPi7B1e4R3THkGQXkdsdxpGoScgKBKCa3NkAeSE?=
- =?us-ascii?Q?bhAt81vZinSnmfd8RaCWhngZpn4X5JzVnQbg/nJR3IVJuwLT+alFxWOhANI7?=
- =?us-ascii?Q?IhmUZf0ixDJZ3QkoW0rfPR23gkxnUT/yCHhvtj0qICEQKpEH20+pcayBqdjN?=
- =?us-ascii?Q?vD9bwYtxiEuSBjikDTRmZ8bVIR6KvQHh7I8XEtbY/7Vve/ReODhhDm6PO0I/?=
- =?us-ascii?Q?njSKtNL3XdN6uLI5tA5Hp1HGL0QFn9KuTfCV5L7jyU/+yTcfVe3wh8jBhUwH?=
- =?us-ascii?Q?9iXB29oSRW2KFCbrn3N3qrHAGiGTjPwW1nJ9f/32v/e6KCBzg4V1gK+c2w+l?=
- =?us-ascii?Q?fPZA452D0nlQCgIQXTUT6+Aev01GZMy6S2qJI45vxiCXa91iNSm/RzJhbHKi?=
- =?us-ascii?Q?7iBgkW6I4GWgyLgHpXUrKhd+lWYOx0hnf7leJhOgy9vH5RlEb9sRVrXgEVG3?=
- =?us-ascii?Q?eF+t1YgSwmEeOO6vfX/nuCcEQn4Qq0dFPSXtObkrwdmqJfHu3yUDrk3379gc?=
- =?us-ascii?Q?a7H9JIYKzeVo5zqhxHpB0/AuUOZrhW6XOYlyagRDgt087dPO++2uwlBLBUNb?=
- =?us-ascii?Q?gLCqHSXY3aiCVb806g9d5vlN0oZzRfwqGj3A50PKlPHSmbHZfix+Rp50gVeS?=
- =?us-ascii?Q?O9wOFXnNzi1Cahkyshdo3rkibJF/bM0aI2pK92fo9gfPShGzv+NaFet2aRNz?=
- =?us-ascii?Q?xc4R0FqOPa9GSQm5ql/4aA5ja2wf1jp0yetcKB4G8wK0cuy4ZSxRUu64qe7a?=
- =?us-ascii?Q?tjdG4vOKWECaR81pwC9eP7Yr7c8pYn6j5Ze2Ot+/O59KsQ42U4tpwWCdc7Ly?=
- =?us-ascii?Q?cQ/CTaAeaBV3lV1vYpDYAk3gmZUV6qe6FMAKtjObNbRYK6kYgUftsv2YF++q?=
- =?us-ascii?Q?+gLr2+avgOiZAUqNRhu3/6kLzqwCuP5QcLizb6SzL00eQ+wy6V86/A=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+KZfQ/FfhNpYf+Y8XkzQr5GEBGDgw0AlEk9DagthE0YdsRaggVyT9hxxtrAd?=
- =?us-ascii?Q?4yv0VYdy0H81rrqhxn7S1320UalL3X/MjEsFsAAdd6Ot1MaoQSlfmJtacsUM?=
- =?us-ascii?Q?ogIST5T2SO6JN9ELeq7FLHkHGAHlP9Raej75hxA+0g7+hXXAfjqiIu4CKDw2?=
- =?us-ascii?Q?Xtb3wS56S51hsYMSYthY48w+Thkx/utJaUXO171Ge7DqvxTWkjyYE5NAEI1w?=
- =?us-ascii?Q?lkoPLnoG4aBkk+gCRD/iKY2GcKI6OIlYo2Jfa7v2f1Vj1rozaZoDhRZyut+p?=
- =?us-ascii?Q?01ZlV/AGUY7gpp2h+KfNeHJJhirzI42qmY3WRS37ocfU91PSu1YW5Z430+EZ?=
- =?us-ascii?Q?MXf8q1Zimigd1te8ULieR8kMSlEZARGQt9HGZLYcYyPMu9mvL/UGj4kKt2ID?=
- =?us-ascii?Q?sUjlOx3KZPnExY08WuiYJMWdvhHZwXjQxb5NZ6jhBheuCD2S15QJpgzg7Fu8?=
- =?us-ascii?Q?RMoFGzGHr7fct0WW3hH/dCaBz0ZGgDbZIyrAvuKF5/MtuDjTL2nj6P5+m2HR?=
- =?us-ascii?Q?m7/y61ZBYQ7D4v+L1x7nf8HAHG5EdlddAhWtK+uIXUBthPCodXDl9lhQCewT?=
- =?us-ascii?Q?ciPkd9VaFKX505PtuN1pJ7Z6gZKkmETTMIfkC3jD1BmNm5Ul+HavP//rwjb6?=
- =?us-ascii?Q?CvTlBJjz9/xM0OqLL9c/bmAeHzEjs5Ep00V8ARWY7gMgWDQFBWPfvqRsWgLw?=
- =?us-ascii?Q?ZsNIEDJG7TdXgKJTQipPLmrJpRSkmr5U8UbBK4u/4f5GcWeMnAA9ISODW9I9?=
- =?us-ascii?Q?Jo08UPlvb9Fr1ZgZ3xIt0nyxwrIhLYdEqWU/uan5gyQN8dfqrje8Jz4OJukx?=
- =?us-ascii?Q?/4hTwIP92kDLxRhHNi+czNM9OT27St4NiuHzrvdTaBzLSQNNrIxUoiwJ44Xz?=
- =?us-ascii?Q?hZzTqXqiqctS9MQhUm53Hl++2KtuvHnZAD0pBKBklF531BiUwVFVezOar69U?=
- =?us-ascii?Q?7wYutK0l4lY1lLTYLE/bL/bCdbvf7cK75l6V9IFEoXtBryF8BG2rzrMxu7xR?=
- =?us-ascii?Q?qkJ38veDOBmv3dIRjbxbbMwGAd1dY1lk5S1GgzPkhhRlM4AjW2dtbWg125nA?=
- =?us-ascii?Q?UPAK5nef/WWHCZbvvjuk7sBGfMqeiskvIqkoL34n0CogZIZ7K17jSnmbnVH/?=
- =?us-ascii?Q?NYw5umwUYHwPtsiHDdf+AbJQm+mB7HFdsWya+MAj9ysxeTCfd/wxNVpyBgx1?=
- =?us-ascii?Q?4+Si1YKVqaHZATbpVVC5IYIk7+7EptFaW8R3a6AFDuusRPZ2PsRWe7bscb/V?=
- =?us-ascii?Q?R3+g8ag//04bN8s7gk3MRBtkMhOtgv5RjCn7wTkqWcjZtV08HNYP+IPOAaKJ?=
- =?us-ascii?Q?CPmyjbtiEQ92kWoABwy4Sn3Hl1vOkpoK0452hoWiueZOs3SQYEwOTVKvuR2p?=
- =?us-ascii?Q?VYkjLCMjf5FBcSaho8TWAnK5E+1p6Oe43tCxk1to+86tueJRqBOpqc/gzC4B?=
- =?us-ascii?Q?HJcgoEl/6pea2GL50dv8CR15PxcGBoPSdiJlQr7LbMtxXKHt0rs4s3RDFWPN?=
- =?us-ascii?Q?ZmT81d+XK7S+/NqkOg5is5CnQWgEnj3tPHL9UAotKDTyp8AEva7beh3897Hh?=
- =?us-ascii?Q?0WDrpaFvhvEoBn2kYCLSoHYAZKbCqOOv83OgmRl+?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 28a667b8-5e80-4ace-9f0f-08dd815da12a
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Apr 2025 05:22:09.5983
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: DQN1zlafVt+epwfo4/PqewMqhq6hYJMSZ8XhV/ncWTlrPz2oSTV9PQ3EQHUBDZjDOHcsVwPN09gxiP8yYAJg6w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9439
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/5] arm64: dts: ti: k3-am6*: Add boot phase flag to
+ support MMC boot
+To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>
+CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+References: <20250417233040.3658761-1-jm@ti.com>
+ <20250417233040.3658761-3-jm@ti.com>
+Content-Language: en-US
+From: Moteen Shah <m-shah@ti.com>
+In-Reply-To: <20250417233040.3658761-3-jm@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_222216_303263_843FA259 
-X-CRM114-Status: GOOD (  22.24  )
+X-CRM114-CacheID: sfid-20250421_224541_140937_02654E92 
+X-CRM114-Status: GOOD (  16.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,76 +93,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frieder,
+Hey Judith,
 
-On Wed, Apr 16, 2025 at 04:26:19PM +0200, Frieder Schrempf wrote:
->From: Frieder Schrempf <frieder.schrempf@kontron.de>
+On 18/04/25 05:00, Judith Mendez wrote:
+> The bootph-all flag was introduced in dt-schema
+> (dtschema/schemas/bootph.yaml) to define node usage across
+> different boot phases.
 >
->This depends on [1] for the support of the Edgelock Secure Enclave firmware
->driver.
+> For eMMC and SD boot modes, voltage regulator nodes, io-expander
+> nodes, gpio nodes, and MMC nodes need to be present in all boot
+> stages, so add missing bootph-all phase flag to these nodes to
+> support SD boot and eMMC boot.
 >
->There are at least two ways to access the OTP fuses on i.MX93:
+> Signed-off-by: Judith Mendez <jm@ti.com>
+> ---
+>   arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts | 12 ++++++++++++
+>   arch/arm64/boot/dts/ti/k3-am62a7-sk.dts  |  2 ++
+>   2 files changed, 14 insertions(+)
 >
->(1) through the FSB (fuseblock) registers
->(2) through the ELE S400 API
->
->There currently is a NVMEM driver imx-ocotp-ele.c that (despite its name)
->implements (1). As the FSB only provides limited access to the OTP registers
->(read only) it's not sufficient for all use-cases.
->
->It seems like imx-ocotp-ele.c was intended to be extended later to implement
->(1) and (2) deciding on a per-fuse-register basis which of both access methods
->should be used.
->
->This has some downsides:
->
->* the driver gets convoluted and complex
->* the driver decides which OTP registers are accessed in which way and therefore
->  mixes read-only and read/write access
->
->Therefore I implemented a simple driver that uses the ELE S400 API only, as the
->FSB access (1) doesn't provide any benefits except for that it doesn't depend
->on the ELE firmware being available. This is used by us downstream.
->
->For the upstream solution I would like to have some feedback on how to move
->on:
->
->1. switch imx-ocotp-ele.c to use ELE API exclusively
->   -> this will create a hard dependency on the ELE firmware/driver being available
->2. extend imx-ocotp-ele.c to use FSB and ELE API
->   -> make the driver use ELE API for all registers if ELE firmware/driver is available
->3. create separate drivers as done in this RFC
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts b/arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts
+> index 8e9fc00a6b3c7..aafdb90c0eb70 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts
+> @@ -69,6 +69,7 @@ vddshv_sdio: regulator-4 {
+>   		gpios = <&main_gpio0 31 GPIO_ACTIVE_HIGH>;
+>   		states = <1800000 0x0>,
+>   			 <3300000 0x1>;
+> +		bootph-all;
+>   	};
+>   };
+>   
+> @@ -77,12 +78,14 @@ vddshv_sdio_pins_default: vddshv-sdio-default-pins {
+>   		pinctrl-single,pins = <
+>   			AM62X_IOPAD(0x07c, PIN_OUTPUT, 7) /* (M19) GPMC0_CLK.GPIO0_31 */
+>   		>;
+> +		bootph-all;
+>   	};
+>   
+>   	main_gpio1_ioexp_intr_pins_default: main-gpio1-ioexp-intr-default-pins {
+>   		pinctrl-single,pins = <
+>   			AM62X_IOPAD(0x01d4, PIN_INPUT, 7) /* (C13) UART0_RTSn.GPIO1_23 */
+>   		>;
+> +		bootph-all;
+>   	};
+>   
+>   	pmic_irq_pins_default: pmic-irq-default-pins {
+> @@ -118,6 +121,7 @@ exp1: gpio@22 {
+>   
+>   		pinctrl-names = "default";
+>   		pinctrl-0 = <&main_gpio1_ioexp_intr_pins_default>;
+> +		bootph-all;
+>   	};
+>   
+>   	exp2: gpio@23 {
+> @@ -229,6 +233,14 @@ &tlv320aic3106 {
+>   	DVDD-supply = <&buck2_reg>;
+>   };
+>   
+> +&main_gpio0 {
+> +	bootph-all;
+> +};
+> +
+> +&main_gpio1 {
+> +	bootph-all;
+> +};
+> +
+>   &gpmc0 {
+>   	ranges = <0 0 0x00 0x51000000 0x01000000>; /* CS0 space. Min partition = 16MB */
+>   };
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+> index 1c9d95696c839..7de4a9f139ad4 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+> @@ -313,6 +313,7 @@ AM62AX_IOPAD(0x200, PIN_INPUT_PULLUP, 0) /* (AC1) MMC0_DAT5 */
+>   			AM62AX_IOPAD(0x1fc, PIN_INPUT_PULLUP, 0) /* (AD2) MMC0_DAT6 */
+>   			AM62AX_IOPAD(0x1f8, PIN_INPUT_PULLUP, 0) /* (AC2) MMC0_DAT7 */
+>   		>;
+> +		bootph-all;
+>   	};
+>   
+>   	main_mmc1_pins_default: main-mmc1-default-pins {
+> @@ -615,6 +616,7 @@ &sdhci0 {
+>   	pinctrl-names = "default";
+>   	pinctrl-0 = <&main_mmc0_pins_default>;
+>   	disable-wp;
+> +	bootph-all;
+>   };
+>   
 
-Need to confirm ELE APIs supports all fuses. If yes, switching to using ELE API
-exclusively should be ok, no need to mix FSB and ELE API. And drop the current
-FSB usage
+Do we have the bootph-all flags in *-uboot.dtsi for the board to boot up?
+If yes we will have to clean that up after this series gets merged.
 
-Thanks,
-Peng.
+Reviewed-by: Moteen Shah <m-shah@ti.com>
 
->
->Thanks!
->
->[1] https://patchwork.kernel.org/project/linux-arm-kernel/cover/20250409-imx-se-if-v16-0-5394e5f3417e@nxp.com/
->
->Frieder Schrempf (5):
->  firmware: imx: ele: Add API functions for OCOTP fuse access
->  nvmem: Add i.MX OCOTP fuse driver using ELE S400 API
->  arm64: dts: imx93: Add node for EdgeLock Enclave (ELE) firmware driver
->  arm64: dts: imx93: Add node for OCOTP S400 NVMEM driver
->  arm64: dts: imx93-kontron: Add DMA memory region for ELE firmware
->
-> .../dts/freescale/imx93-kontron-osm-s.dtsi    |  16 ++
-> arch/arm64/boot/dts/freescale/imx93.dtsi      |  11 +
-> drivers/firmware/imx/ele_base_msg.c           | 122 +++++++++++
-> drivers/firmware/imx/ele_base_msg.h           |   8 +
-> drivers/nvmem/Kconfig                         |  11 +
-> drivers/nvmem/Makefile                        |   2 +
-> drivers/nvmem/imx-ocotp-s400.c                | 195 ++++++++++++++++++
-> include/linux/firmware/imx/se_api.h           |   3 +
-> 8 files changed, 368 insertions(+)
-> create mode 100644 drivers/nvmem/imx-ocotp-s400.c
->
->-- 
->2.49.0
+Regards,
+Moteen Shah
+
+>   &sdhci1 {
 
