@@ -4,64 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1BE4C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 09:49:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33F1DC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 09:51:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=maTvG19pc/BXzKHo61lhffYCw6GZvIa778Ts0KzkImA=; b=S1DSsyx3CnFbUm+Rzv/suRwGMP
-	vMCk3J7rVVzFALNXj7h8d/8OuXh+kC5nMfglUcuYZ/xSsQgLVvpC3uUnA4ufIGPj5JZat91LaGGsk
-	kHEJSj81qgSyTcOmFq+W0/+kTl6bib4J59hbiwcOdSzsg76rXZCZCc0IFsGNuNlZmm6dOJWMlvw+O
-	xaUR+4uqJz/BSg8nRB1z/95ndpw65JC5PtHYV1EZWLfs9idm2983Oq2PPV1GI2OeMddznn7aheitq
-	8oCKrO8WTa0aTz2JG5ez1Ve5bzpPozAw/8Vx9jHLyZN1CGvikYcxW8LRnLa9RXpABbZkLJQXCtFFU
-	W7IjDYpw==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ecwP5WHA6qxJmIynC9kNzInQHmacZTdmNCoZ5D+pPCM=; b=kDfjLM+hnT9oeDIF2ayMToeOpI
+	2wL/NvZUvtSD2A01VQkpZU8TawFmHgQnSgoSahWKE6K5FsPh2TGzRFVpPqhNXKCZibA6ugqjjjAvZ
+	0pBmXk0MgVIy0wVgcLyVKXHjakyfUMz6ninzBPXoRBXh0DZ5OAFvv+2+aqdZbVAYuttiHfWUkTj/q
+	gWJYQeSZlg8bSOlbWggXRg4/+HlkjDpqrBOTmF5bQ2+Zap6n7F44r1HwYo6EkURACTvugV0WYns9Y
+	nsZpRqlxFTKLrz8wJA/xx6dCUBqrPirqlfGs9wmLRICph4CYWJ5FprdMYKlSU7+3ktp8N3W/ekuMy
+	rBNM9Zkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7AG9-00000006cuf-37Y9;
-	Tue, 22 Apr 2025 09:49:45 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u79EX-00000006OyE-3Mzp
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 22 Apr 2025 08:44:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=maTvG19pc/BXzKHo61lhffYCw6GZvIa778Ts0KzkImA=; b=dDVVBD9VcwRTScvw1wNdaUKdiv
-	KYNnqWM7DkHYaBTgKe9g530RfmbmuHCIxUfcfujv4Lyy6caz7IzOJ4kX5HCkJ3AWZ200NhrhJ1qYs
-	zDQbLQI4GzQmRKyUtkQa60tcKL/nOr6F1uq4lkRGL/4ZiUx89ULiqMsMWs5yPZM8An3OHaDO69+1E
-	HpsEwABY3FlGEZvXojk4tNN6JptrOxrkSxQLJpvOE0FvrCWM1HEXGDIoAL1KUWqVa74Kt6RNfUDn7
-	e+lOJ2BeuirrR0cbkfP0Oot2aBrHhdqVPG33iPLGUyIvqREPjcAWZdb1cUA06RcxM6/FeZ+Za5obO
-	X/MW/TAg==;
+	id 1u7AHy-00000006d8A-1gp0;
+	Tue, 22 Apr 2025 09:51:38 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u79ES-0000000BARl-3ZXp
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u79En-00000006P1Y-3CFe
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 08:43:59 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4ZhbMD41l0z6F9CR;
-	Tue, 22 Apr 2025 16:42:00 +0800 (CST)
+	Tue, 22 Apr 2025 08:44:19 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4ZhbMs6ydyz6L530;
+	Tue, 22 Apr 2025 16:42:33 +0800 (CST)
 Received: from frapeml500003.china.huawei.com (unknown [7.182.85.28])
-	by mail.maildlp.com (Postfix) with ESMTPS id 38866140518;
-	Tue, 22 Apr 2025 16:43:40 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 9B2A51401F3;
+	Tue, 22 Apr 2025 16:44:13 +0800 (CST)
 Received: from a2303103017.china.huawei.com (10.47.65.221) by
  frapeml500003.china.huawei.com (7.182.85.28) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Tue, 22 Apr 2025 10:43:39 +0200
+ 15.1.2507.39; Tue, 22 Apr 2025 10:44:13 +0200
 From: Alireza Sanaee <alireza.sanaee@huawei.com>
 To: <devicetree-spec@vger.kernel.org>
 CC: <robh@kernel.org>, <mark.rutland@arm.com>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	<jonathan.cameron@huawei.com>, <shameerali.kolothum.thodi@huawei.com>,
 	<linuxarm@huawei.com>
-Subject: [PATCH v1 0/5] DT: Enable sharing resources for SMT threads
-Date: Tue, 22 Apr 2025 09:43:35 +0100
-Message-ID: <20250422084340.457-1-alireza.sanaee@huawei.com>
+Subject: [PATCH v1 1/5] DT: add infra for finding CPU id from phandle.
+Date: Tue, 22 Apr 2025 09:43:36 +0100
+Message-ID: <20250422084340.457-2-alireza.sanaee@huawei.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250422084340.457-1-alireza.sanaee@huawei.com>
+References: <20250422084340.457-1-alireza.sanaee@huawei.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -69,8 +56,8 @@ X-Originating-IP: [10.47.65.221]
 X-ClientProxiedBy: lhrpeml500010.china.huawei.com (7.191.174.240) To
  frapeml500003.china.huawei.com (7.182.85.28)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_094357_070631_D5067A85 
-X-CRM114-Status: GOOD (  13.30  )
+X-CRM114-CacheID: sfid-20250422_014418_118065_5C02550E 
+X-CRM114-Status: GOOD (  17.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,62 +72,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patchset allows for sharing resources between SMT threads in the
-device tree (DT).
+Get CPU id from phandle. Many drivers get do this by getting hold of CPU
+node first through a phandle and then find the CPU ID using the relevant
+function. This commit encapsulates cpu node finding and making driver
+code easier to cleaner.
 
-WHY? Given the current use of the DT, it is not possible to share L1
-caches, as well as other resources such as clock among SMT threads.
-However, DT spec in section Section 3.8.1 [1], describes how SMT threads
-can be described in the reg array, this is how PowerPC describes SMT
-threads in DT.
+The API interface requires three parameters, 1) node, 2) pointer to CPU
+node, and 3) property which includes the phandle. API sets the pointer
+to the CPU node and allows the driver to play with the CPU itself, for
+logging purposes for instance.
+---
+ drivers/of/cpu.c   | 40 ++++++++++++++++++++++++++++++++++++++++
+ include/linux/of.h |  3 +++
+ 2 files changed, 43 insertions(+)
 
-CHALLENGE: Given discussions with the community [2], it was apparent
-that it is not straightforward to implement this, since cpu-maps must
-point to a particular CPU node in DT [3], Section 2.1. However, it is
-not only the cpu-map but also there other nodes that point to cpu nodes
-which indeed need care and changes.
-
-SOLUTION: This led to more discussions on what the solution should look
-like and based on recent converstations we ended up with the following
-approach [4].
-
-core0 {
-  thread0 {
-    cpu = <&cpu0 0>;
-  };
-  thread1 {
-    cpu = <&cpu0 1>;
-  };
-};
-
-In this layout, first parameter is the phandle to cpu-node and second
-index would be the local-thread index in the reg array available in the
-cpu-node reg property. Further, when reading the property in the cpu-map
-we must know how many parameters phandle has in cpu property. Therefore,
-we optionally introduced "#cpu-cells" property to indicate the number of
-cells.
-
-[1] https://github.com/devicetree-org/devicetree-specification/releases/download/v0.4/devicetree-specification-v0.4.pdf
-[2] https://lore.kernel.org/linux-arm-kernel/Z4FJZPRg75YIUR2l@J2N7QTR9R3/
-[3] https://www.kernel.org/doc/Documentation/devicetree/bindings/cpu/cpu-topology.txt
-[4] https://lore.kernel.org/devicetree-spec/CAL_JsqK1yqRLD9B+G7UUp=D8K++mXHq0Rmv=1i6DL_jXyZwXAw@mail.gmail.com/
-
-Alireza Sanaee (5):
-  DT: add infra for finding CPU id from phandle.
-  arm64: of: handle multiple threads in ARM cpu node
-  driver/base/arch_topology: update CPU map to use the new API.
-  driver/hwtracing/coresight: Use of_cpu_phandle_to_id for grabbing CPU
-    id.
-  DT: of_cpu_phandle_to_id to support SMT threads
-
- arch/arm64/kernel/smp.c                       | 74 ++++++++++---------
- drivers/base/arch_topology.c                  | 12 +--
- .../coresight/coresight-cti-platform.c        | 15 +---
- .../hwtracing/coresight/coresight-platform.c  | 14 +---
- drivers/of/cpu.c                              | 45 +++++++++++
- include/linux/of.h                            |  3 +
- 6 files changed, 100 insertions(+), 63 deletions(-)
-
+diff --git a/drivers/of/cpu.c b/drivers/of/cpu.c
+index 5214dc3d05ae..c2d729999a4e 100644
+--- a/drivers/of/cpu.c
++++ b/drivers/of/cpu.c
+@@ -173,6 +173,46 @@ int of_cpu_node_to_id(struct device_node *cpu_node)
+ }
+ EXPORT_SYMBOL(of_cpu_node_to_id);
+ 
++/**
++ * of_cpu_phandle_to_id: Get the logical CPU number for a given device_node
++ *
++ * @node: Pointer to the device_node containing CPU phandle.
++ * @cpu_np: Pointer to the device_node for CPU.
++ * @prop: String of property holding the phandle.
++ *
++ * Return: The logical CPU number of the given CPU device_node or -ENODEV if
++ * the CPU is not found. If the property is not found, it returns -1. On
++ * success, cpu_np will always point to the retrieved CPU device_node.
++ */
++int of_cpu_phandle_to_id(const struct device_node *node,
++			 const struct device_node *cpu_np,
++			 const char * prop)
++{
++	bool found = false;
++	int cpu, ret;
++	struct device_node *np;
++	struct of_phandle_args args;
++
++	if (!node || !prop)
++		return -1;
++
++	ret = of_parse_phandle_with_args(node, prop, NULL, 0, &args);
++	if (ret < 0)
++		return ret;
++
++	cpu_np = args.np;
++	for_each_possible_cpu(cpu) {
++		np = of_cpu_device_node_get(cpu);
++		found = (cpu_np == np);
++		of_node_put(np);
++		if (found)
++			return cpu;
++	}
++
++	return -ENODEV;
++}
++EXPORT_SYMBOL(of_cpu_phandle_to_id);
++
+ /**
+  * of_get_cpu_state_node - Get CPU's idle state node at the given index
+  *
+diff --git a/include/linux/of.h b/include/linux/of.h
+index eaf0e2a2b75c..5e51e57478b1 100644
+--- a/include/linux/of.h
++++ b/include/linux/of.h
+@@ -360,6 +360,9 @@ extern const void *of_get_property(const struct device_node *node,
+ extern struct device_node *of_get_cpu_node(int cpu, unsigned int *thread);
+ extern struct device_node *of_cpu_device_node_get(int cpu);
+ extern int of_cpu_node_to_id(struct device_node *np);
++extern int of_cpu_phandle_to_id(const struct device_node *np,
++				const struct device_node *cpu_np,
++				const char *propname);
+ extern struct device_node *of_get_next_cpu_node(struct device_node *prev);
+ extern struct device_node *of_get_cpu_state_node(const struct device_node *cpu_node,
+ 						 int index);
 -- 
 2.43.0
 
