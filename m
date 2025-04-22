@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38F5CC369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 16:37:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 535B1C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 16:39:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=lncP1rgWm9k02UlHRTvf0YUucg0MEeMGEKN5pvhXfVQ=; b=W3ammXUo+Cyb8T
-	k+z2Ivj45JQTF5KiKhlvkZtI2wqUA7rEJRKx1Jlc7gLK/fapzI7d1gcwCygftdv6Ux+wEvMqySxeW
-	FJQTLBbdwlTHloOSSP9cgDKlComJIOZJbRFv4thcfprNDGfRBujlCzpdM7tId1rV9PhupScmNxKw/
-	6JD6bPjAET1xYyEC6HeWGD0eKkNP3EGggxUh0ORJiuUnALhUr1UMasg1QswcZb26QRKyV4+zIDNUt
-	B7zfDoQOwg89Q5xAvtwVEKiIqByf6TT4DL0OceZo8AzYYuofLOKbsnkX4xZEYBreI9Y6RVtv+pDnY
-	BiA3HggUq3FgGop7tUwA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Sv05jOSJ6xc00eTPXgNHRvsKAXEfKlZvJUZ4OUiKUQs=; b=070ng7/zF4X1t6BhqVDLDkaqUZ
+	CKJLKzvH+32pRpbC/hD0EQ47994y6T5QtarU7E71E3nvbWfmV8CGHqfepAIr9uVr7unJwEtgFEw1j
+	guWwSAn5UbOGJNKDnaYinqV+pu2MwLvCdsOpMF/8WALY91wwcS/ucnaPPMqAuIe3qaxyy16LozYqQ
+	fMCSPvWCX4KsaTNGf1JBPOHVKNykRsfYzQzBm25MXmyp03WMz7YoSNs9syThmL7qNGJT7bNsG4ub2
+	is+5yzgtptXKbF1kVBvDTIR4tnMxotQ2u+GzNSdWXhyxC59U2ZFHjTnrP58eCcC7LkhDPH7cR6XTl
+	kiLgh6jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Gcm-00000007wRj-1Upb;
-	Tue, 22 Apr 2025 16:37:32 +0000
+	id 1u7Gec-00000007wb5-1nVB;
+	Tue, 22 Apr 2025 16:39:26 +0000
 Received: from relay1-d.mail.gandi.net ([217.70.183.193])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7FEA-00000007dPn-2Vl8
+	id 1u7FEA-00000007dPs-2q9l
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 22 Apr 2025 15:08:05 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 72DC843A39;
-	Tue, 22 Apr 2025 15:07:53 +0000 (UTC)
+Received: by mail.gandi.net (Postfix) with ESMTPSA id DE1EA439F6;
+	Tue, 22 Apr 2025 15:07:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1745334476;
+	t=1745334477;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=lncP1rgWm9k02UlHRTvf0YUucg0MEeMGEKN5pvhXfVQ=;
-	b=Klg4oUbmi7xLuZmCjFNsc05CfSpssVHYxTn25E52mKt2mIoaCeIPzSDpCldl01RURD5NMz
-	Bq8pU+hvK91Y8IreCt5mO7mvG0nlnD10upAROk3xG5TI0ZgafSj1AbtX0PDLEZ2o6lAaJy
-	F96CJNRTpiZnj0vCoL/clxM5ajLLWkS0C5hgqIg1fGSRjbLTX2dvrpINlo704iIgc3akeQ
-	aPYVQxzZy7DauupSzJnRVWvi0KW0I82Rk4973/sXJnramg3tCzf/WQ4vcn0cRCgY3/dbGn
-	k7enfcn75Taz1ZAIRW0IydA/DDptU4o9fBVNDicuzrR7WgnPPbS0zQBBssQF6Q==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Sv05jOSJ6xc00eTPXgNHRvsKAXEfKlZvJUZ4OUiKUQs=;
+	b=OYwnFVQAZcZEoI+rYV4eM26gGChn+jEPACAHPdCJihqM7V88gUroJFpnBFYkrEFGl5dN2I
+	FEBT+F0F3V7QCNarRFhd3EWbNG5uxB8DLAPcqMxv6T9JUFMiy03fNgiEDCuUTjyOlON3rD
+	ySU2E6zlyoSop5Dlh0KvSqivEg1Vqmz5yWWjKEK6SAs1yUtaxRqMRk3JmRlQvcsq94uqF6
+	nAsaq9tXBn3LTeOOPPBRKRfJatOsq+m58nUFZ085aejv6CUmpLG8bj0T/MjwkM/kb3cJFd
+	jIN+aX8RtYSXoYMwp7383VYkT4yOf2zN7EhYkG/Gpjgw9RbGy4rAypeFAxCL3g==
 From: Alexis Lothore <alexis.lothore@bootlin.com>
-Subject: [PATCH net 0/2] net: stmmac: fix timestamp snapshots on dwmac1000
-Date: Tue, 22 Apr 2025 17:07:21 +0200
-Message-Id: <20250422-stmmac_ts-v1-0-b59c9f406041@bootlin.com>
+Date: Tue, 22 Apr 2025 17:07:22 +0200
+Subject: [PATCH net 1/2] net: stmmac: fix dwmac1000 ptp timestamp status
+ offset
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAKmwB2gC/x3MQQqAIBBA0avErBNsyqCuEhFiU80iC0ciEO+et
- Hzw+QmEApPAWCUI9LDw5QuaugJ3WL+T4rUYUKPRHaKSeJ7WLVGUQ+ytafUwEELp70Abv/9rAk8
- R5pw/kvsRhWAAAAA=
-X-Change-ID: 20250422-stmmac_ts-c226a53099e2
+Message-Id: <20250422-stmmac_ts-v1-1-b59c9f406041@bootlin.com>
+References: <20250422-stmmac_ts-v1-0-b59c9f406041@bootlin.com>
+In-Reply-To: <20250422-stmmac_ts-v1-0-b59c9f406041@bootlin.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
  Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
@@ -67,13 +67,12 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, netdev@vger.kernel.org,
 X-Mailer: b4 0.14.2
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvgeegtdehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhufffkfggtgfgvfevofesthekredtredtjeenucfhrhhomheptehlvgigihhsucfnohhthhhorhgvuceorghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeitdejieffgeevteegveefledugfffueeludejffdvteejffdvjeeuvddujeeugfenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghloheplgdujedvrddujedrtddrudgnpdhmrghilhhfrhhomheprghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedujedprhgtphhtthhopegrnhgurhgvfidonhgvthguvghvsehluhhnnhdrtghhpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehli
- hhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhsthhmfedvsehsthdqmhguqdhmrghilhhmrghnrdhsthhorhhmrhgvphhlhidrtghomhdprhgtphhtthhopegurghnihgvlhdrmhgrtghhohhnsehmihgtrhhotghhihhprdgtohhmpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhm
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvgeegtdehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthekredtredtjeenucfhrhhomheptehlvgigihhsucfnohhthhhorhgvuceorghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpefhheefudfhgeegtdekvdeujedugefhhffhfedtgfetffevveekfeelveejfffhjeenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghloheplgdujedvrddujedrtddrudgnpdhmrghilhhfrhhomheprghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedujedprhgtphhtthhopegrnhgurhgvfidonhgvthguvghvsehluhhnnhdrtghhpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkv
+ ghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhsthhmfedvsehsthdqmhguqdhmrghilhhmrghnrdhsthhorhhmrhgvphhlhidrtghomhdprhgtphhtthhopegurghnihgvlhdrmhgrtghhohhnsehmihgtrhhotghhihhprdgtohhmpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhm
 X-GND-Sasl: alexis.lothore@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_080802_933533_8E8CE7C2 
-X-CRM114-Status: UNSURE (   8.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250422_080802_962406_D1335062 
+X-CRM114-Status: GOOD (  13.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,34 +87,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+When a PTP interrupt occurs, the driver accesses the wrong offset to
+learn about the number of available snapshots in the FIFO for dwmac1000:
+it should be accessing bits 29..25, while it is currently reading bits
+19..16 (those are bits about the auxiliary triggers which have generated
+the timestamps). As a consequence, it does not compute correctly the
+number of available snapshots, and so possibly do not generate the
+corresponding clock events if the bogus value ends up being 0.
 
-this small series contains two small fixes for the timestamp snapshot
-feature on stmmac, especially on dwmac1000 version. Those issues have
-been detected on a socfpga (Cyclone V) platform. They kind of follow the
-big rework sent by Maxime at the end of last year to properly split this
-feature support between different versions of the DWMAC IP.
+Fix clock events generation by reading the correct bits in the timestamp
+register for dwmac1000.
 
+Fixes: 19b93bbb20eb ("net: stmmac: Introduce dwmac1000 timestamping operations")
 Signed-off-by: Alexis Lothoré <alexis.lothore@bootlin.com>
 ---
-Alexis Lothore (1):
-      net: stmmac: fix dwmac1000 ptp timestamp status offset
+ drivers/net/ethernet/stmicro/stmmac/dwmac1000.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Alexis Lothoré (1):
-      net: stmmac: fix multiplication overflow when reading timestamp
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h b/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h
+index 967a16212faf008bc7b5e43031e2d85800c5c467..0c011a47d5a3e98280a98d25b8ef3614684ae78c 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h
+@@ -320,8 +320,8 @@ enum rtc_control {
+ 
+ /* PTP and timestamping registers */
+ 
+-#define GMAC3_X_ATSNS       GENMASK(19, 16)
+-#define GMAC3_X_ATSNS_SHIFT 16
++#define GMAC3_X_ATSNS       GENMASK(29, 25)
++#define GMAC3_X_ATSNS_SHIFT 25
+ 
+ #define GMAC_PTP_TCR_ATSFC	BIT(24)
+ #define GMAC_PTP_TCR_ATSEN0	BIT(25)
 
- drivers/net/ethernet/stmicro/stmmac/dwmac1000.h       | 4 ++--
- drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c  | 2 +-
- drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c | 2 +-
- 3 files changed, 4 insertions(+), 4 deletions(-)
----
-base-commit: c03a49f3093a4903c8a93c8b5c9a297b5343b169
-change-id: 20250422-stmmac_ts-c226a53099e2
-
-Best regards,
 -- 
-Alexis Lothoré, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+2.49.0
 
 
