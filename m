@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69752C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 08:52:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF787C369D7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 08:53:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Js94thcIvopkYle6Xyx7XjXE9e0zF7ql0PO1lzj43rY=; b=XZb/2kggnGkjXmYmF4f1vgBKB7
-	j2LcPYfr4vzbpplGq1ZCwpBQkkbOTdCycDPgytWymNRSbaAT8ZkTFUS3gbyr3JVXOTOKpM/UX3U3w
-	re5VkK4OfOCNx6a8Py+0LruRNYz0TNWuJMtqoEOoADqmnshO+xHweh9f4d7hwWoxeJUvOboayXQ9/
-	NJiyk8AIn3T6FB69Ou0CMB2Fdkq+X+XSfTsVRH8k2Tq33ZrPymiKgCa4Ork9WJgoHp6cYI6V+GPYm
-	6KMslxDc+2ufkTiL5tov+av7jMXU2SPr1574K3L3hCLkjTgMJGxHWcO9mnZZc6P2IxsaWX0DM88Ob
-	vGx+V0fw==;
+	bh=Tjfl4ziwjfHSxtx/Q53uZF468Ponlql0YZKHd4fmxws=; b=Molz5i1/ch6GdXmz23N1sSl9zt
+	cgr394tvY2X7t68lhJphA7aB//EhH4eZM5kpq+Zbp+sX3JRT5RR847a5qjC693YlmDGhGvbMAScwe
+	mPZnjBdrEi4+H+DWfeN7ZCGj8IIBSzO255OWEraIrhx3a1J68KSRFkqWY3iMYHFN6k7Tr724JANAj
+	BmoP3onU77EkvNIr8JCKOOrMR8uq1sMIogUHkRhYRm2wsB/xThIPvX+vvISOZFlB4kTFssG7Ps6vc
+	Csz5bX/OICMLhFlsLIbI/y5NZyY6vR8CNdniLfkQC/Gvchq8ZXSsrIwJxVSaV92VY7MM/IjmG6kiF
+	4bRN+v+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u79MB-00000006Qnl-13ZR;
-	Tue, 22 Apr 2025 08:51:55 +0000
+	id 1u79O1-00000006RJh-3zC7;
+	Tue, 22 Apr 2025 08:53:49 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u78qG-00000006GnS-1Aec
+	id 1u78qI-00000006GpH-2aPs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 08:18:57 +0000
+	Tue, 22 Apr 2025 08:19:00 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BF62D176A;
-	Tue, 22 Apr 2025 01:18:51 -0700 (PDT)
-Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 184D83F66E;
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E5AD319F0;
 	Tue, 22 Apr 2025 01:18:53 -0700 (PDT)
+Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3E4B73F66E;
+	Tue, 22 Apr 2025 01:18:56 -0700 (PDT)
 From: Ryan Roberts <ryan.roberts@arm.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -50,17 +50,17 @@ Cc: Ryan Roberts <ryan.roberts@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 07/11] mm/vmalloc: Warn on improper use of vunmap_range()
-Date: Tue, 22 Apr 2025 09:18:15 +0100
-Message-ID: <20250422081822.1836315-8-ryan.roberts@arm.com>
+Subject: [PATCH v4 08/11] mm/vmalloc: Gracefully unmap huge ptes
+Date: Tue, 22 Apr 2025 09:18:16 +0100
+Message-ID: <20250422081822.1836315-9-ryan.roberts@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250422081822.1836315-1-ryan.roberts@arm.com>
 References: <20250422081822.1836315-1-ryan.roberts@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_011856_360290_897273DD 
-X-CRM114-Status: GOOD (  14.09  )
+X-CRM114-CacheID: sfid-20250422_011858_780144_1AB9AE1B 
+X-CRM114-Status: GOOD (  15.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,53 +75,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A call to vmalloc_huge() may cause memory blocks to be mapped at pmd or
-pud level. But it is possible to subsequently call vunmap_range() on a
-sub-range of the mapped memory, which partially overlaps a pmd or pud.
-In this case, vmalloc unmaps the entire pmd or pud so that the
-no-overlapping portion is also unmapped. Clearly that would have a bad
-outcome, but it's not something that any callers do today as far as I
-can tell. So I guess it's just expected that callers will not do this.
+Commit f7ee1f13d606 ("mm/vmalloc: enable mapping of huge pages at pte
+level in vmap") added its support by reusing the set_huge_pte_at() API,
+which is otherwise only used for user mappings. But when unmapping those
+huge ptes, it continued to call ptep_get_and_clear(), which is a
+layering violation. To date, the only arch to implement this support is
+powerpc and it all happens to work ok for it.
 
-However, it would be useful to know if this happened in future; let's
-add a warning to cover the eventuality.
+But arm64's implementation of ptep_get_and_clear() can not be safely
+used to clear a previous set_huge_pte_at(). So let's introduce a new
+arch opt-in function, arch_vmap_pte_range_unmap_size(), which can
+provide the size of a (present) pte. Then we can call
+huge_ptep_get_and_clear() to tear it down properly.
+
+Note that if vunmap_range() is called with a range that starts in the
+middle of a huge pte-mapped page, we must unmap the entire huge page so
+the behaviour is consistent with pmd and pud block mappings. In this
+case emit a warning just like we do for pmd/pud mappings.
 
 Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 Reviewed-by: Uladzislau Rezki (Sony) <urezki@gmail.com>
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 ---
- mm/vmalloc.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+ include/linux/vmalloc.h |  8 ++++++++
+ mm/vmalloc.c            | 18 ++++++++++++++++--
+ 2 files changed, 24 insertions(+), 2 deletions(-)
 
+diff --git a/include/linux/vmalloc.h b/include/linux/vmalloc.h
+index 31e9ffd936e3..16dd4cba64f2 100644
+--- a/include/linux/vmalloc.h
++++ b/include/linux/vmalloc.h
+@@ -113,6 +113,14 @@ static inline unsigned long arch_vmap_pte_range_map_size(unsigned long addr, uns
+ }
+ #endif
+ 
++#ifndef arch_vmap_pte_range_unmap_size
++static inline unsigned long arch_vmap_pte_range_unmap_size(unsigned long addr,
++							   pte_t *ptep)
++{
++	return PAGE_SIZE;
++}
++#endif
++
+ #ifndef arch_vmap_pte_supported_shift
+ static inline int arch_vmap_pte_supported_shift(unsigned long size)
+ {
 diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-index 3ed720a787ec..d60d3a29d149 100644
+index d60d3a29d149..fe2e2cc8da94 100644
 --- a/mm/vmalloc.c
 +++ b/mm/vmalloc.c
-@@ -374,8 +374,10 @@ static void vunmap_pmd_range(pud_t *pud, unsigned long addr, unsigned long end,
- 		if (cleared || pmd_bad(*pmd))
- 			*mask |= PGTBL_PMD_MODIFIED;
+@@ -350,12 +350,26 @@ static void vunmap_pte_range(pmd_t *pmd, unsigned long addr, unsigned long end,
+ 			     pgtbl_mod_mask *mask)
+ {
+ 	pte_t *pte;
++	pte_t ptent;
++	unsigned long size = PAGE_SIZE;
  
--		if (cleared)
-+		if (cleared) {
-+			WARN_ON(next - addr < PMD_SIZE);
- 			continue;
-+		}
- 		if (pmd_none_or_clear_bad(pmd))
- 			continue;
- 		vunmap_pte_range(pmd, addr, next, mask);
-@@ -399,8 +401,10 @@ static void vunmap_pud_range(p4d_t *p4d, unsigned long addr, unsigned long end,
- 		if (cleared || pud_bad(*pud))
- 			*mask |= PGTBL_PUD_MODIFIED;
+ 	pte = pte_offset_kernel(pmd, addr);
+ 	do {
+-		pte_t ptent = ptep_get_and_clear(&init_mm, addr, pte);
++#ifdef CONFIG_HUGETLB_PAGE
++		size = arch_vmap_pte_range_unmap_size(addr, pte);
++		if (size != PAGE_SIZE) {
++			if (WARN_ON(!IS_ALIGNED(addr, size))) {
++				addr = ALIGN_DOWN(addr, size);
++				pte = PTR_ALIGN_DOWN(pte, sizeof(*pte) * (size >> PAGE_SHIFT));
++			}
++			ptent = huge_ptep_get_and_clear(&init_mm, addr, pte, size);
++			if (WARN_ON(end - addr < size))
++				size = end - addr;
++		} else
++#endif
++			ptent = ptep_get_and_clear(&init_mm, addr, pte);
+ 		WARN_ON(!pte_none(ptent) && !pte_present(ptent));
+-	} while (pte++, addr += PAGE_SIZE, addr != end);
++	} while (pte += (size >> PAGE_SHIFT), addr += size, addr != end);
+ 	*mask |= PGTBL_PTE_MODIFIED;
+ }
  
--		if (cleared)
-+		if (cleared) {
-+			WARN_ON(next - addr < PUD_SIZE);
- 			continue;
-+		}
- 		if (pud_none_or_clear_bad(pud))
- 			continue;
- 		vunmap_pmd_range(pud, addr, next, mask);
 -- 
 2.43.0
 
