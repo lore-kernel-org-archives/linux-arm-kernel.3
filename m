@@ -4,65 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4FEDC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 15:25:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83DBBC369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 15:27:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Expx/ye3oE5pvFyYQ9T+yKNsmR+Xjb8BtmKwr4b2n40=; b=RqJZe4YtA6N0ftiPyXixqJyLBV
-	qma5JSFG9B+wZD8/EY1lvEVH7ul4CHEZyaZPgDxQmN/U0qfeK7+725qXHOJWATDOzbLR+yTWdpV7T
-	E7rZmyb84wsfKpouWxr43VJOQkXePOWzrD9t4g6v6PcaFe+iL4OxT3qk0VuRSaZwbsjw4pfeS0msE
-	lr8AlhGxHQWUCiuU/fKBumMdLJp40/V/sDfyaZdhWGxjV8iADrJldvRt9Uong2bboSWwyWzku4n3T
-	6g2dPR4OBWwskKn32P0CjzCaiqiVArs/owFU6Mcgc68SU0gXWV29KnQ0OTyynvfW8+Xia+XzK4lpJ
-	aki0oP9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lud/orpWCqDvSqvMG+PNDdoot4w51To9S3IfgDckrw4=; b=BDD1WIceexf0rA+41moBX84deA
+	sxSO9/Mo5IlflWy7SFHdWnoi2Ppdu6xdXbEiLZvkiY4BQu8/6HXAxzOsVnleYW6F5aWuUVpvUa750
+	smWOU08GaRevQAkBpe2T9As9m4Y148N3kd8eUU5zq2AXmlSkAC1cv2aXKM2hPRfQc5yc/qzgiJE3a
+	FfvSJdG8x/3rf0oD0nYETk5hMJICyToap1UK6cpiXwOQ33xsow3/7w7VuMQM0JiU774rbtinGWQVG
+	Ut7+iJjJkdXUGJYGj+AsLzssOUxhNGhdbgZB0BZJJm+mCmB0U7joTPet3IHWqakhgYhjutVbWuO4X
+	nHq8mFHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7FVE-00000007hhC-1M3b;
-	Tue, 22 Apr 2025 15:25:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7EKW-00000007RC7-0R1w
+	id 1u7FX5-00000007i8y-0iYH;
+	Tue, 22 Apr 2025 15:27:35 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7ELp-00000007RTh-31FB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 14:10:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E38D6152B;
-	Tue, 22 Apr 2025 07:10:26 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D1D853F66E;
-	Tue, 22 Apr 2025 07:10:30 -0700 (PDT)
-Date: Tue, 22 Apr 2025 15:10:26 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Ingo Molnar <mingo@kernel.org>
-Cc: James Clark <james.clark@linaro.org>, Yabin Cui <yabinc@google.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	Mike Leach <mike.leach@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Liang Kan <kan.liang@linux.intel.com>
-Subject: Re: [PATCH 1/2] perf: Allow non-contiguous AUX buffer pages via PMU
- capability
-Message-ID: <20250422141026.GH28953@e132581.arm.com>
-References: <20250421215818.3800081-1-yabinc@google.com>
- <20250421215818.3800081-2-yabinc@google.com>
- <48640298-effa-42d4-9137-a18a51637f03@linaro.org>
- <aAeQcgmL-iqGbG_g@gmail.com>
+	Tue, 22 Apr 2025 14:11:55 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53MEBoIB1983572
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 22 Apr 2025 09:11:50 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1745331110;
+	bh=lud/orpWCqDvSqvMG+PNDdoot4w51To9S3IfgDckrw4=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=f754SAX9JbOlRl9Zeyr3XxtKdM6x7L5PlBjoBK0OVXs1amsTlP2H6b9jZ/PGZjdSk
+	 tpBgGfI26yFVdRid5jfmWMMpJjreVhut2xHXVlrSxNWhtgD72i9+aTDIqQOXQMzsfv
+	 tuAYX0XxOs7tqqd+7QfZWphASZjTGTZ+YlsyrUmE=
+Received: from DFLE108.ent.ti.com (dfle108.ent.ti.com [10.64.6.29])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53MEBoVY024798
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 22 Apr 2025 09:11:50 -0500
+Received: from DFLE105.ent.ti.com (10.64.6.26) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 22
+ Apr 2025 09:11:50 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 22 Apr 2025 09:11:50 -0500
+Received: from [10.249.141.75] ([10.249.141.75])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53MEBkKf122223;
+	Tue, 22 Apr 2025 09:11:47 -0500
+Message-ID: <cca0a53c-6ee9-4837-86c6-3e67b8ead5ed@ti.com>
+Date: Tue, 22 Apr 2025 19:41:45 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aAeQcgmL-iqGbG_g@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/7] arm64: dts: ti: k3-j721e: add ranges for PCIe0
+ DAT1 and PCIe1 DAT1
+To: Siddharth Vadapalli <s-vadapalli@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
+        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        <u-kumar1@ti.com>
+References: <20250422120042.3746004-1-s-vadapalli@ti.com>
+ <20250422120042.3746004-4-s-vadapalli@ti.com>
+Content-Language: en-US
+From: "Kumar, Udit" <u-kumar1@ti.com>
+In-Reply-To: <20250422120042.3746004-4-s-vadapalli@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_071032_178157_58186319 
-X-CRM114-Status: GOOD (  23.20  )
+X-CRM114-CacheID: sfid-20250422_071153_949763_962CB18B 
+X-CRM114-Status: GOOD (  14.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,44 +90,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 22, 2025 at 02:49:54PM +0200, Ingo Molnar wrote:
+Thanks Siddharth
 
-[...]
+On 4/22/2025 5:30 PM, Siddharth Vadapalli wrote:
+> The PCIe0 DAT1 and PCIe1 DAT1 are 4 GB address regions in the 64-bit
+> address space of the respective PCIe Controllers. Hence, update the
+> ranges to include them.
+>
+> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+> ---
+>
+> Link to v1 patch:
+> https://lore.kernel.org/r/20250417120407.2646929-4-s-vadapalli@ti.com/
+> Changes since v1:
+> - Fixed the 'ranges' to set the size as 4 GB instead of the incorrect
+>    value of 128 MB.
+>
+> Regards,
+> Siddharth.
+>
+>   arch/arm64/boot/dts/ti/k3-j721e.dtsi | 2 ++
+>   1 file changed, 2 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/ti/k3-j721e.dtsi b/arch/arm64/boot/dts/ti/k3-j721e.dtsi
+> index a7f2f52f42f7..b6e22c242951 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j721e.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-j721e.dtsi
+> @@ -126,6 +126,8 @@ cbass_main: bus@100000 {
+>   			 <0x00 0x10000000 0x00 0x10000000 0x00 0x10000000>, /* PCIe DAT */
+>   			 <0x00 0x64800000 0x00 0x64800000 0x00 0x00800000>, /* C71 */
+>   			 <0x00 0x6f000000 0x00 0x6f000000 0x00 0x00310000>, /* A72 PERIPHBASE */
+> +			 <0x40 0x00000000 0x40 0x00000000 0x01 0x00000000>, /* PCIe0 DAT1 */
+> +			 <0x41 0x00000000 0x41 0x00000000 0x01 0x00000000>, /* PCIe1 DAT1 *
 
-> > Hi Yabin,
-> > 
-> > I was wondering if this is just the opposite of 
-> > PERF_PMU_CAP_AUX_NO_SG, and that order 0 should be used by default 
-> > for all devices to solve the issue you describe. Because we already 
-> > have PERF_PMU_CAP_AUX_NO_SG for devices that need contiguous pages. 
-> > Then I found commit 5768402fd9c6 ("perf/ring_buffer: Use high order 
-> > allocations for AUX buffers optimistically") that explains that the 
-> > current allocation strategy is an optimization.
-> > 
-> > Your change seems to decide that for certain devices we want to 
-> > optimize for fragmentation rather than performance. If these are 
-> > rarely used features specifically when looking at performance should 
-> > we not continue to optimize for performance? Or at least make it user 
-> > configurable?
-> 
-> So there seems to be 3 categories:
-> 
->  - 1) Must have physically contiguous AUX buffers, it's a hardware ABI. 
->       (PERF_PMU_CAP_AUX_NO_SG for Intel BTS and PT.)
-> 
->  - 2) Would be nice to have continguous AUX buffers, for a bit more 
->       performance.
-> 
->  - 3) Doesn't really care.
-> 
-> So we do have #1, and it appears Yabin's usecase is #3?
 
-In Yabin's case, the AUX buffer work as a bounce buffer.  The hardware
-trace data is copied by a driver from low level's contiguous buffer to
-the AUX buffer.
+Reviewed-by: Udit Kumar <u-kumar1@ti.com>
 
-In this case we cannot benefit much from continguous AUX buffers.
 
-Thanks,
-Leo
+> /
+>   			 <0x44 0x00000000 0x44 0x00000000 0x00 0x08000000>, /* PCIe2 DAT */
+>   			 <0x44 0x10000000 0x44 0x10000000 0x00 0x08000000>, /* PCIe3 DAT */
+>   			 <0x4d 0x80800000 0x4d 0x80800000 0x00 0x00800000>, /* C66_0 */
 
