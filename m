@@ -4,91 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B30F6C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 10:16:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DED36C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 10:18:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b91x6W4W3YM6MatYMmgJu4q6pcHS8Em6ppy8O0swZ4w=; b=3LwMFMdexsd1kEaOWYIH3tQIUd
-	S3u6i0Ub8EgwEK8mtpcj8NGAy5kQGVDHYUFrdz4uLEp/hNVX/QErti65YPfJCGxNaAul+TWc7Ppun
-	XQJa8v0AJyAA3apsjUG+5kt+uJ7+LIB1R7bwzBNBDuOSog+RchaWMRMj1n/s+XS5Dw21DxoVqw3Eu
-	GQ/716HeGUTtJgZVYSHgQg2Mb9btaiAKjXEsFWToDnUPi9DAz09enpkUZEvKy3XJNyT4rsDpyr+iz
-	tEp7MNTR5/Ui7Y01wLn3IyN9FQ/rfZ/8LHkZLtSpbjPxkGV5ixEdIz72bD2rGYyB790MARZCrr2rR
-	TtkiUntg==;
+	bh=1gFPbHcslBrShPBfeniLTCdmwDJynv5JMNyf9loIAkY=; b=azCuvt5/m5X25sMlRROCwG1a/N
+	7lScoHrwpMXHEaI3vNYyhCo19lpBq+VvbGwLVl1tJuq48ciXWYnggG9766yCwPJWKDwjMiWiEYKYs
+	KX7Fk7HvBrPS3iYuJqc0aDQzUcKfBEQ/V4QSreqI8U0W0c2w+bF+MTuQ5xzcSTAgHzPGYYuP83k2O
+	c5P6hkVz+VjErA3t1kZPelzkFMn080zg1WcXczxI1Gj0IfJtzstzzHkc4ILD/dbYLzsoch9ApM5TW
+	fepheuTdTYZveldVkoWF8EDQgqUSIhJe3fmiysQEYnk9edVrwXeAi0rT0n+2vtFy65UNFI/8yf1sq
+	GxqAxx4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Afx-00000006iOi-3siR;
-	Tue, 22 Apr 2025 10:16:25 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1u7Ahn-00000006iqS-2q6H;
+	Tue, 22 Apr 2025 10:18:19 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u787D-000000068GG-1SyG
+	id 1u787O-000000068J1-0Xp4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 07:32:25 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-39c0dfad22aso3322773f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 00:32:23 -0700 (PDT)
+	Tue, 22 Apr 2025 07:32:36 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-39ee5a5bb66so3289148f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 00:32:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745307142; x=1745911942; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1745307152; x=1745911952; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=b91x6W4W3YM6MatYMmgJu4q6pcHS8Em6ppy8O0swZ4w=;
-        b=BR4RTQuDtq+Hr1IYQ9ILs5JaWufxgBlJKneHWXa2CgPfAG9LI5hhqe1PFodeJYQTFV
-         0dG4GOq2yd+r6LgXCnnpozArb+SU3+gXGpBMtLN3zKa19eXZVX6TLyJrraikcIXbwbji
-         P3u03u616V+Sbs9dpPnvsVpx7OVl6rIEFQe1Mnhz8TljErKsDgUssJLekrZK92t/dU63
-         SW1psNDEHB75SGkZGXaoTQoE3oCAZhkrpgmJPhfVvCqpn5P8ecx7bonMfG41SeAY4QVs
-         eGdqv/iUzSR5LXyMUTP7Wjv09wk/MBg0ow9noLQSETjvXHw5pDU4P3uFSqg2y3j0j19O
-         x/Rw==
+        bh=1gFPbHcslBrShPBfeniLTCdmwDJynv5JMNyf9loIAkY=;
+        b=JVehmCPZ7LVoom1yz2xFDTBhRkNz9B22N1j2MScEWsjHgT/VrAwFkcwMY2B8YHvEE1
+         l3AyPUaWvvkSWVdZWq9MY67JIdCswX7/YA5F2phy/efxjzb1RglWtwyWQO2+kk+Sbwsq
+         E99CD0V9wnj2IxLm7hbKvAWhwyHjS4OkKNGrRh4z9mtSXRRT2Z7SsnWhxUXd0CVOYR4L
+         ZSprlUUGO12olbR9SaHOeAVnR8HIQ7RG4sb2/Hey5mOX9/xFJENiy5JNtaw6+o9w/3yM
+         DIl0wqzwixqa0TdIB/JgmCHMKtkKqKpO5AmTF2gdKQYwFzLaXZorpfVfvge5s6kWiIah
+         YnXw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745307142; x=1745911942;
+        d=1e100.net; s=20230601; t=1745307152; x=1745911952;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=b91x6W4W3YM6MatYMmgJu4q6pcHS8Em6ppy8O0swZ4w=;
-        b=Z/fUS3e9Vdth2oVds/G5DtYaFkEnIAvA+abDTYXDbP0C9gDoSsZveeMJ3YXROhiISg
-         J/QSCxiPqZKpdyatf1VsBdN6kHJ5n2Os3aW68L3E/rMyYpwaKQQCOQTUX8OIKHvrTg5Z
-         Fg5EAjdPMsSKRzYSvIkZ0Zcixn8IO692aKyrfyUVy2CwTbpGwXimWzNtaIJfz/R3KCWB
-         GmWo5BswaqANv+STKDfopCqCsJBPnGg9LcMh6JBnWGNuKiWi0OD3J9TdljfaBxnN8ZFX
-         L9Qy/8tNin9uoDW1dejyaHq0LfFRqnVRVHESDwqJD8VsroXmuL0myzK+TrCPuH3hJ+HQ
-         jnlA==
-X-Gm-Message-State: AOJu0Yxf93KWVzfwZUl3XhFBL2JHvydvnveJqJMzYPTNRIYF5FquYfTK
-	LBav4Eno+/WVq7xsBWbOkE6DD78+LyeP5XPjncJPGrHBqU5Q0xtOjKeJXECxpk7qj+Hr/FQ7viS
-	C
-X-Gm-Gg: ASbGncvEoidhU9mmBfuS/LYf2bbkP67K16ePpkxHRbesEXAVcqhw3BJl2lcKtQsxVcE
-	2Dqdd6D8qZjgQcFpRakKx/Shx4quCvcfflQwYlPizkQQcoiMK6dlCZRjsbKUhbTP/ypskq/wHUh
-	JcjildelpvI4unvG0E/PFdRgj/gff6SdwqI9MetLqS5kmIrBKJWSm2WUCusgfx/uZsS8jBYYZTi
-	D6JvBby/Lli0xnmmLWVMBo13kCzcTyG3FtoZg82Tlbe8qWBnqT5cssFRf7rBogVCtXgwVGNqWuj
-	piJHFw/1VF/2bAa5ZRmshTBuDVDnWjHifUCnSqHPTb88LIOaU8rW5bbrvVX5AA==
-X-Google-Smtp-Source: AGHT+IHVx3fFkWbafwHn6ntKq7zb+0naan9uw6HPP+RnEoxKfpoIH14Qff0Qd5oTwC+j37n0ll/b5Q==
-X-Received: by 2002:a5d:6d83:0:b0:397:5de8:6937 with SMTP id ffacd0b85a97d-39efbae3fbcmr9450832f8f.41.1745307141909;
-        Tue, 22 Apr 2025 00:32:21 -0700 (PDT)
+        bh=1gFPbHcslBrShPBfeniLTCdmwDJynv5JMNyf9loIAkY=;
+        b=pyzSrL4lQcK90L8SLJ8uVx7zlUJGJTHbGCeiafosTiyppjbdNqc77l/KmCAZu679US
+         07yrQ8HAap42OfCFcPXtpB2WUK22Zq62KMyCGLyo1/V2Nkd4b598fRLNTEGhDxOQSuwB
+         2vJxxRtWHzphXWGaLJz6/U/mSL57h7PalTX+x/3dTj3zs4fg88TbF+zxCH+m0FlM3EgP
+         rJuaKtM4jOS5YxcDQ7Cnm/zvkeYrq9C6WgXRWqqFPWKAzA5O7w9R/eD26/1qnORpZ1xL
+         20RkcIKR4rC1Yg/YToSIKEfbmvKB1PJ8Ch9WbgE0oy/rd/roPZYNzVeBWCW6dGalWw2T
+         JvrQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWq9htsaTdKQsBrFqHeAa4MOHH8QtQrp2VotZ5qX7ceGFCRKD8xGrcNgUbZpGw6Zg4El87DkgHJYI9oCrVF+KPM@lists.infradead.org
+X-Gm-Message-State: AOJu0YwrcQa/Mpnhc6raw0TYtyPXfS5IDw1rJdnslVRe+eU0lXNTQDQa
+	dK5I2z87IxEk4e4diz7mQHJXeuOmiSWnI0hSYW5IoSVJzrufnZFb+CeNWGkYvADUsL9hq2qtcFX
+	K
+X-Gm-Gg: ASbGncsOuyZd9JWdfrVxjZ28zhynH5MOm1/vMge7C3UkOBFOCxBN1JBa77MzrN4JB1Y
+	pqf/yVQ89IzY/lO4e/v1raTkx6Mhw/spl9FxyJq4xtDuDX77ld0vYqyxiuF+prwf04ifiKGtYaP
+	6RYJWdXemOvMawPF8kpjVZlO9z8sZc+7ZU2J42+XxUAZyhRmB1uKrVM4CZJUWKAvP6dVh0VeVS2
+	MtBcb+XXhyGJ4FokS7/QWeoAboCexl2S2qNeUCpMbjbL73Oeh+gX55QJYJ6OxX++0+bgP0Q+Tpp
+	t/AY7wwuRK1By7SvbgQsr6k+ZutFEZ1tsmuvrLGea7pOpS8lV7P/Zji4eUpaYw==
+X-Google-Smtp-Source: AGHT+IFclT1+OQXEDIxxx/AMqrjY/N1Yvy1xLXDrMHQkl58h0kU69MTBU2hwvhAytgvH99PcAzfK0g==
+X-Received: by 2002:a5d:648c:0:b0:39c:1f02:449f with SMTP id ffacd0b85a97d-39efba26220mr11676730f8f.2.1745307152441;
+        Tue, 22 Apr 2025 00:32:32 -0700 (PDT)
 Received: from arrakeen.starnux.net ([2a01:e0a:3d9:2080:52eb:f6ff:feb3:451a])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39efa43ce6bsm14346607f8f.55.2025.04.22.00.32.21
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39efa43c079sm14450855f8f.50.2025.04.22.00.32.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Apr 2025 00:32:21 -0700 (PDT)
+        Tue, 22 Apr 2025 00:32:32 -0700 (PDT)
 From: Neil Armstrong <neil.armstrong@linaro.org>
-To: Kevin Hilman <khilman@baylibre.com>, 
- Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chuan Liu <chuan.liu@amlogic.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-In-Reply-To: <20250415-clk-measure-v3-0-9b8551dd33b4@amlogic.com>
-References: <20250415-clk-measure-v3-0-9b8551dd33b4@amlogic.com>
-Subject: Re: (subset) [PATCH v3 0/7] soc: amlogic: clk-measure: Add
- clk-measure support for C3 and S4
-Message-Id: <174530714130.2805699.2160081120473599366.b4-ty@linaro.org>
-Date: Tue, 22 Apr 2025 09:32:21 +0200
+To: dri-devel@lists.freedesktop.org, linux-amlogic@lists.infradead.org, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: christianshewitt@gmail.com, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20250421201300.778955-1-martin.blumenstingl@googlemail.com>
+References: <20250421201300.778955-1-martin.blumenstingl@googlemail.com>
+Subject: Re: [PATCH RFC v2 0/2] drm/meson: vclk: revert and re-fix vclk
+ calculations
+Message-Id: <174530715197.2805907.16376775353354108716.b4-ty@linaro.org>
+Date: Tue, 22 Apr 2025 09:32:31 +0200
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_003223_390919_8F0F9E0D 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20250422_003234_199953_A9E3D0AE 
+X-CRM114-Status: GOOD (  11.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,38 +103,27 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi,
 
-On Tue, 15 Apr 2025 10:45:23 +0800, Chuan Liu wrote:
-> Add clk-measure support for C3/S4 SoCs.
+On Mon, 21 Apr 2025 22:12:58 +0200, Martin Blumenstingl wrote:
+> This is a successor of a previous patchset by Christian [0]
 > 
+> Patch 1 reverts a previous fix for loss of HDMI sync when playing YUV420
+> @ 59.94 media. The patch does resolve a calculation issue. It also makes
+> all fractional rates invalid which is a bigger problem.
 > 
+> Patch 2 changes the whole drm/meson driver to use Hz as unit for clocks/
+> frequencies. And importantly it uses the relevant 64-bit maths helpers so
+> the code can still be compiled using for 32-bit ARM.
+> Maxime previously suggested using drm_hdmi_compute_mode_clock(). That's
+> still something to implement with future patches.
+> 
+> [...]
 
-Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v6.16/arm64-dt)
+Thanks, Applied to https://gitlab.freedesktop.org/drm/misc/kernel.git (drm-misc-fixes)
 
-[6/7] arm64: dts: amlogic: C3: Add clk-measure controller node
-      https://git.kernel.org/amlogic/c/72e295292d3d1522d3ce628d07ef6a924e112b73
-[7/7] arm64: dts: amlogic: S4: Add clk-measure controller node
-      https://git.kernel.org/amlogic/c/0d057d35f3714e6786013772c830a976c2530894
-
-These changes has been applied on the intermediate git tree [1].
-
-The v6.16/arm64-dt branch will then be sent via a formal Pull Request to the Linux SoC maintainers
-for inclusion in their intermediate git branches in order to be sent to Linus during
-the next merge window, or sooner if it's a set of fixes.
-
-In the cases of fixes, those will be merged in the current release candidate
-kernel and as soon they appear on the Linux master branch they will be
-backported to the previous Stable and Long-Stable kernels [2].
-
-The intermediate git branches are merged daily in the linux-next tree [3],
-people are encouraged testing these pre-release kernels and report issues on the
-relevant mailing-lists.
-
-If problems are discovered on those changes, please submit a signed-off-by revert
-patch followed by a corrective changeset.
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git
-[2] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
-[3] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+[1/2] Revert "drm/meson: vclk: fix calculation of 59.94 fractional rates"
+      https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/f37bb5486ea536c1d61df89feeaeff3f84f0b560
+[2/2] drm/meson: use unsigned long long / Hz for frequency types
+      https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/1017560164b6bbcbc93579266926e6e96675262a
 
 -- 
 Neil
