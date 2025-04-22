@@ -4,208 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F22A4C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 06:06:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0D24C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 06:10:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iCsxgezsI7b0KAsZnHygDE9CGJC3rYiI1hJOhVK+7VE=; b=2uLJqbAkqLuYT8Gojm+4hfpH7b
-	5aeMMWxQ3+eci+/APssHaIanCPG95JFD6e/CEnlEt3B5jPlG4jxtvXDl1wnWz+aqeDAF0ZoQsXi/g
-	r1BeCSiVnqN3yxSCLPTGTaggp4AijvsYW+bPGKGstqbQ4oFtet2448Ts/cBqDmd99DXn24/RMNdTU
-	r4nnmdG72Gk8LHyoxrAgHkcI9cFWmqQhI0qgOW1s65aFozHWQDGg70SVS/VC4VcJ58G0kezhpdqUs
-	MujAphoQYUy7F1SWK3YVfTuH9Cbwxjg7yhGB1K/PAWNIFE9m4zoRWxoGZqOM2fkhSFryVGuBstG40
-	HmQeAGCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w9qLPUa0pQ7DHVJGyZGL8TIS8cBp+Sv4lk0aGXs4h/M=; b=iAkL6GKh+TzdYvjt722eJ+neuz
+	h6hc19ZnvJCUEaDtoesF+pdYkFDpVItaJYajDQaxqNGQh/xXOZTgboX89gpbeL4TyVkn1QM6wlidp
+	Ltqdx+Xq7REtm6A27WRmN7NOfm2PtJY/54baJpqQTfNIY7XH40gxHHXPrkyE43U0Evio80Ysxuz/p
+	3sN0+WPZJjV8nZspLNxdeTXFOaMH5sHaAd2pWg8rgdcGGQBlifx/LRdc/qZW0b1re5u66zcwj33gP
+	AX1kKV2dE6389mFYAqutbxmai1Z/wLszOfxKnUyfA6sADrINyKjZntELC21llne3s1nOC+a+h8Lau
+	epboJllQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u76ll-00000005uhX-2QnR;
-	Tue, 22 Apr 2025 06:06:09 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1u76q1-00000005v7N-24h1;
+	Tue, 22 Apr 2025 06:10:33 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u76jt-00000005uWF-2ePo;
-	Tue, 22 Apr 2025 06:04:14 +0000
-X-UUID: 9bc78ddc1f3f11f0a2405d5ef59ce188-20250421
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=iCsxgezsI7b0KAsZnHygDE9CGJC3rYiI1hJOhVK+7VE=;
-	b=BkjVe/bxGdxiOXc9hUGzRKyi7KdLuPCvsCuFSLW3BacOR+4vYBNBGvCl7mM9Si/6Er1jSkAZJSWZWxC//0a2Z9Bp9Vawo1pDfErkNdAdzAxRUw6Ty4Zo2xBLKdv8hTQRBfvfGXIU0qh+GCVk0xGaOrxQit1cq19EFA94huhmsbw=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:3989e1a1-f974-4a90-b0ce-d197adfdc7eb,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:d166878b-0afe-4897-949e-8174746b1932,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111,TC:nil,Conte
-	nt:0|50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,
-	OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 9bc78ddc1f3f11f0a2405d5ef59ce188-20250421
-Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
-	(envelope-from <ck.hu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1412941249; Mon, 21 Apr 2025 23:04:10 -0700
-Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
- mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Tue, 22 Apr 2025 14:04:07 +0800
-Received: from HK3PR03CU002.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Tue, 22 Apr 2025 14:04:07 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=h/1RNwls1eG55Q6iH1+gvYwqtz3VusPv15AQajULUPoY8sm0hdxQ+WNeGPNOohSj8HU7IMqLAVVvTsoRa34RcoUH5m/pOqZLLp+AclfdNddYPE5zITz6xd3dslY9wKN5D2Cp7aFvMte5Z6EWBgjDGD1Qli6lSZcd8NGRWHCIxScZv4Ib5fa1f+MWPzJVdYlqABOMpgmQjH8vUJzLCq8noeN93Lw5iQ3kLXDthggATyxtXV8EzekNJUOCZ94U2+F5G8Y6+w9dqtUJE5T8E0dYhoydId4rS8URyxApeLIWrtTadZ9DsXececB+w0x/hH9ALIXPBY+HZ+NeMfwJUqf0fg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iCsxgezsI7b0KAsZnHygDE9CGJC3rYiI1hJOhVK+7VE=;
- b=Hzw6hzWxj2QkyvSXFFxZUj87al+W3tbNASX3XEOx4xsvMw7DgI4QKEGIsV+wAjGsQo7J4oyvdYl4qrCbJaHp47LWnBtx5EPONxQ3qJdOzjT2XvjtAETrJFDY2dmIs/sSa5O9EzjrBzLmX1lbH/QGles3quBKK2FZIX2O+m0PLGWMx8z0bF/J+JHXiwso/TtrL0TDdfQPtp+/mQAY8G6pAA3tFO0lziE+dhwA8BAagFS+4VunJc0uR9QDl+wgDhxhLaNIvBrET529ZiZib6iQrcjgSNv7ofoAuEQtXyXOIrRSwpIGFluVwtGtc6tEhsztZj2Jfaq+5aVt7YdELl4uoQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iCsxgezsI7b0KAsZnHygDE9CGJC3rYiI1hJOhVK+7VE=;
- b=o2cwMpaoPlGyXGycwOaZxR/nSg/VXTHi2bZiAHY7udrVPyX7+X+tNgMJAP2lRA4VQoUkkzqzOuacC48lppPjpRbpC3+oHmXzNEdMlWwTIZiZJbC+NigaJokR+rDZNH7kgG66WmygiJ6CYUtraHRfMvhP8b4TLysaIyQVGK/cFRk=
-Received: from SEYPR03MB6626.apcprd03.prod.outlook.com (2603:1096:101:83::7)
- by JH0PR03MB7879.apcprd03.prod.outlook.com (2603:1096:990:32::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.22; Tue, 22 Apr
- 2025 06:04:04 +0000
-Received: from SEYPR03MB6626.apcprd03.prod.outlook.com
- ([fe80::9fa0:ee98:d5ed:beba]) by SEYPR03MB6626.apcprd03.prod.outlook.com
- ([fe80::9fa0:ee98:d5ed:beba%3]) with mapi id 15.20.8632.035; Tue, 22 Apr 2025
- 06:04:03 +0000
-From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
-CC: =?utf-8?B?TGV3aXMgTGlhbyAo5buW5p+P6YieKQ==?= <Lewis.Liao@mediatek.com>,
-	=?utf-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>,
-	=?utf-8?B?SXZlcyBDaGVuamggKOmZs+S/iuW8mCk=?= <Ives.Chenjh@mediatek.com>,
-	"simona@ffwll.ch" <simona@ffwll.ch>,
-	=?utf-8?B?VG9tbXlZTCBDaGVuICjpmbPlvaXoia8p?= <TommyYL.Chen@mediatek.com>,
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
-	"airlied@gmail.com" <airlied@gmail.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "p.zabel@pengutronix.de"
-	<p.zabel@pengutronix.de>, "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"kernel@collabora.com" <kernel@collabora.com>
-Subject: Re: [PATCH v1 5/5] drm/mediatek: mtk_dpi: Rename output fmts array
- for MT8195 DP_INTF
-Thread-Topic: [PATCH v1 5/5] drm/mediatek: mtk_dpi: Rename output fmts array
- for MT8195 DP_INTF
-Thread-Index: AQHbqVFfJzzFPsj1sEa9QZqUhVzS2rOvRg4A
-Date: Tue, 22 Apr 2025 06:04:03 +0000
-Message-ID: <17edb4bdca86ea79f89208567cc6e17778821b50.camel@mediatek.com>
-References: <20250409131306.108635-1-angelogioacchino.delregno@collabora.com>
-	 <20250409131306.108635-6-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20250409131306.108635-6-angelogioacchino.delregno@collabora.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.52.3-0ubuntu1 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SEYPR03MB6626:EE_|JH0PR03MB7879:EE_
-x-ms-office365-filtering-correlation-id: 10603798-1eb9-4038-4bde-08dd81637bf2
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?QUJGeFQ4STVBclRKbndEZnhzdkh3VlcyUCtrd1NXVkJWK1RWdHA3YkxNakJG?=
- =?utf-8?B?MFlCYkZ3Ym5ZOTRrYWw4cmtvb1pnZ25Fek9IcnMySzRCMmN3Z09lNG1vVTJF?=
- =?utf-8?B?cnNUK0trbng3bEREekd1ZFFVK3c1V0ZPVDUzZXFocGNvSGhTbVNhSE1uZ0Np?=
- =?utf-8?B?ZXdqcEpmVGlobWxrM1FRZ095YmhUM3ZNMnh0MHgzSEYzZHhmMXJid1ZCbHVj?=
- =?utf-8?B?NG1FNHdWYlpUZTZEWFMxOFNmQjVrTVBhNTJmNTcweTdoRGo5QXI5aGNZdHB4?=
- =?utf-8?B?c1BXZlhLWVFHYS9TcERmMnJPejE2UXV5NUg1RG9mdmRQZVZxQXJRMWxLU2V6?=
- =?utf-8?B?Ujk3Wmk1TVRMaFJNV0Zjbm5VVk14S1dwb3VaOU16dlBqdUtPQy8xYzVjY0lh?=
- =?utf-8?B?VHRWUy8yU0RzRVpjNko0akhMdHZJWlFTWEZtcXlLc09rcW82U2FyMm5FUDRP?=
- =?utf-8?B?UTJXUzRBd0lHbE4yN093QzBpVndNdURJeFVkS0ZYdEdqVzBXOGxYZUl4ZTVl?=
- =?utf-8?B?cVVUSTFMK1hKWTdydkM4UDYxRDZGYlhJeDJuQmJJc1Q0cnBXYXlzNDEwNkhl?=
- =?utf-8?B?U3F5dHBCZnJvakpCTW9YOWc2VXNVTklIampMQ0lVa3JiWjJVM0g3SWNVTkk2?=
- =?utf-8?B?VTBJYzExVFVuVXQ4MWl2dTg3dkhNTGhNSVhmT0xva1hNZmZzMERyZW5wVzNn?=
- =?utf-8?B?Sk1WKzFSelZ2eVg5MWpSUUptMGNIVjcxUEtxcmhId0psVnBDL3dCUW5veFlM?=
- =?utf-8?B?YWxrTlIrWXg3UVJlVW9iQmNLSHhtUkcxbzFOTldYVXhZelR3OU9GcDdObWhj?=
- =?utf-8?B?TzR3cnFsbFlybmlpemV2dVFLSFpTdDBqTVJjRUdlbVcrL1ZjV2J6M0V5dVRD?=
- =?utf-8?B?TFpianlVYzdjWU5RN2UybVllN0xydkhLNmFHNDBLUFlvTXh4VlpZdnN4YjhW?=
- =?utf-8?B?TXJ5eWxTSWlzeUhpUUU2UDJSRjk1am1uQ0FQd3pVaWxUb1llL0NUSmFMSUVq?=
- =?utf-8?B?N1lud1hjN2NpZDJ2V2NVLzZPOHc5OUhaTXFzb2NKdUhXdGZQQlRueExnMGZs?=
- =?utf-8?B?N1J2VUFodE5TbEt2Y3JJTCtCcy9uMGljMjgvVUt2S2ZmNzNWUGUrNkt4UURU?=
- =?utf-8?B?NjNSTWV1eEZxaTdaR0h5eC9ZcG1XTmlnTU1CcU5CdG9EMFNiZlNGMWN5enp5?=
- =?utf-8?B?TlV5THhtR0lPVVZBblJnREhFTVhjV0NhZ1YySHRwNUk3Umh1b24rQ0l5alVT?=
- =?utf-8?B?U1d3alpiZUpKVnUrR3pFVTJEQ29rbXlkR3NrMkxhUlk2a1FWVTZyOElXWVNB?=
- =?utf-8?B?dGY2ai9YWSt0eEdZV01ROTZOcW1KYmlyWE13Z0dqSDl6dExPTndjTUw0K3hN?=
- =?utf-8?B?eDROR1Vtd0JvQ2RDelJmYjViVDg3bkFHdkFGV1JYdkdZTUJwMGZKL1dyVXB4?=
- =?utf-8?B?MGsvbVRLc2pNZndtL1FZS25XMEU2YWMyTXNBbnRvOGZUbXdIRVlRdnFGNlVD?=
- =?utf-8?B?eVE4dTc2enBVVDV6QVpHSCtPSE9LRkVVaGZ3N3VRTXRTMTVlRyt3VVlrOWFZ?=
- =?utf-8?B?U3Y1aGt5aW1WaUdqZWJQdFVwQ1hlS3hibTFvY2prNG9sU21EM0ZEMDNlWGtq?=
- =?utf-8?B?Yk5PaGhkUDhIVVBRWnhwZDNiSTRpVU9scDduSVpQU2FsVzZjeWtiTDdhc2dN?=
- =?utf-8?B?S3hpKzczZzZ6K3FKOFcraHM3WWI2dDk1eGVTcEREbWhCV0hqSHE4OVpuVk96?=
- =?utf-8?B?WXlqeHlFTisyRWZ6eXpLZi9JT25RNEhkdWgxYkpWSXhhZm1uWXVQWU9ERkZp?=
- =?utf-8?B?NUc0NzlKdXJaRUg5clp1dmZaaS9objd4KytISlNnSm5XSThNYU5ZVUNLUDU4?=
- =?utf-8?B?V0JVTlBUbUVJVWszdzZpODNZdmFEYkE0bldRT1dtRUxlNlJyc1F2Tjd6UnJT?=
- =?utf-8?B?TTZIb1BpeUdpZ1dLdmJjaHEvRVR4TVpRckZtV09MbFQ2K0pjTjBjVm9CL2ZQ?=
- =?utf-8?B?aWFHOSt1Uy9BPT0=?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR03MB6626.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?cEhsVHJWRkZ3VkxjUU9NRUJSVDFIVFM4ZFVwQTM4ejlKa1VrSDVEOHZWRlBz?=
- =?utf-8?B?WDRObjY4dEwxR3pDQVNuRFFHYUViY0J2RzgvdGMzRDdTTWhDMUo4N0pzeEMy?=
- =?utf-8?B?K3hZWURsQXZzN1ZGeGo3VnYraHc1dXhwSjhVNnVCVlIyeHovV3hRdWREQmd2?=
- =?utf-8?B?THhnZ1h4VW5URTdIdUJJaFhTclJvNjBMdHl0U0QydU1YRUN3SWdFUmFqQnRQ?=
- =?utf-8?B?d3hkU3NieWtQaGRONDlEREh1MmxtT0hBNkkvcnJ0TEtCdjVPNG1ibExZWURK?=
- =?utf-8?B?dHJWNCtMbUVudUxKZzU4TWJjYjZnNW5XSFlSZFhrMjFSSVdsMUNRR2RKekd2?=
- =?utf-8?B?S05SRlpqZERzaUdxWjUxRlRrRytaQ1FzMXJCWHlIWHZQSmsvOW5hSzlJbWhW?=
- =?utf-8?B?ZWVZRVFFNnFjYUc1dkNndEc4Tk9mTnBrWmVzeHNwK0t4ajg2ckx5cjBvdmtY?=
- =?utf-8?B?VDlLdlBLV2lQUitQdTJUNWpTYjFKV0ErN1BuWmVaeEhwRTMvSDFXOFBmWFhE?=
- =?utf-8?B?R1ppVlFSblAvR0IzclhiWWNkcGVVNk1VMHU4MlFveXhNWWozRmJHcjQ1MFZq?=
- =?utf-8?B?N2IwZkJWSXczT1JJRnJKWHhFcllWbTM5MHFxYU1rZHoxUzlHRHRXUllSayt1?=
- =?utf-8?B?MGJSOWQ4RjZHQXFkeUM2c2tBeDJxVTVka0kyVGVlZHF1VjVOZXRZVmNDak9s?=
- =?utf-8?B?OWZCUXg1L0pISjQ5Wm9IaWZxWUtXUVB3ZlV1MWl3aXlpUGEzKzlMYmJHRzFx?=
- =?utf-8?B?VzQ5blZJSjk4dThBdkpZOVN0ZXN6blphdlY2Z3l5WmpCc0dlemtvMzZSL0dR?=
- =?utf-8?B?RVA1N1pST1JENUtvbkdSam1xRWM5Qzh0QTNEaVNCRXFXNnVVS0Urb2p6d3FE?=
- =?utf-8?B?YnlsRWpjOTJGcy9aS3JTUEgwUXo5TURrNGhFWGh0VHA1RnRDNUEzbDNxZ3dX?=
- =?utf-8?B?dlFtYXhuTzN2QXZsU1ZjbEZwMlc2SnlEV2pObDliQlA2Nm1vdFBqa1ZyQUlu?=
- =?utf-8?B?dEEvRVp6ZzBtQWhRdmhTRXJQc2VZNUNTd05DV2daM0FKSy9TSGNLaVloOTc1?=
- =?utf-8?B?WFRWQXV2VzdndjRZNkFsTEVpeG9PVHQxYmhBdzhYZkIxTE1ma3ExcnUrcm9D?=
- =?utf-8?B?b1NUVXZiNVAydThkYUplMDlLMUNJUllHdStuVmxaOEVBSFJFTUZtd0Q3N3RV?=
- =?utf-8?B?aEpBaUd3dDYwV0VIZWlsbVJNUnVyV3E2RnBYNFdWdWE3cUVGcVlNbElJRWNv?=
- =?utf-8?B?cFpleDB0STU3UnhzQlFaK1I3azdnc3N4eUxVUVFWVTFGNXR5dC94N0dtaG1J?=
- =?utf-8?B?Ym1Pdk9yZ3dBbXNpeW1sTlhVcTBzbG8wdTYzd0xqZHZ4WmpzclNkUjlHUU1B?=
- =?utf-8?B?RjRnSGdOcmtZOGh0RU9xdkc3Rm9IRHFvaDB6d3l3SUR3V25MTWo5L1lBZ1d4?=
- =?utf-8?B?aGY1ejRlSVJGMnBTQUkxTmVGUExmRVhCa3BQcDRxeDA0ampPNUNTWDZNaHBq?=
- =?utf-8?B?ZFRMK3RhbEswY1dOd1dQa1Y1M0Z3K2t6Nm1iQ20raVJPRHBZMkFzY3VuWTVV?=
- =?utf-8?B?Qm9mWDE5MlVZKy9tVUN2alFsaDdZK3g1V2lsVkFNVS9Tc0VaVGdGUlAwVnB2?=
- =?utf-8?B?RHdodmFPSEtYcmdTOGJxTmFKYkp3SXNqTVJxSFdlMnRCRWh3UWVBRGxBMitN?=
- =?utf-8?B?WVVYUEpUallpRkZCWTg2SS8wNmV3aXcrWEk1MWMydGFuU3dsS05xZkdaQzNG?=
- =?utf-8?B?dW5PTFN4SDI5YXpFSGpLWlpCdWduVE43V1d4RzFPZllQWG1hdDdNbFhjS2ZI?=
- =?utf-8?B?d2NGcE1NeFdsU09vZjdsQWZxZGpjYlQxSlpqTGpnMmk4aytYREFxeUgyTnkr?=
- =?utf-8?B?dXhYWFhCcVRXSys2UnpBQ21maUQ0RzZ6bFRVY2Y4bWY1L1pGbHlWaGd4cG1x?=
- =?utf-8?B?bVd5L1RFam8waFBBOVBndUZ0UmYrU093UC9XbjdFZ1NIWUgrZ2k3SkNxelFE?=
- =?utf-8?B?RW0wYStXeTRyZXF2Z05UVTNOMDFGeGpqaWkxQkdkUWlubUVwUWdabUphRklQ?=
- =?utf-8?B?S2RwNWpZU3FMK2JRUm54ZnppMFBFSDBoNGFFRlZrY3B6WlErR29mTEpjVmN3?=
- =?utf-8?B?OHJ2bk8wS0dzcy9lTlhZaTFDL2JWbHBTZE9TeDRWVGJkdjcwUlEzYkFURDRt?=
- =?utf-8?B?TlE9PQ==?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <76FA11DD79232C40AC503FC4DA790213@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1u76o8-00000005utq-4Bzb
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 22 Apr 2025 06:08:38 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53M68XfU1129767
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 22 Apr 2025 01:08:33 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1745302113;
+	bh=w9qLPUa0pQ7DHVJGyZGL8TIS8cBp+Sv4lk0aGXs4h/M=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=fXFGrW7usX6CmJZpLZ9IHYl8IOSrrjJuSw5vBNKdn9NP6Eu1DAbkwM5rG17Hx4mzA
+	 uuKVJjjNNuThIZEy45i4B72J7t6qPv9UzOICKcCBoghHwe3WYnGIf6hZDgEQvvdPSQ
+	 LwJvGPkPVLpDx7NF0/wJU/XtKzfOSpqym68OwSws=
+Received: from DLEE110.ent.ti.com (dlee110.ent.ti.com [157.170.170.21])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53M68X2O066367
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 22 Apr 2025 01:08:33 -0500
+Received: from DLEE101.ent.ti.com (157.170.170.31) by DLEE110.ent.ti.com
+ (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 22
+ Apr 2025 01:08:32 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE101.ent.ti.com
+ (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 22 Apr 2025 01:08:32 -0500
+Received: from [172.24.227.136] (moteen-ubuntu-desk.dhcp.ti.com [172.24.227.136])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53M68Trp065458;
+	Tue, 22 Apr 2025 01:08:29 -0500
+Message-ID: <f28134bc-9994-441b-b901-b65632d7ca6b@ti.com>
+Date: Tue, 22 Apr 2025 11:38:28 +0530
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SEYPR03MB6626.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 10603798-1eb9-4038-4bde-08dd81637bf2
-X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Apr 2025 06:04:03.7281
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 07XVam8WbVfVoBs0z+BjBZV7aw3FxrGmEAaDgWJDw1h4ZBWvtN6LTvOrcN+hmbNLhXmDjL1x1sjF2bmkd1Xg/g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: JH0PR03MB7879
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 5/5] arm64: dts: ti: k3-am6*: Remove disable-wp for
+ eMMC
+To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>
+CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+References: <20250417233040.3658761-1-jm@ti.com>
+ <20250417233040.3658761-6-jm@ti.com>
+Content-Language: en-US
+From: Moteen Shah <m-shah@ti.com>
+In-Reply-To: <20250417233040.3658761-6-jm@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_230413_674404_40D067A6 
-X-CRM114-Status: GOOD (  17.32  )
+X-CRM114-CacheID: sfid-20250421_230837_140192_A7DD25AB 
+X-CRM114-Status: GOOD (  12.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -220,38 +93,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCAyMDI1LTA0LTA5IGF0IDE1OjEzICswMjAwLCBBbmdlbG9HaW9hY2NoaW5vIERlbCBS
-ZWdubyB3cm90ZToNCj4gRXh0ZXJuYWwgZW1haWwgOiBQbGVhc2UgZG8gbm90IGNsaWNrIGxpbmtz
-IG9yIG9wZW4gYXR0YWNobWVudHMgdW50aWwgeW91IGhhdmUgdmVyaWZpZWQgdGhlIHNlbmRlciBv
-ciB0aGUgY29udGVudC4NCj4gDQo+IA0KPiBGb3IgdGhlIHNha2Ugb2YgaW5jcmVhc2luZyBodW1h
-biByZWFkYWJpbGl0eSBhbmQgYXZvaWQgcG9zc2libGUNCj4gY29uZnVzaW9uIGJldHdlZW4gRFBJ
-IGFuZCBEUF9JTlRGIG91dHB1dCBmb3JtYXRzIChhcyB0aGUgdHdvIGFyZQ0KPiBldmVyIHNvIHNs
-aWdodGx5IGRpZmZlcmVudCksIHJlbmFtZSB0aGUgbXQ4MTk1X291dHB1dF9mbXRzIGFycmF5DQo+
-IHRvIG10ODE5NV9kcF9pbnRmX291dHB1dF9mbXRzLg0KPiANCj4gVGhpcyBjb21taXQgYnJpbmdz
-IG5vIGZ1bmN0aW9uYWwgY2hhbmdlcy4NCg0KUmV2aWV3ZWQtYnk6IENLIEh1IDxjay5odUBtZWRp
-YXRlay5jb20+DQoNCj4gDQo+IFNpZ25lZC1vZmYtYnk6IEFuZ2Vsb0dpb2FjY2hpbm8gRGVsIFJl
-Z25vIDxhbmdlbG9naW9hY2NoaW5vLmRlbHJlZ25vQGNvbGxhYm9yYS5jb20+DQo+IC0tLQ0KPiAg
-ZHJpdmVycy9ncHUvZHJtL21lZGlhdGVrL210a19kcGkuYyB8IDYgKysrLS0tDQo+ICAxIGZpbGUg
-Y2hhbmdlZCwgMyBpbnNlcnRpb25zKCspLCAzIGRlbGV0aW9ucygtKQ0KPiANCj4gZGlmZiAtLWdp
-dCBhL2RyaXZlcnMvZ3B1L2RybS9tZWRpYXRlay9tdGtfZHBpLmMgYi9kcml2ZXJzL2dwdS9kcm0v
-bWVkaWF0ZWsvbXRrX2RwaS5jDQo+IGluZGV4IDlkZTUzN2E3NzQ5My4uMGI3ZjkxZmI1MTlmIDEw
-MDY0NA0KPiAtLS0gYS9kcml2ZXJzL2dwdS9kcm0vbWVkaWF0ZWsvbXRrX2RwaS5jDQo+ICsrKyBi
-L2RyaXZlcnMvZ3B1L2RybS9tZWRpYXRlay9tdGtfZHBpLmMNCj4gQEAgLTExMDYsNyArMTEwNiw3
-IEBAIHN0YXRpYyBjb25zdCB1MzIgbXQ4MTk1X2RwaV9vdXRwdXRfZm10c1tdID0gew0KPiAgICAg
-ICAgIE1FRElBX0JVU19GTVRfWVVWMTBfMVgzMCwNCj4gIH07DQo+IA0KPiAtc3RhdGljIGNvbnN0
-IHUzMiBtdDgxOTVfb3V0cHV0X2ZtdHNbXSA9IHsNCj4gK3N0YXRpYyBjb25zdCB1MzIgbXQ4MTk1
-X2RwX2ludGZfb3V0cHV0X2ZtdHNbXSA9IHsNCj4gICAgICAgICBNRURJQV9CVVNfRk1UX1JHQjg4
-OF8xWDI0LA0KPiAgICAgICAgIE1FRElBX0JVU19GTVRfUkdCODg4XzJYMTJfTEUsDQo+ICAgICAg
-ICAgTUVESUFfQlVTX0ZNVF9SR0I4ODhfMlgxMl9CRSwNCj4gQEAgLTEyNDgsOCArMTI0OCw4IEBA
-IHN0YXRpYyBjb25zdCBzdHJ1Y3QgbXRrX2RwaV9jb25mIG10ODE5NV9kcGludGZfY29uZiA9IHsN
-Cj4gICAgICAgICAuZHBpX2ZhY3RvciA9IGRwaV9mYWN0b3JfbXQ4MTk1X2RwX2ludGYsDQo+ICAg
-ICAgICAgLm51bV9kcGlfZmFjdG9yID0gQVJSQVlfU0laRShkcGlfZmFjdG9yX210ODE5NV9kcF9p
-bnRmKSwNCj4gICAgICAgICAubWF4X2Nsb2NrX2toeiA9IDYwMDAwMCwNCj4gLSAgICAgICAub3V0
-cHV0X2ZtdHMgPSBtdDgxOTVfb3V0cHV0X2ZtdHMsDQo+IC0gICAgICAgLm51bV9vdXRwdXRfZm10
-cyA9IEFSUkFZX1NJWkUobXQ4MTk1X291dHB1dF9mbXRzKSwNCj4gKyAgICAgICAub3V0cHV0X2Zt
-dHMgPSBtdDgxOTVfZHBfaW50Zl9vdXRwdXRfZm10cywNCj4gKyAgICAgICAubnVtX291dHB1dF9m
-bXRzID0gQVJSQVlfU0laRShtdDgxOTVfZHBfaW50Zl9vdXRwdXRfZm10cyksDQo+ICAgICAgICAg
-LnBpeGVsc19wZXJfaXRlciA9IDQsDQo+ICAgICAgICAgLmRpbWVuc2lvbl9tYXNrID0gRFBJTlRG
-X0hQV19NQVNLLA0KPiAgICAgICAgIC5odnNpemVfbWFzayA9IERQSU5URl9IU0laRV9NQVNLLA0K
-PiAtLQ0KPiAyLjQ5LjANCj4gDQoNCg==
+
+On 18/04/25 05:00, Judith Mendez wrote:
+> Remove disable-wp flag for eMMC nodes since this flag is
+> only applicable to SD according to the binding doc
+> (mmc/mmc-controller-common.yaml).
+>
+> For eMMC, this flag should be ignored but lets remove
+> anyways to cleanup sdhci nodes.
+>
+> Signed-off-by: Judith Mendez <jm@ti.com>
+> ---
+>   arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi               | 1 -
+>   arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts                | 1 -
+>   arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi              | 1 -
+>   arch/arm64/boot/dts/ti/k3-am62a7-sk.dts                       | 1 -
+>   arch/arm64/boot/dts/ti/k3-am62p5-sk.dts                       | 1 -
+>   arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi                | 1 -
+>   arch/arm64/boot/dts/ti/k3-am642-evm.dts                       | 1 -
+>   arch/arm64/boot/dts/ti/k3-am654-base-board.dts                | 1 -
+>   arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-common.dtsi | 1 -
+>   arch/arm64/boot/dts/ti/k3-am69-sk.dts                         | 1 -
+>   10 files changed, 10 deletions(-)
+>
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
+> index 55ed418c023bc..e5be92aa12189 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
+> @@ -381,7 +381,6 @@ serial_flash: flash@0 {
+>   &sdhci0 {
+>   	pinctrl-names = "default";
+>   	pinctrl-0 = <&main_mmc0_pins_default>;
+> -	disable-wp;
+>   	non-removable;
+>   	bootph-all;
+>   	status = "okay";
+> diff --git a/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts b/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts
+> index 1c8b4d13fb491..72b09f9c69d8c 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts
+> @@ -835,7 +835,6 @@ &sdhci0 {
+>   	non-removable;
+>   	pinctrl-names = "default";
+>   	pinctrl-0 = <&emmc_pins_default>;
+> -	disable-wp;
+>   	status = "okay";
+>   };
+>   
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
+> index 147d56b879843..0d4115590b9c3 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
+> @@ -338,7 +338,6 @@ serial_flash: flash@0 {
+>   &sdhci0 {
+>   	pinctrl-names = "default";
+>   	pinctrl-0 = <&main_mmc0_pins_default>;
+> -	disable-wp;
+>   	non-removable;
+>   	bootph-all;
+>   	status = "okay";
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+> index 7de4a9f139ad4..625ce8f8958b7 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+> @@ -615,7 +615,6 @@ &sdhci0 {
+>   	non-removable;
+>   	pinctrl-names = "default";
+>   	pinctrl-0 = <&main_mmc0_pins_default>;
+> -	disable-wp;
+>   	bootph-all;
+>   };
+>   
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+> index 43fcb57b34ebf..1025062c77d57 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+> @@ -456,7 +456,6 @@ &sdhci0 {
+>   	status = "okay";
+>   	non-removable;
+>   	ti,driver-strength-ohm = <50>;
+> -	disable-wp;
+>   	bootph-all;
+>   };
+>   
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
+> index 561916c6e151c..9d933e837dd4b 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
+> @@ -437,7 +437,6 @@ &sdhci0 {
+>   	non-removable;
+>   	pinctrl-names = "default";
+>   	pinctrl-0 = <&main_mmc0_pins_default>;
+> -	disable-wp;
+>   };
+>   
+>   &sdhci1 {
+> diff --git a/arch/arm64/boot/dts/ti/k3-am642-evm.dts b/arch/arm64/boot/dts/ti/k3-am642-evm.dts
+> index f8ec40523254b..5c6197ba842e4 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am642-evm.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-am642-evm.dts
+> @@ -597,7 +597,6 @@ &sdhci0 {
+>   	status = "okay";
+>   	non-removable;
+>   	ti,driver-strength-ohm = <50>;
+> -	disable-wp;
+>   	bootph-all;
+>   };
+>   
+> diff --git a/arch/arm64/boot/dts/ti/k3-am654-base-board.dts b/arch/arm64/boot/dts/ti/k3-am654-base-board.dts
+> index aa7139cc8a92b..c30425960398e 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am654-base-board.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-am654-base-board.dts
+> @@ -456,7 +456,6 @@ &sdhci0 {
+>   	bus-width = <8>;
+>   	non-removable;
+>   	ti,driver-strength-ohm = <50>;
+> -	disable-wp;
+>   };
+>   
+>   /*
+> diff --git a/arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-common.dtsi b/arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-common.dtsi
+> index ae842b85b70de..12af6cb7f65cf 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-common.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-common.dtsi
+> @@ -50,5 +50,4 @@ &sdhci0 {
+>   	bus-width = <8>;
+>   	non-removable;
+>   	ti,driver-strength-ohm = <50>;
+> -	disable-wp;
+>   };
+> diff --git a/arch/arm64/boot/dts/ti/k3-am69-sk.dts b/arch/arm64/boot/dts/ti/k3-am69-sk.dts
+> index b85227052f97e..f28375629739c 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am69-sk.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-am69-sk.dts
+> @@ -940,7 +940,6 @@ &main_sdhci0 {
+>   	status = "okay";
+>   	non-removable;
+>   	ti,driver-strength-ohm = <50>;
+> -	disable-wp;
+>   };
+
+Reviewed-by: Moteen Shah <m-shah@ti.com>
+
+Regards,
+Moteen Shah
+
+>   
+>   &main_sdhci1 {
 
