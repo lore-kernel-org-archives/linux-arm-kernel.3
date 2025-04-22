@@ -4,58 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A169FC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 18:42:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE0B4C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 18:44:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DnRnD6o/1ia1PHzcq9EMvsC0CVcUk86zsJn1qboUEEI=; b=whdziOdNOtR9huEtsZ7Jp1XFDL
-	WsXzQs59Ceyqgsd4Cjf1uSDjQWIZY6KXjj+IQ8LGV7bF2axzC8HCuf2q2a+wTVAepVePebSx6C0BC
-	SrJSyY4gBydxPEZ69UdKq+7COB09URfrkz/z/JuTDXpz+lX/8lZOKuT2ADeIL7+ROU2ixVDhucmCG
-	lh1/93pBY/BmWT/PUbzbdNtjoyQ3bbjX4Zmphg2w5+HhPF16HlcHxAxxLrutnnkDoPw6pWz4z7dte
-	hfX8cfRB2+7/ESCBx/qMhIjtHuPZLtkA10BgAUl9T0eY17rDyBJvliBtvW9or7Ugv9uEZayHPXnp8
-	O4NmDqwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nu7/Swl2Hc2ijCDUXhMHPq3Asi8so5gzeiPsbVIZSNk=; b=2DytumvY3sUTkjUprdq27Zi8bc
+	dq5HONW13xwo08+vtVgjmycnw5RwEYXKKE1JUbLEiK/srnHYyQsId86UAxtzxW9AQ3tbz+mNPSga4
+	yx/V5jHrjB2NT4Az1g5PNubhPxZAYg1b3Bi/ZT5EwhV685sVAY26ST+HJNlsBsZ43g5EPSzjsW+g4
+	7wHy9sMDi4jXCqQMEUpxrotk2+ulNz2mQ28A4gpD9UOc7Fy0t4+aNAs9m10OtMFrGciyLefRoZ/XJ
+	0FWeVxjRqxafcCJsTd11V0y5/iC3h0a9WPQWISCKtj8LDLKbBgbEocEfBi1quwJ1EtGVIgSDjAORK
+	khLEHpfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7IZj-00000008Cxi-1qUf;
-	Tue, 22 Apr 2025 18:42:31 +0000
-Received: from andre.telenet-ops.be ([2a02:1800:120:4::f00:15])
+	id 1u7Iba-00000008D8o-1OwS;
+	Tue, 22 Apr 2025 18:44:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7I5i-000000085Nx-2wuC
+	id 1u7GQZ-00000007tiH-15V8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 18:11:33 +0000
-Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed80:d623:9713:5a54:d77])
-	by andre.telenet-ops.be with cmsmtp
-	id gJBM2E0013mAuGe01JBMuu; Tue, 22 Apr 2025 20:11:22 +0200
-Received: from rox.of.borg ([192.168.97.57])
-	by ramsan.of.borg with esmtp (Exim 4.97)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1u7I5Q-00000001R0H-3QYx;
-	Tue, 22 Apr 2025 20:11:20 +0200
-Received: from geert by rox.of.borg with local (Exim 4.97)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1u7I5Y-0000000BCVX-3Y6k;
-	Tue, 22 Apr 2025 20:11:20 +0200
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: Vinod Koul <vkoul@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>
-Cc: dmaengine@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH] dmaengine: ARM_DMA350 should depend on ARM/ARM64
-Date: Tue, 22 Apr 2025 20:11:19 +0200
-Message-ID: <50dbaf4ce962fa7ed0208150ca987e3083da39ec.1745345400.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Tue, 22 Apr 2025 16:24:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7B7E645051;
+	Tue, 22 Apr 2025 16:24:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6E2CC4CEE9;
+	Tue, 22 Apr 2025 16:24:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745339094;
+	bh=s/Dr7eIxvcF1Vy0ikVK2X7gxMRhJX+DTzXmqUoVMNu4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=a4AG7M4oHqgGotYCoOdrWNfvA6s3cac+PgToZX48UWrTUZoWchUUpw3ewgrC+0h+P
+	 dZ13RvluQ52mQBsxagcCgm57eHncpxGP9L94HQdn9W59pvEGQTZ9o+2//ZPZop4fK0
+	 CbHjkDmRGKAO+1S/AcAYK+UBCsjU/YCLaeJAdfZLoamvkbWv7iyz1jFNDjCGPCdLre
+	 K9+fbOGzuvtrFo0knp0/uOpPSML0+rCJmk+d7wIQf96WG6YbqlqOEJFo63ddDJqOyE
+	 7pSxiePf2hRxklxUV3hjIPDyYPue6JCoJvqpfozBsDZP9UGwiT/QtIzYxw2njhPJHm
+	 lT5g7zLMyTxHQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1u7GQW-007hZV-K1;
+	Tue, 22 Apr 2025 17:24:52 +0100
+Date: Tue, 22 Apr 2025 17:24:52 +0100
+Message-ID: <86jz7cjh9n.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	lpieralisi@kernel.org,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	"Rafael J . Wysocki" <rjw@rjwysocki.net>
+Subject: Re: [PATCH] irqchip: gicv2m: Fix use after free of gicv2m_get_fwnode
+In-Reply-To: <20250422161616.1584405-1-suzuki.poulose@arm.com>
+References: <20250422161616.1584405-1-suzuki.poulose@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: suzuki.poulose@arm.com, linux-arm-kernel@lists.infradead.org, lpieralisi@kernel.org, sudeep.holla@arm.com, tglx@linutronix.de, rjw@rjwysocki.net
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_111130_880745_4D1204FD 
-X-CRM114-Status: UNSURE (   9.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250422_092455_339968_D837AC3E 
+X-CRM114-Status: GOOD (  27.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,29 +86,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Arm DMA-350 controller is only present on Arm-based SoCs.  Hence add
-dependencies on ARM and ARM64, to prevent asking the user about this
-driver when configuring a kernel for a non-Arm architecture.
+On Tue, 22 Apr 2025 17:16:16 +0100,
+Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+> 
+> With ACPI in place, we register gicv2m_get_fwnode with the pci subsystem as
+> pci_msi_get_fwnode_cb, which may get invoked at runtime during a PCI host bridge
+> probe. But, the call back is wrongly marked as __init, causing it to be freed,
+> while being registered with the PCI subsystem and could trigger:
+> 
+>  Unable to handle kernel paging request at virtual address ffff8000816c0400
+>  Mem abort info:
+>    ESR = 0x0000000086000007
+>    EC = 0x21: IABT (current EL), IL = 32 bits
+>    SET = 0, FnV = 0
+>    EA = 0, S1PTW = 0
+>    FSC = 0x07: level 3 translation fault
+>  swapper pgtable: 4k pages, 48-bit VAs, pgdp=00000000f2c7d000
+>  pgd=10000000f3a0a003, p4d=10000000f3a0a003, pud=10000000f3a0b003, pmd=10000000f3a0e003, pte=0000000000000000
+>  PREEMPT SMP
+>  Modules linked in: devsec_bus(+) devsec_common
+>  CPU: 5 UID: 0 PID: 387 Comm: modprobe Not tainted 6.14.0-rc6+ #1686
+>  Hardware name: ARM LTD ARM Juno Development Platform/ARM Juno Development Platform, BIOS EDK II Feb  1 2019
+>  pstate: 60000005 (nZCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+>  pc : gicv2m_get_fwnode+0x0/0x58
+>  lr : pci_host_bridge_acpi_msi_domain+0x38/0xa0
 
-Fixes: 5d099706449d54b4 ("dmaengine: Add Arm DMA-350 driver")
-Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
----
- drivers/dma/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+Trim...
 
-diff --git a/drivers/dma/Kconfig b/drivers/dma/Kconfig
-index 8109f73baf10fc3b..db87dd2a07f7606e 100644
---- a/drivers/dma/Kconfig
-+++ b/drivers/dma/Kconfig
-@@ -95,6 +95,7 @@ config APPLE_ADMAC
- 
- config ARM_DMA350
- 	tristate "Arm DMA-350 support"
-+	depends on ARM || ARM64 || COMPILE_TEST
- 	select DMA_ENGINE
- 	select DMA_VIRTUAL_CHANNELS
- 	help
+>  sp : ffff800083453640
+>  x29: ffff800083453640 x28: 0000000000000000 x27: ffff00080443b010
+>  x26: ffff0008044b0000 x25: fffffff000000000 x24: ffff00080443b720
+>  x23: ffff00080443b800 x22: ffff00080443b010 x21: ffff800083453748
+>  x20: ffff000806d56000 x19: ffff000806d56000 x18: 0000000000000030
+>  x17: 6f6674616c703d4d x16: 4554535953425553 x15: 00000000ffffffff
+>  x14: ffff00080110009c x13: 0000000000000002 x12: ffff00080110009a
+>  x11: 0000000000000040 x10: 0000000000000000 x9 : ffff800080792de4
+>  x8 : 0101010101010101 x7 : 7f7f7f7f7f7f7f7f x6 : 5e646c68736d7471
+>  x5 : ffff00080443b438 x4 : ffff00080443b438 x3 : 0000000000000000
+>  x2 : ffff8000816c0400 x1 : ffff0008011a3480 x0 : ffff000806d56120
+
+... this (not specially useful).
+
+>  Call trace:
+>   gicv2m_get_fwnode+0x0/0x58 (P)
+>   pci_set_bus_msi_domain+0x74/0x88
+>   pci_register_host_bridge+0x194/0x548
+>   devsec_bus_probe+0x410/0xf28 [devsec_bus]
+>   platform_probe+0x70/0xe8
+>   really_probe+0xc4/0x2b0
+>   __driver_probe_device+0x80/0x140
+>   driver_probe_device+0xe4/0x170
+>   __driver_attach+0x9c/0x1b0
+>   bus_for_each_dev+0x7c/0xe8
+>   driver_attach+0x2c/0x40
+>   bus_add_driver+0xec/0x218
+>   driver_register+0x68/0x138
+>   __platform_driver_probe+0x5c/0xe8
+>   devsec_bus_init+0x88/0xd0 [devsec_bus]
+>   do_one_initcall+0x4c/0x280
+>   do_init_module+0x60/0x230
+>   load_module+0x1ce8/0x1dd8
+>   init_module_from_file+0x90/0xd8
+> 
+> Retain the function for later use. Easily recreated with [1], on Juno board with
+> ACPI boot.
+> 
+> [1] https://lkml.kernel.org/r/68053cf43bb54_7205294cc@dwillia2-xfh.jf.intel.com.notmuch
+> 
+> Fixes: 0644b3daca28 ("irqchip/gic-v2m: acpi: Introducing GICv2m ACPI support")
+> Cc: Sudeep Holla <sudeep.holla@arm.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Rafael J. Wysocki <rjw@rjwysocki.net>
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> ---
+> I am not sure if this needs to goto stable, nobody seems to have hit this ? But hey
+> it doesn't hurt.
+
+I stopped following what goes to stable and what doesn't. Irrespective
+of what you add to the commit message, the stable maintainers do their
+own thing.
+
+> ---
+>  drivers/irqchip/irq-gic-v2m.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/irqchip/irq-gic-v2m.c b/drivers/irqchip/irq-gic-v2m.c
+> index be35c5349986..a1e370d0200f 100644
+> --- a/drivers/irqchip/irq-gic-v2m.c
+> +++ b/drivers/irqchip/irq-gic-v2m.c
+> @@ -423,7 +423,7 @@ static int __init gicv2m_of_init(struct fwnode_handle *parent_handle,
+>  #ifdef CONFIG_ACPI
+>  static int acpi_num_msi;
+>  
+> -static __init struct fwnode_handle *gicv2m_get_fwnode(struct device *dev)
+> +static struct fwnode_handle *gicv2m_get_fwnode(struct device *dev)
+>  {
+>  	struct v2m_data *data;
+>  
+
+Otherwise, nice catch.
+
+Reviewed-by: Marc Zyngier <maz@kernel.org>
+
+	M.
+
 -- 
-2.43.0
-
+Without deviation from the norm, progress is not possible.
 
