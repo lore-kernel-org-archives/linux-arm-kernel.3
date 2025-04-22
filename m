@@ -4,71 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1E37C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 15:52:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8EDEC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 15:54:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ID22wjceRugB90WxLsuRXhNBWXnwisWQrSPXMdGR18k=; b=pLRMQUmN1EToeuWZ3KYF5VsP09
-	DkGRELpDeEuiXqyjFoye8fsOyt/wlGqV21Icv6dOjioraI/Z0TO2HmKbzuElcKkbHSEe16pbjRXVU
-	ch8AflnJuxH1+XSPvv40CadfEIl/QXtnpnWepOSWDzCHuUWci6m+yKlFa8Da9tA4JXLhSLTBgeI7Q
-	T21PvcyMTtM0z3Z8vwlrQJqxPHgHTErt8Xe3JC+5Bcfh0QLLGy6TDMk7R9vup8uIkK5DBa1b8XvbQ
-	jdzEnnsl1TO6nEV4wve6DKM3+4TssBofMJ/+JuLKin2XxFpkYNJJGMiLmXqF+i3CFVXhSrWcmf2zf
-	SwPXCX+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9GSbFCnYwRoEJfanRXiJaNF7D3Gjr/FVdsfwNQdE0Qs=; b=Gc+XrIy0r0Z5KmLEwFYQ5GuEko
+	AP/XTPbugn3V5HhyUytaC10k4QFft5DemT1Pz8heFjf3uusBTQWg9c1dzewiRIgVrjPcNhTB28kas
+	YH8DqoZV30jcyQp+L2EQQd1h3oPpDQEv/QRR1u45gZe0i8UVjNSUKoEuwA/6ipMb0O6xEWWG/Ms/P
+	wJd3K2G0zvBXT/slLkKwCrOQdcEc0EO5GTMZWNomtX+Qs2xStV+qo/1m55byRbszAhyHlxd70T/FM
+	TcMAz0OOkTR4etTmU/Ws6ttmZrSb256D17LPDS06glPTHgDrTY4s/5sZpx+4Y5nl6uXYR5KZtZhqi
+	UMhpLCxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7FvC-00000007oF3-2Edp;
-	Tue, 22 Apr 2025 15:52:30 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u7Fx3-00000007oTc-0tDV;
+	Tue, 22 Apr 2025 15:54:25 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Dip-00000007JJF-21I0;
-	Tue, 22 Apr 2025 13:31:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6EECE49B89;
-	Tue, 22 Apr 2025 13:31:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD85EC4CEE9;
-	Tue, 22 Apr 2025 13:31:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745328694;
-	bh=PUlxQyX8nREovK6k+GC9IgG9dVIjGRHmht1sosPSRZg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lzsbSUe9yMIoIdAFuVtjuYbtKJXYnXH+/18lnSxmlyvJ3KAczwykQSh0ukO+g5UhR
-	 b9fKvjYZ4h43aGmf/RbCPrd1oGYcnY1Mrcf5caZIcHxEVTAbKDhBZCwUX/xHDukPQf
-	 eneYsZ6BCW2dUf2BBdziP1WjKygmCeL2+OdBTTdA7gK6RiN0DcOwrzOd9Qu1F3UyFi
-	 2oeG7VUlfx0elQ3L/kwDIu6Zy7W3318G0BIs8M9MOq110qg5tpNxoYsnjTwCkfb5d8
-	 iPQfR1G2Q83oKqJ/77Xc2dm00a6e3gsq56zipjt/LQbzPilfN8TfWRxWZJthoj/dTK
-	 M120fBrzWowgw==
-Date: Tue, 22 Apr 2025 16:31:19 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Changyuan Lyu <changyuanl@google.com>
-Cc: linux-kernel@vger.kernel.org, akpm@linux-foundation.org,
-	anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
-	benh@kernel.crashing.org, bp@alien8.de, catalin.marinas@arm.com,
-	corbet@lwn.net, dave.hansen@linux.intel.com,
-	devicetree@vger.kernel.org, dwmw2@infradead.org,
-	ebiederm@xmission.com, graf@amazon.com, hpa@zytor.com,
-	jgowans@amazon.com, kexec@lists.infradead.org, krzk@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-mm@kvack.org, luto@kernel.org, mark.rutland@arm.com,
-	mingo@redhat.com, pasha.tatashin@soleen.com, pbonzini@redhat.com,
-	peterz@infradead.org, ptyadav@amazon.de, robh@kernel.org,
-	rostedt@goodmis.org, saravanak@google.com,
-	skinsburskii@linux.microsoft.com, tglx@linutronix.de,
-	thomas.lendacky@amd.com, will@kernel.org, x86@kernel.org
-Subject: Re: [PATCH v6 12/14] memblock: add KHO support for reserve_mem
-Message-ID: <aAeaJ2iqkrv_ffhT@kernel.org>
-References: <20250411053745.1817356-1-changyuanl@google.com>
- <20250411053745.1817356-13-changyuanl@google.com>
+	id 1u7Dis-00000007JKZ-25xp;
+	Tue, 22 Apr 2025 13:31:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=9GSbFCnYwRoEJfanRXiJaNF7D3Gjr/FVdsfwNQdE0Qs=; b=g5E/mHe+2rukUAB8dOcWlwcYaQ
+	n5vuv3qAo5RMQ/6LGqQSicvWVvIoXA4BNvaxQDo7ZNvc0XBISdf1brvoPuY2aJY27RiUmZzDoFRz3
+	KTA8vIP/EpYzuQnCk+Zf9VkUAE4IQHsHF451VLxZjoWuUbN1QAaETsoM85t6JMu0w+djW8i31Z8Ka
+	XxcdQ5AHQE09vvZUhPPrFgh9EAY+Ew+RMObBTFViguGoVI/LxvilxAO3AdfKAiDjEXNiv9aqL0tCe
+	pfOMmMLDSyaHp+RWX8dzTga8UmuUFEGj0begJ72SRKgawV8G4TlxrYZzl/T6xYygZ1/986M+wS5Pz
+	PAG8qbYg==;
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u7Dip-0000000BEZY-1ux0;
+	Tue, 22 Apr 2025 13:31:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1745328689;
+	bh=uxRkFn5GGKR61GJD29fIEi4WrE6zCuwdOIW9qIt7JBo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=lovIi5E1jC7zJKuQ6of3+VK0ExG/J9aKGlb5sZEArNGaWTyUq6BCmf5XeGZU6bN/p
+	 Cqrk/qwHyBaHk6amES/goBhjixOpc+OjCVezFDV2jzXIRtNUUN3tTJdhkBQYrQtLNJ
+	 T8MxuluL6Gz/GGwHR43MJZnKdXBgtHFHlK4Qj9LTSpFFC69t1u5eRh9qshFRF2wBeJ
+	 UNxfWV9+JKkhriBQDYMnHzMaTSyKufJgyAq02Zl7KXZARGc0sIKaHtishJLdu3zvaL
+	 XNI2g6bb9UuetSIC8Gc4PdjkLt0nubuxNluqPfeUzWaylcCqaspD634eI4K5pg7Foa
+	 nHWlgGdXmwagg==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id CDA8117E157E;
+	Tue, 22 Apr 2025 15:31:28 +0200 (CEST)
+Message-ID: <98b14dbe-a8c5-4f6c-99fd-209d714c8194@collabora.com>
+Date: Tue, 22 Apr 2025 15:31:26 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250411053745.1817356-13-changyuanl@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 3/8] dt-bindings: phy: mtk-xs-phy: Add mt7988
+ compatible
+To: Frank Wunderlich <linux@fw-web.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
+ Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>
+Cc: Frank Wunderlich <frank-w@public-files.de>,
+ =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
+ Daniel Golle <daniel@makrotopia.org>, Sean Wang <sean.wang@mediatek.com>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-phy@lists.infradead.org
+References: <20250422132438.15735-1-linux@fw-web.de>
+ <20250422132438.15735-4-linux@fw-web.de>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250422132438.15735-4-linux@fw-web.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_063135_554843_5CB1DC5A 
-X-CRM114-Status: GOOD (  36.63  )
+X-CRM114-CacheID: sfid-20250422_143135_708714_1FC64AC4 
+X-CRM114-Status: UNSURE (   5.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,305 +100,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 10, 2025 at 10:37:43PM -0700, Changyuan Lyu wrote:
-> From: Alexander Graf <graf@amazon.com>
+Il 22/04/25 15:24, Frank Wunderlich ha scritto:
+> From: Frank Wunderlich <frank-w@public-files.de>
 > 
-> Linux has recently gained support for "reserve_mem": A mechanism to
-> allocate a region of memory early enough in boot that we can cross our
-> fingers and hope it stays at the same location during most boots, so we
-> can store for example ftrace buffers into it.
+> Add compatible for xs-phy on mt7988.
 > 
-> Thanks to KASLR, we can never be really sure that "reserve_mem"
-> allocations are static across kexec. Let's teach it KHO awareness so
-> that it serializes its reservations on kexec exit and deserializes them
-> again on boot, preserving the exact same mapping across kexec.
-> 
-> This is an example user for KHO in the KHO patch set to ensure we have
-> at least one (not very controversial) user in the tree before extending
-> KHO's use to more subsystems.
-> 
-> Signed-off-by: Alexander Graf <graf@amazon.com>
-> Co-developed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> Co-developed-by: Changyuan Lyu <changyuanl@google.com>
-> Signed-off-by: Changyuan Lyu <changyuanl@google.com>
-> ---
->  mm/memblock.c | 205 ++++++++++++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 205 insertions(+)
-> 
-> diff --git a/mm/memblock.c b/mm/memblock.c
-> index 456689cb73e20..3571a859f2fe1 100644
-> --- a/mm/memblock.c
-> +++ b/mm/memblock.c
-> @@ -18,6 +18,11 @@
->  #include <linux/memblock.h>
->  #include <linux/mutex.h>
->  
-> +#ifdef CONFIG_KEXEC_HANDOVER
-> +#include <linux/libfdt.h>
-> +#include <linux/kexec_handover.h>
-> +#endif /* CONFIG_KEXEC_HANDOVER */
-> +
->  #include <asm/sections.h>
->  #include <linux/io.h>
->  
-> @@ -2475,6 +2480,201 @@ int reserve_mem_release_by_name(const char *name)
->  	return 1;
->  }
->  
-> +#ifdef CONFIG_KEXEC_HANDOVER
-> +#define MEMBLOCK_KHO_FDT "memblock"
-> +#define MEMBLOCK_KHO_NODE_COMPATIBLE "memblock-v1"
-> +#define RESERVE_MEM_KHO_NODE_COMPATIBLE "reserve-mem-v1"
-> +static struct page *kho_fdt;
-> +
-> +static int reserve_mem_kho_finalize(struct kho_serialization *ser)
-> +{
-> +	int err = 0, i;
-> +
-> +	if (!reserved_mem_count)
-> +		return NOTIFY_DONE;
-> +
-> +	if (IS_ERR(kho_fdt)) {
-> +		err = PTR_ERR(kho_fdt);
-> +		pr_err("memblock FDT was not prepared successfully: %d\n", err);
-> +		return notifier_from_errno(err);
-> +	}
-> +
-> +	for (i = 0; i < reserved_mem_count; i++) {
-> +		struct reserve_mem_table *map = &reserved_mem_table[i];
-> +
-> +		err |= kho_preserve_phys(ser, map->start, map->size);
-> +	}
-> +
-> +	err |= kho_preserve_folio(ser, page_folio(kho_fdt));
-> +	err |= kho_add_subtree(ser, MEMBLOCK_KHO_FDT, page_to_virt(kho_fdt));
-> +
-> +	return notifier_from_errno(err);
-> +}
-> +
-> +static int reserve_mem_kho_notifier(struct notifier_block *self,
-> +				    unsigned long cmd, void *v)
-> +{
-> +	switch (cmd) {
-> +	case KEXEC_KHO_FINALIZE:
-> +		return reserve_mem_kho_finalize((struct kho_serialization *)v);
-> +	case KEXEC_KHO_ABORT:
-> +		return NOTIFY_DONE;
-> +	default:
-> +		return NOTIFY_BAD;
-> +	}
-> +}
-> +
-> +static struct notifier_block reserve_mem_kho_nb = {
-> +	.notifier_call = reserve_mem_kho_notifier,
-> +};
-> +
-> +static void __init prepare_kho_fdt(void)
-> +{
-> +	int err = 0, i;
-> +	void *fdt;
-> +
-> +	if (!reserved_mem_count)
-> +		return;
+> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 
-It's better to have this check in reserve_mem_init() before registering kho
-notifier.
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-> +
-> +	kho_fdt = alloc_page(GFP_KERNEL);
-> +	if (!kho_fdt) {
-> +		kho_fdt = ERR_PTR(-ENOMEM);
-
-Do we really care about having errno in kho_fdt? I think NULL would work
-just fine.
-
-> +		return;
-
-And actually, it makes sense to me to return -ENOMEM here and let
-reserve_mem_init() bail out before registering notifier if fdt preparation
-failed.
-
-That will save the checks in reserve_mem_kho_finalize() because it would be
-called only if we have reserve_mem areas and fdt is ready.
-
-> +	}
-> +
-> +	fdt = page_to_virt(kho_fdt);
-> +
-> +	err |= fdt_create(fdt, PAGE_SIZE);
-> +	err |= fdt_finish_reservemap(fdt);
-> +
-> +	err |= fdt_begin_node(fdt, "");
-> +	err |= fdt_property_string(fdt, "compatible", MEMBLOCK_KHO_NODE_COMPATIBLE);
-> +	for (i = 0; i < reserved_mem_count; i++) {
-> +		struct reserve_mem_table *map = &reserved_mem_table[i];
-> +
-> +		err |= fdt_begin_node(fdt, map->name);
-> +		err |= fdt_property_string(fdt, "compatible", RESERVE_MEM_KHO_NODE_COMPATIBLE);
-> +		err |= fdt_property(fdt, "start", &map->start, sizeof(map->start));
-> +		err |= fdt_property(fdt, "size", &map->size, sizeof(map->size));
-> +		err |= fdt_end_node(fdt);
-> +	}
-> +	err |= fdt_end_node(fdt);
-> +
-> +	err |= fdt_finish(fdt);
-> +
-> +	if (err) {
-> +		pr_err("failed to prepare memblock FDT for KHO: %d\n", err);
-> +		put_page(kho_fdt);
-> +		kho_fdt = ERR_PTR(-EINVAL);
-> +	}
-> +}
-> +
-> +static int __init reserve_mem_init(void)
-> +{
-> +	if (!kho_is_enabled())
-> +		return 0;
-> +
-> +	prepare_kho_fdt();
-> +
-> +	return register_kho_notifier(&reserve_mem_kho_nb);
-> +}
-> +late_initcall(reserve_mem_init);
-> +
-> +static void *kho_fdt_in __initdata;
-> +
-> +static void *__init reserve_mem_kho_retrieve_fdt(void)
-> +{
-> +	phys_addr_t fdt_phys;
-> +	struct folio *fdt_folio;
-> +	void *fdt;
-> +	int err;
-> +
-> +	err = kho_retrieve_subtree(MEMBLOCK_KHO_FDT, &fdt_phys);
-> +	if (err) {
-> +		if (err != -ENOENT)
-> +			pr_warn("failed to retrieve FDT '%s' from KHO: %d\n",
-> +				MEMBLOCK_KHO_FDT, err);
-> +		return ERR_PTR(err);
-
-Wouldn't just 'return NULL' work here?
-
-> +	}
-> +
-> +	fdt_folio = kho_restore_folio(fdt_phys);
-> +	if (!fdt_folio) {
-> +		pr_warn("failed to restore memblock KHO FDT (0x%llx)\n", fdt_phys);
-> +		return ERR_PTR(-EFAULT);
-> +	}
-> +
-> +	fdt = page_to_virt(folio_page(fdt_folio, 0));
-
-	fdt = folio_address(folio);
-> +
-> +	err = fdt_node_check_compatible(fdt, 0, MEMBLOCK_KHO_NODE_COMPATIBLE);
-> +	if (err) {
-> +		pr_warn("FDT '%s' is incompatible with '%s': %d\n",
-> +			MEMBLOCK_KHO_FDT, MEMBLOCK_KHO_NODE_COMPATIBLE, err);
-> +		return ERR_PTR(-EINVAL);
-> +	}
-> +
-> +	return fdt;
-> +}
-> +
-> +static bool __init reserve_mem_kho_revive(const char *name, phys_addr_t size,
-> +					  phys_addr_t align)
-> +{
-> +	int err, len_start, len_size, offset;
-> +	const phys_addr_t *p_start, *p_size;
-> +	const void *fdt;
-> +
-> +	if (!kho_fdt_in)
-> +		kho_fdt_in = reserve_mem_kho_retrieve_fdt();
-
-I'd invert this and move to reserve_mem_kho_retrieve_fdt(), so there it
-would be 
-
-	if (kho_fdt_in)
-		return kho_fdt_in;
-
-	/* actually retrieve the fdt */
-	kho_fdt_in = fdt;
-
-	return fdt;
-
-and here 
-
-	fdt = reserve_mem_kho_retrieve_fdt();
-	if (!fdt)
-		return false;
-> +
-> +	if (IS_ERR(kho_fdt_in))
-> +		return false;
-> +
-> +	fdt = kho_fdt_in;
-> +
-> +	offset = fdt_subnode_offset(fdt, 0, name);
-> +	if (offset < 0) {
-> +		pr_warn("FDT '%s' has no child '%s': %d\n",
-> +			MEMBLOCK_KHO_FDT, name, offset);
-> +		return false;
-> +	}
-> +	err = fdt_node_check_compatible(fdt, offset, RESERVE_MEM_KHO_NODE_COMPATIBLE);
-> +	if (err) {
-> +		pr_warn("Node '%s' is incompatible with '%s': %d\n",
-> +			name, RESERVE_MEM_KHO_NODE_COMPATIBLE, err);
-> +		return false;
-> +	}
-> +
-> +	p_start = fdt_getprop(fdt, offset, "start", &len_start);
-> +	p_size = fdt_getprop(fdt, offset, "size", &len_size);
-> +	if (!p_start || len_start != sizeof(*p_start) || !p_size ||
-> +	    len_size != sizeof(*p_size)) {
-> +		return false;
-> +	}
-> +
-> +	if (*p_start & (align - 1)) {
-> +		pr_warn("KHO reserve-mem '%s' has wrong alignment (0x%lx, 0x%lx)\n",
-> +			name, (long)align, (long)*p_start);
-> +		return false;
-> +	}
-> +
-> +	if (*p_size != size) {
-> +		pr_warn("KHO reserve-mem '%s' has wrong size (0x%lx != 0x%lx)\n",
-> +			name, (long)*p_size, (long)size);
-> +		return false;
-> +	}
-> +
-> +	reserved_mem_add(*p_start, size, name);
-> +	pr_info("Revived memory reservation '%s' from KHO\n", name);
-> +
-> +	return true;
-> +}
-> +#else
-> +static bool __init reserve_mem_kho_revive(const char *name, phys_addr_t size,
-> +					  phys_addr_t align)
-> +{
-> +	return false;
-> +}
-> +#endif /* CONFIG_KEXEC_HANDOVER */
-> +
->  /*
->   * Parse reserve_mem=nn:align:name
->   */
-> @@ -2530,6 +2730,11 @@ static int __init reserve_mem(char *p)
->  	if (reserve_mem_find_by_name(name, &start, &tmp))
->  		return -EBUSY;
->  
-> +	/* Pick previous allocations up from KHO if available */
-> +	if (reserve_mem_kho_revive(name, size, align))
-> +		return 1;
-> +
-> +	/* TODO: Allocation must be outside of scratch region */
->  	start = memblock_phys_alloc(size, align);
->  	if (!start)
->  		return -ENOMEM;
-> -- 
-> 2.49.0.604.gff1f9ca942-goog
-> 
-
--- 
-Sincerely yours,
-Mike.
 
