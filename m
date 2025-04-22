@@ -4,58 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAD38C369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 14:18:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D72AFC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 14:20:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=SC8AUF51NT12xt/IGFgTeWrKWN9K3AW7dBXIuKIB8Dk=; b=ScsU49UcEmHcqn
-	5+FOoAPojr9XxgMP7S6vhAMjrF5GdPt2WDFu+Tds2d3GNAR2kmMbuJNqTSVkTbw4cgCl0K5jScakv
-	gEQdpuEFxgUp5o3UMAXrcQHwg8IGmtubI/e/FDzENlei1F4p2QBYfeMh0FQ/5d050UdrqBkdIMjyW
-	Kbx4TU3GCisBFV0hOXfCrwPVXGLCbWjvUD/4bCdCQUWCypHU9En5Q4KMz66wwXriHFfspVoRVIXyO
-	id0YF23/i5xXKe3PWaGjdgapzNLod9QhZMT/zaX+KGmx/nilP0Z/AYmLzUGk1a6xsJDxpXy73bNjn
-	nEZag5SSiYM06UURNaGg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1/nUILl1rbwYJBR4G5H+Hbb4tWylblKY0R1biHQllag=; b=WrjLlKIGszqxR4riLmHBrrg6Wi
+	28ZvsVNmXmy0M15eaadXA60QYqirMnBgBEhMrNwlKCUqRfW5RSSC/SeibqjSb3kxWe4LtA8XyyFX1
+	aXRAbs4K4SSMl9NRGKDgGDS4WAsFhXuTTcYro0Ar/880RSA1GVX7qLW+Jx/RPejISSORzIr874g1w
+	muxlNh+JgMKGp968cDMDFCaZT7nn0L6XMPG5D/axRPT4DMC9yRCJaCMHBGTpgnUXqHRZFn6cAsxjv
+	HAzUDazHnUonPd+ULLocJrrZ0mZsK7SGG8zLlY6kW8bcch49kD0ayjj+r+JgJp7G5J1CzYZK7FvJQ
+	Y8LygDkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7ESW-00000007SgM-2gfI;
-	Tue, 22 Apr 2025 14:18:48 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1u7EUN-00000007T3F-1MLT;
+	Tue, 22 Apr 2025 14:20:43 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7DIn-00000007EAv-3STj;
-	Tue, 22 Apr 2025 13:04:43 +0000
+	id 1u7DIo-00000007EBL-3SHj;
+	Tue, 22 Apr 2025 13:04:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1745327079;
-	bh=ZTClGc4I9fjL6g/yRm/9jJCzJEVD/nYIpw0rGu8omgs=;
-	h=From:Subject:Date:To:Cc:From;
-	b=TQRRpdUMt6dUNfCuf05Ywzg8M+UGhLQ0KZsHGrp4m/GPtEAILdJgu4KrB8rLYu3An
-	 HE2CIHkEdzUksukUiGaY5ZOiDQQFdwwBaJgpm4hh5KL0iPTUXOMJeoIEJZ4LF8O50e
-	 XCPlYBqpBp2MGB6ZtYCtyffTg4/roQVydbUj4OP9LmF0T7eXXzLq1p8phbhZ3kLCb8
-	 xZF9sRXWu1nm4cVb7ceJaIeyXX1ayj2NIF6k65DN7bEoNQcsBsCuj586aSR/Gcs3av
-	 /gVAsUCxa23CT/cfAqAndfljPZ2Ymp5bV8T2WWlHelBNJ+ij27BI5HjmQ8UeS825VH
-	 jc9H+dc6wcRQQ==
+	s=mail; t=1745327081;
+	bh=2BfuZjYMCmcDmQUT4/JMvErl11vKdHBV8VcQI6mn2AQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=aKZZZFeHPnIAUsQkJ4WPfca8Qm/SQvUHQCet0Tai6i2WOGIFrZp8n/bYF66kY4hjh
+	 y8oZ0j3ZtL90iw69BI6R8+dGpmfinYwlADisz5ViKvNhLFzKFh96gxyrgsv7VowAzx
+	 FtIhoDEVhY+nzeKMOFnsuyKohzxiX2fnfp7rBgoyo7Db6t6uIXMbthIuyTtvGTHWZ+
+	 fHJYsOnEKP3TlOnz3w7tHpDaTEEADoq8leX197xcpKEkSkTej463fy+jIZ+WnRrAzm
+	 RAjBMDGnXLLJJo1LLgkSKoaUvM4zZjpn6NDW33WheSqKoJrWyCmNuQj77s/gKOqg40
+	 2+zyc3pFfsH6g==
 Received: from yukiji.home (amontpellier-657-1-116-247.w83-113.abo.wanadoo.fr [83.113.51.247])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 65DA617E0F93;
-	Tue, 22 Apr 2025 15:04:38 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id CD51217E0FF6;
+	Tue, 22 Apr 2025 15:04:39 +0200 (CEST)
 From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Subject: [PATCH 0/2] net: ethernet: mtk-star-emac: fix several issues on
- rx/tx poll
-Date: Tue, 22 Apr 2025 15:03:37 +0200
-Message-Id: <20250422-mtk_star_emac-fix-spinlock-recursion-issue-v1-0-1e94ea430360@collabora.com>
+Date: Tue, 22 Apr 2025 15:03:38 +0200
+Subject: [PATCH 1/2] net: ethernet: mtk-star-emac: fix spinlock recursion
+ issues on rx/tx poll
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAKmTB2gC/yWNUQqDMBAFryL73QUTLG29ShGJ67ZdbKJmYxHEu
- zetn/N4zGygHIUV6mKDyB9RGUMGcyqAXi48GaXPDLa057IyV/RpaDW52LJ3hA9ZUScJ75EGjEx
- L/AlQVBfGqjd0s+WFOmsgC6fI+f+P3ZuDI89LbqZjhM4pI43eS6qLwGvCo2stNPv+BdI7r2itA
- AAA
-X-Change-ID: 20250418-mtk_star_emac-fix-spinlock-recursion-issue-4d1c9207cb21
+Message-Id: <20250422-mtk_star_emac-fix-spinlock-recursion-issue-v1-1-1e94ea430360@collabora.com>
+References: <20250422-mtk_star_emac-fix-spinlock-recursion-issue-v1-0-1e94ea430360@collabora.com>
+In-Reply-To: <20250422-mtk_star_emac-fix-spinlock-recursion-issue-v1-0-1e94ea430360@collabora.com>
 To: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, 
  Lorenzo Bianconi <lorenzo@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
@@ -69,16 +66,16 @@ Cc: kernel@collabora.com, netdev@vger.kernel.org,
  linux-mediatek@lists.infradead.org, 
  Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1745327078; l=2962;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1745327078; l=3669;
  i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=ZTClGc4I9fjL6g/yRm/9jJCzJEVD/nYIpw0rGu8omgs=;
- b=tPOlYDnqdrIazPN/l4tIxqekFoTysM2vZlArOEmvnDVUAYlZbEQrXLt6cvaY/gaY8wSEpv+UD
- N33cSMaaO2+C+CUHmcP8Ffvq9Uvja1WheR1tbqb+yrqJrP822YFuXtW
+ bh=2BfuZjYMCmcDmQUT4/JMvErl11vKdHBV8VcQI6mn2AQ=;
+ b=MT1r2QzXSns6F++sEvZ+90jp97Y5XxnyFS9SejefszlI5XxnfMYqcjc4Il7ZXvdZWekybRWXU
+ K1rJczbtmU6AwyQ6k1//28Yo30WnyHZgq8JFggFt5/x0Y6BOSRpqtHP
 X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
  pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_060442_021723_1AC3542F 
-X-CRM114-Status: GOOD (  12.42  )
+X-CRM114-CacheID: sfid-20250422_060443_011766_205337BF 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,22 +90,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patchset fixes two issues with the mtk-star-emac driver.
+Use spin_lock_irqsave and spin_unlock_irqrestore instead of spin_lock
+and spin_unlock in mtk_star_emac driver to avoid spinlock recursion
+occurrence that can happen when enabling the DMA interrupts again in
+rx/tx poll.
 
-The first patch fixes spin lock recursion issues I've observed on the
-Mediatek Genio 350-EVK board using this driver when the Ethernet
-functionality is enabled on the board (requires a correct jumper and
-DIP switch configuration, as well as enabling the device in the
-devicetree).
-The issues can be easily reproduced with apt install or ssh commands
-especially and with the CONFIG_DEBUG_SPINLOCK parameter, when
-one occurs, there is backtrace similar to this:
 ```
 BUG: spinlock recursion on CPU#0, swapper/0/0
  lock: 0xffff00000db9cf20, .magic: dead4ead, .owner: swapper/0/0,
-	.owner_cpu: 0
+    .owner_cpu: 0
 CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Not tainted
-	6.15.0-rc2-next-20250417-00001-gf6a27738686c-dirty #28 PREEMPT
+    6.15.0-rc2-next-20250417-00001-gf6a27738686c-dirty #28 PREEMPT
 Hardware name: MediaTek MT8365 Open Platform EVK (DT)
 Call trace:
  show_stack+0x18/0x24 (C)
@@ -154,27 +146,57 @@ Call trace:
  __primary_switched+0x88/0x90
 ```
 
-The second patch is a cleanup patch to fix a inconsistency in the
-mtk_star_rx_poll function between the napi_complete_done api usage and
-its description in documentation.
-
-I've tested this patchset on Mediatek Genio 350-EVK board with a kernel
-based on linux-next (tag: next-20250422).
-
+Fixes: 0a8bd81fd6aa ("net: ethernet: mtk-star-emac: separate tx/rx handling with two NAPIs")
 Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
-Louis-Alexis Eyraud (2):
-      net: ethernet: mtk-star-emac: fix spinlock recursion issues on rx/tx poll
-      net: ethernet: mtk-star-emac: rearm interrupts in rx_poll only when advised
+ drivers/net/ethernet/mediatek/mtk_star_emac.c | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
 
- drivers/net/ethernet/mediatek/mtk_star_emac.c | 13 +++++++------
- 1 file changed, 7 insertions(+), 6 deletions(-)
----
-base-commit: 1d2c58af2b22324cc536113e010d1a38d443f888
-change-id: 20250418-mtk_star_emac-fix-spinlock-recursion-issue-4d1c9207cb21
+diff --git a/drivers/net/ethernet/mediatek/mtk_star_emac.c b/drivers/net/ethernet/mediatek/mtk_star_emac.c
+index 76f202d7f05537642ec294811ace2ad4a7eae383..41d6af31027f4d827dbfdfecdb7de44326bb3de1 100644
+--- a/drivers/net/ethernet/mediatek/mtk_star_emac.c
++++ b/drivers/net/ethernet/mediatek/mtk_star_emac.c
+@@ -1163,6 +1163,7 @@ static int mtk_star_tx_poll(struct napi_struct *napi, int budget)
+ 	struct net_device *ndev = priv->ndev;
+ 	unsigned int head = ring->head;
+ 	unsigned int entry = ring->tail;
++	unsigned long flags = 0;
+ 
+ 	while (entry != head && count < (MTK_STAR_RING_NUM_DESCS - 1)) {
+ 		ret = mtk_star_tx_complete_one(priv);
+@@ -1182,9 +1183,9 @@ static int mtk_star_tx_poll(struct napi_struct *napi, int budget)
+ 		netif_wake_queue(ndev);
+ 
+ 	if (napi_complete(napi)) {
+-		spin_lock(&priv->lock);
++		spin_lock_irqsave(&priv->lock, flags);
+ 		mtk_star_enable_dma_irq(priv, false, true);
+-		spin_unlock(&priv->lock);
++		spin_unlock_irqrestore(&priv->lock, flags);
+ 	}
+ 
+ 	return 0;
+@@ -1342,15 +1343,16 @@ static int mtk_star_rx_poll(struct napi_struct *napi, int budget)
+ {
+ 	struct mtk_star_priv *priv;
+ 	int work_done = 0;
++	unsigned long flags = 0;
+ 
+ 	priv = container_of(napi, struct mtk_star_priv, rx_napi);
+ 
+ 	work_done = mtk_star_rx(priv, budget);
+ 	if (work_done < budget) {
+ 		napi_complete_done(napi, work_done);
+-		spin_lock(&priv->lock);
++		spin_lock_irqsave(&priv->lock, flags);
+ 		mtk_star_enable_dma_irq(priv, true, false);
+-		spin_unlock(&priv->lock);
++		spin_unlock_irqrestore(&priv->lock, flags);
+ 	}
+ 
+ 	return work_done;
 
-Best regards,
 -- 
-Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+2.49.0
 
 
