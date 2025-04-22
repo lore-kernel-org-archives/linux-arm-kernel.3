@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8984C369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 13:50:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35987C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 13:52:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xF9RTP6zQ9pYZh1cigY8gKBPvZnNERTAmg4KqhxnEl4=; b=AtieO2lwLZxJHSvWfExhnm/uP0
-	n7LMz5w18eJ/VZ4BDJOczvO9OYVsJu9B5KW2dq2aphk6/aU4iOjZYi6DiGZsnfd3754OeSGL2f/x1
-	1HjYUJMX3UWCL0KiI4ExmLZsfv4FVDZOejCVHHUjPT7ehgYiciRraF22PoIXoY+bx8b3LcvuKkAB3
-	uM4AfA3CsiwM3NHVSQKPWerAhq6X2jATMRP7cstovYdAKwiTvFGzyYIbLpEe8llELK1M/zmAG6v6J
-	GOiykY5MhP4OPiR2d0wwb6IRCU9FWaLOJY8Bp4QPqKn3MxyIYJhD2Mds2LKHe0RIVtzuxhBKYhXIm
-	wtTL1xwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
+	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=abYNmS5FCaicMhMURlQNuZM06z447XwiH0PjZCLavh0=; b=Dx5dwD0EhoW/MWxCLAKfDlRHwR
+	aUdGsGh7nQnWGPOzSkHWBoaq/nxs2PnyG6lNHyPRWwEr46Hg5oklalEzW5ClfF/b6kOR0d/7WDEk3
+	cQroz+gDAyjV6ixM86joDiZ4UcLf00iPelV/N7EfVHoVTU/u87cyy9jydxR2Rzx7em6wYsCGIopgo
+	H0YosVPPoi52qViPdd6YaynbSTuIKzS4toaCB0CKxYxU1hXQmzjOy4UuKefYxWumwiJgPeTD6KGr/
+	T2O++01Lh2KCZnqUMJTllEcR8IqAqJxNQB6ijqkZCdwUjo5Bmsun1wTO0bxd0hD79xXURUXzp59w8
+	V0NFKwDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7E0n-00000007N3N-00vi;
-	Tue, 22 Apr 2025 13:50:09 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u7E2d-00000007NPp-2qiH;
+	Tue, 22 Apr 2025 13:52:03 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7CmB-000000077E2-28xl;
-	Tue, 22 Apr 2025 12:31:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B1F9BA4B9DA;
-	Tue, 22 Apr 2025 12:25:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFF38C4CEE9;
-	Tue, 22 Apr 2025 12:30:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745325058;
-	bh=xKrfLs7qzUWVH8zA5N9jPbcdhMGwcx6yfh8zqByQ+e8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=d5/8JozmzsqHMFr9MfAeEsbe5a13Rm5wB6vFbHudtpq6sMRptR/iJgl8XzsF+X0yR
-	 1NIDbkxXx+l8/FeBcmi+gOa5RHq9hiEZDvoIw5KpIdWs129N8fmR0IrrXPgb8D5a12
-	 y5OwXdylmUPmPs1b1Z9EEplSj5AJ/HCp0u0VAtTU1FyVO6mf96CCiLTDQmO3fEKFB7
-	 f1gwCGiHRvXUrF8G0bivHZdAIeW4G0nWdBoIzaOdg1sk7HW+zGvDpwCEE73/c2aCR+
-	 5994uqd8N87I/3433Bm1culIf0dK1HyTu91JlMlNNVOq4O7G5y0vbjjjwiPfc8P+1y
-	 BC1lIJRQP6I8g==
-Date: Tue, 22 Apr 2025 14:30:53 +0200
-From: Niklas Cassel <cassel@kernel.org>
-To: Hans Zhang <18255117159@163.com>
-Cc: lpieralisi@kernel.org, kw@linux.com, bhelgaas@google.com,
-	heiko@sntech.de, manivannan.sadhasivam@linaro.org, robh@kernel.org,
-	jingoohan1@gmail.com, shawn.lin@rock-chips.com,
-	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 2/3] PCI: dw-rockchip: Reorganize register and bitfield
- definitions
-Message-ID: <aAeL_Wr42ETm7S96@ryzen>
-References: <20250422112830.204374-1-18255117159@163.com>
- <20250422112830.204374-3-18255117159@163.com>
+	id 1u7Cmz-000000077Vk-379k
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 22 Apr 2025 12:31:52 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.105])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4ZhhMX1t5MzvWrn;
+	Tue, 22 Apr 2025 20:27:36 +0800 (CST)
+Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
+	by mail.maildlp.com (Postfix) with ESMTPS id 072551400D4;
+	Tue, 22 Apr 2025 20:31:45 +0800 (CST)
+Received: from [10.67.121.177] (10.67.121.177) by
+ kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Tue, 22 Apr 2025 20:31:43 +0800
+CC: <yangyicong@hisilicon.com>, <jonathan.cameron@huawei.com>,
+	<hejunhao3@huawei.com>, <linuxarm@huawei.com>, <wangyushan12@huawei.com>,
+	<caijingtao@huawei.com>, <xueshan2@huawei.com>, <prime.zeng@hisilicon.com>,
+	<acme@kernel.org>, <namhyung@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <peterz@infradead.org>, <mingo@redhat.com>,
+	<mark.rutland@arm.com>, <jolsa@kernel.org>, <john.g.garry@oracle.com>,
+	<leo.yan@linux.dev>, <irogers@google.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>
+Subject: Re: [PATCH] perf arm-spe: Add support for SPE Data Source packet on
+ HiSilicon HIP12
+To: Leo Yan <leo.yan@arm.com>, James Clark <james.clark@linaro.org>
+References: <20250408122809.37884-1-yangyicong@huawei.com>
+ <89741897-6c8f-4b75-8ec3-675111ea60a1@linaro.org>
+ <20250422102952.GD28953@e132581.arm.com>
+From: Yicong Yang <yangyicong@huawei.com>
+Message-ID: <ccb8ce65-8241-0670-25c8-f8245fbc5e22@huawei.com>
+Date: Tue, 22 Apr 2025 20:31:43 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250422112830.204374-3-18255117159@163.com>
+In-Reply-To: <20250422102952.GD28953@e132581.arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.177]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_053059_684861_4A25371D 
-X-CRM114-Status: GOOD (  17.03  )
+X-CRM114-CacheID: sfid-20250422_053150_132566_8A975EAF 
+X-CRM114-Status: GOOD (  23.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,95 +80,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 22, 2025 at 07:28:29PM +0800, Hans Zhang wrote:
-> Register definitions were scattered with ambiguous names (e.g.,
-> PCIE_RDLH_LINK_UP_CHGED in PCIE_CLIENT_INTR_STATUS_MISC) and lacked
-> hierarchical grouping. Magic values for bit operations reduced code
-> clarity.
+On 2025/4/22 18:29, Leo Yan wrote:
+> On Tue, Apr 22, 2025 at 10:16:40AM +0100, James Clark wrote:
+>>>
+>>> Add data source encoding for HiSilicon HIP12 and coresponding mapping
+>>> to the perf's memory data source. This will help to synthesize the data
+>>> and support upper layer tools like perf-mem and perf-c2c.
+>>>
+>>> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+>>> ---
+>>>   arch/arm64/include/asm/cputype.h              |   2 +
+>>>   tools/arch/arm64/include/asm/cputype.h        |   2 +
 > 
-> Group registers and their associated bitfields logically. This improves
-> maintainability and aligns the code with hardware documentation.
+> Please split into two patches.  One is a kernel patch and another is a
+> tool patch.
+
+will do in next version.
+
 > 
-> Signed-off-by: Hans Zhang <18255117159@163.com>
-> ---
->  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 42 +++++++++++--------
->  1 file changed, 24 insertions(+), 18 deletions(-)
+> [...]
 > 
-> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> index fd5827bbfae3..cdc8afc6cfc1 100644
-> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> @@ -8,6 +8,7 @@
->   * Author: Simon Xue <xxm@rock-chips.com>
->   */
->  
-> +#include <linux/bitfield.h>
->  #include <linux/clk.h>
->  #include <linux/gpio/consumer.h>
->  #include <linux/irqchip/chained_irq.h>
-> @@ -34,30 +35,35 @@
->  
->  #define to_rockchip_pcie(x) dev_get_drvdata((x)->dev)
->  
-> -#define PCIE_CLIENT_RC_MODE		HIWORD_UPDATE_BIT(0x40)
-> -#define PCIE_CLIENT_EP_MODE		HIWORD_UPDATE(0xf0, 0x0)
-> -#define PCIE_CLIENT_ENABLE_LTSSM	HIWORD_UPDATE_BIT(0xc)
-> -#define PCIE_CLIENT_DISABLE_LTSSM	HIWORD_UPDATE(0x0c, 0x8)
-> -#define PCIE_CLIENT_INTR_STATUS_MSG_RX	0x04
-> +#define PCIE_CLIENT_GENERAL_CONTROL	0x0
-> +#define  PCIE_CLIENT_RC_MODE		HIWORD_UPDATE_BIT(0x40)
-> +#define  PCIE_CLIENT_EP_MODE		HIWORD_UPDATE(0xf0, 0x0)
-> +#define  PCIE_CLIENT_ENABLE_LTSSM	HIWORD_UPDATE_BIT(0xc)
-> +#define  PCIE_CLIENT_DISABLE_LTSSM	HIWORD_UPDATE(0x0c, 0x8)
-> +
-> +#define PCIE_CLIENT_INTR_STATUS_MSG_RX	0x4
-> +#define PCIE_CLIENT_INTR_STATUS_LEGACY	0x8
-> +
->  #define PCIE_CLIENT_INTR_STATUS_MISC	0x10
-> +#define  PCIE_RDLH_LINK_UP_CHGED	BIT(1)
-> +#define  PCIE_LINK_REQ_RST_NOT_INT	BIT(2)
-> +
-> +#define PCIE_CLIENT_INTR_MASK_LEGACY	0x1c
->  #define PCIE_CLIENT_INTR_MASK_MISC	0x24
-> +
->  #define PCIE_CLIENT_POWER		0x2c
-> +#define  PME_READY_ENTER_L23		BIT(3)
-> +
->  #define PCIE_CLIENT_MSG_GEN		0x34
-> -#define PME_READY_ENTER_L23		BIT(3)
-> -#define PME_TURN_OFF			(BIT(4) | BIT(20))
-> -#define PME_TO_ACK			(BIT(9) | BIT(25))
-> -#define PCIE_SMLH_LINKUP		BIT(16)
-> -#define PCIE_RDLH_LINKUP		BIT(17)
-> -#define PCIE_LINKUP			(PCIE_SMLH_LINKUP | PCIE_RDLH_LINKUP)
+>>> --- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
+>>> +++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
+>>> @@ -82,6 +82,23 @@ enum arm_spe_ampereone_data_source {
+>>>   	ARM_SPE_AMPEREONE_L2D                           = 0x9,
+>>>   };
+>>> +enum arm_spe_hisi_hip_data_source {
+>>> +	ARM_SPE_HISI_HIP_PEER_CPU		= 0,
+>>> +	ARM_SPE_HISI_HIP_PEER_CPU_HITM		= 1,
+>>> +	ARM_SPE_HISI_HIP_L3			= 2,
+>>> +	ARM_SPE_HISI_HIP_L3_HITM		= 3,
+>>> +	ARM_SPE_HISI_HIP_PEER_CLUSTER		= 4,
+>>> +	ARM_SPE_HISI_HIP_PEER_CLUSTER_HITM	= 5,
+>>> +	ARM_SPE_HISI_HIP_REMOTE_SOCKET		= 6,
+>>> +	ARM_SPE_HISI_HIP_REMOTE_SOCKET_HITM	= 7,
+>>> +	ARM_SPE_HISI_HIP_LOCAL			= 8,
+>>> +	ARM_SPE_HISI_HIP_REMOTE			= 9,
+>>> +	ARM_SPE_HISI_HIP_NC_DEV			= 13,
+>>> +	ARM_SPE_HISI_HIP_L2			= 16,
+>>> +	ARM_SPE_HISI_HIP_L2_HITM		= 17,
+>>> +	ARM_SPE_HISI_HIP_L1			= 18,
+>>> +};
+>>> +
+>>>   struct arm_spe_record {
+>>>   	enum arm_spe_sample_type type;
+>>>   	int err;
+>>> diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
+>>> index 2a9775649cc2..eceae4219601 100644
+>>> --- a/tools/perf/util/arm-spe.c
+>>> +++ b/tools/perf/util/arm-spe.c
+>>> @@ -571,6 +571,11 @@ static const struct midr_range ampereone_ds_encoding_cpus[] = {
+>>>   	{},
+>>>   };
+>>> +static const struct midr_range hisi_hip_ds_encoding_cpus[] = {
+>>> +	MIDR_ALL_VERSIONS(MIDR_HISI_HIP12),
+>>> +	{},
+>>> +};
+>>> +
+>>>   static void arm_spe__sample_flags(struct arm_spe_queue *speq)
+>>>   {
+>>>   	const struct arm_spe_record *record = &speq->decoder->record;
+>>> @@ -718,9 +723,105 @@ static void arm_spe__synth_data_source_ampereone(const struct arm_spe_record *re
+>>>   	arm_spe__synth_data_source_common(&common_record, data_src);
+>>>   }
+>>> +static void arm_spe__synth_data_source_hisi_hip(const struct arm_spe_record *record,
+>>> +						union perf_mem_data_src *data_src)
+>>> +{
+>>> +	/* Use common synthesis method to handle store operations */
+>>> +	if (record->op & ARM_SPE_OP_ST) {
+>>> +		arm_spe__synth_data_source_common(record, data_src);
+>>> +		return;
+>>> +	}
+>>> +
+>>> +	switch (record->source) {
+>>> +	case ARM_SPE_HISI_HIP_PEER_CPU:
+>>> +		data_src->mem_lvl = PERF_MEM_LVL_L3 | PERF_MEM_LVL_HIT;
+>>> +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
+>>> +		data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
+>>> +		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
+> 
+> Seems it is conflict to set both 'PERF_MEM_SNOOP_NONE' and
+> 'PERF_MEM_SNOOPX_PEER'.
+> 
+> Remove setting 'PERF_MEM_SNOOP_NONE' in this case?
+> 
+>>> +		break;
+>>> +	case ARM_SPE_HISI_HIP_PEER_CPU_HITM:
+>>> +		data_src->mem_lvl = PERF_MEM_LVL_L3 | PERF_MEM_LVL_HIT;
+>>> +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
+>>> +		data_src->mem_snoop = PERF_MEM_SNOOP_HITM;
+>>> +		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
+>>> +		break;
+>>> +	case ARM_SPE_HISI_HIP_L3:
+>>> +		data_src->mem_lvl = PERF_MEM_LVL_L3 | PERF_MEM_LVL_HIT;
+>>> +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
+>>> +		data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
+>>> +		break;
+>>> +	case ARM_SPE_HISI_HIP_L3_HITM:
+>>> +		data_src->mem_lvl = PERF_MEM_LVL_L3 | PERF_MEM_LVL_HIT;
+>>> +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
+>>> +		data_src->mem_snoop = PERF_MEM_SNOOP_HITM;
+>>> +		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
+>>> +		break;
+>>> +	case ARM_SPE_HISI_HIP_PEER_CLUSTER:
+>>> +		data_src->mem_lvl = PERF_MEM_LVL_REM_CCE1 | PERF_MEM_LVL_HIT;
+>>> +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
+> 
+> Seems to me, a CPU has L3 cache, would the cluster has a higher level's
+> cache?
 
-This patch removes PCIE_LINKUP, without adding it somewhere else
-so I don't think this patch will compile.
+In my case, the cluster CPUs share the L3 cache and there's several clusters.
+L3's the highest level cache in the system.
 
-I think the removal of this line has to be in patch 3/3.
+> 
+>>> +		data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
+>>> +		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
+> 
+> Ditto for the confliction for the two flags 'SNOOP_NONE' and
+> 'SNOOPX_PEER'.
+> 
+>>> +		break;
+>>> +	case ARM_SPE_HISI_HIP_PEER_CLUSTER_HITM:
+>>> +		data_src->mem_lvl = PERF_MEM_LVL_REM_CCE1 | PERF_MEM_LVL_HIT;
+>>> +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
+>>> +		data_src->mem_snoop = PERF_MEM_SNOOP_HITM;
+>>> +		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
+>>> +		break;
+>>> +	case ARM_SPE_HISI_HIP_REMOTE_SOCKET:
+>>> +		data_src->mem_lvl = PERF_MEM_LVL_REM_CCE2;
+>>> +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_ANY_CACHE;
+>>> +		data_src->mem_remote = PERF_MEM_REMOTE_REMOTE;
+>>> +		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
+>>
+>> Hi Yicong,
+>>
+>> Is the mem_snoop setting missing from this one?
+> 
+> The field 'mem_snoopx' is an extension to the field 'mem_snoop'.
+> 
+> If the field 'mem_snoopx' is set, it is no need to set 'mem_snoop'.
+> 
 
+they should not be mutal exclusive. mem_snoopx provides the information where
+the cacheline comes from while mem_snoop provides the status of the cacheline.
+if hardware supports we can gather both information from the data source, like
+above for ARM_SPE_HISI_HIP_PEER_CLUSTER_HITM.
 
+for other cases if there's mem_snoopx information I think mem_snoop can be dropped,
+this won't make differeces. Checked c2c_decode_stats(), only PERF_MEM_SNOOP_HIT and
+PERF_MEM_SNOOP_HITM is useful when summarizing c2c statistics.
 
-Also, I think that Bjorn's primary concern:
-"""
-The #defines for register offsets and bits are kind of a mess,
-e.g., PCIE_SMLH_LINKUP, PCIE_RDLH_LINKUP, PCIE_LINKUP,
-PCIE_L0S_ENTRY, and PCIE_LTSSM_STATUS_MASK are in
-PCIE_CLIENT_LTSSM_STATUS, but you couldn't tell that from the
-names, and they're not even defined together.
-""""
-
-is that the fields are not prefixed with the register name.
-
-the secondary concern is that they are not grouped together.
-
-This patch is just solving the secondary concern.
-
-Since you are fixing his secondary concern, should you perhaps also
-address his primary concern?
-
-
-
-Kind regards,
-Niklas
+Thanks.
 
