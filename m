@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78A3FC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 11:34:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FB61C369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 11:36:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zF4UOqdX0b7eFotsJnVlx6i1/S86SnKAsQ01ibQ35ZI=; b=pEYYC5mKpXV4K4WOOj7eDnBYxf
-	jgVhT9CB8DNaHk9Tuej6SNrwifpV0Vvj0XYOqdj5htQk7UPcwYjn/vjJ8eGkDp3BolnYH0vRaTo1z
-	n9AkHdrNO+ZEQ4LvdO/6gOVNkvL+874Gh3mzTM2eUvC25AZZQQLyKPtftyiT6B4oVD1SvWmiCvAjY
-	fB+U8a7rXWGxPFYZGVqPQOziOg3NSNz6nKixQEF0Qy/ZiPo1H8ReaY12rFszNv+LAMG0hwzlvPmCr
-	yexY73exc5VhjeuAMQ5TO9A3DT4aEFtAhGplLcTNdXQ4gdaVlegyJ9mfHCLieOawSloB4nUOdUqbi
-	GIKJytlg==;
+	bh=y4EAGj8J/OPfCu3FA7uzowZgFMJ6Fv3iSV5Sq1MEBIk=; b=sQQIiUkgqGM7epJKMLr9qwwO6U
+	lzzAHKiedXFgr+clKEvTcWDd4AjBpdbXNd4z6T77EUdXRl5b86zaXbCyao48VqL9vFAzMmeIXQMms
+	gxDpMSwpy2k9r3mmMPfuXWVroeTYCzLkyFsnWyhOns20bGzc6qLUZmAPzpuIxAwF7JjUWC193uscO
+	QoXpCSOaeOoc1C8nOnNmF6QVI6cE4nW+aN8XKLCIPbdD659U/hus4CX44VuAhLnr7cm8M4znJc2wL
+	F0xltJ0sih/5g+2wAS06OTDddaAzzTikFHkw7UHnv9sXBz0o7tNgJy4CoL+gMe7RcA02+7oy9YeHW
+	xJYDn+5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7BtF-00000006xbD-0fdJ;
-	Tue, 22 Apr 2025 11:34:13 +0000
+	id 1u7Bv5-00000006y6Z-44J3;
+	Tue, 22 Apr 2025 11:36:07 +0000
 Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7BJI-00000006qiD-2Trk
+	id 1u7BJI-00000006qiE-2UlP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 10:57:06 +0000
+	Tue, 22 Apr 2025 10:57:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
 	s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
 	List-Post:List-Owner:List-Archive;
-	bh=zF4UOqdX0b7eFotsJnVlx6i1/S86SnKAsQ01ibQ35ZI=; b=n28loj0gjcEWAkPYmLmZrru4KZ
-	14D+SJCkHXBhx4/DTZ/Fs2wsHKl5u4k2AulXDCIdyQ8uzRSTIkY0UKBQcEnWI7EQ/VYu5zMmA0UTu
-	2YxkCe78BB4mxd0XQ5cPIRxpsTtAO+oo6ms5n/bdA71Ply0PcK7jxMJJagXWtVLrvCzzibwI4nhZR
-	wzKn3y4UYuhCLQw/Kr6bpkw7ANwW1alQGjYFTSu+FHh6rS3WLbsBJs+UXj41Ru1VhBDKLPw9v0ytY
-	MySE96aFtKpUrawY4ZZwzhQvfauniXvXdonEJk35og8iNHeLrLQPCiCRxH53UiMPrZwBjxyAcj5Mc
-	tjKR9l5w==;
+	bh=y4EAGj8J/OPfCu3FA7uzowZgFMJ6Fv3iSV5Sq1MEBIk=; b=ADXypFDZXhEAfy+zl1MRSpjDu+
+	9NX1+bxB7aa4OHdbxvnV0cWjXIJ7CZkEhq/37WasBLmd1dQjQ2+O2jhlz2pFhmTw9dR0l/79nMuN3
+	WQqPxgX9HsT8lsb/pdAU3+rWmmtI3gkRj6VM5HG0GwZDMgDtfYqfygsBE59pswZn4iueDdR1rzLC6
+	MM5Hj4CJH1Y3t7Y5TBLZ4fKQ8sKhZgA2JCm4y87vJR/ifnJ4thPYyZ6yVHB9XoUXlds/bcL33HSyb
+	g1P2hSrytChJtnrZ+AmtWH76CM2Ej07QoqjNApBDWSvd9zg/vlzAwTG5fIYnGkjWP7lwgwonBX/um
+	FvEQkXRg==;
 Received: from [89.212.21.243] (port=36562 helo=localhost.localdomain)
 	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <primoz.fiser@norik.com>)
-	id 1u7BJ5-008kyr-0l;
+	id 1u7BJ5-008kyr-11;
 	Tue, 22 Apr 2025 12:56:51 +0200
 From: Primoz Fiser <primoz.fiser@norik.com>
 To: Rob Herring <robh@kernel.org>,
@@ -58,9 +58,9 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	upstream@lists.phytec.de
-Subject: [PATCH v4 05/15] arm64: dts: freescale: imx93-phycore-som: Add eMMC no-1-8-v by default
-Date: Tue, 22 Apr 2025 12:56:34 +0200
-Message-Id: <20250422105644.2725168-6-primoz.fiser@norik.com>
+Subject: [PATCH v4 06/15] arm64: dts: freescale: imx93-phyboard-segin: Drop eMMC no-1-8-v flag
+Date: Tue, 22 Apr 2025 12:56:35 +0200
+Message-Id: <20250422105644.2725168-7-primoz.fiser@norik.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250422105644.2725168-1-primoz.fiser@norik.com>
 References: <20250422105644.2725168-1-primoz.fiser@norik.com>
@@ -77,8 +77,8 @@ X-Source:
 X-Source-Args: 
 X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_035704_803623_4C3F003C 
-X-CRM114-Status: UNSURE (   5.78  )
+X-CRM114-CacheID: sfid-20250422_035704_802172_1F9A444F 
+X-CRM114-Status: UNSURE (   5.31  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,36 +94,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The phyCORE-i.MX93 SoM comes in two variants, one with VDD_IO set to
-3.3V and the other variant to 1.8V. The 3.3V variant can only support
-DDR52 mode, while 1.8V variant is capable of HS400ES eMMC mode. The
-information about VDD_IO option is encoded in the SoM's EEPROM. EEPROM
-is read in the bootloader and bootloader clears the "no-1-8-v" flag in
-case of 1.8V SoM variant is detected. Thus add property 'no-1-8-v' by
-default to usdhc1 (eMMC) node and let bootloader handle the flag. In
-case EEPROM is erased or read-out fails, flag "no-1-8-v" also ensures
-fall-back compatibility with both SoM variants.
+Drop redundant 'no-1-8-v' flag from usdhc1 (eMMC) node. Flag is now set
+by default in the SOM include file (imx93-phycore-som.dtsi).
 
 Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 ---
 Changes in v4:
 - no changes
 
- arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts | 5 -----
+ 1 file changed, 5 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
-index 663530a7e2bb..22dbcc89e311 100644
---- a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
-@@ -172,6 +172,7 @@ &usdhc1 {
- 	pinctrl-2 = <&pinctrl_usdhc1_200mhz>;
- 	bus-width = <8>;
- 	non-removable;
-+	no-1-8-v;
+diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
+index 85fb188b057f..902b523fc92c 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
++++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
+@@ -40,11 +40,6 @@ &lpuart1 {
  	status = "okay";
  };
  
+-/* eMMC */
+-&usdhc1 {
+-	no-1-8-v;
+-};
+-
+ /* SD-Card */
+ &usdhc2 {
+ 	pinctrl-names = "default", "state_100mhz", "state_200mhz";
 -- 
 2.34.1
 
