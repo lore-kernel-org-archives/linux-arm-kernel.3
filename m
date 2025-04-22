@@ -4,66 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F46DC369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 12:41:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63804C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 12:43:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=eD5uitc/xPxEkgf48QxRuWIsvOGBsmL54PCNnxqUzoI=; b=qztl1G7UUXLZvY
-	PAFSlaXjBoWRLYNCiDJw6WmnlUaBCaywnJZ3lQ+FSgDRPtAPgB0W/5/VfaxgeOyN6qf0U9nr3kcHe
-	QGEH3FLjDbIVYQY4GTajyJHplQE2xYTbgV6bDanvsMDKc31iq2y975DXrpgAY4i/7FivSFucayl+D
-	xbEMaCo3hsE6zs/X4p+JRgRusoBrWGYXQCdvNzgunDmNQH+tn/dH8o41wHhwVbwzHVJAIuq62S1G1
-	h8WJmYTGYwbLPwmAt8YphxAGLAMQZTWWSKVYn0dY+vuSF6cFjpcD3UokODYG7NrUYhLREhd2w5WqK
-	I332GoM4t3X8kB06c3DA==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=283dBVure1Sdd9Zu0r/ayymSp1gZDdg5hs4KKJ8E44w=; b=mHSDxjPyH8xHQQWmbVosdMEJbK
+	v+sQRn5hbZeb+Jw0NarrOhT3RaQ5JF9+0pi+5AQggsh968dYwyyf/w4A5I43Hg9w+6+/ksnhwofDt
+	T0DHGYo+lKLD4pR6Yv8Lh0NSKa5eUmwTVRSvL7cVJXarniLzRYj/slWba2rUBPN9Xm1+D5aECYdc6
+	lzWB6goPgJKJZ/dzGzHpLCW4GNU8jK1NLILBKgPm6L37KYoDzpe6acObtBaNkGiD6CnCKG2kzi8eE
+	73wQ76+cFhZ4eMi7LC8wIlgV9GJHMSOB5zSRQSDRHNQRfgOPAkQW7teUqcfWwL3cnaJ9OBWbGistC
+	UZ2+YP6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Cvr-000000079o8-170q;
-	Tue, 22 Apr 2025 12:40:59 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u7Cxi-00000007AE2-19TM;
+	Tue, 22 Apr 2025 12:42:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Bua-00000006xyA-0752;
-	Tue, 22 Apr 2025 11:35:37 +0000
+	id 1u7Buu-00000006y2a-1Ss6;
+	Tue, 22 Apr 2025 11:35:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CF831A4B95E;
-	Tue, 22 Apr 2025 11:30:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 438DDC4CEEC;
-	Tue, 22 Apr 2025 11:35:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 959FE4453A;
+	Tue, 22 Apr 2025 11:35:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68025C4CEE9;
+	Tue, 22 Apr 2025 11:35:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745321734;
-	bh=iyIAAmPJNlz3e5gWT5Kk9P9NWMtpV70iP2nADcdxgfw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=Qsd2/Oj84sxfH8BnbFIuKLhjSmYzFcLJOdoqyUbluLNb/RkJUVIgOpjMvG+7KJyh6
-	 sq0cn+MAvwZz4jEl7Lw78rU9TieE+Mhd/wX5KgDiCqP88ymO7ExiCT2r+1DVd+H/zu
-	 5+ApLuxwmsphup3ib4DhazauAYACtlis1FE6flSHCxH+PS3C49VwAL/Z53tQxrNlfx
-	 OgOTleJOXuFl4brJSwlda6PBP7wKaXMqd2cv5r0zbTnvNBy7WXZ4+nBNG4ZHdxfUn6
-	 kJubSLHhTVj58Qx84dWEzw2fdCzRv8VaD30Yn8F8wKfgnGtzWEiGDfuEWEkn6k5bvP
-	 1vYK/nFCz6hfg==
-Date: Tue, 22 Apr 2025 06:35:32 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Jensen Huang <jensenhuang@friendlyarm.com>
-Cc: Shawn Lin <shawn.lin@rock-chips.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Anand Moon <linux.amoon@gmail.com>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	linux-pci@vger.kernel.org, linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] PCI: rockchip: Fix order of rockchip_pci_core_rsts
-Message-ID: <20250422113532.GA321792@bhelgaas>
+	s=k20201202; t=1745321755;
+	bh=G8k1yESAkAoC2QiiUqKx2xBykLNl2jvAEMR/XX9MlZA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=amsbijQi5FkfMwBmTqZPiKls6kIoI2HsDOXFFmiGBsXTj1a76q6E+akpUOlIFc9ap
+	 42enWZHkH54MltECbR3/SsXKxa1Y3FBhkGE/eyTY5Q8VA/m+CRstiPD0XSEM4cBjWv
+	 t/EKOoEaUKKflSsJ+/hx4kfN/WHbonw7rs4SkPlpRYoRev9MkgNUDciApX5BiAmC7e
+	 zd4Ma6xmusV9ejKOM70Bt+GVk1MvvyNs3nTQf7pNAOW8IdxZT06+aV6TMh0kYvEiiX
+	 cUt4Ni+NeLFVbCa6Qgh52U033cy2Zog7gHbYZPjAgvQ5P2ZTUSD7HD9I2h03jzc5pO
+	 gpaGE98vrLEiA==
+Date: Tue, 22 Apr 2025 13:35:50 +0200
+From: Niklas Cassel <cassel@kernel.org>
+To: Hans Zhang <18255117159@163.com>
+Cc: lpieralisi@kernel.org, kw@linux.com, bhelgaas@google.com,
+	heiko@sntech.de, manivannan.sadhasivam@linaro.org, robh@kernel.org,
+	jingoohan1@gmail.com, shawn.lin@rock-chips.com,
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 1/3] PCI: dw-rockchip: Remove unused
+ PCIE_CLIENT_GENERAL_DEBUG
+Message-ID: <aAd_FiWy5F-tK_2i@ryzen>
+References: <20250422112830.204374-1-18255117159@163.com>
+ <20250422112830.204374-2-18255117159@163.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250328105822.3946767-1-jensenhuang@friendlyarm.com>
+In-Reply-To: <20250422112830.204374-2-18255117159@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_043536_126934_B9442C7C 
-X-CRM114-Status: GOOD (  20.02  )
+X-CRM114-CacheID: sfid-20250422_043556_406592_FE0F15DF 
+X-CRM114-Status: GOOD (  15.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,50 +76,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 28, 2025 at 06:58:22PM +0800, Jensen Huang wrote:
-> The order of rockchip_pci_core_rsts follows the previous comments suggesting
-> to avoid reordering. However, reset_control_bulk_deassert() applies resets in
-> reverse, which may lead to the link downgrading to 2.5 GT/s.
+On Tue, Apr 22, 2025 at 07:28:28PM +0800, Hans Zhang wrote:
+> The PCIE_CLIENT_GENERAL_DEBUG register offset is defined but never
+> used in the driver. Its presence adds noise to the register map and
+> may mislead future developers.
 > 
-> This patch restores the deassert order and comments for core_rsts, introduced in
-> commit 58c6990c5ee7 ("PCI: rockchip: Improve the deassert sequence of four reset pins").
+> Remove this redundant definition to keep the register list minimal
+> and aligned with actual hardware usage.
 > 
-> Tested on NanoPC-T4 with Samsung 970 Pro.
-> 
-> Fixes: 18715931a5c0 ("PCI: rockchip: Simplify reset control handling by using reset_control_bulk*() function")
-> Signed-off-by: Jensen Huang <jensenhuang@friendlyarm.com>
-
-Thanks for the fix!  It looks like 18715931a5c0 appeared in v6.14, so
-we should probably add a stable tag so it gets backported there?
-
+> Signed-off-by: Hans Zhang <18255117159@163.com>
 > ---
->  drivers/pci/controller/pcie-rockchip.h | 10 +++++++---
->  1 file changed, 7 insertions(+), 3 deletions(-)
+>  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 1 -
+>  1 file changed, 1 deletion(-)
 > 
-> diff --git a/drivers/pci/controller/pcie-rockchip.h b/drivers/pci/controller/pcie-rockchip.h
-> index 11def598534b..4f63a03d535c 100644
-> --- a/drivers/pci/controller/pcie-rockchip.h
-> +++ b/drivers/pci/controller/pcie-rockchip.h
-> @@ -320,11 +320,15 @@ static const char * const rockchip_pci_pm_rsts[] = {
->  	"aclk",
->  };
->  
-> +/*
-> + * Please don't reorder the deassert sequence of the following
-> + * four reset pins.
-> + */
->  static const char * const rockchip_pci_core_rsts[] = {
-> -	"mgmt-sticky",
-> -	"core",
-> -	"mgmt",
->  	"pipe",
-> +	"mgmt",
-> +	"core",
-> +	"mgmt-sticky",
->  };
->  
->  struct rockchip_pcie {
+> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> index 0e0c09bafd63..fd5827bbfae3 100644
+> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> @@ -54,7 +54,6 @@
+>  #define PCIE_CLIENT_GENERAL_CONTROL	0x0
+>  #define PCIE_CLIENT_INTR_STATUS_LEGACY	0x8
+>  #define PCIE_CLIENT_INTR_MASK_LEGACY	0x1c
+> -#define PCIE_CLIENT_GENERAL_DEBUG	0x104
+>  #define PCIE_CLIENT_HOT_RESET_CTRL	0x180
+>  #define PCIE_CLIENT_LTSSM_STATUS	0x300
+>  #define PCIE_LTSSM_ENABLE_ENHANCE	BIT(4)
 > -- 
-> 2.49.0-1
+> 2.25.1
 > 
+
+Reviewed-by: Niklas Cassel <cassel@kernel.org>
 
