@@ -4,93 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65D3BC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 16:45:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A7A6C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 16:47:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PYHxgDGXO5+KmD5hIUPp/Tj+/YwJQfgj9/mg6ZyVl2Y=; b=0jn+OPRg8jljCybysV9LZYULLx
-	3m2ve3Y1Y4kvtQgwwtoljEPR7BS3oq35/uiBpWEw4IaJmBNx//FsE+TCxgfUrWGiYCm4/LctXuB6U
-	81F2afhPkzFEHfPSifo/a+UyUgNaE/k2FKNWqCzQcL7lGW7W8R8F1fxt1no1Zce28hYm27IpLDsLv
-	ZZNnT3jWM7Pt1T9S4+Asnf2bI/R2AlsmqenaXLLBLMGZC2rM32iSsW0NttqCL1TTFLpxhjfkuJDz/
-	0FxjmUAgfCgZkegEc/qOh5buoaLdJUK2vwYqa519L1DFV8ftiuXm5wJyz5iycuJTjhZ0YG3ZXIC9P
-	IkbCx1PQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2oGiXeRJ3zc5ZF+d499Pf2VijeVDbIWsPwwy9McpzxY=; b=G27Elrwtu/3gZM
+	wEBykfWZtwSJnGqcndk9ZvcAYBeOZNXLOCxo2MyPFj9+oMMZjfrSUa/QIuHmsWQZVDJfuRLO20GmN
+	A6CfqhSCTgcZebIRiXDivYDe/gwXX09ysA2V2/JyUSzCeG+mhR/ginDyOaj7vi//4Gv6ExNqbDX55
+	ZH/0y95lB1D8vsvBj1dIjwF7Hj/wHsiLCbKQFhVGNzLxeAX20XcVIfB0CjyzxtB3e+n9WlU0HF6gO
+	C4K9JXUPfkzdi5nCZT1je+BTvN4HyGdKHe+DJ6vD6NpHeBto0cdkogfHQn0BuVR846Isj31VKT8QY
+	sp/yL7OhGinBFj/s+02w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7GkB-00000007xeI-344B;
-	Tue, 22 Apr 2025 16:45:11 +0000
-Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
+	id 1u7Gm1-00000007xq0-2VuE;
+	Tue, 22 Apr 2025 16:47:05 +0000
+Received: from mx08-00376f01.pphosted.com ([91.207.212.86])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7FVu-00000007hu1-1r4d
+	id 1u7FWa-00000007i1i-35zJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 15:26:24 +0000
-Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-b0db0b6a677so4441531a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 08:26:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745335581; x=1745940381; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=PYHxgDGXO5+KmD5hIUPp/Tj+/YwJQfgj9/mg6ZyVl2Y=;
-        b=QA8BlkgUq0KHmb/FrOb4g50RIl+jyVyEYH+oI3tBztemHA31b5pqTyYiKyHjnHZNPo
-         iusxCCiZeo9veY4Ucn8SD9rfV5ADzVKJU0dC+pIjN5mz8Xplf8EhSLnRpDZ81O/WE09Y
-         UgAauRiTuhApQuy0oONnL0CwXN9eALwI+0uYl6YZVQ9X43ZdoYdPNFKrlZdRLHzCfzuK
-         zy/lIaQlJMXbuDTZLhjNyPnpKE8ZLZryn4RbPyFez9noIxCNz5Ic3PAZjd0ncg5vyHuO
-         r6EyfLCquzsSumjlrM5i+LA3nVUL1kzYnGrHcgn2I8C5bhU7y7vxUFDVYh/IOOBLq6/M
-         +kiw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745335581; x=1745940381;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PYHxgDGXO5+KmD5hIUPp/Tj+/YwJQfgj9/mg6ZyVl2Y=;
-        b=eqWhudk60JpNEhS+SY0FedOUwxKjpXW51FyhS2j+42G2as9hNoVpF/frhESsFvZMuo
-         h7nEkE+VctlATEGJRpl32O3k5C8MeN6mHP04genGm4QBDUZpyyvlFQpv4y7R0lyapTZL
-         Rx3hR8MdoEcBnabgoMiWF4JGelP4ZZHeyGb/TRbQZJW1DDDhH2sb/Irvli7+i+BRjwU/
-         7ua/+xYA0ieSGu+n3oJIXQf7Lacc7motr0Khs2nzkfeKwYBJNDgXvNWoAnw+MnvyWOHT
-         BWy+q+wbgQQRT4yC0g/Sl95xlndsddXdVMQwmTHLZkjYZwuqDBps6Qhdax1uCVqdtGl2
-         D5ng==
-X-Forwarded-Encrypted: i=1; AJvYcCWGTijXoDsXAG658/xn4oCIdVvxuwJFKhvu02tDbW60Aw3/3PLehhRvBAwnhgzodH4qy2TLAxXXPcyoYV6OoiWY@lists.infradead.org
-X-Gm-Message-State: AOJu0YxriSR0pUAgZA236WB5+GpT8yRXVwDKyPsK7axExnKSU+fiYlpk
-	CB68B+iLWrDolIQAD/ADvZEqObUxoPaBINTsTk/So4gJ8MUYiiPayC5wQwfcDGE=
-X-Gm-Gg: ASbGncvEUZJBnt0GVJCWEMfizHSZkjV1g1HbwLsEqR/GDkh0PUh8HO+n14sD68t8XeI
-	8by5MqO8tdEw5hYLHT233rVanzTIPhuSiv6b8IutYfx8dTO8tw9bisZdk/3ThBle0v5nuTo2ffL
-	eeBA/0D0VpbJRPJi09ENEDim4W3L7QONgYL9cMRuPc+NP1FkM4k11hU1Jvn8eDKrmmvf6nlBgbh
-	twPocW8tDRsRR7EkBx+1gDZMboIzdf9Yl+nhNZgal1QihpRTzXkqz41bKUKfiVsewXrcOcTlNri
-	wwC3SKbA393YUPxjX0EBWfaCT/iDcruoGPl/yQvE73Me
-X-Google-Smtp-Source: AGHT+IFKdPqXfG2PDOZJlWrx5F/OcrmgSWRYGt4yShrlHtNv9ZIbsa8RQSsnfUd0cOhJjZ0RKioIng==
-X-Received: by 2002:a17:90b:270b:b0:2fe:a614:5cf7 with SMTP id 98e67ed59e1d1-3087bb422e9mr21115170a91.3.1745335581018;
-        Tue, 22 Apr 2025 08:26:21 -0700 (PDT)
-Received: from p14s ([2604:3d09:148c:c800:2e83:e5cb:87bf:4641])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3087e0febd4sm8823408a91.36.2025.04.22.08.26.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Apr 2025 08:26:20 -0700 (PDT)
-Date: Tue, 22 Apr 2025 09:26:17 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: "Iuliana Prodan (OSS)" <iuliana.prodan@oss.nxp.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	"S.J. Wang" <shengjiu.wang@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Mpuaudiosw <Mpuaudiosw@nxp.com>,
-	Iuliana Prodan <iuliana.prodan@nxp.com>, imx@lists.linux.dev,
-	linux-remoteproc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: Re: [PATCH v5] remoteproc: imx_dsp_rproc: Add support for
- DSP-specific features
-Message-ID: <aAe1GUqYT_Iv2ZmB@p14s>
-References: <20250416075613.2116792-1-iuliana.prodan@oss.nxp.com>
+	Tue, 22 Apr 2025 15:27:06 +0000
+Received: from pps.filterd (m0168888.ppops.net [127.0.0.1])
+	by mx08-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53M7sLlD009013;
+	Tue, 22 Apr 2025 16:26:51 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
+	:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=dk201812; bh=2oGiXeRJ3zc5ZF+d499Pf2V
+	ijeVDbIWsPwwy9McpzxY=; b=O7wPBaYtqRicm1+wJJKjQVjjU16RhdwbKObb2D0
+	H7GJeCuq+73Kg9f/zFQ2LgkAe4BJw1JKYVCizI9ZQff8B7OrEbGCW5NrNYVSxdFw
+	lfEglHuSoWuIjrYV8RPuaJdQT+PjVcBBl4HJ1dQR5Il84bGAPkLWLmKmrXeqaRo8
+	HfAaETmfJ7++BJ5+sGaVKrj+RZcDvB2IcsWwj8B5jw9nth4GovjS/cKSI65p8smU
+	InY1Ix4lfOnm2F26kojmSz4JfPWYe8dsBxIR4ICPDmzaDUiCApUyhbIFGhAzoBqm
+	PPpgc8ms0XPaUfTYZ8r++9w3GPJrmmbPXpybXcqAYUIrykA==
+Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
+	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 46423t1u0t-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Tue, 22 Apr 2025 16:26:51 +0100 (BST)
+Received: from
+ 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
+ (172.25.7.98) by HHMAIL05.hh.imgtec.org (10.100.10.120) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Tue, 22 Apr 2025 16:26:50 +0100
+From: Matt Coster <matt.coster@imgtec.com>
+Subject: [PATCH v3 0/2] Imagination BXS-4-64 MC1 GPU support (DTS changes)
+Date: Tue, 22 Apr 2025 16:26:40 +0100
+Message-ID: <20250422-bxs-4-64-dts-v3-0-ec6657bde135@imgtec.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250416075613.2116792-1-iuliana.prodan@oss.nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIADC1B2gC/3XMSw6CMBSF4a2QO/aavgFH7sM4wD6gA8C0TYMh7
+ N3CSE0cnpN8/wrRBm8jXKoVgs0++nkqg58q0EM39Ra9KRsYYZIIKvGxRBSoBJoUUbeNMKSplZQ
+ KCnkG6/xy5G73sgcf0xxeRz3T/f0TyhQJutpw1xGlmDRXP/bJ6rOeR9hLmX3q+kezolvXaNIyz
+ ikVX3rbtjdrsbSM5wAAAA==
+X-Change-ID: 20250415-bxs-4-64-dts-c984d0876556
+To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        "Tero
+ Kristo" <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Frank Binns <frank.binns@imgtec.com>,
+        "Alessio Belle" <alessio.belle@imgtec.com>,
+        Alexandru Dadu
+	<alexandru.dadu@imgtec.com>,
+        Luigi Santivetti <luigi.santivetti@imgtec.com>,
+        Randolph Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>,
+        Matt Coster
+	<matt.coster@imgtec.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1296;
+ i=matt.coster@imgtec.com; h=from:subject:message-id;
+ bh=osF8SRCtVm7uYw0wV8+zhPfygDG1r4KTYhsXoYexelE=;
+ b=owGbwMvMwCFWuUfy8817WRsYT6slMWSwb7V8Njn2rNGfQ/v3hfRqu20R2tibu5L7fvEevxXRC
+ +OWyF462VHKwiDGwSArpsiyY4XlCrU/aloSN34Vw8xhZQIZwsDFKQATMWxi+Gda5n/T/8eX2++/
+ LWe0/7XFbnP1KxEh1Tfdbq2C6td+pUcwMkxQLwn5kXk/Ne1+4t6dYdLixwtWFm7//279381WBjL
+ FtUwA
+X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
+ fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
+X-Originating-IP: [172.25.7.98]
+X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
+X-Authority-Analysis: v=2.4 cv=L60dQ/T8 c=1 sm=1 tr=0 ts=6807b53b cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=6pm0VhuFVbIA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=sozttTNsAAAA:8
+ a=_yRp58ONHCnQFu2M2WYA:9 a=QEXdDO2ut3YA:10 a=t8nPyN_e6usw4ciXM-Pk:22
+X-Proofpoint-ORIG-GUID: pd8aAIL72NSechMn-Ap2aj1T9LbpDTOQ
+X-Proofpoint-GUID: pd8aAIL72NSechMn-Ap2aj1T9LbpDTOQ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDIyMDExNyBTYWx0ZWRfXxbe5BKxbbxwi pkYBnpcgrtnbSxWQa8pFhkUmcM9LlTcEIiJDrW5QlDlIbtRHnq8Wlp2Mit3gYpk8GqCphMGM94R TGfVGKPNswwqy3uRevzYgVvNB0NYJ5qa3oaQ+ID3capvn8kqP+BpafxGqIadDccPMzn4LRMSMzB
+ PRja5kHKjxo+0zkmba4aAke7rg5CDQfaFUwG+FqHi5M0U73JC1Qhg30loWD9LtHANhKS//5vr7A ldb0YIvUWHac5S9UBsdpuLYQmPaOWOmNTude+HLOO7iyMrT38zySPFX7RWsgHlpc22+FDQGA8OZ QQ+TmlcOnagQF4PiGabjYxRWmlftsqZqPZdWzNNInDXpUTHAHvYzKZ8UtSEIZAh41Eg9yDAgSbr
+ AV5uaMjV9tcMp/JcsjZzKElj+xY9AOeUylCv9icqJeCO4gJAhKvIKNxpnK+imiMVvRhcRwqI
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_082622_489515_9DF84BA6 
-X-CRM114-Status: GOOD (  40.19  )
+X-CRM114-CacheID: sfid-20250422_082705_069867_E6395FE3 
+X-CRM114-Status: GOOD (  10.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,213 +111,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 16, 2025 at 10:56:13AM +0300, Iuliana Prodan (OSS) wrote:
-> From: Iuliana Prodan <iuliana.prodan@nxp.com>
-> 
-> Some DSP firmware requires a FW_READY signal before proceeding, while
-> others do not.
-> Therefore, add support to handle i.MX DSP-specific features.
-> 
-> Implement handle_rsc callback to handle resource table parsing and to
-> process DSP-specific resource, to determine if waiting is needed.
-> 
-> Update imx_dsp_rproc_start() to handle this condition accordingly.
-> 
-> Signed-off-by: Iuliana Prodan <iuliana.prodan@nxp.com>
+Now that the binding and driver changes to support the Imagination
+BXS-4-64 [1] have landed in a DRM tree, here are the corresponding DTS
+changes without the [DO NOT MERGE] tag.
 
-Applied.
+This GPU is found in the TI AM68 family of SoCs, with initial support
+added to the k3-j721s2 devicetree and tested on a TI SK-AM68 board.
 
-Thanks,
-Mathieu
+[1]: https://lore.kernel.org/r/20250410-sets-bxs-4-64-patch-v1-v6-0-eda620c5865f@imgtec.com
 
-> ---
-> Changes in v5:
-> - Reviews from Mathieu Poirier:
->   - ensure resource length matches struct size exactly.
-> - Link to v4: https://lore.kernel.org/all/20250409213030.3489481-1-iuliana.prodan@oss.nxp.com/
-> 
-> Changes in v4:
-> - Reviews from Mathieu Poirier:
->   - Adjusted len to include the size of struct fw_rsc_imx_dsp.
->   - Updated len validation checks.
-> - Review from Frank Li:
->   - In imx_dsp_rproc_handle_rsc(), removed the goto ignored statement.
-> - In probe(), set flags to WAIT_FW_READY to ensure the host waits
-> for fw_ready when no vendor-specific resource is defined.
-> - Link to v3: https://lore.kernel.org/all/20250403100124.637889-1-iuliana.prodan@oss.nxp.com/
-> 
-> Changes in v3:
-> - Reviews from Mathieu Poirier:
->   - Added version and magic number to vendor-specific resource table entry.
->   - Updated defines to maintain backward compatibility with a resource table that doesn't have a vendor-specific resource.
->     - By default, wait for `fw_ready`, unless specified otherwise.
-> - Link to v2: https://lore.kernel.org/all/20250318215007.2109726-1-iuliana.prodan@oss.nxp.com
-> 
-> Changes in v2:
-> - Reviews from Mathieu Poirier:
->   - Use vendor-specific resource table entry.
->   - Implement resource handler specific to the i.MX DSP.
-> - Revise commit message to include recent updates.
-> - Link to v1: https://lore.kernel.org/all/20250305123923.514386-1-iuliana.prodan@oss.nxp.com/
-> 
->  drivers/remoteproc/imx_dsp_rproc.c | 98 +++++++++++++++++++++++++++++-
->  1 file changed, 96 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
-> index b9bb15970966..a16d9c4238ed 100644
-> --- a/drivers/remoteproc/imx_dsp_rproc.c
-> +++ b/drivers/remoteproc/imx_dsp_rproc.c
-> @@ -35,9 +35,18 @@ module_param_named(no_mailboxes, no_mailboxes, int, 0644);
->  MODULE_PARM_DESC(no_mailboxes,
->  		 "There is no mailbox between cores, so ignore remote proc reply after start, default is 0 (off).");
->  
-> +/* Flag indicating that the remote is up and running */
->  #define REMOTE_IS_READY				BIT(0)
-> +/* Flag indicating that the host should wait for a firmware-ready response */
-> +#define WAIT_FW_READY				BIT(1)
->  #define REMOTE_READY_WAIT_MAX_RETRIES		500
->  
-> +/*
-> + * This flag is set in the DSP resource table's features field to indicate
-> + * that the firmware requires the host NOT to wait for a FW_READY response.
-> + */
-> +#define FEATURE_DONT_WAIT_FW_READY		BIT(0)
-> +
->  /* att flags */
->  /* DSP own area */
->  #define ATT_OWN					BIT(31)
-> @@ -72,6 +81,10 @@ MODULE_PARM_DESC(no_mailboxes,
->  
->  #define IMX8ULP_SIP_HIFI_XRDC			0xc200000e
->  
-> +#define FW_RSC_NXP_S_MAGIC			((uint32_t)'n' << 24 |	\
-> +						 (uint32_t)'x' << 16 |	\
-> +						 (uint32_t)'p' << 8 |	\
-> +						 (uint32_t)'s')
->  /*
->   * enum - Predefined Mailbox Messages
->   *
-> @@ -136,6 +149,24 @@ struct imx_dsp_rproc_dcfg {
->  	int (*reset)(struct imx_dsp_rproc *priv);
->  };
->  
-> +/**
-> + * struct fw_rsc_imx_dsp - i.MX DSP specific info
-> + *
-> + * @len: length of the resource entry
-> + * @magic_num: 32-bit magic number
-> + * @version: version of data structure
-> + * @features: feature flags supported by the i.MX DSP firmware
-> + *
-> + * This represents a DSP-specific resource in the firmware's
-> + * resource table, providing information on supported features.
-> + */
-> +struct fw_rsc_imx_dsp {
-> +	uint32_t len;
-> +	uint32_t magic_num;
-> +	uint32_t version;
-> +	uint32_t features;
-> +} __packed;
-> +
->  static const struct imx_rproc_att imx_dsp_rproc_att_imx8qm[] = {
->  	/* dev addr , sys addr  , size	    , flags */
->  	{ 0x596e8000, 0x556e8000, 0x00008000, ATT_OWN },
-> @@ -300,6 +331,66 @@ static int imx_dsp_rproc_ready(struct rproc *rproc)
->  	return -ETIMEDOUT;
->  }
->  
-> +/**
-> + * imx_dsp_rproc_handle_rsc() - Handle DSP-specific resource table entries
-> + * @rproc: remote processor instance
-> + * @rsc_type: resource type identifier
-> + * @rsc: pointer to the resource entry
-> + * @offset: offset of the resource entry
-> + * @avail: available space in the resource table
-> + *
-> + * Parse the DSP-specific resource entry and update flags accordingly.
-> + * If the WAIT_FW_READY feature is set, the host must wait for the firmware
-> + * to signal readiness before proceeding with execution.
-> + *
-> + * Return: RSC_HANDLED if processed successfully, RSC_IGNORED otherwise.
-> + */
-> +static int imx_dsp_rproc_handle_rsc(struct rproc *rproc, u32 rsc_type,
-> +				    void *rsc, int offset, int avail)
-> +{
-> +	struct imx_dsp_rproc *priv = rproc->priv;
-> +	struct fw_rsc_imx_dsp *imx_dsp_rsc = rsc;
-> +	struct device *dev = rproc->dev.parent;
-> +
-> +	if (!imx_dsp_rsc) {
-> +		dev_dbg(dev, "Invalid fw_rsc_imx_dsp.\n");
-> +		return RSC_IGNORED;
-> +	}
-> +
-> +	/* Make sure resource isn't truncated */
-> +	if (sizeof(struct fw_rsc_imx_dsp) > avail ||
-> +	    sizeof(struct fw_rsc_imx_dsp) != imx_dsp_rsc->len) {
-> +		dev_dbg(dev, "Resource fw_rsc_imx_dsp is truncated.\n");
-> +		return RSC_IGNORED;
-> +	}
-> +
-> +	/*
-> +	 * If FW_RSC_NXP_S_MAGIC number is not found then
-> +	 * wait for fw_ready reply (default work flow)
-> +	 */
-> +	if (imx_dsp_rsc->magic_num != FW_RSC_NXP_S_MAGIC) {
-> +		dev_dbg(dev, "Invalid resource table magic number.\n");
-> +		return RSC_IGNORED;
-> +	}
-> +
-> +	/*
-> +	 * For now, in struct fw_rsc_imx_dsp, version 0,
-> +	 * only FEATURE_DONT_WAIT_FW_READY is valid.
-> +	 *
-> +	 * When adding new features, please upgrade version.
-> +	 */
-> +	if (imx_dsp_rsc->version > 0) {
-> +		dev_warn(dev, "Unexpected fw_rsc_imx_dsp version %d.\n",
-> +			 imx_dsp_rsc->version);
-> +		return RSC_IGNORED;
-> +	}
-> +
-> +	if (imx_dsp_rsc->features & FEATURE_DONT_WAIT_FW_READY)
-> +		priv->flags &= ~WAIT_FW_READY;
-> +
-> +	return RSC_HANDLED;
-> +}
-> +
->  /*
->   * Start function for rproc_ops
->   *
-> @@ -335,8 +426,8 @@ static int imx_dsp_rproc_start(struct rproc *rproc)
->  
->  	if (ret)
->  		dev_err(dev, "Failed to enable remote core!\n");
-> -	else
-> -		ret = imx_dsp_rproc_ready(rproc);
-> +	else if (priv->flags & WAIT_FW_READY)
-> +		return imx_dsp_rproc_ready(rproc);
->  
->  	return ret;
->  }
-> @@ -936,6 +1027,7 @@ static const struct rproc_ops imx_dsp_rproc_ops = {
->  	.kick		= imx_dsp_rproc_kick,
->  	.load		= imx_dsp_rproc_elf_load_segments,
->  	.parse_fw	= imx_dsp_rproc_parse_fw,
-> +	.handle_rsc	= imx_dsp_rproc_handle_rsc,
->  	.find_loaded_rsc_table = rproc_elf_find_loaded_rsc_table,
->  	.sanity_check	= rproc_elf_sanity_check,
->  	.get_boot_addr	= rproc_elf_get_boot_addr,
-> @@ -1053,6 +1145,8 @@ static int imx_dsp_rproc_probe(struct platform_device *pdev)
->  	priv = rproc->priv;
->  	priv->rproc = rproc;
->  	priv->dsp_dcfg = dsp_dcfg;
-> +	/* By default, host waits for fw_ready reply */
-> +	priv->flags |= WAIT_FW_READY;
->  
->  	if (no_mailboxes)
->  		imx_dsp_rproc_mbox_init = imx_dsp_rproc_mbox_no_alloc;
-> -- 
-> 2.25.1
-> 
+Reviewed-by: Randolph Sapp <rs@ti.com>
+Signed-off-by: Matt Coster <matt.coster@imgtec.com>
+
+---
+Changes in v3:
+- Use assigned-clocks to pre-load the frequency of the core clock (P2)
+- Link to v2: https://lore.kernel.org/r/20250417-bxs-4-64-dts-v2-0-9f8c09233114@imgtec.com
+
+Changes in v2:
+- Add details of the source of the interrupt index (P2)
+- Add Randolph's Rb
+- Link to v1: https://lore.kernel.org/r/20250415-bxs-4-64-dts-v1-0-f7d3fa06625d@imgtec.com
+
+---
+Matt Coster (2):
+      arm64: dts: ti: k3-am62: New GPU binding details
+      arm64: dts: ti: k3-j721s2: Add GPU node
+
+ arch/arm64/boot/dts/ti/k3-am62-main.dtsi   |  4 +++-
+ arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi | 14 ++++++++++++++
+ 2 files changed, 17 insertions(+), 1 deletion(-)
+---
+base-commit: dcbd5dcc956e2331414fd7020b4655df08deeb87
+change-id: 20250415-bxs-4-64-dts-c984d0876556
+
 
