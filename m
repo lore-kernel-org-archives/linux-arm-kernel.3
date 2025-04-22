@@ -4,90 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA5D8C369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 19:47:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D34FC369D7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 19:47:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SEhpfa7C7yS/4QgW58I/mknBa24icRiaeuepPgepQOs=; b=k3xmIZjUOS6EZWb59DisBkY0W8
-	BTCIrRR9CJctYDYUcLXFIUDvyP2YwigDi17B/6EF8asoTR107Bg71xCtpQZs1uWkOwapLHwnyqFJk
-	KLQxcNb1uZ/s/2ZKqJBdFv2FExZ4idbBNggaihmSdrt4B/XPdV9KrNM9C26ZUb8lr8npFw9/gY8Qm
-	TwFJr+9evSonjY9Uy4prGg+0fRs0/hZopSx8NhcTYpbz7kFHa3oF4HxhnJZTw5uPS9chYf7n/3TQz
-	zw1sMaXffof27AhMB4I/zWm9Dm3NcodOR88PX+g85Qcsx8vWCgf+uYp0AH4W2aL7C7E9rqC3cb1Y7
-	xHsd4eiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TR1wne2z6M0V0X3ccLc0XGsWg0Ga+NHut6t6xs/k11A=; b=o7JTgVac+h8/K7ahqMlSHaE9+6
+	23OirrrW1DKHwG4/c/8O6WYszXVdBE63RKWTndjmOkOq3Q4ekqS/ark31crTC/yP+aYTqjvi4yb26
+	xC7Ii6sjJXmddrVRsuEqd9RGSPu4cAudcLthclbXfUxcqz3NoYhcv4za59lGZU/i65+mLTfKybl3p
+	7CPKmpaDWTPOkJJW41/TpN03H4+guVRS5doO5UGWRlVItW1BFMPRdB7I91sQ5/V19XZpe2Rp85bMX
+	ytSDA+JuTDB4iPkR21e8RQ6nL7iTphhhJIEuppHV/h9m49llSmw5qW7LZ7DwEHkAbLrWaWbVInHv9
+	mT7gn9XQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Jai-00000008Lsf-2QSv;
-	Tue, 22 Apr 2025 19:47:36 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u7Jaf-00000008Lme-1JRZ;
+	Tue, 22 Apr 2025 19:47:33 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7GpW-00000007yG0-3ysD
+	id 1u7Gkn-00000007xhG-09YU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 16:50:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3304B61126;
-	Tue, 22 Apr 2025 16:50:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 325B1C4CEE9;
-	Tue, 22 Apr 2025 16:50:35 +0000 (UTC)
-Date: Tue, 22 Apr 2025 17:50:32 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	Ankit Agrawal <ankita@nvidia.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Marc Zyngier <maz@kernel.org>,
-	"joey.gouly@arm.com" <joey.gouly@arm.com>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"ryan.roberts@arm.com" <ryan.roberts@arm.com>,
-	"shahuang@redhat.com" <shahuang@redhat.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"david@redhat.com" <david@redhat.com>,
-	Aniket Agashe <aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>,
-	Kirti Wankhede <kwankhede@nvidia.com>,
-	"Tarun Gupta (SW-GPU)" <targupta@nvidia.com>,
-	Vikram Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>,
-	Alistair Popple <apopple@nvidia.com>,
-	John Hubbard <jhubbard@nvidia.com>, Dan Williams <danw@nvidia.com>,
-	Zhi Wang <zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>,
-	Uday Dhoke <udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
-	Krishnakant Jaju <kjaju@nvidia.com>,
-	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
-	"sebastianene@google.com" <sebastianene@google.com>,
-	"coltonlewis@google.com" <coltonlewis@google.com>,
-	"kevin.tian@intel.com" <kevin.tian@intel.com>,
-	"yi.l.liu@intel.com" <yi.l.liu@intel.com>,
-	"ardb@kernel.org" <ardb@kernel.org>,
-	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
-	"gshan@redhat.com" <gshan@redhat.com>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"ddutile@redhat.com" <ddutile@redhat.com>,
-	"tabba@google.com" <tabba@google.com>,
-	"qperret@google.com" <qperret@google.com>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v3 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
- VMA flags
-Message-ID: <aAfI2GR1__-1KQHn@arm.com>
-References: <Z-QnBcE1TKPChQay@google.com>
- <86wmcbllg2.wl-maz@kernel.org>
- <Z-RGYO3QVj5JNjRB@google.com>
- <20250331145643.GF10839@nvidia.com>
- <Z_PtKWnMPzwPb4sp@google.com>
- <20250407161540.GG1557073@nvidia.com>
- <Z_QAxiEWEyMpfLgL@google.com>
- <SA1PR12MB719976799AD7F9FC4407A5A9B0BD2@SA1PR12MB7199.namprd12.prod.outlook.com>
- <aAdKCGCuwlUeUXKY@linux.dev>
- <20250422135452.GL823903@nvidia.com>
+	Tue, 22 Apr 2025 16:45:50 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53MGjgEr1280827
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 22 Apr 2025 11:45:42 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1745340342;
+	bh=TR1wne2z6M0V0X3ccLc0XGsWg0Ga+NHut6t6xs/k11A=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=yk++wuDgc5NBWyPrVnhcZUtVuEVBFYBQlwWw3MNmpaKKwn2N7Zrv5O7vl7RlE6hr5
+	 /KIbE9x/daMdN/EJ0ixKVIpZ4qEnc5Lvq3l41PErThzBo2vO09/L+lBoLykzGBJ+de
+	 /zCu/wuGvbl6vP6GYaFZRBjPUelBK6u01vTSLoqI=
+Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53MGjgWE078413
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 22 Apr 2025 11:45:42 -0500
+Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 22
+ Apr 2025 11:45:42 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 22 Apr 2025 11:45:42 -0500
+Received: from [10.249.42.149] ([10.249.42.149])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53MGjfx6051531;
+	Tue, 22 Apr 2025 11:45:41 -0500
+Message-ID: <39ead65c-0040-4a22-9cdc-081696b3d967@ti.com>
+Date: Tue, 22 Apr 2025 11:45:41 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250422135452.GL823903@nvidia.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/5] dt-bindings: mfd: syscon: Add ti,am62-ddr-pmctrl
+To: David Lechner <dlechner@baylibre.com>,
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>,
+        Markus Schneider-Pargmann
+	<msp@baylibre.com>
+CC: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Siddharth
+ Vadapalli <s-vadapalli@ti.com>, Nishanth Menon <nm@ti.com>,
+        Vignesh
+ Raghavendra <vigneshr@ti.com>,
+        Tero Kristo <kristo@kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+References: <20250122-topic-am62-dt-syscon-v6-13-v1-0-515d56edc35e@baylibre.com>
+ <20250122-topic-am62-dt-syscon-v6-13-v1-2-515d56edc35e@baylibre.com>
+ <20250124-heavy-jaybird-of-vitality-4cbe24@krzk-bin>
+ <20250124-able-beagle-of-prowess-f5eb7a@krzk-bin>
+ <mocfnpebc67xegcis6tx3ekhsjcsqnvhwtipufycrtq2be4nbh@pmxhir5gmkos>
+ <639b4e3a-3f68-4fba-aa33-c46dcb6fc88f@linaro.org>
+ <d6252b73-0bcc-4724-8144-d6a98c8980f8@ti.com>
+ <74ee6d9b-fd78-4d8a-a94f-b2c4dc794b60@linaro.org>
+ <ebsbaaxyatrcikoem75t2blkhhceuidq3wnj3r2hbezfcmtc3u@ptffexrigbff>
+ <f9a2247e-e0eb-4e22-8626-80e87afa9386@linaro.org>
+ <qjwlppsq4eorzepvjsgjjyyaddouo5w2rjguu5c2mqesd6luwp@f426xeghy2ht>
+ <2130b439-74d0-475d-8429-1a1b4d9738aa@linaro.org>
+ <b7f6570f-3b80-4fc1-8201-d44f5692867f@ti.com>
+ <07bf9f93-deb8-48a1-aae9-a8a053680cc9@linaro.org>
+ <6241ff00-27e6-45ab-808e-f04e39854753@ti.com>
+ <8fe546e7-4fbc-4c63-ad0f-576ffb117508@baylibre.com>
+Content-Language: en-US
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <8fe546e7-4fbc-4c63-ad0f-576ffb117508@baylibre.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250422_094549_212899_C8E8508A 
+X-CRM114-Status: GOOD (  19.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,36 +112,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 22, 2025 at 10:54:52AM -0300, Jason Gunthorpe wrote:
-> On Tue, Apr 22, 2025 at 12:49:28AM -0700, Oliver Upton wrote:
-> >  - The memslot flag says userspace expects a particular GFN range to guarantee
-> >    Write-Back semantics. This can be applied to 'normal', kernel-managed memory
-> >    and PFNMAP thingies that have cacheable attributes at host stage-1.
+On 4/22/25 11:12 AM, David Lechner wrote:
+> On 4/21/25 12:03 PM, Andrew Davis wrote:
 > 
-> Userspace doesn't actaully know if it has a cachable mapping from VFIO
-> though :(
+> ...
+> 
+>> Which parent device? That is my point, if the top level node for the
+>> whole CTRL_MMR region is made into one big syscon, then a big regmap
+>> is made that covers the whole region. All the child devices also make
+>> regmaps covering their device range. Now these registers under the child
+>> device belong to two different regmaps. No synchronization is done as
+>> these are not the same regmap, regmap only handles this for multiple
+>> access to registers within the same regmap.
+>>
+> 
+> Why does the child device have to create a new/separate regmap? Can it not use
+> something like syscon_regmap_lookup_by_phandle_args() to get the regmap from
+> the "syscon" node along with 1 or more args specifying the one or few registers
+> out of the full range that are assigned to that specific child node? This way,
+> all child nodes would be using the same shared regmap.
+> 
+> (And yes, I know technically they don't need to be child nodes - just using that
+> terminology to be consistent with the previous discussion.)
 
-Yes, that's why I couldn't figure out how useful a memory slot flag
-would be.
+Yes, this can be done, and is done for a couple drivers today. The issue is most
+drivers do not expect to be a child node of a syscon nor fetch a regmap with
+syscon_regmap_lookup_*() functions. The vast majority drivers do the normal thing,
+which is platform_get_resource() and similar, that gets the memory from the standard
+"reg" property inside their own node.
 
-A CAP is definitely useful and some way of preventing migrating between
-hosts with different capabilities for VM_PFNMAP is needed. However, I
-think we only want to prevent migration _if_ there's a cacheable
-VM_PFNMAP, otherwise KVM handles coherency via CMOs already.
+We have then two options, retrofit all the existing drivers we might use with
+support for fetching syscon regmaps (some drivers do not use regmap in the
+first place, so we would also have to add regmap support first). Or we do what
+we are doing here, which is to have these devices not use overlapping register
+regions (which has the minor side effect of sometimes causing some nodes to
+cover only small range of registers, which seems to be a problem?).
 
-So, for the above, the VMM needs to know that it somehow got into such
-situation. If it knows the device (VFIO) capabilities and that the user
-mapping is Cacheable, coupled with the new KVM CAP, it can infer that
-Stage 2 will be S2FWB, no need for a memory slot flag. If it doesn't
-have such information, maybe a new memory slot flag can be used to probe
-what Stage 2 mapping is going to be: ask for KVM_MEM_PFNMAP_WB. If it
-fails, Stage 2 is Device/NC and can attempt again with the WB flag.
-It's a bit of a stretch for the KVM API but IIUC there's no option to
-query the properties of a memory slot.
+We went for the latter option, and it has been working fine for all our
+new devices. And we are fixing the same for some of our older devices, we
+are actually almost done with that too (if we could get this patch and maybe
+two others in we would be completely converted).
 
-FWIW, I don't think we need a memory slot flag for host kernel managed
-memory, its S2FWB already.
-
--- 
-Catalin
+Andrew
 
