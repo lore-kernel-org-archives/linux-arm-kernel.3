@@ -4,76 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60A15C369D7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 19:47:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 172A8C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 19:47:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EYp1PH84CI/1BjGsz+Aop4wrRagREEsClZGhgLNu8YE=; b=RdmFQUWTnnfzssxDkl+tyoOGtQ
-	DSmvrtZy2K8wUeGq5kooNpoY7IdIgnCYx0HxqPna5jny+iQtfoUcHjLZLvigDGNvB0d9y/DDTEs3C
-	GZYORlNpIXbXPI82bKlw33qskJ36wYC5d2lkPpJhlCyE7Qxb+o6/NXsb+4cxSGUh3oWzR2xhiapBB
-	qrY9OXTORIKKMW3OyehAwensn3TmOzDawtxjp2X76Hscb0lgda298wn1ve865L5nQGCGuGE7VvDGd
-	s/SdIn2CK8n6Z1N4RYPaCPw3hjfdplf1jRoXXoe2tzeTz8JgKHQ8RoXV8SmRlYcGdFPTt2quDWX4O
-	md0R2ApQ==;
+	bh=soGONZdGElBWg1s+JnUAkldV6q7Nw4zxmEsBKOtO3BI=; b=RQWp61eY2uttcJt1P8j+Jm+oEN
+	YFA7HiiO8aXT7j1s5qf43SBdwkBf62LhNwow2uj2PbuTxbC7PwkbxhldXATD7b3Lt87hyr9Mknd9T
+	sXnh5leSPJQAltw0Dhph8onv8FISd1z2ZnL+HOF7HY6fSwO8bj9c9dPP8QvHAqF8b56VFm4ZzJYDB
+	gccXrhMZZVU3Ut85kBdPaf7bTlZwxWviOrpE/qdcBC+EwYSNrj09edT5/xmWrcO4nCMGyxPNhW7RU
+	M8TYxOGxbLGxkDdbJamjhOO2XBu8a5e3zZljQy7vx2WuteV96E5iBwUyKE92NO2HveUindRELWCP/
+	MVyjHzUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7JaN-00000008LUX-403I;
-	Tue, 22 Apr 2025 19:47:16 +0000
-Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
+	id 1u7JaN-00000008LUG-2xmx;
+	Tue, 22 Apr 2025 19:47:15 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7G8d-00000007piw-0cpj
+	id 1u7G83-00000007pcu-1zjq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 16:06:24 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 43304438C1;
-	Tue, 22 Apr 2025 16:06:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1745337980;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=EYp1PH84CI/1BjGsz+Aop4wrRagREEsClZGhgLNu8YE=;
-	b=AcOXqpIj1Y5WHHcyuArtzMkdreDit/Ps1+jloEHY3T8+Dr2Exj7tcyzpHwaaA2YO+Ay+cu
-	XxAKVq4fbXpCOOl28MCp4zejQRvHlKBGqVs97g/a+TWVn0Icll1gkDR7WuHnLFVpVcRMXg
-	JV9+8FR/4BEsqO/ZYv5NtF1yZbZIsxMJ27keaFOwbWHZ8cPhxJyN8RG1u/VNYwGedA38TF
-	DBMj1aOjXK8xP75F3tyJRltTrN7+6UhCOF3JhzpFY/vbrGHq3olR4PGXK6xtp3jVOe3DVd
-	tbHXaIg96rp7ImtFUehKsx3cBRyjLoJIB0w7XvxLlY9WVLQJv9NoH7Kd4znQlQ==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+	Tue, 22 Apr 2025 16:05:48 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <a.fatoum@pengutronix.de>)
+	id 1u7G81-0003jx-Ha; Tue, 22 Apr 2025 18:05:45 +0200
+Message-ID: <53024a1d-a9a9-448f-9ddb-45efe4bece21@pengutronix.de>
+Date: Tue, 22 Apr 2025 18:05:44 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] i2c: imx: use guard to take spinlock
+From: Ahmad Fatoum <a.fatoum@pengutronix.de>
+To: Troy Mitchell <troymitchell988@gmail.com>,
+ Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Cc: linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+ Andi Shyti <andi.shyti@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, linux-kernel@vger.kernel.org,
+ Oleksij Rempel <o.rempel@pengutronix.de>, linux-i2c@vger.kernel.org,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Yongchao Jia <jyc0019@gmail.com>
+References: <20250421-i2c-imx-update-v1-0-1137f1f353d5@gmail.com>
+ <20250421-i2c-imx-update-v1-1-1137f1f353d5@gmail.com>
+ <20250422161213.0000597d@huawei.com>
+ <918e0177-8e26-405c-93ad-8b0d2dfd3b3d@gmail.com>
+ <54d062af-40ff-47b7-baec-c7e883defea3@pengutronix.de>
+Content-Language: en-US, de-DE, de-BE
+In-Reply-To: <54d062af-40ff-47b7-baec-c7e883defea3@pengutronix.de>
 Content-Type: text/plain; charset=UTF-8
-Date: Tue, 22 Apr 2025 18:06:18 +0200
-Message-Id: <D9DAOEKXJKQB.HHD75KOLKIW1@bootlin.com>
-Cc: "Andrew Lunn" <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, "Eric Dumazet" <edumazet@google.com>, "Jakub
- Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>, "Maxime
- Coquelin" <mcoquelin.stm32@gmail.com>, "Alexandre Torgue"
- <alexandre.torgue@foss.st.com>, "Richard Cochran"
- <richardcochran@gmail.com>, "Daniel Machon" <daniel.machon@microchip.com>,
- "Maxime Chevallier" <maxime.chevallier@bootlin.com>, "Thomas Petazzoni"
- <thomas.petazzoni@bootlin.com>, <netdev@vger.kernel.org>,
- <linux-stm32@st-md-mailman.stormreply.com>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH net 2/2] net: stmmac: fix multiplication overflow when
- reading timestamp
-From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-X-Mailer: aerc 0.20.1-0-g2ecb8770224a
-References: <20250422-stmmac_ts-v1-0-b59c9f406041@bootlin.com>
- <20250422-stmmac_ts-v1-2-b59c9f406041@bootlin.com>
- <aAe2iULNthghEEEt@shell.armlinux.org.uk>
-In-Reply-To: <aAe2iULNthghEEEt@shell.armlinux.org.uk>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvgeegudejucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpegggfgtfffkvefuhffvofhfjgesthhqredtredtjeenucfhrhhomheptehlvgigihhsucfnohhthhhorhoruceorghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeelkeehiefhfeehvefhtdegueelkeehffffffeuvdekkeekuddvueeguefgieeukeenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudeipdhrtghpthhtoheplhhinhhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthhopegrnhgurhgvfidonhgvthguvghvsehluhhnnhdrtghhpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepkhhusggrsehkv
- ghrnhgvlhdrohhrghdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtohepmhgtohhquhgvlhhinhdrshhtmhefvdesghhmrghilhdrtghomhdprhgtphhtthhopegrlhgvgigrnhgurhgvrdhtohhrghhuvgesfhhoshhsrdhsthdrtghomh
-X-GND-Sasl: alexis.lothore@bootlin.com
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_090623_327612_01CCA370 
-X-CRM114-Status: UNSURE (   8.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250422_090547_514270_733ACA86 
+X-CRM114-Status: GOOD (  19.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,27 +75,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Russell,
+On 4/22/25 17:53, Ahmad Fatoum wrote:
+> Hello Troy,
+> 
+> On 4/22/25 17:26, Troy Mitchell wrote:
+>> On 2025/4/22 23:12, Jonathan Cameron wrote:
+>>> On Mon, 21 Apr 2025 13:36:38 +0800
+> 
+> [snip]
+> 
+>>> In this path the patch changes the lock release to occur after
+>>> i2c_imx_master_isr(i2c_imx, status);
+>>>
+>>> That may well be safe; I have no idea!  You should talk about that
+>>> in the patch description if it is.
+>> You're correct that this change slightly alters the lock release timing.
+>>
+>> However, both i2c_imx_slave_handle() and i2c_imx_master_isr() can safely be
+>> entered with the lock held — there's no requirement for the lock to be released
+>> before calling them.
+> 
+> Why would we want to hold a spinlock out of all things longer than
+> absolutely necessary?
+> 
+>> Using guard(spinlock_irqsave) simplifies the control flow by ensuring consistent
+>> and automatic unlock, which improves readability without affecting correctness.
+>>
+>> I'll update the commit message to clarify this.
+> 
+> Sorry, I don't think that this simplification is worth potentially
+> increasing the time we spend with preemption disabled,
+> i2c_imx_master_isr() even has a loop inside.
 
-On Tue Apr 22, 2025 at 5:32 PM CEST, Russell King (Oracle) wrote:
-> On Tue, Apr 22, 2025 at 05:07:23PM +0200, Alexis Lothor=C3=A9 wrote:
->>  	ns =3D readl(ptpaddr + GMAC_PTP_ATNR);
->> -	ns +=3D readl(ptpaddr + GMAC_PTP_ATSR) * NSEC_PER_SEC;
->> +	ns +=3D (u64)(readl(ptpaddr + GMAC_PTP_ATSR)) * NSEC_PER_SEC;
->
-> I'm not sure what the extra parens around readl() are actually trying to
-> do. Please drop them if they're not useful.
+Ah the loop is in lpi2c_imx_master_isr, sorry about the confusion.
+I still think that the simplification isn't worth increasing critical
+section size.
 
-They are indeed not specifically useful in this case, they will be dropped
-in v2.
+> Guards that don't increase critical section size however are fine by me.
 
 Thanks,
+Ahmad
 
-Alexis
+> 
+> Thanks,
+> Ahmad
+> 
+>>
+>>>
+>>>> +
+>>>>  		return i2c_imx_master_isr(i2c_imx, status);
+>>>>  	}
+>>>> -	spin_unlock_irqrestore(&i2c_imx->slave_lock, flags);
+>>>>  
+>>>>  	return IRQ_NONE;
+>>>>  }
+>>
+> 
 
---=20
-Alexis Lothor=C3=A9, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+-- 
+Pengutronix e.K.                  |                             |
+Steuerwalder Str. 21              | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany         | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686  | Fax:   +49-5121-206917-5555 |
 
 
