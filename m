@@ -4,68 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A46A4C369C2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5765C369D1
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 20:52:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rUIlaCKh2vaboCfBZZp5yqaQrFgYEe7PkSHw27Eojtk=; b=Q/v/FumIpFypeEomDIm5cQ7nks
-	fBle/CELjZvS/So5GBxjDZSoT5U7lYhiYFgLlnMhQFNzlAzOgT4bklTAxNTKdXqMuWN6D713EoxJb
-	1uFe7DZnhpHiUrEqsH7enqDYDzcTn4a4FpD2YGoYdQZQqqB5yFCFwphfidR/xAikX6AaQ6TdLPbQb
-	/tSkInTs8qqapm3dC3dVhauP2TFY82r3VeGEtUrRPvN4octp0vGzUscUO+idTG4TumnN5IyWxOenN
-	Qd8OqDP+d2EJvswJWTLzZhmG/OSach98sIL4E+uep0nnb3SIuDam8cKCzQkJyhj/NbKEvGScy08As
-	D+ubaYPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QGUpihRZQBbTbpTIMhyUswxIu4pqCe+6Ya73/2AzMEI=; b=n1q8GxNeh7+BzJGY5ESSlrXTgC
+	Hz89cRwuT2UGL+XopKF4BuRj/ZsH56QB05xHBSAuTEwfNhcPZ8fc013T1BCKTwC+x06hHytkDlXC3
+	yBDz4WlgJHgQTYiF2x+ESW/MTyajEZpaGLqySrRFS6/QSo34OY2DzLGEgdWvOVW2d3Vb3nnVvPQLK
+	TRFIbapoHkCuVjm3KG6SqQv3c+fKKkBmPWfFe3p07wuApaosGeYlQkZLUX1yHVf4ECpte3wBhu5LC
+	cWwd+maQlTehs9V8YmQfY7dq9tBLCJUAUKWTH+IYuSblgD/Rd7tiFumWw/N6yBR7hZPHvMltcrO+F
+	YCvSURnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Kb6-00000008VF2-0boZ;
+	id 1u7Kb6-00000008VFI-2mKu;
 	Tue, 22 Apr 2025 20:52:04 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7H7I-00000007zu8-0Dwa;
-	Tue, 22 Apr 2025 17:09:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 33CC8A42BBD;
-	Tue, 22 Apr 2025 17:03:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FFF8C4CEE9;
-	Tue, 22 Apr 2025 17:09:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745341743;
-	bh=cfux6OpSEf4zIM34Xufn2UQbviRHWmsNHDSxigTjgfs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AVGR+ToUEbLnB+Rua6EgtpsO3NkyuLn+KBKN8XJ9qpc9dxCRC7IwgCup001kf/Cmj
-	 wGX4AP1ayXq7enDHtfQ99453NJbjrW0egSCxfojqMoAXHgsjrbHjNSo9hLuHjz/c/2
-	 QOHb2IaZIs4SNebhYLjOexxFuqJrL1J9b5qWbbr6mgJ/bI0cH7P6VtpulaU+EVBDVW
-	 KOQHmfVBDcMhFhEfnd+YBooUDlrO189B8dsB+OJBzco7lNodlMT1koh4Bl1lt3LZ1H
-	 7dHgwaKUzim0ey6xP/DGFlZ2MhkG6v7yriZEHrpfHsLp+mRWMXRtV4LiNckFKOC6Xp
-	 iFymvNOcuvJUA==
-Date: Tue, 22 Apr 2025 18:08:58 +0100
-From: Simon Horman <horms@kernel.org>
-To: Daniel Golle <daniel@makrotopia.org>
-Cc: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net-next v3] net: ethernet: mtk_eth_soc: convert cap_bit
- in mtk_eth_muxc struct to u64
-Message-ID: <20250422170858.GL2843373@horms.kernel.org>
-References: <d6d3f9421baa85cdb7ff56cd06a9fc97ba0a77f9.1744907886.git.daniel@makrotopia.org>
+	id 1u7HFZ-000000080RW-1wV1
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 22 Apr 2025 17:17:39 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53MHHUFF2042207
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 22 Apr 2025 12:17:30 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1745342250;
+	bh=QGUpihRZQBbTbpTIMhyUswxIu4pqCe+6Ya73/2AzMEI=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=VO1FPIiyvT3vx2bdBFuGi1iL5A2vE6hMLlLBrYf/ri4LBw16yq11Sv+p9bWxZ3nCW
+	 x93awVF4NR5Kv7G/ICD+ta9jEWRyqX0sik4Dz48zeXH7Sy9S6b2oEcxIFaoeUeVSV0
+	 t5DYPvfRvqAFwEqUE6i43SfnchlQXFl9oB9Y+jV0=
+Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53MHHUlP024937
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 22 Apr 2025 12:17:30 -0500
+Received: from DFLE102.ent.ti.com (10.64.6.23) by DFLE112.ent.ti.com
+ (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 22
+ Apr 2025 12:17:30 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE102.ent.ti.com
+ (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 22 Apr 2025 12:17:30 -0500
+Received: from [128.247.81.105] (judy-hp.dhcp.ti.com [128.247.81.105])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53MHHUH3077716;
+	Tue, 22 Apr 2025 12:17:30 -0500
+Message-ID: <9726c8c5-5702-4e03-94fc-eaa820f8cdf3@ti.com>
+Date: Tue, 22 Apr 2025 12:17:30 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <d6d3f9421baa85cdb7ff56cd06a9fc97ba0a77f9.1744907886.git.daniel@makrotopia.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/5] arm64: dts: ti: k3-am6*: Set eMMC clock parents to
+ default
+To: "Kumar, Udit" <u-kumar1@ti.com>, Nishanth Menon <nm@ti.com>
+CC: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Moteen Shah
+	<m-shah@ti.com>
+References: <20250417233040.3658761-1-jm@ti.com>
+ <20250417233040.3658761-2-jm@ti.com>
+ <8f9aad2c-8e51-409e-be90-21230a53a4cf@ti.com>
+ <7bc92282-6ce3-4ae4-8eef-897df992487f@ti.com>
+ <20250422123748.ugkk2pzp54vzmyii@acorn>
+ <12a748ff-2c33-44e7-b685-fa7d7d0138ca@ti.com>
+Content-Language: en-US
+From: Judith Mendez <jm@ti.com>
+In-Reply-To: <12a748ff-2c33-44e7-b685-fa7d7d0138ca@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_100904_151638_F35847F1 
-X-CRM114-Status: GOOD (  21.49  )
+X-CRM114-CacheID: sfid-20250422_101737_594459_11CF414F 
+X-CRM114-Status: GOOD (  18.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,60 +96,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 17, 2025 at 05:42:16PM +0100, Daniel Golle wrote:
-> From: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
-> 
-> The capabilities bitfield was converted to a 64-bit value, but a cap_bit
-> in struct mtk_eth_muxc which is used to store a full bitfield (rather
-> than the bit number, as the name would suggest) still holds only a
-> 32-bit value.
-> 
-> Change the type of cap_bit to u64 in order to avoid truncating the
-> bitfield which results in path selection to not work with capabilities
-> above the 32-bit limit.
-> 
-> The values currently stored in the cap_bit field are
-> MTK_ETH_MUX_GDM1_TO_GMAC1_ESW:
->  BIT_ULL(18) | BIT_ULL(5)
-> 
-> MTK_ETH_MUX_GMAC2_GMAC0_TO_GEPHY:
->  BIT_ULL(19) | BIT_ULL(5) | BIT_ULL(6)
-> 
-> MTK_ETH_MUX_U3_GMAC2_TO_QPHY:
->  BIT_ULL(20) | BIT_ULL(5) | BIT_ULL(6)
-> 
-> MTK_ETH_MUX_GMAC1_GMAC2_TO_SGMII_RGMII:
->  BIT_ULL(20) | BIT_ULL(5) | BIT_ULL(7)
-> 
-> MTK_ETH_MUX_GMAC12_TO_GEPHY_SGMII:
->  BIT_ULL(21) | BIT_ULL(5)
-> 
-> While all those values are currently still within 32-bit boundaries,
-> the addition of new capabilities of MT7988 as well as future SoC's
-> like MT7987 will exceed them. Also, the use of a 32-bit 'int' type to
-> store the result of a BIT_ULL(...) is misleading.
-> 
-> Fixes: 51a4df60db5c2 ("net: ethernet: mtk_eth_soc: convert caps in mtk_soc_data struct to u64")
+Hi Udit,
 
-As this is not a fix and not for net it should not have a Fixes tag.
+On 4/22/25 9:08 AM, Kumar, Udit wrote:
+> 
+> On 4/22/2025 6:07 PM, Nishanth Menon wrote:
+>> On 09:36-20250421, Judith Mendez wrote:
+>>> Hi Udit,
+>>>
+>>> On 4/19/25 10:00 AM, Kumar, Udit wrote:
+>>>> On 4/18/2025 5:00 AM, Judith Mendez wrote:
+>>>>> Set eMMC clock parents to the defaults which is 
+>>>>> MAIN_PLL0_HSDIV5_CLKOUT
+>>>>> for eMMC. This change is necessary since DM is not implementing the
+>>>>> correct procedure to switch PLL clock source for eMMC and we have a
+>>>>> non-glich-free mux. To remove any potential issues, lets switch 
+>>>>> back to
+>>>>> the defaults.
+>>>> IMO, we need to fix DM  if not then documentation [0] .
+>>> DM cannot be fixed for only one IP and documentation says what clock
+>>> parents are supported, it does not have to say what are the issues
+>>> that come with using a specific clock parent.
+>> As I understand the arasan IP requirement is that the IP must be held in
+>> reset while the clock is switched, which is not reasonable to implement
+>> given decoupled systems like DM and Linux OS.
+> 
+> 
+> Thanks , then fix should be extended to sdhci1 as well
 
-If you wish to reference the commit you can do so using:
+sdhci1 and sdhci2 should already be using the defaults: 
+https://gist.github.com/jmenti/e280232ae3d5bb5097df7b0f04c85e8a
+This change is only needed for eMMC.
 
-commit ("net: ethernet: mtk_eth_soc: convert caps in mtk_soc_data struct to
-u64")
+~ Judith
 
-E.g.:
+> 
+> 
+>>
+>>>> Then only this patch is ok because as per document [0]
+>>>>
+>>>> removed clock by this patch is valid parent for eMMC.
+>>> The clock parent currently set is a valid parent, but we have non-
+>>> glitch-free muxes and to avoid any potential issues with these, we
+>>> should switch back to the defaults. It seems like we randomly switched
+>>> from the default for no good reason and it has been copy paste per
+>>> platforms since then, so we are switching back to the defaults now.
+>>>
+>>> ~ Judith
+>>>
+>>>> [0] 
+>>>> https://software-dl.ti.com/tisci/esd/latest/5_soc_doc/j722s/clocks.html
+>>>>
+>>>> Thanks
+>>>>
+>>>> Udit
+>>>>
+>>>>> Fixes: c37c58fdeb8a ("arm64: dts: ti: k3-am62: Add more peripheral
+>>>>> nodes")
+>>>>> Fixes: d3ae4e8d8b6a ("arm64: dts: ti: k3-am62a-main: Add sdhci0
+>>>>> instance")
+>>>>> Fixes: b5080c7c1f7e ("arm64: dts: ti: k3-am62p: Add nodes for more 
+>>>>> IPs")
+>> Please follow ./Documentation/process/stable-kernel-rules.rst - this is
+>> easier to backport if these were to be split into 3 different patches.
+>> Please do not forget to add Cc: stable@vger.kernel.org as per the rules
+>> as well.
+>>
+>>>>> Signed-off-by: Judith Mendez <jm@ti.com>
+>>>>> ---
+>>>>>    arch/arm64/boot/dts/ti/k3-am62-main.dtsi               | 2 --
+>>>>>    arch/arm64/boot/dts/ti/k3-am62a-main.dtsi              | 2 --
+>>>>>    arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi | 2 --
+>>>>>    3 files changed, 6 deletions(-)
+>>>>>
+>>>>> [..]
 
-Introduced in commit ("net: ethernet: mtk_eth_soc: convert caps in
-mtk_soc_data struct to u64").
-
-Note this should be line wrapped. And should be in the "body" of the commit
-message. That is, if it comes at the end of the commit message then there
-should be at least one blank line between it and the Signed-off-by and
-other tags
-
-> Signed-off-by: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
-> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
-> ---
-> v3: improve commit message, target net-next instead of net tree
 
