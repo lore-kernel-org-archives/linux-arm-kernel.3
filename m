@@ -4,148 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B8ACC369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 20:56:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D006C369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 20:58:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LXsn8wtIMjjN/gReGMqtFpduOKsBTAck1o+dSS1WiS0=; b=O/IVIt2Ygz8f7EGaJgWxb8DCe7
-	5ePWlrAGGpAHARGOtAVGfTsj7QvpCjc6lTAvGpZh9FH5b85YNmTXRSvIH/+r39jV2qlzZ1Y9IgZ/W
-	UiYXK2t/6yCtqljCDTjvEjNQhPLzEuE2PLPU6XrFillxjDq8Lb/pXn2y1K/EEiWhtzezh/eYMi0oq
-	EVy2t7XJQau2anjdxmXzV9FPuviJhkNP0ysFWCtK9PApZJxhVzGalSG3ELkxyearuuFv0y60oJTdl
-	6ueODUQhxFfV97Bq/SOLzh4RqH0nKestkkCKakbU6adR5zVDRHnXlWpFsxJBbQPjyIuJP7F+yh/Fo
-	4Xn17CdA==;
+	bh=h2racLDTZ4BkogFjHmNJhfnBse5H17sx7z3H/zKT9ZY=; b=NT2W+Idd1cmGZjpXHpKYHLtJma
+	WUP55xGYuAov4tZwxWBYTQoaOZzjhlxP2WYoD6im/ItrZotxtX5cPo9s4zKxVy+J4MMefUPinOlss
+	/pA61b/EItW/Rw1PqUXZ3ow+riic/UuZkrM298Gf7sAhoYpRCe169hEJvTzuVbeDb75aE2RqBxXZM
+	WC0cz1IM7ZTPgclIwQQ7vhRODrO8oqCR/ffDg8Kh2OTJinYUIVV+mS5W+j9tkPJN0Z7qyzfLxl7qE
+	n51QfsKD2QA8UKlQNNHLS99ZW/mircc0YBrSBYJ/tucmOClyfBkSkwpy4+mqW7oMQo3OwjvHfN17G
+	Irk8tOjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7KfT-00000008X3Q-3RBI;
-	Tue, 22 Apr 2025 20:56:35 +0000
-Received: from mail-westusazlp170130003.outbound.protection.outlook.com ([2a01:111:f403:c000::3] helo=SJ2PR03CU002.outbound.protection.outlook.com)
+	id 1u7KhK-00000008XEk-3G4R;
+	Tue, 22 Apr 2025 20:58:30 +0000
+Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Kda-00000008Wrn-1DEW
+	id 1u7Kdq-00000008Wsp-2y0x
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 20:54:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GrMELXiGY55RwUuZLRVdeifdNc+ehD28SQfvHXVbDLIEV3AdjSCA1vIJsq8JGVpp0yAU0itQHGuKeEycVws/XZ11iWqjOBvo1HsdNpCayRhakXfP5zcuFksSbP5ihWUZpJ7mUs/+Deh9jifB94U/L6HtfzE0OtpZK6ZMNTE77YHh/DOTu5Z8NyHJ+rX+E5vA8Mro/nnD7247LoaUjoGBNssGKG5+/8fv5BHrFqgKGAUsywFyGtcr4pELmi38b+hc0UXgnLkPQm6eFVSncK14ZpPaJakkT79nVqkXquFOHFhIqEzShj1T0O5r5MIn42JxHoqEH/k8dbNtOv61TrlShw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LXsn8wtIMjjN/gReGMqtFpduOKsBTAck1o+dSS1WiS0=;
- b=QeDxw+WqFr+VI8dWbBiP7WYSoUrgRSPXvFn7UliOtO+E+dgauQUmsoxB2WvUtz/dKYUYNSeLsxYEtYGES+PiI5hmGTnqjjyN7fX3kALz5CIUWCFsrecv3DuGycGQzsVss/VF1K8O8Gg2eahrrt8gDSAWUzgsCYQiKd6FlRxJsk77Wi5W9qBMNKWrTHafT6t3+Ol6gBtJyPmlb7ZUt/OhUvH07LcZu2DW0XQp8jp7v6OgimYF9FqIIj56ioUfj//3yk4XuCe+yAXTktYWQNQs+NtP4ejCgqCx/xXFbW137wE3z7+gw3ZUVuK3FhoP/aHJHycqk9j0+ub0Maa4pTwA/Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
+	Tue, 22 Apr 2025 20:54:56 +0000
+Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-7c542ffec37so535456585a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 13:54:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LXsn8wtIMjjN/gReGMqtFpduOKsBTAck1o+dSS1WiS0=;
- b=awHi1jTGwMnFmfh4LIa4OwRls4zvXzCEY4cK/Cq03uFc/nd8BvidXfu66jYBb4IVftWhD1XIURrutP6weV8sHulC56EX0pVyhg/33DyiHDCJJVzx4wlkzvH3Dgeb+yV9hoGi9+3c9R261E1yyHTQjH7o0n8e2xOqWp3aBaRk3/4=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from DS7PR01MB7782.prod.exchangelabs.com (2603:10b6:8:7d::17) by
- CY1PR01MB9267.prod.exchangelabs.com (2603:10b6:930:104::20) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8655.35; Tue, 22 Apr 2025 20:54:31 +0000
-Received: from DS7PR01MB7782.prod.exchangelabs.com
- ([fe80::b3b0:a90:453a:e924]) by DS7PR01MB7782.prod.exchangelabs.com
- ([fe80::b3b0:a90:453a:e924%6]) with mapi id 15.20.8678.021; Tue, 22 Apr 2025
- 20:54:31 +0000
-From: D Scott Phillips <scott@os.amperecomputing.com>
-To: Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev
-Cc: Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
- <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>, Zenghui
- Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH 2/3] KVM: arm64: Teach address translation about access
- faults
-In-Reply-To: <20250422122612.2675672-3-maz@kernel.org>
-References: <20250422122612.2675672-1-maz@kernel.org>
- <20250422122612.2675672-3-maz@kernel.org>
-Date: Tue, 22 Apr 2025 13:54:26 -0700
-Message-ID: <86frhzyl19.fsf@scott-ph-mail.amperecomputing.com>
-Content-Type: text/plain
-X-ClientProxiedBy: MW4PR04CA0276.namprd04.prod.outlook.com
- (2603:10b6:303:89::11) To DS7PR01MB7782.prod.exchangelabs.com
- (2603:10b6:8:7d::17)
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1745355293; x=1745960093; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=h2racLDTZ4BkogFjHmNJhfnBse5H17sx7z3H/zKT9ZY=;
+        b=OpY8RTixHKUWwyOvzxz0CSKjDF5yUkIAeltj8hzfl+fKiopSwlJARCxCfcRMthi8uY
+         VQ4B7RBkXaU/kOKVC7W0uRC86S6jWP+oLxRCS5zaJzw5oR7stoTfPkYe71zP1v5obMuu
+         jkug26KraS5tZdtEiAEpOEJ7rZL9h4EwXxoDNv2NGZ1ZhwoECQ8GDz7b8mgUgHWMGSVL
+         aLKCkwjIEP9Z/X8OFNfDyoqJ6BtlEx4koax/MnJs78BXjGxopmhoOpHkttdoqQ321Qdj
+         mT6SP88MvXTN7LvaaSY/M+Zil5bKbKqFwZf52H1EdTgr169GmX9DpLCZKEL6ZibWY64Y
+         tCtw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745355293; x=1745960093;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=h2racLDTZ4BkogFjHmNJhfnBse5H17sx7z3H/zKT9ZY=;
+        b=T5SfRyr51CgoXEOZPA6vxCjm6yU/sQV6kQr9G2yqfOOMefypXbro3abUP2WYOTvidJ
+         A6lt5ibJpN1sx3Wok0yfIWCpnejwMrYegcME1M02iPXI9Y5kEi76gxJi28JW7hsh+JSX
+         GekNhhaeNZHJj/v00nOMW0RE21yN+vI8f0Hk/3c7Xn2PCMuSt5M5zt3qJQ3kambJyssw
+         blC0VN5Y9hCMlzdjqflqEoHbt6EO3/QIEb/jWXCexyE6Si55pwdlQVh+/cwYh/HWlHoD
+         ombTwu1uk5Y2WW7cayEnx1zesOYBCXy2I5G+kOHzPybBwLj6A65G0hH+aL8NOxS6iZlW
+         AorQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWy+oZC9kkaxQEklevMCBo4+ylx0112EXVJjhjH9kQMaUFWCIaGADNhb9jfT5Vy8pFD8AMDhGLXKZEb6EGknKU/@lists.infradead.org
+X-Gm-Message-State: AOJu0YwMpDCrSrjXMkWxSJZw1Cgfdy8fjV8IJNrbTBmBAUDJiKVlLkeW
+	gBcTmRo9G80e0et27aWyYuDqXcwWU6sHEEg8ZfBi+fNxsenOFxgzjwnbHcGCBk0=
+X-Gm-Gg: ASbGnctUhNUCo4zNxzf7UCmJiWELVnD+AxogingiUes/PZHREyCnwkDR1kUJp9UiwQ3
+	4uvif595iV9Ls5UC7hdlwdBxxUzhDI1o/fb/OZhawghSRzwb3sEwb7ro82F8zgg2SOSr+56BJp4
+	Q53WiahtIcMhhAFY+IHGVgak9AfXRNcsQe7EkDY760IQUGERz2inxWgJoi3qIC6zqJ1+Q1kIDAI
+	TqriW331YMyHuVuBqX4bqu6c5GSTFCg2rhG35MrJrz9NQX8+rY6Jy4Q/Iq5To7rn2PcItKSpRPq
+	itvQXWDCK0+kV+WW97vNvQE+WirA8rE5J/EkzBErww/I4w==
+X-Google-Smtp-Source: AGHT+IG7H1gakbIZ84kGicq0NVQy0jmgb+jY1czwu6X0ujlQIaddI3Iuf1eaCrSBqUaX2okXmWyUXQ==
+X-Received: by 2002:a05:620a:bc4:b0:7c5:562d:ccf8 with SMTP id af79cd13be357-7c927f76f3cmr2993734385a.8.1745355293398;
+        Tue, 22 Apr 2025 13:54:53 -0700 (PDT)
+Received: from ?IPv6:2606:6d00:15:9913::5ac? ([2606:6d00:15:9913::5ac])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c925b778b5sm595240385a.102.2025.04.22.13.54.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 22 Apr 2025 13:54:52 -0700 (PDT)
+Message-ID: <a2cb7a26f120558ab7b84a6f954188c8e61f37a8.camel@ndufresne.ca>
+Subject: Re: [PATCH] media: mediatek: vcodec: Enable HEVC main still picture
+ decode
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Nathan Hebert <nhebert@chromium.org>, Yunfei Dong
+ <yunfei.dong@mediatek.com>,  Tiffany Lin <tiffany.lin@mediatek.com>,
+ Andrew-CT Chen <andrew-ct.chen@mediatek.com>, Mauro Carvalho Chehab
+ <mchehab@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-mediatek@lists.infradead.org, linux-media@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Date: Tue, 22 Apr 2025 16:54:51 -0400
+In-Reply-To: <1f1e41700b16eef7fe790b9b14d6ccfd157f67ad.camel@ndufresne.ca>
+References: <20250211-enable_hevc_still_picture-v1-1-0c06c0c9add2@chromium.org>
+		 <f257832e823d23c8324a9eaf7890dd4b6d50a6f0.camel@ndufresne.ca>
+	 <1f1e41700b16eef7fe790b9b14d6ccfd157f67ad.camel@ndufresne.ca>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.0 (3.56.0-1.fc42) 
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS7PR01MB7782:EE_|CY1PR01MB9267:EE_
-X-MS-Office365-Filtering-Correlation-Id: b2a502f4-c749-40f2-da11-08dd81dfe0e7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|366016|1800799024|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?VezdylssVLf9KE66ZOn29kip2FpChYjMo/Pshvfbiv2mfWIoFTFI04BFFvOk?=
- =?us-ascii?Q?zyy8kc//JI2V6x5XUKYIp3d/fmku9wzRPD0v1AW/rOv1TA7ycikJV2nbh8Sb?=
- =?us-ascii?Q?SdixXOg/2GxUoaQCur0QE4rISUHt3YNwgz5TDIRP23r8+mEcq9XU5qC/v8RI?=
- =?us-ascii?Q?DrPeT0ICwjWhxrMO25Y5z7F1sGmDEUoTQHUlo2o+vDgJCa6qr13QvRtTxH5f?=
- =?us-ascii?Q?DxcQCQde0sj2DU3c6vgElFK3f8cCVm02AU1Qpf76ox6HNJnpM8+a/g6/IpT/?=
- =?us-ascii?Q?U36nhGf2vY4OV6PUgI58sZv/Oya31yqVFVuFLaMQGvmFQkEHdcOakCfsstHN?=
- =?us-ascii?Q?kgbdXLbdpspXOkXTsq5mCWy8Mzy97kMPkWEBUIK9r6o3+tCNqCWZlB8oElL8?=
- =?us-ascii?Q?A7lfFwrTaaGfWMCa8BKH49UeqUBTOsWP2c9lx773+ySnJcPPOp8ytjHZC3Yf?=
- =?us-ascii?Q?7BIW564YbQTYcYbTpuMUoyMoH9zAMDBCyU0QhtmvIMEoxVKg/otYngwD47OR?=
- =?us-ascii?Q?MTYl+lBy9CDWzuw3dFiw0H4t0s//R6xvWU4dOvJQSZJoD966kNW3vvv/C5zN?=
- =?us-ascii?Q?Ug1LV3kiQPvitk6nQuyeaiDiLFBFg+IdN/Ak/hCwfInGJbYTC7SHmV3fUQwi?=
- =?us-ascii?Q?S/9FjfDNUL2xU55Da+AGfuhyFisihEbN9/qLu6bqug9qjp4rREX5yXh4RVrZ?=
- =?us-ascii?Q?X3Z/ZZXrojVry+VdahepkrImGUE2RgJdzsK3C3F8BGdKxdMz/tj+yaIPG1RM?=
- =?us-ascii?Q?H0zOQBanjOOtwY30QABGa0Kh/P67q7ZVXA6zcFV5nWfA+GkzA2BLsjnFZOr/?=
- =?us-ascii?Q?y/QK4HukFkGc3g/dsUfGTYAy3+dMC5NjykWW99fU+JzoShG20qVhLIFG/hHV?=
- =?us-ascii?Q?7nJ0wAe//m6TqUqMYqjEcBIWYiLBmf44JKOvXGQXA9he4NHUuvL3Him8yGjQ?=
- =?us-ascii?Q?Dkq3AfAoYPiTRGuQcQtKbmfh8HjzN51lOE8nfC7WKo598r9otDpbaQMD7KaK?=
- =?us-ascii?Q?obkIWhQZpjUd+OK8a5pWgwQqDsTcV0HrC3o0vrOexuOwmyw8WdgM+mOj1XIP?=
- =?us-ascii?Q?rADfpBB/8Ha9x/FQ441R8Hv7J+l8NIFHkxQ4Om2g82ANit6mtz2TEt++qCEc?=
- =?us-ascii?Q?JEsPLBPSmVBRQ8t9k0MZeJ3f+ModoG2+6vgNO/pjl1k5uPRWW91lzKDRWIoA?=
- =?us-ascii?Q?qBcI/VXjFnzklLTlkncd+uaD/NxsW8+jie+vwC5lgrTgbYcj2DRnpZByBr7t?=
- =?us-ascii?Q?TjbiDCLgFplHzpQ6aVwIq+EQ5F5irlrWPujibqgqBnakY3kmX3CE2/LnHfPF?=
- =?us-ascii?Q?oJ3VACL1X45wgz5zZJJn718XmcBja+xZlXP9d5LhVcSNmIJ2T17/4dOhMnOs?=
- =?us-ascii?Q?F4LfZTFjEAK9YHYnK9fHG23nQCZmBH8FZGHioFsLaXthOZfIaE7NDoZ2P9+k?=
- =?us-ascii?Q?1eHmjR0kAsTYRZuicJXsBMplA/HMArjSiHJwHVLbL4BSxBigWZBNRA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR01MB7782.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(366016)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?W7bi/EvKnwNwNq046mqHXAc5O3TucOltjgpKXgB6nG1i42zvJgNEvKi0WCeO?=
- =?us-ascii?Q?lDhQcF1qBf212g9LQ/toP84I8dNd+Z+opvbnXDPV+hjPVWqTAUijb8VfUXCq?=
- =?us-ascii?Q?s9hnvR0yPClDFQR6CTTIwT9lEgMu3w7zW/EVrhmjiHPiXYIXykxDrEf+1B1e?=
- =?us-ascii?Q?GYXbtgikXznBLwIM6N9CvTMPwEkzDKkumANfYnU/qLOqITvXVtAVgQ0gmvrR?=
- =?us-ascii?Q?ZvfLtPN7NC8Trl65kr41hvZY6IIvnKO3XB/VBUqrsXdaa73ekyFOhzWsCBh4?=
- =?us-ascii?Q?Z2rcE8JWTfbdhPQypkT3sL2vgvgjVrn4Jsq3++m0/dxdYXLUNG5nPHSxr2Rg?=
- =?us-ascii?Q?slfFrT6Ln08uJGj2oBCaBaO5JiKlMreQJ11Y5cJfe91+GWaqU5MvKQQsTtKm?=
- =?us-ascii?Q?6Cq7IDGjxR/lb7LJIN6ZWhBJKzOTvrxg+KbEHKoipeSAD8pwyHk9vXWviSRI?=
- =?us-ascii?Q?lNMPPFDRtrMMxPFUmSKvl/lIPo2xFc9aP9L41NpX2uqfy/wjG2j+7WPo7smC?=
- =?us-ascii?Q?nr9wI416GSUFWwlaNN1h3bKv2GlODD9BzGV531RMzgGrCjIzULQ53xDB4V1f?=
- =?us-ascii?Q?lTRpt6xB4QDCzbSWp4TPo2JBIJF+ErMTJGsdHFhqItB9eW7P6A30S3ZMp22p?=
- =?us-ascii?Q?JpGuuocMRQe4zdlyNnxKKspZGj42BdoyBIBQW5Hd9CU1DXMVEJ+OiVTqjqGh?=
- =?us-ascii?Q?p6dE+Qsv+UA7imOMUps0N3NRZhJh5JuRTBa55Xij5AQaS9gLYFIxjYZDp9lE?=
- =?us-ascii?Q?ZqK0QSK35ntOcQLAvwJfywJPc2fieWnwfyW1QJu8VIOccF+zGwY6fIfktfzu?=
- =?us-ascii?Q?AzqObJlKJbPT3tjDIdM/txae7YHYC26COmNlz2A5r0CKj4wm44mfF9vDvYwS?=
- =?us-ascii?Q?dCQHyqijSewEkJTdBHZ1jp6spk/A2x1RFGhL2POPXn8xtumfqIOPgeOGkodX?=
- =?us-ascii?Q?KGv855LiIwkyDqpTLF9tsr8Z1cyZTvoPZn9ttQ9inY9cvSqKI+K8JMnqxqKZ?=
- =?us-ascii?Q?RS2VSQj+zsmuCApKiX+vXSMbtgv+t1rX/Ai0kjK0rdt/qhuzAVXzrNBmqnCJ?=
- =?us-ascii?Q?2c1VeCriS9Mr0VDanLOGLx4u8Qh0qoUpvSGg6gbsdGPFIXOIMGm2V/36NlMK?=
- =?us-ascii?Q?BjTYNMAcCQUpYqb2mKxe0mk0su7iT/i7dI1cKs2QPTT+3NwwLsQ41XQeRjy9?=
- =?us-ascii?Q?+yDbqWC32HNB7Y4o58baLYJGDV5QPrRBUQKgoha6okbX3uNkoLYW/0Ag7sOs?=
- =?us-ascii?Q?xgYzS5FfrEupEznhSmrRUFaE0xfBPgvb8n9XejNEErsICQejIZB6U7LekmSQ?=
- =?us-ascii?Q?HW3/nfajsC2Pr1oSlUCN/kjvKGx9AVVBmjWtIbCORiUoA+vN9B6e4jLFx655?=
- =?us-ascii?Q?YIe5za6dNjC2VqCNee1MbIN089J26RNkJUj7VapICqQU7lBF6uEg9oWWGoXh?=
- =?us-ascii?Q?cSewa1JONu4sX3P241iBV6uwLsAbzeHIHhAwn+SPl9AxwtqSwGCvPe+zXSGf?=
- =?us-ascii?Q?7tpmElDoD/uWVqyVk8yoBiA3ar4MF5lAKFDNnHh8980VV9uBRFOcKfNKaY1J?=
- =?us-ascii?Q?7fzjxJUi5Df6MS7wHlRKtGpbfTrHDMWMM2pkVeSF3ENHnWVTToyMYYHGES5H?=
- =?us-ascii?Q?izhg5fYKoAcZLB0ul9N3E4I=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b2a502f4-c749-40f2-da11-08dd81dfe0e7
-X-MS-Exchange-CrossTenant-AuthSource: DS7PR01MB7782.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Apr 2025 20:54:30.9179
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 5qmBITcgYGHy6LDiGEM3pEVKJVLVpV6s3F1zrIFJ9X07voGHJ2AOEtTInc7MwnuoPNYSrQ8S2Suhs7I3mEdfZkcKC8JyMvRDHb7qv11YqwV2hvzO6IpNvi6NfloJRm5n
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY1PR01MB9267
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_135438_338069_C737B78F 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20250422_135454_984480_82FFE04B 
+X-CRM114-Status: GOOD (  27.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,25 +105,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Marc Zyngier <maz@kernel.org> writes:
+Le lundi 17 f=C3=A9vrier 2025 =C3=A0 14:28 -0500, Nicolas Dufresne a =C3=A9=
+crit=C2=A0:
+> aLe lundi 17 f=C3=A9vrier 2025 =C3=A0 13:45 -0500, Nicolas Dufresne a =C3=
+=A9crit=C2=A0:
+> > Hi Nathan,
+> >=20
+> > Le mardi 11 f=C3=A9vrier 2025 =C3=A0 16:34 -0800, Nathan Hebert a =C3=
+=A9crit=C2=A0:
+> > > Mediatek devices that support HEVC also support the main still pictur=
+e
+> > > profile, but today, the main still picture profile is excluded.
+> > >=20
+> > > This removes the skip mask for HEVC, and enables the main still
+> > > picture profile decoding.
+> > >=20
+> > > Signed-off-by: Nathan Hebert <nhebert@chromium.org>
+> > > ---
+> > > On Mediatek devices that support HEVC decoding, HEVC Main Still Pictu=
+re
+> > > profile is also supported by the SOC and firmware. However, this
+> > > capability is turned off in the vcodec driver.
+> > >=20
+> > > This removes the code that disables HEVC Main Still Picture profile
+> > > decoding. Validation of the decoder has been done via V4L2-backed
+> > > Android CTS tests on an MT8196 device.
+> >=20
+> > While its nice to know that you are working on upcoming SoC, we need
+> > confirmation that this is working on all the upstream stateless
+> > decoders supported: 8183, 8186, 8192, 8195. Ideally testing on 8188,
+> > which I can see has merged support without the linux-firmware file to
+> > go with it.
+> >=20
+> > I'll wait for that and Yunfei's ack before picking it. Yunfei, please
+> > fix the situation with 8188 in linux-firmware, and CC me.
+>=20
+> In case this is useful, we recommend providing fluster scores for the
+> codec, which in that case runs some public ITU conformance vectors.
+> Since most of the testing has been done with GStreamer, you may be able
+> to find old report and confirm it it works. GStreamer does not
+> currently filter the profile/level (on my todo), so it will try anyway.
+> IPRED_B_Nokia_3 is the one vector in the base suite that expose that
+> profile.
+>=20
+> resources/JCT-VC-HEVC_V1/IPRED_B_Nokia_3/IPRED_B_Nokia_3.bit
+> =C2=A0 Stream #0:0: Video: hevc (Main Still Picture), none, 1920x1080, 25=
+ fps, 1200k tbr, 1200k tbn
 
-> It appears that our S1 PTW is completely oblivious of access faults.
-> Teach the S1 translation code about it.
->
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->  arch/arm64/kvm/at.c | 26 +++++++++++++++++++++-----
->  1 file changed, 21 insertions(+), 5 deletions(-)
->
-> diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
-> index 3a4568e2de910..c40583edebc4f 100644
-> --- a/arch/arm64/kvm/at.c
-> +++ b/arch/arm64/kvm/at.c
-> @@ -456,6 +456,11 @@ static int walk_s1(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
->  	if (check_output_size(desc & GENMASK(47, va_bottom), wi))
->  		goto addrsz;
->  
-> +	if (!(desc & PTE_AF)) {
+Ran the test myself on MT8195 and can confirm it passes if you ignore
+the profiles.
 
-Shouldn't this depend on TCR_ELx.HA == 0?
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+
+>=20
+> regards,
+> Nicolas
+>=20
+> >=20
+> > regards,
+> > Nicolas
+> >=20
+> > > ---
+> > > =C2=A0.../media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_state=
+less.c=C2=A0=C2=A0 | 2 --
+> > > =C2=A01 file changed, 2 deletions(-)
+> > >=20
+> > > diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcode=
+c_dec_stateless.c b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcod=
+ec_dec_stateless.c
+> > > index afa224da0f41..d873159b9b30 100644
+> > > --- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_s=
+tateless.c
+> > > +++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_s=
+tateless.c
+> > > @@ -152,8 +152,6 @@ static const struct mtk_stateless_control mtk_sta=
+teless_controls[] =3D {
+> > > =C2=A0			.id =3D V4L2_CID_MPEG_VIDEO_HEVC_PROFILE,
+> > > =C2=A0			.def =3D V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN,
+> > > =C2=A0			.max =3D V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_10,
+> > > -			.menu_skip_mask =3D
+> > > -				BIT(V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_STILL_PICTURE),
+> > > =C2=A0		},
+> > > =C2=A0		.codec_type =3D V4L2_PIX_FMT_HEVC_SLICE,
+> > > =C2=A0	},
+> > >=20
+> > > ---
+> > > base-commit: ffd294d346d185b70e28b1a28abe367bbfe53c04
+> > > change-id: 20250211-enable_hevc_still_picture-26b35eb08270
+> > >=20
+> > > Best regards,
+> >=20
 
