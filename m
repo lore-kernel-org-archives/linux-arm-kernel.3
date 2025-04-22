@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF9EDC369D8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 18:14:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C67DBC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 18:14:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PoacIltR1i/jDsr4GLHB/rQGoaje1PKsTSdEzeCr5TM=; b=Q6mq9zXgf9BuY+C0GSfBQuF7Er
-	4uFrqh0O7vmIG4Gte5WhwZNxoZqJ1Ztoy4U2ehQWJgSeewjlizEe7De2qxmG/m7nADcCibnuftqA4
-	22uhnB6Ika7fdJvNW6sVSnAox546OzpfHbO16MPMQSCpoGWdyILKzJo++LZ+6FY+7j8JEPTzZGM8S
-	j9LgyqvFnnHv/WxHyu2jTHjBugc6QJh1UP0z4IzQXTOUNc1Mc8jONRv2dGhGqIP7s8MUA/d3/CAF8
-	s3FrsPbTEYNLy1RJ/avMLj9Y/B0aieEzZNyihbmKZUS3vf6RJa3b75kO3FgjPVNeqgfnNKEr1PUFn
-	jvW7xLIw==;
+	bh=24H3P72aA5pCEEqRrWmK7pg00LMX0cTI4Q9xjVYKxXA=; b=KTATQDJHwCtMZhBGXoVO045a+H
+	antR6XFvZo1bFv2HWou1HxI2yhaAa6HfJxV+yDTaMqFSmqdzNR98xZnmgjXtBkd6/3qE57XZ7SODb
+	TkcwNCnWBtOiCyAog5UssLN/OvXKDDvwI5EcLSW75fr0mhQBQpfyOj6vmLMrfLRvtK76of3N9W/kl
+	NxFjGSQ/UNTS0WBPUkVgnMBKXFA2u/YnDECHF7kj7mlJVGg0JPp68/oTqY4qH6IdWjRG/DzlMTTeV
+	Yn1fhd5I4Xa3JW0RFYJtFrs3pU0T5Au1PE9DoStUpShglmjN04dt63WyhM0MBayM8yc7bTLk6IYKb
+	W5iS/ooQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7I8l-000000085qM-3mvg;
-	Tue, 22 Apr 2025 18:14:39 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u7I8p-000000085xG-2pZf;
+	Tue, 22 Apr 2025 18:14:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7FXl-00000007iMm-1tjQ;
-	Tue, 22 Apr 2025 15:28:19 +0000
+	id 1u7FXm-00000007iOj-3ApU;
+	Tue, 22 Apr 2025 15:28:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B38AF5C5CAB;
-	Tue, 22 Apr 2025 15:25:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CEE7C4CEED;
-	Tue, 22 Apr 2025 15:28:16 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0A2464A941;
+	Tue, 22 Apr 2025 15:28:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F74BC4CEF2;
+	Tue, 22 Apr 2025 15:28:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745335696;
-	bh=mivDVzERcJd4HNiCgpjTrrXLffBBYDH/2mu7Bg91B/4=;
+	s=k20201202; t=1745335698;
+	bh=J8uCpavgYu/bq2A7Hf4ZA97H/cAunDf26vqUDG1MGLQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fj+wrtdfeqBJ8WM1Iq0fnUetrC8DmNpjL8TqEfHH94kKRQeIJt44m90X4KOz25SnB
-	 KnyH44Oj9ws0gMgpTWfaRZ2oYObCxpe+A7oSAS4bLqmMJ03UR9/HZa944YLwsNk6vc
-	 T0o1JO8Vca7TbEOVIkCwO72qV+FBVKjoMOmtgJutgOWj6bEeOWyu6ZlN9EX4Jr5pse
-	 ExssFG28Uic0LwpytjeFuhl+00hZ9LB9QxISLsd52aSb8hUVV5VFGWOESq4i8veBB1
-	 hPI7rhAuC+upfa/vR+Yz46t2R5BsFTR9nbbBMOZVzjYNT9jSeHzbmfQcPwO7Tca8pS
-	 t+ST9tLmcXXPA==
+	b=oUxmNTn8AgQpRrLgdELItVrayTHCc34bWmQEOm6kFtC1wEoqFMj8V36G++QRB0KkK
+	 XmZ9rXKUa/yKUmJ8RusFQ4qMCCGGp6w+R+tJ7snWoVB8h+U7MXfdJOkA/lDJXHFE6R
+	 r24jn1S1Jfdtu1XFNQqfQm0mInUuuFCtbIOcO4+PMmXWwzcfyazTOJeflVZEYGTwzp
+	 rij53w8zkeUtCZR+7YkI2JDpmAKiuk0649Xo/b3J4SvF22jID1OPUfoF+u7izfX19T
+	 Gqzebht6PQ2/P3JVmHp1WYwXRCYv6a94up81N3knCmddtfFrR47TFT/AhDgOCw5C6A
+	 he/0n9IQlEBEQ==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-arch@vger.kernel.org,
@@ -53,17 +53,17 @@ Cc: linux-arch@vger.kernel.org,
 	x86@kernel.org,
 	"Jason A . Donenfeld" <Jason@zx2c4.com>,
 	Ard Biesheuvel <ardb@kernel.org>
-Subject: [PATCH v3 04/13] crypto: x86 - drop redundant dependencies on X86
-Date: Tue, 22 Apr 2025 08:27:07 -0700
-Message-ID: <20250422152716.5923-5-ebiggers@kernel.org>
+Subject: [PATCH v3 08/13] crypto: powerpc - move library functions to arch/powerpc/lib/crypto/
+Date: Tue, 22 Apr 2025 08:27:11 -0700
+Message-ID: <20250422152716.5923-9-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250422152716.5923-1-ebiggers@kernel.org>
 References: <20250422152716.5923-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_082817_594079_E33D3635 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20250422_082818_835470_C5B82F48 
+X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,444 +80,172 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Eric Biggers <ebiggers@google.com>
 
-arch/x86/crypto/Kconfig is sourced only when CONFIG_X86=y, so there is
-no need for the symbols defined inside it to depend on X86.
+Continue disentangling the crypto library functions from the generic
+crypto infrastructure by moving the powerpc ChaCha and Poly1305 library
+functions into a new directory arch/powerpc/lib/crypto/ that does not
+depend on CRYPTO.  This mirrors the distinction between crypto/ and
+lib/crypto/.
 
-In the case of CRYPTO_TWOFISH_586 and CRYPTO_TWOFISH_X86_64, the
-dependency was actually on '(X86 || UML_X86)', which suggests that these
-two symbols were intended to be available under user-mode Linux as well.
-Yet, again these symbols were defined only when CONFIG_X86=y, so that
-was not the case.  Just remove this redundant dependency.
-
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- arch/x86/crypto/Kconfig | 67 ++++++++++++++++++++---------------------
- 1 file changed, 33 insertions(+), 34 deletions(-)
+ arch/powerpc/crypto/Kconfig                       | 14 --------------
+ arch/powerpc/crypto/Makefile                      |  4 ----
+ arch/powerpc/lib/Makefile                         |  2 ++
+ arch/powerpc/lib/crypto/Kconfig                   | 15 +++++++++++++++
+ arch/powerpc/lib/crypto/Makefile                  |  7 +++++++
+ arch/powerpc/{ => lib}/crypto/chacha-p10-glue.c   |  0
+ arch/powerpc/{ => lib}/crypto/chacha-p10le-8x.S   |  0
+ arch/powerpc/{ => lib}/crypto/poly1305-p10-glue.c |  0
+ arch/powerpc/{ => lib}/crypto/poly1305-p10le_64.S |  0
+ lib/crypto/Kconfig                                |  3 +++
+ 10 files changed, 27 insertions(+), 18 deletions(-)
+ create mode 100644 arch/powerpc/lib/crypto/Kconfig
+ create mode 100644 arch/powerpc/lib/crypto/Makefile
+ rename arch/powerpc/{ => lib}/crypto/chacha-p10-glue.c (100%)
+ rename arch/powerpc/{ => lib}/crypto/chacha-p10le-8x.S (100%)
+ rename arch/powerpc/{ => lib}/crypto/poly1305-p10-glue.c (100%)
+ rename arch/powerpc/{ => lib}/crypto/poly1305-p10le_64.S (100%)
 
-diff --git a/arch/x86/crypto/Kconfig b/arch/x86/crypto/Kconfig
-index 9a3cade49f638..b4df6cf37e0ea 100644
---- a/arch/x86/crypto/Kconfig
-+++ b/arch/x86/crypto/Kconfig
-@@ -2,11 +2,11 @@
- 
- menu "Accelerated Cryptographic Algorithms for CPU (x86)"
- 
- config CRYPTO_CURVE25519_X86
- 	tristate
--	depends on X86 && 64BIT
-+	depends on 64BIT
- 	select CRYPTO_KPP
- 	select CRYPTO_LIB_CURVE25519_GENERIC
- 	select CRYPTO_ARCH_HAVE_LIB_CURVE25519
- 	default CRYPTO_LIB_CURVE25519_INTERNAL
- 	help
-@@ -15,11 +15,10 @@ config CRYPTO_CURVE25519_X86
- 	  Architecture: x86_64 using:
- 	  - ADX (large integer arithmetic)
- 
- config CRYPTO_AES_NI_INTEL
- 	tristate "Ciphers: AES, modes: ECB, CBC, CTS, CTR, XCTR, XTS, GCM (AES-NI/VAES)"
--	depends on X86
- 	select CRYPTO_AEAD
- 	select CRYPTO_LIB_AES
- 	select CRYPTO_LIB_GF128MUL
- 	select CRYPTO_ALGAPI
- 	select CRYPTO_SKCIPHER
-@@ -35,11 +34,11 @@ config CRYPTO_AES_NI_INTEL
- 	  Some algorithm implementations are supported only in 64-bit builds,
- 	  and some have additional prerequisites such as AVX2 or AVX512.
- 
- config CRYPTO_BLOWFISH_X86_64
- 	tristate "Ciphers: Blowfish, modes: ECB, CBC"
--	depends on X86 && 64BIT
-+	depends on 64BIT
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_BLOWFISH_COMMON
- 	imply CRYPTO_CTR
- 	help
- 	  Block cipher: Blowfish cipher algorithm
-@@ -47,22 +46,22 @@ config CRYPTO_BLOWFISH_X86_64
- 
- 	  Architecture: x86_64
- 
- config CRYPTO_CAMELLIA_X86_64
- 	tristate "Ciphers: Camellia with modes: ECB, CBC"
--	depends on X86 && 64BIT
-+	depends on 64BIT
- 	select CRYPTO_SKCIPHER
- 	imply CRYPTO_CTR
- 	help
- 	  Block cipher: Camellia cipher algorithms
- 	  Length-preserving ciphers: Camellia with ECB and CBC modes
- 
- 	  Architecture: x86_64
- 
- config CRYPTO_CAMELLIA_AESNI_AVX_X86_64
- 	tristate "Ciphers: Camellia with modes: ECB, CBC (AES-NI/AVX)"
--	depends on X86 && 64BIT
-+	depends on 64BIT
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_CAMELLIA_X86_64
- 	imply CRYPTO_XTS
- 	help
- 	  Length-preserving ciphers: Camellia with ECB and CBC modes
-@@ -71,22 +70,22 @@ config CRYPTO_CAMELLIA_AESNI_AVX_X86_64
- 	  - AES-NI (AES New Instructions)
- 	  - AVX (Advanced Vector Extensions)
- 
- config CRYPTO_CAMELLIA_AESNI_AVX2_X86_64
- 	tristate "Ciphers: Camellia with modes: ECB, CBC (AES-NI/AVX2)"
--	depends on X86 && 64BIT
-+	depends on 64BIT
- 	select CRYPTO_CAMELLIA_AESNI_AVX_X86_64
- 	help
- 	  Length-preserving ciphers: Camellia with ECB and CBC modes
- 
- 	  Architecture: x86_64 using:
- 	  - AES-NI (AES New Instructions)
- 	  - AVX2 (Advanced Vector Extensions 2)
- 
- config CRYPTO_CAST5_AVX_X86_64
- 	tristate "Ciphers: CAST5 with modes: ECB, CBC (AVX)"
--	depends on X86 && 64BIT
-+	depends on 64BIT
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_CAST5
- 	select CRYPTO_CAST_COMMON
- 	imply CRYPTO_CTR
- 	help
-@@ -98,11 +97,11 @@ config CRYPTO_CAST5_AVX_X86_64
- 
- 	  Processes 16 blocks in parallel.
- 
- config CRYPTO_CAST6_AVX_X86_64
- 	tristate "Ciphers: CAST6 with modes: ECB, CBC (AVX)"
--	depends on X86 && 64BIT
-+	depends on 64BIT
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_CAST6
- 	select CRYPTO_CAST_COMMON
- 	imply CRYPTO_XTS
- 	imply CRYPTO_CTR
-@@ -115,11 +114,11 @@ config CRYPTO_CAST6_AVX_X86_64
- 
- 	  Processes eight blocks in parallel.
- 
- config CRYPTO_DES3_EDE_X86_64
- 	tristate "Ciphers: Triple DES EDE with modes: ECB, CBC"
--	depends on X86 && 64BIT
-+	depends on 64BIT
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_LIB_DES
- 	imply CRYPTO_CTR
- 	help
- 	  Block cipher: Triple DES EDE (FIPS 46-3) cipher algorithm
-@@ -129,11 +128,11 @@ config CRYPTO_DES3_EDE_X86_64
- 
- 	  Processes one or three blocks in parallel.
- 
- config CRYPTO_SERPENT_SSE2_X86_64
- 	tristate "Ciphers: Serpent with modes: ECB, CBC (SSE2)"
--	depends on X86 && 64BIT
-+	depends on 64BIT
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_SERPENT
- 	imply CRYPTO_CTR
- 	help
- 	  Length-preserving ciphers: Serpent cipher algorithm
-@@ -144,11 +143,11 @@ config CRYPTO_SERPENT_SSE2_X86_64
- 
- 	  Processes eight blocks in parallel.
- 
- config CRYPTO_SERPENT_SSE2_586
- 	tristate "Ciphers: Serpent with modes: ECB, CBC (32-bit with SSE2)"
--	depends on X86 && !64BIT
-+	depends on !64BIT
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_SERPENT
- 	imply CRYPTO_CTR
- 	help
- 	  Length-preserving ciphers: Serpent cipher algorithm
-@@ -159,11 +158,11 @@ config CRYPTO_SERPENT_SSE2_586
- 
- 	  Processes four blocks in parallel.
- 
- config CRYPTO_SERPENT_AVX_X86_64
- 	tristate "Ciphers: Serpent with modes: ECB, CBC (AVX)"
--	depends on X86 && 64BIT
-+	depends on 64BIT
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_SERPENT
- 	imply CRYPTO_XTS
- 	imply CRYPTO_CTR
- 	help
-@@ -175,11 +174,11 @@ config CRYPTO_SERPENT_AVX_X86_64
- 
- 	  Processes eight blocks in parallel.
- 
- config CRYPTO_SERPENT_AVX2_X86_64
- 	tristate "Ciphers: Serpent with modes: ECB, CBC (AVX2)"
--	depends on X86 && 64BIT
-+	depends on 64BIT
- 	select CRYPTO_SERPENT_AVX_X86_64
- 	help
- 	  Length-preserving ciphers: Serpent cipher algorithm
- 	  with ECB and CBC modes
- 
-@@ -188,11 +187,11 @@ config CRYPTO_SERPENT_AVX2_X86_64
- 
- 	  Processes 16 blocks in parallel.
- 
- config CRYPTO_SM4_AESNI_AVX_X86_64
- 	tristate "Ciphers: SM4 with modes: ECB, CBC, CTR (AES-NI/AVX)"
--	depends on X86 && 64BIT
-+	depends on 64BIT
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_ALGAPI
- 	select CRYPTO_SM4
- 	help
- 	  Length-preserving ciphers: SM4 cipher algorithms
-@@ -208,11 +207,11 @@ config CRYPTO_SM4_AESNI_AVX_X86_64
- 
- 	  If unsure, say N.
- 
- config CRYPTO_SM4_AESNI_AVX2_X86_64
- 	tristate "Ciphers: SM4 with modes: ECB, CBC, CTR (AES-NI/AVX2)"
--	depends on X86 && 64BIT
-+	depends on 64BIT
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_ALGAPI
- 	select CRYPTO_SM4
- 	select CRYPTO_SM4_AESNI_AVX_X86_64
- 	help
-@@ -229,33 +228,33 @@ config CRYPTO_SM4_AESNI_AVX2_X86_64
- 
- 	  If unsure, say N.
- 
- config CRYPTO_TWOFISH_586
- 	tristate "Ciphers: Twofish (32-bit)"
--	depends on (X86 || UML_X86) && !64BIT
-+	depends on !64BIT
- 	select CRYPTO_ALGAPI
- 	select CRYPTO_TWOFISH_COMMON
- 	imply CRYPTO_CTR
- 	help
- 	  Block cipher: Twofish cipher algorithm
- 
- 	  Architecture: x86 (32-bit)
- 
- config CRYPTO_TWOFISH_X86_64
- 	tristate "Ciphers: Twofish"
--	depends on (X86 || UML_X86) && 64BIT
-+	depends on 64BIT
- 	select CRYPTO_ALGAPI
- 	select CRYPTO_TWOFISH_COMMON
- 	imply CRYPTO_CTR
- 	help
- 	  Block cipher: Twofish cipher algorithm
- 
- 	  Architecture: x86_64
- 
- config CRYPTO_TWOFISH_X86_64_3WAY
- 	tristate "Ciphers: Twofish with modes: ECB, CBC (3-way parallel)"
--	depends on X86 && 64BIT
-+	depends on 64BIT
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_TWOFISH_COMMON
- 	select CRYPTO_TWOFISH_X86_64
- 	help
- 	  Length-preserving cipher: Twofish cipher algorithm
-@@ -266,11 +265,11 @@ config CRYPTO_TWOFISH_X86_64_3WAY
- 	  Processes three blocks in parallel, better utilizing resources of
- 	  out-of-order CPUs.
- 
- config CRYPTO_TWOFISH_AVX_X86_64
- 	tristate "Ciphers: Twofish with modes: ECB, CBC (AVX)"
--	depends on X86 && 64BIT
-+	depends on 64BIT
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_TWOFISH_COMMON
- 	select CRYPTO_TWOFISH_X86_64
- 	select CRYPTO_TWOFISH_X86_64_3WAY
- 	imply CRYPTO_XTS
-@@ -283,11 +282,11 @@ config CRYPTO_TWOFISH_AVX_X86_64
- 
- 	  Processes eight blocks in parallel.
- 
- config CRYPTO_ARIA_AESNI_AVX_X86_64
- 	tristate "Ciphers: ARIA with modes: ECB, CTR (AES-NI/AVX/GFNI)"
--	depends on X86 && 64BIT
-+	depends on 64BIT
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_ALGAPI
- 	select CRYPTO_ARIA
- 	help
- 	  Length-preserving cipher: ARIA cipher algorithms
-@@ -300,11 +299,11 @@ config CRYPTO_ARIA_AESNI_AVX_X86_64
- 
- 	  Processes 16 blocks in parallel.
- 
- config CRYPTO_ARIA_AESNI_AVX2_X86_64
- 	tristate "Ciphers: ARIA with modes: ECB, CTR (AES-NI/AVX2/GFNI)"
--	depends on X86 && 64BIT
-+	depends on 64BIT
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_ALGAPI
- 	select CRYPTO_ARIA
- 	select CRYPTO_ARIA_AESNI_AVX_X86_64
- 	help
-@@ -318,11 +317,11 @@ config CRYPTO_ARIA_AESNI_AVX2_X86_64
- 
- 	  Processes 32 blocks in parallel.
- 
- config CRYPTO_ARIA_GFNI_AVX512_X86_64
- 	tristate "Ciphers: ARIA with modes: ECB, CTR (AVX512/GFNI)"
--	depends on X86 && 64BIT && AS_GFNI
-+	depends on 64BIT && AS_GFNI
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_ALGAPI
- 	select CRYPTO_ARIA
- 	select CRYPTO_ARIA_AESNI_AVX_X86_64
- 	select CRYPTO_ARIA_AESNI_AVX2_X86_64
-@@ -336,49 +335,49 @@ config CRYPTO_ARIA_GFNI_AVX512_X86_64
- 
- 	  Processes 64 blocks in parallel.
- 
- config CRYPTO_CHACHA20_X86_64
- 	tristate
--	depends on X86 && 64BIT
-+	depends on 64BIT
- 	select CRYPTO_LIB_CHACHA_GENERIC
- 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
- 	default CRYPTO_LIB_CHACHA_INTERNAL
- 
- config CRYPTO_AEGIS128_AESNI_SSE2
- 	tristate "AEAD ciphers: AEGIS-128 (AES-NI/SSE4.1)"
--	depends on X86 && 64BIT
-+	depends on 64BIT
- 	select CRYPTO_AEAD
- 	help
- 	  AEGIS-128 AEAD algorithm
- 
- 	  Architecture: x86_64 using:
- 	  - AES-NI (AES New Instructions)
- 	  - SSE4.1 (Streaming SIMD Extensions 4.1)
- 
- config CRYPTO_NHPOLY1305_SSE2
- 	tristate "Hash functions: NHPoly1305 (SSE2)"
--	depends on X86 && 64BIT
-+	depends on 64BIT
- 	select CRYPTO_NHPOLY1305
- 	help
- 	  NHPoly1305 hash function for Adiantum
- 
- 	  Architecture: x86_64 using:
- 	  - SSE2 (Streaming SIMD Extensions 2)
- 
- config CRYPTO_NHPOLY1305_AVX2
- 	tristate "Hash functions: NHPoly1305 (AVX2)"
--	depends on X86 && 64BIT
-+	depends on 64BIT
- 	select CRYPTO_NHPOLY1305
- 	help
- 	  NHPoly1305 hash function for Adiantum
- 
- 	  Architecture: x86_64 using:
- 	  - AVX2 (Advanced Vector Extensions 2)
- 
- config CRYPTO_BLAKE2S_X86
- 	bool "Hash functions: BLAKE2s (SSSE3/AVX-512)"
--	depends on X86 && 64BIT
-+	depends on 64BIT
- 	select CRYPTO_LIB_BLAKE2S_GENERIC
- 	select CRYPTO_ARCH_HAVE_LIB_BLAKE2S
- 	help
- 	  BLAKE2s cryptographic hash function (RFC 7693)
- 
-@@ -386,27 +385,27 @@ config CRYPTO_BLAKE2S_X86
- 	  - SSSE3 (Supplemental SSE3)
- 	  - AVX-512 (Advanced Vector Extensions-512)
- 
- config CRYPTO_POLYVAL_CLMUL_NI
- 	tristate "Hash functions: POLYVAL (CLMUL-NI)"
--	depends on X86 && 64BIT
-+	depends on 64BIT
- 	select CRYPTO_POLYVAL
- 	help
- 	  POLYVAL hash function for HCTR2
- 
- 	  Architecture: x86_64 using:
- 	  - CLMUL-NI (carry-less multiplication new instructions)
- 
- config CRYPTO_POLY1305_X86_64
- 	tristate
--	depends on X86 && 64BIT
-+	depends on 64BIT
- 	select CRYPTO_ARCH_HAVE_LIB_POLY1305
- 	default CRYPTO_LIB_POLY1305_INTERNAL
- 
- config CRYPTO_SHA1_SSSE3
- 	tristate "Hash functions: SHA-1 (SSSE3/AVX/AVX2/SHA-NI)"
--	depends on X86 && 64BIT
-+	depends on 64BIT
- 	select CRYPTO_SHA1
- 	select CRYPTO_HASH
- 	help
- 	  SHA-1 secure hash algorithm (FIPS 180)
- 
-@@ -416,11 +415,11 @@ config CRYPTO_SHA1_SSSE3
- 	  - AVX2 (Advanced Vector Extensions 2)
- 	  - SHA-NI (SHA Extensions New Instructions)
- 
- config CRYPTO_SHA256_SSSE3
- 	tristate "Hash functions: SHA-224 and SHA-256 (SSSE3/AVX/AVX2/SHA-NI)"
--	depends on X86 && 64BIT
-+	depends on 64BIT
- 	select CRYPTO_SHA256
- 	select CRYPTO_HASH
- 	help
- 	  SHA-224 and SHA-256 secure hash algorithms (FIPS 180)
- 
-@@ -430,11 +429,11 @@ config CRYPTO_SHA256_SSSE3
- 	  - AVX2 (Advanced Vector Extensions 2)
- 	  - SHA-NI (SHA Extensions New Instructions)
- 
- config CRYPTO_SHA512_SSSE3
- 	tristate "Hash functions: SHA-384 and SHA-512 (SSSE3/AVX/AVX2)"
--	depends on X86 && 64BIT
-+	depends on 64BIT
- 	select CRYPTO_SHA512
- 	select CRYPTO_HASH
- 	help
- 	  SHA-384 and SHA-512 secure hash algorithms (FIPS 180)
- 
-@@ -443,11 +442,11 @@ config CRYPTO_SHA512_SSSE3
- 	  - AVX (Advanced Vector Extensions)
- 	  - AVX2 (Advanced Vector Extensions 2)
- 
- config CRYPTO_SM3_AVX_X86_64
- 	tristate "Hash functions: SM3 (AVX)"
--	depends on X86 && 64BIT
-+	depends on 64BIT
- 	select CRYPTO_HASH
- 	select CRYPTO_LIB_SM3
- 	help
- 	  SM3 secure hash function as defined by OSCCA GM/T 0004-2012 SM3
- 
-@@ -456,11 +455,11 @@ config CRYPTO_SM3_AVX_X86_64
- 
- 	  If unsure, say N.
- 
- config CRYPTO_GHASH_CLMUL_NI_INTEL
- 	tristate "Hash functions: GHASH (CLMUL-NI)"
--	depends on X86 && 64BIT
-+	depends on 64BIT
- 	select CRYPTO_CRYPTD
- 	help
- 	  GCM GHASH hash function (NIST SP800-38D)
- 
- 	  Architecture: x86_64 using:
+diff --git a/arch/powerpc/crypto/Kconfig b/arch/powerpc/crypto/Kconfig
+index 8bcc690134644..4bf7b01228e72 100644
+--- a/arch/powerpc/crypto/Kconfig
++++ b/arch/powerpc/crypto/Kconfig
+@@ -88,24 +88,10 @@ config CRYPTO_AES_GCM_P10
+ 	    - Power10 or later features
+ 
+ 	  Support for cryptographic acceleration instructions on Power10 or
+ 	  later CPU. This module supports stitched acceleration for AES/GCM.
+ 
+-config CRYPTO_CHACHA20_P10
+-	tristate
+-	depends on PPC64 && CPU_LITTLE_ENDIAN && VSX
+-	select CRYPTO_LIB_CHACHA_GENERIC
+-	select CRYPTO_ARCH_HAVE_LIB_CHACHA
+-	default CRYPTO_LIB_CHACHA_INTERNAL
+-
+-config CRYPTO_POLY1305_P10
+-	tristate
+-	depends on PPC64 && CPU_LITTLE_ENDIAN && VSX
+-	select CRYPTO_ARCH_HAVE_LIB_POLY1305
+-	select CRYPTO_LIB_POLY1305_GENERIC
+-	default CRYPTO_LIB_POLY1305_INTERNAL
+-
+ config CRYPTO_DEV_VMX
+         bool "Support for VMX cryptographic acceleration instructions"
+         depends on PPC64 && VSX
+         help
+           Support for VMX cryptographic acceleration instructions.
+diff --git a/arch/powerpc/crypto/Makefile b/arch/powerpc/crypto/Makefile
+index 2f00b22b0823e..f13aec8a18335 100644
+--- a/arch/powerpc/crypto/Makefile
++++ b/arch/powerpc/crypto/Makefile
+@@ -9,23 +9,19 @@ obj-$(CONFIG_CRYPTO_AES_PPC_SPE) += aes-ppc-spe.o
+ obj-$(CONFIG_CRYPTO_MD5_PPC) += md5-ppc.o
+ obj-$(CONFIG_CRYPTO_SHA1_PPC) += sha1-powerpc.o
+ obj-$(CONFIG_CRYPTO_SHA1_PPC_SPE) += sha1-ppc-spe.o
+ obj-$(CONFIG_CRYPTO_SHA256_PPC_SPE) += sha256-ppc-spe.o
+ obj-$(CONFIG_CRYPTO_AES_GCM_P10) += aes-gcm-p10-crypto.o
+-obj-$(CONFIG_CRYPTO_CHACHA20_P10) += chacha-p10-crypto.o
+-obj-$(CONFIG_CRYPTO_POLY1305_P10) += poly1305-p10-crypto.o
+ obj-$(CONFIG_CRYPTO_DEV_VMX_ENCRYPT) += vmx-crypto.o
+ obj-$(CONFIG_CRYPTO_CURVE25519_PPC64) += curve25519-ppc64le.o
+ 
+ aes-ppc-spe-y := aes-spe-core.o aes-spe-keys.o aes-tab-4k.o aes-spe-modes.o aes-spe-glue.o
+ md5-ppc-y := md5-asm.o md5-glue.o
+ sha1-powerpc-y := sha1-powerpc-asm.o sha1.o
+ sha1-ppc-spe-y := sha1-spe-asm.o sha1-spe-glue.o
+ sha256-ppc-spe-y := sha256-spe-asm.o sha256-spe-glue.o
+ aes-gcm-p10-crypto-y := aes-gcm-p10-glue.o aes-gcm-p10.o ghashp10-ppc.o aesp10-ppc.o
+-chacha-p10-crypto-y := chacha-p10-glue.o chacha-p10le-8x.o
+-poly1305-p10-crypto-y := poly1305-p10-glue.o poly1305-p10le_64.o
+ vmx-crypto-objs := vmx.o aesp8-ppc.o ghashp8-ppc.o aes.o aes_cbc.o aes_ctr.o aes_xts.o ghash.o
+ curve25519-ppc64le-y := curve25519-ppc64le-core.o curve25519-ppc64le_asm.o
+ 
+ ifeq ($(CONFIG_CPU_LITTLE_ENDIAN),y)
+ override flavour := linux-ppc64le
+diff --git a/arch/powerpc/lib/Makefile b/arch/powerpc/lib/Makefile
+index dd8a4b52a0ccb..1cd74673cbf74 100644
+--- a/arch/powerpc/lib/Makefile
++++ b/arch/powerpc/lib/Makefile
+@@ -1,10 +1,12 @@
+ # SPDX-License-Identifier: GPL-2.0
+ #
+ # Makefile for ppc-specific library files..
+ #
+ 
++obj-y += crypto/
++
+ CFLAGS_code-patching.o += -fno-stack-protector
+ CFLAGS_feature-fixups.o += -fno-stack-protector
+ 
+ CFLAGS_REMOVE_code-patching.o = $(CC_FLAGS_FTRACE)
+ CFLAGS_REMOVE_feature-fixups.o = $(CC_FLAGS_FTRACE)
+diff --git a/arch/powerpc/lib/crypto/Kconfig b/arch/powerpc/lib/crypto/Kconfig
+new file mode 100644
+index 0000000000000..3f52610e45eb4
+--- /dev/null
++++ b/arch/powerpc/lib/crypto/Kconfig
+@@ -0,0 +1,15 @@
++# SPDX-License-Identifier: GPL-2.0-only
++
++config CRYPTO_CHACHA20_P10
++	tristate
++	depends on PPC64 && CPU_LITTLE_ENDIAN && VSX
++	default CRYPTO_LIB_CHACHA_INTERNAL
++	select CRYPTO_LIB_CHACHA_GENERIC
++	select CRYPTO_ARCH_HAVE_LIB_CHACHA
++
++config CRYPTO_POLY1305_P10
++	tristate
++	depends on PPC64 && CPU_LITTLE_ENDIAN && VSX
++	default CRYPTO_LIB_POLY1305_INTERNAL
++	select CRYPTO_ARCH_HAVE_LIB_POLY1305
++	select CRYPTO_LIB_POLY1305_GENERIC
+diff --git a/arch/powerpc/lib/crypto/Makefile b/arch/powerpc/lib/crypto/Makefile
+new file mode 100644
+index 0000000000000..5709ae14258a0
+--- /dev/null
++++ b/arch/powerpc/lib/crypto/Makefile
+@@ -0,0 +1,7 @@
++# SPDX-License-Identifier: GPL-2.0-only
++
++obj-$(CONFIG_CRYPTO_CHACHA20_P10) += chacha-p10-crypto.o
++chacha-p10-crypto-y := chacha-p10-glue.o chacha-p10le-8x.o
++
++obj-$(CONFIG_CRYPTO_POLY1305_P10) += poly1305-p10-crypto.o
++poly1305-p10-crypto-y := poly1305-p10-glue.o poly1305-p10le_64.o
+diff --git a/arch/powerpc/crypto/chacha-p10-glue.c b/arch/powerpc/lib/crypto/chacha-p10-glue.c
+similarity index 100%
+rename from arch/powerpc/crypto/chacha-p10-glue.c
+rename to arch/powerpc/lib/crypto/chacha-p10-glue.c
+diff --git a/arch/powerpc/crypto/chacha-p10le-8x.S b/arch/powerpc/lib/crypto/chacha-p10le-8x.S
+similarity index 100%
+rename from arch/powerpc/crypto/chacha-p10le-8x.S
+rename to arch/powerpc/lib/crypto/chacha-p10le-8x.S
+diff --git a/arch/powerpc/crypto/poly1305-p10-glue.c b/arch/powerpc/lib/crypto/poly1305-p10-glue.c
+similarity index 100%
+rename from arch/powerpc/crypto/poly1305-p10-glue.c
+rename to arch/powerpc/lib/crypto/poly1305-p10-glue.c
+diff --git a/arch/powerpc/crypto/poly1305-p10le_64.S b/arch/powerpc/lib/crypto/poly1305-p10le_64.S
+similarity index 100%
+rename from arch/powerpc/crypto/poly1305-p10le_64.S
+rename to arch/powerpc/lib/crypto/poly1305-p10le_64.S
+diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
+index c5c01bc3569d5..4b3e94ed84bb6 100644
+--- a/lib/crypto/Kconfig
++++ b/lib/crypto/Kconfig
+@@ -163,8 +163,11 @@ if ARM64
+ source "arch/arm64/lib/crypto/Kconfig"
+ endif
+ if MIPS
+ source "arch/mips/lib/crypto/Kconfig"
+ endif
++if PPC
++source "arch/powerpc/lib/crypto/Kconfig"
++endif
+ endif
+ 
+ endmenu
 -- 
 2.49.0
 
