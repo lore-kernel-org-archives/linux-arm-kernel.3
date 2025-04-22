@@ -4,83 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13D39C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 14:01:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E78F2C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 14:03:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4hFUNmLBRh4VveH2rb85NwamzBJC3ETXpv4CzWL79j0=; b=pDCX9xZNGignnbhNvwxe8IPInG
-	TOJMYoDwqgPN9r9jXD8vlfEtr8BLsoe5DvIQwRiKVcZGs25Axz73mu0XxE5VZOmNxNw/h4MtgZCKt
-	OcWkCb6KIqcGVZe8Yza98MIpui0Liwp17l8bNJZsDeSsnE8hx52SYNo3q1GlF52kfc3sorxGKwO1g
-	06R5TIPpk02/9cds9V2akdxOxtwpWKC+qoCXWc25SkPFRp8Tfk+wn2+iv2EU10imHTHCD1L3vPk/3
-	2RXRFqhu/wlz8NayLc63DDLeU3uS4cocMMxHrXo/DJk5r6I7+LdLYJ/2XJBncnMum4miaVDK+DvhJ
-	2/JHBLWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7ibeby9VV7UvoZoRwDk9gv1xyevLF90376HcQemb98w=; b=dYNvL+Q72KjGTSgGCP1rqBcsdi
+	Ja6qimFb/xAJKBZ1VSiMRN1P6xuta9H7rjTJuaKsEHfxz/Wm3MZ2aC4Sjho0cefHJ8TmtFxGYPtUF
+	IEWQHvivZpPfhdI7Ur4kefKmlQUDi3NoJkQNjCILpWc8bOxmK07ruS2HzQce/xbworDCX8kntkwXh
+	EXSdbD30w3spi1sY680Yinfup3uzcSZRS9DF0JY8c8AxmghiymcBw1tG0ZrsXxPt4s2oSSB7Lxobp
+	vRQhcztmd9TAzBtNYEQQppu/BJd7ZTEWlMVuupUJi/dqd/cL6VhqXsxK3jcXtqxFEqxM7Vrs5JxRg
+	mGiQP9BA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7EBt-00000007PUi-0h3n;
-	Tue, 22 Apr 2025 14:01:37 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1u7EDj-00000007PtU-3VNE;
+	Tue, 22 Apr 2025 14:03:31 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Ctd-000000079KA-2Wqj
+	id 1u7CuD-000000079PK-2tSN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 12:38:43 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53MCcb2L1943131
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 22 Apr 2025 07:38:38 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745325518;
-	bh=4hFUNmLBRh4VveH2rb85NwamzBJC3ETXpv4CzWL79j0=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=CsESrhHPI3hUH0Su+441aV/y7m9+oGDeKaOULp5JXFPf+PEtFplxyXjeuOkTWhvwl
-	 uzOaVMApu5uYbBEfde1K1i/KFSwWWGgiWybdrU4w39Vbx9H5skcgJigd6j8IIcr2hR
-	 y4FB1RgfKqjDdk5mZo/QI30yDdDqGD1lqQRkecGo=
-Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53MCcbPZ021431
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 22 Apr 2025 07:38:37 -0500
-Received: from DFLE103.ent.ti.com (10.64.6.24) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 22
- Apr 2025 07:38:37 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE103.ent.ti.com
- (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 22 Apr 2025 07:38:37 -0500
-Received: from localhost (uda0492258.dhcp.ti.com [10.24.72.113])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53MCcaQI006395;
-	Tue, 22 Apr 2025 07:38:37 -0500
-Date: Tue, 22 Apr 2025 18:08:35 +0530
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: "Kumar, Udit" <u-kumar1@ti.com>, <parth105105@gmail.com>
-CC: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Tero
- Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Siddharth
- Vadapalli <s-vadapalli@ti.com>,
-        Parth Pancholi <parth.pancholi@toradex.com>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2] arm64: dts: ti: k3-j784s4-main: Enable ACSPCIE
- outputs for PCIe interfaces
-Message-ID: <69155658-f138-4b10-a6fc-c036ebf65c0d@ti.com>
-References: <20250404101234.2671147-1-parth105105@gmail.com>
- <7da470c6-5426-48bf-838a-bc7a5b5dc5db@ti.com>
- <eff95b10-f20e-4abc-b519-36fd80843954@ti.com>
+	Tue, 22 Apr 2025 12:39:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 09893614B3;
+	Tue, 22 Apr 2025 12:38:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDD14C4CEE9;
+	Tue, 22 Apr 2025 12:39:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745325556;
+	bh=64yiAE3W4ZJTOG58pLVENVGyfqZ4s0C/3rjyV7DX7uA=;
+	h=From:To:Cc:Subject:Date:From;
+	b=CdbRw2v/x0vgIdzw9glg8T/PRAB96626Aom+yfUcHT5jhn9ZIN7oYEym+5s4QfnMj
+	 ns5PdqraI0bjyNsgdzyTdRz4BD/ZBoqeqvaTcPh4ui/MX6Nh1OmXk5pUjG4IpR6iJH
+	 jKbdD45S6mUQ0qi4j3m7befSy3k3AMYWW1X7zz5OeQftKHjqhp6vZEpsyTmZRtfEgV
+	 PFKFJ410tSIMBb8APtKCe1c3TDTQbYZ4wH1gAibf6YSmwgEFqLC37HQZp9AMkFH5g2
+	 DiSSVTDrdyzr3JxcCzv2xg/EifG/WgwXfIGhsEPSsJ8DJ7HGzdGSqaJZ6Hxm1LaYiY
+	 JWLo2dKE7gmew==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1u7CuA-007cSc-GI;
+	Tue, 22 Apr 2025 13:39:14 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	D Scott Phillips <scott@os.amperecomputing.com>
+Subject: [PATCH] KVM: arm64: Force HCR_EL2.xMO to 1 at all times in VHE mode
+Date: Tue, 22 Apr 2025 13:39:01 +0100
+Message-Id: <20250422123901.2675976-1-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <eff95b10-f20e-4abc-b519-36fd80843954@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_053841_728165_2361E0A1 
-X-CRM114-Status: GOOD (  30.51  )
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, mark.rutland@arm.com, scott@os.amperecomputing.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,76 +81,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 20, 2025 at 08:25:22AM +0530, Siddharth Vadapalli wrote:
-> On Sat, Apr 19, 2025 at 06:38:00PM +0530, Kumar, Udit wrote:
-> > Thanks for patch, Parth
-> > 
-> > On 4/4/2025 3:42 PM, Parth Pancholi wrote:
-> 
-> Hello Parth,
-> 
-> > > From: Parth Pancholi <parth.pancholi@toradex.com>
-> > > 
-> > > TI J784S4-based devices, such as the AM69 SoC, provide PCIE_REFCLK outputs
-> > > from the SoC, which can be used to clock external PCIe endpoint devices.
-> > > Each PCIE_REFCLK output is enabled via the corresponding ACSPCIE clock
-> > > buffer, with each buffer supporting two PADs to provide reference clocks
-> > > for two associated PCIe instances. The mappings are as follows:
-> > >          - PCIe0 -> ACSPCIE1 PAD0
-> > >          - PCIe1 -> ACSPCIE0 PAD0
-> > >          - PCIe2 -> ACSPCIE1 PAD1
-> > >          - PCIe3 -> ACSPCIE0 PAD1
-> > > 
-> > > This patch enables each ACSPCIE module and its corresponding PADs to ensure
-> > > that all PCIE_REFCLK outputs are functional.
-> > > 
-> > > This change have been tested on an AM69-based custom hardware platform,
-> > > where all four PCIe instances (PCIe0, PCIe1, PCIe2, and PCIe3) with the
-> > > internal PCIE_REFCLK are utilized with various endpoint devices such as
-> > > a WiFi card, NVMe SSD, and PCIe-to-USB bridge.
-> > 
-> > You can enabling REFCLK to be out as default.
-> > 
-> > There are few boards, on which this clock is either terminated at test point
-> > or not connected at all
-> > 
-> > Example AM69 board
-> > 
-> > PCIE_REFCLK2_P_OUT is not connected and PCIE_REFCLK0_P_OUT is terminated at
-> > test points.
-> > 
-> > 
-> > IMO, this clock to be enabled where this can be connected to PCIe EP.
-> > 
-> > Let Siddharth also share his comment, where to enable these clocks board
-> > file or SOC file.
-> 
-> As Udit has pointed out, the reference clock outputs from ACSPCIE
-> buffers should be enabled in the board files. I will be updating the
-> patch that I had posted for enabling output of ACSPCIE0 PAD0 for PCIe1
-> by moving the changes to the board file
-> k3-j784s4-j742s2-evm-common.dtsi
-> 
-> Please update your patch accordingly. The overrides will no longer be
-> required as the property will be defined in the board file itself for
-> AM69.
+We keep setting and clearing these bits depending on the role of
+the host kernel, mimicking what we do for nVHE. But that's actually
+pretty pointless, as we always want physical interrupts to make it
+to the host, at EL2.
 
-I have posted the v3 series [0] which does the following:
-1. Introduce the ACSPCIE0 node in the SoC file to allow reuse across:
-   J784S4, J742S2 and AM69
-2. Update 'pcie1_rc' node in the Board file specific to J784S4 and J742S2
-   to drive the reference clock from PAD0 of ACSPCIE0
+This has also two problems:
 
-As a result, the current patch for AM69 can be converted to a series
-which does the following:
-1. Introduce the ACSPCIE1 node in the SoC file to allow reuse across:
-   J784S4, J742S2 and AM69
-2. Update 'pcie0_rc', 'pcie1_rc', 'pcie2_rc' and 'pcie3_rc' in the Board
-   files to drive the reference clock from PAD0 and PAD1 of both
-   ACSPCIE0 and ACSPCIE1
+- it prevents IRQs from being taken when these bits are cleared
+  if the implementation has chosen to implement these bits as
+  masks when HCR_EL2.{TGE,xMO}=={0,0}
 
-[0]: https://lore.kernel.org/r/20250422123218.3788223-1-s-vadapalli@ti.com/
+- it triggers a bad erratum on the AmpereOne HW, which catches
+  fire on clearing these bits while an interrupt is being taken
+  (AC03_CPU_36).
 
-Regards,
-Siddharth.
+Let's kill these two birds with a single stone.
+
+Reported-by: D Scott Phillips <scott@os.amperecomputing.com>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/include/asm/kvm_arm.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
+index 974d72b5905b8..bba4b0e930915 100644
+--- a/arch/arm64/include/asm/kvm_arm.h
++++ b/arch/arm64/include/asm/kvm_arm.h
+@@ -100,7 +100,7 @@
+ 			 HCR_FMO | HCR_IMO | HCR_PTW | HCR_TID3 | HCR_TID1)
+ #define HCR_HOST_NVHE_FLAGS (HCR_RW | HCR_API | HCR_APK | HCR_ATA)
+ #define HCR_HOST_NVHE_PROTECTED_FLAGS (HCR_HOST_NVHE_FLAGS | HCR_TSC)
+-#define HCR_HOST_VHE_FLAGS (HCR_RW | HCR_TGE | HCR_E2H)
++#define HCR_HOST_VHE_FLAGS (HCR_RW | HCR_TGE | HCR_E2H | HCR_AMO | HCR_IMO | HCR_FMO)
+ 
+ #define HCRX_HOST_FLAGS (HCRX_EL2_MSCEn | HCRX_EL2_TCR2En | HCRX_EL2_EnFPM)
+ #define MPAMHCR_HOST_FLAGS	0
+-- 
+2.39.2
+
 
