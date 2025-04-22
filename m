@@ -4,98 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A1B1C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 11:17:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0628C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 11:19:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2vBVjmEn5NTa769mIj8GmdhBQLhe0x76SUXx/x1ydTU=; b=LFToafYKUXMxjrTdOE4t5/a1wF
-	N8UB4UsYnuwIl5sA4XqRu7CZlMDFPUJinJYMyIY4AQQYOXjx0mPLY7OZ+ATcHFXSDUFEmIXUYUcld
-	zOEIf7FiqmFvoWVYgP4uqxtFMySoGlQYdy4GyUfj3FECzqyR9lY64rKb1GJeLk2e5+P3l9lVJthdf
-	aAddBWSCYy9l1F2TGxCKwJGjUfB9+h1GIJksxIJImaGgC83GZxedSsQsqKpiB/72CThjkQeN7K3jn
-	/CR9RuGBqdH+BeKpSPgEmg8Bqtv0nDgJfTtZXZYmGoFxSOlMLL1FikG9o8uCOwlZkEGphVcIxr8Dh
-	vTwE4Tow==;
+	bh=bdUGNYcSlXp+RxovtBxf2hrOAAMnFPnykczx9UAa+Tg=; b=PFpDPohN6WYmM0eR3mxtPfDklj
+	iW+kax5EiGe1JQx+UUybfHfroOLTGocSiJlxPyrspm+9hc/bxw12x9ey6tU2Hb3l/h5ffnPuPL/gx
+	ToMV8muW3DzOTWgg2LQM6cLQN6tiLxgqlBoaSebirFxhJUyWTVgiu9AtxOJSt8yjWUI2J6vkg/xbZ
+	ZvFleobu4eWACIIjhC6EJEGrdV+fTZclPFuWNgcByNIOdCdkAyRELNUx+FFZULcATV4V2PIUuSJH7
+	aRzGrsi7NIj3CXwOPCfcmA0LNn/pcHSePb5pE5WdjxE1tvIGmVkO2gt0tXsFeUzopQ7hn1AGSE2nA
+	goCvT8bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Bcc-00000006uTi-1FC8;
-	Tue, 22 Apr 2025 11:17:02 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1u7BeS-00000006ue7-0C2p;
+	Tue, 22 Apr 2025 11:18:56 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7B4Q-00000006oL6-1Wya;
-	Tue, 22 Apr 2025 10:41:43 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53M87Pmb014494;
-	Tue, 22 Apr 2025 10:41:40 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=2vBVjmEn5NTa769mIj8GmdhBQLhe0x
-	76SUXx/x1ydTU=; b=KCWe+JyPXZxPGEeoK+BOdCrNbtsxJb4V9z9BQcp5BUBqYV
-	37VU8eW6wcULQQ+47XX+foEl2LJOpLzDYicKyXGMbmxSsxY/RjYRpPLwU4gd3xgo
-	ogftcFUpG4M5EExmKa9VSwegOZZCOthSnTL5tZzw/QsNni+y3b8rifq7WaNGiCQj
-	j+1TNRLnCGFaeE7g7IFvUokadm9sHdkM1DTa5ZNw8G70CZ6275/qaUa7U1Maq/WW
-	0YeViG35vFRhe3g8H8uT8aYQmfUlyhrkgc3/p524PO1EQhqkXTZkl6383xOstWCu
-	KymJAGFH+gNa/NTzBcefpqMr3IQs8YYjNit6pTwg==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4667ap0qvj-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 22 Apr 2025 10:41:40 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 53M7afmQ015373;
-	Tue, 22 Apr 2025 10:41:39 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 464qnkjbg5-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 22 Apr 2025 10:41:39 +0000
-Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 53MAfbYl59376010
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 22 Apr 2025 10:41:37 GMT
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 39AF620043;
-	Tue, 22 Apr 2025 10:41:37 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 8204220040;
-	Tue, 22 Apr 2025 10:41:36 +0000 (GMT)
-Received: from osiris (unknown [9.87.146.239])
-	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Tue, 22 Apr 2025 10:41:36 +0000 (GMT)
-Date: Tue, 22 Apr 2025 12:41:35 +0200
-From: Heiko Carstens <hca@linux.ibm.com>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-arch@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-        x86@kernel.org, "Jason A . Donenfeld" <Jason@zx2c4.com>,
-        Ard Biesheuvel <ardb@kernel.org>
-Subject: Re: [PATCH v2 10/13] crypto: s390 - move library functions to
- arch/s390/lib/crypto/
-Message-ID: <20250422104135.24507Bb1-hca@linux.ibm.com>
-References: <20250420192609.295075-1-ebiggers@kernel.org>
- <20250420192609.295075-11-ebiggers@kernel.org>
+	id 1u7B4a-00000006oOG-13X8
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 22 Apr 2025 10:41:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id DBB8CA4B8FD;
+	Tue, 22 Apr 2025 10:36:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BB7AC4CEEC;
+	Tue, 22 Apr 2025 10:41:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745318510;
+	bh=E7jJl3pOgy/SFZyxcaFNH2HJMXve7HqgzZcCrYSV+mU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=q3/XYOYPAiir29P1eGSzb5RwyFnYBEqV46mf1/jdzKdA1pCkZ0OcqF1YuMlgOYm5Q
+	 CoMX57eL1aFdE5QkKXObGRuNSrfjQkjjcOpl58YGbXV0aKh6VechwDjLX45v0//Zh6
+	 qmMkX8r0vDhNuz2x0UXavbtrTsdSxo2LxsvjOKeDrDqMIoj54Op0wZuGwVqvZ6hQQN
+	 zdICWq2ACdiuAtNiXQWgYuW8tjU0NHcxzGbSrbeuvVQeqSWvUKAt1NPl1xQsZDj1k4
+	 SgjwLColOdUV/zPrhtwoE/Tw4o26//NNzPEfavUziyckO1xeFpu5CrjRG0kf+uWf1v
+	 CDqt7AH+xYSnQ==
+Received: from johan by xi.lan with local (Exim 4.97.1)
+	(envelope-from <johan@kernel.org>)
+	id 1u7B4V-000000004sL-2yOU;
+	Tue, 22 Apr 2025 12:41:48 +0200
+Date: Tue, 22 Apr 2025 12:41:47 +0200
+From: Johan Hovold <johan@kernel.org>
+To: Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, james.quinlan@broadcom.com,
+	f.fainelli@gmail.com, vincent.guittot@linaro.org,
+	peng.fan@oss.nxp.com, michal.simek@amd.com, quic_sibis@quicinc.com,
+	dan.carpenter@linaro.org, maz@kernel.org
+Subject: Re: [PATCH 2/4] firmware: arm_scmi: Add Quirks framework
+Message-ID: <aAdya5rephGNP_Tw@hovoldconsulting.com>
+References: <20250415142933.1746249-1-cristian.marussi@arm.com>
+ <20250415142933.1746249-3-cristian.marussi@arm.com>
+ <Z__UJUKaMRoFLYLc@hovoldconsulting.com>
+ <Z__cuT5IW0Sbjqpg@pluto>
+ <aAC_aPHD4Ik-DW0x@hovoldconsulting.com>
+ <aADhoX4Rkx8Eu_er@pluto>
+ <20250417-teal-sidewinder-of-courtesy-d0473d@sudeepholla>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250420192609.295075-11-ebiggers@kernel.org>
-X-TM-AS-GCONF: 00
-X-Authority-Analysis: v=2.4 cv=M5pNKzws c=1 sm=1 tr=0 ts=68077264 cx=c_pps a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17 a=kj9zAlcOel0A:10 a=XR8D0OoHHMoA:10 a=1XWaLZrsAAAA:8 a=VnNF1IyMAAAA:8 a=EBXGqsIhDzg0S2J9wWsA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-ORIG-GUID: FKpmuf9m7FggGnatUI-UByB2a5PrqXcD
-X-Proofpoint-GUID: FKpmuf9m7FggGnatUI-UByB2a5PrqXcD
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-22_05,2025-04-21_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 mlxscore=0
- lowpriorityscore=0 malwarescore=0 clxscore=1015 mlxlogscore=709
- adultscore=0 bulkscore=0 phishscore=0 impostorscore=0 suspectscore=0
- priorityscore=1501 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2504220079
+In-Reply-To: <20250417-teal-sidewinder-of-courtesy-d0473d@sudeepholla>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_034142_421835_9248D106 
-X-CRM114-Status: GOOD (  15.91  )
+X-CRM114-CacheID: sfid-20250422_034152_416404_8A3AA5FC 
+X-CRM114-Status: GOOD (  37.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,31 +85,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 20, 2025 at 12:26:06PM -0700, Eric Biggers wrote:
-> From: Eric Biggers <ebiggers@google.com>
+On Thu, Apr 17, 2025 at 03:41:56PM +0100, Sudeep Holla wrote:
+> On Thu, Apr 17, 2025 at 12:10:25PM +0100, Cristian Marussi wrote:
+> > On Thu, Apr 17, 2025 at 10:44:24AM +0200, Johan Hovold wrote:
+> > > On Wed, Apr 16, 2025 at 05:37:13PM +0100, Cristian Marussi wrote:
+> > > > On Wed, Apr 16, 2025 at 06:00:37PM +0200, Johan Hovold wrote:
+> > > > > On Tue, Apr 15, 2025 at 03:29:31PM +0100, Cristian Marussi wrote:
+> > > 
+> > > > > > +static void scmi_enable_matching_quirks(struct scmi_info *info)
+> > > > > > +{
+> > > > > > +	struct scmi_revision_info *rev = &info->version;
+> > > > > > +	const char *compatible = NULL;
+> > > > > > +	struct device_node *root;
+> > > > > > +
+> > > > > > +	root = of_find_node_by_path("/");
+> > > > > > +	if (root) {
+> > > > > > +		of_property_read_string(root, "compatible", &compatible);
+> > > > > 
+> > > > > Looks like you still only allow matching on the most specific compatible
+> > > > > string.
+> > > > > 
+> > > > > As we discussed in the RFC thread, this will result in one quirk entry
+> > > > > for each machine in a SoC family in case the issue is not machine
+> > > > > specific.
 > 
-> Continue disentangling the crypto library functions from the generic
-> crypto infrastructure by moving the s390 ChaCha library functions into a
-> new directory arch/s390/lib/crypto/ that does not depend on CRYPTO.
-> This mirrors the distinction between crypto/ and lib/crypto/.
-> 
-> Signed-off-by: Eric Biggers <ebiggers@google.com>
-> ---
->  arch/s390/crypto/Kconfig                 | 6 ------
->  arch/s390/crypto/Makefile                | 3 ---
->  arch/s390/lib/Makefile                   | 1 +
->  arch/s390/lib/crypto/Kconfig             | 7 +++++++
->  arch/s390/lib/crypto/Makefile            | 4 ++++
->  arch/s390/{ => lib}/crypto/chacha-glue.c | 0
->  arch/s390/{ => lib}/crypto/chacha-s390.S | 0
->  arch/s390/{ => lib}/crypto/chacha-s390.h | 0
->  lib/crypto/Kconfig                       | 3 +++
->  9 files changed, 15 insertions(+), 9 deletions(-)
->  create mode 100644 arch/s390/lib/crypto/Kconfig
->  create mode 100644 arch/s390/lib/crypto/Makefile
->  rename arch/s390/{ => lib}/crypto/chacha-glue.c (100%)
->  rename arch/s390/{ => lib}/crypto/chacha-s390.S (100%)
->  rename arch/s390/{ => lib}/crypto/chacha-s390.h (100%)
+> Agreed, but we can predict that. You can infer just from the current state
+> of affairs. Today all machines based on soc X may need the quirk but the
+> firmware may vary across machines with same SoC.
 
-Acked-by: Heiko Carstens <hca@linux.ibm.com>
+Sure, I was just highlighting this limitation in the current
+implementation...
+
+> > > I was referring to the need to match on other compatible strings than
+> > > the most specific one. For the ThinkPad T14s the strings are:
+> > > 
+> > > 	"lenovo,thinkpad-t14s-lcd", "lenovo,thinkpad-t14s",
+> > > 	"qcom,x1e78100", "qcom,x1e80100"
+> > > 
+> > > Here you most certainly would not want to match on
+> > > "lenovo,thinkpad-t14s-lcd" but rather on "lenovo,thinkpad-t14s" or one
+> > > of the SoC compatibles.
+
+...and the fact that even if you want to avoid matching on SoC
+compatible, the current implementation seems to be too limited to allow
+matching on machine compatibles generally (i.e. given that there may be
+variants of a particular machine).
+
+We may not even need this for the FC quirk, this was just a general
+observation.
+
+> > > of_machine_is_compatible() can be used to match on any compatible
+> > > string, but not sure if that fits with your current implementation.
+> > > 
+> 
+> I was thinking about the same when I looked at the code. Using it is
+> more elegant IMO.
+
+It would be more flexible, even if you never intend to accept any quirks
+that matches for an entire SoC.
+
+> > ...moreover this kind of carpet-quirking that hides the issue on any possible
+> > fw version gives ZERO incentives to the aforementioned vendor to fix its
+> > firmware...(or it fw-release process)...
+
+If a vendor truly only cares about some other OS then perhaps this
+argument isn't that strong and we'll just increase our own maintenance
+burden.
+
+> > Indeed, cross posting from your other mail thread, as of now we cannot
+> > even be sure if the Vendor has somehow already updated the SCMI-related
+> > firmware NEITHER we can be sure about this in the future since it has not
+> > even confirmed how they are (or they will) be handling the Impl_Version field...
+> > 
+> > Having said that, I would add that in this specific case (FC quirk) since the
+> > only way to make use of all of this SCMI stuff from the MicroZoft/ACPI world
+> > is having working FCs and, since it's clear that our lovely vendor wont
+> > certainly break this other lovely OS way of working with SCMI, MAYBE it could
+> > be safe to just apply the quirk to this Vendor forever no matter what the
+> > platform or FW version will be in the future...(so not using compats at all)
+
+My understanding is that the version has been bumped now albeit for
+other reasons than fixing this particular bug. And since enabling FC for
+these messages should be safe we will probably be able to match on
+vendor/impl_version here.
+
+Sibi is looking into this and should be able to provide an answer
+shortly.
+
+Johan
 
