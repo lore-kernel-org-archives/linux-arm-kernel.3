@@ -4,64 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0B88C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 15:37:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19AADC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 15:39:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tOD3Gx0CyCTCJeGS+Eyn7E5U4WA4L4fXoUPWM9d/JHA=; b=eVUqrm9+jhsuqrDkcmyzVtrUoe
-	pD0ivGa9m6pSqKDfWSMEqzyZ+QVirB1QsJzPkrSp6eYI1g8ZsjDyWU0olKfiD1R+iTNzG/VsxUT7r
-	eEUyNnXmLBse0oUJoBsYHWGcHMGa3hFU3CfmpQrdchrk2NzX59N7QExJIL8Ht6LPiv25pNRhgz566
-	zHQGlenBPhOQkoTdEM7E3FXzfNv9RNQ+dxjYynJljdOaqZH+mARZ+C9On9NJWwDGXBnj0nPREY4Qq
-	6WMydrbianpF+776BgjbZKWA7x23WGPcV5gQj823R/DdtkDjTIrXyIu8JDE12kTZuI6oabwrzyv7o
-	boBwWwsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1cPkCZDWnGNULOz6yleiR1eCfi5XWQLeIcB1znt20yk=; b=kgspgkUz/9VNtET3BaphOhHY9H
+	1WPdFaFPb3uDA0Wgj24JlvWMNEBcbdE/6G53k9fJ2sh3AjKaxF6SIGXyqbx6QkvIxhI24bqDdvYmt
+	78udwB9MMzN96pVsWLuRHNjQ27ppAFocbLbTJkI7XD5e/YPRA10lHQEEwwLLTQyNmG89eQF9rNFAL
+	LdzGltSWmkYCn2gqbp/GTzNi+uUxPTs4Ybx0hBV/eo59A6ZFIR0CBd73gBmwCp088FhV++vIqAuq2
+	3cErFgDGuoKxcQuKqdoOKnmPT1fJi7d7psu1FgCL+ork+WGLcyrZgNpVOJ5d5wXyTHudTcxvfUxbw
+	7u67WenA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7FgM-00000007kUK-0hpt;
-	Tue, 22 Apr 2025 15:37:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7EUm-00000007T8P-2UlI
+	id 1u7FiD-00000007kxz-3qHb;
+	Tue, 22 Apr 2025 15:39:05 +0000
+Received: from relay2-d.mail.gandi.net ([217.70.183.194])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7EVR-00000007TEb-1Lkw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 14:21:10 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 56BF1152B;
-	Tue, 22 Apr 2025 07:21:03 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 485253F66E;
-	Tue, 22 Apr 2025 07:21:07 -0700 (PDT)
-Date: Tue, 22 Apr 2025 15:21:02 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Yabin Cui <yabinc@google.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Liang Kan <kan.liang@linux.intel.com>, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org
-Subject: Re: [PATCH 2/2] coresight: etm-perf: Add AUX_NON_CONTIGUOUS_PAGES to
- cs_etm PMU
-Message-ID: <20250422142102.GI28953@e132581.arm.com>
-References: <20250421215818.3800081-1-yabinc@google.com>
- <20250421215818.3800081-3-yabinc@google.com>
+	Tue, 22 Apr 2025 14:21:50 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id AE33E438C1;
+	Tue, 22 Apr 2025 14:21:46 +0000 (UTC)
+Received: from peko by dell.be.48ers.dk with local (Exim 4.96)
+	(envelope-from <peko@dell.be.48ers.dk>)
+	id 1u7EVN-009vHX-2k;
+	Tue, 22 Apr 2025 16:21:45 +0200
+From: Peter Korsgaard <peter@korsgaard.com>
+To: Praveen Teja Kundanala <praveen.teja.kundanala@amd.com>,
+	Kalyani Akula <kalyani.akula@amd.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Peter Korsgaard <peter@korsgaard.com>,
+	stable@vger.kernel.org,
+	Kalyani Akula <Kalyani.akula@amd.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] nvmem: zynqmp_nvmem: unbreak driver after cleanup
+Date: Tue, 22 Apr 2025 16:21:12 +0200
+Message-Id: <20250422142112.2364822-1-peter@korsgaard.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250421215818.3800081-3-yabinc@google.com>
+Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvgeefleeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffoggfgsedtkeertdertddtnecuhfhrohhmpefrvghtvghrucfmohhrshhgrggrrhguuceophgvthgvrheskhhorhhsghgrrghrugdrtghomheqnecuggftrfgrthhtvghrnhepveeiveethfelteelueelvdffieevgfdvtdeivdetuefgffdtvdeuffevheegffdunecukfhppedujeekrdduudelrddurddufeejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepudejkedrudduledruddrudefjedphhgvlhhopeguvghllhdrsggvrdegkegvrhhsrdgukhdpmhgrihhlfhhrohhmpehpvghkoheskhhorhhsghgrrghrugdrtghomhdpnhgspghrtghpthhtohepuddtpdhrtghpthhtohepshhrihhniheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepghhrvghgkhhhsehlihhnuhigfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtohepphgvthgvrheskhhorhhsghgrrghrugdrtghomhdprhgtphhtthhopehprhgrvhgvvghnrdhtvghjrgdrkhhunhgurghnrghlrgesrghmugdrtghomhdprhgtphhtthhopehkrghlhigrnhhirdgrkhhulhgrsegrmhgurdgtohhmpdhrtghpt
+ hhtohepmhhitghhrghlrdhsihhmvghksegrmhgurdgtohhmpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepshhtrggslhgvsehvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-GND-Sasl: peter@korsgaard.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_072108_677537_40488916 
-X-CRM114-Status: GOOD (  20.38  )
+X-CRM114-CacheID: sfid-20250422_072149_486913_343D6E32 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,45 +72,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 21, 2025 at 02:58:18PM -0700, Yabin Cui wrote:
-> The cs_etm PMU, regardless of the underlying trace sink (ETF, ETR or
-> TRBE), doesn't require contiguous pages for its AUX buffer.
+Commit 29be47fcd6a0 ("nvmem: zynqmp_nvmem: zynqmp_nvmem_probe cleanup")
+changed the driver to expect the device pointer to be passed as the
+"context", but in nvmem the context parameter comes from nvmem_config.priv
+which is never set - Leading to null pointer exceptions when the device is
+accessed.
 
-Though contiguous pages are not mandatory for TRBE, I would set the
-PERF_PMU_CAP_AUX_NO_SG flag for it.  This can potentially benefit
-performance.
+Fixes: 29be47fcd6a0 ("nvmem: zynqmp_nvmem: zynqmp_nvmem_probe cleanup")
+Cc: stable@vger.kernel.org
+Signed-off-by: Peter Korsgaard <peter@korsgaard.com>
+---
+Changes since v1:
+- Cc stable
 
-For non per CPU sinks, it is fine to allocate non-contiguous pages.
+ drivers/nvmem/zynqmp_nvmem.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-Thanks,
-Leo
+diff --git a/drivers/nvmem/zynqmp_nvmem.c b/drivers/nvmem/zynqmp_nvmem.c
+index 8682adaacd692..7da717d6c7faf 100644
+--- a/drivers/nvmem/zynqmp_nvmem.c
++++ b/drivers/nvmem/zynqmp_nvmem.c
+@@ -213,6 +213,7 @@ static int zynqmp_nvmem_probe(struct platform_device *pdev)
+ 	econfig.word_size = 1;
+ 	econfig.size = ZYNQMP_NVMEM_SIZE;
+ 	econfig.dev = dev;
++	econfig.priv = dev;
+ 	econfig.add_legacy_fixed_of_cells = true;
+ 	econfig.reg_read = zynqmp_nvmem_read;
+ 	econfig.reg_write = zynqmp_nvmem_write;
+-- 
+2.39.5
 
-> This patch adds the PERF_PMU_CAP_AUX_NON_CONTIGUOUS_PAGES capability
-> to the cs_etm PMU. This allows the kernel to allocate non-contiguous
-> pages for the AUX buffer, reducing memory fragmentation when using
-> cs_etm.
-> 
-> Signed-off-by: Yabin Cui <yabinc@google.com>
-> ---
->  drivers/hwtracing/coresight/coresight-etm-perf.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
-> index f4cccd68e625..c98646eca7f8 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm-perf.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
-> @@ -899,7 +899,8 @@ int __init etm_perf_init(void)
->  	int ret;
->  
->  	etm_pmu.capabilities		= (PERF_PMU_CAP_EXCLUSIVE |
-> -					   PERF_PMU_CAP_ITRACE);
-> +					   PERF_PMU_CAP_ITRACE |
-> +					   PERF_PMU_CAP_AUX_NON_CONTIGUOUS_PAGES);
->  
->  	etm_pmu.attr_groups		= etm_pmu_attr_groups;
->  	etm_pmu.task_ctx_nr		= perf_sw_context;
-> -- 
-> 2.49.0.805.g082f7c87e0-goog
-> 
-> 
 
