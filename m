@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 656DBC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 00:17:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11126C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 00:34:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dtlE8n852ESlBd0Jmsf8siXOlSR5oed0ZYISsStED1w=; b=Y/4NVy9pehuexXdVeb5l9F7BPb
-	HDydqr+s/cWJN/Fr97lyPSsB4kwnzdMe/6qXD4gFvW5E5roFZRJbtO5J26PAxZptgKqCrptCPd20h
-	zPyTf5fwlIHvzviB2D2IMPVzOOriXRz5WopBBU8i6f7LR0n4Cq/UGq96t+X7QO/P7iX1oSyUMnCcg
-	E3SB194LFoQRgl9kzrhK2cKbkWtjLYAwE2xhAEJud43vTwneSDCZ4Um9ofBk2B1dLjKh+bUAFCG75
-	eGKma5fo3o04EjsI2nzQWzOmV2uS7eEh6urkcGc+PrXSGIGYT+hqn71VpemWREbYRHXF29M3pazBV
-	S+eJcM0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iCw6Dt3slKkxmbR6KL74m3SMvxMIomnJTYsCAq+YeBg=; b=Qo6UJkpcrtVO6upCXuOOjj5mIR
+	gm/Bgi0vaLylhOQ05A4/DD+DgwI4TgT9zBXQHVMuxy3neUkc89vylCKOeYqCrFsvDdGvZ0QJli/81
+	00YUZ/zzCT9W+1gJo+1dPNuwAYLwZwtGrq1/xSr2wqomBUqCtYMrEfyNq6nkVPpAhp+r39nC+jtne
+	z8B9IFJiVhWFVsFH0Tyhmx1PQpiP2URwr5GjXE9S04wDo5gZ6pes2DNgfs9lelMtenpDfYr7JiF0C
+	zSNMXV08zTcYusVXAPbTSTvzw/1CN+/NA1dtE/CONKXj20Qyf2OmIKfQ5u15rVe+JiiAJIAnc7Lgs
+	2njHQHbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u71KJ-00000005SDg-1tpZ;
-	Tue, 22 Apr 2025 00:17:27 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1u71aT-00000005TRZ-0maR;
+	Tue, 22 Apr 2025 00:34:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u71C4-00000005RSF-2wyC
+	id 1u71Yc-00000005THU-3jNg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 00:08:58 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53M08qDO1715195
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 21 Apr 2025 19:08:52 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745280532;
-	bh=dtlE8n852ESlBd0Jmsf8siXOlSR5oed0ZYISsStED1w=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=WSdLi1seRiEqJoSO6rWoxwrAcgwnJ2uuDIS9li7G/xtYDUOxP7Ra1tV6r9/W4cz6R
-	 00X4vqxZB1xaqUBeoOt829oCIxm5CtWWmcjTRiL/JLXk/Vj6jnJa9OUonVEoChWgWF
-	 yXMNCJCI6z3+KeaNly0OnXjShUN5iy8Xb4lM1eaw=
-Received: from DFLE108.ent.ti.com (dfle108.ent.ti.com [10.64.6.29])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53M08q62079762
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 21 Apr 2025 19:08:52 -0500
-Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE108.ent.ti.com
- (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 21
- Apr 2025 19:08:52 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE113.ent.ti.com
- (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 21 Apr 2025 19:08:51 -0500
-Received: from judy-hp.dhcp.ti.com (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53M08pDG065170;
-	Mon, 21 Apr 2025 19:08:52 -0500
-From: Judith Mendez <jm@ti.com>
-To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>
-CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: [PATCH 2/3] arm64: dts: ti: k3-am62a7-sk: Enable PWM
-Date: Mon, 21 Apr 2025 19:08:50 -0500
-Message-ID: <20250422000851.4118545-3-jm@ti.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250422000851.4118545-1-jm@ti.com>
-References: <20250422000851.4118545-1-jm@ti.com>
+	Tue, 22 Apr 2025 00:32:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id F34BC6116E
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 00:31:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0687C4AF0B
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 00:32:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745281933;
+	bh=iCw6Dt3slKkxmbR6KL74m3SMvxMIomnJTYsCAq+YeBg=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=msHJv8ojdvklSGKAN+h24sVK1+CKXsEjLe0nT/NMXSqc4ytGw95ks0WccZjBBaj+Q
+	 A+khtAeSICUYY83qGO+smNsp6O/lZZe7lshRfeknFfdiWv0HCCf/ataTspOl6BDJJx
+	 h4ysDE88Pq+QT1Re3rey8ZsGFcTAPAnTg6zomY7mw9sl8MWkr4L2k3kv9hxvBg7OIV
+	 Zl1d8wYhFcYsajdw+dweGScy7WzweCLkMo7a0O6qGXwxLRgKasG7w2faC5kNo41vj7
+	 bRCvLxN/ha3FBcg9hEq3mDZwZZhbaWVGvYD4LtDkj/ZGk/Ry0U/zhoNHGbWrXypfha
+	 BFvo1ypR8sn8g==
+Received: by mail-qt1-f174.google.com with SMTP id d75a77b69052e-476b89782c3so53972241cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Apr 2025 17:32:13 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCV0Qi/FICEe8J30lqkgTGyDcu+ca1zMFtCwBKRIj/DjptNcs1VpUU4zt//akDC+G15UNvvYI3LQ+bB0u3pjo9zN@lists.infradead.org
+X-Gm-Message-State: AOJu0YwSHr0STSdNyTNM6p9bDiDn4b6EP83deIk8nBV0zb70RMEbky+P
+	IdIacygIGfhqR+s2tYxF0vBYa1vlnbeXzyDyqIpbHCegr0QI2qs9N6SwTillxHHu94zhDmPM4k6
+	AEUpA+iGfxU4duxetiqUdODf0Hf0=
+X-Google-Smtp-Source: AGHT+IGaL+oVXQ+0FqVmw9bQumaSFF+4x9KoZGhd6tnMCmCAgtcpexZZgw6KB9L19Vn+Vxy54SDS7aSUKuKUDl3eZG8=
+X-Received: by 2002:a05:622a:13d1:b0:476:8288:955f with SMTP id
+ d75a77b69052e-47aec3541fdmr256753991cf.8.1745281933032; Mon, 21 Apr 2025
+ 17:32:13 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_170856_829938_748DF244 
-X-CRM114-Status: GOOD (  10.90  )
+References: <20250412010940.1686376-1-dylanbhatch@google.com> <20250412010940.1686376-2-dylanbhatch@google.com>
+In-Reply-To: <20250412010940.1686376-2-dylanbhatch@google.com>
+From: Song Liu <song@kernel.org>
+Date: Mon, 21 Apr 2025 17:32:01 -0700
+X-Gmail-Original-Message-ID: <CAPhsuW4=dr1Zq5to-JVqHsvaKcg4V2MbJf7i_C=erfAG1XuD6w@mail.gmail.com>
+X-Gm-Features: ATxdqUHiMCb3QBWfl3iq-hKAxCkLsWmEI2O_8MQLyC5Njubt0SDDzPTeNGE0enc
+Message-ID: <CAPhsuW4=dr1Zq5to-JVqHsvaKcg4V2MbJf7i_C=erfAG1XuD6w@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] arm64: patching: Rename aarch64_insn_copy to text_poke.
+To: Dylan Hatch <dylanbhatch@google.com>
+Cc: Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
+	Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, 
+	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
+	Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
+	Xu Kuohai <xukuohai@huaweicloud.com>, =?UTF-8?Q?Philippe_Mathieu=2DDaud=C3=A9?= <philmd@linaro.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	"Mike Rapoport (Microsoft)" <rppt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Luis Chamberlain <mcgrof@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Ard Biesheuvel <ardb@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Roman Gushchin <roman.gushchin@linux.dev>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,71 +90,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PWM signals can be routed to the user expansion header on am62a7
-SK. Enable eCAP0, eCAP1, eHRPWM1, and route the output PWM signals
-to pins on J3 header.
+On Fri, Apr 11, 2025 at 6:10=E2=80=AFPM Dylan Hatch <dylanbhatch@google.com=
+> wrote:
+>
+> Match the name and signature of the equivalent in the x86 text-poke API.
+> Making the src pointer const also allows this function to be
+> interchangeable with memcpy().
+>
+> Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
 
-Signed-off-by: Judith Mendez <jm@ti.com>
----
- arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 40 +++++++++++++++++++++++++
- 1 file changed, 40 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-index 1c9d95696c839..a9557ee73b831 100644
---- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-@@ -383,6 +383,25 @@ vddshv_sdio_pins_default: vddshv-sdio-default-pins {
- 			AM62AX_IOPAD(0x07c, PIN_OUTPUT, 7) /* (M19) GPMC0_CLK.GPIO0_31 */
- 		>;
- 	};
-+
-+	main_ecap0_pins_default: main-ecap0-default-pins {
-+		pinctrl-single,pins = <
-+			AM62AX_IOPAD(0x01b8, PIN_OUTPUT, 3) /* (C16) SPI0_CS1.ECAP0_IN_APWM_OUT */
-+		>;
-+	};
-+
-+	main_ecap2_pins_default: main-ecap2-default-pins {
-+		pinctrl-single,pins = <
-+			AM62AX_IOPAD(0x01a4, PIN_OUTPUT, 2) /* (A19) MCASP0_ACLKX.ECAP2_IN_APWM_OUT */
-+		>;
-+	};
-+
-+	main_epwm1_pins_default: main-epwm1-default-pins {
-+		pinctrl-single,pins = <
-+			AM62AX_IOPAD(0x019c, PIN_OUTPUT, 6) /* (B18) MCASP0_AXR1.EHRPWM1_A */
-+			AM62AX_IOPAD(0x01a0, PIN_OUTPUT, 6) /* (B20) MCASP0_AXR0.EHRPWM1_B */
-+		>;
-+	};
- };
- 
- &mcu_pmx0 {
-@@ -741,3 +760,24 @@ dpi1_out: endpoint {
- 		};
- 	};
- };
-+
-+&ecap0 {
-+	/* P26 of J3 */
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_ecap0_pins_default>;
-+	status = "okay";
-+};
-+
-+&ecap2 {
-+	/* P11 of J3 */
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_ecap2_pins_default>;
-+	status = "okay";
-+};
-+
-+&epwm1 {
-+	/* P36/P33 of J3 */
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_epwm1_pins_default>;
-+	status = "okay";
-+};
--- 
-2.49.0
-
+Acked-by: Song Liu <song@kernel.org>
 
