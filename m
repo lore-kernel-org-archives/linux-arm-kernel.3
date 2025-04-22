@@ -4,66 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82223C369D7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 14:05:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF5F7C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 14:07:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cTzRbkM6e3CdpYQF8r9G7TR3PmD/Whi+UBdMJ87yaKg=; b=Glj1yfNUpd9T9mA4qNCWigafhA
-	RlE/Xk/yArahYvKlTJLMPtfrMoHpy1grhqRNj0MKgEzcWHi7RC3MMVhqUt3xtSH/epYIpEU5xEVFW
-	r1wtyXIMa3AG/KIBdqxUZC4sigsWSSH1v3fHEtUZig9u71QJLNlbrdJBZrEX4YH/l2EQPMA+A6TlN
-	6xINkvWQL8suSlbB+xvVh+qwxgpMA8Npb3EGjW3P9kIyJeRaT24imi6L2zn43UhTj12BionxCMgZb
-	nGR9rlP0P0B/jE/R+lbapk6AQeaYwRO5zb7GMNXfp9fFMppyggpGDpZVtKs0y2r1RJDzSb22Z1cZP
-	QAtNqL0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OESczEWyRg3nQJ4q115jWIpffP9PsNM3FPPXtUS8LDs=; b=SjbBXhDXM6vSy1Rt5iVW6zm3g3
+	yNRZSKW0AXbYpVq9Ca/5T4Qs6XgQVYeQj2rB63v1gXOt4jnYSF8FbwXoewrMQLvRfrKXQJ8oUY9Yo
+	qgpHZNofHmAOhTI0alEmcNGCaBzcx2K73Z+q48r7hSgmFGQKHyOYAiQn2Au5NH7tRayI5UmNZ8wRm
+	XjdX4oaTCrQcJjQnJ3cUyEcQRd/YGvPwGIOARi4GFFLzdWUYLW+MA0IB1zYOqXf2ojJ9ndx/ZD70i
+	IUG31XQTLj0Y0TSvgULoD9aKi0I2mOisXnKnnyRYQTSWlBnIAVB6C92/ZKxD3pjKRZ1JsRDVo4FeX
+	5FjWpueQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7EFa-00000007QI1-2P85;
-	Tue, 22 Apr 2025 14:05:26 +0000
-Received: from m16.mail.163.com ([220.197.31.4])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Cuz-000000079bj-2q3v;
-	Tue, 22 Apr 2025 12:40:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:From:
-	Content-Type; bh=cTzRbkM6e3CdpYQF8r9G7TR3PmD/Whi+UBdMJ87yaKg=;
-	b=YHAcsb4fCK+mVs+1/RIOX/B33lTJigwJNK+2WBDz1r5I+AClbmRQdt8ZlhkDh+
-	ix5NqovTJVvcMtB0lpVnPFfzXQv4sGRMwQAxFP84cihao5McHAVGDyoW+cePu805
-	xoqmadSKC3tc/MfUt7C0Kzd+dxrXbqhDuLCy/zNivic4A=
-Received: from [192.168.142.52] (unknown [])
-	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wC3NeXvjQdo93IeBw--.12901S2;
-	Tue, 22 Apr 2025 20:39:12 +0800 (CST)
-Message-ID: <047950c0-fcf0-428a-8ca1-dff0a6f944cd@163.com>
-Date: Tue, 22 Apr 2025 20:39:11 +0800
+	id 1u7EHQ-00000007Qcx-1m23;
+	Tue, 22 Apr 2025 14:07:20 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7D1W-00000007B3t-1otw
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 22 Apr 2025 12:46:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZAwMBOqjeA7h1m0ddrxXAVTt/NnU90Xmp5FDI0L9LQn3fVjAYfIqSSlQlS1Kfgj1iLEeZOcuAvqJOtt8svndxKlp+oYU0RCJNxJfW4XkP0gGjrKbHirw2roUkgbek+twRaZhWFHgPe65cR/b7LR54nVbPvm5TcU2LSQEVlQPxvnAE6kT1HA2gppRt/qo4c6OKiQPXmqEMSJiEc4fsJVW8TlV7oxIMgXwisUnj0+RPi55QYTDmXmTUX4TWM/tgmV5c2TCT0xPrl+qy8ri0re2/NE1gblY2vVC5Xdw6yk5l6ODPvj+T6qTT0hnX04Z6DlHbadAwJThqFN1e5Sf+FX62Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OESczEWyRg3nQJ4q115jWIpffP9PsNM3FPPXtUS8LDs=;
+ b=d0yjbQxxQnYq7wGZb26DonGTxjXEx9zqIr4LR/KatiBdTABPeOtJoap6kaehU0MFK0fUIOq2xr+pEJz+YdoJcUGx3r61t2t88Lrzz5m4HAfzun/C5cTx6s6J5YKsgFKiRXf+cTfcogEb5Akfdem79CiG2sviOBbyx2r/6j8nNOnyrMttQZocvqAWw38xL3V+ywbBPI4824MbQwXSHmFUr25qE07Lva/7lCgNO4MwZkWNV9YL/Zd7mAHXPRxkB/Rb58xJTTWdc0bcT8FF3NT/pDRS+nHiyNnC44Po0iofFn+8+A5ZUg3vidbNtY0wlmhJrB/iSnwBiWlNh/L/2QUPww==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mt.com; dmarc=pass action=none header.from=mt.com; dkim=pass
+ header.d=mt.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mt.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=OESczEWyRg3nQJ4q115jWIpffP9PsNM3FPPXtUS8LDs=;
+ b=EWejvqhkznLBvDlGfYE9M5nqgwefzQNE+AQTfWfEJonEmZNKm4NOCkT+K0a/QkEK7yv3HlIUtzmKijfvYXiuENyW7+9GlZxQACoXVtS/Hwxopiub77gKqsLDAkEs4Yi0HRClEBjDvyakm4S4/Bt3dl41mNEam4jCDaO2DtaSJ3QnIkXuV4mtTXvvwryi0dr011ubeTRIZDt1MZEAuWjG0+Iq8jMDrvKOzjTsYfEuSmq9eZEa5+q6M1WQhQFOCGVo/yKzKYHVtls1+iWisWSPu8wytZoRGX87G2FSjwf9IoeHyYSbBwmrMlTdkLa96AX2kqYJLEskehiOhBXoMb0iPw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mt.com;
+Received: from DB7PR03MB3723.eurprd03.prod.outlook.com (2603:10a6:5:6::24) by
+ AS8PR03MB6869.eurprd03.prod.outlook.com (2603:10a6:20b:23f::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.35; Tue, 22 Apr
+ 2025 12:46:40 +0000
+Received: from DB7PR03MB3723.eurprd03.prod.outlook.com
+ ([fe80::c4b9:3d44:256f:b068]) by DB7PR03MB3723.eurprd03.prod.outlook.com
+ ([fe80::c4b9:3d44:256f:b068%4]) with mapi id 15.20.8678.021; Tue, 22 Apr 2025
+ 12:46:40 +0000
+From: Wojciech Dubowik <Wojciech.Dubowik@mt.com>
+To: linux-kernel@vger.kernel.org
+Cc: Wojciech Dubowik <Wojciech.Dubowik@mt.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Francesco Dolcini <francesco@dolcini.it>,
+	Philippe Schenker <philippe.schenker@impulsing.ch>,
+	stable@vger.kernel.org
+Subject: [PATCH v2] arm64: dts: imx8mm-verdin: Link reg_usdhc2_vqmmc to usdhc2
+Date: Tue, 22 Apr 2025 14:46:15 +0200
+Message-ID: <20250422124619.713235-1-Wojciech.Dubowik@mt.com>
+X-Mailer: git-send-email 2.47.2
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: ZR0P278CA0137.CHEP278.PROD.OUTLOOK.COM
+ (2603:10a6:910:40::16) To DB7PR03MB3723.eurprd03.prod.outlook.com
+ (2603:10a6:5:6::24)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] PCI: dw-rockchip: Reorganize register and bitfield
- definitions
-To: Niklas Cassel <cassel@kernel.org>
-Cc: lpieralisi@kernel.org, kw@linux.com, bhelgaas@google.com,
- heiko@sntech.de, manivannan.sadhasivam@linaro.org, robh@kernel.org,
- jingoohan1@gmail.com, shawn.lin@rock-chips.com, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-References: <20250422112830.204374-1-18255117159@163.com>
- <20250422112830.204374-3-18255117159@163.com> <aAeL_Wr42ETm7S96@ryzen>
-Content-Language: en-US
-From: Hans Zhang <18255117159@163.com>
-In-Reply-To: <aAeL_Wr42ETm7S96@ryzen>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: _____wC3NeXvjQdo93IeBw--.12901S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxWFW7ArW8CF18Xr4kuF4UArb_yoWrJrW8pa
-	98JFySkrs8J3y5Cw1vg3Z8JFyxtF4fKFWjgrWSgrWUC3Z5A3W8Gr18KF15WFy2qr4kur1S
-	93s8W34agFZxCrDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07Ul-erUUUUU=
-X-Originating-IP: [61.171.199.116]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/1tbiOhQ3o2gHi1dc-QAAso
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB7PR03MB3723:EE_|AS8PR03MB6869:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3286cfc2-fbd9-4240-0314-08dd819bba1a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|7416014|376014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?B4fW4arMcI93A2wIvCeWn6JUci4Rg3T8XzVK9tjAvxaQbPO+wYGB8nZXuqKn?=
+ =?us-ascii?Q?pnbwX0HMYHnCvJ+PhqTeF5nVJApmU87+CwH0ymD/nruQ0l+IkdVBkgpnjmQP?=
+ =?us-ascii?Q?HV5Gh7VEL9/CK5urKwvO4tcZX+JBDTYjB/4AIZonN2dC6k8kDR3hG256UXWb?=
+ =?us-ascii?Q?M2u7DY+DPEwMi4vLTv4RvdrW070B9A4GH0S79fVAdFk0An+7v/Tr7OrM5yDV?=
+ =?us-ascii?Q?Zpc9X+Lx+iqiYJrM6AEQFl1CvyqkB6GonMlzUXtZOyuwR8LMDtbnupOE7fat?=
+ =?us-ascii?Q?LVyyXMkLfJbplHhzB/mJRSBwX4xO8P5fZXs/TW4W+hE0RNiRL5E0qim2HQtw?=
+ =?us-ascii?Q?vW0Mr7GwCdGMJL2NPmxhBhO4L3j7s0prjKzWDYtCvOqC4PGHtg1n6UKovbDW?=
+ =?us-ascii?Q?nok7lTeOsZnqltfZZd+iOsh1fPnVAbhFcIrpQiJZWhGa6xzXNETiJKxg2jkX?=
+ =?us-ascii?Q?D4UOsRcpk4G1uXvTmqYX6cSbYn6/7QwlgmwrFWIssUhy8Bs0KxfRTf8t0z9c?=
+ =?us-ascii?Q?GodkBYRbAYgeu9ZpuSIBzMwY0OtV2yaUeUxqlt/wpgcJ7tGu3Jvg48S9Vi0S?=
+ =?us-ascii?Q?XalCsCIOWjcMdpR0LYJ5mmX7jh65VPoekhLqrdsjOttZzwUfRoBd2WQzdtlc?=
+ =?us-ascii?Q?EMVADyM/JgcsqHJGtLH8/q7bSkjPv7/YE6s7dplI9Eah2nV9bWW5tzO6VGY5?=
+ =?us-ascii?Q?i3p2DATnk9VZ/4nrRbIREUWtln4TIfmvRuO9MChkU6KSg5U/CuUnBSPSin22?=
+ =?us-ascii?Q?Ungn6HW5C8Ivh9LWsqn8ZIt9YTGfv5lHUSVcUAepL7UNG5QYrD0EMDABytfK?=
+ =?us-ascii?Q?RDX5cFD5wfJdtv2/QoB+qE4Afwv0BeJ389SkSFdoF3GcyTUku5bTuoPTSPH7?=
+ =?us-ascii?Q?dnlbUJZjN9fdYwp0B1WkPUSSCyvxCprfF2QvjTElH5iQwMDtR1P3JxQBF4lk?=
+ =?us-ascii?Q?xBjUbX+eS0t4qNy419wzIIfK+AA5EAIVh88LK0V/qnkrdeoVBg4VmIMcLwpm?=
+ =?us-ascii?Q?Lp1ex88wxGBzDkRPKF5opkJKRDVY6BfNoe3Qvrmc7Hr1h6dzCPvH/msJBFY1?=
+ =?us-ascii?Q?iTPHG1F6KLfZ/oftY443wCkE5+55IiexW7vkfT+Nhjizza2DndQujUOPk8d2?=
+ =?us-ascii?Q?gwbgxjIbPZ/dQZYERreAZkNH5zFx9f+eMGmED5wXrFvCijTIgjK0bU70X41i?=
+ =?us-ascii?Q?1EA1qV43PaWMYTmgQm2JBxHJMTc1ZM1BXgeHgHOvTjJJPsZp2MgL4bbuMCLs?=
+ =?us-ascii?Q?Ms9dtU7+N6/5NHN/+HiUjvg4nV6fITvSsj5zORab1JkL6fOTOHLX46pRF7Fn?=
+ =?us-ascii?Q?NdF6Sgp8Rtxa+Zj56k4Eh7NYE524EcP7voSyYLlkGfUCKc4nooNsIVYtET45?=
+ =?us-ascii?Q?Ee2ch8aKoQDNMPWUtPCrXTXaHVxjG0r+vID2AsAAJ8ceXgjPZuWnw300vUEG?=
+ =?us-ascii?Q?3ZSqBsnliAwRVPbkUPedAzx7c99Zqjm2rZTBrnGcW6LugbzTFl80x8tGHmQL?=
+ =?us-ascii?Q?DZxY0J9u2FDvYB8=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB7PR03MB3723.eurprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(7416014)(376014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?FXOjt3cypIv9BsfDWei1iqc5v8g8SkRocFKppAoe8iA4ak42u2U6T+9cwGJy?=
+ =?us-ascii?Q?EQjviS/3Jd+QOk76gZF1YkBxqhmjdxGfOEjBsVtS5U3OsW8Kz0k6XZkZwRlL?=
+ =?us-ascii?Q?D0xD3EcTLO5nHjtkt4+rcXn6i3qKRWEj3nXjdaGEaFlKylmkBoPECCXJZ3cM?=
+ =?us-ascii?Q?v3HREKhkOSvBk6LxIsvR0yos2qzGjj6OPxRDIklLV/b/pbZOxPc5IZ02xYG5?=
+ =?us-ascii?Q?T1oRT1txXaluzfiAl4+ZuA9Pzvpge+WELI2ooPl/ynbAizTiwsuBPEgXvKOj?=
+ =?us-ascii?Q?wRkWR5WZQf4WDcrbwhZfAZ9RFDbb3vYX9uw5G+3LGepW6wJvGZz0vJiHNlZv?=
+ =?us-ascii?Q?aIkQPc7eSSJ09jco1mykvmnh238jF+CbH73sZpE5/lZVBfqwJaHWFyy3eDiX?=
+ =?us-ascii?Q?EiujjgqrQFFo5qKmymrvqSsnxopCBCOF3q+ymyQz8oxZ9krRLDcIwcu0OrYH?=
+ =?us-ascii?Q?P7Iuq4QL71opSuS+oyGWayVI3J+9ui6JIWhV+t7gd+Ukfe90ABcXe80t0kin?=
+ =?us-ascii?Q?3AsOSrxNksKkD9UDM3GKm++gJ8yP7vxt/4h918OBxmcbvpEl4AlefgTmE+/M?=
+ =?us-ascii?Q?yA49p9pF/mCFbjJVZWu+dtDV02dRH4kM7K2Rl5EYK2wNc4P6ltj4HigCgphO?=
+ =?us-ascii?Q?uKxTcZaMH6J+kdEF8fJNWW4dRqMylpYox5sWeG6tUkvAT6b+hGSyb+3wOnhP?=
+ =?us-ascii?Q?xo5HSdkvGQU7S287/O7IOxgWOpol3dVdR7WF16BQZt/Q2WX5oP1g+1NJHI7f?=
+ =?us-ascii?Q?8zup2C2Dh2PsUij3uxvZ+xZhP/SA1CdZjTj5ZNU1QyJv0ZbdMFQlyKuy3m8z?=
+ =?us-ascii?Q?xTqgV7Mz7TGuKPWUhHiFt/L1XUqc6BKpTZjw61VpAkFFRPqxCkfmSRL9Amu6?=
+ =?us-ascii?Q?G/QN6uDHNmcCc1XR0q/3Ha+crs+nCJNmir8JfMFWNAdHjWS3Nz7vq6PDrRgL?=
+ =?us-ascii?Q?0o2G2FUT81RgYDs616XV3QLcVmIsgzINHGVCgGE67zcxI9ZIJXGyhhHoB5Im?=
+ =?us-ascii?Q?Ce8HW9FH5qy1n1eGdHkBUjogvA1667UVFzCAyy1nWcSMQ0A/GBZ88oGbDkij?=
+ =?us-ascii?Q?23HZuRfN2twnltRgGp1/vBUYDK3wrCrAvve639NA6Je6h1v28xpE9WrYUNKq?=
+ =?us-ascii?Q?AXiPH5PFV5PSzfY0oKKi5C30IKR5yvIaO1s44hgAtXBZP8GQ7qeqVo66L4gm?=
+ =?us-ascii?Q?ew3yv+jQHzCZE2exOEhzI8gEZTXXoah+Rvq/kcnQdUb5UnlbKbO2etc0EP/0?=
+ =?us-ascii?Q?mUXpSMuQujbPZRZQE3jEGLr/2tnmQqHz+1YdiUtjXdqRY46Y1nEXn0j2aWko?=
+ =?us-ascii?Q?1s4lSuSZPc4dAfFvJah/wvoKcH0Hb9PiSTewvU5QRcQGlmt9pv4P0c6MbSVy?=
+ =?us-ascii?Q?yJcXaH0JDUs8EZVsT/mcPqNP/AxQCKPmxu2UugQOX7OLO4Dl/YGIpsJgEEFD?=
+ =?us-ascii?Q?c99K1+zC3LNEnJZ2rDlEDf8lyuRWQdxicJtzwYQ6PD+rxvh9IMcWCodlKXlM?=
+ =?us-ascii?Q?xLMpCpDDcXhYiRVRiHgmuBuInqGXOoXQl9AwwHxu0dB95k22SrkGVHr6dAZx?=
+ =?us-ascii?Q?d0GsFGpWDMk3V0c/Ic2pCiZ9o3v0YN/jApNhT7NJ?=
+X-OriginatorOrg: mt.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3286cfc2-fbd9-4240-0314-08dd819bba1a
+X-MS-Exchange-CrossTenant-AuthSource: DB7PR03MB3723.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Apr 2025 12:46:40.2574
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: fb4c0aee-6cd2-482f-a1a5-717e7c02496b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: j5+4NVD5/XX2j4STWcJbDab0KGU7sCgn8OuHrfB16JKyhiglVWxQGhYnzxd8k2H1zReCMzB8YOziMcXIZBBOkw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR03MB6869
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_054006_089642_33E193CB 
-X-CRM114-Status: GOOD (  21.15  )
+X-CRM114-CacheID: sfid-20250422_054650_698801_F0E60889 
+X-CRM114-Status: GOOD (  10.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,104 +167,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Define vqmmc regulator-gpio for usdhc2 with vin-supply
+coming from LDO5.
 
+Without this definition LDO5 will be powered down, disabling
+SD card after bootup. This has been introduced in commit
+f5aab0438ef1 ("regulator: pca9450: Fix enable register for LDO5").
 
-On 2025/4/22 20:30, Niklas Cassel wrote:
-> On Tue, Apr 22, 2025 at 07:28:29PM +0800, Hans Zhang wrote:
->> Register definitions were scattered with ambiguous names (e.g.,
->> PCIE_RDLH_LINK_UP_CHGED in PCIE_CLIENT_INTR_STATUS_MISC) and lacked
->> hierarchical grouping. Magic values for bit operations reduced code
->> clarity.
->>
->> Group registers and their associated bitfields logically. This improves
->> maintainability and aligns the code with hardware documentation.
->>
->> Signed-off-by: Hans Zhang <18255117159@163.com>
->> ---
->>   drivers/pci/controller/dwc/pcie-dw-rockchip.c | 42 +++++++++++--------
->>   1 file changed, 24 insertions(+), 18 deletions(-)
->>
->> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
->> index fd5827bbfae3..cdc8afc6cfc1 100644
->> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
->> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
->> @@ -8,6 +8,7 @@
->>    * Author: Simon Xue <xxm@rock-chips.com>
->>    */
->>   
->> +#include <linux/bitfield.h>
->>   #include <linux/clk.h>
->>   #include <linux/gpio/consumer.h>
->>   #include <linux/irqchip/chained_irq.h>
->> @@ -34,30 +35,35 @@
->>   
->>   #define to_rockchip_pcie(x) dev_get_drvdata((x)->dev)
->>   
->> -#define PCIE_CLIENT_RC_MODE		HIWORD_UPDATE_BIT(0x40)
->> -#define PCIE_CLIENT_EP_MODE		HIWORD_UPDATE(0xf0, 0x0)
->> -#define PCIE_CLIENT_ENABLE_LTSSM	HIWORD_UPDATE_BIT(0xc)
->> -#define PCIE_CLIENT_DISABLE_LTSSM	HIWORD_UPDATE(0x0c, 0x8)
->> -#define PCIE_CLIENT_INTR_STATUS_MSG_RX	0x04
->> +#define PCIE_CLIENT_GENERAL_CONTROL	0x0
->> +#define  PCIE_CLIENT_RC_MODE		HIWORD_UPDATE_BIT(0x40)
->> +#define  PCIE_CLIENT_EP_MODE		HIWORD_UPDATE(0xf0, 0x0)
->> +#define  PCIE_CLIENT_ENABLE_LTSSM	HIWORD_UPDATE_BIT(0xc)
->> +#define  PCIE_CLIENT_DISABLE_LTSSM	HIWORD_UPDATE(0x0c, 0x8)
->> +
->> +#define PCIE_CLIENT_INTR_STATUS_MSG_RX	0x4
->> +#define PCIE_CLIENT_INTR_STATUS_LEGACY	0x8
->> +
->>   #define PCIE_CLIENT_INTR_STATUS_MISC	0x10
->> +#define  PCIE_RDLH_LINK_UP_CHGED	BIT(1)
->> +#define  PCIE_LINK_REQ_RST_NOT_INT	BIT(2)
->> +
->> +#define PCIE_CLIENT_INTR_MASK_LEGACY	0x1c
->>   #define PCIE_CLIENT_INTR_MASK_MISC	0x24
->> +
->>   #define PCIE_CLIENT_POWER		0x2c
->> +#define  PME_READY_ENTER_L23		BIT(3)
->> +
->>   #define PCIE_CLIENT_MSG_GEN		0x34
->> -#define PME_READY_ENTER_L23		BIT(3)
->> -#define PME_TURN_OFF			(BIT(4) | BIT(20))
->> -#define PME_TO_ACK			(BIT(9) | BIT(25))
->> -#define PCIE_SMLH_LINKUP		BIT(16)
->> -#define PCIE_RDLH_LINKUP		BIT(17)
->> -#define PCIE_LINKUP			(PCIE_SMLH_LINKUP | PCIE_RDLH_LINKUP)
-> 
-> This patch removes PCIE_LINKUP, without adding it somewhere else
-> so I don't think this patch will compile.
-> 
-> I think the removal of this line has to be in patch 3/3.
-> 
+Fixes: f5aab0438ef1 ("regulator: pca9450: Fix enable register for LDO5")
 
-Hi Niklas,
+Cc: stable@vger.kernel.org
+Signed-off-by: Wojciech Dubowik <Wojciech.Dubowik@mt.com>
+---
+v1 -> v2: https://lore.kernel.org/all/20250417112012.785420-1-Wojciech.Dubowik@mt.com/
+ - define gpio regulator for LDO5 vin controlled by vselect signal
+---
+ .../boot/dts/freescale/imx8mm-verdin.dtsi     | 23 +++++++++++++++----
+ 1 file changed, 19 insertions(+), 4 deletions(-)
 
-Thank you very much for your reply.  Yes, I replied to you in patch 0003.
-
-> 
-> 
-> Also, I think that Bjorn's primary concern:
-> """
-> The #defines for register offsets and bits are kind of a mess,
-> e.g., PCIE_SMLH_LINKUP, PCIE_RDLH_LINKUP, PCIE_LINKUP,
-> PCIE_L0S_ENTRY, and PCIE_LTSSM_STATUS_MASK are in
-> PCIE_CLIENT_LTSSM_STATUS, but you couldn't tell that from the
-> names, and they're not even defined together.
-> """"
-> 
-> is that the fields are not prefixed with the register name.
-> 
-> the secondary concern is that they are not grouped together.
-> 
-> This patch is just solving the secondary concern.
-> 
-> Since you are fixing his secondary concern, should you perhaps also
-> address his primary concern?
-
-Ok. I missed this problem and I will fix it in the next version.
-
-Best regards,
-Hans
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
+index 7251ad3a0017..9b56a36c5f77 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
+@@ -144,6 +144,19 @@ reg_usdhc2_vmmc: regulator-usdhc2 {
+ 		startup-delay-us = <20000>;
+ 	};
+ 
++	reg_usdhc2_vqmmc: regulator-usdhc2-vqmmc {
++		compatible = "regulator-gpio";
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_usdhc2_vsel>;
++		gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
++		regulator-max-microvolt = <3300000>;
++		regulator-min-microvolt = <1800000>;
++		states = <1800000 0x1>,
++			 <3300000 0x0>;
++		regulator-name = "PMIC_USDHC_VSELECT";
++		vin-supply = <&reg_nvcc_sd>;
++	};
++
+ 	reserved-memory {
+ 		#address-cells = <2>;
+ 		#size-cells = <2>;
+@@ -785,6 +798,7 @@ &usdhc2 {
+ 	pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_cd>;
+ 	pinctrl-3 = <&pinctrl_usdhc2_sleep>, <&pinctrl_usdhc2_cd_sleep>;
+ 	vmmc-supply = <&reg_usdhc2_vmmc>;
++	vqmmc-supply = <&reg_usdhc2_vqmmc>;
+ };
+ 
+ &wdog1 {
+@@ -1206,13 +1220,17 @@ pinctrl_usdhc2_pwr_en: usdhc2pwrengrp {
+ 			<MX8MM_IOMUXC_NAND_CLE_GPIO3_IO5		0x6>;	/* SODIMM 76 */
+ 	};
+ 
++	pinctrl_usdhc2_vsel: usdhc2vselgrp {
++		fsl,pins =
++			<MX8MM_IOMUXC_GPIO1_IO04_USDHC2_VSELECT	0x10>; /* PMIC_USDHC_VSELECT */
++	};
++
+ 	/*
+ 	 * Note: Due to ERR050080 we use discrete external on-module resistors pulling-up to the
+ 	 * on-module +V3.3_1.8_SD (LDO5) rail and explicitly disable the internal pull-ups here.
+ 	 */
+ 	pinctrl_usdhc2: usdhc2grp {
+ 		fsl,pins =
+-			<MX8MM_IOMUXC_GPIO1_IO04_USDHC2_VSELECT		0x10>,
+ 			<MX8MM_IOMUXC_SD2_CLK_USDHC2_CLK		0x90>,	/* SODIMM 78 */
+ 			<MX8MM_IOMUXC_SD2_CMD_USDHC2_CMD		0x90>,	/* SODIMM 74 */
+ 			<MX8MM_IOMUXC_SD2_DATA0_USDHC2_DATA0		0x90>,	/* SODIMM 80 */
+@@ -1223,7 +1241,6 @@ pinctrl_usdhc2: usdhc2grp {
+ 
+ 	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
+ 		fsl,pins =
+-			<MX8MM_IOMUXC_GPIO1_IO04_USDHC2_VSELECT		0x10>,
+ 			<MX8MM_IOMUXC_SD2_CLK_USDHC2_CLK		0x94>,
+ 			<MX8MM_IOMUXC_SD2_CMD_USDHC2_CMD		0x94>,
+ 			<MX8MM_IOMUXC_SD2_DATA0_USDHC2_DATA0		0x94>,
+@@ -1234,7 +1251,6 @@ pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
+ 
+ 	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
+ 		fsl,pins =
+-			<MX8MM_IOMUXC_GPIO1_IO04_USDHC2_VSELECT		0x10>,
+ 			<MX8MM_IOMUXC_SD2_CLK_USDHC2_CLK		0x96>,
+ 			<MX8MM_IOMUXC_SD2_CMD_USDHC2_CMD		0x96>,
+ 			<MX8MM_IOMUXC_SD2_DATA0_USDHC2_DATA0		0x96>,
+@@ -1246,7 +1262,6 @@ pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
+ 	/* Avoid backfeeding with removed card power */
+ 	pinctrl_usdhc2_sleep: usdhc2slpgrp {
+ 		fsl,pins =
+-			<MX8MM_IOMUXC_GPIO1_IO04_USDHC2_VSELECT		0x0>,
+ 			<MX8MM_IOMUXC_SD2_CLK_USDHC2_CLK		0x0>,
+ 			<MX8MM_IOMUXC_SD2_CMD_USDHC2_CMD		0x0>,
+ 			<MX8MM_IOMUXC_SD2_DATA0_USDHC2_DATA0		0x0>,
+-- 
+2.47.2
 
 
