@@ -4,60 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33F1DC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 09:51:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80EECC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 09:52:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ecwP5WHA6qxJmIynC9kNzInQHmacZTdmNCoZ5D+pPCM=; b=kDfjLM+hnT9oeDIF2ayMToeOpI
-	2wL/NvZUvtSD2A01VQkpZU8TawFmHgQnSgoSahWKE6K5FsPh2TGzRFVpPqhNXKCZibA6ugqjjjAvZ
-	0pBmXk0MgVIy0wVgcLyVKXHjakyfUMz6ninzBPXoRBXh0DZ5OAFvv+2+aqdZbVAYuttiHfWUkTj/q
-	gWJYQeSZlg8bSOlbWggXRg4/+HlkjDpqrBOTmF5bQ2+Zap6n7F44r1HwYo6EkURACTvugV0WYns9Y
-	nsZpRqlxFTKLrz8wJA/xx6dCUBqrPirqlfGs9wmLRICph4CYWJ5FprdMYKlSU7+3ktp8N3W/ekuMy
-	rBNM9Zkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=krp44dJNkBDHUtvYOeduh45byx5d8HD4EHt5vDmtMkc=; b=rfFcVkcBHg21ptUsqi9oB4Yk5H
+	M3xFbZsuQQKJ7QVbN/iM/Sz++/uX9KJaBxr04a3CrHpoyvOhRXjGOwslV0SJIiEQz7YXq5qLBBV5p
+	SVrH2iYXD8bjQub5viATNZnApLccwpi6zPNq6WZSbAN/DreU2SCvuR6pvPBpE/yvZfG8aJYY8nTiQ
+	emvZy2CH9JmOASj5xNC+svcBy1x/P+8rOZGmsYj7EnibfBHPGsWcIbXcPoxniOTbYc25+DoIKv5B1
+	gKKFyixL7dr47qbVqLbM1oqIqKNay/ljbNy2hjxjmqaUNS9GVIY6p+dYcDeHIzRFbj2GQTCbQeAYt
+	GJY1tXlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7AHy-00000006d8A-1gp0;
-	Tue, 22 Apr 2025 09:51:38 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u79En-00000006P1Y-3CFe
+	id 1u7AIM-00000006dGo-2izm;
+	Tue, 22 Apr 2025 09:52:02 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u78q8-00000006GhR-1VXy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 08:44:19 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4ZhbMs6ydyz6L530;
-	Tue, 22 Apr 2025 16:42:33 +0800 (CST)
-Received: from frapeml500003.china.huawei.com (unknown [7.182.85.28])
-	by mail.maildlp.com (Postfix) with ESMTPS id 9B2A51401F3;
-	Tue, 22 Apr 2025 16:44:13 +0800 (CST)
-Received: from a2303103017.china.huawei.com (10.47.65.221) by
- frapeml500003.china.huawei.com (7.182.85.28) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Tue, 22 Apr 2025 10:44:13 +0200
-From: Alireza Sanaee <alireza.sanaee@huawei.com>
-To: <devicetree-spec@vger.kernel.org>
-CC: <robh@kernel.org>, <mark.rutland@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<jonathan.cameron@huawei.com>, <shameerali.kolothum.thodi@huawei.com>,
-	<linuxarm@huawei.com>
-Subject: [PATCH v1 1/5] DT: add infra for finding CPU id from phandle.
-Date: Tue, 22 Apr 2025 09:43:36 +0100
-Message-ID: <20250422084340.457-2-alireza.sanaee@huawei.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250422084340.457-1-alireza.sanaee@huawei.com>
-References: <20250422084340.457-1-alireza.sanaee@huawei.com>
+	Tue, 22 Apr 2025 08:18:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3EC931EDB;
+	Tue, 22 Apr 2025 01:18:43 -0700 (PDT)
+Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8BB513F66E;
+	Tue, 22 Apr 2025 01:18:45 -0700 (PDT)
+From: Ryan Roberts <ryan.roberts@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Christoph Hellwig <hch@infradead.org>,
+	David Hildenbrand <david@redhat.com>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v4 03/11] mm/page_table_check: Batch-check pmds/puds just like ptes
+Date: Tue, 22 Apr 2025 09:18:11 +0100
+Message-ID: <20250422081822.1836315-4-ryan.roberts@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250422081822.1836315-1-ryan.roberts@arm.com>
+References: <20250422081822.1836315-1-ryan.roberts@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.47.65.221]
-X-ClientProxiedBy: lhrpeml500010.china.huawei.com (7.191.174.240) To
- frapeml500003.china.huawei.com (7.182.85.28)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_014418_118065_5C02550E 
-X-CRM114-Status: GOOD (  17.01  )
+X-CRM114-CacheID: sfid-20250422_011848_478798_32E303B1 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,85 +75,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Get CPU id from phandle. Many drivers get do this by getting hold of CPU
-node first through a phandle and then find the CPU ID using the relevant
-function. This commit encapsulates cpu node finding and making driver
-code easier to cleaner.
+Convert page_table_check_p[mu]d_set(...) to
+page_table_check_p[mu]ds_set(..., nr) to allow checking a contiguous set
+of pmds/puds in single batch. We retain page_table_check_p[mu]d_set(...)
+as macros that call new batch functions with nr=1 for compatibility.
 
-The API interface requires three parameters, 1) node, 2) pointer to CPU
-node, and 3) property which includes the phandle. API sets the pointer
-to the CPU node and allows the driver to play with the CPU itself, for
-logging purposes for instance.
+arm64 is about to reorganise its pte/pmd/pud helpers to reuse more code
+and to allow the implementation for huge_pte to more efficiently set
+ptes/pmds/puds in batches. We need these batch-helpers to make the
+refactoring possible.
+
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com>
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 ---
- drivers/of/cpu.c   | 40 ++++++++++++++++++++++++++++++++++++++++
- include/linux/of.h |  3 +++
- 2 files changed, 43 insertions(+)
+ include/linux/page_table_check.h | 30 +++++++++++++++++-----------
+ mm/page_table_check.c            | 34 +++++++++++++++++++-------------
+ 2 files changed, 38 insertions(+), 26 deletions(-)
 
-diff --git a/drivers/of/cpu.c b/drivers/of/cpu.c
-index 5214dc3d05ae..c2d729999a4e 100644
---- a/drivers/of/cpu.c
-+++ b/drivers/of/cpu.c
-@@ -173,6 +173,46 @@ int of_cpu_node_to_id(struct device_node *cpu_node)
+diff --git a/include/linux/page_table_check.h b/include/linux/page_table_check.h
+index 6722941c7cb8..289620d4aad3 100644
+--- a/include/linux/page_table_check.h
++++ b/include/linux/page_table_check.h
+@@ -19,8 +19,10 @@ void __page_table_check_pmd_clear(struct mm_struct *mm, pmd_t pmd);
+ void __page_table_check_pud_clear(struct mm_struct *mm, pud_t pud);
+ void __page_table_check_ptes_set(struct mm_struct *mm, pte_t *ptep, pte_t pte,
+ 		unsigned int nr);
+-void __page_table_check_pmd_set(struct mm_struct *mm, pmd_t *pmdp, pmd_t pmd);
+-void __page_table_check_pud_set(struct mm_struct *mm, pud_t *pudp, pud_t pud);
++void __page_table_check_pmds_set(struct mm_struct *mm, pmd_t *pmdp, pmd_t pmd,
++		unsigned int nr);
++void __page_table_check_puds_set(struct mm_struct *mm, pud_t *pudp, pud_t pud,
++		unsigned int nr);
+ void __page_table_check_pte_clear_range(struct mm_struct *mm,
+ 					unsigned long addr,
+ 					pmd_t pmd);
+@@ -74,22 +76,22 @@ static inline void page_table_check_ptes_set(struct mm_struct *mm,
+ 	__page_table_check_ptes_set(mm, ptep, pte, nr);
  }
- EXPORT_SYMBOL(of_cpu_node_to_id);
  
-+/**
-+ * of_cpu_phandle_to_id: Get the logical CPU number for a given device_node
-+ *
-+ * @node: Pointer to the device_node containing CPU phandle.
-+ * @cpu_np: Pointer to the device_node for CPU.
-+ * @prop: String of property holding the phandle.
-+ *
-+ * Return: The logical CPU number of the given CPU device_node or -ENODEV if
-+ * the CPU is not found. If the property is not found, it returns -1. On
-+ * success, cpu_np will always point to the retrieved CPU device_node.
-+ */
-+int of_cpu_phandle_to_id(const struct device_node *node,
-+			 const struct device_node *cpu_np,
-+			 const char * prop)
-+{
-+	bool found = false;
-+	int cpu, ret;
-+	struct device_node *np;
-+	struct of_phandle_args args;
+-static inline void page_table_check_pmd_set(struct mm_struct *mm, pmd_t *pmdp,
+-					    pmd_t pmd)
++static inline void page_table_check_pmds_set(struct mm_struct *mm,
++		pmd_t *pmdp, pmd_t pmd, unsigned int nr)
+ {
+ 	if (static_branch_likely(&page_table_check_disabled))
+ 		return;
+ 
+-	__page_table_check_pmd_set(mm, pmdp, pmd);
++	__page_table_check_pmds_set(mm, pmdp, pmd, nr);
+ }
+ 
+-static inline void page_table_check_pud_set(struct mm_struct *mm, pud_t *pudp,
+-					    pud_t pud)
++static inline void page_table_check_puds_set(struct mm_struct *mm,
++		pud_t *pudp, pud_t pud, unsigned int nr)
+ {
+ 	if (static_branch_likely(&page_table_check_disabled))
+ 		return;
+ 
+-	__page_table_check_pud_set(mm, pudp, pud);
++	__page_table_check_puds_set(mm, pudp, pud, nr);
+ }
+ 
+ static inline void page_table_check_pte_clear_range(struct mm_struct *mm,
+@@ -129,13 +131,13 @@ static inline void page_table_check_ptes_set(struct mm_struct *mm,
+ {
+ }
+ 
+-static inline void page_table_check_pmd_set(struct mm_struct *mm, pmd_t *pmdp,
+-					    pmd_t pmd)
++static inline void page_table_check_pmds_set(struct mm_struct *mm,
++		pmd_t *pmdp, pmd_t pmd, unsigned int nr)
+ {
+ }
+ 
+-static inline void page_table_check_pud_set(struct mm_struct *mm, pud_t *pudp,
+-					    pud_t pud)
++static inline void page_table_check_puds_set(struct mm_struct *mm,
++		pud_t *pudp, pud_t pud, unsigned int nr)
+ {
+ }
+ 
+@@ -146,4 +148,8 @@ static inline void page_table_check_pte_clear_range(struct mm_struct *mm,
+ }
+ 
+ #endif /* CONFIG_PAGE_TABLE_CHECK */
 +
-+	if (!node || !prop)
-+		return -1;
++#define page_table_check_pmd_set(mm, pmdp, pmd)	page_table_check_pmds_set(mm, pmdp, pmd, 1)
++#define page_table_check_pud_set(mm, pudp, pud)	page_table_check_puds_set(mm, pudp, pud, 1)
 +
-+	ret = of_parse_phandle_with_args(node, prop, NULL, 0, &args);
-+	if (ret < 0)
-+		return ret;
+ #endif /* __LINUX_PAGE_TABLE_CHECK_H */
+diff --git a/mm/page_table_check.c b/mm/page_table_check.c
+index 68109ee93841..4eeca782b888 100644
+--- a/mm/page_table_check.c
++++ b/mm/page_table_check.c
+@@ -218,33 +218,39 @@ static inline void page_table_check_pmd_flags(pmd_t pmd)
+ 		WARN_ON_ONCE(swap_cached_writable(pmd_to_swp_entry(pmd)));
+ }
+ 
+-void __page_table_check_pmd_set(struct mm_struct *mm, pmd_t *pmdp, pmd_t pmd)
++void __page_table_check_pmds_set(struct mm_struct *mm, pmd_t *pmdp, pmd_t pmd,
++		unsigned int nr)
+ {
++	unsigned long stride = PMD_SIZE >> PAGE_SHIFT;
++	unsigned int i;
 +
-+	cpu_np = args.np;
-+	for_each_possible_cpu(cpu) {
-+		np = of_cpu_device_node_get(cpu);
-+		found = (cpu_np == np);
-+		of_node_put(np);
-+		if (found)
-+			return cpu;
-+	}
+ 	if (&init_mm == mm)
+ 		return;
+ 
+ 	page_table_check_pmd_flags(pmd);
+ 
+-	__page_table_check_pmd_clear(mm, *pmdp);
+-	if (pmd_user_accessible_page(pmd)) {
+-		page_table_check_set(pmd_pfn(pmd), PMD_SIZE >> PAGE_SHIFT,
+-				     pmd_write(pmd));
+-	}
++	for (i = 0; i < nr; i++)
++		__page_table_check_pmd_clear(mm, *(pmdp + i));
++	if (pmd_user_accessible_page(pmd))
++		page_table_check_set(pmd_pfn(pmd), stride * nr, pmd_write(pmd));
+ }
+-EXPORT_SYMBOL(__page_table_check_pmd_set);
++EXPORT_SYMBOL(__page_table_check_pmds_set);
+ 
+-void __page_table_check_pud_set(struct mm_struct *mm, pud_t *pudp, pud_t pud)
++void __page_table_check_puds_set(struct mm_struct *mm, pud_t *pudp, pud_t pud,
++		unsigned int nr)
+ {
++	unsigned long stride = PUD_SIZE >> PAGE_SHIFT;
++	unsigned int i;
 +
-+	return -ENODEV;
-+}
-+EXPORT_SYMBOL(of_cpu_phandle_to_id);
-+
- /**
-  * of_get_cpu_state_node - Get CPU's idle state node at the given index
-  *
-diff --git a/include/linux/of.h b/include/linux/of.h
-index eaf0e2a2b75c..5e51e57478b1 100644
---- a/include/linux/of.h
-+++ b/include/linux/of.h
-@@ -360,6 +360,9 @@ extern const void *of_get_property(const struct device_node *node,
- extern struct device_node *of_get_cpu_node(int cpu, unsigned int *thread);
- extern struct device_node *of_cpu_device_node_get(int cpu);
- extern int of_cpu_node_to_id(struct device_node *np);
-+extern int of_cpu_phandle_to_id(const struct device_node *np,
-+				const struct device_node *cpu_np,
-+				const char *propname);
- extern struct device_node *of_get_next_cpu_node(struct device_node *prev);
- extern struct device_node *of_get_cpu_state_node(const struct device_node *cpu_node,
- 						 int index);
+ 	if (&init_mm == mm)
+ 		return;
+ 
+-	__page_table_check_pud_clear(mm, *pudp);
+-	if (pud_user_accessible_page(pud)) {
+-		page_table_check_set(pud_pfn(pud), PUD_SIZE >> PAGE_SHIFT,
+-				     pud_write(pud));
+-	}
++	for (i = 0; i < nr; i++)
++		__page_table_check_pud_clear(mm, *(pudp + i));
++	if (pud_user_accessible_page(pud))
++		page_table_check_set(pud_pfn(pud), stride * nr, pud_write(pud));
+ }
+-EXPORT_SYMBOL(__page_table_check_pud_set);
++EXPORT_SYMBOL(__page_table_check_puds_set);
+ 
+ void __page_table_check_pte_clear_range(struct mm_struct *mm,
+ 					unsigned long addr,
 -- 
 2.43.0
 
