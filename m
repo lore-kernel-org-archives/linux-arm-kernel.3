@@ -4,70 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 036A8C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 12:33:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EC0EC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 12:35:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cvmS58q+1N4NLUDG3LIuB02O70ZoHihiBJ1Y750u6aM=; b=JELpskmqpGOc/GYIrN8IKaCL5I
-	qAXCLrKP6zlGwxBfSV7qmPspk9Yey6MMKNr3o3rBquPZs+yCqNXTDgJpMk31zhU33a3bZ5fD1SGXU
-	3G7BQc+kA6otS8vzESGv0uBajFJg2D6+5u7VARbqGPMsxYbfRlUG7jqHb3BpdLRxzhnjOqf+VllAU
-	J9Km+E40cfmpM2m0ZaSP1byYpokFhBfz6g05n8HxhL99Da8oOp/L+ZFi/xP9Yojomru7wFgIXpqgw
-	vvukZ9ZBEkOUKIhv/PmMlIUK5qOR3wTYO/AbMr4549mPz8ateXUBWxxu5spyCMLz/+vBodPHIIlmc
-	ha+i6UAg==;
+	bh=NWRwjTKda8Cr+xTaLfEjNwhn6lD2r3hsck/mBkqRC78=; b=zHkJ6IObIdUCePz1rVUZy5ceUR
+	638c2Dwzt+wqWtjC+UfBUpYRG6mVTaD+Ac4BnBUWUNKHeYu6OxxfRPVaThNoWJGK2vv+s+0Sz9rYH
+	WT5fpmf6LLTFpsXkOVE6shZ1xTDJw4+GjmUyQyIxj9JwNZX88VsaMnC+ql9igCF+2EQFRImS/6RQE
+	6IrTUOZpWp5SNIt7yd9IAV5s+lc0gJdFFkgU0eAf/exAMnrUpNjXo3zxHTl/HLPYZXsuoyDIo2hoK
+	TJHHzXY8u09VDIs30G7n0zAoG9VCKl7Un2lzWudmBtWkO9P0jZAXUVMjTkHD7qm8t5O+C/ukDrtCN
+	fepJ4IFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7CoU-0000000780N-1Qlt;
-	Tue, 22 Apr 2025 12:33:22 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1u7CqK-000000078Wo-0DLd;
+	Tue, 22 Apr 2025 12:35:16 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Brb-00000006x9m-32WI
+	id 1u7Bre-00000006xBT-18xB
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 22 Apr 2025 11:32:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=NWRwjTKda8Cr+xTaLfEjNwhn6lD2r3hsck/mBkqRC78=; b=i6SjOye9aypGQHgTa64k2UEsfj
+	sdggu1d1l5N7orREhZpzgTIAeK2Kt8W56VAeFgiPXhcJKFt5UKtoIy7beFIaJibAEUdadqv/kI3aK
+	7fdaWccAIfvVHA8CxM8L86Xehs+LCFeYFnHpxr+biAJkJ3M6tXgXc1JDdz4myEgT2wDz8J11bYj3O
+	obsKvAAPPDngPk4Jd+O1xk8NsH5D2Q3tdNMkkIcTZUdwZPI9v2nCsN32AUR5W6fd3I5BwmhvKu4rU
+	V7xdE4sicd12R+uH24WYr8VaV7l8lPO3J/j+zLOeZvnCBVMsjINsf9ctiA8miNRhzkKtgk4uPtOa1
+	2RSWjXzA==;
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u7Bra-0000000BCLq-3DeW
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 22 Apr 2025 11:32:33 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-43cfe63c592so57784405e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 04:32:31 -0700 (PDT)
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-391342fc0b5so4121738f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 04:32:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745321550; x=1745926350; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1745321548; x=1745926348; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=cvmS58q+1N4NLUDG3LIuB02O70ZoHihiBJ1Y750u6aM=;
-        b=kb9QfYOEaLfRtFYNZry4IIvF7dlkTDqRbz3f08y4amxJh1yW630Jzecb5tL1jmfFDT
-         m7PC8YeljGStFutsbmRH9d2+Nmr41WXl+89v3GzRkcV/ZRdjmJvAstWAYmbx3s8GD7bv
-         PqZoVpLXhP9FZAVGjViwSYw98dclz7utErpO9qVpCKFdsTp6QV19+RIta2YaFhT6xWjJ
-         y/KIFXoPiInKKEgdw9zmVlJLfVtQF6W+w4DSqmzQaCH1A4aQb3S0MffRSWPKnOF24BJF
-         3fgBbxCZP1D/5k75kEclK7cj+kbWdv5/epzsHWbH6Bfz2Qa47fsjOOWEOEjKyjBgPSdu
-         wu+A==
+        bh=NWRwjTKda8Cr+xTaLfEjNwhn6lD2r3hsck/mBkqRC78=;
+        b=O6r49aTLAPysBYxahSS4yGAgynkzoU57Gf6XekSQ+uVNH3hHFk+AMTez//tRWoh9jz
+         5dDQrFgCRUuxd+sfRsRu+bXqgDCo1uV9iyCrcBFrss+qFLgCXgjol20wMEOd/zHuz/sd
+         oN1sBNrEXJX1z6eICa9N6KJCMhK2ZeesmJDTvIUznuAStC7wh4EefUtqoyrGW3RPo6TG
+         PR1O9RZnRQkMfWOo3tyx5nOTnJrE9y4QOk3epy9bUxCBrLBx8f4whLyRHIAd3dX4jY/I
+         6pifb66wp9OpInhL6RjNunh/u/V5/OYPaJ+sIpccapO67NjKijwMYhlqbWtMGyPqVG4y
+         u2zQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745321550; x=1745926350;
+        d=1e100.net; s=20230601; t=1745321548; x=1745926348;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=cvmS58q+1N4NLUDG3LIuB02O70ZoHihiBJ1Y750u6aM=;
-        b=j7xH/A1wY26+2DHh748c9ekycbeSPJ+UMRvcdQHoydGSNOK9yx7X2MXVoX9duMo3Od
-         RvNUYdoNbGq+gyX8sBSoFEtjGN+InlG/wbOgkAHIeZPjoXTJRZeMvpYRrdpB2t4DqP0D
-         EZC6dws5C35Lx2n0RQQ3/NdaG8FKBeMjk33uEOpwZNN3TcX6Zh2PsAaWtM+/4nqE34ps
-         zdLRn8yFHTtvV8PtHCCIZKMbVyn323cXEuWSSGixz0dAoIskEQLLXZSpMTePA+GfEXv9
-         M5UnMOJ5dhBPywxJiHtwNIIIxLjflp5Z098LfX08z4D21ew6rYHglnbeojV7Q2K4f/Hj
-         kKYw==
-X-Forwarded-Encrypted: i=1; AJvYcCXKZJyGwNrmWibsXZOrSAsRYZCBa2rkHV1wtQUDqKDXbZhmU+v1wt83KK54zEGAAYB7rRdjfwqweEbDewOSQhYL@lists.infradead.org
-X-Gm-Message-State: AOJu0YwY/6wdLkWfKkhBSeaq/ATtqN7D1ZMCeW4dWMg05iH+A5YIiUby
-	JsIAL9RnMh7XGOkPzTf19NDb2eo3ccO846CBa8mxPYC/f64o1lCx/NG81WUrmDA=
-X-Gm-Gg: ASbGnctlntZNM5qhsbfBoEZmgwflMxC+SK0lwmiUO8ChWrrsW+4aSaPlYLbc/PGg+WO
-	kHFVM3vr6MpR0nSyI7SnTghvPIfHTFrfcULSod4Ierz97qqncU40UnEd1ADdH1DkUKnXEi3WT9Z
-	KuHqApJZNkQVSK2dusqUnMoyZ12lCF4uN0o6EgHdjmqAIcIs9mIlNQKFOXewz6BOOL0AWShOMag
-	l21Ld7h0V0xD0DXgyl57mVXMx+0eMmCXuqM2cO4loIJtz9gkOpFPu7uiX/g4xgqlPlZlTDjJo58
-	NonEnzIQ3VygpR63DXP5GfNP1/ON/8NSYN2gJehrBOH6YjWpVPlA
-X-Google-Smtp-Source: AGHT+IEGyrx2mGjKmUnsFcIC3SpcjXAJAkCfqaXdm/X2mvwM46sWClIbCzBR8wdxshvHGYRPAtMSRQ==
-X-Received: by 2002:a05:600c:1e15:b0:43d:82c:2b23 with SMTP id 5b1f17b1804b1-4406abfaae3mr114731845e9.23.1745321549987;
-        Tue, 22 Apr 2025 04:32:29 -0700 (PDT)
+        bh=NWRwjTKda8Cr+xTaLfEjNwhn6lD2r3hsck/mBkqRC78=;
+        b=dwliGmgDbPN+ypJPZa5ztddp4i/u5s1hZ6cv/WqqQUbbDM0/Ylrba0BHZvDnRBgfHi
+         HOUQFgvDifD8LGeqyH/p6TKBeHyQsaXwhjM1monxlRUiYt5GghWr4klZCAcRZhit0OCl
+         7/DZr0sy04Qb78VE5IT80V8ou2VDdrccZdLGjPHJWGJ9SuSi8WqvKXr5rdyTpGmCUpHL
+         gfwZEBxJH7Er9Y53r+WWu8LnuGVg8UJTfQT0uEzUdtokNYxKJPb//2KBwHS9vR4hOUcT
+         Bh9fumyHvUT1Ead2lYQ1IQPTcPHtB9/QT/bN46oMRkngWm1ILgvsic66EQEhHgKX7Ou8
+         GF7Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWtOXUeTxcSdptsxXiiChXD0WOv9Cwrz+JaSA96t6IY444v9sLkKsbasNDaL1pydPVnAOU8BGOKAH79g2i3tPnt@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjUuwtvRgIAE3ImFpR9rBUumKxeqCI8b75E+yIzjUZ1sF226O6
+	Ir2GkslXk5YSaeHzWfygOO9xcyh/Iak/H56jP9iHcNQ0ZQBQcqwOn69mP6E3jxQ=
+X-Gm-Gg: ASbGnctHbxCSJ1pzgMK+YW8l0asTStxy/lPkzLnrZqwaaGiPKZ5Wg06tUJuqkRsSnIN
+	M2yIdL5j93kvjhIZD8OIGA4lZ/t5siWywVIbcfki/mUQ7NhidCEe9eI+5tjxHbcKiH2lYfK1YlJ
+	FAIub1oo15+rbRtmXtr/n2iVmEFz8Of6uy76sBoWYnu2vgt0QtbbtPcPKBk/82Tk5XU3uW8UPNX
+	4qzDQechXq5J3ckE9+nHg5yzOU/ln+S1FjLOIXPIB3UUo87ouVSVQN0b3J233Ns8Hc9OhD+592v
+	8fQINiVzc3TAJFjhXfP8ams0QG81SmfOdMMy1lpSSE3G3qDcJmfQ
+X-Google-Smtp-Source: AGHT+IEEw44a5vK2IjFWiYA0X0j2siN1vTRb5HOMU7dDGydhv1gxPnFyAxYzd0KC7UUWKC3HvgVANQ==
+X-Received: by 2002:a05:6000:4304:b0:39d:724f:a8c1 with SMTP id ffacd0b85a97d-39efbb020a9mr11656442f8f.47.1745321548490;
+        Tue, 22 Apr 2025 04:32:28 -0700 (PDT)
 Received: from eugen-station.. ([2a02:2f0a:131e:0:1820:da87:73b1:d80c])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39efa49312fsm14907887f8f.70.2025.04.22.04.32.28
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39efa49312fsm14907887f8f.70.2025.04.22.04.32.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Apr 2025 04:32:29 -0700 (PDT)
+        Tue, 22 Apr 2025 04:32:28 -0700 (PDT)
 From: Eugen Hristev <eugen.hristev@linaro.org>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-msm@vger.kernel.org,
@@ -88,17 +103,17 @@ Cc: linux-doc@vger.kernel.org,
 	dietmar.eggemann@arm.com,
 	juri.lelli@redhat.com,
 	eugen.hristev@linaro.org
-Subject: [RFC][PATCH 13/14] sched: add sched_kmemdump_register
-Date: Tue, 22 Apr 2025 14:31:55 +0300
-Message-ID: <20250422113156.575971-14-eugen.hristev@linaro.org>
+Subject: [RFC][PATCH 12/14] kmemdump: coreimage: add panic registration
+Date: Tue, 22 Apr 2025 14:31:54 +0300
+Message-ID: <20250422113156.575971-13-eugen.hristev@linaro.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250422113156.575971-1-eugen.hristev@linaro.org>
 References: <20250422113156.575971-1-eugen.hristev@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_043231_766172_5E9D6E08 
-X-CRM114-Status: UNSURE (   9.83  )
+X-CRM114-CacheID: sfid-20250422_123230_987418_6C9431C0 
+X-CRM114-Status: UNSURE (   9.58  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -114,51 +129,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add function to register scheduler info into kmemdump
+Call panic registration for the core image.
 
 Signed-off-by: Eugen Hristev <eugen.hristev@linaro.org>
 ---
- include/linux/sched.h | 1 +
- kernel/sched/core.c   | 7 +++++++
- 2 files changed, 8 insertions(+)
+ drivers/debug/kmemdump_coreimage.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/include/linux/sched.h b/include/linux/sched.h
-index 9c15365a30c0..441f5a6099f6 100644
---- a/include/linux/sched.h
-+++ b/include/linux/sched.h
-@@ -1820,6 +1820,7 @@ extern int cpuset_cpumask_can_shrink(const struct cpumask *cur, const struct cpu
- extern int task_can_attach(struct task_struct *p);
- extern int dl_bw_alloc(int cpu, u64 dl_bw);
- extern void dl_bw_free(int cpu, u64 dl_bw);
-+extern void sched_kmemdump_register(void);
- #ifdef CONFIG_SMP
+diff --git a/drivers/debug/kmemdump_coreimage.c b/drivers/debug/kmemdump_coreimage.c
+index 2144edcc6157..7f3b089b5739 100644
+--- a/drivers/debug/kmemdump_coreimage.c
++++ b/drivers/debug/kmemdump_coreimage.c
+@@ -5,6 +5,7 @@
+ #include <linux/irqnr.h>
+ #include <linux/kmemdump.h>
+ #include <linux/kmsg_dump.h>
++#include <linux/panic.h>
+ #include <linux/utsname.h>
+ #include <linux/sched/stat.h>
+ #include <linux/vmcore_info.h>
+@@ -76,6 +77,7 @@ void register_coreinfo(void)
  
- /* do_set_cpus_allowed() - consider using set_cpus_allowed_ptr() instead */
-diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index 00ea6f31973c..8615fd02d4db 100644
---- a/kernel/sched/core.c
-+++ b/kernel/sched/core.c
-@@ -66,6 +66,7 @@
- #include <linux/vtime.h>
- #include <linux/wait_api.h>
- #include <linux/workqueue_api.h>
-+#include <linux/kmemdump.h>
- 
- #ifdef CONFIG_PREEMPT_DYNAMIC
- # ifdef CONFIG_GENERIC_ENTRY
-@@ -8672,6 +8673,12 @@ void __init sched_init(void)
- 	scheduler_running = 1;
+ 	kmsg_kmemdump_register();
+ 	irq_kmemdump_register();
++	panic_kmemdump_register();
  }
  
-+void sched_kmemdump_register(void)
-+{
-+	kmemdump_register("runqueues", (void *)&runqueues, sizeof(runqueues));
-+}
-+EXPORT_SYMBOL_GPL(sched_kmemdump_register);
-+
- #ifdef CONFIG_DEBUG_ATOMIC_SLEEP
- 
- void __might_sleep(const char *file, int line)
+ static struct elf_phdr *elf_phdr_entry_addr(struct elfhdr *ehdr, int idx)
 -- 
 2.43.0
 
