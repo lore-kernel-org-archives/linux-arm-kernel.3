@@ -4,89 +4,188 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39FAEC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 22:55:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44C4CC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 23:38:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f+1Ngscj1sLQkaXbBjPeNhRnXqru6dzUdV9MGLQmLQU=; b=h8NU/t3FWQEgk3ni8hbumcoi3t
-	iw491JZfIeGKUekkFDfRlwi+brOwFBubObcdygD9A0Qe+chu7tgeWTRIiNvlhw7jRdv4xc7US8j63
-	HlWWiPxQrs4M3Lb7KcF/UipHofe/fZnQHA10jEdSo3jHJ++PhHTgl8VW9GQniGggjfD8Q9m0SsYAn
-	SNjhmsNispwhkcOs51suLahGi2NCc/cjTweinznolqb0NZYpvNU0IdHTtnCmI0RHwr1F7cugoknPJ
-	Hzq8FbVavp1l3GfR3NdhiwEf5vdopmf5NkHWC3jYkD5FQyoxsfDGe9ojDl1UtZo3DtgSLUZgTYuqC
-	jOzXDrUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HlygJG8kSWtI1KaCbzDPKc6kOHVZQjMz3VIqH+Xkceg=; b=oLfM4jz61swXrxqNz9lysN5quU
+	Q3e0FuHybShLVvwMqfV394rn/1Oi4yPTyWhW+/w1tZezyzrVIhei0fgAM+nDgD3fOWOAGAbxSYUSi
+	sPgC6BO5rrmyHaAG9NmPwfDl1kKzvGXB7d5Cuxv4tc6Em/YcPZe5udg/i8OdqPLi6k+n94D8m08Qa
+	XvWK2xlwFHcF98IaYicnGlYUdiplfPAW6MUEW7vkw0X+cjb79kPonTPjkhHNNgatezxm2q+Ul4+sq
+	2mqznzp9civApk/V/L+hV0ABsccmWh9WsdtRSM/pdWpOSXYdKGNfAFlk1gxUI+2PazpKKlN+0D1rk
+	j0n8DEHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7MWp-00000008lj6-12lk;
-	Tue, 22 Apr 2025 22:55:47 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1u7NBm-00000008oqp-3LDY;
+	Tue, 22 Apr 2025 23:38:06 +0000
+Received: from mail-mw2nam10on20602.outbound.protection.outlook.com ([2a01:111:f403:2412::602] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7MUw-00000008lPu-2Sdu
+	id 1u7N9u-00000008oaJ-3136
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 22:53:51 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-aca99fc253bso818806766b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 15:53:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745362429; x=1745967229; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=f+1Ngscj1sLQkaXbBjPeNhRnXqru6dzUdV9MGLQmLQU=;
-        b=a0wWMc6DZROqxYtMQg/L9NXMcFIyvJ9SSDODfQ/z/fRr1gVoJdsBsHxT7CB4BHTyaN
-         V9lgaUYB/B+COwzbbHTXrtcAbiNiygHekx8mhAqvEn6+iMs8H1KWyUXTAfN4cdraRU96
-         8/RY1QT/M69PSsasC2nqpw8ehu4BdjPePpkwdXeRZZtHJCwpahoRAaWzAc9Gmy+GlVZq
-         3/TO7u/v/OrVVGxD9ihsSpHPx9qkOlx1gf2KEHeHbOFxlLEWwLauCDpgGTB2qqsxcG7g
-         HQdyJ2ywz7Bb1xz7pbmi8ADcVEmdGxxElIpSOf54Ya8zA0A5Fxse9bDXCPX+ZaXwR1ZS
-         XGdw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745362429; x=1745967229;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=f+1Ngscj1sLQkaXbBjPeNhRnXqru6dzUdV9MGLQmLQU=;
-        b=ZFoBuhP5B5jYm1aH/wT23W9OUQeDA/0vrlRYO1PvAJ129inR2a3imJK3QyfhBtZBjn
-         dhf9gB34W9Ts/tFU1GDZ8u363O6wIdZ/NtAU7Ka+3J1r05BM7TjDBANcs4lRaefmcZEK
-         91cKwKhVLvg0EUmHB3zoQ5pGuhlkb1tNsTUjTaq22V6s5Rn70x2GSDepbfdtLAbD5qkT
-         2/zr3uw3NgyxusBLpR3igkCvmQozS2V9XI6HFefFqqwtslQYAsDu2wun0GSa89+RrBMh
-         xSV+APZk4u5xhemucoW3AOdNpI4FqzTTA3Fi0XexlGR6oGMDRiffqFvFcFGgm9b8nKIO
-         dRtw==
-X-Forwarded-Encrypted: i=1; AJvYcCVEwDHHN868D6AUAWG2Z/xIRbPTkDhxr6Hj3EV7NExIetTjzeB6dplDtgT3dhUCYG4SJJUjGZSkZbnMLup4mD6z@lists.infradead.org
-X-Gm-Message-State: AOJu0YzvuIFywQaV038D/3lwO9TZJZPbenqltmYhEVs9zOLhlUce3f9A
-	1jHkw2OUQDRnHl2hZmqmbrClWcZIdsYO40hTIErdTpgBycw2izHKlWhwKCuF16/ODQt9uUYyxz9
-	GvzbpEcXV658VFK+hvPTDqrBaICk=
-X-Gm-Gg: ASbGncvIqMMbAQMJm1LmBFXUt+ua/LKnNCCRrM5gqSjr+y1ByHd9EBBvm43O5sNJVlP
-	Zcdf7e1VVvz3IuhZD4aMnWNHgKBoDaA1CtS2eiLeS0qDOg5fmc+y8YIHW3OujtI6zxpd3d0cKdh
-	1N5HLP3BN1zr9JwphaPR1Vwg==
-X-Google-Smtp-Source: AGHT+IHMPrXJqYYAB6pAgjxvZ17pVvfJXLHs9OfoWIoo18nkISokZoisDnXlemOEpRBjn1DUA8AriHhqSMFKfX2dk+I=
-X-Received: by 2002:a17:906:da81:b0:acb:ba0f:4b0f with SMTP id
- a640c23a62f3a-acbba0f4c70mr579009566b.31.1745362428662; Tue, 22 Apr 2025
- 15:53:48 -0700 (PDT)
+	Tue, 22 Apr 2025 23:36:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=b00a+D2U6U0ku1AMpbcitEQLoseK1+PbZmztu6hLOFjLQ1cnS+h9C6zH8a2h5n0/S4wJrjyHRgLNbw7JWoUADo5u7pI+Lmshj9h0L6KQ/qNjuqHOX5G2Vw7i2XKeGsLCACwu/9HA4pfreQ1iujlOwTxSMTmgcdIC+WI+NJFDiAyqYLzuxwMAIUkdGUrU1GhxqriG4nl7kkO1U11o3vJZiFSL+hrqy5NcEboVjCwn1CEIHxIouQkdWErJkkfXHMYLsJhpIa6+BSbWPyUww9BRh+4FPbhk7jDsJlA6gbVSnqL8nzi6WFJ2ncTPt8YP4XH6KUBTgVdz/EYiMNif0+90cw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HlygJG8kSWtI1KaCbzDPKc6kOHVZQjMz3VIqH+Xkceg=;
+ b=MDSEacMHReG23dRn+7SXCBzLFOiJOvdSVc/Afghs1ESKch+HUGreF+2yD5Mx+zIywxQ2DzeMUTPl5eSedKqfBJ3PTTEYaYgqF2s3/xn55Zw7xABq1czH43i1z5qTil5/33lEbZLbYzRHnkNS0qXS7kjDKHa7bCgBOfoxiOOjEF8/MquiB8yogyuIM65t2jSkE71LMjGVGKyb0ZUfzmK80Kt/6qxyU320CWB2khZdiFZnMZC1YymwMsvX8tmir8txIT3KTt+BrwfVmPKJmWATj5OY4wMldVYs9UjVwT8GBXNJO7k1H2FEDHYMR5JsO88QzbR1ntoCQdvJRz1fQ0/Mww==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HlygJG8kSWtI1KaCbzDPKc6kOHVZQjMz3VIqH+Xkceg=;
+ b=YwV+Ee9J31HEhhIFtiXCk2Q9FjKBa0bWL54iXRIXaPtNluGBkarqSQq6Bow9q+Bcz+XTai53BFQYAhbmKF2yVi6EG3WyZdTfDSOTHqSTy6tlD6WS4nWrtWVzj18MLERVlkIdw7PunAECWMtnP4ADGYF9Flt1M9pWVGO7eI9ZLeNbQiiE2xiyKixZhDEkvjTIQo1QcK8HyfmX1hD95h15cDR5YxYpffkXRyz57umwrqxXqwO2+RLPNRs9FoiYrx9POdEzTdtv8plw5xARq3KnLKubwDr7gqMQlzkYgBdQHMt4peEuWitdqtoiuHZ8NxdYtmlanOmug9FsS8kuP6m78Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by IA1PR12MB8407.namprd12.prod.outlook.com (2603:10b6:208:3d9::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.35; Tue, 22 Apr
+ 2025 23:35:58 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8632.030; Tue, 22 Apr 2025
+ 23:35:58 +0000
+Date: Tue, 22 Apr 2025 20:35:56 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Ankit Agrawal <ankita@nvidia.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Marc Zyngier <maz@kernel.org>,
+	"joey.gouly@arm.com" <joey.gouly@arm.com>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"ryan.roberts@arm.com" <ryan.roberts@arm.com>,
+	"shahuang@redhat.com" <shahuang@redhat.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"david@redhat.com" <david@redhat.com>,
+	Aniket Agashe <aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>,
+	Kirti Wankhede <kwankhede@nvidia.com>,
+	"Tarun Gupta (SW-GPU)" <targupta@nvidia.com>,
+	Vikram Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>,
+	Alistair Popple <apopple@nvidia.com>,
+	John Hubbard <jhubbard@nvidia.com>, Dan Williams <danw@nvidia.com>,
+	Zhi Wang <zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>,
+	Uday Dhoke <udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
+	Krishnakant Jaju <kjaju@nvidia.com>,
+	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
+	"sebastianene@google.com" <sebastianene@google.com>,
+	"coltonlewis@google.com" <coltonlewis@google.com>,
+	"kevin.tian@intel.com" <kevin.tian@intel.com>,
+	"yi.l.liu@intel.com" <yi.l.liu@intel.com>,
+	"ardb@kernel.org" <ardb@kernel.org>,
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"gshan@redhat.com" <gshan@redhat.com>,
+	"linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"ddutile@redhat.com" <ddutile@redhat.com>,
+	"tabba@google.com" <tabba@google.com>,
+	"qperret@google.com" <qperret@google.com>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v3 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
+ VMA flags
+Message-ID: <20250422233556.GB1648741@nvidia.com>
+References: <20250331145643.GF10839@nvidia.com>
+ <Z_PtKWnMPzwPb4sp@google.com>
+ <20250407161540.GG1557073@nvidia.com>
+ <Z_QAxiEWEyMpfLgL@google.com>
+ <SA1PR12MB719976799AD7F9FC4407A5A9B0BD2@SA1PR12MB7199.namprd12.prod.outlook.com>
+ <aAdKCGCuwlUeUXKY@linux.dev>
+ <20250422135452.GL823903@nvidia.com>
+ <aAfI2GR1__-1KQHn@arm.com>
+ <20250422170324.GB1645809@nvidia.com>
+ <aAgJ8g8Gbb06quSM@linux.dev>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aAgJ8g8Gbb06quSM@linux.dev>
+X-ClientProxiedBy: MN0PR02CA0027.namprd02.prod.outlook.com
+ (2603:10b6:208:530::30) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-References: <20250422-iio-introduce-iio_declare_buffer_with_ts-v2-0-3fd36475c706@baylibre.com>
- <20250422-iio-introduce-iio_declare_buffer_with_ts-v2-4-3fd36475c706@baylibre.com>
- <CAHp75VdqanGpwB5raE8AmH-Tmb82N9yYmhB+k_rQtc2_Zb8HQw@mail.gmail.com> <55f8a997-77e7-4d07-aec2-8d20f56314d0@baylibre.com>
-In-Reply-To: <55f8a997-77e7-4d07-aec2-8d20f56314d0@baylibre.com>
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Wed, 23 Apr 2025 01:53:11 +0300
-X-Gm-Features: ATxdqUH1YUeTsEMT0CwtykvmoOSl52HrGojQPmTu1v6wjba29-5vfKptJFLiT2I
-Message-ID: <CAHp75VcoXwBNYmpNNCWbp1mOtJ6UJoKfxymRBRok91_NS8RcTA@mail.gmail.com>
-Subject: Re: [PATCH v2 4/6] iio: adc: ad7380: use IIO_DECLARE_BUFFER_WITH_TS
-To: David Lechner <dlechner@baylibre.com>
-Cc: Jonathan Cameron <jic23@kernel.org>, =?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
-	Andy Shevchenko <andy@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, 
-	Michael Hennerich <Michael.Hennerich@analog.com>, Eugen Hristev <eugen.hristev@linaro.org>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|IA1PR12MB8407:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2deeafad-6380-42f3-4b09-08dd81f66ef3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?wFUOLerbKKVxL/ebfLnMIv/ADXb2Q9JEHWyNMLqOuNWyXYsLJrut7FeSSPs2?=
+ =?us-ascii?Q?rtKh8vqJDvxJLAQAljT0wnJZAJYL4jxC5QYJX9PuDJGebca0olxTQjwWTPvF?=
+ =?us-ascii?Q?9e1weMlZAa1C3blEo4/1qkVAWpDZsQtkFF6IN+ttJEGdn/4CX9jt9HPSOfog?=
+ =?us-ascii?Q?Ahcd+588Qt7pHey1sxcdMOj2B60ZRX1i8lESVx56zoll7lbu7r+LqFVmEAF+?=
+ =?us-ascii?Q?emFR0lfs5J8UBbxkIqn8OJH/T9VaN8GdQMj5quDpA97pLgtz5Z8DhuvR4ujk?=
+ =?us-ascii?Q?LGy3PBxVWY1LqdyblleYeqJy2rrAPZgaDNWGb1RQofeelPylkACPatCeaxvY?=
+ =?us-ascii?Q?kOPrSYRd9yslzOs5rNU8SCZcXHIOjLwLUnSo0uWMEtEA8faOdHWj8LjQ/wUt?=
+ =?us-ascii?Q?vc2HZAySTLuBdfVV9ciXp4xjrBriXS83oHdluXdYIG200Z+dyjk/r2LZRhGE?=
+ =?us-ascii?Q?geUNlXKGcXefNKlAtyQSWdhyuH7iyB6DN2Pfkp+7sTm1TMlsHITxXvZQwc4c?=
+ =?us-ascii?Q?gzEVH0YeAVIURqaTy1XD4VlFLqPZkIrq5AvcLuyWbJg2eMQWsaRxoqHYeWXe?=
+ =?us-ascii?Q?i0oGL5Zk5KjjWfWhivV4EfK0fxq8JX76lOpg8nLOy3dBs8eGKTdJhGee+4KY?=
+ =?us-ascii?Q?YoGqQCbbOs8qHWD13qhjR7fp8s2joimiTYxxOx43pjehBRpZq/eJMHjSSDKX?=
+ =?us-ascii?Q?JL5BDDa5Zvw84JQKxS18yAbzI0WNefFmGJQApELy0o2xP0VP74kj2tg44Vc3?=
+ =?us-ascii?Q?oyH2A1ThZJwcoNCa36g9k6r6WWKKxjsezApFlcHFSzUCPKdJN99rNXoZi1V/?=
+ =?us-ascii?Q?aMBGfkEwiEW+8WitxuA35wWd7dAWwvQfQzD+jpBBQpz8rxcJels2tyv8ZZ+Q?=
+ =?us-ascii?Q?Cm9s0wajI1zu14M5p7MOMKDcCWJmgRKJJIuAVA7PxegLCznr1axM5SYO21zu?=
+ =?us-ascii?Q?bHe7hboPqwYKDe8J1IHz5yaukACmdseDHUTapwoVJ+wqnaTM6610TkMHWYeZ?=
+ =?us-ascii?Q?xOpguhWIh/mBfvnuOqwjE/cuhUXHzAz9XkMXHuvVAgQn1Xr9s7S5QuzApjqB?=
+ =?us-ascii?Q?0ea9EXdARLakmYYnUwQS89X7miisrkZ0OSAm0niTk6xaQPegelWgCWQn4Gdc?=
+ =?us-ascii?Q?h/EOXV1iNB006VENw08jyBxO0xOCTXMc6+Tfr64wX43CDJWXuXKshg9nV9U5?=
+ =?us-ascii?Q?VOSF80qqlrfvpsHcwP/8Nu2sxWD3iCmtarPqNOLp774FiRzFIr6uo4aa8bdY?=
+ =?us-ascii?Q?n0DLVKlLMmhGhzbArW1oqjGfQzTbfT2lACmbroH18akz2DuRiBmYRBf9GqmM?=
+ =?us-ascii?Q?2Tpt0EyJ/1lP1j21b4srleVRONX6rxJVq3RW+EZxfTTl0iraiIUlJPpWpslD?=
+ =?us-ascii?Q?KuqfhaJymBo+NQgSf0iKuXU76hOuS044nM6QG0C7AI+BTO27G0DfwrZToooi?=
+ =?us-ascii?Q?h8fyc3nXsvg=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?PeQq2H1WXdzKei0NZbjUlczjYgjj0+oZcnMXV7XtmBglzwMeUnNVYt4mCxhQ?=
+ =?us-ascii?Q?qNqdyCOH7E9h2Diab7KArKbB9jWztxrXf/OfMo5ncdunKnB1kZ2fldfP3eKI?=
+ =?us-ascii?Q?+uDFo2Eb6Be97Z/4ZeTXDQoSgvW/gfFUWXd3kYPYsk1MdCKWDXoqmL4wBveJ?=
+ =?us-ascii?Q?Za8yUgpPCvC9wxek2H/hP2fRcXAr+cigWjl/1D3HbL2zhIuT5G2/a4HYiadv?=
+ =?us-ascii?Q?r3Kq+sc13Ht7VIKSdPMsta3q7Sx0Pg6iU4WBARh5EJyiah9IFWJlvO4cDSCj?=
+ =?us-ascii?Q?BmmxaZkEQumUQTr1Ucxd+8UBSGHrGTo4g4PGQAJtrMgm7B9hCAxOyAcvGEVz?=
+ =?us-ascii?Q?BJIWRd5rEXUYDPnjysu3WKj7F/CGsahYrsDNk5qLuaXZD3Zxw/OUoTmXSjR1?=
+ =?us-ascii?Q?ZkuG2SUuFjyiGdM4iJXY731YGXa/xPpQrBr8OmOnkmgAt9IqcHgKW2YNRPG4?=
+ =?us-ascii?Q?xelYePc9gs/OnY2n/ObC3z2epqqVqFZsCxKk1O/MxnaRoeCNYa7vqRql4ex6?=
+ =?us-ascii?Q?WIj7LM5YEunUgySqXNNz9mQMjKhDwaVyT2gm7IfvbAdjvMXv5ESViJFi07b9?=
+ =?us-ascii?Q?t7rekYC6iO8bCZj8rnOfWcLn1hQH2iLo97nq01sNnFMtgGXhNpadu/lYx+ZD?=
+ =?us-ascii?Q?eAYcUzOPK2G8wKXzl+MX4KHnErKWCwXN6w3kCvOhIKC6FmEJPRikeKY2wC7w?=
+ =?us-ascii?Q?6v4Tj5+mY/VoAIFb4QLCO86aCcK9kwO3JC3EJ/jRDObyzBO4xY/Lzcnl5fev?=
+ =?us-ascii?Q?CHxyGEtx9yb9/GUtariWEjrkZVp175WgWMwYI2aDm5Otn6ILxP58J65y6zMk?=
+ =?us-ascii?Q?yKbmQFVo4XbN3awuamPEgHixzFQ3B8fyDKW2MuZtpq5QcJTr/oSUrhee6xz7?=
+ =?us-ascii?Q?4gjU63Zu3v+n0ypVbwPYJXtxj8alzDaRk8LvfNvYBGW1mk4MhfY80ib82RaM?=
+ =?us-ascii?Q?U4hYxmXWi/lR8PIe9frtvfrng/EQfH4FnTrMPxX5gK41lyN3DMhJPE+3WTtI?=
+ =?us-ascii?Q?sl3QyfV9xlA45Svmm/4phbvwU8/eY2fpOE2pWynhg6FBNYUvl1ibihpNOyf9?=
+ =?us-ascii?Q?bEPu7hRnQowSemVPAFW7R+UOCzn5pGfLmc48hNQPV3NnjrWNrgX5vfvz9Lb+?=
+ =?us-ascii?Q?DVcCXxm+fEzablZnf9Bcsz9b7Tg/dtAVpIcPuimPBOAwE61KcUdEy6bo6QJy?=
+ =?us-ascii?Q?Xg9TTdsIAWVgTqqvkoXliEeLUrpqhFoC7IGHCENgd87skcuLEP5yUR3xPhrS?=
+ =?us-ascii?Q?sr4TN/1FgGXNF2NfyERHRa02r2m4Pp8hY5Sos8oG5estud4xdGC8qaNOXr3C?=
+ =?us-ascii?Q?l2R6Y8ngHqTZh05wQPAB7V7SYo4L4SsQN+VHqVFm52lhikUS9UdvGmUE2iYd?=
+ =?us-ascii?Q?anW2UT9pG18op1MYm2IQKY/p/BSdO1t7tgjxhdjOAFD1TdhHinyK0l70xgNQ?=
+ =?us-ascii?Q?+DNzlBJUh9nGrTAym3B3srSG3Y0vkr4mHsMF0dVUfEaOeCfHjLjphlpBK4YV?=
+ =?us-ascii?Q?YPKJYqLtyRHUqq7uuZ4exGOUQj23xrJoIKaHfz1wB6UwSjOsXpqlnQOfLhVu?=
+ =?us-ascii?Q?B+tJjnNQCDSpr9lI+202M75JhO5lLzCkJmm7AG6Y?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2deeafad-6380-42f3-4b09-08dd81f66ef3
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Apr 2025 23:35:58.2902
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: j6NmobJ1rYOVoncfNDFAKdbJioU7o5hnr4FrB0wvIzH2/xrKcIF3YrMuFU/t89MI
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB8407
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_155350_627954_8D6B9FE3 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20250422_163610_791029_4CE633E6 
+X-CRM114-Status: GOOD (  44.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,34 +200,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 23, 2025 at 1:41=E2=80=AFAM David Lechner <dlechner@baylibre.co=
-m> wrote:
-> On 4/22/25 5:33 PM, Andy Shevchenko wrote:
-> > On Wed, Apr 23, 2025 at 1:08=E2=80=AFAM David Lechner <dlechner@baylibr=
-e.com> wrote:
+On Tue, Apr 22, 2025 at 02:28:18PM -0700, Oliver Upton wrote:
+> So, if a VMM wants to do migration of VMs on !S2FWB correctly, it'd
+> probably want to know it can elide CMOs on something that actually bears
+> the feature.
 
-...
+OK
 
-> >> +       IIO_DECLARE_BUFFER_WITH_TS(u8, scan_data, MAX_NUM_CHANNELS * s=
-izeof(u32))
-> >
-> > Btw, why not DECLARE_IIO_...() as other DECLARE_*() look like?
->
-> IMHO, namespace should always go first and people who write DECLARE_NS_..=
-. are
-> doing it wrong. :-)
+> > >  - The memslot flag says userspace expects a particular GFN range to guarantee
+> > >    Write-Back semantics. This can be applied to 'normal', kernel-managed memory
+> > >    and PFNMAP thingies that have cacheable attributes at host stage-1.
+> > 
+> > Userspace doesn't actaully know if it has a cachable mapping from VFIO
+> > though :(
+> 
+> That seems like a shortcoming on the VFIO side, not a KVM issue. What if
+> userspace wants to do atomics on some VFIO mapping, doesn't it need to
+> know that it has something with WB?
 
-Not really. AFAICT it depends on the globality of the macro. Those,
-which are defined in types.h are all DECLARE_something(). Which makes
-sense. So the Q here is if the IIO macros like these ever go out for a
-wider audience. But in any case this can be amended later (with maybe
-a bit of additional churn).
+VFIO is almost always un cachable. So far there is only one device
+merged, and CXL is coming, that would even support/require cachable.
 
-> There is not existing DECLARE_IIO_ to match anyway.
+VFIO always had this sort of programming model where the userspace
+needs to know details about the device it is using so it hasn't really
+been an issue so far that the kernel doesn't tell the userspace what
+cachability it got.. We could add it but now we are adding new kernel
+code, qemu code and kvm code that is actually pretty pointless.
 
-True.
+> > I don't really see a point in this. If the KVM has the cap then
+> > userspace should assume the S2FWB behavior for all cachable memslots.
+> 
+> Wait, so userspace simultaneously doesn't know the cacheability at host
+> stage-1 but *does* for stage-2? 
 
---=20
-With Best Regards,
-Andy Shevchenko
+No, it doesn't know either. The point is the VMM doesn't care about
+any of this. It just wants to connect KVM to VFIO and have the kernel
+internally negotiate the details of how that works.
+
+There is zero value in the VMM being aware that KVM/VFIO is using
+cachable or non-cachable mappings because it will never touch this
+memory anyhow, and arguably it would be happier if it wasn't even in a
+VMA in the first place.
+
+> This is why I contend that userspace needs a mechanism to discover
+> the memory attributes on a given memslot.  Without it there's no way
+> of knowing what's a cacheable memslot.
+
+If it cares about this then it should know by virtue of having put a
+cachable VMA into the memslot.
+
+> Along those lines, how is the VMM going to describe that cacheable
+> PFNMAP region to the guest?
+
+Heh. It creates a virtual PCI device in the guest and the space is
+mapped to a virtual BAR. When the guest driver binds to this device it
+will map the virtual BAR as cachable instead of as IO because it knows
+to do that based on the vPCI device ID.
+
+If something goes weird and the guest tries to use UC instead of
+cachable the S2FWB will block it and the guest will probably
+malfunction.
+
+CXL will probably have the VMM understand things a bit more and will
+generate the various ACPI tables CXL uses.
+
+> > What should happen if you have S2FWB but don't pass the flag? For
+> > normal kernel memory it should still use S2FWB. Thus for cachable
+> > PFNMAP it makes sense that it should also still use S2FWB without the
+> > flag?
+> 
+> For kernel-managed memory, I agree. Accepting the flag for a memslot
+> containing such memory would solely be for discoverability.
+> 
+> OTOH, cacheable PFNMAP is a new feature and I see no issue compelling
+> the use of a new bit with it.
+
+Feels weird to me. Now the VMM has to discover if the KVM supports the
+new flag and only use it on new KVM versions just to accomplish..
+nothing?
+
+> The entire reason I'm dragging my feet about this is I'm concerned we've
+> papered over the complexity of memory attributes (regardless of
+> provenance) for way too long. KVM's done enough to make this dance 'work'
+> in the context of kernel-managed memory, but adding more implicit KVM
+> behavior for cacheable thingies makes the KVM UAPI even more
+> unintelligible (as if it weren't already).
+
+It is very complex.. I'm not sure adding a flag in this case is making
+it any simpler though.
+
+If you had a flag from day 0 that said 'this is a MMIO mapping do MMIO
+stuff' that would be alot clearer about how it should be used.
+
+But here we have a flag that doesn't seem well defined. When should
+the VMM set this flag?
+
+> So this flag isn't about giving userspace any degree of control over
+> memory attributes. Just a way to know for things it _expects_ to be
+> treated as cacheable can be guaranteed to use cacheable attributes in
+> the VM.
+
+Can you get some agreement with Sean? He seems very strongly opposed to
+this direction. 
+
+Jason
 
