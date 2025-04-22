@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1447C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 07:15:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3DD9C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 07:17:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Message-ID:In-Reply-To:Date:From:Cc:To:Subject:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=TTLML28jio6Vq1oVBF7SOxvire6Ltn2Qh5e/hzVTpgQ=; b=i/iXf21najbBuSUZ5oFbwfrmFH
-	O0CX+2+LD8QkA7SyeIeqU9C/vK1rsQnilXCqY/g18ZFgDzRfZmapNAC5qI85IsIh+8lLDW3KJgfa7
-	CjHDQCyy4cRAn16sE1d7rh+2LC4YGxbUq93dBYtZhLW0+kCQbJ4fxXd+VD7o9Kv6DjW1sGGgV8PwJ
-	9eippF8u/U5fxVbLDCHUpnugWYgSP8s8NwR97EIvjehW9fyQSHPMaW0eKR0GBFjtQFYHmDQo4HTYo
-	bWgs2wfoA8k4xd1QZAkwub2JuFFPzpeJtiqzeJBffQ4+49BmVpoSFZ6HHFrGBq0ykXMw0TT/mfLva
-	uQv4Q2ig==;
+	bh=ZJG9JpuQyeGoC6AIwajPzbS/oP70rc42YADTMHiIgRo=; b=L4TEK4tML/X5Md9Pj43/lF2XR4
+	buNWGvD58yKU9TlMxzIaMGvFbkD/MSxe9d09SSwvtJXfT3hsE5itzHMjyEWcgFYuSOW4sU8cyptZt
+	rRQwuft7HLuAKL0zIGjqywWnymWZ7fGNr7y9KIb9ICqw/FKa5VsUn74pNQJm14/nRt5r+NbNj56fS
+	5Br4sSmRGQf6/fhSyQOC2l4AbT4dEdxYQoQuzbeIA4bHnsvt0mpkQa5iIZEq6vpIACmlxT7ElS0B/
+	QfqJ4iRh4mK0QhK06WPt7PAeR2k0Mt+emjORI6aEYok6zz4Y2Mm9it0KBeHpLB3wVe06gRnP/1zso
+	wZ6a+o9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u77qv-000000065US-32ls;
-	Tue, 22 Apr 2025 07:15:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u77sl-000000065ic-1qHd;
+	Tue, 22 Apr 2025 07:17:27 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u77Nq-000000061Qk-299m
+	id 1u77Ns-000000061Rb-3GkQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 06:45:32 +0000
+	Tue, 22 Apr 2025 06:45:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AC9B54A06E;
-	Tue, 22 Apr 2025 06:45:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0058C4CEED;
-	Tue, 22 Apr 2025 06:45:28 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id D91C3A4BD61;
+	Tue, 22 Apr 2025 06:40:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 517D7C4CEE9;
+	Tue, 22 Apr 2025 06:45:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1745304329;
-	bh=02QtzYPWFeVBmAGUMJWoYi8804fbxQ7VMqW3UOJbvFQ=;
+	s=korg; t=1745304331;
+	bh=rTIa+zMbXm9kYbtC0ScARaT0bQ2CWgqWX3ZBnug8uZA=;
 	h=Subject:To:Cc:From:Date:In-Reply-To:From;
-	b=de1IeRqnUVbv5QgyG9E9I/HaV9QJ11W5Z3Lz/gXo4R/tfRMAq4pqj2H88kmQatfOp
-	 7pih7TnKXou/BSmnBRdEmE1cTbh2z67GCh4ii4GLh1UJYYr3smuNAN9wb6ISVChE/4
-	 n5/5P5dClcwi/Gc2dbF8oY3px+n6B+HiS5ng6rF0=
-Subject: Patch "KVM: arm64: Always start with clearing SVE flag on load" has been added to the 5.15-stable tree
-To: broonie@kernel.org,catalin.marinas@arm.com,gregkh@linuxfoundation.org,james.morse@arm.com,kvmarm@lists.cs.columbia.edu,linux-arm-kernel@lists.infradead.org,maz@kernel.org,oleg@redhat.com,oliver.upton@linux.dev,suzuki.poulose@arm.com,will@kernel.org
+	b=0SGy7aYFA2QA9EsdHb2ZtTLqT9y0ax7btOzYWdp85fzo7cKGWiyMZSB5DRUNXiezH
+	 3CATa8szvxbt1qkWiqUl67c80jzS75jWuok1VJhEhNI7jsLNHynEdcqy0WkKoCNPNZ
+	 YeAQ/Q/NLHSZ7LvdyocM4mScGivc/nrb54d0mIZU=
+Subject: Patch "KVM: arm64: Calculate cptr_el2 traps on activating traps" has been added to the 5.15-stable tree
+To: broonie@kernel.org,catalin.marinas@arm.com,gregkh@linuxfoundation.org,james.clark@linaro.org,james.morse@arm.com,kvmarm@lists.cs.columbia.edu,linux-arm-kernel@lists.infradead.org,maz@kernel.org,oleg@redhat.com,oliver.upton@linux.dev,suzuki.poulose@arm.com,tabba@google.com,will@kernel.org
 Cc: <stable-commits@vger.kernel.org>
 From: <gregkh@linuxfoundation.org>
 Date: Tue, 22 Apr 2025 08:45:13 +0200
-In-Reply-To: <20250408-stable-sve-5-15-v3-2-ca9a6b850f55@kernel.org>
-Message-ID: <2025042213-splendor-footwear-bdd4@gregkh>
+In-Reply-To: <20250408-stable-sve-5-15-v3-10-ca9a6b850f55@kernel.org>
+Message-ID: <2025042213-threefold-untangled-267a@gregkh>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=ANSI_X3.4-1968
 Content-Transfer-Encoding: 8bit
 X-stable: commit
 X-Patchwork-Hint: ignore 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_234530_596710_B4E88B74 
-X-CRM114-Status: GOOD (  15.72  )
+X-CRM114-CacheID: sfid-20250421_234532_958220_9568C783 
+X-CRM114-Status: GOOD (  19.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,64 +71,119 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 This is a note to let you know that I've just added the patch titled
 
-    KVM: arm64: Always start with clearing SVE flag on load
+    KVM: arm64: Calculate cptr_el2 traps on activating traps
 
 to the 5.15-stable tree which can be found at:
     http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
 
 The filename of the patch is:
-     kvm-arm64-always-start-with-clearing-sve-flag-on-load.patch
+     kvm-arm64-calculate-cptr_el2-traps-on-activating-traps.patch
 and it can be found in the queue-5.15 subdirectory.
 
 If you, or anyone else, feels it should not be added to the stable tree,
 please let <stable@vger.kernel.org> know about it.
 
 
-From stable+bounces-131827-greg=kroah.com@vger.kernel.org Tue Apr  8 20:23:41 2025
+From broonie@kernel.org Tue Apr  8 20:22:50 2025
 From: Mark Brown <broonie@kernel.org>
-Date: Tue, 08 Apr 2025 19:09:57 +0100
-Subject: KVM: arm64: Always start with clearing SVE flag on load
+Date: Tue, 08 Apr 2025 19:10:05 +0100
+Subject: KVM: arm64: Calculate cptr_el2 traps on activating traps
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,  Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>,  Suzuki K Poulose <suzuki.poulose@arm.com>,  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,  Oleg Nesterov <oleg@redhat.com>, Oliver Upton <oliver.upton@linux.dev>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,  linux-kernel@vger.kernel.org, stable@vger.kernel.org,  Mark Brown <broonie@kernel.org>
-Message-ID: <20250408-stable-sve-5-15-v3-2-ca9a6b850f55@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,  linux-kernel@vger.kernel.org, stable@vger.kernel.org,  Mark Brown <broonie@kernel.org>, Fuad Tabba <tabba@google.com>,  James Clark <james.clark@linaro.org>
+Message-ID: <20250408-stable-sve-5-15-v3-10-ca9a6b850f55@kernel.org>
 
-From: Marc Zyngier <maz@kernel.org>
+From: Fuad Tabba <tabba@google.com>
 
-[ Upstream commit d52d165d67c5aa26c8c89909003c94a66492d23d ]
+[ Upstream commit 2fd5b4b0e7b440602455b79977bfa64dea101e6c ]
 
-On each vcpu load, we set the KVM_ARM64_HOST_SVE_ENABLED
-flag if SVE is enabled for EL0 on the host. This is used to restore
-the correct state on vpcu put.
+Similar to VHE, calculate the value of cptr_el2 from scratch on
+activate traps. This removes the need to store cptr_el2 in every
+vcpu structure. Moreover, some traps, such as whether the guest
+owns the fp registers, need to be set on every vcpu run.
 
-However, it appears that nothing ever clears this flag. Once
-set, it will stick until the vcpu is destroyed, which has the
-potential to spuriously enable SVE for userspace.
-
-We probably never saw the issue because no VMM uses SVE, but
-that's still pretty bad. Unconditionally clearing the flag
-on vcpu load addresses the issue.
-
-Fixes: 8383741ab2e7 ("KVM: arm64: Get rid of host SVE tracking/saving")
+Reported-by: James Clark <james.clark@linaro.org>
+Fixes: 5294afdbf45a ("KVM: arm64: Exclude FP ownership from kvm_vcpu_arch")
+Signed-off-by: Fuad Tabba <tabba@google.com>
+Link: https://lore.kernel.org/r/20241216105057.579031-13-tabba@google.com
 Signed-off-by: Marc Zyngier <maz@kernel.org>
-Cc: stable@vger.kernel.org
-Reviewed-by: Mark Brown <broonie@kernel.org>
-Link: https://lore.kernel.org/r/20220528113829.1043361-2-maz@kernel.org
 Signed-off-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 ---
- arch/arm64/kvm/fpsimd.c |    1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/include/asm/kvm_host.h |    1 -
+ arch/arm64/kvm/arm.c              |    1 -
+ arch/arm64/kvm/hyp/nvhe/switch.c  |   35 ++++++++++++++++++++++++++---------
+ 3 files changed, 26 insertions(+), 11 deletions(-)
 
---- a/arch/arm64/kvm/fpsimd.c
-+++ b/arch/arm64/kvm/fpsimd.c
-@@ -75,6 +75,7 @@ void kvm_arch_vcpu_load_fp(struct kvm_vc
- 	vcpu->arch.flags &= ~KVM_ARM64_FP_ENABLED;
- 	vcpu->arch.flags |= KVM_ARM64_FP_HOST;
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -301,7 +301,6 @@ struct kvm_vcpu_arch {
+ 	/* Values of trap registers for the guest. */
+ 	u64 hcr_el2;
+ 	u64 mdcr_el2;
+-	u64 cptr_el2;
  
-+	vcpu->arch.flags &= ~KVM_ARM64_HOST_SVE_ENABLED;
- 	if (read_sysreg(cpacr_el1) & CPACR_EL1_ZEN_EL0EN)
- 		vcpu->arch.flags |= KVM_ARM64_HOST_SVE_ENABLED;
- }
+ 	/* Values of trap registers for the host before guest entry. */
+ 	u64 mdcr_el2_host;
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -1138,7 +1138,6 @@ static int kvm_arch_vcpu_ioctl_vcpu_init
+ 	}
+ 
+ 	vcpu_reset_hcr(vcpu);
+-	vcpu->arch.cptr_el2 = CPTR_EL2_DEFAULT;
+ 
+ 	/*
+ 	 * Handle the "start in power-off" case.
+--- a/arch/arm64/kvm/hyp/nvhe/switch.c
++++ b/arch/arm64/kvm/hyp/nvhe/switch.c
+@@ -34,21 +34,38 @@ DEFINE_PER_CPU(struct kvm_host_data, kvm
+ DEFINE_PER_CPU(struct kvm_cpu_context, kvm_hyp_ctxt);
+ DEFINE_PER_CPU(unsigned long, kvm_hyp_vector);
+ 
+-static void __activate_traps(struct kvm_vcpu *vcpu)
++static bool guest_owns_fp_regs(struct kvm_vcpu *vcpu)
+ {
+-	u64 val;
++	return vcpu->arch.flags & KVM_ARM64_FP_ENABLED;
++}
+ 
+-	___activate_traps(vcpu);
+-	__activate_traps_common(vcpu);
++static void __activate_cptr_traps(struct kvm_vcpu *vcpu)
++{
++	u64 val = CPTR_EL2_TAM;	/* Same bit irrespective of E2H */
+ 
+-	val = vcpu->arch.cptr_el2;
+-	val |= CPTR_EL2_TTA | CPTR_EL2_TAM;
+-	if (!update_fp_enabled(vcpu)) {
+-		val |= CPTR_EL2_TFP | CPTR_EL2_TZ;
+-		__activate_traps_fpsimd32(vcpu);
++	/* !hVHE case upstream */
++	if (1) {
++		val |= CPTR_EL2_TTA | CPTR_NVHE_EL2_RES1;
++
++		if (!vcpu_has_sve(vcpu) || !guest_owns_fp_regs(vcpu))
++			val |= CPTR_EL2_TZ;
++
++		if (!guest_owns_fp_regs(vcpu))
++			val |= CPTR_EL2_TFP;
+ 	}
+ 
++	if (!guest_owns_fp_regs(vcpu))
++		__activate_traps_fpsimd32(vcpu);
++
+ 	write_sysreg(val, cptr_el2);
++}
++
++static void __activate_traps(struct kvm_vcpu *vcpu)
++{
++	___activate_traps(vcpu);
++	__activate_traps_common(vcpu);
++	__activate_cptr_traps(vcpu);
++
+ 	write_sysreg(__this_cpu_read(kvm_hyp_vector), vbar_el2);
+ 
+ 	if (cpus_have_final_cap(ARM64_WORKAROUND_SPECULATIVE_AT)) {
 
 
 Patches currently in stable-queue which might be from broonie@kernel.org are
