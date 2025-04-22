@@ -4,67 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 802D1C369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 10:59:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 111B0C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 11:01:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EuUZ42TtPnT0cgCcTaOHAnuZ6vnhcbj2FOu4nFKAtQc=; b=HJByQ0KbtHJJ3z1jZ24LiiO1Bm
-	OTsgXuO/qImdKDOKnRRPuZ33JjOtc7hxpKCxqzbwquhqmlOGCkFC3ikKvWMa6V+f7RlBlh0xE0GQO
-	vUXLgXUSfpccOxSYgbw4ML5ggh2gqb1tb7SPPYB2UyssFQOQQn8Ni3+9tuNQhx24lWT5N7Dps2ZF8
-	zOfOtDTwhA6DVOE7lh85EbbgxnKgtWGwuXsqp2PyUEqVNL9Afh4og3nnsQPH0BDYB0NUvjLd5JYrN
-	MKK980cLGSc3Y676QXF8GOBRC4gPOI3iOCU5h6niLRM7EOfpbkSi15YTPhmn7e9T/slvuXoM6reRr
-	GnbAZmfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=773iKDLuE6xq2Xro8wyS6G+hqdfsehF8d9eBVRBQ0BI=; b=Mpk7MRJK8RO1dY+Yxa4o6uo2GJ
+	JhjsGkJdHwkAyum/pKzb9drLD5wSFeRh7G9kYwfBOl8IxXmLBmKbiAouCiTlRNDROQPoSicgTaX3t
+	HYggJiHI2Dqmrw+7fIQ/86ph2WtpdNu7rbUVdnO3oYUEqq0OlRdqMasNjUWtT4NvdCjup/gRjugzd
+	9AsIKH/s9+hIDlTN4pCfKfQ4lxfc9wtoQmRlBTvPuzcCy+QpRI0kmQjn3egRQ9siCDMHI9yIUARs2
+	a/Zt6SvFQC4WdVqeDW+Kk0d0uTF0Q7cm2ZZePFjxJ4mBrjer76fTAlOT1wqp+gfwWsSOlBDhi9cNf
+	MbnFSOBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7BLw-00000006rMs-43kA;
-	Tue, 22 Apr 2025 10:59:48 +0000
-Received: from szxga08-in.huawei.com ([45.249.212.255])
+	id 1u7BNo-00000006rlR-2i4Z;
+	Tue, 22 Apr 2025 11:01:44 +0000
+Received: from mail-vk1-f174.google.com ([209.85.221.174])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7AbM-00000006hTY-38O3
+	id 1u7AcH-00000006hfQ-3XH7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 10:11:42 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.105])
-	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4ZhdKV1V5Xz1d09W;
-	Tue, 22 Apr 2025 18:10:38 +0800 (CST)
-Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id C027A1400D4;
-	Tue, 22 Apr 2025 18:11:35 +0800 (CST)
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Tue, 22 Apr 2025 18:11:34 +0800
-CC: <yangyicong@hisilicon.com>, <jonathan.cameron@huawei.com>,
-	<hejunhao3@huawei.com>, <linuxarm@huawei.com>, <wangyushan12@huawei.com>,
-	<caijingtao@huawei.com>, <xueshan2@huawei.com>, <prime.zeng@hisilicon.com>,
-	<acme@kernel.org>, <namhyung@kernel.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <peterz@infradead.org>, <mingo@redhat.com>,
-	<mark.rutland@arm.com>, <jolsa@kernel.org>, <john.g.garry@oracle.com>,
-	<leo.yan@linux.dev>, <irogers@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>
-Subject: Re: [PATCH] perf arm-spe: Add support for SPE Data Source packet on
- HiSilicon HIP12
-To: James Clark <james.clark@linaro.org>
-References: <20250408122809.37884-1-yangyicong@huawei.com>
- <89741897-6c8f-4b75-8ec3-675111ea60a1@linaro.org>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <36d03a7e-ffd6-29b8-c34f-fd6780adffe9@huawei.com>
-Date: Tue, 22 Apr 2025 18:11:34 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	Tue, 22 Apr 2025 10:12:39 +0000
+Received: by mail-vk1-f174.google.com with SMTP id 71dfb90a1353d-523de538206so1897840e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 03:12:37 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745316755; x=1745921555;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=773iKDLuE6xq2Xro8wyS6G+hqdfsehF8d9eBVRBQ0BI=;
+        b=fGgcI2DZm7Dg6TtPDEOypo+Io4mKjqTQ2CqMQ/N8Qkd+5DHmETYGDvOioMF0Wau81i
+         mN155dPgEI4ZYpVYU/8sMLM3cooaezIoHuVcyhBH+e/S8jijqGiBF8kejKZh+LGd8wP0
+         Wn7BWy3O+S2F7Zq8dNR2qGcT/2+sk6QQG7+egoeFx9wi1PPJzYzQXgSQy4swBw8bpCKu
+         0syKrOp67xUOPjVopvV+1O+bcyFDbVtjyAWazgp5lgKCRRXlgLZmIc6IVleIEh8fEEzD
+         iinS/ZYf3A0DIx5mf7SZPSmfU211hbc9jpqOsFb/hpMeN+YGK2U+EzS+LM2Z0fEFyycy
+         XJpQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWUCnjeHbIjy/5OfYqa9NTwxeoCXQPYTmdt7G2KyNddmC1iGjJXj2roFfq+eSllDaZ8UNvYAAm3iIbcBBMFgbqJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxeNchB8y8fAe0fV4rlbcR41Sa675KOwMa4quDxK0qJTqDKFmqH
+	PJiL0l2XozzLWWlr1MJVWCifMZrwSqz6wGFkFXbuk2Uyu7YROhhUBh+oGkw9
+X-Gm-Gg: ASbGncuTxpbvoYEmHLha5h73FMHf5FFUC8g/KePAw4fUzDwgSRuE5UjIZI5eHTYM4gk
+	WcGHq1/sE3Qijgs6bXE0AxjsovFgZEHD6kuW/pod7zih7h3gqxApfBKYZPpqv8I2q+U3JeykbQ8
+	OFtCUl0vRiUP94vgrhfNkmn8RwLELS6ZxGCGbhonIi7G4yyJllJrMzbwbQROBh3rTCANH9aIDrd
+	6KABRJeNT9Bpjsk40gLPBaz92wedhK5ofzpyRgSlfxq9gEESm3LOTMSa0ryuamTtIZZGVnjKKGL
+	k2FMTkM7kNUIlQc4pVnaiaRAfc/ocYH1GrAXhtoG9GLe3WR0d1Mc9+ZIlE91o/pKrhtu07J9tdD
+	7zik=
+X-Google-Smtp-Source: AGHT+IFXCYR732ew2oc6RSO+5yeLXPrH877bYmAT65r0gZQauf2PEADNIvwUuYMPlJMf4jpO6RDGdQ==
+X-Received: by 2002:a05:6122:1d92:b0:526:1ddd:7603 with SMTP id 71dfb90a1353d-529252365dcmr8570532e0c.0.1745316754769;
+        Tue, 22 Apr 2025 03:12:34 -0700 (PDT)
+Received: from mail-ua1-f54.google.com (mail-ua1-f54.google.com. [209.85.222.54])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-8776466cd4csm2227672241.10.2025.04.22.03.12.33
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 22 Apr 2025 03:12:33 -0700 (PDT)
+Received: by mail-ua1-f54.google.com with SMTP id a1e0cc1a2514c-86fbc8717fcso1850276241.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 03:12:33 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCW1W5JIIUYSoIPMzK/d15g4MiShEuPZqJsDe6d/WAeaeZwjG/Pdmq5FIMiS7sOoByV5jVYPTAQdH3DjyoHczQ8v@lists.infradead.org
+X-Received: by 2002:a05:6102:5c0b:b0:4c4:fdb9:2ea with SMTP id
+ ada2fe7eead31-4cb80101085mr7871767137.7.1745316753101; Tue, 22 Apr 2025
+ 03:12:33 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <89741897-6c8f-4b75-8ec3-675111ea60a1@linaro.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
- kwepemd200014.china.huawei.com (7.221.188.8)
+References: <20250327112009.6b4dc430@eldfell> <b5cf15a4-7c65-4718-9c39-a4c86179ba4c@ideasonboard.com>
+ <20250327175842.130c0386@eldfell> <CAMuHMdVEpTVWmwrYt+G-QSWucT91goUcFor9qbo5rZ+X2jnRog@mail.gmail.com>
+ <20250331105446.098f0fbe@eldfell> <20250331082135.GB13690@pendragon.ideasonboard.com>
+ <20250331135337.61934003@eldfell> <20250401162732.731ef774@eldfell>
+ <73bd6628-374d-417f-a30f-88a4b1d157bb@ideasonboard.com> <20250417111315.62a749e5@eldfell>
+ <20250421145039.GA19213@pendragon.ideasonboard.com> <20250422121107.572cb7ad@eldfell>
+ <CAMuHMdX+yaw_PYsM_N8Gzrt2hbn_5cRN375jLKpwE13ygTvwHA@mail.gmail.com> <20250422130137.2658c646@eldfell>
+In-Reply-To: <20250422130137.2658c646@eldfell>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 22 Apr 2025 12:12:21 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdUcG_K=5RHMaq9vTpQo8dPpLAvXfxP8XuzGnx4Nte7++A@mail.gmail.com>
+X-Gm-Features: ATxdqUGZbs6BF5hsjehRUxuOo4erq-QyO5S15EM3odm4sDatdl_MdQHKARAHvpA
+Message-ID: <CAMuHMdUcG_K=5RHMaq9vTpQo8dPpLAvXfxP8XuzGnx4Nte7++A@mail.gmail.com>
+Subject: Re: [PATCH v4 03/11] drm/fourcc: Add DRM_FORMAT_Y8
+To: Pekka Paalanen <ppaalanen@gmail.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Vishal Sagar <vishal.sagar@amd.com>, 
+	Anatoliy Klymenko <anatoliy.klymenko@amd.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Michal Simek <michal.simek@amd.com>, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_031141_090578_62CDE63A 
-X-CRM114-Status: GOOD (  17.05  )
+X-CRM114-CacheID: sfid-20250422_031237_884448_07CB9668 
+X-CRM114-Status: GOOD (  70.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,166 +106,228 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/4/22 17:16, James Clark wrote:
-> 
-> 
-> On 08/04/2025 1:28 pm, Yicong Yang wrote:
->> From: Yicong Yang <yangyicong@hisilicon.com>
->>
->> Add data source encoding for HiSilicon HIP12 and coresponding mapping
->> to the perf's memory data source. This will help to synthesize the data
->> and support upper layer tools like perf-mem and perf-c2c.
->>
->> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
->> ---
->>   arch/arm64/include/asm/cputype.h              |   2 +
->>   tools/arch/arm64/include/asm/cputype.h        |   2 +
->>   .../util/arm-spe-decoder/arm-spe-decoder.h    |  17 +++
->>   tools/perf/util/arm-spe.c                     | 101 ++++++++++++++++++
->>   4 files changed, 122 insertions(+)
->>
->> diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
->> index d1cc0571798b..36c5bbfbb6e9 100644
->> --- a/arch/arm64/include/asm/cputype.h
->> +++ b/arch/arm64/include/asm/cputype.h
->> @@ -133,6 +133,7 @@
->>     #define HISI_CPU_PART_TSV110        0xD01
->>   #define HISI_CPU_PART_HIP09            0xD02
->> +#define HISI_CPU_PART_HIP12        0xD06
->>     #define APPLE_CPU_PART_M1_ICESTORM    0x022
->>   #define APPLE_CPU_PART_M1_FIRESTORM    0x023
->> @@ -220,6 +221,7 @@
->>   #define MIDR_FUJITSU_A64FX MIDR_CPU_MODEL(ARM_CPU_IMP_FUJITSU, FUJITSU_CPU_PART_A64FX)
->>   #define MIDR_HISI_TSV110 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_TSV110)
->>   #define MIDR_HISI_HIP09 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_HIP09)
->> +#define MIDR_HISI_HIP12 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_HIP12)
->>   #define MIDR_APPLE_M1_ICESTORM MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_ICESTORM)
->>   #define MIDR_APPLE_M1_FIRESTORM MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_FIRESTORM)
->>   #define MIDR_APPLE_M1_ICESTORM_PRO MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_ICESTORM_PRO)
->> diff --git a/tools/arch/arm64/include/asm/cputype.h b/tools/arch/arm64/include/asm/cputype.h
->> index 488f8e751349..9a5d85cfd1fb 100644
->> --- a/tools/arch/arm64/include/asm/cputype.h
->> +++ b/tools/arch/arm64/include/asm/cputype.h
->> @@ -129,6 +129,7 @@
->>   #define FUJITSU_CPU_PART_A64FX        0x001
->>     #define HISI_CPU_PART_TSV110        0xD01
->> +#define HISI_CPU_PART_HIP12        0xD06
->>     #define APPLE_CPU_PART_M1_ICESTORM    0x022
->>   #define APPLE_CPU_PART_M1_FIRESTORM    0x023
->> @@ -202,6 +203,7 @@
->>   #define MIDR_NVIDIA_CARMEL MIDR_CPU_MODEL(ARM_CPU_IMP_NVIDIA, NVIDIA_CPU_PART_CARMEL)
->>   #define MIDR_FUJITSU_A64FX MIDR_CPU_MODEL(ARM_CPU_IMP_FUJITSU, FUJITSU_CPU_PART_A64FX)
->>   #define MIDR_HISI_TSV110 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_TSV110)
->> +#define MIDR_HISI_HIP12 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_HIP12)
->>   #define MIDR_APPLE_M1_ICESTORM MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_ICESTORM)
->>   #define MIDR_APPLE_M1_FIRESTORM MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_FIRESTORM)
->>   #define MIDR_APPLE_M1_ICESTORM_PRO MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_ICESTORM_PRO)
->> diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
->> index 5d232188643b..0410abed5009 100644
->> --- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
->> +++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
->> @@ -82,6 +82,23 @@ enum arm_spe_ampereone_data_source {
->>       ARM_SPE_AMPEREONE_L2D                           = 0x9,
->>   };
->>   +enum arm_spe_hisi_hip_data_source {
->> +    ARM_SPE_HISI_HIP_PEER_CPU        = 0,
->> +    ARM_SPE_HISI_HIP_PEER_CPU_HITM        = 1,
->> +    ARM_SPE_HISI_HIP_L3            = 2,
->> +    ARM_SPE_HISI_HIP_L3_HITM        = 3,
->> +    ARM_SPE_HISI_HIP_PEER_CLUSTER        = 4,
->> +    ARM_SPE_HISI_HIP_PEER_CLUSTER_HITM    = 5,
->> +    ARM_SPE_HISI_HIP_REMOTE_SOCKET        = 6,
->> +    ARM_SPE_HISI_HIP_REMOTE_SOCKET_HITM    = 7,
->> +    ARM_SPE_HISI_HIP_LOCAL            = 8,
->> +    ARM_SPE_HISI_HIP_REMOTE            = 9,
->> +    ARM_SPE_HISI_HIP_NC_DEV            = 13,
->> +    ARM_SPE_HISI_HIP_L2            = 16,
->> +    ARM_SPE_HISI_HIP_L2_HITM        = 17,
->> +    ARM_SPE_HISI_HIP_L1            = 18,
->> +};
->> +
->>   struct arm_spe_record {
->>       enum arm_spe_sample_type type;
->>       int err;
->> diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
->> index 2a9775649cc2..eceae4219601 100644
->> --- a/tools/perf/util/arm-spe.c
->> +++ b/tools/perf/util/arm-spe.c
->> @@ -571,6 +571,11 @@ static const struct midr_range ampereone_ds_encoding_cpus[] = {
->>       {},
->>   };
->>   +static const struct midr_range hisi_hip_ds_encoding_cpus[] = {
->> +    MIDR_ALL_VERSIONS(MIDR_HISI_HIP12),
->> +    {},
->> +};
->> +
->>   static void arm_spe__sample_flags(struct arm_spe_queue *speq)
->>   {
->>       const struct arm_spe_record *record = &speq->decoder->record;
->> @@ -718,9 +723,105 @@ static void arm_spe__synth_data_source_ampereone(const struct arm_spe_record *re
->>       arm_spe__synth_data_source_common(&common_record, data_src);
->>   }
->>   +static void arm_spe__synth_data_source_hisi_hip(const struct arm_spe_record *record,
->> +                        union perf_mem_data_src *data_src)
->> +{
->> +    /* Use common synthesis method to handle store operations */
->> +    if (record->op & ARM_SPE_OP_ST) {
->> +        arm_spe__synth_data_source_common(record, data_src);
->> +        return;
->> +    }
->> +
->> +    switch (record->source) {
->> +    case ARM_SPE_HISI_HIP_PEER_CPU:
->> +        data_src->mem_lvl = PERF_MEM_LVL_L3 | PERF_MEM_LVL_HIT;
->> +        data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
->> +        data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
->> +        data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
->> +        break;
->> +    case ARM_SPE_HISI_HIP_PEER_CPU_HITM:
->> +        data_src->mem_lvl = PERF_MEM_LVL_L3 | PERF_MEM_LVL_HIT;
->> +        data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
->> +        data_src->mem_snoop = PERF_MEM_SNOOP_HITM;
->> +        data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
->> +        break;
->> +    case ARM_SPE_HISI_HIP_L3:
->> +        data_src->mem_lvl = PERF_MEM_LVL_L3 | PERF_MEM_LVL_HIT;
->> +        data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
->> +        data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
->> +        break;
->> +    case ARM_SPE_HISI_HIP_L3_HITM:
->> +        data_src->mem_lvl = PERF_MEM_LVL_L3 | PERF_MEM_LVL_HIT;
->> +        data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
->> +        data_src->mem_snoop = PERF_MEM_SNOOP_HITM;
->> +        data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
->> +        break;
->> +    case ARM_SPE_HISI_HIP_PEER_CLUSTER:
->> +        data_src->mem_lvl = PERF_MEM_LVL_REM_CCE1 | PERF_MEM_LVL_HIT;
->> +        data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
->> +        data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
->> +        data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
->> +        break;
->> +    case ARM_SPE_HISI_HIP_PEER_CLUSTER_HITM:
->> +        data_src->mem_lvl = PERF_MEM_LVL_REM_CCE1 | PERF_MEM_LVL_HIT;
->> +        data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
->> +        data_src->mem_snoop = PERF_MEM_SNOOP_HITM;
->> +        data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
->> +        break;
->> +    case ARM_SPE_HISI_HIP_REMOTE_SOCKET:
->> +        data_src->mem_lvl = PERF_MEM_LVL_REM_CCE2;
->> +        data_src->mem_lvl_num = PERF_MEM_LVLNUM_ANY_CACHE;
->> +        data_src->mem_remote = PERF_MEM_REMOTE_REMOTE;
->> +        data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
-> 
-> Hi Yicong,
-> 
-> Is the mem_snoop setting missing from this one?
-> 
+Hi Pekka,
 
-it should be PERF_MEM_SNOOP_NONE, will fix. Thanks for catching this.
+On Tue, 22 Apr 2025 at 12:01, Pekka Paalanen <ppaalanen@gmail.com> wrote:
+> On Tue, 22 Apr 2025 11:41:29 +0200
+> Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> > On Tue, 22 Apr 2025 at 11:11, Pekka Paalanen
+> > <pekka.paalanen@haloniitty.fi> wrote:
+> > > On Mon, 21 Apr 2025 17:50:39 +0300
+> > > Laurent Pinchart <laurent.pinchart@ideasonboard.com> wrote:
+> > > > On Thu, Apr 17, 2025 at 11:13:15AM +0300, Pekka Paalanen wrote:
+> > > > > On Wed, 16 Apr 2025 11:59:43 +0300 Tomi Valkeinen wrote:
+> > > > > > On 01/04/2025 16:27, Pekka Paalanen wrote:
+> > > > > > > On Mon, 31 Mar 2025 13:53:37 +0300 Pekka Paalanen wrote:
+> > > > > > >> On Mon, 31 Mar 2025 11:21:35 +0300 Laurent Pinchart wrote:
+> > > > > > >>> On Mon, Mar 31, 2025 at 10:54:46AM +0300, Pekka Paalanen wrote:
+> > > > > > >>>> On Thu, 27 Mar 2025 17:35:39 +0100 Geert Uytterhoeven wrote:
+> > > > > > >>>>> On Thu, 27 Mar 2025 at 16:59, Pekka Paalanen wrote:
+> > > > > > >>>>>> On Thu, 27 Mar 2025 16:21:16 +0200 Tomi Valkeinen wrote:
+> > > > > > >>>>>>> On 27/03/2025 11:20, Pekka Paalanen wrote:
+> > > > > > >>>>>>>> On Wed, 26 Mar 2025 15:55:18 +0200 Tomi Valkeinen wrote:
+> > > > > > >>>>>>>>> On 26/03/2025 15:52, Geert Uytterhoeven wrote:
+> > > > > > >>>>>>>>>> On Wed, 26 Mar 2025 at 14:23, Tomi Valkeinen wrote:
+> > > > > > >>>>>>>>>>> Add greyscale Y8 format.
+> > > > > > >>>>>>>>>>>
+> > > > > > >>>>>>>>>>> Acked-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> > > > > > >>>>>>>>>>> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+> > > > > > >>>>>>>>>>
+> > > > > > >>>>>>>>>> Thanks for your patch!
+> > > > > > >>>>>>>>>>
+> > > > > > >>>>>>>>>>> --- a/include/uapi/drm/drm_fourcc.h
+> > > > > > >>>>>>>>>>> +++ b/include/uapi/drm/drm_fourcc.h
+> > > > > > >>>>>>>>>>> @@ -405,6 +405,9 @@ extern "C" {
+> > > > > > >>>>>>>>>>>     #define DRM_FORMAT_YUV444      fourcc_code('Y', 'U', '2', '4') /* non-subsampled Cb (1) and Cr (2) planes */
+> > > > > > >>>>>>>>>>>     #define DRM_FORMAT_YVU444      fourcc_code('Y', 'V', '2', '4') /* non-subsampled Cr (1) and Cb (2) planes */
+> > > > > > >>>>>>>>>>>
+> > > > > > >>>>>>>>>>> +/* Greyscale formats */
+> > > > > > >>>>>>>>>>> +
+> > > > > > >>>>>>>>>>> +#define DRM_FORMAT_Y8          fourcc_code('G', 'R', 'E', 'Y')  /* 8-bit Y-only */
+> > > > > > >>>>>>>>>>
+> > > > > > >>>>>>>>>> This format differs from e.g. DRM_FORMAT_R8, which encodes
+> > > > > > >>>>>>>>>> the number of bits in the FOURCC format. What do you envision
+> > > > > > >>>>>>>>>> for e.g. DRM_FORMAT_Y16? fourcc_code('G', 'R', '1', '6')?
+> > > > > > >>>>>>>>>
+> > > > > > >>>>>>>>> I wanted to use the same fourcc as on V4L2 side. Strictly speaking it's
+> > > > > > >>>>>>>>> not required, but different fourccs for the same formats do confuse.
+> > > > > > >>>>>>>>>
+> > > > > > >>>>>>>>> So, generally speaking, I'd pick an existing fourcc from v4l2 side if
+> > > > > > >>>>>>>>> possible, and if not, invent a new one.
+> > > > > > >>>>>>>>
+> > > > > > >>>>>>>> what's the actual difference between DRM_FORMAT_R8 and DRM_FORMAT_Y8?
+> > > > > > >>>>>>>>
+> > > > > > >>>>>>>> Is the difference that when R8 gets expanded to RGB, it becomes (R, 0,
+> > > > > > >>>>>>>> 0), but Y8 gets expanded to (c1 * Y, c2 * Y, c3 * Y) where c1..c3 are
+> > > > > > >>>>>>>> defined by MatrixCoefficients (H.273 terminology)?
+> > > > > > >>>>>>>>
+> > > > > > >>>>>>>> That would be my intuitive assumption following how YCbCr is handled.
+> > > > > > >>>>>>>> Is it obvious enough, or should there be a comment to that effect?
+> > > > > > >>>>>>>
+> > > > > > >>>>>>> You raise an interesting point. Is it defined how a display driver, that
+> > > > > > >>>>>>> supports R8 as a format, shows R8 on screen? I came into this in the
+> > > > > > >>>>>>> context of grayscale formats, so I thought R8 would be handled as (R, R,
+> > > > > > >>>>>>> R) in RGB. But you say (R, 0, 0), which... also makes sense.
+> > > > > > >>>>>>
+> > > > > > >>>>>> That is a good question too. I based my assumption on OpenGL behavior
+> > > > > > >>>>>> of R8.
+> > > > > > >>>>>>
+> > > > > > >>>>>> Single channel displays do exist I believe, but being single-channel,
+> > > > > > >>>>>> expansion on the other channels is likely meaningless. Hm, but for the
+> > > > > > >>>>>> KMS color pipeline, it would be meaningful, like with a CTM.
+> > > > > > >>>>>> Interesting.
+> > > > > > >>>>>>
+> > > > > > >>>>>> I don't know. Maybe Geert does?
+> > > > > > >>>>>
+> > > > > > >>>>> I did some digging, and was a bit surprised that it was you who told
+> > > > > > >>>>> me to use R8 instead of Y8?
+> > > > > > >>>>> https://lore.kernel.org/all/20220202111954.6ee9a10c@eldfell
+> > > > > > >>>>
+> > > > > > >>>> Hi Geert,
+> > > > > > >>>>
+> > > > > > >>>> indeed I did. I never thought of the question of expansion to R,G,B
+> > > > > > >>>> before. Maybe that expansion is what spells R8 and Y8 apart?
+> > > > > > >>>>
+> > > > > > >>>> I do think that expansion needs to be specified, so that the KMS color
+> > > > > > >>>> pipeline computations are defined. There is a big difference between
+> > > > > > >>>> multiplying these with an arbitrary 3x3 matrix (e.g. CTM):
+> > > > > > >>>>
+> > > > > > >>>> - (R, 0, 0)
+> > > > > > >>>> - (R, R, R)
+> > > > > > >>>> - (c1 * Y, c2 * Y, c3 * Y)
+> > > > > > >>>
+> > > > > > >>> I'd be very surprised by an YUV to RGB conversion matrix where the first
+> > > > > > >>> column would contain different values. What we need to take into account
+> > > > > > >>> though is quantization (full vs. limited range).
+> > > > > > >
+> > > > > > > Quantization range is indeed good to note. R8 would be always full
+> > > > > > > range, but Y8 would follow COLOR_RANGE property.
+> > > > > > >
+> > > > > > >> That makes Y8 produce (Y, Y, Y), and we have our answer: R8 should be
+> > > > > > >> (R, 0, 0), so we have both variants.
+> > > > > > >>
+> > > > > > >> Can we specify Y, R, G and B be nominal values in the range 0.0 - 1.0
+> > > > > > >> in the KMS color processing?
+> > > > > > >
+> > > > > > > I think this 0.0 - 1.0 nominal range definition for the abstract KMS
+> > > > > > > color processing is necessary.
+> > > > > > >
+> > > > > > > It also means that limited range Y8 data, when containing values 0-15
+> > > > > > > or 240-255, would produce negative and greater than 1.0 values,
+> > > > > > > respectively. They might get immediately clamped to 0.0 - 1.0 with the
+> > > > > > > first color operation they face, though, but the concept seems
+> > > > > > > important and carrying over to the new color pipelines UAPI which might
+> > > > > > > choose not to clamp.
+> > > > > >
+> > > > > > Is the behavior of values outside the limited range something that needs
+> > > > > > to be defined? We can't know how each piece of HW behaves with
+> > > > > > "undefined" input, so should we not just define the behavior as platform
+> > > > > > specific?
+> > > > >
+> > > > > Hi Tomi,
+> > > > >
+> > > > > it's not undefined nor illegal input in general. The so-called
+> > > > > sub-black and super-white ranges exist for a reason, and they are
+> > > > > intended to be used in video processing to avoid clipping in
+> > > > > intermediate processing steps when a filter overshoots a bit. There are
+> > > > > also practices that depend on them, like PLUGE calibration with
+> > > > > traditional signals on a display: https://www.itu.int/rec/R-REC-BT.814
+> > > > >
+> > > > > I think it would be really good to have defined behaviour if at all
+> > > > > possible.
+> > > > >
+> > > > > > In any case: I can't say I fully understood all the discussions wrt.
+> > > > > > color spaces. But my immediate interest is, of course, this series =).
+> > > > > > So is there something that you think should be improved here?
+> > > > >
+> > > > > Right, the range discussion is a tangent and applies to all YUV
+> > > > > formats, so it's not a new question.
+> > > > >
+> > > > > > My understanding is that the Y-only pixel formats behave in a well
+> > > > > > defined way (or, as well defined as the YUV formats), and there's
+> > > > > > nothing more to add here. Is that right?
+> > > > >
+> > > > > There are two things:
+> > > > >
+> > > > > - Y8 follows COLOR_RANGE property, just like all other YUV formats.
+> > > > > - Y8 implies that Cb and Cr are both neutral (0.0 in nominal values).
+> > > > >
+> > > > > I'd like these explicitly written down, so that they become obvious to
+> > > > > everyone. I suspect either one might be easy to forget when writing
+> > > > > code and taking shortcuts without thinking.
+> > > > >
+> > > > >
+> > > > > Laurent,
+> > > > >
+> > > > > I did find a case where (Y', neutral, neutral) does *not* seem to expand
+> > > > > to RGB=(Y, Y, Y): ICtCp. The conversion from ICtCp to L'M'S' does
+> > > > > produce (Y', Y', Y'), but the LMS-to-RGB matrix scrambles it.
+> > > > >
+> > > > > I didn't dig through BT.2020 constant-luminance Y'C'bcC'rc, but I
+> > > > > wouldn't be surprised if it scrambled too.
+> > > > >
+> > > > > Of course, both of the above are not just one matrix. They require two
+> > > > > matrices and the transfer characteristic each to compute. KMS color
+> > > > > operations cannot implement those today, but with the colorop pipelines
+> > > > > they will if the hardware does it.
+> > > > >
+> > > > > That's why I think it's important to document the assumption of Cb and
+> > > > > Cr when not part of the pixel format, and not write down a specific
+> > > > > expansion to RGB like (Y, Y, Y).
+> > > >
+> > > > Every time I discuss color spaces, the scopes of "RGB" and "YUV" seem to
+> > > > expand more and more. This makes me wonder how we define those two
+> > > > concepts. Taking the conversion from RGB to ICtCp as an example, would
+> > > > you consider LMS and L'M'S' as "RGB" formats, and ICtCp as a "YUV"
+> > > > format ?
+> > >
+> > > sorry for the confusion. In this specific context, my use of RGB and
+> > > YUV refers to the channels in DRM pixel formats. It might have been
+> > > better if all channels in all pixel formats were "anonymous" and merely
+> > > numbered because all formats can be used for any color model, but this
+> > > is what we have.
+> > >
+> > > There is some disambiguation in
+> > > https://gitlab.freedesktop.org/pq/color-and-hdr/-/blob/main/doc/pixels_color.md
+> > > The doc is some years old, so nowadays I might phrase things
+> > > differently, but maybe it's easier to read for those new to things as I
+> > > wrote it when I was just learning things.
+> > >
+> > > I would classify ICtCp in the YUV pixel format category, because the
+> > > CtCp plane can be sub-sampled (right?). I would classify LMS and L'M'S'
+> > > in the RGB pixel format category because they are not sub-sampled AFAIK
+> > > although they also do not actually appear as buffer contents, so the
+> > > relation to pixel formats is... theoretical.
+> > >
+> > > IOW, we have a completely artificial split of DRM pixel formats to RGB
+> > > and YUV where the only essential difference is that YUV formats can have
+> > > sub-sampled variants and RGB formats do not.
+> >
+> > RGB can be subsampled, too...
+> > https://en.wikipedia.org/wiki/Bayer_filter
+>
+> That's true. What difference are we left with, then?
 
-> Other than that, LGTM.
-> 
+RGB contains three monochromatic color channels (which may differ from
+Red, Green, and Blue, cfr. truncated RGn and Rn formats).
+YUV contains one luminance and two chrominance channels.
 
-Thanks.
+> We have DRM pixel formats which imply some color model, but do not
+> define the variant of each color model (e.g. the Y'CbCr-to-RGB matrix).
+>
+> I guess the implied color model then implies which API, e.g. KMS plane
+> property, is responsible for defining the variant.
 
+Probably (IANADX --- I Am Not A Drm eXpert ;-)
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
