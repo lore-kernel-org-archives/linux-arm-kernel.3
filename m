@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CAF1C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 22:53:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39FAEC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 22:55:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OtNg2abh49QsnTa1XSIwbO/eokylj5yxtKMHXP/aBRw=; b=eCDCRz03Ix5510Kh06d9WDq94a
-	HgImxTcvfgFKYD9YDqXI9NJ2ltXQ6eNOEAq4Gf5+SmKCThC9lGpBNnPLWNXy9gHLnqu+br5Qt+SCn
-	IGxkV6aaxs/Y0ogme4tMv9o7Y0hM6oApikdOEAKA6u1+s6aoMW5LsSn+g9RoGi4NdwP4BuOyP/Lew
-	PQXXqIyFEEAeVsN3WPQX56Lnhgh1V2Nxxe3D17YcAKwXNau6TYFCLcFN2r3pDY9IvFmqlZrmAShj4
-	mkrPlmK4kP5e5ZOfHY5zgDxAS40c2++NkwxEGH9ZhDNhoDg1bH2zH3SyMZYG0yj2Wz6030IOasstD
-	9YCzzHbA==;
+	bh=f+1Ngscj1sLQkaXbBjPeNhRnXqru6dzUdV9MGLQmLQU=; b=h8NU/t3FWQEgk3ni8hbumcoi3t
+	iw491JZfIeGKUekkFDfRlwi+brOwFBubObcdygD9A0Qe+chu7tgeWTRIiNvlhw7jRdv4xc7US8j63
+	HlWWiPxQrs4M3Lb7KcF/UipHofe/fZnQHA10jEdSo3jHJ++PhHTgl8VW9GQniGggjfD8Q9m0SsYAn
+	SNjhmsNispwhkcOs51suLahGi2NCc/cjTweinznolqb0NZYpvNU0IdHTtnCmI0RHwr1F7cugoknPJ
+	Hzq8FbVavp1l3GfR3NdhiwEf5vdopmf5NkHWC3jYkD5FQyoxsfDGe9ojDl1UtZo3DtgSLUZgTYuqC
+	jOzXDrUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7MUA-00000008lKC-30hM;
-	Tue, 22 Apr 2025 22:53:02 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1u7MWp-00000008lj6-12lk;
+	Tue, 22 Apr 2025 22:55:47 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7MSH-00000008lBj-1gp3
+	id 1u7MUw-00000008lPu-2Sdu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 22:51:06 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-ace3b03c043so85060966b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 15:51:04 -0700 (PDT)
+	Tue, 22 Apr 2025 22:53:51 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-aca99fc253bso818806766b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 15:53:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745362263; x=1745967063; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1745362429; x=1745967229; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=OtNg2abh49QsnTa1XSIwbO/eokylj5yxtKMHXP/aBRw=;
-        b=AOnyFmIs8NPG+hZw3cnqjfhKtu0LLQym8T6Y1CmwYtISM5C+xAe1YprTiII4AyvgT0
-         9lQcs1n076JmRkHF56EzUeApwA1WeDaAHqMkmz24dH+tLivlSC3qJRXgAPz6RnkiWm8e
-         OJLnNIv5lHdlgGRCIjBQxkM7eWNun6A/muSLCRte4OH697VFTxW+uAYPJ7Xf5DFKCeL3
-         dSj/aSq/n1fl0IVZ17xeWJJX/aQZnFLREKOKsEa/iQJlIQBhqU+DNXqNpGsrGQgunSpz
-         qcltFIbinzQLrYjifBf3Abw63fuhtEKAhAC5c768N/Qfq0EpwNMvyqzfymA00UaMj5cv
-         Qdkg==
+        bh=f+1Ngscj1sLQkaXbBjPeNhRnXqru6dzUdV9MGLQmLQU=;
+        b=a0wWMc6DZROqxYtMQg/L9NXMcFIyvJ9SSDODfQ/z/fRr1gVoJdsBsHxT7CB4BHTyaN
+         V9lgaUYB/B+COwzbbHTXrtcAbiNiygHekx8mhAqvEn6+iMs8H1KWyUXTAfN4cdraRU96
+         8/RY1QT/M69PSsasC2nqpw8ehu4BdjPePpkwdXeRZZtHJCwpahoRAaWzAc9Gmy+GlVZq
+         3/TO7u/v/OrVVGxD9ihsSpHPx9qkOlx1gf2KEHeHbOFxlLEWwLauCDpgGTB2qqsxcG7g
+         HQdyJ2ywz7Bb1xz7pbmi8ADcVEmdGxxElIpSOf54Ya8zA0A5Fxse9bDXCPX+ZaXwR1ZS
+         XGdw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745362263; x=1745967063;
+        d=1e100.net; s=20230601; t=1745362429; x=1745967229;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=OtNg2abh49QsnTa1XSIwbO/eokylj5yxtKMHXP/aBRw=;
-        b=wN4gMriMbB1A5i9mJYgGS1j6hNuTS6OubWobe0oDQO6Fui34mIJbPmCq41ZM/QDEHm
-         h6+U2hyG1zqnEAazBiyQsuBrTuG+ED+/p6sLK4QGneTK+zn0KfvVSBEUk6D0Kh54cc8Q
-         kD6Vd1TZdjqH4xBAWXjgE3lxCLSYjgRhuUFQ6bSFmwc/1fOswZVJLe0f9EhZdLLtspvD
-         2ZoGFQkV00SgBuxLfb0gnODkGCo8nRcKLSySRELvTcdvZD6IHyfA0Jd+TkchKFiliWr0
-         EmeyhBf0tDtysCWOov/+e0BCu2BHtoRpgOcW6z/eSg5QqPHdIJDEkvujZnvOOuRPw11O
-         ZJZw==
-X-Forwarded-Encrypted: i=1; AJvYcCXYDeShC/RqIOdIFOXlSepPCi3A+anEe5WrtEdIfjwzQl2HRJIrpUyYA6zDbdwCTF0f/gssaQ3J8/eLzftchuta@lists.infradead.org
-X-Gm-Message-State: AOJu0YwgUzCJ5Yh8Pljr34f0566UlI6zuVOc7D3vrn9jfSkVA8U2xoOk
-	8oT0On1rnsQMJrjpk8amSKa9PrbubCjsvtt6mKv51xJaPep3O0aEgJmLMCr28NBCxcohunKtG54
-	2icy9sflpIYKitXrXdHsGVTFo/yjivgxj
-X-Gm-Gg: ASbGncsqJCit5W8K8MbuSEjO0HwFEI4frpdM39ebrs2KGgvgtUIN0HsCkLRfaXIrter
-	GsCov/K4h3aamplAX5uryXBVqtc0AcGP3KDhVO99bpbTPUTBU1lL4ozKTeo49rqGPRZsCCNv/CW
-	hpjzvQeC5sNUqOtCQCtPTEMg==
-X-Google-Smtp-Source: AGHT+IE5r0MFZFYCu7PJn/lLZUKtD7zvLcloIWqKzgfm6B6oQoGOwioIpprZLoxLjQ81aU2yyIye6lqvTx9A4VFkpPo=
-X-Received: by 2002:a17:907:7b85:b0:ace:37d6:a5ce with SMTP id
- a640c23a62f3a-ace37d6b029mr163304366b.19.1745362263600; Tue, 22 Apr 2025
- 15:51:03 -0700 (PDT)
+        bh=f+1Ngscj1sLQkaXbBjPeNhRnXqru6dzUdV9MGLQmLQU=;
+        b=ZFoBuhP5B5jYm1aH/wT23W9OUQeDA/0vrlRYO1PvAJ129inR2a3imJK3QyfhBtZBjn
+         dhf9gB34W9Ts/tFU1GDZ8u363O6wIdZ/NtAU7Ka+3J1r05BM7TjDBANcs4lRaefmcZEK
+         91cKwKhVLvg0EUmHB3zoQ5pGuhlkb1tNsTUjTaq22V6s5Rn70x2GSDepbfdtLAbD5qkT
+         2/zr3uw3NgyxusBLpR3igkCvmQozS2V9XI6HFefFqqwtslQYAsDu2wun0GSa89+RrBMh
+         xSV+APZk4u5xhemucoW3AOdNpI4FqzTTA3Fi0XexlGR6oGMDRiffqFvFcFGgm9b8nKIO
+         dRtw==
+X-Forwarded-Encrypted: i=1; AJvYcCVEwDHHN868D6AUAWG2Z/xIRbPTkDhxr6Hj3EV7NExIetTjzeB6dplDtgT3dhUCYG4SJJUjGZSkZbnMLup4mD6z@lists.infradead.org
+X-Gm-Message-State: AOJu0YzvuIFywQaV038D/3lwO9TZJZPbenqltmYhEVs9zOLhlUce3f9A
+	1jHkw2OUQDRnHl2hZmqmbrClWcZIdsYO40hTIErdTpgBycw2izHKlWhwKCuF16/ODQt9uUYyxz9
+	GvzbpEcXV658VFK+hvPTDqrBaICk=
+X-Gm-Gg: ASbGncvIqMMbAQMJm1LmBFXUt+ua/LKnNCCRrM5gqSjr+y1ByHd9EBBvm43O5sNJVlP
+	Zcdf7e1VVvz3IuhZD4aMnWNHgKBoDaA1CtS2eiLeS0qDOg5fmc+y8YIHW3OujtI6zxpd3d0cKdh
+	1N5HLP3BN1zr9JwphaPR1Vwg==
+X-Google-Smtp-Source: AGHT+IHMPrXJqYYAB6pAgjxvZ17pVvfJXLHs9OfoWIoo18nkISokZoisDnXlemOEpRBjn1DUA8AriHhqSMFKfX2dk+I=
+X-Received: by 2002:a17:906:da81:b0:acb:ba0f:4b0f with SMTP id
+ a640c23a62f3a-acbba0f4c70mr579009566b.31.1745362428662; Tue, 22 Apr 2025
+ 15:53:48 -0700 (PDT)
 MIME-Version: 1.0
 References: <20250422-iio-introduce-iio_declare_buffer_with_ts-v2-0-3fd36475c706@baylibre.com>
- <20250422-iio-introduce-iio_declare_buffer_with_ts-v2-1-3fd36475c706@baylibre.com>
- <CAHp75VeuNhfJrNAZZwY2tEHte=UPHLOPNUz7y_J20xv2+_Zdeg@mail.gmail.com> <f0948adc-8130-4417-8c59-f0b52a7a0e01@baylibre.com>
-In-Reply-To: <f0948adc-8130-4417-8c59-f0b52a7a0e01@baylibre.com>
+ <20250422-iio-introduce-iio_declare_buffer_with_ts-v2-4-3fd36475c706@baylibre.com>
+ <CAHp75VdqanGpwB5raE8AmH-Tmb82N9yYmhB+k_rQtc2_Zb8HQw@mail.gmail.com> <55f8a997-77e7-4d07-aec2-8d20f56314d0@baylibre.com>
+In-Reply-To: <55f8a997-77e7-4d07-aec2-8d20f56314d0@baylibre.com>
 From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Wed, 23 Apr 2025 01:50:27 +0300
-X-Gm-Features: ATxdqUFWkS9PxNa71tt9rtag-1SYSUfDj-KjVRpIxd6xsGuKNSHNFIJoyiRJZ98
-Message-ID: <CAHp75Vde6BOmyc1UevU9EymVVzRD29w=KzkAdaAvsUb50UsrcA@mail.gmail.com>
-Subject: Re: [PATCH v2 1/6] iio: introduce IIO_DECLARE_BUFFER_WITH_TS macros
+Date: Wed, 23 Apr 2025 01:53:11 +0300
+X-Gm-Features: ATxdqUH1YUeTsEMT0CwtykvmoOSl52HrGojQPmTu1v6wjba29-5vfKptJFLiT2I
+Message-ID: <CAHp75VcoXwBNYmpNNCWbp1mOtJ6UJoKfxymRBRok91_NS8RcTA@mail.gmail.com>
+Subject: Re: [PATCH v2 4/6] iio: adc: ad7380: use IIO_DECLARE_BUFFER_WITH_TS
 To: David Lechner <dlechner@baylibre.com>
 Cc: Jonathan Cameron <jic23@kernel.org>, =?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
 	Andy Shevchenko <andy@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, 
@@ -85,8 +85,8 @@ Cc: Jonathan Cameron <jic23@kernel.org>, =?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analo
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_155105_437606_F1450231 
-X-CRM114-Status: GOOD (  13.37  )
+X-CRM114-CacheID: sfid-20250422_155350_627954_8D6B9FE3 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,32 +101,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 23, 2025 at 1:37=E2=80=AFAM David Lechner <dlechner@baylibre.co=
+On Wed, Apr 23, 2025 at 1:41=E2=80=AFAM David Lechner <dlechner@baylibre.co=
 m> wrote:
-> On 4/22/25 5:30 PM, Andy Shevchenko wrote:
+> On 4/22/25 5:33 PM, Andy Shevchenko wrote:
 > > On Wed, Apr 23, 2025 at 1:08=E2=80=AFAM David Lechner <dlechner@baylibr=
 e.com> wrote:
 
 ...
 
-> >> +_Static_assert(sizeof(IIO_DMA_MINALIGN) % sizeof(s64) =3D=3D 0,
+> >> +       IIO_DECLARE_BUFFER_WITH_TS(u8, scan_data, MAX_NUM_CHANNELS * s=
+izeof(u32))
 > >
-> > Why not static_assert() ? Because of the message? But static_assert()
-> > supports messages AFAICS.
-> >
-> >> +       "macros above assume that IIO_DMA_MINALIGN also ensures s64 ti=
-mestamp alignment");
+> > Btw, why not DECLARE_IIO_...() as other DECLARE_*() look like?
 >
-> I just knew that was standard C. But I support BUILD_BUG_ON_MSG or static=
-_assert
-> would work just as well here.
+> IMHO, namespace should always go first and people who write DECLARE_NS_..=
+. are
+> doing it wrong. :-)
 
-In the kernel we use u8, for example, however in the standard it's
-uint8_t :-) Same with many compiler attributes and wrappers on top of
-the compiler things.
-According to v6.14 codebase the only one driver uses _Static_assert()
-for that (there are many in tools/ and more in BPF, with a few headers
-where it's fine (esp. in UAPI where no static_assert() available).
+Not really. AFAICT it depends on the globality of the macro. Those,
+which are defined in types.h are all DECLARE_something(). Which makes
+sense. So the Q here is if the IIO macros like these ever go out for a
+wider audience. But in any case this can be amended later (with maybe
+a bit of additional churn).
+
+> There is not existing DECLARE_IIO_ to match anyway.
+
+True.
 
 --=20
 With Best Regards,
