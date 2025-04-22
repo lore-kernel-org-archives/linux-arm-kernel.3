@@ -4,66 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2202DC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 02:26:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCFCFC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 02:28:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GC+eh/mtJ5AgZjRHs1WmbXcR1D1q9NsZCYktjA2QeZ4=; b=UsCbqikLMHBibjKUiscMg6HmnQ
-	zhs1r+0ibfruXhW6P6GUaScUXUA69kRVnJ4kccZTONvLmdjEVEoHBHPHbePqIC5lftCTy1VCthFyo
-	80ci5qVH0a+xYx7QzqsOlZSw5OMlHv2T/fiTXw/gAZrQPTBRfIfmVGQ6YGfz6cIng7qaKgwUK+CqP
-	ct6k0ty36lgZuHriTGBH1bGJl40xLH+1lE83H0ON2YzxPBUM/KO80R2Tgyent/VLPR5Ew2YluYlpM
-	+2w3lhf4azDXny8cEgD13NtrGr9dz6/tZbf+WYfni1Spz4FtkRLc89XVEh6S06qdl9TXImnDlCQlK
-	M47Ok6GQ==;
+	bh=jSMuGbl3Nbd1JndJlLQDyDLDcDMJFMIFm/4HHagXon0=; b=qV9haomuiyZ+coKUloLJqjltmg
+	KmJjgrFWzpGkQqrL9DEr5MIr5qDdgZ+BYqQF5LSIno0JSqw4FiCyGKKPU+4re+TAuCMc8IT5XZ4Bo
+	odAYoDrn2Yc4j+xVcw7+l7pCsmACjHJdyUBPYxxCgIpR0yC2/bjUpBeCckWRoVzW2dshVxR7ChRZd
+	J4xG7HxvvqptB5iZY66vzuCcRIMKj2xo/lHwbL8e0TP6CVzgwhfqXIMD+4Q104EPlNWVAVzwfK56L
+	VxVX0FoGndGeFk3pHjTtYyRHdU8Fd/eDztjJrJIfBm1x+A2kOuej/86soWONZ2aV1OeWhPa+QkEr5
+	Kd7O3KQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u73L0-00000005bmF-3Fo1;
-	Tue, 22 Apr 2025 02:26:18 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u73Mq-00000005cD9-1tDn;
+	Tue, 22 Apr 2025 02:28:12 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u73C3-00000005ZIM-3NE6
+	id 1u73C8-00000005ZJN-1kst
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 02:17:03 +0000
+	Tue, 22 Apr 2025 02:17:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CA9606116F;
-	Tue, 22 Apr 2025 02:16:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6C88C4CEF5;
-	Tue, 22 Apr 2025 02:17:01 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id BD0D05C4B34;
+	Tue, 22 Apr 2025 02:14:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34D3BC4CEE4;
+	Tue, 22 Apr 2025 02:17:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745288223;
-	bh=W3fZc4RzShLZ39KaAzu286VLtoVz1a2Yr3M6iIQtwzM=;
+	s=k20201202; t=1745288227;
+	bh=snEszN9H4QLgMQM2SqmIYzOCYIhvNPiJcDWlBiTwL8w=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=b2kEEuqw0EYCb71IziG55jcTwbR2NH6j5jCUzucOjKLrpavoRrI+jWBIKzSLMWKap
-	 sIj7mAT8pLhj4TE9lIoFPuZ4+ue8kERvsULisBp8v+FxRteJBTpTaWRABMRaE3+WJ9
-	 Ja7nORCSjo5F6dgKKSSa5NpGpttfWHqCqbzHPy0fEBVsNLBUXQFpUXTO+DrJWxCCW9
-	 9fFuncwNrjSZL5DPg2DpXrbILxpSc1WRpX3LKI/1AEjNoFr2+dtitN9JKsiAtQh3kg
-	 hYErq4V43UoF78oFdpUuBA9sW3uRNGy0lqJHruK//Jq5cqoWGhxfqKdCmGyUBUQ7Nz
-	 ajVQT9/eicbmg==
+	b=d/k0zpeXMhfh1fL/Nq4HcknXq7U3W4nJNsw4nWk8xhM9dkdoIFQDaokjzJyT7G3Nn
+	 rAnlC6iDughan3d1PmiTXo3+anfUXQJnV2YMOtXEOsBpFSKoJffX6xT9IUXfq/pHaT
+	 tyT0fHAHEOFvdIAwejR7cJoEnqg+QsqRgHSc5ybo8eUcKQzPxdnEuT5mlWsj87W6zg
+	 +FooJJgp8tZs6xED02ZMYkUnQqpPOzLmK87MIaSOx/Boxv6X7Hl15TqE+eqytRbTp8
+	 tR7kXGzlDHB5Swfx/oj7iO35oIW2R7LD297el6b511v1+Gb09iKy1XFnYOtqexm/sh
+	 fisQof2F5i2AQ==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Tamura Dai <kirinode0@gmail.com>,
-	Carlos Song <carlos.song@nxp.com>,
-	Mark Brown <broonie@kernel.org>,
+Cc: Peter Griffin <peter.griffin@linaro.org>,
+	Bart Van Assche <bvanassche@acm.org>,
+	"Martin K . Petersen" <martin.petersen@oracle.com>,
 	Sasha Levin <sashal@kernel.org>,
-	shawnguo@kernel.org,
-	linux-spi@vger.kernel.org,
-	imx@lists.linux.dev,
+	alim.akhtar@samsung.com,
+	James.Bottomley@HansenPartnership.com,
+	krzk@kernel.org,
+	linux-scsi@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.14 30/30] spi: spi-imx: Add check for spi_imx_setupxfer()
-Date: Mon, 21 Apr 2025 22:15:50 -0400
-Message-Id: <20250422021550.1940809-30-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.12 02/23] scsi: ufs: exynos: Ensure pre_link() executes before exynos_ufs_phy_init()
+Date: Mon, 21 Apr 2025 22:16:42 -0400
+Message-Id: <20250422021703.1941244-2-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250422021550.1940809-1-sashal@kernel.org>
-References: <20250422021550.1940809-1-sashal@kernel.org>
+In-Reply-To: <20250422021703.1941244-1-sashal@kernel.org>
+References: <20250422021703.1941244-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.14.3
+X-stable-base: Linux 6.12.24
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250421_191708_498990_DCEDDFA1 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,51 +83,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Tamura Dai <kirinode0@gmail.com>
+From: Peter Griffin <peter.griffin@linaro.org>
 
-[ Upstream commit 951a04ab3a2db4029debfa48d380ef834b93207e ]
+[ Upstream commit 3d101165e72316775947d71321d97194f03dfef3 ]
 
-Add check for the return value of spi_imx_setupxfer().
-spi_imx->rx and spi_imx->tx function pointer can be NULL when
-spi_imx_setupxfer() return error, and make NULL pointer dereference.
+Ensure clocks are enabled before configuring unipro. Additionally move
+the pre_link() hook before the exynos_ufs_phy_init() calls. This means
+the register write sequence more closely resembles the ordering of the
+downstream driver.
 
- Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
- Call trace:
-  0x0
-  spi_imx_pio_transfer+0x50/0xd8
-  spi_imx_transfer_one+0x18c/0x858
-  spi_transfer_one_message+0x43c/0x790
-  __spi_pump_transfer_message+0x238/0x5d4
-  __spi_sync+0x2b0/0x454
-  spi_write_then_read+0x11c/0x200
-
-Signed-off-by: Tamura Dai <kirinode0@gmail.com>
-Reviewed-by: Carlos Song <carlos.song@nxp.com>
-Link: https://patch.msgid.link/20250417011700.14436-1-kirinode0@gmail.com
-Signed-off-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
+Link: https://lore.kernel.org/r/20250319-exynos-ufs-stability-fixes-v2-1-96722cc2ba1b@linaro.org
+Reviewed-by: Bart Van Assche <bvanassche@acm.org>
+Signed-off-by: Martin K. Petersen <martin.petersen@oracle.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/spi/spi-imx.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ drivers/ufs/host/ufs-exynos.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/spi/spi-imx.c b/drivers/spi/spi-imx.c
-index eeb7d082c2472..c43fb496da956 100644
---- a/drivers/spi/spi-imx.c
-+++ b/drivers/spi/spi-imx.c
-@@ -1695,9 +1695,12 @@ static int spi_imx_transfer_one(struct spi_controller *controller,
- 				struct spi_device *spi,
- 				struct spi_transfer *transfer)
- {
-+	int ret;
- 	struct spi_imx_data *spi_imx = spi_controller_get_devdata(spi->controller);
+diff --git a/drivers/ufs/host/ufs-exynos.c b/drivers/ufs/host/ufs-exynos.c
+index 98505c68103d0..7689617aa3f3c 100644
+--- a/drivers/ufs/host/ufs-exynos.c
++++ b/drivers/ufs/host/ufs-exynos.c
+@@ -1007,9 +1007,14 @@ static int exynos_ufs_pre_link(struct ufs_hba *hba)
+ 	exynos_ufs_config_intr(ufs, DFES_DEF_L4_ERRS, UNIPRO_L4);
+ 	exynos_ufs_set_unipro_pclk_div(ufs);
  
--	spi_imx_setupxfer(spi, transfer);
-+	ret = spi_imx_setupxfer(spi, transfer);
-+	if (ret < 0)
-+		return ret;
- 	transfer->effective_speed_hz = spi_imx->spi_bus_clk;
++	exynos_ufs_setup_clocks(hba, true, PRE_CHANGE);
++
+ 	/* unipro */
+ 	exynos_ufs_config_unipro(ufs);
  
- 	/* flush rxfifo before transfer */
++	if (ufs->drv_data->pre_link)
++		ufs->drv_data->pre_link(ufs);
++
+ 	/* m-phy */
+ 	exynos_ufs_phy_init(ufs);
+ 	if (!(ufs->opts & EXYNOS_UFS_OPT_SKIP_CONFIG_PHY_ATTR)) {
+@@ -1017,11 +1022,6 @@ static int exynos_ufs_pre_link(struct ufs_hba *hba)
+ 		exynos_ufs_config_phy_cap_attr(ufs);
+ 	}
+ 
+-	exynos_ufs_setup_clocks(hba, true, PRE_CHANGE);
+-
+-	if (ufs->drv_data->pre_link)
+-		ufs->drv_data->pre_link(ufs);
+-
+ 	return 0;
+ }
+ 
 -- 
 2.39.5
 
