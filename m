@@ -4,67 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FF14C369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 12:50:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6CE4C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 12:52:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5ivL5Ti0Q3RhIMz3cs6p0pT2tGV00FkMsE3PCGA6DQc=; b=k7tgjbeM37w1TKr9N5pFhbB7z5
-	i4CXo6shXLz/LOwhvbC29BNR+17MA0RRgnrEEWfKpyJFGn42nQFST/y4SDblKv3JpBaSrKlCwj7/I
-	h46zBW6h3cZbqxArfk1x61p9z3y5+JBqQwR7weWcZvPVTHY0Kiz/Wu6XcWZ+RSRUgSYBp2GEdmhR0
-	uuT//KuK7D5L08nit6XvZ5snT3c1kYBpw5mwAXOjDqbfHea9PiNg0OSxpwhKUO4RXv5oEtJfwkhJH
-	KhpRtceYCO180Xlp2npJcz+KyzhwUu/xClbQ5CRrwOxaI12x+G/AmnLtlcqbXgkBbzi2SXSxyXhms
-	5zm7pRdQ==;
+	bh=7sB1dmuD3GoUpGEiENNK8mtmzVT+tPo02Qc2OEU6BSI=; b=sVRuJNETltKbT4w87PRtX1VS20
+	GOmKelxTdXqIUqi+8S0LhbXg//7ajIxKt2SefN7U33bLCNZ9msWtDUZWMyCF8czie9SsgCahY/lUh
+	MZ1/Jd7YKxE9w99mlrsOOz5o+DR9ugsrombcvE7NtZUwAAC6QmbuxlI53IWaLYV4dD+0LPEI8tYwI
+	1lhyzWkhDbu/cr6mHsm43cdVdue/NRKEnmv81x2UdLQUKE+x9+kJKbK6nmPdhywcqjeXO/LNV+My1
+	HIIBO0n4wBt8+9Od+1il6cIb3VT0OlOwB1R7f2Uau93vs6j4FUuANngSNVmPPp969Ho1oGUdtVELC
+	63jNteeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7D56-00000007Bri-1D2L;
-	Tue, 22 Apr 2025 12:50:32 +0000
+	id 1u7D6w-00000007C79-36nw;
+	Tue, 22 Apr 2025 12:52:26 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7C3P-0000000701Z-3jvJ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 11:44:45 +0000
+	id 1u7C3S-00000007022-0dc6;
+	Tue, 22 Apr 2025 11:44:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=5ivL5Ti0Q3RhIMz3cs6p0pT2tGV00FkMsE3PCGA6DQc=; b=L2hb+1eXc4+jkulhn4CY7JiPMu
-	dv9x9FghMf2tSeBqEH85SPHARyjSF9XKCJA8JiXIYah9w0bTIIlvzvyZwZzSM/kwuzasuXY8O/0Dp
-	QzP7IrR9igpe+w/YeDWKiXAmU6Ofkm6f7EdEX4jNFtXMqEBDymsAbx4aWmcshTPa4ALGuIUEYY35i
-	V4p2YZF6JZZlxfqHXwVFORF/omyAugz7mv+B/0pssUNdlPtyAjZpGU3FoGmQrKyc2k0KAlXWQtDjU
-	Cw1K0WD1IP19Go2evvzV3L55EUCxQLU28zARhbgSC+lTZMmrtAdyjpnFElcZMRhRdoBnX1ch6aDyg
-	7MLaueIw==;
+	bh=7sB1dmuD3GoUpGEiENNK8mtmzVT+tPo02Qc2OEU6BSI=; b=1le15bX3kNYT4sUNY2Wrjt/GOy
+	ii2yyzYgWEbcGsSzMMBiQ+xE+hPzZwy8wUPqDMJEYntpikNZhzaXLFYecyMRHkQyjoPe8iIhrwKDE
+	Ec8uTlmACS5xjGK94UqaO/TiTKUepSRje0NVodc+Vag4d5CYTfdP9egLdQFqHPtxBncnLeHmb3+nG
+	qrhWQPKlZ63/m3gUBPMDeBv+glssWPXZHqLfJefm3WpMIUSzj7NH6BnmRZWd3D21X3381/PYvUJn1
+	MgImJGhPrbFMBsW6YI1N7d7GgP7FioNbCJauCmJ05CR4/YwFl/aksPkTXqz9tACb+JMoeNobg391G
+	fnzu0iwg==;
 Received: from i53875b95.versanet.de ([83.135.91.149] helo=localhost.localdomain)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1u7C3G-0002kK-9A; Tue, 22 Apr 2025 13:44:34 +0200
+	id 1u7C3I-0002kK-4j; Tue, 22 Apr 2025 13:44:36 +0200
 From: Heiko Stuebner <heiko@sntech.de>
-To: Andy Yan <andyshrk@163.com>
+To: Kever Yang <kever.yang@rock-chips.com>
 Cc: Heiko Stuebner <heiko@sntech.de>,
-	krzk+dt@kernel.org,
-	robh@kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
+	andersson@kernel.org,
+	Simon Xue <xxm@rock-chips.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Finley Xiao <finley.xiao@rock-chips.com>,
+	Frank Wang <frank.wang@rock-chips.com>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	linux-pci@vger.kernel.org,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
 	linux-kernel@vger.kernel.org,
-	inux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 1/3] arm64: dts: rockchip: Rename hdmi-con to hdmi0-con for Cool Pi CM5 EVB
-Date: Tue, 22 Apr 2025 13:44:22 +0200
-Message-ID: <174532226020.263993.13170766558495320938.b4-ty@sntech.de>
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	linux-rockchip@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: (subset) [PATCH v9 0/2] rockchip: Add rk3576 pcie dts nodes
+Date: Tue, 22 Apr 2025 13:44:24 +0200
+Message-ID: <174532226023.263993.13596887054519094900.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250419121326.388298-1-andyshrk@163.com>
-References: <20250419121326.388298-1-andyshrk@163.com>
+In-Reply-To: <20250414145110.11275-1-kever.yang@rock-chips.com>
+References: <20250414145110.11275-1-kever.yang@rock-chips.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_044443_948051_60FAAE3B 
-X-CRM114-Status: GOOD (  11.08  )
+X-CRM114-CacheID: sfid-20250422_044446_187253_6D1817E8 
+X-CRM114-Status: GOOD (  12.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,21 +92,22 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sat, 19 Apr 2025 20:13:16 +0800, Andy Yan wrote:
-> There are two hdmi connector on Cool Pi CM5 EVB, the current supported
-> is hdmi0, assign corresponding index to it. It will be convenient for
-> us to add support for another one.
+On Mon, 14 Apr 2025 22:51:08 +0800, Kever Yang wrote:
+> This patch set adds support for rk3576 pcie by adding the dts node,
+> and this series is a re-base on v6.15-rc1 and collect tags without code
+> change.
 > 
+> Please help take the dt-binding to PCI tree if there is no more change request.
 > 
+> Thanks,
+> Kever
+> 
+> [...]
 
 Applied, thanks!
 
-[1/3] arm64: dts: rockchip: Rename hdmi-con to hdmi0-con for Cool Pi CM5 EVB
-      commit: 99685162462c2c70f9e2fbe06481a84a5d0220ca
-[2/3] arm64: dts: rockchip: Enable HDMI1 on Cool Pi CM5 EVB
-      commit: 85e3fd37204a79e0cd3105176081439ddefbd3b2
-[3/3] arm64: dts: rockchip: Enable HDMI audio outputs for Cool Pi CM5 EVB
-      commit: abfe411af85aa6ecde580b1f75b9c8145b635fa7
+[2/2] arm64: dts: rockchip: Add rk3576 pcie nodes
+      commit: d4b9fc2af45d2b91b1654c4aaa1edcb4dd8f4918
 
 Best regards,
 -- 
