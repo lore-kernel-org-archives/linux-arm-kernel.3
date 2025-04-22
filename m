@@ -4,69 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E78F2C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 14:03:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82223C369D7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 14:05:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7ibeby9VV7UvoZoRwDk9gv1xyevLF90376HcQemb98w=; b=dYNvL+Q72KjGTSgGCP1rqBcsdi
-	Ja6qimFb/xAJKBZ1VSiMRN1P6xuta9H7rjTJuaKsEHfxz/Wm3MZ2aC4Sjho0cefHJ8TmtFxGYPtUF
-	IEWQHvivZpPfhdI7Ur4kefKmlQUDi3NoJkQNjCILpWc8bOxmK07ruS2HzQce/xbworDCX8kntkwXh
-	EXSdbD30w3spi1sY680Yinfup3uzcSZRS9DF0JY8c8AxmghiymcBw1tG0ZrsXxPt4s2oSSB7Lxobp
-	vRQhcztmd9TAzBtNYEQQppu/BJd7ZTEWlMVuupUJi/dqd/cL6VhqXsxK3jcXtqxFEqxM7Vrs5JxRg
-	mGiQP9BA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cTzRbkM6e3CdpYQF8r9G7TR3PmD/Whi+UBdMJ87yaKg=; b=Glj1yfNUpd9T9mA4qNCWigafhA
+	RlE/Xk/yArahYvKlTJLMPtfrMoHpy1grhqRNj0MKgEzcWHi7RC3MMVhqUt3xtSH/epYIpEU5xEVFW
+	r1wtyXIMa3AG/KIBdqxUZC4sigsWSSH1v3fHEtUZig9u71QJLNlbrdJBZrEX4YH/l2EQPMA+A6TlN
+	6xINkvWQL8suSlbB+xvVh+qwxgpMA8Npb3EGjW3P9kIyJeRaT24imi6L2zn43UhTj12BionxCMgZb
+	nGR9rlP0P0B/jE/R+lbapk6AQeaYwRO5zb7GMNXfp9fFMppyggpGDpZVtKs0y2r1RJDzSb22Z1cZP
+	QAtNqL0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7EDj-00000007PtU-3VNE;
-	Tue, 22 Apr 2025 14:03:31 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7CuD-000000079PK-2tSN
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 12:39:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 09893614B3;
-	Tue, 22 Apr 2025 12:38:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDD14C4CEE9;
-	Tue, 22 Apr 2025 12:39:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745325556;
-	bh=64yiAE3W4ZJTOG58pLVENVGyfqZ4s0C/3rjyV7DX7uA=;
-	h=From:To:Cc:Subject:Date:From;
-	b=CdbRw2v/x0vgIdzw9glg8T/PRAB96626Aom+yfUcHT5jhn9ZIN7oYEym+5s4QfnMj
-	 ns5PdqraI0bjyNsgdzyTdRz4BD/ZBoqeqvaTcPh4ui/MX6Nh1OmXk5pUjG4IpR6iJH
-	 jKbdD45S6mUQ0qi4j3m7befSy3k3AMYWW1X7zz5OeQftKHjqhp6vZEpsyTmZRtfEgV
-	 PFKFJ410tSIMBb8APtKCe1c3TDTQbYZ4wH1gAibf6YSmwgEFqLC37HQZp9AMkFH5g2
-	 DiSSVTDrdyzr3JxcCzv2xg/EifG/WgwXfIGhsEPSsJ8DJ7HGzdGSqaJZ6Hxm1LaYiY
-	 JWLo2dKE7gmew==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1u7CuA-007cSc-GI;
-	Tue, 22 Apr 2025 13:39:14 +0100
-From: Marc Zyngier <maz@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	D Scott Phillips <scott@os.amperecomputing.com>
-Subject: [PATCH] KVM: arm64: Force HCR_EL2.xMO to 1 at all times in VHE mode
-Date: Tue, 22 Apr 2025 13:39:01 +0100
-Message-Id: <20250422123901.2675976-1-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
+	id 1u7EFa-00000007QI1-2P85;
+	Tue, 22 Apr 2025 14:05:26 +0000
+Received: from m16.mail.163.com ([220.197.31.4])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7Cuz-000000079bj-2q3v;
+	Tue, 22 Apr 2025 12:40:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:From:
+	Content-Type; bh=cTzRbkM6e3CdpYQF8r9G7TR3PmD/Whi+UBdMJ87yaKg=;
+	b=YHAcsb4fCK+mVs+1/RIOX/B33lTJigwJNK+2WBDz1r5I+AClbmRQdt8ZlhkDh+
+	ix5NqovTJVvcMtB0lpVnPFfzXQv4sGRMwQAxFP84cihao5McHAVGDyoW+cePu805
+	xoqmadSKC3tc/MfUt7C0Kzd+dxrXbqhDuLCy/zNivic4A=
+Received: from [192.168.142.52] (unknown [])
+	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wC3NeXvjQdo93IeBw--.12901S2;
+	Tue, 22 Apr 2025 20:39:12 +0800 (CST)
+Message-ID: <047950c0-fcf0-428a-8ca1-dff0a6f944cd@163.com>
+Date: Tue, 22 Apr 2025 20:39:11 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, mark.rutland@arm.com, scott@os.amperecomputing.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] PCI: dw-rockchip: Reorganize register and bitfield
+ definitions
+To: Niklas Cassel <cassel@kernel.org>
+Cc: lpieralisi@kernel.org, kw@linux.com, bhelgaas@google.com,
+ heiko@sntech.de, manivannan.sadhasivam@linaro.org, robh@kernel.org,
+ jingoohan1@gmail.com, shawn.lin@rock-chips.com, linux-pci@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+References: <20250422112830.204374-1-18255117159@163.com>
+ <20250422112830.204374-3-18255117159@163.com> <aAeL_Wr42ETm7S96@ryzen>
+Content-Language: en-US
+From: Hans Zhang <18255117159@163.com>
+In-Reply-To: <aAeL_Wr42ETm7S96@ryzen>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: _____wC3NeXvjQdo93IeBw--.12901S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxWFW7ArW8CF18Xr4kuF4UArb_yoWrJrW8pa
+	98JFySkrs8J3y5Cw1vg3Z8JFyxtF4fKFWjgrWSgrWUC3Z5A3W8Gr18KF15WFy2qr4kur1S
+	93s8W34agFZxCrDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07Ul-erUUUUU=
+X-Originating-IP: [61.171.199.116]
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/1tbiOhQ3o2gHi1dc-QAAso
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250422_054006_089642_33E193CB 
+X-CRM114-Status: GOOD (  21.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,43 +78,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We keep setting and clearing these bits depending on the role of
-the host kernel, mimicking what we do for nVHE. But that's actually
-pretty pointless, as we always want physical interrupts to make it
-to the host, at EL2.
 
-This has also two problems:
 
-- it prevents IRQs from being taken when these bits are cleared
-  if the implementation has chosen to implement these bits as
-  masks when HCR_EL2.{TGE,xMO}=={0,0}
+On 2025/4/22 20:30, Niklas Cassel wrote:
+> On Tue, Apr 22, 2025 at 07:28:29PM +0800, Hans Zhang wrote:
+>> Register definitions were scattered with ambiguous names (e.g.,
+>> PCIE_RDLH_LINK_UP_CHGED in PCIE_CLIENT_INTR_STATUS_MISC) and lacked
+>> hierarchical grouping. Magic values for bit operations reduced code
+>> clarity.
+>>
+>> Group registers and their associated bitfields logically. This improves
+>> maintainability and aligns the code with hardware documentation.
+>>
+>> Signed-off-by: Hans Zhang <18255117159@163.com>
+>> ---
+>>   drivers/pci/controller/dwc/pcie-dw-rockchip.c | 42 +++++++++++--------
+>>   1 file changed, 24 insertions(+), 18 deletions(-)
+>>
+>> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+>> index fd5827bbfae3..cdc8afc6cfc1 100644
+>> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+>> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+>> @@ -8,6 +8,7 @@
+>>    * Author: Simon Xue <xxm@rock-chips.com>
+>>    */
+>>   
+>> +#include <linux/bitfield.h>
+>>   #include <linux/clk.h>
+>>   #include <linux/gpio/consumer.h>
+>>   #include <linux/irqchip/chained_irq.h>
+>> @@ -34,30 +35,35 @@
+>>   
+>>   #define to_rockchip_pcie(x) dev_get_drvdata((x)->dev)
+>>   
+>> -#define PCIE_CLIENT_RC_MODE		HIWORD_UPDATE_BIT(0x40)
+>> -#define PCIE_CLIENT_EP_MODE		HIWORD_UPDATE(0xf0, 0x0)
+>> -#define PCIE_CLIENT_ENABLE_LTSSM	HIWORD_UPDATE_BIT(0xc)
+>> -#define PCIE_CLIENT_DISABLE_LTSSM	HIWORD_UPDATE(0x0c, 0x8)
+>> -#define PCIE_CLIENT_INTR_STATUS_MSG_RX	0x04
+>> +#define PCIE_CLIENT_GENERAL_CONTROL	0x0
+>> +#define  PCIE_CLIENT_RC_MODE		HIWORD_UPDATE_BIT(0x40)
+>> +#define  PCIE_CLIENT_EP_MODE		HIWORD_UPDATE(0xf0, 0x0)
+>> +#define  PCIE_CLIENT_ENABLE_LTSSM	HIWORD_UPDATE_BIT(0xc)
+>> +#define  PCIE_CLIENT_DISABLE_LTSSM	HIWORD_UPDATE(0x0c, 0x8)
+>> +
+>> +#define PCIE_CLIENT_INTR_STATUS_MSG_RX	0x4
+>> +#define PCIE_CLIENT_INTR_STATUS_LEGACY	0x8
+>> +
+>>   #define PCIE_CLIENT_INTR_STATUS_MISC	0x10
+>> +#define  PCIE_RDLH_LINK_UP_CHGED	BIT(1)
+>> +#define  PCIE_LINK_REQ_RST_NOT_INT	BIT(2)
+>> +
+>> +#define PCIE_CLIENT_INTR_MASK_LEGACY	0x1c
+>>   #define PCIE_CLIENT_INTR_MASK_MISC	0x24
+>> +
+>>   #define PCIE_CLIENT_POWER		0x2c
+>> +#define  PME_READY_ENTER_L23		BIT(3)
+>> +
+>>   #define PCIE_CLIENT_MSG_GEN		0x34
+>> -#define PME_READY_ENTER_L23		BIT(3)
+>> -#define PME_TURN_OFF			(BIT(4) | BIT(20))
+>> -#define PME_TO_ACK			(BIT(9) | BIT(25))
+>> -#define PCIE_SMLH_LINKUP		BIT(16)
+>> -#define PCIE_RDLH_LINKUP		BIT(17)
+>> -#define PCIE_LINKUP			(PCIE_SMLH_LINKUP | PCIE_RDLH_LINKUP)
+> 
+> This patch removes PCIE_LINKUP, without adding it somewhere else
+> so I don't think this patch will compile.
+> 
+> I think the removal of this line has to be in patch 3/3.
+> 
 
-- it triggers a bad erratum on the AmpereOne HW, which catches
-  fire on clearing these bits while an interrupt is being taken
-  (AC03_CPU_36).
+Hi Niklas,
 
-Let's kill these two birds with a single stone.
+Thank you very much for your reply.  Yes, I replied to you in patch 0003.
 
-Reported-by: D Scott Phillips <scott@os.amperecomputing.com>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/include/asm/kvm_arm.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> 
+> Also, I think that Bjorn's primary concern:
+> """
+> The #defines for register offsets and bits are kind of a mess,
+> e.g., PCIE_SMLH_LINKUP, PCIE_RDLH_LINKUP, PCIE_LINKUP,
+> PCIE_L0S_ENTRY, and PCIE_LTSSM_STATUS_MASK are in
+> PCIE_CLIENT_LTSSM_STATUS, but you couldn't tell that from the
+> names, and they're not even defined together.
+> """"
+> 
+> is that the fields are not prefixed with the register name.
+> 
+> the secondary concern is that they are not grouped together.
+> 
+> This patch is just solving the secondary concern.
+> 
+> Since you are fixing his secondary concern, should you perhaps also
+> address his primary concern?
 
-diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
-index 974d72b5905b8..bba4b0e930915 100644
---- a/arch/arm64/include/asm/kvm_arm.h
-+++ b/arch/arm64/include/asm/kvm_arm.h
-@@ -100,7 +100,7 @@
- 			 HCR_FMO | HCR_IMO | HCR_PTW | HCR_TID3 | HCR_TID1)
- #define HCR_HOST_NVHE_FLAGS (HCR_RW | HCR_API | HCR_APK | HCR_ATA)
- #define HCR_HOST_NVHE_PROTECTED_FLAGS (HCR_HOST_NVHE_FLAGS | HCR_TSC)
--#define HCR_HOST_VHE_FLAGS (HCR_RW | HCR_TGE | HCR_E2H)
-+#define HCR_HOST_VHE_FLAGS (HCR_RW | HCR_TGE | HCR_E2H | HCR_AMO | HCR_IMO | HCR_FMO)
- 
- #define HCRX_HOST_FLAGS (HCRX_EL2_MSCEn | HCRX_EL2_TCR2En | HCRX_EL2_EnFPM)
- #define MPAMHCR_HOST_FLAGS	0
--- 
-2.39.2
+Ok. I missed this problem and I will fix it in the next version.
+
+Best regards,
+Hans
 
 
