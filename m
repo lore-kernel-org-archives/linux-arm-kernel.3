@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1174EC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 02:14:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5AC5C369D6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 02:16:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s2WKQWHFaOBBiVhKURZdk+x4emLXSSQ2B7MB5TSOXFg=; b=qAmoCEh1IvJ6R8EDiO2acCCrB/
-	0gZS2Z7VklFyV5442U/m/0wm0JxjjZa/2McGZuzVLC2+arIuMEbCHKhkU8eNGNdU4K4KHKlokvb1/
-	Lv3ZW9EywPSVk0Oq4jqnGcn4dVUfN5ouCGKxPHfl+KPIKBhkew2FW7HBRHVEPtR7w+lDjDxXue6yn
-	Q+yrcvtZNOyTVHaPqnUoaIQ164WGAhDLzmR66nI0vUMt3fkmW01Lpz+3oO8Rn2UavbKgLxajty2Gu
-	MDoLr/JU9XP5rxUtX4xmuuOS8SV5wzxsxcs9PQvuA7A9ExM57HD+O1wBZtAlpfMHhJ6PiBq1fh5Sr
-	hz5Cs5YA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VnQtAPnmzsNXyG30aCgKLW877OIe/1r7F5azTH//yIQ=; b=OOcJkHujXhpnGxsXXqS/uqihKE
+	KQEeeWpyB/wiDOs/AYITimImgdpDr+ooKiohsmIpHw5XJx7mEACVSynX5j31Y1P3+KYR0TH/GDBlA
+	YT2rY1j4Z4F1U/x3qLvsw1uid7vr28iWwShNfDdZOWR21vQrfkGGN/5erZkSpfBXpi//UUxsQQ6oi
+	xNxpriPYzypySUnNeByx8/fJfeOaDhQ9iSBiJ6/8uh4/GIAZwbhb/Th848WD0vtjr1NOIbeWAesM9
+	dSntsZ82KInFXwXjz6voOyhY8yrKfWA6zEUqxwbMcDzvJ29PiM1ATyGZsbsAyK4B0RK+InxL6yRN8
+	YrqRCNAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u739q-00000005Ynu-0FbT;
-	Tue, 22 Apr 2025 02:14:46 +0000
-Received: from mail-m16.yeah.net ([1.95.21.16])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u737u-00000005Yfw-4067
+	id 1u73Bj-00000005ZB9-33pi;
+	Tue, 22 Apr 2025 02:16:43 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u739p-00000005Ymy-0vW8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 02:12:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=s2WKQWHFaOBBiVhKURZdk+x4emLXSSQ2B7MB5TSOXFg=;
-	b=j3c2wA8tiUnKXr/gWCGn17+9XdyDs9/XezbctZh6IUY1WMWRw6YRIOqXdWz4AA
-	cdYQ3/JR+e09qDaGZwZNWc6EyJYWnWbbGYH3iSMPV40qJW20oAKpUWig3ue1BwQa
-	sp6sfl82ySFFPS5L/XB9DKkwtQbZqf1wbzk+uk3hNm2OM=
-Received: from dragon (unknown [])
-	by gzsmtp2 (Coremail) with SMTP id Ms8vCgB3Mz4L+wZozti7Aw--.12946S3;
-	Tue, 22 Apr 2025 10:12:28 +0800 (CST)
-Date: Tue, 22 Apr 2025 10:12:26 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-Cc: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Frank Li <Frank.li@nxp.com>, Marco Felsch <m.felsch@pengutronix.de>,
-	Iuliana Prodan <iuliana.prodan@nxp.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>, linux-sound@vger.kernel.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v5 3/3] arm64: dts: imx: add imx95 dts for sof
-Message-ID: <aAb7CkrxVmTtsTHg@dragon>
-References: <20250311163255.2664-1-laurentiumihalcea111@gmail.com>
- <20250311163255.2664-4-laurentiumihalcea111@gmail.com>
+	Tue, 22 Apr 2025 02:14:47 +0000
+Received: from localhost.localdomain (unknown [124.16.141.245])
+	by APP-01 (Coremail) with SMTP id qwCowABH8gKG+wZo6rIACw--.6724S2;
+	Tue, 22 Apr 2025 10:14:34 +0800 (CST)
+From: Wentao Liang <vulab@iscas.ac.cn>
+To: s.nawrocki@samsung.com,
+	mchehab@kernel.org,
+	krzk@kernel.org,
+	alim.akhtar@samsung.com
+Cc: linux-media@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Wentao Liang <vulab@iscas.ac.cn>
+Subject: [PATCH RESEND] media: platform: Add hardware sync wait to fimc_is_hw_change_mode()
+Date: Tue, 22 Apr 2025 10:13:45 +0800
+Message-ID: <20250422021345.1940-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.42.0.windows.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250311163255.2664-4-laurentiumihalcea111@gmail.com>
-X-CM-TRANSID: Ms8vCgB3Mz4L+wZozti7Aw--.12946S3
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUI75rUUUUU
-X-Originating-IP: [114.216.210.34]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiNA2dA2gG+w3pyAAA3e
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: qwCowABH8gKG+wZo6rIACw--.6724S2
+X-Coremail-Antispam: 1UD129KBjvPXoW8tF43KF17AFyUtr4rWr45p5X_Gr13JoW8JF
+	yaka1xtr4UXwnIgrnru3yfAwsrurW3KrWF9FZ0gryqq3W3A3W5W393Xr4agF1YkFn5Xry5
+	Gw13AF4xJa4xn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3AaLa
+	J3UjIYCTnIWjp_UUUYa7AC8VAFwI0_Gr0_Xr1l1xkIjI8I6I8E6xAIw20EY4v20xvaj40_
+	Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxSw2x7M2
+	8EF7xvwVC0I7IYx2IY67AKxVWDJVCq3wA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxVW8Jr0_
+	Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
+	jxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr
+	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7MxkF7I0En4kS14v26r1q
+	6r43MxkIecxEwVAFwVW8JwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8Jw
+	C20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAF
+	wI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjx
+	v20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2
+	jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43
+	ZEXa7VU1IeHPUUUUU==
+X-Originating-IP: [124.16.141.245]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiCQ4AA2gGfIH+HgABs2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_191247_296098_F31B3D92 
-X-CRM114-Status: UNSURE (   6.75  )
+X-CRM114-CacheID: sfid-20250421_191445_625499_E05CED8E 
+X-CRM114-Status: UNSURE (   6.82  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,14 +83,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 11, 2025 at 12:32:55PM -0400, Laurentiu Mihalcea wrote:
-> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> 
-> Add imx95 DTS for SOF usage.
-> 
-> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> Reviewed-by: Iuliana Prodan <iuliana.prodan@nxp.com>
+In fimc_is_hw_change_mode(), the function changes camera modes without
+waiting for hardware completion, risking corrupted data or system hangs
+if subsequent operations proceed before the hardware is ready.
 
-Applied, thanks!
+Add fimc_is_hw_wait_intmsr0_intmsd0() after mode configuration, ensuring
+hardware state synchronization and stable interrupt handling.
+
+Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+---
+ drivers/media/platform/samsung/exynos4-is/fimc-is-regs.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/media/platform/samsung/exynos4-is/fimc-is-regs.c b/drivers/media/platform/samsung/exynos4-is/fimc-is-regs.c
+index 366e6393817d..5f9c44e825a5 100644
+--- a/drivers/media/platform/samsung/exynos4-is/fimc-is-regs.c
++++ b/drivers/media/platform/samsung/exynos4-is/fimc-is-regs.c
+@@ -164,6 +164,7 @@ int fimc_is_hw_change_mode(struct fimc_is *is)
+ 	if (WARN_ON(is->config_index >= ARRAY_SIZE(cmd)))
+ 		return -EINVAL;
+ 
++	fimc_is_hw_wait_intmsr0_intmsd0(is);
+ 	mcuctl_write(cmd[is->config_index], is, MCUCTL_REG_ISSR(0));
+ 	mcuctl_write(is->sensor_index, is, MCUCTL_REG_ISSR(1));
+ 	mcuctl_write(is->setfile.sub_index, is, MCUCTL_REG_ISSR(2));
+-- 
+2.42.0.windows.2
 
 
