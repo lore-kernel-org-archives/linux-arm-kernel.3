@@ -4,89 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82B52C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 09:27:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 594E6C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 09:29:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A2SXaJr1crC6irGTaWOzi3O3ULAEyfrCbSvTACAoxuM=; b=FvoffnjA9un6Loe38dQ1988HrC
-	onUHgyEWHyAGqOIO+9azKZCjt8/Fs08eFZzW+rrKVlVc/5xiBLCwMHvEHO81Bropd4meSO6FdsLEG
-	YgzfaTN+EqNSnWjR2950G1+tybMq7X05Zx5Gz/B06koUTbV97m5X0WaK4hDUyXDe53uOMGSO+dtcj
-	OpIGDu+PY01G+Jx8NegGtQiFFGKNP6t9MGRPTx2RRQOdQgoUwIFpjwNXZjkLXo4f2QtjtszWD10+I
-	ifUuS4WxfS1KuqB38J1zB5jn+AFn7umZ1UO2uqWtir6KPEEEkp9VdB2imx3bfQHfPwGPhRCjkndMo
-	idmtyxag==;
+	bh=tm6ce7FCfnEHxhlUwpit5ul9aj6xgc9Jgba3jLGI3iA=; b=FeE0RZ5Oo0QUFZ2gcyxCU77yi6
+	uNhu0mN2TI3ie72KxvtVM2Pi655d2Loa8q4zaDXcfv9LUtH6plNOe3I608nH82wDi/G0MV3vRMB2R
+	XoIHM+oJ4lh3UUzSCZRySmdmYsjQu2lGoXbQMvtemYUv37zGYah008V50kkH9r2UXNER4VUNoLuzD
+	lNgLIlkr/q9MYXBnjejlq1goWk3vCCLMGFGoF1pdQGVAThhIXQ4+PeCxS1Wz2iQVKb16ZOKyQKklx
+	L2K1PaNqXJDQ4ARttxPgcbEwwOHgo4lAdziYYgPLD50+hfzmsmuhETtKv8t8CZ3DcYTP+eeX/IzVv
+	hqX0OlaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u79u6-00000006YRI-2kWs;
-	Tue, 22 Apr 2025 09:26:58 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1u79vw-00000006Yrn-1IeN;
+	Tue, 22 Apr 2025 09:28:52 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u78aq-00000006Dxx-0Oi2
+	id 1u78as-00000006Dyn-4Agi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 08:03:01 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5ded500589aso756808a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 01:02:59 -0700 (PDT)
+	Tue, 22 Apr 2025 08:03:04 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-5e61a18c05aso713093a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 01:03:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745308978; x=1745913778; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1745308981; x=1745913781; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=A2SXaJr1crC6irGTaWOzi3O3ULAEyfrCbSvTACAoxuM=;
-        b=LVKqsrJdwB0zqqZu32/96i727VMMdUySip1kMJ3Bo4tmQyjeCLjS9xw993u68lcoEU
-         0vKaB3jmtS7eiZc+oYn2+TSOTIrpWiGrq54yqZjReZOYCXVpLFmRfQTOYRSAgJHPYoBM
-         PHiRtvTSbIKcJx/RS9tJni3L/BrxfbefMqXW/Z43fSkZdvyOqaGE/AdBwU++TqcSCgKI
-         Vq824cQvXQ7O/Cd5YqOqupTIOyYaiMRROtXs6VUM9XQEytC9Q9CM2b8wi26BLBxM8acr
-         497QBNi3r1Cpm+Hb+6CDyxL2pAXqj23y96Wu/L0W+yDdmPz7kPQVN16Y/hxZKHkNgNq0
-         e/kQ==
+        bh=tm6ce7FCfnEHxhlUwpit5ul9aj6xgc9Jgba3jLGI3iA=;
+        b=ZvROoOb1imrrW0wwU/JzBJgDt/O3FSzBFjyQ9e81Z6A80c9MIaWhUqPpzeo+LwJgLX
+         O6aZ+O/4d2BL065JJDuK2DowbuH7x2dJkOGF9iIHxPKka0THufiVKTc1Unalc4ZVVplI
+         RiObIZ7OJRIIABSgYD9ICVfMQ2tEsgRMWehgQoAv6XOfxafWcdU0QyOvh3Gy/+35SGIC
+         V5LpR1WGObJl5g8goghxMQhkXpw1ZMjDt7sFocgdkJ/WU2NolcQU19+pQvXFdkY9zLTq
+         05q7l+tOhA6TLfqLBB6weRL1TSIzF4pmnU9VTrlkdQbHodrus4EtR0inwWh+hALA43/B
+         FIEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745308978; x=1745913778;
+        d=1e100.net; s=20230601; t=1745308981; x=1745913781;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=A2SXaJr1crC6irGTaWOzi3O3ULAEyfrCbSvTACAoxuM=;
-        b=DrSmWdMBkq4lj9Q56LwjMxCWoAMM2jAfbUbjaNs3EEEJKeA+eVpWcaoEJRk+zkDRCA
-         R95OuqTdHJGqWq3YMGRcwZOr49WXkWJNEHv2EkpwzBgSDj9170JMn/VYqB8tUQTMbbiX
-         hTI90CdYa6L2Accwq/9pbTmyh4aaA/2jWeaOOfIeHChUqeGdh1Kvg2nlq/S/x51jgKNA
-         /rtHm5yxZAjT2i/nG9f51l6+MsVHC39c9U+JDLx1M0VCFXtVO21hBJIV+O4LMuoDY4Db
-         5itHeGdM8D8zeRRfIPwfmwAEQecEXNvIAVxLFSEuJUNXS2Lmod2dBR3nmI29nT+Yv6S1
-         XQ/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVi/Zs1bezOduDLShdjzVMO2q8BeOXPGICwyjnw1CKla6mJsy1Urw+AXHeTETQ/03SbjI3tZrnucL17cgSEHBQ6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3W/3S6LcxfgJTxjs1RBJx3FpEit3r8e+e5qtkwGGeh3d8Ofdm
-	axYb5FWJmo2oOPUAFoHYgDD7la2XHNTRZupOGQHQFHZI+dpxi2JC9DN1Kvmzx8o=
-X-Gm-Gg: ASbGnculB4sUnX4xxRlpNOXA949pBwKyGwe5jMxaI1DrAnuTggewQIMg9AyH9bWlso8
-	CRXWIAcyDhfEBRxfRpD+RbyloLd+rgiW1zFipa+JlJb+dkP3CXfcG/7NrgTXF/ijdpSxkpwFZEH
-	hw7iuTECdZghRqlKsR57iiFpcQ2KVO2M1JJed4834CZjZUQbebWfL8SZe0AGAvwVKWQ6bebm9f2
-	FL4K/G+E1j4xROA60KwCQGzJvgc4Q7lpq+RIZlg4wpeEtrt8qv0henVMc4hd90c6Ab4wnBW+ooG
-	neqNbgKIXAO3btuXBqbjf0Z3YRim7MwtwiuuLz4sB1T91BI2OE2ykPt2HKM6ZJSoa5zkbQ==
-X-Google-Smtp-Source: AGHT+IEO95pVgcbTTuL6m1nZThpMsZDecLSZl0E0qY4XHaTmqD45YQmuajiyCZeoAAauzastwGCgcw==
-X-Received: by 2002:a05:6402:4312:b0:5ee:497:5221 with SMTP id 4fb4d7f45d1cf-5f628628bdamr4155171a12.11.1745308977929;
-        Tue, 22 Apr 2025 01:02:57 -0700 (PDT)
+        bh=tm6ce7FCfnEHxhlUwpit5ul9aj6xgc9Jgba3jLGI3iA=;
+        b=Lxlx9TDgX2s21l05PbnlXbnjMQhCWUjXYWp8miUuiWrvfBIa/pp7xXnctcX4qL64jG
+         1vsmxac2I/w9RS30pPwHWUH27g2R/ZgDqxsENwLwdyt17QPZDoAOwOlX+/tJaDeqTj7f
+         b5ZAEhDPIY8EcVbf/QxwXDWCyKB1ShaXEVLwObolS/tPKfVgRag6BacegbgWKmxuXsHS
+         AklyBlgnNE8FitqYFzl2z/tXJA2Ja8AUlle3ygf+BXoarM2a3OHBKoYjIfiRnRzVuz+C
+         ZhqWfFSvk+5+J+rZ9VpgqQIjgP2kyqzSuwHoQOYEn7HYjGypfZy5FfHs0hQL7jCbNJ5o
+         QY9g==
+X-Forwarded-Encrypted: i=1; AJvYcCUMEntSmmU8k19h2dOyxoDFVXGVdAIZX4QXhM3zJB1vfNN9a/eZnitAjkAE6hJHSeX61q6/5SBDdmL96HUf8lKD@lists.infradead.org
+X-Gm-Message-State: AOJu0YxqqMwqc8/hJoRRlJ70Tjf7jyhhUJYJyBXMguNgR231LFG0Hvoo
+	fXwSxgRF4+Ovogy8MtAwFHoP/LsI6nf6cB0XJS40YFYrHPOXwE3+sIeSXH7ySvw=
+X-Gm-Gg: ASbGncuN9oa6TKkYUUhMD3bF7j7IldboTosZIoq9k4LAlluQ5knVUNOP79EKu5VlRyI
+	MeZL8+kjd7JjKl3CkS9DhzrpGXsMbUruWbWAIf/FL5g25lxNOGBa5ELO3/6nX5z7MbEzPdD5Hdk
+	MlOn4sH2J7x00SaaBT0/yB6ALD2LFcYIlcbPsDYeP+UzMqdtYUnlarF0tpibZiDSwCBVIA13onF
+	UHzCeSnl1Psap2zStmnVePn+UwUKY5lCOyE3d2SqHxWxlq/6eaK/tWPHVJQetOqbTCL8Mk7Gbuf
+	00OrMrC5svVipT4RfigkJkuoNrs8uqsBul1opCBwASYKOdUlp6aswskyH2Q=
+X-Google-Smtp-Source: AGHT+IEj9zYGHMUVy+ByRdrUePKsN+UNEN7rQuSwVrU8g1hXbVY98bZH5MP1B4l378YIYlw97Pfaow==
+X-Received: by 2002:a05:6402:524d:b0:5e0:36fa:ac1e with SMTP id 4fb4d7f45d1cf-5f6285e560cmr4530395a12.6.1745308981069;
+        Tue, 22 Apr 2025 01:03:01 -0700 (PDT)
 Received: from [192.168.70.232] ([88.154.3.194])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5f625593409sm5532352a12.37.2025.04.22.01.02.55
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5f625593409sm5532352a12.37.2025.04.22.01.02.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Apr 2025 01:02:57 -0700 (PDT)
+        Tue, 22 Apr 2025 01:03:00 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: robh@kernel.org, alim.akhtar@samsung.com, krzk+dt@kernel.org, 
- conor+dt@kernel.org, Faraz Ata <faraz.ata@samsung.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- dev.tailor@samsung.com, rosa.pila@samsung.com
-In-Reply-To: <20250417113511.759268-1-faraz.ata@samsung.com>
-References: <CGME20250417112513epcas5p2a44d0a4cfca2cccf97f1599af0e6b494@epcas5p2.samsung.com>
- <20250417113511.759268-1-faraz.ata@samsung.com>
-Subject: Re: [PATCH v3] arm64: dts: exynos: Add DT node for all UART ports
-Message-Id: <174530897488.9276.17366412245478167269.b4-ty@linaro.org>
-Date: Tue, 22 Apr 2025 10:02:54 +0200
+To: Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Cc: Peter Griffin <peter.griffin@linaro.org>, 
+ Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
+ linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org
+In-Reply-To: <20250319-acpm-fixes-v2-0-ac2c1bcf322b@linaro.org>
+References: <20250319-acpm-fixes-v2-0-ac2c1bcf322b@linaro.org>
+Subject: Re: [PATCH v2 0/2] firmware: exynos-acpm: read fix & reduce log
+ verbosity
+Message-Id: <174530897813.9276.2456248075934997064.b4-ty@linaro.org>
+Date: Tue, 22 Apr 2025 10:02:58 +0200
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_010300_138530_D9BAFD8F 
-X-CRM114-Status: UNSURE (   7.04  )
+X-CRM114-CacheID: sfid-20250422_010303_030615_789FE7EF 
+X-CRM114-Status: UNSURE (   9.47  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -103,17 +106,22 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 17 Apr 2025 17:05:11 +0530, Faraz Ata wrote:
-> Universal Serial Interface (USI) supports three serial protocol
-> like uart, i2c and spi. ExynosAutov920 has 18 instances of USI.
-> Add all the USI DT node and subsequent uart nodes for all the instances.
+On Wed, 19 Mar 2025 05:38:22 +0000, André Draszik wrote:
+> While trying to use the ACPM driver, I stubmbled across two issues:
 > 
+>     * acpm_pmic_bulk_read() doesn't return the correct register values
+>     * superfluous log messages during boot
 > 
+> The patches attached are the result and hopefully self-explanatory.
+> 
+> [...]
 
 Applied, thanks!
 
-[1/1] arm64: dts: exynos: Add DT node for all UART ports
-      https://git.kernel.org/krzk/linux/c/1a6ee48d8757dbd1c243fa518ff31f33665d4fa0
+[1/2] firmware: exynos-acpm: fix reading longer results
+      https://git.kernel.org/krzk/linux/c/67af3cd813695fd3e6432b0849c453250c4685aa
+[2/2] firmware: exynos-acpm: silence EPROBE_DEFER error on boot
+      https://git.kernel.org/krzk/linux/c/53734383a73888e6d765aa07f4523802fdf1ee10
 
 Best regards,
 -- 
