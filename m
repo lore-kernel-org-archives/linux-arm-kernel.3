@@ -4,121 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4FF5C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 08:33:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F18DAC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 08:35:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
-	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lH46hfoNIJY5qCmuJzlF3d7GkHG348kgpWLaJA6DDWM=; b=zKJK5PFV5Zs5ju
-	ACHdPag2azyK5cDZxjR187guOhCCbuCBP+5KDh1kfb+5c9icIK2Bva6AxOYbp7kcMS9rpgGOJxZq8
-	fqQMOQ6igHZ+vcCf3oJMtcsKKm11b9ZxzLI0EfzhpDiQWRj/sU4SawH5s33gyxsSfQi88oXYs+k+E
-	pjCkn0ejS+uT8T5vlWCzSLjsH+OJqVRAeKqoH3e3Dc+pCSp53KFsYqEgWZMK54t0qA2gsE3g/4zvO
-	JIiYGnF+GviorMzv61lUvDXI8uxrjVdxBY4JoYO3DJ2h/Y9WpMUYqtsYKKXLXUxYd4DQ5aVDiskU8
-	Gwnhbg6DsBpZTfD1lsPQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=N9dNOfuTXw0dsa2fp1qOtdJrN9EF5haXVa5yEOwQyZk=; b=0JbrY38qigW8BfOipNgYSnWtZX
+	NaLLTfjKYlxz6WA9mC1hLanU8c5IZ+neWV4tu6SuMgyFIDPhQnLgz61JvepZVG1PabUmIkwANkvEi
+	Z6u3ALEYmT07phqN/GWR6zDb0CjuQwsytKiavMiRUww6zpRLehJ3DVM0IZe6D0q7HcrlZXzkFqoSn
+	VrEzFuH39K+k1HO+gMIPANKlIMEOjTGpX87enbjDlQCwfpG8sJ1OCOeuWZ6pf3ds26KFkjZBcHZ8z
+	y8tcbwcGJX/uRC/db0CclwAmxOipsKcB5Xw4BZJkkKNx3tgy+v0pEH+XpTPoCNlSNO+PrqkCUMSbT
+	sXJPHYjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u794Z-00000006KUx-3Rf9;
-	Tue, 22 Apr 2025 08:33:43 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1u796Q-00000006KwZ-2eEf;
+	Tue, 22 Apr 2025 08:35:38 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u77yi-000000066SS-2rTv
+	id 1u781E-000000066tl-0lax
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 07:23:37 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3995ff6b066so2482933f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 00:23:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745306615; x=1745911415; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:from:subject:reply-to:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=lH46hfoNIJY5qCmuJzlF3d7GkHG348kgpWLaJA6DDWM=;
-        b=L0xw77IySOGzsVVkRyQLEhmMMmoSt71cmi17a/BJMCze2eCY0cSGszGBWLMuaove2u
-         5Lk7yfwW1m+6H3U0tQXrSLVGpexuiZDqz/ikGuTU5CiSiNZdB15pOSm3r1h/rv/Ojrrq
-         neX/Or+0qI7GEaNZoajwWzAYUKIpET6w6TvR0+2Eicn5jZbjeXgbW1Qs91cwmuPjU23Q
-         /LHKVoZ+W6M+5Xkhc1S410nFWJu+1VB1kuYUneWUXkAhId49IJIGhSS7eGURge8/cua4
-         noQo6ICFiECg+5GMyVXVMYnbqRwdRbQmqbcpjxAbXD6VGInX/ux1vKTx3GIWZZje489f
-         0ajQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745306615; x=1745911415;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:from:subject:reply-to:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=lH46hfoNIJY5qCmuJzlF3d7GkHG348kgpWLaJA6DDWM=;
-        b=W9FjiaZvanPXPOCnKYdwev8fohsaAZG/zh+lMBT4heh13tJw7p4+vPbAQlG+XN7teU
-         fZWjl5zH4d1euXjVb2OHpROobyC7eHXxnzE49KGxx6AGw2kqyLNm3ekcy/zwmtP3qcrl
-         gAgSdBpD7XxqV77uRwkQT2h2tO6llUCtNy/MFFI8vHBD8jau7DI+qDnb7w5NWdb7Rls9
-         Pvd5vTtyEwwz6hEsbxzpOpBV38l+mPNZFCQVSX2JkJCvckTTUND+8cZ/+MQJRLRnRYgy
-         +LmT6/5O26ahlN88DrtNujy1BhVltIfNrv0RyaCvuhfV98+e7LkMy4ccVqAudlzcFI0L
-         2HDQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWVGVhQ9Q4FI1ULwyVDymPnnect1F/sqduGPrSq5Gpyrg6TMMkIlbQPv12aeJffwGywRCRojPfLcsFdUxFZ3iHv@lists.infradead.org
-X-Gm-Message-State: AOJu0YxoFEHPr6yoZtZ1jLY4ZSmeZ1ubxixhdL0AV033k81v7ydIUI9V
-	0YcWUPowDOG2NB4ZQFcAU0phbV+yQnsOjmMrRIr6Yu9QfSI6xiYGt3Kg/4CDDDE=
-X-Gm-Gg: ASbGncuEdwBLShWmFaKOhyL8W+FjWG3Nt+C+XZqKMgovA43LKYotOv+ShuFu+VjmTHn
-	ydflL2ttL15Eou7HhytsQlNyPT3UF1B/VXbyxaEXVaE7sCMlzxpQhBenLQi/EpN/yhhdFMtUOHn
-	CkTySJbomDiXcHPSlQEXCsg6g4dVW/UUJvhfcxgGY5QLLyjR9iRu39oPP3PHDh8NRrek+805waB
-	Ff3g6sg7mRm9kpvspbPORxEg6y3WOz2iZNotaRGjh46KCNyDmdaN4zorKgKoY4vqIdBTJHdoBQH
-	6KLfhoIc5BW1JRU+aQozoRqNlMuOaDnmkniPQT0O6eaG39FMIbZvtYJRV5jzw9sq0cTnVGl0DC+
-	Va651zJMvOBK3Zvk+/A==
-X-Google-Smtp-Source: AGHT+IGywozzMisXwYOT/E5KYtUsJDT/HnunTc8XE7Knara8DcfAQ+yJD6UJRsAe6X3X6bs1me8xhw==
-X-Received: by 2002:a5d:5f4c:0:b0:39e:f89b:85d3 with SMTP id ffacd0b85a97d-39efb9538afmr11846283f8f.0.1745306615026;
-        Tue, 22 Apr 2025 00:23:35 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:3d9:2080:b137:7670:8eb9:746f? ([2a01:e0a:3d9:2080:b137:7670:8eb9:746f])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39efa43bf20sm13981589f8f.48.2025.04.22.00.23.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 22 Apr 2025 00:23:34 -0700 (PDT)
-Message-ID: <7c7b3e81-bc46-417b-a3f4-2d48f2d3638d@linaro.org>
-Date: Tue, 22 Apr 2025 09:23:34 +0200
+	Tue, 22 Apr 2025 07:26:14 +0000
+Received: from localhost (unknown [124.16.138.129])
+	by APP-03 (Coremail) with SMTP id rQCowADXezh6RAdoZOAVCw--.18178S2;
+	Tue, 22 Apr 2025 15:25:47 +0800 (CST)
+From: Chen Ni <nichen@iscas.ac.cn>
+To: sven@svenpeter.dev,
+	j@jannau.net,
+	alyssa@rosenzweig.io,
+	neal@gompa.dev,
+	joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com
+Cc: asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Chen Ni <nichen@iscas.ac.cn>
+Subject: [PATCH] iommu: apple-dart: Remove unnecessary NULL check before free_io_pgtable_ops()
+Date: Tue, 22 Apr 2025 15:25:11 +0800
+Message-Id: <20250422072511.1334243-1-nichen@iscas.ac.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm/meson: fix resource cleanup in
- meson_drv_bind_master() on error
-From: Neil Armstrong <neil.armstrong@linaro.org>
-To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- linux@martijnvandeventer.nl
-Cc: linux-amlogic@lists.infradead.org, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- jbrunet@baylibre.com, Furkan Kardame <f.kardame@manjaro.org>
-References: <20250409214422.1751825-1-martin.blumenstingl@googlemail.com>
- <001d01dbaa48$ead66d10$c0834730$@martijnvandeventer.nl>
- <CAFBinCDtMG1qKM9aax7RBpN+dw7c5MVOoTrX+PzXF1QQBOg_Lg@mail.gmail.com>
- <09b7c34d-82c7-40fc-bb51-38d0fd925d38@linaro.org>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <09b7c34d-82c7-40fc-bb51-38d0fd925d38@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: rQCowADXezh6RAdoZOAVCw--.18178S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrtw18ZF4DKw1xZry7ZrWfAFb_yoW3WwcEkr
+	18CFn3G3Wjyrs8Aw1jyF13Zryv9as8Zws2qa4DK343Jr95Zw18C3s5ZrWxZrs7J3yUCF17
+	Aas8Ar1fCrWfZjkaLaAFLSUrUUUUbb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbf8FF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j
+	6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Cr0_Gr1UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFylc2xSY4AK67AK6r4xMxAIw28IcxkI7VAKI4
+	8JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xv
+	wVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjx
+	v20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20E
+	Y4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267
+	AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VU1eWlPUUUUU==
+X-Originating-IP: [124.16.138.129]
+X-CM-SenderInfo: xqlfxv3q6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_002336_717165_F06A0A13 
-X-CRM114-Status: GOOD (  19.46  )
+X-CRM114-CacheID: sfid-20250422_002612_575969_FB183904 
+X-CRM114-Status: UNSURE (   7.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,75 +83,32 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/04/2025 09:04, neil.armstrong@linaro.org wrote:
-> On 19/04/2025 23:32, Martin Blumenstingl wrote:
->> Hi Martijn, Hi Neil,
->>
->> On Thu, Apr 10, 2025 at 8:46 PM <linux@martijnvandeventer.nl> wrote:
->>>
->>> Hi Martin,
->>>
->>> Thank you for the patch.
->>>
->>> I encountered this issue some time ago as well and had a possible fix in my tree (see
->>> below).
->>> My apologies for not upstreaming it earlier.
->> No worries, we're all busy with both, offline and online life ;-)
->>
->>> While my fix is not as symmetric as yours—I like symmetry—it is somewhat simpler. It
->>> did make the assumption that only  calling component_unbind_all() was at fault and the the rest of the
->>> code was correct. Therefore, calling one of the following functions:
->>> meson_encoder_dsi_remove()
->>> meson_encoder_hdmi_remove()
->>> meson_encoder_cvbs_remove()
->>> in case their counterpart was not called, should not result in any issues.
->>>
->>> I just verified, and, as far as I understand, all of these functions do a check to confirm
->>> whether the encoder was initialized before proceeding with cleanup.
->> Yep, that seems to be the case right now.
->> Neil, would you like Martijn's more simple approach with a Fixes tag
->> and backport that?
->> Then I'd send my patch as a small cleanup which doesn't have to be
->> backported. Otherwise I'd spin a v2 with a fix for the issue that
->> Martijn found (and including Anand's Reviewed/Tested-by)?
-> 
-> Please send a follow-up, I'll apply this one today.
-> 
+free_io_pgtable_ops() checks for NULL pointers internally.
+Remove unneeded NULL check here.
 
-Yeah finally please split this in two:
-- patch 1 that can be backported
-- patch 2 remaining changes
+Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
+---
+ drivers/iommu/apple-dart.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-Thanks,
-Neil
-
-> Thanks,
-> Neil
-> 
->>
->> [...]
->>>> diff --git a/drivers/gpu/drm/meson/meson_drv.c
->>>> b/drivers/gpu/drm/meson/meson_drv.c
->>>> index 81d2ee37e773..031686fd4104 100644
->>>> --- a/drivers/gpu/drm/meson/meson_drv.c
->>>> +++ b/drivers/gpu/drm/meson/meson_drv.c
->>>> @@ -314,35 +314,35 @@ static int meson_drv_bind_master(struct device
->>>> *dev, bool has_components)
->>>>                        dev_err(drm->dev, "Couldn't bind all
->>>> components\n");
->>>>                        /* Do not try to unbind */
->>>>                        has_components = false;
->>>
->>> Above two lines are no longer used, so can be removed.
->> Well spotted, thank you!
->>
->>
->> Best regards,
->> Martin
-> 
+diff --git a/drivers/iommu/apple-dart.c b/drivers/iommu/apple-dart.c
+index e13501541fdd..757d24f67ad4 100644
+--- a/drivers/iommu/apple-dart.c
++++ b/drivers/iommu/apple-dart.c
+@@ -776,8 +776,7 @@ static void apple_dart_domain_free(struct iommu_domain *domain)
+ {
+ 	struct apple_dart_domain *dart_domain = to_dart_domain(domain);
+ 
+-	if (dart_domain->pgtbl_ops)
+-		free_io_pgtable_ops(dart_domain->pgtbl_ops);
++	free_io_pgtable_ops(dart_domain->pgtbl_ops);
+ 
+ 	kfree(dart_domain);
+ }
+-- 
+2.25.1
 
 
