@@ -4,95 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB3CBC369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 00:10:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C36BC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 00:11:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H8wLDV1hb56J4g1qGTPdYS2+5saoEpO4u3c0/B+uqvk=; b=T3s4/8LeAGr/zX48Ck2Gz57DOK
-	4fsWmX/0p2SEznwnfGjIvRgtrBXsEKizGchDIzM7tkN+41S7gonqKxUvLVHEpUs3YBgcMxeT4TyEx
-	eiyK9pez6ZICrfaxrqu+CtLv9ulVgemm8eDYgttpZqYqiFwR604Oi99/K2wzY19EoknlrvYZC9FkI
-	npd4UtjNDVczPvdSWZ8kKYCLGskLPn+Q6V1fSlvXVSU/G4ZMJEN1tHjzUlTr9WCrGqCpJTMCq8fRJ
-	ae8MtrRl5wXsVt5+39jpC3DpyMugVGjhJ7eygVZfg6aZqET62hB+aj+RgObz2u5O/vh0rjfnrsdYb
-	7RL1ZghQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ppfOZ3b4VAis2haDcJCJJLYqMkr6zwiaDTGpizkuOXE=; b=gLYTpJymrjn9z7HLicc2Mv+wc4
+	bQVApvIwflR/lgcyWC49n20FYYqj0O6ORyuId0VkdvZEoP6DikYLQvcywIgKNt4tZE5b823ZhvYon
+	GYEQ5y5HfH9raj6vkfGktRjpBdpfR/ZTCK1T+vVzS6Zxc+SAJz5+mYKuuIZGh+UFG8Vrkdr23ulil
+	teBvAu7rXPSkWKUUnlWQkaNtE1QtpXk/hW8NPiR+lggim23GXIIBujUB83lZ+qfCq3PKsI604t3iI
+	VzpCmxBMnMODB0SgfoxEmnYztV/jxTz/Ph3cUS3LLDMAUH6ORxgvJHo5j1RsD61/bmgHZrTtmFpJG
+	FGjVsZUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u71D0-00000005RdI-1X9J;
-	Tue, 22 Apr 2025 00:09:54 +0000
-Received: from mail-qv1-xf30.google.com ([2607:f8b0:4864:20::f30])
+	id 1u71Ep-00000005RqJ-1SER;
+	Tue, 22 Apr 2025 00:11:47 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u71B7-00000005ROQ-1igR;
-	Tue, 22 Apr 2025 00:07:58 +0000
-Received: by mail-qv1-xf30.google.com with SMTP id 6a1803df08f44-6ecf0e07947so44899436d6.0;
-        Mon, 21 Apr 2025 17:07:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745280475; x=1745885275; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=H8wLDV1hb56J4g1qGTPdYS2+5saoEpO4u3c0/B+uqvk=;
-        b=JwY4a9JVJwn2SJ0+LbSwRbjEOhq5ubnoJkyJviPpBiA8GTYLj5FmUnFgYNQIkJ8IHD
-         FMeI8Yo/l5u2lEN75cOrD9EWTnvd9+fU9Oi6SXdZSPWeEws1eICp/mlbFKedqossCQPO
-         136EwLHQbgX1CFOeunvdC3+HYVMw1bTRm70MIAc2MYfHIT7KB3gZtRkbX0twE8ZKVXKM
-         8fx1TqoP6CafwYx/Qm7/Zekn9gHqeo4XRrWGUG7duJtEs+bMBjA7buVlod2hzStRN7qT
-         zK86L436HgfF1p4FPj2eH1PDE8WsCA5u6OdG1TEGo0g50AEDi2GSzGxHPDX07HbmMgNN
-         TvJA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745280475; x=1745885275;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=H8wLDV1hb56J4g1qGTPdYS2+5saoEpO4u3c0/B+uqvk=;
-        b=n+y1wedxnXaVdFTIinklS7Ij38WSpd+FxhXPqWln/HUr86r9xcgDLmed8/B67oJ6Dt
-         yq9U2N1Gl8dUo68A0tTC/m2rz15W1/NYgXPZq4CHQxKO/AuupGLvtvi0jdK1Rj4k0HPN
-         x/R78UcpWgz57U0G9dG1KK+LEzmq+6RAwPemujztV2xPco/3+dqhCsO9Aed63zWHFdmB
-         UjZf2r+2JibdTOvaC7pMGUf+opvXbZBz583Ly/sEIDp0WSQLBy4uVDOV+jXp9NBwzQX0
-         YQn1h+PWLvA3YOJGvLJ3Gyq26waiehpl5CR3IoH1ama3xKETWMXiPIBSa4awSas7Qsjs
-         7aDw==
-X-Forwarded-Encrypted: i=1; AJvYcCULmvtsR+0TnJd1txevnPKTbtBbnpNc2a9RjZtG9LAqnTXEmJt+/1nBd2JbE2ZrHr69hnPKLIVFoeAVH2GUk50=@lists.infradead.org, AJvYcCVqaeNykpSvZQf8sc1sIsmB60QEgObqg9NdLb7TYcwnlXfsNtfKUdA0cuOYDQluchYgiLo2FOSXsqUNEK0QTFiu@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5Jrf1SImtpSvJAHe2TrlFcT95v0JK9igNulhT65q7jaeBwqel
-	xmV+O6WU5bUq2WP3amsNC80XwG+CAYm4JScBe/qdvklym5LNWZI0
-X-Gm-Gg: ASbGncsGnFmvAdNRcesLYytoQ1hqgloH7152+YAquPsTzC+XdBTkSQIJcOEfMl7UynV
-	PTH5sVLzqPsM2b3CcTjL220NM2UUE5iWGRhlLH2NHIeVhg3swLbGmJN9/IerHm1crOpqIoVes9H
-	PxR7KeXS9a/cNJ2L7PI/DfZBcSyMH40+hR+6HnTdCjTjFZt71pnY+ycJyYV5PI+x38iyHLC/vgn
-	y0PCo4GxDhChKMnpQ4TGPRn0uKsMVEb2MAMUw2zzOhADa5yk2FIF7Eh/HePwylnBkdMrWk0sT+H
-	JxqEX5tk6iy6vf8RM+hBgQOnetilA1Z8kek/0bzqatbvworO+a7V
-X-Google-Smtp-Source: AGHT+IFfDWwvneQduY1xpp0BmYEQ8b2EqMecuS/b3VvGJHRaIDr0uNIu9yTru25IprQs8WvetVgDkQ==
-X-Received: by 2002:a05:6214:1c84:b0:6e2:383f:4acd with SMTP id 6a1803df08f44-6f2c4d8b11emr226098736d6.7.1745280475490;
-        Mon, 21 Apr 2025 17:07:55 -0700 (PDT)
-Received: from localhost.localdomain ([216.237.233.165])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6f2c2b0f11fsm50085206d6.39.2025.04.21.17.07.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Apr 2025 17:07:55 -0700 (PDT)
-From: John Clark <inindev@gmail.com>
-To: sigmaris@gmail.com
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	heiko@sntech.de,
-	mjuszkiewicz@redhat.com,
-	sebastian.reichel@collabora.com,
-	jonas@kwiboo.se,
-	John Clark <inindev@gmail.com>
-Subject: Re: [PATCH] arm64: dts: rockchip: rk3588-nanopc-t6: fix usb-c port functionality
-Date: Mon, 21 Apr 2025 20:07:48 -0400
-Message-Id: <20250422000748.59664-1-inindev@gmail.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <bda07179-1ff4-46e4-9dda-ece9c63fd613@gmail.com>
-References: <20250419023715.16811-1-inindev@gmail.com> <bda07179-1ff4-46e4-9dda-ece9c63fd613@gmail.com>
+	id 1u71C3-00000005RSC-47G9
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 22 Apr 2025 00:08:57 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53M08qBJ1768572
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 21 Apr 2025 19:08:52 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1745280532;
+	bh=ppfOZ3b4VAis2haDcJCJJLYqMkr6zwiaDTGpizkuOXE=;
+	h=From:To:CC:Subject:Date;
+	b=ZVVyCv95JQTAWUYI2XMDMCjEsjK9tyuZv4sI+TfqRw/stNqtMWLBWXcUvp8vbBeoG
+	 4W27KiS4IlgYLverNbiKBzD+kuiYih8qPyFgM8wuM35JzyFlkjfeG7n5fQrpmg45of
+	 2R2a3b8s6wbuMQsGBGdlNuI+XiyzuEnQFrPgFXVM=
+Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53M08qen102104
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 21 Apr 2025 19:08:52 -0500
+Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE113.ent.ti.com
+ (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 21
+ Apr 2025 19:08:52 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 21 Apr 2025 19:08:52 -0500
+Received: from judy-hp.dhcp.ti.com (judy-hp.dhcp.ti.com [128.247.81.105])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53M08pDE065170;
+	Mon, 21 Apr 2025 19:08:51 -0500
+From: Judith Mendez <jm@ti.com>
+To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>
+CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+Subject: [PATCH 0/3] Enable PWMs
+Date: Mon, 21 Apr 2025 19:08:48 -0500
+Message-ID: <20250422000851.4118545-1-jm@ti.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_170757_468178_909CB552 
-X-CRM114-Status: GOOD (  20.60  )
+X-CRM114-CacheID: sfid-20250421_170856_066050_3A15AF5B 
+X-CRM114-Status: UNSURE (   7.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,71 +89,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 22, 2025 at 00:12:02 +0100, Hugh Cole-Baker <sigmaris@gmail.com> wrote:
-> Hi John,
->
-> On 19/04/2025 03:37, John Clark wrote:
->> The USB-C port on the NanoPC-T6 was not providing VBUS (vbus5v0_typec
->> regulator disabled, gpio-58 out lo) due to misconfiguration. The
->> original setup with regulator-always-on and regulator-boot-on forced
->> the port on, masking the issue, but removing these properties revealed
->> that the fusb302 driver was not enabling the regulator dynamically.
->>
->> Signed-off-by: John Clark <inindev@gmail.com>
->> ---
->>  .../boot/dts/rockchip/rk3588-nanopc-t6.dtsi   | 21 ++++++++++---------
->>  1 file changed, 11 insertions(+), 10 deletions(-)
->>
->> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
->> index cecfb788bf9e..8f2bd30786d9 100644
->> --- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
->> +++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
->> @@ -174,8 +174,6 @@ vbus5v0_typec: regulator-vbus5v0-typec {
->>  		gpio = <&gpio1 RK_PD2 GPIO_ACTIVE_HIGH>;
->>  		pinctrl-names = "default";
->>  		pinctrl-0 = <&typec5v_pwren>;
->> -		regulator-always-on;
->> -		regulator-boot-on;
->>  		regulator-name = "vbus5v0_typec";
->> @@ -465,24 +461,30 @@ regulator-state-mem {
->>  &i2c6 {
->> -	clock-frequency = <200000>;
->>  	status = "okay";
->>
->> -	fusb302: typec-portc@22 {
->> +	usbc0: usb-typec@22 {
->>  		compatible = "fcs,fusb302";
->>  		connector {
->>  			compatible = "usb-c-connector";
->>  			data-role = "dual";
->>  			label = "USB-C";
->> -			power-role = "source";
->> +			/* fusb302 supports PD Rev 2.0 Ver 1.2 */
->> +			pd-revision = /bits/ 8 <0x2 0x0 0x1 0x2>;
->> +			power-role = "dual";
->> +			op-sink-microwatt = <1000000>;
->> +			sink-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
->>  			source-pdos = <PDO_FIXED(5000, 2000, PDO_FIXED_USB_COMM)>;
->> +			try-power-role = "source";
->> +			typec-power-opmode = "3.0A";
->
-> According to the manufacturer wiki [1] "Power Output Capacity" table, the USB-C
-> port maximum output is 5V/2A. So I think "1.5A" would be a better value here.
->
-> [1]: https://wiki.friendlyelec.com/wiki/index.php/NanoPC-T6
+This patch series enables PWM signal outputs on am625 SK,
+am62 lp SK, am62a7 SK, and am62p5 SK boards.
 
-Hi Hugh,
+For am625 SK and am62 lp SK, add pinmux, eCAP, and eHRPWM
+nodes in the k3-am62x-sk-common.dtsi so as to not duplicate
+nodes in the board files.
 
-Thank you for your feedback and for referencing the manufacturer’s wiki. To clarify, the line in question:
+Judith Mendez (3):
+  arm64: dts: ti: k3-am62p5-sk: Enable PWM
+  arm64: dts: ti: k3-am62a7-sk: Enable PWM
+  arm64: dts: ti: k3-am625-sk: Enable PWM
 
-source-pdos = <PDO_FIXED(5000, 2000, PDO_FIXED_USB_COMM)>;
+ arch/arm64/boot/dts/ti/k3-am62a7-sk.dts       | 40 ++++++++++++++
+ arch/arm64/boot/dts/ti/k3-am62p5-sk.dts       | 54 +++++++++++++++++++
+ .../arm64/boot/dts/ti/k3-am62x-sk-common.dtsi | 40 ++++++++++++++
+ 3 files changed, 134 insertions(+)
 
-was not modified in my patch. This value, which sets the USB-C port’s source capability to 5V/2A, is unchanged from the existing device tree.
+-- 
+2.49.0
 
-Furthermore, the schematic for the NanoPC-T6 and the vendor’s upstream Linux device tree (e.g., FriendlyARM’s kernel at https://github.com/friendlyarm/kernel-rockchip/blob/nanopi6-v6.1.y/arch/arm64/boot/dts/rockchip/rk3588-nanopi6-rev01.dts#L346) also specify the source capability as 5V/2A. Given this consistency across the schematic and vendor sources, I believe 2A is an appropriate value for this configuration.
-
-Please let me know if you have further concerns or suggestions!
-
-Best regards,
-John Clark
 
