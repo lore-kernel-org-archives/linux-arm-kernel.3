@@ -4,59 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E51EC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 14:24:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02F25C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 14:26:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lPFC4LcnN4maWHkXh5oR1L8DFfyQEi6+KKWudgcP/fs=; b=zCEUMkpZtJlTCYPSQo2j3KOvdY
-	us/OzEJL3M9y4POiY9ISxayti6wtD9qs4N6z79HUNKl470iErZqjJU1R+qtQG88OSoF8bj/0agteW
-	5hHkQw01U3QT5n6sTdrgPL5UyP5BXh6mOor1p22oApprBhU4QTtgepvYIxFd+uRuH1o3JgIGxWmzx
-	trE+Ujj3afSBth2XwbfSQGhtLZobzettdlwEvMtF5cURczd2E2ZzeZreix/1zWibzGMjn0x73yljF
-	WLgPIDDS79jadZECxx9hbUW8+khuyOVgajeWCCmGavvrgfUgikgk54q7qIU1zax5d0qC54N4g3wv8
-	P/ImwXDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tsL0b8LmQehY0czbqzK7Rw74/5fiSY16t6j1wxTfEcA=; b=GqHWKI/6BXb6hUZAF9Y+T4gjW4
+	5v3362qJGo6QUkJwX6T9brasLLJoY56bqUBOaLwVuHiFcLOymy+oZbJFzS24b/mgwZci/3893ci3t
+	p5lTcBJYAjRtj0sln1C0wbhRmFM6vtLhq9cmA27XU5kzfY/KD+D41DTsCYDF6R8IVnH9rPBUgI7G/
+	2woyz/+PidnKijSPkAVO6B9ZtwRlyi68esmh1cuTbWCbCbPWOHeR3Qhr5ghh+RrEcFj5BhIJZwurJ
+	PIKGvD9GY9CKu2NXW5AzdN2ZPMYjTngvYz6TXXNiHjbUkwx7q/6JXbFqA1+yw6plZ6VL5YXxpm0fZ
+	Pvj+co3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7EY4-00000007Tlu-1F5M;
-	Tue, 22 Apr 2025 14:24:32 +0000
-Received: from relay3-d.mail.gandi.net ([217.70.183.195])
+	id 1u7EZv-00000007U85-01bN;
+	Tue, 22 Apr 2025 14:26:27 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7DMe-00000007Evx-3AOg
+	id 1u7DNm-00000007F7v-3Yip
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 13:08:42 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 976291FD49;
-	Tue, 22 Apr 2025 13:08:36 +0000 (UTC)
-Received: from peko by dell.be.48ers.dk with local (Exim 4.96)
-	(envelope-from <peko@dell.be.48ers.dk>)
-	id 1u7DMZ-009gwR-26;
-	Tue, 22 Apr 2025 15:08:35 +0200
-From: Peter Korsgaard <peter@korsgaard.com>
-To: Praveen Teja Kundanala <praveen.teja.kundanala@amd.com>,
-	Kalyani Akula <kalyani.akula@amd.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Peter Korsgaard <peter@korsgaard.com>,
-	Kalyani Akula <Kalyani.akula@amd.com>,
+	Tue, 22 Apr 2025 13:09:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5878B614B7;
+	Tue, 22 Apr 2025 13:09:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7313C4CEE9;
+	Tue, 22 Apr 2025 13:09:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745327390;
+	bh=BEx2KaD/mS0zMAQs7LahMUkYPebN7yNtc+yXj3QXDNU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gZpXQOku0cTPUuOLSbem5KBzHMXQSFgGD8UvL8Bgola6TijHA8i8dI1fZdJa/SGrs
+	 rJNrQ5e04CMvgjkjAhWWs0ec2zqbALFifzOWPV95KK5wCr97J1BrTHtDofRONx4BsX
+	 /k2pnqBXqQdJ80q1fcKb1bnDtUITwsgQitg/KArtlIoxKMtp8Vu/QlFy2Stfo9Ft6G
+	 +EGu0N0A38sFznGSmrzYK96HsDFWEg1i1PZkzCbOM5H7DpblLsTeadhI5mVAWoIdSo
+	 eh42bm3b1zB0+lHI21J471ba+CWMHqvHQEerCjjuMc9OX7r8WwMJZb/285dET8PUwK
+	 FZAh94y2wi5eQ==
+Date: Tue, 22 Apr 2025 08:09:48 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: NXP S32 Linux Team <s32@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	imx@lists.linux.dev, Jacky Bai <ping.bai@nxp.com>,
+	linux-kernel@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>,
+	linux-gpio@vger.kernel.org, Dong Aisheng <aisheng.dong@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] nvmem: zynqmp_nvmem: unbreak driver after cleanup
-Date: Tue, 22 Apr 2025 15:08:31 +0200
-Message-Id: <20250422130831.2309995-1-peter@korsgaard.com>
-X-Mailer: git-send-email 2.39.5
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>
+Subject: Re: [PATCH 1/1] dt-bindings: pinctrl: convert
+ fsl,imx7ulp-pinctrl.txt to yaml format
+Message-ID: <174532738787.1019688.10866076280609935749.robh@kernel.org>
+References: <20250417152158.3570936-1-Frank.Li@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvgeefkeduucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffoggfgsedtkeertdertddtnecuhfhrohhmpefrvghtvghrucfmohhrshhgrggrrhguuceophgvthgvrheskhhorhhsghgrrghrugdrtghomheqnecuggftrfgrthhtvghrnhepveeiveethfelteelueelvdffieevgfdvtdeivdetuefgffdtvdeuffevheegffdunecukfhppedujeekrdduudelrddurddufeejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepudejkedrudduledruddrudefjedphhgvlhhopeguvghllhdrsggvrdegkegvrhhsrdgukhdpmhgrihhlfhhrohhmpehpvghkoheskhhorhhsghgrrghrugdrtghomhdpnhgspghrtghpthhtohepledprhgtphhtthhopehsrhhinhhisehkvghrnhgvlhdrohhrghdprhgtphhtthhopehgrhgvghhkhheslhhinhhugihfohhunhgurghtihhonhdrohhrghdprhgtphhtthhopehpvghtvghrsehkohhrshhgrggrrhgurdgtohhmpdhrtghpthhtohepphhrrghvvggvnhdrthgvjhgrrdhkuhhnuggrnhgrlhgrsegrmhgurdgtohhmpdhrtghpthhtohepkhgrlhihrghnihdrrghkuhhlrgesrghmugdrtghomhdprhgtphhtt
- hhopehmihgthhgrlhdrshhimhgvkhesrghmugdrtghomhdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-GND-Sasl: peter@korsgaard.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_060840_938966_E3D952C3 
-X-CRM114-Status: GOOD (  10.98  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250417152158.3570936-1-Frank.Li@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,31 +77,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 29be47fcd6a0 ("nvmem: zynqmp_nvmem: zynqmp_nvmem_probe cleanup")
-changed the driver to expect the device pointer to be passed as the
-"context", but in nvmem the context parameter comes from nvmem_config.priv
-which is never set - Leading to null pointer exceptions when the device is
-accessed.
 
-Fixes: 29be47fcd6a0 ("nvmem: zynqmp_nvmem: zynqmp_nvmem_probe cleanup")
-Signed-off-by: Peter Korsgaard <peter@korsgaard.com>
----
- drivers/nvmem/zynqmp_nvmem.c | 1 +
- 1 file changed, 1 insertion(+)
+On Thu, 17 Apr 2025 11:21:57 -0400, Frank Li wrote:
+> Convert fsl,imx7ulp-pinctrl.txt to yaml format.
+> 
+> Additional changes:
+> - remove label in example
+> - fsl,pin direct use hex value instead of macro because macro define in
+> dts local directory.
+> 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  .../bindings/pinctrl/fsl,imx7ulp-iomuxc1.yaml | 99 +++++++++++++++++++
+>  .../bindings/pinctrl/fsl,imx7ulp-pinctrl.txt  | 53 ----------
+>  2 files changed, 99 insertions(+), 53 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/pinctrl/fsl,imx7ulp-iomuxc1.yaml
+>  delete mode 100644 Documentation/devicetree/bindings/pinctrl/fsl,imx7ulp-pinctrl.txt
+> 
 
-diff --git a/drivers/nvmem/zynqmp_nvmem.c b/drivers/nvmem/zynqmp_nvmem.c
-index 8682adaacd692..7da717d6c7faf 100644
---- a/drivers/nvmem/zynqmp_nvmem.c
-+++ b/drivers/nvmem/zynqmp_nvmem.c
-@@ -213,6 +213,7 @@ static int zynqmp_nvmem_probe(struct platform_device *pdev)
- 	econfig.word_size = 1;
- 	econfig.size = ZYNQMP_NVMEM_SIZE;
- 	econfig.dev = dev;
-+	econfig.priv = dev;
- 	econfig.add_legacy_fixed_of_cells = true;
- 	econfig.reg_read = zynqmp_nvmem_read;
- 	econfig.reg_write = zynqmp_nvmem_write;
--- 
-2.39.5
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
 
