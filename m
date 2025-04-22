@@ -4,58 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87B61C369D7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 06:37:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E960DC369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 06:39:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tiD+q2iLPecaXdqBIUQA6kHgOTtsV3xRVQmtbqKQgbw=; b=cpGfrhKZ+JXBpS9jN3t7+JqfVO
-	1C1GF/aKracIYOin74ydh/MCTKMs0eo0868a0FhsosgL/3M7C01+9v82vQz8kWaurRHJyyEuGVhiw
-	9Kz6y+Yn2hWxFbwgjmjGYAVCqL+Entp04sDVCIeuN1WBj16w6tkNaDy4jVxPuQNaT3Kf82wj6fiX8
-	ZzaNZhV8/szFgw16D7f/ZeRNYc3ZU2IA8/NEd+Jw54K7LMHF15qE+IKezpcTX1sbiJS1DqHW/lRxe
-	KmuxjGP36pljALsMCWRirD68C0PXumBWZAa473on1/vwGG2uO7sOHYYT+NW8kD82HBpETqZ+rop8/
-	LfFNWRcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ovzNnQXCxxPbw+iTp1IpdqpMxWWHjLCLwy0mzBZVN9g=; b=cPewCB9zv8rpWFiWhcJ3HIoxvu
+	RsYXDsYWU7Y2j5tmlISdeAEFwdwEo/oONBS7NNP7Se/2Qqz+71+oFlIDfb8jGZuw2rTk9lwW59l0O
+	1jU+pzgwR9oUcvOEYSiUvhktS5XVOw4B85PVII+WZe2LukZjeYH8Sm3bYKmJMUeyRtj1K6qq6Gn4U
+	bfI+BqhqSiobZQhgiEtEeIr21p0hyc8L4Fp+EVXf4wyPxJ0gvaLnYso0LeiHBvYWiPA+5obcBXWYT
+	aVipaVHSF/NapDCCxcozLA2SvQKxEYxNWlkSqX98AJvTUdXLmAdzi6QEpCBqd6hn2xYkLa/km2cfG
+	95pkzI0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u77Fs-00000005zSR-17RK;
-	Tue, 22 Apr 2025 06:37:16 +0000
-Received: from mx1.emlix.com ([178.63.209.131])
+	id 1u77II-000000060N6-2s7R;
+	Tue, 22 Apr 2025 06:39:46 +0000
+Received: from fhigh-b7-smtp.messagingengine.com ([202.12.124.158])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u77Dy-00000005z3a-2xWH
+	id 1u77GO-00000005zj8-2GRD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 06:35:21 +0000
-Received: from mailer.emlix.com (p5098be52.dip0.t-ipconnect.de [80.152.190.82])
-	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mx1.emlix.com (Postfix) with ESMTPS id 195285F86B;
-	Tue, 22 Apr 2025 08:35:14 +0200 (CEST)
-From: Rolf Eike Beer <eb@emlix.com>
-To: Joerg Roedel <joro@8bytes.org>
-Cc: Will Deacon <will@kernel.org>, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, Bert Karwatzki <spasswolf@web.de>,
- Lu Baolu <baolu.lu@linux.intel.com>, Jerry Snitselaar <jsnitsel@redhat.com>,
- Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
- Tomasz Jeznach <tjeznach@rivosinc.com>, Nick Kossifidis <mick@ics.forth.gr>,
- Sebastien Boeuf <seb@rivosinc.com>, Palmer Dabbelt <palmer@rivosinc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Robin Murphy <robin.murphy@arm.com>,
- linux-arm-kernel@lists.infradead.org, Jason Gunthorpe <jgg@ziepe.ca>,
- Kevin Tian <kevin.tian@intel.com>
-Subject: Re: [PATCHv2 0/6] make vendor specific subdirectory inclusion conditional
-Date: Tue, 22 Apr 2025 08:35:08 +0200
-Message-ID: <2779144.mvXUDI8C0e@devpool92.emlix.com>
-Organization: emlix GmbH
-In-Reply-To: <aAERFUJj_6NuxAv3@8bytes.org>
-References: <12652899.O9o76ZdvQC@devpool47.emlix.com> <aAERFUJj_6NuxAv3@8bytes.org>
+	Tue, 22 Apr 2025 06:37:49 +0000
+Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id AD7232540212;
+	Tue, 22 Apr 2025 02:37:44 -0400 (EDT)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-05.internal (MEProxy); Tue, 22 Apr 2025 02:37:44 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1745303864;
+	 x=1745390264; bh=ovzNnQXCxxPbw+iTp1IpdqpMxWWHjLCLwy0mzBZVN9g=; b=
+	Lo2DLVmMK/FtFkrSOVOysOqzREOMr1h2WXPm4bq+fWBNsszfH5CVV3hK5FsUM7y0
+	Jno5uxNT+SSWuKZJP2FWiBV/8kMGJ3O3QVAaWZcdi8sJrSoy7THRPgQV2FW6iruK
+	dJpkMrWNEqzguuS5C1WWzNBkBnslFWTRnKKCGO4tT7Wd3U5ZadcjZehT/WbXCubW
+	PFgwjHyEdMS3KaFqfIzKc7EMlbRECOnPVg8S5hB5cuvKzrvLpfC9Pms2qIUJ7ffS
+	UEQHKiyivKKuf7RjtBg9g6ctMy6gkzCK9z+h27WQAHrtbutW/RwgpkNN0RNuHjKq
+	+4/zXZ+OKzK0zr6iNeZ5ww==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1745303864; x=
+	1745390264; bh=ovzNnQXCxxPbw+iTp1IpdqpMxWWHjLCLwy0mzBZVN9g=; b=g
+	1nYH05H51oIjk5R46oG9LPhrm5/wrbrkIQ2e/aa89VV95tBytMie7c78UkoSrT2b
+	vuH+KNrnSq3TKXyM72a9/LOb4EmMtIHero0M8ApBOETcizLgt3HtRC383YsCQt2z
+	8n8vrmeOGh2mCM2S5tjf5HnNUuEbXDu72ZG6CuxBCJdYR0JGkgg4SE2GZoFp5r9e
+	Liurn/iFMuagnGh0e+oR7Q7pbBe1R8HckMAWsFSPq46y8l9Yv6ixMkbKgzWpb4qa
+	+riOFr5h8o+/gXIVqTVH0e8q8D6pCchyv9R4e5of/13/HJeW9G3yB5p8S8domFar
+	BRqwTq+eFhS/BJr9xN57A==
+X-ME-Sender: <xms:ODkHaKc5Fv0UiaINKioA9VyP6u4bpXr5qgk38A2XyI6djMVF1YEMow>
+    <xme:ODkHaEOyLPpD1P9G_w7K2zaHnZpHWkot7ZH6ylyJjwgPfIlRGY6QRc9-Y7HQV0grm
+    Bd_glq3mI5taejNigU>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvgeeftddvucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
+    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
+    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
+    tddtnecuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnug
+    gsrdguvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeet
+    fefggfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgepudenucfrrghrrg
+    hmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohep
+    uddupdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegtrghtrghlihhnrdhmrghrih
+    hnrghssegrrhhmrdgtohhmpdhrtghpthhtohepghgvvghrthdorhgvnhgvshgrshesghhl
+    ihguvghrrdgsvgdprhgtphhtthhopehluhhmrghgsehkvghrnhgvlhdrohhrghdprhgtph
+    htthhopeifihhllheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriiihshiithho
+    fhdrkhhoiihlohifshhkiheslhhinhgrrhhordhorhhgpdhrtghpthhtoheplhhinhhugi
+    dqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghp
+    thhtohepsghjohhrnhdrrghnuggvrhhsshhonhesohhsshdrqhhurghltghomhhmrdgtoh
+    hmpdhrtghpthhtohepjhhmsehtihdrtghomhdprhgtphhtthhopehnmhesthhirdgtohhm
+X-ME-Proxy: <xmx:ODkHaLhwVBRyJg07EZNHIbYq1Hyah8xspwb4rCxMzi08lBp5X8oYVw>
+    <xmx:ODkHaH-6vEO2sMoYo-SBySjBGbRCZkUDi0M7vFg4X3y96a-u6yKicA>
+    <xmx:ODkHaGtGQbJu5EFY65_D40pBavmmADt_MFKkHZYcTSJiwULxGeyInA>
+    <xmx:ODkHaOG5mcC0M8V9A0ROFAISTXUbN-PVUcFLy0TZ5wfHhmdYps7j4A>
+    <xmx:ODkHaMkuJDzim2xw0GUFaQ4xjheGeuaDujDwZcaQ96ZVu59Na6ePsXSL>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id F1FC72220073; Tue, 22 Apr 2025 02:37:43 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPart12651545.O9o76ZdvQC";
- micalg="pgp-sha256"; protocol="application/pgp-signature"
+X-ThreadId: Tafab3bbc3080752d
+Date: Tue, 22 Apr 2025 08:37:23 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Judith Mendez" <jm@ti.com>, "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Will Deacon" <will@kernel.org>
+Cc: "Bjorn Andersson" <bjorn.andersson@oss.qualcomm.com>,
+ "Krzysztof Kozlowski" <krzysztof.kozlowski@linaro.org>,
+ "Geert Uytterhoeven" <geert+renesas@glider.be>,
+ "Dmitry Baryshkov" <lumag@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, "Nishanth Menon" <nm@ti.com>,
+ "Vignesh Raghavendra" <vigneshr@ti.com>
+Message-Id: <55d306d4-c9cd-4119-8798-b65a6956f4df@app.fastmail.com>
+In-Reply-To: <20250421201055.3889680-1-jm@ti.com>
+References: <20250421201055.3889680-1-jm@ti.com>
+Subject: Re: [PATCH] arm64: defconfig: Enable hwspinlock and eQEP for K3
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_233518_884645_5BA36363 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20250421_233748_637640_C5B2792D 
+X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,59 +119,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextPart12651545.O9o76ZdvQC
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
-From: Rolf Eike Beer <eb@emlix.com>
-To: Joerg Roedel <joro@8bytes.org>
-Date: Tue, 22 Apr 2025 08:35:08 +0200
-Message-ID: <2779144.mvXUDI8C0e@devpool92.emlix.com>
-Organization: emlix GmbH
-In-Reply-To: <aAERFUJj_6NuxAv3@8bytes.org>
-MIME-Version: 1.0
+On Mon, Apr 21, 2025, at 22:10, Judith Mendez wrote:
+> Enable CONFIG_HWSPINLOCK_OMAP to allow usage of these devices
+> across K3 SoC's. Also enable CONFIG_TI_EQEP which is enabled by
+> default on am64x SK board.
+>
+> Signed-off-by: Judith Mendez <jm@ti.com>
 
-On Donnerstag, 17. April 2025 16:32:53 Mitteleurop=C3=A4ische Sommerzeit Jo=
-erg=20
-Roedel wrote:
-> On Thu, Mar 20, 2025 at 10:01:45AM +0100, Rolf Eike Beer wrote:
-> > Changes in v2:
-> > - clean up subdirectory Makefiles to use obj-y now
-> > - add arm/arm-smmu-v3 and iommufd patches
->=20
-> This conflicts with the core branch, can you please rebase once I pushed
-> the updated tree?
+Acked-by: Arnd Bergmann <arnd@arndb.de>
 
-Sure.
-=2D-=20
-Rolf Eike Beer
+The patch seems fine to me, but you should address it at the 
+TI K3 maintainers, so they know they should apply it and forward
+it to the SoC tree. You have Nishanth and Vignesh in Cc already,
+so I assume they will pick it up from here, just put them in
+'To' instead next time and move Catalin and Will to 'Cc' or
+leave them off entirely.
 
-emlix GmbH
-Headquarters: Berliner Str. 12, 37073 G=C3=B6ttingen, Germany
-Phone +49 (0)551 30664-0, e-mail info@emlix.com
-District Court of G=C3=B6ttingen, Registry Number HR B 3160
-Managing Directors: Heike Jordan, Dr. Uwe Kracke
-VAT ID No. DE 205 198 055
-Office Berlin: Panoramastr. 1, 10178 Berlin, Germany
-Office Bonn: Bachstr. 6, 53115 Bonn, Germany
-http://www.emlix.com
-
-emlix - your embedded Linux partner
---nextPart12651545.O9o76ZdvQC
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
-
------BEGIN PGP SIGNATURE-----
-
-iLMEAAEIAB0WIQQ/Uctzh31xzAxFCLur5FH7Xu2t/AUCaAc4nAAKCRCr5FH7Xu2t
-/Ho+A/98h1tQPHZhbsX2KdIBKcFTRVlxRJvscAWNQs5Bko1+iniOMO2sfq6HClPQ
-7VC+G41TiMT5lg6jPBJqNlM8AXmA/dt85cmYSP0YuW+JRaE5aHfprhlJwjy7/o99
-Yy23Gp0kOkRaa2sm/N32llKyzxpn14YxBKPR3GZm1c5IQhbsng==
-=8mcp
------END PGP SIGNATURE-----
-
---nextPart12651545.O9o76ZdvQC--
-
-
-
+> ---
+>  arch/arm64/configs/defconfig | 2 ++
+>  1 file changed, 2 insertions(+)
+>
+> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+> index 9e16b494ab0e2..1f7b97ff46a7e 100644
+> --- a/arch/arm64/configs/defconfig
+> +++ b/arch/arm64/configs/defconfig
+> @@ -1415,6 +1415,7 @@ CONFIG_CLK_GFM_LPASS_SM8250=m
+>  CONFIG_CLK_RCAR_USB2_CLOCK_SEL=y
+>  CONFIG_CLK_RENESAS_VBATTB=m
+>  CONFIG_HWSPINLOCK=y
+> +CONFIG_HWSPINLOCK_OMAP=m
+>  CONFIG_HWSPINLOCK_QCOM=y
+>  CONFIG_TEGRA186_TIMER=y
+>  CONFIG_RENESAS_OSTM=y
+> @@ -1676,6 +1677,7 @@ CONFIG_INTERCONNECT_QCOM_SM8650=y
+>  CONFIG_INTERCONNECT_QCOM_SM8750=y
+>  CONFIG_INTERCONNECT_QCOM_X1E80100=y
+>  CONFIG_COUNTER=m
+> +CONFIG_TI_EQEP=m
+>  CONFIG_RZ_MTU3_CNT=m
+>  CONFIG_HTE=y
+>  CONFIG_HTE_TEGRA194=y
+> -- 
+> 2.49.0
 
