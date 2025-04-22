@@ -4,99 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1486C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 09:44:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 621CBC369D8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 09:46:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o0w6pamxCxDKHzVZmfTHs/uYuK6PeXKb0434M6fEc3M=; b=Q2eoVnBa0JyjKITrGIKWfxiNmM
-	wq+ezAeqVIx9AzXfRlSvPpeO6jNjCHUbgUBFh2cGqxF34YAQDyIpvju4RexUiXaVcTILKEcUTnZis
-	RbfdxKMi9VyeTrPetzHE4152jfIeyeisyBzk+u7rq6uzeEhLe6zmRMd9O0aw8d5lEgQkUvCmJt5A3
-	YyYXwf1+9OMEE01DTjZDRanzDkhqUz5HBu3bpn2YMe3IauoEHe9DrG1+7IRnDS0AL1LgQ4cftsxUI
-	kxbUHElVzZojSh+gmzM1/BcWEeQBQNBT2PM2fd9m9XpNw8IpyLL4ictuIgkayhaY+06+59/FkcKK6
-	URxX0BtA==;
+	bh=j42C1neK3aBXGc+3YIjfO2v8Xt2aMCt3/0zWgtV9maI=; b=Prxvnwv0GCA66+zi5BA2SB/VfU
+	af42akBBMRKIKxnS2ARJF7f1CujGkJ9wFmpd+3mGXAaTnhBb0rUhsB8LD28tMxjhL0Pltd48q1TMy
+	Xn96BuekSEFoRZv/4llLLNRL/2UYNzVLzARZ4rM/xLV3uR/2o6YKnLuir1NkJqr5yfMY9QCj7OsJA
+	LkTqq/Vx9xFPOsvJbcG2FP0QtQviPr7080Ue4ZA9pPqU/8dNH6VI7kTtff40pRRKjWpBfiCpgn6aK
+	je8v/gbI9COXZPKx1ti61dKTcq5ZCEDyY+L1Sn4YB23HoRPgF5llKtWrpvFrUt1JUVU7M5z+DIDJz
+	bWPMnNfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7AAc-00000006bRQ-0U8V;
-	Tue, 22 Apr 2025 09:44:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u7ACR-00000006biU-3N1N;
+	Tue, 22 Apr 2025 09:45:55 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u79B8-00000006Nvh-2G2J
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 22 Apr 2025 08:40:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=o0w6pamxCxDKHzVZmfTHs/uYuK6PeXKb0434M6fEc3M=; b=MNW2c/CFmCQFIDomGQ/FfTceNr
-	6eL4BAczzCtyyzWaMjyQEWdLp9/9EJXRTfO6lMe5muMjpZzU+Qh91vQrt7S+yljSh7HSYSTQPoTAo
-	sV9bxOGLm6XDVkj1kNt23/USsJl7avZAuYgMEtwI4Sf9X23nJrW4p+TUFbFPsysaL9xS48Sg8vnCq
-	QUYu/OoCIZGyQzCgf6cZVmmT8lx0lh2DO2agrisqYrwhkihIbCam2uq0IbvDjaN2YUMw6/p2W/gJT
-	5yydGs8Lcw/KPwSJyXtMsm6zrczB4iDa4nMLNuyYRyoIxGHreqrt5pjyCFgaIfXr6Y9vstQGEFzNF
-	QdmlnSxw==;
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u79B4-0000000BA3B-29dw
+	id 1u79C1-00000006OK6-2ATz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 08:40:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=o0w6pamxCxDKHzVZmfTHs/uYuK6PeXKb0434M6fEc3M=; b=pY1FOnwL/S8J3yGEKh1QZZ5tZL
-	Vp5eQoQWU2/fdqKvavzm9zcqh0HuU5etRNXQGprVs9hiAsBfNYdPqrgId2x5g/Xe0bKHniIm2xhvE
-	8qg3NSfGSBE/rkWYZks9XUrVuCuPYpQP1SMdO3Ip+CZZ50Utq3eo9em0yld9lfynz3LfK+NJMuc+A
-	ZqdNlAzkl5OT2o8YyCKMhreS5amF8eK3LuM7nR4+SHjRhbC9YRoQ1WMob9krsSoaaSnHEVBf1u6/r
-	YxqplweIaUZVt50eYcclgDhxG7A5F7pkPpGykSHp04WnpNU8QIqCrDU0sf7ITae99C+JYPuZxBI4C
-	vfDNrPJw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:42670)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1u798f-00042g-1a;
-	Tue, 22 Apr 2025 09:37:57 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1u798X-0007KW-2n;
-	Tue, 22 Apr 2025 09:37:49 +0100
-Date: Tue, 22 Apr 2025 09:37:49 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Tue, 22 Apr 2025 08:41:28 +0000
+Received: from gaggiata.pivistrello.it (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id E3BA01F929;
+	Tue, 22 Apr 2025 10:41:16 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1745311277;
+	bh=j42C1neK3aBXGc+3YIjfO2v8Xt2aMCt3/0zWgtV9maI=;
+	h=Received:From:To:Subject;
+	b=penu3/YZVEI07stg2iQTLUOpNVxP1HOxBAdODDevRCDZPAJCgLpfGVefwkW/zq4yK
+	 Rak6XOa9G2kod7SBw6TJPCJ8uFa/q4TQywOm1J8XqIZRCAQC7Cztqt3vlepvWqF3XT
+	 N/iwt/q2/75cJAr1Z5Tu3KOekjVlUNaxDglJORQrY+OnSA9KpRbBSkA4AqHJ3ztnhq
+	 jjOzB8olRLLfUBsiTQ32s30FTValKeVCLAYqQIprBaFJ9B/QTcV1BcD0vyFNI6aqkK
+	 0n3YhqZKABBuSIbdQL2m2/WzkSM55NQYD5xfqDTdh2wrHev+pNuTxS8L5C0xnmF5YA
+	 CCcGAsK+D5jmg==
+Received: by gaggiata.pivistrello.it (Postfix, from userid 1000)
+	id 952EE7F820; Tue, 22 Apr 2025 10:41:16 +0200 (CEST)
+Date: Tue, 22 Apr 2025 10:41:16 +0200
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Philippe Schenker <philippe.schenker@impulsing.ch>
+Cc: Francesco Dolcini <francesco@dolcini.it>,
+	Wojciech Dubowik <Wojciech.Dubowik@mt.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andy Whitcroft <apw@canonical.com>,
-	Dwaipayan Ray <dwaipayanray1@gmail.com>,
-	Lukas Bulwahn <lukas.bulwahn@gmail.com>,
-	Joe Perches <joe@perches.com>, Jonathan Corbet <corbet@lwn.net>,
-	Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-	Roger Quadros <rogerq@kernel.org>, Tero Kristo <kristo@kernel.org>,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux@ew.tq-group.com
-Subject: Re: [PATCH net-next 1/4] dt-bindings: net: ethernet-controller:
- update descriptions of RGMII modes
-Message-ID: <aAdVXQhR7-mYl783@shell.armlinux.org.uk>
-References: <cover.1744710099.git.matthias.schiffer@ew.tq-group.com>
- <218a27ae2b2ef2db53fdb3573b58229659db65f9.1744710099.git.matthias.schiffer@ew.tq-group.com>
- <6be3bdbe-e87e-4e83-9847-54e52984c645@ti.com>
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"stable@vger.kernel.org" <stable@vger.kernel.org>
+Subject: Re: [PATCH] arm64: dts: imx8mm-verdin: Link reg_nvcc_sd to usdhc2
+Message-ID: <aAdWLFS2UYciaJc8@gaggiata.pivistrello.it>
+References: <20250417112012.785420-1-Wojciech.Dubowik@mt.com>
+ <20250417130342.GA18817@francesco-nb>
+ <95107ed358b735cbe9e5a1af20a2d6db74c5ed64.camel@impulsing.ch>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <6be3bdbe-e87e-4e83-9847-54e52984c645@ti.com>
+In-Reply-To: <95107ed358b735cbe9e5a1af20a2d6db74c5ed64.camel@impulsing.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_094026_711289_90704F14 
-X-CRM114-Status: GOOD (  17.74  )
+X-CRM114-CacheID: sfid-20250422_014126_615714_34C28D0F 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,34 +84,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 15, 2025 at 04:06:31PM +0530, Siddharth Vadapalli wrote:
-> On Tue, Apr 15, 2025 at 12:18:01PM +0200, Matthias Schiffer wrote:
-> > As discussed [1], the comments for the different rgmii(-*id) modes do not
-> > accurately describe what these values mean.
-> > 
-> > As the Device Tree is primarily supposed to describe the hardware and not
-> > its configuration, the different modes need to distinguish board designs
-> 
-> If the Ethernet-Controller (MAC) is integrated in an SoC (as is the case
-> with CPSW Ethernet Switch), and, given that "phy-mode" is a property
-> added within the device-tree node of the MAC, I fail to understand how
-> the device-tree can continue "describing" hardware for different board
-> designs using the same SoC (unchanged MAC HW).
-> 
-> How do we handle situations where a given MAC supports various
-> "phy-modes" in HW? Shouldn't "phy-modes" then be a "list" to technically
-> descibe the HW? Even if we set aside the "rgmii" variants that this
-> series is attempting to address, the CPSW MAC supports "sgmii", "qsgmii"
-> and "usxgmii/xfi" as well.
+On Tue, Apr 22, 2025 at 07:57:32AM +0000, Philippe Schenker wrote:
+> Hi Francesco,
+Hey Philippe!
 
-phy-mode is quite simply the operating mode for the link between the PHY
-and the MAC, and depends how the PHY is wired to the MAC.
+> Not sure this causes any side-effects maybe you guys want to
+> investigate further about this.
 
-The list of modes that a MAC supports is dependent on its hardware
-design and is generally known by the MAC driver without need to specify
-it firmware.
+Yes, we did, the correct implementation would be the one I linked
+in the previous email.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+> I needed it due to the strange requirements I had (described in commit
+> message).  From my point of view it is correct to link the vqmmc-supply so
+> the voltage can be set also to something different than the default fusing
+> values.
+
+It does not really work fine, because you have this IO driven by the SDHCI
+core that is going to affect the PMIC behavior at the same time as the I2C
+communication. And even if you remove it from the pinctrl, it's the default
+out-of-reset function, so you would have to override it and set this pin as
+GPIO even when not used (this would work, of course).
+
+My request is to fix it in a slighlty different way that matches with the way
+the HW was designed.
+
+
 
