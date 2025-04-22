@@ -4,92 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6425EC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 21:37:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 391FDC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 21:57:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rO7p2Xz1WnscXWSSH5QPauUlR12Dd0rgVnR8sWH1ffU=; b=PT6513+TbFtODAwEAAxenRwvJQ
-	GsejRuaAiJMz0yIFBxVbJTzOepp2jA4+4JcWkfZ2kv7LJFkdum8ObMrLz51gAs0bvgRgqy62DledS
-	q8rT31KROrr9b5BUHr2j0OGdIL/Z+odXtiK/RhAD9sFJ5VbBbxh4Vyh8m3UJDUe9/zky9OnchV3R5
-	uK9O4EZMWE7+i2vbuEZ9+10AQ2fbqhsd9NhJbW+4ODg4dvZrGXmQJ3HWn42YA12xKI1WCnf04Xc0V
-	GkCDQsRafuWcp/JcdqGWcXlYcknK/aDe8qtU7zoGoFJCJDn2fuf7RZe3yqfiPdWFa+EluK+XcnNfE
-	cLIzSfag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6asYMkdcVOCJg0CB/GTsjjXoi08Jnm+cXJbFRuu7HS8=; b=SMW0unWrb7upUFWAtGcaMdvxnY
+	A5Qh7f9kVSmEcGDfRJq9Id9z4yvtd2qotb28GEFBam24JB7X1dKQiM0INLun4eOoT23SzyU3Afzye
+	swxk5+GNGIjla0cLfI5UJb7zaXwzyfv4x4HlbwNLQ8csmzVrIf87bnv2ywgVeMrThsw3aiqVT8fnm
+	Ibt3uCHm4JNg4TERPZr4UcPSo6c1QsW11UaxS+MxKLlYVTeJDZ4hwtCTZ0l7tF4nfUDHFmgMrlrfk
+	KIGv46Wa/MsP1un1wel855KPQ/Wz9o77YiKxs+uYB1XUP0EYu61nAWnEsk7S0+Y0YgDf5gg/7eM1L
+	N5A9FtgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7LIe-00000008bkk-42Xc;
-	Tue, 22 Apr 2025 21:37:04 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1u7LcS-00000008eba-1khZ;
+	Tue, 22 Apr 2025 21:57:32 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7K6W-00000008R0o-3Wch;
-	Tue, 22 Apr 2025 20:20:30 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43cfecdd8b2so40147925e9.2;
-        Tue, 22 Apr 2025 13:20:28 -0700 (PDT)
+	id 1u7LaZ-00000008eNR-11eu
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 22 Apr 2025 21:55:36 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2279915e06eso59897005ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 14:55:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745353227; x=1745958027; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=rO7p2Xz1WnscXWSSH5QPauUlR12Dd0rgVnR8sWH1ffU=;
-        b=C2my+JlvnYlscWOr9OPM1jSyiTjaLJJABfXyEoPHBuEokN+4cRDUMpNZA1V6cxUoDg
-         p9TaEifPfHqA1iPP00NC2aqJV/GBegNQpzohJRVmm+0fPfv9r1b969LEHKD7hQ8LHdTY
-         E4+HQjcov4m4SglHt2V5qHFg0Z5/sFg1kudijwo5758sujBjH3x7rHbz5mRUDFJFHqwT
-         mLrfIgpJM34IZWGqATQ3EBcF+7zNhMhxljyuJuJr1hfUP35BeVn+NZnT28dGdTvgTGVI
-         FEp0Nce5NIR7ELOWM9kieWN6O5v8XO1sq3DAHZMj7Vu74xkno5XdO0cK/NZ0hMjGk8t4
-         cEGA==
+        d=google.com; s=20230601; t=1745358934; x=1745963734; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=6asYMkdcVOCJg0CB/GTsjjXoi08Jnm+cXJbFRuu7HS8=;
+        b=fUDHNNKS0zPF3YNuTbVuOiLI28n1xb3fWIMo3uH6LVS6KQgZnV8bsdaemBxWj/975e
+         AblroQ7rQgU1k5e+8sUl3/hYiFqEQL4n6VWuuYqUyHsue14tslWfJu0oqLRAdilsh1QV
+         NuHJKmF05cbY2VB2N3O4z9n1cWs72LhWbm1ZDQrOuWbiDmC2JGL/I86/3pnjShNAxXWy
+         7ECFUqOEwLQGhlKi2N4bVMb2J62ZlKJ/Rk0ciVuIdbt6P/01WNhtJQX+6w+aLmkrO7LC
+         SsWm0NI4sSMpuef9gGZbebJEkB489Xcs/54fHMibZrMI47Lvz5HcYgU1Fy6CGZKu7fRh
+         Qa2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745353227; x=1745958027;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=rO7p2Xz1WnscXWSSH5QPauUlR12Dd0rgVnR8sWH1ffU=;
-        b=j0nE3SXXDWmwJEwEyZ7CwNUg5sGXMJM/maZi+/z2ninxZ/TitEOaQils/oaxFm2Eb8
-         dcFiDjHyMs6P1uwdwbyHejvCY9AlM6ezOtOzGgfiVKrzgy5eFd4YXQ+N+RJJVgq97WrO
-         ZRjJWp7PaYQ7mr3emop76Lfqx3urhvIghq9lFr89MgDOfFf8EK/0qQjRV0bxSnRlCj07
-         rIJ7aiaJj2ih0A8Dli69hLc4ysC49AehBT+TiJXDBI90O6vn2+a6zgMIrSa9DpRB8mSB
-         BiPqxkowcUF/FetpgO0sHRMPJ/5aVWPOZMPdN2c2Z3Pdotg+a9UoFyA9ix/5XeFCm6lV
-         X8MA==
-X-Forwarded-Encrypted: i=1; AJvYcCUgl73JE5FbWJPF6zZmN99DB3QF/HR3zrDoq+grf3Z9c3/DjEz7CKAGuZ1W3xeUScocPnTcpvWMtBu2tQE0Di3P@lists.infradead.org, AJvYcCVNxlvpqDdwqJZi+xtdDH8yEARkbng8J1e9oI/oQ6YaufXiQFFeOfXtrrmUR+Ghwy5iFqlBik94AxEe+thd2H4=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwPpkoY1fOw4tnM3blT2xnJt28+T8DNaLSAytJrwJvgW85PlQcI
-	Wt/F0E7xYsOAPYvWd4iV6Hn8pgDEeqDps0zRsgxsDIXutsHiy+ln8WS2E7CIen8=
-X-Gm-Gg: ASbGnctO/k+Vb+sWf3HwmwRA8Esf2ondb1xi7xz/1kF0ULbSKF+Hv96exqlqqZRSJAJ
-	B0sTzy3le6HPhC3yCv1p7q9ttzD9NT70sZCQVzR33D1eEYcQ/F76RSzY/rgc2H+YxSqp4tamYO9
-	C86XHaZPJehqjJf7uTOLAAPt+gfFsEpcpmdSeeIS5Y6RY2Pi3E6hyGMZPGElmUv1uT7QuF+tfgM
-	DPOz2uZxBKYkScB5vDd7QDY5XE+fKTLcv7zkMQwFYXd/Txd4MiZpiJ5P/f/183Gl9E0IneOYZ8D
-	WMQF46TRvT8UF6FRaxgLlygpZ5AKuDAWD2618zoauL3LwbE/Kpmjpjz4AoKRvCIbrFeaL+p2EhN
-	XhyYvcW0+i2JLU35ds1du7ZtT3w==
-X-Google-Smtp-Source: AGHT+IGmBmm3C/2jLNoVcpiFNaVQBfRpos13JsgNqrg+d7vr+5IZSCkCD3uFqGqFACXb0v+yv5GQTA==
-X-Received: by 2002:a05:6000:4029:b0:390:ee01:68fa with SMTP id ffacd0b85a97d-39efba454demr12515857f8f.24.1745353226923;
-        Tue, 22 Apr 2025 13:20:26 -0700 (PDT)
-Received: from ?IPV6:2a02:8010:6606:0:c8cf:b8a9:b26:a03f? ([2a02:8010:6606:0:c8cf:b8a9:b26:a03f])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39efa43bef1sm16008927f8f.49.2025.04.22.13.20.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 22 Apr 2025 13:20:26 -0700 (PDT)
-Message-ID: <1997854d-c501-493b-91d5-c3640137f7a6@gmail.com>
-Date: Tue, 22 Apr 2025 21:20:24 +0100
+        d=1e100.net; s=20230601; t=1745358934; x=1745963734;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6asYMkdcVOCJg0CB/GTsjjXoi08Jnm+cXJbFRuu7HS8=;
+        b=vt9UJv8Dp7XsB0g8EdPXHlrkfe/3LpmsHidPbTo8C0qyqF6jU9bHjcjOmy4oa/1hMb
+         bT0WHEw19xeXD3LAquUTa+/DrmARJni5TvuMaGk3UA6PxWqA9pFHLjFBaMOlyVYtpC2l
+         KqQyDqmGPP9jhL1VpcnyMz0eXDgXI9Raxmi90jCzAg8dz/weXjV4Ea96ZCtGZ443opMC
+         h5JUOsqs+qUx/QXckLSFm152FUdQmoAv7fJS4e7YnXNB9DCSm0LEq33C+DHGXPYdACyN
+         pRG03LtnyCqnjeXKqSH3mIkpxrucWLgPzUe93LC0dRxVt4gleL1vgeC/2p0dL8vAZrl5
+         ncRQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWrREdn2tdr271IG1B30oFNHOpt6bkZunoroAeMO9c0Lg1HnwMVuMzGmgsM9jmgixq99jrgRqzmO2Y1h0UvmQ8l@lists.infradead.org
+X-Gm-Message-State: AOJu0YxirGV8UQb7QzgFLyfu5WTWsnt3nfxJfA3zk+HAQqg2DxwwY0u0
+	5tldEZVwt7bMWn4+evPBwzS2/CypTBu7xAJ6ztElzGJajlHpy8p7o9eLFQulNg==
+X-Gm-Gg: ASbGncuZahd6T3YUK/YTI65o3RdW+j5s9osH9DlRoo4/AUCgk4GtoOi/08I+u8DCBmH
+	eujgp0CJcfYfm/VQAO+pbMbDTmXCHCORtdEhLb2WCbSLDkcy4+/LAuazsNFwK1h0U2We7RQ03CJ
+	t0wrx37UO+IwqWUTrkghHUEFFv6TMCGekv7QuNrNs7xxYCulcH5Z0ez1BMSzocML6Lf3Bl2Dygs
+	5E+0gCMLchi9FfZjcxEGMjXAT6dEaxYdTwPMGgEoS6FuDLN4+5vlV6Z1eMxRGOQNYmp9tNwExft
+	dMw/mPBsxKWg9vh8lc7rag4JBSiTQlAj7fkuO54czY3X/1p1tWdn/CPB++jil2CvNZSsVD0ge3G
+	rmXBWsg==
+X-Google-Smtp-Source: AGHT+IGj1WS3gCYuWNM31cHMqZpSCdXyw2eIzHGcK/aumOJ6NuA9dKBVMTjVtVR1uQU6qgyTGOQ+uQ==
+X-Received: by 2002:a17:902:ce82:b0:216:53fa:634f with SMTP id d9443c01a7336-22c536303e4mr222403105ad.48.1745358933312;
+        Tue, 22 Apr 2025 14:55:33 -0700 (PDT)
+Received: from google.com (7.104.168.34.bc.googleusercontent.com. [34.168.104.7])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22c50bf3eb1sm90943865ad.82.2025.04.22.14.55.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 22 Apr 2025 14:55:32 -0700 (PDT)
+Date: Tue, 22 Apr 2025 14:55:28 -0700
+From: William McVicker <willmcvicker@google.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Robin Murphy <robin.murphy@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Russell King <linux@armlinux.org.uk>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Stuart Yoder <stuyoder@gmail.com>,
+	Laurentiu Tudor <laurentiu.tudor@nxp.com>,
+	Nipun Gupta <nipun.gupta@amd.com>,
+	Nikhil Agarwal <nikhil.agarwal@amd.com>,
+	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Bjorn Helgaas <bhelgaas@google.com>, linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	Charan Teja Kalla <quic_charante@quicinc.com>
+Subject: Re: [PATCH v2 4/4] iommu: Get DT/ACPI parsing into the proper probe
+ path
+Message-ID: <aAgQUMbsf0ADRRNc@google.com>
+References: <cover.1740753261.git.robin.murphy@arm.com>
+ <e3b191e6fd6ca9a1e84c5e5e40044faf97abb874.1740753261.git.robin.murphy@arm.com>
+ <aAa2Zx86yUfayPSG@google.com>
+ <20250422190036.GA1213339@ziepe.ca>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: rockchip: rk3588-nanopc-t6: fix usb-c port
- functionality
-To: John Clark <inindev@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
- mjuszkiewicz@redhat.com, sebastian.reichel@collabora.com, jonas@kwiboo.se
-References: <20250419023715.16811-1-inindev@gmail.com>
- <bda07179-1ff4-46e4-9dda-ece9c63fd613@gmail.com>
- <20250422000748.59664-1-inindev@gmail.com>
-Content-Language: en-GB
-From: Hugh Cole-Baker <sigmaris@gmail.com>
-In-Reply-To: <20250422000748.59664-1-inindev@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250422190036.GA1213339@ziepe.ca>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_132028_900335_F2C36783 
-X-CRM114-Status: GOOD (  23.46  )
+X-CRM114-CacheID: sfid-20250422_145535_300435_677792B5 
+X-CRM114-Status: GOOD (  24.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,81 +119,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/04/2025 01:07, John Clark wrote:
-> On Tue, Apr 22, 2025 at 00:12:02 +0100, Hugh Cole-Baker <sigmaris@gmail.com> wrote:
->> Hi John,
->>
->> On 19/04/2025 03:37, John Clark wrote:
->>> The USB-C port on the NanoPC-T6 was not providing VBUS (vbus5v0_typec
->>> regulator disabled, gpio-58 out lo) due to misconfiguration. The
->>> original setup with regulator-always-on and regulator-boot-on forced
->>> the port on, masking the issue, but removing these properties revealed
->>> that the fusb302 driver was not enabling the regulator dynamically.
->>>
->>> Signed-off-by: John Clark <inindev@gmail.com>
->>> ---
->>>  .../boot/dts/rockchip/rk3588-nanopc-t6.dtsi   | 21 ++++++++++---------
->>>  1 file changed, 11 insertions(+), 10 deletions(-)
->>>
->>> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
->>> index cecfb788bf9e..8f2bd30786d9 100644
->>> --- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
->>> +++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
->>> @@ -174,8 +174,6 @@ vbus5v0_typec: regulator-vbus5v0-typec {
->>>  		gpio = <&gpio1 RK_PD2 GPIO_ACTIVE_HIGH>;
->>>  		pinctrl-names = "default";
->>>  		pinctrl-0 = <&typec5v_pwren>;
->>> -		regulator-always-on;
->>> -		regulator-boot-on;
->>>  		regulator-name = "vbus5v0_typec";
->>> @@ -465,24 +461,30 @@ regulator-state-mem {
->>>  &i2c6 {
->>> -	clock-frequency = <200000>;
->>>  	status = "okay";
->>>
->>> -	fusb302: typec-portc@22 {
->>> +	usbc0: usb-typec@22 {
->>>  		compatible = "fcs,fusb302";
->>>  		connector {
->>>  			compatible = "usb-c-connector";
->>>  			data-role = "dual";
->>>  			label = "USB-C";
->>> -			power-role = "source";
->>> +			/* fusb302 supports PD Rev 2.0 Ver 1.2 */
->>> +			pd-revision = /bits/ 8 <0x2 0x0 0x1 0x2>;
->>> +			power-role = "dual";
->>> +			op-sink-microwatt = <1000000>;
->>> +			sink-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
->>>  			source-pdos = <PDO_FIXED(5000, 2000, PDO_FIXED_USB_COMM)>;
->>> +			try-power-role = "source";
->>> +			typec-power-opmode = "3.0A";
->>
->> According to the manufacturer wiki [1] "Power Output Capacity" table, the USB-C
->> port maximum output is 5V/2A. So I think "1.5A" would be a better value here.
->>
->> [1]: https://wiki.friendlyelec.com/wiki/index.php/NanoPC-T6
-> 
-> Hi Hugh,
-> 
-> Thank you for your feedback and for referencing the manufacturer’s wiki. To clarify, the line in question:
-> 
-> source-pdos = <PDO_FIXED(5000, 2000, PDO_FIXED_USB_COMM)>;
-> 
-> was not modified in my patch. This value, which sets the USB-C port’s source capability to 5V/2A, is unchanged from the existing device tree.
+Hi Jason,
 
-source-pdos is OK, I was referring to the typec-power-opmode = "3.0A" line just
-above where I commented. As I read it, that'd mean the board would advertise
-via the CC pins that it could source 5V/3A when USB PD is not in use.
-The wiki says it can only source up to 5V/2A.
-
-br, Hugh
-
+On 04/22/2025, Jason Gunthorpe wrote:
+> On Mon, Apr 21, 2025 at 02:19:35PM -0700, William McVicker wrote:
+> > diff --git a/drivers/base/platform.c b/drivers/base/platform.c
+> > index 1813cfd0c4bd..6d124447545c 100644
+> > --- a/drivers/base/platform.c
+> > +++ b/drivers/base/platform.c
+> > @@ -1440,8 +1440,8 @@ static void platform_shutdown(struct device *_dev)
+> >  
+> >  static int platform_dma_configure(struct device *dev)
+> >  {
+> > -       struct platform_driver *drv = to_platform_driver(dev->driver);
+> >         struct fwnode_handle *fwnode = dev_fwnode(dev);
+> > +       struct platform_driver *drv;
+> >         enum dev_dma_attr attr;
+> >         int ret = 0;
+> >  
+> > @@ -1451,8 +1451,12 @@ static int platform_dma_configure(struct device *dev)
+> >                 attr = acpi_get_dma_attr(to_acpi_device_node(fwnode));
+> >                 ret = acpi_dma_configure(dev, attr);
+> >         }
+> > -       /* @drv may not be valid when we're called from the IOMMU layer */
+> > -       if (ret || !dev->driver || drv->driver_managed_dma)
+> > +       /* @dev->driver may not be valid when we're called from the IOMMU layer */
+> > +       if (ret || !dev->driver)
+> > +               return ret;
+> > +
+> > +       drv = to_platform_driver(dev->driver);
+> > +       if (drv->driver_managed_dma)
+> >                 return ret;
+> >  
+> >         ret = iommu_device_use_default_domain(dev);
 > 
-> Furthermore, the schematic for the NanoPC-T6 and the vendor’s upstream Linux device tree (e.g., FriendlyARM’s kernel at https://github.com/friendlyarm/kernel-rockchip/blob/nanopi6-v6.1.y/arch/arm64/boot/dts/rockchip/rk3588-nanopi6-rev01.dts#L346) also specify the source capability as 5V/2A. Given this consistency across the schematic and vendor sources, I believe 2A is an appropriate value for this configuration.
+> The diagnosis looks right to me, but pedantically I think it should
+> have a READ_ONCE():
 > 
-> Please let me know if you have further concerns or suggestions!
+> struct driver *drv = READ_ONCE(dev->driver);
 > 
-> Best regards,
-> John Clark
+> And then never touch dev->driver again in the function.
+> 
+> Send a proper patch?
+> 
+> Jason
 
+Thanks for the response! Yes, that would work as well. I'll send a v2 revision
+once I get it tested.
+
+On this note, I was looking through `of_dma_configure_id()` and am also
+wondering if we may hit other race conditions if the device is still being
+probed and the dma properties (like the coherent dma mask) haven't been fully
+populated? Just checking if the driver is bound, doesn't seem like enough to
+start configuring the DMA when async probing can happen.
+
+Thanks,
+Will
 
