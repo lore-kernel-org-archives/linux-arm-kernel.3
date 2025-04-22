@@ -4,66 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15302C369D7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 18:16:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6345C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 18:22:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+kc1HcyFadApejOKhHPMGEBRAlKE59o9rLPd0PpuBik=; b=S9gzFbONUd1aR8ENHy8j+JNX8N
-	ogMcF5HTqEJ4aUNX9LpmI/dX19vKHAIZw//KND11/jXP7NX3Dr9SNHeudDe87hU+W+UhSkoLOlqqV
-	ha8LQMeaa0jiDdhPFWgU/CXoKSXTulOLxGt5LcAcDVo1HEaScdID5FnrlLBV5Pz9Ebm1Os8EzUNI3
-	tK91KLq0AMX2g94oBPo8upswpw/0XS3A5HSPWJoRcgWMQ4LCOAPIXnbzyfpDuAp4k7H8NMbctupLF
-	KEuMQbkxZK/b7umJZd7pA34FDFT/S4vD7STivt+RY4QkhS0sWxPAlDv5QdKQkeihZ6vpEP66QtjQ4
-	+mjDvuVw==;
+	bh=H8E7zBmmWLg3ht/ivGt6wNiB8HhGYbCrWpBk3ARRpsY=; b=jUe/KSR7CcfWz8jv7NLg5N7HiN
+	MgprpC1J4gr3m7lTh3T6MYSoa2NU9aj0481ZZSAz306xXYgZpHNHLBc1IHRPwoo2TtMreGzfeYZnn
+	JjA2jRn4MoSaC1JpVODilE5+frrNJsMu6L3qIsONLg4F7b/V9J/LG3GCsfbXUdRlo01ZD3b3+9TSz
+	S+y7YzEJ0A5DR7bCS2EibmbHk1on/UFoSvO+ZH1JZb9BQWBi0Hu7CC/aWzqCZOc0633GIdJ1rLgm5
+	G16qc4OUNYEpQ0lkXIXfyOgJva+zT6aFTnjgIXwDGdMy9G4C2qvxrA8WadO4e8vl6GGAoiXrCBHyQ
+	BWQPpuIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7IA0-0000000886l-1EoJ;
-	Tue, 22 Apr 2025 18:15:56 +0000
-Received: from m16.mail.163.com ([117.135.210.4])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7G6s-00000007pUv-3aRI;
-	Tue, 22 Apr 2025 16:04:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:From:
-	Content-Type; bh=+kc1HcyFadApejOKhHPMGEBRAlKE59o9rLPd0PpuBik=;
-	b=Y62cNb7hI8toORNjyNf+5+ifAGKiGWZC+DxV44iarNTU+P3wmYCOdcSMUqJ4TJ
-	qheM/rW/DIXq1jeFHqp4vW2HGUYcKRjBRq6X9hHkwkawmJ8x+OwDqDnrSJiOioEh
-	Ctl5CvYG/a0BM/M3ZlvjmbyWy+9IQbd0qX0grkK//nAtc=
-Received: from [192.168.71.89] (unknown [])
-	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wCH5SrSvQdo6ojTBg--.18334S2;
-	Wed, 23 Apr 2025 00:03:31 +0800 (CST)
-Message-ID: <6c962047-c258-40f5-966b-ec1e985e6cb7@163.com>
-Date: Wed, 23 Apr 2025 00:03:30 +0800
+	id 1u7IFx-000000089qK-1Mx6;
+	Tue, 22 Apr 2025 18:22:05 +0000
+Received: from mail-oo1-xc29.google.com ([2607:f8b0:4864:20::c29])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7GEt-00000007qqI-0vUL
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 22 Apr 2025 16:12:53 +0000
+Received: by mail-oo1-xc29.google.com with SMTP id 006d021491bc7-60219d9812bso1256357eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 09:12:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1745338369; x=1745943169; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=H8E7zBmmWLg3ht/ivGt6wNiB8HhGYbCrWpBk3ARRpsY=;
+        b=vOMQu4l0s2REM2A+Mh/iXQeMTx1TcOYDhSHvbVgTZ47YYAzNkwr/jRD6zysPqaLAFW
+         fr2/uNWV8QQJgmifETEh8KdVAtgzzKB5cew9/NQiOKBYn9h1Sd8cdL02xGygZLTme9Is
+         RSCifRIjH3B/glgtH/cfXXsWIVDQu7ijjeR6YkYaFhrygRiqnaBRsrAfHMTldhB5CcLz
+         /vFUJrxPmPSRULJNBMj23bGfUkvftBoLRkAJPebUPiEhisMEsxYXQpxaAuR2vuAbpmPu
+         uBlFwFm/VKfHFWJodLQ8UjdAw0A3q2rMqtI7SPzV4xnA6Et8/TE9FOpwEu0wID5ontMs
+         Fmaw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745338369; x=1745943169;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=H8E7zBmmWLg3ht/ivGt6wNiB8HhGYbCrWpBk3ARRpsY=;
+        b=QiP1X7N5NyOKEC+wKkaoGn/fr0o3dfDVKkn5MbT/XKOOk1YtdEdD6+stlSMNcPBLUq
+         WUqZCd4TBuaNGGCGUcnbLV/RAzh7aAjAWcTLhNt/KIasOQGjE9/uxmQkMKXxPjdrQ5sp
+         +oPn6Ka4YssA8gfa4xazrQjexuIdZGnh05Wy6xWqoa+yjxh14YhIe4QuijQxasrY0FwR
+         XU4B1eHxCtiBx1wR22BBSIzUsMB+YqxsUgzpAvDwoJWKlLEGvxdXhReSfu43R8uIXvhp
+         XlIgiGonf+gNHo6RHzUoFPV4jS7iK3xEs1/6SqHqfyCsim/tJUpMgn/LIwrhy9MgNnNq
+         0ELw==
+X-Forwarded-Encrypted: i=1; AJvYcCUwwCe6RtHKFcmEPqg0eShm7VKXPP01Vc3nwf8kvYL7r1wNqpH1BclmqD4+3U4z2ilwnw4XulMzaowsV8Ak3PqP@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQdzVXgAiF0L/zZVVKO+VhnJ2QqA4fNLGDXmlJVhqGeg6mE3eP
+	v6s5evNNWsslS5AL262pnqxFAoec8IqntwQRBnGzHc9PKajqHSQ/2TdD8Ahyh8w=
+X-Gm-Gg: ASbGncvWxmmHyL8hMS2sevUakQGbWi6F2uSyT3TwzbIrWLqqlkAirrSbNhVrlMp+Mr8
+	Org5pgK1n/S//x7P4twOrWayKVX8G47FZnr0f34pA8AGySW3fEI7lg5/+JvujFd3vc7s4m0Lx+F
+	bm1iwb3UxBXe75pbgYOgNTc3THrQ4v3swgA1ovBoqg9FruBKG3cRfJ8XFkWxK2rcIcM0NrLuByS
+	155FhQe1Q1MFgeQ98RBJWl4/MwxjUlN0OoviDiow+RWJlkXLU05mWVgstn8vQ50zbcQHUdNzCAb
+	dvXGwgKDqDg2YhcKeUz6mPBsZvyqFVs2/2ULjvLI2ll2dBIafDtD/KMc9Ynsfyv0p9XspQmyoTn
+	/T1wmUbinxUMs+N1jvQ==
+X-Google-Smtp-Source: AGHT+IF9Z3gSX8kmSbSuKPRtpakMkJO137BJhDQaCwgNlo/KRdfZOcLBygIlEokup5a5MePwFQ8OtQ==
+X-Received: by 2002:a05:6820:618:b0:603:f973:1b3 with SMTP id 006d021491bc7-606003ec9f0mr7716312eaf.0.1745338369622;
+        Tue, 22 Apr 2025 09:12:49 -0700 (PDT)
+Received: from ?IPV6:2600:8803:e7e4:1d00:c8d1:e0ed:ce8b:96a3? ([2600:8803:e7e4:1d00:c8d1:e0ed:ce8b:96a3])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-605ff69c258sm2150287eaf.25.2025.04.22.09.12.47
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 22 Apr 2025 09:12:48 -0700 (PDT)
+Message-ID: <8fe546e7-4fbc-4c63-ad0f-576ffb117508@baylibre.com>
+Date: Tue, 22 Apr 2025 11:12:47 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] PCI: dw-rockchip: Reorganize register and bitfield
- definitions
-To: Niklas Cassel <cassel@kernel.org>
-Cc: lpieralisi@kernel.org, kw@linux.com, bhelgaas@google.com,
- heiko@sntech.de, manivannan.sadhasivam@linaro.org, robh@kernel.org,
- jingoohan1@gmail.com, shawn.lin@rock-chips.com, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-References: <20250422112830.204374-1-18255117159@163.com>
- <20250422112830.204374-3-18255117159@163.com> <aAeL_Wr42ETm7S96@ryzen>
+Subject: Re: [PATCH 2/5] dt-bindings: mfd: syscon: Add ti,am62-ddr-pmctrl
+To: Andrew Davis <afd@ti.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Markus Schneider-Pargmann <msp@baylibre.com>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Siddharth Vadapalli <s-vadapalli@ti.com>,
+ Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Tero Kristo <kristo@kernel.org>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20250122-topic-am62-dt-syscon-v6-13-v1-0-515d56edc35e@baylibre.com>
+ <20250122-topic-am62-dt-syscon-v6-13-v1-2-515d56edc35e@baylibre.com>
+ <20250124-heavy-jaybird-of-vitality-4cbe24@krzk-bin>
+ <20250124-able-beagle-of-prowess-f5eb7a@krzk-bin>
+ <mocfnpebc67xegcis6tx3ekhsjcsqnvhwtipufycrtq2be4nbh@pmxhir5gmkos>
+ <639b4e3a-3f68-4fba-aa33-c46dcb6fc88f@linaro.org>
+ <d6252b73-0bcc-4724-8144-d6a98c8980f8@ti.com>
+ <74ee6d9b-fd78-4d8a-a94f-b2c4dc794b60@linaro.org>
+ <ebsbaaxyatrcikoem75t2blkhhceuidq3wnj3r2hbezfcmtc3u@ptffexrigbff>
+ <f9a2247e-e0eb-4e22-8626-80e87afa9386@linaro.org>
+ <qjwlppsq4eorzepvjsgjjyyaddouo5w2rjguu5c2mqesd6luwp@f426xeghy2ht>
+ <2130b439-74d0-475d-8429-1a1b4d9738aa@linaro.org>
+ <b7f6570f-3b80-4fc1-8201-d44f5692867f@ti.com>
+ <07bf9f93-deb8-48a1-aae9-a8a053680cc9@linaro.org>
+ <6241ff00-27e6-45ab-808e-f04e39854753@ti.com>
+From: David Lechner <dlechner@baylibre.com>
 Content-Language: en-US
-From: Hans Zhang <18255117159@163.com>
-In-Reply-To: <aAeL_Wr42ETm7S96@ryzen>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+In-Reply-To: <6241ff00-27e6-45ab-808e-f04e39854753@ti.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: _____wCH5SrSvQdo6ojTBg--.18334S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW3Wr13ZFy5Xr43Gr47Aw4rAFb_yoW7CrykpF
-	WUJa4Skrs8t3yUC3sYg3Z8AFyIqr4fKFWYgr4SgrWUC3Z5A3W8Gr10qFW5WFy7Xr4kurWf
-	uwn8Ww17WF90krJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07U3Oz3UUUUU=
-X-Originating-IP: [124.79.128.52]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/1tbiWwg3o2gHuI61MQAAsa
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_090435_332163_35237BED 
-X-CRM114-Status: GOOD (  21.18  )
+X-CRM114-CacheID: sfid-20250422_091251_501670_CA70A07D 
+X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,156 +120,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 4/21/25 12:03 PM, Andrew Davis wrote:
 
+...
 
-On 2025/4/22 20:30, Niklas Cassel wrote:
-> On Tue, Apr 22, 2025 at 07:28:29PM +0800, Hans Zhang wrote:
->> Register definitions were scattered with ambiguous names (e.g.,
->> PCIE_RDLH_LINK_UP_CHGED in PCIE_CLIENT_INTR_STATUS_MISC) and lacked
->> hierarchical grouping. Magic values for bit operations reduced code
->> clarity.
->>
->> Group registers and their associated bitfields logically. This improves
->> maintainability and aligns the code with hardware documentation.
->>
->> Signed-off-by: Hans Zhang <18255117159@163.com>
->> ---
->>   drivers/pci/controller/dwc/pcie-dw-rockchip.c | 42 +++++++++++--------
->>   1 file changed, 24 insertions(+), 18 deletions(-)
->>
->> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
->> index fd5827bbfae3..cdc8afc6cfc1 100644
->> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
->> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
->> @@ -8,6 +8,7 @@
->>    * Author: Simon Xue <xxm@rock-chips.com>
->>    */
->>   
->> +#include <linux/bitfield.h>
->>   #include <linux/clk.h>
->>   #include <linux/gpio/consumer.h>
->>   #include <linux/irqchip/chained_irq.h>
->> @@ -34,30 +35,35 @@
->>   
->>   #define to_rockchip_pcie(x) dev_get_drvdata((x)->dev)
->>   
->> -#define PCIE_CLIENT_RC_MODE		HIWORD_UPDATE_BIT(0x40)
->> -#define PCIE_CLIENT_EP_MODE		HIWORD_UPDATE(0xf0, 0x0)
->> -#define PCIE_CLIENT_ENABLE_LTSSM	HIWORD_UPDATE_BIT(0xc)
->> -#define PCIE_CLIENT_DISABLE_LTSSM	HIWORD_UPDATE(0x0c, 0x8)
->> -#define PCIE_CLIENT_INTR_STATUS_MSG_RX	0x04
->> +#define PCIE_CLIENT_GENERAL_CONTROL	0x0
->> +#define  PCIE_CLIENT_RC_MODE		HIWORD_UPDATE_BIT(0x40)
->> +#define  PCIE_CLIENT_EP_MODE		HIWORD_UPDATE(0xf0, 0x0)
->> +#define  PCIE_CLIENT_ENABLE_LTSSM	HIWORD_UPDATE_BIT(0xc)
->> +#define  PCIE_CLIENT_DISABLE_LTSSM	HIWORD_UPDATE(0x0c, 0x8)
->> +
->> +#define PCIE_CLIENT_INTR_STATUS_MSG_RX	0x4
->> +#define PCIE_CLIENT_INTR_STATUS_LEGACY	0x8
->> +
->>   #define PCIE_CLIENT_INTR_STATUS_MISC	0x10
->> +#define  PCIE_RDLH_LINK_UP_CHGED	BIT(1)
->> +#define  PCIE_LINK_REQ_RST_NOT_INT	BIT(2)
->> +
->> +#define PCIE_CLIENT_INTR_MASK_LEGACY	0x1c
->>   #define PCIE_CLIENT_INTR_MASK_MISC	0x24
->> +
->>   #define PCIE_CLIENT_POWER		0x2c
->> +#define  PME_READY_ENTER_L23		BIT(3)
->> +
->>   #define PCIE_CLIENT_MSG_GEN		0x34
->> -#define PME_READY_ENTER_L23		BIT(3)
->> -#define PME_TURN_OFF			(BIT(4) | BIT(20))
->> -#define PME_TO_ACK			(BIT(9) | BIT(25))
->> -#define PCIE_SMLH_LINKUP		BIT(16)
->> -#define PCIE_RDLH_LINKUP		BIT(17)
->> -#define PCIE_LINKUP			(PCIE_SMLH_LINKUP | PCIE_RDLH_LINKUP)
+> Which parent device? That is my point, if the top level node for the
+> whole CTRL_MMR region is made into one big syscon, then a big regmap
+> is made that covers the whole region. All the child devices also make
+> regmaps covering their device range. Now these registers under the child
+> device belong to two different regmaps. No synchronization is done as
+> these are not the same regmap, regmap only handles this for multiple
+> access to registers within the same regmap.
 > 
-> This patch removes PCIE_LINKUP, without adding it somewhere else
-> so I don't think this patch will compile.
-> 
-> I think the removal of this line has to be in patch 3/3.
-> 
-> 
-> 
-> Also, I think that Bjorn's primary concern:
-> """
-> The #defines for register offsets and bits are kind of a mess,
-> e.g., PCIE_SMLH_LINKUP, PCIE_RDLH_LINKUP, PCIE_LINKUP,
-> PCIE_L0S_ENTRY, and PCIE_LTSSM_STATUS_MASK are in
-> PCIE_CLIENT_LTSSM_STATUS, but you couldn't tell that from the
-> names, and they're not even defined together.
-> """"
-> 
-> is that the fields are not prefixed with the register name.
 
-Hi Niklas,
+Why does the child device have to create a new/separate regmap? Can it not use
+something like syscon_regmap_lookup_by_phandle_args() to get the regmap from
+the "syscon" node along with 1 or more args specifying the one or few registers
+out of the full range that are assigned to that specific child node? This way,
+all child nodes would be using the same shared regmap.
 
-As per rk3588 TRM, section "11.4.2.1 PCIE_CLIENT Registers Summary 
-Detail Registers Description"
-
-The register names are as follows. I plan to add comments for each 
-register in the next version, and the comments come from the register 
-description of TRM.
-
-/* General Control Register */
-#define PCIE_CLIENT_GENERAL_CON		0x0
-#define  PCIE_CLIENT_RC_MODE		HIWORD_UPDATE_BIT(0x40)
-#define  PCIE_CLIENT_EP_MODE		HIWORD_UPDATE(0xf0, 0x0)
-#define  PCIE_CLIENT_ENABLE_LTSSM	HIWORD_UPDATE_BIT(0xc)
-#define  PCIE_CLIENT_DISABLE_LTSSM	HIWORD_UPDATE(0x0c, 0x8)
-
-/* Interrupt Status Register Related to Message Reception */
-#define PCIE_CLIENT_INTR_STATUS_MSG_RX	0x4
-
-/* Interrupt Status Register Related to Legacy Interrupt */
-#define PCIE_CLIENT_INTR_STATUS_LEGACY	0x8
-
-/*  Interrupt Status Register Related to Miscellaneous Operation */
-#define PCIE_CLIENT_INTR_STATUS_MISC	0x10
-#define  PCIE_RDLH_LINK_UP_CHGED	BIT(1)
-#define  PCIE_LINK_REQ_RST_NOT_INT	BIT(2)
-
-/* Interrupt Mask Register Related to Legacy Interrupt */
-#define PCIE_CLIENT_INTR_MASK_LEGACY	0x1c
-
-/* Interrupt Mask Register Related to Miscellaneous Operation */
-#define PCIE_CLIENT_INTR_MASK_MISC	0x24
-
-/* Power Management Control Register */
-#define PCIE_CLIENT_POWER_CON		0x2c
-#define  PME_READY_ENTER_L23		BIT(3)
-
-/*  Message Generation Control Register */
-#define PCIE_CLIENT_MSG_GEN_CON		0x34
-#define  PME_TURN_OFF			HIWORD_UPDATE_BIT(BIT(4))
-#define  PME_TO_ACK			HIWORD_UPDATE_BIT(BIT(9))
-
-/* Hot Reset Control Register */
-#define PCIE_CLIENT_HOT_RESET_CTRL	0x180
-#define  PCIE_LTSSM_ENABLE_ENHANCE	BIT(4)
-
-/* LTSSM Status Register */
-#define PCIE_CLIENT_LTSSM_STATUS	0x300
-#define  PCIE_SMLH_LINKUP		BIT(16)
-#define  PCIE_RDLH_LINKUP		BIT(17)
-#define  PCIE_LINKUP			(PCIE_SMLH_LINKUP | PCIE_RDLH_LINKUP)
-#define  PCIE_LTSSM_STATUS_MASK		GENMASK(5, 0)
-
-Best regards,
-Hans
-
-> 
-> the secondary concern is that they are not grouped together.
-> 
-> This patch is just solving the secondary concern.
-> 
-> Since you are fixing his secondary concern, should you perhaps also
-> address his primary concern?
-> 
-> 
-> 
-> Kind regards,
-> Niklas
-
+(And yes, I know technically they don't need to be child nodes - just using that
+terminology to be consistent with the previous discussion.)
 
