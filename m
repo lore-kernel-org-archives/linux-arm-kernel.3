@@ -4,96 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43FD6C369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 20:52:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6351AC369D7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 20:52:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/k3taZkFmb1E65Ysug6YAb3iu1BOXVPDS/i79D+w5w4=; b=vVsBlL5TziisKfqZfGCmjap9Lh
-	o8bf5v/z9/nRUL9J8QN7BNtmqnqh9KcVYE53I4D75f4LfYq36U8SW7FRxIKZjbDSP2WOlhm70wZea
-	Q5j9gWID/T+pcORrygwcH6HhdIvZyIQvXKjOd2QEwk5+Nf47ERK6ebUYf+EJsqKS/XLxXTcqQbvwv
-	uD7jUHp4NkpEjJTX+vpz8uvZSlBApQpUB+4CQNTOyI/fV4RpQEdC0DrASQCEawAzfB19OgiicpcfH
-	dAg0r0wnr4rvcfucchNEpy34keEBq8QE4LORa3G0RSsigSWroPJFj+bxLnC5NnSO5WGmZyEC5nYaW
-	OvRvAMTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VCnL7F4i57Kf+GfDwe1G9hYOGXQ66tk2hfUTnm8oSwI=; b=A3ninLbL5KLuqqPQeJk1caVDaO
+	7/ax23cM4oAzM5/WaPAFMpzP01fTSNQKEpUhYH8PYDc+wV3F2v2TokDD8lXJVZr6wA3fIslFSceT/
+	H7AdD5SqbUa5h8haZCBBeNs+nVgclAmvXQFEebfue/JRqeKVjkR5mQcd6Li9nS9++GfKOboTmDNIA
+	YKqY1UCebYm5qg1Y6uMIbiW2DuR+B7ownUnowjNm/iHBrebSwPx5id7bXn9PWrHjaYr7z5B3J0Gf3
+	JxF6oEtnwDQEg4DHfLOXlP1xZ981QOQ+MwmygWCpEqiPQKVLnGj0ubq4DTordmdVsBpPhI1IHokoL
+	PDtpB1fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7KbD-00000008VLA-40AE;
-	Tue, 22 Apr 2025 20:52:11 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1u7KbF-00000008VNp-3soG;
+	Tue, 22 Apr 2025 20:52:13 +0000
+Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7If8-00000008Dg1-0ETU
+	id 1u7Ij0-00000008EGV-1bw6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 18:48:07 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43690d4605dso45481735e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 11:48:05 -0700 (PDT)
+	Tue, 22 Apr 2025 18:52:08 +0000
+Received: by mail-wm1-x341.google.com with SMTP id 5b1f17b1804b1-43d0618746bso42603595e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 11:52:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745347684; x=1745952484; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=/k3taZkFmb1E65Ysug6YAb3iu1BOXVPDS/i79D+w5w4=;
-        b=YcHJWKYj0LJ5/uOnxgSPc+13l42Kr/oz1ejAo6E/qTxkh7TsZoVfK+Cr++JNV0d8eq
-         kebp7cumrk3X9mWsndG1P57mr+Pkd+yb5StcJyx9/xeYGrwRCZ/NlcrdkLbiIM9QKuE5
-         9xLuJV6un9L4+ZXADEfd7Pq+/XyPzXvefHPrbjJgv49f14pEwuFlaaA+gAHgvmPhAaGe
-         sSajWdFtH9WHBfOeDYLKu6H7VCqVEXjKxjZbpkDAxGO8Do0KlS3MjGQlpJjYZrNtOQ3j
-         ZHDRHKiD6YraOcNgeH7oQ/Q30RAVG7XNd1Rmy6qkKdP5RwXywEuBhnRr6YjWfpNhTgID
-         7maA==
+        d=suse.com; s=google; t=1745347925; x=1745952725; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=VCnL7F4i57Kf+GfDwe1G9hYOGXQ66tk2hfUTnm8oSwI=;
+        b=HRJelEo8zj7iv+MxdNCZJ5L1R03/ZXVyN8DyD3uQ6dcpVuYTLilEVkNweR12XZrpeW
+         IiCRalL5FErgHYI+A0I5WyZb83kHwWABNj0SLQqtqbLKBdmYQBQqOUeg0B1BxWGD9tD9
+         Gq2A+Y+Wxu2476aItqHufQKoJxHohP5e//Yhl9PFOVRfupSLC6rOy84rQN3nwhZqfJBb
+         YGJaXLRKfh+vGY81j5nCWPzF26X3p7J7U3vLGurBTEnEXAe61dWgJlW4YxsWejpTK1NY
+         yOfPx+oHS4b62QsbkIzaKZUOStIXSjfv5Ld6474ex/RGg/2Qwd3zdwTDh75iIPMpDu11
+         K+vQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745347684; x=1745952484;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=/k3taZkFmb1E65Ysug6YAb3iu1BOXVPDS/i79D+w5w4=;
-        b=CDsV0ZnygsMqRmaCvQQvafZUJCKtfqgvlQ06GUbu8hgjmi/sBYJSdpVsiEFUeWjzg0
-         mN1qWxX5HzMnPB+4QuQrjTCZlj4fP80vREMCd2cmtvIPHEWJL6lrg0FQHqZwBRbxEIZs
-         hW5MgkUJocaKwmLAk7anUWiMUJE1Kl8NfZEdUKngOsHqQaIiJDDwYhG0flb8aHpZq8BT
-         AjVfP8rvINBNQw776SwwHKdGlBSvN6+X6M+PcTPonTtFS536zedzWa0/1+kTSb0pUOeT
-         Nx7t7JJshsFtKfH771d23+gpfmCHhUrpw1AMYGLGhrFCnwby4wd1HtJcZUlNcWxZWaLk
-         7aGQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUglhkNP+e5nyjTtqRxGy7pP9VNlNxq5lGvWJyGbq8Nch+h5NOxLdCMnQMW4RP6yZRqgM8NaIjEFWmFyujTtxzY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw0d6eexR3fFASSXjbVyJ1EYYKvWD+SOsstjKGe7Vc7zgL1xxo6
-	WoD0ytNjR6GDBLgl5tE/t40x2sKlfsNJqr0+CoprRKC6GY1bscDb
-X-Gm-Gg: ASbGncuhBtKNp1Rq5kVrX7uflXvpro4NEU83FsG62CxBrxBgF+O87mn+szIc3iGcNzm
-	o4yieW8plMofSzGPUlh1ZpUga+faAafJkQyuwQg6DCaWGnQJjTatGnXg89fLNP2yOPwp79E3smO
-	iPwpTaXBq5GW22s55/bCHwVXp7zf77zz4ph3ulkAxqPdkePD3E630BdR8o1IVum0jdhFg/Hr/C5
-	8v/0FZzSbTi86Eqx5OD/NMmpS34eJgqjr6kVpD75c+4c7gnTqO4m34NtQOPOxr8edSQiKk5p5UP
-	FM7dJiO/4viA0jIYe+UjZ0AUlZUcs4mbNjvHYz4=
-X-Google-Smtp-Source: AGHT+IG2j3VHoVL2M2AJ10p+sbssgxi4HaLuJQ31gFdOBcHjdA9awEAW09YZ0ryNYevSH+x3j+8Hxg==
-X-Received: by 2002:a05:600c:3583:b0:43c:f689:dd with SMTP id 5b1f17b1804b1-4406abb3bd9mr125898075e9.19.1745347683820;
-        Tue, 22 Apr 2025 11:48:03 -0700 (PDT)
-Received: from legfed1 ([2a00:79c0:6a3:c300:22ea:3d6a:5919:85f8])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4406d5acc9esm187337825e9.13.2025.04.22.11.48.02
+        d=1e100.net; s=20230601; t=1745347925; x=1745952725;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=VCnL7F4i57Kf+GfDwe1G9hYOGXQ66tk2hfUTnm8oSwI=;
+        b=j6sA4z+5yATH76Fy6FWox41Y2bI/1v56Vgobx7KM4ne+nKtTJbxp8vCQq7iJMjHXIB
+         lpImw+WwUCEbN+zowpRyNXrJ/dOHGS780i/l2WUjJ5s8INun+l6FTMSSIurH5gteOzCZ
+         YDTfm/STbNq+AJOecvT4AQedE8itThJeLTrP7VnuSAqHnrR9w7/3ayZBna7k1tYnsykb
+         TNs4zeqOsyfx/elNgSX0Mpo6E4jTbTnjc7EMjkbjInI4ZhLDdomc1U73IG4BTxi568qV
+         YIs8gLYzmmp4RV3Vq8xUYttwKMoO04E2hpxkzXNgt0yym6ROjlpdOx/17+9nDamh6ISH
+         7dqg==
+X-Forwarded-Encrypted: i=1; AJvYcCWDFXeeyYuI/bxYv4V8qIDbRaC2/tNC6zXTtyN0TsS1Y2IXvtuquxvU3pSNMvZT7/eWEuvBzpbDFymjHKC9NWq+@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5j/owxjZ9zYMRLjSTLj3cJRX9STJYAZ3/cYb6emZrK97iZWLE
+	uom9uIFYsuKeUJ2K5uW0+QSehYJGZmMKcm7dsUszvv4+4/fBQ/LvmhjglxTUHUM=
+X-Gm-Gg: ASbGncufSQWl4PkysqAKwI+xh2eJenYqPHF8azsPvKMtJKAXxmWXpUlwS1cQqq/XbLH
+	PXTqrFjGrhHHXbUw3C27I0Jd+tPAQsktof62IU7anlnjnGW5ioSDJb1XFDn8D4POr1ZCXXWa1pZ
+	KBSork1PqkVkpIZhHr38KRoC/ds5hRX7kAyDjOaIHCpoAsYPaHO+XXAttCS/o49R6/gdeAC3UO3
+	EmVCsC3UdzRyo8oXkxFxI0m0KxGZ/IE+AheNnLRO+Sm4FKo1PY9W7QyB99DOCR1ZxbM2VDq+IVs
+	8yVHihTGDrvQWN47mpHPhEB175+h3XTt4U93Cm2b/7xvj8ifXPpd5YYDvfKM6cJsYvzUhn0=
+X-Google-Smtp-Source: AGHT+IG2Jj7d5RRakNbqTLk8uQeOXGHlszMiqzcikLcrCgbVm4zQiBKEQL2v+FIhhijjlatYNTRHDQ==
+X-Received: by 2002:a05:600c:4fcf:b0:440:6a37:be0d with SMTP id 5b1f17b1804b1-4406abb245cmr159066125e9.15.1745347924576;
+        Tue, 22 Apr 2025 11:52:04 -0700 (PDT)
+Received: from localhost (93-44-188-26.ip98.fastwebnet.it. [93.44.188.26])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4407c5c7916sm126492715e9.27.2025.04.22.11.52.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Apr 2025 11:48:03 -0700 (PDT)
-Date: Tue, 22 Apr 2025 20:48:01 +0200
-From: Dimitri Fedrau <dima.fedrau@gmail.com>
-To: t.antoine@uclouvain.be
-Cc: Rob Herring <robh@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
-	=?utf-8?B?QW5kcsOp?= Draszik <andre.draszik@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
+        Tue, 22 Apr 2025 11:52:04 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+To: Andrea della Porta <andrea.porta@suse.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof Wilczynski <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Sebastian Reichel <sre@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Saravana Kannan <saravanak@google.com>,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
-Subject: Re: [PATCH v3 2/5] power: supply: add support for max77759 fuel gauge
-Message-ID: <20250422184801.GA395455@legfed1>
-References: <20250421-b4-gs101_max77759_fg-v3-0-50cd8caf9017@uclouvain.be>
- <20250421-b4-gs101_max77759_fg-v3-2-50cd8caf9017@uclouvain.be>
+	linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Phil Elwell <phil@raspberrypi.com>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	kernel-list@raspberrypi.com,
+	Matthias Brugger <mbrugger@suse.com>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v9 -next 02/12] dt-bindings: pinctrl: Add RaspberryPi RP1 gpio/pinctrl/pinmux bindings
+Date: Tue, 22 Apr 2025 20:53:11 +0200
+Message-ID: <ab2f660d1de888b53137cf60bba364f08169745b.1745347417.git.andrea.porta@suse.com>
+X-Mailer: git-send-email 2.44.0
+In-Reply-To: <cover.1745347417.git.andrea.porta@suse.com>
+References: <cover.1745347417.git.andrea.porta@suse.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250421-b4-gs101_max77759_fg-v3-2-50cd8caf9017@uclouvain.be>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_114806_102572_9EDF050E 
-X-CRM114-Status: GOOD (  45.52  )
+X-CRM114-CacheID: sfid-20250422_115206_422814_B6CA806F 
+X-CRM114-Status: GOOD (  17.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,334 +132,223 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Thomas,
+Add device tree bindings for the gpio/pin/mux controller that is part of
+the RP1 multi function device, and relative entries in MAINTAINERS file.
 
-On Mon, Apr 21, 2025 at 08:13:33PM +0200, Thomas Antoine via B4 Relay wrote:
-> From: Thomas Antoine <t.antoine@uclouvain.be>
-> 
-> The interface of the Maxim MAX77759 fuel gauge has a lot of common with the
-> Maxim MAX1720x. A major difference is the lack of non-volatile memory
-> slave address. No slave is available at address 0xb of the i2c bus, which
-> is coherent with the following driver from google: line 5836 disables
-> non-volatile memory for m5 gauge.
-> 
-> Link: https://android.googlesource.com/kernel/google-modules/bms/+/1a68c36bef474573cc8629cc1d121eb6a81ab68c/max1720x_battery.c
-> 
-> Other differences include the lack of V_BATT register to read the battery
-> level. The voltage must instead be read from V_CELL, the lowest voltage of
-> all cells. The mask to identify the chip is different. The computation of
-> the charge must also be changed to take into account TASKPERIOD, which
-> can add a factor 2 to the result.
-> 
-> Add support for the MAX77759 by taking into account all of those
-> differences based on chip type.
-> 
-> Do not advertise temp probes using the non-volatile memory as those are
-> not available.
-> 
-> The regmap was proposed by André Draszik in
-> 
-> Link: https://lore.kernel.org/all/d1bade77b5281c1de6b2ddcb4dbbd033e455a116.camel@linaro.org/
-> 
-> Signed-off-by: Thomas Antoine <t.antoine@uclouvain.be>
-> ---
->  drivers/power/supply/max1720x_battery.c | 270 ++++++++++++++++++++++++++++----
->  1 file changed, 237 insertions(+), 33 deletions(-)
-> 
-> diff --git a/drivers/power/supply/max1720x_battery.c b/drivers/power/supply/max1720x_battery.c
-> index cca5f8b5071fb731f9b60420239ea03d46cb1bf3..969d3a7c2baa7e1d23c5175942d975b277c8554c 100644
-> --- a/drivers/power/supply/max1720x_battery.c
-> +++ b/drivers/power/supply/max1720x_battery.c
-> @@ -37,6 +37,7 @@
->  #define MAX172XX_REPCAP			0x05	/* Average capacity */
->  #define MAX172XX_REPSOC			0x06	/* Percentage of charge */
->  #define MAX172XX_TEMP			0x08	/* Temperature */
-> +#define MAX172XX_VCELL			0x09	/* Lowest cell voltage */
->  #define MAX172XX_CURRENT		0x0A	/* Actual current */
->  #define MAX172XX_AVG_CURRENT		0x0B	/* Average current */
->  #define MAX172XX_FULL_CAP		0x10	/* Calculated full capacity */
-> @@ -50,19 +51,32 @@
->  #define MAX172XX_DEV_NAME_TYPE_MASK	GENMASK(3, 0)
->  #define MAX172XX_DEV_NAME_TYPE_MAX17201	BIT(0)
->  #define MAX172XX_DEV_NAME_TYPE_MAX17205	(BIT(0) | BIT(2))
-> +#define MAX77759_DEV_NAME_TYPE_MASK	GENMASK(15, 9)
-> +#define MAX77759_DEV_NAME_TYPE_MAX77759	0x31
->  #define MAX172XX_QR_TABLE10		0x22
-> +#define MAX77759_TASKPERIOD		0x3C
-> +#define MAX77759_TASKPERIOD_175MS	0x1680
-> +#define MAX77759_TASKPERIOD_351MS	0x2D00
+Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+---
+ .../pinctrl/raspberrypi,rp1-gpio.yaml         | 198 ++++++++++++++++++
+ 1 file changed, 198 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-gpio.yaml
 
-I think it would be more readable if MAX77759_ defines are separated to
-the MAX172XX defines instead of mixing them up.
+diff --git a/Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-gpio.yaml b/Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-gpio.yaml
+new file mode 100644
+index 000000000000..eec9a9b58542
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-gpio.yaml
+@@ -0,0 +1,198 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pinctrl/raspberrypi,rp1-gpio.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: RaspberryPi RP1 GPIO/Pinconf/Pinmux Controller submodule
++
++maintainers:
++  - A. della Porta <andrea.porta@suse.com>
++
++description:
++  The RP1 chipset is a Multi Function Device containing, among other
++  sub-peripherals, a gpio/pinconf/mux controller whose 54 pins are grouped
++  into 3 banks.
++  It works also as an interrupt controller for those gpios.
++
++properties:
++  compatible:
++    const: raspberrypi,rp1-gpio
++
++  reg:
++    maxItems: 3
++    description: One reg specifier for each one of the 3 pin banks.
++
++  '#gpio-cells':
++    description: The first cell is the pin number and the second cell is used
++      to specify the flags (see include/dt-bindings/gpio/gpio.h).
++    const: 2
++
++  gpio-controller: true
++
++  gpio-ranges:
++    maxItems: 1
++
++  gpio-line-names:
++    maxItems: 54
++
++  interrupts:
++    maxItems: 3
++    description: One interrupt specifier for each one of the 3 pin banks.
++
++  '#interrupt-cells':
++    description:
++      Specifies the Bank number [0, 1, 2] and Flags as defined in
++      include/dt-bindings/interrupt-controller/irq.h.
++    const: 2
++
++  interrupt-controller: true
++
++patternProperties:
++  '-state$':
++    oneOf:
++      - $ref: '#/$defs/raspberrypi-rp1-state'
++      - patternProperties:
++          '-pins$':
++            $ref: '#/$defs/raspberrypi-rp1-state'
++        additionalProperties: false
++
++$defs:
++  raspberrypi-rp1-state:
++    allOf:
++      - $ref: pincfg-node.yaml#
++      - $ref: pinmux-node.yaml#
++
++    description:
++      Pin controller client devices use pin configuration subnodes (children
++      and grandchildren) for desired pin configuration.
++      Client device subnodes use below standard properties.
++
++    properties:
++      pins:
++        description:
++          List of gpio pins affected by the properties specified in this
++          subnode.
++        items:
++          pattern: '^gpio([0-9]|[1-4][0-9]|5[0-3])$'
++
++      function:
++        enum: [ alt0, alt1, alt2, alt3, alt4, gpio, alt6, alt7, alt8, none,
++                aaud, dcd0, dpi, dsi0_te_ext, dsi1_te_ext, dsr0, dtr0, gpclk0,
++                gpclk1, gpclk2, gpclk3, gpclk4, gpclk5, i2c0, i2c1, i2c2, i2c3,
++                i2c4, i2c5, i2c6, i2s0, i2s1, i2s2, ir, mic, pcie_clkreq_n,
++                pio, proc_rio, pwm0, pwm1, ri0, sd0, sd1, spi0, spi1, spi2,
++                spi3, spi4, spi5, spi6, spi7, spi8, uart0, uart1, uart2, uart3,
++                uart4, uart5, vbus0, vbus1, vbus2, vbus3 ]
++
++        description:
++          Specify the alternative function to be configured for the specified
++          pins.
++
++      bias-disable: true
++      bias-pull-down: true
++      bias-pull-up: true
++      input-enable: true
++      input-schmitt-enable: true
++      output-enable: true
++      output-high: true
++      output-low: true
++      slew-rate:
++        description: 0 is slow slew rate, 1 is fast slew rate
++        enum: [ 0, 1 ]
++      drive-strength:
++        enum: [ 2, 4, 8, 12 ]
++
++    additionalProperties: false
++
++allOf:
++  - $ref: pinctrl.yaml#
++
++required:
++  - reg
++  - compatible
++  - '#gpio-cells'
++  - gpio-controller
++  - interrupts
++  - '#interrupt-cells'
++  - interrupt-controller
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    rp1 {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        rp1_gpio: pinctrl@c0400d0000 {
++            reg = <0xc0 0x400d0000  0x0 0xc000>,
++                  <0xc0 0x400e0000  0x0 0xc000>,
++                  <0xc0 0x400f0000  0x0 0xc000>;
++            compatible = "raspberrypi,rp1-gpio";
++            gpio-controller;
++            #gpio-cells = <2>;
++            interrupt-controller;
++            #interrupt-cells = <2>;
++            interrupts = <0 IRQ_TYPE_LEVEL_HIGH>,
++                         <1 IRQ_TYPE_LEVEL_HIGH>,
++                         <2 IRQ_TYPE_LEVEL_HIGH>;
++            gpio-line-names =
++                   "ID_SDA", // GPIO0
++                   "ID_SCL", // GPIO1
++                   "GPIO2", "GPIO3", "GPIO4", "GPIO5", "GPIO6",
++                   "GPIO7", "GPIO8", "GPIO9", "GPIO10", "GPIO11",
++                   "GPIO12", "GPIO13", "GPIO14", "GPIO15", "GPIO16",
++                   "GPIO17", "GPIO18", "GPIO19", "GPIO20", "GPIO21",
++                   "GPIO22", "GPIO23", "GPIO24", "GPIO25", "GPIO26",
++                   "GPIO27",
++                   "PCIE_RP1_WAKE", // GPIO28
++                   "FAN_TACH", // GPIO29
++                   "HOST_SDA", // GPIO30
++                   "HOST_SCL", // GPIO31
++                   "ETH_RST_N", // GPIO32
++                   "", // GPIO33
++                   "CD0_IO0_MICCLK", // GPIO34
++                   "CD0_IO0_MICDAT0", // GPIO35
++                   "RP1_PCIE_CLKREQ_N", // GPIO36
++                   "", // GPIO37
++                   "CD0_SDA", // GPIO38
++                   "CD0_SCL", // GPIO39
++                   "CD1_SDA", // GPIO40
++                   "CD1_SCL", // GPIO41
++                   "USB_VBUS_EN", // GPIO42
++                   "USB_OC_N", // GPIO43
++                   "RP1_STAT_LED", // GPIO44
++                   "FAN_PWM", // GPIO45
++                   "CD1_IO0_MICCLK", // GPIO46
++                   "2712_WAKE", // GPIO47
++                   "CD1_IO1_MICDAT1", // GPIO48
++                   "EN_MAX_USB_CUR", // GPIO49
++                   "", // GPIO50
++                   "", // GPIO51
++                   "", // GPIO52
++                   ""; // GPIO53
++
++            rp1-i2s0-default-state {
++                function = "i2s0";
++                pins = "gpio18", "gpio19", "gpio20", "gpio21";
++                bias-disable;
++            };
++
++            rp1-uart0-default-state {
++                txd-pins {
++                    function = "uart0";
++                    pins = "gpio14";
++                    bias-disable;
++                };
++
++                rxd-pins {
++                    function = "uart0";
++                    pins = "gpio15";
++                    bias-pull-up;
++                };
++            };
++        };
++    };
+-- 
+2.35.3
 
->  #define MAX172XX_BATT			0xDA	/* Battery voltage */
->  #define MAX172XX_ATAVCAP		0xDF
->  
->  static const char *const max1720x_manufacturer = "Maxim Integrated";
->  static const char *const max17201_model = "MAX17201";
->  static const char *const max17205_model = "MAX17205";
-> +static const char *const max77759_model = "MAX77759";
-> +
-> +enum chip_id {
-> +	MAX1720X_ID,
-> +	MAX77759_ID,
-> +};
->  
->  struct max1720x_device_info {
->  	struct regmap *regmap;
->  	struct regmap *regmap_nv;
->  	struct i2c_client *ancillary;
->  	int rsense;
-> +	int charge_full_design;
-
-Don't see charge_full_design is used somewhere besides reading it from
-device-tree and it isn't part of the bindings. If not needed, remove it.
-
-> +	enum chip_id id;
->  };
->  
-> 
-
-[...]
-
-> +static int max172xx_cell_voltage_to_ps(unsigned int reg)
-> +{
-> +	return reg * 625 / 8;	/* in uV */
-> +}
-> +
->  static int max172xx_capacity_to_ps(unsigned int reg,
-> -				   struct max1720x_device_info *info)
-> +				   struct max1720x_device_info *info,
-> +				   int *intval)
->  {
-> -	return reg * (500000 / info->rsense);	/* in uAh */
-> +	int lsb = 1;
-> +	int reg_val;
-
-The naming of reg_val is somehow confusing because of reg. Better rename
-it to something like reg_task_period or similar and reg_val should be of
-type unsigned int. 
-
-> +	int ret;
-> +
-> +	if (info->id == MAX77759_ID) {
-> +		ret = regmap_read(info->regmap, MAX77759_TASKPERIOD, &reg_val);
-> +		if (ret)
-> +			return ret;
-> +
-> +		switch (reg_val) {
-> +		case MAX77759_TASKPERIOD_175MS:
-> +			break;
-> +		case MAX77759_TASKPERIOD_351MS:
-> +			lsb = 2;
-> +			break;
-> +		default:
-> +			return -ENODEV;
-> +		}
-> +	}
-> +	*intval = reg * (500000 / info->rsense) * lsb;	/* in uAh */
-> +	return 0;
-
-nit: add newline before return.
-
->  }
->  
->  /*
-> @@ -306,6 +420,28 @@ static int max172xx_temperature_to_ps(unsigned int reg)
->  	return val * 10 / 256; /* in tenths of deg. C */
->  }
->  
-> +static const char *max1720x_devname_to_model(unsigned int reg_val,
-> +					     union power_supply_propval *val,
-> +					     struct max1720x_device_info *info)
-> +{
-> +	switch (info->id) {
-> +	case MAX1720X_ID:
-> +		reg_val = FIELD_GET(MAX172XX_DEV_NAME_TYPE_MASK, reg_val);
-> +		if (reg_val == MAX172XX_DEV_NAME_TYPE_MAX17201)
-> +			return max17201_model;
-> +		else if (reg_val == MAX172XX_DEV_NAME_TYPE_MAX17205)
-> +			return max17205_model;
-> +		return NULL;
-
-nit: return NULL in else case.
-
-> +	case MAX77759_ID:
-> +		reg_val = FIELD_GET(MAX77759_DEV_NAME_TYPE_MASK, reg_val);
-> +		if (reg_val == MAX77759_DEV_NAME_TYPE_MAX77759)
-> +			return max77759_model;
-> +		return NULL;
-
-nit: return NULL in else case.
-
-> +	default:
-> +		return NULL;
-> +	}
-> +}
-> +
->  /*
->   * Calculating current registers resolution:
->   *
-> @@ -390,19 +526,31 @@ static int max1720x_battery_get_property(struct power_supply *psy,
->  		val->intval = max172xx_percent_to_ps(reg_val);
->  		break;
->  	case POWER_SUPPLY_PROP_VOLTAGE_NOW:
-> -		ret = regmap_read(info->regmap, MAX172XX_BATT, &reg_val);
-> -		val->intval = max172xx_voltage_to_ps(reg_val);
-> +		if (info->id == MAX1720X_ID) {
-> +			ret = regmap_read(info->regmap, MAX172XX_BATT, &reg_val);
-> +			val->intval = max172xx_voltage_to_ps(reg_val);
-> +		} else if (info->id == MAX77759_ID) {
-> +			ret = regmap_read(info->regmap, MAX172XX_VCELL, &reg_val);
-> +			val->intval = max172xx_cell_voltage_to_ps(reg_val);
-> +		} else
-> +			return -ENODEV;
->  		break;
->  	case POWER_SUPPLY_PROP_CHARGE_FULL_DESIGN:
->  		ret = regmap_read(info->regmap, MAX172XX_DESIGN_CAP, &reg_val);
-> -		val->intval = max172xx_capacity_to_ps(reg_val);
-> +		if (ret)
-> +			break;
-
-I would keep max172xx_capacity_to_ps as it was before and add the
-calculation for the MAX77759 after handling the MAX1720X case. Creating
-a function max77759_capacity_to_ps that further processes the value
-calculated by max172xx_capacity_to_ps or just inline this code.
-Otherwise the naming of the function is somehow confusing.
-
-> +		ret = max172xx_capacity_to_ps(reg_val, info, &val->intval);
->  		break;
->  	case POWER_SUPPLY_PROP_CHARGE_AVG:
->  		ret = regmap_read(info->regmap, MAX172XX_REPCAP, &reg_val);
-> -		val->intval = max172xx_capacity_to_ps(reg_val);
-> +		if (ret)
-> +			break;
-> +
-
-Same as above.
-
-> +		ret = max172xx_capacity_to_ps(reg_val, info, &val->intval);
->  		break;
->  	case POWER_SUPPLY_PROP_TIME_TO_EMPTY_AVG:
->  		ret = regmap_read(info->regmap, MAX172XX_TTE, &reg_val);
-> +		pr_info("RAW TTE: %d", reg_val);
-
-Remove pr_info.
-
->  		val->intval = max172xx_time_to_ps(reg_val);
->  		break;
->  	case POWER_SUPPLY_PROP_TIME_TO_FULL_AVG:
-> @@ -423,17 +571,15 @@ static int max1720x_battery_get_property(struct power_supply *psy,
->  		break;
->  	case POWER_SUPPLY_PROP_CHARGE_FULL:
->  		ret = regmap_read(info->regmap, MAX172XX_FULL_CAP, &reg_val);
-> -		val->intval = max172xx_capacity_to_ps(reg_val);
-
-...
-
-> +		if (ret)
-> +			break;
-> +		ret = max172xx_capacity_to_ps(reg_val, info, &val->intval);
->  		break;
->  	case POWER_SUPPLY_PROP_MODEL_NAME:
->  		ret = regmap_read(info->regmap, MAX172XX_DEV_NAME, &reg_val);
-> -		reg_val = FIELD_GET(MAX172XX_DEV_NAME_TYPE_MASK, reg_val);
-> -		if (reg_val == MAX172XX_DEV_NAME_TYPE_MAX17201)
-> -			val->strval = max17201_model;
-> -		else if (reg_val == MAX172XX_DEV_NAME_TYPE_MAX17205)
-> -			val->strval = max17205_model;
-> -		else
-> -			return -ENODEV;
-> +		val->strval = max1720x_devname_to_model(reg_val, val, info);
-
-Wouldn't it be better to just inline this function ?
-
-> +		if (!val->strval)
-> +			ret = -ENODEV;
->  {
-
-[...]
-
->  	struct power_supply_config psy_cfg = {};
->  	struct device *dev = &client->dev;
->  	struct max1720x_device_info *info;
->  	struct power_supply *bat;
-> +	const struct chip_data *data;
-> +	const struct power_supply_desc *bat_desc;
->  	int ret;
->  
->  	info = devm_kzalloc(dev, sizeof(*info), GFP_KERNEL);
->  	if (!info)
->  		return -ENOMEM;
->  
-> +	data = device_get_match_data(dev);
-> +	if (!data)
-> +		return dev_err_probe(dev, -EINVAL, "Failed to get chip data\n");
-> +
->  	psy_cfg.drv_data = info;
->  	psy_cfg.fwnode = dev_fwnode(dev);
-> -	psy_cfg.attr_grp = max1720x_groups;
-> +	switch (data->id) {
-> +	case MAX1720X_ID:
-> +		psy_cfg.attr_grp = max1720x_groups;
-> +		bat_desc = &max1720x_bat_desc;
-> +		break;
-> +	case MAX77759_ID:
-> +		bat_desc = &max77759_bat_desc;
-> +		break;
-> +	default:
-> +		return dev_err_probe(dev, -EINVAL, "Unsupported chip\n");
-> +	}
-
-nit: add empty line
-
->  	i2c_set_clientdata(client, info);
-> -	info->regmap = devm_regmap_init_i2c(client, &max1720x_regmap_cfg);
-> +
-> +	info->id = data->id;
-> +	info->regmap = devm_regmap_init_i2c(client, data->regmap_cfg);
->  	if (IS_ERR(info->regmap))
->  		return dev_err_probe(dev, PTR_ERR(info->regmap),
->  				     "regmap initialization failed\n");
->  
-> -	ret = max1720x_probe_nvmem(client, info);
-> +	if (data->has_nvmem) {
-> +		ret = max1720x_probe_nvmem(client, info);
-> +		if (ret)
-> +			return dev_err_probe(dev, ret, "Failed to probe nvmem\n");
-> +	}
-> +
-> +	ret = of_property_read_u32(dev->of_node,
-> +				   "charge-full-design-microamp-hours", &info->charge_full_design);
-> +	if (ret)
-> +		info->charge_full_design = 0;
-> +
-> +	ret = max1720x_get_rsense(dev, info, data);
->  	if (ret)
-> -		return dev_err_probe(dev, ret, "Failed to probe nvmem\n");
-> +		return dev_err_probe(dev, ret, "Failed to get RSense\n");
->  
-> -	bat = devm_power_supply_register(dev, &max1720x_bat_desc, &psy_cfg);
-> +	bat = devm_power_supply_register(dev, bat_desc, &psy_cfg);
->  	if (IS_ERR(bat))
->  		return dev_err_probe(dev, PTR_ERR(bat),
->  				     "Failed to register power supply\n");
-> @@ -613,7 +816,8 @@ static int max1720x_probe(struct i2c_client *client)
->  }
->  
->  static const struct of_device_id max1720x_of_match[] = {
-> -	{ .compatible = "maxim,max17201" },
-> +	{ .compatible = "maxim,max17201", .data = (void *) &max1720x_data },
-> +	{ .compatible = "maxim,max77759-fg", .data = (void *) &max77759_data },
->  	{}
->  };
->  MODULE_DEVICE_TABLE(of, max1720x_of_match);
-> 
-> -- 
-> 2.49.0
-> 
-> 
-
-Best regards,
-Dimitri Fedrau
 
