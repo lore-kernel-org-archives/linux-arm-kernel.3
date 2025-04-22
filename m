@@ -4,60 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AECF8C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 13:46:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73371C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 13:48:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tfFo36yRW3bqHMJQdQ30N2iJA/qg/wr353OuB8cXQWE=; b=OkgjwnOocOiqZrjyXMG13zU/0r
-	c48FPvHWNF9BttU0zmiZNQkkfXsOXWw/PCZWImnQuCvO+57gb+UA8h9W+WptCA6ycHNFpcRnRtpAx
-	qeT8P/CoSyJYPTiEfZjR+qI5/Z7DG5rUv27A1anhbzBE/NdY9SrsRLmLHG2EbDDQJkVgl/AJQUI0Y
-	X5ev5C91zMNLYcIsd0gB7N5Q8Z7mX0C8hzMOjYq2h3CEZmfVlUuaXg5dJ39O9jdvKb3SX00yjLp4P
-	JZ2WWO2S68tX94MdcyBm7NPFocwnE+GMI5M1irbidsLEA4qQmhpaDHwhWfZvcMqcyGT37rlKC2z4Y
-	uuy3YdVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Olj6Biy2uWlsyIHDCf7izc2r8uqisRfOK7x96H1nFwQ=; b=gAuP/ix/ZtD25I/dD+2DUD9u3+
+	lnt73YGlpJdo4Z1LiNAQ05xHyjYR3Rqj8UFJbyMahqwJetrUEL4tQbx+Sv7TJurfyrF27Ob7hCXpd
+	iSxKN+dAW04oi524+OKTwhWL91zR7IzXskSE1btfeG7EB7o8p5icc8GkMOiRPLUMnWOUOFxpjRqNe
+	g+jLvcZyBBSt+s9CJaubJmhJ8XTXdiNgXxvdyJ4+ItMuLOyUlsboZmM4sUXWW6Wi3UY7oTYjmiTky
+	QyBulba3IbeN61Rz/NcTEHCAO6TiC4Al0hH1RGFc0susbW2HrSylisnV66kmQVIBWCC+rGMHu/0u/
+	3U7ainaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Dx6-00000007MHH-1Rx3;
-	Tue, 22 Apr 2025 13:46:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Cl4-000000076r1-0Rjj
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 12:29:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0AA8E152B;
-	Tue, 22 Apr 2025 05:29:45 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CAB443F66E;
-	Tue, 22 Apr 2025 05:29:48 -0700 (PDT)
-Date: Tue, 22 Apr 2025 13:29:46 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v1 6/9] coresight: Disable trace bus clock properly
-Message-ID: <20250422122946.GF28953@e132581.arm.com>
-References: <20250327113803.1452108-1-leo.yan@arm.com>
- <20250327113803.1452108-7-leo.yan@arm.com>
- <89aa249c-ac1d-40e3-8518-1b5a545b28c7@arm.com>
+	id 1u7Dyx-00000007Ml2-0T5y;
+	Tue, 22 Apr 2025 13:48:15 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7ClM-0000000770Y-3RIb;
+	Tue, 22 Apr 2025 12:30:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Olj6Biy2uWlsyIHDCf7izc2r8uqisRfOK7x96H1nFwQ=; b=JlVoX2KYgX6WtmWCrh2FEajaMB
+	n5yTf8j88/ZWmrzjVaPY1rveZUhNQbUpKsKynKhp4mbPpim29yI8+Slva8hEqIv3NJz85CrbOvPzC
+	Cy3DVTlswc+zxSY0NEFSpb4ETMV0p2f7Td/5J1XxTAkkmmN8gh/sv7kpcIg/osZEUVAnGjESgC7Y0
+	M/STs2rMZNYhFPfmzAjdmlwBzbatY5RKIcskAGbG6mc/l+oQ03OmH28kiTRIH7SuzZ9qjrRv4XUGn
+	1sk6N7NvXE8F3F1z+t7Wyf3CjFsJA3sXs4kl5dOQMKCgt79pJN4HUYn9WJZV50vRdhR0Aw2fchlKy
+	4N34TtmQ==;
+Received: from m16.mail.163.com ([220.197.31.3])
+	by desiato.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u7ClI-0000000BDsy-3eOS;
+	Tue, 22 Apr 2025 12:30:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:From:
+	Content-Type; bh=Olj6Biy2uWlsyIHDCf7izc2r8uqisRfOK7x96H1nFwQ=;
+	b=AxBH6coe/WvRZ61+t+GOxNo9h7IRzo8T7OQSwR5A6rVrUO38zUkBDvPH0XC4mm
+	vvTSrjZ105t+ECOPbRjZgVe/IJGmJIOkwsfxikouG21ExLzyEJMPZOiHH52yVmdk
+	gcy5UD8MyaGKg2jvLOxwRiVT+1USb8PyD2JV/ronf+if4=
+Received: from [192.168.142.52] (unknown [])
+	by gzga-smtp-mtada-g0-1 (Coremail) with SMTP id _____wD3nwStiwdoMaJdBw--.13540S2;
+	Tue, 22 Apr 2025 20:29:34 +0800 (CST)
+Message-ID: <44121a71-26a9-4203-a219-eeb26ff8763c@163.com>
+Date: Tue, 22 Apr 2025 20:29:33 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <89aa249c-ac1d-40e3-8518-1b5a545b28c7@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] PCI: dw-rockchip: Unify link status checks with
+ FIELD_GET
+To: Niklas Cassel <cassel@kernel.org>
+Cc: lpieralisi@kernel.org, kw@linux.com, bhelgaas@google.com,
+ heiko@sntech.de, manivannan.sadhasivam@linaro.org, robh@kernel.org,
+ jingoohan1@gmail.com, shawn.lin@rock-chips.com, linux-pci@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+References: <20250422112830.204374-1-18255117159@163.com>
+ <20250422112830.204374-4-18255117159@163.com> <aAeAAhb4R8ya_mBO@ryzen>
+ <7716b76f-be79-4ed1-b8d2-29258cb250ab@163.com> <aAeKcEfyDS1ImynJ@ryzen>
+Content-Language: en-US
+From: Hans Zhang <18255117159@163.com>
+In-Reply-To: <aAeKcEfyDS1ImynJ@ryzen>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: _____wD3nwStiwdoMaJdBw--.13540S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW3JF47Ar1kZr4kWr18tFWfuFg_yoW3Jry8pa
+	98AFy2kr4UJ3ya9w1vkFn8ZF47tFnIkFWUGrsag3y7u3Zayw18Gr1UWF9Igryxtr4kCFy3
+	Cwn8Ga47WF43CwUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07ULyCXUUUUU=
+X-Originating-IP: [61.171.199.116]
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbBDwc3o2gHiX9OCQAAsC
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_052950_198765_9BD91CFD 
-X-CRM114-Status: GOOD (  14.38  )
+X-CRM114-CacheID: sfid-20250422_133005_650676_38C31145 
+X-CRM114-Status: GOOD (  17.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,29 +93,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 03, 2025 at 12:55:46PM +0530, Anshuman Khandual wrote:
-> 
-> On 3/27/25 17:08, Leo Yan wrote:
-> > Some CoreSight components have trace bus clocks 'atclk' and are enabled
-> > using clk_prepare_enable().  These clocks are not disabled when modules
-> > exit.
-> > 
-> > As atclk is optional, use devm_clk_get_optional_enabled() to manage it.
-> > The benefit is the driver model layer can automatically disable and
-> > release clocks.
-> > 
-> > Check the returned value with IS_ERR() to detect errors but leave the
-> > NULL pointer case if the clock is not found.  And remove the error
-> > handling codes which are no longer needed.
-> > 
-> > Fixes: d1839e687773 ("coresight: etm: retrieve and handle atclk")
-> > Signed-off-by: Leo Yan <leo.yan@arm.com>
-> 
-> This patch probably should be positioned right after [PATCH 4/9] which
-> replaces pclk clock init with devm_clk_get_enabled().
 
-Sure.  Will reorder patches for this.
 
-Thanks,
-Leo
+On 2025/4/22 20:24, Niklas Cassel wrote:
+> On Tue, Apr 22, 2025 at 07:50:50PM +0800, Hans Zhang wrote:
+>>
+>>
+>> On 2025/4/22 19:39, Niklas Cassel wrote:
+>>> On Tue, Apr 22, 2025 at 07:28:30PM +0800, Hans Zhang wrote:
+>>>> Link-up detection manually checked PCIE_LINKUP bits across RC/EP modes,
+>>>> leading to code duplication. Centralize the logic using FIELD_GET. This
+>>>> removes redundancy and abstracts hardware-specific bit masking, ensuring
+>>>> consistent link state handling.
+>>>>
+>>>> Signed-off-by: Hans Zhang <18255117159@163.com>
+>>>> ---
+>>>>    drivers/pci/controller/dwc/pcie-dw-rockchip.c | 15 +++++----------
+>>>>    1 file changed, 5 insertions(+), 10 deletions(-)
+>>>>
+>>>> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+>>>> index cdc8afc6cfc1..2b26060af5c2 100644
+>>>> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+>>>> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+>>>> @@ -196,10 +196,7 @@ static int rockchip_pcie_link_up(struct dw_pcie *pci)
+>>>>    	struct rockchip_pcie *rockchip = to_rockchip_pcie(pci);
+>>>>    	u32 val = rockchip_pcie_get_ltssm(rockchip);
+>>>> -	if ((val & PCIE_LINKUP) == PCIE_LINKUP)
+>>>> -		return 1;
+>>>> -
+>>>> -	return 0;
+>>>> +	return FIELD_GET(PCIE_LINKUP_MASK, val) == 3;
+>>>
+>>> While I like the idea of your patch, here you are replacing something that
+>>> is easy to read (PCIE_LINKUP) with a magic value, which IMO is a step in
+>>> the wrong direction.
+>>>
+>>
+>> Hi Niklas,
+>>
+>> Thank you very much for your reply. How about I add another macro
+>> definition?
+>>
+>> #define PCIE_LINKUP 3
+> 
+> Yes, adding another macro for it is what I meant.
+> 
+
+
+Hi Niklas,
+
+Thank you very much for your reply and reminder. The second and third 
+patches will be changed as follows:
+
+
+patch 0002:
+
+diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c 
+b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+index fd5827bbfae3..4d5c8ed18953 100644
+--- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
++++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+@@ -34,30 +34,37 @@
+
+  #define to_rockchip_pcie(x) dev_get_drvdata((x)->dev)
+
+-#define PCIE_CLIENT_RC_MODE		HIWORD_UPDATE_BIT(0x40)
+-#define PCIE_CLIENT_EP_MODE		HIWORD_UPDATE(0xf0, 0x0)
+-#define PCIE_CLIENT_ENABLE_LTSSM	HIWORD_UPDATE_BIT(0xc)
+-#define PCIE_CLIENT_DISABLE_LTSSM	HIWORD_UPDATE(0x0c, 0x8)
+-#define PCIE_CLIENT_INTR_STATUS_MSG_RX	0x04
++#define PCIE_CLIENT_GENERAL_CONTROL	0x0
++#define  PCIE_CLIENT_RC_MODE		HIWORD_UPDATE_BIT(0x40)
++#define  PCIE_CLIENT_EP_MODE		HIWORD_UPDATE(0xf0, 0x0)
++#define  PCIE_CLIENT_ENABLE_LTSSM	HIWORD_UPDATE_BIT(0xc)
++#define  PCIE_CLIENT_DISABLE_LTSSM	HIWORD_UPDATE(0x0c, 0x8)
++
++#define PCIE_CLIENT_INTR_STATUS_MSG_RX	0x4
++#define PCIE_CLIENT_INTR_STATUS_LEGACY	0x8
++
+  #define PCIE_CLIENT_INTR_STATUS_MISC	0x10
++#define  PCIE_RDLH_LINK_UP_CHGED	BIT(1)
++#define  PCIE_LINK_REQ_RST_NOT_INT	BIT(2)
++
++#define PCIE_CLIENT_INTR_MASK_LEGACY	0x1c
+  #define PCIE_CLIENT_INTR_MASK_MISC	0x24
++
+  #define PCIE_CLIENT_POWER		0x2c
++#define  PME_READY_ENTER_L23		BIT(3)
++
+  #define PCIE_CLIENT_MSG_GEN		0x34
+-#define PME_READY_ENTER_L23		BIT(3)
+-#define PME_TURN_OFF			(BIT(4) | BIT(20))
+-#define PME_TO_ACK			(BIT(9) | BIT(25))
+-#define PCIE_SMLH_LINKUP		BIT(16)
+-#define PCIE_RDLH_LINKUP		BIT(17)
+-#define PCIE_LINKUP			(PCIE_SMLH_LINKUP | PCIE_RDLH_LINKUP)
+-#define PCIE_RDLH_LINK_UP_CHGED		BIT(1)
+-#define PCIE_LINK_REQ_RST_NOT_INT	BIT(2)
+-#define PCIE_CLIENT_GENERAL_CONTROL	0x0
+-#define PCIE_CLIENT_INTR_STATUS_LEGACY	0x8
+-#define PCIE_CLIENT_INTR_MASK_LEGACY	0x1c
++#define  PME_TURN_OFF			HIWORD_UPDATE_BIT(BIT(4))
++#define  PME_TO_ACK			HIWORD_UPDATE_BIT(BIT(9))
++
+  #define PCIE_CLIENT_HOT_RESET_CTRL	0x180
++#define  PCIE_LTSSM_ENABLE_ENHANCE	BIT(4)
++
+  #define PCIE_CLIENT_LTSSM_STATUS	0x300
+-#define PCIE_LTSSM_ENABLE_ENHANCE	BIT(4)
+-#define PCIE_LTSSM_STATUS_MASK		GENMASK(5, 0)
++#define  PCIE_SMLH_LINKUP		BIT(16)
++#define  PCIE_RDLH_LINKUP		BIT(17)
++#define  PCIE_LINKUP			(PCIE_SMLH_LINKUP | PCIE_RDLH_LINKUP)
++#define  PCIE_LTSSM_STATUS_MASK		GENMASK(5, 0)
+
+  struct rockchip_pcie {
+  	struct dw_pcie pci;
+
+
+
+
+patch 0003:
+
+diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c 
+b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+index 4d5c8ed18953..0553e7e80e1b 100644
+--- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
++++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+@@ -8,6 +8,7 @@
+   * Author: Simon Xue <xxm@rock-chips.com>
+   */
+
++#include <linux/bitfield.h>
+  #include <linux/clk.h>
+  #include <linux/gpio/consumer.h>
+  #include <linux/irqchip/chained_irq.h>
+@@ -61,9 +62,8 @@
+  #define  PCIE_LTSSM_ENABLE_ENHANCE	BIT(4)
+
+  #define PCIE_CLIENT_LTSSM_STATUS	0x300
+-#define  PCIE_SMLH_LINKUP		BIT(16)
+-#define  PCIE_RDLH_LINKUP		BIT(17)
+-#define  PCIE_LINKUP			(PCIE_SMLH_LINKUP | PCIE_RDLH_LINKUP)
++#define  PCIE_LINKUP			0x3
++#define  PCIE_LINKUP_MASK		GENMASK(17, 16)
+  #define  PCIE_LTSSM_STATUS_MASK		GENMASK(5, 0)
+
+  struct rockchip_pcie {
+@@ -197,10 +197,7 @@ static int rockchip_pcie_link_up(struct dw_pcie *pci)
+  	struct rockchip_pcie *rockchip = to_rockchip_pcie(pci);
+  	u32 val = rockchip_pcie_get_ltssm(rockchip);
+
+-	if ((val & PCIE_LINKUP) == PCIE_LINKUP)
+-		return 1;
+-
+-	return 0;
++	return FIELD_GET(PCIE_LINKUP_MASK, val) == PCIE_LINKUP;
+  }
+
+  static void rockchip_pcie_enable_l0s(struct dw_pcie *pci)
+@@ -500,7 +497,7 @@ static irqreturn_t 
+rockchip_pcie_rc_sys_irq_thread(int irq, void *arg)
+  	struct dw_pcie *pci = &rockchip->pci;
+  	struct dw_pcie_rp *pp = &pci->pp;
+  	struct device *dev = pci->dev;
+-	u32 reg, val;
++	u32 reg;
+
+  	reg = rockchip_pcie_readl_apb(rockchip, PCIE_CLIENT_INTR_STATUS_MISC);
+  	rockchip_pcie_writel_apb(rockchip, reg, PCIE_CLIENT_INTR_STATUS_MISC);
+@@ -509,8 +506,7 @@ static irqreturn_t 
+rockchip_pcie_rc_sys_irq_thread(int irq, void *arg)
+  	dev_dbg(dev, "LTSSM_STATUS: %#x\n", rockchip_pcie_get_ltssm(rockchip));
+
+  	if (reg & PCIE_RDLH_LINK_UP_CHGED) {
+-		val = rockchip_pcie_get_ltssm(rockchip);
+-		if ((val & PCIE_LINKUP) == PCIE_LINKUP) {
++		if (rockchip_pcie_link_up(pci)) {
+  			dev_dbg(dev, "Received Link up event. Starting enumeration!\n");
+  			/* Rescan the bus to enumerate endpoint devices */
+  			pci_lock_rescan_remove();
+@@ -527,7 +523,7 @@ static irqreturn_t 
+rockchip_pcie_ep_sys_irq_thread(int irq, void *arg)
+  	struct rockchip_pcie *rockchip = arg;
+  	struct dw_pcie *pci = &rockchip->pci;
+  	struct device *dev = pci->dev;
+-	u32 reg, val;
++	u32 reg;
+
+  	reg = rockchip_pcie_readl_apb(rockchip, PCIE_CLIENT_INTR_STATUS_MISC);
+  	rockchip_pcie_writel_apb(rockchip, reg, PCIE_CLIENT_INTR_STATUS_MISC);
+@@ -541,8 +537,7 @@ static irqreturn_t 
+rockchip_pcie_ep_sys_irq_thread(int irq, void *arg)
+  	}
+
+  	if (reg & PCIE_RDLH_LINK_UP_CHGED) {
+-		val = rockchip_pcie_get_ltssm(rockchip);
+-		if ((val & PCIE_LINKUP) == PCIE_LINKUP) {
++		if (rockchip_pcie_link_up(pci)) {
+  			dev_dbg(dev, "link up\n");
+  			dw_pcie_ep_linkup(&pci->ep);
+  		}
+
+Best regards,
+Hans
+
 
