@@ -4,110 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0266C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 19:48:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55A27C369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 19:48:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TMh0izLSzqmAU5ORZxGehcX6J35ZOvbIe3zUy9tlNbQ=; b=TRkUIlregdaludo1W3m51h6nKY
-	ypnGh9xlYoMtcd2xehrzkg2eeZA6AhXc43MFK7iTl28P/5CdVmekOhNm6Li5F9b399uF0mkpaHqns
-	6mSYcusJdIPUaxUL6XSLzmgTZQdPh5ml/T7uz4jyuwc+vi9+/fzF7oU8LFxE+rzN/0fywfTG2zwPJ
-	VmQT+ZBgqKLdEAmb6zINfS797n3oj2RMRmHvnsFaJNIF6vLDU5CRyZLz0+ldS0jA3HApDdus/dBCT
-	cLta78DFXqAN1n0eB/OpDCyMC3earxm5e+NAWDwqwGeTduhrxWILkdxdppXa7+Fxal0J33pBIga4B
-	eF9TyU9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7jgnpxJBroqmGgF9RegbrqkOqfq6AUI492Gh3HYB7II=; b=T7aYQOYCpgrmONDv4YZ5p719Kr
+	jYtx/gZ0McoRCk8q64xQ1jkC1tKdbSAfa0VgeXxIXDjL2i5FUBSWosCW6UqQE+UFHt5SMYkXd0vry
+	DE4AK4gLNEf5LanaaBoVZMlmXBFrxxRH/knnbSkm9Ee/daM6NFIjAYLfzsexOQwV6+5fI0jexfpNn
+	eZMOMUl5Mx+3xIkhwFqfwf1ShChfdsZp+xFoLpb/VEk1X07PtfDkoCdxqioOzj+lCPCyKu/JgnQLW
+	PvzNXPKQZfAauZZzX64Mt+NT1QHjz4zFn0NZS6embBk1W7WxS4Lc51VuxMJUPjaSicN4ZFJi564vS
+	Wd3Ds5VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7JbG-00000008Mun-3B19;
-	Tue, 22 Apr 2025 19:48:10 +0000
-Received: from mail-qv1-xf31.google.com ([2607:f8b0:4864:20::f31])
+	id 1u7JbI-00000008Mwy-08L2;
+	Tue, 22 Apr 2025 19:48:12 +0000
+Received: from mout.gmx.net ([212.227.17.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7IrH-00000008FdY-1WDh
+	id 1u7J4w-00000008HgS-1LAN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 19:00:40 +0000
-Received: by mail-qv1-xf31.google.com with SMTP id 6a1803df08f44-6e8f6970326so52113246d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 12:00:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1745348437; x=1745953237; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=TMh0izLSzqmAU5ORZxGehcX6J35ZOvbIe3zUy9tlNbQ=;
-        b=Dz7Qwi45OAqAvjK3BLzQkVviXeIZxRSxqnv9SpeWkPR98mwfR0VhlHsZMp4PrZkla4
-         EClcgTPDhp0SxjqNRykUcngKmR/hzVwLBg3Ya2FHtnod4bLbh17oGwXhfA1u5sKU4cBF
-         ZvH8/e49bo5KQfOqOTcjdRNWlHKK20GGzBXzYPS/QTIapcL1Udz//n5PvnB1HNyk0ohH
-         qSscCWKOgb0wiM+YzltOle1K0ZIJ3ZRdltzuECekfA5BEhq+N/R+S2gBUitkLU0IVYOI
-         X3Q0gKkFSwL0jQgfREgZyaxYjXZ5WTOdQeJWGiLxRkaiVacEb75jpV8quv7oLnPp8SPa
-         QjMQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745348437; x=1745953237;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TMh0izLSzqmAU5ORZxGehcX6J35ZOvbIe3zUy9tlNbQ=;
-        b=Mm0wMzYtRMXSUHQ87EQUOMtF+fVNEnw21hE/OBc9DkMm5l1c/bba614qZqAXNEqe0+
-         TcsRtKU5XpjeTPiCaCpqBgjPKoZjLpi2k9b4GQEfqj2zUhBbgNC4uNWN5wczEx8oL25Q
-         VBLD+k9vzfT2e6l3Ivpa9Qj0qp9yZ6aY/3p6707dlpieq4yzgXjZlLDCf2VCq6kS6Fdw
-         YeKucRONfZnzlUmjr4o1nkP9nFf3hi+vn3Zj9mfkK6I+bNPOx30z1+fNVykD7jPt8U2I
-         LxwUPOQ13PcDr1q96ge6+vbkaWjAZA57i5a4e64Vi85ZHGbi33isN+Cq4dC7FaF3M6az
-         jHXw==
-X-Forwarded-Encrypted: i=1; AJvYcCXbdDZKJMzRbbiralN092YXTyuNTu3zTfr9KGCrsmhMN62QJmiCFdwTmhtUb2tX7EXgdHAaelFrhEHVsiCKcdEU@lists.infradead.org
-X-Gm-Message-State: AOJu0YzzCFXdDS6jMRvl/Z3BTbFPyjUUqF/Jgv7fmM+0cAFV7YvK8rfI
-	4rDRuI7jNxgVSwTyqPvUQm9LgStUh3Cus7WGfbnilH5lBdLWOlqpQwbPwltL+mc=
-X-Gm-Gg: ASbGncsrNcPCb90YqS9JCa6RC5/lHrRzl60FdodY2+ebnIwmz/lJY84BgFd7dw+iILX
-	GVTpJ4YJr/RIpKE7oX8Tehp8DbhSH0fqiR+50yDxxxFMS+NayoZluSgXWspUqGPi92Gpe0xikhF
-	xMFAXLvGWC0fI4+eoyiFLPe5R8uAS6Rx7vuPEjCMBnAjFrbtIxhbeLPDuz4yDQNAYtwzOrOSz5C
-	OnYYnLBjWFE6Y3O/0jn8DJd2f8zT8d6F+QPvYScOfu3GMdLWLGXNL+K9v5HriQHQlLXFAgUwE2n
-	3vaHN3R3zTXeLW8XbYnCwFKN+hG3gQNKaLa8GDCTuI5WFG0i/BqJAKh3jA6uWrRgemR8+6gHfwA
-	uzRl8nFM/qznGv21juiA=
-X-Google-Smtp-Source: AGHT+IHbq+pHzTQuxxdUufVp0+5UWeEWnmEdvfzQVGDaZiAVyxBLUWwXVLbiir8zvtHTZQ/owxmlMQ==
-X-Received: by 2002:a05:6214:3008:b0:6ea:d361:a4ca with SMTP id 6a1803df08f44-6f2c46557e7mr318335806d6.32.1745348437625;
-        Tue, 22 Apr 2025 12:00:37 -0700 (PDT)
-Received: from ziepe.ca (hlfxns017vw-142-167-219-86.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.167.219.86])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6f2c2c21da6sm60863536d6.98.2025.04.22.12.00.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Apr 2025 12:00:36 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1u7IrE-00000006vVF-1Cvg;
-	Tue, 22 Apr 2025 16:00:36 -0300
-Date: Tue, 22 Apr 2025 16:00:36 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: William McVicker <willmcvicker@google.com>
-Cc: Robin Murphy <robin.murphy@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Russell King <linux@armlinux.org.uk>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Stuart Yoder <stuyoder@gmail.com>,
-	Laurentiu Tudor <laurentiu.tudor@nxp.com>,
-	Nipun Gupta <nipun.gupta@amd.com>,
-	Nikhil Agarwal <nikhil.agarwal@amd.com>,
-	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Bjorn Helgaas <bhelgaas@google.com>, linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	Charan Teja Kalla <quic_charante@quicinc.com>
-Subject: Re: [PATCH v2 4/4] iommu: Get DT/ACPI parsing into the proper probe
- path
-Message-ID: <20250422190036.GA1213339@ziepe.ca>
-References: <cover.1740753261.git.robin.murphy@arm.com>
- <e3b191e6fd6ca9a1e84c5e5e40044faf97abb874.1740753261.git.robin.murphy@arm.com>
- <aAa2Zx86yUfayPSG@google.com>
+	Tue, 22 Apr 2025 19:14:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1745349268; x=1745954068; i=wahrenst@gmx.net;
+	bh=7jgnpxJBroqmGgF9RegbrqkOqfq6AUI492Gh3HYB7II=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:From:Subject:To:
+	 References:In-Reply-To:Content-Type:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=ZbgjCBN8g2+IcErVhtpHqXb8euo8B+ldrBMmTlDlQ3VckIuQwsyiTUHMPDV5Fb8W
+	 mHP07pcRaOHdv48BCOllfvuKdgaz5LD6qGIFvjfrVqK4MNqg632AXIDNjYzhZT6BS
+	 sIovTZzQw5NWIddIGqNeG6Y30/fkGHe8bvPGg+XLMqDgZ1zoYIEfFbRSwq1rt6ZPS
+	 gk6Iajqvqpc62YUKmOjDo/yUs6SMePaXng0F2aUnug8utD/qHfvA42H9zbTcli1KX
+	 PP4wuQCglghMiWTt+LMvPPvRjH6O1n4TVbt0cDWpsNgsGwu9M0R4ss0ntAuPviPbw
+	 8aAaLd0ksDO608f1/g==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.107] ([37.4.251.153]) by mail.gmx.net (mrgmx105
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1M9Wyy-1uAczI2nxM-000Hyo; Tue, 22
+ Apr 2025 21:14:28 +0200
+Message-ID: <20c11fba-421d-4f73-bd4c-f9d177e7167e@gmx.net>
+Date: Tue, 22 Apr 2025 21:14:25 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aAa2Zx86yUfayPSG@google.com>
+User-Agent: Mozilla Thunderbird
+From: Stefan Wahren <wahrenst@gmx.net>
+Subject: Re: [PATCH v9 -next 04/12] clk: rp1: Add support for clocks provided
+ by RP1
+To: Andrea della Porta <andrea.porta@suse.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Krzysztof Wilczynski <kw@linux.com>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ Bjorn Helgaas <bhelgaas@google.com>, Linus Walleij
+ <linus.walleij@linaro.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+ Derek Kiernan <derek.kiernan@amd.com>, Dragan Cvetic
+ <dragan.cvetic@amd.com>, Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+ linux-gpio@vger.kernel.org, Masahiro Yamada <masahiroy@kernel.org>,
+ Herve Codina <herve.codina@bootlin.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Andrew Lunn
+ <andrew@lunn.ch>, Phil Elwell <phil@raspberrypi.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ kernel-list@raspberrypi.com, Matthias Brugger <mbrugger@suse.com>
+References: <cover.1745347417.git.andrea.porta@suse.com>
+ <e8a9c2cd6b4b2af8038048cda179ebbf70891ba7.1745347417.git.andrea.porta@suse.com>
+Content-Language: en-US
+In-Reply-To: <e8a9c2cd6b4b2af8038048cda179ebbf70891ba7.1745347417.git.andrea.porta@suse.com>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Provags-ID: V03:K1:Ntqta0IiidRZQq7Lb9rAcotXlATvSMUgzlP7Se2sAXsQhLJBxQ4
+ yyWYwBm2nrVVOv7vwfEvZbEHdhYpbmL0SgbF4Q+3/x1PYOo/hxmHsMf5yHadkEFCJQtJO3r
+ VXXdBu/ZUbnnBDhbuukVjKfXsM2ugFlO4GQ2cOvaLT/XaUvjG6l8NyjWwqfUdAkRYo5pacf
+ VzEgZeMbhtRcBfppw6s2w==
+UI-OutboundReport: notjunk:1;M01:P0:GXGW574ymxc=;wFIfr50NKDhE8PgYJYzjDQS0Vrz
+ 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_120039_559160_52C65789 
-X-CRM114-Status: GOOD (  18.55  )
+X-CRM114-CacheID: sfid-20250422_121446_658506_03386557 
+X-CRM114-Status: UNSURE (   8.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,45 +157,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 21, 2025 at 02:19:35PM -0700, William McVicker wrote:
-> diff --git a/drivers/base/platform.c b/drivers/base/platform.c
-> index 1813cfd0c4bd..6d124447545c 100644
-> --- a/drivers/base/platform.c
-> +++ b/drivers/base/platform.c
-> @@ -1440,8 +1440,8 @@ static void platform_shutdown(struct device *_dev)
->  
->  static int platform_dma_configure(struct device *dev)
->  {
-> -       struct platform_driver *drv = to_platform_driver(dev->driver);
->         struct fwnode_handle *fwnode = dev_fwnode(dev);
-> +       struct platform_driver *drv;
->         enum dev_dma_attr attr;
->         int ret = 0;
->  
-> @@ -1451,8 +1451,12 @@ static int platform_dma_configure(struct device *dev)
->                 attr = acpi_get_dma_attr(to_acpi_device_node(fwnode));
->                 ret = acpi_dma_configure(dev, attr);
->         }
-> -       /* @drv may not be valid when we're called from the IOMMU layer */
-> -       if (ret || !dev->driver || drv->driver_managed_dma)
-> +       /* @dev->driver may not be valid when we're called from the IOMMU layer */
-> +       if (ret || !dev->driver)
-> +               return ret;
-> +
-> +       drv = to_platform_driver(dev->driver);
-> +       if (drv->driver_managed_dma)
->                 return ret;
->  
->         ret = iommu_device_use_default_domain(dev);
-
-The diagnosis looks right to me, but pedantically I think it should
-have a READ_ONCE():
-
-struct driver *drv = READ_ONCE(dev->driver);
-
-And then never touch dev->driver again in the function.
-
-Send a proper patch?
-
-Jason
+Am 22.04.25 um 20:53 schrieb Andrea della Porta:
+> RaspberryPi RP1 is an MFD providing, among other peripherals, several
+> clock generators and PLLs that drives the sub-peripherals.
+> Add the driver to support the clock providers.
+>
+> Signed-off-by: Andrea della Porta<andrea.porta@suse.com>
+Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
 
