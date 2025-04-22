@@ -4,114 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06450C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 09:34:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75D54C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 09:36:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rh2kqgwfRTCor7L6HziJqsusSFfUEGGE3CpD6erBfZM=; b=bRvMYivwjpUnS1jMXcX/GaHI4J
-	SU1HloS2qHmD2VjZkURWHhiVS+8ZT6ssMbxiKAn1Aq8L/dA9bmU/p5PCEti1ZxFBjCVCFDXykRQq6
-	277gvQgOoQWxXFCMtrvdAxbSsPX8483N6lrZqTyFixgG1zrqIkV19ZPvZQb+GQdgYbZ7Fx2B7TKnp
-	u9hXtLAL2qUhJQY26dSKu005YSCSV3FyvymOXRsS71Ca/LBTVORAiLw+xM+POtJz6h60jfqZBST2N
-	Slbii/0SVLruJ/IAvc2O6K9Rx8CVv1jWXWL7Q7zbsTOYbSDl4aq4iaHLYInKIecFuUfSbLNsTTmHR
-	f4k/cBqg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=860Nc6VgaqMy9r3Lux8leT4R6XBkLQIHX5lzUNdrEy8=; b=WLv8IAPx6c/AZ4EpyDh49ZGxfN
+	3nHZxHGX2rl1oi3iIUAq+VOb5HhouN+b4cGfjasRx7Mis1wRIs/AIiAy3BW658Oh9l5PWrStqRZ0B
+	pTf1PWyKZjO4dPejRj/m3lOnk5bzLVkB4pzmVVwIrfloldzKLnN/xwrpfvuIq5nO2U9HqoBCdy3ze
+	oOhJO4BpkPixXM0QHtzl8dZ4Z1C8qT0hF248ZFFon7x7ym8YSuFWhQUGZQ5/ElVnTrgxQlRdkKf8B
+	g7Wn636+PuW8dkV2h+ZzId5Qleif7GBQyLKtml9HMIDe8YPjeOlEq/OGknHFqWH3lzCBgDn63ZV4l
+	9T53AkBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7A1S-00000006ZxL-2Scc;
-	Tue, 22 Apr 2025 09:34:34 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u78gY-00000006Eu0-0fP6
+	id 1u7A3I-00000006a9w-0zCy;
+	Tue, 22 Apr 2025 09:36:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u78q4-00000006Ge1-0ZE0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 08:08:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 955046116E;
-	Tue, 22 Apr 2025 08:08:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93959C4CEEA;
-	Tue, 22 Apr 2025 08:08:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745309333;
-	bh=cjxeTIBjmGDBo3MhtyDpWmP+BZTYc/JTlOwvci9CQTY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=fYv+/pYIPEf1BOh4BavScuPJYtjWNwaFWhndS7H1TtiwqP/rDqM6fk00o1uZG4opD
-	 UYRwUStlpRweKSPIpdx4AqHbCfAseLNyoR7WkbKpadjdWf9Fq3j+52kwd7wgnkvYcS
-	 HFw4/P3UPCfPcx/Pf7w/nzRzuxHcJFYnadVqnRhomdAfL0uRuhsQxNwZtQC5M0AFOG
-	 A9s+qhrcdYFnCJm6DCkvdgWWtYFMVRnnIYGCuxRg2+sp9AcFq4qKMD8fJ16su56nhT
-	 dCtnULXRrkttGHNnGgrrw2ygxpaesNSTmT/AG7fgTILnL5Hl6lqO7cNXpXt8b+WP3i
-	 6IWF06kixtj2g==
-Message-ID: <14de236b-e2a7-4bde-986d-1e5ffddd01b4@kernel.org>
-Date: Tue, 22 Apr 2025 10:08:43 +0200
+	Tue, 22 Apr 2025 08:18:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C1D47152B;
+	Tue, 22 Apr 2025 01:18:36 -0700 (PDT)
+Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 17CCD3F66E;
+	Tue, 22 Apr 2025 01:18:38 -0700 (PDT)
+From: Ryan Roberts <ryan.roberts@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Christoph Hellwig <hch@infradead.org>,
+	David Hildenbrand <david@redhat.com>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v4 00/11] Perf improvements for hugetlb and vmalloc on arm64
+Date: Tue, 22 Apr 2025 09:18:08 +0100
+Message-ID: <20250422081822.1836315-1-ryan.roberts@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 03/13] dt-bindings: mmc: vt8500-sdmmc: Convert to YAML
-To: Alexey Charkov <alchark@gmail.com>, Rob Herring <robh@kernel.org>
-Cc: Andi Shyti <andi.shyti@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Ulf Hansson <ulf.hansson@linaro.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-mmc@vger.kernel.org, netdev@vger.kernel.org, linux-pwm@vger.kernel.org
-References: <20250416-wmt-updates-v1-0-f9af689cdfc2@gmail.com>
- <20250416-wmt-updates-v1-3-f9af689cdfc2@gmail.com>
- <20250416201407.GC3811555-robh@kernel.org>
- <CABjd4YyTKquLcYC+DVg_koi3p7AhqwBNiazCiC713DQKjCaBSA@mail.gmail.com>
- <CABjd4Yxi4SLqsAk_fb9C=1BW6XjnZ8LQ_JKYu6KZ3TtMS0fnhg@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <CABjd4Yxi4SLqsAk_fb9C=1BW6XjnZ8LQ_JKYu6KZ3TtMS0fnhg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250422_011844_264207_4D3E9BA1 
+X-CRM114-Status: GOOD (  21.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,92 +73,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/04/2025 14:38, Alexey Charkov wrote:
->>
->>>> +
->>>> +  reg:
->>>> +    maxItems: 1
->>>> +
->>>> +  clocks:
->>>> +    maxItems: 1
->>>> +
->>>> +  interrupts:
->>>> +    items:
->>>> +      - description: SDMMC controller interrupt
->>>> +      - description: SDMMC controller DMA interrupt
->>>> +
->>>> +  sdon-inverted:
->>>> +    type: boolean
->>>> +    description: SD_ON bit is inverted on the controller
->>>
->>> This implies I know what the non-inverted state is. If you know, please
->>> state that here.
->>
->> This is a tricky one. The only answer I have is "it's inverted in
->> later versions vs. the first version I saw in the wild, and I'm not
->> sure if it's board related or IP version related - nor if the original
->> was active low or high". No docs, no schematics, no vendor left around
->> to chase for answers.
->>
->> Will dig around some more and update the description if I succeed in
->> uncovering any further clues :)
-> 
-> I've found some extra clues and would like to consult on the best way forward.
-> 
-> It turns out (if my understanding of the decompiled binary-only WM8505
-> vendor driver is correct) that all chips before (not including) WM8505
-> rev. A2 treated their "clock stop" bit (register offset 0x08 a.k.a.
-> SDMMC_BUSMODE, bit 0x10 a.k.a. BM_CST in vendor sources, BM_SD_OFF in
-> mainline) as "set 1 to disable SD clock", while all the later versions
-> treated it as "set 0 to disable SD clock". Which means that there are
-> WM8505 based systems that rely on either of those behaviours, while
-> any later chips need "set 0 to disable". This is not a board related
-> quirk but an on-chip SDMMC controller revision related quirk.
-> 
-> I'd love to switch to a compatible-based logic and drop the
-> "sdon-inverted" flag altogether from the binding I'm writing, but here
-> are my doubts where I'd love to consult.
-> 
-> * Looks like WM8505 rev. A2 needs a separate compatible string vs.
-> prior WM8505. Can we have something like "wm,wm8505a2-sdhc" and
-> "wm,wm8505-sdhc" respectively? WM8505a2 not being an actual chip name,
-> but something discoverable by reading its hardware ID from a system
-> configuration register at runtime
+Hi All,
 
-Then maybe it can be fully detected runtime? E.g. via soc_id driver (see
-drivers/soc/)?
+This is v4 of a series to improve performance for hugetlb and vmalloc on arm64.
+Although some of these patches are core-mm, advice from Andrew was to go via the
+arm64 tree. All patches are now acked/reviewed by relevant maintainers so I
+believe this should be good-to-go.
 
-> * If I introduce new compatible strings for "wm,wm8650-sdhc",
-> "wm,wm8750-sdhc", "wm,wm8850-sdhc" and "wm,wm8880-sdhc" in bindings,
-> DTS and driver code, then the new driver and new DTB should work fine,
-> and the DTS should pass schema checks. New driver code won't work with
-> older DTB unless I keep the logic to parse "sdon-inverted" which
-> wouldn't be part of the binding. Old driver code would not work with
-> newer DTB except for pre-A2 versions of WM8505. Is that acceptable?
-> * Existing DTS doesn't differentiate between pre-A2 vs. post-A2
-> revisions of WM8505 and is bound to fail on the latter
+The 2 key performance improvements are 1) enabling the use of contpte-mapped
+blocks in the vmalloc space when appropriate (which reduces TLB pressure). There
+were already hooks for this (used by powerpc) but they required some tidying and
+extending for arm64. And 2) batching up barriers when modifying the vmalloc
+address space for upto 30% reduction in time taken in vmalloc().
 
-That's an old platform, so we should not break the ABI, thus drivers
-must fully support old DTBs.
+vmalloc() performance was measured using the test_vmalloc.ko module. Tested on
+Apple M2 and Ampere Altra. Each test had loop count set to 500000 and the whole
+test was repeated 10 times.
 
-> 
-> I realize that breaking backward/forward compatibility is undesirable,
-> but frankly these systems seem to have few mainline users, and those
-> people who do run mainline on them ought to be compiling the kernel
-> and its DTB at the same time, because the firmware doesn't know
+legend:
+  - p: nr_pages (pages to allocate)
+  - h: use_huge (vmalloc() vs vmalloc_huge())
+  - (I): statistically significant improvement (95% CI does not overlap)
+  - (R): statistically significant regression (95% CI does not overlap)
+  - measurements are times; smaller is better
 
-There might be other users of DTS and anyway what would be exactly the
-benefit? This hardware aspect is already documented via sdon-inverted
-property.
++--------------------------------------------------+-------------+-------------+
+| Benchmark                                        |             |             |
+|   Result Class                                   |    Apple M2 | Ampere Alta |
++==================================================+=============+=============+
+| micromm/vmalloc                                  |             |             |
+|   fix_align_alloc_test: p:1, h:0 (usec)          | (I) -11.53% |      -2.57% |
+|   fix_size_alloc_test: p:1, h:0 (usec)           |       2.14% |       1.79% |
+|   fix_size_alloc_test: p:4, h:0 (usec)           |  (I) -9.93% |  (I) -4.80% |
+|   fix_size_alloc_test: p:16, h:0 (usec)          | (I) -25.07% | (I) -14.24% |
+|   fix_size_alloc_test: p:16, h:1 (usec)          | (I) -14.07% |   (R) 7.93% |
+|   fix_size_alloc_test: p:64, h:0 (usec)          | (I) -29.43% | (I) -19.30% |
+|   fix_size_alloc_test: p:64, h:1 (usec)          | (I) -16.39% |   (R) 6.71% |
+|   fix_size_alloc_test: p:256, h:0 (usec)         | (I) -31.46% | (I) -20.60% |
+|   fix_size_alloc_test: p:256, h:1 (usec)         | (I) -16.58% |   (R) 6.70% |
+|   fix_size_alloc_test: p:512, h:0 (usec)         | (I) -31.96% | (I) -20.04% |
+|   fix_size_alloc_test: p:512, h:1 (usec)         |       2.30% |       0.71% |
+|   full_fit_alloc_test: p:1, h:0 (usec)           |      -2.94% |       1.77% |
+|   kvfree_rcu_1_arg_vmalloc_test: p:1, h:0 (usec) |      -7.75% |       1.71% |
+|   kvfree_rcu_2_arg_vmalloc_test: p:1, h:0 (usec) |      -9.07% |   (R) 2.34% |
+|   long_busy_list_alloc_test: p:1, h:0 (usec)     | (I) -29.18% | (I) -17.91% |
+|   pcpu_alloc_test: p:1, h:0 (usec)               |     -14.71% |      -3.14% |
+|   random_size_align_alloc_test: p:1, h:0 (usec)  | (I) -11.08% |  (I) -4.62% |
+|   random_size_alloc_test: p:1, h:0 (usec)        | (I) -30.25% | (I) -17.95% |
+|   vm_map_ram_test: p:1, h:0 (usec)               |       5.06% |   (R) 6.63% |
++--------------------------------------------------+-------------+-------------+
 
-> anything about DT and any modern kernel can only be booted in
-> "appended DTB" mode. I also don't know of any non-Linux code that
-> might be using these device trees.
-> 
-> Any guidance would be much appreciated.
-> 
+So there are some nice improvements but also some regressions to explain:
 
+fix_size_alloc_test with h:1 and p:16,64,256 regress by ~6% on Altra. The
+regression is actually introduced by enabling contpte-mapped 64K blocks in these
+tests, and that regression is reduced (from about 8% if memory serves) by doing
+the barrier batching. I don't have a definite conclusion on the root cause, but
+I've ruled out the differences in the mapping paths in vmalloc. I strongly
+believe this is likely due to the difference in the allocation path; 64K blocks
+are not cached per-cpu so we have to go all the way to the buddy. I'm not sure
+why this doesn't show up on M2 though. Regardless, I'm going to assert that it's
+better to choose 16x reduction in TLB pressure vs 6% on the vmalloc allocation
+call duration.
 
-Best regards,
-Krzysztof
+Changes since v3 [3]
+====================
+- Applied R-bs (thanks all!)
+- Renamed set_ptes_anysz() -> __set_ptes_anysz() (Catalin)
+- Renamed ptep_get_and_clear_anysz() -> __ptep_get_and_clear_anysz() (Catalin)
+- Only set TIF_LAZY_MMU_PENDING if not already set to avoid atomic ops (Catalin)
+- Fix commet typos (Anshuman)
+- Fix build warnings when PMD is folded (buildbot)
+- Reverse xmas tree for variables in __page_table_check_p[mu]ds_set() (Pasha)
+
+Changes since v2 [2]
+====================
+- Removed the new arch_update_kernel_mappings_[begin|end]() API
+- Switches to arch_[enter|leave]_lazy_mmu_mode() instead for barrier batching
+- Removed clean up to avoid barriers for invalid or user mappings
+
+Changes since v1 [1]
+====================
+- Split out the fixes into their own series
+- Added Rbs from Anshuman - Thanks!
+- Added patch to clean up the methods by which huge_pte size is determined
+- Added "#ifndef __PAGETABLE_PMD_FOLDED" around PUD_SIZE in
+  flush_hugetlb_tlb_range()
+- Renamed ___set_ptes() -> set_ptes_anysz()
+- Renamed ___ptep_get_and_clear() -> ptep_get_and_clear_anysz()
+- Fixed typos in commit logs
+- Refactored pXd_valid_not_user() for better reuse
+- Removed TIF_KMAP_UPDATE_PENDING after concluding that single flag is sufficent
+- Concluded the extra isb() in __switch_to() is not required
+- Only call arch_update_kernel_mappings_[begin|end]() for kernel mappings
+
+Applies on top of v6.15-rc3. All mm selftests run and no regressions observed.
+
+[1] https://lore.kernel.org/all/20250205151003.88959-1-ryan.roberts@arm.com/
+[2] https://lore.kernel.org/all/20250217140809.1702789-1-ryan.roberts@arm.com/
+[3] https://lore.kernel.org/all/20250304150444.3788920-1-ryan.roberts@arm.com/
+
+Thanks,
+Ryan
+
+Ryan Roberts (11):
+  arm64: hugetlb: Cleanup huge_pte size discovery mechanisms
+  arm64: hugetlb: Refine tlb maintenance scope
+  mm/page_table_check: Batch-check pmds/puds just like ptes
+  arm64/mm: Refactor __set_ptes() and __ptep_get_and_clear()
+  arm64: hugetlb: Use __set_ptes_anysz() and
+    __ptep_get_and_clear_anysz()
+  arm64/mm: Hoist barriers out of set_ptes_anysz() loop
+  mm/vmalloc: Warn on improper use of vunmap_range()
+  mm/vmalloc: Gracefully unmap huge ptes
+  arm64/mm: Support huge pte-mapped pages in vmap
+  mm/vmalloc: Enter lazy mmu mode while manipulating vmalloc ptes
+  arm64/mm: Batch barriers when updating kernel mappings
+
+ arch/arm64/include/asm/hugetlb.h     |  29 ++--
+ arch/arm64/include/asm/pgtable.h     | 209 +++++++++++++++++++--------
+ arch/arm64/include/asm/thread_info.h |   2 +
+ arch/arm64/include/asm/vmalloc.h     |  45 ++++++
+ arch/arm64/kernel/process.c          |   9 +-
+ arch/arm64/mm/hugetlbpage.c          |  73 ++++------
+ include/linux/page_table_check.h     |  30 ++--
+ include/linux/vmalloc.h              |   8 +
+ mm/page_table_check.c                |  34 +++--
+ mm/vmalloc.c                         |  40 ++++-
+ 10 files changed, 329 insertions(+), 150 deletions(-)
+
+--
+2.43.0
+
 
