@@ -4,64 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B753C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 02:57:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 315F4C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 02:59:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iYJPrUWUZYghHqO5DdKs7mZT6xUZJXtvop8ZZkPf7T8=; b=pssZ734ax5IUDcIhoGFFk/ZaP1
-	N81GENJbJ7FrhWNgm9o5M3Yrv7DlxCBH6peEj8ytjoc1RbsXO6/3sqnN66QtCqHK9p9xdGNzOZAGK
-	vgKWm9MyuVasvNtqQ4GqrVjAQ429j9T9Rh3BG9eaFElPhH4OAI6yL2XseXa7GwH30MYArTwsDY/yh
-	vW5nJLJ0B4caC8QOh4Nwat/aeSIe2UkrF5GZ64CuUD25t8iZWA7PcTsDSsCYGDrvdEybY9S1075Ut
-	UV5KkxSyODaQEUgD6ahJyGTZKStf7y4YU+qYYZyjbSKCGcpF/vbZL0ZKS0wSShBxXB5pV8Bz2C5Dz
-	sNbYHNQA==;
+	bh=trhyNIM9mIFtIbavFty/Wnrrd5K7EkciM85AXCfhM0Y=; b=lCRSwxm3GLL/lMTMKq8ra3Z63R
+	bp9sDVOa1W4tZbhxHdBpFtVf8lMO37FB/r9ZfkzY/eEwJLRAPpDtqXqIRlNjqiOlpz+/XkBtrR8Bn
+	4vzthW4HDtnKKqwlWCssRrkmZZjmGQMQFUPgwQWZx6miVy9fFhmzt97p9Burf+Z2wkUXoqGgJdjY9
+	kSnTfP04PmXcD6Ig7Zvg3Qr5JtTzGw4WIaBDYtZ7mnlJ/Jy9tKpfd+2GmhbYf3WUJMhjoRxBSQcck
+	zJOUQheBsaz0gFfGOnyOAEMDgaLhQ3cC0ZUhupoAApofwnye61HfbtgjVh3isiQjjHiwrkUPfTC+P
+	eay8aoWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u73pG-00000005hH4-2pqE;
-	Tue, 22 Apr 2025 02:57:34 +0000
-Received: from mail-m16.yeah.net ([1.95.21.14])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u73gF-00000005gR6-0yDz
+	id 1u73r6-00000005hSE-1LR9;
+	Tue, 22 Apr 2025 02:59:28 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u73hF-00000005gWb-118C
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 22 Apr 2025 02:49:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=trhyNIM9mIFtIbavFty/Wnrrd5K7EkciM85AXCfhM0Y=; b=enOAGrXszjGPlWkjdgAV2IGL1J
+	cUKWvNoHzeo62w8rKWGXQ2/c9IsEXIKSCa5etDlfhM3LT8UDrZigfIb7iNO3RJ8RD7O3iL7Ly+d2O
+	sm3V5/VkPyy9zXggcuZlzro1D7V4AH65q7y8fiQGW0KZXjDyUDtiZhZ6coZ1OFn25d8EksvkFtxtL
+	ohciDMQ+szNTQC1cJb98uH/+CBsmR+xq/nQfO0sVYWpJQlo9Lh7A56w0qx27JzAJx/9EGnaXF1q5z
+	AOpaiGyE6yqB+sfCdNJo0z7YCQ2irApb+PLMiJ04DYWqZSzpP6UNdUBHxxj5g+JaK7CC/0ypE3bSr
+	spi0Prdw==;
+Received: from mail-m16.yeah.net ([1.95.21.15])
+	by desiato.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u73h9-0000000B8ED-0cmj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 02:48:16 +0000
+	Tue, 22 Apr 2025 02:49:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
 	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=iYJPrUWUZYghHqO5DdKs7mZT6xUZJXtvop8ZZkPf7T8=;
-	b=TkTpbH+K5yOkEdzap3zS5GUTC/2ZYBl/NYQEJ6K4dMYepqC1ud8Erl9OXNw+DR
-	anO2rS0YhEHhi6RkRHuDPJym1TES3HguTXpnX0Rk68Hua/N9tFvIKAgIWaDHWXCq
-	dMLzlbL9o03513N8Ua+jJ3mWAVVi7c7yWhK9i/yFGx/no=
+	Content-Type; bh=trhyNIM9mIFtIbavFty/Wnrrd5K7EkciM85AXCfhM0Y=;
+	b=czg1r706O01f0jhnKMve4+UToK2y5T1nFdPfcJ53ettuM4ljIj1Phpk7/FTSJD
+	RBzyEAxFjz4jdWPrnPQ7L8rb/Ci/RVyH4d7e1EI2LV3FwBdN0YPY5UkdkX+PBYDQ
+	ldDWmOobM5AU3xruIhPfdqb5AvtIEU7k8NNRd50lexVxU=
 Received: from dragon (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id M88vCgC3Z0tYAwdoG4yjAw--.32361S3;
-	Tue, 22 Apr 2025 10:47:54 +0800 (CST)
-Date: Tue, 22 Apr 2025 10:47:52 +0800
+	by gzsmtp1 (Coremail) with SMTP id Mc8vCgC3QjyGAwdofxCrAw--.442S3;
+	Tue, 22 Apr 2025 10:48:40 +0800 (CST)
+Date: Tue, 22 Apr 2025 10:48:38 +0800
 From: Shawn Guo <shawnguo2@yeah.net>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ARM: dts: nxp: Align NAND controller node name with
- bindings
-Message-ID: <aAcDWI/ehg2v8kgd@dragon>
-References: <20250317111853.43708-1-krzysztof.kozlowski@linaro.org>
+To: Fabio Estevam <festevam@gmail.com>
+Cc: shawnguo@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, hector.palacios@digi.com,
+	Fabio Estevam <festevam@denx.de>
+Subject: Re: [PATCH v3] ARM: dts: imx51-digi-connectcore-som: Fix MMA7455
+ compatible
+Message-ID: <aAcDhqrCthjDtKbw@dragon>
+References: <20250317123109.2216509-1-festevam@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250317111853.43708-1-krzysztof.kozlowski@linaro.org>
-X-CM-TRANSID: M88vCgC3Z0tYAwdoG4yjAw--.32361S3
+In-Reply-To: <20250317123109.2216509-1-festevam@gmail.com>
+X-CM-TRANSID: Mc8vCgC3QjyGAwdofxCrAw--.442S3
 X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUa0tCUUUUU
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUxpnQUUUUU
 X-Originating-IP: [114.216.210.34]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiBB83ZWgG2pu5jgAAsR
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiBB83ZWgG2pu5jgABsQ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_194815_577335_6F53C50B 
-X-CRM114-Status: UNSURE (   6.78  )
+X-CRM114-CacheID: sfid-20250422_034912_129926_4DE82EB0 
+X-CRM114-Status: UNSURE (   7.89  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,12 +89,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 17, 2025 at 12:18:53PM +0100, Krzysztof Kozlowski wrote:
-> Bindings expect NAND controller device nodes to be named
-> "nand-controller".
+On Mon, Mar 17, 2025 at 09:31:09AM -0300, Fabio Estevam wrote:
+> From: Fabio Estevam <festevam@denx.de>
 > 
-> Cc: Fabio Estevam <festevam@gmail.com>
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> The "fsl,mma7455l" compatible string is not documented anywhere.
+> 
+> MMA7455L is the exact same device as the MMA7455, with the exception that
+> it is lead-free. Use the documented compatible string.
+> 
+> Signed-off-by: Fabio Estevam <festevam@denx.de>
 
 Applied, thanks!
 
