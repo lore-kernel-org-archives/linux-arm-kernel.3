@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5227C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 07:51:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA336C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 07:53:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uy3Up9+VL/2AsL+aZ5eo5DfBzY9pu8UsnO2LpuewdHE=; b=vR/BmFjlcXChxLlRjqqGDk5n6P
-	xE3HahPBUr0QV8nqu4mjIBp4piynAykSo3X8BmoirpQrTVCma1dMRgo9UIIh2iOZI7B4mKgc8UvsH
-	wDMpgunxdqrWFO0fWUEH7RUvhhG1VV5vdHYgeqHG7nTTIt3vZTHxybqWbFCCq+VG8x6t5+yrAM2Qj
-	KeA0bp/EWO0YDUIFUuizFlBUhhPy8kV+rhpNyKH6Q0USfwWI4UbZm62myfKHOoOvIXpMZd8i30ENk
-	Y+wZgogL4Kh3Kx59ffWSJmx/zzQ23ULOKJeculO95zuUXowLFezXUb8DWVD54b8AS3o+ucryIOyRc
-	YlSwxHLA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Tsylv0bOkdEmFi15tyMOYrzCerA6VKoKzOpO9c/AEH8=; b=N1zzCflJUWszV3lWgJQbQZ48TJ
+	/U8la12CbMXjz2xr6DCFiV2b0tleiAPf8SFAyz3VNtQXl2jQLmF+sCSNBnatIdEYXG9B4r1xINdOM
+	SHhCLnV3lvCP/czLRDR42DLILPREufkN+hoMACquPrG04eiNmB2WQuc9jtxaeFsNhNQ8l4Qu204dA
+	/VjX0DuCPP106h1N4/utrcl6MvQobAt8tvCA8Ds+mdtEqRSMa00x8PChwrzvOP6NIaDvkgId9rAn2
+	JUynF9jPs4kdQ9486Efn7b0JB2cMU6vCYFAfRokD69H2w5tj4l5PW58Ln/3R/1JeyeHYm9hXdIqM8
+	roZHJwfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u78Px-00000006BKY-3prh;
-	Tue, 22 Apr 2025 07:51:45 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
+	id 1u78Ro-00000006Bhm-05WT;
+	Tue, 22 Apr 2025 07:53:40 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u77hA-000000063ym-1X94;
+	id 1u77hA-000000063yh-1O8w;
 	Tue, 22 Apr 2025 07:05:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=uy3Up
-	9+VL/2AsL+aZ5eo5DfBzY9pu8UsnO2LpuewdHE=; b=Jex7O9ogF3CNCOu8eviey
-	be0347Ae1rSkyFNyg+SkQTgOQnrseUN5fHeSxKQZa5rd/K/ACBnySoT8l6jqBzyM
-	ARF9N97ZGnA/mLfuKsZHAkdN2r7+awFFz/Bagfm4JA/KIMp0bk9Tjmv6XxZ/RXyw
-	T1H3/4rdixSoEpBhtINvmw=
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=Tsylv
+	0bOkdEmFi15tyMOYrzCerA6VKoKzOpO9c/AEH8=; b=JjgrCRsLtn6/0rWRRwktb
+	mr1Not5CIUeEBclLZsvQKJuNlNpY0+9h1VD2nBfBGHyHRfMjWmuYtVinK2Ppt03p
+	TYath0ZvP3d4pxkC3vfWfs3T6P7yuLV6WTiXjMM2kPS1mpBcpMjzvdV3CqFlHtJ5
+	o5qZcnge+wCZ8n24cmAGVw=
 Received: from ProDesk.. (unknown [])
-	by gzga-smtp-mtada-g1-3 (Coremail) with SMTP id _____wCHACaZPwdowMxzBg--.7474S4;
-	Tue, 22 Apr 2025 15:05:04 +0800 (CST)
+	by gzga-smtp-mtada-g1-3 (Coremail) with SMTP id _____wCHACaZPwdowMxzBg--.7474S2;
+	Tue, 22 Apr 2025 15:05:01 +0800 (CST)
 From: Andy Yan <andyshrk@163.com>
 To: heiko@sntech.de
 Cc: conor+dt@kernel.org,
@@ -50,27 +50,23 @@ Cc: conor+dt@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v4 2/7] dt-bindings: display: rockchip,inno-hdmi: Document GRF for RK3036 HDMI
-Date: Tue, 22 Apr 2025 15:04:41 +0800
-Message-ID: <20250422070455.432666-3-andyshrk@163.com>
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: [PATCH v4 0/7] Convert inno hdmi to drm bridge
+Date: Tue, 22 Apr 2025 15:04:39 +0800
+Message-ID: <20250422070455.432666-1-andyshrk@163.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250422070455.432666-1-andyshrk@163.com>
-References: <20250422070455.432666-1-andyshrk@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wCHACaZPwdowMxzBg--.7474S4
-X-Coremail-Antispam: 1Uf129KBjvJXoW7ZryxWw47XF1UAFyxtFyrZwb_yoW8XF17pa
-	sxC3srWFyxGFy3X34ktr18CrWYgF97Aw45JFW7Xr17Kr42gan5Ka1agwn8ZF4UAFs7ZayS
-	9a17CFy5Aw4Ivr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07je-eOUUUUU=
+X-CM-TRANSID: _____wCHACaZPwdowMxzBg--.7474S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxCry8Gw1UAFW7KrWfZF1rCrg_yoW5Jw4fpa
+	98Ary5ZF47C3WIqrnrAF48ArWayayDJa1F9ryxJw1fZr4j9F1UAr9xur4FvrnxAr17AFsF
+	yrs7Ga4UKFW7ZaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j7HUDUUUUU=
 X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbBkBE3XmgHPY1Z9wABsY
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqAs3XmgHPoEzQwAAsq
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_000528_779686_573F5DFF 
-X-CRM114-Status: UNSURE (   8.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250422_000528_779523_19905E26 
+X-CRM114-Status: GOOD (  13.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,58 +83,62 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Andy Yan <andy.yan@rock-chips.com>
 
-HDMI on RK3036 use GRF control the HSYNC/VSYNC polarity, but this part
-is missing when it first landing upstream.
+When preparing to convert the current inno hdmi driver into a
+bridge driver, I found that there are several issues currently
+existing with it:
 
-Document that it is mandatory for RK3036 HDMI.
+1. When the system starts up, the first time it reads the EDID, it
+   will fail. This is because RK3036 HDMI DDC bus requires it's PHY's
+   reference clock to be enabled first before normal DDC communication
+   can be carried out.
 
-Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+2. The signal is unstable. When running the glmark2 test on the screen,
+   there is a small probability of seeing some screen flickering.
+   This is because The HSYNC/VSYNC polarity of rk3036 HDMI are controlled
+   by GRF. This part is missing in the current driver.
 
----
+PATCH 1~6 are try to Fix Document in the dt-binding, then add the
+missing part in driver and dts.
+PATCH 7 converts the curren driver to drm bridge mode.
 
-(no changes since v2)
+Changes in v4:
+- Do not store colorimetry within inno_hdmi struct
+- Link to V3: https://lore.kernel.org/linux-rockchip/20250402123150.238234-1-andyshrk@163.com/
+
+Changes in v3:
+- Convert to drm bridge driver
+- Link to V2: https://lore.kernel.org/dri-devel/20250325132944.171111-1-andyshrk@163.com/
 
 Changes in v2:
-- First included in v2
+- included the HSYNC/VSYNC polarity fix
 
- .../bindings/display/rockchip/rockchip,inno-hdmi.yaml    | 9 +++++++++
- 1 file changed, 9 insertions(+)
+Andy Yan (7):
+  dt-bindings: display: rockchip,inno-hdmi: Fix Document of RK3036
+    compatible
+  dt-bindings: display: rockchip,inno-hdmi: Document GRF for RK3036 HDMI
+  drm/rockchip: inno-hdmi: Simplify error handler with dev_err_probe
+  drm/rockchip: inno-hdmi: Fix video timing HSYNC/VSYNC polarity setting
+    for rk3036
+  ARM: dts: rockchip: Add ref clk for hdmi
+  Revert "ARM: dts: rockchip: drop grf reference from rk3036 hdmi"
+  drm/rockchip: inno-hdmi: Convert to drm bridge
 
-diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,inno-hdmi.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,inno-hdmi.yaml
-index 9d1e7f894ea54..290376bec079a 100644
---- a/Documentation/devicetree/bindings/display/rockchip/rockchip,inno-hdmi.yaml
-+++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,inno-hdmi.yaml
-@@ -56,6 +56,12 @@ properties:
-       - port@0
-       - port@1
- 
-+  rockchip,grf:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      Phandle to GRF used for control the polarity of hsync/vsync of rk3036
-+      HDMI.
-+
- required:
-   - compatible
-   - reg
-@@ -75,6 +81,8 @@ allOf:
-             const: rockchip,rk3036-inno-hdmi
- 
-     then:
-+      required:
-+        - rockchip,grf
-       properties:
-         power-domains: false
- 
-@@ -103,6 +111,7 @@ examples:
-       clock-names = "pclk", "ref";
-       pinctrl-names = "default";
-       pinctrl-0 = <&hdmi_ctl>;
-+      rockchip,grf = <&grf>;
-       #sound-dai-cells = <0>;
- 
-       ports {
+ .../display/rockchip/rockchip,inno-hdmi.yaml  |  20 +-
+ arch/arm/boot/dts/rockchip/rk3036.dtsi        |   5 +-
+ drivers/gpu/drm/bridge/Kconfig                |   7 +
+ drivers/gpu/drm/bridge/Makefile               |   1 +
+ .../inno_hdmi.c => bridge/inno-hdmi.c}        | 907 ++++++++++--------
+ drivers/gpu/drm/rockchip/Kconfig              |   1 +
+ drivers/gpu/drm/rockchip/Makefile             |   2 +-
+ drivers/gpu/drm/rockchip/inno_hdmi-rockchip.c | 187 ++++
+ drivers/gpu/drm/rockchip/inno_hdmi.h          | 349 -------
+ include/drm/bridge/inno_hdmi.h                |  33 +
+ 10 files changed, 754 insertions(+), 758 deletions(-)
+ rename drivers/gpu/drm/{rockchip/inno_hdmi.c => bridge/inno-hdmi.c} (52%)
+ create mode 100644 drivers/gpu/drm/rockchip/inno_hdmi-rockchip.c
+ delete mode 100644 drivers/gpu/drm/rockchip/inno_hdmi.h
+ create mode 100644 include/drm/bridge/inno_hdmi.h
+
 -- 
 2.43.0
 
