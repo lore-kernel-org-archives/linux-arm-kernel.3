@@ -4,82 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91983C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 06:31:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87B61C369D7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 06:37:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WoUER+RlE16ITj8VlE+L9VguQMKJtmcK5lmnna4nc70=; b=nwBqIv/TxarSf2N8ViTSVd+BVu
-	fnEfNCTNoBU90i45PpUbP8/hk1PKwXNrCGk5Y7QY3Tae55eNRDczEhnRWunjjQFdiEZ1rXjY5FrAT
-	XzRYazHwd5F8LaGgMIszirupBzM+HD9ZJ12B5WhtLZgEceUQ+Lunoe8WOcQBwFe1wEXPoQg8NtAoI
-	tjibU1qos0vZfYXN6AunNt81z5x2nrd+z8tPD5TIwcC0/vBnp3uynPKglb41eopynHUgvrEFCIXNg
-	M59UUHsTHf8ra8ck/deqdVY085raqdifk01umsM+n5CRljTsxhWprdlDlBTethPv+CDpz/wfMPXbs
-	GArwJPjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tiD+q2iLPecaXdqBIUQA6kHgOTtsV3xRVQmtbqKQgbw=; b=cpGfrhKZ+JXBpS9jN3t7+JqfVO
+	1C1GF/aKracIYOin74ydh/MCTKMs0eo0868a0FhsosgL/3M7C01+9v82vQz8kWaurRHJyyEuGVhiw
+	9Kz6y+Yn2hWxFbwgjmjGYAVCqL+Entp04sDVCIeuN1WBj16w6tkNaDy4jVxPuQNaT3Kf82wj6fiX8
+	ZzaNZhV8/szFgw16D7f/ZeRNYc3ZU2IA8/NEd+Jw54K7LMHF15qE+IKezpcTX1sbiJS1DqHW/lRxe
+	KmuxjGP36pljALsMCWRirD68C0PXumBWZAa473on1/vwGG2uO7sOHYYT+NW8kD82HBpETqZ+rop8/
+	LfFNWRcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u77AL-00000005xwF-3MHk;
-	Tue, 22 Apr 2025 06:31:33 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1u77Fs-00000005zSR-17RK;
+	Tue, 22 Apr 2025 06:37:16 +0000
+Received: from mx1.emlix.com ([178.63.209.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u774I-00000005wpT-0G5N
+	id 1u77Dy-00000005z3a-2xWH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 06:25:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5FA055C58EE
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 06:23:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0F37C4CEEC
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 06:25:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745303116;
-	bh=WoUER+RlE16ITj8VlE+L9VguQMKJtmcK5lmnna4nc70=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=QYr1Rm0vtNdW2Jym6LuMjLQXkwPJ7nYN+2ABwFI6PIoQA1M+PpuEfXJbszuhS28oh
-	 DuhLfDCDd5f6h9e9sFgVrhS9EkiWR18bayr+l67aQ90G81u8vnA2wZwAqBcT/FmHSv
-	 GrA+LB6ouU+bje/LqK/OfBtpab9zUJDENENR0xf32JcC1MRTwCsMwhwHXmHC47TEZq
-	 cXWAsByaIMZg0SaHMQbQfrt0Due1hyNEBippqKDKiyS0Fm0ORVKkf5MEzTEEde90d9
-	 jrwG9EbL/zrocRA1qT1bV7NBtXNqUKj8iT1bR9bHN2StEzsyQ5GoAEoxwSX5LvTF2K
-	 K+XUOqaqJU8gA==
-Received: by mail-qk1-f181.google.com with SMTP id af79cd13be357-7c08fc20194so150449885a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Apr 2025 23:25:16 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVa2m0jbcRiAZpi5okrdc71dDiUMUiL9tvh3wgosWwPQCswFGMlB1nznS7FqRs49htEl9Upix18K1vH5sv7n2E+@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJLPwWj5WbiNbDmTUsRPqiY9n06NrbJdtezGTpURcBglWpTe3q
-	4yeUrNmEzHsHUiL4RwafrGLbtzOXTkI8LL4byNmw7VwxuksEyyEDEzl2xJKQmJ644asLqk/QbIM
-	pvdGNLKeu/6V66baSdBWv8F21mYc=
-X-Google-Smtp-Source: AGHT+IFq/kCrp5sAoPRx2ufn6VDCk/MgNt2ImfpjzZ/wbGytewzE7HFRZ82iD9KlMJRBFRa24L4t6F5ZSbo1aByp8XI=
-X-Received: by 2002:a05:620a:46ab:b0:7c5:5e05:df33 with SMTP id
- af79cd13be357-7c92804d668mr2515679885a.51.1745303115971; Mon, 21 Apr 2025
- 23:25:15 -0700 (PDT)
+	Tue, 22 Apr 2025 06:35:21 +0000
+Received: from mailer.emlix.com (p5098be52.dip0.t-ipconnect.de [80.152.190.82])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mx1.emlix.com (Postfix) with ESMTPS id 195285F86B;
+	Tue, 22 Apr 2025 08:35:14 +0200 (CEST)
+From: Rolf Eike Beer <eb@emlix.com>
+To: Joerg Roedel <joro@8bytes.org>
+Cc: Will Deacon <will@kernel.org>, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Bert Karwatzki <spasswolf@web.de>,
+ Lu Baolu <baolu.lu@linux.intel.com>, Jerry Snitselaar <jsnitsel@redhat.com>,
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+ Tomasz Jeznach <tjeznach@rivosinc.com>, Nick Kossifidis <mick@ics.forth.gr>,
+ Sebastien Boeuf <seb@rivosinc.com>, Palmer Dabbelt <palmer@rivosinc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Robin Murphy <robin.murphy@arm.com>,
+ linux-arm-kernel@lists.infradead.org, Jason Gunthorpe <jgg@ziepe.ca>,
+ Kevin Tian <kevin.tian@intel.com>
+Subject: Re: [PATCHv2 0/6] make vendor specific subdirectory inclusion conditional
+Date: Tue, 22 Apr 2025 08:35:08 +0200
+Message-ID: <2779144.mvXUDI8C0e@devpool92.emlix.com>
+Organization: emlix GmbH
+In-Reply-To: <aAERFUJj_6NuxAv3@8bytes.org>
+References: <12652899.O9o76ZdvQC@devpool47.emlix.com> <aAERFUJj_6NuxAv3@8bytes.org>
 MIME-Version: 1.0
-References: <20250412010940.1686376-1-dylanbhatch@google.com>
- <20250412010940.1686376-3-dylanbhatch@google.com> <CAPhsuW4LO9Cr8kpTeNR7nBw1FYrNrXBndYtcTEnA408GL1jT0A@mail.gmail.com>
-In-Reply-To: <CAPhsuW4LO9Cr8kpTeNR7nBw1FYrNrXBndYtcTEnA408GL1jT0A@mail.gmail.com>
-From: Song Liu <song@kernel.org>
-Date: Mon, 21 Apr 2025 23:25:04 -0700
-X-Gmail-Original-Message-ID: <CAPhsuW7z2rdNK3w9Hpwh8FXy29fSUNGKyAw0GbUqfxnfgsfg_Q@mail.gmail.com>
-X-Gm-Features: ATxdqUEv9Xn7L89x3Z4tWfx0SMDCVGs9AoZFtdJTNbi3OfiiHlhmph8HruZ6k7M
-Message-ID: <CAPhsuW7z2rdNK3w9Hpwh8FXy29fSUNGKyAw0GbUqfxnfgsfg_Q@mail.gmail.com>
-Subject: Re: [PATCH v2 2/2] arm64/module: Use text-poke API for late relocations.
-To: Dylan Hatch <dylanbhatch@google.com>
-Cc: Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
-	Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, 
-	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
-	Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
-	Xu Kuohai <xukuohai@huaweicloud.com>, =?UTF-8?Q?Philippe_Mathieu=2DDaud=C3=A9?= <philmd@linaro.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	"Mike Rapoport (Microsoft)" <rppt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Luis Chamberlain <mcgrof@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Ard Biesheuvel <ardb@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Roman Gushchin <roman.gushchin@linux.dev>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; boundary="nextPart12651545.O9o76ZdvQC";
+ micalg="pgp-sha256"; protocol="application/pgp-signature"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_232518_189379_3E9B15FF 
-X-CRM114-Status: GOOD (  14.97  )
+X-CRM114-CacheID: sfid-20250421_233518_884645_5BA36363 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,26 +70,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 21, 2025 at 5:35=E2=80=AFPM Song Liu <song@kernel.org> wrote:
->
-> On Fri, Apr 11, 2025 at 6:10=E2=80=AFPM Dylan Hatch <dylanbhatch@google.c=
-om> wrote:
-> >
-> > To enable late module patching, livepatch modules need to be able to
-> > apply some of their relocations well after being loaded. In this
-> > scenario, use the text-poking API to allow this, even with
-> > STRICT_MODULE_RWX.
-> >
-> > This patch is largely based off commit 88fc078a7a8f6 ("x86/module: Use
-> > text_poke() for late relocations").
-> >
-> > Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
+--nextPart12651545.O9o76ZdvQC
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
+From: Rolf Eike Beer <eb@emlix.com>
+To: Joerg Roedel <joro@8bytes.org>
+Date: Tue, 22 Apr 2025 08:35:08 +0200
+Message-ID: <2779144.mvXUDI8C0e@devpool92.emlix.com>
+Organization: emlix GmbH
+In-Reply-To: <aAERFUJj_6NuxAv3@8bytes.org>
+MIME-Version: 1.0
 
-Could you please share how you test this?
+On Donnerstag, 17. April 2025 16:32:53 Mitteleurop=C3=A4ische Sommerzeit Jo=
+erg=20
+Roedel wrote:
+> On Thu, Mar 20, 2025 at 10:01:45AM +0100, Rolf Eike Beer wrote:
+> > Changes in v2:
+> > - clean up subdirectory Makefiles to use obj-y now
+> > - add arm/arm-smmu-v3 and iommufd patches
+>=20
+> This conflicts with the core branch, can you please rebase once I pushed
+> the updated tree?
 
-Thanks,
-Song
+Sure.
+=2D-=20
+Rolf Eike Beer
+
+emlix GmbH
+Headquarters: Berliner Str. 12, 37073 G=C3=B6ttingen, Germany
+Phone +49 (0)551 30664-0, e-mail info@emlix.com
+District Court of G=C3=B6ttingen, Registry Number HR B 3160
+Managing Directors: Heike Jordan, Dr. Uwe Kracke
+VAT ID No. DE 205 198 055
+Office Berlin: Panoramastr. 1, 10178 Berlin, Germany
+Office Bonn: Bachstr. 6, 53115 Bonn, Germany
+http://www.emlix.com
+
+emlix - your embedded Linux partner
+--nextPart12651545.O9o76ZdvQC
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part.
+Content-Transfer-Encoding: 7Bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iLMEAAEIAB0WIQQ/Uctzh31xzAxFCLur5FH7Xu2t/AUCaAc4nAAKCRCr5FH7Xu2t
+/Ho+A/98h1tQPHZhbsX2KdIBKcFTRVlxRJvscAWNQs5Bko1+iniOMO2sfq6HClPQ
+7VC+G41TiMT5lg6jPBJqNlM8AXmA/dt85cmYSP0YuW+JRaE5aHfprhlJwjy7/o99
+Yy23Gp0kOkRaa2sm/N32llKyzxpn14YxBKPR3GZm1c5IQhbsng==
+=8mcp
+-----END PGP SIGNATURE-----
+
+--nextPart12651545.O9o76ZdvQC--
 
 
-> Acked-by: Song Liu <song@kernel.org>
+
 
