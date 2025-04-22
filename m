@@ -4,59 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86E4AC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 14:30:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42F63C369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 14:32:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gyEBcCR/6QHLUGIB+aQpEgJBKH3e+SwaGu0zl8J1ZWY=; b=owWZsZ/YeRmII3kN66sLOapNJw
-	31MelJncZbCCyI7IxnJNPvi1mwRrBeYvJLKQ7MjtFxRn1ckiwj7S/TRvrJT46ZbET3u8yCk7+cVJb
-	cMPdjKZt6VuHDtexJvO4kvZGNe/C7NdoEnu4/aLSac028h0aSOi5vnSfJqEby3Pz14voPThaVo8dg
-	7yX59GxEKVSC9I699Hom/ch7xYv0iNIB1tfOHzlAf/+nGQRTm0O/M9psWzGQj03/k4PXeW8b730kd
-	fmRfiHTyvBuS1PfFowftfxr31by3k4GDTWEcYw01q0n3EoxH0xfttCKGnwliRYZsgVZL2o3+Z4jbN
-	ZIjpHZFQ==;
+	bh=ifXXIOFUCTrffgXgl0/x/2tZXJkHmuH2M65rt03QFpo=; b=jFL+3/IZKU7jt+PZFHROPzB0Kb
+	c/AM+0wNUcpCjIEJ5uWOIDJVUoeWIrU3KKaTA4q+yeiL5Y6LIz6zL8PD7NyRs89f/rpS331T0Pm+m
+	NHLlg8mvMwkXP2bpIdfll3LvdI31LYFjRZriAKL+QJfH8QnZUyugE9Pq2qgXpoF+nqtnpyu605fvK
+	OLruKd/vSbOepiELWqzu01091u/VZOMi1fl/oCFH8DOhwJtMRASCCV1f8uNmJs52tVyoUxvtoJukD
+	vaTFDPsKFd5auKn/zrI0nuoYRy+RjU/qo7KJrHpXVkgm60NuNh58zmC0cWFdUJ+UMmB9STqd/8x2O
+	u0GemZtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Edd-00000007VBA-09xQ;
-	Tue, 22 Apr 2025 14:30:17 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7DUd-00000007GDr-3SRd
+	id 1u7EfT-00000007Vf3-3PAn;
+	Tue, 22 Apr 2025 14:32:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7DXo-00000007H2I-1iYx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 13:16:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2A7BC5C1663;
-	Tue, 22 Apr 2025 13:14:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90DA4C4CEE9;
-	Tue, 22 Apr 2025 13:16:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1745327814;
-	bh=MaJ0KTg/lw0pHF0ohqvoSddCrFkNPCpBd88fRNl46XI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XAJea8G4oPFWYT8hcX0maNisJFXdrKSRypNi9ek8uiUpa+jQ1U1QUK9arCktKIWrK
-	 wDybn5eV7MX/ZUOlyNyRBXV998KFToGVmsBRnZHhjaSnq6f5ZJrGZA9TxYNx8tEiAB
-	 yGUV3IiuFvw9kF8AixCwDPoOFPtS8j7nccmXNc0o=
-Date: Tue, 22 Apr 2025 15:16:52 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Peter Korsgaard <peter@korsgaard.com>
-Cc: Praveen Teja Kundanala <praveen.teja.kundanala@amd.com>,
-	Kalyani Akula <kalyani.akula@amd.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] nvmem: zynqmp_nvmem: unbreak driver after cleanup
-Message-ID: <2025042243-gladiator-sizable-a69e@gregkh>
-References: <20250422130831.2309995-1-peter@korsgaard.com>
+	Tue, 22 Apr 2025 13:20:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2BDC1152B;
+	Tue, 22 Apr 2025 06:20:07 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0D4733F5A1;
+	Tue, 22 Apr 2025 06:20:11 -0700 (PDT)
+Date: Tue, 22 Apr 2025 14:20:06 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Yicong Yang <yangyicong@huawei.com>
+Cc: James Clark <james.clark@linaro.org>, yangyicong@hisilicon.com,
+	jonathan.cameron@huawei.com, hejunhao3@huawei.com,
+	linuxarm@huawei.com, wangyushan12@huawei.com, caijingtao@huawei.com,
+	xueshan2@huawei.com, prime.zeng@hisilicon.com, acme@kernel.org,
+	namhyung@kernel.org, catalin.marinas@arm.com, will@kernel.org,
+	peterz@infradead.org, mingo@redhat.com, mark.rutland@arm.com,
+	jolsa@kernel.org, john.g.garry@oracle.com, leo.yan@linux.dev,
+	irogers@google.com, linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org
+Subject: Re: [PATCH] perf arm-spe: Add support for SPE Data Source packet on
+ HiSilicon HIP12
+Message-ID: <20250422132006.GG28953@e132581.arm.com>
+References: <20250408122809.37884-1-yangyicong@huawei.com>
+ <89741897-6c8f-4b75-8ec3-675111ea60a1@linaro.org>
+ <20250422102952.GD28953@e132581.arm.com>
+ <ccb8ce65-8241-0670-25c8-f8245fbc5e22@huawei.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250422130831.2309995-1-peter@korsgaard.com>
+In-Reply-To: <ccb8ce65-8241-0670-25c8-f8245fbc5e22@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_061655_929404_3EAE9F87 
-X-CRM114-Status: GOOD (  26.61  )
+X-CRM114-CacheID: sfid-20250422_062012_498645_3FBADBED 
+X-CRM114-Status: GOOD (  22.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,62 +73,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 22, 2025 at 03:08:31PM +0200, Peter Korsgaard wrote:
-> Commit 29be47fcd6a0 ("nvmem: zynqmp_nvmem: zynqmp_nvmem_probe cleanup")
-> changed the driver to expect the device pointer to be passed as the
-> "context", but in nvmem the context parameter comes from nvmem_config.priv
-> which is never set - Leading to null pointer exceptions when the device is
-> accessed.
+On Tue, Apr 22, 2025 at 08:31:43PM +0800, Yicong Yang wrote:
+
+[...]
+
+> >>> +	case ARM_SPE_HISI_HIP_PEER_CLUSTER:
+> >>> +		data_src->mem_lvl = PERF_MEM_LVL_REM_CCE1 | PERF_MEM_LVL_HIT;
+> >>> +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
+> > 
+> > Seems to me, a CPU has L3 cache, would the cluster has a higher level's
+> > cache?
 > 
-> Fixes: 29be47fcd6a0 ("nvmem: zynqmp_nvmem: zynqmp_nvmem_probe cleanup")
-> Signed-off-by: Peter Korsgaard <peter@korsgaard.com>
-> ---
->  drivers/nvmem/zynqmp_nvmem.c | 1 +
->  1 file changed, 1 insertion(+)
+> In my case, the cluster CPUs share the L3 cache and there's several clusters.
+> L3's the highest level cache in the system.
+
+If so, you might need to revise the cache levels for:
+
+  ARM_SPE_HISI_HIP_PEER_CPU
+  ARM_SPE_HISI_HIP_PEER_CPU_HITM
+
+IIUC, cluster CPUs share L3 cache, and every CPU in a cluster has
+L1/L2 cache, for PEER_CPU cases, the memory level should be L2.
+
+[...]
+
+> >>> +	case ARM_SPE_HISI_HIP_REMOTE_SOCKET:
+> >>> +		data_src->mem_lvl = PERF_MEM_LVL_REM_CCE2;
+> >>> +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_ANY_CACHE;
+> >>> +		data_src->mem_remote = PERF_MEM_REMOTE_REMOTE;
+> >>> +		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
+> >>
+> >> Hi Yicong,
+> >>
+> >> Is the mem_snoop setting missing from this one?
+> > 
+> > The field 'mem_snoopx' is an extension to the field 'mem_snoop'.
+> > 
+> > If the field 'mem_snoopx' is set, it is no need to set 'mem_snoop'.
+> > 
 > 
-> diff --git a/drivers/nvmem/zynqmp_nvmem.c b/drivers/nvmem/zynqmp_nvmem.c
-> index 8682adaacd692..7da717d6c7faf 100644
-> --- a/drivers/nvmem/zynqmp_nvmem.c
-> +++ b/drivers/nvmem/zynqmp_nvmem.c
-> @@ -213,6 +213,7 @@ static int zynqmp_nvmem_probe(struct platform_device *pdev)
->  	econfig.word_size = 1;
->  	econfig.size = ZYNQMP_NVMEM_SIZE;
->  	econfig.dev = dev;
-> +	econfig.priv = dev;
->  	econfig.add_legacy_fixed_of_cells = true;
->  	econfig.reg_read = zynqmp_nvmem_read;
->  	econfig.reg_write = zynqmp_nvmem_write;
-> -- 
-> 2.39.5
-> 
+> they should not be mutal exclusive. mem_snoopx provides the information where
+> the cacheline comes from while mem_snoop provides the status of the cacheline.
+> if hardware supports we can gather both information from the data source, like
+> above for ARM_SPE_HISI_HIP_PEER_CLUSTER_HITM.
 
-Hi,
+My understanding is the PERF_MEM_SNOOPX_PEER flag was extended for
+support Arm SPE.  Other snoop flags were original from x86 arch.
 
-This is the friendly patch-bot of Greg Kroah-Hartman.  You have sent him
-a patch that has triggered this response.  He used to manually respond
-to these common problems, but in order to save his sanity (he kept
-writing the same thing over and over, yet to different people), I was
-created.  Hopefully you will not take offence and will fix the problem
-in your patch and resubmit it so that it can be accepted into the Linux
-kernel tree.
+I agreed that in some cases above, both the flags PERF_MEM_SNOOPX_PEER
+and PERF_MEM_SNOOP_HITM can be set together, you can parse cache sharing
+with different --display options:
 
-You are receiving this message because of the following common error(s)
-as indicated below:
+  perf c2c report --display tot    => based on HITM flags
+  perf c2c report --display peer   => based on SNOOPX_PEER flag
 
-- You have marked a patch with a "Fixes:" tag for a commit that is in an
-  older released kernel, yet you do not have a cc: stable line in the
-  signed-off-by area at all, which means that the patch will not be
-  applied to any older kernel releases.  To properly fix this, please
-  follow the documented rules in the
-  Documentation/process/stable-kernel-rules.rst file for how to resolve
-  this.
+> for other cases if there's mem_snoopx information I think mem_snoop can be dropped,
+> this won't make differeces. Checked c2c_decode_stats(), only PERF_MEM_SNOOP_HIT and
+> PERF_MEM_SNOOP_HITM is useful when summarizing c2c statistics.
 
-If you wish to discuss this problem further, or you have questions about
-how to resolve this issue, please feel free to respond to this email and
-Greg will reply once he has dug out from the pending patches received
-from other developers.
+It is about how to present accurate results.
 
-thanks,
+E.g., for REMOTE_SOCKET type, it is hard to say the data from remote
+DRAM or any level's cache.  Since more hardware details are absent, this
+is why I suggested not to set 'mem_snoop' for REMOTE_SOCKET.
 
-greg k-h's patch email bot
+Thanks,
+Leo
 
