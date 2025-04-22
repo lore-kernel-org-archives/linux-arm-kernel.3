@@ -4,78 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9964EC369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 14:22:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E51EC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 14:24:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IDkLAWQRNpsJfzFfKZyPr4d1GbMEnucSMGS/IOzfTCU=; b=InyRU/qTE6nu0ARH3h7AG0BraC
-	ZAtRMZ+6nMyEUQ3axx3/3cgORLDFbVM10avUvZ1MCeHSft1HhKtsy47VJR+HStKVxPZh4eJmoIPc+
-	GZaElb85IiW9PkDyJiA81DSsB9D3q1bq5a8PBrUJsuXDbRzuiOTRd2o7kKzU4zD4J+kJy8EVM32EA
-	TCzwe1GhdjIQJdoJT1me5X6EFQ0UbQMDB0CalBCcNLZJfgpCxBMK6/QfB7vyzOzFvmVDfVDdm7nVD
-	powMo+o+Xg47SGDb8pweH34yYe1fPHCXeHNulaI7Hkxn4L1YpiVDXlsLd0SIvMqJziNyyaXtKPNVx
-	8ZscHiUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lPFC4LcnN4maWHkXh5oR1L8DFfyQEi6+KKWudgcP/fs=; b=zCEUMkpZtJlTCYPSQo2j3KOvdY
+	us/OzEJL3M9y4POiY9ISxayti6wtD9qs4N6z79HUNKl470iErZqjJU1R+qtQG88OSoF8bj/0agteW
+	5hHkQw01U3QT5n6sTdrgPL5UyP5BXh6mOor1p22oApprBhU4QTtgepvYIxFd+uRuH1o3JgIGxWmzx
+	trE+Ujj3afSBth2XwbfSQGhtLZobzettdlwEvMtF5cURczd2E2ZzeZreix/1zWibzGMjn0x73yljF
+	WLgPIDDS79jadZECxx9hbUW8+khuyOVgajeWCCmGavvrgfUgikgk54q7qIU1zax5d0qC54N4g3wv8
+	P/ImwXDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7EWE-00000007TNK-0G0p;
-	Tue, 22 Apr 2025 14:22:38 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1u7EY4-00000007Tlu-1F5M;
+	Tue, 22 Apr 2025 14:24:32 +0000
+Received: from relay3-d.mail.gandi.net ([217.70.183.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7DIp-00000007EBm-3qAJ;
-	Tue, 22 Apr 2025 13:04:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1745327082;
-	bh=VicifB7VK+9MAEZJZiYpDrTf/SXS78yQinhMpvll6nE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=eLIK4u4fy9xYuK2GLzl0Xy+K9/gX1SpsRVVlDTSJYRg0MWkwAV0LKDaPATkupHB40
-	 R2ZHe9J5EhbfTeshuJrqqYa6Br052zAwP1qWG4ktMUahvzGAYNOdbCTg8xjPJYDsbv
-	 lWnzPdKO9/MZxHyL3vpPzrZ0pgybMvyg2OwSB4cVAFUxTEGmimr5fbeIdc1YDGYhr+
-	 j6S00hVbZCfgexsd1BFiRBFimnUpbi7NzqUg3Zz6+v92I+wcV6wvbA1ZX692XjQ08Q
-	 YPeOfbHw2jDGR9wZ+rHmszhRyXGZ248Npw97uMD5flnTo5vht9qDFToVxTtD7ZXKHz
-	 vuO3b8klEqdSA==
-Received: from yukiji.home (amontpellier-657-1-116-247.w83-113.abo.wanadoo.fr [83.113.51.247])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 445C717E35E8;
-	Tue, 22 Apr 2025 15:04:41 +0200 (CEST)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Tue, 22 Apr 2025 15:03:39 +0200
-Subject: [PATCH 2/2] net: ethernet: mtk-star-emac: rearm interrupts in
- rx_poll only when advised
+	id 1u7DMe-00000007Evx-3AOg
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 22 Apr 2025 13:08:42 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 976291FD49;
+	Tue, 22 Apr 2025 13:08:36 +0000 (UTC)
+Received: from peko by dell.be.48ers.dk with local (Exim 4.96)
+	(envelope-from <peko@dell.be.48ers.dk>)
+	id 1u7DMZ-009gwR-26;
+	Tue, 22 Apr 2025 15:08:35 +0200
+From: Peter Korsgaard <peter@korsgaard.com>
+To: Praveen Teja Kundanala <praveen.teja.kundanala@amd.com>,
+	Kalyani Akula <kalyani.akula@amd.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Peter Korsgaard <peter@korsgaard.com>,
+	Kalyani Akula <Kalyani.akula@amd.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] nvmem: zynqmp_nvmem: unbreak driver after cleanup
+Date: Tue, 22 Apr 2025 15:08:31 +0200
+Message-Id: <20250422130831.2309995-1-peter@korsgaard.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250422-mtk_star_emac-fix-spinlock-recursion-issue-v1-2-1e94ea430360@collabora.com>
-References: <20250422-mtk_star_emac-fix-spinlock-recursion-issue-v1-0-1e94ea430360@collabora.com>
-In-Reply-To: <20250422-mtk_star_emac-fix-spinlock-recursion-issue-v1-0-1e94ea430360@collabora.com>
-To: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Biao Huang <biao.huang@mediatek.com>, 
- Yinghua Pan <ot_yinghua.pan@mediatek.com>
-Cc: kernel@collabora.com, netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1745327078; l=1312;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=VicifB7VK+9MAEZJZiYpDrTf/SXS78yQinhMpvll6nE=;
- b=h+C8WOIsNCCwo9YNFF/mpsmLgIGPv9dYOw9qMsKPfUUl7/JCKwmHtEcr/3tBvI+PgqUYsYk/W
- ucvmmuAEK3HCs2K/PKTAdMxINxC4OYISaELdqnXTRFhUv87KCtqQF8P
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
+Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvgeefkeduucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffoggfgsedtkeertdertddtnecuhfhrohhmpefrvghtvghrucfmohhrshhgrggrrhguuceophgvthgvrheskhhorhhsghgrrghrugdrtghomheqnecuggftrfgrthhtvghrnhepveeiveethfelteelueelvdffieevgfdvtdeivdetuefgffdtvdeuffevheegffdunecukfhppedujeekrdduudelrddurddufeejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepudejkedrudduledruddrudefjedphhgvlhhopeguvghllhdrsggvrdegkegvrhhsrdgukhdpmhgrihhlfhhrohhmpehpvghkoheskhhorhhsghgrrghrugdrtghomhdpnhgspghrtghpthhtohepledprhgtphhtthhopehsrhhinhhisehkvghrnhgvlhdrohhrghdprhgtphhtthhopehgrhgvghhkhheslhhinhhugihfohhunhgurghtihhonhdrohhrghdprhgtphhtthhopehpvghtvghrsehkohhrshhgrggrrhgurdgtohhmpdhrtghpthhtohepphhrrghvvggvnhdrthgvjhgrrdhkuhhnuggrnhgrlhgrsegrmhgurdgtohhmpdhrtghpthhtohepkhgrlhihrghnihdrrghkuhhlrgesrghmugdrtghomhdprhgtphhtt
+ hhopehmihgthhgrlhdrshhimhgvkhesrghmugdrtghomhdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
+X-GND-Sasl: peter@korsgaard.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_060444_108550_AB6E125F 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20250422_060840_938966_E3D952C3 
+X-CRM114-Status: GOOD (  10.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,33 +71,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In mtk_star_rx_poll function, on event processing completion, the
-mtk_star_emac driver calls napi_complete_done but ignores its return
-code and enable RX DMA interrupts inconditionally. This return code
-gives the info if a device should avoid rearming its interrupts or not,
-so fix this behaviour by taking it into account.
+Commit 29be47fcd6a0 ("nvmem: zynqmp_nvmem: zynqmp_nvmem_probe cleanup")
+changed the driver to expect the device pointer to be passed as the
+"context", but in nvmem the context parameter comes from nvmem_config.priv
+which is never set - Leading to null pointer exceptions when the device is
+accessed.
 
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Fixes: 29be47fcd6a0 ("nvmem: zynqmp_nvmem: zynqmp_nvmem_probe cleanup")
+Signed-off-by: Peter Korsgaard <peter@korsgaard.com>
 ---
- drivers/net/ethernet/mediatek/mtk_star_emac.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ drivers/nvmem/zynqmp_nvmem.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/net/ethernet/mediatek/mtk_star_emac.c b/drivers/net/ethernet/mediatek/mtk_star_emac.c
-index 41d6af31027f4d827dbfdfecdb7de44326bb3de1..b0ffe9b926c3d8dfaea3e11accae6d01e3ea2c4a 100644
---- a/drivers/net/ethernet/mediatek/mtk_star_emac.c
-+++ b/drivers/net/ethernet/mediatek/mtk_star_emac.c
-@@ -1348,8 +1348,7 @@ static int mtk_star_rx_poll(struct napi_struct *napi, int budget)
- 	priv = container_of(napi, struct mtk_star_priv, rx_napi);
- 
- 	work_done = mtk_star_rx(priv, budget);
--	if (work_done < budget) {
--		napi_complete_done(napi, work_done);
-+	if (work_done < budget && napi_complete_done(napi, work_done)) {
- 		spin_lock_irqsave(&priv->lock, flags);
- 		mtk_star_enable_dma_irq(priv, true, false);
- 		spin_unlock_irqrestore(&priv->lock, flags);
-
+diff --git a/drivers/nvmem/zynqmp_nvmem.c b/drivers/nvmem/zynqmp_nvmem.c
+index 8682adaacd692..7da717d6c7faf 100644
+--- a/drivers/nvmem/zynqmp_nvmem.c
++++ b/drivers/nvmem/zynqmp_nvmem.c
+@@ -213,6 +213,7 @@ static int zynqmp_nvmem_probe(struct platform_device *pdev)
+ 	econfig.word_size = 1;
+ 	econfig.size = ZYNQMP_NVMEM_SIZE;
+ 	econfig.dev = dev;
++	econfig.priv = dev;
+ 	econfig.add_legacy_fixed_of_cells = true;
+ 	econfig.reg_read = zynqmp_nvmem_read;
+ 	econfig.reg_write = zynqmp_nvmem_write;
 -- 
-2.49.0
+2.39.5
 
 
