@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D62B3C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 20:00:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56E27C369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 20:04:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:
 	Subject:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wi0XCQ0wIgKNjQqJTUBlgswWdaLbIuH1pbfLDZVamA8=; b=suKEA9zASerKN0asxYtGFV7ALr
-	EfdbHwaRub3jdnnf5LSeP8KiRS856fFji1Cwr9PxW5TgQMXRc2LcasKI7WbCrOgIXyiO85Yf+TMNG
-	EVnG8SpA5lySUonwZvwchOcu0Usk0o/I6ysQXKQeYMVwbZlGzeI/Re9bWvqFF/jv1GI132WDY/kkq
-	iZC0pwxYzAyj4mp0mkvMugqzGAz0Jho4XsCsVaB5XeFgRf4XcSY+uRCjkGAwQdcuUhv3JBykOfGF/
-	EtEnriV5NfGguLF9DMr37nzc1ZYVpGFDT6Q3e4gc3xzyW7hXRQ1dP1MzeH2ukbqZyFvLjXrZL0lHt
-	P061AFtQ==;
+	bh=s9u1inJLOLfQh6u+GzwXvGD1x0ZTwyyXPt4wVXYzgNE=; b=y6WcHLmSy8hkdUwu7eMnKb95XH
+	O2p47lOPvO+14IfieolaIIQEzz0EmrmgKCo1vTOvBSGcVEP4Y5bpeDmso9yGO5nYp63oFMQCravtl
+	Cfe/U0l3n04Uzudzrjs+7sGWyyg4+gKXdjUXMXfO0nQUyjRmsGKOW01yq1Qn+e1I2d4QRAHm1vJSo
+	YelQAHl7SVtc3QbyrVFWE/bmJkTSMHmPYqyVGVgm3rQmCAifmklKRM1k6Ro+JgwFe0SUSJE0TtpqJ
+	hOKZ9a62ws7cvIAHAKAqQqmUUiu48BXWwk4UIkIOycZ238DmFUSAPKEVitX1kHsDgpJD4EPC6i2rE
+	/BWJaXSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Jmk-00000008PRK-1hWU;
-	Tue, 22 Apr 2025 20:00:02 +0000
-Received: from mail-qv1-xf2b.google.com ([2607:f8b0:4864:20::f2b])
+	id 1u7Jr5-00000008Pqi-2mNg;
+	Tue, 22 Apr 2025 20:04:31 +0000
+Received: from mail-qk1-x72b.google.com ([2607:f8b0:4864:20::72b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Jks-00000008PFg-0R9Q
+	id 1u7JpC-00000008PdM-36v2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 19:58:07 +0000
-Received: by mail-qv1-xf2b.google.com with SMTP id 6a1803df08f44-6e8ec399427so46937936d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 12:58:05 -0700 (PDT)
+	Tue, 22 Apr 2025 20:02:36 +0000
+Received: by mail-qk1-x72b.google.com with SMTP id af79cd13be357-7c560c55bc1so564787385a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 13:02:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1745351885; x=1745956685; darn=lists.infradead.org;
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1745352153; x=1745956953; darn=lists.infradead.org;
         h=mime-version:user-agent:content-transfer-encoding:references
          :in-reply-to:date:to:from:subject:message-id:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=wi0XCQ0wIgKNjQqJTUBlgswWdaLbIuH1pbfLDZVamA8=;
-        b=o1Bgzm7tzgq1jFBzByTVs6oIazL+2xz1o50T/vcK87Sj2wj7kqGqVB+mb1gQTBmfne
-         J3nllztS/PGiTTK6Lwugx+2OIKfXJOjuUjAiNd/fkrmV6ywMIUTPf9R2DNxgf+hbf8Y7
-         ZPn8b+X2BG29wUZO0D11mCRcvvnBXiaigzFHLRtgaA9Ig3OtKLRURGzdBTUMK336h4aa
-         Dh2hGJbVLCBxL0L0eDsbCPPOMYwIAInuC1nm+rt7M2LKrruu+SJGm1jBxNjCckTHFcUo
-         mmGhM++qEh23BXkT2QGnxwhnArivfPtVtxFevrORdsuYl/t/RZW7qC40f+GcGcr7ZZiy
-         WS+Q==
+        bh=s9u1inJLOLfQh6u+GzwXvGD1x0ZTwyyXPt4wVXYzgNE=;
+        b=OzPtQj2dQXS/He1jSdstCKrNGAYz1ooG5EJRB0RNnDkPlRoQ/zBn0HRw3rqqvBWyvN
+         xFY41wwVpeZUA/rfb4LLVySxijc6yl8D2OR7wjyvzSXKJH/olTyAeA8xdrCpOtnp4gA8
+         YxJXGu9ANUoO2WMF39CUPGUiFiwQVa6xhTa+hcSeaxJ7l6vJCLr+XU1G+UYmNutDN2Ex
+         L9NYqQuvNB2ls31QWZ1r+p0rzzQ4g8ctxsX9BZ4aj7CMqPtZZt2G6QbmD4ecRYmrYu4n
+         IWI7q1ed7Ky85fQu5DgjQ8MOUhduRU5p/G9vBL3SwaQHM4DXffHrC6altDn+9hwpH3rg
+         XHCw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745351885; x=1745956685;
+        d=1e100.net; s=20230601; t=1745352153; x=1745956953;
         h=mime-version:user-agent:content-transfer-encoding:references
          :in-reply-to:date:to:from:subject:message-id:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=wi0XCQ0wIgKNjQqJTUBlgswWdaLbIuH1pbfLDZVamA8=;
-        b=mOV1GBB9oXqeThK3BF/SOubhTYtRzDgsnd/rJ2DOabh1RWJbh5xIgBW+JnTBvKVQQA
-         ENLqtjoJs0uj0VZ/hxn2NrnvC2LKvpZusvBEEiLqZJj6cG9VzSmhn41yi9BtQX7Mhst9
-         aXYPAzOQKY1oRpBXEQBgePNrG25NliSI2dnlJVgTfvU1ZmqhxAFn/9vugryyPHNRcgZj
-         Guo59rQmU4DlSZdHRf2gsXKtOlCGN21FCgjh8whMWRJSIdjsJqQxP5+01dbXi+0pOcZc
-         HUAg9lTMZArY8Qi1w/g1daPBcFM9RVXLDoDI4S4Z8YV2+rlkpWNm5teRvSD12RvTLX3v
-         Jxjg==
-X-Forwarded-Encrypted: i=1; AJvYcCUKREzBXhHjusYmFD0V/SuhpDO4myw9S21OsqiXqoVO3U7nCuN3yAJdgT53Vnrg/AET/GiBzW1YCPJ1pygjkUzz@lists.infradead.org
-X-Gm-Message-State: AOJu0YwD+a/fnRlHDwkKDjXEoRq3AVMHj+aAjgTNIE8f8oNRwpCYgdfH
-	Eeo+3GJq2XjrgnUUCvCgD9tMD0bvZRHSsJGohfayHcf2/RNJtatQjxyfqsa9c5Q=
-X-Gm-Gg: ASbGnctenWm0XZ4dOxrjc/h345ia2js0Q/jzaVlHK2AtmkA74taGADgjbr9Ha+dsc4C
-	DdmsoVtttCNozImgsUfYK4hiqUcSmktMqAHcOMSziNuEx5KuQ/qPkFOlOmS3kSgcGETF8MLqCWW
-	EMX5Pu1S8fQbgwiBvjfnWrUQ4TvV+ibH1EDPXyB9YEHrDDMKGpiJpEoMR3agO86Tdj0pJIGW4Wc
-	4oeSV2DB9VZaqDUCitOCi2RPA22iU/4JtkkIpXiQLfivekZw15jTQFTC+LHbmMrVzTC7BJigpe6
-	fDg2+LB+Jul+IJRWjme9BpmKqXji2dZlilGj2FuiZoEMKQ==
-X-Google-Smtp-Source: AGHT+IF7avo9uEX7A3mW4T8l6RGnGWjnOiUes3AEZlicK2QwGeYThk0IGDXmi5oRWeE+79xJPQKX3w==
-X-Received: by 2002:a05:6214:19c8:b0:6e8:fad9:c688 with SMTP id 6a1803df08f44-6f2c4552a03mr278764626d6.16.1745351884909;
-        Tue, 22 Apr 2025 12:58:04 -0700 (PDT)
+        bh=s9u1inJLOLfQh6u+GzwXvGD1x0ZTwyyXPt4wVXYzgNE=;
+        b=NAJQAf+iIM2y8xuvW1TASXow4T1vCvXiFWzQwKVJRtxyAE07/YBcVufp5geJE9l6O0
+         8P8LF6hDBH5VP+4qQ73AMCVBJ2+ADKqI35Ecc+G+zaZP8d4PTOm1ttFX9cHXtZaW0eGD
+         aFrhljkGPKo6AxRT+KxhjNwVxO1uV8A8h7yGFF0OuGKVLovLPL6jRxH0+ZtkOvXIJs6a
+         On5YqkVn4I4gvpQz2CCg3owIFWs3q+IuajSjP8dRtNtSvFIDdGDyHt2pNyrRlZf6znKY
+         5zO/LfVwoyzGJfpkjvUl1F8I2F8lXFrKnN1PnslrVHyF0zIfvKLhriOaso95A178AINH
+         +2VA==
+X-Forwarded-Encrypted: i=1; AJvYcCUPXJ3QAg7ECs2dYw4JDgNLQ5p/sGIv1BnpN/xSsdiVWaLDPG/yFLKeln/9bXZinM5vLTtJHq+qv8g3GLDZfrlw@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHVPvfh+sKPtmYkZ5GVSHmozza/Z7+whmAFCTzPNX8fAnasLQl
+	SjZ3qV6KnXdp1U5/BCybVQX3PU66mtfxHSaQDHoI1U56aXBfTAMfE9oE6jR5iNi7ytxSeyBJ9k7
+	F3r8=
+X-Gm-Gg: ASbGnctpHj1GUsO9/U9XdbTc2GWV23YIezlX7tjlClEu8Pe2I7ksaVffD+FlTGiyYg+
+	2IJBe+q9x560DHP5/ckmwTRpK3cIQzS/Zl8DMh0h6ATVLf3HY9hteYeErfh6lrzKF1k4t0vsr5o
+	f/JUj2zk7LSr11ZpIMlohzh8LgtGLI65d/pk568rsjFCa9roPv8oGjMOdl82y3RW3LFDxqgC0kI
+	HmtR12cv9JRXxla8R1TNqjdFSUNrB3qqLqW9WepPQwkd1+UE3QmeHgvmekv4L8SmzYsCIhJPMTA
+	IKExlrWBl4dMl/Y0KGxV0ndB0tCcM+qMklaaLFK0nwwQjA==
+X-Google-Smtp-Source: AGHT+IEyfUity8IZHL89fVip+YlKPkQeYXQ/cc/i4hOtn80oieQH71fbgk3bqPItSdc1oVh2sxqqRw==
+X-Received: by 2002:a05:620a:45a6:b0:7c5:5d4b:e62a with SMTP id af79cd13be357-7c92805f2f4mr3022695985a.54.1745352153635;
+        Tue, 22 Apr 2025 13:02:33 -0700 (PDT)
 Received: from ?IPv6:2606:6d00:15:9913::5ac? ([2606:6d00:15:9913::5ac])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6f2c2af1433sm61506056d6.19.2025.04.22.12.58.03
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c925a8f3c5sm593665885a.37.2025.04.22.13.02.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Apr 2025 12:58:04 -0700 (PDT)
-Message-ID: <529a9804d5b14322b2be78ea6f98677db9c23c33.camel@ndufresne.ca>
-Subject: Re: [PATCH v3 3/3] media: verisilicon: postproc: 4K support
+        Tue, 22 Apr 2025 13:02:32 -0700 (PDT)
+Message-ID: <5f215b62927438061eb004694847705406a6814c.camel@ndufresne.ca>
+Subject: Re: [PATCH v3 2/3] media: verisilicon: add WebP decoding support
 From: Nicolas Dufresne <nicolas@ndufresne.ca>
 To: Hugues Fruchet <hugues.fruchet@foss.st.com>, Mauro Carvalho Chehab	
  <mchehab@kernel.org>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
@@ -85,17 +86,17 @@ To: Hugues Fruchet <hugues.fruchet@foss.st.com>, Mauro Carvalho Chehab
  linux-kernel@vger.kernel.org, 	linux-rockchip@lists.infradead.org,
  linux-stm32@st-md-mailman.stormreply.com, 
 	linux-arm-kernel@lists.infradead.org
-Date: Tue, 22 Apr 2025 15:58:02 -0400
-In-Reply-To: <20241121131904.261230-4-hugues.fruchet@foss.st.com>
+Date: Tue, 22 Apr 2025 16:02:31 -0400
+In-Reply-To: <20241121131904.261230-3-hugues.fruchet@foss.st.com>
 References: <20241121131904.261230-1-hugues.fruchet@foss.st.com>
-	 <20241121131904.261230-4-hugues.fruchet@foss.st.com>
+	 <20241121131904.261230-3-hugues.fruchet@foss.st.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 User-Agent: Evolution 3.56.0 (3.56.0-1.fc42) 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_125806_141701_806BCAA4 
-X-CRM114-Status: GOOD (  15.06  )
+X-CRM114-CacheID: sfid-20250422_130234_782026_CDEEB954 
+X-CRM114-Status: GOOD (  16.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,79 +115,150 @@ Hi,
 
 Le jeudi 21 novembre 2024 =C3=A0 14:19 +0100, Hugues Fruchet a =C3=A9crit=
 =C2=A0:
-> Support input larger than 4096x2048 using extended input width/height
-> fields of swreg92.
-> This is needed to decode large WebP or JPEG pictures.
+> Add WebP picture decoding support to VP8 stateless decoder.
+
+This is a bit short. I believe I've asked to explain why its fine to
+bump the NV12 max width/height to 4K here or in the code. Also, will
+need a simple port once the PIX_FMT is changed.
+
+Nicolas
+
 >=20
 > Signed-off-by: Hugues Fruchet <hugues.fruchet@foss.st.com>
-
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-
 > ---
-> =C2=A0drivers/media/platform/verisilicon/hantro.h=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 2 ++
-> =C2=A0drivers/media/platform/verisilicon/hantro_g1_regs.h=C2=A0 | 2 +-
-> =C2=A0drivers/media/platform/verisilicon/hantro_postproc.c | 6 +++++-
-> =C2=A03 files changed, 8 insertions(+), 2 deletions(-)
+> =C2=A0.../media/platform/verisilicon/hantro_g1_regs.h |=C2=A0 1 +
+> =C2=A0.../platform/verisilicon/hantro_g1_vp8_dec.c=C2=A0=C2=A0=C2=A0 | 14=
+ ++++++++++++++
+> =C2=A0.../media/platform/verisilicon/hantro_v4l2.c=C2=A0=C2=A0=C2=A0 |=C2=
+=A0 2 ++
+> =C2=A0.../platform/verisilicon/stm32mp25_vpu_hw.c=C2=A0=C2=A0=C2=A0=C2=A0=
+ | 17
+> +++++++++++++++--
+> =C2=A04 files changed, 32 insertions(+), 2 deletions(-)
 >=20
-> diff --git a/drivers/media/platform/verisilicon/hantro.h b/drivers/media/=
-platform/verisilicon/hantro.h
-> index 811260dc3c77..d1337f7742e4 100644
-> --- a/drivers/media/platform/verisilicon/hantro.h
-> +++ b/drivers/media/platform/verisilicon/hantro.h
-> @@ -321,6 +321,8 @@ struct hantro_postproc_regs {
-> =C2=A0	struct hantro_reg output_fmt;
-> =C2=A0	struct hantro_reg orig_width;
-> =C2=A0	struct hantro_reg display_width;
-> +	struct hantro_reg input_width_ext;
-> +	struct hantro_reg input_height_ext;
-> =C2=A0};
-> =C2=A0
-> =C2=A0struct hantro_vp9_decoded_buffer_info {
-> diff --git a/drivers/media/platform/verisilicon/hantro_g1_regs.h b/driver=
-s/media/platform/verisilicon/hantro_g1_regs.h
-> index e7d4db788e57..f6e5bbeb1914 100644
+> diff --git a/drivers/media/platform/verisilicon/hantro_g1_regs.h
+> b/drivers/media/platform/verisilicon/hantro_g1_regs.h
+> index c623b3b0be18..e7d4db788e57 100644
 > --- a/drivers/media/platform/verisilicon/hantro_g1_regs.h
 > +++ b/drivers/media/platform/verisilicon/hantro_g1_regs.h
-> @@ -351,7 +351,7 @@
-> =C2=A0#define=C2=A0=C2=A0=C2=A0=C2=A0 G1_REG_PP_CONTROL_OUT_WIDTH(v) (((v=
-) << 4) & GENMASK(14, 4))
-> =C2=A0#define G1_REG_PP_MASK1_ORIG_WIDTH	G1_SWREG(88)
-> =C2=A0#define=C2=A0=C2=A0=C2=A0=C2=A0 G1_REG_PP_ORIG_WIDTH(v)	(((v) << 23=
-) & GENMASK(31, 23))
-> -#define G1_REG_PP_DISPLAY_WIDTH		G1_SWREG(92)
-> +#define G1_REG_PP_DISPLAY_WIDTH_IN_EXT	G1_SWREG(92)
-> =C2=A0#define G1_REG_PP_FUSE			G1_SWREG(99)
+> @@ -232,6 +232,7 @@
+> =C2=A0#define=C2=A0=C2=A0=C2=A0=C2=A0 G1_REG_DEC_CTRL7_DCT7_START_BIT(x)	=
+	(((x) &
+> 0x3f) << 0)
+> =C2=A0#define
+> G1_REG_ADDR_STR					0x030
+> =C2=A0#define
+> G1_REG_ADDR_DST					0x034
+> +#define G1_REG_ADDR_DST_CHROMA				0x038
+> =C2=A0#define G1_REG_ADDR_REF(i)				(0x038 +
+> ((i) * 0x4))
+> =C2=A0#define=C2=A0=C2=A0=C2=A0=C2=A0 G1_REG_ADDR_REF_FIELD_E			BIT(1)
+> =C2=A0#define=C2=A0=C2=A0=C2=A0=C2=A0 G1_REG_ADDR_REF_TOPC_E			BIT(0)
+> diff --git a/drivers/media/platform/verisilicon/hantro_g1_vp8_dec.c
+> b/drivers/media/platform/verisilicon/hantro_g1_vp8_dec.c
+> index 851eb67f19f5..c83ee6f5edc8 100644
+> --- a/drivers/media/platform/verisilicon/hantro_g1_vp8_dec.c
+> +++ b/drivers/media/platform/verisilicon/hantro_g1_vp8_dec.c
+> @@ -307,6 +307,12 @@ static void cfg_parts(struct hantro_ctx *ctx,
+> =C2=A0			=C2=A0=C2=A0
+> G1_REG_DEC_CTRL3_STREAM_LEN(dct_part_total_len),
+> =C2=A0			=C2=A0=C2=A0 G1_REG_DEC_CTRL3);
 > =C2=A0
-> =C2=A0#endif /* HANTRO_G1_REGS_H_ */
-> diff --git a/drivers/media/platform/verisilicon/hantro_postproc.c b/drive=
-rs/media/platform/verisilicon/hantro_postproc.c
-> index 232c93eea7ee..84c8e287470d 100644
-> --- a/drivers/media/platform/verisilicon/hantro_postproc.c
-> +++ b/drivers/media/platform/verisilicon/hantro_postproc.c
-> @@ -49,7 +49,9 @@ static const struct hantro_postproc_regs hantro_g1_post=
-proc_regs =3D {
-> =C2=A0	.input_fmt =3D {G1_REG_PP_CONTROL, 29, 0x7},
-> =C2=A0	.output_fmt =3D {G1_REG_PP_CONTROL, 26, 0x7},
-> =C2=A0	.orig_width =3D {G1_REG_PP_MASK1_ORIG_WIDTH, 23, 0x1ff},
-> -	.display_width =3D {G1_REG_PP_DISPLAY_WIDTH, 0, 0xfff},
-> +	.display_width =3D {G1_REG_PP_DISPLAY_WIDTH_IN_EXT, 0, 0xfff},
-> +	.input_width_ext =3D {G1_REG_PP_DISPLAY_WIDTH_IN_EXT, 26, 0x7},
-> +	.input_height_ext =3D {G1_REG_PP_DISPLAY_WIDTH_IN_EXT, 29, 0x7},
-> =C2=A0};
+> +	if (ctx->vpu_src_fmt->fourcc =3D=3D V4L2_PIX_FMT_WEBP_FRAME)
+> +		vdpu_write_relaxed(vpu,
+> +				=C2=A0=C2=A0 G1_REG_DEC_CTRL3_STREAM_LEN_EXT
+> +					(dct_part_total_len >> 24),
+> +				=C2=A0=C2=A0 G1_REG_DEC_CTRL3);
+> +
+> =C2=A0	/* DCT partitions base address */
+> =C2=A0	for (i =3D 0; i < hdr->num_dct_parts; i++) {
+> =C2=A0		u32 byte_offset =3D dct_part_offset +
+> dct_size_part_size + count;
+> @@ -427,6 +433,12 @@ static void cfg_buffers(struct hantro_ctx *ctx,
 > =C2=A0
-> =C2=A0bool hantro_needs_postproc(const struct hantro_ctx *ctx,
-> @@ -103,6 +105,8 @@ static void hantro_postproc_g1_enable(struct hantro_c=
-tx *ctx)
-> =C2=A0	HANTRO_PP_REG_WRITE(vpu, output_height, ctx->dst_fmt.heighat);
-> =C2=A0	HANTRO_PP_REG_WRITE(vpu, orig_width, MB_WIDTH(ctx->dst_fmt.width))=
-;
-> =C2=A0	HANTRO_PP_REG_WRITE(vpu, display_width, ctx->dst_fmt.width);
-> +	HANTRO_PP_REG_WRITE(vpu, input_width_ext, MB_WIDTH(ctx->dst_fmt.width) =
->> 9);
-> +	HANTRO_PP_REG_WRITE(vpu, input_height_ext, MB_HEIGHT(ctx->dst_fmt.heigh=
-t >> 8));
+> =C2=A0	dst_dma =3D hantro_get_dec_buf_addr(ctx, &vb2_dst->vb2_buf);
+> =C2=A0	vdpu_write_relaxed(vpu, dst_dma, G1_REG_ADDR_DST);
+> +
+> +	if (ctx->vpu_src_fmt->fourcc =3D=3D V4L2_PIX_FMT_WEBP_FRAME)
+> +		vdpu_write_relaxed(vpu, dst_dma +
+> +				=C2=A0=C2=A0 ctx-
+> >dst_fmt.plane_fmt[0].bytesperline *
+> +				=C2=A0=C2=A0 ctx->dst_fmt.height,
+> +				=C2=A0=C2=A0 G1_REG_ADDR_DST_CHROMA);
 > =C2=A0}
 > =C2=A0
-> =C2=A0static int down_scale_factor(struct hantro_ctx *ctx)
+> =C2=A0int hantro_g1_vp8_dec_run(struct hantro_ctx *ctx)
+> @@ -471,6 +483,8 @@ int hantro_g1_vp8_dec_run(struct hantro_ctx *ctx)
+> =C2=A0		reg |=3D G1_REG_DEC_CTRL0_SKIP_MODE;
+> =C2=A0	if (hdr->lf.level =3D=3D 0)
+> =C2=A0		reg |=3D G1_REG_DEC_CTRL0_FILTERING_DIS;
+> +	if (ctx->vpu_src_fmt->fourcc =3D=3D V4L2_PIX_FMT_WEBP_FRAME)
+> +		reg |=3D G1_REG_DEC_CTRL0_WEBP_E;
+> =C2=A0	vdpu_write_relaxed(vpu, reg, G1_REG_DEC_CTRL0);
+> =C2=A0
+> =C2=A0	/* Frame dimensions */
+> diff --git a/drivers/media/platform/verisilicon/hantro_v4l2.c
+> b/drivers/media/platform/verisilicon/hantro_v4l2.c
+> index 2513adfbd825..7075b2ba1ec2 100644
+> --- a/drivers/media/platform/verisilicon/hantro_v4l2.c
+> +++ b/drivers/media/platform/verisilicon/hantro_v4l2.c
+> @@ -470,6 +470,7 @@ hantro_update_requires_request(struct hantro_ctx
+> *ctx, u32 fourcc)
+> =C2=A0		break;
+> =C2=A0	case V4L2_PIX_FMT_MPEG2_SLICE:
+> =C2=A0	case V4L2_PIX_FMT_VP8_FRAME:
+> +	case V4L2_PIX_FMT_WEBP_FRAME:
+> =C2=A0	case V4L2_PIX_FMT_H264_SLICE:
+> =C2=A0	case V4L2_PIX_FMT_HEVC_SLICE:
+> =C2=A0	case V4L2_PIX_FMT_VP9_FRAME:
+> @@ -492,6 +493,7 @@ hantro_update_requires_hold_capture_buf(struct
+> hantro_ctx *ctx, u32 fourcc)
+> =C2=A0	case V4L2_PIX_FMT_JPEG:
+> =C2=A0	case V4L2_PIX_FMT_MPEG2_SLICE:
+> =C2=A0	case V4L2_PIX_FMT_VP8_FRAME:
+> +	case V4L2_PIX_FMT_WEBP_FRAME:
+> =C2=A0	case V4L2_PIX_FMT_HEVC_SLICE:
+> =C2=A0	case V4L2_PIX_FMT_VP9_FRAME:
+> =C2=A0		vq->subsystem_flags &=3D
+> ~(VB2_V4L2_FL_SUPPORTS_M2M_HOLD_CAPTURE_BUF);
+> diff --git a/drivers/media/platform/verisilicon/stm32mp25_vpu_hw.c
+> b/drivers/media/platform/verisilicon/stm32mp25_vpu_hw.c
+> index 833821120b20..c291b1560e20 100644
+> --- a/drivers/media/platform/verisilicon/stm32mp25_vpu_hw.c
+> +++ b/drivers/media/platform/verisilicon/stm32mp25_vpu_hw.c
+> @@ -22,10 +22,10 @@ static const struct hantro_fmt
+> stm32mp25_vdec_fmts[] =3D {
+> =C2=A0		.codec_mode =3D HANTRO_MODE_NONE,
+> =C2=A0		.frmsize =3D {
+> =C2=A0			.min_width =3D FMT_MIN_WIDTH,
+> -			.max_width =3D FMT_FHD_WIDTH,
+> +			.max_width =3D FMT_4K_WIDTH,
+> =C2=A0			.step_width =3D MB_DIM,
+> =C2=A0			.min_height =3D FMT_MIN_HEIGHT,
+> -			.max_height =3D FMT_FHD_HEIGHT,
+> +			.max_height =3D FMT_4K_HEIGHT,
+> =C2=A0			.step_height =3D MB_DIM,
+> =C2=A0		},
+> =C2=A0	},
+> @@ -42,6 +42,19 @@ static const struct hantro_fmt
+> stm32mp25_vdec_fmts[] =3D {
+> =C2=A0			.step_height =3D MB_DIM,
+> =C2=A0		},
+> =C2=A0	},
+> +	{
+> +		.fourcc =3D V4L2_PIX_FMT_WEBP_FRAME,
+> +		.codec_mode =3D HANTRO_MODE_VP8_DEC,
+> +		.max_depth =3D 2,
+> +		.frmsize =3D {
+> +			.min_width =3D FMT_MIN_WIDTH,
+> +			.max_width =3D FMT_4K_WIDTH,
+> +			.step_width =3D MB_DIM,
+> +			.min_height =3D FMT_MIN_HEIGHT,
+> +			.max_height =3D FMT_4K_HEIGHT,
+> +			.step_height =3D MB_DIM,
+> +		},
+> +	},
+> =C2=A0	{
+> =C2=A0		.fourcc =3D V4L2_PIX_FMT_H264_SLICE,
+> =C2=A0		.codec_mode =3D HANTRO_MODE_H264_DEC,
 
