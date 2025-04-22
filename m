@@ -4,89 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DED36C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 10:18:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 182BFC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 10:20:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1gFPbHcslBrShPBfeniLTCdmwDJynv5JMNyf9loIAkY=; b=azCuvt5/m5X25sMlRROCwG1a/N
-	7lScoHrwpMXHEaI3vNYyhCo19lpBq+VvbGwLVl1tJuq48ciXWYnggG9766yCwPJWKDwjMiWiEYKYs
-	KX7Fk7HvBrPS3iYuJqc0aDQzUcKfBEQ/V4QSreqI8U0W0c2w+bF+MTuQ5xzcSTAgHzPGYYuP83k2O
-	c5P6hkVz+VjErA3t1kZPelzkFMn080zg1WcXczxI1Gj0IfJtzstzzHkc4ILD/dbYLzsoch9ApM5TW
-	fepheuTdTYZveldVkoWF8EDQgqUSIhJe3fmiysQEYnk9edVrwXeAi0rT0n+2vtFy65UNFI/8yf1sq
-	GxqAxx4g==;
+	bh=bI4tM5u6hlOmKAY3jmb6sm9muPDkxLfs7d3SJ5djx70=; b=PHNIRv09IbYQpbukVOvgCcIeS2
+	rItyd2jqW63dakkU+VilGd3GTPeffdV1PMe2tJXv/fPNMw2porgpNrfnhzPRwUYS+L5ZEdxs6Bw/x
+	yKTLtrMC17W7MJn/MlOtcAcyjDr8f+HpXKuX+bKYt8KP+funOv6omV4kgDKByLaOHGMITmaDnvglq
+	pAxXL2OiG1ICHc+jGugy/v5q2DHFKSg7Bmlk+zz3is8Qcgk9pQj05TTze6rv6VBe73yG4WmAoM6/Z
+	3uyl7F+hgLSvkif+ejRePW+Ev2ynl8uPXAJ0oSza2NiaUZYt+fbNw/yqZK0jceTHTPAN7wGbQi3B6
+	zs2bXxng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Ahn-00000006iqS-2q6H;
-	Tue, 22 Apr 2025 10:18:19 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1u7Aje-00000006j7q-1UlR;
+	Tue, 22 Apr 2025 10:20:14 +0000
+Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u787O-000000068J1-0Xp4
+	id 1u79Vj-00000006TVG-3GBX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 07:32:36 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-39ee5a5bb66so3289148f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 00:32:33 -0700 (PDT)
+	Tue, 22 Apr 2025 09:01:49 +0000
+Received: by mail-qk1-x730.google.com with SMTP id af79cd13be357-7c9376c4bddso256991585a.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 02:01:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745307152; x=1745911952; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1745312506; x=1745917306; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=1gFPbHcslBrShPBfeniLTCdmwDJynv5JMNyf9loIAkY=;
-        b=JVehmCPZ7LVoom1yz2xFDTBhRkNz9B22N1j2MScEWsjHgT/VrAwFkcwMY2B8YHvEE1
-         l3AyPUaWvvkSWVdZWq9MY67JIdCswX7/YA5F2phy/efxjzb1RglWtwyWQO2+kk+Sbwsq
-         E99CD0V9wnj2IxLm7hbKvAWhwyHjS4OkKNGrRh4z9mtSXRRT2Z7SsnWhxUXd0CVOYR4L
-         ZSprlUUGO12olbR9SaHOeAVnR8HIQ7RG4sb2/Hey5mOX9/xFJENiy5JNtaw6+o9w/3yM
-         DIl0wqzwixqa0TdIB/JgmCHMKtkKqKpO5AmTF2gdKQYwFzLaXZorpfVfvge5s6kWiIah
-         YnXw==
+        bh=bI4tM5u6hlOmKAY3jmb6sm9muPDkxLfs7d3SJ5djx70=;
+        b=PYutXrT41pIdXgXg8cIE1oN7WUusUzxLgutI6O3N7a8UAk+CmoJS+Dxw47uF7p2rNn
+         gzLuUzS2UsDgFPA3kTlZiowF3onu9w/rTPL+I3bwMa/qU7zem3ew4OFZ7/WhnQocUt2j
+         ig0mJ7zATCtTW/LIXa8X/fzMDkvYXJ9bRfI+Gjo8FONJqJQZBA4m11OW9Mf/AYfYkVrM
+         a9yChqV+L0GjoLCAS1h54RxBk0R0bq1DvT/hEUzgyIa7ZXrvzHz9U1vm7Gqje+L4BSbw
+         Hn4fgkoDFGmy1AeQVtGmwSZ9RqVfeAQrv6RPWRAcsxTJvYE50NOK1fvlSX3c9PuAEAG+
+         +/Dw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745307152; x=1745911952;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1745312506; x=1745917306;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=1gFPbHcslBrShPBfeniLTCdmwDJynv5JMNyf9loIAkY=;
-        b=pyzSrL4lQcK90L8SLJ8uVx7zlUJGJTHbGCeiafosTiyppjbdNqc77l/KmCAZu679US
-         07yrQ8HAap42OfCFcPXtpB2WUK22Zq62KMyCGLyo1/V2Nkd4b598fRLNTEGhDxOQSuwB
-         2vJxxRtWHzphXWGaLJz6/U/mSL57h7PalTX+x/3dTj3zs4fg88TbF+zxCH+m0FlM3EgP
-         rJuaKtM4jOS5YxcDQ7Cnm/zvkeYrq9C6WgXRWqqFPWKAzA5O7w9R/eD26/1qnORpZ1xL
-         20RkcIKR4rC1Yg/YToSIKEfbmvKB1PJ8Ch9WbgE0oy/rd/roPZYNzVeBWCW6dGalWw2T
-         JvrQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWq9htsaTdKQsBrFqHeAa4MOHH8QtQrp2VotZ5qX7ceGFCRKD8xGrcNgUbZpGw6Zg4El87DkgHJYI9oCrVF+KPM@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrcQa/Mpnhc6raw0TYtyPXfS5IDw1rJdnslVRe+eU0lXNTQDQa
-	dK5I2z87IxEk4e4diz7mQHJXeuOmiSWnI0hSYW5IoSVJzrufnZFb+CeNWGkYvADUsL9hq2qtcFX
-	K
-X-Gm-Gg: ASbGncsOuyZd9JWdfrVxjZ28zhynH5MOm1/vMge7C3UkOBFOCxBN1JBa77MzrN4JB1Y
-	pqf/yVQ89IzY/lO4e/v1raTkx6Mhw/spl9FxyJq4xtDuDX77ld0vYqyxiuF+prwf04ifiKGtYaP
-	6RYJWdXemOvMawPF8kpjVZlO9z8sZc+7ZU2J42+XxUAZyhRmB1uKrVM4CZJUWKAvP6dVh0VeVS2
-	MtBcb+XXhyGJ4FokS7/QWeoAboCexl2S2qNeUCpMbjbL73Oeh+gX55QJYJ6OxX++0+bgP0Q+Tpp
-	t/AY7wwuRK1By7SvbgQsr6k+ZutFEZ1tsmuvrLGea7pOpS8lV7P/Zji4eUpaYw==
-X-Google-Smtp-Source: AGHT+IFclT1+OQXEDIxxx/AMqrjY/N1Yvy1xLXDrMHQkl58h0kU69MTBU2hwvhAytgvH99PcAzfK0g==
-X-Received: by 2002:a5d:648c:0:b0:39c:1f02:449f with SMTP id ffacd0b85a97d-39efba26220mr11676730f8f.2.1745307152441;
-        Tue, 22 Apr 2025 00:32:32 -0700 (PDT)
-Received: from arrakeen.starnux.net ([2a01:e0a:3d9:2080:52eb:f6ff:feb3:451a])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39efa43c079sm14450855f8f.50.2025.04.22.00.32.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Apr 2025 00:32:32 -0700 (PDT)
-From: Neil Armstrong <neil.armstrong@linaro.org>
-To: dri-devel@lists.freedesktop.org, linux-amlogic@lists.infradead.org, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: christianshewitt@gmail.com, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20250421201300.778955-1-martin.blumenstingl@googlemail.com>
-References: <20250421201300.778955-1-martin.blumenstingl@googlemail.com>
-Subject: Re: [PATCH RFC v2 0/2] drm/meson: vclk: revert and re-fix vclk
- calculations
-Message-Id: <174530715197.2805907.16376775353354108716.b4-ty@linaro.org>
-Date: Tue, 22 Apr 2025 09:32:31 +0200
+        bh=bI4tM5u6hlOmKAY3jmb6sm9muPDkxLfs7d3SJ5djx70=;
+        b=w2Itm6l0lYENxf2miT1yXVFQTgwqm7Wm6CbdIBU7OPALvlCviDrrymiBzt+bQTucAy
+         7TS0lSprW1EyNeAEn3TDubyQT1kpVKGkTDRq1UWBZzKEa/SBDM6nC0HoNnm3AMKOOhZu
+         vZoxRbJ+Lw7XlmNEQPGDy4B+QMlI+bnZy6OsyelxDLGLYtbc2xL+oVVhqjOv4uprRExB
+         x/UWVtqyUW04pUaWFcFYlLsxTR6pwLpXj7dBM0BO4Iesigzh6w1PnJhq8dTH4ZZT1t+G
+         uLclNzWjiVAz2gScO7YlmqoQkljBBQLcXLJLct7IAG0vHFus6caU1VO/jedtBgD0MNlQ
+         I+oA==
+X-Forwarded-Encrypted: i=1; AJvYcCV//FAb3hFpKOZDFYcgYGc6N5vtMs8bVSEWz92/BnOmAIB3jbA4yPWeBeg+SM65KhLE26ArLY/rsFPC91Y885zQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxUfPfP6/tLUgw0+s/lrJBZL/at/zJHHTz4pLdZYlGlASIe9ojF
+	oEydkELYnfBMyz7jhxj4ZARG2gzS70wLGolGG6bKWK/kjKPsZPR4o2chVhOyAncnsyQtPmv5uj4
+	JJ2LlhYQr+HbgjxWytiTMszna+lI=
+X-Gm-Gg: ASbGncvFGDjDP6I0SpMP0RxnGPzFkT2ebb8Y64VBSc2m8tES+Ht7OJ8pPU8P6SQCvbV
+	I7cuAN+aBeT0v51M3L+/fs4wbjOcUoiWNp8HQ0lePCwNYO12HUAEpVeJ8wHkfQ1/M0H2bsC1ODV
+	p9w6Z1K6IaGiqFyIQos/QyAnHI9O2z5GeIsCeLtNvxiHPdQ+9XTvDBwQ==
+X-Google-Smtp-Source: AGHT+IHPgdQcr6+EJ2c2GBm62vKYoe1rNLruGx6vpyIyteGjKou1apc6OLDwP+NZ9T6S5hjDnfeJTmR8mETK+wK+bzs=
+X-Received: by 2002:a05:620a:2684:b0:7c5:5909:18e5 with SMTP id
+ af79cd13be357-7c927f6f84fmr1960081385a.3.1745312506200; Tue, 22 Apr 2025
+ 02:01:46 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+References: <20250416-wmt-updates-v1-0-f9af689cdfc2@gmail.com>
+ <20250416-wmt-updates-v1-3-f9af689cdfc2@gmail.com> <20250416201407.GC3811555-robh@kernel.org>
+ <CABjd4YyTKquLcYC+DVg_koi3p7AhqwBNiazCiC713DQKjCaBSA@mail.gmail.com>
+ <CABjd4Yxi4SLqsAk_fb9C=1BW6XjnZ8LQ_JKYu6KZ3TtMS0fnhg@mail.gmail.com> <14de236b-e2a7-4bde-986d-1e5ffddd01b4@kernel.org>
+In-Reply-To: <14de236b-e2a7-4bde-986d-1e5ffddd01b4@kernel.org>
+From: Alexey Charkov <alchark@gmail.com>
+Date: Tue, 22 Apr 2025 13:01:44 +0400
+X-Gm-Features: ATxdqUGmp6GiWAgqNWbO-0WSin1O6yJxUf9gHQTl5ZTyEce7EbX-dkQTVJBozo4
+Message-ID: <CABjd4YwpKYr3q06E7H3upFxyUT6uGg-Jzt2_FiyfS8R=j0ye8w@mail.gmail.com>
+Subject: Re: [PATCH 03/13] dt-bindings: mmc: vt8500-sdmmc: Convert to YAML
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, 
+	Daniel Lezcano <daniel.lezcano@linaro.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org, 
+	netdev@vger.kernel.org, linux-pwm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_003234_199953_A9E3D0AE 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20250422_020147_820081_57E8AD01 
+X-CRM114-Status: GOOD (  40.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,31 +105,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Tue, Apr 22, 2025 at 12:08=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.o=
+rg> wrote:
+>
+> On 18/04/2025 14:38, Alexey Charkov wrote:
+> >>
+> >>>> +
+> >>>> +  reg:
+> >>>> +    maxItems: 1
+> >>>> +
+> >>>> +  clocks:
+> >>>> +    maxItems: 1
+> >>>> +
+> >>>> +  interrupts:
+> >>>> +    items:
+> >>>> +      - description: SDMMC controller interrupt
+> >>>> +      - description: SDMMC controller DMA interrupt
+> >>>> +
+> >>>> +  sdon-inverted:
+> >>>> +    type: boolean
+> >>>> +    description: SD_ON bit is inverted on the controller
+> >>>
+> >>> This implies I know what the non-inverted state is. If you know, plea=
+se
+> >>> state that here.
+> >>
+> >> This is a tricky one. The only answer I have is "it's inverted in
+> >> later versions vs. the first version I saw in the wild, and I'm not
+> >> sure if it's board related or IP version related - nor if the original
+> >> was active low or high". No docs, no schematics, no vendor left around
+> >> to chase for answers.
+> >>
+> >> Will dig around some more and update the description if I succeed in
+> >> uncovering any further clues :)
+> >
+> > I've found some extra clues and would like to consult on the best way f=
+orward.
+> >
+> > It turns out (if my understanding of the decompiled binary-only WM8505
+> > vendor driver is correct) that all chips before (not including) WM8505
+> > rev. A2 treated their "clock stop" bit (register offset 0x08 a.k.a.
+> > SDMMC_BUSMODE, bit 0x10 a.k.a. BM_CST in vendor sources, BM_SD_OFF in
+> > mainline) as "set 1 to disable SD clock", while all the later versions
+> > treated it as "set 0 to disable SD clock". Which means that there are
+> > WM8505 based systems that rely on either of those behaviours, while
+> > any later chips need "set 0 to disable". This is not a board related
+> > quirk but an on-chip SDMMC controller revision related quirk.
+> >
+> > I'd love to switch to a compatible-based logic and drop the
+> > "sdon-inverted" flag altogether from the binding I'm writing, but here
+> > are my doubts where I'd love to consult.
+> >
+> > * Looks like WM8505 rev. A2 needs a separate compatible string vs.
+> > prior WM8505. Can we have something like "wm,wm8505a2-sdhc" and
+> > "wm,wm8505-sdhc" respectively? WM8505a2 not being an actual chip name,
+> > but something discoverable by reading its hardware ID from a system
+> > configuration register at runtime
+>
+> Then maybe it can be fully detected runtime? E.g. via soc_id driver (see
+> drivers/soc/)?
 
-On Mon, 21 Apr 2025 22:12:58 +0200, Martin Blumenstingl wrote:
-> This is a successor of a previous patchset by Christian [0]
-> 
-> Patch 1 reverts a previous fix for loss of HDMI sync when playing YUV420
-> @ 59.94 media. The patch does resolve a calculation issue. It also makes
-> all fractional rates invalid which is a bigger problem.
-> 
-> Patch 2 changes the whole drm/meson driver to use Hz as unit for clocks/
-> frequencies. And importantly it uses the relevant 64-bit maths helpers so
-> the code can still be compiled using for 32-bit ARM.
-> Maxime previously suggested using drm_hdmi_compute_mode_clock(). That's
-> still something to implement with future patches.
-> 
-> [...]
+Thanks for pointing this out! Yes, it should work. A separate
+mini-driver to identify the SoC based on the system configuration
+register readings and a match table on soc_device_attribute inside the
+wmt-sdmmc driver to differentiate between different controller
+versions which are all identified as "wm,wm8505-sdhc" in current
+device trees.
 
-Thanks, Applied to https://gitlab.freedesktop.org/drm/misc/kernel.git (drm-misc-fixes)
+> > * If I introduce new compatible strings for "wm,wm8650-sdhc",
+> > "wm,wm8750-sdhc", "wm,wm8850-sdhc" and "wm,wm8880-sdhc" in bindings,
+> > DTS and driver code, then the new driver and new DTB should work fine,
+> > and the DTS should pass schema checks. New driver code won't work with
+> > older DTB unless I keep the logic to parse "sdon-inverted" which
+> > wouldn't be part of the binding. Old driver code would not work with
+> > newer DTB except for pre-A2 versions of WM8505. Is that acceptable?
+> > * Existing DTS doesn't differentiate between pre-A2 vs. post-A2
+> > revisions of WM8505 and is bound to fail on the latter
+>
+> That's an old platform, so we should not break the ABI, thus drivers
+> must fully support old DTBs.
 
-[1/2] Revert "drm/meson: vclk: fix calculation of 59.94 fractional rates"
-      https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/f37bb5486ea536c1d61df89feeaeff3f84f0b560
-[2/2] drm/meson: use unsigned long long / Hz for frequency types
-      https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/1017560164b6bbcbc93579266926e6e96675262a
+Noted, thanks.
 
--- 
-Neil
+> > I realize that breaking backward/forward compatibility is undesirable,
+> > but frankly these systems seem to have few mainline users, and those
+> > people who do run mainline on them ought to be compiling the kernel
+> > and its DTB at the same time, because the firmware doesn't know
+>
+> There might be other users of DTS and anyway what would be exactly the
+> benefit? This hardware aspect is already documented via sdon-inverted
+> property.
 
+The benefit is rather cosmetic (to properly describe different
+versions of this controller using SoC-specific compatible strings, and
+to avoid defining bindings for random vendor-specific properties such
+as sdon-inverted).
+
+Best regards,
+Alexey
 
