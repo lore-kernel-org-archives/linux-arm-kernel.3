@@ -4,94 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 111B0C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 11:01:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64FAEC369D8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 11:03:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=773iKDLuE6xq2Xro8wyS6G+hqdfsehF8d9eBVRBQ0BI=; b=Mpk7MRJK8RO1dY+Yxa4o6uo2GJ
-	JhjsGkJdHwkAyum/pKzb9drLD5wSFeRh7G9kYwfBOl8IxXmLBmKbiAouCiTlRNDROQPoSicgTaX3t
-	HYggJiHI2Dqmrw+7fIQ/86ph2WtpdNu7rbUVdnO3oYUEqq0OlRdqMasNjUWtT4NvdCjup/gRjugzd
-	9AsIKH/s9+hIDlTN4pCfKfQ4lxfc9wtoQmRlBTvPuzcCy+QpRI0kmQjn3egRQ9siCDMHI9yIUARs2
-	a/Zt6SvFQC4WdVqeDW+Kk0d0uTF0Q7cm2ZZePFjxJ4mBrjer76fTAlOT1wqp+gfwWsSOlBDhi9cNf
-	MbnFSOBA==;
+	bh=Gk2RkHKBbmDCAEiGNxk6lHORjkiITEvX4vdaTicTZeI=; b=YiaECtW2aGMtmwkB1CKba4Z5gH
+	+jrKyTjgOOFi0J/hpSFSlw4HdNRNiJQX2eaPw5YLJOrOJbyiaFF/kQkhsM5nQVHshxrKaqBHQIl4s
+	SYWkQaF1fricgDEWnfuO01nVksFta/LIezUsA2ViCV1PMLHB0HSTi6u3CKp53DjTF6dNSyiN/wwVb
+	6ATWYBmQ5bGSdOLl8QsFaL+d1A0qcB3NrGgzTwKmvy8gWopMtdmwvz7GLYL3l5o0JERHRx6vBVBei
+	awj0wWOcK1eB94iZyl30jdv4TWTb67VQMUn4pedWG5YpFu+CSCGCqSBnh3Zkofoi5/eBNCawKsogv
+	4vAlzrJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7BNo-00000006rlR-2i4Z;
-	Tue, 22 Apr 2025 11:01:44 +0000
-Received: from mail-vk1-f174.google.com ([209.85.221.174])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7AcH-00000006hfQ-3XH7
+	id 1u7BPe-00000006s24-49U2;
+	Tue, 22 Apr 2025 11:03:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7AgO-00000006iWo-2O4G
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 10:12:39 +0000
-Received: by mail-vk1-f174.google.com with SMTP id 71dfb90a1353d-523de538206so1897840e0c.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 03:12:37 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745316755; x=1745921555;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=773iKDLuE6xq2Xro8wyS6G+hqdfsehF8d9eBVRBQ0BI=;
-        b=fGgcI2DZm7Dg6TtPDEOypo+Io4mKjqTQ2CqMQ/N8Qkd+5DHmETYGDvOioMF0Wau81i
-         mN155dPgEI4ZYpVYU/8sMLM3cooaezIoHuVcyhBH+e/S8jijqGiBF8kejKZh+LGd8wP0
-         Wn7BWy3O+S2F7Zq8dNR2qGcT/2+sk6QQG7+egoeFx9wi1PPJzYzQXgSQy4swBw8bpCKu
-         0syKrOp67xUOPjVopvV+1O+bcyFDbVtjyAWazgp5lgKCRRXlgLZmIc6IVleIEh8fEEzD
-         iinS/ZYf3A0DIx5mf7SZPSmfU211hbc9jpqOsFb/hpMeN+YGK2U+EzS+LM2Z0fEFyycy
-         XJpQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWUCnjeHbIjy/5OfYqa9NTwxeoCXQPYTmdt7G2KyNddmC1iGjJXj2roFfq+eSllDaZ8UNvYAAm3iIbcBBMFgbqJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxeNchB8y8fAe0fV4rlbcR41Sa675KOwMa4quDxK0qJTqDKFmqH
-	PJiL0l2XozzLWWlr1MJVWCifMZrwSqz6wGFkFXbuk2Uyu7YROhhUBh+oGkw9
-X-Gm-Gg: ASbGncuTxpbvoYEmHLha5h73FMHf5FFUC8g/KePAw4fUzDwgSRuE5UjIZI5eHTYM4gk
-	WcGHq1/sE3Qijgs6bXE0AxjsovFgZEHD6kuW/pod7zih7h3gqxApfBKYZPpqv8I2q+U3JeykbQ8
-	OFtCUl0vRiUP94vgrhfNkmn8RwLELS6ZxGCGbhonIi7G4yyJllJrMzbwbQROBh3rTCANH9aIDrd
-	6KABRJeNT9Bpjsk40gLPBaz92wedhK5ofzpyRgSlfxq9gEESm3LOTMSa0ryuamTtIZZGVnjKKGL
-	k2FMTkM7kNUIlQc4pVnaiaRAfc/ocYH1GrAXhtoG9GLe3WR0d1Mc9+ZIlE91o/pKrhtu07J9tdD
-	7zik=
-X-Google-Smtp-Source: AGHT+IFXCYR732ew2oc6RSO+5yeLXPrH877bYmAT65r0gZQauf2PEADNIvwUuYMPlJMf4jpO6RDGdQ==
-X-Received: by 2002:a05:6122:1d92:b0:526:1ddd:7603 with SMTP id 71dfb90a1353d-529252365dcmr8570532e0c.0.1745316754769;
-        Tue, 22 Apr 2025 03:12:34 -0700 (PDT)
-Received: from mail-ua1-f54.google.com (mail-ua1-f54.google.com. [209.85.222.54])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-8776466cd4csm2227672241.10.2025.04.22.03.12.33
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 22 Apr 2025 03:12:33 -0700 (PDT)
-Received: by mail-ua1-f54.google.com with SMTP id a1e0cc1a2514c-86fbc8717fcso1850276241.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 03:12:33 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCW1W5JIIUYSoIPMzK/d15g4MiShEuPZqJsDe6d/WAeaeZwjG/Pdmq5FIMiS7sOoByV5jVYPTAQdH3DjyoHczQ8v@lists.infradead.org
-X-Received: by 2002:a05:6102:5c0b:b0:4c4:fdb9:2ea with SMTP id
- ada2fe7eead31-4cb80101085mr7871767137.7.1745316753101; Tue, 22 Apr 2025
- 03:12:33 -0700 (PDT)
+	Tue, 22 Apr 2025 10:16:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F1399152B;
+	Tue, 22 Apr 2025 03:16:45 -0700 (PDT)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4F67A3F66E;
+	Tue, 22 Apr 2025 03:16:47 -0700 (PDT)
+Date: Tue, 22 Apr 2025 11:16:44 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: Peng Fan <peng.fan@nxp.com>, Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Saravana Kannan <saravanak@google.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Aisheng Dong <aisheng.dong@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Jacky Bai <ping.bai@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>
+Subject: Re: [PATCH 1/4] firmware: arm_scmi: bus: Bypass setting fwnode for
+ scmi cpufreq
+Message-ID: <20250422-vigorous-cockatoo-of-growth-bacdb7@sudeepholla>
+References: <PAXPR04MB8459EA5C7898393E51C246AD88D12@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <PAXPR04MB8459A73179FFF0ED0C9A51E488D12@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <Z9AdICiyaCmzKh-N@bogus>
+ <Z9FnZzBQuZ1j5k3I@bogus>
+ <Z9Fv9JPdF5OWUHfk@bogus>
+ <20250313052309.GA11131@nxa18884-linux>
+ <20250409035029.GC27988@nxa18884-linux>
+ <20250409-incredible-attentive-scorpion-fa9def@sudeepholla>
+ <20250417-diligent-anteater-of-felicity-70bff3@sudeepholla>
+ <20250420140944.GB31933@nxa18884-linux>
 MIME-Version: 1.0
-References: <20250327112009.6b4dc430@eldfell> <b5cf15a4-7c65-4718-9c39-a4c86179ba4c@ideasonboard.com>
- <20250327175842.130c0386@eldfell> <CAMuHMdVEpTVWmwrYt+G-QSWucT91goUcFor9qbo5rZ+X2jnRog@mail.gmail.com>
- <20250331105446.098f0fbe@eldfell> <20250331082135.GB13690@pendragon.ideasonboard.com>
- <20250331135337.61934003@eldfell> <20250401162732.731ef774@eldfell>
- <73bd6628-374d-417f-a30f-88a4b1d157bb@ideasonboard.com> <20250417111315.62a749e5@eldfell>
- <20250421145039.GA19213@pendragon.ideasonboard.com> <20250422121107.572cb7ad@eldfell>
- <CAMuHMdX+yaw_PYsM_N8Gzrt2hbn_5cRN375jLKpwE13ygTvwHA@mail.gmail.com> <20250422130137.2658c646@eldfell>
-In-Reply-To: <20250422130137.2658c646@eldfell>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 22 Apr 2025 12:12:21 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdUcG_K=5RHMaq9vTpQo8dPpLAvXfxP8XuzGnx4Nte7++A@mail.gmail.com>
-X-Gm-Features: ATxdqUGZbs6BF5hsjehRUxuOo4erq-QyO5S15EM3odm4sDatdl_MdQHKARAHvpA
-Message-ID: <CAMuHMdUcG_K=5RHMaq9vTpQo8dPpLAvXfxP8XuzGnx4Nte7++A@mail.gmail.com>
-Subject: Re: [PATCH v4 03/11] drm/fourcc: Add DRM_FORMAT_Y8
-To: Pekka Paalanen <ppaalanen@gmail.com>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Vishal Sagar <vishal.sagar@amd.com>, 
-	Anatoliy Klymenko <anatoliy.klymenko@amd.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Michal Simek <michal.simek@amd.com>, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250420140944.GB31933@nxa18884-linux>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_031237_884448_07CB9668 
-X-CRM114-Status: GOOD (  70.21  )
+X-CRM114-CacheID: sfid-20250422_031652_647774_323A4124 
+X-CRM114-Status: GOOD (  11.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,228 +86,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Pekka,
+On Sun, Apr 20, 2025 at 10:09:44PM +0800, Peng Fan wrote:
+> On Thu, Apr 17, 2025 at 03:26:42PM +0100, Sudeep Holla wrote:
+> 
+> >Revert to old behaviour and driver request fw_devlink dependencies to
+> >be created if they rely on them. I am not sure if that is better approach.
+> 
+> This requires to update various drivers(clk,power,perf,pinctrl,regulator) to
+> set the flag SCMI_DEV_SET_FWNODE.
+> 
+> Using SCMI_DEV_NO_FWNODE would avoid updating the various drivers.
+> 
 
-On Tue, 22 Apr 2025 at 12:01, Pekka Paalanen <ppaalanen@gmail.com> wrote:
-> On Tue, 22 Apr 2025 11:41:29 +0200
-> Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> > On Tue, 22 Apr 2025 at 11:11, Pekka Paalanen
-> > <pekka.paalanen@haloniitty.fi> wrote:
-> > > On Mon, 21 Apr 2025 17:50:39 +0300
-> > > Laurent Pinchart <laurent.pinchart@ideasonboard.com> wrote:
-> > > > On Thu, Apr 17, 2025 at 11:13:15AM +0300, Pekka Paalanen wrote:
-> > > > > On Wed, 16 Apr 2025 11:59:43 +0300 Tomi Valkeinen wrote:
-> > > > > > On 01/04/2025 16:27, Pekka Paalanen wrote:
-> > > > > > > On Mon, 31 Mar 2025 13:53:37 +0300 Pekka Paalanen wrote:
-> > > > > > >> On Mon, 31 Mar 2025 11:21:35 +0300 Laurent Pinchart wrote:
-> > > > > > >>> On Mon, Mar 31, 2025 at 10:54:46AM +0300, Pekka Paalanen wrote:
-> > > > > > >>>> On Thu, 27 Mar 2025 17:35:39 +0100 Geert Uytterhoeven wrote:
-> > > > > > >>>>> On Thu, 27 Mar 2025 at 16:59, Pekka Paalanen wrote:
-> > > > > > >>>>>> On Thu, 27 Mar 2025 16:21:16 +0200 Tomi Valkeinen wrote:
-> > > > > > >>>>>>> On 27/03/2025 11:20, Pekka Paalanen wrote:
-> > > > > > >>>>>>>> On Wed, 26 Mar 2025 15:55:18 +0200 Tomi Valkeinen wrote:
-> > > > > > >>>>>>>>> On 26/03/2025 15:52, Geert Uytterhoeven wrote:
-> > > > > > >>>>>>>>>> On Wed, 26 Mar 2025 at 14:23, Tomi Valkeinen wrote:
-> > > > > > >>>>>>>>>>> Add greyscale Y8 format.
-> > > > > > >>>>>>>>>>>
-> > > > > > >>>>>>>>>>> Acked-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> > > > > > >>>>>>>>>>> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-> > > > > > >>>>>>>>>>
-> > > > > > >>>>>>>>>> Thanks for your patch!
-> > > > > > >>>>>>>>>>
-> > > > > > >>>>>>>>>>> --- a/include/uapi/drm/drm_fourcc.h
-> > > > > > >>>>>>>>>>> +++ b/include/uapi/drm/drm_fourcc.h
-> > > > > > >>>>>>>>>>> @@ -405,6 +405,9 @@ extern "C" {
-> > > > > > >>>>>>>>>>>     #define DRM_FORMAT_YUV444      fourcc_code('Y', 'U', '2', '4') /* non-subsampled Cb (1) and Cr (2) planes */
-> > > > > > >>>>>>>>>>>     #define DRM_FORMAT_YVU444      fourcc_code('Y', 'V', '2', '4') /* non-subsampled Cr (1) and Cb (2) planes */
-> > > > > > >>>>>>>>>>>
-> > > > > > >>>>>>>>>>> +/* Greyscale formats */
-> > > > > > >>>>>>>>>>> +
-> > > > > > >>>>>>>>>>> +#define DRM_FORMAT_Y8          fourcc_code('G', 'R', 'E', 'Y')  /* 8-bit Y-only */
-> > > > > > >>>>>>>>>>
-> > > > > > >>>>>>>>>> This format differs from e.g. DRM_FORMAT_R8, which encodes
-> > > > > > >>>>>>>>>> the number of bits in the FOURCC format. What do you envision
-> > > > > > >>>>>>>>>> for e.g. DRM_FORMAT_Y16? fourcc_code('G', 'R', '1', '6')?
-> > > > > > >>>>>>>>>
-> > > > > > >>>>>>>>> I wanted to use the same fourcc as on V4L2 side. Strictly speaking it's
-> > > > > > >>>>>>>>> not required, but different fourccs for the same formats do confuse.
-> > > > > > >>>>>>>>>
-> > > > > > >>>>>>>>> So, generally speaking, I'd pick an existing fourcc from v4l2 side if
-> > > > > > >>>>>>>>> possible, and if not, invent a new one.
-> > > > > > >>>>>>>>
-> > > > > > >>>>>>>> what's the actual difference between DRM_FORMAT_R8 and DRM_FORMAT_Y8?
-> > > > > > >>>>>>>>
-> > > > > > >>>>>>>> Is the difference that when R8 gets expanded to RGB, it becomes (R, 0,
-> > > > > > >>>>>>>> 0), but Y8 gets expanded to (c1 * Y, c2 * Y, c3 * Y) where c1..c3 are
-> > > > > > >>>>>>>> defined by MatrixCoefficients (H.273 terminology)?
-> > > > > > >>>>>>>>
-> > > > > > >>>>>>>> That would be my intuitive assumption following how YCbCr is handled.
-> > > > > > >>>>>>>> Is it obvious enough, or should there be a comment to that effect?
-> > > > > > >>>>>>>
-> > > > > > >>>>>>> You raise an interesting point. Is it defined how a display driver, that
-> > > > > > >>>>>>> supports R8 as a format, shows R8 on screen? I came into this in the
-> > > > > > >>>>>>> context of grayscale formats, so I thought R8 would be handled as (R, R,
-> > > > > > >>>>>>> R) in RGB. But you say (R, 0, 0), which... also makes sense.
-> > > > > > >>>>>>
-> > > > > > >>>>>> That is a good question too. I based my assumption on OpenGL behavior
-> > > > > > >>>>>> of R8.
-> > > > > > >>>>>>
-> > > > > > >>>>>> Single channel displays do exist I believe, but being single-channel,
-> > > > > > >>>>>> expansion on the other channels is likely meaningless. Hm, but for the
-> > > > > > >>>>>> KMS color pipeline, it would be meaningful, like with a CTM.
-> > > > > > >>>>>> Interesting.
-> > > > > > >>>>>>
-> > > > > > >>>>>> I don't know. Maybe Geert does?
-> > > > > > >>>>>
-> > > > > > >>>>> I did some digging, and was a bit surprised that it was you who told
-> > > > > > >>>>> me to use R8 instead of Y8?
-> > > > > > >>>>> https://lore.kernel.org/all/20220202111954.6ee9a10c@eldfell
-> > > > > > >>>>
-> > > > > > >>>> Hi Geert,
-> > > > > > >>>>
-> > > > > > >>>> indeed I did. I never thought of the question of expansion to R,G,B
-> > > > > > >>>> before. Maybe that expansion is what spells R8 and Y8 apart?
-> > > > > > >>>>
-> > > > > > >>>> I do think that expansion needs to be specified, so that the KMS color
-> > > > > > >>>> pipeline computations are defined. There is a big difference between
-> > > > > > >>>> multiplying these with an arbitrary 3x3 matrix (e.g. CTM):
-> > > > > > >>>>
-> > > > > > >>>> - (R, 0, 0)
-> > > > > > >>>> - (R, R, R)
-> > > > > > >>>> - (c1 * Y, c2 * Y, c3 * Y)
-> > > > > > >>>
-> > > > > > >>> I'd be very surprised by an YUV to RGB conversion matrix where the first
-> > > > > > >>> column would contain different values. What we need to take into account
-> > > > > > >>> though is quantization (full vs. limited range).
-> > > > > > >
-> > > > > > > Quantization range is indeed good to note. R8 would be always full
-> > > > > > > range, but Y8 would follow COLOR_RANGE property.
-> > > > > > >
-> > > > > > >> That makes Y8 produce (Y, Y, Y), and we have our answer: R8 should be
-> > > > > > >> (R, 0, 0), so we have both variants.
-> > > > > > >>
-> > > > > > >> Can we specify Y, R, G and B be nominal values in the range 0.0 - 1.0
-> > > > > > >> in the KMS color processing?
-> > > > > > >
-> > > > > > > I think this 0.0 - 1.0 nominal range definition for the abstract KMS
-> > > > > > > color processing is necessary.
-> > > > > > >
-> > > > > > > It also means that limited range Y8 data, when containing values 0-15
-> > > > > > > or 240-255, would produce negative and greater than 1.0 values,
-> > > > > > > respectively. They might get immediately clamped to 0.0 - 1.0 with the
-> > > > > > > first color operation they face, though, but the concept seems
-> > > > > > > important and carrying over to the new color pipelines UAPI which might
-> > > > > > > choose not to clamp.
-> > > > > >
-> > > > > > Is the behavior of values outside the limited range something that needs
-> > > > > > to be defined? We can't know how each piece of HW behaves with
-> > > > > > "undefined" input, so should we not just define the behavior as platform
-> > > > > > specific?
-> > > > >
-> > > > > Hi Tomi,
-> > > > >
-> > > > > it's not undefined nor illegal input in general. The so-called
-> > > > > sub-black and super-white ranges exist for a reason, and they are
-> > > > > intended to be used in video processing to avoid clipping in
-> > > > > intermediate processing steps when a filter overshoots a bit. There are
-> > > > > also practices that depend on them, like PLUGE calibration with
-> > > > > traditional signals on a display: https://www.itu.int/rec/R-REC-BT.814
-> > > > >
-> > > > > I think it would be really good to have defined behaviour if at all
-> > > > > possible.
-> > > > >
-> > > > > > In any case: I can't say I fully understood all the discussions wrt.
-> > > > > > color spaces. But my immediate interest is, of course, this series =).
-> > > > > > So is there something that you think should be improved here?
-> > > > >
-> > > > > Right, the range discussion is a tangent and applies to all YUV
-> > > > > formats, so it's not a new question.
-> > > > >
-> > > > > > My understanding is that the Y-only pixel formats behave in a well
-> > > > > > defined way (or, as well defined as the YUV formats), and there's
-> > > > > > nothing more to add here. Is that right?
-> > > > >
-> > > > > There are two things:
-> > > > >
-> > > > > - Y8 follows COLOR_RANGE property, just like all other YUV formats.
-> > > > > - Y8 implies that Cb and Cr are both neutral (0.0 in nominal values).
-> > > > >
-> > > > > I'd like these explicitly written down, so that they become obvious to
-> > > > > everyone. I suspect either one might be easy to forget when writing
-> > > > > code and taking shortcuts without thinking.
-> > > > >
-> > > > >
-> > > > > Laurent,
-> > > > >
-> > > > > I did find a case where (Y', neutral, neutral) does *not* seem to expand
-> > > > > to RGB=(Y, Y, Y): ICtCp. The conversion from ICtCp to L'M'S' does
-> > > > > produce (Y', Y', Y'), but the LMS-to-RGB matrix scrambles it.
-> > > > >
-> > > > > I didn't dig through BT.2020 constant-luminance Y'C'bcC'rc, but I
-> > > > > wouldn't be surprised if it scrambled too.
-> > > > >
-> > > > > Of course, both of the above are not just one matrix. They require two
-> > > > > matrices and the transfer characteristic each to compute. KMS color
-> > > > > operations cannot implement those today, but with the colorop pipelines
-> > > > > they will if the hardware does it.
-> > > > >
-> > > > > That's why I think it's important to document the assumption of Cb and
-> > > > > Cr when not part of the pixel format, and not write down a specific
-> > > > > expansion to RGB like (Y, Y, Y).
-> > > >
-> > > > Every time I discuss color spaces, the scopes of "RGB" and "YUV" seem to
-> > > > expand more and more. This makes me wonder how we define those two
-> > > > concepts. Taking the conversion from RGB to ICtCp as an example, would
-> > > > you consider LMS and L'M'S' as "RGB" formats, and ICtCp as a "YUV"
-> > > > format ?
-> > >
-> > > sorry for the confusion. In this specific context, my use of RGB and
-> > > YUV refers to the channels in DRM pixel formats. It might have been
-> > > better if all channels in all pixel formats were "anonymous" and merely
-> > > numbered because all formats can be used for any color model, but this
-> > > is what we have.
-> > >
-> > > There is some disambiguation in
-> > > https://gitlab.freedesktop.org/pq/color-and-hdr/-/blob/main/doc/pixels_color.md
-> > > The doc is some years old, so nowadays I might phrase things
-> > > differently, but maybe it's easier to read for those new to things as I
-> > > wrote it when I was just learning things.
-> > >
-> > > I would classify ICtCp in the YUV pixel format category, because the
-> > > CtCp plane can be sub-sampled (right?). I would classify LMS and L'M'S'
-> > > in the RGB pixel format category because they are not sub-sampled AFAIK
-> > > although they also do not actually appear as buffer contents, so the
-> > > relation to pixel formats is... theoretical.
-> > >
-> > > IOW, we have a completely artificial split of DRM pixel formats to RGB
-> > > and YUV where the only essential difference is that YUV formats can have
-> > > sub-sampled variants and RGB formats do not.
-> >
-> > RGB can be subsampled, too...
-> > https://en.wikipedia.org/wiki/Bayer_filter
->
-> That's true. What difference are we left with, then?
+Agreed and good point.
 
-RGB contains three monochromatic color channels (which may differ from
-Red, Green, and Blue, cfr. truncated RGn and Rn formats).
-YUV contains one luminance and two chrominance channels.
+> Anyway, you decide which to go :)
 
-> We have DRM pixel formats which imply some color model, but do not
-> define the variant of each color model (e.g. the Y'CbCr-to-RGB matrix).
->
-> I guess the implied color model then implies which API, e.g. KMS plane
-> property, is responsible for defining the variant.
-
-Probably (IANADX --- I Am Not A Drm eXpert ;-)
-
-Gr{oetje,eeting}s,
-
-                        Geert
+Still undecided 🙁
 
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Regards,
+Sudeep
 
