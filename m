@@ -4,80 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DDD2C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 22:13:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 177A1C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 22:15:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Sj4pRdp+l765MK714CGTnwQXZFSOrjKSMrjTy5zwMY0=; b=QNB22Y2i7S14Kr12Fuk373TFyQ
-	fR1SobssPmP7YupDHhxMBJpsYGqlwt1593HOj0ulKzQzrQQ7jIlxFiiLA3QNPgCoaVFvq5XBZkgcw
-	Nb9dqHog8GA8hFmWcI5EXyWUCulfFdeGnB9NvvIo6+q+PNqBwvh1tOw5ftIDewdkztXIiCajNZ6B5
-	EABBeFAgPQvFdubmxYzcHbIebym/nPMTSNRGITf5fcLU0oyK5RykjEHSN0vpT109mf6ozXqpX9nqN
-	bObLBPh9PiAQ9Fe34I4qWvVA0Cv7HN/GfamGK2UR61bkDlZF2bVih+Yh87+Fypd1fN4MdqUhdFGnC
-	6LS5Agbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=UK8PbiajcOpYvYW0ar2JlHmkS0MuupsIJbGCtAbGkUM=; b=oee1SjkcTMJZlI
+	lLTXW/59pJjokaG8aRHZJVlsCfd0uBZgHo3taoOZMDAoUmcbWOGbaLfCG6VmNtHPviAZqk9B3KVVn
+	vRYyiLZ/htrg1e65xb7Z9hs63UOWn7sAbTk01E1hsJlPvFU08Gu45ol8J5wkQmB6o87viVjEmim22
+	1r5LvJrDEEgAX8Gz5NHmDUtI03EEZVvKZQKfu99VfOy1m5YGEFhtdBylKoHeogykoedBST+TjNRl0
+	j7n0ejWFGWTqWCJ0cMsNg4iXt3cxdlzGCW5c2ADyaocqGuXYXz/qZ7yoiQU+JzmlbaX3AHDQ/WDut
+	JZdObs/M3L9UdhrLScUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7LrU-00000008gcB-2kv0;
-	Tue, 22 Apr 2025 22:13:04 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1u7LtK-00000008gnm-3Get;
+	Tue, 22 Apr 2025 22:14:58 +0000
+Received: from mail-ot1-x32a.google.com ([2607:f8b0:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Lk7-00000008fEC-33ju
+	id 1u7LnI-00000008fnZ-25p7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 22:05:29 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53MM5C3q2117300
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 22 Apr 2025 17:05:13 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745359513;
-	bh=Sj4pRdp+l765MK714CGTnwQXZFSOrjKSMrjTy5zwMY0=;
-	h=From:To:CC:Subject:Date;
-	b=wnL83BuH1fhwFoEpJ8Waoxg/SGGYKTFulWHqeZloPhVX5imghxXGolSAk+bkCjdir
-	 OE6dgZpmzh6QfGlARknjOv4pKZ8/tMH5UoOfbmKykkSzw1OhGt4UWlV8X5OUBEXYhK
-	 9mAeItU5DL/uCRjJ5SYtA2+h/ITooa+Y5zgiBa7M=
-Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53MM5CHP117244
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 22 Apr 2025 17:05:12 -0500
-Received: from DLEE113.ent.ti.com (157.170.170.24) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 22
- Apr 2025 17:05:12 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 22 Apr 2025 17:05:12 -0500
-Received: from judy-hp.dhcp.ti.com (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53MM5Crc012605;
-	Tue, 22 Apr 2025 17:05:12 -0500
-From: Judith Mendez <jm@ti.com>
-To: Judith Mendez <jm@ti.com>, Ulf Hansson <ulf.hansson@linaro.org>,
-        Nishanth
- Menon <nm@ti.com>, Adrian Hunter <adrian.hunter@intel.com>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
-        Josua Mayer <josua@solid-run.com>, <linux-mmc@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Francesco Dolcini <francesco@dolcini.it>,
-        Hiago De Franco
-	<hiagofranco@gmail.com>, Moteen Shah <m-shah@ti.com>,
-        <stable@vger.kernel.org>
-Subject: [PATCH RESEND v3 0/3] Add ti,suppress-v1p8-ena
-Date: Tue, 22 Apr 2025 17:05:09 -0500
-Message-ID: <20250422220512.297396-1-jm@ti.com>
-X-Mailer: git-send-email 2.49.0
+	Tue, 22 Apr 2025 22:08:46 +0000
+Received: by mail-ot1-x32a.google.com with SMTP id 46e09a7af769-72c14235af3so3759925a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 15:08:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1745359723; x=1745964523; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=UK8PbiajcOpYvYW0ar2JlHmkS0MuupsIJbGCtAbGkUM=;
+        b=s4yMt01izolWK5DYdPHftOTmOllhazPk31FNUxTXzfk74QYe22TMTNIKT8UI5S9g/O
+         +WM5Fdk/2fSy623vtnVGZvrJVZZey0iaBOwwqU8vFYEtwBp+ceFFYlyMtja4tOnuWHBb
+         O0TuJP/e4MlXBxoyrVe0VTbYWGe5/yeXBw5gUep/6wM244ILcKyhyY0GXUh3/5VtuNr/
+         yRCfsCRSrd/nKDO3DMnXqzyVbBxr5gq1Ip41FVS95mKKdqHrQhiCdk7wE5Xcts/a2Y78
+         reqarOaPbuem6OlvTXXqMhEF/C5at4rM93ibx4+LlktrHObKgHcW6cGXG8HkLR2XhTp8
+         aG2g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745359723; x=1745964523;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=UK8PbiajcOpYvYW0ar2JlHmkS0MuupsIJbGCtAbGkUM=;
+        b=C9oOy4hFlTEpcHnKXoCUX0ylrIiv6zWbT07OK4iew1yuRFzTlKpiXRwBX+gfJSyQPO
+         tbJTb05Yt+DdWMX05l0A+Hj7vfBbTafmNvnYbLnuFvNKM05oEpvuxzQDL035yrhsqEIc
+         icVWKblCSak4L9uO2fefiMpI95sGT+ZBHUKxhYywdN5CxKkXDPp2ulWgTZu23fmJmiDF
+         GimKbyiq5+xsAABFAOssML01j7A571n3iz2DQ9aDE8HOylIzX3j5EAKQBEdziFUNWXRS
+         feaQwEm0ky4ZK2ZdD/pVlM5YUE7iSK6UzoaK5aVHVvlvzND+lgg8HB6vS7ZHydyZFPa5
+         YqFw==
+X-Forwarded-Encrypted: i=1; AJvYcCU3muxTm2fr866RK0DLyZu0rnUZQxEpaNYHNCOsfav6aYA8FWeQxA9xT1068P/YZ0NZBiIkt9jBKH8si0N2OPbx@lists.infradead.org
+X-Gm-Message-State: AOJu0YwgIz4m/coOhxBpqAfSqviQ6xcaUzNWLfUGor+Ybd9W3mSYgwDg
+	JpZ7YpHueU2zL8leEDah9/rfFPI7sYvoRIQXVUbjEt0vyp3GR2XwlwdGNf39J7c=
+X-Gm-Gg: ASbGncu369UBtTPLTqF6BbxUrV+98OC9pAprRpH7hoqRLUzMLHnJw7Q0+CLrtoOLmMx
+	JcmyXB9PrxXlVTUiUQ1tqgvN9PWLswVi7iCu9aWb7WoCBNqn8byU4/oJcGp2JI3HvL3j56rI5Dh
+	yUEJFnlNXoTSOS/FKJe6urrSToPHSxsLClsUJjDf7dtrIgqPoE7i39X+hHSEtBdPs0yDNyx52we
+	pz3WkH9f5o56RkU4eBusdznCgHMnA1GMr3/Jz0g29/hk0HDIXQgdgbRrPpwYFblJSDYMlPCjdcP
+	daShFHetICW2koaFthgwI8rfmFZNNF/FmpGCAx6PXJ2V5Gs=
+X-Google-Smtp-Source: AGHT+IF49b6dl42zzEhPE+viwqBoREWaATjZV9raTcKU0/tbe0AdVa7W21BaShLy+/F/vIG+5DzRQw==
+X-Received: by 2002:a05:6830:6992:b0:727:3664:ca30 with SMTP id 46e09a7af769-7300622d4e5mr10916324a34.16.1745359723490;
+        Tue, 22 Apr 2025 15:08:43 -0700 (PDT)
+Received: from [127.0.1.1] ([2600:8803:e7e4:1d00:c8d1:e0ed:ce8b:96a3])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-730048848dfsm2265938a34.52.2025.04.22.15.08.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 22 Apr 2025 15:08:42 -0700 (PDT)
+From: David Lechner <dlechner@baylibre.com>
+Subject: [PATCH v2 0/6] iio: introduce IIO_DECLARE_BUFFER_WITH_TS
+Date: Tue, 22 Apr 2025 17:07:45 -0500
+Message-Id: <20250422-iio-introduce-iio_declare_buffer_with_ts-v2-0-3fd36475c706@baylibre.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIADETCGgC/53NQQ6CMBCF4auQrq0pRYG48h6GNKWdyiRIzbRUC
+ eHuFo7g8nuL968sACEEditWRpAwoJ8y5KlgZtDTEzjabCaFvIpL2XJEz3GK5O1sYJeyYEZNoPr
+ ZOSD1wTioGLh0bdNUrrHa1izfvQkcfo/Uo8seMERPy1FO5b7+EUklFxxAmFrqqtLC3Xu9jNgTn
+ I1/sW7bth/SVdcs4wAAAA==
+X-Change-ID: 20250418-iio-introduce-iio_declare_buffer_with_ts-2f8773f7dad6
+To: Jonathan Cameron <jic23@kernel.org>, 
+ David Lechner <dlechner@baylibre.com>, 
+ =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
+ Andy Shevchenko <andy@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, 
+ Michael Hennerich <Michael.Hennerich@analog.com>, 
+ Eugen Hristev <eugen.hristev@linaro.org>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2594; i=dlechner@baylibre.com;
+ h=from:subject:message-id; bh=rhogGrbvpIiVq0G4TvM3WJ17ekGEtgtcDKvgCl8/7Do=;
+ b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBoCBM2U32J0Jom2quf2SqcjIS6bRq0JB/NvJ21a
+ sjueXDvijeJATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCaAgTNgAKCRDCzCAB/wGP
+ wGnrB/wNsBqRI2GZ9sOzr0F4p8FofM7AG5l+PtGc3eJ1OqI670Ap3vo+QuNdo5NP1N4cp2XTEnf
+ vrSMI+T5OOcpEDI5EvUIIJeqzkDURnbIaYATNqIua5DDdR7RPCVxScPimhS0oHfl7XgXjYgIS3B
+ YOiz9DEJvfXOaZd8msPCY+850eajcBbewH9veDYi5F8r26N15b7jWQuNkOpwC1okEKfcUbuzwSi
+ VcL9rHzUWeDvJIG/OsRF1zZmcImQ3jz6G9DvUTQvFRlGRHlcCvz7jrK8405szLLrqE6q4QF1Oct
+ x0SyyvAisTtFTbZrbQdMfOpf0cKscRMTzyziDyFzR4kVIsC+
+X-Developer-Key: i=dlechner@baylibre.com; a=openpgp;
+ fpr=8A73D82A6A1F509907F373881F8AF88C82F77C03
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_150527_863054_4EF38619 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20250422_150844_816034_887DBB0C 
+X-CRM114-Status: GOOD (  18.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,52 +119,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Resend patch series to fix cc list
+Creating a buffer of the proper size and correct alignment for use with
+iio_push_to_buffers_with_ts() is commonly used and not easy to get
+right (as seen by a number of recent fixes on the mailing list).
 
-There are MMC boot failures seen with V1P8_SIGNAL_ENA on Kingston eMMC
-and Microcenter/Patriot SD cards on Sitara K3 boards due to the HS200
-initialization sequence involving V1P8_SIGNAL_ENA. Since V1P8_SIGNAL_ENA
-is optional for eMMC, do not set V1P8_SIGNAL_ENA by default for eMMC.
-For SD cards we shall parse DT for ti,suppress-v1p8-ena property to
-determine whether to suppress V1P8_SIGNAL_ENA. Add new ti,suppress-v1p8-ena
-to am62x, am62ax, and am62px SoC dtsi files since there is no internal LDO
-tied to sdhci1 interface so V1P8_SIGNAL_ENA only affects timing.
+In general, we prefer to use this pattern for creating such buffers:
 
-This fix was previously merged in the kernel, but was reverted due
-to the "heuristics for enabling the quirk"[0]. This issue is adressed
-in this patch series by adding optional ti,suppress-v1p8-ena DT property
-which determines whether to apply the quirk for SD.
+struct {
+    u16 data[2];
+    aligned_s64 timestamp;
+} buffer;
 
-Changes since v2:
-- Include patch 3/3
-- Reword cover letter
-- Reword binding patch description
-- Add fixes/cc tags to driver patch
-- Reorder patches according to binding patch first
-- Resend to fix cc list in original v3 series
+However, there are many cases where a driver may have a large number of
+channels that can be optionally enabled or disabled in a scan or the
+driver might support a range of chips that have different numbers of
+channels or different storage sizes for the data. In these cases, the
+timestamp may not always be at the same place relative to the data. To
+handle these, we allocate a buffer large enough for the largest possible
+case and don't care exactly where the timestamp ends up in the buffer.
 
-Link to v2:
-https://lore.kernel.org/linux-mmc/20250417182652.3521104-1-jm@ti.com/
-Link to v1:
-https://lore.kernel.org/linux-mmc/20250407222702.2199047-1-jm@ti.com/
+For these cases, we propose to introduce new macros to make it easier
+it easier for both the authors to get it right and for readers of the
+code to not have to do all of the math to verify that it is correct.
 
-[0] https://lore.kernel.org/linux-mmc/20250127-am654-mmc-regression-v2-1-9bb39fb12810@solid-run.com/
+I have just included a few examples of drivers that can make use of this
+new macro, but there are dozens more.
 
-Judith Mendez (3):
-  dt-bindings: mmc: sdhci-am654: Add ti,suppress-v1p8-ena
-  mmc: sdhci_am654: Add sdhci_am654_start_signal_voltage_switch
-  arm64: dts: ti: k3-am62*: add ti,suppress-v1p8-ena
+---
+Changes in v2:
+- Add 2nd macro for case where we need DMA alignment.
+- Add new patch for ad4695 to convert buffer from u8 to u16 before
+  making use of the new macro.
+- Drop the bmp280 patch since it was determined to have a better
+  alternative not using these macros.
+- Add a few more examples to show the non-DMA case, both in a struct and
+  stack allocated.
+- Link to v1: https://lore.kernel.org/r/20250418-iio-introduce-iio_declare_buffer_with_ts-v1-0-ee0c62a33a0f@baylibre.com
 
- .../devicetree/bindings/mmc/sdhci-am654.yaml  |  5 +++
- arch/arm64/boot/dts/ti/k3-am62-main.dtsi      |  1 +
- arch/arm64/boot/dts/ti/k3-am62a-main.dtsi     |  1 +
- .../dts/ti/k3-am62p-j722s-common-main.dtsi    |  1 +
- drivers/mmc/host/sdhci_am654.c                | 32 +++++++++++++++++++
- 5 files changed, 40 insertions(+)
+---
+David Lechner (6):
+      iio: introduce IIO_DECLARE_BUFFER_WITH_TS macros
+      iio: adc: ad4695: use u16 for buffer elements
+      iio: adc: ad4695: use IIO_DECLARE_BUFFER_WITH_TS
+      iio: adc: ad7380: use IIO_DECLARE_BUFFER_WITH_TS
+      iio: accel: sca3300: use IIO_DECLARE_BUFFER_WITH_TS
+      iio: adc: at91-sama5d2: use IIO_DECLARE_BUFFER_WITH_TS
 
+ drivers/iio/accel/sca3300.c        | 18 ++----------------
+ drivers/iio/adc/ad4695.c           |  8 ++------
+ drivers/iio/adc/ad7380.c           |  4 ++--
+ drivers/iio/adc/at91-sama5d2_adc.c | 13 ++-----------
+ include/linux/iio/iio.h            | 36 ++++++++++++++++++++++++++++++++++++
+ 5 files changed, 44 insertions(+), 35 deletions(-)
+---
+base-commit: aff301f37e220970c2f301b5c65a8bfedf52058e
+change-id: 20250418-iio-introduce-iio_declare_buffer_with_ts-2f8773f7dad6
 
-base-commit: 1be38f81251f6d276713c259ecf4414f82f22c29
+Best regards,
 -- 
-2.49.0
+David Lechner <dlechner@baylibre.com>
 
 
