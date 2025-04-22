@@ -4,107 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACD37C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 09:32:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06450C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 09:34:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KOK06Gy+USdFFUjUhlRbDrQoZuj04eP9w8IDxAKpvDk=; b=BPNhoQOm32i4w30brP5WDpMj+o
-	pxxWEGPWcLI6RB2DtAx6SPLxhjdN7WsxT7rUqT2kCsa7mG4RI2hYs3c/Zj9RtMrzQfBv+bBJzQnoo
-	IHxlPoS2ILpkEKM0nbzO2AJqr9d9qNjdFIAGgetXDGMI1eh7pX1vPdl8dJVBpDd0bHQT5Lg1K++48
-	xCCf2vz2SaM1cr2PXf5wzVe7oKyJa/dYUJ1uL+myuCV9GxXyKp/WYp9OVEnf+9HFkD6zsm/01ZJHe
-	laCqjnkRwCqcH7vgAJ8i0ATXLWg3ZQ3uSTVaCDGLzfO28352elNXQp8DGmoY/kag3itZANYLeZWQa
-	3LETRrXA==;
+	bh=rh2kqgwfRTCor7L6HziJqsusSFfUEGGE3CpD6erBfZM=; b=bRvMYivwjpUnS1jMXcX/GaHI4J
+	SU1HloS2qHmD2VjZkURWHhiVS+8ZT6ssMbxiKAn1Aq8L/dA9bmU/p5PCEti1ZxFBjCVCFDXykRQq6
+	277gvQgOoQWxXFCMtrvdAxbSsPX8483N6lrZqTyFixgG1zrqIkV19ZPvZQb+GQdgYbZ7Fx2B7TKnp
+	u9hXtLAL2qUhJQY26dSKu005YSCSV3FyvymOXRsS71Ca/LBTVORAiLw+xM+POtJz6h60jfqZBST2N
+	Slbii/0SVLruJ/IAvc2O6K9Rx8CVv1jWXWL7Q7zbsTOYbSDl4aq4iaHLYInKIecFuUfSbLNsTTmHR
+	f4k/cBqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u79zc-00000006ZYL-3h7F;
-	Tue, 22 Apr 2025 09:32:40 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1u7A1S-00000006ZxL-2Scc;
+	Tue, 22 Apr 2025 09:34:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u78bU-00000006E5m-1RJj
+	id 1u78gY-00000006Eu0-0fP6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 08:03:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1745309018;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=KOK06Gy+USdFFUjUhlRbDrQoZuj04eP9w8IDxAKpvDk=;
-	b=jKY8Iapx3SRFnaFHJaNpB4itDV0W3GH7i4TklFo3sckSTHLOs0JYd0SXdhUSx4sQiaimuy
-	V4sa5IPIa3ftS7oXgVK6irWVt/KYIxdSa7ACw/3e+sY2zcYF1OfikFVSinaCqoCRbbPiqc
-	iJ5ow4OkAFVEQlV89j0FjKJEu/ePtDA=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-184-rXjZ7J7AMyaUjq2fX9YTfw-1; Tue, 22 Apr 2025 04:03:36 -0400
-X-MC-Unique: rXjZ7J7AMyaUjq2fX9YTfw-1
-X-Mimecast-MFC-AGG-ID: rXjZ7J7AMyaUjq2fX9YTfw_1745309015
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-39123912ff0so1205143f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 01:03:36 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745309015; x=1745913815;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=KOK06Gy+USdFFUjUhlRbDrQoZuj04eP9w8IDxAKpvDk=;
-        b=epqppYMD6I6nTi01/qi7JyMsRMnDpqTTj4bOnexyb5kDmIwuRWnp1fwKXRTcTyicLb
-         MEAu/jRR8fPdxLLa08QTWMg92bCNZDSpUdBkt6VtJnI2gAfVtRCfcTmIin05GmMx7FMq
-         YWl/3/B/2XK/neILh03d8+KAMA4aXc3HS6iyHX2rIfeQ8nXsTVtfmtvnAtJX66PWnh/F
-         Dv2zLzXQ5rUKPct/IyVrEtAXF+g3YXT3BbF2rIr5cL3o/C7G8aHhVxm7K8rjTFXvRIZ+
-         giMcng2m5hk1sIwI+JaUx5H3sbBgXzEENRmnMI6eXN7HiaCCn8gfNR5uYyEeiALlgzSF
-         yjCg==
-X-Forwarded-Encrypted: i=1; AJvYcCUS0znNO2HGNFODospO7cTpUW51Ho2Fitwdu7X8QpCTNNlG/Qu/jROXshtIrEwNNbLLeK3C0Ldfgme4jr9DZJtU@lists.infradead.org
-X-Gm-Message-State: AOJu0YyydqacGiJej8SKKnGX/E/uHxcoYFt6f6Zz+zlFmtZAlnnhC+4u
-	TPRDTpV28SiPvFRSP4sQ5QDchi9FsOTkP5j5+66Ax0OyjDw+dF6YXX2ePgB2oy+WCNQjdWg90Vm
-	bvCM33EYdVUS+DusIS7jpfa7CBHIUl9nhuCmIdX+z40fOTjNmDj7VPwNfMFWBzZvXtIGpZM3n
-X-Gm-Gg: ASbGnctaRMsR3r7mtVPrbJs5Eb9aNBBlujOweF96jzd/a1nqMcs/2Gm1h1ybxZQQcPH
-	XY+V4wvAZBfh3HVKNmRB3ZtqPADfavzvDkeCtGI74QVNvjdTkmD+nIhAgeGyNvCgFzG4Infqruh
-	NvA9tRTwCHLt161+HfOjptFZc3MH3X1HYaiqng5BM1fVdhGXY+L1k+Row7ap828n02YQ2xjVHfN
-	Hp8m8JvqSAcFKb0Z47HSiXQpPtMMu6ny6T6cBQOL3mhR2owTsdrVxBixIDbCC1Ur1PYkjgqs3l1
-	5dJOizw/LztClgYSPFqT6ymJglsLSPKLNjokWMlnK8EJt4PcCVs=
-X-Received: by 2002:a05:6000:1acb:b0:39e:cbf2:e23f with SMTP id ffacd0b85a97d-39efb949514mr12348676f8f.0.1745309015359;
-        Tue, 22 Apr 2025 01:03:35 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IE+QyOm/Vu2YE4p69xcQvAMQItgNodGSQLc0uE5uT6jNKC/u0jIIwsbmq+1mCMLdKIAUP3k4A==
-X-Received: by 2002:a05:6000:1acb:b0:39e:cbf2:e23f with SMTP id ffacd0b85a97d-39efb949514mr12348638f8f.0.1745309014968;
-        Tue, 22 Apr 2025 01:03:34 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:c:37e0:ced3:55bd:f454:e722? ([2a01:e0a:c:37e0:ced3:55bd:f454:e722])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4406d5a9ed9sm166802545e9.3.2025.04.22.01.03.33
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 22 Apr 2025 01:03:34 -0700 (PDT)
-Message-ID: <e18bccaa-bc73-4d7d-a708-688284b1d15f@redhat.com>
-Date: Tue, 22 Apr 2025 10:03:33 +0200
+	Tue, 22 Apr 2025 08:08:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 955046116E;
+	Tue, 22 Apr 2025 08:08:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93959C4CEEA;
+	Tue, 22 Apr 2025 08:08:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745309333;
+	bh=cjxeTIBjmGDBo3MhtyDpWmP+BZTYc/JTlOwvci9CQTY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=fYv+/pYIPEf1BOh4BavScuPJYtjWNwaFWhndS7H1TtiwqP/rDqM6fk00o1uZG4opD
+	 UYRwUStlpRweKSPIpdx4AqHbCfAseLNyoR7WkbKpadjdWf9Fq3j+52kwd7wgnkvYcS
+	 HFw4/P3UPCfPcx/Pf7w/nzRzuxHcJFYnadVqnRhomdAfL0uRuhsQxNwZtQC5M0AFOG
+	 A9s+qhrcdYFnCJm6DCkvdgWWtYFMVRnnIYGCuxRg2+sp9AcFq4qKMD8fJ16su56nhT
+	 dCtnULXRrkttGHNnGgrrw2ygxpaesNSTmT/AG7fgTILnL5Hl6lqO7cNXpXt8b+WP3i
+	 6IWF06kixtj2g==
+Message-ID: <14de236b-e2a7-4bde-986d-1e5ffddd01b4@kernel.org>
+Date: Tue, 22 Apr 2025 10:08:43 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm/panic: Use a decimal fifo to avoid u64 by u64 divide
-To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Cc: Miguel Ojeda <ojeda@kernel.org>,
- Christian Schrefl <chrisi.schrefl@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
- Russell King <linux@armlinux.org.uk>, Paolo Bonzini <pbonzini@redhat.com>,
- rust-for-linux <rust-for-linux@vger.kernel.org>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- Thomas Zimmermann <tzimmermann@suse.de>,
- Javier Martinez Canillas <javierm@redhat.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org
-References: <20250418165059.560503-1-jfalempe@redhat.com>
- <CANiq72neXsmmYQXQOYxndFWkyp1NKa=x3skekZZJOVE-wMZeuQ@mail.gmail.com>
-From: Jocelyn Falempe <jfalempe@redhat.com>
-In-Reply-To: <CANiq72neXsmmYQXQOYxndFWkyp1NKa=x3skekZZJOVE-wMZeuQ@mail.gmail.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: _9e1D4h_YA2CIzJXjoJEbcoL89OE_dELTLZwz6oaJqE_1745309015
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US, fr
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_010340_452076_D303C1ED 
-X-CRM114-Status: UNSURE (   9.99  )
-X-CRM114-Notice: Please train this message.
+Subject: Re: [PATCH 03/13] dt-bindings: mmc: vt8500-sdmmc: Convert to YAML
+To: Alexey Charkov <alchark@gmail.com>, Rob Herring <robh@kernel.org>
+Cc: Andi Shyti <andi.shyti@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Ulf Hansson <ulf.hansson@linaro.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-mmc@vger.kernel.org, netdev@vger.kernel.org, linux-pwm@vger.kernel.org
+References: <20250416-wmt-updates-v1-0-f9af689cdfc2@gmail.com>
+ <20250416-wmt-updates-v1-3-f9af689cdfc2@gmail.com>
+ <20250416201407.GC3811555-robh@kernel.org>
+ <CABjd4YyTKquLcYC+DVg_koi3p7AhqwBNiazCiC713DQKjCaBSA@mail.gmail.com>
+ <CABjd4Yxi4SLqsAk_fb9C=1BW6XjnZ8LQ_JKYu6KZ3TtMS0fnhg@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <CABjd4Yxi4SLqsAk_fb9C=1BW6XjnZ8LQ_JKYu6KZ3TtMS0fnhg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,26 +126,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/04/2025 20:18, Miguel Ojeda wrote:
-> On Fri, Apr 18, 2025 at 6:51 PM Jocelyn Falempe <jfalempe@redhat.com> wrote:
+On 18/04/2025 14:38, Alexey Charkov wrote:
 >>
->> Link: https://lore.kernel.org/dri-devel/CANiq72ke45eOwckMhWHvmwxc03dxr4rnxxKvx+HvWdBLopZfrQ@mail.gmail.com/ [1]
+>>>> +
+>>>> +  reg:
+>>>> +    maxItems: 1
+>>>> +
+>>>> +  clocks:
+>>>> +    maxItems: 1
+>>>> +
+>>>> +  interrupts:
+>>>> +    items:
+>>>> +      - description: SDMMC controller interrupt
+>>>> +      - description: SDMMC controller DMA interrupt
+>>>> +
+>>>> +  sdon-inverted:
+>>>> +    type: boolean
+>>>> +    description: SD_ON bit is inverted on the controller
+>>>
+>>> This implies I know what the non-inverted state is. If you know, please
+>>> state that here.
+>>
+>> This is a tricky one. The only answer I have is "it's inverted in
+>> later versions vs. the first version I saw in the wild, and I'm not
+>> sure if it's board related or IP version related - nor if the original
+>> was active low or high". No docs, no schematics, no vendor left around
+>> to chase for answers.
+>>
+>> Will dig around some more and update the description if I succeed in
+>> uncovering any further clues :)
 > 
-> Thanks for fixing that -- some tags for your consideration:
+> I've found some extra clues and would like to consult on the best way forward.
 > 
-> Reported-by: Miguel Ojeda <ojeda@kernel.org>
-> Closes: https://lore.kernel.org/dri-devel/CANiq72ke45eOwckMhWHvmwxc03dxr4rnxxKvx+HvWdBLopZfrQ@mail.gmail.com/
-> Fixes: ccb8ce526807 ("ARM: 9441/1: rust: Enable Rust support for ARMv7")
+> It turns out (if my understanding of the decompiled binary-only WM8505
+> vendor driver is correct) that all chips before (not including) WM8505
+> rev. A2 treated their "clock stop" bit (register offset 0x08 a.k.a.
+> SDMMC_BUSMODE, bit 0x10 a.k.a. BM_CST in vendor sources, BM_SD_OFF in
+> mainline) as "set 1 to disable SD clock", while all the later versions
+> treated it as "set 0 to disable SD clock". Which means that there are
+> WM8505 based systems that rely on either of those behaviours, while
+> any later chips need "set 0 to disable". This is not a board related
+> quirk but an on-chip SDMMC controller revision related quirk.
+> 
+> I'd love to switch to a compatible-based logic and drop the
+> "sdon-inverted" flag altogether from the binding I'm writing, but here
+> are my doubts where I'd love to consult.
+> 
+> * Looks like WM8505 rev. A2 needs a separate compatible string vs.
+> prior WM8505. Can we have something like "wm,wm8505a2-sdhc" and
+> "wm,wm8505-sdhc" respectively? WM8505a2 not being an actual chip name,
+> but something discoverable by reading its hardware ID from a system
+> configuration register at runtime
 
-Thanks I will add those tags before pushing to drm-misc-next.
+Then maybe it can be fully detected runtime? E.g. via soc_id driver (see
+drivers/soc/)?
 
--- 
+> * If I introduce new compatible strings for "wm,wm8650-sdhc",
+> "wm,wm8750-sdhc", "wm,wm8850-sdhc" and "wm,wm8880-sdhc" in bindings,
+> DTS and driver code, then the new driver and new DTB should work fine,
+> and the DTS should pass schema checks. New driver code won't work with
+> older DTB unless I keep the logic to parse "sdon-inverted" which
+> wouldn't be part of the binding. Old driver code would not work with
+> newer DTB except for pre-A2 versions of WM8505. Is that acceptable?
+> * Existing DTS doesn't differentiate between pre-A2 vs. post-A2
+> revisions of WM8505 and is bound to fail on the latter
 
-Jocelyn
+That's an old platform, so we should not break the ABI, thus drivers
+must fully support old DTBs.
 
 > 
-> Cheers,
-> Miguel
+> I realize that breaking backward/forward compatibility is undesirable,
+> but frankly these systems seem to have few mainline users, and those
+> people who do run mainline on them ought to be compiling the kernel
+> and its DTB at the same time, because the firmware doesn't know
+
+There might be other users of DTS and anyway what would be exactly the
+benefit? This hardware aspect is already documented via sdon-inverted
+property.
+
+> anything about DT and any modern kernel can only be booted in
+> "appended DTB" mode. I also don't know of any non-Linux code that
+> might be using these device trees.
+> 
+> Any guidance would be much appreciated.
 > 
 
+
+Best regards,
+Krzysztof
 
