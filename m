@@ -4,97 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B29EC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 16:49:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80E93C369D7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 18:14:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BSGEQwMZjYIpuTN5ro8M8TjOKKvoSv9pOa+hAkQBQT0=; b=My2YTeT02Puav6zjqR0pXQuUZT
-	TE7yzmzJTA5S4M3VGfzh4NhugDATuMfXIyAuVQzcWpZZWvbTs5HUp/iBAruI7ctXRumqneqEx4Btt
-	blDodtEr/MWz+YIW3N3tToqYPgUzN3NnM8DSTviV+0bzP/STL4Vi+RfbniUMTJmeGtdNWzdgXUPHQ
-	HKjvxdkM0ybdBV9L0xYM6B6VMt28Y/n49xNvFVzxrE3khrIpmJfaaOqXwnH0lI3WZH557QN6W4gmC
-	aNWTtEWhQffLKCGFTtiTDqe2eZmEyRNrJj97sPsXFsMZ6V8Hw0gUXqu5WuFXLquPFTiQVM9WlA2kh
-	l9pMcU/w==;
+	bh=k7vrpOBzU1CNfKbjohZHM/Pmwjdmw6ezgwKO5j1s1R0=; b=aj+RXaMT//wlDe6f81TVk8fGOW
+	uEW9bJ98qUJgNK7SeoIEArTQOxH7hvKjsjTdruUQHRBCKU3JHKyHUZoy7b6TlCk7UHjije6PQSjQ+
+	olqoHGoTWSaMQZbwENpsUKCNNsOwG4LaIFtBJuUb8gb+pfUkXs/qeyziuGfvNR0nsSNxJIErwwRyV
+	W7kBgcCVHRTQZhZG15eBiyEvWdeD16YmwWI5cWfUBKuQLdhhfZN1JyTGRgkmYS6wL0FP59PZ0zMvI
+	pQduTtobNXoXjEk8T/X/DOAFbyvdeZCxoNfPQ1A3ytnN5A0DblpnPwRnVVnG7H3JEmsTxRyVbHyIE
+	DtczKalA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Gns-00000007xwj-17UJ;
-	Tue, 22 Apr 2025 16:49:00 +0000
-Received: from mx07-00376f01.pphosted.com ([185.132.180.163])
+	id 1u7I8T-000000085Zo-0bEx;
+	Tue, 22 Apr 2025 18:14:21 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7FWb-00000007i1n-3dnc
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 15:27:07 +0000
-Received: from pps.filterd (m0168889.ppops.net [127.0.0.1])
-	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53M6JMlC025210;
-	Tue, 22 Apr 2025 16:26:52 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=dk201812; bh=B
-	SGEQwMZjYIpuTN5ro8M8TjOKKvoSv9pOa+hAkQBQT0=; b=KSTTiAMyeovDtZ63C
-	o41FpqT8JDXqWO1yp0xe4Xs5yEEofBYvLNeYvOWQX1m2WvACOuLORkveMQ+j8wqC
-	xD4yRreQELAEFy6nAyW3CVuC6PZ4jRCW3dR819RWO9fUagSE/APKn/FFHahbIpSs
-	SOPvcFuJwTW8vuo7Jt8BCc91LO/R8EbtDMWL3XTbQ5Rh1W7Ev0MWMByyJ8SIicWx
-	UKM5cb+Dpf6uMoz09/vOu5xcmAp9HvyVZbF+qcK9HFvgqWkYrzoAQv8mn5mVrta3
-	gvbDTCpZtcLW3HCJFSn6MCGs1nBizE0KfxgE5US0YliX0dM6gSDzekkMc4TxrWpR
-	hW1vw==
-Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
-	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 4643ww22a3-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Tue, 22 Apr 2025 16:26:51 +0100 (BST)
-Received: from
- 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
- (172.25.7.98) by HHMAIL05.hh.imgtec.org (10.100.10.120) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Tue, 22 Apr 2025 16:26:50 +0100
-From: Matt Coster <matt.coster@imgtec.com>
-Date: Tue, 22 Apr 2025 16:26:41 +0100
-Subject: [PATCH v3 1/2] arm64: dts: ti: k3-am62: New GPU binding details
+	id 1u7E7k-00000007OS9-1W9U;
+	Tue, 22 Apr 2025 13:57:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1745330238;
+	bh=sOIwe0VS+sWfFtU7zCZZgIQ6EcmnnSJDBcSZ+saj2wY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=cVwKyuQRCH48gIXlHPOJnAc1Kp33JadQEXAnwPdP1tWYP+L1CYt9+b9V/CqKzwoer
+	 qIb4ErAUugPpbDsKULxUxf8ra68C8d4tidGYOxuRsLEAGqJ3T9olxc8qsxQAcB3n/a
+	 xP5FEU6x0W4XKReZ4ErNgm0bg2ohKaN9Dg9plA/iFRjWLbzYmwtu+DbDnD9BWzx+CL
+	 Aiw6B4TT37LG5K2+K5T39OZqwjgBda9Y8dWQDAbTuArPJUhNjlPmmXzNMkTU6ykMtg
+	 okBUUchJh9sL6wJpARRYSH+0dTeNJM1yvfSxiLj8sf/1M/tlonDtCnPnVfqdm40kJ2
+	 MjpuAZI4WQFjw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1999617E35E8;
+	Tue, 22 Apr 2025 15:57:18 +0200 (CEST)
+Message-ID: <748082be-2850-4ad3-8fba-eaaa859e8d1c@collabora.com>
+Date: Tue, 22 Apr 2025 15:57:17 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 5/8] arm64: dts: mediatek: mt8186: Merge Voltorb device
+ trees
+To: Chen-Yu Tsai <wenst@chromium.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Benson Leung <bleung@chromium.org>, Tzung-Bi Shih <tzungbi@kernel.org>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ chrome-platform@lists.linux.dev, linux-input@vger.kernel.org,
+ Douglas Anderson <dianders@chromium.org>
+References: <20250421101248.426929-1-wenst@chromium.org>
+ <20250421101248.426929-6-wenst@chromium.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250421101248.426929-6-wenst@chromium.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250422-bxs-4-64-dts-v3-1-ec6657bde135@imgtec.com>
-References: <20250422-bxs-4-64-dts-v3-0-ec6657bde135@imgtec.com>
-In-Reply-To: <20250422-bxs-4-64-dts-v3-0-ec6657bde135@imgtec.com>
-To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        "Tero
- Kristo" <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Frank Binns <frank.binns@imgtec.com>,
-        "Alessio Belle" <alessio.belle@imgtec.com>,
-        Alexandru Dadu
-	<alexandru.dadu@imgtec.com>,
-        Luigi Santivetti <luigi.santivetti@imgtec.com>,
-        Randolph Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>,
-        Matt Coster
-	<matt.coster@imgtec.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1639;
- i=matt.coster@imgtec.com; h=from:subject:message-id;
- bh=P7IIgBL2DEBvjkm96hBWzGVttjPfHoYpgW7BhMP5XtM=;
- b=owGbwMvMwCFWuUfy8817WRsYT6slMWSwb7W8EF8+teSl1pu7U39NMTYRm+e/tOnrkRtlx3IDz
- 8VtU3Z60VHKwiDGwSArpsiyY4XlCrU/aloSN34Vw8xhZQIZwsDFKQAT8WpjZHh/U+dv9t7F/PJ7
- K13FDD4aMahePhHvpLzvVcIno33GQt2MDOs//7oSEnfy/tu/Gju7Ze/I27NcnphT87JU6m5f0du
- uKewA
-X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
- fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
-X-Originating-IP: [172.25.7.98]
-X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDIyMDExNyBTYWx0ZWRfX4O+2/RR6iD+9 8r1/rsAfM1EUbp5CxHVBZbrAVGYwFBlgRLMTxgSAEEEhVOcPdrOaZGMmFZIA+y3+W8s2B6kKSnf 2q4vwBE5On+vVczWAX+lD8bL6jMlke2Q2PwaAVc7bsUdw5uEMdcm5l7QJVeCq4GNVBSxqzWO1Xv
- F8D43LnHMyRL2R8FHx54qCPpA5Ck47C+fOPYqGuBG6N7iJZ+J7UIqNcmZcmLnRvIgtQgMnsiD+k 5VHZjsp9WQ+6g1BBDn6KklT1cu0pXL8DwXaOMlBLWcEnux9xyLFRHEZtn2uZFVVB5VbD8boA4WH TYHyrIwzaAgreJOPKo2lwiIhOTstJWU7VArxYelUxaXPJ2epcTrqOwNMzRUArOR94K3ns2RZSMi
- rquIX6FgNngk+EI4csg92w4qDWjsCRifA+UAYRbU12Gr4sWEhLVoSmxc8QpxigHVtx7RrDUW
-X-Authority-Analysis: v=2.4 cv=ApTu3P9P c=1 sm=1 tr=0 ts=6807b53b cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=6pm0VhuFVbIA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=sozttTNsAAAA:8
- a=PTNHAAa5d5l9TNYsNX4A:9 a=QEXdDO2ut3YA:10 a=t8nPyN_e6usw4ciXM-Pk:22
-X-Proofpoint-GUID: TUJ0X56Mq9jR5OjvRPC2TtTCyBLUHZzV
-X-Proofpoint-ORIG-GUID: TUJ0X56Mq9jR5OjvRPC2TtTCyBLUHZzV
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_082706_212981_50055F83 
-X-CRM114-Status: GOOD (  10.35  )
+X-CRM114-CacheID: sfid-20250422_065720_572879_6B8D7D7A 
+X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,50 +83,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the new compatible string and power domain name as introduced in
-commit 2c01d9099859 ("dt-bindings: gpu: img: Future-proofing
-enhancements")[1].
+Il 21/04/25 12:12, Chen-Yu Tsai ha scritto:
+> There are only two different SKUs of Voltorb, and the only difference
+> between them is whether a touchscreen is present or not. This can be
+> detected by a simple I2C transfer to the address, instead of having
+> separate device trees.
+> 
+> Merge the two device trees together and simplify the compatible string
+> list. The dtsi is still kept separate since there is an incoming device
+> that shares the same design, but with slightly difference components.
+> 
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 
-[1]: https://lore.kernel.org/r/20250410-sets-bxs-4-64-patch-v1-v6-1-eda620c5865f@imgtec.com
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-Reviewed-by: Randolph Sapp <rs@ti.com>
-Signed-off-by: Matt Coster <matt.coster@imgtec.com>
----
-Changes in v3:
-- None
-- Link to v2: https://lore.kernel.org/r/20250417-bxs-4-64-dts-v2-1-9f8c09233114@imgtec.com
-Changes in v2:
-- Add Randolph's Rb
-- Link to v1: https://lore.kernel.org/r/20250415-bxs-4-64-dts-v1-1-f7d3fa06625d@imgtec.com
-
-This patch was previously sent as [DO NOT MERGE]:
-https://lore.kernel.org/r/20250410-sets-bxs-4-64-patch-v1-v6-17-eda620c5865f@imgtec.com
----
- arch/arm64/boot/dts/ti/k3-am62-main.dtsi | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
-index 7d355aa73ea2116723735f70b9351cefcd8bc118..d17b25cae196b08d24adbe7c913ccaba7eed37eb 100644
---- a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
-@@ -691,12 +691,14 @@ ospi0: spi@fc40000 {
- 	};
- 
- 	gpu: gpu@fd00000 {
--		compatible = "ti,am62-gpu", "img,img-axe";
-+		compatible = "ti,am62-gpu", "img,img-axe-1-16m", "img,img-axe",
-+			     "img,img-rogue";
- 		reg = <0x00 0x0fd00000 0x00 0x20000>;
- 		clocks = <&k3_clks 187 0>;
- 		clock-names = "core";
- 		interrupts = <GIC_SPI 86 IRQ_TYPE_LEVEL_HIGH>;
- 		power-domains = <&k3_pds 187 TI_SCI_PD_EXCLUSIVE>;
-+		power-domain-names = "a";
- 	};
- 
- 	cpsw3g: ethernet@8000000 {
-
--- 
-2.49.0
 
 
