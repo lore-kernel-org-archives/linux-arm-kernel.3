@@ -4,56 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C3A5C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 15:50:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1E37C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 15:52:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BFDXlvdukMKiPZftRWUaiHN5FPmmG/DZlg0yn81QRFc=; b=GV6xlhYPO7BQXCTMMd6QC/yPZa
-	ou/PRjrIb09fy5riIGpO1gDb2/Hw+JymQFljUF4JhFjsXUY4OUtKgIjY+0sClRyfXL8w6PteMT+Qk
-	Xbs8UAT46bUPkmx02KO24e6qDFpjIGdqBSYtefgusf1lw0GPGnUZ5AJmYjKPRz9WP8yQIM+fRoMAb
-	3cx0Vu0r4xeLrjJlIRCD6/ssFWTliIXQyPcl0Pee66oOydS+0GFCNirIfNqL2jLvriCTG+cEr1ySv
-	SlVdtyTenBcpOMEtF/RbCQ4NPs8X/G4W2zuKmofkjBmYf6RqlPLPA0kSex87Lx7cxp6pKoe9KbaU8
-	GcpsyZqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ID22wjceRugB90WxLsuRXhNBWXnwisWQrSPXMdGR18k=; b=pLRMQUmN1EToeuWZ3KYF5VsP09
+	DkGRELpDeEuiXqyjFoye8fsOyt/wlGqV21Icv6dOjioraI/Z0TO2HmKbzuElcKkbHSEe16pbjRXVU
+	ch8AflnJuxH1+XSPvv40CadfEIl/QXtnpnWepOSWDzCHuUWci6m+yKlFa8Da9tA4JXLhSLTBgeI7Q
+	T21PvcyMTtM0z3Z8vwlrQJqxPHgHTErt8Xe3JC+5Bcfh0QLLGy6TDMk7R9vup8uIkK5DBa1b8XvbQ
+	jdzEnnsl1TO6nEV4wve6DKM3+4TssBofMJ/+JuLKin2XxFpkYNJJGMiLmXqF+i3CFVXhSrWcmf2zf
+	SwPXCX+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7FtM-00000007nhi-0bJF;
-	Tue, 22 Apr 2025 15:50:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7EiZ-00000007WSb-3kI5
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 14:35:25 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 63D5C152B;
-	Tue, 22 Apr 2025 07:35:08 -0700 (PDT)
-Received: from [10.1.196.40] (e121345-lin.cambridge.arm.com [10.1.196.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BB4E13F66E;
-	Tue, 22 Apr 2025 07:35:11 -0700 (PDT)
-Message-ID: <d24f34a7-5fa6-4f39-8040-e03a0816306e@arm.com>
-Date: Tue, 22 Apr 2025 15:35:10 +0100
+	id 1u7FvC-00000007oF3-2Edp;
+	Tue, 22 Apr 2025 15:52:30 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7Dip-00000007JJF-21I0;
+	Tue, 22 Apr 2025 13:31:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6EECE49B89;
+	Tue, 22 Apr 2025 13:31:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD85EC4CEE9;
+	Tue, 22 Apr 2025 13:31:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745328694;
+	bh=PUlxQyX8nREovK6k+GC9IgG9dVIjGRHmht1sosPSRZg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lzsbSUe9yMIoIdAFuVtjuYbtKJXYnXH+/18lnSxmlyvJ3KAczwykQSh0ukO+g5UhR
+	 b9fKvjYZ4h43aGmf/RbCPrd1oGYcnY1Mrcf5caZIcHxEVTAbKDhBZCwUX/xHDukPQf
+	 eneYsZ6BCW2dUf2BBdziP1WjKygmCeL2+OdBTTdA7gK6RiN0DcOwrzOd9Qu1F3UyFi
+	 2oeG7VUlfx0elQ3L/kwDIu6Zy7W3318G0BIs8M9MOq110qg5tpNxoYsnjTwCkfb5d8
+	 iPQfR1G2Q83oKqJ/77Xc2dm00a6e3gsq56zipjt/LQbzPilfN8TfWRxWZJthoj/dTK
+	 M120fBrzWowgw==
+Date: Tue, 22 Apr 2025 16:31:19 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Changyuan Lyu <changyuanl@google.com>
+Cc: linux-kernel@vger.kernel.org, akpm@linux-foundation.org,
+	anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
+	benh@kernel.crashing.org, bp@alien8.de, catalin.marinas@arm.com,
+	corbet@lwn.net, dave.hansen@linux.intel.com,
+	devicetree@vger.kernel.org, dwmw2@infradead.org,
+	ebiederm@xmission.com, graf@amazon.com, hpa@zytor.com,
+	jgowans@amazon.com, kexec@lists.infradead.org, krzk@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	linux-mm@kvack.org, luto@kernel.org, mark.rutland@arm.com,
+	mingo@redhat.com, pasha.tatashin@soleen.com, pbonzini@redhat.com,
+	peterz@infradead.org, ptyadav@amazon.de, robh@kernel.org,
+	rostedt@goodmis.org, saravanak@google.com,
+	skinsburskii@linux.microsoft.com, tglx@linutronix.de,
+	thomas.lendacky@amd.com, will@kernel.org, x86@kernel.org
+Subject: Re: [PATCH v6 12/14] memblock: add KHO support for reserve_mem
+Message-ID: <aAeaJ2iqkrv_ffhT@kernel.org>
+References: <20250411053745.1817356-1-changyuanl@google.com>
+ <20250411053745.1817356-13-changyuanl@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] perf:arm-ni: support PMUs to share IRQs for different
- clock domains
-To: Shouping Wang <allen.wang@hj-micro.com>, will@kernel.org
-Cc: mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, peter.du@hj-micro.com, andy.xu@hj-micro.com
-References: <20250410114214.1599777-1-allen.wang@hj-micro.com>
- <20250410114214.1599777-3-allen.wang@hj-micro.com>
- <4e25536e-459b-4376-9422-4a7d0156234d@arm.com>
- <e473bba6-a9ad-45fa-a9d0-3cabbc162966@hj-micro.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <e473bba6-a9ad-45fa-a9d0-3cabbc162966@hj-micro.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250411053745.1817356-13-changyuanl@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_073524_021646_B6055E81 
-X-CRM114-Status: GOOD (  29.09  )
+X-CRM114-CacheID: sfid-20250422_063135_554843_5CB1DC5A 
+X-CRM114-Status: GOOD (  36.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,203 +83,305 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/04/2025 10:54 am, Shouping Wang wrote:
-> For the same NI700 device, different CDs share a PMU interrupt. The
-> cd->cpu is set to the first CPU in the NUMA node associated with the
-> device, meaning all CDs share the same cd->cpu value.
-
-But what if CPUs are being onlined/offlined while arm_ni_probe() is 
-running? We can't necessarily assume that multiple calls to 
-cpumask_local_spread() at different points in time will give consistent 
-results to begin with.
-
-> During event_init,
-> event->cpu is assigned to cd->cpu, resulting in all CD PMUs sharing the
-> interrupt being bound to the same CPU context. if the CPU goes offline,
-> the PMU context on that CPU is migrated to a target CPU, and the
-> interrupt is rebound to the target CPU.
-
-Except the CDs will *each* try to migrate the same IRQ one-by-one as if 
-it's theirs uniquely. I suppose it's quite likely that the 
-cpumask_any_*() calls will all happen to pick the same new target CPU, 
-given that we should be under the global CPU hotplug lock at that point, 
-but I'm still not sure that's strictly guaranteed. Furthermore it opens 
-a race window where as soon as the first irq_set_affinity() call has 
-taken effect, the IRQ handler for all the *other* CDs may then be called 
-on the new CPU before their respective PMU contexts have been migrated.
-
-> My understanding is that the CPU
-> affinity and hotplug operations can remain synchronized. Could you
-> confirm if there are any misunderstandings in this logic?
-
-For that to happen *reliably*, essentially the IRQ affinity needs to be 
-managed at an equivalent level to the initial IRQ request itself.
-
-Thanks,
-Robin.
-
-> On 4/17/2025 10:41 PM, Robin Murphy wrote:
->> On 10/04/2025 12:42 pm, Shouping Wang wrote:
->>> The ARM NI700 contains multiple clock domains, each with a PMU.
->>> In some hardware implementations, these PMUs under the same device
->>> share a common interrupt line. The current codes implementation
->>> only supports requesting a separate IRQ for each clock domain's PMU.
->>>
->>> Here, a single interrupt handler is registered for shared interrupt.
->>> Within this handler, the interrupt status of all PMUs sharing the
->>> interrupt is checked.
->>
->> Unfortunately this isn't sufficient for sharing an IRQ between multiple
->> PMUs - the CPU affinity and hotplug context migration must be kept in
->> sync as well.
->>
->> I guess I really should get back to my old plan to factor out a common
->> helper library for all this stuff - that was the main reason I left
->> combined IRQ support out of the initial version here rather than do
->> another copy-paste of the arm_dmc620 design again...
->>
->> Thanks,
->> Robin.
->>
->>> Signed-off-by: Shouping Wang <allen.wang@hj-micro.com>
->>> ---
->>>    drivers/perf/arm-ni.c | 77 +++++++++++++++++++++++++++++--------------
->>>    1 file changed, 53 insertions(+), 24 deletions(-)
->>>
->>> diff --git a/drivers/perf/arm-ni.c b/drivers/perf/arm-ni.c
->>> index 3f3d2e0f91fa..611085e89436 100644
->>> --- a/drivers/perf/arm-ni.c
->>> +++ b/drivers/perf/arm-ni.c
->>> @@ -104,6 +104,7 @@ struct arm_ni_cd {
->>>        u16 id;
->>>        int num_units;
->>>        int irq;
->>> +    s8 irq_friend;
->>>        int cpu;
->>>        struct hlist_node cpuhp_node;
->>>        struct pmu pmu;
->>> @@ -446,26 +447,31 @@ static irqreturn_t arm_ni_handle_irq(int irq,
->>> void *dev_id)
->>>    {
->>>        struct arm_ni_cd *cd = dev_id;
->>>        irqreturn_t ret = IRQ_NONE;
->>> -    u32 reg = readl_relaxed(cd->pmu_base + NI_PMOVSCLR);
->>> +    u32 reg;
->>>    -    if (reg & (1U << NI_CCNT_IDX)) {
->>> -        ret = IRQ_HANDLED;
->>> -        if (!(WARN_ON(!cd->ccnt))) {
->>> -            arm_ni_event_read(cd->ccnt);
->>> -            arm_ni_init_ccnt(cd);
->>> +    for (;;) {
->>> +        reg = readl_relaxed(cd->pmu_base + NI_PMOVSCLR);
->>> +        if (reg & (1U << NI_CCNT_IDX)) {
->>> +            ret = IRQ_HANDLED;
->>> +            if (!(WARN_ON(!cd->ccnt))) {
->>> +                arm_ni_event_read(cd->ccnt);
->>> +                arm_ni_init_ccnt(cd);
->>> +            }
->>>            }
->>> -    }
->>> -    for (int i = 0; i < NI_NUM_COUNTERS; i++) {
->>> -        if (!(reg & (1U << i)))
->>> -            continue;
->>> -        ret = IRQ_HANDLED;
->>> -        if (!(WARN_ON(!cd->evcnt[i]))) {
->>> -            arm_ni_event_read(cd->evcnt[i]);
->>> -            arm_ni_init_evcnt(cd, i);
->>> +        for (int i = 0; i < NI_NUM_COUNTERS; i++) {
->>> +            if (!(reg & (1U << i)))
->>> +                continue;
->>> +            ret = IRQ_HANDLED;
->>> +            if (!(WARN_ON(!cd->evcnt[i]))) {
->>> +                arm_ni_event_read(cd->evcnt[i]);
->>> +                arm_ni_init_evcnt(cd, i);
->>> +            }
->>>            }
->>> +        writel_relaxed(reg, cd->pmu_base + NI_PMOVSCLR);
->>> +        if (!cd->irq_friend)
->>> +            return ret;
->>> +        cd += cd->irq_friend;
->>>        }
->>> -    writel_relaxed(reg, cd->pmu_base + NI_PMOVSCLR);
->>> -    return ret;
->>>    }
->>>      static int arm_ni_init_cd(struct arm_ni *ni, struct arm_ni_node
->>> *node, u64 res_start)
->>> @@ -538,12 +544,6 @@ static int arm_ni_init_cd(struct arm_ni *ni,
->>> struct arm_ni_node *node, u64 res_s
->>>        if (cd->irq < 0)
->>>            return cd->irq;
->>>    -    err = devm_request_irq(ni->dev, cd->irq, arm_ni_handle_irq,
->>> -                   IRQF_NOBALANCING | IRQF_NO_THREAD,
->>> -                   dev_name(ni->dev), cd);
->>> -    if (err)
->>> -        return err;
->>> -
->>>        cd->cpu = cpumask_local_spread(0, dev_to_node(ni->dev));
->>>        cd->pmu = (struct pmu) {
->>>            .module = THIS_MODULE,
->>> @@ -603,6 +603,30 @@ static void arm_ni_probe_domain(void __iomem
->>> *base, struct arm_ni_node *node)
->>>        node->num_components = readl_relaxed(base + NI_CHILD_NODE_INFO);
->>>    }
->>>    +static int arm_ni_irq_init(struct arm_ni *ni)
->>> +{
->>> +    int irq;
->>> +    int err = 0;
->>> +
->>> +    for (int i = 0; i < ni->num_cds; i++) {
->>> +        irq = ni->cds[i].irq;
->>> +        for (int j = i; j--; ) {
->>> +            if (ni->cds[j].irq == irq) {
->>> +                ni->cds[j].irq_friend = i-j;
->>> +                goto next;
->>> +            }
->>> +        }
->>> +        err =  devm_request_irq(ni->dev, irq, arm_ni_handle_irq,
->>> +                    IRQF_NOBALANCING | IRQF_NO_THREAD,
->>> +                     dev_name(ni->dev), &ni->cds[i]);
->>> +        if (err)
->>> +            return err;
->>> +next:
->>> +        ;
->>> +    }
->>> +    return 0;
->>> +}
->>> +
->>>    static int arm_ni_probe(struct platform_device *pdev)
->>>    {
->>>        struct arm_ni_node cfg, vd, pd, cd;
->>> @@ -611,6 +635,7 @@ static int arm_ni_probe(struct platform_device *pdev)
->>>        void __iomem *base;
->>>        static atomic_t id;
->>>        int num_cds;
->>> +    int ret;
->>>        u32 reg, part;
->>>          /*
->>> @@ -669,8 +694,6 @@ static int arm_ni_probe(struct platform_device *pdev)
->>>                reg = readl_relaxed(vd.base + NI_CHILD_PTR(p));
->>>                arm_ni_probe_domain(base + reg, &pd);
->>>                for (int c = 0; c < pd.num_components; c++) {
->>> -                int ret;
->>> -
->>>                    reg = readl_relaxed(pd.base + NI_CHILD_PTR(c));
->>>                    arm_ni_probe_domain(base + reg, &cd);
->>>                    ret = arm_ni_init_cd(ni, &cd, res->start);
->>> @@ -683,6 +706,12 @@ static int arm_ni_probe(struct platform_device
->>> *pdev)
->>>            }
->>>        }
->>>    +    ret = arm_ni_irq_init(ni);
->>> +    if (ret) {
->>> +        arm_ni_remove(pdev);
->>> +        return ret;
->>> +    }
->>> +
->>>        return 0;
->>>    }
->>>    
->>
->>
+On Thu, Apr 10, 2025 at 10:37:43PM -0700, Changyuan Lyu wrote:
+> From: Alexander Graf <graf@amazon.com>
 > 
+> Linux has recently gained support for "reserve_mem": A mechanism to
+> allocate a region of memory early enough in boot that we can cross our
+> fingers and hope it stays at the same location during most boots, so we
+> can store for example ftrace buffers into it.
+> 
+> Thanks to KASLR, we can never be really sure that "reserve_mem"
+> allocations are static across kexec. Let's teach it KHO awareness so
+> that it serializes its reservations on kexec exit and deserializes them
+> again on boot, preserving the exact same mapping across kexec.
+> 
+> This is an example user for KHO in the KHO patch set to ensure we have
+> at least one (not very controversial) user in the tree before extending
+> KHO's use to more subsystems.
+> 
+> Signed-off-by: Alexander Graf <graf@amazon.com>
+> Co-developed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> Co-developed-by: Changyuan Lyu <changyuanl@google.com>
+> Signed-off-by: Changyuan Lyu <changyuanl@google.com>
+> ---
+>  mm/memblock.c | 205 ++++++++++++++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 205 insertions(+)
+> 
+> diff --git a/mm/memblock.c b/mm/memblock.c
+> index 456689cb73e20..3571a859f2fe1 100644
+> --- a/mm/memblock.c
+> +++ b/mm/memblock.c
+> @@ -18,6 +18,11 @@
+>  #include <linux/memblock.h>
+>  #include <linux/mutex.h>
+>  
+> +#ifdef CONFIG_KEXEC_HANDOVER
+> +#include <linux/libfdt.h>
+> +#include <linux/kexec_handover.h>
+> +#endif /* CONFIG_KEXEC_HANDOVER */
+> +
+>  #include <asm/sections.h>
+>  #include <linux/io.h>
+>  
+> @@ -2475,6 +2480,201 @@ int reserve_mem_release_by_name(const char *name)
+>  	return 1;
+>  }
+>  
+> +#ifdef CONFIG_KEXEC_HANDOVER
+> +#define MEMBLOCK_KHO_FDT "memblock"
+> +#define MEMBLOCK_KHO_NODE_COMPATIBLE "memblock-v1"
+> +#define RESERVE_MEM_KHO_NODE_COMPATIBLE "reserve-mem-v1"
+> +static struct page *kho_fdt;
+> +
+> +static int reserve_mem_kho_finalize(struct kho_serialization *ser)
+> +{
+> +	int err = 0, i;
+> +
+> +	if (!reserved_mem_count)
+> +		return NOTIFY_DONE;
+> +
+> +	if (IS_ERR(kho_fdt)) {
+> +		err = PTR_ERR(kho_fdt);
+> +		pr_err("memblock FDT was not prepared successfully: %d\n", err);
+> +		return notifier_from_errno(err);
+> +	}
+> +
+> +	for (i = 0; i < reserved_mem_count; i++) {
+> +		struct reserve_mem_table *map = &reserved_mem_table[i];
+> +
+> +		err |= kho_preserve_phys(ser, map->start, map->size);
+> +	}
+> +
+> +	err |= kho_preserve_folio(ser, page_folio(kho_fdt));
+> +	err |= kho_add_subtree(ser, MEMBLOCK_KHO_FDT, page_to_virt(kho_fdt));
+> +
+> +	return notifier_from_errno(err);
+> +}
+> +
+> +static int reserve_mem_kho_notifier(struct notifier_block *self,
+> +				    unsigned long cmd, void *v)
+> +{
+> +	switch (cmd) {
+> +	case KEXEC_KHO_FINALIZE:
+> +		return reserve_mem_kho_finalize((struct kho_serialization *)v);
+> +	case KEXEC_KHO_ABORT:
+> +		return NOTIFY_DONE;
+> +	default:
+> +		return NOTIFY_BAD;
+> +	}
+> +}
+> +
+> +static struct notifier_block reserve_mem_kho_nb = {
+> +	.notifier_call = reserve_mem_kho_notifier,
+> +};
+> +
+> +static void __init prepare_kho_fdt(void)
+> +{
+> +	int err = 0, i;
+> +	void *fdt;
+> +
+> +	if (!reserved_mem_count)
+> +		return;
+
+It's better to have this check in reserve_mem_init() before registering kho
+notifier.
+
+> +
+> +	kho_fdt = alloc_page(GFP_KERNEL);
+> +	if (!kho_fdt) {
+> +		kho_fdt = ERR_PTR(-ENOMEM);
+
+Do we really care about having errno in kho_fdt? I think NULL would work
+just fine.
+
+> +		return;
+
+And actually, it makes sense to me to return -ENOMEM here and let
+reserve_mem_init() bail out before registering notifier if fdt preparation
+failed.
+
+That will save the checks in reserve_mem_kho_finalize() because it would be
+called only if we have reserve_mem areas and fdt is ready.
+
+> +	}
+> +
+> +	fdt = page_to_virt(kho_fdt);
+> +
+> +	err |= fdt_create(fdt, PAGE_SIZE);
+> +	err |= fdt_finish_reservemap(fdt);
+> +
+> +	err |= fdt_begin_node(fdt, "");
+> +	err |= fdt_property_string(fdt, "compatible", MEMBLOCK_KHO_NODE_COMPATIBLE);
+> +	for (i = 0; i < reserved_mem_count; i++) {
+> +		struct reserve_mem_table *map = &reserved_mem_table[i];
+> +
+> +		err |= fdt_begin_node(fdt, map->name);
+> +		err |= fdt_property_string(fdt, "compatible", RESERVE_MEM_KHO_NODE_COMPATIBLE);
+> +		err |= fdt_property(fdt, "start", &map->start, sizeof(map->start));
+> +		err |= fdt_property(fdt, "size", &map->size, sizeof(map->size));
+> +		err |= fdt_end_node(fdt);
+> +	}
+> +	err |= fdt_end_node(fdt);
+> +
+> +	err |= fdt_finish(fdt);
+> +
+> +	if (err) {
+> +		pr_err("failed to prepare memblock FDT for KHO: %d\n", err);
+> +		put_page(kho_fdt);
+> +		kho_fdt = ERR_PTR(-EINVAL);
+> +	}
+> +}
+> +
+> +static int __init reserve_mem_init(void)
+> +{
+> +	if (!kho_is_enabled())
+> +		return 0;
+> +
+> +	prepare_kho_fdt();
+> +
+> +	return register_kho_notifier(&reserve_mem_kho_nb);
+> +}
+> +late_initcall(reserve_mem_init);
+> +
+> +static void *kho_fdt_in __initdata;
+> +
+> +static void *__init reserve_mem_kho_retrieve_fdt(void)
+> +{
+> +	phys_addr_t fdt_phys;
+> +	struct folio *fdt_folio;
+> +	void *fdt;
+> +	int err;
+> +
+> +	err = kho_retrieve_subtree(MEMBLOCK_KHO_FDT, &fdt_phys);
+> +	if (err) {
+> +		if (err != -ENOENT)
+> +			pr_warn("failed to retrieve FDT '%s' from KHO: %d\n",
+> +				MEMBLOCK_KHO_FDT, err);
+> +		return ERR_PTR(err);
+
+Wouldn't just 'return NULL' work here?
+
+> +	}
+> +
+> +	fdt_folio = kho_restore_folio(fdt_phys);
+> +	if (!fdt_folio) {
+> +		pr_warn("failed to restore memblock KHO FDT (0x%llx)\n", fdt_phys);
+> +		return ERR_PTR(-EFAULT);
+> +	}
+> +
+> +	fdt = page_to_virt(folio_page(fdt_folio, 0));
+
+	fdt = folio_address(folio);
+> +
+> +	err = fdt_node_check_compatible(fdt, 0, MEMBLOCK_KHO_NODE_COMPATIBLE);
+> +	if (err) {
+> +		pr_warn("FDT '%s' is incompatible with '%s': %d\n",
+> +			MEMBLOCK_KHO_FDT, MEMBLOCK_KHO_NODE_COMPATIBLE, err);
+> +		return ERR_PTR(-EINVAL);
+> +	}
+> +
+> +	return fdt;
+> +}
+> +
+> +static bool __init reserve_mem_kho_revive(const char *name, phys_addr_t size,
+> +					  phys_addr_t align)
+> +{
+> +	int err, len_start, len_size, offset;
+> +	const phys_addr_t *p_start, *p_size;
+> +	const void *fdt;
+> +
+> +	if (!kho_fdt_in)
+> +		kho_fdt_in = reserve_mem_kho_retrieve_fdt();
+
+I'd invert this and move to reserve_mem_kho_retrieve_fdt(), so there it
+would be 
+
+	if (kho_fdt_in)
+		return kho_fdt_in;
+
+	/* actually retrieve the fdt */
+	kho_fdt_in = fdt;
+
+	return fdt;
+
+and here 
+
+	fdt = reserve_mem_kho_retrieve_fdt();
+	if (!fdt)
+		return false;
+> +
+> +	if (IS_ERR(kho_fdt_in))
+> +		return false;
+> +
+> +	fdt = kho_fdt_in;
+> +
+> +	offset = fdt_subnode_offset(fdt, 0, name);
+> +	if (offset < 0) {
+> +		pr_warn("FDT '%s' has no child '%s': %d\n",
+> +			MEMBLOCK_KHO_FDT, name, offset);
+> +		return false;
+> +	}
+> +	err = fdt_node_check_compatible(fdt, offset, RESERVE_MEM_KHO_NODE_COMPATIBLE);
+> +	if (err) {
+> +		pr_warn("Node '%s' is incompatible with '%s': %d\n",
+> +			name, RESERVE_MEM_KHO_NODE_COMPATIBLE, err);
+> +		return false;
+> +	}
+> +
+> +	p_start = fdt_getprop(fdt, offset, "start", &len_start);
+> +	p_size = fdt_getprop(fdt, offset, "size", &len_size);
+> +	if (!p_start || len_start != sizeof(*p_start) || !p_size ||
+> +	    len_size != sizeof(*p_size)) {
+> +		return false;
+> +	}
+> +
+> +	if (*p_start & (align - 1)) {
+> +		pr_warn("KHO reserve-mem '%s' has wrong alignment (0x%lx, 0x%lx)\n",
+> +			name, (long)align, (long)*p_start);
+> +		return false;
+> +	}
+> +
+> +	if (*p_size != size) {
+> +		pr_warn("KHO reserve-mem '%s' has wrong size (0x%lx != 0x%lx)\n",
+> +			name, (long)*p_size, (long)size);
+> +		return false;
+> +	}
+> +
+> +	reserved_mem_add(*p_start, size, name);
+> +	pr_info("Revived memory reservation '%s' from KHO\n", name);
+> +
+> +	return true;
+> +}
+> +#else
+> +static bool __init reserve_mem_kho_revive(const char *name, phys_addr_t size,
+> +					  phys_addr_t align)
+> +{
+> +	return false;
+> +}
+> +#endif /* CONFIG_KEXEC_HANDOVER */
+> +
+>  /*
+>   * Parse reserve_mem=nn:align:name
+>   */
+> @@ -2530,6 +2730,11 @@ static int __init reserve_mem(char *p)
+>  	if (reserve_mem_find_by_name(name, &start, &tmp))
+>  		return -EBUSY;
+>  
+> +	/* Pick previous allocations up from KHO if available */
+> +	if (reserve_mem_kho_revive(name, size, align))
+> +		return 1;
+> +
+> +	/* TODO: Allocation must be outside of scratch region */
+>  	start = memblock_phys_alloc(size, align);
+>  	if (!start)
+>  		return -ENOMEM;
+> -- 
+> 2.49.0.604.gff1f9ca942-goog
+> 
+
+-- 
+Sincerely yours,
+Mike.
 
