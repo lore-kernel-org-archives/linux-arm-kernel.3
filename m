@@ -4,60 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ACF2C369C2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D75D2C369D1
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 19:47:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	Subject:Cc:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CcwlO0XSoc9LkdUgOJxqAcvMnUBiMfotDFah26wg1fM=; b=K4RWl6V4mcwWhlQNQJNlcbiTxW
-	He9leNu13x+cgpicY/R83bYxsGvo4Sz3V2OWU5zzWCBAHlwcm9Yloo7/DHkJXAEUfx1kwsa76llV0
-	VvqVP8nTsTlFbIQdjWTXhdHbWa1XFAvugdsY8gvhG/aV9tZhaFGOE9Hy14dk3XCATVosbtibR5knP
-	LFHlDg9h34CHK6DB1aVwH6BhWgptZRxlSKvqOoXo7OtPGb+aY1mhwGZkX/+hqTscdZrgueJkxZcxL
-	K2/ywOOTgsZGn3pMcuIuDT4xgBvwpTRGuFv3tIx6Xjdb73KQLtsHq4KuoHbk2mbn7xK7G/xlaSphL
-	eLLFZ25Q==;
+	bh=RRoJLlC7A12/TR2Wz8V+c+670ziWaCSA92DtyIsQ39c=; b=qWA7r1fEEnQmePrYtfe4u+K4hh
+	EK4G4LZt/fFNzilF7L2myy3E+Yx9Z0l6mGJ7rKkP0he9aovgHb9zZTam+L4mpiUh7Ew2Q/wJjHAtU
+	APjS1j1FDJaouPueGFSZ5+Mf7BbPB2dmZ4xhsVr5UUqcnlL2mxGCXOPACt1Y+gri6HgqOnAQV+L8Y
+	zKVu8ADUz2pT5K30zxkWKf6Kc2To7yPUJO+BYaWsC/E06QCwynBF1CXa1oI0vH8cxzCPN9qVKOQ7V
+	aEhqbB71RYpoJ/8hGy8CtjiVTnZeenFdHFOUbYjHglm8yR2Q6LaOilAIVmVpdLk9Vlt6/altdvmTM
+	kYBmu99A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7JaO-00000008LV8-3pmq;
-	Tue, 22 Apr 2025 19:47:16 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1u7JaP-00000008LVP-1tsK;
+	Tue, 22 Apr 2025 19:47:17 +0000
+Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7GCP-00000007qNa-0kCj
+	id 1u7GDT-00000007qXq-0eND
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 16:10:18 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1u7GCK-0004il-Im; Tue, 22 Apr 2025 18:10:12 +0200
-Message-ID: <4c195c2a-81c6-41c8-a134-1c7813904115@pengutronix.de>
-Date: Tue, 22 Apr 2025 18:10:11 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] i2c: imx: drop master prefix
-To: Troy Mitchell <troymitchell988@gmail.com>,
- Oleksij Rempel <o.rempel@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Andi Shyti <andi.shyti@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
- Yongchao Jia <jyc0019@gmail.com>
-References: <20250421-i2c-imx-update-v1-0-1137f1f353d5@gmail.com>
- <20250421-i2c-imx-update-v1-2-1137f1f353d5@gmail.com>
-Content-Language: en-US, de-DE, de-BE
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-In-Reply-To: <20250421-i2c-imx-update-v1-2-1137f1f353d5@gmail.com>
+	Tue, 22 Apr 2025 16:11:25 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 6506D43A46;
+	Tue, 22 Apr 2025 16:11:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1745338279;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RRoJLlC7A12/TR2Wz8V+c+670ziWaCSA92DtyIsQ39c=;
+	b=BL+N8Q5Fn6rdiqBn6OmTsxXoJ9Hmwb4+Cp9EPmNsArEyLxUBWFVxrjkUHAF0kIsavPM6XX
+	diCJtu+5Ly9c8KpN6G8x6k6lDFpyCYNdFdmJbLzqvILAA2E461zP6Vl5aQnWM52I1ZKFjb
+	URv4AQLYjPslN6FYm//6sL4cTinqbdZ0ozPAQ8e/3iB+TBYuQf2hdfFevjXWgqw3IDHG8/
+	uY3oRLwfCgKhdSGVb6x4CH2T0ogBE6yTmirNGCqLE14+OuS7xL/NOa3//AO+jRjVas+IZt
+	Do7zVrHIg0pSTNgvl5tNaYZYAfY7atWN0Xxx+Tu4ztV+/zEpRVIM3rCNf3Da9w==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Date: Tue, 22 Apr 2025 18:11:18 +0200
+Message-Id: <D9DAS80VMYAW.3JALOQIHS2B0W@bootlin.com>
+To: "Maxime Chevallier" <maxime.chevallier@bootlin.com>
+Cc: "Andrew Lunn" <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, "Eric Dumazet" <edumazet@google.com>, "Jakub
+ Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>, "Maxime
+ Coquelin" <mcoquelin.stm32@gmail.com>, "Alexandre Torgue"
+ <alexandre.torgue@foss.st.com>, "Richard Cochran"
+ <richardcochran@gmail.com>, "Daniel Machon" <daniel.machon@microchip.com>,
+ "Thomas Petazzoni" <thomas.petazzoni@bootlin.com>,
+ <netdev@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ "Russell King (Oracle)" <linux@armlinux.org.uk>
+Subject: Re: [PATCH net 1/2] net: stmmac: fix dwmac1000 ptp timestamp status
+ offset
+From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
+X-Mailer: aerc 0.20.1-0-g2ecb8770224a
+References: <20250422-stmmac_ts-v1-0-b59c9f406041@bootlin.com>
+ <20250422-stmmac_ts-v1-1-b59c9f406041@bootlin.com>
+ <20250422174934.309a1309@fedora.home>
+In-Reply-To: <20250422174934.309a1309@fedora.home>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvgeegudejucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpegggfgtfffkvfevuffhofhfjgesthhqredtredtjeenucfhrhhomheptehlvgigihhsucfnohhthhhorhoruceorghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeekgfffhfehhfefgeekhfffudfhheekveffleeuhfelgfefueevhedvkeduhfehveenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudeipdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopegrnhgurhgvfidonhgvthguvghvsehluhhnnhdrtghhpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhto
+ hepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtohepmhgtohhquhgvlhhinhdrshhtmhefvdesghhmrghilhdrtghomhdprhgtphhtthhopegrlhgvgigrnhgurhgvrdhtohhrghhuvgesfhhoshhsrdhsthdrtghomh
+X-GND-Sasl: alexis.lothore@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_091017_218552_D05AC075 
-X-CRM114-Status: GOOD (  17.87  )
+X-CRM114-CacheID: sfid-20250422_091123_495386_5DB5F47B 
+X-CRM114-Status: GOOD (  14.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,47 +87,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/21/25 07:36, Troy Mitchell wrote:
-> In light of the recent updates to the i2c subsystem,
-> drop master prefix.
-> 
-> Signed-off-by: Troy Mitchell <troymitchell988@gmail.com>
+Hi Maxime,
 
-Reviewed-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
+On Tue Apr 22, 2025 at 5:49 PM CEST, Maxime Chevallier wrote:
+> Hi Alexis,
+>
+> On Tue, 22 Apr 2025 17:07:22 +0200
+> Alexis Lothore <alexis.lothore@bootlin.com> wrote:
+>
+>> When a PTP interrupt occurs, the driver accesses the wrong offset to
+>> learn about the number of available snapshots in the FIFO for dwmac1000:
+>> it should be accessing bits 29..25, while it is currently reading bits
+>> 19..16 (those are bits about the auxiliary triggers which have generated
+>> the timestamps). As a consequence, it does not compute correctly the
+>> number of available snapshots, and so possibly do not generate the
+>> corresponding clock events if the bogus value ends up being 0.
+>>=20
+>> Fix clock events generation by reading the correct bits in the timestamp
+>> register for dwmac1000.
+>>=20
+>> Fixes: 19b93bbb20eb ("net: stmmac: Introduce dwmac1000 timestamping oper=
+ations")
+>
+> Looks like the commit hash is wrong, should be :
+>
+> 477c3e1f6363 ("net: stmmac: Introduce dwmac1000 timestamping operations")
 
-Please use a different cover letter title for your v2, adapting the
-mainline doesn't tell the reader anything about what the series is about.
+Yes, you are absolutely right, I wrongly picked this hash from a custom
+branch rather than a stable branch -_- Thanks for spotting this, will be
+fixed in v2.
 
-Perhaps something like i2c: imx: lock guards and cleanup
+>
+> Other than that I agree with the change, these offset are the right
+> ones, thanks...
+>
+> With the Fixes tag fixed,
+>
+> Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
 Thanks,
-Ahmad
 
-> ---
->  drivers/i2c/busses/i2c-imx.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
-> index cb96a57df4a0..dd07fde79632 100644
-> --- a/drivers/i2c/busses/i2c-imx.c
-> +++ b/drivers/i2c/busses/i2c-imx.c
-> @@ -1690,8 +1690,8 @@ static u32 i2c_imx_func(struct i2c_adapter *adapter)
->  }
->  
->  static const struct i2c_algorithm i2c_imx_algo = {
-> -	.master_xfer = i2c_imx_xfer,
-> -	.master_xfer_atomic = i2c_imx_xfer_atomic,
-> +	.xfer = i2c_imx_xfer,
-> +	.xfer_atomic = i2c_imx_xfer_atomic,
->  	.functionality = i2c_imx_func,
->  	.reg_slave	= i2c_imx_reg_slave,
->  	.unreg_slave	= i2c_imx_unreg_slave,
-> 
+Alexis
 
--- 
-Pengutronix e.K.                  |                             |
-Steuerwalder Str. 21              | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany         | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686  | Fax:   +49-5121-206917-5555 |
+
+
+
+--=20
+Alexis Lothor=C3=A9, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
 
