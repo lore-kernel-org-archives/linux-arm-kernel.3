@@ -4,75 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98550C369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 18:14:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6067FC369D7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 18:14:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TRcZcJeqXe3bZ8BydUxdPRAg1PRktnOnWrwURyrXOHk=; b=PXvz6OLG8dQQ6jDNbP78OjF0fR
-	Bwp94JtGmmrRfwu+573h1stwPJsqb7VNA/xkuqhTuU0x45yHx3z5lgT66s4Ax33lk97NnyL+IvRQ5
-	fPpowXVN8AWyC73dgHYPESpnUjLwlgXde8khrb5GFnN88JXFGOZ2r6LpfnRcsiWNEnEfgh5e0k5OS
-	2drLRWh3zPzMq8GXX5Cj+Ke9zwlq4V+MJMWrilWh1Wg117YVpzFEghL4BVZWGYThgE8HOVJN4hcDS
-	yM9PpipXp7sGSm6mjaAaXd+CJsszLWGOMh+v8pOkxtrwNIk4wtqwjUV1ua/RvC4/FOAEk+SOc3PVn
-	XUBYjZXQ==;
+	bh=YQvg/uQQPznL6zryuZ2Sf5aggUBSW7pCse/8MHMCaio=; b=efygZ83oASTbntvc9tbC/+7rsT
+	ziXNqloayrKXdYh6Fpc7l4w2+rBS+WylBkPYRJS5ee8VlYxGqP9DXQDi2GufGELHGk8S8vk+Otw7V
+	LSLsDgFzLfrSQFqJ8OfpY936A2qnob5/nYNido1QCqYDIYnF6tvPhW6tA5/m1vKDoJWxi81hwwf1p
+	DuiEWJBp6/WN5HGKy/N3avqawVzgYf9DjkLQguSYwCslOjfN2yUxR3U+1xHkalADL497eEzEEEYWB
+	bU7dJ/VP3RJ2T0VTSBuUbEeHHGvfFNvchuPxId6BhIptxItWkm6CsLoWjsHnwIUFkN20IYm2A+Z8d
+	p2gWJwog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7I8c-000000085el-3sMf;
-	Tue, 22 Apr 2025 18:14:31 +0000
-Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
+	id 1u7I8e-000000085fW-0tMs;
+	Tue, 22 Apr 2025 18:14:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7FEA-00000007dQ7-31YP
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 15:08:05 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id A7E7543A3E;
-	Tue, 22 Apr 2025 15:07:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1745334478;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=TRcZcJeqXe3bZ8BydUxdPRAg1PRktnOnWrwURyrXOHk=;
-	b=IzuQtJHkjpr/eiSJK2AczFT9xNq4AUt+9Db9jV6u/eXqZe/xJVmDCmiAQpDRjnLIbFuBzh
-	9VpX5AD5Dq51LK+mevlQazB1jH+55sv2mwwKpX12wHYWJKAP3Pq4RZkG4OM5vLpXJx7XcE
-	kquo80h+KxGnpsdyZtVq225Q53uLhqEfJpxrh6UydkMGFjcM1gRqEOSbdEvxjhPLu0+/ST
-	BlyHFXozSnRzQhDEjYh9ZO2f9uLL1QOuR5z0NTe4BAODmgoEibM3+9osK2/kUrY6+Yf9pR
-	TddWRW8hP0GItWlSq1D2jOvB90wPMYdZknqVapV+Ovps+MvsO9+1EAl6bUEFgg==
-From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
-Date: Tue, 22 Apr 2025 17:07:23 +0200
-Subject: [PATCH net 2/2] net: stmmac: fix multiplication overflow when
- reading timestamp
+	id 1u7FXk-00000007iM9-3aP2;
+	Tue, 22 Apr 2025 15:28:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 28C3E61569;
+	Tue, 22 Apr 2025 15:27:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A75A0C4AF0B;
+	Tue, 22 Apr 2025 15:28:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745335696;
+	bh=u0xVqTwc+LVSbVkgBLveEACfwQ18fyzLMscrd3BGCZk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=qdC0W0eL6Uj1hGs8hRkxL94JtjuD44QBTP/Am8HtLUFQMxNY0qy64fWDcMMur6RGx
+	 3aCYvzdhFOBp2e5glCXLasXgVtTZynY/hY0w7T2kUkW8SSm1ni0o2u3/VebmnJlH2m
+	 XHVfD+il9gwPYWAoJf2OApKCUX36JzNuT5hgiFvHlkrq+182eHzjXkHm5K3uBeq4px
+	 sMbyWsRQ5XPLiLXsAhbke8IFeGSAVjqooYKSX4+TJrsCgRZzMRcamWnVEqc2hJnfai
+	 vq9Elw6OEjQ636Eodl4WzFMkTcgfNzcOwC9nrVctgrMZ1mBFFZ/iz3chOnYtmROXIR
+	 uwFJTHlErgtsA==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	x86@kernel.org,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Heiko Carstens <hca@linux.ibm.com>
+Subject: [PATCH v3 03/13] crypto: s390 - drop redundant dependencies on S390
+Date: Tue, 22 Apr 2025 08:27:06 -0700
+Message-ID: <20250422152716.5923-4-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250422152716.5923-1-ebiggers@kernel.org>
+References: <20250422152716.5923-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250422-stmmac_ts-v1-2-b59c9f406041@bootlin.com>
-References: <20250422-stmmac_ts-v1-0-b59c9f406041@bootlin.com>
-In-Reply-To: <20250422-stmmac_ts-v1-0-b59c9f406041@bootlin.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Richard Cochran <richardcochran@gmail.com>, 
- Daniel Machon <daniel.machon@microchip.com>, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, netdev@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- "Russell King (Oracle)" <linux@armlinux.org.uk>, 
- =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
-X-Mailer: b4 0.14.2
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvgeegtdehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthekredtredtjeenucfhrhhomheptehlvgigihhsucfnohhthhhorhoruceorghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeegveeghfetffeuhfehkeekleffffdvuefggfevjefftddvffduheettdeiveetteenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghloheplgdujedvrddujedrtddrudgnpdhmrghilhhfrhhomheprghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedujedprhgtphhtthhopegrnhgurhgvfidonhgvthguvghvsehluhhnnhdrtghhpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkv
- ghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhsthhmfedvsehsthdqmhguqdhmrghilhhmrghnrdhsthhorhhmrhgvphhlhidrtghomhdprhgtphhtthhopegurghnihgvlhdrmhgrtghhohhnsehmihgtrhhotghhihhprdgtohhmpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhm
-X-GND-Sasl: alexis.lothore@bootlin.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_080802_941069_0518F16D 
-X-CRM114-Status: GOOD (  13.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,53 +76,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The current way of reading a timestamp snapshot in stmmac can lead to
-integer overflow, as the computation is done on 32 bits. The issue has
-been observed on a dwmac-socfpga platform returning chaotic timestamp
-values due to this overflow. The corresponding multiplication is done
-with a MUL instruction, which returns 32 bit values. Explicitly casting
-the value to 64 bits replaced the MUL with a UMLAL, which computes and
-returns the result on 64 bits, and so returns correctly the timestamps.
+From: Eric Biggers <ebiggers@google.com>
 
-Prevent this overflow by explicitly casting the intermediate value to
-u64 to make sure that the whole computation is made on u64. While at it,
-apply the same cast on the other dwmac variant (GMAC4) method for
-snapshot retrieval.
+arch/s390/crypto/Kconfig is sourced only when CONFIG_S390=y, so there is
+no need for the symbols defined inside it to depend on S390.
 
-Fixes: 19b93bbb20eb ("net: stmmac: Introduce dwmac1000 timestamping operations")
-Signed-off-by: Alexis Lothoré <alexis.lothore@bootlin.com>
+Acked-by: Ard Biesheuvel <ardb@kernel.org>
+Acked-by: Heiko Carstens <hca@linux.ibm.com>
+Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c  | 2 +-
- drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+ arch/s390/crypto/Kconfig | 10 ----------
+ 1 file changed, 10 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
-index a8b901cdf5cbb395a0f6b4800ad6f06c6e870077..43b2b3377136f2d9c717f85cba6a452e7a178ad7 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
-@@ -553,7 +553,7 @@ void dwmac1000_get_ptptime(void __iomem *ptpaddr, u64 *ptp_time)
- 	u64 ns;
+diff --git a/arch/s390/crypto/Kconfig b/arch/s390/crypto/Kconfig
+index 055b08f259ab2..e88d9cd256ef5 100644
+--- a/arch/s390/crypto/Kconfig
++++ b/arch/s390/crypto/Kconfig
+@@ -2,77 +2,70 @@
  
- 	ns = readl(ptpaddr + GMAC_PTP_ATNR);
--	ns += readl(ptpaddr + GMAC_PTP_ATSR) * NSEC_PER_SEC;
-+	ns += (u64)(readl(ptpaddr + GMAC_PTP_ATSR)) * NSEC_PER_SEC;
+ menu "Accelerated Cryptographic Algorithms for CPU (s390)"
  
- 	*ptp_time = ns;
- }
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c
-index 0f59aa98260404bece530f505500f13d35884d0c..1950156f6af6f6f13ebdc1c04f01a862b664bc9b 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c
-@@ -222,7 +222,7 @@ static void get_ptptime(void __iomem *ptpaddr, u64 *ptp_time)
- 	u64 ns;
+ config CRYPTO_SHA512_S390
+ 	tristate "Hash functions: SHA-384 and SHA-512"
+-	depends on S390
+ 	select CRYPTO_HASH
+ 	help
+ 	  SHA-384 and SHA-512 secure hash algorithms (FIPS 180)
  
- 	ns = readl(ptpaddr + PTP_ATNR);
--	ns += readl(ptpaddr + PTP_ATSR) * NSEC_PER_SEC;
-+	ns += (u64)(readl(ptpaddr + PTP_ATSR)) * NSEC_PER_SEC;
+ 	  Architecture: s390
  
- 	*ptp_time = ns;
- }
-
+ 	  It is available as of z10.
+ 
+ config CRYPTO_SHA1_S390
+ 	tristate "Hash functions: SHA-1"
+-	depends on S390
+ 	select CRYPTO_HASH
+ 	help
+ 	  SHA-1 secure hash algorithm (FIPS 180)
+ 
+ 	  Architecture: s390
+ 
+ 	  It is available as of z990.
+ 
+ config CRYPTO_SHA256_S390
+ 	tristate "Hash functions: SHA-224 and SHA-256"
+-	depends on S390
+ 	select CRYPTO_HASH
+ 	help
+ 	  SHA-224 and SHA-256 secure hash algorithms (FIPS 180)
+ 
+ 	  Architecture: s390
+ 
+ 	  It is available as of z9.
+ 
+ config CRYPTO_SHA3_256_S390
+ 	tristate "Hash functions: SHA3-224 and SHA3-256"
+-	depends on S390
+ 	select CRYPTO_HASH
+ 	help
+ 	  SHA3-224 and SHA3-256 secure hash algorithms (FIPS 202)
+ 
+ 	  Architecture: s390
+ 
+ 	  It is available as of z14.
+ 
+ config CRYPTO_SHA3_512_S390
+ 	tristate "Hash functions: SHA3-384 and SHA3-512"
+-	depends on S390
+ 	select CRYPTO_HASH
+ 	help
+ 	  SHA3-384 and SHA3-512 secure hash algorithms (FIPS 202)
+ 
+ 	  Architecture: s390
+ 
+ 	  It is available as of z14.
+ 
+ config CRYPTO_GHASH_S390
+ 	tristate "Hash functions: GHASH"
+-	depends on S390
+ 	select CRYPTO_HASH
+ 	help
+ 	  GCM GHASH hash function (NIST SP800-38D)
+ 
+ 	  Architecture: s390
+ 
+ 	  It is available as of z196.
+ 
+ config CRYPTO_AES_S390
+ 	tristate "Ciphers: AES, modes: ECB, CBC, CTR, XTS, GCM"
+-	depends on S390
+ 	select CRYPTO_ALGAPI
+ 	select CRYPTO_SKCIPHER
+ 	help
+ 	  Block cipher: AES cipher algorithms (FIPS 197)
+ 	  AEAD cipher: AES with GCM
+@@ -90,11 +83,10 @@ config CRYPTO_AES_S390
+ 	  key sizes and XTS mode is hardware accelerated for 256 and
+ 	  512 bit keys.
+ 
+ config CRYPTO_DES_S390
+ 	tristate "Ciphers: DES and Triple DES EDE, modes: ECB, CBC, CTR"
+-	depends on S390
+ 	select CRYPTO_ALGAPI
+ 	select CRYPTO_SKCIPHER
+ 	select CRYPTO_LIB_DES
+ 	help
+ 	  Block ciphers: DES (FIPS 46-2) cipher algorithm
+@@ -107,18 +99,16 @@ config CRYPTO_DES_S390
+ 	  As of z990 the ECB and CBC mode are hardware accelerated.
+ 	  As of z196 the CTR mode is hardware accelerated.
+ 
+ config CRYPTO_CHACHA_S390
+ 	tristate
+-	depends on S390
+ 	select CRYPTO_LIB_CHACHA_GENERIC
+ 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
+ 	default CRYPTO_LIB_CHACHA_INTERNAL
+ 
+ config CRYPTO_HMAC_S390
+ 	tristate "Keyed-hash message authentication code: HMAC"
+-	depends on S390
+ 	select CRYPTO_HASH
+ 	help
+ 	  s390 specific HMAC hardware support for SHA224, SHA256, SHA384 and
+ 	  SHA512.
+ 
 -- 
 2.49.0
 
