@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBB63C369D7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 22:36:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14667C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 22:38:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hSwUO8B5vwdfcnexH40Nc2DnuOoNta8XhHEpoFTOGEs=; b=2e75BoFIe7Af3pSXhX2Sjsfe5V
-	whkv3vehYn6bgXKZrOC+3ZVq6KDzR4363T1niHL5fwA8NGwGsxr+vVwVx0wxiRKiUM/fA55biqi4q
-	WN7JQF9lmZ+7BzbyE0hMsSZQ1rOcX3CAf/qszMK/pRQZZCNhs7xQf4YsY3l2EfUn/24DZZuRd2vSo
-	H4AR6oZiZYnZKBNhykWYFv8IIausA0Chp17LgQMvJhrood6aLANoB4MXlYuLlxaSKws/D30zSboBH
-	/BW41XhgV7YqIAXZsJ9npIE9nxsCgSmqdjvCuE2yBtUc8zCehK93hJdnK7qmiN0zpxBUkx4v8mcml
-	wQyY3QLQ==;
+	bh=exuwJXp1XHrfsCfmNkVrZR7xtGP/8Zf7C6Uz7JyF9Xk=; b=VnW05ECVHLiB5WyoVULDd9PVxQ
+	lcRvF0IUlqEZtqC1XCxuBSUnYnory6mwh5kn0mVu+nVBX7beWWYuc2CxBk/a2GrfgGAT7NYaOP3if
+	nGb11oFljkRDSun3dUJPaVtrbJjL75boD24J5MQprkWZRBK4+m1cobEJfG3SPkOL6EHFIutq09OM8
+	epYNntkhp9CVOA/UPfM/vPqWLUwFicB7sBwTcn9D3q+/8K/RV+U9crcq9xwDCQpO0EVIFtxDTC8tA
+	YXhpkHqNP303n4x6w5DPOWWR4iLCdQP1xqrecc7Rm3lojMartBAjFnMwtM+D7o4uxfNB/e4RD4vtm
+	acCX1U8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7ME0-00000008jjx-453C;
-	Tue, 22 Apr 2025 22:36:20 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1u7MFs-00000008k5R-19Gu;
+	Tue, 22 Apr 2025 22:38:16 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7MC1-00000008jVT-1NHL
+	id 1u7MD6-00000008jdk-0TSh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 22:34:18 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-5f620c5f7b9so6032144a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 15:34:16 -0700 (PDT)
+	Tue, 22 Apr 2025 22:35:25 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-5e5deb6482cso577827a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 15:35:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745361256; x=1745966056; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1745361323; x=1745966123; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=hSwUO8B5vwdfcnexH40Nc2DnuOoNta8XhHEpoFTOGEs=;
-        b=ckqkg83xM96yH5d9PHPVxp604cX8uomVGa3W5aJJhIyrl8MOqlMpWilWuZJsfrSa5I
-         OXR70myehmW4S4T4FSEkkPVJBoTxuiwRW6Rln80YOAb3PD/NcSXHtNrQx5b6beJsJeyu
-         +kvEnC/nN+8UDd6CB+ckZcXWWKNYgIDrqZGuwwNxTRWZKLJU+M2iXxy3uUdIvjYqAZ4j
-         ZOGcUCa4HGKxqfpuwDNfKd/RbuHDNDMmIEFLLR4r94L1v+hFSfg0i8aDYBj4xAWOzY/C
-         WYe1rpTHDxKLclQpvzfs6fYpYfoe/VNoxTfINqJycTUxadtrXAfLlxOd95NvkWiOkY30
-         0IiQ==
+        bh=exuwJXp1XHrfsCfmNkVrZR7xtGP/8Zf7C6Uz7JyF9Xk=;
+        b=gd/DIzLISF4SxwvmHrTFaFTbvxXo5e8yrJpflPA4y18xJ0h12qys7S1waSXrdwooWO
+         41UesyA090XhCUITVAUs4L+MdcDUUY0q93qrN6jjK2GiHNXZHi20ji36/+XQLMIv96uH
+         BX5MxlGaeDHByWLHgz/N9F2j1KqN5QS+cXXscWEGwKOd89xxUBR/BIX5EVPxMh8RGQvl
+         cqrbeoIuFpVVJeAiF9rQF96BB8O2hvQWlGkyMkGXex3FNx6F4kSCUE5/6yDfwUENJ78A
+         u9hn+dv8Aa1Spm3HuZJkvNBeC6qrgnICk9dE1X89rvjVxBETNMU2ihAm1aEgF3YCAn9E
+         l2CA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745361256; x=1745966056;
+        d=1e100.net; s=20230601; t=1745361323; x=1745966123;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=hSwUO8B5vwdfcnexH40Nc2DnuOoNta8XhHEpoFTOGEs=;
-        b=ZdHr5SmdDG+TJQ7Fc1tQGdyZWE2TIoCX0ZeVod98b/eoyuhM8ODi9AP6btlkrmzsts
-         t3PrARZTSqV0ZTyj89jMynrdxCQXTiCtGEw3zkrntHufRr5QzwlRqU4WIDhQqYmBjn9+
-         npJZ+MYaZ9iuek4aEc3BuaScslvVkeX5DS2IdqsnLyjjk0EqST9cI/G//ySJ3/07QaIb
-         FFPlRpTrIntZAcYaCJ+nvpjufhUdyY7GcUdy287j4LiAs9porhKi9jWRdR+THWR+BDAA
-         U0OxlYbHJ0JtYiW5g9XCZOIsyWYNqh6hGvb1ZmF5ru/JgvBWbLXrmDjtgxZmWjigNBho
-         CKWA==
-X-Forwarded-Encrypted: i=1; AJvYcCX2AElQp8uuYU/iEw+Mvl/8aEIckXI5zf/elIgbO+GTOdGu1QEMqBf+21YUIabEpNjYpbuVTsxYTfD5Y7SUPhUR@lists.infradead.org
-X-Gm-Message-State: AOJu0YxBa79STWh+aMCQyfLFbIcrd6VGUADWvs/CqYajDvDiqTBvo4ag
-	9+R4wbNPrhFTTo2KlD/tx/eBf+P2PmztmVVxkEgwl31UBtLlc6b4WN98Xz5K5eB5umSOna5int7
-	RzEkOpQKUo6qNP9z2Q4r8FgbNVac=
-X-Gm-Gg: ASbGncvEIKyQXczrR2YGg1iYDkP7cT2fSFasHdhg3u8GrWhAtSexgyJCjC1be2bJTje
-	SrLEsaOSK0HJbiLq6k7cBX7CUWeW3kt5aJpwWxfgi91cv0dIuWJ9u+qduMufbo9UU2lTNKNqgL7
-	5/CvE3p6Oc42lcQxIldULYYA==
-X-Google-Smtp-Source: AGHT+IGEdEyDJ7eLl/WPHqEG6RPTd58T1qtwdpGHMY7GLLjHzgOyyUSyU3WSKL+Ol0SHi9HYxX2HTVhMhy2PuqK/6L8=
-X-Received: by 2002:a17:907:7288:b0:aca:d6fd:39a with SMTP id
- a640c23a62f3a-acb74dd403dmr1341111566b.51.1745361255480; Tue, 22 Apr 2025
- 15:34:15 -0700 (PDT)
+        bh=exuwJXp1XHrfsCfmNkVrZR7xtGP/8Zf7C6Uz7JyF9Xk=;
+        b=VJBCTmfUko8m2gRylJyjPJoRPQWqKlDLktaS0JQu+kJ3lIEFEQTWU4uw+11E455u+T
+         zTTJSuXCEIYYFUPyfAgyCsijc7nMJSHdaxVMwtM19K1CSw3Pe7Ui34GVt/R1z8zxqfxR
+         FpsgS9bPIHcL2OIcHstXxgbpdEH5Aefv0hhosDxAXirWCfZMXq219//PQ7VMCg1yo1gl
+         7mef6rAIrpPpxNOaD5xzccj7U0+T7w4+iekoZ41Jj3dDFQOzGQy2ejFgH2wt7/V9OL+Y
+         ff9AQPwAkXckSC9YblYN8aBdumeY/mz9zbfsyQEizHmm9fbETRD5885D0o8I9n+pwemu
+         EWhw==
+X-Forwarded-Encrypted: i=1; AJvYcCXPnclOyTCqhiDoqSbpnkYChwd9IjhAObnGcS1HHZ15Vr/aioTkevBvTXmpoHhB/LXf3gTBLGC7iVcZJmPXL4Dx@lists.infradead.org
+X-Gm-Message-State: AOJu0YzeSnQId/MCx/gvxlAuCCDFp8Y8BbcAYbEcPLJVONJ5EnZCxSns
+	v+J659PM0juZPP23sL6s3zq/ihg/7K0eBIfQGz3nM9nMGG9nxV2znjxxi0um6VrdU525g56zuH8
+	+Lu3cZ/ORXSDAJ3U4T5M8qYjBJRk=
+X-Gm-Gg: ASbGncv81EDFewY1yGwZhLO16wTQ2LKDbmd/nG/YwX85ZHoGmheNIES2ccC3q6cp4na
+	2YXHCZRQfdTkLh9Pv6HlinkhlK9PpTETSW3w2GJL7hD4foVx5QmaTN9UZiE+9GGkitxa19abJiy
+	OfUsFrUztwyJ5x3BcqKKtKsFFixaBoH2rO
+X-Google-Smtp-Source: AGHT+IExyhwMK/xkdBJlNnfQyIQa2Se0td5YPkj+KT2p+5TchTOdRI0q/90ny8bjCRUvSLeT6NBK++pX+31tHxqRlEk=
+X-Received: by 2002:a17:907:3e10:b0:ac6:e29b:8503 with SMTP id
+ a640c23a62f3a-ace3f255374mr55218866b.1.1745361322568; Tue, 22 Apr 2025
+ 15:35:22 -0700 (PDT)
 MIME-Version: 1.0
 References: <20250422-iio-introduce-iio_declare_buffer_with_ts-v2-0-3fd36475c706@baylibre.com>
- <20250422-iio-introduce-iio_declare_buffer_with_ts-v2-4-3fd36475c706@baylibre.com>
-In-Reply-To: <20250422-iio-introduce-iio_declare_buffer_with_ts-v2-4-3fd36475c706@baylibre.com>
+ <20250422-iio-introduce-iio_declare_buffer_with_ts-v2-3-3fd36475c706@baylibre.com>
+In-Reply-To: <20250422-iio-introduce-iio_declare_buffer_with_ts-v2-3-3fd36475c706@baylibre.com>
 From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Wed, 23 Apr 2025 01:33:39 +0300
-X-Gm-Features: ATxdqUEloA-ZEhkwZ1BjOVJpOHMzDaj9rmKVF64izawsOdJZZCwOJujrDjEDXtU
-Message-ID: <CAHp75VdqanGpwB5raE8AmH-Tmb82N9yYmhB+k_rQtc2_Zb8HQw@mail.gmail.com>
-Subject: Re: [PATCH v2 4/6] iio: adc: ad7380: use IIO_DECLARE_BUFFER_WITH_TS
+Date: Wed, 23 Apr 2025 01:34:46 +0300
+X-Gm-Features: ATxdqUESYrpnuCfs1f0bD-yTLn32Q3cQsMUye4m7pupxP-8uO4Y3zk6hss6f4Vw
+Message-ID: <CAHp75VdpaD5X+p0JSxHRoCAguZH53jfxe_WdASRuRXuS50kkNQ@mail.gmail.com>
+Subject: Re: [PATCH v2 3/6] iio: adc: ad4695: use IIO_DECLARE_BUFFER_WITH_TS
 To: David Lechner <dlechner@baylibre.com>
 Cc: Jonathan Cameron <jic23@kernel.org>, =?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
 	Andy Shevchenko <andy@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, 
@@ -84,8 +84,9 @@ Cc: Jonathan Cameron <jic23@kernel.org>, =?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analo
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_153417_365894_8CBAE4CA 
-X-CRM114-Status: GOOD (  10.26  )
+X-CRM114-CacheID: sfid-20250422_153524_152711_9385AFAA 
+X-CRM114-Status: UNSURE (   9.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,19 +105,12 @@ On Wed, Apr 23, 2025 at 1:08=E2=80=AFAM David Lechner <dlechner@baylibre.co=
 m> wrote:
 >
 > Use IIO_DECLARE_BUFFER_WITH_TS to declare the buffer that gets used with
+
+I would use the IIO_DECLARE_BUFFER_WITH_TS() form since it's a macro
+with parameters.
+
 > iio_push_to_buffers_with_ts(). This makes the code a bit easier to read
 > and understand.
-
-...
-
-> +       IIO_DECLARE_BUFFER_WITH_TS(u8, scan_data, MAX_NUM_CHANNELS * size=
-of(u32))
-
-Btw, why not DECLARE_IIO_...() as other DECLARE_*() look like?
-
-> +               __aligned(IIO_DMA_MINALIGN);
-
-Forgot to drop and use the DMA variant?
 
 --=20
 With Best Regards,
