@@ -4,76 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63B7DC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 15:48:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C3A5C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 15:50:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UGzgge4Cct38yOd3/tCKvJ3b1vaJwT3ZIRj1lNpp1cE=; b=aOlWi/ExwOxDd2x0CX6Ob65Tto
-	5GajaTwie2Gf4+5eSi3A9fzA46/40GPQiaDHtmqVX1rhbq36+DeKU7SSElD8O18cjW2bvrRcNYF7j
-	HqLYU1mjywCyln5tGjP1UaScmm0NdJqNW1p1nqTeR0TY5vi8tkNyyFbd4yFpfuk0wpVMSikfbv8mF
-	vh2wRb/r7KR17YZeoODCEQE0eImeTsTM7c8NNZywdjjn01y2rYKvvPBuITN61nitBMU8rLK9snHd1
-	5lhfSE1jq5D/CPEtKZU2Ub/Olhr8cigHvoksdYWU8SukbOuS5VEBLudvEMlJlJM0CtsQBDX5jORxF
-	MksVCr0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BFDXlvdukMKiPZftRWUaiHN5FPmmG/DZlg0yn81QRFc=; b=GV6xlhYPO7BQXCTMMd6QC/yPZa
+	ou/PRjrIb09fy5riIGpO1gDb2/Hw+JymQFljUF4JhFjsXUY4OUtKgIjY+0sClRyfXL8w6PteMT+Qk
+	Xbs8UAT46bUPkmx02KO24e6qDFpjIGdqBSYtefgusf1lw0GPGnUZ5AJmYjKPRz9WP8yQIM+fRoMAb
+	3cx0Vu0r4xeLrjJlIRCD6/ssFWTliIXQyPcl0Pee66oOydS+0GFCNirIfNqL2jLvriCTG+cEr1ySv
+	SlVdtyTenBcpOMEtF/RbCQ4NPs8X/G4W2zuKmofkjBmYf6RqlPLPA0kSex87Lx7cxp6pKoe9KbaU8
+	GcpsyZqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7FrU-00000007n0W-3JVQ;
-	Tue, 22 Apr 2025 15:48:40 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7EbA-00000007TyO-1Kif
+	id 1u7FtM-00000007nhi-0bJF;
+	Tue, 22 Apr 2025 15:50:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7EiZ-00000007WSb-3kI5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 14:27:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
-	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
-	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=UGzgge4Cct38yOd3/tCKvJ3b1vaJwT3ZIRj1lNpp1cE=; b=Pz1Pef2mUjNlncbUlh4coJX08W
-	syEuOi4qCz9N+6w/3/C0Q2wH1XYMGHiKOgUslqVcaq68uujJmdmybQThAOKqPHirQ5k2XNBTDf5Qj
-	ST7xWSIleEJX8ROMiyV3e+BAoLmG45LBY4qZkAUNOk+hcUSdlOSmy5Q/EJWvpemv7fjn4MpBnlK59
-	LCcIlymVpdDXLyASzJW1jDCff4YLc/8SKSVU37eOB3DeIWvghUj7ybqvuSutMLvMYfKvszKm75jEb
-	kjG7SjdMNfQEi92KAB1taIsfMsel4aqkxaRpDzX0YSqjseFXjICIALzo3IHU6J5iCOJrELUycaLAi
-	XB00jkNw==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:53204 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1u7EZ3-0004WB-04;
-	Tue, 22 Apr 2025 15:25:33 +0100
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1u7EYR-001ZAS-Cr; Tue, 22 Apr 2025 15:24:55 +0100
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jon Hunter <jonathanh@nvidia.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Thierry Reding <treding@nvidia.com>
-Subject: [PATCH net-next] net: stmmac: dwc-qos: calibrate tegra with mdio bus
- idle
+	Tue, 22 Apr 2025 14:35:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 63D5C152B;
+	Tue, 22 Apr 2025 07:35:08 -0700 (PDT)
+Received: from [10.1.196.40] (e121345-lin.cambridge.arm.com [10.1.196.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BB4E13F66E;
+	Tue, 22 Apr 2025 07:35:11 -0700 (PDT)
+Message-ID: <d24f34a7-5fa6-4f39-8040-e03a0816306e@arm.com>
+Date: Tue, 22 Apr 2025 15:35:10 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] perf:arm-ni: support PMUs to share IRQs for different
+ clock domains
+To: Shouping Wang <allen.wang@hj-micro.com>, will@kernel.org
+Cc: mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, peter.du@hj-micro.com, andy.xu@hj-micro.com
+References: <20250410114214.1599777-1-allen.wang@hj-micro.com>
+ <20250410114214.1599777-3-allen.wang@hj-micro.com>
+ <4e25536e-459b-4376-9422-4a7d0156234d@arm.com>
+ <e473bba6-a9ad-45fa-a9d0-3cabbc162966@hj-micro.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <e473bba6-a9ad-45fa-a9d0-3cabbc162966@hj-micro.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1u7EYR-001ZAS-Cr@rmk-PC.armlinux.org.uk>
-Date: Tue, 22 Apr 2025 15:24:55 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_072744_347023_ED7B3A0F 
-X-CRM114-Status: GOOD (  12.85  )
+X-CRM114-CacheID: sfid-20250422_073524_021646_B6055E81 
+X-CRM114-Status: GOOD (  29.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,58 +68,203 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thierry states that there are prerequists for Tegra's calibration
-that should be met before starting calibration - both the RGMII and
-MDIO interfaces should be idle.
+On 21/04/2025 10:54 am, Shouping Wang wrote:
+> For the same NI700 device, different CDs share a PMU interrupt. The
+> cd->cpu is set to the first CPU in the NUMA node associated with the
+> device, meaning all CDs share the same cd->cpu value.
 
-This commit adds the necessary MII bus locking to ensure that the MDIO
-interface is idle during calibration.
+But what if CPUs are being onlined/offlined while arm_ni_probe() is 
+running? We can't necessarily assume that multiple calls to 
+cpumask_local_spread() at different points in time will give consistent 
+results to begin with.
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- .../net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c  | 12 ++++++++++--
- 1 file changed, 10 insertions(+), 2 deletions(-)
+> During event_init,
+> event->cpu is assigned to cd->cpu, resulting in all CD PMUs sharing the
+> interrupt being bound to the same CPU context. if the CPU goes offline,
+> the PMU context on that CPU is migrated to a target CPU, and the
+> interrupt is rebound to the target CPU.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
-index fa900b4991d0..09ae16e026eb 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
-@@ -136,10 +136,11 @@ static int dwc_qos_probe(struct platform_device *pdev,
- #define AUTO_CAL_STATUS 0x880c
- #define  AUTO_CAL_STATUS_ACTIVE BIT(31)
- 
--static void tegra_eqos_fix_speed(void *priv, int speed, unsigned int mode)
-+static void tegra_eqos_fix_speed(void *bsp_priv, int speed, unsigned int mode)
- {
--	struct tegra_eqos *eqos = priv;
-+	struct tegra_eqos *eqos = bsp_priv;
- 	bool needs_calibration = false;
-+	struct stmmac_priv *priv;
- 	u32 value;
- 	int err;
- 
-@@ -158,6 +159,11 @@ static void tegra_eqos_fix_speed(void *priv, int speed, unsigned int mode)
- 	}
- 
- 	if (needs_calibration) {
-+		priv = netdev_priv(dev_get_drvdata(eqos->dev));
-+
-+		/* Calibration should be done with the MDIO bus idle */
-+		mutex_lock(&priv->mii->mdio_lock);
-+
- 		/* calibrate */
- 		value = readl(eqos->regs + SDMEMCOMPPADCTRL);
- 		value |= SDMEMCOMPPADCTRL_PAD_E_INPUT_OR_E_PWRD;
-@@ -191,6 +197,8 @@ static void tegra_eqos_fix_speed(void *priv, int speed, unsigned int mode)
- 		value = readl(eqos->regs + SDMEMCOMPPADCTRL);
- 		value &= ~SDMEMCOMPPADCTRL_PAD_E_INPUT_OR_E_PWRD;
- 		writel(value, eqos->regs + SDMEMCOMPPADCTRL);
-+
-+		mutex_unlock(&priv->mii->mdio_lock);
- 	} else {
- 		value = readl(eqos->regs + AUTO_CAL_CONFIG);
- 		value &= ~AUTO_CAL_CONFIG_ENABLE;
--- 
-2.30.2
+Except the CDs will *each* try to migrate the same IRQ one-by-one as if 
+it's theirs uniquely. I suppose it's quite likely that the 
+cpumask_any_*() calls will all happen to pick the same new target CPU, 
+given that we should be under the global CPU hotplug lock at that point, 
+but I'm still not sure that's strictly guaranteed. Furthermore it opens 
+a race window where as soon as the first irq_set_affinity() call has 
+taken effect, the IRQ handler for all the *other* CDs may then be called 
+on the new CPU before their respective PMU contexts have been migrated.
 
+> My understanding is that the CPU
+> affinity and hotplug operations can remain synchronized. Could you
+> confirm if there are any misunderstandings in this logic?
+
+For that to happen *reliably*, essentially the IRQ affinity needs to be 
+managed at an equivalent level to the initial IRQ request itself.
+
+Thanks,
+Robin.
+
+> On 4/17/2025 10:41 PM, Robin Murphy wrote:
+>> On 10/04/2025 12:42 pm, Shouping Wang wrote:
+>>> The ARM NI700 contains multiple clock domains, each with a PMU.
+>>> In some hardware implementations, these PMUs under the same device
+>>> share a common interrupt line. The current codes implementation
+>>> only supports requesting a separate IRQ for each clock domain's PMU.
+>>>
+>>> Here, a single interrupt handler is registered for shared interrupt.
+>>> Within this handler, the interrupt status of all PMUs sharing the
+>>> interrupt is checked.
+>>
+>> Unfortunately this isn't sufficient for sharing an IRQ between multiple
+>> PMUs - the CPU affinity and hotplug context migration must be kept in
+>> sync as well.
+>>
+>> I guess I really should get back to my old plan to factor out a common
+>> helper library for all this stuff - that was the main reason I left
+>> combined IRQ support out of the initial version here rather than do
+>> another copy-paste of the arm_dmc620 design again...
+>>
+>> Thanks,
+>> Robin.
+>>
+>>> Signed-off-by: Shouping Wang <allen.wang@hj-micro.com>
+>>> ---
+>>>    drivers/perf/arm-ni.c | 77 +++++++++++++++++++++++++++++--------------
+>>>    1 file changed, 53 insertions(+), 24 deletions(-)
+>>>
+>>> diff --git a/drivers/perf/arm-ni.c b/drivers/perf/arm-ni.c
+>>> index 3f3d2e0f91fa..611085e89436 100644
+>>> --- a/drivers/perf/arm-ni.c
+>>> +++ b/drivers/perf/arm-ni.c
+>>> @@ -104,6 +104,7 @@ struct arm_ni_cd {
+>>>        u16 id;
+>>>        int num_units;
+>>>        int irq;
+>>> +    s8 irq_friend;
+>>>        int cpu;
+>>>        struct hlist_node cpuhp_node;
+>>>        struct pmu pmu;
+>>> @@ -446,26 +447,31 @@ static irqreturn_t arm_ni_handle_irq(int irq,
+>>> void *dev_id)
+>>>    {
+>>>        struct arm_ni_cd *cd = dev_id;
+>>>        irqreturn_t ret = IRQ_NONE;
+>>> -    u32 reg = readl_relaxed(cd->pmu_base + NI_PMOVSCLR);
+>>> +    u32 reg;
+>>>    -    if (reg & (1U << NI_CCNT_IDX)) {
+>>> -        ret = IRQ_HANDLED;
+>>> -        if (!(WARN_ON(!cd->ccnt))) {
+>>> -            arm_ni_event_read(cd->ccnt);
+>>> -            arm_ni_init_ccnt(cd);
+>>> +    for (;;) {
+>>> +        reg = readl_relaxed(cd->pmu_base + NI_PMOVSCLR);
+>>> +        if (reg & (1U << NI_CCNT_IDX)) {
+>>> +            ret = IRQ_HANDLED;
+>>> +            if (!(WARN_ON(!cd->ccnt))) {
+>>> +                arm_ni_event_read(cd->ccnt);
+>>> +                arm_ni_init_ccnt(cd);
+>>> +            }
+>>>            }
+>>> -    }
+>>> -    for (int i = 0; i < NI_NUM_COUNTERS; i++) {
+>>> -        if (!(reg & (1U << i)))
+>>> -            continue;
+>>> -        ret = IRQ_HANDLED;
+>>> -        if (!(WARN_ON(!cd->evcnt[i]))) {
+>>> -            arm_ni_event_read(cd->evcnt[i]);
+>>> -            arm_ni_init_evcnt(cd, i);
+>>> +        for (int i = 0; i < NI_NUM_COUNTERS; i++) {
+>>> +            if (!(reg & (1U << i)))
+>>> +                continue;
+>>> +            ret = IRQ_HANDLED;
+>>> +            if (!(WARN_ON(!cd->evcnt[i]))) {
+>>> +                arm_ni_event_read(cd->evcnt[i]);
+>>> +                arm_ni_init_evcnt(cd, i);
+>>> +            }
+>>>            }
+>>> +        writel_relaxed(reg, cd->pmu_base + NI_PMOVSCLR);
+>>> +        if (!cd->irq_friend)
+>>> +            return ret;
+>>> +        cd += cd->irq_friend;
+>>>        }
+>>> -    writel_relaxed(reg, cd->pmu_base + NI_PMOVSCLR);
+>>> -    return ret;
+>>>    }
+>>>      static int arm_ni_init_cd(struct arm_ni *ni, struct arm_ni_node
+>>> *node, u64 res_start)
+>>> @@ -538,12 +544,6 @@ static int arm_ni_init_cd(struct arm_ni *ni,
+>>> struct arm_ni_node *node, u64 res_s
+>>>        if (cd->irq < 0)
+>>>            return cd->irq;
+>>>    -    err = devm_request_irq(ni->dev, cd->irq, arm_ni_handle_irq,
+>>> -                   IRQF_NOBALANCING | IRQF_NO_THREAD,
+>>> -                   dev_name(ni->dev), cd);
+>>> -    if (err)
+>>> -        return err;
+>>> -
+>>>        cd->cpu = cpumask_local_spread(0, dev_to_node(ni->dev));
+>>>        cd->pmu = (struct pmu) {
+>>>            .module = THIS_MODULE,
+>>> @@ -603,6 +603,30 @@ static void arm_ni_probe_domain(void __iomem
+>>> *base, struct arm_ni_node *node)
+>>>        node->num_components = readl_relaxed(base + NI_CHILD_NODE_INFO);
+>>>    }
+>>>    +static int arm_ni_irq_init(struct arm_ni *ni)
+>>> +{
+>>> +    int irq;
+>>> +    int err = 0;
+>>> +
+>>> +    for (int i = 0; i < ni->num_cds; i++) {
+>>> +        irq = ni->cds[i].irq;
+>>> +        for (int j = i; j--; ) {
+>>> +            if (ni->cds[j].irq == irq) {
+>>> +                ni->cds[j].irq_friend = i-j;
+>>> +                goto next;
+>>> +            }
+>>> +        }
+>>> +        err =  devm_request_irq(ni->dev, irq, arm_ni_handle_irq,
+>>> +                    IRQF_NOBALANCING | IRQF_NO_THREAD,
+>>> +                     dev_name(ni->dev), &ni->cds[i]);
+>>> +        if (err)
+>>> +            return err;
+>>> +next:
+>>> +        ;
+>>> +    }
+>>> +    return 0;
+>>> +}
+>>> +
+>>>    static int arm_ni_probe(struct platform_device *pdev)
+>>>    {
+>>>        struct arm_ni_node cfg, vd, pd, cd;
+>>> @@ -611,6 +635,7 @@ static int arm_ni_probe(struct platform_device *pdev)
+>>>        void __iomem *base;
+>>>        static atomic_t id;
+>>>        int num_cds;
+>>> +    int ret;
+>>>        u32 reg, part;
+>>>          /*
+>>> @@ -669,8 +694,6 @@ static int arm_ni_probe(struct platform_device *pdev)
+>>>                reg = readl_relaxed(vd.base + NI_CHILD_PTR(p));
+>>>                arm_ni_probe_domain(base + reg, &pd);
+>>>                for (int c = 0; c < pd.num_components; c++) {
+>>> -                int ret;
+>>> -
+>>>                    reg = readl_relaxed(pd.base + NI_CHILD_PTR(c));
+>>>                    arm_ni_probe_domain(base + reg, &cd);
+>>>                    ret = arm_ni_init_cd(ni, &cd, res->start);
+>>> @@ -683,6 +706,12 @@ static int arm_ni_probe(struct platform_device
+>>> *pdev)
+>>>            }
+>>>        }
+>>>    +    ret = arm_ni_irq_init(ni);
+>>> +    if (ret) {
+>>> +        arm_ni_remove(pdev);
+>>> +        return ret;
+>>> +    }
+>>> +
+>>>        return 0;
+>>>    }
+>>>    
+>>
+>>
+> 
 
