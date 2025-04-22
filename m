@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26911C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 20:36:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 810B0C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 20:41:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
 	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QB/EZxvi3t87PK18i4g1vhWVTtw3rMf9PNCebJ3iyMk=; b=tDOzUWkwfgPvnztS/cM+6moGWM
-	nZHfb0/d2/R3GMOsKTTkBWdrHxC2FLIHY48Z1UxXp40NqJBtMxq67T1jN8StPvKIUnTMrovbAMY2i
-	zm8ovy5a271vKjhBxyeAdwOA2TV3JcBCQkawyo7ZmKaIBtTFCLFymbGuktq+MTteulf2tP8zagoi1
-	mErhbrXJ3QEa/nu5uzrsB3522zCdcGjcdSchc/nn5Sq0oUaDbgLzyXKNKOtYg9yRbm8e4qSOfXEwV
-	+EEqHfld5jYxtuEL4PEJkYIh2mLb7eI10Zvu8+7JvvGn6Zv/D6VVOIQY6mCPVHHdM3vrNr9TXQfOo
-	2l5sp61A==;
+	bh=Mxa8mnKGFLIwz3aSnLsB+cdsk2Io08xYKKTBbVflAy8=; b=1Y2lnDfGUvO+Ohhyb2Tx7rMg/t
+	38XZ3RCaNCzXli7QfsWoUviKiQVYvlo/pgGkgnAUdODJORV4z0kCrM6oQWmOIa/0jkLLm2o7tG9YH
+	5C9sOmUl03HFwJnTaHIpLc4hDoKCdvALS4HYqA/wBNuci8YkObaQXufLCOgMxnbCdGRxTD+A783jC
+	uIuOv7qgM6CfWE1qWuUxGRkqzuyTu0BOUdVYHxu6WIrjlVW/nmnHUZc0WQ4iqlRaH03bNmp4Dw/Mq
+	riyeksghqCwZQAwtlZOxtoLTQ095AG4k9KMA9afdObbsGVFH2UlzQZIMeyCtz7xBX8pBqLj69pAN2
+	A1LMG8+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7KLc-00000008TTv-0bxb;
-	Tue, 22 Apr 2025 20:36:04 +0000
-Received: from mail-qv1-xf2a.google.com ([2607:f8b0:4864:20::f2a])
+	id 1u7KQr-00000008Tyh-0eHB;
+	Tue, 22 Apr 2025 20:41:29 +0000
+Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7KJf-00000008TNi-28ew
+	id 1u7KOv-00000008Tkr-0DnD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 20:34:08 +0000
-Received: by mail-qv1-xf2a.google.com with SMTP id 6a1803df08f44-6e8f43c1fa0so71295366d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 13:34:02 -0700 (PDT)
+	Tue, 22 Apr 2025 20:39:34 +0000
+Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-476f4e9cf92so42093511cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 13:39:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1745354042; x=1745958842; darn=lists.infradead.org;
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1745354368; x=1745959168; darn=lists.infradead.org;
         h=mime-version:user-agent:content-transfer-encoding:references
          :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=QB/EZxvi3t87PK18i4g1vhWVTtw3rMf9PNCebJ3iyMk=;
-        b=2UOwW8xxEWcZPj9Yqfb7ivHDKOvJDq0vyvozWmJe/UuxZ9lYxoSMevh7L006Vw9Uyy
-         IUpzrPI6gE3ucY+82XgSm6oLPj8MuQgN673f9gou8IgMbnlyqngv9AbKkP8x1KUr7NdU
-         trr4Zo9rw00kFBxdIQJj6cflbrp5KoYiCl3OBy3W40e+QuhzYjJW6boM7Vii2AXyPc6Q
-         BgVNDfDo0qWsKp4uRMRGNq/WgBXNRGPvPYR8j0EoGNIhJ0vj5Iet8jlBD1cQ/YxT6UJ3
-         VcHtNbC1M4ZGxt8wi7LB/WriLHsjQjFmVJFyHjQ4jDnKQu6kNQ/CtcQvP8BzOQp31Wvc
-         QW4A==
+        bh=Mxa8mnKGFLIwz3aSnLsB+cdsk2Io08xYKKTBbVflAy8=;
+        b=jY6baAnTzgVjh7Bv4uyXrg9ID1n6t9ylma7YZrVsNyHLZLXBk6rPNUq3WYoxc5f/iu
+         1V93R1RjVU5EKeZ7iOGpkZ1JdzY/yE1X+qW45U2jQlKD6zOSFXjAWbazkY8UUFN6/Bp3
+         ZJrtxsWKM4ys8H1PxxFrwRVRCZHioUc+0hkLWLhnQHG/pxNkr3MosKKf2NNJiptW7nSh
+         414//fV4TtLIMwvbMZNDmHpCUa9bdpj9nPGElqXYrIKGMaUBDWMcbIDrjYEf3M69Ia9E
+         OvXqHhEQ3wTsVk/wRoam9xFd4nJcQHKiA70l025sUeHFuExrIXp3DY9W9Yd+lX8lztTr
+         cihw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745354042; x=1745958842;
+        d=1e100.net; s=20230601; t=1745354368; x=1745959168;
         h=mime-version:user-agent:content-transfer-encoding:references
          :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=QB/EZxvi3t87PK18i4g1vhWVTtw3rMf9PNCebJ3iyMk=;
-        b=RljZhrAUcUmNeNHq8dMAl5mi/6X6RiJCQl5FsKBUeA4XlU9nNqZnykROFkL0IuPi/h
-         dEPHrgy9kXBQdML6suQtK3hQV576BNqKjz+wvBqUZhyznzQ0tuoAYKf5j6KvcOZZ8tHB
-         ePdj7VywGaEm5j/bwFyi2XMiIx1Pjct43W7B9p9HQEIP+Xg/412zMcwwkgU1hxfUSY8U
-         MUspwMVX3mqTlqeoRDl+uw4lPo4y1SCKMWGrlTHclHCowsTKBo4wTAjE7+7HgVoFm5J7
-         X/9gA2iTZK05Y671hI4YgMcVI0iPjkWreJFVZ8TqS6OwF8m0Wrm7iBuFE4FkHXcnlKwc
-         pGug==
-X-Forwarded-Encrypted: i=1; AJvYcCVvAIF/yRiiy9PCTWtLyYsmii2b+EECjR1cnN8jLwWKKGd2ORESv1+ZRz5fm3GXD8Ud+eo8+MZM3xyC9wJq44RP@lists.infradead.org
-X-Gm-Message-State: AOJu0YwRzR2rBIfnzxROd9sgqrw8qMiL/aTCJ6DGLWGk6i+Oe/xmUyGz
-	oqqnNNXw6lTZjvML1M3WhYS8I+jSX5WabcdXaYxYiE7I1ImYlHZXtdaRyu2ZOzc=
-X-Gm-Gg: ASbGncvR0cOPL/se0DDocOfvpErGflkJpgu1MnQ3ts/cQm7i2vffIE5Na73xYIYEKQy
-	7oISduLHYK8R6xLn3cEkGIVaY6Ye4Nbet641H7TdnH5YkQgDKl/7tg7UhzAzoHwBs0ke8ZXilqX
-	USG7XpaX5rYJDnCvpoofHfzkuHkSmIIJmOf7K4V7nUn2KHPLvgC4EpMQVS5YvAjDKelZ15aMhg0
-	OpytDm2kLzsLmGYLMY7FFvzCE7oCO/ArM0r24rwggJzynvALwMripe6kme5dMpQpgZ4RAANIbTa
-	eiI16WsSLEXiqdKSVqFJPI7odKDivSZ/JaSoeYnZGmH8cA==
-X-Google-Smtp-Source: AGHT+IF2NY8NWZhRDDTGP3IWCtm2obgw3XdCPc+7lNS25z2oTNzCLuKcPU7yqB4NlMxM4ZoFISN2xw==
-X-Received: by 2002:a05:6214:5085:b0:6eb:28e4:8519 with SMTP id 6a1803df08f44-6f2c4562ff4mr302755556d6.21.1745354041933;
-        Tue, 22 Apr 2025 13:34:01 -0700 (PDT)
+        bh=Mxa8mnKGFLIwz3aSnLsB+cdsk2Io08xYKKTBbVflAy8=;
+        b=JqbFiLdHmPu896lN5BcuqeXlN+Sh/9i31WN7AvdfS1YXs4YoF93sfx9ZkOHIdHSZZl
+         MQ4y8d+GUIT1i/5aDr1mSBA+ZOlAn7g+XmTRQW2K1uXCXMrUTK5Yaiax7tEoimQi5ALv
+         O57KVxIyb4x2+QmPMIrxQgFLxajagroeW5ovS8lH6ttLqBhkcTuMqjl1Q3Sm7GwCkY/i
+         o+P9iCYHlu1Lz+Lb+Niaqu6nJe2IDzNRyT3Pt8V7Tj9aC/kqJe+ZB5nFFww3aIdQiiso
+         OagWsAXg8lAGJJg9sES8HX/gBvuyQZT3f+UTvebtDx4Q1VTdJ7oP1o8oWsH4lQGey4zf
+         Pm5A==
+X-Forwarded-Encrypted: i=1; AJvYcCXNHRwGNk02grlBd+AJwVV9LK/nmo5LIgvOpYuM0tMcaF4LN3LZ9b8r/qjq5nT/Y1JxJSxBr4sCv5AazevwmP9y@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxd0nm1HcrzkBFPGvT0fv2zOKpvORX00gecBSNuJ7LCdM2iuKBK
+	LxaVsslxh5g4vFhGGX9zGVxzvSsajNhXaI61NFI6UYPA9RhjyT0kfP6CaxmGz4k=
+X-Gm-Gg: ASbGncv/UPLy8QWGHoxz8kDkqjFh42WXO/0oMJ6ciUF5FbZ+vVbybdsgR1csI6cucEC
+	LOIiwhMEahFl6alM+uKKDQx/dihNSI5UuZUwoUyzq0UY0IYfwdpSVsC44rzPGcLIuN9xBpaIAN7
+	VJAzSvwpr/zRPjZJZpo7JZSHK2ZzhDVS79VsGAvanx1ppNN5qOCkuRTJNp9VGJ29SWEejr6SogZ
+	oK6aJafzEy+ZsS2pHfqUbnJay8cREYAnzcMIcjN19DgqHJ/uaRT8CDjZ3GnoA0ol+XntMh2oIGS
+	KG8a/orqb5JqXUOo+mu1JqbRloDqJ+NuUAGqZSHMcpOB4w==
+X-Google-Smtp-Source: AGHT+IHgoXB32I54YobFWotwW7Ql02OGxk1yBL4VLASRbXLMaVUU5YRS5yYScQbQz+DQ7P9MWu3VIA==
+X-Received: by 2002:a05:6214:1c49:b0:6ea:d033:2853 with SMTP id 6a1803df08f44-6f2c455326dmr292929536d6.16.1745354367604;
+        Tue, 22 Apr 2025 13:39:27 -0700 (PDT)
 Received: from ?IPv6:2606:6d00:15:9913::5ac? ([2606:6d00:15:9913::5ac])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6f2c2bfcfc5sm61803746d6.75.2025.04.22.13.34.00
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6f2c2b343ffsm61918306d6.65.2025.04.22.13.39.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Apr 2025 13:34:01 -0700 (PDT)
-Message-ID: <7864deb3dc090bc52cbdb4c646d0155ecc256076.camel@ndufresne.ca>
+        Tue, 22 Apr 2025 13:39:27 -0700 (PDT)
+Message-ID: <a257b77973512cad398502949324ad5518c54108.camel@ndufresne.ca>
 Subject: Re: [PATCH v5] media: amphion: Support dmabuf and v4l2 buffer
  without binding
 From: Nicolas Dufresne <nicolas@ndufresne.ca>
@@ -79,7 +79,7 @@ Cc: shawnguo@kernel.org, robh+dt@kernel.org, s.hauer@pengutronix.de,
  xiahong.bao@nxp.com, 	eagle.zhou@nxp.com, tao.jiang_2@nxp.com,
  imx@lists.linux.dev, 	linux-media@vger.kernel.org,
  linux-kernel@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org
-Date: Tue, 22 Apr 2025 16:34:00 -0400
+Date: Tue, 22 Apr 2025 16:39:25 -0400
 In-Reply-To: <20250120082105.2960717-1-ming.qian@oss.nxp.com>
 References: <20250120082105.2960717-1-ming.qian@oss.nxp.com>
 Content-Type: text/plain; charset="UTF-8"
@@ -87,8 +87,8 @@ Content-Transfer-Encoding: quoted-printable
 User-Agent: Evolution 3.56.0 (3.56.0-1.fc42) 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_133403_561360_11ED549E 
-X-CRM114-Status: GOOD (  28.48  )
+X-CRM114-CacheID: sfid-20250422_133929_102034_36411827 
+X-CRM114-Status: GOOD (  28.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,6 +102,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
+
+Hi,
 
 Le lundi 20 janvier 2025 =C3=A0 17:21 +0900, Ming Qian a =C3=A9crit=C2=A0:
 > When using VB2_DMABUF, the relationship between dma-buf and v4l2 buffer
@@ -119,6 +121,14 @@ Le lundi 20 janvier 2025 =C3=A0 17:21 +0900, Ming Qian a =C3=A9crit=C2=A0:
 > released by firmware, need to pend it until firmware release it.
 >=20
 > Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+
+I believe this patch is ready, but unfortunately it no longer applies.
+Could you rebase against media-committers/next and resubmit ? Consider
+including a base commit in the future, sometimes that allows avoiding
+aa rebase.
+
+Nicolas
+
 > ---
 > v5
 > - Avoid dynamic size calculation in memory allocation, use kmalloc_array
@@ -301,10 +311,6 @@ ruct vpu_frame_info *frame)
 > +	if (vpu_buf->fs_id !=3D frame->id)
 > +		dev_err(inst->dev, "[%d] buffer id(%d(%d), %d) dismatch\n",
 > +			inst->id, vpu_buf->fs_id, vbuf->vb2_buf.index, frame->id);
-
-Was not newly introduced, so I'll take anyway, but can you send a patch
-later to fix dismatch -> mismatch.
-
 > =C2=A0
 > -	if (vpu_get_buffer_state(vbuf) =3D=3D VPU_BUF_STATE_READY && vdec->para=
 ms.display_delay_enable)
@@ -709,6 +715,4 @@ atform/amphion/vpu_v4l2.c
 > =C2=A0	return 0;
 > =C2=A0}
 > =C2=A0
-
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
