@@ -4,87 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E95D6C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 19:55:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D62B3C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 20:00:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:
 	Subject:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rYsIXJ0VH1fBZwKk67xkFa5qHHB2W1M/DHJM5j7x72w=; b=HqMcbW5RW7oLi6j/0QvH6YaETn
-	3PAZvlsglwAAncwtdJf0Gxf3Gs3PyiCqLDbCf8FOCYmOrtpoK0sa7ZpmyPxLnyZ0x1n+fv+qzfMca
-	CdPoiFhhs1uIwm17jAwhyU9PzQxVNJKHinBZ36quQ8AaXPopE14kK5yHDgs+PLYs2quLVWYQkmTja
-	yIFmVdDWqGoToPE5lAZdJ+38/FKjKNIGmi+rzYJFwZvf+518RwEBHu38h/YdUUcFJpO5hkgQlYyw9
-	oclcEoqYcd/KXWtSxXZYU3z2zxgrNUyZOnMV1hu7n+M1okbK+8IEirvBHHEy8EER5FUAOlj6II2z+
-	DGv3IfCA==;
+	bh=wi0XCQ0wIgKNjQqJTUBlgswWdaLbIuH1pbfLDZVamA8=; b=suKEA9zASerKN0asxYtGFV7ALr
+	EfdbHwaRub3jdnnf5LSeP8KiRS856fFji1Cwr9PxW5TgQMXRc2LcasKI7WbCrOgIXyiO85Yf+TMNG
+	EVnG8SpA5lySUonwZvwchOcu0Usk0o/I6ysQXKQeYMVwbZlGzeI/Re9bWvqFF/jv1GI132WDY/kkq
+	iZC0pwxYzAyj4mp0mkvMugqzGAz0Jho4XsCsVaB5XeFgRf4XcSY+uRCjkGAwQdcuUhv3JBykOfGF/
+	EtEnriV5NfGguLF9DMr37nzc1ZYVpGFDT6Q3e4gc3xzyW7hXRQ1dP1MzeH2ukbqZyFvLjXrZL0lHt
+	P061AFtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Ji7-00000008P1d-3uiN;
-	Tue, 22 Apr 2025 19:55:15 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u7Jmk-00000008PRK-1hWU;
+	Tue, 22 Apr 2025 20:00:02 +0000
+Received: from mail-qv1-xf2b.google.com ([2607:f8b0:4864:20::f2b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7JgG-00000008OtM-2CVt
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 22 Apr 2025 19:53:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:References:In-Reply-To:Date:To:From:Subject:Message-ID:Sender:
-	Reply-To:Cc:Content-ID:Content-Description;
-	bh=rYsIXJ0VH1fBZwKk67xkFa5qHHB2W1M/DHJM5j7x72w=; b=p9Dd8Mdv7/dzIWJ46RBq1pMLeN
-	a9Bw11lgTD2pgQDnoEVjkhm7CN3TP/AgoGzCB3oxxv8Hkap1uAHK33cfs6mniq3Uwe4pw3TkwG4K6
-	JhlLH817A44CqS06IPrAPkkPNeHyy4ExnjUAPX1q/JA/40stM3YchmzKxjZyMBd5psXu7dJA1DJJN
-	yWXb4jgx4SPngYGvPYf7yHCF7CsVEV7qNrG1X1I33UdnWpaDj1GTBjzk2PwuZR8ZhVej5Wg+uZNe5
-	I1+3UIc7UHlZb4yyOyoqqK3eb0eJMNemg71gmR9o1bVCWIJbV5AV5SkSS8c7Ev/yORexFR2Sd3mEg
-	W2MGdN6A==;
-Received: from mail-qv1-xf30.google.com ([2607:f8b0:4864:20::f30])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u7JgC-0000000BIty-2yo5
+	id 1u7Jks-00000008PFg-0R9Q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 19:53:19 +0000
-Received: by mail-qv1-xf30.google.com with SMTP id 6a1803df08f44-6e8ffa00555so47901446d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 12:53:15 -0700 (PDT)
+	Tue, 22 Apr 2025 19:58:07 +0000
+Received: by mail-qv1-xf2b.google.com with SMTP id 6a1803df08f44-6e8ec399427so46937936d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 12:58:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1745351594; x=1745956394; darn=lists.infradead.org;
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1745351885; x=1745956685; darn=lists.infradead.org;
         h=mime-version:user-agent:content-transfer-encoding:references
          :in-reply-to:date:to:from:subject:message-id:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=rYsIXJ0VH1fBZwKk67xkFa5qHHB2W1M/DHJM5j7x72w=;
-        b=tzq+mRS8JSCQ093ZRDHmaaUSYT8iH28skb9U4P0UteRDGRLT27MYDWA+00mOZjenyo
-         NfRYEQqGQ2YNHr1gyiwBg6UsfttCB8UBNdFEa2l+SxvA2m+OJUTJDKB4dXuufuPlUbYP
-         BgwqaiUTP+3iBIqBnvCxDFDFIDxMualLh9KHybK+tolAmNEBS6oVNatjlUzYlA+Qbp0b
-         b601U4vQPchRtbVvfENtR4iRdUPLwXETq6L1mBTq9zQrgdcFsLKtnvtULanNMkJ1/euO
-         wOzRddUr92z3YMyVlqSiy8JkTn5t08kxcAKGTFF3UekirHCXxMlMOeuigCYhrU3MgyC9
-         G9gQ==
+        bh=wi0XCQ0wIgKNjQqJTUBlgswWdaLbIuH1pbfLDZVamA8=;
+        b=o1Bgzm7tzgq1jFBzByTVs6oIazL+2xz1o50T/vcK87Sj2wj7kqGqVB+mb1gQTBmfne
+         J3nllztS/PGiTTK6Lwugx+2OIKfXJOjuUjAiNd/fkrmV6ywMIUTPf9R2DNxgf+hbf8Y7
+         ZPn8b+X2BG29wUZO0D11mCRcvvnBXiaigzFHLRtgaA9Ig3OtKLRURGzdBTUMK336h4aa
+         Dh2hGJbVLCBxL0L0eDsbCPPOMYwIAInuC1nm+rt7M2LKrruu+SJGm1jBxNjCckTHFcUo
+         mmGhM++qEh23BXkT2QGnxwhnArivfPtVtxFevrORdsuYl/t/RZW7qC40f+GcGcr7ZZiy
+         WS+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745351594; x=1745956394;
+        d=1e100.net; s=20230601; t=1745351885; x=1745956685;
         h=mime-version:user-agent:content-transfer-encoding:references
          :in-reply-to:date:to:from:subject:message-id:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=rYsIXJ0VH1fBZwKk67xkFa5qHHB2W1M/DHJM5j7x72w=;
-        b=Pp1UGHUO/33Ie9Kd2xjvYL5JcTnGo/cwMqQKMi8la3Cuew9GUihY+sfw8CqC0jfcAp
-         QDrb6AdN/T/HpZwAjAssg6ObDlWOJVe7TmtNDtIG0UdatMqBuJJ4hChSjf9dLzQ11W2U
-         sp3vLFPmRtssZvD1V0Dn/olQ4v9Ggo7zlz0KqYzScVkoNPpC2boaxhTF969CdBmSlSXs
-         GXcSvWt16Fd9h5qltNBzX9Et9NoHYqnmngpVYZs/3ACWPsNk8SC1TxjFAitRU0KD4BJr
-         3WvAozEjiBuUo+DFxHZMhm6n645W8LxrVdrjyg0fN3AXm9OM0EmnIsEVyP3X+mhsWuB5
-         ZHoA==
-X-Forwarded-Encrypted: i=1; AJvYcCW8n4dxDLoFRR4k6kA4vsU0QeLW2H8FHyK27y9YGMxAwHWwfHDWbesEGz0+MKj4pJBtQhFxSfDTbQcZsjeuxIPB@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx8nJ2WvCh/aCqN5figKu1vYVeKeKNHO3hTkkZsdeG+J3O/CcsK
-	2G8H5CPsEJqAvznKbhYJsBKGOaDu5UgymLVLj5cgMen4WbYTrP6vZ7wniP8DgAg=
-X-Gm-Gg: ASbGncszS5fFe7biFT4h6dYUzVCRz0mLoWnW0gqL9fci/kBYyZgycbzjU7oC+4PybOb
-	C8WhyuTNgpowe+B5qj6VdXNDKOKpSvFG1tmqdAan5syAQLlf6tHkgoIzWNN8Bxeq0duvAmyfZFB
-	L3G/5/vIb24VW8AzX9Knxeya+ivB/sBQ8nf9kvz2Bd47ctWwgc3Rd5grXDd2RcNIVH6Je0MAbAg
-	3KezRFwlsb0OEJc2u3pt2DxLZyncSlUSAep8G3dLnaJlAsc7IMaKA1sEnM5acW9TBtwq/zXta58
-	WLQz22zXWfJZxcb6sozKAF+SVwkstTYKGQ1Fn+ephB04Xw==
-X-Google-Smtp-Source: AGHT+IFx37IZxz2XZRa4HUxytJgkJVsEXuyDvydowgtq1jU/C5yFgExdGRxaZiK2dG6HIZZz2N702A==
-X-Received: by 2002:a05:6214:21e7:b0:6e8:f4e2:26ef with SMTP id 6a1803df08f44-6f2c4656c2cmr318324046d6.31.1745351593565;
-        Tue, 22 Apr 2025 12:53:13 -0700 (PDT)
+        bh=wi0XCQ0wIgKNjQqJTUBlgswWdaLbIuH1pbfLDZVamA8=;
+        b=mOV1GBB9oXqeThK3BF/SOubhTYtRzDgsnd/rJ2DOabh1RWJbh5xIgBW+JnTBvKVQQA
+         ENLqtjoJs0uj0VZ/hxn2NrnvC2LKvpZusvBEEiLqZJj6cG9VzSmhn41yi9BtQX7Mhst9
+         aXYPAzOQKY1oRpBXEQBgePNrG25NliSI2dnlJVgTfvU1ZmqhxAFn/9vugryyPHNRcgZj
+         Guo59rQmU4DlSZdHRf2gsXKtOlCGN21FCgjh8whMWRJSIdjsJqQxP5+01dbXi+0pOcZc
+         HUAg9lTMZArY8Qi1w/g1daPBcFM9RVXLDoDI4S4Z8YV2+rlkpWNm5teRvSD12RvTLX3v
+         Jxjg==
+X-Forwarded-Encrypted: i=1; AJvYcCUKREzBXhHjusYmFD0V/SuhpDO4myw9S21OsqiXqoVO3U7nCuN3yAJdgT53Vnrg/AET/GiBzW1YCPJ1pygjkUzz@lists.infradead.org
+X-Gm-Message-State: AOJu0YwD+a/fnRlHDwkKDjXEoRq3AVMHj+aAjgTNIE8f8oNRwpCYgdfH
+	Eeo+3GJq2XjrgnUUCvCgD9tMD0bvZRHSsJGohfayHcf2/RNJtatQjxyfqsa9c5Q=
+X-Gm-Gg: ASbGnctenWm0XZ4dOxrjc/h345ia2js0Q/jzaVlHK2AtmkA74taGADgjbr9Ha+dsc4C
+	DdmsoVtttCNozImgsUfYK4hiqUcSmktMqAHcOMSziNuEx5KuQ/qPkFOlOmS3kSgcGETF8MLqCWW
+	EMX5Pu1S8fQbgwiBvjfnWrUQ4TvV+ibH1EDPXyB9YEHrDDMKGpiJpEoMR3agO86Tdj0pJIGW4Wc
+	4oeSV2DB9VZaqDUCitOCi2RPA22iU/4JtkkIpXiQLfivekZw15jTQFTC+LHbmMrVzTC7BJigpe6
+	fDg2+LB+Jul+IJRWjme9BpmKqXji2dZlilGj2FuiZoEMKQ==
+X-Google-Smtp-Source: AGHT+IF7avo9uEX7A3mW4T8l6RGnGWjnOiUes3AEZlicK2QwGeYThk0IGDXmi5oRWeE+79xJPQKX3w==
+X-Received: by 2002:a05:6214:19c8:b0:6e8:fad9:c688 with SMTP id 6a1803df08f44-6f2c4552a03mr278764626d6.16.1745351884909;
+        Tue, 22 Apr 2025 12:58:04 -0700 (PDT)
 Received: from ?IPv6:2606:6d00:15:9913::5ac? ([2606:6d00:15:9913::5ac])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6f2c2bfcfd0sm61261036d6.82.2025.04.22.12.53.11
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6f2c2af1433sm61506056d6.19.2025.04.22.12.58.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Apr 2025 12:53:12 -0700 (PDT)
-Message-ID: <419ba5e518be4a35ed0277f749ca9a317f6bff5c.camel@ndufresne.ca>
-Subject: Re: [PATCH v3 1/3] media: uapi: add WebP uAPI
+        Tue, 22 Apr 2025 12:58:04 -0700 (PDT)
+Message-ID: <529a9804d5b14322b2be78ea6f98677db9c23c33.camel@ndufresne.ca>
+Subject: Re: [PATCH v3 3/3] media: verisilicon: postproc: 4K support
 From: Nicolas Dufresne <nicolas@ndufresne.ca>
 To: Hugues Fruchet <hugues.fruchet@foss.st.com>, Mauro Carvalho Chehab	
  <mchehab@kernel.org>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
@@ -100,17 +85,17 @@ To: Hugues Fruchet <hugues.fruchet@foss.st.com>, Mauro Carvalho Chehab
  linux-kernel@vger.kernel.org, 	linux-rockchip@lists.infradead.org,
  linux-stm32@st-md-mailman.stormreply.com, 
 	linux-arm-kernel@lists.infradead.org
-Date: Tue, 22 Apr 2025 15:53:11 -0400
-In-Reply-To: <20241121131904.261230-2-hugues.fruchet@foss.st.com>
+Date: Tue, 22 Apr 2025 15:58:02 -0400
+In-Reply-To: <20241121131904.261230-4-hugues.fruchet@foss.st.com>
 References: <20241121131904.261230-1-hugues.fruchet@foss.st.com>
-	 <20241121131904.261230-2-hugues.fruchet@foss.st.com>
+	 <20241121131904.261230-4-hugues.fruchet@foss.st.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 User-Agent: Evolution 3.56.0 (3.56.0-1.fc42) 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_205317_128891_147CFB6F 
-X-CRM114-Status: GOOD (  21.01  )
+X-CRM114-CacheID: sfid-20250422_125806_141701_806BCAA4 
+X-CRM114-Status: GOOD (  15.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,137 +112,81 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi,
 
-sorry for the late come back.
-
 Le jeudi 21 novembre 2024 =C3=A0 14:19 +0100, Hugues Fruchet a =C3=A9crit=
 =C2=A0:
-> This patch adds the WebP picture decoding kernel uAPI.
->=20
-> This design is based on currently available VP8 API implementation and
-> aims to support the development of WebP stateless video codecs
-> on Linux.
-
-Should mention that this new pix fmt is added to make it possible to
-support both intra-only and VP8 with reference, while advertising
-different frame sizes.
-
+> Support input larger than 4096x2048 using extended input width/height
+> fields of swreg92.
+> This is needed to decode large WebP or JPEG pictures.
 >=20
 > Signed-off-by: Hugues Fruchet <hugues.fruchet@foss.st.com>
+
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+
 > ---
-> =C2=A0.../userspace-api/media/v4l/biblio.rst=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 9 +++++++++
-> =C2=A0.../media/v4l/pixfmt-compressed.rst=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 17 +++++++++++++++++
-> =C2=A0drivers/media/v4l2-core/v4l2-ioctl.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 1 +
-> =C2=A0include/uapi/linux/videodev2.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 =
-1 +
-> =C2=A04 files changed, 28 insertions(+)
+> =C2=A0drivers/media/platform/verisilicon/hantro.h=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 2 ++
+> =C2=A0drivers/media/platform/verisilicon/hantro_g1_regs.h=C2=A0 | 2 +-
+> =C2=A0drivers/media/platform/verisilicon/hantro_postproc.c | 6 +++++-
+> =C2=A03 files changed, 8 insertions(+), 2 deletions(-)
 >=20
-> diff --git a/Documentation/userspace-api/media/v4l/biblio.rst b/Documenta=
-tion/userspace-api/media/v4l/biblio.rst
-> index 35674eeae20d..df3e963fc54f 100644
-> --- a/Documentation/userspace-api/media/v4l/biblio.rst
-> +++ b/Documentation/userspace-api/media/v4l/biblio.rst
-> @@ -447,3 +447,12 @@ AV1
-> =C2=A0:title:=C2=A0=C2=A0=C2=A0=C2=A0 AV1 Bitstream & Decoding Process Sp=
-ecification
+> diff --git a/drivers/media/platform/verisilicon/hantro.h b/drivers/media/=
+platform/verisilicon/hantro.h
+> index 811260dc3c77..d1337f7742e4 100644
+> --- a/drivers/media/platform/verisilicon/hantro.h
+> +++ b/drivers/media/platform/verisilicon/hantro.h
+> @@ -321,6 +321,8 @@ struct hantro_postproc_regs {
+> =C2=A0	struct hantro_reg output_fmt;
+> =C2=A0	struct hantro_reg orig_width;
+> =C2=A0	struct hantro_reg display_width;
+> +	struct hantro_reg input_width_ext;
+> +	struct hantro_reg input_height_ext;
+> =C2=A0};
 > =C2=A0
-> =C2=A0:author:=C2=A0=C2=A0=C2=A0 Peter de Rivaz, Argon Design Ltd, Jack H=
-aughton, Argon Design Ltd
-> +
-> +.. _webp:
-> +
-> +WEBP
-> +=3D=3D=3D=3D
-> +
-> +:title:=C2=A0=C2=A0=C2=A0=C2=A0 WEBP picture Bitstream & Decoding Proces=
-s Specification
-> +
-> +:author:=C2=A0=C2=A0=C2=A0 Google (https://developers.google.com/speed/w=
-ebp)
-> diff --git a/Documentation/userspace-api/media/v4l/pixfmt-compressed.rst =
-b/Documentation/userspace-api/media/v4l/pixfmt-compressed.rst
-> index 806ed73ac474..08a989511e7d 100644
-> --- a/Documentation/userspace-api/media/v4l/pixfmt-compressed.rst
-> +++ b/Documentation/userspace-api/media/v4l/pixfmt-compressed.rst
-> @@ -169,6 +169,23 @@ Compressed Formats
-> =C2=A0	this pixel format. The output buffer must contain the appropriate =
-number
-> =C2=A0	of macroblocks to decode a full corresponding frame to the matchin=
-g
-> =C2=A0	capture buffer.
-> +=C2=A0=C2=A0=C2=A0 * .. _V4L2-PIX-FMT-WEBP-FRAME:
-> +
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``V4L2_PIX_FMT_WEBP_FRAME``
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - 'WEBP'
-
-After plenty of thinking, WebP is a container the support 2 codecs. We
-should not name this WebP, but instead VP8_INTRA_FRAME. Meaning, intra
-only VP8 decoder.
-
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - WEBP VP8 parsed frame, excluding WEBP R=
-IFF header, keeping only the VP8
-> +	bitstream including the frame header, as extracted from the container.
-
-This comment will then not be needed, since VP8_INTRA will make it
-clear.
-
-regards,
-Nicolas
-
-> +	This format is adapted for stateless video decoders that implement a
-> +	WEBP pipeline with the :ref:`stateless_decoder`.
-> +	Metadata associated with the frame to decode is required to be passed
-> +	through the ``V4L2_CID_STATELESS_VP8_FRAME`` control.
-> +	See the :ref:`associated Codec Control IDs <v4l2-codec-stateless-vp8>`.
-> +	Because of key frames only bitstream, ``V4L2_VP8_FRAME_FLAG_KEY_FRAME``
-> +	flag must be set, see :ref:`Frame Flags <vp8_frame_flags>`.
-> +	Exactly one output and one capture buffer must be provided for use with
-> +	this pixel format. The output buffer must contain the appropriate numbe=
-r
-> +	of macroblocks to decode a full corresponding frame to the matching
-> +	capture buffer.
+> =C2=A0struct hantro_vp9_decoded_buffer_info {
+> diff --git a/drivers/media/platform/verisilicon/hantro_g1_regs.h b/driver=
+s/media/platform/verisilicon/hantro_g1_regs.h
+> index e7d4db788e57..f6e5bbeb1914 100644
+> --- a/drivers/media/platform/verisilicon/hantro_g1_regs.h
+> +++ b/drivers/media/platform/verisilicon/hantro_g1_regs.h
+> @@ -351,7 +351,7 @@
+> =C2=A0#define=C2=A0=C2=A0=C2=A0=C2=A0 G1_REG_PP_CONTROL_OUT_WIDTH(v) (((v=
+) << 4) & GENMASK(14, 4))
+> =C2=A0#define G1_REG_PP_MASK1_ORIG_WIDTH	G1_SWREG(88)
+> =C2=A0#define=C2=A0=C2=A0=C2=A0=C2=A0 G1_REG_PP_ORIG_WIDTH(v)	(((v) << 23=
+) & GENMASK(31, 23))
+> -#define G1_REG_PP_DISPLAY_WIDTH		G1_SWREG(92)
+> +#define G1_REG_PP_DISPLAY_WIDTH_IN_EXT	G1_SWREG(92)
+> =C2=A0#define G1_REG_PP_FUSE			G1_SWREG(99)
 > =C2=A0
-> =C2=A0=C2=A0=C2=A0=C2=A0 * .. _V4L2-PIX-FMT-VP9:
+> =C2=A0#endif /* HANTRO_G1_REGS_H_ */
+> diff --git a/drivers/media/platform/verisilicon/hantro_postproc.c b/drive=
+rs/media/platform/verisilicon/hantro_postproc.c
+> index 232c93eea7ee..84c8e287470d 100644
+> --- a/drivers/media/platform/verisilicon/hantro_postproc.c
+> +++ b/drivers/media/platform/verisilicon/hantro_postproc.c
+> @@ -49,7 +49,9 @@ static const struct hantro_postproc_regs hantro_g1_post=
+proc_regs =3D {
+> =C2=A0	.input_fmt =3D {G1_REG_PP_CONTROL, 29, 0x7},
+> =C2=A0	.output_fmt =3D {G1_REG_PP_CONTROL, 26, 0x7},
+> =C2=A0	.orig_width =3D {G1_REG_PP_MASK1_ORIG_WIDTH, 23, 0x1ff},
+> -	.display_width =3D {G1_REG_PP_DISPLAY_WIDTH, 0, 0xfff},
+> +	.display_width =3D {G1_REG_PP_DISPLAY_WIDTH_IN_EXT, 0, 0xfff},
+> +	.input_width_ext =3D {G1_REG_PP_DISPLAY_WIDTH_IN_EXT, 26, 0x7},
+> +	.input_height_ext =3D {G1_REG_PP_DISPLAY_WIDTH_IN_EXT, 29, 0x7},
+> =C2=A0};
 > =C2=A0
-> diff --git a/drivers/media/v4l2-core/v4l2-ioctl.c b/drivers/media/v4l2-co=
-re/v4l2-ioctl.c
-> index 0304daa8471d..e2ff03d0d773 100644
-> --- a/drivers/media/v4l2-core/v4l2-ioctl.c
-> +++ b/drivers/media/v4l2-core/v4l2-ioctl.c
-> @@ -1501,6 +1501,7 @@ static void v4l_fill_fmtdesc(struct v4l2_fmtdesc *f=
-mt)
-> =C2=A0		case V4L2_PIX_FMT_VC1_ANNEX_L:	descr =3D "VC-1 (SMPTE 412M Annex =
-L)"; break;
-> =C2=A0		case V4L2_PIX_FMT_VP8:		descr =3D "VP8"; break;
-> =C2=A0		case V4L2_PIX_FMT_VP8_FRAME:=C2=A0=C2=A0=C2=A0 descr =3D "VP8 Fra=
-me"; break;
-> +		case V4L2_PIX_FMT_WEBP_FRAME:=C2=A0=C2=A0=C2=A0 descr =3D "WEBP VP8 Fr=
-ame"; break;
-> =C2=A0		case V4L2_PIX_FMT_VP9:		descr =3D "VP9"; break;
-> =C2=A0		case V4L2_PIX_FMT_VP9_FRAME:=C2=A0=C2=A0=C2=A0 descr =3D "VP9 Fra=
-me"; break;
-> =C2=A0		case V4L2_PIX_FMT_HEVC:		descr =3D "HEVC"; break; /* aka H.265 */
-> diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videodev=
-2.h
-> index e7c4dce39007..09fff269e852 100644
-> --- a/include/uapi/linux/videodev2.h
-> +++ b/include/uapi/linux/videodev2.h
-> @@ -757,6 +757,7 @@ struct v4l2_pix_format {
-> =C2=A0#define V4L2_PIX_FMT_VC1_ANNEX_L v4l2_fourcc('V', 'C', '1', 'L') /*=
- SMPTE 421M Annex L compliant stream */
-> =C2=A0#define V4L2_PIX_FMT_VP8=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 v4l2_fourcc(=
-'V', 'P', '8', '0') /* VP8 */
-> =C2=A0#define V4L2_PIX_FMT_VP8_FRAME v4l2_fourcc('V', 'P', '8', 'F') /* V=
-P8 parsed frame */
-> +#define V4L2_PIX_FMT_WEBP_FRAME v4l2_fourcc('W', 'B', 'P', 'F') /* WEBP =
-VP8 parsed frame */
-> =C2=A0#define V4L2_PIX_FMT_VP9=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 v4l2_fourcc(=
-'V', 'P', '9', '0') /* VP9 */
-> =C2=A0#define V4L2_PIX_FMT_VP9_FRAME v4l2_fourcc('V', 'P', '9', 'F') /* V=
-P9 parsed frame */
-> =C2=A0#define V4L2_PIX_FMT_HEVC=C2=A0=C2=A0=C2=A0=C2=A0 v4l2_fourcc('H', =
-'E', 'V', 'C') /* HEVC aka H.265 */
+> =C2=A0bool hantro_needs_postproc(const struct hantro_ctx *ctx,
+> @@ -103,6 +105,8 @@ static void hantro_postproc_g1_enable(struct hantro_c=
+tx *ctx)
+> =C2=A0	HANTRO_PP_REG_WRITE(vpu, output_height, ctx->dst_fmt.heighat);
+> =C2=A0	HANTRO_PP_REG_WRITE(vpu, orig_width, MB_WIDTH(ctx->dst_fmt.width))=
+;
+> =C2=A0	HANTRO_PP_REG_WRITE(vpu, display_width, ctx->dst_fmt.width);
+> +	HANTRO_PP_REG_WRITE(vpu, input_width_ext, MB_WIDTH(ctx->dst_fmt.width) =
+>> 9);
+> +	HANTRO_PP_REG_WRITE(vpu, input_height_ext, MB_HEIGHT(ctx->dst_fmt.heigh=
+t >> 8));
+> =C2=A0}
+> =C2=A0
+> =C2=A0static int down_scale_factor(struct hantro_ctx *ctx)
 
