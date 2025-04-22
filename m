@@ -4,95 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35368C369C2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3EE4C369D7
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 16:22:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jd3xJuk6FST7n0S2TVkTNzsFUMjoZp3JZccjQ28WDhI=; b=RxJY11zVfxEA88PivKCIINgAGA
-	B/fUPUJk4mSBzuRLEHXyG8sFnVIOx5XwspIwfljs1G/r2Ihw2skACiGRIx8LuKFuGiMgfMNDDSTEQ
-	rA7GDdBYY4TP0uGO8umfOLGosXG4+lKKpgNL2uV74/f8fpNrcWykZjeeJFZX4DVb6ljtE2rDBeQBH
-	JYADbL/NYb40vYxrJGZiuGcIsAapml1O7ZgR4uu8l7FnPkLpb6IC/fagX6LoHMtjAm37UShJFMCNt
-	t0ncmf8EJoY1c3pf1CPKnhs0MNn8Aeovh1EwDdtBen9GD6nDyQvAgsFjzna+GODKlHKbAfOze1EBj
-	+FjS80XA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5wQBSXq5gMB9p0PSlyEcreJi6xlp1HfzxXyQ7iVhE8Q=; b=XLIQ4mJv9852grzSOA+7qAQ0jA
+	APAjmaZHyfWkLy7xP21IEHmjMCi9E3YH4cnq02VddqQsgi3J7VZLJilIw0o5cYOjIh6tw/UEq2UpO
+	RxW5Br0+1e5JepiLHNJy/AScDJ7epIoLppyEfDpbgvsRE2FyntQL4rv+K14Sv/ck1x8L26yRJWRv6
+	AUYIDKxpS9j/9Q7u/bVPYMIsZJnXQoZ78lWH/6PmExxjegr6gvcWCA+u7poeLuqqJZiX5yg6US7p1
+	FfR8cbN0Gx9avqjS9MYOC4IUkU60tVHdw8zaLWvAH3hmNbRNjygzsyuBF7en0jjE4IzKK8AZhqwvK
+	9qwTsV4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7GNm-00000007svT-12F4;
+	id 1u7GNm-00000007svm-3Kkl;
 	Tue, 22 Apr 2025 16:22:02 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+Received: from relay2-d.mail.gandi.net ([217.70.183.194])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7EH4-00000007QZS-3i6i
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 14:07:00 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-5f6222c6c4cso7098937a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 07:06:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745330817; x=1745935617; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Jd3xJuk6FST7n0S2TVkTNzsFUMjoZp3JZccjQ28WDhI=;
-        b=DFpfcN3TXj0833RVQo5ohlRjPtEKW2xFc2Qz0KRwuA5VYNRz25Hj2LFxfcLa95gNIC
-         dqv/i2RVW764VGgey0X1BLccLF4GNiIEK2RAqtJOSsqrzMFsP5wBzcnAQRrz03MAXBjx
-         UsbZy6nrzdvWHA2WNk2c5Rk0zW/ty+W52g15IJV9/COH5wYdzdcaWzi79S8azSQ/1zOe
-         kKBrXIHv2FQa03jDTtO9YhklQosVPRxa4bdhfgK06S8HpwADavVhVidFGH5OcK8m9D6Y
-         npeO0r1vBNR04pt3ZrEdvhmLa0SmhzVvvvBLtneilkZvvxCNn/oN93zAWpG7w2RFgZ2y
-         zMRw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745330817; x=1745935617;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Jd3xJuk6FST7n0S2TVkTNzsFUMjoZp3JZccjQ28WDhI=;
-        b=Vv4fPW6fhqXpgL73UpjcHiRn7QhtxEdJS38eehTMFAAjfz4R+gD8gndwyuaZ82J4a7
-         sz3xPPfp3v+nA/wIXZEM3QfylzObhNK1l4IQ8y9bqazMVVPbwaqBNGo63yqu5pTtqwH8
-         QdwaovqdbjzVBvNfnaNklUCjI85IY+xX/AKwy3LI6v5GJOe5lZops8h65sn0UQKw23C8
-         CkZPLvmvdeewX2wgEiM9BVGR3r4bguL85MZ/2zcgnqpyv0VVnG0J/qpWMOlZ0TFObYDy
-         hy2QQge6obsEior2oVoiPP4Zy2hp1ChOAzTsTyZsV+z4dG8ZcyNF6GF4fSeu+xIDVK6+
-         WrjQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWxOoeG+8hO1CD7bFuJwSES+K1PvwuYzB7vELT1NxLhYicB8tPpGwEsBH9pknTbkdNDZ4eRtF+rO1EFuqV9p7Z9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzz8NshI5rfmShBLI6ZTP6knMbFCGaLBoTPwnlU2cfbh9IMLg1z
-	SPA6MopHXXeyu/sWkYCYcpPaBngvkg1dh61HpilVix1e7YSIJZ7FtDL5VEOLPXw=
-X-Gm-Gg: ASbGncvC1LIsc8j+G8ZtnvCGcuYsoSnPFl9fZrp6pl2AxOHdzvLxQ15g2FUdHZsE7WL
-	vZVNppb7Ygb3gIAnjqiTGzLUUIsbg+y2WLsN0FpT8fbfpUO8h4YhKdQj9o5T+MvcYoUHVqqSb25
-	ZbHzpEGV9XYO/R33KkNS8XKYR6MKC46jJ08BBPXNvnRUbOayhCK0n0f/5I2b9zMUxfLim9h9BFG
-	zHX3PSff3XeDPKZHuPChWsrnCgBXsfBWDR7qQlJyiIkSgfaW0BOa4Kb/+kBtlwFdFVPIYkfHGyP
-	i9qxyEXzZrO8VYHDt0srJD2ttClo6l67LdXPUA==
-X-Google-Smtp-Source: AGHT+IE6qyTXes9SNmoJNFucgPGNq3S9gJF/Z5FLJA8q1EwlXstU/Kat+/34d9QRRlSBxR2b2iRPKQ==
-X-Received: by 2002:a05:6402:13ce:b0:5e6:bba0:6778 with SMTP id 4fb4d7f45d1cf-5f6285ed3e0mr12811708a12.23.1745330816878;
-        Tue, 22 Apr 2025 07:06:56 -0700 (PDT)
-Received: from linaro.org ([62.231.96.41])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5f62583400csm5965159a12.59.2025.04.22.07.06.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Apr 2025 07:06:56 -0700 (PDT)
-Date: Tue, 22 Apr 2025 17:06:54 +0300
-From: Abel Vesa <abel.vesa@linaro.org>
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Saravana Kannan <saravanak@google.com>, Stephen Boyd <sboyd@kernel.org>,
-	linux-pm@vger.kernel.org, "Rafael J . Wysocki" <rafael@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Michael Grzeschik <m.grzeschik@pengutronix.de>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Devarsh Thakkar <devarsht@lewv0571a.ent.ti.com>,
-	Peng Fan <peng.fan@oss.nxp.com>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	Johan Hovold <johan@kernel.org>,
-	Maulik Shah <maulik.shah@oss.qualcomm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 06/11] pmdomain: core: Add the genpd->dev to the genpd
- provider bus
-Message-ID: <aAeifr60sdT/AENz@linaro.org>
-References: <20250417142513.312939-1-ulf.hansson@linaro.org>
- <20250417142513.312939-7-ulf.hansson@linaro.org>
+	id 1u7EHS-00000007Qct-0e2w;
+	Tue, 22 Apr 2025 14:07:24 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 4D08E438B8;
+	Tue, 22 Apr 2025 14:07:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1745330839;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=5wQBSXq5gMB9p0PSlyEcreJi6xlp1HfzxXyQ7iVhE8Q=;
+	b=GVrP4kufEZOfGy/tFnOMdXAbL6gaybEyWDMLGZCYQ/fFdj4b5H/ZekXPJpZ/Ki+gmoPhUh
+	L4pS/IhCwrddCrYuK1xRcbtzNcLESF2KUJJPpDYgD9FJGp8h7/ABLh+LcJe1tB9jNFkNWY
+	TneYE+e4JvIaPkJnvRqS8zk3xVjI7I3OGURn61KMED7wAnLgcyAU3hFnOhOIk7SNQ0r359
+	/FrBaXE17Sg5Etx0fd3fsmvZ7ZP/dk65Y4fZoMETcYd6rlxiIzDWGuglBNUvlJy/RA4rQP
+	cryNSs+C3asamzoSJTCVO828IJkIfAWCMDSqTT/bUnwp14GjlwthHkj3s5pKcQ==
+Date: Tue, 22 Apr 2025 16:07:16 +0200
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cc: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
+ Lorenzo Bianconi <lorenzo@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Biao
+ Huang <biao.huang@mediatek.com>, Yinghua Pan <ot_yinghua.pan@mediatek.com>,
+ kernel@collabora.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH 2/2] net: ethernet: mtk-star-emac: rearm interrupts in
+ rx_poll only when advised
+Message-ID: <20250422160716.71a16b1a@fedora.home>
+In-Reply-To: <20250422-mtk_star_emac-fix-spinlock-recursion-issue-v1-2-1e94ea430360@collabora.com>
+References: <20250422-mtk_star_emac-fix-spinlock-recursion-issue-v1-0-1e94ea430360@collabora.com>
+	<20250422-mtk_star_emac-fix-spinlock-recursion-issue-v1-2-1e94ea430360@collabora.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250417142513.312939-7-ulf.hansson@linaro.org>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvgeefleefucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudekpdhrtghpthhtoheplhhouhhishgrlhgvgihishdrvgihrhgruhgusegtohhllhgrsghorhgrrdgtohhmpdhrtghpthhtohepnhgsugesnhgsugdrnhgrmhgvpdhrtghpthhtohepshgvrghnrdifrghnghesmhgvughir
+ ghtvghkrdgtohhmpdhrtghpthhtoheplhhorhgvnhiioheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghnughrvgifodhnvghtuggvvheslhhunhhnrdgthhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohepvgguuhhmrgiivghtsehgohhoghhlvgdrtghomhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhg
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_070658_927330_F6E685A1 
-X-CRM114-Status: GOOD (  11.19  )
+X-CRM114-CacheID: sfid-20250422_070722_330949_F21A4FDC 
+X-CRM114-Status: UNSURE (   9.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,17 +86,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-04-17 16:25:04, Ulf Hansson wrote:
-> To take the next step for a more common handling of the genpd providers,
-> let's add the genpd->dev to the genpd provider bus when registering a genpd
-> OF provider.
-> 
-> Beyond this, the corresponding genpd provider driver's ->probe(),
-> ->remove() and ->sync_state() callbacks starts to be invoked. However,
-> let's leave those callbacks as empty functions for now. Instead, subsequent
-> changes will implement them.
-> 
-> Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+Hi Louis-Alexis,
 
-Reviewed-by: Abel Vesa <abel.vesa@linaro.org>
+On Tue, 22 Apr 2025 15:03:39 +0200
+Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com> wrote:
+
+> In mtk_star_rx_poll function, on event processing completion, the
+> mtk_star_emac driver calls napi_complete_done but ignores its return
+> code and enable RX DMA interrupts inconditionally. This return code
+> gives the info if a device should avoid rearming its interrupts or not,
+> so fix this behaviour by taking it into account.
+> 
+> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+
+Patch looks correct, however is it fixing a problematic behaviour
+you've seen ? I'm asking because it lacks a Fixes: tag, as well as
+targetting one of the net/net-next trees :)
+
+Thanks,
+
+Maxime
+
 
