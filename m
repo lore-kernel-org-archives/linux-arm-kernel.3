@@ -4,99 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 676F2C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 21:31:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6425EC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 21:37:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mja1AZU1OxXrkjHbCIJIDiF0DQ5jyuf/4e39r203PXU=; b=duCfuks7zFPJseaxEz+T8/PwUH
-	9rtquDM5dErl8nZMeALtVmvVYmfWyKTDctg04tNdBgwOM3mLPeR4DDgH+M22h+v9RE0FWlH/9NZEe
-	2HSeVfqOfbRYzk0KZrsDorZXFQ2t5x/tGdh4AEcYO8RIATHM2tP90RwGNRkoKN7rqZYE3Edl5rx47
-	XyD0GzxGnzzN1mnGDEU3+qyYYrenbKXlubf1enrtmYpcW+Sv4PDG/ooTuOMGRz2p2sougc9ATczmH
-	kYoQj8oVeQTiLlrbLiTS0G93ijg/Sym/pGj4VfgOmS165xafl6z9CkcjboBOMCLuK+ohUOtksqHOe
-	IpHRsSxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rO7p2Xz1WnscXWSSH5QPauUlR12Dd0rgVnR8sWH1ffU=; b=PT6513+TbFtODAwEAAxenRwvJQ
+	GsejRuaAiJMz0yIFBxVbJTzOepp2jA4+4JcWkfZ2kv7LJFkdum8ObMrLz51gAs0bvgRgqy62DledS
+	q8rT31KROrr9b5BUHr2j0OGdIL/Z+odXtiK/RhAD9sFJ5VbBbxh4Vyh8m3UJDUe9/zky9OnchV3R5
+	uK9O4EZMWE7+i2vbuEZ9+10AQ2fbqhsd9NhJbW+4ODg4dvZrGXmQJ3HWn42YA12xKI1WCnf04Xc0V
+	GkCDQsRafuWcp/JcdqGWcXlYcknK/aDe8qtU7zoGoFJCJDn2fuf7RZe3yqfiPdWFa+EluK+XcnNfE
+	cLIzSfag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7LD2-00000008ai2-2IRM;
-	Tue, 22 Apr 2025 21:31:16 +0000
-Received: from out-176.mta1.migadu.com ([2001:41d0:203:375::b0])
+	id 1u7LIe-00000008bkk-42Xc;
+	Tue, 22 Apr 2025 21:37:04 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7LB9-00000008aR1-1AXi
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 21:29:20 +0000
-Date: Tue, 22 Apr 2025 14:28:18 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1745357355;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Mja1AZU1OxXrkjHbCIJIDiF0DQ5jyuf/4e39r203PXU=;
-	b=gBem73Ecuh0/unsaz3dOF7qOKgwwRL9mqWfxjWOT8enzBQcaVl3uy7KuCfLk8qeDISNsQc
-	aB0qRfO5QrDh+lJOy5fJlyiHF0EOzQLfbR/mdfZDcmXE2xnqtYJgQSuaXnGzBgyGBT5w1h
-	aTV0gtet7CvHeY6tzi2n7dH5Tc54Y/Q=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Ankit Agrawal <ankita@nvidia.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Marc Zyngier <maz@kernel.org>,
-	"joey.gouly@arm.com" <joey.gouly@arm.com>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"ryan.roberts@arm.com" <ryan.roberts@arm.com>,
-	"shahuang@redhat.com" <shahuang@redhat.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"david@redhat.com" <david@redhat.com>,
-	Aniket Agashe <aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>,
-	Kirti Wankhede <kwankhede@nvidia.com>,
-	"Tarun Gupta (SW-GPU)" <targupta@nvidia.com>,
-	Vikram Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>,
-	Alistair Popple <apopple@nvidia.com>,
-	John Hubbard <jhubbard@nvidia.com>, Dan Williams <danw@nvidia.com>,
-	Zhi Wang <zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>,
-	Uday Dhoke <udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
-	Krishnakant Jaju <kjaju@nvidia.com>,
-	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
-	"sebastianene@google.com" <sebastianene@google.com>,
-	"coltonlewis@google.com" <coltonlewis@google.com>,
-	"kevin.tian@intel.com" <kevin.tian@intel.com>,
-	"yi.l.liu@intel.com" <yi.l.liu@intel.com>,
-	"ardb@kernel.org" <ardb@kernel.org>,
-	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
-	"gshan@redhat.com" <gshan@redhat.com>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"ddutile@redhat.com" <ddutile@redhat.com>,
-	"tabba@google.com" <tabba@google.com>,
-	"qperret@google.com" <qperret@google.com>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v3 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
- VMA flags
-Message-ID: <aAgJ8g8Gbb06quSM@linux.dev>
-References: <Z-RGYO3QVj5JNjRB@google.com>
- <20250331145643.GF10839@nvidia.com>
- <Z_PtKWnMPzwPb4sp@google.com>
- <20250407161540.GG1557073@nvidia.com>
- <Z_QAxiEWEyMpfLgL@google.com>
- <SA1PR12MB719976799AD7F9FC4407A5A9B0BD2@SA1PR12MB7199.namprd12.prod.outlook.com>
- <aAdKCGCuwlUeUXKY@linux.dev>
- <20250422135452.GL823903@nvidia.com>
- <aAfI2GR1__-1KQHn@arm.com>
- <20250422170324.GB1645809@nvidia.com>
+	id 1u7K6W-00000008R0o-3Wch;
+	Tue, 22 Apr 2025 20:20:30 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43cfecdd8b2so40147925e9.2;
+        Tue, 22 Apr 2025 13:20:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1745353227; x=1745958027; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=rO7p2Xz1WnscXWSSH5QPauUlR12Dd0rgVnR8sWH1ffU=;
+        b=C2my+JlvnYlscWOr9OPM1jSyiTjaLJJABfXyEoPHBuEokN+4cRDUMpNZA1V6cxUoDg
+         p9TaEifPfHqA1iPP00NC2aqJV/GBegNQpzohJRVmm+0fPfv9r1b969LEHKD7hQ8LHdTY
+         E4+HQjcov4m4SglHt2V5qHFg0Z5/sFg1kudijwo5758sujBjH3x7rHbz5mRUDFJFHqwT
+         mLrfIgpJM34IZWGqATQ3EBcF+7zNhMhxljyuJuJr1hfUP35BeVn+NZnT28dGdTvgTGVI
+         FEp0Nce5NIR7ELOWM9kieWN6O5v8XO1sq3DAHZMj7Vu74xkno5XdO0cK/NZ0hMjGk8t4
+         cEGA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745353227; x=1745958027;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=rO7p2Xz1WnscXWSSH5QPauUlR12Dd0rgVnR8sWH1ffU=;
+        b=j0nE3SXXDWmwJEwEyZ7CwNUg5sGXMJM/maZi+/z2ninxZ/TitEOaQils/oaxFm2Eb8
+         dcFiDjHyMs6P1uwdwbyHejvCY9AlM6ezOtOzGgfiVKrzgy5eFd4YXQ+N+RJJVgq97WrO
+         ZRjJWp7PaYQ7mr3emop76Lfqx3urhvIghq9lFr89MgDOfFf8EK/0qQjRV0bxSnRlCj07
+         rIJ7aiaJj2ih0A8Dli69hLc4ysC49AehBT+TiJXDBI90O6vn2+a6zgMIrSa9DpRB8mSB
+         BiPqxkowcUF/FetpgO0sHRMPJ/5aVWPOZMPdN2c2Z3Pdotg+a9UoFyA9ix/5XeFCm6lV
+         X8MA==
+X-Forwarded-Encrypted: i=1; AJvYcCUgl73JE5FbWJPF6zZmN99DB3QF/HR3zrDoq+grf3Z9c3/DjEz7CKAGuZ1W3xeUScocPnTcpvWMtBu2tQE0Di3P@lists.infradead.org, AJvYcCVNxlvpqDdwqJZi+xtdDH8yEARkbng8J1e9oI/oQ6YaufXiQFFeOfXtrrmUR+Ghwy5iFqlBik94AxEe+thd2H4=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwPpkoY1fOw4tnM3blT2xnJt28+T8DNaLSAytJrwJvgW85PlQcI
+	Wt/F0E7xYsOAPYvWd4iV6Hn8pgDEeqDps0zRsgxsDIXutsHiy+ln8WS2E7CIen8=
+X-Gm-Gg: ASbGnctO/k+Vb+sWf3HwmwRA8Esf2ondb1xi7xz/1kF0ULbSKF+Hv96exqlqqZRSJAJ
+	B0sTzy3le6HPhC3yCv1p7q9ttzD9NT70sZCQVzR33D1eEYcQ/F76RSzY/rgc2H+YxSqp4tamYO9
+	C86XHaZPJehqjJf7uTOLAAPt+gfFsEpcpmdSeeIS5Y6RY2Pi3E6hyGMZPGElmUv1uT7QuF+tfgM
+	DPOz2uZxBKYkScB5vDd7QDY5XE+fKTLcv7zkMQwFYXd/Txd4MiZpiJ5P/f/183Gl9E0IneOYZ8D
+	WMQF46TRvT8UF6FRaxgLlygpZ5AKuDAWD2618zoauL3LwbE/Kpmjpjz4AoKRvCIbrFeaL+p2EhN
+	XhyYvcW0+i2JLU35ds1du7ZtT3w==
+X-Google-Smtp-Source: AGHT+IGmBmm3C/2jLNoVcpiFNaVQBfRpos13JsgNqrg+d7vr+5IZSCkCD3uFqGqFACXb0v+yv5GQTA==
+X-Received: by 2002:a05:6000:4029:b0:390:ee01:68fa with SMTP id ffacd0b85a97d-39efba454demr12515857f8f.24.1745353226923;
+        Tue, 22 Apr 2025 13:20:26 -0700 (PDT)
+Received: from ?IPV6:2a02:8010:6606:0:c8cf:b8a9:b26:a03f? ([2a02:8010:6606:0:c8cf:b8a9:b26:a03f])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39efa43bef1sm16008927f8f.49.2025.04.22.13.20.26
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 22 Apr 2025 13:20:26 -0700 (PDT)
+Message-ID: <1997854d-c501-493b-91d5-c3640137f7a6@gmail.com>
+Date: Tue, 22 Apr 2025 21:20:24 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250422170324.GB1645809@nvidia.com>
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: rockchip: rk3588-nanopc-t6: fix usb-c port
+ functionality
+To: John Clark <inindev@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
+ mjuszkiewicz@redhat.com, sebastian.reichel@collabora.com, jonas@kwiboo.se
+References: <20250419023715.16811-1-inindev@gmail.com>
+ <bda07179-1ff4-46e4-9dda-ece9c63fd613@gmail.com>
+ <20250422000748.59664-1-inindev@gmail.com>
+Content-Language: en-GB
+From: Hugh Cole-Baker <sigmaris@gmail.com>
+In-Reply-To: <20250422000748.59664-1-inindev@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_142919_577973_A4C2FFF0 
-X-CRM114-Status: GOOD (  42.97  )
+X-CRM114-CacheID: sfid-20250422_132028_900335_F2C36783 
+X-CRM114-Status: GOOD (  23.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,105 +104,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 22, 2025 at 10:54:52AM -0300, Jason Gunthorpe wrote:
-> On Tue, Apr 22, 2025 at 12:49:28AM -0700, Oliver Upton wrote:
-> > The reality is that userspace is an equal participant in remaining coherent with
-> > the guest. Whether or not FWB is employed for a particular region of IPA
-> > space is useful information for userspace deciding what it needs to do to access guest
-> > memory. Ignoring the Nvidia widget for a second, userspace also needs to know this for
-> > 'normal', kernel-managed memory so it understands what CMOs may be necessary when (for
-> > example) doing live migration of the VM.
+On 22/04/2025 01:07, John Clark wrote:
+> On Tue, Apr 22, 2025 at 00:12:02 +0100, Hugh Cole-Baker <sigmaris@gmail.com> wrote:
+>> Hi John,
+>>
+>> On 19/04/2025 03:37, John Clark wrote:
+>>> The USB-C port on the NanoPC-T6 was not providing VBUS (vbus5v0_typec
+>>> regulator disabled, gpio-58 out lo) due to misconfiguration. The
+>>> original setup with regulator-always-on and regulator-boot-on forced
+>>> the port on, masking the issue, but removing these properties revealed
+>>> that the fusb302 driver was not enabling the regulator dynamically.
+>>>
+>>> Signed-off-by: John Clark <inindev@gmail.com>
+>>> ---
+>>>  .../boot/dts/rockchip/rk3588-nanopc-t6.dtsi   | 21 ++++++++++---------
+>>>  1 file changed, 11 insertions(+), 10 deletions(-)
+>>>
+>>> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+>>> index cecfb788bf9e..8f2bd30786d9 100644
+>>> --- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+>>> +++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+>>> @@ -174,8 +174,6 @@ vbus5v0_typec: regulator-vbus5v0-typec {
+>>>  		gpio = <&gpio1 RK_PD2 GPIO_ACTIVE_HIGH>;
+>>>  		pinctrl-names = "default";
+>>>  		pinctrl-0 = <&typec5v_pwren>;
+>>> -		regulator-always-on;
+>>> -		regulator-boot-on;
+>>>  		regulator-name = "vbus5v0_typec";
+>>> @@ -465,24 +461,30 @@ regulator-state-mem {
+>>>  &i2c6 {
+>>> -	clock-frequency = <200000>;
+>>>  	status = "okay";
+>>>
+>>> -	fusb302: typec-portc@22 {
+>>> +	usbc0: usb-typec@22 {
+>>>  		compatible = "fcs,fusb302";
+>>>  		connector {
+>>>  			compatible = "usb-c-connector";
+>>>  			data-role = "dual";
+>>>  			label = "USB-C";
+>>> -			power-role = "source";
+>>> +			/* fusb302 supports PD Rev 2.0 Ver 1.2 */
+>>> +			pd-revision = /bits/ 8 <0x2 0x0 0x1 0x2>;
+>>> +			power-role = "dual";
+>>> +			op-sink-microwatt = <1000000>;
+>>> +			sink-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
+>>>  			source-pdos = <PDO_FIXED(5000, 2000, PDO_FIXED_USB_COMM)>;
+>>> +			try-power-role = "source";
+>>> +			typec-power-opmode = "3.0A";
+>>
+>> According to the manufacturer wiki [1] "Power Output Capacity" table, the USB-C
+>> port maximum output is 5V/2A. So I think "1.5A" would be a better value here.
+>>
+>> [1]: https://wiki.friendlyelec.com/wiki/index.php/NanoPC-T6
 > 
-> Really? How does it work today then? Is this another existing problem?
-> Userspace is doing CMOs during live migration that are not necessary?
-
-Yes, this is a pre-existing problem. I'm not aware of a live migration
-implementation that handles !S2FWB correctly, and assumes all guest
-accesses are done through a cacheable alias.
-
-So, if a VMM wants to do migration of VMs on !S2FWB correctly, it'd
-probably want to know it can elide CMOs on something that actually bears
-the feature.
-
-> >  - The memslot flag says userspace expects a particular GFN range to guarantee
-> >    Write-Back semantics. This can be applied to 'normal', kernel-managed memory
-> >    and PFNMAP thingies that have cacheable attributes at host stage-1.
+> Hi Hugh,
 > 
-> Userspace doesn't actaully know if it has a cachable mapping from VFIO
-> though :(
-
-That seems like a shortcoming on the VFIO side, not a KVM issue. What if
-userspace wants to do atomics on some VFIO mapping, doesn't it need to
-know that it has something with WB?
-
-> I don't really see a point in this. If the KVM has the cap then
-> userspace should assume the S2FWB behavior for all cachable memslots.
-
-Wait, so userspace simultaneously doesn't know the cacheability at host
-stage-1 but *does* for stage-2? This is why I contend that userspace
-needs a mechanism to discover the memory attributes on a given memslot.
-Without it there's no way of knowing what's a cacheable memslot.
-
-Along those lines, how is the VMM going to describe that cacheable
-PFNMAP region to the guest?
-
-> What should happen if you have S2FWB but don't pass the flag? For
-> normal kernel memory it should still use S2FWB. Thus for cachable
-> PFNMAP it makes sense that it should also still use S2FWB without the
-> flag?
-
-For kernel-managed memory, I agree. Accepting the flag for a memslot
-containing such memory would solely be for discoverability.
-
-OTOH, cacheable PFNMAP is a new feature and I see no issue compelling
-the use of a new bit with it.
-
-On Tue, Apr 22, 2025 at 02:03:24PM -0300, Jason Gunthorpe wrote:
-> On Tue, Apr 22, 2025 at 05:50:32PM +0100, Catalin Marinas wrote:
+> Thank you for your feedback and for referencing the manufacturer’s wiki. To clarify, the line in question:
 > 
-> > So, for the above, the VMM needs to know that it somehow got into such
-> > situation. If it knows the device (VFIO) capabilities and that the user
-> > mapping is Cacheable, coupled with the new KVM CAP, it can infer that
-> > Stage 2 will be S2FWB, no need for a memory slot flag.
+> source-pdos = <PDO_FIXED(5000, 2000, PDO_FIXED_USB_COMM)>;
 > 
-> So long as the memslot creation fails for cachable PFNMAP without
-> S2FWB the VMM is fine. qemu will begin its first steps to startup the
-> migration destination and immediately fail. The migration will be
-> aborted before it even gets started on the source side.
-> 
-> As I said before, the present situation requires the site's
-> orchestration to manage compatibility for live migration of VFIO
-> devices. We only expect that the migration will abort early if the
-> site has made a configuration error.
-> 
-> > have such information, maybe a new memory slot flag can be used to probe
-> > what Stage 2 mapping is going to be: ask for KVM_MEM_PFNMAP_WB. If it
-> > fails, Stage 2 is Device/NC and can attempt again with the WB flag.
-> > It's a bit of a stretch for the KVM API but IIUC there's no option to
-> > query the properties of a memory slot.
-> 
-> I don't know of any use case for something like this. If VFIO gives
-> the VMM a cachable mapping there is no fallback to WB.
-> 
-> The operator could use a different VFIO device, one that doesn't need
-> cachable, but the VMM can't flip the VFIO device between modes on the
-> fly.
+> was not modified in my patch. This value, which sets the USB-C port’s source capability to 5V/2A, is unchanged from the existing device tree.
 
-I agree with you that in the context of a VFIO device userspace doesn't
-have any direct influence on the resulting memory attributes.
+source-pdos is OK, I was referring to the typec-power-opmode = "3.0A" line just
+above where I commented. As I read it, that'd mean the board would advertise
+via the CC pins that it could source 5V/3A when USB PD is not in use.
+The wiki says it can only source up to 5V/2A.
 
-The entire reason I'm dragging my feet about this is I'm concerned we've
-papered over the complexity of memory attributes (regardless of
-provenance) for way too long. KVM's done enough to make this dance 'work'
-in the context of kernel-managed memory, but adding more implicit KVM
-behavior for cacheable thingies makes the KVM UAPI even more
-unintelligible (as if it weren't already).
+br, Hugh
 
-So this flag isn't about giving userspace any degree of control over
-memory attributes. Just a way to know for things it _expects_ to be
-treated as cacheable can be guaranteed to use cacheable attributes in
-the VM.
+> 
+> Furthermore, the schematic for the NanoPC-T6 and the vendor’s upstream Linux device tree (e.g., FriendlyARM’s kernel at https://github.com/friendlyarm/kernel-rockchip/blob/nanopi6-v6.1.y/arch/arm64/boot/dts/rockchip/rk3588-nanopi6-rev01.dts#L346) also specify the source capability as 5V/2A. Given this consistency across the schematic and vendor sources, I believe 2A is an appropriate value for this configuration.
+> 
+> Please let me know if you have further concerns or suggestions!
+> 
+> Best regards,
+> John Clark
 
-Thanks,
-Oliver
 
