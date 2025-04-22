@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 594E6C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 09:29:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B5E8C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 09:30:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tm6ce7FCfnEHxhlUwpit5ul9aj6xgc9Jgba3jLGI3iA=; b=FeE0RZ5Oo0QUFZ2gcyxCU77yi6
-	uNhu0mN2TI3ie72KxvtVM2Pi655d2Loa8q4zaDXcfv9LUtH6plNOe3I608nH82wDi/G0MV3vRMB2R
-	XoIHM+oJ4lh3UUzSCZRySmdmYsjQu2lGoXbQMvtemYUv37zGYah008V50kkH9r2UXNER4VUNoLuzD
-	lNgLIlkr/q9MYXBnjejlq1goWk3vCCLMGFGoF1pdQGVAThhIXQ4+PeCxS1Wz2iQVKb16ZOKyQKklx
-	L2K1PaNqXJDQ4ARttxPgcbEwwOHgo4lAdziYYgPLD50+hfzmsmuhETtKv8t8CZ3DcYTP+eeX/IzVv
-	hqX0OlaA==;
+	bh=XYlJ0E4Ef0Uqk35T62BnNc96CPI2l7xecoYuJAMTWcs=; b=oYAOn878gSeGwmbxuO+m826FB4
+	+G4SXn/xHcStXObn4x5D5d0ZxP+3kca7v04pWqd2d6CNRWlygtfw41gKDKSNKYxdpl2cTZv9qPXsh
+	euvVoICCaB8cXGZk7qlNIRj52CwxwdIPhOKIGs3Oh0NSc5jti4nkh/wzWO6pDI7H8XhTkditnzDZK
+	uz0h9x1XgGXnQKjV3aSJRSkR+UPB5J38y4735snqFG0nZX+mQWoIFuhmLENv/xPIPOrQEALy4vTSV
+	yclzzO/U5xzdPFTzZKYihRshPYUaGZaEce3DTpKw5NX82U5w9KTOQCvkcaQJzEGSb1biRaHAMmzoS
+	39f4OTIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u79vw-00000006Yrn-1IeN;
-	Tue, 22 Apr 2025 09:28:52 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1u79xm-00000006ZCh-0Yxk;
+	Tue, 22 Apr 2025 09:30:46 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u78as-00000006Dyn-4Agi
+	id 1u78av-00000006DzW-2hFJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 08:03:04 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-5e61a18c05aso713093a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 01:03:02 -0700 (PDT)
+	Tue, 22 Apr 2025 08:03:07 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-5e8484bb895so1448414a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 01:03:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745308981; x=1745913781; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1745308984; x=1745913784; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=tm6ce7FCfnEHxhlUwpit5ul9aj6xgc9Jgba3jLGI3iA=;
-        b=ZvROoOb1imrrW0wwU/JzBJgDt/O3FSzBFjyQ9e81Z6A80c9MIaWhUqPpzeo+LwJgLX
-         O6aZ+O/4d2BL065JJDuK2DowbuH7x2dJkOGF9iIHxPKka0THufiVKTc1Unalc4ZVVplI
-         RiObIZ7OJRIIABSgYD9ICVfMQ2tEsgRMWehgQoAv6XOfxafWcdU0QyOvh3Gy/+35SGIC
-         V5LpR1WGObJl5g8goghxMQhkXpw1ZMjDt7sFocgdkJ/WU2NolcQU19+pQvXFdkY9zLTq
-         05q7l+tOhA6TLfqLBB6weRL1TSIzF4pmnU9VTrlkdQbHodrus4EtR0inwWh+hALA43/B
-         FIEg==
+        bh=XYlJ0E4Ef0Uqk35T62BnNc96CPI2l7xecoYuJAMTWcs=;
+        b=bNx2jZ+VGoq6NDz9L9zFj7Mk39OzcDZbexdcVSDsxm1bysLn9vACtIUCmo/noKFj8Y
+         hT5SFnN6dTeWNYt2FDrD5M6p4qAcVYTVVdie7eCkL9MhkEwQZLgtyIa5jTOt27h2XQwz
+         vt36um6OALAlVGCgoSb+ZO+Z9OMPiW8m7dFq2TJTf97gfR5Ie5d2jMrZt2Yj+S/k5qpr
+         VPIoFmiOcn9/zm7B9u+EUkx0+1fRTozWhvPzFeloJ0JoACPyuUse5tZnnnXVLxiCZ+ph
+         98jFCENRiPVkanKgy94h5ZwMmfKIzNFeE76N/xco8nw3uS1e69rSMVgVbMN8HdoTr1eY
+         2m4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745308981; x=1745913781;
+        d=1e100.net; s=20230601; t=1745308984; x=1745913784;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=tm6ce7FCfnEHxhlUwpit5ul9aj6xgc9Jgba3jLGI3iA=;
-        b=Lxlx9TDgX2s21l05PbnlXbnjMQhCWUjXYWp8miUuiWrvfBIa/pp7xXnctcX4qL64jG
-         1vsmxac2I/w9RS30pPwHWUH27g2R/ZgDqxsENwLwdyt17QPZDoAOwOlX+/tJaDeqTj7f
-         b5ZAEhDPIY8EcVbf/QxwXDWCyKB1ShaXEVLwObolS/tPKfVgRag6BacegbgWKmxuXsHS
-         AklyBlgnNE8FitqYFzl2z/tXJA2Ja8AUlle3ygf+BXoarM2a3OHBKoYjIfiRnRzVuz+C
-         ZhqWfFSvk+5+J+rZ9VpgqQIjgP2kyqzSuwHoQOYEn7HYjGypfZy5FfHs0hQL7jCbNJ5o
-         QY9g==
-X-Forwarded-Encrypted: i=1; AJvYcCUMEntSmmU8k19h2dOyxoDFVXGVdAIZX4QXhM3zJB1vfNN9a/eZnitAjkAE6hJHSeX61q6/5SBDdmL96HUf8lKD@lists.infradead.org
-X-Gm-Message-State: AOJu0YxqqMwqc8/hJoRRlJ70Tjf7jyhhUJYJyBXMguNgR231LFG0Hvoo
-	fXwSxgRF4+Ovogy8MtAwFHoP/LsI6nf6cB0XJS40YFYrHPOXwE3+sIeSXH7ySvw=
-X-Gm-Gg: ASbGncuN9oa6TKkYUUhMD3bF7j7IldboTosZIoq9k4LAlluQ5knVUNOP79EKu5VlRyI
-	MeZL8+kjd7JjKl3CkS9DhzrpGXsMbUruWbWAIf/FL5g25lxNOGBa5ELO3/6nX5z7MbEzPdD5Hdk
-	MlOn4sH2J7x00SaaBT0/yB6ALD2LFcYIlcbPsDYeP+UzMqdtYUnlarF0tpibZiDSwCBVIA13onF
-	UHzCeSnl1Psap2zStmnVePn+UwUKY5lCOyE3d2SqHxWxlq/6eaK/tWPHVJQetOqbTCL8Mk7Gbuf
-	00OrMrC5svVipT4RfigkJkuoNrs8uqsBul1opCBwASYKOdUlp6aswskyH2Q=
-X-Google-Smtp-Source: AGHT+IEj9zYGHMUVy+ByRdrUePKsN+UNEN7rQuSwVrU8g1hXbVY98bZH5MP1B4l378YIYlw97Pfaow==
-X-Received: by 2002:a05:6402:524d:b0:5e0:36fa:ac1e with SMTP id 4fb4d7f45d1cf-5f6285e560cmr4530395a12.6.1745308981069;
-        Tue, 22 Apr 2025 01:03:01 -0700 (PDT)
+        bh=XYlJ0E4Ef0Uqk35T62BnNc96CPI2l7xecoYuJAMTWcs=;
+        b=e9DuZGcRPoZwbSXfy4344Uds3UF4PsYTzu2ss2l6gsAbq8VrGU53sYMqni72Wnk/1y
+         HzT8/96D2Z887UDI823cciofdMn5stYdj78jbaT3Ae9GvgH7HoK95Q28BFmZIOgoXPLa
+         V2VJUtqHuFliG1SjA3dq3uakptZBfCkX2O7h3ZrqbMl9dLYFs1X+mhI78+YnrAQzkj/8
+         E/IXENaBjHo8ufgD/gHaWmJzxf7q/nqAV0Yl6+TMs5xKnOATHMAlpnckQ7gijiukSzlZ
+         2Ip2C11zIJaYEvXk8z//KVy0p+K/M+XRg/RPm7U+m/B0OaazetJ7lz9YsJhoMYEQI8PZ
+         z55A==
+X-Forwarded-Encrypted: i=1; AJvYcCWg0DV9d+OQv27DDTdkex9/IQJ6dNKuXhdlRQp+bbvLbL6G9lBT8qgAw8n1+mP8o1qTKeQn9m23n4SCLy0+FlxM@lists.infradead.org
+X-Gm-Message-State: AOJu0YyFp+0t6QAtmRBa0mWv0Y/FKfGPFdMzzQwdg0dSIcS7hfnjChAZ
+	Ot6qGnqiNFSSk2QOzTWbCiKaFerXX4m3G1EcVyNwYSr1ck0vA2WRazEJOcD4U00=
+X-Gm-Gg: ASbGncuSPwTmmP/FCAIlBafixv6wwLitYOIXgnWawqiWLRGReFSS4R4+Sg3wfE05grv
+	UM/08asnsdXVSjWpjaKmY5EPX+Fsn/xftGu+SFnyYT/bBsgheto+s9pmVdIZUc7Ysaan8iehNts
+	guwlPCwTDHQmFH3ocfZMh94bfsBYS7C2pfNHbHA95ZdAZZ2AaeZykL6A2hL6ddfLly00bLQ/tsp
+	S+zjTGVRke8WjIIeDhZcfUlxDrPPPI/KCYoxxvIUXvEyl7qeB4xaVPJj5ytPnDy/2pC30Zxurtl
+	LSvwQ36FVyvcEc4GHoxnyafg4C9UrE0UUSePhxhR+/PZMpq8VZ0pwk9mPzs=
+X-Google-Smtp-Source: AGHT+IFpVvUV1oaLLFD7OMY4q7WMHWDpzWh2Hzu/nmhgvGIFfDUBztmXsWCEyQ0CoS3xJmrQ1Ct8UA==
+X-Received: by 2002:a05:6402:3513:b0:5e0:803c:242a with SMTP id 4fb4d7f45d1cf-5f62860d4afmr4498727a12.8.1745308983873;
+        Tue, 22 Apr 2025 01:03:03 -0700 (PDT)
 Received: from [192.168.70.232] ([88.154.3.194])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5f625593409sm5532352a12.37.2025.04.22.01.02.58
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5f625593409sm5532352a12.37.2025.04.22.01.03.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Apr 2025 01:03:00 -0700 (PDT)
+        Tue, 22 Apr 2025 01:03:03 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 To: Tudor Ambarus <tudor.ambarus@linaro.org>, 
  Krzysztof Kozlowski <krzk@kernel.org>, 
@@ -77,19 +77,19 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
  linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org
-In-Reply-To: <20250319-acpm-fixes-v2-0-ac2c1bcf322b@linaro.org>
-References: <20250319-acpm-fixes-v2-0-ac2c1bcf322b@linaro.org>
-Subject: Re: [PATCH v2 0/2] firmware: exynos-acpm: read fix & reduce log
- verbosity
-Message-Id: <174530897813.9276.2456248075934997064.b4-ty@linaro.org>
-Date: Tue, 22 Apr 2025 10:02:58 +0200
+In-Reply-To: <20250327-acpm-children-v1-0-0afe15ee2ff7@linaro.org>
+References: <20250327-acpm-children-v1-0-0afe15ee2ff7@linaro.org>
+Subject: Re: [PATCH 0/2] firmware: exynos-acpm: clients (PMIC, clocks,
+ etc.) will become children
+Message-Id: <174530898122.9276.5071475909293812602.b4-ty@linaro.org>
+Date: Tue, 22 Apr 2025 10:03:01 +0200
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_010303_030615_789FE7EF 
-X-CRM114-Status: UNSURE (   9.47  )
+X-CRM114-CacheID: sfid-20250422_010305_678357_F9E8B0DC 
+X-CRM114-Status: UNSURE (   9.26  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,22 +106,23 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 19 Mar 2025 05:38:22 +0000, André Draszik wrote:
-> While trying to use the ACPM driver, I stubmbled across two issues:
+On Thu, 27 Mar 2025 12:54:26 +0000, André Draszik wrote:
+> ACPM clients (PMIC, clocks, etc.) will be modeled as children of the
+> ACPM interface.
 > 
->     * acpm_pmic_bulk_read() doesn't return the correct register values
->     * superfluous log messages during boot
-> 
-> The patches attached are the result and hopefully self-explanatory.
+> This necessitates two changes in this driver:
+> * child platform_devices from device tree need to be populated here
+> * child drivers will need to be able to get the ACPM handle via a
+>   struct device_node, not via a DT property name
 > 
 > [...]
 
 Applied, thanks!
 
-[1/2] firmware: exynos-acpm: fix reading longer results
-      https://git.kernel.org/krzk/linux/c/67af3cd813695fd3e6432b0849c453250c4685aa
-[2/2] firmware: exynos-acpm: silence EPROBE_DEFER error on boot
-      https://git.kernel.org/krzk/linux/c/53734383a73888e6d765aa07f4523802fdf1ee10
+[1/2] firmware: exynos-acpm: populate devices from device tree data
+      https://git.kernel.org/krzk/linux/c/636baba9489a634c956d6f02076af6bc1725c132
+[2/2] firmware: exynos-acpm: introduce devm_acpm_get_by_node()
+      https://git.kernel.org/krzk/linux/c/a8dc26a0ec43fd416ca781a8030807e65f71cfc5
 
 Best regards,
 -- 
