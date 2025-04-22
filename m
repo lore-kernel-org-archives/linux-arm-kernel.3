@@ -4,92 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E4C9C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 13:00:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43669C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 13:02:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xm+C1Hrf5PZav1kH12OZ68FgqFY1vN+rQWTlgliz2cs=; b=VPIIF2zy0jlQKnT5jGCCMu0lsA
-	f7MQ+eQPFfrUIsM/IboXhGuxMBR5rNKZheah/a4fHxgcz5qLdXfOgdNBdaix4sqZ1Sa0fYGBLR1ez
-	mW/hxWYdibgaV4F1QR9lpS+zIcK6fKH1UtPnJVh2HG8UOrx+PiglP0gHT9yBGiJNeSLrrWobnKhM9
-	XwSLdSj0ZI8BGA40ENZoLsST78LvUzF9TceTuUvZwH8mtfwq8RV9AEMv0+dc8kFsakcJUJEyee6Aw
-	ZoAH0YHLCTPPt1zMmmqgnwOFNX1+G49AOs5HsFg7xvVOcfMg7N6EXzF6M/Xt+pQwTYpuqG8et6jzG
-	CXxWLbbw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gcRt9ezSoUZXl+ybi8UTJwVtL/3rgcw0CTAfTjkR8vY=; b=FeZV4umoPO7bglk3WuRXxYGvN+
+	hCOgtwAraDlkgBFIdutkGHRh7HH2iOVjKbewgytRxViEteZozC7a4caRXcRSRmndji0FIPs2oxT8d
+	xgBhtRKt4L2wrGSYXk0rkQjdJN07zPZKtkXuerbysz7U9ZdZ+8G52tzGgDcvKS5wwufFFjhsjno90
+	LaR0Sb4XXKI+CkYwwuqxfgVgZss9OC7CLjaoHrsWhMY2/9/BlOj+bh/cfiWjfm1gXP941rw/3pkMv
+	khCa7vunuuNm3ltZuknKQrYghQ8qSWKFTIOUWfxhhKpMqxCs+5EjTVA5+w/Ojmj3uqJ0zlWhIizcX
+	XUjBZzhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7DEJ-00000007DPl-3FMD;
-	Tue, 22 Apr 2025 13:00:03 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7C9a-0000000711y-2u5A
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 11:51:10 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43cef035a3bso34864255e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 04:51:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745322664; x=1745927464; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=xm+C1Hrf5PZav1kH12OZ68FgqFY1vN+rQWTlgliz2cs=;
-        b=CWiFOenXg7kambfTB1FjYGqm9gYParMaRx/up0735UP9uyOd590SAdkE8i9i60t1Bz
-         UzhKPW2LA6envGLBOTxq0jUBchzsq0M8j7tBoMuNyGELTB6D/kYSRtbGJz6zrxb3OxW1
-         qkhtPH20QdJqA8IRDlvBRt9hDjPwCbXXmUZKn5wobOhYa+5V2fQuUdTg/o+Sd2qey/JL
-         Bon+bonI2frdHNQX3O9Z6RGrNyaGYx8Kv+2iurvJPLcQo15aDDYqUfk4TgSpfIhbSjeM
-         loijU+0jhd8qf3320561FCGw0dp8AcS8/fUAw7Z967Y7Q34kFe3a34Ui9VKis0rarKCd
-         RxYA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745322664; x=1745927464;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=xm+C1Hrf5PZav1kH12OZ68FgqFY1vN+rQWTlgliz2cs=;
-        b=GyYx6yFanaKSCO5U1VzZkODpQGUjGcjV0K7E0gWcqClRnhl1YpUzvjiCGP3k98NoH0
-         tzWJW/dgQ2EWVE2e0IjehJ1BeYTd627ysvCthsFkhi4W3hqE/N7/8AzvE/oEA5gB/11r
-         L7NHZuvGBiLiNXI3/wcb3K1RrZIAFrZkvLDaPwQYTOc72iicW0NoxULCdEkQKIOgK9Y8
-         DdwpA/0CRA8gi+H2z7afU4OBlEavNh4uHwB7k08ByWW7np4C4HXWzWVD9Lhz6qskBh2p
-         19pP0nblPFHMogXJAV9gQiZwTVpJtxDKyqSUG+vE83qjUpGb5sTbJOYEKahZoW7z9F56
-         m83Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWFLtU/MxWGT6ZLP+rqy4zruk7ZuxodYkkHuqxmGPbrRmraLoXKo5x/R5457kTaReWr2HLAC8MPvwqqEAEX6LjF@lists.infradead.org
-X-Gm-Message-State: AOJu0YwoRFoN3xz3WKV02GmvpIHFvU7eq3W7uT4YO6TzN4b6TQJK2Kd6
-	tfHrFQmovVvtgzs1uuZPjrl/5ctPkbNqO7n0vkKbqam6Kf5w6uXY
-X-Gm-Gg: ASbGncuni/uiNXcQD6BCQHnaMvc0DtnpyZgupKK2E0lOhyZ3XIV7UiD1DjlIWebGyNP
-	fcyJn2QgWcNSnaNN73pB5+4m3Ztxo5D70ze0IAbBvfpBeBGObbmAfBRqnHFxdgsHJfpOirzapdB
-	hobTLiseOqN1hUgNvZIAsCdw6QggBOSvqrN5oRO1+Kznw/LRaE6tcIGEz85pchnrPBNexjOe5b5
-	7CjN8BA2aTdmRHaaNM3fDXl2w+uQH45+/sv5iubU3SiFJK1pypFltN2H5SE4FvUduvuZpyZnbI/
-	gYQ1nvmC4JeJbpKeqOMF4iwPc1XiKrTgX3PVDKGICVSWFdODBCy560PIe9ZHst7Z8UlKRuNkJ2h
-	gr64JUDEi
-X-Google-Smtp-Source: AGHT+IEDjgGNVWbzB6Xc4tHbi6ZRWUATDYuf4z8WnnwDr13qOhSHxOiNofBtLV/8u9BXBgZvL8GMGw==
-X-Received: by 2002:a5d:6da5:0:b0:391:3aaf:1d5f with SMTP id ffacd0b85a97d-39efbb09d5bmr12222914f8f.52.1745322664453;
-        Tue, 22 Apr 2025 04:51:04 -0700 (PDT)
-Received: from toolbox.int.toradex.com (31-10-206-125.static.upc.ch. [31.10.206.125])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39efa5a2300sm14767410f8f.101.2025.04.22.04.51.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Apr 2025 04:51:04 -0700 (PDT)
-From: max.oss.09@gmail.com
-To: max.krummenacher@toradex.com
-Cc: Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1] arm64: dts: imx8-colibri: Add PCIe support
-Date: Tue, 22 Apr 2025 13:50:49 +0200
-Message-ID: <20250422115051.1867349-1-max.oss.09@gmail.com>
-X-Mailer: git-send-email 2.42.0
+	id 1u7DGA-00000007DeU-2InK;
+	Tue, 22 Apr 2025 13:01:58 +0000
+Received: from m16.mail.163.com ([117.135.210.2])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7C9p-0000000714G-3kqJ;
+	Tue, 22 Apr 2025 11:51:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:From:
+	Content-Type; bh=gcRt9ezSoUZXl+ybi8UTJwVtL/3rgcw0CTAfTjkR8vY=;
+	b=cQhyIgerv2t2OKWa813hjNs6p7T9rVSVSVozFET0uogARuoQqizRWoSbEXtofZ
+	8AdjWXAYVdgOJ2L7dCvNDJ/eodZDcvcfdznwcTF3ZdYHsIf8t0mwen7QwoaqJ5AU
+	xUyMz+DnmwgZ5Lo3PmSHbJmQFCkGjdUCB5e0wE9VmBudo=
+Received: from [192.168.142.52] (unknown [])
+	by gzsmtp5 (Coremail) with SMTP id QCgvCgDnQ1Gaggdo6FbJAQ--.7526S2;
+	Tue, 22 Apr 2025 19:50:52 +0800 (CST)
+Message-ID: <7716b76f-be79-4ed1-b8d2-29258cb250ab@163.com>
+Date: Tue, 22 Apr 2025 19:50:50 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] PCI: dw-rockchip: Unify link status checks with
+ FIELD_GET
+To: Niklas Cassel <cassel@kernel.org>
+Cc: lpieralisi@kernel.org, kw@linux.com, bhelgaas@google.com,
+ heiko@sntech.de, manivannan.sadhasivam@linaro.org, robh@kernel.org,
+ jingoohan1@gmail.com, shawn.lin@rock-chips.com, linux-pci@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+References: <20250422112830.204374-1-18255117159@163.com>
+ <20250422112830.204374-4-18255117159@163.com> <aAeAAhb4R8ya_mBO@ryzen>
+Content-Language: en-US
+From: Hans Zhang <18255117159@163.com>
+In-Reply-To: <aAeAAhb4R8ya_mBO@ryzen>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: QCgvCgDnQ1Gaggdo6FbJAQ--.7526S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxCrWUGr47GF4DAr4rJF43Jrb_yoW5trWxpa
+	yDJFWqkF48GrWI9F1kCa98XFWFvFsI9ayUCrn7Ka4xWasFyr1DG3Wj9r9xtr1xAr47CFyS
+	kw48ta47Xr43ZrDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07U33ktUUUUU=
+X-Originating-IP: [61.171.199.116]
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/1tbiWwA3o2gHfn+KJwAAsM
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_045106_732960_A0837A9A 
-X-CRM114-Status: GOOD (  14.14  )
+X-CRM114-CacheID: sfid-20250422_045122_362999_B6863558 
+X-CRM114-Status: GOOD (  16.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,76 +78,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Max Krummenacher <max.krummenacher@toradex.com>
 
-The needed drivers to support PCIe for i.MX 8QXP have been
-added.
-Configure PCIe for the Colibri iMX8X SoM.
 
-The pcieb block is connected to the on module Wi-Fi/BT module.
+On 2025/4/22 19:39, Niklas Cassel wrote:
+> On Tue, Apr 22, 2025 at 07:28:30PM +0800, Hans Zhang wrote:
+>> Link-up detection manually checked PCIE_LINKUP bits across RC/EP modes,
+>> leading to code duplication. Centralize the logic using FIELD_GET. This
+>> removes redundancy and abstracts hardware-specific bit masking, ensuring
+>> consistent link state handling.
+>>
+>> Signed-off-by: Hans Zhang <18255117159@163.com>
+>> ---
+>>   drivers/pci/controller/dwc/pcie-dw-rockchip.c | 15 +++++----------
+>>   1 file changed, 5 insertions(+), 10 deletions(-)
+>>
+>> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+>> index cdc8afc6cfc1..2b26060af5c2 100644
+>> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+>> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+>> @@ -196,10 +196,7 @@ static int rockchip_pcie_link_up(struct dw_pcie *pci)
+>>   	struct rockchip_pcie *rockchip = to_rockchip_pcie(pci);
+>>   	u32 val = rockchip_pcie_get_ltssm(rockchip);
+>>   
+>> -	if ((val & PCIE_LINKUP) == PCIE_LINKUP)
+>> -		return 1;
+>> -
+>> -	return 0;
+>> +	return FIELD_GET(PCIE_LINKUP_MASK, val) == 3;
+> 
+> While I like the idea of your patch, here you are replacing something that
+> is easy to read (PCIE_LINKUP) with a magic value, which IMO is a step in
+> the wrong direction.
+> 
 
-Signed-off-by: Max Krummenacher <max.krummenacher@toradex.com>
+Hi Niklas,
 
----
+Thank you very much for your reply. How about I add another macro 
+definition?
 
- .../boot/dts/freescale/imx8x-colibri.dtsi     | 29 ++++++++++++++++++-
- 1 file changed, 28 insertions(+), 1 deletion(-)
+#define PCIE_LINKUP 3
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8x-colibri.dtsi b/arch/arm64/boot/dts/freescale/imx8x-colibri.dtsi
-index ecb35c6b67f5..e602d147e39b 100644
---- a/arch/arm64/boot/dts/freescale/imx8x-colibri.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8x-colibri.dtsi
-@@ -52,6 +52,15 @@ reg_module_vref_1v8: regulator-module-vref-1v8 {
- 		regulator-name = "vref-1v8";
- 	};
- 
-+	reg_module_wifi: regulator-module-wifi {
-+		compatible = "regulator-fixed";
-+		gpio = <&gpio_expander_43 6 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+		regulator-always-on;
-+		regulator-name = "Wi-Fi_PDn";
-+		startup-delay-us = <2000>;
-+	};
-+
- 	reg_usbh_vbus: regulator-usbh-vbus {
- 		compatible = "regulator-fixed";
- 		pinctrl-names = "default";
-@@ -261,6 +270,16 @@ ethphy0: ethernet-phy@2 {
- 	};
- };
- 
-+&hsio_phy {
-+	fsl,hsio-cfg = "pciea-x2-pcieb";
-+	fsl,refclk-pad-mode = "input";
-+	status = "okay";
-+};
-+
-+&hsio_refb_clk {
-+	enable-gpios = <&gpio_expander_43 3 GPIO_ACTIVE_HIGH>;
-+};
-+
- /* Colibri SPI */
- &lpspi2 {
- 	pinctrl-names = "default";
-@@ -454,7 +473,15 @@ &mu1_m0 {
- 
- /* TODO MIPI DSI with DSI-to-HDMI bridge lt8912 */
- 
--/* TODO on-module PCIe for Wi-Fi */
-+/* On-module PCIe for Wi-Fi */
-+&pcieb {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_pcieb>;
-+	phys = <&hsio_phy 0 PHY_TYPE_PCIE 0>;
-+	phy-names = "pcie-phy";
-+	reset-gpios = <&lsio_gpio4 0 GPIO_ACTIVE_LOW>;
-+	status = "okay";
-+};
- 
- /* On-module I2S */
- &sai0 {
--- 
-2.42.0
+
+If not, I'll restore it. At least the following can use the 
+rockchip_pcie_get_ltssm function to avoid duplicate code.
+
+Best regards,
+Hans
+
+> 
+>>   }
+>>   
+>>   static void rockchip_pcie_enable_l0s(struct dw_pcie *pci)
+>> @@ -499,7 +496,7 @@ static irqreturn_t rockchip_pcie_rc_sys_irq_thread(int irq, void *arg)
+>>   	struct dw_pcie *pci = &rockchip->pci;
+>>   	struct dw_pcie_rp *pp = &pci->pp;
+>>   	struct device *dev = pci->dev;
+>> -	u32 reg, val;
+>> +	u32 reg;
+>>   
+>>   	reg = rockchip_pcie_readl_apb(rockchip, PCIE_CLIENT_INTR_STATUS_MISC);
+>>   	rockchip_pcie_writel_apb(rockchip, reg, PCIE_CLIENT_INTR_STATUS_MISC);
+>> @@ -508,8 +505,7 @@ static irqreturn_t rockchip_pcie_rc_sys_irq_thread(int irq, void *arg)
+>>   	dev_dbg(dev, "LTSSM_STATUS: %#x\n", rockchip_pcie_get_ltssm(rockchip));
+>>   
+>>   	if (reg & PCIE_RDLH_LINK_UP_CHGED) {
+>> -		val = rockchip_pcie_get_ltssm(rockchip);
+>> -		if ((val & PCIE_LINKUP) == PCIE_LINKUP) {
+>> +		if (rockchip_pcie_link_up(pci)) {
+>>   			dev_dbg(dev, "Received Link up event. Starting enumeration!\n");
+>>   			/* Rescan the bus to enumerate endpoint devices */
+>>   			pci_lock_rescan_remove();
+>> @@ -526,7 +522,7 @@ static irqreturn_t rockchip_pcie_ep_sys_irq_thread(int irq, void *arg)
+>>   	struct rockchip_pcie *rockchip = arg;
+>>   	struct dw_pcie *pci = &rockchip->pci;
+>>   	struct device *dev = pci->dev;
+>> -	u32 reg, val;
+>> +	u32 reg;
+>>   
+>>   	reg = rockchip_pcie_readl_apb(rockchip, PCIE_CLIENT_INTR_STATUS_MISC);
+>>   	rockchip_pcie_writel_apb(rockchip, reg, PCIE_CLIENT_INTR_STATUS_MISC);
+>> @@ -540,8 +536,7 @@ static irqreturn_t rockchip_pcie_ep_sys_irq_thread(int irq, void *arg)
+>>   	}
+>>   
+>>   	if (reg & PCIE_RDLH_LINK_UP_CHGED) {
+>> -		val = rockchip_pcie_get_ltssm(rockchip);
+>> -		if ((val & PCIE_LINKUP) == PCIE_LINKUP) {
+>> +		if (rockchip_pcie_link_up(pci)) {
+>>   			dev_dbg(dev, "link up\n");
+>>   			dw_pcie_ep_linkup(&pci->ep);
+>>   		}
+>> -- 
+>> 2.25.1
+>>
 
 
