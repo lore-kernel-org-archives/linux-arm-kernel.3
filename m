@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80E93C369D7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78967C369C2
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 18:14:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,43 +12,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k7vrpOBzU1CNfKbjohZHM/Pmwjdmw6ezgwKO5j1s1R0=; b=aj+RXaMT//wlDe6f81TVk8fGOW
-	uEW9bJ98qUJgNK7SeoIEArTQOxH7hvKjsjTdruUQHRBCKU3JHKyHUZoy7b6TlCk7UHjije6PQSjQ+
-	olqoHGoTWSaMQZbwENpsUKCNNsOwG4LaIFtBJuUb8gb+pfUkXs/qeyziuGfvNR0nsSNxJIErwwRyV
-	W7kBgcCVHRTQZhZG15eBiyEvWdeD16YmwWI5cWfUBKuQLdhhfZN1JyTGRgkmYS6wL0FP59PZ0zMvI
-	pQduTtobNXoXjEk8T/X/DOAFbyvdeZCxoNfPQ1A3ytnN5A0DblpnPwRnVVnG7H3JEmsTxRyVbHyIE
-	DtczKalA==;
+	bh=/g9QGJTU7LjHiabygo8K4O3ZYzxgGEroQTtNik/ARyg=; b=1iHY48nDsKnguQOFWmfWN3xXQI
+	P84UsFSnIJO1kE/cRkeWyZE+9GDpd5mJD7S6J/nw9dJE+GqFJiURs5rkflFlVhIbHwa4cu4RtwiiU
+	zbDxdc3yFCq7OHEPyPe0A7DejxiyuwrErinm/AnBBNkKGxzLYXcLN7R//uyH5qi8/+KK6sN0Zij1U
+	A3Rgk6AwQfQdwaWHgvh9uqJryiRoanKCHKxnkdy3/L+ioDFeS4BgFKPi4faRknc9bKX3KtWFoYgdV
+	QqKSlxiOunMQmaVS+vnUTzpV2Llj/ennEJEnS2flqTEz7q5dyBdr1qT7bgHVlVmWWW7lgRHwwjtcD
+	+WxNS39w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7I8T-000000085Zo-0bEx;
-	Tue, 22 Apr 2025 18:14:21 +0000
+	id 1u7I8V-000000085aM-0wrt;
+	Tue, 22 Apr 2025 18:14:23 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7E7k-00000007OS9-1W9U;
-	Tue, 22 Apr 2025 13:57:21 +0000
+	id 1u7E7o-00000007OTx-2ALm;
+	Tue, 22 Apr 2025 13:57:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1745330238;
-	bh=sOIwe0VS+sWfFtU7zCZZgIQ6EcmnnSJDBcSZ+saj2wY=;
+	s=mail; t=1745330243;
+	bh=g7WNVJHclvSj1E2AwbocpEvXvRSkv9UNMU2PgjrPJOc=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=cVwKyuQRCH48gIXlHPOJnAc1Kp33JadQEXAnwPdP1tWYP+L1CYt9+b9V/CqKzwoer
-	 qIb4ErAUugPpbDsKULxUxf8ra68C8d4tidGYOxuRsLEAGqJ3T9olxc8qsxQAcB3n/a
-	 xP5FEU6x0W4XKReZ4ErNgm0bg2ohKaN9Dg9plA/iFRjWLbzYmwtu+DbDnD9BWzx+CL
-	 Aiw6B4TT37LG5K2+K5T39OZqwjgBda9Y8dWQDAbTuArPJUhNjlPmmXzNMkTU6ykMtg
-	 okBUUchJh9sL6wJpARRYSH+0dTeNJM1yvfSxiLj8sf/1M/tlonDtCnPnVfqdm40kJ2
-	 MjpuAZI4WQFjw==
+	b=MWo+vVJYRfk7c9rAarBXaDJbhgJAw6zdNajEpHhQtIXVfuaS7FfN3H/8FEjrycj1o
+	 4FtlL+sU1iHJgH6MVb57VNzAoBQknaxje3CalTenCHPmNDe4W63jz8sUFqB2vokBC4
+	 9VoeSm1aoCRsvH6+sMlU+vYFeMX/6/sQBqETv+T5srm9PLXSj1txRcLrAC+6L1S/Kt
+	 42J+Wb2csC0ReauZ5w4RXI70XRlhwvRkpPxaEECnC24fBl6NBeYoYsFAKnY4zw7syr
+	 Q8AaSxemKQMBcbtPlN0+0j73SyM91DU05UiZD0MJoUDAdFFHU/TMYax2dQx7BbbRQI
+	 1Xfmc0eUnm2yw==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1999617E35E8;
-	Tue, 22 Apr 2025 15:57:18 +0200 (CEST)
-Message-ID: <748082be-2850-4ad3-8fba-eaaa859e8d1c@collabora.com>
-Date: Tue, 22 Apr 2025 15:57:17 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8068417E157E;
+	Tue, 22 Apr 2025 15:57:22 +0200 (CEST)
+Message-ID: <26b9b027-b880-4880-9c12-844bd36bcd44@collabora.com>
+Date: Tue, 22 Apr 2025 15:57:21 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 5/8] arm64: dts: mediatek: mt8186: Merge Voltorb device
- trees
+Subject: Re: [PATCH v2 2/8] dt-bindings: arm: mediatek: Merge MT8186 Voltorb
+ entries
 To: Chen-Yu Tsai <wenst@chromium.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
@@ -59,15 +59,15 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  chrome-platform@lists.linux.dev, linux-input@vger.kernel.org,
  Douglas Anderson <dianders@chromium.org>
 References: <20250421101248.426929-1-wenst@chromium.org>
- <20250421101248.426929-6-wenst@chromium.org>
+ <20250421101248.426929-3-wenst@chromium.org>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20250421101248.426929-6-wenst@chromium.org>
+In-Reply-To: <20250421101248.426929-3-wenst@chromium.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_065720_572879_6B8D7D7A 
-X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-CacheID: sfid-20250422_065724_699358_38B890C9 
+X-CRM114-Status: UNSURE (   8.67  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,13 +87,13 @@ Il 21/04/25 12:12, Chen-Yu Tsai ha scritto:
 > There are only two different SKUs of Voltorb, and the only difference
 > between them is whether a touchscreen is present or not. This can be
 > detected by a simple I2C transfer to the address, instead of having
-> separate device trees.
+> separate compatible strings and device trees.
 > 
-> Merge the two device trees together and simplify the compatible string
-> list. The dtsi is still kept separate since there is an incoming device
-> that shares the same design, but with slightly difference components.
+> Drop the SKU-specific compatible strings and just keep the generic
+> "google,voltorb" one.
 > 
 > Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+> Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
