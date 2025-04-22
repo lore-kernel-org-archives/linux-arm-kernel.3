@@ -4,85 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FD10C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 16:13:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE4FBC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 16:15:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=01iWsWRnKaXYUJ6i/NON00y6jMFX6UcPEC4jPm/g2hU=; b=hGDmf8H4BxcK/2VRWCAFtBpGIg
-	Tpwh9Mz/U9mKyr35cOnYCCDoRmBr3A4FnEDVLHjhi+Qo1LdxOCRky194vKCMfe+lfpnSH4If6vk1p
-	R5vl1AUvVi9MxAd7LUkHCaaNJG3Jdhblv6nuYN6AbRWnJ8ftCJJUflO0fhg9vxeRirraeu0pM/7Qa
-	Jjg91kWqiEk2+9JcCp89JGhk7wMRaChuMYEWv7QiAF3KUpxkKitFN3Hnhy6XSUjXYGBFKef0L4CAl
-	+STM0tktDllHWWnzCnqKDpRG4DUrpm+DZWw5nWUjSu3VlmGxtLx2vjVQVd/7912Opht3PHs8G8gMa
-	B97lc43g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kbMt1L1BOwhCgVxGj+UJaD0R9pmk3Y0rLTHSDJkQCjo=; b=dVyzmvZd0onAdBzBWWExPstsa0
+	7mOJGbD24zbDzokXbjg1GKsANM63pMZgOmFRVHybOtUBrm0IpvVutBZLjCMvVkVZZG5axtp0zz1RC
+	BqZhK2dOLC2rMqCFCa8BP4I/45xuAPn5QjJ1QFiqBMRfj2z8CfhmRXDKaOZRsbI6jxTSsG2oSfk/y
+	/G/MOxOQGeKbXj17VSLI+Ju9Fpg7lcUk9rSOmxKwl30qfBnEcCSrRx4XbivsDhRsi+5KdfxyRspb6
+	SuLgaYmhJfFIml4LI3ML0DcVA0XWaxoqC+p4lQpajrqKsjQegz9jsTUpvNIVkn5qRJX9iEx4QPEbP
+	GvEbTCjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7GFT-00000007r01-40WR;
-	Tue, 22 Apr 2025 16:13:27 +0000
-Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
+	id 1u7GHK-00000007rZM-3oLD;
+	Tue, 22 Apr 2025 16:15:22 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7DvD-00000007LxT-0F5a
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 13:44:24 +0000
-Received: by mail-yw1-x112d.google.com with SMTP id 00721157ae682-6fee50bfea5so40835287b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 06:44:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745329461; x=1745934261; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=01iWsWRnKaXYUJ6i/NON00y6jMFX6UcPEC4jPm/g2hU=;
-        b=CD1BA//b8jpc6TGk9lYdD/zsIg4H+xBdvAeZ7AQh8EUEzjveW5pz93PMDT1NJkyTh0
-         PeFnfPsdh/RnUgoIGb5PnCXvwFHSL8z6Xs2zQu0DVYvELpHsMuIDozg7LAr7vXZMhbsG
-         vhiJNl/08T/77kAz9H0JhBWtFl20sleIWdxggxj+1jOTWww1elm2r8bF3FPD/dHGwhQ0
-         LtZPZQK0L9Nc4pOGUsajA6Vr3ePH4/eMe4BO26Y+HufBXyYr+cPmebNiw+f7prL8CEVs
-         EjHt8zCOAjh+xnSx/lrN/hQew8Z8tNIEELdU0wQMUUWGxodYMPKHIIcI4PleawhmOi9B
-         5bag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745329461; x=1745934261;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=01iWsWRnKaXYUJ6i/NON00y6jMFX6UcPEC4jPm/g2hU=;
-        b=E+mLG7rESNYN/RlnoL862sL0FqUlN02iwVND28g627+QvEbVahT/sY5UDzkN0AE+P3
-         /afNljAQ+AiAsowYWkOQMgDDggbdnTPrnVaoTKWWrw6umuMN4tNCC5JQrdtwf6lIz8ZR
-         T6BxccAFNEu1bLRTFv1Onmsi1PL6nUc5gORppWXTxdF8oFg0vmLpLxo1DD2Sttahcgzs
-         XaUHnzUd8cqh4zJ6akqkoWhSNalHx4zvwtAF2IiqcpQYgxTsL0t5K8ksfKZLfw6hi4yE
-         JDuo4Lq1adrCyDgC0wPBAaNf45XlVrxaFs28BlBno9I88MBEWpfJIBRE1xSuMFCVFBZK
-         7+7Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXgZA8g8kpHvuRxFhQQgwOnvSe5/Lna18brK6I91LNFNNk58zEdDUspXoX/ZssoghOy1m4NjMNHRkUAZJe9sFY8@lists.infradead.org
-X-Gm-Message-State: AOJu0YyeBdWKfcBK6NiMEv3TRx8hAE4a4W0o/Nw2fqYfT7+JIi59U7F+
-	BPj2snBO4vNYRO4X0TXGlmjqMxCs/VfV+3mGLu+xUZLqYcWzw96YQcvk0G3sCT6FjvWlmybrKTn
-	3Qm5LT8vWAXqb0jztpdU8R1tztiM=
-X-Gm-Gg: ASbGncvVkLpBFU/XRbOud0MaPGiYXfXSNBvg8PkWonxw6+aNaEfJRk3VTyar8vyqwGD
-	F7xVFtRv6NWCkEXUAjBvCDA1OCIhskdXx3M8vVtnqj9/F4Yge0ghYfWE3ovdbehgiD39882CM33
-	lXlhr7IXfyWQf8y7vobg32LK4=
-X-Google-Smtp-Source: AGHT+IFB0dsAITdx8kdX4E2ydKgnUeAe4cFVnylPhUhldLMfCcBI8Xtwn4NktwjCacq5FAj+GCAiAMlZsGz4uy29IlY=
-X-Received: by 2002:a05:690c:6f87:b0:700:b007:a33e with SMTP id
- 00721157ae682-706ccd0a2dcmr235402417b3.16.1745329461380; Tue, 22 Apr 2025
- 06:44:21 -0700 (PDT)
+	id 1u7Dvg-00000007M52-3x4b;
+	Tue, 22 Apr 2025 13:44:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1745329491;
+	bh=WynR8L5BQ92M+53aOKAzVzpk7FToQpWuQOuOQxLXzcw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=PMzTCiA9hbuk02gOjtxpO1b65EoMoX7GSYJyrM9J50+woyI73LBx5V2ZfD71//djs
+	 bUS2BWXxkC9rfgKcgmJb8yp3G5qGq/Sfnxx4sGevmGrM6VxtvaLtY12K9+s7/e/FNa
+	 2WmloGZwoDILBXMOQ/8xIThZ6+GhsrjocFsySpl1AOZWYh+3WOXH6z9UEvQxNWGwUZ
+	 1QHlDJiVaJTUbUV94vjI+Vz5ZLXCxrQ7SuQ13z0T0r7D2NN5AF9IikDDKfuzIq/n2u
+	 AicTOiL/M073aAdz3pBTB/34jIJnY5+Sy47w/9Vh7UzpJW7zcnkoFt63rwPmk6Ehxx
+	 BXFvWcJ1Pj5Rw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 74A6517E0B9D;
+	Tue, 22 Apr 2025 15:44:50 +0200 (CEST)
+Message-ID: <d86e6559-3b85-43f6-a8b6-8906a7b66b0b@collabora.com>
+Date: Tue, 22 Apr 2025 15:44:49 +0200
 MIME-Version: 1.0
-References: <20250417-spmi-nvmem-v2-0-b88851e34afb@gmail.com>
- <20250417-spmi-nvmem-v2-1-b88851e34afb@gmail.com> <20250422133619.GA1095169-robh@kernel.org>
-In-Reply-To: <20250422133619.GA1095169-robh@kernel.org>
-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
-Date: Tue, 22 Apr 2025 15:44:10 +0200
-X-Gm-Features: ATxdqUFsls2M4OH434tZGU5ecAW3B2mwbfmPhFEi7JO7p4M-mTLMLWRteEtCKs4
-Message-ID: <CAMT+MTTwY=z1-_94ws+Oi+wvE2PA_s57dPmpMABC26q=MPw1Mg@mail.gmail.com>
-Subject: Re: [PATCH v2 1/3] dt-bindings: spmi: Add generic SPMI NVMEM
-To: Rob Herring <robh@kernel.org>
-Cc: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>, 
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, 
-	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/5] dt-bindings: remoteproc: mediatek: Add missing
+ minItems for 8192/8195
+To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Tinghan Shen <tinghan.shen@mediatek.com>,
+ Olivia Wen <olivia.wen@mediatek.com>
+Cc: kernel@collabora.com, linux-remoteproc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+References: <20250421-scp-dual-core-mt8390-v2-0-c84117a959a9@collabora.com>
+ <20250421-scp-dual-core-mt8390-v2-1-c84117a959a9@collabora.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250421-scp-dual-core-mt8390-v2-1-c84117a959a9@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_064423_094980_395FB7DC 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20250422_064453_152392_8D291D78 
+X-CRM114-Status: UNSURE (   8.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,23 +85,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 22 Apr 2025 at 15:36, Rob Herring <robh@kernel.org> wrote:
-> > +title: Generic SPMI NVMEM
->
-> What makes this generic?
->
-> A generic driver is great, but "generic" or "simple" bindings are
-> generally a mistake.
+Il 21/04/25 22:49, Nícolas F. R. A. Prado ha scritto:
+> Both MT8192 and MT8195 have an L1TCM memory, so it should be described
+> in reg, and therefore reg's minItems should be 3, as is already implicit
+> by reg-names being three entries long. However minItems is currently
+> unset for mt8192/mt8195, resulting in it being equal to 2, from the base
+> schema. Fix reg minItems for MT8192 and MT8195 by setting it to 3.
+> 
+> Fixes: 6b55b1e2fd7f ("dt-bindings: remoteproc: mediatek: Support MT8195 dual-core SCP")
+> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 
-There is nothing apple-specific in that driver, just re-exporting
-several registers as cells. If you think that it is a mistake, I can
-rename it to apple-pmic, or something similar.
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-> > +      - const: spmi-nvmem
->
-> What happens when there's some other feature of the PMIC exposed that's
-> not nvmem?
-
-If you have a PMIC that needs more features exposed, then you'd have to
-use a different driver. Or am i not understanding the question correctly?
 
