@@ -4,202 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD909C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 11:24:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E4E9C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 11:26:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u2/fTvTe3Zps+5EUzOXXvyxp7uUv0O1Mthw5VNvqb98=; b=wmMot67weAbkAplt8xFpRsGH/s
-	oUkgmSOpUHysKDDwCIINTazIx6GTGzAeSu9VR4GwpdhQKZrtuZUKy6ZdQqKyjxF3Dow0sOb41pF6v
-	73vXN7xQSesBS8dh6io2dAwLLGKyUCvWbKrQnrA0z1HfU43MwslxAkO35h0Ps41B/U3xxmbZB2W4J
-	4G2QYzfpZHcdqxGL6kmopR1yhplA4pggnX24b25Ow1UA0XZSvaoVOzOTKmkQwoi5EK9CSJ125KkxP
-	3N1tJ2TVh3bG8vXnUqrfRsGc4vhmlLy/+1xwaPCO+70hJiZJMTERiXVPFtlVgmTuAbPj3MizkFmHW
-	SS4W7rZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yBjOTHYTAnSAYjYErf6BUa4a2uxiS8PF4Sok5L6HtX8=; b=WmKWAgd+ezPn4Q5xzy4HYNrf0K
+	4gv6QgrwCVSuFcEf57so+RUfg5LtVLF48ZmB00+vHsm44NC6UQo6z6ssxYX2wZfbHCQtj3jWZN+Gj
+	3fYkvhZKpmtBy8r1OaUarnzEBAniShO3wWvmvn9889ESjLaGbLmogZmGaVIG9I22ilz+eMMlqbCk9
+	Q0rChV2yrTw8NaF99NENXgRJ80K8TjcEgSzNJMRncDn1ox9Dk/jBYOfvlMYTTXuIOAtdgFFpCEp9h
+	PHrcqfxUMiY+c4lmWRIRbKWt/lZjUvPp+hVpk4C9hqwrX8461marA58zZFNbMqKv5UeLRbDWv8tI6
+	3QCrxJpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Bk0-00000006vpG-2hij;
-	Tue, 22 Apr 2025 11:24:40 +0000
-Received: from mgamail.intel.com ([198.175.65.20])
+	id 1u7Blr-00000006wB0-3CaN;
+	Tue, 22 Apr 2025 11:26:35 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7BHV-00000006qRv-3NEY
+	id 1u7BJK-00000006qlC-1Bkl
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 22 Apr 2025 10:57:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=yBjOTHYTAnSAYjYErf6BUa4a2uxiS8PF4Sok5L6HtX8=; b=AYoWb4CDsLnixcQxaox3oof11C
+	LNWd8JcO9axTZVWIgY5LrFA++oxQwzEbzk3ORvRHbMv1JUcUYE1Zg4GOFH+SDMMCVEu7JW8U81eoO
+	TK8aFrVA0d840IAlWx4pN1G0rtZr2Ks5qzjXQgBKE4eoRM9PSGCvyTlv4mTOh3y2P29AbjafqpBNE
+	oBldpUAc2rEJPYMM1N88iqDHBkovL1jkS2kaf4mX1D/z/VC1dZVlMYDcwEw/dC1GTmBSYt4JvADUQ
+	QXrbDmSmXtBxgmWgx/+IwnnAr9AGcN9FPdpjCycwHh0B4pj20D/DpFDVhc9+OEzxfxkMpInemiMag
+	ChzLfdyg==;
+Received: from cpanel.siel.si ([46.19.9.99])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u7BJG-0000000BBMd-3V0P
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 10:55:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1745319314; x=1776855314;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=0Bhj1gk4rRMgiqq7vxOsVyrgNQ1OfleYDMKBc1NjX9o=;
-  b=EkVAHq4Boj1PN51YsYUtsTyZUYXwEharULC0QseGXF1oK1iPAuCpMP5g
-   +cZJJbzE8xLBpI4VITPMaV7545vo7vH06Lo/Ll0kfvmWHq7yf+egix1PZ
-   4LNUfgoEbp38mBXkBXoYbSbmZODCrfPil37J/Au3GlNHq12nNFHZk78qU
-   TQuupuAgbTcUglRXiDtkB/5awB11fSmXo7bN/mwMZb6dFV+XswZKS0+9s
-   hKhcirN26dH7XjLv95T0sxQsIW1P5e3N/ZfbTxuuyQcAGHDl5oIUu/5es
-   lWLrkyHB+IwRH9e2Q6ueUNFwcIxa5ESWwvJ7jh1KczsvcvX+90mVctAX0
-   g==;
-X-CSE-ConnectionGUID: zZIE53puSsOG3D9MJpVp9w==
-X-CSE-MsgGUID: 8m95g3A1TD+6Hz8y/z/9/Q==
-X-IronPort-AV: E=McAfee;i="6700,10204,11410"; a="46578320"
-X-IronPort-AV: E=Sophos;i="6.15,230,1739865600"; 
-   d="scan'208";a="46578320"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Apr 2025 03:55:13 -0700
-X-CSE-ConnectionGUID: NLFyDUz5SY+gr2p38Yp3aA==
-X-CSE-MsgGUID: 69vuHt7MTtiHUAiCU8zK+Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,230,1739865600"; 
-   d="scan'208";a="137073116"
-Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
-  by fmviesa004.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Apr 2025 03:55:12 -0700
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Tue, 22 Apr 2025 03:55:12 -0700
-Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14 via Frontend Transport; Tue, 22 Apr 2025 03:55:12 -0700
-Received: from NAM10-DM6-obe.outbound.protection.outlook.com (104.47.58.40) by
- edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.44; Tue, 22 Apr 2025 03:55:12 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uG3DkI6LC43FITx2lMlxXfH8my2CWbOztP7ek7VdMcX9/5HUxl6m/0dHnjQU4QpSbtsukWYYS+cOa1pBfzrq8+bUtz4W2Oul1jHPaTt6nHrALMzffzp1e/HGWj3k8QFPXMW/RuESY8jWL6/shhK/OwG0Var0N3KNNLZ9enh5ql0vGjFyh3rPSu5rajtTo4T049bFU5edOMDJDWSmwicEv7eYm5MMEHyMTRb5MJiNoJsdMGjU04axmUbL53sEEEeZtNd1DivwO+zc+AfcHhkz8iZnsFpRualeON9GBHsniwVzD8p8oqnCd9bHq3pWNLSASkrw4+8xs9i46IAruh3OPQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=u2/fTvTe3Zps+5EUzOXXvyxp7uUv0O1Mthw5VNvqb98=;
- b=gkb9ZyaBI6RNOLY7zlLU6bf+xIuQpDHeH5570hO/OXSO/mz9CFJOexdmVl0qdeE21zsfzVvxc6fX6ve8u1HH9T84TGTKEikSGTilE2AUX6xN6m99JXsHirju3mvJSvrz9Cw0nyGcVfBPtLQsX9wd1XOi3YtJRgJVJcC8XbJVWkcjLdK7PtIFwjLQzFqc+UfWoUgNLKGhDHrP0r4vGxIxYOR3WyGkBkAWSfAJqPEftUVtp1GhZkDfPPxYEDKy42vWiFn09j6MZ9KW0J87VS/BfIzb5e2zAxhvLOEs7AqAwOBmCWRhrGF2tOo/+W0nSxJlKj8A3qBInrDqIN5qE8LkKA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from PH7PR11MB6054.namprd11.prod.outlook.com (2603:10b6:510:1d2::8)
- by SA2PR11MB5193.namprd11.prod.outlook.com (2603:10b6:806:fa::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.35; Tue, 22 Apr
- 2025 10:54:29 +0000
-Received: from PH7PR11MB6054.namprd11.prod.outlook.com
- ([fe80::a255:8692:8575:1301]) by PH7PR11MB6054.namprd11.prod.outlook.com
- ([fe80::a255:8692:8575:1301%2]) with mapi id 15.20.8655.031; Tue, 22 Apr 2025
- 10:54:29 +0000
-Message-ID: <d0f0719f-9fa2-4145-9144-7955ac7f357e@intel.com>
-Date: Tue, 22 Apr 2025 13:54:20 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/6] enhance the tuning process reliability for i.MX uSDHC
- controller
-To: <ziniu.wang_1@nxp.com>, <ulf.hansson@linaro.org>, <haibo.chen@nxp.com>
-CC: <shawnguo@kernel.org>, <s.hauer@pengutronix.de>, <kernel@pengutronix.de>,
-	<festevam@gmail.com>, <imx@lists.linux.dev>, <linux-mmc@vger.kernel.org>,
-	<s32@nxp.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20250409075550.3413032-1-ziniu.wang_1@nxp.com>
-Content-Language: en-US
-From: Adrian Hunter <adrian.hunter@intel.com>
-Organization: Intel Finland Oy, Registered Address: PL 281, 00181 Helsinki,
- Business Identity Code: 0357606 - 4, Domiciled in Helsinki
-In-Reply-To: <20250409075550.3413032-1-ziniu.wang_1@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: VI1PR04CA0050.eurprd04.prod.outlook.com
- (2603:10a6:802:2::21) To PH7PR11MB6054.namprd11.prod.outlook.com
- (2603:10b6:510:1d2::8)
+	Tue, 22 Apr 2025 10:57:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
+	s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=yBjOTHYTAnSAYjYErf6BUa4a2uxiS8PF4Sok5L6HtX8=; b=mBbu0BWM5tPNFwxLjyJKHHpDNL
+	OiAIKpSUn7mcKCFTLe6IvhIq2orRmAjKFkJQWD1fKryaD7s9ZI/i0Y0OKkCJmSglFerfoxDUM8TZe
+	5t3Z0Rq7IcXVvLn3hTpHbkf0rqgDV752NCl2hoC4l7wMNqd0zfx5CG4b4WSbhLSV/yHNM2cmqYXPD
+	ad62++6c0OUsk90AYOGEdAQEn0dtAKrPWflMObREYCTje8tBIQ5//tU6AY+w1NzHrSQUazE/XxMrm
+	M9nNK/AykrwVz7p6ag4rJebMBxOKSXUPmDt5bjZBCAYZnsJ3g9rBDG3tFUp4DOJldQ1VCPZat1JOc
+	IFf/mHqQ==;
+Received: from [89.212.21.243] (port=36562 helo=localhost.localdomain)
+	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <primoz.fiser@norik.com>)
+	id 1u7BJC-008kyr-2X;
+	Tue, 22 Apr 2025 12:56:58 +0200
+From: Primoz Fiser <primoz.fiser@norik.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	upstream@lists.phytec.de
+Subject: [PATCH v4 09/15] arm64: dts: freescale: imx93-phyboard-segin: Set CMD/DATA SION bit to fix ERR052021
+Date: Tue, 22 Apr 2025 12:56:38 +0200
+Message-Id: <20250422105644.2725168-10-primoz.fiser@norik.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250422105644.2725168-1-primoz.fiser@norik.com>
+References: <20250422105644.2725168-1-primoz.fiser@norik.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PR11MB6054:EE_|SA2PR11MB5193:EE_
-X-MS-Office365-Filtering-Correlation-Id: ffbb337b-76ac-493d-dac6-08dd818c0e62
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?TjRBZGRiNTNucVNRcktpUE5adkh5VWFra21NNXFNWEM3WjFrWCtnczU0Z3RQ?=
- =?utf-8?B?NjRzKzEvaENJby80NC9TRFJ4akI1Ulg1MkZaV2hid1hFZnN0OGwvYURYZGUv?=
- =?utf-8?B?UnFwRHc2OEtBbnRBVFBMVnFvaXZsbnBzbWhoVFpid3hiV2ZMQzJ4SG5vK3Jz?=
- =?utf-8?B?Ym1DbENSeTZxNGs5NlZUc0ZFaVlRTVYyTkppWllZNTJONHFabzR5bGM1bjlI?=
- =?utf-8?B?RUdCRGhYY3JKWGhTdHRuUkd1VGpoRlJCL1JNa3ZncnRPSXlXTlh5T3p1Yjhs?=
- =?utf-8?B?dkh5K1hqQkZ3YlZhUGY5cGkzTm9KUldjY3o0b1N2VENDdExBUGVKdy9HVHR5?=
- =?utf-8?B?clhlb214TENGdVZWSEd1RG9KNnJhUjEwWWtGUFN5UjMwcXVlMzZXTHZEM2RM?=
- =?utf-8?B?R2FKSnFKRWpQdnZBM1B2SVBRVFFTTTluRU5UVDdNQ1JiZHM4T3E2QnBWM2hw?=
- =?utf-8?B?ZFpTdmU1QWVLTTZNcDRYNDBCaThHNnVZKzE2ZE8xM2x1RmVRdGJVUk9iMTQr?=
- =?utf-8?B?UmRRd1BUY3RORFdVbThEYmFaS1NhZUdySzVmeFZkMlh2RHlIS3lYaGVoUG5s?=
- =?utf-8?B?WGNYR3ZUZW5nemNHUGRscTdvcUMvYTcvYUlydklQWGIvdGdkcndacVRkTU45?=
- =?utf-8?B?UEJmOXRyM2VlTHFIcUtEaDVDV3V6bC9pV084WXhvL2hwVU9EMFVwZzBuejNZ?=
- =?utf-8?B?enJsY00xc01iWndDdjZ4VDBlektNbnp2ZXZ6Z2RVWnRzU3h3b3lHNUJZRi9N?=
- =?utf-8?B?R1pZRGZ1ZjVNeUlwbksweGdqNkcrOHN5cjZhNUt2NENLZk1aRVdIL1g3TmNv?=
- =?utf-8?B?dFNJZmM1SEJHMVJWbXd2ZWd1NVIwYmR0Rm45T2V6ZE84Zlo3VUNjdjR3WGFH?=
- =?utf-8?B?Mk5md1dUUzVpeXI1RG5HY3Z1RU1PODcrVG96SmNNTnZCWW9jZ1BPZ0ZqK3FS?=
- =?utf-8?B?Z0VIdkczc2g2S3ZqVFVlN09zcTdtMjFaVkdkQ3BFNHJDQlE2Rjh1VDA4WUpz?=
- =?utf-8?B?ZjlZbm9Ld0RLYm1FZXk0UTlJQUh5S3g3ckRVMXJNaTRwY1hGRkQ2NDFlR2h0?=
- =?utf-8?B?VnlvQkNKd29TTzZwZUYwNFpQYWlseTc2ZDYzLzRyQVU1b1M1RkZncEZsdGZM?=
- =?utf-8?B?UTd4bnY3UW9rUGVDSGxISXRRR1gra29naCtDSCtUazAydlpNZnNGM21VWDdB?=
- =?utf-8?B?NFdjTmgzdWRIT3B6WlNRYTFCY0w1YzhhVjY3QXQ1S1FqbVZUODhDUEZkSWZQ?=
- =?utf-8?B?T3NLYStyS2dWYmhxRDN0czZDV2QwdUdCT1dNOW5oaG9Xc2FYTzNBQVIzNXQ1?=
- =?utf-8?B?cmI0b2ZmRHB5MUFvK1NRdFh3UnROeHRBdWJPdmhJZEZGK3V0VjlyTjFnZitE?=
- =?utf-8?B?U3k2MU04WnV0NzBnaXBkaExGcFJXcFVxN2NSVjR0MkFLL0J6QTU1K3RmTmJ6?=
- =?utf-8?B?UVB3VG80N1h0YnlpQXlUN05ycUkvd1g1OVkvTWtjeW9URVlUM0M4cGVRQzBv?=
- =?utf-8?B?VzdTTjIvOVA4Rm12ZTVKQ3NpTVB4WWREcVJxaE9qZTU4eHVvQW1mRWlid0xv?=
- =?utf-8?B?Njg5aGxSbk4vZU5Bb1RqUGp2VHRUTTRRWnJ5R3ozelFSRkVCazVUaUltTXNv?=
- =?utf-8?B?RUxMRWpIc2gxQ1Q5RjBDcVRuSFRIVmNWNVBHREhBZWwwWWZWMVl4VTEwMkhD?=
- =?utf-8?B?T2l1bERLR3VyVmxTdFJzbnNwdDJOc1QvT0t1N0QzYXUxVG03RSsyVnQ0R0FV?=
- =?utf-8?B?RFlRVkFITEFqbW8yS3F0WjNzRXRrSnF4dytyVmZYZ0tzbFFQaE1aRFZwbG5i?=
- =?utf-8?B?THF6Y1FoZG1UU283bzdmU2dvYkYxV1NteFlXK3diMzR4dlZDTVlwOWxaUnda?=
- =?utf-8?B?aG5QYi9wdThyWWUrb0dxYityb1dXRmMvYnVPUnhLTDdENmc9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR11MB6054.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Q2RYd1ByL2EzajJFKzRPT0lNS1BnanNxTTdaNE5ueFRQOWo0a1hObmxILzhW?=
- =?utf-8?B?amN4VW93U09ac0xmUFlpTFkrOVVHUlRraUtpS0RacXhueVd1NzNoaDJGaWVz?=
- =?utf-8?B?NmlLbWI5amFtNGk2a3UveEQrZEJlMVRaSHBFeUxjM3NvcWxIV0FXYU13RzRP?=
- =?utf-8?B?azlMVHVybnlKaldLem81akY0Ny82cDlPZEhabFdaSWtJNzRuMjY1UTNVeER1?=
- =?utf-8?B?eDd6c1k3NDNOQ2VDNG51VDdNYWRUam56ZXNONjRRTit6ZFlCM1gycEQycHlZ?=
- =?utf-8?B?ODdTRjBaN2hPNnhWam5Yb0ZiVys4cVVnNzlNSVpOWnJvdG50UkhIVFRvNy9S?=
- =?utf-8?B?T0NpNG5HRitCc2tPQ1RsUTBaUFZwcEhvQkY3WTIwR1NkMTRXNnZPcG83UW9i?=
- =?utf-8?B?ZEhOTmlOb3VrVStOZGlKNzdlY3doR3RTQkVxVVBFWnpjYmlneXYvTm1qMjYy?=
- =?utf-8?B?TDdjMDF2VVFhckEzcU1nUk9ZUlovSjkvZ2lNY0F2SlgxMjdsN3JrelYvaTlN?=
- =?utf-8?B?Rlg4TWJHYTBpbVRjTVVaOEVhRjRXNzRiRFBHbnlBSWFrYjNHaDY1eDdPMVZF?=
- =?utf-8?B?RU5WdjRlY1dLdndlelVXbmRzeFlaUUk2MUJaVkhiWjVsc1IxOTRmNkh5bng0?=
- =?utf-8?B?aWl6RktNTW5Xc0pVYkNPSnh3V1Q2YmFIZWdHbDQxOEkxZEtFTmtSMjRtRXRQ?=
- =?utf-8?B?cFIrbXR5aDROemd3SnNyOVZuT2pJWlhBd0tDTHgxWTRtb1RKNlA0ZlZTK3E5?=
- =?utf-8?B?UERvcjd0OXNRSkY2M1ZCclU4WWs0a0NBclNEQWpjdENSRGhKUnpKeHhpY09y?=
- =?utf-8?B?dUFiY0FzNm9IRXlkL3FGeDhmZENCZ2F3MW9ydjVtazAzUXV6V0h6a3FlUU9N?=
- =?utf-8?B?UFcrL0NGU3pITzc0Nk02aUNTTTROUTFwVjlqTXk3KzRIazJQNG1wVlVvUkdZ?=
- =?utf-8?B?RmpEeHEzd1BNSHUwNTNnLy83YjJiS01jOEV6Yk1ZUmtHYWJuN21IMndoWDAw?=
- =?utf-8?B?aUdDMUFFa0RlblBFclVwVm1FV2VVZTNOMERuZXluVWx0TG5DRCtMZ2hWR1c0?=
- =?utf-8?B?ZS9wNjBudjdvRmdpL29oc3VkWWJ1QU5ZT1pqNHVKcURsMnZWVk5kcGhpV014?=
- =?utf-8?B?VW5iTUNKc1c3KzF4YkhieWVoRkpxbmFDdU1lWXhDSTlUdkJBUU54NkhnWG9w?=
- =?utf-8?B?b0RpWndoSGJkckVqbHhiUzVGaC80b1lCVmg4eW93VS8ycU82bkVsRXhhTHJ5?=
- =?utf-8?B?S1pvWjhiRkU1VHRKU28rdmpUWEtIbzlNeVFuTThPTXNta0pzQ2JZSmNhSnJu?=
- =?utf-8?B?cit3SFhwa09uQTd5MzBqMGNIVXo1ZVhpNzBtbVlGVTFJcEE0bDlJNzJQaHBs?=
- =?utf-8?B?YzVZeTZGTXU4TmlIcFd4cVB1KzFyR0lIdWZRNW0vRGNiQ0tqa0hVYW9xM08y?=
- =?utf-8?B?Y3h3YWw5dC8vZElJVnE5aTlGZlM2Z3JXT2wyV05nL0VwZFdWUkNIYkFpNEVn?=
- =?utf-8?B?MzQ3Mmc1eGhPSVVaRWk3NWYzWU5qVDhpZ0VldEREZkVneWZqZlcxZGplbEtK?=
- =?utf-8?B?MTNDV1FSMnF1UjBTNTdONTZDOVRPMU94M1FjTkU2eStnSXpGMTRrWWE2dHo4?=
- =?utf-8?B?UThGdHQ2amhweXdXN2hnSHJ0L29rNzlVVkZOdE8wUVY5V0U0NDN6Z2pKZUEv?=
- =?utf-8?B?dzdTY1dXSy9WZUwvaUFzSkhlM0xLT0NKR2RkcW9LejcyallLWG5qWlZiZWNm?=
- =?utf-8?B?Vms0NmZSdjhxc3JnSWdEY0xNUDBkYzNkUmdWTWJEaVFnaFNWeEFTbTIwaGFU?=
- =?utf-8?B?WFdUVUgvZzUxQTJNeHI4d3N3K2xGOS9MZkg5NWx2UHFmWU9MK1hJK2ZoUi93?=
- =?utf-8?B?NnJBTURaOG9oNDYzdG4vUHA1eWcrRm5VVnlaSFhFSHFUeTNyWWFuZ29tRnVN?=
- =?utf-8?B?UGlEdmM2ejB0ZDl0OE84ZXFSbXRNZUgyMlBzTG5MemhSMzFlZXhzcFBzWFEw?=
- =?utf-8?B?UW5Zd0IvMjFTTnhxRzlyemsyd2x4OU8wcHM4eS9lZmlnNU90NzFwNFBrK1FS?=
- =?utf-8?B?ZHFMYkRuZ1EvWE1lYy83dEx0bkNuc1B3R3pvQkJwcXNBVFdBWU5pb0tjTlhM?=
- =?utf-8?B?QkFZMWRvcWQ4eVpsT2hJcmUzdDNRaVVzbEVSdTBnbTR2TEZ6MzR1VE4yQUll?=
- =?utf-8?B?ZWc9PQ==?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: ffbb337b-76ac-493d-dac6-08dd818c0e62
-X-MS-Exchange-CrossTenant-AuthSource: PH7PR11MB6054.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Apr 2025 10:54:29.5967
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 0Sif7CRY/C1zTG0aKpV/LonhL1x/zquywy8mmgVQs7Bkm/xL0jUQV0m9JzvB9a1GnFyMoFirz2CRpapAfUfb1g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA2PR11MB5193
-X-OriginatorOrg: intel.com
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cpanel.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: primoz.fiser@norik.com
+X-Authenticated-Sender: cpanel.siel.si: primoz.fiser@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_035513_896106_80530896 
-X-CRM114-Status: GOOD (  10.97  )
+X-CRM114-CacheID: sfid-20250422_115703_306972_71DF245F 
+X-CRM114-Status: UNSURE (   9.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -214,34 +109,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/04/25 10:55, ziniu.wang_1@nxp.com wrote:
-> From: Luke Wang <ziniu.wang_1@nxp.com>
-> 
-> This patch series enhances the tuning process reliability for the i.MX
-> uSDHC controller by addressing several hardware-specific requirements and
-> improving alignment with the i.MX Reference Manual recommendations.
-> 
-> Haibo Chen (4):
->   mmc: sdhci-esdhc-imx: explicitly reset tuning circuit via RSTT bit
->   mmc: sdhci-esdhc-imx: reset async FIFO before sending manual tuning
->     command
->   mmc: sdhci-esdhc-imx: widen auto-tuning window for standard tuning
->   mmc: sdhci-esdhc-imx: widen auto-tuning window for manual tuning
-> 
-> Luke Wang (2):
->   mmc: sdhci-esdhc-imx: verify tuning control status after configuration
->   mmc: sdhci-esdhc-imx: switch standard tuning to manual tuning
-> ---
-> This series depends on:
-> [PATCH v2] mmc: host: sdhci-esdhc-imx: save tuning value for the card which keep power in suspend
-> ---
->  drivers/mmc/host/sdhci-esdhc-imx.c | 86 +++++++++++++++++++++++++-----
->  1 file changed, 74 insertions(+), 12 deletions(-)
-> 
+Implement fix for i.MX 93 silicon errata ERR052021.
 
-I had one question about patch 6 but otherwise, for
-all 6 patches:
+ERR052021 uSDHC: Sometimes uSDHC does not work under VDD_SOC low
+		 drive mode and nominal mode
+Description:
+  uSDHC PADs have one integration issue.
+  When CMD/DATA lines direction change from output to input, uSDHC
+  controller begin sampling, the integration issue will make input
+  enable signal from uSDHC propagated to the PAD with a long delay,
+  thus the new input value on the pad comes to uSDHC lately. The
+  uSDHC sampled the old input value and the sampling result is wrong.
 
-Acked-by: Adrian Hunter <adrian.hunter@intel.com>
+Workaround:
+  Set uSDHC CMD/DATA PADs iomux register SION bit to 1, then PADs will
+  propagate input to uSDHC with no delay, so correct value is sampled.
+
+This issue will wrongly trigger the start bit when sample the USDHC
+command response, cause the USDHC trigger command CRC/index/endbit
+error, which will finally impact the tuning pass window, especially
+will impact the standard tuning logic, and can't find a correct delay
+cell to get the best timing.
+
+Based on commit bb89601282fc ("arm64: dts: imx93-11x11-evk: set SION for
+cmd and data pad of USDHC").
+
+Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+---
+Changes in v4:
+- no changes
+
+ .../dts/freescale/imx93-phyboard-segin.dts    | 37 ++++++++++---------
+ 1 file changed, 20 insertions(+), 17 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
+index 541297052b62..525f52789f8b 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
++++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
+@@ -75,39 +75,42 @@ MX93_PAD_SD2_CD_B__GPIO3_IO00		0x31e
+ 		>;
+ 	};
+ 
++	/* need to config the SION for data and cmd pad, refer to ERR052021 */
+ 	pinctrl_usdhc2_default: usdhc2grp {
+ 		fsl,pins = <
+ 			MX93_PAD_SD2_CLK__USDHC2_CLK		0x159e
+-			MX93_PAD_SD2_CMD__USDHC2_CMD		0x139e
+-			MX93_PAD_SD2_DATA0__USDHC2_DATA0	0x138e
+-			MX93_PAD_SD2_DATA1__USDHC2_DATA1	0x138e
+-			MX93_PAD_SD2_DATA2__USDHC2_DATA2	0x138e
+-			MX93_PAD_SD2_DATA3__USDHC2_DATA3	0x139e
++			MX93_PAD_SD2_CMD__USDHC2_CMD		0x4000139e
++			MX93_PAD_SD2_DATA0__USDHC2_DATA0	0x4000138e
++			MX93_PAD_SD2_DATA1__USDHC2_DATA1	0x4000138e
++			MX93_PAD_SD2_DATA2__USDHC2_DATA2	0x4000138e
++			MX93_PAD_SD2_DATA3__USDHC2_DATA3	0x4000139e
+ 			MX93_PAD_SD2_VSELECT__USDHC2_VSELECT	0x51e
+ 		>;
+ 	};
+ 
++	/* need to config the SION for data and cmd pad, refer to ERR052021 */
+ 	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
+ 		fsl,pins = <
+ 			MX93_PAD_SD2_CLK__USDHC2_CLK		0x159e
+-			MX93_PAD_SD2_CMD__USDHC2_CMD            0x139e
+-			MX93_PAD_SD2_DATA0__USDHC2_DATA0        0x138e
+-			MX93_PAD_SD2_DATA1__USDHC2_DATA1        0x138e
+-			MX93_PAD_SD2_DATA2__USDHC2_DATA2        0x139e
+-			MX93_PAD_SD2_DATA3__USDHC2_DATA3        0x139e
+-			MX93_PAD_SD2_VSELECT__USDHC2_VSELECT    0x51e
++			MX93_PAD_SD2_CMD__USDHC2_CMD		0x4000139e
++			MX93_PAD_SD2_DATA0__USDHC2_DATA0	0x4000138e
++			MX93_PAD_SD2_DATA1__USDHC2_DATA1	0x4000138e
++			MX93_PAD_SD2_DATA2__USDHC2_DATA2	0x4000139e
++			MX93_PAD_SD2_DATA3__USDHC2_DATA3	0x4000139e
++			MX93_PAD_SD2_VSELECT__USDHC2_VSELECT	0x51e
+ 		>;
+ 	};
+ 
++	/* need to config the SION for data and cmd pad, refer to ERR052021 */
+ 	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
+ 		fsl,pins = <
+ 			MX93_PAD_SD2_CLK__USDHC2_CLK		0x158e
+-			MX93_PAD_SD2_CMD__USDHC2_CMD            0x139e
+-			MX93_PAD_SD2_DATA0__USDHC2_DATA0        0x139e
+-			MX93_PAD_SD2_DATA1__USDHC2_DATA1        0x139e
+-			MX93_PAD_SD2_DATA2__USDHC2_DATA2        0x139e
+-			MX93_PAD_SD2_DATA3__USDHC2_DATA3        0x139e
+-			MX93_PAD_SD2_VSELECT__USDHC2_VSELECT    0x51e
++			MX93_PAD_SD2_CMD__USDHC2_CMD		0x4000139e
++			MX93_PAD_SD2_DATA0__USDHC2_DATA0	0x4000139e
++			MX93_PAD_SD2_DATA1__USDHC2_DATA1	0x4000139e
++			MX93_PAD_SD2_DATA2__USDHC2_DATA2	0x4000139e
++			MX93_PAD_SD2_DATA3__USDHC2_DATA3	0x4000139e
++			MX93_PAD_SD2_VSELECT__USDHC2_VSELECT	0x51e
+ 		>;
+ 	};
+ };
+-- 
+2.34.1
 
 
