@@ -4,123 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF50FC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 15:35:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0B88C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 15:37:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LrRr7YL1sUndM+TTzLFwngoOX8HTf8RthpcfqJ5G5gI=; b=TUTkf8kUCfH6VtvhhAf3d9hEdt
-	eR2g5z5/pVsHXrn2mHKE1wUh13SDpOvLNfFeQ+0t6Es0UdsVNb0dXZyoPTiQVBW+dImpQMYwhrf1M
-	RFqFvUkZovkJaa8KbrVGuTc0ZBqaBR9av4mWecHz1dvAvZdVuoJ39zMvKJN7LNX7a8aBVI6C7hbeN
-	UbweK0fHqP86tfat0wMCD2umPYVQpFhxjjXmUbjCLJu6kapC784bM8smuAnkFhefU2YYdkESFNcy4
-	aEXlTv8AzKAnfatl3iW9Ms62qYuu52rJCsLFB54ENAENYcDVF8DPYGyDt2xMK7bb4+g/HE2Mcoe7J
-	GQbz/qYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tOD3Gx0CyCTCJeGS+Eyn7E5U4WA4L4fXoUPWM9d/JHA=; b=eVUqrm9+jhsuqrDkcmyzVtrUoe
+	pD0ivGa9m6pSqKDfWSMEqzyZ+QVirB1QsJzPkrSp6eYI1g8ZsjDyWU0olKfiD1R+iTNzG/VsxUT7r
+	eEUyNnXmLBse0oUJoBsYHWGcHMGa3hFU3CfmpQrdchrk2NzX59N7QExJIL8Ht6LPiv25pNRhgz566
+	zHQGlenBPhOQkoTdEM7E3FXzfNv9RNQ+dxjYynJljdOaqZH+mARZ+C9On9NJWwDGXBnj0nPREY4Qq
+	6WMydrbianpF+776BgjbZKWA7x23WGPcV5gQj823R/DdtkDjTIrXyIu8JDE12kTZuI6oabwrzyv7o
+	boBwWwsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7FeV-00000007kAC-2ZsF;
-	Tue, 22 Apr 2025 15:35:15 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7EPy-00000007SFh-3W7T
+	id 1u7FgM-00000007kUK-0hpt;
+	Tue, 22 Apr 2025 15:37:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7EUm-00000007T8P-2UlI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 14:16:12 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53MCSQQf003834
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 14:16:10 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	LrRr7YL1sUndM+TTzLFwngoOX8HTf8RthpcfqJ5G5gI=; b=GnDdAjw/cw6eQ7mY
-	TwZNIklOdPwvghRqJLpGxwMqdBIrR2izJlNUofl9o0E+bDSPM+fx098ZfNShxrUj
-	hL7ZKXkkVGymfkaimE3jmfC1CjfZRAl6Y9ShMHnMlb3kaj2+c9TrN7If4/72J+WU
-	cTgHTeCPJrIDQ7NpnTVkG0bq7MUDYzd1k00tex9r2gkXjA7E7j+u92ZY2/Gjv+TW
-	TnQZts+KZ7MQ9I3m4wOMBW0n1cveWHZWc2kL9+SDGbZbJzCIsLVQoRNUOyXLuzcX
-	BIW1nwTtiZqX6XbQZ8jGW4aPhs8GxZP6iA6Zk+txdPCOVIn0iGOCAMRV7sLt7iXX
-	W+xrzw==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4641hhqxeu-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 14:16:10 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-7c5f876bfe0so814856785a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 07:16:10 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745331369; x=1745936169;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=LrRr7YL1sUndM+TTzLFwngoOX8HTf8RthpcfqJ5G5gI=;
-        b=vA13Gy0TbxFXJc5LxEJEustRyVvKCKdNkVY/jQiLU+a8kU/C5kfy2aBVocKIOgQMga
-         ZVizWmsSw5aosQ6JQyN5K0CWN66hXfPloncEBaFkUfUb0IHCPjtjmmsn4udOdcjp5sI9
-         iYruy4s3CqPaMCsdKM8uIby6rAEoS/jbW866Fd9lvMg474iyzPfKgWXyBnC1WM5lOc3N
-         Mm5dYwz/Y9sBugHBgXrsuH2mdF+Eyd/VAquoAIa00dTZdq8erNepEaEBSvdhU9FX8Wz3
-         7/wjWzNx9O42ssKWuUoqkDSKL3XdO8VOjCa1wYKhFOV90DkZAkgCnqmecY9K7X/lGMyQ
-         cbkg==
-X-Forwarded-Encrypted: i=1; AJvYcCXd/eOczZIlS5gG5JH/E7uuS8G8Ikss8LvmARmXJ+p3YxwFd5Rl56kfUPPkkWH/KhQhASfnXB5pYihz3wrlVEBF@lists.infradead.org
-X-Gm-Message-State: AOJu0YwzlHxn8oKipGbgtNo3T9mQLv1taWj3RceVuIGGrH+S7Mnke7XS
-	7R3eTpUXxgGmnLoUrr/4Qug3cgujGHjTZxrtT/wfAJPOHLZldq05gF7XjhfvXFdOftjwiTMnF8C
-	t7h/ngMlABYRG2qDAwLyCTgRMtjK0LKrJ9ccxsSUGPJ8zWYge4hfeTt65qX4l2FPByuX4cWzAhw
-	==
-X-Gm-Gg: ASbGncu87wpxds3n3wKhQr7nzUEhp2yb2PJyBTjupZrmnL/htuekMRtnp/TaoKcLrDL
-	70rz5UMqBlGF/hbh9t+0ZTdNr1FPUdnmxhoCLVcDpYVzpg4QcsawBjJRQeEi4FVoa5I4ZXAjHhY
-	Umzr8UM5WN81L38y8GmKPDAucDhR+NElf9adTyOe2qnpwl5VwilWLavrm3RNjHBfkSN4L4PLy9M
-	TRVl9ccYhtY6lwmEBNljVmoh/AeZBSEQuJzbwAQKNy3CGbCrao2tZ7x1bHp+MAdI/jKYn1vXpUf
-	2uFcnNFu0AakA3GCzmVIgm3rXi18Bp4120loUbFUtT6xdbClRlK52ffouboacFzjcQDMSs96E27
-	i7mNS12z6BVV3hlyrzsX18or5Zdj70X67oQid0laTP6y2RP0E22TFGv3qDMNkyQ7U
-X-Received: by 2002:a05:620a:c47:b0:7c5:e283:7d0a with SMTP id af79cd13be357-7c927fbadb7mr2561272385a.30.1745331368733;
-        Tue, 22 Apr 2025 07:16:08 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEDu9Iz7z///DAle0/e2e4SOfXHkkui6Bh/b7f9Hsaifq8Tlj+3UCpT/UhvhwXTsV/jqxc4wQ==
-X-Received: by 2002:a05:620a:c47:b0:7c5:e283:7d0a with SMTP id af79cd13be357-7c927fbadb7mr2561262885a.30.1745331368147;
-        Tue, 22 Apr 2025 07:16:08 -0700 (PDT)
-Received: from ?IPV6:2001:14bb:a2:9556:dcef:1cfc:fd87:3323? (2001-14bb-a2-9556-dcef-1cfc-fd87-3323.rev.dnainternet.fi. [2001:14bb:a2:9556:dcef:1cfc:fd87:3323])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54d6e5247c9sm1215361e87.5.2025.04.22.07.16.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 22 Apr 2025 07:16:07 -0700 (PDT)
-Message-ID: <14df4b1c-0a43-45e6-83c5-4c450615d901@oss.qualcomm.com>
-Date: Tue, 22 Apr 2025 17:16:05 +0300
+	Tue, 22 Apr 2025 14:21:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 56BF1152B;
+	Tue, 22 Apr 2025 07:21:03 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 485253F66E;
+	Tue, 22 Apr 2025 07:21:07 -0700 (PDT)
+Date: Tue, 22 Apr 2025 15:21:02 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Yabin Cui <yabinc@google.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Liang Kan <kan.liang@linux.intel.com>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org
+Subject: Re: [PATCH 2/2] coresight: etm-perf: Add AUX_NON_CONTIGUOUS_PAGES to
+ cs_etm PMU
+Message-ID: <20250422142102.GI28953@e132581.arm.com>
+References: <20250421215818.3800081-1-yabinc@google.com>
+ <20250421215818.3800081-3-yabinc@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 22/23] drm/mediatek: Introduce HDMI/DDC v2 for
- MT8195/MT8188
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com,
-        simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org,
-        tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org,
-        conor+dt@kernel.org, matthias.bgg@gmail.com, ck.hu@mediatek.com,
-        jitao.shi@mediatek.com, jie.qiu@mediatek.com, junzhi.zhao@mediatek.com,
-        dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
-        dmitry.baryshkov@linaro.org, lewis.liao@mediatek.com,
-        ives.chenjh@mediatek.com, tommyyl.chen@mediatek.com,
-        jason-jh.lin@mediatek.com
-References: <20250415104321.51149-1-angelogioacchino.delregno@collabora.com>
- <20250415104321.51149-23-angelogioacchino.delregno@collabora.com>
- <aestmu2rblcrcz77tuqgkimaj4stg24skyp2avdstahwr3aa3i@cfv5ov2qjcf6>
- <7b3713d1-df18-4da1-a1e2-16dcff08fe66@collabora.com>
-Content-Language: en-US
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-In-Reply-To: <7b3713d1-df18-4da1-a1e2-16dcff08fe66@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=Fe43xI+6 c=1 sm=1 tr=0 ts=6807a4aa cx=c_pps a=qKBjSQ1v91RyAK45QCPf5w==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=mpaa-ttXAAAA:8 a=QX4gbG5DAAAA:8 a=iyFSFCpoZHukXat7EuUA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=NFOGd7dJGGMPyQGDc5-O:22 a=AbAUZ8qAyYyZVLSsDulk:22
-X-Proofpoint-GUID: V-791t5ltn7sjlhTrzJDMCkx4KRlNect
-X-Proofpoint-ORIG-GUID: V-791t5ltn7sjlhTrzJDMCkx4KRlNect
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-22_07,2025-04-22_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015 phishscore=0
- bulkscore=0 malwarescore=0 mlxlogscore=999 mlxscore=0 adultscore=0
- priorityscore=1501 impostorscore=0 lowpriorityscore=0 suspectscore=0
- spamscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2504220108
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250421215818.3800081-3-yabinc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_071610_888753_D6A49984 
-X-CRM114-Status: GOOD (  41.30  )
+X-CRM114-CacheID: sfid-20250422_072108_677537_40488916 
+X-CRM114-Status: GOOD (  20.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,224 +76,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/04/2025 16:53, AngeloGioacchino Del Regno wrote:
-> Il 21/04/25 21:16, Dmitry Baryshkov ha scritto:
->> On Tue, Apr 15, 2025 at 12:43:20PM +0200, AngeloGioacchino Del Regno 
->> wrote:
->>> Add support for the newer HDMI-TX (Encoder) v2 and DDC v2 IPs
->>> found in MediaTek's MT8195, MT8188 SoC and their variants, and
->>> including support for display modes up to 4k60 and for HDMI
->>> Audio, as per the HDMI 2.0 spec.
->>>
->>> HDCP and CEC functionalities are also supported by this hardware,
->>> but are not included in this commit and that also poses a slight
->>> difference between the V2 and V1 controllers in how they handle
->>> Hotplug Detection (HPD).
->>>
->>> While the v1 controller was using the CEC controller to check
->>> HDMI cable connection and disconnection, in this driver the v2
->>> one does not.
->>>
->>> This is due to the fact that on parts with v2 designs, like the
->>> MT8195 SoC, there is one CEC controller shared between the HDMI
->>> Transmitter (HDMI-TX) and Receiver (HDMI-RX): before eventually
->>> adding support to use the CEC HW to wake up the HDMI controllers
->>> it is necessary to have support for one TX, one RX *and* for both
->>> at the same time.
->>>
->>> Reviewed-by: CK Hu <ck.hu@mediatek.com>
->>> Signed-off-by: AngeloGioacchino Del Regno 
->>> <angelogioacchino.delregno@collabora.com>
->>> ---
->>>   drivers/gpu/drm/mediatek/Kconfig            |    7 +
->>>   drivers/gpu/drm/mediatek/Makefile           |    2 +
->>>   drivers/gpu/drm/mediatek/mtk_hdmi_common.c  |    4 +
->>>   drivers/gpu/drm/mediatek/mtk_hdmi_common.h  |    9 +
->>>   drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c  |  385 +++++
->>>   drivers/gpu/drm/mediatek/mtk_hdmi_regs_v2.h |  263 ++++
->>>   drivers/gpu/drm/mediatek/mtk_hdmi_v2.c      | 1396 +++++++++++++++++++
->>>   7 files changed, 2066 insertions(+)
->>>   create mode 100644 drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c
->>>   create mode 100644 drivers/gpu/drm/mediatek/mtk_hdmi_regs_v2.h
->>>   create mode 100644 drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
->>>
->>> +
->>> +static int mtk_hdmi_v2_setup_audio_infoframe(struct mtk_hdmi *hdmi)
->>> +{
->>> +    struct hdmi_codec_params *params = &hdmi->aud_param.codec_params;
->>> +    struct hdmi_audio_infoframe frame;
->>> +    u8 buffer[14];
->>> +    ssize_t ret;
->>> +
->>> +    memcpy(&frame, &params->cea, sizeof(frame));
->>> +
->>> +    ret = hdmi_audio_infoframe_pack(&frame, buffer, sizeof(buffer));
->>> +    if (ret < 0)
->>> +        return ret;
->>
->> This should really be done via
->> drm_atomic_helper_connector_hdmi_update_audio_infoframe() or
->> drm_atomic_helper_connector_hdmi_clear_audio_infoframe().
->>
->> Ideally this should come from the .hw_params() / .prepare() calls so
->> that you don't need to store the params in the driver data.
->>
-> 
-> When switching to the new hdmi audio helpers yes, but I was planning to 
-> do that
-> later.....
-> 
->>> +
->>> +    mtk_hdmi_v2_hw_write_audio_infoframe(hdmi, buffer);
->>> +
->>> +    return 0;
->>> +}
->>> +
->>> +static inline void mtk_hdmi_v2_hw_gcp_avmute(struct mtk_hdmi *hdmi, 
->>> bool mute)
->>> +{
->>> +    u32 val;
->>> +
->>> +    regmap_read(hdmi->regs, TOP_CFG01, &val);
->>> +    val &= ~(CP_CLR_MUTE_EN | CP_SET_MUTE_EN);
->>> +
->>> +    if (mute) {
->>> +        val |= CP_SET_MUTE_EN;
->>> +        val &= ~CP_CLR_MUTE_EN;
->>> +    } else {
->>> +        val |= CP_CLR_MUTE_EN;
->>> +        val &= ~CP_SET_MUTE_EN;
->>> +    }
->>> +    regmap_write(hdmi->regs, TOP_CFG01, val);
->>> +
->>> +    regmap_set_bits(hdmi->regs, TOP_INFO_RPT, CP_RPT_EN);
->>> +    regmap_set_bits(hdmi->regs, TOP_INFO_EN, CP_EN | CP_EN_WR);
->>> +}
->>> +
->>> +static void mtk_hdmi_v2_hw_ncts_enable(struct mtk_hdmi *hdmi, bool 
->>> enable)
->>> +{
->>> +    if (enable)
->>> +        regmap_set_bits(hdmi->regs, AIP_CTRL, CTS_SW_SEL);
->>> +    else
->>> +        regmap_clear_bits(hdmi->regs, AIP_CTRL, CTS_SW_SEL);
->>> +}
->>> +
->>> +static void mtk_hdmi_v2_hw_aud_set_channel_status(struct mtk_hdmi 
->>> *hdmi)
->>> +{
->>> +    u8 *ch_status = hdmi->aud_param.codec_params.iec.status;
->>> +
->>> +    /* Only the first 5 to 7 bytes of Channel Status contain useful 
->>> information */
->>> +    regmap_write(hdmi->regs, AIP_I2S_CHST0, 
->>> mtk_hdmi_v2_format_hw_packet(&ch_status[0], 4));
->>> +    regmap_write(hdmi->regs, AIP_I2S_CHST1, 
->>> mtk_hdmi_v2_format_hw_packet(&ch_status[4], 3));
->>> +}
->>> +
->>> +static void mtk_hdmi_v2_hw_aud_set_ncts(struct mtk_hdmi *hdmi,
->>> +                     unsigned int sample_rate,
->>> +                     unsigned int clock)
->>> +{
->>> +    unsigned int n, cts;
->>> +
->>> +    mtk_hdmi_get_ncts(sample_rate, clock, &n, &cts);
->>
->> drm_hdmi_acr_get_n_cts() ?
->>
-> 
-> I'd have to update both HDMI drivers to use that instead, and I was 
-> planning to do
-> that at a later time when switching to the HDMI audio helpers.
-> 
->>> +
->>> +    regmap_write(hdmi->regs, AIP_N_VAL, n);
->>> +    regmap_write(hdmi->regs, AIP_CTS_SVAL, cts);
->>> +}
->>> +
->>
->> [...]
->>
->>> +
->>> +static int mtk_hdmi_v2_audio_hw_params(struct device *dev, void *data,
->>> +                       struct hdmi_codec_daifmt *daifmt,
->>> +                       struct hdmi_codec_params *params)
->>> +{
->>> +    struct mtk_hdmi *hdmi = dev_get_drvdata(dev);
->>> +
->>> +    if (hdmi->audio_enable) {
->>> +        mtk_hdmi_audio_params(hdmi, daifmt, params);
->>> +        mtk_hdmi_v2_aud_output_config(hdmi, &hdmi->mode);
->>> +    }
->>> +    return 0;
->>> +}
->>> +
->>> +static int mtk_hdmi_v2_audio_startup(struct device *dev, void *data)
->>> +{
->>> +    struct mtk_hdmi *hdmi = dev_get_drvdata(dev);
->>> +
->>> +    mtk_hdmi_v2_hw_aud_enable(hdmi, true);
->>> +    hdmi->audio_enable = true;
->>> +
->>> +    return 0;
->>> +}
->>> +
->>> +static void mtk_hdmi_v2_audio_shutdown(struct device *dev, void *data)
->>> +{
->>> +    struct mtk_hdmi *hdmi = dev_get_drvdata(dev);
->>> +
->>> +    hdmi->audio_enable = false;
->>> +    mtk_hdmi_v2_hw_aud_enable(hdmi, false);
->>
->> Most likely you need to stop sending the AUDIO packet too. Or is it dome
->> by the hardware?
->>
-> 
-> The call to `mtk_hdmi_v2_hw_aud_enable(hdmi, false)` will set HW 
-> registers to both
-> mute and stop sending the audio packet.
-> 
->>> +}
->>> +
->>> +static int mtk_hdmi_v2_audio_mute(struct device *dev, void *data, 
->>> bool enable, int dir)
->>> +{
->>> +    struct mtk_hdmi *hdmi = dev_get_drvdata(dev);
->>> +
->>> +    mtk_hdmi_v2_hw_aud_mute(hdmi, enable);
->>> +
->>> +    return 0;
->>> +}
->>> +
->>> +static const struct hdmi_codec_ops mtk_hdmi_v2_audio_codec_ops = {
->>> +    .hw_params = mtk_hdmi_v2_audio_hw_params,
->>> +    .audio_startup = mtk_hdmi_v2_audio_startup,
->>> +    .audio_shutdown = mtk_hdmi_v2_audio_shutdown,
->>> +    .mute_stream = mtk_hdmi_v2_audio_mute,
->>> +    .get_eld = mtk_hdmi_audio_get_eld,
->>> +    .hook_plugged_cb = mtk_hdmi_v2_audio_hook_plugged_cb,
->>> +};
->>
->> Do you plan to switch to the OP_HDMI_AUDIO? I'd really like to see
->> bridges use the framework instead of implementing everthing on their
->> own.
->>
-> 
-> I do, but since I've already reached v9, I really don't want to do that 
-> right now
-> and delay this driver for another two months.
-> 
-> I plan to do the switch after we at least get this in: as the V1 driver 
-> would also
-> need the same cleanup, I may even find a way to throw more stuff in the 
-> hdmi_common
-> when cleaning up both at the same time.
+On Mon, Apr 21, 2025 at 02:58:18PM -0700, Yabin Cui wrote:
+> The cs_etm PMU, regardless of the underlying trace sink (ETF, ETR or
+> TRBE), doesn't require contiguous pages for its AUX buffer.
 
+Though contiguous pages are not mandatory for TRBE, I would set the
+PERF_PMU_CAP_AUX_NO_SG flag for it.  This can potentially benefit
+performance.
 
-Ack.
+For non per CPU sinks, it is fine to allocate non-contiguous pages.
 
--- 
-With best wishes
-Dmitry
+Thanks,
+Leo
+
+> This patch adds the PERF_PMU_CAP_AUX_NON_CONTIGUOUS_PAGES capability
+> to the cs_etm PMU. This allows the kernel to allocate non-contiguous
+> pages for the AUX buffer, reducing memory fragmentation when using
+> cs_etm.
+> 
+> Signed-off-by: Yabin Cui <yabinc@google.com>
+> ---
+>  drivers/hwtracing/coresight/coresight-etm-perf.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
+> index f4cccd68e625..c98646eca7f8 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm-perf.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+> @@ -899,7 +899,8 @@ int __init etm_perf_init(void)
+>  	int ret;
+>  
+>  	etm_pmu.capabilities		= (PERF_PMU_CAP_EXCLUSIVE |
+> -					   PERF_PMU_CAP_ITRACE);
+> +					   PERF_PMU_CAP_ITRACE |
+> +					   PERF_PMU_CAP_AUX_NON_CONTIGUOUS_PAGES);
+>  
+>  	etm_pmu.attr_groups		= etm_pmu_attr_groups;
+>  	etm_pmu.task_ctx_nr		= perf_sw_context;
+> -- 
+> 2.49.0.805.g082f7c87e0-goog
+> 
+> 
 
