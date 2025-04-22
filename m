@@ -4,70 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 313CFC369D7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 12:29:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB430C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 12:31:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=64ebY0cPXav0ihOCjI5v6o2sTgtjyxjpauAoewNWoww=; b=S8nBu6V9J0MXxxB7GCMPeE+j5d
-	0DuVspR3eNqrA56mvdT9qWOsnGAF1wjDkn8R9CcsMFA4LBKtsogCZRV1MDG5nlA/IEVaJdOBI4ccl
-	slyEAbnnUIzFfzyh8Kwm6Ujls1kieYRqk55DZ+3kLYyQ66Ep40UUWNgXcOpe5mx/QQxOxw0IcuNvn
-	cwV4c5eZ89Xj16dlUOezwJ3YsGwVI9DN5tKQqQjPPfvfvHrzQIhD3bG0Ur+FxKN7TQvErvttuO8sZ
-	DEJGjtY7tbp1nPm8rwnOV7Gp53VJvsiTBJ0bKLb6RrUWUrhFct1LpRAaFifItFCAx3ucAcNgX0Uud
-	3c5U5OWg==;
+	bh=M9iDb6dJHPByHFRUfHN+WUxFJ05ZfE06RQ96hiEBIf4=; b=rpqJnEemChPOO1sNd1Ay4lWMNf
+	wIBnlqeFuhGaIJLyKSD5vWwgiYPPnkYkvXdX6oa32nenz+y179cmx+z9CWaKCbTfrbuuZeQnn4Die
+	XG32uU9jEw7hqSbarq0zP9pLqWIPXgQqGT0yA8FL/mjr0sOniG2+e1Q9iqcYUnDNutql6wyBn76mf
+	acVmJoT6cLJ+DY73CKunKH9fkGai1AxRD6aDXYhFD1kEeqMiX9zzWOoxIiYIgBv4Ns2IqNxgQYSzV
+	bNKFFHghs4i2cp/B9kC13TbXiDrjmDHD5Zj0lL13rdBhGgWupLifI++cOPDQs4Gtq0O0eqdU1BK3a
+	q8Csa/WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Ckl-000000076jC-3rO2;
-	Tue, 22 Apr 2025 12:29:31 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1u7Cmc-000000077Nl-2WpT;
+	Tue, 22 Apr 2025 12:31:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7BrW-00000006x7e-35Ci
+	id 1u7Brc-00000006x9s-0Hsa
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 22 Apr 2025 11:32:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=M9iDb6dJHPByHFRUfHN+WUxFJ05ZfE06RQ96hiEBIf4=; b=QuwqsY/YcfdL10e/jf1marUWr/
+	vTvshWCAKeB8D/JxjZ5cKur8VpupWxsFZDMy8TxXW9jT3mW9FXzka0+P0K5QD8pgXkzjR4G7ZwhzP
+	YkZ/eRYOJLvFUOjkJEh0RIXopQshKYVRkW08PMxuG5lnzwYBIPxbGwDWCKGj8CTRrRHfQr3Bok26M
+	Ve/keW/jBxhEdzQTsPphSbgeCMU7MK0q6d36nJ7kb+Bsi9Iw0zKuO1AoWCi9ODmBo9volYBDKlPCU
+	ADva8fNHWUnNFaeHfEzQjKTuKdFAy6lqa0lIebvCDuCJqRdW9AqMoO2bNlsD7XlxozFZfrwPOkT1I
+	gyi13baQ==;
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u7BrZ-0000000BCLX-0YlK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 11:32:27 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43cf680d351so34780825e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 04:32:26 -0700 (PDT)
+	Tue, 22 Apr 2025 11:32:31 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-43cf58eea0fso23846875e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 04:32:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745321545; x=1745926345; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1745321547; x=1745926347; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=64ebY0cPXav0ihOCjI5v6o2sTgtjyxjpauAoewNWoww=;
-        b=J3Jm/D+ql/8FHSHs4FPixFWbYYQtVCYao167OzQAYEEAnqhx1DZ2A58wOb5vm7nAks
-         NiiUrEvYijIRKGBI/3EnLNJwRgf8NN4M3SptJiqYFh7weRJ8iGlu4JrZfED78APe7NeK
-         CfIQ9968qtuMCR5XX0ho/h80GsE+p1nr93rPVxaloPXWpfQkHbyHfAb3YFPe4EvlqsC2
-         Xl2zbZ4fmdmWyd3aVJFbJGxjGR9dGrl900Me86E5Mayu/DS1zQqsapKbMTgkl0guTyLX
-         KfIsJZ5KW+CLY2I/JN922x0MSW/zJrBheU+bl0thzjcuBxjpZHwAQGWaLPc7p6rVvpAt
-         PQvw==
+        bh=M9iDb6dJHPByHFRUfHN+WUxFJ05ZfE06RQ96hiEBIf4=;
+        b=efq7kwGZHW5JWF2V5HBjG7iEx8xLujsbblMJ8KViNPNrJBW+j9R52zOXhlIGT37vsD
+         +nnrNucV+mTZWSVz4V46gkLP/eVrETEBm41LW5QhgruGFCD41NzXdMLUiRO6byPaVCYo
+         XI6YCAS2D66smjeC/wHR7DmthIpkBT6eNGf0V5fwNgdKvHlMnDJUvueOHUnp6Dxy62J6
+         BhD43vPpxZJPkUF8uz+E1K6TztMjVHXDzz6erkxassVjiiud5MuWpD2gI2C7k2NtdyeV
+         Rx8PsGiRQzFaa21iHJwV4/MaNnkddjDMHU5eBXYLCwWtG4vAejj66CqwiMrTF0vYalBU
+         my/w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745321545; x=1745926345;
+        d=1e100.net; s=20230601; t=1745321547; x=1745926347;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=64ebY0cPXav0ihOCjI5v6o2sTgtjyxjpauAoewNWoww=;
-        b=dledFr0VCLomR3fJ6wk7kZundNtPNI17xBknqwfE19ETg2x4T4zgtQlqjTdBtqAKM3
-         mXoQb9xB7YGWtCjueNCyadHpGKRJpC1pGhO+ipzxwnk3++oA1xZlq/Rv3NO6XX3pDdW9
-         wL5VALCZj+3fv9U9/WTneIfnZNVo3V5aRbBV1C1UyAIiCj6pH4bMc/n/Ur6L0xlzlP5O
-         ucgMazrk4IfCkFGXkNio5ll2SVbbLuKUrxSEVNiMNRhsw6v0o85TX7oKKMJTB2SKY2CC
-         mWsxmkTqBiP4HjWfaAGDqt8nv3loNiY8LkoICWUXJYRisQv33uAF4oxSkFhoweRjF7/L
-         HKEg==
-X-Forwarded-Encrypted: i=1; AJvYcCXLpGBCbktszCTlVTsGJwpgDwndSoyXj1KuCSXP4sOudsVP83ErXNISeJEf3Edg9Azc1B46Bxu3QXxBq7ukb6gp@lists.infradead.org
-X-Gm-Message-State: AOJu0YwBFO1DtRx8/bvuY2SQyENgBj/nw+/I9VSZbIgiQOh1tBQ4sDM+
-	WHEyy90on/Ud6w7gf24WiqznQKVgVfJkxkgDzTSDlkzF2LYdosdj2Wj3uZAPyGs=
-X-Gm-Gg: ASbGncsW/QLI/HwVlMlJi5N3h9guTcOba9ezb5z6H2fN5BsfrzBOS8sNka3xVWdDIKU
-	PTl+8FAtS+CJ+dAzh4/Y8dgv3SgtHGcBg4U04L9ng2+ATzojwkbbvXoiqw+vvsqhSz+M4Hb64z1
-	8FHhVDvNUNmUjr7jKNbPov63nzjDRgewen9DYv00r5beZEBHf/4ufmcypF5RVbzUt8QYzNF0AeR
-	ogQ7pZn5GPILlxVgG54R9q2wAw83bdi+VUaHJ5j1DdoqpvgTqlKeYWOVMrFUcV2VExZedcnHkKJ
-	1qFRLtzalBQNWu1ryMNlw8Q/PrXmNhS3kylRWjcPVx0zVNZVdE2O
-X-Google-Smtp-Source: AGHT+IEyDv+QP1EWTmSMHRE/uIeHGYYUBcOw1Q2Wl1sMO2LldMVdHnU9NCNTqj9cN7+ATDWFNxMd8Q==
-X-Received: by 2002:a05:600c:4c96:b0:43d:fa5f:7d04 with SMTP id 5b1f17b1804b1-440697e1215mr95282895e9.16.1745321545291;
-        Tue, 22 Apr 2025 04:32:25 -0700 (PDT)
+        bh=M9iDb6dJHPByHFRUfHN+WUxFJ05ZfE06RQ96hiEBIf4=;
+        b=e19HdNwHZF9u+Ijr/zbXrMzFH4bYSlC98vWF/6c6dJfpLUhKvoJxBf06bKs8H6OBvX
+         jm4nN3SF5NqtmbnCF7zHWeobyWauoJVDXzDO9Lgyiygmv8+oj5g/S1LU+VeOVtt3+pFx
+         1G0IbsYw4Lp5jGBWBB9vFbCXwrFCo6VyOzcDxJUe8rIwoVwtEfH8U10dFQ6W3ViK0Deu
+         ezDiAdLBY1AsxNIAwAMYudmlmSN46T+mr/T2h55UvKaOjPOJtht8JD1XatxXojrdXNML
+         8OtAGy/YEVL5ZZnG7NB+wjkcYhrfdG7951d/8IlMe9LRYRenjTh4dqH8T8shv2Lg1ryu
+         tAcA==
+X-Forwarded-Encrypted: i=1; AJvYcCU5Deh81gc9vg9RhC9FBHCeRT20xlxTSYLGa9WjbDW5aoCU9S7+AvjvQIBWy8A864hjDX0f84PZdpas1DMTJWsd@lists.infradead.org
+X-Gm-Message-State: AOJu0YwE4cTt+GMpmbVIWcGpZ1Vzf4gaHIXIRZAyk1zKOam2JhxnWsUi
+	zh0WewshQxv/XC395hzOt2Nk65+G69pNKOYzOY7sA1qCpcoSSF3Wt7o5sy6pAlM=
+X-Gm-Gg: ASbGncuFQ05Q8TJXp9ZE11eL9SKo9eIGfYTIuT5KwEh/mav/q9FogSDDEjwgvXXuMNB
+	YEwmIXzsIIS0MbVwRpKkGgkqT5oR5bj95l9e/WomW+0Aj23aZ1wrv65Q+hWGE3Dpp48J/xrBO3Q
+	HSRW/1F8t7eHoIIsk2qSA3mJ7Nrct1INufC4hYYYQ1UUHwN0wYjgw68tS0KIrZeqyG7PpsDvO1N
+	YuisEhlxwr3RZQaLbKkqrxlhfdytApBSMGtA15xlRUBQW6orMf9Sha+9yfqj1jUxJYK6tkJe51w
+	9Mi+Ux6q6BkA4dteBp/AtecpsV7Wiy7W0+UicoP2YctBC9k1N3HADPjJTZ5J8i4=
+X-Google-Smtp-Source: AGHT+IEcklRua+TIOcJ9V56azXwxEY9ZBfbluuMXCoJPkRtrWwdtYmmWeeqPQxiQXCGvLRp7yg+S1g==
+X-Received: by 2002:a05:6000:1846:b0:39c:11c0:eb98 with SMTP id ffacd0b85a97d-39efbae03admr11898357f8f.39.1745321546877;
+        Tue, 22 Apr 2025 04:32:26 -0700 (PDT)
 Received: from eugen-station.. ([2a02:2f0a:131e:0:1820:da87:73b1:d80c])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39efa49312fsm14907887f8f.70.2025.04.22.04.32.23
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39efa49312fsm14907887f8f.70.2025.04.22.04.32.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Apr 2025 04:32:24 -0700 (PDT)
+        Tue, 22 Apr 2025 04:32:26 -0700 (PDT)
 From: Eugen Hristev <eugen.hristev@linaro.org>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-msm@vger.kernel.org,
@@ -88,18 +103,17 @@ Cc: linux-doc@vger.kernel.org,
 	dietmar.eggemann@arm.com,
 	juri.lelli@redhat.com,
 	eugen.hristev@linaro.org
-Subject: [RFC][PATCH 10/14] kmemdump: coreimage: add irq registration
-Date: Tue, 22 Apr 2025 14:31:52 +0300
-Message-ID: <20250422113156.575971-11-eugen.hristev@linaro.org>
+Subject: [RFC][PATCH 11/14] panic: add panic_kmemdump_register
+Date: Tue, 22 Apr 2025 14:31:53 +0300
+Message-ID: <20250422113156.575971-12-eugen.hristev@linaro.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250422113156.575971-1-eugen.hristev@linaro.org>
 References: <20250422113156.575971-1-eugen.hristev@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_043226_772915_A0E5B366 
-X-CRM114-Status: UNSURE (   9.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250422_123229_427007_EEA85E98 
+X-CRM114-Status: GOOD (  11.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,33 +128,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Register irq info into kmemdump
+Add function to register panic info into kmemdump
 
 Signed-off-by: Eugen Hristev <eugen.hristev@linaro.org>
 ---
- drivers/debug/kmemdump_coreimage.c | 2 ++
- 1 file changed, 2 insertions(+)
+ include/linux/panic.h | 1 +
+ kernel/panic.c        | 8 ++++++++
+ 2 files changed, 9 insertions(+)
 
-diff --git a/drivers/debug/kmemdump_coreimage.c b/drivers/debug/kmemdump_coreimage.c
-index 077b65cae4cb..2144edcc6157 100644
---- a/drivers/debug/kmemdump_coreimage.c
-+++ b/drivers/debug/kmemdump_coreimage.c
-@@ -2,6 +2,7 @@
+diff --git a/include/linux/panic.h b/include/linux/panic.h
+index 54d90b6c5f47..42a24bae218c 100644
+--- a/include/linux/panic.h
++++ b/include/linux/panic.h
+@@ -96,5 +96,6 @@ extern const char *print_tainted_verbose(void);
+ extern void add_taint(unsigned flag, enum lockdep_ok);
+ extern int test_taint(unsigned flag);
+ extern unsigned long get_taint(void);
++extern void panic_kmemdump_register(void);
  
- #include <linux/init.h>
- #include <linux/elfcore.h>
-+#include <linux/irqnr.h>
- #include <linux/kmemdump.h>
- #include <linux/kmsg_dump.h>
- #include <linux/utsname.h>
-@@ -74,6 +75,7 @@ void register_coreinfo(void)
- 			  sizeof(jiffies_64));
+ #endif	/* _LINUX_PANIC_H */
+diff --git a/kernel/panic.c b/kernel/panic.c
+index d8635d5cecb2..a26c9581e70a 100644
+--- a/kernel/panic.c
++++ b/kernel/panic.c
+@@ -38,6 +38,7 @@
+ #include <linux/seq_buf.h>
+ #include <trace/events/error_report.h>
+ #include <asm/sections.h>
++#include <linux/kmemdump.h>
  
- 	kmsg_kmemdump_register();
-+	irq_kmemdump_register();
+ #define PANIC_TIMER_STEP 100
+ #define PANIC_BLINK_SPD 18
+@@ -589,6 +590,13 @@ unsigned long get_taint(void)
+ 	return tainted_mask;
  }
  
- static struct elf_phdr *elf_phdr_entry_addr(struct elfhdr *ehdr, int idx)
++void panic_kmemdump_register(void)
++{
++	kmemdump_register("taint", (void *)&tainted_mask, sizeof(tainted_mask));
++	kmemdump_register("taintflags", (void *)&taint_flags, sizeof(taint_flags));
++}
++EXPORT_SYMBOL_GPL(panic_kmemdump_register);
++
+ /**
+  * add_taint: add a taint flag if not already set.
+  * @flag: one of the TAINT_* constants.
 -- 
 2.43.0
 
