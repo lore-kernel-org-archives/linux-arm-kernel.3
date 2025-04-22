@@ -4,65 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B5DDC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 18:15:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3399C369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 18:15:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mm8jKNoMQLTj7h4D3shZTuTnR9xrsJK49611Y0xfWkk=; b=bUZ95E0d3h2YYuCGcOcLJ7t1Cg
-	nQo+Jbyx5YR42ZdA0SlGDUCkJxqIyslDHspG2FSs7FhmeCXBYIzo9rZQVPjFZZ9jra3eJO2px3BKe
-	p1iIVVfvFxFHv86zhN+38LS6iKVBWt5fS1QtjlwxSXDXgaHZeCbV9YWOsZoi9CJcQ9GKuG85012dC
-	GYaXpIDMwa1p+sWtAXK/+tsMRrfiR5jV4bIZHHo8v2Iuu6Q00YHrBeTmj1lTRu/rwmj/mG9Y3yOtR
-	uap+gK/IPg3dLC2oZv9XXP6BIthS5wO+u7TyS4TuDxvw+OC/RwbjsTG6q0yp0Vfo+FJ0NBFDUmuH+
-	LZ0HmjnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Jh3TOfjfjJtUvON3fbrchsnqfDrRlyCdWG8ags+8rQM=; b=yerwK3g21bEjFhxjBDDLmiz/8A
+	vF3/qYgB/nH0n/H+SB6xr4dFC3a4bd1cNhi+dAvtAYkSqkLILJ97ZMkZs5IFw68RPAgDlcrYBCD3q
+	vX64WuqUU/pfr5pQTQiL1nyBvg9vk3xMUbSbSTLd3cM49tnDklQUSxYMDjb5ytEu+BTAbYfd6p+Jt
+	t5InmtBMJz+kw4NLZUnkaEhIqkaQz6f541C/U4k4EyKEi28uuyVheOsmyDe+EQRimb5izygOYA+po
+	Fa/3TSv/vgUGf+DvlTxWuCRRdkL4EO+34Zg7pFKVR+yD7BzrfIrsmNJZRopdq77tUp1JNBUTJu+F+
+	N/UnS7Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7I9g-000000087YM-3JEm;
-	Tue, 22 Apr 2025 18:15:37 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u7I9n-000000087hK-28GK;
+	Tue, 22 Apr 2025 18:15:43 +0000
+Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Fr5-00000007mwb-3PK7;
-	Tue, 22 Apr 2025 15:48:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5C85DA4BA9A;
-	Tue, 22 Apr 2025 15:42:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9ACCEC4CEE9;
-	Tue, 22 Apr 2025 15:48:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745336894;
-	bh=nqFcG+6F2hXaL5zy+yH+SQePgNZ/EcZEbOmErrH/3vs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IBCmOnDRYXMwdoo3rBgTGRHgMCDl35w7qmEdpl1zUZsxAeSve8j5KRVYfQyiwJIRA
-	 ca2B1b8/CqrQPNKef292AjDWZEAa94YysfNqLj6xDxZdXSHHSBnTP92BnVz8oIPHDE
-	 MugYkchaJaFaGq6rB+ShjZAVuitfqSMOW1syaBNE0lEOOTMG1JPyrxSzUBc17pqr5d
-	 +sL5h0gOTAv/ltxa/RsfkStymPiyAn8/eo4DMicwA5oQeHywIetxGo0q/28x9r7yiQ
-	 g8KfDA5B+/3+u62CLztkjoPY6Iqa4LIWXcsRez+8vjZaiJJMLCgskS2cSPqEQMOvSG
-	 z0p8RB9v5NGow==
-Date: Tue, 22 Apr 2025 17:48:11 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/2] arm64: dts: airoha: en7581: Add gpio-ranges property
- for gpio controller
-Message-ID: <aAe6O8qB3d7MjT0-@lore-desk>
-References: <20250307-en7581-gpio-range-v1-0-de1262105428@kernel.org>
- <20250307-en7581-gpio-range-v1-2-de1262105428@kernel.org>
+	id 1u7FsV-00000007nSY-0DP6
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 22 Apr 2025 15:49:45 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 645A943B46;
+	Tue, 22 Apr 2025 15:49:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1745336979;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Jh3TOfjfjJtUvON3fbrchsnqfDrRlyCdWG8ags+8rQM=;
+	b=Gr4x62qVWVJAZOqxoX06AnZysciGvSzFdSjOhSqxWDVbTqMV3wEPeM8pJOQb/10fNgs+si
+	0W7YhwBA4ilB5Sf0PRqfH9opH8lhnhU6wWYmn2qhGX/6tF0cGySV0BVYC4CVSULmXeiU6X
+	gIDGrw3ckqcCGZdlz08ChE5MRZkKGI3mpziwQvDZaQuXOl1fzQ3i/Yb1OVSlRxMxuvb9sp
+	vyQAyeSpZHSeJ7SndnFO7nQ06vCF3H+Xe3NSRPvmSE35nq1G3gtbQnEcWMdBAjmFOf8zUl
+	31ad9KcVgBAAppNYiHbTaJxPx48CMed1UcF9jPVYLKVvPQiE4rcXJublK+/SUA==
+Date: Tue, 22 Apr 2025 17:49:34 +0200
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Alexis Lothore <alexis.lothore@bootlin.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+ <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Richard Cochran <richardcochran@gmail.com>,
+ Daniel Machon <daniel.machon@microchip.com>, Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ "Russell King (Oracle)" <linux@armlinux.org.uk>
+Subject: Re: [PATCH net 1/2] net: stmmac: fix dwmac1000 ptp timestamp status
+ offset
+Message-ID: <20250422174934.309a1309@fedora.home>
+In-Reply-To: <20250422-stmmac_ts-v1-1-b59c9f406041@bootlin.com>
+References: <20250422-stmmac_ts-v1-0-b59c9f406041@bootlin.com>
+	<20250422-stmmac_ts-v1-1-b59c9f406041@bootlin.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="StZJEBqIgxJBqt0I"
-Content-Disposition: inline
-In-Reply-To: <20250307-en7581-gpio-range-v1-2-de1262105428@kernel.org>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvgeegudefucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudeipdhrtghpthhtoheprghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmpdhrtghpthhtoheprghnughrvgifodhnvghtuggvvheslhhunhhnrdgthhdprhgtphhtthhopegurghvvghmsegurghvvghml
+ hhofhhtrdhnvghtpdhrtghpthhtohepvgguuhhmrgiivghtsehgohhoghhlvgdrtghomhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehmtghoqhhuvghlihhnrdhsthhmfedvsehgmhgrihhlrdgtohhmpdhrtghpthhtoheprghlvgigrghnughrvgdrthhorhhguhgvsehfohhsshdrshhtrdgtohhm
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_084815_914051_500195C3 
-X-CRM114-Status: GOOD (  14.39  )
+X-CRM114-CacheID: sfid-20250422_084943_713096_DADFFA62 
+X-CRM114-Status: GOOD (  14.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,62 +87,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Alexis,
 
---StZJEBqIgxJBqt0I
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Tue, 22 Apr 2025 17:07:22 +0200
+Alexis Lothore <alexis.lothore@bootlin.com> wrote:
 
-On Mar 07, Lorenzo Bianconi wrote:
-> Introduce missing gpio-ranges property for Airoha EN7581 gpio controller
->=20
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> ---
->  arch/arm64/boot/dts/airoha/en7581-evb.dts | 4 ++++
->  1 file changed, 4 insertions(+)
->=20
-> diff --git a/arch/arm64/boot/dts/airoha/en7581-evb.dts b/arch/arm64/boot/=
-dts/airoha/en7581-evb.dts
-> index d53b72d18242e3cee8b37c7b1b719d662fd6db8d..a8f8a9f0b807a2ee4fd11f841=
-8b8e810a6945d73 100644
-> --- a/arch/arm64/boot/dts/airoha/en7581-evb.dts
-> +++ b/arch/arm64/boot/dts/airoha/en7581-evb.dts
-> @@ -65,6 +65,10 @@ reserved_bmt@7e00000 {
->  	};
->  };
-> =20
-> +&en7581_pinctrl {
-> +	gpio-ranges =3D <&en7581_pinctrl 0 13 47>;
-> +};
-> +
->  &i2c0 {
->  	status =3D "okay";
->  };
+> When a PTP interrupt occurs, the driver accesses the wrong offset to
+> learn about the number of available snapshots in the FIFO for dwmac1000:
+> it should be accessing bits 29..25, while it is currently reading bits
+> 19..16 (those are bits about the auxiliary triggers which have generated
+> the timestamps). As a consequence, it does not compute correctly the
+> number of available snapshots, and so possibly do not generate the
+> corresponding clock events if the bogus value ends up being 0.
+> 
+> Fix clock events generation by reading the correct bits in the timestamp
+> register for dwmac1000.
+> 
+> Fixes: 19b93bbb20eb ("net: stmmac: Introduce dwmac1000 timestamping operations")
 
-Hi Angelo and Matthias,
+Looks like the commit hash is wrong, should be :
 
-Do you have any update about this patch? I have some queued patches depende=
-nt
-on this one. Thanks in advance.
+477c3e1f6363 ("net: stmmac: Introduce dwmac1000 timestamping operations")
 
-Regards,
-Lorenzo
+Other than that I agree with the change, these offset are the right
+ones, thanks...
 
->=20
-> --=20
-> 2.48.1
->=20
+With the Fixes tag fixed,
 
---StZJEBqIgxJBqt0I
-Content-Type: application/pgp-signature; name=signature.asc
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
------BEGIN PGP SIGNATURE-----
+Maxime
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaAe6OwAKCRA6cBh0uS2t
-rK1DAP94bjHgjK6yU6Qawm+loboc0KNNR7UGKdg8qSO90HxTAwD+N8axwL0ELrpP
-0ix+uolfAGojTy4Ky9LnSmhkOymJiw4=
-=5EBn
------END PGP SIGNATURE-----
-
---StZJEBqIgxJBqt0I--
 
