@@ -4,58 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79BEDC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 14:53:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4A58C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 14:55:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T4cXuAtgUs1MzeQPNLofj0xLDBzZAy2dVcqVMZRNRe8=; b=jEHgZ00V2z8lVoDhp8zwSd5/v3
-	6BUksCkePcyu2VMR5cJmTQKudgvvh701H7sCspWJrqCaG628hi/XFyv+sH89t+GmhwWztBjLxsMre
-	EBxrViNsFTdAXhoadmCo7pxAqHEuKZWc+3efRR46otAKY+IcB1B4J0nVvkj6JxXzqQe9A4Ttn5kLj
-	jB2LBTxyJQGMCX/bND94DBnRDzuDzBFy0s6S93pTyNUbzMsg24ssQwJJueOV7+ijwgmwbFYGQ1bSm
-	UZWwMYjq/KAeQvOEK1Txq75pb2qBCMMdo9mpDRxp497sNqbqdTl0D83P+Cyp1wWnUXMo6W8n7gCby
-	zBtC6cKA==;
+	bh=lAaZA5qK/vVGDqno3S4/pNWQHPXmaevDq5rdyc2qK0A=; b=vYXLpdqhe+/HJScc/mgRMM+51g
+	y1a8+yeLJjcPabK+wsurnSWK9+vmw3v+MQOyx9+jjiFm72PZZdVm0QAe+d5AKPOpehqjvtggwsJ+2
+	A4MfH+VVEMTiLDI9n/fi3nr7re01nwCG2eiVAXmo+XU6/We/6trVwodpwjpt43fVXxfq5OCYhUXba
+	xjQXUTMjGVnnOLbiKjdtIxTnF6mgnKuUaCEetrlrGCwNaQqjF+CiuTzcfB/ZbelfFsL+hxmUY7x6H
+	5Yl40JbVapHnOApbAZSvX/YLg05j3ThIftzFaRf68JCLD8dwYHWYhyfFlBx+5pevDqNxekgvD/b3E
+	i7l/oZ9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Ezu-00000007Zna-01nP;
-	Tue, 22 Apr 2025 14:53:18 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u7F1k-00000007aHD-1hPg;
+	Tue, 22 Apr 2025 14:55:12 +0000
+Received: from mxout3.routing.net ([2a03:2900:1:a::8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7DcS-00000007HqX-1S6D;
+	id 1u7DcQ-00000007HpZ-3ukj;
 	Tue, 22 Apr 2025 13:25:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=T4cXuAtgUs1MzeQPNLofj0xLDBzZAy2dVcqVMZRNRe8=; b=llTAgAk0maoy6OvXznwIBkoKyW
-	cRnmSsy4Egn2t/8O8jVwXZLZHi0xn+4Y+f+ddOdQyG5bhood+D6xkKSPbGyIvQQSqtIPOrhNwHTvL
-	CmFuqJNHzCPsFOuoBl2z1YEtMXDEVr0hRt+5bM4yqzCJQZYieo6ziguCRnnYUEJsnPkZlyltqX3o9
-	EUMqFgOQJyxoQR9SgbC4hEfm8AgAmHAXS6R9VuoWkZfQoGwBBlqdFyxaI0uXHTzgcRr2gKoA56uQS
-	qxsKUAHPAAfM8FJTB9lhZouMloMUs3eN49rc72/3gME+2LUzWQ+G7Y6ilv0BJO8eH8HwHko6kIX6S
-	6IxcqwSw==;
-Received: from mxout1.routing.net ([2a03:2900:1:a::a])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u7DcP-0000000BEPk-0Nsk;
-	Tue, 22 Apr 2025 13:24:59 +0000
 Received: from mxbox4.masterlogin.de (unknown [192.168.10.79])
-	by mxout1.routing.net (Postfix) with ESMTP id 9154A3FEAB;
-	Tue, 22 Apr 2025 13:24:54 +0000 (UTC)
+	by mxout3.routing.net (Postfix) with ESMTP id E85A661561;
+	Tue, 22 Apr 2025 13:24:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1745328294;
+	s=20200217; t=1745328297;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=T4cXuAtgUs1MzeQPNLofj0xLDBzZAy2dVcqVMZRNRe8=;
-	b=VqK3lDo8PVhYpULBdkKMU4E6PXwrIZj4LSWhXDcNiP24772PkxdJqo9vQn9ZC4jmK2tw8g
-	f4qBw+UJHpRKnS+9BYifvFSGYysl+xCYp1FD22g4ZeZMdwnI+7K/lpQmkghWOKFAUaeWyd
-	bc1svMrCnNlPQYKu/lGtpVZXjJxoIVQ=
+	bh=lAaZA5qK/vVGDqno3S4/pNWQHPXmaevDq5rdyc2qK0A=;
+	b=yFWNV9qOzdoT1XGn0n3XyUIxew8wXFVlrFYhQQVNxnGDgCHGh7EFeF6eV2R0U+rILyQ9Oq
+	6ijwGR1h6xvjGIWgOpw1gvnYM3L9vLwD9Va5AIaCZ58c1NvZhF0e7ul08r5s+6VoetfqL8
+	oT9E8q76HEy7ZvKEB4Zfc/gaoDTiln8=
 Received: from frank-u24.. (fttx-pool-217.61.156.53.bambit.de [217.61.156.53])
-	by mxbox4.masterlogin.de (Postfix) with ESMTPSA id ABAC6801F5;
-	Tue, 22 Apr 2025 13:24:53 +0000 (UTC)
+	by mxbox4.masterlogin.de (Postfix) with ESMTPSA id 21BE4812E1;
+	Tue, 22 Apr 2025 13:24:56 +0000 (UTC)
 From: Frank Wunderlich <linux@fw-web.de>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -75,18 +61,18 @@ Cc: Frank Wunderlich <frank-w@public-files.de>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	linux-phy@lists.infradead.org
-Subject: [PATCH v4 5/8] dt-bindings: mfd: syscon: Add mt7988-topmisc
-Date: Tue, 22 Apr 2025 15:24:28 +0200
-Message-ID: <20250422132438.15735-6-linux@fw-web.de>
+Subject: [PATCH v4 8/8] arm64: dts: mediatek: mt7988a-bpi-r4: enable xsphy
+Date: Tue, 22 Apr 2025 15:24:31 +0200
+Message-ID: <20250422132438.15735-9-linux@fw-web.de>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250422132438.15735-1-linux@fw-web.de>
 References: <20250422132438.15735-1-linux@fw-web.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Mail-ID: b8e8432c-90f6-4c86-b7f0-98af8c167af7
+X-Mail-ID: 0bf218eb-9965-4df4-aefb-1c24f469b40a
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_142457_279762_7AC3A233 
-X-CRM114-Status: UNSURE (   8.32  )
+X-CRM114-CacheID: sfid-20250422_062459_111747_841C9520 
+X-CRM114-Status: UNSURE (   9.39  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,39 +90,39 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frank Wunderlich <frank-w@public-files.de>
 
-Add compatible for Mediatek mt7988 topmisc syscon.
-This hardware block contains 2 functional blocks
-
-- a powercontroller which is not needed (switched by atf)
-- a multiplexer for high-speed Combo-Phy
-
-This compatible is only for the multiplexer part.
+Enable XS-Phy on Bananapi R4 for pcie2.
 
 Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 ---
- Documentation/devicetree/bindings/mfd/syscon.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi | 4 ++++
+ arch/arm64/boot/dts/mediatek/mt7988a.dtsi                 | 2 +-
+ 2 files changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
-index c6bbb19c3e3e..4f3d522bc3de 100644
---- a/Documentation/devicetree/bindings/mfd/syscon.yaml
-+++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
-@@ -84,6 +84,7 @@ select:
-           - mediatek,mt2701-pctl-a-syscfg
-           - mediatek,mt2712-pctl-a-syscfg
-           - mediatek,mt6397-pctl-pmic-syscfg
-+          - mediatek,mt7988-topmisc
-           - mediatek,mt8135-pctl-a-syscfg
-           - mediatek,mt8135-pctl-b-syscfg
-           - mediatek,mt8173-pctl-a-syscfg
-@@ -187,6 +188,7 @@ properties:
-           - mediatek,mt2701-pctl-a-syscfg
-           - mediatek,mt2712-pctl-a-syscfg
-           - mediatek,mt6397-pctl-pmic-syscfg
-+          - mediatek,mt7988-topmisc
-           - mediatek,mt8135-pctl-a-syscfg
-           - mediatek,mt8135-pctl-b-syscfg
-           - mediatek,mt8173-pctl-a-syscfg
+diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
+index 0d332822971d..37e541a98ee1 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
+@@ -397,3 +397,7 @@ &tphy {
+ &watchdog {
+ 	status = "okay";
+ };
++
++&xsphy {
++	status = "okay";
++};
+diff --git a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
+index a59f8708f0ef..8f6d1dfae24a 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
+@@ -560,7 +560,7 @@ topmisc: system-controller@11d10084 {
+ 			reg = <0 0x11d10084 0 0xff80>;
+ 		};
+ 
+-		xs-phy@11e10000 {
++		xsphy: xs-phy@11e10000 {
+ 			compatible = "mediatek,mt7988-xsphy",
+ 				     "mediatek,xsphy";
+ 			#address-cells = <2>;
 -- 
 2.43.0
 
