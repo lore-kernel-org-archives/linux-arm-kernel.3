@@ -4,75 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 535B1C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 16:39:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38126C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 16:41:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sv05jOSJ6xc00eTPXgNHRvsKAXEfKlZvJUZ4OUiKUQs=; b=070ng7/zF4X1t6BhqVDLDkaqUZ
-	CKJLKzvH+32pRpbC/hD0EQ47994y6T5QtarU7E71E3nvbWfmV8CGHqfepAIr9uVr7unJwEtgFEw1j
-	guWwSAn5UbOGJNKDnaYinqV+pu2MwLvCdsOpMF/8WALY91wwcS/ucnaPPMqAuIe3qaxyy16LozYqQ
-	fMCSPvWCX4KsaTNGf1JBPOHVKNykRsfYzQzBm25MXmyp03WMz7YoSNs9syThmL7qNGJT7bNsG4ub2
-	is+5yzgtptXKbF1kVBvDTIR4tnMxotQ2u+GzNSdWXhyxC59U2ZFHjTnrP58eCcC7LkhDPH7cR6XTl
-	kiLgh6jw==;
+	bh=i9LLehpi4FTgAapmuEhpy1x3GNSP3cccL2fj7rqH5yI=; b=PQh+7FS1eazewVNYHiKOp9InzC
+	faqsGoaLgOV3PXRA5KBhlT1Mzrojnw+jV0NtxlSfF/rM/FchrAeooXDEvx2o1enZSfRsdjRN9o9dZ
+	1VcZy3+V4brraz1rtue2c7pn/ns7c6P/p1Y/xjlBtgO5DMmZ/XN4k75grtwR5C0qHAzKr5Y8it22V
+	fk7meKyRAK1ZajmDGFxi+2MLL54EDsg017mK+TCn3/Hi1XG1SaR3AmhS+Sv+rAOjWtgK7K3b72DVT
+	4vl+AMSSI9XO/HOiP9czQ7+RLXGC7xCUY16uzBRKYP/qySLSg4ZtPbxwuwX/TcIrrjtFkzNpYBSL/
+	ZgZ/6oEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Gec-00000007wb5-1nVB;
-	Tue, 22 Apr 2025 16:39:26 +0000
-Received: from relay1-d.mail.gandi.net ([217.70.183.193])
+	id 1u7GgS-00000007wse-3Qpz;
+	Tue, 22 Apr 2025 16:41:20 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7FEA-00000007dPs-2q9l
+	id 1u7FIQ-00000007enw-145n
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 15:08:05 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id DE1EA439F6;
-	Tue, 22 Apr 2025 15:07:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1745334477;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Sv05jOSJ6xc00eTPXgNHRvsKAXEfKlZvJUZ4OUiKUQs=;
-	b=OYwnFVQAZcZEoI+rYV4eM26gGChn+jEPACAHPdCJihqM7V88gUroJFpnBFYkrEFGl5dN2I
-	FEBT+F0F3V7QCNarRFhd3EWbNG5uxB8DLAPcqMxv6T9JUFMiy03fNgiEDCuUTjyOlON3rD
-	ySU2E6zlyoSop5Dlh0KvSqivEg1Vqmz5yWWjKEK6SAs1yUtaxRqMRk3JmRlQvcsq94uqF6
-	nAsaq9tXBn3LTeOOPPBRKRfJatOsq+m58nUFZ085aejv6CUmpLG8bj0T/MjwkM/kb3cJFd
-	jIN+aX8RtYSXoYMwp7383VYkT4yOf2zN7EhYkG/Gpjgw9RbGy4rAypeFAxCL3g==
-From: Alexis Lothore <alexis.lothore@bootlin.com>
-Date: Tue, 22 Apr 2025 17:07:22 +0200
-Subject: [PATCH net 1/2] net: stmmac: fix dwmac1000 ptp timestamp status
- offset
+	Tue, 22 Apr 2025 15:12:28 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4Zhlzb1gQSz6L51r;
+	Tue, 22 Apr 2025 23:10:35 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id B55E61400CA;
+	Tue, 22 Apr 2025 23:12:15 +0800 (CST)
+Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Tue, 22 Apr
+ 2025 17:12:15 +0200
+Date: Tue, 22 Apr 2025 16:12:13 +0100
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: Troy Mitchell <troymitchell988@gmail.com>
+CC: Oleksij Rempel <o.rempel@pengutronix.de>, Pengutronix Kernel Team
+	<kernel@pengutronix.de>, Andi Shyti <andi.shyti@kernel.org>, Shawn Guo
+	<shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam
+	<festevam@gmail.com>, <linux-i2c@vger.kernel.org>, <imx@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Yongchao Jia <jyc0019@gmail.com>
+Subject: Re: [PATCH 1/2] i2c: imx: use guard to take spinlock
+Message-ID: <20250422161213.0000597d@huawei.com>
+In-Reply-To: <20250421-i2c-imx-update-v1-1-1137f1f353d5@gmail.com>
+References: <20250421-i2c-imx-update-v1-0-1137f1f353d5@gmail.com>
+	<20250421-i2c-imx-update-v1-1-1137f1f353d5@gmail.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250422-stmmac_ts-v1-1-b59c9f406041@bootlin.com>
-References: <20250422-stmmac_ts-v1-0-b59c9f406041@bootlin.com>
-In-Reply-To: <20250422-stmmac_ts-v1-0-b59c9f406041@bootlin.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Richard Cochran <richardcochran@gmail.com>, 
- Daniel Machon <daniel.machon@microchip.com>, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, netdev@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- "Russell King (Oracle)" <linux@armlinux.org.uk>, 
- =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
-X-Mailer: b4 0.14.2
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvgeegtdehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthekredtredtjeenucfhrhhomheptehlvgigihhsucfnohhthhhorhgvuceorghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpefhheefudfhgeegtdekvdeujedugefhhffhfedtgfetffevveekfeelveejfffhjeenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghloheplgdujedvrddujedrtddrudgnpdhmrghilhhfrhhomheprghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedujedprhgtphhtthhopegrnhgurhgvfidonhgvthguvghvsehluhhnnhdrtghhpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkv
- ghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhsthhmfedvsehsthdqmhguqdhmrghilhhmrghnrdhsthhorhhmrhgvphhlhidrtghomhdprhgtphhtthhopegurghnihgvlhdrmhgrtghhohhnsehmihgtrhhotghhihhprdgtohhmpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhm
-X-GND-Sasl: alexis.lothore@bootlin.com
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml500006.china.huawei.com (7.191.161.198) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_080802_962406_D1335062 
-X-CRM114-Status: GOOD (  13.43  )
+X-CRM114-CacheID: sfid-20250422_081226_457061_BAF1E574 
+X-CRM114-Status: GOOD (  18.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,40 +75,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When a PTP interrupt occurs, the driver accesses the wrong offset to
-learn about the number of available snapshots in the FIFO for dwmac1000:
-it should be accessing bits 29..25, while it is currently reading bits
-19..16 (those are bits about the auxiliary triggers which have generated
-the timestamps). As a consequence, it does not compute correctly the
-number of available snapshots, and so possibly do not generate the
-corresponding clock events if the bogus value ends up being 0.
+On Mon, 21 Apr 2025 13:36:38 +0800
+Troy Mitchell <troymitchell988@gmail.com> wrote:
 
-Fix clock events generation by reading the correct bits in the timestamp
-register for dwmac1000.
+> Use guard to automatically release the lock after going out of scope
+> instead of calling it manually.
 
-Fixes: 19b93bbb20eb ("net: stmmac: Introduce dwmac1000 timestamping operations")
-Signed-off-by: Alexis Lothoré <alexis.lothore@bootlin.com>
----
- drivers/net/ethernet/stmicro/stmmac/dwmac1000.h | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Drive by review, but this changes behavior in a subtle way so we
+should have more commentary here...
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h b/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h
-index 967a16212faf008bc7b5e43031e2d85800c5c467..0c011a47d5a3e98280a98d25b8ef3614684ae78c 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h
-@@ -320,8 +320,8 @@ enum rtc_control {
- 
- /* PTP and timestamping registers */
- 
--#define GMAC3_X_ATSNS       GENMASK(19, 16)
--#define GMAC3_X_ATSNS_SHIFT 16
-+#define GMAC3_X_ATSNS       GENMASK(29, 25)
-+#define GMAC3_X_ATSNS_SHIFT 25
- 
- #define GMAC_PTP_TCR_ATSFC	BIT(24)
- #define GMAC_PTP_TCR_ATSEN0	BIT(25)
+> 
+> Co-developed-by: Yongchao Jia <jyc0019@gmail.com>
+> Signed-off-by: Yongchao Jia <jyc0019@gmail.com>
+> Signed-off-by: Troy Mitchell <troymitchell988@gmail.com>
+> ---
+>  drivers/i2c/busses/i2c-imx.c | 22 ++++++++++------------
+>  1 file changed, 10 insertions(+), 12 deletions(-)
+> 
+> diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
+> index 9e5d454d8318..cb96a57df4a0 100644
+> --- a/drivers/i2c/busses/i2c-imx.c
+> +++ b/drivers/i2c/busses/i2c-imx.c
+> @@ -23,6 +23,7 @@
+>  
+>  #include <linux/acpi.h>
+>  #include <linux/clk.h>
+> +#include <linux/cleanup.h>
+>  #include <linux/completion.h>
+>  #include <linux/delay.h>
+>  #include <linux/dma-mapping.h>
 
--- 
-2.49.0
+>  
+> @@ -1125,30 +1126,27 @@ static irqreturn_t i2c_imx_isr(int irq, void *dev_id)
+>  {
+>  	struct imx_i2c_struct *i2c_imx = dev_id;
+>  	unsigned int ctl, status;
+> -	unsigned long flags;
+>  
+> -	spin_lock_irqsave(&i2c_imx->slave_lock, flags);
+> +	guard(spinlock_irqsave)(&i2c_imx->slave_lock);
+> +
+>  	status = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2SR);
+>  	ctl = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2CR);
+>  
+>  	if (status & I2SR_IIF) {
+>  		i2c_imx_clear_irq(i2c_imx, I2SR_IIF);
+> +
+>  		if (i2c_imx->slave) {
+>  			if (!(ctl & I2CR_MSTA)) {
+>  				irqreturn_t ret;
+>  
+> -				ret = i2c_imx_slave_handle(i2c_imx,
+> -							   status, ctl);
+> -				spin_unlock_irqrestore(&i2c_imx->slave_lock,
+> -						       flags);
+> -				return ret;
+> +				return i2c_imx_slave_handle(i2c_imx,
+> +							    status, ctl);
+>  			}
+>  			i2c_imx_slave_finish_op(i2c_imx);
+>  		}
+> -		spin_unlock_irqrestore(&i2c_imx->slave_lock, flags);
+
+In this path the patch changes the lock release to occur after
+i2c_imx_master_isr(i2c_imx, status);
+
+That may well be safe; I have no idea!  You should talk about that
+in the patch description if it is.
+
+> +
+>  		return i2c_imx_master_isr(i2c_imx, status);
+>  	}
+> -	spin_unlock_irqrestore(&i2c_imx->slave_lock, flags);
+>  
+>  	return IRQ_NONE;
+>  }
+> 
 
 
