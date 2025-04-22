@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F585C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 09:23:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F4139C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 09:25:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ig/sihRUouUsDFN6IHaW0H9NZijpxQMh5wjUP8pwyQ0=; b=30VZ2pHheJbPnv+JSrr6pClPvq
-	oaGnRQtT+qheGT6/8zdhFKPiLsXmwjDTL+ZRxUDrvfCs1k76jFbvi55gskx95+caevJCHDBhNNQna
-	dtPO/WOptcP7lmGlKuJWrdPawa3y1bt9H3iC4ctQUtfaut8fih2q2mr9Yc/H7P4PyZCzAQ2IpoS4W
-	4kPOVhhD4WpE7jNwxsvbW450rbROMWEZxoH58OAXCpPQeVa+oRoOkszY2XRroNDCiNf39AVxoNx0G
-	YSAqWExWdiWMIqZn2fjci8HVHNjoc3bRVT8JogJ1Y95G+fFlBrGDdkqNjIwbwW+dAloQxhhs2m8GL
-	7lHRMZXw==;
+	bh=TauEmenDT1M/ZdAhg1xistJLD/+tILkJzenCf5mQs1E=; b=YIOOXpDMMb0kbpcytbLRyyFygb
+	owK0j//AKFpGN8TXZtAWr9LnPrETmNXrr7PPAnhSHUdsYOesKE6UL4UB8fAKtF79jnlEm4/9UJU3q
+	Yx8/D6Iiddq6XUSyX+t66tJ4W+SeimlQL1jMpDYKaXvhGFcT35XQU/8YQRFEVfN04hWzWS+sJRVUT
+	Bh8PcahOAko6EX9HBGq74ss+938cM8EuvsY5WjR0Z0R7C6H744fQx29inAarbU9D04LEkyooT3stu
+	hOAVT687V5KJNzVJy8tGo6DEREqA6DVwPs+AgnVWQe+oZGFB9SWXPTPdrrJf/9LPgsiBqYkS41nR1
+	SZ5rOQfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u79qQ-00000006XlL-0sHh;
-	Tue, 22 Apr 2025 09:23:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u79sG-00000006Y6u-3ezh;
+	Tue, 22 Apr 2025 09:25:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u78XE-00000006D4o-3bTh
+	id 1u78YI-00000006DNB-0qBH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 07:59:16 +0000
+	Tue, 22 Apr 2025 08:00:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8B9916116E;
-	Tue, 22 Apr 2025 07:58:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E60ECC4CEEA;
-	Tue, 22 Apr 2025 07:59:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6D8F24A4F9;
+	Tue, 22 Apr 2025 08:00:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C923C4CEE9;
+	Tue, 22 Apr 2025 08:00:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745308756;
-	bh=UAPA1cBdJuhl2cpNWrYkJ/eaemaqFe7c4XOIf1O/9k0=;
+	s=k20201202; t=1745308821;
+	bh=jaxJK59OTML++sk4AtUDpd+IXlIfwL+WQMTTmzt9MSU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=cmoZVKWTflUAR9TEvpZN8KuqhtxZtJzEpcDyfMZkO5IQeX8fXKlq8BaEnwWHJWlp0
-	 wjKq/SCQA2OkRKtpThVKw1D9OhdUFTf3NS52oYku+aicOrcecoFUsqR/Yc5PUCsS9R
-	 1qfzjWUQHopXAwgDWlk5c7OBI1BOoaVTEOaJcKf3keSv9xgKHGL85GSPARxYAFi/N2
-	 9Izydx/TbO3dkkwWse/l/L294yKz6gS6Y3Tt4A/kC6umOa+T5gld9pMcLl74bsYMUi
-	 glH5oc9VJ6SyF+5mGGSs5wBRAsHlkLmfwAQB5G+8eUxVy1xd86k5XADpy6tCrcMS0H
-	 y/DGnxAnoIMwA==
-Message-ID: <6de6030a-af26-4fda-8d49-fa8ac65a672f@kernel.org>
-Date: Tue, 22 Apr 2025 09:59:06 +0200
+	b=t7TqoSEXJUjrvnV18qgufzw3xkIOI2Hu04y+KTBlwBmjxOIOWkkS1MnxSvJHuftUW
+	 suiFV1Gaz+1R4iBW8BSyzBsOnmBtTMyd+M7xOruZjEBUkEtWPY5MJtGTNzh1Mg3kCR
+	 4aQGJComuxot6I3e9nZMcMfih5JV/4AEHujVL6PadQlGvRf5bdrwmF6Pdf0IZc3E1a
+	 9sMmHAdKifbdki2ennJm3+p20TFuWRxTuo/wbaBXoW6TBWVWsqBgxRvLOsPL/Z56Qu
+	 IrgG/GIlsYAltwdZdOtlW4IhKRKvK+QgISYK9vd6uGsD9JWtJcDrhQ3eCUGyHLneQ6
+	 QitEE0jEvQerg==
+Message-ID: <bc7a33de-9c8c-4377-a813-562da18ab314@kernel.org>
+Date: Tue, 22 Apr 2025 10:00:14 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] clk: samsung: exynosautov920: add cpucl0 clock
- support
+Subject: Re: [PATCH 3/3] arm64: dts: exynosautov920: add cpucl0 clock DT nodes
 To: Shin Son <shin.son@samsung.com>,
  Sylwester Nawrocki <s.nawrocki@samsung.com>,
  Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
@@ -58,8 +57,8 @@ Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
 References: <20250418061500.1629200-1-shin.son@samsung.com>
- <CGME20250418061515epcas2p138fa2f5edacbfba8f73b40182fb8d83f@epcas2p1.samsung.com>
- <20250418061500.1629200-3-shin.son@samsung.com>
+ <CGME20250418061515epcas2p4b57102967b07d665051a6297ab451a3c@epcas2p4.samsung.com>
+ <20250418061500.1629200-4-shin.son@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,9 +104,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250418061500.1629200-3-shin.son@samsung.com>
+In-Reply-To: <20250418061500.1629200-4-shin.son@samsung.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250422_010022_287139_78E1C80A 
+X-CRM114-Status: GOOD (  11.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,13 +124,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/04/2025 08:14, Shin Son wrote:
-> Register compatible and cmu_info data to support clock CMU_CPUCL0,
-> this provides clock for CPUCL0_SWTICH/DBG/CLUSTER.
+On 18/04/2025 08:15, Shin Son wrote:
+> Add cmu_cpucl0 clocks for switch, cluster, and dbg domains respectively.
 > 
+> Signed-off-by: Shin Son <shin.son@samsung.com>
+> ---
+>  arch/arm64/boot/dts/exynos/exynosautov920.dtsi | 15 +++++++++++++++
+>  1 file changed, 15 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
+> index fc6ac531d597..d1528633adfe 100644
+> --- a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
+> +++ b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
+> @@ -582,6 +582,21 @@ pinctrl_aud: pinctrl@1a460000 {
+>  			compatible = "samsung,exynosautov920-pinctrl";
+>  			reg = <0x1a460000 0x10000>;
+>  		};
+> +
+> +		cmu_cpucl0: clock-controller@1ec00000 {
+> +			compatible = "samsung,exynosautov920-cmu-cpucl0";
+> +			reg = <0x1EC00000 0x8000>;
 
-Explain why this is needed as clk of declare, instead of platform driver.
+Lowercase hex.
+> +			#clock-cells = <1>;
+> +
+> +			clocks = <&xtcxo>,
+> +				<&cmu_top DOUT_CLKCMU_CPUCL0_SWITCH>,
 
+This looks misaligned.
 
 
 Best regards,
