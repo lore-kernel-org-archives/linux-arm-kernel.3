@@ -4,60 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CE9DC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 10:07:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B831EC369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 10:08:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x5YVwar/PDY9Yr+18QumzLlM58z0UJNSKEIcichTNH0=; b=Dazc+iEWq5osG2FFL5bu/r5FXC
-	9dsH5kmcKAYyv9blzXMrbkTMaNCh7sW7TI9yodzJXbdaivJjWvYe0Rh0NMaMQJK6NxPhqrrzqeMbW
-	4ZGX8wZVIo5GRhQ2FfO27dDpziq2vB/D0N89N+A7zByqjyW93c7O/mL9wjRJYGLOFL7e9FPSsWY86
-	T73Ddbg6bFLH62khQcvNKdrJC6R1tOs6MiVphE3BtovMZZ7njMKeLJG4UiOt5aE+WcUXI3c23vv1J
-	Jis822r8jmbnpobImavgHEBpHefsHCf89i1akNBVFzKxPKy0oKyKbm3OdUtB+fyOtErDBf8t2ucM2
-	Hf+lJo6g==;
+	bh=EoAqUPC7IVwxmkA7v4AtUYOCTo2JDd0ZDzX1gHoE3Oo=; b=GsOtzVTrCO1Py4IpRaVLSDiD9r
+	UumlVSKjmpm6ssgnPp+OMFB1ZwUV2R2na/qDdcQROS9J0DcfYJDU6Ucp1+UuSLHLDniPu+5OTZdcT
+	UnTMIO4g8XTFEJlxBHXvdrmvab8qlbN4qNMLURycQF4DfknkKf0UYVxDoi+PtuJXG4ICXhRaxC6B1
+	o7WIzOzFO14O9Lrv1/RSkLnwTWHkEbaV4hxlNAI9WwwjAGrd4nrSQjXxJVikVWZZbXga4mes/m95K
+	8DU1CDdD8aQA1COO2T+GA7B1AH0mr5ZEEnU1psuzU7UJ0U0Z043I1ZI1RlFD8rMDrYGLvF4MF0HQE
+	pP68eIUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7AWi-00000006g5b-3ZL1;
-	Tue, 22 Apr 2025 10:06:52 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1u7AYZ-00000006gkd-2Z02;
+	Tue, 22 Apr 2025 10:08:47 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u79Gy-00000006PZu-374H
+	id 1u79QR-00000006RwV-3i8v
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 08:46:34 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4ZhbQR5kGNz6FCB6;
-	Tue, 22 Apr 2025 16:44:47 +0800 (CST)
-Received: from frapeml500003.china.huawei.com (unknown [7.182.85.28])
-	by mail.maildlp.com (Postfix) with ESMTPS id 7195A1402F3;
-	Tue, 22 Apr 2025 16:46:27 +0800 (CST)
-Received: from a2303103017.china.huawei.com (10.47.65.221) by
- frapeml500003.china.huawei.com (7.182.85.28) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Tue, 22 Apr 2025 10:46:26 +0200
-From: Alireza Sanaee <alireza.sanaee@huawei.com>
-To: <devicetree-spec@vger.kernel.org>
-CC: <robh@kernel.org>, <mark.rutland@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<jonathan.cameron@huawei.com>, <shameerali.kolothum.thodi@huawei.com>,
-	<linuxarm@huawei.com>
-Subject: [PATCH v1 5/5] DT: of_cpu_phandle_to_id to support SMT threads
-Date: Tue, 22 Apr 2025 09:43:40 +0100
-Message-ID: <20250422084340.457-6-alireza.sanaee@huawei.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250422084340.457-1-alireza.sanaee@huawei.com>
-References: <20250422084340.457-1-alireza.sanaee@huawei.com>
+	Tue, 22 Apr 2025 08:56:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=EoAqUPC7IVwxmkA7v4AtUYOCTo2JDd0ZDzX1gHoE3Oo=; b=dhUS5N9/CZazvrG6bBoCPIiULc
+	RP+iML0Sv+6n2QvgRsCZEBAzY10DbxiZboYDTZg+prGbs17egcc8U61xixAmlp3HPmhhTdzP70Y4K
+	gxPwb3ynSQGCwepoG0/FfSmUlObNynI4+jq+O9GpuNCSVrfxqwkTo+ckrpydKAHSjx/yvE5xY5eCe
+	A6xVEI97qgYY8XMclRHmTmMocOgiE2iJvzO8kGfMfN6s6b+mYNlv/q37/Kx9wcxtq169tSCONMK/c
+	HHyIZADGB/5CJPmiQtaFkzXiOATDTJftaHvDkn7I7lxDxsn7AMvagAVqFzcY2SBAPCwTmSal4nXcj
+	K4E0b1iQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:39526)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1u79QC-00044U-0b;
+	Tue, 22 Apr 2025 09:56:04 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1u79Q8-0007Ll-1n;
+	Tue, 22 Apr 2025 09:56:00 +0100
+Date: Tue, 22 Apr 2025 09:56:00 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+Cc: Siddharth Vadapalli <s-vadapalli@ti.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andy Whitcroft <apw@canonical.com>,
+	Dwaipayan Ray <dwaipayanray1@gmail.com>,
+	Lukas Bulwahn <lukas.bulwahn@gmail.com>,
+	Joe Perches <joe@perches.com>, Jonathan Corbet <corbet@lwn.net>,
+	Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+	Roger Quadros <rogerq@kernel.org>, Tero Kristo <kristo@kernel.org>,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux@ew.tq-group.com
+Subject: Re: [PATCH net-next 1/4] dt-bindings: net: ethernet-controller:
+ update descriptions of RGMII modes
+Message-ID: <aAdZoMge_CKtqokU@shell.armlinux.org.uk>
+References: <cover.1744710099.git.matthias.schiffer@ew.tq-group.com>
+ <218a27ae2b2ef2db53fdb3573b58229659db65f9.1744710099.git.matthias.schiffer@ew.tq-group.com>
+ <6be3bdbe-e87e-4e83-9847-54e52984c645@ti.com>
+ <cd483b43465d6e50b75f0b11d0fae57251cdc3db.camel@ew.tq-group.com>
+ <5d74d4b2-f442-4cb8-910e-cb1cc7eb2b3d@ti.com>
+ <b53fba84c8435859a40288f3a12db40685b8863a.camel@ew.tq-group.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.47.65.221]
-X-ClientProxiedBy: lhrpeml500010.china.huawei.com (7.191.174.240) To
- frapeml500003.china.huawei.com (7.182.85.28)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <b53fba84c8435859a40288f3a12db40685b8863a.camel@ew.tq-group.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_014632_927588_F59A6974 
-X-CRM114-Status: GOOD (  15.27  )
+X-CRM114-CacheID: sfid-20250422_015619_929090_9AEF67EC 
+X-CRM114-Status: GOOD (  24.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,79 +99,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enhance the API to support SMT threads, this will allow sharing resources among
-multiple SMT threads.
+On Wed, Apr 16, 2025 at 09:41:57AM +0200, Matthias Schiffer wrote:
+> Also note that (as I understand it) I'm not changing anything, I'm updating the
+> documentation to reflect what has been the intended behavior already. Please see
+> the previous discussion with Andrew that I linked, where he convinced me that
+> this is the correct approach.
 
-Enabled the sharing of resources, such as L1 Cache and clocks, between SMT
-threads. It introduces a fix that uses thread IDs to match each CPU thread in
-the register array within the cpu-node. This ensures that the cpu-map or any
-driver relying on this API is fine even when SMT threads share resources.
+I think you are as I stated in my email yesterday. The use of "MAC or
+PHY" in your new descriptions opens avenues for confusion such as the
+scenarios that I described in yesterday's email.
 
-Additionally, I have tested this for CPU based on the discussions in [1], I
-adopted the new cpu-map layout, where the first parameter is a phandle and the
-second is the local thread index, as shown below:
+> Andrew specifically asked to leave it open in the DT bindings whether MAC
+> or PHY add the delay, and it might differ between drivers (and different
+> operating systems using the same Device Tree).
 
-Used a new variable in CPU node "#cpu-cells", in which I describe the
-number of parameters when parsing the phandle with arg to find the local
-thread ID. This variable is not mandatory, and is indeed
-backward-compatible.  The API first look for this particular variable,
-if it does not exists, it just assume thread 0, which is the existing approach.
+I'm hoping that Andrew will read my email form yesterday and reconsider
+because to me this is a backwards step - it doesn't solve the problem
+with unclear documentation. I believe it makes the problem worse, and
+will lead to more bugs and misunderstandings in this area.
 
-    core0 {
-      thread0 {
-        cpu = <&cpu0 0>;
-      };
-      thread1 {
-        cpu = <&cpu0 1>;
-      };
-    };
+> Whether the MAC should add a required delay in cases where it's configurable
+> is an interesting question - not one of the Device Tree bindings, but of
+> driver implementation.
 
-[1] https://lore.kernel.org/devicetree-spec/CAL_JsqK1yqRLD9B+G7UUp=D8K++mXHq0Rmv=1i6DL_jXyZwXAw@mail.gmail.com/
+Where Andrew gets this from are MAC drivers that detect the rgmii-*id
+modes, apply the delay at the MAC, and then convert the value passed to
+phylib to PHY_INTERFACE_MODE_RGMII. This is a load of additional special
+handling in the MAC driver, and I'd say it's "advanced" usage and takes
+more time to review. It's open to mistakes without review by those who
+know this "trick", and the chances of phylib maintainers being Cc'd on
+MAC drivers is pretty low.
 
-Signed-off-by: Alireza Sanaee <alireza.sanaee@huawei.com>
----
- drivers/of/cpu.c | 19 ++++++++++++-------
- 1 file changed, 12 insertions(+), 7 deletions(-)
+So, I don't think it's something we want to be generally encouraging,
+but instead the more normal "phy-mode describes the phy_interface_mode_t
+that is passed to phylib" and only allow the "advanced" case in
+exceptional cases.
 
-diff --git a/drivers/of/cpu.c b/drivers/of/cpu.c
-index c2d729999a4e..2df07aea184e 100644
---- a/drivers/of/cpu.c
-+++ b/drivers/of/cpu.c
-@@ -189,21 +189,26 @@ int of_cpu_phandle_to_id(const struct device_node *node,
- 			 const char * prop)
- {
- 	bool found = false;
--	int cpu, ret;
-+	int cpu, ret = -1;
-+	uint32_t local_thread, thread_index;
- 	struct device_node *np;
- 	struct of_phandle_args args;
- 
- 	if (!node || !prop)
--		return -1;
--
--	ret = of_parse_phandle_with_args(node, prop, NULL, 0, &args);
--	if (ret < 0)
- 		return ret;
- 
-+	ret = of_parse_phandle_with_args(node, prop, "#cpu-cells", 0, &args);
-+	if (ret < 0) {
-+		ret = of_parse_phandle_with_args(node, prop, NULL, 0, &args);
-+		if (ret < 0)
-+			return ret;
-+	}
-+
- 	cpu_np = args.np;
-+	thread_index = args.args_count == 1 ? args.args[0] : 0;
- 	for_each_possible_cpu(cpu) {
--		np = of_cpu_device_node_get(cpu);
--		found = (cpu_np == np);
-+		np = of_get_cpu_node(cpu, &local_thread);
-+		found = (cpu_np == np) && (local_thread == thread_index);
- 		of_node_put(np);
- 		if (found)
- 			return cpu;
+> On Linux, there currently isn't a way for the MAC driver to query from the PHY
+> whether it could include the delays itself. My assumption is that most PHYs
+> either don't have internal delays, or the delays are configurable.
+
+motorcomm, dp83tg720, icplus, marvell, dp 838678, adin, micrel, tja11xx,
+vitesse, dp83822, mscc, at803x, microchip_t1, broadcom, dp83869,
+intel-xway, realtek all do handle internal delays. I haven't checked
+whether there are PHYs that don't - that's harder because we don't know
+whether PHYs that don't mention RGMII in the driver actually support
+RGMII or not.
+
+> If this is
+> the case, having the MAC add them in internal-delay modes and not adding them on
+> the PHY side would be the best default (also for PHY-less/fixed-link setups,
+> which should be handled like a PHY without internal delay capabilities.)
+
+See my "advanced" use case above. We do have drivers doing that.
+
 -- 
-2.43.0
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
