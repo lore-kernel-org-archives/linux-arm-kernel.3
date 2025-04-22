@@ -4,106 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D944C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 22:26:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04242C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 22:28:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OcAjMtDsEwOO8O58Cs5cDx4aKARQOhUbmH4snH5r6Ms=; b=AltTOYvxop36X8ySH8akXrleT1
-	D6yceAZmeWCgko1AtuqmSbFG9fxEDrTcMSDnnSwt5ucykgiCLJTqhDAORLJPE6+2vqdhjpJC7KbQp
-	5cHGZzlMnXJtZC9mHxSOb22W+7BP4yiGJEjpWiexKw87Y78NeSj6JglX5aT/F2yBWcEfgRJ7Y9wji
-	JgEm1vm/bqkLwFtsvtwdewZ+lCHMTqUrR34azxJWw0v2UF18DYKnOR9uAFIRZpoi/F8MTT957lKeR
-	8Xzs+eTYVgnXRWdXRP8SuXiRj+8x3te16wzMv9c0G+2ZHPRq6cAy0WIPiR/tbHXTA3/X67nySeqVz
-	+c8dMb1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Nwgl/CajbCuqI3qDYlx5YtTn1+2ycfN0HKzYqJne4fY=; b=OaM1mhkSQDcrgMMoPYMmpbkJ1T
+	2H4P5m9P22w69auzEpohTKTCuEefr5olztdj9R5ugAZFf1IJvMh8d/Zj8dmMINxH18APA7lS8ntfu
+	YnGT+imyxFzOucdn/nbsjsZFfm38eEE+4sEbhxzZeXPZamzhQ35AnoeCBVzTte/2yBS7TCl7AKiqg
+	lJbJ/YHM66RHyyTav8oknF6WSpCzS3D4pBV2qvGlgSE2JTsR1PxC58y6qVMjFVn8BZIisjNVAe/h7
+	zreWXZRkzl7mFx+8Kood9PxTO242rbbjRUypxdhyrmFKdgKCcvHGdzn9w5CZoehpGf/r8+HgKo6Y+
+	K8KaTMjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7M4R-00000008iLl-0O3W;
-	Tue, 22 Apr 2025 22:26:27 +0000
-Received: from mail-ot1-x331.google.com ([2607:f8b0:4864:20::331])
+	id 1u7M6J-00000008iwd-0SOY;
+	Tue, 22 Apr 2025 22:28:23 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7LnP-00000008fpQ-0LPU
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 22:08:52 +0000
-Received: by mail-ot1-x331.google.com with SMTP id 46e09a7af769-72ecc0eeb8bso1367732a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 15:08:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1745359730; x=1745964530; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=OcAjMtDsEwOO8O58Cs5cDx4aKARQOhUbmH4snH5r6Ms=;
-        b=GzaVnTps8ftqTORJOmzy1exoEziO9rSjuS7Wjdh/uHjjn9TFnD6RkBQUb9pflQqXUa
-         sdC2mY/Mmjk3lGk+lsB4a44GB48oebmgqw9qKIWjo48rqGVW7WinS/QiGIjwt3JpcX9K
-         zsOobq5lC6OjzLwT/1OlX3InB0MilC5T0TXi7dCwOOmdTt2sdh0Qr0ANzSMHOj8yGAI2
-         9pFa6k429Sez0eZXUBZ0yynYCe79+TdDaJeB5JN79xYwyFlPX712pLbnf4k4x3Qm2gXi
-         WVXJQTKiMv6DNQOAW5ui5fmBlT0U/XYUH6SNKcxu6PJ+Nr2oU8UN4EVJ0wWvN2Rt+jjI
-         cXFw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745359730; x=1745964530;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=OcAjMtDsEwOO8O58Cs5cDx4aKARQOhUbmH4snH5r6Ms=;
-        b=doBcS9p2B9zLrYGQl83RJZvXW+f2pL3zZw614h5zUz2MuJ/Vw+pD4S8GMLdujSwax2
-         uKWWcWddSnncUqKOnC3Na+3CkF87Kg+aShRuxVO/vvfNmu7W5NPoopP6r0Z4tCZjREIO
-         tBsJ2MiujcqhXgPl7Y5ssOBNotN1d6Ywm4Kwrr+KEu6eUIPqXafIOM71wqZTwwVAWGEH
-         sUwf9iTTJd/Wkqvduvnl+4tNzjD0odJY45xv8bZJHzwmgmibmc/XfpCoPqDPKDgy5YTB
-         pBzCBpf0eOMETTs6ps2+VAUslQ0NN8uYuJU9rjoFIw2eTfvws3c0u6AZgQJbQl+OBWXj
-         fr2A==
-X-Forwarded-Encrypted: i=1; AJvYcCUhRHD6+Ia0+Mkfy6vUc/IHA09d6oyknFdUwA5ztMIFPX5F79EbQ+7YZhGEmcZI7+PqcDO6DfgK/uwEFgcdXkP7@lists.infradead.org
-X-Gm-Message-State: AOJu0YyParVEEOJBCGkBsfdINj54QWQ8yMp0nH/lwlM5t/Yj13GXDbJ+
-	vP/j8Q5Xkt8Zfs/Du1rLVf6606Vnzkv0tjAb1kGsYn4oCl6WkoTBtFmbAPg8e2A=
-X-Gm-Gg: ASbGnctIH/sNI8RMjhhZz++wlaVD+7lGilzbeNq0bcgaoAlro+DiBbQoTd5LHxoOdys
-	b48sDKWKeUHN67oqjvNHKXU+F5jzbN74fW2pAUjU+CQFIwa2bjXC7oq0ii9vUKyPbiOOqRVarfy
-	M+Eeku1LbNj3UXq0HByDg18Wab6KxuLeb/ksuHr+Ot5vyP935gtoWpnSZ33DxbdeLdri+xj8ojO
-	Jt5M9GzAhYyoxsW7XBeNO55ZRQRSuIoQFfRF4cQKqTq/sXwOVBDJuhJPso7YMdCzoRA+ldA2LQf
-	T2bCh770AHNnVDT2JdMhD2cd4O239Rui3bexwedNukc2voM=
-X-Google-Smtp-Source: AGHT+IHzzwKW3y0fInhdjWSpsuJ5JmWctR16v6GWhHHGSelSclI2sxPnML9dTnb8TnnyDMSSFW1wDQ==
-X-Received: by 2002:a05:6830:61cb:b0:72a:1dfc:c981 with SMTP id 46e09a7af769-730063304edmr11661860a34.25.1745359730406;
-        Tue, 22 Apr 2025 15:08:50 -0700 (PDT)
-Received: from [127.0.1.1] ([2600:8803:e7e4:1d00:c8d1:e0ed:ce8b:96a3])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-730048848dfsm2265938a34.52.2025.04.22.15.08.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Apr 2025 15:08:50 -0700 (PDT)
-From: David Lechner <dlechner@baylibre.com>
-Date: Tue, 22 Apr 2025 17:07:51 -0500
-Subject: [PATCH v2 6/6] iio: adc: at91-sama5d2: use
- IIO_DECLARE_BUFFER_WITH_TS
+	id 1u7LwS-00000008h6i-1D8s;
+	Tue, 22 Apr 2025 22:18:13 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 4234B65F;
+	Wed, 23 Apr 2025 00:18:04 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1745360284;
+	bh=zVstEXSZYJvbRbtxwPnlxYQjZQy97aDweLvry+rZZlE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=iJEOG930kDbwQ81ItaCFUBa7veVoZCoSen3bK6km2s2o/Cc1rYOC4zi6eD4jmupL1
+	 3/sSAHxGXDQ0dDSGlcUH44eXku39bCim4maANWvXYXG1612aQ246jp33TYU4Nt+OjB
+	 vHFlE6+pxCvIHiGiIVxhSmU6B/QPyqT0IChHlagc=
+Date: Wed, 23 Apr 2025 01:18:02 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Mike Looijmans <mike.looijmans@topic.nl>
+Cc: linux-phy@lists.infradead.org,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Michal Simek <michal.simek@amd.com>, Vinod Koul <vkoul@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] phy-zynqmp: Postpone getting clock rate until actually
+ needed
+Message-ID: <20250422221802.GB32759@pendragon.ideasonboard.com>
+References: <1b153bce-a66a-45ee-a5c6-963ea6fb1c82.949ef384-8293-46b8-903f-40a477c056ae.7a5992b5-aa78-4b18-bf5c-70f893b58f48@emailsignatures365.codetwo.com>
+ <20250314150431.28319-1-mike.looijmans@topic.nl>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250422-iio-introduce-iio_declare_buffer_with_ts-v2-6-3fd36475c706@baylibre.com>
-References: <20250422-iio-introduce-iio_declare_buffer_with_ts-v2-0-3fd36475c706@baylibre.com>
-In-Reply-To: <20250422-iio-introduce-iio_declare_buffer_with_ts-v2-0-3fd36475c706@baylibre.com>
-To: Jonathan Cameron <jic23@kernel.org>, 
- David Lechner <dlechner@baylibre.com>, 
- =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
- Andy Shevchenko <andy@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, 
- Michael Hennerich <Michael.Hennerich@analog.com>, 
- Eugen Hristev <eugen.hristev@linaro.org>, 
- Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1674; i=dlechner@baylibre.com;
- h=from:subject:message-id; bh=bNzghGrt115+ZKNUZFU+xQJSBPkqwVs5iV+9xGBsm0g=;
- b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBoCBNjAzzt1sRYLcJPXzefhzYxHcbR4XNJFDKvZ
- JN6D57NVvyJATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCaAgTYwAKCRDCzCAB/wGP
- wFKfB/45NebbapbIP3t4eBe7IDDKz2IX0X7vuL1EOiu0sCj5YLzAqoCos3aGbC3nAYBmnTV/9hu
- cGfDIiEMSXlDgH7ASvPN7SFQ/ANjGO2xc896/FcMxGq/kyx3dOp33a9ienXD+mFjne9N1/PXWIg
- oO+XPo6f+HtvNvjb/uyALdwB822D7BpmRJ2i765kt5mysIPkY5yd1SBIXUu4sT9gLI9lMfV+oIo
- MqxuocA4UYA0VEMFVRssN3TAOhlHC5i+k06k7VuE04rpLH+kqyuHDcLJvBuDJnsLBOsic2D2h+q
- 5Kbts705K+v72L/z4sznTI1YwjSMGRe0UILK+jAPLEOzrS4u
-X-Developer-Key: i=dlechner@baylibre.com; a=openpgp;
- fpr=8A73D82A6A1F509907F373881F8AF88C82F77C03
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250314150431.28319-1-mike.looijmans@topic.nl>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_150851_124399_7F2019D2 
-X-CRM114-Status: GOOD (  13.85  )
+X-CRM114-CacheID: sfid-20250422_151812_471124_9B98AE27 
+X-CRM114-Status: GOOD (  33.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,52 +69,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use IIO_DECLARE_BUFFER_WITH_TS to declare the buffer that gets used with
-iio_push_to_buffers_with_ts(). This makes the code a bit easier to read
-and understand.
+Hi Mike,
 
-Signed-off-by: David Lechner <dlechner@baylibre.com>
----
-This is an alternative to [1].
+Thank you for the patch.
 
-[1]: https://lore.kernel.org/linux-iio/20250418-iio-prefer-aligned_s64-timestamp-v1-2-4c6080710516@baylibre.com/
----
- drivers/iio/adc/at91-sama5d2_adc.c | 13 ++-----------
- 1 file changed, 2 insertions(+), 11 deletions(-)
+On Fri, Mar 14, 2025 at 04:04:18PM +0100, Mike Looijmans wrote:
+> At probe time the driver would display the following error and abort:
+>   xilinx-psgtr fd400000.phy: Invalid rate 0 for reference clock 0
+> 
+> This issue was that at probe time, the system has not decided yet whether
+> the GTR is to be used for SATA (150MHz) or PCIe (100 MHz).
 
-diff --git a/drivers/iio/adc/at91-sama5d2_adc.c b/drivers/iio/adc/at91-sama5d2_adc.c
-index 414610afcb2c4128a63cf76767803c32cb01ac5e..4ebaeb41aa4568e2461506471af0540af9d1a041 100644
---- a/drivers/iio/adc/at91-sama5d2_adc.c
-+++ b/drivers/iio/adc/at91-sama5d2_adc.c
-@@ -586,15 +586,6 @@ struct at91_adc_temp {
- 	u16				saved_oversampling;
- };
- 
--/*
-- * Buffer size requirements:
-- * No channels * bytes_per_channel(2) + timestamp bytes (8)
-- * Divided by 2 because we need half words.
-- * We assume 32 channels for now, has to be increased if needed.
-- * Nobody minds a buffer being too big.
-- */
--#define AT91_BUFFER_MAX_HWORDS ((32 * 2 + 8) / 2)
--
- struct at91_adc_state {
- 	void __iomem			*base;
- 	int				irq;
-@@ -616,8 +607,8 @@ struct at91_adc_state {
- 	struct at91_adc_temp		temp_st;
- 	struct iio_dev			*indio_dev;
- 	struct device			*dev;
--	/* Ensure naturally aligned timestamp */
--	u16				buffer[AT91_BUFFER_MAX_HWORDS] __aligned(8);
-+	/* We assume 32 channels for now, has to be increased if needed.*/
-+	IIO_DECLARE_BUFFER_WITH_TS(u16, buffer, 32);
- 	/*
- 	 * lock to prevent concurrent 'single conversion' requests through
- 	 * sysfs.
+At what point does the system decide that ? I've only used (and tested)
+this driver for DisplayPort.
+
+> The driver
+> doesn't need to know the clock frequency at that point yet, so wait until
+> the lane is actually being initialized before requesting the clock rate
+> setting.
+> 
+> Signed-off-by: Mike Looijmans <mike.looijmans@topic.nl>
+> ---
+> 
+>  drivers/phy/xilinx/phy-zynqmp.c | 61 ++++++++++++++++-----------------
+>  1 file changed, 30 insertions(+), 31 deletions(-)
+> 
+> diff --git a/drivers/phy/xilinx/phy-zynqmp.c b/drivers/phy/xilinx/phy-zynqmp.c
+> index 05a4a59f7c40..e29e3e51d380 100644
+> --- a/drivers/phy/xilinx/phy-zynqmp.c
+> +++ b/drivers/phy/xilinx/phy-zynqmp.c
+> @@ -222,7 +222,6 @@ struct xpsgtr_phy {
+>   * @siou: siou base address
+>   * @gtr_mutex: mutex for locking
+>   * @phys: PHY lanes
+> - * @refclk_sscs: spread spectrum settings for the reference clocks
+>   * @clk: reference clocks
+>   * @tx_term_fix: fix for GT issue
+>   * @saved_icm_cfg0: stored value of ICM CFG0 register
+> @@ -235,7 +234,6 @@ struct xpsgtr_dev {
+>  	void __iomem *siou;
+>  	struct mutex gtr_mutex; /* mutex for locking */
+>  	struct xpsgtr_phy phys[NUM_LANES];
+> -	const struct xpsgtr_ssc *refclk_sscs[NUM_LANES];
+>  	struct clk *clk[NUM_LANES];
+>  	bool tx_term_fix;
+>  	unsigned int saved_icm_cfg0;
+> @@ -398,13 +396,40 @@ static int xpsgtr_wait_pll_lock(struct phy *phy)
+>  	return ret;
+>  }
+>  
+> +/* Get the spread spectrum (SSC) settings for the reference clock rate */
+> +static const struct xpsgtr_ssc *xpsgtr_find_sscs(struct xpsgtr_phy *gtr_phy)
+> +{
+> +	unsigned long rate;
+> +	struct clk *clk;
+> +	unsigned int i;
+> +
+> +	clk = gtr_phy->dev->clk[gtr_phy->refclk];
+> +	rate = clk_get_rate(clk);
+> +
+> +	for (i = 0 ; i < ARRAY_SIZE(ssc_lookup); i++) {
+> +		/* Allow an error of 100 ppm */
+> +		unsigned long error = ssc_lookup[i].refclk_rate / 10000;
+> +
+> +		if (abs(rate - ssc_lookup[i].refclk_rate) < error)
+> +			return &ssc_lookup[i];
+> +	}
+> +
+> +	dev_err(gtr_phy->dev->dev, "Invalid rate %lu for reference clock %u\n",
+> +		rate, gtr_phy->refclk);
+> +
+> +	return NULL;
+> +}
+> +
+>  /* Configure PLL and spread-sprectrum clock. */
+>  static void xpsgtr_configure_pll(struct xpsgtr_phy *gtr_phy)
+>  {
+>  	const struct xpsgtr_ssc *ssc;
+>  	u32 step_size;
+>  
+> -	ssc = gtr_phy->dev->refclk_sscs[gtr_phy->refclk];
+> +	ssc = xpsgtr_find_sscs(gtr_phy);
+> +	if (!ssc)
+> +		return;
+
+Isn't it an issue that we now fail here without propagating an error
+back to the caller ? The function is called by xpsgtr_phy_init(), which
+return an int, so I think returning an error code here would make sense.
+
+The rest of the patch looks good to me. I would however appreciate
+feedback from someone at AMD more knowledgeable than I am with the
+hardware. Michal, could you propose an appropriate second maintainer for
+this driver ?
+
+> +
+>  	step_size = ssc->step_size;
+>  
+>  	xpsgtr_clr_set(gtr_phy->dev, PLL_REF_SEL(gtr_phy->lane),
+> @@ -823,8 +848,7 @@ static struct phy *xpsgtr_xlate(struct device *dev,
+>  	}
+>  
+>  	refclk = args->args[3];
+> -	if (refclk >= ARRAY_SIZE(gtr_dev->refclk_sscs) ||
+> -	    !gtr_dev->refclk_sscs[refclk]) {
+> +	if (refclk >= ARRAY_SIZE(gtr_dev->clk)) {
+>  		dev_err(dev, "Invalid reference clock number %u\n", refclk);
+>  		return ERR_PTR(-EINVAL);
+>  	}
+> @@ -928,9 +952,7 @@ static int xpsgtr_get_ref_clocks(struct xpsgtr_dev *gtr_dev)
+>  {
+>  	unsigned int refclk;
+>  
+> -	for (refclk = 0; refclk < ARRAY_SIZE(gtr_dev->refclk_sscs); ++refclk) {
+> -		unsigned long rate;
+> -		unsigned int i;
+> +	for (refclk = 0; refclk < ARRAY_SIZE(gtr_dev->clk); ++refclk) {
+>  		struct clk *clk;
+>  		char name[8];
+>  
+> @@ -946,29 +968,6 @@ static int xpsgtr_get_ref_clocks(struct xpsgtr_dev *gtr_dev)
+>  			continue;
+>  
+>  		gtr_dev->clk[refclk] = clk;
+> -
+> -		/*
+> -		 * Get the spread spectrum (SSC) settings for the reference
+> -		 * clock rate.
+> -		 */
+> -		rate = clk_get_rate(clk);
+> -
+> -		for (i = 0 ; i < ARRAY_SIZE(ssc_lookup); i++) {
+> -			/* Allow an error of 100 ppm */
+> -			unsigned long error = ssc_lookup[i].refclk_rate / 10000;
+> -
+> -			if (abs(rate - ssc_lookup[i].refclk_rate) < error) {
+> -				gtr_dev->refclk_sscs[refclk] = &ssc_lookup[i];
+> -				break;
+> -			}
+> -		}
+> -
+> -		if (i == ARRAY_SIZE(ssc_lookup)) {
+> -			dev_err(gtr_dev->dev,
+> -				"Invalid rate %lu for reference clock %u\n",
+> -				rate, refclk);
+> -			return -EINVAL;
+> -		}
+>  	}
+>  
+>  	return 0;
 
 -- 
-2.43.0
+Regards,
 
+Laurent Pinchart
 
