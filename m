@@ -4,81 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C7ACC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 00:37:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8888C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 01:26:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6/keifbzIEtVJlfmUO30vCgig+0LPOXWxdcUmaG38oY=; b=gOA/BYRa7R07cWtTHsL7eqC+l0
-	kqivYU/iDcRz5hvOtS20lewgHJL0CR5045u/hUHxsJCF6PLcyX2KXsbuz7kxcUX3lHa6Hv+5ZAD06
-	HhNbmgYNd4tViCpJyoH3XUqNL1uDI0Tjj2kHM7nKRVcmBQXqIQ9N3b9er2SMyRG49yuyQvjT4gcsu
-	diML7MvIToXpAx/7OZ1gmb3O/gL+UZ/LyMrjH4+XGa2j44vH59eXwZQ/EP29IWOk3GUgE6TgdEL6c
-	7SyBxCdX7jun5xfkk/LLZ/qO2g+PrR8D9/3+XStaGl6kR3F6fFcCc4TudnktAF0YjtUyxqZtTViZI
-	9zxfrVsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sgqQbcC4Ac0v2YdyZ7o/7PpW2o0/Jn3QFWS121gTOFM=; b=olPdELKOr8gIOrPc0w5AA6lGxW
+	LUalHhR92C7a0fdbg9ve8BBmaqpjd40eYJ9R9NufMMaSDIRh9kU+yvOX6BA6A7it/r7y+HzF8nVbD
+	iSyL4VA/MoiWI+NMCFNUEExTd7QCoyWYjI5Oka8TTpEyVlm8+csPzcm3Bw8XIuadNi5XZhGUBG62p
+	XJmqUfuZYDg+mujLrOY+3X369kB64V8dn7PnBk5zzxjGxlHbYIzmQ7XLPG7cmSQ7ZCKKeSU9x6DIc
+	/BtpIjeFyJRoLNp7Ba18sOxdoPTO6qJblCIOxBf67uGs+KKF9xglDHSChtTMv6PJPGtjz6jnpMCzm
+	bWr8y06A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u71dn-00000005ThJ-0Ape;
-	Tue, 22 Apr 2025 00:37:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u71bu-00000005Tab-49Ng
+	id 1u72PP-00000005W2d-2VNH;
+	Tue, 22 Apr 2025 01:26:47 +0000
+Received: from mail-m16.yeah.net ([220.197.32.17])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u72NX-00000005VqT-3AxU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 00:35:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 419524A769
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 00:35:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DBDAC4CEED
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 00:35:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745282138;
-	bh=6/keifbzIEtVJlfmUO30vCgig+0LPOXWxdcUmaG38oY=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=uNKeNDyXmWliC0evfHfEB1zR5j9FXZmNXh77klHVuqpl2kXU9PzX4lwILlAAuw3SQ
-	 TnmoTrwfud0pA6p7nx8qMgdWxq1/LnOPkxrjC8CClY+v83yTJsmhV8GQI9TA+CaSOt
-	 D3tvcvfJTyeZCReN4CCeOz0OYki7oGC9Bn+aRSOVBrukhbd8bpRbQYLFHVkveofC1q
-	 ppLqbs/l6ajR6fXzYh7nwr2lMlVcAjAabS85JlJ3w80hggGL6LEi0bU88wPkVO8Jty
-	 x4zXNkJUw7EW2hIOTOeT/vv7qE49Bbm81k6RzM5Ie923lFGAMKK4ihj4lnbzV5Qd1m
-	 KpMX3TZJ9khjQ==
-Received: by mail-qt1-f173.google.com with SMTP id d75a77b69052e-4769b16d4fbso24603061cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Apr 2025 17:35:38 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWaVNrCCWlaM9OuGs/bYFzJKHIUT1yDku9LAZVQJRZVpjZUyFrxUjRwoHbzkHFnJnuuCbjr+75QBPKUGx36dmnP@lists.infradead.org
-X-Gm-Message-State: AOJu0YxoaUG6Z4LY5V4+LdvU0t+Vz81pcX/MZMxPEMWWbTPdPuH9i625
-	Pgts2jSFbHsmd2MDbEUsLsBgSpZUyQ0XssP1oNl4S9KK9w02eTJ6XCZqPcASyyjV2MrkLY/JsH8
-	+6C8U3Ca2L/Dpw2XFSzb6Jb25QNE=
-X-Google-Smtp-Source: AGHT+IG9u8G20E0oo1O9mluOh2KQ5PFLirBFpteAz/tNX7rHCsPVff3ugqByeJ5CuCdd1xWJ/UgHWfBF3qZBa+iM5lQ=
-X-Received: by 2002:a05:622a:650:b0:476:8132:c556 with SMTP id
- d75a77b69052e-47aec4dbfcdmr175809431cf.48.1745282137768; Mon, 21 Apr 2025
- 17:35:37 -0700 (PDT)
+	Tue, 22 Apr 2025 01:24:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=sgqQbcC4Ac0v2YdyZ7o/7PpW2o0/Jn3QFWS121gTOFM=;
+	b=ccggECoIV5cjU/T7WXevp9cZmZ2ebAt/jWpnx2F7PCBHiz0MlPgvTLRPf+JRMj
+	e2nQVZFfsvKxaG4mYNBWi5c5rSU1jjqptuZ/UbgjinMSXg5qKGSczsBVgmgfkrdt
+	gWdYZlVA9U2i4iedmoBpO9qjSvak3/kuD7TtP5oJO6zUM=
+Received: from dragon (unknown [])
+	by gzsmtp1 (Coremail) with SMTP id Mc8vCgB3b06h7wZoBuypAw--.471S3;
+	Tue, 22 Apr 2025 09:23:48 +0800 (CST)
+Date: Tue, 22 Apr 2025 09:23:45 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: Andrej Picej <andrej.picej@norik.com>
+Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
+	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+	jernej.skrabec@gmail.com, airlied@gmail.com, simona@ffwll.ch,
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com, marex@denx.de,
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, upstream@lists.phytec.de
+Subject: Re: [PATCH v7 3/3] arm64: dts: imx8mm-phyboard-polis-peb-av-10: Set
+ lvds-vod-swing
+Message-ID: <aAbvobSqxSLt+uFC@dragon>
+References: <20241216085410.1968634-1-andrej.picej@norik.com>
+ <20241216085410.1968634-4-andrej.picej@norik.com>
 MIME-Version: 1.0
-References: <20250412010940.1686376-1-dylanbhatch@google.com> <20250412010940.1686376-3-dylanbhatch@google.com>
-In-Reply-To: <20250412010940.1686376-3-dylanbhatch@google.com>
-From: Song Liu <song@kernel.org>
-Date: Mon, 21 Apr 2025 17:35:26 -0700
-X-Gmail-Original-Message-ID: <CAPhsuW4LO9Cr8kpTeNR7nBw1FYrNrXBndYtcTEnA408GL1jT0A@mail.gmail.com>
-X-Gm-Features: ATxdqUF0eWQu3DIXlyOorPxXB9gWMbvA_2k01-Rt21URVsQ-cwGBXbzbfMHyhG8
-Message-ID: <CAPhsuW4LO9Cr8kpTeNR7nBw1FYrNrXBndYtcTEnA408GL1jT0A@mail.gmail.com>
-Subject: Re: [PATCH v2 2/2] arm64/module: Use text-poke API for late relocations.
-To: Dylan Hatch <dylanbhatch@google.com>
-Cc: Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
-	Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, 
-	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
-	Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
-	Xu Kuohai <xukuohai@huaweicloud.com>, =?UTF-8?Q?Philippe_Mathieu=2DDaud=C3=A9?= <philmd@linaro.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	"Mike Rapoport (Microsoft)" <rppt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Luis Chamberlain <mcgrof@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Ard Biesheuvel <ardb@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Roman Gushchin <roman.gushchin@linux.dev>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241216085410.1968634-4-andrej.picej@norik.com>
+X-CM-TRANSID: Mc8vCgB3b06h7wZoBuypAw--.471S3
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUcTmhUUUUU
+X-Originating-IP: [114.216.210.34]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiCRI3ZWgGsHT8JwAAs4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_173539_043587_86410C5F 
-X-CRM114-Status: GOOD (  12.43  )
+X-CRM114-CacheID: sfid-20250421_182452_142982_5562327F 
+X-CRM114-Status: UNSURE (   5.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,18 +81,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 11, 2025 at 6:10=E2=80=AFPM Dylan Hatch <dylanbhatch@google.com=
-> wrote:
->
-> To enable late module patching, livepatch modules need to be able to
-> apply some of their relocations well after being loaded. In this
-> scenario, use the text-poking API to allow this, even with
-> STRICT_MODULE_RWX.
->
-> This patch is largely based off commit 88fc078a7a8f6 ("x86/module: Use
-> text_poke() for late relocations").
->
-> Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
+On Mon, Dec 16, 2024 at 09:54:10AM +0100, Andrej Picej wrote:
+> Set custom differential output voltage for LVDS, to fulfill requirements
+> of the connected display. LVDS differential voltage for data-lanes and
+> clock output has to be between 200 mV and 600 mV.
+> Driver sets 200 Ohm near-end termination by default.
+> 
+> Signed-off-by: Andrej Picej <andrej.picej@norik.com>
 
-Acked-by: Song Liu <song@kernel.org>
+Applied, thanks!
+
 
