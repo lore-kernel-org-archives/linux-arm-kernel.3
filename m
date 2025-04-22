@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEEFAC369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 18:14:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBE34C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 18:14:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FoMJHBpWMu0PfFPXdOpXqsF4rsLE9nT+684D4CStTqo=; b=bYjWJgQnooro1TlYY6O2ujRARl
-	Xb+29BsDXVtOXrntkJQwehQcMU0lcAUKalt7T0OICtZUjAgeoO5pbsR8cBxhyLvBoCCLuRflDcr++
-	qJcFxeVZrTPvXwrXzvlaLQgDzzn3lhRHz85i0RqX0SARW/8Jc3n6MTTI0Z0+030bDw8FOQRV8IP8b
-	UZmiLRU2FYoAOmxklsEpOAPm6sKowFjJgyqn/mbkBC4+6/CTYfR4lQczuRPO7sk85bfi2b325GTsD
-	e0yNfOtjaobvodpc3iZmWj97dTbrd+On3MAFtWQyITjDnNoSbbr57PpZuAc7dfBTI9VIj7hOd6fpV
-	hKC6Ak4w==;
+	bh=ZqvegHLKDSOG7dosSurNIzoi6LoKmbMvsLv6jJgqizA=; b=W/uUUL9lYnX9pU9aljtPdqqFkX
+	1iiHC8aGS64LqABm/QYRICMNlo13nLQ5FLEjkOt6WzWNHNbYv6eQ9FQFZbdVU6kE4VTJEn7dUZ9B1
+	DXAuzFUPokW7rjhxuTMtdgox8u3j3fduyxEVun51NewgYn8SNAf+dtnBdiEFHce2ICmdnULNgCPJx
+	yMLMNyYC9Lp7IgCPwX65XrkEWXkGmawflLpbdZYysuxHqA870qtnLL2bnM1uehTsJB6TsokmdCjQ/
+	wPmwDpVVlWKH8lOsYzRXkzfLCuxOZguAIIPwtfnKIaiEMrBBcvE9DtqvpoqURR9Z0aZH5zaCB+RQE
+	1syHPyyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7I8b-000000085e2-3Nnk;
-	Tue, 22 Apr 2025 18:14:29 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u7I8a-000000085d0-0DcE;
+	Tue, 22 Apr 2025 18:14:28 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Eu7-00000007Z1S-48FC;
-	Tue, 22 Apr 2025 14:47:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B8C6D5C4CB7;
-	Tue, 22 Apr 2025 14:45:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09DF7C4CEE9;
-	Tue, 22 Apr 2025 14:47:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745333237;
-	bh=FoMJHBpWMu0PfFPXdOpXqsF4rsLE9nT+684D4CStTqo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=KDZHAg/vxSCs1SDn+fai6JVXrLIRdQ0usnl9Vqa5ZmduLJ7JUNOzfi9eVthE8v41f
-	 XvsTO574pkxOVt7857ozBxJ2V4eCmwN/seI/sDnXYyor9O4J5xtT/BapgvLbjqAmeS
-	 78ZvgvrKdoc0lbm1lJEmJvXeNMSkel6HXiCIferTFkTz7BqIRjfBPYz3TZi4ecKWfH
-	 hOld6pXH5OsT7QF/jJQQN7SYdHHhU4CXIjyEbaUXFnlDb07Bq70JexyUhlCZ/5aK2q
-	 WfrM+Dhthfsj1X3vyDzVEQiSNCNid4TrxMBrxZ71Wq8YxqrUX05IDydRM//5HJ6JPG
-	 1WqaUn/HAYuHQ==
-Date: Tue, 22 Apr 2025 07:47:16 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, Simon Horman
- <horms@kernel.org>
-Subject: Re: [PATCH net-next v2] net: airoha: Add missing filed to
- ppe_mbox_data struct
-Message-ID: <20250422074716.2ddd4320@kernel.org>
-In-Reply-To: <aAeiYFIIOyTVvMhw@lore-desk>
-References: <20250417-airoha-en7581-fix-ppe_mbox_data-v2-1-43433cfbe874@kernel.org>
-	<20250421183610.7bad877c@kernel.org>
-	<aAeiYFIIOyTVvMhw@lore-desk>
+	id 1u7Eky-00000007XSC-3tuk;
+	Tue, 22 Apr 2025 14:37:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1745332670;
+	bh=XOcO0ArbH6Md0k0EPnq4IKHD3/xoAvNCfcUCHuD0Lws=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=WGoliEGEinb7je8e2k53/89bUcia/ONf19VlR/muqYxTJvQTIpPn7RU2kAS8IalBX
+	 HBqTxt+Qx32P314ouKFeYlltDVmGzmuZ7RmrljJWQ5o3SJpNS1g3sQMr5YgdXXrOO3
+	 jAndt9N4QgD+4RUORgHHvMdzO+k92cibpsrQQjbEYgtvAkXXinhB0O1Cj6lPySGthF
+	 dUU4nt1V1QZUmkxNDA/bWDRNyYLzVdrpfno0a4sVFS46IHN053wJhrrVzTz8GAYDNN
+	 Z9JsT2e7GhQrZGnqjia9T61x0O81msR8JIvID24EoOIi5KOB2czovYPihFUKLgKbbM
+	 Sp6TzP4SRoNcA==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 607EB17E0CAB;
+	Tue, 22 Apr 2025 16:37:50 +0200 (CEST)
+Message-ID: <28e3f91f-a786-4ec6-ae70-bd92c11be81a@collabora.com>
+Date: Tue, 22 Apr 2025 16:37:50 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/1] media: mediatek: jpeg: fix buffer alignment
+To: Jianhua Lin <jianhua.lin@mediatek.com>, mchehab@kernel.org,
+ matthias.bgg@gmail.com
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com
+References: <20250418032559.31043-1-jianhua.lin@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250418032559.31043-1-jianhua.lin@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_074720_084847_ECFB1866 
-X-CRM114-Status: UNSURE (   7.16  )
+X-CRM114-CacheID: sfid-20250422_073753_149447_436B12B5 
+X-CRM114-Status: UNSURE (   7.09  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,10 +77,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 22 Apr 2025 16:06:24 +0200 Lorenzo Bianconi wrote:
-> actually the commit below is even present in the net tree. Since this is
-> required to work with the official airoha firmware, I guess I should repost
-> targeting net with the same Fixes tag. Agree?
+Il 18/04/25 05:25, Jianhua Lin ha scritto:
+> From: "jianhua.lin" <jianhua.lin@mediatek.com>
+> 
+> The JPEG encoder image stride register must be MCU aligned.
+> For YUV422, it's 32-byte aligned, and for YUV420, it's
+> 16-byte aligned.
+> 
+> The minimal DCT block size is 8x8, so the vertical buffer
+> alignment for YUV422 is 8-byte aligned, and for YUV420,
+> it's 16-byte aligned.
+> 
+> Signed-off-by: jianhua.lin <jianhua.lin@mediatek.com>
 
-Agree! I must have mis-grep'ed it
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+
+
 
