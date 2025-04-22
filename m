@@ -4,60 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19AADC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 15:39:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42DACC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Apr 2025 15:41:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1cPkCZDWnGNULOz6yleiR1eCfi5XWQLeIcB1znt20yk=; b=kgspgkUz/9VNtET3BaphOhHY9H
-	1WPdFaFPb3uDA0Wgj24JlvWMNEBcbdE/6G53k9fJ2sh3AjKaxF6SIGXyqbx6QkvIxhI24bqDdvYmt
-	78udwB9MMzN96pVsWLuRHNjQ27ppAFocbLbTJkI7XD5e/YPRA10lHQEEwwLLTQyNmG89eQF9rNFAL
-	LdzGltSWmkYCn2gqbp/GTzNi+uUxPTs4Ybx0hBV/eo59A6ZFIR0CBd73gBmwCp088FhV++vIqAuq2
-	3cErFgDGuoKxcQuKqdoOKnmPT1fJi7d7psu1FgCL+ork+WGLcyrZgNpVOJ5d5wXyTHudTcxvfUxbw
-	7u67WenA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hNY+lSA4LGDF577T5xVfC+u7ea4LZESXu5gOyjCWZx8=; b=rZvaiMIUKihPANkfkG29g9URgX
+	NLUAxv2sqFe+Ih3HTQeAjtW4jF+0dVR7jvStVblA2tiynUwREfhefDysvv+DW+NRBb4S1rf6BeObJ
+	MUMUUhupfCscTfIm0n4GVzmQxVkjfK+GXT5OJGDjq8WtgRJk4WwUlpGA4y9XZhZZVxdk1j5fods7P
+	p7klauRdye7MnVOUgGBf8K9r750uriLe34If2Jt9PsqgsHWAFgOn8b6v2R/hbLQX8sLisTysrpTwo
+	BVCbF1dmr9uQ7epKDdZRc6WlAnlRs6I7chugSxt2Z56gU67zH6UzKoGWR59rDdug9LY3ToU55Pw7W
+	ZhUsHbfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7FiD-00000007kxz-3qHb;
-	Tue, 22 Apr 2025 15:39:05 +0000
-Received: from relay2-d.mail.gandi.net ([217.70.183.194])
+	id 1u7Fk4-00000007lNP-2ogs;
+	Tue, 22 Apr 2025 15:41:00 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7EVR-00000007TEb-1Lkw
+	id 1u7EVv-00000007TKe-28vo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Apr 2025 14:21:50 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id AE33E438C1;
-	Tue, 22 Apr 2025 14:21:46 +0000 (UTC)
-Received: from peko by dell.be.48ers.dk with local (Exim 4.96)
-	(envelope-from <peko@dell.be.48ers.dk>)
-	id 1u7EVN-009vHX-2k;
-	Tue, 22 Apr 2025 16:21:45 +0200
-From: Peter Korsgaard <peter@korsgaard.com>
-To: Praveen Teja Kundanala <praveen.teja.kundanala@amd.com>,
-	Kalyani Akula <kalyani.akula@amd.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Peter Korsgaard <peter@korsgaard.com>,
-	stable@vger.kernel.org,
-	Kalyani Akula <Kalyani.akula@amd.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] nvmem: zynqmp_nvmem: unbreak driver after cleanup
-Date: Tue, 22 Apr 2025 16:21:12 +0200
-Message-Id: <20250422142112.2364822-1-peter@korsgaard.com>
-X-Mailer: git-send-email 2.39.5
+	Tue, 22 Apr 2025 14:22:20 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53MEM7Tr1240879
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 22 Apr 2025 09:22:07 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1745331727;
+	bh=hNY+lSA4LGDF577T5xVfC+u7ea4LZESXu5gOyjCWZx8=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=UGPCEvO+TgGjuZR3JPdLgeRfzycdeM26ZB0pPryMntMIdCbSK6Tw0QRt3hyA1VAMt
+	 +DIei7Qmh32lnQmTjX0DQNSKuFCFgFHBVdqlq9NaBvTOVW6vEstq4amSmSKFfYuioa
+	 qjYrJui330U+98eg7bYdR6/MYIwNQQqRElU55Z14=
+Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53MEM7kB092213
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 22 Apr 2025 09:22:07 -0500
+Received: from DLEE106.ent.ti.com (157.170.170.36) by DLEE113.ent.ti.com
+ (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 22
+ Apr 2025 09:22:07 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE106.ent.ti.com
+ (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 22 Apr 2025 09:22:07 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53MEM7W5130099;
+	Tue, 22 Apr 2025 09:22:07 -0500
+Date: Tue, 22 Apr 2025 09:22:07 -0500
+From: Nishanth Menon <nm@ti.com>
+To: Judith Mendez <jm@ti.com>
+CC: Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Bjorn Andersson
+	<bjorn.andersson@oss.qualcomm.com>,
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>,
+        Geert Uytterhoeven
+	<geert+renesas@glider.be>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        Vignesh Raghavendra <vigneshr@ti.com>
+Subject: Re: [PATCH] arm64: defconfig: Enable hwspinlock and eQEP for K3
+Message-ID: <20250422142207.2tu7gmhnjercmoa2@basil>
+References: <20250421201055.3889680-1-jm@ti.com>
+ <55d306d4-c9cd-4119-8798-b65a6956f4df@app.fastmail.com>
+ <54b6880a-bf65-4a79-8f3e-9fa66b6c3550@ti.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvgeefleeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffoggfgsedtkeertdertddtnecuhfhrohhmpefrvghtvghrucfmohhrshhgrggrrhguuceophgvthgvrheskhhorhhsghgrrghrugdrtghomheqnecuggftrfgrthhtvghrnhepveeiveethfelteelueelvdffieevgfdvtdeivdetuefgffdtvdeuffevheegffdunecukfhppedujeekrdduudelrddurddufeejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepudejkedrudduledruddrudefjedphhgvlhhopeguvghllhdrsggvrdegkegvrhhsrdgukhdpmhgrihhlfhhrohhmpehpvghkoheskhhorhhsghgrrghrugdrtghomhdpnhgspghrtghpthhtohepuddtpdhrtghpthhtohepshhrihhniheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepghhrvghgkhhhsehlihhnuhigfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtohepphgvthgvrheskhhorhhsghgrrghrugdrtghomhdprhgtphhtthhopehprhgrvhgvvghnrdhtvghjrgdrkhhunhgurghnrghlrgesrghmugdrtghomhdprhgtphhtthhopehkrghlhigrnhhirdgrkhhulhgrsegrmhgurdgtohhmpdhrtghpt
- hhtohepmhhitghhrghlrdhsihhmvghksegrmhgurdgtohhmpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepshhtrggslhgvsehvghgvrhdrkhgvrhhnvghlrdhorhhg
-X-GND-Sasl: peter@korsgaard.com
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <54b6880a-bf65-4a79-8f3e-9fa66b6c3550@ti.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_072149_486913_343D6E32 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20250422_072219_634856_1E51EC94 
+X-CRM114-Status: GOOD (  21.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,35 +94,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 29be47fcd6a0 ("nvmem: zynqmp_nvmem: zynqmp_nvmem_probe cleanup")
-changed the driver to expect the device pointer to be passed as the
-"context", but in nvmem the context parameter comes from nvmem_config.priv
-which is never set - Leading to null pointer exceptions when the device is
-accessed.
+On 09:15-20250422, Judith Mendez wrote:
+> Hi Arnd,
+> 
+> On 4/22/25 1:37 AM, Arnd Bergmann wrote:
+> > On Mon, Apr 21, 2025, at 22:10, Judith Mendez wrote:
+> > > Enable CONFIG_HWSPINLOCK_OMAP to allow usage of these devices
+> > > across K3 SoC's. Also enable CONFIG_TI_EQEP which is enabled by
+> > > default on am64x SK board.
+> > > 
+> > > Signed-off-by: Judith Mendez <jm@ti.com>
+> > 
+> > Acked-by: Arnd Bergmann <arnd@arndb.de>
+> > 
+> > The patch seems fine to me, but you should address it at the
+> > TI K3 maintainers, so they know they should apply it and forward
+> > it to the SoC tree. You have Nishanth and Vignesh in Cc already,
+> > so I assume they will pick it up from here, just put them in
+> > 'To' instead next time and move Catalin and Will to 'Cc' or
+> > leave them off entirely.
+> > 
+> 
+> Will re-spin and fix the to and cc lists, thanks for reviewing!
 
-Fixes: 29be47fcd6a0 ("nvmem: zynqmp_nvmem: zynqmp_nvmem_probe cleanup")
-Cc: stable@vger.kernel.org
-Signed-off-by: Peter Korsgaard <peter@korsgaard.com>
----
-Changes since v1:
-- Cc stable
+There is no need to respin, it is already in my queue. Will pick it up
+as part of usual process. The above information that Arnd provided is
+for future reference.
 
- drivers/nvmem/zynqmp_nvmem.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/nvmem/zynqmp_nvmem.c b/drivers/nvmem/zynqmp_nvmem.c
-index 8682adaacd692..7da717d6c7faf 100644
---- a/drivers/nvmem/zynqmp_nvmem.c
-+++ b/drivers/nvmem/zynqmp_nvmem.c
-@@ -213,6 +213,7 @@ static int zynqmp_nvmem_probe(struct platform_device *pdev)
- 	econfig.word_size = 1;
- 	econfig.size = ZYNQMP_NVMEM_SIZE;
- 	econfig.dev = dev;
-+	econfig.priv = dev;
- 	econfig.add_legacy_fixed_of_cells = true;
- 	econfig.reg_read = zynqmp_nvmem_read;
- 	econfig.reg_write = zynqmp_nvmem_write;
 -- 
-2.39.5
-
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
 
