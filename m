@@ -4,67 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F3CAC369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:41:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A340EC369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:42:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tEvApjlVyXK6NyAT/N05eAETVuJpFBw5gvsTCd1mviI=; b=mgpGMe6kMYar5T//jvneThNoja
-	Nw2mhZtUXx7juh5DWk498P3xZnNiNZu5ISY0aAT3qyZMbGlJrQuQ8A4rOnJ3EC5p48PY8p4hekChO
-	dfsKm88KJoSsTBjTkng+nb/lxanz55U2IMT4P9JdZ/GJWxwgTcnQdnyNTl/4damRB/H6O1PeZ2H8S
-	tYlS7yiJARCQejTjpIfWbHw8cBUuKdGF5MF0Vw2Zm0uuIj5F69d2knU4uc8kaRDFARyBeQAZmDBIx
-	BbXv7Z/qOI2S1+WE1emYKZzswcn4jUHhDvQlDOQx6H0L8HhYfYsfkBL7ZXDPPrJZntmfNwIWw85aV
-	JCInMt7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5l4syi+vsOLx9TsbcoUJ5lFu9Ul/Nq4MyN/nEXOPzm8=; b=YWxrOg7fp2qC5TuXWPNkgx0sIs
+	Qpif0eXM8mJHAOI0EMKN0ANujlNBW9ujSW8ocvXf3XlZusIJSQFb6Eicxslu8/a7EWwHc8XSwrw22
+	fuYNOd8vkcPU1VSaZp+1Rqt6ZqMDEELVrsc1q+aTtvZI89hMZ50yOGStAAMrMbWti622l9I73cAdC
+	DSNixcY2ANTt0Yp2xzc6PaD1/zbpQryswr0kGKNl+IJSeCudqYNh6ivMOAOQPzrfrQe7YKYkd5Lx9
+	M1gimBBo6XBtKCN9snkX9ZzglvcSA+2aHhwzaHi3E5qdAJEvpzj6TJRGNqoJnc/Sz7SUqOPn5nySV
+	/CwqJBHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7e6W-0000000BK1l-2lxt;
-	Wed, 23 Apr 2025 17:41:48 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1u7e6Z-0000000BK6A-3BBO;
+	Wed, 23 Apr 2025 17:41:51 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7blC-0000000AvDd-02jq
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 15:11:39 +0000
+	id 1u7bli-0000000AvHp-2uuq;
+	Wed, 23 Apr 2025 15:12:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 687C25C5EA6;
-	Wed, 23 Apr 2025 15:09:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D32EFC4CEE2;
-	Wed, 23 Apr 2025 15:11:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1745421097;
-	bh=tNBKWLyEkGN4q0LlovFdOiTD7ZnYl9IptlI29eJh+Ys=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=rIlo22nA+l3NNe1KZiEWkfNEgohXrulTn5tExprSkQvwMuQLoIuHjSHwTKzgh+3Ro
-	 Dv8qJCQ3qsi7wk93mXsYqvyrqVg9ud8wlyCoZmzEoUnFVDfES0s3WnlK4D3sqAfte/
-	 toezH99gf48bc5R50bvuLwdLejUMOE6O95OfBNKY=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	patches@lists.linux.dev,
-	Will Deacon <will@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
+	by tor.source.kernel.org (Postfix) with ESMTP id 2CAAF615F0;
+	Wed, 23 Apr 2025 15:11:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF997C4CEE3;
+	Wed, 23 Apr 2025 15:12:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745421129;
+	bh=rDayEnmW5wOjUNCI7vo/8BM3UfjynySd1YOsFEmc0Ns=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Lmauy6JiNq31WB8nrkpG+4X/sEHthcQJQm2py5Vba/EmUN9bzIRhSR0UvV3/zkITx
+	 dGqyTsFQ4MTM/5leecxr54xpAW57wuUiBTQ7h9eWklX+q/7l6y40/qDaDPpwJhG+Va
+	 xWZslDaKQkeSPAGLQGXwfO7zpv/OdzggwUNWaIbjX5YeTMUi03qR4caFTORBEIvjns
+	 z5stAHX+gU7cyJ1ASUYCytTFa7gtSzeScWqE3zI8TU5EOFN72logSZZanzybyfYVqF
+	 SHAiqUiWEdKGMuP2VBpdB5SWiUIbkx01wEx7PkG2Chytgur6o3doj7Pg1iazdD4y2R
+	 BylRBMaA3C1PA==
+Date: Wed, 23 Apr 2025 17:12:04 +0200
+From: Niklas Cassel <cassel@kernel.org>
+To: Hans Zhang <18255117159@163.com>
+Cc: lpieralisi@kernel.org, kw@linux.com, bhelgaas@google.com,
+	heiko@sntech.de, manivannan.sadhasivam@linaro.org, robh@kernel.org,
+	jingoohan1@gmail.com, shawn.lin@rock-chips.com,
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Eric Auger <eric.auger@redhat.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>
-Subject: [PATCH 6.12 191/223] arm64/sysreg: Add register fields for HFGWTR2_EL2
-Date: Wed, 23 Apr 2025 16:44:23 +0200
-Message-ID: <20250423142624.956623955@linuxfoundation.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250423142617.120834124@linuxfoundation.org>
-References: <20250423142617.120834124@linuxfoundation.org>
-User-Agent: quilt/0.68
-X-stable: review
-X-Patchwork-Hint: ignore
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v2 2/3] PCI: dw-rockchip: Reorganize register and
+ bitfield definitions
+Message-ID: <aAkDRIqIOjLo7haw@ryzen>
+References: <20250423105415.305556-1-18255117159@163.com>
+ <20250423105415.305556-3-18255117159@163.com>
+ <aAjufPQnBsR6ysAH@ryzen>
+ <352e40a0-65e2-499f-a7dd-904a4a7b19da@163.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_081138_088904_EC0D4F42 
-X-CRM114-Status: UNSURE (   7.64  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <352e40a0-65e2-499f-a7dd-904a4a7b19da@163.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,60 +75,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-6.12-stable review patch.  If anyone has any objections, please let me know.
+On Wed, Apr 23, 2025 at 10:14:57PM +0800, Hans Zhang wrote:
+> > I can see why you renamed PCIE_CLIENT_GENERAL_CONTROL to PCIE_CLIENT_GENERAL_CON
+> > (to match PCIE_CLIENT_MSG_GEN_CON).
+> > 
+> > But now we have PCIE_CLIENT_MSG_GEN_CON / PCIE_CLIENT_GENERAL_CON and
+> > PCIE_CLIENT_HOT_RESET_CTRL.
+> > 
+> > _CTRL seems like a more common shortening. How about renaming all three to
+> > end with _CTRL ?
+> 
+> I saw that TRM is named like this.
+> 
+> PCIE_CLIENT_GENERAL_CON / PCIE_CLIENT_MSG_GEN_CON /
+> PCIE_CLIENT_HOT_RESET_CTRL
+> 
+> Shall we take TRM as the standard or your suggestion?
 
-------------------
+Aha, so the inconsistency is in the TRM... hahaha :)
 
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-
-commit ea37be0773f04420515b8db49e50abedbaa97e23 upstream.
-
-This adds register fields for HFGWTR2_EL2 as per the definitions based
-on DDI0601 2024-12.
-
-Cc: Will Deacon <will@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Reviewed-by: Eric Auger <eric.auger@redhat.com>
-Reviewed-by: Mark Brown <broonie@kernel.org>
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-Link: https://lore.kernel.org/r/20250203050828.1049370-7-anshuman.khandual@arm.com
-Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
----
- arch/arm64/tools/sysreg |   19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
-
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -2541,6 +2541,25 @@ Field	1	nERXGSR_EL1
- Field	0	nPFAR_EL1
- EndSysreg
- 
-+Sysreg	HFGWTR2_EL2	3	4	3	1	3
-+Res0	63:15
-+Field	14	nACTLRALIAS_EL1
-+Field	13	nACTLRMASK_EL1
-+Field	12	nTCR2ALIAS_EL1
-+Field	11	nTCRALIAS_EL1
-+Field	10	nSCTLRALIAS2_EL1
-+Field	9	nSCTLRALIAS_EL1
-+Field	8	nCPACRALIAS_EL1
-+Field	7	nTCR2MASK_EL1
-+Field	6	nTCRMASK_EL1
-+Field	5	nSCTLR2MASK_EL1
-+Field	4	nSCTLRMASK_EL1
-+Field	3	nCPACRMASK_EL1
-+Field	2	nRCWSMASK_EL1
-+Res0	1
-+Field	0	nPFAR_EL1
-+EndSysreg
-+
- Sysreg HDFGRTR_EL2	3	4	3	1	4
- Field	63	PMBIDR_EL1
- Field	62	nPMSNEVFR_EL1
+Probably best to keep it identical to the TRM.
 
 
+Kind regards,
+Niklas
 
