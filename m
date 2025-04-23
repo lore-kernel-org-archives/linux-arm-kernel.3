@@ -4,63 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87D47C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 02:21:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2F1FC369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 03:44:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bk/s+utPrZXk75jQplGP1iOy93j5gkzCAYoXYP0wj5U=; b=2wkxYgm1qqFdtus1MYiF/Df2mQ
-	rjhZGltl6Y76J7tjWCe0Cz+A3CJjgQE/lwj57RUS/URqA+6/1l2gP0K+ikT4TyR9uHFgXW8l5E4if
-	+IVASotVdUx2K1wk7cFRPB/GlydgBGz6qmsJQH9rdcSgTDbYeh1vj2yRQmCHNwohbZz9LVcq37dNJ
-	7qwvdIc8vMp8PhSh6yUIVBr7SLzOEs5edT97tiUrpycO1J18fVGWbMdkbA2xGnv3zTUp3MdCBeIVY
-	vKixOLrF5F6t9wk9TaqxZ5giKsqX7vf2xRkO7zTbzAjkFUm7yxts1YKKvZI2qaz0MFovNIx6dZel1
-	8CLdJTmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CvPjl01CQoNJfYkNbSOrcz1LqiZzSxsyrCfhIJ29m9k=; b=Kfi8/FUZTvHmIArDsSxwC0M+Gw
+	L/utg8Ww00zKywXW1/pLl4If/loKe/v2rclfC65bThSjAE5IQL+ZlINK0ElJyJYH6j1ozUQ2klPQX
+	poIh3ZMX3YDRe+kAkmtNK7Lh8mroIa441N+fU/42iK4qmXYWPMzJ/pAOm45CI8AFG1pahoGwIjwuf
+	7xghBLs+J4ouucV4eErsZlZE1Inpj5RsucvaEspoi+yZCMpBEQHUTJOM657LdybFHsx0YbG6y7j5F
+	kuVxkRZZaDSxZ/auOeI2LQXVonWeKSz87o4SpAHAJW6vudupYhtN3v5Iy8VyAo+R/c927tSUNTkSA
+	DAtXUUyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7PkB-000000092Ko-2tUs;
-	Wed, 23 Apr 2025 02:21:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u7R1m-000000098em-0Gb1;
+	Wed, 23 Apr 2025 03:44:02 +0000
+Received: from abb.hmeau.com ([144.6.53.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7PiK-000000092FJ-2gN6
+	id 1u7Qzp-000000098Vk-0v6c
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 02:19:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 67853614B8;
-	Wed, 23 Apr 2025 02:19:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7268BC4CEE9;
-	Wed, 23 Apr 2025 02:19:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745374789;
-	bh=PmqJ5fbv0Mb9f8TlIqRagmhuSF46zrJ7usQ1IDVuaXQ=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=nfcvWSodfR9C9TKP3Gi15gNNyd4MIUK7B2Qgrdtr4CpFYjzCYQ4dispyNAct3JVnb
-	 POFVgOA6ZBsQ+tKt9hFpfCStJ5CIx8m4hzGp8+0C0kwB1tV7MsEZYLg/luOUrYBTpL
-	 QPosVAOjBf37Oyco78m4AD8++24zmFkRTZGJ7L3w2QYNerdHHif1x9OXxR1yMfc+81
-	 nHN2SM4gDqpigTm/TP1UcYnGZ40C8Z+FCPFVoIUpU4GZWHXdjsfE4TVlbQYQuVTch3
-	 XsLTTIdWXqwBv/+6n0AVJJb7mkAdc3HzrP2UB3UggSZACiHBB3M//OL3TKq6DObdQl
-	 tg+1dA4c7xIUg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33D86380CEF4;
-	Wed, 23 Apr 2025 02:20:29 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Wed, 23 Apr 2025 03:42:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
+	s=formenos; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:MIME-Version
+	:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=CvPjl01CQoNJfYkNbSOrcz1LqiZzSxsyrCfhIJ29m9k=; b=R8vgEWJdqlme13UJVkaPIZHDE4
+	amrQcxE8lxDjdKupqdnGcahR2iVayU6Ag7+ewrmI7fraqxmVk96AjfEfwGyQYLdSuFBEexcTbMA7A
+	L79WeTcHIlKiAiCdFnol93lrAyDKQSIA2uBem9coPynZuro+xpaB7LkjZcVukeXjAVR1gaRiOFRW1
+	6CJdYh+CSZRnZSJxYHLtEDuRcH5Dv+ZkuJFupJH51dG7Ha6Sx5oU6U3T1o0RUrAaz3OfIDD43mk0W
+	iBegjOWKsYTtaGhJzw+PSPGbF5VvbToidzopdYO97FpWgZUm9Gk7LJ5GndirWEUdevq7rI0jhp5w0
+	xlJ7hYKg==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1u7QzX-000Gji-1a;
+	Wed, 23 Apr 2025 11:41:44 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Wed, 23 Apr 2025 11:41:43 +0800
+Date: Wed, 23 Apr 2025 11:41:43 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>
+Cc: linux-crypto@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] crypto: atmel-sha204a - Set hwrng quality to lowest
+ possible
+Message-ID: <aAhhd91a94ZypyWN@gondor.apana.org.au>
+References: <20250422095718.17360-1-kabel@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v3] net: stmmac: visconti: convert to
- set_clk_tx_rate() method
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <174537482800.2117251.2809618036505175108.git-patchwork-notify@kernel.org>
-Date: Wed, 23 Apr 2025 02:20:28 +0000
-References: <E1u5SiQ-001I0B-OQ@rmk-PC.armlinux.org.uk>
-In-Reply-To: <E1u5SiQ-001I0B-OQ@rmk-PC.armlinux.org.uk>
-To: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, mcoquelin.stm32@gmail.com,
- netdev@vger.kernel.org, nobuhiro1.iwamatsu@toshiba.co.jp, pabeni@redhat.com
+In-Reply-To: <20250422095718.17360-1-kabel@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250422_204201_257453_9379172D 
+X-CRM114-Status: GOOD (  10.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,31 +80,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Thu, 17 Apr 2025 18:07:54 +0100 you wrote:
-> Convert visconti to use the set_clk_tx_rate() method. By doing so,
-> the GMAC control register will already have been updated (unlike with
-> the fix_mac_speed() method) so this code can be removed while porting
-> to the set_clk_tx_rate() method.
+On Tue, Apr 22, 2025 at 11:57:18AM +0200, Marek Behún wrote:
+> According to the review by Bill Cox [1], the Atmel SHA204A random number
+> generator produces random numbers with very low entropy.
 > 
-> There is also no need for the spinlock, and has never been - neither
-> fix_mac_speed() nor set_clk_tx_rate() can be called by more than one
-> thread at a time, so the lock does nothing useful.
+> Set the lowest possible entropy for this chip just to be safe.
 > 
-> [...]
+> [1] https://www.metzdowd.com/pipermail/cryptography/2014-December/023858.html
+> 
+> Fixes: da001fb651b00e1d ("crypto: atmel-i2c - add support for SHA204A random number generator")
+> Signed-off-by: Marek Behún <kabel@kernel.org>
+> ---
+>  drivers/crypto/atmel-sha204a.c | 6 ++++++
+>  1 file changed, 6 insertions(+)
 
-Here is the summary with links:
-  - [net-next,v3] net: stmmac: visconti: convert to set_clk_tx_rate() method
-    https://git.kernel.org/netdev/net-next/c/21b01cb8e88e
-
-You are awesome, thank you!
+Patch appiled.  Thanks.
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
