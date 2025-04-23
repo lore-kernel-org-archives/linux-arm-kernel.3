@@ -4,72 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1C8DC369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 09:36:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CFDDC369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 09:38:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EggTF7jgXyqw27ORwtXsCRX4H5aiRA/a+Rh2J8KLoHU=; b=zYgQtVGSBfTHIKb3RXTX29IhbY
-	RFEdDFBGl2Q5SBH6Wa/h0Z3FDj9H4a9BOYk18kZ53gmtzYuM6FXYwrWHcw53ncXESAGlNZJCLRpxX
-	KTPbKfMrslsiAcj3osoTcIaj1tfTYdYrNbtzScvCrgdnGK/r7u9Os0AYUcHxgC5f3gnjdiaW4mDnj
-	K6u2wMkX0t8OBRts0/ogc7GnUSnUTqcSlcGySgMh5KIeC/w+C4AjfkYwENwmw8WEWblL2zdEAlmk3
-	iEH9gQXvl1/PsRVPMFzAzUadSL4LrEwmrqyZOKCOEl6cQo3CNwIVdZ171ZrFEDW8TB6JstXUDXSMm
-	wTNWZxxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G1j8PYHcrNhQFqwI+btrCagt/+/2s6uq2LXIr8341kM=; b=JONrSwjHw1WYZX1aVv76VSFGWx
+	vkkYjxSBNuT4MCcrRaDUW0A6geuEDBu8ZSgkhYtO9hsZ0Iudjqv+Idzin9mGXzgXOzTlHiAwZSlN7
+	9IXSqDkjqf8AjnEEk28Kn93M7D0tg8KvsPk75P3tWxol5SgauB3MGDYE/sSmjHvh1kpCHBtONpxhG
+	hn3lf1CBELkfM2YB0mu2H80Bao2TvxpKWVbqtAoaPBALwQK4mJMOTpv8KhvgYIv61tPjGWk3fxCty
+	TmhgjqOOXCxluhHsXNjqwNOoc51Kmm7X/gTYOBMyJhtBwEM5Uostv7TespA7Af+0olQJ2XZ+BmJzL
+	XobyhYgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7WWj-00000009zZG-2TWb;
-	Wed, 23 Apr 2025 09:36:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u7WYi-0000000A0ME-1UAX;
+	Wed, 23 Apr 2025 09:38:24 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7VJc-00000009goS-2asc
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 23 Apr 2025 08:18:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description;
-	bh=EggTF7jgXyqw27ORwtXsCRX4H5aiRA/a+Rh2J8KLoHU=; b=BmKxZhxXycayWqgY04aS3O8VDv
-	NYYZCozxkEDA0WDmbxV1yNS3+Q5Su24QLc3YxXW2RtGx+avKO+L6seps3N2pFW+n+dP45Md+d+EfE
-	KVkAQRs0lguySdrMhj4IgZtx8enpHxrFfqTJuEtbNoSjg/AFO/LT1EfgpxF2dwZfr0cfZPqwW8UQR
-	AxD+az8+k4r8E6CHBDutgxCGcF6GCNYhiMQyZES6DXVH9SGioJWn1a/uyBYKFPpkeWB49WUd2ERpQ
-	XJQ7aatcCyYdQptgYKIsMoH6jIxaSyREfjipf3GSKb6iwmkSYw7x3JUuqkLvQpJpokUl7XmJKa99h
-	WPD88/VA==;
-Received: from [2001:8b0:10b:1::ebe] (helo=i7.infradead.org)
-	by desiato.infradead.org with esmtpsa (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u7VJR-0000000BOid-1XFD;
-	Wed, 23 Apr 2025 08:18:33 +0000
-Received: from dwoodhou by i7.infradead.org with local (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u7VJO-00000002YNw-1g6W;
-	Wed, 23 Apr 2025 09:18:30 +0100
-From: David Woodhouse <dwmw2@infradead.org>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	"Sauerwein, David" <dssauerw@amazon.de>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	David Hildenbrand <david@redhat.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mike Rapoport <rppt@linux.ibm.com>,
-	Will Deacon <will@kernel.org>,
-	kvmarm@lists.cs.columbia.edu,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	Ruihan Li <lrh2000@pku.edu.cn>
-Subject: [PATCH v3 4/7] mm, PM: Use for_each_valid_pfn() in kernel/power/snapshot.c
-Date: Wed, 23 Apr 2025 08:52:46 +0100
-Message-ID: <20250423081828.608422-5-dwmw2@infradead.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250423081828.608422-1-dwmw2@infradead.org>
-References: <20250423081828.608422-1-dwmw2@infradead.org>
+	id 1u7VLV-00000009hZ9-3fZB;
+	Wed, 23 Apr 2025 08:20:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1745396424; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=YpNkN/pgf05gdme5+SmEoxgIpTRcwbXhKWK7mhcpVskQoM8Sq8/FJry5KcIip0QNC6Iz75imDO0NKmWUCYVt2SbZykmh7qMlHWQVBpHkcBXo7HXACFed2Oq3mNrNMLkxdhb/1mwdTkncyuodkJ2OWVnOxI1vEYJmxq0m4TqY2CU=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1745396424; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=G1j8PYHcrNhQFqwI+btrCagt/+/2s6uq2LXIr8341kM=; 
+	b=lCfjYTHbja/eTRgBlQwBC/4w/1KOq0DjHRYJK5mZLDDuaNKhzP+zhNqECX9Ha/0unqOcGP+ywF2PBcqnjrEqJWAIqEA3NRwfslvZEtCj190T/lfmXbKdAzzQsVEQb9vygCVREx6iLt9tZEZnfL3223J3j4/jsnxAKHVsCwLBrAo=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=louisalexis.eyraud@collabora.com;
+	dmarc=pass header.from=<louisalexis.eyraud@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1745396424;
+	s=zohomail; d=collabora.com; i=louisalexis.eyraud@collabora.com;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=G1j8PYHcrNhQFqwI+btrCagt/+/2s6uq2LXIr8341kM=;
+	b=RZ56arMHO8C8+mqDRUiyaCnAOcOnoC5BNhsvBbXBIcQcVJHW8MAirtsFs5yQbP8g
+	1QZNnexv+YodMsp9qqZoCNiyMLNsHwfHaq7QjvvqYSNdyvex0ftAlzISAWs2a1kyfPJ
+	1ttsYrrQ9O6HtYFOEUMp/BzreXoaMXMqH36BIdWY=
+Received: by mx.zohomail.com with SMTPS id 1745396422848172.7246656316138;
+	Wed, 23 Apr 2025 01:20:22 -0700 (PDT)
+Message-ID: <11d6b91a73b69924e954defe613eef7c4af45c56.camel@collabora.com>
+Subject: Re: [PATCH 1/2] net: ethernet: mtk-star-emac: fix spinlock
+ recursion issues on rx/tx poll
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>,  Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>,  Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,  Biao
+ Huang <biao.huang@mediatek.com>, Yinghua Pan <ot_yinghua.pan@mediatek.com>,
+ kernel@collabora.com, 	netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Date: Wed, 23 Apr 2025 10:20:17 +0200
+In-Reply-To: <20250422160046.73aa854a@fedora.home>
+References: <20250422-mtk_star_emac-fix-spinlock-recursion-issue-v1-0-1e94ea430360@collabora.com>
+		<20250422-mtk_star_emac-fix-spinlock-recursion-issue-v1-1-1e94ea430360@collabora.com>
+	 <20250422160046.73aa854a@fedora.home>
+Organization: Collabora Ltd
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.54.3 (3.54.3-1.fc41) 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by desiato.infradead.org. See http://www.infradead.org/rpr.html
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250423_012041_956184_E2DAC953 
+X-CRM114-Status: GOOD (  24.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,77 +89,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: David Woodhouse <dwmw@amazon.co.uk>
+Hi Maxime,
 
-Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
----
- kernel/power/snapshot.c | 42 ++++++++++++++++++++---------------------
- 1 file changed, 20 insertions(+), 22 deletions(-)
+On Tue, 2025-04-22 at 16:00 +0200, Maxime Chevallier wrote:
+> Hi Louis-Alexis :)
+>=20
+> On Tue, 22 Apr 2025 15:03:38 +0200
+> Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com> wrote:
+>=20
+> > Use spin_lock_irqsave and spin_unlock_irqrestore instead of
+> > spin_lock
+> > and spin_unlock in mtk_star_emac driver to avoid spinlock recursion
+> > occurrence that can happen when enabling the DMA interrupts again
+> > in
+> > rx/tx poll.
+> >=20
+> > ```
+> > BUG: spinlock recursion on CPU#0, swapper/0/0
+> > =C2=A0lock: 0xffff00000db9cf20, .magic: dead4ead, .owner: swapper/0/0,
+> > =C2=A0=C2=A0=C2=A0 .owner_cpu: 0
+> > CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Not tainted
+> > =C2=A0=C2=A0=C2=A0 6.15.0-rc2-next-20250417-00001-gf6a27738686c-dirty #=
+28 PREEMPT
+> > Hardware name: MediaTek MT8365 Open Platform EVK (DT)
+> > Call trace:
+> > =C2=A0show_stack+0x18/0x24 (C)
+> > =C2=A0dump_stack_lvl+0x60/0x80
+> > =C2=A0dump_stack+0x18/0x24
+> > =C2=A0spin_dump+0x78/0x88
+> > =C2=A0do_raw_spin_lock+0x11c/0x120
+> > =C2=A0_raw_spin_lock+0x20/0x2c
+> > =C2=A0mtk_star_handle_irq+0xc0/0x22c [mtk_star_emac]
+> > =C2=A0__handle_irq_event_percpu+0x48/0x140
+> > =C2=A0handle_irq_event+0x4c/0xb0
+> > =C2=A0handle_fasteoi_irq+0xa0/0x1bc
+> > =C2=A0handle_irq_desc+0x34/0x58
+> > =C2=A0generic_handle_domain_irq+0x1c/0x28
+> > =C2=A0gic_handle_irq+0x4c/0x120
+> > =C2=A0do_interrupt_handler+0x50/0x84
+> > =C2=A0el1_interrupt+0x34/0x68
+> > =C2=A0el1h_64_irq_handler+0x18/0x24
+> > =C2=A0el1h_64_irq+0x6c/0x70
+> > =C2=A0regmap_mmio_read32le+0xc/0x20 (P)
+> > =C2=A0_regmap_bus_reg_read+0x6c/0xac
+> > =C2=A0_regmap_read+0x60/0xdc
+> > =C2=A0regmap_read+0x4c/0x80
+> > =C2=A0mtk_star_rx_poll+0x2f4/0x39c [mtk_star_emac]
+> > =C2=A0__napi_poll+0x38/0x188
+> > =C2=A0net_rx_action+0x164/0x2c0
+> > =C2=A0handle_softirqs+0x100/0x244
+> > =C2=A0__do_softirq+0x14/0x20
+> > =C2=A0____do_softirq+0x10/0x20
+> > =C2=A0call_on_irq_stack+0x24/0x64
+> > =C2=A0do_softirq_own_stack+0x1c/0x40
+> > =C2=A0__irq_exit_rcu+0xd4/0x10c
+> > =C2=A0irq_exit_rcu+0x10/0x1c
+> > =C2=A0el1_interrupt+0x38/0x68
+> > =C2=A0el1h_64_irq_handler+0x18/0x24
+> > =C2=A0el1h_64_irq+0x6c/0x70
+> > =C2=A0cpuidle_enter_state+0xac/0x320 (P)
+> > =C2=A0cpuidle_enter+0x38/0x50
+> > =C2=A0do_idle+0x1e4/0x260
+> > =C2=A0cpu_startup_entry+0x34/0x3c
+> > =C2=A0rest_init+0xdc/0xe0
+> > =C2=A0console_on_rootfs+0x0/0x6c
+> > =C2=A0__primary_switched+0x88/0x90
+> > ```
+> >=20
+> > Fixes: 0a8bd81fd6aa ("net: ethernet: mtk-star-emac: separate tx/rx
+> > handling with two NAPIs")
+> > Signed-off-by: Louis-Alexis Eyraud
+> > <louisalexis.eyraud@collabora.com>
+>=20
+> As this is a fix, you need to indicate in your subject that you're
+> targetting the "net" tree, something like :
+>=20
+> [PATCH net 1/2] net: ethernet: mtk-star-emac: fix spinlock recursion
+> issues on rx/tx poll
+>=20
+> > ---
+> > =C2=A0drivers/net/ethernet/mediatek/mtk_star_emac.c | 10 ++++++----
+> > =C2=A01 file changed, 6 insertions(+), 4 deletions(-)
+> >=20
+> > diff --git a/drivers/net/ethernet/mediatek/mtk_star_emac.c
+> > b/drivers/net/ethernet/mediatek/mtk_star_emac.c
+> > index
+> > 76f202d7f05537642ec294811ace2ad4a7eae383..41d6af31027f4d827dbfdfecd
+> > b7de44326bb3de1 100644
+> > --- a/drivers/net/ethernet/mediatek/mtk_star_emac.c
+> > +++ b/drivers/net/ethernet/mediatek/mtk_star_emac.c
+> > @@ -1163,6 +1163,7 @@ static int mtk_star_tx_poll(struct
+> > napi_struct *napi, int budget)
+> > =C2=A0	struct net_device *ndev =3D priv->ndev;
+> > =C2=A0	unsigned int head =3D ring->head;
+> > =C2=A0	unsigned int entry =3D ring->tail;
+> > +	unsigned long flags =3D 0;
+>=20
+> You don't need to init flags to 0
+>=20
+> > =C2=A0
+> > =C2=A0	while (entry !=3D head && count < (MTK_STAR_RING_NUM_DESCS -
+> > 1)) {
+> > =C2=A0		ret =3D mtk_star_tx_complete_one(priv);
+> > @@ -1182,9 +1183,9 @@ static int mtk_star_tx_poll(struct
+> > napi_struct *napi, int budget)
+> > =C2=A0		netif_wake_queue(ndev);
+> > =C2=A0
+> > =C2=A0	if (napi_complete(napi)) {
+> > -		spin_lock(&priv->lock);
+> > +		spin_lock_irqsave(&priv->lock, flags);
+> > =C2=A0		mtk_star_enable_dma_irq(priv, false, true);
+> > -		spin_unlock(&priv->lock);
+> > +		spin_unlock_irqrestore(&priv->lock, flags);
+> > =C2=A0	}
+> > =C2=A0
+> > =C2=A0	return 0;
+> > @@ -1342,15 +1343,16 @@ static int mtk_star_rx_poll(struct
+> > napi_struct *napi, int budget)
+> > =C2=A0{
+> > =C2=A0	struct mtk_star_priv *priv;
+> > =C2=A0	int work_done =3D 0;
+> > +	unsigned long flags =3D 0;
+>=20
+> There's a rule in netdev that definitions must be ordered from
+> longest
+> to shortest lines (reverse xmas tree, or RCT), so you should have in
+> the end :
+>=20
+> struct mtk_star_priv *priv;
+> unsigned long flags;
+> int work_done =3D 0;
+>=20
+> > =C2=A0
+> > =C2=A0	priv =3D container_of(napi, struct mtk_star_priv, rx_napi);
+> > =C2=A0
+> > =C2=A0	work_done =3D mtk_star_rx(priv, budget);
+> > =C2=A0	if (work_done < budget) {
+> > =C2=A0		napi_complete_done(napi, work_done);
+> > -		spin_lock(&priv->lock);
+> > +		spin_lock_irqsave(&priv->lock, flags);
+> > =C2=A0		mtk_star_enable_dma_irq(priv, true, false);
+> > -		spin_unlock(&priv->lock);
+> > +		spin_unlock_irqrestore(&priv->lock, flags);
+> > =C2=A0	}
+> > =C2=A0
+> > =C2=A0	return work_done;
+> >=20
+>=20
+> Besides these small comments, the patch looks correct to me :)
+>=20
+> Regards,
+>=20
+> Maxime
 
-diff --git a/kernel/power/snapshot.c b/kernel/power/snapshot.c
-index 4e6e24e8b854..f151c7a45584 100644
---- a/kernel/power/snapshot.c
-+++ b/kernel/power/snapshot.c
-@@ -1094,16 +1094,15 @@ static void mark_nosave_pages(struct memory_bitmap *bm)
- 			 ((unsigned long long) region->end_pfn << PAGE_SHIFT)
- 				- 1);
- 
--		for (pfn = region->start_pfn; pfn < region->end_pfn; pfn++)
--			if (pfn_valid(pfn)) {
--				/*
--				 * It is safe to ignore the result of
--				 * mem_bm_set_bit_check() here, since we won't
--				 * touch the PFNs for which the error is
--				 * returned anyway.
--				 */
--				mem_bm_set_bit_check(bm, pfn);
--			}
-+		for_each_valid_pfn (pfn, region->start_pfn, region->end_pfn) {
-+			/*
-+			 * It is safe to ignore the result of
-+			 * mem_bm_set_bit_check() here, since we won't
-+			 * touch the PFNs for which the error is
-+			 * returned anyway.
-+			 */
-+			mem_bm_set_bit_check(bm, pfn);
-+		}
- 	}
- }
- 
-@@ -1255,21 +1254,20 @@ static void mark_free_pages(struct zone *zone)
- 	spin_lock_irqsave(&zone->lock, flags);
- 
- 	max_zone_pfn = zone_end_pfn(zone);
--	for (pfn = zone->zone_start_pfn; pfn < max_zone_pfn; pfn++)
--		if (pfn_valid(pfn)) {
--			page = pfn_to_page(pfn);
-+	for_each_valid_pfn(pfn, zone->zone_start_pfn, max_zone_pfn) {
-+		page = pfn_to_page(pfn);
- 
--			if (!--page_count) {
--				touch_nmi_watchdog();
--				page_count = WD_PAGE_COUNT;
--			}
-+		if (!--page_count) {
-+			touch_nmi_watchdog();
-+			page_count = WD_PAGE_COUNT;
-+		}
- 
--			if (page_zone(page) != zone)
--				continue;
-+		if (page_zone(page) != zone)
-+			continue;
- 
--			if (!swsusp_page_is_forbidden(page))
--				swsusp_unset_page_free(page);
--		}
-+		if (!swsusp_page_is_forbidden(page))
-+			swsusp_unset_page_free(page);
-+	}
- 
- 	for_each_migratetype_order(order, t) {
- 		list_for_each_entry(page,
--- 
-2.49.0
+Thanks for the review, Maxime.
+I'll add the missing subject prefix and fix the other issues in the v2
+patchset.
+
+Regards,
+Louis-Alexis
 
 
