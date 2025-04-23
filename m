@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64ABAC369D7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:42:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32664C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:42:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/DxyHDNYwWFDoPpvVyJKUHKlRBU2ubBL/+PAmuM0YQQ=; b=NoKC7qGXWzk/Z1TyrbjMxOVHAT
-	4G4INJnOWWiou/5qv+FYQpDJ4R8l4ej9rFgmJtjtmrcGBC2NKnxkzhqAr/c943kHFsv9x1V3S2nnx
-	qWBJ5CyhYu2oDs08GZR3LDNkc37QnFCbqm59KeJ3tt1VZ3jNZoPSkPVEr0qszI2CB4L0D/g2DL1AC
-	UhWn8SR8ZLxKwjWLkLn35zfTBFuyDtlkCh8a4XkfyGn0bhAF6rLXvIMBR+bHBrnSY/u1w9keRMTME
-	DzopnFy6T+RvxYs/JTQLTuKJM5IsJcCzXc+Az8G/aPoCUSxr9Na2xVBkn172l9kg5MetDTM/e8vxx
-	dXl4gtxg==;
+	bh=Il5nFZwsliFL67CuvSjaPBBjvdXxBJn2cLQmL7P7ME0=; b=I94hKfzru21NYXuRFdUPrN9lOT
+	Tin1Ip+u3/0MqyeK1O0j9VdcC+CtullxGxVAVsV7aQjHQ5Va5/3v60VufX2b7fL76yQAabHgzCUyH
+	kqYm6s2MtkQQJlGRqrG82m9vKK1vmipAmX5vkQv0Bl/x8gb1dbvUZEdcKDbsN9KsjlGy+BocGyv+q
+	BCmnQTNSMaH/9mYbVKdPKID/qcyDZl7nbn4B6CEJIQ9N7dx7yqfXY3hK9zvd+KlJniPqZCH6QV6d7
+	4FP+L9omv7oCN0SxZoIMsw+qoFgIONP20pFbqrSPNGgXTk7hVGx6e711AFNctQVQWQY2FqDfOA9Ee
+	w1hkqqUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7e73-0000000BKxC-1AsE;
-	Wed, 23 Apr 2025 17:42:21 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1u7e75-0000000BL0L-0ASM;
+	Wed, 23 Apr 2025 17:42:23 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7bom-0000000Avrw-0Jbg
+	id 1u7bom-0000000Avs2-11yQ
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 23 Apr 2025 15:15:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7C58C5C6203;
-	Wed, 23 Apr 2025 15:13:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43C45C4CEE8;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8C083A4BA36;
+	Wed, 23 Apr 2025 15:09:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68AAAC4CEEC;
 	Wed, 23 Apr 2025 15:15:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1745421319;
-	bh=vh1PnLqh01yaQsVDCDR6nY6QiSEdl+vmMW6IVytRf4c=;
+	bh=Dmj4/HJxUQOQdh1ZBw4viqpwCEPGdEuNbQNJlX78JYE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=HXq58BiaeHuHcYkXy2TrN3uZJx828j7ij85yauKViWvJtYw4CM0Ib/HkOml0OTgI2
-	 hO/glg8Bkn0FBe+TpQk5IWb/Uw8biu126H1vEqObcAPqxDjaT7DqW47gbNoPev8Mrc
-	 YTqlRL+C9PIAO+/BhONdyeSbPkK0sjZy8eyv1dh+EXD7l/HVXzVl3ahkAiTz92v/ty
-	 Wk+O3VM4GPmNn8W8KJeI8d8p6YoFtIt0ua4ksC4z/WVun+dt93HL+XXIK8JofV0VKH
-	 /s9QBk3xqbWOwPklo1xdwljlptOCP//4lSmeiiaFMqD8teV3wMLVaZd9JMzT7VQ/B3
-	 zXtRXj+lg3dxw==
+	b=NuJAOrtkZKKjNnOvaNen3Bdi4lrJ7dy91yryb97XFVTugJ+P/GRH/QuR4JxEmop7E
+	 hCy+FvCyz2FnT0wM5Il9MCzDplbu17s05aXbtRhJ+0yaNaGBpNX5lkiY1mqk8tEqqf
+	 /5PuFjIgCnM1EBlUzfWYIUA30mqOW1S2y9hpLsgsssWxBy9lgHOA1kNYk4/4FlRChK
+	 xt2Uwx2RxtASa5IZFXwpE/ZZWQSoMSIJ2B589+HDW3sXRkNSCs9yRMvEygbHcfhNz7
+	 QBy0Ip7sa8cFNZi246cdHmAJThx36JJcmhD/V/dm8W99LkavzUrzbYZojJ5EohBaDD
+	 DWNfI/Bj76s1g==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1u7boj-0082xr-9u;
+	id 1u7boj-0082xr-IU;
 	Wed, 23 Apr 2025 16:15:17 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Eric Auger <eric.auger@redhat.com>,
 	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
-Subject: [PATCH v3 16/17] KVM: arm64: Allow userspace to request KVM_ARM_VCPU_EL2*
-Date: Wed, 23 Apr 2025 16:15:07 +0100
-Message-Id: <20250423151508.2961768-17-maz@kernel.org>
+Subject: [PATCH v3 17/17] KVM: arm64: Document NV caps and vcpu flags
+Date: Wed, 23 Apr 2025 16:15:08 +0100
+Message-Id: <20250423151508.2961768-18-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250423151508.2961768-1-maz@kernel.org>
 References: <20250423151508.2961768-1-maz@kernel.org>
@@ -71,8 +71,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_081520_200280_666FC32D 
-X-CRM114-Status: GOOD (  13.03  )
+X-CRM114-CacheID: sfid-20250423_081520_351762_570EC5CA 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,66 +87,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since we're (almost) feature complete, let's allow userspace to
-request KVM_ARM_VCPU_EL2* by bumping KVM_VCPU_MAX_FEATURES up.
-
-We also now advertise the features to userspace with new capabilities.
-
-It's going to be great...
+Describe the two new vcpu flags that control NV, together with
+the capabilities that advertise them.
 
 Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
 Reviewed-by: Joey Gouly <joey.gouly@arm.com>
-Reviewed-by: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/include/asm/kvm_host.h | 2 +-
- arch/arm64/kvm/arm.c              | 6 ++++++
- include/uapi/linux/kvm.h          | 2 ++
- 3 files changed, 9 insertions(+), 1 deletion(-)
+ Documentation/virt/kvm/api.rst | 14 +++++++++++++-
+ 1 file changed, 13 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index b2c535036a06b..79e175a16d356 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -39,7 +39,7 @@
+diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+index 47c7c3f92314e..fe3d6b5d2acca 100644
+--- a/Documentation/virt/kvm/api.rst
++++ b/Documentation/virt/kvm/api.rst
+@@ -3460,7 +3460,8 @@ The initial values are defined as:
+ 	- FPSIMD/NEON registers: set to 0
+ 	- SVE registers: set to 0
+ 	- System registers: Reset to their architecturally defined
+-	  values as for a warm reset to EL1 (resp. SVC)
++	  values as for a warm reset to EL1 (resp. SVC) or EL2 (in the
++	  case of EL2 being enabled).
  
- #define KVM_MAX_VCPUS VGIC_V3_MAX_CPUS
+ Note that because some registers reflect machine topology, all vcpus
+ should be created before this ioctl is invoked.
+@@ -3527,6 +3528,17 @@ Possible features:
+ 	      - the KVM_REG_ARM64_SVE_VLS pseudo-register is immutable, and can
+ 	        no longer be written using KVM_SET_ONE_REG.
  
--#define KVM_VCPU_MAX_FEATURES 7
-+#define KVM_VCPU_MAX_FEATURES 9
- #define KVM_VCPU_VALID_FEATURES	(BIT(KVM_VCPU_MAX_FEATURES) - 1)
++	- KVM_ARM_VCPU_HAS_EL2: Enable Nested Virtualisation support,
++	  booting the guest from EL2 instead of EL1.
++	  Depends on KVM_CAP_ARM_EL2.
++	  The VM is running with HCR_EL2.E2H being RES1 (VHE) unless
++	  KVM_ARM_VCPU_HAS_EL2_E2H0 is also set.
++
++	- KVM_ARM_VCPU_HAS_EL2_E2H0: Restrict Nested Virtualisation
++	  support to HCR_EL2.E2H being RES0 (non-VHE).
++	  Depends on KVM_CAP_ARM_EL2_E2H0.
++	  KVM_ARM_VCPU_HAS_EL2 must also be set.
++
+ 4.83 KVM_ARM_PREFERRED_TARGET
+ -----------------------------
  
- #define KVM_REQ_SLEEP \
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 5287435873609..b021ce1e42c5c 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -368,6 +368,12 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
- 	case KVM_CAP_ARM_EL1_32BIT:
- 		r = cpus_have_final_cap(ARM64_HAS_32BIT_EL1);
- 		break;
-+	case KVM_CAP_ARM_EL2:
-+		r = cpus_have_final_cap(ARM64_HAS_NESTED_VIRT);
-+		break;
-+	case KVM_CAP_ARM_EL2_E2H0:
-+		r = cpus_have_final_cap(ARM64_HAS_HCR_NV1);
-+		break;
- 	case KVM_CAP_GUEST_DEBUG_HW_BPS:
- 		r = get_num_brps();
- 		break;
-diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-index b6ae8ad8934b5..c9d4a908976e8 100644
---- a/include/uapi/linux/kvm.h
-+++ b/include/uapi/linux/kvm.h
-@@ -930,6 +930,8 @@ struct kvm_enable_cap {
- #define KVM_CAP_X86_APIC_BUS_CYCLES_NS 237
- #define KVM_CAP_X86_GUEST_MODE 238
- #define KVM_CAP_ARM_WRITABLE_IMP_ID_REGS 239
-+#define KVM_CAP_ARM_EL2 240
-+#define KVM_CAP_ARM_EL2_E2H0 241
- 
- struct kvm_irq_routing_irqchip {
- 	__u32 irqchip;
 -- 
 2.39.2
 
