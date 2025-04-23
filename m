@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE852C369D8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:42:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38E6BC369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:42:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fYRPErwghAuJrUrMATVK0z7mk+Z1fYVjT+iN10KULs4=; b=QRxmraThHMaoF+aCMkSmwwUpNc
-	mrzQHfU0fJK9unYtA+IYbsUlNbnv5mdDlk637V2kj+4zv1n79+r1tLvtuqJBlVm8R+D+OGzmOENaa
-	DZ6UB9M6AWzE6QHdQ6oB+tAYofso1mnoM57oPLuG13v16831pBdht00Vl7AlXVQsM0qZc/ZO81dq/
-	La2tDQb+3z4+lDmEKQfJNjHC/iQWsRHeoTLTCKPBO5Dh+C1bladwEw+3TvsFOkZO/gkJorSC2NvWk
-	/MKm6zOpnBIJt6y+cCYuopjFMDNxc/TDP2cs3ED4coadHcAoG4RKImnknGFljsV4xV3Q6e2uENdBQ
-	G/wONzpA==;
+	bh=ooBsdae09ObYrCg5GB90Cflalk8xetQnJrw+3C5BA60=; b=NXMw3JiBtGJHMk+m8SDOjPEwF8
+	m3ceiRwW5yu8Bn8l/k71gix1s2Da2ufadGO8oIqswTF8KOLyJmB+V2C4q7iCjvOMeFWzykJ3xG5dH
+	xdMDb/kbMyv6MimMbJuj4sATLDJj2BxRROaXw51fxYMRs0P1kRjE+HZ/mOLK+mBJpiiw/Z7YFPZyW
+	8DsNcjoBr3mPfg4/GVSjleWDxDt7Sn/mfaHd0XHLVxjkmDIN/AtZlLdXBb299lI8ICiiuwzjTfNo4
+	RtLnszuD3HmrJ6OK2Joe6rLNE+ufnnDz00O6JUDmmEMOG7r8MQYVYhwCmOflgEs6D41hHVh7zeWwO
+	O00IHFHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7e6e-0000000BKEZ-2AU1;
-	Wed, 23 Apr 2025 17:41:56 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u7e6f-0000000BKGI-2Vgk;
+	Wed, 23 Apr 2025 17:41:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7boi-0000000AvoL-2Wm9
+	id 1u7boi-0000000AvoK-3HmB
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 23 Apr 2025 15:15:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 16B4C61569;
-	Wed, 23 Apr 2025 15:14:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4A16C4CEE2;
+	by tor.source.kernel.org (Postfix) with ESMTP id F10D0614B6;
+	Wed, 23 Apr 2025 15:14:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D1ACC4CEE8;
 	Wed, 23 Apr 2025 15:15:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1745421315;
-	bh=wqa/hPQI/dzLM4fwrGkpZyGhz9VCScqC+REjDpgrRJ8=;
+	bh=6/qw7x7rUvZiYc598C5910i4e3fhEOu+d3OEt7ysQWM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fmlv9SItvcgBQaSg1kfHz4IBO67X7zmcYYXcE/j9CYgIuNfJTe4GjhKHAX9/iOKxS
-	 xHIP/3OtQpuE+4EVzq25RJf6wXhLgmSCbX3D0CXwDc0OeLA2ykzGcoO1P1D6q9wZxk
-	 ZklriYeMYS5lsIQpHmYaw0r6UarxtPWakoL255memGvLNqH5mXY2yeSlPEyO/D/nap
-	 VZYIt0s9vcJtzTI+Zkgobslm9QnPh/i6EjuEGy+yYkVD3tdC9TOEHuZVRg1FA652Os
-	 RNW6CdFImvgvxRoEmGA/f1TmcBski5XGcmvGaCl04wXvJtdCCcno+bzFsLKMxBfe4A
-	 nvA6ZpY6yEoiw==
+	b=arOcgn0N/jQSStiK/4gmqbXRF1pIXbPVjd/1Btogls+jyYh9Kz8pWz8fGHzto2cI2
+	 G/rBEUeprnb2lI8WFy1jACD3jz16d1W/QQZ7M/qQrqTdmAl0XsPGdw/hlH10VuW5Dl
+	 4B3z1YzypsANOy25Y8S1LyfF7JfKCDNXJe6nL6Lo9nkcOs6L6gQVbNuFEyuBPygJ8u
+	 6qC1oxM6/2GCuKXF+vwRu3c0s9ELwknQNOdjNBjfBq5lAHShg025xN5v5qmNbk/lPV
+	 hsCRR/eZPAfpP0qO4mOfjGLMKtaoIYnkbuqX9lFHtAXHNPjDCPL1FSWhkbCG3/JMip
+	 4uNeh/hKJEHEA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1u7bof-0082xr-OB;
+	id 1u7bof-0082xr-Fe;
 	Wed, 23 Apr 2025 16:15:13 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Eric Auger <eric.auger@redhat.com>,
 	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
-Subject: [PATCH v3 03/17] KVM: arm64: nv: Extract translation helper from the AT code
-Date: Wed, 23 Apr 2025 16:14:54 +0100
-Message-Id: <20250423151508.2961768-4-maz@kernel.org>
+Subject: [PATCH v3 02/17] KVM: arm64: nv: Allocate VNCR page when required
+Date: Wed, 23 Apr 2025 16:14:53 +0100
+Message-Id: <20250423151508.2961768-3-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250423151508.2961768-1-maz@kernel.org>
 References: <20250423151508.2961768-1-maz@kernel.org>
@@ -84,225 +84,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The address translation infrastructure is currently pretty tied to
-the AT emulation.
+If running a NV guest on an ARMv8.4-NV capable system, let's
+allocate an additional page that will be used by the hypervisor
+to fulfill system register accesses.
 
-However, we also need to features that require the use of VAs, such
-as VNCR_EL2 (and maybe one of these days SPE), meaning that we need
-a slightly more generic infrastructure.
-
-Start this by introducing a new helper (__kvm_translate_va()) that
-performs a S1 walk for a given translation regime, EL and PAN
-settings.
-
+Reviewed-by: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/include/asm/kvm_nested.h | 54 ++++++++++++++++
- arch/arm64/kvm/at.c                 | 96 +++++++++++------------------
- 2 files changed, 91 insertions(+), 59 deletions(-)
+ arch/arm64/kvm/nested.c | 9 +++++++++
+ arch/arm64/kvm/reset.c  | 1 +
+ 2 files changed, 10 insertions(+)
 
-diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
-index 692f403c1896e..c8a779b393c28 100644
---- a/arch/arm64/include/asm/kvm_nested.h
-+++ b/arch/arm64/include/asm/kvm_nested.h
-@@ -245,4 +245,58 @@ static inline unsigned int ps_to_output_size(unsigned int ps)
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index 4a3fc11f7ecf3..884b3e25795c4 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -55,6 +55,12 @@ int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
+ 	    !cpus_have_final_cap(ARM64_HAS_HCR_NV1))
+ 		return -EINVAL;
+ 
++	if (!vcpu->arch.ctxt.vncr_array)
++		vcpu->arch.ctxt.vncr_array = (u64 *)__get_free_page(GFP_KERNEL | __GFP_ZERO);
++
++	if (!vcpu->arch.ctxt.vncr_array)
++		return -ENOMEM;
++
+ 	/*
+ 	 * Let's treat memory allocation failures as benign: If we fail to
+ 	 * allocate anything, return an error and keep the allocated array
+@@ -85,6 +91,9 @@ int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
+ 		for (int i = kvm->arch.nested_mmus_size; i < num_mmus; i++)
+ 			kvm_free_stage2_pgd(&kvm->arch.nested_mmus[i]);
+ 
++		free_page((unsigned long)vcpu->arch.ctxt.vncr_array);
++		vcpu->arch.ctxt.vncr_array = NULL;
++
+ 		return ret;
  	}
+ 
+diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
+index f82fcc614e136..965e1429b9f6e 100644
+--- a/arch/arm64/kvm/reset.c
++++ b/arch/arm64/kvm/reset.c
+@@ -158,6 +158,7 @@ void kvm_arm_vcpu_destroy(struct kvm_vcpu *vcpu)
+ 	if (sve_state)
+ 		kvm_unshare_hyp(sve_state, sve_state + vcpu_sve_state_size(vcpu));
+ 	kfree(sve_state);
++	free_page((unsigned long)vcpu->arch.ctxt.vncr_array);
+ 	kfree(vcpu->arch.ccsidr);
  }
  
-+enum trans_regime {
-+	TR_EL10,
-+	TR_EL20,
-+	TR_EL2,
-+};
-+
-+struct s1_walk_info {
-+	u64	     		baddr;
-+	enum trans_regime	regime;
-+	unsigned int		max_oa_bits;
-+	unsigned int		pgshift;
-+	unsigned int		txsz;
-+	int 	     		sl;
-+	bool			as_el0;
-+	bool	     		hpd;
-+	bool			e0poe;
-+	bool			poe;
-+	bool			pan;
-+	bool	     		be;
-+	bool	     		s2;
-+};
-+
-+struct s1_walk_result {
-+	union {
-+		struct {
-+			u64	desc;
-+			u64	pa;
-+			s8	level;
-+			u8	APTable;
-+			bool	UXNTable;
-+			bool	PXNTable;
-+			bool	uwxn;
-+			bool	uov;
-+			bool	ur;
-+			bool	uw;
-+			bool	ux;
-+			bool	pwxn;
-+			bool	pov;
-+			bool	pr;
-+			bool	pw;
-+			bool	px;
-+		};
-+		struct {
-+			u8	fst;
-+			bool	ptw;
-+			bool	s2;
-+		};
-+	};
-+	bool	failed;
-+};
-+
-+int __kvm_translate_va(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
-+		       struct s1_walk_result *wr, u64 va);
-+
- #endif /* __ARM64_KVM_NESTED_H */
-diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
-index 7a5267f43b51f..71406908d4f44 100644
---- a/arch/arm64/kvm/at.c
-+++ b/arch/arm64/kvm/at.c
-@@ -10,56 +10,6 @@
- #include <asm/kvm_hyp.h>
- #include <asm/kvm_mmu.h>
- 
--enum trans_regime {
--	TR_EL10,
--	TR_EL20,
--	TR_EL2,
--};
--
--struct s1_walk_info {
--	u64	     		baddr;
--	enum trans_regime	regime;
--	unsigned int		max_oa_bits;
--	unsigned int		pgshift;
--	unsigned int		txsz;
--	int 	     		sl;
--	bool	     		hpd;
--	bool			e0poe;
--	bool			poe;
--	bool			pan;
--	bool	     		be;
--	bool	     		s2;
--};
--
--struct s1_walk_result {
--	union {
--		struct {
--			u64	desc;
--			u64	pa;
--			s8	level;
--			u8	APTable;
--			bool	UXNTable;
--			bool	PXNTable;
--			bool	uwxn;
--			bool	uov;
--			bool	ur;
--			bool	uw;
--			bool	ux;
--			bool	pwxn;
--			bool	pov;
--			bool	pr;
--			bool	pw;
--			bool	px;
--		};
--		struct {
--			u8	fst;
--			bool	ptw;
--			bool	s2;
--		};
--	};
--	bool	failed;
--};
--
- static void fail_s1_walk(struct s1_walk_result *wr, u8 fst, bool s1ptw)
- {
- 	wr->fst		= fst;
-@@ -145,20 +95,15 @@ static void compute_s1poe(struct kvm_vcpu *vcpu, struct s1_walk_info *wi)
- 	}
- }
- 
--static int setup_s1_walk(struct kvm_vcpu *vcpu, u32 op, struct s1_walk_info *wi,
-+static int setup_s1_walk(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
- 			 struct s1_walk_result *wr, u64 va)
- {
- 	u64 hcr, sctlr, tcr, tg, ps, ia_bits, ttbr;
- 	unsigned int stride, x;
--	bool va55, tbi, lva, as_el0;
-+	bool va55, tbi, lva;
- 
- 	hcr = __vcpu_sys_reg(vcpu, HCR_EL2);
- 
--	wi->regime = compute_translation_regime(vcpu, op);
--	as_el0 = (op == OP_AT_S1E0R || op == OP_AT_S1E0W);
--	wi->pan = (op == OP_AT_S1E1RP || op == OP_AT_S1E1WP) &&
--		  (*vcpu_cpsr(vcpu) & PSR_PAN_BIT);
--
- 	va55 = va & BIT(55);
- 
- 	if (wi->regime == TR_EL2 && va55)
-@@ -319,7 +264,7 @@ static int setup_s1_walk(struct kvm_vcpu *vcpu, u32 op, struct s1_walk_info *wi,
- 
- 	/* R_BNDVG and following statements */
- 	if (kvm_has_feat(vcpu->kvm, ID_AA64MMFR2_EL1, E0PD, IMP) &&
--	    as_el0 && (tcr & (va55 ? TCR_E0PD1 : TCR_E0PD0)))
-+	    wi->as_el0 && (tcr & (va55 ? TCR_E0PD1 : TCR_E0PD0)))
- 		goto transfault_l0;
- 
- 	/* AArch64.S1StartLevel() */
-@@ -1155,7 +1100,12 @@ static u64 handle_at_slow(struct kvm_vcpu *vcpu, u32 op, u64 vaddr)
- 	bool perm_fail = false;
- 	int ret, idx;
- 
--	ret = setup_s1_walk(vcpu, op, &wi, &wr, vaddr);
-+	wi.regime = compute_translation_regime(vcpu, op);
-+	wi.as_el0 = (op == OP_AT_S1E0R || op == OP_AT_S1E0W);
-+	wi.pan = (op == OP_AT_S1E1RP || op == OP_AT_S1E1WP) &&
-+		 (*vcpu_cpsr(vcpu) & PSR_PAN_BIT);
-+
-+	ret = setup_s1_walk(vcpu, &wi, &wr, vaddr);
- 	if (ret)
- 		goto compute_par;
- 
-@@ -1457,3 +1407,31 @@ void __kvm_at_s12(struct kvm_vcpu *vcpu, u32 op, u64 vaddr)
- 	par = compute_par_s12(vcpu, par, &out);
- 	vcpu_write_sys_reg(vcpu, par, PAR_EL1);
- }
-+
-+/*
-+ * Translate a VA for a given EL in a given translation regime, with
-+ * or without PAN. This requires wi->{regime, as_el0, pan} to be
-+ * set. The rest of the wi and wr should be 0-initialised.
-+ */
-+int __kvm_translate_va(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
-+		       struct s1_walk_result *wr, u64 va)
-+{
-+	int ret;
-+
-+	ret = setup_s1_walk(vcpu, wi, wr, va);
-+	if (ret)
-+		return ret;
-+
-+	if (wr->level == S1_MMU_DISABLED) {
-+		wr->ur = wr->uw = wr->ux = true;
-+		wr->pr = wr->pw = wr->px = true;
-+	} else {
-+		ret = walk_s1(vcpu, wi, wr, va);
-+		if (ret)
-+			return ret;
-+
-+		compute_s1_permissions(vcpu, wi, wr);
-+	}
-+
-+	return 0;
-+}
 -- 
 2.39.2
 
