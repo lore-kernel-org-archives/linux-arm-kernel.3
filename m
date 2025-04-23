@@ -4,65 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5586C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:43:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6402CC369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:44:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=889diwO9PL1y9ETu/yua/lKy33nZelj3yWdSXwg/JkA=; b=1o//fnic3B9f6AbGE/fUWQ8Bof
-	UDOvyvchAdMjUF3rEqx07IGsyACpRyKrNgCY/rE+aK3q7u5sp7cX2FPF9jNxCuxHz4vPfiWPzXNd5
-	fla7BFBLzhFRhct7nBOlEdmwSLkUuhhsJixjcGuUi1WC4JAvV3dUPA1mdgc72EUcL2UF/l2HX2T4Q
-	HYIjit4d1rlYsLQTtfPProAJ0A7oXpOvSWpx8tnClMLTDoGKm813WgSiSpf7Zl79QBK9yJGR9XLf1
-	lk+Pz3Z8ve4yR2mEb2SjSvkK03VUqolJIt8oQ5zoTnKyZFom63oZSQUPP8qvXtrkvFaod8v01CKCi
-	oflwNlXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZQ4F7kGt6pV/zzUb5uMaILzlgimsXYfSNCl5wYcsv4s=; b=aizeEuVr9digpfglk3+yAc91y8
+	IyMnCS4GdxC19vWKcEvopexYd7b3q0l3imNqlPihQIx0HIZ3cFiZj2zoUoNh3uIbuuCcEMjMMmmQU
+	Sm1Y4QzOB/swMnX+GWkF7hHXH4+59oudhJ7DNIoXBFiNik4Bvjzwsx1cPdQIwZU8+qC9FxuLmIa8t
+	+4ZoZQ8aXKcHcWOtMB7FZ53bMXMkIwqYeqb4RaC1VsWXy0n3juMVeDj916aewafDnyeSQy0/msZYR
+	Cb8E1UYYiYPDJHL/Fh95VTt2/hKsOWDzz9da83Zx5DDQbs+lCwUjBF5LfeodHbG1ygGr+KS53cVMC
+	AIZECx6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7e8U-0000000BNQa-2eP8;
-	Wed, 23 Apr 2025 17:43:50 +0000
+	id 1u7e8h-0000000BNpL-1bmN;
+	Wed, 23 Apr 2025 17:44:03 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7cID-0000000B0mq-0p8K;
-	Wed, 23 Apr 2025 15:45:45 +0000
+	id 1u7cz5-0000000B8J5-0R99;
+	Wed, 23 Apr 2025 16:30:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 66259615ED;
-	Wed, 23 Apr 2025 15:45:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3897C4CEE2;
-	Wed, 23 Apr 2025 15:45:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 64BAE61569;
+	Wed, 23 Apr 2025 16:29:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F861C4CEE2;
+	Wed, 23 Apr 2025 16:30:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745423144;
-	bh=uXGY1VAD0ezdy/ybNS4JN/GqOzUTWI23//dv6QmQUdA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=R0f0eh/2LvsfL4iutKlrnN7chSnjyw9pMqdFl73WtrDzgT2ZydtvcA8ApMRrfVIYy
-	 0CZgrRPJS++EmO8LsVSliQHDPcJ4RjdLHd80VCSoQOqGK2G/sxQPoZ0XojLkat0gbl
-	 X9euuD1yjltFR9FrI4sj7wt/r4snbcmpPCPgsfGpPE6QkuX0XI/6o5kEQETPqu2/NC
-	 34NzBeNuKsBs5HwcJNh7E93sOIpOuLw5h5wZ4lGRL6HeCBSSF4EK6B1Vxc96zgxjOV
-	 XwqUIMgq4hiEEAgxXOvGPFodHikCT0z4VCIUYX0Ma0thcWjIropdyYMZw+iZRxy4cb
-	 R0dclULDW9zZA==
-Date: Wed, 23 Apr 2025 10:45:42 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: linux-mediatek@lists.infradead.org, linux-input@vger.kernel.org,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-	Tzung-Bi Shih <tzungbi@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Douglas Anderson <dianders@chromium.org>,
-	Benson Leung <bleung@chromium.org>, chrome-platform@lists.linux.dev,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>
-Subject: Re: [PATCH v2 1/8] dt-bindings: HID: i2c-hid: elan: Introduce Elan
- eKTH8D18
-Message-ID: <174542314188.576994.12974029497689302557.robh@kernel.org>
-References: <20250421101248.426929-1-wenst@chromium.org>
- <20250421101248.426929-2-wenst@chromium.org>
+	s=k20201202; t=1745425802;
+	bh=N0YsuSsw6LR3Wlo+UHK1R+dAY9Z0n1sTB1iAGMETzA8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=RU/7KPp4/suA/UnOfYAmeq4B9hf8W31UfZR5LRkYWcxfLFZYBDMKjvgXLGyReWrX8
+	 cS2SyM3sVpgpl6SGTACLiUHe627IB58+zUmIQm2SrtID4W4+frlAS5ouaQwYz+ktdF
+	 0u04e7SzXOt6kRrvWwOJQrmzJ/51E5u553kRkWOgcgCDBfWsub/zNq44crTNxZEN6U
+	 S6pUqfqOKKlTWe5EeQf6cegnxJMg3ajfGPjLmGuve0FZbJ4XNNiUol+ZBlaeecm7zU
+	 Bgip2TS4nNfEwva/VftKSzlzirD5f8Y6BgTBrrVdeM0F42a55oy5/2KfecU22d5DOo
+	 j7zCE+QlnwIDQ==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Georgi Djakov <djakov@kerenl.org>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH] soc: mediatek: mtk-dvfsrc: remove an unused variable
+Date: Wed, 23 Apr 2025 18:29:52 +0200
+Message-Id: <20250423162958.2223689-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250421101248.426929-2-wenst@chromium.org>
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,35 +69,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Arnd Bergmann <arnd@arndb.de>
 
-On Mon, 21 Apr 2025 18:12:39 +0800, Chen-Yu Tsai wrote:
-> The Elan eKTH8D18 touchscreen controller is an I2C HID device with a
-> longer boot-up time. Power sequence timing wise it is compatible with
-> the eKTH6A12NAY, with a power-on delay of at least 5ms, 20ms
-> out-of-reset for I2C ack response, and 150ms out-of-reset for I2C HID
-> enumeration, both shorter than what the eKTH6A12NAY requires.
-> Enumeration and subsequent operation follows the I2C HID standard.
-> 
-> Add a compatible string for it with the ekth6a12nay one as a fallback.
-> No enum was used as it is rare to actually add new entries. These
-> chips are commonly completely backward compatible, and unless the
-> power sequencing delays change, there is no real effort being made to
-> keep track of new parts, which come out constantly.
-> 
-> Also drop the constraints on the I2C address since it's not really
-> part of the binding.
-> 
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-> ---
-> Changes since v1:
-> - Reworded commit message
-> - Dropped the enum for the new compatible string entry
-> - Dropped constraint on I2C address completely
-> ---
->  .../devicetree/bindings/input/elan,ekth6915.yaml     | 12 +++++++-----
->  1 file changed, 7 insertions(+), 5 deletions(-)
-> 
+This structure was left unused by a previous patch:
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+drivers/soc/mediatek/mtk-dvfsrc.c:542:43: error: unused variable 'dvfsrc_bw_constr_mt8195' [-Werror,-Wunused-const-variable]
+
+Fixes: b06785283ec1 ("soc: mediatek: mtk-dvfsrc: Rename and move bw constraints data")
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ drivers/soc/mediatek/mtk-dvfsrc.c | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/drivers/soc/mediatek/mtk-dvfsrc.c b/drivers/soc/mediatek/mtk-dvfsrc.c
+index 7b8486ce1c66..41add5636b03 100644
+--- a/drivers/soc/mediatek/mtk-dvfsrc.c
++++ b/drivers/soc/mediatek/mtk-dvfsrc.c
+@@ -539,12 +539,6 @@ static const struct dvfsrc_opp_desc dvfsrc_opp_mt8195_desc[] = {
+ 	}
+ };
+ 
+-static const struct dvfsrc_bw_constraints dvfsrc_bw_constr_mt8195 = {
+-	.max_dram_nom_bw = 255,
+-	.max_dram_peak_bw = 255,
+-	.max_dram_hrt_bw = 1023,
+-};
+-
+ static const struct dvfsrc_soc_data mt8195_data = {
+ 	.opps_desc = dvfsrc_opp_mt8195_desc,
+ 	.regs = dvfsrc_mt8195_regs,
+-- 
+2.39.5
 
 
