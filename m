@@ -4,95 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A5D4C369CB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 829A0C369D8
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:41:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=G7fJXu4jyQdtN3N4XbnGyi2XfxpE/vrFhi3nZwuRLSs=; b=SM27eahijhtffDoVbGrDfpLAYq
-	aNDlAFcCi+2JimVng3qLuZ1YpY6PMyHeS58dehf3W5JSUfQF8ei0rzK4DX4g25b7c4mTDLFmmJiKf
-	S0LRHPkbJKNgftPQFibMoCFxccR0LSoqhT3fTjsD0x5O8NdP/rlYjEe4OMzjXNiawb3sej5qrDBFg
-	5kxCt3PoLM9QX0Ue4kNIg+huzAsNZG8nXwcme2557me2jF862dHC44yblZvAMAv7U8y5ceG51az5J
-	BEFzf8EfcW4zsqwqM4jy2tmbET7VRbqTPI4qQ6eLb1NMebgqpufAszu2d8ZPqaLb7inmY80nkAcb2
-	dYy5gPoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FKarB5hjq0RJ8HWtO78oYbdXogPNte1dgHDWMhXYW2s=; b=mYPOphGU0F4uBI1dXIte3lu/rx
+	jp6hTAmWRpapN9D2Msjdo/7JxGfuLR1MnBR5cx+4fCGE/ZFwb+7hiugyg/YaD/vnnmhTLQ6TqfJ5p
+	KZh5fRgBcm7kqytVncrHgj96OoJZhGdiRF1/DUIOl/O1RFzRzAhHRY2DYrGADQLBUvB+N/7nfoYGt
+	voRES0c/xTqe4zjCl5RxqDJboZtOXwQC8gjqmdcga7PiM2J5F0vjbW9ef3eusedSO71YOLOZM7uZu
+	7MVgBmnbZuL9DSYVFwQIZ3OFG0Q31p4k6lIA7xAoP+lEkV2gqGavBz8Rdh/xWU/CCfC6z0Q5Pz8h7
+	BBzIq+cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7e5j-0000000BIuo-1XeN;
-	Wed, 23 Apr 2025 17:40:59 +0000
-Received: from fout-b3-smtp.messagingengine.com ([202.12.124.146])
+	id 1u7e5M-0000000BINi-19uC;
+	Wed, 23 Apr 2025 17:40:36 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7bRH-0000000AsPh-3731
+	id 1u7ai1-0000000AlK4-0dGQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 14:51:05 +0000
-Received: from phl-compute-03.internal (phl-compute-03.phl.internal [10.202.2.43])
-	by mailfout.stl.internal (Postfix) with ESMTP id C963D11401F7;
-	Wed, 23 Apr 2025 10:50:59 -0400 (EDT)
-Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-03.internal (MEProxy); Wed, 23 Apr 2025 10:50:59 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=svenpeter.dev;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to; s=fm3; t=1745419859; x=1745506259; bh=G7fJXu4jyQ
-	dtN3N4XbnGyi2XfxpE/vrFhi3nZwuRLSs=; b=vIdrmn72Zr+p9bSfnB40Za/1py
-	6k4fhm7awpAbIxEvDkgtiaFuleqPolPAyAAoxVjOG6Ke8IBP+6+yF6llloG9b+GT
-	rTg5ZRZTHcmd/d8GeRnYG99dM93C+XUjPSX3tLL0uAVvJv+MQUXnBJlhZ73V+MTv
-	AEW0n+r+4Ucwuti2mNHUZ/G3X+ytrjCFNbgsS3gPjNGnkIGIzCEWhQ6ldb7b5mLG
-	DMUVcEYLtQ1XbphIv75JOWA9cyjNL42Uetp6Se0BTaC+CxUkqqyjVB2B4h41D0op
-	lKyagDd/D97fB+gyDMfIW5vHjOMhqHPBgGNegCQOyMHYcaSIHugqBx7XPuFQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=
-	1745419859; x=1745506259; bh=G7fJXu4jyQdtN3N4XbnGyi2XfxpE/vrFhi3
-	nZwuRLSs=; b=Zl/3LmPyjVCeKjXPtq6oJGCQtVf67lqX1Je9LiVGwcmjl57ELjZ
-	hf3eWfEnMZR+6RPejr5DXNlxs4PEbSraUbDbkOe15uGJ2OAoxb6tBFTv6OVOOZ4+
-	O9RkjG0lwJcHKmd+r4xqxSC+xfbG+n/O/bo36on7JJz5FPWnDz5iGJ3IpkuV7tLr
-	ErxALos37LQnUY1lgdZMDw4PyWf9gFGsMQkK6T8L1pcXKXpIjXdOGnIHeYlpiYrI
-	SYYpRdTKFsZI0TIGC0bCPvrB439g1zW4EP8Z4pkEnYVCwSDmyJM9Fda7tpUBoNcx
-	73CWqd06OXdOpG99g+waGV2Sfa4HlxP7OyQ==
-X-ME-Sender: <xms:U_4IaE3ZmKovaZ4BzZB9PCSu3MSVdHkdT5eWtdtM_E5mPTcfVRxLNQ>
-    <xme:U_4IaPHPQVcln5jUAEZYsBwG0I5xsSF5KCZQU7tma0-nt4SKItDYjNLD_dgAPjHyM
-    9aNiDSMHjbuhmZsf9o>
-X-ME-Received: <xmr:U_4IaM5nZO9r6Qf9T0grvbOx7WPWvKTVpV_fmWPVZ-IiRFLNIPLgQY0Xdy6AS2MDGQ7N-Ko-zccZHIOynQ1nE_jZ_Qjrq82pOJeRUEOim5hJzuFGMOQJJsSNHDqUUXk>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvgeeikeelucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
-    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucenucfjughrpefhvf
-    evufffkffoggfgsedtkeertdertddtnecuhfhrohhmpefuvhgvnhcurfgvthgvrhcuoehs
-    vhgvnhesshhvvghnphgvthgvrhdruggvvheqnecuggftrfgrthhtvghrnhepudeiiefhge
-    etgfektdeiffekhfejgeeikefftdfghfegveegkeegjeetueffvdeinecuffhomhgrihhn
-    pehgihhthhhusgdrtghomhenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmh
-    grihhlfhhrohhmpehsvhgvnhesshhvvghnphgvthgvrhdruggvvhdpnhgspghrtghpthht
-    ohepgedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepshhotgeslhhishhtshdrlh
-    hinhhugidruggvvhdprhgtphhtthhopegrshgrhhhisehlihhsthhsrdhlihhnuhigrdgu
-    vghvpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinh
-    hfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgv
-    rhdrkhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:U_4IaN2yzr0umJZVNR_dt1n3AbJiiOqv41ZBAv-oSidEkM6YKebL0w>
-    <xmx:U_4IaHF6tEtAKgauoUr14PbJnw93bcwPnfedWnKTJzrvlbGUr1JsOQ>
-    <xmx:U_4IaG9E7MC7yr-n9nCPfs67URyXrRBiMeMSozxOjUoaUfc9aqEQGw>
-    <xmx:U_4IaMluBjXclKO0rWpDVfT2ezHmG87WP3jsAe6ZJYkT3UW7KTOtog>
-    <xmx:U_4IaNRtDswWqhEf1HvsBLkEEcwd0AanCfD617GQRKZMZJPE4WfriCI7>
-Feedback-ID: i51094778:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 23 Apr 2025 10:50:58 -0400 (EDT)
-From: Sven Peter <sven@svenpeter.dev>
-To: soc@lists.linux.dev
-Cc: asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [GIT PULL] Apple SoC fixes for v6.15
-Date: Wed, 23 Apr 2025 16:50:47 +0200
-Message-Id: <20250423145047.3098-1-sven@svenpeter.dev>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	Wed, 23 Apr 2025 14:04:18 +0000
+Received: from [127.0.0.1] (unknown [116.232.18.95])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 4D5DC3430AC;
+	Wed, 23 Apr 2025 14:04:10 +0000 (UTC)
+From: Yixun Lan <dlan@gentoo.org>
+Date: Wed, 23 Apr 2025 22:03:23 +0800
+Subject: [PATCH 2/5] dt-bindings: arm: sunxi: Add A523 EMAC0 compatible
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250423-01-sun55i-emac0-v1-2-46ee4c855e0a@gentoo.org>
+References: <20250423-01-sun55i-emac0-v1-0-46ee4c855e0a@gentoo.org>
+In-Reply-To: <20250423-01-sun55i-emac0-v1-0-46ee4c855e0a@gentoo.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Andre Przywara <andre.przywara@arm.com>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
+ Yixun Lan <dlan@gentoo.org>
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=954; i=dlan@gentoo.org;
+ h=from:subject:message-id; bh=lKyymF7Hpjd26M8XcjHpoVGsP92kwq3xGudaxC8q40M=;
+ b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBoCPM/BF4N7i/TYB6b3RNTlrp4EIT9sg8KqYeMb
+ gv6OH1IHvOJApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCaAjzP18UgAAAAAAuAChp
+ c3N1ZXItZnByQG5vdGF0aW9ucy5vcGVucGdwLmZpZnRoaG9yc2VtYW4ubmV0QjVCQUI4QzlDMzF
+ CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277XUmEACZ800KPPzNvd5qzG
+ dq77Xn4pkeobCVGqmHVzjTxaG8jl6AqbrT+hPCyYVIysejlUeys+viVgGx6RvEZaUJM2BdhsmoQ
+ hQ4u7z2XMeqFaUntVWbRDUsQnZNCITcWMAm9BaG68IYCfRCKteFo6xJ2+VOymprkW4HvTDOKXnV
+ wZcpRU1q3q8I/OtkgcIhbZLP9xbZA1drlyOJ+CLwQ/kjXJn6UZQhDzSx4I8d8iveb6/67WmCUlC
+ g9lNCSDGfrDvs9lmW4yff8cFC0twTdBx2JyvJ61nu+fEwAUgrpc9y58QAPSZN6mglDsdye8E5wH
+ diV08zakE9J/fL63Sq01dzetXf2EeAVj/5qvHCkMMriTKNAg2dyKRyfBHCLAoI/2Sszo+sFoR0I
+ s70uY4X8Xw9w7jpQM6Z1EwZjni5NoUisdb6U1RW282qfvTnxbYmcKIAqns3paow0Qs1ZS11Qha0
+ JgNR7VkgsH4DyxPRR0mO2/SjSfT69hLdqTjtBC5YyygX5TSU1s5zMc+zDVZdKakWInM7CCvqN+r
+ Nbj/WmuG+cxzTJ9EZ3Y4qeomWqagv2v35dp6PsF2Qq1jaFMVjb2r03J9Xtg1s4OKN1d3KdBSdsC
+ mceosQP+8eVz4Nd8jeSMC70lknR5kQUeVEq6udQ1dP0HeefUDlqxJhFa+2Pbt6fAEaQQ==
+X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_075104_211848_7D421FA8 
-X-CRM114-Status: UNSURE (   8.18  )
+X-CRM114-CacheID: sfid-20250423_070417_215775_1501E737 
+X-CRM114-Status: UNSURE (   8.04  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,49 +90,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
+Allwinner A523 SoC variant (A527/T527) contains an "EMAC0" Ethernet
+MAC compatible to the A64 version.
 
-Here are two small fixes which should go into v6.15 from our side,
-see the tag description for details. They've already been added to -next.
+Signed-off-by: Yixun Lan <dlan@gentoo.org>
+---
+ Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
+diff --git a/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml b/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
+index 7fe0352dff0f8d74a08f3f6aac5450ad685e6a08..7b6a2fde8175353621367c8d8f7a956e4aac7177 100644
+--- a/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
++++ b/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
+@@ -23,6 +23,7 @@ properties:
+               - allwinner,sun20i-d1-emac
+               - allwinner,sun50i-h6-emac
+               - allwinner,sun50i-h616-emac0
++              - allwinner,sun55i-a523-emac0
+           - const: allwinner,sun50i-a64-emac
+ 
+   reg:
 
-Thanks,
+-- 
+2.49.0
 
-
-Sven
-
-
-The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
-
-  Linux 6.15-rc1 (2025-04-06 13:11:33 -0700)
-
-are available in the Git repository at:
-
-  https://github.com/AsahiLinux/linux.git tags/asahi-soc-fixes-6.15
-
-for you to fetch changes up to dc5befecbe2683ac49fc8dc76aade35e62f4cf30:
-
-  arm64: dts: apple: touchbar: Mark ps_dispdfr_be as always-on (2025-04-19 08:40:33 +0200)
-
-----------------------------------------------------------------
-Apple SoC fixes for 6.15
-
-This tag contains two small commits since rc1:
-- Add a .mailmap entry requested by Asahi Lina to better filter her
-  emails
-- Mark the power domains for the touchbar support introduced with 6.15
-  as always on since the driver cannot initialize the touchbar from
-  scratch after the domains are powered off (e.g. during suspend).
-
-----------------------------------------------------------------
-Asahi Lina (1):
-      mailmap: Update email for Asahi Lina
-
-Janne Grunau (1):
-      arm64: dts: apple: touchbar: Mark ps_dispdfr_be as always-on
-
- .mailmap                                 |  1 +
- arch/arm64/boot/dts/apple/t8103-j293.dts | 10 ++++++++++
- arch/arm64/boot/dts/apple/t8112-j493.dts | 10 ++++++++++
- 3 files changed, 21 insertions(+)
 
