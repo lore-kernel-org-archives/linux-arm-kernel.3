@@ -4,57 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB3CFC369D8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 13:52:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72F7DC369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 13:52:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V+elOQHa76tVid8pFiLzcIUp2XwKbOcxmL8nretc43A=; b=JYNG2ynMZbL373UaFVAHqDdf4r
-	gIpC0zCiWzRRUSf+3Kis5psT6z1AIyU6tILb0hgedcRX2yTuK5EW9DWzWRKdHwtfJA/QVxGm8heHT
-	pyNPEiwUgYNvMz8EU7BjcrEy0Vw8Tak3oZbIC4FbnyhqIxYRvuAs7vdK3ct9i/3yjREasCCdrlZi4
-	XaV3LX19q8BWcKppLN0hG3JunO6zklVOuY91O6BKxQzTV9tFo9ipfUAH09q+aOvYvltK5jitfeMNb
-	K5BNlMEEpRq0SafS96u3GUyWhwwEuPKVvQEVv7CJfx28Ddd1h3ULMDCTqcCpzq59HYcP8QEJ9RKEO
-	OZ3smfEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LgDi/jv/CXhPmPtm6L9nGFLhC/5rMMm8XjJvsn5qrws=; b=GV0g+1aRPJxVEmGBY2Um6wYIup
+	LI3EQEF6uLfolL/cVZWIiJcPaIUU5YqW75ScO49wSeLDSWf3S3YEqTSUdaf+dbnAH0SF5pKIXO366
+	0NncaRqTWd0JofFffjhx0KZ1cpYWwika3UIKKXCnQAa5xVx89ZyWfY9omwSOMGZLh3R7Hr4EFCRLl
+	urTeKJC+GM1sYc5HXk/v4OWOv99RvyTn3Cht+LeK2R54wTtOJDOQBq9FToSErLBabp68Fk43pNkm/
+	gFIld0THJnqhL5H6dhQAf3SGQ32pUK1pBR9YzdtQcgO8iTXzj5orx+tniWRADVnuZFRNitlgux4YN
+	cFiQB90w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7aW8-0000000Afq8-0hkE;
-	Wed, 23 Apr 2025 13:52:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7WTV-00000009yco-3ufu
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 09:33:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4EE562B;
-	Wed, 23 Apr 2025 02:32:54 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 80F933F66E;
-	Wed, 23 Apr 2025 02:32:58 -0700 (PDT)
-Date: Wed, 23 Apr 2025 10:32:53 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Yabin Cui <yabinc@google.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Jie Gan <quic_jiegan@quicinc.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 2/2] coresight: core: Disable helpers for devices that
- fail to enable
-Message-ID: <20250423093253.GK28953@e132581.arm.com>
-References: <20250415184649.356683-1-yabinc@google.com>
- <20250415184649.356683-3-yabinc@google.com>
+	id 1u7aWC-0000000Afvm-0V99;
+	Wed, 23 Apr 2025 13:52:04 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7YzH-0000000ARgO-032p;
+	Wed, 23 Apr 2025 12:14:00 +0000
+X-UUID: 6c58ca90203c11f0a2405d5ef59ce188-20250423
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=LgDi/jv/CXhPmPtm6L9nGFLhC/5rMMm8XjJvsn5qrws=;
+	b=DtXDQvmELpSShmxtOauI0i4Hn3dyeTo3CdODU/veti1SEp8YuDEO+cQB4kiSNuuCLKUnI0DTyh7TMsMWcueirOyZpZVFjr3mkjgb3YXuFF02VlOmirfzIv4IrHOXNH//k7Tg6jb0I3I805EHgOFq93tXn/AOpGy2ya1BZgYx5Jw=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.1,REQID:ff00adc8-134a-4396-a0df-b584e7696653,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:0ef645f,CLOUDID:6477fdca-9427-4819-8156-f3ab5b7769d9,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
+	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
+	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 6c58ca90203c11f0a2405d5ef59ce188-20250423
+Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw02.mediatek.com
+	(envelope-from <jianhua.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1455872367; Wed, 23 Apr 2025 05:13:53 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Wed, 23 Apr 2025 20:13:51 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Wed, 23 Apr 2025 20:13:50 +0800
+From: Jianhua Lin <jianhua.lin@mediatek.com>
+To: <sebastian.fricke@collabora.com>, <daniel.almeida@collabora.com>,
+	<mchehab@kernel.org>, <angelogioacchino.delregno@collabora.com>
+CC: <linux-media@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Jianhua Lin
+	<jianhua.lin@mediatek.com>
+Subject: [PATCH v7 1/1] media: mediatek: jpeg: support 34bits
+Date: Wed, 23 Apr 2025 20:13:10 +0800
+Message-ID: <20250423121310.25686-1-jianhua.lin@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250415184649.356683-3-yabinc@google.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_023302_062220_7F390825 
-X-CRM114-Status: GOOD (  26.69  )
+X-CRM114-CacheID: sfid-20250423_051359_067290_4D957693 
+X-CRM114-Status: GOOD (  21.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,131 +84,353 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 15, 2025 at 11:46:49AM -0700, Yabin Cui wrote:
-> When enabling a SINK or LINK type coresight device fails, the
-> associated helpers should be disabled.
-> 
-> Signed-off-by: Yabin Cui <yabinc@google.com>
-> Suggested-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> ---
->  drivers/hwtracing/coresight/coresight-core.c | 10 +++++++---
->  1 file changed, 7 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-> index fb43ef6a3b1f..d9fcea69d221 100644
-> --- a/drivers/hwtracing/coresight/coresight-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-core.c
-> @@ -486,8 +486,10 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
->  			 * that need disabling. Disabling the path here
->  			 * would mean we could disrupt an existing session.
->  			 */
-> -			if (ret)
-> +			if (ret) {
-> +				coresight_disable_helpers(csdev, path);
+The HW iommu is able to support a 34-bit iova address-space (16GB),
+enable this feature for the encoder/decoder driver by shifting the
+address by two bits and setting the extended address registers.
 
-I think we can do better for code consolidation - we can use a central
-place for error handling.  I will give details below.
+Signed-off-by: Jianhua Lin <jianhua.lin@mediatek.com>
+---
+Changes compared with v6:
+- Fix reviewer's comments
+	- Improve commit message
+	- Separate the capatible feature in different patch
+	- Remove the comment in mtk_jpeg_enc_get_file_size()
+	- Correct alignment in the line
+	- Refactor the field preparation
 
->  				goto out;
-> +			}
->  			break;
->  		case CORESIGHT_DEV_TYPE_SOURCE:
->  			/* sources are enabled from either sysFS or Perf */
-> @@ -497,15 +499,17 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
->  			child = list_next_entry(nd, link)->csdev;
->  			ret = coresight_enable_link(csdev, parent, child, source);
->  			if (ret)
-> -				goto err;
-> +				goto err_disable_helpers;
->  			break;
->  		default:
-> -			goto err;
-> +			goto err_disable_helpers;
+ .../platform/mediatek/jpeg/mtk_jpeg_core.c    |  5 +-
+ .../platform/mediatek/jpeg/mtk_jpeg_core.h    |  4 ++
+ .../platform/mediatek/jpeg/mtk_jpeg_dec_hw.c  | 57 +++++++++++++++----
+ .../platform/mediatek/jpeg/mtk_jpeg_dec_hw.h  |  1 +
+ .../platform/mediatek/jpeg/mtk_jpeg_dec_reg.h |  8 +++
+ .../platform/mediatek/jpeg/mtk_jpeg_enc_hw.c  | 29 ++++++++--
+ .../platform/mediatek/jpeg/mtk_jpeg_enc_hw.h  |  7 ++-
+ 7 files changed, 94 insertions(+), 17 deletions(-)
 
-I know this is not a problem introduced by your patch - for an error
-case, it returns 0.  This will hide unexpected issues.  I would like
-to suggest to return -EINVAL for unknown types.
-
->  		}
->  	}
->  
->  out:
->  	return ret;
-> +err_disable_helpers:
-> +	coresight_disable_helpers(csdev, path);
->  err:
->  	coresight_disable_path_from(path, nd);
->  	goto out;
-
-I am just wandering if we can handle errors in a unified way and
-without using goto.  I would change the code as below.
-
-The point is to use a general flow for error handling, include a
-sink error.  For sink error, we still invoke
-coresight_disable_path_from() for an empty operation.
-
-Also, I think we need an additional patch for error handling in
-coresight_enable_helpers(). If any errors are detected while enabling
-a helper, we should disable the helpers that have already been
-enabled.
-
-Please let me know if you have any questions.
-
-Thanks,
-Leo
-
----8<---
-
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index fb43ef6a3b1f..cf2a3708a05e 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -465,7 +465,7 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
- 		/* Enable all helpers adjacent to the path first */
- 		ret = coresight_enable_helpers(csdev, mode, path);
- 		if (ret)
--			goto err;
-+			goto err_disable_path;
- 		/*
- 		 * ETF devices are tricky... They can be a link or a sink,
- 		 * depending on how they are configured.  If an ETF has been
-@@ -487,7 +487,7 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
- 			 * would mean we could disrupt an existing session.
- 			 */
- 			if (ret)
--				goto out;
-+				goto err_disable_helpers;
- 			break;
- 		case CORESIGHT_DEV_TYPE_SOURCE:
- 			/* sources are enabled from either sysFS or Perf */
-@@ -497,18 +497,21 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
- 			child = list_next_entry(nd, link)->csdev;
- 			ret = coresight_enable_link(csdev, parent, child, source);
- 			if (ret)
--				goto err;
-+				goto err_disable_helpers;
- 			break;
- 		default:
--			goto err;
-+			ret = -EINVAL;
-+			goto err_disable_helpers;
- 		}
- 	}
+diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+index 7dd652e5b6d4..23692cd91e2c 100644
+--- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
++++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+@@ -1026,6 +1026,7 @@ static void mtk_jpeg_dec_device_run(void *priv)
+ 	spin_lock_irqsave(&jpeg->hw_lock, flags);
+ 	mtk_jpeg_dec_reset(jpeg->reg_base);
+ 	mtk_jpeg_dec_set_config(jpeg->reg_base,
++				jpeg->variant->support_34bit,
+ 				&jpeg_src_buf->dec_param,
+ 				jpeg_src_buf->bs_size,
+ 				&bs,
+@@ -1570,7 +1571,8 @@ static irqreturn_t mtk_jpeg_enc_done(struct mtk_jpeg_dev *jpeg)
+ 	src_buf = v4l2_m2m_src_buf_remove(ctx->fh.m2m_ctx);
+ 	dst_buf = v4l2_m2m_dst_buf_remove(ctx->fh.m2m_ctx);
  
--out:
--	return ret;
--err:
-+	return 0;
+-	result_size = mtk_jpeg_enc_get_file_size(jpeg->reg_base);
++	result_size = mtk_jpeg_enc_get_file_size(jpeg->reg_base,
++						 jpeg->variant->support_34bit);
+ 	vb2_set_plane_payload(&dst_buf->vb2_buf, 0, result_size);
+ 
+ 	buf_state = VB2_BUF_STATE_DONE;
+@@ -1770,6 +1772,7 @@ static void mtk_jpegdec_worker(struct work_struct *work)
+ 	ctx->total_frame_num++;
+ 	mtk_jpeg_dec_reset(comp_jpeg[hw_id]->reg_base);
+ 	mtk_jpeg_dec_set_config(comp_jpeg[hw_id]->reg_base,
++				jpeg->variant->support_34bit,
+ 				&jpeg_src_buf->dec_param,
+ 				jpeg_src_buf->bs_size,
+ 				&bs,
+diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
+index 8877eb39e807..02ed0ed5b736 100644
+--- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
++++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
+@@ -34,6 +34,8 @@
+ 
+ #define MTK_JPEG_MAX_EXIF_SIZE	(64 * 1024)
+ 
++#define MTK_JPEG_ADDR_MASK GENMASK(1, 0)
 +
-+err_disable_helpers:
-+	coresight_disable_helpers(csdev, path);
-+err_disable_path:
- 	coresight_disable_path_from(path, nd);
--	goto out;
-+	return ret;
+ /**
+  * enum mtk_jpeg_ctx_state - states of the context state machine
+  * @MTK_JPEG_INIT:		current state is initialized
+@@ -62,6 +64,7 @@ enum mtk_jpeg_ctx_state {
+  * @cap_q_default_fourcc:	capture queue default fourcc
+  * @multi_core:		mark jpeg hw is multi_core or not
+  * @jpeg_worker:		jpeg dec or enc worker
++ * @support_34bit:	flag to check support for 34-bit DMA address
+  */
+ struct mtk_jpeg_variant {
+ 	struct clk_bulk_data *clks;
+@@ -78,6 +81,7 @@ struct mtk_jpeg_variant {
+ 	u32 cap_q_default_fourcc;
+ 	bool multi_core;
+ 	void (*jpeg_worker)(struct work_struct *work);
++	bool support_34bit;
+ };
+ 
+ struct mtk_jpeg_src_buf {
+diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
+index 2c5d74939d0a..874d61709e6d 100644
+--- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
++++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
+@@ -5,6 +5,8 @@
+  *         Rick Chang <rick.chang@mediatek.com>
+  */
+ 
++#include <linux/bitfield.h>
++#include <linux/bits.h>
+ #include <linux/clk.h>
+ #include <linux/interrupt.h>
+ #include <linux/irq.h>
+@@ -279,23 +281,43 @@ static void mtk_jpeg_dec_set_brz_factor(void __iomem *base, u8 yscale_w,
+ 	writel(val, base + JPGDEC_REG_BRZ_FACTOR);
  }
  
-> -- 
-> 2.49.0.604.gff1f9ca942-goog
-> 
+-static void mtk_jpeg_dec_set_dst_bank0(void __iomem *base, u32 addr_y,
+-				       u32 addr_u, u32 addr_v)
++static void mtk_jpeg_dec_set_dst_bank0(void __iomem *base, bool support_34bit,
++				       dma_addr_t addr_y, dma_addr_t addr_u, dma_addr_t addr_v)
+ {
++	u32 val;
++
+ 	mtk_jpeg_verify_align(addr_y, 16, JPGDEC_REG_DEST_ADDR0_Y);
+ 	writel(addr_y, base + JPGDEC_REG_DEST_ADDR0_Y);
+ 	mtk_jpeg_verify_align(addr_u, 16, JPGDEC_REG_DEST_ADDR0_U);
+ 	writel(addr_u, base + JPGDEC_REG_DEST_ADDR0_U);
+ 	mtk_jpeg_verify_align(addr_v, 16, JPGDEC_REG_DEST_ADDR0_V);
+ 	writel(addr_v, base + JPGDEC_REG_DEST_ADDR0_V);
++	if (support_34bit) {
++		val = FIELD_PREP(MTK_JPEG_ADDR_MASK, upper_32_bits(addr_y));
++		writel(val, base + JPGDEC_REG_DEST_ADDR0_Y_EXT);
++		val = FIELD_PREP(MTK_JPEG_ADDR_MASK, upper_32_bits(addr_u));
++		writel(val, base + JPGDEC_REG_DEST_ADDR0_U_EXT);
++		val = FIELD_PREP(MTK_JPEG_ADDR_MASK, upper_32_bits(addr_v));
++		writel(val, base + JPGDEC_REG_DEST_ADDR0_V_EXT);
++	}
+ }
+ 
+-static void mtk_jpeg_dec_set_dst_bank1(void __iomem *base, u32 addr_y,
+-				       u32 addr_u, u32 addr_v)
++static void mtk_jpeg_dec_set_dst_bank1(void __iomem *base, bool support_34bit,
++				       dma_addr_t addr_y, dma_addr_t addr_u, dma_addr_t addr_v)
+ {
++	u32 val;
++
+ 	writel(addr_y, base + JPGDEC_REG_DEST_ADDR1_Y);
+ 	writel(addr_u, base + JPGDEC_REG_DEST_ADDR1_U);
+ 	writel(addr_v, base + JPGDEC_REG_DEST_ADDR1_V);
++	if (support_34bit) {
++		val = FIELD_PREP(MTK_JPEG_ADDR_MASK, upper_32_bits(addr_y));
++		writel(val, base + JPGDEC_REG_DEST_ADDR1_Y_EXT);
++		val = FIELD_PREP(MTK_JPEG_ADDR_MASK, upper_32_bits(addr_u));
++		writel(val, base + JPGDEC_REG_DEST_ADDR1_U_EXT);
++		val = FIELD_PREP(MTK_JPEG_ADDR_MASK, upper_32_bits(addr_v));
++		writel(val, base + JPGDEC_REG_DEST_ADDR1_V_EXT);
++	}
+ }
+ 
+ static void mtk_jpeg_dec_set_mem_stride(void __iomem *base, u32 stride_y,
+@@ -322,18 +344,30 @@ static void mtk_jpeg_dec_set_dec_mode(void __iomem *base, u32 mode)
+ 	writel(mode & 0x03, base + JPGDEC_REG_OPERATION_MODE);
+ }
+ 
+-static void mtk_jpeg_dec_set_bs_write_ptr(void __iomem *base, u32 ptr)
++static void mtk_jpeg_dec_set_bs_write_ptr(void __iomem *base, bool support_34bit, dma_addr_t ptr)
+ {
++	u32 val;
++
+ 	mtk_jpeg_verify_align(ptr, 16, JPGDEC_REG_FILE_BRP);
+ 	writel(ptr, base + JPGDEC_REG_FILE_BRP);
++	if (support_34bit) {
++		val = FIELD_PREP(MTK_JPEG_ADDR_MASK, upper_32_bits(ptr));
++		writel(val, base + JPGDEC_REG_FILE_BRP_EXT);
++	}
+ }
+ 
+-static void mtk_jpeg_dec_set_bs_info(void __iomem *base, u32 addr, u32 size,
+-				     u32 bitstream_size)
++static void mtk_jpeg_dec_set_bs_info(void __iomem *base, bool support_34bit,
++				     dma_addr_t addr, u32 size, u32 bitstream_size)
+ {
++	u32 val;
++
+ 	mtk_jpeg_verify_align(addr, 16, JPGDEC_REG_FILE_ADDR);
+ 	mtk_jpeg_verify_align(size, 128, JPGDEC_REG_FILE_TOTAL_SIZE);
+ 	writel(addr, base + JPGDEC_REG_FILE_ADDR);
++	if (support_34bit) {
++		val = FIELD_PREP(MTK_JPEG_ADDR_MASK, upper_32_bits(addr));
++		writel(val, base + JPGDEC_REG_FILE_ADDR_EXT);
++	}
+ 	writel(size, base + JPGDEC_REG_FILE_TOTAL_SIZE);
+ 	writel(bitstream_size, base + JPGDEC_REG_BIT_STREAM_SIZE);
+ }
+@@ -404,6 +438,7 @@ static void mtk_jpeg_dec_set_sampling_factor(void __iomem *base, u32 comp_num,
+ }
+ 
+ void mtk_jpeg_dec_set_config(void __iomem *base,
++			     bool support_34bits,
+ 			     struct mtk_jpeg_dec_param *cfg,
+ 			     u32 bitstream_size,
+ 			     struct mtk_jpeg_bs *bs,
+@@ -413,8 +448,8 @@ void mtk_jpeg_dec_set_config(void __iomem *base,
+ 	mtk_jpeg_dec_set_dec_mode(base, 0);
+ 	mtk_jpeg_dec_set_comp0_du(base, cfg->unit_num);
+ 	mtk_jpeg_dec_set_total_mcu(base, cfg->total_mcu);
+-	mtk_jpeg_dec_set_bs_info(base, bs->str_addr, bs->size, bitstream_size);
+-	mtk_jpeg_dec_set_bs_write_ptr(base, bs->end_addr);
++	mtk_jpeg_dec_set_bs_info(base, support_34bits, bs->str_addr, bs->size, bitstream_size);
++	mtk_jpeg_dec_set_bs_write_ptr(base, support_34bits, bs->end_addr);
+ 	mtk_jpeg_dec_set_du_membership(base, cfg->membership, 1,
+ 				       (cfg->comp_num == 1) ? 1 : 0);
+ 	mtk_jpeg_dec_set_comp_id(base, cfg->comp_id[0], cfg->comp_id[1],
+@@ -432,9 +467,9 @@ void mtk_jpeg_dec_set_config(void __iomem *base,
+ 				    cfg->mem_stride[1]);
+ 	mtk_jpeg_dec_set_img_stride(base, cfg->img_stride[0],
+ 				    cfg->img_stride[1]);
+-	mtk_jpeg_dec_set_dst_bank0(base, fb->plane_addr[0],
++	mtk_jpeg_dec_set_dst_bank0(base, support_34bits, fb->plane_addr[0],
+ 				   fb->plane_addr[1], fb->plane_addr[2]);
+-	mtk_jpeg_dec_set_dst_bank1(base, 0, 0, 0);
++	mtk_jpeg_dec_set_dst_bank1(base, support_34bits, 0, 0, 0);
+ 	mtk_jpeg_dec_set_dma_group(base, cfg->dma_mcu, cfg->dma_group,
+ 				   cfg->dma_last_mcu);
+ 	mtk_jpeg_dec_set_pause_mcu_idx(base, cfg->total_mcu);
+diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.h b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.h
+index 8c31c6b12417..2948c9c300a4 100644
+--- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.h
++++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.h
+@@ -71,6 +71,7 @@ int mtk_jpeg_dec_fill_param(struct mtk_jpeg_dec_param *param);
+ u32 mtk_jpeg_dec_get_int_status(void __iomem *dec_reg_base);
+ u32 mtk_jpeg_dec_enum_result(u32 irq_result);
+ void mtk_jpeg_dec_set_config(void __iomem *base,
++			     bool support_34bits,
+ 			     struct mtk_jpeg_dec_param *cfg,
+ 			     u32 bitstream_size,
+ 			     struct mtk_jpeg_bs *bs,
+diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_reg.h b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_reg.h
+index 27b7711ca341..e94f52de7c69 100644
+--- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_reg.h
++++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_reg.h
+@@ -46,5 +46,13 @@
+ #define JPGDEC_REG_INTERRUPT_STATUS	0x0274
+ #define JPGDEC_REG_STATUS		0x0278
+ #define JPGDEC_REG_BIT_STREAM_SIZE	0x0344
++#define JPGDEC_REG_DEST_ADDR0_Y_EXT	0x0360
++#define JPGDEC_REG_DEST_ADDR0_U_EXT	0x0364
++#define JPGDEC_REG_DEST_ADDR0_V_EXT	0x0368
++#define JPGDEC_REG_DEST_ADDR1_Y_EXT	0x036c
++#define JPGDEC_REG_DEST_ADDR1_U_EXT	0x0370
++#define JPGDEC_REG_DEST_ADDR1_V_EXT	0x0374
++#define JPGDEC_REG_FILE_ADDR_EXT	0x0378
++#define JPGDEC_REG_FILE_BRP_EXT		0x037c
+ 
+ #endif /* _MTK_JPEG_REG_H */
+diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
+index f8fa3b841ccf..b55402b91b6f 100644
+--- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
++++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
+@@ -5,6 +5,8 @@
+  *
+  */
+ 
++#include <linux/bitfield.h>
++#include <linux/bits.h>
+ #include <linux/clk.h>
+ #include <linux/interrupt.h>
+ #include <linux/irq.h>
+@@ -62,9 +64,9 @@ void mtk_jpeg_enc_reset(void __iomem *base)
+ }
+ EXPORT_SYMBOL_GPL(mtk_jpeg_enc_reset);
+ 
+-u32 mtk_jpeg_enc_get_file_size(void __iomem *base)
++u32 mtk_jpeg_enc_get_file_size(void __iomem *base, bool support_34bit)
+ {
+-	return readl(base + JPEG_ENC_DMA_ADDR0) -
++	return (readl(base + JPEG_ENC_DMA_ADDR0) << ((support_34bit) ? 2 : 0)) -
+ 	       readl(base + JPEG_ENC_DST_ADDR0);
+ }
+ EXPORT_SYMBOL_GPL(mtk_jpeg_enc_get_file_size);
+@@ -84,14 +86,24 @@ void mtk_jpeg_set_enc_src(struct mtk_jpeg_ctx *ctx,  void __iomem *base,
+ {
+ 	int i;
+ 	dma_addr_t dma_addr;
++	u32 addr_ext;
++	bool support_34bit = ctx->jpeg->variant->support_34bit;
+ 
+ 	for (i = 0; i < src_buf->num_planes; i++) {
+ 		dma_addr = vb2_dma_contig_plane_dma_addr(src_buf, i) +
+ 			   src_buf->planes[i].data_offset;
+-		if (!i)
++		if (i == 0)
+ 			writel(dma_addr, base + JPEG_ENC_SRC_LUMA_ADDR);
+ 		else
+ 			writel(dma_addr, base + JPEG_ENC_SRC_CHROMA_ADDR);
++
++		if (support_34bit) {
++			addr_ext = FIELD_PREP(MTK_JPEG_ADDR_MASK, upper_32_bits(dma_addr));
++			if (i == 0)
++				writel(addr_ext, base + JPEG_ENC_SRC_LUMA_ADDR_EXT);
++			else
++				writel(addr_ext, base + JPEG_ENC_SRC_CHRO_ADDR_EXT);
++		}
+ 	}
+ }
+ EXPORT_SYMBOL_GPL(mtk_jpeg_set_enc_src);
+@@ -103,6 +115,8 @@ void mtk_jpeg_set_enc_dst(struct mtk_jpeg_ctx *ctx, void __iomem *base,
+ 	size_t size;
+ 	u32 dma_addr_offset;
+ 	u32 dma_addr_offsetmask;
++	u32 addr_ext;
++	bool support_34bit = ctx->jpeg->variant->support_34bit;
+ 
+ 	dma_addr = vb2_dma_contig_plane_dma_addr(dst_buf, 0);
+ 	dma_addr_offset = ctx->enable_exif ? MTK_JPEG_MAX_EXIF_SIZE : 0;
+@@ -113,6 +127,12 @@ void mtk_jpeg_set_enc_dst(struct mtk_jpeg_ctx *ctx, void __iomem *base,
+ 	writel(dma_addr_offsetmask & 0xf, base + JPEG_ENC_BYTE_OFFSET_MASK);
+ 	writel(dma_addr & ~0xf, base + JPEG_ENC_DST_ADDR0);
+ 	writel((dma_addr + size) & ~0xf, base + JPEG_ENC_STALL_ADDR0);
++
++	if (support_34bit) {
++		addr_ext = FIELD_PREP(MTK_JPEG_ADDR_MASK, upper_32_bits(dma_addr));
++		writel(addr_ext, base + JPEG_ENC_DEST_ADDR0_EXT);
++		writel(addr_ext + size, base + JPEG_ENC_STALL_ADDR0_EXT);
++	}
+ }
+ EXPORT_SYMBOL_GPL(mtk_jpeg_set_enc_dst);
+ 
+@@ -278,7 +298,8 @@ static irqreturn_t mtk_jpegenc_hw_irq_handler(int irq, void *priv)
+ 	if (!(irq_status & JPEG_ENC_INT_STATUS_DONE))
+ 		dev_warn(jpeg->dev, "Jpg Enc occurs unknown Err.");
+ 
+-	result_size = mtk_jpeg_enc_get_file_size(jpeg->reg_base);
++	result_size = mtk_jpeg_enc_get_file_size(jpeg->reg_base,
++						 ctx->jpeg->variant->support_34bit);
+ 	vb2_set_plane_payload(&dst_buf->vb2_buf, 0, result_size);
+ 	buf_state = VB2_BUF_STATE_DONE;
+ 	v4l2_m2m_buf_done(src_buf, buf_state);
+diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.h b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.h
+index 61c60e4e58ea..31ec9030ae88 100644
+--- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.h
++++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.h
+@@ -68,6 +68,11 @@
+ #define JPEG_ENC_DCM_CTRL		0x300
+ #define JPEG_ENC_CODEC_SEL		0x314
+ #define JPEG_ENC_ULTRA_THRES		0x318
++#define JPEG_ENC_SRC_LUMA_ADDR_EXT      0x584
++#define JPEG_ENC_SRC_CHRO_ADDR_EXT      0x588
++#define JPEG_ENC_Q_TBL_ADDR_EXT         0x58C
++#define JPEG_ENC_DEST_ADDR0_EXT         0x590
++#define JPEG_ENC_STALL_ADDR0_EXT        0x594
+ 
+ /**
+  * struct mtk_jpeg_enc_qlt - JPEG encoder quality data
+@@ -80,7 +85,7 @@ struct mtk_jpeg_enc_qlt {
+ };
+ 
+ void mtk_jpeg_enc_reset(void __iomem *base);
+-u32 mtk_jpeg_enc_get_file_size(void __iomem *base);
++u32 mtk_jpeg_enc_get_file_size(void __iomem *base, bool support_34bit);
+ void mtk_jpeg_enc_start(void __iomem *enc_reg_base);
+ void mtk_jpeg_set_enc_src(struct mtk_jpeg_ctx *ctx,  void __iomem *base,
+ 			  struct vb2_buffer *src_buf);
+-- 
+2.46.0
+
 
