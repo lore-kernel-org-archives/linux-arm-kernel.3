@@ -4,90 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37085C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 20:03:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FB55C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 20:51:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lp4CdKMNjxvtvuUzztK6+9w/pLy8jiHgEZIHEVYZ3qc=; b=Yx4MERmnxpxMnqDcUa7QUeGGSP
-	SwTxOnWK/OT5uJA8mkvz3Su68Vz7GT2rkC2tylURnUqPHeWBVoBPIn3CXcgekMOxkzRxQnZLmD57J
-	UeeMrYhaoc+i/ZyJgJ+p/zbBFCWsul0DRr5xhk2+z2Tr6V9fKpzj0nUvlUlYozMuStmO8+uOQ4CuF
-	AtwJuuFtzf67zwZU7oT6YE2z+AfCPTJwIbf4ilOqiksJrqzoShra8XfPwvcyu47l1hNGfMBxWARhW
-	D4Higg6XmvhjGd3xRdLrgfYcCZ4sAGs8t1M+LE4l/UJFyXB6fhu+0NZFQh53hQp+iDCkaKxN4mD34
-	st77k3qw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nC1pt0OHsgKYpZibz4D3aP8DAn0vUsf1V79tARY7X9c=; b=BbB5XVtaCP6NqMVJo9rjdHTF3K
+	SZE3Q1ig9HKrQnh7yBTmHsHaa2R89Og9RbBOgYDfRyrRWfoiLUM8UBCijzX53pyBwk7QcMNNN58p+
+	zc4Rrd/TbIrQ3nJdEFGvCJAjxt31dFU/AULm+J5NK8SQwWFmuep3tsXogd3dktt1I5s5nAdDRzk5K
+	8b9mbkvh5pO5/ffxqtDVHKHV9a2XbhX4YvnVG+dYAXj0kf9oyDf6FnKNviak8QQRTs3euQgyouiET
+	H2oEo/thw/8rajAFWMxOfDnoED4bC75zKBTaZSaEykGc4mNBxjzOcBJ9fmU+FoHnRcQRuCFfmQVH2
+	iVtipeJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7gJT-0000000BtJ7-4C2o;
-	Wed, 23 Apr 2025 20:03:20 +0000
-Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
+	id 1u7h3f-0000000C0yA-0WVP;
+	Wed, 23 Apr 2025 20:51:03 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7gHU-0000000Bsk3-1sok
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 20:01:20 +0000
-Received: by mail-qk1-x730.google.com with SMTP id af79cd13be357-7c55b53a459so26268485a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 13:01:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1745438475; x=1746043275; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Lp4CdKMNjxvtvuUzztK6+9w/pLy8jiHgEZIHEVYZ3qc=;
-        b=MnQSISGRtJYaUzdMrCfxSSGX1MUIAUZmI6r8Q6kcFEwKk6uXJCnuHJgph42aGNgwN+
-         eemdWi/EV12tOBYPDQrtQE8LbTARJ+3YsWdLaXS6ausBJhAYeBiOuIvSi86JinyJleYG
-         Pq/RgBKU6Rqw+5shBqW5KIo6Pxk+l8wganJTCkm4SueQatXctA8buvnKn7Xa7wnYPz1W
-         FeMnQBZovZ6bnpGmgL8m69HvX4wQj+0oqRcaEf9Srkh22DHDXstRFHQjXmHY/XrhSHgG
-         kjlrjFn4GI3I/mliUC42SkSHjoXnj+NVCB8WMWhcY5AKipQ50vVLSPO8CAeND/WEDY0v
-         Sz9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745438475; x=1746043275;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Lp4CdKMNjxvtvuUzztK6+9w/pLy8jiHgEZIHEVYZ3qc=;
-        b=WWCrSkpDm0dTnrpbWhThjGPi5wZwM/fOTyzy8TwYax3ZxNH3i2DRiIjEExfkbHOAee
-         qEnFMd5f5wECntTRlCtLswAcN8BXmIL+hRD+HutZX4lMJEyn2Ps3cxMF9AiY4m5lC9Jz
-         p60o5y1XshOIInR5rEbwNFG9WCSmF09k6eANj0how5HNiB3z90cv7karxU3rh2IzHv1H
-         Fplxdvh3lZV+CHU9/FzTcwp+r0F+gBWe5ugVP9J+AobEvvzvuh3laZ95OFinemQ+pDRI
-         f5UVXWasiiyqTPoYYIoXOIPYAFBJVIx4EKNgwGF3tA1TfydBnAWkfMv1RVCSFaCgIkAR
-         qE0Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUB9IHSoUEfso19WTrmMm798nCKjMpFIryGB+BuTshe+B0+FeqreO+TFEoy2J1vtCv/SR5iHJIft6EFkmi/h+c1@lists.infradead.org
-X-Gm-Message-State: AOJu0YziAd//6xRFBU8IyjhYEgG/+7QqTWJOByF6+x28c9l5hwte6hL7
-	ksFw8eAYwg+GFOW4RkKuDFupNwvzdn5VJNCuaI/wXQgLHL9F5zjf86eCzbacgogCYINNe4WgecH
-	+ABrBV0jMUOJ/UiOEyD1vyYkxukQMg90znqg=
-X-Gm-Gg: ASbGncvJepNxwZhdyQ4h30AmDViwVJ3XWO4dsmPiFK5VN6JqMV8+L/uaNch4e61sdq0
-	nM9Z3stgd+XO7D+V3uYJvamTrZNrJcbXeCAc2coQBIgXvMNkU6E5VaaQQZV7W/EiH/PTtjrd9qV
-	BUYKHwAS5OOVp5K/VDJk9IHYoOg0e/bIKZMgl5Y716MEMnVj4uBuB9lQZI3K5fbw==
-X-Google-Smtp-Source: AGHT+IGLQ5HSuz+Vu0fNrtBJpS4OlBT/hHsgAWnUcy9YtEjieTri+yDmgzJuQXVWkptGriSGBQGbhS8z3mhXYKbvHzo=
-X-Received: by 2002:ad4:574a:0:b0:6d8:9c92:6555 with SMTP id
- 6a1803df08f44-6f4bfc7afc4mr561126d6.29.1745438474901; Wed, 23 Apr 2025
- 13:01:14 -0700 (PDT)
+	id 1u7h1e-0000000C0hU-47fS;
+	Wed, 23 Apr 2025 20:49:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1745441336;
+	bh=5RGhKAeaBreTh9VWG4EzD+6h2QPBnL+J7yh0wfrjIk0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dkoOvwuDSavrmBG4/mjqPJmqID78hvqezOcjLGZfV+fI2+XSq2hg+ZOO3graW23Cc
+	 jmuhsAjPqiFrIMFMjWa6048+3NJg/A3SlQlP5VvFqnvuIeBmXHH+tRcPKh8H7cQNBu
+	 Yv0c1Pqo8kzR5gtk5HnPiEBW65EDtcPH6RpgEshfkKo62D2wgMXbSQiXLrrYgG46n8
+	 Tk9903y7h+3OnSMUvKiWM6ALi8jFD/kUe8Cv6F0uJkVC/YBYb5IV/xYWRiIq4aYxsN
+	 foqHrbq1lfwbfCJUpTdtNomL6WhByRulyCm/MbHp+3LRk1+ASMaVKDafQszTK9Qor+
+	 2nZ+9115szOYw==
+Received: from notapiano (unknown [70.107.117.78])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nfraprado)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EF7A217E0649;
+	Wed, 23 Apr 2025 22:48:53 +0200 (CEST)
+Date: Wed, 23 Apr 2025 16:48:51 -0400
+From: =?utf-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	kernel@collabora.com, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] arm64: dts: mediatek: mt8390-genio-common: Force ssusb2
+ dual role mode to host
+Message-ID: <2da6560b-8444-48ae-bb01-397756cecbc0@notapiano>
+References: <20250331-mtk-genio-510-700-fix-bt-detection-v1-1-34ea2cf137f3@collabora.com>
 MIME-Version: 1.0
-References: <20250421215818.3800081-1-yabinc@google.com> <20250421215818.3800081-3-yabinc@google.com>
- <20250422142102.GI28953@e132581.arm.com>
-In-Reply-To: <20250422142102.GI28953@e132581.arm.com>
-From: Yabin Cui <yabinc@google.com>
-Date: Wed, 23 Apr 2025 13:01:03 -0700
-X-Gm-Features: ATxdqUHxCe0dNQK1zzumyasbHqzp8bMN4VyHh8fq17oPYK91Kakr2wvuHppdyfg
-Message-ID: <CALJ9ZPNKZU7nVLyodN5i7GeRxWL6KzkXnqEJMv2sJkk2SwYi9Q@mail.gmail.com>
-Subject: Re: [PATCH 2/2] coresight: etm-perf: Add AUX_NON_CONTIGUOUS_PAGES to
- cs_etm PMU
-To: Leo Yan <leo.yan@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@linaro.org>, 
-	James Clark <james.clark@linaro.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
-	Adrian Hunter <adrian.hunter@intel.com>, Liang Kan <kan.liang@linux.intel.com>, 
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250331-mtk-genio-510-700-fix-bt-detection-v1-1-34ea2cf137f3@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_130118_122645_69110E48 
-X-CRM114-Status: GOOD (  23.78  )
+X-CRM114-CacheID: sfid-20250423_134859_183584_0EC7AFF4 
+X-CRM114-Status: GOOD (  27.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,55 +79,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 22, 2025 at 7:21=E2=80=AFAM Leo Yan <leo.yan@arm.com> wrote:
->
-> On Mon, Apr 21, 2025 at 02:58:18PM -0700, Yabin Cui wrote:
-> > The cs_etm PMU, regardless of the underlying trace sink (ETF, ETR or
-> > TRBE), doesn't require contiguous pages for its AUX buffer.
->
-> Though contiguous pages are not mandatory for TRBE, I would set the
-> PERF_PMU_CAP_AUX_NO_SG flag for it.  This can potentially benefit
-> performance.
+On Mon, Mar 31, 2025 at 11:25:52AM +0200, Louis-Alexis Eyraud wrote:
+> On the Mediatek Genio 510-EVK and 700-EVK boards, ssusb2 controller is
+> one but has two ports: one is routed to the M.2 slot, the other is on
+> the RPi header who does support full OTG.
+> Since Mediatek Genio 700-EVK USB support was added, dual role mode
+> property is set to otg for ssusb2. This config prevents the M.2
+> Wifi/Bluetooth module, present on those boards and exposing Bluetooth
+> as an USB device to be properly detected at startup, so configure for
+> the ssusb2 dr_mode property as host instead.
+> 
+> Fixes: 1afaeca17238 ("arm64: dts: mediatek: mt8390-genio-700: Add USB, TypeC Controller, MUX")
+> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> ---
+> I've tested this patch on Mediatek Genio 510-EVK board with a kernel
+> based on linux-next (tag: next-20250331).
+> ---
+>  arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi | 8 +++++++-
+>  1 file changed, 7 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi b/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
+> index 60139e6dffd8e0e326690d922f3360d829ed026b..3a9d429f0f14b501ae41551dfe7272f242345138 100644
+> --- a/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
+> +++ b/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
+> @@ -1199,7 +1199,13 @@ xhci_ss_ep: endpoint {
+>  };
+>  
+>  &ssusb2 {
+> -	dr_mode = "otg";
+> +	/*
+> +	 * the ssusb2 controller is one but we got two ports : one is routed
+> +	 * to the M.2 slot, the other is on the RPi header who does support
+> +	 * full OTG but we keep it disabled otherwise the BT on the M.2 slot
+> +	 * USB line goes obviously dead if switching to gadget mode.
+> +	 */
+> +	dr_mode = "host";
 
-As explained in the patch 1/2, my use case periodically collects ETM data
-from the field (using both TRBE and ETR), and needs to reduce memory
-fragmentation. If the performance impact is big, we can make it user
-configurable. Otherwise, shall we default it to non-contiguous pages?
+Hi,
 
->
-> For non per CPU sinks, it is fine to allocate non-contiguous pages.
->
-> Thanks,
-> Leo
->
-> > This patch adds the PERF_PMU_CAP_AUX_NON_CONTIGUOUS_PAGES capability
-> > to the cs_etm PMU. This allows the kernel to allocate non-contiguous
-> > pages for the AUX buffer, reducing memory fragmentation when using
-> > cs_etm.
-> >
-> > Signed-off-by: Yabin Cui <yabinc@google.com>
-> > ---
-> >  drivers/hwtracing/coresight/coresight-etm-perf.c | 3 ++-
-> >  1 file changed, 2 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers=
-/hwtracing/coresight/coresight-etm-perf.c
-> > index f4cccd68e625..c98646eca7f8 100644
-> > --- a/drivers/hwtracing/coresight/coresight-etm-perf.c
-> > +++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
-> > @@ -899,7 +899,8 @@ int __init etm_perf_init(void)
-> >       int ret;
-> >
-> >       etm_pmu.capabilities            =3D (PERF_PMU_CAP_EXCLUSIVE |
-> > -                                        PERF_PMU_CAP_ITRACE);
-> > +                                        PERF_PMU_CAP_ITRACE |
-> > +                                        PERF_PMU_CAP_AUX_NON_CONTIGUOU=
-S_PAGES);
-> >
-> >       etm_pmu.attr_groups             =3D etm_pmu_attr_groups;
-> >       etm_pmu.task_ctx_nr             =3D perf_sw_context;
-> > --
-> > 2.49.0.805.g082f7c87e0-goog
-> >
-> >
+while I agree with this change, now that this controller is fixed to host mode,
+the connector child node here which is supposed to probe with driver
+usb-conn-gpio, which would monitor the ID and VBUS lines and change the USB role
+as needed, will fail to probe with:
+
+  platform 112a1000.usb:connector: deferred probe pending: usb-conn-gpio: failed to get role switch
+
+as indeed there no longer is a role switch registered.
+
+For that reason, I believe as part of this commit you should also disable the
+connector. Since role switching is no longer supported by this controller,
+there's no sense in even trying to probe this driver.
+
+Thanks,
+Nícolas
 
