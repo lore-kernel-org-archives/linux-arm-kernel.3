@@ -4,71 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7E83C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 00:20:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89318C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 00:29:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QxWWJwIhRG++LmaYSHq+CfihXUQKS791vet7ACFep64=; b=NTRpn6FStwB48U9lkvgBNcCcJO
-	MxfnnSpV9igbEY45JeLJYlHyrJBX2tmDJJAjaQzQcDvkRMxjvpkO9Ksg4yzSgDuKQEVIyStQP8pRJ
-	kdKH9wuRSoMCYCoLG/3n7kcdxqNu8sC1OQjR6FQ8EUEQUPzEc9tb1Gp9z+H/SabPoTGulX70gp+h3
-	ZDAPPDBl3jPTVztmc99wB7yWNEiTg10PxGSdoIoUUWcqb/3Fga6BQwNlEO42Zg+paFbdIB/YCSEPX
-	8aWsQcSu0mYCA6dWb+a9epNKkk/0XGZonfAKbIL8spsZkwYToGHDlXAdpL0sxR8E4Zxt+N2KFyh8Y
-	0DxblymQ==;
+	bh=oWlmxqNag015p2cP0vSnW/zq2HibDR5FkrpgKq7T/2k=; b=yiS6qkQ1ajK9Ah6F9PoOV6f4l5
+	/jVmZkrHvGd2Z1F/N57LMol54/BWdcsAhP8U6tanjjsXP5AldLfDdM4jAl6I3fGtDleaMAFW5OTio
+	/CgGtxxlueu1LvbbU2Pa4rnzrv8UhlLsDn0RImlZS5u+FrZmtlZ1d98Jgn+iKxpQSpicUZHlPRO1H
+	ImMOj3l9+29rAUkJciTocGWgx2SLY3tVEQq9PFKAylbpuq3vAeFXfN1Hox3nxdS15BmUdfRXJiWJY
+	HvB7mJ55aFTzKrWIi28FGjaxupwl/muH45sifvIb2jc2eA7usfqgoXZdLAMUYk8NeXmFwKoptpTBr
+	9/lFTKEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7NqP-00000008sfk-0RM7;
-	Wed, 23 Apr 2025 00:20:05 +0000
-Received: from out-177.mta0.migadu.com ([91.218.175.177])
+	id 1u7NzV-00000008tJE-1YIj;
+	Wed, 23 Apr 2025 00:29:29 +0000
+Received: from mail-ua1-x92d.google.com ([2607:f8b0:4864:20::92d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7NoV-00000008sMD-0MvC
+	id 1u7Nxd-00000008tDP-1HMB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 00:18:08 +0000
-Message-ID: <9d827020-ee6c-40c2-a83d-7eb9a00f8aa8@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1745367484;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QxWWJwIhRG++LmaYSHq+CfihXUQKS791vet7ACFep64=;
-	b=ZXnPxwMIzj+wa71041mXF8qVCG8DMEdoDp5cKh6/OMUSbnHJsUOr8pPMBvEd3bQ/lHmxd/
-	261GdghcLYCbTAGewnTK4Ot6fNFDvrhR49od4TTjQzTj23cS2qBBQ4F8ovitKxuEcZ+fxm
-	Zux3jbOBlbr4jgIwtMYVJCM6Qj1SoZM=
-Date: Tue, 22 Apr 2025 17:17:56 -0700
+	Wed, 23 Apr 2025 00:27:35 +0000
+Received: by mail-ua1-x92d.google.com with SMTP id a1e0cc1a2514c-86d5a786c7cso2052610241.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 17:27:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1745368051; x=1745972851; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=oWlmxqNag015p2cP0vSnW/zq2HibDR5FkrpgKq7T/2k=;
+        b=LKR9XXoeV6kt/B5WIJx8BTRCp2MzfJmH2TUBYor9GuTVWxYze48ICHj6u17Y+mijxI
+         vJAY01gF97Ef8fIenKEmc97jk7at4FdCjJ18vtTDgsvSlCqm1tlHTkpt8mQSx6eULsbT
+         FwtO2gTW6NWs1tbSA09nijbzUxJNAGK94GZJa27HpkXIZFGZ3vAdnxPFBbW5cevb9CHL
+         wNdFzJWfCcGmckjBLfKBJZhYfjTCsk1ccTzObzxQn+x8+RlVx2nW7VXQ6WddpCD6dpyB
+         tkXYyQE0zCftFsYi9b+ij+1rD7IslOmXjoWgsnJ9UJ08sAbq6NDAjMz3eTyIZu59Zn+M
+         CpHA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745368051; x=1745972851;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=oWlmxqNag015p2cP0vSnW/zq2HibDR5FkrpgKq7T/2k=;
+        b=pEP8TdvvPqxdIXqI5jkgF3Z7+VyHlsv+loWLftLQgwkls3XYgfZTtXyESRpb9dbVsS
+         wzRw5IVf6wtQtLZNBTEP9wcPo3xBZDzrvDBONDYRfGh7/UkO3GOTu7denrecj3OmgxlD
+         /HSucDiGUBwGGsqcDqduZA2D8AmUwMG+BoQATgzykukYWA6+jZ5hhNUVa1qDiH4zRz6Q
+         iroUwnHiQZC0kclisGMGm1uzWvjc0g62RRffDFz1FgtkfobqZvJtY0cMe28LyeACx+Xj
+         18tkJXNXB+uHpe9jrnYGl51uWE+SiA1B40y3fFEGqmOGTq32JEiwJMT5Tu7M8lltxlE8
+         km6A==
+X-Forwarded-Encrypted: i=1; AJvYcCX7TpDAmjdiV4ykiJdVqHFaWKnuUMPY35YC7Ai2bSyWfI1vokJyFF02arLpvSt1ud0dG7yDuiXxXLlj/h+Ymqm3@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywg/ieysZdVYz//DFWDoAnRDB1U1KImSOBj8uuE2HSQw7wTSWBV
+	qMGQdc1NiFQF51/B5+IYgQ0rs4PEAhRFWldmcUA24oueKpLtzIkEsDAEzBTTjgVx3n2DBylVHg8
+	gl33gD+gn4uZkqv3pj+PUuJzqts6VCQueitZ0
+X-Gm-Gg: ASbGncsJLEuhXUyz+IEvugK672PGGj+n866Ygl+rqXD7kBPmxKhFB6/8dSbnmggU72R
+	k/sJ6UIVewR5ZYtPg7zOxEouy1fiYSvGoESua9JhY6xPsBuvtD1rALOKT1csbXOBHjH6V2BwEnD
+	BL6LXLaan4/eMqWSlftEy2rh4utkRRlKOt3VSG910EPn7q/oHZK0ie
+X-Google-Smtp-Source: AGHT+IHDyONnXP5kHGTU8ef5H6nBwGkC0E2Wv2qdGeM0PJ8We8AEdbOzl6IOUJnmI3YsbyK6kpxBjX+98Vl502S5GJg=
+X-Received: by 2002:a05:6102:5e92:b0:4c3:64bd:5405 with SMTP id
+ ada2fe7eead31-4cb800fc8bbmr10978805137.9.1745368051103; Tue, 22 Apr 2025
+ 17:27:31 -0700 (PDT)
 MIME-Version: 1.0
-Subject: Re: [PATCH v5 20/21] tools/perf: Pass the Counter constraint values
- in the pmu events
-To: Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org,
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- Jiri Olsa <jolsa@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Anup Patel <anup@brainfault.org>,
- Atish Patra <atishp@atishpatra.org>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Adrian Hunter <adrian.hunter@intel.com>
-References: <20250327-counter_delegation-v5-0-1ee538468d1b@rivosinc.com>
- <20250327-counter_delegation-v5-20-1ee538468d1b@rivosinc.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Atish Patra <atish.patra@linux.dev>
-In-Reply-To: <20250327-counter_delegation-v5-20-1ee538468d1b@rivosinc.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+References: <20250412010940.1686376-1-dylanbhatch@google.com>
+ <20250412010940.1686376-3-dylanbhatch@google.com> <CAPhsuW4LO9Cr8kpTeNR7nBw1FYrNrXBndYtcTEnA408GL1jT0A@mail.gmail.com>
+ <CAPhsuW7z2rdNK3w9Hpwh8FXy29fSUNGKyAw0GbUqfxnfgsfg_Q@mail.gmail.com>
+In-Reply-To: <CAPhsuW7z2rdNK3w9Hpwh8FXy29fSUNGKyAw0GbUqfxnfgsfg_Q@mail.gmail.com>
+From: Dylan Hatch <dylanbhatch@google.com>
+Date: Tue, 22 Apr 2025 17:27:20 -0700
+X-Gm-Features: ATxdqUF_aQC6WF23mfDl6QAYTZrX6z_tX0jk3VuE5MUPI5RIXkEte6wNf-I_3V4
+Message-ID: <CADBMgpzrM7PMePtWaZLaaNXt6z++V0rX2VXtWK4vzdTCS=BpQA@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] arm64/module: Use text-poke API for late relocations.
+To: Song Liu <song@kernel.org>
+Cc: Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
+	Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, 
+	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
+	Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
+	Xu Kuohai <xukuohai@huaweicloud.com>, =?UTF-8?Q?Philippe_Mathieu=2DDaud=C3=A9?= <philmd@linaro.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	"Mike Rapoport (Microsoft)" <rppt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Luis Chamberlain <mcgrof@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Ard Biesheuvel <ardb@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Roman Gushchin <roman.gushchin@linux.dev>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_171807_266250_3DDC03C5 
-X-CRM114-Status: GOOD (  20.84  )
+X-CRM114-CacheID: sfid-20250422_172733_348904_ADD6DD7F 
+X-CRM114-Status: GOOD (  18.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,59 +106,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/27/25 12:36 PM, Atish Patra wrote:
-> RISC-V doesn't have any standard event to counter mapping discovery
-> mechanism in the ISA. The ISA defines 29 programmable counters and
-> platforms can choose to implement any number of them and map any
-> events to any counters. Thus, the perf tool need to inform the driver
-> about the counter mapping of each events.
-> 
-> The current perf infrastructure only parses the 'Counter' constraints
-> in metrics. This patch extends that to pass in the pmu events so that
-> any driver can retrieve those values via perf attributes if defined
-> accordingly.
-> 
+On Mon, Apr 21, 2025 at 11:25=E2=80=AFPM Song Liu <song@kernel.org> wrote:
+>
+> On Mon, Apr 21, 2025 at 5:35=E2=80=AFPM Song Liu <song@kernel.org> wrote:
+> >
+> > On Fri, Apr 11, 2025 at 6:10=E2=80=AFPM Dylan Hatch <dylanbhatch@google=
+.com> wrote:
+> > >
+> > > To enable late module patching, livepatch modules need to be able to
+> > > apply some of their relocations well after being loaded. In this
+> > > scenario, use the text-poking API to allow this, even with
+> > > STRICT_MODULE_RWX.
+> > >
+> > > This patch is largely based off commit 88fc078a7a8f6 ("x86/module: Us=
+e
+> > > text_poke() for late relocations").
+> > >
+> > > Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
+>
+> Could you please share how you test this?
+>
 
-Hi Ian/Arnaldo/Namhyung,
-Any thoughts on this patch ? Please let me know if there are any other 
-better approaches to pass the counter constraints to the driver ?
+For context, we enable livepatch for arm64 by porting this RFC series
+(along with other internal patches) into our kernel:
+https://lore.kernel.org/all/20230202074036.507249-1-madvenka@linux.microsof=
+t.com/.
 
-The RISC-V pmu driver maps the attr.config2 with counterid_mask value
-so that driver can parse the counter restrictions.
+The way I tested this patch is: with STRICT_MODULE_RWX, load a module
+and a livepatch that touches that module (in either order), and
+confirm the kernel doesn't crash.
 
+Without this patch, a crash is caused in apply_relocate_add() if both
+a module and a livepatch that touches the module are both loaded. This
+happens through one of two code paths:
 
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> ---
->   tools/perf/pmu-events/jevents.py | 9 +++++++++
->   1 file changed, 9 insertions(+)
-> 
-> diff --git a/tools/perf/pmu-events/jevents.py b/tools/perf/pmu-events/jevents.py
-> index fdb7ddf093d2..f9f274678a32 100755
-> --- a/tools/perf/pmu-events/jevents.py
-> +++ b/tools/perf/pmu-events/jevents.py
-> @@ -274,6 +274,11 @@ class JsonEvent:
->           return fixed[name.lower()]
->         return event
->   
-> +    def counter_list_to_bitmask(counterlist):
-> +      counter_ids = list(map(int, counterlist.split(',')))
-> +      bitmask = sum(1 << pos for pos in counter_ids)
-> +      return bitmask
-> +
->       def unit_to_pmu(unit: str) -> Optional[str]:
->         """Convert a JSON Unit to Linux PMU name."""
->         if not unit or unit == "core":
-> @@ -427,6 +432,10 @@ class JsonEvent:
->         else:
->           raise argparse.ArgumentTypeError('Cannot find arch std event:', arch_std)
->   
-> +    if self.counters['list']:
-> +      bitmask = counter_list_to_bitmask(self.counters['list'])
-> +      event += f',counterid_mask={bitmask:#x}'
-> +
->       self.event = real_event(self.name, event)
->   
->     def __repr__(self) -> str:
-> 
+  1. If the module is already loaded when the livepatch is applied,
+through the module_init() callback.
+  2. If the module is loaded after the livepatch is applied, through
+prepare_coming_module().
 
+In both scenarios, the livepatch module's text is already RX-only.
+
+Thanks,
+Dylan
 
