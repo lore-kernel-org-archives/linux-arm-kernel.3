@@ -4,122 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19E38C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:59:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C812AC369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 18:01:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WDO88YLi7hpWsK2u0hPMTkEsgQvBzxRt+jPQGFOJ+w8=; b=cACzZ4qISFS58nQeDgdsAf2Ps0
-	bUQhIAanycsMNg0/JxAfEPW3WTmaYdvUkhNiqLMabgaA0x4y+HRKFyH2OidOQh274R8A0b5Cslaz+
-	vvZzneUPsTqCmk1aa1/C1KnoI31l6daWCSaqoNlqiYBr56Ln/Q2886CYrHYAHKfcGG4FhJ54wIteU
-	0+iqVlTNBwsnJjezVf0HOYZtk2FwfVLkncRcXO5C4nzdjvUvTmWIz4SzuY5IS8nFoCJ3Bt2VN7sCZ
-	bi3eeLwP7tEx+2gAH5yBxH8XnFYdpGjc4yMEOWnm4JBITkS/PNneGo+Tp54xCJ25KQNJZu+4MYzC2
-	qYaFNYrw==;
+	bh=eTNKdJFc8hmYXhBJNFqCfUQ6mW4SbkRAnLiE2mina4s=; b=OIhXaJBDVUSEvhB71VBNOdb+xO
+	HOLpWEnMAWgIi0wlG1ZI4joMV14E/4uD1NVGlGsWDbwOG+NI2rQYJme1Qkl7cLQ5U/Lej+DyJQ2bg
+	G2n9CIVbTgGElJwOqBK66Ivger9KvNu4VjYKwmsQBQ42EBa8ETcGpqCy/P0MFigIHVGKKWhwmmrqu
+	TzjjaWr3tj0mKh06aq/MA6RqoGGLPFtXarofxEEjZssRyD2ZKKBdWuRxN2bC5DDnlGXEWic5l8TQQ
+	T1XtX5mdWVZTK/XonWXJirvZYBn6ve9sfwPTseMk50HURzfOtSXyttXDlr4xPlfrJZiztbJD5m+We
+	kv3Ctvag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7eN9-0000000BRye-33ZS;
-	Wed, 23 Apr 2025 17:58:59 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1u7eP7-0000000BStz-1vF8;
+	Wed, 23 Apr 2025 18:01:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7dkI-0000000BFIk-3mw1
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 17:18:52 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53NAXjDj022437
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 17:18:50 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=WDO88YLi7hpWsK2u0hPMTkEs
-	gQvBzxRt+jPQGFOJ+w8=; b=IekQLsG2extxrqNLyKp5XBR0b6EvA524PJBBBKYR
-	QEBc7W2dgxFPPFKocappfMI17JugezOKVFv1q0i5PgtRgi3QQD4sr4mXJof7uQV+
-	+H7gEpHRlszCWegkZlyi1qRH01EnHuY+sanHCurwJmDK78nCF1Tlqs+du0HigG/h
-	FJM6lFGCFvCvcLxMC9pkdZrV4ygOaX82rZHQQmgSNk1Blzuoad+mdywya3erwOwp
-	XfgMlca6OU8lkgJuq98ORSXj3mvY0pFHyLF3b1L0m21EGgV/4bPtotEmyzjhx6Gc
-	fgHLEZwGrIjzZ5jreKSGsLFHhwuxKEK81OdNKpObQCZSBA==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 466jh2aweh-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 17:18:49 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-7c791987cf6so15949485a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 10:18:49 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745428728; x=1746033528;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WDO88YLi7hpWsK2u0hPMTkEsgQvBzxRt+jPQGFOJ+w8=;
-        b=Y3+5+aaWzDWCgTZmNFLCAFZGxZAT8dxwD65kbqbKRuPPohnkTB0QNSzK3hWvd3+G6U
-         oK0DBvqgqpSooaNiKMtHtbOuf4qdwLkoXVo/bMF2KvlZ8ySZKMxwSsuhfElFttw0pPs8
-         yNBG3+prF3ndklsIHRT1oBbm87NEVJhuINuGANSe4WKrh+GtzDiz/6JuuPEocGi3/sD4
-         WRT6vnRZduEGduBN5k3P1/UsqfSNSjlyooHN9tRhkCGEl+nodT2sg0H2uEn7ZfVvWx/c
-         j0hFnD4bF6cWQtrzt9umYlb8Y7+Ny9vWpNTemCJtMT2biZ9haFIP72XbIMyiEeQxVD0L
-         gZJQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU2wUbag3Syq/OHfILTz/nWkqLO/ZbA3QRDBwcE57kgz64YGgbwSgbTcje+97TeeMfFDs+9ET3lkoy5jddGCmqB@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8XuJbQqFRvQ0iQmmTCs8cPOCxdkl9+jYbcmsj0f1mhxNliI69
-	SdunfokxTx6hCS3cblkhDov3ZED6bab+7cmhReMZChiQFqXjxFghgojlSImB4lAAClwh2MzqkaQ
-	2Vjc4fxLJaIHlHar7OB2/JFMST4kWE+1kF56hP1nYikKv3+R0+CRSXSTWwwef/735OXMPMQxKEg
-	==
-X-Gm-Gg: ASbGncu5PF6m6EaBBuvbLX3BIRdvm58shGMXESunr/VZZsFjIct1nM68NX7/PbcXYnO
-	0IY30/+OeKz6KZjrCkhmWdC5SBY+mcIlRemBZaGjQDPqC7VfDiRtousXX5ze/xlVT0/6ROXQttI
-	29o68bgQfA55dWwei4qcUqtAk/BLfXiBIHjch/JNBLlGLZtY7kbhENJJkEH2nLCxHxh6JELlwyo
-	87mkIkWhGRsvrooa7Rs9ZNMLZW2zFZKAOCaw1K5uqnzBxeGTrtxH2MPKRU+IgX1/RUnYxbM3wjz
-	EPNfC/DnrIwbSHM+IrDckFPe9WTzCjz2Rv0KwMbWbcnOUyCBub7UA+QP729bhfDlXD5fhcti9hU
-	=
-X-Received: by 2002:a05:620a:199d:b0:7c9:2612:32d6 with SMTP id af79cd13be357-7c92805fbe9mr3542965785a.48.1745428728653;
-        Wed, 23 Apr 2025 10:18:48 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IG4YRFe2I2adKtjK/DTqagD31VvQyfxBA06e/fj1CyPoBrdGi/d4dL6lTARcuXkFMIqRSCSow==
-X-Received: by 2002:a05:620a:199d:b0:7c9:2612:32d6 with SMTP id af79cd13be357-7c92805fbe9mr3542959585a.48.1745428728212;
-        Wed, 23 Apr 2025 10:18:48 -0700 (PDT)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-31090826cafsm18525361fa.69.2025.04.23.10.18.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Apr 2025 10:18:47 -0700 (PDT)
-Date: Wed, 23 Apr 2025 20:18:45 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Sandy Huang <hjc@rock-chips.com>,
-        Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Douglas Anderson <dianders@chromium.org>,
-        Damon Ding <damon.ding@rock-chips.com>, Arnd Bergmann <arnd@arndb.de>,
-        Heiko Stuebner <heiko.stuebner@cherry.de>,
-        Geert Uytterhoeven <geert+renesas@glider.be>,
-        Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-        dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] drm/rockchip: add CONFIG_OF dependency
-Message-ID: <a4tcrxepuvvxixpab3txz6tdbh6janiedjqddl2ybfo6plhjcl@r5bxdabuhjep>
-References: <20250423164422.2793634-1-arnd@kernel.org>
+	id 1u7cLt-0000000B1O8-0B7E;
+	Wed, 23 Apr 2025 15:49:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 36B4449F2F;
+	Wed, 23 Apr 2025 15:49:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6031FC4CEE2;
+	Wed, 23 Apr 2025 15:49:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745423372;
+	bh=Rd6C0AT8kRiDT9Gitf5UOmK5rHvXSI/4LUIbOAcAcWE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Y0PG0OWAI+2W/ge4r1n+ZVwPbQIzUTMG9Qfvf8bmuuEHZ0COTIPA7+Oyv91NxxUgM
+	 lVM2/9F/ssXzOPY4Xu/DuoJEKfQwxn3vHV0aEgY4VRgx/uqjvuqeSsOZnrjM+11tHm
+	 9+1YkjLtIcWSuqqM1LT3WQaz+KmkuavW/gAySngz7Uqz5SLAPyH7AghzKlclsuZsa6
+	 xlg5r5SzgF2gqi0oer+43A009BlYknBI/xG1/azywsD3pCc+7t8lVSELM/S5v6vKD4
+	 e/hdUXBhfo1mHahkpeyAHd0BjMMZ+VIVwVVAMrQAhG5ZPqT72kGWcQdTRomOFaKt2l
+	 6iOCE4JorUREQ==
+Date: Wed, 23 Apr 2025 10:49:30 -0500
+From: Rob Herring <robh@kernel.org>
+To: =?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Tinghan Shen <tinghan.shen@mediatek.com>,
+	Olivia Wen <olivia.wen@mediatek.com>, kernel@collabora.com,
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v2 1/5] dt-bindings: remoteproc: mediatek: Add missing
+ minItems for 8192/8195
+Message-ID: <20250423154930.GA579807-robh@kernel.org>
+References: <20250421-scp-dual-core-mt8390-v2-0-c84117a959a9@collabora.com>
+ <20250421-scp-dual-core-mt8390-v2-1-c84117a959a9@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20250423164422.2793634-1-arnd@kernel.org>
-X-Proofpoint-GUID: 0t6t1hH5jE0zFDVh8PUBZqh0e4TH4yOh
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDIzMDEyMSBTYWx0ZWRfX4jVUsUwNejQl DVXYjF7bTeR7cTspUr4EnwTOKjpV0QFU5SBEXWPeE4Dzw4X5/ddfh7ygZ5TcNb5HFptdR3sjGFn hhmiwP+ipFrEpyw8at3iIVelzJYUimM8M3nG6hpWGx3X5F5Rn5ks4tIJOdr1mSA85aS1SBJqkp4
- XhTobHbZm61LaqnMzVzhqqZgvjx4gakAyR+uT27ZJGVhk+fkJHF73XZ4HkXIufVR3mFj/pqiWOd Wr0ryczbv/wp9EF/XqTeVCUQ94VLEksx9gvJJNKlWQyWZS6rmNmH4zS2hhynHdntx6sbI+yz9Vt 1jdrCirsXszvXfVtzLum1ETcbRv1b/dZJTlhxoTUcHuKavkxG/Y000v6zA+PaYSowGCsilCBI0U
- GCht8E/sxqj8ft4ZoBzok2xHJc4juC54xlUAtq4FgYaK30FddvpE+T0EeIhEMHLMA5hp9b6y
-X-Authority-Analysis: v=2.4 cv=Tu/mhCXh c=1 sm=1 tr=0 ts=680920f9 cx=c_pps a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10 a=XR8D0OoHHMoA:10 a=EUspDBNiAAAA:8 a=8SeTOrC02ZtG1eAnSgcA:9 a=CjuIK1q_8ugA:10 a=PEH46H7Ffwr30OY-TuGO:22
-X-Proofpoint-ORIG-GUID: 0t6t1hH5jE0zFDVh8PUBZqh0e4TH4yOh
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.680,FMLib:17.12.80.40
- definitions=2025-04-23_10,2025-04-22_01,2025-02-21_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
- malwarescore=0 suspectscore=0 spamscore=0 clxscore=1015 lowpriorityscore=0
- impostorscore=0 adultscore=0 phishscore=0 mlxlogscore=999 bulkscore=0
- mlxscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
- definitions=main-2504230121
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250421-scp-dual-core-mt8390-v2-1-c84117a959a9@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_101850_957933_F605025A 
-X-CRM114-Status: GOOD (  18.67  )
+X-CRM114-CacheID: sfid-20250423_084933_104412_386CE420 
+X-CRM114-Status: GOOD (  15.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,29 +83,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 23, 2025 at 06:44:16PM +0200, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
+On Mon, Apr 21, 2025 at 04:49:04PM -0400, Nícolas F. R. A. Prado wrote:
+> Both MT8192 and MT8195 have an L1TCM memory, so it should be described
+> in reg, and therefore reg's minItems should be 3, as is already implicit
+> by reg-names being three entries long. However minItems is currently
+> unset for mt8192/mt8195, resulting in it being equal to 2, from the base
+> schema. Fix reg minItems for MT8192 and MT8195 by setting it to 3.
 > 
-> DRM_DISPLAY_DP_AUX_BUS cannot be selected when CONFIG_OF is disabled:
-> 
-> WARNING: unmet direct dependencies detected for DRM_DISPLAY_DP_AUX_BUS
->   Depends on [n]: HAS_IOMEM [=y] && DRM [=y] && OF [=n]
->   Selected by [y]:
->   - DRM_ROCKCHIP [=y] && HAS_IOMEM [=y] && DRM [=y] && ROCKCHIP_IOMMU [=y] && ROCKCHIP_ANALOGIX_DP [=y]
-> 
-> Rockchip platforms all depend on OF anyway, so add the dependency here
-> for compile testing.
-> 
-> Fixes: d7b4936b2bc0 ("drm/rockchip: analogix_dp: Add support to get panel from the DP AUX bus")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> Fixes: 6b55b1e2fd7f ("dt-bindings: remoteproc: mediatek: Support MT8195 dual-core SCP")
+> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 > ---
->  drivers/gpu/drm/rockchip/Kconfig | 1 +
+>  Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml | 1 +
 >  1 file changed, 1 insertion(+)
 > 
+> diff --git a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml b/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
+> index adc6b3f36fde49eb3fa7ed3f08b0fa9e7f331162..ee33c233e44f3d51f0851b35697a24208c87f68a 100644
+> --- a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
+> +++ b/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
+> @@ -185,6 +185,7 @@ allOf:
+>      then:
+>        properties:
+>          reg:
+> +          minItems: 3
+>            maxItems: 3
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+As the max is already 3 at the top-level, you should drop maxItems here.
 
--- 
-With best wishes
-Dmitry
+>          reg-names:
+>            items:
+> 
+> -- 
+> 2.49.0
+> 
 
