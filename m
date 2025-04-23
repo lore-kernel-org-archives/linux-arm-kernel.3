@@ -4,67 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38F71C369D7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:43:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6261EC369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:43:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oz7bK4tXwdlRVhEv8P+goAGyrLdjAt47gRkycm7YXRY=; b=S1oPYecNu62aqGIy8UO2Gtzt+5
-	Ot0MB6qU/sBXoQoRINPbpWfvz6mNelmx+uvSui+gl1F7EI0JjTaArUFncKM88iIOl1X5QAc8VkI5H
-	Ik0729MzDiKX1/XM+i9new6A7/aw8hjE1vYDxXW56g30LxL1e4OM7HYvSybbx9EudzfpV4stdnSkw
-	IuEDGUrqntDnh8x/ag5mvLn615gwmwsVKni0JKuOqLeLQF8YhFYXLTxHzFMsgptpcZ4dD6RLkQD8B
-	Idim8kzCuEZFTN2Zl+fQMcoXaiXHOOOemyx7xqyk33DFj3vr88QuiTenq9lDtN5CyRqMdX6MF9xU4
-	ultnIY0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NzzkEOBXDh+piPM2LHp9ijT67snKUFf4u8dLi/vH66A=; b=hk7LiS7acdSJZ+TGeE95sqYuxV
+	aQVfhqzKcIj3JbJ/vo3STiD8vxhcT4Td1oXGQi1dKhZvhb+GFVgE2sqdL/p+wcQi8PQ8EDmaIw6JD
+	rpe3Zv9fko8D8R2k0viYNCwiL/P8wn1D33cbGzRkDDPyvcookQhw4/f1B33xI0wa8/+P9TIJfAZGy
+	fW/g/lN4TAL5XgTQf186rS90CLKex+LlQeLuwuoO2Xbe8SacZzFMuUIfU9jcub4mr9/+dENF7UiCA
+	HESEQKX9e8ZzURRiOb4eZvnkNG/kL0FK0V7nYdYPChE97UQ3LvL12Bmh03vObaWBccG9F0XJfBt8Q
+	8vzoHetg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7e7t-0000000BMMX-0a9A;
-	Wed, 23 Apr 2025 17:43:13 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u7e7u-0000000BMPg-2xLY;
+	Wed, 23 Apr 2025 17:43:15 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7bxV-0000000AxQY-0MSM
+	id 1u7bxW-0000000AxQn-3plz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 15:24:22 +0000
+	Wed, 23 Apr 2025 15:24:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 39660434D5;
-	Wed, 23 Apr 2025 15:24:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D816C4CEE3;
-	Wed, 23 Apr 2025 15:24:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1745421860;
-	bh=ac4ddB3RxZV49HmUZrvFOKF+wXfLwg02IWWgGX0VzsM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=TlVxKB1aW+gYmd2M1iRYSESSp1Nd1HHzfRKCD9kEdTUKu1SZzppjh4yWlFZFqHo6l
-	 2vKYybLYCu7Dsn4C0+sA0xZ+kB8LajfcPcjRdJnA/OAGA9MHoS9uNoXV5TTvBdmsO4
-	 2e2KRyYk/e/6iQQk9x+nq6qTu2loXNnL2EXZ+XIM=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	patches@lists.linux.dev,
-	Will Deacon <will@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Eric Auger <eric.auger@redhat.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>
-Subject: [PATCH 6.14 224/241] arm64/sysreg: Add register fields for HFGITR2_EL2
-Date: Wed, 23 Apr 2025 16:44:48 +0200
-Message-ID: <20250423142629.704582700@linuxfoundation.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250423142620.525425242@linuxfoundation.org>
-References: <20250423142620.525425242@linuxfoundation.org>
-User-Agent: quilt/0.68
-X-stable: review
-X-Patchwork-Hint: ignore
+	by dfw.source.kernel.org (Postfix) with ESMTP id 217485C5E88;
+	Wed, 23 Apr 2025 15:22:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A06D5C4CEE2;
+	Wed, 23 Apr 2025 15:24:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745421861;
+	bh=MGkSDAhmsttNEFpJt61N5qgZgDOhGEDQKGrmLoEGji8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=j2MfFQT34oLMAfbpJVPfDpvwGmvcGh/TuufkBrvtdvQ+wp63PV7M3qQKVsVOwYoKa
+	 X9n3Pn+LUi83ar1QffPqYBT946ICCF2dt1yhqP52ONfcaPmd6xQo75YxT5mtkIJNfy
+	 13JXoSeG/V7oytYAxNAlCp8vIAxHjcwYgNLYLWGyHnPDEtLDHgZzXX/ZTzM0JOP/9D
+	 QkbO4i/7WAycKSJKdmmO9N2WakwKAhP9PwU9lSWhWdKfg/R9Im/QyUptOLvZB/Hk+a
+	 sUkoSfCggUA/CKcHS42UfruWqzkTUBMHujQpKxM5qahvydJ57GzOWodhepSqm2Aa9j
+	 f24LBdQ7bHY3A==
+Date: Wed, 23 Apr 2025 10:24:20 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Alexey Charkov <alchark@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2] dt-bindings: interrupt-controller: via,vt8500-intc:
+ Convert to YAML
+Message-ID: <174542185825.550926.14913949740445861454.robh@kernel.org>
+References: <20250418-via_intc_binding-v2-1-b649ce737f71@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250418-via_intc_binding-v2-1-b649ce737f71@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_082421_143040_DB450DD5 
-X-CRM114-Status: UNSURE (   8.15  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250423_082423_005203_F7ED7101 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,47 +75,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-6.14-stable review patch.  If anyone has any objections, please let me know.
 
-------------------
+On Fri, 18 Apr 2025 17:57:25 +0400, Alexey Charkov wrote:
+> Rewrite the textual description for the VIA/WonderMedia interrupt
+> controller as YAML schema.
+> 
+> The original textual version did not contain information about the
+> usage of 'interrupts' to describe the connection of a chained
+> controller to its parent, add it here. A chained controller can
+> trigger up to 8 different interrupts (IRQ0~7) on its parent.
+> 
+> Signed-off-by: Alexey Charkov <alchark@gmail.com>
+> ---
+> Split the series from v1 into separate bindings patches so as not to
+> spam all the subsystems with unrelated changes, per Rob's suggestion
+> 
+> Link to v1: https://lore.kernel.org/all/20250416-wmt-updates-v1-2-f9af689cdfc2@gmail.com/
+> ---
+>  .../interrupt-controller/via,vt8500-intc.txt       | 16 -----
+>  .../interrupt-controller/via,vt8500-intc.yaml      | 76 ++++++++++++++++++++++
+>  MAINTAINERS                                        |  1 +
+>  3 files changed, 77 insertions(+), 16 deletions(-)
+> 
 
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-
-commit 9401476f17747586a8bfb29abfdf5ade7a8bceef upstream.
-
-This adds register fields for HFGITR2_EL2 as per the definitions based
-on DDI0601 2024-12.
-
-Cc: Will Deacon <will@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Reviewed-by: Eric Auger <eric.auger@redhat.com>
-Reviewed-by: Mark Brown <broonie@kernel.org>
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-Link: https://lore.kernel.org/r/20250203050828.1049370-5-anshuman.khandual@arm.com
-Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
----
- arch/arm64/tools/sysreg |    6 ++++++
- 1 file changed, 6 insertions(+)
-
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -2872,6 +2872,12 @@ Field	1	AMEVCNTR00_EL0
- Field	0	AMCNTEN0
- EndSysreg
- 
-+Sysreg	HFGITR2_EL2	3	4	3	1	7
-+Res0	63:2
-+Field	1	nDCCIVAPS
-+Field	0	TSBCSYNC
-+EndSysreg
-+
- Sysreg	ZCR_EL2	3	4	1	2	0
- Fields	ZCR_ELx
- EndSysreg
-
+Applied, thanks!
 
 
