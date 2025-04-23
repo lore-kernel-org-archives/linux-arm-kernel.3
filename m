@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87F2DC369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 14:06:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEFC4C369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 14:08:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cHeGB9xL4xI+MiA09JZcxauxbai7M3ZdaQGCwpwKwYc=; b=FZo4JC7waqczXfiRRMyrHJSo4L
-	DTK7BzBqebqj1RAC+io/0cDrSRqbQe3iKfrzyLquVg63MiaBXrO8XmXP3I1+rKGsTdWL/tavlfWZY
-	5uLj7+dExaP3fm9F0vnOqdhQQ6FSCfbtolkN/U3n5zzN57WY+6tdmksTsSCazUgO6ZLpJdrh1BDCQ
-	aJi57HxKlqJbjwr96jKl76sJf5N6GdiHSygvfr6zUN6M71NqXJNlsTtcWRRqytmNsWReULpViPjzA
-	HBiU5AKm+ZdNPmLDWLnx7H833uUTT4bJW3L6OpoZtA2ia/oreg12d1pNVuKXiKKWDid5AnGY0pmMr
-	wqcGMUsQ==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1R2wcJ8WNozyVRB5Zez0LopaRMyXxGSmC5SqBu1VNhc=; b=Xoejt4d9LVma2POL06cb1ad7Im
+	q2ykbfm3AgNvmy3iJYgttsYaC6PHMOHHMxiBMYIK8SstSESW80WXF4/0CqSkLP5dcx+zdPqT5s/vI
+	ouRSiZcip6x6Vc8vp308R22igAS+kR7sA1S608kacE9uwxcnrjpArMzyuyRMgmHz1anyvkIqB6c9d
+	o0CMkxD5Nf0NFuh8m//frHXvF3f/OZXQ5+RMlDB/CgfRI+1Jk/vL2lljD8dJAx0oMr1sCRDUzg0Lj
+	vJPhdz/6DF3Muu+MNpsSdu++h6ap8FWXyIHBaUH1FTmDSIRC7ocSgJAruiy1vVsQQyaxsoKve0huI
+	k/IXS0jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7ak1-0000000Alnp-4BG1;
-	Wed, 23 Apr 2025 14:06:21 +0000
+	id 1u7alz-0000000AmAs-2z32;
+	Wed, 23 Apr 2025 14:08:23 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7aJ1-0000000AdMh-3WFt
+	id 1u7aJ1-0000000AdMk-3WAJ
 	for linux-arm-kernel@bombadil.infradead.org;
 	Wed, 23 Apr 2025 13:38:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Sender:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description;
-	bh=cHeGB9xL4xI+MiA09JZcxauxbai7M3ZdaQGCwpwKwYc=; b=OtTQ35MYVVFzlBDjRKO32e5b7V
-	JKZQap+w4ReSZRYdLvuNEdG20jcGXzJYGgnBZksCtHtYaIHuFZdfJC2LkytvGe0F0Fwvs4jg4VUAp
-	sW4yMAGFT2mfP4qgvYXWTJU07yULYEFsLZcNSNRQ4DnLkDsImYTTYNI7BlCNZaT7xnOOwFJ7hTURw
-	zd8eul2gdbYaM8IY9b3kNtIBy9DUlx7lBDMtsUWjW8oQUg7kw7br8cxrAcVO+vBqFRVpLieTrFVqk
-	Nb74tB4Rciylk8F3fjyktXQmX46ID++vHqpY6w1/bh0yEQHnshvxfwd5p8xdDkK9qOOZNs32RauSB
-	/QfRgfzg==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=1R2wcJ8WNozyVRB5Zez0LopaRMyXxGSmC5SqBu1VNhc=; b=CGlnf3KlkTK55NNfKmHL9MINWg
+	+8gBwwSBH8guIB5zf/6WnJ0xNk0PpV8AuYk6sWWCeuM5UOHzvEkf4+3PdGLNoF+qdj/MD4En6fCHH
+	wLnFpZtfBTTIZmrwVgZNhtNOnhino6tLdsvwH/cr6s2eHgiqY68/xqu2MZer9FESkr7VbTi9/kk5M
+	UqDG0CHFGaQkYQvHy1cUON8QERKW4HHD6f7mhnergDvcrwOPehlYSvRXotGZagqsaf0rHr1rVqnr1
+	NDy5QciXcB17D3HTG/e4u60Fa+eEtDCl8qCaogiQt+kS2Llcn4al/QnOM+c0j98lmcEPgopQiIqYy
+	w/sFi4xg==;
 Received: from [2001:8b0:10b:1::ebe] (helo=i7.infradead.org)
 	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7aIx-000000097Ji-2GnN;
+	id 1u7aIx-000000097Jc-1AzY;
 	Wed, 23 Apr 2025 13:38:23 +0000
 Received: from dwoodhou by i7.infradead.org with local (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u7aIx-00000003JP0-1P6r;
+	id 1u7aIx-00000003JOZ-04bE;
 	Wed, 23 Apr 2025 14:38:23 +0100
 From: David Woodhouse <dwmw2@infradead.org>
 To: Mike Rapoport <rppt@kernel.org>
@@ -60,13 +60,12 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org,
 	Ruihan Li <lrh2000@pku.edu.cn>
-Subject: [PATCH v4 7/7] mm/mm_init: Use for_each_valid_pfn() in init_unavailable_range()
-Date: Wed, 23 Apr 2025 14:33:43 +0100
-Message-ID: <20250423133821.789413-8-dwmw2@infradead.org>
+Subject: [PATCH v4 0/7] mm: Introduce for_each_valid_pfn()
+Date: Wed, 23 Apr 2025 14:33:36 +0100
+Message-ID: <20250423133821.789413-1-dwmw2@infradead.org>
 X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250423133821.789413-1-dwmw2@infradead.org>
-References: <20250423133821.789413-1-dwmw2@infradead.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -83,48 +82,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: David Woodhouse <dwmw@amazon.co.uk>
 
-Currently, memmap_init initializes pfn_hole with 0 instead of
-ARCH_PFN_OFFSET. Then init_unavailable_range will start iterating each
-page from the page at address zero to the first available page, but it
-won't do anything for pages below ARCH_PFN_OFFSET because pfn_valid
-won't pass.
+There are cases where a naïve loop over a PFN range, calling pfn_valid() on
+each one, is horribly inefficient. Ruihan Li reported the case where
+memmap_init() iterates all the way from zero to a potentially large value
+of ARCH_PFN_OFFSET, and we at Amazon found the reserve_bootmem_region()
+one as it affects hypervisor live update. Others are more cosmetic.
 
-If ARCH_PFN_OFFSET is very large (e.g., something like 2^64-2GiB if the
-kernel is used as a library and loaded at a very high address), the
-pointless iteration for pages below ARCH_PFN_OFFSET will take a very
-long time, and the kernel will look stuck at boot time.
+By introducing a for_each_valid_pfn() helper it can optimise away a lot
+of pointless calls to pfn_valid(), skipping immediately to the next
+valid PFN and also skipping *all* checks within a valid (sub)region
+according to the granularity of the memory model in use.
 
-Use for_each_valid_pfn() to skip the pointless iterations.
+https://git.infradead.org/users/dwmw2/linux.git/shortlog/refs/heads/for_each_valid_pfn
 
-Reported-by: Ruihan Li <lrh2000@pku.edu.cn>
-Suggested-by: Mike Rapoport <rppt@kernel.org>
-Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
-Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-Tested-by: Ruihan Li <lrh2000@pku.edu.cn>
----
- mm/mm_init.c | 6 +-----
- 1 file changed, 1 insertion(+), 5 deletions(-)
+v4:
+ • Collect Reviewed/Acked/Tested-by tags
+ • Fix rebase mistake reverting FLATMEM cleanups
 
-diff --git a/mm/mm_init.c b/mm/mm_init.c
-index 41884f2155c4..0d1a4546825c 100644
---- a/mm/mm_init.c
-+++ b/mm/mm_init.c
-@@ -845,11 +845,7 @@ static void __init init_unavailable_range(unsigned long spfn,
- 	unsigned long pfn;
- 	u64 pgcnt = 0;
- 
--	for (pfn = spfn; pfn < epfn; pfn++) {
--		if (!pfn_valid(pageblock_start_pfn(pfn))) {
--			pfn = pageblock_end_pfn(pfn) - 1;
--			continue;
--		}
-+	for_each_valid_pfn(pfn, spfn, epfn) {
- 		__init_single_page(pfn_to_page(pfn), pfn, zone, node);
- 		__SetPageReserved(pfn_to_page(pfn));
- 		pgcnt++;
--- 
-2.49.0
+v3: https://lore.kernel.org/all/20250423081828.608422-1-dwmw2@infradead.org/
+ • Fold the 'optimised' SPARSEMEM implementation into the original patch
+ • Drop the use of (-1) as end marker, and use end_pfn instead.
+ • Drop unused first_valid_pfn() helper for FLATMEM implementation
+ • Add use case in memmap_init() from discussion at 
+   https://lore.kernel.org/linux-mm/20250419122801.1752234-1-lrh2000@pku.edu.cn/
+
+v2 [RFC]: https://lore.kernel.org/linux-mm/20250404155959.3442111-1-dwmw2@infradead.org/
+ • Revised implementations with feedback from Mike
+ • Add a few more use cases
+
+v1 [RFC]: https://lore.kernel.org/linux-mm/20250402201841.3245371-1-dwmw2@infradead.org/
+ • First proof of concept
+
+David Woodhouse (7):
+      mm: Introduce for_each_valid_pfn() and use it from reserve_bootmem_region()
+      mm: Implement for_each_valid_pfn() for CONFIG_FLATMEM
+      mm: Implement for_each_valid_pfn() for CONFIG_SPARSEMEM
+      mm, PM: Use for_each_valid_pfn() in kernel/power/snapshot.c
+      mm, x86: Use for_each_valid_pfn() from __ioremap_check_ram()
+      mm: Use for_each_valid_pfn() in memory_hotplug
+      mm/mm_init: Use for_each_valid_pfn() in init_unavailable_range()
+
+ arch/x86/mm/ioremap.c              |  7 ++-
+ include/asm-generic/memory_model.h | 10 ++++-
+ include/linux/mmzone.h             | 88 ++++++++++++++++++++++++++++++++++++++
+ kernel/power/snapshot.c            | 42 +++++++++---------
+ mm/memory_hotplug.c                |  8 +---
+ mm/mm_init.c                       | 29 +++++--------
+ 6 files changed, 133 insertions(+), 51 deletions(-)
 
 
