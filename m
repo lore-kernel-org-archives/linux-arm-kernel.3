@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CC96C369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:42:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 084CFC369D8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:42:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LTTL9dQEScHE4pj+G94YjoxirJBT5idVWapzbvs8BzI=; b=NJzHhYVHEPvnbalO4Mj5KeAYPa
-	jrRW7nMrrFNSqwEr/v5PF69oiG+M0Y3VaywHZeZb4Ojbf16n0yL5B0sMT/utjhxTTdFz2WG3zfxR7
-	SXm7maT6eP9VMA4acrd4ulU/gxOkNdDNlTb56yPrOGsI80H5EOlLHDkDwPBjru37MRwZV/gpETo/g
-	ifC+EZG0F39H6CwbFhRBExcmRFYumgebiPnJIduGvHnsYiJC2w1VkCwtqB0ayIp7qBJKKZ57huZCy
-	wg4909CxlkGnqt1oV2Z8PDeJ0eJyOOWar+99qMoM16PmDD0vmzPjzU2EXoG3wUULoksOTFonTgK1B
-	d/VM+P5g==;
+	bh=P7mNqkUOK8Yje/n35wpDhg4Q/cnuqqTj/JMEW7ivpNE=; b=qpjXa6rBN/AmMl8bx4Bvi0jGMX
+	zZdbBr10CWkjsH8fl/EUxk8HXuMdC04YRgSMN2MMeivF9atemHYQFgsep6C/x1IaDtC41wxNkYgds
+	Vtszfh1dw00SP3IEOXg1QojzdxT/119GS9Zv8pxrd5UxZsSABk1lRy5pY8a6dERr3WtZ+JXO45M0n
+	HovE+Y/cEPIXUzhjMBhNxoJLM/StI6oF5VfXBnTgvTDBq0pGtMyAxVuzIRCnl0FVagFfwgzsLLlhs
+	T+NAVIqIfe1WYEpgDII/gHaAObOAXiXra6vsXXFbJrKrt0X7rVPzlPRWCq7OV0662T2yDnzH6xtgH
+	Yl7TXV9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7e6z-0000000BKqo-3zf8;
-	Wed, 23 Apr 2025 17:42:17 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1u7e71-0000000BKsy-0mAV;
+	Wed, 23 Apr 2025 17:42:19 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7bol-0000000Avqh-0GwN
+	id 1u7bol-0000000Avqr-1rtN
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 23 Apr 2025 15:15:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 799D65C2D79;
-	Wed, 23 Apr 2025 15:13:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41B6AC4CEE2;
+	by nyc.source.kernel.org (Postfix) with ESMTP id B7B5FA4BA37;
+	Wed, 23 Apr 2025 15:09:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93F48C4CEE3;
 	Wed, 23 Apr 2025 15:15:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1745421318;
-	bh=ydvZE2fcKiHSXxy2PEWqOT/2J5DSfX2LWTaD8LM7MhU=;
+	bh=QXWML07vMieaqb/obaP1emEXNEc9cWHjd/dRppNxB+A=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=W1QWVxbdXqXKmZ/onqcAyuN43xhgVxBT1UFRYiqubMUdVOsOg7fGbZRrWYg71LwJV
-	 95st50Li0G/ggd7UGV0HejKF6Wp/Oib4k/gJNN6Yx7toT1KTX/YhANkVzvMQ67HMC5
-	 frCc2k0A5b1akKefhO9CPIE7424nxxQEdw7wqMbZdEEPaf5bsGLCx0aMT/x+quT6+0
-	 wkhfDAHcwgIk7vDhmVpFdH1/2On6X9o+oMbQ6j8t+a+YWOAlaozjl1X+nv4HI1GJY7
-	 hvehFnwVg/FLKLTvoruV9e2AZ5v+8B8eTsJS53D5V5qq4hbuCuTgklcuZoAdQ19dT7
-	 Rd5JtyxtEZbdA==
+	b=d3v6Hoc46eQpxeIYlCOxyHmTattiekSGnEa6LXJssiK+8OgoqauMiMRx3ggxYGn/f
+	 qWh8dmp9VKivdhPVfvpxYT/CE8YSEVNHbCd9GSh2mWQvzyW2wVjCx+THOQF17JmEPf
+	 o4LPUQnG4ffdKpAXgvosLhQbxb913cGD4uo2bgeACJ6PEj8yir+clQbGWT7uxbdzVF
+	 OL79kVO/hGt1gb1L9XxoskcQkVhbAQ3hYw4HeB8XnHp0xYwmQ+LfmL1t9bYYu+BK9I
+	 HDhipwwUaTVuIFOLWSajp7ewRHThPharlegfvOJWzLbphS0UzOfImplmXAlMe9X5FH
+	 YdVD6kf8+mPng==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1u7boi-0082xr-7G;
+	id 1u7boi-0082xr-Oa;
 	Wed, 23 Apr 2025 16:15:16 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Eric Auger <eric.auger@redhat.com>,
 	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
-Subject: [PATCH v3 12/17] KVM: arm64: nv: Program host's VNCR_EL2 to the fixmap address
-Date: Wed, 23 Apr 2025 16:15:03 +0100
-Message-Id: <20250423151508.2961768-13-maz@kernel.org>
+Subject: [PATCH v3 14/17] KVM: arm64: nv: Plumb TLBI S1E2 into system instruction dispatch
+Date: Wed, 23 Apr 2025 16:15:05 +0100
+Message-Id: <20250423151508.2961768-15-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250423151508.2961768-1-maz@kernel.org>
 References: <20250423151508.2961768-1-maz@kernel.org>
@@ -71,8 +71,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_081519_213204_663C9B12 
-X-CRM114-Status: GOOD (  15.93  )
+X-CRM114-CacheID: sfid-20250423_081519_622620_E84D9A73 
+X-CRM114-Status: GOOD (  14.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,56 +87,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since we now have a way to map the guest's VNCR_EL2 on the host,
-we can point the host's VNCR_EL2 to it and go full circle!
-
-Note that we unconditionally assign the fixmap to VNCR_EL2,
-irrespective of the guest's version being mapped or not. We want
-to take a fault on first access, so the fixmap either contains
-something guranteed to be either invalid or a guest mapping.
+Now that we have to handle TLBI S1E2 in the core code, plumb the
+sysinsn dispatch code into it, so that these instructions don't
+just UNDEF anymore.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/hyp/vhe/switch.c | 17 ++++++++++++++++-
- 1 file changed, 16 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/sys_regs.c | 87 +++++++++++++++++++++++++++------------
+ 1 file changed, 61 insertions(+), 26 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-index 220dee8a45e0d..5eaff1ae32b29 100644
---- a/arch/arm64/kvm/hyp/vhe/switch.c
-+++ b/arch/arm64/kvm/hyp/vhe/switch.c
-@@ -48,6 +48,7 @@ DEFINE_PER_CPU(unsigned long, kvm_hyp_vector);
- 
- static u64 __compute_hcr(struct kvm_vcpu *vcpu)
- {
-+	u64 guest_hcr = __vcpu_sys_reg(vcpu, HCR_EL2);
- 	u64 hcr = vcpu->arch.hcr_el2;
- 
- 	if (!vcpu_has_nv(vcpu))
-@@ -70,9 +71,23 @@ static u64 __compute_hcr(struct kvm_vcpu *vcpu)
- 		write_sysreg_s(vcpu->arch.ctxt.vncr_array, SYS_VNCR_EL2);
- 	} else {
- 		host_data_clear_flag(VCPU_IN_HYP_CONTEXT);
-+
-+		if (guest_hcr & HCR_NV) {
-+			u64 va = __fix_to_virt(vncr_fixmap(smp_processor_id()));
-+
-+			/* Inherit the low bits from the actual register */
-+			va |= __vcpu_sys_reg(vcpu, VNCR_EL2) & GENMASK(PAGE_SHIFT - 1, 0);
-+			write_sysreg_s(va, SYS_VNCR_EL2);
-+
-+			/* Force NV2 in case the guest is forgetful... */
-+			guest_hcr |= HCR_NV2;
-+		}
- 	}
- 
--	return hcr | (__vcpu_sys_reg(vcpu, HCR_EL2) & ~NV_HCR_GUEST_EXCLUDE);
-+	BUG_ON(host_data_test_flag(VCPU_IN_HYP_CONTEXT) &&
-+	       host_data_test_flag(L1_VNCR_MAPPED));
-+
-+	return hcr | (guest_hcr & ~NV_HCR_GUEST_EXCLUDE);
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 204470283ccc3..de954524b7870 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -3628,11 +3628,22 @@ static void s2_mmu_tlbi_s1e1(struct kvm_s2_mmu *mmu,
+ 	WARN_ON(__kvm_tlbi_s1e2(mmu, info->va.addr, info->va.encoding));
  }
  
- static void __activate_cptr_traps(struct kvm_vcpu *vcpu)
++static bool handle_tlbi_el2(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
++			    const struct sys_reg_desc *r)
++{
++	u32 sys_encoding = sys_insn(p->Op0, p->Op1, p->CRn, p->CRm, p->Op2);
++
++	if (!kvm_supported_tlbi_s1e2_op(vcpu, sys_encoding))
++		return undef_access(vcpu, p, r);
++
++	kvm_handle_s1e2_tlbi(vcpu, sys_encoding, p->regval);
++	return true;
++}
++
+ static bool handle_tlbi_el1(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+ 			    const struct sys_reg_desc *r)
+ {
+ 	u32 sys_encoding = sys_insn(p->Op0, p->Op1, p->CRn, p->CRm, p->Op2);
+-	u64 vttbr = vcpu_read_sys_reg(vcpu, VTTBR_EL2);
+ 
+ 	/*
+ 	 * If we're here, this is because we've trapped on a EL1 TLBI
+@@ -3643,6 +3654,13 @@ static bool handle_tlbi_el1(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+ 	 * - HCR_EL2.E2H == 0 : a non-VHE guest
+ 	 * - HCR_EL2.{E2H,TGE} == { 1, 0 } : a VHE guest in guest mode
+ 	 *
++	 * Another possibility is that we are invalidating the EL2 context
++	 * using EL1 instructions, but that we landed here because we need
++	 * additional invalidation for structures that are not held in the
++	 * CPU TLBs (such as the VNCR pseudo-TLB and its EL2 mapping). In
++	 * that case, we are guaranteed that HCR_EL2.{E2H,TGE} == { 1, 1 }
++	 * as we don't allow an NV-capable L1 in a nVHE configuration.
++	 *
+ 	 * We don't expect these helpers to ever be called when running
+ 	 * in a vEL1 context.
+ 	 */
+@@ -3652,7 +3670,13 @@ static bool handle_tlbi_el1(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+ 	if (!kvm_supported_tlbi_s1e1_op(vcpu, sys_encoding))
+ 		return undef_access(vcpu, p, r);
+ 
+-	kvm_s2_mmu_iterate_by_vmid(vcpu->kvm, get_vmid(vttbr),
++	if (vcpu_el2_e2h_is_set(vcpu) && vcpu_el2_tge_is_set(vcpu)) {
++		kvm_handle_s1e2_tlbi(vcpu, sys_encoding, p->regval);
++		return true;
++	}
++
++	kvm_s2_mmu_iterate_by_vmid(vcpu->kvm,
++				   get_vmid(__vcpu_sys_reg(vcpu, VTTBR_EL2)),
+ 				   &(union tlbi_info) {
+ 					   .va = {
+ 						   .addr = p->regval,
+@@ -3774,16 +3798,21 @@ static struct sys_reg_desc sys_insn_descs[] = {
+ 	SYS_INSN(TLBI_IPAS2LE1IS, handle_ipas2e1is),
+ 	SYS_INSN(TLBI_RIPAS2LE1IS, handle_ripas2e1is),
+ 
+-	SYS_INSN(TLBI_ALLE2OS, undef_access),
+-	SYS_INSN(TLBI_VAE2OS, undef_access),
++	SYS_INSN(TLBI_ALLE2OS, handle_tlbi_el2),
++	SYS_INSN(TLBI_VAE2OS, handle_tlbi_el2),
+ 	SYS_INSN(TLBI_ALLE1OS, handle_alle1is),
+-	SYS_INSN(TLBI_VALE2OS, undef_access),
++	SYS_INSN(TLBI_VALE2OS, handle_tlbi_el2),
+ 	SYS_INSN(TLBI_VMALLS12E1OS, handle_vmalls12e1is),
+ 
+-	SYS_INSN(TLBI_RVAE2IS, undef_access),
+-	SYS_INSN(TLBI_RVALE2IS, undef_access),
++	SYS_INSN(TLBI_RVAE2IS, handle_tlbi_el2),
++	SYS_INSN(TLBI_RVALE2IS, handle_tlbi_el2),
++	SYS_INSN(TLBI_ALLE2IS, handle_tlbi_el2),
++	SYS_INSN(TLBI_VAE2IS, handle_tlbi_el2),
+ 
+ 	SYS_INSN(TLBI_ALLE1IS, handle_alle1is),
++
++	SYS_INSN(TLBI_VALE2IS, handle_tlbi_el2),
++
+ 	SYS_INSN(TLBI_VMALLS12E1IS, handle_vmalls12e1is),
+ 	SYS_INSN(TLBI_IPAS2E1OS, handle_ipas2e1is),
+ 	SYS_INSN(TLBI_IPAS2E1, handle_ipas2e1is),
+@@ -3793,11 +3822,17 @@ static struct sys_reg_desc sys_insn_descs[] = {
+ 	SYS_INSN(TLBI_IPAS2LE1, handle_ipas2e1is),
+ 	SYS_INSN(TLBI_RIPAS2LE1, handle_ripas2e1is),
+ 	SYS_INSN(TLBI_RIPAS2LE1OS, handle_ripas2e1is),
+-	SYS_INSN(TLBI_RVAE2OS, undef_access),
+-	SYS_INSN(TLBI_RVALE2OS, undef_access),
+-	SYS_INSN(TLBI_RVAE2, undef_access),
+-	SYS_INSN(TLBI_RVALE2, undef_access),
++	SYS_INSN(TLBI_RVAE2OS, handle_tlbi_el2),
++	SYS_INSN(TLBI_RVALE2OS, handle_tlbi_el2),
++	SYS_INSN(TLBI_RVAE2, handle_tlbi_el2),
++	SYS_INSN(TLBI_RVALE2, handle_tlbi_el2),
++	SYS_INSN(TLBI_ALLE2, handle_tlbi_el2),
++	SYS_INSN(TLBI_VAE2, handle_tlbi_el2),
++
+ 	SYS_INSN(TLBI_ALLE1, handle_alle1is),
++
++	SYS_INSN(TLBI_VALE2, handle_tlbi_el2),
++
+ 	SYS_INSN(TLBI_VMALLS12E1, handle_vmalls12e1is),
+ 
+ 	SYS_INSN(TLBI_IPAS2E1ISNXS, handle_ipas2e1is),
+@@ -3805,19 +3840,19 @@ static struct sys_reg_desc sys_insn_descs[] = {
+ 	SYS_INSN(TLBI_IPAS2LE1ISNXS, handle_ipas2e1is),
+ 	SYS_INSN(TLBI_RIPAS2LE1ISNXS, handle_ripas2e1is),
+ 
+-	SYS_INSN(TLBI_ALLE2OSNXS, undef_access),
+-	SYS_INSN(TLBI_VAE2OSNXS, undef_access),
++	SYS_INSN(TLBI_ALLE2OSNXS, handle_tlbi_el2),
++	SYS_INSN(TLBI_VAE2OSNXS, handle_tlbi_el2),
+ 	SYS_INSN(TLBI_ALLE1OSNXS, handle_alle1is),
+-	SYS_INSN(TLBI_VALE2OSNXS, undef_access),
++	SYS_INSN(TLBI_VALE2OSNXS, handle_tlbi_el2),
+ 	SYS_INSN(TLBI_VMALLS12E1OSNXS, handle_vmalls12e1is),
+ 
+-	SYS_INSN(TLBI_RVAE2ISNXS, undef_access),
+-	SYS_INSN(TLBI_RVALE2ISNXS, undef_access),
+-	SYS_INSN(TLBI_ALLE2ISNXS, undef_access),
+-	SYS_INSN(TLBI_VAE2ISNXS, undef_access),
++	SYS_INSN(TLBI_RVAE2ISNXS, handle_tlbi_el2),
++	SYS_INSN(TLBI_RVALE2ISNXS, handle_tlbi_el2),
++	SYS_INSN(TLBI_ALLE2ISNXS, handle_tlbi_el2),
++	SYS_INSN(TLBI_VAE2ISNXS, handle_tlbi_el2),
+ 
+ 	SYS_INSN(TLBI_ALLE1ISNXS, handle_alle1is),
+-	SYS_INSN(TLBI_VALE2ISNXS, undef_access),
++	SYS_INSN(TLBI_VALE2ISNXS, handle_tlbi_el2),
+ 	SYS_INSN(TLBI_VMALLS12E1ISNXS, handle_vmalls12e1is),
+ 	SYS_INSN(TLBI_IPAS2E1OSNXS, handle_ipas2e1is),
+ 	SYS_INSN(TLBI_IPAS2E1NXS, handle_ipas2e1is),
+@@ -3827,14 +3862,14 @@ static struct sys_reg_desc sys_insn_descs[] = {
+ 	SYS_INSN(TLBI_IPAS2LE1NXS, handle_ipas2e1is),
+ 	SYS_INSN(TLBI_RIPAS2LE1NXS, handle_ripas2e1is),
+ 	SYS_INSN(TLBI_RIPAS2LE1OSNXS, handle_ripas2e1is),
+-	SYS_INSN(TLBI_RVAE2OSNXS, undef_access),
+-	SYS_INSN(TLBI_RVALE2OSNXS, undef_access),
+-	SYS_INSN(TLBI_RVAE2NXS, undef_access),
+-	SYS_INSN(TLBI_RVALE2NXS, undef_access),
+-	SYS_INSN(TLBI_ALLE2NXS, undef_access),
+-	SYS_INSN(TLBI_VAE2NXS, undef_access),
++	SYS_INSN(TLBI_RVAE2OSNXS, handle_tlbi_el2),
++	SYS_INSN(TLBI_RVALE2OSNXS, handle_tlbi_el2),
++	SYS_INSN(TLBI_RVAE2NXS, handle_tlbi_el2),
++	SYS_INSN(TLBI_RVALE2NXS, handle_tlbi_el2),
++	SYS_INSN(TLBI_ALLE2NXS, handle_tlbi_el2),
++	SYS_INSN(TLBI_VAE2NXS, handle_tlbi_el2),
+ 	SYS_INSN(TLBI_ALLE1NXS, handle_alle1is),
+-	SYS_INSN(TLBI_VALE2NXS, undef_access),
++	SYS_INSN(TLBI_VALE2NXS, handle_tlbi_el2),
+ 	SYS_INSN(TLBI_VMALLS12E1NXS, handle_vmalls12e1is),
+ };
+ 
 -- 
 2.39.2
 
