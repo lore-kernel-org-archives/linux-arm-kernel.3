@@ -4,60 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE08FC369D7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:42:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDEC1C369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:42:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N3jW+PpKrHhN8yclN6B0fTDyQBOFYQZiFR8jmN/HvVo=; b=R9TTHlQyDJU6R0rQ05Op26zkFi
-	WrHnAKqqvBL1gP/LjsxOJ1hhtemqGtRiDnkGk/+D73dDNbHImckq8q02k+MPsTovcjmlsa1tIwReD
-	1zjbO/284mao2K40RTiP8BgboBTGL+RJrS+1eDBJoWJLAm9Vb/J/aIirL3n/Dc/8j8pvrBPXgpn/6
-	4ih50/iCiVBBLC8jpbB/YdaR4xXVucZSJ7ZKlVnIWnB/JuUdqyRAlpTs6BBlM6kaeHwQXox5bhqdi
-	49yNVrUl2x6E62Zw8uiTU035U6OSi/EcMa6IJCquUERiq6xQ7q5CV1kCdEAkIW3ABr9iX4WAJcnVp
-	VAmkcoeQ==;
+	bh=LdV8N5xNCMNuVYmRYsGX2JFNWFb5rmF1HOkYycjRTfs=; b=I9KNtoZpImPdjuc3FIQz4aYdOm
+	hFMEnJj215uD4Usp1SqoQA/8ccJ/zQd1YNeyXW9k/OTVyUk9AD4Yyh5Oszr3L4/8Q0LbAXQOa2ccl
+	alMsxOs91OZTAcPDwT6SFQACdVNq70Dolc45lay5ARLVSDkX3m1LI/K2QrYcuMLFbMOc/q/5sNAaF
+	kcOdVStOOEU2IlHRWjeRLFafh60IYlzqQiVN9fmhIDia2HAHi5P/Gw4ADOzs2RnBaFYV6/IFYmLXu
+	eR6TsUmwV0KbHLluPF6s6KSl8/wpfbVX9oZt1pO07DTUq3KPiIxWvvthVErRFjjryV4ndzj0ZR6Kh
+	6v5VTDjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7e6Y-0000000BK4q-3aF8;
-	Wed, 23 Apr 2025 17:41:50 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u7e6c-0000000BK9c-0Lr7;
+	Wed, 23 Apr 2025 17:41:54 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7blM-0000000AvFP-1t9l
+	id 1u7bmN-0000000AvQi-37cu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 15:11:48 +0000
+	Wed, 23 Apr 2025 15:12:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E7B6C614B6;
-	Wed, 23 Apr 2025 15:11:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A40FC4CEE2;
-	Wed, 23 Apr 2025 15:11:47 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 092935C5D0B;
+	Wed, 23 Apr 2025 15:10:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75AC0C4CEE2;
+	Wed, 23 Apr 2025 15:12:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1745421107;
-	bh=7DTSy5c0LEFq6TqHnzfnsQmzUsM4pf25hH2RxLEG93Q=;
+	s=korg; t=1745421170;
+	bh=s451sJB50M6FmZV61fBL8Whsy95Sc2aDN7sbRGLl1Do=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=0hvFVCAT5jtCig0nLcR7J+2P1wXVGhGv9rr1fqWPCDQqC+r/7lY6jONUP0bL1ytgl
-	 5mFUJqmXQQe+4u9tGT5X8/QqouQIk1PlkkqIa90I1ICOq8vw+QED7eZHLF8F1SngTk
-	 3vQDZQF1wXYC9QPBtFNzmVYq8r7P2N/Ly4RFZTd0=
+	b=FtEoVysYApVdDDek6TRQWW2AURkvsD8jjRQibN6JsOdHD+tEX3tQzES4WgPWuO7Nb
+	 A8uIcxnr57g/b7krgsMFywC3cF3lHkAUP1bfVCmEzs/a6bM+DtJhA/6z2y+6T67no7
+	 PrrSofS8dvcaJubcH3RrjMR8FidS9y1Hiqd15orc=
 From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 To: stable@vger.kernel.org
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	patches@lists.linux.dev,
 	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
+	Mark Brown <broonie@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev,
+	Eric Auger <eric.auger@redhat.com>,
 	Anshuman Khandual <anshuman.khandual@arm.com>,
 	Catalin Marinas <catalin.marinas@arm.com>
-Subject: [PATCH 6.12 192/223] arm64/boot: Enable EL2 requirements for FEAT_PMUv3p9
-Date: Wed, 23 Apr 2025 16:44:24 +0200
-Message-ID: <20250423142624.996855042@linuxfoundation.org>
+Subject: [PATCH 6.12 186/223] arm64/sysreg: Update register fields for ID_AA64MMFR0_EL1
+Date: Wed, 23 Apr 2025 16:44:18 +0200
+Message-ID: <20250423142624.750771111@linuxfoundation.org>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250423142617.120834124@linuxfoundation.org>
 References: <20250423142617.120834124@linuxfoundation.org>
@@ -66,6 +61,10 @@ X-stable: review
 X-Patchwork-Hint: ignore
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250423_081251_836423_3885FA6F 
+X-CRM114-Status: UNSURE (   8.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,135 +85,44 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Anshuman Khandual <anshuman.khandual@arm.com>
 
-commit 858c7bfcb35e1100b58bb63c9f562d86e09418d9 upstream.
+commit cc15f548cc77574bcd68425ae01a796659bd3705 upstream.
 
-FEAT_PMUv3p9 registers such as PMICNTR_EL0, PMICFILTR_EL0, and PMUACR_EL1
-access from EL1 requires appropriate EL2 fine grained trap configuration
-via FEAT_FGT2 based trap control registers HDFGRTR2_EL2 and HDFGWTR2_EL2.
-Otherwise such register accesses will result in traps into EL2.
-
-Add a new helper __init_el2_fgt2() which initializes FEAT_FGT2 based fine
-grained trap control registers HDFGRTR2_EL2 and HDFGWTR2_EL2 (setting the
-bits nPMICNTR_EL0, nPMICFILTR_EL0 and nPMUACR_EL1) to enable access into
-PMICNTR_EL0, PMICFILTR_EL0, and PMUACR_EL1 registers.
-
-Also update booting.rst with SCR_EL3.FGTEn2 requirement for all FEAT_FGT2
-based registers to be accessible in EL2.
+This updates ID_AA64MMFR0_EL1 register fields as per the definitions based
+on DDI0601 2024-12.
 
 Cc: Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Jonathan Corbet <corbet@lwn.net>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>
+Cc: Mark Brown <broonie@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-doc@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org
-Cc: kvmarm@lists.linux.dev
-Fixes: 0bbff9ed8165 ("perf/arm_pmuv3: Add PMUv3.9 per counter EL0 access control")
-Fixes: d8226d8cfbaf ("perf: arm_pmuv3: Add support for Armv9.4 PMU instruction counter")
-Tested-by: Rob Herring (Arm) <robh@kernel.org>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Eric Auger <eric.auger@redhat.com>
+Reviewed-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-Link: https://lore.kernel.org/r/20250227035119.2025171-1-anshuman.khandual@arm.com
+Link: https://lore.kernel.org/r/20250203050828.1049370-2-anshuman.khandual@arm.com
 Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
 Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 ---
- Documentation/arch/arm64/booting.rst |   22 ++++++++++++++++++++++
- arch/arm64/include/asm/el2_setup.h   |   25 +++++++++++++++++++++++++
- arch/arm64/tools/sysreg              |    1 +
- 3 files changed, 48 insertions(+)
+ arch/arm64/tools/sysreg |    2 ++
+ 1 file changed, 2 insertions(+)
 
---- a/Documentation/arch/arm64/booting.rst
-+++ b/Documentation/arch/arm64/booting.rst
-@@ -285,6 +285,12 @@ Before jumping into the kernel, the foll
- 
-     - SCR_EL3.FGTEn (bit 27) must be initialised to 0b1.
- 
-+  For CPUs with the Fine Grained Traps 2 (FEAT_FGT2) extension present:
-+
-+  - If EL3 is present and the kernel is entered at EL2:
-+
-+    - SCR_EL3.FGTEn2 (bit 59) must be initialised to 0b1.
-+
-   For CPUs with support for HCRX_EL2 (FEAT_HCX) present:
- 
-   - If EL3 is present and the kernel is entered at EL2:
-@@ -379,6 +385,22 @@ Before jumping into the kernel, the foll
- 
-     - SMCR_EL2.EZT0 (bit 30) must be initialised to 0b1.
- 
-+  For CPUs with the Performance Monitors Extension (FEAT_PMUv3p9):
-+
-+ - If EL3 is present:
-+
-+    - MDCR_EL3.EnPM2 (bit 7) must be initialised to 0b1.
-+
-+ - If the kernel is entered at EL1 and EL2 is present:
-+
-+    - HDFGRTR2_EL2.nPMICNTR_EL0 (bit 2) must be initialised to 0b1.
-+    - HDFGRTR2_EL2.nPMICFILTR_EL0 (bit 3) must be initialised to 0b1.
-+    - HDFGRTR2_EL2.nPMUACR_EL1 (bit 4) must be initialised to 0b1.
-+
-+    - HDFGWTR2_EL2.nPMICNTR_EL0 (bit 2) must be initialised to 0b1.
-+    - HDFGWTR2_EL2.nPMICFILTR_EL0 (bit 3) must be initialised to 0b1.
-+    - HDFGWTR2_EL2.nPMUACR_EL1 (bit 4) must be initialised to 0b1.
-+
-   For CPUs with Memory Copy and Memory Set instructions (FEAT_MOPS):
- 
-   - If the kernel is entered at EL1 and EL2 is present:
---- a/arch/arm64/include/asm/el2_setup.h
-+++ b/arch/arm64/include/asm/el2_setup.h
-@@ -215,6 +215,30 @@
- .Lskip_fgt_\@:
- .endm
- 
-+.macro __init_el2_fgt2
-+	mrs	x1, id_aa64mmfr0_el1
-+	ubfx	x1, x1, #ID_AA64MMFR0_EL1_FGT_SHIFT, #4
-+	cmp	x1, #ID_AA64MMFR0_EL1_FGT_FGT2
-+	b.lt	.Lskip_fgt2_\@
-+
-+	mov	x0, xzr
-+	mrs	x1, id_aa64dfr0_el1
-+	ubfx	x1, x1, #ID_AA64DFR0_EL1_PMUVer_SHIFT, #4
-+	cmp	x1, #ID_AA64DFR0_EL1_PMUVer_V3P9
-+	b.lt	.Lskip_pmuv3p9_\@
-+
-+	orr	x0, x0, #HDFGRTR2_EL2_nPMICNTR_EL0
-+	orr	x0, x0, #HDFGRTR2_EL2_nPMICFILTR_EL0
-+	orr	x0, x0, #HDFGRTR2_EL2_nPMUACR_EL1
-+.Lskip_pmuv3p9_\@:
-+	msr_s   SYS_HDFGRTR2_EL2, x0
-+	msr_s   SYS_HDFGWTR2_EL2, x0
-+	msr_s   SYS_HFGRTR2_EL2, xzr
-+	msr_s   SYS_HFGWTR2_EL2, xzr
-+	msr_s   SYS_HFGITR2_EL2, xzr
-+.Lskip_fgt2_\@:
-+.endm
-+
- .macro __init_el2_nvhe_prepare_eret
- 	mov	x0, #INIT_PSTATE_EL1
- 	msr	spsr_el2, x0
-@@ -240,6 +264,7 @@
- 	__init_el2_nvhe_idregs
- 	__init_el2_cptr
- 	__init_el2_fgt
-+	__init_el2_fgt2
- .endm
- 
- #ifndef __KVM_NVHE_HYPERVISOR__
 --- a/arch/arm64/tools/sysreg
 +++ b/arch/arm64/tools/sysreg
-@@ -1238,6 +1238,7 @@ UnsignedEnum	11:8	PMUVer
- 	0b0110	V3P5
- 	0b0111	V3P7
- 	0b1000	V3P8
-+	0b1001	V3P9
- 	0b1111	IMP_DEF
+@@ -1556,6 +1556,7 @@ EndEnum
+ UnsignedEnum	59:56	FGT
+ 	0b0000	NI
+ 	0b0001	IMP
++	0b0010	FGT2
  EndEnum
- UnsignedEnum	7:4	TraceVer
+ Res0	55:48
+ UnsignedEnum	47:44	EXS
+@@ -1617,6 +1618,7 @@ Enum	3:0	PARANGE
+ 	0b0100	44
+ 	0b0101	48
+ 	0b0110	52
++	0b0111	56
+ EndEnum
+ EndSysreg
+ 
 
 
 
