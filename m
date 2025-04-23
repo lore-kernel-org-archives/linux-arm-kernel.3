@@ -4,68 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBD1AC369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 18:03:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E5D4C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 18:05:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jt87a8LfxJPviekB7k5u6RJsXtO1RirRfUFOkTaWN5I=; b=e5a4P/l+O9kf63PKI1/NYPGbUb
-	X2xyAiCt0JTwXq/olYFhWrfP9bV3U+sU3TkJSdRfRUGy5U8dRMfbSBjR1nCfswSWoWjXrIALP+8qK
-	5dY8akTywYJqKPBBf9IEedrwuSxLYhmtFNWznYsbjtCySst0AuYX38HRYjNXrXjekGqvsssTsbYr7
-	FuPnyrGeR0eM6zjWSGqmyO7fjUR25tsCJpny+/ds+adY+XVgeMPJSJlrSvFlRrw/d295kXwqvX2Cr
-	Cwmir99Afx/WpWWX/73EqZAoAYONieNnJMoMboFE07DmDdbuhKiTZYx57GZbcLKaxjUbKukPoJnsh
-	8t/F98Ng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zSN8LA1qXE8sSMrIXXGWvP/A1XS/xD/J162Xg5jQH2M=; b=1R23jKXbmAD17rNv9UmHm9OZLF
+	DaLgIJZCGH3tryjC36veuo7FUgSSu9UZF/dizwGnuFc9/gPi9e1XdDjoHrsZe4qRfSXcrhJc9iNT/
+	iwvogphWWHDURS7Zv93hdMleAZtUe1dxX3LKUeop9+TIbhwaPG7DWbroTqiBu9ek+DdF8H9Qzzv6R
+	q29doEKiMhZdnoFdgWB+qzMz6SE6VG8cZIjs6bmvxY8Hu4aexMCcwxmn1qprSDhtNn2J757GGb7u5
+	IvtC7TUXRPi4dn65UsbEfVS8qcyfjcvkgx6srieF4OhYz+skUrLg0j+LjxJ8wBeS2kVTTNNOgDwhf
+	bWsH/mZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7eR4-0000000BTKn-0h3o;
-	Wed, 23 Apr 2025 18:03:02 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u7eSy-0000000BTcZ-3yMK;
+	Wed, 23 Apr 2025 18:05:00 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7cO3-0000000B1gE-04Ex;
-	Wed, 23 Apr 2025 15:51:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 520F1615ED;
-	Wed, 23 Apr 2025 15:51:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBFD3C4CEE2;
-	Wed, 23 Apr 2025 15:51:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745423506;
-	bh=Q6PcQ8O3FSmUk2TwPF7gCzpyOKQyy07Lo0eWC7IuJ7U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KmgPy7oNLM0uB7pP3DNkeEMd8gByPbo3asds+AarzLLyrC3Gzj86gGQNq1pVjbJ5N
-	 g7JU98A9UbuJuyqi5Y6icJSXeVltbtdDoNSSSD3NIs/gc8XhO6WMPuR2VlZauZq4du
-	 eB/3iqRuz7qJJLIP0ICaiq6y7u4sXqy807rLeUWT2bxgBphAHgJ3xMF8jzwjdMlgz8
-	 7tPFVgLqnQAVM5l90H6TJirFaT+OExzULT45LJJP4s1qRoriaeZyiUEgK8BQ0QkFH6
-	 Vv0q3Te2Xe4j3ElXN0hJgRQ4eRVm7sNcyMLIRoGCL5dFl22cXQDstZE8m8KRY9WhhL
-	 xIg4IxhWm7z2w==
-Date: Wed, 23 Apr 2025 10:51:44 -0500
-From: Rob Herring <robh@kernel.org>
-To: =?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>
+	id 1u7cOM-0000000B1kR-2j4C
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Apr 2025 15:52:07 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-7399a2dc13fso8902206b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 08:52:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1745423525; x=1746028325; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=zSN8LA1qXE8sSMrIXXGWvP/A1XS/xD/J162Xg5jQH2M=;
+        b=hP67Jp1ooUKVzU95MUQP+wJiJnCCvEOe1PXQHARxZDnRoN3Ow86wQfbZ/7X7vON6N/
+         EOqQsGd0PKaf26JA4/4b45lLakIuTNYX0kWnCJj2giRWcIkRothRZyQSGSUkNC47W3ES
+         KXDZ/ylvwkNRGXrBYW2cbNgehRGC1WEjFphZWdMTO9fYjw/7NONCDU6YVbqo3PmJCsgj
+         NhFZ3HVkLweu1yAYAMo1gOJh1N+b2TeOmrKl3mLCn+EbPZshrjpE9mZNGNlRF6v8cyuh
+         rf3gB9lDAclREwuooKF2cwTplnXkWzbclyca8AVkk+enGmN4XMTCFdXK3XKNyPBY1Alk
+         zS4w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745423525; x=1746028325;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=zSN8LA1qXE8sSMrIXXGWvP/A1XS/xD/J162Xg5jQH2M=;
+        b=LphHvA4SLAzGE+mmSWPe1MYaZnzCwXKpB/HNDHJGPvAotxqujBBcZiP3HBkHwarfiU
+         NaydxG3oFTV24Ot0FPTItkGAyjhNuafjXh0lPJwJ2Rc1CfgcYyvnpk1VstmyVd8yEgp3
+         gboAMzgkHgvcl3S+EYgCQA+7QaStDxR6eOm8kruK5RW5DYp+Vj7kNRnCu4RbvC27oXua
+         +72Cdf/PBVaZq/RQaIf36QO7+E+vCM1Fg7y1V2M6axfHRqBL3M6I51OgZ+PvyBKlp7Zg
+         CqelRVb5IFMmK5HEO//e3dOmItv07iwA3a7KkazMbg0VvEsYv/NoaQqATWfQ8Hu4kwZ2
+         huXA==
+X-Forwarded-Encrypted: i=1; AJvYcCUmRVOZGWP7Bz3fFpT1S05vPsveAGlWTuraEzCTZUSMiSbBLOncf4LHu215EcC5i3R9NSzRUyVDzf/Mm+UgBjtN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx+BNyeUeo0G1NgKCjRgKvH4T0uY/MbSWGP6Z2yeMLsWDjSLQ4r
+	KgDeJIHLmfPns8skylQ1CsgZItWcoYGuRaznDyP6ltFMwDltnzRc
+X-Gm-Gg: ASbGncsbq2gJZN47vsC7Pw028bMJureU9soEOyvdeXuAbhW6bQpWCByV72/eGyfb/wz
+	DeIJolRYo5JXJESl7UtJqnLudFyN6B3x4x19LpY0YX+yPPIMkBXepX417hXoJfbTI5j88kwUoJL
+	noKY47qUz3dAbmbl1wXDpCPSp86zN8U2e3uw9KshOiT5NH1Q5iEqMElFSWqPnV51YwSgonaRwM9
+	zEHPSti/q00TFokxoOwsfp4B/rs4Nu4RxocvMCav2Q+eVE48zKkQ9Yx1MrDyXJHACGXmXXd6++x
+	19E7a2caIvlpfawVpGPoPTtDr7EsNukhXIOdkYbRpmU34bj1DcA4Ew3hLoYd6Pk=
+X-Google-Smtp-Source: AGHT+IH9NXu1Zh4il4mX+tmqFO/fGM0azr6O1PCj5OfemeTOeltYbazHILrLFl2ZpdVQAwyq5Vkrfg==
+X-Received: by 2002:a05:6a20:12cd:b0:1f5:92ac:d6b7 with SMTP id adf61e73a8af0-203cbc05557mr29541583637.4.1745423525288;
+        Wed, 23 Apr 2025 08:52:05 -0700 (PDT)
+Received: from hiagof-nb.corp.toradex.com ([67.159.246.222])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73dbf8c0228sm10598640b3a.25.2025.04.23.08.52.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Apr 2025 08:52:04 -0700 (PDT)
+From: Hiago De Franco <hiagofranco@gmail.com>
+To: linux-remoteproc@vger.kernel.org
 Cc: Bjorn Andersson <andersson@kernel.org>,
 	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Tinghan Shen <tinghan.shen@mediatek.com>,
-	Olivia Wen <olivia.wen@mediatek.com>, kernel@collabora.com,
-	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v2 3/5] dt-bindings: remoteproc: mediatek: Drop redundant
- maxItems for mt8192/95
-Message-ID: <20250423155144.GA581441-robh@kernel.org>
-References: <20250421-scp-dual-core-mt8390-v2-0-c84117a959a9@collabora.com>
- <20250421-scp-dual-core-mt8390-v2-3-c84117a959a9@collabora.com>
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Hiago De Franco <hiago.franco@toradex.com>
+Subject: [PATCH] remoteproc: imx_rproc: replace devm_clk_get() with devm_clk_get_optional()
+Date: Wed, 23 Apr 2025 12:51:31 -0300
+Message-Id: <20250423155131.101473-1-hiagofranco@gmail.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250421-scp-dual-core-mt8390-v2-3-c84117a959a9@collabora.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250423_085206_690490_E461554C 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,28 +102,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 21, 2025 at 04:49:06PM -0400, Nícolas F. R. A. Prado wrote:
-> reg's maxItems is already defined as 3 in the base schema. Remove the
-> redundant assignment in the if branch for mt8192/mt8195.
-> 
-> Suggested-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
-> ---
->  Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml | 1 -
->  1 file changed, 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml b/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
-> index 04348cfcb0424dc78ff1ddd77665285a052925e9..82c7edd5a2fbb8610315881a4033a3a43198162e 100644
-> --- a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
-> +++ b/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
-> @@ -187,7 +187,6 @@ allOf:
->        properties:
->          reg:
->            minItems: 3
-> -          maxItems: 3
+From: Hiago De Franco <hiago.franco@toradex.com>
 
-Sigh. I would squash this as using maxItems was the error in the first 
-place. But either way:
+The "clocks" device tree property is not mandatory, and if not provided
+Linux will shut down the remote processor power domain during boot if it
+is not present, even if it is running (e.g. it was started by U-Boot's
+bootaux command).
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Use the optional devm_clk_get instead.
+
+Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
+---
+ drivers/remoteproc/imx_rproc.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+index 74299af1d7f1..45b5b23980ec 100644
+--- a/drivers/remoteproc/imx_rproc.c
++++ b/drivers/remoteproc/imx_rproc.c
+@@ -1033,7 +1033,7 @@ static int imx_rproc_clk_enable(struct imx_rproc *priv)
+ 	if (dcfg->method == IMX_RPROC_NONE)
+ 		return 0;
+ 
+-	priv->clk = devm_clk_get(dev, NULL);
++	priv->clk = devm_clk_get_optional(dev, NULL);
+ 	if (IS_ERR(priv->clk)) {
+ 		dev_err(dev, "Failed to get clock\n");
+ 		return PTR_ERR(priv->clk);
+-- 
+2.39.5
+
 
