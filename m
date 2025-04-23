@@ -4,97 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A88F1C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 07:11:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D719CC369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 07:13:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DXs+2X22CNIfmNCVhg97ldAwTjAoi/RHfs7pocm68rY=; b=0HQOf74jak2kZDNTaVF0BEToQr
-	UQPiywADKCRjZ9Jt8guHPJLFWWlPUb3Y1rL9z6M0U7uirHg7ewTVPY74weEszxHzsqsyT3zUjWdYW
-	DwtgpY4j5gMk8vCpF8Ukvm32tiKItyFOK4THLcM0lWxj//C+m/ZjPHFg+SKqSbYtxW3T+8qbhw26z
-	WfKZTyuyAN2/fx4DaNUmjbl5RmVUlL6pGtQljSZIWA9DQiUiLn++15dljmIkA/AMonLxxL4aZAsb4
-	VhwGXhYiD4YxVJr5WeAArDykSmDAtJc6vhexflBYqk7cflsW/dNRbYfZ6NDj2fMLSw6r46y8SOUKF
-	X9rR7Piw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/0EQyW6sKhsHbEM0FiXvZEMPWbxrVBqoFMcw038Fo0o=; b=yf9U3Fr0I+1cCDxHGjNXndwJp5
+	rwy5mROQzIt9IG4NNMiijHa4jv3TLOKXzGl8NYQMU2s/RaRon85TYYN/7MaxWJ4MqLnquluFAhk4N
+	aUu/GNiu/cKcEVu535YdLlhAjyZduCjJUgd25MwBfc7+l3Fzh3t09UiMmrizJWRIja/fpv5I1GG+N
+	4d2RtC/3JmgJuSuHueGWFl7pBBODmIx5sdFVLYuKZqEPqIjExObmLH2UqTqn5qH2pmlYTWN360frr
+	kVx7lN9TABAVA/hpClFLwK9Zn7HJbAgOt/adBcvMN8ofsd/uAZ9g2VWtoKYZs4eBf7SZpCnbLBSdw
+	M/UZ/PBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7UGc-00000009SjX-2om2;
-	Wed, 23 Apr 2025 07:11:34 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1u7UIZ-00000009T1L-1VpT;
+	Wed, 23 Apr 2025 07:13:35 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7UAI-00000009Rf7-2uAI
+	id 1u7UDK-00000009SJi-3lwC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 07:05:04 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53N0iLmg022331;
-	Wed, 23 Apr 2025 07:04:39 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	DXs+2X22CNIfmNCVhg97ldAwTjAoi/RHfs7pocm68rY=; b=HPpFHJbssP7T5kYH
-	BNxsx8ElUHeCg7E62rJt1P52xqRL1fOs1txhXZGRK3K9voYk5BZnkJBCpafq7F/9
-	8LB/aIhFnATHzf3AUjEWwqdrO4WtAD2bh7OEkCS1yQju2REvk1s+oo0x/pUQPaNy
-	QFk6hK1NEVWslrzOMrN5kdBK7BEvhR+KVq7SrFc4LonLqkqKB3vga5AOCJGra+ya
-	evLm+J6hRnBvmrgt9AsKQ2uEJnaL9CgVi1Eb1P37KV+FgX10lqVsMs5mYKBc+1vN
-	o5HJhUo4iokMBDSEvBGHu9sRChKo1A2brmEXUdyms17PbA7zKLl4rWOMmQ/SPN+f
-	mm07CA==
-Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 466jh1164v-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 23 Apr 2025 07:04:39 +0000 (GMT)
-Received: from nasanex01a.na.qualcomm.com (nasanex01a.na.qualcomm.com [10.52.223.231])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53N74cSZ016287
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 23 Apr 2025 07:04:38 GMT
-Received: from [10.110.52.190] (10.80.80.8) by nasanex01a.na.qualcomm.com
- (10.52.223.231) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 23 Apr
- 2025 00:04:37 -0700
-Message-ID: <c75d2cc2-e7f7-4de4-8d3d-81c3cf8ff973@quicinc.com>
-Date: Wed, 23 Apr 2025 00:04:36 -0700
+	Wed, 23 Apr 2025 07:08:12 +0000
+Received: from francesco-nb (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id DB3B91F984;
+	Wed, 23 Apr 2025 09:08:08 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1745392089;
+	bh=/0EQyW6sKhsHbEM0FiXvZEMPWbxrVBqoFMcw038Fo0o=; h=From:To:Subject;
+	b=taM+nq0Tp+9ii+S0WaDF9seZryAoqKrz/vlplFL9/ZBKvYNh75kCC715TxDFQa+7j
+	 C/sGGFpIK77WVU5hAsa96KvTgz0cbCtwlSeMWTZM1eSsgb80787R1TEDZ13sDDM7GW
+	 m9Z7zfRZZMUu6acYf0lAsIKp7oi/a6A+Q9yGEc/kyS63x9sEef5+xz2ESa0JVOJ5d3
+	 eOdQVUXumLYh6f12oLeAynDGKptfRtEJhUzCj7jMfFXKsVktMRWbgLkMojclU174EO
+	 /wrDlZW4ofcXxj2R+S0I3MGfFJcZRhDvsNVCxViB6AMQjgUiz1cFqeO5rPYDOfd35J
+	 /6AKlQjxqp/Kg==
+Date: Wed, 23 Apr 2025 09:08:07 +0200
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Frieder Schrempf <frieder.schrempf@kontron.de>
+Cc: Wojciech Dubowik <Wojciech.Dubowik@mt.com>,
+	linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Francesco Dolcini <francesco@dolcini.it>,
+	Philippe Schenker <philippe.schenker@impulsing.ch>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: dts: imx8mm-verdin: Link reg_usdhc2_vqmmc to
+ usdhc2
+Message-ID: <20250423070807.GB4811@francesco-nb>
+References: <20250422124619.713235-1-Wojciech.Dubowik@mt.com>
+ <522decdf-faa0-433b-8b92-760f8fd04388@kontron.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC][PATCH 00/14] introduce kmemdump
-To: Eugen Hristev <eugen.hristev@linaro.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-msm@vger.kernel.org>, <andersson@kernel.org>
-CC: <linux-doc@vger.kernel.org>, <corbet@lwn.net>, <tglx@linutronix.de>,
-        <mingo@redhat.com>, <rostedt@goodmis.org>, <john.ogness@linutronix.de>,
-        <senozhatsky@chromium.org>, <pmladek@suse.com>, <peterz@infradead.org>,
-        <mojha@qti.qualcomm.com>, <linux-arm-kernel@lists.infradead.org>,
-        <vincent.guittot@linaro.org>, <konradybcio@kernel.org>,
-        <dietmar.eggemann@arm.com>, <juri.lelli@redhat.com>
-References: <20250422113156.575971-1-eugen.hristev@linaro.org>
-Content-Language: en-US
-From: Trilok Soni <quic_tsoni@quicinc.com>
-In-Reply-To: <20250422113156.575971-1-eugen.hristev@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01a.na.qualcomm.com (10.52.223.231)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: WG7qYevMhuvSAnvTpD6mvm3ky2sWWyNl
-X-Authority-Analysis: v=2.4 cv=OY6YDgTY c=1 sm=1 tr=0 ts=68089107 cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=VwQbUJbxAAAA:8 a=KKAkSRfTAAAA:8 a=COk6AnOGAAAA:8
- a=oZ8wWTcPSBrqPQfBPqMA:9 a=QEXdDO2ut3YA:10 a=cvBusfyB2V15izCimMoJ:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: WG7qYevMhuvSAnvTpD6mvm3ky2sWWyNl
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDIzMDA0NiBTYWx0ZWRfX0TwZpL0SAicz oF4+evXSmwb+4LqxonlhNM/2Pc0LZLhrfKbOUZFe88P71mC4iyFnITKZSulYzUwJEld+jDIUeUJ THtFecDN/No+OXk5RiG7AMgR7aNDRbupscYOxnQFxR+pyrX78qy5u/XmRy9s91zgoZT2TDYQdBF
- cZliSTsNqg4xWCq4u1o8jwcLDjR4mSpVn5PP5AP5R1UN/28ARiNsdBIAsyrPddyzH/ExDx2ZUNZ 5BN3OMmJGm6jyzFJHngqIl47sD8q67ovCjvzvqCGDKxwd8m+tUeHBOeSh+vzh44JrwaorO7Kc4z /t4jFPSm0x1f7Ag98UOGqE/8Nnli8QfvFmjxTgYQGSH6pKORYcFnNFLcrKPK7o5rZZ2MTdw3YQl
- +lXeRaEf2NtKnxdn5XNByYsixOSYMx+r8rtcqhxFn45H5ewVVMm1lu0RtzO6BPpvPf221yJK
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-23_05,2025-04-22_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0
- lowpriorityscore=0 suspectscore=0 mlxscore=0 clxscore=1011 malwarescore=0
- mlxlogscore=797 phishscore=0 priorityscore=1501 spamscore=0 adultscore=0
- bulkscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
- definitions=main-2504230046
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <522decdf-faa0-433b-8b92-760f8fd04388@kontron.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_000502_852428_B70D903D 
-X-CRM114-Status: GOOD (  23.84  )
+X-CRM114-CacheID: sfid-20250423_000811_096464_52E5F0BF 
+X-CRM114-Status: GOOD (  21.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,47 +80,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/22/2025 4:31 AM, Eugen Hristev wrote:
-> kmemdump is a mechanism which allows the kernel to mark specific memory
-> areas for dumping or specific backend usage.
-> Once regions are marked, kmemdump keeps an internal list with the regions
-> and registers them in the backend.
-> Further, depending on the backend driver, these regions can be dumped using
-> firmware or different hardware block.
-> Regions being marked beforehand, when the system is up and running, there
-> is no need nor dependency on a panic handler, or a working kernel that can
-> dump the debug information.
-> The kmemdump approach works when pstore, kdump, or another mechanism do not.
-> Pstore relies on persistent storage, a dedicated RAM area or flash, which
-> has the disadvantage of having the memory reserved all the time, or another
-> specific non volatile memory. Some devices cannot keep the RAM contents on
-> reboot so ramoops does not work. Some devices do not allow kexec to run
-> another kernel to debug the crashed one.
-> For such devices, that have another mechanism to help debugging, like
-> firmware, kmemdump is a viable solution.
-> 
-> kmemdump can create a core image, similar with /proc/vmcore, with only
-> the registered regions included. This can be loaded into crash tool/gdb and
-> analyzed.
-> To have this working, specific information from the kernel is registered,
-> and this is done at kmemdump init time, no need for the kmemdump user to
-> do anything.
-> 
-> The implementation is based on the initial Pstore/directly mapped zones
-> published as an RFC here:
-> https://lore.kernel.org/all/20250217101706.2104498-1-eugen.hristev@linaro.org/
-> 
-> The back-end implementation for qcom_smem is based on the minidump
-> patch series and driver written by Mukesh Ojha, thanks:
-> https://lore.kernel.org/lkml/20240131110837.14218-1-quic_mojha@quicinc.com/
-> 
-> I appreciate the feedback on this series, I know it is a longshot, and there
-> is a lot to improve, but I hope I am on the right track.
+Hello Frieder,
 
+On Wed, Apr 23, 2025 at 08:50:54AM +0200, Frieder Schrempf wrote:
+> Am 22.04.25 um 14:46 schrieb Wojciech Dubowik:
+> > [Sie erhalten nicht häufig E-Mails von wojciech.dubowik@mt.com. Weitere Informationen, warum dies wichtig ist, finden Sie unter https://aka.ms/LearnAboutSenderIdentification ]
+> > 
+> > Define vqmmc regulator-gpio for usdhc2 with vin-supply
+> > coming from LDO5.
+> > 
+> > Without this definition LDO5 will be powered down, disabling
+> > SD card after bootup. This has been introduced in commit
+> > f5aab0438ef1 ("regulator: pca9450: Fix enable register for LDO5").
+> > 
+> > Fixes: f5aab0438ef1 ("regulator: pca9450: Fix enable register for LDO5")
+> > 
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Wojciech Dubowik <Wojciech.Dubowik@mt.com>
+> > ---
+> > v1 -> v2: https://lore.kernel.org/all/20250417112012.785420-1-Wojciech.Dubowik@mt.com/
+> >  - define gpio regulator for LDO5 vin controlled by vselect signal
+> > ---
+> >  .../boot/dts/freescale/imx8mm-verdin.dtsi     | 23 +++++++++++++++----
+> >  1 file changed, 19 insertions(+), 4 deletions(-)
+> > 
+> > diff --git a/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
+> > index 7251ad3a0017..9b56a36c5f77 100644
+> > --- a/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
+> > +++ b/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
+> > @@ -144,6 +144,19 @@ reg_usdhc2_vmmc: regulator-usdhc2 {
+> >                 startup-delay-us = <20000>;
+> >         };
+> > 
+> > +       reg_usdhc2_vqmmc: regulator-usdhc2-vqmmc {
+> > +               compatible = "regulator-gpio";
+> > +               pinctrl-names = "default";
+> > +               pinctrl-0 = <&pinctrl_usdhc2_vsel>;
+> > +               gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
+> > +               regulator-max-microvolt = <3300000>;
+> > +               regulator-min-microvolt = <1800000>;
+> > +               states = <1800000 0x1>,
+> > +                        <3300000 0x0>;
+> > +               regulator-name = "PMIC_USDHC_VSELECT";
+> > +               vin-supply = <&reg_nvcc_sd>;
+> > +       };
+> 
+> Please do not describe the SD_VSEL of the PMIC as gpio-regulator. There
+> already is a regulator node reg_nvcc_sd for the LDO5 of the PMIC.
+> 
+> > +
+> >         reserved-memory {
+> >                 #address-cells = <2>;
+> >                 #size-cells = <2>;
+> > @@ -785,6 +798,7 @@ &usdhc2 {
+> >         pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_cd>;
+> >         pinctrl-3 = <&pinctrl_usdhc2_sleep>, <&pinctrl_usdhc2_cd_sleep>;
+> >         vmmc-supply = <&reg_usdhc2_vmmc>;
+> > +       vqmmc-supply = <&reg_usdhc2_vqmmc>;
+> 
+> You should reference the reg_nvcc_sd directly here and actually this
+> should be the only change you need to fix things, no?
 
-Is there any way to demonstrate this framework on non-Qualcomm device? Like any
-other ARM device from TI, NXP etc; x86/RISC-V based device is also fine.
+If you just do this change you end-up in the situation I described in
+the v1 version of this patch
+https://lore.kernel.org/all/20250417130342.GA18817@francesco-nb/
 
--- 
----Trilok Soni
+With the IO being driven by the SDHCI core, while the linux driver
+changes the voltage over i2c.
+
+I was not aware of this sd-vsel-gpios, that if I understand correctly
+should handle the concern I raised initially, having the PMIC driver
+aware of this GPIO, however I do not see why that solution should be
+better than this one.
+
+BTW, is this solution safe from any kind of race condition? You have
+this IO driven by the SDHCI IP, and the I2C communication to the PMIC
+driven by the mmc driver, with the PMIC driver just reading this GPIO
+once when changing/reading the voltage.
+
+With this solution (that I proposed), the sdcard driver just use the
+GPIO to select the right voltage and that's it, simple, no un-needed i2c
+communication with the PMIC, and the DT clearly describe the way the HW
+is designed.
+
+Francesco
+
 
