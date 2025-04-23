@@ -4,89 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0A00C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 18:38:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57CBAC369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 18:41:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EFWPuqQMAL7NxNHoKz6mQkM5FY+ToS1fRX2hOlbxr9M=; b=Jk0bmmfqDkZcdKZ306gossXNV/
-	Xbfai2TEcoG9HXqDoRvAZUKEdu5WYF4p9jzbPSgONVtdM9OUjk53VKD9F/JbzqBxzZMCbvTz2nc/T
-	JTiTJ4Cha1eYdN2wr8N9RdjyFL3vEs6HmaCvWFA8/YCmTsB0scNbjM8FH2CGio+APsAd2nU46dhWi
-	RIIPyXhJYnQ2ZZL1GWGADxgNixQHiWx3M4opLxJm4E6TV+6VUgikT85eoj0xI7/2PiQwDeIHDLEis
-	F543YMPebRgXsrlZYJP62GSVQlReLgD57ZJh3TxZOqUMPuca39YgzzWsxA7ok9vNT1B6zLOS0/tHS
-	v6lfUY1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4rqGU6lspHQHS3YtpHeS52QHTuXwrfXzLgazS3+iqpY=; b=SU1T6jgOFzxUGdvp6eq798Ey+4
+	MFucM9oSt0zQLPCSeNZiOFaHgJgi2ZeWnIKu+haxLt4KMXL/+UyPJuXoY6U0AmeXg1Z06swHx15Bj
+	iWV49JF48mPx0QRQLt5/tsy+gLvxOHw0S8bJLr6ISsvcCvniWE3k1lpmspGRhJQXO7++CW63ANRoc
+	ZXBIU83e9EOK/C9yKRMI6grL+Rs0tuvKp0HaIdvtIcsnujCDcyByabcgmiNJrUldK3O12yiHNbuH7
+	RK4CaYXYV6rIl63vsVZxR1OwacYK8IIbVQtgSdQ1+bf4ynZKBEg+QYk27BEiMDPnL6R3XrboG0Tss
+	VgJXvITA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7ezg-0000000BbYD-2kOq;
-	Wed, 23 Apr 2025 18:38:48 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1u7f21-0000000BcTJ-0Fst;
+	Wed, 23 Apr 2025 18:41:13 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7eWF-0000000BU7p-2tn5
+	id 1u7dm4-0000000BFX7-3eNh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 18:08:25 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53NI8ATV1615961
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 23 Apr 2025 13:08:10 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745431690;
-	bh=EFWPuqQMAL7NxNHoKz6mQkM5FY+ToS1fRX2hOlbxr9M=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=etJnk9LL5YyulNfARr1RPpEstaU5mXL0BY4HyWpMQ0Gf47Ckr+BDOp/N94jB/ydmO
-	 ugPHD9U1x8CCzjCg3DnCM7mcrF8MhJ/7/2c4LIGltEzVM+jJRoD3UW7d57RmnHaXVJ
-	 k3PysXHTXqvBiBCFZ3BfnwQkf08+VkB4hcdtvUrY=
-Received: from DFLE110.ent.ti.com (dfle110.ent.ti.com [10.64.6.31])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53NI8AMr116997
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 23 Apr 2025 13:08:10 -0500
-Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE110.ent.ti.com
- (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 23
- Apr 2025 13:08:09 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE113.ent.ti.com
- (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 23 Apr 2025 13:08:09 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53NI89wp126662;
-	Wed, 23 Apr 2025 13:08:09 -0500
-Date: Wed, 23 Apr 2025 13:08:09 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Judith Mendez <jm@ti.com>, Josua Mayer <josua@solid-run.com>,
-        "Sverdlin,
- Alexander" <alexander.sverdlin@siemens.com>
-CC: Ulf Hansson <ulf.hansson@linaro.org>,
-        Adrian Hunter
-	<adrian.hunter@intel.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>,
-        Tero Kristo <kristo@kernel.org>, Josua Mayer
-	<josua@solid-run.com>,
-        <linux-mmc@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        Francesco Dolcini
-	<francesco@dolcini.it>,
-        Hiago De Franco <hiagofranco@gmail.com>, Moteen Shah
-	<m-shah@ti.com>,
-        <stable@vger.kernel.org>
-Subject: Re: [PATCH RESEND v3 0/3] Add ti,suppress-v1p8-ena
-Message-ID: <20250423180809.l3l6sfbwquaaazar@shrank>
-References: <20250422220512.297396-1-jm@ti.com>
+	Wed, 23 Apr 2025 17:20:42 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-43edb40f357so781775e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 10:20:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=raspberrypi.com; s=google; t=1745428839; x=1746033639; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=4rqGU6lspHQHS3YtpHeS52QHTuXwrfXzLgazS3+iqpY=;
+        b=TW2IP3tMswsebhhVNBIVJjTAaRV9VjX1eEa7XbTWvN9ZbGcJT2A/B5GWUMljbBevgl
+         jOt3smW/O3SZyju7ZtnjWQEtmaczeLNm7mbsSxE/5swJCGrO0OdXk837DHOfIayyz/FW
+         3OU2pG3NJcPKoAXoDBjXnDbbjw1tFFJDuS+JwYysJaX+qiLB6nRzonYp9SCgPpaT0egd
+         uBJQ65L6ryLx4hxISI7dinb1tgmHjLSbopxYgZbFaFejP8WRUrFtulH9ar478FEKA/17
+         18LWjg9sbrmSpb+0mzROa95x0b0kj9W2ED+opY5IaQWmAJZkuJf242TaFvrfT1zJDZid
+         NTqg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745428839; x=1746033639;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=4rqGU6lspHQHS3YtpHeS52QHTuXwrfXzLgazS3+iqpY=;
+        b=YNtD0PIulFeCPlRFSOErPbuadA4SxI2HMRAPNAa8wPbD7CpJaQWdbsEySkV4g8mV2v
+         uo/QR1wkcLE/tFpRzDiO5FINFinBqIDUT0N5GmNsKcv/gCTot6lJZDpHUGVKt3MmSBYf
+         ewwy6c+LMTIipHhf0CkuIUFiMlLpg4rqxjhdzLeIlDLcV7K3Q8I80oKyTnbWitnd+KMN
+         wf1tG6R2yzr2rUKptNko17StKNAktsHGn4K4SAmdISEISD/KFShit3TuPDo/FhLWj7so
+         atKSFf5QtIJepR39xCDJNsC7Sty9Xl/ANW+Go37HWLilXZ5WUKC5n3ndFXXZ0n48Oxo1
+         JYAA==
+X-Forwarded-Encrypted: i=1; AJvYcCXZCctkVTEu2v7FtYNa21SIdxiW5ChId9g3OepjhUHh59HctN2dogz5iUUlWZ2L6golpuq6fmMCmnmFG5L9NXkL@lists.infradead.org
+X-Gm-Message-State: AOJu0YwLMW33UDvRRPYJpJCyT1VuG2/IdutOjW2WKrTI+YtiuTctMIzl
+	9tzjYikLmAjyxqrQ/O3SUKBAGFXV21nKSQybP67kQRf0GcEwImNrTBWBP6bCAxA=
+X-Gm-Gg: ASbGncvaUW2UsMaRmMBX7mcAl6Dj91oSs8246zW0aIzeT1PPhA1Q+IeWAYHQSxf6eqm
+	zRunSyhcZ3L/nRGwfr0cRgnFdIcIdknArDMKYNVLKhB8wagF+MkaWceWGfTIFApQSieD+gc9i1L
+	gdW7X3dC76xw+VcRH1XEOpZk6onixTCVLPn564cY/W/m6kBwnR5TNrJAUSi40y/+YLaUg6TKb0T
+	Uz4xNJwyu3YfIaIOjg8UJvNlUPkSXv4TkkEDWCPD/gsovPUZn0b36lOI31ITAOh/GbvUb86NL+i
+	b13IG7wIlm0cJQYZkNkaBulr25hEAkVw
+X-Google-Smtp-Source: AGHT+IGrixIUdFwDqxJsP0Mh+PleUdGsoK+ZibZSwUPFmb7HHGdjv1z9p7Q1wXmc1rZnucAiLmqGBA==
+X-Received: by 2002:a05:600c:34c6:b0:43d:209:21fd with SMTP id 5b1f17b1804b1-4409a1c4da7mr3750025e9.30.1745428839115;
+        Wed, 23 Apr 2025 10:20:39 -0700 (PDT)
+Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-44092d18433sm32940945e9.1.2025.04.23.10.20.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Apr 2025 10:20:38 -0700 (PDT)
+From: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Date: Wed, 23 Apr 2025 18:20:19 +0100
+Subject: [PATCH v3 2/5] media: ioctl: Add pixel formats NV12MT_COL128 and
+ NV12MT_10_COL128
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250422220512.297396-1-jm@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250423-media-rpi-hevc-dec-v3-2-8fd3fad1d6fb@raspberrypi.com>
+References: <20250423-media-rpi-hevc-dec-v3-0-8fd3fad1d6fb@raspberrypi.com>
+In-Reply-To: <20250423-media-rpi-hevc-dec-v3-0-8fd3fad1d6fb@raspberrypi.com>
+To: Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ John Cox <john.cox@raspberrypi.com>, Dom Cobley <dom@raspberrypi.com>, 
+ review list <kernel-list@raspberrypi.com>, 
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
+Cc: John Cox <jc@kynesim.co.uk>, linux-media@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>
+X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_110823_836186_2AE9D728 
-X-CRM114-Status: GOOD (  20.67  )
+X-CRM114-CacheID: sfid-20250423_102040_972379_F0BD4458 
+X-CRM114-Status: GOOD (  11.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,40 +110,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17:05-20250422, Judith Mendez wrote:
-> Resend patch series to fix cc list
-> 
-> There are MMC boot failures seen with V1P8_SIGNAL_ENA on Kingston eMMC
-> and Microcenter/Patriot SD cards on Sitara K3 boards due to the HS200
-> initialization sequence involving V1P8_SIGNAL_ENA. Since V1P8_SIGNAL_ENA
-> is optional for eMMC, do not set V1P8_SIGNAL_ENA by default for eMMC.
-> For SD cards we shall parse DT for ti,suppress-v1p8-ena property to
-> determine whether to suppress V1P8_SIGNAL_ENA. Add new ti,suppress-v1p8-ena
-> to am62x, am62ax, and am62px SoC dtsi files since there is no internal LDO
-> tied to sdhci1 interface so V1P8_SIGNAL_ENA only affects timing.
-> 
-> This fix was previously merged in the kernel, but was reverted due
-> to the "heuristics for enabling the quirk"[0]. This issue is adressed
-> in this patch series by adding optional ti,suppress-v1p8-ena DT property
-> which determines whether to apply the quirk for SD.
-[...]
-> 
-> [0] https://lore.kernel.org/linux-mmc/20250127-am654-mmc-regression-v2-1-9bb39fb12810@solid-run.com/
+Add V4L2_PIXFMT_NV12MT_COL128 and V4L2_PIXFMT_NV12MT_10_COL128
+to describe the Raspberry Pi HEVC decoder NV12 multiplanar formats.
 
-Why cant we use compatible to enable the quirk instead of blindly
-enabling for all IPs including ones that have onchip LDOs? That was the
-reason it failed in the first place for am64x.
+Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+---
+ drivers/media/v4l2-core/v4l2-ioctl.c | 2 ++
+ include/uapi/linux/videodev2.h       | 4 ++++
+ 2 files changed, 6 insertions(+)
 
-This is very much like a quirk that seems to go hand-in-hand with the
-compatible for am62-sdhci ?
-
-Is it worth exploring that option in the driver thread? from where I
-stand, this sounds very much like an issue that AM62x IP has, and should
-be handled by the driver instead of punting to dts to select where to
-use and not to use the quirk.
+diff --git a/drivers/media/v4l2-core/v4l2-ioctl.c b/drivers/media/v4l2-core/v4l2-ioctl.c
+index a16fb44c7246..9405e1391617 100644
+--- a/drivers/media/v4l2-core/v4l2-ioctl.c
++++ b/drivers/media/v4l2-core/v4l2-ioctl.c
+@@ -1379,7 +1379,9 @@ static void v4l_fill_fmtdesc(struct v4l2_fmtdesc *fmt)
+ 	case V4L2_PIX_FMT_NV16M:	descr = "Y/UV 4:2:2 (N-C)"; break;
+ 	case V4L2_PIX_FMT_NV61M:	descr = "Y/VU 4:2:2 (N-C)"; break;
+ 	case V4L2_PIX_FMT_NV12MT:	descr = "Y/UV 4:2:0 (64x32 MB, N-C)"; break;
++	case V4L2_PIX_FMT_NV12MT_COL128: descr = "Y/CbCr 4:2:0 (128b cols)"; break;
+ 	case V4L2_PIX_FMT_NV12MT_16X16:	descr = "Y/UV 4:2:0 (16x16 MB, N-C)"; break;
++	case V4L2_PIX_FMT_NV12MT_10_COL128: descr = "10-bit Y/CbCr 4:2:0 (128b cols)"; break;
+ 	case V4L2_PIX_FMT_P012M:	descr = "12-bit Y/UV 4:2:0 (N-C)"; break;
+ 	case V4L2_PIX_FMT_YUV420M:	descr = "Planar YUV 4:2:0 (N-C)"; break;
+ 	case V4L2_PIX_FMT_YVU420M:	descr = "Planar YVU 4:2:0 (N-C)"; break;
+diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videodev2.h
+index c8cb2796130f..fbccb471e3cb 100644
+--- a/include/uapi/linux/videodev2.h
++++ b/include/uapi/linux/videodev2.h
+@@ -687,6 +687,10 @@ struct v4l2_pix_format {
+ #define V4L2_PIX_FMT_NV12MT_16X16 v4l2_fourcc('V', 'M', '1', '2') /* 12  Y/CbCr 4:2:0 16x16 tiles */
+ #define V4L2_PIX_FMT_NV12M_8L128      v4l2_fourcc('N', 'A', '1', '2') /* Y/CbCr 4:2:0 8x128 tiles */
+ #define V4L2_PIX_FMT_NV12M_10BE_8L128 v4l2_fourcc_be('N', 'T', '1', '2') /* Y/CbCr 4:2:0 10-bit 8x128 tiles */
++#define V4L2_PIX_FMT_NV12MT_COL128 v4l2_fourcc('N', 'c', '1', '2') /* 12  Y/CbCr 4:2:0 128 pixel wide column */
++#define V4L2_PIX_FMT_NV12MT_10_COL128 v4l2_fourcc('N', 'c', '3', '0')
++			/* Y/CbCr 4:2:0 10bpc, 3x10 packed as 4 bytes in a 128 bytes / 96 pixel wide column */
++
+ 
+ /* Bayer formats - see http://www.siliconimaging.com/RGB%20Bayer.htm */
+ #define V4L2_PIX_FMT_SBGGR8  v4l2_fourcc('B', 'A', '8', '1') /*  8  BGBG.. GRGR.. */
 
 -- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+2.34.1
+
 
