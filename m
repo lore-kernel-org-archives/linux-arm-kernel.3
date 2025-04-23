@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A59A0C369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:43:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFF9AC369D7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:43:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2/A0lhJVT8iE9FLINYAUyL+Id1AJQC/hbpGBIPtuNXU=; b=4bRN0aH12fEd0jxiTYyF2M/6Ru
-	dseAOQWuiUj3r0XmQguG554HYWXKDzjto3WlbDXp3N477pk8gX8hGSWgYiu7SdYS1e8n2iKmQlxWq
-	wci8mhgXYvGrozBrnKxTXhPn33vSDX7HQdQX1pg+JXZg71zUabvLYW+a7FBuii/1ZYNfkVEkqqUCf
-	My2lOdWd2+TLb+khMhOI/Jwqt3GuQHSqb96vk9qb18kE25pjJG6jzOIuwGoJv599EHOYLvcB9dwpQ
-	5ZowVxl9NBWWO34KK6kQCrnTyeZECuhVCrKs74ot7goMeGU/nD5HonlpVmSSf2VsoUk8synhLZbIE
-	gZ6t9O3g==;
+	bh=lpmF7OJxm6aggGEGFm5OCWCM5KGDJLaCPz2wcRcsDkQ=; b=rCBF1u/0ZgdVuZpEj2BahCV25r
+	FE44rKnwMOwl9kBIZZNPtIbwun5TCz8euTfw2oI9PN7BYKE1LaBpYP1NWKxmZRSlggCsIgPPw+795
+	IFcTzCK+vSe6b+pUDGrlz+z/v95pfkE2xES86ZR0yjv1ub87MuG8xymFWzck2EUoT+l7vC7qtIRtN
+	DGXOD4kvAWqD2ad0hJKHiEULu+NB4zpMW2Sw2/eSx4FSDg3NYFSAhzQiLiaCR0GUnEbxN4YKqKwqu
+	iGs21UbZ2qrjjqDNW4yc1jL6OaQ8krhaMhyg1KQ0Rzl3mw0UCWVFPQ34hiv7EIka2drZeHQWaNVlf
+	7RuWXohg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7e7a-0000000BLnW-30FP;
-	Wed, 23 Apr 2025 17:42:54 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u7e7c-0000000BLqv-2a32;
+	Wed, 23 Apr 2025 17:42:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7bus-0000000AwzB-2ku6
+	id 1u7bvC-0000000Ax2P-410u
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 15:21:40 +0000
+	Wed, 23 Apr 2025 15:22:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E81D6A4BA2F;
-	Wed, 23 Apr 2025 15:16:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55682C4AF0C;
-	Wed, 23 Apr 2025 15:21:37 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2D9CA44B66;
+	Wed, 23 Apr 2025 15:21:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F707C4CEE2;
+	Wed, 23 Apr 2025 15:21:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1745421697;
-	bh=NkZRqXQRTNgj9/u3XXnJVb4GYvU54IhrT3eUzBk3RiY=;
+	s=korg; t=1745421718;
+	bh=TX4AcErGChHkeZ/T01FPi+Pp2gu0UnZQ/DIbHDDbSrc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=rbZqPiwjAJiOP7/WJ8xwzFyqQjmYliIOkn+vRpGtui8xQ5yYXLbOHNcB23Fh/naCH
-	 IJ02w8qcA11i2CTsKbxL1wSGC+nZ99ucKeo2kruSRj1txmSxRKhHcsY00LkO5u8gnD
-	 amavq0AtAA2I16g2CHDsvTBAWFK3RI2JGsO6lZ8M=
+	b=PWvriS5YAQDBP4iIVH7zVBoR8DHOny0enqHxWG34dWlbSrdzAknSG0j0FmMsukLy1
+	 MQhQdPmXF9KFEr6QqCjLUvCqtbQzN54uSXKK2LbhIos3lonHtnHkptc1yOdSwbPAq8
+	 EQL+vMinBxV5FoeFdpcDxtVNseNrxKMhByyFgyA8=
 From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 To: stable@vger.kernel.org
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -50,9 +50,9 @@ Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Eric Auger <eric.auger@redhat.com>,
 	Anshuman Khandual <anshuman.khandual@arm.com>,
 	Catalin Marinas <catalin.marinas@arm.com>
-Subject: [PATCH 6.14 221/241] arm64/sysreg: Update register fields for ID_AA64MMFR0_EL1
-Date: Wed, 23 Apr 2025 16:44:45 +0200
-Message-ID: <20250423142629.585270529@linuxfoundation.org>
+Subject: [PATCH 6.14 225/241] arm64/sysreg: Add register fields for HFGRTR2_EL2
+Date: Wed, 23 Apr 2025 16:44:49 +0200
+Message-ID: <20250423142629.757952816@linuxfoundation.org>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250423142620.525425242@linuxfoundation.org>
 References: <20250423142620.525425242@linuxfoundation.org>
@@ -62,8 +62,8 @@ X-Patchwork-Hint: ignore
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_082138_757782_E30D147D 
-X-CRM114-Status: UNSURE (   8.34  )
+X-CRM114-CacheID: sfid-20250423_082159_016645_028CFD67 
+X-CRM114-Status: UNSURE (   7.70  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,9 +85,9 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Anshuman Khandual <anshuman.khandual@arm.com>
 
-commit cc15f548cc77574bcd68425ae01a796659bd3705 upstream.
+commit 59236089ad5243377b6905d78e39ba4183dc35f5 upstream.
 
-This updates ID_AA64MMFR0_EL1 register fields as per the definitions based
+This adds register fields for HFGRTR2_EL2 as per the definitions based
 on DDI0601 2024-12.
 
 Cc: Will Deacon <will@kernel.org>
@@ -97,32 +97,42 @@ Cc: linux-kernel@vger.kernel.org
 Reviewed-by: Eric Auger <eric.auger@redhat.com>
 Reviewed-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-Link: https://lore.kernel.org/r/20250203050828.1049370-2-anshuman.khandual@arm.com
+Link: https://lore.kernel.org/r/20250203050828.1049370-6-anshuman.khandual@arm.com
 Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
 Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 ---
- arch/arm64/tools/sysreg |    2 ++
- 1 file changed, 2 insertions(+)
+ arch/arm64/tools/sysreg |   19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
 
 --- a/arch/arm64/tools/sysreg
 +++ b/arch/arm64/tools/sysreg
-@@ -1664,6 +1664,7 @@ EndEnum
- UnsignedEnum	59:56	FGT
- 	0b0000	NI
- 	0b0001	IMP
-+	0b0010	FGT2
- EndEnum
- Res0	55:48
- UnsignedEnum	47:44	EXS
-@@ -1725,6 +1726,7 @@ Enum	3:0	PARANGE
- 	0b0100	44
- 	0b0101	48
- 	0b0110	52
-+	0b0111	56
- EndEnum
+@@ -2700,6 +2700,25 @@ Field	1	nPMIAR_EL1
+ Field	0	nPMECR_EL1
  EndSysreg
  
++Sysreg	HFGRTR2_EL2	3	4	3	1	2
++Res0	63:15
++Field	14	nACTLRALIAS_EL1
++Field	13	nACTLRMASK_EL1
++Field	12	nTCR2ALIAS_EL1
++Field	11	nTCRALIAS_EL1
++Field	10	nSCTLRALIAS2_EL1
++Field	9	nSCTLRALIAS_EL1
++Field	8	nCPACRALIAS_EL1
++Field	7	nTCR2MASK_EL1
++Field	6	nTCRMASK_EL1
++Field	5	nSCTLR2MASK_EL1
++Field	4	nSCTLRMASK_EL1
++Field	3	nCPACRMASK_EL1
++Field	2	nRCWSMASK_EL1
++Field	1	nERXGSR_EL1
++Field	0	nPFAR_EL1
++EndSysreg
++
+ Sysreg HDFGRTR_EL2	3	4	3	1	4
+ Field	63	PMBIDR_EL1
+ Field	62	nPMSNEVFR_EL1
 
 
 
