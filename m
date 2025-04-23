@@ -4,63 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAD75C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 13:52:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB3CFC369D8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 13:52:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8P8sDzkahWhhCT64GZn0Nrgekze9oIVFg2YRSKyBcuM=; b=PsXy3Xf5MAhpkabIAe4Rzi7KHq
-	1701bkPj7Z3S4OVwUuNhAB6XSmbATqShrJYNa2MpgGDFnKGaU90LFcuylvOeMyh0QjsWrvbDje0ji
-	Reu09TfxlIvvyy/PH6jYYPR0kA9z+7qtjumZFrjJ8JlVCkhGdWVKabzhbkIHtDD60ROYbimpaJOBE
-	pJSyvcwvcHCYcABuAFg5xvEn/We8V7JF8Vr3Q3XqUVfnPog7PXRsvbtKC0MuA7Zp7jmpHjwQApijR
-	387K/yxmRYBE2qFOsZRtpV835RYOuo8bbqn23PEIet7jOJhHoJmkZ156ONeMW+3Sh3NKTFsew8JKz
-	ue8et0nQ==;
+	bh=V+elOQHa76tVid8pFiLzcIUp2XwKbOcxmL8nretc43A=; b=JYNG2ynMZbL373UaFVAHqDdf4r
+	gIpC0zCiWzRRUSf+3Kis5psT6z1AIyU6tILb0hgedcRX2yTuK5EW9DWzWRKdHwtfJA/QVxGm8heHT
+	pyNPEiwUgYNvMz8EU7BjcrEy0Vw8Tak3oZbIC4FbnyhqIxYRvuAs7vdK3ct9i/3yjREasCCdrlZi4
+	XaV3LX19q8BWcKppLN0hG3JunO6zklVOuY91O6BKxQzTV9tFo9ipfUAH09q+aOvYvltK5jitfeMNb
+	K5BNlMEEpRq0SafS96u3GUyWhwwEuPKVvQEVv7CJfx28Ddd1h3ULMDCTqcCpzq59HYcP8QEJ9RKEO
+	OZ3smfEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7aW8-0000000Afre-3uyS;
+	id 1u7aW8-0000000Afq8-0hkE;
 	Wed, 23 Apr 2025 13:52:00 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7WVd-00000009zFL-2kzM;
-	Wed, 23 Apr 2025 09:35:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2243EA4CD4D;
-	Wed, 23 Apr 2025 09:29:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A295C4CEE2;
-	Wed, 23 Apr 2025 09:35:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745400911;
-	bh=8P8sDzkahWhhCT64GZn0Nrgekze9oIVFg2YRSKyBcuM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GuOO2u3Cx4wJMRt8kBTyR7w4O1A5fCUCktQ4067IV9XrWECd0zsGQfyY2KXwxAAjL
-	 bcohNDuApp3O+XrdnY7uN+usEaYxwX1yS5bW6BeAimRk9Xgno0J5GiT9MVR2mnXPBN
-	 0E3zZDYnKAb2am/Q7VVMX5WUzUcH7Nnoy+QO+ZeydZSfVQeTcfyMkkPw16JDXiVjcq
-	 hIYhw9l+oTK8KdKsyCpi9E6fcRrdCdIMfsZloOkdGe8FRrlhSFYm01VHm+aXb0sL7B
-	 mu8yCzZuBzSAtS9DhgxEgrg4iO7jUPCZEjqSpOtE7BI19pxeClVa8CuSD6GBu20Pe9
-	 rEfdqPBtuTPGg==
-Date: Wed, 23 Apr 2025 11:35:08 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	matthias.bgg@gmail.com, jitao.shi@mediatek.com, linux-pwm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, kernel@collabora.com
-Subject: Re: [PATCH] dt-bindings: pwm: mediatek,pwm-disp: Add compatible for
- MT6893
-Message-ID: <5j5sp6jkayy3xojrnuiwlfm4gwd65dcoevef24l2wjnw7vm7qr@lh3ztubq4cxz>
-References: <20250416120253.147977-1-angelogioacchino.delregno@collabora.com>
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7WTV-00000009yco-3ufu
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Apr 2025 09:33:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4EE562B;
+	Wed, 23 Apr 2025 02:32:54 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 80F933F66E;
+	Wed, 23 Apr 2025 02:32:58 -0700 (PDT)
+Date: Wed, 23 Apr 2025 10:32:53 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Yabin Cui <yabinc@google.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Jie Gan <quic_jiegan@quicinc.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 2/2] coresight: core: Disable helpers for devices that
+ fail to enable
+Message-ID: <20250423093253.GK28953@e132581.arm.com>
+References: <20250415184649.356683-1-yabinc@google.com>
+ <20250415184649.356683-3-yabinc@google.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="p4q2qghcrkefhmt2"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250416120253.147977-1-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20250415184649.356683-3-yabinc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_023513_769672_802AC40A 
-X-CRM114-Status: UNSURE (   9.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250423_023302_062220_7F390825 
+X-CRM114-Status: GOOD (  26.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,47 +69,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Apr 15, 2025 at 11:46:49AM -0700, Yabin Cui wrote:
+> When enabling a SINK or LINK type coresight device fails, the
+> associated helpers should be disabled.
+> 
+> Signed-off-by: Yabin Cui <yabinc@google.com>
+> Suggested-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> ---
+>  drivers/hwtracing/coresight/coresight-core.c | 10 +++++++---
+>  1 file changed, 7 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+> index fb43ef6a3b1f..d9fcea69d221 100644
+> --- a/drivers/hwtracing/coresight/coresight-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-core.c
+> @@ -486,8 +486,10 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
+>  			 * that need disabling. Disabling the path here
+>  			 * would mean we could disrupt an existing session.
+>  			 */
+> -			if (ret)
+> +			if (ret) {
+> +				coresight_disable_helpers(csdev, path);
 
---p4q2qghcrkefhmt2
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] dt-bindings: pwm: mediatek,pwm-disp: Add compatible for
- MT6893
-MIME-Version: 1.0
+I think we can do better for code consolidation - we can use a central
+place for error handling.  I will give details below.
 
-Hello AngeloGioacchino,
+>  				goto out;
+> +			}
+>  			break;
+>  		case CORESIGHT_DEV_TYPE_SOURCE:
+>  			/* sources are enabled from either sysFS or Perf */
+> @@ -497,15 +499,17 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
+>  			child = list_next_entry(nd, link)->csdev;
+>  			ret = coresight_enable_link(csdev, parent, child, source);
+>  			if (ret)
+> -				goto err;
+> +				goto err_disable_helpers;
+>  			break;
+>  		default:
+> -			goto err;
+> +			goto err_disable_helpers;
 
-On Wed, Apr 16, 2025 at 02:02:53PM +0200, AngeloGioacchino Del Regno wrote:
-> Add a compatible string for the Display Controller PWM IP found in
-> the MediaTek Dimensity 1200 (MT6893) SoC, which is compatible with
-> the one found in MT8183.
->=20
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
-abora.com>
+I know this is not a problem introduced by your patch - for an error
+case, it returns 0.  This will hide unexpected issues.  I would like
+to suggest to return -EINVAL for unknown types.
 
-Applied to
-https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for-=
-next
-with Rob's Ack.
+>  		}
+>  	}
+>  
+>  out:
+>  	return ret;
+> +err_disable_helpers:
+> +	coresight_disable_helpers(csdev, path);
+>  err:
+>  	coresight_disable_path_from(path, nd);
+>  	goto out;
 
-Best regards
-Uwe
+I am just wandering if we can handle errors in a unified way and
+without using goto.  I would change the code as below.
 
---p4q2qghcrkefhmt2
-Content-Type: application/pgp-signature; name="signature.asc"
+The point is to use a general flow for error handling, include a
+sink error.  For sink error, we still invoke
+coresight_disable_path_from() for an empty operation.
 
------BEGIN PGP SIGNATURE-----
+Also, I think we need an additional patch for error handling in
+coresight_enable_helpers(). If any errors are detected while enabling
+a helper, we should disable the helpers that have already been
+enabled.
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmgItEkACgkQj4D7WH0S
-/k55tQgAlq1/IAh3RsXMDwoqCzmUuiKr7II2d4Wm5ALC76/irLZDfA5QQVU51/ai
-+TfOCRLuh9K5Hqki3o7pEkYBS9naCujh5JYMyG9rVmFawRsO/eV1IJ0PS493ZF+7
-0ELBMhPpmGol96JgkYpKeDBWlLTH8jLDK4pnH2FmE1tvN/OU8mSPvD6LuIJmhBdI
-p5G4SIQNeTy9ydeJuoWnxO/NSiOBEyqfJxKE8xEFvWhEC4fpjXPzkYYqvQ+2MJbp
-qQiHymfCWi5Zz2YUnnsm9c0I1GgoJTPl2Ad0FxPg5eGxpCj95WyyZJxM2VAG6SjA
-xKukBj6MTSvGXAYh0VvNwBQ4LkaDfA==
-=vDOt
------END PGP SIGNATURE-----
+Please let me know if you have any questions.
 
---p4q2qghcrkefhmt2--
+Thanks,
+Leo
+
+---8<---
+
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index fb43ef6a3b1f..cf2a3708a05e 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -465,7 +465,7 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
+ 		/* Enable all helpers adjacent to the path first */
+ 		ret = coresight_enable_helpers(csdev, mode, path);
+ 		if (ret)
+-			goto err;
++			goto err_disable_path;
+ 		/*
+ 		 * ETF devices are tricky... They can be a link or a sink,
+ 		 * depending on how they are configured.  If an ETF has been
+@@ -487,7 +487,7 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
+ 			 * would mean we could disrupt an existing session.
+ 			 */
+ 			if (ret)
+-				goto out;
++				goto err_disable_helpers;
+ 			break;
+ 		case CORESIGHT_DEV_TYPE_SOURCE:
+ 			/* sources are enabled from either sysFS or Perf */
+@@ -497,18 +497,21 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
+ 			child = list_next_entry(nd, link)->csdev;
+ 			ret = coresight_enable_link(csdev, parent, child, source);
+ 			if (ret)
+-				goto err;
++				goto err_disable_helpers;
+ 			break;
+ 		default:
+-			goto err;
++			ret = -EINVAL;
++			goto err_disable_helpers;
+ 		}
+ 	}
+ 
+-out:
+-	return ret;
+-err:
++	return 0;
++
++err_disable_helpers:
++	coresight_disable_helpers(csdev, path);
++err_disable_path:
+ 	coresight_disable_path_from(path, nd);
+-	goto out;
++	return ret;
+ }
+ 
+> -- 
+> 2.49.0.604.gff1f9ca942-goog
+> 
 
