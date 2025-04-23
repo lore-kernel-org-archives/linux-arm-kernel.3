@@ -4,95 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4271C369D8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 539F2C369D5
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 19:33:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:Cc:To:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qTG8DAFdHnp2dP0ywoyFdyZYrfquR0mqHFgjbLDe2VA=; b=pontKfhv+UwJwk6N6WDLCWJh16
-	UVX/30wfw0KG82THxUG5QiHOsHN2A/96tzRwTdJyYxN6xfM/GpaCnHYQdGAESd2hoG9j9JZYp9rhw
-	xLG/paXfhqJM3zlB2h4sSaI4lfmSa6sxGxfDfOeShqrTfcaAwNMA3q29k975RUORn7iO6wKpbt/eV
-	RTkY1tgEocHBT9i0EDcaQRGDCx/iEPSwrJpMmxIQQOUnXM7XtxMMnEQTdHeWl/xnmPVJw8165HuUB
-	XvhnmXHzd3VOHTcsT/nL1fBwoA9san1WT9lazs30N9BhPcxg3xOhN1Df8fCZ15nyB3leAEtEEljrv
-	8G/6f3jA==;
+	bh=j2tDrkkBQe3JKRslIUmoWfOqe7k2mOTW95nGkd+giIA=; b=fRKIDdw39Gv5ab7igVkFdlz813
+	9EqKgKSL+aWR/wF1XoMpSB+uUHTu2upwEU7YHSvDS1Lrce+rsuBQYbN2Zynw+RbjsxwkNLDMngXl6
+	sw0iZuVLJo2Ecdkoo//CbqWD/MuYZsWBSjOeQ3UXhGRnWTRzTMe/0B5RgdgLs+CEkrhDT6oxIEVBL
+	KHrifTD7zR9Vqjy03BKpnHtasikaIUIFU9zXZgY2KRwGexb4X7AgjNM1sCn3oe+Nw34NupKrPFKA3
+	bt2jJkCv1VgINtwUPn2gIaPLYxQlQGqViPSxvcKNK8rSVRTzse7B6Kx9qLF6wNHIgm96uUdYT3FG5
+	eQCbE4kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7fqN-0000000BlIp-31PQ;
-	Wed, 23 Apr 2025 19:33:15 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1u7fqR-0000000BlL0-00AG;
+	Wed, 23 Apr 2025 19:33:19 +0000
+Received: from relay2-d.mail.gandi.net ([217.70.183.194])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7fcC-0000000BiOY-2R7v
+	id 1u7fi3-0000000BjeM-1sTc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 19:18:37 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-227a8cdd241so1950685ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 12:18:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745435916; x=1746040716; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=qTG8DAFdHnp2dP0ywoyFdyZYrfquR0mqHFgjbLDe2VA=;
-        b=CPTUMjgov1splv2cEvnm1olgIzrqhaROsT9OLXTmHwdoF6c3VE0fEXsX3cS4ME9CO4
-         PDX6BgxE8AFQ4gOMNXlassZaN0lRXINmMWDHRFoMP6jp12LLfVzhHiTdiBt2dzp98NMx
-         owaT0jIZnrhxBe385RjCwjkOzmWEFAsIT/b8+y7fgBGJ0mNovYf1hn1xyvEd7khD7Lrt
-         GzrUhgQ5PyzHg7DWAkmEMfFSPpaSESE9hduYxWlGa2XE+jt1w3Yx9dDpzuT6bRhpEO4Y
-         DfFdOggTmG9zdOTqn2b+Uw0zK7uy5kvg9Zgtrphpnypw0tFmff0VXoXoXLGiUpr9lOdi
-         JS/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745435916; x=1746040716;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=qTG8DAFdHnp2dP0ywoyFdyZYrfquR0mqHFgjbLDe2VA=;
-        b=MXF+GN+YgxfCsqWBQErPvvGrCoepKsGTZ9g9T9OXNyFEwu84ewigyzvETuNJae6KNL
-         Rn6TAookXBtnoGtDiE1pju5taUttyEva6jNLRj/aq0NrsAlguzq5QOO64JUUMTZsKOpW
-         OEa/ltkoYqTzz9iGmF8LgMqEsfCv9z3HmO20KTrrirrcl7LR/ROTmesuooQAL+K52ccE
-         VzYRw0i/fDLw/r7iJNSxP/XpMN/BQMDHurQpvBczP+r5L0N6BC+CiqnmTwiwLY45PGer
-         srCCQ7b/OHlE8747309MOn6lSJxRJqNTmgpUP0PmQtIw0C6uyoUkPBbCxNMr5pCuv/Qr
-         I28A==
-X-Forwarded-Encrypted: i=1; AJvYcCW+eZoX+C3iwTUvhFblL6ke6wBNvvyhZfPmQpxXIsrzycQpjz8NgEKDw5MaVAC9p3zjQ3j3u/PgZ9FKLO3HO3Gp@lists.infradead.org
-X-Gm-Message-State: AOJu0YwRk/553FZXok3+/boQHAaCicE8pHL8dcsVF1u/urinn3VIaqgU
-	ppWR1gwXsVYfLX40vgtPflHhAmSWjhtVyst+Nyciip7r3c2dz3ANe7b/Ic/s2Go=
-X-Gm-Gg: ASbGncsyGY23Z6pqYm9Em2eewUrmaEcHmYVcVIgga8Y/jgcHfEVQ1OjeFTHUdsPc1rE
-	TxOdgsDcJ2Ue4pxZP508VBvlaivO7rhUfBxHKBc0x45WEjNjvaPjwNl8tcOsuisPo4DMUyH+PeV
-	USN2J/DiBkdcs8gDnb5bZmXQ3cra3iQADemuUZ5//mWjpTEe9og5lCqfYh+Cs1vB3tvU8Evg+3V
-	uf61VSudmIOVnT+cCrYEKHbo3MuoQfT2/OOo1ZNcGtruessY9bR12Kin/D4QJxT9rSWgDF29Y0Y
-	XH1MZrvQzIOJvS7vQLcTFbyRlYhyktbWhCOcKGaZYi+rP7yYGYzC
-X-Google-Smtp-Source: AGHT+IGVUpukk6IH6oBCSYckzehJVWDoFyKFCFz+R+5pqwO+XdOKln8KhlOaepxc13szHyqhG89q2g==
-X-Received: by 2002:a17:902:f549:b0:223:635d:3e38 with SMTP id d9443c01a7336-22db1a8d6b1mr8150975ad.15.1745435915841;
-        Wed, 23 Apr 2025 12:18:35 -0700 (PDT)
-Received: from NB-GIGA003.letovo.school ([5.194.95.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22c50eb4897sm108204025ad.143.2025.04.23.12.18.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Apr 2025 12:18:35 -0700 (PDT)
-From: Alexey Charkov <alchark@gmail.com>
-Date: Wed, 23 Apr 2025 23:18:31 +0400
-Subject: [PATCH 1/3] dt-bindings: soc: Add VIA/WonderMedia SoC
- identification
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250423-wmt-soc-driver-v1-1-bd8bf32521c2@gmail.com>
-References: <20250423-wmt-soc-driver-v1-0-bd8bf32521c2@gmail.com>
-In-Reply-To: <20250423-wmt-soc-driver-v1-0-bd8bf32521c2@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Alexey Charkov <alchark@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1745435922; l=1697;
- i=alchark@gmail.com; s=20250416; h=from:subject:message-id;
- bh=P4t9q9q6HNFRvbE1rkBp9UJp/QgyD0QTFlp6sfgadw0=;
- b=1+FGgFYBJHV6/0XVa9XKgAQpOA3+7YGbHCSVG44rcyhweBnrNGsV6t1fFSPmZwqEi3gpKQ+l5
- 5/ZxGQqAHWbA20ME5pMssU9tVhASX90L+ZOFiK0yIPPt0jBjpLVuRQ9
-X-Developer-Key: i=alchark@gmail.com; a=ed25519;
- pk=ltKbQzKLTJPiDgPtcHxdo+dzFthCCMtC3V9qf7+0rkc=
+	Wed, 23 Apr 2025 19:24:42 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 57DE443D43;
+	Wed, 23 Apr 2025 19:24:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1745436276;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=j2tDrkkBQe3JKRslIUmoWfOqe7k2mOTW95nGkd+giIA=;
+	b=JyMP61V2AwXdhFa/MfRsPknQuX+9zLoQUYtqvFgqLxqliWXnPJH34GipEY9qLDu8f7SOwF
+	L8jxLNkDlXpvpCTUahNBDq64T+h8dShffNbUpErWHn1x/hthcTZ5Vhfb+11gcMowNWfteN
+	lMtxy7eNihMWGR1cfiyeiBMHdFAh6/Qkp740gcZF/k3F/n5r2A+L97u2Wp7fBZWy0zuMo+
+	PYecer6KKZ/ZgNu1gqyVkTs47GKuuYwTdT3yWzZ9AXC833zqNXwOSMWk8F7fOivfSBFC1Q
+	gdPEfuqHmDoodf8h5KichaaTG/S7VwJ99WpomEnNl9DoF7NAvN0SmDDj5OvjeA==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 23 Apr 2025 21:24:34 +0200
+Message-Id: <D9E9IQQ3QKXM.3UJ17G9CBS1FH@bootlin.com>
+From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
+To: "Andrii Nakryiko" <andrii.nakryiko@gmail.com>
+Cc: "Alexei Starovoitov" <ast@kernel.org>, "Daniel Borkmann"
+ <daniel@iogearbox.net>, "John Fastabend" <john.fastabend@gmail.com>,
+ "Andrii Nakryiko" <andrii@kernel.org>, "Martin KaFai Lau"
+ <martin.lau@linux.dev>, "Eduard Zingerman" <eddyz87@gmail.com>, "Song Liu"
+ <song@kernel.org>, "Yonghong Song" <yonghong.song@linux.dev>, "KP Singh"
+ <kpsingh@kernel.org>, "Stanislav Fomichev" <sdf@fomichev.me>, "Hao Luo"
+ <haoluo@google.com>, "Jiri Olsa" <jolsa@kernel.org>, "Puranjay Mohan"
+ <puranjay@kernel.org>, "Xu Kuohai" <xukuohai@huaweicloud.com>, "Catalin
+ Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
+ "Mykola Lysenko" <mykolal@fb.com>, "Shuah Khan" <shuah@kernel.org>, "Maxime
+ Coquelin" <mcoquelin.stm32@gmail.com>, "Alexandre Torgue"
+ <alexandre.torgue@foss.st.com>, "Florent Revest" <revest@chromium.org>,
+ "Bastien Curutchet" <bastien.curutchet@bootlin.com>,
+ <ebpf@linuxfoundation.org>, "Thomas Petazzoni"
+ <thomas.petazzoni@bootlin.com>, <bpf@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kselftest@vger.kernel.org>,
+ <linux-stm32@st-md-mailman.stormreply.com>
+Subject: Re: [PATCH RFC bpf-next 1/4] bpf: add struct largest member size in
+ func model
+X-Mailer: aerc 0.20.1-0-g2ecb8770224a
+References: <20250411-many_args_arm64-v1-0-0a32fe72339e@bootlin.com>
+ <20250411-many_args_arm64-v1-1-0a32fe72339e@bootlin.com>
+ <CAEf4Bzbn6BdXTOb0dTcsQmOMZpp5=DzGS2hHHQ3+dwcja=gv+w@mail.gmail.com>
+ <D98Q8BRNUVS9.11J60C67L1ALR@bootlin.com>
+ <CAEf4BzZHMYyGDZ4c4eNXG7Fm=ecxCCbKhKbQTbCjvWmKtdwvBw@mail.gmail.com>
+In-Reply-To: <CAEf4BzZHMYyGDZ4c4eNXG7Fm=ecxCCbKhKbQTbCjvWmKtdwvBw@mail.gmail.com>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvgeejgeefucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpegggfgtfffkhffvvefuofhfjgesthhqredtredtjeenucfhrhhomheptehlvgigihhsucfnohhthhhorhoruceorghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeehveevkeelvdejhffhudfhtdevvddvfffgiedtveejiefgveeljeduveetuddtveenucffohhmrghinhepkhgvrhhnvghlrdhorhhgpdgsohhothhlihhnrdgtohhmnecukfhppedvrgdtvdemkeegvdekmehfleegtgemvgdttdemmehfkeehnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddvmeekgedvkeemfhelgegtmegvtddtmeemfhekhedphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomheprghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeeftddprhgtphhtthhopegrnhgurhhiihdrnhgrkhhrhihikhhosehgmhgrihhlrdgtohhmpdhrtghpthhtoheprghstheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepuggrnhhivghlsehiohhgvggrrhgsohigrdhnvghtpdhrtghpthhtohepjhhohhhnr
+ dhfrghsthgrsggvnhgusehgmhgrihhlrdgtohhmpdhrtghpthhtoheprghnughrihhisehkvghrnhgvlhdrohhrghdprhgtphhtthhopehmrghrthhinhdrlhgruheslhhinhhugidruggvvhdprhgtphhtthhopegvugguhiiikeejsehgmhgrihhlrdgtohhmpdhrtghpthhtohepshhonhhgsehkvghrnhgvlhdrohhrgh
+X-GND-Sasl: alexis.lothore@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_121836_625681_F5105CB3 
-X-CRM114-Status: GOOD (  12.31  )
+X-CRM114-CacheID: sfid-20250423_122440_248168_819871D5 
+X-CRM114-Status: GOOD (  23.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,60 +97,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-VIA/WonderMedia SoC's have a chip ID register inside their system
-configuration controller space, which can be used to identify
-appropriate hardware quirks at runtime. Add binding for it.
+Hi Andrii,
 
-Signed-off-by: Alexey Charkov <alchark@gmail.com>
----
- .../devicetree/bindings/soc/vt8500/via,scc-id.yaml | 37 ++++++++++++++++++++++
- 1 file changed, 37 insertions(+)
+On Wed Apr 23, 2025 at 7:15 PM CEST, Andrii Nakryiko wrote:
+> On Thu, Apr 17, 2025 at 12:14=E2=80=AFAM Alexis Lothor=C3=A9
+> <alexis.lothore@bootlin.com> wrote:
+>>
+>> Hi Andrii,
+>>
+>> On Wed Apr 16, 2025 at 11:24 PM CEST, Andrii Nakryiko wrote:
+>> > On Fri, Apr 11, 2025 at 1:32=E2=80=AFPM Alexis Lothor=C3=A9 (eBPF Foun=
+dation)
+>> > <alexis.lothore@bootlin.com> wrote:
 
-diff --git a/Documentation/devicetree/bindings/soc/vt8500/via,scc-id.yaml b/Documentation/devicetree/bindings/soc/vt8500/via,scc-id.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..eac72bd66fd6331c8d9316288bc1acc3e337efaa
---- /dev/null
-+++ b/Documentation/devicetree/bindings/soc/vt8500/via,scc-id.yaml
-@@ -0,0 +1,37 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/soc/vt8500/via,scc-id.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: VIA/WonderMedia SoC system configuration information
-+
-+maintainers:
-+  - Alexey Charkov <alchark@gmail.com>
-+
-+description:
-+  The system configuration controller on VIA/WonderMedia SoC's contains a chip
-+  identifier and revision used to differentiate between different hardware
-+  versions of on-chip IP blocks having their own peculiarities which may or
-+  may not be captured by their respective DT compatible strings
-+
-+properties:
-+  compatible:
-+    items:
-+      - const: via,scc-id
-+
-+  reg:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    system-configuration@d8120000 {
-+        compatible = "via,scc-id";
-+        reg = <0xd8120000 0x4>;
-+    };
+[...]
 
--- 
-2.49.0
+>> Indeed I initially checked whether I could return directly some alignmen=
+t
+>> info from btf, but it then involves the alignment computation in the btf
+>> module. Since there could be minor differences between architectures abo=
+ut
+>> alignment requirements, I though it would be better to in fact keep alig=
+nment
+>> computation out of the btf module. For example, I see that 128 bits valu=
+es
+>> are aligned on 16 bytes on ARM64, while being aligned on 8 bytes on S390=
+.
+>>
+>> And since for ARM64, all needed alignments are somehow derived from size
+>> (it is either directly size for fundamental types, or alignment of the
+>> largest member for structs, which is then size of largest member),
+>> returning the size seems to be enough to allow the JIT side to compute
+>> alignments.
+>
+> If you mean the size of "primitive" field and/or array element
+> (applied recursively for all embedded structs/unions) then yes, that's
+> close enough. But saying just "largest struct member" is wrong,
+> because for
+>
+> struct blah {
+>     struct {
+>         int whatever[128];
+>     } heya;
+> };
+>
+>
+> blah.heya has a large size, but alignment is still just 4 bytes.
+
+Indeed, that's another case making my proposal fail :)
+
+> I'd suggest looking at btf__align_of() in libbpf (tools/lib/bpf/btf.c)
+> to see how we calculate alignment there. It seems to work decently
+> enough. It won't cover any arch-specific extra rules like double
+> needing 16-byte alignment (I vaguely remember something like that for
+> some architectures, but I might be misremembering), or anything
+> similar. It also won't detect (I don't think it's possible without
+> DWARF) artificially increased alignment with attribute((aligned(N))).
+
+Thanks for the pointer, I'll take a look at it. The more we discuss this
+series, the less member size sounds relevant for what I'm trying to achieve
+here.
+
+Following Xu's comments, I have been thinking about how I could detect the
+custom alignments and packing on structures, and I was wondering if I could
+somehow benefit from __attribute__ encoding in BTF info ([1]). But
+following your hint, I also see some btf_is_struct_packed() in
+tools/lib/bpf/btf_dump.c that could help. I'll dig this further and see if
+I can manage to make something work with all of this.
+
+Thanks,
+
+Alexis
+
+[1] https://lore.kernel.org/bpf/20250130201239.1429648-1-ihor.solodrai@linu=
+x.dev/
+
+--=20
+Alexis Lothor=C3=A9, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
 
