@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FE4EC369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 09:32:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9773BC369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 09:34:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cbMdDFG9P+bdaitfSB/95+V1DKWHcnUFJFkFTDn7hYM=; b=SN4mGZLIqIVpgs9D3LPyrQXD7q
-	EGNsIa7UssT7S6zp7LP9x5tL+zeExYbVrj070mZnSBR/TIE3oe6ILgEJ9tF+Xvr9Xg0jXS4TTVbut
-	qiVBqUFnfQBgMi8z8tz701swWLxLZfOtjM2xkCBJCAyUZH3leaz8f7sDzoYoo5ISTMOoILjFUFO4x
-	fmr/2GpFui/hdWZabchDnbNTyzCZwug0e5Ppu6d4CRPXByrEw13Oi8L35i55AMop7/ObAFp8iOtts
-	mIn644imAP/L8cdeZy9UGIO6C6TC7wTIej+dCPDjatqEWu1ijL9Ft7EneEcMrgDTt8vLIX21Zv3Mq
-	ilIUXWxg==;
+	bh=/QxP+QorPaa2Tzcn88O9030NShTMbuO4EdTafyQOEYk=; b=wPHyI5bFw7NAi2BcsCUvyswvqp
+	r6hD7Ws5QtwnE0uaYdGq3IWb7y4wSli2KLsQplYGa50J4T/23vJLg+onQUJ84pp28ncwdvwLE/mmS
+	626350rF/hpZeebLZZMxeFwloUBsuHucTisqDd/4l3XZTcAx/kSKCYPIxyRd3jilpBBE+L+CDTQsz
+	0WFNBPYMXOZf6J0QSv+M8WvaT0me3bP96w9mMFB+wTMv2ckcU8TeFHQHAUfWcGUbbVWi6ijEyaBu0
+	EGbjDPKgHYhip9H5o6TfENdFcBCbohsPVeB9T/m3hHYTykjqttJqZ++BNkX6DNl8qo+TTqCn9jYXk
+	u+cTmOFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7WSq-00000009yY3-0Nf0;
-	Wed, 23 Apr 2025 09:32:20 +0000
+	id 1u7WUm-00000009yrU-3fqR;
+	Wed, 23 Apr 2025 09:34:20 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7VJc-00000009goP-2XX3
+	id 1u7VJc-00000009goQ-2Y1V
 	for linux-arm-kernel@bombadil.infradead.org;
 	Wed, 23 Apr 2025 08:18:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description;
-	bh=cbMdDFG9P+bdaitfSB/95+V1DKWHcnUFJFkFTDn7hYM=; b=ICIc2yM6OI9RDh+NOJty3eOWUJ
-	FgYo2iqowgJFiYjbmeBB6IulpyokzNwdkLIKrlmp25lnGlNqJTuA2fNNuiQHre8pHPLQrjmmLGnE4
-	M4hU22kFsneFnr8WhMTs/7G8PFgjZwwDjFR96WytCVzYxAsZiByHue6BlJjK4kQLeXJUuyQDQ1kR3
-	ejQdsH8GeC2avhfbiNgmQQx20r1oAhzCfbwUEJ0vbOnE1b3IKAelb/IjTxSfKUvhUe4c6RMW23P4Z
-	D0sqNEwszCaPmeUJExBUw080o/JA3LMGMxB7T9ZYsalDsgBkoUUWGoUdL38Pknptkkcf5QSjFZyrt
-	mkR51KVw==;
+	bh=/QxP+QorPaa2Tzcn88O9030NShTMbuO4EdTafyQOEYk=; b=e16xgsqxWp/TFTt4kTtzrCKnsJ
+	lhB5OpLgmwmq6A6S+tw2fer+PblQ1YUkcu0i5egxL0+8r3b5PmrA/a5EXzxWJgUOHKYqur9a7XRRl
+	bHXtVlkMg+p6YW+K3Udfo3Cihy8v8s6jmwqIY870hNx2vGf57l3Dxh1hFRv/47QP6zA4aafI3jG7p
+	SVmvF4AVUYDwsKAlBCNEyNko0oapQo7CGPMWew9i1X4mKmIwZcZx40bWktuo+oCSLNTMwtBpjKioj
+	h5SD6M33U8PryDacRer2acWhLp42i+MpHPYn9l2cmOsTCKIFKERDqRTIqDyy8BcnR5S5r89RbNS0w
+	RS/a/g+A==;
 Received: from [2001:8b0:10b:1::ebe] (helo=i7.infradead.org)
 	by desiato.infradead.org with esmtpsa (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u7VJR-0000000BOif-1akK;
-	Wed, 23 Apr 2025 08:18:38 +0000
+	id 1u7VJR-0000000BOih-1XXI;
+	Wed, 23 Apr 2025 08:18:34 +0000
 Received: from dwoodhou by i7.infradead.org with local (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u7VJO-00000002YO5-2FrH;
+	id 1u7VJO-00000002YNt-1NB4;
 	Wed, 23 Apr 2025 09:18:30 +0100
 From: David Woodhouse <dwmw2@infradead.org>
 To: Mike Rapoport <rppt@kernel.org>
@@ -61,9 +61,9 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org,
 	Ruihan Li <lrh2000@pku.edu.cn>
-Subject: [PATCH v3 7/7] mm/mm_init: Use for_each_valid_pfn() in init_unavailable_range()
-Date: Wed, 23 Apr 2025 08:52:49 +0100
-Message-ID: <20250423081828.608422-8-dwmw2@infradead.org>
+Subject: [PATCH v3 3/7] mm: Implement for_each_valid_pfn() for CONFIG_SPARSEMEM
+Date: Wed, 23 Apr 2025 08:52:45 +0100
+Message-ID: <20250423081828.608422-4-dwmw2@infradead.org>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250423081828.608422-1-dwmw2@infradead.org>
 References: <20250423081828.608422-1-dwmw2@infradead.org>
@@ -86,43 +86,167 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: David Woodhouse <dwmw@amazon.co.uk>
 
-Currently, memmap_init initializes pfn_hole with 0 instead of
-ARCH_PFN_OFFSET. Then init_unavailable_range will start iterating each
-page from the page at address zero to the first available page, but it
-won't do anything for pages below ARCH_PFN_OFFSET because pfn_valid
-won't pass.
+Implement for_each_valid_pfn() based on two helper functions.
 
-If ARCH_PFN_OFFSET is very large (e.g., something like 2^64-2GiB if the
-kernel is used as a library and loaded at a very high address), the
-pointless iteration for pages below ARCH_PFN_OFFSET will take a very
-long time, and the kernel will look stuck at boot time.
+The first_valid_pfn() function largely mirrors pfn_valid(), calling into
+a pfn_section_first_valid() helper which is trivial for the !VMEMMAP case,
+and in the VMEMMAP case will skip to the next subsection as needed.
 
-Use for_each_valid_pfn() to skip the pointless iterations.
+Since next_valid_pfn() knows that its argument *is* a valid PFN, it
+doesn't need to do any checking at all while iterating over the low bits
+within a (sub)section mask; the whole (sub)section is either present or
+not.
 
-Reported-by: Ruihan Li <lrh2000@pku.edu.cn>
-Suggested-by: Mike Rapoport <rppt@kernel.org>
+Note that the VMEMMAP version of pfn_section_first_valid() may return a
+value *higher* than end_pfn when skipping to the next subsection, and
+first_valid_pfn() happily returns that higher value. This is fine.
+
 Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
+Previous-revision-reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- mm/mm_init.c | 6 +-----
- 1 file changed, 1 insertion(+), 5 deletions(-)
+ include/asm-generic/memory_model.h | 26 ++++++++--
+ include/linux/mmzone.h             | 78 ++++++++++++++++++++++++++++++
+ 2 files changed, 99 insertions(+), 5 deletions(-)
 
-diff --git a/mm/mm_init.c b/mm/mm_init.c
-index 41884f2155c4..0d1a4546825c 100644
---- a/mm/mm_init.c
-+++ b/mm/mm_init.c
-@@ -845,11 +845,7 @@ static void __init init_unavailable_range(unsigned long spfn,
- 	unsigned long pfn;
- 	u64 pgcnt = 0;
+diff --git a/include/asm-generic/memory_model.h b/include/asm-generic/memory_model.h
+index 74d0077cc5fa..044536da3390 100644
+--- a/include/asm-generic/memory_model.h
++++ b/include/asm-generic/memory_model.h
+@@ -31,12 +31,28 @@ static inline int pfn_valid(unsigned long pfn)
+ }
+ #define pfn_valid pfn_valid
  
--	for (pfn = spfn; pfn < epfn; pfn++) {
--		if (!pfn_valid(pageblock_start_pfn(pfn))) {
--			pfn = pageblock_end_pfn(pfn) - 1;
--			continue;
--		}
-+	for_each_valid_pfn(pfn, spfn, epfn) {
- 		__init_single_page(pfn_to_page(pfn), pfn, zone, node);
- 		__SetPageReserved(pfn_to_page(pfn));
- 		pgcnt++;
++static inline bool first_valid_pfn(unsigned long *pfn)
++{
++	/* avoid <linux/mm.h> include hell */
++	extern unsigned long max_mapnr;
++	unsigned long pfn_offset = ARCH_PFN_OFFSET;
++
++	if (*pfn < pfn_offset) {
++		*pfn = pfn_offset;
++		return true;
++	}
++
++	if ((*pfn - pfn_offset) < max_mapnr)
++		return true;
++
++	return false;
++}
++
+ #ifndef for_each_valid_pfn
+-#define for_each_valid_pfn(pfn, start_pfn, end_pfn)			 \
+-	for ((pfn) = max_t(unsigned long, (start_pfn), ARCH_PFN_OFFSET); \
+-	     (pfn) < min_t(unsigned long, (end_pfn),			 \
+-			   ARCH_PFN_OFFSET + max_mapnr);		 \
+-	     (pfn)++)
++#define for_each_valid_pfn(pfn, start_pfn, end_pfn)			       \
++	for (pfn = max_t(unsigned long, start_pfn, ARCH_PFN_OFFSET);	\
++	     pfn < min_t(unsigned long, end_pfn, ARCH_PFN_OFFSET + max_mapnr); \
++			 pfn++)
+ #endif /* for_each_valid_pfn */
+ #endif /* valid_pfn */
+ 
+diff --git a/include/linux/mmzone.h b/include/linux/mmzone.h
+index 230a29c2ed1a..dab1d31477d7 100644
+--- a/include/linux/mmzone.h
++++ b/include/linux/mmzone.h
+@@ -2075,11 +2075,37 @@ static inline int pfn_section_valid(struct mem_section *ms, unsigned long pfn)
+ 
+ 	return usage ? test_bit(idx, usage->subsection_map) : 0;
+ }
++
++static inline bool pfn_section_first_valid(struct mem_section *ms, unsigned long *pfn)
++{
++	struct mem_section_usage *usage = READ_ONCE(ms->usage);
++	int idx = subsection_map_index(*pfn);
++	unsigned long bit;
++
++	if (!usage)
++		return false;
++
++	if (test_bit(idx, usage->subsection_map))
++		return true;
++
++	/* Find the next subsection that exists */
++	bit = find_next_bit(usage->subsection_map, SUBSECTIONS_PER_SECTION, idx);
++	if (bit == SUBSECTIONS_PER_SECTION)
++		return false;
++
++	*pfn = (*pfn & PAGE_SECTION_MASK) + (bit * PAGES_PER_SUBSECTION);
++	return true;
++}
+ #else
+ static inline int pfn_section_valid(struct mem_section *ms, unsigned long pfn)
+ {
+ 	return 1;
+ }
++
++static inline bool pfn_section_first_valid(struct mem_section *ms, unsigned long *pfn)
++{
++	return true;
++}
+ #endif
+ 
+ void sparse_init_early_section(int nid, struct page *map, unsigned long pnum,
+@@ -2128,6 +2154,58 @@ static inline int pfn_valid(unsigned long pfn)
+ 
+ 	return ret;
+ }
++
++/* Returns end_pfn or higher if no valid PFN remaining in range */
++static inline unsigned long first_valid_pfn(unsigned long pfn, unsigned long end_pfn)
++{
++	unsigned long nr = pfn_to_section_nr(pfn);
++
++	rcu_read_lock_sched();
++
++	while (nr <= __highest_present_section_nr && pfn < end_pfn) {
++		struct mem_section *ms = __pfn_to_section(pfn);
++
++		if (valid_section(ms) &&
++		    (early_section(ms) || pfn_section_first_valid(ms, &pfn))) {
++			rcu_read_unlock_sched();
++			return pfn;
++		}
++
++		/* Nothing left in this section? Skip to next section */
++		nr++;
++		pfn = section_nr_to_pfn(nr);
++	}
++
++	rcu_read_unlock_sched();
++	return end_pfn;
++}
++
++static inline unsigned long next_valid_pfn(unsigned long pfn, unsigned long end_pfn)
++{
++	pfn++;
++
++	if (pfn >= end_pfn)
++		return end_pfn;
++
++	/*
++	 * Either every PFN within the section (or subsection for VMEMMAP) is
++	 * valid, or none of them are. So there's no point repeating the check
++	 * for every PFN; only call first_valid_pfn() the first time, and when
++	 * crossing a (sub)section boundary (i.e. !(pfn & ~PFN_VALID_MASK)).
++	 */
++	if (pfn & (IS_ENABLED(CONFIG_SPARSEMEM_VMEMMAP) ?
++		   PAGE_SUBSECTION_MASK : PAGE_SECTION_MASK))
++		return pfn;
++
++	return first_valid_pfn(pfn, end_pfn);
++}
++
++
++#define for_each_valid_pfn(_pfn, _start_pfn, _end_pfn)			\
++	for ((_pfn) = first_valid_pfn((_start_pfn), (_end_pfn));	\
++	     (_pfn) < (_end_pfn);					\
++	     (_pfn) = next_valid_pfn((_pfn), (_end_pfn)))
++
+ #endif
+ 
+ static inline int pfn_in_present_section(unsigned long pfn)
 -- 
 2.49.0
 
