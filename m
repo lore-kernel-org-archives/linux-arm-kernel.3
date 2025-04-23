@@ -4,70 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12306C3ABA0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 13:05:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D8E4C3ABA3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 13:05:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PPQOBH7/gKlgthck1rxpJW2qtf0NUOJEEwS0jt+8xHI=; b=IHnvfvRYdTrgcujKCzjkchLc6u
-	C0h/tooQ1Sg6CQHUKRva8/blF3f8IjjILEmYk6GN/Xi/1fp+NKluHziSL2gTYN6H22rAmrmeq0y9q
-	jTSEq8Q5vPQ1iPVsUm8VjTE+7Q7gD6a7IT9GWNHXn+oVqQz5yjlNqHP271NxWrNT7b6KoLg8pUgXO
-	mbV8CpKE2hlCRFMAfLMTfM1FTqCUPXxKDSx+euvqN4SEGKjmtNujnElczV9zHaYESjkgxEhT8N3Go
-	cRNYOzKuJ+TnAnwcmxFGtnl18X3ejOqGx/4GXGPuOLVbP18Guf1Q/CJJqofeCdJiKnerxxRIm54xq
-	1K6ZqTbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HpK2LnX7Q7WDgovRNBLrKGGcCTj7BpdNu3cUAtygDW0=; b=eifk57EVO5OSK1CDmAKEbuesuc
+	ByQt/P3PLeWiyp5x/A+3JZnAti6sLMlKTx6FgOc8gBErQGAOdGUeaBbcYp6IQI6whNHoB9AaCmaNr
+	SyDSOscHe8M7zBLzmT1+McvBKaz2bLx8gujZ1csWsw3f32IfBpusHjG8qybd7vuavz8vY5HCmIFZ7
+	Y21noc69k3RtBzUKKNLZewaa8v/ptF00wRqQgez20PPPIOHUHtAto2BAgqiZS8BILVTZuFQ/Lo2DQ
+	/7R3ZtxzZszMLlDJRq1g25ayVXQhYlj2BD+0RYxXRPo4vHMUhECO/Xv7+q5/HD14i2ZqK/+WqUtdW
+	OYZtDd5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Zn8-0000000AX9t-2FJN;
-	Wed, 23 Apr 2025 13:05:30 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Xkj-0000000AElE-3rcf;
-	Wed, 23 Apr 2025 10:54:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-Id:MIME-Version; bh=PPQOB
-	H7/gKlgthck1rxpJW2qtf0NUOJEEwS0jt+8xHI=; b=FAUMcOeQsm05XMmcZSIPL
-	IZ6p6zKprhAbCb8EwxHjXLOEeG3jbadkZxpBBnmIKONK7cNABzOxdra3J5WvNH+C
-	kbrcwpoB8idmUwiZX5P3G2eKYa7DsafJc62TZLLAWsmrU7a12hImyDfOUJhXLThp
-	e1QbJYEytQVM9wrrdU0Lko=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wAnRTjYxghozJctBw--.58909S4;
-	Wed, 23 Apr 2025 18:54:20 +0800 (CST)
-From: Hans Zhang <18255117159@163.com>
-To: lpieralisi@kernel.org,
-	kw@linux.com,
-	bhelgaas@google.com,
-	heiko@sntech.de
-Cc: manivannan.sadhasivam@linaro.org,
-	robh@kernel.org,
-	jingoohan1@gmail.com,
-	shawn.lin@rock-chips.com,
-	linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	id 1u7ZnE-0000000AXHk-3KPh;
+	Wed, 23 Apr 2025 13:05:36 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7Y9m-0000000AKW3-2Kfs;
+	Wed, 23 Apr 2025 11:20:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id BD5A85C613B;
+	Wed, 23 Apr 2025 11:18:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CE80C4CEEF;
+	Wed, 23 Apr 2025 11:20:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745407245;
+	bh=65P2yTpP9ikdQkaNusQHi/VQHjNJozPS2sRudLvmzb4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=opRbMOShB0/OUYO0pvUAhd7824ICrNR9B2Y4lsnbFb1F1y64mTQifjGSDwfQ+KCpJ
+	 heovBjRnk6jFOXaMwAh67fBadX3dTv8p+wCSzRNwypkKyzqelaBy/jSbVwjOTLIFFJ
+	 XRov3yvdHJSB1EE+s9uLVi7exNAdSy1oDsyvYVoMmMtQUGjHK5A5lQqdjw7qRLFDCt
+	 9q9eqAugc3+SIjt9kJYYPxsyh+uFJvMQNW3Y6Qql5UBtLnf/p+6WaKfNoppOCABkwu
+	 M6kPVrol6u/97p1avxJU1EPvbtAgmf2z3/YkZ/JzA73rbbchI+iNm/6Yq0rnpsr4dB
+	 6MUBh7ydzGAXw==
+Date: Wed, 23 Apr 2025 13:20:43 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Jacob Keller <jacob.e.keller@intel.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Hans Zhang <18255117159@163.com>
-Subject: [PATCH v2 2/3] PCI: dw-rockchip: Reorganize register and bitfield definitions
-Date: Wed, 23 Apr 2025 18:54:14 +0800
-Message-Id: <20250423105415.305556-3-18255117159@163.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250423105415.305556-1-18255117159@163.com>
-References: <20250423105415.305556-1-18255117159@163.com>
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	Simon Horman <horms@kernel.org>
+Subject: Re: [PATCH net v3] net: airoha: Add missing filed to ppe_mbox_data
+ struct
+Message-ID: <aAjNC7zUrhc2Ma0z@lore-desk>
+References: <20250422-airoha-en7581-fix-ppe_mbox_data-v3-1-87dd50d2956e@kernel.org>
+ <c34ef8a0-20fd-4d0b-84cc-8f829f4be675@intel.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wAnRTjYxghozJctBw--.58909S4
-X-Coremail-Antispam: 1Uf129KBjvJXoW3Ar48Cr4Duw1kAFy5Kr13twb_yoW7tF47p3
-	yDAFyakr45ta17u3s5CFZ8ZFWIqrnxKFWUGrsag3yUu3Z5A3y8Kw1UWF95Wry7Gr4kuFy3
-	uwn8C342gFWakrUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zRrR67UUUUU=
-X-Originating-IP: [222.71.101.198]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/1tbiWx84o2gIwxtvPAABs1
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="8KAiwfBxBw0HvHWB"
+Content-Disposition: inline
+In-Reply-To: <c34ef8a0-20fd-4d0b-84cc-8f829f4be675@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_035454_302763_52B41CBF 
-X-CRM114-Status: UNSURE (   9.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250423_042046_692037_EC2C1221 
+X-CRM114-Status: GOOD (  28.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,139 +78,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Register definitions were scattered with ambiguous names (e.g.,
-PCIE_RDLH_LINK_UP_CHGED in PCIE_CLIENT_INTR_STATUS_MISC) and lacked
-hierarchical grouping. Magic values for bit operations reduced code
-clarity.
 
-Group registers and their associated bitfields logically. This improves
-maintainability and aligns the code with hardware documentation.
+--8KAiwfBxBw0HvHWB
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Hans Zhang <18255117159@163.com>
----
- drivers/pci/controller/dwc/pcie-dw-rockchip.c | 71 ++++++++++++-------
- 1 file changed, 45 insertions(+), 26 deletions(-)
+>=20
+>=20
+> On 4/22/2025 8:59 AM, Lorenzo Bianconi wrote:
+> > The official Airoha EN7581 firmware requires adding max_packet filed in
+> > ppe_mbox_data struct while the unofficial one used to develop the Airoha
+> > EN7581 flowtable support does not require this field.
+> > This patch does not introduce any real backwards compatible issue since
+> > EN7581 fw is not publicly available in linux-firmware or other
+> > repositories (e.g. OpenWrt) yet and the official fw version will use th=
+is
+> > new layout. For this reason this change needs to be backported.
+> >=20
+>=20
+> To clarify if I understand correctly:
+>=20
+> The original data structure without max_packet is for an unreleased
+> version of firmware which is unofficial and which is not released publicl=
+y.
 
-diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index fd5827bbfae3..6cf75160fb1c 100644
---- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-+++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-@@ -34,30 +34,49 @@
- 
- #define to_rockchip_pcie(x) dev_get_drvdata((x)->dev)
- 
--#define PCIE_CLIENT_RC_MODE		HIWORD_UPDATE_BIT(0x40)
--#define PCIE_CLIENT_EP_MODE		HIWORD_UPDATE(0xf0, 0x0)
--#define PCIE_CLIENT_ENABLE_LTSSM	HIWORD_UPDATE_BIT(0xc)
--#define PCIE_CLIENT_DISABLE_LTSSM	HIWORD_UPDATE(0x0c, 0x8)
--#define PCIE_CLIENT_INTR_STATUS_MSG_RX	0x04
--#define PCIE_CLIENT_INTR_STATUS_MISC	0x10
--#define PCIE_CLIENT_INTR_MASK_MISC	0x24
--#define PCIE_CLIENT_POWER		0x2c
--#define PCIE_CLIENT_MSG_GEN		0x34
--#define PME_READY_ENTER_L23		BIT(3)
--#define PME_TURN_OFF			(BIT(4) | BIT(20))
--#define PME_TO_ACK			(BIT(9) | BIT(25))
--#define PCIE_SMLH_LINKUP		BIT(16)
--#define PCIE_RDLH_LINKUP		BIT(17)
--#define PCIE_LINKUP			(PCIE_SMLH_LINKUP | PCIE_RDLH_LINKUP)
--#define PCIE_RDLH_LINK_UP_CHGED		BIT(1)
--#define PCIE_LINK_REQ_RST_NOT_INT	BIT(2)
--#define PCIE_CLIENT_GENERAL_CONTROL	0x0
-+/* General Control Register */
-+#define PCIE_CLIENT_GENERAL_CON		0x0
-+#define  PCIE_CLIENT_RC_MODE		HIWORD_UPDATE_BIT(0x40)
-+#define  PCIE_CLIENT_EP_MODE		HIWORD_UPDATE(0xf0, 0x0)
-+#define  PCIE_CLIENT_ENABLE_LTSSM	HIWORD_UPDATE_BIT(0xc)
-+#define  PCIE_CLIENT_DISABLE_LTSSM	HIWORD_UPDATE(0x0c, 0x8)
-+
-+/* Interrupt Status Register Related to Message Reception */
-+#define PCIE_CLIENT_INTR_STATUS_MSG_RX	0x4
-+
-+/* Interrupt Status Register Related to Legacy Interrupt */
- #define PCIE_CLIENT_INTR_STATUS_LEGACY	0x8
-+
-+/*  Interrupt Status Register Related to Miscellaneous Operation */
-+#define PCIE_CLIENT_INTR_STATUS_MISC	0x10
-+#define  PCIE_RDLH_LINK_UP_CHGED	BIT(1)
-+#define  PCIE_LINK_REQ_RST_NOT_INT	BIT(2)
-+
-+/* Interrupt Mask Register Related to Legacy Interrupt */
- #define PCIE_CLIENT_INTR_MASK_LEGACY	0x1c
-+
-+/* Interrupt Mask Register Related to Miscellaneous Operation */
-+#define PCIE_CLIENT_INTR_MASK_MISC	0x24
-+
-+/* Power Management Control Register */
-+#define PCIE_CLIENT_POWER_CON		0x2c
-+#define  PME_READY_ENTER_L23		BIT(3)
-+
-+/*  Message Generation Control Register */
-+#define PCIE_CLIENT_MSG_GEN_CON		0x34
-+#define  PME_TURN_OFF			HIWORD_UPDATE_BIT(BIT(4))
-+#define  PME_TO_ACK			HIWORD_UPDATE_BIT(BIT(9))
-+
-+/* Hot Reset Control Register */
- #define PCIE_CLIENT_HOT_RESET_CTRL	0x180
-+#define  PCIE_LTSSM_ENABLE_ENHANCE	BIT(4)
-+
-+/* LTSSM Status Register */
- #define PCIE_CLIENT_LTSSM_STATUS	0x300
--#define PCIE_LTSSM_ENABLE_ENHANCE	BIT(4)
--#define PCIE_LTSSM_STATUS_MASK		GENMASK(5, 0)
-+#define  PCIE_SMLH_LINKUP		BIT(16)
-+#define  PCIE_RDLH_LINKUP		BIT(17)
-+#define  PCIE_LINKUP			(PCIE_SMLH_LINKUP | PCIE_RDLH_LINKUP)
-+#define  PCIE_LTSSM_STATUS_MASK		GENMASK(5, 0)
- 
- struct rockchip_pcie {
- 	struct dw_pcie pci;
-@@ -176,13 +195,13 @@ static u32 rockchip_pcie_get_pure_ltssm(struct dw_pcie *pci)
- static void rockchip_pcie_enable_ltssm(struct rockchip_pcie *rockchip)
- {
- 	rockchip_pcie_writel_apb(rockchip, PCIE_CLIENT_ENABLE_LTSSM,
--				 PCIE_CLIENT_GENERAL_CONTROL);
-+				 PCIE_CLIENT_GENERAL_CON);
- }
- 
- static void rockchip_pcie_disable_ltssm(struct rockchip_pcie *rockchip)
- {
- 	rockchip_pcie_writel_apb(rockchip, PCIE_CLIENT_DISABLE_LTSSM,
--				 PCIE_CLIENT_GENERAL_CONTROL);
-+				 PCIE_CLIENT_GENERAL_CON);
- }
- 
- static int rockchip_pcie_link_up(struct dw_pcie *pci)
-@@ -274,8 +293,8 @@ static void rockchip_pcie_pme_turn_off(struct dw_pcie_rp *pp)
- 	u32 status;
- 
- 	/* 1. Broadcast PME_Turn_Off Message, bit 4 self-clear once done */
--	rockchip_pcie_writel_apb(rockchip, PME_TURN_OFF, PCIE_CLIENT_MSG_GEN);
--	ret = readl_poll_timeout(rockchip->apb_base + PCIE_CLIENT_MSG_GEN,
-+	rockchip_pcie_writel_apb(rockchip, PME_TURN_OFF, PCIE_CLIENT_MSG_GEN_CON);
-+	ret = readl_poll_timeout(rockchip->apb_base + PCIE_CLIENT_MSG_GEN_CON,
- 				 status, !(status & BIT(4)), PCIE_PME_TO_L2_TIMEOUT_US / 10,
- 				 PCIE_PME_TO_L2_TIMEOUT_US);
- 	if (ret) {
-@@ -294,7 +313,7 @@ static void rockchip_pcie_pme_turn_off(struct dw_pcie_rp *pp)
- 
- 	/* 3. Clear PME_TO_Ack and Wait for ready to enter L23 message */
- 	rockchip_pcie_writel_apb(rockchip, PME_TO_ACK, PCIE_CLIENT_INTR_STATUS_MSG_RX);
--	ret = readl_poll_timeout(rockchip->apb_base + PCIE_CLIENT_POWER,
-+	ret = readl_poll_timeout(rockchip->apb_base + PCIE_CLIENT_POWER_CON,
- 				 status, status & PME_READY_ENTER_L23,
- 				 PCIE_PME_TO_L2_TIMEOUT_US / 10,
- 				 PCIE_PME_TO_L2_TIMEOUT_US);
-@@ -552,7 +571,7 @@ static void rockchip_pcie_ltssm_enable_control_mode(struct rockchip_pcie *rockch
- 	val = HIWORD_UPDATE_BIT(PCIE_LTSSM_ENABLE_ENHANCE);
- 	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_HOT_RESET_CTRL);
- 
--	rockchip_pcie_writel_apb(rockchip, mode, PCIE_CLIENT_GENERAL_CONTROL);
-+	rockchip_pcie_writel_apb(rockchip, mode, PCIE_CLIENT_GENERAL_CON);
- }
- 
- static void rockchip_pcie_unmask_dll_indicator(struct rockchip_pcie *rockchip)
--- 
-2.25.1
+correct
 
+>=20
+> Then, the official public release will include this additional field,
+> and thus won't work with the current kernel code.
+
+correct
+
+>=20
+> Of course anyone who happens to have the unofficial firmware will need
+> to work around this, but that should only include a small handful of
+> folks with development images?
+
+yes, right
+
+>=20
+> > Fixes: 23290c7bc190d ("net: airoha: Introduce Airoha NPU support")
+> > Reviewed-by: Simon Horman <horms@kernel.org>
+> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> > ---
+> > Changes in v3:
+> > - resend targeting net tree
+> > - Link to v2: https://lore.kernel.org/r/20250417-airoha-en7581-fix-ppe_=
+mbox_data-v2-1-43433cfbe874@kernel.org
+> >=20
+> > Changes in v2:
+> > - Add more details to commit log
+> > - Link to v1: https://lore.kernel.org/r/20250415-airoha-en7581-fix-ppe_=
+mbox_data-v1-1-4408c60ba964@kernel.org
+> > ---
+> >  drivers/net/ethernet/airoha/airoha_npu.c | 1 +
+> >  1 file changed, 1 insertion(+)
+> >=20
+> > diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/eth=
+ernet/airoha/airoha_npu.c
+> > index 7a5710f9ccf6a4a4f555ab63d67cb6b318de9b52..16201b5ce9f27866896226c=
+3611b4a154d19bc2c 100644
+> > --- a/drivers/net/ethernet/airoha/airoha_npu.c
+> > +++ b/drivers/net/ethernet/airoha/airoha_npu.c
+> > @@ -104,6 +104,7 @@ struct ppe_mbox_data {
+> >  			u8 xpon_hal_api;
+> >  			u8 wan_xsi;
+> >  			u8 ct_joyme4;
+> > +			u8 max_packet;
+> >  			int ppe_type;
+> >  			int wan_mode;
+> >  			int wan_sel;
+> >=20
+>=20
+> One oddity here is that the structure is not marked __packed. This
+> addition of a u8 means there will be a 3-byte gap on platforms which
+> have a 4-byte integer... It feels very weird these are ints and not s32
+> or something to fully clarify the sizes.
+
+yes, you are right. Let's hold on for a while with this patch and let me ask
+Airoha folks if we can "pack" the struct in the NPU firmware binary so we c=
+an use
+__packed attribute here. In any case I will use "u32" instead of "int" in t=
+he next
+version.
+
+Regards,
+Lorenzo
+
+>=20
+> Regardless, assuming the correctness that the unofficial firmware is
+> only available to developers and isn't widely available:
+>=20
+> Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
+>=20
+> > ---
+> > base-commit: c03a49f3093a4903c8a93c8b5c9a297b5343b169
+> > change-id: 20250422-airoha-en7581-fix-ppe_mbox_data-56df12d4df72
+> >=20
+> > Best regards,
+>=20
+
+--8KAiwfBxBw0HvHWB
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaAjNCwAKCRA6cBh0uS2t
+rPiDAQDU27iVGbvQTRUgJz0etHDsJYWRsxVCk2Tpnk7nMfcGxAD+PGrxpM04Unxu
+AM7bzNBJaFr0+ApT2IbNYFPvCJfa1wA=
+=w26b
+-----END PGP SIGNATURE-----
+
+--8KAiwfBxBw0HvHWB--
 
