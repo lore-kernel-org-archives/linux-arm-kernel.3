@@ -4,53 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EC4BC369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 12:01:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CFFEC369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 12:03:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6cuqpMzoScnH3gfBbyigTWLf89YSQtUbp2zE0GS3jxs=; b=odKaZX7oJ8ihL/Sr7fHr1dLyYw
-	gxO+t5CC3bTg80Fj8dmrDlc4YiImWY0CkZBrCL2v4aSv+1smj3Yw+9Gh1/lpe5wZPfrYSiFZaFG2E
-	uI0vraRs8t1YzNIaA4BMQwBQfDH+XilzW674xpPiw28/8NrfnvnH6fMaA/g/ld1bDijHtucUabbIC
-	gsIDfLOu8B0hDgzrUVr3+ikzuuxNcQW4hcrtXO1rgYFIizrEzavH2QByrNhtccD7btxC6lE17QXLm
-	HcEFajnbiXOj5SyOZZXqo13813JVlt/rbSkOX1SbXKBZOe+kIEbiP5mv5+KtGSZszaD6nyv996pZR
-	SRH/igVA==;
+	bh=q3cEhVrVTg0kZTdvS2evoNFsbjUG4Yiqw/nFRP9UnlM=; b=Zn0lrYRCiLnBkpqJtz4/szcUB1
+	Vl8jTzbR/jLtsHuajtnJB2WCjnb1wzx4065AgTjOGAflvO4dX1H6mTwQwdccFZlsivVQUDkZNHf0j
+	TxJmvm4Q/pbSv7uvzOeFFOWDDgWqPp2R2A6XcGF77uz2bSa5kAaBUIcemuIDqvVuElFAbaN1fH/7Q
+	i2vwcXVJgksj8EIfR0EdAdxUnS+W9SdazRwwOmINAV+eeGVo8jDhEkDQZDsPWxVMTnfsEkCn9MrAe
+	ZXqQqMK4HrQ/TUpBXyoOOYw6Ub5AYN5XSruQqA/sSR0gd+wqdk90nPBynNw9h5FPrwF5cjs070m3F
+	t8Ecfsaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Yme-0000000APmL-2mnV;
-	Wed, 23 Apr 2025 12:00:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7XpK-0000000AFNy-11KE
+	id 1u7Yoc-0000000AQ35-05iN;
+	Wed, 23 Apr 2025 12:02:58 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7Xpd-0000000AFRi-1YFe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 10:59:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C11EF1063;
-	Wed, 23 Apr 2025 03:59:32 -0700 (PDT)
-Received: from [10.57.74.63] (unknown [10.57.74.63])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7C64E3F66E;
-	Wed, 23 Apr 2025 03:59:36 -0700 (PDT)
-Message-ID: <b1f19b31-3535-4bb5-bcef-6f17ad2a0ee6@arm.com>
-Date: Wed, 23 Apr 2025 11:59:30 +0100
+	Wed, 23 Apr 2025 10:59:58 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-54afb5fcebaso8139672e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 03:59:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1745405996; x=1746010796; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=q3cEhVrVTg0kZTdvS2evoNFsbjUG4Yiqw/nFRP9UnlM=;
+        b=QCqu/1h7DwMJjUnfHk549TkimxeqW6SNV5xdW6dxmDB/QL1Vz6WSC5U1ybzWe4Fl2P
+         dux2rq610cqVUe33i33tlOV3lbGJ6Z8SdIe+exGMebwvTrh03kFUmAtW4Cy7kCxaNr9p
+         aIIcVaovxU1yzIgAIBgq1fFuTYqjC+oWS6WD7XUzmt/NNAq9bKz+eRCEptZGVHPHEK4q
+         IqdWMZwF18k7accfwS3SQy9eqd+L2DQVRA7pKFgKNBJKdH3dHWQCM8uYDQvOPBYmqp62
+         RXhpCwLB3RZcWLQCx1DQ4zQ+/dXla7n3Yz0cepQDiiBBhqX2ibNKdsS4XNfnvqn9usCP
+         RF4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745405996; x=1746010796;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=q3cEhVrVTg0kZTdvS2evoNFsbjUG4Yiqw/nFRP9UnlM=;
+        b=AYOC5Roh1bJBK0dmTQ79PeyrqKP+w9I8FTOzgH9mMJKb3nUoCadcYcc5yKxR9a7qt/
+         t6lDT5nGMhJlWO1KvYeJfatArCRHb9vUDI+1q6ImNY1YIrRYjUpBR4cjPxZ2Yo//0r2L
+         eTugMprgbPrCl0lQTrYQruPQZ1GahaRF8aUds6yChFJUJU6uIpxzle+VQhMt3almce6/
+         bQ/Uublhu++DGjUbJDd8/HLS5ErcvOacO4jiXqePZ7P02PfwpfWKUsIRLS5PpPun6e/f
+         iv+sgvkJVyqDIXgGKa5ctbRSOwi59X9Ulj4k021LvxZ4EJHWBe5zGFwCd/JC0ng20pdo
+         CtGw==
+X-Forwarded-Encrypted: i=1; AJvYcCW2DUPBDCvV62rjZOUBmsspsPxyzee6GpANhp0LjPVwsweKH6nwDmWbfLhdEI9Gzz07TK0OrJgHWLRYafc+n8Wk@lists.infradead.org
+X-Gm-Message-State: AOJu0YzOFnWYGfHMy4mm3weItvjdcEMiwG+0zZwqBTxcgqOlBQe5BZyZ
+	KzTi8g61TPFvIqZJUYYYAdK5fxzPrvOHjkliby8l0dTXzqcVZgyhjvHBLMzg0iFtturRPJttupe
+	QV0BnvmoNBpwLTLz3ukif5WXlVabZDAqr3WbiYw==
+X-Gm-Gg: ASbGnctGq36tV8YZwU0BMv1nba5NDQ+ZYhZiwvIMbXNNPFmOGtHdW2P6EK3uBjEsxw2
+	gXRMI8f2TUTAwYA/uGkCoHbDT7tHiFzYAQuon6S7X9+hVFp+ilR2/vuoEqx/Mi4NiQ4hQcFpBnE
+	oIvn83I/7yZZZ+OpOHvkegtQ==
+X-Google-Smtp-Source: AGHT+IFtzLtF0BmAxKelCLV2/wocCla2vyxucaLxjvgEw30Sch51eBsux5LzRyNp/HGiwEeiD7kURWUr//rXX69Cxn0=
+X-Received: by 2002:a05:6512:318c:b0:54b:117b:952e with SMTP id
+ 2adb3069b0e04-54d6e66cbefmr4418385e87.55.1745405995686; Wed, 23 Apr 2025
+ 03:59:55 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dmaengine: ARM_DMA350 should depend on ARM/ARM64
-To: Geert Uytterhoeven <geert+renesas@glider.be>,
- Vinod Koul <vkoul@kernel.org>
-Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <50dbaf4ce962fa7ed0208150ca987e3083da39ec.1745345400.git.geert+renesas@glider.be>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <50dbaf4ce962fa7ed0208150ca987e3083da39ec.1745345400.git.geert+renesas@glider.be>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <aAijc10fHka1WAMX@stanley.mountain>
+In-Reply-To: <aAijc10fHka1WAMX@stanley.mountain>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Wed, 23 Apr 2025 12:59:44 +0200
+X-Gm-Features: ATxdqUGhq-8Df0lmzkXAKLmMqiEIc6uB0ArJmTsIwn6uONHy8hOiVyiU37DBzSI
+Message-ID: <CACRpkdbLwZuFKqLvdkuCodQrNb5h-W9567eA4CLOP1FrV+PbZA@mail.gmail.com>
+Subject: Re: [PATCH next] pinctrl: mediatek: common-v1: Fix error checking in mtk_eint_init()
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: Chen-Yu Tsai <wenst@chromium.org>, Sean Wang <sean.wang@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kernel-janitors@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_035938_335457_E1FF45E0 
-X-CRM114-Status: GOOD (  15.42  )
+X-CRM114-CacheID: sfid-20250423_035957_410794_4DAC67F9 
+X-CRM114-Status: UNSURE (   9.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,42 +99,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-04-22 7:11 pm, Geert Uytterhoeven wrote:
-> The Arm DMA-350 controller is only present on Arm-based SoCs.
+On Wed, Apr 23, 2025 at 10:23=E2=80=AFAM Dan Carpenter <dan.carpenter@linar=
+o.org> wrote:
 
-Do you know that for sure? I certainly don't. This is a licensable, 
-self-contained DMA controller IP with no relationship whatsoever to any 
-particular CPU ISA - our other system IP products have turned up in the 
-wild paired with non-Arm CPUs, so I don't see any reason that DMA-350 
-wouldn't either.
+> The devm_kzalloc() function doesn't return error pointers, it returns
+> NULL on error.  Then on the next line it checks the same pointer again
+> by mistake, "->base" instead of "->base[0]".
+>
+> Fixes: fe412e3a6c97 ("pinctrl: mediatek: common-v1: Fix EINT breakage on =
+older controllers")
+> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
 
-Would you propose making all the DesignWare drivers depend on ARC 
-because those happen to come from the same company too? ;)
+Patch applied for fixes as a fix on fix.
 
-Thanks,
-Robin.
-
->  Hence add
-> dependencies on ARM and ARM64, to prevent asking the user about this
-> driver when configuring a kernel for a non-Arm architecture.
-> 
-> Fixes: 5d099706449d54b4 ("dmaengine: Add Arm DMA-350 driver")
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> ---
->   drivers/dma/Kconfig | 1 +
->   1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/dma/Kconfig b/drivers/dma/Kconfig
-> index 8109f73baf10fc3b..db87dd2a07f7606e 100644
-> --- a/drivers/dma/Kconfig
-> +++ b/drivers/dma/Kconfig
-> @@ -95,6 +95,7 @@ config APPLE_ADMAC
->   
->   config ARM_DMA350
->   	tristate "Arm DMA-350 support"
-> +	depends on ARM || ARM64 || COMPILE_TEST
->   	select DMA_ENGINE
->   	select DMA_VIRTUAL_CHANNELS
->   	help
-
+Yours,
+Linus Walleij
 
