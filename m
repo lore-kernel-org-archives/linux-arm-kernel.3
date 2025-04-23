@@ -4,135 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E113C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 11:31:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FFC7C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 11:34:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AAILDNKPNEKGe4car8WKpeE8gJXp2VdN72qfqPkhrdI=; b=GYMVnX5YarjX1nhj5Q1hguNFbo
-	BtQituJkyi0tn3E85fgTB/jPoTBu9lv1Tn8m1QKW1FkCvYoeKhHs9BxjqTd/Rs0rPCEUcDow3xgOG
-	/onJbpFNjb/yCH/ArAy49OdjZyJlmui81Uuf61STSjCXHtQy9o72MX4KeSAXkWC/7A4LaSuMEyJqk
-	8CANyf3c2pWDLXjoAGt5RZdK8nY8zK9mwwL5txdjVSMeHfYm3ooJI4XiFYmuUxkR/qvc/D17KRpS/
-	alxPp/tjb0yk/9z2Fqj+384W3Gv+rqbqed0sd1nrnLbLoObFaFX1YDWBln+x7pcf0ehaEcdD0LwFv
-	xmtsPaxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VrGROsqZIwKCgrOnIO0opoKDeXx0qHVFUxais3JjiPU=; b=k25D6zLGZNuHAKmjjYrRjEFHcx
+	X6nqgW78QLTd2wVWKElpsRkULfHYJcQGcdBz2MIZwai6YLS9TUMetr+Fe4W/js5HO+rWySz8dsFBm
+	5qOufUB2DmpHqcDTVAR92pZVklewhehOnFqQFq92oS0C7t+NCDxrJQEvYj75ES1dBJtqd+tA/tHSq
+	oaBGKSdErAbAnETxiNy3nrHj+lRb8arShsccdrx9SvjiMRkndv873NvsvTk/nF5Q4F+fCznPogebT
+	kmubZfF9iHHHJYktfCsgQMkjIek4usQ0G8zW1eGwBvLYWQ92s3uy9LLVTmIUL2fAlkGyXNuZeXGgQ
+	wBykNX9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7YKT-0000000AMFz-235y;
-	Wed, 23 Apr 2025 11:31:49 +0000
-Received: from mail-oi1-x22a.google.com ([2607:f8b0:4864:20::22a])
+	id 1u7YMR-0000000AMWh-0pMp;
+	Wed, 23 Apr 2025 11:33:51 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7WDH-00000009ubU-14Ev
+	id 1u7WFr-00000009vRo-2rOh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 09:16:16 +0000
-Received: by mail-oi1-x22a.google.com with SMTP id 5614622812f47-401c43671ecso389628b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 02:16:14 -0700 (PDT)
+	Wed, 23 Apr 2025 09:18:56 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43cfa7e7f54so5285735e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 02:18:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1745399774; x=1746004574; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=AAILDNKPNEKGe4car8WKpeE8gJXp2VdN72qfqPkhrdI=;
-        b=T4Hypmzku13Ly1qzJntmrNxav3A3wqcC3guNz8bHurgJa6nmI+YY4/v6h7FncEFZf/
-         1f0CbzQJGs1xTrVSJTsDnHvFKltNBkJ0EXGUxoU5vqE5y5mL/Bs2OgAFVRoXr3Tfzp9A
-         OK/kQF4acGKnR6G1qgJ27+hvWkpcy634jPBGU=
+        d=gmail.com; s=20230601; t=1745399933; x=1746004733; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=VrGROsqZIwKCgrOnIO0opoKDeXx0qHVFUxais3JjiPU=;
+        b=MLZZE1LZK/QZf/PtWPPvDUee8c0NWw7JGEs0L3jHbTnjTSYvWSo4I+7P1FRwIu/ebd
+         rOG5N4X5dMlCNf4K9fmkw0H77taESrBx890SsCTrx6UwzMg9luVauOjqp3dY0J+c+wlS
+         IM12pMdXqk1/U9ibfPBUo40TsYGNnVaB4/U4gkLiCRkMn9k+Ni0480GzkMRBSrt5CJqH
+         t3l/CDsc5AQiiaMt8RTOlK18IJBmL2v8Xmbvl7/QNij2RE1wXBKGBTgHGFaN6yqq2XUK
+         PJv7bD/eaKL80OmFhYY04PYSyEo1C+fLV5ZpwwnUvgV0VmW9uuBO7sa1oknkC5A7dVbc
+         obUw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745399774; x=1746004574;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AAILDNKPNEKGe4car8WKpeE8gJXp2VdN72qfqPkhrdI=;
-        b=ErJeW1PTmt5iBPqXD0E/F1eycS/HuuhViPCgWni2427LV61xN7Z22M6rA+lFnD+NJ8
-         OQWMEQKXf8dcM5yOuyLQNztjKZurldh/xVFkFjUZUaBENw95IwjtMMHNQzpY7ESMjrE9
-         uaX1EmOFbk4rwwxaJt0rnMsdIef+fd7lk/ahnOfxxQ0gm8oT4V+WsQSHsIyNRKEp+BAR
-         b7YO6zo2FLA6WxMW8Y4OGLhgnyhQW1ykYqQmbcAvmMBfMOA+hCH2t6bKDbhPDK+DYLgS
-         yXr0SC7O1xCRmejIc1H0w5MiKGaLCPVt0vFgGrwimARvGKo7+Wo3ZwBGlIBGqEPXL54f
-         lM1A==
-X-Forwarded-Encrypted: i=1; AJvYcCWrbtzyrpHkgUVo9yoNrXO3Bm56v3cs3VKiZlm8m69ZPpvHaqHCVhZeb36N+3GQShG2ebuNgy8QCJxF+5Hc9D2I@lists.infradead.org
-X-Gm-Message-State: AOJu0YycS2sxhv9lOxFvaf3ZPAzhCyh2CxOsBqNMy7iFftto1wg5z/QQ
-	btJjviINwBcolnEaBb1bQ2J1vvdJwdDlPt8qO8LCnDsBpZRHbfVUFR/XgIaafg==
-X-Gm-Gg: ASbGncuqXY3VLLMIJpnB5eXvFo1YerFGWmSoYGFgZ2gKJeOO1a+8nQcb97wvNi+MNpi
-	W27U0MxBb70KQHPGcObp9/C2joY3ctgukkWaEfa2ZnVYwvMSbNRLw4/tR67hIdUkNcIZE02gzGA
-	PBHdS5zb9CXITBuL3B880rLL01zhDW7czLkx5MqKvg9WGWOb7WGhiurIlsvBSJ7/cP1jHtAH5Cz
-	tHiAQnpsBh5SR/IAztb16pIiEYr8k/CWhgmD7laTgysD/2YEl08SsOmwqvXNcotAWWrbppA48HH
-	eogoGm6bOO3MFWEpt6RRmXd2jnOrmmZUbdfVWVKq2Z8FnegDf7RCgyz1xj/DQ517n7SJuaVlJLt
-	uDD0=
-X-Google-Smtp-Source: AGHT+IFXraHU6tyE5Hug/omFPjCYu6OiPQ714dJZZL7AVyIrDSRTncHCvWK1B8ECGGFlXX9pLgWcCg==
-X-Received: by 2002:a05:6808:6f93:b0:400:e771:ab80 with SMTP id 5614622812f47-401e3e73e78mr1355466b6e.0.1745399773788;
-        Wed, 23 Apr 2025 02:16:13 -0700 (PDT)
-Received: from [192.168.0.24] (home.mimichou.net. [82.67.5.108])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-401beeffe05sm2590955b6e.30.2025.04.23.02.16.04
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 23 Apr 2025 02:16:12 -0700 (PDT)
-Message-ID: <67298e07-7608-45ef-b8bd-c219419549d9@broadcom.com>
-Date: Wed, 23 Apr 2025 11:16:05 +0200
+        d=1e100.net; s=20230601; t=1745399933; x=1746004733;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=VrGROsqZIwKCgrOnIO0opoKDeXx0qHVFUxais3JjiPU=;
+        b=MGyRU4VnIgFv25IdVeQLuJlPUTLRjg53MuIQEcPAbtsWsKSQ4gg5//bEtLlJJfzUmz
+         MP/THnDmMsP1OwHsLuJTCVGCAhTMCPFDJ0XfaUjLC+mp+kuU7pn14D9MNUOOnEvbL0wO
+         6LTusheAe7Mv3cqPmJiDhbX1IdwnYtNrJHUcALUc9Jd4Zh8Vu67io9tp+yWsaE6//8y8
+         x7c4rfHpezxIAy6Qj8zxPWBMzNJ4WDVhXsfkkHfGpJb3Uek7IavZi79Uu6/x4k0J21hR
+         mp5ckDANHzGfZdM/tMywkJA0WjV0OmlW7BhwDTWLx/alwFQ1STiGjHd90zEa0N8JjHoK
+         pNJg==
+X-Forwarded-Encrypted: i=1; AJvYcCV8oe19aYpdeINefI1L5eL0SGFj7YEjiBCdMjoMFuE3SDl9P/yUFX3pdI8fSApGF0UHZL1W7YwXntQudStx+Y3S@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxd4EyM2fJbd1wj21ytPT5Sqx2f46jpN1GLmUaCv992WQK+2YfN
+	Z/InromlloUIFAg/kejMDDykmFcR8XiSU3tAiBzH0xnDkqoIrjYx
+X-Gm-Gg: ASbGncvbejaAzRagZJj8CVjnagqiPzcp+IIoKmod5XLPiBrNHFR21Nric3EMEBCmApx
+	DjN0cb5Je4RhdtxbYOa7pSUV7vp2VMlGj7TxIXQrzgj9vaTrg7gXwTe6z3tMDjMjQx2TBQLjrxE
+	Cdw/WBFhh4ujkYVoiKpeL50JvYLjxCabn0obh/nnIQki+Ko58TlXg9nmI4ux381jn9qI20224/r
+	0rGG3og24yRkbYFu/EZKSFsL16Bh+SojQAXNdx+1PC/6Uz2WcikahiInAJ30phI+NB2wmUxNk1o
+	QDXVmUdXZA1EB/kddWIPPZeLKEjNDQXN7nh8CcSEQlKDt0ixJpTwJ1xCiq1j19G04Di2LypxY+1
+	TCPL5eeu1N15h
+X-Google-Smtp-Source: AGHT+IG4usbOo5npOeZN1xbvBwncAj7wxo11cJLpW32A6dZWurXCH49f3H3MAKTcb59zIVTdCG5IiQ==
+X-Received: by 2002:a05:600c:2d46:b0:43b:bb72:1dce with SMTP id 5b1f17b1804b1-44091ee7a72mr12670515e9.5.1745399933033;
+        Wed, 23 Apr 2025 02:18:53 -0700 (PDT)
+Received: from ?IPv6:2001:818:ea8e:7f00:2575:914:eedd:620e? ([2001:818:ea8e:7f00:2575:914:eedd:620e])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-44092d16dc0sm18664225e9.6.2025.04.23.02.18.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Apr 2025 02:18:52 -0700 (PDT)
+Message-ID: <701bfc6a715046044dbc789f1c11c7f85395c7a8.camel@gmail.com>
+Subject: Re: [PATCH v2 1/6] iio: introduce IIO_DECLARE_BUFFER_WITH_TS macros
+From: Nuno =?ISO-8859-1?Q?S=E1?= <noname.nuno@gmail.com>
+To: David Lechner <dlechner@baylibre.com>, Jonathan Cameron
+ <jic23@kernel.org>,  Nuno =?ISO-8859-1?Q?S=E1?=	 <nuno.sa@analog.com>, Andy
+ Shevchenko <andy@kernel.org>, Lars-Peter Clausen	 <lars@metafoo.de>,
+ Michael Hennerich <Michael.Hennerich@analog.com>, Eugen Hristev
+ <eugen.hristev@linaro.org>, Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
+ <claudiu.beznea@tuxon.dev>
+Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Date: Wed, 23 Apr 2025 10:18:55 +0100
+In-Reply-To: <20250422-iio-introduce-iio_declare_buffer_with_ts-v2-1-3fd36475c706@baylibre.com>
+References: <20250422-iio-introduce-iio_declare_buffer_with_ts-v2-0-3fd36475c706@baylibre.com>
+	 <20250422-iio-introduce-iio_declare_buffer_with_ts-v2-1-3fd36475c706@baylibre.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.0 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 -next 10/11] arm64: dts: broadcom: bcm2712: Add PCIe DT
- nodes
-To: Stanimir Varbanov <stanimir.varbanov@suse.com>,
- bcm-kernel-feedback-list@broadcom.com, Stanimir Varbanov
- <svarbanov@suse.de>, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rpi-kernel@lists.infradead.org, linux-pci@vger.kernel.org
-Cc: Florian Fainelli <f.fainelli@gmail.com>,
- Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Jim Quinlan <jim2101024@gmail.com>,
- Nicolas Saenz Julienne <nsaenz@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, kw@linux.com,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Andrea della Porta <andrea.porta@suse.com>,
- Phil Elwell <phil@raspberrypi.com>, Jonathan Bell
- <jonathan@raspberrypi.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>
-References: <20250120130119.671119-1-svarbanov@suse.de>
- <20250120130119.671119-11-svarbanov@suse.de>
- <20250128215254.1902647-1-florian.fainelli@broadcom.com>
- <24a6236b-3e4f-4174-914a-373ddcc90fb0@suse.com>
-Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <24a6236b-3e4f-4174-914a-373ddcc90fb0@suse.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_021615_347894_1E11455E 
-X-CRM114-Status: GOOD (  10.10  )
+X-CRM114-CacheID: sfid-20250423_021855_722560_A63EC9CD 
+X-CRM114-Status: GOOD (  27.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,28 +106,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi David,
 
+Nice patch, I really think these will be very helpful... Just one comment b=
+ellow
 
-On 4/23/2025 11:13 AM, Stanimir Varbanov wrote:
-> Hi,
-> 
-> On 1/28/25 11:52 PM, Florian Fainelli wrote:
->> From: Florian Fainelli <f.fainelli@gmail.com>
->>
->> On Mon, 20 Jan 2025 15:01:18 +0200, Stanimir Varbanov <svarbanov@suse.de> wrote:
->>> Add PCIe devicetree nodes, plus needed reset and mip MSI-X
->>> controllers.
->>>
->>> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
->>> ---
->>
->> Applied to https://github.com/Broadcom/stblinux/commits/devicetree-arm64/next, thanks!
-> 
-> Florian, this somehow missed v6.15?
+On Tue, 2025-04-22 at 17:07 -0500, David Lechner wrote:
+> Add new macros to help with the common case of declaring a buffer that
+> is safe to use with iio_push_to_buffers_with_ts(). This is not trivial
+> to do correctly because of the alignment requirements of the timestamp.
+> This will make it easier for both authors and reviewers.
+>=20
+> To avoid double __align() attributes in cases where we also need DMA
+> alignment, add a 2nd variant IIO_DECLARE_DMA_BUFFER_WITH_TS.
+>=20
+> Signed-off-by: David Lechner <dlechner@baylibre.com>
+> ---
+> =C2=A0include/linux/iio/iio.h | 36 ++++++++++++++++++++++++++++++++++++
+> =C2=A01 file changed, 36 insertions(+)
+>=20
+> diff --git a/include/linux/iio/iio.h b/include/linux/iio/iio.h
+> index
+> 638cf2420fbd85cf2924d09d061df601d1d4bb2a..4dd811e3530e228a6fadbd80cfb2f50=
+68c3d
+> 6a9a 100644
+> --- a/include/linux/iio/iio.h
+> +++ b/include/linux/iio/iio.h
+> @@ -7,6 +7,7 @@
+> =C2=A0#ifndef _INDUSTRIAL_IO_H_
+> =C2=A0#define _INDUSTRIAL_IO_H_
+> =C2=A0
+> +#include <linux/align.h>
+> =C2=A0#include <linux/device.h>
+> =C2=A0#include <linux/cdev.h>
+> =C2=A0#include <linux/compiler_types.h>
+> @@ -777,6 +778,41 @@ static inline void *iio_device_get_drvdata(const str=
+uct
+> iio_dev *indio_dev)
+> =C2=A0 * them safe for use with non-coherent DMA.
+> =C2=A0 */
+> =C2=A0#define IIO_DMA_MINALIGN ARCH_DMA_MINALIGN
+> +
+> +#define _IIO_DECLARE_BUFFER_WITH_TS(type, name, count) \
+> +	type name[ALIGN((count), sizeof(s64) / sizeof(type)) + sizeof(s64) /
+> sizeof(type)]
+> +
+> +/**
+> + * IIO_DECLARE_BUFFER_WITH_TS() - Declare a buffer with timestamp
+> + * @type: element type of the buffer
+> + * @name: identifier name of the buffer
+> + * @count: number of elements in the buffer
+> + *
+> + * Declares a buffer that is safe to use with iio_push_to_buffer_with_ts=
+().
+> In
+> + * addition to allocating enough space for @count elements of @type, it =
+also
+> + * allocates space for a s64 timestamp at the end of the buffer and ensu=
+res
+> + * proper alignment of the timestamp.
+> + */
+> +#define IIO_DECLARE_BUFFER_WITH_TS(type, name, count) \
+> +	_IIO_DECLARE_BUFFER_WITH_TS(type, name, count) __aligned(sizeof(s64))
+> +
+> +/**
+> + * IIO_DECLARE_DMA_BUFFER_WITH_TS() - Declare a DMA-aligned buffer with
+> timestamp
+> + * @type: element type of the buffer
+> + * @name: identifier name of the buffer
+> + * @count: number of elements in the buffer
+> + *
+> + * Same as IIO_DECLARE_BUFFER_WITH_TS(), but is uses
+> __aligned(IIO_DMA_MINALIGN)
+> + * to ensure that the buffer doesn't share cachelines with anything that
+> comes
+> + * before it in a struct. This should not be used for stack-allocated bu=
+ffers
+> + * as stack memory cannot generally be used for DMA.
+> + */
+> +#define IIO_DECLARE_DMA_BUFFER_WITH_TS(type, name, count) \
+> +	_IIO_DECLARE_BUFFER_WITH_TS(type, name, count)
+> __aligned(IIO_DMA_MINALIGN)
+> +
+> +_Static_assert(sizeof(IIO_DMA_MINALIGN) % sizeof(s64) =3D=3D 0,
+> +	"macros above assume that IIO_DMA_MINALIGN also ensures s64 timestamp
+> alignment");
+>=20
 
-Yes, I was busy and did not have time to send the pull requests for 
-6.15, this will be sent out for 6.16.
--- 
-Florian
+I wonder about the usefulness of the above assert... AFAICT, the default
+alignment is 8 bytes and I could not find any arch defining ARCH_DMA_MINALI=
+GN
+smaller than that (would be very odd to have a cacheline smaller than that =
+these
+days). For bigger values, nowadays they are all power of 2 and I would be
+surprised otherwise. But the more important question to me is what if the a=
+bove
+assert fails? Will we not allow IIO or some drivers to be used in that
+architecture? It can become a very "painful" situation (assuming these macr=
+os
+get widely used). So, IMHO, either we assume the above can happen and rewor=
+k the
+macros to make it work for that hypotetical case or we assume the above is
+always true and drop the assert. TBH, I think it would be a fair assumption=
+...
 
+On top of that the assertion is wrong:
+
+sizeof(IIO_DMA_MINALIGN) !=3D IIO_DMA_MINALIGN :)
+
+On the other hand, as I mentioned in V1, I think that an assertion or
+BUILD_BUG_ON_MSG for making sure 'count' is a compile time constant express=
+ion
+would be helpful. Sure, we'll get -Wvla but some developers might still ign=
+ore
+the warning and send patches with these arrays. So, it would be neater if w=
+e
+fail to build and force them to fix their code.
+
+- Nuno S=C3=A1
 
