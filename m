@@ -4,94 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89318C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 00:29:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BC1AC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 00:48:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oWlmxqNag015p2cP0vSnW/zq2HibDR5FkrpgKq7T/2k=; b=yiS6qkQ1ajK9Ah6F9PoOV6f4l5
-	/jVmZkrHvGd2Z1F/N57LMol54/BWdcsAhP8U6tanjjsXP5AldLfDdM4jAl6I3fGtDleaMAFW5OTio
-	/CgGtxxlueu1LvbbU2Pa4rnzrv8UhlLsDn0RImlZS5u+FrZmtlZ1d98Jgn+iKxpQSpicUZHlPRO1H
-	ImMOj3l9+29rAUkJciTocGWgx2SLY3tVEQq9PFKAylbpuq3vAeFXfN1Hox3nxdS15BmUdfRXJiWJY
-	HvB7mJ55aFTzKrWIi28FGjaxupwl/muH45sifvIb2jc2eA7usfqgoXZdLAMUYk8NeXmFwKoptpTBr
-	9/lFTKEw==;
+	bh=/ELxdJsrw9LyX4PHEBuOWIwkMrF2oZbj1XoKIPsTJrY=; b=Mea7onPdwhCYF3Df0yS4PRVcO1
+	E8rHu3Hsc+eMEMWxqYmVh8zKDgMTExaimG3gkIn7g/tM+S0Aqc1Ihplp+CaPjTPR03LOq4nmMCVkk
+	p36Svu88VmwHo7tJSYGIWdHFHHcXo0hdqzCcHXtYG7w8zOrdAiBYnDDOTRh145SwZCb+fc/i457mV
+	bvxY/tmd3ok7nbyTSoxT++Mv1q1L+8E7WHSaxNtSIH+7qlXBbsinaWDCDt0ARtmhTNQR956ClckFt
+	nRk5ZNbVy5fj/THywlxAQUIoz6HuGa5JS7nB27TLGWmseGd6fdBQua1+DLZ5NfqhVJeuNMtc1adF/
+	jTpww6eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7NzV-00000008tJE-1YIj;
-	Wed, 23 Apr 2025 00:29:29 +0000
-Received: from mail-ua1-x92d.google.com ([2607:f8b0:4864:20::92d])
+	id 1u7OHW-00000008uUL-2Rqh;
+	Wed, 23 Apr 2025 00:48:06 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Nxd-00000008tDP-1HMB
+	id 1u7OFd-00000008uNS-011i
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 00:27:35 +0000
-Received: by mail-ua1-x92d.google.com with SMTP id a1e0cc1a2514c-86d5a786c7cso2052610241.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Apr 2025 17:27:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1745368051; x=1745972851; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=oWlmxqNag015p2cP0vSnW/zq2HibDR5FkrpgKq7T/2k=;
-        b=LKR9XXoeV6kt/B5WIJx8BTRCp2MzfJmH2TUBYor9GuTVWxYze48ICHj6u17Y+mijxI
-         vJAY01gF97Ef8fIenKEmc97jk7at4FdCjJ18vtTDgsvSlCqm1tlHTkpt8mQSx6eULsbT
-         FwtO2gTW6NWs1tbSA09nijbzUxJNAGK94GZJa27HpkXIZFGZ3vAdnxPFBbW5cevb9CHL
-         wNdFzJWfCcGmckjBLfKBJZhYfjTCsk1ccTzObzxQn+x8+RlVx2nW7VXQ6WddpCD6dpyB
-         tkXYyQE0zCftFsYi9b+ij+1rD7IslOmXjoWgsnJ9UJ08sAbq6NDAjMz3eTyIZu59Zn+M
-         CpHA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745368051; x=1745972851;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=oWlmxqNag015p2cP0vSnW/zq2HibDR5FkrpgKq7T/2k=;
-        b=pEP8TdvvPqxdIXqI5jkgF3Z7+VyHlsv+loWLftLQgwkls3XYgfZTtXyESRpb9dbVsS
-         wzRw5IVf6wtQtLZNBTEP9wcPo3xBZDzrvDBONDYRfGh7/UkO3GOTu7denrecj3OmgxlD
-         /HSucDiGUBwGGsqcDqduZA2D8AmUwMG+BoQATgzykukYWA6+jZ5hhNUVa1qDiH4zRz6Q
-         iroUwnHiQZC0kclisGMGm1uzWvjc0g62RRffDFz1FgtkfobqZvJtY0cMe28LyeACx+Xj
-         18tkJXNXB+uHpe9jrnYGl51uWE+SiA1B40y3fFEGqmOGTq32JEiwJMT5Tu7M8lltxlE8
-         km6A==
-X-Forwarded-Encrypted: i=1; AJvYcCX7TpDAmjdiV4ykiJdVqHFaWKnuUMPY35YC7Ai2bSyWfI1vokJyFF02arLpvSt1ud0dG7yDuiXxXLlj/h+Ymqm3@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywg/ieysZdVYz//DFWDoAnRDB1U1KImSOBj8uuE2HSQw7wTSWBV
-	qMGQdc1NiFQF51/B5+IYgQ0rs4PEAhRFWldmcUA24oueKpLtzIkEsDAEzBTTjgVx3n2DBylVHg8
-	gl33gD+gn4uZkqv3pj+PUuJzqts6VCQueitZ0
-X-Gm-Gg: ASbGncsJLEuhXUyz+IEvugK672PGGj+n866Ygl+rqXD7kBPmxKhFB6/8dSbnmggU72R
-	k/sJ6UIVewR5ZYtPg7zOxEouy1fiYSvGoESua9JhY6xPsBuvtD1rALOKT1csbXOBHjH6V2BwEnD
-	BL6LXLaan4/eMqWSlftEy2rh4utkRRlKOt3VSG910EPn7q/oHZK0ie
-X-Google-Smtp-Source: AGHT+IHDyONnXP5kHGTU8ef5H6nBwGkC0E2Wv2qdGeM0PJ8We8AEdbOzl6IOUJnmI3YsbyK6kpxBjX+98Vl502S5GJg=
-X-Received: by 2002:a05:6102:5e92:b0:4c3:64bd:5405 with SMTP id
- ada2fe7eead31-4cb800fc8bbmr10978805137.9.1745368051103; Tue, 22 Apr 2025
- 17:27:31 -0700 (PDT)
+	Wed, 23 Apr 2025 00:46:12 +0000
+Received: from epcas2p2.samsung.com (unknown [182.195.41.54])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250423004600epoutp04c7de2e20b907f9e3bad29bf2e1a1114c~4zAD6C7ip1450314503epoutp04a
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 00:46:00 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250423004600epoutp04c7de2e20b907f9e3bad29bf2e1a1114c~4zAD6C7ip1450314503epoutp04a
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1745369160;
+	bh=/ELxdJsrw9LyX4PHEBuOWIwkMrF2oZbj1XoKIPsTJrY=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=M0SusGMq/BQwHoYwTv/W71NY/wIcU5/BEt6/WhizDMkuKCp2UNwb15KBuW4hLL7nB
+	 JJssMGpplatZ3aRN+W9nNaT0d9mOqovYB77jtpyC8elHj4/EfLm4cB6GNpVLRtXaFh
+	 fR+koQ6BGXTGfMqaDvbp524DIrftp1fKL3I53E0g=
+Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
+	epcas2p4.samsung.com (KnoxPortal) with ESMTPS id
+	20250423004559epcas2p499bd55fcdc74816f52962571c129f06f~4zADUj31j0829508295epcas2p4N;
+	Wed, 23 Apr 2025 00:45:59 +0000 (GMT)
+Received: from epcas2p4.samsung.com (unknown [182.195.36.101]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4Zj0lW1GfJz3hhTD; Wed, 23 Apr
+	2025 00:45:59 +0000 (GMT)
+Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
+	epcas2p3.samsung.com (KnoxPortal) with ESMTPA id
+	20250423004558epcas2p38dfcde1d8068cc8951ced6cf3a864ee1~4zACYlcxy2792927929epcas2p3c;
+	Wed, 23 Apr 2025 00:45:58 +0000 (GMT)
+Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
+	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250423004558epsmtrp1327cc1b294aa654f2ccfab0953ef1afa~4zACXcAYE1547415474epsmtrp1p;
+	Wed, 23 Apr 2025 00:45:58 +0000 (GMT)
+X-AuditID: b6c32a52-41dfa70000004c16-f7-6808384621fe
+Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
+	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
+	3D.8D.19478.64838086; Wed, 23 Apr 2025 09:45:58 +0900 (KST)
+Received: from KORCO115296 (unknown [12.36.150.221]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250423004558epsmtip13565d4e756b1ba4cabfa90c306997e2d~4zACKZQas0157801578epsmtip1S;
+	Wed, 23 Apr 2025 00:45:58 +0000 (GMT)
+From: =?UTF-8?B?7IaQ7Iug?= <shin.son@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, "'Sylwester Nawrocki'"
+	<s.nawrocki@samsung.com>, "'Chanwoo Choi'" <cw00.choi@samsung.com>, "'Alim
+ Akhtar'" <alim.akhtar@samsung.com>, "'Michael Turquette'"
+	<mturquette@baylibre.com>, "'Stephen Boyd'" <sboyd@kernel.org>, "'Rob
+ Herring'" <robh@kernel.org>, "'Conor Dooley'" <conor+dt@kernel.org>,
+	"'Sunyeal Hong'" <sunyeal.hong@samsung.com>
+Cc: <linux-samsung-soc@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+In-Reply-To: <b5ada346-94e7-41f2-852b-6372f02b4122@kernel.org>
+Subject: RE: [PATCH 1/3] dt-bindings: clock: exynosautov920: add cpucl0
+ clock definitions
+Date: Wed, 23 Apr 2025 09:45:50 +0900
+Message-ID: <003601dbb3e9$141c6a40$3c553ec0$@samsung.com>
 MIME-Version: 1.0
-References: <20250412010940.1686376-1-dylanbhatch@google.com>
- <20250412010940.1686376-3-dylanbhatch@google.com> <CAPhsuW4LO9Cr8kpTeNR7nBw1FYrNrXBndYtcTEnA408GL1jT0A@mail.gmail.com>
- <CAPhsuW7z2rdNK3w9Hpwh8FXy29fSUNGKyAw0GbUqfxnfgsfg_Q@mail.gmail.com>
-In-Reply-To: <CAPhsuW7z2rdNK3w9Hpwh8FXy29fSUNGKyAw0GbUqfxnfgsfg_Q@mail.gmail.com>
-From: Dylan Hatch <dylanbhatch@google.com>
-Date: Tue, 22 Apr 2025 17:27:20 -0700
-X-Gm-Features: ATxdqUF_aQC6WF23mfDl6QAYTZrX6z_tX0jk3VuE5MUPI5RIXkEte6wNf-I_3V4
-Message-ID: <CADBMgpzrM7PMePtWaZLaaNXt6z++V0rX2VXtWK4vzdTCS=BpQA@mail.gmail.com>
-Subject: Re: [PATCH v2 2/2] arm64/module: Use text-poke API for late relocations.
-To: Song Liu <song@kernel.org>
-Cc: Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
-	Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, 
-	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
-	Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
-	Xu Kuohai <xukuohai@huaweicloud.com>, =?UTF-8?Q?Philippe_Mathieu=2DDaud=C3=A9?= <philmd@linaro.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	"Mike Rapoport (Microsoft)" <rppt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Luis Chamberlain <mcgrof@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Ard Biesheuvel <ardb@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Roman Gushchin <roman.gushchin@linux.dev>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 15.0
+Thread-Index: AQGPEGrsijGqefHqKZlvX6MGGm+h1AGzlWR9ARm/BD0BPmLVd7QpU1qg
+Content-Language: ko
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprPIsWRmVeSWpSXmKPExsWy7bCSnK6bBUeGwcaP0hYP5m1js1iz9xyT
+	xfUvz1kt5h85x2px/vwGdotNj6+xWnzsucdqcXnXHDaLGef3MVlcPOVq8X/PDnaLw2/aWS3+
+	XdvIYtG0bD2TA5/H+xut7B6bVnWyeWxeUu/Rt2UVo8fnTXIBrFFcNimpOZllqUX6dglcGX/7
+	9zIWfOOoWD1pPXsD4yH2LkZODgkBE4mO2U9ZQGwhge2MEqc/K0HEJSQOz5jACGELS9xvOcIK
+	UfOcUWLCMUUQm03AUGLVj+1MXYxcHCICE5klLn24wALiMAtsYpQ4t/smG0THe0aJMyc8uhg5
+	ODgF7CS+3gZbJiwQKfFp3T+wBSwCqhKfjv4Bi/MKWEp0Xb/BCGELSpyc+QQsziygLdH7sJUR
+	xl628DUzxHEKErs/HQU7TkTATeLQtHNQNSISszvbmCcwCs9CMmoWklGzkIyahaRlASPLKkbR
+	1ILi3PTc5AJDveLE3OLSvHS95PzcTYzgONQK2sG4bP1fvUOMTByMhxglOJiVRHh/ubFnCPGm
+	JFZWpRblxxeV5qQWH2KU5mBREudVzulMERJITyxJzU5NLUgtgskycXBKNTAF3SrOXRCh2JqY
+	Z3cx42rJLTvz9BXL52/in/v77/boT2GvKp/J8BpFGKmI3X/V95bbMTG+u/vCjiN9V84xxDYz
+	fL3wNcRp9w2L5vSTJ3rWPTT7fLOsfLZfiFpi6ZG7BieWVN1enOPTWeo6hz+yQWgm18dlXNKy
+	TmVZTJ5fPqd8VPB/yrnqpnJPiNpf/gyWu2rSMx84bctVFlW5ZlNVVyvx/l2Fz6KGP+fnGf+5
+	xCVSnnH+xxS9+jVsglfbr/z6aF8V+blB7N+fiulndnxKmiPKZFG2RDd5QwQfU4Te64dnqhqn
+	Vnaej1n5ySCD9/DT8qwYga9bGyP5tCeIrRQ6sr7Ryd7F4in7/OuOl6bOPaXEUpyRaKjFXFSc
+	CAAtn+zcMgMAAA==
+X-CMS-MailID: 20250423004558epcas2p38dfcde1d8068cc8951ced6cf3a864ee1
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: AUTO_CONFIDENTIAL
+CMS-TYPE: 102P
+cpgsPolicy: CPGSC10-234,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250418061515epcas2p3d2dd703db7eb645f4866dcb01cc288fc
+References: <20250418061500.1629200-1-shin.son@samsung.com>
+	<CGME20250418061515epcas2p3d2dd703db7eb645f4866dcb01cc288fc@epcas2p3.samsung.com>
+	<20250418061500.1629200-2-shin.son@samsung.com>
+	<b5ada346-94e7-41f2-852b-6372f02b4122@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_172733_348904_ADD6DD7F 
-X-CRM114-Status: GOOD (  18.98  )
+X-CRM114-CacheID: sfid-20250422_174610_461060_9A6BE07C 
+X-CRM114-Status: GOOD (  13.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,47 +125,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 21, 2025 at 11:25=E2=80=AFPM Song Liu <song@kernel.org> wrote:
->
-> On Mon, Apr 21, 2025 at 5:35=E2=80=AFPM Song Liu <song@kernel.org> wrote:
-> >
-> > On Fri, Apr 11, 2025 at 6:10=E2=80=AFPM Dylan Hatch <dylanbhatch@google=
-.com> wrote:
-> > >
-> > > To enable late module patching, livepatch modules need to be able to
-> > > apply some of their relocations well after being loaded. In this
-> > > scenario, use the text-poking API to allow this, even with
-> > > STRICT_MODULE_RWX.
-> > >
-> > > This patch is largely based off commit 88fc078a7a8f6 ("x86/module: Us=
-e
-> > > text_poke() for late relocations").
-> > >
-> > > Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
->
-> Could you please share how you test this?
->
+Hello Krzysztof Kozlowski,
 
-For context, we enable livepatch for arm64 by porting this RFC series
-(along with other internal patches) into our kernel:
-https://lore.kernel.org/all/20230202074036.507249-1-madvenka@linux.microsof=
-t.com/.
+> -----Original Message-----
+> From: Krzysztof Kozlowski =5Bmailto:krzk=40kernel.org=5D
+> Sent: Tuesday, April 22, 2025 4:54 PM
+> To: Shin Son <shin.son=40samsung.com>; Sylwester Nawrocki
+> <s.nawrocki=40samsung.com>; Chanwoo Choi <cw00.choi=40samsung.com>; Alim
+> Akhtar <alim.akhtar=40samsung.com>; Michael Turquette
+> <mturquette=40baylibre.com>; Stephen Boyd <sboyd=40kernel.org>; Rob Herri=
+ng
+> <robh=40kernel.org>; Conor Dooley <conor+dt=40kernel.org>; Sunyeal Hong
+> <sunyeal.hong=40samsung.com>
+> Cc: linux-samsung-soc=40vger.kernel.org; linux-clk=40vger.kernel.org;
+> devicetree=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org; lin=
+ux-
+> kernel=40vger.kernel.org
+> Subject: Re: =5BPATCH 1/3=5D dt-bindings: clock: exynosautov920: add cpuc=
+l0
+> clock definitions
+>=20
+> On 18/04/2025 08:14, Shin Son wrote:
+> > Add cpucl0 clock definitions.
+>=20
+> ... and cpucl0 is? Describe the hardware in the commit msg in the future.
+>=20
+>=20
+> Best regards,
+> Krzysztof
 
-The way I tested this patch is: with STRICT_MODULE_RWX, load a module
-and a livepatch that touches that module (in either order), and
-confirm the kernel doesn't crash.
+Thanks for the feedback.
+I'll update the commit message to include a brief description of the hardwa=
+re.
 
-Without this patch, a crash is caused in apply_relocate_add() if both
-a module and a livepatch that touches the module are both loaded. This
-happens through one of two code paths:
+Best regards,
+Shin Son
 
-  1. If the module is already loaded when the livepatch is applied,
-through the module_init() callback.
-  2. If the module is loaded after the livepatch is applied, through
-prepare_coming_module().
-
-In both scenarios, the livepatch module's text is already RX-only.
-
-Thanks,
-Dylan
 
