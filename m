@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED249C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 14:14:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B6BFC369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 14:16:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q9DrO1JHwLaIt6bW4FlCMne9odphYqzBVZA9TwC5d4I=; b=Vq9C2iscV2SlpW3PpfCnpJf4IS
-	vxWRwK+6P+LIGEw0MgO51zZZJMbNv1PAqhlRAvKQ/4erYPymyRfXDaHo3ZRWmwtb4ro1jlLAAFq21
-	f9sPy3LlN53ClcjQdn+nWm96Lnjk+1jZu0/SqVtDkUGByjol6w0aDpF16UvJB1P18lqaXwdDAcZ5I
-	+VpbrbfhwErA0j0dXHkc4Q5nn6ujtiGLi+iQIgGFuZgTcmun5dsNgj0zlh+yrUtLqzOhxtUqIy7IW
-	w0QsbAhvOiHfBkZ/8rtiYMEoQ6PR7jsiFEWgfahjC/mmlH7gc5uztTIzwisiA3CQPVYOHyl/OzOWU
-	LLWRX/2A==;
+	bh=X8ymBgUSA5ZN0KXL1mRdo7aKval8NgY94GI7dvST/r4=; b=nV+12VmdrNXH6l2Iv/GbUVnQN8
+	zJfymwLC0GgfE3cBJf3I+rgv9byoghEAPuDWUo28lIJcl0d5NCHEKy3WosspFTRERcwE++ZJ+pCis
+	dK/qKwwMRVplxeCkEICawgG4f/tl+7AEOV9d+u6IwLedvoaxTYneUjZgz9ULewpp+0jgpDPuOTa/p
+	Br/xErAYo5cEQc6Iv5TPm3cCt9o/KIWaXO61sizNQtiIOxUUcSBfeMtBkone1iKzt99LML8oDDyA3
+	g46XBLS9P/FRhvBkBgExylfUviDtv70gqWevy82sGXU4dVUhHXiljXO9ACLGlCLK2ICsZj4139Hz/
+	WWG3dUpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7arp-0000000An1V-3ejS;
-	Wed, 23 Apr 2025 14:14:25 +0000
+	id 1u7atn-0000000AnFh-2uMu;
+	Wed, 23 Apr 2025 14:16:27 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7aJ1-0000000AdMf-3WOs
+	id 1u7aJ2-0000000AdMj-1BuM
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 23 Apr 2025 13:38:27 +0000
+	Wed, 23 Apr 2025 13:38:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Sender:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description;
-	bh=Q9DrO1JHwLaIt6bW4FlCMne9odphYqzBVZA9TwC5d4I=; b=ELHyTWTwfHf+2TH6xRVBmTjUpF
-	mtsx52hyXN1IeETj3AyY/nShlOo1qhFnu/mGq5rz8FXCP1FTrDpVnMW0CihtnzP6YGYn3MCI7iTZj
-	nyhgKEiqfyDYNFPdJ7fDe+YfhXTspEDcIybAXPRMvZEN9EudYqyXh154H81CKUWxBe1Cy0Evh9xcN
-	43r/+6rW763eJORToBRl6knbLz5hz1SRBKuIfoNtycSHpzd0dWAl/I5G/mfirqHK/qXtv7H20IK1D
-	MLwOGVkGUt/0olVUWbm3C0+Ej7GbXA7TtCtQ17QK9Svjw4Pr+lfWazarAyNc5YwRAr35vizU8X7d6
-	ZFFzWSFw==;
+	bh=X8ymBgUSA5ZN0KXL1mRdo7aKval8NgY94GI7dvST/r4=; b=uW58jtRqb9rat/jy8XkoWXi6AM
+	P5hBl1WxKrp7wIkxwfz+6u7NU8jvldTnxq3MoRWuRVIVRPipDpYnUz1mDzIfq3i1QBvampsw2aEwQ
+	I4OxrPjEOuWNCXGVF0jZCkg2UAGOmQSnAvL2XphfzHq2X4K8aOlqPUyyl1hfVjtBX7cVs/aumXtvy
+	jqqPrhjkixIsOz0u2SoFC5F2wMqoSA2j4wbk+EGow/2lwBctZL1ltQRDAhN7sGTYmsUGzkX0a9kmM
+	OIx/37DsAK4P8S1w4p/VCW8r9vTVozBgxF8Z+i4gIBXgypuwJ7hU+0nl5ALm2zd7AOit6GcvxTcPR
+	YbBLCf+A==;
 Received: from [2001:8b0:10b:1::ebe] (helo=i7.infradead.org)
 	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7aIx-000000097Jh-2A4h;
+	id 1u7aIx-000000097Jf-1dtS;
 	Wed, 23 Apr 2025 13:38:23 +0000
 Received: from dwoodhou by i7.infradead.org with local (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u7aIx-00000003JOw-1HUC;
+	id 1u7aIx-00000003JOg-0b7h;
 	Wed, 23 Apr 2025 14:38:23 +0100
 From: David Woodhouse <dwmw2@infradead.org>
 To: Mike Rapoport <rppt@kernel.org>
@@ -60,9 +60,9 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org,
 	Ruihan Li <lrh2000@pku.edu.cn>
-Subject: [PATCH v4 6/7] mm: Use for_each_valid_pfn() in memory_hotplug
-Date: Wed, 23 Apr 2025 14:33:42 +0100
-Message-ID: <20250423133821.789413-7-dwmw2@infradead.org>
+Subject: [PATCH v4 2/7] mm: Implement for_each_valid_pfn() for CONFIG_FLATMEM
+Date: Wed, 23 Apr 2025 14:33:38 +0100
+Message-ID: <20250423133821.789413-3-dwmw2@infradead.org>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250423133821.789413-1-dwmw2@infradead.org>
 References: <20250423133821.789413-1-dwmw2@infradead.org>
@@ -85,42 +85,38 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: David Woodhouse <dwmw@amazon.co.uk>
 
-Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
-Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
----
- mm/memory_hotplug.c | 8 ++------
- 1 file changed, 2 insertions(+), 6 deletions(-)
+In the FLATMEM case, the default pfn_valid() just checks that the PFN is
+within the range [ ARCH_PFN_OFFSET .. ARCH_PFN_OFFSET + max_mapnr ).
 
-diff --git a/mm/memory_hotplug.c b/mm/memory_hotplug.c
-index 8305483de38b..8f74c55137bf 100644
---- a/mm/memory_hotplug.c
-+++ b/mm/memory_hotplug.c
-@@ -1756,12 +1756,10 @@ static int scan_movable_pages(unsigned long start, unsigned long end,
- {
- 	unsigned long pfn;
+The for_each_valid_pfn() function can therefore be a simple for() loop
+using those as min/max respectively.
+
+Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
+Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+---
+ include/asm-generic/memory_model.h | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
+
+diff --git a/include/asm-generic/memory_model.h b/include/asm-generic/memory_model.h
+index a3b5029aebbd..74d0077cc5fa 100644
+--- a/include/asm-generic/memory_model.h
++++ b/include/asm-generic/memory_model.h
+@@ -30,7 +30,15 @@ static inline int pfn_valid(unsigned long pfn)
+ 	return pfn >= pfn_offset && (pfn - pfn_offset) < max_mapnr;
+ }
+ #define pfn_valid pfn_valid
+-#endif
++
++#ifndef for_each_valid_pfn
++#define for_each_valid_pfn(pfn, start_pfn, end_pfn)			 \
++	for ((pfn) = max_t(unsigned long, (start_pfn), ARCH_PFN_OFFSET); \
++	     (pfn) < min_t(unsigned long, (end_pfn),			 \
++			   ARCH_PFN_OFFSET + max_mapnr);		 \
++	     (pfn)++)
++#endif /* for_each_valid_pfn */
++#endif /* valid_pfn */
  
--	for (pfn = start; pfn < end; pfn++) {
-+	for_each_valid_pfn (pfn, start, end) {
- 		struct page *page;
- 		struct folio *folio;
- 
--		if (!pfn_valid(pfn))
--			continue;
- 		page = pfn_to_page(pfn);
- 		if (PageLRU(page))
- 			goto found;
-@@ -1805,11 +1803,9 @@ static void do_migrate_range(unsigned long start_pfn, unsigned long end_pfn)
- 	static DEFINE_RATELIMIT_STATE(migrate_rs, DEFAULT_RATELIMIT_INTERVAL,
- 				      DEFAULT_RATELIMIT_BURST);
- 
--	for (pfn = start_pfn; pfn < end_pfn; pfn++) {
-+	for_each_valid_pfn (pfn, start_pfn, end_pfn) {
- 		struct page *page;
- 
--		if (!pfn_valid(pfn))
--			continue;
- 		page = pfn_to_page(pfn);
- 		folio = page_folio(page);
+ #elif defined(CONFIG_SPARSEMEM_VMEMMAP)
  
 -- 
 2.49.0
