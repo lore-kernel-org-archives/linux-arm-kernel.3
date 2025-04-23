@@ -4,73 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 749C0C369D7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 14:22:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 084A9C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 14:24:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DoX1mLsF5BZf8Dfmzq+q3ULu4XnvR8sckoyZnXWuhbo=; b=stAlXAHs9E26k4dBcthybBkmB6
-	m9h7dMNYQfynEtI1XjIvp9TDppb2bafH4rYAg/c7U2QOVSwejEId5kwShySSBgFUf0YlULaIeyhpL
-	nYCY6vFC9iIzWZ6Bo1YDfQis1wJWycHUfNph3sPEEdGXOkWLjumRxIqLTj2GiuYVM7Y7vnbZ4ZVNG
-	6OHglHaz5wWaJ3PFw9DqXpXDhu4WVGj7Ms0I8aAv+Aq82ljxiaOhfZkToRaxfaL8LA9w6j7zHrOnh
-	2wbaTD+p3c7KOFw+pvzKP+V41Ethf7jpL0ij66NQFhm/uQh0lkFLZ3LyFxfUNCgDRB9xkYMlB3XQE
-	6lvfoOHw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FfrnhMcNKf5rCGWHGoNIZp7mNgbnWoHESdB7RpEhfqo=; b=4AXIN51lWHzUUZ8Gz9TGQyeQgO
+	VAAlKCwqCKfzajj+c9sZGb6XA6a4qmN0Qu35nfSn9G7eUGrCSmXwyJk6kg3kqSXynKkzBOkJUBjTP
+	cRCvCwXO9G7n0wGEvoipObJTBRn5EGWj1VW5jiO+fB0QgcLFc7obPdZImJLql2/xJTHrFNiLoHq9g
+	ttLB0kZVYUGYM1Py8C/52LwZECnCu/1qQ1qHDwKyzdJkp1ABt5thnJ65rrvWVNCJDCcDWagjuZm9r
+	uQbYZ38cZR0nUSxyioP+/IAoRH2V07hl5O0pfPS4rA5YcANmeQfb5t85RUO2Qmc2z9U6gtivSZooL
+	zTSgxZug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7azc-0000000AoCr-3vdR;
-	Wed, 23 Apr 2025 14:22:28 +0000
-Received: from smtp-fw-6002.amazon.com ([52.95.49.90])
+	id 1u7b1Z-0000000Aoen-3kXP;
+	Wed, 23 Apr 2025 14:24:29 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7aKF-0000000Adf2-3mdq
+	id 1u7aNd-0000000AeJM-40xU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 13:39:45 +0000
+	Wed, 23 Apr 2025 13:43:15 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-440685d6afcso60758045e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 06:43:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazon201209;
-  t=1745415584; x=1776951584;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=DoX1mLsF5BZf8Dfmzq+q3ULu4XnvR8sckoyZnXWuhbo=;
-  b=pPgOM4+yezQHcSkvXWWKErHl1a18cPhH28rgPAYp/rqFDMWg2oEkiCbd
-   ZuM+TK5Uhnkq5BPhyMs1zsTsFTGwAsxLYD7AcF/g1cyxgv45F5PoQludd
-   AaeBetoIKj/RHrBgfik4nNKTpnDVoucbT1SxFiJZpj/ozTdWAFWk/kp0y
-   0=;
-X-IronPort-AV: E=Sophos;i="6.15,233,1739836800"; 
-   d="scan'208";a="491901288"
-Received: from iad12-co-svc-p1-lb1-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.43.8.6])
-  by smtp-border-fw-6002.iad6.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Apr 2025 13:39:39 +0000
-Received: from EX19MTAEUA002.ant.amazon.com [10.0.17.79:47330]
- by smtpin.naws.eu-west-1.prod.farcaster.email.amazon.dev [10.0.46.127:2525] with esmtp (Farcaster)
- id b3015d5d-5400-4018-90ac-1dbab7b74be4; Wed, 23 Apr 2025 13:39:24 +0000 (UTC)
-X-Farcaster-Flow-ID: b3015d5d-5400-4018-90ac-1dbab7b74be4
-Received: from EX19D029EUC001.ant.amazon.com (10.252.61.252) by
- EX19MTAEUA002.ant.amazon.com (10.252.50.124) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
- Wed, 23 Apr 2025 13:39:24 +0000
-Received: from dev-dsk-bsz-1b-e2c65f5d.eu-west-1.amazon.com (10.13.227.240) by
- EX19D029EUC001.ant.amazon.com (10.252.61.252) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
- Wed, 23 Apr 2025 13:39:22 +0000
-From: Bartosz Szczepanek <bsz@amazon.de>
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-CC: <nh-open-source@amazon.com>, Bartosz Szczepanek <bsz@amazon.de>, Alexander
- Graf <graf@amazon.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: [RFC PATCH] arm64: Emit debug bootcodes for early kernel boot
-Date: Wed, 23 Apr 2025 13:39:07 +0000
-Message-ID: <20250423133910.909-1-bsz@amazon.de>
-X-Mailer: git-send-email 2.47.1
+        d=linaro.org; s=google; t=1745415792; x=1746020592; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FfrnhMcNKf5rCGWHGoNIZp7mNgbnWoHESdB7RpEhfqo=;
+        b=ceV6XmHn7i2qxX47TvpkDzKMSmFH64EamJSPo4P5NqArx4JtAhGgCw7gV5IsixElKB
+         mgQuM6xUp8XWJKXzs7whXHd6Udq0+CewlDx/Rkyz4i59YR/xNxnsvyVXrkjliWTO9Qas
+         /SiPmAPc9oEUyHWn1ys7M0vTmJK8cydBDXY2dX8OYsqijGSH2HVs78UUiPCUG1CeisO0
+         Q757llMRJqAxFdPzsKiEYTKx++11AI8/9D0md8eBVbOlP8Sb8xfSRHJlrt5ns4H8KbKa
+         LPd2p8szF8+PfkadG2de1Wr9SxDzYVEEchXrecqNhpGds09dssccn1WtwFsT4pAAlabw
+         gQOw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745415792; x=1746020592;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=FfrnhMcNKf5rCGWHGoNIZp7mNgbnWoHESdB7RpEhfqo=;
+        b=eZxRT97ueMfGtyDODV+Wzlx6wDrqc3BLN5S6GdiQIDiwzG5mV9kpVWEOloqvwG1BDl
+         TbTPKbhE4FPN7NWP1hLCU3B+0C3TDzrZR0JRwKQG6dYMP7IMLxryUWyGRAbF89yY2GXK
+         4IwlLk2EZMu1J+NXnSLRbMnjw0mYTYOpeVetEcysoYfZZx4TfQuNP/qCZHFZyXxf95Vv
+         hZyzsX31dTijngmKNfyaa2BQ8k/Mepqgwesgu91qy3bzObUFMT3vGpRKpZhR1EuF7VQc
+         m0a7BntwMTuaNyxhPUTAhCux+AKM3qAFZ8WQ/Ee32O4kUAKc2gf1Vn2zIRflmqoKpH6p
+         +KIw==
+X-Forwarded-Encrypted: i=1; AJvYcCVZvMgh7Zx016GCa8aT+VUgXvoyrWow6SwVNaxrorzMI4vJQLNVeZSYtCkyOz26G/STgeQgVeR0ytzImm6sIcyZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyTjBq063PwdtvmN8Cx7bZZcFPLEap1CM7GRbuFMbP1jwPAUW/Z
+	URposWykfnD3UvXZR87fjsf3eFQy1vUGTjitY65XC/Y3B+N6UXOfvHmRn/LnxBQ=
+X-Gm-Gg: ASbGncudfRfjJrtvNnoLEdvyE2GW5xIh2CkEjyBb1ixlDkwm3VKCwmMw5KPw1ij8gF3
+	XiDXqzcoOD6Hc/9X7WyRu9Z3Trq95QT7HyHMk6b/FKVGSihWNEwx8mdshqlFiax2oP18MqOoh87
+	MtD0WQj6fY5TA+l5u48AfGms50/+tMukyTINFJWqqVMuVG0osSqhgMGUZCd0U2dLIgpPZbwlvAj
+	8GmK8puFwUdBVVEUeRYbmpH/avXdL0AgRnL8pWJ3fMM3rJPkpOR+Bs2rnYwXs+AnLA5vWVVwakR
+	7IE5Uxht2l2e1+rCIJWKeYxgFmk2ckLvQb7Xjpm3lwZhmBRhoC0s2t5S/hxnrY3cYDFOgbZdcIG
+	3j/cws6Ba+PRuDCTHDA==
+X-Google-Smtp-Source: AGHT+IHnS/+w8vgB7Qer4VFmmeqW2fg9vqIPQjMtQu2PKuXwZePY3kDPFYEnC2G7XWePQ888jen21Q==
+X-Received: by 2002:a05:600c:5027:b0:43c:fa52:7d2d with SMTP id 5b1f17b1804b1-4406abfa6bcmr157183955e9.20.1745415792377;
+        Wed, 23 Apr 2025 06:43:12 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:3d9:2080:2835:c2f4:c226:77dd? ([2a01:e0a:3d9:2080:2835:c2f4:c226:77dd])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-44092db2ba6sm26108245e9.31.2025.04.23.06.43.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 23 Apr 2025 06:43:11 -0700 (PDT)
+Message-ID: <1acbe9dc-02ca-4233-a79a-901e714f5c9c@linaro.org>
+Date: Wed, 23 Apr 2025 15:43:08 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.13.227.240]
-X-ClientProxiedBy: EX19D042UWB004.ant.amazon.com (10.13.139.150) To
- EX19D029EUC001.ant.amazon.com (10.252.61.252)
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH 32/33] dt-bindings: display: panel: samsung,ams581vf01:
+ Add google,sunfish
+To: Danila Tikhonov <danila@jiaxyga.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-pm@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-watchdog@vger.kernel.org, linux-usb@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-mmc@vger.kernel.org,
+ netdev@vger.kernel.org, linux-scsi@vger.kernel.org,
+ dmaengine@vger.kernel.org, linux-crypto@vger.kernel.org,
+ linux-i2c@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-remoteproc@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linux-hardening@vger.kernel.org, linux@mainlining.org,
+ ~postmarketos/upstreaming@lists.sr.ht
+References: <20250422213137.80366-1-danila@jiaxyga.com>
+ <20250422213137.80366-16-danila@jiaxyga.com>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20250422213137.80366-16-danila@jiaxyga.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_063944_097338_5EDCD5B8 
-X-CRM114-Status: GOOD (  20.51  )
+X-CRM114-CacheID: sfid-20250423_064314_044606_05365579 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,214 +136,44 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+On 22/04/2025 23:31, Danila Tikhonov wrote:
+> This panel is used in Google Pixel 4a (google,sunfish). Document the
+> corresponding string.
+> 
+> Signed-off-by: Danila Tikhonov <danila@jiaxyga.com>
+> ---
+>   .../bindings/display/panel/samsung,ams581vf01.yaml        | 8 +++++++-
+>   1 file changed, 7 insertions(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/display/panel/samsung,ams581vf01.yaml b/Documentation/devicetree/bindings/display/panel/samsung,ams581vf01.yaml
+> index 70dff9c0ef2b..a3a1de32d8be 100644
+> --- a/Documentation/devicetree/bindings/display/panel/samsung,ams581vf01.yaml
+> +++ b/Documentation/devicetree/bindings/display/panel/samsung,ams581vf01.yaml
+> @@ -17,7 +17,13 @@ allOf:
+>   
+>   properties:
+>     compatible:
+> -    const: samsung,ams581vf01
+> +    oneOf:
+> +      - enum:
+> +          - samsung,ams581vf01
+> +      - items:
+> +          - enum:
+> +              - google,ams581vf01-sunfish
+> +          - const: samsung,ams581vf01
 
-I'm looking for your comments on the following change, that came out
-of our investigations of rare crashes in the very early phase of kernel
-boot while still in the assembly code. The change we came up with relies
-on contextidr_el2 which is used to record checkpoints (bootcodes), to be
-used later for narrowing down on the point of failure. To do so, one needs
-modified firmware or another tool capable of dumping contextidr_el2 after
-failure happens.
 
-The usage of contextidr_el2 register comes from the fact that it's not
-used for any purpose within the kernel (contrary to contextidr_el1), and
-contents of it are unlikely to change even if any other code would be
-executed after the failure.
+Why do you introduce a new compatible ? using samsung,ams581vf01 is prefectly fine
+if it's same panel.
 
-Primary alternative solution – debugging by printing – hardly applies to
-such early code, as page table mappings are not yet established and
-stable virtual address of console can't be relied upon.
+Neil
 
-On the other hand, bisecting through the code is not always feasible,
-especially if the failure rates are very low. Bootcodes help that case.
-
-What I'd like to get your input on:
-- Is there an alternative solution for post-mortem analysis of rare
-  crashes in very early kernel boot that we missed?
-- Would the introduction of bootcodes be welcome upstream, in this or
-  any other shape? If so, how could we make it suitable for inclusion?
-
-Kind regards
-Bartosz
-
--------------------------------------------------
-arm64: Emit debug bootcodes for early kernel boot
-
-Reuse contextidr_el2 register which is unused in the early boot phase
-for the purpose of tracking bootcodes. This allows to identify point of
-failure in early boot code and helps investigations.
-
-To make the change safe on targets without contextidr_el2, we're
-checking dfr0_el1 debug version bits. If it tells us we're below
-ARMV8.1, we bail out without writing to contextidr_el2.
-
-To make use of the change, modified firmware or another tool capable of
-periodically dumping contextidr_el2 is necessary.
-
-Signed-off-by: Bartosz Szczepanek <bsz@amazon.de>
----
- arch/arm64/Kconfig.debug   |  6 ++++++
- arch/arm64/kernel/Makefile |  5 +++++
- arch/arm64/kernel/head.S   | 40 ++++++++++++++++++++++++++++++++++++++
- 3 files changed, 51 insertions(+)
-
-diff --git a/arch/arm64/Kconfig.debug b/arch/arm64/Kconfig.debug
-index 265c4461031f..668bda096773 100644
---- a/arch/arm64/Kconfig.debug
-+++ b/arch/arm64/Kconfig.debug
-@@ -20,4 +20,10 @@ config ARM64_RELOC_TEST
- 	depends on m
- 	tristate "Relocation testing module"
- 
-+config DEBUG_EARLY_BOOT
-+	bool "Early boot debugging"
-+	help
-+	  Enable this option to use contextidr_el2 register for storing
-+	  bootcodes from the early assembly code.
-+
- source "drivers/hwtracing/coresight/Kconfig"
-diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
-index 71c29a2a2f19..72b38e8314d4 100644
---- a/arch/arm64/kernel/Makefile
-+++ b/arch/arm64/kernel/Makefile
-@@ -84,5 +84,10 @@ ifeq ($(CONFIG_DEBUG_EFI),y)
- AFLAGS_head.o += -DVMLINUX_PATH="\"$(realpath $(objtree)/vmlinux)\""
- endif
- 
-+ifeq ($(CONFIG_DEBUG_EARLY_BOOT),y)
-+AFLAGS_head.o += -march=armv8.1-a
-+CFLAGS_setup.o += -march=armv8.1-a
-+endif
-+
- # for cleaning
- subdir- += vdso vdso32
-diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
-index 2ce73525de2c..f15db7e83b6e 100644
---- a/arch/arm64/kernel/head.S
-+++ b/arch/arm64/kernel/head.S
-@@ -42,6 +42,34 @@
- #error PAGE_OFFSET must be at least 2MB aligned
- #endif
- 
-+#ifdef CONFIG_DEBUG_EARLY_BOOT
-+/*
-+ * This debugging enhancement makes use of contextidr_el2 for the purpose
-+ * of storing bootcodes.
-+ */
-+.macro _emit_bootcode val, t1
-+	/* Check if in EL2 */
-+	mrs	\t1, CurrentEL
-+	ubfx    \t1, \t1, #2, #2
-+	cmp	\t1, #2
-+	b.ne	1f
-+
-+	/* Check if we're at least ARMv8.1 */
-+	mrs	\t1, ID_AA64DFR0_EL1
-+	ubfx	\t1, \t1, #0, #4
-+	cmp	\t1, #7
-+	b.lt	1f
-+
-+	mov	\t1, #\val
-+	msr	contextidr_el2, \t1
-+1:
-+	/* Quit */
-+.endm
-+#define emit_bootcode(reg) _emit_bootcode __LINE__, reg
-+#else
-+#define emit_bootcode(reg)
-+#endif
-+
- /*
-  * Kernel startup entry point.
-  * ---------------------------
-@@ -86,6 +114,7 @@ SYM_CODE_START(primary_entry)
- 	bl	record_mmu_state
- 	bl	preserve_boot_args
- 
-+	emit_bootcode(x22)
- 	adrp	x1, early_init_stack
- 	mov	sp, x1
- 	mov	x29, xzr
-@@ -101,6 +130,7 @@ SYM_CODE_START(primary_entry)
- 	cbnz	x19, 0f
- 	dmb     sy
- 	mov	x1, x0				// end of used region
-+	emit_bootcode(x22)
- 	adrp    x0, init_idmap_pg_dir
- 	adr_l	x2, dcache_inval_poc
- 	blr	x2
-@@ -126,7 +156,9 @@ SYM_CODE_START(primary_entry)
- 	 * On return, the CPU will be ready for the MMU to be turned on and
- 	 * the TCR will have been set.
- 	 */
-+	emit_bootcode(x22)
- 	bl	__cpu_setup			// initialise processor
-+	emit_bootcode(x22)
- 	b	__primary_switch
- SYM_CODE_END(primary_entry)
- 
-@@ -220,10 +252,12 @@ SYM_CODE_END(preserve_boot_args)
- SYM_FUNC_START_LOCAL(__primary_switched)
- 	adr_l	x4, init_task
- 	init_cpu_task x4, x5, x6
-+	emit_bootcode(x22)
- 
- 	adr_l	x8, vectors			// load VBAR_EL1 with virtual
- 	msr	vbar_el1, x8			// vector table address
- 	isb
-+	emit_bootcode(x22)
- 
- 	stp	x29, x30, [sp, #-16]!
- 	mov	x29, sp
-@@ -236,6 +270,7 @@ SYM_FUNC_START_LOCAL(__primary_switched)
- 
- 	mov	x0, x20
- 	bl	set_cpu_boot_mode_flag
-+	emit_bootcode(x22)
- 
- #if defined(CONFIG_KASAN_GENERIC) || defined(CONFIG_KASAN_SW_TAGS)
- 	bl	kasan_early_init
-@@ -243,6 +278,7 @@ SYM_FUNC_START_LOCAL(__primary_switched)
- 	mov	x0, x20
- 	bl	finalise_el2			// Prefer VHE if possible
- 	ldp	x29, x30, [sp], #16
-+	emit_bootcode(x22)
- 	bl	start_kernel
- 	ASM_BUG()
- SYM_FUNC_END(__primary_switched)
-@@ -464,6 +500,7 @@ SYM_FUNC_START(__enable_mmu)
- 	cmp     x3, #ID_AA64MMFR0_EL1_TGRAN_SUPPORTED_MAX
- 	b.gt    __no_granule_support
- 	phys_to_ttbr x2, x2
-+	emit_bootcode(x22)
- 	msr	ttbr0_el1, x2			// load TTBR0
- 	load_ttbr1 x1, x1, x3
- 
-@@ -506,16 +543,19 @@ SYM_FUNC_START_LOCAL(__no_granule_support)
- SYM_FUNC_END(__no_granule_support)
- 
- SYM_FUNC_START_LOCAL(__primary_switch)
-+	emit_bootcode(x22)
- 	adrp	x1, reserved_pg_dir
- 	adrp	x2, init_idmap_pg_dir
- 	bl	__enable_mmu
- 
-+	emit_bootcode(x22)
- 	adrp	x1, early_init_stack
- 	mov	sp, x1
- 	mov	x29, xzr
- 	mov	x0, x20				// pass the full boot status
- 	mov	x1, x21				// pass the FDT
- 	bl	__pi_early_map_kernel		// Map and relocate the kernel
-+	emit_bootcode(x22)
- 
- 	ldr	x8, =__primary_switched
- 	adrp	x0, KERNEL_START		// __pa(KERNEL_START)
--- 
-2.47.1
+>   
+>     reg:
+>       maxItems: 1
 
 
