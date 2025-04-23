@@ -4,103 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF7FBC369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 11:05:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9BDEC369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 11:07:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cg2vc7IT4AFysQebcXg1sFQ25+QiyXdjEbxwg67yizc=; b=mRXdCqKcFwkRCsmm/LU2/N9DSR
-	Def77oLb0rg4EjzcPan7mQiLuD3AK66VsFM06N9/Yb4Zf9ni4rWIlkCSvZD1h6GPObF/L0NMAB2ru
-	AoroePocwzjt7p/ayP5trdRU7LOUBCseHh12oWJKt5LT1xjc9xh++3Ef/2HnxP2+j9NHxGcHSi4rx
-	VVj4FybQMNToEZou8KMPfMPr6PEVr+x9/DBxM3SulCHMGvT0PG5b89L7WVqGvcd5odzpsG702ZSoT
-	3nYg/KAlTYgD5DIMz75rxIkLDYwmmU2mn8PN63GFTpo3ZUl67H80X0pCcuP+bs7iZlRbb2ap+i6L7
-	YH36yx+A==;
+	bh=nseFZjuD3Zo/oeOcaVqXU/4dEYVuJJ3VyVH0pA0poQQ=; b=NEXeed/CFrrWC8rPEKLtNWo+lk
+	psa6o62uOZ+LyRDiaooIno5yPZpODOunZoWYFHZVo7dn9GvBTPFLe6g2RXb+XKOTsNUcOpmGqKjsI
+	thrA7e3K88ToiCJCsh/25iLsUJQjmjPHZVYBIVeOf+VF0c5tJbz747MRKVa16kxIqRk8w7H/mU6OX
+	wxDIw7ta2n34Jg4hKF8etKznppNZS66EHG19xs7Vgmh/M5mbtqIFJeFlqU7O1gHySOuhplBimNJQm
+	i849Fcxe9ETT4Cq4gCiqVn6Bl955oQY2QHR0qiMvywRiXye/uSm0jKDuaoK+lWRPghdcmBqHzmRTQ
+	dnodVR7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Xur-0000000AFvj-3V1g;
-	Wed, 23 Apr 2025 11:05:21 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1u7Xwn-0000000AG3U-2BDM;
+	Wed, 23 Apr 2025 11:07:21 +0000
+Received: from mail-switzerlandnorthazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c213::5] helo=ZR1P278CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7X4z-0000000A7fJ-2GfA
+	id 1u7X9w-0000000A8gq-2gqV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 10:11:46 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53N0i7SV022437;
-	Wed, 23 Apr 2025 10:11:39 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	cg2vc7IT4AFysQebcXg1sFQ25+QiyXdjEbxwg67yizc=; b=CZglPaG/22Lt/895
-	cxp/sQay+BSvQIlD+W26fi3upi63DUWjm086otICymVvauZthWgCFejT4NmqPilV
-	ONpk9l7svkZUjWKC++TCkpPNgyH19WLk3xA3Q+77FW6W4FJiNcZSiKlf7Y9mjkqS
-	DSo6nSfaC8zympgpr4QxINJlVdpoTP4cg0e7VaKRgkY9fc3mZkiE9XjzMB7QjpHT
-	zqvzKC5ueCZLW3IyWkSGVxCBXDjPtFX2l+EzpN6mEl95dccDytUWk2QOxqaeYaU0
-	Pf0dRt7shvDLVAc8nTPkpiZqbEttpoZEB4RlxoV/tMnIElV9ZGkDw+UH8WOI/T2q
-	JT/3gw==
-Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 466jh29r2b-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 23 Apr 2025 10:11:39 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53NABcbT030654
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 23 Apr 2025 10:11:38 GMT
-Received: from ap-cloud-sh02-lnx.qualcomm.com (10.80.80.8) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Wed, 23 Apr 2025 03:11:35 -0700
-From: Songwei Chai <quic_songchai@quicinc.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
-	<mike.leach@linaro.org>, James Clark <james.clark@arm.com>,
-        Alexander
- Shishkin <alexander.shishkin@linux.intel.com>,
-        Andy Gross
-	<agross@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Rob Herring
-	<robh+dt@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>
-CC: <linux-kernel@vger.kernel.org>, <coresight@lists.linaro.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>
-Subject: [PATCH v4 7/7] coresight-tgu: add reset node to initialize
-Date: Wed, 23 Apr 2025 18:10:54 +0800
-Message-ID: <20250423101054.954066-8-quic_songchai@quicinc.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250423101054.954066-1-quic_songchai@quicinc.com>
-References: <20250423101054.954066-1-quic_songchai@quicinc.com>
+	Wed, 23 Apr 2025 10:16:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=X/SfRlDjny47T4+NSNq1giLdcjCzSwutaa1CoX4rR56N49j8pHCRFttBdRf1w3Qi0qGdEotduRMWk0XX1RIiZo2FrOIzWg8qiumIrbxUAGSqY+cxnXsQLdXRcdjF0jxvut7GE9VLMP5p56+N/Vpp7M51Bkk8y0Rh/07JoJoxwMGdoXQSTt5KspGq0UMbBnp56GfpgyEJwgPxWPGO1/lqrbS+lG/V3eA4voomVTRXG5kQc0DuoC9q71nbkI/A94+ElEy12rH3uFSBlYu3tqSMlq8WFeo+XMeGB3SWzSxdriv0rVZy6oMwYex3a9YdkCe7kJcsUQFV38Z0Tmzsf6rgTA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nseFZjuD3Zo/oeOcaVqXU/4dEYVuJJ3VyVH0pA0poQQ=;
+ b=IpYGcl9KChdLqdUi2rFkQCoAwcuxz1jGhwZdUuPq6CwZWmOArlr9T3u3d1pFqID8GS6fsuCMxkpmxlhPc1RN8E8MZxMLCGXppcz67zyRsy6J6P/GESTD69gfGamTD+JIM8SYJ9GaP4yOiYaqevvmng8yti3Bq6T/fF7iOqv0Fq7QtRMjfUIYSICU+n98+uW84lKAOojHRiPECtlLWfQs6XUSzIErWuO4XgyF4azC7/lnmfEz1jAQvhf7wtJqIirDJ5JY8UKHdNH+PNhl6KAnpqZ3CwDQdka3tEI94qVRnAwIEehGPCcJFXrbhc13topKsLX9unUY3eCNnEgp4W7W+A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=impulsing.ch; dmarc=pass action=none header.from=impulsing.ch;
+ dkim=pass header.d=impulsing.ch; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=impulsing.ch;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nseFZjuD3Zo/oeOcaVqXU/4dEYVuJJ3VyVH0pA0poQQ=;
+ b=pGd2QvEhJls48zZBE4KeoWgo0AGpvrFtoQQ1cybnCEPQ8IkONMN/KRl4nhOLll4jGZ3v47rsdCRW2w5E6cE4yQ9p53ZbuLZ5vaHcG5A1v/oMLRcWIP8cMOoWpxAHz3ug2BwwSiBy9v2zXm3ck1akh/xkayCp1wec7QeMZevE5eAaF/1xwWIj8zkb34o2U7F74OeWHRqQvw97YYujCAB0IbJMj7xEUCa72kxG1hNqzD5soPbmJA52xI8KPVTf9CpVz34mhz5Y6Pyhd4T3CkISXJUa81NPtpWpDV85THZx6VlPqyuSrGI/zZDx12KBy6mOyXxN0LShaq/IUXdFx6sd2g==
+Received: from ZR3P278MB1353.CHEP278.PROD.OUTLOOK.COM (2603:10a6:910:72::6) by
+ ZR1P278MB1199.CHEP278.PROD.OUTLOOK.COM (2603:10a6:910:6d::14) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8678.23; Wed, 23 Apr 2025 10:16:45 +0000
+Received: from ZR3P278MB1353.CHEP278.PROD.OUTLOOK.COM
+ ([fe80::fb85:95c7:b27c:a819]) by ZR3P278MB1353.CHEP278.PROD.OUTLOOK.COM
+ ([fe80::fb85:95c7:b27c:a819%5]) with mapi id 15.20.8678.021; Wed, 23 Apr 2025
+ 10:16:44 +0000
+From: Philippe Schenker <philippe.schenker@impulsing.ch>
+To: Francesco Dolcini <francesco@dolcini.it>, Wojciech Dubowik
+	<Wojciech.Dubowik@mt.com>
+CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+	<s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "stable@vger.kernel.org"
+	<stable@vger.kernel.org>
+Subject: Re: [PATCH v3] arm64: dts: imx8mm-verdin: Link reg_usdhc2_vqmmc to
+ usdhc2
+Thread-Topic: [PATCH v3] arm64: dts: imx8mm-verdin: Link reg_usdhc2_vqmmc to
+ usdhc2
+Thread-Index: AQHbs48w0QwgOvbFxkuKoITcJDMRw7OxA+uAgAAGkgA=
+Date: Wed, 23 Apr 2025 10:16:43 +0000
+Message-ID: <222ce25ee0bb1545583ad7a04f621bac2617893c.camel@impulsing.ch>
+References: <20250422140200.819405-1-Wojciech.Dubowik@mt.com>
+	 <20250423095309.GA93156@francesco-nb>
+In-Reply-To: <20250423095309.GA93156@francesco-nb>
+Accept-Language: de-CH, de-DE, en-US
+Content-Language: en-US
+X-MS-Has-Attach: yes
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=impulsing.ch;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: ZR3P278MB1353:EE_|ZR1P278MB1199:EE_
+x-ms-office365-filtering-correlation-id: b4fc94e3-011b-407f-456c-08dd824ff28f
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|38070700018|4053099003;
+x-microsoft-antispam-message-info: =?utf-8?B?MUoyZUNKT2dRVlFoQVFMK0U0emQzcWhqUDF2R2RmbUZTYWR6S3o1YnJhZXg4?=
+ =?utf-8?B?UWxlRTZRRlk1aVhmNGhLSDA4US9jRlQ2OGpVTlp5MENxSkJoYjJ5RTRla0pR?=
+ =?utf-8?B?VHc0MlhlNHMydWxUNHVVMVUvVTVGL2gxa3BQNnd6dzlaeE44TkxoMkpkMUJt?=
+ =?utf-8?B?aXBqbTNDeTAzdC8yQ2Jlb2NIMVhRa1R4NTFqS0xJVm85VnZzYVlaQzBVMWlp?=
+ =?utf-8?B?Z0lGcHBFKzBkeFphdFJGVDZqYlRDc2Q4MkdBUzVxam1MSy9MSmNkQWcrdUFu?=
+ =?utf-8?B?cU5CUUdoRTMvNlNTcGtWZ081RUhvM2xBSWJaN0hUSnVvZXJGYy9IRVBlK21G?=
+ =?utf-8?B?TDQ1dUREeC90aWRJVitCZHF5RG80emUwWkhrbExobXFzejhEY3ArdTJBblhN?=
+ =?utf-8?B?R0NKdlFWeElzM0Q3L0VuSGNDamdHdnhIdm1IZ25ZbE1PS0oyU1JHZkU5eklM?=
+ =?utf-8?B?R1hUdDYvOWV3bEJaaGZMZUtqeTBSN25nWDhNOElJaGFhZmlia3VWcjRVT2w4?=
+ =?utf-8?B?bno3djlsQU1wVmkzQVhUblhMTTh2cEFHVHZyMXo0ZnNOUmVTeXNsVXVqTlFK?=
+ =?utf-8?B?djVHVW8xcGtsdUVGUjZrWHBBZXIwd3dWVGNjYWRSb2hjdy9xQ01qT1pWZDMy?=
+ =?utf-8?B?YjQzckpHMmc3OVhJV0N5ci85ZmVWOUtQUm5iWHRDUWxvSFhPRmdEb3FLbWNi?=
+ =?utf-8?B?UjVJVTJhLzJLUE1KbEsxMkFTZ2R5YTFhNm1CM3laeUlTRkVWdFU4d1JYa0Qy?=
+ =?utf-8?B?TVhnQzcxOStzOU1pTHpiVzBjZkRVMWE0Y1JQbTY4N2Y0Z0cyNUR2NkR0SGZD?=
+ =?utf-8?B?QTVIYWVYU3J6NGxqNEQzb3lRckxLQVJkazM2TzN2b3JDS2xJeDhTVG9JZkgx?=
+ =?utf-8?B?OUdIRDIveUhqMXhhY05jZkU3Zm5XOHpBVkhCY3JLUmtwR1JRSGJmZzdQZmVx?=
+ =?utf-8?B?bXMzU2VrWTVaYXNuMEUwaENOMUFmQ3JHK0xreU5odnlGT3YrRFFtaityR3h0?=
+ =?utf-8?B?ZmJqeWFzRkxSZXIxREZBTTYyUVY2eUpqVFowbnM4ajM5a3pRaENqeVR3YzJG?=
+ =?utf-8?B?THdMZkl1WG4vTFJWek0veDAyVzZhYXJLd2FZbW9BVXRKYlZ4ekJOcXY4czlx?=
+ =?utf-8?B?U3EwZjNNNGYzbVlnbjA5ZFdxVS9Gc1RBUkg5OFZ6SGI0dEU5R3p2Wk02Z2ds?=
+ =?utf-8?B?L2ZvMUpkK21ZZzQxTjVWd29JeklpUDJkZEpJNE15aHBRTnhMQkthbndFajU0?=
+ =?utf-8?B?TlI1ZDlYelpKYWVORWNNOCtTbWt1UkM3MFhrTyt6eThCWGQ0V3NkMC9HU2o4?=
+ =?utf-8?B?MVIrU2pGWExqakFCUnZQNVVTOGtSdU1xZC9YT05nQ0NYWGpjNWxiUjREandR?=
+ =?utf-8?B?L3NxWFRjWTc5bzN2OXBkdUxKWHhxN3B0YisvcFRDWXd6bmlWOFlGY3hnNW96?=
+ =?utf-8?B?elRJY3ZEWDFhdjdaUDY2c0J0UFlyYVI3VGt1eUJKOW1ncE9MMlA0MkhMby9o?=
+ =?utf-8?B?QURhT1RWUXR3eUQyazRWTVhSZksrUjVvblpnckU0QnRFTnZURVRad1pXUTJ4?=
+ =?utf-8?B?UFpVK0VKSEFxZzlFODB5MjhXdm4xQitSSGVmUnIxTW4vakhxTjN3L3JTdGRq?=
+ =?utf-8?B?N3Y1WlV6bjN6SldXblFlQ0pzVnJQQnY1TGgzRStWajI4bE56dENIdkxjWHZo?=
+ =?utf-8?B?N0E0clpLamFheDhvbFNncDQ1ZXVtM3dqTTE1Y3E4SW1qbjRFLzFrbGYxVVBJ?=
+ =?utf-8?B?ZVB0QjM1a3M1THg0M0szUlhnM01CQ1Rna1NhODRETkdNcWZWTkJRSVNvc201?=
+ =?utf-8?B?dEFvak14L0JwaWdGbEhuVlNibFB4QzJNSjE0TFNBbENtdjhYenNOMnlFT0tU?=
+ =?utf-8?B?VEhuWXpqajJnV0JIMkozZS9hMjNvWWcvdzlQdGV4bVIzb2s4WDZKOENZSjhp?=
+ =?utf-8?B?KzN0YUErU3p5Zmg0SFlPYnA5eHBXTWRaRkVrMzFPRjNnTEd1S3RkM3c4Skho?=
+ =?utf-8?Q?9A1MvdknSqCoOUY2fajv0YTd+uYoio=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZR3P278MB1353.CHEP278.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(38070700018)(4053099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?bUcvVlRUVm1URHh1OThKbklyWnA3SmJQSWRuYko3b0JwaHdRNG85NURnc2pJ?=
+ =?utf-8?B?WXZ6ZnU5RjJZaGNHSlNpZnMrSXVlZXp6QUVKLzNGTU9UWml3alhrQTZxbExG?=
+ =?utf-8?B?SlRwNkxEemZVWTBCcENiZ25sMm01UFFWZXhJcVlYWDRkLzBDYWFyODdjbDNM?=
+ =?utf-8?B?MStya3pZY0lpRmdIbGFEdGdIbWdIMkRQLzUrRjVkeVN1TjE3Rm1SeitVVlh1?=
+ =?utf-8?B?bzJ5Wks2TUtGYkg3aGJtVlpzNzhJYTJ3WmZaY0ltNGFxUGUwK2YwUDc1NWw0?=
+ =?utf-8?B?VFMzdWpBNkNGaVBLQ1ZFQ3BwL0xwWFlNS0xoWDRkdy90UEVyMVZGQWJnNitZ?=
+ =?utf-8?B?akp6b2NFS25zZnNSUEYydGtTWW9HRUR3ZWIrL01RM1U5dlRWYmUwaVVrcThY?=
+ =?utf-8?B?L3djT1pXdDhhY2dMRjVrdXBXSVFFT2RTRWo2MCsxNGsweC9KZS9YOVRwSkdZ?=
+ =?utf-8?B?bHBVK2dTM2R4Rml1WTJPUnhlcTRnd1B3QlNoak81YXdQdzVJSTk5SjZNQ0Rr?=
+ =?utf-8?B?Nm1KOEh5cnpjeHZLak5EOE8rMDBmdTZRZWwwWjEwazE1azJrcUtXeDdYMGZM?=
+ =?utf-8?B?K2UyMjAwMlJsVnhvcTNJS0FmZS9IKzBlNjhYalFDMU9RNzFpZG9DaGRuLzd2?=
+ =?utf-8?B?QlF1eGtZNlc0amhJRUxQYWhDRitNK1c0S0JId0Nwbmo3ZlJRMGRUbGlkT3Ux?=
+ =?utf-8?B?a2xZbEpDRmg2ZFBMRjUzcXlzR1M0OEtaTUhRaVZqeEd5bG56SlJDU3FkWVNx?=
+ =?utf-8?B?dHdPdmMydlVEbzlqSnJGTlo4UGlIMmp1cXlyRnh4THcyMDNsMUs3ckl3YVg1?=
+ =?utf-8?B?ZkhyVXhNK3BmSG5Cd2NtWTJxZzRESS9DUnRzOW5CRXY3NEgycjh2b1JxQlox?=
+ =?utf-8?B?a0dGOWNyak9SWnY5UE5kVWF4U3hBVGJtWk1OK3JKVFZzMFY3aFI3MVZWVzRZ?=
+ =?utf-8?B?d2ZFbXVSd1dxVnB2aGJqRW5XQ1RHemxwaHZyTldKZGxQVjQ5cm11dUNabEc3?=
+ =?utf-8?B?NUhDTlRDd2paY1FJVG1CQ0VjaTM0WVRzUTZDME9qMWl3Q3lUU01UU3JWNEJM?=
+ =?utf-8?B?dm1wbVE4TFZLUk9zN0JNN0JKUHlRL29RaWJSTUUrSHJ4ZUUySDdRbzc5RGpU?=
+ =?utf-8?B?aGdpd3E1RGtxeThSc0V1SlNWRmZNR040MEtaUGQzdnV3NnVSL2RTSWpKd3M4?=
+ =?utf-8?B?SUJJOSszWWQ4UUpVUW9HZng0Z2h1Z1BLWWJKNzBtMHRWbTRaV1YyRm1BR2hI?=
+ =?utf-8?B?V2dOTTl1d216QksyVkpvS01LaTFUOVZvZUNHeE9acGltR2NROU9mU0ZHR1cw?=
+ =?utf-8?B?QndzWHVtWFdGUFh3dUlNU0ZaZjVZNFNSeXhRSTgvbUJXOUdrUi8rZ1YvbkRI?=
+ =?utf-8?B?TVJrUVlYNWhYUkRGV2MvNkN4VTBxUFdzc0R6TC9HeFA5VTJmVzIyZnNMY3h6?=
+ =?utf-8?B?ak5Rd1lrMDFtL0l2aTE2SUF2U1M2aUxoVWlCWVlsWmo3RHVTWElsT3lVakl6?=
+ =?utf-8?B?WXNDcGJCLzhMUUs0cEdzd3ZNcnNVeUdIeUU4NFBnUW4zYXd5eXlMOFBWblUr?=
+ =?utf-8?B?M2hkUlJZRW1RUi84UkNjdWJGTnlLdlovYmtzQ1dXdWk1WWlrNGs3NTNFRXRt?=
+ =?utf-8?B?LzVxSFUvNzFNZ2I2V0QwSnVVdTlFWDNmWTd3ZDhWRnhncTcyT3NqWlVmRW9O?=
+ =?utf-8?B?SkxXWU9ycHVjYlhUQ1FsRE5VWm1MQmVkWmlGbHU4QjhDNjJDa2syTUh4bTBM?=
+ =?utf-8?B?WEE4MWUwNUxUVDNWTWQrbkxlNFZiOVY5NVdpK2kweFJBSlNJUkZ3MzBXeitT?=
+ =?utf-8?B?QWRES2dYaGZGcXZLdng3S3U4dWxkSHZTcFgrM25TODBReGpwcEsvK0NHbzVH?=
+ =?utf-8?B?algzazFnUXdLb0FOdzJ1SFNMYjdHOW8wZXhsNFUrUm1BRjkvWmZWYmpua0Jj?=
+ =?utf-8?B?cTdjV0Y3SlpWMzZlNjh0Q0w4ZEpjTHlWaUt0ZVZCSzdOQXFiM2Q2RkxLek9Y?=
+ =?utf-8?B?cTVmNE5wenA1Mm9IcER2VUlLdUd4RnZLTmtWWHNnN2sveGxiOVp3S0psS3Nv?=
+ =?utf-8?B?QlVYMUZsNlQwc3AzSXRBYzJ1VG10YlZTMGJWeFBtNTJVcDVBazRSaHZkTE9C?=
+ =?utf-8?B?cFhhdHU5NkgvMENIVHJ3OGhzVG1LL1llNDQ5NFEzUHdYUk81aWxTY0FsNExM?=
+ =?utf-8?B?NFE9PQ==?=
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="=-oY88heJAWehmeC5MxMM4"
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: mVgfIgoyRZNrd-9AF9KkZNaPDzIR6ppl
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDIzMDA2OCBTYWx0ZWRfX086xUy43VpIW zI9u/RssFUAEUKdtI+R6AFG53XXJR8YDfyTmMlAmeLBVzNCiZvsUXaFxgrrPPL+0pISCp6O9ukM BitxBPZFITGPcuixRGT6CrGCIF3CO8selmgt1VhVJYKndg0FpYg4CcOMQcGtiRNef6pJT8wSuq1
- 1DViVJ8dNVb5ukYuaIY6cwCPd2bugxcm7b0tzpFbeCrb7/jYAl0vZOnCOH6lZm3veBy1/ZnBtqq jJ2GKHtSze98PxXcUhYl6hcJ+Ac0uB8Lp48OZu2QrJcjZr63aI559RSRKbZqEtTzDbLW66PWFrS xg/xgweXb2E0Ww0wYoXMu7a/joLqXTrq6L97/hgbX5J7ZfYGQ5xF/y1uvvg+XaeiDbQf5jW3hor
- AjpmBMsq6M0x4TdifEZ37TdrJf57MR8ebC6kSlcC2lpyg9BjaxYDExbnOHcXTuL3qaTW/7Rj
-X-Authority-Analysis: v=2.4 cv=Tu/mhCXh c=1 sm=1 tr=0 ts=6808bcdb cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=GEpy-HfZoHoA:10 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=TW7uPGGm3D3UErKGQS8A:9 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: mVgfIgoyRZNrd-9AF9KkZNaPDzIR6ppl
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-23_06,2025-04-22_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
- malwarescore=0 suspectscore=0 spamscore=0 clxscore=1015 lowpriorityscore=0
- impostorscore=0 adultscore=0 phishscore=0 mlxlogscore=999 bulkscore=0
- mlxscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
- definitions=main-2504230068
+X-OriginatorOrg: impulsing.ch
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: ZR3P278MB1353.CHEP278.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: b4fc94e3-011b-407f-456c-08dd824ff28f
+X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Apr 2025 10:16:43.9660
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 86709429-7470-4d0c-bd3c-b912eebdee40
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: D2DYxzOcwzQudhKkFpzrr/J1DWOYYo/MB1KhgeSasr61rk6eyOJN//L56L7NBKweMAyq4gLcLxzS/w/xhlR2RIYaW1pGZku0KmuIubWnv3I=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZR1P278MB1199
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_031145_589216_5DD582E3 
-X-CRM114-Status: GOOD (  18.25  )
+X-CRM114-CacheID: sfid-20250423_031652_978945_91CE32BB 
+X-CRM114-Status: GOOD (  17.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,121 +188,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add reset node to initialize the value of
-priority/condition_decode/condition_select/timer/counter nodes
+--=-oY88heJAWehmeC5MxMM4
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Songwei Chai <quic_songchai@quicinc.com>
----
- .../testing/sysfs-bus-coresight-devices-tgu   |  7 ++
- drivers/hwtracing/coresight/coresight-tgu.c   | 75 +++++++++++++++++++
- 2 files changed, 82 insertions(+)
 
-diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
-index 2843cecead55..117e648d2853 100644
---- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
-@@ -42,3 +42,10 @@ KernelVersion   6.15
- Contact:        Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Sam Chai (QUIC) <quic_songchai@quicinc.com>
- Description:
-                 (RW) Set/Get the counter value with specific step for TGU.
-+
-+What:           /sys/bus/coresight/devices/<tgu-name>/reset_tgu
-+Date:           February 2025
-+KernelVersion   6.15
-+Contact:        Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Sam Chai (QUIC) <quic_songchai@quicinc.com>
-+Description:
-+                (Write) Write 1 to reset the dataset for TGU.
-diff --git a/drivers/hwtracing/coresight/coresight-tgu.c b/drivers/hwtracing/coresight/coresight-tgu.c
-index 4a58f2cb8d8c..b44c876e7cc7 100644
---- a/drivers/hwtracing/coresight/coresight-tgu.c
-+++ b/drivers/hwtracing/coresight/coresight-tgu.c
-@@ -477,6 +477,80 @@ static ssize_t enable_tgu_store(struct device *dev,
- }
- static DEVICE_ATTR_RW(enable_tgu);
- 
-+/* reset_tgu_store - Reset Trace and Gating Unit (TGU) configuration. */
-+static ssize_t reset_tgu_store(struct device *dev,
-+			       struct device_attribute *attr, const char *buf,
-+			       size_t size)
-+{
-+	unsigned long value;
-+	struct tgu_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	int i, j, ret;
-+
-+	if (kstrtoul(buf, 0, &value) || value == 0)
-+		return -EINVAL;
-+
-+	if (!drvdata->enable) {
-+		ret = pm_runtime_get_sync(drvdata->dev);
-+		if (ret < 0) {
-+			pm_runtime_put(drvdata->dev);
-+			return ret;
-+		}
-+	}
-+
-+	spin_lock(&drvdata->spinlock);
-+	CS_UNLOCK(drvdata->base);
-+
-+	tgu_writel(drvdata, 0, TGU_CONTROL);
-+
-+	if (drvdata->value_table->priority)
-+		memset(drvdata->value_table->priority, 0,
-+			    MAX_PRIORITY * drvdata->max_step *
-+				drvdata->max_reg * sizeof(unsigned int));
-+
-+	if (drvdata->value_table->condition_decode)
-+		memset(drvdata->value_table->condition_decode, 0,
-+			    drvdata->max_condition_decode * drvdata->max_step *
-+				sizeof(unsigned int));
-+
-+		/* Initialize all condition registers to NOT(value=0x1000000) */
-+	for (i = 0; i < drvdata->max_step; i++) {
-+		for (j = 0; j < drvdata->max_condition_decode; j++) {
-+			drvdata->value_table
-+			->condition_decode[calculate_array_location(
-+			drvdata, i, TGU_CONDITION_DECODE, j)] =
-+			0x1000000;
-+		}
-+	}
-+
-+	if (drvdata->value_table->condition_select)
-+		memset(drvdata->value_table->condition_select, 0,
-+				drvdata->max_condition_select * drvdata->max_step *
-+				sizeof(unsigned int));
-+
-+	if (drvdata->value_table->timer)
-+		memset(drvdata->value_table->timer, 0,
-+			    (drvdata->max_step) *
-+				(drvdata->max_timer) *
-+				sizeof(unsigned int));
-+
-+	if (drvdata->value_table->counter)
-+		memset(drvdata->value_table->counter, 0,
-+			    (drvdata->max_step) *
-+				(drvdata->max_counter) *
-+				sizeof(unsigned int));
-+
-+	dev_dbg(dev, "Coresight-TGU reset complete\n");
-+
-+	CS_LOCK(drvdata->base);
-+
-+	drvdata->enable = false;
-+	spin_unlock(&drvdata->spinlock);
-+	pm_runtime_put(drvdata->dev);
-+
-+	return size;
-+}
-+static DEVICE_ATTR_WO(reset_tgu);
-+
- static const struct coresight_ops_helper tgu_helper_ops = {
- 	.enable = tgu_enable,
- 	.disable = tgu_disable,
-@@ -488,6 +562,7 @@ static const struct coresight_ops tgu_ops = {
- 
- static struct attribute *tgu_common_attrs[] = {
- 	&dev_attr_enable_tgu.attr,
-+	&dev_attr_reset_tgu.attr,
- 	NULL,
- };
- 
+
+On Wed, 2025-04-23 at 11:53 +0200, Francesco Dolcini wrote:
+> On Tue, Apr 22, 2025 at 04:01:57PM +0200, Wojciech Dubowik wrote:
+> > Define vqmmc regulator-gpio for usdhc2 with vin-supply
+> > coming from LDO5.
+> >=20
+> > Without this definition LDO5 will be powered down, disabling
+> > SD card after bootup. This has been introduced in commit
+> > f5aab0438ef1 ("regulator: pca9450: Fix enable register for LDO5").
+> >=20
+> > Fixes: f5aab0438ef1 ("regulator: pca9450: Fix enable register for
+> > LDO5")
+> >=20
+> no empty lines in between commit message tags, not sure if Shawn can
+> fix
+> this up or you need to send a v4.
+>=20
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Wojciech Dubowik <Wojciech.Dubowik@mt.com>
+>=20
+> Tested-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+> Reviewed-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+>=20
+> I would backport this to also older kernel, so to me
+>=20
+> Fixes: 6a57f224f734 ("arm64: dts: freescale: add initial support for
+> verdin imx8m mini")
+
+NACK for the proposed Fixes, this introduces a new Kconfig which could
+have side-effects in users of current stable kernels.
+>=20
+> Francesco
+
+--=-oY88heJAWehmeC5MxMM4
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: quoted-printable
+
+-----BEGIN PGP SIGNATURE-----=0A=
+=0A=
+iQHTBAABCAA9FiEEPaCxfVqqNYSPnRhRjRDjR2hoXxoFAmgIvggfHHBoaWxpcHBl=0A=
+LnNjaGVua2VyQGltcHVsc2luZy5jaAAKCRCNEONHaGhfGp9ADACRAiiAEjFNMVu2=0A=
+IMo3rf+rI6FLuzHAeCDc4TS0VpnYvLWhwZPD/ou68Jx7uVTLi+3Yt8YMxs2QwILC=0A=
+anFBygQRWH7hHttAfFvi5DfuBMugn0GObznQuKtilHfk0CZcTp+pTKKSZLfGM7Dc=0A=
+EigIuhPT1aYop4X7JXi1TTbYCbp+NTpXD3JjKArrMRJw6+UUZCXOotKoxHencsPL=0A=
+sxLeP0PPPQIpZ9TVU9EeWMGa46TJoDH/GGmwUIEITBmi2XAe8yzMwOxG/HO1jD/9=0A=
+ZdP/9VxsuOSthHcAyWCNeDJEvqNvsAHe6yKoqMvT8se6yA0Kx9FOB3TvyG2GnJuO=0A=
+h9UFmX7M6vr7U6Q/WTfIKjcksFKojXvcIq1Myi07EeNGx0/HVUVsTy4rkP0lMz7H=0A=
+LcOlynr3QZboV1J9rryDk12ElfN7mipdCBBjXlDQrqFV/5QthZLz8lC0uZw+YT0s=0A=
+usWlDYXC9vmPuTXelpOOhBm19XSk7KyNdWtJD+/pISC8EV+Cnow=3D=0A=
+=3Dd9ht=0A=
+-----END PGP SIGNATURE-----=0A=
+
+--=-oY88heJAWehmeC5MxMM4--
 
