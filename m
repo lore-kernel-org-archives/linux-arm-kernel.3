@@ -4,193 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EA4FC369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 07:09:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A88F1C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 07:11:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:CC:To:Subject:
-	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5qDtEYamRKOkIz1CDELHskVQjOz/RgpQpauim7KbwR4=; b=F7FVo++RUWa7gPxwLnAksvAqH7
-	OSMpdr6YsXD7FX+CMWBOMyz8A3lK028Il5tBWPHJC/51Cw6/QvylQVXdR1psdaWLnzLmzVfxo54JP
-	IcC52Qpchq2UVxctYqxfRHDeut3bCG4Ph6cw3qvL5PKgmUIZ6epbYVHfu0HVWTAcqhazmGchbfd81
-	cpjov3AcoAJKMX+Fa3OhuqRn9QPP1NDddCa0pCLP1mtqlfuYy5n7gDI8/CXAEPX4VJIGKmthu6MIb
-	9BhXIvD+1ktIdP6wDcE1OSdprGxfWCY8Y8HsZAOQ4p0ZA/9JvfyN0sF+Vlcn0t59s+PCfwjm1xiPF
-	1lsltEZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DXs+2X22CNIfmNCVhg97ldAwTjAoi/RHfs7pocm68rY=; b=0HQOf74jak2kZDNTaVF0BEToQr
+	UQPiywADKCRjZ9Jt8guHPJLFWWlPUb3Y1rL9z6M0U7uirHg7ewTVPY74weEszxHzsqsyT3zUjWdYW
+	DwtgpY4j5gMk8vCpF8Ukvm32tiKItyFOK4THLcM0lWxj//C+m/ZjPHFg+SKqSbYtxW3T+8qbhw26z
+	WfKZTyuyAN2/fx4DaNUmjbl5RmVUlL6pGtQljSZIWA9DQiUiLn++15dljmIkA/AMonLxxL4aZAsb4
+	VhwGXhYiD4YxVJr5WeAArDykSmDAtJc6vhexflBYqk7cflsW/dNRbYfZ6NDj2fMLSw6r46y8SOUKF
+	X9rR7Piw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7UEg-00000009SXq-1wV1;
-	Wed, 23 Apr 2025 07:09:34 +0000
-Received: from mail-vi1eur02on2072d.outbound.protection.outlook.com ([2a01:111:f403:2607::72d] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
+	id 1u7UGc-00000009SjX-2om2;
+	Wed, 23 Apr 2025 07:11:34 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7U5S-00000009QrR-0o4j;
-	Wed, 23 Apr 2025 07:00:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Oyu5RJqhktQf/LIznmEH/B2jFWotphbHo9jk9jU4heSZ22ifhTH5BA+90ajKlEW+qXXiyOSG6f2wwYG67ro7GnN2xX6h092fcXs14vplsWMVg8f8r+oxGEHZ2z0VVY3meDExijrxdJ3Zb7htRSqH47ofLAyHsUrS3iZvlh6cDlj3JdjcvtNox63udNX7dUxEqeRyJiOB2Qd48RKDRgIk/vKkHFT0kUxL369zlvaYoPu8FwZh9PUSnQ9Cr4UCVPcceZgzuRKOLRQzRZSuIIrqEiGoLcr60LMKJW9RgDsRmrGbI8ZFw+dLvZDa/qi1z4FKfCyyioaAbVBj8j6Vn7fJNw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5qDtEYamRKOkIz1CDELHskVQjOz/RgpQpauim7KbwR4=;
- b=REiNbEicOKYJ1qfBjLwpiopjSAr4Wr1UrLhOgmpcvWbws9cbILkOvdfnVQ9D0R/+iaxXAXfGZhovYqdYV9VCb3johUJCSju3KO36gsRlarAzD/3/UjriR56nUh3n2e9tw88y2TLhsvuXGfWKgY70DxVHQRW21BWlRaXBq9P8q7eJyPr4VQj6naYpAwuV/d0wrcZqBWx8N3YW/JydFo7tvP9x7PsykQuKzdCsg2j7lliUnLwcnfgvmaNZCpBSg0ARbp8jLnIhpXTQRKHDfAvTc3LHiXGvaGVjU/Jelx42xQuZyMEue2120OptnLzn9tGRZ92gFrFLb4mi/ukoqd3Zhg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 13.93.42.39) smtp.rcpttodomain=ideasonboard.com smtp.mailfrom=topic.nl;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=topic.nl;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=topic.nl; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5qDtEYamRKOkIz1CDELHskVQjOz/RgpQpauim7KbwR4=;
- b=t5AqjDxnTLKAmnVySmqfhAQRZLWqEpZi9O026S/f6RKGzy97pNrxEpST3IQGBPINtTTQaxxz/CU7KaRadhA5hnSU6QuKlYHGhizd4RwyHMcvTVMpSCeihpxMmo3unr180/Nn5LmKZHp3r1J/wqulSPaWIyBgkQ978qfoijXOMBqoz8uw+4Z5bkl20HXPuIJAOZncliBtVwZFB9Vb1e3hgFtVaOLgGYgg2K+WqY5Gn4EDhxES6gGZGzdBxYosxDmDpKi/q9dRyTB8INMy8XY+xiKMVKJs/h1aF2Nqa/d+Ej40WQ1TsrUyUzj6mjW76T4JGil+XRzu8/74ftw1ne6csA==
-Received: from AS9PR06CA0183.eurprd06.prod.outlook.com (2603:10a6:20b:45d::17)
- by AS4PR04MB9692.eurprd04.prod.outlook.com (2603:10a6:20b:4fe::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.23; Wed, 23 Apr
- 2025 06:59:49 +0000
-Received: from AMS0EPF000001B4.eurprd05.prod.outlook.com
- (2603:10a6:20b:45d:cafe::e5) by AS9PR06CA0183.outlook.office365.com
- (2603:10a6:20b:45d::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.36 via Frontend Transport; Wed,
- 23 Apr 2025 06:59:49 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 13.93.42.39)
- smtp.mailfrom=topic.nl; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=topic.nl;
-Received-SPF: Pass (protection.outlook.com: domain of topic.nl designates
- 13.93.42.39 as permitted sender) receiver=protection.outlook.com;
- client-ip=13.93.42.39; helo=westeu12-emailsignatures-cloud.codetwo.com; pr=C
-Received: from westeu12-emailsignatures-cloud.codetwo.com (13.93.42.39) by
- AMS0EPF000001B4.mail.protection.outlook.com (10.167.16.168) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8655.12 via Frontend Transport; Wed, 23 Apr 2025 06:59:49 +0000
-Received: from EUR03-AM7-obe.outbound.protection.outlook.com (104.47.51.234) by westeu12-emailsignatures-cloud.codetwo.com with CodeTwo SMTP Server (TLS12) via SMTP; Wed, 23 Apr 2025 06:59:48 +0000
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=topic.nl;
-Received: from AS8PR04MB8644.eurprd04.prod.outlook.com (2603:10a6:20b:42b::12)
- by VE1PR04MB7405.eurprd04.prod.outlook.com (2603:10a6:800:1a4::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.23; Wed, 23 Apr
- 2025 06:59:44 +0000
-Received: from AS8PR04MB8644.eurprd04.prod.outlook.com
- ([fe80::e86d:f110:534e:480a]) by AS8PR04MB8644.eurprd04.prod.outlook.com
- ([fe80::e86d:f110:534e:480a%5]) with mapi id 15.20.8655.033; Wed, 23 Apr 2025
- 06:59:44 +0000
-Message-ID: <f3051d1d-ecb2-4a93-ad6b-76ab7a5538af@topic.nl>
-Date: Wed, 23 Apr 2025 08:59:43 +0200
-User-Agent: Mozilla Thunderbird
-From: Mike Looijmans <mike.looijmans@topic.nl>
-Subject: Re: [PATCH] phy-zynqmp: Postpone getting clock rate until actually
- needed
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-CC: linux-phy@lists.infradead.org, Kishon Vijay Abraham I
- <kishon@kernel.org>, Michal Simek <michal.simek@amd.com>,
- Vinod Koul <vkoul@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <1b153bce-a66a-45ee-a5c6-963ea6fb1c82.949ef384-8293-46b8-903f-40a477c056ae.7a5992b5-aa78-4b18-bf5c-70f893b58f48@emailsignatures365.codetwo.com>
- <20250314150431.28319-1-mike.looijmans@topic.nl>
- <20250422221802.GB32759@pendragon.ideasonboard.com>
-Content-Language: nl, en-US
-Organization: TOPIC
-In-Reply-To: <20250422221802.GB32759@pendragon.ideasonboard.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-ClientProxiedBy: AS4P190CA0065.EURP190.PROD.OUTLOOK.COM
- (2603:10a6:20b:656::10) To AS8PR04MB8644.eurprd04.prod.outlook.com
- (2603:10a6:20b:42b::12)
+	id 1u7UAI-00000009Rf7-2uAI
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Apr 2025 07:05:04 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53N0iLmg022331;
+	Wed, 23 Apr 2025 07:04:39 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	DXs+2X22CNIfmNCVhg97ldAwTjAoi/RHfs7pocm68rY=; b=HPpFHJbssP7T5kYH
+	BNxsx8ElUHeCg7E62rJt1P52xqRL1fOs1txhXZGRK3K9voYk5BZnkJBCpafq7F/9
+	8LB/aIhFnATHzf3AUjEWwqdrO4WtAD2bh7OEkCS1yQju2REvk1s+oo0x/pUQPaNy
+	QFk6hK1NEVWslrzOMrN5kdBK7BEvhR+KVq7SrFc4LonLqkqKB3vga5AOCJGra+ya
+	evLm+J6hRnBvmrgt9AsKQ2uEJnaL9CgVi1Eb1P37KV+FgX10lqVsMs5mYKBc+1vN
+	o5HJhUo4iokMBDSEvBGHu9sRChKo1A2brmEXUdyms17PbA7zKLl4rWOMmQ/SPN+f
+	mm07CA==
+Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 466jh1164v-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 23 Apr 2025 07:04:39 +0000 (GMT)
+Received: from nasanex01a.na.qualcomm.com (nasanex01a.na.qualcomm.com [10.52.223.231])
+	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53N74cSZ016287
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 23 Apr 2025 07:04:38 GMT
+Received: from [10.110.52.190] (10.80.80.8) by nasanex01a.na.qualcomm.com
+ (10.52.223.231) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 23 Apr
+ 2025 00:04:37 -0700
+Message-ID: <c75d2cc2-e7f7-4de4-8d3d-81c3cf8ff973@quicinc.com>
+Date: Wed, 23 Apr 2025 00:04:36 -0700
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8644:EE_|VE1PR04MB7405:EE_|AMS0EPF000001B4:EE_|AS4PR04MB9692:EE_
-X-MS-Office365-Filtering-Correlation-Id: e0102330-9926-4f7f-4cfc-08dd82347076
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|376014|1800799024;
-X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?Q0YvU3N1ZVVWRVVEMlA1VVdrcEpEbytrVHpvT2lXTXJrRWpSL0RHYnB6dkxk?=
- =?utf-8?B?Rk5WVVB0VEVsQ0FtejQ1REtLQlZPTE1vOTVPN2M2djA0WVNhd1NseHQ0Zng1?=
- =?utf-8?B?eXkvNWtKM1lLSy9iZVVadmQrL0JQb3BjcXI2SjFNLzc2WmtEdzloVi9RN0ky?=
- =?utf-8?B?R04zWW5kemhjTUJFMDUya0pJdzZEU2lLb2NyQWFpR283RG1DTFRxU3pOYW5T?=
- =?utf-8?B?ZlA3OGlKK0RmdFhZTGNqeHNUWks2eHBVMFRTYkM5c0RuQmZIMTFWT3FuamlY?=
- =?utf-8?B?TFE3WVN4dWp1a1NLdklMTnR5RFYrYlRUWWw4UGwrTm5La09IbGIrdFhXb3Fs?=
- =?utf-8?B?WXZGNnlGNE9xNU01ZG5lQjNkZkhpNm9rVDVnVEk1R1Y0bnVkQWR3NU91T092?=
- =?utf-8?B?T2ptY3lSUldyc0NGU1FXTU1rN285bzdvQ2ozNitJZzNRUUtoV3N6Rm1tUC9s?=
- =?utf-8?B?cXpQS3Q5TWJXelhwY2ZZazllYnVtWjZCN1puUEtBV1hlVFYrQk85SkxKT1NI?=
- =?utf-8?B?d0ZseVh0NWRUTTVkeVlyYllyY0lvRm0wbEJ1VjdXaGc3MDROUG1SL2NBWTk4?=
- =?utf-8?B?M08wNHJlUVFVYjRSeU9wSmxyL3ZLZlNPdjBjTkdKV0hJbyt5amxMTDBaemRI?=
- =?utf-8?B?aXRpVUJQb2RDUWVoTzU4dkNObElSTlZXbHRyVHAvWStRcGo2U0pzeUNveGp4?=
- =?utf-8?B?U3gvTTRqMTREVmQwdjhkTkRTT2JMVDFURDZWYWRBTkhvemtGeXA2QURQQzZT?=
- =?utf-8?B?Wlp0TktzTDRZTi94VEJ5bHRvN1FncG92NDgwWjJ6L1BJUUsxNVZDN21TNjN2?=
- =?utf-8?B?TUppSGx1N3oyam9WZlg0aExKYytGK1pXa2dSYzkybitBNWRWN3RFbkRpb09M?=
- =?utf-8?B?UGNMMG80L2piQ3RCUkdodnZHS0Qva0VOT3hic0MwcG1ZYmdNY2VkWXdJT2Iz?=
- =?utf-8?B?TmZIMm5XaGI0QThuRHhGTUVXZzhmUEtzYkNaUFY3K2c1akU3ZU1OMVd5TjFY?=
- =?utf-8?B?TnlQVmNzUkd4MkxmM2w3SWUraWhYdWE5VjgrbUo5NjQ1c3B4L2R3d0dIMjl0?=
- =?utf-8?B?WVY3S1Y1NUUxR29SdHFXWXArV0kxUnFKY1QwcGNZM1JiNUlqUjhiUEhDWFZP?=
- =?utf-8?B?ZlBzNlozaXlTUnRNMmNPZUxSWDBRaVhjKzI0SngvSnA5VlJsdWhBcGlhczgx?=
- =?utf-8?B?dGVJMkptbmNpSTEvVEZwcVVzMUpMdE5VUEJWRkpTYlhyelllM3ZzU2dJVFVj?=
- =?utf-8?B?TVlGMm0wYTdLWmR4T3I4TTY1QngwQWdNV0lHakxyYVB3OFJEYVNZakVjMlY3?=
- =?utf-8?B?R2lIeENjQk04RjhQeCt4KzMrWE1hTTYwSE5VbGtJcGNHSEtzc1czZlZWZkV5?=
- =?utf-8?B?QVBhcDNndHJEbzVtVFIyeWlhclliU1FQYjRuQ1pRcDkwdTFId0U2V2YvbHI5?=
- =?utf-8?B?YncwN3JtMmF2S2YxOW80WW1GRzNZSHNzb1BCei9kR3dEblRtWVBlQlBZbjli?=
- =?utf-8?B?d1BjR3pXYWFnUXd6alhUOWVCOFFqRHVpTVZkRUtGMnlRQ3UvOHRLUWRNK09p?=
- =?utf-8?B?RXhHZCsyN3pLNFJzcGRzWlpBejd5blhTSHRvWUplc2wySzVhTkZGTWE2dkRy?=
- =?utf-8?B?bHMwamZHRzJkMlZ2bkRsWTV4RDQvRHJpek1ZYm5TTk8wL1NzUVdpL3FKb1Fy?=
- =?utf-8?B?alh3U0pkVklad1E2ODVZU3R3a09aQ2d4SHVsaEhOYzB2VVhRNVRxb1cvT3hj?=
- =?utf-8?B?K0tLNm5NV1BIb0JReHhsNENLVGxDbXU4Q2xGUWljb0NHVUNPamJJUG1OV055?=
- =?utf-8?B?cDdGc2ZKdnpUQjltWFdBekNaMGVOUEs3ZmRDSGREQWhWd05lOFo5cXFDRzZr?=
- =?utf-8?B?K0dNZjJrdnNtWUhWQWJwcXpBRlJyci9MWXc4T2s0OHh4UFVtSFRTay9vRjQv?=
- =?utf-8?Q?+FklEWCKjHo=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8644.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024);DIR:OUT;SFP:1102;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7405
-X-CodeTwo-MessageID: e54b62cd-61fa-49f3-ba8b-c57f7aaeef81.20250423065948@westeu12-emailsignatures-cloud.codetwo.com
-X-CodeTwoProcessed: true
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS0EPF000001B4.eurprd05.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 8b62c567-1589-4ac2-308e-08dd82346d63
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|14060799003|82310400026|35042699022|36860700013|13003099007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?M1ZQeVo3dzdvMlo2UTlIUmRCYWw2WXgreWErQW5tWFZKRnNVT3RvRHBPMXAw?=
- =?utf-8?B?Z3kvT3IzTXU5Qjg1NnZjRXNnejlUS1R0eVMvOWhaelAzRUN4MVc2M2dtakdU?=
- =?utf-8?B?bnJiVjJlRmc1NGJqTFAvMUdvTVkzQzMwRGUwTU9kbXN0aktNYU01VS9BZFN1?=
- =?utf-8?B?WkdyU1lFYm8xWTBGcWZzUVBNUkthY3QvQzh5dzFPbXFlb2dlRzc1VU9LNnUx?=
- =?utf-8?B?aDJySGxkUXAvY1hsRmhtOXF1M2lIUXYxUTJLLzRlS0E2MVVNTmx6TTNxNEl4?=
- =?utf-8?B?Sy8xcXdyM3RQS2pvSmZSSmtIOStHTlFrd0Vmald6R0ZidE56Nk1WeWxIYUFM?=
- =?utf-8?B?SnNFeVB6MlBBVitVcE1xeThhQUlVcnNKNW0vaGJaNFBJWjdGOENkVk1JM2xx?=
- =?utf-8?B?dkJHT3k4bUwvbEkzNHh5Rk51KzJvQk1LMnJOQ1dYM0l6L09tcHpWZ3NudWNn?=
- =?utf-8?B?K1p0WVhjL3pSa1NESFNheVVTTG9NWXczamd6am9pRWlpMmdCT2FUTmw4a3E2?=
- =?utf-8?B?eUg2S3I1bE11WkQvZWROMVBaWCtvR2dpNTRqNWxJMUxmQ0V1VzdBK1p5VlZN?=
- =?utf-8?B?Sk5rMUdYV0djeHRaNU44ZTBvTzFiQU5tVDFpdE9GNjJ2RURkaFFWS2lQT29F?=
- =?utf-8?B?Y3NJTlNYS2JvV21iMzVueXkwTFpDTzcvN3lFejdIMGk2WHlIV1FTWjlCalI4?=
- =?utf-8?B?eWxzUjFQQ2NsOUVoVk0yaytWOHV6Y0luRmNTaTJhMVlla3Raalk5dzNBU2tY?=
- =?utf-8?B?SzlsMnpyTW5LbER6bnd2RUZ5YkFsV1JXZVExZDkvOSs0UXUrc0srTFRyYXJu?=
- =?utf-8?B?S0Jmcm8xMmY0L1RmZkwvQ1VPeHUyUXVNR2RKYVByNlRqZ2JKalRkR3d0UDZY?=
- =?utf-8?B?STFCOFlhK3RYWTRMZVZlQzQ0R2dzT1dyN2lGRExmbUpVbDFrS0xmS3B6UkM2?=
- =?utf-8?B?YTJiVTNBRmhzOFJWMFJQdWhvdlhPTDdGMWl2OFFvTFBMTnl2OWEydEUyNHlQ?=
- =?utf-8?B?alBSTkVNQU44QmsweWFoSkRYTjFWNzYxR21JRUhWc3VpL1JjdElKK3NFNHJO?=
- =?utf-8?B?QlBFQUxDbi9WSEpQQVFtRHl6UEJRZzJ1Z2tuSVZnV0tWa20xU3pjNndxUkVK?=
- =?utf-8?B?QXJvNVNnR1ZXdUpUbjgvMEhPL3JsVjkzQTZGeGdxeHd6TVp2RFFYeWJtRTFD?=
- =?utf-8?B?aWJoamlKdDhURXpvdWxudGp6TFh2VnBRWnJrWEJpT3c2ZHZSSFpEc29GN2lm?=
- =?utf-8?B?dFFIelh1NTVzM3F1aENRMWd5UFlyUTI1TExZQXlYQUhvMTdCODZlNXFnWS9i?=
- =?utf-8?B?NHErNStZNjlIWDZ6U0NVeWVuQWpOb3pldVl1T0R3aWNzdG9PaGFOOFdTYzBC?=
- =?utf-8?B?TG9uT3lwLzlqVEVWTWRRUUd6eVZMSG9yRXNudVJGZ0REVC9HZFBja1dsMW56?=
- =?utf-8?B?Tjg1MnRmWVN4UEFsNjdXT0w1NmNFbGxnQ3k3QVpWd0R1b2pjcUNxNDJlSDJu?=
- =?utf-8?B?b0Q5enJMMFlIY3pxemR1c0U5Tk9EeW96OWNUWjkwNGgvTFBsZFZsSmxhNitq?=
- =?utf-8?B?aUEvS0h1dVUyR2lIblNJRzN5bEZDU1VUdTR2RGxrYnNsZCs3RTQvUzZyODZX?=
- =?utf-8?B?RzBjK0JXU1BTZEc1TG9kbllTcXR1UlFSM1JpTjZCNTNFM05PTHJ4MGpLVDdD?=
- =?utf-8?B?WU1CdGZodUtuSktTWTVRQi9WZCtrUFE0ZUc4LzQ4cHM2T0dkQzlNOUlqTHV4?=
- =?utf-8?B?UG9ZSnA4R21hbHgzYmpSREE2Y0xlZ1RmSEJQRngwU3RFYkZXUC8ybFhudmhD?=
- =?utf-8?B?Zm0zVVBjWlc0dkZqTkJNV3JuTmtMdjlGUEtXa0lWU1R5TkYzM05mME5HNzRT?=
- =?utf-8?B?UE5XQ1poelo3OXVvbUZHNWtYQlRIMmpFeElBUmtYMjhubFBDWjJvS0M2NXl4?=
- =?utf-8?B?QVpvRGVPRFdrZHV5ZlZoL0lhSWZtWjcwRnM4d1hMSS9oS0prQlFzQTdnVkpM?=
- =?utf-8?B?bTcwWHl6ZjR3PT0=?=
-X-Forefront-Antispam-Report: CIP:13.93.42.39;CTRY:NL;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:westeu12-emailsignatures-cloud.codetwo.com;PTR:westeu12-emailsignatures-cloud.codetwo.com;CAT:NONE;SFS:(13230040)(376014)(1800799024)(14060799003)(82310400026)(35042699022)(36860700013)(13003099007);DIR:OUT;SFP:1102;
-X-OriginatorOrg: topic.nl
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Apr 2025 06:59:49.3033
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e0102330-9926-4f7f-4cfc-08dd82347076
-X-MS-Exchange-CrossTenant-Id: 449607a5-3517-482d-8d16-41dd868cbda3
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=449607a5-3517-482d-8d16-41dd868cbda3;Ip=[13.93.42.39];Helo=[westeu12-emailsignatures-cloud.codetwo.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001B4.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR04MB9692
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC][PATCH 00/14] introduce kmemdump
+To: Eugen Hristev <eugen.hristev@linaro.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-msm@vger.kernel.org>, <andersson@kernel.org>
+CC: <linux-doc@vger.kernel.org>, <corbet@lwn.net>, <tglx@linutronix.de>,
+        <mingo@redhat.com>, <rostedt@goodmis.org>, <john.ogness@linutronix.de>,
+        <senozhatsky@chromium.org>, <pmladek@suse.com>, <peterz@infradead.org>,
+        <mojha@qti.qualcomm.com>, <linux-arm-kernel@lists.infradead.org>,
+        <vincent.guittot@linaro.org>, <konradybcio@kernel.org>,
+        <dietmar.eggemann@arm.com>, <juri.lelli@redhat.com>
+References: <20250422113156.575971-1-eugen.hristev@linaro.org>
+Content-Language: en-US
+From: Trilok Soni <quic_tsoni@quicinc.com>
+In-Reply-To: <20250422113156.575971-1-eugen.hristev@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nasanex01a.na.qualcomm.com (10.52.223.231)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: WG7qYevMhuvSAnvTpD6mvm3ky2sWWyNl
+X-Authority-Analysis: v=2.4 cv=OY6YDgTY c=1 sm=1 tr=0 ts=68089107 cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=VwQbUJbxAAAA:8 a=KKAkSRfTAAAA:8 a=COk6AnOGAAAA:8
+ a=oZ8wWTcPSBrqPQfBPqMA:9 a=QEXdDO2ut3YA:10 a=cvBusfyB2V15izCimMoJ:22 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-ORIG-GUID: WG7qYevMhuvSAnvTpD6mvm3ky2sWWyNl
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDIzMDA0NiBTYWx0ZWRfX0TwZpL0SAicz oF4+evXSmwb+4LqxonlhNM/2Pc0LZLhrfKbOUZFe88P71mC4iyFnITKZSulYzUwJEld+jDIUeUJ THtFecDN/No+OXk5RiG7AMgR7aNDRbupscYOxnQFxR+pyrX78qy5u/XmRy9s91zgoZT2TDYQdBF
+ cZliSTsNqg4xWCq4u1o8jwcLDjR4mSpVn5PP5AP5R1UN/28ARiNsdBIAsyrPddyzH/ExDx2ZUNZ 5BN3OMmJGm6jyzFJHngqIl47sD8q67ovCjvzvqCGDKxwd8m+tUeHBOeSh+vzh44JrwaorO7Kc4z /t4jFPSm0x1f7Ag98UOGqE/8Nnli8QfvFmjxTgYQGSH6pKORYcFnNFLcrKPK7o5rZZ2MTdw3YQl
+ +lXeRaEf2NtKnxdn5XNByYsixOSYMx+r8rtcqhxFn45H5ewVVMm1lu0RtzO6BPpvPf221yJK
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-23_05,2025-04-22_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0
+ lowpriorityscore=0 suspectscore=0 mlxscore=0 clxscore=1011 malwarescore=0
+ mlxlogscore=797 phishscore=0 priorityscore=1501 spamscore=0 adultscore=0
+ bulkscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
+ definitions=main-2504230046
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_000002_698561_BD5A81F3 
-X-CRM114-Status: GOOD (  24.19  )
+X-CRM114-CacheID: sfid-20250423_000502_852428_B70D903D 
+X-CRM114-Status: GOOD (  23.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -205,195 +109,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-Met vriendelijke groet / kind regards,=0A=
-=0A=
-Mike Looijmans=0A=
-System Expert=0A=
-=0A=
-=0A=
-TOPIC Embedded Products B.V.=0A=
-Materiaalweg 4, 5681 RJ Best=0A=
-The Netherlands=0A=
-=0A=
-T: +31 (0) 499 33 69 69=0A=
-E: mike.looijmans@topic.nl=0A=
-W: www.topic.nl=0A=
-=0A=
-Please consider the environment before printing this e-mail=0A=
-On 23-04-2025 00:18, Laurent Pinchart wrote:
-> Hi Mike,
->
-> Thank you for the patch.
->
-> On Fri, Mar 14, 2025 at 04:04:18PM +0100, Mike Looijmans wrote:
->> At probe time the driver would display the following error and abort:
->>    xilinx-psgtr fd400000.phy: Invalid rate 0 for reference clock 0
->>
->> This issue was that at probe time, the system has not decided yet whethe=
-r
->> the GTR is to be used for SATA (150MHz) or PCIe (100 MHz).
-> At what point does the system decide that ? I've only used (and tested)
-> this driver for DisplayPort.
-
-In retrospect, yeah, the commit text could be a bit more elaborate on that.
-
-This PHY driver probes before the I2C bus which contains the programmable=20
-clock chip that provides the GT clocks for the PS. This isn't a problem, as=
-=20
-the PHY lane won't be needed yet.
-
-When the SATA (or PCIe or network or displayport or ...) driver probes, the=
-=20
-clock gets programmed. The PHY lane won't be enabled until after that.
+On 4/22/2025 4:31 AM, Eugen Hristev wrote:
+> kmemdump is a mechanism which allows the kernel to mark specific memory
+> areas for dumping or specific backend usage.
+> Once regions are marked, kmemdump keeps an internal list with the regions
+> and registers them in the backend.
+> Further, depending on the backend driver, these regions can be dumped using
+> firmware or different hardware block.
+> Regions being marked beforehand, when the system is up and running, there
+> is no need nor dependency on a panic handler, or a working kernel that can
+> dump the debug information.
+> The kmemdump approach works when pstore, kdump, or another mechanism do not.
+> Pstore relies on persistent storage, a dedicated RAM area or flash, which
+> has the disadvantage of having the memory reserved all the time, or another
+> specific non volatile memory. Some devices cannot keep the RAM contents on
+> reboot so ramoops does not work. Some devices do not allow kexec to run
+> another kernel to debug the crashed one.
+> For such devices, that have another mechanism to help debugging, like
+> firmware, kmemdump is a viable solution.
+> 
+> kmemdump can create a core image, similar with /proc/vmcore, with only
+> the registered regions included. This can be loaded into crash tool/gdb and
+> analyzed.
+> To have this working, specific information from the kernel is registered,
+> and this is done at kmemdump init time, no need for the kmemdump user to
+> do anything.
+> 
+> The implementation is based on the initial Pstore/directly mapped zones
+> published as an RFC here:
+> https://lore.kernel.org/all/20250217101706.2104498-1-eugen.hristev@linaro.org/
+> 
+> The back-end implementation for qcom_smem is based on the minidump
+> patch series and driver written by Mukesh Ojha, thanks:
+> https://lore.kernel.org/lkml/20240131110837.14218-1-quic_mojha@quicinc.com/
+> 
+> I appreciate the feedback on this series, I know it is a longshot, and there
+> is a lot to improve, but I hope I am on the right track.
 
 
->
->> The driver
->> doesn't need to know the clock frequency at that point yet, so wait unti=
-l
->> the lane is actually being initialized before requesting the clock rate
->> setting.
->>
->> Signed-off-by: Mike Looijmans <mike.looijmans@topic.nl>
->> ---
->>
->>   drivers/phy/xilinx/phy-zynqmp.c | 61 ++++++++++++++++-----------------
->>   1 file changed, 30 insertions(+), 31 deletions(-)
->>
->> diff --git a/drivers/phy/xilinx/phy-zynqmp.c b/drivers/phy/xilinx/phy-zy=
-nqmp.c
->> index 05a4a59f7c40..e29e3e51d380 100644
->> --- a/drivers/phy/xilinx/phy-zynqmp.c
->> +++ b/drivers/phy/xilinx/phy-zynqmp.c
->> @@ -222,7 +222,6 @@ struct xpsgtr_phy {
->>    * @siou: siou base address
->>    * @gtr_mutex: mutex for locking
->>    * @phys: PHY lanes
->> - * @refclk_sscs: spread spectrum settings for the reference clocks
->>    * @clk: reference clocks
->>    * @tx_term_fix: fix for GT issue
->>    * @saved_icm_cfg0: stored value of ICM CFG0 register
->> @@ -235,7 +234,6 @@ struct xpsgtr_dev {
->>   	void __iomem *siou;
->>   	struct mutex gtr_mutex; /* mutex for locking */
->>   	struct xpsgtr_phy phys[NUM_LANES];
->> -	const struct xpsgtr_ssc *refclk_sscs[NUM_LANES];
->>   	struct clk *clk[NUM_LANES];
->>   	bool tx_term_fix;
->>   	unsigned int saved_icm_cfg0;
->> @@ -398,13 +396,40 @@ static int xpsgtr_wait_pll_lock(struct phy *phy)
->>   	return ret;
->>   }
->>  =20
->> +/* Get the spread spectrum (SSC) settings for the reference clock rate =
-*/
->> +static const struct xpsgtr_ssc *xpsgtr_find_sscs(struct xpsgtr_phy *gtr=
-_phy)
->> +{
->> +	unsigned long rate;
->> +	struct clk *clk;
->> +	unsigned int i;
->> +
->> +	clk =3D gtr_phy->dev->clk[gtr_phy->refclk];
->> +	rate =3D clk_get_rate(clk);
->> +
->> +	for (i =3D 0 ; i < ARRAY_SIZE(ssc_lookup); i++) {
->> +		/* Allow an error of 100 ppm */
->> +		unsigned long error =3D ssc_lookup[i].refclk_rate / 10000;
->> +
->> +		if (abs(rate - ssc_lookup[i].refclk_rate) < error)
->> +			return &ssc_lookup[i];
->> +	}
->> +
->> +	dev_err(gtr_phy->dev->dev, "Invalid rate %lu for reference clock %u\n"=
-,
->> +		rate, gtr_phy->refclk);
->> +
->> +	return NULL;
->> +}
->> +
->>   /* Configure PLL and spread-sprectrum clock. */
->>   static void xpsgtr_configure_pll(struct xpsgtr_phy *gtr_phy)
->>   {
->>   	const struct xpsgtr_ssc *ssc;
->>   	u32 step_size;
->>  =20
->> -	ssc =3D gtr_phy->dev->refclk_sscs[gtr_phy->refclk];
->> +	ssc =3D xpsgtr_find_sscs(gtr_phy);
->> +	if (!ssc)
->> +		return;
-> Isn't it an issue that we now fail here without propagating an error
-> back to the caller ? The function is called by xpsgtr_phy_init(), which
-> return an int, so I think returning an error code here would make sense.
+Is there any way to demonstrate this framework on non-Qualcomm device? Like any
+other ARM device from TI, NXP etc; x86/RISC-V based device is also fine.
 
-Agree, I'll make a v2
-
-
->
-> The rest of the patch looks good to me. I would however appreciate
-> feedback from someone at AMD more knowledgeable than I am with the
-> hardware. Michal, could you propose an appropriate second maintainer for
-> this driver ?
->
->> +
->>   	step_size =3D ssc->step_size;
->>  =20
->>   	xpsgtr_clr_set(gtr_phy->dev, PLL_REF_SEL(gtr_phy->lane),
->> @@ -823,8 +848,7 @@ static struct phy *xpsgtr_xlate(struct device *dev,
->>   	}
->>  =20
->>   	refclk =3D args->args[3];
->> -	if (refclk >=3D ARRAY_SIZE(gtr_dev->refclk_sscs) ||
->> -	    !gtr_dev->refclk_sscs[refclk]) {
->> +	if (refclk >=3D ARRAY_SIZE(gtr_dev->clk)) {
->>   		dev_err(dev, "Invalid reference clock number %u\n", refclk);
->>   		return ERR_PTR(-EINVAL);
->>   	}
->> @@ -928,9 +952,7 @@ static int xpsgtr_get_ref_clocks(struct xpsgtr_dev *=
-gtr_dev)
->>   {
->>   	unsigned int refclk;
->>  =20
->> -	for (refclk =3D 0; refclk < ARRAY_SIZE(gtr_dev->refclk_sscs); ++refclk=
-) {
->> -		unsigned long rate;
->> -		unsigned int i;
->> +	for (refclk =3D 0; refclk < ARRAY_SIZE(gtr_dev->clk); ++refclk) {
->>   		struct clk *clk;
->>   		char name[8];
->>  =20
->> @@ -946,29 +968,6 @@ static int xpsgtr_get_ref_clocks(struct xpsgtr_dev =
-*gtr_dev)
->>   			continue;
->>  =20
->>   		gtr_dev->clk[refclk] =3D clk;
->> -
->> -		/*
->> -		 * Get the spread spectrum (SSC) settings for the reference
->> -		 * clock rate.
->> -		 */
->> -		rate =3D clk_get_rate(clk);
->> -
->> -		for (i =3D 0 ; i < ARRAY_SIZE(ssc_lookup); i++) {
->> -			/* Allow an error of 100 ppm */
->> -			unsigned long error =3D ssc_lookup[i].refclk_rate / 10000;
->> -
->> -			if (abs(rate - ssc_lookup[i].refclk_rate) < error) {
->> -				gtr_dev->refclk_sscs[refclk] =3D &ssc_lookup[i];
->> -				break;
->> -			}
->> -		}
->> -
->> -		if (i =3D=3D ARRAY_SIZE(ssc_lookup)) {
->> -			dev_err(gtr_dev->dev,
->> -				"Invalid rate %lu for reference clock %u\n",
->> -				rate, refclk);
->> -			return -EINVAL;
->> -		}
->>   	}
->>  =20
->>   	return 0;
-
-
+-- 
+---Trilok Soni
 
