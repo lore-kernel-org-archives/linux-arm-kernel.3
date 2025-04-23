@@ -4,60 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33953C369D7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:43:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A8B6C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:43:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DvQAcienr+uUgSE3tl4CmxeGpWfvP0lNum+weJ+/wms=; b=qpdARSLLWtEOimoEAh1qpL/5ZF
-	Y7aglZjt5xd/sEcYPDEPKHqnnW/ACmYnxhcAF5mGyw2dL22L3LUZ4ZH8Hd/h0VgTxeWgIC3V5j1AR
-	R0fVDCno2LIaM6QjxKP0+Rrlv0u/9ghkhXFypYrCSbF/4XcuLdk6quQ++HB9+sahZnKc+K2eln3N0
-	ro/EHzbDWHN+6fsXL0WCrkem+tgtCB4S7MDUBNJS7jmWATUf7NziS7fvbytcEaDiRijp8wPPXRO4S
-	kXiYDvwpdyVXief6DuCPhEP99Uh5DdxXDsp1dA4S0jppAvwrocbUUOSt08Hdr6FD+FzGfHa7Ysq23
-	jDktAgmg==;
+	bh=C1ILQYWLTxemqDdJBTmUiuNZzTXAykwPUMAreV9P7yQ=; b=0IWR8qIk/AgY6AHPI3zxCSE/fp
+	M+kuJWM3BXA+YOP8i5di0p5iFqvYposj5NCzIM4v4JpKx7HHpEDhl0eIKl5CkGnxfog1P5uUpj/8L
+	6l5+isDGEJxePcexpi5R7DmkFnp+cKrmcZbXu+UJW+NFzUKfbI2+SWz80dmtARy7HxWSVbUdO45mN
+	iJEqQh5Tgl/FZcZ7nhThwkHY60ljmheQuZGqcTIHlu5IEiFFVarcFAcORsDlmsYHDfBO/0FQw30gO
+	g86jMKyoWS6vrwqVlAJhdjN6QVv1GHYH+MBvygm7uju4dkPOSzT3XMxHEsUJSSxvYRsWXDW9bpxct
+	hPNQQgow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7e7X-0000000BLhS-0iMJ;
-	Wed, 23 Apr 2025 17:42:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7brR-0000000AwLs-2Q3D
+	id 1u7e7Y-0000000BLk7-2aQu;
+	Wed, 23 Apr 2025 17:42:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7btJ-0000000Awk2-2q9F
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 15:18:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 59CB21063;
-	Wed, 23 Apr 2025 08:17:58 -0700 (PDT)
-Received: from e132581.cambridge.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2D0553F66E;
-	Wed, 23 Apr 2025 08:18:01 -0700 (PDT)
-From: Leo Yan <leo.yan@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Cc: Leo Yan <leo.yan@arm.com>
-Subject: [PATCH v2 9/9] coresight: Refactor runtime PM
-Date: Wed, 23 Apr 2025 16:17:26 +0100
-Message-Id: <20250423151726.372561-10-leo.yan@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250423151726.372561-1-leo.yan@arm.com>
-References: <20250423151726.372561-1-leo.yan@arm.com>
+	Wed, 23 Apr 2025 15:20:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D9CB144852
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 15:19:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 499F4C4AF0B
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 15:20:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745421601;
+	bh=tPOHjT1NkHow4VD7/8Appu7QUK/ZbjYVgaBPZCT9gmc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=JHzR0ks9mywL/Gjel+WVjGNaUfXggO7iK4HEKa99gt2Id+opEtlpyAb8UWdlIbd6p
+	 U2Tj8WVai1ielF1aDhyeSWaQTWsM3rDfzJguAsYZPeLwkaTv9t6RDw2IEHtfOc7od1
+	 k5WdJjh5bAw6PrOqF9uQdGwZ0j0VLleW1tYLSRKvzGD/c1EL5c9cyuMfXflKyibaVU
+	 bvGMikvu5P5gagV9/JpBvAWdIRz4+TCJChp7gJiEpAs8GBySeD54viEHq2SwBqq+9Z
+	 0+iZ6r9t0+CFj1T2UVjw5jTghN4cyVgjVZfBhmelLA6RHbPMnhMyxoa0UXWSvrdURa
+	 uvIaPSzaOF6Kw==
+Received: by mail-ed1-f48.google.com with SMTP id 4fb4d7f45d1cf-5f4d28d9fd8so8840450a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 08:20:01 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUC2nYF/BRkrtdq0eyeEbmzjOnBkt5ZE0UFA7xJoxbIaXAA218IP4MFGiw6SIi1+HMXfjCEg/m07tZsl3KnEDsv@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw0SF4allK2hvk7aK7kw6pkzlGLBN+o+EUppLt4lLnbDwFwxg1T
+	w/Cqctt2LEFMKHEoiODBLr6+HRgdb709iIH+4Qxu2IC/a5WGcGc2m4FqDqjdpPi78e/UB5oCQxT
+	Nt6wv2OSvrVLX2prRVxVszyzsMw==
+X-Google-Smtp-Source: AGHT+IEV1CEtPoGDqGEwEZJrzR2YkV4IU/BYo041fFmlJGhMA6AFx/r6j4OVu1OhC2Y/tApvvElXwS4Rby6hFC65/iU=
+X-Received: by 2002:a05:6402:4408:b0:5f3:4197:9538 with SMTP id
+ 4fb4d7f45d1cf-5f628525695mr18336301a12.13.1745421599923; Wed, 23 Apr 2025
+ 08:19:59 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250417-spmi-nvmem-v2-0-b88851e34afb@gmail.com>
+ <20250417-spmi-nvmem-v2-1-b88851e34afb@gmail.com> <20250422133619.GA1095169-robh@kernel.org>
+ <CAMT+MTTwY=z1-_94ws+Oi+wvE2PA_s57dPmpMABC26q=MPw1Mg@mail.gmail.com> <e4159c2b-4081-4a4b-9a53-d6d559a3196c@gmail.com>
+In-Reply-To: <e4159c2b-4081-4a4b-9a53-d6d559a3196c@gmail.com>
+From: Rob Herring <robh@kernel.org>
+Date: Wed, 23 Apr 2025 10:19:48 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqKwASbUtpO=wU-16v=y8S_wLyBxnFUmQqsE8GkzCz0hDg@mail.gmail.com>
+X-Gm-Features: ATxdqUFuWyHPWdbMp12KUQQV-d0rnw0lx2tasAZItdh99IKgPe_s_qddlmQl6uk
+Message-ID: <CAL_JsqKwASbUtpO=wU-16v=y8S_wLyBxnFUmQqsE8GkzCz0hDg@mail.gmail.com>
+Subject: Re: [PATCH v2 1/3] dt-bindings: spmi: Add generic SPMI NVMEM
+To: Nick Chan <towinchenmi@gmail.com>
+Cc: Sasha Finkelstein <fnkl.kernel@gmail.com>, Sven Peter <sven@svenpeter.dev>, 
+	Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, 
+	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_081805_706089_78C36E42 
-X-CRM114-Status: GOOD (  12.57  )
+X-CRM114-CacheID: sfid-20250423_082001_761919_2C8F1E2A 
+X-CRM114-Status: GOOD (  32.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,294 +89,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The validation for driver data pointers and clock pointers are redundant
-in the runtime PM callbacks.  After a driver's probing, its driver data
-and clocks have been initialized successfully, this ensures it is safe
-to access driver data and clocks in the runtime PM callbacks.  A corner
-case is a clock pointer is NULL, in this case, the clock core layer can
-handle it properly.  So remove these redundant checking.
+On Tue, Apr 22, 2025 at 11:59=E2=80=AFPM Nick Chan <towinchenmi@gmail.com> =
+wrote:
+>
+>
+> Sasha Finkelstein =E6=96=BC 2025/4/22 =E5=A4=9C=E6=99=9A9:44 =E5=AF=AB=E9=
+=81=93:
+> > On Tue, 22 Apr 2025 at 15:36, Rob Herring <robh@kernel.org> wrote:
+> >>> +title: Generic SPMI NVMEM
+> >> What makes this generic?
+> >>
+> >> A generic driver is great, but "generic" or "simple" bindings are
+> >> generally a mistake.
+> > There is nothing apple-specific in that driver, just re-exporting
+> > several registers as cells. If you think that it is a mistake, I can
+> > rename it to apple-pmic, or something similar.
 
-In runtime resume, respect values returned from clock function and add
-error handling.
+Like I said, a generic *driver* is great! I'm all for them. We should
+have more of them! Generic bindings on the other hand are generally a
+mistake. The problem is whether a generic driver works for you or not
+can evolve in either direction. You add more things like described
+below and then a generic driver doesn't work.
 
-Signed-off-by: Leo Yan <leo.yan@arm.com>
----
- drivers/hwtracing/coresight/coresight-cpu-debug.c  |  8 +++-----
- drivers/hwtracing/coresight/coresight-ctcu-core.c  |  8 ++------
- drivers/hwtracing/coresight/coresight-etb10.c      |  8 ++------
- drivers/hwtracing/coresight/coresight-etm3x-core.c |  8 ++------
- drivers/hwtracing/coresight/coresight-funnel.c     | 21 +++++++++++----------
- drivers/hwtracing/coresight/coresight-replicator.c | 20 +++++++++++---------
- drivers/hwtracing/coresight/coresight-stm.c        | 20 +++++++++++---------
- drivers/hwtracing/coresight/coresight-tpiu.c       | 20 +++++++++++---------
- 8 files changed, 53 insertions(+), 60 deletions(-)
+> >>> +      - const: spmi-nvmem
+> >> What happens when there's some other feature of the PMIC exposed that'=
+s
+> >> not nvmem?
+> > If you have a PMIC that needs more features exposed, then you'd have to
+> > use a different driver. Or am i not understanding the question correctl=
+y?
+> I think the problem is what happens if more functionalities needed to be =
+exposed from the M1 SoC's
+> PMIC. (right now I do not believe anything else is needed from it)
 
-diff --git a/drivers/hwtracing/coresight/coresight-cpu-debug.c b/drivers/hwtracing/coresight/coresight-cpu-debug.c
-index 481ffcbed534..dff663ac7805 100644
---- a/drivers/hwtracing/coresight/coresight-cpu-debug.c
-+++ b/drivers/hwtracing/coresight/coresight-cpu-debug.c
-@@ -731,8 +731,8 @@ static int debug_runtime_suspend(struct device *dev)
- {
- 	struct debug_drvdata *drvdata = dev_get_drvdata(dev);
- 
--	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
--		clk_disable_unprepare(drvdata->pclk);
-+	clk_disable_unprepare(drvdata->pclk);
-+
- 	return 0;
- }
- 
-@@ -740,9 +740,7 @@ static int debug_runtime_resume(struct device *dev)
- {
- 	struct debug_drvdata *drvdata = dev_get_drvdata(dev);
- 
--	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
--		clk_prepare_enable(drvdata->pclk);
--	return 0;
-+	return clk_prepare_enable(drvdata->pclk);
- }
- #endif
- 
-diff --git a/drivers/hwtracing/coresight/coresight-ctcu-core.c b/drivers/hwtracing/coresight/coresight-ctcu-core.c
-index 75b5114ef652..c586495e9a08 100644
---- a/drivers/hwtracing/coresight/coresight-ctcu-core.c
-+++ b/drivers/hwtracing/coresight/coresight-ctcu-core.c
-@@ -278,8 +278,7 @@ static int ctcu_runtime_suspend(struct device *dev)
- {
- 	struct ctcu_drvdata *drvdata = dev_get_drvdata(dev);
- 
--	if (drvdata && !IS_ERR_OR_NULL(drvdata->apb_clk))
--		clk_disable_unprepare(drvdata->apb_clk);
-+	clk_disable_unprepare(drvdata->apb_clk);
- 
- 	return 0;
- }
-@@ -288,10 +287,7 @@ static int ctcu_runtime_resume(struct device *dev)
- {
- 	struct ctcu_drvdata *drvdata = dev_get_drvdata(dev);
- 
--	if (drvdata && !IS_ERR_OR_NULL(drvdata->apb_clk))
--		clk_prepare_enable(drvdata->apb_clk);
--
--	return 0;
-+	return clk_prepare_enable(drvdata->apb_clk);
- }
- #endif
- 
-diff --git a/drivers/hwtracing/coresight/coresight-etb10.c b/drivers/hwtracing/coresight/coresight-etb10.c
-index 45c2f8f50a3f..3f3b0eb48fdb 100644
---- a/drivers/hwtracing/coresight/coresight-etb10.c
-+++ b/drivers/hwtracing/coresight/coresight-etb10.c
-@@ -807,8 +807,7 @@ static int etb_runtime_suspend(struct device *dev)
- {
- 	struct etb_drvdata *drvdata = dev_get_drvdata(dev);
- 
--	if (drvdata && !IS_ERR(drvdata->atclk))
--		clk_disable_unprepare(drvdata->atclk);
-+	clk_disable_unprepare(drvdata->atclk);
- 
- 	return 0;
- }
-@@ -817,10 +816,7 @@ static int etb_runtime_resume(struct device *dev)
- {
- 	struct etb_drvdata *drvdata = dev_get_drvdata(dev);
- 
--	if (drvdata && !IS_ERR(drvdata->atclk))
--		clk_prepare_enable(drvdata->atclk);
--
--	return 0;
-+	return clk_prepare_enable(drvdata->atclk);
- }
- #endif
- 
-diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-index adbb134f80e6..615ff743eef0 100644
---- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-@@ -925,8 +925,7 @@ static int etm_runtime_suspend(struct device *dev)
- {
- 	struct etm_drvdata *drvdata = dev_get_drvdata(dev);
- 
--	if (drvdata && !IS_ERR(drvdata->atclk))
--		clk_disable_unprepare(drvdata->atclk);
-+	clk_disable_unprepare(drvdata->atclk);
- 
- 	return 0;
- }
-@@ -935,10 +934,7 @@ static int etm_runtime_resume(struct device *dev)
- {
- 	struct etm_drvdata *drvdata = dev_get_drvdata(dev);
- 
--	if (drvdata && !IS_ERR(drvdata->atclk))
--		clk_prepare_enable(drvdata->atclk);
--
--	return 0;
-+	return clk_prepare_enable(drvdata->atclk);
- }
- #endif
- 
-diff --git a/drivers/hwtracing/coresight/coresight-funnel.c b/drivers/hwtracing/coresight/coresight-funnel.c
-index 62e5125c37ad..6494a3b5d18e 100644
---- a/drivers/hwtracing/coresight/coresight-funnel.c
-+++ b/drivers/hwtracing/coresight/coresight-funnel.c
-@@ -283,11 +283,8 @@ static int funnel_runtime_suspend(struct device *dev)
- {
- 	struct funnel_drvdata *drvdata = dev_get_drvdata(dev);
- 
--	if (drvdata && !IS_ERR(drvdata->atclk))
--		clk_disable_unprepare(drvdata->atclk);
--
--	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
--		clk_disable_unprepare(drvdata->pclk);
-+	clk_disable_unprepare(drvdata->atclk);
-+	clk_disable_unprepare(drvdata->pclk);
- 
- 	return 0;
- }
-@@ -295,13 +292,17 @@ static int funnel_runtime_suspend(struct device *dev)
- static int funnel_runtime_resume(struct device *dev)
- {
- 	struct funnel_drvdata *drvdata = dev_get_drvdata(dev);
-+	int ret;
-+
-+	ret = clk_prepare_enable(drvdata->pclk);
-+	if (ret)
-+		return ret;
- 
--	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
--		clk_prepare_enable(drvdata->pclk);
-+	ret = clk_prepare_enable(drvdata->atclk);
-+	if (ret)
-+		clk_disable_unprepare(drvdata->pclk);
- 
--	if (drvdata && !IS_ERR(drvdata->atclk))
--		clk_prepare_enable(drvdata->atclk);
--	return 0;
-+	return ret;
- }
- #endif
- 
-diff --git a/drivers/hwtracing/coresight/coresight-replicator.c b/drivers/hwtracing/coresight/coresight-replicator.c
-index 56b03e6d8336..8595dc104795 100644
---- a/drivers/hwtracing/coresight/coresight-replicator.c
-+++ b/drivers/hwtracing/coresight/coresight-replicator.c
-@@ -322,24 +322,26 @@ static int replicator_runtime_suspend(struct device *dev)
- {
- 	struct replicator_drvdata *drvdata = dev_get_drvdata(dev);
- 
--	if (drvdata && !IS_ERR(drvdata->atclk))
--		clk_disable_unprepare(drvdata->atclk);
-+	clk_disable_unprepare(drvdata->atclk);
-+	clk_disable_unprepare(drvdata->pclk);
- 
--	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
--		clk_disable_unprepare(drvdata->pclk);
- 	return 0;
- }
- 
- static int replicator_runtime_resume(struct device *dev)
- {
- 	struct replicator_drvdata *drvdata = dev_get_drvdata(dev);
-+	int ret;
- 
--	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
--		clk_prepare_enable(drvdata->pclk);
-+	ret = clk_prepare_enable(drvdata->pclk);
-+	if (ret)
-+		return ret;
- 
--	if (drvdata && !IS_ERR(drvdata->atclk))
--		clk_prepare_enable(drvdata->atclk);
--	return 0;
-+	ret = clk_prepare_enable(drvdata->atclk);
-+	if (ret)
-+		clk_disable_unprepare(drvdata->pclk);
-+
-+	return ret;
- }
- #endif
- 
-diff --git a/drivers/hwtracing/coresight/coresight-stm.c b/drivers/hwtracing/coresight/coresight-stm.c
-index f17986edac00..f859ab932d22 100644
---- a/drivers/hwtracing/coresight/coresight-stm.c
-+++ b/drivers/hwtracing/coresight/coresight-stm.c
-@@ -957,24 +957,26 @@ static int stm_runtime_suspend(struct device *dev)
- {
- 	struct stm_drvdata *drvdata = dev_get_drvdata(dev);
- 
--	if (drvdata && !IS_ERR(drvdata->atclk))
--		clk_disable_unprepare(drvdata->atclk);
-+	clk_disable_unprepare(drvdata->atclk);
-+	clk_disable_unprepare(drvdata->pclk);
- 
--	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
--		clk_disable_unprepare(drvdata->pclk);
- 	return 0;
- }
- 
- static int stm_runtime_resume(struct device *dev)
- {
- 	struct stm_drvdata *drvdata = dev_get_drvdata(dev);
-+	int ret;
- 
--	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
--		clk_prepare_enable(drvdata->pclk);
-+	ret = clk_prepare_enable(drvdata->pclk);
-+	if (ret)
-+		return ret;
- 
--	if (drvdata && !IS_ERR(drvdata->atclk))
--		clk_prepare_enable(drvdata->atclk);
--	return 0;
-+	ret = clk_prepare_enable(drvdata->atclk);
-+	if (ret)
-+		clk_disable_unprepare(drvdata->pclk);
-+
-+	return ret;
- }
- #endif
- 
-diff --git a/drivers/hwtracing/coresight/coresight-tpiu.c b/drivers/hwtracing/coresight/coresight-tpiu.c
-index 4701b34778bd..a68ed6b97bf7 100644
---- a/drivers/hwtracing/coresight/coresight-tpiu.c
-+++ b/drivers/hwtracing/coresight/coresight-tpiu.c
-@@ -206,24 +206,26 @@ static int tpiu_runtime_suspend(struct device *dev)
- {
- 	struct tpiu_drvdata *drvdata = dev_get_drvdata(dev);
- 
--	if (drvdata && !IS_ERR(drvdata->atclk))
--		clk_disable_unprepare(drvdata->atclk);
-+	clk_disable_unprepare(drvdata->atclk);
-+	clk_disable_unprepare(drvdata->pclk);
- 
--	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
--		clk_disable_unprepare(drvdata->pclk);
- 	return 0;
- }
- 
- static int tpiu_runtime_resume(struct device *dev)
- {
- 	struct tpiu_drvdata *drvdata = dev_get_drvdata(dev);
-+	int ret;
- 
--	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
--		clk_prepare_enable(drvdata->pclk);
-+	ret = clk_prepare_enable(drvdata->pclk);
-+	if (ret)
-+		return ret;
- 
--	if (drvdata && !IS_ERR(drvdata->atclk))
--		clk_prepare_enable(drvdata->atclk);
--	return 0;
-+	ret = clk_prepare_enable(drvdata->atclk);
-+	if (ret)
-+		clk_disable_unprepare(drvdata->pclk);
-+
-+	return ret;
- }
- #endif
- 
--- 
-2.34.1
+Yes, and you can add to the binding then, but you are stuck with what
+you define now.
 
+> It would be multiple drivers. A simple-mfd-spmi driver (like drivers/mfd/=
+simple-mfd-i2c.c
+> but SPMI) that exports a regmap and a generic driver that reexports regma=
+p (any regmap,
+> not necessarily SPMI) as nvmem cells, plus extra drivers that uses the re=
+gmap exposed by
+> the mfd driver for extra functionalities.
+>
+> To make this submission more generic and extensible, what would be submit=
+ted should be a
+> simple-mfd-spmi driver and a generic regmap nvmem driver. For specific ex=
+amples, see below:
+
+It is not an MFD currently, so you don't need an MFD driver. As I
+said, that can evolve.
+
+Drivers are bus specific, so you can't have a generic regmap driver.
+There's only 4 nvmem drivers using regmap anyways. qcom-spmi-sdam is
+one of them, and maybe one driver could handle that and Apple.
+
+> The PMICs from dialog semiconductor on older Apple SoCs definitely needs =
+such functionalities.
+>
+> On Apple A11 SoC there is a RTC clock device on the PMIC and the SMC on t=
+here does not have
+> RTC functionalities. To make the RTC clock work there a driver would read=
+ a counter that could
+> count a maximum of 194 days from the SPMI PMIC, and then access the PMIC =
+nvmem cells that
+> held the rest of the time. In this case these drivers are needed:
+>
+> (1) simple-mfd-spmi (2) rtc driver (3) generic regmap nvmem driver.
+>
+> On Apple A7-A10X SoC a similar PMIC also exist, but is over I2C instead o=
+f SPMI, those devices do not
+> have a SMC. To make the rtc clock work there three drivers are needed:
+>
+> (1) simple-mfd-i2c (already exists) (2) rtc driver (same one as above) (3=
+) generic regmap nvmem driver
+
+It all sounds a bit different from what's there on the M series, so
+perhaps better not to mix the 2 just because it is all apple. The A
+series stuff might have more in common with existing Dialog PMICs.
+
+Rob
 
