@@ -4,188 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B570EC369DC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BB92C369CB
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 13:52:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DX2q1cSZU9p27mS0nG1Y54H6NoorccgptJI5La//45A=; b=Rk00ff1u+dJopbM6KA9/GyKIsO
-	ViJxPbnA0p6HE05cXKkdRlsr453rVAYPuCfDr+UCIvPAFeGrdN89bhBLjwAVdn+J82EXIBQAVQpdB
-	OdfZMT8d9Yg7K2jGJ+z1ZQbptZ6DUb2UMtOMpFrGVGpbkc+mmI1nvjXV1CXZG3FPNYRIPkMh7JmUK
-	1SOLvbcBmFFjdpzQoEE5Taf9okAJaSmAGUpuLFuTPq4wxp6DiyKo/48MqtU+uR8NlWP+QVx0xPj7v
-	dvJ020421mkhdI62tXiTDEt+QyoWtPTJhg8/1J0zfSZoxL/bmHzDPq4q3MxhARSGcct6MEUEbZdnd
-	dPhSnKFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+IyBR9G/7UgBoXHNqf3NAUb6y3RdyTJStukCSmDm3Lc=; b=sGbYCzFLkRHyKBoHsj1+FrhCs5
+	iPuGfWds1FQVsCKi733o7BHmmJPw18ddKvsuSfmnaVtR0tI+tBGhnOxr/N08r6kioYdhOmE2cAo2T
+	lFJJbOs7DdoqMu9FiNsVvPaHrf2gHe5sNbqe0wPTqWc8CZUME0/isw1ymVELQLAL7btF3v6mQ1D4S
+	GxQh85Es6jBBIMUMrwtrJsd73MtYHHkh8pud0NufcGjyJBRqgqzEfFx58Y3AU/zwBrC15fCqVt/Lz
+	YamYmDCOZ8RlXNGtkN03ckpcTh+1YtunGBbtYtjFGdqE6HbUkMhvGKjXV+k1U/LKZCPtf0V3Jol+e
+	g+u1uFSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7aVw-0000000AfeK-3pmi;
-	Wed, 23 Apr 2025 13:51:48 +0000
-Received: from mail-mw2nam10on2061c.outbound.protection.outlook.com ([2a01:111:f403:2412::61c] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1u7aVy-0000000Afev-1JZW;
+	Wed, 23 Apr 2025 13:51:50 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7YoV-0000000AQ20-0omX
+	id 1u7YtH-0000000AQzU-1ZmM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 12:02:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=F+zhgJvsyfkgud1qQ3Jb6k4dbQZkseEgjIlc86LTvYGdmCksiQNKjT/KJEwegWEORZHmugL9iQ3gNfLRPRlPp0GzXfqIPpy/7k4vgzljFWau1HqD19n8Pu8Ef3xuYGRFAJu/wnm7Umwpa3mFlo/Psh0iFGliK5yBvYddAx6GItT4KmdrrsHqv7Rtkh2hb1fX06e5az0F36ROmV63lx34FH+hshjtMfBORBmGB3hu2E+g0+S9bA4ZRAYUAbQE2xRtKLg4GBa0X7yEHza4JIzh+hKflrBPpHC88hPmSt0+Su1722MARauGjIq+Hpx1bHgMrHHY+9rivgAjnxayCxu9eg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DX2q1cSZU9p27mS0nG1Y54H6NoorccgptJI5La//45A=;
- b=ZXltZoXzkRkf6Lh+yCLfgRKiDTKzYu3p1T/7YI3/KPSOYSjEHHUGF4N/xiWgs0oY4lkVOhrYIjBJhZWzhtng2SgnrZzGBPpS9s26NToWlUiEI7yAY8phL3rGVrV/j1jaTSnVxz6+Di7QHqToSRXDBA4EDbhSl2QiPeG8XufAK4WqFf3bPNaIwvdqHAYQBcyXT91FbJVLHW7+VuJEgC+dYDmvWFxviMpA5hU8aOFzvZ0oM4im9rx2OUgO1dB4jgJPHqdVvea33imyucIQKQrod6ez5LVOU5/JNszv0uHkgfuyMLvTOezKBXEurcId7MqreLdXcOgMNiF7Y4SR2hnYBg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DX2q1cSZU9p27mS0nG1Y54H6NoorccgptJI5La//45A=;
- b=NZsWcmdiaWEw2HTVUVnovynWmaZycWlFhdVmHjD/2sHqerk/IHQxv/LhrbGtusjw1lQMzwwWf99XLZuMbViHbqH0PGTcRuKqNiIXK73LVWPuVdn8xtnrgovNPEJlOd7D2oWwm9UTBT1gQH9LaYoWRZSuIu7eIbvkPXnjjFVtRYmnvb9SC4LG6YNjvICpXWcmXL+IfbgL88xTbdyDoR2/VhBzubcjBJ2jPZ52hDoZqTkA///Ia02x0BXzxwEJrOLtauUzQR5s4WmM8llL75qKQ0stOOGws6y2dFaMqEzv3dpsUGnKjf3IKDJcODBIMgRxLPu7/64sdOQA+huY0XEoEA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by CH3PR12MB9284.namprd12.prod.outlook.com (2603:10b6:610:1c7::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.35; Wed, 23 Apr
- 2025 12:02:45 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8632.030; Wed, 23 Apr 2025
- 12:02:45 +0000
-Date: Wed, 23 Apr 2025 09:02:43 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	Ankit Agrawal <ankita@nvidia.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Marc Zyngier <maz@kernel.org>,
-	"joey.gouly@arm.com" <joey.gouly@arm.com>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"ryan.roberts@arm.com" <ryan.roberts@arm.com>,
-	"shahuang@redhat.com" <shahuang@redhat.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"david@redhat.com" <david@redhat.com>,
-	Aniket Agashe <aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>,
-	Kirti Wankhede <kwankhede@nvidia.com>,
-	"Tarun Gupta (SW-GPU)" <targupta@nvidia.com>,
-	Vikram Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>,
-	Alistair Popple <apopple@nvidia.com>,
-	John Hubbard <jhubbard@nvidia.com>, Dan Williams <danw@nvidia.com>,
-	Zhi Wang <zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>,
-	Uday Dhoke <udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
-	Krishnakant Jaju <kjaju@nvidia.com>,
-	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
-	"sebastianene@google.com" <sebastianene@google.com>,
-	"coltonlewis@google.com" <coltonlewis@google.com>,
-	"kevin.tian@intel.com" <kevin.tian@intel.com>,
-	"yi.l.liu@intel.com" <yi.l.liu@intel.com>,
-	"ardb@kernel.org" <ardb@kernel.org>,
-	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
-	"gshan@redhat.com" <gshan@redhat.com>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"ddutile@redhat.com" <ddutile@redhat.com>,
-	"tabba@google.com" <tabba@google.com>,
-	"qperret@google.com" <qperret@google.com>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v3 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
- VMA flags
-Message-ID: <20250423120243.GD1648741@nvidia.com>
-References: <20250407161540.GG1557073@nvidia.com>
- <Z_QAxiEWEyMpfLgL@google.com>
- <SA1PR12MB719976799AD7F9FC4407A5A9B0BD2@SA1PR12MB7199.namprd12.prod.outlook.com>
- <aAdKCGCuwlUeUXKY@linux.dev>
- <20250422135452.GL823903@nvidia.com>
- <aAfI2GR1__-1KQHn@arm.com>
- <20250422170324.GB1645809@nvidia.com>
- <aAgJ8g8Gbb06quSM@linux.dev>
- <20250422233556.GB1648741@nvidia.com>
- <aAjEsIwhYQpkphrW@arm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aAjEsIwhYQpkphrW@arm.com>
-X-ClientProxiedBy: BL1PR13CA0183.namprd13.prod.outlook.com
- (2603:10b6:208:2be::8) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	Wed, 23 Apr 2025 12:07:48 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5f623af283fso717673a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 05:07:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1745410065; x=1746014865; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=+IyBR9G/7UgBoXHNqf3NAUb6y3RdyTJStukCSmDm3Lc=;
+        b=BTaJ3xsi7rrN1dppxy8oJuqC+9Zf04gNnzXE2ipWuDxqC67crxWLk1ZzsYwJ35D9JD
+         a6gVNOdamta6kDd/nWhGM0pKELB5IoMj2cXq5CDQ9REppaNr/l4t/U4sb3HaK4Pnt2G2
+         s++kp9JuiX9iD/E1nIhTmCZQT4EnfyrYR1H7CxjOCc7RcDUN2HG+1KaHE6jxxnvCf4tE
+         DtGL51CJPu9qWYauy11e34x8RPSwNrXmoTNTMGoBmSQ3pq3xMGbT2yfOwxSbmZbDtJ/x
+         0b7nOLHAMBtqtobyrfOImVQy/9a/ZZoq47O/Iw9hZarDPMi28Ari567StZ8erSx5GH+8
+         54CA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745410065; x=1746014865;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+IyBR9G/7UgBoXHNqf3NAUb6y3RdyTJStukCSmDm3Lc=;
+        b=FbWXZrMdYOf8sv5DtivL/F4y1Hxp9fPeVTFh4ulCtP1lG9W1Dgk+ULY0FBnXAvbikk
+         m1O1OW2CgpaAxqTcjQ3wc9KrYmXMs353QtMYErXEG/aFD9sgoVgwxfGKezKkiXr2RwnY
+         8kaOvRZRrJzz8y+0hw4cTgKx0a8tCj8OpV1Ptbb6zPK6V9OIw/GMdnN6EN6UZc2DaTqd
+         YgSKNxD5g0AblLCxCc+xBKMMAwKv+ysADjk4nKxAm/fJg0oc2kfon/qdbPWbyC+R8/O6
+         1lH68ln5afF6EL8bfoU4qp9vIHa3d1JVt2CpqbNwzSHXd/B5vrInCVw3ejICLQX8Ayty
+         JqRQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUX9HZbGct3rPeRh93GHNuPBOzjBfOrj9nfR9VHoL+fn7VEZlKVz1wxJifAkkRI/aVUrd/bk9KZ8gXFKS1AEIZf@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw97XFpSIwoRLn/zAFPjLkuRKdoBgh8GIdAlFwOXWV9n4TEQRwp
+	y7OGVpWvxPGpe+yIHrSfcIgvms7QUno8I/p+4PUVaL2rdJMmFSTpN2qrOMTXfVI=
+X-Gm-Gg: ASbGnctsPDoUQyEZ/XDp5FH1s+88ptxLn/qSAIw6H8bti0zYBzkLP1O729wW8K79qpG
+	FVNX3XjZKlMPI6q3ZeKTEEA/jyQMsal8Y7GJyvcGfbsuPopQZFFWHC0sS1baBsQ5+O2MTY/+GVI
+	gxvlZOW/mkcwiCNuIBXy5mtpzm9b/YKu8mQeyJrmf6qJSyHQ1gb9k7YDfSNt5AOxxGfU+prQaJ+
+	Sv3bJoXbpGmtL7N86w2LM1g3DGxXDxfwMS7Lg8dpEB8jlMrb3ihxR0tB6epKSueEJbJtl8f9Zkf
+	C6XgCovkXvEutfPjdP2JrVSqizCLJjyFa65au8f8UMFQ7kaY2IiVi9Tim1I=
+X-Google-Smtp-Source: AGHT+IFnqK44hXq299eEIuyqU9Pqmw0+4vYvktV5v5DBUMzd5dKzVLQTM2DFnNi8cE7Dh0+KZlO5/w==
+X-Received: by 2002:a17:907:d90:b0:ac7:50d6:e872 with SMTP id a640c23a62f3a-ace3de3145dmr84362866b.1.1745410065360;
+        Wed, 23 Apr 2025 05:07:45 -0700 (PDT)
+Received: from [192.168.1.29] ([178.197.207.88])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5f6255955bfsm7433640a12.44.2025.04.23.05.07.43
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 23 Apr 2025 05:07:44 -0700 (PDT)
+Message-ID: <ac0ae8cd-451b-49dd-840e-5fc0cce1605d@linaro.org>
+Date: Wed, 23 Apr 2025 14:07:42 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CH3PR12MB9284:EE_
-X-MS-Office365-Filtering-Correlation-Id: 06abc883-a00c-4970-3f7e-08dd825ec1cd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?do1eOxMj1JFCtGmD0C1P/rpoKFgiZ0PpiabKG541oxiZ9ueo+q+wscUQaC6X?=
- =?us-ascii?Q?QRkfKLe1sXotHIw05Y6Wrf9yNt8Tm7aOtmIHlZ5ocY1LlTFXjb0sVU0oQaXF?=
- =?us-ascii?Q?OOM0/9WILZMda7AMAPjTAxQnyAY74LoK6wYlWX502Hnp1bS3ARS3kDtFY/on?=
- =?us-ascii?Q?g7HIJKLLZSLBhtNy2H/ZAlXX0gam8B/mC6m/BMK6ENpgV9b778BCNuhVFxtD?=
- =?us-ascii?Q?Ee+oyR7F0DXaYbipPlvNHicXZxiULGjIGl5tuhuvarsShslG6HAh+R2Elycn?=
- =?us-ascii?Q?JHpKqCG/X9ofYwxTNxvJcaUI4Dw5iHDPITZfqENVDF/F8bO8sVeTsJxnm3MK?=
- =?us-ascii?Q?3S13o4yZxCRWb2qcji3s19EPZAHHcENUPUqNUu5h76UbTL40CHVQv9cVYWBB?=
- =?us-ascii?Q?qVRuXmCsW9CSpLld4UBE0HUP2oI0IdqrklWxKwav+e1eIGPBwQiL6AW69rXG?=
- =?us-ascii?Q?yYTFX9UZRSZGW7WJkVYhF9TdInKspiiktpRkyH7HGR7uRcNMRZFBsvbe5Ljm?=
- =?us-ascii?Q?G1VNMGYwtDpAJEflXBsHPG9CAdctWLhdnhbeYM/7Z2HorTv17ZYwW5HQLqam?=
- =?us-ascii?Q?Nqtcs4j7ECvWErfkkDGS4h1LnjqXQm/DfNtP+pVNkvfHFuJ+1sBScEUiTOsI?=
- =?us-ascii?Q?RqIam6t2QAcd9B6B0PCKzch30IloSOcCAwWkt+d1qY9AQpJ62RcHFchF343A?=
- =?us-ascii?Q?OA4fvroYYFni5JSC5/WMmcj6QW5cWyWQbabPd0QrmybMtD5HanDHJeZoBPqt?=
- =?us-ascii?Q?A8T/VYKG7bETtOwwbAOfzo+iW3MR3yrjjNTTb+hqjo2EpBiSKvYB4tbXiZw4?=
- =?us-ascii?Q?QjgAg48gqncIIAwklHb6qo4JabHSZYAwVkpI4yiI1OnGzEdSNDz7YVejw1Ui?=
- =?us-ascii?Q?dzl4GgZ42XAgOtnZvX+Pg3etUy98ufkm0THX8eVa5/tD02F6F21a82yf68fR?=
- =?us-ascii?Q?YFwnH7lx+JDKErpUftcS1i5oLaeYVqrIIl9TIPrhxfX/AQ0GL3ylKK2PW9Si?=
- =?us-ascii?Q?9nCJ02n+739o9LRrsm2Vt2G6wLlBIzYiJ1ePsmZhQLuk/7PgAtp2SqiK6bNe?=
- =?us-ascii?Q?ilnCkWVSJ0JS7k0KY/5eKUm3XkNVnv2TGtgp8c57c356NpytFYRZ6g8uiGgM?=
- =?us-ascii?Q?hhLO0AViZAQfxj2zmUjOP1oHEcWRvpe6a2H79XZ85X20sDp0YjSYYUVOSSuV?=
- =?us-ascii?Q?d6TxAuG39WCjkl61nmJKbygv25o+e9jBAjP7FyXwrTGr6N2u+Sg9bm2f8Gr0?=
- =?us-ascii?Q?D6hcsXUr68fKxH3/Q8h+ekrMJhWzDyU0TPTs/bAo9BLQchsQMjBMegrNrqvQ?=
- =?us-ascii?Q?xPFLuVtP+ioTIgnJ8OFEFZLrG2XSa6eMbYswG+VYmzsFzsNP2YkwRWUv2bOS?=
- =?us-ascii?Q?TIG9gh4sHn0mKoL+6goCZws+p0u+2qs667ulRSO7IDfyd45iM0V97wGCtiaL?=
- =?us-ascii?Q?bu4yrRlZvuo=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LVODyUS1jU/YYVbKFtPuay9UQ444CUa41Jb1ngRPs3CApDIrXXjiqwxwmPO6?=
- =?us-ascii?Q?+qTJHMKIQLhF2P/PpvxcQEBHdhHpCjzOU+iOFduybX7xDWkdcusmuY04sn7Z?=
- =?us-ascii?Q?UdW4auE/kGGonGPkiJTxSQzKs6QWWGBapa3fSHdaQOTMIDSoa3i3xSlshZ+V?=
- =?us-ascii?Q?R2VRnHNFM2QZv8bXY01g9uNL92VX+TRq2syKD/TYdXzFiM/TnQ+/MrbBooDl?=
- =?us-ascii?Q?5g01iPm5O6wBxuHp96BCH5Pdbymwoe7BdQArXS0T6QvjT3iNC9jjESDInJ2D?=
- =?us-ascii?Q?d7U8BIC++2qJKRdf3yx0q+9+z/THWRuDpQJRhwMSMNiZFrJrclsiCbjvXszj?=
- =?us-ascii?Q?0hLbORsSwEILjgSn3v8PCK/g/BGa3CqMHSJuCrDs0lZRNBBBvxlg5cf2KkTo?=
- =?us-ascii?Q?eFQH1FVDZR6IKzVl8S/Ltyef+LKcA8YFlc/WRIJVdRg5bjxSyFpIr/I1pvdo?=
- =?us-ascii?Q?gbPOp2L2fRWqCVSga3jkAW1cA2O9/wCqsNHRR3AdnBzxPKuOROHnvszlyLH6?=
- =?us-ascii?Q?Wk7qO4Lj7d2Qz1Bk1KlkCgc3ArK6RodIC82ezxhb39gMW9sexd3ck9GSwFk+?=
- =?us-ascii?Q?XioSzLgBnJGO2Pto6asn2Ys/0QZoG2JcM2co29XlyhMJmSC3xZT9vaBqBwh3?=
- =?us-ascii?Q?xCL+Aq83BRD1X6C3KGvYlqIN2JLpLrgB4V/Abd3t1XjPVQYk5SB+AfFlkr3F?=
- =?us-ascii?Q?YjGbz6YVSSIprSW0zdiD3sWw5mL9NiHHm+C2J6IvVNmUGiv+fTQxpMGbAlb6?=
- =?us-ascii?Q?gJxOz6C116/u2BSUUrBfraPbN9MX4HAy7urYm7udxtyiHR/62nZC0WJxsqcr?=
- =?us-ascii?Q?5hUubA4e3mksbPAj7RTuv8wi/8MG1gSMmB6CQYY25ig/I9ncHDCRq2nS9n84?=
- =?us-ascii?Q?a+u2iYxwyGdrr6+VTureEvptm+KLprWGLQVX3FzS3TSAdBrP+c/w5cvKrms+?=
- =?us-ascii?Q?x4zdwm6WeTyF6ka5VWLXk0Mg3x3Etgbd2HDa04TDMjP/CSchFGKOGhbSTiKa?=
- =?us-ascii?Q?vznOIR4Ge0pWoo4jxPdU+E8M9K3v0qo4ujf1Jf++EVTHtoJmvGUwmH5vPEZm?=
- =?us-ascii?Q?8IF10fFezLGHgcK3UgUKZY34YTuzDeyaRAiZ4rXBR9Cab1/Y6ZCp0KKKCerv?=
- =?us-ascii?Q?zmvRzFFknzyFgwY7131ZSW7XUcArLE3VbTpTWewmZ46kUp65WQrZtujP6cWT?=
- =?us-ascii?Q?MlUr/rbUMAQYUkVrHgHj+keQQuL3RZmo7Y1rm0yCyGKFOGX2lan+8xUxU+Ge?=
- =?us-ascii?Q?Hf1+KcA3vbKPhvlWwg9o63da4CvjyQCjIOPth3Q1CZ3X/5eJg4LmWmGIrsr2?=
- =?us-ascii?Q?uZJxW4CQBFMe3JoMjfKaH7L/55n/wEqn6ezV4qQ5Tfrk0/JydEa2fpst9ID7?=
- =?us-ascii?Q?R3Ew443yj7bFyQJaN307WU1rz48nC42H6dBmgR7dZdjNMeFvYQ4wf5jsE0m6?=
- =?us-ascii?Q?VLiOYBSDhIEa+dcs8wsERBRLUQbY7jzrQNcAV4OrwWz7Gbfi3uZDHvNcYhjC?=
- =?us-ascii?Q?SATI4SiK8tz8BRh+8DfTtCKJ0y4s9LFi6snDfU/MBk5n92nQG3PPtfYhGkna?=
- =?us-ascii?Q?BZYMYSvUX0EW197YXxATfuDl+O6y/gRM0jXTOSLX?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 06abc883-a00c-4970-3f7e-08dd825ec1cd
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Apr 2025 12:02:44.9391
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: jHazwHdsXG3d9vUpL+UxCKwSaqYGIpAcjOEMG9fa1tinxcYYa/vspC79EQH3V9nb
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9284
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/5] dt-bindings: mfd: syscon: Add ti,am62-ddr-pmctrl
+To: Andrew Davis <afd@ti.com>, Markus Schneider-Pargmann <msp@baylibre.com>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Siddharth Vadapalli <s-vadapalli@ti.com>,
+ Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Tero Kristo <kristo@kernel.org>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20250122-topic-am62-dt-syscon-v6-13-v1-0-515d56edc35e@baylibre.com>
+ <20250122-topic-am62-dt-syscon-v6-13-v1-2-515d56edc35e@baylibre.com>
+ <20250124-heavy-jaybird-of-vitality-4cbe24@krzk-bin>
+ <20250124-able-beagle-of-prowess-f5eb7a@krzk-bin>
+ <mocfnpebc67xegcis6tx3ekhsjcsqnvhwtipufycrtq2be4nbh@pmxhir5gmkos>
+ <639b4e3a-3f68-4fba-aa33-c46dcb6fc88f@linaro.org>
+ <d6252b73-0bcc-4724-8144-d6a98c8980f8@ti.com>
+ <74ee6d9b-fd78-4d8a-a94f-b2c4dc794b60@linaro.org>
+ <ebsbaaxyatrcikoem75t2blkhhceuidq3wnj3r2hbezfcmtc3u@ptffexrigbff>
+ <f9a2247e-e0eb-4e22-8626-80e87afa9386@linaro.org>
+ <qjwlppsq4eorzepvjsgjjyyaddouo5w2rjguu5c2mqesd6luwp@f426xeghy2ht>
+ <2130b439-74d0-475d-8429-1a1b4d9738aa@linaro.org>
+ <b7f6570f-3b80-4fc1-8201-d44f5692867f@ti.com>
+ <07bf9f93-deb8-48a1-aae9-a8a053680cc9@linaro.org>
+ <6241ff00-27e6-45ab-808e-f04e39854753@ti.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Content-Language: en-US
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzTRLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnp5c3p0b2Yua296bG93c2tpQGxpbmFyby5vcmc+wsGUBBMBCgA+FiEE
+ m9B+DgxR+NWWd7dUG5NDfTtBYpsFAmI+BxMCGwMFCRRfreEFCwkIBwIGFQoJCAsCBBYCAwEC
+ HgECF4AACgkQG5NDfTtBYptgbhAAjAGunRoOTduBeC7V6GGOQMYIT5n3OuDSzG1oZyM4kyvO
+ XeodvvYv49/ng473E8ZFhXfrre+c1olbr1A8pnz9vKVQs9JGVa6wwr/6ddH7/yvcaCQnHRPK
+ mnXyP2BViBlyDWQ71UC3N12YCoHE2cVmfrn4JeyK/gHCvcW3hUW4i5rMd5M5WZAeiJj3rvYh
+ v8WMKDJOtZFXxwaYGbvFJNDdvdTHc2x2fGaWwmXMJn2xs1ZyFAeHQvrp49mS6PBQZzcx0XL5
+ cU9ZjhzOZDn6Apv45/C/lUJvPc3lo/pr5cmlOvPq1AsP6/xRXsEFX/SdvdxJ8w9KtGaxdJuf
+ rpzLQ8Ht+H0lY2On1duYhmro8WglOypHy+TusYrDEry2qDNlc/bApQKtd9uqyDZ+rx8bGxyY
+ qBP6bvsQx5YACI4p8R0J43tSqWwJTP/R5oPRQW2O1Ye1DEcdeyzZfifrQz58aoZrVQq+innR
+ aDwu8qDB5UgmMQ7cjDSeAQABdghq7pqrA4P8lkA7qTG+aw8Z21OoAyZdUNm8NWJoQy8m4nUP
+ gmeeQPRc0vjp5JkYPgTqwf08cluqO6vQuYL2YmwVBIbO7cE7LNGkPDA3RYMu+zPY9UUi/ln5
+ dcKuEStFZ5eqVyqVoZ9eu3RTCGIXAHe1NcfcMT9HT0DPp3+ieTxFx6RjY3kYTGLOwU0EVUNc
+ NAEQAM2StBhJERQvgPcbCzjokShn0cRA4q2SvCOvOXD+0KapXMRFE+/PZeDyfv4dEKuCqeh0
+ hihSHlaxTzg3TcqUu54w2xYskG8Fq5tg3gm4kh1Gvh1LijIXX99ABA8eHxOGmLPRIBkXHqJY
+ oHtCvPc6sYKNM9xbp6I4yF56xVLmHGJ61KaWKf5KKWYgA9kfHufbja7qR0c6H79LIsiYqf92
+ H1HNq1WlQpu/fh4/XAAaV1axHFt/dY/2kU05tLMj8GjeQDz1fHas7augL4argt4e+jum3Nwt
+ yupodQBxncKAUbzwKcDrPqUFmfRbJ7ARw8491xQHZDsP82JRj4cOJX32sBg8nO2N5OsFJOcd
+ 5IE9v6qfllkZDAh1Rb1h6DFYq9dcdPAHl4zOj9EHq99/CpyccOh7SrtWDNFFknCmLpowhct9
+ 5ZnlavBrDbOV0W47gO33WkXMFI4il4y1+Bv89979rVYn8aBohEgET41SpyQz7fMkcaZU+ok/
+ +HYjC/qfDxT7tjKXqBQEscVODaFicsUkjheOD4BfWEcVUqa+XdUEciwG/SgNyxBZepj41oVq
+ FPSVE+Ni2tNrW/e16b8mgXNngHSnbsr6pAIXZH3qFW+4TKPMGZ2rZ6zITrMip+12jgw4mGjy
+ 5y06JZvA02rZT2k9aa7i9dUUFggaanI09jNGbRA/ABEBAAHCwXwEGAEKACYCGwwWIQSb0H4O
+ DFH41ZZ3t1Qbk0N9O0FimwUCYDzvagUJFF+UtgAKCRAbk0N9O0Fim9JzD/0auoGtUu4mgnna
+ oEEpQEOjgT7l9TVuO3Qa/SeH+E0m55y5Fjpp6ZToc481za3xAcxK/BtIX5Wn1mQ6+szfrJQ6
+ 59y2io437BeuWIRjQniSxHz1kgtFECiV30yHRgOoQlzUea7FgsnuWdstgfWi6LxstswEzxLZ
+ Sj1EqpXYZE4uLjh6dW292sO+j4LEqPYr53hyV4I2LPmptPE9Rb9yCTAbSUlzgjiyyjuXhcwM
+ qf3lzsm02y7Ooq+ERVKiJzlvLd9tSe4jRx6Z6LMXhB21fa5DGs/tHAcUF35hSJrvMJzPT/+u
+ /oVmYDFZkbLlqs2XpWaVCo2jv8+iHxZZ9FL7F6AHFzqEFdqGnJQqmEApiRqH6b4jRBOgJ+cY
+ qc+rJggwMQcJL9F+oDm3wX47nr6jIsEB5ZftdybIzpMZ5V9v45lUwmdnMrSzZVgC4jRGXzsU
+ EViBQt2CopXtHtYfPAO5nAkIvKSNp3jmGxZw4aTc5xoAZBLo0OV+Ezo71pg3AYvq0a3/oGRG
+ KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
+ fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
+ D2GYIS41Kv4Isx2dEFh+/Q==
+In-Reply-To: <6241ff00-27e6-45ab-808e-f04e39854753@ti.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_050251_240234_8E4E210D 
-X-CRM114-Status: GOOD (  23.94  )
+X-CRM114-CacheID: sfid-20250423_050747_429226_5F6F319C 
+X-CRM114-Status: GOOD (  28.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -200,37 +162,275 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 23, 2025 at 11:45:04AM +0100, Catalin Marinas wrote:
-> On Tue, Apr 22, 2025 at 08:35:56PM -0300, Jason Gunthorpe wrote:
-> > On Tue, Apr 22, 2025 at 02:28:18PM -0700, Oliver Upton wrote:
-> > > Wait, so userspace simultaneously doesn't know the cacheability at host
-> > > stage-1 but *does* for stage-2? 
-> > 
-> > No, it doesn't know either. The point is the VMM doesn't care about
-> > any of this. It just wants to connect KVM to VFIO and have the kernel
-> > internally negotiate the details of how that works.
-> > 
-> > There is zero value in the VMM being aware that KVM/VFIO is using
-> > cachable or non-cachable mappings because it will never touch this
-> > memory anyhow, and arguably it would be happier if it wasn't even in a
-> > VMA in the first place.
+On 21/04/2025 19:03, Andrew Davis wrote:
+> On 4/15/25 12:17 AM, Krzysztof Kozlowski wrote:
+>> On 09/04/2025 19:39, Andrew Davis wrote:
+>>> On 2/12/25 1:35 PM, Krzysztof Kozlowski wrote:
+>>>> On 10/02/2025 11:35, Markus Schneider-Pargmann wrote:
+>>>>> On Sun, Feb 09, 2025 at 01:21:27PM +0100, Krzysztof Kozlowski wrote:
+>>>>>> On 07/02/2025 15:40, Markus Schneider-Pargmann wrote:
+>>>>>>> Hi Krzysztof,
+>>>>>>>
+>>>>>>> On Mon, Jan 27, 2025 at 01:09:49PM +0100, Krzysztof Kozlowski wrote:
+>>>>>>>> On 24/01/2025 23:35, Andrew Davis wrote:
+>>>>>>>>> On 1/24/25 10:48 AM, Krzysztof Kozlowski wrote:
+>>>>>>>>>> On 24/01/2025 17:05, Markus Schneider-Pargmann wrote:
+>>>>>>>>>>> Hi Krzysztof,
+>>>>>>>>>>>
+>>>>>>>>>>> On Fri, Jan 24, 2025 at 09:22:54AM +0100, Krzysztof Kozlowski wrote:
+>>>>>>>>>>>> On Fri, Jan 24, 2025 at 09:19:49AM +0100, Krzysztof Kozlowski wrote:
+>>>>>>>>>>>>> On Wed, Jan 22, 2025 at 11:24:33AM +0100, Markus Schneider-Pargmann wrote:
+>>>>>>>>>>>>>> Add compatible for ti,am62-ddr-pmctrl to the list. There is a DDR pmctrl
+>>>>>>>>>>>>>> register in the wkup-conf register space of am62a and am62p. This
+>>>>>>>>>>>>>> register controls DDR power management.
+>>>>>>>>>>>>>>
+>>>>>>>>>>>>>> Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
+>>>>>>>>>>>>>> ---
+>>>>>>>>>>>>>>     Documentation/devicetree/bindings/mfd/syscon.yaml | 2 ++
+>>>>>>>>>>>>>>     1 file changed, 2 insertions(+)
+>>>>>>>>>>>>>
+>>>>>>>>>>>>> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>>>>>>>>>>>>
+>>>>>>>>>>>> Un-acked, I missed the point that you really speak in commit msg about
+>>>>>>>>>>>> register and you really treat one register is a device. I assumed you
+>>>>>>>>>>>> only need that register from this device, but no. That obviously is not
+>>>>>>>>>>>> what this device is. Device is not a single register among 10000 others.
+>>>>>>>>>>>> IOW, You do not have 10000 devices there.
+>>>>>>>>>>>
+>>>>>>>>>>> Do I understand you correctly that the whole register range of the
+>>>>>>>>>>> wkup_conf node as seen in arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi
+>>>>>>>>>>> should be considered a single syscon device?
+>>>>>>>>>>
+>>>>>>>>>> I don't have the datasheets (and not my task to actually check this),
+>>>>>>>>>> but you should probably follow datasheet. I assume it describes what is
+>>>>>>>>>> the device, more or less.
+>>>>>>>>>>
+>>>>>>>>>> I assume entire wkup_conf is considered a device.
+>>>>>>>>>>
+>>>>>>>>>>>
+>>>>>>>>>>> Unfortunately wkup_conf is modeled as a simple-bus with currently 5
+>>>>>>>>>>> subnodes defined of which 4 of them consist of a single register. Most
+>>>>>>>>>>> of them are syscon as well. So I think I can't change the simple-bus
+>>>>>>>>>>> back to syscon.
+>>>>>>>>>>
+>>>>>>>>>> Huh... Maybe TI folks will help us understand why such design was chosen.
+>>>>>>>>>>
+>>>>>>>>>
+>>>>>>>>> Many of the devices inside the wkup_conf are already modeled as such.
+>>>>>>>>> Clocks and muxes for instance already have drivers and bindings, this
+>>>>>>>>> is nothing new to TI.
+>>>>>>>>>
+>>>>>>>>> If we just use a blank "syscon" over the entire region we would end up
+>>>>>>>>> with drivers that use phandles to the top level wkup_conf node and
+>>>>>>>>> poke directly the registers they need from that space.
+>>>>>>>>>
+>>>>>>>>> Would you rather have
+>>>>>>>>>
+>>>>>>>>> some-device {
+>>>>>>>>> 	ti,epwm_tbclk = <&wkup_conf>;
+>>>>>>>>> }
+>>>>>>>>>
+>>>>>>>>> or
+>>>>>>>>>
+>>>>>>>>> some-device {
+>>>>>>>>> 	clocks = <&epwm_tbclk 0>;
+>>>>>>>>> }
+>>>>>>>>
+>>>>>>>> How is this comparable? These are clocks. You would have clocks property
+>>>>>>>> in both cases.
+>>>>>>>>
+>>>>>>>>
+>>>>>>>>>
+>>>>>>>>> with that epwm_tbclk being a proper clock node inside wkup_conf?
+>>>>>>>>> I would much prefer the second, even though the clock node
+>>>>>>>>> only uses a single register. And in the first case, we would need
+>>>>>>>>> to have the offset into the wkup_conf space hard-coded in the
+>>>>>>>>> driver for each new SoC. Eventually all that data would need to be
+>>>>>>>>> put in tables and we end up back to machine board files..
+>>>>>>>>>
+>>>>>>>>> I'm not saying every magic number in all drivers should
+>>>>>>>>> be offloaded into DT, but there is a line somewhere between
+>>>>>>>>> that and having the DT simply contain the SoC's name compatible
+>>>>>>>>
+>>>>>>>> That's not the question here.
+>>>>>>>>
+>>>>>>>>> and all other data going into the kernel. That line might be a
+>>>>>>>>> personal preference, so my question back is: what is wrong
+>>>>>>>>> if we do want "1000 new syscons per each register" for our
+>>>>>>>>> SoCs DT?
+>>>>>>>>
+>>>>>>>> Because it is false representation of hardware. You do not have 1000
+>>>>>>>> devices. You have only one device.
+>>>>>>>>
+>>>>>>>>
+>>>>>>>>>
+>>>>>>>>> (and the number is not 1000, scanning the kernel I can see
+>>>>>>>>> the largest wkup_conf region node we have today has a grand
+>>>>>>>>> total number sub-nodes of 6)
+>>>>>>>>
+>>>>>>>> But what is being added here is device per each register, not per feature.
+>>>>>>>
+>>>>>>> The register layout is like this:
+>>>>>>
+>>>>>> The register layout of what? How is the device called? Is datasheet
+>>>>>> available anywhere?
+>>>>>
+>>>>> Yes, it is available here: https://www.ti.com/de/lit/pdf/spruj16
+>>>>>
+>>>>> 14 Registers
+>>>>> 14.2 Device Configuration Registers
+>>>>> 14.2.1 CTRL_MMR Registers
+>>>>> 14.2.1.1 General Purpose Control Registers
+>>>>> 14.2.1.1.3 WKUP_CTRL_MMR0 Registers
+>>>>>
+>>>>> Each domain has their own set of general purpose control registers,
+>>>>> CTRL_MMR for the main domain, MCU_CTRL_MMR0 for the MCU domain,
+>>>>> WKUP_CTRL_MMR0 for the wakeup domain.
+>>>>
+>>>>
+>>>> So according to the doc you have only one device - CTRL_MMR. All other
+>>>> splits are superficial.
+>>>>
+>>>
+>>> It is not one device, it is a collection of devices under one labeled
+>>> bus range. Some items here are full normal devices, already modeled by DT
+>>> as stand-alone devices, for instance our chipid, efuse, clock controller,
+>>> etc. even our pinmux is part of this bus range.
+>>>
+>>> They are grouped as we have one set for each domain (MAIN, WKUP, MCU).
+>>>
+>>> All other splits are not superficial, if we go down that path then
+>>> the whole SoC is one "device". We could simply have the whole address
+>>> bus be one node and have Linux hard-code offsets in the drivers, we
+>>> end up back at board files..
+>>>
+>>> DT should break things into logically distinct and reusable units
+>>> so we don't have to store that in the kernel. That is what we do
+>>> here, even if some units end up being very small.
+>>>
+>>>>>
+>>>>> So I understand this to just be a collection of general purpose control
+>>>>> registers. If you go by feature, then many of the registers can be
+>>>>> grouped into units with a specific purpose or controlling a specific
+>>>>> device which are also grouped by the offsets they represent. I assume
+>>>>
+>>>> It could work if you have distinctive groups, but here:
+>>>> 1. You do not have this grouped, you just judge by yourself "oh, that's
+>>>> group A, that's B".
+>>>> 2. Group per one register is not that.
+>>>>
+>>>> For me this is one big block and even CLKSEL is spread all over so
+>>>> cannot be really made distinctive.
+>>>>
+>>>>> this is why the other nodes in this wkup_conf node were created. Also in
+>>>>
+>>>> The other nodes represent some sort of fake or totally arbitrary
+>>>> grouping. That's abuse of the syscon.
+>>>>
+>>>
+>>> They are grouped by function.
+>>
+>> Not really - other DTS sent just few days ago created each entry per one
+>> register.
+>>
+>>>
+>>>>> my opinion this makes the relation between the original device and this
+>>>>> general purpose control registers better understandable.
+>>>>>
+>>>>> For this patch the ddr-pmctrl regsiter is just a single register, but it
+>>>>> has the purpose of controlling the DDR device power management.
+>>>>
+>>>> Sure, but that is NOT syscon. One register of entire block is not system
+>>>> controller. The entire block is system controller.
+>>>>
+>>>
+>>> The whole block cannot be a system controller as there are regular
+>>> devices inside this range. If we made the whole region a syscon and
+>>
+>> That's still system controller. It's nothing special here.
+>>
+>>> also left the device nodes inside, then we would have overlapping
+>>> register owners, one register would be controlled by two or more
+>>
+>> No, owner is the parent device always.
 > 
-> I think this was discussed at some point in the past - what about
-> ignoring the VMA altogether and using an fd-based approach? Keep the
-> current VFIO+vma ABI non-cacheable and introduce a new one for cacheable
-> I/O mappings, e.g. KVM_MEM_IOFD. Is there a way for VFIO to communicate
-> the attributes to KVM on the type of mapping in the absence of a VMA
-> (e.g. via the inode)? If not:
+> Which parent device? That is my point, if the top level node for the
+> whole CTRL_MMR region is made into one big syscon, then a big regmap
+> is made that covers the whole region. All the child devices also make
 
-I hope to see that someday. The CC people are working in that
-direction, but we are still far from getting enough agreement from all
-the stakeholders on how that will work.
+Children take the parent regmap or you do not have even the children.
+Actually the second point is what we talk here: you created fake devices
+per each register and these are supposed to be squashed into the parent.
+I am repeating this 3rd time or more.
 
-> Stage 2 could default to non-cacheable and we can add a
-> KVM_MEMORY_ATTRIBUTE_IO_WB as an option to
 
-I don't think we should ever allow KVM to create a non-cachable
-mapping of an otherwise cachable object??
+> regmaps covering their device range. Now these registers under the child
+> device belong to two different regmaps. No synchronization is done as
+> these are not the same regmap, regmap only handles this for multiple
+> access to registers within the same regmap.
+> 
+> Let's take a real example, here is part of AM62A CTRL_MMR node.
+> 
+> main_conf: bus@100000 {
+> 	compatible = "simple-bus";
+> 	#address-cells = <1>;
+> 	#size-cells = <1>;
+> 	ranges = <0x00 0x00 0x00100000 0x20000>;
+> 
+> 	phy_gmii_sel: phy@4044 {
+> 		compatible = "ti,am654-phy-gmii-sel";
+> 		reg = <0x4044 0x8>;
+> 		#phy-cells = <1>;
+> 	};
+> 
+> 	...
+> };
+> 
+> If we turn "main_conf" into a syscon, then who "owns" 0x4044?
+> Both the top level syscon and phy_gmii_sel nodes would build
+> a different regmap instance that contains those same registers.
 
-Jason
+Two registers is hardly a separate device.
+
+> 
+> Bit of back story, this is actually how I got involved in sorting
+> out this "syscon" stuff for our devices. I built a checker into
+> the regmap framework core that would detect when multiple regmaps
+> are created that contain overlapping registers.
+> 
+> I found several bugs this way and want to push the check upstream at
+> some point. But first I wanted to fix the biggest cause of warnings,
+> which was from syscon being used as described above.
+> 
+>>
+>>> drivers. How would we synchronize mappings, access, updates, etc.
+>>> Any one register should belong to exactly one device.
+>>
+>> regmap synchronizes everything. There is no problem here, at all.
+>>
+>>>
+>>> Is your issue the name "system controller", as yes I agree some of
+>>> these regions are not "system controllers".
+>>>
+>>> Would it work better if we didn't call this "ti,am62-ddr-pmctrl"
+>>> node a "syscon"? That can be done, we just would add a normal
+>>> binding doc for it, instead of trying to reuse the generic
+>>> bindings/mfd/syscon.yaml file.
+>>
+>> You still do not have multiple subnodes, one per each register or even
+>> few registers.
+> 
+> If this ddr-pmctrl device is not modeled as a syscon device, then who
+> says it has to be more than a few (3?) registers in size? This seems like
+> a rather arbitrary rule, and completely unfeasible for several whole
+> classes of devices that only have/need a few registers to work them.
+
+What does the syscon description say? Collection of registers, a set of
+miscellaneous registers. Registers in plural. Do not use syscon for
+other purposes.
+
+It is not arbitrary. It is written in binding description.
+
+Best regards,
+Krzysztof
 
