@@ -4,80 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B63BC369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 05:06:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E29AC369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 06:03:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kne9B5HdCuOKeWEfCSxnIK/Om9pYT1tA2Pc21Izdsiw=; b=ErXQxGZO/3gaVHgnrQUIf5a8Xp
-	lowHDwoEzKM1aEa0a1Z/l7VO2dV58Lir5ZdN+NTncPAw0zT+sx308h7dLoK3p13hYUXEoHkEdWXpJ
-	r7zcWHhSAGjYNx/0KuxbGCLlm56HppIHYfARpi6vM6UW8n1zgptBoAr3zzjr2y7xUHAYigKtlXT2W
-	xxTZys9LQufJsIDY3PKSrY6RMtevneypniD2lDgjAgXvTMK4Rj7i2v3RNeGTOwVAkahsedunRpzNp
-	13oPKv06uQhZUqGm2N4pCSPSkXoyhKYXKjDby0OtPEyLFGdwUJPmHCTvHvrYC4aM4wQmFsoEUnnd7
-	3vXK1q6Q==;
+	bh=JOIErQcTHIUGPfsVxlKHMSiQuY0fKSigbmGkcwNYrh4=; b=idXOgQHImClSRlCLaj1guvn7a6
+	u9XLN1qYitbIGe9LvTlSFVWkbfvHY24T3Z9XI/fScu/uzhuCntaJ243t6rvgI1SIlKXsFksyuq8/n
+	k5ScC+zFXV3GSmrA9yiOV3Utc77gEM5DQgG+B1GO4OHArixPKt3e2z2HltvTaa/4p9hXISjlleWJu
+	1+vNyEPoznBX4gcaCtgw/CFNZe/lRrEkB0Ed0NdI4dNzOneozETyU/WRZCV49nYZ7r6tZF6n/gU7u
+	4b95aF7OXN3I7RhObCkxMMma1ADDa6qDpcrQrhaOhFpQ1SlzinuXQxUGjWHvbhmqLuMdS46xMT+e2
+	JQKpGtnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7SJQ-00000009Duy-3iTx;
-	Wed, 23 Apr 2025 05:06:20 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1u7TCW-00000009Hex-0j5r;
+	Wed, 23 Apr 2025 06:03:16 +0000
+Received: from mail-northeuropeazlp170130004.outbound.protection.outlook.com ([2a01:111:f403:c200::4] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7SHS-00000009DnA-3ASR
+	id 1u7TAX-00000009HQr-0q1c
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 05:04:20 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53N53tB42199968
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 23 Apr 2025 00:03:55 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745384635;
-	bh=Kne9B5HdCuOKeWEfCSxnIK/Om9pYT1tA2Pc21Izdsiw=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=mvL4O6fgv/vy8vu+JMpi+BywPYZeqxNja0WbcKaRNcZOKYWeY5c+epfkzyLSQ8XYb
-	 Pz0Y6g58h8N5RByhEzaXX+EgwQ8bkPTjA8dDYSMn5GuxWlWNu11LQrLincMdJD9paC
-	 cIgorh3DsLgzMUdEstxHd//toEhVLAbC4bz91QuA=
-Received: from DFLE102.ent.ti.com (dfle102.ent.ti.com [10.64.6.23])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53N53tAE016440
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 23 Apr 2025 00:03:55 -0500
-Received: from DFLE105.ent.ti.com (10.64.6.26) by DFLE102.ent.ti.com
- (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 23
- Apr 2025 00:03:54 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE105.ent.ti.com
- (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 23 Apr 2025 00:03:54 -0500
-Received: from localhost (uda0492258.dhcp.ti.com [10.24.72.113])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53N53rgV084408;
-	Wed, 23 Apr 2025 00:03:54 -0500
-Date: Wed, 23 Apr 2025 10:33:53 +0530
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-CC: Siddharth Vadapalli <s-vadapalli@ti.com>, <lpieralisi@kernel.org>,
-        <kw@linux.com>, <manivannan.sadhasivam@linaro.org>, <robh@kernel.org>,
-        <bhelgaas@google.com>, <vigneshr@ti.com>, <kishon@kernel.org>,
-        <18255117159@163.com>, <cassel@kernel.org>,
-        <wojciech.jasko-EXT@continental-corporation.com>,
-        <thomas.richard@bootlin.com>, <bwawrzyn@cisco.com>,
-        <linux-pci@vger.kernel.org>, <linux-omap@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <srk@ti.com>
-Subject: Re: [PATCH v4 2/4] PCI: cadence-host: Introduce
- cdns_pcie_host_disable helper for cleanup
-Message-ID: <35d14093-85b1-4273-810c-2dbeaa3acc4e@ti.com>
-References: <20250417124408.2752248-3-s-vadapalli@ti.com>
- <20250422164934.GA333709@bhelgaas>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+	Wed, 23 Apr 2025 06:01:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NJ6/VhrIYLT0uRDuDola8O1oMEda1WiaDC28xJay6bIRXc9BGpuuld0E4BNXMf2gDn9pMIBDF2dDwrrH8cRim1JN+8iv/Dxx7wL8frWKxiVJYoL0hJXWEIJ4RD1Qej4dfyN4WIgkIiAHHbfm3gLL1pDpIaZmkqPqgt8IybiwCNUJlALBJB4079qTiFq0WVJwT9VltUo/sTvX2Q9ZtlngBKCFrINjzOkX/dJl3dv21EdF1Mdzhj1kSkAU/CSPGCiAgWnxBW1EySpr9ZHMY7ll4u1ZNi+PTeeKy22o+iUR7ech8v6BNX2hYfpXOYDcFIM4eAid5NSOkeUxtzfik1WOLg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JOIErQcTHIUGPfsVxlKHMSiQuY0fKSigbmGkcwNYrh4=;
+ b=wGXRUzwvQOMC14ZMnTjgz10XTHY6mJvGaPrQDuFE2mutEUABN0QOzM+VOtfU+srYL7+NtvZdWd/1uNDz0R69G4gsg+M72QvDKUp4Jrod693geLOq+m5Uc3/i2sIYrC+MK0EQ9UQTxo6gLbFt5e3XM/BaE4iEJI6CH0iKRCz3WY94r0JOQaZwm38d7qTq6K3LA545A0FmOZXy4cwG5WEgjCElMOR6Qmsfcx1kWTW7MF3PWajDFDTLrxq8Gv+5waeZbgJvPPbMwEyAoKgAkiWskT0bbosETps5GCtPu3Mh61A/OL1rzt7ic9H7nfoOhEH8IHcqYxcJck/b/xUg8sCErg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mt.com; dmarc=pass action=none header.from=mt.com; dkim=pass
+ header.d=mt.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mt.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JOIErQcTHIUGPfsVxlKHMSiQuY0fKSigbmGkcwNYrh4=;
+ b=n7BgAoKePkpqDciHNPD15dsU4CkM0fI/002ln8ts2ieBVDiCFuAUU7JX6/UoOoNlAyvrVyE439YOpaag7Tf+vJECNI6+gVZqwpZ6diSMKSMADJqnT3NV7WEP2c1AzBR13DYAAf4zArJuQNY14Trw+ldATNcj+nccWSBlAt9/fUZq9+OUi9j8qfYL4LXESr7+J+0ByEHnHo3iV+6Kjf6wDSwu3l48CMwaGU6iB3wTlYCaifKY2XUotK6OSuUlQsCdvsHFhn4YaLJJSWIxLEwAgl3XfE4OtjyIfzFsr0ITbVCnm0/hz+3Gv9qkeHj2S/Saq4qbWJIObV685Oix0WvMcQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mt.com;
+Received: from AS8PR03MB6775.eurprd03.prod.outlook.com (2603:10a6:20b:29d::16)
+ by AM9PR03MB6963.eurprd03.prod.outlook.com (2603:10a6:20b:2d5::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.26; Wed, 23 Apr
+ 2025 06:01:01 +0000
+Received: from AS8PR03MB6775.eurprd03.prod.outlook.com
+ ([fe80::8a03:2bdb:89c5:32e8]) by AS8PR03MB6775.eurprd03.prod.outlook.com
+ ([fe80::8a03:2bdb:89c5:32e8%6]) with mapi id 15.20.8655.033; Wed, 23 Apr 2025
+ 06:01:01 +0000
+Date: Wed, 23 Apr 2025 08:00:47 +0200
+From: Manuel Traut <manuel.traut@mt.com>
+To: Wojciech Dubowik <Wojciech.Dubowik@mt.com>
+Cc: linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Francesco Dolcini <francesco@dolcini.it>,
+	Philippe Schenker <philippe.schenker@impulsing.ch>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v3] arm64: dts: imx8mm-verdin: Link reg_usdhc2_vqmmc to
+ usdhc2
+Message-ID: <aAiCDzWBG4APvF_H@mt.com>
+References: <20250422140200.819405-1-Wojciech.Dubowik@mt.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250422164934.GA333709@bhelgaas>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+In-Reply-To: <20250422140200.819405-1-Wojciech.Dubowik@mt.com>
+X-ClientProxiedBy: BN9P223CA0019.NAMP223.PROD.OUTLOOK.COM
+ (2603:10b6:408:10b::24) To AS8PR03MB6775.eurprd03.prod.outlook.com
+ (2603:10a6:20b:29d::16)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR03MB6775:EE_|AM9PR03MB6963:EE_
+X-MS-Office365-Filtering-Correlation-Id: e1fd2739-9268-449e-ad64-08dd822c39a6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?59e4I/hZ9p7Eov6cSrRCiZPiqbnGRztyyk1zL82EKQBqEXKW4quOCp9GZGPH?=
+ =?us-ascii?Q?6P4aJmmQkhnwwfT2+Lsx0vIZ/5vGH4IoBYZiDIQLR3phQDY4qM8/pczjRzWb?=
+ =?us-ascii?Q?wJggYY3Ow4k37TmocZb5mV3/r0Wc0fJ40fGSnQqad4ifXqQ0axkMJg14gW+S?=
+ =?us-ascii?Q?aVTwuxvC5yrzpkc9c1oHz5Tc7Tdd3DqbWNbCW5nj7ABxWx6/1IPVhoMWyBMr?=
+ =?us-ascii?Q?jPmMa3eev68f+mG8iy+mnJdKcwYd+dZd+O1M0wOZvkcxM2fVmoObvfL6BMYX?=
+ =?us-ascii?Q?kOCqqKRGCUj6eO0aPtPemNFNapUl0MXexq/4t5j2VdSEsjCdRKSolLnGJjwz?=
+ =?us-ascii?Q?QzG2Cjaky/v0Mh+EHOgpKmCl6kLRosXrGyxk4qs82BvoP1Fmi8jYarUuphYZ?=
+ =?us-ascii?Q?rFgPSG6pQx9FXRi4Bnlda4Lia9I/s89jL9o5DOH9aAR3j1rztOC6qfgprp6R?=
+ =?us-ascii?Q?OIGqF0EhI/hU2waVheCSmmvRMWbn90vyb9IVJgeph6rBuJbY7o+UQtTMBAJf?=
+ =?us-ascii?Q?qxF/IxGmU7vQxRBlrBxCAdphV3fAf8ydEbeVXpsQ1WRHETaK/td94oLrlX4r?=
+ =?us-ascii?Q?lDs0u7QTkxJWAJIh3H9u548P0ujqAiAi0tz3enpnmsr2WyswnbVqu8NAdrxJ?=
+ =?us-ascii?Q?COL8DAUvCMg6RT30TM/OI+8MVNjmdRNvVKkQAZty6nXQT4Xu80/yNtmQ4WMk?=
+ =?us-ascii?Q?onGWkB1yMLj6uHPjkzpDRKDjJbpMiAOniw2uWcYWn1wSv7HnL47UMbzNenxW?=
+ =?us-ascii?Q?MYVptOLFKfHMEJLWIEt91gob6KJFsvxXYZ7IsTOzeWuVzcoboMBNsDyF0xQx?=
+ =?us-ascii?Q?3z4m7WxjE9++rxxq3TTqnaond9uWZQvYOPqiw1+Oa12V38weJ+sFDhOo0A6S?=
+ =?us-ascii?Q?Blzl3WH5ail+FG2L9E1iPMF+aIzONT6R0u0CoocNT4ZVtThnSzpBGmqBMs1Y?=
+ =?us-ascii?Q?lht6W314vHMUau1SMDfvYR1rrrtDpvNIFnO5lUChXBlMobVWfLpyohubw08k?=
+ =?us-ascii?Q?HurDcgkR5+ttZc+22rN4JVWryn25/0ukZI2ujonCX2D2lBgWeT7U/ZrsjPSM?=
+ =?us-ascii?Q?3U75aSzhlFcIC7/EKtoJcHT/p48ChUUtxTDuRk77RTpMCXnIgUXUBVeLZ49X?=
+ =?us-ascii?Q?bvumKHyqRcdPpjQamfZ4sGz9RvE55wE9I23S8DFGS1X47n4V9/wi2XxZPJKC?=
+ =?us-ascii?Q?ByXjKZ1Sh07VYJoNmmTFAx0XZhc3PZT8grFlWVyhDT6u1JC4WUEmNshuupsN?=
+ =?us-ascii?Q?BAktpxg6snB0kG2Dn/CR7UZDjxo9YYd6BA2ESblRDqT9n/N6XZg2b1Bns64X?=
+ =?us-ascii?Q?rkyaOU0pR9wqV/bI4BZLrBNiAur+mLYd6mvi326aFrwte7zrs0nizLZUFYoY?=
+ =?us-ascii?Q?6ONN7BhgiGKUj0L5rASNdfZs14bVcRB7+KIn2h9ePUt0XILzdisuPuWEgXP8?=
+ =?us-ascii?Q?HcxOk1CsLcJMRLpQ7K1PzVVZNIfSl9X2bUPWhYf3WBhbc5X7lmSOnwKkJve/?=
+ =?us-ascii?Q?AztLIxi1c7NjMZk=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR03MB6775.eurprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?b6L0HDo3rk/kP6F6/l6zfjsIgmml9ytfNeByUadPWf+4Z6ZVT/IxhITDABGM?=
+ =?us-ascii?Q?L1cVucQKK8kdXeoW6H/Awxuc9ZtMOtVP0jVtaxhVE5dlNk4B8DMMYAePPm9Z?=
+ =?us-ascii?Q?1Lse4rB1IbB2aPGP1OLeyEjNekAHXBWzmSrS2jqedm5kUC5zQ8kwLFdf234i?=
+ =?us-ascii?Q?qMxl886qjzM9jyAyQp2Lt/QeriMohSQbvZNEvy/h9BhvXfyve+gjooyFQ8yL?=
+ =?us-ascii?Q?NTlL5LzGsvLb+488tma1pnxWYf0WQUqss85vFXIAPZPXR/8Lh3aTc7zC99tV?=
+ =?us-ascii?Q?UNW21Fo5QZEylvFU2l5fN/BUxAYxnTgZtjM1alRicQD31naNfSBVX6Ii53/Z?=
+ =?us-ascii?Q?oa1Q2kMwNCVPJ4MPj0t1R+XM976jnktJiTjifqjG9509+lfuzP+fNYTb9ryz?=
+ =?us-ascii?Q?g7AXLRE4WI+XU8Ob3gcWIbQHIdmZlWkxpCImIa0mPG/7K2dCtnBqT3+djb2E?=
+ =?us-ascii?Q?zKJziBn36/7kqTYDv9MgWZUzk0mL1EEbXexkjobSdwaa3OXiWpkbIPsh14w4?=
+ =?us-ascii?Q?X7hj7xZqeHqnsqCeg45fI9c/zkEwqgQfwl0YqNooyGImuXeua0HaFcFW4oqY?=
+ =?us-ascii?Q?eYl9QcYwZKen4+YPFiTJ7m2F1vVUqACI9CxZFIq3el1HtDC9Bvy4jV9HzAaE?=
+ =?us-ascii?Q?z3fxt82VKFyE6Y5I8oVjUnDwIrFAzJ666gjFqfnnPOb36Y/LpFqMIxC+ERos?=
+ =?us-ascii?Q?TVz2rO7evIHH+s1klIEpXnMitzndklpqvMEfTlkl10+hAcKwSbOzsXVrz61h?=
+ =?us-ascii?Q?QVMklYbluYw9RhZB2okKT15Kca0AacfBXXPkmSAVocXYNOWzF7vX1Zugsx59?=
+ =?us-ascii?Q?9foM5vMVDVtOU5f2Yq+pkN3eJAsM1WudNMhkvv8egrk2CCLNol3JGJbLeLlL?=
+ =?us-ascii?Q?3tZA06DSbHNseEOrJG/LVnLU7BNdKib75hCKhXCJzwOwqtun9S1kqT4Di9Rx?=
+ =?us-ascii?Q?Tx/S9zOskzKxXsd8c8ywbsDXG0mOHhwY73TQcLCG+YluOSiC3IxThWo6aK/g?=
+ =?us-ascii?Q?wuey9B5ZO6lKtr7cPxGgGyLwh1aDBgp+2YlMgYDzT6RWSDOn+1wSMEuGKw4X?=
+ =?us-ascii?Q?2t+FvaYyGqfk1dVLKaFZug1RVM/uK6mSlb17WenpGrlgO4KrKp/QJS0897HY?=
+ =?us-ascii?Q?ZAholiMj13xZWhfm3oMqsqw10ZwolI7qoKWtv8nFZsMM+Xzo7TZzzp2Knkan?=
+ =?us-ascii?Q?lVX6OWhDbk3x5PktTrNpjrfzcQBfWWVFLHZErSPIkhZEFP4cnzLnlTH1JDLa?=
+ =?us-ascii?Q?qdbNT15t4rb/40o7Yp59xIv4i8efzMd+tR0vjhC0Pc3ZgVFpDiApCXh7lHmc?=
+ =?us-ascii?Q?xevvIM+Ah+1A44aItoWmswQL57ih5inFZ23EgMuC0VkFdtNRVbqoTOfC6O8o?=
+ =?us-ascii?Q?37zLVGgy46wEPG7xBzTtu+V7D8kpGTUbE0qCll3YqwUq4ThTqOzvAJi1bJZg?=
+ =?us-ascii?Q?0i6vdJplFt91d+0tj+YqyKiHXSazC3Wxa1l33n41peuFx7Rs3d6/5H1GZuxr?=
+ =?us-ascii?Q?JtfoPJ26Ftn2/3JeVpkcDGX0hCrMbA9V8nkwtuJur8ygWOWRnXe0pEn+MAnA?=
+ =?us-ascii?Q?/k+X0ziq6G1yGbatHuXKnH9iEorgZRKdJ3RiWje6?=
+X-OriginatorOrg: mt.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e1fd2739-9268-449e-ad64-08dd822c39a6
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR03MB6775.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Apr 2025 06:01:01.5479
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: fb4c0aee-6cd2-482f-a1a5-717e7c02496b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tLRacJz7yXy8yE0xvJDno/JdfFWSsVUjDC0LV/aW5NFykH8puHyQA1mS1TzTPrP1Eww3sqgd6lALCSaJR4uvlQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR03MB6963
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_220418_885667_74CF944A 
-X-CRM114-Status: GOOD (  18.01  )
+X-CRM114-CacheID: sfid-20250422_230113_467019_6D8C85A4 
+X-CRM114-Status: GOOD (  18.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,39 +165,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 22, 2025 at 11:49:34AM -0500, Bjorn Helgaas wrote:
-
-Hello Bjorn,
-
-> On Thu, Apr 17, 2025 at 06:14:06PM +0530, Siddharth Vadapalli wrote:
-> > Introduce the helper function cdns_pcie_host_disable() which will undo
-> > the configuration performed by cdns_pcie_host_setup(). Also, export it
-> > for use by existing callers of cdns_pcie_host_setup(), thereby allowing
-> > them to cleanup on their exit path.
+On Tue, Apr 22, 2025 at 04:01:57PM +0200, Wojciech Dubowik wrote:
+> Define vqmmc regulator-gpio for usdhc2 with vin-supply
+> coming from LDO5.
 > 
-> For the merge commit log and eventual pull request, can you give me a
-> hint about the motivation for this?  Based on the other patches in
-> this series, my guess is that this is required for making the j721e
-> driver buildable as a module and removable?
+> Without this definition LDO5 will be powered down, disabling
+> SD card after bootup. This has been introduced in commit
+> f5aab0438ef1 ("regulator: pca9450: Fix enable register for LDO5").
+> 
+> Fixes: f5aab0438ef1 ("regulator: pca9450: Fix enable register for LDO5")
 
-I have described the motivation in the cover-letter of this series in
-detail. I am sharing the same below for your reference:
+Tested on 6.15-rc2. SDCard stays present now. It also fixes the issue
+for >=6.12.23
 
-"The motivation for this series is that PCIe is not a necessity
-for booting the SoC, due to which it doesn't have to be a built-in
-module. Additionally, the defconfig doesn't enable the PCIe Cadence
-Controller drivers and the PCI J721E driver, due to which PCIe is not
-supported by default. Enabling the configs as of now (i.e. without this
-series) will result in built-in drivers i.e. a bloated Linux Image for
-everyone who doesn't have the PCIe Controller. Therefore, with this
-series, after enabling support for building the drivers as loadable
-modules, the driver configs can be enabled in the defconfig to build
-the drivers as loadable modules, thereby enabling PCIe."
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Wojciech Dubowik <Wojciech.Dubowik@mt.com>
+Tested-by: Manuel Traut <manuel.traut@mt.com>
 
-In brief, in order to enable the driver configs, the driver needs to be
-a loadable module. Else, the patch for the configs will be rejected:
-https://lore.kernel.org/linux-arm-kernel/20250122145822.4ewsmkk6ztbeejzf@slashing/
-
-Regards,
-Siddharth.
+> ---
+> v1 -> v2: https://lore.kernel.org/all/20250417112012.785420-1-Wojciech.Dubowik@mt.com/
+>  - define gpio regulator for LDO5 vin controlled by vselect signal
+> v2 -> v3: https://lore.kernel.org/all/20250422130127.GA238494@francesco-nb/
+>  - specify vselect as gpio
+> ---
+>  .../boot/dts/freescale/imx8mm-verdin.dtsi     | 25 +++++++++++++++----
+>  1 file changed, 20 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
+> index 7251ad3a0017..b46566f3ce20 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
+> @@ -144,6 +144,19 @@ reg_usdhc2_vmmc: regulator-usdhc2 {
+>  		startup-delay-us = <20000>;
+>  	};
+>  
+> +	reg_usdhc2_vqmmc: regulator-usdhc2-vqmmc {
+> +		compatible = "regulator-gpio";
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pinctrl_usdhc2_vsel>;
+> +		gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
+> +		regulator-max-microvolt = <3300000>;
+> +		regulator-min-microvolt = <1800000>;
+> +		states = <1800000 0x1>,
+> +			 <3300000 0x0>;
+> +		regulator-name = "PMIC_USDHC_VSELECT";
+> +		vin-supply = <&reg_nvcc_sd>;
+> +	};
+> +
+>  	reserved-memory {
+>  		#address-cells = <2>;
+>  		#size-cells = <2>;
+> @@ -269,7 +282,7 @@ &gpio1 {
+>  			  "SODIMM_19",
+>  			  "",
+>  			  "",
+> -			  "",
+> +			  "PMIC_USDHC_VSELECT",
+>  			  "",
+>  			  "",
+>  			  "",
+> @@ -785,6 +798,7 @@ &usdhc2 {
+>  	pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_cd>;
+>  	pinctrl-3 = <&pinctrl_usdhc2_sleep>, <&pinctrl_usdhc2_cd_sleep>;
+>  	vmmc-supply = <&reg_usdhc2_vmmc>;
+> +	vqmmc-supply = <&reg_usdhc2_vqmmc>;
+>  };
+>  
+>  &wdog1 {
+> @@ -1206,13 +1220,17 @@ pinctrl_usdhc2_pwr_en: usdhc2pwrengrp {
+>  			<MX8MM_IOMUXC_NAND_CLE_GPIO3_IO5		0x6>;	/* SODIMM 76 */
+>  	};
+>  
+> +	pinctrl_usdhc2_vsel: usdhc2vselgrp {
+> +		fsl,pins =
+> +			<MX8MM_IOMUXC_GPIO1_IO04_GPIO1_IO4	0x10>; /* PMIC_USDHC_VSELECT */
+> +	};
+> +
+>  	/*
+>  	 * Note: Due to ERR050080 we use discrete external on-module resistors pulling-up to the
+>  	 * on-module +V3.3_1.8_SD (LDO5) rail and explicitly disable the internal pull-ups here.
+>  	 */
+>  	pinctrl_usdhc2: usdhc2grp {
+>  		fsl,pins =
+> -			<MX8MM_IOMUXC_GPIO1_IO04_USDHC2_VSELECT		0x10>,
+>  			<MX8MM_IOMUXC_SD2_CLK_USDHC2_CLK		0x90>,	/* SODIMM 78 */
+>  			<MX8MM_IOMUXC_SD2_CMD_USDHC2_CMD		0x90>,	/* SODIMM 74 */
+>  			<MX8MM_IOMUXC_SD2_DATA0_USDHC2_DATA0		0x90>,	/* SODIMM 80 */
+> @@ -1223,7 +1241,6 @@ pinctrl_usdhc2: usdhc2grp {
+>  
+>  	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
+>  		fsl,pins =
+> -			<MX8MM_IOMUXC_GPIO1_IO04_USDHC2_VSELECT		0x10>,
+>  			<MX8MM_IOMUXC_SD2_CLK_USDHC2_CLK		0x94>,
+>  			<MX8MM_IOMUXC_SD2_CMD_USDHC2_CMD		0x94>,
+>  			<MX8MM_IOMUXC_SD2_DATA0_USDHC2_DATA0		0x94>,
+> @@ -1234,7 +1251,6 @@ pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
+>  
+>  	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
+>  		fsl,pins =
+> -			<MX8MM_IOMUXC_GPIO1_IO04_USDHC2_VSELECT		0x10>,
+>  			<MX8MM_IOMUXC_SD2_CLK_USDHC2_CLK		0x96>,
+>  			<MX8MM_IOMUXC_SD2_CMD_USDHC2_CMD		0x96>,
+>  			<MX8MM_IOMUXC_SD2_DATA0_USDHC2_DATA0		0x96>,
+> @@ -1246,7 +1262,6 @@ pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
+>  	/* Avoid backfeeding with removed card power */
+>  	pinctrl_usdhc2_sleep: usdhc2slpgrp {
+>  		fsl,pins =
+> -			<MX8MM_IOMUXC_GPIO1_IO04_USDHC2_VSELECT		0x0>,
+>  			<MX8MM_IOMUXC_SD2_CLK_USDHC2_CLK		0x0>,
+>  			<MX8MM_IOMUXC_SD2_CMD_USDHC2_CMD		0x0>,
+>  			<MX8MM_IOMUXC_SD2_DATA0_USDHC2_DATA0		0x0>,
+> -- 
+> 2.47.2
+> 
 
