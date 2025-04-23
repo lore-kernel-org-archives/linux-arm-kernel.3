@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60608C369D7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:42:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CC96C369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:42:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=snedp9LqjYUcVrsRKi8+X+MSTwa49WHHLcTFyeAGbNA=; b=xqAYcF8dpTdEF3446ZBJ5ugw5b
-	kiLYkat9mcDtrafECCpl8kAE89p9qglXbmqYlQOCv9kC42GJZ4wjB/bxTtc0vtNXhVSNXlqplfGFs
-	U3T96iWobrWx/BVbUuXPyDOfxNlUnbTaEPG9Wwmq5+Tu61JR/IwRdTtAR5lsCqEiNX6trq13IitPh
-	Jlqqxz4YkhQZjrZxXvFSc9jnMBT6cHYlUfVJ40TmAKrA2fmHMeZsRxyUs/oEt0HZi3rOdkkjPm8sY
-	hnnxo++SIriJfdI8N+F6x5xZaIMBeCNrzzWI85VCtJjKrL4+TtYI6YFBEZRcy0LXOShcrcyEFn86N
-	0TByTNOw==;
+	bh=LTTL9dQEScHE4pj+G94YjoxirJBT5idVWapzbvs8BzI=; b=NJzHhYVHEPvnbalO4Mj5KeAYPa
+	jrRW7nMrrFNSqwEr/v5PF69oiG+M0Y3VaywHZeZb4Ojbf16n0yL5B0sMT/utjhxTTdFz2WG3zfxR7
+	SXm7maT6eP9VMA4acrd4ulU/gxOkNdDNlTb56yPrOGsI80H5EOlLHDkDwPBjru37MRwZV/gpETo/g
+	ifC+EZG0F39H6CwbFhRBExcmRFYumgebiPnJIduGvHnsYiJC2w1VkCwtqB0ayIp7qBJKKZ57huZCy
+	wg4909CxlkGnqt1oV2Z8PDeJ0eJyOOWar+99qMoM16PmDD0vmzPjzU2EXoG3wUULoksOTFonTgK1B
+	d/VM+P5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7e6z-0000000BKpP-0hSz;
+	id 1u7e6z-0000000BKqo-3zf8;
 	Wed, 23 Apr 2025 17:42:17 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7boj-0000000Avp8-2AiN
+	id 1u7bol-0000000Avqh-0GwN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 15:15:19 +0000
+	Wed, 23 Apr 2025 15:15:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E70F55C6200;
-	Wed, 23 Apr 2025 15:12:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE73CC4CEE8;
-	Wed, 23 Apr 2025 15:15:16 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 799D65C2D79;
+	Wed, 23 Apr 2025 15:13:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41B6AC4CEE2;
+	Wed, 23 Apr 2025 15:15:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745421316;
-	bh=ox/3bavjWe4Urj4KJgy8T6adfW0I17p/fF305WdODVw=;
+	s=k20201202; t=1745421318;
+	bh=ydvZE2fcKiHSXxy2PEWqOT/2J5DSfX2LWTaD8LM7MhU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=b686BhQODqmKbeYBhZlo//YsEvSOohy93rWhMjRAUi1T+nhJIKB3cfGfFDNsDqSyC
-	 UIKfUjaTKT5EQ3Ijm35U7IM/vq8oUa4WCHm72JL3eMO/ONaTEvOJjDI92mxqVJGhbf
-	 34w/kv3Z3e/5kgE160hWAPoPMqx8Vy0Nu+TRsfzw7Bc+CqgXue2/niDD5THn370dQG
-	 YpmJRLBXhJ4bS3Rpeu82wXuLnA3H3dUi8CHcXOMdxMnnT8U7eyfFOlO7KTvdle4Y6y
-	 Etr8YTpk3JdXMp+BkGV+MLCyouIBvL9kkF3ZKrLvcbkQCaPjFOWZoMNN9CKDR7WMdV
-	 A40sxZdG7Jm4Q==
+	b=W1QWVxbdXqXKmZ/onqcAyuN43xhgVxBT1UFRYiqubMUdVOsOg7fGbZRrWYg71LwJV
+	 95st50Li0G/ggd7UGV0HejKF6Wp/Oib4k/gJNN6Yx7toT1KTX/YhANkVzvMQ67HMC5
+	 frCc2k0A5b1akKefhO9CPIE7424nxxQEdw7wqMbZdEEPaf5bsGLCx0aMT/x+quT6+0
+	 wkhfDAHcwgIk7vDhmVpFdH1/2On6X9o+oMbQ6j8t+a+YWOAlaozjl1X+nv4HI1GJY7
+	 hvehFnwVg/FLKLTvoruV9e2AZ5v+8B8eTsJS53D5V5qq4hbuCuTgklcuZoAdQ19dT7
+	 Rd5JtyxtEZbdA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1u7bog-0082xr-RL;
-	Wed, 23 Apr 2025 16:15:14 +0100
+	id 1u7boi-0082xr-7G;
+	Wed, 23 Apr 2025 16:15:16 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Eric Auger <eric.auger@redhat.com>,
 	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
-Subject: [PATCH v3 07/17] KVM: arm64: nv: Add pseudo-TLB backing VNCR_EL2
-Date: Wed, 23 Apr 2025 16:14:58 +0100
-Message-Id: <20250423151508.2961768-8-maz@kernel.org>
+Subject: [PATCH v3 12/17] KVM: arm64: nv: Program host's VNCR_EL2 to the fixmap address
+Date: Wed, 23 Apr 2025 16:15:03 +0100
+Message-Id: <20250423151508.2961768-13-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250423151508.2961768-1-maz@kernel.org>
 References: <20250423151508.2961768-1-maz@kernel.org>
@@ -71,8 +71,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_081517_651594_45ED434A 
-X-CRM114-Status: GOOD (  28.36  )
+X-CRM114-CacheID: sfid-20250423_081519_213204_663C9B12 
+X-CRM114-Status: GOOD (  15.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,189 +87,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-FEAT_NV2 introduces an interesting problem for NV, as VNCR_EL2.BADDR
-is a virtual address in the EL2&0 (or EL2, but we thankfully ignore
-this) translation regime.
+Since we now have a way to map the guest's VNCR_EL2 on the host,
+we can point the host's VNCR_EL2 to it and go full circle!
 
-As we need to replicate such mapping in the real EL2, it means that
-we need to remember that there is such a translation, and that any
-TLBI affecting EL2 can possibly affect this translation.
-
-It also means that any invalidation driven by an MMU notifier must
-be able to shoot down any such mapping.
-
-All in all, we need a data structure that represents this mapping,
-and that is extremely close to a TLB. Given that we can only use
-one of those per vcpu at any given time, we only allocate one.
-
-No effort is made to keep that structure small. If we need to
-start caching multiple of them, we may want to revisit that design
-point. But for now, it is kept simple so that we can reason about it.
-
-Oh, and add a braindump of how things are supposed to work, because
-I will definitely page this out at some point. Yes, pun intended.
+Note that we unconditionally assign the fixmap to VNCR_EL2,
+irrespective of the guest's version being mapped or not. We want
+to take a fault on first access, so the fixmap either contains
+something guranteed to be either invalid or a guest mapping.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/include/asm/kvm_host.h   |  5 ++
- arch/arm64/include/asm/kvm_nested.h |  3 ++
- arch/arm64/kvm/arm.c                |  4 ++
- arch/arm64/kvm/nested.c             | 72 +++++++++++++++++++++++++++++
- arch/arm64/kvm/reset.c              |  1 +
- 5 files changed, 85 insertions(+)
+ arch/arm64/kvm/hyp/vhe/switch.c | 17 ++++++++++++++++-
+ 1 file changed, 16 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 12adab97e7f25..c762919a2072d 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -731,6 +731,8 @@ struct vcpu_reset_state {
- 	bool		reset;
- };
+diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
+index 220dee8a45e0d..5eaff1ae32b29 100644
+--- a/arch/arm64/kvm/hyp/vhe/switch.c
++++ b/arch/arm64/kvm/hyp/vhe/switch.c
+@@ -48,6 +48,7 @@ DEFINE_PER_CPU(unsigned long, kvm_hyp_vector);
  
-+struct vncr_tlb;
-+
- struct kvm_vcpu_arch {
- 	struct kvm_cpu_context ctxt;
+ static u64 __compute_hcr(struct kvm_vcpu *vcpu)
+ {
++	u64 guest_hcr = __vcpu_sys_reg(vcpu, HCR_EL2);
+ 	u64 hcr = vcpu->arch.hcr_el2;
  
-@@ -825,6 +827,9 @@ struct kvm_vcpu_arch {
+ 	if (!vcpu_has_nv(vcpu))
+@@ -70,9 +71,23 @@ static u64 __compute_hcr(struct kvm_vcpu *vcpu)
+ 		write_sysreg_s(vcpu->arch.ctxt.vncr_array, SYS_VNCR_EL2);
+ 	} else {
+ 		host_data_clear_flag(VCPU_IN_HYP_CONTEXT);
++
++		if (guest_hcr & HCR_NV) {
++			u64 va = __fix_to_virt(vncr_fixmap(smp_processor_id()));
++
++			/* Inherit the low bits from the actual register */
++			va |= __vcpu_sys_reg(vcpu, VNCR_EL2) & GENMASK(PAGE_SHIFT - 1, 0);
++			write_sysreg_s(va, SYS_VNCR_EL2);
++
++			/* Force NV2 in case the guest is forgetful... */
++			guest_hcr |= HCR_NV2;
++		}
+ 	}
  
- 	/* Per-vcpu CCSIDR override or NULL */
- 	u32 *ccsidr;
+-	return hcr | (__vcpu_sys_reg(vcpu, HCR_EL2) & ~NV_HCR_GUEST_EXCLUDE);
++	BUG_ON(host_data_test_flag(VCPU_IN_HYP_CONTEXT) &&
++	       host_data_test_flag(L1_VNCR_MAPPED));
 +
-+	/* Per-vcpu TLB for VNCR_EL2 -- NULL when !NV */
-+	struct vncr_tlb	*vncr_tlb;
- };
- 
- /*
-diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
-index 9d56fd946e5ef..98b3d6b589668 100644
---- a/arch/arm64/include/asm/kvm_nested.h
-+++ b/arch/arm64/include/asm/kvm_nested.h
-@@ -333,4 +333,7 @@ struct s1_walk_result {
- int __kvm_translate_va(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
- 		       struct s1_walk_result *wr, u64 va);
- 
-+/* VNCR management */
-+int kvm_vcpu_allocate_vncr_tlb(struct kvm_vcpu *vcpu);
-+
- #endif /* __ARM64_KVM_NESTED_H */
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 68fec8c95feef..5287435873609 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -843,6 +843,10 @@ int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
- 		return ret;
- 
- 	if (vcpu_has_nv(vcpu)) {
-+		ret = kvm_vcpu_allocate_vncr_tlb(vcpu);
-+		if (ret)
-+			return ret;
-+
- 		ret = kvm_vgic_vcpu_nv_init(vcpu);
- 		if (ret)
- 			return ret;
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 884b3e25795c4..fb09598b78e3c 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -16,6 +16,24 @@
- 
- #include "sys_regs.h"
- 
-+struct vncr_tlb {
-+	/* The guest's VNCR_EL2 */
-+	u64			gva;
-+	struct s1_walk_info	wi;
-+	struct s1_walk_result	wr;
-+
-+	u64			hpa;
-+
-+	/* -1 when not mapped on a CPU */
-+	int			cpu;
-+
-+	/*
-+	 * true if the TLB is valid. Can only be changed with the
-+	 * mmu_lock held.
-+	 */
-+	bool			valid;
-+};
-+
- /*
-  * Ratio of live shadow S2 MMU per vcpu. This is a trade-off between
-  * memory usage and potential number of different sets of S2 PTs in
-@@ -810,6 +828,60 @@ void kvm_arch_flush_shadow_all(struct kvm *kvm)
- 	kvm_uninit_stage2_mmu(kvm);
++	return hcr | (guest_hcr & ~NV_HCR_GUEST_EXCLUDE);
  }
  
-+/*
-+ * Dealing with VNCR_EL2 exposed by the *guest* is a complicated matter:
-+ *
-+ * - We introduce an internal representation of a vcpu-private TLB,
-+ *   representing the mapping between the guest VA contained in VNCR_EL2,
-+ *   the IPA the guest's EL2 PTs point to, and the actual PA this lives at.
-+ *
-+ * - On translation fault from a nested VNCR access, we create such a TLB.
-+ *   If there is no mapping to describe, the guest inherits the fault.
-+ *   Crucially, no actual mapping is done at this stage.
-+ *
-+ * - On vcpu_load() in a non-HYP context with HCR_EL2.NV==1, if the above
-+ *   TLB exists, we map it in the fixmap for this CPU, and run with it. We
-+ *   have to respect the permissions dictated by the guest, but not the
-+ *   memory type (FWB is a must).
-+ *
-+ * - Note that we usually don't do a vcpu_load() on the back of a fault
-+ *   (unless we are preempted), so the resolution of a translation fault
-+ *   must go via a request that will map the VNCR page in the fixmap.
-+ *   vcpu_load() might as well use the same mechanism.
-+ *
-+ * - On vcpu_put() in a non-HYP context with HCR_EL2.NV==1, if the TLB was
-+ *   mapped, we unmap it. Yes it is that simple. The TLB still exists
-+ *   though, and may be reused at a later load.
-+ *
-+ * - On permission fault, we simply forward the fault to the guest's EL2.
-+ *   Get out of my way.
-+ *
-+ * - On any TLBI for the EL2&0 translation regime, we must find any TLB that
-+ *   intersects with the TLBI request, invalidate it, and unmap the page
-+ *   from the fixmap. Because we need to look at all the vcpu-private TLBs,
-+ *   this requires some wide-ranging locking to ensure that nothing races
-+ *   against it. This may require some refcounting to avoid the search when
-+ *   no such TLB is present.
-+ *
-+ * - On MMU notifiers, we must invalidate our TLB in a similar way, but
-+ *   looking at the IPA instead. The funny part is that there may not be a
-+ *   stage-2 mapping for this page if L1 hasn't accessed it using LD/ST
-+ *   instructions.
-+ */
-+
-+int kvm_vcpu_allocate_vncr_tlb(struct kvm_vcpu *vcpu)
-+{
-+	if (!kvm_has_feat(vcpu->kvm, ID_AA64MMFR4_EL1, NV_frac, NV2_ONLY))
-+		return 0;
-+
-+	vcpu->arch.vncr_tlb = kzalloc(sizeof(*vcpu->arch.vncr_tlb),
-+				      GFP_KERNEL_ACCOUNT);
-+	if (!vcpu->arch.vncr_tlb)
-+		return -ENOMEM;
-+
-+	return 0;
-+}
-+
- /*
-  * Our emulated CPU doesn't support all the possible features. For the
-  * sake of simplicity (and probably mental sanity), wipe out a number
-diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
-index 965e1429b9f6e..959532422d3a3 100644
---- a/arch/arm64/kvm/reset.c
-+++ b/arch/arm64/kvm/reset.c
-@@ -159,6 +159,7 @@ void kvm_arm_vcpu_destroy(struct kvm_vcpu *vcpu)
- 		kvm_unshare_hyp(sve_state, sve_state + vcpu_sve_state_size(vcpu));
- 	kfree(sve_state);
- 	free_page((unsigned long)vcpu->arch.ctxt.vncr_array);
-+	kfree(vcpu->arch.vncr_tlb);
- 	kfree(vcpu->arch.ccsidr);
- }
- 
+ static void __activate_cptr_traps(struct kvm_vcpu *vcpu)
 -- 
 2.39.2
 
