@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD46EC369DC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52618C369D7
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 13:05:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,62 +12,86 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ep37Lk8cbj1uZK5RIghJDl9JD8qjOsYP9VkjRsT48SQ=; b=4948DhNl8RIOK7mDDkSwqWZGg1
-	GchuDFlzfnwXQCcYbKkqNdtmMazdWH918Us/sfBDW+fxsiSIdaAFSY59LDx7MBRRNhg1NbWURwNcK
-	m5Ws93j6hY8agcqM8HUWHkithRo7elQnAKaGcBCK8yQw4V0Hha/bp7f6458qe7uV11SygRgEXwu2J
-	+8JGZqN6f70KrlD6yZ2qS6ujxiPT/ZXmMMMuzJESEszuA6v3YvLvgMYXou7mQy4cMcCZyA8OmNcW3
-	pR9q38sFXoodT3+85iqqCSb/t0bplngExgQYJRNTj9I/d1VoEgqkohAfWdcZGER83ElqEL6bXNfbC
-	/ncpBpsg==;
+	bh=LS2O4ijWT/954gJ7Po+mrl2ivjfcfbbmblMAVvot+M4=; b=e7Dg5v7G+m68lPpspFIlOi+BFl
+	IgOqff1kpiJBGck3SkhKqgiX0fL60Duh25gJK+hr4G5MffhVT5sDpgh1TiXu0zSFp6XjBZ8dVeF5F
+	F+5NoPSEKdzWymvefYdvQERUvz2XhVKvnt2cnJks2ssDT1ew5IfTa0Tk36U0rYWZfaXB/z9FbMDbc
+	iFol1zn3bpMhL+rDM376tPPPJ7KH5qhQ5EsIgBphx7pN3bs/wkFJ1K4yg2IjV5oZcIphN/lr7jzdT
+	eERUbICaThwz/We9k4EGYxlWvY+JWF6cG+bBYbDfwEY28hIBY5/swU/6nY19HCAIt/a+xlvLmOLXK
+	ac9Inz4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Zn9-0000000AXAo-35uR;
-	Wed, 23 Apr 2025 13:05:31 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u7Zn0-0000000AX21-3cnG;
+	Wed, 23 Apr 2025 13:05:22 +0000
+Received: from mail-m16.yeah.net ([220.197.32.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Y1E-0000000AGuC-2bS7
+	id 1u7WaZ-0000000A0ug-3KJo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 11:11:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8F0325C564D;
-	Wed, 23 Apr 2025 11:09:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EACEFC4CEE2;
-	Wed, 23 Apr 2025 11:11:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745406715;
-	bh=7JF7P2qS4SB6DrZAGOl+9+UQooOUX8XT2naGwe0eouI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NxTlcq561futisD+LRi+fsEdtwocQ4KhTRWJWnnBSsh1LHwiTKkmT3KBKo0AX09ia
-	 ooXxJil4w12RGrbJQr4/jfwpAKi48wbPhs8inj8Yzz1YD5/nABsoBSYEMA/Mn6dvrM
-	 DDmfDfo7m9thdECwKNCorxyHVLI8s4/n+N3Sf7a37r28ebV3BE9wS7+Zdkfr/VObnN
-	 qC82fIHCKgQcSXM2oIx/odVp3YUVVQW2gr/WYiQint/oU1+NB7wHVw/6EJukdw1tFl
-	 DeUnWLbqHPsJyzeuR/tR5wnTVeQ9b2lwVEfcb69av6nmM+8/Q7k8CLQyV0W+0N7F/H
-	 MgjHDQMOMOsOg==
-Date: Wed, 23 Apr 2025 14:11:45 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: David Woodhouse <dwmw2@infradead.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	"Sauerwein, David" <dssauerw@amazon.de>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	David Hildenbrand <david@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mike Rapoport <rppt@linux.ibm.com>, Will Deacon <will@kernel.org>,
-	kvmarm@lists.cs.columbia.edu, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-	Ruihan Li <lrh2000@pku.edu.cn>
-Subject: Re: [PATCH v3 3/7] mm: Implement for_each_valid_pfn() for
- CONFIG_SPARSEMEM
-Message-ID: <aAjK8Yq3OJH5hP12@kernel.org>
-References: <20250423081828.608422-1-dwmw2@infradead.org>
- <20250423081828.608422-4-dwmw2@infradead.org>
+	Wed, 23 Apr 2025 09:40:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=LS2O4ijWT/954gJ7Po+mrl2ivjfcfbbmblMAVvot+M4=;
+	b=BZ3uRgbp605ujwLLQBhqu5ElSw+xVo5n2y2B6jE+oPMPqM4aKIl7RHWKVjXPe1
+	W8gQlbfD6MkOSG2Z3l6F858HMS2S/ZaPp35goiWk7G3AxjyuKpHIeJDwjVzuxKV1
+	ghKBAcKzAnQtttY9ccm6lGt2iLY7YNZsdMGaG1vYGMW9E=
+Received: from dragon (unknown [])
+	by gzsmtp3 (Coremail) with SMTP id M88vCgDn84o_tQhofGK5Aw--.10993S3;
+	Wed, 23 Apr 2025 17:39:14 +0800 (CST)
+Date: Wed, 23 Apr 2025 17:39:11 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Viresh Kumar <vireshk@kernel.org>, Nishanth Menon <nm@ti.com>,
+	Stephen Boyd <sboyd@kernel.org>, zhouyanjie@wanyeetech.com,
+	Conor Dooley <conor@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Steen Hegelund <Steen.Hegelund@microchip.com>,
+	Daniel Machon <daniel.machon@microchip.com>,
+	UNGLinuxDriver@microchip.com, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev
+Subject: Re: [PATCH 10/19] arm/arm64: dts: imx: Drop redundant CPU
+ "clock-latency"
+Message-ID: <aAi0tkNWlvwqIBxM@dragon>
+References: <20250403-dt-cpu-schema-v1-0-076be7171a85@kernel.org>
+ <20250403-dt-cpu-schema-v1-10-076be7171a85@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250423081828.608422-4-dwmw2@infradead.org>
+In-Reply-To: <20250403-dt-cpu-schema-v1-10-076be7171a85@kernel.org>
+X-CM-TRANSID: M88vCgDn84o_tQhofGK5Aw--.10993S3
+X-Coremail-Antispam: 1Uf129KBjvdXoW7Wr1kXw4DWFy8WFWDCrW3KFg_yoW3Xrg_ZF
+	n7K348Ja1rCry7J3Z8trs5XwnxKryUWwn3Cr17XrWkG34aqr9rAFWDGFZ5Cr13XFWagry3
+	A3sxJFs2y3s0kjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUjQeOPUUUUU==
+X-Originating-IP: [114.216.210.34]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiARM4ZWgIqUAwhgAAsw
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_041156_759061_A6A86051 
-X-CRM114-Status: GOOD (  25.63  )
+X-CRM114-CacheID: sfid-20250423_024020_195835_0E176AD7 
+X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,80 +106,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 23, 2025 at 08:52:45AM +0100, David Woodhouse wrote:
-> From: David Woodhouse <dwmw@amazon.co.uk>
+On Thu, Apr 03, 2025 at 09:59:31PM -0500, Rob Herring (Arm) wrote:
+> The "clock-latency" property is part of the deprecated opp-v1 binding
+> and is redundant if the opp-v2 table has equal or larger values in any
+> "clock-latency-ns". The OPP tables have values of 150000, so it can be
+> removed.
 > 
-> Implement for_each_valid_pfn() based on two helper functions.
-> 
-> The first_valid_pfn() function largely mirrors pfn_valid(), calling into
-> a pfn_section_first_valid() helper which is trivial for the !VMEMMAP case,
-> and in the VMEMMAP case will skip to the next subsection as needed.
-> 
-> Since next_valid_pfn() knows that its argument *is* a valid PFN, it
-> doesn't need to do any checking at all while iterating over the low bits
-> within a (sub)section mask; the whole (sub)section is either present or
-> not.
-> 
-> Note that the VMEMMAP version of pfn_section_first_valid() may return a
-> value *higher* than end_pfn when skipping to the next subsection, and
-> first_valid_pfn() happily returns that higher value. This is fine.
-> 
-> Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
-> Previous-revision-reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 > ---
->  include/asm-generic/memory_model.h | 26 ++++++++--
->  include/linux/mmzone.h             | 78 ++++++++++++++++++++++++++++++
->  2 files changed, 99 insertions(+), 5 deletions(-)
-> 
-> diff --git a/include/asm-generic/memory_model.h b/include/asm-generic/memory_model.h
-> index 74d0077cc5fa..044536da3390 100644
-> --- a/include/asm-generic/memory_model.h
-> +++ b/include/asm-generic/memory_model.h
-> @@ -31,12 +31,28 @@ static inline int pfn_valid(unsigned long pfn)
->  }
->  #define pfn_valid pfn_valid
->  
-> +static inline bool first_valid_pfn(unsigned long *pfn)
-> +{
-> +	/* avoid <linux/mm.h> include hell */
-> +	extern unsigned long max_mapnr;
-> +	unsigned long pfn_offset = ARCH_PFN_OFFSET;
-> +
-> +	if (*pfn < pfn_offset) {
-> +		*pfn = pfn_offset;
-> +		return true;
-> +	}
-> +
-> +	if ((*pfn - pfn_offset) < max_mapnr)
-> +		return true;
-> +
-> +	return false;
-> +}
-> +
+>  arch/arm/boot/dts/nxp/imx/imx7s.dtsi      | 1 -
+>  arch/arm64/boot/dts/freescale/imx8mm.dtsi | 4 ----
+>  arch/arm64/boot/dts/freescale/imx8mn.dtsi | 4 ----
+>  arch/arm64/boot/dts/freescale/imx8mp.dtsi | 4 ----
+>  arch/arm64/boot/dts/freescale/imx8mq.dtsi | 4 ----
+>  5 files changed, 17 deletions(-)
 
-Looks like it's a leftover from one of the previous versions.
+Applied as two patches, one for imx/dt branch and the other for imx/dt64.
 
->  #ifndef for_each_valid_pfn
-> -#define for_each_valid_pfn(pfn, start_pfn, end_pfn)			 \
-> -	for ((pfn) = max_t(unsigned long, (start_pfn), ARCH_PFN_OFFSET); \
-> -	     (pfn) < min_t(unsigned long, (end_pfn),			 \
-> -			   ARCH_PFN_OFFSET + max_mapnr);		 \
-> -	     (pfn)++)
-> +#define for_each_valid_pfn(pfn, start_pfn, end_pfn)			       \
-> +	for (pfn = max_t(unsigned long, start_pfn, ARCH_PFN_OFFSET);	\
-> +	     pfn < min_t(unsigned long, end_pfn, ARCH_PFN_OFFSET + max_mapnr); \
-> +			 pfn++)
+Shawn
 
-And this one is probably a rebase artifact? 
-
-With FLATMEM changes dropped
-This-revision-also-reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-
->  #endif /* for_each_valid_pfn */
->  #endif /* valid_pfn */
->  
-
--- 
-Sincerely yours,
-Mike.
 
