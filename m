@@ -4,75 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4B4CC369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 07:19:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B275C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 07:21:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OLySCWSlH0Sb9P602cy0L3AE+j4XwAS06FELO6RcWVA=; b=RRUcF3IDMusJNXuFWeBYfsx1EC
-	NpUGlak2vZPkg5WtC67iLIVUJonGgLUVpUkTGrS4pqYlEtjNzppbXuasJDnzCkvrXTsQZxt+QLOJo
-	nggoic3aoSUBlTdxVNjNbTkCtf+UdAaTjQG9siKH84ScQznxFulzDVDYfKJIzgrL0Km+hl8kGUqaY
-	kK5AVmrHQ9Lf2pt/xXohi1zh6GPbAMtkzlBwwbP7MWvFsJG6DGbUpek8/E185jYyoMMbWnPogIiTE
-	TwmTgQvrcchOnCKKFK0l8Q5k18vkqePkzSEjkmqMVVS1rbEYcvw7jAOdb4/nxDBIF/Qo6gdFKvrSs
-	1bGx8Wfw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kfQbp+syyXkO/RHw4GNJukoFm6a9w8JqJKtPVgxdN5o=; b=wR7YFfe9u8vafR
+	Gp5VcpV7nnZWSELUVwDaVUo3XcxdXz5Ior2fw/OFdwSH1HriQ1EhnpoppQ8qPw+hQVBFr4KcnbmlQ
+	1uFfw0ksHvqvNxYVmJjAidjS2FwuwVxyF2Wfw4XVCA7tXmLMrZPkA8akUE3p/ysclr0l/6d5dy0RA
+	JkDdNxyouc0l6O4YE1qw0P+g2cRtrw7MKU/cHvZY9HRNb7EJrvtmC5LWW1BX8eSKdNbEObELZuDhB
+	ojnmpyoGYsA9DLGPLkVgSSXt6QEoU5ujWrFqi7zC6udJaBfNLmvi9JOpr7aj3uN88RqAkMPncsxEi
+	Z+b5r3QLfFhS1XZ3ud9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7UOP-00000009UPm-2Q04;
-	Wed, 23 Apr 2025 07:19:37 +0000
-Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
+	id 1u7UQM-00000009Upb-1Vlh;
+	Wed, 23 Apr 2025 07:21:38 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7UHN-00000009SnH-3j1a
+	id 1u7UKE-00000009TSc-48Jp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 07:12:24 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 3B21743A53;
-	Wed, 23 Apr 2025 07:12:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1745392339;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=OLySCWSlH0Sb9P602cy0L3AE+j4XwAS06FELO6RcWVA=;
-	b=bGfCmCgBvq/udV2NrOkw1l1IoijqGAVUUvhC/kg58tPe+68ZZg+XtvprSk+iataEHjYyHm
-	0pUkiZctX9u/H3QvrA6zIoi2adTyRoffwWJKjWz28eeBgFRfr7K8Qyf5fjsNwHbW5JuScJ
-	d/WcNIS12Y2Zbu/iN9vfM0KdEvgZ6iG+YrPuGZKYRJJF7rVua2iEhUzHAbM3cIdhHr8rFN
-	vVQmVwIv0Ti6GkGUfRpL3KgygwWusBeeNt42HxCSyS0Atu3ToeQ1qdDBi1UoTg8EVBUlfv
-	PccLM0CIq1MklC53ycV9zGXWiI5LTKuQKxygUoHNzIhv9XNrVv0nmuErV2O5Kw==
-From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
-Date: Wed, 23 Apr 2025 09:12:10 +0200
-Subject: [PATCH net v2 2/2] net: stmmac: fix multiplication overflow when
- reading timestamp
+	Wed, 23 Apr 2025 07:15:20 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-39c14016868so6037528f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 00:15:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1745392516; x=1745997316; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=kfQbp+syyXkO/RHw4GNJukoFm6a9w8JqJKtPVgxdN5o=;
+        b=Rqxsaa00YQwURMFBZX5tCCeu9jHrqWfWG5kb93q2/0puiGUGQtNH6qqLh+W2uCyZB3
+         81heo2ZVG1j1Ec3aXONseI7SceZQiKxwUHCzKnUIX/CWj5OwHQd5KKx0qcDYyFHmZvjc
+         8PcTJGM9dPWJNrxoJT4JDMLK9Ryl3U6mtD1n9KwI3XmLkrONdxhQRM/eYkFu96qS9uuR
+         vWpA/5xM7HjXQgfVbNF7R4FH40GYyp/E5svl0xpzFwN8OsLi4OqST0rv0FIiyeAJMUyW
+         1KAMpZlY7+dIicPd9xvedtvg6Kg1VZ3bsrXNoUY6TYV2vkrdfku1P7dBqZ6YT87DO9jH
+         4m8g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745392516; x=1745997316;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=kfQbp+syyXkO/RHw4GNJukoFm6a9w8JqJKtPVgxdN5o=;
+        b=FqVyaY9NElEL7akDbYuust681DJarsINMDPEa68VzoYnVBKgGXFlrg3MVtogz7FE1Y
+         nggG5ZMtIEi3yoK8ulWrf6NwXqObI+vgmzYgM/QuJyuwwpQcZMoN8l8kyvjX8pBJXKfL
+         q15vtASodttvYNbpmsxjip9z6/vLF/8a0yZyyjtp9pFJnVAslkgfRtv8fNHBoCNZC/pr
+         7mok9RPR956qzFRwzenYYrckPmswBXgPF2A7lux20OsQ6mN57eKPluM1NFYgY8vaJ3XN
+         XhTXW8f7g4eoyCaxwwjDNJMsLNl4bx9Oo0gYmpVJ2a4s44jCh/DyiTWHUXa0AnnXa1M1
+         nR9w==
+X-Forwarded-Encrypted: i=1; AJvYcCVX608axf6dShBAb/JNkDxXj9MTJnwq1BH1+tVnZDQ4FLcFiroJCJ77xkHXz09PBaklqWbYzq/0fPpD0jnhfwtS@lists.infradead.org
+X-Gm-Message-State: AOJu0YxXcsiB3WDs9ngx1OWf9w67Riuztxn3ug6XNUutV8BwPrbfwSAS
+	GYo6TEUjF1YKyyM5VT9CQ/vjQQlkT++VQHmZRs7euqDSk07KC9dL1SUOKG8p8eo=
+X-Gm-Gg: ASbGncuhNKuhZ3vd8N3bfCYG6OAPobrBSkkRITp2QBfZ3B/lmSYUuxr3GA/vaCr13Zr
+	gdeyfPBkzStVWgxiOC6rB3DsEgLJ/UMPCAGhbguUw579L1u+DdDbtisAsWjwm93i/VlmgVK9151
+	wLOvR/sfoamSO4uWoj+FvtP0XqoZsvLFGJhy4E6YXyYKYpamtIrmGOHJcVclXtT/DnZR8u20CLm
+	GbMzDeBDtrWvcFUXh51lo3y3tqhMU3FTkY/QzeAWF/J5UdowEnxgCIH6zMR3AAUh95hbpij2erB
+	nepUiMmAwV5FwR6OF8NoFRgDrDqJEOAviYFLjIu3Wmot
+X-Google-Smtp-Source: AGHT+IG+tJxvr2pB5uojdqPwlJlUoCOQYCF7lDXIVNF2nVM1sZvKoDsybtSZIIss18Pryk/S0Ef3fA==
+X-Received: by 2002:a5d:588b:0:b0:391:45e9:face with SMTP id ffacd0b85a97d-39efbb0252emr14722584f8f.54.1745392516313;
+        Wed, 23 Apr 2025 00:15:16 -0700 (PDT)
+Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:74b0:71bd:6dda:dcc1])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39efa493446sm17696935f8f.74.2025.04.23.00.15.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Apr 2025 00:15:15 -0700 (PDT)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Subject: [PATCH 00/12] gpio: convert more GPIO chips to using new value
+ setters - part 2 for v6.16
+Date: Wed, 23 Apr 2025 09:15:02 +0200
+Message-Id: <20250423-gpiochip-set-rv-gpio-part2-v1-0-b22245cde81a@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250423-stmmac_ts-v2-2-e2cf2bbd61b1@bootlin.com>
-References: <20250423-stmmac_ts-v2-0-e2cf2bbd61b1@bootlin.com>
-In-Reply-To: <20250423-stmmac_ts-v2-0-e2cf2bbd61b1@bootlin.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Richard Cochran <richardcochran@gmail.com>, 
- Daniel Machon <daniel.machon@microchip.com>, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, netdev@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAHaTCGgC/x3MPQqAMAwG0KtIZgM1+H8VcRD7qVm0pCKCeHeL4
+ 1veQxGmiNRnDxkujXrsCUWe0bxN+wpWn0zipHKlCK9Bj3nTwBEn2/Wbw2SncAPxtUNX+xaUgmB
+ Y9P7zYXzfDxJIbI9sAAAA
+To: Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Lixu Zhang <lixu.zhang@intel.com>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ Yinbo Zhu <zhuyinbo@loongson.cn>
+Cc: linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- "Russell King (Oracle)" <linux@armlinux.org.uk>, 
- =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
-X-Mailer: b4 0.14.2
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvgeehleeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthekredtredtjeenucfhrhhomheptehlvgigihhsucfnohhthhhorhoruceorghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeegveeghfetffeuhfehkeekleffffdvuefggfevjefftddvffduheettdeiveetteenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghloheplgduledvrdduieekrddtrddvudgnpdhmrghilhhfrhhomheprghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedujedprhgtphhtthhopehmtghoqhhuvghlihhnrdhsthhmfedvsehgmhgrihhlrdgtohhmpdhrtghpthhtohepuggrnhhivghlrdhmrggthhhonhesmhhitghrohgthhhiphdrtghomhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtoheprghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmpdhrtghpthhtoheplhhinhhug
- iesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghlvgigrghnughrvgdrthhorhhguhgvsehfohhsshdrshhtrdgtohhmpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrkhgvrhhnvghlrdhorhhg
-X-GND-Sasl: alexis.lothore@bootlin.com
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+X-Mailer: b4 0.14.1
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1756;
+ i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
+ bh=P8T6A2RfhQi9cs8jlDhrwJia7IeYiHPIj6iHNUhHRRs=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBoCJN9PtDzo6pQhpJrIbuv3TgdhcsxmnoGxcbPW
+ lRtYYU14zeJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaAiTfQAKCRARpy6gFHHX
+ creZD/4wB84rig0XgfTyX7mc6x1ZYJw3YX7GCsmp8eACazubUCcNQBQO4dD9X2QWoeyiZr9sNj0
+ kG9snhzeXa0Tvzh5T2gedGUErStlmEEtNkjAjWsaq9hswKDrmsuc/mKcA5qWrkhvkLhcc/Pbj12
+ cpxHdFxDAASelR4triAIaQu18P1ZQp2Vj8paAhxBlPEaCPy8hUL0e4FYVMB1Fv6j4lrnLuw73xB
+ Mokir5p0P2mOSlg7jZ1KDABtZMRJ3CPkcRtQNnaeOTtbw+iMAeR5G1DDptYOQFchClFJcz/xL3c
+ GPMzwOimJLewFHGUaLNPOD++aD3pgcAdTPjwEFrbnawGcOeo9aVVaHTLh6A6y/5IzUup2dND530
+ zgLyZAtdQ1aYqwT43bhc5q8GGZbwkhi44RrPiO6wbxV+nySlux9Qeik/KNe/sCId8qpryzVd1ZS
+ eWLn8FftriS0QGv8+xltz/TLVnEDjrxdGBl/xTpUgFPtY9cEsdvhi/cOJu+CgO1aX6HcCbfRbOo
+ DMzzTyiMPndixsvtLUQBW71OgMqChX+LF/Ti24nk6z4tzcBW1oeIArw4ew5oJv7DacVyy+DdDTi
+ z2Oe6DeVscjg4pu7aChY2RpA1zzxwUS7QhJ3BDJZGw7UjNPoDfYoRHSX/kMd+8zwZFidXAVhwUI
+ bR7t8EKz9jVunow==
+X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
+ fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_001222_099507_32F0C778 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20250423_001519_171119_331AB181 
+X-CRM114-Status: UNSURE (   8.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,54 +124,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The current way of reading a timestamp snapshot in stmmac can lead to
-integer overflow, as the computation is done on 32 bits. The issue has
-been observed on a dwmac-socfpga platform returning chaotic timestamp
-values due to this overflow. The corresponding multiplication is done
-with a MUL instruction, which returns 32 bit values. Explicitly casting
-the value to 64 bits replaced the MUL with a UMLAL, which computes and
-returns the result on 64 bits, and so returns correctly the timestamps.
+struct gpio_chip now has callbacks for setting line values that return
+an integer, allowing to indicate failures. We're in the process of
+converting all GPIO drivers to using the new API. This series converts
+another round of GPIO controllers.
 
-Prevent this overflow by explicitly casting the intermediate value to
-u64 to make sure that the whole computation is made on u64. While at it,
-apply the same cast on the other dwmac variant (GMAC4) method for
-snapshot retrieval.
-
-Fixes: 477c3e1f6363 ("net: stmmac: Introduce dwmac1000 timestamping operations")
-Signed-off-by: Alexis Lothoré <alexis.lothore@bootlin.com>
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 ---
- drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c  | 2 +-
- drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+Bartosz Golaszewski (12):
+      gpio: imx-scu: don't check the GPIO range
+      gpio: imx-scu: use lock guards
+      gpio: imx-scu: destroy the mutex in detach path
+      gpio: imx-scu: use new line value setter callbacks
+      gpio: it87: use new line value setter callbacks
+      gpio: janz-ttl: use new line value setter callbacks
+      gpio: kempld: use new line value setter callbacks
+      gpio: ljca: use new line value setter callbacks
+      gpio: logicvc: use new line value setter callbacks
+      gpio: loongson-64bit: use new line value setter callbacks
+      gpio: loongson: use new line value setter callbacks
+      gpio: lp3943: use new line value setter callbacks
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
-index a8b901cdf5cbb395a0f6b4800ad6f06c6e870077..56b76aaa58f04a6f01eb56c7ad6aa135a7f76c96 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
-@@ -553,7 +553,7 @@ void dwmac1000_get_ptptime(void __iomem *ptpaddr, u64 *ptp_time)
- 	u64 ns;
- 
- 	ns = readl(ptpaddr + GMAC_PTP_ATNR);
--	ns += readl(ptpaddr + GMAC_PTP_ATSR) * NSEC_PER_SEC;
-+	ns += (u64)readl(ptpaddr + GMAC_PTP_ATSR) * NSEC_PER_SEC;
- 
- 	*ptp_time = ns;
- }
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c
-index 0f59aa98260404bece530f505500f13d35884d0c..e2840fa241f29121c4f074872c4986906201cb57 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c
-@@ -222,7 +222,7 @@ static void get_ptptime(void __iomem *ptpaddr, u64 *ptp_time)
- 	u64 ns;
- 
- 	ns = readl(ptpaddr + PTP_ATNR);
--	ns += readl(ptpaddr + PTP_ATSR) * NSEC_PER_SEC;
-+	ns += (u64)readl(ptpaddr + PTP_ATSR) * NSEC_PER_SEC;
- 
- 	*ptp_time = ns;
- }
+ drivers/gpio/gpio-imx-scu.c        | 47 +++++++++++++++++---------------------
+ drivers/gpio/gpio-it87.c           | 11 +++++----
+ drivers/gpio/gpio-janz-ttl.c       |  6 +++--
+ drivers/gpio/gpio-kempld.c         |  7 ++++--
+ drivers/gpio/gpio-ljca.c           | 13 +++++++----
+ drivers/gpio/gpio-logicvc.c        | 11 ++++-----
+ drivers/gpio/gpio-loongson-64bit.c |  6 +++--
+ drivers/gpio/gpio-loongson.c       |  8 ++++---
+ drivers/gpio/gpio-lp3943.c         | 13 +++++++----
+ 9 files changed, 69 insertions(+), 53 deletions(-)
+---
+base-commit: 2c9c612abeb38aab0e87d48496de6fd6daafb00b
+change-id: 20250422-gpiochip-set-rv-gpio-part2-7e2d60e96d8e
 
+Best regards,
 -- 
-2.49.0
+Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
 
