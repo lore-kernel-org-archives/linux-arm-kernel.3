@@ -4,98 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29286C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:40:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 745CDC369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:40:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kzvI+64xp0+YpNCHVAKkt1Zg5G/MQq9Y8KtAURYCRQc=; b=Orjw39sJR66LXKq1qVtQjYXxe3
-	I9fczKgMyzIGsBJ8hp/z7+AY4YEBSTFl823R/IQyAFaiu/oDFFUY7rxCdHZCSkwkCc0XZj4fO7YgB
-	gefVG6PPcNt6c4bscfxgZS+OoMn4gwJ+X4DBAD7vGx2tjogPttDunjXdjVmsRLn9lHF9fNZ0o4AHo
-	x5EHy9vD7DrH/7wUmrCsvpVWzLLM8jhasE9honkpsx8GRHRsUzSqLwB8PyNik9wJo2Www5QCMn1Wi
-	1Lzz+u/CuAB2EoICfD2twiZrK+qA5Fcfe+swH9TtIQhXsIsN2bRo5pMYddzJw9iWIjdFmaFnTWyIa
-	8uCSCeAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G9rr401OufXElmvBl3vcgyDTpasOf1VvGYueuVS+Uto=; b=1AeZ/msCLxsGzenQR5mICbTe9s
+	L6wOf247TWS7wuFGAlXMcnC4Ig0yFzSOpjO4x7LqZ32MO10WFzQOC/BlH36AgX9w7l2dG+i36+A89
+	i0HRNe0Q+potZghJ1JrOxHYDufeR8RgxODnx70hXdcEVbpobH+r1H2c/KeYZrFqXKsob5T5GdkBmN
+	Ak93a+j+f0CGtuyiA7EbCcJapfYMy84QrHvXoSqPUoIQF3ohVHVbzkNWud+i1L+Em8V0g5Y6qAmcR
+	gKO3+UrFnaHTV2T3dmHD/SPJBrUTvcxmXxnqmYBT1Ym308NxQNaUpei5GLejBShVbDgYsEqeSc1un
+	7MAJTuxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7e5T-0000000BISz-0sT1;
-	Wed, 23 Apr 2025 17:40:43 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1u7e5V-0000000BIXB-26sE;
+	Wed, 23 Apr 2025 17:40:45 +0000
+Received: from mail-oi1-f178.google.com ([209.85.167.178])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7b7n-0000000Apw1-2wh4
+	id 1u7bBR-0000000AqKZ-0U19
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 14:30:57 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53NEUhR82211100
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 23 Apr 2025 09:30:43 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745418643;
-	bh=kzvI+64xp0+YpNCHVAKkt1Zg5G/MQq9Y8KtAURYCRQc=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=cojLxdhdniu8xIUpZYOYDEhywZtPOUGBUTAJwK3NlMnNU92vpFt24WNS2IRnQ87U1
-	 ljPP0pRExkYMFLtHcURMjionfSg8jMgBc7NIzDzvCKbNYzk+ftqtZPiJqkxj/TqoYO
-	 x6k/Wr4OOxvlPOToqQDF9tGe182Vfkwj9ZHeVbi8=
-Received: from DLEE102.ent.ti.com (dlee102.ent.ti.com [157.170.170.32])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53NEUhSs031792
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 23 Apr 2025 09:30:43 -0500
-Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE102.ent.ti.com
- (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 23
- Apr 2025 09:30:42 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 23 Apr 2025 09:30:42 -0500
-Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53NEUffe124428;
-	Wed, 23 Apr 2025 09:30:42 -0500
-Message-ID: <a96e184b-f245-4de2-b84a-a4b4380db2ce@ti.com>
-Date: Wed, 23 Apr 2025 09:30:41 -0500
+	Wed, 23 Apr 2025 14:34:42 +0000
+Received: by mail-oi1-f178.google.com with SMTP id 5614622812f47-3f6aa4b3a7fso1896078b6e.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 07:34:40 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745418879; x=1746023679;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=G9rr401OufXElmvBl3vcgyDTpasOf1VvGYueuVS+Uto=;
+        b=NvJXmZoF3XaAHvemm5EM/f01QkSI+hJoKDPUEMElHR6+rgWsfRf0RAbMVH1mE3Dw6V
+         B/hA8EUBvRVU0Z6NoyjXlMsmrv//fevot3bAqqWOQbkZmcM4tIazFkiXwGzW/yFMmWTG
+         aHlgoTpzmHoI2TJCjCpf45sC7v/qJaw5fmImI2OS6KW3j6ta4JFfAmYsRFSqcJlGX5j9
+         ijuAgjCK2lAaSxLmGU4c8GHuwLKXLnaD6/jvc5HhVhkST+5fFBucQGH9zj789mG6Quql
+         QoDprdguLZz/bIAkD4eC4s3pxrfv4oXsqpEhBPpWA77iTU1kNYffx5hFSVL7frk7CiIU
+         66oQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXKbI7jUfZycWc6n5qUqPcngNpLyFWjkS2bf1oCCXzZYWkJuVmIbxKdDpFLemg+nAmiSaHjdI96ebbwIn/x+yU4@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz0PW2wvRn+7/FgOTD+WNhYL1+0B3qf4GCuJrtYkk76Ue4SLvoG
+	KyBmiXEs6Fs1SwIXDnCgCovRjZ7mdlcG4hnMEb2EA2CF/b1uQJbBJWDxrAQl9uY=
+X-Gm-Gg: ASbGncvsqiccH8nrsACtUWcwvvPMIwTMHBHeOf9hVnrdLhEUauopFQQXanrYRercluJ
+	A5TbPjp1yWymrMJmkjnW5Cd0fS7kliyLyrvUT2IcMupExwlqoapHNayHgoFLIIaoMDBkDgqLl5w
+	TeShAYaGcJWA+8MKdTeovpQr4I5aonwzeA323Ni/QKDstjnVwVIof9wCB011Y89765C9gFmFlfs
+	1PK61Ueu5T9eB/b9WWJJ+Tw46n3YnTz040GGmmVqLdQHvkIRIsJ4/qSo01u3bypm+YC6h2v8C3m
+	cPBi5qGB7JBMLyNfIKfD6D/TDA+47WUHKG507HW3OQEHWTAZlvuxlD/8nPSHWQtmy3FC94eOd81
+	sgHU=
+X-Google-Smtp-Source: AGHT+IH9d7wkaxuxrUL8v2d0QMm2Q276myosmiOvMG6vgKHzpPm+9iVyAJuH223EFz+lPaJ+Q6FNgg==
+X-Received: by 2002:a05:6808:870b:10b0:3f8:b73b:682b with SMTP id 5614622812f47-401c093292amr9050901b6e.7.1745418879453;
+        Wed, 23 Apr 2025 07:34:39 -0700 (PDT)
+Received: from mail-ot1-f41.google.com (mail-ot1-f41.google.com. [209.85.210.41])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-401beed8a5fsm2613094b6e.18.2025.04.23.07.34.38
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 23 Apr 2025 07:34:38 -0700 (PDT)
+Received: by mail-ot1-f41.google.com with SMTP id 46e09a7af769-72c09f8369cso2046705a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 07:34:38 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCX3kjq4SToZAbBCUwpPewpeTkDLSdt7miOHuBM3ANH8/NT3p+pD5ClA3Nl9Oy/72A8vUJZpm5ZLdA8WN18eVlQH@lists.infradead.org
+X-Received: by 2002:a05:6830:6687:b0:72b:8ec3:9297 with SMTP id
+ 46e09a7af769-730062f764bmr15710973a34.21.1745418878334; Wed, 23 Apr 2025
+ 07:34:38 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/5] dt-bindings: mfd: syscon: Add ti,am62-ddr-pmctrl
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-        Markus
- Schneider-Pargmann <msp@baylibre.com>
-CC: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Siddharth
- Vadapalli <s-vadapalli@ti.com>, Nishanth Menon <nm@ti.com>,
-        Vignesh
- Raghavendra <vigneshr@ti.com>,
-        Tero Kristo <kristo@kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-References: <20250122-topic-am62-dt-syscon-v6-13-v1-0-515d56edc35e@baylibre.com>
- <20250122-topic-am62-dt-syscon-v6-13-v1-2-515d56edc35e@baylibre.com>
- <20250124-heavy-jaybird-of-vitality-4cbe24@krzk-bin>
- <20250124-able-beagle-of-prowess-f5eb7a@krzk-bin>
- <mocfnpebc67xegcis6tx3ekhsjcsqnvhwtipufycrtq2be4nbh@pmxhir5gmkos>
- <639b4e3a-3f68-4fba-aa33-c46dcb6fc88f@linaro.org>
- <d6252b73-0bcc-4724-8144-d6a98c8980f8@ti.com>
- <74ee6d9b-fd78-4d8a-a94f-b2c4dc794b60@linaro.org>
- <ebsbaaxyatrcikoem75t2blkhhceuidq3wnj3r2hbezfcmtc3u@ptffexrigbff>
- <f9a2247e-e0eb-4e22-8626-80e87afa9386@linaro.org>
- <qjwlppsq4eorzepvjsgjjyyaddouo5w2rjguu5c2mqesd6luwp@f426xeghy2ht>
- <2130b439-74d0-475d-8429-1a1b4d9738aa@linaro.org>
- <b7f6570f-3b80-4fc1-8201-d44f5692867f@ti.com>
- <07bf9f93-deb8-48a1-aae9-a8a053680cc9@linaro.org>
- <6241ff00-27e6-45ab-808e-f04e39854753@ti.com>
- <ac0ae8cd-451b-49dd-840e-5fc0cce1605d@linaro.org>
-Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <ac0ae8cd-451b-49dd-840e-5fc0cce1605d@linaro.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+References: <50dbaf4ce962fa7ed0208150ca987e3083da39ec.1745345400.git.geert+renesas@glider.be>
+ <b1f19b31-3535-4bb5-bcef-6f17ad2a0ee6@arm.com> <CAMuHMdVJKA8zYETKJTRAwg6=+EuTq4YqbFO32K4+py9YNsD1Gw@mail.gmail.com>
+ <aAjTg8dgvxqLQOwQ@vaman> <CAMuHMdXQKG0qptWMi169MVBL1S3hPo1TsaOSxWspoHAwRd+fug@mail.gmail.com>
+ <aAjaPV/2DSyPAGRB@vaman> <b7557def-d0a1-4035-9586-a2651e28ab24@arm.com>
+In-Reply-To: <b7557def-d0a1-4035-9586-a2651e28ab24@arm.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 23 Apr 2025 16:34:26 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdWoxPc71YYrEMdPwdq-HOhmP2jNiwo1+-8o6_v4YJ0NHQ@mail.gmail.com>
+X-Gm-Features: ATxdqUEnXX6HpwpOQNi-bNaBAYBUuz0gKv8TfTPMoWQoV5DcAvXfFibPzFN2Uu4
+Message-ID: <CAMuHMdWoxPc71YYrEMdPwdq-HOhmP2jNiwo1+-8o6_v4YJ0NHQ@mail.gmail.com>
+Subject: Re: [PATCH] dmaengine: ARM_DMA350 should depend on ARM/ARM64
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Vinod Koul <vkoul@kernel.org>, dmaengine@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_073055_920941_FD9EBCF1 
-X-CRM114-Status: GOOD (  48.68  )
+X-CRM114-CacheID: sfid-20250423_073441_162840_08D6D786 
+X-CRM114-Status: GOOD (  41.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,297 +97,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/23/25 7:07 AM, Krzysztof Kozlowski wrote:
-> On 21/04/2025 19:03, Andrew Davis wrote:
->> On 4/15/25 12:17 AM, Krzysztof Kozlowski wrote:
->>> On 09/04/2025 19:39, Andrew Davis wrote:
->>>> On 2/12/25 1:35 PM, Krzysztof Kozlowski wrote:
->>>>> On 10/02/2025 11:35, Markus Schneider-Pargmann wrote:
->>>>>> On Sun, Feb 09, 2025 at 01:21:27PM +0100, Krzysztof Kozlowski wrote:
->>>>>>> On 07/02/2025 15:40, Markus Schneider-Pargmann wrote:
->>>>>>>> Hi Krzysztof,
->>>>>>>>
->>>>>>>> On Mon, Jan 27, 2025 at 01:09:49PM +0100, Krzysztof Kozlowski wrote:
->>>>>>>>> On 24/01/2025 23:35, Andrew Davis wrote:
->>>>>>>>>> On 1/24/25 10:48 AM, Krzysztof Kozlowski wrote:
->>>>>>>>>>> On 24/01/2025 17:05, Markus Schneider-Pargmann wrote:
->>>>>>>>>>>> Hi Krzysztof,
->>>>>>>>>>>>
->>>>>>>>>>>> On Fri, Jan 24, 2025 at 09:22:54AM +0100, Krzysztof Kozlowski wrote:
->>>>>>>>>>>>> On Fri, Jan 24, 2025 at 09:19:49AM +0100, Krzysztof Kozlowski wrote:
->>>>>>>>>>>>>> On Wed, Jan 22, 2025 at 11:24:33AM +0100, Markus Schneider-Pargmann wrote:
->>>>>>>>>>>>>>> Add compatible for ti,am62-ddr-pmctrl to the list. There is a DDR pmctrl
->>>>>>>>>>>>>>> register in the wkup-conf register space of am62a and am62p. This
->>>>>>>>>>>>>>> register controls DDR power management.
->>>>>>>>>>>>>>>
->>>>>>>>>>>>>>> Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
->>>>>>>>>>>>>>> ---
->>>>>>>>>>>>>>>      Documentation/devicetree/bindings/mfd/syscon.yaml | 2 ++
->>>>>>>>>>>>>>>      1 file changed, 2 insertions(+)
->>>>>>>>>>>>>>
->>>>>>>>>>>>>> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->>>>>>>>>>>>>
->>>>>>>>>>>>> Un-acked, I missed the point that you really speak in commit msg about
->>>>>>>>>>>>> register and you really treat one register is a device. I assumed you
->>>>>>>>>>>>> only need that register from this device, but no. That obviously is not
->>>>>>>>>>>>> what this device is. Device is not a single register among 10000 others.
->>>>>>>>>>>>> IOW, You do not have 10000 devices there.
->>>>>>>>>>>>
->>>>>>>>>>>> Do I understand you correctly that the whole register range of the
->>>>>>>>>>>> wkup_conf node as seen in arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi
->>>>>>>>>>>> should be considered a single syscon device?
->>>>>>>>>>>
->>>>>>>>>>> I don't have the datasheets (and not my task to actually check this),
->>>>>>>>>>> but you should probably follow datasheet. I assume it describes what is
->>>>>>>>>>> the device, more or less.
->>>>>>>>>>>
->>>>>>>>>>> I assume entire wkup_conf is considered a device.
->>>>>>>>>>>
->>>>>>>>>>>>
->>>>>>>>>>>> Unfortunately wkup_conf is modeled as a simple-bus with currently 5
->>>>>>>>>>>> subnodes defined of which 4 of them consist of a single register. Most
->>>>>>>>>>>> of them are syscon as well. So I think I can't change the simple-bus
->>>>>>>>>>>> back to syscon.
->>>>>>>>>>>
->>>>>>>>>>> Huh... Maybe TI folks will help us understand why such design was chosen.
->>>>>>>>>>>
->>>>>>>>>>
->>>>>>>>>> Many of the devices inside the wkup_conf are already modeled as such.
->>>>>>>>>> Clocks and muxes for instance already have drivers and bindings, this
->>>>>>>>>> is nothing new to TI.
->>>>>>>>>>
->>>>>>>>>> If we just use a blank "syscon" over the entire region we would end up
->>>>>>>>>> with drivers that use phandles to the top level wkup_conf node and
->>>>>>>>>> poke directly the registers they need from that space.
->>>>>>>>>>
->>>>>>>>>> Would you rather have
->>>>>>>>>>
->>>>>>>>>> some-device {
->>>>>>>>>> 	ti,epwm_tbclk = <&wkup_conf>;
->>>>>>>>>> }
->>>>>>>>>>
->>>>>>>>>> or
->>>>>>>>>>
->>>>>>>>>> some-device {
->>>>>>>>>> 	clocks = <&epwm_tbclk 0>;
->>>>>>>>>> }
->>>>>>>>>
->>>>>>>>> How is this comparable? These are clocks. You would have clocks property
->>>>>>>>> in both cases.
->>>>>>>>>
->>>>>>>>>
->>>>>>>>>>
->>>>>>>>>> with that epwm_tbclk being a proper clock node inside wkup_conf?
->>>>>>>>>> I would much prefer the second, even though the clock node
->>>>>>>>>> only uses a single register. And in the first case, we would need
->>>>>>>>>> to have the offset into the wkup_conf space hard-coded in the
->>>>>>>>>> driver for each new SoC. Eventually all that data would need to be
->>>>>>>>>> put in tables and we end up back to machine board files..
->>>>>>>>>>
->>>>>>>>>> I'm not saying every magic number in all drivers should
->>>>>>>>>> be offloaded into DT, but there is a line somewhere between
->>>>>>>>>> that and having the DT simply contain the SoC's name compatible
->>>>>>>>>
->>>>>>>>> That's not the question here.
->>>>>>>>>
->>>>>>>>>> and all other data going into the kernel. That line might be a
->>>>>>>>>> personal preference, so my question back is: what is wrong
->>>>>>>>>> if we do want "1000 new syscons per each register" for our
->>>>>>>>>> SoCs DT?
->>>>>>>>>
->>>>>>>>> Because it is false representation of hardware. You do not have 1000
->>>>>>>>> devices. You have only one device.
->>>>>>>>>
->>>>>>>>>
->>>>>>>>>>
->>>>>>>>>> (and the number is not 1000, scanning the kernel I can see
->>>>>>>>>> the largest wkup_conf region node we have today has a grand
->>>>>>>>>> total number sub-nodes of 6)
->>>>>>>>>
->>>>>>>>> But what is being added here is device per each register, not per feature.
->>>>>>>>
->>>>>>>> The register layout is like this:
->>>>>>>
->>>>>>> The register layout of what? How is the device called? Is datasheet
->>>>>>> available anywhere?
->>>>>>
->>>>>> Yes, it is available here: https://www.ti.com/de/lit/pdf/spruj16
->>>>>>
->>>>>> 14 Registers
->>>>>> 14.2 Device Configuration Registers
->>>>>> 14.2.1 CTRL_MMR Registers
->>>>>> 14.2.1.1 General Purpose Control Registers
->>>>>> 14.2.1.1.3 WKUP_CTRL_MMR0 Registers
->>>>>>
->>>>>> Each domain has their own set of general purpose control registers,
->>>>>> CTRL_MMR for the main domain, MCU_CTRL_MMR0 for the MCU domain,
->>>>>> WKUP_CTRL_MMR0 for the wakeup domain.
->>>>>
->>>>>
->>>>> So according to the doc you have only one device - CTRL_MMR. All other
->>>>> splits are superficial.
->>>>>
->>>>
->>>> It is not one device, it is a collection of devices under one labeled
->>>> bus range. Some items here are full normal devices, already modeled by DT
->>>> as stand-alone devices, for instance our chipid, efuse, clock controller,
->>>> etc. even our pinmux is part of this bus range.
->>>>
->>>> They are grouped as we have one set for each domain (MAIN, WKUP, MCU).
->>>>
->>>> All other splits are not superficial, if we go down that path then
->>>> the whole SoC is one "device". We could simply have the whole address
->>>> bus be one node and have Linux hard-code offsets in the drivers, we
->>>> end up back at board files..
->>>>
->>>> DT should break things into logically distinct and reusable units
->>>> so we don't have to store that in the kernel. That is what we do
->>>> here, even if some units end up being very small.
->>>>
->>>>>>
->>>>>> So I understand this to just be a collection of general purpose control
->>>>>> registers. If you go by feature, then many of the registers can be
->>>>>> grouped into units with a specific purpose or controlling a specific
->>>>>> device which are also grouped by the offsets they represent. I assume
->>>>>
->>>>> It could work if you have distinctive groups, but here:
->>>>> 1. You do not have this grouped, you just judge by yourself "oh, that's
->>>>> group A, that's B".
->>>>> 2. Group per one register is not that.
->>>>>
->>>>> For me this is one big block and even CLKSEL is spread all over so
->>>>> cannot be really made distinctive.
->>>>>
->>>>>> this is why the other nodes in this wkup_conf node were created. Also in
->>>>>
->>>>> The other nodes represent some sort of fake or totally arbitrary
->>>>> grouping. That's abuse of the syscon.
->>>>>
->>>>
->>>> They are grouped by function.
->>>
->>> Not really - other DTS sent just few days ago created each entry per one
->>> register.
->>>
->>>>
->>>>>> my opinion this makes the relation between the original device and this
->>>>>> general purpose control registers better understandable.
->>>>>>
->>>>>> For this patch the ddr-pmctrl regsiter is just a single register, but it
->>>>>> has the purpose of controlling the DDR device power management.
->>>>>
->>>>> Sure, but that is NOT syscon. One register of entire block is not system
->>>>> controller. The entire block is system controller.
->>>>>
->>>>
->>>> The whole block cannot be a system controller as there are regular
->>>> devices inside this range. If we made the whole region a syscon and
->>>
->>> That's still system controller. It's nothing special here.
->>>
->>>> also left the device nodes inside, then we would have overlapping
->>>> register owners, one register would be controlled by two or more
->>>
->>> No, owner is the parent device always.
->>
->> Which parent device? That is my point, if the top level node for the
->> whole CTRL_MMR region is made into one big syscon, then a big regmap
->> is made that covers the whole region. All the child devices also make
-> 
-> Children take the parent regmap or you do not have even the children.
+Hi Robin,
 
-The parent is a "simple-bus", there is no parent regmap. And before
-you say make the parent a "syscon", I've explained why we cannot do
-that.
+On Wed, 23 Apr 2025 at 15:29, Robin Murphy <robin.murphy@arm.com> wrote:
+> On 2025-04-23 1:17 pm, Vinod Koul wrote:
+> > On 23-04-25, 14:13, Geert Uytterhoeven wrote:
+> >> On Wed, 23 Apr 2025 at 13:48, Vinod Koul <vkoul@kernel.org> wrote:
+> >>> On 23-04-25, 13:11, Geert Uytterhoeven wrote:
+> >>>> On Wed, 23 Apr 2025 at 12:59, Robin Murphy <robin.murphy@arm.com> wrote:
+> >>>>> On 2025-04-22 7:11 pm, Geert Uytterhoeven wrote:
+> >>>>>> The Arm DMA-350 controller is only present on Arm-based SoCs.
+> >>>>>
+> >>>>> Do you know that for sure? I certainly don't. This is a licensable,
+> >>>>> self-contained DMA controller IP with no relationship whatsoever to any
+> >>>>> particular CPU ISA - our other system IP products have turned up in the
+> >>>>> wild paired with non-Arm CPUs, so I don't see any reason that DMA-350
+> >>>>> wouldn't either.
+> >>>>
+> >>>> The dependency can always be relaxed later, when the need arises.
+> >>>> Note that currently there are no users at all...
+>
+> Huh? There is now an upstream DT binding, and DTs using that binding
+> most certainly already exist - not least the one I have, but I'm not the
+> only one. We don't have a requirement that bindings must have
+> upstream-supported consumers.
 
-> Actually the second point is what we talk here: you created fake devices
-> per each register and these are supposed to be squashed into the parent.
-> I am repeating this 3rd time or more.
-> 
-> 
->> regmaps covering their device range. Now these registers under the child
->> device belong to two different regmaps. No synchronization is done as
->> these are not the same regmap, regmap only handles this for multiple
->> access to registers within the same regmap.
->>
->> Let's take a real example, here is part of AM62A CTRL_MMR node.
->>
->> main_conf: bus@100000 {
->> 	compatible = "simple-bus";
->> 	#address-cells = <1>;
->> 	#size-cells = <1>;
->> 	ranges = <0x00 0x00 0x00100000 0x20000>;
->>
->> 	phy_gmii_sel: phy@4044 {
->> 		compatible = "ti,am654-phy-gmii-sel";
->> 		reg = <0x4044 0x8>;
->> 		#phy-cells = <1>;
->> 	};
->>
->> 	...
->> };
->>
->> If we turn "main_conf" into a syscon, then who "owns" 0x4044?
->> Both the top level syscon and phy_gmii_sel nodes would build
->> a different regmap instance that contains those same registers.
-> 
-> Two registers is hardly a separate device.
-> 
+Dependencies in Kconfig are not related to DT bindings, they only
+control what can be built?
 
-Sure it is, plenty of devices have only a couple registers. There
-are already examples all over from all kinds of devices, clocks,
-muxes, GPIO extenders, ADCs, DACs, etc. that are real and separate
-devices that function perfectly fine while only having one or two
-programmable registers.
+> >>> True, but do we have any warnings generated as a result, if there are no
+> >>> dependency should we still limit a driver to an arch?
+> >>
+> >> I am not aware of any warnings (I built it on MIPS yesterday ;-).
+> >> It is just one more question that pops up during "make oldconfig",
+> >> and Linus may notice and complain, too...
+>
+> Well, yeah? It's a new driver for some (relatively) new hardware; every
+> release always adds loads of new drivers for things I don't personally
+> care about, so I press "n" a lot when updating my config, just like I
+> imagine most other people do, Linus included.
 
->>
->> Bit of back story, this is actually how I got involved in sorting
->> out this "syscon" stuff for our devices. I built a checker into
->> the regmap framework core that would detect when multiple regmaps
->> are created that contain overlapping registers.
->>
->> I found several bugs this way and want to push the check upstream at
->> some point. But first I wanted to fix the biggest cause of warnings,
->> which was from syscon being used as described above.
->>
->>>
->>>> drivers. How would we synchronize mappings, access, updates, etc.
->>>> Any one register should belong to exactly one device.
->>>
->>> regmap synchronizes everything. There is no problem here, at all.
->>>
->>>>
->>>> Is your issue the name "system controller", as yes I agree some of
->>>> these regions are not "system controllers".
->>>>
->>>> Would it work better if we didn't call this "ti,am62-ddr-pmctrl"
->>>> node a "syscon"? That can be done, we just would add a normal
->>>> binding doc for it, instead of trying to reuse the generic
->>>> bindings/mfd/syscon.yaml file.
->>>
->>> You still do not have multiple subnodes, one per each register or even
->>> few registers.
->>
->> If this ddr-pmctrl device is not modeled as a syscon device, then who
->> says it has to be more than a few (3?) registers in size? This seems like
->> a rather arbitrary rule, and completely unfeasible for several whole
->> classes of devices that only have/need a few registers to work them.
-> 
-> What does the syscon description say? Collection of registers, a set of
-> miscellaneous registers. Registers in plural. Do not use syscon for
-> other purposes.
-> 
-> It is not arbitrary. It is written in binding description.
-> 
+Please read [1] and ask yourself if Linux wants to see a question
+about Arm DMA-350 when configuring a kernel for his AMD Threadripper
+workstation...
 
-Re-read the first sentence: "If this ddr-pmctrl device is *not* modeled
-as a syscon device". My comment is that ddr-pmctrl is not a syscon,
-and so if we don't include any claim it is a "syscon" in the binding,
-why do we have to follow the rules in the unrelated syscon binding
-description.
+> > True, give there are no users, lets pick this and drop if we get a non
+> > arm user
+>
+> Well by that logic surely it should just depend on COMPILE_TEST, because
+> there are no ARM or ARM64 "users" either?
 
-Andrew
+If you want to push it that far, fine for me ;-)
 
-> Best regards,
-> Krzysztof
+> FWIW the not-quite-upstream platform I developed on (a custom build of
+> fvp-base-revc with a DMA-350 component added) did happen to be ARM64, as
+> are some other Arm-internal designs and one available SoC that I do know
+> of containing DMA-350; I am not aware of any Linux-capable 32-bit
+> platforms to justify an ARM dependency, so I'd consider that just as
+> arbitrarily pulled out of thin air.
+
+OK, then the ARM dependency can be dropped for now.
+I had done a quick Google search to find SoCs that contain a DMA-350
+instance, and had only found a Cortex-M0-based SoC, so I assumed it
+would be used on ARM, too.
+
+> But then to pick another example at random, XILINX_DMA equally has no
+> "users", so please make that depend on something arbitrary as well for
+> consistency; it's only fair.
+
+Sure, there are lots of Kconfig symbols that could benefit from
+additional dependencies. Unfortunately my time is limited, so usually
+I create and send patches for new Kconfig symbols only....
+
+Thanks!
+
+[1] https://lore.kernel.org/all/CAHk-=wg+38EHPKGou1MqXwAAXC30cM8sMgZAGnZ7TcFO4L9J2w@mail.gmail.com
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
