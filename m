@@ -4,72 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ECD3C369D8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 13:52:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD004C369D7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 13:52:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sWIxzkYySooPZyA3CWFH2ZhlRFHEL2R7O9gzuhQ4Mr8=; b=WsutpJEXhd44CT3TL5HqWOrkf8
-	ImqLF2p1HS/+Ome/YTxKOIDD1eXpCfK6OBSl3/zp5zDSnUtWfVYMLBpdw7tZB7awg0KanoIlPj/um
-	b0RjvA7Hp2tNtgKtoDKa3maJn9FudxpXV4lYJCPCQMkEwxRScSMj9B7CSmVE5eB3UbakI29qhHjxH
-	OCvYdPvERvz8RSN13nVRAMmtKjikrsQvvDPXqga41bSZXh8rVbzFzxKueyOxke5ZYMyfibBghqZDO
-	I6lVvzGLdXfOR8amRtQiuIU4IcTlVlS9LD9bEC7r99dD0ysX2/eaDbgJjUnshm7qy9BLG/OoWWb5N
-	9QuEZPGw==;
+	bh=jK4eLOZAO+NeR0mENoE8rBEEAUzeupCz2Uf9vs4VHm4=; b=3xLB4ATOV2Nf4nhpkks0SqMQMY
+	gSrbr9A2C0hxYrtrpgz4a4pVG8x9d+BrSX819Cp+ZDkAQEYO3K6pls+unRQMTTWcDv3n+OoGGqgg8
+	dq19BesZjWp0n9LPacl27N21g3SaeTcBv8CRUS0LypVI+9zij0HY4On/ZBUKNJhhHUn3psh+Vjo8S
+	0rGAlOgbdeNxUPWNRr8qIjbarWkNrfjS+qF/cKrdEimlpnH/VKiErYYvGGnKJGxPmax+rPMzBvyIB
+	SA8aKgx3xGmFEUlcGm0lGlDRCvdwkp3LQeumvr5c0l+zLY+EIo5DtCBZoFVDHtfjPD3kES4LXrJ4L
+	KEmFLonQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7aW9-0000000Afsj-3bT2;
-	Wed, 23 Apr 2025 13:52:03 +0000
-Received: from mx18.pku.edu.cn ([162.105.129.181] helo=pku.edu.cn)
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7WWl-00000009zZT-385O
+	id 1u7aWH-0000000Ag3W-2UMZ;
+	Wed, 23 Apr 2025 13:52:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7ZBu-0000000ATOp-1MMA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 09:36:25 +0000
-Received: from pku.edu.cn (unknown [10.7.63.12])
-	by mtasvr (Coremail) with SMTP id _____7Dw+MyAtAhoV+RkAA--.6301S3;
-	Wed, 23 Apr 2025 17:36:01 +0800 (CST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=pku.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
-	Message-ID:References:MIME-Version:Content-Type:
-	Content-Disposition:In-Reply-To; bh=sWIxzkYySooPZyA3CWFH2ZhlRFHE
-	L2R7O9gzuhQ4Mr8=; b=R6v5uWdFLnycZ2Hf2rjtf13GADCiUyaKMWCk8hSTyXRt
-	KqZdJCzCQoOHkhBHE/PmWlNWYbaY723xxw4aTOj8/W4BIJIN54wiARiHyHV2J0ZY
-	WCXE73xb28BmzgvmZD49896z9puzaTkDYYPEJjxQhXJ1mij11J5pop232E9M3as=
-Received: from localhost (unknown [10.7.63.12])
-	by front01 (Coremail) with SMTP id 5oFpogBHHsh2tAhokn2BAA--.54773S2;
-	Wed, 23 Apr 2025 17:35:58 +0800 (CST)
-Date: Wed, 23 Apr 2025 17:35:49 +0800
-From: Ruihan Li <lrh2000@pku.edu.cn>
-To: David Woodhouse <dwmw2@infradead.org>
-Cc: Mike Rapoport <rppt@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, "Sauerwein, David" <dssauerw@amazon.de>, 
-	Anshuman Khandual <anshuman.khandual@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, David Hildenbrand <david@redhat.com>, 
-	Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Mike Rapoport <rppt@linux.ibm.com>, Will Deacon <will@kernel.org>, kvmarm@lists.cs.columbia.edu, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org
-Subject: Re: [PATCH v3 7/7] mm/mm_init: Use for_each_valid_pfn() in
- init_unavailable_range()
-Message-ID: <rp7ftbfx7kbdh4xe3ptrzx2dakwjjo3npn6b6l4wjn5zj3n5t6@cij3nx67r3av>
-References: <20250423081828.608422-1-dwmw2@infradead.org>
- <20250423081828.608422-8-dwmw2@infradead.org>
+	Wed, 23 Apr 2025 12:27:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8F4E8614C6;
+	Wed, 23 Apr 2025 12:26:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 679B1C4CEE2;
+	Wed, 23 Apr 2025 12:26:54 +0000 (UTC)
+Date: Wed, 23 Apr 2025 13:26:51 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Ankit Agrawal <ankita@nvidia.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Marc Zyngier <maz@kernel.org>,
+	"joey.gouly@arm.com" <joey.gouly@arm.com>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"ryan.roberts@arm.com" <ryan.roberts@arm.com>,
+	"shahuang@redhat.com" <shahuang@redhat.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"david@redhat.com" <david@redhat.com>,
+	Aniket Agashe <aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>,
+	Kirti Wankhede <kwankhede@nvidia.com>,
+	"Tarun Gupta (SW-GPU)" <targupta@nvidia.com>,
+	Vikram Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>,
+	Alistair Popple <apopple@nvidia.com>,
+	John Hubbard <jhubbard@nvidia.com>, Dan Williams <danw@nvidia.com>,
+	Zhi Wang <zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>,
+	Uday Dhoke <udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
+	Krishnakant Jaju <kjaju@nvidia.com>,
+	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
+	"sebastianene@google.com" <sebastianene@google.com>,
+	"coltonlewis@google.com" <coltonlewis@google.com>,
+	"kevin.tian@intel.com" <kevin.tian@intel.com>,
+	"yi.l.liu@intel.com" <yi.l.liu@intel.com>,
+	"ardb@kernel.org" <ardb@kernel.org>,
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"gshan@redhat.com" <gshan@redhat.com>,
+	"linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"ddutile@redhat.com" <ddutile@redhat.com>,
+	"tabba@google.com" <tabba@google.com>,
+	"qperret@google.com" <qperret@google.com>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v3 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
+ VMA flags
+Message-ID: <aAjci3rddHt_R_x3@arm.com>
+References: <Z_QAxiEWEyMpfLgL@google.com>
+ <SA1PR12MB719976799AD7F9FC4407A5A9B0BD2@SA1PR12MB7199.namprd12.prod.outlook.com>
+ <aAdKCGCuwlUeUXKY@linux.dev>
+ <20250422135452.GL823903@nvidia.com>
+ <aAfI2GR1__-1KQHn@arm.com>
+ <20250422170324.GB1645809@nvidia.com>
+ <aAgJ8g8Gbb06quSM@linux.dev>
+ <20250422233556.GB1648741@nvidia.com>
+ <aAjEsIwhYQpkphrW@arm.com>
+ <20250423120243.GD1648741@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250423081828.608422-8-dwmw2@infradead.org>
-X-CM-TRANSID: 5oFpogBHHsh2tAhokn2BAA--.54773S2
-X-CM-SenderInfo: yssqiiarrvmko6sn3hxhgxhubq/1tbiAgEIBWf35XUDOwAssa
-X-CM-DELIVERINFO: =?B?69lGqaaAH6dYjNjDbLdWX9VB7ttaQFyXTaecYZzOeDisy/krtsX5TsLkpeAzENeCPc
-	0+BDdXjm5Mlm64oODP/CxX7CdEvht9JHZwC6hFgN7SfXBn/8Fy5FcUojCT9CoM+EEp/rxb
-	J1TmFLOdWa1Zk7IYwibDsajPQlM5qU+Ubz9/W9nmylWX+/i+jTphvck2O7OCbg==
-X-Coremail-Antispam: 1Uk129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7
-	ZEXasCq-sGcSsGvfJ3UbIjqfuFe4nvWSU5nxnvy29KBjDU0xBIdaVrnUUvcSsGvfC2Kfnx
-	nUUI43ZEXa7xR_UUUUUUUUU==
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_023624_156124_A51ACA4B 
-X-CRM114-Status: GOOD (  24.11  )
+In-Reply-To: <20250423120243.GD1648741@nvidia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,58 +102,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi David,
-
-On Wed, Apr 23, 2025 at 08:52:49AM +0100, David Woodhouse wrote:
-> From: David Woodhouse <dwmw@amazon.co.uk>
+On Wed, Apr 23, 2025 at 09:02:43AM -0300, Jason Gunthorpe wrote:
+> On Wed, Apr 23, 2025 at 11:45:04AM +0100, Catalin Marinas wrote:
+> > On Tue, Apr 22, 2025 at 08:35:56PM -0300, Jason Gunthorpe wrote:
+> > > On Tue, Apr 22, 2025 at 02:28:18PM -0700, Oliver Upton wrote:
+> > > > Wait, so userspace simultaneously doesn't know the cacheability at host
+> > > > stage-1 but *does* for stage-2? 
+> > > 
+> > > No, it doesn't know either. The point is the VMM doesn't care about
+> > > any of this. It just wants to connect KVM to VFIO and have the kernel
+> > > internally negotiate the details of how that works.
+> > > 
+> > > There is zero value in the VMM being aware that KVM/VFIO is using
+> > > cachable or non-cachable mappings because it will never touch this
+> > > memory anyhow, and arguably it would be happier if it wasn't even in a
+> > > VMA in the first place.
+> > 
+> > I think this was discussed at some point in the past - what about
+> > ignoring the VMA altogether and using an fd-based approach? Keep the
+> > current VFIO+vma ABI non-cacheable and introduce a new one for cacheable
+> > I/O mappings, e.g. KVM_MEM_IOFD. Is there a way for VFIO to communicate
+> > the attributes to KVM on the type of mapping in the absence of a VMA
+> > (e.g. via the inode)? If not:
 > 
-> Currently, memmap_init initializes pfn_hole with 0 instead of
-> ARCH_PFN_OFFSET. Then init_unavailable_range will start iterating each
-> page from the page at address zero to the first available page, but it
-> won't do anything for pages below ARCH_PFN_OFFSET because pfn_valid
-> won't pass.
+> I hope to see that someday. The CC people are working in that
+> direction, but we are still far from getting enough agreement from all
+> the stakeholders on how that will work.
 > 
-> If ARCH_PFN_OFFSET is very large (e.g., something like 2^64-2GiB if the
-> kernel is used as a library and loaded at a very high address), the
-> pointless iteration for pages below ARCH_PFN_OFFSET will take a very
-> long time, and the kernel will look stuck at boot time.
+> > Stage 2 could default to non-cacheable and we can add a
+> > KVM_MEMORY_ATTRIBUTE_IO_WB as an option to
 > 
-> Use for_each_valid_pfn() to skip the pointless iterations.
-> 
-> Reported-by: Ruihan Li <lrh2000@pku.edu.cn>
-> Suggested-by: Mike Rapoport <rppt@kernel.org>
-> Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
-> ---
+> I don't think we should ever allow KVM to create a non-cachable
+> mapping of an otherwise cachable object??
 
-Thanks! I have confirmed that this worked in my scenario and fixed the
-problem I reported earlier.
+Ah, good point. So we want a strict cacheable mapping even if there is
+no user/VMM mapping alias. Is it because KVM cannot do cache maintenance
+on the PFNMAP or because the device does not support other memory types?
+Both valid reasons though.
 
-Tested-by: Ruihan Li <lrh2000@pku.edu.cn>
+In this case KVM still needs to know the properties of the device. Not
+sure how it could best do this without a vma.
 
->  mm/mm_init.c | 6 +-----
->  1 file changed, 1 insertion(+), 5 deletions(-)
-> 
-> diff --git a/mm/mm_init.c b/mm/mm_init.c
-> index 41884f2155c4..0d1a4546825c 100644
-> --- a/mm/mm_init.c
-> +++ b/mm/mm_init.c
-> @@ -845,11 +845,7 @@ static void __init init_unavailable_range(unsigned long spfn,
->  	unsigned long pfn;
->  	u64 pgcnt = 0;
->  
-> -	for (pfn = spfn; pfn < epfn; pfn++) {
-> -		if (!pfn_valid(pageblock_start_pfn(pfn))) {
-> -			pfn = pageblock_end_pfn(pfn) - 1;
-> -			continue;
-> -		}
-> +	for_each_valid_pfn(pfn, spfn, epfn) {
->  		__init_single_page(pfn_to_page(pfn), pfn, zone, node);
->  		__SetPageReserved(pfn_to_page(pfn));
->  		pgcnt++;
-> -- 
-> 2.49.0
-
-Thanks,
-Ruihan Li
-
+-- 
+Catalin
 
