@@ -4,45 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D9FEC369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:40:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B879C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:40:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+3bOnxJQ3XARxWGdu7M8FGxXTawg1C1gxfJXUYgr3DE=; b=IT8aCGIzQpoFKy2eJNP1YhHtTW
-	3cJovagvFFivnhZ/GPxwOty4dhSds5Vh9jDHoVcdg+9iIj6u6HsCUyDezBQTifLnKqX4TzXNFbOnC
-	dwjjcZr6ArBRr/XTP16c9qF5r89BER0Tj2i2DHm42n3mfGR6mAbSggIQx2v7XuGUJV7/E09AEtut6
-	bexMA0eiX6mTilEIu+sUyzXaI0veF/hTji45718wu/T5sE9afveRPiQNCMK+Z8BjqbdNm5hfBFrc6
-	qysIwG1FjkWrVo3/B5AchxG3OfCURYr7dLVQJvpJL9gROhAykDzV/5DUEwTVeKf67KW1/v3+uu4RI
-	lyPKW/zA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wPRG4P6zuN7b+oIRKRmBif3E2Id0Ps/A8QatLwDRfq0=; b=KwL9HqQNbSgFkw
+	LhfwfquU5H4KiMwnH/EKoo4Mtps+gtcC0UGLQAEKfbPrW2n5ROpm7SqEv1el02wb2sgglvAcloO8D
+	vJJhZ09cXyQEYWY4KYXfD8+uJHORnq6Sbq6r7glfvj+ewJyMbJdqE0fZwl/HpogM5SXrV4oDoJ78S
+	DMfqJZN+yZYi9vK6PaC95ZTeTS2s1ZbkayypB5d3MxYzrD8J16QIHz+hxUX82cD/mfIMx3d6klUNW
+	jhLwyDjPQYMOMXVqDHSdB5UgPaOta0XQlwnI3dYRBxyDzm4oSq2dnRDdoFMptQB7mbYXllIW1XgP6
+	vKOH9YrUdidMBBSsv7qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7e5M-0000000BIO2-3TTp;
-	Wed, 23 Apr 2025 17:40:36 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1u7e5K-0000000BINE-3htt;
+	Wed, 23 Apr 2025 17:40:34 +0000
+Received: from mail.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7ai7-0000000AlN3-4B1z
+	id 1u7ahq-0000000AlHl-005y
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 14:04:25 +0000
+	Wed, 23 Apr 2025 14:04:07 +0000
 Received: from [127.0.0.1] (unknown [116.232.18.95])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id A642C343104;
-	Wed, 23 Apr 2025 14:04:17 +0000 (UTC)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id F323A343087;
+	Wed, 23 Apr 2025 14:03:56 +0000 (UTC)
 From: Yixun Lan <dlan@gentoo.org>
-Date: Wed, 23 Apr 2025 22:03:24 +0800
-Subject: [PATCH 3/5] arm64: dts: allwinner: a523: Add EMAC0 ethernet MAC
+Subject: [PATCH 0/5] allwinner: Add EMAC0 support to A523 variant SoC
+Date: Wed, 23 Apr 2025 22:03:21 +0800
+Message-Id: <20250423-01-sun55i-emac0-v1-0-46ee4c855e0a@gentoo.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250423-01-sun55i-emac0-v1-3-46ee4c855e0a@gentoo.org>
-References: <20250423-01-sun55i-emac0-v1-0-46ee4c855e0a@gentoo.org>
-In-Reply-To: <20250423-01-sun55i-emac0-v1-0-46ee4c855e0a@gentoo.org>
+X-B4-Tracking: v=1; b=H4sIACrzCGgC/x3MQQ5AMBBA0avIrE0yygiuIhbFlFkoaUMk4u4ay
+ 7f4/4EoQSVClz0Q5NKou08o8gym1fpFUOdkMGSYKlMiFRhPz6wom50IWcqWbUOuHh2k6gji9P6
+ P/fC+HyFAyS5hAAAA
+X-Change-ID: 20250423-01-sun55i-emac0-5e395a80f6bf
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
  Jernej Skrabec <jernej.skrabec@gmail.com>, 
@@ -55,26 +57,26 @@ Cc: Andre Przywara <andre.przywara@arm.com>, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
  Yixun Lan <dlan@gentoo.org>
 X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2341; i=dlan@gentoo.org;
- h=from:subject:message-id; bh=0V5/pbt0VA5Hg3Oc3Eb1tgOeb9g+83cQqd7UmD2KG/0=;
- b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBoCPNCu+Ck+tBycFGCLRZGCONhmaFsMetB/xTFc
- zcuVTjTtk+JApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCaAjzQl8UgAAAAAAuAChp
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1355; i=dlan@gentoo.org;
+ h=from:subject:message-id; bh=hZqEM5nE7TvaLpWqvoc5l3TI9Oubf5G1nbiY8Pi5PH4=;
+ b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBoCPM4DKPuBzZRVqb50T8PXyF0UCKRr4fPVdY3s
+ xmCwN+ZxpuJApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCaAjzOF8UgAAAAAAuAChp
  c3N1ZXItZnByQG5vdGF0aW9ucy5vcGVucGdwLmZpZnRoaG9yc2VtYW4ubmV0QjVCQUI4QzlDMzF
- CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277TOWD/9d0BZRe4NDQvirps
- zi/lwslGgvwYMjLQ/3HTIRvNt7QMkf0jwCPqovWlSOyGHEP/yX19MXMUv3qqnE4k6qFZD1G7XZH
- 9KYotrmieLbFK63woUMoH88mAWCrG7IcndR4CgAIOOCxn7wFxUCH/oYC+Z7JklA+fIZWVY2gb2D
- VN0kipeHFaPfF3yboNeDC0EhjnF+aqEo1qjGMin9ipcm7SVuCjkuyom8uqyv01zKojpeA6RrLlX
- HIWlbwtXxBI3mFj8k1zOtpArnHFm6P/+pSrI/3e+JMB7+T1PV++ULZSXDDCk0Oslar2zGbSWpMq
- kdBmCiHGekqceFB+2//G3Uwx2WzqjxEyVvN/MgjaMrIerIM2PQY2JUHiKB4jhMtZxDI4+GWlJX8
- ihcmq3pEZouT6juXeuErif6A1C8aT12zeqEg9bCuHYqwLp8mEelrssZuNLIy7RY4+1zRlIM3ezU
- W8FEkhfdfDDrd/C3njsYCh40+9r6xuHrXIPbZfEGMmRUhqH6yONaEcIDwplJtmMGew7m7l6El2B
- kHx3316rXA3p4rcX94AR2pyRcfW1yMyK8sn/5rpSIexzGMHohCRTHRQ/od/S+aYAeWwZGiMnsho
- TvFeuhcFlNZ0Hoo1FKLtbYlbBxdAIgKJdKT/0RRm/R0/6juU+/582hwa16anX0ou/eiA==
+ CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277SAQEACFJYjiSRxvE/mbb9
+ F0SyhbAmPcpzsTcEoKbxHroJiSTxxoeWs+r/5TyOOnNbUwJnYoJ6+gjZHiAelGlImh7gSNnOQGy
+ VEuHuUZGDpiGPB4fU1sTh1Fl/5ii8niwqIu+Ygx6ScocrgNNciHTC48Ge0/7r9zl+x+WhYwnY94
+ JHQLC9hcrNUxzj/5JUtUJ/BIT+XmC2YJEOV0VZeA0rtcGBFhyuFufIrBTVq/cYpKhTCIM7I0fMX
+ 8fqENSCW9DT2ycGBbSFiBIgOk+Lb2irHyzr2HZDPhkW6OYMnSU9vkey+13JszErEZf6LV75+Df/
+ LtFjXyGU7YziaK0JevsgLA0p7EJU7MXxizfGOVO+Qj6PNqxCLttlv607QizLCpWkcr13sl59xW+
+ T2bHYmmll5s1VM0mQWuJqjit+gJWm9Rt+aE1/dRwKjjN+2fTJKKmC0IxYgttiDu84WRDHo4lo0t
+ cXSoyWKB2FVwZ0dQDvqiSCalX3CQs0V2ZvFsE+GCBbBTWMbN/jlQ39sP13SHdZzuoiKabkf9dRr
+ RyHSARPSW7QT/UBAaOfi/p3GPfllr6RY7CP73piRJy7sUNXyR2qNX4DUUt8yfdwKrJ3PzeXHJuo
+ guSiGgJzjAsvw6CvPr8khtvtTDHP9pAM7UmN8vfAhwwCP/UTEeXalnYgzr0uTrKxgT7w==
 X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
  fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_070424_066339_CC3FFCBA 
-X-CRM114-Status: UNSURE (   8.48  )
+X-CRM114-CacheID: sfid-20250423_070406_072343_CE49A8A9 
+X-CRM114-Status: UNSURE (   7.78  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,83 +92,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add EMAC0 ethernet MAC support which found on A523 variant SoCs,
-including the A527/T527 chips.
+This patch series is trying to add EMAC0 ethernet MAC support
+to the A523 variant SoCs, including A523, A527/T527 chips.
+
+This MAC0 is compatible to previous A64 SoC, so introduce a new DT
+compatible but make it as a fallback to A64's compatible.
+
+In this version, the PHYRSTB pin which routed to external phy
+has not been populated in DT. It's kind of optional for now,
+but we probably should handle it well later.
+
+I've tested only on Radxa A5E board.
 
 Signed-off-by: Yixun Lan <dlan@gentoo.org>
 ---
- arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi | 42 ++++++++++++++++++++++++++
- 1 file changed, 42 insertions(+)
+Yixun Lan (5):
+      dt-bindings: sram: sunxi-sram: Add A523 compatible
+      dt-bindings: arm: sunxi: Add A523 EMAC0 compatible
+      arm64: dts: allwinner: a523: Add EMAC0 ethernet MAC
+      arm64: dts: allwinner: a527: add EMAC0 to Radxa A5E board
+      arm64: dts: allwinner: t527: add EMAC0 to Avaoto-A1 board
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-index ee485899ba0af69f32727a53de20051a2e31be1d..c3ba2146c4b45f72c2a5633ec434740d681a21fb 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-@@ -126,6 +126,17 @@ pio: pinctrl@2000000 {
- 			interrupt-controller;
- 			#interrupt-cells = <3>;
- 
-+			emac0_pins: emac0-pins {
-+				pins = "PH0", "PH1", "PH2", "PH3",
-+					"PH4", "PH5", "PH6", "PH7",
-+					"PH9", "PH10","PH13","PH14",
-+					"PH15","PH16","PH17","PH18";
-+				allwinner,pinmux = <5>;
-+				function = "emac0";
-+				drive-strength = <40>;
-+				bias-pull-up;
-+			};
-+
- 			mmc0_pins: mmc0-pins {
- 				pins = "PF0" ,"PF1", "PF2", "PF3", "PF4", "PF5";
- 				allwinner,pinmux = <2>;
-@@ -409,6 +420,15 @@ i2c5: i2c@2503400 {
- 			#size-cells = <0>;
- 		};
- 
-+		syscon: syscon@3000000 {
-+			compatible = "allwinner,sun55i-a523-system-control",
-+				     "allwinner,sun50i-a64-system-control";
-+			reg = <0x03000000 0x1000>;
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+			ranges;
-+		};
-+
- 		gic: interrupt-controller@3400000 {
- 			compatible = "arm,gic-v3";
- 			#address-cells = <1>;
-@@ -521,6 +541,28 @@ ohci1: usb@4200400 {
- 			status = "disabled";
- 		};
- 
-+		emac0: ethernet@4500000 {
-+			compatible = "allwinner,sun55i-a523-emac0",
-+				     "allwinner,sun50i-a64-emac";
-+			reg = <0x04500000 0x10000>;
-+			clocks = <&ccu CLK_BUS_EMAC0>;
-+			clock-names = "stmmaceth";
-+			resets = <&ccu RST_BUS_EMAC0>;
-+			reset-names = "stmmaceth";
-+			interrupts = <GIC_SPI 46 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "macirq";
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&emac0_pins>;
-+			syscon = <&syscon>;
-+			status = "disabled";
-+
-+			mdio0: mdio {
-+				compatible = "snps,dwmac-mdio";
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+			};
-+		};
-+
- 		r_ccu: clock-controller@7010000 {
- 			compatible = "allwinner,sun55i-a523-r-ccu";
- 			reg = <0x7010000 0x250>;
+ .../bindings/net/allwinner,sun8i-a83t-emac.yaml    |  1 +
+ .../sram/allwinner,sun4i-a10-system-control.yaml   |  1 +
+ arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi     | 42 ++++++++++++++++++++++
+ .../boot/dts/allwinner/sun55i-a527-radxa-a5e.dts   | 17 +++++++++
+ .../boot/dts/allwinner/sun55i-t527-avaota-a1.dts   | 17 +++++++++
+ 5 files changed, 78 insertions(+)
+---
+base-commit: 69714722df19a7d9e81b7e8f208ca8f325af4502
+change-id: 20250423-01-sun55i-emac0-5e395a80f6bf
 
+Best regards,
 -- 
-2.49.0
+Yixun Lan
 
 
