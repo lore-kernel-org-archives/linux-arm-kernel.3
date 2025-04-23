@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87311C369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:44:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B21AC369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:47:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rdnSMw6us/ZpbE+Qa7Hkni51lBgmLWFKTV+3tmiDHKc=; b=G3cZWovzYvrqktlMfyO4mgZNS6
-	MpAJw/jYnKF6TlUufklJivkHV2l6KYgfdl1InO5pc7HJRuWfWm9VJTOHsSfcKPlIvYuf+wrKFVoDR
-	DZ2psM2ohhbrwcRnlC6BTqmz3hb4fYzx9/V13//68yrInAB+Z+gFmGPbAzl5TWD0lMCFQaRnxUvrZ
-	ZincV4AEynJXWSGUwJpvrG1LjNwhfcuhCcWsNf1L+yvQXV2OTfOLGy4bveYblid+IiKcEnDsLSpD0
-	wPemmSXDCRK4axSME9ik8uMVoMyoVmIVSjWYXjFsJgvPE5yZiYlZb4nOmCu9N7x3ldVVivjgYQBat
-	0zCQLA/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+pGhfX/4H3scf/HydnEYjfq1z6zKounijmYTLMLhC5E=; b=Sd2jXluaEqxEKEkWw/IQQno4Xu
+	XCRDcY9oYR9eVOMMjzplRE07KcNSRi7f1RrTiXZoSvMh9OaRwNQAOwnxRYCpUvMa2M142PY7Sxas4
+	GXVaR4XEHBSS99HnlN00mfGX+CxjQX6ZewRo/1N0brhN/Tmc2erUHi6sjNA3Qq5EObmhT0D+zjiGw
+	cT8SkBuJGWJcTqf4TO3hDHW4myZaRZe5lBg07qjWp/I0cLCW4ZchD6WU5G8a5PSRDJaLrYii17udm
+	XCBbjNUvrtX3wLY+yrOi9nHZZ3RpvkH3DusHnAmEY0KKqSdDAXQz8aXgSQxVm37DrbfYsujMcaIDF
+	VRUlk1PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7e94-0000000BOUw-3qfI;
-	Wed, 23 Apr 2025 17:44:26 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u7eBS-0000000BPMZ-3CKJ;
+	Wed, 23 Apr 2025 17:46:54 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7dGz-0000000BBR6-379u
+	id 1u7dRC-0000000BCa1-3vhX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 16:48:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BFFCC5C597C;
-	Wed, 23 Apr 2025 16:46:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01DA3C4CEE8;
-	Wed, 23 Apr 2025 16:48:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745426912;
-	bh=DT2vdXkm5UTmWS58pbDzSP2uTIp7fiBR1eJQ+9e9UMI=;
-	h=From:To:Cc:Subject:Date:From;
-	b=kpQSXkaICpkzZ85VDQxj7jy1Bsx9d36+2o7RD6suAZam+Qz8iAU3ZXGGMEoI84UjR
-	 S9+zC70OJ0b4r4Prz6c8evH4/Dlu/YJd6rphhF4ecKgW2xw2iFiw/780ZHEKec8DPg
-	 g6rD9pD0TKJAtYfc8Yiwr3I314Vf55tVWwPuhG9WNHhP2oJTmYBfZBcR03qoUh5WZp
-	 sd2vF53MvXxmqLsE7hEOhoKFBgDxc5cRr4sv5vMyBBQyt+Kco4pL/GBlmaIIb/Xk96
-	 37uYkmpUqvJ/FBbbj3rsYnX4of6vmJrPIciBEklfktvC+w/i9aS9faia7MedbplwI3
-	 F6amN7bzOvcgQ==
-From: Arnd Bergmann <arnd@kernel.org>
-To: Will Deacon <will@kernel.org>,
-	Joerg Roedel <joro@8bytes.org>,
-	Robin Murphy <robin.murphy@arm.com>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Mostafa Saleh <smostafa@google.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	Rob Clark <robdclark@chromium.org>,
-	Kunkun Jiang <jiangkunkun@huawei.com>,
-	Ashish Mhetre <amhetre@nvidia.com>,
-	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] [v2] iommu/io-pgtable-arm: dynamically allocate selftest device struct
-Date: Wed, 23 Apr 2025 18:48:16 +0200
-Message-Id: <20250423164826.2931382-1-arnd@kernel.org>
-X-Mailer: git-send-email 2.39.5
+	Wed, 23 Apr 2025 16:59:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=+pGhfX/4H3scf/HydnEYjfq1z6zKounijmYTLMLhC5E=; b=n989T3S3GDIXGm1qZvGBeYMZus
+	FFbkrtH8uTUC5JEGWWDg1gzaXJKpIm6WJL4xNXmsGG607YJy9Sp2XJvWYbYSJ+eTA6KLJDm+L9UsP
+	YP9DGWt/OIbhPtQv9sfilbwMU7bSjlKGpijJY28Qhe1jNNoKo/3GIi2LLSDCk7AQOo0M=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1u7dQj-00AMSb-42; Wed, 23 Apr 2025 18:58:37 +0200
+Date: Wed, 23 Apr 2025 18:58:37 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Yixun Lan <dlan@gentoo.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Maxime Ripard <mripard@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Andre Przywara <andre.przywara@arm.com>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org
+Subject: Re: [PATCH 4/5] arm64: dts: allwinner: a527: add EMAC0 to Radxa A5E
+ board
+Message-ID: <aa38baed-f528-4650-9e06-e7a76c25ec89@lunn.ch>
+References: <20250423-01-sun55i-emac0-v1-0-46ee4c855e0a@gentoo.org>
+ <20250423-01-sun55i-emac0-v1-4-46ee4c855e0a@gentoo.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250423-01-sun55i-emac0-v1-4-46ee4c855e0a@gentoo.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_094833_896125_B42D3E12 
-X-CRM114-Status: GOOD (  16.30  )
+X-CRM114-CacheID: sfid-20250423_095906_973952_AB1D4498 
+X-CRM114-Status: UNSURE (   7.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,76 +80,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+> +&emac0 {
+> +	phy-mode = "rgmii";
 
-In general a 'struct device' is way too large to be put on the kernel
-stack. Apparently something just caused it to grow a slightly larger,
-which pushed the arm_lpae_do_selftests() function over the warning
-limit in some configurations:
+Does the PCB have extra long clock lines in order to provide the
+needed 2ns delay? I guess not, so this should be rgmii-id.
 
-drivers/iommu/io-pgtable-arm.c:1423:19: error: stack frame size (1032) exceeds limit (1024) in 'arm_lpae_do_selftests' [-Werror,-Wframe-larger-than]
- 1423 | static int __init arm_lpae_do_selftests(void)
-      |                   ^
+> +	phy-handle = <&ext_rgmii_phy>;
+> +
+> +	allwinner,tx-delay-ps = <300>;
+> +	allwinner,rx-delay-ps = <400>;
 
-Change the function to use a dynamically allocated faux_device
-instead of the on-stack device structure.
+These are rather low delays, since the standard requires 2ns. Anyway,
+once you change phy-mode, you probably don't need these.
 
-Fixes: ca25ec247aad ("iommu/io-pgtable-arm: Remove iommu_dev==NULL special case")
-Link: https://lore.kernel.org/all/ab75a444-22a1-47f5-b3c0-253660395b5a@arm.com/
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
-v2: use faux device instead of platform_device, as Robin suggested.
-    The faux device is more appropriate here since the is no actual physical
-    device, though on the other hand the v1 patch had the advantage of not
-    actually needing to register the device.
----
- drivers/iommu/io-pgtable-arm.c | 13 +++++++++----
- 1 file changed, 9 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
-index 545229cf62d2..bbd42323c029 100644
---- a/drivers/iommu/io-pgtable-arm.c
-+++ b/drivers/iommu/io-pgtable-arm.c
-@@ -13,6 +13,7 @@
- #include <linux/bitops.h>
- #include <linux/io-pgtable.h>
- #include <linux/kernel.h>
-+#include <linux/device/faux.h>
- #include <linux/sizes.h>
- #include <linux/slab.h>
- #include <linux/types.h>
-@@ -1437,15 +1438,17 @@ static int __init arm_lpae_do_selftests(void)
- 	};
- 
- 	int i, j, k, pass = 0, fail = 0;
--	struct device dev;
-+	struct faux_device *dev;
- 	struct io_pgtable_cfg cfg = {
- 		.tlb = &dummy_tlb_ops,
- 		.coherent_walk = true,
--		.iommu_dev = &dev,
- 	};
- 
--	/* __arm_lpae_alloc_pages() merely needs dev_to_node() to work */
--	set_dev_node(&dev, NUMA_NO_NODE);
-+	dev = faux_device_create("io-pgtable-test", NULL, 0);
-+	if (!dev)
-+		return -ENOMEM;
-+
-+	cfg.iommu_dev = &dev->dev;
- 
- 	for (i = 0; i < ARRAY_SIZE(pgsize); ++i) {
- 		for (j = 0; j < ARRAY_SIZE(address_size); ++j) {
-@@ -1465,6 +1468,8 @@ static int __init arm_lpae_do_selftests(void)
- 	}
- 
- 	pr_info("selftest: completed with %d PASS %d FAIL\n", pass, fail);
-+	faux_device_destroy(dev);
-+
- 	return fail ? -EFAULT : 0;
- }
- subsys_initcall(arm_lpae_do_selftests);
--- 
-2.39.5
-
+     Andrew
 
