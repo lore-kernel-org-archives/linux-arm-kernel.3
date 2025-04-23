@@ -4,85 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E18DC369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 08:48:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 108D6C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 08:50:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BhzZoqwrvR64ETOj53JDdB4rMHRwaAeRpBGYOhjW/hk=; b=aRU/09YzmJNWgx4+cCyn+XkqhA
-	tgiBkVR0lX8Xqm6qH7hZP9sHQADaxjBJ2hYtrmjuvmwyp0demZBs3RopZd0POy6bsC6W4V+gEwey7
-	DYTwGzXgfq8zHSbu3zkUTDKmjwPzeV7ZhCxE0EcB5WTpgINEc/ylVWhUigYO/lpRijN6YK5nXnwh2
-	+6x2PyCv4Hc6GstDJewoloDOR5MNvRZrMSlH7E6zeSV4d8GGTpX9S//5UIl6u9hvB1Am5yqz6vwjI
-	BUHEd0n8wdxzl83TUJ9wn/vWIQrmukWqHY8pXcTegefrVpkRItmEY0ibwPZxdsKVUZIwmFA/y7qKk
-	i+QsIekQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1eWzS/Ah2cnA75NtUgIRsIHb+DY3iDF+Qb9KegxCV7A=; b=gZh5XKVw/Fu0L8nzhdpVEtXdsK
+	dQWPHIh/5AKXrUQPg8BMO+vXoLg1ezSD6TnAdEwnmGB3aNCZBId3hJfrrgYeoofmRZlrDFAnF28Gk
+	x8wFKniPxuNRfqk/dWyiFAG+jwxhunfiP7ZnZvouyHLdjBQZ9uZ95KSRrG7+cjaVIui1bFuYkbD/c
+	PVuO/xWlrlQrI5vGh1tNzJXhn23UYkLO6LEHbgoPawZYEggVGK6Z2Wor4aBHPoAnW1hpaarRNM8TT
+	elfjg6FvP3Xy+0GyE6rb9y1CLx1BhgXgW20lTYhq021P2JzoR7Z9lX+F2dSHOYhetCjbNldOq6cjq
+	31dTf7Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Vmf-00000009oxM-40y9;
-	Wed, 23 Apr 2025 08:48:45 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1u7Vod-00000009pDR-2nE5;
+	Wed, 23 Apr 2025 08:50:47 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Uw8-00000009aXU-2hvT
+	id 1u7Ux2-00000009ams-3uH6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 07:54:30 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53N6OI9V010478;
-	Wed, 23 Apr 2025 09:54:07 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	BhzZoqwrvR64ETOj53JDdB4rMHRwaAeRpBGYOhjW/hk=; b=xuC5r1lB5miyV23p
-	jnLHqYYaQ3IFsvQVrTulSV5e35eGcgq/PhQ9bTJv5uVt5cYX/uLKG12bo3/1WwYf
-	A9ZH+bUlka17GI/wHxexczd37ywtb4wZloiDltg/PCyJ8Lf6s6ujKhNL5YpWPIRa
-	rUoGvu9rnW0+56vTd29HeqZHrL+hYaIWyIEE2FbGVj4Dik3bAgJkePZ1VpPH5kE+
-	6MOxc28m7T/QmucfeHzdVoWb6a4NFHoqGn1DKh3bsBvJMZHiGj0o0TY0IcUogZqy
-	1rF78NKWJEzSplvJy2tMMu38y2SPnwYrYVWOunSG55m9Hvjt7q2wZ1xPT19vm8ZN
-	bqQ60Q==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 466jk39xjq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 23 Apr 2025 09:54:07 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 2C5804002D;
-	Wed, 23 Apr 2025 09:52:27 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id B6943A01C85;
-	Wed, 23 Apr 2025 09:51:09 +0200 (CEST)
-Received: from localhost (10.130.77.120) by SHFDAG1NODE3.st.com (10.75.129.71)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 23 Apr
- 2025 09:51:09 +0200
-From: Christian Bruel <christian.bruel@foss.st.com>
-To: <christian.bruel@foss.st.com>, <lpieralisi@kernel.org>, <kw@linux.com>,
-        <manivannan.sadhasivam@linaro.org>, <robh@kernel.org>,
-        <bhelgaas@google.com>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
-        <p.zabel@pengutronix.de>, <thippeswamy.havalige@amd.com>,
-        <shradha.t@samsung.com>, <quic_schintav@quicinc.com>,
-        <cassel@kernel.org>, <johan+linaro@kernel.org>
-CC: <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v7 7/9] arm64: dts: st: Add PCIe Root Complex mode on stm32mp251
-Date: Wed, 23 Apr 2025 09:49:38 +0200
-Message-ID: <20250423074940.3849091-8-christian.bruel@foss.st.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250423074940.3849091-1-christian.bruel@foss.st.com>
-References: <20250423074940.3849091-1-christian.bruel@foss.st.com>
+	Wed, 23 Apr 2025 07:55:26 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-440685d6afcso57060115e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 00:55:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1745394922; x=1745999722; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1eWzS/Ah2cnA75NtUgIRsIHb+DY3iDF+Qb9KegxCV7A=;
+        b=FcMM9DlIySMYjcgrK5aTx2xXYdywTD5KW8n3uf3QIModmK2kh8/KnuE7cvOUg3xOLA
+         cIwogfXTN/xFJdI0oenghPdwU3r3L9mOgTAmSKx45PtPB7TNJ9dt9Cs955EMT+Cp78MD
+         6gfp68/RmH+/BpL6wUKkFXny+shPecIks+910sdLQqm8IDg56WlPsD+E6WdM77YHLufq
+         KNF1TZ/22t2X3llukIpkw7WDyTiR4HjC3CSMqyLg9kw9bK/TsSoTVRbiq8cPSIazsxG6
+         YIhTytekvS+JiNxfBe6xp7/hS1H625DaPiBGWAhP+BJhveHGPiDcyIio/qbM6jZ9F3Wx
+         qwlA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745394922; x=1745999722;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=1eWzS/Ah2cnA75NtUgIRsIHb+DY3iDF+Qb9KegxCV7A=;
+        b=iFWwaBoqMvj7o5mnS/mcBUGtciELP7m2gETyLhPTXnEFiD7NVUj9xmuMx0hjuIJ4b1
+         g8xvHn66WdBrBjXhkN8K1mZ6RqA59kz1wzb42b065YS9pemdWo/DGkHX4kLQyb58EQb/
+         F6yJlqPpuYOGpAA0MqAnpIWXehZR9noIttSOO12IxOC1lbYWrZYskiinfeuz/RpUmIwQ
+         bFQBzgddjFlMgpVDTVrTaWe55lsnDEJa1qxDvzit1Yn4OWBydWZYmEfPar2tNmbwFbbv
+         Yxn3jCN+TCGvoGAFmyySN3yaDXer/LYNHy0ug2EkNR8Ylzq8gMaGSnxy/jaU4s2XGzic
+         ssKw==
+X-Forwarded-Encrypted: i=1; AJvYcCWh+JhnR+x5V0b3j82LAxuVZMXBxNzYUQs9+dw4RqKhb3p6EeompQhYqA2Le2E/pfIefpp2Hxtdm8EP7UINq9uW@lists.infradead.org
+X-Gm-Message-State: AOJu0YzjuR+lYsR5MXjBlC5T3jDqD5nvmQzls54uz4uf/g9dBcgpBDrO
+	aXGqg4blHnqvUz4FBLBMkhs6k7LPhQ7UoZD3P9C1Vktdurd1bL2qd9dmBEfl7Pr9aIQ4TuVRVMF
+	83bn8ps/V/9tYHI0JyLN3x1YLBgQ=
+X-Gm-Gg: ASbGncvRL8bQ/a55hLEuE+7m207czo/aNiR1kTWBBEoZhX1fxtZiMaFCk6dWIqFewQA
+	7P01qj8Iu0otXStSYpudsD3CiOLa3gaeDn6nlOlxEXjdiiB3lbHCYYN2WUkq7gqOL5HAoDf2q0x
+	MjRgqeW2liX7sK80WzfHBl/Q==
+X-Google-Smtp-Source: AGHT+IEetajyp7tewz7gSg2bUmPRDylKdQxo3ZKlMaQaOjNuvNTMi3XEyh1phX3DcIWXuVWrhzLhzxViAkCb79CfcaQ=
+X-Received: by 2002:a05:600c:358b:b0:439:9424:1b70 with SMTP id
+ 5b1f17b1804b1-4406ac17329mr182625395e9.30.1745394921859; Wed, 23 Apr 2025
+ 00:55:21 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.130.77.120]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-23_05,2025-04-22_01,2024-11-22_01
+References: <20250417084015.74154-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20250417084015.74154-5-prabhakar.mahadev-lad.rj@bp.renesas.com> <20250422184813.02b21095@kernel.org>
+In-Reply-To: <20250422184813.02b21095@kernel.org>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Wed, 23 Apr 2025 08:54:54 +0100
+X-Gm-Features: ATxdqUENAmcd1iPlreTGMgox3_qZS9GKX_Vez1-JK_b3xBLNPYkG-7O4wKnzxvI
+Message-ID: <CA+V-a8uk33D7m17nOa3tFviq+OEajPFm-haU+oFJwiE3Hvo3Aw@mail.gmail.com>
+Subject: Re: [PATCH net-next v8 4/4] MAINTAINERS: Add entry for Renesas
+ RZ/V2H(P) DWMAC GBETH glue layer driver
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Richard Cochran <richardcochran@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
+	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, Biju Das <biju.das.jz@bp.renesas.com>, 
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_005429_006418_434B3543 
-X-CRM114-Status: GOOD (  10.14  )
+X-CRM114-CacheID: sfid-20250423_005524_993170_E4415AD9 
+X-CRM114-Status: UNSURE (   8.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,79 +108,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add pcie_rc node to support STM32 MP25 PCIe driver based on the
-DesignWare PCIe core configured as Root Complex mode
+Hi Jakub,
 
-Supports Gen1/Gen2, single lane, MSI interrupts using the ARM GICv2m
+On Wed, Apr 23, 2025 at 2:48=E2=80=AFAM Jakub Kicinski <kuba@kernel.org> wr=
+ote:
+>
+> On Thu, 17 Apr 2025 09:40:15 +0100 Prabhakar wrote:
+> > +RENESAS RZ/V2H(P) DWMAC GBETH GLUE LAYER DRIVER
+> > +M:   Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> > +L:   netdev@vger.kernel.org
+> > +L:   linux-renesas-soc@vger.kernel.org
+> > +S:   Supported
+>
+> I'm going to make this Maintained when applying, please see:
+> https://www.kernel.org/doc/html/next/process/maintainer-netdev.html#suppo=
+rted-status-for-drivers
+>
+Ok, thanks for taking care of this.
 
-Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
----
- arch/arm64/boot/dts/st/stm32mp251.dtsi | 44 ++++++++++++++++++++++++++
- 1 file changed, 44 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-index 87110f91e489..5a5c177036cb 100644
---- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
-+++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-@@ -122,6 +122,15 @@ intc: interrupt-controller@4ac00000 {
- 		      <0x0 0x4ac20000 0x0 0x20000>,
- 		      <0x0 0x4ac40000 0x0 0x20000>,
- 		      <0x0 0x4ac60000 0x0 0x20000>;
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		v2m0: v2m@48090000 {
-+			compatible = "arm,gic-v2m-frame";
-+			reg = <0x0 0x48090000 0x0 0x1000>;
-+			msi-controller;
-+		};
- 	};
- 
- 	psci {
-@@ -899,6 +908,41 @@ stmmac_axi_config_1: stmmac-axi-config {
- 					snps,wr_osr_lmt = <0x7>;
- 				};
- 			};
-+
-+			pcie_rc: pcie@48400000 {
-+				compatible = "st,stm32mp25-pcie-rc";
-+				device_type = "pci";
-+				reg = <0x48400000 0x400000>,
-+				      <0x10000000 0x10000>;
-+				reg-names = "dbi", "config";
-+				#interrupt-cells = <1>;
-+				interrupt-map-mask = <0 0 0 7>;
-+				interrupt-map = <0 0 0 1 &intc 0 0 GIC_SPI 264 IRQ_TYPE_LEVEL_HIGH>,
-+						<0 0 0 2 &intc 0 0 GIC_SPI 265 IRQ_TYPE_LEVEL_HIGH>,
-+						<0 0 0 3 &intc 0 0 GIC_SPI 266 IRQ_TYPE_LEVEL_HIGH>,
-+						<0 0 0 4 &intc 0 0 GIC_SPI 267 IRQ_TYPE_LEVEL_HIGH>;
-+				#address-cells = <3>;
-+				#size-cells = <2>;
-+				ranges = <0x01000000 0x0 0x00000000 0x10010000 0x0 0x10000>,
-+					 <0x02000000 0x0 0x10020000 0x10020000 0x0 0x7fe0000>,
-+					 <0x42000000 0x0 0x18000000 0x18000000 0x0 0x8000000>;
-+				dma-ranges = <0x42000000 0x0 0x80000000 0x80000000 0x0 0x80000000>;
-+				clocks = <&rcc CK_BUS_PCIE>;
-+				resets = <&rcc PCIE_R>;
-+				msi-parent = <&v2m0>;
-+				access-controllers = <&rifsc 68>;
-+				power-domains = <&CLUSTER_PD>;
-+				status = "disabled";
-+
-+				pcie@0,0 {
-+					device_type = "pci";
-+					reg = <0x0 0x0 0x0 0x0 0x0>;
-+					phys = <&combophy PHY_TYPE_PCIE>;
-+					#address-cells = <3>;
-+					#size-cells = <2>;
-+					ranges;
-+				};
-+			};
- 		};
- 
- 		bsec: efuse@44000000 {
--- 
-2.34.1
-
+Cheers,
+Prabhakar
 
