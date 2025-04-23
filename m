@@ -4,109 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BB1FC369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 10:36:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B72C0C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 10:45:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JxBg3dBWyyVpo5Arlv3C5isb78xOvxiYPzGLGDZPCeU=; b=lkLXYTaR8tuWrJE/xhk7UcaR19
-	dAFnEVGq++5Fqyu6hfKjI4z0R2B5aihwRgdeVId92rbu8ibLX1bfrKdnlO/4W4K6DKpA9TMAw45pC
-	TEX072SpMLKPjOg4qClbeTrsCoH+f8VexUW2pWZY8bwU+qclXr2t96UJUiuThbcel/J5dTxbsl3VZ
-	IMv/gtGgcbV8/w7FNGus27wzPvY+mpuayECP7oI7Rb2vNsepriN26l8KEwYLPWggjE6vhc/KOVc2+
-	PPxkuRdJMS6qA6bERUgtWi/hkrOg+AUDQ2oQOCq3DwIkQdqcB0dJQFR/bH26xaEPvdSGUU1V6a1mb
-	s7Jsai7g==;
+	bh=Hym3gl4gErWlJLQp/NpSUVybx4xS8SkcA5rqgzJ2CJU=; b=BjXWJNetK8zfbh4xBRkEHe8K1X
+	RgSD29uiDNi1qiG/WGrnbW2HwnXHk9kGgEki32vzixC5jnVZSBLRJVnVtp1ivnk2Nne7KqzNNMYo5
+	u17kPcdJiOx8J7AinDeek50n4Ckd4voncuBpZRGUvsf1RKuCQRn4QmjxSBOkgVvLSK82Gqpn485qA
+	Cw7Ag8dqzzDkUb1UO2I/MvwAmry77a7bSvdCfbEEcY2VTDrp6ltTOKbm8UNgVSrWxdoisAX6QWghK
+	dyGHoLxeIxisqpKUwy1OjiU/0cx5zTd//IpjJSLn2aqbkKuj/9FqblvztJ0IeHtmE/AJdjmZOy6SA
+	XwDQmQTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7XSM-0000000ABTl-0LXF;
-	Wed, 23 Apr 2025 10:35:54 +0000
-Received: from server.wki.vra.mybluehostin.me ([162.240.238.73])
+	id 1u7XbG-0000000ADUy-3amj;
+	Wed, 23 Apr 2025 10:45:06 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7W5F-00000009sin-0AjD
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 09:07:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=JxBg3dBWyyVpo5Arlv3C5isb78xOvxiYPzGLGDZPCeU=; b=fuf5cVMepZKzibk7OwEr96gQmF
-	l7qouXuqd7BODOA7Us67I+wO83HqRGPtXz0BIv0Xz8lLnRjmTO2P6Sl6uQtRLO4ILe6BBEQMS15IX
-	hdXb3AB4JUhVdNEFfrEoeeMB4N8GaRkUyxe+B0JV5wJ27FJJX4N3BS03PGNAO+/wArdt7hoC0+X9d
-	9M509UkG6bxQhJaP3Zw0WbQygLWJRhRQ654iyhlZhzs2dxennbIctPkMSNdQpO+e/rvlAY8WzrZdb
-	8Nt0rHjomN1bAVosTBNoJueFzNVm1wnKVlUkPTJEc3NljpG68l5Y5GZ8hwIzXQOwFyHC/ndeL/zwQ
-	6POrkBHw==;
-Received: from [122.175.9.182] (port=30206 helo=cypher.couthit.local)
-	by server.wki.vra.mybluehostin.me with esmtpa (Exim 4.98.1)
-	(envelope-from <parvathi@couthit.com>)
-	id 1u7W59-0000000077s-1Egw;
-	Wed, 23 Apr 2025 14:37:51 +0530
-From: Parvathi Pudi <parvathi@couthit.com>
-To: danishanwar@ti.com,
-	rogerq@kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	nm@ti.com,
-	ssantosh@kernel.org,
-	tony@atomide.com,
-	richardcochran@gmail.com,
-	glaroque@baylibre.com,
-	schnelle@linux.ibm.com,
-	m-karicheri2@ti.com,
-	s.hauer@pengutronix.de,
-	rdunlap@infradead.org,
-	diogo.ivo@siemens.com,
-	basharath@couthit.com,
-	parvathi@couthit.com,
-	horms@kernel.org,
-	jacob.e.keller@intel.com,
-	m-malladi@ti.com,
-	javier.carrasco.cruz@gmail.com,
-	afd@ti.com,
-	s-anna@ti.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	pratheesh@ti.com,
-	prajith@ti.com,
-	vigneshr@ti.com,
-	praneeth@ti.com,
-	srk@ti.com,
-	rogerq@ti.com,
-	krishna@couthit.com,
-	pmohan@couthit.com,
-	mohan@couthit.com
-Subject: [PATCH net-next v6 10/11] net: ti: prueth: Adds support for PRUETH on AM33x and AM43x SOCs
-Date: Wed, 23 Apr 2025 14:36:30 +0530
-Message-Id: <20250423090631.326351-11-parvathi@couthit.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250423060707.145166-1-parvathi@couthit.com>
-References: <20250423060707.145166-1-parvathi@couthit.com>
+	id 1u7Ww3-0000000A6Lr-22cp;
+	Wed, 23 Apr 2025 10:02:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1745402549;
+	bh=ktV0WTPer3asI6aYq9UAR47uR805GI8B92zxNTsMtn0=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=G8dgid8oB/Uln65s3r/q+ZfQYLOBCybERkwrw9drzKh6Lel2fcpNt0XucNtrDaEEz
+	 xWvAldiHmhVo4DvfvZB76gBu+x6JNL5DrxFYJ6dLC/b4/AmIYZy4B9xj3rV85mLhhy
+	 UapOt6TsbWw7mAxwMPGltm84Jorfhj1CV6YIsA4PChAmpCRI3c9MjrqDz4ea+W1N+K
+	 ElSLFEAPkLpsDuc1WzJKPw9S96Ogo39Ema2RZ0wNVJPRRsLGgRk8Hft+Aziyg5YGlO
+	 eQDmaWCgq6wZBILdOWnCyGCm30c/Ks2g24FRKLlQOtJ6ySwrQQGNcVtDsQrDiQkv0q
+	 RKG7ZGY0ovw6w==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D4F9817E0702;
+	Wed, 23 Apr 2025 12:02:28 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ Pin-yen Lin <treapking@chromium.org>
+Cc: Chen-Yu Tsai <wenst@chromium.org>, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, 
+ Enric Balletbo i Serra <eballetbo@kernel.org>, 
+ Hsin-Yi Wang <hsinyi@chromium.org>, Jitao Shi <jitao.shi@mediatek.com>, 
+ Nicolas Boichat <drinkcat@chromium.org>
+In-Reply-To: <20250423040354.2847447-1-treapking@chromium.org>
+References: <20250423040354.2847447-1-treapking@chromium.org>
+Subject: Re: [PATCH v2] arm64: dts: mt8183: Add port node to mt8183.dtsi
+Message-Id: <174540254879.65934.8631292816995667484.b4-ty@collabora.com>
+Date: Wed, 23 Apr 2025 12:02:28 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.wki.vra.mybluehostin.me
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.wki.vra.mybluehostin.me: authenticated_id: parvathi@couthit.com
-X-Authenticated-Sender: server.wki.vra.mybluehostin.me: parvathi@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_020757_130847_137D91AA 
-X-CRM114-Status: UNSURE (   9.95  )
+X-CRM114-CacheID: sfid-20250423_030231_703658_16D07E7C 
+X-CRM114-Status: UNSURE (   6.38  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -122,160 +81,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Roger Quadros <rogerq@ti.com>
+On Wed, 23 Apr 2025 12:03:39 +0800, Pin-yen Lin wrote:
+> Add the port node to fix the binding schema check. Also update
+> mt8183-kukui to reference the new port node.
+> 
+> 
 
-Adds support for AM335x and AM437x datasets. Dual-EMAC and Switch mode
-firmware elf file to switch between protocols at run time.
+Applied to v6.15-next/dts64, thanks!
 
-Added API hooks for IEP module (legacy 32-bit model) to support
-timestamping requests from application.
+[1/1] arm64: dts: mt8183: Add port node to mt8183.dtsi
+      commit: d15059f7be59f887c1a370037cc2337c2ff2ad56
 
-Signed-off-by: Roger Quadros <rogerq@ti.com>
-Signed-off-by: Andrew F. Davis <afd@ti.com>
-Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
-Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
----
- drivers/net/ethernet/ti/icssg/icss_iep.c     | 61 ++++++++++++++++++++
- drivers/net/ethernet/ti/icssm/icssm_prueth.c | 32 ++++++++++
- 2 files changed, 93 insertions(+)
+Cheers,
+Angelo
 
-diff --git a/drivers/net/ethernet/ti/icssg/icss_iep.c b/drivers/net/ethernet/ti/icssg/icss_iep.c
-index 031a6be6a4e3..d0850722814e 100644
---- a/drivers/net/ethernet/ti/icssg/icss_iep.c
-+++ b/drivers/net/ethernet/ti/icssg/icss_iep.c
-@@ -1006,6 +1006,59 @@ static const struct icss_iep_plat_data am57xx_icss_iep_plat_data = {
- 	.config = &am654_icss_iep_regmap_config,
- };
- 
-+static bool am335x_icss_iep_valid_reg(struct device *dev, unsigned int reg)
-+{
-+	switch (reg) {
-+	case ICSS_IEP_GLOBAL_CFG_REG ... ICSS_IEP_CAPTURE_STAT_REG:
-+	case ICSS_IEP_CAP6_RISE_REG0:
-+	case ICSS_IEP_CMP_CFG_REG ... ICSS_IEP_CMP0_REG0:
-+	case ICSS_IEP_CMP8_REG0 ... ICSS_IEP_SYNC_START_REG:
-+		return true;
-+	default:
-+		return false;
-+	}
-+
-+	return false;
-+}
-+
-+static const struct regmap_config am335x_icss_iep_regmap_config = {
-+	.name = "icss iep",
-+	.reg_stride = 1,
-+	.reg_write = icss_iep_regmap_write,
-+	.reg_read = icss_iep_regmap_read,
-+	.writeable_reg = am335x_icss_iep_valid_reg,
-+	.readable_reg = am335x_icss_iep_valid_reg,
-+};
-+
-+static const struct icss_iep_plat_data am335x_icss_iep_plat_data = {
-+	.flags = 0,
-+	.reg_offs = {
-+		[ICSS_IEP_GLOBAL_CFG_REG] = 0x00,
-+		[ICSS_IEP_COMPEN_REG] = 0x08,
-+		[ICSS_IEP_COUNT_REG0] = 0x0C,
-+		[ICSS_IEP_CAPTURE_CFG_REG] = 0x10,
-+		[ICSS_IEP_CAPTURE_STAT_REG] = 0x14,
-+
-+		[ICSS_IEP_CAP6_RISE_REG0] = 0x30,
-+
-+		[ICSS_IEP_CAP7_RISE_REG0] = 0x38,
-+
-+		[ICSS_IEP_CMP_CFG_REG] = 0x40,
-+		[ICSS_IEP_CMP_STAT_REG] = 0x44,
-+		[ICSS_IEP_CMP0_REG0] = 0x48,
-+
-+		[ICSS_IEP_CMP8_REG0] = 0x88,
-+		[ICSS_IEP_SYNC_CTRL_REG] = 0x100,
-+		[ICSS_IEP_SYNC0_STAT_REG] = 0x108,
-+		[ICSS_IEP_SYNC1_STAT_REG] = 0x10C,
-+		[ICSS_IEP_SYNC_PWIDTH_REG] = 0x110,
-+		[ICSS_IEP_SYNC0_PERIOD_REG] = 0x114,
-+		[ICSS_IEP_SYNC1_DELAY_REG] = 0x118,
-+		[ICSS_IEP_SYNC_START_REG] = 0x11C,
-+	},
-+	.config = &am335x_icss_iep_regmap_config,
-+};
-+
- static const struct of_device_id icss_iep_of_match[] = {
- 	{
- 		.compatible = "ti,am654-icss-iep",
-@@ -1015,6 +1068,14 @@ static const struct of_device_id icss_iep_of_match[] = {
- 		.compatible = "ti,am5728-icss-iep",
- 		.data = &am57xx_icss_iep_plat_data,
- 	},
-+	{
-+		.compatible = "ti,am3356-icss-iep",
-+		.data = &am335x_icss_iep_plat_data,
-+	},
-+	{
-+		.compatible = "ti,am4376-icss-iep",
-+		.data = &am335x_icss_iep_plat_data,
-+	},
- 	{},
- };
- MODULE_DEVICE_TABLE(of, icss_iep_of_match);
-diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-index 4c9e91caebf9..d9506615fe36 100644
---- a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-+++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-@@ -2117,6 +2117,10 @@ static int icssm_prueth_probe(struct platform_device *pdev)
- 	}
- 
- 	prueth->ocmc_ram_size = OCMC_RAM_SIZE;
-+	/* Decreased by 8KB to address the reserved region for AM33x */
-+	if (prueth->fw_data->driver_data == PRUSS_AM33XX)
-+		prueth->ocmc_ram_size = (SZ_64K - SZ_8K);
-+
- 	prueth->mem[PRUETH_MEM_OCMC].va =
- 			(void __iomem *)gen_pool_alloc(prueth->sram_pool,
- 						       prueth->ocmc_ram_size);
-@@ -2360,6 +2364,32 @@ static const struct dev_pm_ops prueth_dev_pm_ops = {
- 	SET_SYSTEM_SLEEP_PM_OPS(icssm_prueth_suspend, icssm_prueth_resume)
- };
- 
-+/* AM335x SoC-specific firmware data */
-+static struct prueth_private_data am335x_prueth_pdata = {
-+	.driver_data = PRUSS_AM33XX,
-+	.fw_pru[PRUSS_PRU0] = {
-+		.fw_name[PRUSS_ETHTYPE_EMAC] =
-+			"ti-pruss/am335x-pru0-prueth-fw.elf",
-+	},
-+	.fw_pru[PRUSS_PRU1] = {
-+		.fw_name[PRUSS_ETHTYPE_EMAC] =
-+			"ti-pruss/am335x-pru1-prueth-fw.elf",
-+	},
-+};
-+
-+/* AM437x SoC-specific firmware data */
-+static struct prueth_private_data am437x_prueth_pdata = {
-+	.driver_data = PRUSS_AM43XX,
-+	.fw_pru[PRUSS_PRU0] = {
-+		.fw_name[PRUSS_ETHTYPE_EMAC] =
-+			"ti-pruss/am437x-pru0-prueth-fw.elf",
-+	},
-+	.fw_pru[PRUSS_PRU1] = {
-+		.fw_name[PRUSS_ETHTYPE_EMAC] =
-+			"ti-pruss/am437x-pru1-prueth-fw.elf",
-+	},
-+};
-+
- /* AM57xx SoC-specific firmware data */
- static struct prueth_private_data am57xx_prueth_pdata = {
- 	.driver_data = PRUSS_AM57XX,
-@@ -2375,6 +2405,8 @@ static struct prueth_private_data am57xx_prueth_pdata = {
- 
- static const struct of_device_id prueth_dt_match[] = {
- 	{ .compatible = "ti,am57-prueth", .data = &am57xx_prueth_pdata, },
-+	{ .compatible = "ti,am4376-prueth", .data = &am437x_prueth_pdata, },
-+	{ .compatible = "ti,am3359-prueth", .data = &am335x_prueth_pdata, },
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, prueth_dt_match);
--- 
-2.34.1
 
 
