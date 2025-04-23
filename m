@@ -4,63 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6261EC369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:43:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18982C369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:43:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NzzkEOBXDh+piPM2LHp9ijT67snKUFf4u8dLi/vH66A=; b=hk7LiS7acdSJZ+TGeE95sqYuxV
-	aQVfhqzKcIj3JbJ/vo3STiD8vxhcT4Td1oXGQi1dKhZvhb+GFVgE2sqdL/p+wcQi8PQ8EDmaIw6JD
-	rpe3Zv9fko8D8R2k0viYNCwiL/P8wn1D33cbGzRkDDPyvcookQhw4/f1B33xI0wa8/+P9TIJfAZGy
-	fW/g/lN4TAL5XgTQf186rS90CLKex+LlQeLuwuoO2Xbe8SacZzFMuUIfU9jcub4mr9/+dENF7UiCA
-	HESEQKX9e8ZzURRiOb4eZvnkNG/kL0FK0V7nYdYPChE97UQ3LvL12Bmh03vObaWBccG9F0XJfBt8Q
-	8vzoHetg==;
+	bh=ocwMdjEFp5wFZOdNnywb64kzd7AeTemeukF1Df9VU14=; b=iJfBL/ibkD8VEEOtGFDUxRiwKw
+	XLMbgjOrPiQCMnp3t0MqNc2yLsYaRlsoOdppoMHFexuLtJ+6uVALQ1B70fNQmpAa0emkfSUoJihle
+	XYe+cmmZO5oTRybwiV+tEzT4thNFy7BFqzFT6XadgWurvPRqHgKc09g8vUsiNvbk96m5xtemeWUDr
+	rXQMp2Meq6NxQGuTO4Lvc0gKP+u2nATa2Nz1fbpDd0J9/zNu216/HjBkXu1gorZuNtkrW9gHvuehx
+	O+YBy8hiYZGvLeWAmoQpAD35ruTmH2m43+iJB4rYjFacbTo+UiAER1SCHKTejgfY52p0RRBHLYkaD
+	UGqT4Vkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7e7u-0000000BMPg-2xLY;
-	Wed, 23 Apr 2025 17:43:15 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u7e7y-0000000BMVy-2ee3;
+	Wed, 23 Apr 2025 17:43:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7bxW-0000000AxQn-3plz
+	id 1u7byj-0000000AxbN-1P1d
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 15:24:24 +0000
+	Wed, 23 Apr 2025 15:25:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 217485C5E88;
-	Wed, 23 Apr 2025 15:22:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A06D5C4CEE2;
-	Wed, 23 Apr 2025 15:24:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id ACCFA44F24;
+	Wed, 23 Apr 2025 15:25:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBAE8C4CEE2;
+	Wed, 23 Apr 2025 15:25:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745421861;
-	bh=MGkSDAhmsttNEFpJt61N5qgZgDOhGEDQKGrmLoEGji8=;
+	s=k20201202; t=1745421936;
+	bh=G9/2avOv+6YP3rqQlxPZIf0rfrgI6wXZ+XhqCkNxxp0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=j2MfFQT34oLMAfbpJVPfDpvwGmvcGh/TuufkBrvtdvQ+wp63PV7M3qQKVsVOwYoKa
-	 X9n3Pn+LUi83ar1QffPqYBT946ICCF2dt1yhqP52ONfcaPmd6xQo75YxT5mtkIJNfy
-	 13JXoSeG/V7oytYAxNAlCp8vIAxHjcwYgNLYLWGyHnPDEtLDHgZzXX/ZTzM0JOP/9D
-	 QkbO4i/7WAycKSJKdmmO9N2WakwKAhP9PwU9lSWhWdKfg/R9Im/QyUptOLvZB/Hk+a
-	 sUkoSfCggUA/CKcHS42UfruWqzkTUBMHujQpKxM5qahvydJ57GzOWodhepSqm2Aa9j
-	 f24LBdQ7bHY3A==
-Date: Wed, 23 Apr 2025 10:24:20 -0500
+	b=SAsUjbv45Iu2JeeGdv5hD72TtTwW42t4fM296dyG+CtPvoZVAnTaYED0b8goY32lj
+	 aWZiNqXe9iVgGTEOL9KN3xWV33GBVsaVUFZMKppxcX40AnZkMDv22l3SqkpWLhv2tr
+	 Qv+MpHyCsz8FDxp6khYR2+Hy7FsCDIhrUmK0rsaKih6+tWoxcd8dqq8M6JlJjiN+HR
+	 wheTAHqMYsswXimW6HSTYtwvtqZ+ut+aqZ0xpoEPhvE39JKABTEcbWnUVZmR6Wc8wb
+	 fQATDyCq69GiDnGF/+ObuJbWZCgPyo9mPQjdwXTV4zi1KDFXWblVQl8J6PkVYx2BKQ
+	 hnNhvrQ9WIAjg==
+Date: Wed, 23 Apr 2025 10:25:34 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Alexey Charkov <alchark@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Thomas Gleixner <tglx@linutronix.de>,
+To: Stefan Wahren <wahrenst@gmx.net>
+Cc: Conor Dooley <conor+dt@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2] dt-bindings: interrupt-controller: via,vt8500-intc:
- Convert to YAML
-Message-ID: <174542185825.550926.14913949740445861454.robh@kernel.org>
-References: <20250418-via_intc_binding-v2-1-b649ce737f71@gmail.com>
+	Scott Branden <sbranden@broadcom.com>,
+	Andrea della Porta <andrea.porta@suse.com>,
+	bcm-kernel-feedback-list@broadcom.com,
+	linux-arm-kernel@lists.infradead.org, kernel-list@raspberrypi.com,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, devicetree@vger.kernel.org
+Subject: Re: [PATCH 1/3] dt-bindings: arm: bcm2835: Add Raspberry Pi 2 (2nd
+ rev)
+Message-ID: <174542193386.552497.9194165667630567957.robh@kernel.org>
+References: <20250418143307.59235-1-wahrenst@gmx.net>
+ <20250418143307.59235-2-wahrenst@gmx.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250418-via_intc_binding-v2-1-b649ce737f71@gmail.com>
+In-Reply-To: <20250418143307.59235-2-wahrenst@gmx.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_082423_005203_F7ED7101 
-X-CRM114-Status: GOOD (  12.27  )
+X-CRM114-CacheID: sfid-20250423_082537_391213_2BF2C87A 
+X-CRM114-Status: UNSURE (   8.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,28 +81,15 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 18 Apr 2025 17:57:25 +0400, Alexey Charkov wrote:
-> Rewrite the textual description for the VIA/WonderMedia interrupt
-> controller as YAML schema.
+On Fri, 18 Apr 2025 16:33:05 +0200, Stefan Wahren wrote:
+> Add the Raspberry Pi 2 (2nd rev) based on BCM2837 to DT schema.
 > 
-> The original textual version did not contain information about the
-> usage of 'interrupts' to describe the connection of a chained
-> controller to its parent, add it here. A chained controller can
-> trigger up to 8 different interrupts (IRQ0~7) on its parent.
-> 
-> Signed-off-by: Alexey Charkov <alchark@gmail.com>
+> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
 > ---
-> Split the series from v1 into separate bindings patches so as not to
-> spam all the subsystems with unrelated changes, per Rob's suggestion
-> 
-> Link to v1: https://lore.kernel.org/all/20250416-wmt-updates-v1-2-f9af689cdfc2@gmail.com/
-> ---
->  .../interrupt-controller/via,vt8500-intc.txt       | 16 -----
->  .../interrupt-controller/via,vt8500-intc.yaml      | 76 ++++++++++++++++++++++
->  MAINTAINERS                                        |  1 +
->  3 files changed, 77 insertions(+), 16 deletions(-)
+>  Documentation/devicetree/bindings/arm/bcm/bcm2835.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 > 
 
-Applied, thanks!
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
