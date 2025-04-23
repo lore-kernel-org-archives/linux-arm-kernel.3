@@ -4,71 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 181D7C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 14:20:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 749C0C369D7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 14:22:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vWWiitZaZZECB/Jffy5oKrQEuSe+N2VjDOn88LK/ojk=; b=2W4Ml+PlKpxOTEOZFbCwsDfu2U
-	DnFxUMMwESL/UuxQzDRyVKpR4USpfS+f7QUsJ9CnATYDIgZ9aTAlx7y58jAOcxBNTYmzY+WRRMjJA
-	jypjfOHwpmEqIoftw16bTU5FoBmAxKapij+tYSrfHMVvRcUz2UVJSOd7wI1WfEHhsqANJ4KvWsEJl
-	Z9JnBNR95kgTAzI7zE8bAeerrBd8Y3a7pQ7mrcjzF4oqdkY60jfQmQoCNPsxkwZSqQx5gHPxJeKcT
-	t1utzGlhSJ2Nl4qOZAd1GLZ7EPlNGSLgyXP41zAVq/3odNhZxUBbV6VcA65fzBabf3e0fpKM+oOwq
-	ddGl0Ajw==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DoX1mLsF5BZf8Dfmzq+q3ULu4XnvR8sckoyZnXWuhbo=; b=stAlXAHs9E26k4dBcthybBkmB6
+	m9h7dMNYQfynEtI1XjIvp9TDppb2bafH4rYAg/c7U2QOVSwejEId5kwShySSBgFUf0YlULaIeyhpL
+	nYCY6vFC9iIzWZ6Bo1YDfQis1wJWycHUfNph3sPEEdGXOkWLjumRxIqLTj2GiuYVM7Y7vnbZ4ZVNG
+	6OHglHaz5wWaJ3PFw9DqXpXDhu4WVGj7Ms0I8aAv+Aq82ljxiaOhfZkToRaxfaL8LA9w6j7zHrOnh
+	2wbaTD+p3c7KOFw+pvzKP+V41Ethf7jpL0ij66NQFhm/uQh0lkFLZ3LyFxfUNCgDRB9xkYMlB3XQE
+	6lvfoOHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7axg-0000000Anog-0WPu;
-	Wed, 23 Apr 2025 14:20:28 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u7azc-0000000AoCr-3vdR;
+	Wed, 23 Apr 2025 14:22:28 +0000
+Received: from smtp-fw-6002.amazon.com ([52.95.49.90])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7aJ3-0000000AdNs-2rfw
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 23 Apr 2025 13:38:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description;
-	bh=vWWiitZaZZECB/Jffy5oKrQEuSe+N2VjDOn88LK/ojk=; b=khrRoBgAR912JtKZx0SDiQ/Dk1
-	CigQyhJm8UKETKIEl4tGCWkekilUJDn5ZMsl0YSRcqLaLD4aUcYJyRHpIOBhPr/L5orcNygaPQU+C
-	db3ZbX27QnVKM9sFaqK2rjVBQATLNr1W6Qd2cSmFNwn3Iuscv0fDBxsRqfIJK8rMdJjYwc3GF03Fk
-	5qv0UWvCTuGMYYRI5uhAFhm1EffUvV7zM0lDVW+eqWUlr4bfQ6qr+HJ1UkKyboJGInIWFx8fPTMb/
-	7qDcqP+iBjLYd4Hyai+CC7YygRWYf0swPxtoc6v0TFxnoiay9qAQnP8IN8RE0N5w8RmvDL/FhATnt
-	9L8l2lKQ==;
-Received: from [2001:8b0:10b:1::ebe] (helo=i7.infradead.org)
-	by desiato.infradead.org with esmtpsa (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u7aIy-0000000BQyx-1acJ;
-	Wed, 23 Apr 2025 13:38:24 +0000
-Received: from dwoodhou by i7.infradead.org with local (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u7aIx-00000003JOs-19tx;
-	Wed, 23 Apr 2025 14:38:23 +0100
-From: David Woodhouse <dwmw2@infradead.org>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	"Sauerwein, David" <dssauerw@amazon.de>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	David Hildenbrand <david@redhat.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mike Rapoport <rppt@linux.ibm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	Ruihan Li <lrh2000@pku.edu.cn>
-Subject: [PATCH v4 5/7] mm, x86: Use for_each_valid_pfn() from __ioremap_check_ram()
-Date: Wed, 23 Apr 2025 14:33:41 +0100
-Message-ID: <20250423133821.789413-6-dwmw2@infradead.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250423133821.789413-1-dwmw2@infradead.org>
-References: <20250423133821.789413-1-dwmw2@infradead.org>
+	id 1u7aKF-0000000Adf2-3mdq
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Apr 2025 13:39:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazon201209;
+  t=1745415584; x=1776951584;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=DoX1mLsF5BZf8Dfmzq+q3ULu4XnvR8sckoyZnXWuhbo=;
+  b=pPgOM4+yezQHcSkvXWWKErHl1a18cPhH28rgPAYp/rqFDMWg2oEkiCbd
+   ZuM+TK5Uhnkq5BPhyMs1zsTsFTGwAsxLYD7AcF/g1cyxgv45F5PoQludd
+   AaeBetoIKj/RHrBgfik4nNKTpnDVoucbT1SxFiJZpj/ozTdWAFWk/kp0y
+   0=;
+X-IronPort-AV: E=Sophos;i="6.15,233,1739836800"; 
+   d="scan'208";a="491901288"
+Received: from iad12-co-svc-p1-lb1-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.43.8.6])
+  by smtp-border-fw-6002.iad6.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Apr 2025 13:39:39 +0000
+Received: from EX19MTAEUA002.ant.amazon.com [10.0.17.79:47330]
+ by smtpin.naws.eu-west-1.prod.farcaster.email.amazon.dev [10.0.46.127:2525] with esmtp (Farcaster)
+ id b3015d5d-5400-4018-90ac-1dbab7b74be4; Wed, 23 Apr 2025 13:39:24 +0000 (UTC)
+X-Farcaster-Flow-ID: b3015d5d-5400-4018-90ac-1dbab7b74be4
+Received: from EX19D029EUC001.ant.amazon.com (10.252.61.252) by
+ EX19MTAEUA002.ant.amazon.com (10.252.50.124) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
+ Wed, 23 Apr 2025 13:39:24 +0000
+Received: from dev-dsk-bsz-1b-e2c65f5d.eu-west-1.amazon.com (10.13.227.240) by
+ EX19D029EUC001.ant.amazon.com (10.252.61.252) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
+ Wed, 23 Apr 2025 13:39:22 +0000
+From: Bartosz Szczepanek <bsz@amazon.de>
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+CC: <nh-open-source@amazon.com>, Bartosz Szczepanek <bsz@amazon.de>, Alexander
+ Graf <graf@amazon.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: [RFC PATCH] arm64: Emit debug bootcodes for early kernel boot
+Date: Wed, 23 Apr 2025 13:39:07 +0000
+Message-ID: <20250423133910.909-1-bsz@amazon.de>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by desiato.infradead.org. See http://www.infradead.org/rpr.html
+X-Originating-IP: [10.13.227.240]
+X-ClientProxiedBy: EX19D042UWB004.ant.amazon.com (10.13.139.150) To
+ EX19D029EUC001.ant.amazon.com (10.252.61.252)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250423_063944_097338_5EDCD5B8 
+X-CRM114-Status: GOOD (  20.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,43 +85,211 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: David Woodhouse <dwmw@amazon.co.uk>
+Hi all,
 
-Instead of calling pfn_valid() separately for every single PFN in the
-range, use for_each_valid_pfn() and only look at the ones which are.
+I'm looking for your comments on the following change, that came out
+of our investigations of rare crashes in the very early phase of kernel
+boot while still in the assembly code. The change we came up with relies
+on contextidr_el2 which is used to record checkpoints (bootcodes), to be
+used later for narrowing down on the point of failure. To do so, one needs
+modified firmware or another tool capable of dumping contextidr_el2 after
+failure happens.
 
-Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
-Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+The usage of contextidr_el2 register comes from the fact that it's not
+used for any purpose within the kernel (contrary to contextidr_el1), and
+contents of it are unlikely to change even if any other code would be
+executed after the failure.
+
+Primary alternative solution – debugging by printing – hardly applies to
+such early code, as page table mappings are not yet established and
+stable virtual address of console can't be relied upon.
+
+On the other hand, bisecting through the code is not always feasible,
+especially if the failure rates are very low. Bootcodes help that case.
+
+What I'd like to get your input on:
+- Is there an alternative solution for post-mortem analysis of rare
+  crashes in very early kernel boot that we missed?
+- Would the introduction of bootcodes be welcome upstream, in this or
+  any other shape? If so, how could we make it suitable for inclusion?
+
+Kind regards
+Bartosz
+
+-------------------------------------------------
+arm64: Emit debug bootcodes for early kernel boot
+
+Reuse contextidr_el2 register which is unused in the early boot phase
+for the purpose of tracking bootcodes. This allows to identify point of
+failure in early boot code and helps investigations.
+
+To make the change safe on targets without contextidr_el2, we're
+checking dfr0_el1 debug version bits. If it tells us we're below
+ARMV8.1, we bail out without writing to contextidr_el2.
+
+To make use of the change, modified firmware or another tool capable of
+periodically dumping contextidr_el2 is necessary.
+
+Signed-off-by: Bartosz Szczepanek <bsz@amazon.de>
 ---
- arch/x86/mm/ioremap.c | 7 +++----
- 1 file changed, 3 insertions(+), 4 deletions(-)
+ arch/arm64/Kconfig.debug   |  6 ++++++
+ arch/arm64/kernel/Makefile |  5 +++++
+ arch/arm64/kernel/head.S   | 40 ++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 51 insertions(+)
 
-diff --git a/arch/x86/mm/ioremap.c b/arch/x86/mm/ioremap.c
-index 331e101bf801..12c8180ca1ba 100644
---- a/arch/x86/mm/ioremap.c
-+++ b/arch/x86/mm/ioremap.c
-@@ -71,7 +71,7 @@ int ioremap_change_attr(unsigned long vaddr, unsigned long size,
- static unsigned int __ioremap_check_ram(struct resource *res)
- {
- 	unsigned long start_pfn, stop_pfn;
--	unsigned long i;
-+	unsigned long pfn;
+diff --git a/arch/arm64/Kconfig.debug b/arch/arm64/Kconfig.debug
+index 265c4461031f..668bda096773 100644
+--- a/arch/arm64/Kconfig.debug
++++ b/arch/arm64/Kconfig.debug
+@@ -20,4 +20,10 @@ config ARM64_RELOC_TEST
+ 	depends on m
+ 	tristate "Relocation testing module"
  
- 	if ((res->flags & IORESOURCE_SYSTEM_RAM) != IORESOURCE_SYSTEM_RAM)
- 		return 0;
-@@ -79,9 +79,8 @@ static unsigned int __ioremap_check_ram(struct resource *res)
- 	start_pfn = (res->start + PAGE_SIZE - 1) >> PAGE_SHIFT;
- 	stop_pfn = (res->end + 1) >> PAGE_SHIFT;
- 	if (stop_pfn > start_pfn) {
--		for (i = 0; i < (stop_pfn - start_pfn); ++i)
--			if (pfn_valid(start_pfn + i) &&
--			    !PageReserved(pfn_to_page(start_pfn + i)))
-+		for_each_valid_pfn(pfn, start_pfn, stop_pfn)
-+			if (!PageReserved(pfn_to_page(pfn)))
- 				return IORES_MAP_SYSTEM_RAM;
- 	}
++config DEBUG_EARLY_BOOT
++	bool "Early boot debugging"
++	help
++	  Enable this option to use contextidr_el2 register for storing
++	  bootcodes from the early assembly code.
++
+ source "drivers/hwtracing/coresight/Kconfig"
+diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
+index 71c29a2a2f19..72b38e8314d4 100644
+--- a/arch/arm64/kernel/Makefile
++++ b/arch/arm64/kernel/Makefile
+@@ -84,5 +84,10 @@ ifeq ($(CONFIG_DEBUG_EFI),y)
+ AFLAGS_head.o += -DVMLINUX_PATH="\"$(realpath $(objtree)/vmlinux)\""
+ endif
  
++ifeq ($(CONFIG_DEBUG_EARLY_BOOT),y)
++AFLAGS_head.o += -march=armv8.1-a
++CFLAGS_setup.o += -march=armv8.1-a
++endif
++
+ # for cleaning
+ subdir- += vdso vdso32
+diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
+index 2ce73525de2c..f15db7e83b6e 100644
+--- a/arch/arm64/kernel/head.S
++++ b/arch/arm64/kernel/head.S
+@@ -42,6 +42,34 @@
+ #error PAGE_OFFSET must be at least 2MB aligned
+ #endif
+ 
++#ifdef CONFIG_DEBUG_EARLY_BOOT
++/*
++ * This debugging enhancement makes use of contextidr_el2 for the purpose
++ * of storing bootcodes.
++ */
++.macro _emit_bootcode val, t1
++	/* Check if in EL2 */
++	mrs	\t1, CurrentEL
++	ubfx    \t1, \t1, #2, #2
++	cmp	\t1, #2
++	b.ne	1f
++
++	/* Check if we're at least ARMv8.1 */
++	mrs	\t1, ID_AA64DFR0_EL1
++	ubfx	\t1, \t1, #0, #4
++	cmp	\t1, #7
++	b.lt	1f
++
++	mov	\t1, #\val
++	msr	contextidr_el2, \t1
++1:
++	/* Quit */
++.endm
++#define emit_bootcode(reg) _emit_bootcode __LINE__, reg
++#else
++#define emit_bootcode(reg)
++#endif
++
+ /*
+  * Kernel startup entry point.
+  * ---------------------------
+@@ -86,6 +114,7 @@ SYM_CODE_START(primary_entry)
+ 	bl	record_mmu_state
+ 	bl	preserve_boot_args
+ 
++	emit_bootcode(x22)
+ 	adrp	x1, early_init_stack
+ 	mov	sp, x1
+ 	mov	x29, xzr
+@@ -101,6 +130,7 @@ SYM_CODE_START(primary_entry)
+ 	cbnz	x19, 0f
+ 	dmb     sy
+ 	mov	x1, x0				// end of used region
++	emit_bootcode(x22)
+ 	adrp    x0, init_idmap_pg_dir
+ 	adr_l	x2, dcache_inval_poc
+ 	blr	x2
+@@ -126,7 +156,9 @@ SYM_CODE_START(primary_entry)
+ 	 * On return, the CPU will be ready for the MMU to be turned on and
+ 	 * the TCR will have been set.
+ 	 */
++	emit_bootcode(x22)
+ 	bl	__cpu_setup			// initialise processor
++	emit_bootcode(x22)
+ 	b	__primary_switch
+ SYM_CODE_END(primary_entry)
+ 
+@@ -220,10 +252,12 @@ SYM_CODE_END(preserve_boot_args)
+ SYM_FUNC_START_LOCAL(__primary_switched)
+ 	adr_l	x4, init_task
+ 	init_cpu_task x4, x5, x6
++	emit_bootcode(x22)
+ 
+ 	adr_l	x8, vectors			// load VBAR_EL1 with virtual
+ 	msr	vbar_el1, x8			// vector table address
+ 	isb
++	emit_bootcode(x22)
+ 
+ 	stp	x29, x30, [sp, #-16]!
+ 	mov	x29, sp
+@@ -236,6 +270,7 @@ SYM_FUNC_START_LOCAL(__primary_switched)
+ 
+ 	mov	x0, x20
+ 	bl	set_cpu_boot_mode_flag
++	emit_bootcode(x22)
+ 
+ #if defined(CONFIG_KASAN_GENERIC) || defined(CONFIG_KASAN_SW_TAGS)
+ 	bl	kasan_early_init
+@@ -243,6 +278,7 @@ SYM_FUNC_START_LOCAL(__primary_switched)
+ 	mov	x0, x20
+ 	bl	finalise_el2			// Prefer VHE if possible
+ 	ldp	x29, x30, [sp], #16
++	emit_bootcode(x22)
+ 	bl	start_kernel
+ 	ASM_BUG()
+ SYM_FUNC_END(__primary_switched)
+@@ -464,6 +500,7 @@ SYM_FUNC_START(__enable_mmu)
+ 	cmp     x3, #ID_AA64MMFR0_EL1_TGRAN_SUPPORTED_MAX
+ 	b.gt    __no_granule_support
+ 	phys_to_ttbr x2, x2
++	emit_bootcode(x22)
+ 	msr	ttbr0_el1, x2			// load TTBR0
+ 	load_ttbr1 x1, x1, x3
+ 
+@@ -506,16 +543,19 @@ SYM_FUNC_START_LOCAL(__no_granule_support)
+ SYM_FUNC_END(__no_granule_support)
+ 
+ SYM_FUNC_START_LOCAL(__primary_switch)
++	emit_bootcode(x22)
+ 	adrp	x1, reserved_pg_dir
+ 	adrp	x2, init_idmap_pg_dir
+ 	bl	__enable_mmu
+ 
++	emit_bootcode(x22)
+ 	adrp	x1, early_init_stack
+ 	mov	sp, x1
+ 	mov	x29, xzr
+ 	mov	x0, x20				// pass the full boot status
+ 	mov	x1, x21				// pass the FDT
+ 	bl	__pi_early_map_kernel		// Map and relocate the kernel
++	emit_bootcode(x22)
+ 
+ 	ldr	x8, =__primary_switched
+ 	adrp	x0, KERNEL_START		// __pa(KERNEL_START)
 -- 
-2.49.0
+2.47.1
 
 
