@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45F64C369DF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9586DC3ABA1
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 13:05:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,37 +12,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N6fHhtjcBZpuOYWBsN/5sB6z9sHIqXhlpjXGXRLMRO0=; b=LGswulWZLV24LgyxYGvPo9uLbO
-	VeOqu/VM3msLtclSxSxmPMWjJ4L4X8rz0D+F1AfWXB0WcVEQHUGlNqlxeQUtqpxSma5/6szWp71L2
-	zs552Q5Me5lSug9r49L6ox0cj5G4pnoKnScvBGW9l+7fv7isyBwUd20rTk1HrbOWp/Y9qj97JXJt9
-	YhNs6oHKZ90Hb6z5YU81Y9fcgP/4ltG26X6QXJbEayLrYaV2oPHfc18HlsxeycjHxerRIALsm8Roe
-	RE+sZ8/bnPuySDQyRp+IUiqUEEKb5lClH0Mdch+1lMe3GSrebGCwKi9OjmFOGs5vPRDq30uUR2U8+
-	z/2h1j+g==;
+	bh=PY125ErN3/M8lwOZlBVVABb23iCS1LCPtq9Z/AmQGvc=; b=3RyzDRDQm1voyc46X4iICia/Lc
+	S8hAYLXppNOKfV85divpvsZ26u7N9KRmFbYiVBYmWlfEE1Z8+6PJHV8TQgwJHybOgNFMRy/ziL09H
+	UdgO5KFUXVI/JvNKLBMQaMyydtr24PNgAU88W9YnGgBqXc4NLSo7x3By735mu7O+3el2qgCsZoWi4
+	QeFz59bMSVDGlWZhpAlNWzspwg2qL2W/3YN0AbLQ7ueGF/wOOtMafEm8/euafLbwnp4LV00kEWRYX
+	NRqDzVcfwFMrpGtGWchqjAIbYUca4mzMwIKKeSWE8/KTZ7BrPmBAuFB+9KlhnHQxi+P12OSA2I8T4
+	l54EQUfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7ZnA-0000000AXBv-3nAR;
-	Wed, 23 Apr 2025 13:05:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u7ZnC-0000000AXD4-0z8X;
+	Wed, 23 Apr 2025 13:05:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Y2b-0000000AHDP-41pg
+	id 1u7Y3d-0000000AHUc-0nwR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 11:13:22 +0000
+	Wed, 23 Apr 2025 11:14:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 619BC614BF;
-	Wed, 23 Apr 2025 11:13:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EAD1C4CEE2;
-	Wed, 23 Apr 2025 11:13:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C7B55615E9;
+	Wed, 23 Apr 2025 11:14:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D3D1C4CEEB;
+	Wed, 23 Apr 2025 11:14:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745406800;
-	bh=fA+f5UwY4/94EsfucC8UNHh1rFGwKUGh2EpB+I1y004=;
+	s=k20201202; t=1745406864;
+	bh=OXIT2Mkp/X1FfEchdqAzjOM5PYg0vflOSJBG7v9Aedw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KNaYzo/Y1hJLK99y9Ik0HJC+ABzoSS/XiSJFQSlgO+9qO+enerwNq4LALCmEnwhy8
-	 Co8tNVVWkiFTEpZoW3EUE31ob8nczRas95qpZyo3oBT0UJ0nb6btLjk7DRn7FXxQbe
-	 F5VaGjtsf9mQoKruHPmXH3mjkc9tFQ/lxB92GRFfVkW7htLuXKhZuJuc/GKRzIQ6VP
-	 s2zN2IcfMVmWBR4qUaW/61daEtGeycH71JUHpSshm4AfSZG7v4HrXm7mMQoP3SZR3J
-	 wQPY3sbRA6/oNJtcrxAhvvlGelPMfjo4qBLa9rjqgabaXqX8Ht7pT0MwDB2zA4HsnW
-	 inALIxXeMAVNA==
-Date: Wed, 23 Apr 2025 14:13:11 +0300
+	b=YQ5nyM23wz9ka7GGbET2QYg8DsE98EZupnkR/JcsxsgSQazsyxKH8ikhqvsaIHste
+	 O0Py5pCACuZp+UTH9JTXs4gmWeSyncmjD9VXWVHM5AClBTcCTQ9OP0M8w2xr0TDjOU
+	 LCnMBd/4GcmXm+g7k9JTR2NrOQ/W9lAiX6hdPi4WHfrRds1oA4f9PqvShPiIRY7Lc8
+	 AknZKbth2cHCDBzYAxZHhCpZvPTzicdQZhYvCOOwvayh8pSmj756RIs8I3HzzN7qFo
+	 v+V763+IrJMEvGePqKJ0Ize7tYzouTcooirZSmUU+x2cbGLR1qqTr3MJeBNN3fb4nQ
+	 p3XqyRWHL3yBw==
+Date: Wed, 23 Apr 2025 14:14:15 +0300
 From: Mike Rapoport <rppt@kernel.org>
 To: David Woodhouse <dwmw2@infradead.org>
 Cc: Andrew Morton <akpm@linux-foundation.org>,
@@ -56,15 +56,15 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	kvmarm@lists.cs.columbia.edu, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
 	Ruihan Li <lrh2000@pku.edu.cn>
-Subject: Re: [PATCH v3 5/7] mm, x86: Use for_each_valid_pfn() from
- __ioremap_check_ram()
-Message-ID: <aAjLR4b6qsmzfRdw@kernel.org>
+Subject: Re: [PATCH v3 7/7] mm/mm_init: Use for_each_valid_pfn() in
+ init_unavailable_range()
+Message-ID: <aAjLhzrW3KsThGwF@kernel.org>
 References: <20250423081828.608422-1-dwmw2@infradead.org>
- <20250423081828.608422-6-dwmw2@infradead.org>
+ <20250423081828.608422-8-dwmw2@infradead.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250423081828.608422-6-dwmw2@infradead.org>
+In-Reply-To: <20250423081828.608422-8-dwmw2@infradead.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,19 +79,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 23, 2025 at 08:52:47AM +0100, David Woodhouse wrote:
+On Wed, Apr 23, 2025 at 08:52:49AM +0100, David Woodhouse wrote:
 > From: David Woodhouse <dwmw@amazon.co.uk>
 > 
-> Instead of calling pfn_valid() separately for every single PFN in the
-> range, use for_each_valid_pfn() and only look at the ones which are.
+> Currently, memmap_init initializes pfn_hole with 0 instead of
+> ARCH_PFN_OFFSET. Then init_unavailable_range will start iterating each
+> page from the page at address zero to the first available page, but it
+> won't do anything for pages below ARCH_PFN_OFFSET because pfn_valid
+> won't pass.
 > 
+> If ARCH_PFN_OFFSET is very large (e.g., something like 2^64-2GiB if the
+> kernel is used as a library and loaded at a very high address), the
+> pointless iteration for pages below ARCH_PFN_OFFSET will take a very
+> long time, and the kernel will look stuck at boot time.
+> 
+> Use for_each_valid_pfn() to skip the pointless iterations.
+> 
+> Reported-by: Ruihan Li <lrh2000@pku.edu.cn>
+> Suggested-by: Mike Rapoport <rppt@kernel.org>
 > Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
 
-Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 
 > ---
->  arch/x86/mm/ioremap.c | 7 +++----
->  1 file changed, 3 insertions(+), 4 deletions(-)
+>  mm/mm_init.c | 6 +-----
+>  1 file changed, 1 insertion(+), 5 deletions(-)
+> 
 
 -- 
 Sincerely yours,
