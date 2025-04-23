@@ -4,89 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71365C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 18:07:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9EC4C369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 18:09:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G++E0BbS8a2hLlYRQNjKfQSgLliGyf9HwygxEobBzkw=; b=AiXNFQmifXlqfSfgvktTi80X8a
-	eYY/LGWvOQ/MWIcn9D+fFJSNUV4ggyRXg659AWvMAMdjIfcZ3mF2peHKA4uavobm6MIvAfof3d8fP
-	iy3HEf5CaNRjS+LL3M6Jll2+I8LJOtCveXPdfkTQtDJHNjFVsfObn4aihYpzEFlJYWFXKSgGOcQIE
-	xxwHRSfP7CjTzxuk2Jhve/7QHkvoJXgu2jh3KKIO6pBSyQHNqJvAyhhYM8vU61GftIBpJ/UKiKzJn
-	XBybA0wak2A3HOca2UHSjL6P6VTt2A10lBhbBel3f0bGMMTtz09gj8y34H7Ft1n0j/NMtKyYjhF7F
-	CZv1WtWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rf+jWFhF/xHAJ0Q9DHTYubDb8C8kzdpy+oWonX0R20Y=; b=m298z5w0IiUeE6CbjvLguSnEW7
+	7ygzCJvsM+ycUOavNFNWpfTUvl6U74cb4P7Ncu3i69rkb5xMsedqkBVmKlxM41jb3ouGrGGHE5cre
+	dT9f05GVta5+x44Vp2+VGQyaBRm41SI/yumdaRMnEBoTsSxhBctXFqr7CcXLVD6Id/TT1sVfndk8b
+	A+X5Rqihdl4u9N1quMLdN/orWJePN68MJf94NdrBa8AB1phudDrckwN0zEzLVHd8G2d0DnDXkS9Ra
+	ym04qSiwwlWHwh/Lg66Ce9XUV8XOt9q12VNGOd3jWybmiPWwMODjIa1Z1fTw9/ykLPwbEggz8sm9G
+	2FwhLCHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7eUv-0000000BTxO-2Y6m;
-	Wed, 23 Apr 2025 18:07:01 +0000
-Received: from mail-yw1-x1136.google.com ([2607:f8b0:4864:20::1136])
+	id 1u7eWt-0000000BUCH-1MIL;
+	Wed, 23 Apr 2025 18:09:03 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7ctl-0000000B7Iw-3CoQ
+	id 1u7cuf-0000000B7UF-3pVb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 16:24:34 +0000
-Received: by mail-yw1-x1136.google.com with SMTP id 00721157ae682-6ff37565154so909457b3.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 09:24:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745425472; x=1746030272; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=G++E0BbS8a2hLlYRQNjKfQSgLliGyf9HwygxEobBzkw=;
-        b=PlBiwG/ChM/T4+SX4+cRtXPQiM2PKJgKiBZ7f0GroXompErzHkcQUmLHFvVtNWk7Rs
-         ow94J6SFmxALjfRHVDck1BYumtuIt/wIhgJ0gOtkSlqCgNr9D5Np1oe04fQ5mj43b+Hk
-         tYLWCmPSUslZYTTzRppDfOyzxUAwD2EMpeUJ4kVAPLmpIxfsINbd9t49ZCwMmPWJucBe
-         qRiGX2GXf7Y0xtCl9wZFpAvfeP3rrM0e7W5kiWl3L9xpubTJDXb6Vv76u6MlO5zBrpSV
-         4PfIObKUt1yz77uEA1VNX+lC9Tu6F6ZnSI9nH/Cz7zkmouG3eWzLx+MbNbnS9gikHC4c
-         xFuw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745425472; x=1746030272;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=G++E0BbS8a2hLlYRQNjKfQSgLliGyf9HwygxEobBzkw=;
-        b=dqm7hPnozEsvZ/o4SRqgX0kMRUzQImGR9q03WZwlqflGrQEbfmxE4EP/b9HeqQtfpl
-         8dsvqMcot0+nxDGViL1xA40qWpVNDbR5yoQy32rmSdsWCvaL+NxndFg1BbcXDqnqpXej
-         xC2orBZcRPs+KACfs4e+bjouqnExXdly8aulXq6OKHv9kfKx57qopkWcN5OIwQbJlb+S
-         vSGN55RRT46KMO07mQZu9P/LHL5AEf9D2xCr0DiEZw73bCUEpo6ZrF3KVGmZeutNMtdE
-         5Gy4YGrzaDXP3mzHoiDwecjVPnZxhrIb1IOVmeiBS61NbLQFWTUKOJpg3/8YM2806jKC
-         18JA==
-X-Forwarded-Encrypted: i=1; AJvYcCVTYNqo+/qFvcm/5estRF4jWCYJ20V/IL5GET7xYAecmW1zfCfIfoJDYFwCX9eim+4+/+kLHwqBnXHEwJYZfOqi@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywqm4uqcsffBJ7A75f61+9Pp4zj8CmGCOM1n6/774o/EtvtYy8k
-	4IQPDU3foPcZyI8PVzsd86o7inp7bYkMDEp5sQi7PcIG/c3TVFWEI8SJKxgagIId/0KzYPMhUkZ
-	zE9KXOQF3Bdz4m+bU/UtNBCapSqQ=
-X-Gm-Gg: ASbGncudRAcqPdim5P8A9gKETxCUByEAL5oB5nM4wIaeFURBMI9DkMVYkyqZtJ319Gd
-	D7YODLYrjhvsuVr6iPlhFjBvR5QRikgkXOffK/J5V2rsnLM+lxNdJXanSH9VDm2YQROLbWqO/Fb
-	/wlIbezBzOYT8C6Sua/5PnO5QcwVG9hk2hcg==
-X-Google-Smtp-Source: AGHT+IHs7VB0iY6Hw7N5rvnV+mLaMrJKNgLLnkV8ud2KiERF243U4X7v8mCrDhf5Lox17WfhwqI4Z2HUJBZfiX1i/DE=
-X-Received: by 2002:a05:690c:370a:b0:702:72e5:793f with SMTP id
- 00721157ae682-7083c566db4mr2968467b3.23.1745425471982; Wed, 23 Apr 2025
- 09:24:31 -0700 (PDT)
+	Wed, 23 Apr 2025 16:25:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1294FA4BD16;
+	Wed, 23 Apr 2025 16:20:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA4D2C4CEE2;
+	Wed, 23 Apr 2025 16:25:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745425528;
+	bh=03WXX9bI80F4RuR2COjFJcSHqoLClrUtwLqycde4R5o=;
+	h=From:To:Cc:Subject:Date:From;
+	b=KdtHlFVG+C2C3wnnQCGlOHOAd1wKtHZPuDrQpRmQqsuVUHE72k4FzU5qWE1J5rgR/
+	 /ZsIDe6BB+Yiufu3qFAbjC6/+P6tEHWQWsgwekIt5GO4tVg9gLMElRV8Xc4N1NV8BJ
+	 PTCC2Sq9JC+byFkU3fcrcOgH6m+0ahty6Ty/OfhIBWSUGTHu1Fx0TDWzk1zA4JfU+G
+	 F3QMd7ijPr1RMiQ2XZoqhHkEGsF3cNdjR4lQEDhevqQL1e+7dRHrNYzUWWgV/BLJ9D
+	 2fRRm/Sp9fBSmYrKrModt5KlcNdqrhkfiIoKCqgxu0ssRpjpOAwtffqvY0tDdrBhII
+	 XCdfSjKgyS1Pw==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Rob Herring <robh@kernel.org>,
+	Siddharth Vadapalli <s-vadapalli@ti.com>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Thomas Richard <thomas.richard@bootlin.com>,
+	=?UTF-8?q?Th=C3=A9o=20Lebrun?= <theo.lebrun@bootlin.com>,
+	Sergio Paracuellos <sergio.paracuellos@gmail.com>,
+	linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-omap@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] pci: j721e: fix host/endpoint dependencies
+Date: Wed, 23 Apr 2025 18:25:16 +0200
+Message-Id: <20250423162523.2060405-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-References: <20250417-spmi-nvmem-v2-0-b88851e34afb@gmail.com>
- <20250417-spmi-nvmem-v2-1-b88851e34afb@gmail.com> <20250422133619.GA1095169-robh@kernel.org>
- <CAMT+MTTwY=z1-_94ws+Oi+wvE2PA_s57dPmpMABC26q=MPw1Mg@mail.gmail.com>
- <e4159c2b-4081-4a4b-9a53-d6d559a3196c@gmail.com> <CAL_JsqKwASbUtpO=wU-16v=y8S_wLyBxnFUmQqsE8GkzCz0hDg@mail.gmail.com>
- <aAkLY3TYIPG7ojwx@blossom>
-In-Reply-To: <aAkLY3TYIPG7ojwx@blossom>
-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
-Date: Wed, 23 Apr 2025 18:24:21 +0200
-X-Gm-Features: ATxdqUG6yRu6Z589SiaPf7hPYu4E07bIBQRBOixmyYz2zFeCy4cnqCijifN7bws
-Message-ID: <CAMT+MTREnfB2MH=i84ZPa0LvgdYz6a+aRs+Nb07Ck10y3wstmA@mail.gmail.com>
-Subject: Re: [PATCH v2 1/3] dt-bindings: spmi: Add generic SPMI NVMEM
-To: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-Cc: Rob Herring <robh@kernel.org>, Nick Chan <towinchenmi@gmail.com>, 
-	Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
-	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_092433_803160_038A171E 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250423_092530_084152_53BB43F8 
+X-CRM114-Status: GOOD (  15.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,16 +82,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 23 Apr 2025 at 17:46, Alyssa Rosenzweig <alyssa@rosenzweig.io> wrote:
-> It sounds like the path of least resistance here is then:
->
-> 1. rename the bindings to be apple m1+ (at least for now)
-> 2. keep the driver as-is (no mfd, etc - at least for now)
-> 3. land just that (at least for now)
->
-> Evolving the driver to share with not-Apple, or evolving the
-> bindings+driver to share with pre-M1, can happen in future series
-> if/when somebody wants to do that work.
+From: Arnd Bergmann <arnd@arndb.de>
 
-That is precisely my plan for v3, which I intend to send soon-ish.
+The j721e driver has a single platform driver that can be built-in or
+a loadable module, but it calls two separate backend drivers depending
+on whether it is a host or endpoint.
+
+If the two modes are not the same, we can end up with a situation where
+the built-in pci-j721e driver tries to call the modular host or endpoint
+driver, which causes a link failure:
+
+ld.lld-21: error: undefined symbol: cdns_pcie_ep_setup
+>>> referenced by pci-j721e.c
+>>>               drivers/pci/controller/cadence/pci-j721e.o:(j721e_pcie_probe) in archive vmlinux.a
+
+ld.lld-21: error: undefined symbol: cdns_pcie_host_setup
+>>> referenced by pci-j721e.c
+>>>               drivers/pci/controller/cadence/pci-j721e.o:(j721e_pcie_probe) in archive vmlinux.a
+
+Rework the dependencies so that the 'select' is done by the common
+Kconfig symbol, based on which of the two are enabled. Effectively
+this means that having one built-in makes the other either built-in
+or disabled, but all configurations will now build.
+
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ drivers/pci/controller/cadence/Kconfig     | 4 ++--
+ drivers/pci/controller/cadence/pci-j721e.c | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/pci/controller/cadence/Kconfig b/drivers/pci/controller/cadence/Kconfig
+index 72d7d264d6c3..666e16b6367f 100644
+--- a/drivers/pci/controller/cadence/Kconfig
++++ b/drivers/pci/controller/cadence/Kconfig
+@@ -44,12 +44,13 @@ config PCIE_CADENCE_PLAT_EP
+ 
+ config PCI_J721E
+ 	tristate
++	select PCIE_CADENCE_HOST if PCI_J721E_HOST != n
++	select PCIE_CADENCE_EP if PCI_J721E_EP != n
+ 
+ config PCI_J721E_HOST
+ 	tristate "TI J721E PCIe controller (host mode)"
+ 	depends on ARCH_K3 || COMPILE_TEST
+ 	depends on OF
+-	select PCIE_CADENCE_HOST
+ 	select PCI_J721E
+ 	help
+ 	  Say Y here if you want to support the TI J721E PCIe platform
+@@ -61,7 +62,6 @@ config PCI_J721E_EP
+ 	depends on ARCH_K3 || COMPILE_TEST
+ 	depends on OF
+ 	depends on PCI_ENDPOINT
+-	select PCIE_CADENCE_EP
+ 	select PCI_J721E
+ 	help
+ 	  Say Y here if you want to support the TI J721E PCIe platform
+diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
+index b87bc26bbf06..f0051805f9e9 100644
+--- a/drivers/pci/controller/cadence/pci-j721e.c
++++ b/drivers/pci/controller/cadence/pci-j721e.c
+@@ -475,7 +475,7 @@ static int j721e_pcie_probe(struct platform_device *pdev)
+ 
+ 	switch (mode) {
+ 	case PCI_MODE_RC:
+-		if (!IS_ENABLED(CONFIG_PCIE_CADENCE_HOST))
++		if (!IS_ENABLED(CONFIG_PCI_J721E_HOST))
+ 			return -ENODEV;
+ 
+ 		bridge = devm_pci_alloc_host_bridge(dev, sizeof(*rc));
+@@ -494,7 +494,7 @@ static int j721e_pcie_probe(struct platform_device *pdev)
+ 		pcie->cdns_pcie = cdns_pcie;
+ 		break;
+ 	case PCI_MODE_EP:
+-		if (!IS_ENABLED(CONFIG_PCIE_CADENCE_EP))
++		if (!IS_ENABLED(CONFIG_PCI_J721E_EP))
+ 			return -ENODEV;
+ 
+ 		ep = devm_kzalloc(dev, sizeof(*ep), GFP_KERNEL);
+-- 
+2.39.5
+
 
