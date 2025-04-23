@@ -4,100 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F2C4C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 18:52:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29BB3C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 18:54:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3g25cudfdER1fultAc6guoG7d90Bj2J+6OCH21hX/70=; b=2TOg3Ig55yITCyCflmhC4Trqbl
-	OmMon+3JcZIaKttITDf/dTxDPNj935XotMLbOQspYVauelB/Uy/ycRZKTULiQDNpqEoIDztjgyMhd
-	SbJEcHdf8Df6rP3fwEIrYHZ6GyUgd/Atlnic3vtbfqnF4RoRmA13Nx4C3J/Dtb3ctzRGzbuFOAhjQ
-	FTu15IXTrNzxMTT7gd10FOtM2HXevIvHiOzxEqW4vDS5wnDo74wMsi+EBZkR0HUSHU3K2x9ylzZ+Y
-	MS+l+ReAc5VRgxOPHtbQOGDHZC53S9lMRUZKkIYvriHz73gGzixyGDBYgM73ykaXlF0xHAhH4P1JB
-	Lpr1hQLQ==;
+	bh=0/xkZQVdcJzkXu7XZ6WxUXeOV5MPBBy8AWJjCHmm43g=; b=4Vs8gS+T1jeF1Z0r3UgZly8MOH
+	ZpKC9OxMV5zHoywLA9OwSkTRVq9vDpeKz7jbG2WcwW4jLMZn2YM/qPbTQ3Z5sdBp1in5/tQy5aV3/
+	a8mFWbamTD5ThHV9iskQ4w7eigQo8+SoG83SdWhUBAcgwkobtL/OYbfyxUCxlmErIuQWJERqSqEOB
+	rInXihIpZbXWCIsPKB2RyKXsbNdkPBX+sq5jrdMiGR8k3g67czOfINrvMSd6Bj0n2dnJr9oVkTDpl
+	h+5qTpN7pOlf0Sb5yJ/uoGkK10O2GcEfNwLgQZtdjiN9p9xTwnl0QcVQRrQcQDt7x6rU9QjqutrG/
+	DoHedVfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7fCk-0000000BeuH-3Ee8;
-	Wed, 23 Apr 2025 18:52:18 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1u7fEh-0000000BfDv-2P5b;
+	Wed, 23 Apr 2025 18:54:19 +0000
+Received: from mail-bn1nam02on20620.outbound.protection.outlook.com ([2a01:111:f403:2407::620] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7eoP-0000000BZFq-3zYF
+	id 1u7et5-0000000BaaP-09X2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 18:27:11 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-736dd9c4b40so1194079b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 11:27:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745432829; x=1746037629; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=3g25cudfdER1fultAc6guoG7d90Bj2J+6OCH21hX/70=;
-        b=m8Tc2tsOHnmtDHt+O+L8snn5hi7uaGjI3uOKecXo7Wd2djFpM2cL/00nBP4zYAkK1r
-         QmmoYVjH+lJwitcptxLauy74Piv3vXmC/jdIBQbHsqCZUAHs9//lovfUnwUnKEMBwdQ/
-         0csi1ecDYnPNuIp9deS7yoWiSbBGH10rrXXmA1Yf4ZsUHgyrQ3PlbriLcD8hqfhGr0AO
-         og5WQjDcRGHgDWGqLvNVYVSSAF8mzX2AwkljU/41u4K0togUFoFdZH5NFk6axELFZbMz
-         ghmqLeWEnQDCIaWXXQ2j3deen52pM0NmxMY0qSwVXMhmCZ30meC3IqKIr0q+jCGCnJvg
-         M/AA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745432829; x=1746037629;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3g25cudfdER1fultAc6guoG7d90Bj2J+6OCH21hX/70=;
-        b=R6g6JfCD7LaRNP4DZR7N7vxS8YZpQ++qQkofzZ3xMOZ/V8XIvSNHTj+h9RvuWTufsK
-         zLOnw/JiC7FxHKCVNucfCdJeGXmMyF4ZPRUft+ctvR2gpYUH7BhSZ9A8ZFLGng5T5FcK
-         fkaKApSweCjdEiv+2N6Q/6+i9nLUOlIipOG9XKY0Ee2Nr86huTJAN7te+fsyvJmJj5d9
-         WR2WlEZQ6yCRVQtWZ4VtVhres8k2TBkZBCA4nUinjX2sXOjXAWHKZ9tjEwwhkd7y4rDT
-         VNz083oqFPnVDe8am5z3o1qb9cZ+dowiU/xL3ViBRPFuJP5S7Ch61UJ+A2gai8vlNN4i
-         vhFg==
-X-Forwarded-Encrypted: i=1; AJvYcCXOsN6UdFj/NL6ljsXlBC+LGbJLHlCH377zKvqo3Y53AGPLKCxgGSNCKRF2+IwNnF845MrisVdDKQwUjoH3qXFI@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz27Iwx6zZIbRZeuA5+JhNkIJVtgDey92wS7vFhkr7eLBaoSeqN
-	rJL9N6Zt2N8ZrUdkAN9z/gxrMVtnNnkm23iTXE0hXSSI0+eX1gk+
-X-Gm-Gg: ASbGncsmjOJXkYa8YWKMMqYMQppV4SNux8K7gP89A7rr3mBq4muYEPMQ6RTXM5nDPLu
-	GbJhjpM6abBxuQHieozopcwdYAMHWojMhXtqpe3v9XUj0IUuc3aMcTRDZPpUb2ELVC8lUo7xFNQ
-	SWKWY39ED1Yy2hhJsOVS9/KdBPmiX2rgqEYWTt3sGAUbuxZ89DNo89aQzlx1TtcHAEvp6gPSaO0
-	RvnJuyipmNQVwHxRqDVNwsl+NrKOgRWBqFmMmxCiWSurdHFACygTlP2RCYmVZs3RfbnhbSVLhru
-	/5ybH02+wYiiXdXsL7G3BCTAu+W31WpfhA6Fuf26gMCVK/gfLFA=
-X-Google-Smtp-Source: AGHT+IGHyaRCja82Jp63ca6tDfY0vscU4gtWT0BCYYEH2SbVC6BGq3lUVFXS6KtlFAXf+XFDnn7bog==
-X-Received: by 2002:a05:6a21:9105:b0:1f0:e2d0:fb65 with SMTP id adf61e73a8af0-20442d54a7fmr200581637.2.1745432828582;
-        Wed, 23 Apr 2025 11:27:08 -0700 (PDT)
-Received: from localhost ([216.228.127.130])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73dbfa5d084sm11268524b3a.103.2025.04.23.11.27.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Apr 2025 11:27:07 -0700 (PDT)
-Date: Wed, 23 Apr 2025 14:27:06 -0400
-From: Yury Norov <yury.norov@gmail.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Marc Zyngier <maz@kernel.org>, Luo Jie <quic_luoj@quicinc.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	Julia Lawall <Julia.Lawall@inria.fr>,
-	Nicolas Palix <nicolas.palix@imag.fr>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>, linux-kernel@vger.kernel.org,
-	cocci@inria.fr, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, andrew@lunn.ch, quic_kkumarcs@quicinc.com,
-	quic_linchen@quicinc.com, quic_leiwei@quicinc.com,
-	quic_suruchia@quicinc.com, quic_pavir@quicinc.com
-Subject: Re: [PATCH v3 4/6] arm64: nvhe: Convert the opencoded field modify
-Message-ID: <aAkw-tFctkk3xyS8@yury>
-References: <20250417-field_modify-v3-0-6f7992aafcb7@quicinc.com>
- <20250417-field_modify-v3-4-6f7992aafcb7@quicinc.com>
- <86r01rjald.wl-maz@kernel.org>
- <aAJsaNdznnz-1qap@yury>
- <aAkn8lvzoa1grdkt@shell.armlinux.org.uk>
+	Wed, 23 Apr 2025 18:32:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=aX/0fgNva9pskPPQVAlymX0j2Gx3HE6rEjAR+ZxFAksjJp+OHxZ8DHn9dgAi8rj9lkoXGSoO17w2anhkXPDwwcPqt5jCluEVkVhcOPKj+l7eDa7yjraEI214vmd4MsKRagSbbjmpm3U4DtbqZ4jgNIafaUO4cAdOhckTe3kb/TeuXCYfjDN2g40vtd2zBnFFvGZSqbY8vfB9fDbgKtV/vf8DzMt0UsnV/7LK3ObtN2EgNJfHPvG8BrCrcikARI8UPWg4XzmC3V8A2HgxSiWgJa2W7AlvIC2VRMD/dkO6B3kPApdO7wQ19+2QVKI10S0wUq0KlZoUWNTGDQGfyAhnRg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0/xkZQVdcJzkXu7XZ6WxUXeOV5MPBBy8AWJjCHmm43g=;
+ b=O1UOZAJmIKHeI1BgFXTL6cljFuAlawZHzl6G+7wAWBJ0kgPCcLJQrpRkaTysm1NLhoa/ZnQwO2zw9KwxjesssSJwdN797/B88PlyTqBD19jvib5TAvkvNDJfU2+KfPpy8vp3DSjAXgkaO0HV0ZP2tDZphZJOsoxIfWB1HvWyTRwa+3qm5hxEihXobJRjPpNMcuGo0b2KjVILo2jkCLXRbavLi3czRISinDhfqbEMM4RyftCsi0+WzEpJwn/jv0NGdEg58UH0UtaMnHH+5Rg92cr90/bAZu0IfZVdix/BoCfacdrUliFBOFSZdTIiM8e4hT1M6GAoxR2J5OLuHeX6PA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0/xkZQVdcJzkXu7XZ6WxUXeOV5MPBBy8AWJjCHmm43g=;
+ b=TiLwGTceToUZYF/f4o1kIrrmuqwrvCCBAV0iqCw9fMma7dDoShtZOwgRRnzxczQjeoo50zS5ks8G9ySQC26lTYDH6YpM2pztare9TDYmaASVYxGJ5psaWRZuJ/UX1BfdD22sz3vLiv50JbSF9GhK4FbH5WSybB2JfmtJcOPZ3PQq7+2l6LJhIktltXu3/tpE637xOKJ7BSwW8FeNaGWw9r6ahtMeLYDe7rAAndQ0r+tnvezep9VvRIGwz1HyGNClovTL8dsxptkykCldRrsAo9gzbXzKVJ8ZlpqcNQM1YmCKUEOV5oFeZiRgMi+DsMJTNeWa4cP2QH2rBuThM6Bmyg==
+Received: from BN9PR03CA0466.namprd03.prod.outlook.com (2603:10b6:408:139::21)
+ by BL3PR12MB6452.namprd12.prod.outlook.com (2603:10b6:208:3bb::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.36; Wed, 23 Apr
+ 2025 18:31:52 +0000
+Received: from BN2PEPF000055DE.namprd21.prod.outlook.com
+ (2603:10b6:408:139:cafe::ab) by BN9PR03CA0466.outlook.office365.com
+ (2603:10b6:408:139::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.35 via Frontend Transport; Wed,
+ 23 Apr 2025 18:31:52 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ BN2PEPF000055DE.mail.protection.outlook.com (10.167.245.8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8699.1 via Frontend Transport; Wed, 23 Apr 2025 18:31:51 +0000
+Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 23 Apr
+ 2025 11:31:33 -0700
+Received: from drhqmail201.nvidia.com (10.126.190.180) by
+ drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14; Wed, 23 Apr 2025 11:31:32 -0700
+Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com
+ (10.126.190.180) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Wed, 23 Apr 2025 11:31:31 -0700
+Date: Wed, 23 Apr 2025 11:31:29 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: "Tian, Kevin" <kevin.tian@intel.com>, "corbet@lwn.net" <corbet@lwn.net>,
+	"will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com"
+	<robin.murphy@arm.com>, "joro@8bytes.org" <joro@8bytes.org>,
+	"thierry.reding@gmail.com" <thierry.reding@gmail.com>, "vdumpa@nvidia.com"
+	<vdumpa@nvidia.com>, "jonathanh@nvidia.com" <jonathanh@nvidia.com>,
+	"shuah@kernel.org" <shuah@kernel.org>, "praan@google.com" <praan@google.com>,
+	"nathan@kernel.org" <nathan@kernel.org>, "peterz@infradead.org"
+	<peterz@infradead.org>, "Liu, Yi L" <yi.l.liu@intel.com>,
+	"jsnitsel@redhat.com" <jsnitsel@redhat.com>, "mshavit@google.com"
+	<mshavit@google.com>, "zhangzekun11@huawei.com" <zhangzekun11@huawei.com>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-tegra@vger.kernel.org"
+	<linux-tegra@vger.kernel.org>, "linux-kselftest@vger.kernel.org"
+	<linux-kselftest@vger.kernel.org>, "patches@lists.linux.dev"
+	<patches@lists.linux.dev>
+Subject: Re: [PATCH v1 15/16] iommu/tegra241-cmdqv: Add user-space use support
+Message-ID: <aAkyAbO5UQRySizN@Asurada-Nvidia>
+References: <cover.1744353300.git.nicolinc@nvidia.com>
+ <30c7aff68c35040ee637629cb9fc2b6e7f83f76c.1744353300.git.nicolinc@nvidia.com>
+ <BN9PR11MB52768197516FB895146A12078CB82@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <aAaY+f2/jw9NaIWF@Asurada-Nvidia>
+ <BN9PR11MB5276220C7B2C5743DC8364CB8CBA2@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <20250423115551.GC1648741@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <aAkn8lvzoa1grdkt@shell.armlinux.org.uk>
+In-Reply-To: <20250423115551.GC1648741@nvidia.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN2PEPF000055DE:EE_|BL3PR12MB6452:EE_
+X-MS-Office365-Filtering-Correlation-Id: 14f12ffc-67f8-464a-d68d-08dd82951e03
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|36860700013|82310400026|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?P17tZnSONwsQc8Urfj63O4TZbx/PBKjm3tBCwFghG65jv7bGxW/cp7VBgXMz?=
+ =?us-ascii?Q?dn0aKvuCK5UJ8vPW9GyWHKiCVIrrZs/u29qLlUeZTbgRFXUrcRxx+EjIpf6C?=
+ =?us-ascii?Q?iUewOm3NzeusPakHTW/M5hd2WRatRDnxLoUQ/mvdjKqNu3gfXUlSKtWd+XVk?=
+ =?us-ascii?Q?eLQp1FpCaPn5rB99IaBNysXHW/ggdwy9IMNmegKj3H7cYuGlW/WjuniE8eDf?=
+ =?us-ascii?Q?j4Ib08OWiREEz6jS/TwRN7keGuneIQAcjMvAWSDLzwpRLoG6e3xnGYH53puQ?=
+ =?us-ascii?Q?sevIspmeeUHzISqpGOJ5NohLwrkmGAiNjSBGRMWhmussULnk200tnoaCJJqw?=
+ =?us-ascii?Q?/wnNj1/mhEPwbtlqtGhCOJHs78Jyu/DWXn6HEJtInQnbiFtXg8pXIQ36/NpK?=
+ =?us-ascii?Q?4UtJ5DxODxEWYz91NadTZ/1HFBqB92D3n0Qslq8BjvvJCcxTm33oooDYfVvc?=
+ =?us-ascii?Q?XQHu3jI/ELUIv8onr1qWBwFgHk0SdWvDGF0qdk9IEFl1zQuKLB+Da7rUny4k?=
+ =?us-ascii?Q?rAGWd5Gbw0M8odfBT+PZah26AWRubn3vLh6GXaRe7S+qm9QgjVObcULSuBsc?=
+ =?us-ascii?Q?wIrzT03hwfLeS3DLYVZEh7kLlx9FRWKK+KqAQ0QfXFW1HKtWRIix3yyCcnml?=
+ =?us-ascii?Q?JQivmQ3umD4eiyqNh+HmoJkxFQGS2COtG2Fm5uo38/yJ9Pbj2gicLiinUcTf?=
+ =?us-ascii?Q?Dotww4n1aUEyHoTVFOq6b0Uz8acjFgqOSsO2j4WE6YFCHPetIybeKBK1u7/L?=
+ =?us-ascii?Q?ZZ+4n9ardc2zPMEVQ74oKELKJUdnkUj9mkG1OMidWWG4RBwtTtUZ1cdXYLGL?=
+ =?us-ascii?Q?n81MENoeWBXJ/Fm+py5CIn/6gYzROKtkTZoIXpuxlh/yFGA6A1JytfouJybG?=
+ =?us-ascii?Q?hu9hkFyVk0ZKqQVyKkGmZqpgm4IOFm4QaZYZSpOmgqpW5pWGTSYyJMsLQWXl?=
+ =?us-ascii?Q?Bnwt+bvWJBNqrAvFWp5SoUc0NfL7Q4WS9WELZ4VTlpp1A6kceY6d9gqU32ap?=
+ =?us-ascii?Q?nENow0biME6cpWPDYsJyHjYn+bA0dBg0U4Kuk5qYv+dVr974ayTd5BXKT3cf?=
+ =?us-ascii?Q?Gp3e/5uwZybaBtMJOcNPfCge8Kzs8F+d3E/Ac6C7jwa+c7NJJV9JhzgQYKbc?=
+ =?us-ascii?Q?mDCNGW8qbWW1GLujcR/KAR4aTgoj+nESeCIQ94ZXGEJQfwxiFF4Ihx2/rQVy?=
+ =?us-ascii?Q?jHxpaGUuosu9mWq+KvQlneCda+pvPMNv3VM6fzotVivUEeJb9U6L+oOUMPbn?=
+ =?us-ascii?Q?INMBkMk5qwZYDcyi9Wfu+VyzcnhHBnQjs4cngi53v9w5pjklg+gqeXoPdQKV?=
+ =?us-ascii?Q?OClv1Ia8fPQ3nItzHQOhE0e/KRogPliGWI1ScTpaJRfPl5vRVy9xMK84E6xL?=
+ =?us-ascii?Q?XkUv2o8Vdq9OC8Cp+b+tbcY8So9UPPRnkGFJp6K09fXNYHfv46hB+Q/ukQlI?=
+ =?us-ascii?Q?IyypEE6zJn8u9ppzGQPtqnGR7XIgfz6pch/dlZ3A7QDMQEYASPO/AgcHmoln?=
+ =?us-ascii?Q?yptRFgDGldH6Mun+wcKqDCTJI1J24lx9xDYl?=
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(36860700013)(82310400026)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Apr 2025 18:31:51.9909
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 14f12ffc-67f8-464a-d68d-08dd82951e03
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000055DE.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL3PR12MB6452
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_112709_998877_E7AD40B5 
-X-CRM114-Status: GOOD (  26.46  )
+X-CRM114-CacheID: sfid-20250423_113159_080465_D8E42B5D 
+X-CRM114-Status: GOOD (  25.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,81 +169,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 23, 2025 at 06:48:34PM +0100, Russell King (Oracle) wrote:
-> On Fri, Apr 18, 2025 at 11:14:48AM -0400, Yury Norov wrote:
-> > On Thu, Apr 17, 2025 at 12:23:10PM +0100, Marc Zyngier wrote:
-> > > On Thu, 17 Apr 2025 11:47:11 +0100,
-> > > Luo Jie <quic_luoj@quicinc.com> wrote:
-> > > > 
-> > > > Replaced below code with the wrapper FIELD_MODIFY(MASK, &reg, val)
-> > > > - reg &= ~MASK;
-> > > > - reg |= FIELD_PREP(MASK, val);
-> > > > The semantic patch that makes this change is available
-> > > > in scripts/coccinelle/misc/field_modify.cocci.
-> > > > 
-> > > > More information about semantic patching is available at
-> > > > https://coccinelle.gitlabpages.inria.fr/website
-> > > > 
-> > > > Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
-> > > > ---
-> > > >  arch/arm64/kvm/hyp/include/nvhe/memory.h | 3 +--
-> > > >  1 file changed, 1 insertion(+), 2 deletions(-)
-> > > > 
-> > > > diff --git a/arch/arm64/kvm/hyp/include/nvhe/memory.h b/arch/arm64/kvm/hyp/include/nvhe/memory.h
-> > > > index 34233d586060..b2af748964d0 100644
-> > > > --- a/arch/arm64/kvm/hyp/include/nvhe/memory.h
-> > > > +++ b/arch/arm64/kvm/hyp/include/nvhe/memory.h
-> > > > @@ -30,8 +30,7 @@ enum pkvm_page_state {
-> > > >  static inline enum kvm_pgtable_prot pkvm_mkstate(enum kvm_pgtable_prot prot,
-> > > >  						 enum pkvm_page_state state)
-> > > >  {
-> > > > -	prot &= ~PKVM_PAGE_STATE_PROT_MASK;
-> > > > -	prot |= FIELD_PREP(PKVM_PAGE_STATE_PROT_MASK, state);
-> > > > +	FIELD_MODIFY(PKVM_PAGE_STATE_PROT_MASK, &prot, state);
-> > > >  	return prot;
-> > > >  }
-> > > 
-> > > Following up on my suggestion to *not* add anything new, this patch
-> > > could be written as:
-> > > 
-> > > diff --git a/arch/arm64/kvm/hyp/include/nvhe/memory.h b/arch/arm64/kvm/hyp/include/nvhe/memory.h
-> > > index 34233d5860607..08cb6ba0e0716 100644
-> > > --- a/arch/arm64/kvm/hyp/include/nvhe/memory.h
-> > > +++ b/arch/arm64/kvm/hyp/include/nvhe/memory.h
-> > > @@ -30,9 +30,8 @@ enum pkvm_page_state {
-> > >  static inline enum kvm_pgtable_prot pkvm_mkstate(enum kvm_pgtable_prot prot,
-> > >  						 enum pkvm_page_state state)
-> > >  {
-> > > -	prot &= ~PKVM_PAGE_STATE_PROT_MASK;
-> > > -	prot |= FIELD_PREP(PKVM_PAGE_STATE_PROT_MASK, state);
-> > > -	return prot;
-> > > +	u64 p = prot;
-> > > +	return u64_replace_bits(p, state, PKVM_PAGE_STATE_PROT_MASK);
-> > >  }
-> > 
-> > This is a great example where u64_replace_bit() should NOT be used. 
+On Wed, Apr 23, 2025 at 08:55:51AM -0300, Jason Gunthorpe wrote:
+> On Wed, Apr 23, 2025 at 08:05:49AM +0000, Tian, Kevin wrote:
 > 
-> Why not? Explain it. Don't leave people in the dark, because right
-> now it looks like it's purely a religous fanaticism about what
-> should and should not be used. Where's the technical reasoning?
+> > It's not a good idea having the kernel trust the VMM. 
+> 
+> It certainly shouldn't trust it, but it can validate the VMM's choice
+> and generate a failure if it isn't good.
+> 
+> > Also I'm not
+> > sure the contiguity is guaranteed all the time with huge page
+> > (e.g. if just using THP).
+> 
+> If things are aligned then the contiguity will work out. Ie a 64K
+> aligned allocation on a 2M GPA is fine. I don't think there are
+> edge cases where a GPA will be fragmented. It does rely on the VMM
+> always getting some kind of huge page and then pinning it in iommufd.
 
-Because enum is an integer, i.e. 32-bit type. Now, the snippet above
-typecasts it to 64-bit fixed size type, passes to 64-bit fixed-type
-function, and the returned value is typecasted back to 32-bit int.
+With QEMU that does ensure the alignment when using system huge
+pages, I haven't seen any edge problem yet.
 
-Doesn't sound the most efficient solution, right? On 32-bit arch it
-may double the function size, I guess.
+> IMHO this is bad HW design, but it is what it is..
+> 
+> > btw does smmu only read the cmdq or also update some fields
+> > in the queue? If the latter, then it also brings a security hole 
+> > as a malicious  VMM could violate the contiguity requirement
+> > to instruct the smmu to touch pages which don't belong to 
+> > it...
+> 
+> This really must be prevented. I haven't looked closely here, but the
+> GPA -> PA mapping should go through the IOAS and that should generate
+> a page list and that should be validated for contiguity.
+> 
+> It also needs to act like a mdev and lock down the part of the IOAS
+> that provides that memory so the pin can't be released and UAF things.
 
-But the most important is that if we adopt this practice and spread it
-around, it will be really easy to overflow the 32-bit storage. The
-compiler will keep silence about that.
+If I capture this correctly, the GPA->PA mapping is already done
+at the IOAS level for the S2 HWPT/domain, i.e. pages are already
+pinned. So we just need to a pair of for-driver APIs to validate
+the contiguity and refcount pages calling iopt_area_add_access().
 
-Fixed types are very useful in their specific areas - cross-ABI data
-transfer, etc. But mixing them with native types like int may hurt
-badly. 
-
-Hope that helps.
-
-Thanks,
-Yury
+Thanks
+Nicolin
 
