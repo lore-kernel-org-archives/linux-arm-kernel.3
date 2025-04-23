@@ -4,83 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEE15C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 19:13:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FC3FC369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 19:20:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ehGug8WvDyCD5M5pIZOyKV928YDmAC5y0+gfYQ09jXs=; b=dhbQvvMoFpeDl5ZTDZn1ww2XOd
-	gSrx1cI0oxKG7B7dnBPt6E/POOXV2n3RbCjbrDRMUx/78lSA40FcgpjUuU+YIr2g+BH48Wwd3voX2
-	iqDUphxwVt5K5/kQNIaSdK3KleL79NtBrf7r3FMjTh9xpg7phSSuXA/8JFG5KPbB/EoTk8wieSq3X
-	iYUkW2yS+IjTEHp0eofe8a9/mx+IFQWsCyDjp/6y43PAtgo6pNf8xfqsuUIqwNCU/QE8ar0ooI2Ps
-	uZfORA22OyyZHePTo/FlFQWdIKCIVZLVgsjLjTKIqOK2/t+afIB//NpxgviXcFMlc4KzYkpOVkaP1
-	xIfOv15w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XAlKzRIEDmOMNM6L0NhSyuVo569RcMS78YotCgYOSqI=; b=e6g0j/gag/7GyZ
+	xnDkJTOjVze4Fr4HdZ+DyoGlz3QGkG/Di6WrRLdjOXZCls0j5T0/j0UpwDgu0kl72HoLxVwVGNx8I
+	PXHATMWVrgIF3XYPoB+4mUJeaJx7xPauVfOiZ5ALkWtE4/IuQ+Jtwwny9GzgQsfdsVUlz1HMhRZbF
+	SzDGxP4T5h30v3k3YEsjcmeRML89IKnscinczM6MOELCreTH2nYIQm0gWsZ83FuwAlyXRI3RrT8cB
+	yWOgDcnIssORcZ9wcb7AVqM2AvOFStfAMTJc0n+/+A/WYq2A4J5/uRPNbgMvfKAhBHB7BUKrwU1MR
+	60vvtWNvAdopdgWKp8ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7fXU-0000000BhyJ-26Ry;
-	Wed, 23 Apr 2025 19:13:44 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1u7fe7-0000000Bivs-2ebW;
+	Wed, 23 Apr 2025 19:20:35 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7fVV-0000000BhlM-2aUp
+	id 1u7fc6-0000000BiMH-47cF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 19:11:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=ehGug8WvDyCD5M5pIZOyKV928YDmAC5y0+gfYQ09jXs=; b=gR+JBAJ2qYXt394sKZwRWQbCpN
-	HcCePrKHfFGuCBW/CVsEGeyPPPBU/OQFtTsArQ9YAQMdfrPO91pRpinnkaU+R3jp+UdCphKe75jFH
-	ucyYXyXAR2foVu/mfhe3HwUcFVAYNSC0D2IF/239fM2PkQuMT0/jZ9Eup36+0LE43cVft0e9OZxx5
-	dDTM3b1WXjpuJEb+/LCJQPWrlgDi1mUkEElwET/A/fla7O5FXGgwS0k0+1m++lZoElXyOp6z21cIM
-	PjsApZ3zXuvkQ0rQfUsItb9D7TVFm1pADJUTTToBoUfafozF64nMdonx3qfC29IHEpO7FhUsX84Zq
-	V3eCi9ZA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:52066)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1u7fVE-0006RY-0p;
-	Wed, 23 Apr 2025 20:11:24 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1u7fV8-0000JD-0y;
-	Wed, 23 Apr 2025 20:11:18 +0100
-Date: Wed, 23 Apr 2025 20:11:18 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Yury Norov <yury.norov@gmail.com>
-Cc: Marc Zyngier <maz@kernel.org>, Luo Jie <quic_luoj@quicinc.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	Julia Lawall <Julia.Lawall@inria.fr>,
-	Nicolas Palix <nicolas.palix@imag.fr>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>, linux-kernel@vger.kernel.org,
-	cocci@inria.fr, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, andrew@lunn.ch, quic_kkumarcs@quicinc.com,
-	quic_linchen@quicinc.com, quic_leiwei@quicinc.com,
-	quic_suruchia@quicinc.com, quic_pavir@quicinc.com
-Subject: Re: [PATCH v3 4/6] arm64: nvhe: Convert the opencoded field modify
-Message-ID: <aAk7VqNOLujcyZS0@shell.armlinux.org.uk>
-References: <20250417-field_modify-v3-0-6f7992aafcb7@quicinc.com>
- <20250417-field_modify-v3-4-6f7992aafcb7@quicinc.com>
- <86r01rjald.wl-maz@kernel.org>
- <aAJsaNdznnz-1qap@yury>
- <aAkn8lvzoa1grdkt@shell.armlinux.org.uk>
- <aAkw-tFctkk3xyS8@yury>
+	Wed, 23 Apr 2025 19:18:32 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-22c3407a87aso3048685ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 12:18:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1745435910; x=1746040710; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=XAlKzRIEDmOMNM6L0NhSyuVo569RcMS78YotCgYOSqI=;
+        b=Y24D2DMHHtqPSq3ImOsanRjiCNUJI99lzI5pEnA2uSzxHJORLe0XQiMNKQ4cduKHxC
+         02YrRFkLaQ6U8+5f4irie4tLeFLIQs8n3n2t35mr8SCbqFXV6gwRGDczvWbA+2eEI2Gn
+         mFWLfcPvdKurNQji9B88J4sVbJftwhk7vazToHA/ucUEM+2ArVkDsoYskRPbTsJ6rJ5i
+         qLI8m/WeCcNpfxrsz0u1xOMZLX1RNHfr8TMSIL/70ih/KafbahmHHKlAs6xY0f/a+h3y
+         7nCPf/WMZM69r8WI8HkoAXSJZg5uQTa9ZH3BFxnIFm5RWLRpNEcX/yw4LpEA4hIXLwo8
+         qXgA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745435910; x=1746040710;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=XAlKzRIEDmOMNM6L0NhSyuVo569RcMS78YotCgYOSqI=;
+        b=EAuaNrp625pgbVbwAYvvrLaaLzol6eHYoSG/7a6rwFPzsCvvbiE3iFgMlkTGfJOjsk
+         zVr+3M3JBq4CAgzugnvuM5+pd5xg1efjqs2ZBuIJrrMsJWuSwxIIECaanBJjZXkm5I1B
+         FPYDR9ohLRB7lUG1rtM7u669Abyx5uqTUuUe2Pp7MeEHBO93jiR6cFbKCK7iYdADaWKY
+         9SylDM6qSNiJr70MzC+DR42OTVypJRe5AGN8yEig03QQcmdiseWhgspvCWE/Bqqj3CuW
+         VQkZfS0MHEuypdAmutbZ9y6dRVZvlRxNHvlMw37r740JNHhYhWoJ5SM7Spp3/i0zXiI+
+         bvmQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVqid9ZmnJLgzOtg5dn9muwK3MFeKsgriWo6k9eqW1vIPHjMZ4b8Qbpo8QSCmo8hDAMsmeZ6ldfqsB8aqLU0lfS@lists.infradead.org
+X-Gm-Message-State: AOJu0YwTe/fmJLsh0k6bB0jLuAnGOGW7tKrYOitjJ0oGvy3/lroJxd0d
+	ep3xWBg10HCVU5X5EkB5A+2ut/KcR+KPh/CPleBuzcgi3fp765pK
+X-Gm-Gg: ASbGnctshloQ0dvti/1I33AddPZDh+dAO7bedYn6aoBQblf8I6fAbzKiThmYXioTB+I
+	cp9Iw2hOIs1FoPJph/0y/uBgXx95TgkPvoYiPcOAaqa+0Zbrj7hV9Z/ZnuzrLDVvHo+aYf0HDW7
+	k9DJyF9afO1Vs3/xhDd/Ufvm+O1O2RpduyMHqfqx7RW2gQsits75tiHL/Ptu6UpHfBtkXbo6U+H
+	OE/iN4jqWZly1RLtrVcjEOu5nfEUFZmXGP7l8Oap9qumAEEd7xtn2VD0nGdMDr/TIiXA+GHvm5I
+	GgET4iXBdMlvmCIMhFQvEPcYi9I+eZ2O+cJXjDBO+EJfCK3Jvtce
+X-Google-Smtp-Source: AGHT+IFqtVLMUYCI3a91c+3WdvO87nsZUIASaOWcsedUdf92cp9GVuS79Tnp76Wh41NEsYpqtvSNhg==
+X-Received: by 2002:a17:902:c40f:b0:227:e74a:a05a with SMTP id d9443c01a7336-22c5361d29emr313472595ad.44.1745435910020;
+        Wed, 23 Apr 2025 12:18:30 -0700 (PDT)
+Received: from NB-GIGA003.letovo.school ([5.194.95.139])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22c50eb4897sm108204025ad.143.2025.04.23.12.18.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Apr 2025 12:18:29 -0700 (PDT)
+From: Alexey Charkov <alchark@gmail.com>
+Subject: [PATCH 0/3] ARM: vt8500: Add runtime SoC version identification
+Date: Wed, 23 Apr 2025 23:18:30 +0400
+Message-Id: <20250423-wmt-soc-driver-v1-0-bd8bf32521c2@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aAkw-tFctkk3xyS8@yury>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAY9CWgC/x3MQQ5AMBBA0avIrE1CUYmriAVmMAutTAWJ9O4ay
+ 7f4/4XAKhygy15QviSIdwllnsG8jW5lFEoGU5imqE2F935i8DOSysWKxMaSbSeqeYEUHcqLPP+
+ wH2L8AORdRgRgAAAA
+X-Change-ID: 20250423-wmt-soc-driver-de26d67bd4ef
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Alexey Charkov <alchark@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1745435922; l=1942;
+ i=alchark@gmail.com; s=20250416; h=from:subject:message-id;
+ bh=F8SSjqtBe9E0HYlX9U1a01n/FwOQ8nwnabHjcE9VkKA=;
+ b=pisJxblZif4j+2IG4v9/QlR/sxLCnoZAYCaH1elEBlp3VqDubQ8vrbYnb9NfDjmqRfv2Z8mad
+ pJpR2Mq4yRzABROxYSU6Yv/472p2j/zknOmwkrYGiD9EqQsIUXyAzAl
+X-Developer-Key: i=alchark@gmail.com; a=ed25519;
+ pk=ltKbQzKLTJPiDgPtcHxdo+dzFthCCMtC3V9qf7+0rkc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_121141_661409_2BE3B37A 
-X-CRM114-Status: GOOD (  36.69  )
+X-CRM114-CacheID: sfid-20250423_121831_028186_0CCF6673 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,135 +107,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 23, 2025 at 02:27:06PM -0400, Yury Norov wrote:
-> On Wed, Apr 23, 2025 at 06:48:34PM +0100, Russell King (Oracle) wrote:
-> > On Fri, Apr 18, 2025 at 11:14:48AM -0400, Yury Norov wrote:
-> > > On Thu, Apr 17, 2025 at 12:23:10PM +0100, Marc Zyngier wrote:
-> > > > On Thu, 17 Apr 2025 11:47:11 +0100,
-> > > > Luo Jie <quic_luoj@quicinc.com> wrote:
-> > > > > 
-> > > > > Replaced below code with the wrapper FIELD_MODIFY(MASK, &reg, val)
-> > > > > - reg &= ~MASK;
-> > > > > - reg |= FIELD_PREP(MASK, val);
-> > > > > The semantic patch that makes this change is available
-> > > > > in scripts/coccinelle/misc/field_modify.cocci.
-> > > > > 
-> > > > > More information about semantic patching is available at
-> > > > > https://coccinelle.gitlabpages.inria.fr/website
-> > > > > 
-> > > > > Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
-> > > > > ---
-> > > > >  arch/arm64/kvm/hyp/include/nvhe/memory.h | 3 +--
-> > > > >  1 file changed, 1 insertion(+), 2 deletions(-)
-> > > > > 
-> > > > > diff --git a/arch/arm64/kvm/hyp/include/nvhe/memory.h b/arch/arm64/kvm/hyp/include/nvhe/memory.h
-> > > > > index 34233d586060..b2af748964d0 100644
-> > > > > --- a/arch/arm64/kvm/hyp/include/nvhe/memory.h
-> > > > > +++ b/arch/arm64/kvm/hyp/include/nvhe/memory.h
-> > > > > @@ -30,8 +30,7 @@ enum pkvm_page_state {
-> > > > >  static inline enum kvm_pgtable_prot pkvm_mkstate(enum kvm_pgtable_prot prot,
-> > > > >  						 enum pkvm_page_state state)
-> > > > >  {
-> > > > > -	prot &= ~PKVM_PAGE_STATE_PROT_MASK;
-> > > > > -	prot |= FIELD_PREP(PKVM_PAGE_STATE_PROT_MASK, state);
-> > > > > +	FIELD_MODIFY(PKVM_PAGE_STATE_PROT_MASK, &prot, state);
-> > > > >  	return prot;
-> > > > >  }
-> > > > 
-> > > > Following up on my suggestion to *not* add anything new, this patch
-> > > > could be written as:
-> > > > 
-> > > > diff --git a/arch/arm64/kvm/hyp/include/nvhe/memory.h b/arch/arm64/kvm/hyp/include/nvhe/memory.h
-> > > > index 34233d5860607..08cb6ba0e0716 100644
-> > > > --- a/arch/arm64/kvm/hyp/include/nvhe/memory.h
-> > > > +++ b/arch/arm64/kvm/hyp/include/nvhe/memory.h
-> > > > @@ -30,9 +30,8 @@ enum pkvm_page_state {
-> > > >  static inline enum kvm_pgtable_prot pkvm_mkstate(enum kvm_pgtable_prot prot,
-> > > >  						 enum pkvm_page_state state)
-> > > >  {
-> > > > -	prot &= ~PKVM_PAGE_STATE_PROT_MASK;
-> > > > -	prot |= FIELD_PREP(PKVM_PAGE_STATE_PROT_MASK, state);
-> > > > -	return prot;
-> > > > +	u64 p = prot;
-> > > > +	return u64_replace_bits(p, state, PKVM_PAGE_STATE_PROT_MASK);
-> > > >  }
-> > > 
-> > > This is a great example where u64_replace_bit() should NOT be used. 
-> > 
-> > Why not? Explain it. Don't leave people in the dark, because right
-> > now it looks like it's purely a religous fanaticism about what
-> > should and should not be used. Where's the technical reasoning?
-> 
-> Because enum is an integer, i.e. 32-bit type.
+VIA/WonderMedia SoCs have a chip ID register, which is helpful for
+selecting support for correct sets of hardware quirks at runtime, add
+code for it.
 
-This statement is false, in this case.
+This will enable the use of SOC bus match tables in individual drivers,
+allowing for finer grained feature selection where device trees might
+not provide full information about what the hardware expects (such as
+with non-user-visible SoC revisions having different behavior within
+the same user-visible SoC version).
 
-The kernel currently uses -std=gnu11, and GNU tends to be more relaxed
-about things, and while the C standard may say that enums are ints,
-that isn't the case - gcc appears to follow C++ and allow enums that
-are wider than ints.
+This series intentionally omits the updates to MAINTAINERS, as there
+are multiple VT8500 related submissions this cycle which may go via
+different trees (and cause pain in sequencing the merges). It will be
+updated separately in a single pass to cover everything VT8500 related.
 
-$ aarch64-linux-gnu-gcc -S -o - -std=gnu99 -x c -
-enum foo {
-A = 1L << 0,
-B = 1L << 53,
-};
-int main()
-{ return sizeof(enum foo); }
+Signed-off-by: Alexey Charkov <alchark@gmail.com>
+---
+Alexey Charkov (3):
+      dt-bindings: soc: Add VIA/WonderMedia SoC identification
+      soc: Add VIA/WonderMedia SoC identification driver
+      ARM: dts: vt8500: add DT nodes for the system config ID register
 
-Gives the following code:
+ .../devicetree/bindings/soc/vt8500/via,scc-id.yaml |  37 +++++++
+ arch/arm/boot/dts/vt8500/vt8500.dtsi               |   5 +
+ arch/arm/boot/dts/vt8500/wm8505.dtsi               |   5 +
+ arch/arm/boot/dts/vt8500/wm8650.dtsi               |   5 +
+ arch/arm/boot/dts/vt8500/wm8750.dtsi               |   5 +
+ arch/arm/boot/dts/vt8500/wm8850.dtsi               |   5 +
+ drivers/soc/Kconfig                                |   1 +
+ drivers/soc/Makefile                               |   1 +
+ drivers/soc/vt8500/Kconfig                         |  20 ++++
+ drivers/soc/vt8500/Makefile                        |   2 +
+ drivers/soc/vt8500/wmt-socinfo.c                   | 121 +++++++++++++++++++++
+ 11 files changed, 207 insertions(+)
+---
+base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
+change-id: 20250423-wmt-soc-driver-de26d67bd4ef
 
-main:
-.LFB0:
-        .cfi_startproc
-        mov     w0, 8
-        ret
-        .cfi_endproc
-
-meaning that sizeof(enum foo) is 8 or 64-bit.
-
-If B were 1L << 31, then sizeof(enum foo) is 4.
-
-> Now, the snippet above
-> typecasts it to 64-bit fixed size type, passes to 64-bit fixed-type
-> function, and the returned value is typecasted back to 32-bit int.
-
-In this case, the enum is defined using:
-
-        KVM_PGTABLE_PROT_X                      = BIT(0),
-        KVM_PGTABLE_PROT_W                      = BIT(1),
-        KVM_PGTABLE_PROT_R                      = BIT(2),
-
-        KVM_PGTABLE_PROT_DEVICE                 = BIT(3),
-        KVM_PGTABLE_PROT_NORMAL_NC              = BIT(4),
-
-        KVM_PGTABLE_PROT_SW0                    = BIT(55),
-        KVM_PGTABLE_PROT_SW1                    = BIT(56),
-        KVM_PGTABLE_PROT_SW2                    = BIT(57),
-        KVM_PGTABLE_PROT_SW3                    = BIT(58),
-
-As it contains bits beyond bit 31, and we use -std=gnu11 when building
-the kernel, this enum is represented using a 64-bit integer type. So,
-the casting to a u64 is not increasing the size of the enum, and the
-return value is not getting truncated down to 32-bits.
-
-> Doesn't sound the most efficient solution, right? On 32-bit arch it
-> may double the function size, I guess.
-
-Given that there's no inefficiency here, and that this is arm64 code
-which is a 64-bit arch, both those points you mention seem to be
-incorrect or not relevant.
-
-> But the most important is that if we adopt this practice and spread it
-> around, it will be really easy to overflow the 32-bit storage. The
-> compiler will keep silence about that.
-
-Given that in Marc's suggestion, "prot" is a 64-bit value, it's being
-assigned to a u64, which is then being operated on by the u64 variant
-of _replace_bits(), which returns the u64 result, which then gets
-returned as a 64-bit enum, there is no issue here as far as I can see.
-
+Best regards,
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Alexey Charkov <alchark@gmail.com>
+
 
