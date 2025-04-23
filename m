@@ -4,199 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B4CDC369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 18:52:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F2C4C369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 18:52:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zlXdCX07iWnHjZpFQP7nJiws80IrKxlljalxc3exK2M=; b=fpftWisMNvhBs5eYwtVRnNh3Y6
-	XXiCgzXFxkgGOsMpwwQm2IAOeUwfZTndphXSQuB55FIP+dNSBVXUP6uRjwtC4ARBjGeeKmPUrELQy
-	yhrU36ktF4K01x8jkjmORIE/y4r29qTV2NZmCJmxzsQORWScJ8Vvwq6n/ALoieG7hNhVImMRkVLab
-	rGtehMvJ15gYg/c7vxBsuZpRfPXYQMt4GV6a/MVHqREGNQZXBa+G3edMS10N00UoG0EscVqwMH9FF
-	6P96TrmrQeIRxmnmO9hUKk/7upww0KrF8APKoRv6xmYLKnCwC9R5wMxKf9X59z/y7b2B5Diwra4zx
-	EmmsT85Q==;
+	bh=3g25cudfdER1fultAc6guoG7d90Bj2J+6OCH21hX/70=; b=2TOg3Ig55yITCyCflmhC4Trqbl
+	OmMon+3JcZIaKttITDf/dTxDPNj935XotMLbOQspYVauelB/Uy/ycRZKTULiQDNpqEoIDztjgyMhd
+	SbJEcHdf8Df6rP3fwEIrYHZ6GyUgd/Atlnic3vtbfqnF4RoRmA13Nx4C3J/Dtb3ctzRGzbuFOAhjQ
+	FTu15IXTrNzxMTT7gd10FOtM2HXevIvHiOzxEqW4vDS5wnDo74wMsi+EBZkR0HUSHU3K2x9ylzZ+Y
+	MS+l+ReAc5VRgxOPHtbQOGDHZC53S9lMRUZKkIYvriHz73gGzixyGDBYgM73ykaXlF0xHAhH4P1JB
+	Lpr1hQLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7fCd-0000000Beqy-0whP;
-	Wed, 23 Apr 2025 18:52:11 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1u7fCk-0000000BeuH-3Ee8;
+	Wed, 23 Apr 2025 18:52:18 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7dND-0000000BC1k-2CEA
+	id 1u7eoP-0000000BZFq-3zYF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 16:55:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1745427299; x=1776963299;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=hJt002X7BbFgoryZuiyMn2QR9sk1z/bRfNGyX/2cMH0=;
-  b=Z4t6syBNZwUtmVdK+pdqKtmW9uGcEpnbFlPOfoRYhr30PxQsLCq5XJM6
-   TdIozIVaqzjt6FucrS5CHovrzZvIiSHs90cWK9IFUiaAD7CpYzswlCriQ
-   dg6m/lqvpiiG41li4ulYXRtSCwbvBV2J/1OI5m/XEOjFVdjd1WzcDR8MZ
-   /GjcwVW7xfDqISa2IxG6HwMv5x3ecrUwLE6+dIWVM57iKsihamR9VnoLi
-   LQc3/YopbYUVPj677//fuIrDGkxBtFkq+/pjK/lw/BhIbYu8Ziv2OyU6w
-   XfWie+eDg+0OWEAjdTLDIQ4w9ENUwWs6JO4EpPEfjQC6ArFBAL2RT5sLz
-   g==;
-X-CSE-ConnectionGUID: a+cYKk2aRPWohwKDmkc26A==
-X-CSE-MsgGUID: ldW0KgQaSLiE4OMruUbB3Q==
-X-IronPort-AV: E=McAfee;i="6700,10204,11412"; a="34647553"
-X-IronPort-AV: E=Sophos;i="6.15,233,1739865600"; 
-   d="scan'208";a="34647553"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Apr 2025 09:54:54 -0700
-X-CSE-ConnectionGUID: 21y+VRHoT9Wx19esdOEA9g==
-X-CSE-MsgGUID: lPKb1lo5STe2FURaqt6QdA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,233,1739865600"; 
-   d="scan'208";a="155583950"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by fmviesa002.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Apr 2025 09:54:53 -0700
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Wed, 23 Apr 2025 09:54:52 -0700
-Received: from ORSEDG602.ED.cps.intel.com (10.7.248.7) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14 via Frontend Transport; Wed, 23 Apr 2025 09:54:52 -0700
-Received: from NAM02-BN1-obe.outbound.protection.outlook.com (104.47.51.48) by
- edgegateway.intel.com (134.134.137.103) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.44; Wed, 23 Apr 2025 09:54:52 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=i7RTyF/RIGSxjhb1wgF4Amo/+ndOMOxU230DZ+gECGRu5HS5BIQProXsBAhwVSe8aneX8RaO0PutRReJB8LOBUeB0tdQVlLhxR5960ru2G+gawH6SvX8GWhtYE+OZMMvaAcxRtbnRYZo0CP6OJLLbYbRRjgnchwpIGx2HGuM4A18EBxm38cyUBUzYQBqEkeaMOPzjphkCuDc73gWDT8T1EADdU+doYu0NOX5XCTgGVLDI8C+YDY8hjZYT3uHuS9stQVebVWWD6rjatQbYpk9FFA+a1h264OwpkyE71uY2VQT7HXxIJCUxznJuByhgg78FiSx0DM8rT55ywYt2uthqA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zlXdCX07iWnHjZpFQP7nJiws80IrKxlljalxc3exK2M=;
- b=pI6e/6q+vpzVKkzBoyZ3JBA6Z4ODCrgJeLrviXyNtSAjf3NMPtXwMwW3oiSnkSMO82CgtJgmTpGVRQYArbCSzOC3h9ZZyj99DdsZYF7QV2tZBQvydvBk2zwKD+NqZQFGckd31MQc9xX5VEOx63K3rzfHr0ziEmDMjaqenMB6CXwvqDpYsxdcMjZHxSG54f9h3eF8ibkgphu/89qUZZSpAq4E5aBjBtw5FOuhH4OAFaNczvn/FNHq085W/ESM40qoc/xYEmRKRloHb2alCZyRjjQnCvS5E5cvZqinDcQrVXtMVJfNLhpQMpUA8p6IK8MRHj4WPaKaX2aEx1t4Tz0sZA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from CO1PR11MB5089.namprd11.prod.outlook.com (2603:10b6:303:9b::16)
- by CO1PR11MB4964.namprd11.prod.outlook.com (2603:10b6:303:9e::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.34; Wed, 23 Apr
- 2025 16:54:49 +0000
-Received: from CO1PR11MB5089.namprd11.prod.outlook.com
- ([fe80::7de8:e1b1:a3b:b8a8]) by CO1PR11MB5089.namprd11.prod.outlook.com
- ([fe80::7de8:e1b1:a3b:b8a8%4]) with mapi id 15.20.8655.025; Wed, 23 Apr 2025
- 16:54:49 +0000
-From: "Keller, Jacob E" <jacob.e.keller@intel.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>, Luo Jie
-	<quic_luoj@quicinc.com>
-CC: Yury Norov <yury.norov@gmail.com>, Rasmus Villemoes
-	<linux@rasmusvillemoes.dk>, Julia Lawall <Julia.Lawall@inria.fr>, "Nicolas
- Palix" <nicolas.palix@imag.fr>, Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton
-	<oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
-	<suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"cocci@inria.fr" <cocci@inria.fr>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "andrew@lunn.ch" <andrew@lunn.ch>,
-	"quic_kkumarcs@quicinc.com" <quic_kkumarcs@quicinc.com>,
-	"quic_linchen@quicinc.com" <quic_linchen@quicinc.com>,
-	"quic_leiwei@quicinc.com" <quic_leiwei@quicinc.com>,
-	"quic_suruchia@quicinc.com" <quic_suruchia@quicinc.com>,
-	"quic_pavir@quicinc.com" <quic_pavir@quicinc.com>
-Subject: RE: [cocci] [PATCH v3 3/6] arm64: tlb: Convert the opencoded field
- modify
-Thread-Topic: [cocci] [PATCH v3 3/6] arm64: tlb: Convert the opencoded field
- modify
-Thread-Index: AQHbtCzwqS29KFwsakalRi4XUJvnbbOoH9IAgAlX/7A=
-Date: Wed, 23 Apr 2025 16:54:49 +0000
-Message-ID: <CO1PR11MB5089C0773E3AEAD4BB0A1AFFD6BA2@CO1PR11MB5089.namprd11.prod.outlook.com>
+	Wed, 23 Apr 2025 18:27:11 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-736dd9c4b40so1194079b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 11:27:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1745432829; x=1746037629; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=3g25cudfdER1fultAc6guoG7d90Bj2J+6OCH21hX/70=;
+        b=m8Tc2tsOHnmtDHt+O+L8snn5hi7uaGjI3uOKecXo7Wd2djFpM2cL/00nBP4zYAkK1r
+         QmmoYVjH+lJwitcptxLauy74Piv3vXmC/jdIBQbHsqCZUAHs9//lovfUnwUnKEMBwdQ/
+         0csi1ecDYnPNuIp9deS7yoWiSbBGH10rrXXmA1Yf4ZsUHgyrQ3PlbriLcD8hqfhGr0AO
+         og5WQjDcRGHgDWGqLvNVYVSSAF8mzX2AwkljU/41u4K0togUFoFdZH5NFk6axELFZbMz
+         ghmqLeWEnQDCIaWXXQ2j3deen52pM0NmxMY0qSwVXMhmCZ30meC3IqKIr0q+jCGCnJvg
+         M/AA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745432829; x=1746037629;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3g25cudfdER1fultAc6guoG7d90Bj2J+6OCH21hX/70=;
+        b=R6g6JfCD7LaRNP4DZR7N7vxS8YZpQ++qQkofzZ3xMOZ/V8XIvSNHTj+h9RvuWTufsK
+         zLOnw/JiC7FxHKCVNucfCdJeGXmMyF4ZPRUft+ctvR2gpYUH7BhSZ9A8ZFLGng5T5FcK
+         fkaKApSweCjdEiv+2N6Q/6+i9nLUOlIipOG9XKY0Ee2Nr86huTJAN7te+fsyvJmJj5d9
+         WR2WlEZQ6yCRVQtWZ4VtVhres8k2TBkZBCA4nUinjX2sXOjXAWHKZ9tjEwwhkd7y4rDT
+         VNz083oqFPnVDe8am5z3o1qb9cZ+dowiU/xL3ViBRPFuJP5S7Ch61UJ+A2gai8vlNN4i
+         vhFg==
+X-Forwarded-Encrypted: i=1; AJvYcCXOsN6UdFj/NL6ljsXlBC+LGbJLHlCH377zKvqo3Y53AGPLKCxgGSNCKRF2+IwNnF845MrisVdDKQwUjoH3qXFI@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz27Iwx6zZIbRZeuA5+JhNkIJVtgDey92wS7vFhkr7eLBaoSeqN
+	rJL9N6Zt2N8ZrUdkAN9z/gxrMVtnNnkm23iTXE0hXSSI0+eX1gk+
+X-Gm-Gg: ASbGncsmjOJXkYa8YWKMMqYMQppV4SNux8K7gP89A7rr3mBq4muYEPMQ6RTXM5nDPLu
+	GbJhjpM6abBxuQHieozopcwdYAMHWojMhXtqpe3v9XUj0IUuc3aMcTRDZPpUb2ELVC8lUo7xFNQ
+	SWKWY39ED1Yy2hhJsOVS9/KdBPmiX2rgqEYWTt3sGAUbuxZ89DNo89aQzlx1TtcHAEvp6gPSaO0
+	RvnJuyipmNQVwHxRqDVNwsl+NrKOgRWBqFmMmxCiWSurdHFACygTlP2RCYmVZs3RfbnhbSVLhru
+	/5ybH02+wYiiXdXsL7G3BCTAu+W31WpfhA6Fuf26gMCVK/gfLFA=
+X-Google-Smtp-Source: AGHT+IGHyaRCja82Jp63ca6tDfY0vscU4gtWT0BCYYEH2SbVC6BGq3lUVFXS6KtlFAXf+XFDnn7bog==
+X-Received: by 2002:a05:6a21:9105:b0:1f0:e2d0:fb65 with SMTP id adf61e73a8af0-20442d54a7fmr200581637.2.1745432828582;
+        Wed, 23 Apr 2025 11:27:08 -0700 (PDT)
+Received: from localhost ([216.228.127.130])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73dbfa5d084sm11268524b3a.103.2025.04.23.11.27.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Apr 2025 11:27:07 -0700 (PDT)
+Date: Wed, 23 Apr 2025 14:27:06 -0400
+From: Yury Norov <yury.norov@gmail.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Marc Zyngier <maz@kernel.org>, Luo Jie <quic_luoj@quicinc.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Julia Lawall <Julia.Lawall@inria.fr>,
+	Nicolas Palix <nicolas.palix@imag.fr>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>, linux-kernel@vger.kernel.org,
+	cocci@inria.fr, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, andrew@lunn.ch, quic_kkumarcs@quicinc.com,
+	quic_linchen@quicinc.com, quic_leiwei@quicinc.com,
+	quic_suruchia@quicinc.com, quic_pavir@quicinc.com
+Subject: Re: [PATCH v3 4/6] arm64: nvhe: Convert the opencoded field modify
+Message-ID: <aAkw-tFctkk3xyS8@yury>
 References: <20250417-field_modify-v3-0-6f7992aafcb7@quicinc.com>
- <20250417-field_modify-v3-3-6f7992aafcb7@quicinc.com>
- <aAFEOr_PnZRH2ocR@shell.armlinux.org.uk>
-In-Reply-To: <aAFEOr_PnZRH2ocR@shell.armlinux.org.uk>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: CO1PR11MB5089:EE_|CO1PR11MB4964:EE_
-x-ms-office365-filtering-correlation-id: 19c76e5c-80f5-4778-b522-08dd82878f52
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?qIE++vV/Df1p+4CAMmsisJy5hv3JRBAjC6UjQ9S2R4ttlz8EndphGfZc+pzD?=
- =?us-ascii?Q?alABT9lGKmUhKKRSaUSfZxY4N2NzYimiXNXOUqmM7Kroq1HKH4oepP1IuNGX?=
- =?us-ascii?Q?gaoe4l2vwbhsG3nrX3KnSxQX6ozC0Xnd2H+tfz+pj0SSoPUwvE6hbFEhjuiM?=
- =?us-ascii?Q?8BJiDyjdkYO4yKf2iEAfGVK31BlZ20f8WUw6Wq1on2AncJzHcW4acUeY/u0h?=
- =?us-ascii?Q?TbjYSzNzC8JvVCcY3TIbK55Nc/iaNFzrSy3I2QyWWY9kMyI6g/cLHPtoZ6jW?=
- =?us-ascii?Q?/+n4PhrLXACpKEAg5BwGAg0CMhO25eDbdpWkfB2iX3gseYkc68keraXmOQA2?=
- =?us-ascii?Q?dSLKPkZ9Rv4W8Kf4rc9t2cCMpffG5xEPYx8DsLqo7wFeJcbztCXp/fNbjHmB?=
- =?us-ascii?Q?nyno7kw6bjQiBXUc5iyPgUOP6mccf+RMey1F5LwfWBUcoeLqZngbgun6GW/O?=
- =?us-ascii?Q?hNZs4v1PVrm/NGXnx/aSwT+6uZ9RmKZnBY0kZKc4KyGur55/N8/54Uw4AnG6?=
- =?us-ascii?Q?TptxzXXF4Bz/eS2q/hFEbOSeFYUU0WQA7n0Q1CCu9hKHP5ivK2c20UFyWxIa?=
- =?us-ascii?Q?OkYnquYGOM5/vTdjqnjratlzM8uQJzq4knrVj0TqKSLc/sNWhtYC6tePhpJp?=
- =?us-ascii?Q?4H9DVFliommLjaqrqeK2sucgQop84FwFBgpAhdgdRz5gCfkdAoBrHAUlDj8S?=
- =?us-ascii?Q?cBhvOrzXRVhmeMnakdBGDFNRpyhNcZFd/BjMa72iTPQ1fQ0LmbLin5D787rD?=
- =?us-ascii?Q?tPWn6JKMy/aPtyFxLZSnnFrl6IfNfMU3mhRwm8xY02QR8RxEaM2oDy+hV78n?=
- =?us-ascii?Q?CClfsXXEpSLvD2r2vgm0Q4uj57te1pBMzIURkygWjs90UUlMewH4zVx2CwjW?=
- =?us-ascii?Q?sQPPKtLHJsVKoSoE3C9KJf45c9paNuZT6g/L1dA71VorV9d0VJ0FTexmLH/4?=
- =?us-ascii?Q?b+Sx/0s1a55H4WJ9K/id5eI7jxTsWvxnvR4QihoAI7F6KFIrRub2Dp61uq+u?=
- =?us-ascii?Q?RBaZw6l6w3LiOmNiBAuRS0NPejZQ/ryytops6VvS00ePJntjbVghxmAS8OSL?=
- =?us-ascii?Q?/WuN/TrlDYtCIG515Td03/ZvDSOtO8u1v1Fj19Yqjh297T1lxk/0jW5OK07a?=
- =?us-ascii?Q?b6g9N1xCV1jCmcV2GunG9gl0jPmFiFW41x2B/OHvHnnQvUFxzWLGQc/5RmfM?=
- =?us-ascii?Q?Js+aJ/U1duTHjy/e15yfbDFkK/S6j644OBuMiwwHk2YHJCOx65HWZHrkMz7D?=
- =?us-ascii?Q?2yZv4RsMzUZfl7p8jzkZNz39H3znT8/ZeVPpzr5XlThQc5E3suB8QmnSXg3x?=
- =?us-ascii?Q?vSNNBIV6OxnhwKrw8WqLHLT6QSPh60qHziH/RVXpja90cQaVS88rL2P6lFhy?=
- =?us-ascii?Q?uxRDzRWnWqjclNQkQAzNznEfaNfrvYZFqmbVyQ0i3+KbDHJRVQx9QECN9a3z?=
- =?us-ascii?Q?Sa4Lkrii2Yw=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5089.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?V2g81FA3otGQLU65kArODHqUFZwkjPyUcwW8SxKymL5a0JUm8vFG31bIw9r6?=
- =?us-ascii?Q?z1MFlYLKdqVcG6dnvhZmkFRwl28aJw5+UzApzwakUW/j4rFsO4v150QP9tGV?=
- =?us-ascii?Q?XU0MBhR/I2DKLpTpTRL3drq5q0zAtjRaBJsVYHH4v2FsRTPKTRqrT2slLj6A?=
- =?us-ascii?Q?Vdwp5XFFasdKVyV5CaICqk/O/nBxpbMWawtzob9f+9dZKJucVxJRk3ZGvKgB?=
- =?us-ascii?Q?6O+tz7SmAr+q88iRS00yHTP4uGds0vxOCGrHIG2sTdYj7uldyG110zNgPl8o?=
- =?us-ascii?Q?A6ocrdC4K++VSq5j7qcz7TLHCJPh/gDDMIvdle6epPWPcVSHstI2mtvlakI7?=
- =?us-ascii?Q?4UCORuW0yE2YsJXX5Nu6vR3xhOHZESpUqqeIE3V8J1W14dS4WUpYQEsBZNuh?=
- =?us-ascii?Q?qlgZ5GqGds0EC3x1qvdiXnNGtO47MXofrqtt2MNGSJikfmToXKXHapz24QUt?=
- =?us-ascii?Q?cvKs637+1PLvYGVAqy8ihOTqoBttDLwFXG+SJn2fWSV2VGLWmGClp5j6WrMZ?=
- =?us-ascii?Q?eDs/rMLAqMQttZYqiEaVbjIIXzeI8erI6LGe94wpcd7lHsZ6pQpx690+OwM6?=
- =?us-ascii?Q?hxBxrpfDm/hAfoUyUL9jgpHZZnUIsVPqTNy4oc1VG5Fzn31AmQtngnw8aiwF?=
- =?us-ascii?Q?nZ2RaX4pcTPgONkOhR0JUx16OigtfDuykV8CLvxtYEQtU6TqMbVqPIoGhgFC?=
- =?us-ascii?Q?e9KyPsue8DajpS3Fno6wlzhjAktnN6KhaTzeVhxlzREJ+IjpjWNETJh9upTi?=
- =?us-ascii?Q?/CsPItqhG/TZWiRGYuLIC7mH6thSUxUfIFsfmqKrydKIltgTlA5MEQkH5Dr5?=
- =?us-ascii?Q?CHzYU2g8NClPYZ/1JGoEWoioLE4LhMRlGDSpi2pPtqI8cutmgpoZfw/9JaOG?=
- =?us-ascii?Q?otOMgcnd52LkwS+Z+YBtZ+xS4rNHxQVM3vMET2PuW/oAapTlVFmnvxFVtyaD?=
- =?us-ascii?Q?QUsnxcl8Y9LWFUe3QxaUxGy/jLHsZ9n35s+VnUpMezWyH9TrBPIDM/iM5jm4?=
- =?us-ascii?Q?SDXsxfBi/YjI3epsG2fLyZHyUo98l8vp1uU4cK1YVFYcZX4cgAKazCtr1cWC?=
- =?us-ascii?Q?Bq/DOoTLkDr3Lchvwck2NBqF+rt29WbR0tGd5pARugj5DXOV5Xo1r68mltv1?=
- =?us-ascii?Q?VTwYCRvA8MmSKRHT1R3xN5xy3+ISxiSRfAunaRsDlteR+vrAVGelI6CmQ+V7?=
- =?us-ascii?Q?Jzb2X9rsC5wvR2V8tutOHymEZikZurWviZpz5lDw2z4Yr6F5shYVqFB0ACTS?=
- =?us-ascii?Q?pxDx8JgY9/G644Iea8FHXhGTncwlQoDexcqGeCC6oeXVbi4yiw8qoY+BDFaK?=
- =?us-ascii?Q?WW7k46QPid8OCGmQ3jK18eDruEihrFeEaRPpQaMKw2I1p0wM6GOOma/HmreN?=
- =?us-ascii?Q?KXu/RAVOkOzEfLaQL6c8lc5l+61TwBccMJ3JaE+OylFylT2g6CSKy3gWvSw3?=
- =?us-ascii?Q?twp9gicdFhQDUw0GQHHDjQ0Niv+AkWMQZtLvenNKrp16vcdQO4L/kwJYyD+1?=
- =?us-ascii?Q?g+spQsmEcXGYY2G7piRs66o5gbqiQD9JaisAhh0gyfDg9ET/l1TROU49FqPS?=
- =?us-ascii?Q?JWyyCY1qezsQjlz60+q664+BkmKCCEjU9+eLB1JL?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+ <20250417-field_modify-v3-4-6f7992aafcb7@quicinc.com>
+ <86r01rjald.wl-maz@kernel.org>
+ <aAJsaNdznnz-1qap@yury>
+ <aAkn8lvzoa1grdkt@shell.armlinux.org.uk>
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5089.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 19c76e5c-80f5-4778-b522-08dd82878f52
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Apr 2025 16:54:49.2831
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: /K4hZQdpBNtob6cKgh+RDtaoaH/3raBOtPO+IHmYp7MkWzcG7REBuJ7ljJVmUkZezqjU9e34vDEC7zlFqmg44vh1BwmInXlWfIQeBMWEKMk=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR11MB4964
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aAkn8lvzoa1grdkt@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_095459_586028_67894F70 
-X-CRM114-Status: GOOD (  20.96  )
+X-CRM114-CacheID: sfid-20250423_112709_998877_E7AD40B5 
+X-CRM114-Status: GOOD (  26.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -211,70 +112,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Apr 23, 2025 at 06:48:34PM +0100, Russell King (Oracle) wrote:
+> On Fri, Apr 18, 2025 at 11:14:48AM -0400, Yury Norov wrote:
+> > On Thu, Apr 17, 2025 at 12:23:10PM +0100, Marc Zyngier wrote:
+> > > On Thu, 17 Apr 2025 11:47:11 +0100,
+> > > Luo Jie <quic_luoj@quicinc.com> wrote:
+> > > > 
+> > > > Replaced below code with the wrapper FIELD_MODIFY(MASK, &reg, val)
+> > > > - reg &= ~MASK;
+> > > > - reg |= FIELD_PREP(MASK, val);
+> > > > The semantic patch that makes this change is available
+> > > > in scripts/coccinelle/misc/field_modify.cocci.
+> > > > 
+> > > > More information about semantic patching is available at
+> > > > https://coccinelle.gitlabpages.inria.fr/website
+> > > > 
+> > > > Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
+> > > > ---
+> > > >  arch/arm64/kvm/hyp/include/nvhe/memory.h | 3 +--
+> > > >  1 file changed, 1 insertion(+), 2 deletions(-)
+> > > > 
+> > > > diff --git a/arch/arm64/kvm/hyp/include/nvhe/memory.h b/arch/arm64/kvm/hyp/include/nvhe/memory.h
+> > > > index 34233d586060..b2af748964d0 100644
+> > > > --- a/arch/arm64/kvm/hyp/include/nvhe/memory.h
+> > > > +++ b/arch/arm64/kvm/hyp/include/nvhe/memory.h
+> > > > @@ -30,8 +30,7 @@ enum pkvm_page_state {
+> > > >  static inline enum kvm_pgtable_prot pkvm_mkstate(enum kvm_pgtable_prot prot,
+> > > >  						 enum pkvm_page_state state)
+> > > >  {
+> > > > -	prot &= ~PKVM_PAGE_STATE_PROT_MASK;
+> > > > -	prot |= FIELD_PREP(PKVM_PAGE_STATE_PROT_MASK, state);
+> > > > +	FIELD_MODIFY(PKVM_PAGE_STATE_PROT_MASK, &prot, state);
+> > > >  	return prot;
+> > > >  }
+> > > 
+> > > Following up on my suggestion to *not* add anything new, this patch
+> > > could be written as:
+> > > 
+> > > diff --git a/arch/arm64/kvm/hyp/include/nvhe/memory.h b/arch/arm64/kvm/hyp/include/nvhe/memory.h
+> > > index 34233d5860607..08cb6ba0e0716 100644
+> > > --- a/arch/arm64/kvm/hyp/include/nvhe/memory.h
+> > > +++ b/arch/arm64/kvm/hyp/include/nvhe/memory.h
+> > > @@ -30,9 +30,8 @@ enum pkvm_page_state {
+> > >  static inline enum kvm_pgtable_prot pkvm_mkstate(enum kvm_pgtable_prot prot,
+> > >  						 enum pkvm_page_state state)
+> > >  {
+> > > -	prot &= ~PKVM_PAGE_STATE_PROT_MASK;
+> > > -	prot |= FIELD_PREP(PKVM_PAGE_STATE_PROT_MASK, state);
+> > > -	return prot;
+> > > +	u64 p = prot;
+> > > +	return u64_replace_bits(p, state, PKVM_PAGE_STATE_PROT_MASK);
+> > >  }
+> > 
+> > This is a great example where u64_replace_bit() should NOT be used. 
+> 
+> Why not? Explain it. Don't leave people in the dark, because right
+> now it looks like it's purely a religous fanaticism about what
+> should and should not be used. Where's the technical reasoning?
 
+Because enum is an integer, i.e. 32-bit type. Now, the snippet above
+typecasts it to 64-bit fixed size type, passes to 64-bit fixed-type
+function, and the returned value is typecasted back to 32-bit int.
 
-> -----Original Message-----
-> From: cocci-request@inria.fr <cocci-request@inria.fr> On Behalf Of Russel=
-l King
-> (Oracle)
-> Sent: Thursday, April 17, 2025 11:11 AM
-> To: Luo Jie <quic_luoj@quicinc.com>
-> Cc: Yury Norov <yury.norov@gmail.com>; Rasmus Villemoes
-> <linux@rasmusvillemoes.dk>; Julia Lawall <Julia.Lawall@inria.fr>; Nicolas=
- Palix
-> <nicolas.palix@imag.fr>; Catalin Marinas <catalin.marinas@arm.com>; Will
-> Deacon <will@kernel.org>; Marc Zyngier <maz@kernel.org>; Oliver Upton
-> <oliver.upton@linux.dev>; Joey Gouly <joey.gouly@arm.com>; Suzuki K Poulo=
-se
-> <suzuki.poulose@arm.com>; Zenghui Yu <yuzenghui@huawei.com>; linux-
-> kernel@vger.kernel.org; cocci@inria.fr; linux-arm-kernel@lists.infradead.=
-org;
-> kvmarm@lists.linux.dev; andrew@lunn.ch; quic_kkumarcs@quicinc.com;
-> quic_linchen@quicinc.com; quic_leiwei@quicinc.com;
-> quic_suruchia@quicinc.com; quic_pavir@quicinc.com
-> Subject: Re: [cocci] [PATCH v3 3/6] arm64: tlb: Convert the opencoded fie=
-ld
-> modify
->=20
-> On Thu, Apr 17, 2025 at 06:47:10PM +0800, Luo Jie wrote:
-> > Replaced below code with the wrapper FIELD_MODIFY(MASK, &reg, val)
-> > - reg &=3D ~MASK;
-> > - reg |=3D FIELD_PREP(MASK, val);
-> > The semantic patch that makes this change is available
-> > in scripts/coccinelle/misc/field_modify.cocci.
-> >
-> > More information about semantic patching is available at
-> > https://coccinelle.gitlabpages.inria.fr/website
-> >
-> > Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
-> > ---
-> >  arch/arm64/include/asm/tlbflush.h | 3 +--
-> >  1 file changed, 1 insertion(+), 2 deletions(-)
-> >
-> > diff --git a/arch/arm64/include/asm/tlbflush.h
-> b/arch/arm64/include/asm/tlbflush.h
-> > index eba1a98657f1..0d250ef4161c 100644
-> > --- a/arch/arm64/include/asm/tlbflush.h
-> > +++ b/arch/arm64/include/asm/tlbflush.h
-> > @@ -112,8 +112,7 @@ static inline unsigned long get_trans_granule(void)
-> >  	    level >=3D 0 && level <=3D 3) {					\
-> >  		u64 ttl =3D level & 3;					\
-> >  		ttl |=3D get_trans_granule() << 2;			\
-> > -		arg &=3D ~TLBI_TTL_MASK;					\
-> > -		arg |=3D FIELD_PREP(TLBI_TTL_MASK, ttl);			\
-> > +		FIELD_MODIFY(TLBI_TTL_MASK, &arg, ttl);			\
->=20
-> This could equally be:
-> 		arg =3D u64_replace_bits(arg, ttl, TLBI_TTL_MASK);
->=20
-> which already exists, so doesn't require a new macro to be introduced.
->=20
+Doesn't sound the most efficient solution, right? On 32-bit arch it
+may double the function size, I guess.
 
-I had been looking for something like this the other day but was grepping f=
-or "FIELD_REPLACE" and similar which didn't find things.. Neat to know it e=
-xists already :D
+But the most important is that if we adopt this practice and spread it
+around, it will be really easy to overflow the 32-bit storage. The
+compiler will keep silence about that.
 
-> --
-> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Fixed types are very useful in their specific areas - cross-ABI data
+transfer, etc. But mixing them with native types like int may hurt
+badly. 
+
+Hope that helps.
+
+Thanks,
+Yury
 
