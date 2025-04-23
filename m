@@ -4,60 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEE46C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 14:02:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B907FC369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 14:04:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LzLLtntjAk4L5s3zWav1DdCRi8bGrElnziK/fcZnQjE=; b=r+vLbYNLqJySPzrQiYruTeuND7
-	1A82OceBuGkjkn/dR9zzU9pcvd83Z4+RfhKI95dWNZmR3G0ks1L0lgWPUUTXpIYAVmzzMz5A6gRyZ
-	24D2yv84kFLiZb+PFHmpEyLvk7LQinWdWbwXZovFEKPOd9R9ZDir28chjD4cosCPlldM4rJWeQpnD
-	ALOMKfYTLc2ijD1+q+f2hOM6noTY0B1YV8TXDLMeA53hU0Iwh3XaAbXEfCx4dwnpSxpXcx+QBHuRF
-	5ibU5gX3cATxi+bMQa2ii+J1iRNZbmzrLLZDX5wXp0y07yR8mRmobRQUH0/OQpZEjCT1L2VSpztGk
-	xUDXwwJw==;
+	bh=lHJ1f5O9xwzq1Yx+pTTNKXLZ3La2Bs8BPhqWgAJRHkY=; b=s6Y/4Bn+0cHmaiK25M6+rWq2i2
+	A4ggrqF7LjYac4FauIAbsHNoViMpqaOXWwiDE5odLikoRC6NPmR/HtZc+GJHR88BK88MnzC3Qn8DQ
+	+o8sfXO7S50oHeOBhP908U2YFpJjBMML5pada3oq5drIFNIoTh6TzjspyuRA4ecmWrJBc9zCXGNZB
+	ksedYwPB5C04uRMSjaLI8q9XHvUzlROcNCgwUa+W2Iiur0c9uSLBmKwUx2vjXXlSBWdvJqEg8P9cl
+	Kd0DLbUSuRKtqPFUIw1+74OwLRTKzopP9mS01mxNIhAIsRog+prvI2ZQoBdhK53mP82zqrHvTwjQf
+	yrCxHLAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7ag6-0000000Akxk-2c6z;
-	Wed, 23 Apr 2025 14:02:18 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u7ai3-0000000AlKS-1rzh;
+	Wed, 23 Apr 2025 14:04:19 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7aIG-0000000AdAg-4527
+	id 1u7aIK-0000000AdB6-2mU3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 13:37:41 +0000
+	Wed, 23 Apr 2025 13:37:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 87012614B4;
-	Wed, 23 Apr 2025 13:37:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F384CC4CEE2;
-	Wed, 23 Apr 2025 13:37:39 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 673A35C61B9;
+	Wed, 23 Apr 2025 13:35:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4C09C4CEED;
+	Wed, 23 Apr 2025 13:37:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745415460;
-	bh=KhlYkEqRWOy+NUA8qYmqopvVILH6QfgOFe66Bi46DeE=;
+	s=k20201202; t=1745415462;
+	bh=eywy900SjYxtAyo4CfVaSLEC3OTfBf1b1QhPnJKjZ1o=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=JhyAb8iG4C5NZlsDnjgyvBm9RfxuzisolYd5qChiFgNy83amnUcie66wIdpJCGLlK
-	 fET0xRvjHri7RkCPDSs2bZPs0cBvmYH8gJmWVUennym0MjSW+UbxqHG1k28jRNHdIa
-	 zo7R3dRCV4G8W8+eGzAv3zgkclx/N4linJyyF0xTz9yooRzsdXstxXsx8OAiCyuYiY
-	 q3A/yI1kbBIEmhW1Zv3skfAHcwzhp1r5W8uFJiHkmOzeWAV0aZ8xJd/vJeeH8H2g6O
-	 ZlAX+3/LYpD2KHyyykyHl6Bv+DnM/uj1Myx4Cb++9GOc1RQ+ejno2d91gZqVCp1nDs
-	 PHzV5qiQpxc0w==
-Date: Wed, 23 Apr 2025 08:37:38 -0500
+	b=kazjBkX5KBgtLtmEUmbE7O7EHp1X297RTN17di/ekpdAykhJwaTz1UOOnYJbsFNRg
+	 hhp3gkOaRrpDXcKLm+ssabVvI4Yv/AJgfuDF5F+ChBJNE3u/mHXHETaJ+zTCihPsRm
+	 kwVadg7W/hURrq2qs2kpxYj+Drm7qjnKo33ibuWk3bWoPRmhxMihGMFn6X110RLjlE
+	 STlAHD0aY87O8mFi0+PN8qjHh4C+OUIuCUg2uUyDb4iL5qu4NiTVOuLM2aPa2X11+i
+	 LMvPG/r8uyyKv2I6AWSo+/eQl4mnLAX6E2xNwD4NetncjvtU37u2RtpEQ3Wixgmv/J
+	 4QFhqkhkKtgiQ==
+Date: Wed, 23 Apr 2025 08:37:40 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org, 
- niyas.ahmed@samsung.com, linux-kernel@vger.kernel.org, g.naidu@samsung.com, 
- devicetree@vger.kernel.org, krzk+dt@kernel.org, cs0617.lee@samsung.com, 
- linux-samsung-soc@vger.kernel.org, alim.akhtar@samsung.com
-To: Yashwant Varur <yashwant.v@samsung.com>
-In-Reply-To: <20250423060034.973-1-yashwant.v@samsung.com>
-References: <CGME20250423060042epcas5p2c04be779e21089f33b8a9a7785bb151a@epcas5p2.samsung.com>
- <20250423060034.973-1-yashwant.v@samsung.com>
-Message-Id: <174541475597.315167.13886111857775924354.robh@kernel.org>
-Subject: Re: [PATCH] arm64: dts: exynos: Added the ethernet pin
- configuration
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Sascha Hauer <s.hauer@pengutronix.de>, devicetree@vger.kernel.org, 
+ Shawn Guo <shawnguo@kernel.org>, imx@lists.linux.dev, 
+ Peng Fan <peng.fan@nxp.com>, linux-amarula@amarulasolutions.com, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Dan Carpenter <dan.carpenter@linaro.org>, Abel Vesa <abelvesa@kernel.org>, 
+ Fabio Estevam <festevam@gmail.com>, Stephen Boyd <sboyd@kernel.org>, 
+ linux-clk@vger.kernel.org, Michael Turquette <mturquette@baylibre.com>
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+In-Reply-To: <20250423060241.95521-1-dario.binacchi@amarulasolutions.com>
+References: <20250423060241.95521-1-dario.binacchi@amarulasolutions.com>
+Message-Id: <174541475668.315199.12653523227980789003.robh@kernel.org>
+Subject: Re: [PATCH v11 00/18] Support spread spectrum clocking for i.MX8M
+ PLLs
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250423_063744_798731_DAE6B6D6 
+X-CRM114-Status: GOOD (  36.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,14 +81,178 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 23 Apr 2025 11:30:34 +0530, Yashwant Varur wrote:
-> This patch adds the ethernet pin configuration.
+On Wed, 23 Apr 2025 08:02:17 +0200, Dario Binacchi wrote:
+> This version keeps the version v9 patches that can be merged and
+> removes the patches that will need to be modified in case Peng's
+> PR https://github.com/devicetree-org/dt-schema/pull/154 is accepted.
+> The idea is to speed up the merging of the patches in the series
+> that have already been reviewed and are not dependent on the
+> introduction of the assigned-clocks-sscs property, and postpone
+> the patches for spread spectrum to a future series once it becomes
+> clear what needs to be done.
 > 
-> Signed-off-by: Yashwant Varur <yashwant.v@samsung.com>
-> Signed-off-by: Changsub Lee <cs0617.lee@samsung.com>
-> ---
->  .../dts/exynos/exynosautov920-pinctrl.dtsi    | 41 +++++++++++++++++++
->  1 file changed, 41 insertions(+)
+> Specifically, the patches:
+> 
+> 01/18 dt-bindings: clock: imx8mm: add VIDEO_PLL clocks
+> 02/18 clk: imx8mm: rename video_pll1 to video_pll
+> 03/18 dt-bindings: clock: imx8mp: add VIDEO_PLL clocks
+> 04/18 clk: imx8mp: rename video_pll1 to video_pll
+> 
+> are a replica for i.MX8MM and i.MX8MP of the patch for i.MX8MM
+> bedcf9d1dcf88 ("clk: imx: rename video_pll1 to video_pll"), which was
+> merged some time ago. The patches are split into four because, during
+> the review, Krzysztof asked me to separate the driver modifications
+> from the dt-bindings changes.
+> 
+> All the other patches in the series, from 5 to 18, are necessary for
+> the implementation of the anatop driver for i.MX8M{M,N,P}. The review of
+> this series has taken a long time, partly due to misunderstandings
+> arising from incorrect design choices.
+> 
+> As Peng stated in [1]:
+> "In current design, CCM is taken as producer of CLK_IMX8M_VIDEO_PLL, not consumer."
+> 
+> These patches fix this issue by ensuring that the PLLs are now produced by
+> Anatop and consumed by CCM, aligning with the hardware logic.
+> 
+> Finally, a clarification: I decided to keep the same title for the series
+> despite having removed all the patches for spread spectrum support in order
+> to maintain a clear connection with the previous versions.
+> 
+> [1] https://patchwork.kernel.org/project/linux-clk/patch/20241106090549.3684963-2-dario.binacchi@amarulasolutions.com/
+> 
+> Changes in v11:
+> - Fix conflict while rebasing on master for patches:
+>   13/18 clk: imx: add support for i.MX8MP anatop clock driver
+>   14/18 clk: imx8mp: rename ccm_base to base
+>   15/18 dt-bindings: clock: imx8m-clock: add PLLs
+> - Add 'Reviewed-by' tag of Peng Fan for patches:
+>   11/18 clk: imx: add support for i.MX8MM anatop clock driver
+>   13/18 clk: imx: add support for i.MX8MP anatop clock driver
+>   14/18 clk: imx8mp: rename ccm_base to base
+> 
+> Changes in v10:
+> - Drop the v9 patches:
+>   16/23 dt-bindings: clock: imx8m-clock: support spread spectrum clocking
+>   17/23 clk: imx: pll14xx: support spread spectrum clock generation
+>   17/23 clk: imx8mn: support spread spectrum clock generation
+>   21/23 clk: imx8mp: support spread spectrum clock generation
+>   23/23 clk: imx8mm: support spread spectrum clock generation
+> 
+> Changes in v9:
+> - Add 'Reviewed-by' tag of Peng Fan for imx8mn platform patches
+> - Fix building warning raised by the kernel test robot for patch
+>   v8, 11/18 clk: imx: add support for i.MX8MN anatop clock driver
+> - Add patches for imx8m{m,p} platforms:
+>   - 23/23 clk: imx8mm: support spread spectrum clock generation
+>   - 22/23 clk: imx: add support for i.MX8MM anatop clock driver
+>   - 21/23 clk: imx8mp: support spread spectrum clock generation
+>   - 20/23 clk: imx8mp: rename ccm_base to base
+>   - 19/23 clk: imx: add support for i.MX8MP anatop clock driver
+> 
+> Changes in v8:
+> - Drop the patches added in version 7:
+>   - 10/23 dt-bindings: clock: imx8m-clock: add phandle to the anatop
+>   - 11/23 arm64: dts: imx8mm: add phandle to anatop within CCM
+>   - 12/23 arm64: dts: imx8mn: add phandle to anatop within CCM
+>   - 13/23 arm64: dts: imx8mp: add phandle to anatop within CCM
+>   - 14/23 arm64: dts: imx8mq: add phandle to anatop within CCM
+> 
+> Changes in v7:
+> - Add and manage fsl,anatop property as phandle to the anatop node with
+>   the new patches:
+>   - 10/23 dt-bindings: clock: imx8m-clock: add phandle to the anatop
+>   - 11/23 arm64: dts: imx8mm: add phandle to anatop within CCM
+>   - 12/23 arm64: dts: imx8mn: add phandle to anatop within CCM
+>   - 13/23 arm64: dts: imx8mp: add phandle to anatop within CCM
+>   - 14/23 arm64: dts: imx8mq: add phandle to anatop within CCM
+> 
+> Changes in v6:
+> - Merge patches:
+>   10/20 dt-bindings: clock: imx8mm: add binding definitions for anatop
+>   11/20 dt-bindings: clock: imx8mn: add binding definitions for anatop
+>   12/20 dt-bindings: clock: imx8mp: add binding definitions for anatop
+>   to
+>   05/20 dt-bindings: clock: imx8m-anatop: define clocks/clock-names
+>   now renamed
+>   05/18 dt-bindings: clock: imx8m-anatop: add oscillators and PLLs
+> - Split the patch
+>   15/20 dt-bindings-clock-imx8m-clock-support-spread-spectru.patch
+>   into
+>   12/18 dt-bindings: clock: imx8m-clock: add PLLs
+>   16/18 dt-bindings: clock: imx8m-clock: support spread spectrum clocking
+> 
+> Changes in v5:
+> - Fix compilation errors.
+> - Separate driver code from dt-bindings
+> 
+> Changes in v4:
+> - Add dt-bindings for anatop
+> - Add anatop driver
+> - Drop fsl,ssc-clocks from spread spectrum dt-bindings
+> 
+> Changes in v3:
+> - Patches 1/8 has been added in version 3. The dt-bindings have
+>   been moved from fsl,imx8m-anatop.yaml to imx8m-clock.yaml. The
+>   anatop device (fsl,imx8m-anatop.yaml) is indeed more or less a
+>   syscon, so it represents a memory area accessible by ccm
+>   (imx8m-clock.yaml) to setup the PLLs.
+> - Patches {3,5}/8 have been added in version 3.
+> - Patches {4,6,8}/8 use ccm device node instead of the anatop one.
+> 
+> Changes in v2:
+> - Add "allOf:" and place it after "required:" block, like in the
+>   example schema.
+> - Move the properties definition to the top-level.
+> - Drop unit types as requested by the "make dt_binding_check" command.
+> 
+> Dario Binacchi (18):
+>   dt-bindings: clock: imx8mm: add VIDEO_PLL clocks
+>   clk: imx8mm: rename video_pll1 to video_pll
+>   dt-bindings: clock: imx8mp: add VIDEO_PLL clocks
+>   clk: imx8mp: rename video_pll1 to video_pll
+>   dt-bindings: clock: imx8m-anatop: add oscillators and PLLs
+>   arm64: dts: imx8mm: add anatop clocks
+>   arm64: dts: imx8mn: add anatop clocks
+>   arm64: dts: imx8mp: add anatop clocks
+>   arm64: dts: imx8mq: add anatop clocks
+>   clk: imx: add hw API imx_anatop_get_clk_hw
+>   clk: imx: add support for i.MX8MM anatop clock driver
+>   clk: imx: add support for i.MX8MN anatop clock driver
+>   clk: imx: add support for i.MX8MP anatop clock driver
+>   clk: imx8mp: rename ccm_base to base
+>   dt-bindings: clock: imx8m-clock: add PLLs
+>   arm64: dts: imx8mm: add PLLs to clock controller module (CCM)
+>   arm64: dts: imx8mn: add PLLs to clock controller module (CCM)
+>   arm64: dts: imx8mp: add PLLs to clock controller module (CCM)
+> 
+>  .../bindings/clock/fsl,imx8m-anatop.yaml      |  53 +-
+>  .../bindings/clock/imx8m-clock.yaml           |  27 +-
+>  arch/arm64/boot/dts/freescale/imx8mm.dtsi     |  11 +-
+>  arch/arm64/boot/dts/freescale/imx8mn.dtsi     |  11 +-
+>  arch/arm64/boot/dts/freescale/imx8mp.dtsi     |  11 +-
+>  arch/arm64/boot/dts/freescale/imx8mq.dtsi     |   2 +
+>  drivers/clk/imx/Makefile                      |   6 +-
+>  drivers/clk/imx/clk-imx8mm-anatop.c           | 287 ++++++++
+>  drivers/clk/imx/clk-imx8mm.c                  | 262 ++++---
+>  drivers/clk/imx/clk-imx8mn-anatop.c           | 283 ++++++++
+>  drivers/clk/imx/clk-imx8mn.c                  | 183 +++--
+>  drivers/clk/imx/clk-imx8mp-anatop.c           | 306 ++++++++
+>  drivers/clk/imx/clk-imx8mp.c                  | 672 +++++++++---------
+>  drivers/clk/imx/clk.c                         |  15 +
+>  drivers/clk/imx/clk.h                         |   2 +
+>  include/dt-bindings/clock/imx8mm-clock.h      |  76 +-
+>  include/dt-bindings/clock/imx8mn-clock.h      |  64 ++
+>  include/dt-bindings/clock/imx8mp-clock.h      |  80 ++-
+>  18 files changed, 1740 insertions(+), 611 deletions(-)
+>  create mode 100644 drivers/clk/imx/clk-imx8mm-anatop.c
+>  create mode 100644 drivers/clk/imx/clk-imx8mn-anatop.c
+>  create mode 100644 drivers/clk/imx/clk-imx8mp-anatop.c
+> 
+> --
+> 2.43.0
+> 
+> 
 > 
 
 
@@ -100,17 +272,37 @@ make sure dt-schema is up to date:
 
 This patch series was applied (using b4) to base:
  Base: attempting to guess base-commit...
- Base: tags/next-20250423 (exact match)
+ Base: tags/v6.15-rc1-1-g7ed7d1ed852d (exact match)
 
 If this is not the correct base, please add 'base-commit' tag
 (or use b4 which does this automatically)
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/exynos/' for 20250423060034.973-1-yashwant.v@samsung.com:
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/' for 20250423060241.95521-1-dario.binacchi@amarulasolutions.com:
 
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: pinctrl@10830000 (samsung,exynosautov920-pinctrl): 'eth0_pps_out0', 'eth0_pps_out1', 'eth_extpll_avb', 'eth_phy_reset' do not match any of the regexes: '^(initial|sleep)-state$', '^[a-z0-9-]+-pins$', '^[a-z]+[0-9]*-gpio-bank$', '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/pinctrl/samsung,pinctrl.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: pinctrl@16c10000 (samsung,exynosautov920-pinctrl): 'eth0_mdc_mdio', 'eth0_pps_out', 'eth0_rgmii' do not match any of the regexes: '^(initial|sleep)-state$', '^[a-z0-9-]+-pins$', '^[a-z]+[0-9]*-gpio-bank$', '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/pinctrl/samsung,pinctrl.yaml#
+arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-proton2s.dtb: clock-controller@30380000 (fsl,imx8mp-ccm): clock-names: ['osc_32k', 'osc_24m', 'clk_ext1', 'clk_ext2', 'clk_ext3', 'clk_ext4'] is too short
+	from schema $id: http://devicetree.org/schemas/clock/imx8m-clock.yaml#
+arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-proton2s.dtb: clock-controller@30380000 (fsl,imx8mp-ccm): clocks: [[34], [35], [37], [38], [39], [40]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/imx8m-clock.yaml#
+arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-proton2s.dtb: clock-controller@30380000 (fsl,imx8mp-ccm): clock-names: ['osc_32k', 'osc_24m', 'clk_ext1', 'clk_ext2', 'clk_ext3', 'clk_ext4'] is too short
+	from schema $id: http://devicetree.org/schemas/clock/imx8m-clock.yaml#
+arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-proton2s.dtb: clock-controller@30380000 (fsl,imx8mp-ccm): clocks: [[34], [35], [37], [38], [39], [40]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/imx8m-clock.yaml#
+arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-adpismarc.dtb: clock-controller@30380000 (fsl,imx8mp-ccm): clock-names: ['osc_32k', 'osc_24m', 'clk_ext1', 'clk_ext2', 'clk_ext3', 'clk_ext4'] is too short
+	from schema $id: http://devicetree.org/schemas/clock/imx8m-clock.yaml#
+arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-adpismarc.dtb: clock-controller@30380000 (fsl,imx8mp-ccm): clocks: [[33], [34], [36], [37], [38], [39]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/imx8m-clock.yaml#
+arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-adpismarc.dtb: clock-controller@30380000 (fsl,imx8mp-ccm): clock-names: ['osc_32k', 'osc_24m', 'clk_ext1', 'clk_ext2', 'clk_ext3', 'clk_ext4'] is too short
+	from schema $id: http://devicetree.org/schemas/clock/imx8m-clock.yaml#
+arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-adpismarc.dtb: clock-controller@30380000 (fsl,imx8mp-ccm): clocks: [[33], [34], [36], [37], [38], [39]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/imx8m-clock.yaml#
+arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios.dtb: clock-controller@30380000 (fsl,imx8mp-ccm): clock-names: ['osc_32k', 'osc_24m', 'clk_ext1', 'clk_ext2', 'clk_ext3', 'clk_ext4'] is too short
+	from schema $id: http://devicetree.org/schemas/clock/imx8m-clock.yaml#
+arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios.dtb: clock-controller@30380000 (fsl,imx8mp-ccm): clocks: [[33], [34], [36], [37], [38], [39]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/imx8m-clock.yaml#
+arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios.dtb: clock-controller@30380000 (fsl,imx8mp-ccm): clock-names: ['osc_32k', 'osc_24m', 'clk_ext1', 'clk_ext2', 'clk_ext3', 'clk_ext4'] is too short
+	from schema $id: http://devicetree.org/schemas/clock/imx8m-clock.yaml#
+arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios.dtb: clock-controller@30380000 (fsl,imx8mp-ccm): clocks: [[33], [34], [36], [37], [38], [39]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/imx8m-clock.yaml#
 
 
 
