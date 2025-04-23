@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA82FC369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:42:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B252C369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:42:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7vLiOFS/Mk3+IMyA6buPmwkGM4ANVg7TuroLzkRgmG0=; b=DaWulOo68jIpZ1+8/vEO789dWo
-	PztLZbPYaaMgXIyO9Rcjv2g0LMQnLTMPV6o+CTEcfV/qaxS8zZW+tfVZaYWg7yt0si42+GlLSVQNi
-	XzLYzcaSNXMjxUQu24Z496hI0cfJTbb/FZcSGXAl8TrCF0APT6Y6JbKj+RF/i7WYeDxVIx+mWspxB
-	DjxrQLbDWjZwVHjI5x9ANDDISlg7Q8W1ZLqo/5CkU0S8GZigPXJg8R7wJPc8xAgZulGGXbMc/WO7s
-	2NnzMRlvJB6axlcgiF57jKkVdOi66tixVyjopH3yV6uDSkYN22qxRFoxyjvRw900QY48SAU0ZI+iH
-	pV5QzT+g==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B0vKyl5GFtZQa62SIwU5D+7YsDfICv/NdcJuT9qeeKM=; b=ckUAKwKoTeq+YeKxq+JFelYn0y
+	QF8YHqYoYNTFKOb/K4xNzOhNNrK52jIAeMAEt90hKyJ73T9E6ROBoqFtc9BJZo3V1u/PDfAORN5Dl
+	GYAdM2Tnejj8tl+9Bl/o0B+ROPiRkoe4cNfSoFqZ5g0Pk/NtdzeKg62dHZ26BzpdIc6O6jRm+kLVl
+	H+nS0Wnf9p/ZPCIs5yRqcpO0c5Y7turNmXcooi2rHt+EBqiCw7a+RQMO/uehAjDumWbRMNjWUgh6z
+	au0VrcABZ3aapLiD4M88mpwSg1+BKwHGAiM0Ra3gt9ynrUksU6sxWGY2v0fcFeWFOORnbrtgyGhQm
+	jayRoSJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7e7B-0000000BLBC-1Gep;
-	Wed, 23 Apr 2025 17:42:29 +0000
+	id 1u7e7C-0000000BLEN-3xBz;
+	Wed, 23 Apr 2025 17:42:30 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7br6-0000000AwFl-3N93
+	id 1u7br8-0000000AwGS-48cm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 15:17:46 +0000
+	Wed, 23 Apr 2025 15:17:48 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BDFB01063;
-	Wed, 23 Apr 2025 08:17:38 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E6242106F;
+	Wed, 23 Apr 2025 08:17:40 -0700 (PDT)
 Received: from e132581.cambridge.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 8EDA83F66E;
-	Wed, 23 Apr 2025 08:17:41 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B7A863F66E;
+	Wed, 23 Apr 2025 08:17:43 -0700 (PDT)
 From: Leo Yan <leo.yan@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Mike Leach <mike.leach@linaro.org>,
@@ -47,16 +47,18 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 	linux-kernel@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com
 Cc: Leo Yan <leo.yan@arm.com>
-Subject: [PATCH v2 0/9] coresight: Fix and improve clock usage
-Date: Wed, 23 Apr 2025 16:17:17 +0100
-Message-Id: <20250423151726.372561-1-leo.yan@arm.com>
+Subject: [PATCH v2 1/9] coresight: tmc: Support atclk
+Date: Wed, 23 Apr 2025 16:17:18 +0100
+Message-Id: <20250423151726.372561-2-leo.yan@arm.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250423151726.372561-1-leo.yan@arm.com>
+References: <20250423151726.372561-1-leo.yan@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_081744_930128_7E76E6CF 
-X-CRM114-Status: GOOD (  12.16  )
+X-CRM114-CacheID: sfid-20250423_081747_155964_CB153E9E 
+X-CRM114-Status: GOOD (  19.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,69 +73,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series fixes and improves clock usage in the Arm CoreSight drivers.
+The atclk is an optional clock for the CoreSight TMC, but the driver
+misses to initialize it.  In most cases, TMC shares the atclk clock with
+other CoreSight components.  Since these components enable the clock
+before the TMC device is initialized, the TMC continues properly,
+which is why we don’t observe any lockup issues.
 
-Based on the DT binding documents, the trace clock (atclk) is defined in
-some CoreSight modules, but support is absent.  In most cases, the issue
-is hidden because the atclk clock is shared by multiple CoreSight
-modules and the clock is enabled anyway by other drivers.  The first
-three patches address this issue.
+This change enables atclk in probe of the TMC driver.  Given the clock
+is optional, it is possible to return NULL if the clock does not exist.
+IS_ERR() is tolerant for this case.
 
-The programming clock (pclk) management in CoreSight drivers does not
-use the devm_XXX() variant APIs, the drivers needs to manually disable
-and release clocks for errors and for normal module exit.  However, the
-drivers miss to disable clocks during module exit.  The atclk may also
-not be disabled in CoreSight drivers during module exit.  By using devm
-APIs, patches 04 and 05 fix clock disabling issues.
+Dynamically disable and enable atclk during suspend and resume.  The
+clock pointers will never be error values if the driver has successfully
+probed, and the case of a NULL pointer case will be handled by the clock
+core layer.  The driver data is always valid after probe. Therefore,
+remove the related checks.  Also in the resume flow adds error handling.
 
-Another issue is pclk might be enabled twice in init phase - once by
-AMBA bus driver, and again by CoreSight drivers.
-This is fixed in patch 06.
+Fixes: bc4bf7fe98da ("coresight-tmc: add CoreSight TMC driver")
+Signed-off-by: Leo Yan <leo.yan@arm.com>
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+---
+ drivers/hwtracing/coresight/coresight-tmc-core.c | 22 +++++++++++++++++-----
+ drivers/hwtracing/coresight/coresight-tmc.h      |  2 ++
+ 2 files changed, 19 insertions(+), 5 deletions(-)
 
-Patches 07 to 09 refactor the clock related code.  Patch 07 consolidats
-the clock initialization into a central place.  Patch 08 makes the
-clock enabling sequence consistent.  Patch 09 removes redundant
-condition checks and adds error handling in runtime PM.
-
-This series is verified on Arm64 Hikey960 platform.
-
-Changes from v1:
-- Moved the coresight_get_enable_clocks() function into CoreSight core
-  layer (James).
-- Added comments for clock naming "apb_pclk" and "apb" (James).
-- Re-ordered patches for easier understanding (Anshuman).
-- Minor improvement for commit log in patch 01 (Anshuman).
-
-
-Leo Yan (9):
-  coresight: tmc: Support atclk
-  coresight: catu: Support atclk
-  coresight: etm4x: Support atclk
-  coresight: Disable programming clock properly
-  coresight: Disable trace bus clock properly
-  coresight: Avoid enable programming clock duplicately
-  coresight: Consolidate clock enabling
-  coresight: Make clock sequence consistent
-  coresight: Refactor runtime PM
-
- drivers/hwtracing/coresight/coresight-catu.c       | 53 ++++++++++++++++-----------------
- drivers/hwtracing/coresight/coresight-catu.h       |  1 +
- drivers/hwtracing/coresight/coresight-core.c       | 45 ++++++++++++++++++++++++++++
- drivers/hwtracing/coresight/coresight-cpu-debug.c  | 41 +++++++++-----------------
- drivers/hwtracing/coresight/coresight-ctcu-core.c  | 24 +++++----------
- drivers/hwtracing/coresight/coresight-etb10.c      | 18 ++++--------
- drivers/hwtracing/coresight/coresight-etm3x-core.c | 17 ++++-------
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 32 ++++++++++----------
- drivers/hwtracing/coresight/coresight-etm4x.h      |  4 ++-
- drivers/hwtracing/coresight/coresight-funnel.c     | 66 +++++++++++++++---------------------------
- drivers/hwtracing/coresight/coresight-replicator.c | 63 ++++++++++++++--------------------------
- drivers/hwtracing/coresight/coresight-stm.c        | 34 +++++++++-------------
- drivers/hwtracing/coresight/coresight-tmc-core.c   | 48 +++++++++++++++---------------
- drivers/hwtracing/coresight/coresight-tmc.h        |  2 ++
- drivers/hwtracing/coresight/coresight-tpiu.c       | 36 ++++++++++-------------
- include/linux/coresight.h                          | 30 ++-----------------
- 16 files changed, 225 insertions(+), 289 deletions(-)
-
+diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
+index a7814e8e657b..ddca5ddf4ed2 100644
+--- a/drivers/hwtracing/coresight/coresight-tmc-core.c
++++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
+@@ -789,6 +789,10 @@ static int __tmc_probe(struct device *dev, struct resource *res)
+ 	struct coresight_desc desc = { 0 };
+ 	struct coresight_dev_list *dev_list = NULL;
+ 
++	drvdata->atclk = devm_clk_get_optional_enabled(dev, "atclk");
++	if (IS_ERR(drvdata->atclk))
++		return PTR_ERR(drvdata->atclk);
++
+ 	ret = -ENOMEM;
+ 
+ 	/* Validity for the resource is already checked by the AMBA core */
+@@ -1019,18 +1023,26 @@ static int tmc_runtime_suspend(struct device *dev)
+ {
+ 	struct tmc_drvdata *drvdata = dev_get_drvdata(dev);
+ 
+-	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
+-		clk_disable_unprepare(drvdata->pclk);
++	clk_disable_unprepare(drvdata->atclk);
++	clk_disable_unprepare(drvdata->pclk);
++
+ 	return 0;
+ }
+ 
+ static int tmc_runtime_resume(struct device *dev)
+ {
+ 	struct tmc_drvdata *drvdata = dev_get_drvdata(dev);
++	int ret;
+ 
+-	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
+-		clk_prepare_enable(drvdata->pclk);
+-	return 0;
++	ret = clk_prepare_enable(drvdata->pclk);
++	if (ret)
++		return ret;
++
++	ret = clk_prepare_enable(drvdata->atclk);
++	if (ret)
++		clk_disable_unprepare(drvdata->pclk);
++
++	return ret;
+ }
+ #endif
+ 
+diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
+index 6541a27a018e..cbb4ba439158 100644
+--- a/drivers/hwtracing/coresight/coresight-tmc.h
++++ b/drivers/hwtracing/coresight/coresight-tmc.h
+@@ -210,6 +210,7 @@ struct tmc_resrv_buf {
+ 
+ /**
+  * struct tmc_drvdata - specifics associated to an TMC component
++ * @atclk:	optional clock for the core parts of the TMC.
+  * @pclk:	APB clock if present, otherwise NULL
+  * @base:	memory mapped base address for this component.
+  * @csdev:	component vitals needed by the framework.
+@@ -244,6 +245,7 @@ struct tmc_resrv_buf {
+  *		 Used by ETR/ETF.
+  */
+ struct tmc_drvdata {
++	struct clk		*atclk;
+ 	struct clk		*pclk;
+ 	void __iomem		*base;
+ 	struct coresight_device	*csdev;
 -- 
 2.34.1
 
