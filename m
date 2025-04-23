@@ -4,68 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18982C369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:43:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ABD0C369D8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:43:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ocwMdjEFp5wFZOdNnywb64kzd7AeTemeukF1Df9VU14=; b=iJfBL/ibkD8VEEOtGFDUxRiwKw
-	XLMbgjOrPiQCMnp3t0MqNc2yLsYaRlsoOdppoMHFexuLtJ+6uVALQ1B70fNQmpAa0emkfSUoJihle
-	XYe+cmmZO5oTRybwiV+tEzT4thNFy7BFqzFT6XadgWurvPRqHgKc09g8vUsiNvbk96m5xtemeWUDr
-	rXQMp2Meq6NxQGuTO4Lvc0gKP+u2nATa2Nz1fbpDd0J9/zNu216/HjBkXu1gorZuNtkrW9gHvuehx
-	O+YBy8hiYZGvLeWAmoQpAD35ruTmH2m43+iJB4rYjFacbTo+UiAER1SCHKTejgfY52p0RRBHLYkaD
-	UGqT4Vkg==;
+	bh=CWHowVpObp7HV+fLEVrMYxcsNuOJ0kAuRTVH5wUoD0k=; b=N3m1/raZQA7tgcU7Q1mtWIrTBQ
+	uLDnjuMimmQYz8VKKuxmZfTU5EccIoUfxuzxXKPEqatLqto9UfFH/E+bD3aTveAo0+C3/GsXARCxm
+	sWjPh6GxmQsYDCNx6y/H4/os/JWeFa3m77wEltY+Rs+QxCc9eXgkahpc8qaHdO8B12prJQRVIqk20
+	1mZ4T9NrgSjiCh78ZpzKm6gDb8OXZMx0eP+5elISnoo2q2Ae4+/gYcbNGhgl7vadOQapu7XdFTDHM
+	8/TPV7jVyDnKatm/NGueVjoskVhc4PVMx0V7ZgMiOvU5jk0o2J8OHYmqFhfgXuGsFvdQrQGqg97gK
+	rtP/KleA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7e7y-0000000BMVy-2ee3;
-	Wed, 23 Apr 2025 17:43:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u7e80-0000000BMaw-3v0S;
+	Wed, 23 Apr 2025 17:43:20 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7byj-0000000AxbN-1P1d
+	id 1u7bzE-0000000Axgl-2XCU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 15:25:38 +0000
+	Wed, 23 Apr 2025 15:26:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id ACCFA44F24;
-	Wed, 23 Apr 2025 15:25:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBAE8C4CEE2;
-	Wed, 23 Apr 2025 15:25:35 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id DBDA55C2CE4;
+	Wed, 23 Apr 2025 15:23:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79D06C4CEE2;
+	Wed, 23 Apr 2025 15:26:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745421936;
-	bh=G9/2avOv+6YP3rqQlxPZIf0rfrgI6wXZ+XhqCkNxxp0=;
+	s=k20201202; t=1745421967;
+	bh=fdx+A6tYLe/1AVGhBuKzYaJJVZ/VjPsQYhS5cYDFSBg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SAsUjbv45Iu2JeeGdv5hD72TtTwW42t4fM296dyG+CtPvoZVAnTaYED0b8goY32lj
-	 aWZiNqXe9iVgGTEOL9KN3xWV33GBVsaVUFZMKppxcX40AnZkMDv22l3SqkpWLhv2tr
-	 Qv+MpHyCsz8FDxp6khYR2+Hy7FsCDIhrUmK0rsaKih6+tWoxcd8dqq8M6JlJjiN+HR
-	 wheTAHqMYsswXimW6HSTYtwvtqZ+ut+aqZ0xpoEPhvE39JKABTEcbWnUVZmR6Wc8wb
-	 fQATDyCq69GiDnGF/+ObuJbWZCgPyo9mPQjdwXTV4zi1KDFXWblVQl8J6PkVYx2BKQ
-	 hnNhvrQ9WIAjg==
-Date: Wed, 23 Apr 2025 10:25:34 -0500
+	b=r+PkeQFBD7vF6kEIPZupcaoH+HjYVBpmdseVIlvNCtzLGfPDXsTSnyf8DNJTHuwi7
+	 t4Q7rKe9eOx+XYLEGiWcHOZf27W2hCcV2h5HlZeSpduzhIVRLYFkcZl/tit8ezc/pM
+	 WpNtKEp5itgJw0hOTU+HPpjCIb5rZ9ViEhzRHyQKf1Bd8fEBp1YSNZipKmqN0nLAd7
+	 EBfUgwRogbwjXcv5evv6WgTXbsAlEJ2RngFPZ6teSl85RGEs8JFxVwK9lqChN5zlTe
+	 JyAiqAX5dXQFYPMtBJWjjp9P4OzAKnCfxvH559redbajEVnRpHtd96NeCFtiEe1nBd
+	 iq0Jv0JbCHdEw==
+Date: Wed, 23 Apr 2025 10:26:05 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Stefan Wahren <wahrenst@gmx.net>
-Cc: Conor Dooley <conor+dt@kernel.org>,
+To: Alexey Charkov <alchark@gmail.com>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>, devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Scott Branden <sbranden@broadcom.com>,
-	Andrea della Porta <andrea.porta@suse.com>,
-	bcm-kernel-feedback-list@broadcom.com,
-	linux-arm-kernel@lists.infradead.org, kernel-list@raspberrypi.com,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, devicetree@vger.kernel.org
-Subject: Re: [PATCH 1/3] dt-bindings: arm: bcm2835: Add Raspberry Pi 2 (2nd
- rev)
-Message-ID: <174542193386.552497.9194165667630567957.robh@kernel.org>
-References: <20250418143307.59235-1-wahrenst@gmx.net>
- <20250418143307.59235-2-wahrenst@gmx.net>
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] dt-bindings: timer: via,vt8500-timer: Convert to YAML
+Message-ID: <174542196522.553193.15954115826639529513.robh@kernel.org>
+References: <20250418-via_vt8500_timer_binding-v2-1-3c125568f028@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250418143307.59235-2-wahrenst@gmx.net>
+In-Reply-To: <20250418-via_vt8500_timer_binding-v2-1-3c125568f028@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_082537_391213_2BF2C87A 
-X-CRM114-Status: UNSURE (   8.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250423_082608_686442_56033FF0 
+X-CRM114-Status: GOOD (  13.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,15 +75,30 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 18 Apr 2025 16:33:05 +0200, Stefan Wahren wrote:
-> Add the Raspberry Pi 2 (2nd rev) based on BCM2837 to DT schema.
+On Fri, 18 Apr 2025 18:33:45 +0400, Alexey Charkov wrote:
+> Rewrite the textual description for the VIA/WonderMedia timer
+> as YAML schema.
 > 
-> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+> The IP can generate up to four interrupts from four respective match
+> registers, so reflect that in the schema.
+> 
+> Signed-off-by: Alexey Charkov <alchark@gmail.com>
 > ---
->  Documentation/devicetree/bindings/arm/bcm/bcm2835.yaml | 1 +
->  1 file changed, 1 insertion(+)
+> Split the series from v1 into separate bindings patches so as not to
+> spam all the subsystems with unrelated changes, per Rob's suggestion
+> 
+> Changes in v2:
+> - added description for the four possible interrupts (thanks Rob)
+> - added overall description of the IC block
+> 
+> Link to v1: https://lore.kernel.org/all/20250416-wmt-updates-v1-6-f9af689cdfc2@gmail.com/
+> ---
+>  .../devicetree/bindings/timer/via,vt8500-timer.txt | 15 -------
+>  .../bindings/timer/via,vt8500-timer.yaml           | 51 ++++++++++++++++++++++
+>  MAINTAINERS                                        |  2 +
+>  3 files changed, 53 insertions(+), 15 deletions(-)
 > 
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
 
