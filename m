@@ -4,85 +4,179 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 745CDC369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:40:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CE58C369D7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:40:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G9rr401OufXElmvBl3vcgyDTpasOf1VvGYueuVS+Uto=; b=1AeZ/msCLxsGzenQR5mICbTe9s
-	L6wOf247TWS7wuFGAlXMcnC4Ig0yFzSOpjO4x7LqZ32MO10WFzQOC/BlH36AgX9w7l2dG+i36+A89
-	i0HRNe0Q+potZghJ1JrOxHYDufeR8RgxODnx70hXdcEVbpobH+r1H2c/KeYZrFqXKsob5T5GdkBmN
-	Ak93a+j+f0CGtuyiA7EbCcJapfYMy84QrHvXoSqPUoIQF3ohVHVbzkNWud+i1L+Em8V0g5Y6qAmcR
-	gKO3+UrFnaHTV2T3dmHD/SPJBrUTvcxmXxnqmYBT1Ym308NxQNaUpei5GLejBShVbDgYsEqeSc1un
-	7MAJTuxw==;
+	bh=q0uhe0D8TF5uPGk3UXDeBLnp4CqRsUXHkBmNowJdBnc=; b=b2hjhElZfivYznz6rVdnZheHRA
+	OIxtMHsO9UcJwqaxHqty3se/9WgsDAWMRy4yOFKcvU33BnwQHmGc2YI7Si9fQ/iRZK93XayIgzSIt
+	x2iu73Y9ebHZq1mULkawcdj1gdevjb4TlrpeBWDESl/pHhJ59RgBGxHpG5BLGVR8KTJSDkZ9cVEDV
+	yhPa/ACbzMRQxJlWO4JbUWGo2Wn9PLMPjxUAf2JMntWrj8JaQhzM0tx2fZT3Ak2DQe77yi2oVRMDs
+	e7VkDmg6DOzbTB0qPwiLHIh3xeAXvxDDjcaRNU2rnlqhUx6pd3CfKVHv55UARnWBMyzA8RF82StW1
+	efdBXx6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7e5V-0000000BIXB-26sE;
-	Wed, 23 Apr 2025 17:40:45 +0000
-Received: from mail-oi1-f178.google.com ([209.85.167.178])
+	id 1u7e5U-0000000BITt-0DWD;
+	Wed, 23 Apr 2025 17:40:44 +0000
+Received: from mail-mw2nam10on20605.outbound.protection.outlook.com ([2a01:111:f403:2412::605] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7bBR-0000000AqKZ-0U19
+	id 1u7b9o-0000000Aq7q-2CLy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 14:34:42 +0000
-Received: by mail-oi1-f178.google.com with SMTP id 5614622812f47-3f6aa4b3a7fso1896078b6e.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 07:34:40 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745418879; x=1746023679;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=G9rr401OufXElmvBl3vcgyDTpasOf1VvGYueuVS+Uto=;
-        b=NvJXmZoF3XaAHvemm5EM/f01QkSI+hJoKDPUEMElHR6+rgWsfRf0RAbMVH1mE3Dw6V
-         B/hA8EUBvRVU0Z6NoyjXlMsmrv//fevot3bAqqWOQbkZmcM4tIazFkiXwGzW/yFMmWTG
-         aHlgoTpzmHoI2TJCjCpf45sC7v/qJaw5fmImI2OS6KW3j6ta4JFfAmYsRFSqcJlGX5j9
-         ijuAgjCK2lAaSxLmGU4c8GHuwLKXLnaD6/jvc5HhVhkST+5fFBucQGH9zj789mG6Quql
-         QoDprdguLZz/bIAkD4eC4s3pxrfv4oXsqpEhBPpWA77iTU1kNYffx5hFSVL7frk7CiIU
-         66oQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXKbI7jUfZycWc6n5qUqPcngNpLyFWjkS2bf1oCCXzZYWkJuVmIbxKdDpFLemg+nAmiSaHjdI96ebbwIn/x+yU4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz0PW2wvRn+7/FgOTD+WNhYL1+0B3qf4GCuJrtYkk76Ue4SLvoG
-	KyBmiXEs6Fs1SwIXDnCgCovRjZ7mdlcG4hnMEb2EA2CF/b1uQJbBJWDxrAQl9uY=
-X-Gm-Gg: ASbGncvsqiccH8nrsACtUWcwvvPMIwTMHBHeOf9hVnrdLhEUauopFQQXanrYRercluJ
-	A5TbPjp1yWymrMJmkjnW5Cd0fS7kliyLyrvUT2IcMupExwlqoapHNayHgoFLIIaoMDBkDgqLl5w
-	TeShAYaGcJWA+8MKdTeovpQr4I5aonwzeA323Ni/QKDstjnVwVIof9wCB011Y89765C9gFmFlfs
-	1PK61Ueu5T9eB/b9WWJJ+Tw46n3YnTz040GGmmVqLdQHvkIRIsJ4/qSo01u3bypm+YC6h2v8C3m
-	cPBi5qGB7JBMLyNfIKfD6D/TDA+47WUHKG507HW3OQEHWTAZlvuxlD/8nPSHWQtmy3FC94eOd81
-	sgHU=
-X-Google-Smtp-Source: AGHT+IH9d7wkaxuxrUL8v2d0QMm2Q276myosmiOvMG6vgKHzpPm+9iVyAJuH223EFz+lPaJ+Q6FNgg==
-X-Received: by 2002:a05:6808:870b:10b0:3f8:b73b:682b with SMTP id 5614622812f47-401c093292amr9050901b6e.7.1745418879453;
-        Wed, 23 Apr 2025 07:34:39 -0700 (PDT)
-Received: from mail-ot1-f41.google.com (mail-ot1-f41.google.com. [209.85.210.41])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-401beed8a5fsm2613094b6e.18.2025.04.23.07.34.38
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 23 Apr 2025 07:34:38 -0700 (PDT)
-Received: by mail-ot1-f41.google.com with SMTP id 46e09a7af769-72c09f8369cso2046705a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 07:34:38 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCX3kjq4SToZAbBCUwpPewpeTkDLSdt7miOHuBM3ANH8/NT3p+pD5ClA3Nl9Oy/72A8vUJZpm5ZLdA8WN18eVlQH@lists.infradead.org
-X-Received: by 2002:a05:6830:6687:b0:72b:8ec3:9297 with SMTP id
- 46e09a7af769-730062f764bmr15710973a34.21.1745418878334; Wed, 23 Apr 2025
- 07:34:38 -0700 (PDT)
+	Wed, 23 Apr 2025 14:33:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Z7suMz/7PvPHdXQlFQfrSOpHG2mBSDTXZhfnybMe3T+yFrXNDPXuiOhwOV6iIW/JlR2q0CbXSO3/LD/CkZF93rC5fO8rs3hHchv6phFXFjEqaMWz/tytQkov4vWEA8YKh4e6Zm7nX9HkhjTnRsSTRroJ6M3P3G7QXj641b1Lx1PeC1xAM9rbdNAXrks1X/8OOT16CXa3HWojht/5gidNH19b8YsjAmNDse94KjmB0RqLHXw4hWaWu10ku6v2SopLqWmoIOChJRSmqswkVGx4H74GrGqo5wR5zPhUk8MUQD6Y9P8JuOzD3oJWvhuGPT16boOXXP1rTE/6gynAy9SdiQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=q0uhe0D8TF5uPGk3UXDeBLnp4CqRsUXHkBmNowJdBnc=;
+ b=YMcmxkYQpBoSg8AdSDLLVSil66iUl9XGlFV3MfQtcqT/hBnCWPBGfU6EQkUCxyGC91BlI9jul1j/dBo6qAA9LYFHvcXZARO44os/MqdV2nH+opTvKlxIU8AlAxGQT4o4wljxN4RX6/McKT3YwmELFjaopB1DhMBz3DzolD3G9P3PZAnfB4Q/X7i1JnpnTIlmH4InX0c+fkzf/lucrkz5HbiZ9kTkWz06TezOOEm8bq8BCIwxNZILXao6rLCfhjXsMtb4PmCJMQCQydo6PAy1fKj606M0LGKVbzEZ2C8gAYVetovWSMonbs1ltqVm7MW/sfmxh6Oz9+tflfM1CZP/VQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=q0uhe0D8TF5uPGk3UXDeBLnp4CqRsUXHkBmNowJdBnc=;
+ b=wdbawFCsAtsDIjXZY9SJzIqeCcBYgjoQRU2yjrQYeTV8ZIoVxjDDr3f0h/Cb6WJBLUeq8ge2qMeUosKYdsSsZV6vmPz7JZgQmH9shpZA4est6/7NpfBTItBwPWxOWrq2ZrqnFMQqrIDy1RohqU45ybtOmNaI3/6ofiBJyV5zxRY=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from PH7PR12MB5685.namprd12.prod.outlook.com (2603:10b6:510:13c::22)
+ by DM3PR12MB9391.namprd12.prod.outlook.com (2603:10b6:0:3d::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.30; Wed, 23 Apr
+ 2025 14:32:53 +0000
+Received: from PH7PR12MB5685.namprd12.prod.outlook.com
+ ([fe80::46fb:96f2:7667:7ca5]) by PH7PR12MB5685.namprd12.prod.outlook.com
+ ([fe80::46fb:96f2:7667:7ca5%7]) with mapi id 15.20.8678.021; Wed, 23 Apr 2025
+ 14:32:53 +0000
+Message-ID: <e19f13a0-90e0-4e24-b547-607496d8983d@amd.com>
+Date: Wed, 23 Apr 2025 16:32:48 +0200
+User-Agent: Mozilla Thunderbird
+Subject: =?UTF-8?B?UmU6IOWbnuWkjTogW1JFR1JFU1NJT05dIGFtZGdwdTogYXN5bmMgc3lz?=
+ =?UTF-8?Q?tem_error_exception_from_hdp=5Fv5=5F0=5Fflush=5Fhdp=28=29?=
+To: Alexey Klimov <alexey.klimov@linaro.org>,
+ Alex Deucher <alexdeucher@gmail.com>
+Cc: Fugang Duan <fugang.duan@cixtech.com>,
+ "alexander.deucher@amd.com" <alexander.deucher@amd.com>,
+ "frank.min@amd.com" <frank.min@amd.com>,
+ "amd-gfx@lists.freedesktop.org" <amd-gfx@lists.freedesktop.org>,
+ "stable@vger.kernel.org" <stable@vger.kernel.org>,
+ "david.belanger@amd.com" <david.belanger@amd.com>,
+ Peter Chen <peter.chen@cixtech.com>,
+ cix-kernel-upstream <cix-kernel-upstream@cixtech.com>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+References: <D97FB92117J2.PXTNFKCIRWAS@linaro.org>
+ <SI2PR06MB5041FB15F8DBB44916FB6430F1BD2@SI2PR06MB5041.apcprd06.prod.outlook.com>
+ <D980Y4WDV662.L4S7QAU72GN2@linaro.org>
+ <CADnq5_NT0syV8wB=MZZRDONsTNSYwNXhGhNg9LOFmn=MJP7d9Q@mail.gmail.com>
+ <SI2PR06MB504138A5BEA1E1B3772E8527F1BC2@SI2PR06MB5041.apcprd06.prod.outlook.com>
+ <CADnq5_M=YiMVvMpGaFhn2T3jRWGY2FrsUwCVPG6HupmTzZCYug@mail.gmail.com>
+ <D9CT4HS7F067.J0GJHAGHI9G9@linaro.org>
+ <CADnq5_ML25QA7xD+bLqNprO3zzTxJYLkiVw-KmeP-N6TqNHRYA@mail.gmail.com>
+ <D9DAIUZXIWH3.1L7CV6GEX4C9M@linaro.org>
+Content-Language: en-US
+From: =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
+In-Reply-To: <D9DAIUZXIWH3.1L7CV6GEX4C9M@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FR4P281CA0214.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:e4::10) To PH7PR12MB5685.namprd12.prod.outlook.com
+ (2603:10b6:510:13c::22)
 MIME-Version: 1.0
-References: <50dbaf4ce962fa7ed0208150ca987e3083da39ec.1745345400.git.geert+renesas@glider.be>
- <b1f19b31-3535-4bb5-bcef-6f17ad2a0ee6@arm.com> <CAMuHMdVJKA8zYETKJTRAwg6=+EuTq4YqbFO32K4+py9YNsD1Gw@mail.gmail.com>
- <aAjTg8dgvxqLQOwQ@vaman> <CAMuHMdXQKG0qptWMi169MVBL1S3hPo1TsaOSxWspoHAwRd+fug@mail.gmail.com>
- <aAjaPV/2DSyPAGRB@vaman> <b7557def-d0a1-4035-9586-a2651e28ab24@arm.com>
-In-Reply-To: <b7557def-d0a1-4035-9586-a2651e28ab24@arm.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 23 Apr 2025 16:34:26 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdWoxPc71YYrEMdPwdq-HOhmP2jNiwo1+-8o6_v4YJ0NHQ@mail.gmail.com>
-X-Gm-Features: ATxdqUEnXX6HpwpOQNi-bNaBAYBUuz0gKv8TfTPMoWQoV5DcAvXfFibPzFN2Uu4
-Message-ID: <CAMuHMdWoxPc71YYrEMdPwdq-HOhmP2jNiwo1+-8o6_v4YJ0NHQ@mail.gmail.com>
-Subject: Re: [PATCH] dmaengine: ARM_DMA350 should depend on ARM/ARM64
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: Vinod Koul <vkoul@kernel.org>, dmaengine@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH7PR12MB5685:EE_|DM3PR12MB9391:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8bcfb15f-148d-405a-4a95-08dd8273bb04
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?YmJNdVFiUGxFOWV3WUt5OGJoSzlnbkwvRytwREo5amJzVjhDNTFKenRIeWc4?=
+ =?utf-8?B?bjBweFFSMCtCMmlTRGtJd1lUU0lJZ0phZnNtT0NWL3cxZnRxb0J5Z0RNT2tk?=
+ =?utf-8?B?eTc5bEdna2Y4ak81S3FGWTBTd0xRZGQxRzV3V2E0TXczV2V5VUY4dHJqVy9j?=
+ =?utf-8?B?ek9xUmprQzdPbThDd2ErOUMrY1plMUVsMHF6elpVL043cnd2bm16M3F2NFRz?=
+ =?utf-8?B?elVWR29mdUs5aUFKakE1YzBJTzBWQkI1NkdiNnF2bWRvbm9pSkQ3NXpuTi9G?=
+ =?utf-8?B?Mjhab1pEL3ExMnBZRWMvUkJyVEh6RlFGbmEzWGpSWk1FK1liUUJEWlFxT1VO?=
+ =?utf-8?B?TlFWQi9XRWRURkhHM3JIR0F1Z2ZRQjIrRis1M3NxY0xxeXVkMDNZQWdGV2N2?=
+ =?utf-8?B?V3F1V2lFSjM0QWlPWXhTRC8vTk53WHNqYmpmdWRlMENGUGo3UUFUZzN3YkFL?=
+ =?utf-8?B?blJPS3RFUzV5MHladWhySU9DYVR3M0VSUVY2T0R1M2JXdUlKVi9DRnpiR3hT?=
+ =?utf-8?B?amUrZVgvKzJNa3ZTemptdVoyRGpuNXB3QWIvb2M3MWtWK3J0SlhMV250aDd0?=
+ =?utf-8?B?ZWZmUWpyUWd6NWZDazNwRnhxbzE0NmZKRTBQa1RlYldIcGIxWGVTOHNCVXhO?=
+ =?utf-8?B?WVFickMyb2dLNkMxbTBneFA5V2J0VnVlRmo3VHdMZXJHR1NRLytsMllRejlV?=
+ =?utf-8?B?RUovNnQ0cTJDYzNWZFJJek1SQ1Y2UlNGalhWb0tXOXk5VTBFQkYwVzdnOU9j?=
+ =?utf-8?B?ZTRhRHNiN0tSMTFPLzFSNFNoTWNOeHNibUtGRzB1TGhuMDlVbVlxVEpLR3Zt?=
+ =?utf-8?B?UHZYbnlZb0V3QlNxQjMrTmd6RVl3WFpWRHVjWDZPRnR5Ni9Ra3k0blJMQlg5?=
+ =?utf-8?B?VDNmdXFOR0ZpTzI0K1NadXM3eWdpR2R5QlRDUERJNnNLamIzZFlKVVV3MXFp?=
+ =?utf-8?B?aHY1S2p1V2pHbTd1M3FwdlQ5T2NTN2QxNUJRUnlpRjFlOTAraHFBTFJvZmpn?=
+ =?utf-8?B?U1gvdXVlSUhGMnR1TU1FYVE3K3ZjUFlXVmFBWUttSkh0ODhuRVBPcVV5VzNt?=
+ =?utf-8?B?WllXNUtWQyt3WXB0WnBKbm1VNnJ3U2ptVlAwSmh3MDgvRi96a0Q0MUNGUFgr?=
+ =?utf-8?B?Qk5MZ01BaTRZbVRqM2UrRGZITzd5aUM0WkhvU0pNckZOQTJpN3FEd3c1K3Bs?=
+ =?utf-8?B?NFk5bTJUNFVFTlJxeGdoamxEY1dVZUlNaFVNZm8vbFZ2YTNCcGROdlR4a0g5?=
+ =?utf-8?B?cDF3bG1lRm1qRUdWTm1PRS9KOUd1MVBaMTBleFd4bVVlY0s5NENWa09MOHFz?=
+ =?utf-8?B?U0ZkRjBxNElDa1pmUnBnQlJVRTVCN0RrUmlUcGFyTUlyeklPWjN3eVVXZjBW?=
+ =?utf-8?B?SFM0bDB0Nkl4YWREN3FZTnhHUnlxcVYzQUkrSTF5cE0wTzlwVGVUeG9jSzlS?=
+ =?utf-8?B?aGJkTU5nQk84S2hmUVNVR3RyUHBXdnc4Q2Q0bzIrZit4UURWcGhKZjRJa3Y2?=
+ =?utf-8?B?b3pER01tM08vdzgxZTNIblhUVFQ3Tmt5QXBTZjh1NnhvZEYxVzdGYzBRS3p2?=
+ =?utf-8?B?SzllN0FnRmhnNzJFYnFjVmI2MzVxOXpJZUtraVM2L2dnTmRveXJHKytvQ2hH?=
+ =?utf-8?B?VlQ5MFRQUzBoTFQ5WWxNcVpIVU53RjI1S21UdmVtczhZOEgyNXhlM25OS0Yx?=
+ =?utf-8?B?eVlralVzTXVhaTJnYXdRQ0g1cFl0SXdWekRkUmdRUDFSa2ZZc1E3UlJFemw4?=
+ =?utf-8?B?dVNDQzR5Rko5aTQvN2tPQ1RTVlYvampPRXh2SU5ScG5aSE0yL1hLY2h1dnNW?=
+ =?utf-8?B?d1AydWNHalYrOXdZbGlYaXhvMnh3N3VEemFUZEZhQU9LSGRqM1lCaGxNVXU1?=
+ =?utf-8?B?bk5KdEp2bEdQNHUwdmNGZVdyWTZFaVNRcWJINXZVWXdSMkM5T3oyaUdqN2Mw?=
+ =?utf-8?Q?nPmhUWTnYic=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5685.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VjFKSVpWY3o3azdZWXFiRDAzQm94SjJnM1NuUzJHcWNVTGtRR1lHSVFLRE54?=
+ =?utf-8?B?SG5YbHppSXZBYmFpajVVcjB6NHVvR3FuVGlsUzFmc05GczhxNnBoSWdvSnJx?=
+ =?utf-8?B?MlRwSFpzaEpKSXN4QkMvcXBrVnBVQmE5ZDRzejRaVmZjYytmMHg1TEZUeGZl?=
+ =?utf-8?B?eWphbzRLc0ZSRDZRQ2l1Qll4K09sZjIrL3RXR1JhMldxcE14VDl5d0VDRm9G?=
+ =?utf-8?B?MXdLbEdBbDFVSTRrVnR6NFdTMzVDRkxqeCtXUUNvZDhJaEg0b2s5b2hueHBX?=
+ =?utf-8?B?cDhFVW5VcGYzQUt1b0sxaDV0OG0yTXBpRFpESVZXRHhvb1lMY0ZvNlNaMzhh?=
+ =?utf-8?B?b1Y1ai9ORXUyRVVrbGFCZ01IRHBqTjZLNUdBQ2RTRzYvdkhoalJtUk9ISnds?=
+ =?utf-8?B?bkdCY0oxWG5JakpWeHJYUlNTYzdNek0xL3M4UWNIL1B2dXM0RWhCVUE2OVQ3?=
+ =?utf-8?B?RFJsUGg1Z2wwcUc0a0tIK3Y2WG5xYXNBUGxQekFHWjFmOTY1MUVJcFkvY1Fp?=
+ =?utf-8?B?S2QvWHRaWW1YMFkzUWV4SlhDZnlRR0lhdm5KVUhGZ3cwdFgyUGlMN1ZRUlds?=
+ =?utf-8?B?YUF2S2YwRHRjdEltMkhlMnEzcGhHZ2tlUXBUOGhKT0F1RFc2eFpjaFN2M1Jv?=
+ =?utf-8?B?NHA1aE5NQUlCMWthVkVKbTA1U2J6dERkNERDL3hVTWtTRTY1S2NyZDZ5c09S?=
+ =?utf-8?B?TDdaeHpYOFRsTmd3ZWQzeG9DSTBCVENzQTVMOHRTRjRjb3Q5RG1MMnIxVWRu?=
+ =?utf-8?B?LzdZa2tsc2dac1Rkc21FcGVCVWpoTjRoRS9Weml2N3dnYVFPd1c5T2dmTUtH?=
+ =?utf-8?B?c3Y3MVVPOU1ZckwrNWpGSjhQSktyMEl5bEcxTmFGM3dKYkFWK2hkTzFad0NO?=
+ =?utf-8?B?NnI2b0pXeHc4RGtvbHR6ZTRWZHVCTnpaR0l0WGZabk9YbnBzVjNUd2Rsd1JL?=
+ =?utf-8?B?TDUxWDc1cTNGYnJHVXd1dUZnKzNHOEVJUXVNM1p4dkVjNE5xaW9sVE04VFpz?=
+ =?utf-8?B?ZE45V2J0dEYvT3RLOFc1YVBTZkZHNWF1QkZJUXpWZzdyR1RVME1VK0Z6YUFy?=
+ =?utf-8?B?NHlGdHlBeVRETXZLczJ2U3F2LzcwRFRmZ255MXJ5TTU4ektnQ01hYVQ4L3F5?=
+ =?utf-8?B?NzNjcFNncllyN1IrY2RYeG1td0tCSFY3K3dsWHlLVTBQeFYyODVhdmtaakFa?=
+ =?utf-8?B?SFdmRXhvKzVRdW15dFFJN2V0Rno1czhTcGJKQ2FHMWFBWktRTW9raTh2ampJ?=
+ =?utf-8?B?THRMTVIvM2RSeGx6UXc1OFZqYk9oR2VUZXMrTStBbTFDOHVvU29pWUgrNUwx?=
+ =?utf-8?B?TG52WkFQa1VZenNXMVY3MlJ6VVF1T1NESzNrWjhsb2g0LzY5MEhrZjJId3ZM?=
+ =?utf-8?B?cjBaeERTQllER2QzdmpqY3hLb0VGWTVQYjFLNlcremNqMGo1S3VBaG5WOXh4?=
+ =?utf-8?B?ZWtaWXdSM2RzZmVVNk84OHdFUUVWN1NqMGEwZmVScUlqUHpWc3NIQ2ZFM0dB?=
+ =?utf-8?B?MUtrSkw1d0VxNWw0RmFyUVNudWR1dmJQVERGa24xaEZ2Q013OHlXUjlJZHpz?=
+ =?utf-8?B?SUlTY1V5czZUODlkREpNUE1Zc0NDL3VuWkNSOFpBUE0xU2JBbTZuTTJVSXRk?=
+ =?utf-8?B?STF3Rzh2dVJqY2ljOUttbGthY0tEYVFwMzhzWDJyZXVMQjVCVGh3NFpGdlRq?=
+ =?utf-8?B?RzQ5NmxTU1pVSEFtRkx1WFRlNDRZVmRZbklFUjRrMy9LeXp2djNZUE8yNno5?=
+ =?utf-8?B?Y080aWlabCtUSzEwdUhWa2FROXBVb09rQXY3UVJWS1RVU0lxc2FFVnRpTEZm?=
+ =?utf-8?B?RkQweEpoZFNXT3B5aUQrMTZSVHRrMm1aTXE4VVROM29BNGswT1FlUEVtdGJB?=
+ =?utf-8?B?RnR4RzRUOFlQWkVNZXFtUVI1WVgybXVDd0t2V0JnVU0xOWVab2hLNktua0RU?=
+ =?utf-8?B?SGsyY09WRUd0SGxtSFNoZ3VxdE1DTVBLdDRvSm94Zy83UE1FaDNLRDYrUUQ3?=
+ =?utf-8?B?MkU4NmYwSWI4L2tKRFo0a1IxYmJNUTBBTzd1VS8wcEozcjc2N3VPc2piU0c2?=
+ =?utf-8?B?TjIwZlBRbGRzZUgyaTRjRUhObU5neVY4OUpYT2hFSDViVEp5dHFiZGRNMzY5?=
+ =?utf-8?Q?2zSwjO8RyGFTFfTY2HtpFGD64?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8bcfb15f-148d-405a-4a95-08dd8273bb04
+X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5685.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Apr 2025 14:32:53.0507
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3hvg713tbo/Dol+qBPe6PvYJI/Zef7AEZNaK9wbg8VFQPc9xAjUS8JY1insfAr25
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PR12MB9391
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_073441_162840_08D6D786 
-X-CRM114-Status: GOOD (  41.14  )
+X-CRM114-CacheID: sfid-20250423_073300_570053_D289373C 
+X-CRM114-Status: GOOD (  20.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,90 +191,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Robin,
+On 4/22/25 17:59, Alexey Klimov wrote:
+> On Tue Apr 22, 2025 at 2:00 PM BST, Alex Deucher wrote:
+>> On Mon, Apr 21, 2025 at 10:21 PM Alexey Klimov <alexey.klimov@linaro.org> wrote:
+>>>
+>>> On Thu Apr 17, 2025 at 2:08 PM BST, Alex Deucher wrote:
+>>>> On Wed, Apr 16, 2025 at 8:43 PM Fugang Duan <fugang.duan@cixtech.com> wrote:
+>>>>>
+>>>>> 发件人: Alex Deucher <alexdeucher@gmail.com> 发送时间: 2025年4月16日 22:49
+>>>>>> 收件人: Alexey Klimov <alexey.klimov@linaro.org>
+>>>>>> On Wed, Apr 16, 2025 at 9:48 AM Alexey Klimov <alexey.klimov@linaro.org> wrote:
+>>>>>>>
+>>>>>>> On Wed Apr 16, 2025 at 4:12 AM BST, Fugang Duan wrote:
+>>>>>>>> 发件人: Alexey Klimov <alexey.klimov@linaro.org> 发送时间: 2025年4月16
+>>>>>> 日 2:28
+>>>>>>>>> #regzbot introduced: v6.12..v6.13
+>>>>>>>>> The only change related to hdp_v5_0_flush_hdp() was
+>>>>>>>>> cf424020e040 drm/amdgpu/hdp5.0: do a posting read when flushing HDP
+>>>>>>>>>
+>>>>>>>>> Reverting that commit ^^ did help and resolved that problem. Before
+> 
+> [..]
+> 
+>>>> OK.  that patch won't change anything then.  Can you try this patch instead?
+>>>
+>>> Config I am using is basically defconfig wrt memory parameters, yeah, i use 4k.
+>>>
+>>> So I tested that patch, thank you, and some other different configurations --
+>>> nothing helped. Exactly the same behaviour with the same backtrace.
+>>
+>> Did you test the first (4k check) or the second (don't remap on ARM) patch?
+> 
+> The second one. I think you mentioned that first one won't help for 4k pages.
+> 
+> 
+>>> So it seems that it is firmware problem after all?
+>>
+>> There is no GPU firmware involved in this operation.  It's just a
+>> posted write.  E.g., we write to a register to flush the HDP write
+>> queue and then read the register back to make sure the write posted.
+>> If the second patch didn't help, then perhaps there is some issue with
+>> MMIO access on your platform?
+> 
+> I didn't mean GPU firmware at all. I only had uefi/EL3 firmwares in mind.
+> 
+> Completely out of the blue, based on nothing, do you think that
+> adding delay/some mem barrier between write and read might help?
 
-On Wed, 23 Apr 2025 at 15:29, Robin Murphy <robin.murphy@arm.com> wrote:
-> On 2025-04-23 1:17 pm, Vinod Koul wrote:
-> > On 23-04-25, 14:13, Geert Uytterhoeven wrote:
-> >> On Wed, 23 Apr 2025 at 13:48, Vinod Koul <vkoul@kernel.org> wrote:
-> >>> On 23-04-25, 13:11, Geert Uytterhoeven wrote:
-> >>>> On Wed, 23 Apr 2025 at 12:59, Robin Murphy <robin.murphy@arm.com> wrote:
-> >>>>> On 2025-04-22 7:11 pm, Geert Uytterhoeven wrote:
-> >>>>>> The Arm DMA-350 controller is only present on Arm-based SoCs.
-> >>>>>
-> >>>>> Do you know that for sure? I certainly don't. This is a licensable,
-> >>>>> self-contained DMA controller IP with no relationship whatsoever to any
-> >>>>> particular CPU ISA - our other system IP products have turned up in the
-> >>>>> wild paired with non-Arm CPUs, so I don't see any reason that DMA-350
-> >>>>> wouldn't either.
-> >>>>
-> >>>> The dependency can always be relaxed later, when the need arises.
-> >>>> Note that currently there are no users at all...
->
-> Huh? There is now an upstream DT binding, and DTs using that binding
-> most certainly already exist - not least the one I have, but I'm not the
-> only one. We don't have a requirement that bindings must have
-> upstream-supported consumers.
+That would still be quite some platform bug.
 
-Dependencies in Kconfig are not related to DT bindings, they only
-control what can be built?
+> I wonder if host data path code should be executed during common desktop
+> usage as a common user then why it doesn't break later.
 
-> >>> True, but do we have any warnings generated as a result, if there are no
-> >>> dependency should we still limit a driver to an arch?
-> >>
-> >> I am not aware of any warnings (I built it on MIPS yesterday ;-).
-> >> It is just one more question that pops up during "make oldconfig",
-> >> and Linus may notice and complain, too...
->
-> Well, yeah? It's a new driver for some (relatively) new hardware; every
-> release always adds loads of new drivers for things I don't personally
-> care about, so I press "n" a lot when updating my config, just like I
-> imagine most other people do, Linus included.
+Maybe it's some kind of write/read re-ordering issue.
 
-Please read [1] and ask yourself if Linux wants to see a question
-about Arm DMA-350 when configuring a kernel for his AMD Threadripper
-workstation...
+ But yeah, I also think this is this motherboard problem. Thank you.
 
-> > True, give there are no users, lets pick this and drop if we get a non
-> > arm user
->
-> Well by that logic surely it should just depend on COMPILE_TEST, because
-> there are no ARM or ARM64 "users" either?
+You should probably ping some ARM guys to figure out what the fault code actually means.
 
-If you want to push it that far, fine for me ;-)
+Regards,
+Christian.
 
-> FWIW the not-quite-upstream platform I developed on (a custom build of
-> fvp-base-revc with a DMA-350 component added) did happen to be ARM64, as
-> are some other Arm-internal designs and one available SoC that I do know
-> of containing DMA-350; I am not aware of any Linux-capable 32-bit
-> platforms to justify an ARM dependency, so I'd consider that just as
-> arbitrarily pulled out of thin air.
+> 
+> Thanks,
+> Alexey
+> 
 
-OK, then the ARM dependency can be dropped for now.
-I had done a quick Google search to find SoCs that contain a DMA-350
-instance, and had only found a Cortex-M0-based SoC, so I assumed it
-would be used on ARM, too.
-
-> But then to pick another example at random, XILINX_DMA equally has no
-> "users", so please make that depend on something arbitrary as well for
-> consistency; it's only fair.
-
-Sure, there are lots of Kconfig symbols that could benefit from
-additional dependencies. Unfortunately my time is limited, so usually
-I create and send patches for new Kconfig symbols only....
-
-Thanks!
-
-[1] https://lore.kernel.org/all/CAHk-=wg+38EHPKGou1MqXwAAXC30cM8sMgZAGnZ7TcFO4L9J2w@mail.gmail.com
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
