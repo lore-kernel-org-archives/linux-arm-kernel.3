@@ -4,70 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1559C369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:43:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79B23C369D8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:43:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UuxlUex4BEiTP7mwcSqsoGtD22vSi+yRn4Ui/NcyRx4=; b=2OtLFMlASXFU6hYa6HGsPUcpnH
-	MXXiTRJzK7aOdGFpSASX6v3Srql5g2fvT2e9jr03Omd6fPd8mZIGGOVczLnOHFHghponwVHmyB4/Q
-	Rmqjw4wt0Mn0PZCOJki3FSlL+m8+C4KRkKeYwxUAJ1szVoV6CaJkaoYJx4oml/inOEGeNmMdheS9a
-	obCWM8sXXCMMBKvbsE9VvdygTK9fE48Y60Z+VQrRcm0nMA8bLgGh7d0//5ZR8a90qVw7eLhgCX2EE
-	eamtS6uuGD3GoguZZU2Pm9pSkkiKJf0P7bL7/fdh0dnT/SuDlNJ8hVvG+Yn7WdVavEPVUaykLKIUj
-	1OnaEPcA==;
+	bh=Abk3WUggpCh+pV9/jGehaWPhGHzsr5iDxN7IoX5cqEk=; b=Weg3Kk04sralS1nhGlSiqfu85k
+	nKf8XQyhLHlPCev7SAq5dA7lD9Bc+/wURn6ZZ7hhrRSsVnTlU1kkn0vUdm+7tEqVWgYmjIp9PJ6p2
+	rjy/FIderKldtYKZWg+F9qbHF+iqNItPSxnwZPbuxIzL1QRYSAdbLQT9gvsV7WAWN/wvPuMrCsVfq
+	6swSPDWBSOQfobpxlFLbftD1URer52/m2TSIBP5l94sAhCADhDR2DsAIFFYHEw7U9Vd4J0UISvEzF
+	U+qPtYsG1s7K11FNkIIuwnsWG4YzTvArdGA9ayFl0nM4yztPh2ssyXn3nv4QjOS8ybksfqGJa/yTE
+	SE2b/SYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7e8J-0000000BN90-3uw4;
-	Wed, 23 Apr 2025 17:43:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u7e8L-0000000BNCB-2oMt;
+	Wed, 23 Apr 2025 17:43:42 +0000
+Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7c7X-0000000Az5g-36PI
+	id 1u7cB1-0000000Azg4-36GD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 15:34:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2DF8B615EB;
-	Wed, 23 Apr 2025 15:34:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57E9FC4CEE2;
-	Wed, 23 Apr 2025 15:34:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1745422482;
-	bh=nBOB2RB8Gi5Quj2lV/zQhImxicJWnB8a6mxXg5tyIMY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dIcD5TDHhqBmF7mynXS0s154aZje1oXFoYvt+BMgnI5+k4NsBz5saoD1U97fSmagk
-	 cF/RJbPuC1CTzA4ZIWwEYs4Y52OW9+x0kSByrrMYqpsMC8T5x9v1JmjCZTAorsOR/D
-	 NXli8K9j/5+ePp3iQcFe+lsymhiNY+RO1yljxl6Q=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	patches@lists.linux.dev,
-	Piotr Jaroszynski <pjaroszynski@nvidia.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Alistair Popple <apopple@nvidia.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	SeongJae Park <sj@kernel.org>,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	John Hubbard <jhubbard@nvidia.com>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 6.6 368/393] Fix mmu notifiers for range-based invalidates
-Date: Wed, 23 Apr 2025 16:44:24 +0200
-Message-ID: <20250423142658.539422318@linuxfoundation.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250423142643.246005366@linuxfoundation.org>
-References: <20250423142643.246005366@linuxfoundation.org>
-User-Agent: quilt/0.68
-X-stable: review
-X-Patchwork-Hint: ignore
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Wed, 23 Apr 2025 15:38:22 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 1449D43201;
+	Wed, 23 Apr 2025 15:38:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1745422694;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Abk3WUggpCh+pV9/jGehaWPhGHzsr5iDxN7IoX5cqEk=;
+	b=RI7Tw1As9wOTHmRLRlOtw+97DusGjkgz5iMRLKZN4zcskq36CRb9ussT2NX7gXEdh90q7r
+	POeVrueShYUjYRyn65z8VBjfO7iTqa/ZspwQMggtDMw3E7uMMC48R6WZou47bJ0oCgze/d
+	xb5vD9tIm0T9icAfYRLJuQE1aslLweYHBA0hMYlsY/FV97+ZuevI1AS2ZMiBYPewPNmzHP
+	vroE13/rb7Gl2LXV09Id2Du0mc/S0jjLsyK+HNJgSCKUPB9FLTgL3SLZiwDSQ71MgYofaA
+	OsbniHoJmQ711I/9rNmlgjJpQ10ueCniBFkZSq8VBczxUgBqcTzGumXVtj+Zww==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 23 Apr 2025 17:38:09 +0200
+Message-Id: <D9E4PE3RTE37.2LU30RI1ZS6XL@bootlin.com>
+Cc: "Alexei Starovoitov" <ast@kernel.org>, "Daniel Borkmann"
+ <daniel@iogearbox.net>, "John Fastabend" <john.fastabend@gmail.com>,
+ "Andrii Nakryiko" <andrii@kernel.org>, "Martin KaFai Lau"
+ <martin.lau@linux.dev>, "Eduard Zingerman" <eddyz87@gmail.com>, "Song Liu"
+ <song@kernel.org>, "Yonghong Song" <yonghong.song@linux.dev>, "KP Singh"
+ <kpsingh@kernel.org>, "Stanislav Fomichev" <sdf@fomichev.me>, "Hao Luo"
+ <haoluo@google.com>, "Jiri Olsa" <jolsa@kernel.org>, "Puranjay Mohan"
+ <puranjay@kernel.org>, "Catalin Marinas" <catalin.marinas@arm.com>, "Will
+ Deacon" <will@kernel.org>, "Mykola Lysenko" <mykolal@fb.com>, "Shuah Khan"
+ <shuah@kernel.org>, "Maxime Coquelin" <mcoquelin.stm32@gmail.com>,
+ "Alexandre Torgue" <alexandre.torgue@foss.st.com>, "Florent Revest"
+ <revest@chromium.org>, "Bastien Curutchet" <bastien.curutchet@bootlin.com>,
+ <ebpf@linuxfoundation.org>, "Thomas Petazzoni"
+ <thomas.petazzoni@bootlin.com>, <bpf@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kselftest@vger.kernel.org>,
+ <linux-stm32@st-md-mailman.stormreply.com>
+Subject: Re: [PATCH RFC bpf-next 1/4] bpf: add struct largest member size in
+ func model
+From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
+To: "Xu Kuohai" <xukuohai@huaweicloud.com>, "Andrii Nakryiko"
+ <andrii.nakryiko@gmail.com>
+X-Mailer: aerc 0.20.1-0-g2ecb8770224a
+References: <20250411-many_args_arm64-v1-0-0a32fe72339e@bootlin.com>
+ <20250411-many_args_arm64-v1-1-0a32fe72339e@bootlin.com>
+ <CAEf4Bzbn6BdXTOb0dTcsQmOMZpp5=DzGS2hHHQ3+dwcja=gv+w@mail.gmail.com>
+ <D98Q8BRNUVS9.11J60C67L1ALR@bootlin.com>
+ <9da88811-cce0-41df-8069-2e8b67541c39@huaweicloud.com>
+ <D9BLCJSCHE9A.1IKHK3XBPF8MU@bootlin.com>
+ <8b800c09-eade-4dcf-90f6-2f5a78170bc4@huaweicloud.com>
+In-Reply-To: <8b800c09-eade-4dcf-90f6-2f5a78170bc4@huaweicloud.com>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvgeeileejucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpegggfgtfffkvefuhffvofhfjgesthhqredtredtjeenucfhrhhomheptehlvgigihhsucfnohhthhhorhoruceorghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeelkeehiefhfeehvefhtdegueelkeehffffffeuvdekkeekuddvueeguefgieeukeenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedtpdhrtghpthhtohepgihukhhuohhhrghisehhuhgrfigvihgtlhhouhgurdgtohhmpdhrtghpthhtoheprghnughrihhirdhnrghkrhihihhkohesghhmrghilhdrtghomhdprhgtphhtthhopegrshhtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegurghnihgvlhesihhoghgvrghrsghogidrnhgvthdprhgtphhtthhopehjohhhn
+ hdrfhgrshhtrggsvghnugesghhmrghilhdrtghomhdprhgtphhtthhopegrnhgurhhiiheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepmhgrrhhtihhnrdhlrghusehlihhnuhigrdguvghvpdhrtghpthhtohepvgguugihiiekjeesghhmrghilhdrtghomh
+X-GND-Sasl: alexis.lothore@bootlin.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250423_083820_399545_972B67F5 
+X-CRM114-Status: GOOD (  15.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,103 +99,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-6.6-stable review patch.  If anyone has any objections, please let me know.
+On Mon Apr 21, 2025 at 4:14 AM CEST, Xu Kuohai wrote:
+> On 4/21/2025 12:02 AM, Alexis Lothor=C3=A9 wrote:
+>> Hi Xu,
+>>=20
+>> On Thu Apr 17, 2025 at 4:10 PM CEST, Xu Kuohai wrote:
+>>> On 4/17/2025 3:14 PM, Alexis Lothor=C3=A9 wrote:
+>>>> Hi Andrii,
+>>>>
+>>>> On Wed Apr 16, 2025 at 11:24 PM CEST, Andrii Nakryiko wrote:
+>>>>> On Fri, Apr 11, 2025 at 1:32=E2=80=AFPM Alexis Lothor=C3=A9 (eBPF Fou=
+ndation)
+>>>>> <alexis.lothore@bootlin.com> wrote:
 
-------------------
+[...]
 
-From: Piotr Jaroszynski <pjaroszynski@nvidia.com>
+>> Ah, thanks for those clear examples, I completely overlooked this
+>> possibility. And now that you mention it, I feel a bit dumb because I no=
+w
+>> remember that you mentioned this in Puranjay's series...
+>>=20
+>> I took a quick look at the x86 JIT compiler for reference, and saw no co=
+de
+>> related to this specific case neither. So I searched in the kernel for
+>> actual functions taking struct arguments by value AND being declared wit=
+h some
+>> packed or aligned attribute. I only found a handful of those, and none
+>> seems to take enough arguments to have the corresponding struct passed o=
+n the
+>> stack. So rather than supporting this very specific case, I am tempted
+>> to just return an error for now during trampoline creation if we detect =
+such
+>> structure (and then the JIT compiler can keep using data size to compute
+>> alignment, now that it is sure not to receive custom alignments). Or am =
+I
+>> missing some actual cases involving those very specific alignments ?
+>>=20
+>
+> How can we reliably 'detect' the case? If a function has such a parameter
+> but we fail to detect it, the BPF trampoline will pass an incorrect value
+> to the function, which is also unacceptable.
 
-commit f7edb07ad7c66eab3dce57384f33b9799d579133 upstream.
+That's a question I still have to answer :) I imagined being able to detect
+it thanks to some info somewhere in BTF, but I have to dig further to find
+how.
 
-Update the __flush_tlb_range_op macro not to modify its parameters as
-these are unexepcted semantics. In practice, this fixes the call to
-mmu_notifier_arch_invalidate_secondary_tlbs() in
-__flush_tlb_range_nosync() to use the correct range instead of an empty
-range with start=end. The empty range was (un)lucky as it results in
-taking the invalidate-all path that doesn't cause correctness issues,
-but can certainly result in suboptimal perf.
 
-This has been broken since commit 6bbd42e2df8f ("mmu_notifiers: call
-invalidate_range() when invalidating TLBs") when the call to the
-notifiers was added to __flush_tlb_range(). It predates the addition of
-the __flush_tlb_range_op() macro from commit 360839027a6e ("arm64: tlb:
-Refactor the core flush algorithm of __flush_tlb_range") that made the
-bug hard to spot.
+Alexis
 
-Fixes: 6bbd42e2df8f ("mmu_notifiers: call invalidate_range() when invalidating TLBs")
-
-Signed-off-by: Piotr Jaroszynski <pjaroszynski@nvidia.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Robin Murphy <robin.murphy@arm.com>
-Cc: Alistair Popple <apopple@nvidia.com>
-Cc: Raghavendra Rao Ananta <rananta@google.com>
-Cc: SeongJae Park <sj@kernel.org>
-Cc: Jason Gunthorpe <jgg@nvidia.com>
-Cc: John Hubbard <jhubbard@nvidia.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: iommu@lists.linux.dev
-Cc: linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-Reviewed-by: Alistair Popple <apopple@nvidia.com>
-Link: https://lore.kernel.org/r/20250304085127.2238030-1-pjaroszynski@nvidia.com
-Signed-off-by: Will Deacon <will@kernel.org>
-[will: Resolve conflicts due to lack of LPA2 support]
-Signed-off-by: Will Deacon <will@kernel.org>
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
----
- arch/arm64/include/asm/tlbflush.h |   22 ++++++++++++----------
- 1 file changed, 12 insertions(+), 10 deletions(-)
-
---- a/arch/arm64/include/asm/tlbflush.h
-+++ b/arch/arm64/include/asm/tlbflush.h
-@@ -369,31 +369,33 @@ static inline void arch_tlbbatch_flush(s
- #define __flush_tlb_range_op(op, start, pages, stride,			\
- 				asid, tlb_level, tlbi_user)		\
- do {									\
-+	typeof(start) __flush_start = start;				\
-+	typeof(pages) __flush_pages = pages;				\
- 	int num = 0;							\
- 	int scale = 3;							\
- 	unsigned long addr;						\
- 									\
--	while (pages > 0) {						\
-+	while (__flush_pages > 0) {					\
- 		if (!system_supports_tlb_range() ||			\
--		    pages == 1) {					\
--			addr = __TLBI_VADDR(start, asid);		\
-+		    __flush_pages == 1) {				\
-+			addr = __TLBI_VADDR(__flush_start, asid);	\
- 			__tlbi_level(op, addr, tlb_level);		\
- 			if (tlbi_user)					\
- 				__tlbi_user_level(op, addr, tlb_level);	\
--			start += stride;				\
--			pages -= stride >> PAGE_SHIFT;			\
-+			__flush_start += stride;			\
-+			__flush_pages -= stride >> PAGE_SHIFT;		\
- 			continue;					\
- 		}							\
- 									\
--		num = __TLBI_RANGE_NUM(pages, scale);			\
-+		num = __TLBI_RANGE_NUM(__flush_pages, scale);		\
- 		if (num >= 0) {						\
--			addr = __TLBI_VADDR_RANGE(start, asid, scale,	\
--						  num, tlb_level);	\
-+			addr = __TLBI_VADDR_RANGE(__flush_start, asid,	\
-+						scale, num, tlb_level);	\
- 			__tlbi(r##op, addr);				\
- 			if (tlbi_user)					\
- 				__tlbi_user(r##op, addr);		\
--			start += __TLBI_RANGE_PAGES(num, scale) << PAGE_SHIFT; \
--			pages -= __TLBI_RANGE_PAGES(num, scale);	\
-+			__flush_start += __TLBI_RANGE_PAGES(num, scale) << PAGE_SHIFT; \
-+			__flush_pages -= __TLBI_RANGE_PAGES(num, scale);\
- 		}							\
- 		scale--;						\
- 	}								\
-
+--=20
+Alexis Lothor=C3=A9, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
 
