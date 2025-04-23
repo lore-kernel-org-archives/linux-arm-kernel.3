@@ -4,66 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65FD1C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:40:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29286C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:40:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6xbZYXykMjgKMSpp52ywZEBlzjIEow9Ok6NjY0siqUc=; b=UflsCroBtQcgEhWbayP2UaA57E
-	FeGLZopr7v/RePmV7ACXD9qE3scra1DXpyK3Cq9BD1hkHm6+rmHKuX2PtNXmdB7tEKcayFmLuTW0+
-	o0Uk/1B6FGyD3dVImfSxJVERnWnkq1XG8l5rq3BOEFf3J73CnGMP2MyLMDLczDbV4Te30vCCdCU9I
-	M194ABS9C9Y88kmZ4ok9nnGnwjEB11EFLB57cdgWRUW9hhj6eFZdIdAZc7tCPVEuruJL2u9WekQ8W
-	XHj4TJW1N58c/X0MG8Onsfvpko9jt/tlCpjGKWriyCCrmnA8ljhEj52JIJxjGsn0uCBN/Vn8ZcJfL
-	r4GXnK5g==;
+	bh=kzvI+64xp0+YpNCHVAKkt1Zg5G/MQq9Y8KtAURYCRQc=; b=Orjw39sJR66LXKq1qVtQjYXxe3
+	I9fczKgMyzIGsBJ8hp/z7+AY4YEBSTFl823R/IQyAFaiu/oDFFUY7rxCdHZCSkwkCc0XZj4fO7YgB
+	gefVG6PPcNt6c4bscfxgZS+OoMn4gwJ+X4DBAD7vGx2tjogPttDunjXdjVmsRLn9lHF9fNZ0o4AHo
+	x5EHy9vD7DrH/7wUmrCsvpVWzLLM8jhasE9honkpsx8GRHRsUzSqLwB8PyNik9wJo2Www5QCMn1Wi
+	1Lzz+u/CuAB2EoICfD2twiZrK+qA5Fcfe+swH9TtIQhXsIsN2bRo5pMYddzJw9iWIjdFmaFnTWyIa
+	8uCSCeAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7e5Q-0000000BIQW-2M2O;
-	Wed, 23 Apr 2025 17:40:40 +0000
-Received: from m16.mail.163.com ([220.197.31.3])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7ast-0000000AnAA-308k;
-	Wed, 23 Apr 2025 14:15:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:From:
-	Content-Type; bh=6xbZYXykMjgKMSpp52ywZEBlzjIEow9Ok6NjY0siqUc=;
-	b=OhudICscJ21Kt98vX6rUiv4cDB7SwN1mK2jKC53EgKi7bz9iuBd6o/OE+zMLPn
-	h22rs/khVJeHuPHZ0OA+edvEA6E1n/cPPN9+Y3cU6bJa/Yn28bnAYQPf0J8DGPQe
-	Q3WkU7dElgsQe6x4t39U2vpOY5z5mL0muVjmEway1Grho=
-Received: from [192.168.71.89] (unknown [])
-	by gzsmtp2 (Coremail) with SMTP id PSgvCgDHnCTi9QhoY7rzBQ--.27617S2;
-	Wed, 23 Apr 2025 22:14:59 +0800 (CST)
-Message-ID: <352e40a0-65e2-499f-a7dd-904a4a7b19da@163.com>
-Date: Wed, 23 Apr 2025 22:14:57 +0800
+	id 1u7e5T-0000000BISz-0sT1;
+	Wed, 23 Apr 2025 17:40:43 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7b7n-0000000Apw1-2wh4
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Apr 2025 14:30:57 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53NEUhR82211100
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 23 Apr 2025 09:30:43 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1745418643;
+	bh=kzvI+64xp0+YpNCHVAKkt1Zg5G/MQq9Y8KtAURYCRQc=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=cojLxdhdniu8xIUpZYOYDEhywZtPOUGBUTAJwK3NlMnNU92vpFt24WNS2IRnQ87U1
+	 ljPP0pRExkYMFLtHcURMjionfSg8jMgBc7NIzDzvCKbNYzk+ftqtZPiJqkxj/TqoYO
+	 x6k/Wr4OOxvlPOToqQDF9tGe182Vfkwj9ZHeVbi8=
+Received: from DLEE102.ent.ti.com (dlee102.ent.ti.com [157.170.170.32])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53NEUhSs031792
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Wed, 23 Apr 2025 09:30:43 -0500
+Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE102.ent.ti.com
+ (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 23
+ Apr 2025 09:30:42 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Wed, 23 Apr 2025 09:30:42 -0500
+Received: from [10.249.42.149] ([10.249.42.149])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53NEUffe124428;
+	Wed, 23 Apr 2025 09:30:42 -0500
+Message-ID: <a96e184b-f245-4de2-b84a-a4b4380db2ce@ti.com>
+Date: Wed, 23 Apr 2025 09:30:41 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] PCI: dw-rockchip: Reorganize register and bitfield
- definitions
-To: Niklas Cassel <cassel@kernel.org>
-Cc: lpieralisi@kernel.org, kw@linux.com, bhelgaas@google.com,
- heiko@sntech.de, manivannan.sadhasivam@linaro.org, robh@kernel.org,
- jingoohan1@gmail.com, shawn.lin@rock-chips.com, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-References: <20250423105415.305556-1-18255117159@163.com>
- <20250423105415.305556-3-18255117159@163.com> <aAjufPQnBsR6ysAH@ryzen>
+Subject: Re: [PATCH 2/5] dt-bindings: mfd: syscon: Add ti,am62-ddr-pmctrl
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+        Markus
+ Schneider-Pargmann <msp@baylibre.com>
+CC: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Siddharth
+ Vadapalli <s-vadapalli@ti.com>, Nishanth Menon <nm@ti.com>,
+        Vignesh
+ Raghavendra <vigneshr@ti.com>,
+        Tero Kristo <kristo@kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+References: <20250122-topic-am62-dt-syscon-v6-13-v1-0-515d56edc35e@baylibre.com>
+ <20250122-topic-am62-dt-syscon-v6-13-v1-2-515d56edc35e@baylibre.com>
+ <20250124-heavy-jaybird-of-vitality-4cbe24@krzk-bin>
+ <20250124-able-beagle-of-prowess-f5eb7a@krzk-bin>
+ <mocfnpebc67xegcis6tx3ekhsjcsqnvhwtipufycrtq2be4nbh@pmxhir5gmkos>
+ <639b4e3a-3f68-4fba-aa33-c46dcb6fc88f@linaro.org>
+ <d6252b73-0bcc-4724-8144-d6a98c8980f8@ti.com>
+ <74ee6d9b-fd78-4d8a-a94f-b2c4dc794b60@linaro.org>
+ <ebsbaaxyatrcikoem75t2blkhhceuidq3wnj3r2hbezfcmtc3u@ptffexrigbff>
+ <f9a2247e-e0eb-4e22-8626-80e87afa9386@linaro.org>
+ <qjwlppsq4eorzepvjsgjjyyaddouo5w2rjguu5c2mqesd6luwp@f426xeghy2ht>
+ <2130b439-74d0-475d-8429-1a1b4d9738aa@linaro.org>
+ <b7f6570f-3b80-4fc1-8201-d44f5692867f@ti.com>
+ <07bf9f93-deb8-48a1-aae9-a8a053680cc9@linaro.org>
+ <6241ff00-27e6-45ab-808e-f04e39854753@ti.com>
+ <ac0ae8cd-451b-49dd-840e-5fc0cce1605d@linaro.org>
 Content-Language: en-US
-From: Hans Zhang <18255117159@163.com>
-In-Reply-To: <aAjufPQnBsR6ysAH@ryzen>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <ac0ae8cd-451b-49dd-840e-5fc0cce1605d@linaro.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: PSgvCgDHnCTi9QhoY7rzBQ--.27617S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW3Wr1xGry5KryDKF4ktr1xAFb_yoWxur1fp3
-	4DAFyIyr45tay7Z3s5uFs8XFWIqrnxKFWUWrsagrWUZ3WkAw48Gw1j9FyrWFy3Jr4kCrWf
-	uwn8C34SgFWakrDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UBq2_UUUUU=
-X-Originating-IP: [124.79.128.52]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbBDxg4o2gI7X36cgAAs0
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_071532_261106_59E61C8D 
-X-CRM114-Status: GOOD (  17.49  )
+X-CRM114-CacheID: sfid-20250423_073055_920941_FD9EBCF1 
+X-CRM114-Status: GOOD (  48.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,175 +110,297 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2025/4/23 21:43, Niklas Cassel wrote:
-> On Wed, Apr 23, 2025 at 06:54:14PM +0800, Hans Zhang wrote:
->> Register definitions were scattered with ambiguous names (e.g.,
->> PCIE_RDLH_LINK_UP_CHGED in PCIE_CLIENT_INTR_STATUS_MISC) and lacked
->> hierarchical grouping. Magic values for bit operations reduced code
->> clarity.
+On 4/23/25 7:07 AM, Krzysztof Kozlowski wrote:
+> On 21/04/2025 19:03, Andrew Davis wrote:
+>> On 4/15/25 12:17 AM, Krzysztof Kozlowski wrote:
+>>> On 09/04/2025 19:39, Andrew Davis wrote:
+>>>> On 2/12/25 1:35 PM, Krzysztof Kozlowski wrote:
+>>>>> On 10/02/2025 11:35, Markus Schneider-Pargmann wrote:
+>>>>>> On Sun, Feb 09, 2025 at 01:21:27PM +0100, Krzysztof Kozlowski wrote:
+>>>>>>> On 07/02/2025 15:40, Markus Schneider-Pargmann wrote:
+>>>>>>>> Hi Krzysztof,
+>>>>>>>>
+>>>>>>>> On Mon, Jan 27, 2025 at 01:09:49PM +0100, Krzysztof Kozlowski wrote:
+>>>>>>>>> On 24/01/2025 23:35, Andrew Davis wrote:
+>>>>>>>>>> On 1/24/25 10:48 AM, Krzysztof Kozlowski wrote:
+>>>>>>>>>>> On 24/01/2025 17:05, Markus Schneider-Pargmann wrote:
+>>>>>>>>>>>> Hi Krzysztof,
+>>>>>>>>>>>>
+>>>>>>>>>>>> On Fri, Jan 24, 2025 at 09:22:54AM +0100, Krzysztof Kozlowski wrote:
+>>>>>>>>>>>>> On Fri, Jan 24, 2025 at 09:19:49AM +0100, Krzysztof Kozlowski wrote:
+>>>>>>>>>>>>>> On Wed, Jan 22, 2025 at 11:24:33AM +0100, Markus Schneider-Pargmann wrote:
+>>>>>>>>>>>>>>> Add compatible for ti,am62-ddr-pmctrl to the list. There is a DDR pmctrl
+>>>>>>>>>>>>>>> register in the wkup-conf register space of am62a and am62p. This
+>>>>>>>>>>>>>>> register controls DDR power management.
+>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>> Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
+>>>>>>>>>>>>>>> ---
+>>>>>>>>>>>>>>>      Documentation/devicetree/bindings/mfd/syscon.yaml | 2 ++
+>>>>>>>>>>>>>>>      1 file changed, 2 insertions(+)
+>>>>>>>>>>>>>>
+>>>>>>>>>>>>>> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>>>>>>>>>>>>>
+>>>>>>>>>>>>> Un-acked, I missed the point that you really speak in commit msg about
+>>>>>>>>>>>>> register and you really treat one register is a device. I assumed you
+>>>>>>>>>>>>> only need that register from this device, but no. That obviously is not
+>>>>>>>>>>>>> what this device is. Device is not a single register among 10000 others.
+>>>>>>>>>>>>> IOW, You do not have 10000 devices there.
+>>>>>>>>>>>>
+>>>>>>>>>>>> Do I understand you correctly that the whole register range of the
+>>>>>>>>>>>> wkup_conf node as seen in arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi
+>>>>>>>>>>>> should be considered a single syscon device?
+>>>>>>>>>>>
+>>>>>>>>>>> I don't have the datasheets (and not my task to actually check this),
+>>>>>>>>>>> but you should probably follow datasheet. I assume it describes what is
+>>>>>>>>>>> the device, more or less.
+>>>>>>>>>>>
+>>>>>>>>>>> I assume entire wkup_conf is considered a device.
+>>>>>>>>>>>
+>>>>>>>>>>>>
+>>>>>>>>>>>> Unfortunately wkup_conf is modeled as a simple-bus with currently 5
+>>>>>>>>>>>> subnodes defined of which 4 of them consist of a single register. Most
+>>>>>>>>>>>> of them are syscon as well. So I think I can't change the simple-bus
+>>>>>>>>>>>> back to syscon.
+>>>>>>>>>>>
+>>>>>>>>>>> Huh... Maybe TI folks will help us understand why such design was chosen.
+>>>>>>>>>>>
+>>>>>>>>>>
+>>>>>>>>>> Many of the devices inside the wkup_conf are already modeled as such.
+>>>>>>>>>> Clocks and muxes for instance already have drivers and bindings, this
+>>>>>>>>>> is nothing new to TI.
+>>>>>>>>>>
+>>>>>>>>>> If we just use a blank "syscon" over the entire region we would end up
+>>>>>>>>>> with drivers that use phandles to the top level wkup_conf node and
+>>>>>>>>>> poke directly the registers they need from that space.
+>>>>>>>>>>
+>>>>>>>>>> Would you rather have
+>>>>>>>>>>
+>>>>>>>>>> some-device {
+>>>>>>>>>> 	ti,epwm_tbclk = <&wkup_conf>;
+>>>>>>>>>> }
+>>>>>>>>>>
+>>>>>>>>>> or
+>>>>>>>>>>
+>>>>>>>>>> some-device {
+>>>>>>>>>> 	clocks = <&epwm_tbclk 0>;
+>>>>>>>>>> }
+>>>>>>>>>
+>>>>>>>>> How is this comparable? These are clocks. You would have clocks property
+>>>>>>>>> in both cases.
+>>>>>>>>>
+>>>>>>>>>
+>>>>>>>>>>
+>>>>>>>>>> with that epwm_tbclk being a proper clock node inside wkup_conf?
+>>>>>>>>>> I would much prefer the second, even though the clock node
+>>>>>>>>>> only uses a single register. And in the first case, we would need
+>>>>>>>>>> to have the offset into the wkup_conf space hard-coded in the
+>>>>>>>>>> driver for each new SoC. Eventually all that data would need to be
+>>>>>>>>>> put in tables and we end up back to machine board files..
+>>>>>>>>>>
+>>>>>>>>>> I'm not saying every magic number in all drivers should
+>>>>>>>>>> be offloaded into DT, but there is a line somewhere between
+>>>>>>>>>> that and having the DT simply contain the SoC's name compatible
+>>>>>>>>>
+>>>>>>>>> That's not the question here.
+>>>>>>>>>
+>>>>>>>>>> and all other data going into the kernel. That line might be a
+>>>>>>>>>> personal preference, so my question back is: what is wrong
+>>>>>>>>>> if we do want "1000 new syscons per each register" for our
+>>>>>>>>>> SoCs DT?
+>>>>>>>>>
+>>>>>>>>> Because it is false representation of hardware. You do not have 1000
+>>>>>>>>> devices. You have only one device.
+>>>>>>>>>
+>>>>>>>>>
+>>>>>>>>>>
+>>>>>>>>>> (and the number is not 1000, scanning the kernel I can see
+>>>>>>>>>> the largest wkup_conf region node we have today has a grand
+>>>>>>>>>> total number sub-nodes of 6)
+>>>>>>>>>
+>>>>>>>>> But what is being added here is device per each register, not per feature.
+>>>>>>>>
+>>>>>>>> The register layout is like this:
+>>>>>>>
+>>>>>>> The register layout of what? How is the device called? Is datasheet
+>>>>>>> available anywhere?
+>>>>>>
+>>>>>> Yes, it is available here: https://www.ti.com/de/lit/pdf/spruj16
+>>>>>>
+>>>>>> 14 Registers
+>>>>>> 14.2 Device Configuration Registers
+>>>>>> 14.2.1 CTRL_MMR Registers
+>>>>>> 14.2.1.1 General Purpose Control Registers
+>>>>>> 14.2.1.1.3 WKUP_CTRL_MMR0 Registers
+>>>>>>
+>>>>>> Each domain has their own set of general purpose control registers,
+>>>>>> CTRL_MMR for the main domain, MCU_CTRL_MMR0 for the MCU domain,
+>>>>>> WKUP_CTRL_MMR0 for the wakeup domain.
+>>>>>
+>>>>>
+>>>>> So according to the doc you have only one device - CTRL_MMR. All other
+>>>>> splits are superficial.
+>>>>>
+>>>>
+>>>> It is not one device, it is a collection of devices under one labeled
+>>>> bus range. Some items here are full normal devices, already modeled by DT
+>>>> as stand-alone devices, for instance our chipid, efuse, clock controller,
+>>>> etc. even our pinmux is part of this bus range.
+>>>>
+>>>> They are grouped as we have one set for each domain (MAIN, WKUP, MCU).
+>>>>
+>>>> All other splits are not superficial, if we go down that path then
+>>>> the whole SoC is one "device". We could simply have the whole address
+>>>> bus be one node and have Linux hard-code offsets in the drivers, we
+>>>> end up back at board files..
+>>>>
+>>>> DT should break things into logically distinct and reusable units
+>>>> so we don't have to store that in the kernel. That is what we do
+>>>> here, even if some units end up being very small.
+>>>>
+>>>>>>
+>>>>>> So I understand this to just be a collection of general purpose control
+>>>>>> registers. If you go by feature, then many of the registers can be
+>>>>>> grouped into units with a specific purpose or controlling a specific
+>>>>>> device which are also grouped by the offsets they represent. I assume
+>>>>>
+>>>>> It could work if you have distinctive groups, but here:
+>>>>> 1. You do not have this grouped, you just judge by yourself "oh, that's
+>>>>> group A, that's B".
+>>>>> 2. Group per one register is not that.
+>>>>>
+>>>>> For me this is one big block and even CLKSEL is spread all over so
+>>>>> cannot be really made distinctive.
+>>>>>
+>>>>>> this is why the other nodes in this wkup_conf node were created. Also in
+>>>>>
+>>>>> The other nodes represent some sort of fake or totally arbitrary
+>>>>> grouping. That's abuse of the syscon.
+>>>>>
+>>>>
+>>>> They are grouped by function.
+>>>
+>>> Not really - other DTS sent just few days ago created each entry per one
+>>> register.
+>>>
+>>>>
+>>>>>> my opinion this makes the relation between the original device and this
+>>>>>> general purpose control registers better understandable.
+>>>>>>
+>>>>>> For this patch the ddr-pmctrl regsiter is just a single register, but it
+>>>>>> has the purpose of controlling the DDR device power management.
+>>>>>
+>>>>> Sure, but that is NOT syscon. One register of entire block is not system
+>>>>> controller. The entire block is system controller.
+>>>>>
+>>>>
+>>>> The whole block cannot be a system controller as there are regular
+>>>> devices inside this range. If we made the whole region a syscon and
+>>>
+>>> That's still system controller. It's nothing special here.
+>>>
+>>>> also left the device nodes inside, then we would have overlapping
+>>>> register owners, one register would be controlled by two or more
+>>>
+>>> No, owner is the parent device always.
 >>
->> Group registers and their associated bitfields logically. This improves
->> maintainability and aligns the code with hardware documentation.
+>> Which parent device? That is my point, if the top level node for the
+>> whole CTRL_MMR region is made into one big syscon, then a big regmap
+>> is made that covers the whole region. All the child devices also make
+> 
+> Children take the parent regmap or you do not have even the children.
+
+The parent is a "simple-bus", there is no parent regmap. And before
+you say make the parent a "syscon", I've explained why we cannot do
+that.
+
+> Actually the second point is what we talk here: you created fake devices
+> per each register and these are supposed to be squashed into the parent.
+> I am repeating this 3rd time or more.
+> 
+> 
+>> regmaps covering their device range. Now these registers under the child
+>> device belong to two different regmaps. No synchronization is done as
+>> these are not the same regmap, regmap only handles this for multiple
+>> access to registers within the same regmap.
 >>
->> Signed-off-by: Hans Zhang <18255117159@163.com>
->> ---
->>   drivers/pci/controller/dwc/pcie-dw-rockchip.c | 71 ++++++++++++-------
->>   1 file changed, 45 insertions(+), 26 deletions(-)
+>> Let's take a real example, here is part of AM62A CTRL_MMR node.
 >>
->> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
->> index fd5827bbfae3..6cf75160fb1c 100644
->> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
->> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
->> @@ -34,30 +34,49 @@
->>   
->>   #define to_rockchip_pcie(x) dev_get_drvdata((x)->dev)
->>   
->> -#define PCIE_CLIENT_RC_MODE		HIWORD_UPDATE_BIT(0x40)
->> -#define PCIE_CLIENT_EP_MODE		HIWORD_UPDATE(0xf0, 0x0)
->> -#define PCIE_CLIENT_ENABLE_LTSSM	HIWORD_UPDATE_BIT(0xc)
->> -#define PCIE_CLIENT_DISABLE_LTSSM	HIWORD_UPDATE(0x0c, 0x8)
->> -#define PCIE_CLIENT_INTR_STATUS_MSG_RX	0x04
->> -#define PCIE_CLIENT_INTR_STATUS_MISC	0x10
->> -#define PCIE_CLIENT_INTR_MASK_MISC	0x24
->> -#define PCIE_CLIENT_POWER		0x2c
->> -#define PCIE_CLIENT_MSG_GEN		0x34
->> -#define PME_READY_ENTER_L23		BIT(3)
->> -#define PME_TURN_OFF			(BIT(4) | BIT(20))
->> -#define PME_TO_ACK			(BIT(9) | BIT(25))
->> -#define PCIE_SMLH_LINKUP		BIT(16)
->> -#define PCIE_RDLH_LINKUP		BIT(17)
->> -#define PCIE_LINKUP			(PCIE_SMLH_LINKUP | PCIE_RDLH_LINKUP)
->> -#define PCIE_RDLH_LINK_UP_CHGED		BIT(1)
->> -#define PCIE_LINK_REQ_RST_NOT_INT	BIT(2)
->> -#define PCIE_CLIENT_GENERAL_CONTROL	0x0
->> +/* General Control Register */
->> +#define PCIE_CLIENT_GENERAL_CON		0x0
->> +#define  PCIE_CLIENT_RC_MODE		HIWORD_UPDATE_BIT(0x40)
->> +#define  PCIE_CLIENT_EP_MODE		HIWORD_UPDATE(0xf0, 0x0)
->> +#define  PCIE_CLIENT_ENABLE_LTSSM	HIWORD_UPDATE_BIT(0xc)
->> +#define  PCIE_CLIENT_DISABLE_LTSSM	HIWORD_UPDATE(0x0c, 0x8)
->> +
->> +/* Interrupt Status Register Related to Message Reception */
->> +#define PCIE_CLIENT_INTR_STATUS_MSG_RX	0x4
->> +
->> +/* Interrupt Status Register Related to Legacy Interrupt */
->>   #define PCIE_CLIENT_INTR_STATUS_LEGACY	0x8
->> +
->> +/*  Interrupt Status Register Related to Miscellaneous Operation */
+>> main_conf: bus@100000 {
+>> 	compatible = "simple-bus";
+>> 	#address-cells = <1>;
+>> 	#size-cells = <1>;
+>> 	ranges = <0x00 0x00 0x00100000 0x20000>;
+>>
+>> 	phy_gmii_sel: phy@4044 {
+>> 		compatible = "ti,am654-phy-gmii-sel";
+>> 		reg = <0x4044 0x8>;
+>> 		#phy-cells = <1>;
+>> 	};
+>>
+>> 	...
+>> };
+>>
+>> If we turn "main_conf" into a syscon, then who "owns" 0x4044?
+>> Both the top level syscon and phy_gmii_sel nodes would build
+>> a different regmap instance that contains those same registers.
 > 
-> double spaces, other comments just have one space.
+> Two registers is hardly a separate device.
 > 
 
-Hi Niklas,
+Sure it is, plenty of devices have only a couple registers. There
+are already examples all over from all kinds of devices, clocks,
+muxes, GPIO extenders, ADCs, DACs, etc. that are real and separate
+devices that function perfectly fine while only having one or two
+programmable registers.
 
-Thank you very much for your reply. Will change.
-
+>>
+>> Bit of back story, this is actually how I got involved in sorting
+>> out this "syscon" stuff for our devices. I built a checker into
+>> the regmap framework core that would detect when multiple regmaps
+>> are created that contain overlapping registers.
+>>
+>> I found several bugs this way and want to push the check upstream at
+>> some point. But first I wanted to fix the biggest cause of warnings,
+>> which was from syscon being used as described above.
+>>
+>>>
+>>>> drivers. How would we synchronize mappings, access, updates, etc.
+>>>> Any one register should belong to exactly one device.
+>>>
+>>> regmap synchronizes everything. There is no problem here, at all.
+>>>
+>>>>
+>>>> Is your issue the name "system controller", as yes I agree some of
+>>>> these regions are not "system controllers".
+>>>>
+>>>> Would it work better if we didn't call this "ti,am62-ddr-pmctrl"
+>>>> node a "syscon"? That can be done, we just would add a normal
+>>>> binding doc for it, instead of trying to reuse the generic
+>>>> bindings/mfd/syscon.yaml file.
+>>>
+>>> You still do not have multiple subnodes, one per each register or even
+>>> few registers.
+>>
+>> If this ddr-pmctrl device is not modeled as a syscon device, then who
+>> says it has to be more than a few (3?) registers in size? This seems like
+>> a rather arbitrary rule, and completely unfeasible for several whole
+>> classes of devices that only have/need a few registers to work them.
 > 
->> +#define PCIE_CLIENT_INTR_STATUS_MISC	0x10
->> +#define  PCIE_RDLH_LINK_UP_CHGED	BIT(1)
->> +#define  PCIE_LINK_REQ_RST_NOT_INT	BIT(2)
->> +
->> +/* Interrupt Mask Register Related to Legacy Interrupt */
->>   #define PCIE_CLIENT_INTR_MASK_LEGACY	0x1c
->> +
->> +/* Interrupt Mask Register Related to Miscellaneous Operation */
->> +#define PCIE_CLIENT_INTR_MASK_MISC	0x24
->> +
->> +/* Power Management Control Register */
->> +#define PCIE_CLIENT_POWER_CON		0x2c
->> +#define  PME_READY_ENTER_L23		BIT(3)
->> +
->> +/*  Message Generation Control Register */
+> What does the syscon description say? Collection of registers, a set of
+> miscellaneous registers. Registers in plural. Do not use syscon for
+> other purposes.
 > 
-> double spaces, other comments just have one space.
+> It is not arbitrary. It is written in binding description.
 > 
 
-Will change.
+Re-read the first sentence: "If this ddr-pmctrl device is *not* modeled
+as a syscon device". My comment is that ddr-pmctrl is not a syscon,
+and so if we don't include any claim it is a "syscon" in the binding,
+why do we have to follow the rules in the unrelated syscon binding
+description.
 
-> 
->> +#define PCIE_CLIENT_MSG_GEN_CON		0x34
->> +#define  PME_TURN_OFF			HIWORD_UPDATE_BIT(BIT(4))
->> +#define  PME_TO_ACK			HIWORD_UPDATE_BIT(BIT(9))
->> +
->> +/* Hot Reset Control Register */
->>   #define PCIE_CLIENT_HOT_RESET_CTRL	0x180
->> +#define  PCIE_LTSSM_ENABLE_ENHANCE	BIT(4)
->> +
->> +/* LTSSM Status Register */
->>   #define PCIE_CLIENT_LTSSM_STATUS	0x300
->> -#define PCIE_LTSSM_ENABLE_ENHANCE	BIT(4)
->> -#define PCIE_LTSSM_STATUS_MASK		GENMASK(5, 0)
->> +#define  PCIE_SMLH_LINKUP		BIT(16)
->> +#define  PCIE_RDLH_LINKUP		BIT(17)
->> +#define  PCIE_LINKUP			(PCIE_SMLH_LINKUP | PCIE_RDLH_LINKUP)
->> +#define  PCIE_LTSSM_STATUS_MASK		GENMASK(5, 0)
->>   
->>   struct rockchip_pcie {
->>   	struct dw_pcie pci;
->> @@ -176,13 +195,13 @@ static u32 rockchip_pcie_get_pure_ltssm(struct dw_pcie *pci)
->>   static void rockchip_pcie_enable_ltssm(struct rockchip_pcie *rockchip)
->>   {
->>   	rockchip_pcie_writel_apb(rockchip, PCIE_CLIENT_ENABLE_LTSSM,
->> -				 PCIE_CLIENT_GENERAL_CONTROL);
->> +				 PCIE_CLIENT_GENERAL_CON);
->>   }
->>   
->>   static void rockchip_pcie_disable_ltssm(struct rockchip_pcie *rockchip)
->>   {
->>   	rockchip_pcie_writel_apb(rockchip, PCIE_CLIENT_DISABLE_LTSSM,
->> -				 PCIE_CLIENT_GENERAL_CONTROL);
->> +				 PCIE_CLIENT_GENERAL_CON);
->>   }
->>   
->>   static int rockchip_pcie_link_up(struct dw_pcie *pci)
->> @@ -274,8 +293,8 @@ static void rockchip_pcie_pme_turn_off(struct dw_pcie_rp *pp)
->>   	u32 status;
->>   
->>   	/* 1. Broadcast PME_Turn_Off Message, bit 4 self-clear once done */
->> -	rockchip_pcie_writel_apb(rockchip, PME_TURN_OFF, PCIE_CLIENT_MSG_GEN);
->> -	ret = readl_poll_timeout(rockchip->apb_base + PCIE_CLIENT_MSG_GEN,
->> +	rockchip_pcie_writel_apb(rockchip, PME_TURN_OFF, PCIE_CLIENT_MSG_GEN_CON);
->> +	ret = readl_poll_timeout(rockchip->apb_base + PCIE_CLIENT_MSG_GEN_CON,
->>   				 status, !(status & BIT(4)), PCIE_PME_TO_L2_TIMEOUT_US / 10,
->>   				 PCIE_PME_TO_L2_TIMEOUT_US);
->>   	if (ret) {
->> @@ -294,7 +313,7 @@ static void rockchip_pcie_pme_turn_off(struct dw_pcie_rp *pp)
->>   
->>   	/* 3. Clear PME_TO_Ack and Wait for ready to enter L23 message */
->>   	rockchip_pcie_writel_apb(rockchip, PME_TO_ACK, PCIE_CLIENT_INTR_STATUS_MSG_RX);
->> -	ret = readl_poll_timeout(rockchip->apb_base + PCIE_CLIENT_POWER,
->> +	ret = readl_poll_timeout(rockchip->apb_base + PCIE_CLIENT_POWER_CON,
->>   				 status, status & PME_READY_ENTER_L23,
->>   				 PCIE_PME_TO_L2_TIMEOUT_US / 10,
->>   				 PCIE_PME_TO_L2_TIMEOUT_US);
->> @@ -552,7 +571,7 @@ static void rockchip_pcie_ltssm_enable_control_mode(struct rockchip_pcie *rockch
->>   	val = HIWORD_UPDATE_BIT(PCIE_LTSSM_ENABLE_ENHANCE);
->>   	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_HOT_RESET_CTRL);
->>   
->> -	rockchip_pcie_writel_apb(rockchip, mode, PCIE_CLIENT_GENERAL_CONTROL);
->> +	rockchip_pcie_writel_apb(rockchip, mode, PCIE_CLIENT_GENERAL_CON);
-> 
-> I can see why you renamed PCIE_CLIENT_GENERAL_CONTROL to PCIE_CLIENT_GENERAL_CON
-> (to match PCIE_CLIENT_MSG_GEN_CON).
-> 
-> But now we have PCIE_CLIENT_MSG_GEN_CON / PCIE_CLIENT_GENERAL_CON and
-> PCIE_CLIENT_HOT_RESET_CTRL.
-> 
-> _CTRL seems like a more common shortening. How about renaming all three to
-> end with _CTRL ?
+Andrew
 
-I saw that TRM is named like this.
-
-PCIE_CLIENT_GENERAL_CON / PCIE_CLIENT_MSG_GEN_CON / 
-PCIE_CLIENT_HOT_RESET_CTRL
-
-Shall we take TRM as the standard or your suggestion?
-
-Best regards,
-Hans
-
-
-
+> Best regards,
+> Krzysztof
 
