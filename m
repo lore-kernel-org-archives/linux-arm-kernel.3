@@ -4,123 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A84C3C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 12:05:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 647C5C369D8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 13:05:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:Cc:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bJBRZaSgchliWw4wWLkLEWuwp3nk6zi0pApkA4ydaQA=; b=f//x4Hak1RReuKRGqhc1fFoWpd
-	Z/T3Jm0WMaS9XdyRlWuoKMGbsG3KnbS+haWp2z0X9Mi5iBpJNddw162pZImil5UdIkjubLZi8zYcD
-	iWbDqyO6XuIMNY04mVEpUp6/3lP8npsOdS7sBAz28UYKWbxbSVJne6vecAgo2FCD9UbOzIYwNHmkx
-	L3iOUh08Vl9BMj1G06Q/n4P34H4BZjbDHaSz0qDNO/cpufg8h+e+sbrcJwd5E8vmr38FFbchuDNbn
-	B6nTQAZPg4lX5lnfgrfbGxtpDusnJG+IPwHiWgW5hsjUStaKq+ZtHId84KARTw/eP7n3JNeuf2wCC
-	V1kk6eog==;
+	bh=5sexHOrDpbd/h7EZDwghhGaeo0X8cakgDd3Kmpze7Y0=; b=0pGXoKabylywxuxAVhWc/MSJb3
+	89q2cNwpyTRpfERw5zEw4Gr0nmfJ8SUO+o4XVr2m5uJEt+OFH9c5ydkNOnjMFnmEEAjkk1ZgRBZ7v
+	dJq3kdefNjnME0Xld/Qr8KC7nPLi5c8CGFc4ZU4bHYiDLRhCyeIKplrSfea5tsLiSVfNJWCfcuocI
+	Vxn3OKpKro4lBJ0j9OY9etKDWsDvV9+sHWf/s5nBxobReS9s1EbxswZFswmTKGD45Jv4QQaiURsF6
+	CcRxEq+EItT88jRrez4n9aesNIH8UNahglG/9lB7L7m9ImRhkV1zz7vLpuHqwnTyj/MZNI5i0CqBC
+	H8qgqHfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7YqZ-0000000AQLv-1O5u;
-	Wed, 23 Apr 2025 12:04:59 +0000
-Received: from mout.web.de ([212.227.15.3])
+	id 1u7Zn1-0000000AX2Z-2Tr5;
+	Wed, 23 Apr 2025 13:05:23 +0000
+Received: from mail-ua1-f52.google.com ([209.85.222.52])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7XrX-0000000AFdq-3OiP
+	id 1u7WcQ-0000000A1U3-3drq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 11:01:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1745406071; x=1746010871; i=markus.elfring@web.de;
-	bh=bJBRZaSgchliWw4wWLkLEWuwp3nk6zi0pApkA4ydaQA=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:
-	 References:From:Cc:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=Ox8SHhMDynRZ4UWq5g+NDy3WLxAgbWwiPuGIaqRjAdTgEARXgKvENusKre6qfQlx
-	 qIYRkjFbHC8jeWQ8gTOnyCaj65GQLj2KZ/2KI9qO3hNf/s6tG1PzygUsqN7OFX70g
-	 dAReE3UrzgvWkWQukjV12AjX088iZ1rhv4qMLNqw7MUEcbj/JKmcpFD6lGhQ9ViTR
-	 UrYYv9nTjx8hQU+X+oTBAzp8eYna21c4icmgUiPW4z/RJh9PqwPc7iiB8s+cbOKw3
-	 CZEps0aLh8Bgx2KU1hea2cAPXrAae5vtI82IJGoPLyKhwJOZbd5x9OhyNqgq5TjjJ
-	 ZO5rWeNK9WKkse9V2w==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.70.6]) by smtp.web.de (mrweb006
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1M3V6E-1u86571ArC-00AzGR; Wed, 23
- Apr 2025 13:01:11 +0200
-Message-ID: <a1be0efc-a4c9-461d-a01a-8fb830b2c68d@web.de>
-Date: Wed, 23 Apr 2025 13:01:03 +0200
+	Wed, 23 Apr 2025 09:42:16 +0000
+Received: by mail-ua1-f52.google.com with SMTP id a1e0cc1a2514c-86d75f4e9a1so2392504241.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 02:42:14 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745401331; x=1746006131;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=5sexHOrDpbd/h7EZDwghhGaeo0X8cakgDd3Kmpze7Y0=;
+        b=dl0/NESiTzpXLXU1GdPZaounC34US9vfhUbIVV4rPyQffc1RS2MdXxyPvQem/kgBgn
+         fx+AcOA7ngiiez5GCKY2XH+WGqZvc206J/psxW2zxULxQ7eV8a2rZNZVGY68xu6vLcwg
+         TVdva6q97YHmpWMN5CmjestJ2CaSTIlL1lDezOt5JHeauc8meMYrTttwmobfvwHTFze/
+         5rkNBN5yw2yrsXzq9otdKALL132L6kCFxupqmcopGLNxNqYqnAgL18KZIM71WGKlR7r6
+         KaV1iQ5Vb9TkZB6948C4u8A8Gv3T3zuN168K9FfxbEQzOlRgI580LWa4JKswEOam8a0l
+         1uGg==
+X-Gm-Message-State: AOJu0YwryYjJC1J1rToFNQ2NbRUrH5k3CMsNzDLWfw4Bfl67qnhisxxq
+	8Q0/R3seYgDtZYa2aVLpYe7GEoastujLcVe8iKGalN+gPL86KoyQycLKnd71YfE=
+X-Gm-Gg: ASbGncvlTNvFBOGBkHANqk0Y3YPvSQ7V+XdQHtWZ9XBGMYvxB02smNAoOomg4JyK1wX
+	xjRW0wWqpWUMFC/lWU2Hl55Hcd0LN+bcmzsKSEbliKoxioNrnbUe47eMJNqptJI3DpPclsmjJYh
+	r6gm6mTZFJDa3dSRMfkBHzPBqQJlC8Jr9whhVhaQyNUBn46ELzgFTp/hLA3L73xjHvblbco/0+Z
+	RI8D7cBiLovRc6m81h7uMo69JjVlhNBP9hUQFHazbs4Eh80E6CvobzMd5Dx3Gh+bjKHndu5QA9F
+	P5vfMzSyGv5C3oJolaIylmtXv88K1JnEJIfBEtwfsGjPWO61kX0wgV1ZUSC7wbGjy+f2tCmF5tS
+	ORcE7N0U=
+X-Google-Smtp-Source: AGHT+IHPl1DmGUTeDiINrMgb2dUnkHuoMGzAJjRIww9mHeOddaDWte6XX25Wjd7TC9KrjG02tzNIFw==
+X-Received: by 2002:a05:6102:458b:b0:4bb:d062:430 with SMTP id ada2fe7eead31-4cb7ff26975mr11645410137.0.1745401329624;
+        Wed, 23 Apr 2025 02:42:09 -0700 (PDT)
+Received: from mail-vk1-f173.google.com (mail-vk1-f173.google.com. [209.85.221.173])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-4cb7ddb214esm2582000137.8.2025.04.23.02.42.07
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 23 Apr 2025 02:42:08 -0700 (PDT)
+Received: by mail-vk1-f173.google.com with SMTP id 71dfb90a1353d-52446b21cfdso2505086e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 02:42:07 -0700 (PDT)
+X-Received: by 2002:a05:6102:6b05:b0:4c5:1c2e:79f5 with SMTP id
+ ada2fe7eead31-4cb8021c21bmr10743406137.16.1745401327693; Wed, 23 Apr 2025
+ 02:42:07 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [cocci] [PATCH v3 2/6] coccinelle: misc: Add field_modify script
-To: Luo Jie <quic_luoj@quicinc.com>, cocci@inria.fr,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Joey Gouly <joey.gouly@arm.com>,
- Julia Lawall <Julia.Lawall@inria.fr>, Marc Zyngier <maz@kernel.org>,
- Nicolas Palix <nicolas.palix@imag.fr>, Oliver Upton
- <oliver.upton@linux.dev>, Rasmus Villemoes <linux@rasmusvillemoes.dk>,
- Suzuki Poulouse <suzuki.poulose@arm.com>, Will Deacon <will@kernel.org>,
- Yury Norov <yury.norov@gmail.com>, Zenghui Yu <yuzenghui@huawei.com>
-References: <20250417-field_modify-v3-0-6f7992aafcb7@quicinc.com>
- <20250417-field_modify-v3-2-6f7992aafcb7@quicinc.com>
-Content-Language: en-GB
-From: Markus Elfring <Markus.Elfring@web.de>
-Cc: LKML <linux-kernel@vger.kernel.org>, Andrew Lunn <andrew@lunn.ch>,
- "Kiran Kumar C.S.K" <quic_kkumarcs@quicinc.com>,
- Lei Wei <quic_leiwei@quicinc.com>, Pavithra R <quic_pavir@quicinc.com>,
- Suruchi Agarwal <quic_suruchia@quicinc.com>, quic_linchen@quicinc.com
-In-Reply-To: <20250417-field_modify-v3-2-6f7992aafcb7@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
+References: <20250420173829.200553-1-marek.vasut+renesas@mailbox.org> <20250420173829.200553-2-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20250420173829.200553-2-marek.vasut+renesas@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 23 Apr 2025 11:41:56 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdVWu2TazTOE0voDkfYBsC=vvrCimPczQw3VYuJyvhV=1Q@mail.gmail.com>
+X-Gm-Features: ATxdqUEuPwHtM8SgzzaD_wTTn04FsK7H3Ks6A19VPHk2n156ixPkKd_kaH6fcv8
+Message-ID: <CAMuHMdVWu2TazTOE0voDkfYBsC=vvrCimPczQw3VYuJyvhV=1Q@mail.gmail.com>
+Subject: Re: [PATCH v3 1/3] dt-bindings: vendor-prefixes: Add Retronix
+ Technology Inc.
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+	=?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>, 
+	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
+	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
+	Aradhya Bhatia <a-bhatia1@ti.com>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Junhao Xie <bigfoot@classfun.cn>, 
+	Kever Yang <kever.yang@rock-chips.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:xvSCXljCCknARbi0JItnFFXBwAmUxRh0fA0gwWeuOfRq7wj6wGN
- 5xNQ4dFTKJ2Fik8upyc69y7miHX9kOfh+vGTMYy6HHyjPhT7DMe33NDvGjIXRDXV1+Lybhg
- xg/HO1UvOIMIsomFkLK5/x0PuSkg8yWK9747nUmSNjX+m2rb9sOTFxEfqbdXrdfKUBrSOP4
- EZopg77LmU3bOl4uwW6IQ==
-UI-OutboundReport: notjunk:1;M01:P0:qNz1C3ar5JU=;rjaWDewSnTi3p/HCEWxAJ+B18ak
- 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_040156_231688_1357B58A 
-X-CRM114-Status: UNSURE (   7.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250423_024214_908050_1EC52DB5 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,62 +107,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> This script finds and suggests conversions of opencoded field
-> modify patterns with the wrapper FIELD_MODIFY() API defined in
-> include/linux/bitfield.h for better readability.
+On Sun, 20 Apr 2025 at 19:39, Marek Vasut
+<marek.vasut+renesas@mailbox.org> wrote:
+> Add vendor prefix for Retronix Technology Inc.
+> https://www.retronix.com.tw/en/about.html
+>
+> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> Tested-by: Niklas S=C3=B6derlund <niklas.soderlund+renesas@ragnatech.se>
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-See also:
-https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tre=
-e/Documentation/process/submitting-patches.rst?h=3Dv6.15-rc3#n94
+Thanks, will queue in renesas-devel for v6.16.
 
+Gr{oetje,eeting}s,
 
-=E2=80=A6
-> +++ b/scripts/coccinelle/misc/field_modify.cocci
-> @@ -0,0 +1,24 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +///
+                        Geert
 
-I suggest to omit a blank comment line here.
+--=20
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
+.org
 
-
-> +/// Replaced below code with the wrapper FIELD_MODIFY(MASK, &reg, val)
-
-Replace?
-
-
-=E2=80=A6
-> +// Copyright (C) 2025 Qualcomm Innovation Center, Inc.
-
-Copyright: ?
-
-
-> +// URL: https://coccinelle.gitlabpages.inria.fr/website
-
-I suggest to omit such information here.
-
-
-=E2=80=A6
-> +virtual patch
-
-How do you think about to support additional operation modes?
-
-
-=E2=80=A6
-> +- reg &=3D ~mask;
-> +- reg |=3D FIELD_PREP(mask, val);
-> ++ FIELD_MODIFY(mask, &reg, val);
-
-Would you like to integrate the following SmPL code variant?
-
--reg &=3D ~mask;
--reg |=3D FIELD_PREP
-+       FIELD_MODIFY
-                  (mask,
-+                  &reg,
-                   val
-                  );
-
-
-Regards,
-Markus
+In personal conversations with technical people, I call myself a hacker. Bu=
+t
+when I'm talking to journalists I just say "programmer" or something like t=
+hat.
+                                -- Linus Torvalds
 
