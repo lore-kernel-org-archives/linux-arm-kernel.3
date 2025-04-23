@@ -4,94 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52618C369D7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 13:05:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55359C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 13:05:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LS2O4ijWT/954gJ7Po+mrl2ivjfcfbbmblMAVvot+M4=; b=e7Dg5v7G+m68lPpspFIlOi+BFl
-	IgOqff1kpiJBGck3SkhKqgiX0fL60Duh25gJK+hr4G5MffhVT5sDpgh1TiXu0zSFp6XjBZ8dVeF5F
-	F+5NoPSEKdzWymvefYdvQERUvz2XhVKvnt2cnJks2ssDT1ew5IfTa0Tk36U0rYWZfaXB/z9FbMDbc
-	iFol1zn3bpMhL+rDM376tPPPJ7KH5qhQ5EsIgBphx7pN3bs/wkFJ1K4yg2IjV5oZcIphN/lr7jzdT
-	eERUbICaThwz/We9k4EGYxlWvY+JWF6cG+bBYbDfwEY28hIBY5/swU/6nY19HCAIt/a+xlvLmOLXK
-	ac9Inz4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BwcYZ3QAYUzjwMBUPfQj13lIgXFp+SqbT5MeM2baqWQ=; b=LvlQnfeX9eX59mGgfDTUL2SS0c
+	5iVsXAVVlyo3ZRxR6CTVLI19gJqaFMBB76avUs5ONV6LbdK7GxARFvTDmPPm+JM1iZ87pU1T5KiAf
+	yPuNxfJKJoakQ2mL1jTyedW4HyTcH/OtWf32DfFIQflrgMsTg7buqKLkB5dxeUfsTTj9X+w0ztFQN
+	YKt7eswx3O5XYBDqTZLsaFZGboIMth/TRoZqtYA90CBs1QTAH9KryyZWZeo2FmMjivwTd0unPJ6xI
+	/C7lGGADeevSeZCAjGED04hUp96vKQapT2ZiisXbZTbgg0Ikq/ugB67WA21RXDnn6urj4d2UxeBXS
+	YwpSx7vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Zn0-0000000AX21-3cnG;
-	Wed, 23 Apr 2025 13:05:22 +0000
-Received: from mail-m16.yeah.net ([220.197.32.18])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7WaZ-0000000A0ug-3KJo
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 09:40:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=LS2O4ijWT/954gJ7Po+mrl2ivjfcfbbmblMAVvot+M4=;
-	b=BZ3uRgbp605ujwLLQBhqu5ElSw+xVo5n2y2B6jE+oPMPqM4aKIl7RHWKVjXPe1
-	W8gQlbfD6MkOSG2Z3l6F858HMS2S/ZaPp35goiWk7G3AxjyuKpHIeJDwjVzuxKV1
-	ghKBAcKzAnQtttY9ccm6lGt2iLY7YNZsdMGaG1vYGMW9E=
-Received: from dragon (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id M88vCgDn84o_tQhofGK5Aw--.10993S3;
-	Wed, 23 Apr 2025 17:39:14 +0800 (CST)
-Date: Wed, 23 Apr 2025 17:39:11 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Viresh Kumar <vireshk@kernel.org>, Nishanth Menon <nm@ti.com>,
-	Stephen Boyd <sboyd@kernel.org>, zhouyanjie@wanyeetech.com,
-	Conor Dooley <conor@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Steen Hegelund <Steen.Hegelund@microchip.com>,
-	Daniel Machon <daniel.machon@microchip.com>,
-	UNGLinuxDriver@microchip.com, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev
-Subject: Re: [PATCH 10/19] arm/arm64: dts: imx: Drop redundant CPU
- "clock-latency"
-Message-ID: <aAi0tkNWlvwqIBxM@dragon>
-References: <20250403-dt-cpu-schema-v1-0-076be7171a85@kernel.org>
- <20250403-dt-cpu-schema-v1-10-076be7171a85@kernel.org>
+	id 1u7Zn7-0000000AX8l-0uGP;
+	Wed, 23 Apr 2025 13:05:29 +0000
+Received: from m16.mail.163.com ([220.197.31.2])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7Xka-0000000AEiw-3BFd;
+	Wed, 23 Apr 2025 10:54:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-Id:MIME-Version; bh=BwcYZ
+	3QAYUzjwMBUPfQj13lIgXFp+SqbT5MeM2baqWQ=; b=GpmujaI8FCZcKvs82Yh3z
+	zYps0LtQ7AUYKfvsrt4o+w9MeEgsfcFMpON4kByy8qL/8vOB0Ha4cu5bQIMBVX9C
+	snluvgaim8xQ4FfgXhZNtyfWlaIEkNRjT1BUiC7BYQWFC6xXlsV+3TKIWvYbb14F
+	eFT81BmbPVGms5iUa1+OGc=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wAnRTjYxghozJctBw--.58909S5;
+	Wed, 23 Apr 2025 18:54:22 +0800 (CST)
+From: Hans Zhang <18255117159@163.com>
+To: lpieralisi@kernel.org,
+	kw@linux.com,
+	bhelgaas@google.com,
+	heiko@sntech.de
+Cc: manivannan.sadhasivam@linaro.org,
+	robh@kernel.org,
+	jingoohan1@gmail.com,
+	shawn.lin@rock-chips.com,
+	linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Hans Zhang <18255117159@163.com>
+Subject: [PATCH v2 3/3] PCI: dw-rockchip: Unify link status checks with FIELD_GET
+Date: Wed, 23 Apr 2025 18:54:15 +0800
+Message-Id: <20250423105415.305556-4-18255117159@163.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250423105415.305556-1-18255117159@163.com>
+References: <20250423105415.305556-1-18255117159@163.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250403-dt-cpu-schema-v1-10-076be7171a85@kernel.org>
-X-CM-TRANSID: M88vCgDn84o_tQhofGK5Aw--.10993S3
-X-Coremail-Antispam: 1Uf129KBjvdXoW7Wr1kXw4DWFy8WFWDCrW3KFg_yoW3Xrg_ZF
-	n7K348Ja1rCry7J3Z8trs5XwnxKryUWwn3Cr17XrWkG34aqr9rAFWDGFZ5Cr13XFWagry3
-	A3sxJFs2y3s0kjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUjQeOPUUUUU==
-X-Originating-IP: [114.216.210.34]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiARM4ZWgIqUAwhgAAsw
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wAnRTjYxghozJctBw--.58909S5
+X-Coremail-Antispam: 1Uf129KBjvJXoWxCF15Gr13Cw17GFW7Zw18Zrb_yoW5uF4xpa
+	98Aa4vkr48Gw4j9F1kCFZ5ZFW5tFnI9ayUCrn7K3WxW3ZIyw1UG3WUWr9Iqr4xJr4rCFy3
+	Cw4rta4xJr43ZwUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UoBTwUUUUU=
+X-Originating-IP: [222.71.101.198]
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbBDwI4o2gIwTqyAgAAs9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_024020_195835_0E176AD7 
-X-CRM114-Status: UNSURE (   9.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250423_035445_218013_4E0B0EFC 
+X-CRM114-Status: GOOD (  11.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,23 +81,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 03, 2025 at 09:59:31PM -0500, Rob Herring (Arm) wrote:
-> The "clock-latency" property is part of the deprecated opp-v1 binding
-> and is redundant if the opp-v2 table has equal or larger values in any
-> "clock-latency-ns". The OPP tables have values of 150000, so it can be
-> removed.
-> 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
->  arch/arm/boot/dts/nxp/imx/imx7s.dtsi      | 1 -
->  arch/arm64/boot/dts/freescale/imx8mm.dtsi | 4 ----
->  arch/arm64/boot/dts/freescale/imx8mn.dtsi | 4 ----
->  arch/arm64/boot/dts/freescale/imx8mp.dtsi | 4 ----
->  arch/arm64/boot/dts/freescale/imx8mq.dtsi | 4 ----
->  5 files changed, 17 deletions(-)
+Link-up detection manually checked PCIE_LINKUP bits across RC/EP modes,
+leading to code duplication. Centralize the logic using FIELD_GET. This
+removes redundancy and abstracts hardware-specific bit masking, ensuring
+consistent link state handling.
 
-Applied as two patches, one for imx/dt branch and the other for imx/dt64.
+Signed-off-by: Hans Zhang <18255117159@163.com>
+---
+ drivers/pci/controller/dwc/pcie-dw-rockchip.c | 21 +++++++------------
+ 1 file changed, 8 insertions(+), 13 deletions(-)
 
-Shawn
+diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+index 6cf75160fb1c..8c2b2b642ba7 100644
+--- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
++++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+@@ -8,6 +8,7 @@
+  * Author: Simon Xue <xxm@rock-chips.com>
+  */
+ 
++#include <linux/bitfield.h>
+ #include <linux/clk.h>
+ #include <linux/gpio/consumer.h>
+ #include <linux/irqchip/chained_irq.h>
+@@ -73,9 +74,8 @@
+ 
+ /* LTSSM Status Register */
+ #define PCIE_CLIENT_LTSSM_STATUS	0x300
+-#define  PCIE_SMLH_LINKUP		BIT(16)
+-#define  PCIE_RDLH_LINKUP		BIT(17)
+-#define  PCIE_LINKUP			(PCIE_SMLH_LINKUP | PCIE_RDLH_LINKUP)
++#define  PCIE_LINKUP			0x3
++#define  PCIE_LINKUP_MASK		GENMASK(17, 16)
+ #define  PCIE_LTSSM_STATUS_MASK		GENMASK(5, 0)
+ 
+ struct rockchip_pcie {
+@@ -209,10 +209,7 @@ static int rockchip_pcie_link_up(struct dw_pcie *pci)
+ 	struct rockchip_pcie *rockchip = to_rockchip_pcie(pci);
+ 	u32 val = rockchip_pcie_get_ltssm(rockchip);
+ 
+-	if ((val & PCIE_LINKUP) == PCIE_LINKUP)
+-		return 1;
+-
+-	return 0;
++	return FIELD_GET(PCIE_LINKUP_MASK, val) == PCIE_LINKUP;
+ }
+ 
+ static void rockchip_pcie_enable_l0s(struct dw_pcie *pci)
+@@ -512,7 +509,7 @@ static irqreturn_t rockchip_pcie_rc_sys_irq_thread(int irq, void *arg)
+ 	struct dw_pcie *pci = &rockchip->pci;
+ 	struct dw_pcie_rp *pp = &pci->pp;
+ 	struct device *dev = pci->dev;
+-	u32 reg, val;
++	u32 reg;
+ 
+ 	reg = rockchip_pcie_readl_apb(rockchip, PCIE_CLIENT_INTR_STATUS_MISC);
+ 	rockchip_pcie_writel_apb(rockchip, reg, PCIE_CLIENT_INTR_STATUS_MISC);
+@@ -521,8 +518,7 @@ static irqreturn_t rockchip_pcie_rc_sys_irq_thread(int irq, void *arg)
+ 	dev_dbg(dev, "LTSSM_STATUS: %#x\n", rockchip_pcie_get_ltssm(rockchip));
+ 
+ 	if (reg & PCIE_RDLH_LINK_UP_CHGED) {
+-		val = rockchip_pcie_get_ltssm(rockchip);
+-		if ((val & PCIE_LINKUP) == PCIE_LINKUP) {
++		if (rockchip_pcie_link_up(pci)) {
+ 			dev_dbg(dev, "Received Link up event. Starting enumeration!\n");
+ 			/* Rescan the bus to enumerate endpoint devices */
+ 			pci_lock_rescan_remove();
+@@ -539,7 +535,7 @@ static irqreturn_t rockchip_pcie_ep_sys_irq_thread(int irq, void *arg)
+ 	struct rockchip_pcie *rockchip = arg;
+ 	struct dw_pcie *pci = &rockchip->pci;
+ 	struct device *dev = pci->dev;
+-	u32 reg, val;
++	u32 reg;
+ 
+ 	reg = rockchip_pcie_readl_apb(rockchip, PCIE_CLIENT_INTR_STATUS_MISC);
+ 	rockchip_pcie_writel_apb(rockchip, reg, PCIE_CLIENT_INTR_STATUS_MISC);
+@@ -553,8 +549,7 @@ static irqreturn_t rockchip_pcie_ep_sys_irq_thread(int irq, void *arg)
+ 	}
+ 
+ 	if (reg & PCIE_RDLH_LINK_UP_CHGED) {
+-		val = rockchip_pcie_get_ltssm(rockchip);
+-		if ((val & PCIE_LINKUP) == PCIE_LINKUP) {
++		if (rockchip_pcie_link_up(pci)) {
+ 			dev_dbg(dev, "link up\n");
+ 			dw_pcie_ep_linkup(&pci->ep);
+ 		}
+-- 
+2.25.1
 
 
