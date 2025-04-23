@@ -4,78 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FD9EC369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 23:04:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 444FDC369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 23:15:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=B5OuSnRYmxjKGp/xme4xK/kJBvItahOTY4ca9GtiV/U=; b=0XPRyrfmFE4ZxkhqSiSSdg/5cW
-	261UEwid1WG4y9yMhzWk94P2fvwG9ajN47o0d40pL4HHqf0gF6OQEfbxtiIzCciCZK1ulYHZnw6/m
-	/fMhJ7kmJfF7fOQlxyU6GWeqUxu1EWSXNARityc+JIruHPeuFW+P/m56Zm7b2zt79EC25sRaCi2cL
-	NrvM4/4+u0mgHF9/Zawgclxn2kq77wqwW6NoMudLDR8S44pxIQAXt6sMnPg9tNFbdXGZlEB2OnBl3
-	Wx/un/gG5WE4jIKolaoFdOC8LTFtCFXax6rKngccjEV/uR8E3g5vgEDq15qNcIDDwLhb/5D02ducC
-	Uk11A09w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j7FmK6qEFUDZgqJtuDYY7s98fV4vdP3IcCOYjjAkZuo=; b=s3kniy3KWoTPbexeOGwummxb7b
+	roJTKEN4R3ZSUFPsAsEAJzSv0JG6b+WI+ze0JYduVFvmEkB2C24lUG00Lcc11BXU108FY75O6NhU3
+	60NJVvOTthjcQYeXv/WjRY2keZaPNqJWjTxUfbm4EGMupMO39wfReIddYRF1WcfvxJuGIBF/fW/Yg
+	Ru8KtVEwLC953ZgcUxBRpWZgDYUgJQmof6e+h1PlGb3nkUINuprWdZh9XUO0qCJD+2zm+kvkOeIDN
+	I+NGapN3Hz9JEslli9CWHtPMH+9Hg+8EHKodZrgnIM4ylCmrrwS+/Kk0eXb2tAcb7+RiqJvLBFlG0
+	AWeEe9Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7j8E-0000000CEzY-0L8r;
-	Wed, 23 Apr 2025 23:03:54 +0000
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	id 1u7jJh-0000000CFbA-28TK;
+	Wed, 23 Apr 2025 23:15:45 +0000
+Received: from mail-dm6nam12on20629.outbound.protection.outlook.com ([2a01:111:f403:2417::629] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7j5G-0000000CEom-2Nar
+	id 1u7jHi-0000000CFOI-0aoI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 23:00:51 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-73dff14aa55so234408b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 16:00:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1745449249; x=1746054049; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=B5OuSnRYmxjKGp/xme4xK/kJBvItahOTY4ca9GtiV/U=;
-        b=WDSZ1ZMdGjjKWbStWjVzAif32ZbjpEIa+gx2EzNmrBLqZ7iwL5xzwbs8pBCsGbSLVF
-         d8EGQF3tULPuU0UcD8v1f1h27NWg8iDx6i9hpzwXbUoCK6TFgdfgBmmgcoEUkpMet2Hv
-         zgr1OoniQBkOrA3L4RgCEQrg8Y813vbDWTebtJSjnObSsMYb8THPi9x7+vOoRC9cGg/x
-         hHks8WpRFvcQQZpe8awyusWTuwt4/prakhrclGq7UOQBUkMqpzRIGDj2RV9t4QBb0R6r
-         6YHknA3Hmz/ktcWPPbpWwUZQknb1T2Zgv/RfMGBv0qv0iC5i6DRpkpuFr1gAYOKYUmDx
-         OJTw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745449249; x=1746054049;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=B5OuSnRYmxjKGp/xme4xK/kJBvItahOTY4ca9GtiV/U=;
-        b=EIpnddovUlJ5gL/tpVdsFqvfAniXDXmyZha7vcGXldez2YG/B8Y3ojIEh2/RBA+ITz
-         SVrymay3C3/inF3VE3QHHmaeXFFKdIdwKMVVPHLf4W6ArIijMR/Mnck95/EW36GdSRoO
-         izfgQALlOc4Oqo7o7rabrP/XfAv5EaCwxzCiDP9efcEZlB1akFqkRUJgkweVBpPLPq0h
-         N6tLG5V7uJglOCWwfcd+lSmrd/uA+UkcfsG2HHP9d5b57DEl+/Cu/nVfn0NLzLWWwUqT
-         nCBNJkEoI5BtMrWZR9mXzD3/tj4OYZykBCJPlWsFF/R6pGpHOSdihbuK5PbWNyUYnFPz
-         dZtg==
-X-Forwarded-Encrypted: i=1; AJvYcCUs3cXtCjDNUzKLGyy/QiHs6yCuaoOaiCxL7KPYGkIrS87c2/CDtz6DL5FirxJowQINm7ONoWk0wxZh9Joex5p4@lists.infradead.org
-X-Gm-Message-State: AOJu0YzmNc4vXy5C1wRdY+KaKu34ibO3ZIzL90ZqA+nDyqy5/owZdGGu
-	00YrGCnh74EzLH12eio9qIgBBqGCo2Kju0vo588JyUDz2pfaCE4qTqi+7I7Co/F07LP5sC2yFJK
-	j
-X-Google-Smtp-Source: AGHT+IErwK2DT1KoeJM4yorZNa4fi9TPavX8qddUeghqZq9oScAgB1pOM+1uuM5QkwJ1g/JwW/wt1CJLkK8=
-X-Received: from pgzz2.prod.google.com ([2002:a63:3302:0:b0:af0:e359:c50a])
- (user=yabinc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:181a:b0:1f5:80a3:b006
- with SMTP id adf61e73a8af0-20444ebe0aamr449684637.21.1745449249463; Wed, 23
- Apr 2025 16:00:49 -0700 (PDT)
-Date: Wed, 23 Apr 2025 16:00:46 -0700
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.49.0.901.g37484f566f-goog
-Message-ID: <20250423230046.1134389-1-yabinc@google.com>
-Subject: [PATCH] coresight: trbe: Save/restore state across CPU low power state
-From: Yabin Cui <yabinc@google.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@linaro.org>, 
-	James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>, 
-	Jie Gan <quic_jiegan@quicinc.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Yabin Cui <yabinc@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Wed, 23 Apr 2025 23:13:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XALCglo/ecFqkhwd3E+xpY8qSlPOCZl++NJ95IJC6wO5dq8lEB+/TPRlzQFdsR2aiGOr2yNmPeYa2HSbBuT4tgkuQJidhhe0uyjr1M7eFWq3GIku7FP/cvJy9P9wPqUOHZy1iF6zaz6XbVIHJbUFBthf0e+qybHAPqb9beqI1rb2oziBnSLMaEkOYDTnZSa7HZZu9Syiao4bVfD1ArL1KG+TQc43Sq9WGgeOXya20c8ukKX09Edy+G6pShBHFJ6h8kwJ21gWdFDDAISiCClaHYsPTinzdTyLGYefOlY2OVSVWV2hqtDwk/ELfYI4IzQUJmPwVQQ925tfELbq5RcdNg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=j7FmK6qEFUDZgqJtuDYY7s98fV4vdP3IcCOYjjAkZuo=;
+ b=yjPnXF719isjMYZZ00HjEo9L7N8LLWujID8Yymj19JABYQC8LXtETFsgFIyDZwT+H0iW8Zr20tEHBU4jexzF+eJRhmlPCvLseGiz/zUo/+pmbvVyossJ1IdjE9gXgxuTllUKKYRnC/6CCGnskeNzEwZoEfFdsUc+UebmIhAVUqvbIq+b2TwuQb6qQ299I93lm3PFSwoKK7GyB9Gfh6886YNDmYCWA7stJxrtaAuuj9Zzn9ILF5j+6hSaCs+VZ/BwuNvEpbC9SauYMPgPR+o2od1+ABg+9kd0FYp1cKqI83KJgEvxVleW/3t3dK6jGJfVdEhvfgfF/hM6/aEEv8vpag==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=j7FmK6qEFUDZgqJtuDYY7s98fV4vdP3IcCOYjjAkZuo=;
+ b=CD5ILdyycsTEzH0+mJieJzW5N4FxNEcTvJb0jPQ24P2q4J02xETYUQ7Nn657iXtl/9t+n9mSgiPYa2g7YNWpn1J00hmrYpdZUl/CsdjSJnX3Bd48huM2aSwB7Rw2WV5J3ZkctoV0CQlI0+L8hzPIoqzjoHp7gt+Qz48rmwu5jPctEoB4xbvH/i8Q8ZLdB9a01yNTj7yvT2J5n9EFwdjQ/mXlRnsbuFIfiJsLQCIjUfkYvI11+VRxkL1fej6S+CF2vNNrcQpCPk/eiuxHT2Op1srip7UDS1fX1bV/x/UUDr0p29HfkDHkTmn6Y0jjZkUPb0v68EQqQOhw7jgkL2XWuQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by DS0PR12MB6461.namprd12.prod.outlook.com (2603:10b6:8:c7::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.23; Wed, 23 Apr
+ 2025 23:13:35 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8632.030; Wed, 23 Apr 2025
+ 23:13:35 +0000
+Date: Wed, 23 Apr 2025 20:13:33 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: "Tian, Kevin" <kevin.tian@intel.com>, "corbet@lwn.net" <corbet@lwn.net>,
+	"will@kernel.org" <will@kernel.org>,
+	"robin.murphy@arm.com" <robin.murphy@arm.com>,
+	"joro@8bytes.org" <joro@8bytes.org>,
+	"thierry.reding@gmail.com" <thierry.reding@gmail.com>,
+	"vdumpa@nvidia.com" <vdumpa@nvidia.com>,
+	"jonathanh@nvidia.com" <jonathanh@nvidia.com>,
+	"shuah@kernel.org" <shuah@kernel.org>,
+	"praan@google.com" <praan@google.com>,
+	"nathan@kernel.org" <nathan@kernel.org>,
+	"peterz@infradead.org" <peterz@infradead.org>,
+	"Liu, Yi L" <yi.l.liu@intel.com>,
+	"jsnitsel@redhat.com" <jsnitsel@redhat.com>,
+	"mshavit@google.com" <mshavit@google.com>,
+	"zhangzekun11@huawei.com" <zhangzekun11@huawei.com>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>,
+	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
+	"patches@lists.linux.dev" <patches@lists.linux.dev>
+Subject: Re: [PATCH v1 15/16] iommu/tegra241-cmdqv: Add user-space use support
+Message-ID: <20250423231333.GN1648741@nvidia.com>
+References: <cover.1744353300.git.nicolinc@nvidia.com>
+ <30c7aff68c35040ee637629cb9fc2b6e7f83f76c.1744353300.git.nicolinc@nvidia.com>
+ <BN9PR11MB52768197516FB895146A12078CB82@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <aAaY+f2/jw9NaIWF@Asurada-Nvidia>
+ <BN9PR11MB5276220C7B2C5743DC8364CB8CBA2@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <20250423115551.GC1648741@nvidia.com>
+ <aAkyAbO5UQRySizN@Asurada-Nvidia>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aAkyAbO5UQRySizN@Asurada-Nvidia>
+X-ClientProxiedBy: MN2PR04CA0001.namprd04.prod.outlook.com
+ (2603:10b6:208:d4::14) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|DS0PR12MB6461:EE_
+X-MS-Office365-Filtering-Correlation-Id: 87b7fe1b-283e-4bff-51ea-08dd82bc78c6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?faFpnCHk0siVsIIdPr1M1SGrO1q4CMdvUz6tnti8PmCrLIFYzZGYwrdK73Jq?=
+ =?us-ascii?Q?2oN1we/Q8rEv60wwl228UGKIxhe8WKuTHMTciisOfWo8qB7om3ajTgFB0WEa?=
+ =?us-ascii?Q?AxhqswcBGaNNSzOdV87w5S+5BlgazGly4KvENHKbI6eNhqcCnbIVN/Eyv8sD?=
+ =?us-ascii?Q?qtFzKfq7bhT9pm+6aWEn2nb2E1pUG63pR7GCtFpZNTSLggs9VFmvR42MhYEn?=
+ =?us-ascii?Q?GiuKCJyQAagFHeCZfHqTKp0pj/0sAGR4fGrWnh90Z19CAFQaGrkFM8IlgFw6?=
+ =?us-ascii?Q?/k+32XD236Ou+CuhsMmbxkICRnVlsDjXH+bkOQs1HP1xq66Wa3C6hAT/tEcL?=
+ =?us-ascii?Q?pRPab8sS4hFBgTm63OnhZhg/OJYqedWhEB7d1fE9fosUIatxCIl4BkOkJ3p/?=
+ =?us-ascii?Q?Wp5RZYTJeeox9lnnsGSEBVLpS1eba9H8xHmDn9/XZxNyyfMNo9EeI3up3en1?=
+ =?us-ascii?Q?WHXp9J5I4ycax5D5vq82ydo/y9d5yFDDqNHGJuQI2Xxw4gpjeomjNX9LtdAG?=
+ =?us-ascii?Q?m6nF5tDwbvqgcLebwJYX3jpqJlQCeL67bAGuGatQiHRRpQMexyugHf8NsLP7?=
+ =?us-ascii?Q?t+shAELnPtrEFRaD6n45BNZZSjuQtrDtepMUj5M0+KXAodH4rYq7xXDCJlkQ?=
+ =?us-ascii?Q?VMUEg2UNfPVYjFrsaS0/B5RxreMWYtImSH15Xo3oLHWkh9fgrKmeB6Gsqk+/?=
+ =?us-ascii?Q?HFWO7PKNIFritb3oSOkq1xrJF3ZM5fxm5ejmV4gHD/9fcqNTv+2XRkh0vquS?=
+ =?us-ascii?Q?Dh9vHw9vXNrRKRtRNbdukA2PTeFWDN8hStrKivHyLKg2f6s03QlWR1JGI4oi?=
+ =?us-ascii?Q?7q9MS8lGDeClfGhM89xeO9/gYrX7uD6+M/dYz8V+Q7jjG0qYU89E0n+k/fMB?=
+ =?us-ascii?Q?Dvc2lICAUDnlgQF9rOb9J0ur7P+oduT6Lu8vdhCvb/X5tLDf4cCjl9LdIbFC?=
+ =?us-ascii?Q?SG4ZWIXArYhKOPioo3UDdQrBm9JCncVRIF71Pd9qhMcOv0hNK6VwIH0SvJTW?=
+ =?us-ascii?Q?x4lGYZbLehqBMngLfeVDHGjqHWaI5fxNoyM79wl8mekJUDALASPEh5PgotRu?=
+ =?us-ascii?Q?7D45r2OCQ8RZoWBqwFPI/rHo2ucKxl2J2BIkTBCGXp4qBQeYdoMcsJyYUWUh?=
+ =?us-ascii?Q?9wnr3izgtMeuvlZvWfz7KKpGEte2FHolNDS/2VDErRCnETecz/yaXfBZMSnW?=
+ =?us-ascii?Q?otzT+P+WTPskjKHwn/8lzgkl3xNLtm+FbhZ+7tmG+A0vTOIl1FsMbROwGMp3?=
+ =?us-ascii?Q?Lyz9oO0nA6G1kcCI22Q5gqndasktz4ZTTgf5WgfLabyQjkMcn1niNpIdKc5L?=
+ =?us-ascii?Q?GPzTcUDgCUDZhauyDyZW1awjGXOqlELU3muVNLIb0uWmsZ7xCEAWZj7a85Hx?=
+ =?us-ascii?Q?DD9v0GDVREHZ7uhONBe40rNBKMh4dt/Zrfhp8bJHZ08n0s4DYw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZiS0bpUX1LOOyTkh9FQ2d4ZXTiAB+MNa5s4AgfWBuyQltFXz9lbePb9hC2y9?=
+ =?us-ascii?Q?wyd/xeYYOZuPDdbeJMN654Oybo36SxsMDubyFSsOYDL3eOPkcWiqhoMm2k9s?=
+ =?us-ascii?Q?18s5DxD8ctrbvT28JumRXvzvExZz6oFFfqzj0M85rFW7j0SzY6XBS5k/BbnU?=
+ =?us-ascii?Q?RDwi+3KYAJh6rhzVp1fuIBl2fyQ98NamTh7qrHLDVjgYXUaA92fqkuTp95Ha?=
+ =?us-ascii?Q?x5Xd3f5qLsEFxhxbPTWIrsJQhVYfZINgb0Q9ns8Y7mT3vkJwlFHHcQvUBb63?=
+ =?us-ascii?Q?XCIvRAUrBStT8qqfnmql1AwXp9oZ8HLZWIV3gtBTd2gnkwyAU/mIg/Nk2gbs?=
+ =?us-ascii?Q?GJ0DXbOrJn0rz/wHJYQZhYajNXwuuwNa7wR3efjl68+H87L5l+L55kI6QZD/?=
+ =?us-ascii?Q?TMIU7HE1PP6Io2jo4ADwF52xpI8C5NNmqiX1cJPUc+I+SOdLHDOY7SfQjd63?=
+ =?us-ascii?Q?kB5pIZecid8Nll0n2Qmzu6UrHRzYBngbmVpOCZ1I7E8Ob/H0U4Q1umpFSjIG?=
+ =?us-ascii?Q?F2oLEmBxGend3Bkra2yUe+cO7WU+gCrH9VJDX8SuzfmETksDw4RM8CxXrHGL?=
+ =?us-ascii?Q?gQBnapDfn8MGEHBb5qs5HlWvBYD9Vv2UvZNinRknOARI//lVZ4JnFDF7qdIx?=
+ =?us-ascii?Q?gLZpHmQ9/c2JqMHh2ZlLXRbywfl+DTVLwK98vkhcF6EhgryezZNe5XOFwiIf?=
+ =?us-ascii?Q?fUoCCV/dclJNcLqmPwqbSIgx4XIJjE3NH3faGNoGP2F6TFXMvTtDn6cejsXr?=
+ =?us-ascii?Q?s2cS0SvBQf/HnmooxsplmLczd55X8DkSZYfoiZHw/N0GNim20ky+813rvSzW?=
+ =?us-ascii?Q?mgP13Ow2jJacIxRtFk3SpHKdQSSVdZC26xP8Up+UkATFtMpOfzaEP97dYT9l?=
+ =?us-ascii?Q?xHxW0pukOwQKuROLPxmf5aGEZmsW5rZlwEBBFKhrFPqyM4d9gSVyCnNW0z7D?=
+ =?us-ascii?Q?J6jZUSy0+y59HVV9CqZ5nQ+y2NAjgGOY6jJvNCkHdPnjeot70OFYJSPBQ+4w?=
+ =?us-ascii?Q?46/FovtaG3xapQ/AoMIQGeQp1m5T5kKbESNzV1fCPE9wLVQGXK+o4rOFh53i?=
+ =?us-ascii?Q?pbL2ZVt3jwj1MABQfw/P4pJwuLzs7bByv41qp4LtU5SgUrfYQtYPSo0mi1R3?=
+ =?us-ascii?Q?xcZXxT+DbR6+1svCwkaCEopZ1mUVsfFdQ/Ctuzgl1QVZn3BEFV+/KkTUxrRL?=
+ =?us-ascii?Q?ZXgBJjs0ddkPaldjv/2/OCSmjb2ISOyb8a+T8oHyDJriZqNAKW19R0wYOe11?=
+ =?us-ascii?Q?Kd1g5STHCkUnKMp7AF95KG4Wx37mlLNpnCGSIClGb8jX7ezZGpInhNPNwh1g?=
+ =?us-ascii?Q?ds19/RyHHapIy18lNfxfwZ1WpEzbH+qHrqlaIJkl8uu6cbRB5NvY5c027LyB?=
+ =?us-ascii?Q?PoGgdS5n/k3Yzvn3WUjoOiGqsAvET9Csnf9VP3CzcAu0/NbtSROstjGiMb0n?=
+ =?us-ascii?Q?/O/qMPj8OwvGQHTrIUi47vApXS/0Ne39EcJKGDVnJflTFtSXlAKA/Lut9A6u?=
+ =?us-ascii?Q?YIp2VndiXDfzrrzMZtcRP20n7uA7y/Hr6PW2k3ypczMPCqJ2+NzE14VpzsUr?=
+ =?us-ascii?Q?jfRmO3Ftq1HIXtOVl06UFCiMSocEpGpT1trZEKnr?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 87b7fe1b-283e-4bff-51ea-08dd82bc78c6
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Apr 2025 23:13:35.0439
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: XfRFiiTPTnmZXosSqjeZB9lHz+5zJHqifNraAQyUHmNkAfTZXfBnwV5xYFWJqGmo
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB6461
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_160050_610072_3195D69F 
-X-CRM114-Status: GOOD (  21.49  )
+X-CRM114-CacheID: sfid-20250423_161342_174988_A8AC6369 
+X-CRM114-Status: GOOD (  11.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,185 +181,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Similar to ETE, TRBE may lose its context when a CPU enters low
-power state. To make things worse, if ETE state is restored without
-restoring TRBE state, it can lead to a stuck CPU due to an enabled
-source device with no enabled sink devices.
+On Wed, Apr 23, 2025 at 11:31:29AM -0700, Nicolin Chen wrote:
 
-This patch introduces support for "arm,coresight-loses-context-with-cpu"
-in the TRBE driver. When present, TRBE registers are saved before
-and restored after CPU low power state. To prevent CPU hangs, TRBE
-state is always saved after ETE state and restored after ETE state.
+> > It also needs to act like a mdev and lock down the part of the IOAS
+> > that provides that memory so the pin can't be released and UAF things.
+> 
+> If I capture this correctly, the GPA->PA mapping is already done
+> at the IOAS level for the S2 HWPT/domain, i.e. pages are already
+> pinned. So we just need to a pair of for-driver APIs to validate
+> the contiguity and refcount pages calling iopt_area_add_access().
 
-Signed-off-by: Yabin Cui <yabinc@google.com>
----
- .../coresight/coresight-etm4x-core.c          | 13 ++++-
- drivers/hwtracing/coresight/coresight-trbe.c  | 53 +++++++++++++++++++
- include/linux/coresight.h                     |  6 +++
- 3 files changed, 71 insertions(+), 1 deletion(-)
+Yes, adding an access is the key thing, the access will give you a
+page list which you can validate, but it also provides a way to
+synchronize if a hostile userspace does an unmap.
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index e5972f16abff..1bbaa1249206 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -1863,6 +1863,7 @@ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
- static int etm4_cpu_save(struct etmv4_drvdata *drvdata)
- {
- 	int ret = 0;
-+	struct coresight_device *sink;
- 
- 	/* Save the TRFCR irrespective of whether the ETM is ON */
- 	if (drvdata->trfcr)
-@@ -1871,8 +1872,14 @@ static int etm4_cpu_save(struct etmv4_drvdata *drvdata)
- 	 * Save and restore the ETM Trace registers only if
- 	 * the ETM is active.
- 	 */
--	if (coresight_get_mode(drvdata->csdev) && drvdata->save_state)
-+	if (coresight_get_mode(drvdata->csdev) && drvdata->save_state) {
- 		ret = __etm4_cpu_save(drvdata);
-+		if (ret == 0) {
-+			sink = coresight_get_percpu_sink(drvdata->cpu);
-+			if (sink && sink_ops(sink)->percpu_save)
-+				sink_ops(sink)->percpu_save(sink);
-+		}
-+	}
- 	return ret;
- }
- 
-@@ -1977,6 +1984,10 @@ static void __etm4_cpu_restore(struct etmv4_drvdata *drvdata)
- 
- static void etm4_cpu_restore(struct etmv4_drvdata *drvdata)
- {
-+	struct coresight_device *sink = coresight_get_percpu_sink(drvdata->cpu);
-+
-+	if (sink && sink_ops(sink)->percpu_restore)
-+		sink_ops(sink)->percpu_restore(sink);
- 	if (drvdata->trfcr)
- 		write_trfcr(drvdata->save_trfcr);
- 	if (drvdata->state_needs_restore)
-diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
-index fff67aac8418..38bf46951a82 100644
---- a/drivers/hwtracing/coresight/coresight-trbe.c
-+++ b/drivers/hwtracing/coresight/coresight-trbe.c
-@@ -115,6 +115,13 @@ static int trbe_errata_cpucaps[] = {
-  */
- #define TRBE_WORKAROUND_OVERWRITE_FILL_MODE_SKIP_BYTES	256
- 
-+struct trbe_save_state {
-+	u64 trblimitr;
-+	u64 trbbaser;
-+	u64 trbptr;
-+	u64 trbsr;
-+};
-+
- /*
-  * struct trbe_cpudata: TRBE instance specific data
-  * @trbe_flag		- TRBE dirty/access flag support
-@@ -123,6 +130,9 @@ static int trbe_errata_cpucaps[] = {
-  * @cpu			- CPU this TRBE belongs to.
-  * @mode		- Mode of current operation. (perf/disabled)
-  * @drvdata		- TRBE specific drvdata
-+ * @state_needs_save	- Need to save trace registers when entering cpu idle
-+ * @state_needs_restore	- Need to restore trace registers when exiting cpu idle
-+ * @save_state		- Saved trace registers
-  * @errata		- Bit map for the errata on this TRBE.
-  */
- struct trbe_cpudata {
-@@ -133,6 +143,9 @@ struct trbe_cpudata {
- 	enum cs_mode mode;
- 	struct trbe_buf *buf;
- 	struct trbe_drvdata *drvdata;
-+	bool state_needs_save;
-+	bool state_needs_restore;
-+	struct trbe_save_state save_state;
- 	DECLARE_BITMAP(errata, TRBE_ERRATA_MAX);
- };
- 
-@@ -1187,12 +1200,49 @@ static irqreturn_t arm_trbe_irq_handler(int irq, void *dev)
- 	return IRQ_HANDLED;
- }
- 
-+static void arm_trbe_cpu_save(struct coresight_device *csdev)
-+{
-+	struct trbe_cpudata *cpudata = dev_get_drvdata(&csdev->dev);
-+	struct trbe_save_state *state = &cpudata->save_state;
-+
-+	if (cpudata->mode == CS_MODE_DISABLED || !cpudata->state_needs_save)
-+		return;
-+
-+	state->trbbaser = read_sysreg_s(SYS_TRBBASER_EL1);
-+	state->trbptr = read_sysreg_s(SYS_TRBPTR_EL1);
-+	state->trblimitr = read_sysreg_s(SYS_TRBLIMITR_EL1);
-+	state->trbsr = read_sysreg_s(SYS_TRBSR_EL1);
-+	cpudata->state_needs_restore = true;
-+}
-+
-+static void arm_trbe_cpu_restore(struct coresight_device *csdev)
-+{
-+	struct trbe_cpudata *cpudata = dev_get_drvdata(&csdev->dev);
-+	struct trbe_save_state *state = &cpudata->save_state;
-+
-+	if (cpudata->state_needs_restore) {
-+		/*
-+		 * To avoid disruption of normal tracing, restore trace
-+		 * registers only when TRBE lost power (TRBLIMITR == 0).
-+		 */
-+		if (read_sysreg_s(SYS_TRBLIMITR_EL1) == 0) {
-+			write_sysreg_s(state->trbbaser, SYS_TRBBASER_EL1);
-+			write_sysreg_s(state->trbptr, SYS_TRBPTR_EL1);
-+			write_sysreg_s(state->trbsr, SYS_TRBSR_EL1);
-+			set_trbe_enabled(cpudata, state->trblimitr);
-+		}
-+		cpudata->state_needs_restore = false;
-+	}
-+}
-+
- static const struct coresight_ops_sink arm_trbe_sink_ops = {
- 	.enable		= arm_trbe_enable,
- 	.disable	= arm_trbe_disable,
- 	.alloc_buffer	= arm_trbe_alloc_buffer,
- 	.free_buffer	= arm_trbe_free_buffer,
- 	.update_buffer	= arm_trbe_update_buffer,
-+	.percpu_save	= arm_trbe_cpu_save,
-+	.percpu_restore	= arm_trbe_cpu_restore,
- };
- 
- static const struct coresight_ops arm_trbe_cs_ops = {
-@@ -1358,6 +1408,9 @@ static void arm_trbe_probe_cpu(void *info)
- 	cpudata->trbe_flag = get_trbe_flag_update(trbidr);
- 	cpudata->cpu = cpu;
- 	cpudata->drvdata = drvdata;
-+	cpudata->state_needs_save = coresight_loses_context_with_cpu(
-+		&drvdata->pdev->dev);
-+	cpudata->state_needs_restore = false;
- 	return;
- cpu_clear:
- 	cpumask_clear_cpu(cpu, &drvdata->supported_cpus);
-diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-index d79a242b271d..fec375d02535 100644
---- a/include/linux/coresight.h
-+++ b/include/linux/coresight.h
-@@ -362,6 +362,10 @@ enum cs_mode {
-  * @alloc_buffer:	initialises perf's ring buffer for trace collection.
-  * @free_buffer:	release memory allocated in @get_config.
-  * @update_buffer:	update buffer pointers after a trace session.
-+ * @percpu_save:	saves state when CPU enters idle state.
-+ *			Only set for percpu sink.
-+ * @percpu_restore:	restores state when CPU exits idle state.
-+ *			only set for percpu sink.
-  */
- struct coresight_ops_sink {
- 	int (*enable)(struct coresight_device *csdev, enum cs_mode mode,
-@@ -374,6 +378,8 @@ struct coresight_ops_sink {
- 	unsigned long (*update_buffer)(struct coresight_device *csdev,
- 			      struct perf_output_handle *handle,
- 			      void *sink_config);
-+	void (*percpu_save)(struct coresight_device *csdev);
-+	void (*percpu_restore)(struct coresight_device *csdev);
- };
- 
- /**
--- 
-2.49.0.901.g37484f566f-goog
-
+Jason
 
