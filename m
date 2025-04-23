@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38E6BC369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:42:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F731C369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:42:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ooBsdae09ObYrCg5GB90Cflalk8xetQnJrw+3C5BA60=; b=NXMw3JiBtGJHMk+m8SDOjPEwF8
-	m3ceiRwW5yu8Bn8l/k71gix1s2Da2ufadGO8oIqswTF8KOLyJmB+V2C4q7iCjvOMeFWzykJ3xG5dH
-	xdMDb/kbMyv6MimMbJuj4sATLDJj2BxRROaXw51fxYMRs0P1kRjE+HZ/mOLK+mBJpiiw/Z7YFPZyW
-	8DsNcjoBr3mPfg4/GVSjleWDxDt7Sn/mfaHd0XHLVxjkmDIN/AtZlLdXBb299lI8ICiiuwzjTfNo4
-	RtLnszuD3HmrJ6OK2Joe6rLNE+ufnnDz00O6JUDmmEMOG7r8MQYVYhwCmOflgEs6D41hHVh7zeWwO
-	O00IHFHw==;
+	bh=Q9dADvexMZBriprQYqYlggk1XY2t86MtpJOU1D6Rop0=; b=zv+Bz1mZQYidkzvySPrWbGAYzN
+	Eqovle5oUnktkBAwy8W13xmu7yaY/+jg6DuW6+Aq0ZH6ndjI/IxNi/bMdd/BLfrvzjONGi1oRiKiU
+	mbiUqxAsBICuyjQCU2j8QeisZGEsGl2uQ5D1YPrnHeiuznIEYQIPjvhr5F+rzc0MfiSmEi4LZ/WLV
+	+pmezNZNuV/p8ENnHxSU9vZhcYderzgHGIn8e1ANEMC8uQuciWxevTwGWRoZG06PUOO/Ou5skq47g
+	2hOHgB2k1n/HvufXngflNdS3+J9Gmsis0PRqPrQiQNpHwytWi2ERQFHnYdF+u05xa8UXcbAsTfWOv
+	jZQSexCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7e6f-0000000BKGI-2Vgk;
-	Wed, 23 Apr 2025 17:41:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u7e6h-0000000BKKH-1xqq;
+	Wed, 23 Apr 2025 17:41:59 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7boi-0000000AvoK-3HmB
+	id 1u7boi-0000000AvoI-2qgW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 15:15:16 +0000
+	Wed, 23 Apr 2025 15:15:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F10D0614B6;
-	Wed, 23 Apr 2025 15:14:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D1ACC4CEE8;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 807A65C61C9;
+	Wed, 23 Apr 2025 15:12:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47299C4CEE3;
 	Wed, 23 Apr 2025 15:15:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1745421315;
-	bh=6/qw7x7rUvZiYc598C5910i4e3fhEOu+d3OEt7ysQWM=;
+	bh=jSgGzdta8ZXQcXWfdhPT721GAmbclZgONOJn80ZUs0g=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=arOcgn0N/jQSStiK/4gmqbXRF1pIXbPVjd/1Btogls+jyYh9Kz8pWz8fGHzto2cI2
-	 G/rBEUeprnb2lI8WFy1jACD3jz16d1W/QQZ7M/qQrqTdmAl0XsPGdw/hlH10VuW5Dl
-	 4B3z1YzypsANOy25Y8S1LyfF7JfKCDNXJe6nL6Lo9nkcOs6L6gQVbNuFEyuBPygJ8u
-	 6qC1oxM6/2GCuKXF+vwRu3c0s9ELwknQNOdjNBjfBq5lAHShg025xN5v5qmNbk/lPV
-	 hsCRR/eZPAfpP0qO4mOfjGLMKtaoIYnkbuqX9lFHtAXHNPjDCPL1FSWhkbCG3/JMip
-	 4uNeh/hKJEHEA==
+	b=RqbujAKao6FJpNETiegwWfOtF+N1gmKeHmzjG90UnP8FbXup3AGAKon2b8CjwQWdZ
+	 UzCLgLK9HAo6LvnunhIyvxVsq+557nreN9sRaJ6NhYqWYsqZAzQxY3onXsy8BGEmUI
+	 BukT4dLd/ikpVV+ZhD2L3fp4HAL3BwvfTaWYfY9NX7Znh6EmeXMB9rpNt2SfTfx75l
+	 V+Z9UCuEFIREscSS5myP3PDdumwARP0ftXnhIbrnqVJcHMDV+00Xw0Op9FKtyHPkwu
+	 5lr21KiMk3/OyeTOBQnQoK8CbWcrgQES39JXBjrC2PUJqYCcO6Hm+L9lloMfU/P67I
+	 O6hahSk23jWPg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1u7bof-0082xr-Fe;
+	id 1u7bof-0082xr-6r;
 	Wed, 23 Apr 2025 16:15:13 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Eric Auger <eric.auger@redhat.com>,
 	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
-Subject: [PATCH v3 02/17] KVM: arm64: nv: Allocate VNCR page when required
-Date: Wed, 23 Apr 2025 16:14:53 +0100
-Message-Id: <20250423151508.2961768-3-maz@kernel.org>
+Subject: [PATCH v3 01/17] arm64: sysreg: Add layout for VNCR_EL2
+Date: Wed, 23 Apr 2025 16:14:52 +0100
+Message-Id: <20250423151508.2961768-2-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250423151508.2961768-1-maz@kernel.org>
 References: <20250423151508.2961768-1-maz@kernel.org>
@@ -70,6 +70,9 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, eric.auger@redhat.com, gankulkarni@os.amperecomputing.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250423_081516_776342_0D36D9D7 
+X-CRM114-Status: GOOD (  10.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,56 +87,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If running a NV guest on an ARMv8.4-NV capable system, let's
-allocate an additional page that will be used by the hypervisor
-to fulfill system register accesses.
+Now that we're about to emulate VNCR_EL2, we need its full layout.
+Add it to the sysreg file.
 
-Reviewed-by: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/nested.c | 9 +++++++++
- arch/arm64/kvm/reset.c  | 1 +
- 2 files changed, 10 insertions(+)
+ arch/arm64/include/asm/sysreg.h | 1 -
+ arch/arm64/tools/sysreg         | 6 ++++++
+ 2 files changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 4a3fc11f7ecf3..884b3e25795c4 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -55,6 +55,12 @@ int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
- 	    !cpus_have_final_cap(ARM64_HAS_HCR_NV1))
- 		return -EINVAL;
+diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+index 2639d3633073d..b8842e092014a 100644
+--- a/arch/arm64/include/asm/sysreg.h
++++ b/arch/arm64/include/asm/sysreg.h
+@@ -521,7 +521,6 @@
+ #define SYS_VTTBR_EL2			sys_reg(3, 4, 2, 1, 0)
+ #define SYS_VTCR_EL2			sys_reg(3, 4, 2, 1, 2)
  
-+	if (!vcpu->arch.ctxt.vncr_array)
-+		vcpu->arch.ctxt.vncr_array = (u64 *)__get_free_page(GFP_KERNEL | __GFP_ZERO);
+-#define SYS_VNCR_EL2			sys_reg(3, 4, 2, 2, 0)
+ #define SYS_HAFGRTR_EL2			sys_reg(3, 4, 3, 1, 6)
+ #define SYS_SPSR_EL2			sys_reg(3, 4, 4, 0, 0)
+ #define SYS_ELR_EL2			sys_reg(3, 4, 4, 0, 1)
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index bdf044c5d11b6..5a3190600a0b3 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -2971,6 +2971,12 @@ Sysreg	SMCR_EL2	3	4	1	2	6
+ Fields	SMCR_ELx
+ EndSysreg
+ 
++Sysreg	VNCR_EL2	3	4	2	2	0
++Field	63:57	RESS
++Field	56:12	BADDR
++Res0	11:0
++EndSysreg
 +
-+	if (!vcpu->arch.ctxt.vncr_array)
-+		return -ENOMEM;
-+
- 	/*
- 	 * Let's treat memory allocation failures as benign: If we fail to
- 	 * allocate anything, return an error and keep the allocated array
-@@ -85,6 +91,9 @@ int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
- 		for (int i = kvm->arch.nested_mmus_size; i < num_mmus; i++)
- 			kvm_free_stage2_pgd(&kvm->arch.nested_mmus[i]);
- 
-+		free_page((unsigned long)vcpu->arch.ctxt.vncr_array);
-+		vcpu->arch.ctxt.vncr_array = NULL;
-+
- 		return ret;
- 	}
- 
-diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
-index f82fcc614e136..965e1429b9f6e 100644
---- a/arch/arm64/kvm/reset.c
-+++ b/arch/arm64/kvm/reset.c
-@@ -158,6 +158,7 @@ void kvm_arm_vcpu_destroy(struct kvm_vcpu *vcpu)
- 	if (sve_state)
- 		kvm_unshare_hyp(sve_state, sve_state + vcpu_sve_state_size(vcpu));
- 	kfree(sve_state);
-+	free_page((unsigned long)vcpu->arch.ctxt.vncr_array);
- 	kfree(vcpu->arch.ccsidr);
- }
- 
+ Sysreg	GCSCR_EL2	3	4	2	5	0
+ Fields	GCSCR_ELx
+ EndSysreg
 -- 
 2.39.2
 
