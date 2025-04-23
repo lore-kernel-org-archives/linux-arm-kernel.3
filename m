@@ -4,109 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1056BC369D7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 13:52:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDD74C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 13:52:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dbiIO3r1xFAtnDUD174p9j71UWbTGBeWLa/ZZ2MHI7s=; b=ObKv3+qlDK8WY4dJUVKBty2+XB
-	bxqWG7QHM0TPl9gDvTJsSi1HlJr26M4RQyRMJJdF9Ri7dGqn3ZQLZTD51497ArhToyR/eM/diGNhj
-	4v7IiNPH4a/vxTpjSe8vxmAiSY3qkpi7e7kSX0jEsJl/Rp5IDyB8boVV9LjmT1pahrdJ0jcFEsGS+
-	1GNFekj0p3LLcAdW8EPpISCEXh2fPDONF5g+MGnIDhePxWtgMqzZfdrmENUPhdjP6hkzH0p2MD+qs
-	+5qb4s1/+Qc0/xl+zKdta35EwHS0IF3YdqsZ1JTV4K0zkhK1msSgjcbT5TaMGk3ojVhpJUQmPcp03
-	XNwBhuhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w0LHN2WUMsWrU7LKKqlMWt33ZfFNc+WV4T7oR3sZcvI=; b=Ee0dZMR1VMERZlN5QokDODi+gC
+	PvccJWl+N8OiJzeDyZJXo13QPh7befBZPPzg9I9vJ8ycvOEO2Otl0rdrxnorjogzwb/soYFvzmXyk
+	JO3njl1BeA8jNoe0R8//Uwv86UuaieyyS5Hh2gdXjLwrhh+L7le7VL5BpSA1OauNnmAVpQzoNuryI
+	j3qmzIFg23oFLbyhJsbTBPv2+iUlf23Hov00cxWSPRlPKJ1iWhs2zghxAjMG8fO9EBeTrN6RMpwsL
+	h1p4skfRiYZPCz5WK8zwJ/jZ1OO8kksPRM72vyTYUiefEFSy/Vgu6LfPP1MC1Gs33XLndFM9pu0CQ
+	NarowLaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7aWf-0000000Agby-0kf0;
-	Wed, 23 Apr 2025 13:52:33 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1u7aWg-0000000Age5-1BJp;
+	Wed, 23 Apr 2025 13:52:34 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Znr-0000000AYEJ-1UqO
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 13:06:18 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53NAbfrI003028;
-	Wed, 23 Apr 2025 13:05:57 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	dbiIO3r1xFAtnDUD174p9j71UWbTGBeWLa/ZZ2MHI7s=; b=EGU1V1RoPpwTV0Dk
-	HtZuXkiX6YSS+gkHqMVgolOvgdsC77YqlkSZRSFMt2SznYLQ6/3DjUf1HAuK90bL
-	ghxCtT1U82C4Aj17XPCcka0NbFrM3sVBfsqO25GTNy9p7OxVQ31KuOQ6NJElm+Kg
-	0HBuwiWU/9Y/We/WCijRC8/6VJkw53orwUz3ID8JKeCT0cUpH5VOvg/Ed7+8Scej
-	FGXtqp0BmVycauebqUquqWHYiY0Hu6scLD2utCGX6ZHsC6wOmjpGLixYrPl+3s3m
-	KlOp49MS7EBxFjWaJBRgljOVaUlvAqaxzmHto1kFLQuVbLEmMUEnNF2UWQ2RUe8e
-	NNp7/w==
-Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 466jgy26fk-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 23 Apr 2025 13:05:56 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53ND5tvn030684
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 23 Apr 2025 13:05:55 GMT
-Received: from [10.253.74.233] (10.80.80.8) by nasanex01b.na.qualcomm.com
- (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 23 Apr
- 2025 06:05:50 -0700
-Message-ID: <968d21dc-437e-4909-bca8-fac4402f515d@quicinc.com>
-Date: Wed, 23 Apr 2025 21:05:47 +0800
+	id 1u7Zoq-0000000AZ4p-3Lb3;
+	Wed, 23 Apr 2025 13:07:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BE70144344;
+	Wed, 23 Apr 2025 13:07:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9298FC4CEE2;
+	Wed, 23 Apr 2025 13:07:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745413634;
+	bh=0Y/vxfE7FmeLJELsNe9Pzm5m1MeRdkYQA8cGN80GuXc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=k00bUcuzt94H99b5OY0qhTC84pXfBi6bfR6OnrBnIHaQeMDR4+xmydUhxe8DvgBEE
+	 oEL/tkdD1xi2i9EMOrBoJTceIyU/HXQLafOI03SigmHw1ARA8AtOoAMVRwxeXjkIt9
+	 R259pVkXHd8ccmKxFquhMFpthMtPMKmOMJmRNPSqG+D1nDmHMUrLlFMSqfC3nYSDSI
+	 eVjQOkGgXtIh2akPdANVWsWViLu8jN9XWN2ev0PjDfF6reM4NRDozL/8wqeoicKp6X
+	 l7NkvRZHyW+uzqv4jxsqVv1xuVMJKdYlw2EuSjdVdmuWL/B7SQtPnGTkejCEIpeXsg
+	 tQFUQNCRmK3NA==
+Date: Wed, 23 Apr 2025 15:07:11 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Frank Wunderlich <linux@fw-web.de>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
+	Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
+	Kishon Vijay Abraham I <kishon@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Frank Wunderlich <frank-w@public-files.de>, 
+	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, Daniel Golle <daniel@makrotopia.org>, 
+	Sean Wang <sean.wang@mediatek.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	linux-phy@lists.infradead.org
+Subject: Re: [PATCH v4 1/8] dt-bindings: arm: mediatek: add bpi-r4 2g5 phy
+ variant
+Message-ID: <20250423-debonair-tasteful-barracuda-e41c7e@kuoka>
+References: <20250422132438.15735-1-linux@fw-web.de>
+ <20250422132438.15735-2-linux@fw-web.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Jie Luo <quic_luoj@quicinc.com>
-Subject: Re: [PATCH v3 1/6] bitfield: Add FIELD_MODIFY() helper
-To: Yury Norov <yury.norov@gmail.com>
-CC: Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-        Julia Lawall
-	<Julia.Lawall@inria.fr>,
-        Nicolas Palix <nicolas.palix@imag.fr>,
-        "Catalin
- Marinas" <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, "Marc
- Zyngier" <maz@kernel.org>,
-        Oliver Upton <oliver.upton@linux.dev>,
-        Joey Gouly
-	<joey.gouly@arm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu
-	<yuzenghui@huawei.com>, <linux-kernel@vger.kernel.org>,
-        <cocci@inria.fr>, <linux-arm-kernel@lists.infradead.org>,
-        <kvmarm@lists.linux.dev>, <andrew@lunn.ch>,
-        <quic_kkumarcs@quicinc.com>, <quic_linchen@quicinc.com>,
-        <quic_leiwei@quicinc.com>, <quic_suruchia@quicinc.com>,
-        <quic_pavir@quicinc.com>
-References: <20250417-field_modify-v3-0-6f7992aafcb7@quicinc.com>
- <20250417-field_modify-v3-1-6f7992aafcb7@quicinc.com> <aAKH37xa1brIAXfs@yury>
-Content-Language: en-US
-In-Reply-To: <aAKH37xa1brIAXfs@yury>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDIzMDA5MSBTYWx0ZWRfX4TP2GyrZl2bD j6o5xqwG5uolOPgkZM7X1CKnS3GuJhM7tmWZix521YhiWNBerHYtIC/RZvjJiA++wdsHc6KXOGt feGfqf4d6AripWWplDXnKv7Oypre9uFe4B6+sMxjpyPEJl2LijTok5gAwh2Det6EPBt3J2sdRQ8
- Zc8IjH8SKi/vzkFTVXm3+VeegMXCT3hBOwUKIbP2Md5+fKa9ILG31larC7qKAC2cfmKmRiiBPn9 DQgTD61eDfJQwnBWaWcnY5bsTWG8thxvLzKduoFuysR+TcbBDSJ8UC0pU8vg5utqoo6D8kE6UIn svdbAbkln7Bg5GnhWhlR4/HuSqTNcfi7ZZGVV5mexmUnPlV8Bj+HSg1lcTjU9bXj+Lx1mQ3AgjG
- UWl+1TbHzvTDaHFvaAZyVaYBtDl7P3lK5bCmdPezLva7IedogMgr39gBX9hg71Hb9AO4au6u
-X-Proofpoint-GUID: R4LFE6L8_KJPKtN4i2COLAGKmLFNWmG9
-X-Proofpoint-ORIG-GUID: R4LFE6L8_KJPKtN4i2COLAGKmLFNWmG9
-X-Authority-Analysis: v=2.4 cv=M5VNKzws c=1 sm=1 tr=0 ts=6808e5b4 cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=UqDml5D6FPZDCTgpU1gA:9 a=QEXdDO2ut3YA:10 a=zgiPjhLxNE0A:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.680,FMLib:17.12.80.40
- definitions=2025-04-23_08,2025-04-22_01,2025-02-21_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0
- lowpriorityscore=0 adultscore=0 spamscore=0 priorityscore=1501 mlxscore=0
- mlxlogscore=928 malwarescore=0 impostorscore=0 clxscore=1015
- suspectscore=0 phishscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
- definitions=main-2504230091
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250422132438.15735-2-linux@fw-web.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_060615_593665_4B9A514D 
-X-CRM114-Status: GOOD (  13.57  )
+X-CRM114-CacheID: sfid-20250423_060716_854689_FB8D88FC 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,28 +79,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 4/19/2025 1:11 AM, Yury Norov wrote:
->> Add a helper for replacing the contents of bitfield in memory
->> with the specified value.
->>
->> Even though a helper xxx_replace_bits() is available, it is not
->> well documented, and only reports errors at the run time, which
->> will not be helpful to catch possible overflow errors due to
->> incorrect parameter types used.
->>
->> Add the helper FIELD_MODIFY() to the FIELD_XXX family of bitfield
->> macros. It is functionally similar as xxx_replace_bits(), and in
->> addition adds the compile time type checking.
-> This paragraph duplicates the above. I'll drop it and take this
-> patch to bitmap-for-next. Regarding the rest of the series - it's up
-> to ARM64 and Cocci maintainers if they want them or not.
+On Tue, Apr 22, 2025 at 03:24:24PM GMT, Frank Wunderlich wrote:
+> From: Frank Wunderlich <frank-w@public-files.de>
 > 
-> Thanks for the work!
+> Add new compatible for Bananapi R4 with 2.5G phy.
+> Base board is compatible with existing BPI-R4 only 1 SFP is replaced
+> by RJ45 port and use mt7988 internal phy.
 > 
-> Thanks,
-> Yury
+> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+> ---
+> v3:
+> - new patch adding compatible for 2.5g variant
+> ---
+>  Documentation/devicetree/bindings/arm/mediatek.yaml | 4 ++++
+>  1 file changed, 4 insertions(+)
 
-OK, thanks.
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+Best regards,
+Krzysztof
+
 
