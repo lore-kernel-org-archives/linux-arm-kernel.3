@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26771C369CB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91166C369D7
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 19:22:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,76 +12,101 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bp5kUiQVtxW9InMDVI/MpEQj6o8ctB12W6yIBGVj4io=; b=HDCfltAzRjkIN2EWs16AF5y/k1
-	CDfilMQIw92eT+9oWtnna6/IcTWWrkQgDr8SEvF8krrF0x2hQnXPjOjAMpkw8tOG3VA27/7alSVPG
-	25/iXnNGris9p3odjXavO1h0fcKnJlXPXa/7eSLSesPyR5nB875i+BUMZBXifoWkkG9sXNiSS/0v/
-	QztaidqvnrjPXnpJfDuW99LwTPAHSduq8cc+SNLqM/h7VyPKCDHXCehpHRNoz3v7mYCoQ5QympzFv
-	JrvgsMX2c0y+AGkzOdSFPtgG0ktofm9JhiKc29qTah7kKouLasw7yNoiHlmd1AOnrsZ4FwYo3SnYS
-	xUYuCoIg==;
+	bh=GkDmVE1oQubncGA13yoyJE0TwJhGavatFFU357EXcEc=; b=Exl+c2IKXS8eXodOgTIaxLGmMj
+	JmArYLJB8vE5ZdWzp5A2XGHUYbTNwEm43oc6hvx9EDFjy0XCZRy+8vYwuXlvvpJl4Va6S68TqcqJF
+	YoedyJlYtElRDI4cGfoLGRB9hVWQGx8vX5G8woXQjyL0Bgx5miWJUz58ocoxzsmVgjA8/DWCkPgVu
+	7z7k57/e3gPcQIEyO4ALPOn4qRMQwuX9xnzODNIDwR2H55NnRjha7SDv2c/sJH1AukUbhqZsKAfP5
+	LQ3GSRXgtTka/nNMKXV0ccDX3Qrexf3KWZTBrf76y52IUlIjRev5C5Pc6Eysr5DbIPTCnjx0CugJ+
+	w11szhOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7ffg-0000000BjAy-1A2V;
+	id 1u7ffg-0000000BjBc-3ZUu;
 	Wed, 23 Apr 2025 19:22:12 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7dqq-0000000BGF4-3u8s
+	id 1u7dwP-0000000BHC5-3UKn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 17:25:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1745429137; x=1776965137;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=VPDAEHukUbI+oi/4og11d+8ZLIVqGYmsWG4hYtjyuhI=;
-  b=CBHRszeo1jBz/K8yAxAnociB6BUZUjHlwdP67KhvQT+I/tzPoH9OYIvQ
-   xrTpaljjtOHLxoNwAwRtV2g9BHQ84ujg7XD50HBxqMLTvtcqL1adyUg8/
-   h9UtKrNKkE6rNEhkCAbrpYFPvmvw7YjM+nr4vcK3KH2+schx+g3X9Tip4
-   xV2eMoEyY2tkvDPsAxaQBZ29+m3pww+Ab/Q/J7HRch10lDtnetxgxuIX9
-   cEdM4tOpfXy01ZFbMynBMMHobTE/P8QLKugwv6Gf0LBGJ1oQEhsUQPVIQ
-   j2442ESOIdb4cmAZAiaSiYUHCrBfbS6D14LYjiHOo7u/+0b7S/g8tDiRh
-   A==;
-X-CSE-ConnectionGUID: wRFkUvbFTEKDlYgVMcZ/9Q==
-X-CSE-MsgGUID: mPKN8KUISe+rQv0U+wHvGA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11412"; a="50863740"
-X-IronPort-AV: E=Sophos;i="6.15,233,1739865600"; 
-   d="scan'208";a="50863740"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Apr 2025 10:25:34 -0700
-X-CSE-ConnectionGUID: bMooqzDqQdeZnoEE66eaag==
-X-CSE-MsgGUID: CoVTSh/MTHqyaZCTwy5v8Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,233,1739865600"; 
-   d="scan'208";a="132908758"
-Received: from lkp-server01.sh.intel.com (HELO 050dd05385d1) ([10.239.97.150])
-  by orviesa007.jf.intel.com with ESMTP; 23 Apr 2025 10:25:30 -0700
-Received: from kbuild by 050dd05385d1 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1u7dqh-0003Up-2m;
-	Wed, 23 Apr 2025 17:25:27 +0000
-Date: Thu, 24 Apr 2025 01:25:08 +0800
-From: kernel test robot <lkp@intel.com>
-To: David Lechner <dlechner@baylibre.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Michael Hennerich <Michael.Hennerich@analog.com>,
-	Eugen Hristev <eugen.hristev@linaro.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: oe-kbuild-all@lists.linux.dev, linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 1/6] iio: introduce IIO_DECLARE_BUFFER_WITH_TS macros
-Message-ID: <202504240112.hZy9LpvD-lkp@intel.com>
-References: <20250422-iio-introduce-iio_declare_buffer_with_ts-v2-1-3fd36475c706@baylibre.com>
+	Wed, 23 Apr 2025 17:31:22 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-225df540edcso14055445ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 10:31:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1745429481; x=1746034281; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=GkDmVE1oQubncGA13yoyJE0TwJhGavatFFU357EXcEc=;
+        b=NV8ymkH30uOj0yV/u17ESafdpsOdK3AligkgJHbko+XCch6Vtb5YVSPrxOsXwWNTq+
+         4aqAzbrrCNhkihYc2oCxYL9kcQvDsvx06C708FmGLizf7d3QHwB8AUZ4kSjzUnDm+kL4
+         Cwh/jdnQw0jY8JFhxH+nakv/PTaDKsy/BqDVR/8qN099vUORXaj7RSrFJ42yG6WPmbqG
+         jS59MV4PszDpDcdCEOTeZDreN1KgnPdHf+UAZ51ubE52xli7luPkcKE32DU7N2Z17tN1
+         utXHvNoSsMEX5T+azpMw21mX1Y61HYS8tUWzFqzVcM4EUtyXgZfDTqr0UOhm/+Yd3Xd9
+         1KWA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745429481; x=1746034281;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GkDmVE1oQubncGA13yoyJE0TwJhGavatFFU357EXcEc=;
+        b=YooURtoyjmU1jXBXTejau+zCV0e+0wErBMJfHMAPDkt1fnXZ3oxfHKQFKHVP3VT+sR
+         OL4/BNFpOx2+lFrhvOttNTjEQPrpnHmMldgdVH1VvTDBGie/JJ7LMiIrgxkAh7TicbTl
+         LjL5jdsUNWowzqfrJwXQzIRDkmFxPl2WyidCKzi2SAxSefm3rHfZTL8xUsJHrkq/yOHe
+         moGjgQ0ug9XIFJ8crXSEcbcICQz+5uVpimT4JIcScO21Hw8i6uyZHlY8pYx2j2PoAhwf
+         2KjLVpaA4U3ImXqbRjA9BsFlUIGzWmlDn76ZPzEXDcLc+IWyE7FC4SLKFJ6XPXVD4dRj
+         n9kw==
+X-Forwarded-Encrypted: i=1; AJvYcCUTOHQOlYnqBK/AiiSiulsgadSpNvMzrxFXEj1104p1e9wPHWaO6DhVbSBmy+YY1PAQr/4YOwP4sqgjCetSraGn@lists.infradead.org
+X-Gm-Message-State: AOJu0YxXcb1eJzMe4eiBfp2iYeaVWzT/U8j50krhhdDlcD/Y7O104Ep4
+	S/HSwq1fRKGRrsYKcCxqr8rUGQaAtivtaQI+xVbIuWlCcdRq3l9mNCyO/CewGw==
+X-Gm-Gg: ASbGncuslXMP5Wc+/qj+CenHma0UJSrqowXz0NvUuAxLyPaADsGJemt8N3QQPgTS34y
+	sfPM6eOORJOOWigbYWcD6Z3oR2okbzXeEA4EPldf40O8lOgLY65JDkghACN2Ilr1qEtCTWykrsD
+	vfOsFLcAr6IWa9fcUVdQoxuJ9L4H3aBBl+vUoMtDARs/50Tniyuzw/RN9VlY6BRZA7wA65OrZou
+	kTt7CnHLQ5hZjZmwT7P2WPv8tRPlJcorrS6RWH4VlAEjnJnBiiERofHFqICr3HR4HduGZDulnWX
+	zqtsG8EFY7OKSz19wgyJ5Rsf3FVvt8uNo17KGym+oknnuTk3a6t3tzcCziNyRWTqtUXR20zryeg
+	ioGJnKA==
+X-Google-Smtp-Source: AGHT+IHJNQTbOTf5T97irPUNv+QmXLRPjJqv5JLklJLGHSWfRRkbgYAKpGomh75s0qhLStfcG3G05g==
+X-Received: by 2002:a17:903:3bce:b0:223:3394:3a2e with SMTP id d9443c01a7336-22db2189d23mr394125ad.18.1745429480637;
+        Wed, 23 Apr 2025 10:31:20 -0700 (PDT)
+Received: from google.com (7.104.168.34.bc.googleusercontent.com. [34.168.104.7])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22c50eb4292sm107648765ad.150.2025.04.23.10.31.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Apr 2025 10:31:20 -0700 (PDT)
+Date: Wed, 23 Apr 2025 10:31:16 -0700
+From: William McVicker <willmcvicker@google.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Robin Murphy <robin.murphy@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Russell King <linux@armlinux.org.uk>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Stuart Yoder <stuyoder@gmail.com>,
+	Laurentiu Tudor <laurentiu.tudor@nxp.com>,
+	Nipun Gupta <nipun.gupta@amd.com>,
+	Nikhil Agarwal <nikhil.agarwal@amd.com>,
+	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Bjorn Helgaas <bhelgaas@google.com>, linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	Charan Teja Kalla <quic_charante@quicinc.com>
+Subject: Re: [PATCH v2 4/4] iommu: Get DT/ACPI parsing into the proper probe
+ path
+Message-ID: <aAkj5P1I-e9lylIU@google.com>
+References: <cover.1740753261.git.robin.murphy@arm.com>
+ <e3b191e6fd6ca9a1e84c5e5e40044faf97abb874.1740753261.git.robin.murphy@arm.com>
+ <aAa2Zx86yUfayPSG@google.com>
+ <20250422190036.GA1213339@ziepe.ca>
+ <aAgQUMbsf0ADRRNc@google.com>
+ <20250422234153.GD1213339@ziepe.ca>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250422-iio-introduce-iio_declare_buffer_with_ts-v2-1-3fd36475c706@baylibre.com>
+In-Reply-To: <20250422234153.GD1213339@ziepe.ca>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_102536_982403_D2595B12 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20250423_103121_870845_7C31D192 
+X-CRM114-Status: GOOD (  23.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,72 +121,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi David,
+On 04/22/2025, Jason Gunthorpe wrote:
+> On Tue, Apr 22, 2025 at 02:55:28PM -0700, William McVicker wrote:
+> 
+> > On this note, I was looking through `of_dma_configure_id()` and am also
+> > wondering if we may hit other race conditions if the device is still being
+> > probed and the dma properties (like the coherent dma mask) haven't been fully
+> > populated? Just checking if the driver is bound, doesn't seem like enough to
+> > start configuring the DMA when async probing can happen.
+> 
+> I think the reasoning at work here is that the plugin path for a
+> struct device should synchronously setup the iommu.
+> 
+> There is enough locking there that the iommu code won't allow the
+> device plugin to continue until the iommu is fully setup under the
+> global lock.
+> 
+> The trick of using dev->driver is only a way to tell if this function
+> is being called from the driver plugin path just before starting the
+> driver, or from the iommu code just before configuring the iommu.
+> 
+> Given that explanation can you see issues with of_dma_configure_id() ?
+> 
+> Jason
 
-kernel test robot noticed the following build errors:
+I think the only concern is when a driver calls dma_set_mask_and_coherent() in
+it's probe function. If we can handle that case in an asynchrounous manner,
+then I think we are good.
 
-[auto build test ERROR on aff301f37e220970c2f301b5c65a8bfedf52058e]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/David-Lechner/iio-introduce-IIO_DECLARE_BUFFER_WITH_TS-macros/20250423-061049
-base:   aff301f37e220970c2f301b5c65a8bfedf52058e
-patch link:    https://lore.kernel.org/r/20250422-iio-introduce-iio_declare_buffer_with_ts-v2-1-3fd36475c706%40baylibre.com
-patch subject: [PATCH v2 1/6] iio: introduce IIO_DECLARE_BUFFER_WITH_TS macros
-config: sh-randconfig-001-20250424 (https://download.01.org/0day-ci/archive/20250424/202504240112.hZy9LpvD-lkp@intel.com/config)
-compiler: sh4-linux-gcc (GCC) 12.4.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250424/202504240112.hZy9LpvD-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202504240112.hZy9LpvD-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from drivers/iio/industrialio-buffer.c:29:
->> include/linux/iio/iio.h:813:1: error: static assertion failed: "macros above assume that IIO_DMA_MINALIGN also ensures s64 timestamp alignment"
-     813 | _Static_assert(sizeof(IIO_DMA_MINALIGN) % sizeof(s64) == 0,
-         | ^~~~~~~~~~~~~~
-
-
-vim +813 include/linux/iio/iio.h
-
-   781	
-   782	#define _IIO_DECLARE_BUFFER_WITH_TS(type, name, count) \
-   783		type name[ALIGN((count), sizeof(s64) / sizeof(type)) + sizeof(s64) / sizeof(type)]
-   784	
-   785	/**
-   786	 * IIO_DECLARE_BUFFER_WITH_TS() - Declare a buffer with timestamp
-   787	 * @type: element type of the buffer
-   788	 * @name: identifier name of the buffer
-   789	 * @count: number of elements in the buffer
-   790	 *
-   791	 * Declares a buffer that is safe to use with iio_push_to_buffer_with_ts(). In
-   792	 * addition to allocating enough space for @count elements of @type, it also
-   793	 * allocates space for a s64 timestamp at the end of the buffer and ensures
-   794	 * proper alignment of the timestamp.
-   795	 */
-   796	#define IIO_DECLARE_BUFFER_WITH_TS(type, name, count) \
-   797		_IIO_DECLARE_BUFFER_WITH_TS(type, name, count) __aligned(sizeof(s64))
-   798	
-   799	/**
-   800	 * IIO_DECLARE_DMA_BUFFER_WITH_TS() - Declare a DMA-aligned buffer with timestamp
-   801	 * @type: element type of the buffer
-   802	 * @name: identifier name of the buffer
-   803	 * @count: number of elements in the buffer
-   804	 *
-   805	 * Same as IIO_DECLARE_BUFFER_WITH_TS(), but is uses __aligned(IIO_DMA_MINALIGN)
-   806	 * to ensure that the buffer doesn't share cachelines with anything that comes
-   807	 * before it in a struct. This should not be used for stack-allocated buffers
-   808	 * as stack memory cannot generally be used for DMA.
-   809	 */
-   810	#define IIO_DECLARE_DMA_BUFFER_WITH_TS(type, name, count) \
-   811		_IIO_DECLARE_BUFFER_WITH_TS(type, name, count) __aligned(IIO_DMA_MINALIGN)
-   812	
- > 813	_Static_assert(sizeof(IIO_DMA_MINALIGN) % sizeof(s64) == 0,
-   814		"macros above assume that IIO_DMA_MINALIGN also ensures s64 timestamp alignment");
-   815	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Thanks,
+Will
 
