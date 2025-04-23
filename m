@@ -4,104 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE623C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 13:53:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8BE8C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 13:53:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kg/vqusO5+9W7QqebKB1OKeumLCf6lCb0QG3HEEF26k=; b=WIF2jmx0VeshSq69wOVsRMgglO
-	6eiE1sFNET7TGZ1xU57C/C3OheDzHudIdshBlyXsVHQfXBhlLkKnx86Ja0fbu4W/i+3mvUFPb4x6f
-	JvLVviTTiqnSfopfX9YoAfUQ+EtSoXtJ/pYMTH4UGTxPYp5CJNP4wj8SBbwNcWOmOAFDCdO7pqUMQ
-	jbOm/uivVKyBNuFrJFBkBzTHpN7Cv/A7b8pkQmfh6yXsTzA9UYIr/FC/Fw7GsO5IlBQ7qE5Pi27bw
-	xfpI2KN6+kAnpD8nJlPf0w1aByBSSx+57zyUYB31v1BX4HuSv6CVGjbN4SDlz/gKTtJXL7SZPSZ4b
-	+NKKOeVQ==;
+	bh=wb/i0JLoZQAVn9vRHeKNzODf6wclEm+hQW8lX4qy6iw=; b=o+Zql7Wa7JI9Tnon0SFDxB6mRs
+	CBKwwh5dpPwEFhOHB4jpcFQKuQsLKB2RpHH16EsfQUtOvI0DI4OldCZ/9i7UpR2dze13pxpUrdgxH
+	6/N5sFmwzNDXi/KzIbc9vlZj4P9nLCNGoVqk7vyrM0uvaJKDD/MZbGzUeZTrFq+VqGWcfobS24TLX
+	NF445Cf2aPrIVjEX74fZgZ+FZD00acH69k58ZB9BJYB0nngEzzb1gTgh0C63fbPbQ6c4lQt6UJ/wT
+	UZjlui6vNbvgAZCHT8bBMQYNHJLFEg283CBWtIyIp9PBETdMo2EdhAvwiNiboYUIn73Bn2jNjRNOK
+	VkV4y+cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7aWv-0000000Ah4O-2qPa;
-	Wed, 23 Apr 2025 13:52:49 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7a1M-0000000AaWr-1HAB
+	id 1u7aXZ-0000000Ai5W-1aa4;
+	Wed, 23 Apr 2025 13:53:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7aAI-0000000AbyJ-24gH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 13:20:14 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53NAkwud014559;
-	Wed, 23 Apr 2025 13:19:52 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Kg/vqusO5+9W7QqebKB1OKeumLCf6lCb0QG3HEEF26k=; b=hVnOWRe+nd9oYO9w
-	DgxmuwBnT9myycawSDCOJpWaBYUVC1I3pD+hsrzSu2chKJsFwBT64UcTfB24JvQL
-	ODogym26to60pHPUZaG7VOun4f5AvE5JtHmQ8JtaZag/9Yi8SHzM8iFDamioGttp
-	wFWDXJ+9BzhjiAytculd8UbR/5QFB5ssjWcBi05hz9iIPPLwM6ZA1yiJWnBGRaPP
-	parz4ErjCB09XbP3B+1e18v9ZhZr3vMNepQQKKzDUDH/h4lhfyeAYlpsEC22WJwE
-	anyuqxp+tvxUYUUC/aNYnaVciMKyQ/VcJk6cs3P7btSpiIdEMioW5RSwLsiYwFZc
-	0apilg==
-Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 466jh0j7jr-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 23 Apr 2025 13:19:52 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53NDJpRS022364
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 23 Apr 2025 13:19:51 GMT
-Received: from [10.253.74.233] (10.80.80.8) by nasanex01b.na.qualcomm.com
- (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 23 Apr
- 2025 06:19:46 -0700
-Message-ID: <1d70b1c8-f5f7-4027-a0cb-b1638e309a48@quicinc.com>
-Date: Wed, 23 Apr 2025 21:19:43 +0800
+	Wed, 23 Apr 2025 13:29:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9A0761063;
+	Wed, 23 Apr 2025 06:29:19 -0700 (PDT)
+Received: from [10.57.74.63] (unknown [10.57.74.63])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5D0473F66E;
+	Wed, 23 Apr 2025 06:29:23 -0700 (PDT)
+Message-ID: <b7557def-d0a1-4035-9586-a2651e28ab24@arm.com>
+Date: Wed, 23 Apr 2025 14:29:21 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Jie Luo <quic_luoj@quicinc.com>
-Subject: Re: [PATCH v3 0/6] Add FIELD_MODIFY() helper
-To: Yury Norov <yury.norov@gmail.com>, Marc Zyngier <maz@kernel.org>
-CC: Andrew Lunn <andrew@lunn.ch>, Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-        Julia Lawall <Julia.Lawall@inria.fr>,
-        Nicolas Palix <nicolas.palix@imag.fr>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
-        Joey Gouly <joey.gouly@arm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu <yuzenghui@huawei.com>, <linux-kernel@vger.kernel.org>,
-        <cocci@inria.fr>, <linux-arm-kernel@lists.infradead.org>,
-        <kvmarm@lists.linux.dev>, <quic_kkumarcs@quicinc.com>,
-        <quic_linchen@quicinc.com>, <quic_leiwei@quicinc.com>,
-        <quic_suruchia@quicinc.com>, <quic_pavir@quicinc.com>
-References: <20250417-field_modify-v3-0-6f7992aafcb7@quicinc.com>
- <86sem7jb5t.wl-maz@kernel.org> <0c97c659-bd28-45e0-8537-d9be2637cb22@lunn.ch>
- <86mscek7h3.wl-maz@kernel.org> <aAJq9mGswYsnAOS8@yury>
- <87plh9xz2d.wl-maz@kernel.org> <aAKGHIssRW5jXvdA@yury>
-Content-Language: en-US
-In-Reply-To: <aAKGHIssRW5jXvdA@yury>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Subject: Re: [PATCH] dmaengine: ARM_DMA350 should depend on ARM/ARM64
+To: Vinod Koul <vkoul@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <50dbaf4ce962fa7ed0208150ca987e3083da39ec.1745345400.git.geert+renesas@glider.be>
+ <b1f19b31-3535-4bb5-bcef-6f17ad2a0ee6@arm.com>
+ <CAMuHMdVJKA8zYETKJTRAwg6=+EuTq4YqbFO32K4+py9YNsD1Gw@mail.gmail.com>
+ <aAjTg8dgvxqLQOwQ@vaman>
+ <CAMuHMdXQKG0qptWMi169MVBL1S3hPo1TsaOSxWspoHAwRd+fug@mail.gmail.com>
+ <aAjaPV/2DSyPAGRB@vaman>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <aAjaPV/2DSyPAGRB@vaman>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: BN88jDYWGmli4vHQcBNP_g8Tvmp6cMeZ
-X-Authority-Analysis: v=2.4 cv=ftfcZE4f c=1 sm=1 tr=0 ts=6808e8f8 cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=VwQbUJbxAAAA:8 a=rL1jKAeQPVWMZnSF2k8A:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-GUID: BN88jDYWGmli4vHQcBNP_g8Tvmp6cMeZ
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDIzMDA5MyBTYWx0ZWRfXzbLcmo1j7n+4 cF/GKqx6vJwZDlKbABC0g/aYzHPNypSuZSbOqMTAGBxJlyZT1Va2fq8JoWHfI4+e7mq9M0Mt8eb 0yngKZ46t89+aaOz89gEWnUJ+9IVWPetjBnmd85XfbutXZZuclw99xOQikSTs0rOeVHCmuN28fI
- V7Q2k+Kyatbom3i9iWEQ6aWEumOMFP9prMv2aFduU2EXKOaUMpKvR2m7oF0Sz1fDUXfoJQbZc2m SKr4s9UAp1Jxcks8AfxlOYUlVADDhZ/qyb+BslC6zDZVXhY1juhIJJdzdR0JtltLXzvPNj5zA5h VEXGLprWpwE5Ctdqty/M+7DO3xFk5/S5+GWq/GFX/CSaRR15f5Dq+dSVgaCxQ1ENHXT/nn3sKxf
- D2g+34XwZg5izFbfxo5Ltkf5JFVZpy6hoOJzVyI/Zqh40tr6j+kZqw++/jtAh0okhNIvnBi4
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.680,FMLib:17.12.80.40
- definitions=2025-04-23_08,2025-04-22_01,2025-02-21_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 mlxscore=0
- suspectscore=0 mlxlogscore=884 lowpriorityscore=0 phishscore=0
- malwarescore=0 impostorscore=0 adultscore=0 spamscore=0 clxscore=1015
- priorityscore=1501 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
- definitions=main-2504230093
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_062012_475060_18326A0F 
-X-CRM114-Status: GOOD (  14.67  )
+X-CRM114-CacheID: sfid-20250423_062926_603269_801E700B 
+X-CRM114-Status: GOOD (  16.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,42 +69,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 4/19/2025 1:04 AM, Yury Norov wrote:
->>>> I think a bunch of people have found them, tooling notwithstanding.
+On 2025-04-23 1:17 pm, Vinod Koul wrote:
+> On 23-04-25, 14:13, Geert Uytterhoeven wrote:
+>> Hi Vinod,
+>>
+>> On Wed, 23 Apr 2025 at 13:48, Vinod Koul <vkoul@kernel.org> wrote:
+>>> On 23-04-25, 13:11, Geert Uytterhoeven wrote:
+>>>> On Wed, 23 Apr 2025 at 12:59, Robin Murphy <robin.murphy@arm.com> wrote:
+>>>>> On 2025-04-22 7:11 pm, Geert Uytterhoeven wrote:
+>>>>>> The Arm DMA-350 controller is only present on Arm-based SoCs.
+>>>>>
+>>>>> Do you know that for sure? I certainly don't. This is a licensable,
+>>>>> self-contained DMA controller IP with no relationship whatsoever to any
+>>>>> particular CPU ISA - our other system IP products have turned up in the
+>>>>> wild paired with non-Arm CPUs, so I don't see any reason that DMA-350
+>>>>> wouldn't either.
 >>>>
->>>> As for the documentation, the commit message in 00b0c9b82663ac would
->>>> be advantageously promoted to full-fledged kernel-doc.
->>> The FIELD_MODIFY() and uxx_replace_bits() are simply different things.
->>>
->>> FIELD_MODIFY() employs __BF_FIELD_CHECK(), which allows strict
->>> parameters checking at compile time. And people like it. See
->>> recent fixed-size GENMASK() series:
->>>
->>> https://patchwork.kernel.org/comment/26283604/
->> I don't care much for what people like or not. I don't see this
->> FIELD_MODIFY() as a particular improvement on *_replace_bits().
-> Sad to hear that. Those people are all kernel engineers, and they
-> deserve some respect.
-> 
-> We are talking about tooling here. People use tools only if they like
-> them. Luo likes FIELD_MODIFY() over (yes, undocumented and ungreppable)
-> xx_replace_bits() for the reasons he described very clearly. He's going
-> to use it in his driver shortly, and this arm64 detour has been made
-> after my request.
-> 
->  From my perspective, both functions have their right to live in kernel.
-> They are similar but not identical.
-> 
-> I'll take patch #1 in my branch. Regarding ARM64 part - it's up to you
-> either to switch to FIELD_MODIFY(), _replace_bits(), or do nothing.
-> 
-> Thanks,
-> Yury
+>>>> The dependency can always be relaxed later, when the need arises.
+>>>> Note that currently there are no users at all...
 
-Thank you for reviewing and discussing this patch series. The newly
-added macro FIELD_MODIFY() will be utilized by the Qualcomm PPE (Packet
-Processing Engine) Ethernet driver. Regarding the ARM64 core files,
-could you please provide guidance on the preferred approach?
+Huh? There is now an upstream DT binding, and DTs using that binding 
+most certainly already exist - not least the one I have, but I'm not the 
+only one. We don't have a requirement that bindings must have 
+upstream-supported consumers.
+
+>>> True, but do we have any warnings generated as a result, if there are no
+>>> dependency should we still limit a driver to an arch?
+>>
+>> I am not aware of any warnings (I built it on MIPS yesterday ;-).
+>> It is just one more question that pops up during "make oldconfig",
+>> and Linus may notice and complain, too...
+
+Well, yeah? It's a new driver for some (relatively) new hardware; every 
+release always adds loads of new drivers for things I don't personally 
+care about, so I press "n" a lot when updating my config, just like I 
+imagine most other people do, Linus included.
+
+> True, give there are no users, lets pick this and drop if we get a non
+> arm user
+
+Well by that logic surely it should just depend on COMPILE_TEST, because 
+there are no ARM or ARM64 "users" either?
+
+FWIW the not-quite-upstream platform I developed on (a custom build of 
+fvp-base-revc with a DMA-350 component added) did happen to be ARM64, as 
+are some other Arm-internal designs and one available SoC that I do know 
+of containing DMA-350; I am not aware of any Linux-capable 32-bit 
+platforms to justify an ARM dependency, so I'd consider that just as 
+arbitrarily pulled out of thin air.
+
+But then to pick another example at random, XILINX_DMA equally has no 
+"users", so please make that depend on something arbitrary as well for 
+consistency; it's only fair.
+
+Thanks,
+Robin.
 
