@@ -4,155 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11CD1C369D8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2217EC3DA4A
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 13:05:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a86+q3yMpFKgrGqczjoKyttZ1rSUhaOSOfjgva77ax0=; b=vmi4/5kG88onGuW2ghzkYXApLY
-	XkqBordrc58YfWD5HOccCXMpvX6EbcLT9qmhrc4RgAJSghx4yFZ0U8fh+dvnWEnA0/s/bHKFky/M3
-	R3XCR0TrtsDQ/zTKR6ekhJQAPExfTsnSgM5ISz2PIUKy/svKUNsaTe0CGj4UA2ho2ZjvGIC8gt+R3
-	Wbmufayk2IiOYid3pjTN1Gki5Uo1EeD7GsVIFFEOnL9Rl1lqPGJmVwHLixxktINrFGSnem4fMF18d
-	FUdxSHla8ejo5NLmAtbkwWsdm+HAA4Xp/fOyo9+fc7b1vEjI8gONCWVK9PcfvnhwFtrqsKYXxFxMF
-	0m7s4SZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GKL+GdMq85EbMm402UBsUaKfvSoLa1fn2clP/zZaRwA=; b=EGE3V311g0Mj4kYDbz6vAaSk9H
+	PtyWoPZfsGoqn5j0np15FeHyUYAWeFTplH1rVFm42s5iwQ1StQVO3MO4lO09YlRZT4FY33jF04Q+P
+	4zsO7VzHLP6tXha61ZmLOJ6BLG64vxyKwV5kYXIBIi+0sQEqAsxccfacUQ+E5q82uT36QM5BbvwBS
+	PsWs1yHdLC2QR2Qd1TWFLpYD8x2MAAWhsLxAGCXzl41X51IwcVHNPHnEzl+67CPHY7Bol4kYEPomJ
+	Bv+cF1CMu66TwhonQqeBDNvmrzU1eMk9e/m90eCWC1GaeeqtYKVifVmIoUw8JAc85TW2nMfMDeaOj
+	RaslV0CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Zn4-0000000AX5j-25c5;
-	Wed, 23 Apr 2025 13:05:26 +0000
-Received: from mail-db8eur05on2062a.outbound.protection.outlook.com ([2a01:111:f403:2614::62a] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1u7ZnG-0000000AXMG-49ge;
+	Wed, 23 Apr 2025 13:05:39 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Wec-0000000A28f-35SM;
-	Wed, 23 Apr 2025 09:44:31 +0000
+	id 1u7YBi-0000000AKnA-3lyd
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Apr 2025 11:22:48 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=M7Ont4+dnSmHmUxlAuZHYhizM3dBPzoJNlGcl0N84ZiLcoRtM7p0GaY/1sdUPI+XlbBl9kFqtoOLNEeDYvhM/dEPk0owYhwYOfUlA8Oo5mn1p86cpR6o5fsCZI5WhHIQ6hPzqydZAmOWLp/OzXKOftJe4mH7GjCTfVyfBUO2ji5KXBTYi3sH/T3/xIwfcp1Z3gYykg55XVv6aY5rxkG0fy6wvzgCsSXn+NgOuS4DUMvvlXW9MLr10ZXRF4T6PndQ/Hhrygu/o+X7t9/aEnsuOz/dpQ0wZYibBAdQDTG5VzROCdWWHn7mJFcIGOvRWKKAdYuK8RNlRNCatf5NPMQi6Q==
+ b=ibGOG8ZYgRdTFtSZMUSymV7L6zZyTccGrL4nOt1XXFWsEZJWqwCB+15ghwg87yDuzBHkAlgEYiHgtuK4af3Y6mC0DTIX9kLfCuUuEVxkJyImV2KnLCKjauPkE3365a6kks9tpLOhFfoaSomHYe+tavOmPr3haWPfX7kbCqnC5HMTC/SKFImmtXbl1pLbryRfW8v6F/V6ywE/YDxC7lqGoqc4G0b/sBJ+I11X2czQLKcVthxEYIQk+d/ddlKBobHMS1xcjVYa5lxHauwqY4NtsAn2uzSpW2TR3sDe5ce4zb7K5SOQ9BxgVD7cF7KKU8zttf80OBIqwSRMY5ZwYRuFeQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=a86+q3yMpFKgrGqczjoKyttZ1rSUhaOSOfjgva77ax0=;
- b=K+UvvyUw6yHb/B0xyFMu09b1di9H+P0/4dnZ6KCpaQGlngjXoQ3GmG+zrih8t/5ykXKslhqd/M/u8WKHb+0Dhew/WFXNawHdiZ6dqeLTZH/XBa8XvaaXPc+n/zSFOOcA5osgTiyExkGC7Zl32xG8xorcHPps1WImZ78FUO9iecQFENw7sBu3XqrMxR+6/91X4RCVwi7DInxZCIx4uKsCfZmnJrhfKiNpEqmCyeAjXf8RjRK/l3IyuwS6DQFX5rp/r+x3ZCpTbdOpaCfkbBJFAtxPdVZhX9j2qWMWGysON9KXp+SL3/NH0+0xd6kGrs8GyTtYOOPDArIemwmXi2fR1g==
+ bh=GKL+GdMq85EbMm402UBsUaKfvSoLa1fn2clP/zZaRwA=;
+ b=Xssq9kNbVLj6dOxT9idB75Rq/9dsVOvs/M/6bfg/VxQ9X6SnJ/4DjRLDjAwmBwyzTGGRH14wSGNaLPle0VvPIEKHY9N7MLQbjsdUbI5MiorOZ8mfsfdxmKl4W1UAz872HiEzQXPRo7yseejvvtUfXGnYLgZFdPBEMjIjcu+W7d0YDNhTORnGq0bdidmznKSh6SGbx9PNm46mAZ+8p1afJWyXBRFTvnsLIOGsCqaxne4k65azusgeuE9Vp4XdI5pJMvEGaJ48ERa1QqTOjJ01CRWlczq+O0QCP4+w+r+9ti36mdveeeqOqw+pmiZnjaW3PkJdC36LkO+TnSExSotLFw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
+ dkim=pass header.d=kontron.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mysnt.onmicrosoft.com;
+ s=selector2-mysnt-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=a86+q3yMpFKgrGqczjoKyttZ1rSUhaOSOfjgva77ax0=;
- b=kb5R2Z9sRCFcQpeAGcZWrzaOduMOau2n0TuCeo8cbU1jYUNNYMsGLYIJJkLTNfPsOPqzYABhTCPdP1iBjKkgGuVPh6mmmYkhOqwJ6cRXd0IpzpENbDEfSFjqhWJVqel50p8IIfrGhIw0Xrc3yltDLchgSbvUgIcR7CsWeeIxr4KomZZZaL+ZsUABCA5YhIR+VIyTv1M2FxNIR1WBoPLWjYkTUYi5CYkcpVSweyMP1WQ6+OsQwBJYCOp4JAi5MHHcI1ferhLtAnYJWUK4FMud+eFe1dHhyJ2IyBbkghvBq5yydO2y4DUrgr5VHaBs64cadsBGm9adST7/Boytp7R3EA==
+ bh=GKL+GdMq85EbMm402UBsUaKfvSoLa1fn2clP/zZaRwA=;
+ b=XPbB/n/NGmyYvh+gp5DRPMI9zWMIn1wtS8DGKyBwvzSuMoZbuK/ebBbINFbUJ9rqeJsznmwDVEWNZh9VjdEfJGYDnqZPDEmMmwNTsTuhbY83z0fHO5QpbIymLPPNGN9V6W/vcW2fplwP7OSJNUSKWcefM1flUPbWon8p1/08N+E=
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
- by PR3PR04MB7338.eurprd04.prod.outlook.com (2603:10a6:102:80::7) with
+ header.d=none;dmarc=none action=none header.from=kontron.de;
+Received: from PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:263::10)
+ by DUZPR10MB8071.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:4d2::16) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.34; Wed, 23 Apr
- 2025 09:44:25 +0000
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::4e24:c2c7:bd58:c5c7]) by DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::4e24:c2c7:bd58:c5c7%5]) with mapi id 15.20.8655.031; Wed, 23 Apr 2025
- 09:44:25 +0000
-From: Xu Yang <xu.yang_2@nxp.com>
-To: vkoul@kernel.org,
-	kishon@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: jun.li@nxp.com,
-	alexander.stein@ew.tq-group.com,
-	linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 2/2] phy: fsl-imx8mq-usb: improve some tuning parameters and support i.MX95 tuning
-Date: Wed, 23 Apr 2025 17:46:07 +0800
-Message-Id: <20250423094607.1029429-2-xu.yang_2@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250423094607.1029429-1-xu.yang_2@nxp.com>
-References: <20250423094607.1029429-1-xu.yang_2@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR04CA0204.apcprd04.prod.outlook.com
- (2603:1096:4:187::16) To DU2PR04MB8822.eurprd04.prod.outlook.com
- (2603:10a6:10:2e1::11)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.35; Wed, 23 Apr
+ 2025 11:22:37 +0000
+Received: from PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::b854:7611:1533:2a19]) by PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::b854:7611:1533:2a19%7]) with mapi id 15.20.8678.021; Wed, 23 Apr 2025
+ 11:22:36 +0000
+Message-ID: <ce378faf-8446-448f-97cf-f40bc5c4581d@kontron.de>
+Date: Wed, 23 Apr 2025 13:22:35 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: dts: imx8mm-verdin: Link reg_usdhc2_vqmmc to
+ usdhc2
+To: Francesco Dolcini <francesco@dolcini.it>
+Cc: Wojciech Dubowik <Wojciech.Dubowik@mt.com>, linux-kernel@vger.kernel.org,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ Philippe Schenker <philippe.schenker@impulsing.ch>, stable@vger.kernel.org
+References: <20250422124619.713235-1-Wojciech.Dubowik@mt.com>
+ <522decdf-faa0-433b-8b92-760f8fd04388@kontron.de>
+ <20250423070807.GB4811@francesco-nb>
+ <17ec22a0-b68b-4ac5-b2bc-986837639a37@kontron.de>
+ <20250423102651.GC4811@francesco-nb>
+Content-Language: en-US, de-DE
+From: Frieder Schrempf <frieder.schrempf@kontron.de>
+In-Reply-To: <20250423102651.GC4811@francesco-nb>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: FR0P281CA0097.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:a9::10) To PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:102:263::10)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|PR3PR04MB7338:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9ed710aa-8273-429e-772e-08dd824b6eaf
+X-MS-TrafficTypeDiagnostic: PA4PR10MB5681:EE_|DUZPR10MB8071:EE_
+X-MS-Office365-Filtering-Correlation-Id: c78c6861-902d-410d-c877-08dd8259269b
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|52116014|366016|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ZbF2EVweKsXa3a0MHRsNgl3QatinBSeKiyMDiOtMuFtX4pMkSEe853Tba1q8?=
- =?us-ascii?Q?pwSB/6/pGsJYpSde4f/HuvWMRfUdXOthVY+Tqtd4hPiX11PeaCeYrbQaOUHz?=
- =?us-ascii?Q?h0W7vuAOgjeBB4/RvdRQhiKY1iyBpfEu/kSnwSYCAMTlT2jCg6vc0aXVU3+i?=
- =?us-ascii?Q?vEBdopS4ajOTe+Uvo4R/IDTqGwryBzbZLWR1TAa6Us+XDyO4il3AJtTt7ePt?=
- =?us-ascii?Q?ncnLRGLmRbemVhDWa9vrKvk7KAZ0bhPqhd/p8+wpWQXOtXGkwqIECORlzJZd?=
- =?us-ascii?Q?3T72gTA4QMM6Ebm5Xdt45OOuX31Vu5aRusz1kF4pnfVqsqvp1ga628MG1zRy?=
- =?us-ascii?Q?UEuFvVxQLi9BJHBqbpAuqp2wZzm8+ywqlJsUDW8NKiIfgYvPmPfioG7pubxY?=
- =?us-ascii?Q?aVtw4rVDylmM+hDe3uCpR2WTKpYgYhdwvEFXPAyAsNqqb7T+MCflcIbWRxaf?=
- =?us-ascii?Q?86zXVXOS/zUzmWgjRVS+Fj5ZAf5IYoCVKyHrHX3F7gMSYiYphhtKBJCGrgXg?=
- =?us-ascii?Q?gP5s8wvKtMNZy8GEkUTgqYIrSkZ9xXVt4G5+/QccwF6n/UtYHNU0hyedX4WJ?=
- =?us-ascii?Q?uCWaWvvShwLAvaoabWy69Z5NScFPKzXOIy+cH1ZR/YEpTN50EHoKAAIPCjMZ?=
- =?us-ascii?Q?5XU8rH4hMG0CTdtnKbMZPFD97kCv/OlO5FVAtJhkBZAtIm4MsQytVSmk1dAU?=
- =?us-ascii?Q?AeLdJgoBhDDse2eV3CBTs5NzEyJQzWkeuhctm7cWD7FeE0Pp/xE4NkQqK4mv?=
- =?us-ascii?Q?j2VFFqYac6DCxnW1Iam0wGunxM502p+VKRBly0msnye/oTzt/u74vTFNXJHS?=
- =?us-ascii?Q?K6KVe6/f7bnfnvwKHuXNqgrRnhgmaPh14Vfza6t7dzq4NKvn2c6j227LQ85R?=
- =?us-ascii?Q?EvsU3Ofr5fN4LHSpJgVMW4g16QavLVKArSRuzXamSF5lelFgQIZiTe3/ktJU?=
- =?us-ascii?Q?aPdJki8G6SfqEtPDeRWkww4VXNl7Xe2Sl/X3tz36dHXE1wAdM/oIu9ov76ss?=
- =?us-ascii?Q?UPPgNi2bfYX4X2CpK+aSxEkbYyXyuEPQ2ysDkSVkav7At/GYIYw3LODtmZPB?=
- =?us-ascii?Q?TUS+Cxnb+JShKU0lxIlt5YgYe8TqBxJN8gt1BcrEg/ofNr9igjoOTEKga2zu?=
- =?us-ascii?Q?nXPav5EI7Gs8Jb32Q8xn4iU0+G0vQKziswRIzizkwuP30rndGXnG6WuPC9JZ?=
- =?us-ascii?Q?cYWv5vyII5NWnaRx4jHLMh/LPxHbkojcCdZ0zxA33r0ofu0geQkibXaqjhfx?=
- =?us-ascii?Q?wzOyBBjBuL2PMrNa3R8IpzdI41wqbbG+QoVEK5BEAbqm7eSVCtJcc9hrtGZ6?=
- =?us-ascii?Q?Bw/pn9qidMEby/5KCrAuc3HiSlSYLseFm5gS3vjbt5z/FAigss+Gb6UcUHRs?=
- =?us-ascii?Q?cT0gvwit7kXctq3i1r3hSR61nWgFWErRnwyLfBW4tsSHs0c94dkVLoHNS0Tx?=
- =?us-ascii?Q?H1LXsDhKDJOOU2cfq5Tbde0DLbIwZxiXJeDFvku5QuuaUTNeE2XDvA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(52116014)(366016)(7416014)(38350700014);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|366016|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?dHc0UzVNVnRab3NlY1FOblYrZDZuV3JKSTlZTkN1dnFpa3FJeVJoMEJSSXp3?=
+ =?utf-8?B?ZmNNWU1PK3FRYXZ6aTlIUG1vbGptOFZVZFNtSDFyM3RuOHNsTmxXSmM2Zklm?=
+ =?utf-8?B?YVp3blRLNExoTlRxL1dpMVFrTGdwWWJZWFB6T2szV3NPL2dwbTNtQnpVM0cy?=
+ =?utf-8?B?dExYbStobkMyTERZNTJpK1RtNDR1VGlhZnBCR2VLV1k5elZRRnlLQXdaWC9w?=
+ =?utf-8?B?dDJYL2RKcUNjQTZNQ1VJcUZDQldoenN3alZGQ1RiSFFrMURld1pqaS8rN1ND?=
+ =?utf-8?B?UEg5RGE1dmd1QTFIaUQrVUl2b3J3M0pmWlZEeWJwZkJZQVBEL245SkQzZnZw?=
+ =?utf-8?B?VXRUaHB2bXBQcDFyMTRMRTl6MXlOWWFlYlB4WWdUM3gwaGxGL3FKek1LZEVN?=
+ =?utf-8?B?NnFWUTM2czNvaGFnQU01aWhTNXJVSGVydkRka1h4Myt4S1ZDeVI1bG9maDZp?=
+ =?utf-8?B?MmxVUm1hU0lFcVdwNWMxK3JRUnlLaXhFTy9jTXlIZGhxRGVzd0ZKQ3lEeTIy?=
+ =?utf-8?B?a3FJSVdST2dpQlBuekEyWjhNcVZKanl6MjlSeUFod2RaaXNMdTEvUFVoSmVV?=
+ =?utf-8?B?cmlKcFR3bFNOMlMwZFVLQjFZVWdZRFBoa21tZG5YbFZpWElNaFRTVG9tQ09W?=
+ =?utf-8?B?SStwb0ZTM3RoME1uajNueDJxeW8rUTF1NFNITlJPUGVKUzBiWDBzUEk5U1d0?=
+ =?utf-8?B?bXh5MnRuSVRhcFhocTRHRVRQbTVnampWYkZqSlZ3MnBDSTZuTmpOZ1cvYVV6?=
+ =?utf-8?B?VUcxZXpsTkUwb1NrSVNLRGNPMEJkL1NYTUoxZXJJOU85bVBiRHBQMHJoaS8x?=
+ =?utf-8?B?eDhnVGVtcEF3cWhzN1JRZ2xLbW80RVc3NGEveGRYcHFXUXlUQU1abHQxSHpu?=
+ =?utf-8?B?Nlh4dmRjV1dMem5sRXh2T2V1NHBWU2p4dFF4Um5pTWNVcmpXQTJJSGsyMTR2?=
+ =?utf-8?B?bVBMYnFISDFNdmIyVnQyeW5WejlDa2ptZDk2QUlSU3N0L1hWT0FUOE1Cd1Ro?=
+ =?utf-8?B?S3lUYmZHMDgvZnkxUEpxVGVWRzJ1ZGVXeTFXVmJnUW1zMlErbUlCd3VmQkR3?=
+ =?utf-8?B?cWxuTG16dkpZM2FmNFNYQUNTenJ6Znp6dGhBYXdXSWZ3QnYwY1VkbFJBVzdK?=
+ =?utf-8?B?SGNUbVNpOXVBN052cG15dXZOYU02VlhJM0VCVko4OEdRL21ETHp5OGI0aERm?=
+ =?utf-8?B?OTFDMTBPcnNPV1EvK0tObFRJcmNnb3Jzbnp5NjU2b1ZUZElMU2NybUw4NjRl?=
+ =?utf-8?B?K3JXdnN6UHJEMnBMbERidk9RZmhPMVBweXJqaWV5SWZjSWplRzJuNGFTbjJu?=
+ =?utf-8?B?dkdEdktRcHJyTjlNUVlmRjlxR2txditZRVVCVC92RVJMNWI1MHNTZ1BOQWpy?=
+ =?utf-8?B?VHlSeEpReitWTXRWbjZ4WDYyVm9zOU8zdFQzdHRRTVd2NmZOTDNhcm04YVNT?=
+ =?utf-8?B?YzI2TG9qdTFKNzhQT211NStGYkpWemZLS1dxekVPZ3NlYVg3UUsxWC90V1Jr?=
+ =?utf-8?B?bWVxS1FmS2gxQ3NQT01YUjFOVzRieVpXc0hockI0b3A1aVNCVjloVHM1emRp?=
+ =?utf-8?B?TGJGbVZ2eGpvamZGaE16WFlqandTRDFMWkRYU2h5ZmdhOU51eHVzUXlDR3Fa?=
+ =?utf-8?B?UTBJQTk0Y0o4T1o0c1B5ekJhN1p0TUZRSEpvUlRYeGN6d0JzL1dhUSswQ3FR?=
+ =?utf-8?B?N2NOOXJmYVFFc1hUVkwwZkc1ckhtNGE2SGxCVU5tZUVBVGIrWXlNVWhBRjhW?=
+ =?utf-8?B?YzA4ek1HdkNOTnM1eW5nd3JVSER1NkpUb081clF2QlJnR0RCZHNkRmM4REhI?=
+ =?utf-8?B?WlAvZi9OMWE5bjhMeXdtSHo2cFVVa3ZKK3hnOUJ0aHVuWGhtWVUzdURsSVlY?=
+ =?utf-8?B?bXo1dFRCbXJac1M4bGRlcjY5c2s1MGxIYkFHNk1ZWHdWMXdoRW9lWFFFeTZl?=
+ =?utf-8?Q?pCnnXHTV80s=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(366016)(376014);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?q4Ewg7you78EGecRW9e9QAO6boDm/lupft6oUd2GsHUvuGY1iD4CJeF7UAsp?=
- =?us-ascii?Q?U1zeFFWmHX30pP1mTT/L/5AC0D5006e2z89LSCm5KgN2VEBwtIGMTOZ9lcFU?=
- =?us-ascii?Q?mJvmdtgJ50ebX9EdlDqxIRXhUNqskPm0a6VeSFx7hPWXCg6cQ2oa25i3xyZT?=
- =?us-ascii?Q?3RJOTOogLnYsD0mh2Hfp4U5OGNHNcXLXGpSx+/+QokwwbAHMV4fz7BesJTM+?=
- =?us-ascii?Q?1X/2hPSLTUmgA2yMw1cKVMiFJDtpMviSD+H3tHtMTJVACBJfBOkdcDlgmMuV?=
- =?us-ascii?Q?jKBmUv0dyoWLRUxJK+N1po0oG2kCADpIEajgyslpea8Ri+2ZrDo0uLVagOQV?=
- =?us-ascii?Q?JGeCU+L/WfGpCV0gLzYO4utJ2XDDvM/T9JD+GMb/lpHyQOz1rwxbjXK2SV0H?=
- =?us-ascii?Q?ezg5CGFq/bognVL5IcYb+yDtqpgnpBTFVYjjWqH3xP6XzDF1gnGXkt7IEyZa?=
- =?us-ascii?Q?4MCf/jEpGKbPQDRrJaBEz/c0cPQe6tX0u1kClHDxI1GiGXCnX8dDGXrUNF40?=
- =?us-ascii?Q?ORbLFY+yoTLVTpE0CzPgGzqA8kEOdPdoHt1wOopi88InrP2U4xxuON2R8vdJ?=
- =?us-ascii?Q?NiIDTtLy/oPd7EGJj0A0GRIr0z4cdmK/oKm4dzdELKIzVs5Qan/7W21+MgCH?=
- =?us-ascii?Q?T5s+F5Vjzqy4EY4aUmtLusFxxz0q5GCrfCGqV44OgtK++W9JT+D4bT+czHaM?=
- =?us-ascii?Q?kbHahIT7SpAivZ662xdAABcGiUIxzITV+F2njzx3LAIQGjh7k8J7IOvrYbjy?=
- =?us-ascii?Q?FL3X8cSFJ724iwvCP6KoIk7poOfHF8sjkdhtYdRgRbnqR6RaaCxzY5bcIMSY?=
- =?us-ascii?Q?2bLtIotlDPURqY3yvEw816t1Mubpc1c+C8o+UGQ0ITFiSxxiQnYDxKD4xisf?=
- =?us-ascii?Q?bYmXkS97vXwtHbj9/3fnvTcfd3A6Mk+22BDpaeYM1a6BAjqUFLILmTb7Kw6v?=
- =?us-ascii?Q?DAh0qtIb+4tNpeh+2y7VemkcL6iJNtPBU/LPhoOqAHAVnHTdHNG8O1EgTYZC?=
- =?us-ascii?Q?zASVHk9Qrp1Mb8ikxqU6slnt8GZEmrz0byexwRShd7/mUkrLYk8fc2Ti1ZiR?=
- =?us-ascii?Q?Ho3RyCNdvZvE8ankw8+3rWy+XlwRSEzgmGiJmLjFRZmUPj4fQmElbRLWT2SA?=
- =?us-ascii?Q?ML9T4XJPnvBa1L6s9I4dGuC5faXmwhTqhrmjqANi2cm096/6OxXP6hC3wYyj?=
- =?us-ascii?Q?h14vHaAuEkFcM2hNsgoxS5cIUqOFTTRokTOTyNxEZSVFYcGyVmuPTZ710L0q?=
- =?us-ascii?Q?yClVFKT+TCe1qL5J+GX8J+unqEpAJNu+fysH+/2mJVxcJZWTTQ6ZwsxiFhiu?=
- =?us-ascii?Q?RSGpp5iIlIQKXWiOwqumMxEYg/ZguwNVwIXdHr6SdCwdjTcoz9Idy0gCSVBl?=
- =?us-ascii?Q?YyLnUxOkut0CA1WFXsB6r5Qe2shukUHOKxFUMZHRY8/5vl0K03mmNFduQjrv?=
- =?us-ascii?Q?EALKrNmu1MnOGY05iFdlMSETXtA6amv2byN1hQWJImREEtLykONfS4L28+dy?=
- =?us-ascii?Q?sqA1yNKd/f4Tw7OwYDUbC4wN4ikMl4RmsYP4meMNPFF7rDzrekp64/Fw6ZMC?=
- =?us-ascii?Q?JKoUm50nvRWNG3ypfnA1o8T5uFsSD9r9l44AlQRC?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9ed710aa-8273-429e-772e-08dd824b6eaf
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Z0FMUU4yNm5SQlV4N2NmLytHcEZuSTVTZEhQcFE0SkpTejNTRWw2QzB6S21O?=
+ =?utf-8?B?ZGJWUTExcEQvVXdhMEZ5bDdqNFN6MXZSVldTT3RZaUptV3lYWHBLa1NJQ2lW?=
+ =?utf-8?B?TGJSOEhuWEdiQVFyanlzc0kvNG95cnB4bFhBQzRxK2JXaWc3amM1M3ErbzA4?=
+ =?utf-8?B?Rjl2Q2lNQ1ZOMHNHcVNCQUJ1ZHk0V1NSRVFlU1RmTGU2TU5hTEs5NTMvUXhu?=
+ =?utf-8?B?VjdmMHY1OWdZOEhramIwUmdUa3pTNCtrNitBeHBRMjhhOXNqYmh3TndjeGFV?=
+ =?utf-8?B?Nm1MaHBob0NieXlZaVZKUnBZLzNCVkhDSXhWQ1JIR2dVVXZGOWdwbW9jUXg3?=
+ =?utf-8?B?a09sOTFnQ1NkNHBETE44ZEo4Umdma2FmWnlZV2M3am9nMVR5Y3l6RXloOVhG?=
+ =?utf-8?B?SUZ1bENFYUJEa3pWY3h2Y2g0ZndtbHZzTk9ENUtrdktMYytpOGF2Z1VKS1VU?=
+ =?utf-8?B?RDUyb3ozcmZXaFMzUGtsRm1VZHUwVmZJMHpqcm9IQldPVytMdTk5aWdoV2J3?=
+ =?utf-8?B?ZUhZZUVOTElPT0FJZWkxYmVYZkVIblVDNklka2N0WWZkdFNwaVhwUDBrU0xI?=
+ =?utf-8?B?b2UvNnExVzJZTXpjMXhRK1FEMithUTFDaFpZeDVIU1FFN0hDTXBvVzQraVlU?=
+ =?utf-8?B?VXF1RER2dElCUTlNKzJGYk1tc2lac3NRcGFjZFBaQk5WUDVjSTJUR0FFajNu?=
+ =?utf-8?B?UmFxQzFDNVRnYjVIWUl4eEtVc1RrR0dGVE1PUWF2K2c4RnhFNVFTbXpmdzlv?=
+ =?utf-8?B?b3M3dzU0M094RDRKNzZvZTl2OU1yMDRCbVNMeGU2NVUyS0IxV0JFa3A3ZS9h?=
+ =?utf-8?B?UEJtV1FGcnhsVnJUTWlWLytma2xVMDhCdTl6VEJPN29pcVVmcVY3NW93TmM5?=
+ =?utf-8?B?NVBFTGFvcU9VenA1WHJKTTNSSXVlazhKZ056SlVaZDFIOEo4VzVWSmtaYUoz?=
+ =?utf-8?B?KzJ5aFhYUHp1YTR2V1A5Wlg0U29iQnNLei9XVUlERVA5amhnTXppdFFleUdV?=
+ =?utf-8?B?enViS1Ywb2N6RFNiZ0FibEhzenJmM1l2K0F3Q1RDcnp4NFlUV2RodkZpTHpX?=
+ =?utf-8?B?S3htUk5jTFdGTGw1UmZyemw5R1BTNWNzZVFLRXoyM2tOSklHZG12NW5OdDZ4?=
+ =?utf-8?B?NFNlakVsOVdtKzZTdGR5anJXQXpiaUh3ZWROU2RVY3puUFNZSnNPU3hEZXAy?=
+ =?utf-8?B?YStyNjBKOXhGd0lDMnJ1b0g3TzRoZUtwRER6Y2VvR2xLWitqTEJlNVZneVVx?=
+ =?utf-8?B?aXUvbnZ2d3pTSnV6RkRIMXFPcnYwczFYa1k4akRVaHIwWUZrVmwzNndjVHJO?=
+ =?utf-8?B?dE1pSFdXdEpkNkJBN1lWWFFKWExRTmNrNmJDS2ZrVlZGNnROY1k4YnNZS2Yv?=
+ =?utf-8?B?cExpZEdzbXozZlZYSkk3ZjlNdEttNzVXTW1NelFwbHBtdlNhYjNaVG14VlN5?=
+ =?utf-8?B?WEl0dDR1eFYvRDNHWTVFNUtiZTgyZU1kbFNZcTdzWXZ1citrWU4vMGxPNTFP?=
+ =?utf-8?B?d0F3cnpDZ3V4aEFKUEFBY2ZUOXMyWDk3VW9FMGxhRjl0Z2hpYWxPZmJiWWxR?=
+ =?utf-8?B?NDE3dzJ0VXlFUXhTZTZGYTV4SytvamlOZzYvV0hCMGM4NVJWQi92b1hEdDBn?=
+ =?utf-8?B?YjYvY3JRS0RZWm00NVY3Z09EUWxxSVQ2L0FXa256ejhqaXFRdDFKVGFYYVRo?=
+ =?utf-8?B?alJTQWRZbzM2USt6VnhMMmpSWmZFQjFuT3hBQkQrczBEQUFaSkFCNGRDZUcz?=
+ =?utf-8?B?ZUlqUjdkb0NXdHZuZWNhZEpZTjdRbmgrSFY4MWhtTlp6VGNHcjFZaUdJMjFr?=
+ =?utf-8?B?Q0JOd29YSjVyY3lMellYODBXSnB6NlNUS0VvakZvTVJNNXNXdW4xWjJnS21L?=
+ =?utf-8?B?d1FvWXZuSjh3MFpaUlh1dlJaVHA5U3dyMjhQQlVWaDZ5Mk91M2p5aG9ZejJU?=
+ =?utf-8?B?R2dvRDlvZ0g0UFJDTFFBa05zdUNiOGc4S0NBWW0rY1dvSjN0K0w3cnpadlp1?=
+ =?utf-8?B?QlR3UUF0em5OblFkR09TNk5PNjUyMXhrQ0RCaFF6S0JTbUNiVEt3c1ZYK2lK?=
+ =?utf-8?B?cWl5UXRvTUF6WUpieFJ3MUpjenIzNys2ZDZMSmplYzNMaDkyTHVJeE5DZVlP?=
+ =?utf-8?B?NTd0ZTZkeExRU3FJREpQa2N3ZzIrcGsvOC9SMHA3WFVSY255ekFXYWhicGYw?=
+ =?utf-8?B?Y2c9PQ==?=
+X-OriginatorOrg: kontron.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: c78c6861-902d-410d-c877-08dd8259269b
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Apr 2025 09:44:24.9563
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Apr 2025 11:22:36.9173
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: oIn9ONadC5Bstr8anXQDnzV5TlLNILZJdKJoR8JTrqk55O1A4uZDKcvWCdUaxvhc0/634ECAbmemp7XQoRUPBQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7338
+X-MS-Exchange-CrossTenant-UserPrincipalName: zqQdHFJRuse0tcxTJwZkniS/ycQonXiSMpcGkSMHWVmE8dEtMW888GH02B5m04D1OGJRbc6+hwjV8VU2/7/IGjyh2p/CxtoDNP9FnO+8xyk=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR10MB8071
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_024430_794834_FF4660DA 
-X-CRM114-Status: GOOD (  13.51  )
+X-CRM114-CacheID: sfid-20250423_042246_956759_51F5FEF0 
+X-CRM114-Status: GOOD (  22.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,192 +187,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since device tree support negative number, this will improve some
-parameter parsing functions to handle negative number. Because i.MX8MP
-and i.MX95 USB3 PHY have different tuning parameter for same tuning
-field, this will add i.MX95 tuning functions too.
+Am 23.04.25 um 12:26 schrieb Francesco Dolcini:
+> On Wed, Apr 23, 2025 at 10:00:22AM +0200, Frieder Schrempf wrote:
+>> Am 23.04.25 um 09:08 schrieb Francesco Dolcini:
+>>> On Wed, Apr 23, 2025 at 08:50:54AM +0200, Frieder Schrempf wrote:
+>>>> Am 22.04.25 um 14:46 schrieb Wojciech Dubowik:
+>>>>>
+>>>>> Define vqmmc regulator-gpio for usdhc2 with vin-supply
+>>>>> coming from LDO5.
+>>>>>
+>>>>> Without this definition LDO5 will be powered down, disabling
+>>>>> SD card after bootup. This has been introduced in commit
+>>>>> f5aab0438ef1 ("regulator: pca9450: Fix enable register for LDO5").
+>>>>>
+>>>>> Fixes: f5aab0438ef1 ("regulator: pca9450: Fix enable register for LDO5")
+>>>>>
+>>>>> Cc: stable@vger.kernel.org
+>>>>> Signed-off-by: Wojciech Dubowik <Wojciech.Dubowik@mt.com>
+> 
+> ...
+> 
+>>> With this solution (that I proposed), the sdcard driver just use the
+>>> GPIO to select the right voltage and that's it, simple, no un-needed i2c
+>>> communication with the PMIC, and the DT clearly describe the way the HW
+>>> is designed.
+>>
+>> Yes, but your solution relies on the fact that the LDO5 registers
+>> actually have the correct values for 1v8 and 3v3 setup. The bootloader
+>> might have changed these values. I would prefer it if we could have a
+>> solution that puts the LDO5 in a defined state, that is independent from
+>> any external conditions.
+> 
+> I do not think this is a real concern, the PMIC is programmed during
+> manufacturing, if the PMIC programming is not correct we have way more
+> issues ...
 
-Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
----
- drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 94 ++++++++++++++++------
- 1 file changed, 68 insertions(+), 26 deletions(-)
+My point is not about the PMIC having wrong values as factory defaults.
+My point is about different bootloaders that have PMIC drivers which
+also use a mix of the SD_VSEL IO and the configuration registers for
+setting the voltage. We don't know how the bootloader will leave the
+register values behind.
 
-diff --git a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-index a974ef94de9a..59b9b4704b03 100644
---- a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-+++ b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-@@ -113,11 +113,11 @@ struct imx8mq_usb_phy {
- 	struct tca_blk *tca;
- 	u32 pcs_tx_swing_full;
- 	u32 pcs_tx_deemph_3p5db;
--	u32 tx_vref_tune;
--	u32 tx_rise_tune;
-+	s32 tx_vref_tune;
-+	s32 tx_rise_tune;
- 	u32 tx_preemp_amp_tune;
- 	u32 tx_vboost_level;
--	u32 comp_dis_tune;
-+	s32 comp_dis_tune;
- };
- 
- 
-@@ -286,24 +286,45 @@ static void imx95_usb_phy_put_tca(struct imx8mq_usb_phy *imx_phy)
- 	tca_blk_put_typec_switch(tca->sw);
- }
- 
--static u32 phy_tx_vref_tune_from_property(u32 percent)
-+static u32 phy_tx_vref_tune_from_property(s32 percent)
- {
--	percent = clamp(percent, 94U, 124U);
-+	percent = clamp(percent, -6, 24);
- 
--	return DIV_ROUND_CLOSEST(percent - 94U, 2);
-+	return DIV_ROUND_CLOSEST(percent + 6, 2);
- }
- 
--static u32 phy_tx_rise_tune_from_property(u32 percent)
-+static u32 imx95_phy_tx_vref_tune_from_property(s32 percent)
-+{
-+	percent = clamp(percent, -1000, 875);
-+
-+	return DIV_ROUND_CLOSEST(percent + 1000, 125);
-+}
-+
-+static u32 phy_tx_rise_tune_from_property(s32 percent)
- {
- 	switch (percent) {
--	case 0 ... 98:
-+	case -3:
- 		return 3;
--	case 99:
-+	case -1:
- 		return 2;
--	case 100 ... 101:
--		return 1;
-+	case 3:
-+		return 0;
- 	default:
-+		return 1;
-+	}
-+}
-+
-+static u32 imx95_phy_tx_rise_tune_from_property(s32 percent)
-+{
-+	switch (percent) {
-+	case -10:
-+		return 3;
-+	case 15:
-+		return 1;
-+	case 20:
- 		return 0;
-+	default:
-+		return 2;
- 	}
- }
- 
-@@ -317,12 +338,12 @@ static u32 phy_tx_preemp_amp_tune_from_property(u32 microamp)
- static u32 phy_tx_vboost_level_from_property(u32 microvolt)
- {
- 	switch (microvolt) {
--	case 0 ... 960:
--		return 0;
--	case 961 ... 1160:
--		return 2;
--	default:
-+	case 1156:
-+		return 5;
-+	case 844:
- 		return 3;
-+	default:
-+		return 4;
- 	}
- }
- 
-@@ -331,27 +352,35 @@ static u32 phy_pcs_tx_deemph_3p5db_from_property(u32 decibel)
- 	return min(decibel, 36U);
- }
- 
--static u32 phy_comp_dis_tune_from_property(u32 percent)
-+static u32 phy_comp_dis_tune_from_property(s32 percent)
- {
- 	switch (percent) {
--	case 0 ... 92:
-+	case -9:
- 		return 0;
--	case 93 ... 95:
-+	case -6:
- 		return 1;
--	case 96 ... 97:
-+	case -3:
- 		return 2;
--	case 98 ... 102:
--		return 3;
--	case 103 ... 105:
-+	case 4:
- 		return 4;
--	case 106 ... 109:
-+	case 7:
- 		return 5;
--	case 110 ... 113:
-+	case 11:
- 		return 6;
--	default:
-+	case 15:
- 		return 7;
-+	default:
-+		return 3;
- 	}
- }
-+
-+static u32 imx95_phy_comp_dis_tune_from_property(s32 percent)
-+{
-+	percent = clamp(percent, -60, 45);
-+
-+	return DIV_ROUND_CLOSEST(percent + 60, 15);
-+}
-+
- static u32 phy_pcs_tx_swing_full_from_property(u32 percent)
- {
- 	percent = min(percent, 100U);
-@@ -362,10 +391,17 @@ static u32 phy_pcs_tx_swing_full_from_property(u32 percent)
- static void imx8m_get_phy_tuning_data(struct imx8mq_usb_phy *imx_phy)
- {
- 	struct device *dev = imx_phy->phy->dev.parent;
-+	bool is_imx95 = false;
-+
-+	if (device_is_compatible(dev, "fsl,imx95-usb-phy"))
-+		is_imx95 = true;
- 
- 	if (device_property_read_u32(dev, "fsl,phy-tx-vref-tune-percent",
- 				     &imx_phy->tx_vref_tune))
- 		imx_phy->tx_vref_tune = PHY_TUNE_DEFAULT;
-+	else if (is_imx95)
-+		imx_phy->tx_vref_tune =
-+			imx95_phy_tx_vref_tune_from_property(imx_phy->tx_vref_tune);
- 	else
- 		imx_phy->tx_vref_tune =
- 			phy_tx_vref_tune_from_property(imx_phy->tx_vref_tune);
-@@ -373,6 +409,9 @@ static void imx8m_get_phy_tuning_data(struct imx8mq_usb_phy *imx_phy)
- 	if (device_property_read_u32(dev, "fsl,phy-tx-rise-tune-percent",
- 				     &imx_phy->tx_rise_tune))
- 		imx_phy->tx_rise_tune = PHY_TUNE_DEFAULT;
-+	else if (is_imx95)
-+		imx_phy->tx_rise_tune =
-+			imx95_phy_tx_rise_tune_from_property(imx_phy->tx_rise_tune);
- 	else
- 		imx_phy->tx_rise_tune =
- 			phy_tx_rise_tune_from_property(imx_phy->tx_rise_tune);
-@@ -394,6 +433,9 @@ static void imx8m_get_phy_tuning_data(struct imx8mq_usb_phy *imx_phy)
- 	if (device_property_read_u32(dev, "fsl,phy-comp-dis-tune-percent",
- 				     &imx_phy->comp_dis_tune))
- 		imx_phy->comp_dis_tune = PHY_TUNE_DEFAULT;
-+	else if (is_imx95)
-+		imx_phy->comp_dis_tune =
-+			imx95_phy_comp_dis_tune_from_property(imx_phy->comp_dis_tune);
- 	else
- 		imx_phy->comp_dis_tune =
- 			phy_comp_dis_tune_from_property(imx_phy->comp_dis_tune);
--- 
-2.34.1
+An example would be that the bootloader uses SD_VSEL in a different way
+and the PMIC driver in the bootloader writes 1v8 to the LDO5CTRL_L
+register. Linux will then use the wrong voltage and the SD card will not
+work.
 
+So with your approach it would be good if the PMIC driver would also
+reset the LDO5 registers to their factory defaults at probe time.
+
+Also the logic for the LDO5 is purely embedded in the PMIC chip, so it
+feels kind of wrong to have another regulator for SD_VSEL on the board
+level.
+
+If someone wants to check the output voltage of LDO5, they will query
+the sysfs path for LDO5 and get back the wrong voltage. It will be hard
+to find out that you need to read the voltage of the additional GPIO
+regulator.
+
+I don't think your approach is bad and of course you are free to move on
+and use it. I'm just trying to find out what would be the best way for
+everyone. It would be good to use the same approach on all i.MX8M
+boards. Currently we have a mix of (at least):
+
+1. MX8MM_IOMUXC_GPIO1_IO04_USDHC2_VSELECT without sd-vsel-gpios readback
+(everyone)
+2. MX8MM_IOMUXC_GPIO1_IO04_USDHC2_VSELECT with sd-vsel-gpios readback
+(Kontron)
+3. MX8MM_IOMUXC_GPIO1_IO04_GPIO1_IO4 with additional GPIO regulator
+(Toradex)
 
