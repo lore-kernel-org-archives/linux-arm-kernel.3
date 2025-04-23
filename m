@@ -4,72 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FACAC369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 14:34:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D9FEC369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:40:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z6y9Ns9bLwoVB6LCkoIvWkmDMfOx5eZ5lD7xpj73u3Q=; b=BTN7U8nmSA1bGcjB8CWErjAAwH
-	xQRUc0xcjowec2vpc+lyQN4GIp7G732S+JUJFEGrm4NA/ez/79ZjClnxvTbtLIWc022Z6m0vlArbX
-	0wVXItvRpSXagdeQLP2TUjF199x6LbI5fX8Kl2q/3ayHn3uI/Z6E9ZgR+FyIem/c8E1kuCUY2aKpH
-	RldIgukhkEppJWRAQrJfdcxQfbQKN6CEpmPjMZdo7jY3KiGxzWtgGVTQRK/BbmcXFtoJ51WY0ZFxD
-	X9OvGxK0IqWmBSdWGA6pH12KeCcTxU89bXZrK7UNnFoTdLMCsqfWJTFkIPjqstQ7aHMHCN4PPno1y
-	/lR115kA==;
+	bh=+3bOnxJQ3XARxWGdu7M8FGxXTawg1C1gxfJXUYgr3DE=; b=IT8aCGIzQpoFKy2eJNP1YhHtTW
+	3cJovagvFFivnhZ/GPxwOty4dhSds5Vh9jDHoVcdg+9iIj6u6HsCUyDezBQTifLnKqX4TzXNFbOnC
+	dwjjcZr6ArBRr/XTP16c9qF5r89BER0Tj2i2DHm42n3mfGR6mAbSggIQx2v7XuGUJV7/E09AEtut6
+	bexMA0eiX6mTilEIu+sUyzXaI0veF/hTji45718wu/T5sE9afveRPiQNCMK+Z8BjqbdNm5hfBFrc6
+	qysIwG1FjkWrVo3/B5AchxG3OfCURYr7dLVQJvpJL9gROhAykDzV/5DUEwTVeKf67KW1/v3+uu4RI
+	lyPKW/zA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7bBK-0000000AqIH-1nto;
-	Wed, 23 Apr 2025 14:34:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u7e5M-0000000BIO2-3TTp;
+	Wed, 23 Apr 2025 17:40:36 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7aTd-0000000AfNu-2oqK;
-	Wed, 23 Apr 2025 13:49:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C7BFB4A0A9;
-	Wed, 23 Apr 2025 13:49:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8FE6C4CEE2;
-	Wed, 23 Apr 2025 13:49:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745416165;
-	bh=osGtOXoJ3/G4yq2pLf+qpaLC++EVm4B+QQ46Ny8HTnk=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=txMPS8mzhOH4JqWs1/gpActbHw272wesasElzGIudFpTPjkYoE2Fidl1RznTJYoB6
-	 HrIW0sUUeMDYBEGX9A/z9xoQkqHITBpJgrLpcBLkoETNeCWg2Ppw1Z4WTmIhG6Zt5M
-	 2S7JGvwX4KzuRr6fzQEyVX5BPNuqZhTBegeRGEdr3O0aPf6H5i5qWfemZZRNWldNdt
-	 ylCBx4jutIwZmwtbc/01ACKzZptf2DOuKlb60SkdBqPU9zb3pJJHQlnDh3EdZDXjGD
-	 dP7fKeCj1xnj6YDBpdC9zQ5dxsTbRteEBjFwyn8anEIXhn2f3+SuZo2N/hs4VsISpY
-	 keUVg1uVu8MiA==
-From: Mark Brown <broonie@kernel.org>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Sugar Zhang <sugar.zhang@rock-chips.com>, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, kernel@collabora.com, 
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20250410-rk3576-sai-v2-0-c64608346be3@collabora.com>
-References: <20250410-rk3576-sai-v2-0-c64608346be3@collabora.com>
-Subject: Re: (subset) [PATCH v2 00/11] Add RK3576 SAI Audio Controller
- Support
-Message-Id: <174541616068.423395.2187976314107237451.b4-ty@kernel.org>
-Date: Wed, 23 Apr 2025 14:49:20 +0100
+	id 1u7ai7-0000000AlN3-4B1z
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Apr 2025 14:04:25 +0000
+Received: from [127.0.0.1] (unknown [116.232.18.95])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id A642C343104;
+	Wed, 23 Apr 2025 14:04:17 +0000 (UTC)
+From: Yixun Lan <dlan@gentoo.org>
+Date: Wed, 23 Apr 2025 22:03:24 +0800
+Subject: [PATCH 3/5] arm64: dts: allwinner: a523: Add EMAC0 ethernet MAC
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-c25d1
+Message-Id: <20250423-01-sun55i-emac0-v1-3-46ee4c855e0a@gentoo.org>
+References: <20250423-01-sun55i-emac0-v1-0-46ee4c855e0a@gentoo.org>
+In-Reply-To: <20250423-01-sun55i-emac0-v1-0-46ee4c855e0a@gentoo.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Andre Przywara <andre.przywara@arm.com>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
+ Yixun Lan <dlan@gentoo.org>
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2341; i=dlan@gentoo.org;
+ h=from:subject:message-id; bh=0V5/pbt0VA5Hg3Oc3Eb1tgOeb9g+83cQqd7UmD2KG/0=;
+ b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBoCPNCu+Ck+tBycFGCLRZGCONhmaFsMetB/xTFc
+ zcuVTjTtk+JApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCaAjzQl8UgAAAAAAuAChp
+ c3N1ZXItZnByQG5vdGF0aW9ucy5vcGVucGdwLmZpZnRoaG9yc2VtYW4ubmV0QjVCQUI4QzlDMzF
+ CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277TOWD/9d0BZRe4NDQvirps
+ zi/lwslGgvwYMjLQ/3HTIRvNt7QMkf0jwCPqovWlSOyGHEP/yX19MXMUv3qqnE4k6qFZD1G7XZH
+ 9KYotrmieLbFK63woUMoH88mAWCrG7IcndR4CgAIOOCxn7wFxUCH/oYC+Z7JklA+fIZWVY2gb2D
+ VN0kipeHFaPfF3yboNeDC0EhjnF+aqEo1qjGMin9ipcm7SVuCjkuyom8uqyv01zKojpeA6RrLlX
+ HIWlbwtXxBI3mFj8k1zOtpArnHFm6P/+pSrI/3e+JMB7+T1PV++ULZSXDDCk0Oslar2zGbSWpMq
+ kdBmCiHGekqceFB+2//G3Uwx2WzqjxEyVvN/MgjaMrIerIM2PQY2JUHiKB4jhMtZxDI4+GWlJX8
+ ihcmq3pEZouT6juXeuErif6A1C8aT12zeqEg9bCuHYqwLp8mEelrssZuNLIy7RY4+1zRlIM3ezU
+ W8FEkhfdfDDrd/C3njsYCh40+9r6xuHrXIPbZfEGMmRUhqH6yONaEcIDwplJtmMGew7m7l6El2B
+ kHx3316rXA3p4rcX94AR2pyRcfW1yMyK8sn/5rpSIexzGMHohCRTHRQ/od/S+aYAeWwZGiMnsho
+ TvFeuhcFlNZ0Hoo1FKLtbYlbBxdAIgKJdKT/0RRm/R0/6juU+/582hwa16anX0ou/eiA==
+X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_064925_735037_03E99947 
-X-CRM114-Status: GOOD (  14.21  )
+X-CRM114-CacheID: sfid-20250423_070424_066339_CC3FFCBA 
+X-CRM114-Status: UNSURE (   8.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,44 +90,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 10 Apr 2025 21:39:52 +0200, Nicolas Frattaroli wrote:
-> This series adds support for Rockchip's Serial Audio Interface (SAI)
-> controller, found on SoCs such as the RK3576. The SAI is a flexible
-> controller IP that allows both transmitting and receiving digital audio
-> in the I2S, TDM and PCM formats. Instances of this controller are used
-> both for externally exposed audio interfaces, as well as for audio on
-> video interfaces such as HDMI.
-> 
-> [...]
+Add EMAC0 ethernet MAC support which found on A523 variant SoCs,
+including the A527/T527 chips.
 
-Applied to
+Signed-off-by: Yixun Lan <dlan@gentoo.org>
+---
+ arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi | 42 ++++++++++++++++++++++++++
+ 1 file changed, 42 insertions(+)
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+index ee485899ba0af69f32727a53de20051a2e31be1d..c3ba2146c4b45f72c2a5633ec434740d681a21fb 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+@@ -126,6 +126,17 @@ pio: pinctrl@2000000 {
+ 			interrupt-controller;
+ 			#interrupt-cells = <3>;
+ 
++			emac0_pins: emac0-pins {
++				pins = "PH0", "PH1", "PH2", "PH3",
++					"PH4", "PH5", "PH6", "PH7",
++					"PH9", "PH10","PH13","PH14",
++					"PH15","PH16","PH17","PH18";
++				allwinner,pinmux = <5>;
++				function = "emac0";
++				drive-strength = <40>;
++				bias-pull-up;
++			};
++
+ 			mmc0_pins: mmc0-pins {
+ 				pins = "PF0" ,"PF1", "PF2", "PF3", "PF4", "PF5";
+ 				allwinner,pinmux = <2>;
+@@ -409,6 +420,15 @@ i2c5: i2c@2503400 {
+ 			#size-cells = <0>;
+ 		};
+ 
++		syscon: syscon@3000000 {
++			compatible = "allwinner,sun55i-a523-system-control",
++				     "allwinner,sun50i-a64-system-control";
++			reg = <0x03000000 0x1000>;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			ranges;
++		};
++
+ 		gic: interrupt-controller@3400000 {
+ 			compatible = "arm,gic-v3";
+ 			#address-cells = <1>;
+@@ -521,6 +541,28 @@ ohci1: usb@4200400 {
+ 			status = "disabled";
+ 		};
+ 
++		emac0: ethernet@4500000 {
++			compatible = "allwinner,sun55i-a523-emac0",
++				     "allwinner,sun50i-a64-emac";
++			reg = <0x04500000 0x10000>;
++			clocks = <&ccu CLK_BUS_EMAC0>;
++			clock-names = "stmmaceth";
++			resets = <&ccu RST_BUS_EMAC0>;
++			reset-names = "stmmaceth";
++			interrupts = <GIC_SPI 46 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "macirq";
++			pinctrl-names = "default";
++			pinctrl-0 = <&emac0_pins>;
++			syscon = <&syscon>;
++			status = "disabled";
++
++			mdio0: mdio {
++				compatible = "snps,dwmac-mdio";
++				#address-cells = <1>;
++				#size-cells = <0>;
++			};
++		};
++
+ 		r_ccu: clock-controller@7010000 {
+ 			compatible = "allwinner,sun55i-a523-r-ccu";
+ 			reg = <0x7010000 0x250>;
 
-Thanks!
-
-[05/11] ASoC: dt-bindings: add schema for rockchip SAI controllers
-        commit: fd55908d3278300ec4cbbacbfb07748bb9166314
-[06/11] ASoC: rockchip: add Serial Audio Interface (SAI) driver
-        commit: cc78d1eaabad3caf3c425c83037cd8ba1c9f2bc6
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+-- 
+2.49.0
 
 
