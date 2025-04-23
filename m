@@ -4,67 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69169C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 11:09:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBAD1C369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 11:11:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S83gvmQyh65eRxiM3Qr44B2Mozm3wxxawwnOgnnPPHA=; b=MPjonQeAqNa2czmpbNE+ONOsnS
-	jlJnhrlcrTNgVp/pwzN+4USps9hESId0uyGN+hQQFVnKvG479JtQ/fMpEFOE7ve67mIK52DUM7nsd
-	ykXz/BpdUX8aXUl1T6grn6RegAC9uhu4t+OckEK/20BLxsmu8+lkx1RGzbmKam9i6EwgZ1LcjHbJB
-	mm0p+BLgv8wF7N7H05K/AUjIVA0MOeFojubd7LpP5sA2zZ3Vn2fDFx/PSFLHAwMcb0+pt8zeKRIPk
-	AwStZTbt5i5Mk7By44D0FGpmiLdk5XzXFNzxGrAx5IzMC2WJon6VPYADmBGLj3bzoM4d6UWSXKaS4
-	3qMuIejA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UpUgGYYSAAKZGIFCG/nSCZXQYMN9IB2AgKsoywhruMI=; b=RdVV4jB6bGstcO0XWyhXJwDfn0
+	64StjSwpnB0TNZ38B++N4/NF0jv7LYwPxnwk2DrnPE5YdV3DrBAqkAm1o7zPAoAeyNiTDiz6bIP1e
+	cLDREqgn4BJkOje1TZaBdA19ySIu+oB/c+0R7pd9tvJj7jL/eHHnVE98gqUENJ/SKM8Mqmkm7fTmL
+	V74uyA68U8L2fnyOAqsDYr8xO/G3DxmaGZSLLCxDG5MByfcRIGv76krCwl/5x4/y6/45rPsw4EMQK
+	miqXyA5CwC0EVDTTdNT4+4SBPvUE3KiXYNLbTOSg6wWi9ToyiThEXMcZEmQn/dTjysDJyI/qXw2hx
+	aKxIR3Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Xyk-0000000AGIw-0pyT;
-	Wed, 23 Apr 2025 11:09:22 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1u7Y0j-0000000AGkd-0F0w;
+	Wed, 23 Apr 2025 11:11:25 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7XCS-0000000A8yC-3KEV;
-	Wed, 23 Apr 2025 10:19:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1745403567;
-	bh=EErdEvkJZMomWj346FuTips4HSCS6BxlmBws21IXYso=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=SZg4ekLb9WzZnjsZFcLoTYV7rwAq3ALY3FMkS9R1RbijO8AqgtNq7raPnsv+bgkAN
-	 GrCSO8Aiqqu52TYlhkzF9Icz5vv98EW0ER4EdXfUiG8gJBFcZFXEXcVeYV41tfRuIV
-	 XHZ63x7jm1E5fQO4TdkjSGc1zUpdQHrQDT45Av4juFw2XZRRMMHf1CQujJKx7DQXCl
-	 g8Zj+mlB+WUKDCH6y5MtVd/bHm6+ypsczbuFxnn30o3YkYzuSEwvyeYt9DW79+GyQq
-	 zzG8SnDUR5olrdoXXf5ERp3PX7ljipA+PKlCUBvJ/GiS4T8nHyOQy9vqKDcalMMXhx
-	 Ok+IrPwSoUqFA==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C8BD017E0B56;
-	Wed, 23 Apr 2025 12:19:26 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: kernel@collabora.com, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- Julien Massot <julien.massot@collabora.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-In-Reply-To: <20250423-mt8395-audio-sof-v2-1-5e6dc7fba0fc@collabora.com>
-References: <20250423-mt8395-audio-sof-v2-1-5e6dc7fba0fc@collabora.com>
-Subject: Re: [PATCH v2] arm64: dts: mediatek: mt8395-nio-12l: Enable Audio
- DSP and sound card
-Message-Id: <174540356673.70458.18087445471288730073.b4-ty@collabora.com>
-Date: Wed, 23 Apr 2025 12:19:26 +0200
+	id 1u7XEl-0000000A9Ez-3K6T
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Apr 2025 10:21:53 +0000
+Received: from gaggiata.pivistrello.it (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id 39DB71F971;
+	Wed, 23 Apr 2025 12:21:49 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1745403709;
+	bh=UpUgGYYSAAKZGIFCG/nSCZXQYMN9IB2AgKsoywhruMI=;
+	h=Received:From:To:Subject;
+	b=bs9vJAu8mvqc64WiUDtIkUvfcUb4obpM/9YuSrhL8j7Vf7lxVPdfW71e+syvIXd1a
+	 Z5lEEGZEWw1DTQnmiQFEiVdPLzJiUThmOm5/z3mgV298aExt2W5sPjXWagKqSnLEqY
+	 KX/SLQeGzGMWzNkNp/QyLeYq+CIxgSxMSV7me4oj8/4qud415eWABSKV+rzFXm6YpU
+	 zVPFjVu4lOM2/b3UrIH/MPyyPog7ySt+d9Ob5Us1hr2WRQ8R/MgEYBur+xIBooNxWj
+	 g3ZYkcSG/fIurgTtS8TcwVQuSv2gSfthjHosrHA+uBiVcsl3gXBo94k+8HZgcg5gm7
+	 aXSusdN1PxU+A==
+Received: by gaggiata.pivistrello.it (Postfix, from userid 1000)
+	id E57297F820; Wed, 23 Apr 2025 12:21:48 +0200 (CEST)
+Date: Wed, 23 Apr 2025 12:21:48 +0200
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Philippe Schenker <philippe.schenker@impulsing.ch>
+Cc: Francesco Dolcini <francesco@dolcini.it>,
+	Wojciech Dubowik <Wojciech.Dubowik@mt.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"stable@vger.kernel.org" <stable@vger.kernel.org>
+Subject: Re: [PATCH v3] arm64: dts: imx8mm-verdin: Link reg_usdhc2_vqmmc to
+ usdhc2
+Message-ID: <aAi_PPaZRF26pv_d@gaggiata.pivistrello.it>
+References: <20250422140200.819405-1-Wojciech.Dubowik@mt.com>
+ <20250423095309.GA93156@francesco-nb>
+ <222ce25ee0bb1545583ad7a04f621bac2617893c.camel@impulsing.ch>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <222ce25ee0bb1545583ad7a04f621bac2617893c.camel@impulsing.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_031928_986191_B31C00B3 
-X-CRM114-Status: UNSURE (   8.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250423_032151_985496_45FBC6A7 
+X-CRM114-Status: GOOD (  17.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,23 +85,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 23 Apr 2025 10:53:13 +0200, Julien Massot wrote:
-> Add memory regions for the Audio DSP (ADSP) and Audio Front-End (AFE),
-> and enable both components in the device tree.
+On Wed, Apr 23, 2025 at 10:16:43AM +0000, Philippe Schenker wrote:
 > 
-> Also, define the required pin configuration and add a sound card node
-> configured to use the ADSP. This enables audio output through the 3.5mm
-> headphone jack available on the board.
 > 
-> [...]
+> On Wed, 2025-04-23 at 11:53 +0200, Francesco Dolcini wrote:
+> > On Tue, Apr 22, 2025 at 04:01:57PM +0200, Wojciech Dubowik wrote:
+> > > Define vqmmc regulator-gpio for usdhc2 with vin-supply
+> > > coming from LDO5.
+> > > 
+> > > Without this definition LDO5 will be powered down, disabling
+> > > SD card after bootup. This has been introduced in commit
+> > > f5aab0438ef1 ("regulator: pca9450: Fix enable register for LDO5").
+> > > 
+> > > Fixes: f5aab0438ef1 ("regulator: pca9450: Fix enable register for
+> > > LDO5")
+> > > 
+> > no empty lines in between commit message tags, not sure if Shawn can
+> > fix
+> > this up or you need to send a v4.
+> > 
+> > > Cc: stable@vger.kernel.org
+> > > Signed-off-by: Wojciech Dubowik <Wojciech.Dubowik@mt.com>
+> > 
+> > Tested-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+> > Reviewed-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+> > 
+> > I would backport this to also older kernel, so to me
+> > 
+> > Fixes: 6a57f224f734 ("arm64: dts: freescale: add initial support for
+> > verdin imx8m mini")
+> 
+> NACK for the proposed Fixes, this introduces a new Kconfig which could
+> have side-effects in users of current stable kernels.
 
-Applied to v6.15-next/dts64, thanks!
+The driver for "regulator-gpio" compatible? I do not agree with your argument,
+sorry. 
 
-[1/1] arm64: dts: mediatek: mt8395-nio-12l: Enable Audio DSP and sound card
-      commit: 2521f47606eaffb2e477ea0b2985d2d8e31aa563
+The previous description was not correct. There was an unused
+regulator in the DT that was not switched off just by chance.
 
-Cheers,
-Angelo
+Francesco
 
 
 
