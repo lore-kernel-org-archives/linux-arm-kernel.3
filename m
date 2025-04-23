@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 441C1C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 10:21:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39EB6C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 10:23:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KHXp1fhPr51e4rt9sZyiCuRe2+Qj/H0RWuiXEzToeNI=; b=D/RUSRxG+v9iLKtERweBVLfGmD
-	+LwW5s77vRmmPojamSuoRgL9WgF82oB9LTOII2TbVeT0zvVQQESvlcPIWWa5ywHHoVKHwPNpx6ERA
-	yE3zQi+G7t70kCnXAIvZGRoln5x7/mfZyNtiAk8o/ZU5lsP36xL/a+yKPOqQx6u29IZZjDoUpGY5N
-	cLcilZ0Wox+vhJeMnVjFUcrRMoMXEemqwK1JQs7A1UzFASgEqe1mDJag+ZGJRr/39RpIUk/qxViX+
-	Vi3HXvOUper9STIqI4+gbr1snBPpr4eZEevbSllXsmXAEBAt/tA2svYKrzPz2O6wDz/EH5nA28Yh+
-	oiah52iA==;
+	bh=b3alW43WvHJRTnbjVnK0tT/qRTZ+LjL/F72bfjWZPsY=; b=2n6pgZzopm2rpLs7LZ7HK0m5Zm
+	cGHfCuPktC3TMlo7kcYKFTuBS8LkqMnJfkMlfZS+yqe2CxiShy2Wbz8nw8TIMVzTFWK3uhjxM6PlV
+	Vm1zJKlgOSt8t1Zxq2DHJsurkdLX6CkULSh4xKh4CmQRIqyIwZSq9xw7AN7ZIhBrkS89SChAWWMC/
+	T8qbRraMmon+dcpkdfxkmk+44EcJ08ytA5g88EBUHj+U6os9XspAnt3WQqRj9bpenCd2qqMeZuR3D
+	cvPwApy7Mlhh2RVryj3MfLio0DOubPh3ieAg/lseuuEekOotZWEK6X4JQ/uYQR7MTeMg2T+HD1EZP
+	MRcuUtlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7XEf-0000000A9Ds-47d1;
-	Wed, 23 Apr 2025 10:21:45 +0000
+	id 1u7XGd-0000000A9Ru-33Qd;
+	Wed, 23 Apr 2025 10:23:47 +0000
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7W2u-00000009s2w-0gr1
+	id 1u7W2x-00000009s4Y-1CdP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 09:05:34 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53N6OIPG010478;
+	Wed, 23 Apr 2025 09:05:36 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53N6Op1w005619;
 	Wed, 23 Apr 2025 11:05:16 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	KHXp1fhPr51e4rt9sZyiCuRe2+Qj/H0RWuiXEzToeNI=; b=ZeudN7NNWve3JyCq
-	t/yeRXbMYMsJw3HTzTnXxPTmDmayDkRc2fwB4sUgFTch0DK4+fwgTxs3+meyJLqv
-	/RF70fLYQhaXC+vVfvXmGvZkCXs54lDs2mjCwwFyw8P1MZGpl5PTKNYszRmlMvk9
-	QToeaxZzUbppfvlYIysBnCKTp6qGFpqBv4ZHHP3v69+n8/VHRGx4AgQY/gTq4lvz
-	0d7yuMBhfV3av/7hfKPzxFvY7d4MAoIOiXrKm2P/A84m27g/juwFKnKxyDkXtyMJ
-	jr1Tw+5tD9pFkulf3CT4RP467smsGzK/J4ufVdVzq/KiXapYmtlUN36K9JdaCk6q
-	zHAGBQ==
+	b3alW43WvHJRTnbjVnK0tT/qRTZ+LjL/F72bfjWZPsY=; b=tAbGvVrsFy/DBhR7
+	ICD0PsbZb4Pc0sz/EhK2IWafOzjCab5y21bTynKsV9kaNDlPovY+lZrDz4s9N7M4
+	NYnFFIjyW7hDrlxr0WTNNctcYmybYY5HMGCZdcB6X4y3zJBOzCpfzFuXWjlpbAz6
+	X8o2FjwRZGLA/3D5D4NvfQzi+56NTb84Oa9PpnBp7VMLhr2/Ow4NboNsCFtOShJ4
+	s5DXFIcFz+PzwUpSESc2IJVN9Jzycb5OATOCoBYLp4o6iLup3fh0ekgmUvbYEWTC
+	2gtw9ug1F4gyQei5IfNBFgqfkpAD7c/lq/UDHNu7rAtI8V1/R7yuzA5i7xUIoigW
+	rS91gA==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 466jk3aa7x-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 466jjyaa6b-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Wed, 23 Apr 2025 11:05:16 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id EF78A40045;
-	Wed, 23 Apr 2025 11:03:45 +0200 (CEST)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id CEF1D40049;
+	Wed, 23 Apr 2025 11:03:42 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 3CEC19208D0;
-	Wed, 23 Apr 2025 11:02:28 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 1E6B291F74D;
+	Wed, 23 Apr 2025 11:02:30 +0200 (CEST)
 Received: from localhost (10.130.77.120) by SHFDAG1NODE3.st.com (10.75.129.71)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 23 Apr
- 2025 11:02:27 +0200
+ 2025 11:02:29 +0200
 From: Christian Bruel <christian.bruel@foss.st.com>
 To: <christian.bruel@foss.st.com>, <lpieralisi@kernel.org>, <kw@linux.com>,
         <manivannan.sadhasivam@linaro.org>, <robh@kernel.org>,
@@ -65,9 +65,9 @@ To: <christian.bruel@foss.st.com>, <lpieralisi@kernel.org>, <kw@linux.com>,
 CC: <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
         <linux-stm32@st-md-mailman.stormreply.com>,
         <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v8 5/9] MAINTAINERS: add entry for ST STM32MP25 PCIe drivers
-Date: Wed, 23 Apr 2025 11:01:15 +0200
-Message-ID: <20250423090119.4003700-6-christian.bruel@foss.st.com>
+Subject: [PATCH v8 8/9] arm64: dts: st: Add PCIe Endpoint mode on stm32mp251
+Date: Wed, 23 Apr 2025 11:01:18 +0200
+Message-ID: <20250423090119.4003700-9-christian.bruel@foss.st.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250423090119.4003700-1-christian.bruel@foss.st.com>
 References: <20250423090119.4003700-1-christian.bruel@foss.st.com>
@@ -81,9 +81,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-04-23_06,2025-04-22_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_020532_495766_FBD12FB2 
-X-CRM114-Status: UNSURE (   8.15  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250423_020535_624451_DE57A3E5 
+X-CRM114-Status: GOOD (  10.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,31 +97,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add myself as maintainer of STM32MP25 PCIe host and PCIe endpoint drivers
+Add pcie_ep node to support STM32 MP25 PCIe driver based on the
+DesignWare PCIe core configured as Endpoint mode
 
 Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
 ---
- MAINTAINERS | 7 +++++++
- 1 file changed, 7 insertions(+)
+ arch/arm64/boot/dts/st/stm32mp251.dtsi | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index b5acf50fc6af..a37b9422998c 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -18610,6 +18610,13 @@ L:	linux-samsung-soc@vger.kernel.org
- S:	Maintained
- F:	drivers/pci/controller/dwc/pci-exynos.c
+diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+index 5a5c177036cb..71b89cbab9f2 100644
+--- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+@@ -909,6 +909,19 @@ stmmac_axi_config_1: stmmac-axi-config {
+ 				};
+ 			};
  
-+PCI DRIVER FOR STM32MP25
-+M:	Christian Bruel <christian.bruel@foss.st.com>
-+L:	linux-pci@vger.kernel.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/pci/st,stm32-pcie-*.yaml
-+F:	drivers/pci/controller/dwc/*stm32*
++			pcie_ep: pcie-ep@48400000 {
++				compatible = "st,stm32mp25-pcie-ep";
++				reg = <0x48400000 0x400000>,
++				      <0x10000000 0x8000000>;
++				reg-names = "dbi", "addr_space";
++				clocks = <&rcc CK_BUS_PCIE>;
++				resets = <&rcc PCIE_R>;
++				phys = <&combophy PHY_TYPE_PCIE>;
++				access-controllers = <&rifsc 68>;
++				power-domains = <&CLUSTER_PD>;
++				status = "disabled";
++			};
 +
- PCI DRIVER FOR SYNOPSYS DESIGNWARE
- M:	Jingoo Han <jingoohan1@gmail.com>
- M:	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+ 			pcie_rc: pcie@48400000 {
+ 				compatible = "st,stm32mp25-pcie-rc";
+ 				device_type = "pci";
 -- 
 2.34.1
 
