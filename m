@@ -4,73 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EBEAC369D3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0207AC369D7
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 17:44:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GGrqrZmB62conU1lP8EeLK6rqDNFcTlb2LYRrVQHvKE=; b=1t4Y/o3+Lf1ef8hpbl6r1tg745
-	m/jvlQvlDDarrY/8I+2MUyd44C1ow/jhZbgRz/PZrG4xVbRmzKOUdCMoUlPdQqXrLdQb2NpBCfJvg
-	N8DMa1bwUmCxGviS7IxlStAfhKy0J49ohJ2AP7BFDhUk9Ig0V7yykx35mVGKFcwpYZsW4+1wddoUa
-	Z2ZlEYDF0NWpFxivS/fXQlyqXx0xpkpaSTicpzTdnZDyFhrnm9FOIJtLKnG8mf/gjEk5qUf20K4/8
-	HUaej9RFb1SGUzcz8rot6CtRMp4UqNeZH/R1sthysyIE7TjANPyRJPL4Fn1Atj5QLWzyewRIwRUBi
-	AjkrjIrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rB7o53/Gx3kEOCIzSrxyfyr1JRhXA9Q/wBBn9pf1Q5o=; b=fbtPaXQNZjPCIp9JfD/TaAaZB1
+	3yv0MU1ZV6y7xVTFWtCr2T2VXHcnoLfj6i6TqqBydFMIjujoqCQ9fEcOVcXJfOwOWcmUIa8xHZGiO
+	hl3gwW6n5PxZdxeBoAN/nGoua2CKyYOD/4rHbga1Se4+X8VBzwagzyYZHZYoN6G6zym0awwx4DBAF
+	MaFQSmh5dcw4ETRDKlJwXydORA2YCCjnMRay2MVlQz+UxiH4LiZrb8izUXjut1YHb5rWgSOAJWg4E
+	xBZgo1VHGqR3YIqygt8DO9N5RLFxrq89GiUMxjcIn6pd/2x9Kao3FVPhbPkZAM7Ml6lTXyQEA4p/z
+	XvdVYRnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7e8w-0000000BOG8-2GRh;
-	Wed, 23 Apr 2025 17:44:18 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u7e8v-0000000BODQ-0Dlr;
+	Wed, 23 Apr 2025 17:44:17 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7dD3-0000000BAwH-2jcF;
-	Wed, 23 Apr 2025 16:44:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BD2B549F8D;
-	Wed, 23 Apr 2025 16:44:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E43FC4CEE2;
-	Wed, 23 Apr 2025 16:44:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745426669;
-	bh=FX/Vo6MgthKdRTi+CWkqnrzMpTD/YHg19LlWfAknldU=;
-	h=From:To:Cc:Subject:Date:From;
-	b=TLIO7yB9lKAb3xtqbawTI9uuH7U0buTQA287nqui8dXH5EcJZs9zQXzSUbb8PzWsy
-	 RNWcexpB7kcsIemNT+mZa97uo1GZoNa2eSlZ2NWj7v4fwrY36cwTuRpIT4Sjj1X3wP
-	 3HReIrVK6ck+ajc+V5gaae3eGR3NaAvgowNSm+upyMYOAyBfr2bchU8L3G9JXwFXZ6
-	 bK/Sq1HnGegVngE9Vt7g9vVxQpKsyBo3Uv/3hLahw2M1asmtUDdHtP35QZf1rglrQb
-	 5Qr9PrQSF/fZz87dmlYQwcYyUv1Wl/6vHDHO7nAzbLQfgLQ1X7HwSmx0r6AQyj/0p+
-	 LBc9aJbWay+Gw==
-From: Arnd Bergmann <arnd@kernel.org>
-To: Sandy Huang <hjc@rock-chips.com>,
-	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Douglas Anderson <dianders@chromium.org>,
-	Damon Ding <damon.ding@rock-chips.com>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Heiko Stuebner <heiko.stuebner@cherry.de>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
+	id 1u7dCN-0000000BApc-2w6U
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Apr 2025 16:43:48 +0000
+X-CSE-ConnectionGUID: KD6/4TrBRCGX8RPwnJOuWw==
+X-CSE-MsgGUID: 5IhsHEGxQ96UxiGv71Wqyw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11412"; a="47160719"
+X-IronPort-AV: E=Sophos;i="6.15,233,1739865600"; 
+   d="scan'208";a="47160719"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Apr 2025 09:43:46 -0700
+X-CSE-ConnectionGUID: s5cnf4AERSaFpT/2Uwc5/Q==
+X-CSE-MsgGUID: oay+8vSfQAa4aiFXkXdhCw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,233,1739865600"; 
+   d="scan'208";a="155580835"
+Received: from smile.fi.intel.com ([10.237.72.58])
+  by fmviesa002.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Apr 2025 09:43:43 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andy@kernel.org>)
+	id 1u7dCG-0000000F7Si-3R6f;
+	Wed, 23 Apr 2025 19:43:40 +0300
+Date: Wed, 23 Apr 2025 19:43:40 +0300
+From: Andy Shevchenko <andy@kernel.org>
+To: Haibo Chen <haibo.chen@nxp.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-iio@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] drm/rockchip: add CONFIG_OF dependency
-Date: Wed, 23 Apr 2025 18:44:16 +0200
-Message-Id: <20250423164422.2793634-1-arnd@kernel.org>
-X-Mailer: git-send-email 2.39.5
+Subject: Re: [PATCH] iio: adc: imx93_adc: load calibrated values even
+ calibration failed
+Message-ID: <aAkYvE6VtoQItM5o@smile.fi.intel.com>
+References: <20250423-adcpatch-v1-1-b0e84c27ae98@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250423-adcpatch-v1-1-b0e84c27ae98@nxp.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_094429_721797_7DA20F2A 
-X-CRM114-Status: UNSURE (   9.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250423_094347_783477_EBCF7B2B 
+X-CRM114-Status: GOOD (  15.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,37 +83,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+On Wed, Apr 23, 2025 at 04:02:48PM +0800, Haibo Chen wrote:
+> ADC calibration might fail because of the noise on reference voltage.
+> To avoid calibration fail, need to meet the following requirement:
+> ADC reference voltage Noise < 1.8V * 1/2^ENOB
+> 
+> For the case which the ADC reference voltage on board do not meet
+> the requirement, still load the calibrated values, so ADC can also
+> work but maybe not that accurate.
 
-DRM_DISPLAY_DP_AUX_BUS cannot be selected when CONFIG_OF is disabled:
+...
 
-WARNING: unmet direct dependencies detected for DRM_DISPLAY_DP_AUX_BUS
-  Depends on [n]: HAS_IOMEM [=y] && DRM [=y] && OF [=n]
-  Selected by [y]:
-  - DRM_ROCKCHIP [=y] && HAS_IOMEM [=y] && DRM [=y] && ROCKCHIP_IOMMU [=y] && ROCKCHIP_ANALOGIX_DP [=y]
+>  #define IMX93_ADC_PCDR6		0x118
+>  #define IMX93_ADC_PCDR7		0x11c
+>  #define IMX93_ADC_CALSTAT	0x39C
+> +#define IMX93_ADC_CALCFG0	0X3A0
 
-Rockchip platforms all depend on OF anyway, so add the dependency here
-for compile testing.
+Please, keep one style of the hex values.
+If the small letters are less used, prepare a patch to convert them, otherwise
+do that for capital letters.
 
-Fixes: d7b4936b2bc0 ("drm/rockchip: analogix_dp: Add support to get panel from the DP AUX bus")
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
- drivers/gpu/drm/rockchip/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+...
 
-diff --git a/drivers/gpu/drm/rockchip/Kconfig b/drivers/gpu/drm/rockchip/Kconfig
-index caa251f91dd8..6b9f43c05148 100644
---- a/drivers/gpu/drm/rockchip/Kconfig
-+++ b/drivers/gpu/drm/rockchip/Kconfig
-@@ -2,6 +2,7 @@
- config DRM_ROCKCHIP
- 	tristate "DRM Support for Rockchip"
- 	depends on DRM && ROCKCHIP_IOMMU
-+	depends on OF
- 	select DRM_CLIENT_SELECTION
- 	select DRM_GEM_DMA_HELPER
- 	select DRM_KMS_HELPER
+> +	if (msr & IMX93_ADC_MSR_CALFAIL_MASK)
+
+Please keep {} as the body is quite long and it's easy to make a mistake in a
+long term.
+
+> +		/*
+> +		 * Only give warning here, this means the noise of the
+> +		 * reference voltage do not meet the requirement:
+> +		 *     ADC reference voltage Noise < 1.8V * 1/2^ENOB
+> +		 * And the reault of ADC is not that accurate.
+> +		 */
+>  		dev_warn(adc->dev, "ADC calibration failed!\n");
+> -		imx93_adc_power_down(adc);
+> -		return -EAGAIN;
+> -	}
+
 -- 
-2.39.5
+With Best Regards,
+Andy Shevchenko
+
 
 
