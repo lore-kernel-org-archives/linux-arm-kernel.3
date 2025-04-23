@@ -4,88 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81A3FC369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 08:24:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B678C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 08:26:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JHGMFL0fUvT51G5doXrMDZ4P+H09IeAYckYXE5kSZCE=; b=VpQGIHoouEFnt/yqAbFWbBuUIl
-	qSHAsXNf1n9hkbfi1evHVSRvFBuyYw5bEEm5HckV489w06MA0C7I0jeOKp+HZJVoMIHKuO4pxM2Ky
-	BVdnhaObXXnOJgX4Re6gqqIOz5FyGbzJfRYV0abZGvlmzZnxHM4b5QlpVjej7nn83dwLg9y7UQTW/
-	cClpRJyR70Wma88e0pdFo5B0glK3sYScp4Rw+sIkRw77a4i3te6B86ROHnk0WpBhS0rzWYGVuT/Of
-	Vh/v51WJrjl07cA9ECTxY/TRZCQZGmMwQBoDp6ayDytSajkixQL1XoP5AUni1LlrK68Dwlx6Q0Vl0
-	Au7YydbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hg4tAyStmubLUNoxLtd0J9pQMsszWRSiC3AlKLsQ55k=; b=MFTSAp6SICrPwja5IUqM6OeEeZ
+	+3rlvrRxIlHTSfxSKWbG86+uwL3NZAwqzDZhdBW6qp0Csh5xmxX6BV3yEwsFW27HvEX/dFcWIYSzH
+	xvOP6X4Ai2cSxC6K1RxcUWOaa03oyEFmdSGMJH3uzgTQ8tsRvvwDhr6GQj5tlkC6vuwxi6S9Hd3Px
+	PJhlhA6C0YyFo1vlq/Q7H464BcE6cVX3ntzpcgWqKzZmGgB59leLYuiE2VLECEN8RT1bjOYzDp2I6
+	ZUQaKnR1gKEdxriWUz98u5IpO1FC+6lBXUec9w6ToFGAkwpC7VpFtFZDWrxC9Fpo/2rYNLSaEpiQp
+	kVc1T8KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7VP7-00000009itb-3upX;
-	Wed, 23 Apr 2025 08:24:25 +0000
-Received: from mail-yw1-x112b.google.com ([2607:f8b0:4864:20::112b])
+	id 1u7VR6-00000009jb9-2fLN;
+	Wed, 23 Apr 2025 08:26:28 +0000
+Received: from mail-db8eur05on20711.outbound.protection.outlook.com ([2a01:111:f403:2614::711] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Up7-00000009ZGo-2wzW
+	id 1u7Uqq-00000009ZVL-42fb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 07:47:15 +0000
-Received: by mail-yw1-x112b.google.com with SMTP id 00721157ae682-70811611315so12352927b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 00:47:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745394432; x=1745999232; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JHGMFL0fUvT51G5doXrMDZ4P+H09IeAYckYXE5kSZCE=;
-        b=j50oUqMYWezc9VhNZpC0Te76sfXoLqRFTXC9OKGUrB0CSKGHci6cwB1uFdZbmqswQC
-         znDdGRWKt78il2PNnDiFAzky3i3ulxk5tTdmbEHn4SOT78RO8iOzbMTzU7p4NLF/mT4z
-         q+uxs95PF+0bwWgzogBt7WZK/RFq5Xea8qTOkK+BBCRWbj5ezgmSMYxU1g+eVa9wWxZR
-         JJ1DEp0e4oDDV6VCr872HxwJ3FApoiNx3T8bPNEPvXL9IEBwMsf/FDV5DIsOkq3INYNp
-         lJWzKeHyVrvxp7GWD5jkG6jWT/ZZRK7uz/PvnYDlWKuaLHAdSHh40AmEfBXysHr1uuXV
-         pRNw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745394432; x=1745999232;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=JHGMFL0fUvT51G5doXrMDZ4P+H09IeAYckYXE5kSZCE=;
-        b=YOvQKtMZtjG+GD1mUSZNy0hDCEiG3qP9C96wjtO8bP4CrY1hg1xVOid3xOsZjIpvPf
-         EYmRMPq3a5o70YhWCR1vU7V9UfxhfEMce0LCgEMIgWhiQwLcKYWO1iZ8vM9kzKho7Vdi
-         7P0Yx9BPIghcHevMVi7ovgHMQmfJXK86pMDEY1ePC2Mks3eB9nPuhjqITrKuIwTk9X+8
-         Qp4xvflihQp4s8zEpleY91hRwQEFsDiVOmxBXp0S12/RuJfZSLQzW3quNQWAX5ERoIlh
-         btNjl2iEYxIadVDFs8z6HLd8etShQZqyvGms3N7ZUhnf5Ow8m/kF1y8qHaTXCQfRNEsn
-         h7CQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUR2AQnFvdGPgVxenzwwSitJla43XY8yyCbr2AKxuit0ahUN/KPdnUAV35Bhz0sDOSFCS99Mtapl67ZH+FW0p+u@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrfPOiX0U3JMFvl9akbJ6EUSWQSAzJUNfqs07lUG9z6LlMR7Fj
-	Rpl78RPY7g8o1vtKl4ZB55t3C9i+AQPdcBabVxOAih0fyydl9IUhvpw/87E/i1fGQBz1rQmCgkQ
-	JIPN2xzPn89p1o32UjTnxr6GDni4xd3QehIfl/Q==
-X-Gm-Gg: ASbGnctOi3QFQKrtpgv8yyMF3LUDaUP9xHxUxbWkEN+roSHVx/bA4HuTLAPmi28gGOF
-	J/UuBMkpYUfSDk4Ls0atBOFOLtTQlZarnpRpAPOkredSGOg/iI6DQc9LoEHN0JgBcyJSPnBMnjv
-	hDti7UFns/CUJbfRscdhNHMA==
-X-Google-Smtp-Source: AGHT+IEIsuGeT70VcTTtBNp0FoTy4Z2BzN/eP/3me52qwbQRMCmDjAmuOo6CONr2SdNAR783FwZ/SpPV+be9CTnuF48=
-X-Received: by 2002:a05:690c:7344:b0:6fb:2c34:8ee4 with SMTP id
- 00721157ae682-706ccce4bc4mr266811177b3.13.1745394432562; Wed, 23 Apr 2025
- 00:47:12 -0700 (PDT)
+	Wed, 23 Apr 2025 07:49:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YBZH+Hl1zpnhFk7h0j0157g6rHSI2oYFhbmuhZiyHHfatBT6M0tefLHPkw6VMvfftPQydP0LsS2TFNed3CgXJwy8zISeePDYOB+30y+8gRn8LWvMuI6Msyk4TNK9wnabVdc4BbjozTKVmjTG24xDz1Lwtp0+lIoU9hD5d0U1gIMHjgfka4Pgpdh38DByiditbjJY5qrVCA/RTAyzk7teyrpIH1LtPlhefZB/307OvT9o9WmaITLhs0sxlsjBZXq99Iln77TBbM1WiWTk2nsB0GBoj/jSbNn1V8D9X5PDAHCfcvcwE5Jzqaz6Q0g+/ykpSl1WRyAmYLjzii1aN+SN6A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hg4tAyStmubLUNoxLtd0J9pQMsszWRSiC3AlKLsQ55k=;
+ b=Flc5Q/Wb31mjevIzg1Yiq980BU7Qu4UE2eW1nyVM3JhWzEN6vWkkKOmpeeR5MnXvjchl05mBdtPNM39PasQFAw8m+yimoG55LdpoP0umS/KXjkb3KzF07jVRsND2XIZaqg0Vs7OrRgeNNAUELUNJX715Bz/IyeWCxVClF5A3PPRpkRiffWcz1rYMqcdudZy3T533ZdpgUmQu+/eTjaPpzYT872XaAwaofFUC/WZg5EF3GfIm74jAZiJyCNl/tKitg5M0eryP2dK/wvAuO7b+l+FSOeNUpfaHfr5toHyosX2fdj5LGSvGPNQMVu1NQDOppfTCRcCuRVLTGg96T6HGuQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=uclouvain.be; dmarc=pass action=none header.from=uclouvain.be;
+ dkim=pass header.d=uclouvain.be; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uclouvain.be;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hg4tAyStmubLUNoxLtd0J9pQMsszWRSiC3AlKLsQ55k=;
+ b=oAsYc4zCsmLHgotDwRfh891EUdo1cNlRoKztN54qC8vynmDYzbWUYrnr5seOYgtkzvTLBJHm+lWtRBq2CCw2iPy2+s5KIf8xGXwLJ9qGLxCV8vAlioROMCXWHvjEEa6Yzja1FVsdq+7/5odbVXzykYblgC7gxi6cugwBCBIJ69DaCkysk/euSN7Nw0eVhE8juIsD1/UR60VyjudrvSGncAisNugRpD7Rzxy97lP7NsIdVE/icSDYWtKj2rmJjiEu/EqN6I5K/PNWrJMgXFvA0KcR77UFKSLiZ0vhvAL+VkDf+730c+og6uqNdbf1sgZ+cdJKHGCwlYYB6Z70hTEmqQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=uclouvain.be;
+Received: from AS8PR03MB9047.eurprd03.prod.outlook.com (2603:10a6:20b:5b6::13)
+ by AS8PR03MB9485.eurprd03.prod.outlook.com (2603:10a6:20b:5a4::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.23; Wed, 23 Apr
+ 2025 07:48:55 +0000
+Received: from AS8PR03MB9047.eurprd03.prod.outlook.com
+ ([fe80::c90e:deef:6dcf:538c]) by AS8PR03MB9047.eurprd03.prod.outlook.com
+ ([fe80::c90e:deef:6dcf:538c%7]) with mapi id 15.20.8678.021; Wed, 23 Apr 2025
+ 07:48:55 +0000
+Message-ID: <b972f2db-b67b-41e6-9f41-b3a0fb5f4da2@uclouvain.be>
+Date: Wed, 23 Apr 2025 09:48:42 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/5] power: supply: correct capacity computation
+To: Dimitri Fedrau <dima.fedrau@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Sebastian Reichel <sre@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
+References: <20250421-b4-gs101_max77759_fg-v3-0-50cd8caf9017@uclouvain.be>
+ <20250421-b4-gs101_max77759_fg-v3-1-50cd8caf9017@uclouvain.be>
+ <20250422094656.GA159257@legfed1>
+Content-Language: en-US
+From: Thomas Antoine <t.antoine@uclouvain.be>
+In-Reply-To: <20250422094656.GA159257@legfed1>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PAZP264CA0210.FRAP264.PROD.OUTLOOK.COM
+ (2603:10a6:102:237::33) To AS8PR03MB9047.eurprd03.prod.outlook.com
+ (2603:10a6:20b:5b6::13)
 MIME-Version: 1.0
-References: <20250417142513.312939-1-ulf.hansson@linaro.org>
- <20250417142513.312939-12-ulf.hansson@linaro.org> <CAGETcx_hQRr1hRQD0vyAN9bhZRx+763zfHUG0oBi0sqFUi85pA@mail.gmail.com>
-In-Reply-To: <CAGETcx_hQRr1hRQD0vyAN9bhZRx+763zfHUG0oBi0sqFUi85pA@mail.gmail.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Wed, 23 Apr 2025 09:46:36 +0200
-X-Gm-Features: ATxdqUFpGCWv8eNSiRWf2Ei2Irds9OMqUnTlzN0BIWYYRzIieJAOU8hDoreYi_s
-Message-ID: <CAPDyKFqS-rOv6cMDUWwJS=B4uMdpOK2FvE23z+jsU4V1zXNG7w@mail.gmail.com>
-Subject: Re: [PATCH 11/11] pmdomain: core: Leave powered-on genpds on until ->sync_state()
-To: Saravana Kannan <saravanak@google.com>
-Cc: Stephen Boyd <sboyd@kernel.org>, linux-pm@vger.kernel.org, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Michael Grzeschik <m.grzeschik@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, 
-	Abel Vesa <abel.vesa@linaro.org>, Devarsh Thakkar <devarsht@lewv0571a.ent.ti.com>, 
-	Peng Fan <peng.fan@oss.nxp.com>, Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
-	Johan Hovold <johan@kernel.org>, Maulik Shah <maulik.shah@oss.qualcomm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR03MB9047:EE_|AS8PR03MB9485:EE_
+X-MS-Office365-Filtering-Correlation-Id: 864c2097-a2b8-4325-451f-08dd823b4c22
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|1800799024|366016|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?R0VlREU0SjVONmxmdks0aDdYeUtmcE5teTgyZkEzT3ZZeElNa1lBMDRKS2gx?=
+ =?utf-8?B?NnUyT2QzOVVyWlVuMEljaWQrQWU2Z1RFd2NrZGd4eXltUU5hcWlSdXZLY0NF?=
+ =?utf-8?B?WTV2SGw3bHY5bHRPN1NPNmlaTXkxMDcvMUp1TnJLcmRyTXpVVUtNOERWSlNI?=
+ =?utf-8?B?VmZ4N0RJVE91V3JJMUlONWpsdXBNbzAzRGc0MjA0VzVtRFdFL1RIRXpyNFN6?=
+ =?utf-8?B?R3VIV2VDVWI1QUN1NHNVL0RTemlVMHhQWlBndkw0YmZrMmdZZzk0Sm1Eeks3?=
+ =?utf-8?B?ZmRoQ0tOWXZBTWMvSWtVaUxDMVNXeFFvTExWTnVCcEdaY0EwQlJ3OW51L0tG?=
+ =?utf-8?B?YnRENitXN3NBZ09PaURaTU1RTjRTcmltc0lGQWdick9jaVZDN01ReEFzb3Rm?=
+ =?utf-8?B?UEdPcmRzM3RxVndndG9VL3RXdGVmanFManBoVlAyV3ZuZlIvVG1RN2kyRkxv?=
+ =?utf-8?B?ZEFsVEdxaFFIZzdEei9SRjJ4amg2RnBuU1A3VDdEMU9CVHFydTN6ZzJ4cnYz?=
+ =?utf-8?B?NW1OSHhjSTM2aEJaTmxJRk81dENSQmJQTXZXWWxWT2FkSm5oTHdBeXRUeHhF?=
+ =?utf-8?B?c1E2UUtITmtHekcycDdVLzBtN05XUTVpQjMvSEIyRytLSjhjZlAxMlNPS1h4?=
+ =?utf-8?B?VWdDOFFkbnA3QUNYaGdsMFBiUWgrYlZ5Q3YxRkJtYXdvZmRXTVRUbnF4RkVw?=
+ =?utf-8?B?WSs5eGpkNW1DaS9RdDJiOGp0M1VOSXdGcldzMVNRdmpNUk41VzFSYjdUQ3N6?=
+ =?utf-8?B?KzJELzk1S0kvZzRCdDR5ajE1ZGFIdVRHWHp5NFp3QmFVajZkbFlpcjJOcm9j?=
+ =?utf-8?B?cTVZN3dRZlZSVXFHbGtzYUtNNkFIanl6UnhLNS9Xekd5TmdqcG15ejA4TVdy?=
+ =?utf-8?B?cWdSVEgxbm95V2JjdnZqVkExM29KRXIrTWlEUUZMazZMZUJkbi9rdzlzdDQ5?=
+ =?utf-8?B?Wkd3dTU2R25LTk9OQ2RvVngzNXVPdStRNldNQnpGdHc0L2E1Z0kyV3FvZ3ky?=
+ =?utf-8?B?NzRYck1La2o0RWN2U1ZkUU1GZUVvbDhwMTZ1bGJkeVA5SUxKUjBZb0lFMkpv?=
+ =?utf-8?B?VndwNXNIdWtVZytZNFlHVTR4cVczd0pDY0RBcm5DdXE0V3VuYmozSDk4MkpS?=
+ =?utf-8?B?YUNvbWQ5UWo3eUZnWUZWYjE5VzVYYjZIbGZtSzZqVnEzcjROZlhvTEMvVjNC?=
+ =?utf-8?B?OHhkUEtDTmhRWnM1ZHhVUU02NHhDUFViakVjT0hPenc2MW90R1R2OWdOTjRw?=
+ =?utf-8?B?TDVmbnVtQ2cyWnFpWW9JRU04SnRCbGVXaTBHS2NZZFdhYVQvTTRINHpSdzUy?=
+ =?utf-8?B?S0JTSFprY3NtUEY3VitRUVl4ZXlHcnJBMGlBMkMxd2xQd21YZm96RGpRb1pB?=
+ =?utf-8?B?MWdScCtSTG1YbWlIRTgwV2x3QytkWDF5Z0tzc09EWjNkdmxzU3pVRzdmYzIw?=
+ =?utf-8?B?SHQ0QUEvTGwwZG55RWJXSVR5SkVYdmlJSkFzZXBmOHJHQlNaL0dZVnM2YmNt?=
+ =?utf-8?B?TGR5bGNsUlVvbnlBNk1LMEE2TlNDTEtHSDF3U0FnYXdRRU93ano5OTR0UXp1?=
+ =?utf-8?B?Tzd5dWRMTzhLM1lLb0EwVVlKellWWk5wTko0NmRsMDRtRzcvZk9WQzZNamtv?=
+ =?utf-8?B?d0FJSkxmYjRRZTNyYW4wQ3VDQ2wvZDY0UmxxVFIwaURRYVB6dStITkpUWkk3?=
+ =?utf-8?B?TktKRExwbTRNcVV2OHp4dnRiSWVmaGZaWGVtTm1wTUluSjZMcmczT3NneThm?=
+ =?utf-8?B?Smp1M3hYNDgxQzRaOTVxY1ZJNnBHdG9uZnEycnQ1eHByMEZzcnRaQ256VFBx?=
+ =?utf-8?B?QUc5dnpNS0FMVWFFVG1KK0d2bVpMc1NtcTM5YTZSdEwycU1lTzFNOXVTbDA3?=
+ =?utf-8?B?cFBMSjFndURqaWRndWUzOXQ0TERIVlJoL0M0alJNcTJFTkE9PQ==?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR03MB9047.eurprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VVdDdmNxWHBUQjdiVGo3TnRpbG5aSERJa0JLeGp3RWUwTmcwME1RdzdTRXl5?=
+ =?utf-8?B?SDlhZ1hzQWpIS0g0T1Z5YkFzMGZFWXRIelluT0RkRmlOZVJvc3RKTDBRTUR2?=
+ =?utf-8?B?N29CMGNwb2RMZGZ6ckxZVW1va2E0RUgyUGpTMFIwdmtPYTkvbUdTdEt6a1pn?=
+ =?utf-8?B?WDltV3BiYnNGNzQ1VE5PbWFiVzRmcm5YVWJYWE5YamxuQytiT1Z0QVNoR0Fn?=
+ =?utf-8?B?TmV3YkZ0S0tFUTF2Z1EzRkROSDIwaEJjWHdxSjBVSG5oQ0Vtd3hvYTdzSmNM?=
+ =?utf-8?B?Y1lZS1ZlYy9KTHlKL3RsemlTTzdXQUpqL2NYU3VEdnNmL1dHNXRVRlN0SEJm?=
+ =?utf-8?B?KzhDcW5GV2pzcXhOc0RZTDlaUFpwdE5zWU1JUUo4UzhKKzJoNElLQ3lRU1Jp?=
+ =?utf-8?B?M0dOZHFTRW01d1FqNTkxTFpYME01SkRVcHFTZlB4R09Jak4rYXk2c2gzRVRu?=
+ =?utf-8?B?MFZkQUoyeEsxSzlwbnd3VGl5TU9jbEFablRpT3lxZWJhZXhHcUsxdjRGMElj?=
+ =?utf-8?B?cXF1K1ZWcTByU2REU1hmeCttZkdMN1lCR3graVZDYnhJTmFLdW1yRThSMFFr?=
+ =?utf-8?B?Nm1tNWhVR0J3QnpucmFBSWdESVhIcHVjRkpzRWpiNkowbHR3aWpyaEFLRFFq?=
+ =?utf-8?B?OGFzdWN6RjBycGxlajlPY0hPS2gzY0dLeVZZZmw5Q2p3TjRlYktJUkhFVWM4?=
+ =?utf-8?B?T09TWTZJb0hNM2YyZ1Uveml2Y2xLcTlPOWo2UDI3RnAzZWhzc0M5VnF3K2VL?=
+ =?utf-8?B?L2ZnRHd0RkM1RU5PeVE1dEN6REdad2FPODdjY0tpcnhWSnpNb1BPWFdFTlFR?=
+ =?utf-8?B?UGxzRms1aThJa1kxeFZLdmdYUXFyYzBXYVVQY0NveTFPdkdYU1p3MkNqSlJ6?=
+ =?utf-8?B?SS9wckN3emU0VW0ySzgxSkcrTXNHcUhUUVFVdDBaYWdjMFV1aFlzQU5HeGlZ?=
+ =?utf-8?B?TGRva2p6UFZDdlFGbjJpV0ttaTJVOHAyV3hOSGltRDJ2TWJCMXd6aDgwaEpw?=
+ =?utf-8?B?UWd3MloyZlVCMWo3MXBoeHdKQUZsbjdkU1NzS2ppd3g5REtoSFE0cTBxN0Jx?=
+ =?utf-8?B?amd5eHo0eklpdGp5WEV2YzI5MExYaFhCcjMvY2tKcCtqME9WRk40b2o4RndU?=
+ =?utf-8?B?cEs1V1ZraHhOK2hEb2l4UHJnMUJ2eGYxMENON1lYRXVmdEhoeGdtRXBWL3NY?=
+ =?utf-8?B?a01nZmlnNXNJV2ZpbnJlZXVMWDJIQkpZN2E1TlJZcE1RcmxzRytvOU9rcnlC?=
+ =?utf-8?B?cS8xNTNTYXpWR1lvaDJXZkxaV0lWMEIwQm1FZjdTSDhWSDVWN0t2VGl3RkQr?=
+ =?utf-8?B?MzR5TWxZYzBrWUpyQWI2bkpGWGFINEdzNy9FVmJYMmJOTVVMSkJaeWU5TDlp?=
+ =?utf-8?B?RHlzU2svR0MzS1ZOeERHd0JSWHRMdnNtWml4UGlCVWxOUVJxRDR0aUFJbGtN?=
+ =?utf-8?B?cGJpNnUxYjRhZDJ3dGNrTnc2d00rdU5kb0xPSCtGaE1zeWU0emFEQXFGTWVt?=
+ =?utf-8?B?amdiZ0hUTjNDNU9HSG1WdzlIVjlIQXc2dHEzQVN6UlZkSHM0dVprYzdTZ2pt?=
+ =?utf-8?B?VHg2ZXl3QVgxUlRFdkdEV3BpdFhHczVkUVNaZjg0Mm91a2l3NUNJQytiWG5E?=
+ =?utf-8?B?ZTBuQW5pUUx6WWNLMDlJcGo4VFhYcmd0V2ZnV3dWRnNTNFExcklQdDBoam1k?=
+ =?utf-8?B?b3NicEdhNHNVaWg1ay9SMGhBc0hTdmtHbmp0UURYVFplejhmODhsNERPRnFt?=
+ =?utf-8?B?K0htMElBcFVLSngwbFJobmo2OU1Yb2ZOZzVvSG10MEY5Zmd4eXlIbWZqY081?=
+ =?utf-8?B?TStoQ3lYMGx5RlpJVy9Ta0hXVm1oZjBUTEpNbUo2MW1KU1RNU2ppZFkwcjhM?=
+ =?utf-8?B?VENIZzRId2ZqMzFwY2tMa1M1bnJsdTd4aUNpbFRlSHBDanVpeUtDampMODBG?=
+ =?utf-8?B?azQrOFBqWGZZQXMwQkdZNEtRTUlZTE9UWFJqdStGL09KYjVtTHFKbVMrbFVw?=
+ =?utf-8?B?OE8xdmh5dHp6cytWMWlIa1E4dDZWQ0ZXRjBYSkdmWVpFell6c3ZybmVuek5D?=
+ =?utf-8?B?ZmM2QzBVRmVLM2tRaGN4eDJnTTBYODMwWm1iNlZ6L0JBMmRiSncybEhrbnJp?=
+ =?utf-8?B?bkVxZFNaVHpaRlZ1SkhGUHNIWWZKK0FCck1sYmszSFM1cTl2YnRUSEh6Y252?=
+ =?utf-8?Q?hfKMQkCqFqhiYaQCOWbV6SKlJ+oQ2JMVLAybhMWm9a+6?=
+X-OriginatorOrg: uclouvain.be
+X-MS-Exchange-CrossTenant-Network-Message-Id: 864c2097-a2b8-4325-451f-08dd823b4c22
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR03MB9047.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Apr 2025 07:48:55.0570
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 7ab090d4-fa2e-4ecf-bc7c-4127b4d582ec
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: FCRdkNVcB8l+KkBUAg67ywu9oyRjfo9j/TEBqCFbi/A5lCKhAiuyQH2Pl4O5LfPqzIPcyMkro7iM0VBuaCm3XQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR03MB9485
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_004713_761370_DB46E2A1 
-X-CRM114-Status: GOOD (  27.44  )
+X-CRM114-CacheID: sfid-20250423_004901_297752_08CE434A 
+X-CRM114-Status: GOOD (  13.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,121 +184,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 18 Apr 2025 at 02:51, Saravana Kannan <saravanak@google.com> wrote:
->
-> On Thu, Apr 17, 2025 at 7:25=E2=80=AFAM Ulf Hansson <ulf.hansson@linaro.o=
-rg> wrote:
-> >
-> > Powering-off a genpd that was on during boot, before all of its consume=
-r
-> > devices have been probed, is certainly prone to problems.
-> >
-> > Let's fix these problems by preventing these genpds from being powered-=
-off
-> > until ->sync_state(). Note that, this only works for OF based platform =
-as
-> > ->sync_state() are relying on fw_devlink.
->
-> For non-OF platforms, this will still wait until late_initcall(). So,
-> there's at least SOME protection. We could potentially even move that
-> to happen after deferred probe timeout expires.
+Hi Dimitri,
 
-If I understand correctly, you are suggesting that we could update
-genpd_power_off_unused() (late_initcall_sync) to clear genpd->stay_on
-for the non-OF case? That should work I think.
+On 4/22/25 11:46, Dimitri Fedrau wrote:
+> Hi Thomas,
+> 
+> On Mon, Apr 21, 2025 at 08:13:32PM +0200, Thomas Antoine via B4 Relay wrote:
+>> From: Thomas Antoine <t.antoine@uclouvain.be>
+[...]
+>> -static int max172xx_capacity_to_ps(unsigned int reg)
+>> +static int max172xx_capacity_to_ps(unsigned int reg,
+>> +				   struct max1720x_device_info *info)
+>>  {
+>> -	return reg * 500;	/* in uAh */
+>> +	return reg * (500000 / info->rsense);	/* in uAh */
+>>  }
+>>  
+>>  /*
+>>
+>> -- 
+>> 2.49.0
+>>
+>>
+> thanks for finding this.
+> 
+> Reviewed-by: Dimitri Fedrau <dimitri.fedrau@liebherr.com>
+> 
+> Best regards,
+> Dimitri Fedrau
 
->
-> -Saravana
+I just realized I forgot to change the function calls in this patch, it is only
+changed in the next patch. This will not compile as the function call does not
+pass info as argument. I will change this in the next version.
 
-Kind regards
-Uffe
-
->
-> >
-> > Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
-> > ---
-> >  drivers/pmdomain/core.c   | 12 +++++++++++-
-> >  include/linux/pm_domain.h |  1 +
-> >  2 files changed, 12 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
-> > index 695d7d9e5582..a8c56f7a7ba0 100644
-> > --- a/drivers/pmdomain/core.c
-> > +++ b/drivers/pmdomain/core.c
-> > @@ -212,6 +212,12 @@ static inline bool irq_safe_dev_in_sleep_domain(st=
-ruct device *dev,
-> >         return ret;
-> >  }
-> >
-> > +#ifdef CONFIG_PM_GENERIC_DOMAINS_OF
-> > +static bool genpd_may_stay_on(bool on) { return on; }
-> > +#else
-> > +static bool genpd_may_stay_on(bool on) { return false; }
-> > +#endif
-> > +
-> >  static int genpd_runtime_suspend(struct device *dev);
-> >
-> >  /*
-> > @@ -933,11 +939,12 @@ static void genpd_power_off(struct generic_pm_dom=
-ain *genpd, bool one_dev_on,
-> >          * The domain is already in the "power off" state.
-> >          * System suspend is in progress.
-> >          * The domain is configured as always on.
-> > +        * The domain was on at boot and still need to stay on.
-> >          * The domain has a subdomain being powered on.
-> >          */
-> >         if (!genpd_status_on(genpd) || genpd->prepared_count > 0 ||
-> >             genpd_is_always_on(genpd) || genpd_is_rpm_always_on(genpd) =
-||
-> > -           atomic_read(&genpd->sd_count) > 0)
-> > +           genpd->stay_on || atomic_read(&genpd->sd_count) > 0)
-> >                 return;
-> >
-> >         /*
-> > @@ -2374,6 +2381,7 @@ int pm_genpd_init(struct generic_pm_domain *genpd=
-,
-> >         INIT_WORK(&genpd->power_off_work, genpd_power_off_work_fn);
-> >         atomic_set(&genpd->sd_count, 0);
-> >         genpd->status =3D is_off ? GENPD_STATE_OFF : GENPD_STATE_ON;
-> > +       genpd->stay_on =3D genpd_may_stay_on(!is_off);
-> >         genpd->sync_state =3D GENPD_SYNC_STATE_OFF;
-> >         genpd->device_count =3D 0;
-> >         genpd->provider =3D NULL;
-> > @@ -2640,6 +2648,7 @@ void of_genpd_sync_state(struct device *dev)
-> >         list_for_each_entry(genpd, &gpd_list, gpd_list_node) {
-> >                 if (genpd->provider =3D=3D &np->fwnode) {
-> >                         genpd_lock(genpd);
-> > +                       genpd->stay_on =3D false;
-> >                         genpd_power_off(genpd, false, 0);
-> >                         genpd_unlock(genpd);
-> >                 }
-> > @@ -3486,6 +3495,7 @@ static void genpd_provider_sync_state(struct devi=
-ce *dev)
-> >
-> >         case GENPD_SYNC_STATE_SIMPLE:
-> >                 genpd_lock(genpd);
-> > +               genpd->stay_on =3D false;
-> >                 genpd_power_off(genpd, false, 0);
-> >                 genpd_unlock(genpd);
-> >                 break;
-> > diff --git a/include/linux/pm_domain.h b/include/linux/pm_domain.h
-> > index 2185ee9e4f7c..c5358cccacad 100644
-> > --- a/include/linux/pm_domain.h
-> > +++ b/include/linux/pm_domain.h
-> > @@ -193,6 +193,7 @@ struct generic_pm_domain {
-> >         unsigned int performance_state; /* Aggregated max performance s=
-tate */
-> >         cpumask_var_t cpus;             /* A cpumask of the attached CP=
-Us */
-> >         bool synced_poweroff;           /* A consumer needs a synced po=
-weroff */
-> > +       bool stay_on;                   /* Stay powered-on during boot.=
- */
-> >         enum genpd_sync_state sync_state; /* How sync_state is managed.=
- */
-> >         int (*power_off)(struct generic_pm_domain *domain);
-> >         int (*power_on)(struct generic_pm_domain *domain);
-> > --
-> > 2.43.0
-> >
+Best regards,
+Thomas Antoine
 
