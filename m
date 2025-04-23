@@ -4,94 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCCE1C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 19:33:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A46A0C369D7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 19:33:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nGPo16mSphfxbc3aNmKamBwbL4h4Z65tWk3KvEu3074=; b=2Du/bL9nyH+Id9uotD4Nkn1Us9
-	UiwiDVwCQc6u+h+NvZgwf0z/Ofy7KMrheJKGRAkXXoyCYbCqSmMyVcI8xz7giv+D7AjmSYqX8eLRq
-	J6qwuKzzNvqRgswRCISowcGy08zPlYQ0YIO3/Y3aEw768CY3E3NxsDLCcYQvIv28w6T9Ae54fqSJz
-	kQVvjqO3M9pCw22KNQsN8g/dUmPv4xOu3gtLhfexGmGZXTBgudpRg2s90y/OYr+2Rz/UiMaEtdXbG
-	yB3HyfB6C79bidV1lSMwo/ovsaYcIQzTe3PADno3yGDc0E62YtcuiD/d+PfcAOytXbBqFP0Qmkbh4
-	FlxxSMnA==;
+	bh=wAHGe4zE8gnERUqvBrhdXOuLfdZN+3XixHIZALCJ1W8=; b=S+r4T2aCQ0+Na3okJIb5GXpRyh
+	vUj+VFZmCtYNdAT97IenW7w3CmqfLA6R5rsI8xIMQg7jjLMQHVmclp8AKak51K+tZDeSANpglAVB9
+	9by1+ZNemSmGqRjOkKF9e4f5LbIZ9QYrDPY7yUwOYxwaVeX9O+ym6b076ZXLn5BjWY1vkoOROaEUt
+	54SX0ngfkxotx9r0kuChY+1tUMhFSFU8bEFIFEYv46Pwhw+QLAANJmTwfdXCrED77XBdv0Crg61oU
+	Hj/VwddA5knAv00DpkvBPabH+hdpEPlrYS05LZCE4NX+Vk11fnipL6I+dAdt+YiRSk9wosWOyF0jS
+	a7SuLZoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7fqO-0000000BlIt-10Fg;
-	Wed, 23 Apr 2025 19:33:16 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1u7fqP-0000000BlK5-1NvV;
+	Wed, 23 Apr 2025 19:33:17 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7fcI-0000000BiQx-17Be
+	id 1u7feD-0000000Biws-3JQs
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 19:18:43 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-224019ad9edso2562625ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 12:18:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745435922; x=1746040722; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=nGPo16mSphfxbc3aNmKamBwbL4h4Z65tWk3KvEu3074=;
-        b=XB3nGsbtUu/mf6nYJPIr9jEnQsuMwWmY/cefdNNwCo+H/6KsFN1cY7WahnCpbGTa5a
-         GmJXbg7ncaIzLMmNW08DJJabq+NkwaIIafJO8xnlUA0jpZ7JYBU4DD2NoN3LD6UJnqRm
-         rJ9gcGM1FW5GLfLPlpgl7PNyqeVGz55b54Zb0TPreW/ssIXdfh6GMQkoBIH/cGiAJHj7
-         Cujyfd87PXFMVpGgcZD12zg7SXFpLH96tjEOjscR6+XXn9AU2i5ZwKKAp50U/qXIW+wW
-         ctZzfpUIaf+SogOVfen+JMauX/e+ucgrgnL9R97j8wvHMT19WZJFEnDHmatt7TDcDmbu
-         fiZA==
+	Wed, 23 Apr 2025 19:20:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1745436040;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wAHGe4zE8gnERUqvBrhdXOuLfdZN+3XixHIZALCJ1W8=;
+	b=QPYebWlAtm6+KVjC3n2TWIxmwyLmsGR8idAEW68T948bfACRLrSDKvTbajVbvP7fwS/LA9
+	pcUKGFheM3YfIGAyhMoXzN3RoWnnDgci9hD7+Gm64zBvpYH/IuyKl4TC3xQOWU/t4VVt+P
+	arOEtzm6GwRVRUXXK2QN8SizGhN+DH8=
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com
+ [209.85.160.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-48-N12uJUYLMc2nZOPRuvE2Dg-1; Wed, 23 Apr 2025 15:19:07 -0400
+X-MC-Unique: N12uJUYLMc2nZOPRuvE2Dg-1
+X-Mimecast-MFC-AGG-ID: N12uJUYLMc2nZOPRuvE2Dg_1745435946
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-47682f9e7b9so2944131cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 12:19:07 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745435922; x=1746040722;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=nGPo16mSphfxbc3aNmKamBwbL4h4Z65tWk3KvEu3074=;
-        b=K7B52OTKZ67KojH+t7paTl+0Hi+rz5ce1Swcyx2zM2rmJ85pgCT0teE+LN9jwya1mS
-         Go4mbGaMTwvdOD5cSQWPzueXXakkfwRxGoCDzMTGM0qVzGARnIxRungT2fwXZVeWCCip
-         lOUqUL+Ev5RujvQKcmZg4eDtmxNqmjRhyFEYdg6Pkt/qfOGv6Sz4Hk2z/bG+R5f0X8Ko
-         faZuUiqaKKWs0ANS8ELQU9HjahUcTzLfuYd1tMjE89wtdFkVr7hmR110tON5cnw96gRs
-         hFWW43CG2IWJ6UkiL4nd77eqksynY6op2Es/0bpcrgI/+F8VH/ijJCwDRce0CqM0z350
-         ojHw==
-X-Forwarded-Encrypted: i=1; AJvYcCWJF2X2nvHZr3GMr27pLof4YWzT+TQlHr9vphKn1tsHJnxk7k7m0KEehXGF355nC2dBskE15xJiYGrBGG+GNL1N@lists.infradead.org
-X-Gm-Message-State: AOJu0YxYlUnOSAcL3+o8qPfiNZEPGvHGnhvMeGiK2A6cOvgZfoo1KwLV
-	5WdTH2jpAAWFRyGb0w2dHpidmHLfg0XHtPPybCkNF4qK3Zz9UmKO
-X-Gm-Gg: ASbGncs3U2Hujou/QYGyXGJDbEns8bSNLl0evTm7SNhbDBWVl9gyMa2WPqIFrr4TPuX
-	9qRnyg+IhLP07ovkZBXL044Kd2IwQzNyQglltgONYAxjm9WDbFQARJQdVtAq09lQmkhu59wdf5/
-	myg6HszxAMIET3QIMS43yUG0z3pIt6O6wIBfv252cENb+bTbtNAJtqSThf0C/l2uFpxh/IQQ6el
-	JFehRAH4klJYZrqVnQdJwCVqN5hjKwCJFgzsCSH04cAr5jDgvrxCf6m/fx6WMVJoYvDQfKBcrgu
-	JltZRlGNZeJkdEys6ONns6Lx3OlcGmBTehf53RXMuyDgWbbpcdD8
-X-Google-Smtp-Source: AGHT+IFEvoxvIVnkqXQwSw6RMLr+CI8H7rnlskB3ZOddu5ASGlBOyFVAWwonlx4hYUUL7O+wc3NSrA==
-X-Received: by 2002:a17:903:904:b0:227:e74a:a057 with SMTP id d9443c01a7336-22db1b3fe85mr9138715ad.44.1745435921710;
-        Wed, 23 Apr 2025 12:18:41 -0700 (PDT)
-Received: from NB-GIGA003.letovo.school ([5.194.95.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22c50eb4897sm108204025ad.143.2025.04.23.12.18.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Apr 2025 12:18:41 -0700 (PDT)
-From: Alexey Charkov <alchark@gmail.com>
-Date: Wed, 23 Apr 2025 23:18:32 +0400
-Subject: [PATCH 2/3] soc: Add VIA/WonderMedia SoC identification driver
+        d=1e100.net; s=20230601; t=1745435946; x=1746040746;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=wAHGe4zE8gnERUqvBrhdXOuLfdZN+3XixHIZALCJ1W8=;
+        b=lGNoE0lnx4JWViNNZOMjwF1JPb01fRnqVBJsLng8q5REAy1AtZTVwpZLlFw7FmxZyi
+         G2KFxjvsVloN8qAlYl8RXEbF+o32JqxGmWpFQ3sdValpID/VV5Lw+BjO0VqoDMRr1yz1
+         7BCANfoSD3oOX+4bixHmqyLDANr3oFOIM7LYIckQZ44c+2uYyzgJV6YRI7xGorjmi9Q+
+         ZE+XnKjB8Zy+9Nk/qKbVpT1ZEhI1128Zhdx/kG7Xj9S+INoBs9AQoEm/vV4x4Y3DGaQH
+         BVCaAq5Ifno5F6xqcZR0H+Pz56MlQYCm69odqG04ko6qLfS36vdZV8GI3Xbqt+0UVAq7
+         aBDg==
+X-Gm-Message-State: AOJu0Yz2HtFuKWkzsN91Kl98eKenLooJa6ctiPBJI/6xyD5Ck/+p915Q
+	U+6EV1b1zk6aRAKG0Qu35rQ58At9LimmA6fogkJciRK9E0rP7kO7KXTAOkBq/QpFIEwbmzL4HRp
+	G+yoSOq3h/d34UnEgQ16T6e1rjQ0gMDZLoEbbzIelIUNFv2XFZa9dVMat6D/FoixQChvQvsKC
+X-Gm-Gg: ASbGncvAl9vfQdlm2GxXdizbJKu3VEthp4kCKvQAXfCIwiuccJ9scPW1QvVYC4ptFMZ
+	SL4ld2rG3hTW7fjSh/yC8g36KLrViVxeY3e2Yvh9UAFAKlnfXQxy+suymNOKrLxuymqDJgZary/
+	wEhKrZIWC66EKCV17cBouNi2B6hn/i68nEfz6pcPc1s4scNkJAJKBxiKQ96p48EMTZ6ztELJQZ8
+	tvpSWiaCSb+3uUxyx8LUgWWa71w83SM+HaXfosFeMbHeyulRMsQtGwPX/E6vPWJjFNpZ9B8nfsu
+	PPitsqz1U403JA==
+X-Received: by 2002:a05:622a:1802:b0:476:7ff5:cc27 with SMTP id d75a77b69052e-47aec4dcc0dmr256540531cf.51.1745435946234;
+        Wed, 23 Apr 2025 12:19:06 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHYZnsrqVQFMmxCCRWBHo6cgTz6A3ekouceyIUYb+WLWz7C/tNEfgqMMuRkHi33l8+eZSJ1kA==
+X-Received: by 2002:a05:622a:1802:b0:476:7ff5:cc27 with SMTP id d75a77b69052e-47aec4dcc0dmr256539801cf.51.1745435945812;
+        Wed, 23 Apr 2025 12:19:05 -0700 (PDT)
+Received: from [192.168.2.110] ([70.53.200.211])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-47ae9cf9a8dsm71719371cf.70.2025.04.23.12.19.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 23 Apr 2025 12:19:05 -0700 (PDT)
+Message-ID: <4d18462f-8bc6-459e-9eeb-09e63559d854@redhat.com>
+Date: Wed, 23 Apr 2025 15:18:54 -0400
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 00/11] Perf improvements for hugetlb and vmalloc on
+ arm64
+To: Ryan Roberts <ryan.roberts@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
+ David Hildenbrand <david@redhat.com>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org
+References: <20250422081822.1836315-1-ryan.roberts@arm.com>
+From: Luiz Capitulino <luizcap@redhat.com>
+In-Reply-To: <20250422081822.1836315-1-ryan.roberts@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: xRjgTeolR3zAf5kyZKDMKFh8Cx8bNBPZWbzwtEN4PKM_1745435946
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US, en-CA
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250423-wmt-soc-driver-v1-2-bd8bf32521c2@gmail.com>
-References: <20250423-wmt-soc-driver-v1-0-bd8bf32521c2@gmail.com>
-In-Reply-To: <20250423-wmt-soc-driver-v1-0-bd8bf32521c2@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Alexey Charkov <alchark@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1745435922; l=6371;
- i=alchark@gmail.com; s=20250416; h=from:subject:message-id;
- bh=DsaNBg7kkCyMfyjSK+lMewVbgSsJc/88OwBkVoIMDfM=;
- b=DE0AJQzoN3d0lr5J/TlpMJOJnWCf/lankDlc7MJI71gwaU5NW4o0GUBO3lv74bEUeN0M1dmR2
- hfmZhBD39pkC2noUGj7WdwEuOuYaF9FVPF5MqEpEICR1YrVcZpTDg2N
-X-Developer-Key: i=alchark@gmail.com; a=ed25519;
- pk=ltKbQzKLTJPiDgPtcHxdo+dzFthCCMtC3V9qf7+0rkc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_121842_326129_E155EAA5 
-X-CRM114-Status: GOOD (  21.24  )
+X-CRM114-CacheID: sfid-20250423_122041_902487_DCD83C86 
+X-CRM114-Status: GOOD (  33.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,220 +119,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a small SOC bus driver to parse the chip ID and revision made
-available on VIA/WonderMedia SoCs via their system configuration
-controller's SCC_ID register.
+On 2025-04-22 04:18, Ryan Roberts wrote:
+> Hi All,
+> 
+> This is v4 of a series to improve performance for hugetlb and vmalloc on arm64.
+> Although some of these patches are core-mm, advice from Andrew was to go via the
+> arm64 tree. All patches are now acked/reviewed by relevant maintainers so I
+> believe this should be good-to-go.
+> 
+> The 2 key performance improvements are 1) enabling the use of contpte-mapped
+> blocks in the vmalloc space when appropriate (which reduces TLB pressure). There
+> were already hooks for this (used by powerpc) but they required some tidying and
+> extending for arm64. And 2) batching up barriers when modifying the vmalloc
+> address space for upto 30% reduction in time taken in vmalloc().
+> 
+> vmalloc() performance was measured using the test_vmalloc.ko module. Tested on
+> Apple M2 and Ampere Altra. Each test had loop count set to 500000 and the whole
+> test was repeated 10 times.
+> 
+> legend:
+>    - p: nr_pages (pages to allocate)
+>    - h: use_huge (vmalloc() vs vmalloc_huge())
+>    - (I): statistically significant improvement (95% CI does not overlap)
+>    - (R): statistically significant regression (95% CI does not overlap)
+>    - measurements are times; smaller is better
+> 
+> +--------------------------------------------------+-------------+-------------+
+> | Benchmark                                        |             |             |
+> |   Result Class                                   |    Apple M2 | Ampere Alta |
+> +==================================================+=============+=============+
+> | micromm/vmalloc                                  |             |             |
+> |   fix_align_alloc_test: p:1, h:0 (usec)          | (I) -11.53% |      -2.57% |
+> |   fix_size_alloc_test: p:1, h:0 (usec)           |       2.14% |       1.79% |
+> |   fix_size_alloc_test: p:4, h:0 (usec)           |  (I) -9.93% |  (I) -4.80% |
+> |   fix_size_alloc_test: p:16, h:0 (usec)          | (I) -25.07% | (I) -14.24% |
+> |   fix_size_alloc_test: p:16, h:1 (usec)          | (I) -14.07% |   (R) 7.93% |
+> |   fix_size_alloc_test: p:64, h:0 (usec)          | (I) -29.43% | (I) -19.30% |
+> |   fix_size_alloc_test: p:64, h:1 (usec)          | (I) -16.39% |   (R) 6.71% |
+> |   fix_size_alloc_test: p:256, h:0 (usec)         | (I) -31.46% | (I) -20.60% |
+> |   fix_size_alloc_test: p:256, h:1 (usec)         | (I) -16.58% |   (R) 6.70% |
+> |   fix_size_alloc_test: p:512, h:0 (usec)         | (I) -31.96% | (I) -20.04% |
+> |   fix_size_alloc_test: p:512, h:1 (usec)         |       2.30% |       0.71% |
+> |   full_fit_alloc_test: p:1, h:0 (usec)           |      -2.94% |       1.77% |
+> |   kvfree_rcu_1_arg_vmalloc_test: p:1, h:0 (usec) |      -7.75% |       1.71% |
+> |   kvfree_rcu_2_arg_vmalloc_test: p:1, h:0 (usec) |      -9.07% |   (R) 2.34% |
+> |   long_busy_list_alloc_test: p:1, h:0 (usec)     | (I) -29.18% | (I) -17.91% |
+> |   pcpu_alloc_test: p:1, h:0 (usec)               |     -14.71% |      -3.14% |
+> |   random_size_align_alloc_test: p:1, h:0 (usec)  | (I) -11.08% |  (I) -4.62% |
+> |   random_size_alloc_test: p:1, h:0 (usec)        | (I) -30.25% | (I) -17.95% |
+> |   vm_map_ram_test: p:1, h:0 (usec)               |       5.06% |   (R) 6.63% |
+> +--------------------------------------------------+-------------+-------------+
+> 
+> So there are some nice improvements but also some regressions to explain:
+> 
+> fix_size_alloc_test with h:1 and p:16,64,256 regress by ~6% on Altra. The
+> regression is actually introduced by enabling contpte-mapped 64K blocks in these
+> tests, and that regression is reduced (from about 8% if memory serves) by doing
+> the barrier batching. I don't have a definite conclusion on the root cause, but
+> I've ruled out the differences in the mapping paths in vmalloc. I strongly
+> believe this is likely due to the difference in the allocation path; 64K blocks
+> are not cached per-cpu so we have to go all the way to the buddy. I'm not sure
+> why this doesn't show up on M2 though. Regardless, I'm going to assert that it's
+> better to choose 16x reduction in TLB pressure vs 6% on the vmalloc allocation
+> call duration.
 
-This is intended to select appropriate sets of on-chip device quirks
-at runtime, as it has been found that even within the same SoC
-version there can be register-incompatible differences, such as
-with the SDMMC controller on WM8505 rev. A0-A1 vs. rev. A2.
+I ran a couple of basic functional tests for HugeTLB for 1G, 2M, 32M and 64k
+pages on an Ampere Mt. Jade and a Jetson AGX Orin systems and didn't
+get any issues, so:
 
-The list of SoC versions is compiled from various vendor source dumps
-and not all of them have corresponding mainline driver support.
-Some of them also have been seen with varying on-chip markings while
-sharing the same hardware chip ID's (as is the case with e.g. WM8850
-vs. WM8950). In such cases the selection of names to use here among
-those seen in various source dumps and chip markings was arbitrary.
+Tested-by: Luiz Capitulino <luizcap@redhat.com>
 
-Suggested by Krzysztof at [1] - thanks a lot!
-
-[1] https://lore.kernel.org/all/14de236b-e2a7-4bde-986d-1e5ffddd01b4@kernel.org/
-
-Signed-off-by: Alexey Charkov <alchark@gmail.com>
----
- drivers/soc/Kconfig              |   1 +
- drivers/soc/Makefile             |   1 +
- drivers/soc/vt8500/Kconfig       |  20 +++++++
- drivers/soc/vt8500/Makefile      |   2 +
- drivers/soc/vt8500/wmt-socinfo.c | 121 +++++++++++++++++++++++++++++++++++++++
- 5 files changed, 145 insertions(+)
-
-diff --git a/drivers/soc/Kconfig b/drivers/soc/Kconfig
-index 6a8daeb8c4b96cd29d56343b338a423140b89896..37ca3f094f8994c7e9c7c99c3ba47d168d41ce30 100644
---- a/drivers/soc/Kconfig
-+++ b/drivers/soc/Kconfig
-@@ -28,6 +28,7 @@ source "drivers/soc/tegra/Kconfig"
- source "drivers/soc/ti/Kconfig"
- source "drivers/soc/ux500/Kconfig"
- source "drivers/soc/versatile/Kconfig"
-+source "drivers/soc/vt8500/Kconfig"
- source "drivers/soc/xilinx/Kconfig"
- 
- endmenu
-diff --git a/drivers/soc/Makefile b/drivers/soc/Makefile
-index 2037a8695cb2898659a434803dcdfa2d95b1dbd6..777255401252eab554f56bded7ff8ea5611704bf 100644
---- a/drivers/soc/Makefile
-+++ b/drivers/soc/Makefile
-@@ -34,4 +34,5 @@ obj-$(CONFIG_ARCH_TEGRA)	+= tegra/
- obj-y				+= ti/
- obj-$(CONFIG_ARCH_U8500)	+= ux500/
- obj-y				+= versatile/
-+obj-y				+= vt8500/
- obj-y				+= xilinx/
-diff --git a/drivers/soc/vt8500/Kconfig b/drivers/soc/vt8500/Kconfig
-new file mode 100644
-index 0000000000000000000000000000000000000000..2b2350678c3f70297c51f94eb77674c01be773d8
---- /dev/null
-+++ b/drivers/soc/vt8500/Kconfig
-@@ -0,0 +1,20 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+if ARCH_VT8500 || COMPILE_TEST
-+
-+menu "VIA/WonderMedia SoC drivers"
-+
-+config WMT_SOCINFO
-+	bool "VIA/WonderMedia SoC Information driver"
-+	default ARCH_VT8500
-+	select SOC_BUS
-+	default ARCH_VT8500
-+	help
-+	  Say yes to support decoding of VIA/WonderMedia system configuration
-+	  register information. This currently includes just the chip ID register
-+	  which helps identify the exact hardware revision of the SoC the kernel
-+	  is running on (to know if any revision-specific quirks are required)
-+
-+endmenu
-+
-+endif
-diff --git a/drivers/soc/vt8500/Makefile b/drivers/soc/vt8500/Makefile
-new file mode 100644
-index 0000000000000000000000000000000000000000..05964c5f2890989c1d794af4f5af10f849a497bc
---- /dev/null
-+++ b/drivers/soc/vt8500/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+obj-$(CONFIG_WMT_SOCINFO)	+= wmt-socinfo.o
-diff --git a/drivers/soc/vt8500/wmt-socinfo.c b/drivers/soc/vt8500/wmt-socinfo.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..81dd6f722ede35150289a0d87cf09b95d9446948
---- /dev/null
-+++ b/drivers/soc/vt8500/wmt-socinfo.c
-@@ -0,0 +1,121 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Copyright 2025 Alexey Charkov <alchark@gmail.com>
-+ * Based on aspeed-socinfo.c
-+ */
-+
-+#include <linux/io.h>
-+#include <linux/of.h>
-+#include <linux/of_address.h>
-+#include <linux/of_platform.h>
-+#include <linux/platform_device.h>
-+#include <linux/slab.h>
-+#include <linux/sys_soc.h>
-+
-+static struct {
-+	const char *name;
-+	const unsigned long id;
-+} const chip_id_table[] = {
-+	/* VIA */
-+	{ "VT8420", 0x3300 },
-+	{ "VT8430", 0x3357 },
-+	{ "VT8500", 0x3400 },
-+
-+	/* WonderMedia */
-+	{ "WM8425", 0x3429 },
-+	{ "WM8435", 0x3437 },
-+	{ "WM8440", 0x3451 },
-+	{ "WM8505", 0x3426 },
-+	{ "WM8650", 0x3465 },
-+	{ "WM8750", 0x3445 },
-+	{ "WM8850", 0x3481 },
-+	{ "WM8880", 0x3498 },
-+};
-+
-+static const char *sccid_to_name(unsigned long sccid)
-+{
-+	unsigned long id = sccid >> 16;
-+	unsigned int i;
-+
-+	for (i = 0 ; i < ARRAY_SIZE(chip_id_table) ; ++i) {
-+		if (chip_id_table[i].id == id)
-+			return chip_id_table[i].name;
-+	}
-+
-+	return "Unknown";
-+}
-+
-+static const char *sccid_to_rev(unsigned long sccid)
-+{
-+	char letter, digit;
-+
-+	letter = (sccid >> 8) & 0xf;
-+	letter = (letter - 1) + 'A';
-+
-+	digit = sccid & 0xff;
-+	digit = (digit - 1) + '0';
-+
-+	return kasprintf(GFP_KERNEL, "%c%c", letter, digit);
-+}
-+
-+static int __init wmt_socinfo_init(void)
-+{
-+	struct soc_device_attribute *attrs;
-+	struct soc_device *soc_dev;
-+	struct device_node *np;
-+	void __iomem *reg;
-+	unsigned long sccid;
-+	const char *machine = NULL;
-+
-+	np = of_find_compatible_node(NULL, NULL, "via,scc-id");
-+	if (!of_device_is_available(np)) {
-+		of_node_put(np);
-+		return -ENODEV;
-+	}
-+
-+	reg = of_iomap(np, 0);
-+	if (!reg) {
-+		of_node_put(np);
-+		return -ENODEV;
-+	}
-+	sccid = readl(reg);
-+	iounmap(reg);
-+
-+	attrs = kzalloc(sizeof(*attrs), GFP_KERNEL);
-+	if (!attrs)
-+		return -ENODEV;
-+
-+	/*
-+	 * Machine: VIA APC Rock
-+	 * Family: WM8850
-+	 * Revision: A2
-+	 * SoC ID: raw silicon revision id (0x34810103)
-+	 */
-+
-+	np = of_find_node_by_path("/");
-+	of_property_read_string(np, "model", &machine);
-+	if (machine)
-+		attrs->machine = kstrdup(machine, GFP_KERNEL);
-+	of_node_put(np);
-+
-+	attrs->family = sccid_to_name(sccid);
-+	attrs->revision = sccid_to_rev(sccid);
-+	attrs->soc_id = kasprintf(GFP_KERNEL, "%08lx", sccid);
-+
-+	soc_dev = soc_device_register(attrs);
-+	if (IS_ERR(soc_dev)) {
-+		kfree(attrs->machine);
-+		kfree(attrs->soc_id);
-+		kfree(attrs->revision);
-+		kfree(attrs);
-+		return PTR_ERR(soc_dev);
-+	}
-+
-+	pr_info("VIA/WonderMedia %s rev %s (%s)\n",
-+			attrs->family,
-+			attrs->revision,
-+			attrs->soc_id);
-+
-+	return 0;
-+}
-+early_initcall(wmt_socinfo_init);
-
--- 
-2.49.0
+> 
+> Changes since v3 [3]
+> ====================
+> - Applied R-bs (thanks all!)
+> - Renamed set_ptes_anysz() -> __set_ptes_anysz() (Catalin)
+> - Renamed ptep_get_and_clear_anysz() -> __ptep_get_and_clear_anysz() (Catalin)
+> - Only set TIF_LAZY_MMU_PENDING if not already set to avoid atomic ops (Catalin)
+> - Fix commet typos (Anshuman)
+> - Fix build warnings when PMD is folded (buildbot)
+> - Reverse xmas tree for variables in __page_table_check_p[mu]ds_set() (Pasha)
+> 
+> Changes since v2 [2]
+> ====================
+> - Removed the new arch_update_kernel_mappings_[begin|end]() API
+> - Switches to arch_[enter|leave]_lazy_mmu_mode() instead for barrier batching
+> - Removed clean up to avoid barriers for invalid or user mappings
+> 
+> Changes since v1 [1]
+> ====================
+> - Split out the fixes into their own series
+> - Added Rbs from Anshuman - Thanks!
+> - Added patch to clean up the methods by which huge_pte size is determined
+> - Added "#ifndef __PAGETABLE_PMD_FOLDED" around PUD_SIZE in
+>    flush_hugetlb_tlb_range()
+> - Renamed ___set_ptes() -> set_ptes_anysz()
+> - Renamed ___ptep_get_and_clear() -> ptep_get_and_clear_anysz()
+> - Fixed typos in commit logs
+> - Refactored pXd_valid_not_user() for better reuse
+> - Removed TIF_KMAP_UPDATE_PENDING after concluding that single flag is sufficent
+> - Concluded the extra isb() in __switch_to() is not required
+> - Only call arch_update_kernel_mappings_[begin|end]() for kernel mappings
+> 
+> Applies on top of v6.15-rc3. All mm selftests run and no regressions observed.
+> 
+> [1] https://lore.kernel.org/all/20250205151003.88959-1-ryan.roberts@arm.com/
+> [2] https://lore.kernel.org/all/20250217140809.1702789-1-ryan.roberts@arm.com/
+> [3] https://lore.kernel.org/all/20250304150444.3788920-1-ryan.roberts@arm.com/
+> 
+> Thanks,
+> Ryan
+> 
+> Ryan Roberts (11):
+>    arm64: hugetlb: Cleanup huge_pte size discovery mechanisms
+>    arm64: hugetlb: Refine tlb maintenance scope
+>    mm/page_table_check: Batch-check pmds/puds just like ptes
+>    arm64/mm: Refactor __set_ptes() and __ptep_get_and_clear()
+>    arm64: hugetlb: Use __set_ptes_anysz() and
+>      __ptep_get_and_clear_anysz()
+>    arm64/mm: Hoist barriers out of set_ptes_anysz() loop
+>    mm/vmalloc: Warn on improper use of vunmap_range()
+>    mm/vmalloc: Gracefully unmap huge ptes
+>    arm64/mm: Support huge pte-mapped pages in vmap
+>    mm/vmalloc: Enter lazy mmu mode while manipulating vmalloc ptes
+>    arm64/mm: Batch barriers when updating kernel mappings
+> 
+>   arch/arm64/include/asm/hugetlb.h     |  29 ++--
+>   arch/arm64/include/asm/pgtable.h     | 209 +++++++++++++++++++--------
+>   arch/arm64/include/asm/thread_info.h |   2 +
+>   arch/arm64/include/asm/vmalloc.h     |  45 ++++++
+>   arch/arm64/kernel/process.c          |   9 +-
+>   arch/arm64/mm/hugetlbpage.c          |  73 ++++------
+>   include/linux/page_table_check.h     |  30 ++--
+>   include/linux/vmalloc.h              |   8 +
+>   mm/page_table_check.c                |  34 +++--
+>   mm/vmalloc.c                         |  40 ++++-
+>   10 files changed, 329 insertions(+), 150 deletions(-)
+> 
+> --
+> 2.43.0
+> 
+> 
 
 
