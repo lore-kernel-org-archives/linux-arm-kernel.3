@@ -4,86 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADA54C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 09:18:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AE3EC369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 09:20:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KHXp1fhPr51e4rt9sZyiCuRe2+Qj/H0RWuiXEzToeNI=; b=XIUtHH58DUO+w59f4ACYO+DU1S
-	4oLeRevvPjllfwhU1C+wkphubH4HYLdhP1P4sKDyLeqdNqwDVeisyo2o2tFWhN76aH3s5SKnWnEit
-	0aaKT1tNWq8Unf28v+jybAtiUaaq7yQti63u7hbCdnQrWruGhkgb5g1ci5SJZWKhO7FStTyqm1HlV
-	Mno5KPbeqfLGTz0Ot6Nlz3/UbjyNkSSwbZN0DkyRDi2OKe+ujQxHgwhoSR0xhEA80NzuR8sEzRQL+
-	Eo1jLOzjaD2f0uk//0xPIysLppN8SrfiOfhT3bmh0cb5jp7EdXp/rNFCU+kpRqbyhwqrWjKgYSocy
-	46aDOb5g==;
+	bh=GylFDQvuYiXaEPlo0gQwIyWWYpjusSslCah4O7FCJgg=; b=xiSym+0dDqhklXudTvr6yW8LbS
+	+eF32ikGR97f+HevNO8K1FqR/e6hdtkXkmWGFmIJ+BNEZG681EEP8Cyx0wZw8oe9WcjMsx+JT6aqD
+	21KJSoPUln79djmqdg1ZUktGm+pO53PNP6OitKEX+I1niZsKiNAxXJnvRboI7pnFNAP1ZTWHNGk+1
+	7oc9rpVSR+YuxUWefaX1GrW1uzIQAz6OFt7Zk4XleyhB7CpTJIN5Z3XuRXrSSDOhFFoAWXxq//cKU
+	Oaj9jQFix6yQr4zM3sgnuy9viE3o2AlQNHj5OKgSrmuCYC3jxwvnOVzJSoxtSYdqpVpdqpxvsAAsG
+	6ttugiBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7WF6-00000009v0L-25xL;
-	Wed, 23 Apr 2025 09:18:08 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7VG7-00000009fPd-2Ax9
+	id 1u7WH4-00000009w38-2i5H;
+	Wed, 23 Apr 2025 09:20:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7VHq-00000009gCl-0xs2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 08:15:11 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53N6wShX032598;
-	Wed, 23 Apr 2025 10:14:48 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	KHXp1fhPr51e4rt9sZyiCuRe2+Qj/H0RWuiXEzToeNI=; b=s7rSAyuoEKdyRxGr
-	De5+kNgOQX9LQLBsRAMK1+v+mY8RijxVciiy3Jo6Yq5Cc7KrxB9E4JuWn0OSgFLr
-	lA7pZWmAinRvM2bH5B5WVvaCd6BytOD04LSzcxValPaMhwMDuFPl2KUS54hlX/WB
-	dTgh81nmbDk+7nR321NtCTAaBuf0CZbOMMlzW4S52JEsp0Q9Acz9Sg0YhUGC5QPh
-	JIdTGcdHgmaCz7jXtbwVIZypq231cMowj/9XBEN0410dMU+rIySFBHAHAjjncxVD
-	V4NMeMpbxS+uQhF0389IWwlRIrUYVjn+8MEhGhZdRfhTdukMFC1RylHVltz1iY0T
-	wVEotA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 466jjya2ac-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 23 Apr 2025 10:14:48 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 322A140053;
-	Wed, 23 Apr 2025 10:13:16 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 71553A1A14A;
-	Wed, 23 Apr 2025 10:11:59 +0200 (CEST)
-Received: from localhost (10.130.77.120) by SHFDAG1NODE3.st.com (10.75.129.71)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 23 Apr
- 2025 10:11:59 +0200
-From: Christian Bruel <christian.bruel@foss.st.com>
-To: <christian.bruel@foss.st.com>, <lpieralisi@kernel.org>, <kw@linux.com>,
-        <manivannan.sadhasivam@linaro.org>, <robh@kernel.org>,
-        <bhelgaas@google.com>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
-        <p.zabel@pengutronix.de>, <thippeswamy.havalige@amd.com>,
-        <shradha.t@samsung.com>, <quic_schintav@quicinc.com>,
-        <cassel@kernel.org>, <johan+linaro@kernel.org>
-CC: <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v7 5/9] MAINTAINERS: add entry for ST STM32MP25 PCIe drivers
-Date: Wed, 23 Apr 2025 10:10:47 +0200
-Message-ID: <20250423081051.3907930-6-christian.bruel@foss.st.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250423081051.3907930-1-christian.bruel@foss.st.com>
-References: <20250423081051.3907930-1-christian.bruel@foss.st.com>
+	Wed, 23 Apr 2025 08:16:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 270001063;
+	Wed, 23 Apr 2025 01:16:48 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 545BC3F59E;
+	Wed, 23 Apr 2025 01:16:52 -0700 (PDT)
+Date: Wed, 23 Apr 2025 09:16:48 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Yabin Cui <yabinc@google.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Jie Gan <quic_jiegan@quicinc.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 1/2] coresight: catu: Introduce refcount and spinlock
+ for enabling/disabling
+Message-ID: <20250423081648.GJ28953@e132581.arm.com>
+References: <20250415184649.356683-1-yabinc@google.com>
+ <20250415184649.356683-2-yabinc@google.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.130.77.120]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-23_06,2025-04-22_01,2024-11-22_01
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250415184649.356683-2-yabinc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_011507_857969_BB78469A 
-X-CRM114-Status: UNSURE (   8.15  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250423_011654_370287_EA6AE388 
+X-CRM114-Status: GOOD (  27.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,32 +69,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add myself as maintainer of STM32MP25 PCIe host and PCIe endpoint drivers
+Hi Yabin,
 
-Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
----
- MAINTAINERS | 7 +++++++
- 1 file changed, 7 insertions(+)
+Sorry for late reply as I was on vacation for the past two weeks.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index b5acf50fc6af..a37b9422998c 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -18610,6 +18610,13 @@ L:	linux-samsung-soc@vger.kernel.org
- S:	Maintained
- F:	drivers/pci/controller/dwc/pci-exynos.c
- 
-+PCI DRIVER FOR STM32MP25
-+M:	Christian Bruel <christian.bruel@foss.st.com>
-+L:	linux-pci@vger.kernel.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/pci/st,stm32-pcie-*.yaml
-+F:	drivers/pci/controller/dwc/*stm32*
-+
- PCI DRIVER FOR SYNOPSYS DESIGNWARE
- M:	Jingoo Han <jingoohan1@gmail.com>
- M:	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
--- 
-2.34.1
+On Tue, Apr 15, 2025 at 11:46:48AM -0700, Yabin Cui wrote:
+> When tracing ETM data on multiple CPUs concurrently via the
+> perf interface, the CATU device is shared across different CPU
+> paths. This can lead to race conditions when multiple CPUs attempt
+> to enable or disable the CATU device simultaneously.
+> 
+> To address these race conditions, this patch introduces the
+> following changes:
+> 
+> 1. The enable and disable operations for the CATU device are not
+>    reentrant. Therefore, a spinlock is added to ensure that only
+>    one CPU can enable or disable a given CATU device at any point
+>    in time.
+> 
+> 2. A reference counter is used to manage the enable/disable state
+>    of the CATU device. The device is enabled when the first CPU
+>    requires it and is only disabled when the last CPU finishes
+>    using it. This ensures the device remains active as long as at
+>    least one CPU needs it.
+> 
+> Signed-off-by: Yabin Cui <yabinc@google.com>
 
+LGTM:
+
+Reviewed-by: Leo Yan <leo.yan@arm.com>
+
+As Jie reminded, please add James' review tag in next spin.
+
+Thanks,
+Leo
+
+> ---
+>  drivers/hwtracing/coresight/coresight-catu.c | 25 +++++++++++++-------
+>  drivers/hwtracing/coresight/coresight-catu.h |  1 +
+>  2 files changed, 18 insertions(+), 8 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-catu.c b/drivers/hwtracing/coresight/coresight-catu.c
+> index fa170c966bc3..3909b562b077 100644
+> --- a/drivers/hwtracing/coresight/coresight-catu.c
+> +++ b/drivers/hwtracing/coresight/coresight-catu.c
+> @@ -458,12 +458,17 @@ static int catu_enable_hw(struct catu_drvdata *drvdata, enum cs_mode cs_mode,
+>  static int catu_enable(struct coresight_device *csdev, enum cs_mode mode,
+>  		       void *data)
+>  {
+> -	int rc;
+> +	int rc = 0;
+>  	struct catu_drvdata *catu_drvdata = csdev_to_catu_drvdata(csdev);
+>  
+> -	CS_UNLOCK(catu_drvdata->base);
+> -	rc = catu_enable_hw(catu_drvdata, mode, data);
+> -	CS_LOCK(catu_drvdata->base);
+> +	guard(raw_spinlock_irqsave)(&catu_drvdata->spinlock);
+> +	if (csdev->refcnt == 0) {
+> +		CS_UNLOCK(catu_drvdata->base);
+> +		rc = catu_enable_hw(catu_drvdata, mode, data);
+> +		CS_LOCK(catu_drvdata->base);
+> +	}
+> +	if (!rc)
+> +		csdev->refcnt++;
+>  	return rc;
+>  }
+>  
+> @@ -486,12 +491,15 @@ static int catu_disable_hw(struct catu_drvdata *drvdata)
+>  
+>  static int catu_disable(struct coresight_device *csdev, void *__unused)
+>  {
+> -	int rc;
+> +	int rc = 0;
+>  	struct catu_drvdata *catu_drvdata = csdev_to_catu_drvdata(csdev);
+>  
+> -	CS_UNLOCK(catu_drvdata->base);
+> -	rc = catu_disable_hw(catu_drvdata);
+> -	CS_LOCK(catu_drvdata->base);
+> +	guard(raw_spinlock_irqsave)(&catu_drvdata->spinlock);
+> +	if (--csdev->refcnt == 0) {
+> +		CS_UNLOCK(catu_drvdata->base);
+> +		rc = catu_disable_hw(catu_drvdata);
+> +		CS_LOCK(catu_drvdata->base);
+> +	}
+>  	return rc;
+>  }
+>  
+> @@ -550,6 +558,7 @@ static int __catu_probe(struct device *dev, struct resource *res)
+>  	dev->platform_data = pdata;
+>  
+>  	drvdata->base = base;
+> +	raw_spin_lock_init(&drvdata->spinlock);
+>  	catu_desc.access = CSDEV_ACCESS_IOMEM(base);
+>  	catu_desc.pdata = pdata;
+>  	catu_desc.dev = dev;
+> diff --git a/drivers/hwtracing/coresight/coresight-catu.h b/drivers/hwtracing/coresight/coresight-catu.h
+> index 141feac1c14b..755776cd19c5 100644
+> --- a/drivers/hwtracing/coresight/coresight-catu.h
+> +++ b/drivers/hwtracing/coresight/coresight-catu.h
+> @@ -65,6 +65,7 @@ struct catu_drvdata {
+>  	void __iomem *base;
+>  	struct coresight_device *csdev;
+>  	int irq;
+> +	raw_spinlock_t spinlock;
+>  };
+>  
+>  #define CATU_REG32(name, offset)					\
+> -- 
+> 2.49.0.604.gff1f9ca942-goog
+> 
 
