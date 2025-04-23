@@ -4,102 +4,193 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E5DBC369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 07:07:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EA4FC369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 07:09:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	bh=sCMKVaP+cy0u4Wt+s96a/0ZTfWOMeEFbK8aMXkMagXQ=; b=BS4VvI1n9tLhjPyDSZeliAatOp
-	+KdtaZHWR/3xHdi7YpTq7rUpLthvJeMn8tvb1yTk/IDiLSx1bAbRrhcOxtqu2LqtFupYAwNuujkSh
-	nCUknnKm2fQttSUSLXMgAYpnsRMxTVWNdVZf6ax5I+vdVA/m6fu4tkZCjOicUjG2qWSmAXwEAASad
-	0YlYVE05NNumItx2I3f+lsfsnxt3RQDPLQbme0kzPwqk19sFE1SJGhq00ptICcu2CjUPXxi/xeDP5
-	83QAxi+5PY4jKvUQpDE+2paf968x7LCDbLQK6hDo587Jm/ZDNFoo1npIOOydIQQPwy/fA5lLJxaM0
-	Ppg3Bctw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:CC:To:Subject:
+	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5qDtEYamRKOkIz1CDELHskVQjOz/RgpQpauim7KbwR4=; b=F7FVo++RUWa7gPxwLnAksvAqH7
+	OSMpdr6YsXD7FX+CMWBOMyz8A3lK028Il5tBWPHJC/51Cw6/QvylQVXdR1psdaWLnzLmzVfxo54JP
+	IcC52Qpchq2UVxctYqxfRHDeut3bCG4Ph6cw3qvL5PKgmUIZ6epbYVHfu0HVWTAcqhazmGchbfd81
+	cpjov3AcoAJKMX+Fa3OhuqRn9QPP1NDddCa0pCLP1mtqlfuYy5n7gDI8/CXAEPX4VJIGKmthu6MIb
+	9BhXIvD+1ktIdP6wDcE1OSdprGxfWCY8Y8HsZAOQ4p0ZA/9JvfyN0sF+Vlcn0t59s+PCfwjm1xiPF
+	1lsltEZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7UCj-00000009S3I-3X1S;
-	Wed, 23 Apr 2025 07:07:34 +0000
-Received: from mailout3.samsung.com ([203.254.224.33])
+	id 1u7UEg-00000009SXq-1wV1;
+	Wed, 23 Apr 2025 07:09:34 +0000
+Received: from mail-vi1eur02on2072d.outbound.protection.outlook.com ([2a01:111:f403:2607::72d] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Ty0-00000009ObX-07iW
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 06:52:22 +0000
-Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250423065212epoutp03aa69c33682760f610b8846cff3f362b0~43-zN_e1o1562415624epoutp03o
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 06:52:12 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250423065212epoutp03aa69c33682760f610b8846cff3f362b0~43-zN_e1o1562415624epoutp03o
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1745391132;
-	bh=sCMKVaP+cy0u4Wt+s96a/0ZTfWOMeEFbK8aMXkMagXQ=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=cxS8GEU+7Ab2SOkAiApnW7D7k+yUo7151cykyy7EqqffQgBs9F/mRf3QCOTHx8pDP
-	 LmMszPKfRiEp29K/1uvR/sLZIqsJhns/UO5dkzsyrKKee0d6TNhRIo+XoBA4+NLSOB
-	 qTvjhBODGlI5P0Z6go66T15RzgBeYCfUsSRH3uZE=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
-	20250423065212epcas5p2e537f7634a3d93d9f54c4aea48399cca~43-y5S0v71817318173epcas5p2l;
-	Wed, 23 Apr 2025 06:52:12 +0000 (GMT)
-Received: from epcas5p1.samsung.com (unknown [182.195.38.178]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4Zj8t25dc1z6B9mB; Wed, 23 Apr
-	2025 06:52:10 +0000 (GMT)
-Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250423060042epcas5p2c04be779e21089f33b8a9a7785bb151a~43S1K6yxW1700517005epcas5p2o;
-	Wed, 23 Apr 2025 06:00:42 +0000 (GMT)
-Received: from epsmgms1p1new.samsung.com (unknown [182.195.42.41]) by
-	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20250423060042epsmtrp2ffea677e8c78fe8fe5d99ded8a24997a~43S1JwWvn2017920179epsmtrp2h;
-	Wed, 23 Apr 2025 06:00:42 +0000 (GMT)
-X-AuditID: b6c32a29-55afd7000000223e-4a-6808820af8c7
-Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
-	epsmgms1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	17.34.08766.A0288086; Wed, 23 Apr 2025 15:00:42 +0900 (KST)
-Received: from INBRO002053.samsungds.net (unknown [107.122.2.234]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250423060040epsmtip2463b8b5e2df2ed814f7deaae604d3280~43Szb_efD1997919979epsmtip2y;
-	Wed, 23 Apr 2025 06:00:40 +0000 (GMT)
-From: Yashwant Varur <yashwant.v@samsung.com>
-To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	alim.akhtar@samsung.com, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: cs0617.lee@samsung.com, g.naidu@samsung.com, niyas.ahmed@samsung.com,
-	yashwant.v@samsung.com
-Subject: [PATCH] arm64: dts: exynos: Added the ethernet pin configuration
-Date: Wed, 23 Apr 2025 11:30:34 +0530
-Message-Id: <20250423060034.973-1-yashwant.v@samsung.com>
-X-Mailer: git-send-email 2.34.1
+	id 1u7U5S-00000009QrR-0o4j;
+	Wed, 23 Apr 2025 07:00:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Oyu5RJqhktQf/LIznmEH/B2jFWotphbHo9jk9jU4heSZ22ifhTH5BA+90ajKlEW+qXXiyOSG6f2wwYG67ro7GnN2xX6h092fcXs14vplsWMVg8f8r+oxGEHZ2z0VVY3meDExijrxdJ3Zb7htRSqH47ofLAyHsUrS3iZvlh6cDlj3JdjcvtNox63udNX7dUxEqeRyJiOB2Qd48RKDRgIk/vKkHFT0kUxL369zlvaYoPu8FwZh9PUSnQ9Cr4UCVPcceZgzuRKOLRQzRZSuIIrqEiGoLcr60LMKJW9RgDsRmrGbI8ZFw+dLvZDa/qi1z4FKfCyyioaAbVBj8j6Vn7fJNw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5qDtEYamRKOkIz1CDELHskVQjOz/RgpQpauim7KbwR4=;
+ b=REiNbEicOKYJ1qfBjLwpiopjSAr4Wr1UrLhOgmpcvWbws9cbILkOvdfnVQ9D0R/+iaxXAXfGZhovYqdYV9VCb3johUJCSju3KO36gsRlarAzD/3/UjriR56nUh3n2e9tw88y2TLhsvuXGfWKgY70DxVHQRW21BWlRaXBq9P8q7eJyPr4VQj6naYpAwuV/d0wrcZqBWx8N3YW/JydFo7tvP9x7PsykQuKzdCsg2j7lliUnLwcnfgvmaNZCpBSg0ARbp8jLnIhpXTQRKHDfAvTc3LHiXGvaGVjU/Jelx42xQuZyMEue2120OptnLzn9tGRZ92gFrFLb4mi/ukoqd3Zhg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 13.93.42.39) smtp.rcpttodomain=ideasonboard.com smtp.mailfrom=topic.nl;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=topic.nl;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=topic.nl; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5qDtEYamRKOkIz1CDELHskVQjOz/RgpQpauim7KbwR4=;
+ b=t5AqjDxnTLKAmnVySmqfhAQRZLWqEpZi9O026S/f6RKGzy97pNrxEpST3IQGBPINtTTQaxxz/CU7KaRadhA5hnSU6QuKlYHGhizd4RwyHMcvTVMpSCeihpxMmo3unr180/Nn5LmKZHp3r1J/wqulSPaWIyBgkQ978qfoijXOMBqoz8uw+4Z5bkl20HXPuIJAOZncliBtVwZFB9Vb1e3hgFtVaOLgGYgg2K+WqY5Gn4EDhxES6gGZGzdBxYosxDmDpKi/q9dRyTB8INMy8XY+xiKMVKJs/h1aF2Nqa/d+Ej40WQ1TsrUyUzj6mjW76T4JGil+XRzu8/74ftw1ne6csA==
+Received: from AS9PR06CA0183.eurprd06.prod.outlook.com (2603:10a6:20b:45d::17)
+ by AS4PR04MB9692.eurprd04.prod.outlook.com (2603:10a6:20b:4fe::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.23; Wed, 23 Apr
+ 2025 06:59:49 +0000
+Received: from AMS0EPF000001B4.eurprd05.prod.outlook.com
+ (2603:10a6:20b:45d:cafe::e5) by AS9PR06CA0183.outlook.office365.com
+ (2603:10a6:20b:45d::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.36 via Frontend Transport; Wed,
+ 23 Apr 2025 06:59:49 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 13.93.42.39)
+ smtp.mailfrom=topic.nl; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=topic.nl;
+Received-SPF: Pass (protection.outlook.com: domain of topic.nl designates
+ 13.93.42.39 as permitted sender) receiver=protection.outlook.com;
+ client-ip=13.93.42.39; helo=westeu12-emailsignatures-cloud.codetwo.com; pr=C
+Received: from westeu12-emailsignatures-cloud.codetwo.com (13.93.42.39) by
+ AMS0EPF000001B4.mail.protection.outlook.com (10.167.16.168) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8655.12 via Frontend Transport; Wed, 23 Apr 2025 06:59:49 +0000
+Received: from EUR03-AM7-obe.outbound.protection.outlook.com (104.47.51.234) by westeu12-emailsignatures-cloud.codetwo.com with CodeTwo SMTP Server (TLS12) via SMTP; Wed, 23 Apr 2025 06:59:48 +0000
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=topic.nl;
+Received: from AS8PR04MB8644.eurprd04.prod.outlook.com (2603:10a6:20b:42b::12)
+ by VE1PR04MB7405.eurprd04.prod.outlook.com (2603:10a6:800:1a4::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.23; Wed, 23 Apr
+ 2025 06:59:44 +0000
+Received: from AS8PR04MB8644.eurprd04.prod.outlook.com
+ ([fe80::e86d:f110:534e:480a]) by AS8PR04MB8644.eurprd04.prod.outlook.com
+ ([fe80::e86d:f110:534e:480a%5]) with mapi id 15.20.8655.033; Wed, 23 Apr 2025
+ 06:59:44 +0000
+Message-ID: <f3051d1d-ecb2-4a93-ad6b-76ab7a5538af@topic.nl>
+Date: Wed, 23 Apr 2025 08:59:43 +0200
+User-Agent: Mozilla Thunderbird
+From: Mike Looijmans <mike.looijmans@topic.nl>
+Subject: Re: [PATCH] phy-zynqmp: Postpone getting clock rate until actually
+ needed
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+CC: linux-phy@lists.infradead.org, Kishon Vijay Abraham I
+ <kishon@kernel.org>, Michal Simek <michal.simek@amd.com>,
+ Vinod Koul <vkoul@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <1b153bce-a66a-45ee-a5c6-963ea6fb1c82.949ef384-8293-46b8-903f-40a477c056ae.7a5992b5-aa78-4b18-bf5c-70f893b58f48@emailsignatures365.codetwo.com>
+ <20250314150431.28319-1-mike.looijmans@topic.nl>
+ <20250422221802.GB32759@pendragon.ideasonboard.com>
+Content-Language: nl, en-US
+Organization: TOPIC
+In-Reply-To: <20250422221802.GB32759@pendragon.ideasonboard.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-ClientProxiedBy: AS4P190CA0065.EURP190.PROD.OUTLOOK.COM
+ (2603:10a6:20b:656::10) To AS8PR04MB8644.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42b::12)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrILMWRmVeSWpSXmKPExsWy7bCSvC5XE0eGweud7BYP5m1js1iz9xyT
-	xap3vBbzj5xjtdgy8zKzxctZ99gsNj2+xmpxedccNosZ5/cxWTyZ8ojV4v+eHewWqyY+YnPg
-	8di0qpPNY/OSeo++LasYPT5vkgtgieKySUnNySxLLdK3S+DK+HD4FnvBbf6KzlOHmRsYJ/N2
-	MXJySAiYSOxcfZupi5GLQ0hgN6PEjVNNbF2MHEAJKYmGN+EQNcISK/89Z4eo+coo8ezCb0aQ
-	BJuArsS+L0cZQRIiAs8YJZa2LmUBSTALpEn8fdsJViQs4Clx7lcLE4jNIqAqMe/ZdzCbV8BS
-	YvvbR0wQG+Ql9h88ywwRF5Q4OfMJ1Bx5ieats5knMPLNQpKahSS1gJFpFaNkakFxbnpusWGB
-	YV5quV5xYm5xaV66XnJ+7iZGcChrae5g3L7qg94hRiYOxkOMEhzMSiK8v9zYM4R4UxIrq1KL
-	8uOLSnNSiw8xSnOwKInzir/oTRESSE8sSc1OTS1ILYLJMnFwSjUwbRRf+kinNHiFor/O2VfJ
-	eReDA/cdZ1q5mPvpOt/GTEkTSVGz1sPhs+P/eUhIHfFUvnWjfmPoriqXlvf+S2OnaMXdzeB9
-	bbwoUfP26ojVnw60f7zTxpSiH6e3aGn045/cVbcSj56tv1rpFtFSHx/BYr9qjemSmx9M2XXy
-	s3RP3kmofeWlOHVx1N6DEbb1IgxPJdRmH7sTM9/23t0i1iNTs6rbDx534Ak5ZdF8zfqGooHC
-	g6wXBz8wiu8T+OJmavBpHZPOipXW0t+rHu248EDJzV2HR4XXp6Gk7mq1kpWFUmBysbjRBLOj
-	Yt0xyx3/X3n4xH1FwK/Tr1b+iktmzm+7lDAjdsrheculOFsa2kWUWIozEg21mIuKEwHD0cEp
-	1AIAAA==
-X-CMS-MailID: 20250423060042epcas5p2c04be779e21089f33b8a9a7785bb151a
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-543,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250423060042epcas5p2c04be779e21089f33b8a9a7785bb151a
-References: <CGME20250423060042epcas5p2c04be779e21089f33b8a9a7785bb151a@epcas5p2.samsung.com>
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8644:EE_|VE1PR04MB7405:EE_|AMS0EPF000001B4:EE_|AS4PR04MB9692:EE_
+X-MS-Office365-Filtering-Correlation-Id: e0102330-9926-4f7f-4cfc-08dd82347076
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|376014|1800799024;
+X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?Q0YvU3N1ZVVWRVVEMlA1VVdrcEpEbytrVHpvT2lXTXJrRWpSL0RHYnB6dkxk?=
+ =?utf-8?B?Rk5WVVB0VEVsQ0FtejQ1REtLQlZPTE1vOTVPN2M2djA0WVNhd1NseHQ0Zng1?=
+ =?utf-8?B?eXkvNWtKM1lLSy9iZVVadmQrL0JQb3BjcXI2SjFNLzc2WmtEdzloVi9RN0ky?=
+ =?utf-8?B?R04zWW5kemhjTUJFMDUya0pJdzZEU2lLb2NyQWFpR283RG1DTFRxU3pOYW5T?=
+ =?utf-8?B?ZlA3OGlKK0RmdFhZTGNqeHNUWks2eHBVMFRTYkM5c0RuQmZIMTFWT3FuamlY?=
+ =?utf-8?B?TFE3WVN4dWp1a1NLdklMTnR5RFYrYlRUWWw4UGwrTm5La09IbGIrdFhXb3Fs?=
+ =?utf-8?B?WXZGNnlGNE9xNU01ZG5lQjNkZkhpNm9rVDVnVEk1R1Y0bnVkQWR3NU91T092?=
+ =?utf-8?B?T2ptY3lSUldyc0NGU1FXTU1rN285bzdvQ2ozNitJZzNRUUtoV3N6Rm1tUC9s?=
+ =?utf-8?B?cXpQS3Q5TWJXelhwY2ZZazllYnVtWjZCN1puUEtBV1hlVFYrQk85SkxKT1NI?=
+ =?utf-8?B?d0ZseVh0NWRUTTVkeVlyYllyY0lvRm0wbEJ1VjdXaGc3MDROUG1SL2NBWTk4?=
+ =?utf-8?B?M08wNHJlUVFVYjRSeU9wSmxyL3ZLZlNPdjBjTkdKV0hJbyt5amxMTDBaemRI?=
+ =?utf-8?B?aXRpVUJQb2RDUWVoTzU4dkNObElSTlZXbHRyVHAvWStRcGo2U0pzeUNveGp4?=
+ =?utf-8?B?U3gvTTRqMTREVmQwdjhkTkRTT2JMVDFURDZWYWRBTkhvemtGeXA2QURQQzZT?=
+ =?utf-8?B?Wlp0TktzTDRZTi94VEJ5bHRvN1FncG92NDgwWjJ6L1BJUUsxNVZDN21TNjN2?=
+ =?utf-8?B?TUppSGx1N3oyam9WZlg0aExKYytGK1pXa2dSYzkybitBNWRWN3RFbkRpb09M?=
+ =?utf-8?B?UGNMMG80L2piQ3RCUkdodnZHS0Qva0VOT3hic0MwcG1ZYmdNY2VkWXdJT2Iz?=
+ =?utf-8?B?TmZIMm5XaGI0QThuRHhGTUVXZzhmUEtzYkNaUFY3K2c1akU3ZU1OMVd5TjFY?=
+ =?utf-8?B?TnlQVmNzUkd4MkxmM2w3SWUraWhYdWE5VjgrbUo5NjQ1c3B4L2R3d0dIMjl0?=
+ =?utf-8?B?WVY3S1Y1NUUxR29SdHFXWXArV0kxUnFKY1QwcGNZM1JiNUlqUjhiUEhDWFZP?=
+ =?utf-8?B?ZlBzNlozaXlTUnRNMmNPZUxSWDBRaVhjKzI0SngvSnA5VlJsdWhBcGlhczgx?=
+ =?utf-8?B?dGVJMkptbmNpSTEvVEZwcVVzMUpMdE5VUEJWRkpTYlhyelllM3ZzU2dJVFVj?=
+ =?utf-8?B?TVlGMm0wYTdLWmR4T3I4TTY1QngwQWdNV0lHakxyYVB3OFJEYVNZakVjMlY3?=
+ =?utf-8?B?R2lIeENjQk04RjhQeCt4KzMrWE1hTTYwSE5VbGtJcGNHSEtzc1czZlZWZkV5?=
+ =?utf-8?B?QVBhcDNndHJEbzVtVFIyeWlhclliU1FQYjRuQ1pRcDkwdTFId0U2V2YvbHI5?=
+ =?utf-8?B?YncwN3JtMmF2S2YxOW80WW1GRzNZSHNzb1BCei9kR3dEblRtWVBlQlBZbjli?=
+ =?utf-8?B?d1BjR3pXYWFnUXd6alhUOWVCOFFqRHVpTVZkRUtGMnlRQ3UvOHRLUWRNK09p?=
+ =?utf-8?B?RXhHZCsyN3pLNFJzcGRzWlpBejd5blhTSHRvWUplc2wySzVhTkZGTWE2dkRy?=
+ =?utf-8?B?bHMwamZHRzJkMlZ2bkRsWTV4RDQvRHJpek1ZYm5TTk8wL1NzUVdpL3FKb1Fy?=
+ =?utf-8?B?alh3U0pkVklad1E2ODVZU3R3a09aQ2d4SHVsaEhOYzB2VVhRNVRxb1cvT3hj?=
+ =?utf-8?B?K0tLNm5NV1BIb0JReHhsNENLVGxDbXU4Q2xGUWljb0NHVUNPamJJUG1OV055?=
+ =?utf-8?B?cDdGc2ZKdnpUQjltWFdBekNaMGVOUEs3ZmRDSGREQWhWd05lOFo5cXFDRzZr?=
+ =?utf-8?B?K0dNZjJrdnNtWUhWQWJwcXpBRlJyci9MWXc4T2s0OHh4UFVtSFRTay9vRjQv?=
+ =?utf-8?Q?+FklEWCKjHo=3D?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8644.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024);DIR:OUT;SFP:1102;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7405
+X-CodeTwo-MessageID: e54b62cd-61fa-49f3-ba8b-c57f7aaeef81.20250423065948@westeu12-emailsignatures-cloud.codetwo.com
+X-CodeTwoProcessed: true
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS0EPF000001B4.eurprd05.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 8b62c567-1589-4ac2-308e-08dd82346d63
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|14060799003|82310400026|35042699022|36860700013|13003099007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?M1ZQeVo3dzdvMlo2UTlIUmRCYWw2WXgreWErQW5tWFZKRnNVT3RvRHBPMXAw?=
+ =?utf-8?B?Z3kvT3IzTXU5Qjg1NnZjRXNnejlUS1R0eVMvOWhaelAzRUN4MVc2M2dtakdU?=
+ =?utf-8?B?bnJiVjJlRmc1NGJqTFAvMUdvTVkzQzMwRGUwTU9kbXN0aktNYU01VS9BZFN1?=
+ =?utf-8?B?WkdyU1lFYm8xWTBGcWZzUVBNUkthY3QvQzh5dzFPbXFlb2dlRzc1VU9LNnUx?=
+ =?utf-8?B?aDJySGxkUXAvY1hsRmhtOXF1M2lIUXYxUTJLLzRlS0E2MVVNTmx6TTNxNEl4?=
+ =?utf-8?B?Sy8xcXdyM3RQS2pvSmZSSmtIOStHTlFrd0Vmald6R0ZidE56Nk1WeWxIYUFM?=
+ =?utf-8?B?SnNFeVB6MlBBVitVcE1xeThhQUlVcnNKNW0vaGJaNFBJWjdGOENkVk1JM2xx?=
+ =?utf-8?B?dkJHT3k4bUwvbEkzNHh5Rk51KzJvQk1LMnJOQ1dYM0l6L09tcHpWZ3NudWNn?=
+ =?utf-8?B?K1p0WVhjL3pSa1NESFNheVVTTG9NWXczamd6am9pRWlpMmdCT2FUTmw4a3E2?=
+ =?utf-8?B?eUg2S3I1bE11WkQvZWROMVBaWCtvR2dpNTRqNWxJMUxmQ0V1VzdBK1p5VlZN?=
+ =?utf-8?B?Sk5rMUdYV0djeHRaNU44ZTBvTzFiQU5tVDFpdE9GNjJ2RURkaFFWS2lQT29F?=
+ =?utf-8?B?Y3NJTlNYS2JvV21iMzVueXkwTFpDTzcvN3lFejdIMGk2WHlIV1FTWjlCalI4?=
+ =?utf-8?B?eWxzUjFQQ2NsOUVoVk0yaytWOHV6Y0luRmNTaTJhMVlla3Raalk5dzNBU2tY?=
+ =?utf-8?B?SzlsMnpyTW5LbER6bnd2RUZ5YkFsV1JXZVExZDkvOSs0UXUrc0srTFRyYXJu?=
+ =?utf-8?B?S0Jmcm8xMmY0L1RmZkwvQ1VPeHUyUXVNR2RKYVByNlRqZ2JKalRkR3d0UDZY?=
+ =?utf-8?B?STFCOFlhK3RYWTRMZVZlQzQ0R2dzT1dyN2lGRExmbUpVbDFrS0xmS3B6UkM2?=
+ =?utf-8?B?YTJiVTNBRmhzOFJWMFJQdWhvdlhPTDdGMWl2OFFvTFBMTnl2OWEydEUyNHlQ?=
+ =?utf-8?B?alBSTkVNQU44QmsweWFoSkRYTjFWNzYxR21JRUhWc3VpL1JjdElKK3NFNHJO?=
+ =?utf-8?B?QlBFQUxDbi9WSEpQQVFtRHl6UEJRZzJ1Z2tuSVZnV0tWa20xU3pjNndxUkVK?=
+ =?utf-8?B?QXJvNVNnR1ZXdUpUbjgvMEhPL3JsVjkzQTZGeGdxeHd6TVp2RFFYeWJtRTFD?=
+ =?utf-8?B?aWJoamlKdDhURXpvdWxudGp6TFh2VnBRWnJrWEJpT3c2ZHZSSFpEc29GN2lm?=
+ =?utf-8?B?dFFIelh1NTVzM3F1aENRMWd5UFlyUTI1TExZQXlYQUhvMTdCODZlNXFnWS9i?=
+ =?utf-8?B?NHErNStZNjlIWDZ6U0NVeWVuQWpOb3pldVl1T0R3aWNzdG9PaGFOOFdTYzBC?=
+ =?utf-8?B?TG9uT3lwLzlqVEVWTWRRUUd6eVZMSG9yRXNudVJGZ0REVC9HZFBja1dsMW56?=
+ =?utf-8?B?Tjg1MnRmWVN4UEFsNjdXT0w1NmNFbGxnQ3k3QVpWd0R1b2pjcUNxNDJlSDJu?=
+ =?utf-8?B?b0Q5enJMMFlIY3pxemR1c0U5Tk9EeW96OWNUWjkwNGgvTFBsZFZsSmxhNitq?=
+ =?utf-8?B?aUEvS0h1dVUyR2lIblNJRzN5bEZDU1VUdTR2RGxrYnNsZCs3RTQvUzZyODZX?=
+ =?utf-8?B?RzBjK0JXU1BTZEc1TG9kbllTcXR1UlFSM1JpTjZCNTNFM05PTHJ4MGpLVDdD?=
+ =?utf-8?B?WU1CdGZodUtuSktTWTVRQi9WZCtrUFE0ZUc4LzQ4cHM2T0dkQzlNOUlqTHV4?=
+ =?utf-8?B?UG9ZSnA4R21hbHgzYmpSREE2Y0xlZ1RmSEJQRngwU3RFYkZXUC8ybFhudmhD?=
+ =?utf-8?B?Zm0zVVBjWlc0dkZqTkJNV3JuTmtMdjlGUEtXa0lWU1R5TkYzM05mME5HNzRT?=
+ =?utf-8?B?UE5XQ1poelo3OXVvbUZHNWtYQlRIMmpFeElBUmtYMjhubFBDWjJvS0M2NXl4?=
+ =?utf-8?B?QVpvRGVPRFdrZHV5ZlZoL0lhSWZtWjcwRnM4d1hMSS9oS0prQlFzQTdnVkpM?=
+ =?utf-8?B?bTcwWHl6ZjR3PT0=?=
+X-Forefront-Antispam-Report: CIP:13.93.42.39;CTRY:NL;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:westeu12-emailsignatures-cloud.codetwo.com;PTR:westeu12-emailsignatures-cloud.codetwo.com;CAT:NONE;SFS:(13230040)(376014)(1800799024)(14060799003)(82310400026)(35042699022)(36860700013)(13003099007);DIR:OUT;SFP:1102;
+X-OriginatorOrg: topic.nl
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Apr 2025 06:59:49.3033
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e0102330-9926-4f7f-4cfc-08dd82347076
+X-MS-Exchange-CrossTenant-Id: 449607a5-3517-482d-8d16-41dd868cbda3
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=449607a5-3517-482d-8d16-41dd868cbda3;Ip=[13.93.42.39];Helo=[westeu12-emailsignatures-cloud.codetwo.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001B4.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR04MB9692
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_235220_693607_6D17A90C 
-X-CRM114-Status: GOOD (  12.45  )
+X-CRM114-CacheID: sfid-20250423_000002_698561_BD5A81F3 
+X-CRM114-Status: GOOD (  24.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,74 +205,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch adds the ethernet pin configuration.
 
-Signed-off-by: Yashwant Varur <yashwant.v@samsung.com>
-Signed-off-by: Changsub Lee <cs0617.lee@samsung.com>
----
- .../dts/exynos/exynosautov920-pinctrl.dtsi    | 41 +++++++++++++++++++
- 1 file changed, 41 insertions(+)
+Met vriendelijke groet / kind regards,=0A=
+=0A=
+Mike Looijmans=0A=
+System Expert=0A=
+=0A=
+=0A=
+TOPIC Embedded Products B.V.=0A=
+Materiaalweg 4, 5681 RJ Best=0A=
+The Netherlands=0A=
+=0A=
+T: +31 (0) 499 33 69 69=0A=
+E: mike.looijmans@topic.nl=0A=
+W: www.topic.nl=0A=
+=0A=
+Please consider the environment before printing this e-mail=0A=
+On 23-04-2025 00:18, Laurent Pinchart wrote:
+> Hi Mike,
+>
+> Thank you for the patch.
+>
+> On Fri, Mar 14, 2025 at 04:04:18PM +0100, Mike Looijmans wrote:
+>> At probe time the driver would display the following error and abort:
+>>    xilinx-psgtr fd400000.phy: Invalid rate 0 for reference clock 0
+>>
+>> This issue was that at probe time, the system has not decided yet whethe=
+r
+>> the GTR is to be used for SATA (150MHz) or PCIe (100 MHz).
+> At what point does the system decide that ? I've only used (and tested)
+> this driver for DisplayPort.
 
-diff --git a/arch/arm64/boot/dts/exynos/exynosautov920-pinctrl.dtsi b/arch/arm64/boot/dts/exynos/exynosautov920-pinctrl.dtsi
-index 663e8265cbf5..778584d339d5 100644
---- a/arch/arm64/boot/dts/exynos/exynosautov920-pinctrl.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynosautov920-pinctrl.dtsi
-@@ -166,6 +166,24 @@ gph6: gph6-gpio-bank {
- 		interrupt-controller;
- 		#interrupt-cells = <2>;
- 	};
-+
-+	eth0_pps_out: eth0_pps_out {
-+		samsung,pins = "gph3-0";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_OUTPUT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+	};
-+
-+	eth0_rgmii: eth0_rgmii {
-+		samsung,pins = "gph3-1", "gph3-2", "gph3-3", "gph3-4",
-+				"gph3-5", "gph3-6", "gph3-7", "gph4-0",
-+				"gph4-1", "gph4-2", "gph4-3", "gph4-4";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_2>;
-+	};
-+
-+	eth0_mdc_mdio: eth0_mdc_mdio {
-+		samsung,pins = "gph4-5", "gph4-6";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_2>;
-+	};
- };
- 
- &pinctrl_hsi2ufs {
-@@ -750,6 +768,29 @@ i3c3_bus: i3c3-bus-pins {
- 		samsung,pin-function = <EXYNOS_PIN_FUNC_4>;
- 		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
- 	};
-+
-+	eth_extpll_avb: eth_extpll_avb {
-+		samsung,pins = "gpg3-0";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_2>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5420_PIN_DRV_LV3>;
-+	};
-+
-+	eth0_pps_out0: eth0_pps_out0 {
-+		samsung,pins = "gpg0-0";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_2>;
-+	};
-+
-+	eth0_pps_out1: eth0_pps_out1 {
-+		samsung,pins = "gpg0-1";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_2>;
-+	};
-+
-+	eth_phy_reset: eth_phy_reset {
-+		samsung,pins = "gpg3-1";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_OUTPUT>;
-+	};
-+
- };
- 
- &pinctrl_peric1 {
--- 
-2.34.1
+In retrospect, yeah, the commit text could be a bit more elaborate on that.
+
+This PHY driver probes before the I2C bus which contains the programmable=20
+clock chip that provides the GT clocks for the PS. This isn't a problem, as=
+=20
+the PHY lane won't be needed yet.
+
+When the SATA (or PCIe or network or displayport or ...) driver probes, the=
+=20
+clock gets programmed. The PHY lane won't be enabled until after that.
+
+
+>
+>> The driver
+>> doesn't need to know the clock frequency at that point yet, so wait unti=
+l
+>> the lane is actually being initialized before requesting the clock rate
+>> setting.
+>>
+>> Signed-off-by: Mike Looijmans <mike.looijmans@topic.nl>
+>> ---
+>>
+>>   drivers/phy/xilinx/phy-zynqmp.c | 61 ++++++++++++++++-----------------
+>>   1 file changed, 30 insertions(+), 31 deletions(-)
+>>
+>> diff --git a/drivers/phy/xilinx/phy-zynqmp.c b/drivers/phy/xilinx/phy-zy=
+nqmp.c
+>> index 05a4a59f7c40..e29e3e51d380 100644
+>> --- a/drivers/phy/xilinx/phy-zynqmp.c
+>> +++ b/drivers/phy/xilinx/phy-zynqmp.c
+>> @@ -222,7 +222,6 @@ struct xpsgtr_phy {
+>>    * @siou: siou base address
+>>    * @gtr_mutex: mutex for locking
+>>    * @phys: PHY lanes
+>> - * @refclk_sscs: spread spectrum settings for the reference clocks
+>>    * @clk: reference clocks
+>>    * @tx_term_fix: fix for GT issue
+>>    * @saved_icm_cfg0: stored value of ICM CFG0 register
+>> @@ -235,7 +234,6 @@ struct xpsgtr_dev {
+>>   	void __iomem *siou;
+>>   	struct mutex gtr_mutex; /* mutex for locking */
+>>   	struct xpsgtr_phy phys[NUM_LANES];
+>> -	const struct xpsgtr_ssc *refclk_sscs[NUM_LANES];
+>>   	struct clk *clk[NUM_LANES];
+>>   	bool tx_term_fix;
+>>   	unsigned int saved_icm_cfg0;
+>> @@ -398,13 +396,40 @@ static int xpsgtr_wait_pll_lock(struct phy *phy)
+>>   	return ret;
+>>   }
+>>  =20
+>> +/* Get the spread spectrum (SSC) settings for the reference clock rate =
+*/
+>> +static const struct xpsgtr_ssc *xpsgtr_find_sscs(struct xpsgtr_phy *gtr=
+_phy)
+>> +{
+>> +	unsigned long rate;
+>> +	struct clk *clk;
+>> +	unsigned int i;
+>> +
+>> +	clk =3D gtr_phy->dev->clk[gtr_phy->refclk];
+>> +	rate =3D clk_get_rate(clk);
+>> +
+>> +	for (i =3D 0 ; i < ARRAY_SIZE(ssc_lookup); i++) {
+>> +		/* Allow an error of 100 ppm */
+>> +		unsigned long error =3D ssc_lookup[i].refclk_rate / 10000;
+>> +
+>> +		if (abs(rate - ssc_lookup[i].refclk_rate) < error)
+>> +			return &ssc_lookup[i];
+>> +	}
+>> +
+>> +	dev_err(gtr_phy->dev->dev, "Invalid rate %lu for reference clock %u\n"=
+,
+>> +		rate, gtr_phy->refclk);
+>> +
+>> +	return NULL;
+>> +}
+>> +
+>>   /* Configure PLL and spread-sprectrum clock. */
+>>   static void xpsgtr_configure_pll(struct xpsgtr_phy *gtr_phy)
+>>   {
+>>   	const struct xpsgtr_ssc *ssc;
+>>   	u32 step_size;
+>>  =20
+>> -	ssc =3D gtr_phy->dev->refclk_sscs[gtr_phy->refclk];
+>> +	ssc =3D xpsgtr_find_sscs(gtr_phy);
+>> +	if (!ssc)
+>> +		return;
+> Isn't it an issue that we now fail here without propagating an error
+> back to the caller ? The function is called by xpsgtr_phy_init(), which
+> return an int, so I think returning an error code here would make sense.
+
+Agree, I'll make a v2
+
+
+>
+> The rest of the patch looks good to me. I would however appreciate
+> feedback from someone at AMD more knowledgeable than I am with the
+> hardware. Michal, could you propose an appropriate second maintainer for
+> this driver ?
+>
+>> +
+>>   	step_size =3D ssc->step_size;
+>>  =20
+>>   	xpsgtr_clr_set(gtr_phy->dev, PLL_REF_SEL(gtr_phy->lane),
+>> @@ -823,8 +848,7 @@ static struct phy *xpsgtr_xlate(struct device *dev,
+>>   	}
+>>  =20
+>>   	refclk =3D args->args[3];
+>> -	if (refclk >=3D ARRAY_SIZE(gtr_dev->refclk_sscs) ||
+>> -	    !gtr_dev->refclk_sscs[refclk]) {
+>> +	if (refclk >=3D ARRAY_SIZE(gtr_dev->clk)) {
+>>   		dev_err(dev, "Invalid reference clock number %u\n", refclk);
+>>   		return ERR_PTR(-EINVAL);
+>>   	}
+>> @@ -928,9 +952,7 @@ static int xpsgtr_get_ref_clocks(struct xpsgtr_dev *=
+gtr_dev)
+>>   {
+>>   	unsigned int refclk;
+>>  =20
+>> -	for (refclk =3D 0; refclk < ARRAY_SIZE(gtr_dev->refclk_sscs); ++refclk=
+) {
+>> -		unsigned long rate;
+>> -		unsigned int i;
+>> +	for (refclk =3D 0; refclk < ARRAY_SIZE(gtr_dev->clk); ++refclk) {
+>>   		struct clk *clk;
+>>   		char name[8];
+>>  =20
+>> @@ -946,29 +968,6 @@ static int xpsgtr_get_ref_clocks(struct xpsgtr_dev =
+*gtr_dev)
+>>   			continue;
+>>  =20
+>>   		gtr_dev->clk[refclk] =3D clk;
+>> -
+>> -		/*
+>> -		 * Get the spread spectrum (SSC) settings for the reference
+>> -		 * clock rate.
+>> -		 */
+>> -		rate =3D clk_get_rate(clk);
+>> -
+>> -		for (i =3D 0 ; i < ARRAY_SIZE(ssc_lookup); i++) {
+>> -			/* Allow an error of 100 ppm */
+>> -			unsigned long error =3D ssc_lookup[i].refclk_rate / 10000;
+>> -
+>> -			if (abs(rate - ssc_lookup[i].refclk_rate) < error) {
+>> -				gtr_dev->refclk_sscs[refclk] =3D &ssc_lookup[i];
+>> -				break;
+>> -			}
+>> -		}
+>> -
+>> -		if (i =3D=3D ARRAY_SIZE(ssc_lookup)) {
+>> -			dev_err(gtr_dev->dev,
+>> -				"Invalid rate %lu for reference clock %u\n",
+>> -				rate, refclk);
+>> -			return -EINVAL;
+>> -		}
+>>   	}
+>>  =20
+>>   	return 0;
+
 
 
