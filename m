@@ -4,86 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30EE2C369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 08:20:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13A9AC369D7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 08:22:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cMMHzQbc3DOKOLQmdiREJuJO+OIOF3BKkz8ey4xgZi8=; b=Nz8JsUE0N6b3l84gpU7PPV1kmq
-	82nAGi8812+9ph85GW1wSoty7GG7pauUPRL3x5xPc1UVu4htVzXcgBqAwyy64TjG9nGcgoxiLdaEg
-	TYXxjyOUIJIp8jvAJCm6K3Jf+sb/NlxIqWzke+92epKORKZl9C0CTGkhqeLYy8qCmvlewblQacTKD
-	l5o48IORU9Z+LHfnHVL1GPXoXaYjO9Wbz5Y4X4/68WgNMWRObqxmwIklDcAsR5hm7urW0O606SvtY
-	YqJEFTXipo0/EKtYnCRbY+VAaA9AF1jLm1OZFj7zp1ibpLKrb9l73+jmYniamUdy9D/KQ+CkE54LJ
-	j4hsFhzQ==;
+	bh=64RdGmRYqp/sSMpHw4BhOUZBLE4NLGggS7HwZ9PNQrg=; b=XUmukBDb0ftsAZ6qLVuaYCf+g4
+	lktOGrWo075K2hGuf7yR+Ijnygoy+I1XqzWG1dJ/Jhr6gClD+0vuGA3U3iCWTBMn1rL59lEnnzuo8
+	oNARjHBMe4Dz2FOj30mQMO904HsWfnMhYhvF0z0JeghfbdTyisMXbKYPhR9MxYmUbgIoNa8iN4uGz
+	rDiaG1ExST0thnDNbmkMrg2ujWpOQD5tzk2hyDiq2hsKpIXkjxzVlhK3kX+cogGFMQ6CU4kkjkPba
+	zHFfpu7xeeOIqCLawCKNgxRA207By2cXAGrX6ZHm8k1Hmnz1aStopGxlMRqM7UUCTlmKavggkrzts
+	mxbBetBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7VLC-00000009hQ7-3Sx3;
-	Wed, 23 Apr 2025 08:20:22 +0000
-Received: from mail-yw1-x1134.google.com ([2607:f8b0:4864:20::1134])
+	id 1u7VNA-00000009iEm-0mLp;
+	Wed, 23 Apr 2025 08:22:24 +0000
+Received: from mail-bn8nam04on2060d.outbound.protection.outlook.com ([2a01:111:f403:2408::60d] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7UdU-00000009XaA-0GRK
+	id 1u7Une-00000009YsU-1nwq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 07:35:13 +0000
-Received: by mail-yw1-x1134.google.com with SMTP id 00721157ae682-7082ce1e47cso1365547b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 00:35:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745393711; x=1745998511; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=cMMHzQbc3DOKOLQmdiREJuJO+OIOF3BKkz8ey4xgZi8=;
-        b=z3zKkAYKm1/wFY8GNxG8nKwekuFqRnnNTyuYkpbIIrDeVkeUUqIVwOsqwyDhmmSFQ2
-         q3pAbCK6G6viTTnuGp3eqQKMjC3/e5Ss+MbPuZySX503LhcCiL7yZ4/USBEJT6SHhdOr
-         YBKzZYFWKjZk2g1zF6YdIu8QTbAio8Zc5VDa9ocJBxS3Srm5EQsjC8WzUkgjuD4lUit3
-         Wm40ecD8EvdWw/z2AWAFeQSty8945F4BwnwfHhKsOh/LGZWZDY86wBUyzzd1C8ErWQ1k
-         OIHaDEluTjTkjU+ZZGlVHbrZY/je1vuDe5gy++7Cx034bqpXeiKXcUFNgapi+UsR5M8u
-         F1ZA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745393711; x=1745998511;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=cMMHzQbc3DOKOLQmdiREJuJO+OIOF3BKkz8ey4xgZi8=;
-        b=GuJ76Fvuf6iHgNrno5XxlWLzDIBagc+SCryvomhzt8Q7yoJP9X4vTI+H/Bg3HG6k9p
-         ddYWdWqgYHEwMulN0ecq46ncVnI2EZqCbcA0eyrue3EEox0eSn0K/CyyIExGXr2+4wR2
-         HucoB76gBL16UBVhzU6Iwlwrx1xG82mHpQoe6HXsqyEClICLvdj+19muiZ7WET73n6R9
-         C43c8KNOJIPSYwNP6/jhRr2A2Wy/ImT2yMw9s/497SR6DviS5swntCNe+fXna5Qt9BGm
-         Zv1fKGpeQaWO1NQSz9M55lOqB1HV8g2+c9Br901/JvKjMC1nX0yQNbMWCp1B3mMMOUQK
-         JY6g==
-X-Forwarded-Encrypted: i=1; AJvYcCV/5EFGN0sWsOj9wCxPAcdq7dHN32aNXHR1FEMBogX/EEtED+hqNoKF1joLaqB0Z9c3asoYBSnJLw4rvW7BXUHk@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTVgWsRJM9JP6ov1HWVDEhYMWdyn4/7cKdnkZpVuLSHmPNQVyg
-	1XUwxtMlIm6FS4pAOeLlRGd3MkchvcSVhBA2u9VVFhUaNgFNP2PU7/c6a0Ljj/h/EH0YC9mCTZu
-	YwPhORZE03z65E0m59cYlHwxUpwVNXP3mHCuSPg==
-X-Gm-Gg: ASbGncu6ojls2bTg+RzU/JP9ZNSB1o0XoHw9XQT6VuXuhPav3slHHKfpRosovKmZ388
-	BQmpMy713eosXjJ9ATrbxUwERYqKvBvCuqRX5OvoKSiaLzUzIm1r9Da+J55B3ipE6cggPoXVrmk
-	U6LCedgZSQj/GIWmzmjQacZQ==
-X-Google-Smtp-Source: AGHT+IHHAtEFUZLhcbruHxpEpPorFQEnsYo12C8JxLrs3aH6bpX9x1WDRFduNm79Hualt6eVxiRRgQbVsZLz+ZRze24=
-X-Received: by 2002:a05:690c:25c8:b0:702:d54:45be with SMTP id
- 00721157ae682-706cce101cfmr246843717b3.35.1745393710883; Wed, 23 Apr 2025
- 00:35:10 -0700 (PDT)
+	Wed, 23 Apr 2025 07:45:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wcWRp57vlpMlePaDtLR/wmCAJ8vOZCxQ4Oq7IkdBOeWxnRpS+T4HLkNBazVU8mcVVND3MGKV+xWgVRL3xQ2FzqFwX5M0BCwmC31qN54bp5eoSa4APgYVVQV4kg5NmFZcQuKEmAXY13V9xJwXw58V7cf3QnRW/XNZI2s7RP5vg8A8OCvzMOTrLU1Jf/mFyyrgrbLCmQu8q+1iL1KyeVCmQI2fb1CBlllY3oyDgwi6wCzFrJhAQ3uskkQgdTJcQhylOy/DAvQfCEmmrSjOoc70PitnlAe/O0/bY2jwkhRPpf6pxr7KV9XO3Jgijh2Hs2h1gH9VunRnkpq6jecGPlOthw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=64RdGmRYqp/sSMpHw4BhOUZBLE4NLGggS7HwZ9PNQrg=;
+ b=W1UNBOOnfG8ktjKeVkAb69WYCwiZcVfCod4Crs0anWuJLgtcZelPOLPggWo5C5YGYIxsrRJGbq+EV4Me53FNvCXdd8oYWw/1gUl3dTZ9YqKzYDBWycKBxyKTjdGYh+6KBuoOeYRpyliz9ezuoPdu5DSrNtVxHa7SIxNq75hqomGvFhXGPTGrbTw0w4D2hy+WKo7j6t9IuyGZ57+daWPEUcSCknvYVbPmvZ317wbk2stS5iyLHoH0EbnCqDTH9pb8kVH2mZyqUzKpudOj3VUCjrMrRlDD8RWLDOv+2ZCK8GniJ5N/utZsRJXr9niOBFzHFzEYUQ8XSaycK9hbGU/Lmg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=amd.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=64RdGmRYqp/sSMpHw4BhOUZBLE4NLGggS7HwZ9PNQrg=;
+ b=rkPMDIwqbQY08ICHSECRkeWhLnP8GfXEwQ7Bm0E6MIaXV5IoWmAj7+DgUZpYE/8j6PXr1TVGVHDAbu1A55oQCGajWfbSO8Ujt/8PuOTuZ1Asit7PklSVlowfSM6QBs9OeZZ4sWeCgnB/vlnzGK6VBrcqblLMqScoQpc1drhhthhUwQKosKo3Xg94I10zhPq2kXEDcd8OLPz3d/bjc1ixCf4gQ9mr/rPN7F471RmJxJ9HOVVsDZPyPrYYsoW5oPQi0KRCBdSKw6CHE3ojbuKsZSmT9KD5k7+RJjHZ3YAELtkq9WQsrnMkHNo8nFHHphbApp7w13nn1VKUgSH6gnoPhg==
+Received: from BL1PR13CA0160.namprd13.prod.outlook.com (2603:10b6:208:2bd::15)
+ by IA1PR12MB9466.namprd12.prod.outlook.com (2603:10b6:208:595::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.36; Wed, 23 Apr
+ 2025 07:45:36 +0000
+Received: from BL02EPF0002992E.namprd02.prod.outlook.com
+ (2603:10b6:208:2bd:cafe::3) by BL1PR13CA0160.outlook.office365.com
+ (2603:10b6:208:2bd::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.23 via Frontend Transport; Wed,
+ 23 Apr 2025 07:45:36 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ BL02EPF0002992E.mail.protection.outlook.com (10.167.249.59) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8655.12 via Frontend Transport; Wed, 23 Apr 2025 07:45:36 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 23 Apr
+ 2025 00:45:18 -0700
+Received: from drhqmail203.nvidia.com (10.126.190.182) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14; Wed, 23 Apr 2025 00:45:18 -0700
+Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com
+ (10.126.190.182) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Wed, 23 Apr 2025 00:45:16 -0700
+Date: Wed, 23 Apr 2025 00:45:14 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Vasant Hegde <vasant.hegde@amd.com>
+CC: <jgg@nvidia.com>, <kevin.tian@intel.com>, <corbet@lwn.net>,
+	<will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<thierry.reding@gmail.com>, <vdumpa@nvidia.com>, <jonathanh@nvidia.com>,
+	<shuah@kernel.org>, <praan@google.com>, <nathan@kernel.org>,
+	<peterz@infradead.org>, <yi.l.liu@intel.com>, <jsnitsel@redhat.com>,
+	<mshavit@google.com>, <zhangzekun11@huawei.com>, <iommu@lists.linux.dev>,
+	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
+	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>
+Subject: Re: [PATCH v1 00/16] iommufd: Add vIOMMU infrastructure (Part-4
+ vCMDQ)
+Message-ID: <aAiaiomYczA22xik@Asurada-Nvidia>
+References: <cover.1744353300.git.nicolinc@nvidia.com>
+ <a0c248f0-71ff-4477-98ec-1bbd52eda566@amd.com>
 MIME-Version: 1.0
-References: <20250417142513.312939-1-ulf.hansson@linaro.org>
- <20250417142513.312939-5-ulf.hansson@linaro.org> <aAehkpXAxh3bI0WT@linaro.org>
-In-Reply-To: <aAehkpXAxh3bI0WT@linaro.org>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Wed, 23 Apr 2025 09:34:34 +0200
-X-Gm-Features: ATxdqUEyxZ9BnVBWNRMOFzP2PaM9YMbsKb03WnT7UGjwnB1ecsv-8AkyK7T40lE
-Message-ID: <CAPDyKFqftAzxhoSo=A7Eu_0ueK6_BgMs+-mCZy=jQdm9aXQMog@mail.gmail.com>
-Subject: Re: [PATCH 04/11] pmdomain: core: Add a bus and a driver for genpd providers
-To: Abel Vesa <abel.vesa@linaro.org>
-Cc: Saravana Kannan <saravanak@google.com>, Stephen Boyd <sboyd@kernel.org>, linux-pm@vger.kernel.org, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Michael Grzeschik <m.grzeschik@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, 
-	Devarsh Thakkar <devarsht@lewv0571a.ent.ti.com>, Peng Fan <peng.fan@oss.nxp.com>, 
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Johan Hovold <johan@kernel.org>, 
-	Maulik Shah <maulik.shah@oss.qualcomm.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <a0c248f0-71ff-4477-98ec-1bbd52eda566@amd.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL02EPF0002992E:EE_|IA1PR12MB9466:EE_
+X-MS-Office365-Filtering-Correlation-Id: 92e077c5-227a-4d3c-eacb-08dd823ad5ff
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|7416014|376014|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ptrrVyCrjwBxyOQgE3gVxguJHyGHuJObClihX3QFBca7TAjHnd8GRLtiCfHF?=
+ =?us-ascii?Q?SLCMxNfk3JxnnKydWk8ICZK3vFEXhL5riYj8EpJkXC2BesKrAbm2AHhnbr6C?=
+ =?us-ascii?Q?2FqjEyO+3SMq0EjfXpfOtGsGVVzyAjfeuT3P9OB15bBKeoeOfFxnESEJGM4W?=
+ =?us-ascii?Q?1Z+PSc9Bm2oHJVn29Y5Vy2JL0Dhuo9Dfk9fQr9v77uCDB4yPFaWZdcoj0Rpk?=
+ =?us-ascii?Q?L3ZtlgxCbc3o5En+4Cq7vFKWSF/KgRa2rE5/SAkWyUvK5srbaukpTj47mZKL?=
+ =?us-ascii?Q?B3LGdO8kk8JbCjBY33LDXxJiu9DJiiwUo3+rTpxF384XitDjv2plKUwYIxXR?=
+ =?us-ascii?Q?/WM9/Iir0LKwb/uWUUr/MCsErSJRCZJL6TqI7UDv5E8ouKRZu83vpn0kpFKz?=
+ =?us-ascii?Q?yvtoe2hrIxS4GJH3PtlAeBGUkA4pFzkB/3N2pXrrUI2P3u24I+pHCQzmzK9M?=
+ =?us-ascii?Q?OKpLhUXrwaivy1J5Ka/wW9o+AWEEq0az05EI+X/B+2w5FxJoS+s+trkMSARK?=
+ =?us-ascii?Q?5pC4MbrG93KJFD1yR6sPZ1LbEE9u1hmJ3djEzW1Acbtnall1lGY4grtRbQUo?=
+ =?us-ascii?Q?OiFdvlbTXWVtbqMWGSMt9TesWV4wfM9SuJrvLu6kXWzZ3ECRO+EBfcJ0g/VF?=
+ =?us-ascii?Q?b4LibpvV+L+89QZj8R4YdqzaqGggZ6cSXAFDl4/bwsnZDKz3PGbyMOODTIqn?=
+ =?us-ascii?Q?hVLCtyAglxVU3KBb4AqaBCn8tUSi8ICUkUKL2NhR3veN9ll/p3fQ+M/tZpgx?=
+ =?us-ascii?Q?OIoPUAnj+xZZCakH9Cdtc1Cqfz5xyxMCakgOiaVN+IPj74keH0+1tmodfI9C?=
+ =?us-ascii?Q?o1+U8LHoA147mnq9p7tkt6elGiYAj34+UYn/crWDdsN8MkVmrO2/FmMSAX6Z?=
+ =?us-ascii?Q?YQw+S1VF1XdJKIE2qpYovxwgXdPLNbX+R7M/04T0n1+NZ1avq8FO8T/BfEnv?=
+ =?us-ascii?Q?s0VnBzd4s7NG3IKIEYNJjnCsMs4GH9ylWlJpK+McPzOyo6XXa3c4WLAr58n/?=
+ =?us-ascii?Q?Zyu7olkQ/nxfe4RnhepugXFq9qugkX5vmi812fBR7O/iNXqRorFAIYifrvJy?=
+ =?us-ascii?Q?SLRMErL2SAFK1n5jjVQLX7ydQrierS64iO+o2am7PHNhGfPm2OPy+js9/m2I?=
+ =?us-ascii?Q?htENRTfWZgYlmYXoIL1zyIpgl+DrE0QHRGsovsXXP4Du0BsslzLYHt1IZ17G?=
+ =?us-ascii?Q?n22yuNM4cNL8jjT2VNq5hcVeA05xGvh2meLPGH4VeKDcFYqqg0d6ry8MHn4P?=
+ =?us-ascii?Q?JnC9kDc0wAHlkVqq3qo8z7P4ChfD1PrKn9dYMkWbnmjc6YduN4OUmpH1P9ww?=
+ =?us-ascii?Q?nZMbqWTwinilyH4Edc/doJioOoHGs5a8x3OYHq5OguGGw8tGZKIphsypxzX6?=
+ =?us-ascii?Q?dH5D3cq53sqqKXyHRjDXX1aY8AmBT/dPm49VMGqSPThDmeVkM31npDeG1q9I?=
+ =?us-ascii?Q?tXqZCw2oxO8Fl0nzbDlssSTF/DQU0VWMFcq1jaQN+NshQfHUwt0a2kAyfFow?=
+ =?us-ascii?Q?s39sAT2CVNCEgqWmwZOWbnYcD6FOAKs1eRMu?=
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(7416014)(376014)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Apr 2025 07:45:36.4526
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 92e077c5-227a-4d3c-eacb-08dd823ad5ff
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL02EPF0002992E.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB9466
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_003512_104992_F87A3A1C 
-X-CRM114-Status: GOOD (  30.09  )
+X-CRM114-CacheID: sfid-20250423_004542_489589_33310FBC 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,89 +158,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 22 Apr 2025 at 16:03, Abel Vesa <abel.vesa@linaro.org> wrote:
->
-> On 25-04-17 16:25:02, Ulf Hansson wrote:
-> > When we create a genpd via pm_genpd_init() we are initializing a
-> > corresponding struct device for it, but we don't add the device to any
-> > bus_type. It has not really been needed as the device is used as cookie to
-> > help us manage OPP tables.
-> >
-> > However, to prepare to make better use of the device let's add a new genpd
-> > provider bus_type and a corresponding genpd provider driver. Subsequent
-> > changes will make use of this.
-> >
-> > Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
-> > ---
-> >  drivers/pmdomain/core.c | 89 ++++++++++++++++++++++++++++++++++++++++-
-> >  1 file changed, 88 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
-> > index 035b65563947..da51a61a974c 100644
-> > --- a/drivers/pmdomain/core.c
-> > +++ b/drivers/pmdomain/core.c
-> > @@ -27,6 +27,11 @@
-> >  /* Provides a unique ID for each genpd device */
-> >  static DEFINE_IDA(genpd_ida);
-> >
-> > +/* The parent for genpd_provider devices. */
-> > +static struct device genpd_provider_bus = {
-> > +     .init_name = "genpd_provider",
-> > +};
-> > +
-> >  #define GENPD_RETRY_MAX_MS   250             /* Approximate */
-> >
-> >  #define GENPD_DEV_CALLBACK(genpd, type, callback, dev)               \
-> > @@ -44,6 +49,14 @@ static DEFINE_IDA(genpd_ida);
-> >  static LIST_HEAD(gpd_list);
-> >  static DEFINE_MUTEX(gpd_list_lock);
-> >
-> > +#define to_genpd_provider_drv(d) container_of(d, struct genpd_provider_drv, drv)
-> > +
-> > +struct genpd_provider_drv {
->
-> I'd replace "provider" substring and expand drv to driver everywhere.
->
-> I think that's more in line with all other subsystems.
+On Wed, Apr 23, 2025 at 12:58:19PM +0530, Vasant Hegde wrote:
+> On 4/11/2025 12:07 PM, Nicolin Chen wrote:
+> > The vIOMMU object is designed to represent a slice of an IOMMU HW for its
+> > virtualization features shared with or passed to user space (a VM mostly)
+> > in a way of HW acceleration. This extended the HWPT-based design for more
+> > advanced virtualization feature.
+> > 
+> > A vCMDQ introduced by this series as a part of the vIOMMU infrastructure
+> > represents a HW supported queue/buffer for VM to use exclusively, e.g.
+> >   - NVIDIA's virtual command queue
+> >   - AMD vIOMMU's command buffer
+> 
+> I assume we can pass multiple buffer details (like GPA, size) from guest to
+> hypervisor. Is that correct understanding?
 
-I understand your point, but it's not that straight-forward to find a
-proper name this time.
+Yes. The NVIDIA model passes through a Virtual-Interface to a VM,
+and the VM can allocate and map multiple command queues (buffers)
+to the V-Interface, by providing each command queue info in:
 
-We already have another bus_type for genpd consumer devices (virtual
-devices created when attaching a device to one of its multiple PM
-domains). That bus is already named "genpd".
++struct iommu_vcmdq_tegra241_cmdqv {
++	__u32 vcmdq_id;
++	__u32 vcmdq_log2size;		// size
++	__aligned_u64 vcmdq_base;	// GPA
+ };
 
->
-> > +     struct device_driver drv;
-> > +     int (*probe)(struct device *dev);
-> > +     void (*remove)(struct device *dev);
-> > +};
-> > +
-> >  struct genpd_lock_ops {
-> >       void (*lock)(struct generic_pm_domain *genpd);
-> >       void (*lock_nested)(struct generic_pm_domain *genpd, int depth);
-> > @@ -2225,6 +2238,26 @@ static int genpd_set_default_power_state(struct generic_pm_domain *genpd)
-> >       return 0;
-> >  }
-> >
-> > +static int genpd_provider_bus_probe(struct device *dev)
->
-> ... and then here drop the "provider" as well.
-
-For the reason I pointed out above, I decided to use "provider" in the
-bus/driver's functions names to have a clear difference from the
-"consumer" genpd bus.
-
-I am worried that if we don't use "provider" we will mix up things
-with the existing genpd bus. Maybe there is a better option?
-
->
-> Other than that, LGTM:
->
-> Reviewed-by: Abel Vesa <abel.vesa@linaro.org>
-
-Thanks for reviewing!
-
-Kind regards
-Uffe
+Thanks
+Nicolin
 
