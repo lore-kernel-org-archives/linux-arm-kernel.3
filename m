@@ -4,83 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB051C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 18:36:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0A00C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 18:38:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7HswGLqiJ3CaSj6uXkqJZl8ULEeu3eLu1BMBLkbZbL8=; b=nulbi7jEBzD63gBMQOY0ST7RUy
-	nxeQQAumAuVR0k3vV61EfbUzDjQMIfHEnWbsSz2gTpcZCwJz8/MOtN/0ZPonrsFWfPYlJJeIcUX0e
-	lNKUim632t8R5zn2bqpEXMm6Y5F+BJfemI8Tn51xiS7k33Y582dZXsckOrG5qgsWoDDCvSDFk3B2w
-	pKQvabQoctHFM6vaNpG/gkmQ9em6TY9egTNGpLUxwZSe6huFwX9M38Gi7HrGNJJmwF27xpirw0/xt
-	BkjiJ5Mp0ZSxPsgw2IqvS96jD4YVLUqgMMN6xEB7NYgKttrNsJlH3WMGUNxXR0oYTHVV4zXaHGpNs
-	yWwrkBmw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EFWPuqQMAL7NxNHoKz6mQkM5FY+ToS1fRX2hOlbxr9M=; b=Jk0bmmfqDkZcdKZ306gossXNV/
+	Xbfai2TEcoG9HXqDoRvAZUKEdu5WYF4p9jzbPSgONVtdM9OUjk53VKD9F/JbzqBxzZMCbvTz2nc/T
+	JTiTJ4Cha1eYdN2wr8N9RdjyFL3vEs6HmaCvWFA8/YCmTsB0scNbjM8FH2CGio+APsAd2nU46dhWi
+	RIIPyXhJYnQ2ZZL1GWGADxgNixQHiWx3M4opLxJm4E6TV+6VUgikT85eoj0xI7/2PiQwDeIHDLEis
+	F543YMPebRgXsrlZYJP62GSVQlReLgD57ZJh3TxZOqUMPuca39YgzzWsxA7ok9vNT1B6zLOS0/tHS
+	v6lfUY1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7exc-0000000BbBS-3UmP;
-	Wed, 23 Apr 2025 18:36:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u7ezg-0000000BbYD-2kOq;
+	Wed, 23 Apr 2025 18:38:48 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7eJn-0000000BQum-03ON
+	id 1u7eWF-0000000BU7p-2tn5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 17:55:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8CDEB438E1;
-	Wed, 23 Apr 2025 17:55:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id EA74DC4CEE2;
-	Wed, 23 Apr 2025 17:55:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745430930;
-	bh=/LVwP2J7phmJo5xUbPuYBsq73NOkQB14cAElXzkBoks=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=phSeOFmNEoUyqaK9vn5Kfla9WgE6envapLq9rZ7dT7yWpDJRt10Hip4/mrnX1eYWt
-	 omajTVlNqQIi/7tkbUbkeJ5Hqsj2WBseHU+/duUvNSVw7nwtLuxkLqfs8sA63AqHy1
-	 5r1siANzs4M33++KsgKnzYcpyskCkJml2DAxHXsLIRdQNK78RKYFFjHR7Y/Zctn0SV
-	 5VlZDIj8oKswAyD+er/HA+Fzv8IF9Cg9/K9wTXapzp1g2xKuPd+aTmEV5dAudGoVSv
-	 f0KKcRLiuzjKh6r3y5BIUNuHa/ZmqVp/3350IKMZzwZHH4kRL8mlmZX3i8tTje0axx
-	 M5Jp8TTmJ877Q==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D86CFC369CB;
-	Wed, 23 Apr 2025 17:55:29 +0000 (UTC)
-From: Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>
-Subject: [PATCH v3 0/3] Apple PMIC NVMEM cell driver (Formerly: Generic
- SPMI NVMEM cell driver)
-Date: Wed, 23 Apr 2025 19:55:12 +0200
-Message-Id: <20250423-spmi-nvmem-v3-0-2985aa722ddc@gmail.com>
+	Wed, 23 Apr 2025 18:08:25 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53NI8ATV1615961
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 23 Apr 2025 13:08:10 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1745431690;
+	bh=EFWPuqQMAL7NxNHoKz6mQkM5FY+ToS1fRX2hOlbxr9M=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=etJnk9LL5YyulNfARr1RPpEstaU5mXL0BY4HyWpMQ0Gf47Ckr+BDOp/N94jB/ydmO
+	 ugPHD9U1x8CCzjCg3DnCM7mcrF8MhJ/7/2c4LIGltEzVM+jJRoD3UW7d57RmnHaXVJ
+	 k3PysXHTXqvBiBCFZ3BfnwQkf08+VkB4hcdtvUrY=
+Received: from DFLE110.ent.ti.com (dfle110.ent.ti.com [10.64.6.31])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53NI8AMr116997
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Wed, 23 Apr 2025 13:08:10 -0500
+Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE110.ent.ti.com
+ (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 23
+ Apr 2025 13:08:09 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Wed, 23 Apr 2025 13:08:09 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53NI89wp126662;
+	Wed, 23 Apr 2025 13:08:09 -0500
+Date: Wed, 23 Apr 2025 13:08:09 -0500
+From: Nishanth Menon <nm@ti.com>
+To: Judith Mendez <jm@ti.com>, Josua Mayer <josua@solid-run.com>,
+        "Sverdlin,
+ Alexander" <alexander.sverdlin@siemens.com>
+CC: Ulf Hansson <ulf.hansson@linaro.org>,
+        Adrian Hunter
+	<adrian.hunter@intel.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>,
+        Tero Kristo <kristo@kernel.org>, Josua Mayer
+	<josua@solid-run.com>,
+        <linux-mmc@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        Francesco Dolcini
+	<francesco@dolcini.it>,
+        Hiago De Franco <hiagofranco@gmail.com>, Moteen Shah
+	<m-shah@ti.com>,
+        <stable@vger.kernel.org>
+Subject: Re: [PATCH RESEND v3 0/3] Add ti,suppress-v1p8-ena
+Message-ID: <20250423180809.l3l6sfbwquaaazar@shrank>
+References: <20250422220512.297396-1-jm@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAIApCWgC/23MQQqDMBCF4avIrJuSTIyGrnqP0oWmow40KkkJL
- eLdG11Z6PI9+P4FIgWmCJdigUCJI09jHvpUgBuasSfBj7wBJRpZKiPi7FmMyZMXJG2ljVaVqg1
- kMAfq+L3Hbve8B46vKXz2dlLb+zeTlJACUVZ1S2i06669b/h5dpOHLZPwSOsfipm21lqjSJdN1
- x7puq5fOHbWGN8AAAA=
-X-Change-ID: 20250415-spmi-nvmem-e08635316175
-To: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, 
- Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Sasha Finkelstein <fnkl.kernel@gmail.com>, Hector Martin <marcan@marcan.st>, 
- Nick Chan <towinchenmi@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1745430928; l=1822;
- i=fnkl.kernel@gmail.com; s=20241124; h=from:subject:message-id;
- bh=/LVwP2J7phmJo5xUbPuYBsq73NOkQB14cAElXzkBoks=;
- b=DYImOHdO3m2rCslcCrmKq+Ure36xtXDMfMi0nYTg6CXkPtjKnUVyEChYMW8gOT5qVYqXuThMd
- Ci910bPQ5VpCr/YdCgRCnRTDLNFysECw1DxHkbLO6gFHVJK4qBZ/w7M
-X-Developer-Key: i=fnkl.kernel@gmail.com; a=ed25519;
- pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
-X-Endpoint-Received: by B4 Relay for fnkl.kernel@gmail.com/20241124 with
- auth_id=283
-X-Original-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250422220512.297396-1-jm@ti.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_105531_105321_3CF96267 
-X-CRM114-Status: GOOD (  11.58  )
+X-CRM114-CacheID: sfid-20250423_110823_836186_2AE9D728 
+X-CRM114-Status: GOOD (  20.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,56 +98,43 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: fnkl.kernel@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi.
+On 17:05-20250422, Judith Mendez wrote:
+> Resend patch series to fix cc list
+> 
+> There are MMC boot failures seen with V1P8_SIGNAL_ENA on Kingston eMMC
+> and Microcenter/Patriot SD cards on Sitara K3 boards due to the HS200
+> initialization sequence involving V1P8_SIGNAL_ENA. Since V1P8_SIGNAL_ENA
+> is optional for eMMC, do not set V1P8_SIGNAL_ENA by default for eMMC.
+> For SD cards we shall parse DT for ti,suppress-v1p8-ena property to
+> determine whether to suppress V1P8_SIGNAL_ENA. Add new ti,suppress-v1p8-ena
+> to am62x, am62ax, and am62px SoC dtsi files since there is no internal LDO
+> tied to sdhci1 interface so V1P8_SIGNAL_ENA only affects timing.
+> 
+> This fix was previously merged in the kernel, but was reverted due
+> to the "heuristics for enabling the quirk"[0]. This issue is adressed
+> in this patch series by adding optional ti,suppress-v1p8-ena DT property
+> which determines whether to apply the quirk for SD.
+[...]
+> 
+> [0] https://lore.kernel.org/linux-mmc/20250127-am654-mmc-regression-v2-1-9bb39fb12810@solid-run.com/
 
-This patch series adds a driver for exposing a set of registers
-as NVMEM cells on a SPMI-attached PMIC on Apple ARM platforms.
-Those are used to store the RTC offset and to communicate platform
-power state between the OS and boot firmware.
+Why cant we use compatible to enable the quirk instead of blindly
+enabling for all IPs including ones that have onchip LDOs? That was the
+reason it failed in the first place for am64x.
 
-The NVMEM cell consumer drivers will be sent in a further series.
+This is very much like a quirk that seems to go hand-in-hand with the
+compatible for am62-sdhci ?
 
-Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
----
-Changes in v3:
-- No longer try to make it generic, use for the 3 relevant PMICs only
-- Link to v2: https://lore.kernel.org/r/20250417-spmi-nvmem-v2-0-b88851e34afb@gmail.com
+Is it worth exploring that option in the driver thread? from where I
+stand, this sounds very much like an issue that AM62x IP has, and should
+be handled by the driver instead of punting to dts to select where to
+use and not to use the quirk.
 
-Changes in v2:
-- s/pmu/pmic/
-- Sort dts in unit-order, instead of t600x-unit-order
-- Link to v1: https://lore.kernel.org/r/20250415-spmi-nvmem-v1-0-22067be253cf@gmail.com
-
----
-Hector Martin (2):
-      nvmem: Add apple-spmi-nvmem driver
-      arm64: dts: apple: Add PMIC NVMEM
-
-Sasha Finkelstein (1):
-      dt-bindings: spmi: Add Apple SPMI NVMEM
-
- .../bindings/nvmem/apple,spmi-nvmem.yaml           | 54 +++++++++++++++++++
- MAINTAINERS                                        |  2 +
- arch/arm64/boot/dts/apple/t6001.dtsi               |  1 +
- arch/arm64/boot/dts/apple/t6002.dtsi               |  1 +
- arch/arm64/boot/dts/apple/t600x-die0.dtsi          | 50 +++++++++++++++++
- arch/arm64/boot/dts/apple/t8103.dtsi               | 50 +++++++++++++++++
- arch/arm64/boot/dts/apple/t8112.dtsi               | 50 +++++++++++++++++
- drivers/nvmem/Kconfig                              | 13 +++++
- drivers/nvmem/Makefile                             |  2 +
- drivers/nvmem/apple-spmi-nvmem.c                   | 62 ++++++++++++++++++++++
- 10 files changed, 285 insertions(+)
----
-base-commit: 2e0e70c95077172b29a5b13716c4b159d578e82c
-change-id: 20250415-spmi-nvmem-e08635316175
-
-Best regards,
 -- 
-Sasha Finkelstein <fnkl.kernel@gmail.com>
-
-
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
 
