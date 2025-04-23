@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10298C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 09:57:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52198C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 09:59:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dGYSU8yspLY+yzvc+cdwfSs2SpB2H9RhDGDPSqaDb24=; b=EzrzREuz33jjUTtdgkCZV1Ank8
-	hSSufM479LkGePQQ8j8WyqzOYAVxGsBBApT8UsgjbHhKq1iq13MT7LbF6oD4lvcviNImNEf1OjjVy
-	5AYhho76Va26qL/KahRJOXagjjUemnq2sTQKXKtQrvVVK17rK60kAV1pK+sn4tUvPVX1L/nF0oZh4
-	t45WjF6wNLkCAz9R/E1sede4NLT//IaWU1jbOtM5qq6H27k4TXZx+lKnLL1aQIKLrDPuJqg+2EmsN
-	8Nat/I6raRfOijI0rGyvXB0kepWJAAJG0jKCrVltorcojwbrtr6xs5+ovvebX9pxXHbsUBICMmhlu
-	FaK9NCVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZzoNnU6a2yxot9Cx3CONPS/k4Nfm1sUyrGPDWYEUCbg=; b=ID/9eP3hjsvjBWw3Wof+B6P7kJ
+	fQzXTJ7ddf+y8VNlVFCTzlMvbP4eQsCLCLgUmztev+YG03nE9Zt1/mQKnZWJteTooIrpn6YonnuyM
+	hzDrNgUGHRjp/cEMEHjdyJfWt6umkgqN02ywR3EE4MP5IvwZP3svCGBCGOfJYBnKcA3Y4WQb6Ry1G
+	TmHqHBPBR2cnnttrBI1bR97xqrezG7dMCDZH9OC7WFSS2dTOpa6SWIsrtAUdWkNq49EpYgIKbGac6
+	olREsd5L4kWf3Jjw8W2r+aMqivNBPCgIxxevuM/giVSCEKAODYnKJ0eVdtnXTsx2oPLTNZbl5On68
+	rSdETr7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7WrG-0000000A5Fp-01Ml;
-	Wed, 23 Apr 2025 09:57:34 +0000
-Received: from mail-m15571.qiye.163.com ([101.71.155.71])
+	id 1u7WtD-0000000A5VY-2hKU;
+	Wed, 23 Apr 2025 09:59:35 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Vqn-00000009pZW-2kHH;
-	Wed, 23 Apr 2025 08:53:03 +0000
-Received: from [172.16.12.129] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 12d9c1966;
-	Wed, 23 Apr 2025 16:52:55 +0800 (GMT+08:00)
-Message-ID: <576e87c1-5c4c-bcc4-4d4f-6cf76bb1c591@rock-chips.com>
-Date: Wed, 23 Apr 2025 16:52:54 +0800
+	id 1u7Vr4-00000009pbU-1npV;
+	Wed, 23 Apr 2025 08:53:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1745398396;
+	bh=KD9Cl3NthrDkg28+cyb3nHO/tjJn3qP+nuv9lHaS+YE=;
+	h=From:Date:Subject:To:Cc:From;
+	b=Z6ssTRoySSu3OVlfvIDl9j04yp9RSXUNLJboOF/eMsbAibPM1LQuA+fDT+Q2V4Zod
+	 q4M5sddll854+FuVbxLoj+Xv+PtOPQ3uC6cUCy830q33HFbAHCZixzdCsaHryibEo6
+	 sPeokSI/13wnOJjcHrbeuGy6DUPnM+lPre68C+/JZLSywXE3Nfm6Yh09hIkadQeMqe
+	 Y9ZviPcZKlAQ3aPinwbetw1GLwEaXhNnti433ayGTCP5L0yjyDfxARkoMHP2s2WVVp
+	 FHlLHoxznnt/c/rnAJWKsEIZVM++uc8udHSVL6fn19/R/VuzyT3nnuQhXaMLaQ+Vif
+	 U75JlmtAGZX6A==
+Received: from apertis-1.home (2a01cb0892F2D600c8f85cf092d4Af51.ipv6.abo.wanadoo.fr [IPv6:2a01:cb08:92f2:d600:c8f8:5cf0:92d4:af51])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: jmassot)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 905DC17E0CAB;
+	Wed, 23 Apr 2025 10:53:15 +0200 (CEST)
+From: Julien Massot <julien.massot@collabora.com>
+Date: Wed, 23 Apr 2025 10:53:13 +0200
+Subject: [PATCH v2] arm64: dts: mediatek: mt8395-nio-12l: Enable Audio DSP
+ and sound card
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.15.1
-Cc: shawn.lin@rock-chips.com, Ulf Hansson <ulf.hansson@linaro.org>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Detlev Casanova <detlev.casanova@collabora.com>, kernel@collabora.com,
- linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mmc@vger.kernel.org, Heiko Stuebner <heiko@sntech.de>,
- Elaine Zhang <zhangqing@rock-chips.com>,
- Adrian Hunter <adrian.hunter@intel.com>,
- Finley Xiao <finley.xiao@rock-chips.com>
-Subject: Re: [PATCH v3] mmc: sdhci-of-dwcmshc: add PD workaround on RK3576
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-References: <20250423-rk3576-emmc-fix-v3-1-0bf80e29967f@collabora.com>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <20250423-rk3576-emmc-fix-v3-1-0bf80e29967f@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGUpMHVZPQkgeQ0NDTR1DTktWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-X-HM-Tid: 0a9661d9a34909cckunm12d9c1966
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PiI6Eio4MjJRHk5DH00sIk4f
-	FClPCkJVSlVKTE9OSEJDSExNQ0NDVTMWGhIXVQgTGgwVVRcSFTsJFBgQVhgTEgsIVRgUFkVZV1kS
-	C1lBWU5DVUlJVUxVSkpPWVdZCAFZQU1ITUs3Bg++
-DKIM-Signature: a=rsa-sha256;
-	b=RnC7Hd5weLU8Y+dO7lw+qNXo5d9KvBzLVb+aVUMNqoaN0NsUAhQhIlmqyF0FTczFmkeyCtd9GFGHnNQlp/ayHDXVppu6C5/Ng/9BdEDorhQnw4roGSuN5xPaACTrfGi875qqzCKPXFvG2QgjGRSBVA2m4kGQfBaWB0RWl0HrU8Y=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=dGYSU8yspLY+yzvc+cdwfSs2SpB2H9RhDGDPSqaDb24=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250423-mt8395-audio-sof-v2-1-5e6dc7fba0fc@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAHiqCGgC/32NTQ6CMBBGr0Jm7ZhSKKAr72FYlP7IJMCYFomG9
+ O5WDuDyveR73w7RBXIRrsUOwW0UiZcM8lSAGfXycEg2M0ghlajLFue1qy4K9csSY2SPg9bSNLI
+ TlfWQZ8/gPL2P5L3PPFJcOXyOh6382T+xrUSBlVBdW8vGKWtvhqdJDxz02fAMfUrpC+w9lgG0A
+ AAA
+X-Change-ID: 20250417-mt8395-audio-sof-baa2c62803df
+To: kernel@collabora.com, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Julien Massot <julien.massot@collabora.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_015302_267469_BB7BFFB5 
-X-CRM114-Status: GOOD (  34.11  )
+X-CRM114-CacheID: sfid-20250423_015318_654281_3A9083F8 
+X-CRM114-Status: GOOD (  16.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,125 +82,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-在 2025/04/23 星期三 15:53, Nicolas Frattaroli 写道:
-> RK3576's power domains have a peculiar design where the PD_NVM power
-> domain, of which the sdhci controller is a part, seemingly does not have
-> idempotent runtime disable/enable. The end effect is that if PD_NVM gets
-> turned off by the generic power domain logic because all the devices
-> depending on it are suspended, then the next time the sdhci device is
-> unsuspended, it'll hang the SoC as soon as it tries accessing the CQHCI
-> registers.
-> 
-> RK3576's UFS support needed a new dev_pm_genpd_rpm_always_on function
-> added to the generic power domains API to handle what appears to be a
-> similar hardware design.
-> 
-> Use this new function to ask for the same treatment in the sdhci
-> controller by giving rk3576 its own platform data with its own postinit
-> function. The benefit of doing this instead of marking the power domains
-> always on in the power domain core is that we only do this if we know
-> the platform we're running on actually uses the sdhci controller. For
-> others, keeping PD_NVM always on would be a waste, as they won't run
-> into this specific issue. The only other IP in PD_NVM that could be
-> affected is FSPI0. If it gets a mainline driver, it will probably want
-> to do the same thing.
+Add memory regions for the Audio DSP (ADSP) and Audio Front-End (AFE),
+and enable both components in the device tree.
 
-Reviewed-by: Shawn Lin <shawn.lin@rock-chips.com>
+Also, define the required pin configuration and add a sound card node
+configured to use the ADSP. This enables audio output through the 3.5mm
+headphone jack available on the board.
 
-> 
-> Acked-by: Adrian Hunter <adrian.hunter@intel.com>
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> ---
-> Changes in v3:
-> - Reword comment and commit message to correct that this is not a
->    silicon bug, but seemingly intentional design with regards to runtime
->    power management.
-> - Link to v2: https://lore.kernel.org/r/20250412-rk3576-emmc-fix-v2-1-830e653ad4f0@collabora.com
-> 
-> Changes in v2:
-> - Rewrite patch to use dev_pm_genpd_rpm_always_on in sdhci driver
->    instead, after Ulf Hansson made me aware of its existence
-> - Link to v1: https://lore.kernel.org/r/20250408-rk3576-emmc-fix-v1-1-3009828b1b31@collabora.com
-> ---
->   drivers/mmc/host/sdhci-of-dwcmshc.c | 40 +++++++++++++++++++++++++++++++++++++
->   1 file changed, 40 insertions(+)
-> 
-> diff --git a/drivers/mmc/host/sdhci-of-dwcmshc.c b/drivers/mmc/host/sdhci-of-dwcmshc.c
-> index 09b9ab15e4995f0bddf57dd309c010c849be40d9..a20d03fdd6a93ecc5229c71f825bade5ac730370 100644
-> --- a/drivers/mmc/host/sdhci-of-dwcmshc.c
-> +++ b/drivers/mmc/host/sdhci-of-dwcmshc.c
-> @@ -17,6 +17,7 @@
->   #include <linux/module.h>
->   #include <linux/of.h>
->   #include <linux/platform_device.h>
-> +#include <linux/pm_domain.h>
->   #include <linux/pm_runtime.h>
->   #include <linux/reset.h>
->   #include <linux/sizes.h>
-> @@ -745,6 +746,29 @@ static void dwcmshc_rk35xx_postinit(struct sdhci_host *host, struct dwcmshc_priv
->   	}
->   }
->   
-> +static void dwcmshc_rk3576_postinit(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv)
-> +{
-> +	struct device *dev = mmc_dev(host->mmc);
-> +	int ret;
-> +
-> +	/*
-> +	 * This works around the design of the RK3576's power domains, which
-> +	 * makes the PD_NVM power domain, which the sdhci controller on the
-> +	 * RK3576 is in, never come back the same way once it's run-time
-> +	 * suspended once. This can happen during early kernel boot if no driver
-> +	 * is using either PD_NVM or its child power domain PD_SDGMAC for a
-> +	 * short moment, leading to it being turned off to save power. By
-> +	 * keeping it on, sdhci suspending won't lead to PD_NVM becoming a
-> +	 * candidate for getting turned off.
-> +	 */
-> +	ret = dev_pm_genpd_rpm_always_on(dev, true);
-> +	if (ret && ret != -EOPNOTSUPP)
-> +		dev_warn(dev, "failed to set PD rpm always on, SoC may hang later: %pe\n",
-> +			 ERR_PTR(ret));
-> +
-> +	dwcmshc_rk35xx_postinit(host, dwc_priv);
-> +}
-> +
->   static int th1520_execute_tuning(struct sdhci_host *host, u32 opcode)
->   {
->   	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> @@ -1176,6 +1200,18 @@ static const struct dwcmshc_pltfm_data sdhci_dwcmshc_rk35xx_pdata = {
->   	.postinit = dwcmshc_rk35xx_postinit,
->   };
->   
-> +static const struct dwcmshc_pltfm_data sdhci_dwcmshc_rk3576_pdata = {
-> +	.pdata = {
-> +		.ops = &sdhci_dwcmshc_rk35xx_ops,
-> +		.quirks = SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN |
-> +			  SDHCI_QUIRK_BROKEN_TIMEOUT_VAL,
-> +		.quirks2 = SDHCI_QUIRK2_PRESET_VALUE_BROKEN |
-> +			   SDHCI_QUIRK2_CLOCK_DIV_ZERO_BROKEN,
-> +	},
-> +	.init = dwcmshc_rk35xx_init,
-> +	.postinit = dwcmshc_rk3576_postinit,
-> +};
-> +
->   static const struct dwcmshc_pltfm_data sdhci_dwcmshc_th1520_pdata = {
->   	.pdata = {
->   		.ops = &sdhci_dwcmshc_th1520_ops,
-> @@ -1274,6 +1310,10 @@ static const struct of_device_id sdhci_dwcmshc_dt_ids[] = {
->   		.compatible = "rockchip,rk3588-dwcmshc",
->   		.data = &sdhci_dwcmshc_rk35xx_pdata,
->   	},
-> +	{
-> +		.compatible = "rockchip,rk3576-dwcmshc",
-> +		.data = &sdhci_dwcmshc_rk3576_pdata,
-> +	},
->   	{
->   		.compatible = "rockchip,rk3568-dwcmshc",
->   		.data = &sdhci_dwcmshc_rk35xx_pdata,
-> 
-> ---
-> base-commit: f34da179a4517854b2ffbe4bce8c3405bd9be04e
-> change-id: 20250317-rk3576-emmc-fix-7dc81a627422
-> 
-> Best regards,
+Signed-off-by: Julien Massot <julien.massot@collabora.com>
+---
+This patch series adds support for audio playback on the MT8395-based Radxa NIO 12L platform, which uses the integrated MT6359 codec via internal DAI links.
+
+Key additions:
+- Support for a new `mediatek,mt8195_mt6359` card configuration that does not rely on external codecs like rt5682.
+- Proper memory region declarations and pinctrl setup for the audio front-end (AFE) and audio DSP (ADSP).
+- A device tree sound node for headphone audio routing using `DL_SRC_BE` and `AIF1`.
+- Enhancements to the DT bindings to document the new compatible string, missing link-name, and additional audio routes (Headphone L/R).
+---
+Changes in v2:
+- The first five commits have already been merged into linux-next; only one remains pending.
+- Improved the commit description of the former patch 6/6, now labeled as 1/1.
+- Link to v1: https://lore.kernel.org/r/20250417-mt8395-audio-sof-v1-0-30587426e5dd@collabora.com
+---
+ .../boot/dts/mediatek/mt8395-radxa-nio-12l.dts     | 58 +++++++++++++++++++++-
+ 1 file changed, 56 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts b/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
+index f2eb1b683eb76f783f5a13f28a78f6e33238b5f0..329c60cc6a6be0b4be8c0b8bb033b32d35302804 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
++++ b/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
+@@ -139,9 +139,21 @@ bl31_secmon_mem: memory@54600000 {
+ 			no-map;
+ 		};
+ 
+-		afe_mem: memory@60000000 {
++		adsp_mem: memory@60000000 {
+ 			compatible = "shared-dma-pool";
+-			reg = <0 0x60000000 0 0x1100000>;
++			reg = <0 0x60000000 0 0xf00000>;
++			no-map;
++		};
++
++		afe_dma_mem: memory@60f00000 {
++			compatible = "shared-dma-pool";
++			reg = <0 0x60f00000 0 0x100000>;
++			no-map;
++		};
++
++		adsp_dma_mem: memory@61000000 {
++			compatible = "shared-dma-pool";
++			reg = <0 0x61000000 0 0x100000>;
+ 			no-map;
+ 		};
+ 
+@@ -152,6 +164,16 @@ apu_mem: memory@62000000 {
+ 	};
+ };
+ 
++&adsp {
++	memory-region = <&adsp_dma_mem>, <&adsp_mem>;
++	status = "okay";
++};
++
++&afe {
++	memory-region = <&afe_dma_mem>;
++	status = "okay";
++};
++
+ &cpu0 {
+ 	cpu-supply = <&mt6359_vcore_buck_reg>;
+ };
+@@ -514,6 +536,18 @@ &mt6359_vsram_others_ldo_reg {
+ &pio {
+ 	mediatek,rsel-resistance-in-si-unit;
+ 
++	audio_default_pins: audio-default-pins {
++		pins-cmd-dat {
++			pinmux = <PINMUX_GPIO70__FUNC_AUD_SYNC_MOSI>,
++				 <PINMUX_GPIO69__FUNC_AUD_CLK_MOSI>,
++				 <PINMUX_GPIO71__FUNC_AUD_DAT_MOSI0>,
++				 <PINMUX_GPIO72__FUNC_AUD_DAT_MOSI1>,
++				 <PINMUX_GPIO73__FUNC_AUD_DAT_MISO0>,
++				 <PINMUX_GPIO74__FUNC_AUD_DAT_MISO1>,
++				 <PINMUX_GPIO75__FUNC_AUD_DAT_MISO2>;
++		};
++	};
++
+ 	dsi0_backlight_pins: dsi0-backlight-pins {
+ 		pins-backlight-en {
+ 			pinmux = <PINMUX_GPIO107__FUNC_GPIO107>;
+@@ -854,6 +888,26 @@ &scp {
+ 	status = "okay";
+ };
+ 
++&sound {
++	compatible = "mediatek,mt8195_mt6359";
++	model = "mt8395-evk";
++	pinctrl-names = "default";
++	pinctrl-0 = <&audio_default_pins>;
++	audio-routing =
++		"Headphone", "Headphone L",
++		"Headphone", "Headphone R";
++	mediatek,adsp = <&adsp>;
++	status = "okay";
++
++	headphone-dai-link {
++		link-name = "DL_SRC_BE";
++
++		codec {
++			sound-dai = <&pmic 0>;
++		};
++	};
++};
++
+ &spi1 {
+ 	/* Exposed at 40 pin connector */
+ 	pinctrl-0 = <&spi1_pins>;
+
+---
+base-commit: bc8aa6cdadcc00862f2b5720e5de2e17f696a081
+change-id: 20250417-mt8395-audio-sof-baa2c62803df
+
+Best regards,
+-- 
+Julien Massot <julien.massot@collabora.com>
+
 
