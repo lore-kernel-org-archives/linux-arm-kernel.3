@@ -4,87 +4,193 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 604AFC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 17:12:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2024DC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 17:12:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WkcCSbDN/ZU2oZjime5zidqS1XL1m5hB3C//OeBt6zc=; b=lcA9sH2C170PmZn/CiAa0eTbzu
-	+/T260T0drj66xJPpauTpoJYdBXDvmOKJgzrFhmFmLkslQ9IpNBLg1jOB9cnJ4xnPxRv8jf9fibqL
-	DIBSEVwtBOqREMd2Gn/wb5o/BjRHfRU2SZVn6/d+w7yIYrDGNz/WItT26gwJGftRS4YdiKirnIVqw
-	9tycIxMw6CEh8j8XMeUnBuom1aSByS0JRBd4tDnNkQPtbtY8dBGq7AkRh3OnZWF4LusMoW0OldxIU
-	xJlruC+jVC6UD1Wk6BweAjZA+GGucyA0tK12jaTR3xhr5b9c3+CHnVYQjEJbjQy8z+cefH015Mon1
-	UO4x7dIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mCfi89pA/QUIh5DO1zvxYlWl73Iex1drdWSLpw/QnRk=; b=Uii4aXKBNtI6l/4ruy841Hl2q2
+	LETGxTAOOPHansbRkzE5Y3BplsPRuRQ+iXceTbryzHEcC2/SYEHc2EdhPDSegWCprFaORiUpg0Uvz
+	FRVdYi2LBl3TIpOpdDRapH5xypKoSO+on8icCM16tVBYte3OUaShd9OoFSIkZwICBhR0FlSgKYhnu
+	FPwnLbzVskReqezUoVSxRmGG/XPIj6O5rJuo8mVgSezGfWsFU6O0UUHr4CE9WfqigN5XwM6f6dI5R
+	r8C4urtaXerLc8TPgJyXdZqM9tV88hVO3ahgm3xWTA6hrkbNQ8Bcoy6FCBHMYgkCpwnRL1zysvjlg
+	89gIDxrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u807h-0000000ErAo-0PEi;
-	Thu, 24 Apr 2025 17:12:29 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1u807a-0000000Er4o-2xrE;
+	Thu, 24 Apr 2025 17:12:22 +0000
+Received: from mx07-0063e101.pphosted.com ([205.220.184.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7zxr-0000000Eq9b-2it6
+	id 1u7x3c-0000000EIMw-0aTA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 17:02:21 +0000
-Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-5efe8d9ebdfso766986a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 10:02:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745514136; x=1746118936; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WkcCSbDN/ZU2oZjime5zidqS1XL1m5hB3C//OeBt6zc=;
-        b=JJ9C+e9EXNdMFjDl0WqL032lhSYWgoC7r0rgM3gaPrlt0iemmQpV8uvH/LM1rrTF/7
-         0nQLefInQsjOSnBBxYD45ePuFmTj57qrPzazMuxzBvWmq05t231iuaL+kfouywEF89XC
-         hz+Co1D1R0OVd+qfRQavcvxsFWw1aI+WQHVoghFwK7ettLppK9bK9mqFMSuYrH26b/Bs
-         eOwZ9HLlMksPn+oYXI3b6o0K+Bob9X7fevQHb6HJjEf0RXyaz3V2E6OjqKYxmMHy1y9W
-         +PMKqwQD+d3DZDVR7AEYaYiL682LCBS1ywo0v1eCnXrKCWeONxzF+FAmCeIDe5ZgXb/V
-         n6Lw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745514136; x=1746118936;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=WkcCSbDN/ZU2oZjime5zidqS1XL1m5hB3C//OeBt6zc=;
-        b=G3YudpXQiOSPs64Mrae5+mzDen53W9F/Rlz87KY6rxxFFoihfEO4pB+WplNfVWERfu
-         V7BaeJJl7kF5kMDYJS4vgwWxfkODhQd8YjlzMXVGnDd0vo1VwAeict3LyhPjagx0QIyT
-         GOoRn1KLv1QZuRzOp16m9qg4wuUvx8ytwUQftVSjgmosTCS6pAqDRm8OkdzA+maSp29q
-         jTAaJV3LVTVaWvKplOi0Cs7jznIAsNLsX3gjWDM+vpudmuxMI6pmr7SlsBr9DnZ50+/m
-         F3KaquzoshpjyfbY0n91QRvVq+HK/v28rfyDuS7J/xqVozVohwI74Pq52gNS5SJ1YSCb
-         XEvg==
-X-Forwarded-Encrypted: i=1; AJvYcCV+IRhkpne9J6xVo+EZcvJW5pzMiq6Aj47oyCb5DlFA3jE+QssXKvSCyODwzV6NXSUNkyl445U+1eHhtQ979NX0@lists.infradead.org
-X-Gm-Message-State: AOJu0YyfbeL6nsVF6mezci4AcczEVpCyNeoaOGgt1lte8Ut+VGDopMR7
-	uaOAqs/9XJMKB9wDND9rFNBbUDx+DMwvBWnqSFXFleOP8s6U5GtulUvmLicthrOYYQL+YEJxH+e
-	t2O2A1U2cZooBhYokTfE2x6jxxhE=
-X-Gm-Gg: ASbGncsoRdY8eF9y8pw/+bgKr/5GfwF0TDBXkGF6svkrrmKXHssDaL+dFE5MWon0vzj
-	cjQofWxeh8KYWwY4eMhviYLI6FfSUIDRvZXc10OZ82999LjnigQ7TLDSncAUdR+3+3Edq/VJHC0
-	29LniHaXkw/MzMcaknAr6RbTuS
-X-Google-Smtp-Source: AGHT+IEHxo13L0sXvAke4ty9b+v4Z7Y0lEATPj2aXj/69ooRG7KecObOYygckKmL5PhgxgGc7inKBrIS/BRos9kUdGc=
-X-Received: by 2002:a17:906:6a1f:b0:ac4:76d:6d2c with SMTP id
- a640c23a62f3a-ace6b54761amr31197866b.40.1745514136147; Thu, 24 Apr 2025
- 10:02:16 -0700 (PDT)
+	Thu, 24 Apr 2025 13:56:05 +0000
+Received: from pps.filterd (m0247495.ppops.net [127.0.0.1])
+	by mx08-0063e101.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53ODrH2S019219;
+	Thu, 24 Apr 2025 14:55:41 +0100
+Received: from pnzpr01cu001.outbound.protection.outlook.com (mail-centralindiaazlp17011028.outbound.protection.outlook.com [40.93.132.28])
+	by mx08-0063e101.pphosted.com (PPS) with ESMTPS id 466jhvrt0u-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 24 Apr 2025 14:55:41 +0100 (BST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Rj0n5voM/jKE1zQKs3m/RhsvVifNply2qKbBnfyCnhaKoQGMoi2roQ13QO+bt+K9nlopRjszRqmD4sq5a51uYa0DEREGIdXiOeFRi2I+LxB+9Gj+AbD+7YcJqvS5J8Gm6V+1NNZTgcycLgC2KdG4d7J2IgCWPIjPwlC0l+FWfLZ4NbjpQmEXpLasHoaWBc1eqck0Uk4/DxwQ0lSr3xufCeOrSIKNqqjIW3DS5uai5AnCV9ozr2x+ifhBF2P3YYrV2ndWMQUlK6VuJ3+v+UbaIo/p31PU+78ltZone5hkwuTVSPViHZun1i7nTWGr2YlZaAOO9m6G+p6fuRtX/J4QBw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mCfi89pA/QUIh5DO1zvxYlWl73Iex1drdWSLpw/QnRk=;
+ b=oOJQqg9OmwTDr3A5EXHkfJAC3277Q3NMmmeC3JfVPyf5MDXFbBHJiYgy+b326Pss/OPnGSK+KKkX9u6gcsuFOmZOMI0QeffDmPfnYaAI1QluKFA0aXRreAbNf/0GG4H07bsGntWmFQPJa8vX29kv4MHfDlVGy+/B5MILH4WztwnefML/FOoFX/m1SR9J1I0PLoRgO5W07+F+frp7nYl7AkCsn4Fl4nsbeDvOHhEffbxSEv5HsrJsQZmB6c2jGhjGUrm4EPg2wTfCHkr3y3iKc4DUzyoH6SrBphZf0vVG9v7jWwS3MsH9f7P+ZGcjtsU5Z11VrfLdAWJ0q09Hr7D6hQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=blaize.com; dmarc=pass action=none header.from=blaize.com;
+ dkim=pass header.d=blaize.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=BLAIZE.COM;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mCfi89pA/QUIh5DO1zvxYlWl73Iex1drdWSLpw/QnRk=;
+ b=jrUafrK0GajA55rk8uMcpdbFjVKXnCat6OiMdQSxYYIpjshA6LkZyOLfL0s4KOH1KE+VIT5TwxnkKBRHfmVcG0Sh8a3tv/vKp4YHfmtclp8bLdh3E8tYj7mwQVoNrYTX4GZz/BqVj59kxWpWf4aEG1kxTa5DiQxMzJOrSSzSi0w=
+Received: from MA0PR01MB10184.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a01:12a::5)
+ by PN3PR01MB9776.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:16e::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.23; Thu, 24 Apr
+ 2025 13:55:37 +0000
+Received: from MA0PR01MB10184.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::309a:12cf:74a4:5655]) by MA0PR01MB10184.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::309a:12cf:74a4:5655%3]) with mapi id 15.20.8678.021; Thu, 24 Apr 2025
+ 13:55:36 +0000
+Message-ID: <0aecfa4c-f00c-4914-8ca1-d54c41b3a948@blaize.com>
+Date: Thu, 24 Apr 2025 14:55:30 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/3] arm64: dts: blaize-blzp1600: Enable GPIO support
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        James Cowgill
+ <james.cowgill@blaize.com>,
+        Matt Redfearn <matt.redfearn@blaize.com>,
+        Neil Jones <neil.jones@blaize.com>,
+        Linus Walleij
+ <linus.walleij@linaro.org>,
+        Bartosz Golaszewski <brgl@bgdev.pl>,
+        Matthew Redfearn <matthew.redfearn@blaize.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20250327-kernel-upstreaming-add_gpio_support-v2-0-bbe51f8d66da@blaize.com>
+ <20250327-kernel-upstreaming-add_gpio_support-v2-3-bbe51f8d66da@blaize.com>
+Content-Language: en-US
+From: Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>
+In-Reply-To: <20250327-kernel-upstreaming-add_gpio_support-v2-3-bbe51f8d66da@blaize.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: LO4P265CA0195.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:318::12) To MA0PR01MB10184.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:12a::5)
 MIME-Version: 1.0
-References: <20250424151604.626758-1-olivier.moysan@foss.st.com>
-In-Reply-To: <20250424151604.626758-1-olivier.moysan@foss.st.com>
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Thu, 24 Apr 2025 20:01:40 +0300
-X-Gm-Features: ATxdqUEBDL7z20qNs0yG_M2X9nqYMo67214nlsnEXBB5e6fuFVOwBd_KZJdSur0
-Message-ID: <CAHp75VfwiMAa+y+_sHpJ27D34=PtMG=nskXbV+GuNgWpH-85KQ@mail.gmail.com>
-Subject: Re: [PATCH v5] iio: adc: stm32: add oversampling support
-To: Olivier Moysan <olivier.moysan@foss.st.com>
-Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, 
-	=?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
-	Andy Shevchenko <andy@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Fabrice Gasnier <fabrice.gasnier@foss.st.com>, linux-iio@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MA0PR01MB10184:EE_|PN3PR01MB9776:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5de82a71-c3f0-4899-f67f-08dd8337b05c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Q0FXbmFtb0NLL2txRmp2MVdMUG1BUUltVlc0QVF0QmsvVnNiR01WMzFnZFU1?=
+ =?utf-8?B?QWFMS0tMRnlwMVdZRGZrdjlrcEwwcllwOFl5d1EyNjhRWnN2eHFRaGJWd0lC?=
+ =?utf-8?B?emlEOWRUWFRQS3hSNjN5OHFCS04vWjBEVzVnYUxmV2RzdnlDTUhvTnNFb2tQ?=
+ =?utf-8?B?cjNvYmlhdTR3c1ZNR1RkamxKS3gzUmFKdkJMNE04VURqY0hJRkRuVVFhOTdM?=
+ =?utf-8?B?b3RiczZwb2pnT0VzT0lxdXlwTStsaExBSVlMOUhwZUU2d1M2UVdTQ0haSysy?=
+ =?utf-8?B?SEtLeTBMeFAvTUkvVTVjaEJVcDN3dHQvMElZVXluMlNhekpBNzU4blBIQmpu?=
+ =?utf-8?B?cldFMFd6aE90Uy9adkE1dE1qM25uZHlueXpGWXkxODRGM00xRHMyZmk3ZEY4?=
+ =?utf-8?B?cVRxRnhMaU1RR3VmYjFmeUtydm9kc0IwbVY3VTk2SzhYdnlHalRXdGNycVVv?=
+ =?utf-8?B?NHNjM09RRmE2QWp2WU0vb0RhbFBtNGh4cURycnAxMWk4YmpnUGdydFpueUFH?=
+ =?utf-8?B?dFBldFNIcjF6SWMyM2RqNVVCQ2dHWnpFeHdFYkVhVE54UWxlVHlqMmg2Wkpz?=
+ =?utf-8?B?NDI1UEhhaVdKS3d3bHlPMFpOT05Ob2c1WUlaQU9TRE9LcmljdE1RZStGN0hv?=
+ =?utf-8?B?NllSeFBzTkJ4Nmhhdk0ya2U5eHZhaFV0eTJiclBudGhGNlJZa284ekNTMkJ5?=
+ =?utf-8?B?R0l2aCt0dmYyM21TaVdpOFJhWG92ejdpcXpFUVc0U2xjQmhVTnNJYUVpRWh0?=
+ =?utf-8?B?dEoxZDdFNnBzZWE2VVVRUE00cDk3VFNIMG1HNVp3TVdKU0hFcXFraTZUeFRn?=
+ =?utf-8?B?YXRZMHpNWnNBS0tqUm9iQjIrT3NQU0IvRSt1NnlMcWpqVzg2ZDh5aE1wTm9o?=
+ =?utf-8?B?RjZ0cUZCZGxLcHQrVk10WWNzL2g5UmRHMDhKeDR6N3Zla3l1V3VVTjluWFRF?=
+ =?utf-8?B?d1cyYzFqZ0NaUWl6ZjlMbzdqOGdsc3UwS2FxY0d4WG94VHpXOG5MbUR4U01y?=
+ =?utf-8?B?ckpwc1UyMUkvZ0NoNWlibzAxRE5TSk9GVmtGZUJhMW1keWFZRmYrWDhQSzQr?=
+ =?utf-8?B?U1FVcnZaS2xUY3dRaUttZnhHc1I0SFgvNHJ4eG9BelF2TVJHemtPM3BMNzRG?=
+ =?utf-8?B?cnhUbWJyaUNud1NGMXkxeFozOU8rK29jVlY4d0pwRTlZYWx1VEVEY1ZOOHZo?=
+ =?utf-8?B?a2pnanphbkRaTVc2U3pBT3Q2WEVZV0F3cCszR2dQL3JCbnpvWW40M0hqNmlQ?=
+ =?utf-8?B?Z3RpdDgyWlJuQ2lITW91MGx0ZU54OHVNa0p0QVQxSE9XQlhwZlhybUVqN3A3?=
+ =?utf-8?B?cTRwK1VlTTBSYnpISWpYM1lISFNVOW1JYlJLL3NqVzU0MkdFY2MxMEhuQmFV?=
+ =?utf-8?B?emNNMEtoVkI2WTJFcXM3cTA4MG56M01yUXpmTWQrWWc3ZG5RRHNNRmkvcEpq?=
+ =?utf-8?B?VStUUWpWWTRXY0VnRTc2TDdIRmkyMkhqeVNEeDJoVWRHUE9Sa2JuTDJxMzU4?=
+ =?utf-8?B?OUtmTDZ0MldzS0c2a1VQSnBqMmJSTWxYajdnZzhyemw0SUhYajdVdS9xVUt6?=
+ =?utf-8?B?NStWVlFrM1gxWkFlZ1RlaHMxNE9FQU5lYWFlbEdWTkQrL3VTMG5EY2lYZTA4?=
+ =?utf-8?B?Yzl0bFZPUlFJUVJSTkpkMmNMejV3N1dFQm9KWHlDaEFoa3pHSHBVYjdvU1pP?=
+ =?utf-8?B?VHBDd003bDgrQUZBcGhCOXV1WGFkZ2RCeXhiZkNmelFFdU84aUlTZU9YajM4?=
+ =?utf-8?B?Sm1SQlpGVEVtaXRJZWg4K0ZJcFluQnhMVFFmd3ZmZUEzcXN1UlFYc3hkeVd0?=
+ =?utf-8?B?UFZueFpHbVQzcWUyaGhBOUpVS3pjZ2h3dXJDK2wyTTJaOXFrVk5KV3pxUW80?=
+ =?utf-8?B?cDFMTUhrMWZxRVpISXRncCtLcThkcFJZRGV4R0l0V0s0VmdBS1hSdGpURU9G?=
+ =?utf-8?B?WXJBcDZIeDlVTjVZOGlJRk1oVzMxQkxwbVdRZlkvS0YwemNWSENDaUlDSGdI?=
+ =?utf-8?B?T0ZvY1hlZ2VBPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MA0PR01MB10184.INDPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(921020);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?T2laVTdVV29WWUcyaEhGbFpvTVJsMkNzSFA3aXRSTHFHTXpJN0xPb3M0eDdy?=
+ =?utf-8?B?UnI0MUpqUkVSMm4xY0wwaVNSM2NQVTAwTithdlFSdnQxc2l1TTdCeU5YVW5s?=
+ =?utf-8?B?TExWZTY1K1pBdDBJb0ozQ1p0NkJ5MjZSY0N6Q3dyS1ZnT2V5YkxhVzdMc1li?=
+ =?utf-8?B?YmdtQkswdEF2RFZLUEJtYWpyTDNVb2tNaFJQNGdlZXVyd1IvSERob3BmdXNx?=
+ =?utf-8?B?LzYvcXQ2Y3dFVFBFYURlRXpieUxBVlJScCtmcGVSNktDaWltaXNKSElzL0gr?=
+ =?utf-8?B?SHRBNWpFK1VGQTU3V3pOaEZYK1NiVVkzN0NjUkYvSWVncmtKdVc5TGYzVlJk?=
+ =?utf-8?B?Q014VEFNYnAwVDhFdmpOOEQ5dVRpTHlWd3AzaDRvREVvNmN0cVREelZDY1VY?=
+ =?utf-8?B?QWVOZVlKOWErTmN6NGRaY1hrQ3EwNWcxVS9lRkRHbGlOTGdMYUFIdHhNNVZL?=
+ =?utf-8?B?b0lJc0hJNldOS2pjL0dBNmJCR2QzdzcwTGFDU2ZreEJkY08yTldWODJ6MDdp?=
+ =?utf-8?B?N29QMExHaFp6ZUE3NWkxSit3aXZpc1JtUzZmREFmYWU5TTh0MG5idzJrSS81?=
+ =?utf-8?B?YmlDNjc1YkJpZGkrMDdGcWY4bTZ4SFIvaHZPd0xEZUJnNVBmbWFBY0pRanEv?=
+ =?utf-8?B?dzJkdzVsY3lYSS84Sll5NlVQQnpLZVVmTHBzRlVzL0ZRYTVFenloYnJiZmtP?=
+ =?utf-8?B?UEpnY0lnVEpXUDgwaXoxdjhoYWc4WFkycmNDQ3NqM29SdjdaOGwra203dEFh?=
+ =?utf-8?B?RjJtYWoyL0JuVmk2MVd3MzJ5RHNFZng5cFdNMGd2WUdsNWVna0Z0a25udkpx?=
+ =?utf-8?B?d1Q0OTcrNGJYMjZPajdsb0lETGU1TlQwYlBpQTk0QmtTNUQvekZYVnlJUklH?=
+ =?utf-8?B?ZkEyQmhNak1ERThtdzdJUHlvRDY4MU5rZUhCb2dRZ0pNc040NlZuMG90YndK?=
+ =?utf-8?B?K1pmRlc2aXpiVTdIUVp1S25GMDQ1Y01ZcDdXRmV5TExzTkJNZnBmc0V2enVD?=
+ =?utf-8?B?SVI3MUxoQ0tBNm5XYytreGZUOUgxSGVLSFpPbHJrSFZpaWNTRWxLM05TS2hK?=
+ =?utf-8?B?N0lxKzlzZVpjZWVVK1NmTUthK2VxZjRGZmEvNUpvVjY1L1pmOWl4UFVnMkZ4?=
+ =?utf-8?B?cWZmSEVDRUhvRjgzejJVU0lRUXljZ2JOWERCREtqY3FmMi9mczZDVHVVTWY2?=
+ =?utf-8?B?QWNIM2t4bGQ2aWJEc0tET1pMNXZoOUxUVFVMa3AwbXBKRmlvT25ZVDZqR0o1?=
+ =?utf-8?B?NDByUWM4M3FhOE1uYTJ1RDEvb0o0ajhyK25rQXcwZno4V3VPQzlRSkZlUCtn?=
+ =?utf-8?B?MXo3QmxkU282ejhJRERNVzBESW9MN3c0QUd3cG4zY2dtQ2UrTWFOSFo1bk5j?=
+ =?utf-8?B?aWkwL3pBSGJiN3ozVzlUZlQrUjJMNm9hVFYwOEZGeUQ3VTF3OWtFRlFMTEty?=
+ =?utf-8?B?c1A0bzVUaUlVWVRZOUNwR09COUR5cGkzV2w4RHpnYSsxb1dDOGNpMEN6NFZS?=
+ =?utf-8?B?cEJuU3NXK2Y2aW80TnVNRUdJTFBnckVMYytudnFScUZ4SHRGYTR6SDZxRjlp?=
+ =?utf-8?B?TlNPc0Q3U3MvblgrUTRhMUxMQkVnUStvWWFOelFHYmRkZkkxZ0t6ZDBrUStE?=
+ =?utf-8?B?VGp0SU1QRS9SbnRHSUFOcWpkZzFLTzFHYmhFWjFOSDVGa2IvNWJSNGZEK3c1?=
+ =?utf-8?B?NTBkU1hlQTFXdDdHQW5UU3pIVW5JZGx1dTFwT0k4LzEzejBVMVgvQnk1RlV2?=
+ =?utf-8?B?ajRyd2F5U2JrWlhhUlk1NFpnTVpNdmN6b1R3N2Z1ME1McHlHdTRuSkdKZWlN?=
+ =?utf-8?B?dnpUaXNpaVNibG5CdFdlTmZMc05rdTFIMUNsNWt1NGhqSWd5aFFBWU9zSENC?=
+ =?utf-8?B?My9zelZzMEpXVzAxZnphTkpEZnlnUnQ3OW51QlF3aHViTjNPV1lWaWVFd2RN?=
+ =?utf-8?B?cVI5VVNpZXpkdkdUa0g4YkprUFQxTFZkOUVYMFd1aGkyV000WmhPdEZSMzVk?=
+ =?utf-8?B?cXBKaFJrZklHOE1yWSt3UFduL1VQUTVaRlk1ZWZoaVNIU2tXdGpiL2d1U3py?=
+ =?utf-8?B?WmF1a2hLZG5lMWkwbGJMRjFPbUs5bUlQT0U3a2UvdEVZNzZPUUF0bER4NmxU?=
+ =?utf-8?B?ODNNMDhuMWZuaUhpUmV0NUpHbFNsZDh1M3hxL1UrWnBCZDJMcDRrekFlSW94?=
+ =?utf-8?Q?ar+HujnWRgrKT1JjgJHzbKs=3D?=
+X-OriginatorOrg: blaize.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5de82a71-c3f0-4899-f67f-08dd8337b05c
+X-MS-Exchange-CrossTenant-AuthSource: MA0PR01MB10184.INDPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Apr 2025 13:55:36.5070
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 9d1c3c89-8615-4064-88a7-bb1a8537c779
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ufV1FQipwHDYPfH0TOPV5vej8Hd2umk5XiU4/OAI+n17CCvuslCRGXXgicE9/WemCjQQfJNQ+eh1fQ2OvNWpS2w0o+nPoVZvhs+FeMrgP/E=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN3PR01MB9776
+X-Proofpoint-GUID: cv0_1cqoUw7e4Ju5uXrkl-EiHB5Z4WnP
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI0MDA5NCBTYWx0ZWRfX3iguP2qfftfc zCGVv7MZF/nqfTHfRCkU+r75dpIGAEyjtqqdn8pXRvzkfhssPi9iPttPn3xUCv0jS1VtVWdyHqi cTGDvZDnFQlEBzcf+E3C7Okn9YNSthtDQH7tbi5x9Gv7RTHgsQc/xGNkQDVGwsvswiS/crcZGRW
+ ufNvU14F+j+hUvKziW9NIKQ4KM1/F/vzRkBKbxRKh/8R7vLHFCsw23JsLc12DuMYXm0HVaRZqp9 VolKNwj7tj8wWQA8Aig61TrHdGtPIzCrNZlWudA6mg1vU7+noRcb0JuBe22Dc+x9QnGHZq5lPz/ d3I13Y356zis7+720u1LF08Dq3yL3U85rardFSTC80PHGGUsXB0cGBhFCtz0lcYaWcP4ElfuIZH
+ 74EDqIATDdJJKsAPFkFDJ++Dh7owZoSbvRCe0vPeBfHOhDyN/grMaqUEwCIxnmX63X1rELNN
+X-Authority-Analysis: v=2.4 cv=ao6yCTZV c=1 sm=1 tr=0 ts=680a42dd cx=c_pps a=gncIvgqb4a+koTErn0Mphw==:117 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=XR8D0OoHHMoA:10 a=-5LYVjoNHPMA:10 a=SrsycIMJAAAA:8 a=x-MnYZxxJV6qP73kXPMA:9 a=QEXdDO2ut3YA:10 a=zapPnUM7SFj2ezx6rUw-:22
+X-Proofpoint-ORIG-GUID: cv0_1cqoUw7e4Ju5uXrkl-EiHB5Z4WnP
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-04-24_06,2025-04-24_01,2025-02-21_01
+X-Proofpoint-Spam-Reason: orgsafe
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_100219_684502_A3EB8F4F 
-X-CRM114-Status: GOOD (  13.12  )
+X-CRM114-CacheID: sfid-20250424_065604_493238_EE00DF8B 
+X-CRM114-Status: GOOD (  17.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,31 +205,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 24, 2025 at 6:22=E2=80=AFPM Olivier Moysan
-<olivier.moysan@foss.st.com> wrote:
->
-> Add oversampling support for STM32H7, STM32MP15 & STM32MP13.
-> STM32F4 ADC has no oversampling feature.
->
-> The current support of the oversampling feature aims at increasing the
-> data SNR, without changing the data resolution.
-> As the oversampling by itself increases data resolution, a right shift
-> is applied to keep the initial resolution.
-> Only the oversampling ratio corresponding to a power of two are
-> supported here, to get a direct link between right shift and
-> oversampling ratio. (2^n ratio <=3D> n right shift)
->
-> The oversampling ratio is shared by all channels, whatever channel type.
-> (e.g. single ended or differential).
->
-> Oversampling can be configured using IIO ABI:
-> - oversampling_ratio_available
-> - oversampling_ratio
+On 27/03/2025 11:26, Nikolaos Pasaloukos wrote:
 
-This version LGTM,
-Reviewed-by: Andy Shevchenko <andy@kernel.org>
+> Blaize BLZP1600 uses the custom silicon provided from
+> VeriSilicon to add GPIO support.
+> This interface is used to control signals on many other
+> peripherals, such as Ethernet, USB, SD and eMMC.
+>
+> Signed-off-by: Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>
+> ---
+>   arch/arm64/boot/dts/blaize/blaize-blzp1600-cb2.dts | 36 ++++++++++++++++++++++
+>   arch/arm64/boot/dts/blaize/blaize-blzp1600.dtsi    | 12 ++++++++
+>   2 files changed, 48 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/blaize/blaize-blzp1600-cb2.dts b/arch/arm64/boot/dts/blaize/blaize-blzp1600-cb2.dts
+> index 7e3cef2ed3522e202487e799b2021cd45398e006..fb5415eb347a028fc65090027a4c4fc89c8280f5 100644
+> --- a/arch/arm64/boot/dts/blaize/blaize-blzp1600-cb2.dts
+> +++ b/arch/arm64/boot/dts/blaize/blaize-blzp1600-cb2.dts
+> @@ -81,3 +81,39 @@ gpio_expander_m2: gpio@75 {
+>   				  "UART1_TO_RSP";	/* GPIO_15 */
+>   	};
+>   };
+> +
+> +&gpio0 {
+> +	status = "okay";
+> +	gpio-line-names = "PERST_N",		/* GPIO_0 */
+> +			  "LM96063_ALERT_N",	/* GPIO_1 */
+> +			  "INA3221_PV",		/* GPIO_2 */
+> +			  "INA3221_CRIT",	/* GPIO_3 */
+> +			  "INA3221_WARN",	/* GPIO_4 */
+> +			  "INA3221_TC",		/* GPIO_5 */
+> +			  "QSPI0_RST_N",	/* GPIO_6 */
+> +			  "LM96063_TCRIT_N",	/* GPIO_7 */
+> +			  "DSI_TCH_INT",	/* GPIO_8 */
+> +			  "DSI_RST",		/* GPIO_9 */
+> +			  "DSI_BL",		/* GPIO_10 */
+> +			  "DSI_INT",		/* GPIO_11 */
+> +			  "ETH_RST",		/* GPIO_12 */
+> +			  "CSI0_RST",		/* GPIO_13 */
+> +			  "CSI0_PWDN",		/* GPIO_14 */
+> +			  "CSI1_RST",		/* GPIO_15 */
+> +			  "CSI1_PWDN",		/* GPIO_16 */
+> +			  "CSI2_RST",		/* GPIO_17 */
+> +			  "CSI2_PWDN",		/* GPIO_18 */
+> +			  "CSI3_RST",		/* GPIO_19 */
+> +			  "CSI3_PWDN",		/* GPIO_20 */
+> +			  "ADAC_RST",		/* GPIO_21 */
+> +			  "SD_SW_VDD",		/* GPIO_22 */
+> +			  "SD_PON_VDD",		/* GPIO_23 */
+> +			  "GPIO_EXP_INT",	/* GPIO_24 */
+> +			  "BOARD_ID_0",		/* GPIO_25 */
+> +			  "SDIO1_SW_VDD",	/* GPIO_26 */
+> +			  "SDIO1_PON_VDD",	/* GPIO_27 */
+> +			  "SDIO2_SW_VDD",	/* GPIO_28 */
+> +			  "SDIO2_PON_VDD",	/* GPIO_29 */
+> +			  "BOARD_ID_1",		/* GPIO_30 */
+> +			  "BOARD_ID_2";		/* GPIO_31 */
+> +};
+> diff --git a/arch/arm64/boot/dts/blaize/blaize-blzp1600.dtsi b/arch/arm64/boot/dts/blaize/blaize-blzp1600.dtsi
+> index 7d399e6a532f5b24385dd837be965be771c7d24c..5a6c882b2f57d57d304869dee877c996cbabb712 100644
+> --- a/arch/arm64/boot/dts/blaize/blaize-blzp1600.dtsi
+> +++ b/arch/arm64/boot/dts/blaize/blaize-blzp1600.dtsi
+> @@ -120,6 +120,18 @@ gic: interrupt-controller@410000 {
+>   						 IRQ_TYPE_LEVEL_LOW)>;
+>   		};
+>   
+> +		gpio0: gpio@4c0000 {
+> +			compatible = "blaize,blzp1600-gpio";
+> +			reg = <0x4c0000 0x1000>;
+> +			gpio-controller;
+> +			#gpio-cells = <2>;
+> +			ngpios = <32>;
+> +			interrupts = <GIC_SPI 3 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-controller;
+> +			#interrupt-cells = <2>;
+> +			status = "disabled";
+> +		};
+> +
+>   		uart0: serial@4d0000 {
+>   			compatible = "ns16550a";
+>   			reg = <0x4d0000 0x1000>;
+>
+Hi,
 
---=20
-With Best Regards,
-Andy Shevchenko
+Since the rest of the patches have already been accepted, should I wait for a review
+here before I send this patch to the SoC list?
+
+Kind regards,
+Nikolaos Pasaloukos
+
 
