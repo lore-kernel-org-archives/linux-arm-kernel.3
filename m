@@ -4,129 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9789DC369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:07:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 701E7C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:07:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oa6gfxRAjkR7wfTiIJFT8jbfGXVVwGTh4OuP6vCgukQ=; b=aAYuVq3Xc/xYJdf7IJvLFAU/mv
-	qVItf6FkQsPgP8/DUem9rHY8D1b20yuWdVjEiEV0bVUlgRjzpUjWBQbLjXHhZ4sbchcG795SNY1i8
-	9b+S9y2IBi/j1gC8+hHWnY1Bz/K3NgtLDL6Zm4icDsuEWAAs1PYwqHgFugLRqUeUh/WH9mmr5a0vo
-	yNQDxVDv786KgbtpB8kK/CSe5Q+dlop2tW3umjtDVCU+dObh0HJjWkOkEz96APmTvbuwstXz3F+Fx
-	Oq1FPBJv6pCQAGI9GAbFLB9w3cAnNw1zhrT+5kpIeHLKeFcbJTM+bb9yiCGYhkfQ0zTULcKKbaPQn
-	qoE5aozA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DIIOezRQ1iEeyh6wP7pxRulzkeF5lSrui5rZPEB2VUc=; b=SQY3l50idrFxH2XtBWEc3u3OC8
+	ku5MC8Dbgghq2WWdxkVfcYmuKjG4YJjTFsP1SggnMOLRovfzQxugyoBVBfTI/29nvQzVADsYgiqmH
+	wPcRlvZ0LfmCBofoXzBDvXjCUd6Fyy4W2ELlQP65hAwwzkFLq76YxAQfZeJnXopOfSTNoiyd6wP7S
+	VoaPg3xPz0UxvzNF1+1nVBrIivtRO8PQ0B2Ptdb332Zk3RY7UYbF5XH5uajjoPXfjTNEIxjmCm1TX
+	ro5BUxGO8Y7fu90eJ7kOdAqdqN0tHDLgXFQG7ALgYlT+ZWcXo+CImz7TQAAhNs3LnWM1iHxe0hCea
+	Vpm/Y+VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7z6C-0000000EeYr-3kF4;
-	Thu, 24 Apr 2025 16:06:52 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u7z6D-0000000Eeau-45ho;
+	Thu, 24 Apr 2025 16:06:53 +0000
+Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7xLV-0000000EKu8-2uUp
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 24 Apr 2025 14:14:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=Oa6gfxRAjkR7wfTiIJFT8jbfGXVVwGTh4OuP6vCgukQ=; b=Aoa8iDXiMmhcCDMEXzEiAbR8XZ
-	mGzPSm6Fo89B4KxKOl3fPzy+9M3Af6LcUn8mNEWfzIo8SBml1NruNFNcYqrUWwbwvnFbN/c6gy+bT
-	9b7pvhWoLIdhkR5LFWAeLRdEruEAlwsLVEAzh+QoAoCyyHIgQ/nzM0PxrsM/21rSl3bh6I7gpd7LX
-	447tlBZhzaEdP2n6thC/1sckoTMD9iT4tpF/7v5IZLYDndT8oudZWfERpFNus4efbT6dCpOkZOaRO
-	qUU8F7T96edoXKaJ8boMANI2GoJLqM9byAHJxFR4CR0AHFdKfeVGHEe6Glgg15n4k2lqe8LaIohuX
-	jtAHkwUA==;
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u7xLS-0000000Bplt-0xmn
+	id 1u7xLW-0000000EKuQ-2Cvf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 14:14:32 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43d0618746bso8282125e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 07:14:29 -0700 (PDT)
+	Thu, 24 Apr 2025 14:14:36 +0000
+Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-30bf5d7d107so9276131fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 07:14:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745504068; x=1746108868; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Oa6gfxRAjkR7wfTiIJFT8jbfGXVVwGTh4OuP6vCgukQ=;
-        b=bK4CG4QqW5anFkd4b4S4NpiPEJwY4m9umwTUuqaFIJGxWnfHzaPigDZRi+XrlUFWDI
-         F6ADNStPdtvo0lZJFvb7r21FE2DGl54S3FBKEzHYu5oamb3N2HNNWSzC3RMHLVyxL5PL
-         8xA13gm7xT140PU4CO9QM/RwhCIvs6WwZY/nTD5LlA0bFHWdsWURC4Ga8eicZ8/6qQTM
-         iGfvSbQVefPt7+9XN3yCZ7WCKzYA1XAkDKgQm/P885iE836VN+/r7C4oO3VOhQR7Ca05
-         XVdVZ0jLR1nHukpcvM0E4ud2kZhDVYVg5y65LJs6jbIxrDBchuiL+75zeid3FaG8ffaa
-         WbFQ==
+        d=linaro.org; s=google; t=1745504072; x=1746108872; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=DIIOezRQ1iEeyh6wP7pxRulzkeF5lSrui5rZPEB2VUc=;
+        b=uWi2i+kfyscfSmWB49HM3OL47/1BR4EOicqkOaqGl5BDXuYGYPmBFryOlVtThTOTn5
+         xsG7rm8qi8RODQHgL9woM2a9MLQ+m0s40JX61zphfdOjOerZWri1cmOpfa1yUzv9rhTl
+         EpXAAf88Uwcw5DzpqeZcU9LzRxUvj2gyHSqZgz55DB88Av70M4PwGtP8XmwlSGrWulPD
+         jil9Xyv09RbiRKbydnOIGdikD0Ui+wBElhagKmgZhyyLUrd4r8a0qIxQUADorbsAwtFA
+         vHIbqmlLLiVjNcmrBs6bCDre0Cv5cTqSYcgmBY+cNBsAZ2dTKE81uz8JdjtvMM7AAbKF
+         OaIw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745504068; x=1746108868;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Oa6gfxRAjkR7wfTiIJFT8jbfGXVVwGTh4OuP6vCgukQ=;
-        b=eZy9gZcE6hbv6tbdUkGWnGItCLkI4MltHxf0Fcuusc82xssAKqvuF6/AnlD0MJ1GHM
-         0iqpzUpBUEdwr75cxi0LNxlq4SiqAPCkmNCYBSxsgsk4M70p0lHKAgmjEN5+cX9i6WFL
-         4zFGMdHDEGuYocljZVZDnIAUW/ZGqdLAIhbbZZtZTKNcCth5VI6Jh9JXLFiv8ZMVxrnC
-         XHjYckq2T5xP524I+vXx2jcL1aXQoD3x/ywy41TovhoE+6mDMKIfGtCG0ZbUJcW8CoV+
-         vXWP4+qXDVxd9zR4cxt5JmgQlM1ONHormj3my2f6DMfLQnS19/bRb/nWfjbb2E3tjzi6
-         oqQA==
-X-Forwarded-Encrypted: i=1; AJvYcCXsIT8FkfyH4iE4lGVETBEnwTqGoQqjm6T7Sq2KyvAx4AT4Zmd5bAvgMgZFW7TMECNlNrILfwh4HLhJOR2PqeFf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy9CResLYovMQZH8XyUyBFyiTJuyN4/ZFPO/xOQSTJ/BWqWxeqv
-	0eqQovbXqP+SaPgI6WaqA0bTwxJgz+3bjcAYr5g/Bli4Eh0+O106GRSWcLRofhE=
-X-Gm-Gg: ASbGncunw6tEvxxGBkgnkJ56Rzo+M2dODS6vOKqbJgmpn1eegNNHvZzBsnA2XcWpaDa
-	zyjXRbD+wFPkW4VULqXC2zP1Lv56UJNVEvXBg1LCsz2MNTNnfjxbJWoQdFMgiPOzEGk7vih1YMV
-	FMdQjMP9Dz1Ie40uWGLEOakaTCqxJwjBnrJbkRpmVhC+vPUMhJObXGu6Re4T3lZH8JnZmCcuoEG
-	zbtN7gFlhKMYNSiUs7A9IIcbpLWMhZKFOkibreCBGOYRtqKaayl7osNeBDtD7kJrO8IQvOJJYIP
-	RAhejiY4kSTEREhOmrXDQZRpK6OMVyKuVJ3i1KODmwjnRe/deLRPR1t+kgwI9B8HguK2+K5qxjr
-	S0o+db4QmJa72GLSm
-X-Google-Smtp-Source: AGHT+IERVpNU2DILo0bvt8R4DAynThAP/fjqterv2/ng44U7A/g/KpyVK5SJtSkw42xdSMDhah0Vrw==
-X-Received: by 2002:a05:6000:1acb:b0:391:2f15:c1f4 with SMTP id ffacd0b85a97d-3a06cfad64amr2138772f8f.55.1745504067786;
-        Thu, 24 Apr 2025 07:14:27 -0700 (PDT)
-Received: from seksu.systems-nuts.com (stevens.inf.ed.ac.uk. [129.215.164.122])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a06d4a8150sm2199951f8f.7.2025.04.24.07.14.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Apr 2025 07:14:27 -0700 (PDT)
-From: Karim Manaouil <karim.manaouil@linaro.org>
-To: linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Cc: Karim Manaouil <karim.manaouil@linaro.org>,
-	Alexander Graf <graf@amazon.com>,
-	Alex Elder <elder@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Marc Zyngier <maz@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Prakruthi Deepak Heragu <quic_pheragu@quicinc.com>,
-	Quentin Perret <qperret@google.com>,
-	Rob Herring <robh@kernel.org>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Srivatsa Vaddagiri <quic_svaddagi@quicinc.com>,
-	Will Deacon <will@kernel.org>,
-	Haripranesh S <haripran@qti.qualcomm.com>,
-	Carl van Schaik <cvanscha@qti.qualcomm.com>,
-	Murali Nalajala <mnalajal@quicinc.com>,
-	Sreenivasulu Chalamcharla <sreeniva@qti.qualcomm.com>,
-	Trilok Soni <tsoni@quicinc.com>,
-	Stefan Schmidt <stefan.schmidt@linaro.org>,
-	Elliot Berman <quic_eberman@quicinc.com>,
-	Alex Elder <elder@linaro.org>
-Subject: [RFC PATCH 32/34] gunyah: Add hypercalls for sending doorbell
-Date: Thu, 24 Apr 2025 15:13:39 +0100
-Message-Id: <20250424141341.841734-33-karim.manaouil@linaro.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250424141341.841734-1-karim.manaouil@linaro.org>
-References: <20250424141341.841734-1-karim.manaouil@linaro.org>
+        d=1e100.net; s=20230601; t=1745504072; x=1746108872;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=DIIOezRQ1iEeyh6wP7pxRulzkeF5lSrui5rZPEB2VUc=;
+        b=hEk06vuuSf2zTN/YdluS5lrnNWQg5N+QMdS4nmUXI4qrsAfUc9LYNqkoI/gQsctVON
+         AlfBfL2L6fH3W3ZUHA22rY7rWzn22DDtIZ/RnZ6nmo4ofYzeLJANoNaXYAkcCPE5I282
+         SLke0k5k7HIdDKgQ6ZEubXaLgtQaX+gXEuA6VycpzrMWdHGaK+JQQPy8kmFyDXvHwZ+1
+         2a/o6Y/DF4D3OMAWTACFv7WeObMs69aaNiciw5FLUhcvliwJdcLt3SKA5/cBOECTwBSO
+         KXm6PY53rw+msGGwcLttkeNVZxcx2UNme4jJ8GOK5hGcWsJxRamzI/r86uVaWHvnE8H5
+         cWLw==
+X-Forwarded-Encrypted: i=1; AJvYcCU2J5xZV1cVDguN1HrdCGRnfRoYfqLuM0ifK7dhR52XL6svbDp7xTIxY4Lau78/T1A0THjd9T+CevsQL4wJ5tkL@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx5qVeLXf7l1WWgyEN/OSSBqMXLZUJ3M6ov40fX8xdGcL6EEpdT
+	taIQXsPG3n8BSfNsrs6E9EKZebj3VegN+4IpaDjg0fWINBVMjqEh62fIm9cTDX04+mLy766oUxL
+	y95FxhvnRPVI1jqopUg6XfX6zwFwZA9IDh9CT+A==
+X-Gm-Gg: ASbGnctI0HVDQJYYb0LKFlbKdOzhH6aH9Pn0sQrwb7qb84OaMWqdVQVeP5kFtUFs2Qj
+	i2l0dRCIqkqiiVGoenTDVZiR3m8SUxI1+oz8cWliAEuyMDgfKj+Upa22wuwYIBauW1zkrfVfsbe
+	rqScTWVcJjHL+BmeXJO2KerolIfhHprfmdFncpQFSpvvoch+kft+SoI4CS
+X-Google-Smtp-Source: AGHT+IGTSgfmE4C9KUY01cBQCa6U+zujjBr3JQn5JFHu87otSRTtbM+9TibC6Ub/YfaplbG5HQdBpJHJtYPG69/HM40=
+X-Received: by 2002:a05:651c:885:b0:30d:e104:cd56 with SMTP id
+ 38308e7fff4ca-3179ffc1202mr10727731fa.39.1745504072212; Thu, 24 Apr 2025
+ 07:14:32 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250423-dt-memory-region-v2-v2-0-2fbd6ebd3c88@kernel.org>
+In-Reply-To: <20250423-dt-memory-region-v2-v2-0-2fbd6ebd3c88@kernel.org>
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+Date: Thu, 24 Apr 2025 08:14:20 -0600
+X-Gm-Features: ATxdqUEG7UgU0b-fYJDsj-X6YeibPATP71Sc8xsrfndaXkHmANCAN6IFo1WtuOI
+Message-ID: <CANLsYkxKHhCHYrbAGzQ48QGpL_DbuLnX3=ppmpyu0vjuuvvODg@mail.gmail.com>
+Subject: Re: [PATCH v2 0/4] of: Common "memory-region" parsing
+To: "Rob Herring (Arm)" <robh@kernel.org>, Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>, 
+	Daniel Baluta <daniel.baluta@nxp.com>, Iuliana Prodan <iuliana.prodan@nxp.com>, 
+	"Andrew F. Davis" <afd@ti.com>, "Shah, Tanmay" <tanmay.shah@amd.com>
+Cc: Saravana Kannan <saravanak@google.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Patrice Chotard <patrice.chotard@foss.st.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Chen-Yu Tsai <wens@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_151430_522264_1BD06A70 
-X-CRM114-Status: GOOD (  16.24  )
+X-CRM114-CacheID: sfid-20250424_071434_563297_37D416C5 
+X-CRM114-Status: GOOD (  17.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,92 +101,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Elliot Berman <quic_eberman@quicinc.com>
+Arnaud, Daniel, Iuliana, Andrew and Tanmay - please test this patchset
+on the platforms you are working on.
 
-Gunyah doorbells allow a virtual machine to signal another using
-interrupts. Add the hypercalls needed to assert the interrupt.
+Thanks,
+Mathieu
 
-Reviewed-by: Alex Elder <elder@linaro.org>
-Signed-off-by: Elliot Berman <quic_eberman@quicinc.com>
-Signed-off-by: Karim Manaouil <karim.manaouil@linaro.org>
----
- arch/arm64/gunyah/gunyah_hypercall.c | 38 ++++++++++++++++++++++++++++
- include/linux/gunyah.h               |  5 ++++
- 2 files changed, 43 insertions(+)
-
-diff --git a/arch/arm64/gunyah/gunyah_hypercall.c b/arch/arm64/gunyah/gunyah_hypercall.c
-index 38403dc28c66..3c2672d683ae 100644
---- a/arch/arm64/gunyah/gunyah_hypercall.c
-+++ b/arch/arm64/gunyah/gunyah_hypercall.c
-@@ -37,6 +37,8 @@ EXPORT_SYMBOL_GPL(arch_is_gunyah_guest);
- 
- /* clang-format off */
- #define GUNYAH_HYPERCALL_HYP_IDENTIFY		GUNYAH_HYPERCALL(0x8000)
-+#define GUNYAH_HYPERCALL_BELL_SEND		GUNYAH_HYPERCALL(0x8012)
-+#define GUNYAH_HYPERCALL_BELL_SET_MASK		GUNYAH_HYPERCALL(0x8015)
- #define GUNYAH_HYPERCALL_MSGQ_SEND		GUNYAH_HYPERCALL(0x801B)
- #define GUNYAH_HYPERCALL_MSGQ_RECV		GUNYAH_HYPERCALL(0x801C)
- #define GUNYAH_HYPERCALL_ADDRSPACE_MAP		GUNYAH_HYPERCALL(0x802B)
-@@ -64,6 +66,42 @@ void gunyah_hypercall_hyp_identify(
- }
- EXPORT_SYMBOL_GPL(gunyah_hypercall_hyp_identify);
- 
-+/**
-+ * gunyah_hypercall_bell_send() - Assert a gunyah doorbell
-+ * @capid: capability ID of the doorbell
-+ * @new_flags: bits to set on the doorbell
-+ * @old_flags: Filled with the bits set before the send call if return value is GUNYAH_ERROR_OK
-+ */
-+enum gunyah_error gunyah_hypercall_bell_send(u64 capid, u64 new_flags, u64 *old_flags)
-+{
-+	struct arm_smccc_res res;
-+
-+	arm_smccc_1_1_hvc(GUNYAH_HYPERCALL_BELL_SEND, capid, new_flags, 0, &res);
-+
-+	if (res.a0 == GUNYAH_ERROR_OK && old_flags)
-+		*old_flags = res.a1;
-+
-+	return res.a0;
-+}
-+EXPORT_SYMBOL_GPL(gunyah_hypercall_bell_send);
-+
-+/**
-+ * gunyah_hypercall_bell_set_mask() - Set masks on a Gunyah doorbell
-+ * @capid: capability ID of the doorbell
-+ * @enable_mask: which bits trigger the receiver interrupt
-+ * @ack_mask: which bits are automatically acknowledged when the receiver
-+ *            interrupt is ack'd
-+ */
-+enum gunyah_error gunyah_hypercall_bell_set_mask(u64 capid, u64 enable_mask, u64 ack_mask)
-+{
-+	struct arm_smccc_res res;
-+
-+	arm_smccc_1_1_hvc(GUNYAH_HYPERCALL_BELL_SET_MASK, capid, enable_mask, ack_mask, 0, &res);
-+
-+	return res.a0;
-+}
-+EXPORT_SYMBOL_GPL(gunyah_hypercall_bell_set_mask);
-+
- /**
-  * gunyah_hypercall_msgq_send() - Send a buffer on a message queue
-  * @capid: capability ID of the message queue to add message
-diff --git a/include/linux/gunyah.h b/include/linux/gunyah.h
-index 72aafc813664..26fdfa3174da 100644
---- a/include/linux/gunyah.h
-+++ b/include/linux/gunyah.h
-@@ -329,6 +329,11 @@ gunyah_api_version(const struct gunyah_hypercall_hyp_identify_resp *gunyah_api)
- void gunyah_hypercall_hyp_identify(
- 	struct gunyah_hypercall_hyp_identify_resp *hyp_identity);
- 
-+enum gunyah_error gunyah_hypercall_bell_send(u64 capid, u64 new_flags,
-+					     u64 *old_flags);
-+enum gunyah_error gunyah_hypercall_bell_set_mask(u64 capid, u64 enable_mask,
-+						 u64 ack_mask);
-+
- /* Immediately raise RX vIRQ on receiver VM */
- #define GUNYAH_HYPERCALL_MSGQ_TX_FLAGS_PUSH BIT(0)
- 
--- 
-2.39.5
-
+On Wed, 23 Apr 2025 at 13:42, Rob Herring (Arm) <robh@kernel.org> wrote:
+>
+> While there's a common function to parse "memory-region" properties for
+> DMA pool regions, there's not anything for driver private regions. As a
+> result, drivers have resorted to parsing "memory-region" properties
+> themselves repeating the same pattern over and over. To fix this, this
+> series adds 2 functions to handle those cases:
+> of_reserved_mem_region_to_resource() and of_reserved_mem_region_count().
+>
+> I've converted the whole tree, but just including remoteproc here as
+> it has the most cases. I intend to apply the first 3 patches for 6.16
+> so the driver conversions can be applied for 6.17.
+>
+> A git tree with all the drivers converted is here[1].
+>
+> v2:
+> - Fix of_dma_set_restricted_buffer() to maintain behavior on warning msg
+> - Export devm_ioremap_resource_wc()
+> - Rework handling of resource name to drop unit-address from name as it
+>   was before.
+> - Link to v1:
+>   https://lore.kernel.org/all/20250317232426.952188-1-robh@kernel.org
+>
+> [1] git://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git dt/memory-region
+>
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+> Rob Herring (Arm) (4):
+>       of: reserved_mem: Add functions to parse "memory-region"
+>       of: Simplify of_dma_set_restricted_buffer() to use of_for_each_phandle()
+>       devres: Export devm_ioremap_resource_wc()
+>       remoteproc: Use of_reserved_mem_region_* functions for "memory-region"
+>
+>  drivers/of/device.c                       | 31 +++++-------
+>  drivers/of/of_reserved_mem.c              | 80 +++++++++++++++++++++++++++++++
+>  drivers/remoteproc/imx_dsp_rproc.c        | 45 +++++++----------
+>  drivers/remoteproc/imx_rproc.c            | 68 +++++++++++---------------
+>  drivers/remoteproc/qcom_q6v5_adsp.c       | 24 ++++------
+>  drivers/remoteproc/qcom_q6v5_mss.c        | 60 ++++++++---------------
+>  drivers/remoteproc/qcom_q6v5_pas.c        | 69 ++++++++++----------------
+>  drivers/remoteproc/qcom_q6v5_wcss.c       | 25 ++++------
+>  drivers/remoteproc/qcom_wcnss.c           | 23 ++++-----
+>  drivers/remoteproc/rcar_rproc.c           | 36 ++++++--------
+>  drivers/remoteproc/st_remoteproc.c        | 41 ++++++++--------
+>  drivers/remoteproc/stm32_rproc.c          | 44 ++++++++---------
+>  drivers/remoteproc/ti_k3_dsp_remoteproc.c | 28 +++++------
+>  drivers/remoteproc/ti_k3_m4_remoteproc.c  | 28 +++++------
+>  drivers/remoteproc/ti_k3_r5_remoteproc.c  | 28 +++++------
+>  drivers/remoteproc/xlnx_r5_remoteproc.c   | 51 ++++++++------------
+>  include/linux/of_reserved_mem.h           | 26 ++++++++++
+>  lib/devres.c                              |  1 +
+>  18 files changed, 339 insertions(+), 369 deletions(-)
+> ---
+> base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
+> change-id: 20250423-dt-memory-region-v2-a2b15caacc63
+>
+> Best regards,
+> --
+> Rob Herring (Arm) <robh@kernel.org>
+>
 
