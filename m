@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83E5DC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:06:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13F01C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:06:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Npq0NQtrgJlAV8FqtQiHtQ8TrFptNSWm5BxQWT8PEM0=; b=sdzISIgZSDTUoWh3VIR4dyWjAj
-	xfuAERDRgqwExOWTB3w+COr2WQ4sTnG+1AyOktFR1lu1N3LcZJkDlKURKj9LH4OxnTP2aUaXQ35ZI
-	KN3RcRh4E0otBLfinjhgb2TefVVluoVu/LMv0/MinIKJLFFUVxIPuUwTTwvoEy1xCjUk5NokUhbnP
-	d60NcIVFglWwykwl7RzDStNsvUVj0y5hSdLXQOkF6YeJAnkL0nsa+l4k6ryVCGFjo8XLbMArdIDLb
-	InNbFRlvorxVkNyNYotSL+6Zb0trbTsKtGnrZqZP2uPmA+ahkkHF11UVm+pJJ+AGEKMzN4mL40uEL
-	EDUOZfVQ==;
+	bh=2+5ILmQ9VnpjXFSHOfGNmys0dMzibsKAG6xUYDKquGI=; b=zUW/vYzeKQvjFvapNYlLr0Xd61
+	UVEww6w5uNTw2+TnPem6KjX8Ou7vIXvkqLp4dpPoxrNiC0wqKq6MdBAUzCZRcb6msk4Eh3lV3yH87
+	uCPYjMv/M89bC9FuIYYCIJ8e8zjgMzysl783hNHzrfG67ty+5YKeMbs8CoR6Y6exKYrqKe7vvq2X9
+	pVO8XMi3MBqO91kGCHDwh/SHphtmGAmJR0aXu384iG1GFJWZobPVmQNi3rCxlFJWIfp/GFSogGWJQ
+	P78sTZodfEMOz/h9D4micB61pU0n+bodWyCX3tdfGi/TzV9WQUKEQj885D4n0NUTSv8R9P3Ewybm8
+	NoljPWnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7z5h-0000000Edmu-18BM;
-	Thu, 24 Apr 2025 16:06:21 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1u7z5k-0000000Edqv-1Y2Y;
+	Thu, 24 Apr 2025 16:06:24 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7xLC-0000000EKmR-0uwI
+	id 1u7xLE-0000000EKng-1iyi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 14:14:15 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3914bc3e01aso682713f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 07:14:13 -0700 (PDT)
+	Thu, 24 Apr 2025 14:14:17 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-3914aba1ce4so840603f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 07:14:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745504052; x=1746108852; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1745504055; x=1746108855; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Npq0NQtrgJlAV8FqtQiHtQ8TrFptNSWm5BxQWT8PEM0=;
-        b=daYJfqx/n7GDGilgjiteqONlXVy1Ysink0u4ok3B5mAdqoioXZDKStPMMNVw57jhWs
-         ZZffssH9jmWTx6nQUjuMfQTIc1Q3dtzDY1AVi2US7CqH8mv1vtJrRGRlbZTMnXsu+Rlz
-         OywZcIJ70rEzmsudkKUm3hMbgamUDkZHNTk+JwyPDF03XnMkBdLe42bjPq6nc/fKU/5p
-         2okj5k0POjGq46LJxtBqBoeEh0+zq0BgbPzbGR3GrdQ6fV0Jkd3lfwhEN6R/JXexgms5
-         t3nBCglsp8s5OO1giWwj6JzKZcPQMzXbahspnpabMAAS2PYHzcfBS5/szF+d+LrjApGp
-         6UaQ==
+        bh=2+5ILmQ9VnpjXFSHOfGNmys0dMzibsKAG6xUYDKquGI=;
+        b=kaIkuTis6iqMZO4KgXzWuyljG64iCEYdTfuLNRmHEnp0puLLVsm5Vncak3ojjDrdfp
+         siWmFIw0ewkxcTdoY2W9Gc25S2FzQ/mrXbX56MTdDPnZ2/SLkO8wyPTjlSoW5kmirxDo
+         SrmOH7Wy8U9Q8afl6LBq/m/2WzAJf0GD5uVyO74K0r/CNCoIGRCqbu04/mv/AWYLqqTW
+         jMxKLD7xt+A6okzYJ0xOAh+C2zNCxJsn7f2HeAldkznbuZkXV6EA539BbX9f56Jc+3pI
+         3AFK70/9JJvkBevQ7m4oewBlcwVUK6OZuT2LdlM/X7TuIzRkohLydEMCDIapoA61tLD4
+         kIpg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745504052; x=1746108852;
+        d=1e100.net; s=20230601; t=1745504055; x=1746108855;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Npq0NQtrgJlAV8FqtQiHtQ8TrFptNSWm5BxQWT8PEM0=;
-        b=BpWV4Z34MzF15OIpw5cDviT8TGeN2V/7EacXljQ7pwEp2RGAN2D98gJH9V0pgvNn8r
-         TPh6D6C0P43jWArDnzNU7uUt0ByWYXCUHfC3e8aUPhvqxNu70LJQLGCna9YB2ibcusev
-         LUaxQPn+OBGmFG9tIdk5pUvRm0yU5bFGY8PofsQS/pfkhYmrSNXzmqmSoB9lAv2Ue1nQ
-         SMXCoV4ZZNBLH35YNIzL6KcEuyHepqqsyhn6HFVseYgbriZDsw+nol/Uz8dqFuv3fGDO
-         MDv64REzteBNgMCuTgAQD954KgIN9umeJHPeuBR9b4rzw1ISwseYSIU3NWGF5NFgddi5
-         cToA==
-X-Forwarded-Encrypted: i=1; AJvYcCWWqW1ttw/aMz9xB6XSiQ1I7k05kmIjnfEFSF33CrPky8cbnbvAI5n5Iwbk7poSb6FCv212XGBUjHJZIt11epNg@lists.infradead.org
-X-Gm-Message-State: AOJu0YxbqV/XoDWYU3joQSnvKrflRCos5V+x6OaN8FkaDZ5xyzaIBDQ5
-	9FKPK93Mqv/E0ivADgys7/XO3+7nTirNtWy9EvCF6LMDRhPLCJCAOCpKtQbCjvo=
-X-Gm-Gg: ASbGncsUvKC3S1oLxkRr/F/QhXFOcyQUSKPQY1MWsGkGWnprEe/58vAZE68uXX2NAfI
-	b71+HOeq1tIM8QLg7BSh9Yjbk/1xIuU29e6aNf3Q3dz8PEs4JZ1K6TCPyEWYm/nR83ozLttvvBa
-	FTIVZwqch2hBzQIJ3rCd+kTanwaajLjjAIa+keoT6cWZrVhaFinUATHh6rJYzg+ApXSGrzytnQY
-	LxH7KNG8A7Bm9BNSaP4qVaLJ9V3RxfeI+eeIc/dH1SxiX0G7+n0BXiAWppNRpQn+I63ZQXozFuZ
-	OhZi+mZC2+8QfDAiNPF69zH1o9POW1K98zeEOvMGfCHV+r+Mn+rjgzN4xJCwNabwVvMgbQPxenE
-	Xfj5+Cqw5u9B8IT3u
-X-Google-Smtp-Source: AGHT+IGDNQni2+JFXMwQWuIVE9mUFnHRCikRQcusA6Pgtq8l9mbgJyFlCKPQ4I6jOpeZedp+Ki0cWw==
-X-Received: by 2002:a5d:5f4f:0:b0:39c:1f10:c736 with SMTP id ffacd0b85a97d-3a06cfab8cbmr2032162f8f.43.1745504052080;
-        Thu, 24 Apr 2025 07:14:12 -0700 (PDT)
+        bh=2+5ILmQ9VnpjXFSHOfGNmys0dMzibsKAG6xUYDKquGI=;
+        b=D6NUUx1JVX9HKY0ZnM4OospZCz+GlG5TH4Hlgu5+SS2N6pQpAbX7ADoSYzFPeDzYBX
+         5pse5Kvg0LaIaSxmINvrsVsUnZwT3p5TYcPrVlPtfs5GFrIQieqN4bCVDLcRRH1JLvsI
+         2QfOb0eDagLPB+vbELIlDyRYTfWxY4/ZQlT7QyEw1D0qRJlFcTkatv8z5Q6SlOFjfQwt
+         I3ONcvDQIfTlyhd1RLcBOkifOhsd7BPz2m9S488XoHr4C2kXj5Klc64+jdVX9ZUI+cKr
+         IwB1PsQoaKHLymU5VyBtq38+DnJmWmAlLHIeakYljdOk08lQ1tu8XmUjttnn0J6f7/Pr
+         ceOQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWR+07y8bvPGwjvZ/WIEKWP0w4Fyn+eUprtOIkrXh68bXvokZA95TCsVp5OZdIqXa5odAaDupUKaxSNaOKYNUP9@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJO+D0TmWhyEFsEwfOV63s4aR9XALi5p+Gq4xbaDBBko1Tkla8
+	sY5xK5hWi/8UyG9DfRvyF0e/k1R8wtFW96h5kVKT3o8vvIg6QvNx5U2+Cxtt9/E=
+X-Gm-Gg: ASbGncsWeM3kxHMXyAHDkmP+Eu+/Iwmv6mTr0ImiVg58xBOLenIQ886RswMfG0R5ybP
+	Kt20L6bQemyCzPdIEhOWDXurZl5yQEtZqLaDZQsLs4ZDvsx7z10Mwpdq6M5noS8cb+LJJS5Lwfa
+	ns9PSQC1eXu6tE+9iDWivWqLpf6GcBytKQRzNIOi3NZn2w9y0wUBT/H30tyZBQMC0vbo9cQRUKI
+	SLtSdBkKQQe46quYzOs+nyMN1dVw2N/2yCOE5/wSRxJwexps8RO0KNoZ39gvRCGw+oOPWCaUJvg
+	jmzS3IpNoFZ1bavMhNjmMdTCWZQHR7QV1ws5K92zyXNY1jwqQUvlsN+7VFszeEva/o1xmNp9ySU
+	lZUg/RyHn/InaU8aDNoTKuPe7Fvk=
+X-Google-Smtp-Source: AGHT+IFKyLoVojvk9QX3IrdV6JaO3B9fcEr46gjxxC0HMPFKU10zHQ1xzS7LtC4gCESH366Qprg02w==
+X-Received: by 2002:a5d:64e6:0:b0:39c:dfa:ca71 with SMTP id ffacd0b85a97d-3a06cfab61dmr2330540f8f.49.1745504054653;
+        Thu, 24 Apr 2025 07:14:14 -0700 (PDT)
 Received: from seksu.systems-nuts.com (stevens.inf.ed.ac.uk. [129.215.164.122])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a06d4a8150sm2199951f8f.7.2025.04.24.07.14.10
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a06d4a8150sm2199951f8f.7.2025.04.24.07.14.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Apr 2025 07:14:11 -0700 (PDT)
+        Thu, 24 Apr 2025 07:14:14 -0700 (PDT)
 From: Karim Manaouil <karim.manaouil@linaro.org>
 To: linux-kernel@vger.kernel.org,
 	kvm@vger.kernel.org,
@@ -100,18 +100,17 @@ Cc: Karim Manaouil <karim.manaouil@linaro.org>,
 	Trilok Soni <tsoni@quicinc.com>,
 	Stefan Schmidt <stefan.schmidt@linaro.org>,
 	Elliot Berman <quic_eberman@quicinc.com>
-Subject: [RFC PATCH 20/34] gunyah: add proxy-scheduled vCPUs
-Date: Thu, 24 Apr 2025 15:13:27 +0100
-Message-Id: <20250424141341.841734-21-karim.manaouil@linaro.org>
+Subject: [RFC PATCH 22/34] gunyah: Add memory parcel RPC
+Date: Thu, 24 Apr 2025 15:13:29 +0100
+Message-Id: <20250424141341.841734-23-karim.manaouil@linaro.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250424141341.841734-1-karim.manaouil@linaro.org>
 References: <20250424141341.841734-1-karim.manaouil@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_071414_267057_79A0DDFD 
-X-CRM114-Status: GOOD (  24.03  )
+X-CRM114-CacheID: sfid-20250424_071416_452200_D97B7F1D 
+X-CRM114-Status: GOOD (  24.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,494 +125,328 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch is based heavily on the original Gunyah vCPU support from
-Elliot Berman and Prakruthi Deepak Heragu:
-https://lore.kernel.org/lkml/20240222-gunyah-v17-14-1e9da6763d38@quicinc.com/
+From: Elliot Berman <quic_eberman@quicinc.com>
 
-The original implementation had its own character device interface. This patch
-ports Gunyah vCPU management to KVM (e.g., `kvm_arch_vcpu_run()` calls Gunyah
-hypervisor, running as firmware, via hypercalls, which then runs the
-vCPU).
+In a Gunyah hypervisor system using the Gunyah Resource Manager, the
+"standard" unit of donating, lending and sharing memory is called a
+memory parcel (memparcel).  A memparcel is an abstraction used by the
+resource manager for securely managing donating, lending and sharing
+memory, which may be physically and virtually fragmented, without
+dealing directly with physical memory addresses.
 
-This enables Gunyah vCPUs to be driven through the standard KVM userspace
-interface (e.g., via QEMU), while transparently using Gunyah’s
-proxy-scheduled vCPU mechanisms under the hood.
+Memparcels are created and managed through the RM RPC functions for
+lending, sharing and reclaiming memory from VMs.
 
-Co-developed-by: Elliot Berman <quic_eberman@quicinc.com>
-Co-developed-by: Prakruthi Deepak Heragu <quic_pheragu@quicinc.com>
+When creating a new VM the initial VM memory containing the VM image and
+the VM's device tree blob must be provided as a memparcel. The memparcel
+must be created using the RM RPC for lending and mapping the memory to
+the VM.
+
+Signed-off-by: Elliot Berman <quic_eberman@quicinc.com>
+Reviewed-by: Srivatsa Vaddagiri <quic_svaddagi@quicinc.com>
 Signed-off-by: Karim Manaouil <karim.manaouil@linaro.org>
 ---
- arch/arm64/kvm/gunyah.c | 348 +++++++++++++++++++++++++++++++++++++++-
- include/linux/gunyah.h  |  51 ++++++
- 2 files changed, 395 insertions(+), 4 deletions(-)
+ drivers/virt/gunyah/rsc_mgr_rpc.c | 204 ++++++++++++++++++++++++++++++
+ include/linux/gunyah_rsc_mgr.h    |  50 ++++++++
+ 2 files changed, 254 insertions(+)
 
-diff --git a/arch/arm64/kvm/gunyah.c b/arch/arm64/kvm/gunyah.c
-index 084ee1091770..e066482c2e71 100644
---- a/arch/arm64/kvm/gunyah.c
-+++ b/arch/arm64/kvm/gunyah.c
-@@ -19,6 +19,8 @@
- #undef pr_fmt
- #define pr_fmt(fmt) "gunyah: " fmt
- 
-+static int gunyah_vm_start(struct gunyah_vm *ghvm);
-+
- static enum kvm_mode kvm_mode = KVM_MODE_DEFAULT;
- 
- enum kvm_mode kvm_get_mode(void)
-@@ -458,9 +460,311 @@ bool kvm_arch_intc_initialized(struct kvm *kvm)
- 	return true;
- }
- 
--struct kvm_vcpu *kvm_arch_vcpu_alloc(void)
-+/*
-+ * When hypervisor allows us to schedule vCPU again, it gives us an interrupt
-+ */
-+static irqreturn_t gunyah_vcpu_irq_handler(int irq, void *data)
-+{
-+	struct gunyah_vcpu *vcpu = data;
-+
-+	complete(&vcpu->ready);
-+	return IRQ_HANDLED;
-+}
-+
-+static int gunyah_vcpu_rm_notification(struct notifier_block *nb,
-+				       unsigned long action, void *data)
- {
--	return NULL;
-+	struct gunyah_vcpu *vcpu = container_of(nb, struct gunyah_vcpu, nb);
-+	struct gunyah_rm_vm_exited_payload *exit_payload = data;
-+
-+	/* Wake up userspace waiting for the vCPU to be runnable again */
-+	if (action == GUNYAH_RM_NOTIFICATION_VM_EXITED &&
-+	    le16_to_cpu(exit_payload->vmid) == vcpu->ghvm->vmid)
-+		complete(&vcpu->ready);
-+
-+	return NOTIFY_OK;
-+}
-+
-+static int gunyah_handle_page_fault(
-+	struct gunyah_vcpu *vcpu,
-+	const struct gunyah_hypercall_vcpu_run_resp *vcpu_run_resp)
-+{
-+	return -EINVAL;
-+}
-+
-+static bool gunyah_kvm_handle_mmio(struct gunyah_vcpu *vcpu,
-+		unsigned long resume_data[3],
-+		const struct gunyah_hypercall_vcpu_run_resp *vcpu_run_resp)
-+{
-+	struct kvm_vcpu *kvm_vcpu = &vcpu->kvm_vcpu;
-+	struct kvm_run *run = kvm_vcpu->run;
-+	u64 addr = vcpu_run_resp->state_data[0];
-+	u64 len = vcpu_run_resp->state_data[1];
-+	u64 data = vcpu_run_resp->state_data[2];
-+	bool write;
-+
-+	if (WARN_ON(len > sizeof(u64)))
-+		len = sizeof(u64);
-+
-+	if (vcpu_run_resp->state == GUNYAH_VCPU_ADDRSPACE_VMMIO_READ) {
-+		write = false;
-+		/*
-+		 * Record that we need to give vCPU user's supplied
-+		 * value next gunyah_vcpu_run()
-+		 */
-+		vcpu->state = GUNYAH_VCPU_RUN_STATE_MMIO_READ;
-+	} else {
-+		/* TODO: HANDLE IOEVENTFD !! */
-+		write = true;
-+		vcpu->state = GUNYAH_VCPU_RUN_STATE_MMIO_WRITE;
-+	}
-+
-+	if (write)
-+		memcpy(run->mmio.data, &data, len);
-+
-+	run->mmio.is_write = write;
-+	run->mmio.phys_addr = addr;
-+	run->mmio.len = len;
-+	kvm_vcpu->mmio_needed = 1;
-+
-+	kvm_vcpu->stat.mmio_exit_user++;
-+	run->exit_reason = KVM_EXIT_MMIO;
-+
-+	return false;
-+}
-+
-+static int gunyah_handle_mmio_resume(struct gunyah_vcpu *vcpu,
-+				     unsigned long resume_data[3])
-+{
-+	struct kvm_vcpu *kvm_vcpu = &vcpu->kvm_vcpu;
-+	struct kvm_run *run = kvm_vcpu->run;
-+
-+	resume_data[1] = GUNYAH_ADDRSPACE_VMMIO_ACTION_EMULATE;
-+	if (vcpu->state == GUNYAH_VCPU_RUN_STATE_MMIO_READ)
-+		memcpy(&resume_data[0], run->mmio.data, run->mmio.len);
-+	return 0;
-+}
-+
-+/**
-+ * gunyah_vcpu_check_system() - Check whether VM as a whole is running
-+ * @vcpu: Pointer to gunyah_vcpu
-+ *
-+ * Returns true if the VM is alive.
-+ * Returns false if the vCPU is the VM is not alive (can only be that VM is shutting down).
-+ */
-+static bool gunyah_vcpu_check_system(struct gunyah_vcpu *vcpu)
-+	__must_hold(&vcpu->lock)
-+{
-+	bool ret = true;
-+
-+	down_read(&vcpu->ghvm->status_lock);
-+	if (likely(vcpu->ghvm->vm_status == GUNYAH_RM_VM_STATUS_RUNNING))
-+		goto out;
-+
-+	vcpu->state = GUNYAH_VCPU_RUN_STATE_SYSTEM_DOWN;
-+	ret = false;
-+out:
-+	up_read(&vcpu->ghvm->status_lock);
-+	return ret;
-+}
-+
-+static int gunyah_vcpu_run(struct gunyah_vcpu *vcpu)
-+{
-+	struct gunyah_hypercall_vcpu_run_resp vcpu_run_resp;
-+	struct kvm_vcpu *kvm_vcpu = &vcpu->kvm_vcpu;
-+	struct kvm_run *run = kvm_vcpu->run;
-+	unsigned long resume_data[3] = { 0 };
-+	enum gunyah_error gunyah_error;
-+	int ret = 0;
-+
-+	if (mutex_lock_interruptible(&vcpu->lock))
-+		return -ERESTARTSYS;
-+
-+	if (!vcpu->rsc) {
-+		ret = -ENODEV;
-+		goto out;
-+	}
-+
-+	switch (vcpu->state) {
-+	case GUNYAH_VCPU_RUN_STATE_UNKNOWN:
-+		if (vcpu->ghvm->vm_status != GUNYAH_RM_VM_STATUS_RUNNING) {
-+			/**
-+			 * Check if VM is up. If VM is starting, will block
-+			 * until VM is fully up since that thread does
-+			 * down_write.
-+			 */
-+			if (!gunyah_vcpu_check_system(vcpu))
-+				goto out;
-+		}
-+		vcpu->state = GUNYAH_VCPU_RUN_STATE_READY;
-+		break;
-+	case GUNYAH_VCPU_RUN_STATE_MMIO_READ:
-+	case GUNYAH_VCPU_RUN_STATE_MMIO_WRITE:
-+		ret = gunyah_handle_mmio_resume(vcpu, resume_data);
-+		if (ret)
-+			goto out;
-+		vcpu->state = GUNYAH_VCPU_RUN_STATE_READY;
-+		break;
-+	case GUNYAH_VCPU_RUN_STATE_SYSTEM_DOWN:
-+		goto out;
-+	default:
-+		break;
-+	}
-+
-+	run->exit_reason = KVM_EXIT_UNKNOWN;
-+
-+	while (!ret && !signal_pending(current)) {
-+		if (vcpu->immediate_exit) {
-+			ret = -EINTR;
-+			goto out;
-+		}
-+		gunyah_error = gunyah_hypercall_vcpu_run(
-+				vcpu->rsc->capid, resume_data, &vcpu_run_resp);
-+
-+		if (gunyah_error == GUNYAH_ERROR_OK) {
-+			memset(resume_data, 0, sizeof(resume_data));
-+
-+			switch (vcpu_run_resp.state) {
-+			case GUNYAH_VCPU_STATE_READY:
-+				if (need_resched())
-+					schedule();
-+				break;
-+			case GUNYAH_VCPU_STATE_POWERED_OFF:
-+				/**
-+				 * vcpu might be off because the VM is shut down
-+				 * If so, it won't ever run again
-+				 */
-+				if (!gunyah_vcpu_check_system(vcpu))
-+					goto out;
-+				/**
-+				 * Otherwise, another vcpu will turn it on (e.g.
-+				 * by PSCI) and hyp sends an interrupt to wake
-+				 * Linux up.
-+				 */
-+				fallthrough;
-+			case GUNYAH_VCPU_STATE_EXPECTS_WAKEUP:
-+				ret = wait_for_completion_interruptible(
-+					&vcpu->ready);
-+				/**
-+				 * reinitialize completion before next
-+				 * hypercall. If we reinitialize after the
-+				 * hypercall, interrupt may have already come
-+				 * before re-initializing the completion and
-+				 * then end up waiting for event that already
-+				 * happened.
-+				 */
-+				reinit_completion(&vcpu->ready);
-+				/**
-+				 * Check VM status again. Completion
-+				 * might've come from VM exiting
-+				 */
-+				if (!ret && !gunyah_vcpu_check_system(vcpu))
-+					goto out;
-+				break;
-+			case GUNYAH_VCPU_STATE_BLOCKED:
-+				schedule();
-+				break;
-+			case GUNYAH_VCPU_ADDRSPACE_VMMIO_READ:
-+			case GUNYAH_VCPU_ADDRSPACE_VMMIO_WRITE:
-+				if (!gunyah_kvm_handle_mmio(vcpu, resume_data,
-+							&vcpu_run_resp))
-+					goto out;
-+				break;
-+			case GUNYAH_VCPU_ADDRSPACE_PAGE_FAULT:
-+				ret = gunyah_handle_page_fault(vcpu, &vcpu_run_resp);
-+				if (ret)
-+					goto out;
-+				break;
-+			default:
-+				pr_warn(
-+					"Unknown vCPU state: %llx\n",
-+					vcpu_run_resp.sized_state);
-+				schedule();
-+				break;
-+			}
-+		} else if (gunyah_error == GUNYAH_ERROR_RETRY) {
-+			schedule();
-+		} else {
-+			ret = gunyah_error_remap(gunyah_error);
-+		}
-+	}
-+
-+out:
-+	mutex_unlock(&vcpu->lock);
-+
-+	if (signal_pending(current))
-+		return -ERESTARTSYS;
-+
-+	return ret;
-+}
-+
-+static bool gunyah_vcpu_populate(struct gunyah_vm_resource_ticket *ticket,
-+				 struct gunyah_resource *ghrsc)
-+{
-+	struct gunyah_vcpu *vcpu =
-+		container_of(ticket, struct gunyah_vcpu, ticket);
-+	int ret;
-+
-+	mutex_lock(&vcpu->lock);
-+	if (vcpu->rsc) {
-+		pr_warn("vcpu%d already got a Gunyah resource", vcpu->ticket.label);
-+		ret = -EEXIST;
-+		goto out;
-+	}
-+	vcpu->rsc = ghrsc;
-+
-+	ret = request_irq(vcpu->rsc->irq, gunyah_vcpu_irq_handler,
-+			  IRQF_TRIGGER_RISING, "gunyah_vcpu", vcpu);
-+	if (ret) {
-+		pr_warn("Failed to request vcpu irq %d: %d", vcpu->rsc->irq,
-+			ret);
-+		goto out;
-+	}
-+
-+	enable_irq_wake(vcpu->rsc->irq);
-+out:
-+	mutex_unlock(&vcpu->lock);
-+	return !ret;
-+}
-+
-+static void gunyah_vcpu_unpopulate(struct gunyah_vm_resource_ticket *ticket,
-+				   struct gunyah_resource *ghrsc)
-+{
-+	struct gunyah_vcpu *vcpu =
-+		container_of(ticket, struct gunyah_vcpu, ticket);
-+
-+	vcpu->immediate_exit = true;
-+	complete_all(&vcpu->ready);
-+	mutex_lock(&vcpu->lock);
-+	free_irq(vcpu->rsc->irq, vcpu);
-+	vcpu->rsc = NULL;
-+	mutex_unlock(&vcpu->lock);
-+}
-+
-+static int gunyah_vcpu_create(struct gunyah_vm *ghvm, struct gunyah_vcpu *vcpu, int id)
-+{
-+	int r;
-+
-+	mutex_init(&vcpu->lock);
-+	init_completion(&vcpu->ready);
-+
-+	vcpu->ghvm = ghvm;
-+	vcpu->nb.notifier_call = gunyah_vcpu_rm_notification;
-+	/**
-+	 * Ensure we run after the vm_mgr handles the notification and does
-+	 * any necessary state changes.
-+	 */
-+	vcpu->nb.priority = -1;
-+	r = gunyah_rm_notifier_register(ghvm->rm, &vcpu->nb);
-+	if (r)
-+		return r;
-+
-+	vcpu->ticket.resource_type = GUNYAH_RESOURCE_TYPE_VCPU;
-+	vcpu->ticket.label = id;
-+	vcpu->ticket.populate = gunyah_vcpu_populate;
-+	vcpu->ticket.unpopulate = gunyah_vcpu_unpopulate;
-+
-+	return gunyah_vm_add_resource_ticket(ghvm, &vcpu->ticket);
- }
- 
- int kvm_arch_vcpu_precreate(struct kvm *kvm, unsigned int id)
-@@ -470,7 +774,8 @@ int kvm_arch_vcpu_precreate(struct kvm *kvm, unsigned int id)
- 
- int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
- {
--	return -EINVAL;
-+	GUNYAH_STATE(vcpu);
-+	return gunyah_vcpu_create(ghvm, ghvcpu, vcpu->vcpu_id);
- }
- 
- void kvm_arch_vcpu_postcreate(struct kvm_vcpu *vcpu)
-@@ -479,6 +784,28 @@ void kvm_arch_vcpu_postcreate(struct kvm_vcpu *vcpu)
- 
- void kvm_arch_vcpu_destroy(struct kvm_vcpu *vcpu)
- {
-+	GUNYAH_STATE(vcpu);
-+
-+	gunyah_rm_notifier_unregister(ghvcpu->ghvm->rm, &ghvcpu->nb);
-+	gunyah_vm_remove_resource_ticket(ghvcpu->ghvm, &ghvcpu->ticket);
-+	kfree(ghvcpu);
-+}
-+
-+struct kvm_vcpu *kvm_arch_vcpu_alloc(void)
-+{
-+	struct gunyah_vcpu *vcpu;
-+
-+	vcpu = kzalloc(sizeof(*vcpu), GFP_KERNEL_ACCOUNT);
-+	if (!vcpu)
-+		return NULL;
-+	return &vcpu->kvm_vcpu;
-+}
-+
-+void kvm_arch_vcpu_free(struct kvm_vcpu *kvm_vcpu)
-+{
-+	struct gunyah_vcpu *vcpu = gunyah_vcpu(kvm_vcpu);
-+
-+	kfree(vcpu);
- }
- 
- void kvm_arch_vcpu_blocking(struct kvm_vcpu *vcpu)
-@@ -521,7 +848,20 @@ bool kvm_arch_vcpu_in_kernel(struct kvm_vcpu *vcpu)
- 
- int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
- {
--	return -EINVAL;
-+	GUNYAH_STATE(vcpu);
-+	int ret;
-+
-+	if (!xchg(&ghvm->started, 1)) {
-+		ret = gunyah_vm_start(ghvm);
-+		if (ret) {
-+			xchg(&ghvm->started, 0);
-+			goto out;
-+		}
-+	}
-+	ret = gunyah_vcpu_run(ghvcpu);
-+out:
-+	return ret;
-+
- }
- 
- long kvm_arch_vcpu_ioctl(struct file *filp,
-diff --git a/include/linux/gunyah.h b/include/linux/gunyah.h
-index f86f14018734..fa6e3fd4bee1 100644
---- a/include/linux/gunyah.h
-+++ b/include/linux/gunyah.h
-@@ -16,9 +16,16 @@
- 
+diff --git a/drivers/virt/gunyah/rsc_mgr_rpc.c b/drivers/virt/gunyah/rsc_mgr_rpc.c
+index 936592177ddb..0266c2a8d583 100644
+--- a/drivers/virt/gunyah/rsc_mgr_rpc.c
++++ b/drivers/virt/gunyah/rsc_mgr_rpc.c
+@@ -7,6 +7,12 @@
+ #include <linux/error-injection.h>
  #include <linux/gunyah_rsc_mgr.h>
  
-+#define gunyah_vcpu(kvm_vcpu_ptr) \
-+	container_of(kvm_vcpu_ptr, struct gunyah_vcpu, kvm_vcpu)
++/* Message IDs: Memory Management */
++#define GUNYAH_RM_RPC_MEM_LEND 0x51000012
++#define GUNYAH_RM_RPC_MEM_SHARE 0x51000013
++#define GUNYAH_RM_RPC_MEM_RECLAIM 0x51000015
++#define GUNYAH_RM_RPC_MEM_APPEND 0x51000018
 +
- #define kvm_to_gunyah(kvm_ptr) \
- 	container_of(kvm_ptr, struct gunyah_vm, kvm)
+ /* Message IDs: VM Management */
+ /* clang-format off */
+ #define GUNYAH_RM_RPC_VM_ALLOC_VMID		0x56000001
+@@ -23,6 +29,49 @@
+ #define GUNYAH_RM_RPC_VM_SET_ADDRESS_LAYOUT	0x56000034
+ /* clang-format on */
  
-+#define GUNYAH_STATE(kvm_vcpu)							\
-+	struct gunyah_vm __maybe_unused *ghvm = kvm_to_gunyah(kvm_vcpu->kvm);	\
-+	struct gunyah_vcpu __maybe_unused *ghvcpu = gunyah_vcpu(kvm_vcpu)
++/* Call: MEM_LEND, MEM_SHARE */
++#define GUNYAH_RM_MAX_MEM_ENTRIES 512
 +
- struct gunyah_vm;
++#define GUNYAH_MEM_SHARE_REQ_FLAGS_APPEND BIT(1)
++
++struct gunyah_rm_mem_share_req_header {
++	u8 mem_type;
++	u8 _padding0;
++	u8 flags;
++	u8 _padding1;
++	__le32 label;
++} __packed;
++
++struct gunyah_rm_mem_share_req_acl_section {
++	__le16 n_entries;
++	__le16 _padding;
++	struct gunyah_rm_mem_acl_entry entries[];
++} __packed;
++
++struct gunyah_rm_mem_share_req_mem_section {
++	__le16 n_entries;
++	__le16 _padding;
++	struct gunyah_rm_mem_entry entries[];
++} __packed;
++
++/* Call: MEM_RELEASE */
++struct gunyah_rm_mem_release_req {
++	__le32 mem_handle;
++	u8 flags; /* currently not used */
++	u8 _padding0;
++	__le16 _padding1;
++} __packed;
++
++/* Call: MEM_APPEND */
++#define GUNYAH_MEM_APPEND_REQ_FLAGS_END BIT(0)
++
++struct gunyah_rm_mem_append_req_header {
++	__le32 mem_handle;
++	u8 flags;
++	u8 _padding0;
++	__le16 _padding1;
++} __packed;
++
+ struct gunyah_rm_vm_common_vmid_req {
+ 	__le16 vmid;
+ 	__le16 _padding;
+@@ -72,6 +121,161 @@ static int gunyah_rm_common_vmid_call(struct gunyah_rm *rm, u32 message_id,
+ 			      NULL, NULL);
+ }
  
- /* Matches resource manager's resource types for VM_GET_HYP_RESOURCES RPC */
-@@ -89,6 +96,7 @@ struct gunyah_vm_resource_ticket {
-  */
- struct gunyah_vm {
- 	u16 vmid;
-+	bool started;
- 	struct kvm kvm;
- 	struct gunyah_rm *rm;
- 	struct notifier_block nb;
-@@ -101,6 +109,49 @@ struct gunyah_vm {
- 	enum gunyah_rm_vm_auth_mechanism auth;
- };
- 
++static int gunyah_rm_mem_append(struct gunyah_rm *rm, u32 mem_handle,
++				struct gunyah_rm_mem_entry *entries,
++				size_t n_entries)
++{
++	struct gunyah_rm_mem_append_req_header *req __free(kfree) = NULL;
++	struct gunyah_rm_mem_share_req_mem_section *mem;
++	int ret = 0;
++	size_t n;
++
++	req = kzalloc(sizeof(*req) + struct_size(mem, entries, GUNYAH_RM_MAX_MEM_ENTRIES),
++		      GFP_KERNEL);
++	if (!req)
++		return -ENOMEM;
++
++	req->mem_handle = cpu_to_le32(mem_handle);
++	mem = (void *)(req + 1);
++
++	while (n_entries) {
++		req->flags = 0;
++		if (n_entries > GUNYAH_RM_MAX_MEM_ENTRIES) {
++			n = GUNYAH_RM_MAX_MEM_ENTRIES;
++		} else {
++			req->flags |= GUNYAH_MEM_APPEND_REQ_FLAGS_END;
++			n = n_entries;
++		}
++
++		mem->n_entries = cpu_to_le16(n);
++		memcpy(mem->entries, entries, sizeof(*entries) * n);
++
++		ret = gunyah_rm_call(rm, GUNYAH_RM_RPC_MEM_APPEND, req,
++				     sizeof(*req) + struct_size(mem, entries, n),
++				     NULL, NULL);
++		if (ret)
++			break;
++
++		entries += n;
++		n_entries -= n;
++	}
++
++	return ret;
++}
++
 +/**
-+ * struct gunyah_vcpu - Track an instance of gunyah vCPU
-+ * @kvm_vcpu: kvm instance
-+ * @rsc: Pointer to the Gunyah vCPU resource, will be NULL until VM starts
-+ * @lock: One userspace thread at a time should run the vCPU
-+ * @ghvm: Pointer to the main VM struct; quicker look up than going through
-+ *        @f->ghvm
-+ * @state: Our copy of the state of the vCPU, since userspace could trick
-+ *         kernel to behave incorrectly if we relied on @vcpu_run
-+ * @ready: if vCPU goes to sleep, hypervisor reports to us that it's sleeping
-+ *         and will signal interrupt (from @rsc) when it's time to wake up.
-+ *         This completion signals that we can run vCPU again.
-+ * @nb: When VM exits, the status of VM is reported via @vcpu_run->status.
-+ *      We need to track overall VM status, and the nb gives us the updates from
-+ *      Resource Manager.
-+ * @ticket: resource ticket to claim vCPU# for the VM
++ * gunyah_rm_mem_share() - Share memory with other virtual machines.
++ * @rm: Handle to a Gunyah resource manager
++ * @p: Information about the memory to be shared.
++ *
++ * Sharing keeps Linux's access to the memory while the memory parcel is shared.
 + */
-+struct gunyah_vcpu {
-+	struct kvm_vcpu kvm_vcpu;
-+	struct gunyah_resource *rsc;
-+	struct mutex lock;
-+	struct gunyah_vm *ghvm;
++int gunyah_rm_mem_share(struct gunyah_rm *rm, struct gunyah_rm_mem_parcel *p)
++{
++	u32 message_id = p->n_acl_entries == 1 ? GUNYAH_RM_RPC_MEM_LEND :
++						 GUNYAH_RM_RPC_MEM_SHARE;
++	size_t msg_size, initial_mem_entries = p->n_mem_entries, resp_size;
++	struct gunyah_rm_mem_share_req_acl_section *acl;
++	struct gunyah_rm_mem_share_req_mem_section *mem;
++	struct gunyah_rm_mem_share_req_header *req_header;
++	size_t acl_size, mem_size;
++	u32 *attr_section;
++	bool need_append = false;
++	__le32 *resp;
++	void *msg;
++	int ret;
 +
-+	/**
-+	 * Track why the vcpu_run hypercall returned. This mirrors the vcpu_run
-+	 * structure shared with userspace, except is used internally to avoid
-+	 * trusting userspace to not modify the vcpu_run structure.
++	if (!p->acl_entries || !p->n_acl_entries || !p->mem_entries ||
++	    !p->n_mem_entries || p->n_acl_entries > U8_MAX ||
++	    p->mem_handle != GUNYAH_MEM_HANDLE_INVAL)
++		return -EINVAL;
++
++	if (initial_mem_entries > GUNYAH_RM_MAX_MEM_ENTRIES) {
++		initial_mem_entries = GUNYAH_RM_MAX_MEM_ENTRIES;
++		need_append = true;
++	}
++
++	acl_size = struct_size(acl, entries, p->n_acl_entries);
++	mem_size = struct_size(mem, entries, initial_mem_entries);
++
++	/* The format of the message goes:
++	 * request header
++	 * ACL entries (which VMs get what kind of access to this memory parcel)
++	 * Memory entries (list of memory regions to share)
++	 * Memory attributes (currently unused, we'll hard-code the size to 0)
 +	 */
-+	enum {
-+		GUNYAH_VCPU_RUN_STATE_UNKNOWN = 0,
-+		GUNYAH_VCPU_RUN_STATE_READY,
-+		GUNYAH_VCPU_RUN_STATE_MMIO_READ,
-+		GUNYAH_VCPU_RUN_STATE_MMIO_WRITE,
-+		GUNYAH_VCPU_RUN_STATE_SYSTEM_DOWN,
-+	} state;
++	msg_size = sizeof(struct gunyah_rm_mem_share_req_header) + acl_size +
++		   mem_size +
++		   sizeof(u32); /* for memory attributes, currently unused */
 +
-+	bool immediate_exit;
-+	struct completion ready;
++	msg = kzalloc(msg_size, GFP_KERNEL);
++	if (!msg)
++		return -ENOMEM;
 +
-+	struct notifier_block nb;
-+	struct gunyah_vm_resource_ticket ticket;
++	req_header = msg;
++	acl = (void *)req_header + sizeof(*req_header);
++	mem = (void *)acl + acl_size;
++	attr_section = (void *)mem + mem_size;
++
++	req_header->mem_type = p->mem_type;
++	if (need_append)
++		req_header->flags |= GUNYAH_MEM_SHARE_REQ_FLAGS_APPEND;
++	req_header->label = cpu_to_le32(p->label);
++
++	acl->n_entries = cpu_to_le32(p->n_acl_entries);
++	memcpy(acl->entries, p->acl_entries,
++	       flex_array_size(acl, entries, p->n_acl_entries));
++
++	mem->n_entries = cpu_to_le16(initial_mem_entries);
++	memcpy(mem->entries, p->mem_entries,
++	       flex_array_size(mem, entries, initial_mem_entries));
++
++	/* Set n_entries for memory attribute section to 0 */
++	*attr_section = 0;
++
++	ret = gunyah_rm_call(rm, message_id, msg, msg_size, (void **)&resp,
++			     &resp_size);
++	kfree(msg);
++
++	if (ret)
++		return ret;
++
++	p->mem_handle = le32_to_cpu(*resp);
++	kfree(resp);
++
++	if (need_append) {
++		ret = gunyah_rm_mem_append(
++			rm, p->mem_handle, &p->mem_entries[initial_mem_entries],
++			p->n_mem_entries - initial_mem_entries);
++		if (ret) {
++			gunyah_rm_mem_reclaim(rm, p);
++			p->mem_handle = GUNYAH_MEM_HANDLE_INVAL;
++		}
++	}
++
++	return ret;
++}
++ALLOW_ERROR_INJECTION(gunyah_rm_mem_share, ERRNO);
++
++/**
++ * gunyah_rm_mem_reclaim() - Reclaim a memory parcel
++ * @rm: Handle to a Gunyah resource manager
++ * @parcel: Information about the memory to be reclaimed.
++ *
++ * RM maps the associated memory back into the stage-2 page tables of the owner VM.
++ */
++int gunyah_rm_mem_reclaim(struct gunyah_rm *rm,
++			  struct gunyah_rm_mem_parcel *parcel)
++{
++	struct gunyah_rm_mem_release_req req = {
++		.mem_handle = cpu_to_le32(parcel->mem_handle),
++	};
++
++	 return gunyah_rm_call(rm, GUNYAH_RM_RPC_MEM_RECLAIM, &req, sizeof(req),
++			     NULL, NULL);
++}
++ALLOW_ERROR_INJECTION(gunyah_rm_mem_reclaim, ERRNO);
++
+ /**
+  * gunyah_rm_alloc_vmid() - Allocate a new VM in Gunyah. Returns the VM identifier.
+  * @rm: Handle to a Gunyah resource manager
+diff --git a/include/linux/gunyah_rsc_mgr.h b/include/linux/gunyah_rsc_mgr.h
+index c0fe516d54a8..c42a0cb42ba6 100644
+--- a/include/linux/gunyah_rsc_mgr.h
++++ b/include/linux/gunyah_rsc_mgr.h
+@@ -9,6 +9,7 @@
+ #include <linux/types.h>
+ 
+ #define GUNYAH_VMID_INVAL U16_MAX
++#define GUNYAH_MEM_HANDLE_INVAL U32_MAX
+ 
+ struct gunyah_rm;
+ 
+@@ -57,6 +58,55 @@ struct gunyah_rm_vm_status_payload {
+ 	__le16 app_status;
+ } __packed;
+ 
++#define GUNYAH_RM_ACL_X BIT(0)
++#define GUNYAH_RM_ACL_W BIT(1)
++#define GUNYAH_RM_ACL_R BIT(2)
++
++struct gunyah_rm_mem_acl_entry {
++	__le16 vmid;
++	u8 perms;
++	u8 reserved;
++} __packed;
++
++struct gunyah_rm_mem_entry {
++	__le64 phys_addr;
++	__le64 size;
++} __packed;
++
++enum gunyah_rm_mem_type {
++	GUNYAH_RM_MEM_TYPE_NORMAL = 0,
++	GUNYAH_RM_MEM_TYPE_IO = 1,
 +};
 +
- /******************************************************************************/
- /* Common arch-independent definitions for Gunyah hypercalls                  */
- #define GUNYAH_CAPID_INVAL U64_MAX
++/*
++ * struct gunyah_rm_mem_parcel - Info about memory to be lent/shared/donated/reclaimed
++ * @mem_type: The type of memory: normal (DDR) or IO
++ * @label: An client-specified identifier which can be used by the other VMs to identify the purpose
++ *         of the memory parcel.
++ * @n_acl_entries: Count of the number of entries in the @acl_entries array.
++ * @acl_entries: An array of access control entries. Each entry specifies a VM and what access
++ *               is allowed for the memory parcel.
++ * @n_mem_entries: Count of the number of entries in the @mem_entries array.
++ * @mem_entries: An array of regions to be associated with the memory parcel. Addresses should be
++ *               (intermediate) physical addresses from Linux's perspective.
++ * @mem_handle: On success, filled with memory handle that RM allocates for this memory parcel
++ */
++struct gunyah_rm_mem_parcel {
++	enum gunyah_rm_mem_type mem_type;
++	u32 label;
++	size_t n_acl_entries;
++	struct gunyah_rm_mem_acl_entry *acl_entries;
++	size_t n_mem_entries;
++	struct gunyah_rm_mem_entry *mem_entries;
++	u32 mem_handle;
++};
++
++/* RPC Calls */
++int gunyah_rm_mem_share(struct gunyah_rm *rm,
++			struct gunyah_rm_mem_parcel *parcel);
++int gunyah_rm_mem_reclaim(struct gunyah_rm *rm,
++			  struct gunyah_rm_mem_parcel *parcel);
++
+ int gunyah_rm_alloc_vmid(struct gunyah_rm *rm, u16 vmid);
+ int gunyah_rm_dealloc_vmid(struct gunyah_rm *rm, u16 vmid);
+ int gunyah_rm_vm_reset(struct gunyah_rm *rm, u16 vmid);
 -- 
 2.39.5
 
