@@ -4,65 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BA20C369D8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:03:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C6F4C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:03:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=klYtEhovmTlwcYguIPBeU+Xf5MWQCBo4CKfTOLBIQKA=; b=29r1OVGL3w1WEbv17VosKRrUbS
-	rpFS8kRdC2H3ZQCPDD+JwGgjZkpoxgA+ooa2OTbovveZJLv4pxR9lSG0ecnuIhtQSrzeM4XPJBFfV
-	bVjdayIAVdzUi3wHklZqKP7KQ5P0ToXvOR+uNqxkcwuLHPOolSnxc8e/f2++f0hAar/ngFgthme+i
-	aoCalI2wWdNabBI9sr2sXUBFq40UpEB7qgz5qRDmmhdQtjIoYDvLOmKvr4t5iySgX8ObBZoo2YDAZ
-	8TW3R1ZZx7fj+XM1jUNpqXkzjVzG9vB4scy4yswe1oHYcoMpEqAcZFoHDcPjEC/KbIXGqtrfDMVMO
-	S2r57f2g==;
+	bh=6Ttio08oTSADz4D/Sdqy63zgVY4f9+DlzTAqpC3Lvk4=; b=n3EosaLsjP9EdBaFkuYFIM0RW7
+	kCGRHkgNgIO9D7TYvYeqsBzTGfrIi1sY78KnpltapyZ/yRaM+NmPNOl6gIlE8mC9LN//2axRchKuy
+	GUq/tR4FivDzIMssM1Ob0PJrxUk/fyieElRZZ7wKV1fW7LLnQxcxW7CRA8D4ltTHijeAe77rV8MEl
+	1ufSFEyMe0QUvBeLUsV8bjoz9ja1kSr8T6tMESpkrXzNl64YJu2Q+7430k4a/iMZarmDr+nR4apYN
+	7ONOs8mkcwu7MaxCiS8aqBU8yMHsiTTN/+J4tCAauqGBkcsmOynYcq84OoOVeAwFZQaHZbChobYXc
+	H/Ec617w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7z31-0000000EZgB-11ff;
-	Thu, 24 Apr 2025 16:03:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7ulm-0000000DrLb-45DM
+	id 1u7z32-0000000EZj4-321x;
+	Thu, 24 Apr 2025 16:03:36 +0000
+Received: from p-east3-cluster7-host10-snip4-10.eps.apple.com ([57.103.84.231] helo=outbound.qs.icloud.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7unx-0000000DrgS-1Ilg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 11:29:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D84C11063;
-	Thu, 24 Apr 2025 04:29:24 -0700 (PDT)
-Received: from [10.163.49.106] (unknown [10.163.49.106])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B9C223F59E;
-	Thu, 24 Apr 2025 04:29:23 -0700 (PDT)
-Message-ID: <b002574d-e993-4b06-87f7-54bd01dfa500@arm.com>
-Date: Thu, 24 Apr 2025 16:59:20 +0530
+	Thu, 24 Apr 2025 11:31:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=etehtsea.me; s=sig1;
+	bh=6Ttio08oTSADz4D/Sdqy63zgVY4f9+DlzTAqpC3Lvk4=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version:x-icloud-hme;
+	b=tsVQ2KRiyGCIZQLb4G65HDJs1vpeeouwjaelagCLfL3NXGP+UVlNwIb5WoMjjuSai
+	 Up7tFBXQPlHkmoShSz9jPaZfofxQNKyaZD7dZi8xpfOtSQQsxB2d+9ffn0kayCd5sc
+	 JdltQBCD2bf+Mu2jRtjk/4nZmo6CcNxlbxE/D+NymdjMI/S45Y4FQ5kLUmE1Q1sHm5
+	 +f+9FJc4wgb/L+X+SsBLrDMxQ5+bZ6zXPSB1FXd47il192LmMsfu4vGdzx95QatMLP
+	 dlJbQnzwtoyuUr0FK0K9IiWD0W3MtcVijawtyQy05Gq4ZLbPXvpVmutBVUOMJMPPIE
+	 Jrr6jl6T1c0rg==
+Received: from localhost (qs-asmtp-me-k8s.p00.prod.me.com [17.57.155.37])
+	by outbound.qs.icloud.com (Postfix) with ESMTPSA id 8D1E11801326;
+	Thu, 24 Apr 2025 11:31:37 +0000 (UTC)
+From: Konstantin Shabanov <mail@etehtsea.me>
+To: andyshrk@163.com
+Cc: airlied@gmail.com,
+	andy.yan@rock-chips.com,
+	daniel@fooishbar.org,
+	djc@djc.id.au,
+	dri-devel@lists.freedesktop.org,
+	heiko@sntech.de,
+	hjc@rock-chips.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	maarten.lankhorst@linux.intel.com,
+	mail@etehtsea.me,
+	mripard@kernel.org,
+	simona@ffwll.ch,
+	tzimmermann@suse.de
+Subject: Re:Re:Re: [PATCH v4] drm/rockchip: Disable AFBC for res >2560 on rk3399
+Date: Thu, 24 Apr 2025 11:31:27 +0000
+Message-ID: <20250424113130.7431-1-mail@etehtsea.me>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <a893834.9206.196484ef2ab.Coremail.andyshrk@163.com>
+References: <a893834.9206.196484ef2ab.Coremail.andyshrk@163.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] coresight: etm-perf: Add AUX_NON_CONTIGUOUS_PAGES to
- cs_etm PMU
-To: Yabin Cui <yabinc@google.com>, Leo Yan <leo.yan@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>,
- Liang Kan <kan.liang@linux.intel.com>, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-perf-users@vger.kernel.org
-References: <20250421215818.3800081-1-yabinc@google.com>
- <20250421215818.3800081-3-yabinc@google.com>
- <20250422142102.GI28953@e132581.arm.com>
- <CALJ9ZPNKZU7nVLyodN5i7GeRxWL6KzkXnqEJMv2sJkk2SwYi9Q@mail.gmail.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <CALJ9ZPNKZU7nVLyodN5i7GeRxWL6KzkXnqEJMv2sJkk2SwYi9Q@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-Proofpoint-GUID: 0lH5-8KJ1rBV-2m4q0bqzLQKWM_UHpbh
+X-Proofpoint-ORIG-GUID: 0lH5-8KJ1rBV-2m4q0bqzLQKWM_UHpbh
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.680,FMLib:17.12.80.40
+ definitions=2025-04-24_05,2025-04-22_01,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=1 suspectscore=0 mlxscore=1 clxscore=1030
+ adultscore=0 malwarescore=0 mlxlogscore=190 bulkscore=0 phishscore=0
+ spamscore=1 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2308100000 definitions=main-2504240077
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_042931_098227_FDBA7B4E 
-X-CRM114-Status: GOOD (  18.74  )
+X-CRM114-CacheID: sfid-20250424_043145_485463_0F37EEA6 
+X-CRM114-Status: UNSURE (   4.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,62 +91,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi, Andy and Daniel!
 
+What is the status of this one? I've noticed it went to archived.
+Is it good to go or not? Any further recommendations?
 
-On 4/24/25 01:31, Yabin Cui wrote:
-> On Tue, Apr 22, 2025 at 7:21 AM Leo Yan <leo.yan@arm.com> wrote:
->>
->> On Mon, Apr 21, 2025 at 02:58:18PM -0700, Yabin Cui wrote:
->>> The cs_etm PMU, regardless of the underlying trace sink (ETF, ETR or
->>> TRBE), doesn't require contiguous pages for its AUX buffer.
->>
->> Though contiguous pages are not mandatory for TRBE, I would set the
->> PERF_PMU_CAP_AUX_NO_SG flag for it.  This can potentially benefit
->> performance.
-> 
-> As explained in the patch 1/2, my use case periodically collects ETM data
-> from the field (using both TRBE and ETR), and needs to reduce memory
-> fragmentation. If the performance impact is big, we can make it user
-> configurable. Otherwise, shall we default it to non-contiguous pages?
-
-But is not that already happening ? cs_etm does not set the PMU cap
-PERF_PMU_CAP_AUX_NO_SG that means it can allocate non-contig memory
-chunk. Where am I missing ?
-
-> 
->>
->> For non per CPU sinks, it is fine to allocate non-contiguous pages.
->>
->> Thanks,
->> Leo
->>
->>> This patch adds the PERF_PMU_CAP_AUX_NON_CONTIGUOUS_PAGES capability
->>> to the cs_etm PMU. This allows the kernel to allocate non-contiguous
->>> pages for the AUX buffer, reducing memory fragmentation when using
->>> cs_etm.
->>>
->>> Signed-off-by: Yabin Cui <yabinc@google.com>
->>> ---
->>>  drivers/hwtracing/coresight/coresight-etm-perf.c | 3 ++-
->>>  1 file changed, 2 insertions(+), 1 deletion(-)
->>>
->>> diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
->>> index f4cccd68e625..c98646eca7f8 100644
->>> --- a/drivers/hwtracing/coresight/coresight-etm-perf.c
->>> +++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
->>> @@ -899,7 +899,8 @@ int __init etm_perf_init(void)
->>>       int ret;
->>>
->>>       etm_pmu.capabilities            = (PERF_PMU_CAP_EXCLUSIVE |
->>> -                                        PERF_PMU_CAP_ITRACE);
->>> +                                        PERF_PMU_CAP_ITRACE |
->>> +                                        PERF_PMU_CAP_AUX_NON_CONTIGUOUS_PAGES);
->>>
->>>       etm_pmu.attr_groups             = etm_pmu_attr_groups;
->>>       etm_pmu.task_ctx_nr             = perf_sw_context;
->>> --
->>> 2.49.0.805.g082f7c87e0-goog
->>>
->>>
-> 
+Thank you,
+Konstantin
 
