@@ -4,140 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 307C5C369D7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 10:33:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 903C4C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 10:35:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:To:Subject:From
+	:MIME-Version:Date:Message-ID:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2f3dK7+MKJ/z1loG9CU/AAIIV64HRI5KTaq4hfss28E=; b=gU0aX06pSmovNSMDzQoJxS2Cx3
-	33AwYjDN1RYjmLlhc86FP0OoV4FCCnZyCPIvHBXciGRXVsoQ60bzdPi5HiHAtXTAIiIVqf7FqxEFK
-	s8GLUWLjkA3QA1iHSgLVK8M0ngju7/UZpQrpQBn5B4sTxqWHXUFxGSpBUscWw8kMrPHtgw8og3W2s
-	pSoEOsNDknry3Jwj71YigDigfx9pdZYJrbb3UwohJJaQp2w7HmKxQ5scKdfUAL1koZivhkD/xRYq0
-	fY3KMV1mPcXAfd8UD34FlKeImpa3WytLSeLOtVSvBuGLxSRJChJOo6LP5oO6FlsaELIevTlD0aIae
-	cHYy5txA==;
+	bh=xNx1WPqtWYJcrBW98RXW8ncyOy163qc9hiiFTZ6Ipn8=; b=CJ4pRrgjnYQuKpKevBm8izWGNO
+	ltE5VWuvhRUaf+AuBBdNUrQS4GP83zC7rgY2F/qgb+r/GgIXIUer/NqFIirmcP7/fN5BpNrm4WXN/
+	ttjnP2032wEDNtcUVj9sJzD7qAnoOV0PYTWTVUJ8d2+nb9nYNdf+wg+u6YXrrGoDRhMDYi4waIXeW
+	dSNAKiL4er/2HzJdJ1TGYkwK9FwgUo9VnwRe5Gd7QuKVxr4SwPjMk9vFuja2V62c/SyPAV67fcrV/
+	lDYSU+yT7Rl1GlEzwdFx9PtFansMRgKOSHYcAxL4F5AIbRUid7TKqon8KYgiStuvmbcRVOjb1Cedz
+	6rAnqhLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7ttK-0000000Dh47-1s1Q;
-	Thu, 24 Apr 2025 10:33:14 +0000
+	id 1u7tvI-0000000DhUv-2F28;
+	Thu, 24 Apr 2025 10:35:16 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7t2w-0000000DXS4-2PNV
+	id 1u7t36-0000000DXUQ-21AS
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 24 Apr 2025 09:39:06 +0000
+	Thu, 24 Apr 2025 09:39:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=2f3dK7+MKJ/z1loG9CU/AAIIV64HRI5KTaq4hfss28E=; b=ED1sIoxEBq5TUJUoXMucAYocuO
-	3XhcwXeUKNqTEkLgZlsM7XxTs9fZ+yNnVZKFdicNmUXZUhYCVm3c6bXqL2q11Ht0Wn3hDH9Yuue8u
-	DM9HeD+pfqvCs1zuPG3WOAfjGpHJSnq9CQf9WnaxWKVbVaLhPPP+lHcQTXBHMcveRO5YPSGSdeDC+
-	9/udA23Cu2AizLewYoNOkqUkBwwatjoHrhzX/zJ9Zf6cTvaYEYLhiQqy235imAi+0eyM9OKuNv/XO
-	PLR1sF6E65K3j+M8sC6LqXfosDpJGnrb/XJ4nq6CfFT7QXcdJNQrlKSq42ItKHW5Kb/MxBC+VIPYb
-	SNPogyEA==;
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:References:To:Subject:Reply-To:From:MIME-Version:Date:Message-ID
+	:Sender:Cc:Content-ID:Content-Description;
+	bh=xNx1WPqtWYJcrBW98RXW8ncyOy163qc9hiiFTZ6Ipn8=; b=jWtyomZnLDeiSnvTjI5gkAC+QJ
+	4PFfXWWK+Tg16M2gX8Wl+HnJrEU+DWGSXEUQoEovIIcBmiL0rRhmaOIxBkgFwa0yjmMD5Syq+pAKw
+	33SzxsehyBVfJZarpH0mxaGoODjeZmKmQp3mJaj0jP5tRYdCR7+Ap+2NrQlM+RafHTe6yegBYOjPk
+	tH+akjvkqXSYhWzh1VPNOK/AcQiJo7czXrCYjVt0X15RC7WpPEfA1ATusvbG0EuERRTblwK9GsXjy
+	jglro3nOAoOP/J8pW7sUDhtUaA8A9Ut7XKTE+RgVAue8zNisjEEdV6IVakZlTwgljotnznz+2TXnI
+	A7ArGy5A==;
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u7t2s-0000000Bgq7-0WlV
+	id 1u7t33-0000000BgrP-1V6f
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 09:39:04 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53O0F6Bq028361
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 09:39:00 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=2f3dK7+MKJ/z1loG9CU/AAII
-	V64HRI5KTaq4hfss28E=; b=U8a1newRJEdS9P6IAa18vzlihzo2D9BcXOdX5yOJ
-	Oa4bDNC3lgOmphXitQm4leabcGaZDhhlNzJl9KhHxDTKGiliBt58f4p+ZiX5y/Fc
-	HFqmdOOHc4yXGvsNx2kWMnpj8IGnoxW24Im1ZkxZFykXbRWmjt2K34atY+Z6STWf
-	Z5zU/4rlDMrOGtRiG2dbL4MAJQ5MUAyC7YbQPvoQKvfVIzOicN264g1THBFin/xW
-	WKSOuTeu5IUxqn/gNk78m5HtLVbVsx+CJZq8zMjBJTb+P4Jc9VyvR/pazAHoljvX
-	PU+FTpYnToVVBWwDfWS9azPHsXRkF7YqnR5IMTSOYndiMQ==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 466jgy50w2-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 09:38:59 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-7c54e7922a1so163083885a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 02:38:59 -0700 (PDT)
+	Thu, 24 Apr 2025 09:39:15 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-43cf58eea0fso3285125e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 02:39:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1745487551; x=1746092351; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=xNx1WPqtWYJcrBW98RXW8ncyOy163qc9hiiFTZ6Ipn8=;
+        b=REYc32HAp5bePStoZQLIh3BUX4RqKScKaVLfLBWsUb7a9sB73cFx+TfmGPXgiT9yfr
+         9EPsjEg+F+a+74Pur8gWpm15L4C7dGiWnewzovNN0SEHOfTyv6qRsg46LPKRs8vE0wRZ
+         heTQPtjRwipZ1qnEdFMzNSwPrpvv316/3Ncn7w14x7pk/BTzXGGTEFtXgKOz/uRqU8Ld
+         nU2R0Y7Pe1cwXv2eEO9xA5W9cki4+ci0nty4T8m842LP5JovfI6Lg1Etqz01h2kIi3H7
+         UR92Zw5HMXEXFo1QuYd73xf1/XRIfn9b70rNFXPV7Zw56m6ErtHySgU8UD3BxaEU1QWm
+         US5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745487539; x=1746092339;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2f3dK7+MKJ/z1loG9CU/AAIIV64HRI5KTaq4hfss28E=;
-        b=Z2AUm5zqlhp5MY5mcOmBt7M0oY1JwlnqP3QmOs7bJnb5aMCNp2X3evGatXzROpjKyX
-         pjlAKw1CKQIRHcXAF5FTqJUhTmNwH+qxZuYV1Cn84jRf3xGClfauk6KR/yp1PNX2DELO
-         YEG0Hnq2LdlFTNSINSUxAw+5vhe5FJ1/1xUlBREHqefwv6l5xM9lvNZUe9hvxWQnXfYM
-         hdFqFt5uDftnKESEQBiqFt47n78q7WX2fLSxabGI7BIh2sM0rRK1Q3gov/KpNgoE2Op2
-         JqJCkW+IEqzYj9ppZkl/FkbIzXdlfaaEhuDdJRCYABg2eCXNHX5Vtg4HFfAz6cUG46an
-         9UbQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUFogjrk+NvPa0w1MMDCejGNq96nkAWz2ekqrIU/1rZNUfOnXWFpHH3wGglaF3MR2DcV3IPbscETnTqZS7Eg0uf@lists.infradead.org
-X-Gm-Message-State: AOJu0YwdFuK3y3+7B/YP5qyqb/ygOztCoM40x6mdK0XiSBCkG30MEqQl
-	3D0sCYcJbETgjcItzVfeTU60+jgW9KuysAkxRxIUN276ZGNlkOjZOPRkdIPewQF1nS6US3kNaqP
-	g103DLARYA6rs+G0DbDO80tRAtQu7ikrsFUeGcvWTLNCRcP4vb3fSL5YFFnx2zviSp1iqirbGJA
-	==
-X-Gm-Gg: ASbGncsiYPGWGZkjYMJCw6ws0ZGQkTH273zwoyZYce9KcAOXVjVnTspEWEy6BC0FAo8
-	U6RWrG8V+wr+evPipNw6c3in1F+qplwtk7QYrHrIf44a+kps02N/TocrXu8k+HhFP+82tLZvv5N
-	4BsGZjlYLadcxwISxNrxKpcSRCwqKmU62WbOzUc4p6gHXqKSUVMSODiH2zVGnkInWmOm7J5StLN
-	I9SAxdj7rp4PrsshmnDHf0XLzorHo+JAac+w1OVwy9NurXM21MTapD8AbzBtiGAt4dTIaeSzrvm
-	upeWY2VLl0E6M+ni+Ux2yF7sGLtY9gnr3F+1h1C09uUYNTKf+5blmn4yMXJ2G5hUyVoF1s05pTc
-	=
-X-Received: by 2002:a05:620a:290c:b0:7c5:9a2a:aac1 with SMTP id af79cd13be357-7c956f281admr276027885a.46.1745487539298;
-        Thu, 24 Apr 2025 02:38:59 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFVpA1BUKeX5X8TebYkgy0ZTMhGuaFRaUuMOgDF2vXdicDx4tCttKkvklxUD+kzOdmlB27N+A==
-X-Received: by 2002:a05:620a:290c:b0:7c5:9a2a:aac1 with SMTP id af79cd13be357-7c956f281admr276026285a.46.1745487539012;
-        Thu, 24 Apr 2025 02:38:59 -0700 (PDT)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54e7ccb7791sm166472e87.211.2025.04.24.02.38.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Apr 2025 02:38:58 -0700 (PDT)
-Date: Thu, 24 Apr 2025 12:38:56 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Melody Olvera <melody.olvera@oss.qualcomm.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Wesley Cheng <quic_wcheng@quicinc.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, linux-arm-msm@vger.kernel.org,
-        linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Subject: Re: [PATCH v5 07/10] arm64: dts: qcom: sm8750: Add USB support to
- SM8750 SoCs
-Message-ID: <rvjdnmhn5pb4dbhp3jxcmytr2svumafutopjwue7nueu6ymcsh@dbl7kkoipae3>
-References: <20250421-sm8750_usb_master-v5-0-25c79ed01d02@oss.qualcomm.com>
- <20250421-sm8750_usb_master-v5-7-25c79ed01d02@oss.qualcomm.com>
+        d=1e100.net; s=20230601; t=1745487551; x=1746092351;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=xNx1WPqtWYJcrBW98RXW8ncyOy163qc9hiiFTZ6Ipn8=;
+        b=IXjSChBNFoetY10jRX2Jf5p75im35phK/YuPBbVjxYu6UZDZE7sUg1rN6yQ4fJ/syQ
+         QGO8UyfDy1Nf6SMAX/qfKB6vm6D5eHCgXLvdk476MvVsuRbMvuQu5i3dR7vUkxmzlaSV
+         RTHcCaaJ3hm1CDr7+uoz5OSLLfT2PFD0cZjichaqvr60WsQwtiWiJOyI44ealDZw6RxW
+         mAyy1AhjRXchi2n3QKo5d1gQU2wFaneDF+o35wy5rha4j5aeawm6fpM4nB7TL7KtmE0q
+         Kg2ZfALuDZUXcZWnf0oMsmEXWu4mtqbpb0WXS01TvCgeY/xPB7lqVOkb73BgPp6T5a8/
+         Fs8g==
+X-Forwarded-Encrypted: i=1; AJvYcCWfYaCyXRd0cp0XCnjejLV8uojpFMLQc29xBtly0mj3qE/X9n/JQinIMEdzozxgs3K7ITwwTN3pK6f1tIUkihnH@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz55cQdEbVqPnjEdAmLxniqLBvXxxVDmoDLRDTWhfhh7vLCYgia
+	TmMAfBZaQnHvxfrVrSEyK9ziPhNZn1Zj95ARwdOhn+lmzfI/U4x+IyXCbaOW7cGA7hOTjVbJoiX
+	6
+X-Gm-Gg: ASbGncsshvg1xPk4RNmmscyAdi8nXdkmPAXcv3fsxSfo753PZc5upaV2miEGb2PwER5
+	nHQoWqBph6nWKfnDuxAgqWM86H3lTx7T4gB+N8tToDRIyobnmtOGDEsb5Tbs8099cRIv9odXA/Q
+	eTxcfWESvn9Rw74hOBm2Tefr00kzgSos4qCgO28yPFSv6cO69C+cW4EKiaGoQ2byiGXwW/GPQKk
+	vRBGkvI6sKoO6Lr5hQ6atVC3V6APf6/RAfbD3rB6+L/xZoOQ8pBWiqaeqPJsblxGruukNM8CdpP
+	HJTumuXLO4xyLEXEJEjPCnN/lXfomFdQxkppLpxAdX9xYDr74QxjEde1ifxCJV6rD6ALZ8r5tia
+	nAbxS0fkaqcxY7zqWLw==
+X-Google-Smtp-Source: AGHT+IGtCxdUC1xTXeKfOpcQHvdI3o0HG4SnS9XsPqaKHix8/5R2mY47yF7JotIiZRIK89NFdpuEbQ==
+X-Received: by 2002:a05:600c:4fc8:b0:43d:7413:cb3e with SMTP id 5b1f17b1804b1-4409bd0a445mr15832535e9.1.1745487551324;
+        Thu, 24 Apr 2025 02:39:11 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:3d9:2080:a24a:bfda:f031:720d? ([2a01:e0a:3d9:2080:a24a:bfda:f031:720d])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-440a01cdf59sm2453785e9.33.2025.04.24.02.39.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 24 Apr 2025 02:39:11 -0700 (PDT)
+Message-ID: <3c3c3652-be5f-4f54-a0b8-4829f9549116@linaro.org>
+Date: Thu, 24 Apr 2025 11:39:10 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250421-sm8750_usb_master-v5-7-25c79ed01d02@oss.qualcomm.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI0MDA2MyBTYWx0ZWRfX51/p9gZ1YQQh hMdIMSixHc1S+KbwfC2EWcMHa+MD68rsxfgEF53VofLJlUHqBPGVqsCnJXapV1glheWv/8/C5tA ZksQiPAQkPs7YWKGXHw2oeRLtFQhLWuP+7HfKaTIJdktvYH9vHzuR1/FMS6Q2N6EMP3m+3srWrC
- JvYBwtl4q9ae117U4kqVZy/blZKaIKRo/M2CSKFNWqj1/fRHsvITraoZwvWDtfyppdwvtMcaLFK 5ZMLm2aFHad9VBVOHwTYIy2/GV0C2WeEFR7J9twHKn4URzF6Nqtmx9WqpmL6S1cIpkRDAYhzt95 HwxiL4jB9s9nmBGs8Q6zInpTFWRtvpTFHYpsDiZhlsjRp4+1D1bBHsfwbiNKfQGnpuO1l61cw9i
- D4Ac7MskRhHAOxI8WryFcg8Qc0zu+AgNR88DLkN1qQEuolQtQqwQpzTc3eRoy5+QplDaJOfg
-X-Proofpoint-GUID: YYC3xjDBoQg-bnSoPF_2a4lSV5LaIuZ0
-X-Proofpoint-ORIG-GUID: YYC3xjDBoQg-bnSoPF_2a4lSV5LaIuZ0
-X-Authority-Analysis: v=2.4 cv=M5VNKzws c=1 sm=1 tr=0 ts=680a06b3 cx=c_pps a=50t2pK5VMbmlHzFWWp8p/g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=EUspDBNiAAAA:8 a=oz0Rim8_5s926H0KrIoA:9 a=CjuIK1q_8ugA:10
- a=IoWCM6iH3mJn3m4BftBB:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.680,FMLib:17.12.80.40
- definitions=2025-04-24_04,2025-04-22_01,2025-02-21_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0
- lowpriorityscore=0 adultscore=0 spamscore=0 priorityscore=1501 mlxscore=0
- mlxlogscore=583 malwarescore=0 impostorscore=0 clxscore=1015
- suspectscore=0 phishscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
- definitions=main-2504240063
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH] arm64: dts: amlogic: Align wifi node name with bindings
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250424084721.105113-1-krzysztof.kozlowski@linaro.org>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20250424084721.105113-1-krzysztof.kozlowski@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_103902_478377_24E596F4 
-X-CRM114-Status: GOOD (  16.80  )
+X-CRM114-CacheID: sfid-20250424_103913_582753_8B391143 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,31 +144,34 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 21, 2025 at 03:00:14PM -0700, Melody Olvera wrote:
-> From: Wesley Cheng <quic_wcheng@quicinc.com>
+On 24/04/2025 10:47, Krzysztof Kozlowski wrote:
+> Since commit 3c3606793f7e ("dt-bindings: wireless: bcm4329-fmac: Use
+> wireless-controller.yaml schema"), bindings expect 'wifi' as node name:
 > 
-> Add the base USB devicetree definitions for SM8750 platforms.  The overall
-> chipset contains a single DWC3 USB3 controller (rev. 200a), SS QMP PHY
-> (rev. v8) and M31 eUSB2 PHY.  The major difference for SM8750 is the
-> transition to using the M31 eUSB2 PHY compared to previous SoCs.
+>    meson-gxm-rbox-pro.dtb: brcmf@1: $nodename:0: 'brcmf@1' does not match '^wifi(@.*)?$'
 > 
-> Enable USB support on SM8750 MTP and QRD variants. SM8750 has a QMP combo
-> PHY for the SSUSB path, and a M31 eUSB2 PHY for the HSUSB path.
-> 
-> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-> Signed-off-by: Wesley Cheng <quic_wcheng@quicinc.com>
-> Signed-off-by: Melody Olvera <melody.olvera@oss.qualcomm.com>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 > ---
->  arch/arm64/boot/dts/qcom/sm8750.dtsi | 164 +++++++++++++++++++++++++++++++++++
->  1 file changed, 164 insertions(+)
+>   arch/arm64/boot/dts/amlogic/meson-gxm-rbox-pro.dts | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
 > 
+> diff --git a/arch/arm64/boot/dts/amlogic/meson-gxm-rbox-pro.dts b/arch/arm64/boot/dts/amlogic/meson-gxm-rbox-pro.dts
+> index ecaf678b23dd..9d5a481b309f 100644
+> --- a/arch/arm64/boot/dts/amlogic/meson-gxm-rbox-pro.dts
+> +++ b/arch/arm64/boot/dts/amlogic/meson-gxm-rbox-pro.dts
+> @@ -217,7 +217,7 @@ &sd_emmc_a {
+>   	vmmc-supply = <&vddao_3v3>;
+>   	vqmmc-supply = <&vddio_boot>;
+>   
+> -	brcmf: brcmf@1 {
+> +	brcmf: wifi@1 {
+>   		reg = <1>;
+>   		compatible = "brcm,bcm4329-fmac";
+>   	};
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-
--- 
-With best wishes
-Dmitry
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
