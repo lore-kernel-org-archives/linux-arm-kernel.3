@@ -4,89 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 909E2C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 09:22:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E9DBC369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 09:22:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gyc2hJedNBMQB3mtMI7n6IC+t7jRMFsAPdQTaHcDrtc=; b=2aPJbkwNfPcHZhW00HC0B9XtGd
-	jvmmWjdFfFvfhD+5M6UH8+qDG79T6lyhToV9IEldm40mXrshRVvhsuGUO9Sb4Xl9Uq5kR04cD4NOL
-	EQ91Lzss1Yy67y44xbIobDg+Hx8PgRnE6qa6TaKkGcxeykjXeyau7JzACutyxjpsEPqykJWCrw8Do
-	VreVyw6QYaKq1V8uc5c7I44Bu8RQnnKbRi+Jwt97j8ItXeBdUuzHQt9Srrlz9RASb5See12SU/vb+
-	8q+u9cFWvmbNX9m8C7uda0tbbAyj2whn5fLax6lZanD/O26cLsJedRmhfxmZJ4IUkg4Cede4seJsh
-	m+5aQX5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fuZT78P9j7k7WzwtAOOSjzKOIc347/p+7AmZquWPojI=; b=aK7L3n438ENBnefpFVPhl/1iFN
+	GofUIlWOAJ5ni73ttBYSMM+1PzcsPGLQiSwaj0U3quyWGjjyy9C9J4fswuP1kVrhBYRI7B5EcMEIa
+	H/loklHWlDGVRzHB30jLRUtf0HwwJEvHGeRHvKV7oFHMpWSy69oKkLskQH4qdOT2SPArYfWU40xq0
+	0loJnaYB5PyxoZAK0VsnSxgSz79fuvz9+Neh1+mmfi4PQ4vIyymmYyYeXrc66w+M3gm29YTLTgnQI
+	+mdiPyH3NMMQCKvJFTlU+HhE3av6Be4UQVyYG0/52kK1ZAt+LeIxaWFmn5nvqjL1BAJKGPLoGS26l
+	iqr2hIew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7smY-0000000DTuH-3uDA;
-	Thu, 24 Apr 2025 09:22:10 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u7smf-0000000DTvg-22k8;
+	Thu, 24 Apr 2025 09:22:17 +0000
+Received: from mail-qk1-x72d.google.com ([2607:f8b0:4864:20::72d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7sCA-0000000DOFK-0dHO
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 24 Apr 2025 08:44:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Gyc2hJedNBMQB3mtMI7n6IC+t7jRMFsAPdQTaHcDrtc=; b=b7da16pMVTrsNJovFzpcktREbC
-	iDsimB4dO3UyqYHDHvdEynii+44jK47NrS/ONIQVxKkqANNpdqSCHL0q/+QTJTupRui9MrLYBZ5HV
-	/H1fqOuY8d4W95yfldzLKR0VSScS4R96BPdpVHHoda66jDxYga7/mYOMbYU1diRdY89JFLPQtbof4
-	yy7XbxZdzlDc1FqLUQMQ1iggtGFOpVybHlHx0dCyyQC/FG+jTo+jQprmdSxJPNClFnUB3/oJaEht2
-	Q1rWf+fwsvtCyyNF7Q+R72et85Kwwx7tRu3TSTxnNXrIH/tA075q1Bf2gL5ArzFCMqLxfBl1Ra/AI
-	S3Lj+sGQ==;
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u7sC6-0000000BdTm-3fIt
+	id 1u7rbj-0000000DHJT-3ioY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 08:44:32 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53O8iMvY2574670
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 24 Apr 2025 03:44:22 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745484262;
-	bh=Gyc2hJedNBMQB3mtMI7n6IC+t7jRMFsAPdQTaHcDrtc=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=ijIDI++5Y3Wvcd9H7mRWvCEhAXcv8c27qs5qqeDcTwXD/L/nruhkktqbMJJBbb0n1
-	 7IaHaz9ojoACClJ4S4qb1oZau8/btMqQJ7tOCgv6QvfbrBYVnfVzVwBYgdZ8WVcs4p
-	 bjX7n1KC8JRLT3PKmfYhDjzq4hjOwRq2xNNbVgOE=
-Received: from DFLE101.ent.ti.com (dfle101.ent.ti.com [10.64.6.22])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53O8iMRi004759
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 24 Apr 2025 03:44:22 -0500
-Received: from DFLE103.ent.ti.com (10.64.6.24) by DFLE101.ent.ti.com
- (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 24
- Apr 2025 03:44:22 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE103.ent.ti.com
- (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 24 Apr 2025 03:44:22 -0500
-Received: from localhost (jayesh-hp-z2-tower-g5-workstation.dhcp.ti.com [10.24.72.182])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53O8iLnI058454;
-	Thu, 24 Apr 2025 03:44:21 -0500
-From: Jayesh Choudhary <j-choudhary@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <linux-kernel@vger.kernel.org>
-CC: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <kristo@kernel.org>, <u-kumar1@ti.com>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devarsht@ti.com>,
-        <j-choudhary@ti.com>
-Subject: [PATCH 3/4] arm64: dts: ti: k3-am68-sk-som: Reserve 1008MiB of global CMA
-Date: Thu, 24 Apr 2025 14:14:14 +0530
-Message-ID: <20250424084415.66457-4-j-choudhary@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250424084415.66457-1-j-choudhary@ti.com>
-References: <20250424084415.66457-1-j-choudhary@ti.com>
+	Thu, 24 Apr 2025 08:06:57 +0000
+Received: by mail-qk1-x72d.google.com with SMTP id af79cd13be357-7c54a9d3fcaso78613185a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 01:06:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1745482014; x=1746086814; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fuZT78P9j7k7WzwtAOOSjzKOIc347/p+7AmZquWPojI=;
+        b=IoL9zD4FuguGPlOUyUH3emcpFRsPjQprBHxIpJU1XOCFlqgNH1jbrsoer8BGNXMnzL
+         qgGF+lQ42it+WwQ8da7JEzlpeaPiU7s3rLBrbtkTVwVwLHV7k4wgdb41gA05ho/bVVwJ
+         lbXs5xe5pBe1MagWyKLB9JXCJBeUkWa+lQ84fpI5fm8F+Juks1+hFB+Fs91pG0vhTPvL
+         BVon9nIdrIHVsYFv0gLyys7FnlHg4jLDTNNLRHtnqMMV4odjW5m5987IILBDgxu6KI9H
+         8uGHJ+9S+E+T3l7NOGWmg1f2SxbZStoBae4rWa8zhJLAIfqRY8ydYrNzU+OJclvH3rlL
+         RmEw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745482014; x=1746086814;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=fuZT78P9j7k7WzwtAOOSjzKOIc347/p+7AmZquWPojI=;
+        b=Z7cLlN9/g1XteFEVlAGoql0LOolZ2YuOkNwxyJvYZ14K8/O0vw9tbjxJzTqseTilW0
+         oXqxBd26XaNs9PK17xopVe4D4bNBIn4a8NXiNniltDiVWiRhRJU2TflLR8JFUvGxyupH
+         lJTObRr5HjAc/svhz7s3MOotk2aid69IX6l4PwJnaTzi40IraaHVuUGEPIvurrLZl04L
+         iedigTc//T7Yb0BWTwkdty21oQ/SqPOy54dEq3dBGyAqT9uzjTriZXP2iHQCYEpBXwiX
+         vBcTrIqpN+SPgJzEx/ne6px9Qbv8qGrVhe4wlOlemTWZFdXlAYdNImxPsLjTO2SW+wAg
+         S3YQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXSGCDY1huXByyAkgFqyh9/3w1RKZq3Oge6Fc6biz6skUd5nR/EoKYZH/5gaua/s2GKGReDJ+MX6WRGl6IRSPUD@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRhmpCbnudLpASORQrHmUlkEoqIi58N0GwxEXXdimgcKTYPIcc
+	6/gQWhSytLGJ6b1JseRD7zKejiYuir1bTUmLw5CMzfvJhGV1NYbTQ84SHvWnJFZVwD6q0hMzx5n
+	V1N0k42InpPGXUxaUYwa4idiCJ+c=
+X-Gm-Gg: ASbGncsT3kAWrVJdhxNK+ng3oJvNMSnauMl77WjqarlinXPvMhjvsQZrrRppj8KHzE0
+	/aIvuX2DLc76dIYkVTZjKkyEdRNE1I1UZO7dEL9Cn1GAPjwN8A0u//dvnjC75sPqlLzMuEx9TMh
+	9eyackb6m9j2KM1kjyYowNiMiCGC+SIfRm8i1WF9mScCWksPS/JC7TR6c=
+X-Google-Smtp-Source: AGHT+IEhzUA4oc+V3w2NjT7UrZcmGzkKTQD1CxM6C7Ok3vwwIKeFgj3Pi+wnsvImCZYWj5yHmRpA8SR7e+Hur2BVZFw=
+X-Received: by 2002:a05:620a:f0f:b0:7c5:588a:5c1e with SMTP id
+ af79cd13be357-7c956ed7552mr250436585a.30.1745482014365; Thu, 24 Apr 2025
+ 01:06:54 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+References: <20250418-via_pwm_binding-v2-1-17545f4d719e@gmail.com> <yscledgclp2v4p7djwrszbc3dnqifkcofky7rugkcip7o2rmof@xljfd2kfyzzs>
+In-Reply-To: <yscledgclp2v4p7djwrszbc3dnqifkcofky7rugkcip7o2rmof@xljfd2kfyzzs>
+From: Alexey Charkov <alchark@gmail.com>
+Date: Thu, 24 Apr 2025 12:07:03 +0400
+X-Gm-Features: ATxdqUE5PElP_sYDeMINZqZeeEsmfYCVkfJRWHY7GCzFKR6syg3Z1uN61FCNNqY
+Message-ID: <CABjd4YxK+4kEeS_tKBi9zhj85y6U1Dgi3nJNuQ8hfkeoY+iK1w@mail.gmail.com>
+Subject: Re: [PATCH v2] dt-bindings: pwm: vt8500-pwm: Convert to YAML
+To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-pwm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_094431_424718_99FD5DBC 
-X-CRM114-Status: GOOD (  11.19  )
+X-CRM114-CacheID: sfid-20250424_010655_927979_A5C0A7E1 
+X-CRM114-Status: GOOD (  17.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,60 +95,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reserve 1008MiB of global CMA pool which is also marked as re-usable
-so that OS can also use this region if peripheral drivers are not
-using it.
+On Thu, Apr 24, 2025 at 10:35=E2=80=AFAM Uwe Kleine-K=C3=B6nig <ukleinek@ke=
+rnel.org> wrote:
+>
+> On Fri, Apr 18, 2025 at 06:55:07PM +0400, Alexey Charkov wrote:
+> > Rewrite the textual description for the WonderMedia PWM controller
+> > as YAML schema, and switch the filename to follow the compatible
+> > string.
+> >
+> > Signed-off-by: Alexey Charkov <alchark@gmail.com>
+> > ---
+> > Split the series from v1 into separate bindings patches so as not to
+> > spam all the subsystems with unrelated changes, per Rob's suggestion
+>
+> That's a good suggestion.
+>
+> Applied with Rob's R-b tag to
+> https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/fo=
+r-next
 
-AM68-SK has different multimedia components such as Camera, Dual-
-Display and H264 Video Codec which uses CMA for buffer allocations.
-Assuming the worst case scenario where all three run in parallel,
-below is the calculation:
+Thanks a lot!
 
-1) IMX390 camera sensor 1920x1080
--> 1920 width x 1080 height x 2 bytesperpixel x 4 buffers :
-   15.820 MiB which is ~16MiB
-   AM68-SK can support 8 cameras so ~128MiB
+> I saw you signed your patch using PGP, which is great. However I didn't
+> find your key. I recommend to make it available on keys.openpgp.org like
+> this:
+>
+>         gpg --export alchark@gmail.com | curl -T - https://keys.openpgp.o=
+rg
+>
+> and then verify your identities using the link in the output of this
+> command. Still better, (additionally) add your key to the kernel keyring
+> (which however requires you to be in Linus Torvalds WoT, see
+> https://korg.docs.kernel.org/pgpkeys.html for the details).
 
-2) 1920x1080 HDMI
--> 1920 width x 1080 height x 4 bytesperpixel x 2 buffers :
-   15.820 MiB which is ~16MiB
+Hmm, I used b4's built-in patatt functionality with a dedicated
+ed25519 key, not a gpg managed one. Looks like keys.openpgp.org
+doesn't understand those directly, or am I missing something?
 
-3) 2560x1440@60fps DSI via DisplayPort0
--> 2560 width x 1440 height x 4 bytesperpixel x 2 buffers :
-   28.125 MiB which is ~29 MiB
-
-4) H264 Video Codec 1920x1080 resolution:
--> For 1080p resolution codec application, we require ~98-100 MiB
-   per channel. We require ~800MiB for 8 channel codec application.
-
-Total comes about 973MiB. Adding 32MiB for other peripherals and
-and additional 3MiB for rounding it off to 1008MiB.
-
-Signed-off-by: Jayesh Choudhary <j-choudhary@ti.com>
----
- arch/arm64/boot/dts/ti/k3-am68-sk-som.dtsi | 8 ++++++++
- 1 file changed, 8 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-am68-sk-som.dtsi b/arch/arm64/boot/dts/ti/k3-am68-sk-som.dtsi
-index 4ca2d4e2fb9b..2b02575549eb 100644
---- a/arch/arm64/boot/dts/ti/k3-am68-sk-som.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am68-sk-som.dtsi
-@@ -22,6 +22,14 @@ reserved_memory: reserved-memory {
- 		#size-cells = <2>;
- 		ranges;
- 
-+		/* global cma region */
-+		linux,cma {
-+			compatible = "shared-dma-pool";
-+			reusable;
-+			size = <0x00 0x3f000000>;
-+			linux,cma-default;
-+		};
-+
- 		secure_ddr: optee@9e800000 {
- 			reg = <0x00 0x9e800000 0x00 0x01800000>;
- 			no-map;
--- 
-2.34.1
-
+Best regards,
+Alexey
 
