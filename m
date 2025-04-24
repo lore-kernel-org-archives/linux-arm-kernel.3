@@ -4,88 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27016C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:03:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B8F9C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:03:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bz9b9HTv2sWKqYaZLjCkIaHyjCRTMEZ4N5CM7lBAIjs=; b=BYKJj8D9Nz3kTT/RgSFK+ujZvz
-	MYiGEaWx6sNOf5Cy4/ws2vdo917sEGLzjoZdZAFpjlGqNUAXdl0yNFnOuHIC+ZDRsjtMPwHPuqeNR
-	0S5OgQcPmq3KX0B1yNHvb1YVFV4M1PKt+IMo2Uk4cgUo+ItD80Az8OI52oOeYWaaZ+GEo58EbCkIy
-	NSGKsUMZlJgnDTdrHyeEJ0MVJtiQUIzi0m91+4pA/9BebEVwIRQtCUmR8sNYpN89rooxaf3GQuz4m
-	8zSx2z6e0CipY+Bn1SJ070gJoylBUj+7iIONdd7irz/4JayDSMf6iBfPDYzWXFjty5n08S2oMqESi
-	13BLpITA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hutk4RUyOyPo6YZkclFLVE+p5t8Cn/N1Q0b+EB4iz6k=; b=3meLD8GLKJz4M2TTp32g+71Qtw
+	WDRGYFhhd8O4E3/JyqhZLZhfiyEDoqiSv6mIWmKhVRO2RrfMwCffKwxyK28K6nTpMcqp50TS87Fi2
+	19nE4BenIBNS9LuoasdpdKsijP22fwUn2+NgUwnotPVpgnkEFXt8zokRbbXLYwzMvQDXmWpMc+jzU
+	6ZHJSRYhefAO8H3P0Ca/dXh9q7ntVyOSJEyMD9sFXXRAi93Mu/mzjq6JbGgvgOqYAjqm7/l6e4o5u
+	pOa3vwcnFfnfZv627o4Tn+HdWPyuJvNnQPdvJsy9tvG7rvcIOKvZLLaQ+cFSNdfpPS798rEaXM38T
+	fzWRYa9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7z2z-0000000EZeO-2q05;
-	Thu, 24 Apr 2025 16:03:34 +0000
-Received: from relay1-d.mail.gandi.net ([217.70.183.193])
+	id 1u7z37-0000000EZnL-0ydQ;
+	Thu, 24 Apr 2025 16:03:41 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7uka-0000000Dr2e-13Ph;
-	Thu, 24 Apr 2025 11:28:19 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 3AD1F43A07;
-	Thu, 24 Apr 2025 11:28:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1745494091;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Bz9b9HTv2sWKqYaZLjCkIaHyjCRTMEZ4N5CM7lBAIjs=;
-	b=WTO+fOKy08+k3R6VOo4FgIrrMPsiB/nAVAOfJMQAdVSxjWQogtIY5cFgPAk1SOOSNg84v5
-	YAycUQfirISNqB46b6Rq2Kb0/kVJ/dVEDf6CJhl7XDUG4q1uUDmCk208gBMtVQ1QLCcowA
-	g+fPgfDstAalRZjliFX6HSgfLCdZRZcUtPau+3ZpOneb+uQBqfC5TO3g1NgDEjHo5A2vBl
-	J+gh7wITo8g5J8vLAI13NXWX+GLjyMQP1oVXIARzj/ipCf1WquNYUKY8S/ZYFKBK0oZlOQ
-	bt2f1BodPSa+XQVEebdOJs0qRrfqWeThlK3iYiydfl+WN4DaUXnuKi9a5EyTRA==
-Date: Thu, 24 Apr 2025 13:28:04 +0200
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Cc: Anusha Srivatsa <asrivats@redhat.com>, Paul Kocialkowski
- <paulk@sys-base.io>, Dmitry Baryshkov <lumag@kernel.org>, =?UTF-8?B?SGVy?=
- =?UTF-8?B?dsOp?= Codina <herve.codina@bootlin.com>, Hui Pu
- <Hui.Pu@gehealthcare.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- dri-devel@lists.freedesktop.org, asahi@lists.linux.dev,
- linux-kernel@vger.kernel.org, chrome-platform@lists.linux.dev,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-renesas-soc@vger.kernel.org, platform-driver-x86@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- freedreno@lists.freedesktop.org, linux-stm32@st-md-mailman.stormreply.com,
- Michal Simek <michal.simek@amd.com>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
- <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Jagan Teki
- <jagan@amarulasolutions.com>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Douglas Anderson
- <dianders@chromium.org>, Chun-Kuang Hu <chunkuang.hu@kernel.org>, Krzysztof
- Kozlowski <krzk@kernel.org>, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Subject: Re: [PATCH 29/34] drm: zynqmp_dp: convert to
- devm_drm_bridge_alloc() API
-Message-ID: <20250424132804.30bcc49a@booty>
-In-Reply-To: <6b699329-8ed4-4be6-81bb-17b4bf800d34@ideasonboard.com>
-References: <20250407-drm-bridge-convert-to-alloc-api-v1-0-42113ff8d9c0@bootlin.com>
-	<20250407-drm-bridge-convert-to-alloc-api-v1-29-42113ff8d9c0@bootlin.com>
-	<6b699329-8ed4-4be6-81bb-17b4bf800d34@ideasonboard.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	id 1u7v4U-0000000DucI-15lS
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 24 Apr 2025 11:48:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=hutk4RUyOyPo6YZkclFLVE+p5t8Cn/N1Q0b+EB4iz6k=; b=SZ6FYYRgfCWKtpuCycyhtsp23V
+	CLxPLXEzEe4g4ISf29o2LBCdbz6L7uC1NeDQE7ZOacYvrl5OieWRxV48hgjjs7HxXE6u38RoUZIWV
+	x95IsT8UB50UQwfIpi7Ifni55jv/hTyHY3sIATaOTndWJB87eOxVhhB49S60y45aAVpXoFd6e4CJ4
+	O7GDReHpLIZShIatpznBSKjfzwPe7jIRmswTCaP3hw3pAG48cLB3i1qTQmxkewXOjrnD6IZobUMDA
+	d/IHOaRPsBcCRc7OwdbURtPIdI9CId9EFAhU6rOXXMN0rY1hKOjkj/EWhHwHN0NdV4P9Xmfap4CkZ
+	zx9QYhEA==;
+Received: from mout.gmx.net ([212.227.17.21])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u7v4R-0000000BmJK-1Mtg
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Apr 2025 11:48:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1745495313; x=1746100113; i=wahrenst@gmx.net;
+	bh=hutk4RUyOyPo6YZkclFLVE+p5t8Cn/N1Q0b+EB4iz6k=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-Id:
+	 MIME-Version:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=JR1HDn9GJANMv27lLqa0WWP3EFrWL0T5iwIUdjgqRtJI3kNpPejwNw/CGQrGyPg2
+	 u8l1oAKfk+t7ao/8cJ8K6Yw4eHevGckDxLeHV0tYB7IK3aqe20J1L0PKIJ7GEbwhr
+	 L6E3ssLtrxIk0UlYGxrz9NWfAlz/h380dfLdm5HRGitp4LWMhe1suCppa654G2zqC
+	 KR8+AM4h1Pc+3/YymKQZNZUYlm7AabZ/ZLrYxvivrNyve9KIHwwKisujwxnKWuRDH
+	 BgXON+BP+xCua7wEJX4cal9P5udL5ApljA0+w3Y+tVXyd5Vw83Tvty8llQecMRf3v
+	 JmdkIw5+eNUz3JAqvg==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from stefanw-SCHENKER ([37.4.251.153]) by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MxDkm-1v19HV38Fk-00wypZ; Thu, 24
+ Apr 2025 13:48:33 +0200
+From: Stefan Wahren <wahrenst@gmx.net>
+To: Frank Li <Frank.Li@nxp.com>,
+	Joy Zou <joy.zou@nxp.com>,
+	Vinod Koul <vkoul@kernel.org>
+Cc: imx@lists.linux.dev,
+	dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Stefan Wahren <wahrenst@gmx.net>
+Subject: [PATCH RFC] dmaengine: fsl-edma: Fix return code for unhandled interrupts
+Date: Thu, 24 Apr 2025 13:48:29 +0200
+Message-Id: <20250424114829.9055-1-wahrenst@gmx.net>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvgeelfeehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeelffefgfehhfdtvdefueefieevkefggfelkeeiudetkeektedvhedukefgvddvnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgdphhgvlhhopegsohhothihpdhmrghilhhfrhhomheplhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepgedvpdhrtghpthhtohepthhomhhirdhvrghlkhgvihhnvghnsehiuggvrghsohhnsghorghrugdrtghomhdprhgtphhtthhopegrshhrihhvrghtshesrhgvughhrghtrdgtohhmpdhrtghpthhtohepphgruhhlkhesshihshdqs
- ggrshgvrdhiohdprhgtphhtthhopehluhhmrghgsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomhdprhgtphhtthhopefjuhhirdfruhesghgvhhgvrghlthhhtggrrhgvrdgtohhmpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtohepughrihdquggvvhgvlheslhhishhtshdrfhhrvggvuggvshhkthhophdrohhrgh
-X-GND-Sasl: luca.ceresoli@bootlin.com
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:FAyuvXCFAvR2VD5P+D6D4tYGbj2GzXT90o/v43SSsSJzPqpdXUV
+ Waqj5QX75GJle1FN35esWPnCLWpKsAAqjRsUh8dpk0w8mSrS6JrSW0YryFHWH9FOMQEPIvh
+ yPop1Pc3ejZyQGhYAUStY0igVtfyX6F8G5c4wNukS+rWj0XLRhKgnJB8zXvDUzsH00T6Xgz
+ A/GdiYc6fLCBtroWdk9ow==
+UI-OutboundReport: notjunk:1;M01:P0:hJDQupgkjFk=;g52Ofk9lNmoOU2BinfTRp/DdNZb
+ zu87aZR1tgOkCgiU4GfD8pJvPeNjc2xwTe+WjGRO2Z2IV48wKWbJVpiA5Q0C227LuHDw+rCxm
+ GG/Ogke0mnYF+VFu+uLbM1jjnpEg32Jj2vYzNe4WVKJOSv8H2zq3ZrpIvcOoxeqv6Sk0md2aD
+ VwoycFXt4RrwAgm13iSwYnE7e4oqzLl9z23YLg+33GfKh2ljsiKavRDnuSnHFWjW2QMNf6a4N
+ AG9EKDhB+QI05GNRUQvnaACCHW5b09knUPeX5MN8EDrU+Jb9OBqg1Ql7QlhMT1REv81UEUZnv
+ iNVmVSnq8CSk5Fe6lCZifjn965+/G1RhKCfBE+nQzIC25j7COcsM5MJNcKozq8615+T4xTmZb
+ KETw9wqlpJNrSzV4S+BWluyqIXcMl1ygHIYw//hmA6dQK0RQK3cwQ4T/em/hWXKj9REXzim6w
+ Is0nIKasI6GESHaftK881I169dFCKqP3C4N4tgJINFa1E0BUYl3nvOYzW2TuZ3myGDIPln/Ol
+ BaXx/L2HQp9BZSI8esnturDX5oQBbU0J3CoC7iCpVKZRjyA2AULj6xV9AuH7wxOT1dUDIn+9k
+ dsoVZUb+NdGl91ilEkGN0K4+oXBeqssoDWxOhEWV6U5YC/GxNLoxcCS4hR9WHLSoShv8D0wM8
+ 0lRQXzGiTMigCf3SZRu+jI1m9vLukZMuicZwzhwlgu6KC8W9XFXH+AjrXd8O0FDOOBSstl+ht
+ b1f1HSdFgM5X86U6w+kwpTkElVRVpMydEDFBZoC9Eo7zuw7RNQnkHo10Q9G5FrVb8wE2ox6nN
+ JAI6KagL4xLzmBbuB96+5X8dgL9QrCNkSTMZMHvgX678avRQDJOjz92oKgdI1rEHGulwutfEb
+ olLSZ7eiOtWeF0GFFtB5bOLgorSi15hSbNdl10huqSzbOUuFqVl+gTwOUV9AcJ4UBcsZSMgcF
+ imE/Cg17xbOTCI88wp9H4U/jjKICkJyUOlQ8Bv34PudjwBSFXy9hmOacTPYWLJTmTt0nPl2uh
+ MUNCrxZqktaUMkG+3WAl3LcdRS13C30UQQcgOVmjTyXq3/5583YfEgQH/w84D8XLEyOcfg/7u
+ sThZWyRjvy8fZdZS9/YJu1L686r//wAMJe7NvNJ/iKj7QxdHyM+trcwZEo0n/zWAThSznXvZn
+ E0G2od+FM7L9nAVaTD8Ol8MXVTVBZJTjgTQCHiV1BXX/xspVGEYqOw6d+1gmBjjS66ysANXHg
+ BXIPDt0b4AuBkt9XDmokoPRq6XrfSqtv2s891jFawMrQZBbtqWIXVxOCRbnwM8yc1mCtCpNxt
+ tXIBMkjCFGw7rnwAJtM/aJJMb8Rmw6QAUReZNfEO4i7blWCLvaKbx7f5jTCDZvvNr2+PPjIjm
+ BmhfkiIjf5usC8iuQAyMRRCfQZZWdC71mImPIxHJUS4Mn66uC6hWKhxfDZfLVt2HStfU4kAbK
+ lSKKpOQllEOSm0NClCWFoqA9TjUVc3JgNRL3tv4WY8nPCWVusayZWAJYuWdR+pezHEsXx12fs
+ b9QUpnFw++Qibj/pS98XeSNQYaoVlH9ot4YIVH8PsyBMQ3xoqdayMecuMCeKmibpObc6UlkSx
+ 2sJV3AXwijEVi0VPTXeY7VWkiTdtcP4tk6QsxbBhv2ETtd/o9EAqOpXE7vJKlUCIkzt9g2Uaw
+ +AxTsmnodeII45bpTfdCMs2meY7SgKIHrZ2Chn0azrxi8LqbmxLSieektcb4iWLN2uBoAQmzD
+ 9+SZpvxYpa/Jk40Lp/KStR3b6aQGHnw4wJ+BXdfpFqp5qbt6RXSnvJMwc4K927+SsGjgKPrPR
+ iUXpnWROr44zqzDOkjXUirWMRp96VNAsy0jzW2X6PGnxiKlmrv4ycFNmBNJOtMktlu5lxYzpX
+ 4nqh47IEQnf+94oXleJ2aybSF5TbhYgq1MIzQIIlFrMhg8dn9e16gQdU6KvqUagRFEqO3GOGI
+ cTzfPb9JIZCOgv8p2MoQLXr/sWblq/y6Demtpz2Gpe44z0XU3we6/08kyqCatZTqmGa6ZyLdT
+ 4cE7LcVStN2RjEeu9g7/r1vs1gMQAGQhYICnz5PfHLnvDnknyiXCOkuLlDQjzA+FlUu+wz+J/
+ qm8atRNMMLoofaed33NAJFmZYj74Br6ANK68OfoQUqtqOd3MgigEpraspToBeP912ET4tsWe8
+ rgm/PYjrxHt68yiPpWg3FwdTBbU1htf51ONWVXZPwreC9seoiPa7QBul/LzbAeY+TmbBmAG7x
+ ZYSraHztI6aaok9tC1GscUJVJfOvrCan5wtxQ8f/sKc96wOSRfps/YTIQL12+UXv9/KUe53IR
+ eaStZVGApbUox5LbH0sZwwiXzCtRDZxSErkP8FqgmilwIiG/zFZR/IoFMiHa5GV6bkiXpWDMb
+ GBJ0tcypDkmxA0Vhy6YfiP0Kq+c+sv1jc+yhQOko2eTC0hG4jIDdQnLhrH0qU3AcKlk1UvNNi
+ /DBX5Zc+6HkNWveKTsXtKkpxP8NuB3RyFdkFVNu6vUiqFPO4xu+Lp/LmtoTNlugia1Arn7vUt
+ 7qRAtNgHCVIuvPLoe+ET1tpCzKx5QElIxouyEd/GGq+15CFwdGZLM1iFBh78SgsU4v6vkpc68
+ pTotLvqzH5fBmmoJZWVK424bkv+LoTcKeX6wf6cO4qrOLQZywp8JBdWhxtLwitysYmAhN3EAw
+ GPjONI5eoSYuKrwtexa5Ml2LjuUOZnku5nMnYSJjFddDvF9VPivRVA6AdPYzSwOGdbvll07kI
+ A9Hx8aS71mTOyOiXbtydDUVzefV4JczI80Qb08TepoAMzg/g8ot4L+PsBCmQEjaNHichT6XOf
+ RueF+cDSUaZw16kwRGuITNP2JXFAyXZwjzT0ZbP95pnlQ0pJmlH72iZQl2fDFjES0Njkx+NJr
+ TgTaBOlSaggHQ4jlPwTlZpkip/oQGOTRDYdQ/daT1uqCFBAsBviT6gYgykSIqChS2piJkKuJx
+ deRD8rgNDDH7TaNB4RgdJl2I9k8djj+h1szkGkBBzgusfvD0BUaD0TBWZ1j97j8CIn1Vx8TKl
+ poT0TlqB1J/ztfisbxlTb8=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_042817_477552_ADE4D96A 
-X-CRM114-Status: GOOD (  15.39  )
+X-CRM114-CacheID: sfid-20250424_124847_527818_E1BD9831 
+X-CRM114-Status: GOOD (  12.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,39 +138,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Tomi,
+For fsl,imx93-edma4 two DMA channels share the same interrupt.
+So in case fsl_edma3_tx_handler is called for the "wrong"
+channel, the return code must be IRQ_NONE. This signalize that
+the interrupt wasn't handled.
 
-On Wed, 16 Apr 2025 15:31:41 +0300
-Tomi Valkeinen <tomi.valkeinen@ideasonboard.com> wrote:
+Fixes: 72f5801a4e2b ("dmaengine: fsl-edma: integrate v3 support")
+Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+=2D--
 
-> Hi,
-> 
-> On 07/04/2025 17:23, Luca Ceresoli wrote:
-> > This is the new API for allocating DRM bridges.
-> > 
-> > This driver has a peculiar structure. zynqmp_dpsub.c is the actual driver,
-> > which delegates to a submodule (zynqmp_dp.c) the allocation of a
-> > sub-structure embedding the drm_bridge and its initialization, however it
-> > does not delegate the drm_bridge_add(). Hence, following carefully the code
-> > flow, it is correct to change the allocation function and .funcs assignment
-> > in the submodule, while the drm_bridge_add() is not in that submodule.
-> > 
-> > Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Hi,
+this issue was found on a custom i.MX93 board. This patch has been
+tested on the same platform.
 
-[...]
+ drivers/dma/fsl-edma-main.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> To add to my last mail, this clearly cannot be right, as it changes 
-> kzalloc call to devm_* call, without removing the kfree()s...
+diff --git a/drivers/dma/fsl-edma-main.c b/drivers/dma/fsl-edma-main.c
+index 756d67325db5..66bfa28d984e 100644
+=2D-- a/drivers/dma/fsl-edma-main.c
++++ b/drivers/dma/fsl-edma-main.c
+@@ -57,7 +57,7 @@ static irqreturn_t fsl_edma3_tx_handler(int irq, void *d=
+ev_id)
+=20
+ 	intr =3D edma_readl_chreg(fsl_chan, ch_int);
+ 	if (!intr)
+-		return IRQ_HANDLED;
++		return IRQ_NONE;
+=20
+ 	edma_writel_chreg(fsl_chan, 1, ch_int);
+=20
+=2D-=20
+2.34.1
 
-Thank you very much for having tested this patch and found the mistake!
-I have checked all other patches in the series and found no other
-instance of this specific flaw, but a couple flaws of a different
-nature. I'm now fixing all of them and will send v2 later today.
-
-Luca
-
--- 
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
 
