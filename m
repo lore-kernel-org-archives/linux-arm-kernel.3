@@ -4,61 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DC6AC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 14:09:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ACF3C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 14:10:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=254mBnsGWoNXTiyYTm/e969GchDFmZEUzrmy8wdFP4I=; b=XudCuEqMghwhr28fkmMwSUrNR2
-	tOlrD9xojXJltEVVyL6MbNfS3LO/8R9IvEA1xwynGZ9zAc+6NwkFZigUyU/dT2dtrz5mpn1d2KMsn
-	ZrUMFTvqkJ5GUqyXhgGyE0gmyktT1O+uTgqel4/P94gcoX9Lf+wUEACrkrTUeU4aX/9EWPL7QAtID
-	924Z1cUJiDiJwEYRd896ODfr43MloYeig980uO5YWAs9jGCSRy47UTp/llkPJuK2d+hHwIqXHWk80
-	C6xKcFcLSHttfCK9bQ0yx8LC9ak8SiluhPpftBcGYcJHksjkoEu3HpVnC8pOiIL/HJSzCvhVCWkSU
-	jRPdQfkg==;
+	bh=jIyxF+Qi7k1CAbmUUDi7CNayfp2ZfTJ/5aoOCD+IJaw=; b=wdCHPzZCO+w+kuS9QBmGS3ZiFN
+	lCwQHbjQzVAm+M6bN+quB1UpIAzN0S7Wew9+8W0dPMR34ySfegWTzIwnGfW0zkJluYcRL28AF1KeP
+	yhUr/9b85GGlMPurwUClV8W2sJLTCwwRjzJaL+tyWlIzioeGQY0cc+SyJYosiuY42AA1oRkz1O3rb
+	ZzfY/Fa4ON1IwULYnP7BXpG5gnScmI2qNc35bCCYWoyaGEMJV2Wob9CBGfgmC+Tvusm/ZIyfMhlnI
+	CiDCpd4CYed0Nsh5rozIAEZgwTdUMUSXP8UH5mY2kfeBwJreE4l6oUTx3N2//jbuX2+w8XOKX+I7G
+	+zHI+6YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7xG0-0000000EJz9-3H96;
-	Thu, 24 Apr 2025 14:08:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7w05-0000000E4zb-0NtS
+	id 1u7xHp-0000000EKFw-1fcI;
+	Thu, 24 Apr 2025 14:10:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7w0Z-0000000E54k-3BRu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 12:48:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6343568455;
-	Thu, 24 Apr 2025 12:47:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88F40C4CEE3;
-	Thu, 24 Apr 2025 12:48:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745498899;
-	bh=ZyGzDPVkf3UyTDfF9skRIcbVvkbOFEY5W64LlARR1qY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ub27Ape0NQbpr7gqj98cAhVIIiVvy4ptD4xnBSv5Gls8QHA3t0TQfFW9I+1MB4QL+
-	 c3NdQePo2dTPp7S9BjOte4spLp/8JkqBfKUKBjXd51OT9x2TZz00cx0R3uuqb5ryp5
-	 e4z2+kSOpWC0Fr/CbL/S7KUXKZZ7YgrzitBplayrYcZcKmKVfsMU2DeVZo7bUAl4b0
-	 nHunG+zTc1k4VDONEORWLx8hj6RdqKlDVD0PZZ1sbgc+qxM+aBDypbX79xBO50rh2I
-	 imt3nXAOJcM7HiDXvstdgp9VCoT23QmltmebO4I03okRzK4i1Wz4ZZxMrOp0wDDx+v
-	 B9WbhOLVrPqqg==
-Date: Thu, 24 Apr 2025 14:48:17 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Alexey Charkov <alchark@gmail.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, linux-pwm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] dt-bindings: pwm: vt8500-pwm: Convert to YAML
-Message-ID: <aokv26x67eu3fhkcrtdo4suoz2lryb5x5u4m4xeycwlpgt4njs@7idth75voi4y>
-References: <20250418-via_pwm_binding-v2-1-17545f4d719e@gmail.com>
- <yscledgclp2v4p7djwrszbc3dnqifkcofky7rugkcip7o2rmof@xljfd2kfyzzs>
- <CABjd4YxK+4kEeS_tKBi9zhj85y6U1Dgi3nJNuQ8hfkeoY+iK1w@mail.gmail.com>
- <eydewrcn4tviu6fbqmmvhoc2zao3uzrxwwlc55tuxuhfrexk5k@7xg5fdeu7wun>
+	Thu, 24 Apr 2025 12:48:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 123541063;
+	Thu, 24 Apr 2025 05:48:46 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AAD703F59E;
+	Thu, 24 Apr 2025 05:48:50 -0700 (PDT)
+Date: Thu, 24 Apr 2025 13:48:48 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Yicong Yang <yangyicong@huawei.com>
+Cc: yangyicong@hisilicon.com, James Clark <james.clark@linaro.org>,
+	jonathan.cameron@huawei.com, hejunhao3@huawei.com,
+	linuxarm@huawei.com, wangyushan12@huawei.com, caijingtao@huawei.com,
+	xueshan2@huawei.com, prime.zeng@hisilicon.com, acme@kernel.org,
+	namhyung@kernel.org, catalin.marinas@arm.com, will@kernel.org,
+	peterz@infradead.org, mingo@redhat.com, mark.rutland@arm.com,
+	jolsa@kernel.org, john.g.garry@oracle.com, leo.yan@linux.dev,
+	irogers@google.com, linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org
+Subject: Re: [PATCH] perf arm-spe: Add support for SPE Data Source packet on
+ HiSilicon HIP12
+Message-ID: <20250424124848.GA551819@e132581.arm.com>
+References: <20250408122809.37884-1-yangyicong@huawei.com>
+ <89741897-6c8f-4b75-8ec3-675111ea60a1@linaro.org>
+ <20250422102952.GD28953@e132581.arm.com>
+ <ccb8ce65-8241-0670-25c8-f8245fbc5e22@huawei.com>
+ <20250422132006.GG28953@e132581.arm.com>
+ <0098923f-0982-8d08-3c4f-810170ca0b87@huawei.com>
+ <2fa27176-f820-a03f-033e-7da811643cff@huawei.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="eqirucv27yhzqwfa"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <eydewrcn4tviu6fbqmmvhoc2zao3uzrxwwlc55tuxuhfrexk5k@7xg5fdeu7wun>
+In-Reply-To: <2fa27176-f820-a03f-033e-7da811643cff@huawei.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250424_054851_837962_AE7204CC 
+X-CRM114-Status: GOOD (  20.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,49 +76,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Yicong,
 
---eqirucv27yhzqwfa
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2] dt-bindings: pwm: vt8500-pwm: Convert to YAML
-MIME-Version: 1.0
+On Thu, Apr 24, 2025 at 07:57:39PM +0800, Yicong Yang wrote:
 
-On Thu, Apr 24, 2025 at 02:32:33PM +0200, Uwe Kleine-K=C3=B6nig wrote:
-> Nevertheless I'll play a bit with patatt and your key.
+[...]
 
-FTR, it wasn't complicated:
+> >> If so, you might need to revise the cache levels for:
+> >>
+> >>   ARM_SPE_HISI_HIP_PEER_CPU
+> >>   ARM_SPE_HISI_HIP_PEER_CPU_HITM
+> >>
+> >> IIUC, cluster CPUs share L3 cache, and every CPU in a cluster has
+> >> L1/L2 cache, for PEER_CPU cases, the memory level should be L2.
+> >>
+> > 
+> > confirmed with our hardware people, should be L2 for these two data sources.
+> > I misunderstood here, thanks for pointing it out.
+> 
+> I recalled why the handling is like this. considering 2 threads have potential false
+> sharing issues which are running on core0 thread0 and core 1 thread 0 in the same
+> cluster, we'll have some ARM_SPE_HISI_HIP_PEER_CPU_HITM samples to indicate the
+> cacheline contention. If the cache level is L2 then we cannot observe this by
+> `perf c2c report -d tot`, since L2 is not counted for HITM.
+> 
+> does it make sense to have below change to account L2 hitm for lcl_hitm? just like
+> we account L2 peer snoop for lcl_peer.
 
-	$ keyringdir=3D~/.local/share/patatt/public
-	$ mkdir "$keyringdir"
-	$ git config --global set --append patatt.keyringsrc "$keyringsrc"
-	$ mkdir -p "$keyringdir/ed25519/gmail.com/alchark
-	$ echo "ltKbQzKLTJPiDgPtcHxdo+dzFthCCMtC3V9qf7+0rkc=3D" > "$keyringdir/ed2=
-5519/gmail.com/alchark/20250416"
+Yes.  The change below makes sense to me.
 
-After that `b4 am` told me:
-
-	=E2=9C=93 Signed: ed25519/alchark@gmail.com
-
-for your patch \o/
-
-Best regards
-Uwe
-
---eqirucv27yhzqwfa
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmgKMw4ACgkQj4D7WH0S
-/k5qzQgAseTbJVJaProlfqJPevpOIh4z5WhUUKLHvnLH8q7VWBPtuUsN/r+EYbrf
-4qLaUawPwuqqlgGGvN9GS7AzeYm0UBJK3aJsIHmjhGEwalDo+eHmW6bOjW3XmgKy
-3fncC/xX8zYsX9jrv0jXmwWftkT4314XGLIccB+ZBogMidpCjxmNYsbfd3XXax4C
-BqU6klCntKrHHYpPiQ9/qPEROEj12eceuSuu2dlyTkTkMAX2JZYpVYSJMINa5kGx
-3kvLt0h3A0x8RqC8itS4rd3DW8/z5zpyaQpRWu4dfx/i1M5nVP2qLV+on4KgcDg9
-faofmGB4Qiub7gjlRKoo0B1WvX0EHg==
-=CnFZ
------END PGP SIGNATURE-----
-
---eqirucv27yhzqwfa--
+> diff --git a/tools/perf/util/mem-events.c b/tools/perf/util/mem-events.c
+> index 884d9aebce91..a384a866a562 100644
+> --- a/tools/perf/util/mem-events.c
+> +++ b/tools/perf/util/mem-events.c
+> @@ -680,7 +680,10 @@ do {                               \
+>                         if (lvl & P(LVL, LFB)) stats->ld_fbhit++;
+>                         if (lvl & P(LVL, L1 )) stats->ld_l1hit++;
+>                         if (lvl & P(LVL, L2)) {
+> -                               stats->ld_l2hit++;
+> +                               if (snoop & P(SNOOP, HITM))
+> +                                       HITM_INC(lcl_hitm);
+> +                               else
+> +                                       stats->ld_l2hit++;
+> 
+>                                 if (snoopx & P(SNOOPX, PEER))
+>                                         PEER_INC(lcl_peer);
 
