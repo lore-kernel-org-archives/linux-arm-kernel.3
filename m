@@ -4,147 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3728BC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 22:27:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43E42C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 23:00:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+wSvMCUCxNhNC4gXsB5hDouWU948oYzzEBMH0SyGSuY=; b=dKhFvK/0QQFGofOkjpqsAow96s
-	5F+dMkwcbDZasQLLA4tPOCzIVWBfTvF2NNYn7Jfp5TPa6Ep8L4Nn99smtw0ccXsqZJcJ35hQuPGsg
-	vpbIFwKT03stNBE691hT8XyUmctXIhdxVXHqBKViGGdGRUDV96sellEGE5+EC5YCKM9QPfQSRAhIQ
-	2bGrFcrpRMw/kWnWveLvon0XPSRc0LgRuWppaJdWwr101yCnZYJjeGSpFjuvNlOAF/Eqm4xJDNUuf
-	FBRdZignS9m+rhQUIkGGoqiJLNy+B2Gg43KwEiISVYM5+o2qzUEw7vUhCum92pDI7Bu5u/sy+LCdi
-	Mfbc6N6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JNcOsk5TzziHvnFgJb5+muu5cjxZ1SD7xj6l5W6y5jM=; b=lVQ06WDoYV3O4OpkNSdwVpmbsg
+	AQgXYmDRITFYIDEsGFfB1DV/zhxFWAkU3kvb3m1Dp30mXTpdloam1aQ/dE2HYnHIH3tM16fTHghGQ
+	/XolbHp6uVe0RZ3TZMOpL6Jrzs+IgxAe4e3OxtMsPa7DsitmAW7rhPPPtW/LBuWdS//ZUyr08/PJl
+	VPqRgG3UpcGfzEKmt6M6sain3sgkCF4eAVgAHdM4wz17fecKyKerLLePy4X/nWC7nKcvgYLxViBri
+	eTd+33tFtNjNGZtDr984y1JcJQ4DecFSRyOSLIK5MVE490CHuguhhJzlOdZwpQPrbzQP2yuZ/gQQW
+	/4pFWznA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u852B-0000000FUSV-0HoG;
-	Thu, 24 Apr 2025 22:27:07 +0000
-Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u850K-0000000FUFI-3XqN
+	id 1u85Y0-0000000FWWC-3DcY;
+	Thu, 24 Apr 2025 23:00:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u85W8-0000000FWGC-3kXh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 22:25:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CLp/eD3ol/OZnnMY4+3Xpz1QLSSAoIvMxsCmvgYWbFsicij3ANiVaiRVUNEpcgIFkeP91qcks7rAQl2tRkOSW+ZxgGmtawbt8rqMWwGO4xsuLsRacRaQ8oUHbGAtkbi5LU9BSlsTK2ZA7IKWuvGR5yByXPY/XfXwNuLLdTCfOSlqxepSLAsg2di0dcH+5jOXYyAxWsW2WDOO+++lx18om9j5tV6oGKtho+YVUkenjbEIMoITzXhc4cidHSTLEXaZFtmUJWsynrsbJEN6DZRwm1G5IJqjwGB3nyoGBgxuhKR0MCJS7ewzR2OjMe9dNPWqnK98P7bgISxXa2oFjHZUjQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+wSvMCUCxNhNC4gXsB5hDouWU948oYzzEBMH0SyGSuY=;
- b=WQW+ON2wBW4cKsPcVC7Ei/ok2AFhnjOKwjqtkNJu0VMDEe4xYT7hyhafD4If9r0z/vXxemYPkjI4HYcT607ZKYC7w9JcvLcCwD7f2FiSuZ+WfeKlpiVzh6YFoGsgp4CS0AJeMf4rb3yVDLPt4Jxbj7hyzHOS7XaogJ4g6lwi8S8v6r76S4FqMRSw2PCcitnoW36oaCYGjsu54NVxIioK7IwgJkTT7BuF0x7/hXJ5duco7SDjb/C/ufOju+mqZPQSNc0NkGjEhgBvdVaQFjpXxPt29fKry3NNlVf9LDJPCGOGphDwjRk4JzbidjCsRd+Ud6nrHAMOVw+ZfTAtPhl/nw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+wSvMCUCxNhNC4gXsB5hDouWU948oYzzEBMH0SyGSuY=;
- b=UF7CR5QinNYrrWQ/DbasttoEkMEe+1KCirL20OD7PLdmARkxhQOQzL1hZDxcyFgR89Ik7Lie3XyHHxZStjyuztfl+/RyDLG7rbNRx04/tggGDo1X4TUg7Au+s+1mHGhWWRkdcjVQxuJSklM5Fo8spRXVmPQ3BLOORBqoUGNnzOE=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from LV2PR01MB7792.prod.exchangelabs.com (2603:10b6:408:14f::10) by
- CO1PR01MB8987.prod.exchangelabs.com (2603:10b6:303:272::7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8678.26; Thu, 24 Apr 2025 22:25:04 +0000
-Received: from LV2PR01MB7792.prod.exchangelabs.com
- ([fe80::2349:ebe6:2948:adb9]) by LV2PR01MB7792.prod.exchangelabs.com
- ([fe80::2349:ebe6:2948:adb9%5]) with mapi id 15.20.8678.025; Thu, 24 Apr 2025
- 22:25:03 +0000
-From: D Scott Phillips <scott@os.amperecomputing.com>
-To: Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev
-Cc: Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
- <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>, Zenghui
- Yu <yuzenghui@huawei.com>, Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH] KVM: arm64: Force HCR_EL2.xMO to 1 at all times in VHE
- mode
-In-Reply-To: <20250422123901.2675976-1-maz@kernel.org>
-References: <20250422123901.2675976-1-maz@kernel.org>
-Date: Thu, 24 Apr 2025 15:24:59 -0700
-Message-ID: <86jz799ozo.fsf@scott-ph-mail.amperecomputing.com>
-Content-Type: text/plain
-X-ClientProxiedBy: MW4PR03CA0046.namprd03.prod.outlook.com
- (2603:10b6:303:8e::21) To LV2PR01MB7792.prod.exchangelabs.com
- (2603:10b6:408:14f::10)
+	Thu, 24 Apr 2025 22:58:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E369D2F;
+	Thu, 24 Apr 2025 15:57:57 -0700 (PDT)
+Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A76533F59E;
+	Thu, 24 Apr 2025 15:58:00 -0700 (PDT)
+Date: Thu, 24 Apr 2025 23:56:58 +0100
+From: Andre Przywara <andre.przywara@arm.com>
+To: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Yixun Lan <dlan@gentoo.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Samuel Holland
+ <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo
+ Abeni <pabeni@redhat.com>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ clabbe.montjoie@gmail.com
+Subject: Re: [PATCH 4/5] arm64: dts: allwinner: a527: add EMAC0 to Radxa A5E
+ board
+Message-ID: <20250424235658.0c662e67@minigeek.lan>
+In-Reply-To: <4643958.LvFx2qVVIh@jernej-laptop>
+References: <20250423-01-sun55i-emac0-v1-0-46ee4c855e0a@gentoo.org>
+	<4ba3e7b8-e680-40fa-b159-5146a16a9415@lunn.ch>
+	<20250424150037.0f09a867@donnerap.manchester.arm.com>
+	<4643958.LvFx2qVVIh@jernej-laptop>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV2PR01MB7792:EE_|CO1PR01MB8987:EE_
-X-MS-Office365-Filtering-Correlation-Id: cbdf4c24-86f3-495b-4cfb-08dd837edbe1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|52116014|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?8ET/HW+VpiDTlvju5enuyLizIHh1lIgMReg7C0EFVng9Jzv4W0OtsuPjXyyo?=
- =?us-ascii?Q?ktUMmC1HNBB5teyJPlZHp4DKiV06GsLoSWdb9iExNCYYE0KyKZqOlO0lCBrW?=
- =?us-ascii?Q?Q+rbh54aq87fnAsDFAzLKVnARoaY05/MGRhcfbQRTajCqmibkJLONTlFftia?=
- =?us-ascii?Q?1tmKRk9bwQikvVkjIyOyftY/RCTnpvYNxItFT746SUYOFRaRLzroYb56BGBR?=
- =?us-ascii?Q?C8iSuhBVrQeg6533UA9+FylfFAi7aL4POqGoBdoS3dG1yiO5jFa+Pq55O+PA?=
- =?us-ascii?Q?hJwAzfjb7NmyVIAN2OcuoKis2qbFr/FyRV/pLSr74NNRZQRIpxcwxdL/CDUM?=
- =?us-ascii?Q?mgdgs7aov2GghIzaMZlJuKp3hWlEJ25ZtrUxMyuhv5iC12n922MEOyrMldWE?=
- =?us-ascii?Q?SbRJXCRuoeXo9u2HRlQ30VVdFehB0bK0C2z3JYY0+PJGMkRjn3IKf5qjiqit?=
- =?us-ascii?Q?Y1TRwTN15X9hWk3WruPoQWpv1ru5TcQKCr3HYLQ4uiVJPy9DgV1vPb85FjA8?=
- =?us-ascii?Q?lYFX0jMj9bXiThSCpN5oMHM1+92Py7rZJ6/I8RMapHE7rE7NhcAXmyU+Mfx5?=
- =?us-ascii?Q?SRXSLdHSgT8RZ5Tb1Mua0NBHlw1atSUCbejkB6ifrucwgaifODgMUbW3+vtK?=
- =?us-ascii?Q?/JLopaB5dWAz/bJy+i+cUzSiaRtR2/FGZSPzXqR/8jSatgiM5Nv36xHR74RK?=
- =?us-ascii?Q?vSQOzjhUo37uWaeHTMN/glOvHMk9mepvnOwtJYR18Qxg+0Ha8z5KLOuKNM72?=
- =?us-ascii?Q?zpeHBi4hEFoyKPqhIf3LN2Hl7DIOFxuWPCGjbRJHEmyV1jJjj2ClGi4WiF2a?=
- =?us-ascii?Q?GWzxDoxPq034wE/8Mlgvf5Uk+AosnnUA4FFr/ssEKto8HtpnKTuy3JRmwL4y?=
- =?us-ascii?Q?0oWVypk/CFmff6nmZeZ3lCRwA71M0fRbwWMoRsmxk4Zd65LCbANwVMjp73nE?=
- =?us-ascii?Q?rxO+sSIeeEXX2jEQJ5Vcz/744uE5rLBWU/vOBResPRWdSU7yzD+11sZyymut?=
- =?us-ascii?Q?6YrpvX0GK6FPFHP4b47a96ciw9nAuqQrmWgVYD461Btd+VSGyAP+e0fRTCqG?=
- =?us-ascii?Q?Euw5txlKH2F/Lm4OOAyQkDAnJYW51sImBL+RRYmci/jBEc6gN7P5yhfXjgPV?=
- =?us-ascii?Q?zBGx8+u/HRrN4Q0Pn7l5l3njOYJjXtDjMskkDvYJcrAAoUUP7PWWwAEX4yOr?=
- =?us-ascii?Q?YwEQ/7YAYdtPf/qdx432YWcksjitAqfiq3HCqFtrfAgjIgHbO3K+3sy+i244?=
- =?us-ascii?Q?CrdGrwwaec9tkhP/HdTF36kn+pehcE45eIbpRs2vO2o0UB+ZICNia80k7g+D?=
- =?us-ascii?Q?rpy9eS7Wtg+i9eczldk3ru7KsckNwwewQNx3GTUItkcZGV6JZ/u+KTJgCKSq?=
- =?us-ascii?Q?sRwkS/a+XJqz6ZTzdFav52F2p5nrSdckrZhBGufUfVs4yalrBwQBc2k8s0wq?=
- =?us-ascii?Q?M9QU/JzkUsNMYr24H1t37U4Y8A/BLpoGI3fLGfrnpjaaHPIXTdggVQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV2PR01MB7792.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(38350700014)(7053199007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?S+d8ktJDTR0aTgjxwWkUotW6z5cGUk/e8H8myOx0U5X26/xosqgWKJ0B4l8h?=
- =?us-ascii?Q?CXkmUONsH0SqmzQqtkIC8cpAW54wZaDdBr5ZVireRxtblT6M32RlRDclZ8J6?=
- =?us-ascii?Q?MHe5BtYAzrmTG37ey76KN4yJlQt3opoYwnk7p6fvrnGKzjdfm+IC0w5wRY9n?=
- =?us-ascii?Q?ledve59SM9jE+BKcYTmox/wIzT9qTadqT1FfAAe/4YTDhc2EJngP3Ook9xfy?=
- =?us-ascii?Q?SnBP7lStkghtNAi9AH617Tt1o3mASBn50qDrdydQEvIT8cNV13CgwcWablJk?=
- =?us-ascii?Q?fbUWs+hNLhIEN+zdG9hSl2uTP+apAbbX7W9Qe9nrHL0A/AQt1uLAef7wIa0W?=
- =?us-ascii?Q?uJOikPf3AKKkqe8u5uRVHKft2Gk08umYK3B1dTmnU9XQC1ZxwZwGXqJVeQZx?=
- =?us-ascii?Q?s2ts+tUD5ri109m6DVDPcmcW6gnCeWbsL8WgFnb/af0T9Ij1eAwTY287I6g3?=
- =?us-ascii?Q?RyRnLP+8N5RcA8o4UpmkOxsqBQjC+4vKofgVUDCkpMLkVb4bTkpJ8rzt8FgD?=
- =?us-ascii?Q?1xwUOl1xGQjVyu2sFxz/y+a6vKJRAQ/wP9ZKs7hKo1b5bpD5IPa8wTY+DjdB?=
- =?us-ascii?Q?Z3gnbZrH5OXAFiuR13mLHVK9eBgTiXUFMwQXQUHtNcq2lbTDNSoBMGDSqIdW?=
- =?us-ascii?Q?v4biG428n9TKoMKR+Ig/Oo7oE03GnD0j/kFiqbf6Tubwl3/bSxu6itIS2ol2?=
- =?us-ascii?Q?pSGjWwEl1gdtENUNm73kXZjy5uKZVx6qZcGyEKBTCtpw/l8OR3xRiCzValZ+?=
- =?us-ascii?Q?gjy9bior5CxZ+QBcuuzv0LEJ5Ie8b9AAC0DbhyA67l+WKSo7uxywOnZd60Mt?=
- =?us-ascii?Q?o81LLOEdCu//kSc2eW4Bfv/9SODTxkjwiZKGnsU9WPRLTKKUN/kayv7UVsd9?=
- =?us-ascii?Q?yJNQ6Z0j0U1IhkZtB8AUlFCaM0dhCuTy7P6FJ0sJS7PR29NZJ0Ls+reXCF04?=
- =?us-ascii?Q?mPQDOzur4N6qR4lVmDx5P9Beh1NaCSq7RPA4DKp2PQSKwUwN2mG33XGaGjk+?=
- =?us-ascii?Q?MvPVNjrJO+VVLTOBzC/+lTY6JCQNOy4j8rz2JeeVbAfy8/IXFi0p95jwCwLg?=
- =?us-ascii?Q?PLsMvwQwAG0jwb4fg4PRfdikoN5Nbh3U97fwNSi47izCIv9dj0FRRkv/Fvuw?=
- =?us-ascii?Q?miwBgp/dZsVzJjh//CB6bkb1IXS9lFeaUvzlEGSNgN0LUbv32by52rl2ciqV?=
- =?us-ascii?Q?jAB8hArBgkfA2veKiNm1d16WDm4RM9xsE48JqHgDc63uFlFiFjmpFgmL4Pmb?=
- =?us-ascii?Q?eimDfI8i0gxZ+gYsM3nQfgibnyszE/63KOhC/ali5mL+Jq6G8Bp/oPoOCJbU?=
- =?us-ascii?Q?+yks9XIT1dygrHFJe23it6sqnKdjEnRY9OHrUXm0omBeFwDzhnP0kvKcDVOV?=
- =?us-ascii?Q?TXxeTb4dAENvscQjjdF9bYHa20zmMFle5CHaAq7EuThqgu+G7fW5reVuzufD?=
- =?us-ascii?Q?nMQSfxVla+587UMjMkzMEBy3wJ2V3jitTiS8YNUqjQ321eJ6plGNjgCc7Qwt?=
- =?us-ascii?Q?V7MLg542piI+8f562095mNeY1NiF4VDj6l/ipeldbgTtWfnB0pjBRioSMGp0?=
- =?us-ascii?Q?popTPcZjcCV3V3obFLYxkYHxBu3TDwTHLGOFkhgbrk8ZRSkCGXQ1LiecReYA?=
- =?us-ascii?Q?TiM8sJFx0be8Hj6VeXt8Yrk=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cbdf4c24-86f3-495b-4cfb-08dd837edbe1
-X-MS-Exchange-CrossTenant-AuthSource: LV2PR01MB7792.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Apr 2025 22:25:03.8089
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: VQQh2+JW+F5hZ1vULRQYMWU18TIiFnrqp/EuiL9cQdhMUTt6DmKf4/4rtAgG7+OojnTcuo2DudJV/O45jyMXGbGDGHgr83AIR61neYjUaCPR4PfAv7X+L9P4O7YiwrM8
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR01MB8987
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_152512_895392_D4675B13 
-X-CRM114-Status: GOOD (  17.44  )
+X-CRM114-CacheID: sfid-20250424_155805_018961_CFF2CDC7 
+X-CRM114-Status: GOOD (  39.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,45 +76,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Marc Zyngier <maz@kernel.org> writes:
+On Thu, 24 Apr 2025 20:38:34 +0200
+Jernej =C5=A0krabec <jernej.skrabec@gmail.com> wrote:
 
-> We keep setting and clearing these bits depending on the role of
-> the host kernel, mimicking what we do for nVHE. But that's actually
-> pretty pointless, as we always want physical interrupts to make it
-> to the host, at EL2.
->
-> This has also two problems:
->
-> - it prevents IRQs from being taken when these bits are cleared
->   if the implementation has chosen to implement these bits as
->   masks when HCR_EL2.{TGE,xMO}=={0,0}
->
-> - it triggers a bad erratum on the AmpereOne HW, which catches
->   fire on clearing these bits while an interrupt is being taken
->   (AC03_CPU_36).
->
-> Let's kill these two birds with a single stone.
->
-> Reported-by: D Scott Phillips <scott@os.amperecomputing.com>
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->  arch/arm64/include/asm/kvm_arm.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
-> index 974d72b5905b8..bba4b0e930915 100644
-> --- a/arch/arm64/include/asm/kvm_arm.h
-> +++ b/arch/arm64/include/asm/kvm_arm.h
-> @@ -100,7 +100,7 @@
->  			 HCR_FMO | HCR_IMO | HCR_PTW | HCR_TID3 | HCR_TID1)
->  #define HCR_HOST_NVHE_FLAGS (HCR_RW | HCR_API | HCR_APK | HCR_ATA)
->  #define HCR_HOST_NVHE_PROTECTED_FLAGS (HCR_HOST_NVHE_FLAGS | HCR_TSC)
-> -#define HCR_HOST_VHE_FLAGS (HCR_RW | HCR_TGE | HCR_E2H)
-> +#define HCR_HOST_VHE_FLAGS (HCR_RW | HCR_TGE | HCR_E2H | HCR_AMO | HCR_IMO | HCR_FMO)
->  
->  #define HCRX_HOST_FLAGS (HCRX_EL2_MSCEn | HCRX_EL2_TCR2En | HCRX_EL2_EnFPM)
->  #define MPAMHCR_HOST_FLAGS	0
+> cc: Corentin LABBE
+>=20
+> Dne =C4=8Detrtek, 24. april 2025 ob 16:00:37 Srednjeevropski poletni =C4=
+=8Das je Andre Przywara napisal(a):
+> > On Thu, 24 Apr 2025 14:57:27 +0200
+> > Andrew Lunn <andrew@lunn.ch> wrote:
+> >=20
+> > Hi Andrew,
+> >  =20
+> > > > > Just to be clear, you tried it with "rgmii-id" and the same <300>=
+ and
+> > > > > <400> values?   =20
+> > > >=20
+> > > > Yes, sorry, I wasn't clear: I used rgmii-id, then experimented with=
+ those
+> > > > values.   =20
+> > >=20
+> > > O.K, great.
+> > >=20
+> > > I do suspect the delays are not actually in pico seconds. But without
+> > > a data sheet, it is hard to know.
+> > >=20
+> > >        if (!of_property_read_u32(node, "allwinner,rx-delay-ps", &val)=
+) {
+> > >                 if (val % 100) {
+> > >                         dev_err(dev, "rx-delay must be a multiple of =
+100\n");
+> > >                         return -EINVAL;
+> > >                 }
+> > >                 val /=3D 100;
+> > >                 dev_dbg(dev, "set rx-delay to %x\n", val);
+> > >                 if (val <=3D gmac->variant->rx_delay_max) {
+> > >                         reg &=3D ~(gmac->variant->rx_delay_max <<
+> > >                                  SYSCON_ERXDC_SHIFT);
+> > >                         reg |=3D (val << SYSCON_ERXDC_SHIFT);
+> > >=20
+> > > So the code divides by 100 and writes it to a register. But:
+> > >=20
+> > > static const struct emac_variant emac_variant_h3 =3D {
+> > >         .rx_delay_max =3D 31,
+> > >=20
+> > >=20
+> > > static const struct emac_variant emac_variant_r40 =3D {
+> > >         .rx_delay_max =3D 7,
+> > > };
+> > >=20
+> > > With the change from 7 to 31, did the range get extended by a factor
+> > > of 4, or did the step go down by a factor of 4, and the / 100 should
+> > > be / 25? I suppose the git history might have the answer in the commit
+> > > message, but i'm too lazy to go look. =20
+> >=20
+> > IIRC this picosecond mapping was somewhat made up, to match common DT
+> > properties. The manual just says:
+> > =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+> > 12:10  R/W  default: 0x0 ETXDC: Configure EMAC Transmit Clock Delay Cha=
+in.
+> > =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+> >=20
+> > So the unit is really unknown, but is probably some kind of internal cy=
+cle count.
+> > The change from 7 to 31 is purely because the bitfield grew from 3 to 5
+> > bits. We don't know if the underlying unit changed on the way.
+> > Those values are just copied from whatever the board vendor came up wit=
+h,
+> > we then multiply them by 100 and put them in the mainline DT. Welcome to
+> > the world of Allwinner ;-) =20
+>=20
+> IIRC Corentin asked Allwinner about units and their response was in 100 p=
+s.
+>=20
+> In my experience, vendor DT has proper delays specified, just 7 instead of
+> 700, for example. What they get wrong, or better said, don't care, is phy
+> mode. It's always set to rgmii because phy driver most of the time ignores
+> this value and phy IC just uses mode set using resistors.
 
-Should the xMO twiddling in __vgic_v3_get_gic_config() also get dropped
-here?
+Ah, right, I dimly remembered there was some hardware setting, but your
+mentioning of those strap resistors now tickled my memory!
+
+So according to the Radxa board schematic, RGMII0-RXD0/RXDLY is pulled
+up to VCCIO via 4.7K, while RGMII0-RXD1/TXDLY is pulled to GND (also via
+4K7). According to the Motorcom YT8531 datasheet this means that RX
+delay is enabled, but TX delay is not.
+The Avaota board uses the same setup, albeit with an RTL8211F-CG PHY,
+but its datasheet confirms it uses the same logic.
+
+So does this mean we should say rgmii-rxid, so that the MAC adds the TX
+delay? Does the stmmac driver actually support this? I couldn't find
+this part by quickly checking the code.
+
+Cheers,
+Andre
+
+> Proper way here
+> would be to check schematic and set phy mode according to that. This meth=
+od
+> always works, except for one board, which had resistors set wrong and
+> phy mode configured over phy driver was actually fix for it.
+>=20
+> Best regards,
+> Jernej
+>=20
+> >=20
+> > And git history doesn't help, it's all already in the first commit for =
+this
+> > driver. I remember some discussions on the mailing list, almost 10 years
+> > ago, but this requires even more digging ...
+> >=20
+> > Cheers,
+> > Andre
+> >=20
+> >=20
+> >  =20
+> > >=20
+> > > I briefly tried "rgmii", and I couldn't get a lease, so I quite =20
+> > > > confident it's rgmii-id, as you said. The vendor DTs just use "rgmi=
+i", but
+> > > > they might hack the delay up another way (and I cannot be asked to =
+look at
+> > > > that awful code).
+> > > >=20
+> > > > Cheers,
+> > > > Andre   =20
+> >=20
+> >  =20
+>=20
+>=20
+>=20
+>=20
+>=20
+
 
