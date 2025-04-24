@@ -4,71 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4599FC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:03:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56840C369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:03:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tOQ/IaLXsfx6Sht3r5U6/qJt9L156EPgNgGctmn4sIo=; b=vMZGUIcABrvMvQI7m3J885c+Z6
-	KAeoTh6rej7fX67+3IRBh6nQG8LfSbCn38VRVlqqb4A2aAvas9XvtwR1+ZxpEUOFcRzztlAO3iIeQ
-	cO4DHjINtdqVE3NqnREIwoj02u6MLrLaTh2RYMHmymYRNboXqlbYXsj27eeLlo91tF1mK1k6gaQ7L
-	he4p69TnFxfBnK6arpx8PCiSeFecl3IZNaM0wX9p3ewkvswAhGpq/s2Z031NYrKMsGaYlU80wLGBR
-	8IYTq65jF0FcWe2voVd/nOifm2sKYHzRTvMzxncqDShMm3HI1h2HVSdJ1IhGnWy5Pf8woiNoFOyxp
-	I7shwKvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r/qWxdxxHpThKGwDFM8CASPxln5OqgHWkEroR6zYclE=; b=1CMudM7CiXAabNZIPi8gU+368k
+	c5+huBEyOYaJdizZ9d2bEobv9kAKsJ6o0GDDJGpZPei3nyuyeK+Zt2NJn+vcPwuyQtI4Iaz7UpsYe
+	if4MkmIXxAHDlNUsQBwZl/iuw42UPTc8m4knRKdGbhlH0NLuqyajqxVNgP4UUbzJeNUoUpGXhgHFz
+	7y4U23MK5CuObfr4uggfnj3G2pVYIiWa73Lh/awGmDmC0f3Db7Tqjmb0rmN0HXX+UXhSHJ0tXzbG5
+	1z+gG9t0vGKYF+oGgPZjPKpv1Gyt1+1V3ODByioYlXwPu2RLd3PlyMvcEtOLHvhLu0CMIO4KBuW9N
+	QCKlp3ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7z3D-0000000EZyx-3x61;
-	Thu, 24 Apr 2025 16:03:47 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1u7z3G-0000000Ea3G-0uAH;
+	Thu, 24 Apr 2025 16:03:50 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7vDB-0000000DwEV-116d
+	id 1u7vEc-0000000DwSq-3Iur
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 11:57:51 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.105])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4ZjvX26P6fz8x9g;
-	Thu, 24 Apr 2025 19:54:10 +0800 (CST)
-Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id F3DB41402C3;
-	Thu, 24 Apr 2025 19:57:40 +0800 (CST)
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
+	Thu, 24 Apr 2025 11:59:21 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53OBotB7019543;
+	Thu, 24 Apr 2025 11:59:10 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	r/qWxdxxHpThKGwDFM8CASPxln5OqgHWkEroR6zYclE=; b=HKb5VQ99goZ0J0hC
+	tVGLmklkaZtG46nhkwQ51TmTlCZeNHO7VhGr5Se940mMXwRhTBd1ow7opunDdKjG
+	6W7Cfd28yXS1b4fOl/jDSqr/S5cao6FOcnYVKxcfZ3e5D/XEFRUj4GKm8SkTbW9E
+	/0E4DHeZPrUtL82oxQfaVJehepKNjCC5MRpcR2XxRMv8YSJ1FCBCH/oZzqUP3aCa
+	rQVBjDT3lRdt/sxkfei3m+/oKxZrLrbqTeHNLvc/r2KJ32tscjWj8CJzfp6npBsi
+	WGA6Mv073qrmYtsEbnERNDgPprQRl59dpk8wgkjK8Tfb/zrpnyCakGEApzemHZtJ
+	iHo8jA==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 466jh3nefy-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 24 Apr 2025 11:59:10 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53OBx9kb016709
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 24 Apr 2025 11:59:09 GMT
+Received: from hu-jinlmao-lv.qualcomm.com (10.49.16.6) by
+ nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Thu, 24 Apr 2025 19:57:39 +0800
-CC: <yangyicong@hisilicon.com>, James Clark <james.clark@linaro.org>,
-	<jonathan.cameron@huawei.com>, <hejunhao3@huawei.com>, <linuxarm@huawei.com>,
-	<wangyushan12@huawei.com>, <caijingtao@huawei.com>, <xueshan2@huawei.com>,
-	<prime.zeng@hisilicon.com>, <acme@kernel.org>, <namhyung@kernel.org>,
-	<catalin.marinas@arm.com>, <will@kernel.org>, <peterz@infradead.org>,
-	<mingo@redhat.com>, <mark.rutland@arm.com>, <jolsa@kernel.org>,
-	<john.g.garry@oracle.com>, <leo.yan@linux.dev>, <irogers@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>
-Subject: Re: [PATCH] perf arm-spe: Add support for SPE Data Source packet on
- HiSilicon HIP12
-To: Leo Yan <leo.yan@arm.com>
-References: <20250408122809.37884-1-yangyicong@huawei.com>
- <89741897-6c8f-4b75-8ec3-675111ea60a1@linaro.org>
- <20250422102952.GD28953@e132581.arm.com>
- <ccb8ce65-8241-0670-25c8-f8245fbc5e22@huawei.com>
- <20250422132006.GG28953@e132581.arm.com>
- <0098923f-0982-8d08-3c4f-810170ca0b87@huawei.com>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <2fa27176-f820-a03f-033e-7da811643cff@huawei.com>
-Date: Thu, 24 Apr 2025 19:57:39 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+ 15.2.1544.9; Thu, 24 Apr 2025 04:59:08 -0700
+From: Mao Jinlong <quic_jinlmao@quicinc.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Mao Jinlong <quic_jinlmao@quicinc.com>,
+        "Alexander
+ Shishkin" <alexander.shishkin@linux.intel.com>,
+        Bjorn Andersson
+	<andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+CC: <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+Subject: [PATCH v5 1/5] dt-bindings: arm: Add CoreSight QMI component description
+Date: Thu, 24 Apr 2025 04:58:50 -0700
+Message-ID: <20250424115854.2328190-2-quic_jinlmao@quicinc.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250424115854.2328190-1-quic_jinlmao@quicinc.com>
+References: <20250424115854.2328190-1-quic_jinlmao@quicinc.com>
 MIME-Version: 1.0
-In-Reply-To: <0098923f-0982-8d08-3c4f-810170ca0b87@huawei.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
- kwepemd200014.china.huawei.com (7.221.188.8)
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.49.16.6]
+X-ClientProxiedBy: nalasex01a.na.qualcomm.com (10.47.209.196) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: v4Nndtw4i7mVhn7tsHN29kzyw-in7aZN
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI0MDA4MCBTYWx0ZWRfX4fYT22afGktU /Xu2WVgqcKPLKshd4Hbu+Zw17M45Alb/gczUbvHPa5ufMvuPoy7VFfNK6MLiZE7LoTkOJ6sjg9w 1oUb8y3iidc4R2wXFCbFms8cjTwFq6zS6VtNTfcujsqWdFgZ4N6VhA8sVvcyOimYV4vaKjMDQc5
+ fpUKqSa2dA777On4IGwEK2oMZQSchOLHQyJUx0+wLgJfaZkgs5pTcmLsfEableR82XETlv9knou LdiHMnEYs0fGBvQjHXLf+xHcaHoo/MRQeD5Z6w46yTcGuVoLWUnQ/mbX7tISA+PfItBfdjYWRs/ RNr84xw0SjcawWn067mIBkexOSzMVducqewZO2vD29fbv2ahDhIOXaXlqD0VQ/d5++Ce/adVZua
+ +oWLPfgURDtfe0gH/g9+2bJOPLqKHerLXdp3E1t3WLy7OClT5X4yKfR8HVsmpw8gg6JA1h+J
+X-Authority-Analysis: v=2.4 cv=ELgG00ZC c=1 sm=1 tr=0 ts=680a278e cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=3H110R4YSZwA:10 a=XR8D0OoHHMoA:10 a=gEfo2CItAAAA:8 a=COk6AnOGAAAA:8 a=VdmNJPKJaTtzAbcruW8A:9 a=sptkURWiP4Gy88Gu7hUp:22
+ a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-GUID: v4Nndtw4i7mVhn7tsHN29kzyw-in7aZN
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.680,FMLib:17.12.80.40
+ definitions=2025-04-24_05,2025-04-22_01,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 adultscore=0
+ malwarescore=0 clxscore=1011 bulkscore=0 phishscore=0 spamscore=0
+ mlxscore=0 lowpriorityscore=0 priorityscore=1501 suspectscore=0
+ mlxlogscore=999 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
+ definitions=main-2504240080
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_045749_632327_3AE0F4C6 
-X-CRM114-Status: GOOD (  23.59  )
+X-CRM114-CacheID: sfid-20250424_045918_949830_230927BA 
+X-CRM114-Status: GOOD (  15.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,114 +117,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Leo,
+Add new coresight-qmi.yaml file describing the bindings required
+to define qmi node in the device trees.
 
-On 2025/4/23 15:57, Yicong Yang wrote:
-> On 2025/4/22 21:20, Leo Yan wrote:
->> On Tue, Apr 22, 2025 at 08:31:43PM +0800, Yicong Yang wrote:
->>
->> [...]
->>
->>>>>> +	case ARM_SPE_HISI_HIP_PEER_CLUSTER:
->>>>>> +		data_src->mem_lvl = PERF_MEM_LVL_REM_CCE1 | PERF_MEM_LVL_HIT;
->>>>>> +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
->>>>
->>>> Seems to me, a CPU has L3 cache, would the cluster has a higher level's
->>>> cache?
->>>
->>> In my case, the cluster CPUs share the L3 cache and there's several clusters.
->>> L3's the highest level cache in the system.
->>
->> If so, you might need to revise the cache levels for:
->>
->>   ARM_SPE_HISI_HIP_PEER_CPU
->>   ARM_SPE_HISI_HIP_PEER_CPU_HITM
->>
->> IIUC, cluster CPUs share L3 cache, and every CPU in a cluster has
->> L1/L2 cache, for PEER_CPU cases, the memory level should be L2.
->>
-> 
-> confirmed with our hardware people, should be L2 for these two data sources.
-> I misunderstood here, thanks for pointing it out.
-> 
+Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
+---
+ .../bindings/arm/qcom,coresight-qmi.yaml      | 65 +++++++++++++++++++
+ 1 file changed, 65 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/arm/qcom,coresight-qmi.yaml
 
-I recalled why the handling is like this. considering 2 threads have potential false
-sharing issues which are running on core0 thread0 and core 1 thread 0 in the same
-cluster, we'll have some ARM_SPE_HISI_HIP_PEER_CPU_HITM samples to indicate the
-cacheline contention. If the cache level is L2 then we cannot observe this by
-`perf c2c report -d tot`, since L2 is not counted for HITM.
+diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-qmi.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-qmi.yaml
+new file mode 100644
+index 000000000000..601c865fe4d7
+--- /dev/null
++++ b/Documentation/devicetree/bindings/arm/qcom,coresight-qmi.yaml
+@@ -0,0 +1,65 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/arm/qcom,coresight-qmi.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Qualcomm coresight QMI(Qualcomm Messaging Interface) component
++
++description: |
++  Qualcomm Messaging Interface (QMI) is an interface that clients can
++  use to send, and receive, messages from a remote entity. The coresight
++  QMI component is to configure QMI instance ids and service ids for different
++  remote subsystem connections. Coresight QMI driver uses the ids to init
++  the qmi connections. Other coresight drivers call the send qmi request
++  function when connection is established.
++
++maintainers:
++  - Mao Jinlong <quic_jinlmao@quicinc.com>
++
++properties:
++  compatible:
++    enum:
++      - qcom,coresight-qmi
++
++patternProperties:
++  '^conns(-[0-9]+)?$':
++    type: object
++    description:
++      QMI instance id and service id for different remote subsystem connections.
++
++    properties:
++      qmi-id:
++        $ref: /schemas/types.yaml#/definitions/uint32
++        description:
++          Instance id for the remote subsystem connection.
++
++      service-id:
++        $ref: /schemas/types.yaml#/definitions/uint32
++        description:
++          Service id for the remote subsystem connection.
++
++    additionalProperties: false
++
++    required:
++      - qmi-id
++      - service-id
++
++required:
++  - compatible
++
++additionalProperties: false
++
++examples:
++  # Minimum coresight qmi definition.
++  - |
++    coresight-qmi {
++      compatible = "qcom,coresight-qmi";
++
++      conns-0 {
++          qmi-id = <0xd>;
++          service-id = <0x33>;
++      };
++    };
++
++...
+-- 
+2.25.1
 
-does it make sense to have below change to account L2 hitm for lcl_hitm? just like
-we account L2 peer snoop for lcl_peer.
-
-diff --git a/tools/perf/util/mem-events.c b/tools/perf/util/mem-events.c
-index 884d9aebce91..a384a866a562 100644
---- a/tools/perf/util/mem-events.c
-+++ b/tools/perf/util/mem-events.c
-@@ -680,7 +680,10 @@ do {                               \
-                        if (lvl & P(LVL, LFB)) stats->ld_fbhit++;
-                        if (lvl & P(LVL, L1 )) stats->ld_l1hit++;
-                        if (lvl & P(LVL, L2)) {
--                               stats->ld_l2hit++;
-+                               if (snoop & P(SNOOP, HITM))
-+                                       HITM_INC(lcl_hitm);
-+                               else
-+                                       stats->ld_l2hit++;
-
-                                if (snoopx & P(SNOOPX, PEER))
-                                        PEER_INC(lcl_peer);
-
-
->> [...]
->>
->>>>>> +	case ARM_SPE_HISI_HIP_REMOTE_SOCKET:
->>>>>> +		data_src->mem_lvl = PERF_MEM_LVL_REM_CCE2;
->>>>>> +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_ANY_CACHE;
->>>>>> +		data_src->mem_remote = PERF_MEM_REMOTE_REMOTE;
->>>>>> +		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
->>>>>
->>>>> Hi Yicong,
->>>>>
->>>>> Is the mem_snoop setting missing from this one?
->>>>
->>>> The field 'mem_snoopx' is an extension to the field 'mem_snoop'.
->>>>
->>>> If the field 'mem_snoopx' is set, it is no need to set 'mem_snoop'.
->>>>
->>>
->>> they should not be mutal exclusive. mem_snoopx provides the information where
->>> the cacheline comes from while mem_snoop provides the status of the cacheline.
->>> if hardware supports we can gather both information from the data source, like
->>> above for ARM_SPE_HISI_HIP_PEER_CLUSTER_HITM.
->>
->> My understanding is the PERF_MEM_SNOOPX_PEER flag was extended for
->> support Arm SPE.  Other snoop flags were original from x86 arch.
->>
->> I agreed that in some cases above, both the flags PERF_MEM_SNOOPX_PEER
->> and PERF_MEM_SNOOP_HITM can be set together, you can parse cache sharing
->> with different --display options:
->>
->>   perf c2c report --display tot    => based on HITM flags
->>   perf c2c report --display peer   => based on SNOOPX_PEER flag
->>
-> 
-> that's exactly what we want to support :)
-> 
->>> for other cases if there's mem_snoopx information I think mem_snoop can be dropped,
->>> this won't make differeces. Checked c2c_decode_stats(), only PERF_MEM_SNOOP_HIT and
->>> PERF_MEM_SNOOP_HITM is useful when summarizing c2c statistics.
->>
->> It is about how to present accurate results.
->>
->> E.g., for REMOTE_SOCKET type, it is hard to say the data from remote
->> DRAM or any level's cache.  Since more hardware details are absent, this
->> is why I suggested not to set 'mem_snoop' for REMOTE_SOCKET.
->>
-> 
-> this makes sense. will drop mem_snoop if no indications from the data source.
-> 
-> Thanks.
-> 
-> .
-> 
 
