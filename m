@@ -4,61 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E677C369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 07:06:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36918C369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 07:08:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pNh4O5caSx6jmO3mxlqusQXtE5knpPq+iiQ+Jzf4Ivw=; b=JWTM1hv42luEZOBvDWKWJRW0Tk
-	JjKxBPN62+pJEr0sd76Sw1xAxMb5cgrek7su4rzc/nff1Smh8GbTq3k9orLSvIkBSdaynf16qj8HD
-	v3rcJkmjPmBQE6SL2Huvk6ja062NXQyr2GEkr1/eICvmMtXtxyrRwrNvTuh+ZOqubzE2jrZWb9ra+
-	14Ml55QKnV8llqJSMstA4rFzTM05qr9XpUcqqBdFtzc3XsZ0N+F4U56HJAk3XlYZ5cRggIourvk11
-	tmyhQ+TOBQZTR77fbGeMdsWklq48XqCMzii75yoDb4mn0Ze3wllRPMm+WvLbmrb4gyuowuZGZoCe7
-	oVR+Ru9Q==;
+	bh=zRYO+1cSR2M0s6/cKBOKnQkL2D/iZZP2TEbPD+H1eoQ=; b=oPUM5K8yI/VvNgboLCrwaObr8P
+	7i8uEru5D+eJvEplQVEwVvImFGftQBjSsqDj6Py3k+EeU2j1+xQ+jXkj/x/XioiAO9rtguDqldasP
+	p6pdO9R3jxA28vamdeR1TcC5db6k+GsrUe3TEqOk2COBcE9i35HAyy968bctKdRiudHwg/5GWgEta
+	DiDgVJoscNCO6LUlpOuk6v+hFEudCuGeTDJJM6aKtrzMc6meXEy362dxI9bmlm34owSd2wG35s5yj
+	lM1CXrdiIlepf+OUx1KV5vOfBUTWBaLEpWJ4K4YZS4kNCsuoYGQj//38cWXPR/FJRVbJtAa0mJKyv
+	/q3nggBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7qfM-0000000D5HC-2Moi;
-	Thu, 24 Apr 2025 07:06:36 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u7qhK-0000000D5lK-1L08;
+	Thu, 24 Apr 2025 07:08:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7qAq-0000000D1BY-0rcv
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 06:35:05 +0000
+	id 1u7qHW-0000000D2KW-41l9;
+	Thu, 24 Apr 2025 06:42:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5CB9F43AC6;
-	Thu, 24 Apr 2025 06:35:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58D49C4CEE3;
-	Thu, 24 Apr 2025 06:35:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AD1C5449AB;
+	Thu, 24 Apr 2025 06:41:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E344C4CEE3;
+	Thu, 24 Apr 2025 06:41:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745476501;
-	bh=4gClZZchBPS5nWHetbxzyLcECQQe429cDxgXba/S5p0=;
+	s=k20201202; t=1745476918;
+	bh=M+nFHMzEVi+QVGMGUalVB1g9i8u6j31DvTqyfMj/nZk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aIJ4L+QrkTELRIRh4kjqs0BHkuu80qMpSFBaEm1F0cenLZJb0F7MyPPfUTFUP6yRM
-	 bYzv+IwctnllFt/Ka5OA6W80dGA9tERFTU9XDKvtmOX/DPwj9Li+821K7qHCl3CuQa
-	 cYjm70RTgYtq/V8oUsZS/Y+CibOu5KK4kBZ9sD4AkZrANZaFvQNmvctdx3n/lcsRje
-	 VBYHnJWBcsRNFllxDffEerx4EwjrFYdOXOHsJP6hroDwE/4x9S5A7+qXmKNQC5FGGZ
-	 z8cVTIiB62kmBd6M6Nz7o6ysDMcNYhp671krnng45ePVcNpmknv+TDP17E9axLgHe/
-	 cBq6efIzoyVfQ==
-Date: Thu, 24 Apr 2025 08:34:58 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Alexey Charkov <alchark@gmail.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, linux-pwm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] dt-bindings: pwm: vt8500-pwm: Convert to YAML
-Message-ID: <yscledgclp2v4p7djwrszbc3dnqifkcofky7rugkcip7o2rmof@xljfd2kfyzzs>
-References: <20250418-via_pwm_binding-v2-1-17545f4d719e@gmail.com>
+	b=glGhtIHxFk/2r+VTB0xJFT4DLQovRwqbnEKJJ92e3nGBYsoINW1bT6kHDV/tdy9Nj
+	 2DqM0oVa8gmje7rIHU80vw7Bd+SLjzDIZNziRR127GQoBxyaM8k6ijIJay8vINFh//
+	 IYPsRJBgLhLOL2u93AdfpSfLwfojpdGpGnjM1CaTXptDRCmvJLVsX9z3aE36Bk7d9a
+	 GMRIHoIQlndwOdf9TRW6KYvEz0IwoV/076tOtoNdWF9bjZjQXbGwJZy6HquV9ooEm9
+	 pFRdoB+ddQTRlTkrd0zcGElbP1YxgMBf11W5XqiWz2vFAHM62j0q/mmja99G0gfhWg
+	 /Gv70M5zcytzA==
+Date: Thu, 24 Apr 2025 08:41:55 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Frank Wunderlich <linux@fw-web.de>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
+	Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
+	Kishon Vijay Abraham I <kishon@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Frank Wunderlich <frank-w@public-files.de>, 
+	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, Daniel Golle <daniel@makrotopia.org>, 
+	Sean Wang <sean.wang@mediatek.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	linux-phy@lists.infradead.org
+Subject: Re: [PATCH v4 3/8] dt-bindings: phy: mtk-xs-phy: Add mt7988
+ compatible
+Message-ID: <20250424-muscular-ginger-hog-3047f6@kuoka>
+References: <20250422132438.15735-1-linux@fw-web.de>
+ <20250422132438.15735-4-linux@fw-web.de>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="qhetb3dose7tjp32"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250418-via_pwm_binding-v2-1-17545f4d719e@gmail.com>
+In-Reply-To: <20250422132438.15735-4-linux@fw-web.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_233504_271901_797A0F3B 
-X-CRM114-Status: GOOD (  13.39  )
+X-CRM114-CacheID: sfid-20250423_234159_032658_0E083461 
+X-CRM114-Status: UNSURE (   8.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,59 +80,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---qhetb3dose7tjp32
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2] dt-bindings: pwm: vt8500-pwm: Convert to YAML
-MIME-Version: 1.0
-
-On Fri, Apr 18, 2025 at 06:55:07PM +0400, Alexey Charkov wrote:
-> Rewrite the textual description for the WonderMedia PWM controller
-> as YAML schema, and switch the filename to follow the compatible
-> string.
->=20
-> Signed-off-by: Alexey Charkov <alchark@gmail.com>
+On Tue, Apr 22, 2025 at 03:24:26PM GMT, Frank Wunderlich wrote:
+> From: Frank Wunderlich <frank-w@public-files.de>
+> 
+> Add compatible for xs-phy on mt7988.
+> 
+> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 > ---
-> Split the series from v1 into separate bindings patches so as not to
-> spam all the subsystems with unrelated changes, per Rob's suggestion
+>  Documentation/devicetree/bindings/phy/mediatek,xsphy.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 
-That's a good suggestion.
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Applied with Rob's R-b tag to
-https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for-=
-next
-=2E
+Best regards,
+Krzysztof
 
-I saw you signed your patch using PGP, which is great. However I didn't
-find your key. I recommend to make it available on keys.openpgp.org like
-this:
-
-	gpg --export alchark@gmail.com | curl -T - https://keys.openpgp.org
-
-and then verify your identities using the link in the output of this
-command. Still better, (additionally) add your key to the kernel keyring
-(which however requires you to be in Linus Torvalds WoT, see
-https://korg.docs.kernel.org/pgpkeys.html for the details).
-
-Thanks for your contribution,
-Uwe
-
---qhetb3dose7tjp32
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmgJ248ACgkQj4D7WH0S
-/k71GAf/cV7upSehxuOa5yALPuIkS68mnMURiVpePuIYzsRORKndFKnxWyqUXbFW
-RpbACn/GJCb21cf9SV5Kf1UtDUszG5rzJvy3se0FUoq/z5YFc9E+xaXKjpn8Ihet
-XX7sv7UPi+gGHKzztpiDpUXCmOHbWPf8kp4IvvjMyZdh8tr4Nv3P2WuhMdGak28+
-DINKNuRrqnZL/A1VblAwbwhAPCVpGSj5xpfQa97Gg6i9Xc1tzVdujhlt9d5vl9zT
-THzXD7o1if4I4KS/P99qpUmJZO3sFwXfiVA8u/xNfcgEY48qhUGHQt+QuF20qCJC
-KU9yOZDFmT+Sclw4+G8KTxI+uaSp3Q==
-=edGU
------END PGP SIGNATURE-----
-
---qhetb3dose7tjp32--
 
