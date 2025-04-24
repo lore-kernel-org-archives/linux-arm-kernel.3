@@ -4,72 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC01BC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 09:07:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E768CC369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 09:08:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=L43dQiegPYpneLKcAtCosvHEVIgw9bb5bt2UjeqpDLo=; b=nZ+/gbwYTvfLXaqP0vY62iBzVU
-	YyrFeLGrVd9NDeGgQcR/+spFi7mP2HcE4vFx5Fnj9hWWLV9Ey7cMjZ5/6/s12bLJqGeEqKzO4CJ6H
-	tkYTJZiTNebJKyfOybLtq/gs8akdl7O8RggVXuN9U8xlx0WeavSp1bw6Y8joJq0UC07IxH+b+nLmX
-	caxIOf5k0lY3IqtDOGZv7pQ3omwfu1NNLKAUEN/hiu4u9N/1QnQw6nZdal8Ep/iN+8Epo8I44+48w
-	6Z61vHINsu6taLXlhCTBm2WHAvHZ6O3eWA5Z87rS9yPshGdCfcquj4Mn5tKFbGkYADKv4ohO/KKHn
-	AjmWbxCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=rFI0zxYHT1lbO/xLY2Kzp5ITNL1y31B0yQHW5mGtSOw=; b=R47ftx1/T/Ydll
+	lNp/1QA0qCkddKqeZ6vxKtUTksuPPtQvykk9VnTGb9Sj5hrilnHwHxGnt20kF/tU6uQ6gdRVWkAEj
+	NyboYx9PfL55pu+GzNf0aTE0hwyOnH5K6GxTAwQYr3gaB6TP3of1WLTGUNgA4uEdoaMbcdwQxsWWr
+	0dxGRqmFWXG1+iINX92b4LT5j5IpxGiaSBd0EvlwK+w1MYZwO6/ejdYSAeG4xRhUuRo3dwX2schey
+	Zs98ycOPfC29fpC+QGlghJs0+xfRdguo8NaFIxQY1ZZW6WtHJcF6f0mWdQZQWcpPd4QWVkrl3GIeF
+	QNd1fDG4HMXpDX1W+29g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7sY9-0000000DS4n-37MU;
-	Thu, 24 Apr 2025 09:07:17 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1u7sYl-0000000DSDE-1slO;
+	Thu, 24 Apr 2025 09:07:55 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7rYX-0000000DH5W-3hqZ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 08:03:39 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53O83VRj2441366
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 24 Apr 2025 03:03:31 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745481811;
-	bh=L43dQiegPYpneLKcAtCosvHEVIgw9bb5bt2UjeqpDLo=;
-	h=From:To:CC:Subject:Date;
-	b=ZH0uz0nqyRN67KY2s63FBUrgw2kTt3gc8xVvLa8Nple2ewIcYPCxdF8q9Vv537bPG
-	 pBk1dmbqxmGNUJOpIcxu46X1tZOOA8rOngmeglN2mV7nzUxb8BvZMnFyQdmu+RUPFp
-	 t+W6zLksx/dv0Kg7VBHQoTGFLQ5QBh1nBwFoH4TY=
-Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53O83VcK029688
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 24 Apr 2025 03:03:31 -0500
-Received: from DLEE107.ent.ti.com (157.170.170.37) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 24
- Apr 2025 03:03:30 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE107.ent.ti.com
- (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 24 Apr 2025 03:03:30 -0500
-Received: from localhost (jayesh-hp-z2-tower-g5-workstation.dhcp.ti.com [10.24.72.182])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53O83TFc007282;
-	Thu, 24 Apr 2025 03:03:30 -0500
-From: Jayesh Choudhary <j-choudhary@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <u-kumar1@ti.com>, <devarsht@ti.com>,
-        <linux-kernel@vger.kernel.org>
-CC: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <kristo@kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <j-choudhary@ti.com>
-Subject: [PATCH] arm64: dts: ti: k3-j721e-common-proc-board-infotainment: Fix nodes for dtbs warnings
-Date: Thu, 24 Apr 2025 13:33:28 +0530
-Message-ID: <20250424080328.57671-1-j-choudhary@ti.com>
-X-Mailer: git-send-email 2.34.1
+	id 1u7s8K-0000000DNME-1SoN;
+	Thu, 24 Apr 2025 08:40:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1745484034;
+	bh=7Vx7ItJ/6faelSa7z2An9OsZOu9dQ1KbcJtEn0JBz7o=;
+	h=From:Subject:Date:To:Cc:From;
+	b=DwJjyCHB4qM6EABFTed8/oZxLcdx8V3sNngWjyiL5j948xR5XPidwz4eAUOeX/mYx
+	 RJKbeghO3KU2SaheIYSosRhZ+mZp3CXgTA/OZxM3+BUtXbRIJSV7LIz7V6SzgiBXXi
+	 T+0k0aPVeVDsk47spM1H9FAYEAZP9aBFJ5E4CeOf00vLm6tvg5ZITdHL16oh8PIXjM
+	 Qehdzz2e610nWoTcFlo/uPArOVj8XjhWeU9mswW2XcAoB7W6QHODeMijJkz2SUHcRF
+	 vfmj14jnWVoJ6sfqeIIpO0oBbeZcpU/qomUoOhscJIOlpA9rypRHtGMGsbuRKK1KR1
+	 JzTJHU7Eneh8A==
+Received: from yukiji.home (amontpellier-657-1-116-247.w83-113.abo.wanadoo.fr [83.113.51.247])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3F1E917E0F66;
+	Thu, 24 Apr 2025 10:40:33 +0200 (CEST)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Subject: [PATCH net v2 0/2] net: ethernet: mtk-star-emac: fix several
+ issues on rx/tx poll
+Date: Thu, 24 Apr 2025 10:38:47 +0200
+Message-Id: <20250424-mtk_star_emac-fix-spinlock-recursion-issue-v2-0-f3fde2e529d8@collabora.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAJf4CWgC/5WOUW7CMBBErxLtdxfZJhTIF/eoEHLMtqxIbLrrR
+ CCUu2MCPUA/Z2dn3txBSZgUmuoOQiMrp1iE+6ggnHz8IeRj0eCMW5nabrDP54NmLwfqfcBvvqJ
+ eOHYpnFEoDPIsQFYdCOujDVtn1qF1FkrhRaj8z7AviJRh/zoK/Q4FnN9O65UwpL7n3FSRrhlfc
+ OfmwIk1J7nNi0c7J/78/4wbLRq0tK3J10uz/DS7kLrOt0n8osBhP03TA48de2geAQAA
+X-Change-ID: 20250418-mtk_star_emac-fix-spinlock-recursion-issue-4d1c9207cb21
+To: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Biao Huang <biao.huang@mediatek.com>, 
+ Yinghua Pan <ot_yinghua.pan@mediatek.com>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: kernel@collabora.com, netdev@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1745484033; l=3317;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=7Vx7ItJ/6faelSa7z2An9OsZOu9dQ1KbcJtEn0JBz7o=;
+ b=3rrhAI6FTXXn2kA6OC9IUtYowxwH4UUAeS18HEAmXgydiFFkjDb1Hqk+4sXkEBGTWS4CMD/PG
+ 1pk9oLrHJPGA9g5PyaD6b7svutfEQC/OemREgrRdoobK48OvS1GuF7x
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_010338_055109_9C54A52D 
-X-CRM114-Status: GOOD (  12.82  )
+X-CRM114-CacheID: sfid-20250424_014036_539312_150AEABA 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,138 +94,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix hdmi-connector and tfp bridge node as per the bindings,
-- remove 'digital' property which is required for DVI connector not HDMI
-- Add 'ti,deskew' property which is a required property
-- Fix ports property for tfp410 bridge
-- Change node names appropriately
+This patchset fixes two issues with the mtk-star-emac driver.
 
-Redefine the ports for dss and for k3-j721e-common-proc-board.dts,
-add reg property for the port (@0) to get rid of dtbs_warnings in
-infotainment overlay when ports for dss are re-defined.
+The first patch fixes spin lock recursion issues I've observed on the
+Mediatek Genio 350-EVK board using this driver when the Ethernet
+functionality is enabled on the board (requires a correct jumper and
+DIP switch configuration, as well as enabling the device in the
+devicetree).
+The issues can be easily reproduced with apt install or ssh commands
+especially and with the CONFIG_DEBUG_SPINLOCK parameter, when
+one occurs, there is backtrace similar to this:
+```
+BUG: spinlock recursion on CPU#0, swapper/0/0
+ lock: 0xffff00000db9cf20, .magic: dead4ead, .owner: swapper/0/0,
+	.owner_cpu: 0
+CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Not tainted
+	6.15.0-rc2-next-20250417-00001-gf6a27738686c-dirty #28 PREEMPT
+Hardware name: MediaTek MT8365 Open Platform EVK (DT)
+Call trace:
+ show_stack+0x18/0x24 (C)
+ dump_stack_lvl+0x60/0x80
+ dump_stack+0x18/0x24
+ spin_dump+0x78/0x88
+ do_raw_spin_lock+0x11c/0x120
+ _raw_spin_lock+0x20/0x2c
+ mtk_star_handle_irq+0xc0/0x22c [mtk_star_emac]
+ __handle_irq_event_percpu+0x48/0x140
+ handle_irq_event+0x4c/0xb0
+ handle_fasteoi_irq+0xa0/0x1bc
+ handle_irq_desc+0x34/0x58
+ generic_handle_domain_irq+0x1c/0x28
+ gic_handle_irq+0x4c/0x120
+ do_interrupt_handler+0x50/0x84
+ el1_interrupt+0x34/0x68
+ el1h_64_irq_handler+0x18/0x24
+ el1h_64_irq+0x6c/0x70
+ regmap_mmio_read32le+0xc/0x20 (P)
+ _regmap_bus_reg_read+0x6c/0xac
+ _regmap_read+0x60/0xdc
+ regmap_read+0x4c/0x80
+ mtk_star_rx_poll+0x2f4/0x39c [mtk_star_emac]
+ __napi_poll+0x38/0x188
+ net_rx_action+0x164/0x2c0
+ handle_softirqs+0x100/0x244
+ __do_softirq+0x14/0x20
+ ____do_softirq+0x10/0x20
+ call_on_irq_stack+0x24/0x64
+ do_softirq_own_stack+0x1c/0x40
+ __irq_exit_rcu+0xd4/0x10c
+ irq_exit_rcu+0x10/0x1c
+ el1_interrupt+0x38/0x68
+ el1h_64_irq_handler+0x18/0x24
+ el1h_64_irq+0x6c/0x70
+ cpuidle_enter_state+0xac/0x320 (P)
+ cpuidle_enter+0x38/0x50
+ do_idle+0x1e4/0x260
+ cpu_startup_entry+0x34/0x3c
+ rest_init+0xdc/0xe0
+ console_on_rootfs+0x0/0x6c
+ __primary_switched+0x88/0x90
+```
 
-Fixes: 9c0fa304fa56 ("arm64: dts: ti: k3-j721e: Add overlay for J721E Infotainment Expansion Board")
-Signed-off-by: Jayesh Choudhary <j-choudhary@ti.com>
+The second patch is a cleanup patch to fix a inconsistency in the
+mtk_star_rx_poll function between the napi_complete_done api usage and
+its description in documentation.
+
+I've tested this patchset on Mediatek Genio 350-EVK board with a kernel
+based on linux-next (tag: next-20250422).
+
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- ...-j721e-common-proc-board-infotainment.dtso | 57 +++++++++++--------
- .../dts/ti/k3-j721e-common-proc-board.dts     |  6 +-
- 2 files changed, 38 insertions(+), 25 deletions(-)
+Changes in v2:
+- Add missing net subject-prefix for patchs and patchset
+- Remove unneeded init for new local variables and order them in reverse
+  christmas tree
+- Add missing Fixes: tag in second patch commit message
+- Link to v1: https://lore.kernel.org/r/20250422-mtk_star_emac-fix-spinlock-recursion-issue-v1-0-1e94ea430360@collabora.com
 
-diff --git a/arch/arm64/boot/dts/ti/k3-j721e-common-proc-board-infotainment.dtso b/arch/arm64/boot/dts/ti/k3-j721e-common-proc-board-infotainment.dtso
-index 65a7e54f0884..e4e5f941f20b 100644
---- a/arch/arm64/boot/dts/ti/k3-j721e-common-proc-board-infotainment.dtso
-+++ b/arch/arm64/boot/dts/ti/k3-j721e-common-proc-board-infotainment.dtso
-@@ -15,12 +15,11 @@
- #include "k3-pinctrl.h"
- 
- &{/} {
--	hdmi-connector {
-+	connector-hdmi {
- 		compatible = "hdmi-connector";
- 		label = "hdmi";
- 		type = "a";
- 		ddc-i2c-bus = <&main_i2c1>;
--		digital;
- 		/* P12 - HDMI_HPD */
- 		hpd-gpios = <&exp6 10 GPIO_ACTIVE_HIGH>;
- 
-@@ -31,28 +30,32 @@ hdmi_connector_in: endpoint {
- 		};
- 	};
- 
--	dvi-bridge {
--		#address-cells = <1>;
--		#size-cells = <0>;
-+	bridge-dvi {
- 		compatible = "ti,tfp410";
- 		/* P10 - HDMI_PDn */
- 		powerdown-gpios = <&exp6 8 GPIO_ACTIVE_LOW>;
-+		ti,deskew = <0>;
- 
--		port@0 {
--			reg = <0>;
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			port@0 {
-+				reg = <0>;
- 
--			tfp410_in: endpoint {
--				remote-endpoint = <&dpi_out0>;
--				pclk-sample = <1>;
-+				tfp410_in: endpoint {
-+					remote-endpoint = <&dpi_out0>;
-+					pclk-sample = <1>;
-+				};
- 			};
--		};
- 
--		port@1 {
--			reg = <1>;
-+			port@1 {
-+				reg = <1>;
- 
--			tfp410_out: endpoint {
--				remote-endpoint =
--					<&hdmi_connector_in>;
-+				tfp410_out: endpoint {
-+					remote-endpoint =
-+						<&hdmi_connector_in>;
-+				};
- 			};
- 		};
- 	};
-@@ -148,17 +151,23 @@ p11-hog {
- &dss {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&dss_vout0_pins_default>;
--};
- 
--&dss_ports {
--	#address-cells = <1>;
--	#size-cells = <0>;
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
- 
--	port@1 {
--		reg = <1>;
-+		port@0 {
-+			reg = <0>;
-+			dpi0_out: endpoint {
-+				remote-endpoint = <&dp0_in>;
-+			};
-+		};
- 
--		dpi_out0: endpoint {
--			remote-endpoint = <&tfp410_in>;
-+		port@1 {
-+			reg = <1>;
-+			dpi_out0: endpoint {
-+				remote-endpoint = <&tfp410_in>;
-+			};
- 		};
- 	};
- };
-diff --git a/arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts b/arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts
-index 4421852161dd..e3d0ef6913b2 100644
---- a/arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts
-+++ b/arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts
-@@ -804,7 +804,11 @@ &dss {
- };
- 
- &dss_ports {
--	port {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	port@0 {
-+		reg = <0>;
- 		dpi0_out: endpoint {
- 			remote-endpoint = <&dp0_in>;
- 		};
+---
+Louis-Alexis Eyraud (2):
+      net: ethernet: mtk-star-emac: fix spinlock recursion issues on rx/tx poll
+      net: ethernet: mtk-star-emac: rearm interrupts in rx_poll only when advised
+
+ drivers/net/ethernet/mediatek/mtk_star_emac.c | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)
+---
+base-commit: 1d2c58af2b22324cc536113e010d1a38d443f888
+change-id: 20250418-mtk_star_emac-fix-spinlock-recursion-issue-4d1c9207cb21
+
+Best regards,
 -- 
-2.34.1
+Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 
 
