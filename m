@@ -4,95 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB3D6C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 18:47:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F3EAC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 18:49:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V7d2y3ul5N0Mf7A+x8KbqIBRsyxegjHYdT7Sjr9I/BQ=; b=L4U2E428XGEdcZPe1/0R7Idr3P
-	mve/YnjktsRrxYoMNAwxHUMmROQK41zUVFMQ3hm5yfUyo+VxmBbIBmg4dPautRYDBYHtbKfY+3DSc
-	nu5rvTTOXoYU0kmUKyHuqG0TT6YZNRKxLZflJj0iJr/E6rz9xykwuvPweosVP4uTgXNPomL+2wtTQ
-	pALRUvVy9xWhxFqnAqh2tIgNbNLPZ3n/MAmNAeYQ4bJkIsXdYF0d8yPjP38tLhf2fkPhFV2iWU9c3
-	861pt/cMC0j159ZX9Q4BeopBJJGH16+mCqm6An73UySMkqdftqEptHhduy4GV9Gy8W8dpla5sTMii
-	+65mNRtQ==;
+	bh=qiNWnQMtGrQqoGeghTFTaV+yI+YeCdjBAwSDvmoMUtU=; b=LD9OSoiQGvU4Z+7AWmIAabzuhF
+	+kgHW2SKPiXaiZS/sElBhAE1Op9HA1SQk0le20S3UHXAAt4FxeBuxGWFrv9nt6VmVcC608qmqCGMF
+	zvdvbrd4KOPb3icP4OQ0u56FZNketxxFNdnUUhE5Zzti6OZ+ve6xNHzmhhoBbKTGbqYfsM0RCo9rL
+	yUJjlTTkZSMY+7OB+dJnFxeeqNGzqp2cuMf5rCkiK1nt//5Q1vr8CX9DOMJYT2WQfOOWtd3SbMRPi
+	j/+bXVZY2e8KTSM1WIOBkiRkkE4chP47FqV7v3uN6aeiLxT1TiG8G5+86M8AUvqYvfZTEzSP5bEL4
+	R+PuXkGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u81bN-0000000F4VJ-2EeE;
-	Thu, 24 Apr 2025 18:47:13 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1u81dC-0000000F4i0-18PK;
+	Thu, 24 Apr 2025 18:49:06 +0000
+Received: from mail-qv1-xf32.google.com ([2607:f8b0:4864:20::f32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u81Qr-0000000F2gV-37Od
+	id 1u81ST-0000000F304-2kIC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 18:36:22 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-b06e9bcc986so1060589a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 11:36:21 -0700 (PDT)
+	Thu, 24 Apr 2025 18:38:02 +0000
+Received: by mail-qv1-xf32.google.com with SMTP id 6a1803df08f44-6ecf0e07947so14431366d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 11:38:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745519781; x=1746124581; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=V7d2y3ul5N0Mf7A+x8KbqIBRsyxegjHYdT7Sjr9I/BQ=;
-        b=XKVUj1i017SPl6J3moL6SFArgLJ+lkVmc9jZROolP7qxOvFYXNZRskwbm3vktw6bsA
-         ID/LbI03DsTwUKCbDGa17ofCc+Y6Y7O1acxqejg9kJyQ48zyfG7VuxSIZkr4pb1IrRSM
-         u8Hk/b0EVtBoDupeFobjhP86CvaOC3aro7mJKZory5wT0BU3f1xRbgX1Bnx3lcmdKLjA
-         RXPxm3RkVNru0TR8tfnUymK0kx0cOdMl8HgLHCriYZhFbq3ngSJ1UNhjPibSh/c8Vp/X
-         Us00oL5fjg0SH6rzd+BGg7tkcxyUNhXxyC42R2F0adwTRFwFFOGlTkHn7OkH7jgOw+yi
-         qkxw==
+        d=google.com; s=20230601; t=1745519880; x=1746124680; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qiNWnQMtGrQqoGeghTFTaV+yI+YeCdjBAwSDvmoMUtU=;
+        b=Xte7sIvuGDxNVL2gAaPHP+UxXiWkGRcokqiBzCUZy0gsN5NZ7ZF8lmY3ni+DjTqwkB
+         7LdIXjcTvx3B0lZn1V/+qNKs0Y0rYplsr/8afpM9pRbUZ8TcfntW3KQWske5tR1eT2xq
+         mY+aFzUNadLcdmuXiID8sz/xkOhmMBLtSuPsbGZhraarY4EmuIa+QrdH3be1IxnFP0jC
+         Ci0P9KvbrrKxph2jNJ9cCj+lO0jo6+Z4rQnKuHudeatm0Dqu3nE5R0MPzNOV3xo5HLOS
+         o9rFBrb7XBVTa2GdqGu8w1XpfX+ZeYBJZH/AQF9lc6e0qQTX40Gwfk4pxmkug8Okksym
+         TGRw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745519781; x=1746124581;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1745519880; x=1746124680;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=V7d2y3ul5N0Mf7A+x8KbqIBRsyxegjHYdT7Sjr9I/BQ=;
-        b=SDN1+0iUlFTnKfEAfi0XpF8r4FzTobBxXSPsSisj0JZstgiC3At0R8AG1v4fiajpfM
-         mM1gRHWSW4mATNtJehXX6zOQ3UWHq3R3Sd8N3qfwO2Hn/9FqUvnc2RJOcqHAPtVEd36H
-         14/37wSTtIXWwT+P851bwwicCJl+gIv3XrMHOmjWpqFmIhv7JB2vSXJaO5AzN4Y9bDf5
-         IE4GbiitltZBgBXzVN7hWWGAu5AS9lNCpczNQ3qhVNtd8GMpOuKSVSLAIQMSjmxKyki6
-         uwl3YyMRSz01FrCj8QSblm1NtKmeuNZWuxBbzepxy/wRgpboSIooTp7U7MejuJsmBAYx
-         ZpjA==
-X-Forwarded-Encrypted: i=1; AJvYcCV7DSEN3FQWA/2xLqnwrSDOfflrI/z2rsQOZC5WNdaqzo/70CjJqPuHuyHVDZXNHKZ2GN8CbeKXlHbQj2gfmHvs@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxi40wmTz8V8HrnwEaYR7gsjRFgiA1LAiVqHreab45bhlrcS9mG
-	8W6Ezke66ER6ZijAJgZPFLyKTvtxJ73who+/BUrkOoD/RrkpvFFH
-X-Gm-Gg: ASbGncsUGCxzKKrs1vmcfU3kJqj3SJjAOvZN+oVit+QpMdNGLP/PbBcN6kDnzhxxtvK
-	cUPGbHEit65iIljFNg+ew87ymE5EfNzfj/JrcAFfYCz2jM21k+UJjKwUbcgfi8f94CtF+qML0BM
-	W+rGFg/isnAMgbJ85F+n5BNmDVUKRkkpYSzwlQxGiqxF3NmtIFYps/hxpvsZkLJJym2fUjckmV5
-	mW9FueySpcEExaK9+uOU1TNeahrHuGCdmSbJa8lAJSS5FKOqWFnU2Qz89W6CRhlCcPF50QFY7ah
-	MxU9SD6fRB2slH5ZwWKISzuSoKQ5J35m8YrKDOyMlsx6VSwU8JR4
-X-Google-Smtp-Source: AGHT+IEvTVhxG/HEpoGdmUvZL3DCkshSAemk2nnUG/eNuUy+xBFFooJCg81CWaxVrYyBfyYOjuULjA==
-X-Received: by 2002:a17:90b:5252:b0:305:2d27:7cb0 with SMTP id 98e67ed59e1d1-309f554f7b3mr796266a91.21.1745519780757;
-        Thu, 24 Apr 2025 11:36:20 -0700 (PDT)
-Received: from NB-GIGA003.letovo.school ([5.194.95.139])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-309ef0b9df8sm1744660a91.35.2025.04.24.11.36.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Apr 2025 11:36:20 -0700 (PDT)
-From: Alexey Charkov <alchark@gmail.com>
-Date: Thu, 24 Apr 2025 22:35:46 +0400
-Subject: [PATCH 5/5] irqchip: vt8500: Use fewer global variables and add
- error handling
+        bh=qiNWnQMtGrQqoGeghTFTaV+yI+YeCdjBAwSDvmoMUtU=;
+        b=p5W21CIShYxsKJBbRhJjE3QH21fCamLmNJr9sIXs/glrVfSqqaUa1GrCnGHNrW98dv
+         /Z9ohXkhQwlzElV38bq/H1CsMESZnP2VfMz8b5h295nfG9Or7rhfYFOtuuGwnf7chqwS
+         XWL+pQb4llxDVe3pFB30QpqW7W8cjDjbXScvO1nYQd3UEZb3IiaRlXS63hycNvhP4gSB
+         7lS6JneYP1GstgG7t808evMzPfGKtmK2Aa3DwyI2ecXgyBFQeTzPYjVwgaA29NI8kgXh
+         R3slEpH9/WC7HrawX/Ctjx3zkRzOLWA5oGjajtbbX51oJ3mABpj60iEHl/0Q9E1XMcdV
+         9Xhw==
+X-Forwarded-Encrypted: i=1; AJvYcCUJkJkM2l/cghYwDBN59rE/TRzImNX+8ZR2BvLs0plNwOdMLRwu4AA/E3rkeFMXufOM74TImgNhoihKsEhF2+yA@lists.infradead.org
+X-Gm-Message-State: AOJu0YyYy5jlba61rSCQI6jHFoCBtHUwU2skbR6toJPJMDxdzFpz0sWa
+	Q22oyjLi5atLAVJ6oxTBdaBtitfab+a8FCl6wXWbKzsY/RxfGAwqKxbrcHOXcTV4cG/g7m2SfYy
+	rD/EgpO1g2Ay6Ux3xRl4C7VYgsLz+RDjSQTw=
+X-Gm-Gg: ASbGncsAQJynKseaVaqF/8KtbMdjrJMFw5GQm6AdwZ+ybCou7kBV0u4Bn1QNBuC/7w7
+	jGK0uAU1BMRj/AnVbFDAc5C7DVjFgsGU7Gm7Zk5TCxytyRA5V1Rqxx2UaybiXJCz/P/y/Bu4ycc
+	Aefarwtq1ERvNnrhbL3CKGu8vas2kjEf+0s8oJ7MFX5KamWTc0hxlr0AY=
+X-Google-Smtp-Source: AGHT+IEgzkCp19X1hUx0K4CNHyl42mitxUF8xCqnzHFeC6oinPUgS83/wR/eN1NJbe22i34g+1jituaQJixCrt2ksQg=
+X-Received: by 2002:a05:6214:410f:b0:6f2:c94f:b12f with SMTP id
+ 6a1803df08f44-6f4c0f4aacamr56439356d6.3.1745519880182; Thu, 24 Apr 2025
+ 11:38:00 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250424-vt8500-intc-updates-v1-5-4ab7397155b3@gmail.com>
-References: <20250424-vt8500-intc-updates-v1-0-4ab7397155b3@gmail.com>
-In-Reply-To: <20250424-vt8500-intc-updates-v1-0-4ab7397155b3@gmail.com>
-To: Thomas Gleixner <tglx@linutronix.de>, 
- Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Alexey Charkov <alchark@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1745519768; l=3067;
- i=alchark@gmail.com; s=20250416; h=from:subject:message-id;
- bh=ZvhDtpu1XnYczmFh42T13jRZysqmiKlyJitHmezAOec=;
- b=bxYbJszU9Ih3oQcgQ22sUUyhzKZ5U10yKce/YCYZElGTjmrBbnI76TANVVuNwV0vHa5kjA9b1
- 7cWE9X3r1hGBvTgGKCrfwBkIuYZXGepvyYgpJCikl4fZqwKysm70/vL
-X-Developer-Key: i=alchark@gmail.com; a=ed25519;
- pk=ltKbQzKLTJPiDgPtcHxdo+dzFthCCMtC3V9qf7+0rkc=
+References: <20250423230046.1134389-1-yabinc@google.com> <038a4c10-14c6-4671-8db1-fd38dc73bccf@arm.com>
+In-Reply-To: <038a4c10-14c6-4671-8db1-fd38dc73bccf@arm.com>
+From: Yabin Cui <yabinc@google.com>
+Date: Thu, 24 Apr 2025 11:37:48 -0700
+X-Gm-Features: ATxdqUHMGcMM17vbRPuI0DigfaqnG-L_XwvB6bYJEBYXEW-89TJMuPJWEmcjWvk
+Message-ID: <CALJ9ZPM4+OtyzFHWxrOeNWdFyGy+xoLCch+bH8O3AJDgMFk61g@mail.gmail.com>
+Subject: Re: [PATCH] coresight: trbe: Save/restore state across CPU low power state
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@linaro.org>, 
+	James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>, 
+	Jie Gan <quic_jiegan@quicinc.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_113621_784797_EDB29E5C 
-X-CRM114-Status: GOOD (  18.39  )
+X-CRM114-CacheID: sfid-20250424_113801_695422_F1EAF47E 
+X-CRM114-Status: GOOD (  33.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,111 +97,213 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Controller private data doesn't really need to be in a global
-statically allocated array - kzalloc it per controller instead,
-keeping only one pointer to the primary controller global.
+On Thu, Apr 24, 2025 at 1:46=E2=80=AFAM Anshuman Khandual
+<anshuman.khandual@arm.com> wrote:
+>
+> On 4/24/25 04:30, Yabin Cui wrote:
+> > Similar to ETE, TRBE may lose its context when a CPU enters low
+> > power state. To make things worse, if ETE state is restored without
+> > restoring TRBE state, it can lead to a stuck CPU due to an enabled
+> > source device with no enabled sink devices.
+> >
+> > This patch introduces support for "arm,coresight-loses-context-with-cpu=
+"
+>
+> But could "arm,coresight-loses-context-with-cpu" device tree property
+> be associated wit TRBE devices ? OR this state save and restore needs
+> to be handled in the firmware.
 
-While at that, also add proper error return statuses in the init
-path and respective cleanup of resources on errors.
+This property is handled by ETM/ETE driver. In ETM/ETE driver, the state ha=
+s
+options to be saved by firmware or by the driver. On my test device, which
+is Pixel 9, the state is saved by the driver. I have also tested that TRBE =
+state
+can be saved by the TRBE driver.
 
-Signed-off-by: Alexey Charkov <alchark@gmail.com>
----
- drivers/irqchip/irq-vt8500.c | 49 +++++++++++++++++++++++---------------------
- 1 file changed, 26 insertions(+), 23 deletions(-)
-
-diff --git a/drivers/irqchip/irq-vt8500.c b/drivers/irqchip/irq-vt8500.c
-index aea43c838430d2a541aa9b3127a215531abecad8..0bf478c6541ede30719eb1e403d9cafe6474643a 100644
---- a/drivers/irqchip/irq-vt8500.c
-+++ b/drivers/irqchip/irq-vt8500.c
-@@ -64,9 +64,6 @@ struct vt8500_irq_data {
- 	struct irq_domain	*domain;	/* Domain for this controller */
- };
- 
--/* Global variable for accessing io-mem addresses */
--static struct vt8500_irq_data intc[VT8500_INTC_MAX];
--static u32 active_cnt = 0;
- /* Primary interrupt controller data */
- static struct vt8500_irq_data *primary_intc;
- 
-@@ -203,50 +200,56 @@ static void vt8500_handle_irq_chained(struct irq_desc *desc)
- static int __init vt8500_irq_init(struct device_node *node,
- 				  struct device_node *parent)
- {
--	int irq, i;
-+	struct vt8500_irq_data *intc;
-+	int irq, i, ret = 0;
- 
--	if (active_cnt == VT8500_INTC_MAX) {
--		pr_err("%s: Interrupt controllers > VT8500_INTC_MAX\n",
--								__func__);
--		goto out;
--	}
--
--	intc[active_cnt].base = of_iomap(node, 0);
--	intc[active_cnt].domain = irq_domain_add_linear(node, 64,
--			&vt8500_irq_domain_ops,	&intc[active_cnt]);
-+	intc = kzalloc(sizeof(*intc), GFP_KERNEL);
-+	if (!intc)
-+		return -ENOMEM;
- 
--	if (!intc[active_cnt].base) {
-+	intc->base = of_iomap(node, 0);
-+	if (!intc->base) {
- 		pr_err("%s: Unable to map IO memory\n", __func__);
--		goto out;
-+		ret = -ENOMEM;
-+		goto err_free;
- 	}
- 
--	if (!intc[active_cnt].domain) {
-+	intc->domain = irq_domain_add_linear(node,
-+					     64,
-+					     &vt8500_irq_domain_ops,
-+					     intc);
-+	if (!intc->domain) {
- 		pr_err("%s: Unable to add irq domain!\n", __func__);
--		goto out;
-+		ret = -ENOMEM;
-+		goto err_unmap;
- 	}
- 
--	vt8500_init_irq_hw(intc[active_cnt].base);
-+	vt8500_init_irq_hw(intc->base);
- 
- 	pr_info("vt8500-irq: Added interrupt controller\n");
- 
--	active_cnt++;
--
- 	/* check if this is a chained controller */
- 	if (of_irq_count(node) != 0) {
- 		for (i = 0; i < of_irq_count(node); i++) {
- 			irq = irq_of_parse_and_map(node, i);
- 			irq_set_chained_handler_and_data(irq,
- 				vt8500_handle_irq_chained,
--				&intc[active_cnt]);
-+				intc);
- 		}
- 
- 		pr_info("vt8500-irq: Enabled slave->parent interrupts\n");
- 	} else {
--		primary_intc = &intc[active_cnt];
-+		primary_intc = intc;
- 		set_handle_irq(vt8500_handle_irq);
- 	}
--out:
-+
- 	return 0;
-+
-+err_unmap:
-+	iounmap(intc->base);
-+err_free:
-+	kfree(intc);
-+	return ret;
- }
- 
- IRQCHIP_DECLARE(vt8500_irq, "via,vt8500-intc", vt8500_irq_init);
-
--- 
-2.49.0
-
+>
+> > in the TRBE driver. When present, TRBE registers are saved before
+> > and restored after CPU low power state. To prevent CPU hangs, TRBE
+> > state is always saved after ETE state and restored after ETE state.
+> >
+> > Signed-off-by: Yabin Cui <yabinc@google.com>
+> > ---
+> >  .../coresight/coresight-etm4x-core.c          | 13 ++++-
+> >  drivers/hwtracing/coresight/coresight-trbe.c  | 53 +++++++++++++++++++
+> >  include/linux/coresight.h                     |  6 +++
+> >  3 files changed, 71 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drive=
+rs/hwtracing/coresight/coresight-etm4x-core.c
+> > index e5972f16abff..1bbaa1249206 100644
+> > --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> > @@ -1863,6 +1863,7 @@ static int __etm4_cpu_save(struct etmv4_drvdata *=
+drvdata)
+> >  static int etm4_cpu_save(struct etmv4_drvdata *drvdata)
+> >  {
+> >       int ret =3D 0;
+> > +     struct coresight_device *sink;
+> >
+> >       /* Save the TRFCR irrespective of whether the ETM is ON */
+> >       if (drvdata->trfcr)
+> > @@ -1871,8 +1872,14 @@ static int etm4_cpu_save(struct etmv4_drvdata *d=
+rvdata)
+> >        * Save and restore the ETM Trace registers only if
+> >        * the ETM is active.
+> >        */
+> > -     if (coresight_get_mode(drvdata->csdev) && drvdata->save_state)
+> > +     if (coresight_get_mode(drvdata->csdev) && drvdata->save_state) {
+> >               ret =3D __etm4_cpu_save(drvdata);
+> > +             if (ret =3D=3D 0) {
+> > +                     sink =3D coresight_get_percpu_sink(drvdata->cpu);
+> > +                     if (sink && sink_ops(sink)->percpu_save)
+> > +                             sink_ops(sink)->percpu_save(sink);
+> > +             }
+> > +     }
+> >       return ret;
+> >  }
+> >
+> > @@ -1977,6 +1984,10 @@ static void __etm4_cpu_restore(struct etmv4_drvd=
+ata *drvdata)
+> >
+> >  static void etm4_cpu_restore(struct etmv4_drvdata *drvdata)
+> >  {
+> > +     struct coresight_device *sink =3D coresight_get_percpu_sink(drvda=
+ta->cpu);
+> > +
+> > +     if (sink && sink_ops(sink)->percpu_restore)
+> > +             sink_ops(sink)->percpu_restore(sink);
+> >       if (drvdata->trfcr)
+> >               write_trfcr(drvdata->save_trfcr);
+> >       if (drvdata->state_needs_restore)
+> > diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwt=
+racing/coresight/coresight-trbe.c
+> > index fff67aac8418..38bf46951a82 100644
+> > --- a/drivers/hwtracing/coresight/coresight-trbe.c
+> > +++ b/drivers/hwtracing/coresight/coresight-trbe.c
+> > @@ -115,6 +115,13 @@ static int trbe_errata_cpucaps[] =3D {
+> >   */
+> >  #define TRBE_WORKAROUND_OVERWRITE_FILL_MODE_SKIP_BYTES       256
+> >
+> > +struct trbe_save_state {
+> > +     u64 trblimitr;
+> > +     u64 trbbaser;
+> > +     u64 trbptr;
+> > +     u64 trbsr;
+> > +};
+> > +
+> >  /*
+> >   * struct trbe_cpudata: TRBE instance specific data
+> >   * @trbe_flag                - TRBE dirty/access flag support
+> > @@ -123,6 +130,9 @@ static int trbe_errata_cpucaps[] =3D {
+> >   * @cpu                      - CPU this TRBE belongs to.
+> >   * @mode             - Mode of current operation. (perf/disabled)
+> >   * @drvdata          - TRBE specific drvdata
+> > + * @state_needs_save - Need to save trace registers when entering cpu =
+idle
+> > + * @state_needs_restore      - Need to restore trace registers when ex=
+iting cpu idle
+> > + * @save_state               - Saved trace registers
+> >   * @errata           - Bit map for the errata on this TRBE.
+> >   */
+> >  struct trbe_cpudata {
+> > @@ -133,6 +143,9 @@ struct trbe_cpudata {
+> >       enum cs_mode mode;
+> >       struct trbe_buf *buf;
+> >       struct trbe_drvdata *drvdata;
+> > +     bool state_needs_save;
+> > +     bool state_needs_restore;
+> > +     struct trbe_save_state save_state;
+> >       DECLARE_BITMAP(errata, TRBE_ERRATA_MAX);
+> >  };
+> >
+> > @@ -1187,12 +1200,49 @@ static irqreturn_t arm_trbe_irq_handler(int irq=
+, void *dev)
+> >       return IRQ_HANDLED;
+> >  }
+> >
+> > +static void arm_trbe_cpu_save(struct coresight_device *csdev)
+> > +{
+> > +     struct trbe_cpudata *cpudata =3D dev_get_drvdata(&csdev->dev);
+> > +     struct trbe_save_state *state =3D &cpudata->save_state;
+> > +
+> > +     if (cpudata->mode =3D=3D CS_MODE_DISABLED || !cpudata->state_need=
+s_save)
+> > +             return;
+> > +
+> > +     state->trbbaser =3D read_sysreg_s(SYS_TRBBASER_EL1);
+> > +     state->trbptr =3D read_sysreg_s(SYS_TRBPTR_EL1);
+> > +     state->trblimitr =3D read_sysreg_s(SYS_TRBLIMITR_EL1);
+> > +     state->trbsr =3D read_sysreg_s(SYS_TRBSR_EL1);
+> > +     cpudata->state_needs_restore =3D true;
+> > +}
+> > +
+> > +static void arm_trbe_cpu_restore(struct coresight_device *csdev)
+> > +{
+> > +     struct trbe_cpudata *cpudata =3D dev_get_drvdata(&csdev->dev);
+> > +     struct trbe_save_state *state =3D &cpudata->save_state;
+> > +
+> > +     if (cpudata->state_needs_restore) {
+> > +             /*
+> > +              * To avoid disruption of normal tracing, restore trace
+> > +              * registers only when TRBE lost power (TRBLIMITR =3D=3D =
+0).
+> > +              */
+> > +             if (read_sysreg_s(SYS_TRBLIMITR_EL1) =3D=3D 0) {
+> > +                     write_sysreg_s(state->trbbaser, SYS_TRBBASER_EL1)=
+;
+> > +                     write_sysreg_s(state->trbptr, SYS_TRBPTR_EL1);
+> > +                     write_sysreg_s(state->trbsr, SYS_TRBSR_EL1);
+> > +                     set_trbe_enabled(cpudata, state->trblimitr);
+> > +             }
+> > +             cpudata->state_needs_restore =3D false;
+> > +     }
+> > +}
+> > +
+> >  static const struct coresight_ops_sink arm_trbe_sink_ops =3D {
+> >       .enable         =3D arm_trbe_enable,
+> >       .disable        =3D arm_trbe_disable,
+> >       .alloc_buffer   =3D arm_trbe_alloc_buffer,
+> >       .free_buffer    =3D arm_trbe_free_buffer,
+> >       .update_buffer  =3D arm_trbe_update_buffer,
+> > +     .percpu_save    =3D arm_trbe_cpu_save,
+> > +     .percpu_restore =3D arm_trbe_cpu_restore,
+> >  };
+> >
+> >  static const struct coresight_ops arm_trbe_cs_ops =3D {
+> > @@ -1358,6 +1408,9 @@ static void arm_trbe_probe_cpu(void *info)
+> >       cpudata->trbe_flag =3D get_trbe_flag_update(trbidr);
+> >       cpudata->cpu =3D cpu;
+> >       cpudata->drvdata =3D drvdata;
+> > +     cpudata->state_needs_save =3D coresight_loses_context_with_cpu(
+> > +             &drvdata->pdev->dev);
+> > +     cpudata->state_needs_restore =3D false;
+> >       return;
+> >  cpu_clear:
+> >       cpumask_clear_cpu(cpu, &drvdata->supported_cpus);
+> > diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+> > index d79a242b271d..fec375d02535 100644
+> > --- a/include/linux/coresight.h
+> > +++ b/include/linux/coresight.h
+> > @@ -362,6 +362,10 @@ enum cs_mode {
+> >   * @alloc_buffer:    initialises perf's ring buffer for trace collecti=
+on.
+> >   * @free_buffer:     release memory allocated in @get_config.
+> >   * @update_buffer:   update buffer pointers after a trace session.
+> > + * @percpu_save:     saves state when CPU enters idle state.
+> > + *                   Only set for percpu sink.
+> > + * @percpu_restore:  restores state when CPU exits idle state.
+> > + *                   only set for percpu sink.
+> >   */
+> >  struct coresight_ops_sink {
+> >       int (*enable)(struct coresight_device *csdev, enum cs_mode mode,
+> > @@ -374,6 +378,8 @@ struct coresight_ops_sink {
+> >       unsigned long (*update_buffer)(struct coresight_device *csdev,
+> >                             struct perf_output_handle *handle,
+> >                             void *sink_config);
+> > +     void (*percpu_save)(struct coresight_device *csdev);
+> > +     void (*percpu_restore)(struct coresight_device *csdev);
+> >  };
+> >
+> >  /**
 
