@@ -4,84 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85A51C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 03:05:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 177D7C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 03:14:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VJgVkYspiLr69iy7tyKuhkRGOkGOu7zIaIZdJSWEPzk=; b=GXzuXeH9rl5dlkDCXC//PG5bVa
-	1EPxY0oEdHWYPhF7WLuIPygCYjoQ/HYmFMVHuuEgNJo+2PMUakbyVdygJL7yKXfRclETVQamcbmKZ
-	egDdBepnNk2nETJpXLtuzPZUMT2B2km9t/DGAAnE1G5y6b6gvledOn62QkJGIU0GABUxnCrkkKkb8
-	M4aUAC+a44aOQz/VelWMJQNpGdW/ws9CuS0Suz2GP6StMukAp+dN7Zm340ybJ/9qD22B+I9mKPcvn
-	GP3mqSdRQVLr4i40/u8+EknXUwVVQ/QT7+SScDgojgaIDzmS6vdO2AD20KIy00sqIXiBmo4aLH2EI
-	Q4T+MPag==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=A09Mlt/Mb26VyS9VXRXqUFoJt2UqYjVyFJddK4O2fxQ=; b=ZTSIKjO7yd8+7Hpgbj56Ule1pe
+	6h7OkgUIQpM0h4esL7Bo6L4dqpa/deLH8aUBFhVM5PiCSBw9PLCgjZpUFoNBgs0cv40jhu+DCQIvB
+	3rJ+py55Zk8Qrz4sptrdMUJlBCCLmHLLSq/IiBTivG5NGzePUGXAiWv1/t3ODJW0thtmSr8j5bE6I
+	iGuEr0hrnwNhdDQ4yIEyPDit/z1uMTQOMJKGkHK3kHoAU2q9SIQ5FH0z4hdpzOQeaW+r2fPzAwcq7
+	BPVQY3cV+EPoDluw/RMXxwn77FcdM1kM3sno+7DAdhcjM5VwIiKCXynLo4u2BHE3hbE8NSisgplVX
+	lBGOCTPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7mtw-0000000Cgc8-2cxl;
-	Thu, 24 Apr 2025 03:05:24 +0000
-Received: from mail-lj1-x244.google.com ([2a00:1450:4864:20::244])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7mrx-0000000CgPS-1NuY
+	id 1u7n2L-0000000CiNb-3ZKZ;
+	Thu, 24 Apr 2025 03:14:05 +0000
+Received: from m16.mail.163.com ([220.197.31.5])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7n0K-0000000Ci4O-2VYN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 03:03:23 +0000
-Received: by mail-lj1-x244.google.com with SMTP id 38308e7fff4ca-30f30200b51so6605571fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 20:03:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745463799; x=1746068599; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VJgVkYspiLr69iy7tyKuhkRGOkGOu7zIaIZdJSWEPzk=;
-        b=Gazz+irRzdymdfRler+clp+po3VfaAZN64hARnLr0y1YM2aq3/r8Ap1UUHPZmoZVuQ
-         zM0TiwqDSmSdBX8l2r4g/e2GgDGenN4S649YCCTtqK4oJcMYpbboejLtA6awge8Rvp2F
-         SjwFT0OML+IpL0Y9OahR1apZjiZsontfKkhoBn2GUrdpTlSUIR3/s1oFaxuisrxX/Kc8
-         H7nPAVnpZ0DfZQGrhrFpJ3j8zocbBpYEMOhnnjgaTY/1kY9yjPbchTnt9JCo4TDxtemG
-         6cewtVX+4FtV8T1fJwQJuPy7UNs62JyFQ4zOKkYKxJWgxebOMXxRM7TzlqCP5BVanBfj
-         6zUA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745463799; x=1746068599;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=VJgVkYspiLr69iy7tyKuhkRGOkGOu7zIaIZdJSWEPzk=;
-        b=Lk6jDCOU4ZT0MEwAMTvbj6XO4nrsnJQaXi94b27/iDZjGzjlwigsBk87UZZrVtK3y2
-         CdHSyq/MtfukPMmd6XYW1ixRTmEJQgOImGyzWWAgHbhhK+62aQAE08Ij25yA6HlZPiGH
-         MARxgFnK0BPBOIDDEp6aP2erUnkFmnbawiU29D8GyxRD41OolKwY4+xJOa4F9gTBP4V+
-         j3/qrb5qxb6wZQ6KvefK5LaA/m6griMzmaaCbot8D0gyZszR0eZu+7pngNNdrPo7R9Vj
-         IWLuI+LmEqqRzN1RisNcJhuCe4nBCq3FYwBII8fym3k7n5LeEDA1okG7m8Jz4+Ra5Fz5
-         z3mg==
-X-Forwarded-Encrypted: i=1; AJvYcCUwCf46UurPA4lLrbQUN137/NGbF0KdNwIEsl323OsjFBZ9TFjheZB3uFIZWxsTDfyvuoKmTy6yvNUKLwFPgnrk@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/PTGqc4is3FPeNu2Zhl0Y+ICl0ioFV6xvR6fxmKsSiAX+nz+Y
-	IkNF6zHsvcJ6Lhpj9Fu6xcHb/x98NKJPMjUJQJqoq3KyAlCCT6VcA4vAYUf8BwCyhe/PW2fkOZV
-	NiQNmVGGTMDchGo61ZOT4j1Gy0b8=
-X-Gm-Gg: ASbGncvZJYwUmSIx3o8kTIGky3sVlKIbU00ZQ6IlyYifw6jfnnAC6ORVRaE8Q4Bh9BB
-	LssiEIEAHbnw1w0IH+tduns7XmNOIJ/StIH+ODLfGG19te6Dtc/rqSZeQ4v8HdZt0a5HruF6JoJ
-	IR1WhO9PqFxY96+7gnOFp6ng==
-X-Google-Smtp-Source: AGHT+IHEFdU6AkUjEDsg9os0FKyDTupZOXaV8Eg0JIYI3IbQ+wKen8hrgMsyt3fgQt+8e2hv23seZ7XdRIJjTGcx9NQ=
-X-Received: by 2002:a05:651c:1549:b0:30b:b956:53c2 with SMTP id
- 38308e7fff4ca-3179e9ee6c1mr3610421fa.11.1745463798645; Wed, 23 Apr 2025
- 20:03:18 -0700 (PDT)
+	Thu, 24 Apr 2025 03:12:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-Id:MIME-Version; bh=A09Ml
+	t/Mb26VyS9VXRXqUFoJt2UqYjVyFJddK4O2fxQ=; b=ctgxr0x1JThALzXsRdeaN
+	7pkAerYCeHPIosPVi8PI4o1TwF42xWo2lXhxOLesmiq7GY365TGJYlLDWy5ZIA68
+	8KDOXv5lQ/4LT7TrFlYuDlFV17VV4CglWrpitQSy4HPeQ/YsC2mvTINGJFffXdaA
+	J3OQV8R32qvzPBUGwoYJ7M=
+Received: from icess-ProLiant-DL380-Gen10.. (unknown [])
+	by gzga-smtp-mtada-g1-0 (Coremail) with SMTP id _____wDnTxrBqwloZo4dCA--.57924S4;
+	Thu, 24 Apr 2025 11:10:58 +0800 (CST)
+From: Haoxiang Li <haoxiang_li2024@163.com>
+To: slongerbeam@gmail.com,
+	p.zabel@pengutronix.de,
+	mchehab@kernel.org,
+	gregkh@linuxfoundation.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	hverkuil@xs4all.nl
+Cc: linux-media@vger.kernel.org,
+	linux-staging@lists.linux.dev,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Haoxiang Li <haoxiang_li2024@163.com>,
+	stable@vger.kernel.org,
+	Dan Carpenter <dan.carpenter@linaro.org>
+Subject: [PATCH v2 RESEND] media: imx: fix a potential memory leak in imx_media_csc_scaler_device_init()
+Date: Thu, 24 Apr 2025 11:10:53 +0800
+Message-Id: <20250424031053.3508137-1-haoxiang_li2024@163.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20250401104518.25391-1-bsdhenrymartin@gmail.com> <f59af2ac-a7a2-4490-8858-30c7f98e4149@kernel.org>
-In-Reply-To: <f59af2ac-a7a2-4490-8858-30c7f98e4149@kernel.org>
-From: henry martin <bsdhenrymartin@gmail.com>
-Date: Thu, 24 Apr 2025 11:03:09 +0800
-X-Gm-Features: ATxdqUFi3ltLX0JNZInCro5GgmN0f5TCi8PDuD-PAPOj1o31dYGRRL_n0J8qIWI
-Message-ID: <CAEnQdOowa1LJbe7Uj4yR+r=NSysyTbagpvbfR0toc=BBk-UaTg@mail.gmail.com>
-Subject: Re: [PATCH v2] backlight: pm8941: Add NULL check in exynos_generic_icc_probe()
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: georgi.djakov@linaro.org, s.nawrocki@samsung.com, a.swigon@samsung.com, 
-	alim.akhtar@samsung.com, linux-pm@vger.kernel.org, 
-	linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wDnTxrBqwloZo4dCA--.57924S4
+X-Coremail-Antispam: 1Uf129KBjvdXoW7XFyxtFWfKr15GFy5JFyxKrg_yoWkWwc_CF
+	4FqryxXrWUC3ySy3W5tF1I934Sqrs29rWFq3Z0vFZ5XFWjy3WYvr4qvws3X34jgryS9F9I
+	yr18Jr1akr12kjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7xRtCJPDUUUUU==
+X-Originating-IP: [183.174.60.14]
+X-CM-SenderInfo: xkdr5xpdqjszblsqjki6rwjhhfrp/xtbB0gA5bmgJqTxwAgAAsD
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_200321_371705_BA425BB2 
-X-CRM114-Status: GOOD (  12.23  )
+X-CRM114-CacheID: sfid-20250423_201200_968873_6E591110 
+X-CRM114-Status: UNSURE (   9.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,31 +85,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Add video_device_release() in label 'err_m2m' to release the memory
+allocated by video_device_alloc() and prevent potential memory leaks.
+Remove the reduntant code in label 'err_m2m'.
 
-Just a friendly reminder about the patch below which received your Reviewed=
--by
-tag but hasn't been applied yet. Could you let me know if there are any fur=
-ther
-actions needed?
+Fixes: a8ef0488cc59 ("media: imx: add csc/scaler mem2mem device")
+Cc: stable@vger.kernel.org
+Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
+Reviewed-by: Dan Carpenter <dan.carpenter@linaro.org>
+---
+Changes in v2:
+- Remove the reduntant code. Thanks, Dan!
+---
+ drivers/staging/media/imx/imx-media-csc-scaler.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Krzysztof Kozlowski <krzk@kernel.org> =E4=BA=8E2025=E5=B9=B44=E6=9C=881=E6=
-=97=A5=E5=91=A8=E4=BA=8C 19:00=E5=86=99=E9=81=93=EF=BC=9A
->
-> On 01/04/2025 12:45, Henry Martin wrote:
-> > devm_kasprintf() returns NULL when memory allocation fails. Currently,
-> > exynos_generic_icc_probe() does not check for this case, which results
-> > in a NULL pointer dereference.
-> >
-> > Add NULL check after devm_kasprintf() to prevent this issue.
-> >
-> > Fixes: 2f95b9d5cf0b ("interconnect: Add generic interconnect driver for=
- Exynos SoCs")
-> > Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
-> > ---
->
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->
-> Best regards,
-> Krzysztof
+diff --git a/drivers/staging/media/imx/imx-media-csc-scaler.c b/drivers/staging/media/imx/imx-media-csc-scaler.c
+index e5e08c6f79f2..19fd31cb9bb0 100644
+--- a/drivers/staging/media/imx/imx-media-csc-scaler.c
++++ b/drivers/staging/media/imx/imx-media-csc-scaler.c
+@@ -912,7 +912,7 @@ imx_media_csc_scaler_device_init(struct imx_media_dev *md)
+ 	return &priv->vdev;
+ 
+ err_m2m:
+-	video_set_drvdata(vfd, NULL);
++	video_device_release(vfd);
+ err_vfd:
+ 	kfree(priv);
+ 	return ERR_PTR(ret);
+-- 
+2.25.1
+
 
