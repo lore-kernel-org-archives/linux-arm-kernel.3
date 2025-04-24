@@ -4,161 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4228AC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:43:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33027C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:47:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7xv/g1KmQeX9x0hlDZkYdKSr+yBW+z23WQaq6Q8BIKw=; b=n7BhtbhPllgVBMj1NGzpZjkZAY
-	vbwsmea4wavmztFFUYz1ZlaIKEvAS7CYrOD2JhvdIWYrNOX6C494uG3Lbf6Q3EMtr8drXOmaaKTEl
-	PnRNRSovkVSIITps922gcBr2avrH/CJWarcmRa1sjy0clJ2V3D6U34xDUnrgGPgFIJMTLTGR5fZNT
-	q0/qLp/Mgd4nB9FlwUiWyNcNnNP3XVA7eiyfbS3We9VJGIbtli38Tf2PZUNAMhNSwLTQdyXfAvSA/
-	JATU9Mg0x5ffFVRIXnX+mXURR41PhuX1/BkNjKdeb8Iprh8RkS6fDtCYwTfyECRG8R8Ivhyo4z8xM
-	eeNLJcvA==;
+	bh=WSuNi6jgd7WcC/uM9d2T2xs48Ig9Zxtluh/Uj+qej/g=; b=l+QJNz1Np8NGs5Qwxt53uqmigX
+	kktLTrbtc3/RjkaRdO5pwTGWZyS1Z3V44kj6/0qH72LyTE0nf4DtRMBxWHTgUr3QIgiW3OrpoBmaD
+	v4vZu7HPsoXMyuqaUr7ADULS/mPMHzOn5zzFTCqBUTsQuTJNIp91stEQ3ocH2b8mqVXXtKPWKOqf3
+	bG4hYXqIZuVJBdpQzxeWMy4dyNHQOTCe4g/BRVt4lv5E6VG1gpKpQoCYOJzcku0UnjM1fgvZZNMAt
+	J43fYM6tp1GslERQVnc/XVx58Ms/CkWghpkm2fiP7JFYEDJw0wiJMshfOmEDK5pCtSnJ1VLf61fdt
+	J64SH7/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7zfU-0000000EnAV-2bcF;
-	Thu, 24 Apr 2025 16:43:20 +0000
-Received: from mail-dm6nam10on20612.outbound.protection.outlook.com ([2a01:111:f403:2413::612] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1u7zjm-0000000Enl4-0IJR;
+	Thu, 24 Apr 2025 16:47:46 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7ymV-0000000EX98-29TL
+	id 1u7zfY-0000000EnBO-1KXn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 15:46:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=zRAoTWZsX2gXzvIRG1sL8cXqhbQdXPNWSOR49en7SVHKcch6RfOzYX5AAaCk9kXXVAObNXZ0VBunJ9OnAhFZ5me2/pWRJ4eS/v/7ZZxveo94T07axWhqte8PtFQUeyTaNq5z97QzhBa9jcIIkFK1M42L5jsF+npi4Yc0xlcHCBm/TSqoKNSrHc0130MsF6HF3XzytbqX4kCS9hSoxeuwW3ZVdrvuz02oKDb+l7egUtY6oqwOvAeMsv9XEqomQiwInU1W8g0d7qPoUqFl6/tsQAzmcgM0UmjjMHzd6TcukMA+AZxDbeWhKp+5jFs5GnK2Xkmfc1JJq9iDPnwb5PFH/w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7xv/g1KmQeX9x0hlDZkYdKSr+yBW+z23WQaq6Q8BIKw=;
- b=iZbT5S1Ysf9JXxZAIVVVWDL373iS7wgFKDVmoL/Wk4cs0wC/egIn9dCQA01t3EQrJtZJu+bAu6EIa5IOIaSxfOMRYP7VAHkCECIf1jCbzoop5jhpoGAuhyClHbzns21/Jbs2tjkwGzO5zuvIK2BzWMf3KCnqijajCKI44HBeSznE+u1/TLJuzNT89tMLK7WQjtDijbHoOMzm17FfgmOq9ikldeYttSzyO8F7KM9rZuPvQoIDJZytfLDt6Cl0lBcgF6w/w9Cougg5Fmzzl/t5EW/AxC2iBouhaBQjaAk9vstr2anNqVC3hwbA2PaxHitSPUL8qwNc1o502ZPYMvHwNQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7xv/g1KmQeX9x0hlDZkYdKSr+yBW+z23WQaq6Q8BIKw=;
- b=UpTaLqU0sOi8yYR9frMAWGD4PdQpOnpp4EiaAiWUsCMrrQeQn3x9d49eNoGyB5ThFP1atJG2V9OnvPE5Sr7cCm1PqAffhleBSOaC1uVtrK7u0LhYI3MjvVFlb+UAvWeCFGkSKQRxhUJ0YdHt4BsyziIL4wIhMnwzYnFRNP051BFfn4dBgP6wCeFNHdp3ljmJ5/xNzeHtdwABVTPXTVaXX9OgjeCliv2aNvj91Y0mnbw0yPHHoSzaL0JWlc2Dv8Y6cUfAAXG3HI8/+OG4SQj0RPkKhqH3sFc2C7A9g5xf7VlpXNyhsylUSWI8CFJ3yy4Usb1w0YuTf1z7qZe1AntV9A==
-Received: from BY3PR10CA0020.namprd10.prod.outlook.com (2603:10b6:a03:255::25)
- by DS7PR12MB5790.namprd12.prod.outlook.com (2603:10b6:8:75::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.27; Thu, 24 Apr
- 2025 15:46:21 +0000
-Received: from SJ1PEPF00001CEB.namprd03.prod.outlook.com
- (2603:10b6:a03:255:cafe::a2) by BY3PR10CA0020.outlook.office365.com
- (2603:10b6:a03:255::25) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.35 via Frontend Transport; Thu,
- 24 Apr 2025 15:46:21 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- SJ1PEPF00001CEB.mail.protection.outlook.com (10.167.242.27) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8655.12 via Frontend Transport; Thu, 24 Apr 2025 15:46:21 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Thu, 24 Apr
- 2025 08:46:12 -0700
-Received: from drhqmail201.nvidia.com (10.126.190.180) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Thu, 24 Apr 2025 08:46:12 -0700
-Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com
- (10.126.190.180) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Thu, 24 Apr 2025 08:46:10 -0700
-Date: Thu, 24 Apr 2025 08:46:08 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: "Tian, Kevin" <kevin.tian@intel.com>, "corbet@lwn.net" <corbet@lwn.net>,
-	"will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com"
-	<robin.murphy@arm.com>, "joro@8bytes.org" <joro@8bytes.org>,
-	"thierry.reding@gmail.com" <thierry.reding@gmail.com>, "vdumpa@nvidia.com"
-	<vdumpa@nvidia.com>, "jonathanh@nvidia.com" <jonathanh@nvidia.com>,
-	"shuah@kernel.org" <shuah@kernel.org>, "praan@google.com" <praan@google.com>,
-	"nathan@kernel.org" <nathan@kernel.org>, "peterz@infradead.org"
-	<peterz@infradead.org>, "Liu, Yi L" <yi.l.liu@intel.com>,
-	"jsnitsel@redhat.com" <jsnitsel@redhat.com>, "mshavit@google.com"
-	<mshavit@google.com>, "zhangzekun11@huawei.com" <zhangzekun11@huawei.com>,
-	"iommu@lists.linux.dev" <iommu@lists.linux.dev>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-tegra@vger.kernel.org"
-	<linux-tegra@vger.kernel.org>, "linux-kselftest@vger.kernel.org"
-	<linux-kselftest@vger.kernel.org>, "patches@lists.linux.dev"
-	<patches@lists.linux.dev>
-Subject: Re: [PATCH v1 15/16] iommu/tegra241-cmdqv: Add user-space use support
-Message-ID: <aApcwKmb2PPPR8hf@Asurada-Nvidia>
-References: <cover.1744353300.git.nicolinc@nvidia.com>
- <30c7aff68c35040ee637629cb9fc2b6e7f83f76c.1744353300.git.nicolinc@nvidia.com>
- <BN9PR11MB52768197516FB895146A12078CB82@BN9PR11MB5276.namprd11.prod.outlook.com>
- <aAaY+f2/jw9NaIWF@Asurada-Nvidia>
- <BN9PR11MB5276220C7B2C5743DC8364CB8CBA2@BN9PR11MB5276.namprd11.prod.outlook.com>
- <20250423115551.GC1648741@nvidia.com>
- <aAkyAbO5UQRySizN@Asurada-Nvidia>
- <20250423231333.GN1648741@nvidia.com>
- <aAnfiUk1TTlkpkRE@Asurada-Nvidia>
- <20250424134049.GP1648741@nvidia.com>
+	Thu, 24 Apr 2025 16:43:25 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-39c30d9085aso952484f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 09:43:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1745513002; x=1746117802; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=WSuNi6jgd7WcC/uM9d2T2xs48Ig9Zxtluh/Uj+qej/g=;
+        b=GSmFUJMv0XEgF6SdWWkSbGya9EPpKrCWvle3k2EbwE7Y8fgVk9p0q10ICqA2m3VEO1
+         rJOWdY9MClso4k/u5ZeTAtOOuSZv6ArWM19VzvuiB6TKFPQ8dmwF95WTuDA4J6/2Uq0O
+         2xlUho8xemfCva7Z2AVyZKOHltUg7t5hk+ewwVL1zn1bkNPc/hyczEdfIRUIR7KxGqMf
+         Ea8FXdLPDbzSa3RrAM36ICmvZbEfZEzYvlIO7QkqQdxPdsohkZnEmnUr7rc/de/uvnKQ
+         636v0La8Vp1BkdIryMM4dlOZj7oycS+OA1dafYtjPDWBY45A81c2TkxIc8z5K1h5Vceb
+         Cu5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745513002; x=1746117802;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WSuNi6jgd7WcC/uM9d2T2xs48Ig9Zxtluh/Uj+qej/g=;
+        b=AwWiQpZUcU93xbY5SYdon7M4RgFXtW45C2+px51uIpqUKtBaZdaVAbDMTC02iOGQP8
+         oaHeYQA/ho3NDrKvZEo+TwNRWTlXt6IGaKbBV/rvd6SbIYAGCMkCzUO+NjrA0pZB/wmi
+         5w2sqk8vZIvH+gC7j8p1rkHV5aOOvgHbdqL7wqDAvLuIn7Cv7XSFwUOCPgMHgGsA85AU
+         K6eK5hY3eHyC9zpe4I5+2cwy4OVCZ6kMt9UcMUqhItwWZZLIZuOU/Amdc6Mcit1cJ1Op
+         N7eXcahVODAOa3HPVs2mJOroPQe/RTDHvDPmgxotD6Ro7nR6m88AdDOMkQOcZ9FDnX0N
+         srtQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUhHfTHOqQ79ba6IXHiwrtolcGbMPrAnJ//Mm0BGQoRIoJr5q9qBNRi8yEHEU75oPchmK73JMaNqHIumSPY8PxI@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1b/e5+XSfoSCS7PbWD5V4ipZZCDonjUBNALFmduuAsulVx6fG
+	xxV4RD4y7mBzA4EmVAkTkaJfhbc5qsVR+k92dxEUp1KsoPQH//6XpYYlGtpXKLw=
+X-Gm-Gg: ASbGncthgFZf0vZswnLWO2QYBwDRdlnc3S4R9IW2PQo0mG1ARCR1PLpyDQHAeZLNqjA
+	nkzl0DqwVWgiu/uvBqg2m70M3z7lEnN1LqO8cGxLm6WV8WnY/TYuIxASf0tefof5Hvk4rL06ire
+	nBbWsGFQW8TsCXLiMEEntuX5HkA6zDunMvl33p9uJK+5RLseqPFPiYpVeTooxGOqM8GAsSs18bB
+	0RQ0FqUvwTS0DoZ5uO7N7M2tyKY0P6Scq6L3CblkwnMz4IWGqKyJE44OTa58KktcuKsbY9E6Z2w
+	Y4ar19cxe/Z3UiyUoq9vTfceOGKVp1hYj1kztaeX+zNy/g==
+X-Google-Smtp-Source: AGHT+IHYTqxFiUW0T1o5BtOdgRWCYlL7vEIbg3oFVcl1woXhmq4i0bj5/vY1/MFeshm4lNN8UbGb1g==
+X-Received: by 2002:a05:6000:1a8b:b0:391:4095:49b7 with SMTP id ffacd0b85a97d-3a072ac3e07mr50047f8f.25.1745513002496;
+        Thu, 24 Apr 2025 09:43:22 -0700 (PDT)
+Received: from linaro.org ([2001:630:3c1:90:97e6:f326:b9e:1a85])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a06d4c30e2sm2611539f8f.48.2025.04.24.09.43.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Apr 2025 09:43:22 -0700 (PDT)
+Date: Thu, 24 Apr 2025 17:43:19 +0100
+From: Karim Manaouil <karim.manaouil@linaro.org>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, Alexander Graf <graf@amazon.com>,
+	Alex Elder <elder@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Prakruthi Deepak Heragu <quic_pheragu@quicinc.com>,
+	Quentin Perret <qperret@google.com>, Rob Herring <robh@kernel.org>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Srivatsa Vaddagiri <quic_svaddagi@quicinc.com>,
+	Will Deacon <will@kernel.org>,
+	Haripranesh S <haripran@qti.qualcomm.com>,
+	Carl van Schaik <cvanscha@qti.qualcomm.com>,
+	Murali Nalajala <mnalajal@quicinc.com>,
+	Sreenivasulu Chalamcharla <sreeniva@qti.qualcomm.com>,
+	Trilok Soni <tsoni@quicinc.com>,
+	Stefan Schmidt <stefan.schmidt@linaro.org>
+Subject: Re: [RFC PATCH 00/34] Running Qualcomm's Gunyah Guests via KVM in EL1
+Message-ID: <20250424164319.p7a4qgmzn7jb7txz@linaro.org>
+References: <20250424141341.841734-1-karim.manaouil@linaro.org>
+ <aApaGnFPhsWBZoQ2@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250424134049.GP1648741@nvidia.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CEB:EE_|DS7PR12MB5790:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9ff0f3e0-fe5b-4217-d1ad-08dd83472946
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|7416014|82310400026|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?/vpvrd5V7wtSmwtCWrgzjqkX4mrDgBUNXanoWvDotpOytF7C9qmMRDAUEuxv?=
- =?us-ascii?Q?YO2IQmlNX6t5WZjSdz9SDg8hvDx3cXQsTrSFCcVk7xLyScjW8HKw9RwnHj13?=
- =?us-ascii?Q?3eXcZGaEthpzeowZje/SaPfwSM8D7JjwxqxMPEo2Z5Jlmr9+ojT2qfZXObRW?=
- =?us-ascii?Q?iAi0hLPPYgOpW+rzKelsWFXWw1DZ0vCvpiXGX2ZXaoW3s9P+psssIx55S/wO?=
- =?us-ascii?Q?w6RBAMvod5YDN4W/+OispwlAnMZfx5nhC17Ne8iulgS+InYzMe6MTDuNSQ8n?=
- =?us-ascii?Q?KLh/J4OiTjlVzwXGjNy1xuuWTPjHFkCIdezJNvyM8TMtVfvZ32jQsHxiUb7C?=
- =?us-ascii?Q?hzDdfLqqVPhe2jMQZUUUH+qWT5qJV0Duja6rZck9cRUTkdcJxmNzNQuEckrT?=
- =?us-ascii?Q?bYHAmvmgFjCuwHOioen8MwIH9HIn7HRAUOA2QFoB2Pb0yuHbDzszjKOSH/uX?=
- =?us-ascii?Q?02/jxYtMbl0VVSbiQK5Hv5i0Imxkx8FGizSpK0SRefxz4zhNXsZg0hn7P5Py?=
- =?us-ascii?Q?HIyJkrb6tPxYMAgEbdb5OnfLo9+pP7MqYXjdPCdbm/5qL0LA8uMd/u6QlECA?=
- =?us-ascii?Q?TJei1nfiGOcckMMXri9qhmhrTHUBPcofo9ZUgXPo8ckPckFYCApajfRsRBoJ?=
- =?us-ascii?Q?6nOu48cpHD1ZWyODPb3rQ78ioKw5vq7xMZa1ZW5jGVVNL7uSHLZHvxTyWNpL?=
- =?us-ascii?Q?opjIwA3b7BwYuz2taluem1LmTDCv1vz3DETK9TMP7SHm2dFAP+RZ9qEeIm7j?=
- =?us-ascii?Q?JNDKThKVCq0bLJ8eEYOQ+2rSIqWCXQdAUEWPVVjVHzPuK45HMmRrAgQKs5o+?=
- =?us-ascii?Q?zi//qDgJu0AThbTkaOpcS3/Py4E3YMcvKEzstdvQgI9ObZCZkChtbX3yAByk?=
- =?us-ascii?Q?iuRIYvfVPmWPlfyL/UBC4YZBE093VQQNIH5s9hZj/zrH7DPLFomx9KhpMgrQ?=
- =?us-ascii?Q?i5gmf9YjbOn7Wl8lah8hqOvDkbdDRLcfAnlP5KWNR9yNOwZ+As+LeyNJ/c7o?=
- =?us-ascii?Q?gqNxAyBzztdhACH3URVkh9R0YrwFm9JKsK9e334DY+fBbFPm+S7PaLe1eVE9?=
- =?us-ascii?Q?/1tqR3IImixQqO23N9QsodtLIzCyF8xGYIywYLDEn9JOvX9dyQvUhvRlG9wz?=
- =?us-ascii?Q?M7r6ACiP1axKcPdD32cpZEzSvuuaXH0jEsWh3jGZqaeGy/tiqogHcscuC6Qy?=
- =?us-ascii?Q?NoLjZOAg5pZ0pnj4hFtzYU1ko0dHcOiG4u4TTA3iKx8YVbW5OY2aHycScqqY?=
- =?us-ascii?Q?xwqUYaXPWPL84rIZtL6dC6XoWaAdQQl1FxxKtByXlXKgvVRy6S0YNQhPFJwV?=
- =?us-ascii?Q?OUKhTHhPCaRPSnmlBnU7n0ft4wPNaYbcLwbVyv81RUqYcjzubdA/13GwdY6h?=
- =?us-ascii?Q?MufF0Z6uYjuIGnoYtSaJ4jx2llxYmbMzGWqYRhdp97+4+UXYVc+XJoXF8f7a?=
- =?us-ascii?Q?H5zJiWZOwUYGZWK56SywvbuY858nE6yiRrP1uCR9dZbyuQOJjhmhmr557o/G?=
- =?us-ascii?Q?OQRtYV6xHJJNXbaXSbMeP2HpANII8eJcCwW2?=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(376014)(7416014)(82310400026)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Apr 2025 15:46:21.4589
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9ff0f3e0-fe5b-4217-d1ad-08dd83472946
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CEB.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB5790
+In-Reply-To: <aApaGnFPhsWBZoQ2@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_084631_556985_BFBC1E64 
-X-CRM114-Status: GOOD (  28.42  )
+X-CRM114-CacheID: sfid-20250424_094324_360555_5B64EC98 
+X-CRM114-Status: GOOD (  24.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,46 +116,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 24, 2025 at 10:40:49AM -0300, Jason Gunthorpe wrote:
-> On Wed, Apr 23, 2025 at 11:51:53PM -0700, Nicolin Chen wrote:
-> > On Wed, Apr 23, 2025 at 08:13:33PM -0300, Jason Gunthorpe wrote:
-> > > On Wed, Apr 23, 2025 at 11:31:29AM -0700, Nicolin Chen wrote:
-> > > 
-> > > > > It also needs to act like a mdev and lock down the part of the IOAS
-> > > > > that provides that memory so the pin can't be released and UAF things.
-> > > > 
-> > > > If I capture this correctly, the GPA->PA mapping is already done
-> > > > at the IOAS level for the S2 HWPT/domain, i.e. pages are already
-> > > > pinned. So we just need to a pair of for-driver APIs to validate
-> > > > the contiguity and refcount pages calling iopt_area_add_access().
-> > > 
-> > > Yes, adding an access is the key thing, the access will give you a
-> > > page list which you can validate, but it also provides a way to
-> > > synchronize if a hostile userspace does an unmap.
+On Thu, Apr 24, 2025 at 08:34:50AM -0700, Oliver Upton wrote:
+> On Thu, Apr 24, 2025 at 03:13:07PM +0100, Karim Manaouil wrote:
+> > This series introduces the capability of running Gunyah guests via KVM on
+> > Qualcomm SoCs shipped with Gunyah hypervisor [1] (e.g. RB3 Gen2).
 > > 
-> > The new APIs are very like iommufd_access_pin/unpin_pages(). But
-> > to reduce the amount of code that we have to share with driver.o,
-> > I added a smaller iopt_area_get/put_access() that gets an access
-> > and increases/decreases the refcounts only.
+> > The goal of this work is to port the existing Gunyah hypervisor support from a
+> > standalone driver interface [2] to KVM, with the aim of leveraging as much of the
+> > existing KVM infrastructure as possible to reduce duplication of effort around
+> > memory management (e.g. guest_memfd), irqfd, and other core components.
+> > 
+> > In short, Gunyah is a Type-1 hypervisor, meaning that it runs independently of any
+> > high-level OS kernel such as Linux and runs in a higher CPU privilege level than VMs.
+> > Gunyah is shipped as firmware and guests typically talk with Gunyah via hypercalls.
+> > KVM is designed to run as Type-2 hypervisor. This port allows KVM to run in EL1 and
+> > serve as the interface for VM lifecycle management,while offloading virtualization
+> > to Gunyah.
 > 
-> Maybe the access should be obtained by the core code to avoid the
-> driver.o bloating? All the cmdq types need a memory buffer, right?
-> Perhaps that should just be generalized
-
-Yes. AMD just confirmed that they needed a similar setup. I think
-we can do that!
-
-> > Meanwhile, I am thinking if we could use the known S2 domain to
-> > translate the GPAs to PAs for the contiguity test, which feels a
-> > little cleaner to do in an IOMMU driver v.s. with a page list?
+> If you're keen on running your own hypervisor then I'm sorry, you get to
+> deal with it soup to nuts. Other hypervisors (e.g. mshv) have their own
+> kernel drivers for managing the host / UAPI parts of driving VMs.
 > 
-> You still need the access, and the access already generates a page
-> list..
+> The KVM arch interface is *internal* to KVM, not something to be
+> (ab)used for cramming in a non-KVM hypervisor. KVM and other hypervisors
+> can still share other bits of truly common infrastructure, like
+> guest_memfd.
+> 
+> I understand the value in what you're trying to do, but if you want it
+> to smell like KVM you may as well just let the user run it at EL2.
 
-Right. I was thinking it could save a few lines that fetches the
-page list, but then that would need another around of translation,
-which is unnecessary.
+Hi Oliver,
 
-Thanks
-Nicolin
+Thanks for your reply! I very much expected this take and my discussion
+with Qauclomm engineers also more or less had the same conclusion. There
+was a previous effort to go into this direction, but it never got
+implemented, so this was my (no bullshit) attempt at doing that!
+
+I believe that Qcom are more interested in having their own driver,
+instead (as Trilok pointed out in another thread). But this port could
+still be interesting for those who wanted to see KVM in EL1.
+
+On the positive side, you get all the userspace tools (Qemu, Crosvm,
+kvmtool, cloud-hypervisor, firecracker) working with minimal effort.
+
+Cheers
+Karim
 
