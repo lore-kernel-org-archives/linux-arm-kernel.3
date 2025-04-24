@@ -4,85 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46914C369DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 17:12:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 604AFC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 17:12:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CC8QXc9LsvxTqtPlPIyO29AB2sQN6RDFy5sekBxfX70=; b=Lpuia2VEkoGnBwXrZqgo2/JHAY
-	sQc9ncqugQuRKHTeDbxIqVA/xgpwqN8fYSSHQ9x1FJKrUGIrdsIRNXaE+4Ve9LUw19I3LaeHC+iAb
-	r+Bd7acA5Fv0nOMNF9W8cJWcGFRjuMAnc3omoy0LszqeiYNA2YPSxIQ/cy513nTAU7UeQ3OKcB7nL
-	4QFdhFQ/NtkbMTBC/2fAH34FM3T1Tyc8vZe0jO/p/tlVk0ppR8ww92oofIwqB17/0aLEP72e/cUou
-	qHJ5M44T0nMR6LPPO3ogYtmvaY5xEiV3pSSxZ/JlnYNGs8sXU6ddPtXSAz1BsDrvAWuXzvCmv5Vlv
-	kq1yj1hQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WkcCSbDN/ZU2oZjime5zidqS1XL1m5hB3C//OeBt6zc=; b=lcA9sH2C170PmZn/CiAa0eTbzu
+	+/T260T0drj66xJPpauTpoJYdBXDvmOKJgzrFhmFmLkslQ9IpNBLg1jOB9cnJ4xnPxRv8jf9fibqL
+	DIBSEVwtBOqREMd2Gn/wb5o/BjRHfRU2SZVn6/d+w7yIYrDGNz/WItT26gwJGftRS4YdiKirnIVqw
+	9tycIxMw6CEh8j8XMeUnBuom1aSByS0JRBd4tDnNkQPtbtY8dBGq7AkRh3OnZWF4LusMoW0OldxIU
+	xJlruC+jVC6UD1Wk6BweAjZA+GGucyA0tK12jaTR3xhr5b9c3+CHnVYQjEJbjQy8z+cefH015Mon1
+	UO4x7dIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u807f-0000000Er9K-2GfM;
-	Thu, 24 Apr 2025 17:12:27 +0000
-Received: from mail-yb1-xb31.google.com ([2607:f8b0:4864:20::b31])
+	id 1u807h-0000000ErAo-0PEi;
+	Thu, 24 Apr 2025 17:12:29 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7ztf-0000000EpVH-0Zx3
+	id 1u7zxr-0000000Eq9b-2it6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 16:58:00 +0000
-Received: by mail-yb1-xb31.google.com with SMTP id 3f1490d57ef6-e728cd7150dso922021276.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 09:57:58 -0700 (PDT)
+	Thu, 24 Apr 2025 17:02:21 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-5efe8d9ebdfso766986a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 10:02:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745513878; x=1746118678; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=CC8QXc9LsvxTqtPlPIyO29AB2sQN6RDFy5sekBxfX70=;
-        b=H3Kvu+oE4evkqoJjqoXmRsyJ1bBjsWtMTAli9VG0RcZpxxX7psO/oe3QNP12kTSM/A
-         51V8c2FPKTDWsam3NSMkDDiG6SetjaidlGetsSbnHBT1tuPp8LDZ2MVYHihz8bLUPKjZ
-         +4RBqyYCNXxivfJr8Szs97/UZMCP5/C5LEjng2uvIMLmc7SmApTdri00vbvq27FEILpJ
-         WMjsGWS/R37Gb7pbaH1hZ/RVla+5m4CT2GWiGA49bpm2+O15DEKsE39LJ+DOfXhwjAt0
-         NabSGTT/WPzuNT+DPmhXQy5FvYSrFQ20vWQsPdCEqjgb9Xd11q0HCLQiTdK50omML2Ho
-         2DCg==
+        d=gmail.com; s=20230601; t=1745514136; x=1746118936; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WkcCSbDN/ZU2oZjime5zidqS1XL1m5hB3C//OeBt6zc=;
+        b=JJ9C+e9EXNdMFjDl0WqL032lhSYWgoC7r0rgM3gaPrlt0iemmQpV8uvH/LM1rrTF/7
+         0nQLefInQsjOSnBBxYD45ePuFmTj57qrPzazMuxzBvWmq05t231iuaL+kfouywEF89XC
+         hz+Co1D1R0OVd+qfRQavcvxsFWw1aI+WQHVoghFwK7ettLppK9bK9mqFMSuYrH26b/Bs
+         eOwZ9HLlMksPn+oYXI3b6o0K+Bob9X7fevQHb6HJjEf0RXyaz3V2E6OjqKYxmMHy1y9W
+         +PMKqwQD+d3DZDVR7AEYaYiL682LCBS1ywo0v1eCnXrKCWeONxzF+FAmCeIDe5ZgXb/V
+         n6Lw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745513878; x=1746118678;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=CC8QXc9LsvxTqtPlPIyO29AB2sQN6RDFy5sekBxfX70=;
-        b=GBMq4aopni8T+xmBMhgh5NHYDmSBdr2ce6EY0YdZ/5tXAZaWVrzExgawM9hzrCByva
-         UW83ET056aaGLuNvCiDV5ZVmaSOTsemfNZZT4zYytUX3tTR8TEt6Sx8RiLXE9+roHadv
-         wj64JenhgLlS9YLK8cGPhibm+aX9rIjJUL7GkombOd1V5KuSChT/A7oimtJoWzrQ+BWR
-         O4kLlzPMAmga1YUuQVMS2h+qPLeTu6nFZgrSpY7yaoRonRpy1ERx4aSj5mAsOr2XnBRm
-         xuVy4NFfr/MVJW1gRt87YozJLusFu5AInxuMO10oAxvV6E+o7brYM8efJx8iTtFZdnU/
-         TcLw==
-X-Forwarded-Encrypted: i=1; AJvYcCW0DPDRK1TSuCfIr79uzamjNy/8LrFsgbeBrFKP32Hml7YyW7hymJwxpQPhvSgAlpLYEM25g1kthHYm95btwnsw@lists.infradead.org
-X-Gm-Message-State: AOJu0YwUwco1TzTlmQpZisrVAluK996A46MRbEfQE8m2zrVn7Jz41bfX
-	9yL/llzjqet7pI6UlBIOxdxPL7ztgSTdxW1UUyR4ePmrhyePtOk2Oeaso9LVxFrGfFuJuty5FI5
-	i2YDRnW4TabwVAz4Thnm8G8iel3Kv5huFDXX1cQ==
-X-Gm-Gg: ASbGnctfOoGQZVaULE3lJ+C6G6bS17WD2IPukU2PUgGif+RdUYiLQmrNSBol+5umNWS
-	hUTILl+vDcKpAI8+PCbsPD/glj9G0PEtKG5oojJDm56pQZet5bB2kPmv8Wowfjsa/fGFr2UmvnI
-	JwbtcsQsJU1ZqV9sSeaEa13r8=
-X-Google-Smtp-Source: AGHT+IGUSO5FK4cTNY1s8aCOE0QjJA5+ZdVnwWYHpoNAMpE1vPT98E65H3GN3XHKq0FMUPOvfV/2uwmg/47o7Q3uAQg=
-X-Received: by 2002:a05:6902:1b12:b0:e72:d449:72ed with SMTP id
- 3f1490d57ef6-e7312d6905emr175202276.24.1745513878058; Thu, 24 Apr 2025
- 09:57:58 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1745514136; x=1746118936;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=WkcCSbDN/ZU2oZjime5zidqS1XL1m5hB3C//OeBt6zc=;
+        b=G3YudpXQiOSPs64Mrae5+mzDen53W9F/Rlz87KY6rxxFFoihfEO4pB+WplNfVWERfu
+         V7BaeJJl7kF5kMDYJS4vgwWxfkODhQd8YjlzMXVGnDd0vo1VwAeict3LyhPjagx0QIyT
+         GOoRn1KLv1QZuRzOp16m9qg4wuUvx8ytwUQftVSjgmosTCS6pAqDRm8OkdzA+maSp29q
+         jTAaJV3LVTVaWvKplOi0Cs7jznIAsNLsX3gjWDM+vpudmuxMI6pmr7SlsBr9DnZ50+/m
+         F3KaquzoshpjyfbY0n91QRvVq+HK/v28rfyDuS7J/xqVozVohwI74Pq52gNS5SJ1YSCb
+         XEvg==
+X-Forwarded-Encrypted: i=1; AJvYcCV+IRhkpne9J6xVo+EZcvJW5pzMiq6Aj47oyCb5DlFA3jE+QssXKvSCyODwzV6NXSUNkyl445U+1eHhtQ979NX0@lists.infradead.org
+X-Gm-Message-State: AOJu0YyfbeL6nsVF6mezci4AcczEVpCyNeoaOGgt1lte8Ut+VGDopMR7
+	uaOAqs/9XJMKB9wDND9rFNBbUDx+DMwvBWnqSFXFleOP8s6U5GtulUvmLicthrOYYQL+YEJxH+e
+	t2O2A1U2cZooBhYokTfE2x6jxxhE=
+X-Gm-Gg: ASbGncsoRdY8eF9y8pw/+bgKr/5GfwF0TDBXkGF6svkrrmKXHssDaL+dFE5MWon0vzj
+	cjQofWxeh8KYWwY4eMhviYLI6FfSUIDRvZXc10OZ82999LjnigQ7TLDSncAUdR+3+3Edq/VJHC0
+	29LniHaXkw/MzMcaknAr6RbTuS
+X-Google-Smtp-Source: AGHT+IEHxo13L0sXvAke4ty9b+v4Z7Y0lEATPj2aXj/69ooRG7KecObOYygckKmL5PhgxgGc7inKBrIS/BRos9kUdGc=
+X-Received: by 2002:a17:906:6a1f:b0:ac4:76d:6d2c with SMTP id
+ a640c23a62f3a-ace6b54761amr31197866b.40.1745514136147; Thu, 24 Apr 2025
+ 10:02:16 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250416224839.9840-1-andre.przywara@arm.com> <20250416224839.9840-2-andre.przywara@arm.com>
-In-Reply-To: <20250416224839.9840-2-andre.przywara@arm.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Thu, 24 Apr 2025 18:57:22 +0200
-X-Gm-Features: ATxdqUFsZ4jKzTVE_MqQW5hWNU9yilyI4trLvJSpUG2toFoex3HtMd6XPhqZ5bI
-Message-ID: <CAPDyKFop9gAUq3kG4-hs358y=N48rLQSvJaRveXo_ebVTf8gEg@mail.gmail.com>
-Subject: Re: [PATCH v2 1/4] dt-bindings: power: Add Allwinner H6/H616 PRCM PPU
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Boris Brezillon <boris.brezillon@collabora.com>, Steven Price <steven.price@arm.com>, 
-	Philippe Simons <simons.philippe@gmail.com>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-pm@vger.kernel.org
+References: <20250424151604.626758-1-olivier.moysan@foss.st.com>
+In-Reply-To: <20250424151604.626758-1-olivier.moysan@foss.st.com>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Thu, 24 Apr 2025 20:01:40 +0300
+X-Gm-Features: ATxdqUEBDL7z20qNs0yG_M2X9nqYMo67214nlsnEXBB5e6fuFVOwBd_KZJdSur0
+Message-ID: <CAHp75VfwiMAa+y+_sHpJ27D34=PtMG=nskXbV+GuNgWpH-85KQ@mail.gmail.com>
+Subject: Re: [PATCH v5] iio: adc: stm32: add oversampling support
+To: Olivier Moysan <olivier.moysan@foss.st.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, 
+	=?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
+	Andy Shevchenko <andy@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Fabrice Gasnier <fabrice.gasnier@foss.st.com>, linux-iio@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_095759_173101_966F585E 
-X-CRM114-Status: GOOD (  18.46  )
+X-CRM114-CacheID: sfid-20250424_100219_684502_A3EB8F4F 
+X-CRM114-Status: GOOD (  13.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,80 +99,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 17 Apr 2025 at 00:49, Andre Przywara <andre.przywara@arm.com> wrote:
+On Thu, Apr 24, 2025 at 6:22=E2=80=AFPM Olivier Moysan
+<olivier.moysan@foss.st.com> wrote:
 >
-> The Allwinner H6 and some later SoCs contain some bits in the PRCM (Power
-> Reset Clock Management) block that control some power domains.
-> Those power domains include the one for the GPU, the PLLs and some
-> analogue circuits.
+> Add oversampling support for STM32H7, STM32MP15 & STM32MP13.
+> STM32F4 ADC has no oversampling feature.
 >
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-
-Applied for next by amending the example according to ChenYu's comment, thanks!
-
-Note this patch is also available on the immutable dt branch, for SoC
-maintainers to pull.
-
-Kind regards
-Uffe
-
-
-
-> ---
->  .../power/allwinner,sun50i-h6-prcm-ppu.yaml   | 42 +++++++++++++++++++
->  1 file changed, 42 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/power/allwinner,sun50i-h6-prcm-ppu.yaml
+> The current support of the oversampling feature aims at increasing the
+> data SNR, without changing the data resolution.
+> As the oversampling by itself increases data resolution, a right shift
+> is applied to keep the initial resolution.
+> Only the oversampling ratio corresponding to a power of two are
+> supported here, to get a direct link between right shift and
+> oversampling ratio. (2^n ratio <=3D> n right shift)
 >
-> diff --git a/Documentation/devicetree/bindings/power/allwinner,sun50i-h6-prcm-ppu.yaml b/Documentation/devicetree/bindings/power/allwinner,sun50i-h6-prcm-ppu.yaml
-> new file mode 100644
-> index 0000000000000..7eaff9baf7268
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/power/allwinner,sun50i-h6-prcm-ppu.yaml
-> @@ -0,0 +1,42 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/power/allwinner,sun50i-h6-prcm-ppu.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Allwinner SoCs PRCM power domain controller
-> +
-> +maintainers:
-> +  - Andre Przywara <andre.przywara@arm.com>
-> +
-> +description:
-> +  The Allwinner Power Reset Clock Management (PRCM) unit contains bits to
-> +  control a few power domains.
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - allwinner,sun50i-h6-prcm-ppu
-> +      - allwinner,sun50i-h616-prcm-ppu
-> +      - allwinner,sun55i-a523-prcm-ppu
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  '#power-domain-cells':
-> +    const: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - '#power-domain-cells'
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    prcm_ppu: power-controller@7010210 {
-> +        compatible = "allwinner,sun50i-h616-prcm-ppu";
-> +        reg = <0x07010250 0x10>;
-> +        #power-domain-cells = <1>;
-> +    };
-> --
-> 2.46.3
+> The oversampling ratio is shared by all channels, whatever channel type.
+> (e.g. single ended or differential).
 >
+> Oversampling can be configured using IIO ABI:
+> - oversampling_ratio_available
+> - oversampling_ratio
+
+This version LGTM,
+Reviewed-by: Andy Shevchenko <andy@kernel.org>
+
+--=20
+With Best Regards,
+Andy Shevchenko
 
