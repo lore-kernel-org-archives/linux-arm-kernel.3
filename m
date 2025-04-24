@@ -4,66 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B273DC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:05:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 383EDC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:05:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	Content-Type:In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JaqUIEsGhfYDD87B1ocMimRBDau19SHm7VF7ZnK3FEc=; b=fjxUxqH6Al1bc7+GWMYaTrfcrf
-	Pi2L6gYskPFz6wB9oxDUEJHwt6xjeWG+AbU/4Rh3O+uW+MUqc5y7ObaMn8jkcHjcZ5T5MaQcSqu4s
-	Erfjjs9BTCntVnGNT7vJkvhI3ZhyNr4sPNlNYRwtNE/KkWuUobn0fNeXOrn3mjs6t9zmCw2+a3G/o
-	QWvocPlt9miIUI1ddXWFLN7fYmmSBRAYkkuAReNHyefbrsjrPnd+A1nojBEMLZiKmuW8vHixrqnuv
-	R6itJFPcRbF7MJcLPQYJBUEZSY5ubD4EgZFpO09h6ynX66QClNufZwTrKc8H9I4z/RJXW4OFq3EOu
-	UZr7M02Q==;
+	bh=Kcd6o2tvUH9Wlq0TU9ZCul/Ej7huhlgPAxSc9bD4eg0=; b=IduikTp1MUpDF5wlrgr4j1RstE
+	zsH2SQ+qS+nBQOZ4C32ohr9e0xsEmFFveN0paUrxdvfcUAn1YstYhNRoBPAYII+U6Vlrs+mWria6A
+	pMH43UEwjEoXsKfSlgNJ1FRVsKLAdA8uhAkBCO68hygiF+nCJyE8MwtNY4kq8AJSyrZhV37Kn+M24
+	TlPybvWXW4sk+Jjj9ckQzpnewpXZ8n9DocfdqHvrnjarYNk/ENtF4t3EfG2pdmWCW4jxlC+Zc4dLn
+	SLtjz7Tm+WuIzs5JS57d7s1AQw82kFlS+m9FZJ4/1rK2UdKzlomooukezbVCUoeRh+kfywuUG1mu1
+	m1r36RMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7z4g-0000000EcNc-3Iir;
-	Thu, 24 Apr 2025 16:05:18 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7x88-0000000EIxZ-0Jxg
+	id 1u7z4m-0000000EcW3-1EXw;
+	Thu, 24 Apr 2025 16:05:24 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7xGy-0000000EK9C-1r3w
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 14:00:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8FFAC1063;
-	Thu, 24 Apr 2025 07:00:37 -0700 (PDT)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C995C3F66E;
-	Thu, 24 Apr 2025 07:00:39 -0700 (PDT)
-Date: Thu, 24 Apr 2025 15:00:37 +0100
-From: Andre Przywara <andre.przywara@arm.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Yixun Lan <dlan@gentoo.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu
- Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
- Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, Andrew
- Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo
- Abeni <pabeni@redhat.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH 4/5] arm64: dts: allwinner: a527: add EMAC0 to Radxa A5E
- board
-Message-ID: <20250424150037.0f09a867@donnerap.manchester.arm.com>
-In-Reply-To: <4ba3e7b8-e680-40fa-b159-5146a16a9415@lunn.ch>
-References: <20250423-01-sun55i-emac0-v1-0-46ee4c855e0a@gentoo.org>
-	<20250423-01-sun55i-emac0-v1-4-46ee4c855e0a@gentoo.org>
-	<aa38baed-f528-4650-9e06-e7a76c25ec89@lunn.ch>
-	<20250424014120.0d66bd85@minigeek.lan>
-	<835b58a3-82a0-489e-a80f-dcbdb70f6f8d@lunn.ch>
-	<20250424134104.18031a70@donnerap.manchester.arm.com>
-	<4ba3e7b8-e680-40fa-b159-5146a16a9415@lunn.ch>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	Thu, 24 Apr 2025 14:09:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1745503789;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Kcd6o2tvUH9Wlq0TU9ZCul/Ej7huhlgPAxSc9bD4eg0=;
+	b=gqI10tR6664EVHaUzsi6pGv6tz0HdbE9geKp9ilsJrCv/IGdHdIl3F+t87ZV5iEWJ36BFT
+	90ww/K6AwKDagRwpzvjf85EZ5QIlj0H5iBbyf6dpvyMJHbcAUl6S24WnFsa6qAyHGrCAeF
+	PakxFVdr+Mlayu7wN0mHe39Alz4ycjw=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-631-oL7N6pe5OayTpFm1E0cpvQ-1; Thu, 24 Apr 2025 10:09:47 -0400
+X-MC-Unique: oL7N6pe5OayTpFm1E0cpvQ-1
+X-Mimecast-MFC-AGG-ID: oL7N6pe5OayTpFm1E0cpvQ_1745503787
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-39d9243b1c2so375698f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 07:09:47 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745503786; x=1746108586;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Kcd6o2tvUH9Wlq0TU9ZCul/Ej7huhlgPAxSc9bD4eg0=;
+        b=GZVgC3UJGHfjt3zBKwGj2e1xo/qdknJLuqRmmOTkpugz7AWoR7Sklo5cJJFcYATb9d
+         D3rX0Y6d73FkIq3l3V7cQd2dp0ptR60lPMIjsYSdFEkH09ZU9V/3cuo8LfUUYBliCPcb
+         fN2oifYQgUPF2CKc4WyQk7VvAUfbE6RaTeOVS/oe98Mh1ZQq97GzU2dt0meS5tQ2GIxI
+         6+ANmkk5yF73mu5n1+7OAUusFn0Xh5PrQHQnMxCDr94aKWcqmpBXDt06L2JzhW3we2XF
+         CJYsaR6/bPiyq6skffxJ8wsHSLWFEuSzVH5i2i4RQVRyfZD4K9g0jtl1HkNvAzHnHMuD
+         +ntg==
+X-Forwarded-Encrypted: i=1; AJvYcCWiAWQRxW4eLg8DP3XkhYv0y6YE2mlcBOu/BX6coVUIxvjWf1ZBCsWNR0VMy+pOaTmMclUa9ks1LoJfyAFBhc0I@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz15eEyHKSAxQO1doxYezf0DUk5vFUPiPkMCI/atatrV5WT+ATE
+	MhqZ4HBbEsXwi8V5mCBWIpSIqmy29kMaGgPVo3LLP1QDn5dEOXqB2beuXr5TuU7Tu4rEOZlvQHm
+	XznH6w1hw2pnxjByydPA7e+AFrEEN/4JMNOuJOcto91BR4KrpuMJB8PtRGce7S70jjXFxo+KG
+X-Gm-Gg: ASbGncsL3I2x48u5tdX8xQ9CUK2YY61vHezOTkC1LJF+Dhrq2+YGEAXBi7PHnNalt0H
+	PF6WoAk0EvJUnND1vHKb6nI8Z2NW69Dp8tFFfyuYu202/Mfj1wTreSI6RAEi5cw2cMhs+62sT6J
+	5pUOXX6HVOIq4hGyzpdL9Ma38QT3fE/gFMypS0KPTxI6iSser4df98BpEHO60VnA1ZizdmNX75q
+	7uYINh+FbmDr5ulk4bFREUjE29RLBV/2QL6IWB83ZziWLd0HRRmKxBXYocwNB80MuaOQqQeyv4k
+	VkLnp/wurmGlM4bRKTYxvjROsg==
+X-Received: by 2002:a05:6000:40dd:b0:39c:2669:d786 with SMTP id ffacd0b85a97d-3a06cf564f6mr2030220f8f.19.1745503786465;
+        Thu, 24 Apr 2025 07:09:46 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHCLnvnPrTr2kA4EPsTX8eBJWla0qlNHBLrDC/aXaOPuzLScpVQ0iwMUi89EkItUdIH45LJew==
+X-Received: by 2002:a05:6000:40dd:b0:39c:2669:d786 with SMTP id ffacd0b85a97d-3a06cf564f6mr2030125f8f.19.1745503785858;
+        Thu, 24 Apr 2025 07:09:45 -0700 (PDT)
+Received: from t14ultra (109-81-82-22.rct.o2.cz. [109.81.82.22])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a06d4c4945sm2217236f8f.47.2025.04.24.07.09.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Apr 2025 07:09:44 -0700 (PDT)
+Date: Thu, 24 Apr 2025 16:10:04 +0200
+From: Jan Stancek <jstancek@redhat.com>
+To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
+Cc: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Anna-Maria Behnsen <anna-maria@linutronix.de>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+	linux-arch@vger.kernel.org, Nam Cao <namcao@linutronix.de>,
+	jstancek@redhat.com
+Subject: Re: [PATCH 08/19] vdso/gettimeofday: Prepare do_hres_timens() for
+ introduction of struct vdso_clock
+Message-ID: <aApGPAoctq_eoE2g@t14ultra>
+References: <20250303-vdso-clock-v1-0-c1b5c69a166f@linutronix.de>
+ <20250303-vdso-clock-v1-8-c1b5c69a166f@linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+In-Reply-To: <20250303-vdso-clock-v1-8-c1b5c69a166f@linutronix.de>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: HXF2soC02evZU5GCOccflyH6Zhsqo-io-8rfXgtrpVo_1745503787
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=iso-8859-1; format=flowed
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_070044_206779_D30A6875 
-X-CRM114-Status: GOOD (  25.15  )
+X-CRM114-CacheID: sfid-20250424_070952_616132_A5AA1B36 
+X-CRM114-Status: GOOD (  13.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,78 +131,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 24 Apr 2025 14:57:27 +0200
-Andrew Lunn <andrew@lunn.ch> wrote:
+On Mon, Mar 03, 2025 at 12:11:10PM +0100, Thomas Weiﬂschuh wrote:
+>From: Anna-Maria Behnsen <anna-maria@linutronix.de>
+>
+>To support multiple PTP clocks, the VDSO data structure needs to be
+>reworked. All clock specific data will end up in struct vdso_clock and in
+>struct vdso_time_data there will be array of it. By now, vdso_clock is
+>simply a define which maps vdso_clock to vdso_time_data.
+>
+>Prepare for the rework of these structures by adding struct vdso_clock
+>pointer argument to do_hres_timens(), and replace the struct vdso_time_data
+>pointer with the new pointer arugment whenever applicable.
+>
+>No functional change.
+>
+>Signed-off-by: Anna-Maria Behnsen <anna-maria@linutronix.de>
+>Signed-off-by: Nam Cao <namcao@linutronix.de>
+>Signed-off-by: Thomas Weiﬂschuh <thomas.weissschuh@linutronix.de>
+>---
+> lib/vdso/gettimeofday.c | 35 ++++++++++++++++++-----------------
+> 1 file changed, 18 insertions(+), 17 deletions(-)
+>
 
-Hi Andrew,
+Hi,
 
-> > > Just to be clear, you tried it with "rgmii-id" and the same <300> and
-> > > <400> values?  
-> > 
-> > Yes, sorry, I wasn't clear: I used rgmii-id, then experimented with those
-> > values.  
-> 
-> O.K, great.
-> 
-> I do suspect the delays are not actually in pico seconds. But without
-> a data sheet, it is hard to know.
-> 
->        if (!of_property_read_u32(node, "allwinner,rx-delay-ps", &val)) {
->                 if (val % 100) {
->                         dev_err(dev, "rx-delay must be a multiple of 100\n");
->                         return -EINVAL;
->                 }
->                 val /= 100;
->                 dev_dbg(dev, "set rx-delay to %x\n", val);
->                 if (val <= gmac->variant->rx_delay_max) {
->                         reg &= ~(gmac->variant->rx_delay_max <<
->                                  SYSCON_ERXDC_SHIFT);
->                         reg |= (val << SYSCON_ERXDC_SHIFT);
-> 
-> So the code divides by 100 and writes it to a register. But:
-> 
-> static const struct emac_variant emac_variant_h3 = {
->         .rx_delay_max = 31,
-> 
-> 
-> static const struct emac_variant emac_variant_r40 = {
->         .rx_delay_max = 7,
-> };
-> 
-> With the change from 7 to 31, did the range get extended by a factor
-> of 4, or did the step go down by a factor of 4, and the / 100 should
-> be / 25? I suppose the git history might have the answer in the commit
-> message, but i'm too lazy to go look.
+starting with this patch, I'm seeing user-space crashes when using clock_gettime():
+   BAD  -> 83a2a6b8cfc5 vdso/gettimeofday: Prepare do_hres_timens() for introduction of struct vdso_clock
+   GOOD -> 64c3613ce31a vdso/gettimeofday: Prepare do_hres() for introduction of struct vdso_clock
 
-IIRC this picosecond mapping was somewhat made up, to match common DT
-properties. The manual just says:
-====================
-12:10  R/W  default: 0x0 ETXDC: Configure EMAC Transmit Clock Delay Chain.
-====================
+It appears to be unique to aarch64 with 64k pages, and can be reproduced with
+LTP clock_gettime03 [1]:
+   command: clock_gettime03 
+   tst_kconfig.c:88: TINFO: Parsing kernel config '/lib/modules/6.15.0-0.rc3.20250423gitbc3372351d0c.30.eln147.aarch64+64k/build/.config'
+   tst_test.c:1903: TINFO: LTP version: 20250130-231-gd02c2aea3
+   tst_test.c:1907: TINFO: Tested kernel: 6.15.0-0.rc3.20250423gitbc3372351d0c.30.eln147.aarch64+64k #1 SMP PREEMPT_DYNAMIC Wed Apr 23 23:23:54 UTC 2025 aarch64
+   tst_kconfig.c:88: TINFO: Parsing kernel config '/lib/modules/6.15.0-0.rc3.20250423gitbc3372351d0c.30.eln147.aarch64+64k/build/.config'
+   tst_test.c:1720: TINFO: Overall timeout per run is 0h 05m 24s
+   clock_gettime03.c:121: TINFO: Testing variant: vDSO or syscall with libc spec
+   clock_gettime03.c:76: TPASS: Offset (CLOCK_MONOTONIC) is correct 10000ms
+   clock_gettime03.c:86: TPASS: Offset (CLOCK_MONOTONIC) is correct 0ms
+   clock_gettime03.c:76: TPASS: Offset (CLOCK_BOOTTIME) is correct 10000ms
+   clock_gettime03.c:86: TPASS: Offset (CLOCK_BOOTTIME) is correct 0ms
+   clock_gettime03.c:76: TPASS: Offset (CLOCK_MONOTONIC) is correct -10000ms
+   clock_gettime03.c:86: TPASS: Offset (CLOCK_MONOTONIC) is correct 0ms
+   clock_gettime03.c:76: TPASS: Offset (CLOCK_BOOTTIME) is correct -10000ms
+   clock_gettime03.c:86: TPASS: Offset (CLOCK_BOOTTIME) is correct 0ms
+   tst_test.c:438: TBROK: Child (233649) killed by signal SIGSEGV
 
-So the unit is really unknown, but is probably some kind of internal cycle count.
-The change from 7 to 31 is purely because the bitfield grew from 3 to 5
-bits. We don't know if the underlying unit changed on the way.
-Those values are just copied from whatever the board vendor came up with,
-we then multiply them by 100 and put them in the mainline DT. Welcome to
-the world of Allwinner ;-)
+or with:
+--------------------- 8< ----------------------
+#define _GNU_SOURCE
+#include <sched.h>
+#include <time.h>
+#include <unistd.h>                                                                                                                                                                                                                          #include <sys/wait.h>
 
-And git history doesn't help, it's all already in the first commit for this
-driver. I remember some discussions on the mailing list, almost 10 years
-ago, but this requires even more digging ...
+int main(void)
+{
+         struct timespec tp;
+         pid_t child;
+         int status;
 
-Cheers,
-Andre
+         unshare(CLONE_NEWTIME);
 
+         child = fork();
+         if (child == 0) {
+                 clock_gettime(CLOCK_MONOTONIC_RAW, &tp);
+         }
 
+         wait(&status);
+         return status;
+}
 
-> 
-> I briefly tried "rgmii", and I couldn't get a lease, so I quite
-> > confident it's rgmii-id, as you said. The vendor DTs just use "rgmii", but
-> > they might hack the delay up another way (and I cannot be asked to look at
-> > that awful code).
-> > 
-> > Cheers,
-> > Andre  
+# ./a.out ; echo $?
+139
+--------------------- >8 ----------------------
+
+RPMs and configs can be found at Fedora koji, latest build is at [2] (look for kernel-64k).
+
+Regards,
+Jan
+
+[1] https://github.com/linux-test-project/ltp/blob/master/testcases/kernel/syscalls/clock_gettime/clock_gettime03.c
+[2] https://koji.fedoraproject.org/koji/buildinfo?buildID=2704401
 
 
