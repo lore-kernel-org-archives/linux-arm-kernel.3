@@ -4,95 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46DCCC369D7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 20:15:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2E1AC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 20:17:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VxZVbaLuerUQOiGUQNqAhYl1gyDXczPcezBxadZyF5A=; b=lmnIH06Obc36A5cZ6pMgvzRVxa
-	whZBc9xA5PqbXPnQZ0W9Zhx4VDh/9B/q3272/p+vwdYIKikmYvsJgm8EsAGaxGKfQ2nXElh6bdQEC
-	nwgf8uQJdXGX9evYvWmk06lKdZxtewMwGH3z+7ED5xTxU9JceBcCBn38pywzt0rEv84yOm9ox2a7T
-	LUphsW7mv3YIZO4CUg92BVsquvebZaE9usk1sF6kMMUpR/xf2rwEw6kaOI7TBkBHzO5bXroeNSR3d
-	UzwYLqfpPRmilUZoDsvuvkD2Ae6x0IqfNgXfgwxV73CJGFOveuQQZN78lMZuXqgPd7/25cTm3fTA5
-	JufL0kmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=09PG+fxuKesOM/kP22ajuEbhOQfehjAeduUbezP82Mg=; b=Hg8kO4W3bvZ8b45kgYs00SG7/g
+	QttcyF0y6VmEJbDHbA+Go168FVZYKbND5bRECMEfEd5nthKfkQWCrmoncPa8jc2nPO6n4o0On4kKT
+	sIATRvB2f3NXf06S3eO0l1nqdyLLHmkncbPJies52whHwmvj8c1pqhP+iisYmnz2G+tiS5weVQfUV
+	dFIQKtiCbh2OSQChIdpjJUT4O4mf3Es5zAK3nc9/cFSY0ejV74mRUTEV1Z43akPykPC3SwZUyxhUb
+	N37UjzWdji5iy1rxC+MO8wZV+3F6oOHi93zcJqz3KlMNnVgldbs1x/TXaZOtI2J7PLfWG9/DZu27l
+	WMNYGI5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u82yM-0000000FIeX-22sV;
-	Thu, 24 Apr 2025 20:15:02 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1u830B-0000000FJ6q-1YKW;
+	Thu, 24 Apr 2025 20:16:55 +0000
+Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u828I-0000000FAgz-0FS3
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 19:21:15 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-43cebe06e9eso10284165e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 12:21:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745522472; x=1746127272; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VxZVbaLuerUQOiGUQNqAhYl1gyDXczPcezBxadZyF5A=;
-        b=cH42NtD2CuT/ZPJYocl4sSNCypK4kmHkkvkzDqt8MfP/W8FaAf7a+bngQKGy3E2qQE
-         m8Etg1mJllNPbl7B9NhdEdChJX7RyCu+4bd80hFb0kAkyvQPhhTRC6F9j1fxVKsUuiFz
-         v0povlmiL8vicmqfdikb6C27oKOSExL7TGDCvKkTFV1uXSzmC+tvpZi5fvWweLkfZe29
-         7xN/ATLGCtM57VHBwKJvS3Qp7w2qZdN+JL3lzpaHcNPVRSCtLs0eCFnclDO/bELe6MDN
-         ca8/lI4YKtMT/mcIyIUM+AVsYwRwm9/CMWOEqv05Wbb9Paa4hDdJkNCt2quRmVXWYfVn
-         6ZBA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745522472; x=1746127272;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=VxZVbaLuerUQOiGUQNqAhYl1gyDXczPcezBxadZyF5A=;
-        b=GlWi20yVcfwmqBSEMr6QvT185zlAQ/geSr6zjxEy/BM6oPRpvFSlUhgTnnzsnhpGfj
-         IpwEmKmohkeLCh5MRwqtgILM4gPEnJLUCRjp64D9nE3rYEF1IpYLPrq9M31GMNOCdmMB
-         HaK/0W+qx2wtyvFDrQ4DuRP764C8Bk0yw2BHfihvC9lPBnLOTe1sa3LM3kq/xwtyaxRv
-         BGAQgCcpVyKNS9Zw+RsSDXfGS24foikZP9KNpoOnkTYQfnkkgM1m78RyL/n1We3/RKcN
-         aJPt9Io2nCthF/XyLjseqsBLfc1n2X4oYOYm7eawU1yHu8Ux+C5LW/oT/ofLFL2AFE3f
-         QcgA==
-X-Forwarded-Encrypted: i=1; AJvYcCU0XJsZbpn1MlZpfjaNVB18BhDxvFNIV3WTFXVOsONCWalQTG5u1rsI7gIZWaALQkwSqIKFaL+ZIn8uPPAOFJG/@lists.infradead.org
-X-Gm-Message-State: AOJu0YyegfsuKT+VNgarziHaJ/2S+LrI7qoP/HcGuJm0lxdWjm2HOG7K
-	L64xV452fTRUGzUoO6bHozTPTwi22n9kGfryUYGCLED18awsAUSx
-X-Gm-Gg: ASbGncu2/WOTtoW8OBR8w90e2cFylegQ2dXYf89qtP+FAvMrUSCVWhgZopATyXDNlbl
-	wcmwfbUSGympulDG8NcaCvffHe8pH1Kw/zydM3Jqz77lnZzo1L/fjEnEpuCZ90Pp+0IjAIieuzG
-	DZ+GwwcU3yiiFEeZoggXptON44WM+CPHf+hIubp/HMitXacavKjBhPzVHKCsrSLHMaz8xFxKYaD
-	LHwCE6KgJMjlKiuA3Vo9wDijO+wyBYAMtmGHKNSmw4BTMHfgIfVDAuyZQcWyeVB22uxuZoMX2N5
-	F3Zwn63EYe/lGEC6U4+gFkyRqQ2OcrppEVDCYyZE33kVOb0POadeDRhcgweCG6JYDO0dYQQbLSE
-	Xz61s6KfGKQpOtxEZ
-X-Google-Smtp-Source: AGHT+IFZGRprjS3R9kdZBnFSrqQKh3fPVHhwBoQA7Av3OfiEbnQa9dyvQJUljIblbrFBUYdwTbBs0Q==
-X-Received: by 2002:a05:600c:1e86:b0:43d:b3:f95 with SMTP id 5b1f17b1804b1-440a3186746mr5102125e9.28.1745522472126;
-        Thu, 24 Apr 2025 12:21:12 -0700 (PDT)
-Received: from jernej-laptop.localnet (86-58-6-171.dynamic.telemach.net. [86.58.6.171])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4409d2d868asm31066455e9.26.2025.04.24.12.21.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Apr 2025 12:21:10 -0700 (PDT)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>, wens@csie.org
-Cc: Andre Przywara <andre.przywara@arm.com>, Yixun Lan <dlan@gentoo.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Samuel Holland <samuel@sholland.org>,
- Maxime Ripard <mripard@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- netdev@vger.kernel.org, clabbe.montjoie@gmail.com
-Subject: Re: [PATCH 4/5] arm64: dts: allwinner: a527: add EMAC0 to Radxa A5E board
-Date: Thu, 24 Apr 2025 21:21:09 +0200
-Message-ID: <8516361.T7Z3S40VBb@jernej-laptop>
-In-Reply-To: <CAGb2v65GPqr5Vnqb_MhAJBAjQzd-vKi1g1pJ53oUnF0Ym2PH9g@mail.gmail.com>
-References: <20250423-01-sun55i-emac0-v1-0-46ee4c855e0a@gentoo.org>
- <7fcedce7-5cfe-48a4-9769-e6e7e82dc786@lunn.ch>
- <CAGb2v65GPqr5Vnqb_MhAJBAjQzd-vKi1g1pJ53oUnF0Ym2PH9g@mail.gmail.com>
+	id 1u82v3-0000000FIH6-0QNd;
+	Thu, 24 Apr 2025 20:11:38 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 8F2A043A53;
+	Thu, 24 Apr 2025 20:11:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1745525494;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=09PG+fxuKesOM/kP22ajuEbhOQfehjAeduUbezP82Mg=;
+	b=MDQiMXwM5Q6Bw/oa/uvytc0mvtbv7DY7eO7AgzCRzcWizRHKKKcSnyc0iJLbNVTw3Wsr6J
+	lTOqEIBpBUTVqeWYByUkK9Vr4B1fufwPqZl7YxYRoWAyaBP1xMe1FKuin1fkR2amiI8dF0
+	g4m6ihEA5Sz5uKfTe90sT+P+hHpzDS0N1w8Eup2LzDQrQMZHVyRc/xdFInUSbca9eev8lk
+	S91hJDIYFe8zBrsqAHK0miPfASgOMYTye6Z7W6eIE6MEXvKIMHHApCEBVFDrzlDwCSVoJ3
+	qsOh05OZ4XanGRLXUXv1Kzadf2o8Wr2tXbrVszd0YlKh6k3OKd9EvxoaBkoDbQ==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jagan Teki <jagan@amarulasolutions.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Douglas Anderson <dianders@chromium.org>,
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Anusha Srivatsa <asrivats@redhat.com>,
+	Paul Kocialkowski <paulk@sys-base.io>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	Hui Pu <Hui.Pu@gehealthcare.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	dri-devel@lists.freedesktop.org,
+	asahi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	chrome-platform@lists.linux.dev,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org,
+	platform-driver-x86@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	freedreno@lists.freedesktop.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: [PATCH v2 34/34] drm/bridge: panel: convert to devm_drm_bridge_alloc() API
+Date: Thu, 24 Apr 2025 22:05:49 +0200
+Message-ID: <20250424-drm-bridge-convert-to-alloc-api-v2-34-8f91a404d86b@bootlin.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250424-drm-bridge-convert-to-alloc-api-v2-0-8f91a404d86b@bootlin.com>
+References: <20250424-drm-bridge-convert-to-alloc-api-v2-0-8f91a404d86b@bootlin.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
+X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvhedtfeelucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfgggtoffgsehtkeertdertdejnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepudffiefgvdfftdffkeejjefhffduleejleeuieetieetgeehtefhjedtgeegieegnecukfhppedvrgdtvdemieejtdemvddtvddtmegvrgdtudemrgegiedvmedusgguugemledutddumedvleegfhenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtvdemieejtdemvddtvddtmegvrgdtudemrgegiedvmedusgguugemledutddumedvleegfhdphhgvlhhopegsohhothihrdhfrhhithiirdgsohigpdhmrghilhhfrhhomheplhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfeelpdhrtghpthhtohepmhgrrghrthgvnhdrlhgrnhhkhhhorhhstheslhhinhhugidrihhnthgvlhdrtghomhdprhgtphhtthhopehmrhhiphgrrhgusehkvghrnhgvlhdrohhrghdprhgtphhtthhopehtiihimhhmvghrmhgrnhhnsehsuhhsvgdru
+ ggvpdhrtghpthhtoheprghirhhlihgvugesghhmrghilhdrtghomhdprhgtphhtthhopehsihhmohhnrgesfhhffihllhdrtghhpdhrtghpthhtoheprghnughriigvjhdrhhgrjhgurgesihhnthgvlhdrtghomhdprhgtphhtthhopehnvghilhdrrghrmhhsthhrohhngheslhhinhgrrhhordhorhhgpdhrtghpthhtoheprhhfohhssheskhgvrhhnvghlrdhorhhg
+X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_122114_113380_D0254149 
-X-CRM114-Status: GOOD (  24.32  )
+X-CRM114-CacheID: sfid-20250424_131137_310368_B537CFFB 
+X-CRM114-Status: GOOD (  13.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,51 +112,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne =C4=8Detrtek, 24. april 2025 ob 21:05:17 Srednjeevropski poletni =C4=8D=
-as je Chen-Yu Tsai napisal(a):
-> On Fri, Apr 25, 2025 at 3:02=E2=80=AFAM Andrew Lunn <andrew@lunn.ch> wrot=
-e:
-> >
-> > > In my experience, vendor DT has proper delays specified, just 7 inste=
-ad of
-> > > 700, for example. What they get wrong, or better said, don't care, is=
- phy
-> > > mode. It's always set to rgmii because phy driver most of the time ig=
-nores
-> > > this value and phy IC just uses mode set using resistors. Proper way =
-here
-> > > would be to check schematic and set phy mode according to that. This =
-method
-> > > always works, except for one board, which had resistors set wrong and
-> > > phy mode configured over phy driver was actually fix for it.
-> >
-> > What PHY driver is this? If it is ignoring the mode, it is broken.
-> >
-> > We have had problems in the past in this respect. A PHY driver which
-> > ignored the RGMII modes, and strapping was used. That 'worked' until
-> > somebody built a board with broken strapping and added code to respect
-> > the RGMII mode, overriding the strapping. It made that board work, but
-> > broke lots of others which had the wrong RGMII mode....
-> >
-> > If we have this again, i would like to know so we can try to get in
-> > front of the problem, before we have lots of broken boards...
->=20
-> I think the incident you are referring to is exactly the one that Jernej
-> mentioned.
->=20
-> And regarding the bad PHY driver, it could simply be that the PHY driver
-> was not built or not loaded, hence the kernel falling back to the generic
-> one, which of course doesn't know how to set the modes.
+This is the new API for allocating DRM bridges.
 
-Mainline is sorted out as far as I'm aware. Broken PHY drivers are part
-of BSP code drops, from where these values are taken from. So, for sure
-I wouldn't trust phy mode set in BSP code, but allwinner,tx-delay-ps and
-allwinner,rx-delay-ps are usually trustworthy.
+The devm lifetime management of this driver is peculiar. The underlying
+device for the panel_bridge is the panel, and the devm lifetime is tied the
+panel device (panel->dev). However the panel_bridge allocation is not
+performed by the panel driver, but rather by a separate entity (typically
+the previous bridge in the encoder chain).
 
-Best regards,
-Jernej
+Thus when that separate entoty is destroyed, the panel_bridge is not
+removed automatically by devm, so it is rather done explicitly by calling
+drm_panel_bridge_remove(). This is the function that does devm_kfree() the
+panel_bridge in current code, so update it as well to put the bridge
+reference instead.
 
+Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+---
+ drivers/gpu/drm/bridge/panel.c | 11 +++++------
+ 1 file changed, 5 insertions(+), 6 deletions(-)
 
+diff --git a/drivers/gpu/drm/bridge/panel.c b/drivers/gpu/drm/bridge/panel.c
+index 79b009ab9396048eac57ad47631a902e949d77c6..ddd1e91970d09b93aa64f50cd9155939a12a2c6f 100644
+--- a/drivers/gpu/drm/bridge/panel.c
++++ b/drivers/gpu/drm/bridge/panel.c
+@@ -287,15 +287,14 @@ struct drm_bridge *drm_panel_bridge_add_typed(struct drm_panel *panel,
+ 	if (!panel)
+ 		return ERR_PTR(-EINVAL);
+ 
+-	panel_bridge = devm_kzalloc(panel->dev, sizeof(*panel_bridge),
+-				    GFP_KERNEL);
+-	if (!panel_bridge)
+-		return ERR_PTR(-ENOMEM);
++	panel_bridge = devm_drm_bridge_alloc(panel->dev, struct panel_bridge, bridge,
++					     &panel_bridge_bridge_funcs);
++	if (IS_ERR(panel_bridge))
++		return (void *)panel_bridge;
+ 
+ 	panel_bridge->connector_type = connector_type;
+ 	panel_bridge->panel = panel;
+ 
+-	panel_bridge->bridge.funcs = &panel_bridge_bridge_funcs;
+ 	panel_bridge->bridge.of_node = panel->dev->of_node;
+ 	panel_bridge->bridge.ops = DRM_BRIDGE_OP_MODES;
+ 	panel_bridge->bridge.type = connector_type;
+@@ -327,7 +326,7 @@ void drm_panel_bridge_remove(struct drm_bridge *bridge)
+ 	panel_bridge = drm_bridge_to_panel_bridge(bridge);
+ 
+ 	drm_bridge_remove(bridge);
+-	devm_kfree(panel_bridge->panel->dev, bridge);
++	devm_drm_put_bridge(panel_bridge->panel->dev, bridge);
+ }
+ EXPORT_SYMBOL(drm_panel_bridge_remove);
+ 
 
+-- 
+2.49.0
 
 
