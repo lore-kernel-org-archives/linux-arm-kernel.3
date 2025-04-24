@@ -4,205 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFB43C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 05:24:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95ABAC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 05:29:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jeI83W2vt+cAGx5JRM3eT5Snh7s+8Vpcb/Sl7Ql4rmc=; b=yw7upqUhiJ1NEYTohffgB2QBip
-	dLCjKjuMbr+SlieeLfKJXBtZfWJFQLea7xOx/UVrIlHAQcJXOACqIC+46guNB2EomCwpa3dERA9cO
-	QUkljeU5CCZQ3e54ZeGKUkdSNsHNMv8Tnar8BjwRfE+D6e+oRIWpmH0JfaDexutjEM63acReBTZ8h
-	z2ANG/ydlvoOYp5kYoiDHy5BF96LrZYu1ZSkdjJdb7TjKr8qe/1mLdfYjISerDC1sKSQqZJK58BNj
-	MJBUqXWQKWOdWLJs0+nDSxPwd3U2whW09YY2//OpGAHbk6syvEj8VuPsVycs7ETsZuCJ/4pllE1MO
-	19R1sjzQ==;
+	bh=cZUPcM2JRXU1EZUeYvnEV+B9VdnBQw7RuAghQfhbC98=; b=yaJUyL0M/fzheilmTxbTAhtuED
+	0Cytjp9kq4eiRAAVAN+haeSp5cHkADgCrdZ8g3oWXTkzJRfZ0mH2gDYJy/AR7hFrs+Xj/9+M9sTcy
+	VN99AyKE6v7UEajCS3GLwcWd6L6MCiCQkgb/U65DIp+C4YCX0gAiyCgl9kaTKOShY3Rj2VMKYUy0V
+	6OX4pfH0Rgx2C8KY6GYNMRMP09Kkg939t1gBkyNE62/1HCup4qBq8Xr1EM881JrpJNlqITQMhyglF
+	Vk9ND77VKdUHAE5A0Sre4GgeIE3pmgEpAEnwvn1PrVkiXYHiswgFOUdYkRaqK/phtfnTEQJTzoYJD
+	Jp+JRptQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7p4a-0000000Csga-0hA2;
-	Thu, 24 Apr 2025 05:24:32 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1u7p99-0000000Ct2v-0UqY;
+	Thu, 24 Apr 2025 05:29:15 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7p2c-0000000CsXx-3U8E;
-	Thu, 24 Apr 2025 05:22:32 +0000
-X-UUID: 1c7dc9d620cc11f0a2405d5ef59ce188-20250423
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=jeI83W2vt+cAGx5JRM3eT5Snh7s+8Vpcb/Sl7Ql4rmc=;
-	b=pwSiormJZIV7z5OUZpnmIqpzFmauDzk8XdbreGoee4IZRpgAFwEtftJyUe4VC7iA+Jgd4KhyqEAyIHEtqFCHU2ngsZatEo3ZXEb5NAtwxW/ckO3bjwDdMUsDYCmcI6UKqqUuV4LBIMJp5/STO3a+v6R+txOeUYsl9u8CZNeFjcA=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:6b9efe1d-4d32-4950-be3d-3c98e02fa975,IP:0,UR
-	L:0,TC:0,Content:2,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:2
-X-CID-META: VersionHash:0ef645f,CLOUDID:14367c6b-2b07-410f-9c30-89db65cbd451,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111,TC:nil,Conte
-	nt:4|51,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,
-	OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 1c7dc9d620cc11f0a2405d5ef59ce188-20250423
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
-	(envelope-from <ck.hu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1535469316; Wed, 23 Apr 2025 22:22:27 -0700
-Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Thu, 24 Apr 2025 13:22:24 +0800
-Received: from TYPPR03CU001.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Thu, 24 Apr 2025 13:22:24 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IzcLViQDUebnoET0+TBJvAAcsP9pyVZh7PHs5f09W1rqEuUZC/3KtX6lVfzTywJXTFLKgSbc5rhD3O7faZjwFbdZtb9QQag18vVeciZBso7kOiqfNFC752KnI43plPzD1hAVIB4dy32TKr2NLhuvCoN0B+tAKgoeRAHx50C0LNNnnMmpAztFdIhqX3xdWefkq7K9op0xJe7HjkR94Z9qUC3FnFa+BtYggS/gidRnBhK6LEg05uD2hWtid/ajdMR8ZSRImNdggtYFZuI46+Umh41dSPSEGegS6z6gdmCCu6VXtT95LWcx7NAkd59oQu2Oo0cKye+TJtoGLYn/QKaPtg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jeI83W2vt+cAGx5JRM3eT5Snh7s+8Vpcb/Sl7Ql4rmc=;
- b=LRCjDLg2nMxlb3fy6beLZ5TaWLDJeBwAv8/rD4M0OB/QFRXKDch+mFwyozFSpmFFQtM1hWqRM6cKEoEA6ZYPyPFLrcBlOIZWyQVTICdtgIvsZsiN5WUYBI5dBQpNyumH+ysmOd1ZHYa6RGqkATIeoIIyumdL3O9XW7NZDP7YCgIpOVNLafTYMaN7w1iyhZwza5Wz0ddGT9Ln5s4sSK5voDWRa2STINOjl2fXVCWMoZQOCqv/xkRNRYYxHB73K7ZO4SMOLUI761fQFFu6xYpBM+VG6rZezthXGBsIacz2b5JNw8hUfxLy40JSj+R5z5d3i9OOiXvtmp0TRl3SxOo0WA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
+	id 1u7p7A-0000000CsuJ-0GxF
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Apr 2025 05:27:13 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-30549dacd53so495437a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 22:27:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jeI83W2vt+cAGx5JRM3eT5Snh7s+8Vpcb/Sl7Ql4rmc=;
- b=u+LjPT38q4haFm4Srjs3iwbwaKXzvQgXo2lhdJTRCelUDbWkSmLrmGAte5WpAzCvrtMUr1TBMjKRKZIbTDJR56lVcL0qTRT+QNiB9sYXvILdcenq7kzVWfk0Bo8y84W+jSODdcn97xJOOWFZ4vK1+DDXR6oAxK9MZPCAaNfga0U=
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com (2603:1096:400:1f4::13)
- by KL1PR03MB7799.apcprd03.prod.outlook.com (2603:1096:820:f6::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.31; Thu, 24 Apr
- 2025 05:22:21 +0000
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::9ce6:1e85:c4a7:2a54]) by TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::9ce6:1e85:c4a7:2a54%6]) with mapi id 15.20.8678.021; Thu, 24 Apr 2025
- 05:22:21 +0000
-From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
-To: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"robh@kernel.org" <robh@kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "mchehab@kernel.org"
-	<mchehab@kernel.org>, =?utf-8?B?Qm8gS29uZyAo5a2U5rOiKQ==?=
-	<Bo.Kong@mediatek.com>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>
-CC: =?utf-8?B?Wmhhb3l1YW4gQ2hlbiAo6ZmI5YWG6L+cKQ==?=
-	<zhaoyuan.chen@mediatek.com>, =?utf-8?B?VGVkZHkgQ2hlbiAo6Zmz5Lm+5YWDKQ==?=
-	<Teddy.Chen@mediatek.com>, Project_Global_Chrome_Upstream_Group
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>
-Subject: Re: [PATCH v5 3/4] uapi: linux: add MT8188 AIE
-Thread-Topic: [PATCH v5 3/4] uapi: linux: add MT8188 AIE
-Thread-Index: AQHbpGvInfDcv6tci0uOYxvKAnoEirOXmaSAgBkmdYCAAajDAA==
-Date: Thu, 24 Apr 2025 05:22:21 +0000
-Message-ID: <8a5c99fe2f5c5f7cdb2e990fd0c0ca100e0e5070.camel@mediatek.com>
-References: <20250403074005.21472-1-bo.kong@mediatek.com>
-	 <20250403074005.21472-4-bo.kong@mediatek.com>
-	 <be84455d1ea9573c20da5e586e57f0fa18135f0c.camel@mediatek.com>
-	 <1944b77adc5f864ba0587994439ca57c0dbfa175.camel@mediatek.com>
-In-Reply-To: <1944b77adc5f864ba0587994439ca57c0dbfa175.camel@mediatek.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.52.3-0ubuntu1 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TYZPR03MB6624:EE_|KL1PR03MB7799:EE_
-x-ms-office365-filtering-correlation-id: 9d913316-61ad-4914-cb35-08dd82effd49
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|366016|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?SVFzUEc0OVFseUxiWDRON1Vwd1BLdUNlclg3T1VscWJzWWUyaGpDbGRjdmNJ?=
- =?utf-8?B?bHRweVgvRExxSnkyYVBlOFFhN2t4NFI1akVneG5KRnZBQXdBUTdRaUFKcmtC?=
- =?utf-8?B?cDlaaG1ubDAxS0g5SjRjRW5nbkJhT05ucGo4bmdGRzRabklpZXZGeGQzUGJm?=
- =?utf-8?B?aFZTaUwwbVJxc3l0b2xUSFNFZHk4N08zVzV2bzBzR28rc1BpMEdZRFFqZjJ1?=
- =?utf-8?B?MTh5Wk1UeXBWVzFsWWU5MkU3bE9wM1lsU2o2VzJBT085OUxzbkM2THJUbWxE?=
- =?utf-8?B?VjBIWVQvV2U3cWw4VUFJRVE3cXdXSHU1YVpQVXNXbHVGZHU4Rk9TeWc4UWJk?=
- =?utf-8?B?V1pTekZZRGkvQXN0VXUwQW9iZnhZMkNOd3dWV2x5bDBjcDV5eXhRK21pSDkr?=
- =?utf-8?B?ak1McytCTStSbTNTU2xqWjRHcUFxZHNVOWE3ZUhtMk1ZZEtrK3liM1lvVk1I?=
- =?utf-8?B?bG9mUHFkcmYvMHViTWV0WUJybGg5MmQrblUrdWdPeHZJalBycmhGVFlBM29P?=
- =?utf-8?B?RlhuZGhtSDBVUUxmSFhEUnNkL2tPVVc1WXNIdm5DQkp1M3NQejdjcFhQZ3c0?=
- =?utf-8?B?MHFjdVU0c3NSU3YxTEJpb21tb0xLd2pBazduS1ZrcGJTRGpNaFB6bEppTVhk?=
- =?utf-8?B?R1FSNVVQNE9wQXRIeWdYV2s1bGtqWkV5c1hQcXdvejNxZXpkMlV0ZUhIMDkx?=
- =?utf-8?B?emluKzlua05UNDVtSjNDUkFVQnJaN01DTGdmLzJPNnp6THArc0R6SnFIWlRG?=
- =?utf-8?B?TDRpQWdNMEZzUnREUEF0YmFWZWZLSFpqdmRhQ1k3VG8rbUR5R2JRMk9jcE5h?=
- =?utf-8?B?bGRScXRBZHJiV0tqM0Y1VFpNdkNuVVpyMk12bWN5bDhqTzhuSWxFYnE1UmND?=
- =?utf-8?B?emRPajNJbTZRMndzcjNDWFVHU0ZiUWJVcVpqc2pySUIyRUVrc3BzQzF0d0xW?=
- =?utf-8?B?Qkd2eWFQTjlSOVlnOWx4R2M0Mno2VEpmbENVS0RnZmJQNEhXQS9sSnN1Zjht?=
- =?utf-8?B?YkUrejQ4OG9FQjhzRXRyUFpUeEYybGNQcyt3UFl5TkJaV2ZVd2VvY25RS0cv?=
- =?utf-8?B?ZVdrNUMxK3NQcGZmVEVaTG0xRnRUTFEvR2Z6Q2RWN0trcnFLZjRUZUEvK0V4?=
- =?utf-8?B?U2ZFcExtMnh4blZzS0ZuUkRSY3gwREN4VS9SZ3RXQm15eWtpbEVYUVlwUG9X?=
- =?utf-8?B?djVUSFZRMFVQd050SVRHSHVLdGd4WmtWdnFodTRRdGtzUjRmZFloODBPalVz?=
- =?utf-8?B?SXd5NU9WcWxTY0tQVGsza0VwVUZ5TjRIS2IwdU5CVEtYM2ZETEhQUFA0VTI2?=
- =?utf-8?B?M0pKam9pSDlOcWNkRkdmUGZiYlJmWkZJQm1EZkN5QWtvU2xZS0ZmUDhjSEtM?=
- =?utf-8?B?OGtkZHVXdlE3S1FDZlhrK0ZXUHA5YlBtejVQMXlvemRMd1JDeHVLRDMwQnNK?=
- =?utf-8?B?dlpoQzFJYWhhQThBTnp6UWtoazFEbC92bXVpVEdMcXROcm1CVUxpSFU3ditE?=
- =?utf-8?B?S0RmdlZEUm9ET3UwTDZodnBTSG9yRlN3c08zS016NDBRanFTTDlidDlQVzMy?=
- =?utf-8?B?cFk3Tzg0clRGRzRCdHQrUnQ3bENDajFnK2ZqY0tlZDhnUEVYdmtGYXRJZTRj?=
- =?utf-8?B?ZkdxUGovRElxU2xPb1RQN3hQK05CTWpUeVhXOEFIYnVTeTlDVnlvZVc4bTBL?=
- =?utf-8?B?UGc1Uks2K0tncVloTzhxRnNybkV2Z0FkM1paMTZncWJXNTZyM3BjZmdhYndN?=
- =?utf-8?B?Y0FSL1VyRWdqeHFidlQ2NWxiaWMwTU01RG5hNkgyNTRoZ3NWRlFmU3RseDV3?=
- =?utf-8?B?ajN0K2dYOXRHWnEwQ1ozSTMrbzNabFltQ1BSdjFCaVBmOTNkK0NkNmFySTRJ?=
- =?utf-8?B?cEY3Mm5raWtKOXJ0aWRwUTlkNGVKVm9FZTRiWVFoeXViSFR4TWU2ODRzSm1H?=
- =?utf-8?B?eFBQbElDTk1qWjl2cmJPVG15SUNtSnFMQ0N6bHk1NE9TbCtpbXV3RVA3aXNE?=
- =?utf-8?Q?WLgl6hug4fusYFess0gKmoJagRZpOQ=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6624.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?TjVWTW9lSlFGVm1Wanc5cDBPQ1cydnIrdk5kajRZTjdjYUF2ZjNtRExFcWtE?=
- =?utf-8?B?VlFJOFk4UVhxNDk5NS9BY2F5dmNYb1BGZm5pLzk2czNPYWZNY0d2ZnFGODRJ?=
- =?utf-8?B?dFJ6Wndac0lWN0c4dEh2WkpNdjNmL1ZySUZPNU9GWllpMGVFeDJHeHZEUW1p?=
- =?utf-8?B?QUpIU21uQlg1ME5vd2J2Uy95WlNEWTJvZEpZK3FUdkNobURTamJTc3dQSUhF?=
- =?utf-8?B?TmYzdDRkOXE1a2UzS3lPT29NeGVOTzIyQ2kvVkk1blFqRHRwV0NWL1BqSTRD?=
- =?utf-8?B?TXllMUNheWRQMlduKzBKcGpNbm9FU2t1cmxOYXVydzNKMXJEaURjMFpqdFNy?=
- =?utf-8?B?Qmd4MjhvT3pJcVhmUHR2UGI3K2RoTXRHakZUdmJxOW5hQkNCVWt4MThYNHZ4?=
- =?utf-8?B?eEF1WG5VY3hGbGwxdTJ2cmZpUk05SnJaZks1UmVjd1hUWkhQR3FpNmF2N2Rt?=
- =?utf-8?B?cWVvNEp5TCt0MHdxeFpIVk9jdnFKc25SaXM3NDI5anBRakQ0L2FRTm5LbTgx?=
- =?utf-8?B?OVF1dTM5WW1tWldLWXV3Zjl4OEY3cU9UTHMveHo4TFd5bXBsWng1djl2RWxX?=
- =?utf-8?B?NE9xanZueVR0U1UyQ3BtaUtMbjRiZEd2WmJlYmxIWFRvcDk5dmNBSEhPckVt?=
- =?utf-8?B?SkhuT2p1dEt0QnhKWlk3aUg3clB5Q25ibjFySWhUYTJBUC9FOEJEWFhqOC9I?=
- =?utf-8?B?UEFqQ1pWVkhESjFEV0R0T1FKditOUjVyMXdiWkJsUXZMVWF6MkNzbzFmTFVx?=
- =?utf-8?B?N1puTFh4OFZEbzZTVnBHTi9URjdFK2N6MEcvTmdBd09Ybkx6Q3M2Mnd4a294?=
- =?utf-8?B?L3N3Z0pKbVhmbGR6aFlFNEQrVHBldFpBVWdEaExXa2JnNlIwbmVSVEVJSjY3?=
- =?utf-8?B?QzJIVnJVNDJrb20va1JLbmRvcU9DdUZQbHA2TVNSMDZVSjFIcW0vV1MrcnZq?=
- =?utf-8?B?Ulkwb0RwUnAxenppMlVSMUtEZDd2bWh5a010b3VPOUNteUV0SlZqYW43SWZ5?=
- =?utf-8?B?SGJDRjFyZVBKam1UMkcwLzk2ck8xbFZ6b0s0MUlFRTRKa1BFU1JhYkNwQmpW?=
- =?utf-8?B?bzZLdFpsWVNkdHB5T1NVOFFjV0NmL3NmUDlyY0Vmb2lhb3h4YWJsK2V1eDNV?=
- =?utf-8?B?bUt0L3RCcmVlNndWL3Izd3NiTm9jNm9jdGNkTllvUGxDQSsvNEhLd20xaGRq?=
- =?utf-8?B?K1psTmwrclZaWThvdEdNTUlyVUJKaXp3S3QvV1BJbm4wYjZEa2pVNVJNN25N?=
- =?utf-8?B?bzdVRDJsS2duV2JsU2ErR2t1UjU5UlJxTWJ4SG5iRGIyaXFMR1E2Z3VhamJz?=
- =?utf-8?B?a2NmTTFhWTJPYWZVYXEzRHdOUnhEVVJQY2h5L1lpTlJHYzhIbWQrSnpZaWxw?=
- =?utf-8?B?K2paTktiNHBKQVNpdGw3aTNRNzd2SDJZdWtyQ1gzckx5N0FaT2lOYkVrMXB6?=
- =?utf-8?B?MkdSeG1zTllTbTJUNUx0TVB2ZG1SVG4zenJxbUlwUkhtQWdqc0YyZ2FRTTho?=
- =?utf-8?B?SzZtYlBGKzRSYmRJMzFHU284WUJPbEM5UmZ4ekJsZ3pQY1UxU2dlTmViMjJK?=
- =?utf-8?B?N3gzL3BSS1lYOWpKZDBZNDQ4aTMwcC9vNy9MZm56RENmTUR3YlRJbGI0VHFZ?=
- =?utf-8?B?UW01c0lrVHNNRFNVUUlGTmk1eWRHbHRFZnpXN0wzcTBoT3lsMExrY2tTbkVv?=
- =?utf-8?B?SVJqUUpVWXQ3cDFpTG9ESVJ5RlJtaFNWYStUbnpkamhrN1NlaVdXOTA2eXFG?=
- =?utf-8?B?d2NnMUJUa3hyNlAreU5CeCsxM25yekF1NlgxUVFtbUluVnpGL09SamxqK2dB?=
- =?utf-8?B?WXlkR3NFMWwyeS9rWjJ6WmRlNk9XVFR0TWlxL0c5elBDTUlqRXUweHIyRXRi?=
- =?utf-8?B?Z3lncEpSbWFVTWk1ZmJmSy9sdjlyYm1ZdTloU25PdDFNTitJWDB0dVJyb3l6?=
- =?utf-8?B?ekNLMllQR3orMGY4VEFZTGc2cnBYZEEreFFkMDkzdWZTcUlyZHliRU5scG9o?=
- =?utf-8?B?akJKcDh5eGF5REtxNWRuaDBSYnF0QWUzUjhaZWlrOFlIQXpqTXB2eUQ1SkpE?=
- =?utf-8?B?OWpMZnpaSWRUck1Bd21HTUp4ckVjV21LQ3Z6WXo0Qk1EVzltbUdVcUxsVnJO?=
- =?utf-8?Q?/j10xWqk2L0SZ8ZopT8IejjYB?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <AD4EC9045C1DA94BB755099C9DC83681@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+        d=linaro.org; s=google; t=1745472431; x=1746077231; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=cZUPcM2JRXU1EZUeYvnEV+B9VdnBQw7RuAghQfhbC98=;
+        b=xfs1Eil6Bc+J6KA3CdvhWr3Rwqr2jwdM5fPqnLcaPM5HHlE4Fg/kItC+7MZjlhAwPP
+         LSNuUKlW8bzhClbtNlX6tOehX92tIr+cNHR6al0IjaPaqikqQRHh1LqRTCxVkcGlUQmB
+         n+XkN70TOcR9c7CDTwaKmfZgeuFL7smV6C9RoO7OfUCzNgiPqMMT7hScjIo5NuL0bQX4
+         ntTciELWubJc9e0FFXEpPgyt2k4tl3pbMBb6vvxEfS9aBEHbkeiin6XiWfTrFAxZEDna
+         Dyey4hM56EAiYGvhkoqiDq32a6+TOEykdLWf1gr0TiClUepcJeD+ePSBI31JL9K3+8jZ
+         S/bA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745472431; x=1746077231;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=cZUPcM2JRXU1EZUeYvnEV+B9VdnBQw7RuAghQfhbC98=;
+        b=avFR1GeRSrXa4rd1y+pDpgJjcFICb+SN+iDEpsv6ODx2ewC7wnWOXzeirSOe4hz1U7
+         wFAr1h4IT5Mr+wzWJYlTZfyUsT2b3OLjxHGFa726JHU5szom+hchMK3SnOS6Mpf3GEqn
+         ukw+3MyIz9ETbFdBi0g+0DjJuLfaAmPQaBtG+BXxkl7p5TwR5opGNDZo1/SpTyvH/77S
+         hwphRqujQ7IftrOhskJGAetCd43Pt3LzQIKWMVadTfZTrYz03HKwW5LLvlJ+4seB/DFY
+         BMuk22K8QgDT2sCDSCDNJqlTwTkpnrkoWXqVvqQoafYaGfLftnDMWg80mG0ykWvnOzD8
+         pRWw==
+X-Forwarded-Encrypted: i=1; AJvYcCX48Lehtk0iss8FvMBMtpNFbu0AVsc9DStIJRAqUt8MhxIs4RxEiSR3ofL3HPNPY6Jrv8MVPWhAD4IqfALmd4CN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1vreEI6P+2/rUbKmvpf6LqVgKggy8LI9YZgElOfeGg8XcfkTw
+	JMVNXO2/sRthPCOHj+NbzgjaxG4n63TtpznsYwWysXEt/oBob3rotFzJoZiegw==
+X-Gm-Gg: ASbGncuaL/82hKGLXNWS6nxIyKEdPM14c9aY4PXohyjnH/NV/2vsdKiVPDlKvBgszCd
+	qTewDPvwMA82WyHfjmw1sjmaIwtwfNWgYCvANQSaKDvTFIRwUB9RKUBZC46TxVZ6D//bBljxI8x
+	89ioWstpbWuD81jOMnf8nklCWkml2H5qDWeyUA7OytrEKSndTcmPOpBOZo2uPAFOlSCZXXDWBXw
+	ETLSv8fRZYvDJp7cqilmyXj6GeVqbV4mrmJS7a6jI0c9jX2ACd07QgNpjwVe6MEjoAkv1T7ax+/
+	nUqddCNvF7hKACi72CNyOOfK/9IcNM7niZVX8fv0UDCnIZovjjw=
+X-Google-Smtp-Source: AGHT+IEwbpxTA4Qj4NM5rAHZdl1TYE4GZFHTARebZEX16BK4YArP6CGqoSYBRcTbYJYiLhgXJ62sqw==
+X-Received: by 2002:a17:90b:45:b0:2f9:d0cd:3403 with SMTP id 98e67ed59e1d1-309ee3b5de0mr1568292a91.16.1745472430905;
+        Wed, 23 Apr 2025 22:27:10 -0700 (PDT)
+Received: from thinkpad ([120.60.139.78])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-309ef1385d2sm347425a91.41.2025.04.23.22.27.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Apr 2025 22:27:10 -0700 (PDT)
+Date: Thu, 24 Apr 2025 10:57:02 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+Cc: Mahesh J Salgaonkar <mahesh@linux.ibm.com>, 
+	Oliver O'Halloran <oohall@gmail.com>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, 
+	Rob Herring <robh@kernel.org>, Zhou Wang <wangzhou1@hisilicon.com>, 
+	Will Deacon <will@kernel.org>, Robert Richter <rric@kernel.org>, 
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Marc Zyngier <maz@kernel.org>, 
+	Conor Dooley <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>, 
+	dingwei@marvell.com, cassel@kernel.org, Lukas Wunner <lukas@wunner.de>, 
+	linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 5/5] PCI: qcom: Add support for resetting the slot due
+ to link down event
+Message-ID: <mr5kunnsv5syckqbclcw2xi6es36fnsnfvrvughqlmv2kblxof@tltliisb5upf>
+References: <20250417-pcie-reset-slot-v3-0-59a10811c962@linaro.org>
+ <20250417-pcie-reset-slot-v3-5-59a10811c962@linaro.org>
+ <f32b2ece-f7ed-45ab-2867-9d276b88cf62@oss.qualcomm.com>
+ <hmyeha6ygi6mxzsdivo2z5ccpvl5l2xietr3axxpl4zwojiavo@wuli4qazg446>
+ <31f071d7-db56-f032-749e-92bc387238b8@oss.qualcomm.com>
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6624.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9d913316-61ad-4914-cb35-08dd82effd49
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Apr 2025 05:22:21.4679
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: DXiLzQFR0okAnC3WCjHvNPhcauriptQCMyfgBOfALk/DXWVu4KESJ04p233aD3CgtvQnl7c5UULGD7UiSs2bXA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR03MB7799
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <31f071d7-db56-f032-749e-92bc387238b8@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_222230_895554_2465F37A 
-X-CRM114-Status: GOOD (  17.85  )
+X-CRM114-CacheID: sfid-20250423_222712_121600_2184E422 
+X-CRM114-Status: GOOD (  47.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -217,76 +112,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCAyMDI1LTA0LTIzIGF0IDA0OjAyICswMDAwLCBCbyBLb25nICjlrZTms6IpIHdyb3Rl
-Og0KPiBIaSxDSywNCj4gICAgIFRoYW5rcyBmb3IgdGhlIHJldmlld3MuDQo+IA0KPiANCj4gPiA+
-ICsvKioNCj4gPiA+ICsgKiBzdHJ1Y3QgYWllX2VucV9pbmZvIC0gVjRMMiBLZXJuZWxzcGFjZSBw
-YXJhbWV0ZXJzLg0KPiA+ID4gKyAqDQo+ID4gPiArICogQHNlbF9tb2RlOiBzZWxlY3QgYSBtb2Rl
-KEZETU9ERSwgQVRUUklCVVRFTU9ERSwgRkxETU9ERSkgZm9yDQo+ID4gPiBjdXJyZW50IGZkLg0K
-PiA+ID4gKyAqICAgICAgICAgICBGRE1PREU6IEZhY2UgRGV0ZWN0aW9uLg0KPiA+ID4gKyAqICAg
-ICAgICAgICBBVFRSSUJVVEVNT0RFOiBHZW5kZXIgYW5kIGV0aG5pY2l0eSBkZXRlY3Rpb24NCj4g
-PiA+ICsgKiAgICAgICAgICAgRkxETU9ERTogTG9jYXRpb25zIG9mIGV5ZWJyb3dzLCBleWVzLCBl
-YXJzLCBub3NlLGFuZA0KPiA+ID4gbW91dGgNCj4gPiA+ICsgKiBAc3JjX2ltZ19mbXQ6IHNvdXJj
-ZSBpbWFnZSBmb3JtYXQuDQo+ID4gPiArICogQHNyY19pbWdfd2lkdGg6IHRoZSB3aWR0aCBvZiB0
-aGUgc291cmNlIGltYWdlLg0KPiA+ID4gKyAqIEBzcmNfaW1nX2hlaWdodDogdGhlIGhlaWdodCBv
-ZiB0aGUgc291cmNlIGltYWdlLg0KPiA+ID4gKyAqIEBzcmNfaW1nX3N0cmlkZTogdGhlIHN0cmlk
-ZSBvZiB0aGUgc291cmNlIGltYWdlLg0KPiA+ID4gKyAqIEBweXJhbWlkX2Jhc2Vfd2lkdGg6IHB5
-cmFtaWQgaXMgdGhlIHNpemUgb2YgcmVzaXplciwgdGhlIHdpZHRoDQo+ID4gPiBvZiB0aGUgYmFz
-ZSBweXJhbWlkLg0KPiA+ID4gKyAqIEBweXJhbWlkX2Jhc2VfaGVpZ2h0OiBweXJhbWlkIGlzIHRo
-ZSBzaXplIG9mIHJlc2l6ZXIsIHRoZSB3aWR0aA0KPiA+ID4gb2YgdGhlIGJhc2UgcHlyYW1pZC4N
-Cj4gPiA+ICsgKiBAbnVtYmVyX29mX3B5cmFtaWQ6IG51bWJlciBvZiBweXJhbWlkLCBtaW46IDEs
-IG1heDogMy4NCj4gPiA+ICsgKiBAcm90YXRlX2RlZ3JlZTogdGhlIHJvdGF0ZSBkZWdyZWUgb2Yg
-dGhlIGltYWdlLg0KPiA+ID4gKyAqIEBlbl9yb2k6IGVuYWJsZSByb2kocm9pIGlzIGEgYm94IGRp
-YWdyYW0gdGhhdCBzZWxlY3RzIGENCj4gPiA+IHJlY3RhbmdsZSBpbiBhIHBpY3R1cmUpLg0KPiA+
-ID4gKyAqICAgICAgICAgIHdoZW4gZW5fcm9pIGlzIGVuYWJsZSwgQUlFIHdpbGwgcmV0dXJuIGEg
-cmVjdGFuZ2xlDQo+ID4gPiBmYWNlIGRldGVjdGlvbiByZXN1bHQNCj4gPiA+ICsgKiBAc3JjX3Jv
-aTogcm9pIHBhcmFtcy4NCj4gPiA+ICsgKiBAZW5fcGFkZGluZzogZW5hYmxlIHBhZGRpbmcsIHRo
-aXMgaXMgb25seSB1c2VkIG9uIHRoZSBoYXJkd2FyZQ0KPiA+ID4gb2YgeXV2IHRvIHJnYi4NCj4g
-PiA+ICsgKiAgICAgICAgICAgICAgYW5kIGhhcyBub3RpbmcgdG8gZG8gd2l0aCBmZF9tb2RlDQo+
-ID4gPiArICogQHNyY19wYWRkaW5nOiBwYWRkaW5nIHBhcmFtcy4NCj4gPiA+ICsgKiBAZnJlcV9s
-ZXZlbDogZnJlcXVlbmN5IGxldmVsLCBHZXQgdmFsdWUgZnJvbSB1c2VyIHNwYWNlIGVucXVlLg0K
-PiA+ID4gKyAqIEBmbGRfZmFjZV9udW06IHRoZSBudW1iZXIgb2YgZmFjZXMgaW4gZmxkLg0KPiA+
-ID4gKyAqICAgICAgICAgICAgICAgIHVzZXIgc3BhY2UgdGVsbHMgZHJpdmVyIHRoZSBudW1iZXIg
-b2YNCj4gPiA+IGRldGVjdGlvbnMuDQo+ID4gPiArICogQGZsZF9pbnB1dDogZmxkIGlucHV0IHBh
-cmFtcy4NCj4gPiA+ICsgKiBAc3JjX2ltZ19hZGRyOiBTb3VyY2UgaW1hZ2UgYWRkcmVzcy4NCj4g
-PiA+ICsgKiBAc3JjX2ltZ19hZGRyX3V2OiBTb3VyY2UgaW1hZ2UgYWRkcmVzcyBmb3IgVVYgcGxh
-bmUuDQo+ID4gPiArICogQGZkX291dDogRmFjZSBkZXRlY3Rpb24gcmVzdWx0cy4NCj4gPiA+ICsg
-KiBAYXR0cl9vdXQ6IEF0dHJpYnV0ZSBkZXRlY3Rpb24gcmVzdWx0cy4NCj4gPiA+ICsgKiBAZmxk
-X291dDogQXJyYXkgb2YgZmFjaWFsIGxhbmRtYXJrIGRldGVjdGlvbiByZXN1bHRzIGZvcg0KPiA+
-ID4gbXVsdGlwbGUgZnJhbWVzLg0KPiA+ID4gKyAqIEBpcnFfc3RhdHVzOiBJbnRlcnJ1cHQgcmVx
-dWVzdCBzdGF0dXMuDQo+ID4gPiArICovDQo+ID4gPiArc3RydWN0IGFpZV9lbnFfaW5mbyB7DQo+
-ID4gPiArCV9fdTMyIHNlbF9tb2RlOw0KPiA+ID4gKwlfX3UzMiBzcmNfaW1nX2ZtdDsNCj4gPiA+
-ICsJX191MzIgc3JjX2ltZ193aWR0aDsNCj4gPiA+ICsJX191MzIgc3JjX2ltZ19oZWlnaHQ7DQo+
-ID4gPiArCV9fdTMyIHNyY19pbWdfc3RyaWRlOw0KPiA+ID4gKwlfX3UzMiBweXJhbWlkX2Jhc2Vf
-d2lkdGg7DQo+ID4gPiArCV9fdTMyIHB5cmFtaWRfYmFzZV9oZWlnaHQ7DQo+ID4gPiArCV9fdTMy
-IG51bWJlcl9vZl9weXJhbWlkOw0KPiA+ID4gKwlfX3UzMiByb3RhdGVfZGVncmVlOw0KPiA+ID4g
-KwlpbnQgZW5fcm9pOw0KPiA+ID4gKwlzdHJ1Y3QgYWllX3JvaV9jb29yZGluYXRlIHNyY19yb2k7
-DQo+ID4gPiArCWludCBlbl9wYWRkaW5nOw0KPiA+ID4gKwlzdHJ1Y3QgYWllX3BhZGRpbmdfc2l6
-ZSBzcmNfcGFkZGluZzsNCj4gPiA+ICsJdW5zaWduZWQgaW50IGZyZXFfbGV2ZWw7DQo+ID4gPiAr
-CXVuc2lnbmVkIGludCBmbGRfZmFjZV9udW07DQo+ID4gPiArCXN0cnVjdCB2NGwyX2ZsZF9jcm9w
-X3JpcF9yb3AgZmxkX2lucHV0W0ZMRF9NQVhfRlJBTUVdOw0KPiA+IA0KPiA+IEFib3ZlIGluZm9y
-bWF0aW9uIGlzIHNldCBieSB1c2VyIHNwYWNlLCBzbyBkcml2ZXIgaXMgbm90IG5lY2Vzc2FyeSB0
-bw0KPiA+IHJldHVybiB0aGVzZSBpbmZvcm1hdGlvbiBiYWNrIHRvIHVzZXIgc3BhY2UuDQo+ID4g
-RHJvcCB0aGVzZS4NCj4gPiANCj4gDQo+IFRoaXMgaXMgdGhlIFY0TDIgZW5xdWV1ZSBzdHJ1Y3R1
-cmUsIHdoaWNoIHJlcXVpcmVzIGluZm9ybWF0aW9uIHNlbnQNCj4gZnJvbSB1c2VyIHNwYWNlLiBJ
-dCBjYW5ub3QgYmUgZHJvcHBlZDsgb3RoZXJ3aXNlLCB0aGUgRkxEIGlucHV0IHdpbGwNCj4gbm90
-IHJlY2VpdmUgZGF0YSBmcm9tIHRoZSB1c2VyLg0KDQpJbiBzdHJ1Y3QgdjRsMl9jdHJsX2FpZV9w
-YXJhbSwgeW91IGhhdmUgYWxyZWFkeSBkZWZpbmUgdGhlc2UgcGFyYW1ldGVyLA0Kc28gaXQncyBu
-b3QgbmVjZXNzYXJ5IHRvIHNldCB0aGVzZSBwYXJhbWV0ZXIgYnkgdHdvIGludGVyZmFjZSB0byBk
-cml2ZXIuDQpTbyBkcm9wIHRoZXNlLg0KDQpSZWdhcmRzLA0KQ0sNCg0KPiANCj4gPiA+ICsJX191
-MzIgc3JjX2ltZ19hZGRyOw0KPiA+ID4gKwlfX3UzMiBzcmNfaW1nX2FkZHJfdXY7DQo+ID4gDQo+
-ID4gSWYgdXNlciBzcGFjZSBwcm9ncmFtIG5lZWQgdG8gYWNjZXNzIHNvdXJjZSBpbWFnZSBidWZm
-ZXIsIGl0IHNob3VsZA0KPiA+IG1hcCBpdCBpdHNlbGYuDQo+ID4gRG8gbm90IHBhc3MgdGhpcyBh
-ZGRyZXNzIGluZm9ybWF0aW9uIGZyb20gZHJpdmVyLg0KPiA+IERyb3AgdGhlc2UuDQo+ID4gDQo+
-IA0KPiBUaGlzIGlzIHdoZXJlIHRoZSB1c2VyIHByb3ZpZGVzIHRoZSBhZGRyZXNzZXMgb2YgdGhl
-IFkgYW5kIFVWDQo+IGNvbXBvbmVudHMgb2YgdGhlIGltYWdlIGZvciB0aGUgQUlFIHRvIHVzZS4N
-Cj4gDQo+ID4gPiArCXN0cnVjdCBmZF9yZXN1bHQgZmRfb3V0Ow0KPiA+ID4gKwlzdHJ1Y3QgYXR0
-cl9yZXN1bHQgYXR0cl9vdXQ7DQo+ID4gPiArCXN0cnVjdCBmbGRfcmVzdWx0IGZsZF9vdXRbRkxE
-X01BWF9GUkFNRV07DQo+ID4gDQo+ID4gVW5pb24gdGhlc2UgdGhyZWUgc3RydWN0dXJlIGJlY2F1
-c2UgaGFyZHdhcmUgd291bGQgd29yayBpbiBvbmUgbW9kZQ0KPiA+IGluIG9uZSB0aW1lLg0KPiA+
-IA0KPiA+ID4gKwlfX3UzMiBpcnFfc3RhdHVzOw0KPiA+IA0KPiA+IFVzZXIgc3BhY2UgcHJvZ3Jh
-bSBzaG91bGQgbm90IHByb2Nlc3MgaXJxX3N0YXR1cy4NCj4gPiBTbyBkcm9wIHRoaXMuDQo+ID4g
-DQo+IA0KPiBUaGUgaXJxIHN0YXR1cyBpcyBwcm92aWRlZCBmb3IgdXNlcnMgdG8gY2hlY2sgdGhl
-IGN1cnJlbnQgc3RhdHVzIG9mIHRoZQ0KPiBBSUUuIFVzZXJzIG5lZWQgdG8gdXNlIGl0IHRvIG1v
-bml0b3IgdGhlIEFJRSBzdGF0dXMgaW4gb3JkZXIgdG8gcGVyZm9ybQ0KPiBzb21lIGN1c3RvbSBv
-cGVyYXRpb25zIGluIGFkdmFuY2UuDQo+IA0KPiA+ID4gK307DQo+ID4gPiArDQoNCg==
+On Thu, Apr 24, 2025 at 10:41:24AM +0530, Krishna Chaitanya Chundru wrote:
+> 
+> 
+> On 4/24/2025 10:30 AM, Manivannan Sadhasivam wrote:
+> > On Fri, Apr 18, 2025 at 08:11:47AM +0530, Krishna Chaitanya Chundru wrote:
+> > > 
+> > > 
+> > > On 4/17/2025 10:46 PM, Manivannan Sadhasivam via B4 Relay wrote:
+> > > > From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> > > > 
+> > > > The PCIe link can go down under circumstances such as the device firmware
+> > > > crash, link instability, etc... When that happens, the PCIe slot needs to
+> > > > be reset to make it operational again. Currently, the driver is not
+> > > > handling the link down event, due to which the users have to restart the
+> > > > machine to make PCIe link operational again. So fix it by detecting the
+> > > > link down event and resetting the slot.
+> > > > 
+> > > > Since the Qcom PCIe controllers report the link down event through the
+> > > > 'global' IRQ, enable the link down event by setting PARF_INT_ALL_LINK_DOWN
+> > > > bit in PARF_INT_ALL_MASK register.
+> > > > 
+> > > > Then in the case of the event, call pci_host_handle_link_down() API
+> > > > in the handler to let the PCI core handle the link down condition.
+> > > > 
+> > > > The API will internally call, 'pci_host_bridge::reset_slot()' callback to
+> > > > reset the slot in a platform specific way. So implement the callback to
+> > > > reset the slot by first resetting the PCIe core, followed by reinitializing
+> > > > the resources and then finally starting the link again.
+> > > > 
+> > > > Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> > > > ---
+> > > >    drivers/pci/controller/dwc/Kconfig     |  1 +
+> > > >    drivers/pci/controller/dwc/pcie-qcom.c | 90 +++++++++++++++++++++++++++++++++-
+> > > >    2 files changed, 89 insertions(+), 2 deletions(-)
+> > > > 
+> > > > diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
+> > > > index d9f0386396edf66ad0e514a0f545ed24d89fcb6c..ce04ee6fbd99cbcce5d2f3a75ebd72a17070b7b7 100644
+> > > > --- a/drivers/pci/controller/dwc/Kconfig
+> > > > +++ b/drivers/pci/controller/dwc/Kconfig
+> > > > @@ -296,6 +296,7 @@ config PCIE_QCOM
+> > > >    	select PCIE_DW_HOST
+> > > >    	select CRC8
+> > > >    	select PCIE_QCOM_COMMON
+> > > > +	select PCI_HOST_COMMON
+> > > >    	help
+> > > >    	  Say Y here to enable PCIe controller support on Qualcomm SoCs. The
+> > > >    	  PCIe controller uses the DesignWare core plus Qualcomm-specific
+> > > > diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
+> > > > index dc98ae63362db0422384b1879a2b9a7dc564d091..6b18a2775e7fcde1d634b3f58327ecc7d028e4ec 100644
+> > > > --- a/drivers/pci/controller/dwc/pcie-qcom.c
+> > > > +++ b/drivers/pci/controller/dwc/pcie-qcom.c
+> > > > @@ -34,6 +34,7 @@
+> > > >    #include <linux/units.h>
+> > > >    #include "../../pci.h"
+> > > > +#include "../pci-host-common.h"
+> > > >    #include "pcie-designware.h"
+> > > >    #include "pcie-qcom-common.h"
+> > > > @@ -55,6 +56,7 @@
+> > > >    #define PARF_INT_ALL_STATUS			0x224
+> > > >    #define PARF_INT_ALL_CLEAR			0x228
+> > > >    #define PARF_INT_ALL_MASK			0x22c
+> > > > +#define PARF_STATUS				0x230
+> > > >    #define PARF_SID_OFFSET				0x234
+> > > >    #define PARF_BDF_TRANSLATE_CFG			0x24c
+> > > >    #define PARF_DBI_BASE_ADDR_V2			0x350
+> > > > @@ -130,8 +132,11 @@
+> > > >    /* PARF_LTSSM register fields */
+> > > >    #define LTSSM_EN				BIT(8)
+> > > > +#define SW_CLEAR_FLUSH_MODE			BIT(10)
+> > > > +#define FLUSH_MODE				BIT(11)
+> > > >    /* PARF_INT_ALL_{STATUS/CLEAR/MASK} register fields */
+> > > > +#define PARF_INT_ALL_LINK_DOWN			BIT(1)
+> > > >    #define PARF_INT_ALL_LINK_UP			BIT(13)
+> > > >    #define PARF_INT_MSI_DEV_0_7			GENMASK(30, 23)
+> > > > @@ -145,6 +150,9 @@
+> > > >    /* PARF_BDF_TO_SID_CFG fields */
+> > > >    #define BDF_TO_SID_BYPASS			BIT(0)
+> > > > +/* PARF_STATUS fields */
+> > > > +#define FLUSH_COMPLETED				BIT(8)
+> > > > +
+> > > >    /* ELBI_SYS_CTRL register fields */
+> > > >    #define ELBI_SYS_CTRL_LT_ENABLE			BIT(0)
+> > > > @@ -169,6 +177,7 @@
+> > > >    						PCIE_CAP_SLOT_POWER_LIMIT_SCALE)
+> > > >    #define PERST_DELAY_US				1000
+> > > > +#define FLUSH_TIMEOUT_US			100
+> > > >    #define QCOM_PCIE_CRC8_POLYNOMIAL		(BIT(2) | BIT(1) | BIT(0))
+> > > > @@ -274,11 +283,14 @@ struct qcom_pcie {
+> > > >    	struct icc_path *icc_cpu;
+> > > >    	const struct qcom_pcie_cfg *cfg;
+> > > >    	struct dentry *debugfs;
+> > > > +	int global_irq;
+> > > >    	bool suspended;
+> > > >    	bool use_pm_opp;
+> > > >    };
+> > > >    #define to_qcom_pcie(x)		dev_get_drvdata((x)->dev)
+> > > > +static int qcom_pcie_reset_slot(struct pci_host_bridge *bridge,
+> > > > +				  struct pci_dev *pdev);
+> > > >    static void qcom_ep_reset_assert(struct qcom_pcie *pcie)
+> > > >    {
+> > > > @@ -1263,6 +1275,8 @@ static int qcom_pcie_host_init(struct dw_pcie_rp *pp)
+> > > >    			goto err_assert_reset;
+> > > >    	}
+> > > > +	pp->bridge->reset_slot = qcom_pcie_reset_slot;
+> > > > +
+> > > >    	return 0;
+> > > >    err_assert_reset:
+> > > > @@ -1300,6 +1314,73 @@ static const struct dw_pcie_host_ops qcom_pcie_dw_ops = {
+> > > >    	.post_init	= qcom_pcie_host_post_init,
+> > > >    };
+> > > > +static int qcom_pcie_reset_slot(struct pci_host_bridge *bridge,
+> > > > +				  struct pci_dev *pdev)
+> > > > +{
+> > > > +	struct pci_bus *bus = bridge->bus;
+> > > > +	struct dw_pcie_rp *pp = bus->sysdata;
+> > > > +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+> > > > +	struct qcom_pcie *pcie = to_qcom_pcie(pci);
+> > > > +	struct device *dev = pcie->pci->dev;
+> > > > +	u32 val;
+> > > > +	int ret;
+> > > > +
+> > > > +	/* Wait for the pending transactions to be completed */
+> > > > +	ret = readl_relaxed_poll_timeout(pcie->parf + PARF_STATUS, val,
+> > > > +					 val & FLUSH_COMPLETED, 10,
+> > > > +					 FLUSH_TIMEOUT_US);
+> > > > +	if (ret) {
+> > > > +		dev_err(dev, "Flush completion failed: %d\n", ret);
+> > > > +		goto err_host_deinit;
+> > > > +	}
+> > > > +
+> > > > +	/* Clear the FLUSH_MODE to allow the core to be reset */
+> > > > +	val = readl(pcie->parf + PARF_LTSSM);
+> > > > +	val |= SW_CLEAR_FLUSH_MODE;
+> > > > +	writel(val, pcie->parf + PARF_LTSSM);
+> > > > +
+> > > > +	/* Wait for the FLUSH_MODE to clear */
+> > > > +	ret = readl_relaxed_poll_timeout(pcie->parf + PARF_LTSSM, val,
+> > > > +					 !(val & FLUSH_MODE), 10,
+> > > > +					 FLUSH_TIMEOUT_US);
+> > > > +	if (ret) {
+> > > > +		dev_err(dev, "Flush mode clear failed: %d\n", ret);
+> > > > +		goto err_host_deinit;
+> > > > +	}
+> > > > +
+> > > > +	qcom_pcie_host_deinit(pp);
+> > > > +
+> > > > +	ret = qcom_pcie_host_init(pp);
+> > > > +	if (ret) {
+> > > > +		dev_err(dev, "Host init failed\n");
+> > > > +		return ret;
+> > > > +	}
+> > > > +
+> > > > +	ret = dw_pcie_setup_rc(pp);
+> > > > +	if (ret)
+> > > > +		goto err_host_deinit;
+> > > > +
+> > > > +	/*
+> > > > +	 * Re-enable global IRQ events as the PARF_INT_ALL_MASK register is
+> > > > +	 * non-sticky.
+> > > > +	 */
+> > > > +	if (pcie->global_irq)
+> > > > +		writel_relaxed(PARF_INT_ALL_LINK_UP | PARF_INT_ALL_LINK_DOWN |
+> > > > +			       PARF_INT_MSI_DEV_0_7, pcie->parf + PARF_INT_ALL_MASK);
+> > > do we need to enable linkup again here, since all the devices are
+> > > enumerated previously, the linkup irq will do a rescan again which is
+> > > not needed.
+> > 
+> > Right. I was trying to keep the irq enablement on par with probe(), but LINK_UP
+> > is strictly not needed. I will drop it.
+> > 
+> > > Instead of linkup we update icc & opp bandwidths after
+> > > dw_pcie_wait_for_link() in the below.
+> > > 
+> > 
+> > Why do we need to update ICC and OPP?
+> After link retrain, if the link data rate has reduced due to some
+> electrical issue or some other reason we may need to update the icc and
+> opp votings here.
+> 
+
+Hmm, I was not expecting it to get changed, but considering the fact that the
+link down might be happening due to any link stability issues, it is plausible.
+
+I will add a call to qcom_pcie_icc_opp_update().
+
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
