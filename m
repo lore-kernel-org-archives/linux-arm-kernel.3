@@ -4,64 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43E42C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 23:00:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 868ABC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 23:17:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JNcOsk5TzziHvnFgJb5+muu5cjxZ1SD7xj6l5W6y5jM=; b=lVQ06WDoYV3O4OpkNSdwVpmbsg
-	AQgXYmDRITFYIDEsGFfB1DV/zhxFWAkU3kvb3m1Dp30mXTpdloam1aQ/dE2HYnHIH3tM16fTHghGQ
-	/XolbHp6uVe0RZ3TZMOpL6Jrzs+IgxAe4e3OxtMsPa7DsitmAW7rhPPPtW/LBuWdS//ZUyr08/PJl
-	VPqRgG3UpcGfzEKmt6M6sain3sgkCF4eAVgAHdM4wz17fecKyKerLLePy4X/nWC7nKcvgYLxViBri
-	eTd+33tFtNjNGZtDr984y1JcJQ4DecFSRyOSLIK5MVE490CHuguhhJzlOdZwpQPrbzQP2yuZ/gQQW
-	/4pFWznA==;
+	bh=s8gs1eFT2kcTigsEaDxM7aO9zrXV1nvZcJgmjCeGg/s=; b=JcEWqiZgiu7Et+m6xWqVObDwFw
+	9BeNtE6MEWEzGjgzInQJHoZSfMZyRhK7W0P3OfhpKjtNmsd1yHwli0S+zxgLjLZbPndh+/psMP5w3
+	5i5nI93kKz3yTTUsoCGMmeSBxOm7N1t9MKbEy11oQ5MJI+Idyepyi4uOx4hSEXG0ziHAwRD1PLRPa
+	8xHektPD2xDjJRbiVKQ3GSoU3J9TAiK+do6rASFjF4/F/o0OwI+SXATT7rmdltXl6hU/oCfHeKfUm
+	zQXQ22sbjU/u+fvuWt7GVoukQ2fy7CfT4rlW7LCQvijN+Z1OpOq9S2Qd7JOXSnWHFadA3cfQD3WIx
+	jpnjp6qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u85Y0-0000000FWWC-3DcY;
-	Thu, 24 Apr 2025 23:00:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u85W8-0000000FWGC-3kXh
+	id 1u85oN-0000000FXUW-29M1;
+	Thu, 24 Apr 2025 23:16:55 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u85mX-0000000FXLU-0CgS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 22:58:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E369D2F;
-	Thu, 24 Apr 2025 15:57:57 -0700 (PDT)
-Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A76533F59E;
-	Thu, 24 Apr 2025 15:58:00 -0700 (PDT)
-Date: Thu, 24 Apr 2025 23:56:58 +0100
-From: Andre Przywara <andre.przywara@arm.com>
-To: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Yixun Lan <dlan@gentoo.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Samuel Holland
- <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo
- Abeni <pabeni@redhat.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- clabbe.montjoie@gmail.com
-Subject: Re: [PATCH 4/5] arm64: dts: allwinner: a527: add EMAC0 to Radxa A5E
- board
-Message-ID: <20250424235658.0c662e67@minigeek.lan>
-In-Reply-To: <4643958.LvFx2qVVIh@jernej-laptop>
-References: <20250423-01-sun55i-emac0-v1-0-46ee4c855e0a@gentoo.org>
-	<4ba3e7b8-e680-40fa-b159-5146a16a9415@lunn.ch>
-	<20250424150037.0f09a867@donnerap.manchester.arm.com>
-	<4643958.LvFx2qVVIh@jernej-laptop>
-Organization: Arm Ltd.
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
+	Thu, 24 Apr 2025 23:15:02 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-39c1efbefc6so1173945f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 16:15:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1745536499; x=1746141299; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=s8gs1eFT2kcTigsEaDxM7aO9zrXV1nvZcJgmjCeGg/s=;
+        b=m9Oj/f9vBQNcbXa8u5M+IAvgExwgjguvofoDX/X2QBTB+cs16ORAgCrZIH4qPZOHQD
+         WIt5Ttu3wPlSu+s2r0gdk5oWswxxMOmDMDpIuYGXet28wQlXRELEWSipYY/lcltFarPx
+         DPzOqesus2O2e7bdVjLtVuMwagkzoqfU9z8j0F42vrLxmc/rSUl9Rpj/V/mgxrjtVOP+
+         YA57WmqxikhI+dHDhneHb3elWqWx42dWoFoXf+JSLCmutumMwNINe7HDwJEP2XIFVtRk
+         72iaALXqRK62QLJWawUbwD5cBfO02a3thFluf19e0FxhRIEq3An6eNNyNZz/mSeJQnbB
+         b3PA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745536499; x=1746141299;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=s8gs1eFT2kcTigsEaDxM7aO9zrXV1nvZcJgmjCeGg/s=;
+        b=oCN2Pv9CY06qdvQpMQNulHp76QvyAJlmUOq2NTLyW45k/E/Uo4sMmKUcqJIDLSO0Zq
+         Zh3TlJQvr1TRoD4bYmLbnAcE7Rcu+BqzhDHkgkilYEfXw9TtMLKu8Q9BNYXRfqa+aUDC
+         rBKVGQUn9LqPK9kCWtFEcFbzTp2YQ8/gU2eFac2q1e6UFJ/EjX3qQ9G2sX0ioqYE73MD
+         wyKjglM5rUJ+P9aAR2HlAYJVRRPLHs09e0wQBSZ3VgbUIjkzFvokZQ1iAT//CA5S8qur
+         a2Ha4wXzGKB/teRlxscl/7RsQ0SK9ZjERE/Nb1f1Ld0HEZGReJlOAssqL959Q2CvEV3k
+         p3VQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWWs340LeZDD1Fc377Ne40sud9Kdcf0iIcDh2MfGsDfnCbG92No4zmzZ9JrL2qVEB/6mk8v9qfWtxNxPmvaEmr/@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQ4BNkRdZcwdLZfFnJDTILLmT8sZMU6h/hp3sp3By8fHPpdqOW
+	MCGWoQZUtrv+MQlCt1Zp4Z1Fn+QQGvxPOngNd9mdFj6nHun9qoaEv3jm1K0aSkj6S8oMddAQEXw
+	OgEO6lQ0m+nCOJV5568MSER1RIc0=
+X-Gm-Gg: ASbGncv1utyPzta6cSAizDdeeu3glOQJW2DcCgRLTpD48ERfWcZ6MMJi+qg4yojpNI6
+	Tvnw0qWHj0kzCVQU8v/CEzjTlMStOWJtxBfAd8QxnI5VQAJi7REIAbZ9HcKaQonHtqMZqZr5KVc
+	YKE7oQPEkBTisfUnGoQPhiZPOmRR8Nzw/WcPvZEw==
+X-Google-Smtp-Source: AGHT+IE/YHe0tNhYaMF75gOnF/79ImQh8cJXhRvuuQQVkEf5Rbn7XpEgOWmmcxAdQyOyipX96Oi3C6Ci8VDp5VFlVyI=
+X-Received: by 2002:a5d:47a9:0:b0:39a:c9ac:cd58 with SMTP id
+ ffacd0b85a97d-3a074e37565mr6270f8f.29.1745536498767; Thu, 24 Apr 2025
+ 16:14:58 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+References: <20250411-many_args_arm64-v1-0-0a32fe72339e@bootlin.com>
+ <20250411-many_args_arm64-v1-1-0a32fe72339e@bootlin.com> <CAEf4Bzbn6BdXTOb0dTcsQmOMZpp5=DzGS2hHHQ3+dwcja=gv+w@mail.gmail.com>
+ <D98Q8BRNUVS9.11J60C67L1ALR@bootlin.com> <CAEf4BzZHMYyGDZ4c4eNXG7Fm=ecxCCbKhKbQTbCjvWmKtdwvBw@mail.gmail.com>
+ <D9E9IQQ3QKXM.3UJ17G9CBS1FH@bootlin.com> <6b6472c3-0718-4e60-9972-c166d51962a3@huaweicloud.com>
+ <D9EWSDXHDGFJ.FIDSHIR1OP80@bootlin.com>
+In-Reply-To: <D9EWSDXHDGFJ.FIDSHIR1OP80@bootlin.com>
+From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Date: Thu, 24 Apr 2025 16:14:47 -0700
+X-Gm-Features: ATxdqUHSd3r3JNAn_frzfTxFj2BJG7Z5GLEC-zQw6e4_nKCYPS6OLcRLFS8EitM
+Message-ID: <CAADnVQJjQLdc_Chvz9v2-huCb9rmi048heK-eEX30AtW10H+-Q@mail.gmail.com>
+Subject: Re: [PATCH RFC bpf-next 1/4] bpf: add struct largest member size in
+ func model
+To: =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
+Cc: Xu Kuohai <xukuohai@huaweicloud.com>, Andrii Nakryiko <andrii.nakryiko@gmail.com>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	John Fastabend <john.fastabend@gmail.com>, Andrii Nakryiko <andrii@kernel.org>, 
+	Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, KP Singh <kpsingh@kernel.org>, 
+	Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Puranjay Mohan <puranjay@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Florent Revest <revest@chromium.org>, Bastien Curutchet <bastien.curutchet@bootlin.com>, 
+	ebpf@linuxfoundation.org, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	bpf <bpf@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, linux-stm32@st-md-mailman.stormreply.com
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_155805_018961_CFF2CDC7 
-X-CRM114-Status: GOOD (  39.24  )
+X-CRM114-CacheID: sfid-20250424_161501_088689_AD58174E 
+X-CRM114-Status: GOOD (  22.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,137 +111,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 24 Apr 2025 20:38:34 +0200
-Jernej =C5=A0krabec <jernej.skrabec@gmail.com> wrote:
+On Thu, Apr 24, 2025 at 6:38=E2=80=AFAM Alexis Lothor=C3=A9
+<alexis.lothore@bootlin.com> wrote:
+>
+> Hi Xu,
+>
+> On Thu Apr 24, 2025 at 2:00 PM CEST, Xu Kuohai wrote:
+> > On 4/24/2025 3:24 AM, Alexis Lothor=C3=A9 wrote:
+> >> Hi Andrii,
+> >>
+> >> On Wed Apr 23, 2025 at 7:15 PM CEST, Andrii Nakryiko wrote:
+> >>> On Thu, Apr 17, 2025 at 12:14=E2=80=AFAM Alexis Lothor=C3=A9
+> >>> <alexis.lothore@bootlin.com> wrote:
+> >>>>
+> >>>> Hi Andrii,
+> >>>>
+> >>>> On Wed Apr 16, 2025 at 11:24 PM CEST, Andrii Nakryiko wrote:
+> >>>>> On Fri, Apr 11, 2025 at 1:32=E2=80=AFPM Alexis Lothor=C3=A9 (eBPF F=
+oundation)
+> >>>>> <alexis.lothore@bootlin.com> wrote:
+>
+> [...]
+>
+> >> Thanks for the pointer, I'll take a look at it. The more we discuss th=
+is
+> >> series, the less member size sounds relevant for what I'm trying to ac=
+hieve
+> >> here.
+> >>
+> >> Following Xu's comments, I have been thinking about how I could detect=
+ the
+> >> custom alignments and packing on structures, and I was wondering if I =
+could
+> >> somehow benefit from __attribute__ encoding in BTF info ([1]). But
+> >> following your hint, I also see some btf_is_struct_packed() in
+> >> tools/lib/bpf/btf_dump.c that could help. I'll dig this further and se=
+e if
+> >> I can manage to make something work with all of this.
+> >>
+> >
+> > With DWARF info, we might not need to detect the structure alignment an=
+ymore,
+> > since the DW_AT_location attribute tells us where the structure paramet=
+er is
+> > located on the stack, and DW_AT_byte_size gives us the size of the stru=
+cture.
+>
+> I am not sure to follow you here, because DWARF info is not accessible
+> from kernel at runtime, right ? Or are you meaning that we could, at buil=
+d
+> time, enrich the BTF info embedded in the kernel thanks to DWARF info ?
 
-> cc: Corentin LABBE
->=20
-> Dne =C4=8Detrtek, 24. april 2025 ob 16:00:37 Srednjeevropski poletni =C4=
-=8Das je Andre Przywara napisal(a):
-> > On Thu, 24 Apr 2025 14:57:27 +0200
-> > Andrew Lunn <andrew@lunn.ch> wrote:
-> >=20
-> > Hi Andrew,
-> >  =20
-> > > > > Just to be clear, you tried it with "rgmii-id" and the same <300>=
- and
-> > > > > <400> values?   =20
-> > > >=20
-> > > > Yes, sorry, I wasn't clear: I used rgmii-id, then experimented with=
- those
-> > > > values.   =20
-> > >=20
-> > > O.K, great.
-> > >=20
-> > > I do suspect the delays are not actually in pico seconds. But without
-> > > a data sheet, it is hard to know.
-> > >=20
-> > >        if (!of_property_read_u32(node, "allwinner,rx-delay-ps", &val)=
-) {
-> > >                 if (val % 100) {
-> > >                         dev_err(dev, "rx-delay must be a multiple of =
-100\n");
-> > >                         return -EINVAL;
-> > >                 }
-> > >                 val /=3D 100;
-> > >                 dev_dbg(dev, "set rx-delay to %x\n", val);
-> > >                 if (val <=3D gmac->variant->rx_delay_max) {
-> > >                         reg &=3D ~(gmac->variant->rx_delay_max <<
-> > >                                  SYSCON_ERXDC_SHIFT);
-> > >                         reg |=3D (val << SYSCON_ERXDC_SHIFT);
-> > >=20
-> > > So the code divides by 100 and writes it to a register. But:
-> > >=20
-> > > static const struct emac_variant emac_variant_h3 =3D {
-> > >         .rx_delay_max =3D 31,
-> > >=20
-> > >=20
-> > > static const struct emac_variant emac_variant_r40 =3D {
-> > >         .rx_delay_max =3D 7,
-> > > };
-> > >=20
-> > > With the change from 7 to 31, did the range get extended by a factor
-> > > of 4, or did the step go down by a factor of 4, and the / 100 should
-> > > be / 25? I suppose the git history might have the answer in the commit
-> > > message, but i'm too lazy to go look. =20
-> >=20
-> > IIRC this picosecond mapping was somewhat made up, to match common DT
-> > properties. The manual just says:
-> > =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> > 12:10  R/W  default: 0x0 ETXDC: Configure EMAC Transmit Clock Delay Cha=
-in.
-> > =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> >=20
-> > So the unit is really unknown, but is probably some kind of internal cy=
-cle count.
-> > The change from 7 to 31 is purely because the bitfield grew from 3 to 5
-> > bits. We don't know if the underlying unit changed on the way.
-> > Those values are just copied from whatever the board vendor came up wit=
-h,
-> > we then multiply them by 100 and put them in the mainline DT. Welcome to
-> > the world of Allwinner ;-) =20
->=20
-> IIRC Corentin asked Allwinner about units and their response was in 100 p=
-s.
->=20
-> In my experience, vendor DT has proper delays specified, just 7 instead of
-> 700, for example. What they get wrong, or better said, don't care, is phy
-> mode. It's always set to rgmii because phy driver most of the time ignores
-> this value and phy IC just uses mode set using resistors.
+Sounds like arm64 has complicated rules for stack alignment and
+stack offset computation for passing 9th+ argument.
 
-Ah, right, I dimly remembered there was some hardware setting, but your
-mentioning of those strap resistors now tickled my memory!
+Since your analysis shows:
+"there are about 200 functions accept 9 to 12 arguments, so adding support
+for up to 12 function arguments."
+I say, let's keep the existing limitation:
+        if (nregs > 8)
+                return -ENOTSUPP;
 
-So according to the Radxa board schematic, RGMII0-RXD0/RXDLY is pulled
-up to VCCIO via 4.7K, while RGMII0-RXD1/TXDLY is pulled to GND (also via
-4K7). According to the Motorcom YT8531 datasheet this means that RX
-delay is enabled, but TX delay is not.
-The Avaota board uses the same setup, albeit with an RTL8211F-CG PHY,
-but its datasheet confirms it uses the same logic.
-
-So does this mean we should say rgmii-rxid, so that the MAC adds the TX
-delay? Does the stmmac driver actually support this? I couldn't find
-this part by quickly checking the code.
-
-Cheers,
-Andre
-
-> Proper way here
-> would be to check schematic and set phy mode according to that. This meth=
-od
-> always works, except for one board, which had resistors set wrong and
-> phy mode configured over phy driver was actually fix for it.
->=20
-> Best regards,
-> Jernej
->=20
-> >=20
-> > And git history doesn't help, it's all already in the first commit for =
-this
-> > driver. I remember some discussions on the mailing list, almost 10 years
-> > ago, but this requires even more digging ...
-> >=20
-> > Cheers,
-> > Andre
-> >=20
-> >=20
-> >  =20
-> > >=20
-> > > I briefly tried "rgmii", and I couldn't get a lease, so I quite =20
-> > > > confident it's rgmii-id, as you said. The vendor DTs just use "rgmi=
-i", but
-> > > > they might hack the delay up another way (and I cannot be asked to =
-look at
-> > > > that awful code).
-> > > >=20
-> > > > Cheers,
-> > > > Andre   =20
-> >=20
-> >  =20
->=20
->=20
->=20
->=20
->=20
-
+If there is a simple and dumb way to detect that arg9+ are scalars
+with simple stack passing rules, then, sure, let's support those too,
+but fancy packed/align(x)/etc let's ignore.
 
